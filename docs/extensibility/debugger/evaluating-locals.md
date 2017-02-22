@@ -1,0 +1,197 @@
+---
+title: "评估局部变量 | Microsoft Docs"
+ms.custom: ""
+ms.date: "12/03/2016"
+ms.prod: "visual-studio-dev14"
+ms.reviewer: ""
+ms.suite: ""
+ms.technology: 
+  - "vs-ide-sdk"
+ms.tgt_pltfrm: ""
+ms.topic: "article"
+helpviewer_keywords: 
+  - "调试 [调试 SDK]、 计算局部变量"
+  - "表达式计算、 评估局部变量"
+ms.assetid: 7d1ed528-4e7a-4d8f-87b4-162440644a75
+caps.latest.revision: 11
+caps.handback.revision: 11
+ms.author: "gregvanl"
+manager: "ghogen"
+---
+# 评估局部变量
+[!INCLUDE[vs2017banner](../../code-quality/includes/vs2017banner.md)]
+
+> [!IMPORTANT]
+>  在 Visual Studio 2015 中，这种实现表达式计算器不推荐使用。 有关实现 CLR 表达式计算器的信息，请参阅 [CLR 表达式计算器](https://github.com/Microsoft/ConcordExtensibilitySamples/wiki/CLR-Expression-Evaluators) 和 [托管表达式计算器示例](https://github.com/Microsoft/ConcordExtensibilitySamples/wiki/Managed-Expression-Evaluator-Sample)。  
+  
+ [GetPropertyInfo](../../extensibility/debugger/reference/idebugproperty2-getpropertyinfo.md) 调用以获取本地、 以及的本地名称和类型的值。 由于本地的值是依赖于该程序的当前状态，则必须从内存获得局部变量的值。[IDebugBinder](../../extensibility/debugger/reference/idebugbinder.md) 对象用于绑定 [IDebugField](../../extensibility/debugger/reference/idebugfield.md) 到适当的位置在内存中包含的值表示本地对象。 在内存中的此位置由 [IDebugObject](../../extensibility/debugger/reference/idebugobject.md) 对象。  
+  
+ 检索本地值的此功能封装在一个 helper 函数，可以执行以下任务︰  
+  
+1.  将绑定 `IDebugField` 对象传递给内存以获取 `IDebugObject` 对象。  
+  
+2.  从内存中获取的值。 此值表示为一系列字节。  
+  
+3.  设置格式基于局部变量的类型的值。  
+  
+4.  返回包含局部变量的值的泛型对象。 在 C\# 中，这是 `object`, ，并在 c \+ \+，这是 `VARIANT`。  
+  
+## 托管代码  
+ 这是局部变量的检索托管代码中的值的函数的实现。  
+  
+```c#  
+namespace EEMC  
+{  
+    internal class Field  
+    {  
+        internal static object GetValue(  
+            IDebugBinder binder,  
+            IDebugField field,  
+            Type t,  
+            uint size)  
+        {  
+            if (t == null || size == 0)  return null;  
+  
+            IDebugObject debugObject = null;  
+            binder.Bind(null, field, out debugObject);  
+  
+            byte[] buffer = new byte[size];  
+            for (int i = 0; i < size; i++)  buffer[i] = 0;  
+  
+            debugObject.GetValue(buffer, size);   
+  
+            if (t == typeof(sbyte)) return (sbyte) buffer[0];  
+            if (t == typeof(short)) return BitConverter.ToInt16(buffer, 0);  
+            if (t == typeof(int))   return BitConverter.ToInt32(buffer, 0);  
+            if (t == typeof(long))  return BitConverter.ToInt64(buffer, 0);  
+            if (t == typeof(byte))  return buffer[0];  
+            if (t == typeof(char))  return BitConverter.ToChar(buffer, 0);  
+            if (t == typeof(uint))  return BitConverter.ToUInt32(buffer, 0);  
+            if (t == typeof(ulong)) return BitConverter.ToUInt64(buffer, 0);  
+            if (t == typeof(float)) return BitConverter.ToSingle(buffer, 0);  
+            if (t == typeof(double))  return BitConverter.ToDouble(buffer, 0);  
+            if (t == typeof(bool))  return BitConverter.ToBoolean(buffer, 0);  
+            if (t == typeof(string))  return BitConverter.ToString(buffer, 0);  
+            return null;  
+        }  
+    }  
+}  
+```  
+  
+## 非托管的代码  
+ 这是局部变量的检索非托管代码中的值的函数的实现。`FieldGetType` 中所示 [获取本地值](../../extensibility/debugger/getting-local-values.md)。  
+  
+```cpp#  
+HRESULT FieldGetPrimitiveValue(  
+    in  IDebugBinder* pbinder,  
+    in  IDebugField*  pfield,  
+    out VARIANT*      pvarValue  
+    )  
+{  
+    if (pvarValue == NULL)  
+        return E_INVALIDARG;  
+    else  
+        *pvarValue = 0;  
+  
+    if (pfield == NULL)  
+        return E_INVALIDARG;  
+  
+    if (pbinder == NULL)  
+        return E_INVALIDARG;  
+  
+    HRESULT hr;  
+    UINT          valueSize = 0;  
+    BYTE*         pvalueBits = NULL;  
+    IDebugObject* pobject    = NULL;  
+  
+    //get the value as bits  
+    hr = pbinder->Bind( NULL, pfield, &pobject );  
+    if (FAILED(hr))  
+        return hr;  
+  
+    hr = pobject->GetSize( &valueSize );  
+    if (FAILED(hr))  
+    {  
+        pobject->Release();  
+        return hr;  
+    }  
+  
+    pvalueBits = reinterpret_cast<BYTE *>(malloc(valueSize * sizeof(BYTE)));  
+    if (!pvalueBits)  
+    {  
+        pobject->Release();  
+        return E_OUTOFMEMORY;  
+    }  
+  
+    hr = pobject->GetValue( pvalueBits, valueSize );  
+    pobject->Release();  
+    if (FAILED(hr))  
+    {  
+        free(pvalueBits);  
+        return hr;  
+    }  
+  
+    //get the type  
+    VARIANT     valueType;  
+  
+    hr = FieldGetType( pfield, &valueType );  
+    if (FAILED(hr))  
+    {  
+        free(pvalueBits);  
+        return hr;  
+    }  
+  
+    //copy a primitive value  
+    switch (valueType.vt)  
+    {  
+    case VT_BSTR:  
+        {  
+            pvarValue->vt = VT_BSTR;  
+            if (valueSize == 0)  
+                pvarValue->bstrVal = SysAllocString( OLE("") );  
+            else  
+                pvarValue->bstrVal =  
+                    SysAllocStringByteLen( reinterpret_cast<char*>(pvalueBits),  
+                                           valueSize );  
+        }  
+  
+    case VT_BOOL:  
+    case VT_I1:  
+    case VT_I2:  
+    case VT_I4:  
+    case VT_I8:  
+    case VT_UI1:  
+    case VT_UI2:  
+    case VT_UI4:  
+    case VT_UI8:  
+    case VT_R4:  
+    case VT_R8:  
+        pvarValue->vt = valueType.vt;  
+  
+        if (valueSize > 8)  
+            valueSize = 8;  
+        memcpy( &(pvarValue->iVal), pvalueBits, valueSize );  
+        break;  
+  
+    case VT_VOID:  
+    case VT_EMPTY:  
+        pvarValue->vt = valueType.vt;  
+        break;  
+  
+    default:  
+        //not a primitive type  
+        VariantClear(&valueType);  
+        free(pvalueBits);  
+        return E_FAIL;  
+    }  
+  
+    free(pvalueBits);  
+    VariantClear(&valueType);  
+    return S_OK;  
+}  
+```  
+  
+## 请参阅  
+ [局部变量的实现示例](../../extensibility/debugger/sample-implementation-of-locals.md)   
+ [获取本地值](../../extensibility/debugger/getting-local-values.md)   
+ [评估上下文](../../extensibility/debugger/evaluation-context.md)

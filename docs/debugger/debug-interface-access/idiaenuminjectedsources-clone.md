@@ -1,0 +1,44 @@
+---
+title: "IDiaEnumInjectedSources::Clone | Microsoft Docs"
+ms.custom: ""
+ms.date: "12/03/2016"
+ms.prod: "visual-studio-dev14"
+ms.reviewer: ""
+ms.suite: ""
+ms.technology: 
+  - "vs-ide-debug"
+ms.tgt_pltfrm: ""
+ms.topic: "article"
+dev_langs: 
+  - "C++"
+helpviewer_keywords: 
+  - "IDiaEnumInjectedSources::Clone 方法"
+ms.assetid: 18038691-c140-426a-8617-27f0360650f3
+caps.latest.revision: 8
+caps.handback.revision: 8
+author: "mikejo5000"
+ms.author: "mikejo"
+manager: "ghogen"
+---
+# IDiaEnumInjectedSources::Clone
+[!INCLUDE[vs2017banner](../../code-quality/includes/vs2017banner.md)]
+
+创建包含枚举状态和枚举当前枚举数相同的枚举数。  
+  
+## 语法  
+  
+```cpp#  
+HRESULT Clone (   
+   IDiaEnumInjectedSources** ppenum  
+);  
+```  
+  
+#### 参数  
+ `ppenum`  
+ \[out\] 返回包含枚举数的副本 [IDiaEnumInjectedSources](../../debugger/debug-interface-access/idiaenuminjectedsources.md) 对象。  插入的源没有重复，只有枚举数。  
+  
+## 返回值  
+ 如果成功，则返回; `S_OK`否则，返回错误代码。  
+  
+## 请参阅  
+ [IDiaEnumInjectedSources](../../debugger/debug-interface-access/idiaenuminjectedsources.md)

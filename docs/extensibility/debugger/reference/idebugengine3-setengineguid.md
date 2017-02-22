@@ -1,0 +1,50 @@
+---
+title: "IDebugEngine3::SetEngineGuid | Microsoft Docs"
+ms.custom: ""
+ms.date: "12/03/2016"
+ms.prod: "visual-studio-dev14"
+ms.reviewer: ""
+ms.suite: ""
+ms.technology: 
+  - "vs-ide-sdk"
+ms.tgt_pltfrm: ""
+ms.topic: "article"
+f1_keywords: 
+  - "IDebugEngine3::SetEngineGuid"
+helpviewer_keywords: 
+  - "IDebugEngine3::SetEngineGuid"
+ms.assetid: 8bdfa05d-feb7-4d98-abac-77825a04c50f
+caps.latest.revision: 10
+caps.handback.revision: 10
+ms.author: "gregvanl"
+manager: "ghogen"
+---
+# IDebugEngine3::SetEngineGuid
+[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
+
+此方法设置调试引擎的 \(DE\) `GUID`。  
+  
+## 语法  
+  
+```cpp  
+HRESULT SetEngineGuid(  
+   GUID* guidEngine  
+);  
+```  
+  
+```  
+[C#]  
+int SetEngineGuid(  
+   ref Guid guidEngine  
+);  
+```  
+  
+#### 参数  
+ `guidEngine`  
+ \[in\] 引擎的 `GUID` 。  
+  
+## 返回值  
+ 如果成功，则返回; `S_OK`否则，返回错误代码。  
+  
+## 请参阅  
+ [IDebugEngine3](../../../extensibility/debugger/reference/idebugengine3.md)
