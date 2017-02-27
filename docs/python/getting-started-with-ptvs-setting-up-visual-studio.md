@@ -1,0 +1,60 @@
+---
+title: "PTVS 入门：设置 Visual Studio | Microsoft Docs"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- devlang-python
+ms.tgt_pltfrm: 
+ms.topic: article
+ms.assetid: ec491c1d-bdb2-4c2b-a390-bd808cec635a
+caps.latest.revision: 5
+author: kraigb
+ms.author: kraigb
+manager: ghogen
+translation.priority.ht:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+translationtype: Human Translation
+ms.sourcegitcommit: 5db97d19b1b823388a465bba15d057b30ff0b3ce
+ms.openlocfilehash: d3c061866ecffb77c3f9e5b1c01e9d39a21ba10b
+
+---
+# <a name="getting-started-with-ptvs-setting-up-visual-studio"></a>PTVS 入门：设置 Visual Studio
+如果已安装 Visual Studio，安装 PTVS 和相关库会很快。  如果未安装 Visual Studio，则可以获取专业质量版本的免费副本。  
+  
+ 你可以在很短的 [youtube 视频](https://www.youtube.com/watch?v=_okUV47eM5c&list=PLReL099Y5nRdLgGAdrb_YeTdEnd23s6Ff&index=1)中观看这些说明。  
+  
+ 高级步骤是安装 Visual Studio、安装 PTVS、安装 Python 和数据库（Anaconda、Canopy），最后检查安装。  
+  
+ 首先你将需要 Visual Studio。  如果你是开源或独立开发人员，则可以使用 Visual Studio [Community Edition](https://www.visualstudio.com/products/visual-studio-community-vs) 社区版，此版本对专业人员免费且实用。  你还可以在组织中使用社区版，只要它是用于课堂学习、学术研究或开源项目。  学员和创业公司应深入了解 DreamSpark 和 BizSpark 程序，看看你是否有资格享受免费访问，或询问雇主你是否拥有 MSDN 订阅。  
+  
+ 安装 Visual Studio 后，需要[安装 PTVS](http://pytools.codeplex.com/wikipage?title=PTVS%20Installation)。  这是一个免费的独立扩展，它完全由 Microsoft 支持并使用社区的捐赠公开开发。  
+  
+ 现在需要[安装 Python](http://python.org/download/)。  Python 完全由社区维护，其主页是 python.org。  Continuum 分析生成名为 Anaconda 的免费捆绑，该捆绑具有 Python 和很多有用的库（特别是对于科学和数据处理），而且 Enthought 会释放 Canopy，它也是类似的捆绑。  你只需安装其中之一。  如果不能确定安装哪一个，请从 [Anaconda](https://www.continuum.io/downloads) 开始，它会为你提供最新的 Python 和大部分难以安装的包。  
+  
+ 启动 Visual Studio，并确保一切正常工作。  在“视图”菜单下，选择“其他窗口”。  你将看到一个叫做“Python 环境”的项。  此窗口显示 PTVS 检测到的所有 Python 安装和已安装的所有包。  该窗口还可以在你编辑代码时控制数据库刷新以显示完成。  此刷新过程需要一些时间和大量的 CPU 与内存，但一旦完成 PTVS 就可以显示关于包的更多有用信息。  
+  
+ 如果想要在 PTVS 中使用 IPython，请按照这些[说明](http://pytools.codeplex.com/wikipage?title=Using%20IPython%20with%20PTVS)。  
+  
+ 你可以在很短的 [youtube 视频](https://www.youtube.com/watch?v=_okUV47eM5c&list=PLReL099Y5nRdLgGAdrb_YeTdEnd23s6Ff&index=1)中观看这些说明。  
+  
+## <a name="see-also"></a>另请参阅  
+ [PTVS 入门和深入了解视频](https://www.youtube.com/playlist?list=PLReL099Y5nRdLgGAdrb_YeTdEnd23s6Ff)
+
+
+<!--HONumber=Feb17_HO4-->
+
+
