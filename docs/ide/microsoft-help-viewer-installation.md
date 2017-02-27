@@ -1,8 +1,7 @@
 ---
 title: "Microsoft Help Viewer 安装 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -14,10 +13,10 @@ helpviewer_keywords:
   - "安装 Help Viewer [Help Viewer 2.0]"
 ms.assetid: 51e72eac-d5d7-45e6-8899-04935499d1a6
 caps.latest.revision: 14
-caps.handback.revision: 14
 author: "kempb"
 ms.author: "kempb"
 manager: "ghogen"
+caps.handback.revision: 14
 ---
 # Microsoft Help Viewer 安装
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

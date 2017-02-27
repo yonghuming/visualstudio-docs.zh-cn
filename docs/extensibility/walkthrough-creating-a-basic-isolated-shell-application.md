@@ -1,8 +1,7 @@
 ---
 title: "演练: 创建基本的独立的 Shell 应用程序 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -15,9 +14,9 @@ helpviewer_keywords:
   - "演练 [Visual Studio]，隔离基于 shell 的应用程序"
 ms.assetid: 8b12e223-aae3-4c23-813d-ede1125f5f69
 caps.latest.revision: 54
-caps.handback.revision: 54
 ms.author: "gregvanl"
 manager: "ghogen"
+caps.handback.revision: 54
 ---
 # 演练: 创建基本的独立的 Shell 应用程序
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

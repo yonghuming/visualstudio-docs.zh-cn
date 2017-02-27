@@ -1,18 +1,17 @@
 ---
 title: "如何：使用工作流设计器调试 XAML | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/15/2016"
-ms.prod: ".net-framework-4.6"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.tgt_pltfrm: ""
 ms.topic: "reference"
 ms.assetid: d9305dbc-af62-4bdd-b03f-c54e3fe9ecc7
 caps.latest.revision: 8
-caps.handback.revision: 8
 author: "ErikRe"
 ms.author: "erikre"
 manager: "erikre"
+caps.handback.revision: 8
 ---
 # 如何：使用工作流设计器调试 XAML
 工作流是以 XAML 的形式定义的。工作流的 UI 表示形式建立在定义该工作流的 XAML 树之上。该调试体验与在 [!INCLUDE[wfd1](../workflow-designer/includes/wfd1_md.md)] 中调试工作流类似。例如，调试 XAML 时，“局部变量”、“监视”和“线程”窗口与它们在 [!INCLUDE[wfd2](../workflow-designer/includes/wfd2_md.md)] 调试中的工作方式相同。此外，在 XAML 调试过程中，“调用堆栈”视图是工作流执行流的基于行的分层视图。  

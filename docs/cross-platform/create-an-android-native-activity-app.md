@@ -1,8 +1,7 @@
 ---
 title: "创建 Android 本机活动应用 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -13,10 +12,10 @@ dev_langs:
   - "C++"
 ms.assetid: 884014b1-5208-45ec-b0da-ad0070d2c24d
 caps.latest.revision: 3
-caps.handback.revision: 3
 author: "BrianPeek"
 ms.author: "brpeek"
 manager: "ghogen"
+caps.handback.revision: 3
 ---
 # 创建 Android 本机活动应用
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

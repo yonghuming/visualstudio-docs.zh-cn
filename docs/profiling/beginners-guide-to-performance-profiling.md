@@ -1,43 +1,25 @@
 ---
 title: "性能分析初学者指南 | Microsoft Docs"
-ms.custom: 
-ms.date: 11/04/2016
-ms.reviewer: 
-ms.suite: 
-ms.technology:
-- vs-ide-debug
-ms.tgt_pltfrm: 
-ms.topic: get-started-article
-f1_keywords:
-- vs.performance.wizard.intropage
-helpviewer_keywords:
-- Profiling Tools, quick start
-- Diagnostics Tools, CPU Usage
-- CPU Usage
-- Diagnostics Tools
+ms.custom: ""
+ms.date: "11/04/2016"
+ms.reviewer: ""
+ms.suite: ""
+ms.technology: 
+  - "vs-ide-debug"
+ms.tgt_pltfrm: ""
+ms.topic: "get-started-article"
+f1_keywords: 
+  - "vs.performance.wizard.intropage"
+helpviewer_keywords: 
+  - "性能工具, 向导"
+  - "性能向导"
+  - "分析工具, 快速入门"
 ms.assetid: da2fbf8a-2d41-4654-a509-dd238532d25a
 caps.latest.revision: 45
-author: mikejo5000
-ms.author: mikejo
-manager: ghogen
-translation.priority.ht:
-- cs-cz
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pl-pl
-- pt-br
-- ru-ru
-- tr-tr
-- zh-cn
-- zh-tw
-translationtype: Human Translation
-ms.sourcegitcommit: 53907b9b88deca671ee0695385dcbc856a35d309
-ms.openlocfilehash: edc4f1e6a332a3c515a1d1a65b15ae3f1b989ed8
-
+author: "mikejo5000"
+ms.author: "mikejo"
+manager: "ghogen"
+caps.handback.revision: 43
 ---
 # <a name="beginners-guide-to-performance-profiling"></a>性能分析初学者指南
 可使用 Visual Studio 分析工具来分析应用程序中的性能问题。 此过程演示如何使用诊断工具的“CPU 使用率”选项卡获取应用的性能数据。 Visual Studio 中的 .NET 开发（包括 ASP.NET、和本机 /C++ 开发）支持此诊断工具。

@@ -1,8 +1,7 @@
 ---
 title: "&lt;assembly&gt; 元素（ClickOnce 部署） | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/15/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -19,10 +18,10 @@ helpviewer_keywords:
   - "<assembly> 元素 [ClickOnce 部署清单]"
 ms.assetid: b8e3362a-f821-4696-b98d-571d4bbfe431
 caps.latest.revision: 11
-caps.handback.revision: 11
 author: "stevehoag"
 ms.author: "shoag"
 manager: "wpickett"
+caps.handback.revision: 11
 ---
 # &lt;assembly&gt; 元素（ClickOnce 部署）
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

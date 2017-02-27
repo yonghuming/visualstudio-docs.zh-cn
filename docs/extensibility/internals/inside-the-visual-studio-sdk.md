@@ -1,8 +1,7 @@
 ---
 title: "在 Visual Studio SDK | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/15/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -15,9 +14,9 @@ helpviewer_keywords:
   - "集成路线图，Visual Studio SDK"
 ms.assetid: 9118eaa4-0453-4dc5-9e16-c7062d254869
 caps.latest.revision: 30
-caps.handback.revision: 30
 ms.author: "gregvanl"
 manager: "ghogen"
+caps.handback.revision: 30
 ---
 # 在 Visual Studio SDK
 [!INCLUDE[vs2017banner](../../code-quality/includes/vs2017banner.md)]

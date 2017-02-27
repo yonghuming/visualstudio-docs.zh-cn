@@ -1,8 +1,7 @@
 ---
 title: "如何︰ 安装了源代码管理插件 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/15/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -14,9 +13,9 @@ helpviewer_keywords:
   - "源控件的插件安装"
 ms.assetid: 9e2e01d9-7beb-42b2-99b2-86995578afda
 caps.latest.revision: 32
-caps.handback.revision: 32
 ms.author: "gregvanl"
 manager: "ghogen"
+caps.handback.revision: 32
 ---
 # 如何︰ 安装了源代码管理插件
 [!INCLUDE[vs2017banner](../../code-quality/includes/vs2017banner.md)]

@@ -1,8 +1,7 @@
 ---
 title: "文本模板实用工具方法 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/15/2016"
-ms.prod: "visual-studio-tfs-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.tgt_pltfrm: ""
@@ -11,10 +10,10 @@ helpviewer_keywords:
   - "文本模板, 实用程序方法"
 ms.assetid: 8c11f9f7-678b-4f0c-b634-dc78fda699d1
 caps.latest.revision: 50
-caps.handback.revision: 50
 author: "alancameronwills"
 ms.author: "awills"
 manager: "douge"
+caps.handback.revision: 50
 ---
 # 文本模板实用工具方法
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

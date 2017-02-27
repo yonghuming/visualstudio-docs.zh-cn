@@ -1,8 +1,7 @@
 ---
 title: "演练：创建真实的三维撞球 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/15/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -11,10 +10,10 @@ ms.tgt_pltfrm: ""
 ms.topic: "article"
 ms.assetid: af8eb0f3-bf6a-4d1c-ab47-dcd88ab04efa
 caps.latest.revision: 9
-caps.handback.revision: 9
 author: "BrianPeek"
 ms.author: "brpeek"
 manager: "ghogen"
+caps.handback.revision: 9
 ---
 # 演练：创建真实的三维撞球
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

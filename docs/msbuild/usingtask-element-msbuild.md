@@ -1,8 +1,7 @@
 ---
 title: "UsingTask 元素 (MSBuild) | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -21,10 +20,10 @@ helpviewer_keywords:
   - "UsingTask 元素 [MSBuild]"
 ms.assetid: 20247902-9446-4a1f-8253-5c7a17e4fe43
 caps.latest.revision: 23
-caps.handback.revision: 23
 author: "kempb"
 ms.author: "kempb"
 manager: "ghogen"
+caps.handback.revision: 23
 ---
 # UsingTask 元素 (MSBuild)
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

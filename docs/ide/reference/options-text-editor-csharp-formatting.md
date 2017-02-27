@@ -1,8 +1,7 @@
 ---
 title: "选项、文本编辑器、C#、格式设置 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -28,10 +27,10 @@ helpviewer_keywords:
   - "“文本编辑器选项”对话框，格式设置"
 ms.assetid: 5a7bb668-1d0c-4ffe-9508-24592813162e
 caps.latest.revision: 23
-caps.handback.revision: 23
 author: "kempb"
 ms.author: "kempb"
 manager: "ghogen"
+caps.handback.revision: 23
 ---
 # 选项、文本编辑器、C#、格式设置
 [!INCLUDE[vs2017banner](../../code-quality/includes/vs2017banner.md)]

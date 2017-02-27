@@ -1,41 +1,23 @@
 ---
 title: "span::span 构造函数 | Microsoft Docs"
-ms.custom: 
-ms.date: 11/04/2016
-ms.reviewer: 
-ms.suite: 
-ms.technology:
-- vs-ide-debug
-ms.tgt_pltfrm: 
-ms.topic: article
-f1_keywords:
-- cvmarkersobj/Concurrency::diagnostic::span::span
-helpviewer_keywords:
-- Concurrency::diagnostic::span constructor
+ms.custom: ""
+ms.date: "11/04/2016"
+ms.reviewer: ""
+ms.suite: ""
+ms.technology: 
+  - "vs-ide-debug"
+ms.tgt_pltfrm: ""
+ms.topic: "article"
+f1_keywords: 
+  - "cvmarkersobj/Concurrency::diagnostic::span::span"
+helpviewer_keywords: 
+  - "Concurrency::diagnostic::span 构造函数"
 ms.assetid: 8b5578aa-5e5c-4ac7-87c7-ce87c4246e2c
 caps.latest.revision: 5
-author: mikejo5000
-ms.author: mikejo
-manager: ghogen
-translation.priority.ht:
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- ru-ru
-- zh-cn
-- zh-tw
-translation.priority.mt:
-- cs-cz
-- pl-pl
-- pt-br
-- tr-tr
-translationtype: Human Translation
-ms.sourcegitcommit: 5db97d19b1b823388a465bba15d057b30ff0b3ce
-ms.openlocfilehash: 1144a55e157c755a0fb8cdf29a0fa079dd4ce22d
-
+author: "mikejo5000"
+ms.author: "mikejo"
+manager: "ghogen"
+caps.handback.revision: 5
 ---
 # <a name="spanspan-constructor"></a>span::span 构造函数
 初始化 `span` 类的新实例。  

@@ -1,8 +1,7 @@
 ---
 title: "m_action 字段 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -13,9 +12,9 @@ helpviewer_keywords:
   - "m_action 字段中，任务类 [.NET Framework 的调试引擎]"
 ms.assetid: 201838c2-260d-4071-b6c3-f526874e19c9
 caps.latest.revision: 9
-caps.handback.revision: 9
 ms.author: "gregvanl"
 manager: "ghogen"
+caps.handback.revision: 9
 ---
 # m_action 字段
 [!INCLUDE[vs2017banner](../../code-quality/includes/vs2017banner.md)]

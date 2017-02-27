@@ -1,8 +1,7 @@
 ---
 title: "如何︰ 将可扩展性项目迁移到 Visual Studio 2015 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -13,9 +12,9 @@ helpviewer_keywords:
   - "Visual Studio SDK，升级"
 ms.assetid: 22491cdc-8f04-4e1c-8eb4-ff33798ec792
 caps.latest.revision: 25
-caps.handback.revision: 25
 ms.author: "gregvanl"
 manager: "ghogen"
+caps.handback.revision: 25
 ---
 # 如何︰ 将可扩展性项目迁移到 Visual Studio 2015
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

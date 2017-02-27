@@ -1,8 +1,7 @@
 ---
 title: "span 类 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -15,10 +14,10 @@ helpviewer_keywords:
   - "Concurrency::diagnostic::span 类"
 ms.assetid: 527826a8-2590-43ad-b907-7bc0b7288e92
 caps.latest.revision: 4
-caps.handback.revision: 4
 author: "mikejo5000"
 ms.author: "mikejo"
 manager: "ghogen"
+caps.handback.revision: 4
 ---
 # span 类
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

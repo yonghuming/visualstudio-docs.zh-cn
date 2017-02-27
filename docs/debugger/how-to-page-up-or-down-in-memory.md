@@ -1,8 +1,7 @@
 ---
 title: "如何：在内存中向上或向下翻页 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -25,10 +24,10 @@ helpviewer_keywords:
   - "内存窗口，在内存中向上或向下分页"
 ms.assetid: 50b30a68-66f6-43f8-a48b-59ce12c95471
 caps.latest.revision: 18
-caps.handback.revision: 18
 author: "mikejo5000"
 ms.author: "mikejo"
 manager: "ghogen"
+caps.handback.revision: 18
 ---
 # 如何：在内存中向上或向下翻页
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

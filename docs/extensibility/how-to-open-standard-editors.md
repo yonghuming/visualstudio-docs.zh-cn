@@ -1,8 +1,7 @@
 ---
 title: "如何: 打开标准编辑器 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -14,9 +13,9 @@ helpviewer_keywords:
   - "项目 [Visual Studio SDK]，打开标准编辑器"
 ms.assetid: d5ce10f9-047a-4b74-aa1d-295128898b89
 caps.latest.revision: 12
-caps.handback.revision: 12
 ms.author: "gregvanl"
 manager: "ghogen"
+caps.handback.revision: 12
 ---
 # 如何: 打开标准编辑器
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

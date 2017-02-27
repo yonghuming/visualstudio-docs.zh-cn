@@ -1,37 +1,20 @@
 ---
-title: "Visual Studio 中的 Python入门 | Microsoft Docs"
-ms.custom: 
-ms.date: 1/3/2017
-ms.prod: visual-studio-dev15
-ms.reviewer: 
-ms.suite: 
-ms.technology:
-- devlang-python
-ms.tgt_pltfrm: 
-ms.topic: article
+title: "Python 入门 | Microsoft Docs"
+ms.custom: ""
+ms.date: "1/3/2017"
+ms.prod: "visual-studio-dev15"
+ms.reviewer: ""
+ms.suite: ""
+ms.technology: 
+  - "devlang-python"
+ms.tgt_pltfrm: ""
+ms.topic: "article"
 ms.assetid: 33f4f6fb-0ae4-4234-9df2-531f2d3af17f
 caps.latest.revision: 11
-author: kraigb
-ms.author: kraigb
-manager: ghogen
-translation.priority.ht:
-- cs-cz
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pl-pl
-- pt-br
-- ru-ru
-- tr-tr
-- zh-cn
-- zh-tw
-translationtype: Human Translation
-ms.sourcegitcommit: 7d0b0b0b12b9d65f26b67d6f797abc0cf7a0c2c9
-ms.openlocfilehash: e7cc978dabb401a8e9bab6791988aa737edb76b0
-
+author: "kraigb"
+ms.author: "kraigb"
+manager: "ghogen"
+caps.handback.revision: 10
 ---
 # <a name="getting-started-with-python-in-visual-studio"></a>Visual Studio 中的 Python 入门
 

@@ -1,8 +1,7 @@
 ---
 title: "InitializeCorrelation 活动设计器 | Microsoft Docs"
 ms.custom: ""
-ms.date: "11/23/2016"
-ms.prod: ".net-framework-4.6"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.tgt_pltfrm: ""
@@ -11,10 +10,10 @@ f1_keywords:
   - "System.ServiceModel.Activities.InitializeCorrelation.UI"
 ms.assetid: 4c54f34c-ee84-42a6-abb0-ec260c1ccb76
 caps.latest.revision: 6
-caps.handback.revision: 6
 author: "ErikRe"
 ms.author: "erikre"
 manager: "erikre"
+caps.handback.revision: 6
 ---
 # InitializeCorrelation 活动设计器
 **“InitializeCorrelation”**活动设计器用于创建和配置 <xref:System.ServiceModel.Activities.InitializeCorrelation> 活动，该活动用于在发送或接收消息之前在这些消息之间建立相关。  

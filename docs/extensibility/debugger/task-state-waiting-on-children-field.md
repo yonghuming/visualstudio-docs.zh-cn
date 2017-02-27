@@ -1,8 +1,7 @@
 ---
 title: "TASK_STATE_WAITING_ON_CHILDREN 字段 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -13,9 +12,9 @@ helpviewer_keywords:
   - "TASK_STATE_WAITING_ON_CHILDREN 字段中，任务类 [.NET Framework 的调试引擎]"
 ms.assetid: 6f26b098-84ad-4f6e-ba27-6136581ba630
 caps.latest.revision: 10
-caps.handback.revision: 10
 ms.author: "gregvanl"
 manager: "ghogen"
+caps.handback.revision: 10
 ---
 # TASK_STATE_WAITING_ON_CHILDREN 字段
 [!INCLUDE[vs2017banner](../../code-quality/includes/vs2017banner.md)]

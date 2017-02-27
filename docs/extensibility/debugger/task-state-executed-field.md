@@ -1,8 +1,7 @@
 ---
 title: "TASK_STATE_EXECUTED 字段 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -13,9 +12,9 @@ helpviewer_keywords:
   - "TASK_STATE_EXECUTED 字段中，任务类 [.NET Framework 的调试引擎]"
 ms.assetid: 75b8f9d0-b908-40d0-b109-70feaed2ab0c
 caps.latest.revision: 8
-caps.handback.revision: 8
 ms.author: "gregvanl"
 manager: "ghogen"
+caps.handback.revision: 8
 ---
 # TASK_STATE_EXECUTED 字段
 [!INCLUDE[vs2017banner](../../code-quality/includes/vs2017banner.md)]

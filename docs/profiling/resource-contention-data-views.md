@@ -1,8 +1,7 @@
 ---
 title: "资源争用数据视图 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -14,10 +13,10 @@ helpviewer_keywords:
   - "分析工具, 并发分析方法视图"
 ms.assetid: be79ec41-f1dd-4984-993f-5c2962355a32
 caps.latest.revision: 9
-caps.handback.revision: 9
 author: "mikejo5000"
 ms.author: "mikejo"
 manager: "ghogen"
+caps.handback.revision: 9
 ---
 # 资源争用数据视图
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

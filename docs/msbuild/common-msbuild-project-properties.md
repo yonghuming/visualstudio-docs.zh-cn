@@ -1,8 +1,7 @@
 ---
 title: "常用的 MSBuild 项目属性 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/15/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -21,10 +20,10 @@ helpviewer_keywords:
   - "项目文件属性 (MSBuild)"
 ms.assetid: 9857505d-ae15-42f1-936d-6cd7fb9dd276
 caps.latest.revision: 36
-caps.handback.revision: 36
 author: "kempb"
 ms.author: "kempb"
 manager: "ghogen"
+caps.handback.revision: 36
 ---
 # 常用的 MSBuild 项目属性
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

@@ -1,18 +1,17 @@
 ---
 title: "通过使用 Visual Studio Modelbus 集成模型 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/15/2016"
-ms.prod: "visual-studio-tfs-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.tgt_pltfrm: ""
 ms.topic: "article"
 ms.assetid: 2ff722f3-21d6-44e2-9efd-f6694aee9987
 caps.latest.revision: 26
-caps.handback.revision: 26
 author: "alancameronwills"
 ms.author: "awills"
 manager: "douge"
+caps.handback.revision: 26
 ---
 # 通过使用 Visual Studio Modelbus 集成模型
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

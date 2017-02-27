@@ -1,8 +1,7 @@
 ---
 title: "演练：创建自定义引导程序以显示隐私提示 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/14/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -22,10 +21,10 @@ helpviewer_keywords:
   - "Windows Installer 部署, 系统必备"
 ms.assetid: 2f3edd6a-84d1-4864-a1ae-6a13c5732aae
 caps.latest.revision: 10
-caps.handback.revision: 10
 author: "stevehoag"
 ms.author: "shoag"
 manager: "wpickett"
+caps.handback.revision: 10
 ---
 # 演练：创建自定义引导程序以显示隐私提示
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

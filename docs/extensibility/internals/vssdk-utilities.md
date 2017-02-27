@@ -1,8 +1,7 @@
 ---
 title: "VSSDK 实用程序 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -13,9 +12,9 @@ helpviewer_keywords:
   - "Visual Studio 集成的体系结构"
 ms.assetid: a469208a-cb70-4d87-a79b-d2086fc4fae4
 caps.latest.revision: 8
-caps.handback.revision: 8
 ms.author: "gregvanl"
 manager: "ghogen"
+caps.handback.revision: 8
 ---
 # VSSDK 实用程序
 [!INCLUDE[vs2017banner](../../code-quality/includes/vs2017banner.md)]

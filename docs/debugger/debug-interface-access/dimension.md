@@ -1,8 +1,7 @@
 ---
 title: "维度 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -15,10 +14,10 @@ helpviewer_keywords:
   - "Dimension 符号"
 ms.assetid: 94f791da-bfea-454f-8a14-da31e8e1596a
 caps.latest.revision: 15
-caps.handback.revision: 15
 author: "mikejo5000"
 ms.author: "mikejo"
 manager: "ghogen"
+caps.handback.revision: 15
 ---
 # 维度
 [!INCLUDE[vs2017banner](../../code-quality/includes/vs2017banner.md)]

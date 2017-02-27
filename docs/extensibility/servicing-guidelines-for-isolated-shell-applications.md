@@ -1,8 +1,7 @@
 ---
 title: "独立的 Shell 应用程序的服务指南 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -14,9 +13,9 @@ helpviewer_keywords:
   - "Shell 集成的模式 [Visual Studio]，可维护性"
 ms.assetid: 747d1a47-b8b3-4e8b-93c0-768724be48f2
 caps.latest.revision: 15
-caps.handback.revision: 15
 ms.author: "gregvanl"
 manager: "ghogen"
+caps.handback.revision: 15
 ---
 # 独立的 Shell 应用程序的服务指南
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

@@ -1,8 +1,7 @@
 ---
 title: "参考 (Visual Studio 调试 Api) | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -15,9 +14,9 @@ helpviewer_keywords:
   - "调试 SDK，引用"
 ms.assetid: 9810fc50-43c7-4916-9916-1cf333037b51
 caps.latest.revision: 9
-caps.handback.revision: 9
 ms.author: "gregvanl"
 manager: "ghogen"
+caps.handback.revision: 9
 ---
 # 参考 (Visual Studio 调试 Api)
 [!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]

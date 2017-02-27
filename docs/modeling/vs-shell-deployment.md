@@ -1,18 +1,17 @@
 ---
 title: "VS Shell 部署 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-tfs-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.tgt_pltfrm: ""
 ms.topic: "article"
 ms.assetid: be8f2ffe-a322-4ac0-9c9e-873bd28e5d5e
 caps.latest.revision: 2
-caps.handback.revision: 2
 author: "alancameronwills"
 ms.author: "awills"
 manager: "douge"
+caps.handback.revision: 2
 ---
 # VS Shell 部署
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

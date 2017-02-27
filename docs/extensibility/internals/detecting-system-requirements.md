@@ -1,8 +1,7 @@
 ---
 title: "检测系统要求 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -14,9 +13,9 @@ helpviewer_keywords:
   - "启动条件"
 ms.assetid: 0ba94acf-bf0b-4bb3-8cca-aaac1b5d6737
 caps.latest.revision: 50
-caps.handback.revision: 50
 ms.author: "gregvanl"
 manager: "ghogen"
+caps.handback.revision: 50
 ---
 # 检测系统要求
 [!INCLUDE[vs2017banner](../../code-quality/includes/vs2017banner.md)]

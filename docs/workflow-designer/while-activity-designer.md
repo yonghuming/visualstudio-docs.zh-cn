@@ -1,8 +1,7 @@
 ---
 title: "While 活动设计器 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/15/2016"
-ms.prod: ".net-framework-4.6"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.tgt_pltfrm: ""
@@ -11,10 +10,10 @@ f1_keywords:
   - "System.Activities.Statements.While.UI"
 ms.assetid: ea008091-2e4c-4f64-bfa5-afb919552446
 caps.latest.revision: 5
-caps.handback.revision: 5
 author: "ErikRe"
 ms.author: "erikre"
 manager: "erikre"
+caps.handback.revision: 5
 ---
 # While 活动设计器
 当指定的 <xref:System.Activities.Statements.Condition%2A> 的计算结果为 **true** 时，<xref:System.Activities.Statements.While> 活动执行其 <xref:System.Activities.Statements.While.Body%2A> 中包含的活动。包含的活动可能永远都不会执行。如果希望所包含的活动至少执行一次，请改用 <xref:System.Activities.Statements.DoWhile> 活动。  

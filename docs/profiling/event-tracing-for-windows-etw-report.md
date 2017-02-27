@@ -1,8 +1,7 @@
 ---
 title: "Windows 事件跟踪 (ETW) 报告 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/15/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -14,10 +13,10 @@ helpviewer_keywords:
   - "Windows 事件跟踪分析报告"
 ms.assetid: 81e88162-b88a-40b6-8b85-a232c8096a47
 caps.latest.revision: 12
-caps.handback.revision: 12
 author: "mikejo5000"
 ms.author: "mikejo"
 manager: "ghogen"
+caps.handback.revision: 12
 ---
 # Windows 事件跟踪 (ETW) 报告
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

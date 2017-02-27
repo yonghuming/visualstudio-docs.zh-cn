@@ -1,8 +1,7 @@
 ---
 title: "WriteLine 活动设计器 | Microsoft Docs"
 ms.custom: ""
-ms.date: "09/27/2016"
-ms.prod: ".net-framework-4.6"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.tgt_pltfrm: ""
@@ -11,10 +10,10 @@ f1_keywords:
   - "System.Activities.Statements.WriteLine.UI"
 ms.assetid: 1b5f29a8-b7fd-477e-949e-2f689cae3c96
 caps.latest.revision: 5
-caps.handback.revision: 5
 author: "ErikRe"
 ms.author: "erikre"
 manager: "erikre"
+caps.handback.revision: 5
 ---
 # WriteLine 活动设计器
 **“WriteLine”**活动设计器用于创建和配置 <xref:System.Activities.Statements.WriteLine> 活动。  

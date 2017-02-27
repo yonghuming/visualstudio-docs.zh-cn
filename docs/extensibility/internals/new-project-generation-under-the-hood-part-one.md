@@ -1,8 +1,7 @@
 ---
 title: "生成新的项目︰ 实质上，第 1 部分 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/15/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -14,9 +13,9 @@ helpviewer_keywords:
   - "项目 [Visual Studio]，新项目生成"
 ms.assetid: 66778698-0258-467d-8b8b-c351744510eb
 caps.latest.revision: 29
-caps.handback.revision: 29
 ms.author: "gregvanl"
 manager: "ghogen"
+caps.handback.revision: 29
 ---
 # 生成新的项目︰ 实质上，第 1 部分
 [!INCLUDE[vs2017banner](../../code-quality/includes/vs2017banner.md)]

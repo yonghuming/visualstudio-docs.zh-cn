@@ -1,8 +1,7 @@
 ---
 title: "在早期语言服务中的快速信息 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -15,9 +14,9 @@ helpviewer_keywords:
   - "语言服务 [托管的包框架] 的 IntelliSense 快速信息"
 ms.assetid: 159ccb0b-f5d6-4912-b88b-e9612924ed5e
 caps.latest.revision: 16
-caps.handback.revision: 16
 ms.author: "gregvanl"
 manager: "ghogen"
+caps.handback.revision: 16
 ---
 # 在早期语言服务中的快速信息
 [!INCLUDE[vs2017banner](../../code-quality/includes/vs2017banner.md)]

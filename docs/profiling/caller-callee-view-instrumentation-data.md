@@ -1,8 +1,7 @@
 ---
 title: "“调用方/被调用方”视图 - 探查器检测数据 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -13,10 +12,10 @@ helpviewer_keywords:
   - "“调用方/被调用方”视图"
 ms.assetid: 0908d354-aa5c-4518-8631-e25b8e7649e5
 caps.latest.revision: 13
-caps.handback.revision: 13
 author: "mikejo5000"
 ms.author: "mikejo"
 manager: "ghogen"
+caps.handback.revision: 13
 ---
 # “调用方/被调用方”视图 - 探查器检测数据
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

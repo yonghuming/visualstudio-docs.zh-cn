@@ -1,8 +1,7 @@
 ---
 title: "演练: 显示语句完成 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -13,9 +12,9 @@ helpviewer_keywords:
   - "编辑器 [Visual Studio SDK]，新的语句结束"
 ms.assetid: f3152c4e-7673-4047-a079-2326941d1c83
 caps.latest.revision: 36
-caps.handback.revision: 36
 ms.author: "gregvanl"
 manager: "ghogen"
+caps.handback.revision: 36
 ---
 # 演练: 显示语句完成
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

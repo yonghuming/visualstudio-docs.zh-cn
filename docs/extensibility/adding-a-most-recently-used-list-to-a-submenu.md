@@ -1,8 +1,7 @@
 ---
 title: "添加大多数最近使用过的子菜单上的列表 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -15,9 +14,9 @@ helpviewer_keywords:
   - "最近使用的"
 ms.assetid: 27d4bbcf-99b1-498f-8b66-40002e3db0f8
 caps.latest.revision: 46
-caps.handback.revision: 46
 ms.author: "gregvanl"
 manager: "ghogen"
+caps.handback.revision: 46
 ---
 # 添加大多数最近使用过的子菜单上的列表
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

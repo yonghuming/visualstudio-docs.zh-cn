@@ -1,8 +1,7 @@
 ---
 title: "如何：导出包含自左乘的 Alpha 的纹理 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -11,10 +10,10 @@ ms.tgt_pltfrm: ""
 ms.topic: "article"
 ms.assetid: 05348afa-f079-4f53-a05b-ecd91d13adab
 caps.latest.revision: 4
-caps.handback.revision: 4
 author: "BrianPeek"
 ms.author: "brpeek"
 manager: "ghogen"
+caps.handback.revision: 4
 ---
 # 如何：导出包含自左乘的 Alpha 的纹理
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

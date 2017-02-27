@@ -1,18 +1,17 @@
 ---
 title: "如何报告 Visual Studio 的问题 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.tgt_pltfrm: ""
 ms.topic: "article"
 ms.assetid: 24ecb76e-b7ad-432d-88ab-d9849963465d
 caps.latest.revision: 9
-caps.handback.revision: 9
 author: "TerryGLee"
 ms.author: "tglee"
 manager: "ghogen"
+caps.handback.revision: 9
 ---
 # 如何报告 Visual Studio 的问题
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

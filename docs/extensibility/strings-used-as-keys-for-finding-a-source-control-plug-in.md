@@ -1,8 +1,7 @@
 ---
 title: "字符串用作键用于查找源代码管理插件 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -13,9 +12,9 @@ helpviewer_keywords:
   - "源代码管理插件，用于查找的字符串"
 ms.assetid: c1e31f76-42a1-4c3d-afb2-664044ef12fd
 caps.latest.revision: 15
-caps.handback.revision: 15
 ms.author: "gregvanl"
 manager: "ghogen"
+caps.handback.revision: 15
 ---
 # 字符串用作键用于查找源代码管理插件
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

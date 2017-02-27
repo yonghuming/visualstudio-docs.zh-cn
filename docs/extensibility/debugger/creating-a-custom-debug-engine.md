@@ -1,8 +1,7 @@
 ---
 title: "创建自定义调试引擎 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -15,9 +14,9 @@ helpviewer_keywords:
   - "调试 [调试 SDK]，自定义调试引擎"
 ms.assetid: 52794238-6fae-451c-bf1c-99f344c6f173
 caps.latest.revision: 15
-caps.handback.revision: 15
 ms.author: "gregvanl"
 manager: "ghogen"
+caps.handback.revision: 15
 ---
 # 创建自定义调试引擎
 [!INCLUDE[vs2017banner](../../code-quality/includes/vs2017banner.md)]

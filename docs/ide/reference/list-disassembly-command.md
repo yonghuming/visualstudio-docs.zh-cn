@@ -1,8 +1,7 @@
 ---
 title: "“列出反汇编”命令 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -16,10 +15,10 @@ helpviewer_keywords:
   - "“列出反汇编”命令"
 ms.assetid: eb363e35-e86a-4121-966f-991210c27e2a
 caps.latest.revision: 13
-caps.handback.revision: 13
 author: "kempb"
 ms.author: "kempb"
 manager: "ghogen"
+caps.handback.revision: 13
 ---
 # “列出反汇编”命令
 [!INCLUDE[vs2017banner](../../code-quality/includes/vs2017banner.md)]

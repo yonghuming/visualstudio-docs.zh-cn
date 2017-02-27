@@ -1,8 +1,7 @@
 ---
 title: "如何：创建基本朗伯着色器 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -11,10 +10,10 @@ ms.tgt_pltfrm: ""
 ms.topic: "article"
 ms.assetid: ec5c10fb-9600-4240-8280-d59451ea1d68
 caps.latest.revision: 20
-caps.handback.revision: 20
 author: "BrianPeek"
 ms.author: "brpeek"
 manager: "ghogen"
+caps.handback.revision: 20
 ---
 # 如何：创建基本朗伯着色器
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

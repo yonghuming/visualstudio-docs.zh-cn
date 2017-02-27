@@ -1,8 +1,7 @@
 ---
 title: "“项目设计器”-&gt;“调试”页 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -16,10 +15,10 @@ helpviewer_keywords:
   - "项目设计器中的“调试”页"
 ms.assetid: ef11eae9-df96-4e20-aabd-2678ba317140
 caps.latest.revision: 32
-caps.handback.revision: 32
 author: "kempb"
 ms.author: "kempb"
 manager: "ghogen"
+caps.handback.revision: 32
 ---
 # “项目设计器”-&gt;“调试”页
 [!INCLUDE[vs2017banner](../../code-quality/includes/vs2017banner.md)]

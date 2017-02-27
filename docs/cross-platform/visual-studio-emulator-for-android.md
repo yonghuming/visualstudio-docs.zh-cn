@@ -1,8 +1,7 @@
 ---
 title: "适用于 Android 的 Visual Studio 仿真程序 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -11,9 +10,10 @@ ms.tgt_pltfrm: ""
 ms.topic: "article"
 ms.assetid: 80f0104f-a4db-44dd-bd55-37bb67776c62
 caps.latest.revision: 5
+author: "mikejo5000"
+ms.author: "mikejo"
+manager: "ghogen"
 caps.handback.revision: 5
-ms.author: "crdun"
-manager: "crdun"
 ---
 # 适用于 Android 的 Visual Studio 仿真程序
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

@@ -1,8 +1,7 @@
 ---
 title: "如何︰ 通过使用注册表设置管理专用库 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -14,9 +13,9 @@ helpviewer_keywords:
   - "管理私有库也 VSIX"
 ms.assetid: 86b86442-4293-4cad-9fe2-876eef65f426
 caps.latest.revision: 6
-caps.handback.revision: 6
 ms.author: "gregvanl"
 manager: "ghogen"
+caps.handback.revision: 6
 ---
 # 如何︰ 通过使用注册表设置管理专用库
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

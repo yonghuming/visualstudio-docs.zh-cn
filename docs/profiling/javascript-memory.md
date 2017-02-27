@@ -1,51 +1,33 @@
 ---
 title: "JavaScript 内存 | Microsoft Docs"
-ms.custom: 
-ms.date: 11/04/2016
-ms.reviewer: 
-ms.suite: 
-ms.technology:
-- vs-ide-debug
-ms.tgt_pltfrm: 
-ms.topic: article
-dev_langs:
-- FSharp
-- VB
-- CSharp
-- C++
-helpviewer_keywords:
-- dominators, memory analyzer (JavaScript)
-- memory leaks (JavaScript)
-- heap memory, JavaScript
-- leaks, memory (JavaScript)
-- snapshots, memory analyzer (JavaScript)
-- JavaScript Memory Analyzer
-- analyzing memory, JavaScript
-- memory analyzer, JavaScript
+ms.custom: ""
+ms.date: "11/04/2016"
+ms.reviewer: ""
+ms.suite: ""
+ms.technology: 
+  - "vs-ide-debug"
+ms.tgt_pltfrm: ""
+ms.topic: "article"
+dev_langs: 
+  - "FSharp"
+  - "VB"
+  - "CSharp"
+  - "C++"
+helpviewer_keywords: 
+  - "控制器, 内存分析器 (JavaScript)"
+  - "内存泄漏 (JavaScript)"
+  - "堆内存, JavaScript"
+  - "泄漏, 内存 (JavaScript)"
+  - "快照, 内存分析器 (JavaScript)"
+  - "JavaScript 内存分析器"
+  - "分析内存, JavaScript"
+  - "内存分析器, JavaScript"
 ms.assetid: 78f8532b-7b4e-4b50-b8b7-68ca0926dd4e
 caps.latest.revision: 49
-author: mikejo5000
-ms.author: mikejo
-manager: ghogen
-translation.priority.ht:
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- ru-ru
-- zh-cn
-- zh-tw
-translation.priority.mt:
-- cs-cz
-- pl-pl
-- pt-br
-- tr-tr
-translationtype: Human Translation
-ms.sourcegitcommit: 5db97d19b1b823388a465bba15d057b30ff0b3ce
-ms.openlocfilehash: f76e8b2846f0a9dfd37799f6e6f205bee446bbe4
-
+author: "mikejo5000"
+ms.author: "mikejo"
+manager: "ghogen"
+caps.handback.revision: 46
 ---
 # <a name="javascript-memory"></a>“JavaScript 内存”
 JavaScript 内存分析器在 Visual Studio 中提供，旨在帮助你了解内存使用情况，在使用 JavaScript 为 Windows 构建的应用商店应用中查找内存泄漏。 受支持的应用包括 Windows Phone 应用商店应用和 Windows 应用商店应用。  

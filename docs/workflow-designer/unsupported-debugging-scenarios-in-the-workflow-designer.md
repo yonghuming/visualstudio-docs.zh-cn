@@ -1,17 +1,16 @@
 ---
 title: "工作流设计器中不受支持的调试方案 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/14/2016"
-ms.prod: ".net-framework-4.6"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.tgt_pltfrm: ""
 ms.topic: "reference"
 ms.assetid: 6adbe379-41d0-4681-9cd0-b91f187c3c2c
 caps.latest.revision: 4
-caps.handback.revision: 4
 ms.author: "sdanie"
 manager: "erikre"
+caps.handback.revision: 4
 ---
 # 工作流设计器中不受支持的调试方案
 [!INCLUDE[netfx40_short](../workflow-designer/includes/netfx40_short_md.md)] 中的工作流设计器添加了许多新功能，但仍存在一些它不支持的调试方案。本文档详细介绍了不受支持的工作流设计器调试方案。  

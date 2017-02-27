@@ -1,41 +1,23 @@
 ---
-title: "DA0024：GC 占用的 CPU 时间过多 | Microsoft Docs"
-ms.custom: 
-ms.date: 11/04/2016
-ms.reviewer: 
-ms.suite: 
-ms.technology:
-- vs-ide-debug
-ms.tgt_pltfrm: 
-ms.topic: article
-f1_keywords:
-- vs.performance.DA0024
-- vs.performance.24
-- vs.performance.rules.DA0024
+title: "DA0024：垃圾回收占用的 CPU 时间过多 | Microsoft Docs"
+ms.custom: ""
+ms.date: "11/04/2016"
+ms.reviewer: ""
+ms.suite: ""
+ms.technology: 
+  - "vs-ide-debug"
+ms.tgt_pltfrm: ""
+ms.topic: "article"
+f1_keywords: 
+  - "vs.performance.DA0024"
+  - "vs.performance.24"
+  - "vs.performance.rules.DA0024"
 ms.assetid: 228872da-77d0-4da5-b455-ac57fb1867c9
 caps.latest.revision: 10
-author: mikejo5000
-ms.author: mikejo
-manager: ghogen
-translation.priority.ht:
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- ru-ru
-- zh-cn
-- zh-tw
-translation.priority.mt:
-- cs-cz
-- pl-pl
-- pt-br
-- tr-tr
-translationtype: Human Translation
-ms.sourcegitcommit: 5db97d19b1b823388a465bba15d057b30ff0b3ce
-ms.openlocfilehash: b5c08a65b059fdaf5e70a2cac7de15ee108904a4
-
+author: "mikejo5000"
+ms.author: "mikejo"
+manager: "ghogen"
+caps.handback.revision: 10
 ---
 # <a name="da0024-excessive-gc-cpu-time"></a>DA0024：垃圾回收占用的 CPU 时间过多
 |||  

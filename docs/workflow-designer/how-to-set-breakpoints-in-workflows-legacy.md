@@ -1,8 +1,7 @@
 ---
 title: "如何：在工作流中设置断点（旧版） | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/15/2016"
-ms.prod: ".net-framework-4.6"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.tgt_pltfrm: ""
@@ -14,10 +13,10 @@ helpviewer_keywords:
   - "工作流, 设置断点"
 ms.assetid: 78e0be39-3e99-487c-bfef-19db0daf6f42
 caps.latest.revision: 6
-caps.handback.revision: 6
 author: "ErikRe"
 ms.author: "erikre"
 manager: "erikre"
+caps.handback.revision: 6
 ---
 # 如何：在工作流中设置断点（旧版）
 本主题介绍如何在使用旧 [!INCLUDE[wfd1](../workflow-designer/includes/wfd1_md.md)] 生成的 [!INCLUDE[wf](../workflow-designer/includes/wf_md.md)] 应用程序中设置断点。在 [!INCLUDE[wf2](../workflow-designer/includes/wf2_md.md)] 应用程序需要面向 [!INCLUDE[netfx35_long](../workflow-designer/includes/netfx35_long_md.md)] 或 [!INCLUDE[vstecwinfx](../workflow-designer/includes/vstecwinfx_md.md)] 时，请使用旧 [!INCLUDE[wfd2](../workflow-designer/includes/wfd2_md.md)]。  

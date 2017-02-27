@@ -1,8 +1,7 @@
 ---
 title: "IDiaFrameData::get_lengthLocals | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -15,10 +14,10 @@ helpviewer_keywords:
   - "IDiaFrameData::get_lengthLocals 方法"
 ms.assetid: 51fe15c3-4cd6-4a06-8a41-a56502209762
 caps.latest.revision: 8
-caps.handback.revision: 8
 author: "mikejo5000"
 ms.author: "mikejo"
 manager: "ghogen"
+caps.handback.revision: 8
 ---
 # IDiaFrameData::get_lengthLocals
 [!INCLUDE[vs2017banner](../../code-quality/includes/vs2017banner.md)]

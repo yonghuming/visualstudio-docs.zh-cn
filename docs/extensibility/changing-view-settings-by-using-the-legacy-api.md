@@ -1,8 +1,7 @@
 ---
 title: "通过使用旧 API 更改视图设置 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -13,9 +12,9 @@ helpviewer_keywords:
   - "编辑器 [Visual Studio SDK]，旧的更改查看设置"
 ms.assetid: 12c9b300-0894-4124-96a1-764326176d77
 caps.latest.revision: 18
-caps.handback.revision: 18
 ms.author: "gregvanl"
 manager: "ghogen"
+caps.handback.revision: 18
 ---
 # 通过使用旧 API 更改视图设置
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

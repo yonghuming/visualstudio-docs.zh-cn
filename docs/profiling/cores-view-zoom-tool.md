@@ -1,8 +1,7 @@
 ---
 title: "内核视图缩放工具 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -15,10 +14,10 @@ helpviewer_keywords:
   - "并发可视化工具, 内核视图缩放工具"
 ms.assetid: f7d48602-ba32-4487-b51a-89e596124108
 caps.latest.revision: 5
-caps.handback.revision: 5
 author: "mikejo5000"
 ms.author: "mikejo"
 manager: "ghogen"
+caps.handback.revision: 5
 ---
 # 内核视图缩放工具
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

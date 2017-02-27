@@ -1,8 +1,7 @@
 ---
 title: "如何：在编辑器中将 URL 显示为链接 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -15,10 +14,10 @@ helpviewer_keywords:
   - "URL, 打开"
 ms.assetid: 7c673953-476e-4897-9c2d-1fc15556c172
 caps.latest.revision: 9
-caps.handback.revision: 9
 author: "kempb"
 ms.author: "kempb"
 manager: "ghogen"
+caps.handback.revision: 9
 ---
 # 如何：在编辑器中将 URL 显示为链接
 [!INCLUDE[vs2017banner](../../code-quality/includes/vs2017banner.md)]

@@ -1,8 +1,7 @@
 ---
 title: "T4 文本模板指令 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-tfs-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.tgt_pltfrm: ""
@@ -16,10 +15,10 @@ helpviewer_keywords:
   - "文本模板, 模板指令"
 ms.assetid: 6898ee02-ebb2-4635-a4e9-350774c13cf2
 caps.latest.revision: 81
-caps.handback.revision: 81
 author: "alancameronwills"
 ms.author: "awills"
 manager: "douge"
+caps.handback.revision: 81
 ---
 # T4 文本模板指令
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

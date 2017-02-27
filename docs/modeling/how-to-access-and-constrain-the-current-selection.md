@@ -1,8 +1,7 @@
 ---
 title: "如何：访问和约束当前所选内容 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-tfs-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.tgt_pltfrm: ""
@@ -11,10 +10,10 @@ helpviewer_keywords:
   - "域特定语言, 访问当前选择"
 ms.assetid: 2990981e-dfae-416f-b0d0-7197f1242dfa
 caps.latest.revision: 14
-caps.handback.revision: 14
 author: "alancameronwills"
 ms.author: "awills"
 manager: "douge"
+caps.handback.revision: 14
 ---
 # 如何：访问和约束当前所选内容
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

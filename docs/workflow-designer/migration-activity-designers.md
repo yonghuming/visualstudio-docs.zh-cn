@@ -1,18 +1,17 @@
 ---
 title: "迁移活动设计器 | Microsoft Docs"
 ms.custom: ""
-ms.date: "09/27/2016"
-ms.prod: ".net-framework-4.6"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.tgt_pltfrm: ""
 ms.topic: "reference"
 ms.assetid: 7598e869-1da1-4721-b4bf-6cbe402be1a2
 caps.latest.revision: 5
-caps.handback.revision: 5
 author: "ErikRe"
 ms.author: "erikre"
 manager: "erikre"
+caps.handback.revision: 5
 ---
 # 迁移活动设计器
 迁移活动设计器用于从针对 [!INCLUDE[netfx40_long](../workflow-designer/includes/netfx40_long_md.md)]的工作流中调用工作流 3.0\/3.5 活动。本节中包含的主题介绍如何使用 [!INCLUDE[wfd2](../workflow-designer/includes/wfd2_md.md)] 活动设计器。  

@@ -1,8 +1,7 @@
 ---
 title: "VSCT 编译器命令行标志 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/15/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -14,9 +13,9 @@ helpviewer_keywords:
   - "命令表文件编译 （VSCT 文件）"
 ms.assetid: 9dc6c33f-e6cf-4cf2-9b05-e8f7bfac1cfb
 caps.latest.revision: 10
-caps.handback.revision: 10
 ms.author: "gregvanl"
 manager: "ghogen"
+caps.handback.revision: 10
 ---
 # VSCT 编译器命令行标志
 [!INCLUDE[vs2017banner](../../code-quality/includes/vs2017banner.md)]

@@ -1,8 +1,7 @@
 ---
 title: "示例 XSD 文件 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -11,10 +10,10 @@ ms.tgt_pltfrm: ""
 ms.topic: "article"
 ms.assetid: 6a3d0ab6-825e-42fa-8df0-37fbc5da9e73
 caps.latest.revision: 2
-caps.handback.revision: 2
 author: "kempb"
 ms.author: "kempb"
 manager: "ghogen"
+caps.handback.revision: 2
 ---
 # 示例 XSD 文件
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

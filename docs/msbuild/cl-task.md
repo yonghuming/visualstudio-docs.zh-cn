@@ -1,49 +1,32 @@
 ---
 title: "CL 任务 | Microsoft Docs"
-ms.custom: 
-ms.date: 11/04/2016
-ms.reviewer: 
-ms.suite: 
-ms.technology:
-- vs-ide-sdk
-ms.tgt_pltfrm: 
-ms.topic: article
-f1_keywords:
-- VC.Project.VCCLCompilerTool.UseUnicodeForAssemblerListing
-- vc.task.cl
-- VC.Project.VCCLCompilerTool.TreatSpecificWarningsAsErrors
-- VC.Project.VCCLCompilerTool.CreateHotpatchableImage
-dev_langs:
-- VB
-- CSharp
-- C++
-- jsharp
-helpviewer_keywords:
-- MSBuild (Visual C++), CL task
-- CL task (MSBuild (Visual C++))
+ms.custom: ""
+ms.date: "11/04/2016"
+ms.reviewer: ""
+ms.suite: ""
+ms.technology: 
+  - "vs-ide-sdk"
+ms.tgt_pltfrm: ""
+ms.topic: "article"
+f1_keywords: 
+  - "VC.Project.VCCLCompilerTool.UseUnicodeForAssemblerListing"
+  - "vc.task.cl"
+  - "VC.Project.VCCLCompilerTool.TreatSpecificWarningsAsErrors"
+  - "VC.Project.VCCLCompilerTool.CreateHotpatchableImage"
+dev_langs: 
+  - "VB"
+  - "CSharp"
+  - "C++"
+  - "jsharp"
+helpviewer_keywords: 
+  - "MSBuild （Visual c + +），CL 任务"
+  - "CL 任务 (MSBuild (Visual C++))"
 ms.assetid: 651ba971-b755-4f03-a549-4816beb3cc0d
 caps.latest.revision: 18
-author: kempb
-ms.author: kempb
-manager: ghogen
-translation.priority.ht:
-- cs-cz
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pl-pl
-- pt-br
-- ru-ru
-- tr-tr
-- zh-cn
-- zh-tw
-translationtype: Human Translation
-ms.sourcegitcommit: 5658ecf52637a38bc3c2a5ad9e85b2edebf7d445
-ms.openlocfilehash: 4ad346483c37e1f221ebd396a60d30b5bf94a028
-
+author: "kempb"
+ms.author: "kempb"
+manager: "ghogen"
+caps.handback.revision: 18
 ---
 # <a name="cl-task"></a>CL 任务
 包装 Visual C++ 编译器工具 cl.exe。 编译器生成可执行 (.exe) 文件、动态链接库 (.dll) 文件或者代码模块 (.netmodule) 文件。 有关详细信息，请参阅[编译器选项](/visual-cpp/build/reference/compiler-options)。  

@@ -1,8 +1,7 @@
 ---
 title: "选项、文本编辑器、所有语言 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -22,10 +21,10 @@ helpviewer_keywords:
   - "虚拟空间"
 ms.assetid: 49ee7306-9d46-4170-850f-a1716171752d
 caps.latest.revision: 20
-caps.handback.revision: 20
 author: "kempb"
 ms.author: "kempb"
 manager: "ghogen"
+caps.handback.revision: 20
 ---
 # 选项、文本编辑器、所有语言
 [!INCLUDE[vs2017banner](../../code-quality/includes/vs2017banner.md)]

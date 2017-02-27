@@ -1,8 +1,7 @@
 ---
 title: "CvReleaseProvider 函数 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -15,10 +14,10 @@ helpviewer_keywords:
   - "CvReleaseProvider 方法"
 ms.assetid: 8d74379e-295d-452b-bd5f-0769df387d4f
 caps.latest.revision: 3
-caps.handback.revision: 3
 author: "mikejo5000"
 ms.author: "mikejo"
 manager: "ghogen"
+caps.handback.revision: 3
 ---
 # CvReleaseProvider 函数
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

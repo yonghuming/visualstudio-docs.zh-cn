@@ -1,8 +1,7 @@
 ---
 title: "如何：指定 ClickOnce 应用程序的“开始”菜单名称 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/15/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -19,10 +18,10 @@ helpviewer_keywords:
   - "“开始”菜单资源名称"
 ms.assetid: 4b5183b2-2fd4-4433-9310-4a73bb12c4e3
 caps.latest.revision: 17
-caps.handback.revision: 17
 author: "stevehoag"
 ms.author: "shoag"
 manager: "wpickett"
+caps.handback.revision: 17
 ---
 # 如何：指定 ClickOnce 应用程序的“开始”菜单名称
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

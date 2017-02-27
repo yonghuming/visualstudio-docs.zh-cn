@@ -1,8 +1,7 @@
 ---
 title: "客户端块挂钩函数 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -25,10 +24,10 @@ helpviewer_keywords:
   - "挂钩, 客户端块"
 ms.assetid: f21c197e-565d-4e3f-9b27-4c018c9b87fc
 caps.latest.revision: 15
-caps.handback.revision: 15
 author: "mikejo5000"
 ms.author: "mikejo"
 manager: "ghogen"
+caps.handback.revision: 15
 ---
 # 客户端块挂钩函数
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

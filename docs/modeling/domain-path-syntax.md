@@ -1,8 +1,7 @@
 ---
 title: "域路径语法 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-tfs-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.tgt_pltfrm: ""
@@ -11,10 +10,10 @@ helpviewer_keywords:
   - "域特定语言, 域路径"
 ms.assetid: 945994f9-72b9-42e0-81b2-e5fb3d0e282d
 caps.latest.revision: 25
-caps.handback.revision: 25
 author: "alancameronwills"
 ms.author: "awills"
 manager: "douge"
+caps.handback.revision: 25
 ---
 # 域路径语法
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

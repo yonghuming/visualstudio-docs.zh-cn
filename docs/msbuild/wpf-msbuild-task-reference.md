@@ -1,8 +1,7 @@
 ---
 title: "WPF MSBuild 任务引用 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/15/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -21,10 +20,10 @@ helpviewer_keywords:
   - "WPF MSBuild 任务参考 [WPF MSBuild], 术语/定义表"
 ms.assetid: 96df0370-e50f-4ffc-9771-b12fb8721143
 caps.latest.revision: 4
-caps.handback.revision: 4
 author: "kempb"
 ms.author: "kempb"
 manager: "ghogen"
+caps.handback.revision: 4
 ---
 # WPF MSBuild 任务引用
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

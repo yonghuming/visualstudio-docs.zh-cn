@@ -1,8 +1,7 @@
 ---
 title: "在生成大型项目时有效使用内存 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -15,10 +14,10 @@ helpviewer_keywords:
   - "msbuild, 生成大型树时的高效内存使用"
 ms.assetid: 853a21ed-69f7-4817-af00-57f73e2c74b5
 caps.latest.revision: 11
-caps.handback.revision: 11
 author: "kempb"
 ms.author: "kempb"
 manager: "ghogen"
+caps.handback.revision: 11
 ---
 # 在生成大型项目时有效使用内存
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

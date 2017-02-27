@@ -1,8 +1,7 @@
 ---
 title: "“选项”对话框 -&gt;“环境”-&gt;“导入和导出设置” | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -13,10 +12,10 @@ f1_keywords:
   - "VS.ToolsOptionsPages.Environment.Profiles"
 ms.assetid: 4e69f97b-2bd2-4619-a5f9-92ca2e814de3
 caps.latest.revision: 3
-caps.handback.revision: 3
 author: "kempb"
 ms.author: "kempb"
 manager: "ghogen"
+caps.handback.revision: 3
 ---
 # “选项”对话框 -&gt;“环境”-&gt;“导入和导出设置”
 [!INCLUDE[vs2017banner](../../code-quality/includes/vs2017banner.md)]

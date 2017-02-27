@@ -1,8 +1,7 @@
 ---
 title: "如何：指定技术支持链接 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/15/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -23,10 +22,10 @@ helpviewer_keywords:
   - "网站, ClickOnce 支持创建"
 ms.assetid: 500aebee-545e-4831-a78b-b8671a008015
 caps.latest.revision: 15
-caps.handback.revision: 15
 author: "stevehoag"
 ms.author: "shoag"
 manager: "wpickett"
+caps.handback.revision: 15
 ---
 # 如何：指定技术支持链接
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

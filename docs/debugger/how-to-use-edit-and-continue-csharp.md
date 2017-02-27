@@ -1,8 +1,7 @@
 ---
 title: "如何：使用“编辑并继续”(C#) | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -18,10 +17,10 @@ helpviewer_keywords:
   - "编辑并继续 [C#], 关于“编辑并继续”"
 ms.assetid: 40e136d8-a08c-43bd-b313-fb821c55eb3c
 caps.latest.revision: 19
-caps.handback.revision: 19
 author: "mikejo5000"
 ms.author: "mikejo"
 manager: "ghogen"
+caps.handback.revision: 19
 ---
 # 如何：使用“编辑并继续”(C#)
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

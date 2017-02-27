@@ -1,78 +1,60 @@
 ---
-title: "Visual Studio 中的解决方案和项目| Microsoft Docs"
-ms.custom: 
-ms.date: 11/16/2016
-ms.reviewer: 
-ms.suite: 
-ms.technology:
-- vs-ide-general
-ms.tgt_pltfrm: 
-ms.topic: article
-f1_keywords:
-- vs.savedeferredsaveprojectonclose
-- vs.untrustedtemplateopeningdocuments
-- Project Properties.FullPath
-- vs.addnewsolutionitem
-- vs.environment.projects
-- vs.openproject
-- vs.getopenfilename
-- vs.addnewitem
-- vs.encoding
-- vs.addexistingitem
-- Project Properties.URL
-- VS.SolutionExplorer
-- Project Properties.FileName
-- SolutionProperties.Name
-- VS.SaveChangesDlg
-- vs.newproject
-- VS.SolutionExplorer.Selection
-- SolutionProperties.Path
-- vs.getdirectoryname
-- vs.addexistingsolutionitem
-- SolutionProperties.Description
-- vs.environment.solutions
-- vs.saveordiscarddeferredsaveproject
-- VS.SolutionExplorer.Solutions
-helpviewer_keywords:
-- vs.solutionpropertypages
-- vs.solutionpropertypages.startupproject
-- vs.solutionpropertypages.configurationsettings
-- solution items, folder in Solution Explorer
-- solution items, shared
-- solutions [Visual Studio]
-- project items [Visual Studio], about project items
-- workspaces
-- solutions [Visual Studio], designing
-- projects [Visual Studio]
-- solutions [Visual Studio], projects and
-- vs.solutionpropertypages.projectdependencies
-- applications [Visual Studio]
-- projects [Visual Studio], setting up
-- miscellaneous files
+title: "Visual Studio 中的解决方案和项目 | Microsoft Docs"
+ms.custom: ""
+ms.date: "11/16/2016"
+ms.reviewer: ""
+ms.suite: ""
+ms.technology: 
+  - "vs-ide-general"
+ms.tgt_pltfrm: ""
+ms.topic: "article"
+f1_keywords: 
+  - "vs.savedeferredsaveprojectonclose"
+  - "vs.untrustedtemplateopeningdocuments"
+  - "Project Properties.FullPath"
+  - "vs.addnewsolutionitem"
+  - "vs.environment.projects"
+  - "vs.openproject"
+  - "vs.getopenfilename"
+  - "vs.addnewitem"
+  - "vs.encoding"
+  - "vs.addexistingitem"
+  - "Project Properties.URL"
+  - "VS.SolutionExplorer"
+  - "Project Properties.FileName"
+  - "SolutionProperties.Name"
+  - "VS.SaveChangesDlg"
+  - "vs.newproject"
+  - "VS.SolutionExplorer.Selection"
+  - "SolutionProperties.Path"
+  - "vs.getdirectoryname"
+  - "vs.addexistingsolutionitem"
+  - "SolutionProperties.Description"
+  - "vs.environment.solutions"
+  - "vs.saveordiscarddeferredsaveproject"
+  - "VS.SolutionExplorer.Solutions"
+helpviewer_keywords: 
+  - "vs.solutionpropertypages"
+  - "vs.solutionpropertypages.startupproject"
+  - "vs.solutionpropertypages.configurationsettings"
+  - "解决方案项，在解决方案资源管理器中的文件夹"
+  - "解决方案项共享"
+  - "解决方案 [Visual Studio]"
+  - "关于项目项的项目项 [Visual Studio]"
+  - "工作区"
+  - "设计解决方案 [Visual Studio]"
+  - "项目 [Visual Studio]"
+  - "解决方案 [Visual Studio]，项目和"
+  - "vs.solutionpropertypages.projectdependencies"
+  - "应用程序 [Visual Studio]"
+  - "设置项目 [Visual Studio]"
+  - "杂项文件"
 ms.assetid: aeaf56cb-c2dd-47f6-b012-23b84b7a7254
 caps.latest.revision: 35
-author: kempb
-ms.author: kempb
-manager: ghogen
-translation.priority.ht:
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- ru-ru
-- zh-cn
-- zh-tw
-translation.priority.mt:
-- cs-cz
-- pl-pl
-- pt-br
-- tr-tr
-translationtype: Human Translation
-ms.sourcegitcommit: 5db97d19b1b823388a465bba15d057b30ff0b3ce
-ms.openlocfilehash: a88acb10478c5beb68cc6a12334f00145d183b1d
-
+author: "kempb"
+ms.author: "kempb"
+manager: "ghogen"
+caps.handback.revision: 35
 ---
 # <a name="solutions-and-projects-in-visual-studio"></a>Visual Studio 中的解决方案和项目
 在 Visual Studio 中创建应用、应用程序、网站、Web 应用、脚本、插件等时，会从 *项目*开始。 在逻辑意义上，项目包含所有源代码文件、图标、图像、数据文件以及将编译到可执行程序或网站中，或是执行编译所需的任何其他内容。  项目还包含所有编译器设置以及程序将与之通信的各种服务或组件需要的其他配置文件。

@@ -1,37 +1,19 @@
 ---
 title: "与我们交流 | Microsoft Docs"
-ms.custom: 
-ms.date: 01/10/2017
-ms.reviewer: 
-ms.suite: 
-ms.tgt_pltfrm: 
-ms.topic: article
-helpviewer_keywords:
-- product support [Visual Studio]
-- Help [Visual Studio], product support
+ms.custom: ""
+ms.date: "01/10/2017"
+ms.reviewer: ""
+ms.suite: ""
+ms.tgt_pltfrm: ""
+ms.topic: "article"
+helpviewer_keywords: 
+  - "产品支持 [Visual Studio]"
+  - "帮助 [Visual Studio], 产品支持"
 ms.assetid: e0846d4d-2ce1-48e3-b219-674ff070bf4e
-author: TerryGLee
-ms.author: tglee
-manager: ghogen
-translation.priority.ht:
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- ru-ru
-- zh-cn
-- zh-tw
-translation.priority.mt:
-- cs-cz
-- pl-pl
-- pt-br
-- tr-tr
-translationtype: Human Translation
-ms.sourcegitcommit: 34cc8dad76b93ee5a8d5b8f544e29f46aa5b6438
-ms.openlocfilehash: 604c1baf9424b63f3c0b8597e9ddb0adb686c33e
-
+author: "TerryGLee"
+ms.author: "tglee"
+manager: "ghogen"
+caps.handback.revision: 31
 ---
 # <a name="talk-to-us"></a>Talk to Us
 我们很希望了解你为改进我们的产品和文档所提出的建议。 我们无法总是一一答复，但我们保证你的反馈会传达给相应的负责人或团队。  

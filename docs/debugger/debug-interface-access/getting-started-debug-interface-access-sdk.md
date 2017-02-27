@@ -1,8 +1,7 @@
 ---
 title: "入门（调试接口访问 SDK） | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -16,10 +15,10 @@ helpviewer_keywords:
   - "DBG 文件"
 ms.assetid: cb3d040a-2846-40d7-bdbc-8a5beb5dd2f6
 caps.latest.revision: 15
-caps.handback.revision: 15
 author: "mikejo5000"
 ms.author: "mikejo"
 manager: "ghogen"
+caps.handback.revision: 15
 ---
 # 入门（调试接口访问 SDK）
 [!INCLUDE[vs2017banner](../../code-quality/includes/vs2017banner.md)]

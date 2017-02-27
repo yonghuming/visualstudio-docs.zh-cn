@@ -1,8 +1,7 @@
 ---
 title: "如何：使用 RPC 调试来调试 COM 客户端和服务器 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -28,10 +27,10 @@ helpviewer_keywords:
   - "RPC（远程过程调用）, 调试 COM 客户端和服务器"
 ms.assetid: 3e8526c8-43b5-4b87-8e0d-b22c24f0a3ea
 caps.latest.revision: 23
-caps.handback.revision: 23
 author: "mikejo5000"
 ms.author: "mikejo"
 manager: "ghogen"
+caps.handback.revision: 23
 ---
 # 如何：使用 RPC 调试来调试 COM 客户端和服务器
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

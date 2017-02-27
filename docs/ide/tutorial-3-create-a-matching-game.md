@@ -1,8 +1,7 @@
 ---
 title: "教程 3：创建匹配游戏 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -11,10 +10,10 @@ ms.tgt_pltfrm: ""
 ms.topic: "article"
 ms.assetid: 525815c8-2845-45e8-be96-100d1f144725
 caps.latest.revision: 13
-caps.handback.revision: 13
 author: "kempb"
 ms.author: "kempb"
 manager: "ghogen"
+caps.handback.revision: 13
 ---
 # 教程 3：创建匹配游戏
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

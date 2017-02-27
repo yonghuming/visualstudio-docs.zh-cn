@@ -1,8 +1,7 @@
 ---
 title: "符号和符号标记 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -15,10 +14,10 @@ helpviewer_keywords:
   - "符号 [DIA SDK]"
 ms.assetid: 2ee3a262-cda6-48bf-b799-a37edde6c8b8
 caps.latest.revision: 8
-caps.handback.revision: 8
 author: "mikejo5000"
 ms.author: "mikejo"
 manager: "ghogen"
+caps.handback.revision: 8
 ---
 # 符号和符号标记
 [!INCLUDE[vs2017banner](../../code-quality/includes/vs2017banner.md)]

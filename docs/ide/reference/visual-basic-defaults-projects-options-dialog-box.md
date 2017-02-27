@@ -1,8 +1,7 @@
 ---
 title: "“选项”对话框 -&gt;“项目”-&gt;“Visual Basic 默认值” | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -17,10 +16,10 @@ helpviewer_keywords:
   - "Option Strict 语句，在 IDE 中设置"
 ms.assetid: 2465cd9d-18b6-4c4a-b1ea-86dbab23fc79
 caps.latest.revision: 19
-caps.handback.revision: 19
 author: "kempb"
 ms.author: "kempb"
 manager: "ghogen"
+caps.handback.revision: 19
 ---
 # “选项”对话框 -&gt;“项目”-&gt;“Visual Basic 默认值”
 [!INCLUDE[vs2017banner](../../code-quality/includes/vs2017banner.md)]

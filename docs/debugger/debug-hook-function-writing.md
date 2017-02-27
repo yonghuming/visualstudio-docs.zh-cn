@@ -1,8 +1,7 @@
 ---
 title: "编写调试挂钩函数 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -25,10 +24,10 @@ helpviewer_keywords:
   - "挂钩, 调试"
 ms.assetid: 5510635f-cf69-4907-b72d-ae27af1f19af
 caps.latest.revision: 14
-caps.handback.revision: 14
 author: "mikejo5000"
 ms.author: "mikejo"
 manager: "ghogen"
+caps.handback.revision: 14
 ---
 # 编写调试挂钩函数
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

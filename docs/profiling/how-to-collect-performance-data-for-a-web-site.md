@@ -1,8 +1,7 @@
 ---
 title: "如何：为 Web 站点收集性能数据 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/16/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -21,10 +20,10 @@ helpviewer_keywords:
   - "ASP.NET, 性能分析"
 ms.assetid: a62d27fd-a966-4065-bebe-6874195a71fb
 caps.latest.revision: 33
-caps.handback.revision: 33
 author: "mikejo5000"
 ms.author: "mikejo"
 manager: "ghogen"
+caps.handback.revision: 33
 ---
 # 如何：为 Web 站点收集性能数据
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

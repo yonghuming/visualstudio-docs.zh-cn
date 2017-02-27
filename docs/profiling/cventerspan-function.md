@@ -1,53 +1,35 @@
 ---
 title: "CvEnterSpan 函数 | Microsoft Docs"
-ms.custom: 
-ms.date: 11/04/2016
-ms.reviewer: 
-ms.suite: 
-ms.technology:
-- vs-ide-debug
-ms.tgt_pltfrm: 
-ms.topic: article
-f1_keywords:
-- cvmarkers/CvEnterSpanVA
-- cvmarkers/CvEnterSpanW
-- cvmarkers/CvEnterSpanExW
-- cvmarkers/CvEnterSpanA
-- cvmarkers/CvEnterSpanExVW
-- cvmarkers/CvEnterSpanExA
-- cvmarkers/CvEnterSpanVW
-helpviewer_keywords:
-- CvEnterSpanVW method
-- CvEnterSpanVA method
-- CvEnterSpanExA method
-- CvEnterSpanW method
-- CvEnterSpanA method
-- CvEnterSpanExVW method
-- CvEnterSpanExW method
+ms.custom: ""
+ms.date: "11/04/2016"
+ms.reviewer: ""
+ms.suite: ""
+ms.technology: 
+  - "vs-ide-debug"
+ms.tgt_pltfrm: ""
+ms.topic: "article"
+f1_keywords: 
+  - "cvmarkers/CvEnterSpanVA"
+  - "cvmarkers/CvEnterSpanW"
+  - "cvmarkers/CvEnterSpanExW"
+  - "cvmarkers/CvEnterSpanA"
+  - "cvmarkers/CvEnterSpanExVW"
+  - "cvmarkers/CvEnterSpanExA"
+  - "cvmarkers/CvEnterSpanVW"
+helpviewer_keywords: 
+  - "CvEnterSpanVW 方法"
+  - "CvEnterSpanVA 方法"
+  - "CvEnterSpanExA 方法"
+  - "CvEnterSpanW 方法"
+  - "CvEnterSpanA 方法"
+  - "CvEnterSpanExVW 方法"
+  - "CvEnterSpanExW 方法"
 ms.assetid: 91689e9c-6733-44b9-b36a-8b9b2eef7d1d
 caps.latest.revision: 3
-author: mikejo5000
-ms.author: mikejo
-manager: ghogen
-translation.priority.ht:
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- ru-ru
-- zh-cn
-- zh-tw
-translation.priority.mt:
-- cs-cz
-- pl-pl
-- pt-br
-- tr-tr
-translationtype: Human Translation
-ms.sourcegitcommit: 5db97d19b1b823388a465bba15d057b30ff0b3ce
-ms.openlocfilehash: 6914ca5381408be57d284eb16f3db87841363a14
-
+author: "mikejo5000"
+ms.author: "mikejo"
+manager: "ghogen"
+caps.handback.revision: 3
 ---
 # <a name="cventerspan-function"></a>CvEnterSpan 函数
 标记新范围的起始位置。  

@@ -1,8 +1,7 @@
 ---
 title: "“导出”按钮（并发可视化工具） | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -15,10 +14,10 @@ helpviewer_keywords:
   - "并发可视化工具，“导出”按钮（并发可视化工具）"
 ms.assetid: 68550095-8a69-48ee-bb7e-eb5504810578
 caps.latest.revision: 3
-caps.handback.revision: 3
 author: "mikejo5000"
 ms.author: "mikejo"
 manager: "ghogen"
+caps.handback.revision: 3
 ---
 # “导出”按钮（并发可视化工具）
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

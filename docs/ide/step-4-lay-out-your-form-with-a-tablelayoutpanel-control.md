@@ -1,8 +1,7 @@
 ---
 title: "步骤 4：使用 TableLayoutPanel 控件设置窗体布局 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -11,10 +10,10 @@ ms.tgt_pltfrm: ""
 ms.topic: "article"
 ms.assetid: 61acde79-e115-4bad-bb06-1fbe37717a3e
 caps.latest.revision: 17
-caps.handback.revision: 17
 author: "kempb"
 ms.author: "kempb"
 manager: "ghogen"
+caps.handback.revision: 17
 ---
 # 步骤 4：使用 TableLayoutPanel 控件设置窗体布局
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

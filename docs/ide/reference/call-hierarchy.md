@@ -1,8 +1,7 @@
 ---
 title: "调用层次结构 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -15,10 +14,10 @@ helpviewer_keywords:
   - "调用层次结构"
 ms.assetid: c55bda01-d7de-4823-8f9a-1bcc37dbb74a
 caps.latest.revision: 40
-caps.handback.revision: 40
 author: "kempb"
 ms.author: "kempb"
 manager: "ghogen"
+caps.handback.revision: 40
 ---
 # 调用层次结构
 [!INCLUDE[vs2017banner](../../code-quality/includes/vs2017banner.md)]

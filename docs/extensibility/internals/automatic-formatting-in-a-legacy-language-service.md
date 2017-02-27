@@ -1,8 +1,7 @@
 ---
 title: "自动格式设置在传统语言服务 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -13,9 +12,9 @@ helpviewer_keywords:
   - "语言服务，自动格式设置"
 ms.assetid: c210fc94-77bd-4694-b312-045087d8a549
 caps.latest.revision: 10
-caps.handback.revision: 10
 ms.author: "gregvanl"
 manager: "ghogen"
+caps.handback.revision: 10
 ---
 # 自动格式设置在传统语言服务
 [!INCLUDE[vs2017banner](../../code-quality/includes/vs2017banner.md)]

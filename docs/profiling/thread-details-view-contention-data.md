@@ -1,8 +1,7 @@
 ---
 title: "“线程详细信息”视图 - 探查器争用数据 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -15,10 +14,10 @@ helpviewer_keywords:
   - "“线程详细信息”视图"
 ms.assetid: 874c3b1c-88d8-479a-bb35-1291d9aa8e67
 caps.latest.revision: 9
-caps.handback.revision: 9
 author: "mikejo5000"
 ms.author: "mikejo"
 manager: "ghogen"
+caps.handback.revision: 9
 ---
 # “线程详细信息”视图 - 探查器争用数据
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

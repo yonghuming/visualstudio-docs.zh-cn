@@ -1,8 +1,7 @@
 ---
 title: "“选项”对话框 -&gt;“环境”-&gt;“选项卡和窗口” | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -13,10 +12,10 @@ f1_keywords:
   - "VS.ToolsOptionsPages.Environment.TabsAndWindows"
 ms.assetid: f5167564-0a4e-4f98-9580-fc6cb7d9dd8d
 caps.latest.revision: 2
-caps.handback.revision: 2
 author: "kempb"
 ms.author: "kempb"
 manager: "ghogen"
+caps.handback.revision: 2
 ---
 # “选项”对话框 -&gt;“环境”-&gt;“选项卡和窗口”
 [!INCLUDE[vs2017banner](../../code-quality/includes/vs2017banner.md)]

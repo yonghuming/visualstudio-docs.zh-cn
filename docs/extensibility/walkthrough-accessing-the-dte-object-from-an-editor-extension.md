@@ -1,8 +1,7 @@
 ---
 title: "演练︰ 通过编辑器扩展访问 DTE 对象 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -13,9 +12,9 @@ helpviewer_keywords:
   - "编辑器 [Visual Studio SDK]，新的获取 DTE 对象"
 ms.assetid: c1f40bab-c6ec-45b0-8333-ea5ceb02a39d
 caps.latest.revision: 22
-caps.handback.revision: 22
 ms.author: "gregvanl"
 manager: "ghogen"
+caps.handback.revision: 22
 ---
 # 演练︰ 通过编辑器扩展访问 DTE 对象
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

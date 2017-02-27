@@ -1,8 +1,7 @@
 ---
 title: "实现了源代码管理插件的最佳做法 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/15/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -15,9 +14,9 @@ helpviewer_keywords:
   - "源代码管理 [Visual Studio SDK] 插件"
 ms.assetid: 85e73b73-29dc-464f-8734-ed308742c435
 caps.latest.revision: 17
-caps.handback.revision: 17
 ms.author: "gregvanl"
 manager: "ghogen"
+caps.handback.revision: 17
 ---
 # 实现了源代码管理插件的最佳做法
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

@@ -1,8 +1,7 @@
 ---
 title: "用于本地化的非特定资源语言 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/08/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -18,10 +17,10 @@ helpviewer_keywords:
   - "资源 [Visual Studio], 回调系统"
 ms.assetid: ef064995-3b84-4698-a708-9689b7723533
 caps.latest.revision: 8
-caps.handback.revision: 8
 author: "kempb"
 ms.author: "kempb"
 manager: "ghogen"
+caps.handback.revision: 8
 ---
 # 用于本地化的非特定资源语言
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

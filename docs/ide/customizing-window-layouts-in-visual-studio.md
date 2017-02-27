@@ -1,52 +1,34 @@
 ---
 title: "在 Visual Studio 中自定义窗口布局 | Microsoft Docs"
-ms.custom: 
-ms.date: 01/23/2017
-ms.reviewer: 
-ms.suite: 
-ms.technology:
-- vs-ide-general
-ms.tgt_pltfrm: 
-ms.topic: article
-f1_keywords:
-- vs.windows
-- vs.environment
-helpviewer_keywords:
-- windows [Visual Studio], managing
-- custom window configurations
-- layout [Visual Studio], window management
-- document windows [Visual Studio]
-- interface modes
-- AutoHide windows
-- MDI, window interface modes
-- multiple monitors
-- Tabbed Document mode
-- debug mode
-- custom layouts
+ms.custom: ""
+ms.date: "01/23/2017"
+ms.reviewer: ""
+ms.suite: ""
+ms.technology: 
+  - "vs-ide-general"
+ms.tgt_pltfrm: ""
+ms.topic: "article"
+f1_keywords: 
+  - "vs.windows"
+  - "vs.environment"
+helpviewer_keywords: 
+  - "AutoHide 窗口"
+  - "自定义布局"
+  - "自定义窗口配置"
+  - "调试模式"
+  - "文档窗口 [Visual Studio]"
+  - "接口模式"
+  - "布局 [Visual Studio], 窗口管理"
+  - "MDI, 窗口界面模式"
+  - "多监视器"
+  - "“选项卡式文档”模式"
+  - "窗口 [Visual Studio], 管理"
 ms.assetid: 7517ff13-76de-4ecf-9c1b-eb9b7ff4d718
 caps.latest.revision: 27
-author: kempb
-ms.author: kempb
-manager: ghogen
-translation.priority.ht:
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- ru-ru
-- zh-cn
-- zh-tw
-translation.priority.mt:
-- cs-cz
-- pl-pl
-- pt-br
-- tr-tr
-translationtype: Human Translation
-ms.sourcegitcommit: 841c635c00aea5e78396f27098a1e64fbe29a421
-ms.openlocfilehash: b2a09ceddbfcbfb8632f777f55229d186f6e5ae9
-
+author: "kempb"
+ms.author: "kempb"
+manager: "ghogen"
+caps.handback.revision: 27
 ---
 # <a name="customize-window-layouts-in-visual-studio"></a>在 Visual Studio 中自定义窗口布局
 在 Visual Studio 中，你可以自定义窗口的位置、大小和行为，以为各种开发工作流创建最佳窗口布局。 自定义布局时，IDE 会记住它。 例如，如果你更改了 **“解决方案资源管理器”** 的停靠位置然后关闭 Visual Studio，则下次启动时（即使在另一台计算机上工作）， **“解决方案资源管理器”** 将停靠在相同位置。 还可以为自定义布局命名并将其保存，并通过单个命令在各布局间切换。 例如，可以创建一个用于编辑的布局和另一个用于调试的布局，并通过使用“窗口”|“应用窗口布局”菜单命令在二者之间切换。  

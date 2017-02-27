@@ -1,8 +1,7 @@
 ---
 title: "进程调试管理器 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -14,9 +13,9 @@ helpviewer_keywords:
   - "调试 [调试 SDK]，计算机调试管理器"
 ms.assetid: d0861e0c-b819-490c-9604-5e6d08ac291a
 caps.latest.revision: 11
-caps.handback.revision: 11
 ms.author: "gregvanl"
 manager: "ghogen"
+caps.handback.revision: 11
 ---
 # 进程调试管理器
 [!INCLUDE[vs2017banner](../../code-quality/includes/vs2017banner.md)]

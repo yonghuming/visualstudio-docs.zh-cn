@@ -1,8 +1,7 @@
 ---
 title: "顺序工作流视图（旧版） | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/15/2016"
-ms.prod: ".net-framework-4.6"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.tgt_pltfrm: ""
@@ -12,10 +11,10 @@ helpviewer_keywords:
   - "顺序工作流, 视图"
 ms.assetid: 135f24b9-1b37-442b-9ef8-f0f2108a3212
 caps.latest.revision: 7
-caps.handback.revision: 7
 author: "ErikRe"
 ms.author: "erikre"
 manager: "erikre"
+caps.handback.revision: 7
 ---
 # 顺序工作流视图（旧版）
 [!INCLUDE[vs2010](../modeling/includes/vs2010_md.md)] 提供了一个旧 [!INCLUDE[wfd1](../workflow-designer/includes/wfd1_md.md)]，可用于面向 [!INCLUDE[netfx35_long](../workflow-designer/includes/netfx35_long_md.md)] 或 [!INCLUDE[vstecwinfx](../workflow-designer/includes/vstecwinfx_md.md)]。  

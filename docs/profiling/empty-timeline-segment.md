@@ -1,8 +1,7 @@
 ---
 title: "空时间线分段 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -15,10 +14,10 @@ helpviewer_keywords:
   - "并发可视化工具, 空时间线分段"
 ms.assetid: f37b301f-3edc-4e56-8084-feec2dc5a9b1
 caps.latest.revision: 11
-caps.handback.revision: 11
 author: "mikejo5000"
 ms.author: "mikejo"
 manager: "ghogen"
+caps.handback.revision: 11
 ---
 # 空时间线分段
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

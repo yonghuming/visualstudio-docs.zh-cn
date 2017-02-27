@@ -1,8 +1,7 @@
 ---
 title: "堆分配函数的“Debug”版本 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -27,10 +26,10 @@ helpviewer_keywords:
   - "内存泄漏, CRT 调试库功能"
 ms.assetid: 91748bdc-f4cd-4d8b-ab98-0493dab7ed0d
 caps.latest.revision: 17
-caps.handback.revision: 17
 author: "mikejo5000"
 ms.author: "mikejo"
 manager: "ghogen"
+caps.handback.revision: 17
 ---
 # 堆分配函数的“Debug”版本
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

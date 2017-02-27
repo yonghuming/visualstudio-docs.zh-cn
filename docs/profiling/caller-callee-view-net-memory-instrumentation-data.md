@@ -1,8 +1,7 @@
 ---
 title: "“调用方/被调用方”视图 - 探查器 .NET 内存检测数据 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -13,10 +12,10 @@ helpviewer_keywords:
   - "“调用方/被调用方”视图"
 ms.assetid: da624c06-8741-4afb-aad1-f8c0002f3de2
 caps.latest.revision: 12
-caps.handback.revision: 12
 author: "mikejo5000"
 ms.author: "mikejo"
 manager: "ghogen"
+caps.handback.revision: 12
 ---
 # “调用方/被调用方”视图 - 探查器 .NET 内存检测数据
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

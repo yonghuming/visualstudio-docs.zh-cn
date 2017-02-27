@@ -1,8 +1,7 @@
 ---
 title: "如何：在混合模式下调试 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -21,10 +20,10 @@ helpviewer_keywords:
   - "混合模式调试"
 ms.assetid: 2859067d-7fcc-46b0-a4df-8c2101500977
 caps.latest.revision: 29
-caps.handback.revision: 29
 author: "mikejo5000"
 ms.author: "mikejo"
 manager: "ghogen"
+caps.handback.revision: 29
 ---
 # 如何：在混合模式下调试
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

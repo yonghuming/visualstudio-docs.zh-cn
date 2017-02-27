@@ -1,8 +1,7 @@
 ---
 title: "如何：管理编辑器模式 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -27,10 +26,10 @@ helpviewer_keywords:
   - "自动换行"
 ms.assetid: 1fb48027-d870-439f-8b72-4a0321390748
 caps.latest.revision: 20
-caps.handback.revision: 20
 author: "kempb"
 ms.author: "kempb"
 manager: "ghogen"
+caps.handback.revision: 20
 ---
 # 如何：管理编辑器模式
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

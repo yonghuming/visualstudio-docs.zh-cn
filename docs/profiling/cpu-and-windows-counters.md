@@ -1,42 +1,24 @@
 ---
-title: "CPU 和 Windows 计数器 | Microsoft Docs"
-ms.custom: 
-ms.date: 11/04/2016
-ms.reviewer: 
-ms.suite: 
-ms.technology:
-- vs-ide-debug
-ms.tgt_pltfrm: 
-ms.topic: article
-f1_keywords:
-- vs.performance.property.counters
-helpviewer_keywords:
-- Windows counters in Profiling Tools
-- CPU counters in Profiling Tools
+title: "分析工具中的 CPU 和 Windows 计数器 | Microsoft Docs"
+ms.custom: ""
+ms.date: "11/04/2016"
+ms.reviewer: ""
+ms.suite: ""
+ms.technology: 
+  - "vs-ide-debug"
+ms.tgt_pltfrm: ""
+ms.topic: "article"
+f1_keywords: 
+  - "vs.performance.property.counters"
+helpviewer_keywords: 
+  - "分析工具中的 Windows 计数器"
+  - "分析工具中的 CPU 计数器"
 ms.assetid: d2c45c6a-f975-45ab-b8a5-4768ddd518fb
 caps.latest.revision: 28
-author: mikejo5000
-ms.author: mikejo
-manager: ghogen
-translation.priority.ht:
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- ru-ru
-- zh-cn
-- zh-tw
-translation.priority.mt:
-- cs-cz
-- pl-pl
-- pt-br
-- tr-tr
-translationtype: Human Translation
-ms.sourcegitcommit: 5db97d19b1b823388a465bba15d057b30ff0b3ce
-ms.openlocfilehash: 51d524bafd6e5014c1542b05d9fd3a908eca41df
-
+author: "mikejo5000"
+ms.author: "mikejo"
+manager: "ghogen"
+caps.handback.revision: 26
 ---
 # <a name="cpu-and-windows-counters"></a>CPU 和 Windows 计数器
 利用 Visual Studio 探查器，可以收集操作系统（Windows 计数器）生成的性能数据和处理器单元（CPU 计数器）生成的性能数据。  

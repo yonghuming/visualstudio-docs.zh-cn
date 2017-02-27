@@ -1,8 +1,7 @@
 ---
 title: "FullClassName 元素（Visual Studio 模板向导扩展） | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/15/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -15,9 +14,9 @@ helpviewer_keywords:
   - "FullClassName 元素 [Visual Studio 项目模板]"
 ms.assetid: 651e1010-d529-4856-85ff-c77ceca5d2ed
 caps.latest.revision: 9
-caps.handback.revision: 9
 ms.author: "gregvanl"
 manager: "ghogen"
+caps.handback.revision: 9
 ---
 # FullClassName 元素（Visual Studio 模板向导扩展）
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

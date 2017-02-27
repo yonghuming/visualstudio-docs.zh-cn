@@ -1,8 +1,7 @@
 ---
 title: "遗留语言服务可扩展性 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -14,9 +13,9 @@ helpviewer_keywords:
   - "Visual Studio 中，语言服务"
 ms.assetid: 2700cd4d-5f68-43fc-b62f-dc80c3f3aa85
 caps.latest.revision: 42
-caps.handback.revision: 42
 ms.author: "gregvanl"
 manager: "ghogen"
+caps.handback.revision: 42
 ---
 # 遗留语言服务可扩展性
 [!INCLUDE[vs2017banner](../../code-quality/includes/vs2017banner.md)]

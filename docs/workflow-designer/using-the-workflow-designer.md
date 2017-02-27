@@ -1,8 +1,7 @@
 ---
 title: "使用工作流设计器 | Microsoft Docs"
 ms.custom: ""
-ms.date: "09/02/2016"
-ms.prod: ".net-framework-4.6"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.tgt_pltfrm: ""
@@ -12,10 +11,10 @@ helpviewer_keywords:
   - "工作流设计器 [WFD], 使用"
 ms.assetid: 991a942f-29bc-4868-9299-ed80c5665ab5
 caps.latest.revision: 13
-caps.handback.revision: 13
 author: "ErikRe"
 ms.author: "erikre"
 manager: "erikre"
+caps.handback.revision: 13
 ---
 # 使用工作流设计器
 本节详细介绍如何使用内置设计器以及由多个活动设计器承载的表达式编辑器来创建新的活动和工作流项目。  

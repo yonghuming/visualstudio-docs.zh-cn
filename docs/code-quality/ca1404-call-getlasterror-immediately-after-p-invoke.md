@@ -1,8 +1,7 @@
 ---
 title: "CA1404：紧接在 P/Invoke 之后调用 GetLastError | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/14/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -17,10 +16,10 @@ helpviewer_keywords:
   - "CA1404"
 ms.assetid: 52ae9eff-50f9-4b2f-8039-ca7e49fba88e
 caps.latest.revision: 18
-caps.handback.revision: 18
 author: "stevehoag"
 ms.author: "shoag"
 manager: "wpickett"
+caps.handback.revision: 18
 ---
 # CA1404：紧接在 P/Invoke 之后调用 GetLastError
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

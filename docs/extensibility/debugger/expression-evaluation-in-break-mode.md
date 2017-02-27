@@ -1,8 +1,7 @@
 ---
 title: "在中断模式下的表达式计算 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -15,9 +14,9 @@ helpviewer_keywords:
   - "表达式计算、 中断模式"
 ms.assetid: 34fe5b58-15d5-4387-a266-72120f90a4b6
 caps.latest.revision: 10
-caps.handback.revision: 10
 ms.author: "gregvanl"
 manager: "ghogen"
+caps.handback.revision: 10
 ---
 # 在中断模式下的表达式计算
 [!INCLUDE[vs2017banner](../../code-quality/includes/vs2017banner.md)]

@@ -1,8 +1,7 @@
 ---
 title: "工作流设计器 UI 帮助 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/15/2016"
-ms.prod: ".net-framework-4.6"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.tgt_pltfrm: ""
@@ -12,10 +11,10 @@ helpviewer_keywords:
   - "工作流设计器 [WFD], 用户界面帮助"
 ms.assetid: f7afc443-7c7f-4b0f-9517-c58070a640de
 caps.latest.revision: 5
-caps.handback.revision: 5
 author: "ErikRe"
 ms.author: "erikre"
 manager: "erikre"
+caps.handback.revision: 5
 ---
 # 工作流设计器 UI 帮助
 本节包含 [!INCLUDE[wfd1](../workflow-designer/includes/wfd1_md.md)] 的上下文相关帮助主题。使用 [!INCLUDE[vs2010](../modeling/includes/vs2010_md.md)] 时，在 [!INCLUDE[wfd2](../workflow-designer/includes/wfd2_md.md)] 对话框打开的情况下按 **F1**，即可从用户界面访问这些主题。  

@@ -1,8 +1,7 @@
 ---
 title: "标志符号控件 (源控制 VSPackage) | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/15/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -14,9 +13,9 @@ helpviewer_keywords:
   - "源代码管理包，标志符号"
 ms.assetid: b9413b08-b3c3-4fc3-a6e0-3dc0db3652d7
 caps.latest.revision: 20
-caps.handback.revision: 20
 ms.author: "gregvanl"
 manager: "ghogen"
+caps.handback.revision: 20
 ---
 # 标志符号控件 (源控制 VSPackage)
 [!INCLUDE[vs2017banner](../../code-quality/includes/vs2017banner.md)]

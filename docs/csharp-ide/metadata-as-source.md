@@ -1,8 +1,7 @@
 ---
 title: "作为源代码的元数据 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -17,10 +16,10 @@ helpviewer_keywords:
   - "作为源代码的元数据 [C#]"
 ms.assetid: 4945a07f-b3be-4f05-a587-fc29058aa8fa
 caps.latest.revision: 14
-caps.handback.revision: 14
 author: "BillWagner"
 ms.author: "wiwagn"
 manager: "wpickett"
+caps.handback.revision: 14
 ---
 # 作为源代码的元数据
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

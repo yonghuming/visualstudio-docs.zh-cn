@@ -1,8 +1,7 @@
 ---
 title: "演练：用 Visual Basic 编写可视化工具 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/15/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -19,10 +18,10 @@ helpviewer_keywords:
   - "演练 [Visual Studio], 可视化工具"
 ms.assetid: c93bf5a1-3e5e-422f-894e-bd72c9bc1b57
 caps.latest.revision: 22
-caps.handback.revision: 22
 author: "mikejo5000"
 ms.author: "mikejo"
 manager: "ghogen"
+caps.handback.revision: 22
 ---
 # 演练：用 Visual Basic 编写可视化工具
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

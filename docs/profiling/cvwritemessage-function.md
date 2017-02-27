@@ -1,55 +1,37 @@
 ---
 title: "CvWriteMessage 函数 | Microsoft Docs"
-ms.custom: 
-ms.date: 11/04/2016
-ms.reviewer: 
-ms.suite: 
-ms.technology:
-- vs-ide-debug
-ms.tgt_pltfrm: 
-ms.topic: article
-f1_keywords:
-- cvmarkers/CvWriteMessageW
-- cvmarkers/CvWriteMessageExW
-- cvmarkers/CvWriteMessageVA
-- cvmarkers/CvWriteMessageExVW
-- cvmarkers/CvWriteMessageExA
-- cvmarkers/CvWriteMessageA
-- cvmarkers/CvWriteMessageExVA
-- cvmarkers/CvWriteMessageVW
-helpviewer_keywords:
-- CvWriteMessageExVA method
-- CvWriteMessageW method
-- CvWriteMessageVW method
-- CvWriteMessageExVW method
-- CvWriteMessageExW method
-- CvWriteMessageA method
-- CvWriteMessageVA method
-- CvWriteMessageExA method
+ms.custom: ""
+ms.date: "11/04/2016"
+ms.reviewer: ""
+ms.suite: ""
+ms.technology: 
+  - "vs-ide-debug"
+ms.tgt_pltfrm: ""
+ms.topic: "article"
+f1_keywords: 
+  - "cvmarkers/CvWriteMessageW"
+  - "cvmarkers/CvWriteMessageExW"
+  - "cvmarkers/CvWriteMessageVA"
+  - "cvmarkers/CvWriteMessageExVW"
+  - "cvmarkers/CvWriteMessageExA"
+  - "cvmarkers/CvWriteMessageA"
+  - "cvmarkers/CvWriteMessageExVA"
+  - "cvmarkers/CvWriteMessageVW"
+helpviewer_keywords: 
+  - "CvWriteMessageExVA 方法"
+  - "CvWriteMessageW 方法"
+  - "CvWriteMessageVW 方法"
+  - "CvWriteMessageExVW 方法"
+  - "CvWriteMessageExW 方法"
+  - "CvWriteMessageA 方法"
+  - "CvWriteMessageVA 方法"
+  - "CvWriteMessageExA 方法"
 ms.assetid: e20ae7be-bfa7-437a-b8c1-fa0f1baa7f83
 caps.latest.revision: 3
-author: mikejo5000
-ms.author: mikejo
-manager: ghogen
-translation.priority.ht:
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- ru-ru
-- zh-cn
-- zh-tw
-translation.priority.mt:
-- cs-cz
-- pl-pl
-- pt-br
-- tr-tr
-translationtype: Human Translation
-ms.sourcegitcommit: 5db97d19b1b823388a465bba15d057b30ff0b3ce
-ms.openlocfilehash: 76b65a7cdca1d14d9c9cb7f33abd7132bc0e1212
-
+author: "mikejo5000"
+ms.author: "mikejo"
+manager: "ghogen"
+caps.handback.revision: 3
 ---
 # <a name="cvwritemessage-function"></a>CvWriteMessage 函数
 向并发可视化工具跟踪文件写入一条消息。  

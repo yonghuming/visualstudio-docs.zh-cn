@@ -1,8 +1,7 @@
 ---
 title: "使用菜单命令创建扩展 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -16,9 +15,9 @@ helpviewer_keywords:
   - "visual studio 程序包"
 ms.assetid: f97104c8-2bcb-45c7-a3c9-85abeda8df98
 caps.latest.revision: 56
-caps.handback.revision: 56
 ms.author: "gregvanl"
 manager: "ghogen"
+caps.handback.revision: 56
 ---
 # 使用菜单命令创建扩展
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

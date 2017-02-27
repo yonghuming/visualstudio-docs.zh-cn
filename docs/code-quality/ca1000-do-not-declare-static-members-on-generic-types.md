@@ -1,8 +1,7 @@
 ---
 title: "CA1000：不要在泛型类型中声明静态成员 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -17,10 +16,10 @@ helpviewer_keywords:
   - "DoNotDeclareStaticMembersOnGenericTypes"
 ms.assetid: 5c0da594-f8d0-4f40-953d-56bf7fbd2087
 caps.latest.revision: 17
-caps.handback.revision: 17
 author: "stevehoag"
 ms.author: "shoag"
 manager: "wpickett"
+caps.handback.revision: 17
 ---
 # CA1000：不要在泛型类型中声明静态成员
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

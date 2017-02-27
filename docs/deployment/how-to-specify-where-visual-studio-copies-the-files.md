@@ -1,8 +1,7 @@
 ---
 title: "如何：指定 Visual Studio 复制文件的位置 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -18,10 +17,10 @@ helpviewer_keywords:
   - "发布, 指定位置"
 ms.assetid: 6c552700-dda3-49fe-af98-4717344fda07
 caps.latest.revision: 12
-caps.handback.revision: 12
 author: "stevehoag"
 ms.author: "shoag"
 manager: "wpickett"
+caps.handback.revision: 12
 ---
 # 如何：指定 Visual Studio 复制文件的位置
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

@@ -1,8 +1,7 @@
 ---
 title: "如何：仅使用键盘进行操作 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/15/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -18,10 +17,10 @@ helpviewer_keywords:
   - "窗口 [Visual Studio], 辅助功能"
 ms.assetid: d71a4cc1-d352-4164-8538-3f9fa070a331
 caps.latest.revision: 25
-caps.handback.revision: 25
 author: "kempb"
 ms.author: "kempb"
 manager: "ghogen"
+caps.handback.revision: 25
 ---
 # 如何：仅使用键盘进行操作
 [!INCLUDE[vs2017banner](../../code-quality/includes/vs2017banner.md)]

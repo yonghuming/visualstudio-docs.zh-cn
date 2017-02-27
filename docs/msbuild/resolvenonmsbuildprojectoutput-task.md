@@ -1,8 +1,7 @@
 ---
 title: "ResolveNonMSBuildProjectOutput 任务 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -19,10 +18,10 @@ helpviewer_keywords:
   - "ResolveNonMSBuildProjectOutput 任务 [MSBuild]"
 ms.assetid: a0b8fcec-8c8d-4867-85ac-5304c5108e5e
 caps.latest.revision: 4
-caps.handback.revision: 4
 author: "kempb"
 ms.author: "kempb"
 manager: "ghogen"
+caps.handback.revision: 4
 ---
 # ResolveNonMSBuildProjectOutput 任务
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

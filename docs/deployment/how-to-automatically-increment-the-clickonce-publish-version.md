@@ -1,8 +1,7 @@
 ---
 title: "如何：自动递增 ClickOnce 发布版本 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/15/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -20,10 +19,10 @@ helpviewer_keywords:
   - "发布, ClickOnce"
 ms.assetid: 686ab88a-6305-4914-a05b-fe269cc0ae1e
 caps.latest.revision: 9
-caps.handback.revision: 9
 author: "stevehoag"
 ms.author: "shoag"
 manager: "wpickett"
+caps.handback.revision: 9
 ---
 # 如何：自动递增 ClickOnce 发布版本
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

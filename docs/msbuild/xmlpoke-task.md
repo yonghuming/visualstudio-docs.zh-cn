@@ -1,8 +1,7 @@
 ---
 title: "XmlPoke 任务 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -19,10 +18,10 @@ helpviewer_keywords:
   - "XmlPoke 任务 [MSBuild]"
 ms.assetid: 6ba1953c-be3b-4df8-8561-e133408f8270
 caps.latest.revision: 4
-caps.handback.revision: 4
 author: "kempb"
 ms.author: "kempb"
 manager: "ghogen"
+caps.handback.revision: 4
 ---
 # XmlPoke 任务
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

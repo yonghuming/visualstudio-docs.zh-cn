@@ -1,8 +1,7 @@
 ---
 title: "Move 任务 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -19,10 +18,10 @@ helpviewer_keywords:
   - "MSBuild, Move 任务"
 ms.assetid: d1405347-1309-4f18-b565-905408093d59
 caps.latest.revision: 4
-caps.handback.revision: 4
 author: "kempb"
 ms.author: "kempb"
 manager: "ghogen"
+caps.handback.revision: 4
 ---
 # Move 任务
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

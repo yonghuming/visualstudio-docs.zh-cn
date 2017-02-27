@@ -1,8 +1,7 @@
 ---
 title: "如何：查看脚本文档 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/16/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -18,10 +17,10 @@ helpviewer_keywords:
   - "脚本资源管理器"
 ms.assetid: 8b621e53-4508-4b4a-9995-70995b0b9ac8
 caps.latest.revision: 22
-caps.handback.revision: 22
 author: "mikejo5000"
 ms.author: "mikejo"
 manager: "ghogen"
+caps.handback.revision: 22
 ---
 # 如何：查看脚本文档
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

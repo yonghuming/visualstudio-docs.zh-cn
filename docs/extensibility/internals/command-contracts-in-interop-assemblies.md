@@ -1,8 +1,7 @@
 ---
 title: "在互操作程序集的命令协定 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -14,9 +13,9 @@ helpviewer_keywords:
   - "互操作程序集，命令协定"
 ms.assetid: 57245708-f539-42dc-8963-2754a48f0189
 caps.latest.revision: 13
-caps.handback.revision: 13
 ms.author: "gregvanl"
 manager: "ghogen"
+caps.handback.revision: 13
 ---
 # 在互操作程序集的命令协定
 [!INCLUDE[vs2017banner](../../code-quality/includes/vs2017banner.md)]

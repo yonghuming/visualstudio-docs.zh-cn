@@ -1,54 +1,37 @@
 ---
 title: "MIDL 任务 | Microsoft Docs"
-ms.custom: 
-ms.date: 11/04/2016
-ms.reviewer: 
-ms.suite: 
-ms.technology:
-- vs-ide-sdk
-ms.tgt_pltfrm: 
-ms.topic: article
-f1_keywords:
-- VC.Project.VCMidlTool.ServerStubFile
-- VC.Project.VCMidlTool.ApplicationConfigurationMode
-- VC.Project.VCMidlTool.GenerateServerFiles
-- VC.Project.VCMidlTool.ClientStubFile
-- VC.Project.VCMidlTool.LocaleID
-- VC.Project.VCMidlTool.GenerateClientFiles
-- VC.Project.VCMidlTool.SuppressCompilerWarnings
-- VC.Project.VCMidlTool.TypeLibFormat
-- vc.task.midl
-dev_langs:
-- VB
-- CSharp
-- C++
-- jsharp
-helpviewer_keywords:
-- MSBuild (Visual C++), MIDL task
-- MIDL task (MSBuild (Visual C++))
+ms.custom: ""
+ms.date: "11/04/2016"
+ms.reviewer: ""
+ms.suite: ""
+ms.technology: 
+  - "vs-ide-sdk"
+ms.tgt_pltfrm: ""
+ms.topic: "article"
+f1_keywords: 
+  - "VC.Project.VCMidlTool.ServerStubFile"
+  - "VC.Project.VCMidlTool.ApplicationConfigurationMode"
+  - "VC.Project.VCMidlTool.GenerateServerFiles"
+  - "VC.Project.VCMidlTool.ClientStubFile"
+  - "VC.Project.VCMidlTool.LocaleID"
+  - "VC.Project.VCMidlTool.GenerateClientFiles"
+  - "VC.Project.VCMidlTool.SuppressCompilerWarnings"
+  - "VC.Project.VCMidlTool.TypeLibFormat"
+  - "vc.task.midl"
+dev_langs: 
+  - "VB"
+  - "CSharp"
+  - "C++"
+  - "jsharp"
+helpviewer_keywords: 
+  - "MSBuild （Visual c + +），MIDL 任务"
+  - "MIDL 任务 (MSBuild (Visual C++))"
 ms.assetid: 727efa8c-3336-40b8-8bef-ae6cbd77a422
 caps.latest.revision: 8
-author: kempb
-ms.author: kempb
-manager: ghogen
-translation.priority.ht:
-- cs-cz
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pl-pl
-- pt-br
-- ru-ru
-- tr-tr
-- zh-cn
-- zh-tw
-translationtype: Human Translation
-ms.sourcegitcommit: 5db97d19b1b823388a465bba15d057b30ff0b3ce
-ms.openlocfilehash: b3d922c4aee9136a35e1a2c9669f7cf3380d7609
-
+author: "kempb"
+ms.author: "kempb"
+manager: "ghogen"
+caps.handback.revision: 8
 ---
 # <a name="midl-task"></a>MIDL 任务
 包装 Microsoft 接口定义语言 (MIDL) 编译器工具 midl.exe。 有关详细信息，请参阅 [MSDN](http://go.microsoft.com/fwlink/?LinkId=737) 网站上的“MIDL 命令行参考”。  

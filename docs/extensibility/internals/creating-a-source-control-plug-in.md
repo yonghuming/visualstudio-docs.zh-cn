@@ -1,8 +1,7 @@
 ---
 title: "创建了源代码管理插件 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/15/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -15,9 +14,9 @@ helpviewer_keywords:
   - "源代码管理 [Visual Studio SDK] 插件"
 ms.assetid: c7e69fa4-150e-469a-a6fc-fa1260bdbb07
 caps.latest.revision: 18
-caps.handback.revision: 18
 ms.author: "gregvanl"
 manager: "ghogen"
+caps.handback.revision: 18
 ---
 # 创建了源代码管理插件
 [!INCLUDE[vs2017banner](../../code-quality/includes/vs2017banner.md)]

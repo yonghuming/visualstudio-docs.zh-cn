@@ -1,8 +1,7 @@
 ---
 title: "如何︰ 隐藏的文本，在提供支持传统语言服务 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -15,9 +14,9 @@ helpviewer_keywords:
   - "语言服务，实现隐藏的文本区域"
 ms.assetid: 1c1dce9f-bbe2-4fc3-a736-5f78a237f4cc
 caps.latest.revision: 21
-caps.handback.revision: 21
 ms.author: "gregvanl"
 manager: "ghogen"
+caps.handback.revision: 21
 ---
 # 如何︰ 隐藏的文本，在提供支持传统语言服务
 [!INCLUDE[vs2017banner](../../code-quality/includes/vs2017banner.md)]

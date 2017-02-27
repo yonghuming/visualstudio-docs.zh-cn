@@ -1,8 +1,7 @@
 ---
 title: "PTVS 入门：调试 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -11,10 +10,10 @@ ms.tgt_pltfrm: ""
 ms.topic: "article"
 ms.assetid: 82803559-1d60-4c57-98fb-2dc1e0182b42
 caps.latest.revision: 4
-caps.handback.revision: 4
 author: "kraigb"
 ms.author: "kraigb"
 manager: "ghogen"
+caps.handback.revision: 4
 ---
 # PTVS 入门：调试
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

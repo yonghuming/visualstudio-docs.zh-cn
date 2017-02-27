@@ -1,8 +1,7 @@
 ---
 title: "将目录添加到新建项目对话框 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/15/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -13,9 +12,9 @@ helpviewer_keywords:
   - "新项目对话框中，扩展"
 ms.assetid: 53b328f5-20bb-49a3-bf9e-1818f4fbdf50
 caps.latest.revision: 13
-caps.handback.revision: 13
 ms.author: "gregvanl"
 manager: "ghogen"
+caps.handback.revision: 13
 ---
 # 将目录添加到新建项目对话框
 [!INCLUDE[vs2017banner](../../code-quality/includes/vs2017banner.md)]

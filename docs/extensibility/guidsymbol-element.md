@@ -1,8 +1,7 @@
 ---
 title: "GuidSymbol 元素 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -14,9 +13,9 @@ helpviewer_keywords:
   - "GuidSymbol 元素 (VSCT XML 架构)"
 ms.assetid: 11fb3545-8974-4776-9a54-6b6e7739ae31
 caps.latest.revision: 8
-caps.handback.revision: 8
 ms.author: "gregvanl"
 manager: "ghogen"
+caps.handback.revision: 8
 ---
 # GuidSymbol 元素
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

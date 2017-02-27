@@ -1,8 +1,7 @@
 ---
 title: "用法警告 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -18,10 +17,10 @@ helpviewer_keywords:
   - "用法警告"
 ms.assetid: fe7dc2a3-289d-4bf7-a1e4-0947a81287c4
 caps.latest.revision: 24
-caps.handback.revision: 24
 author: "stevehoag"
 ms.author: "shoag"
 manager: "wpickett"
+caps.handback.revision: 24
 ---
 # 用法警告
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

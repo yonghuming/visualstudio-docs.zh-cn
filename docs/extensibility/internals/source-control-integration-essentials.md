@@ -1,8 +1,7 @@
 ---
 title: "源控制集成 Essentials | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/15/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -15,9 +14,9 @@ helpviewer_keywords:
   - "essentials 的服务器，源代码管理集成"
 ms.assetid: 442057cb-fd54-4283-96f8-2f6dc8bf2de7
 caps.latest.revision: 9
-caps.handback.revision: 9
 ms.author: "gregvanl"
 manager: "ghogen"
+caps.handback.revision: 9
 ---
 # 源控制集成 Essentials
 [!INCLUDE[vs2017banner](../../code-quality/includes/vs2017banner.md)]

@@ -1,53 +1,36 @@
 ---
 title: "全球 Windows 窗体和 Web 窗体的区域性特定类 | Microsoft Docs"
-ms.custom: 
-ms.date: 11/04/2016
-ms.reviewer: 
-ms.suite: 
-ms.technology:
-- vs-ide-general
-ms.tgt_pltfrm: 
-ms.topic: article
-helpviewer_keywords:
-- globalization [Windows Forms], classes
-- Web applications [.NET Framework], globalization
-- culture, culture-specific classes
-- numbers, international
-- localization [Windows Forms], classes
-- globalization [Visual Studio], culture-specific classes
-- Windows Forms, localization
-- international applications [Visual Studio], data formats
-- time [Visual Studio], international
-- dates [Visual Studio], international
-- culture
-- international characters
-- currency formats
-- ASP.NET, globalization
-- classes [Visual Studio], culture-specific
-- localization [Visual Studio], culture-specific classes
+ms.custom: ""
+ms.date: "11/04/2016"
+ms.reviewer: ""
+ms.suite: ""
+ms.technology: 
+  - "vs-ide-general"
+ms.tgt_pltfrm: ""
+ms.topic: "article"
+helpviewer_keywords: 
+  - "全球化 [Windows 窗体], 类"
+  - "Web 应用程序 [.NET Framework], 全球化"
+  - "区域性, 特定于区域性的类"
+  - "数字, 国际化"
+  - "本地化 [Windows 窗体], 类"
+  - "全球化 [Visual Studio], 特定于区域性的类"
+  - "Windows 窗体, 本地化"
+  - "国际应用程序 [Visual Studio], 数据格式"
+  - "时间 [Visual Studio], 国际化"
+  - "日期 [Visual Studio], 国际化"
+  - "区域性"
+  - "国际字符"
+  - "货币格式"
+  - "ASP.NET, 全球化"
+  - "类 [Visual Studio], 区域性特定"
+  - "本地化 [Visual Studio], 特定于区域性的类"
 ms.assetid: 0d06a0a4-f887-4f7c-bde7-1d543c06f803
 caps.latest.revision: 10
-author: kempb
-ms.author: kempb
-manager: ghogen
-translation.priority.ht:
-- cs-cz
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pl-pl
-- pt-br
-- ru-ru
-- tr-tr
-- zh-cn
-- zh-tw
-translationtype: Human Translation
-ms.sourcegitcommit: 5658ecf52637a38bc3c2a5ad9e85b2edebf7d445
-ms.openlocfilehash: 3fb3b66548077a2f92289f1a2f02cc8ae77544cc
-
+author: "kempb"
+ms.author: "kempb"
+manager: "ghogen"
+caps.handback.revision: 10
 ---
 # <a name="culture-specific-classes-for-global-windows-forms-and-web-forms"></a>全球 Windows 窗体和 Web 窗体的区域性特定类
 每个区域性都具有有关显示日期、时间、数字、货币和其他信息的不同约定。 <xref:System.Globalization> 命名空间包含某些类，这些类可用于修改区域性特定的值的显示方式，如 <xref:System.Globalization.DateTimeFormatInfo>、**Calendar** 和 <xref:System.Globalization.NumberFormatInfo>。  

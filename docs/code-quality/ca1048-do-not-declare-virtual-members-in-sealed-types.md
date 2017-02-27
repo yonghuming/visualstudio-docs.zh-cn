@@ -1,8 +1,7 @@
 ---
 title: "CA1048：不要在密封类型中声明虚拟成员 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -17,10 +16,10 @@ helpviewer_keywords:
   - "DoNotDeclareVirtualMembersInSealedTypes"
 ms.assetid: 5dcf4a30-6f98-48a8-b8cc-7b89ea757262
 caps.latest.revision: 13
-caps.handback.revision: 13
 author: "stevehoag"
 ms.author: "shoag"
 manager: "wpickett"
+caps.handback.revision: 13
 ---
 # CA1048：不要在密封类型中声明虚拟成员
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

@@ -1,8 +1,7 @@
 ---
 title: "在编辑器内 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -13,9 +12,9 @@ helpviewer_keywords:
   - "编辑器 [Visual Studio SDK]，新的体系结构"
 ms.assetid: 822cbb8d-7ab4-40ee-bd12-44016ebcce81
 caps.latest.revision: 31
-caps.handback.revision: 31
 ms.author: "gregvanl"
 manager: "ghogen"
+caps.handback.revision: 31
 ---
 # 在编辑器内
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

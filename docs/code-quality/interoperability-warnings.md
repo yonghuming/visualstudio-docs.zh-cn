@@ -1,8 +1,7 @@
 ---
 title: "互操作性警告 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/15/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -17,10 +16,10 @@ helpviewer_keywords:
   - "警告, 互操作性"
 ms.assetid: 95de6eb3-40c4-4063-9f59-25cb70e3b2b3
 caps.latest.revision: 18
-caps.handback.revision: 18
 author: "stevehoag"
 ms.author: "shoag"
 manager: "wpickett"
+caps.handback.revision: 18
 ---
 # 互操作性警告
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

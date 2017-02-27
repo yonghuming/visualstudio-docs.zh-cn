@@ -1,8 +1,7 @@
 ---
 title: "CA2241：为格式化方法提供正确的参数 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -18,10 +17,10 @@ helpviewer_keywords:
   - "ProvideCorrectArgumentsToFormattingMethods"
 ms.assetid: 83639bc4-4c91-4a07-a40e-dc5e49a84494
 caps.latest.revision: 12
-caps.handback.revision: 12
 author: "stevehoag"
 ms.author: "shoag"
 manager: "wpickett"
+caps.handback.revision: 12
 ---
 # CA2241：为格式化方法提供正确的参数
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

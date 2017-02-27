@@ -1,8 +1,7 @@
 ---
 title: "m_stateObject 字段 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -13,9 +12,9 @@ helpviewer_keywords:
   - "m_stateObject 字段中，任务类 [.NET Framework 的调试引擎]"
 ms.assetid: 68c54b22-3e1c-4031-b9c7-b972c519d8a0
 caps.latest.revision: 13
-caps.handback.revision: 13
 ms.author: "gregvanl"
 manager: "ghogen"
+caps.handback.revision: 13
 ---
 # m_stateObject 字段
 [!INCLUDE[vs2017banner](../../code-quality/includes/vs2017banner.md)]

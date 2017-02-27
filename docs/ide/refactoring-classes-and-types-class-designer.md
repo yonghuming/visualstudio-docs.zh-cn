@@ -1,48 +1,30 @@
 ---
-title: "重构类和类型（类设计器）| Microsoft Docs"
-ms.custom: 
-ms.date: 11/04/2016
-ms.reviewer: 
-ms.suite: 
-ms.technology:
-- vs-ide-general
-ms.tgt_pltfrm: 
-ms.topic: article
-f1_keywords:
-- vs.ClassDesigner.OverrideMembersDialog
-helpviewer_keywords:
-- members, overriding
-- overriding members
-- classes [Visual Studio], refactoring
-- type members, overriding
-- refactoring, types
-- types [Visual Studio], refactoring
-- Class Designer [Visual Studio], refactoring classes
-- refactoring, classes
+title: "Refactoring Classes and Types (Class Designer) | Microsoft Docs"
+ms.custom: ""
+ms.date: "11/04/2016"
+ms.reviewer: ""
+ms.suite: ""
+ms.technology: 
+  - "vs-ide-general"
+ms.tgt_pltfrm: ""
+ms.topic: "article"
+f1_keywords: 
+  - "vs.ClassDesigner.OverrideMembersDialog"
+helpviewer_keywords: 
+  - "members, overriding"
+  - "overriding members"
+  - "classes [Visual Studio], refactoring"
+  - "type members, overriding"
+  - "refactoring, types"
+  - "types [Visual Studio], refactoring"
+  - "Class Designer [Visual Studio], refactoring classes"
+  - "refactoring, classes"
 ms.assetid: dcf07bb4-fa3b-4224-9dec-566fd924a8ce
 caps.latest.revision: 26
-author: kempb
-ms.author: kempb
-manager: ghogen
-translation.priority.ht:
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- ru-ru
-- zh-cn
-- zh-tw
-translation.priority.mt:
-- cs-cz
-- pl-pl
-- pt-br
-- tr-tr
-translationtype: Human Translation
-ms.sourcegitcommit: 5db97d19b1b823388a465bba15d057b30ff0b3ce
-ms.openlocfilehash: d0d537c3611faff3b81760daf95b6fc01e0d01a0
-
+author: "kempb"
+ms.author: "kempb"
+manager: "ghogen"
+caps.handback.revision: 26
 ---
 # <a name="refactoring-classes-and-types-class-designer"></a>重构类和类型（类设计器）
 重构代码时，通过更改它的内部结构和它的对象的设计方式，而不是更改它的外部行为，你可以让它变得更易理解、维护以及更加高效。 在 Visual Studio 项目中重构 Visual C#.NET、Visual Basic.NET 或 C++ 代码时可以通过使用类设计器和类的详细信息窗口减少必要的工作量并降低引入 bug 的几率。  

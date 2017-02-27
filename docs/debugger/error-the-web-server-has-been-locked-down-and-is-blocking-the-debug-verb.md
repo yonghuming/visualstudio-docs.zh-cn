@@ -1,8 +1,7 @@
 ---
 title: "错误：Web 服务器已被锁定，正在阻塞 DEBUG 谓词 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -20,10 +19,10 @@ helpviewer_keywords:
   - "调试器, Web 应用程序错误"
 ms.assetid: 9c8c4812-17db-484d-9c1b-ffd9e3bfef5a
 caps.latest.revision: 10
-caps.handback.revision: 10
 author: "mikejo5000"
 ms.author: "mikejo"
 manager: "ghogen"
+caps.handback.revision: 10
 ---
 # 错误：Web 服务器已被锁定，正在阻塞 DEBUG 谓词
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

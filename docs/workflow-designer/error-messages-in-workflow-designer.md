@@ -1,8 +1,7 @@
 ---
 title: "工作流设计器中的错误消息 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/15/2016"
-ms.prod: ".net-framework-4.6"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.tgt_pltfrm: ""
@@ -13,10 +12,10 @@ f1_keywords:
   - "System.Activities.Presentation.View.ErrorView.UI"
 ms.assetid: 4d8bbc2e-34fc-477f-9140-4adfd70c34a0
 caps.latest.revision: 5
-caps.handback.revision: 5
 author: "ErikRe"
 ms.author: "erikre"
 manager: "erikre"
+caps.handback.revision: 5
 ---
 # 工作流设计器中的错误消息
 本主题介绍在使用 [!INCLUDE[wfd1](../workflow-designer/includes/wfd1_md.md)] 时可能遇到的错误消息的类型。  

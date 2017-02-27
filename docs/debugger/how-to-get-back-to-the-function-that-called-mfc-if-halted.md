@@ -1,8 +1,7 @@
 ---
 title: "如何：返回到在中断时调用了 MFC 的函数 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -27,10 +26,10 @@ helpviewer_keywords:
   - "程序, 暂停"
 ms.assetid: d254a5a9-afbd-4923-9d7a-7422d824cabf
 caps.latest.revision: 18
-caps.handback.revision: 18
 author: "mikejo5000"
 ms.author: "mikejo"
 manager: "ghogen"
+caps.handback.revision: 18
 ---
 # 如何：返回到在中断时调用了 MFC 的函数
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

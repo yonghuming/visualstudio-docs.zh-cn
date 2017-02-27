@@ -1,8 +1,7 @@
 ---
 title: "如何：在托管代码中设置线程名称 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -21,10 +20,10 @@ helpviewer_keywords:
   - "线程处理 [Visual Studio], 名称"
 ms.assetid: c0c4d74a-0314-4b71-81c9-b0b019347ab8
 caps.latest.revision: 28
-caps.handback.revision: 28
 author: "mikejo5000"
 ms.author: "mikejo"
 manager: "ghogen"
+caps.handback.revision: 28
 ---
 # 如何：在托管代码中设置线程名称
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

@@ -1,8 +1,7 @@
 ---
 title: "调试 Web 应用程序 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/14/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -21,10 +20,10 @@ helpviewer_keywords:
   - "调试 ASP.NET Web 应用程序, 关于调试 ASP.NET Web 应用程序"
 ms.assetid: a096a90d-6d0d-4752-9fb5-417635ccab3e
 caps.latest.revision: 24
-caps.handback.revision: 24
 author: "mikejo5000"
 ms.author: "mikejo"
 manager: "ghogen"
+caps.handback.revision: 24
 ---
 # 调试 Web 应用程序
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

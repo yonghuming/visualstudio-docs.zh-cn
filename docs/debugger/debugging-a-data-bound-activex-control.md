@@ -1,8 +1,7 @@
 ---
 title: "调试数据绑定 ActiveX 控件 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -20,10 +19,10 @@ helpviewer_keywords:
   - "数据绑定控件, ActiveX"
 ms.assetid: 9f6e1f00-e25b-48a9-8484-7e67a1232461
 caps.latest.revision: 15
-caps.handback.revision: 15
 author: "mikejo5000"
 ms.author: "mikejo"
 manager: "ghogen"
+caps.handback.revision: 15
 ---
 # 调试数据绑定 ActiveX 控件
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

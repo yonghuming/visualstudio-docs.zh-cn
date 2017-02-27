@@ -1,8 +1,7 @@
 ---
 title: "步骤 5：添加标签引用 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -11,10 +10,10 @@ ms.tgt_pltfrm: ""
 ms.topic: "article"
 ms.assetid: d418350c-0396-494e-8149-71fa61b395c5
 caps.latest.revision: 20
-caps.handback.revision: 20
 author: "kempb"
 ms.author: "kempb"
 manager: "ghogen"
+caps.handback.revision: 20
 ---
 # 步骤 5：添加标签引用
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

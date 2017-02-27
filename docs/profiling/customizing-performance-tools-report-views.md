@@ -1,8 +1,7 @@
 ---
 title: "自定义分析工具报表视图 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/15/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -14,10 +13,10 @@ helpviewer_keywords:
   - "报告, 对分析报告进行自定义"
 ms.assetid: 5224ac52-0fc2-4269-8eb2-ead7fda3afd4
 caps.latest.revision: 16
-caps.handback.revision: 16
 author: "mikejo5000"
 ms.author: "mikejo"
 manager: "ghogen"
+caps.handback.revision: 16
 ---
 # 自定义分析工具报表视图
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

@@ -1,8 +1,7 @@
 ---
 title: "GetAssemblyIdentity 任务 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -21,10 +20,10 @@ helpviewer_keywords:
   - "MSBuild, GetAssemblyIdentity 任务"
 ms.assetid: a977e072-37ad-4941-84a6-32a4483be55d
 caps.latest.revision: 8
-caps.handback.revision: 8
 author: "kempb"
 ms.author: "kempb"
 manager: "ghogen"
+caps.handback.revision: 8
 ---
 # GetAssemblyIdentity 任务
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

@@ -1,8 +1,7 @@
 ---
 title: "&lt;trustInfo&gt; 元素（ClickOnce 应用程序） | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/15/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -25,10 +24,10 @@ helpviewer_keywords:
   - "<trustInfo> 元素 [ClickOnce 应用程序清单]"
 ms.assetid: 8a813a74-e158-4308-be78-565937f6af83
 caps.latest.revision: 16
-caps.handback.revision: 16
 author: "stevehoag"
 ms.author: "shoag"
 manager: "wpickett"
+caps.handback.revision: 16
 ---
 # &lt;trustInfo&gt; 元素（ClickOnce 应用程序）
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

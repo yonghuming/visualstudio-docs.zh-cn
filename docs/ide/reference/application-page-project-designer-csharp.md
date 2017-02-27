@@ -1,43 +1,25 @@
 ---
-title: "“项目设计器”->“应用程序”页 (C#) | Microsoft Docs"
-ms.custom: 
-ms.date: 11/04/2016
-ms.reviewer: 
-ms.suite: 
-ms.technology:
-- vs-ide-general
-ms.tgt_pltfrm: 
-ms.topic: article
-f1_keywords:
-- cs.ProjectPropertiesApplicationWPF
-- cs.ProjectPropertiesApplication
-helpviewer_keywords:
-- Project Designer, Application page
-- Application page in Project Designer
+title: "“项目设计器”-&gt;“应用程序”页 (C#) | Microsoft Docs"
+ms.custom: ""
+ms.date: "11/04/2016"
+ms.reviewer: ""
+ms.suite: ""
+ms.technology: 
+  - "vs-ide-general"
+ms.tgt_pltfrm: ""
+ms.topic: "article"
+f1_keywords: 
+  - "cs.ProjectPropertiesApplicationWPF"
+  - "cs.ProjectPropertiesApplication"
+helpviewer_keywords: 
+  - "“项目设计器”, “应用程序”页"
+  - "项目设计器中的“应用程序”页"
 ms.assetid: f13701a8-4e2e-4474-9d60-bb43decbe0c1
 caps.latest.revision: 56
-author: kempb
-ms.author: kempb
-manager: ghogen
-translation.priority.ht:
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- ru-ru
-- zh-cn
-- zh-tw
-translation.priority.mt:
-- cs-cz
-- pl-pl
-- pt-br
-- tr-tr
-translationtype: Human Translation
-ms.sourcegitcommit: 5db97d19b1b823388a465bba15d057b30ff0b3ce
-ms.openlocfilehash: ccee6976f7c98e62211eb2bda4dec7da7334e031
-
+author: "kempb"
+ms.author: "kempb"
+manager: "ghogen"
+caps.handback.revision: 56
 ---
 # <a name="application-page-project-designer-c"></a>“项目设计器”->“应用程序”页 (C#)
 使用“项目设计器”的“应用程序”页指定项目的应用程序设置和属性。  

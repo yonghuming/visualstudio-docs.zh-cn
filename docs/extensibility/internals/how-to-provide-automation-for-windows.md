@@ -1,8 +1,7 @@
 ---
 title: "如何: 提供适用于 Windows 的自动化 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -14,9 +13,9 @@ helpviewer_keywords:
   - "工具窗口自动化"
 ms.assetid: 512ab2a4-7987-4912-8f40-8804bf66f829
 caps.latest.revision: 10
-caps.handback.revision: 10
 ms.author: "gregvanl"
 manager: "ghogen"
+caps.handback.revision: 10
 ---
 # 如何: 提供适用于 Windows 的自动化
 [!INCLUDE[vs2017banner](../../code-quality/includes/vs2017banner.md)]

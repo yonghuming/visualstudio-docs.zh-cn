@@ -1,8 +1,7 @@
 ---
 title: "如何：添加或移除导入的命名空间 (Visual Basic) | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -17,10 +16,10 @@ helpviewer_keywords:
   - "移除导入的命名空间"
 ms.assetid: 44cebec3-0ea0-47c2-8406-4edeab6a997e
 caps.latest.revision: 11
-caps.handback.revision: 11
 author: "kempb"
 ms.author: "kempb"
 manager: "ghogen"
+caps.handback.revision: 11
 ---
 # 如何：添加或移除导入的命名空间 (Visual Basic)
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

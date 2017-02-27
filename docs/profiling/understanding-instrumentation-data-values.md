@@ -1,8 +1,7 @@
 ---
 title: "了解分析工具中的检测数据值 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/16/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -14,10 +13,10 @@ helpviewer_keywords:
   - "检测分析方法"
 ms.assetid: 2cf94cf9-c317-4a52-bf00-670f1262165e
 caps.latest.revision: 29
-caps.handback.revision: 29
 author: "mikejo5000"
 ms.author: "mikejo"
 manager: "ghogen"
+caps.handback.revision: 29
 ---
 # 了解分析工具中的检测数据值
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

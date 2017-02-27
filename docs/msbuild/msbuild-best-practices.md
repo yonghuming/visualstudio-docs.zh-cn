@@ -1,8 +1,7 @@
 ---
 title: "MSBuild 最佳做法 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -14,10 +13,10 @@ helpviewer_keywords:
   - "MSBuild, 最佳做法"
 ms.assetid: 90ef8693-e921-410a-a377-fe4d13f58c48
 caps.latest.revision: 5
-caps.handback.revision: 5
 author: "kempb"
 ms.author: "kempb"
 manager: "ghogen"
+caps.handback.revision: 5
 ---
 # MSBuild 最佳做法
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

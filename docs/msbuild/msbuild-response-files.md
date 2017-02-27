@@ -1,8 +1,7 @@
 ---
 title: "MSBuild 响应文件 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -21,10 +20,10 @@ helpviewer_keywords:
   - "响应文件, MSBuild"
 ms.assetid: 9f53987b-20ee-470a-ab62-fce997bb5e15
 caps.latest.revision: 3
-caps.handback.revision: 3
 author: "kempb"
 ms.author: "kempb"
 manager: "ghogen"
+caps.handback.revision: 3
 ---
 # MSBuild 响应文件
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

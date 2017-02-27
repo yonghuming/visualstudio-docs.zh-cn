@@ -1,8 +1,7 @@
 ---
 title: "从命令行创建探查器报告 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/15/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -11,10 +10,10 @@ ms.tgt_pltfrm: ""
 ms.topic: "article"
 ms.assetid: c886f8af-2014-4fec-9b24-d98b68ecafb7
 caps.latest.revision: 7
-caps.handback.revision: 7
 author: "mikejo5000"
 ms.author: "mikejo"
 manager: "ghogen"
+caps.handback.revision: 7
 ---
 # 从命令行创建探查器报告
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

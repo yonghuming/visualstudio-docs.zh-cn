@@ -1,8 +1,7 @@
 ---
 title: "如何：为应用程序和部署清单重新签名 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -21,10 +20,10 @@ helpviewer_keywords:
   - "Visual Studio 中的 Office 开发, 对清单签名"
 ms.assetid: d53bceb9-4d3b-4c22-b909-8f370e7231fb
 caps.latest.revision: 17
-caps.handback.revision: 17
 author: "stevehoag"
 ms.author: "shoag"
 manager: "wpickett"
+caps.handback.revision: 17
 ---
 # 如何：为应用程序和部署清单重新签名
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
