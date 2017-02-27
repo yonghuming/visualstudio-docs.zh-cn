@@ -1,8 +1,7 @@
 ---
 title: "托管调试：推荐的属性设置 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/14/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -19,10 +18,10 @@ helpviewer_keywords:
   - "调试托管代码, 推荐的属性设置"
 ms.assetid: 3d14a8d4-2925-44d0-be41-ec546d411db9
 caps.latest.revision: 29
-caps.handback.revision: 29
 author: "mikejo5000"
 ms.author: "mikejo"
 manager: "ghogen"
+caps.handback.revision: 29
 ---
 # 托管调试：推荐的属性设置
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

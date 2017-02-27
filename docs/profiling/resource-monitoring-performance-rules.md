@@ -1,8 +1,7 @@
 ---
 title: "资源监控性能规则 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -11,10 +10,10 @@ ms.tgt_pltfrm: ""
 ms.topic: "article"
 ms.assetid: f0f77faf-0a05-4718-a2c5-47934be40868
 caps.latest.revision: 7
-caps.handback.revision: 7
 author: "mikejo5000"
 ms.author: "mikejo"
 manager: "ghogen"
+caps.handback.revision: 7
 ---
 # 资源监控性能规则
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

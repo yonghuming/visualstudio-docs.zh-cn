@@ -1,8 +1,7 @@
 ---
 title: "Microsoft 帮助查看器 SDK | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/16/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -11,9 +10,9 @@ ms.tgt_pltfrm: ""
 ms.topic: "article"
 ms.assetid: 620d7dcd-d462-475e-a449-fbfa06ff12c5
 caps.latest.revision: 33
-caps.handback.revision: 33
 ms.author: "gregvanl"
 manager: "ghogen"
+caps.handback.revision: 33
 ---
 # Microsoft 帮助查看器 SDK
 [!INCLUDE[vs2017banner](../../code-quality/includes/vs2017banner.md)]

@@ -1,8 +1,7 @@
 ---
 title: "在早期语言服务中的自定义文档属性 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/15/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -15,9 +14,9 @@ helpviewer_keywords:
   - "语言服务 [托管的包框架] 自定义文档属性"
 ms.assetid: cc714a67-b33e-4440-9203-3c90f648bd9c
 caps.latest.revision: 18
-caps.handback.revision: 18
 ms.author: "gregvanl"
 manager: "ghogen"
+caps.handback.revision: 18
 ---
 # 在早期语言服务中的自定义文档属性
 [!INCLUDE[vs2017banner](../../code-quality/includes/vs2017banner.md)]

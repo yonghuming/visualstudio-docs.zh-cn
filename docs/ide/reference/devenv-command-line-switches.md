@@ -1,49 +1,31 @@
 ---
 title: "Devenv 命令行开关 | Microsoft Docs"
-ms.custom: 
-ms.date: 11/04/2016
-ms.reviewer: 
-ms.suite: 
-ms.technology:
-- vs-ide-general
-ms.tgt_pltfrm: 
-ms.topic: article
-helpviewer_keywords:
-- switches, Devenv
-- builds [Team System], command-line
-- applications [Visual Studio], executing
-- compiling source code, Devenv
-- command-line switches, Devenv
-- command line [Visual Studio], switches
-- Devenv
-- environment, Devenv commands
-- compilers, Devenv commands
-- switches
-- Devenv, syntax and list of switches
+ms.custom: ""
+ms.date: "11/04/2016"
+ms.reviewer: ""
+ms.suite: ""
+ms.technology: 
+  - "vs-ide-general"
+ms.tgt_pltfrm: ""
+ms.topic: "article"
+helpviewer_keywords: 
+  - "应用程序 [Visual Studio], 执行"
+  - "生成 [Team System], 命令行"
+  - "命令行 [Visual Studio], 开关"
+  - "命令行开关, Devenv"
+  - "编译器, Devenv 命令"
+  - "编译源代码, Devenv"
+  - "Devenv"
+  - "Devenv, 语法和开关列表"
+  - "环境, Devenv 命令"
+  - "开关"
+  - "开关, Devenv"
 ms.assetid: e12bc6ed-74fd-4bea-8d7c-89b99c20bad8
 caps.latest.revision: 33
-author: kempb
-ms.author: kempb
-manager: ghogen
-translation.priority.ht:
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- ru-ru
-- zh-cn
-- zh-tw
-translation.priority.mt:
-- cs-cz
-- pl-pl
-- pt-br
-- tr-tr
-translationtype: Human Translation
-ms.sourcegitcommit: 5db97d19b1b823388a465bba15d057b30ff0b3ce
-ms.openlocfilehash: e6d73f518f62cefc1fbb791d6c51a6d42a4cfae5
-
+author: "kempb"
+ms.author: "kempb"
+manager: "ghogen"
+caps.handback.revision: 29
 ---
 # <a name="devenv-command-line-switches"></a>Devenv 命令行开关
 Devenv 可用来设置集成开发环境 (IDE) 的各个选项，以及从命令行生成、调试和部署项目。 使用这些开关从脚本或 .bat 文件（例如每夜生成的脚本）运行 IDE，或以特定配置启动 IDE。  

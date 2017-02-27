@@ -1,8 +1,7 @@
 ---
 title: "命令路由算法 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -14,9 +13,9 @@ helpviewer_keywords:
   - "命令传送"
 ms.assetid: 998b616b-bd08-45cb-845f-808efb8c33bc
 caps.latest.revision: 9
-caps.handback.revision: 9
 ms.author: "gregvanl"
 manager: "ghogen"
+caps.handback.revision: 9
 ---
 # 命令路由算法
 [!INCLUDE[vs2017banner](../../code-quality/includes/vs2017banner.md)]

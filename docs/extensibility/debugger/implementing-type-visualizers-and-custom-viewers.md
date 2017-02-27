@@ -1,8 +1,7 @@
 ---
 title: "实现自定义查看器以及类型的可视化工具 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -14,9 +13,9 @@ helpviewer_keywords:
   - "调试 [调试 SDK]，类型的可视化工具"
 ms.assetid: abef18c0-8272-4451-b82a-b4624edaba7d
 caps.latest.revision: 14
-caps.handback.revision: 14
 ms.author: "gregvanl"
 manager: "ghogen"
+caps.handback.revision: 14
 ---
 # 实现自定义查看器以及类型的可视化工具
 [!INCLUDE[vs2017banner](../../code-quality/includes/vs2017banner.md)]

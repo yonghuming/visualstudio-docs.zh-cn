@@ -1,8 +1,7 @@
 ---
 title: "清单︰ 创建传统语言服务 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/15/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -14,9 +13,9 @@ helpviewer_keywords:
   - "语言服务，本机代码"
 ms.assetid: 8b73b341-a33a-4ab5-9390-178c9e563d2d
 caps.latest.revision: 9
-caps.handback.revision: 9
 ms.author: "gregvanl"
 manager: "ghogen"
+caps.handback.revision: 9
 ---
 # 清单︰ 创建传统语言服务
 [!INCLUDE[vs2017banner](../../code-quality/includes/vs2017banner.md)]

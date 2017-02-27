@@ -1,8 +1,7 @@
 ---
 title: "所需的代理身份验证 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -11,10 +10,10 @@ ms.tgt_pltfrm: ""
 ms.topic: "article"
 ms.assetid: c2d24ae1-9902-460e-b72a-0299eed9ee82
 caps.latest.revision: 4
-caps.handback.revision: 4
 author: "kempb"
 ms.author: "kempb"
 manager: "ghogen"
+caps.handback.revision: 4
 ---
 # 所需的代理身份验证
 [!INCLUDE[vs2017banner](../../code-quality/includes/vs2017banner.md)]

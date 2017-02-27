@@ -1,8 +1,7 @@
 ---
 title: "如何：创建顺序工作流库（旧版） | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/15/2016"
-ms.prod: ".net-framework-4.6"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.tgt_pltfrm: ""
@@ -14,10 +13,10 @@ helpviewer_keywords:
   - "工作流, 顺序工作流库"
 ms.assetid: 9433ccf3-1eab-4d53-90ff-2e7b2341676c
 caps.latest.revision: 5
-caps.handback.revision: 5
 author: "ErikRe"
 ms.author: "erikre"
 manager: "erikre"
+caps.handback.revision: 5
 ---
 # 如何：创建顺序工作流库（旧版）
 按照这些步骤可使用 [!INCLUDE[vs2010](../modeling/includes/vs2010_md.md)] 提供的旧 [!INCLUDE[wfd1](../workflow-designer/includes/wfd1_md.md)] 来创建顺序工作流库项目。在需要面向 [!INCLUDE[netfx35_long](../workflow-designer/includes/netfx35_long_md.md)] 或 [!INCLUDE[vstecwinfx](../workflow-designer/includes/vstecwinfx_md.md)] 时，请使用旧 [!INCLUDE[wfd2](../workflow-designer/includes/wfd2_md.md)]。  

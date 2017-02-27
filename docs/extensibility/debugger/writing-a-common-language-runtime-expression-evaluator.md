@@ -1,8 +1,7 @@
 ---
 title: "编写公共语言运行时表达式计算器 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -15,9 +14,9 @@ helpviewer_keywords:
   - "调试 [调试 SDK]，表达式计算器教程"
 ms.assetid: bd79d57f-8e0a-4e14-a417-0b1de28fa1b2
 caps.latest.revision: 23
-caps.handback.revision: 23
 ms.author: "gregvanl"
 manager: "ghogen"
+caps.handback.revision: 23
 ---
 # 编写公共语言运行时表达式计算器
 [!INCLUDE[vs2017banner](../../code-quality/includes/vs2017banner.md)]

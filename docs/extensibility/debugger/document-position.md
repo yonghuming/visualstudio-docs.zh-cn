@@ -1,8 +1,7 @@
 ---
 title: "文档位置 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/15/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -13,9 +12,9 @@ helpviewer_keywords:
   - "调试 [调试 SDK] 上下文"
 ms.assetid: b59d739c-7572-427f-a70d-4e5df63d02c1
 caps.latest.revision: 10
-caps.handback.revision: 10
 ms.author: "gregvanl"
 manager: "ghogen"
+caps.handback.revision: 10
 ---
 # 文档位置
 [!INCLUDE[vs2017banner](../../code-quality/includes/vs2017banner.md)]

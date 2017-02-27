@@ -1,46 +1,29 @@
 ---
 title: "用于本地化的资源的分层组织 | Microsoft Docs"
-ms.custom: 
-ms.date: 11/04/2016
-ms.reviewer: 
-ms.suite: 
-ms.technology:
-- vs-ide-general
-ms.tgt_pltfrm: 
-ms.topic: article
-helpviewer_keywords:
-- resource files, localized
-- localization [Visual Studio], resources
-- fallback resources
-- international applications [Visual Studio], storing resources
-- satellite assemblies, resource hierarchies
-- globalization [Visual Studio], resources
-- satellite assemblies
-- resources [Visual Studio], fallback system
-- resource files, fallback processes
+ms.custom: ""
+ms.date: "11/04/2016"
+ms.reviewer: ""
+ms.suite: ""
+ms.technology: 
+  - "vs-ide-general"
+ms.tgt_pltfrm: ""
+ms.topic: "article"
+helpviewer_keywords: 
+  - "资源文件, 已本地化"
+  - "本地化 [Visual Studio], 资源"
+  - "回调资源"
+  - "国际应用程序 [Visual Studio], 存储资源"
+  - "附属程序集, 资源层次结构"
+  - "全球化 [Visual Studio], 资源"
+  - "附属程序集"
+  - "资源 [Visual Studio], 回调系统"
+  - "资源文件，回退进程"
 ms.assetid: dadf8f2c-f74c-44d7-bec0-a1e956d8d38d
 caps.latest.revision: 8
-author: kempb
-ms.author: kempb
-manager: ghogen
-translation.priority.ht:
-- cs-cz
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pl-pl
-- pt-br
-- ru-ru
-- tr-tr
-- zh-cn
-- zh-tw
-translationtype: Human Translation
-ms.sourcegitcommit: 5658ecf52637a38bc3c2a5ad9e85b2edebf7d445
-ms.openlocfilehash: a8bc841364ce5fd7c2bd9f3e4ff68257bdc35165
-
+author: "kempb"
+ms.author: "kempb"
+manager: "ghogen"
+caps.handback.revision: 8
 ---
 # <a name="hierarchical-organization-of-resources-for-localization"></a>用于本地化的资源的分层组织
 在 Visual Studio 中，本地化资源（适用于各区域性的字符串和图像等数据）存储在单独的文件中并根据 UI 区域性设置进行加载。 若要了解本地化资源是如何加载的，可以将其想象成按层次结构的方式进行组织。  

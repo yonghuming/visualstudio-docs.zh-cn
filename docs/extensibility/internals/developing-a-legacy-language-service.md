@@ -1,8 +1,7 @@
 ---
-title: "开发语言服务 | Microsoft Docs"
+title: "开发旧语言服务 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/15/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -19,9 +18,9 @@ helpviewer_keywords:
   - "语言服务开发"
 ms.assetid: 6151ba88-c1c3-41de-a1cc-668f494d48d1
 caps.latest.revision: 28
-caps.handback.revision: 28
 ms.author: "gregvanl"
 manager: "ghogen"
+caps.handback.revision: 28
 ---
 # 开发语言服务
 [!INCLUDE[vs2017banner](../../code-quality/includes/vs2017banner.md)]

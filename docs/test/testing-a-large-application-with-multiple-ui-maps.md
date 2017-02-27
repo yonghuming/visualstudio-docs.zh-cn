@@ -1,8 +1,7 @@
 ---
 title: "使用多个 UI 映射测试大型应用程序 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/15/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -14,9 +13,9 @@ helpviewer_keywords:
   - "编码的 UI 测试, 多个 UI 映射"
 ms.assetid: 6e1ae9ec-e9b1-458a-bd96-0eb15e46f1d5
 caps.latest.revision: 22
-caps.handback.revision: 22
 ms.author: "mlearned"
 manager: "douge"
+caps.handback.revision: 22
 ---
 # 使用多个 UI 映射测试大型应用程序
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

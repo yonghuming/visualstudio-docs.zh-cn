@@ -1,8 +1,7 @@
 ---
 title: "选项，文本编辑器，基本 (Visual Basic) | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -20,10 +19,10 @@ helpviewer_keywords:
   - "“Basic 文本编辑器选项”对话框"
 ms.assetid: 5a8cafca-f7b4-4a2d-92ce-6894a7673d00
 caps.latest.revision: 15
-caps.handback.revision: 15
 author: "kempb"
 ms.author: "kempb"
 manager: "ghogen"
+caps.handback.revision: 15
 ---
 # 选项，文本编辑器，基本 (Visual Basic)
 [!INCLUDE[vs2017banner](../../code-quality/includes/vs2017banner.md)]

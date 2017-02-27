@@ -1,8 +1,7 @@
 ---
 title: "管理帮助查看器窗口 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -14,10 +13,10 @@ helpviewer_keywords:
   - "Help Viewer 2.0, 还原默认窗口布局"
 ms.assetid: 98625016-acce-46c9-9b5a-2107d2939a5e
 caps.latest.revision: 7
-caps.handback.revision: 7
 author: "kempb"
 ms.author: "kempb"
 manager: "ghogen"
+caps.handback.revision: 7
 ---
 # 管理帮助查看器窗口
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

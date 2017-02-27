@@ -1,8 +1,7 @@
 ---
 title: "CPPClean 任务 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -22,10 +21,10 @@ helpviewer_keywords:
   - "MSBuild (Visual C++), CPPClean 任务"
 ms.assetid: b62a482e-8fb5-4999-b50b-6605a078e291
 caps.latest.revision: 5
-caps.handback.revision: 5
 author: "kempb"
 ms.author: "kempb"
 manager: "ghogen"
+caps.handback.revision: 5
 ---
 # CPPClean 任务
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

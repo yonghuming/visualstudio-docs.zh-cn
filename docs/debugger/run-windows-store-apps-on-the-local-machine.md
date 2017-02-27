@@ -1,8 +1,7 @@
 ---
 title: "在本地计算机上运行 Windows 应用商店应用程序 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -16,10 +15,10 @@ dev_langs:
   - "C++"
 ms.assetid: e42a21a8-6423-4caf-b4dc-72b263e76019
 caps.latest.revision: 15
-caps.handback.revision: 15
 author: "mikejo5000"
 ms.author: "mikejo"
 manager: "ghogen"
+caps.handback.revision: 15
 ---
 # 在本地计算机上运行 Windows 应用商店应用程序
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

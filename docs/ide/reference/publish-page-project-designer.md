@@ -1,8 +1,7 @@
 ---
 title: "“项目设计器”-&gt;“发布”页 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -20,10 +19,10 @@ helpviewer_keywords:
   - "项目设计器中的“发布”页"
 ms.assetid: 153527c6-8b95-4003-8e8e-03a489d0a629
 caps.latest.revision: 33
-caps.handback.revision: 33
 author: "kempb"
 ms.author: "kempb"
 manager: "ghogen"
+caps.handback.revision: 33
 ---
 # “项目设计器”-&gt;“发布”页
 [!INCLUDE[vs2017banner](../../code-quality/includes/vs2017banner.md)]

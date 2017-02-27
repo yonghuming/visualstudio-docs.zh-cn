@@ -1,8 +1,7 @@
 ---
 title: "安全参考书目 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -13,10 +12,10 @@ helpviewer_keywords:
   - "安全性 [Visual Studio], 附加信息"
 ms.assetid: 3e839007-c388-4fc4-a6d1-8127cd207750
 caps.latest.revision: 14
-caps.handback.revision: 14
 author: "kempb"
 ms.author: "kempb"
 manager: "ghogen"
+caps.handback.revision: 14
 ---
 # 安全参考书目
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

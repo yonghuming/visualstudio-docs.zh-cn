@@ -1,8 +1,7 @@
 ---
 title: "自定义图表的演示 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-tfs-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.tgt_pltfrm: ""
@@ -11,10 +10,10 @@ helpviewer_keywords:
   - "域特定语言, 关系图"
 ms.assetid: 259836b0-783c-46a0-b7c7-dc4b2f7b4a81
 caps.latest.revision: 31
-caps.handback.revision: 31
 author: "alancameronwills"
 ms.author: "awills"
 manager: "douge"
+caps.handback.revision: 31
 ---
 # 自定义图表的演示
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

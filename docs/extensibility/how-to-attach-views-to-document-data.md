@@ -1,8 +1,7 @@
 ---
 title: "如何︰ 附加视图文档数据 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/14/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -13,9 +12,9 @@ helpviewer_keywords:
   - "编辑器 [Visual Studio SDK]，自定义的视图附加到文档数据"
 ms.assetid: f92c0838-45be-42b8-9c55-713e9bb8df07
 caps.latest.revision: 22
-caps.handback.revision: 22
 ms.author: "gregvanl"
 manager: "ghogen"
+caps.handback.revision: 22
 ---
 # 如何︰ 附加视图文档数据
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

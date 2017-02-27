@@ -1,8 +1,7 @@
 ---
 title: "Hidden 元素（Visual Studio 模板） | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/15/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -15,9 +14,9 @@ helpviewer_keywords:
   - "Hidden 元素 [Visual Studio 项目模板]"
 ms.assetid: f37406b0-52e7-4f2c-aacf-bc8d7a4117b3
 caps.latest.revision: 9
-caps.handback.revision: 9
 ms.author: "gregvanl"
 manager: "ghogen"
+caps.handback.revision: 9
 ---
 # Hidden 元素（Visual Studio 模板）
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

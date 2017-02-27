@@ -1,8 +1,7 @@
 ---
 title: "源代码管理 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/15/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -13,9 +12,9 @@ helpviewer_keywords:
   - "源代码管理 [Visual Studio SDK]"
 ms.assetid: 13d5728c-4e28-42e4-944a-a565b1765ef8
 caps.latest.revision: 13
-caps.handback.revision: 13
 ms.author: "gregvanl"
 manager: "ghogen"
+caps.handback.revision: 13
 ---
 # 源代码管理
 [!INCLUDE[vs2017banner](../../code-quality/includes/vs2017banner.md)]

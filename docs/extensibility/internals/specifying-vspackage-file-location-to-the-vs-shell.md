@@ -1,8 +1,7 @@
 ---
 title: "指定到 VS Shell VSPackage 文件位置 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/15/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -14,9 +13,9 @@ helpviewer_keywords:
   - "Vspackage，管理包文件位置"
 ms.assetid: beb8607a-4183-4ed2-9ac8-7527f11513b1
 caps.latest.revision: 20
-caps.handback.revision: 20
 ms.author: "gregvanl"
 manager: "ghogen"
+caps.handback.revision: 20
 ---
 # 指定到 VS Shell VSPackage 文件位置
 [!INCLUDE[vs2017banner](../../code-quality/includes/vs2017banner.md)]

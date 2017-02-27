@@ -1,8 +1,7 @@
 ---
 title: "“类视图”和“对象浏览器”图标 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -20,10 +19,10 @@ helpviewer_keywords:
   - "对象浏览器，类视图中的图标"
 ms.assetid: 58cc3f44-c296-4a88-a008-09d28598d9c0
 caps.latest.revision: 20
-caps.handback.revision: 20
 author: "kempb"
 ms.author: "kempb"
 manager: "ghogen"
+caps.handback.revision: 20
 ---
 # “类视图”和“对象浏览器”图标
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

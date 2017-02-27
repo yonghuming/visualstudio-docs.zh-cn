@@ -1,37 +1,19 @@
 ---
 title: "使用多个用户帐户 | Microsoft Docs"
-ms.custom: 
-ms.date: 11/04/2016
-ms.reviewer: 
-ms.suite: 
-ms.technology:
-- vs-ide-general
-ms.tgt_pltfrm: 
-ms.topic: article
+ms.custom: ""
+ms.date: "11/04/2016"
+ms.reviewer: ""
+ms.suite: ""
+ms.technology: 
+  - "vs-ide-general"
+ms.tgt_pltfrm: ""
+ms.topic: "article"
 ms.assetid: b73c865c-74e0-420e-89cc-43524f4aafd0
 caps.latest.revision: 13
-author: kempb
-ms.author: kempb
-manager: ghogen
-translation.priority.ht:
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- ru-ru
-- zh-cn
-- zh-tw
-translation.priority.mt:
-- cs-cz
-- pl-pl
-- pt-br
-- tr-tr
-translationtype: Human Translation
-ms.sourcegitcommit: 5db97d19b1b823388a465bba15d057b30ff0b3ce
-ms.openlocfilehash: 592cde9dac7ea7b49934200469e85caf1fd58f82
-
+author: "kempb"
+ms.author: "kempb"
+manager: "ghogen"
+caps.handback.revision: 13
 ---
 # <a name="work-with-multiple-user-accounts"></a>使用多个用户帐户
 如果有多个 Microsoft 帐户和/或工作或学校帐户，可将它们全部添加到 Visual Studio，以便可从任何帐户访问资源，而无需单独登录到这些帐户。 目前，Azure、Application Insights、Team Foundation Server 和 Office 365 服务支持简化的登录体验。 随着时间的推移，可能会提供其他服务。

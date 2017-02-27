@@ -1,8 +1,7 @@
 ---
 title: "疑难解答和已知问题 (Visual Studio Tools for Unity) | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -11,9 +10,10 @@ ms.tgt_pltfrm: ""
 ms.topic: "article"
 ms.assetid: 8f5db192-8d78-4627-bd07-dbbc803ac554
 caps.latest.revision: 5
+author: "ghogen"
+ms.author: "ghogen"
+manager: "ghogen"
 caps.handback.revision: 5
-ms.author: "crdun"
-manager: "crdun"
 ---
 # 疑难解答和已知问题 (Visual Studio Tools for Unity)
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

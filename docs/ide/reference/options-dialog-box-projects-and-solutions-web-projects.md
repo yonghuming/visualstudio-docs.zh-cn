@@ -1,8 +1,7 @@
 ---
 title: "选项对话框、项目和解决方案、Web 项目 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/15/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -13,10 +12,10 @@ f1_keywords:
   - "VS.ToolsOptionsPages.Projects.WebProjects"
 ms.assetid: ea813046-1ae6-4c9f-9784-dc41494101b9
 caps.latest.revision: 10
-caps.handback.revision: 10
 author: "kempb"
 ms.author: "kempb"
 manager: "ghogen"
+caps.handback.revision: 10
 ---
 # 选项对话框、项目和解决方案、Web 项目
 [!INCLUDE[vs2017banner](../../code-quality/includes/vs2017banner.md)]

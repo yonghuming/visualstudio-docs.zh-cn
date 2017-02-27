@@ -1,8 +1,7 @@
 ---
 title: "“选项”对话框 -&gt;“环境” | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -14,10 +13,10 @@ f1_keywords:
   - "VS.ToolsOptionsPages.Environment"
 ms.assetid: 3f463cf0-734b-4fdc-b4ff-b47f9bb99069
 caps.latest.revision: 29
-caps.handback.revision: 29
 author: "kempb"
 ms.author: "kempb"
 manager: "ghogen"
+caps.handback.revision: 29
 ---
 # “选项”对话框 -&gt;“环境”
 [!INCLUDE[vs2017banner](../../code-quality/includes/vs2017banner.md)]

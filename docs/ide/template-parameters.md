@@ -1,8 +1,7 @@
 ---
 title: "模板参数 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -16,10 +15,10 @@ helpviewer_keywords:
   - "Visual Studio 模板, 参数"
 ms.assetid: 1b567143-08c6-4d7a-b484-49f0671754fe
 caps.latest.revision: 24
-caps.handback.revision: 24
 author: "kempb"
 ms.author: "kempb"
 manager: "ghogen"
+caps.handback.revision: 24
 ---
 # 模板参数
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

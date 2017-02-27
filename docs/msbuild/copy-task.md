@@ -1,50 +1,32 @@
 ---
 title: "Copy 任务 | Microsoft Docs"
-ms.custom: 
-ms.date: 11/04/2016
-ms.reviewer: 
-ms.suite: 
-ms.technology:
-- vs-ide-sdk
-ms.tgt_pltfrm: 
-ms.topic: article
-f1_keywords:
-- http://schemas.microsoft.com/developer/msbuild/2003#Copy
-- MSBuild.Copy.SourceFileNotFound
-- MSBuild.Copy.Retrying
-- MSBuild.Copy.ExceededRetries
-dev_langs:
-- VB
-- CSharp
-- C++
-- jsharp
-helpviewer_keywords:
-- MSBuild, Copy task
-- Copy task [MSBuild]
+ms.custom: ""
+ms.date: "11/04/2016"
+ms.reviewer: ""
+ms.suite: ""
+ms.technology: 
+  - "vs-ide-sdk"
+ms.tgt_pltfrm: ""
+ms.topic: "article"
+f1_keywords: 
+  - "http://schemas.microsoft.com/developer/msbuild/2003#Copy"
+  - "MSBuild.Copy.SourceFileNotFound"
+  - "MSBuild.Copy.Retrying"
+  - "MSBuild.Copy.ExceededRetries"
+dev_langs: 
+  - "VB"
+  - "CSharp"
+  - "C++"
+  - "jsharp"
+helpviewer_keywords: 
+  - "Copy 任务 [MSBuild]"
+  - "MSBuild, Copy 任务"
 ms.assetid: a46ba9da-3e4e-4890-b4ea-09a099b6bc40
 caps.latest.revision: 23
-author: kempb
-ms.author: kempb
-manager: ghogen
-translation.priority.ht:
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- ru-ru
-- zh-cn
-- zh-tw
-translation.priority.mt:
-- cs-cz
-- pl-pl
-- pt-br
-- tr-tr
-translationtype: Human Translation
-ms.sourcegitcommit: 79460291e91f0659df0a4241e17616e55187a0e2
-ms.openlocfilehash: fd628c52f1a4515f74b14396be1835c14e16d511
-
+author: "kempb"
+ms.author: "kempb"
+manager: "ghogen"
+caps.handback.revision: 21
 ---
 # <a name="copy-task"></a>Copy 任务
 将文件复制到文件系统的一个新位置。  

@@ -1,8 +1,7 @@
 ---
 title: "如何：从查找窗口打开消息视图 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -14,10 +13,10 @@ helpviewer_keywords:
   - "打开 Spy++ 中的消息视图"
 ms.assetid: 601a193e-432a-417b-9406-6fec9e401264
 caps.latest.revision: 4
-caps.handback.revision: 4
 author: "mikejo5000"
 ms.author: "mikejo"
 manager: "ghogen"
+caps.handback.revision: 4
 ---
 # 如何：从查找窗口打开消息视图
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

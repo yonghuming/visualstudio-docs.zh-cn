@@ -1,8 +1,7 @@
 ---
 title: "使用 Windows Presentation Foundation 创建现代桌面应用程序 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -11,10 +10,10 @@ ms.tgt_pltfrm: ""
 ms.topic: "article"
 ms.assetid: 8d6c7295-ff64-4681-b01c-5056e8504569
 caps.latest.revision: 3
-caps.handback.revision: 3
 author: "kempb"
 ms.author: "kempb"
 manager: "ghogen"
+caps.handback.revision: 3
 ---
 # 使用 Windows Presentation Foundation 创建现代桌面应用程序
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

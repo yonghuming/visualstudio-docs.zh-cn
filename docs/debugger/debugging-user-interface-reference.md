@@ -1,8 +1,7 @@
 ---
 title: "调试用户界面参考 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -24,10 +23,10 @@ helpviewer_keywords:
   - "调试器, 用户界面参考"
 ms.assetid: 57f1cad8-c908-42bf-8ec5-6eb567df08e9
 caps.latest.revision: 10
-caps.handback.revision: 10
 author: "mikejo5000"
 ms.author: "mikejo"
 manager: "ghogen"
+caps.handback.revision: 10
 ---
 # 调试用户界面参考
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

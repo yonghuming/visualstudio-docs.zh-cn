@@ -1,8 +1,7 @@
 ---
 title: "如何：显示和隐藏寄存器组 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -25,10 +24,10 @@ helpviewer_keywords:
   - "“寄存器”窗口, 显示和隐藏注册组"
 ms.assetid: 6be5dfb4-4cfe-4daf-b538-60405640857d
 caps.latest.revision: 26
-caps.handback.revision: 26
 author: "mikejo5000"
 ms.author: "mikejo"
 manager: "ghogen"
+caps.handback.revision: 26
 ---
 # 如何：显示和隐藏寄存器组
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

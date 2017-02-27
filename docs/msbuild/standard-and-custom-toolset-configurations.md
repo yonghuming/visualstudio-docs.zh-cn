@@ -1,8 +1,7 @@
 ---
 title: "标准和自定义工具集配置 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/16/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -14,10 +13,10 @@ helpviewer_keywords:
   - "MSBuild, msbuild.exe.config"
 ms.assetid: 15a048c8-5ad3-448e-b6e9-e3c5d7147ed2
 caps.latest.revision: 31
-caps.handback.revision: 31
 author: "kempb"
 ms.author: "kempb"
 manager: "ghogen"
+caps.handback.revision: 31
 ---
 # 标准和自定义工具集配置
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

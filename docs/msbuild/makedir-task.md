@@ -1,8 +1,7 @@
 ---
 title: "MakeDir 任务 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -21,10 +20,10 @@ helpviewer_keywords:
   - "MSBuild, MakeDir 任务"
 ms.assetid: bc951577-1bfb-4100-b1f1-bc8278c45bf7
 caps.latest.revision: 14
-caps.handback.revision: 14
 author: "kempb"
 ms.author: "kempb"
 manager: "ghogen"
+caps.handback.revision: 14
 ---
 # MakeDir 任务
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

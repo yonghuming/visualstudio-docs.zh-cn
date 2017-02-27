@@ -1,8 +1,7 @@
 ---
 title: "公共语言运行时和表达式计算 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -14,9 +13,9 @@ helpviewer_keywords:
   - "表达式计算、 和公共语言运行时"
 ms.assetid: b36c1eb5-1aaf-48a6-b287-ee7a273d2b1c
 caps.latest.revision: 15
-caps.handback.revision: 15
 ms.author: "gregvanl"
 manager: "ghogen"
+caps.handback.revision: 15
 ---
 # 公共语言运行时和表达式计算
 [!INCLUDE[vs2017banner](../../code-quality/includes/vs2017banner.md)]

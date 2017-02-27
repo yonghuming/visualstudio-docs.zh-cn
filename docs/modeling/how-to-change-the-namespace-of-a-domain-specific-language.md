@@ -1,8 +1,7 @@
 ---
 title: "如何：更改域特定语言的命名空间 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-tfs-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.tgt_pltfrm: ""
@@ -11,10 +10,10 @@ helpviewer_keywords:
   - "域特定语言, 命名空间"
 ms.assetid: f20c47e5-230d-4f0e-812f-5c6edb86866c
 caps.latest.revision: 19
-caps.handback.revision: 19
 author: "alancameronwills"
 ms.author: "awills"
 manager: "douge"
+caps.handback.revision: 19
 ---
 # 如何：更改域特定语言的命名空间
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

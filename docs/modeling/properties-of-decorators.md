@@ -1,8 +1,7 @@
 ---
 title: "修饰器的属性 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-tfs-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.tgt_pltfrm: ""
@@ -11,10 +10,10 @@ helpviewer_keywords:
   - "域特定语言, 修饰符"
 ms.assetid: f6322fe5-dc08-4d32-a6b3-0bd18879136d
 caps.latest.revision: 23
-caps.handback.revision: 23
 author: "alancameronwills"
 ms.author: "awills"
 manager: "douge"
+caps.handback.revision: 23
 ---
 # 修饰器的属性
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

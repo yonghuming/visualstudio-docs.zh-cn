@@ -1,8 +1,7 @@
 ---
 title: "使用代码分析规则集编辑器 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -13,10 +12,10 @@ f1_keywords:
   - "vs.codeanalysis.ruleseteditor"
 ms.assetid: 370c97bf-bb29-4b2f-b9ae-ba125bce7b2d
 caps.latest.revision: 12
-caps.handback.revision: 12
 author: "stevehoag"
 ms.author: "shoag"
 manager: "wpickett"
+caps.handback.revision: 12
 ---
 # 使用代码分析规则集编辑器
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

@@ -1,8 +1,7 @@
 ---
 title: "控件事件 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -13,9 +12,9 @@ helpviewer_keywords:
   - "调试 [调试 SDK] 事件"
 ms.assetid: 0fc63484-5fb6-4887-9ea4-1905b459ca9d
 caps.latest.revision: 7
-caps.handback.revision: 7
 ms.author: "gregvanl"
 manager: "ghogen"
+caps.handback.revision: 7
 ---
 # 控件事件
 [!INCLUDE[vs2017banner](../../code-quality/includes/vs2017banner.md)]

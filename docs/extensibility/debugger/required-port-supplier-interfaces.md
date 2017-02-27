@@ -1,8 +1,7 @@
 ---
 title: "所需的端口供应商接口 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -14,9 +13,9 @@ helpviewer_keywords:
   - "调试 [调试 SDK]，端口供应商"
 ms.assetid: 0c2cdd40-9f6f-425e-b305-858f7734161e
 caps.latest.revision: 13
-caps.handback.revision: 13
 ms.author: "gregvanl"
 manager: "ghogen"
+caps.handback.revision: 13
 ---
 # 所需的端口供应商接口
 [!INCLUDE[vs2017banner](../../code-quality/includes/vs2017banner.md)]

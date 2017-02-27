@@ -1,8 +1,7 @@
 ---
 title: "CA2236：对 ISerializable 类型调用基类方法 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -17,10 +16,10 @@ helpviewer_keywords:
   - "CallBaseClassMethodsOnISerializableTypes"
 ms.assetid: 5a15b20d-769c-4640-b31a-36e07077daae
 caps.latest.revision: 15
-caps.handback.revision: 15
 author: "stevehoag"
 ms.author: "shoag"
 manager: "wpickett"
+caps.handback.revision: 15
 ---
 # CA2236：对 ISerializable 类型调用基类方法
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

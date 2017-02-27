@@ -1,8 +1,7 @@
 ---
 title: "CA1715：标识符应具有正确的前缀 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -17,10 +16,10 @@ helpviewer_keywords:
   - "CA1715"
 ms.assetid: cf45f8df-6855-4cb6-a4e2-7cfed714cf2f
 caps.latest.revision: 30
-caps.handback.revision: 30
 author: "stevehoag"
 ms.author: "shoag"
 manager: "wpickett"
+caps.handback.revision: 30
 ---
 # CA1715：标识符应具有正确的前缀
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

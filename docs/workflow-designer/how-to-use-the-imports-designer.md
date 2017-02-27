@@ -1,8 +1,7 @@
 ---
 title: "如何：使用导入设计器 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/15/2016"
-ms.prod: ".net-framework-4.6"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.tgt_pltfrm: ""
@@ -11,10 +10,10 @@ f1_keywords:
   - "System.Activities.Presentation.View.ImportDesigner.UI"
 ms.assetid: 61328ab6-9b66-4e12-8630-22e30ee8c9d1
 caps.latest.revision: 10
-caps.handback.revision: 10
 author: "ErikRe"
 ms.author: "erikre"
 manager: "erikre"
+caps.handback.revision: 10
 ---
 # 如何：使用导入设计器
 导入设计器允许您为将在表达式中使用的类型输入命名空间。与 Visual Basic .NET 和 C\# 中的 **Imports** 或 **using** 关键字非常类似，在导入设计器中指定命名空间使您在表达式中只需输入类型名称，而不是完全限定的版本类型名称。  

@@ -1,8 +1,7 @@
 ---
 title: "域关系的属性 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-tfs-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.tgt_pltfrm: ""
@@ -11,10 +10,10 @@ helpviewer_keywords:
   - "域特定语言，域关系"
 ms.assetid: 9ccb3dc2-b80c-4585-932f-3c5f87bafbcd
 caps.latest.revision: 20
-caps.handback.revision: 20
 author: "alancameronwills"
 ms.author: "awills"
 manager: "douge"
+caps.handback.revision: 20
 ---
 # 域关系的属性
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

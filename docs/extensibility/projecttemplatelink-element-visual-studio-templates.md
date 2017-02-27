@@ -1,8 +1,7 @@
 ---
 title: "ProjectTemplateLink 元素（Visual Studio 模板） | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/15/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -16,9 +15,9 @@ helpviewer_keywords:
   - "ProjectTemplateLink 元素 [Visual Studio 模板]"
 ms.assetid: b0449111-8b48-45a1-a031-ea24b765e969
 caps.latest.revision: 15
-caps.handback.revision: 15
 ms.author: "gregvanl"
 manager: "ghogen"
+caps.handback.revision: 15
 ---
 # ProjectTemplateLink 元素（Visual Studio 模板）
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

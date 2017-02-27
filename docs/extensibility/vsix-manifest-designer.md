@@ -1,8 +1,7 @@
 ---
 title: "VSIX 清单设计器 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -17,9 +16,9 @@ helpviewer_keywords:
   - "清单设计器"
 ms.assetid: 5a691e77-cf91-430d-90ea-361d9031ef83
 caps.latest.revision: 20
-caps.handback.revision: 20
 ms.author: "gregvanl"
 manager: "ghogen"
+caps.handback.revision: 20
 ---
 # VSIX 清单设计器
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

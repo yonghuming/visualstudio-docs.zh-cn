@@ -1,8 +1,7 @@
 ---
 title: "错误：Web 服务器未能找到请求的资源 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -18,10 +17,10 @@ helpviewer_keywords:
   - "调试器, Web 应用程序错误"
 ms.assetid: 1ceeaf30-918c-42bb-ace1-96944530fef3
 caps.latest.revision: 9
-caps.handback.revision: 9
 author: "mikejo5000"
 ms.author: "mikejo"
 manager: "ghogen"
+caps.handback.revision: 9
 ---
 # 错误：Web 服务器未能找到请求的资源
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

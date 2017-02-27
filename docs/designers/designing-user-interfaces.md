@@ -1,8 +1,7 @@
 ---
 title: "设计用户界面 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -11,10 +10,10 @@ ms.tgt_pltfrm: ""
 ms.topic: "article"
 ms.assetid: 880da508-7573-4434-b3a0-d48cf003c0a9
 caps.latest.revision: 11
-caps.handback.revision: 11
 author: "kempb"
 ms.author: "kempb"
 manager: "ghogen"
+caps.handback.revision: 11
 ---
 # 设计用户界面
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

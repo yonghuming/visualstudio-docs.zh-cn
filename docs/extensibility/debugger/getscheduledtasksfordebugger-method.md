@@ -1,8 +1,7 @@
 ---
 title: "GetScheduledTasksForDebugger 方法 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -13,9 +12,9 @@ helpviewer_keywords:
   - "GetScheduledTasksForDebugger 方法，TaskScheduler 类 [.NET Framework 的调试引擎]"
 ms.assetid: 7c9b4cde-6e4a-4cef-929f-7d02b1da5762
 caps.latest.revision: 10
-caps.handback.revision: 10
 ms.author: "gregvanl"
 manager: "ghogen"
+caps.handback.revision: 10
 ---
 # GetScheduledTasksForDebugger 方法
 [!INCLUDE[vs2017banner](../../code-quality/includes/vs2017banner.md)]

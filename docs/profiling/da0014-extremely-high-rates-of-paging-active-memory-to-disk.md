@@ -1,42 +1,24 @@
 ---
 title: "DA0014：以分页方式将活动内存移到磁盘的发生率极高 | Microsoft Docs"
-ms.custom: 
-ms.date: 11/04/2016
-ms.reviewer: 
-ms.suite: 
-ms.technology:
-- vs-ide-debug
-ms.tgt_pltfrm: 
-ms.topic: article
-f1_keywords:
-- vs.performance.rules.DAMemoryBound
-- vs.performance.DA0014
-- vs.performance.14
-- vs.performance.rules.DA0014
+ms.custom: ""
+ms.date: "11/04/2016"
+ms.reviewer: ""
+ms.suite: ""
+ms.technology: 
+  - "vs-ide-debug"
+ms.tgt_pltfrm: ""
+ms.topic: "article"
+f1_keywords: 
+  - "vs.performance.rules.DAMemoryBound"
+  - "vs.performance.DA0014"
+  - "vs.performance.14"
+  - "vs.performance.rules.DA0014"
 ms.assetid: a7fa3749-9191-437a-9331-9d917181e62f
 caps.latest.revision: 11
-author: mikejo5000
-ms.author: mikejo
-manager: ghogen
-translation.priority.ht:
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- ru-ru
-- zh-cn
-- zh-tw
-translation.priority.mt:
-- cs-cz
-- pl-pl
-- pt-br
-- tr-tr
-translationtype: Human Translation
-ms.sourcegitcommit: 5db97d19b1b823388a465bba15d057b30ff0b3ce
-ms.openlocfilehash: 140ee7f9c56b909fd7ff636f81bc880c951f0dbf
-
+author: "mikejo5000"
+ms.author: "mikejo"
+manager: "ghogen"
+caps.handback.revision: 11
 ---
 # <a name="da0014-extremely-high-rates-of-paging-active-memory-to-disk"></a>DA0014：以分页方式将活动内存移到磁盘的发生率极高
 |||  

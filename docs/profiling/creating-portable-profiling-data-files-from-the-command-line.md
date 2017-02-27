@@ -1,8 +1,7 @@
 ---
 title: "从命令行创建可移植的分析数据文件 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -11,10 +10,10 @@ ms.tgt_pltfrm: ""
 ms.topic: "article"
 ms.assetid: 2ceb63a7-b835-4988-b756-2afc3fcc4808
 caps.latest.revision: 6
-caps.handback.revision: 6
 author: "mikejo5000"
 ms.author: "mikejo"
 manager: "ghogen"
+caps.handback.revision: 6
 ---
 # 从命令行创建可移植的分析数据文件
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

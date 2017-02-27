@@ -1,8 +1,7 @@
 ---
 title: "如何：从生成中排除项目 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -11,10 +10,10 @@ ms.tgt_pltfrm: ""
 ms.topic: "article"
 ms.assetid: 17a837ca-5db9-46cd-b5a7-b14ad1d2c47d
 caps.latest.revision: 6
-caps.handback.revision: 6
 author: "kempb"
 ms.author: "kempb"
 manager: "ghogen"
+caps.handback.revision: 6
 ---
 # 如何：从生成中排除项目
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

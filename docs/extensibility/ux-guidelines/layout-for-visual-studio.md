@@ -1,8 +1,7 @@
 ---
 title: "Visual Studio 的布局 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -11,9 +10,9 @@ ms.tgt_pltfrm: ""
 ms.topic: "article"
 ms.assetid: c19e3022-047c-43b6-a046-a82717efed4f
 caps.latest.revision: 2
-caps.handback.revision: 2
 ms.author: "gregvanl"
 manager: "ghogen"
+caps.handback.revision: 2
 ---
 # Visual Studio 的布局
 [!INCLUDE[vs2017banner](../../code-quality/includes/vs2017banner.md)]

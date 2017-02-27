@@ -1,8 +1,7 @@
 ---
 title: "演练：创建多计算机生成环境 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/16/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -14,10 +13,10 @@ helpviewer_keywords:
   - "MSBuild, 在多台计算机上生成"
 ms.assetid: ae5391b1-3eec-42f5-beb3-f28630615a9e
 caps.latest.revision: 7
-caps.handback.revision: 7
 author: "kempb"
 ms.author: "kempb"
 manager: "ghogen"
+caps.handback.revision: 7
 ---
 # 演练：创建多计算机生成环境
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

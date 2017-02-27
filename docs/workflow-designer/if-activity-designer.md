@@ -1,8 +1,7 @@
 ---
 title: "If 活动设计器 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/15/2016"
-ms.prod: ".net-framework-4.6"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.tgt_pltfrm: ""
@@ -11,10 +10,10 @@ f1_keywords:
   - "System.Activities.Statements.If.UI"
 ms.assetid: 930a8fa2-db98-43e9-ad6d-a85cc7a6519a
 caps.latest.revision: 4
-caps.handback.revision: 4
 author: "ErikRe"
 ms.author: "erikre"
 manager: "erikre"
+caps.handback.revision: 4
 ---
 # If 活动设计器
 <xref:System.Activities.Statements.If> 活动计算条件并根据该计算结果执行活动。当使用编程的过程建模样式时，此活动最有用。例如，<xref:System.Activities.Statements.If> 活动可嵌套在 <xref:System.Activities.Statements.Sequence> 活动或 <xref:System.Activities.Statements.Parallel> 活动内。如果您使用的是 <xref:System.Activities.Statements.Flowchart> 活动，请考虑改用 <xref:System.Activities.Statements.FlowDecision> 活动。  

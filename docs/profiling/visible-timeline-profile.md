@@ -1,8 +1,7 @@
 ---
 title: "可见时间线分析 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -15,10 +14,10 @@ helpviewer_keywords:
   - "vs.cv.threads.activelegendConcurrency 可视化工具, 线程视图活动图例"
 ms.assetid: 559841d1-967c-4b51-8574-6ace23969580
 caps.latest.revision: 8
-caps.handback.revision: 8
 author: "mikejo5000"
 ms.author: "mikejo"
 manager: "ghogen"
+caps.handback.revision: 8
 ---
 # 可见时间线分析
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

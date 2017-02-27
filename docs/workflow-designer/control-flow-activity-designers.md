@@ -1,18 +1,17 @@
 ---
 title: "控制流活动设计器 | Microsoft Docs"
 ms.custom: ""
-ms.date: "09/27/2016"
-ms.prod: ".net-framework-4.6"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.tgt_pltfrm: ""
 ms.topic: "reference"
 ms.assetid: ba74af23-5398-4e62-bd90-c50612e3bfef
 caps.latest.revision: 7
-caps.handback.revision: 7
 author: "ErikRe"
 ms.author: "erikre"
 manager: "erikre"
+caps.handback.revision: 7
 ---
 # 控制流活动设计器
 [!INCLUDE[wfd1](../workflow-designer/includes/wfd1_md.md)] 包含系统提供的若干活动，构造工作流时可以使用它们。本节包含系统提供的活动中用于控制工作流中的流的活动。以下主题介绍这些活动以及如何使用它们。  

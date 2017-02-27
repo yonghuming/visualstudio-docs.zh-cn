@@ -1,8 +1,7 @@
 ---
 title: "调试 WPF | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/15/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -19,10 +18,10 @@ helpviewer_keywords:
   - "WPF, 调试"
 ms.assetid: 7948e8a6-40b2-4ebb-8461-e220a9e78cd7
 caps.latest.revision: 9
-caps.handback.revision: 9
 author: "mikejo5000"
 ms.author: "mikejo"
 manager: "ghogen"
+caps.handback.revision: 9
 ---
 # 调试 WPF
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

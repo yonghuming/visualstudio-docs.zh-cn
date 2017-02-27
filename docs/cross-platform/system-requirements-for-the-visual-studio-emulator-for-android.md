@@ -1,8 +1,7 @@
 ---
 title: "Visual Studio Emulator for Android 系统要求 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -11,9 +10,10 @@ ms.tgt_pltfrm: ""
 ms.topic: "article"
 ms.assetid: 35e766ad-269f-41e4-ba23-74a556c315f3
 caps.latest.revision: 5
+author: "mikejo5000"
+ms.author: "mikejo"
+manager: "ghogen"
 caps.handback.revision: 5
-ms.author: "crdun"
-manager: "crdun"
 ---
 # Visual Studio Emulator for Android 系统要求
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

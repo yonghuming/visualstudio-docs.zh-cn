@@ -1,8 +1,7 @@
 ---
 title: "LIB 任务 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -28,10 +27,10 @@ helpviewer_keywords:
   - "MSBuild (Visual C++), LIB 任务"
 ms.assetid: e062c7f9-cc69-4a83-9361-1bb5355e5fe8
 caps.latest.revision: 7
-caps.handback.revision: 7
 author: "kempb"
 ms.author: "kempb"
 manager: "ghogen"
+caps.handback.revision: 7
 ---
 # LIB 任务
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

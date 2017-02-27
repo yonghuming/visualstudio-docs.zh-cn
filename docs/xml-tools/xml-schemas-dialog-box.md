@@ -1,8 +1,7 @@
 ---
 title: "XML 架构对话框 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -11,10 +10,10 @@ ms.tgt_pltfrm: ""
 ms.topic: "article"
 ms.assetid: 0271fa26-2205-49bd-96e0-ae1441571808
 caps.latest.revision: 2
-caps.handback.revision: 2
 author: "kempb"
 ms.author: "kempb"
 manager: "ghogen"
+caps.handback.revision: 2
 ---
 # XML 架构对话框
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

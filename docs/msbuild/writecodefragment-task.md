@@ -1,8 +1,7 @@
 ---
 title: "WriteCodeFragment 任务 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -19,10 +18,10 @@ helpviewer_keywords:
   - "WriteCodeFragment 任务 [MSBuild]"
 ms.assetid: 1d2514b4-5bef-43bb-bebe-496da8ef063c
 caps.latest.revision: 5
-caps.handback.revision: 5
 author: "kempb"
 ms.author: "kempb"
 manager: "ghogen"
+caps.handback.revision: 5
 ---
 # WriteCodeFragment 任务
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

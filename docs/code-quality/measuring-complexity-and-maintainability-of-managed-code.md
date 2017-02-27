@@ -1,8 +1,7 @@
 ---
 title: "测量托管代码的复杂性和可维护性 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/15/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -21,10 +20,10 @@ helpviewer_keywords:
   - "复杂性托管代码"
 ms.assetid: 952b6f2e-584f-4c97-a5ba-42d7bd47a576
 caps.latest.revision: 14
-caps.handback.revision: 14
 author: "erickson-doug"
 ms.author: "douge"
 manager: "douge"
+caps.handback.revision: 14
 ---
 # 测量托管代码的复杂性和可维护性
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

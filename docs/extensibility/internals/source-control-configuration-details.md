@@ -1,8 +1,7 @@
 ---
 title: "源控件配置详细信息 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -13,9 +12,9 @@ helpviewer_keywords:
   - "源代码管理 [Visual Studio SDK]，配置的详细信息"
 ms.assetid: adbee9fc-7a2e-4abe-a3b8-e6615bcd797f
 caps.latest.revision: 11
-caps.handback.revision: 11
 ms.author: "gregvanl"
 manager: "ghogen"
+caps.handback.revision: 11
 ---
 # 源控件配置详细信息
 [!INCLUDE[vs2017banner](../../code-quality/includes/vs2017banner.md)]

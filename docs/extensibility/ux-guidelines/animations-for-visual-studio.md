@@ -1,8 +1,7 @@
 ---
 title: "Visual Studio 的动画效果 | Microsoft Docs"
 ms.custom: ""
-ms.date: "11/16/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -11,9 +10,9 @@ ms.tgt_pltfrm: ""
 ms.topic: "article"
 ms.assetid: 446773a9-e6f7-4c0c-8dbc-9e303bf32eb1
 caps.latest.revision: 2
-caps.handback.revision: 2
 ms.author: "gregvanl"
 manager: "ghogen"
+caps.handback.revision: 2
 ---
 # Visual Studio 的动画效果
 [!INCLUDE[vs2017banner](../../code-quality/includes/vs2017banner.md)]

@@ -1,8 +1,7 @@
 ---
 title: "UI 文本以及 Visual Studio 的帮助 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -11,9 +10,9 @@ ms.tgt_pltfrm: ""
 ms.topic: "article"
 ms.assetid: e8747d07-6c90-46cc-b425-55b589f7e9e4
 caps.latest.revision: 2
-caps.handback.revision: 2
 ms.author: "gregvanl"
 manager: "ghogen"
+caps.handback.revision: 2
 ---
 # UI 文本以及 Visual Studio 的帮助
 [!INCLUDE[vs2017banner](../../code-quality/includes/vs2017banner.md)]

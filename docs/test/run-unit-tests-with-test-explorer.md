@@ -1,8 +1,7 @@
 ---
 title: "使用测试资源管理器运行单元测试 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -13,9 +12,9 @@ f1_keywords:
   - "vs.unittesting.testexplorer.overview"
 ms.assetid: 91b167a3-280a-498b-8fc2-f67859a2c64e
 caps.latest.revision: 27
-caps.handback.revision: 27
 ms.author: "mlearned"
 manager: "douge"
+caps.handback.revision: 27
 ---
 # 使用测试资源管理器运行单元测试
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

@@ -1,8 +1,7 @@
 ---
 title: "通过使用旧 API 的自定义代码窗口 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -13,9 +12,9 @@ helpviewer_keywords:
   - "编辑器 [Visual Studio SDK]，旧的代码窗口"
 ms.assetid: 5328ab2f-55cb-4680-9744-ec79f55acd1b
 caps.latest.revision: 19
-caps.handback.revision: 19
 ms.author: "gregvanl"
 manager: "ghogen"
+caps.handback.revision: 19
 ---
 # 通过使用旧 API 的自定义代码窗口
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

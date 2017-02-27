@@ -1,8 +1,7 @@
 ---
 title: "可靠性警告 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -17,10 +16,10 @@ helpviewer_keywords:
   - "托管代码的分析警告, 可靠性警告"
 ms.assetid: 77886846-10a2-4585-968a-7eb60ebe07e8
 caps.latest.revision: 21
-caps.handback.revision: 21
 author: "stevehoag"
 ms.author: "shoag"
 manager: "wpickett"
+caps.handback.revision: 21
 ---
 # 可靠性警告
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

@@ -1,8 +1,7 @@
 ---
 title: "在编码的 UI 测试中使用 HTML5 控件 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -11,9 +10,9 @@ ms.tgt_pltfrm: ""
 ms.topic: "article"
 ms.assetid: 2000b214-ae92-4334-b549-aa0eb4f45fe1
 caps.latest.revision: 17
-caps.handback.revision: 17
 ms.author: "mlearned"
 manager: "douge"
+caps.handback.revision: 17
 ---
 # 在编码的 UI 测试中使用 HTML5 控件
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

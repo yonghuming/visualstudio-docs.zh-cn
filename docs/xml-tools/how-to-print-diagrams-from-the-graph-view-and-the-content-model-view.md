@@ -1,8 +1,7 @@
 ---
 title: "如何：从图形视图和内容模型视图打印关系图 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -11,10 +10,10 @@ ms.tgt_pltfrm: ""
 ms.topic: "article"
 ms.assetid: 7e1785e4-4aaf-4c66-8735-51e7ca035565
 caps.latest.revision: 2
-caps.handback.revision: 2
 author: "kempb"
 ms.author: "kempb"
 manager: "ghogen"
+caps.handback.revision: 2
 ---
 # 如何：从图形视图和内容模型视图打印关系图
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

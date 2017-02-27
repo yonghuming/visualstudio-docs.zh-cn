@@ -1,17 +1,16 @@
 ---
 title: "状态机活动设计器 | Microsoft Docs"
 ms.custom: ""
-ms.date: "09/27/2016"
-ms.prod: ".net-framework-4.6"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.tgt_pltfrm: ""
 ms.topic: "reference"
 ms.assetid: 97f0bff5-7e48-4914-8f04-8015a1c6bfae
 caps.latest.revision: 5
-caps.handback.revision: 5
 ms.author: "sdanie"
 manager: "erikre"
+caps.handback.revision: 5
 ---
 # 状态机活动设计器
 [!INCLUDE[wfd1](../workflow-designer/includes/wfd1_md.md)] 包含活动设计器，构造工作流时可以使用它们。本节包含系统提供的活动设计器中用于创建和管理状态机工作流。以下主题介绍这些设计器以及如何使用它们。  

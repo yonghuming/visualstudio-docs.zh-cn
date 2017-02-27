@@ -1,36 +1,18 @@
 ---
 title: "在生成验证测试中分析代码覆盖率 | Microsoft Docs"
-ms.custom: 
-ms.date: 11/04/2016
-ms.reviewer: 
-ms.suite: 
-ms.technology:
-- vs-devops-test
-ms.tgt_pltfrm: 
-ms.topic: article
+ms.custom: ""
+ms.date: "11/04/2016"
+ms.reviewer: ""
+ms.suite: ""
+ms.technology: 
+  - "vs-devops-test"
+ms.tgt_pltfrm: ""
+ms.topic: "article"
 ms.assetid: 59c07d15-511e-4fd0-b398-bde9d5ed00d9
 caps.latest.revision: 8
-ms.author: mlearned
-manager: douge
-translation.priority.ht:
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- ru-ru
-- zh-cn
-- zh-tw
-translation.priority.mt:
-- cs-cz
-- pl-pl
-- pt-br
-- tr-tr
-translationtype: Human Translation
-ms.sourcegitcommit: 5658ecf52637a38bc3c2a5ad9e85b2edebf7d445
-ms.openlocfilehash: bfdef1bffe6939631bb50e11d902f500c1d599ce
-
+ms.author: "mlearned"
+manager: "douge"
+caps.handback.revision: 8
 ---
 # <a name="analyzing-code-coverage-in-build-verification-tests"></a>在生成验证测试中分析代码覆盖率
 Microsoft Visual Studio 中的代码覆盖率分析显示有多少代码正在被自动测试执行。 有关详细信息，请参阅[使用代码覆盖率确定正在测试的代码数量](../test/using-code-coverage-to-determine-how-much-code-is-being-tested.md)。  

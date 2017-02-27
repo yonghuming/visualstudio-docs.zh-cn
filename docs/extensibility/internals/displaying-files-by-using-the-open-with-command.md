@@ -1,8 +1,7 @@
 ---
 title: "通过使用命令打开显示文件 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -15,9 +14,9 @@ helpviewer_keywords:
   - "持久性、 支持打开 With 命令"
 ms.assetid: 53794bc3-1b73-4d40-954e-cfade1abddcf
 caps.latest.revision: 12
-caps.handback.revision: 12
 ms.author: "gregvanl"
 manager: "ghogen"
+caps.handback.revision: 12
 ---
 # 通过使用命令打开显示文件
 [!INCLUDE[vs2017banner](../../code-quality/includes/vs2017banner.md)]

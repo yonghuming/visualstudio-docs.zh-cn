@@ -1,8 +1,7 @@
 ---
 title: "调试器安全 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/15/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -20,10 +19,10 @@ helpviewer_keywords:
   - "安全性 [Visual Studio], 调试最佳做法"
 ms.assetid: d4fc3c43-e844-419c-8dbb-551cc2a9b09e
 caps.latest.revision: 16
-caps.handback.revision: 16
 author: "mikejo5000"
 ms.author: "mikejo"
 manager: "ghogen"
+caps.handback.revision: 16
 ---
 # 调试器安全
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

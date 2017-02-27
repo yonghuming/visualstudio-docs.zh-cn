@@ -1,8 +1,7 @@
 ---
 title: "第 8 步：自定义测验 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -11,10 +10,10 @@ ms.tgt_pltfrm: ""
 ms.topic: "article"
 ms.assetid: dc8edb13-1b23-47d7-b859-8c6f7888c1a9
 caps.latest.revision: 12
-caps.handback.revision: 12
 author: "kempb"
 ms.author: "kempb"
 manager: "ghogen"
+caps.handback.revision: 12
 ---
 # 第 8 步：自定义测验
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

@@ -1,8 +1,7 @@
 ---
 title: "断点相关的方法 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -14,9 +13,9 @@ helpviewer_keywords:
   - "断点、 方法"
 ms.assetid: a6f77bf0-bf81-443f-8683-5f12075bbe10
 caps.latest.revision: 8
-caps.handback.revision: 8
 ms.author: "gregvanl"
 manager: "ghogen"
+caps.handback.revision: 8
 ---
 # 断点相关的方法
 [!INCLUDE[vs2017banner](../../code-quality/includes/vs2017banner.md)]

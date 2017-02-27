@@ -1,8 +1,7 @@
 ---
 title: "使用采样收集性能统计信息 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/16/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -14,10 +13,10 @@ helpviewer_keywords:
   - "采样分析方法"
 ms.assetid: 8e36361b-bb3d-40c6-b286-0e68c0ecb915
 caps.latest.revision: 21
-caps.handback.revision: 21
 author: "mikejo5000"
 ms.author: "mikejo"
 manager: "ghogen"
+caps.handback.revision: 21
 ---
 # 使用采样收集性能统计信息
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

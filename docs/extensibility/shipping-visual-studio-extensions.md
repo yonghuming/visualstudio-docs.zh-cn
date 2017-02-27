@@ -1,8 +1,7 @@
 ---
 title: "传送 Visual Studio 扩展 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -15,9 +14,9 @@ helpviewer_keywords:
   - "VSIX 包中的附属 Dll，"
 ms.assetid: 13cd263d-25f7-488e-9c1a-cff908caedb6
 caps.latest.revision: 26
-caps.handback.revision: 26
 ms.author: "gregvanl"
 manager: "ghogen"
+caps.handback.revision: 26
 ---
 # 传送 Visual Studio 扩展
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

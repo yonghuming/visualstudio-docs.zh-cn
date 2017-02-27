@@ -1,8 +1,7 @@
 ---
 title: "演练：为 ClickOnce 应用程序创建自定义安装程序 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -21,10 +20,10 @@ helpviewer_keywords:
   - "安装程序 [ClickOnce], 自定义"
 ms.assetid: fb222cc5-8aeb-4b94-8c49-b93e342f5f69
 caps.latest.revision: 34
-caps.handback.revision: 34
 author: "stevehoag"
 ms.author: "shoag"
 manager: "wpickett"
+caps.handback.revision: 34
 ---
 # 演练：为 ClickOnce 应用程序创建自定义安装程序
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

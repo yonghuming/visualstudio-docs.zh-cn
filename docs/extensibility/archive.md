@@ -1,8 +1,7 @@
 ---
 title: "存档 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -11,9 +10,9 @@ ms.tgt_pltfrm: ""
 ms.topic: "article"
 ms.assetid: eb92f40d-c0f0-42a9-8388-97ba0476efdf
 caps.latest.revision: 2
-caps.handback.revision: 2
 ms.author: "gregvanl"
 manager: "ghogen"
+caps.handback.revision: 2
 ---
 # 存档
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

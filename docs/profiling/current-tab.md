@@ -1,8 +1,7 @@
 ---
 title: "当前选项卡 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -15,10 +14,10 @@ helpviewer_keywords:
   - "并发可视化工具, 选择点处的调用堆栈"
 ms.assetid: 2c7b1ae5-3756-4795-bc59-f6bb113f2ba5
 caps.latest.revision: 10
-caps.handback.revision: 10
 author: "mikejo5000"
 ms.author: "mikejo"
 manager: "ghogen"
+caps.handback.revision: 10
 ---
 # 当前选项卡
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

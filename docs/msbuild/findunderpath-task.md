@@ -1,8 +1,7 @@
 ---
 title: "FindUnderPath 任务 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -21,10 +20,10 @@ helpviewer_keywords:
   - "MSBuild, FindUnderPath 任务"
 ms.assetid: 3c6d58b0-36e8-47aa-bfca-b73dd2045d91
 caps.latest.revision: 9
-caps.handback.revision: 9
 author: "kempb"
 ms.author: "kempb"
 manager: "ghogen"
+caps.handback.revision: 9
 ---
 # FindUnderPath 任务
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

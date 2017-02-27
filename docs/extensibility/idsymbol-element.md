@@ -1,8 +1,7 @@
 ---
 title: "IDSymbol 元素 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -14,9 +13,9 @@ helpviewer_keywords:
   - "VSCT XML 架构元素 IDSymbol"
 ms.assetid: 760cfd20-3c06-422c-9103-98bfa1f387f8
 caps.latest.revision: 7
-caps.handback.revision: 7
 ms.author: "gregvanl"
 manager: "ghogen"
+caps.handback.revision: 7
 ---
 # IDSymbol 元素
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

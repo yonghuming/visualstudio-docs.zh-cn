@@ -1,8 +1,7 @@
 ---
 title: "选项，文本编辑器，所有语言，选项卡 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -23,10 +22,10 @@ helpviewer_keywords:
   - "代码编辑器，选项卡"
 ms.assetid: 7e208e1d-5e3a-4bf7-a27b-4417e3e049c7
 caps.latest.revision: 17
-caps.handback.revision: 17
 author: "kempb"
 ms.author: "kempb"
 manager: "ghogen"
+caps.handback.revision: 17
 ---
 # 选项，文本编辑器，所有语言，选项卡
 [!INCLUDE[vs2017banner](../../code-quality/includes/vs2017banner.md)]

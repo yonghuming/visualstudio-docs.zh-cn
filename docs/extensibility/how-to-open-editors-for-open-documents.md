@@ -1,8 +1,7 @@
 ---
 title: "如何: 打开编辑器，打开的文档 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/15/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -13,9 +12,9 @@ helpviewer_keywords:
   - "编辑器 [Visual Studio SDK]，打开要执行打开的文档"
 ms.assetid: 1a0fa49c-efa4-4dcc-bdc0-299b7052acdc
 caps.latest.revision: 13
-caps.handback.revision: 13
 ms.author: "gregvanl"
 manager: "ghogen"
+caps.handback.revision: 13
 ---
 # 如何: 打开编辑器，打开的文档
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

@@ -1,45 +1,27 @@
 ---
 title: "使用 UI 自动化来测试代码 | Microsoft Docs"
-ms.custom: 
-ms.date: 11/04/2016
-ms.reviewer: 
-ms.suite: 
-ms.technology:
-- vs-devops-test
-ms.tgt_pltfrm: 
-ms.topic: article
-f1_keywords:
-- vs.codedUITest
-- vs.codedUITest.recorder
-- vs.codedUITest.testbuilder
-- vs.codedUITest.addAssertions
-- vs.codedUITest.createdialog
-helpviewer_keywords:
-- automated tests, testing UI interface
-- coded UI test
+ms.custom: ""
+ms.date: "11/04/2016"
+ms.reviewer: ""
+ms.suite: ""
+ms.technology: 
+  - "vs-devops-test"
+ms.tgt_pltfrm: ""
+ms.topic: "article"
+f1_keywords: 
+  - "vs.codedUITest"
+  - "vs.codedUITest.recorder"
+  - "vs.codedUITest.testbuilder"
+  - "vs.codedUITest.addAssertions"
+  - "vs.codedUITest.createdialog"
+helpviewer_keywords: 
+  - "自动测试, 测试 UI 接口"
+  - "编码的 UI 测试"
 ms.assetid: ad9e3eaa-ab86-436e-95b8-dc20eb1f8b2a
 caps.latest.revision: 85
-ms.author: mlearned
-manager: douge
-translation.priority.ht:
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- ru-ru
-- zh-cn
-- zh-tw
-translation.priority.mt:
-- cs-cz
-- pl-pl
-- pt-br
-- tr-tr
-translationtype: Human Translation
-ms.sourcegitcommit: 5658ecf52637a38bc3c2a5ad9e85b2edebf7d445
-ms.openlocfilehash: 753a39940ba32052cff14460f007a8f8a2d191dd
-
+ms.author: "mlearned"
+manager: "douge"
+caps.handback.revision: 83
 ---
 # <a name="use-ui-automation-to-test-your-code"></a>使用 UI 自动化来测试代码
 通过应用程序的用户界面 (UI) 来操作该应用程序的自动测试称为编码的 UI 测试 (CUIT)。 这些测试包括对 UI 控件的功能测试。 它们使你可以验证整个应用程序（包括其用户界面）是否正常运行。 编码的 UI 测试对于在用户界面中存在验证或其他逻辑（例如在网页中）的情况特别有用。 它们也经常用于自动化现有的手动测试。  

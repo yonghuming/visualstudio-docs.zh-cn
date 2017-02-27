@@ -1,8 +1,7 @@
 ---
 title: "“调用堆栈”窗口中的混合代码与丢失信息 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -29,10 +28,10 @@ helpviewer_keywords:
   - "单步执行，托管代码之外"
 ms.assetid: dd628427-e8d6-4fc2-b524-9d6393ea5376
 caps.latest.revision: 18
-caps.handback.revision: 18
 author: "mikejo5000"
 ms.author: "mikejo"
 manager: "ghogen"
+caps.handback.revision: 18
 ---
 # “调用堆栈”窗口中的混合代码与丢失信息
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

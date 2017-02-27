@@ -1,8 +1,7 @@
 ---
 title: "调试本机代码常见问题 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -24,10 +23,10 @@ helpviewer_keywords:
   - "本机代码疑难解答"
 ms.assetid: 9a497032-cf73-441e-923b-4bbd5d37a6da
 caps.latest.revision: 18
-caps.handback.revision: 18
 author: "mikejo5000"
 ms.author: "mikejo"
 manager: "ghogen"
+caps.handback.revision: 18
 ---
 # 调试本机代码常见问题
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

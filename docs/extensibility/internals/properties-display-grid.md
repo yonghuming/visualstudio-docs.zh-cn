@@ -1,8 +1,7 @@
 ---
 title: "显示属性网格 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -13,9 +12,9 @@ helpviewer_keywords:
   - "[Visual Studio SDK]，属性网格"
 ms.assetid: 318e41b0-acf5-4842-b85e-421c9d5927c5
 caps.latest.revision: 10
-caps.handback.revision: 10
 ms.author: "gregvanl"
 manager: "ghogen"
+caps.handback.revision: 10
 ---
 # 显示属性网格
 [!INCLUDE[vs2017banner](../../code-quality/includes/vs2017banner.md)]

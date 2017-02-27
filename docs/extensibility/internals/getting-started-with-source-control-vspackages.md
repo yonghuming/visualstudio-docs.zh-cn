@@ -1,8 +1,7 @@
 ---
 title: "开始使用源控件 Vspackage | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/15/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -14,9 +13,9 @@ helpviewer_keywords:
   - "获取已启动，源代码管理包"
 ms.assetid: 049c68f4-a041-4f24-8575-4837e7f5cf3f
 caps.latest.revision: 22
-caps.handback.revision: 22
 ms.author: "gregvanl"
 manager: "ghogen"
+caps.handback.revision: 22
 ---
 # 开始使用源控件 Vspackage
 [!INCLUDE[vs2017banner](../../code-quality/includes/vs2017banner.md)]

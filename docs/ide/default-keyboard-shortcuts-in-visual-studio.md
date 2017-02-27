@@ -1,43 +1,25 @@
 ---
 title: "Visual Studio 中的默认键盘快捷键 | Microsoft Docs"
-ms.custom: 
-ms.date: 11/04/2016
-ms.reviewer: 
-ms.suite: 
-ms.technology:
-- vs-ide-general
-ms.tgt_pltfrm: 
-ms.topic: article
-helpviewer_keywords:
-- shortcut keys [Visual Studio], keyboard binding schemes
-- keyboard binding schemes [Visual Studio]
-- Help [Visual Studio], shortcut keys
-- keyboard shortcuts [Visual Studio], keyboard binding schemes
-- keyboard shortcuts
+ms.custom: ""
+ms.date: "11/04/2016"
+ms.reviewer: ""
+ms.suite: ""
+ms.technology: 
+  - "vs-ide-general"
+ms.tgt_pltfrm: ""
+ms.topic: "article"
+helpviewer_keywords: 
+  - "帮助 [Visual Studio], 快捷键"
+  - "键盘绑定方案 [Visual Studio]"
+  - "键盘快捷键"
+  - "键盘快捷键 [Visual Studio], 键盘绑定方案"
+  - "快捷键 [Visual Studio], 键盘绑定方案"
 ms.assetid: c2c64648-00f8-4e48-a8a0-96c67cfd968c
 caps.latest.revision: 55
-author: kempb
-ms.author: kempb
-manager: ghogen
-translation.priority.ht:
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- ru-ru
-- zh-cn
-- zh-tw
-translation.priority.mt:
-- cs-cz
-- pl-pl
-- pt-br
-- tr-tr
-translationtype: Human Translation
-ms.sourcegitcommit: 5db97d19b1b823388a465bba15d057b30ff0b3ce
-ms.openlocfilehash: b99b15443c652f7a49ca36d701109e1624f1df64
-
+author: "kempb"
+ms.author: "kempb"
+manager: "ghogen"
+caps.handback.revision: 51
 ---
 # <a name="default-keyboard-shortcuts-in-visual-studio"></a>Visual Studio 中的默认键盘快捷键
 你可以通过选择相应的键盘快捷键，更轻松地访问 Visual Studio 中的各种命令和窗口。 本主题列出了常规开发配置文件的默认快捷键，你在安装 Visual Studio 时可能已选择该配置文件。 无论选择哪个配置文件，都可以通过打开“选项”对话框，展开“环境”节点，然后选择“键盘”，认识命令的快捷键。 你还可以为任意给定命令分配不同的快捷键，以自定义你的快捷键。  

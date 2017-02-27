@@ -1,8 +1,7 @@
 ---
 title: "命令设计 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -14,9 +13,9 @@ helpviewer_keywords:
   - "命令中实现"
 ms.assetid: 097108c3-f758-4b87-89d6-b32d12d9041a
 caps.latest.revision: 34
-caps.handback.revision: 34
 ms.author: "gregvanl"
 manager: "ghogen"
+caps.handback.revision: 34
 ---
 # 命令设计
 [!INCLUDE[vs2017banner](../../code-quality/includes/vs2017banner.md)]

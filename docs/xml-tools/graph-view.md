@@ -1,8 +1,7 @@
 ---
 title: "图形视图 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -11,10 +10,10 @@ ms.tgt_pltfrm: ""
 ms.topic: "article"
 ms.assetid: 5881afde-3f24-4eb9-bff8-6cb3fc8aade7
 caps.latest.revision: 3
-caps.handback.revision: 3
 author: "kempb"
 ms.author: "kempb"
 manager: "ghogen"
+caps.handback.revision: 3
 ---
 # 图形视图
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

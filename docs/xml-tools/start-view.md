@@ -1,8 +1,7 @@
 ---
 title: "起始视图 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -11,10 +10,10 @@ ms.tgt_pltfrm: ""
 ms.topic: "article"
 ms.assetid: f25e7a2f-7469-4279-b2f4-ee2dfd4d3af1
 caps.latest.revision: 3
-caps.handback.revision: 3
 author: "kempb"
 ms.author: "kempb"
 manager: "ghogen"
+caps.handback.revision: 3
 ---
 # 起始视图
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

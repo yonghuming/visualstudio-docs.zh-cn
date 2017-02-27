@@ -1,8 +1,7 @@
 ---
 title: "如何：序列化符号信息 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -16,10 +15,10 @@ helpviewer_keywords:
   - "性能工具, 序列化符号信息"
 ms.assetid: 9e0da706-6325-4073-83d1-aeab3b7c137a
 caps.latest.revision: 9
-caps.handback.revision: 9
 author: "mikejo5000"
 ms.author: "mikejo"
 manager: "ghogen"
+caps.handback.revision: 9
 ---
 # 如何：序列化符号信息
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

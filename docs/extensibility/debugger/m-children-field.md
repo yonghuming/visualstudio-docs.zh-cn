@@ -1,8 +1,7 @@
 ---
 title: "m_children 字段 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -13,9 +12,9 @@ helpviewer_keywords:
   - "m_children 字段 ContingentProperties 类 [.NET Framework 的调试引擎]"
 ms.assetid: 0a3b5653-7bc0-4a7a-8963-9020bc52b9cb
 caps.latest.revision: 12
-caps.handback.revision: 12
 ms.author: "gregvanl"
 manager: "ghogen"
+caps.handback.revision: 12
 ---
 # m_children 字段
 [!INCLUDE[vs2017banner](../../code-quality/includes/vs2017banner.md)]

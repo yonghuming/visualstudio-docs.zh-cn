@@ -1,8 +1,7 @@
 ---
 title: "事件源 (Visual Studio SDK) | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -13,9 +12,9 @@ helpviewer_keywords:
   - "调试 [调试 SDK]，事件源"
 ms.assetid: b9ba0908-ae4c-4a64-aab1-bee453dd7a22
 caps.latest.revision: 8
-caps.handback.revision: 8
 ms.author: "gregvanl"
 manager: "ghogen"
+caps.handback.revision: 8
 ---
 # 事件源 (Visual Studio SDK)
 [!INCLUDE[vs2017banner](../../code-quality/includes/vs2017banner.md)]

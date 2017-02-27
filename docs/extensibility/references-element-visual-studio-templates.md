@@ -1,8 +1,7 @@
 ---
 title: "References 元素（Visual Studio 模板） | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -16,9 +15,9 @@ helpviewer_keywords:
   - "References 元素 [Visual Studio 模板]"
 ms.assetid: 1969146d-46bf-422d-8d46-0e9493925003
 caps.latest.revision: 8
-caps.handback.revision: 8
 ms.author: "gregvanl"
 manager: "ghogen"
+caps.handback.revision: 8
 ---
 # References 元素（Visual Studio 模板）
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

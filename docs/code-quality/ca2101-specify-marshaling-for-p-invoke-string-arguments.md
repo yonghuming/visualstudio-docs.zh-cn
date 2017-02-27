@@ -1,8 +1,7 @@
 ---
 title: "CA2101：指定对 P/Invoke 字符串参数进行封送处理 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -17,10 +16,10 @@ helpviewer_keywords:
   - "SpecifyMarshalingForPInvokeStringArguments"
 ms.assetid: 9d1abfc3-d320-41e0-9f6e-60cefe6ffe1b
 caps.latest.revision: 19
-caps.handback.revision: 19
 author: "stevehoag"
 ms.author: "shoag"
 manager: "wpickett"
+caps.handback.revision: 19
 ---
 # CA2101：指定对 P/Invoke 字符串参数进行封送处理
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

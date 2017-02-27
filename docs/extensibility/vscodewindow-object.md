@@ -1,8 +1,7 @@
 ---
 title: "VSCodeWindow 对象 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -16,9 +15,9 @@ helpviewer_keywords:
   - "VsCodeWindow 对象"
 ms.assetid: cf5fe926-e784-4098-bc01-cac49c7c55c6
 caps.latest.revision: 10
-caps.handback.revision: 10
 ms.author: "gregvanl"
 manager: "ghogen"
+caps.handback.revision: 10
 ---
 # VSCodeWindow 对象
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

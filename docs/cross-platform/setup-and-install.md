@@ -1,35 +1,17 @@
 ---
 title: "设置和安装 | Microsoft Docs"
-ms.custom: 
-ms.date: 11/04/2016
-ms.reviewer: 
-ms.suite: 
-ms.tgt_pltfrm: 
-ms.topic: article
+ms.custom: ""
+ms.date: "11/04/2016"
+ms.reviewer: ""
+ms.suite: ""
+ms.tgt_pltfrm: ""
+ms.topic: "article"
 ms.assetid: 2cfcad00-352c-4161-814c-f5ae32d8ada8
 caps.latest.revision: 16
-author: ghogen
-ms.author: ghogen
-manager: ghogen
-translation.priority.ht:
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- ru-ru
-- zh-cn
-- zh-tw
-translation.priority.mt:
-- cs-cz
-- pl-pl
-- pt-br
-- tr-tr
-translationtype: Human Translation
-ms.sourcegitcommit: f78e2b713e75c5601a07907e7f717db92571568b
-ms.openlocfilehash: 2421ac21fe770a7a17d53e555327d612ada39d95
-
+author: "ghogen"
+ms.author: "ghogen"
+manager: "ghogen"
+caps.handback.revision: 7
 ---
 # <a name="setup-and-install"></a>设置和安装
 要使用 Xamarin 从常见的 C#/.NET 代码基础生成本机 iOS、Android 和 Windows 应用，你需要具备以下项目：  

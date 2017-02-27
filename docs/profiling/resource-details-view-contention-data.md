@@ -1,8 +1,7 @@
 ---
 title: "“资源详细信息”视图 - 探查器争用数据 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/15/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -15,10 +14,10 @@ helpviewer_keywords:
   - "“资源详细信息”视图"
 ms.assetid: a4ecfe1c-abbc-4fb3-9ab2-34de50486901
 caps.latest.revision: 9
-caps.handback.revision: 9
 author: "mikejo5000"
 ms.author: "mikejo"
 manager: "ghogen"
+caps.handback.revision: 9
 ---
 # “资源详细信息”视图 - 探查器争用数据
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

@@ -1,8 +1,7 @@
 ---
 title: "大纲显示 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -19,10 +18,10 @@ helpviewer_keywords:
   - "以大纲方式显示代码"
 ms.assetid: d1476758-9d35-4d74-b63c-310661932ecd
 caps.latest.revision: 34
-caps.handback.revision: 34
 author: "kempb"
 ms.author: "kempb"
 manager: "ghogen"
+caps.handback.revision: 34
 ---
 # 大纲显示
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

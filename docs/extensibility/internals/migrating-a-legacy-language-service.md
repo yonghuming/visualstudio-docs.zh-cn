@@ -1,8 +1,7 @@
 ---
 title: "迁移早期语言服务 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -13,9 +12,9 @@ helpviewer_keywords:
   - "语言服务迁移"
 ms.assetid: e0f666a0-92a7-4f9c-ba79-d05b13fb7f11
 caps.latest.revision: 16
-caps.handback.revision: 16
 ms.author: "gregvanl"
 manager: "ghogen"
+caps.handback.revision: 16
 ---
 # 迁移早期语言服务
 [!INCLUDE[vs2017banner](../../code-quality/includes/vs2017banner.md)]

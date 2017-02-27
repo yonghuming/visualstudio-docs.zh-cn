@@ -1,8 +1,7 @@
 ---
 title: "托管代码的“托管最少量规则”规则集 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -11,10 +10,10 @@ ms.tgt_pltfrm: ""
 ms.topic: "article"
 ms.assetid: 44a50c54-8dd3-42b2-8387-532a150e5a6c
 caps.latest.revision: 2
-caps.handback.revision: 2
 author: "stevehoag"
 ms.author: "shoag"
 manager: "wpickett"
+caps.handback.revision: 2
 ---
 # 托管代码的“托管最少量规则”规则集
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

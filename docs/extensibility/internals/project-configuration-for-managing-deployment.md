@@ -1,8 +1,7 @@
 ---
 title: "用于管理部署的项目配置 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/15/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -14,9 +13,9 @@ helpviewer_keywords:
   - "项目 [Visual Studio SDK]，部署进行管理的配置"
 ms.assetid: bd5940d9-d94d-4944-beda-4ec1ab2bbde5
 caps.latest.revision: 8
-caps.handback.revision: 8
 ms.author: "gregvanl"
 manager: "ghogen"
+caps.handback.revision: 8
 ---
 # 用于管理部署的项目配置
 [!INCLUDE[vs2017banner](../../code-quality/includes/vs2017banner.md)]

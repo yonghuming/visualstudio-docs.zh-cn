@@ -1,8 +1,7 @@
 ---
 title: "WriteLinesToFile 任务 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -21,10 +20,10 @@ helpviewer_keywords:
   - "WriteLinesToFile 任务 [MSBuild]"
 ms.assetid: 9c8862ac-8da5-4437-9430-ecc30421f1c9
 caps.latest.revision: 9
-caps.handback.revision: 9
 author: "kempb"
 ms.author: "kempb"
 manager: "ghogen"
+caps.handback.revision: 9
 ---
 # WriteLinesToFile 任务
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

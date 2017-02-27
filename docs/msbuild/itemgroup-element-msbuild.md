@@ -1,8 +1,7 @@
 ---
 title: "ItemGroup 元素 (MSBuild) | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -21,10 +20,10 @@ helpviewer_keywords:
   - "<ItemGroup> 元素 [MSBuild]"
 ms.assetid: aac894e3-a9f1-4bbc-a796-6ef07001f35b
 caps.latest.revision: 24
-caps.handback.revision: 24
 author: "kempb"
 ms.author: "kempb"
 manager: "ghogen"
+caps.handback.revision: 24
 ---
 # ItemGroup 元素 (MSBuild)
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

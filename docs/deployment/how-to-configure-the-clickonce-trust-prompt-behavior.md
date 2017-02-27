@@ -1,8 +1,7 @@
 ---
 title: "如何：配置 ClickOnce 信任提示行为 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -21,10 +20,10 @@ helpviewer_keywords:
   - "部署应用程序 [ClickOnce], 信任提示"
 ms.assetid: cc04fa75-012b-47c9-9347-f4216be23cf2
 caps.latest.revision: 11
-caps.handback.revision: 11
 author: "stevehoag"
 ms.author: "shoag"
 manager: "wpickett"
+caps.handback.revision: 11
 ---
 # 如何：配置 ClickOnce 信任提示行为
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

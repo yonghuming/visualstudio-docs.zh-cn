@@ -1,37 +1,19 @@
 ---
-title: "使用性能规则对数据进行分析 | Microsoft Docs"
-ms.custom: 
-ms.date: 11/04/2016
-ms.reviewer: 
-ms.suite: 
-ms.technology:
-- vs-ide-debug
-ms.tgt_pltfrm: 
-ms.topic: article
+title: "使用性能规则对分析数据进行分析 | Microsoft Docs"
+ms.custom: ""
+ms.date: "11/04/2016"
+ms.reviewer: ""
+ms.suite: ""
+ms.technology: 
+  - "vs-ide-debug"
+ms.tgt_pltfrm: ""
+ms.topic: "article"
 ms.assetid: 1deed23e-b31b-4714-982f-08ceebfc3096
 caps.latest.revision: 16
-author: mikejo5000
-ms.author: mikejo
-manager: ghogen
-translation.priority.ht:
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- ru-ru
-- zh-cn
-- zh-tw
-translation.priority.mt:
-- cs-cz
-- pl-pl
-- pt-br
-- tr-tr
-translationtype: Human Translation
-ms.sourcegitcommit: 5db97d19b1b823388a465bba15d057b30ff0b3ce
-ms.openlocfilehash: 55a86b3aaf61a20b0b33021432e6662024d1929c
-
+author: "mikejo5000"
+ms.author: "mikejo"
+manager: "ghogen"
+caps.handback.revision: 16
 ---
 # <a name="using-performance-rules-to-analyze-data"></a>使用性能规则对数据进行分析
 [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] 分析工具的性能警告指示所分析应用程序中可能会减慢程序执行的问题。 警告还可指示可能需要更改收集方法才能收集更多有用的数据。 性能警告在分析会话中会自动生成。 在 Visual Studio 中打开分析数据文件时，这些警告将显示在“错误列表”窗口中。 从“错误列表”窗口中，可以找到问题的源代码，并且可以显示有关错误的详细信息（如有关如何解决问题的信息）。 还可以禁用不感兴趣的警告。  

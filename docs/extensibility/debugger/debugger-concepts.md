@@ -1,8 +1,7 @@
 ---
 title: "调试器概念 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -13,9 +12,9 @@ helpviewer_keywords:
   - "调试 [调试 SDK]"
 ms.assetid: 2d371d38-f1a0-4a9a-8ea3-100e8c0149b7
 caps.latest.revision: 11
-caps.handback.revision: 11
 ms.author: "gregvanl"
 manager: "ghogen"
+caps.handback.revision: 11
 ---
 # 调试器概念
 [!INCLUDE[vs2017banner](../../code-quality/includes/vs2017banner.md)]

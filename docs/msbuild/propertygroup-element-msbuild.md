@@ -1,46 +1,29 @@
 ---
 title: "PropertyGroup 元素 (MSBuild) | Microsoft Docs"
-ms.custom: 
-ms.date: 11/04/2016
-ms.reviewer: 
-ms.suite: 
-ms.technology:
-- vs-ide-sdk
-ms.tgt_pltfrm: 
-ms.topic: article
-f1_keywords:
-- http://schemas.microsoft.com/developer/msbuild/2003#PropertyGroup
-dev_langs:
-- VB
-- CSharp
-- C++
-- jsharp
-helpviewer_keywords:
-- <PropertyGroup> element [MSBuild]
-- PropertyGroup element [MSBuild]
+ms.custom: ""
+ms.date: "11/04/2016"
+ms.reviewer: ""
+ms.suite: ""
+ms.technology: 
+  - "vs-ide-sdk"
+ms.tgt_pltfrm: ""
+ms.topic: "article"
+f1_keywords: 
+  - "http://schemas.microsoft.com/developer/msbuild/2003#PropertyGroup"
+dev_langs: 
+  - "VB"
+  - "CSharp"
+  - "C++"
+  - "jsharp"
+helpviewer_keywords: 
+  - "< p > 元素 [MSBuild]"
+  - "PropertyGroup 元素 [MSBuild]"
 ms.assetid: ff1e6c68-b9a1-4263-a1ce-dc3b829a64d4
 caps.latest.revision: 21
-author: kempb
-ms.author: kempb
-manager: ghogen
-translation.priority.ht:
-- cs-cz
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pl-pl
-- pt-br
-- ru-ru
-- tr-tr
-- zh-cn
-- zh-tw
-translationtype: Human Translation
-ms.sourcegitcommit: 79460291e91f0659df0a4241e17616e55187a0e2
-ms.openlocfilehash: b16b6ad793fed1e973d366bb8a916253948e3868
-
+author: "kempb"
+ms.author: "kempb"
+manager: "ghogen"
+caps.handback.revision: 21
 ---
 # <a name="propertygroup-element-msbuild"></a>PropertyGroup 元素 (MSBuild)
 包含一组用户定义的 [Property](../msbuild/property-element-msbuild.md) 元素。 [!INCLUDE[vstecmsbuild](../extensibility/internals/includes/vstecmsbuild_md.md)] 项目中使用的每个 `Property` 元素必须是 `PropertyGroup` 元素的子元素。  

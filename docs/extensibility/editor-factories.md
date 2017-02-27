@@ -1,8 +1,7 @@
 ---
 title: "编辑器工厂 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/15/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -13,9 +12,9 @@ helpviewer_keywords:
   - "编辑器 [Visual Studio SDK]，旧的编辑器工厂"
 ms.assetid: cf4e8164-3546-441d-b465-e8a836ae7216
 caps.latest.revision: 20
-caps.handback.revision: 20
 ms.author: "gregvanl"
 manager: "ghogen"
+caps.handback.revision: 20
 ---
 # 编辑器工厂
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

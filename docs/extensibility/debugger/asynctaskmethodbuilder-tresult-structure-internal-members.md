@@ -1,8 +1,7 @@
 ---
 title: "AsyncTaskMethodBuilder &lt; TResult &gt; 结构-内部成员 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -14,9 +13,9 @@ helpviewer_keywords:
   - "调试引擎，AsyncTaskMethodBuilder < TResult > 结构 [.NET Framework]"
 ms.assetid: 17ebc340-8170-4aff-bf54-dc4548c83632
 caps.latest.revision: 4
-caps.handback.revision: 4
 ms.author: "gregvanl"
 manager: "ghogen"
+caps.handback.revision: 4
 ---
 # AsyncTaskMethodBuilder &lt; TResult &gt; 结构-内部成员
 [!INCLUDE[vs2017banner](../../code-quality/includes/vs2017banner.md)]

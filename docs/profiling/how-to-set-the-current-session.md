@@ -1,45 +1,27 @@
 ---
-title: "如何：设置当前会话 | Microsoft Docs"
-ms.custom: 
-ms.date: 11/04/2016
-ms.reviewer: 
-ms.suite: 
-ms.technology:
-- vs-ide-debug
-ms.tgt_pltfrm: 
-ms.topic: article
-helpviewer_keywords:
-- current performance sessions
-- Performance Explorer, selecting sessions
-- profiling tools, setting sessions
-- multiple performance sessions
-- performance sessions, setting multiple
-- performance tools, setting current performance session
-- sessions, setting multiple
+title: "如何：设置当前分析会话 | Microsoft Docs"
+ms.custom: ""
+ms.date: "11/04/2016"
+ms.reviewer: ""
+ms.suite: ""
+ms.technology: 
+  - "vs-ide-debug"
+ms.tgt_pltfrm: ""
+ms.topic: "article"
+helpviewer_keywords: 
+  - "当前性能会话"
+  - "性能资源管理器, 选择会话"
+  - "分析工具, 设置会话"
+  - "多个性能会话"
+  - "性能会话, 设置多个"
+  - "性能工具, 设置当前性能会话"
+  - "会话, 设置多个"
 ms.assetid: a593e551-18ec-46fd-bfd5-8a045165a334
 caps.latest.revision: 16
-author: mikejo5000
-ms.author: mikejo
-manager: ghogen
-translation.priority.ht:
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- ru-ru
-- zh-cn
-- zh-tw
-translation.priority.mt:
-- cs-cz
-- pl-pl
-- pt-br
-- tr-tr
-translationtype: Human Translation
-ms.sourcegitcommit: 5db97d19b1b823388a465bba15d057b30ff0b3ce
-ms.openlocfilehash: f00bcb579d2f3a6d8fd860aed7d41f3d67f164d5
-
+author: "mikejo5000"
+ms.author: "mikejo"
+manager: "ghogen"
+caps.handback.revision: 16
 ---
 # <a name="how-to-set-the-current-session"></a>如何：设置当前会话
 可以在“性能资源管理器”中打开多个性能会话，然后可以选择一个可见性能会话，将其设置为当前会话。  

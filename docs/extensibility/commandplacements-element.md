@@ -1,8 +1,7 @@
 ---
 title: "CommandPlacements 元素 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -16,9 +15,9 @@ helpviewer_keywords:
   - "VSCT XML 架构元素 CommandPlacements"
 ms.assetid: 78a5724a-3b9f-4c78-9c0d-8faa3924f81c
 caps.latest.revision: 11
-caps.handback.revision: 11
 ms.author: "gregvanl"
 manager: "ghogen"
+caps.handback.revision: 11
 ---
 # CommandPlacements 元素
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

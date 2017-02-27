@@ -1,37 +1,19 @@
 ---
-title: "CPU 使用率 | Microsoft Docs"
-ms.custom: 
-ms.date: 11/04/2016
-ms.reviewer: 
-ms.suite: 
-ms.technology:
-- vs-ide-debug
-ms.tgt_pltfrm: 
-ms.topic: article
+title: "分析 CPU 使用率（不调试） | Microsoft Docs"
+ms.custom: ""
+ms.date: "11/04/2016"
+ms.reviewer: ""
+ms.suite: ""
+ms.technology: 
+  - "vs-ide-debug"
+ms.tgt_pltfrm: ""
+ms.topic: "article"
 ms.assetid: 7501a20d-04a1-480f-a69c-201524aa709d
 caps.latest.revision: 8
-author: mikejo5000
-ms.author: mikejo
-manager: ghogen
-translation.priority.ht:
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- ru-ru
-- zh-cn
-- zh-tw
-translation.priority.mt:
-- cs-cz
-- pl-pl
-- pt-br
-- tr-tr
-translationtype: Human Translation
-ms.sourcegitcommit: a4eb45e8e0548ead5d99c441abcfa7baf3ffde4f
-ms.openlocfilehash: 474f0cc1d1b9288dbd6d3b14180c5234691b9010
-
+author: "mikejo5000"
+ms.author: "mikejo"
+manager: "ghogen"
+caps.handback.revision: 3
 ---
 # <a name="cpu-usage"></a>CPU 使用率
 如需调查应用中的性能问题，最好从了解其使用 CPU 的方式开始。 **CPU 使用率** 工具可显示 CPU 耗用时间执行 Visual C++、Visual C#/Visual Basic 和 JavaScript 代码的位置。  

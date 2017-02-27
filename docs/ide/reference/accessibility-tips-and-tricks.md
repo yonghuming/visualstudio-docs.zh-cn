@@ -1,38 +1,21 @@
 ---
 title: "辅助功能提示和技巧 | Microsoft Docs"
-ms.custom: 
-ms.date: 11/04/2016
-ms.reviewer: 
-ms.suite: 
-ms.technology:
-- vs-ide-general
-ms.tgt_pltfrm: 
-ms.topic: article
-helpviewer_keywords:
-- accessibility [Visual Studio]
+ms.custom: ""
+ms.date: "11/04/2016"
+ms.reviewer: ""
+ms.suite: ""
+ms.technology: 
+  - "vs-ide-general"
+ms.tgt_pltfrm: ""
+ms.topic: "article"
+helpviewer_keywords: 
+  - "辅助功能 [Visual Studio]"
 ms.assetid: 6b491d88-f79e-4686-8841-857624bdcfda
 caps.latest.revision: 22
-author: kempb
-ms.author: kempb
-manager: ghogen
-translation.priority.ht:
-- cs-cz
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pl-pl
-- pt-br
-- ru-ru
-- tr-tr
-- zh-cn
-- zh-tw
-translationtype: Human Translation
-ms.sourcegitcommit: 5db97d19b1b823388a465bba15d057b30ff0b3ce
-ms.openlocfilehash: c1e4fdf79ac11095501ca8823ff247cb48374824
-
+author: "kempb"
+ms.author: "kempb"
+manager: "ghogen"
+caps.handback.revision: 21
 ---
 # <a name="accessibility-tips-and-tricks"></a>辅助功能提示和技巧
 [!INCLUDE[vsprvs](../../code-quality/includes/vsprvs_md.md)] 包含一些内置的辅助功能，可帮助用户轻松地操作键盘和使用屏幕阅读器或其他辅助技术设备。 本主题包括关于优化 [!INCLUDE[vsprvs](../../code-quality/includes/vsprvs_md.md)] 辅助功能的一些建议，以及一些有用的快捷组合键。  

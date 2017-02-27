@@ -1,8 +1,7 @@
 ---
 title: "如何：在调试时切换到另一个线程 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -18,10 +17,10 @@ helpviewer_keywords:
   - "线程, 切换 [调试]"
 ms.assetid: 5cd76c52-76fa-4fcc-b37e-e9f0ecac0e9e
 caps.latest.revision: 26
-caps.handback.revision: 26
 author: "mikejo5000"
 ms.author: "mikejo"
 manager: "ghogen"
+caps.handback.revision: 26
 ---
 # 如何：在调试时切换到另一个线程
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

@@ -1,8 +1,7 @@
 ---
 title: "预生成事件/生成后事件命令行对话框 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -36,10 +35,10 @@ helpviewer_keywords:
   - "生成事件，宏"
 ms.assetid: d49b2c57-24bf-4fb2-8351-5c4b6cca938f
 caps.latest.revision: 13
-caps.handback.revision: 13
 author: "kempb"
 ms.author: "kempb"
 manager: "ghogen"
+caps.handback.revision: 13
 ---
 # 预生成事件/生成后事件命令行对话框
 [!INCLUDE[vs2017banner](../../code-quality/includes/vs2017banner.md)]

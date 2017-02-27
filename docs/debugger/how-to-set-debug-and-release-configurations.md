@@ -1,8 +1,7 @@
 ---
 title: "如何：设置调试和发布配置 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -37,10 +36,10 @@ helpviewer_keywords:
   - "Visual Basic 项目, 调试和发行版本"
 ms.assetid: 57b6bbb7-f2af-48f7-8773-127d75034ed2
 caps.latest.revision: 45
-caps.handback.revision: 45
 author: "mikejo5000"
 ms.author: "mikejo"
 manager: "ghogen"
+caps.handback.revision: 45
 ---
 # 如何：设置调试和发布配置
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

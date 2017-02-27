@@ -1,8 +1,7 @@
 ---
 title: "通过使用旧 API 自定义编辑器控件和菜单 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -13,9 +12,9 @@ helpviewer_keywords:
   - "编辑器 [Visual Studio SDK]，旧的控件和菜单"
 ms.assetid: 1ce1f55b-6825-4654-a60a-7831af2ab44f
 caps.latest.revision: 17
-caps.handback.revision: 17
 ms.author: "gregvanl"
 manager: "ghogen"
+caps.handback.revision: 17
 ---
 # 通过使用旧 API 自定义编辑器控件和菜单
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

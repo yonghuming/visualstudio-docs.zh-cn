@@ -1,8 +1,7 @@
 ---
 title: "步骤 1：创建项目并向窗体添加标签 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -11,10 +10,10 @@ ms.tgt_pltfrm: ""
 ms.topic: "article"
 ms.assetid: f44e50be-a5f5-4d77-9cff-dd52374c3f74
 caps.latest.revision: 16
-caps.handback.revision: 16
 author: "kempb"
 ms.author: "kempb"
 manager: "ghogen"
+caps.handback.revision: 16
 ---
 # 步骤 1：创建项目并向窗体添加标签
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

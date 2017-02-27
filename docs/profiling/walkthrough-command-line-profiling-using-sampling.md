@@ -1,41 +1,23 @@
 ---
 title: "演练：使用采样进行命令行分析 | Microsoft Docs"
-ms.custom: 
-ms.date: 11/04/2016
-ms.reviewer: 
-ms.suite: 
-ms.technology:
-- vs-ide-debug
-ms.tgt_pltfrm: 
-ms.topic: article
-helpviewer_keywords:
-- profiling tools, walkthroughs
-- performance tools, walkthroughs
-- performance tools, command-line tools
+ms.custom: ""
+ms.date: "11/04/2016"
+ms.reviewer: ""
+ms.suite: ""
+ms.technology: 
+  - "vs-ide-debug"
+ms.tgt_pltfrm: ""
+ms.topic: "article"
+helpviewer_keywords: 
+  - "分析工具, 演练"
+  - "性能工具, 演练"
+  - "性能工具, 命令行工具"
 ms.assetid: 1d53972f-6f35-4842-8c74-1b627f18c70a
 caps.latest.revision: 21
-author: mikejo5000
-ms.author: mikejo
-manager: ghogen
-translation.priority.ht:
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- ru-ru
-- zh-cn
-- zh-tw
-translation.priority.mt:
-- cs-cz
-- pl-pl
-- pt-br
-- tr-tr
-translationtype: Human Translation
-ms.sourcegitcommit: 5db97d19b1b823388a465bba15d057b30ff0b3ce
-ms.openlocfilehash: d4a5fa12578b0e4dd46ac7556e9d77ae46de50bb
-
+author: "mikejo5000"
+ms.author: "mikejo"
+manager: "ghogen"
+caps.handback.revision: 21
 ---
 # <a name="walkthrough-command-line-profiling-using-sampling"></a>演练：使用采样进行命令行分析
 本演练演示如何使用命令行工具和采样功能分析应用程序以确定性能问题。  

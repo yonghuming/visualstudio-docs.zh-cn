@@ -1,35 +1,17 @@
 ---
-title: Visual Studio IDE | Microsoft Docs
-ms.custom: 
-ms.date: 01/17/2016
-ms.reviewer: 
-ms.suite: 
-ms.tgt_pltfrm: 
-ms.topic: article
+title: "Visual Studio IDE | Microsoft Docs"
+ms.custom: ""
+ms.date: "01/17/2016"
+ms.reviewer: ""
+ms.suite: ""
+ms.tgt_pltfrm: ""
+ms.topic: "article"
 ms.assetid: 772b6cf4-cee5-42d0-bc18-b4eb07e22ff0
 caps.latest.revision: 35
-author: kempb
-ms.author: kempb
-manager: ghogen
-translation.priority.ht:
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- ru-ru
-- zh-cn
-- zh-tw
-translation.priority.mt:
-- cs-cz
-- pl-pl
-- pt-br
-- tr-tr
-translationtype: Human Translation
-ms.sourcegitcommit: c8f031247985fa623e23d79a7614330e78196024
-ms.openlocfilehash: 22da86b2a327db88ac5c863f528eaeaf8b000db7
-
+author: "kempb"
+ms.author: "kempb"
+manager: "ghogen"
+caps.handback.revision: 32
 ---
 # <a name="visual-studio-ide"></a>Visual Studio IDE
 Microsoft Visual Studio 2017 RC 是一套用于创建软件的工具，包括通过 UI 设计的规划阶段、编码、测试、调试、分析代码质量和性能、部署到用户以及收集使用的遥测。 这些工具旨在尽可能地无缝协同工作，并都通过 Visual Studio 集成开发环境 (IDE) 公开。  

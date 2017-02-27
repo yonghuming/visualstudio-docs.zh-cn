@@ -1,8 +1,7 @@
 ---
 title: "内核视图时间线 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -15,10 +14,10 @@ helpviewer_keywords:
   - "并发可视化工具, 内核视图时间线"
 ms.assetid: 10f0c666-ac2f-4ac5-9fb5-a88f660ab840
 caps.latest.revision: 5
-caps.handback.revision: 5
 author: "mikejo5000"
 ms.author: "mikejo"
 manager: "ghogen"
+caps.handback.revision: 5
 ---
 # 内核视图时间线
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

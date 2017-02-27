@@ -1,8 +1,7 @@
 ---
 title: "如何：自定义搜索结果 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -14,10 +13,10 @@ helpviewer_keywords:
   - "自定义搜索结果 [Help Viewer 2.0]"
 ms.assetid: 3431ec03-0221-4be2-9936-887a1c36db89
 caps.latest.revision: 6
-caps.handback.revision: 6
 author: "kempb"
 ms.author: "kempb"
 manager: "ghogen"
+caps.handback.revision: 6
 ---
 # 如何：自定义搜索结果
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

@@ -1,41 +1,23 @@
 ---
 title: "性能不佳的多线程应用程序的常见模式 | Microsoft Docs"
-ms.custom: 
-ms.date: 11/04/2016
-ms.reviewer: 
-ms.suite: 
-ms.technology:
-- vs-ide-debug
-ms.tgt_pltfrm: 
-ms.topic: article
-f1_keywords:
-- vs.cv.threads.tools.gallery
-helpviewer_keywords:
-- Concurrency Visualizer, common patterns for poorly-behaved multithreaded applications
+ms.custom: ""
+ms.date: "11/04/2016"
+ms.reviewer: ""
+ms.suite: ""
+ms.technology: 
+  - "vs-ide-debug"
+ms.tgt_pltfrm: ""
+ms.topic: "article"
+f1_keywords: 
+  - "vs.cv.threads.tools.gallery"
+helpviewer_keywords: 
+  - "并发可视化工具，性能不佳的多线程应用程序的常见模式"
 ms.assetid: 00d10629-e20f-4d6d-8643-c59a3879812e
 caps.latest.revision: 12
-author: mikejo5000
-ms.author: mikejo
-manager: ghogen
-translation.priority.ht:
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- ru-ru
-- zh-cn
-- zh-tw
-translation.priority.mt:
-- cs-cz
-- pl-pl
-- pt-br
-- tr-tr
-translationtype: Human Translation
-ms.sourcegitcommit: 5db97d19b1b823388a465bba15d057b30ff0b3ce
-ms.openlocfilehash: 930567937eea5afade80fa607d20fbe70c9526a9
-
+author: "mikejo5000"
+ms.author: "mikejo"
+manager: "ghogen"
+caps.handback.revision: 12
 ---
 # <a name="common-patterns-for-poorly-behaved-multithreaded-applications"></a>性能不佳的多线程应用程序的常见模式
 并发可视化工具可帮助开发者将多线程应用程序的行为可视化。 此工具包含性能不佳的多线程应用程序的常见模式库。 该库包括通过工具公开的典型、可识别的视觉对象模式，以及每种模式所表示的行为的解释，该行为可能造成的结果以及解决它最常用的方法。  

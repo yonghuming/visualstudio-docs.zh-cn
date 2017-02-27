@@ -1,8 +1,7 @@
 ---
-title: "传统语言服务中的参数信息 | Microsoft Docs"
+title: "旧语言 Service2 中的参数信息 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -15,9 +14,9 @@ helpviewer_keywords:
   - "参数信息 (IntelliSense) 支持的语言服务 [托管的包框架]"
 ms.assetid: a117365d-320d-4bb5-b61d-3e6457b8f6bc
 caps.latest.revision: 23
-caps.handback.revision: 23
 ms.author: "gregvanl"
 manager: "ghogen"
+caps.handback.revision: 23
 ---
 # 传统语言服务中的参数信息
 [!INCLUDE[vs2017banner](../../code-quality/includes/vs2017banner.md)]

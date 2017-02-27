@@ -1,8 +1,7 @@
 ---
 title: "添加一个工具窗口 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -14,9 +13,9 @@ helpviewer_keywords:
   - "工具窗口"
 ms.assetid: 8e16c381-03c8-404e-92ef-3614cdf3150a
 caps.latest.revision: 52
-caps.handback.revision: 52
 ms.author: "gregvanl"
 manager: "ghogen"
+caps.handback.revision: 52
 ---
 # 添加一个工具窗口
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

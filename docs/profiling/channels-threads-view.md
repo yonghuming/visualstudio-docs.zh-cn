@@ -1,41 +1,23 @@
 ---
-title: "通道（“线程”视图）| Microsoft Docs"
-ms.custom: 
-ms.date: 11/04/2016
-ms.reviewer: 
-ms.suite: 
-ms.technology:
-- vs-ide-debug
-ms.tgt_pltfrm: 
-ms.topic: article
-f1_keywords:
-- vs.cv.threads.timeline.channelnames
-helpviewer_keywords:
-- Concurrency Visualizer, Channels (Threads View)
+title: "通道（线程视图） | Microsoft Docs"
+ms.custom: ""
+ms.date: "11/04/2016"
+ms.reviewer: ""
+ms.suite: ""
+ms.technology: 
+  - "vs-ide-debug"
+ms.tgt_pltfrm: ""
+ms.topic: "article"
+f1_keywords: 
+  - "vs.cv.threads.timeline.channelnames"
+helpviewer_keywords: 
+  - "并发可视化工具, 通道（线程视图）"
 ms.assetid: 2f798c17-2363-42a4-be94-a5751d208eac
 caps.latest.revision: 16
-author: mikejo5000
-ms.author: mikejo
-manager: ghogen
-translation.priority.ht:
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- ru-ru
-- zh-cn
-- zh-tw
-translation.priority.mt:
-- cs-cz
-- pl-pl
-- pt-br
-- tr-tr
-translationtype: Human Translation
-ms.sourcegitcommit: 5db97d19b1b823388a465bba15d057b30ff0b3ce
-ms.openlocfilehash: f3158349a285cb2875ef8c1058957f1ce2dd88b2
-
+author: "mikejo5000"
+ms.author: "mikejo"
+manager: "ghogen"
+caps.handback.revision: 16
 ---
 # <a name="channels-threads-view"></a>通道（线程视图）
 并发可视化工具显示四类通道：线程通道、磁盘通道、标记通道和 GPU 通道。  

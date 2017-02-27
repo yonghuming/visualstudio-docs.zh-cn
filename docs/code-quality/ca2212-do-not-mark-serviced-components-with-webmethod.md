@@ -1,8 +1,7 @@
 ---
 title: "CA2212：不要使用 WebMethod 标记服务组件 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -17,10 +16,10 @@ helpviewer_keywords:
   - "DoNotMarkServicedComponentsWithWebMethod"
 ms.assetid: 774bc55d-e588-48ee-8f38-c228580feca2
 caps.latest.revision: 13
-caps.handback.revision: 13
 author: "stevehoag"
 ms.author: "shoag"
 manager: "wpickett"
+caps.handback.revision: 13
 ---
 # CA2212：不要使用 WebMethod 标记服务组件
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

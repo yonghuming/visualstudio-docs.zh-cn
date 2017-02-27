@@ -1,8 +1,7 @@
 ---
 title: "安装第三方单元测试框架 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -11,9 +10,9 @@ ms.tgt_pltfrm: ""
 ms.topic: "article"
 ms.assetid: 47893b70-46f8-49dc-84bd-ec820178f683
 caps.latest.revision: 10
-caps.handback.revision: 10
 ms.author: "mlearned"
 manager: "douge"
+caps.handback.revision: 10
 ---
 # 安装第三方单元测试框架
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

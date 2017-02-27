@@ -1,8 +1,7 @@
 ---
 title: "XML 文本与 XML 架构资源管理器的集成 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -11,10 +10,10 @@ ms.tgt_pltfrm: ""
 ms.topic: "article"
 ms.assetid: 57a29998-c6e8-48ac-bdb0-5788e73f9164
 caps.latest.revision: 3
-caps.handback.revision: 3
 author: "kempb"
 ms.author: "kempb"
 manager: "ghogen"
+caps.handback.revision: 3
 ---
 # XML 文本与 XML 架构资源管理器的集成
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

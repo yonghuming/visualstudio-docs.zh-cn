@@ -1,8 +1,7 @@
 ---
 title: "使用 Windows Installer 安装 Vspackage | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/15/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -14,9 +13,9 @@ helpviewer_keywords:
   - "Vspackage 部署"
 ms.assetid: 41d2c72c-0a97-4fcd-b3aa-33a8d3aa962a
 caps.latest.revision: 30
-caps.handback.revision: 30
 ms.author: "gregvanl"
 manager: "ghogen"
+caps.handback.revision: 30
 ---
 # 使用 Windows Installer 安装 Vspackage
 [!INCLUDE[vs2017banner](../../code-quality/includes/vs2017banner.md)]

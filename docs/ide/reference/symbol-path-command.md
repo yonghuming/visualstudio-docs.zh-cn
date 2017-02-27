@@ -1,8 +1,7 @@
 ---
 title: "“符号路径”命令 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -17,10 +16,10 @@ helpviewer_keywords:
   - "SymbolPath 命令"
 ms.assetid: b697ef2d-3f5d-40df-b113-7068a5bec0d4
 caps.latest.revision: 9
-caps.handback.revision: 9
 author: "kempb"
 ms.author: "kempb"
 manager: "ghogen"
+caps.handback.revision: 9
 ---
 # “符号路径”命令
 [!INCLUDE[vs2017banner](../../code-quality/includes/vs2017banner.md)]

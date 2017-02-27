@@ -1,8 +1,7 @@
 ---
 title: "“进程属性”对话框 -&gt;“页文件”选项卡 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -13,10 +12,10 @@ helpviewer_keywords:
   - "Windows NT 的进程属性"
 ms.assetid: daf41a06-8a55-48f6-95f5-49a8416bd308
 caps.latest.revision: 4
-caps.handback.revision: 4
 author: "mikejo5000"
 ms.author: "mikejo"
 manager: "ghogen"
+caps.handback.revision: 4
 ---
 # “进程属性”对话框 -&gt;“页文件”选项卡
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

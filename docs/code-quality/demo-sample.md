@@ -1,8 +1,7 @@
 ---
 title: "演示示例 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/15/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -14,10 +13,10 @@ helpviewer_keywords:
   - "演示示例 [Visual Studio ALM]"
 ms.assetid: 09e1b9f7-5916-4ed6-a001-5c2d7e710682
 caps.latest.revision: 21
-caps.handback.revision: 21
 author: "corob-msft"
 ms.author: "corob"
 manager: "ghogen"
+caps.handback.revision: 21
 ---
 # 演示示例
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

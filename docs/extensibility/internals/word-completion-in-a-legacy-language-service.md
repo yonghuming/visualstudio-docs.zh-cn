@@ -1,8 +1,7 @@
 ---
 title: "在早期语言服务中的单词自动完成 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -15,9 +14,9 @@ helpviewer_keywords:
   - "完成单词"
 ms.assetid: 0ace5ac3-f9e1-4e6d-add4-42967b1f96a6
 caps.latest.revision: 15
-caps.handback.revision: 15
 ms.author: "gregvanl"
 manager: "ghogen"
+caps.handback.revision: 15
 ---
 # 在早期语言服务中的单词自动完成
 [!INCLUDE[vs2017banner](../../code-quality/includes/vs2017banner.md)]

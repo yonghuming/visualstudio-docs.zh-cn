@@ -1,8 +1,7 @@
 ---
 title: "有关卸载和重新加载嵌套项目的注意事项 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -14,9 +13,9 @@ helpviewer_keywords:
   - "项目 [Visual Studio SDK]，卸载并重装嵌套"
 ms.assetid: 06c3427e-c874-45b1-b9af-f68610ed016c
 caps.latest.revision: 12
-caps.handback.revision: 12
 ms.author: "gregvanl"
 manager: "ghogen"
+caps.handback.revision: 12
 ---
 # 有关卸载和重新加载嵌套项目的注意事项
 [!INCLUDE[vs2017banner](../../code-quality/includes/vs2017banner.md)]

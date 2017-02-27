@@ -1,8 +1,7 @@
 ---
 title: "ClickOnce 应用程序清单 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/15/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -18,10 +17,10 @@ helpviewer_keywords:
   - "ClickOnce, 应用程序清单"
 ms.assetid: 29570cec-4e53-4660-a850-abc4fa150243
 caps.latest.revision: 23
-caps.handback.revision: 23
 author: "stevehoag"
 ms.author: "shoag"
 manager: "wpickett"
+caps.handback.revision: 23
 ---
 # ClickOnce 应用程序清单
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

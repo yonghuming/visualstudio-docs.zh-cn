@@ -1,8 +1,7 @@
 ---
 title: "在解决方案中的管理项目加载 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -13,9 +12,9 @@ helpviewer_keywords:
   - "管理项目加载的解决方案"
 ms.assetid: 097c89d0-f76a-4aaf-ada9-9a778bd179a0
 caps.latest.revision: 8
-caps.handback.revision: 8
 ms.author: "gregvanl"
 manager: "ghogen"
+caps.handback.revision: 8
 ---
 # 在解决方案中的管理项目加载
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

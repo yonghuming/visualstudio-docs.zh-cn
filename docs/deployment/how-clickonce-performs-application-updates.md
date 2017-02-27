@@ -1,8 +1,7 @@
 ---
 title: "ClickOnce 如何执行应用程序更新 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -19,10 +18,10 @@ helpviewer_keywords:
   - "更新, ClickOnce"
 ms.assetid: d54313c2-cf0c-420d-b151-99953a95f0bb
 caps.latest.revision: 9
-caps.handback.revision: 9
 author: "stevehoag"
 ms.author: "shoag"
 manager: "wpickett"
+caps.handback.revision: 9
 ---
 # ClickOnce 如何执行应用程序更新
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

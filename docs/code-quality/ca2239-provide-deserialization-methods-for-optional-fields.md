@@ -1,8 +1,7 @@
 ---
 title: "CA2239：为可选字段提供反序列化方法 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -17,10 +16,10 @@ helpviewer_keywords:
   - "ProvideDeserializationMethodsForOptionalFields"
 ms.assetid: 6480ff5e-0caa-4707-814e-2f927cdafef5
 caps.latest.revision: 13
-caps.handback.revision: 13
 author: "stevehoag"
 ms.author: "shoag"
 manager: "wpickett"
+caps.handback.revision: 13
 ---
 # CA2239：为可选字段提供反序列化方法
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

@@ -1,8 +1,7 @@
 ---
 title: "步骤 8：为“显示图片”按钮事件处理程序编写代码 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -11,10 +10,10 @@ ms.tgt_pltfrm: ""
 ms.topic: "article"
 ms.assetid: 07f4ec00-cda4-42f4-98bb-37edc7167de7
 caps.latest.revision: 24
-caps.handback.revision: 24
 author: "kempb"
 ms.author: "kempb"
 manager: "ghogen"
+caps.handback.revision: 24
 ---
 # 步骤 8：为“显示图片”按钮事件处理程序编写代码
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

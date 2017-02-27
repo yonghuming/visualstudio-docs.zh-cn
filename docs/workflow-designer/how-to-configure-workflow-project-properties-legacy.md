@@ -1,8 +1,7 @@
 ---
 title: "如何：配置工作流项目属性（旧版） | Microsoft Docs"
 ms.custom: ""
-ms.date: "09/02/2016"
-ms.prod: ".net-framework-4.6"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.tgt_pltfrm: ""
@@ -15,10 +14,10 @@ helpviewer_keywords:
   - "工作流项目, 配置属性"
 ms.assetid: 850f5c96-8e5b-4126-bc16-fd2c26e6e656
 caps.latest.revision: 5
-caps.handback.revision: 5
 author: "ErikRe"
 ms.author: "erikre"
 manager: "erikre"
+caps.handback.revision: 5
 ---
 # 如何：配置工作流项目属性（旧版）
 遵循以下步骤以查看或修改与工作流项目关联的属性。  

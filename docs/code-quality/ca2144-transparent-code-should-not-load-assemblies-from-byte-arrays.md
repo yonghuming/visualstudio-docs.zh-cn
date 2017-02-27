@@ -1,8 +1,7 @@
 ---
 title: "CA2144：透明代码不应从字节数组加载程序集 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -13,10 +12,10 @@ f1_keywords:
   - "CA2144"
 ms.assetid: 777b1310-6e16-4413-b4ee-5f3136304f82
 caps.latest.revision: 12
-caps.handback.revision: 12
 author: "stevehoag"
 ms.author: "shoag"
 manager: "wpickett"
+caps.handback.revision: 12
 ---
 # CA2144：透明代码不应从字节数组加载程序集
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

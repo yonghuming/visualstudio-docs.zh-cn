@@ -1,8 +1,7 @@
 ---
 title: "如何: 触发事件; 当编辑器失去焦点 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -13,9 +12,9 @@ helpviewer_keywords:
   - "编辑器 [Visual Studio SDK]，旧的激发失去焦点的事件"
 ms.assetid: 64d40695-6917-468a-8037-a253453ac159
 caps.latest.revision: 8
-caps.handback.revision: 8
 ms.author: "gregvanl"
 manager: "ghogen"
+caps.handback.revision: 8
 ---
 # 如何: 触发事件; 当编辑器失去焦点
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

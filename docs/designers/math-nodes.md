@@ -1,8 +1,7 @@
 ---
 title: "数学运算节点 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -11,10 +10,10 @@ ms.tgt_pltfrm: ""
 ms.topic: "article"
 ms.assetid: adc225cc-1cf5-4f7c-9b00-e7ac8450b6b9
 caps.latest.revision: 10
-caps.handback.revision: 10
 author: "BrianPeek"
 ms.author: "brpeek"
 manager: "ghogen"
+caps.handback.revision: 10
 ---
 # 数学运算节点
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

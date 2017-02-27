@@ -1,39 +1,21 @@
 ---
 title: "并发可视化工具命令行实用工具 (CVCollectionCmd) | Microsoft Docs"
-ms.custom: 
-ms.date: 11/04/2016
-ms.reviewer: 
-ms.suite: 
-ms.technology:
-- vs-ide-debug
-ms.tgt_pltfrm: 
-ms.topic: article
-f1_keywords:
-- vs.cv.performance.cvcollectioncmd
+ms.custom: ""
+ms.date: "11/04/2016"
+ms.reviewer: ""
+ms.suite: ""
+ms.technology: 
+  - "vs-ide-debug"
+ms.tgt_pltfrm: ""
+ms.topic: "article"
+f1_keywords: 
+  - "vs.cv.performance.cvcollectioncmd"
 ms.assetid: 476601be-1608-4014-af15-5aba6ccbed1c
 caps.latest.revision: 21
-author: mikejo5000
-ms.author: mikejo
-manager: ghogen
-translation.priority.ht:
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- ru-ru
-- zh-cn
-- zh-tw
-translation.priority.mt:
-- cs-cz
-- pl-pl
-- pt-br
-- tr-tr
-translationtype: Human Translation
-ms.sourcegitcommit: 5658ecf52637a38bc3c2a5ad9e85b2edebf7d445
-ms.openlocfilehash: 2981d5082fdbcc9f15c1b36552787e0a78727e38
-
+author: "mikejo5000"
+ms.author: "mikejo"
+manager: "ghogen"
+caps.handback.revision: 21
 ---
 # <a name="concurrency-visualizer-command-line-utility-cvcollectioncmd"></a>并发可视化工具命令行实用工具 (CVCollectionCmd)
 你可以使用并发可视化工具命令行实用程序 (CVCollectionCmd.exe) 以从命令行收集跟踪，使你可以在 Visual Studio 的并发可视化工具中查看它们。 这些工具可以在未安装 Visual Studio 的计算机上使用。  

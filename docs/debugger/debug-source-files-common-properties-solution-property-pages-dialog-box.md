@@ -1,8 +1,7 @@
 ---
 title: "“解决方案属性页”对话框 -&gt;“通用属性”-&gt;“调试源文件” | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -28,10 +27,10 @@ helpviewer_keywords:
   - "调试器，源文件"
 ms.assetid: 0af11464-eeb1-4d0b-87a6-0cc96779afb1
 caps.latest.revision: 10
-caps.handback.revision: 10
 author: "mikejo5000"
 ms.author: "mikejo"
 manager: "ghogen"
+caps.handback.revision: 10
 ---
 # “解决方案属性页”对话框 -&gt;“通用属性”-&gt;“调试源文件”
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

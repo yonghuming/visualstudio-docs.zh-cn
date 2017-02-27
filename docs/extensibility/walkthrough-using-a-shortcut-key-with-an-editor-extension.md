@@ -1,8 +1,7 @@
 ---
 title: "演练︰ 使用快捷键与编辑器扩展 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -13,9 +12,9 @@ helpviewer_keywords:
   - "编辑器 [Visual Studio SDK]，新-将键击链接到命令"
 ms.assetid: cf6cc6c6-5a65-4f90-8f14-663decf74672
 caps.latest.revision: 32
-caps.handback.revision: 32
 ms.author: "gregvanl"
 manager: "ghogen"
+caps.handback.revision: 32
 ---
 # 演练︰ 使用快捷键与编辑器扩展
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

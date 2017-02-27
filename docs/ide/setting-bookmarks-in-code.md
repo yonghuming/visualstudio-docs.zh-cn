@@ -1,8 +1,7 @@
 ---
 title: "在代码中设置书签 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -13,10 +12,10 @@ f1_keywords:
   - "VS.BookmarkWindow"
 ms.assetid: a752ed5f-5cf9-4bf2-865a-2131ca600ed5
 caps.latest.revision: 17
-caps.handback.revision: 17
 author: "kempb"
 ms.author: "kempb"
 manager: "ghogen"
+caps.handback.revision: 17
 ---
 # 在代码中设置书签
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

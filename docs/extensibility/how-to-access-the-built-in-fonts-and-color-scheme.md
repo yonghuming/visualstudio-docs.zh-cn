@@ -1,8 +1,7 @@
 ---
 title: "如何︰ 访问内置字体和配色方案 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -15,9 +14,9 @@ helpviewer_keywords:
   - "访问内置方案的颜色"
 ms.assetid: 6905845e-e88e-4805-adcf-21da39108ec7
 caps.latest.revision: 23
-caps.handback.revision: 23
 ms.author: "gregvanl"
 manager: "ghogen"
+caps.handback.revision: 23
 ---
 # 如何︰ 访问内置字体和配色方案
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

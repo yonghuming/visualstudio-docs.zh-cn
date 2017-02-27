@@ -1,8 +1,7 @@
 ---
 title: "在 Visual Studio 中为应用商店应用创建并运行单元测试 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -13,10 +12,10 @@ helpviewer_keywords:
   - "单元测试"
 ms.assetid: d3de7b31-0262-4373-ba84-e74eda7651e4
 caps.latest.revision: 26
-caps.handback.revision: 26
 author: "alexhomer1"
 ms.author: "ahomer"
 manager: "robinr"
+caps.handback.revision: 26
 ---
 # 在 Visual Studio 中为应用商店应用创建并运行单元测试
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

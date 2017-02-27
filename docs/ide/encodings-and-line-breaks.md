@@ -1,8 +1,7 @@
 ---
 title: "编码和换行符 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -20,10 +19,10 @@ helpviewer_keywords:
   - "Visual Studio, 换行符"
 ms.assetid: 8f9b3ffc-7b8d-44f4-87cb-dc29105be12d
 caps.latest.revision: 8
-caps.handback.revision: 8
 author: "kempb"
 ms.author: "kempb"
 manager: "ghogen"
+caps.handback.revision: 8
 ---
 # 编码和换行符
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

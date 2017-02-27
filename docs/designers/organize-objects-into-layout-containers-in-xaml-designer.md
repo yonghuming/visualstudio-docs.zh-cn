@@ -1,8 +1,7 @@
 ---
 title: "在 XAML 设计器中将对象组织到布局容器中 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -11,10 +10,10 @@ ms.tgt_pltfrm: ""
 ms.topic: "article"
 ms.assetid: 29c80c38-0fa3-48d6-b3a8-3b864f482e44
 caps.latest.revision: 15
-caps.handback.revision: 15
 author: "kempb"
 ms.author: "kempb"
 manager: "ghogen"
+caps.handback.revision: 15
 ---
 # 在 XAML 设计器中将对象组织到布局容器中
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

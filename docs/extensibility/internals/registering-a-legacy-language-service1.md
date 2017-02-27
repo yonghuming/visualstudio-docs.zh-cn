@@ -1,8 +1,7 @@
 ---
-title: "注册早期语言服务 | Microsoft Docs"
+title: "注册旧语言 Service1 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/15/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -13,9 +12,9 @@ helpviewer_keywords:
   - "注册语言服务 [托管的包框架]"
 ms.assetid: d33b08af-09e0-4c79-87b2-5536b27fbacf
 caps.latest.revision: 22
-caps.handback.revision: 22
 ms.author: "gregvanl"
 manager: "ghogen"
+caps.handback.revision: 22
 ---
 # 注册早期语言服务
 [!INCLUDE[vs2017banner](../../code-quality/includes/vs2017banner.md)]

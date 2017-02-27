@@ -1,8 +1,7 @@
 ---
 title: "如何：使用表达式编辑器 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/15/2016"
-ms.prod: ".net-framework-4.6"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.tgt_pltfrm: ""
@@ -11,10 +10,10 @@ f1_keywords:
   - "System.Activities.Presentation.View.ExpressionTextBox.UI"
 ms.assetid: b5f961dd-6dda-41a9-9cae-0383d479ef3d
 caps.latest.revision: 13
-caps.handback.revision: 13
 author: "ErikRe"
 ms.author: "erikre"
 manager: "erikre"
+caps.handback.revision: 13
 ---
 # 如何：使用表达式编辑器
 表达式编辑器是许多工作流活动中使用的 [!INCLUDE[wfd1](../workflow-designer/includes/wfd1_md.md)] 控件，用于输入和计算这些表达式。  表达式编辑器提供全面的 IDE 编辑体验，包括 IntelliSense、着色、ParamInfo、错误波形曲线和其他功能。  编译器在表达式输入后对它进行验证。  如果表达式无效，则显示一个错误图标。  该编辑器还能够以**“表达式编辑器”**对话框的形式打开。  

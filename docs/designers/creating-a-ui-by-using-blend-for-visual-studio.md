@@ -1,38 +1,21 @@
 ---
 title: "使用 Blend for Visual Studio 创建 UI | Microsoft Docs"
-ms.custom: 
-ms.date: 11/04/2016
-ms.reviewer: 
-ms.suite: 
-ms.technology:
-- vs-ide-general
-ms.tgt_pltfrm: 
-ms.topic: article
-f1_keywords:
-- Blend.Start.Dev12
+ms.custom: ""
+ms.date: "11/04/2016"
+ms.reviewer: ""
+ms.suite: ""
+ms.technology: 
+  - "vs-ide-general"
+ms.tgt_pltfrm: ""
+ms.topic: "article"
+f1_keywords: 
+  - "Blend.Start.Dev12"
 ms.assetid: efd12263-cc2d-4081-a2bb-9a2cc17c442c
 caps.latest.revision: 31
-author: kempb
-ms.author: kempb
-manager: ghogen
-translation.priority.ht:
-- cs-cz
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pl-pl
-- pt-br
-- ru-ru
-- tr-tr
-- zh-cn
-- zh-tw
-translationtype: Human Translation
-ms.sourcegitcommit: 5db97d19b1b823388a465bba15d057b30ff0b3ce
-ms.openlocfilehash: 5c2ab4063911852bbc79b8239693a01e0818b4a9
-
+author: "kempb"
+ms.author: "kempb"
+manager: "ghogen"
+caps.handback.revision: 29
 ---
 # <a name="creating-a-ui-by-using-blend-for-visual-studio"></a>使用 Blend for Visual Studio 创建 UI
 Blend for Visual Studio 可帮助设计基于 XAML 的 Windows 桌面、Web、[Windows Phone](http://msdn.microsoft.com/library/windowsphone/develop/jj683071.aspx) 和 [Windows 应用商店](http://msdn.microsoft.com/library/windows/apps/jj129478.aspx)应用。 它提供了与 Visual studio 相同的基本 XAML 设计体验，并添加了可视化设计器，以用于高级任务，例如动画和行为。  

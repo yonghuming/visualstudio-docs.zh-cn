@@ -1,8 +1,7 @@
 ---
 title: "添加目录更改为添加新项对话框 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/15/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -13,9 +12,9 @@ helpviewer_keywords:
   - "添加新项对话框中，扩展"
 ms.assetid: 67ae8af6-3752-49e8-8ce3-007aca5f7982
 caps.latest.revision: 14
-caps.handback.revision: 14
 ms.author: "gregvanl"
 manager: "ghogen"
+caps.handback.revision: 14
 ---
 # 添加目录更改为添加新项对话框
 [!INCLUDE[vs2017banner](../../code-quality/includes/vs2017banner.md)]

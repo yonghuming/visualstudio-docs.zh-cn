@@ -1,16 +1,16 @@
 ---
 title: "VSIX 颜色编译器 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.tgt_pltfrm: ""
 ms.topic: "article"
 ms.assetid: 99395da7-ec34-491d-9baa-0590d23283ce
 caps.latest.revision: 6
-caps.handback.revision: 6
 ms.author: "gregvanl"
 manager: "ghogen"
+caps.handback.revision: 6
 ---
 # VSIX 颜色编译器
 [!INCLUDE[vs2017banner](../../code-quality/includes/vs2017banner.md)]

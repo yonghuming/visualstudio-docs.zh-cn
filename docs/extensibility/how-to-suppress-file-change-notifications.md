@@ -1,8 +1,7 @@
 ---
 title: "如何: 禁止显示文件更改通知 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -13,9 +12,9 @@ helpviewer_keywords:
   - "编辑器 [Visual Studio SDK]，旧的禁止显示文件更改通知"
 ms.assetid: 891c1eb4-f6d0-4073-8df0-2859dbd417ca
 caps.latest.revision: 18
-caps.handback.revision: 18
 ms.author: "gregvanl"
 manager: "ghogen"
+caps.handback.revision: 18
 ---
 # 如何: 禁止显示文件更改通知
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

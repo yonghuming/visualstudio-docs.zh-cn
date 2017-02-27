@@ -1,8 +1,7 @@
 ---
 title: "Assembly 元素（Visual Studio 模板） | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -16,9 +15,9 @@ helpviewer_keywords:
   - "<Assembly> 元素[Visual Studio 模板]"
 ms.assetid: 9242f76a-1273-4b8a-8f26-6606f91829ef
 caps.latest.revision: 10
-caps.handback.revision: 10
 ms.author: "gregvanl"
 manager: "ghogen"
+caps.handback.revision: 10
 ---
 # Assembly 元素（Visual Studio 模板）
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

@@ -1,8 +1,7 @@
 ---
 title: "字体和颜色概述 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/15/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -14,9 +13,9 @@ helpviewer_keywords:
   - "字体和颜色控件 [Visual Studio SDK] 编辑器"
 ms.assetid: 2203e4e7-8b7f-44ec-8884-6ff718d4f278
 caps.latest.revision: 22
-caps.handback.revision: 22
 ms.author: "gregvanl"
 manager: "ghogen"
+caps.handback.revision: 22
 ---
 # 字体和颜色概述
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

@@ -1,8 +1,7 @@
 ---
 title: "CA1060：将 P/Invoke 移动到 NativeMethods 类 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/14/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -17,10 +16,10 @@ helpviewer_keywords:
   - "MovePInvokesToNativeMethodsClass"
 ms.assetid: 06686c8c-6ad3-42f7-a355-cbaefa347cfc
 caps.latest.revision: 21
-caps.handback.revision: 21
 author: "stevehoag"
 ms.author: "shoag"
 manager: "wpickett"
+caps.handback.revision: 21
 ---
 # CA1060：将 P/Invoke 移动到 NativeMethods 类
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

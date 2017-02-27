@@ -1,8 +1,7 @@
 ---
 title: "ClickOnce 应用程序的代码访问安全性 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -26,10 +25,10 @@ helpviewer_keywords:
   - "安全性, ClickOnce"
 ms.assetid: 04b104d0-0bd3-4ccb-b164-1de92d234487
 caps.latest.revision: 31
-caps.handback.revision: 31
 author: "stevehoag"
 ms.author: "shoag"
 manager: "wpickett"
+caps.handback.revision: 31
 ---
 # ClickOnce 应用程序的代码访问安全性
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

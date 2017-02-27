@@ -1,8 +1,7 @@
 ---
 title: "演练︰ 创建传统语言服务 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/15/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -13,9 +12,9 @@ helpviewer_keywords:
   - "创建语言服务 [托管的包框架]"
 ms.assetid: 6a5dd2c2-261b-4efd-a3f4-8fb90b73dc82
 caps.latest.revision: 19
-caps.handback.revision: 19
 ms.author: "gregvanl"
 manager: "ghogen"
+caps.handback.revision: 19
 ---
 # 演练︰ 创建传统语言服务
 [!INCLUDE[vs2017banner](../../code-quality/includes/vs2017banner.md)]

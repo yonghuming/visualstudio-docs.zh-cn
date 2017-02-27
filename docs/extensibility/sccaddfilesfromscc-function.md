@@ -1,8 +1,7 @@
 ---
 title: "SccAddFilesFromSCC 函数 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -15,9 +14,9 @@ helpviewer_keywords:
   - "SccAddFilesFromSCC 函数"
 ms.assetid: f21a3500-ade8-4dd8-8647-10e2179be9c1
 caps.latest.revision: 17
-caps.handback.revision: 17
 ms.author: "gregvanl"
 manager: "ghogen"
+caps.handback.revision: 17
 ---
 # SccAddFilesFromSCC 函数
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

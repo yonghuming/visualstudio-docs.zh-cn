@@ -1,8 +1,7 @@
 ---
 title: "ResolveKeySource 任务 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -21,10 +20,10 @@ helpviewer_keywords:
   - "ResolveKeySource 任务 [MSBuild]"
 ms.assetid: 449f06c2-e9aa-4236-ab1e-c45c25452b2e
 caps.latest.revision: 10
-caps.handback.revision: 10
 author: "kempb"
 ms.author: "kempb"
 manager: "ghogen"
+caps.handback.revision: 10
 ---
 # ResolveKeySource 任务
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

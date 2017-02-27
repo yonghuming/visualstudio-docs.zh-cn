@@ -1,8 +1,7 @@
 ---
 title: "“进程属性”对话框 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -14,10 +13,10 @@ helpviewer_keywords:
   - "进程属性，Spy++"
 ms.assetid: fe6c9d32-4b81-4dc4-a307-848d23af66ce
 caps.latest.revision: 5
-caps.handback.revision: 5
 author: "mikejo5000"
 ms.author: "mikejo"
 manager: "ghogen"
+caps.handback.revision: 5
 ---
 # “进程属性”对话框
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

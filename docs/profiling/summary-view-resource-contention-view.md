@@ -1,8 +1,7 @@
 ---
 title: "“摘要”视图 - 探查器资源争用视图 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -13,10 +12,10 @@ helpviewer_keywords:
   - "“摘要”视图"
 ms.assetid: 6da57b83-7b42-4d7c-9aea-8e0a830faf6b
 caps.latest.revision: 8
-caps.handback.revision: 8
 author: "mikejo5000"
 ms.author: "mikejo"
 manager: "ghogen"
+caps.handback.revision: 8
 ---
 # “摘要”视图 - 探查器资源争用视图
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

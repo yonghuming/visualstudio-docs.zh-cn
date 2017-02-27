@@ -1,8 +1,7 @@
 ---
 title: "公开属性设置为属性窗口 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/15/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -15,9 +14,9 @@ helpviewer_keywords:
   - "属性浏览器中，公开属性"
 ms.assetid: 47f295b5-1ca5-4e7b-bb52-7b926b136622
 caps.latest.revision: 36
-caps.handback.revision: 36
 ms.author: "gregvanl"
 manager: "ghogen"
+caps.handback.revision: 36
 ---
 # 公开属性设置为属性窗口
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

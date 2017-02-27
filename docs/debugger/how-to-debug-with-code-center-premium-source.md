@@ -1,8 +1,7 @@
 ---
 title: "如何：调试 Code Center Premium 源代码 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/16/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -19,10 +18,10 @@ helpviewer_keywords:
   - "调试 [Visual Studio], Code Center Premium"
 ms.assetid: 18b4769d-b007-4428-9dae-9e72c283ff0d
 caps.latest.revision: 23
-caps.handback.revision: 23
 author: "mikejo5000"
 ms.author: "mikejo"
 manager: "ghogen"
+caps.handback.revision: 23
 ---
 # 如何：调试 Code Center Premium 源代码
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

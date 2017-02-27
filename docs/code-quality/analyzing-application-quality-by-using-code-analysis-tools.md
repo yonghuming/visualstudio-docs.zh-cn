@@ -1,8 +1,7 @@
 ---
 title: "使用代码分析工具分析应用程序质量 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -17,10 +16,10 @@ helpviewer_keywords:
   - "基于团队的开发, 分析应用程序质量"
 ms.assetid: 21680516-ddb5-446d-90d4-19d94f6ec699
 caps.latest.revision: 24
-caps.handback.revision: 24
 author: "stevehoag"
 ms.author: "shoag"
 manager: "wpickett"
+caps.handback.revision: 24
 ---
 # 使用代码分析工具分析应用程序质量
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

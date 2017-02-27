@@ -1,8 +1,7 @@
 ---
 title: "BoundsRules 约束形状位置和大小 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-tfs-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.tgt_pltfrm: ""
@@ -11,10 +10,10 @@ helpviewer_keywords:
   - "域特定语言, 事件"
 ms.assetid: 4d08e541-fc67-4e68-bf31-30d346aa2aa0
 caps.latest.revision: 18
-caps.handback.revision: 18
 author: "alancameronwills"
 ms.author: "awills"
 manager: "douge"
+caps.handback.revision: 18
 ---
 # BoundsRules 约束形状位置和大小
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

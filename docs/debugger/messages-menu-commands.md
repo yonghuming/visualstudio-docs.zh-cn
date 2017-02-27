@@ -1,8 +1,7 @@
 ---
 title: "“消息”菜单命令 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -13,10 +12,10 @@ helpviewer_keywords:
   - "“消息”菜单命令"
 ms.assetid: 8ffcee99-7950-41af-906e-661e19e3257a
 caps.latest.revision: 3
-caps.handback.revision: 3
 author: "mikejo5000"
 ms.author: "mikejo"
 manager: "ghogen"
+caps.handback.revision: 3
 ---
 # “消息”菜单命令
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

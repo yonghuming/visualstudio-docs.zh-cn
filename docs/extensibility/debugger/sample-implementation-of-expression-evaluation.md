@@ -1,8 +1,7 @@
 ---
 title: "表达式计算的实现示例 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -15,9 +14,9 @@ helpviewer_keywords:
   - "表达式计算、 示例"
 ms.assetid: 2a5f04b8-6c65-4232-bddd-9093653a22c4
 caps.latest.revision: 9
-caps.handback.revision: 9
 ms.author: "gregvanl"
 manager: "ghogen"
+caps.handback.revision: 9
 ---
 # 表达式计算的实现示例
 [!INCLUDE[vs2017banner](../../code-quality/includes/vs2017banner.md)]

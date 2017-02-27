@@ -1,8 +1,7 @@
 ---
 title: "IntelliTrace 功能 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -24,10 +23,10 @@ helpviewer_keywords:
   - "IntelliTrace, 打开"
 ms.assetid: 5ccc059c-6097-46b4-9d4b-34236c02d549
 caps.latest.revision: 67
-caps.handback.revision: 67
 author: "mikejo5000"
 ms.author: "mikejo"
 manager: "ghogen"
+caps.handback.revision: 67
 ---
 # IntelliTrace 功能
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

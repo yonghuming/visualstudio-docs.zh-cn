@@ -1,8 +1,7 @@
 ---
 title: "如何：自定义 ClickOnce 应用程序的默认网页 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -20,10 +19,10 @@ helpviewer_keywords:
   - "发布, ClickOnce"
 ms.assetid: 418de18c-bee9-4f24-9cd9-0252d175070d
 caps.latest.revision: 14
-caps.handback.revision: 14
 author: "stevehoag"
 ms.author: "shoag"
 manager: "wpickett"
+caps.handback.revision: 14
 ---
 # 如何：自定义 ClickOnce 应用程序的默认网页
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

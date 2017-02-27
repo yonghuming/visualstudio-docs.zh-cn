@@ -1,37 +1,19 @@
 ---
-title: "Windows 8 和 Windows Server 2012 应用程序上的性能工具 | Microsoft Docs"
-ms.custom: 
-ms.date: 11/04/2016
-ms.reviewer: 
-ms.suite: 
-ms.technology:
-- vs-ide-debug
-ms.tgt_pltfrm: 
-ms.topic: article
+title: "分析 Windows 8 和 Windows Server 2012 应用程序 | Microsoft Docs"
+ms.custom: ""
+ms.date: "11/04/2016"
+ms.reviewer: ""
+ms.suite: ""
+ms.technology: 
+  - "vs-ide-debug"
+ms.tgt_pltfrm: ""
+ms.topic: "article"
 ms.assetid: a704215d-d252-4087-921b-ac81ebe2a9c9
 caps.latest.revision: 15
-author: mikejo5000
-ms.author: mikejo
-manager: ghogen
-translation.priority.ht:
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- ru-ru
-- zh-cn
-- zh-tw
-translation.priority.mt:
-- cs-cz
-- pl-pl
-- pt-br
-- tr-tr
-translationtype: Human Translation
-ms.sourcegitcommit: 65bceca75b87aaf187926ebbed1a54ce4f0e8eec
-ms.openlocfilehash: c1b3058b6a1af9161f71cbea995c562670013e86
-
+author: "mikejo5000"
+ms.author: "mikejo"
+manager: "ghogen"
+caps.handback.revision: 13
 ---
 # <a name="performance-tools-on-windows-8-and-windows-server-2012-applications"></a>Windows 8 和 Windows Server 2012 应用程序上的性能工具
 Windows 8 和 Windows Server 2012 中增强的安全功能需要对 Visual Studio 性能工具在这些平台上收集数据的方式进行重大更改。 Windows 应用商店应用程序也需要新的收集技术。 本主题介绍针对 Windows 8 和 Windows Server 2012 平台上的性能工具的更改。  

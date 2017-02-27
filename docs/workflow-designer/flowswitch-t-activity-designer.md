@@ -1,8 +1,7 @@
 ---
 title: "FlowSwitch&lt;T&gt; 活动设计器 | Microsoft Docs"
 ms.custom: ""
-ms.date: "09/27/2016"
-ms.prod: ".net-framework-4.6"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.tgt_pltfrm: ""
@@ -14,10 +13,10 @@ f1_keywords:
   - "System.Activities.Core.Presentation.FlowSwitchLinkIdentifier.UI"
 ms.assetid: 5b9c5afe-7499-4ee8-8c33-28aff14bde07
 caps.latest.revision: 4
-caps.handback.revision: 4
 author: "ErikRe"
 ms.author: "erikre"
 manager: "erikre"
+caps.handback.revision: 4
 ---
 # FlowSwitch&lt;T&gt; 活动设计器
 <xref:System.Activities.Statements.FlowSwitch%601> 活动是一个条件节点，它在需要两个以上备选分支时根据匹配条件分支控制流。如果流分支仅需要两个路径，请改用 <xref:System.Activities.Statements.FlowDecision> 活动。  

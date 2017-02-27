@@ -1,8 +1,7 @@
 ---
 title: "测试区域 1︰ 从源代码管理添加到打开 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/15/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -14,9 +13,9 @@ helpviewer_keywords:
   - "源代码管理插件，添加然后打开解决方案"
 ms.assetid: 5b3b5b08-5e9b-41be-ac72-c63957faed22
 caps.latest.revision: 20
-caps.handback.revision: 20
 ms.author: "gregvanl"
 manager: "ghogen"
+caps.handback.revision: 20
 ---
 # 测试区域 1︰ 从源代码管理添加到文件，或打开
 [!INCLUDE[vs2017banner](../../code-quality/includes/vs2017banner.md)]

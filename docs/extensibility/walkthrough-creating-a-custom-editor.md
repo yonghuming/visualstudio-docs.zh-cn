@@ -1,8 +1,7 @@
 ---
 title: "演练: 创建自定义编辑器 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -13,9 +12,9 @@ helpviewer_keywords:
   - "编辑器 [Visual Studio SDK]，自定义的创建"
 ms.assetid: d090abb6-d99f-4083-a3db-cd16bf81ce7d
 caps.latest.revision: 17
-caps.handback.revision: 17
 ms.author: "gregvanl"
 manager: "ghogen"
+caps.handback.revision: 17
 ---
 # 演练: 创建自定义编辑器
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

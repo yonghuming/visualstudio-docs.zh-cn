@@ -1,8 +1,7 @@
 ---
 title: "“函数”视图 - 探查器争用数据 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -13,10 +12,10 @@ helpviewer_keywords:
   - "“函数”视图"
 ms.assetid: 208773b0-1a54-4b7a-ad37-2b6fd4f731d4
 caps.latest.revision: 10
-caps.handback.revision: 10
 author: "mikejo5000"
 ms.author: "mikejo"
 manager: "ghogen"
+caps.handback.revision: 10
 ---
 # “函数”视图 - 探查器争用数据
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

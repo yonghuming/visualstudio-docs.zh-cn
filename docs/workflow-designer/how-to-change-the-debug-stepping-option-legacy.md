@@ -1,8 +1,7 @@
 ---
 title: "如何：更改调试单步执行选项（旧版） | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/15/2016"
-ms.prod: ".net-framework-4.6"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.tgt_pltfrm: ""
@@ -15,10 +14,10 @@ helpviewer_keywords:
   - "单步执行, 更改选项"
 ms.assetid: aedc06af-d58a-44d6-aee4-f397f1f923a0
 caps.latest.revision: 5
-caps.handback.revision: 5
 author: "ErikRe"
 ms.author: "erikre"
 manager: "erikre"
+caps.handback.revision: 5
 ---
 # 如何：更改调试单步执行选项（旧版）
 本主题介绍如何在旧 [!INCLUDE[wfd1](../workflow-designer/includes/wfd1_md.md)] 中，针对具有并发操作的 [!INCLUDE[wf](../workflow-designer/includes/wf_md.md)] 应用程序更改调试单步执行选项。在需要面向 [!INCLUDE[netfx35_long](../workflow-designer/includes/netfx35_long_md.md)] 或 [!INCLUDE[vstecwinfx](../workflow-designer/includes/vstecwinfx_md.md)] 时，请使用旧 [!INCLUDE[wfd2](../workflow-designer/includes/wfd2_md.md)]。  

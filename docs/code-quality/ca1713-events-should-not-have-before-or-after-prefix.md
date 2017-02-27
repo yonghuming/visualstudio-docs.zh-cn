@@ -1,8 +1,7 @@
 ---
 title: "CA1713：事件不应具有 before 或 after 前缀 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -17,10 +16,10 @@ helpviewer_keywords:
   - "EventsShouldNotHaveBeforeOrAfterPrefix"
 ms.assetid: 855772a4-aa9e-410b-88c1-c5fba1ca63da
 caps.latest.revision: 14
-caps.handback.revision: 14
 author: "stevehoag"
 ms.author: "shoag"
 manager: "wpickett"
+caps.handback.revision: 14
 ---
 # CA1713：事件不应具有 before 或 after 前缀
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

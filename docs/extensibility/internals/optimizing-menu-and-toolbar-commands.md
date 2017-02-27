@@ -1,8 +1,7 @@
 ---
 title: "优化菜单和工具栏命令 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/15/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -17,9 +16,9 @@ helpviewer_keywords:
   - "工具栏 [Visual Studio] 命令"
 ms.assetid: 8385f1a6-1e98-4dca-83d2-fcbed7177242
 caps.latest.revision: 8
-caps.handback.revision: 8
 ms.author: "gregvanl"
 manager: "ghogen"
+caps.handback.revision: 8
 ---
 # 优化菜单和工具栏命令
 [!INCLUDE[vs2017banner](../../code-quality/includes/vs2017banner.md)]

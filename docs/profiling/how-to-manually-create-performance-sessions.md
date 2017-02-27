@@ -1,8 +1,7 @@
 ---
 title: "如何：使用分析工具手动创建性能会话 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/15/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -17,10 +16,10 @@ helpviewer_keywords:
   - "性能工具，创建性能会话"
 ms.assetid: ee2b3e0c-0990-46d9-8de6-c29fa386b15b
 caps.latest.revision: 18
-caps.handback.revision: 18
 author: "mikejo5000"
 ms.author: "mikejo"
 manager: "ghogen"
+caps.handback.revision: 18
 ---
 # 如何：使用分析工具手动创建性能会话
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

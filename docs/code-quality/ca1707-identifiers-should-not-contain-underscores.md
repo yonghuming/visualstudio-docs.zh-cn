@@ -1,8 +1,7 @@
 ---
 title: "CA1707：标识符不应包含下划线 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -17,10 +16,10 @@ helpviewer_keywords:
   - "IdentifiersShouldNotContainUnderscores"
 ms.assetid: 5fb539ef-c304-4323-90c0-b14386da9774
 caps.latest.revision: 19
-caps.handback.revision: 19
 author: "stevehoag"
 ms.author: "shoag"
 manager: "wpickett"
+caps.handback.revision: 19
 ---
 # CA1707：标识符不应包含下划线
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

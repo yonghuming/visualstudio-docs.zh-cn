@@ -1,8 +1,7 @@
 ---
 title: "CvCreateDefaultMarkerSeriesOfDefaultProvider 函数 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -15,10 +14,10 @@ helpviewer_keywords:
   - "CvCreateDefaultMarkerSeriesOfDefaultProvider 方法"
 ms.assetid: 24eb80f8-8fca-4c47-93b5-bb1eb8ffdffd
 caps.latest.revision: 2
-caps.handback.revision: 2
 author: "mikejo5000"
 ms.author: "mikejo"
 manager: "ghogen"
+caps.handback.revision: 2
 ---
 # CvCreateDefaultMarkerSeriesOfDefaultProvider 函数
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

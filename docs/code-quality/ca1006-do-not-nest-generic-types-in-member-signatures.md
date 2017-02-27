@@ -1,8 +1,7 @@
 ---
 title: "CA1006：不要将泛型类型嵌套在成员签名中 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -17,10 +16,10 @@ helpviewer_keywords:
   - "DoNotNestGenericTypesInMemberSignatures"
 ms.assetid: dfc867bc-f4af-45d7-b071-db04a248f9fc
 caps.latest.revision: 17
-caps.handback.revision: 17
 author: "stevehoag"
 ms.author: "shoag"
 manager: "wpickett"
+caps.handback.revision: 17
 ---
 # CA1006：不要将泛型类型嵌套在成员签名中
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

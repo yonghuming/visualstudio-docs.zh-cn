@@ -1,41 +1,24 @@
 ---
 title: "如何：使用不同选项生成相同的源文件 | Microsoft Docs"
-ms.custom: 
-ms.date: 11/04/2016
-ms.reviewer: 
-ms.suite: 
-ms.technology:
-- vs-ide-sdk
-ms.tgt_pltfrm: 
-ms.topic: article
-helpviewer_keywords:
-- source files, building with different options
-- MSBuild, properties
-- project properties, modifying
-- Hello World example [Visual Studio]
+ms.custom: ""
+ms.date: "11/04/2016"
+ms.reviewer: ""
+ms.suite: ""
+ms.technology: 
+  - "vs-ide-sdk"
+ms.tgt_pltfrm: ""
+ms.topic: "article"
+helpviewer_keywords: 
+  - "用不同选项编译源代码文件"
+  - "MSBuild 属性"
+  - "项目属性中修改"
+  - "Hello World 示例 [Visual Studio]"
 ms.assetid: d14f1212-ddd9-434f-b138-f840011b0fb2
 caps.latest.revision: 20
-author: kempb
-ms.author: kempb
-manager: ghogen
-translation.priority.ht:
-- cs-cz
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pl-pl
-- pt-br
-- ru-ru
-- tr-tr
-- zh-cn
-- zh-tw
-translationtype: Human Translation
-ms.sourcegitcommit: 3ba7680d46345f2b49019659c715cfb418933d39
-ms.openlocfilehash: 9a7f77460e3e24ec3cef6694ea9515888c061ecc
-
+author: "kempb"
+ms.author: "kempb"
+manager: "ghogen"
+caps.handback.revision: 20
 ---
 # <a name="how-to-build-the-same-source-files-with-different-options"></a>如何：使用不同选项生成相同的源文件
 在生成项目时，你经常使用不同的生成选项编译相同的组件。 例如，你可以使用符号信息创建调试版本，或者使用无符号信息但启用优化来创建发布版本。 或者，可以生成项目，在某个特定平台（例如，x86 或[!INCLUDE[vcprx64](../extensibility/internals/includes/vcprx64_md.md)]）上运行。 在所有这些情况下，大部分生成选项保持不变；只更改几个选项以控制生成配置。 利用 [!INCLUDE[vstecmsbuild](../extensibility/internals/includes/vstecmsbuild_md.md)]，你可以使用属性和条件来创建不同的生成配置。  

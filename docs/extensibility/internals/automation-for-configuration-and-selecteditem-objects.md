@@ -1,8 +1,7 @@
 ---
 title: "有关配置和 SelectedItem 对象的自动化 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/15/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -14,9 +13,9 @@ helpviewer_keywords:
   - "生成自动化 [Visual Studio SDK]"
 ms.assetid: 120377f1-51aa-4445-b2f7-06ab7fc2b47f
 caps.latest.revision: 13
-caps.handback.revision: 13
 ms.author: "gregvanl"
 manager: "ghogen"
+caps.handback.revision: 13
 ---
 # 有关配置和 SelectedItem 对象的自动化
 [!INCLUDE[vs2017banner](../../code-quality/includes/vs2017banner.md)]

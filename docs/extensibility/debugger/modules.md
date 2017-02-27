@@ -1,8 +1,7 @@
 ---
 title: "模块 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -14,9 +13,9 @@ helpviewer_keywords:
   - "调试 [调试 SDK] 模块"
 ms.assetid: c4cf2809-dbdb-4e75-9273-b3d3d77b67d0
 caps.latest.revision: 9
-caps.handback.revision: 9
 ms.author: "gregvanl"
 manager: "ghogen"
+caps.handback.revision: 9
 ---
 # 模块
 [!INCLUDE[vs2017banner](../../code-quality/includes/vs2017banner.md)]

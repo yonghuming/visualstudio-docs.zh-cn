@@ -1,8 +1,7 @@
 ---
 title: "NumberOfParentCategoriesToRollUp（Visual Studio 模板） | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/15/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -16,9 +15,9 @@ helpviewer_keywords:
   - "NumberOfParentCategoriesToRollUp 元素 [Visual Studio 模板]"
 ms.assetid: 6f9d36f5-ae23-4a92-8132-b11799e2c21a
 caps.latest.revision: 7
-caps.handback.revision: 7
 ms.author: "gregvanl"
 manager: "ghogen"
+caps.handback.revision: 7
 ---
 # NumberOfParentCategoriesToRollUp（Visual Studio 模板）
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

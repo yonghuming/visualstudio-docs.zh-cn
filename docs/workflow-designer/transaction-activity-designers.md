@@ -1,18 +1,17 @@
 ---
 title: "事务活动设计器 | Microsoft Docs"
 ms.custom: ""
-ms.date: "09/27/2016"
-ms.prod: ".net-framework-4.6"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.tgt_pltfrm: ""
 ms.topic: "reference"
 ms.assetid: 8dd0f60f-88ec-4258-bc8d-233689be9997
 caps.latest.revision: 6
-caps.handback.revision: 6
 author: "ErikRe"
 ms.author: "erikre"
 manager: "erikre"
+caps.handback.revision: 6
 ---
 # 事务活动设计器
 各事务活动设计器用于创建和配置事务性活动，如补偿和确认。本节中所包含并在下表中列出的各主题介绍如何使用 [!INCLUDE[wfd2](../workflow-designer/includes/wfd2_md.md)] 活动和模板设计器。  

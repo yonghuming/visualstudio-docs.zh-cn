@@ -1,8 +1,7 @@
 ---
 title: "CA1819：属性不应返回数组 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -17,10 +16,10 @@ helpviewer_keywords:
   - "CA1819"
 ms.assetid: 85fcf312-57f8-438a-8b10-34441fe0bdeb
 caps.latest.revision: 22
-caps.handback.revision: 22
 author: "stevehoag"
 ms.author: "shoag"
 manager: "wpickett"
+caps.handback.revision: 22
 ---
 # CA1819：属性不应返回数组
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

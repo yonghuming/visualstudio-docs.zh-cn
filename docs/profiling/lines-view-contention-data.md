@@ -1,39 +1,21 @@
 ---
-title: "“行”视图 — 争用数据 | Microsoft Docs"
-ms.custom: 
-ms.date: 11/04/2016
-ms.reviewer: 
-ms.suite: 
-ms.technology:
-- vs-ide-debug
-ms.tgt_pltfrm: 
-ms.topic: article
-helpviewer_keywords:
-- Lines view
+title: "“行”视图 - 探查器争用数据 | Microsoft Docs"
+ms.custom: ""
+ms.date: "11/04/2016"
+ms.reviewer: ""
+ms.suite: ""
+ms.technology: 
+  - "vs-ide-debug"
+ms.tgt_pltfrm: ""
+ms.topic: "article"
+helpviewer_keywords: 
+  - "“行”视图"
 ms.assetid: 859b02d2-eddf-4ad3-95de-0df67ee2ab03
 caps.latest.revision: 9
-author: mikejo5000
-ms.author: mikejo
-manager: ghogen
-translation.priority.ht:
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- ru-ru
-- zh-cn
-- zh-tw
-translation.priority.mt:
-- cs-cz
-- pl-pl
-- pt-br
-- tr-tr
-translationtype: Human Translation
-ms.sourcegitcommit: 5db97d19b1b823388a465bba15d057b30ff0b3ce
-ms.openlocfilehash: 161d6bc4adde40ed913b381d8296ad845c732734
-
+author: "mikejo5000"
+ms.author: "mikejo"
+manager: "ghogen"
+caps.handback.revision: 9
 ---
 # <a name="lines-view---contention-data"></a>“行”视图 — 争用数据
 争用数据的“行”视图列出分析运行期间收集样本时所执行语句的性能数据。 在源文件中，一个语句可分散在多行中，而一行也可包括多个语句。  

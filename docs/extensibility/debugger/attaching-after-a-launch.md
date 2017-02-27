@@ -1,8 +1,7 @@
 ---
 title: "启动后附加 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -13,9 +12,9 @@ helpviewer_keywords:
   - "附加到程序的调试引擎"
 ms.assetid: 5a3600a1-dc20-4e55-b2a4-809736a6ae65
 caps.latest.revision: 14
-caps.handback.revision: 14
 ms.author: "gregvanl"
 manager: "ghogen"
+caps.handback.revision: 14
 ---
 # 启动后附加
 [!INCLUDE[vs2017banner](../../code-quality/includes/vs2017banner.md)]

@@ -1,8 +1,7 @@
 ---
 title: "调试 WebView 控件 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -16,10 +15,10 @@ dev_langs:
   - "C++"
 ms.assetid: 7d105907-8b39-4d07-8762-5c5ed74c7f21
 caps.latest.revision: 10
-caps.handback.revision: 10
 author: "mikejo5000"
 ms.author: "mikejo"
 manager: "ghogen"
+caps.handback.revision: 10
 ---
 # 调试 WebView 控件
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

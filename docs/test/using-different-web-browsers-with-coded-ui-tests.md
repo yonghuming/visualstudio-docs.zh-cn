@@ -1,8 +1,7 @@
 ---
 title: "对编码的 UI 测试使用不同的 Web 浏览器 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -11,9 +10,9 @@ ms.tgt_pltfrm: ""
 ms.topic: "article"
 ms.assetid: a859595f-6517-43f2-9d61-c706cb55a388
 caps.latest.revision: 23
-caps.handback.revision: 23
 ms.author: "mlearned"
 manager: "douge"
+caps.handback.revision: 23
 ---
 # 对编码的 UI 测试使用不同的 Web 浏览器
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

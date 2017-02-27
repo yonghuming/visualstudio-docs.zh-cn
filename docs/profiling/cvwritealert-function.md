@@ -1,8 +1,7 @@
 ---
 title: "CvWriteAlert 函数 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -21,10 +20,10 @@ helpviewer_keywords:
   - "CvWriteAlertW 方法"
 ms.assetid: 937aa9d6-278a-4df3-bef7-151441df16d5
 caps.latest.revision: 4
-caps.handback.revision: 4
 author: "mikejo5000"
 ms.author: "mikejo"
 manager: "ghogen"
+caps.handback.revision: 4
 ---
 # CvWriteAlert 函数
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

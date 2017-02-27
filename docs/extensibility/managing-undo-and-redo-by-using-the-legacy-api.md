@@ -1,8 +1,7 @@
 ---
 title: "管理撤消和重做通过使用旧 API | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/15/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -13,9 +12,9 @@ helpviewer_keywords:
   - "编辑器 [Visual Studio SDK]，旧的撤消管理"
 ms.assetid: 838c0ddf-fdf3-4df1-8d21-79610b8ba0b1
 caps.latest.revision: 14
-caps.handback.revision: 14
 ms.author: "gregvanl"
 manager: "ghogen"
+caps.handback.revision: 14
 ---
 # 管理撤消和重做通过使用旧 API
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

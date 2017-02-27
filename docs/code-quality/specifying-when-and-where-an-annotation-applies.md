@@ -1,8 +1,7 @@
 ---
 title: "指定何时以及在何处应用批注 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -16,10 +15,10 @@ f1_keywords:
   - "_At_buffer_"
 ms.assetid: 8e4f4f9c-5dfa-4835-87df-ecd1698fc650
 caps.latest.revision: 7
-caps.handback.revision: 7
 author: "corob-msft"
 ms.author: "corob"
 manager: "ghogen"
+caps.handback.revision: 7
 ---
 # 指定何时以及在何处应用批注
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

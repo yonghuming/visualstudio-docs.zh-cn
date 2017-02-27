@@ -1,8 +1,7 @@
 ---
 title: "并发可视化工具 SDK | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -13,10 +12,10 @@ f1_keywords:
   - "vs.cv.sdk.about"
 ms.assetid: 4b22cdf9-59b1-4c88-a6d8-1644a4a11e08
 caps.latest.revision: 11
-caps.handback.revision: 11
 author: "mikejo5000"
 ms.author: "mikejo"
 manager: "ghogen"
+caps.handback.revision: 11
 ---
 # 并发可视化工具 SDK
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

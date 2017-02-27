@@ -1,40 +1,22 @@
 ---
 title: "着色器设计器 | Microsoft Docs"
-ms.custom: 
-ms.date: 11/04/2016
-ms.reviewer: 
-ms.suite: 
-ms.technology:
-- vs-ide-general
-ms.tgt_pltfrm: 
-ms.topic: article
-f1_keywords:
-- vs.graphics.designer.effectdesigner
-- vs.graphics.shaderdesigner
+ms.custom: ""
+ms.date: "11/04/2016"
+ms.reviewer: ""
+ms.suite: ""
+ms.technology: 
+  - "vs-ide-general"
+ms.tgt_pltfrm: ""
+ms.topic: "article"
+f1_keywords: 
+  - "vs.graphics.designer.effectdesigner"
+  - "vs.graphics.shaderdesigner"
 ms.assetid: 5db09a16-b82c-4ba3-8ec9-630cdc109397
 caps.latest.revision: 32
-author: BrianPeek
-ms.author: brpeek
-manager: ghogen
-translation.priority.ht:
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- ru-ru
-- zh-cn
-- zh-tw
-translation.priority.mt:
-- cs-cz
-- pl-pl
-- pt-br
-- tr-tr
-translationtype: Human Translation
-ms.sourcegitcommit: 5db97d19b1b823388a465bba15d057b30ff0b3ce
-ms.openlocfilehash: ff6e473c6e5b2d7a24a4e906d2f592742e3c2d14
-
+author: "BrianPeek"
+ms.author: "brpeek"
+manager: "ghogen"
+caps.handback.revision: 32
 ---
 # <a name="shader-designer"></a>着色器设计器
 本文档介绍如何使用 [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] 着色器设计器来创建、修改和导出名为“着色器”的自定义视觉效果。  

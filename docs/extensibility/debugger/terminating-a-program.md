@@ -1,8 +1,7 @@
 ---
 title: "终止程序 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -14,9 +13,9 @@ helpviewer_keywords:
   - "调试 [调试 SDK]，终止程序"
 ms.assetid: eedda0a3-5e05-44fe-841d-a2f4866ac72d
 caps.latest.revision: 7
-caps.handback.revision: 7
 ms.author: "gregvanl"
 manager: "ghogen"
+caps.handback.revision: 7
 ---
 # 终止程序
 [!INCLUDE[vs2017banner](../../code-quality/includes/vs2017banner.md)]

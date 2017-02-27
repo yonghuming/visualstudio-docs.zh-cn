@@ -1,8 +1,7 @@
 ---
 title: "使用旧版状态机工作流设计器 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/15/2016"
-ms.prod: ".net-framework-4.6"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.tgt_pltfrm: ""
@@ -18,10 +17,10 @@ helpviewer_keywords:
   - "StateInitializationActivity 活动"
 ms.assetid: 2cd21123-35c2-4eaf-82f6-86fce7a8f04d
 caps.latest.revision: 5
-caps.handback.revision: 5
 author: "ErikRe"
 ms.author: "erikre"
 manager: "erikre"
+caps.handback.revision: 5
 ---
 # 使用旧版状态机工作流设计器
 在 [!INCLUDE[vs2010](../modeling/includes/vs2010_md.md)] 中创建面向 [!INCLUDE[netfx35_long](../workflow-designer/includes/netfx35_long_md.md)] 或 [!INCLUDE[vstecwinfx](../workflow-designer/includes/vstecwinfx_md.md)] 的新状态机工作流项目时，可选择使用**状态机工作流控制台应用程序**或**状态机工作流库**旧项目模板。如果选择其中一个状态机项目模板，则会以旧工作流设计器用户界面的形式呈现状态机设计器。有关旧状态机项目模板的信息，请参见[如何：创建状态机工作流控制台应用程序（旧版）](../Topic/How%20to:%20Create%20State%20Machine%20Workflow%20Console%20Applications%20\(Legacy\).md)和[如何：创建一个状态机工作流库（旧版）](../Topic/How%20to:%20Create%20a%20State%20Machine%20Workflow%20Library%20\(Legacy\).md)。  

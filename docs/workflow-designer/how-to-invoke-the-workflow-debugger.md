@@ -1,18 +1,17 @@
 ---
 title: "如何：调用工作流调试器 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/14/2016"
-ms.prod: ".net-framework-4.6"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.tgt_pltfrm: ""
 ms.topic: "reference"
 ms.assetid: 34c592af-f4f6-4d02-99f6-63a94698e48b
 caps.latest.revision: 9
-caps.handback.revision: 9
 author: "ErikRe"
 ms.author: "erikre"
 manager: "erikre"
+caps.handback.revision: 9
 ---
 # 如何：调用工作流调试器
 通常，您可以像调试用其他 Visual Studio 编程语言编写的程序那样调试工作流。可通过以下方法启动工作流调试器：  

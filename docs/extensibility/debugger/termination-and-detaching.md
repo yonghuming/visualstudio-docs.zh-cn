@@ -1,8 +1,7 @@
 ---
 title: "终止和分离 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -14,9 +13,9 @@ helpviewer_keywords:
   - "调试引擎，与程序分离"
 ms.assetid: 268c1e51-6363-45d1-964c-1ab99bdfa4f9
 caps.latest.revision: 7
-caps.handback.revision: 7
 ms.author: "gregvanl"
 manager: "ghogen"
+caps.handback.revision: 7
 ---
 # 终止和分离
 [!INCLUDE[vs2017banner](../../code-quality/includes/vs2017banner.md)]

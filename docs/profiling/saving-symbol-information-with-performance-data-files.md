@@ -1,40 +1,22 @@
 ---
-title: "使用性能数据文件保存符号信息 | Microsoft Docs"
-ms.custom: 
-ms.date: 11/04/2016
-ms.reviewer: 
-ms.suite: 
-ms.technology:
-- vs-ide-debug
-ms.tgt_pltfrm: 
-ms.topic: article
-helpviewer_keywords:
-- packsymbols, in profiling tools reports
-- profiling tools, packsymbols
+title: "使用分析数据文件保存符号信息 | Microsoft Docs"
+ms.custom: ""
+ms.date: "11/04/2016"
+ms.reviewer: ""
+ms.suite: ""
+ms.technology: 
+  - "vs-ide-debug"
+ms.tgt_pltfrm: ""
+ms.topic: "article"
+helpviewer_keywords: 
+  - "packsymbols, 在分析工具报告中"
+  - "分析工具, packsymbols"
 ms.assetid: 8b802505-e94d-4ee0-83e4-fdd790a332c1
 caps.latest.revision: 13
-author: mikejo5000
-ms.author: mikejo
-manager: ghogen
-translation.priority.ht:
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- ru-ru
-- zh-cn
-- zh-tw
-translation.priority.mt:
-- cs-cz
-- pl-pl
-- pt-br
-- tr-tr
-translationtype: Human Translation
-ms.sourcegitcommit: 5db97d19b1b823388a465bba15d057b30ff0b3ce
-ms.openlocfilehash: 6193453b9cbdaab387c6fff9e883d43dc436c41b
-
+author: "mikejo5000"
+ms.author: "mikejo"
+manager: "ghogen"
+caps.handback.revision: 13
 ---
 # <a name="saving-symbol-information-with-performance-data-files"></a>使用性能数据文件保存符号信息
 如果使用 [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] 集成开发环境 (IDE) 分析文件并且计划将 VSP 文件移动到其他计算机，则必须设置性能项目设置以在报告文件中保存或序列化符号。 这会增加报告文件的大小。 出于以下两个原因，需要序列化符号：  

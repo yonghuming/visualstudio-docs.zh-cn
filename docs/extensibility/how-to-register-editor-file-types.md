@@ -1,8 +1,7 @@
 ---
 title: "如何: 注册编辑器文件类型 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/15/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -13,9 +12,9 @@ helpviewer_keywords:
   - "编辑器 [Visual Studio SDK]，旧的注册文件类型"
 ms.assetid: 54846779-8290-48de-90ab-81011559d9a5
 caps.latest.revision: 14
-caps.handback.revision: 14
 ms.author: "gregvanl"
 manager: "ghogen"
+caps.handback.revision: 14
 ---
 # 如何: 注册编辑器文件类型
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

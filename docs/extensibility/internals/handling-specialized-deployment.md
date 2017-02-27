@@ -1,8 +1,7 @@
 ---
 title: "处理专用部署 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/15/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -14,9 +13,9 @@ helpviewer_keywords:
   - "专用的部署"
 ms.assetid: de068b6a-e806-45f0-9dec-2458fbb486f7
 caps.latest.revision: 32
-caps.handback.revision: 32
 ms.author: "gregvanl"
 manager: "ghogen"
+caps.handback.revision: 32
 ---
 # 处理专用部署
 [!INCLUDE[vs2017banner](../../code-quality/includes/vs2017banner.md)]

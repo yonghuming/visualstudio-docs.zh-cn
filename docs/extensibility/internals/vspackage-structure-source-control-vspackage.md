@@ -1,8 +1,7 @@
 ---
 title: "VSPackage 结构 (源控制 VSPackage) | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/15/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -14,9 +13,9 @@ helpviewer_keywords:
   - "源代码管理包，VSPackage 概述"
 ms.assetid: 92722be7-b397-48c3-a7a7-0b931a341961
 caps.latest.revision: 26
-caps.handback.revision: 26
 ms.author: "gregvanl"
 manager: "ghogen"
+caps.handback.revision: 26
 ---
 # VSPackage 结构 (源控制 VSPackage)
 [!INCLUDE[vs2017banner](../../code-quality/includes/vs2017banner.md)]

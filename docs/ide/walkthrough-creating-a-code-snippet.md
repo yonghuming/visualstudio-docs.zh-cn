@@ -1,8 +1,7 @@
 ---
 title: "演练：创建代码段 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -18,10 +17,10 @@ helpviewer_keywords:
   - "代码段, 模板"
 ms.assetid: 0dcaae11-39cf-4463-9c90-2494321251c2
 caps.latest.revision: 21
-caps.handback.revision: 21
 author: "kempb"
 ms.author: "kempb"
 manager: "ghogen"
+caps.handback.revision: 21
 ---
 # 演练：创建代码段
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

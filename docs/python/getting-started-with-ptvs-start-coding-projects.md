@@ -1,36 +1,19 @@
 ---
-title: "PTVS 入门：开始编码（项目）| Microsoft Docs"
-ms.custom: 
-ms.date: 11/04/2016
-ms.reviewer: 
-ms.suite: 
-ms.technology:
-- devlang-python
-ms.tgt_pltfrm: 
-ms.topic: article
+title: "PTVS 入门：开始编码（项目） | Microsoft Docs"
+ms.custom: ""
+ms.date: "11/04/2016"
+ms.reviewer: ""
+ms.suite: ""
+ms.technology: 
+  - "devlang-python"
+ms.tgt_pltfrm: ""
+ms.topic: "article"
 ms.assetid: 14b85e70-b9a8-415c-a307-8c8c316a0495
 caps.latest.revision: 6
-author: kraigb
-ms.author: kraigb
-manager: ghogen
-translation.priority.ht:
-- cs-cz
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pl-pl
-- pt-br
-- ru-ru
-- tr-tr
-- zh-cn
-- zh-tw
-translationtype: Human Translation
-ms.sourcegitcommit: 5db97d19b1b823388a465bba15d057b30ff0b3ce
-ms.openlocfilehash: 96f7bc59b84e837b5a01eec0224171571491a7b1
-
+author: "kraigb"
+ms.author: "kraigb"
+manager: "ghogen"
+caps.handback.revision: 5
 ---
 # <a name="getting-started-with-ptvs-start-coding-projects"></a>PTVS 入门：开始编码（项目）
 Python Tools for Visual Studio (PTVS) 可帮助你管理代码。 

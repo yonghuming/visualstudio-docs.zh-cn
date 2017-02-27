@@ -1,8 +1,7 @@
 ---
 title: "扩展 Visual Studio 的其他部分 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -13,9 +12,9 @@ helpviewer_keywords:
   - "用户界面"
 ms.assetid: 27d2f1e1-2503-4aca-9cfc-707abd07ccf0
 caps.latest.revision: 22
-caps.handback.revision: 22
 ms.author: "gregvanl"
 manager: "ghogen"
+caps.handback.revision: 22
 ---
 # 扩展 Visual Studio 的其他部分
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

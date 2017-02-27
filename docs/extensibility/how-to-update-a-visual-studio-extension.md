@@ -1,8 +1,7 @@
 ---
 title: "如何︰ 更新 Visual Studio 扩展 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -15,9 +14,9 @@ helpviewer_keywords:
   - "新的包版本"
 ms.assetid: 93f79774-7b79-4dd6-94ad-13698f72c257
 caps.latest.revision: 14
-caps.handback.revision: 14
 ms.author: "gregvanl"
 manager: "ghogen"
+caps.handback.revision: 14
 ---
 # 如何︰ 更新 Visual Studio 扩展
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

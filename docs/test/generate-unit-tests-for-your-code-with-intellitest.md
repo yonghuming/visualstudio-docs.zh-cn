@@ -1,8 +1,7 @@
 ---
 title: "使用 IntelliTest 为你的代码生成单元测试 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "2015-10-05"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -13,9 +12,9 @@ f1_keywords:
   - "vs.UnitTest.CreateIntelliTest"
 ms.assetid: cd9ff940-e948-4d28-a72c-b291ef5c1e90
 caps.latest.revision: 33
-caps.handback.revision: 33
 ms.author: "mlearned"
 manager: "douge"
+caps.handback.revision: 33
 ---
 # 使用 IntelliTest 为你的代码生成单元测试
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

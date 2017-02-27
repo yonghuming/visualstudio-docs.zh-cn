@@ -1,8 +1,7 @@
 ---
 title: "使用活动设计器 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/15/2016"
-ms.prod: ".net-framework-4.6"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.tgt_pltfrm: ""
@@ -12,10 +11,10 @@ helpviewer_keywords:
   - "工作流设计器 [WFD], 活动设计器"
 ms.assetid: 3c2725c3-091b-49ab-81e7-d4c7028d47a2
 caps.latest.revision: 9
-caps.handback.revision: 9
 author: "ErikRe"
 ms.author: "erikre"
 manager: "erikre"
+caps.handback.revision: 9
 ---
 # 使用活动设计器
 [!INCLUDE[wfd1](../workflow-designer/includes/wfd1_md.md)] 包含系统提供的若干活动，构造活动和工作流时可以使用它们。本节介绍系统提供的可用活动及其设计器的类别。有关每个类别内各活动及其相应设计器的主题将介绍这些活动的用途并提供使用指南。  

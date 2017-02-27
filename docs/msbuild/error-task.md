@@ -1,8 +1,7 @@
 ---
 title: "Error 任务 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -21,10 +20,10 @@ helpviewer_keywords:
   - "MSBuild, Error 任务"
 ms.assetid: e96a90ee-a8ae-4e5b-8ef2-b5cf5fedd8b2
 caps.latest.revision: 20
-caps.handback.revision: 20
 author: "kempb"
 ms.author: "kempb"
 manager: "ghogen"
+caps.handback.revision: 20
 ---
 # Error 任务
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

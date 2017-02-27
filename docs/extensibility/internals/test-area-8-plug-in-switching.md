@@ -1,8 +1,7 @@
 ---
 title: "测试区域 8: 插件切换 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/15/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -14,9 +13,9 @@ helpviewer_keywords:
   - "源代码管理插件切换"
 ms.assetid: 01370792-b5da-4e46-9ce2-7dd326587141
 caps.latest.revision: 9
-caps.handback.revision: 9
 ms.author: "gregvanl"
 manager: "ghogen"
+caps.handback.revision: 9
 ---
 # 测试区域 8: 插件切换
 [!INCLUDE[vs2017banner](../../code-quality/includes/vs2017banner.md)]

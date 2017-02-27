@@ -1,8 +1,7 @@
 ---
 title: "上下文菜单（XML 架构资源管理器） | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -11,10 +10,10 @@ ms.tgt_pltfrm: ""
 ms.topic: "article"
 ms.assetid: 42ab17ca-b8c1-40d7-beda-d033f66fe874
 caps.latest.revision: 2
-caps.handback.revision: 2
 author: "kempb"
 ms.author: "kempb"
 manager: "ghogen"
+caps.handback.revision: 2
 ---
 # 上下文菜单（XML 架构资源管理器）
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

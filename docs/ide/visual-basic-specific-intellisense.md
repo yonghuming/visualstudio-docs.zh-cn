@@ -1,8 +1,7 @@
 ---
 title: "Visual Basic 特定的 IntelliSense | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/14/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -14,10 +13,10 @@ helpviewer_keywords:
   - "IntelliSense [Visual Studio], Visual Basic"
 ms.assetid: 4dec8753-05e5-4f74-b304-5f8c4ed8723b
 caps.latest.revision: 10
-caps.handback.revision: 10
 author: "kempb"
 ms.author: "kempb"
 manager: "ghogen"
+caps.handback.revision: 10
 ---
 # Visual Basic 特定的 IntelliSense
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

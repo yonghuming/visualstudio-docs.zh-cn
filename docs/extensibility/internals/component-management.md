@@ -1,8 +1,7 @@
 ---
 title: "组件管理 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -14,9 +13,9 @@ helpviewer_keywords:
   - "安装 [Visual Studio SDK]，文件管理"
 ms.assetid: 029bffa2-6841-4caa-a41a-442467e1aedc
 caps.latest.revision: 13
-caps.handback.revision: 13
 ms.author: "gregvanl"
 manager: "ghogen"
+caps.handback.revision: 13
 ---
 # 组件管理
 [!INCLUDE[vs2017banner](../../code-quality/includes/vs2017banner.md)]

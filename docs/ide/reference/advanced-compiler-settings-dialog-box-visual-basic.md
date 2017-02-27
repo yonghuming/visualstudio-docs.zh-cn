@@ -1,8 +1,7 @@
 ---
 title: "“高级编译器设置”对话框 (Visual Basic) | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/14/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -15,10 +14,10 @@ helpviewer_keywords:
   - "“高级编译器设置”对话框"
 ms.assetid: 1f81133a-293f-4dba-bc1c-8baafb01d857
 caps.latest.revision: 46
-caps.handback.revision: 46
 author: "kempb"
 ms.author: "kempb"
 manager: "ghogen"
+caps.handback.revision: 46
 ---
 # “高级编译器设置”对话框 (Visual Basic)
 [!INCLUDE[vs2017banner](../../code-quality/includes/vs2017banner.md)]

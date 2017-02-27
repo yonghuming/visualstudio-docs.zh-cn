@@ -1,8 +1,7 @@
 ---
 title: "Visual Studio 用户体验指南 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -11,9 +10,9 @@ ms.tgt_pltfrm: ""
 ms.topic: "article"
 ms.assetid: 3abbe495-cbbc-4982-a809-38bda34553a7
 caps.latest.revision: 3
-caps.handback.revision: 3
 ms.author: "gregvanl"
 manager: "ghogen"
+caps.handback.revision: 3
 ---
 # Visual Studio 用户体验指南
 [!INCLUDE[vs2017banner](../../code-quality/includes/vs2017banner.md)]

@@ -1,8 +1,7 @@
 ---
 title: "将直接连接到某个程序 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -13,9 +12,9 @@ helpviewer_keywords:
   - "附加到程序的调试引擎"
 ms.assetid: ad2b7db8-821c-440c-ba07-c55c6a395e0f
 caps.latest.revision: 10
-caps.handback.revision: 10
 ms.author: "gregvanl"
 manager: "ghogen"
+caps.handback.revision: 10
 ---
 # 将直接连接到某个程序
 [!INCLUDE[vs2017banner](../../code-quality/includes/vs2017banner.md)]

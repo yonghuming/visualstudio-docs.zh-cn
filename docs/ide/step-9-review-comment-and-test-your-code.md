@@ -1,8 +1,7 @@
 ---
 title: "步骤 9：检查代码、为代码添加注释和测试代码 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -11,10 +10,10 @@ ms.tgt_pltfrm: ""
 ms.topic: "article"
 ms.assetid: f26f79ba-c91b-4164-b87f-679a1b231c09
 caps.latest.revision: 29
-caps.handback.revision: 29
 author: "kempb"
 ms.author: "kempb"
 manager: "ghogen"
+caps.handback.revision: 29
 ---
 # 步骤 9：检查代码、为代码添加注释和测试代码
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

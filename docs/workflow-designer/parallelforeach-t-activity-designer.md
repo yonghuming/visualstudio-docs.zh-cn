@@ -1,8 +1,7 @@
 ---
 title: "ParallelForEach&lt;T&gt; 活动设计器 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/15/2016"
-ms.prod: ".net-framework-4.6"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.tgt_pltfrm: ""
@@ -11,10 +10,10 @@ f1_keywords:
   - "System.Activities.Statements.ParallelForEach`1.UI"
 ms.assetid: e93a4843-aef2-4d3e-9a0a-a2d3d1411aa7
 caps.latest.revision: 9
-caps.handback.revision: 9
 author: "ErikRe"
 ms.author: "erikre"
 manager: "erikre"
+caps.handback.revision: 9
 ---
 # ParallelForEach&lt;T&gt; 活动设计器
 <xref:System.Activities.Statements.ParallelForEach%601> 活动枚举集合元素并对集合中的每个元素并行执行嵌入语句，这将在同一线程上异步执行。如果此活动的子活动预期会进入空闲状态，请使用此流控制活动，而不是 <xref:System.Activities.Statements.Sequence> 活动。  

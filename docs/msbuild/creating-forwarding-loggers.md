@@ -1,8 +1,7 @@
 ---
 title: "创建转发记录器 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -14,10 +13,10 @@ helpviewer_keywords:
   - "MSBuild, 日志记录"
 ms.assetid: 3aebf9c8-b62c-4cb2-b2d6-8cdfcd369a24
 caps.latest.revision: 9
-caps.handback.revision: 9
 author: "kempb"
 ms.author: "kempb"
 manager: "ghogen"
+caps.handback.revision: 9
 ---
 # 创建转发记录器
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

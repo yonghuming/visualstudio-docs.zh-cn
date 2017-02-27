@@ -1,8 +1,7 @@
 ---
 title: "&lt;Strings&gt; 元素（引导程序） | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/15/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -21,10 +20,10 @@ helpviewer_keywords:
   - "<Strings> 元素 [引导程序]"
 ms.assetid: d5ea3613-5fc9-4a11-bef3-46a01178bf60
 caps.latest.revision: 4
-caps.handback.revision: 4
 author: "stevehoag"
 ms.author: "shoag"
 manager: "wpickett"
+caps.handback.revision: 4
 ---
 # &lt;Strings&gt; 元素（引导程序）
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

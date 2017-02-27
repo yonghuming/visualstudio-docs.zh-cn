@@ -1,8 +1,7 @@
 ---
 title: "如何：创建自定义规则集 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/16/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -15,10 +14,10 @@ helpviewer_keywords:
   - "Development Edition, 规则集"
 ms.assetid: bcc42508-9592-4802-9f66-a50111641d73
 caps.latest.revision: 24
-caps.handback.revision: 24
 author: "stevehoag"
 ms.author: "shoag"
 manager: "wpickett"
+caps.handback.revision: 24
 ---
 # 如何：创建自定义规则集
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

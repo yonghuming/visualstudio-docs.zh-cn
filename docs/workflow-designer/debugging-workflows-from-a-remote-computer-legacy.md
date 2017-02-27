@@ -1,8 +1,7 @@
 ---
 title: "通过远程计算机调试工作流（旧版） | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/15/2016"
-ms.prod: ".net-framework-4.6"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.tgt_pltfrm: ""
@@ -14,10 +13,10 @@ helpviewer_keywords:
   - "工作流, 远程调试"
 ms.assetid: 44eaec8f-9959-4ae7-a374-670946f933c1
 caps.latest.revision: 6
-caps.handback.revision: 6
 author: "ErikRe"
 ms.author: "erikre"
 manager: "erikre"
+caps.handback.revision: 6
 ---
 # 通过远程计算机调试工作流（旧版）
 本主题介绍如何调试使用旧 [!INCLUDE[wfd1](../workflow-designer/includes/wfd1_md.md)] 生成的旧远程 [!INCLUDE[wf](../workflow-designer/includes/wf_md.md)] 应用程序。在应用程序需要面向 [!INCLUDE[netfx35_long](../workflow-designer/includes/netfx35_long_md.md)] 或 [!INCLUDE[vstecwinfx](../workflow-designer/includes/vstecwinfx_md.md)] 时，请使用旧 [!INCLUDE[wfd2](../workflow-designer/includes/wfd2_md.md)]。  

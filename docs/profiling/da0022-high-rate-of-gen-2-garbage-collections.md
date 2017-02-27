@@ -1,8 +1,7 @@
 ---
 title: "DA0022: 第 2 代垃圾回收的速率很高 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -15,10 +14,10 @@ f1_keywords:
   - "vs.performance.22"
 ms.assetid: f871a547-0e6f-4b11-b2d7-174d30fc2ed8
 caps.latest.revision: 8
-caps.handback.revision: 8
 author: "mikejo5000"
 ms.author: "mikejo"
 manager: "ghogen"
+caps.handback.revision: 8
 ---
 # DA0022: 第 2 代垃圾回收的速率很高
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

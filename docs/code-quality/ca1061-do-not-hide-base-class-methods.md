@@ -1,8 +1,7 @@
 ---
 title: "CA1061：不要隐藏基类方法 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -17,10 +16,10 @@ helpviewer_keywords:
   - "DoNotHideBaseClassMethods"
 ms.assetid: 0bda9dc8-87b4-4038-ab9d-563298387466
 caps.latest.revision: 9
-caps.handback.revision: 9
 author: "stevehoag"
 ms.author: "shoag"
 manager: "wpickett"
+caps.handback.revision: 9
 ---
 # CA1061：不要隐藏基类方法
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

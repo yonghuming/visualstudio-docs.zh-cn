@@ -1,8 +1,7 @@
 ---
 title: "适用于 Excel 的示例编码的 UI 测试扩展 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/15/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -13,9 +12,9 @@ helpviewer_keywords:
   - "编码的 UI 测试, 适用于 Excel 的扩展"
 ms.assetid: 451e4d14-7fac-42f9-af56-2bdc8414c6c7
 caps.latest.revision: 13
-caps.handback.revision: 13
 ms.author: "mlearned"
 manager: "douge"
+caps.handback.revision: 13
 ---
 # 适用于 Excel 的示例编码的 UI 测试扩展
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

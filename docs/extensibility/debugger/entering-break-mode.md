@@ -1,8 +1,7 @@
 ---
 title: "进入中断模式 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -14,9 +13,9 @@ helpviewer_keywords:
   - "调试 [调试 SDK]，进入中断模式"
 ms.assetid: e9a8a241-cd21-4d4e-999a-283554c288b1
 caps.latest.revision: 7
-caps.handback.revision: 7
 ms.author: "gregvanl"
 manager: "ghogen"
+caps.handback.revision: 7
 ---
 # 进入中断模式
 [!INCLUDE[vs2017banner](../../code-quality/includes/vs2017banner.md)]

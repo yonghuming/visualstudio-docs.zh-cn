@@ -1,8 +1,7 @@
 ---
 title: "“选项”对话框 -&gt;“调试”-&gt;“实时” | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/16/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -26,10 +25,10 @@ helpviewer_keywords:
   - "“选项”对话框，调试"
 ms.assetid: 7f11b2e3-3fb5-449d-b07c-6ecf1d6a487d
 caps.latest.revision: 19
-caps.handback.revision: 19
 author: "mikejo5000"
 ms.author: "mikejo"
 manager: "ghogen"
+caps.handback.revision: 19
 ---
 # “选项”对话框 -&gt;“调试”-&gt;“实时”
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

@@ -1,8 +1,7 @@
 ---
 title: "选项对话框，项目和解决方案，生成和运行 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/14/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -18,10 +17,10 @@ helpviewer_keywords:
   - "调试器，运行选项"
 ms.assetid: c884976e-c0df-4c6d-8e3a-856ea2bd547c
 caps.latest.revision: 20
-caps.handback.revision: 20
 author: "kempb"
 ms.author: "kempb"
 manager: "ghogen"
+caps.handback.revision: 20
 ---
 # 选项对话框，项目和解决方案，生成和运行
 [!INCLUDE[vs2017banner](../../code-quality/includes/vs2017banner.md)]

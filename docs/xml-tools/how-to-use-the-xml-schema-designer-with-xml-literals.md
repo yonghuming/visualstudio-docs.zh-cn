@@ -1,8 +1,7 @@
 ---
 title: "如何：将 XML 架构设计器用于 XML 文本 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -11,10 +10,10 @@ ms.tgt_pltfrm: ""
 ms.topic: "article"
 ms.assetid: d11803e7-f81a-41a2-a145-ba494a45cc93
 caps.latest.revision: 2
-caps.handback.revision: 2
 author: "kempb"
 ms.author: "kempb"
 manager: "ghogen"
+caps.handback.revision: 2
 ---
 # 如何：将 XML 架构设计器用于 XML 文本
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

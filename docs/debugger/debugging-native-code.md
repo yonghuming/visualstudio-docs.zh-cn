@@ -1,8 +1,7 @@
 ---
 title: "调试本机代码 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/15/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -24,10 +23,10 @@ helpviewer_keywords:
   - "本机代码, 调试"
 ms.assetid: d94eee90-7e0d-4cac-88c1-9831030daa5e
 caps.latest.revision: 21
-caps.handback.revision: 21
 author: "mikejo5000"
 ms.author: "mikejo"
 manager: "ghogen"
+caps.handback.revision: 21
 ---
 # 调试本机代码
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

@@ -1,8 +1,7 @@
 ---
 title: "快速入门：通过测试资源管理器进行由测试驱动的开发 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -11,9 +10,9 @@ ms.tgt_pltfrm: ""
 ms.topic: "article"
 ms.assetid: 5161b533-2127-4172-b473-d4ffc76ff05b
 caps.latest.revision: 15
-caps.handback.revision: 15
 ms.author: "mlearned"
 manager: "douge"
+caps.handback.revision: 15
 ---
 # 快速入门：通过测试资源管理器进行由测试驱动的开发
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

@@ -1,8 +1,7 @@
 ---
 title: "SccGetParentProjectPath 函数 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -15,9 +14,9 @@ helpviewer_keywords:
   - "SccGetParentProjectPath 函数"
 ms.assetid: 62a71579-36b3-48b9-a1c8-04ab100efa08
 caps.latest.revision: 17
-caps.handback.revision: 17
 ms.author: "gregvanl"
 manager: "ghogen"
+caps.handback.revision: 17
 ---
 # SccGetParentProjectPath 函数
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

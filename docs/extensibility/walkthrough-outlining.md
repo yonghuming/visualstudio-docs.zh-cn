@@ -1,8 +1,7 @@
 ---
 title: "演练: 大纲显示 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.technology: 
@@ -13,9 +12,9 @@ helpviewer_keywords:
   - "编辑器 [Visual Studio SDK]，新的大纲显示"
 ms.assetid: d75a44aa-265a-44d4-9c28-457f59c4ff9f
 caps.latest.revision: 30
-caps.handback.revision: 30
 ms.author: "gregvanl"
 manager: "ghogen"
+caps.handback.revision: 30
 ---
 # 演练: 大纲显示
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]

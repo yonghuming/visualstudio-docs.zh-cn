@@ -1,18 +1,17 @@
 ---
 title: "消息传递活动设计器 | Microsoft Docs"
 ms.custom: ""
-ms.date: "12/15/2016"
-ms.prod: ".net-framework-4.6"
+ms.date: "11/04/2016"
 ms.reviewer: ""
 ms.suite: ""
 ms.tgt_pltfrm: ""
 ms.topic: "reference"
 ms.assetid: 897e63cf-a42f-4edd-876f-c4ccfffaf6d6
 caps.latest.revision: 7
-caps.handback.revision: 7
 author: "ErikRe"
 ms.author: "erikre"
 manager: "erikre"
+caps.handback.revision: 7
 ---
 # 消息传递活动设计器
 消息传递活动设计器用于在 [!INCLUDE[wf](../workflow-designer/includes/wf_md.md)] 应用程序中创建和配置从中发送和接收 [!INCLUDE[indigo1](../workflow-designer/includes/indigo1_md.md)] 消息的消息传递活动。[!INCLUDE[netfx40_long](../workflow-designer/includes/netfx40_long_md.md)]引入了五个消息传递活动并且 [!INCLUDE[wfd1](../workflow-designer/includes/wfd1_md.md)] 提供了两个新的模板设计器，使您能在一个工作流中管理消息传递。本节中所包含并在下表中列出的各主题介绍如何使用 [!INCLUDE[wfd2](../workflow-designer/includes/wfd2_md.md)] 活动和模板设计器。  
