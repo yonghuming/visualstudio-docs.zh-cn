@@ -1,24 +1,43 @@
 ---
-title: "分析应用商店应用的内存使用量（VB、C#、C++） | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-debug"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-dev_langs: 
-  - "FSharp"
-  - "VB"
-  - "CSharp"
-  - "C++"
+title: "不调试的内存使用情况&2; | Microsoft Docs"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-debug
+ms.tgt_pltfrm: 
+ms.topic: article
+dev_langs:
+- CSharp
+- VB
+- FSharp
+- C++
 ms.assetid: 24238fc0-40b8-4079-8579-698211db9a26
 caps.latest.revision: 13
-author: "mikejo5000"
-ms.author: "mikejo"
-manager: "ghogen"
-caps.handback.revision: 9
+author: mikejo5000
+ms.author: mikejo
+manager: ghogen
+translation.priority.ht:
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- ru-ru
+- zh-cn
+- zh-tw
+translation.priority.mt:
+- cs-cz
+- pl-pl
+- pt-br
+- tr-tr
+translationtype: Human Translation
+ms.sourcegitcommit: bdfe341252a7c4340a8c0a624d4394124c3efada
+ms.openlocfilehash: d0d021c01cc97a97aa75eda58a17ccd1c2089520
+ms.lasthandoff: 02/22/2017
+
 ---
 # <a name="memory-usage-without-debugging"></a>不调试的内存使用情况
 可以在不调试的情况下使用**内存使用率**执行以下操作  
@@ -204,8 +223,3 @@ caps.handback.revision: 9
  [分析工具](../profiling/profiling-tools.md)
  [使用 C++、C# 和 Visual Basic 的 Windows 应用商店应用的性能最佳做法](http://msdn.microsoft.com/library/windows/apps/hh750313.aspx)   
  [Diagnosing memory issues with the new Memory Usage Tool in Visual Studio](http://go.microsoft.com/fwlink/p/?LinkId=394706)（在 Visual Studio 中使用新的内存使用情况工具诊断内存问题）
-
-
-<!--HONumber=Feb17_HO4-->
-
-
