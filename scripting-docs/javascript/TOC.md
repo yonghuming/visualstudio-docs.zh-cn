@@ -1,5 +1,5 @@
-# [JavaScript 的新增功能](what-s-new-in-javascript.md)
 # [JavaScript 语言参考](javascript-language-reference.md)
+# [JavaScript 的新增功能](what-s-new-in-javascript.md)
 # [JavaScript 基础](javascript-fundamentals.md)
 ## [编写 JavaScript 代码](writing-javascript-code.md)
 ## [变量](variables-javascript.md)
