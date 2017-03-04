@@ -9,6 +9,7 @@
 ### [内联临时变量](refactoring/inline-temporary-variable.md)
 ### [将类型移到匹配的文件](refactoring/move-type-to-matching-file.md)
 ### [重命名](refactoring/rename.md)
+### [同步类型和文件名](refactoring/sync-type-and-file.md)
 ## [代码生成](code-generation-csharp.md)
 ### [生成类/类型](code-generation/generate-class-type.md)
 ### [生成方法](code-generation/generate-method.md)

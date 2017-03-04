@@ -3,6 +3,7 @@
 ## [性能分析初学者指南](beginners-guide-to-performance-profiling.md)
 ## [运行带或不带调试器的分析工具](running-profiling-tools-with-or-without-the-debugger.md)
 ## [内存使用率](memory-usage.md)
+### [自定义本机 ETW 堆事件](custom-native-etw-heap-events.md)
 ### [不调试的内存使用情况](memory-usage-without-debugging2.md)
 ## [CPU 使用率](cpu-usage.md)
 ### [分析 Windows 通用应用中的 CPU 使用率](analyze-cpu-usage-in-a-windows-universal-app.md)
@@ -365,8 +366,3 @@
 ##### [CvWriteMessage 函数](cvwritemessage-function.md)
 ### [并发可视化工具命令行实用工具 (CVCollectionCmd)](concurrency-visualizer-command-line-utility-cvcollectioncmd.md)
 ## [分析应用商店应用中的能量使用](analyze-energy-use-in-store-apps.md)
-
-
-<!--HONumber=Feb17_HO4-->
-
-
