@@ -28,9 +28,9 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 translationtype: Machine Translation
-ms.sourcegitcommit: 09f14e5b28a506d4f2112f82ee4fd6b0855a8f93
-ms.openlocfilehash: 67e143e1b95a0e4d881d7d6bccae0d7445897aa2
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: 4f93b8c1db59dd8d8a407c82002240641be43018
+ms.openlocfilehash: 1f9248442357c4447703ac6d6dac8a27934904e8
+ms.lasthandoff: 03/01/2017
 
 ---
 # <a name="how-to-migrate-extensibility-projects-to-visual-studio-2017"></a>如何︰ 迁移到 Visual Studio 2017 扩展性项目
@@ -77,6 +77,8 @@ VSIX 项目中所有需要的主要版本单向升级到 Visual Studio 2017。
 
 若要确保用户的安装的 Visual Studio 具有运行扩展所需的所有程序集，请指定扩展清单文件中的所有系统必备组件或程序包。 当用户尝试安装该扩展时，VSIXInstaller 将检查以确定是否安装所有必备软件。 如果丢失了一些，则将提示用户以作为扩展安装过程的一部分安装缺少的组件。
 
+>**注意︰**最低限度上，所有扩展应都指定 Visual Studio 核心编辑器组件为系统必备组件。
+
 * 编辑扩展清单文件 （通常称为 source.extension.vsixmanifest）。
 * 确保`InstallationTarget`包括 15.0。
 * 添加所需的安装系统必备组件 （如在下面的示例所示）。
@@ -108,7 +110,7 @@ VSIX 项目中所有需要的主要版本单向升级到 Visual Studio 2017。
 
   ![VSIX 清单设计器](media/vsix-manifest-designer.png)
 
-* **添加新系统必备**将会打开窗口。
+* **添加新必备**将会打开窗口。
 
   ![添加 vsix 必备组件](media/add-vsix-prerequisite.png)
 
@@ -214,4 +216,5 @@ Visual Studio 产品按排序的组件列表中位于[Visual Studio 2017 工作�
 示例：
 
 * 如果调试器扩展，并且知道您的项目具有 VSDebugEng.dll 和 VSDebug.dll 的参考，请单击中的筛选器按钮**二进制文件 / 文件名称**标头。  搜索"VSDebugEng.dll"并选择确定。  下一步中的筛选器按钮上单击**二进制文件 / 文件名称**再次标头并搜索"VSDebug.dll"。  选中"添加当前所选内容来筛选"的复选框，然后选择确定。  现在请浏览**组件名称**若要查找的组件的大多数与您的扩展类型相关。 在此示例中，您将选择实时调试，并将其添加到您 vsixmanifest。
-* 如果您知道您的项目处理调试器元素，您可以搜索在"调试器"筛选器在搜索框中以查看哪些组件包含其名称中的调试器。
+* 如果您知道您的项目处理调试器的元素，您可以搜索在"调试器"筛选器在搜索框中以查看哪些组件包含其名称中的调试器。
+
