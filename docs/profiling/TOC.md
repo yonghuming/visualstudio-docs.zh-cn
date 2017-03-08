@@ -1,4 +1,4 @@
-# [分析工具](profiling-tools.md)
+# [分析工具](index.md)
 ## [分析功能简介](profiling-feature-tour.md)
 ## [性能分析初学者指南](beginners-guide-to-performance-profiling.md)
 ## [分析工具中的新增功能](what-s-new-in-profiling-tools.md)
