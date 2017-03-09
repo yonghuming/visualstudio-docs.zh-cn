@@ -1,0 +1,30 @@
+---
+title: "如何：为托管数组创建 Typedefs | Microsoft Docs"
+ms.custom: ""
+ms.date: "11/17/2016"
+ms.prod: "visual-studio-dev14"
+ms.reviewer: ""
+ms.suite: ""
+ms.technology: 
+  - "devlang-csharp"
+ms.tgt_pltfrm: ""
+ms.topic: "article"
+dev_langs: 
+  - "C++"
+helpviewer_keywords: 
+  - "数组 [C++], 托管"
+  - "托管数组, 创建 typedefs"
+ms.assetid: b5634466-351c-4074-ad58-605548c7e6b9
+caps.latest.revision: 10
+caps.handback.revision: 10
+ms.author: "mithom"
+manager: "douge"
+---
+# 如何：为托管数组创建 Typedefs
+移动到 [如何：在 C\+\+\/CLI 中使用数组](../Topic/How%20to:%20Use%20Arrays%20in%20C++-CLI.md) 的内容。  
+  
+## 示例  
+  
+```  
+  
+```
