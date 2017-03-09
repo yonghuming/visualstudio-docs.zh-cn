@@ -43,9 +43,9 @@ translation.priority.mt:
 - pt-br
 - tr-tr
 translationtype: Human Translation
-ms.sourcegitcommit: 5db97d19b1b823388a465bba15d057b30ff0b3ce
-ms.openlocfilehash: 4b82b8583ec54af9eee383255d20b40674e7c2c1
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: dac3cb1d7767c2ff76ac25f6a486ad30a8d54831
+ms.openlocfilehash: 99a485f2b7ebda9169797db06212ae56dc4d9eb1
+ms.lasthandoff: 03/03/2017
 
 ---
 # <a name="managing-references-in-a-project"></a>管理项目中的引用
@@ -72,7 +72,7 @@ ms.lasthandoff: 02/22/2017
 ### <a name="project-references"></a>项目引用  
  面向 Windows 10 的通用 Windows 平台 (UWP) 项目可以创建对解决方案中其他 UWP 项目的引用，也可以创建对面向 [!INCLUDE[win81](../debugger/includes/win81_md.md)] 的 Windows 应用商店项目或二进制文件的引用，前提是这些项目不使用 Windows 10 中已弃用的 API。 有关详细信息，请参阅 [从 Windows Runtime 8 移动到 UWP](https://msdn.microsoft.com/en-us/library/windows/apps/dn954974.aspx)。  
 
- 如果选择将 [!INCLUDE[win81](../debugger/includes/win81_md.md)] 项目重定向到 Windows 10，请参阅[移植、迁移和升级 Visual Studio 项目](../porting/porting-migrating-and-upgrading-visual-studio-projects.md)  
+ 如果选择将 [!INCLUDE[win81](../debugger/includes/win81_md.md)] 项目重定向到 Windows 10，请参阅[移植、迁移和升级 Visual Studio 项目](../porting/port-migrate-and-upgrade-visual-studio-projects.md)  
 
 ### <a name="extension-sdk-references"></a>扩展 SDK 引用  
  面向通用 Windows 平台 (UWP) 的 Visual Basic、C#、C++ 和 JavaScript Windows 应用商店项目可以引用面向 [!INCLUDE[win81](../debugger/includes/win81_md.md)] 的扩展 SDK，前提是这些扩展 SDK 不使用 Windows 10 中已弃用的 API。 请查看扩展 SDK 供应商站点，以确定它是否可由面向 UWP 的 Windows 应用商店项目进行引用。  
