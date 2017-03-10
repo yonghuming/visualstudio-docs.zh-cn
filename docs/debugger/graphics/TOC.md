@@ -13,7 +13,7 @@
 ## [Half/Quarter 纹理维度变量](half-quarter-texture-dimensions-variant.md)
 ## [BC 纹理压缩变量](bc-texture-compression-variant.md)
 # [事件列表](graphics-event-list.md)
-# [状态](graphics-state.md)
+# [图形状态](graphics-state.md)
 # [管道阶段](graphics-pipeline-stages.md)
 # [事件调用堆栈](graphics-event-call-stack.md)
 # [像素历史记录](graphics-pixel-history.md)
