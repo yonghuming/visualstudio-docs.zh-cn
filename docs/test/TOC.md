@@ -23,7 +23,7 @@
 #### [泛型方法的单元测试](unit-tests-for-generic-methods.md)
 #### [如何：配置单元测试以面向 .NET Framework 的早期版本](how-to-configure-unit-tests-to-target-an-earlier-version-of-the-dotnet-framework.md)
 #### [用于创建单元测试的示例项目](sample-project-for-creating-unit-tests.md)
-### [用 Microsoft 适用于 C++ 的单元测试框架编写 C-C++ 单元测试](writing-unit-tests-for-c-cpp-with-the-microsoft-unit-testing-framework-for-cpp.md)
+### [用适用于 C++ 的 Microsoft 单元测试框架编写 C/C++ 单元测试](writing-unit-tests-for-c-cpp-with-the-microsoft-unit-testing-framework-for-cpp.md)
 #### [用测试资源管理器对现有的 C++ 应用程序进行单元测试](unit-testing-existing-cpp-applications-with-test-explorer.md)
 #### [使用 Microsoft.VisualStudio.TestTools.CppUnitTestFramework](using-microsoft-visualstudio-testtools-cppunittestframework.md)
 ### [使用代码覆盖率确定所测试的代码量](using-code-coverage-to-determine-how-much-code-is-being-tested.md)
@@ -31,6 +31,8 @@
 #### [在生成验证测试中分析代码覆盖率](analyzing-code-coverage-in-build-verification-tests.md)
 #### [代码覆盖率疑难解答](troubleshooting-code-coverage.md)
 ### [使用模拟器分离 Sharepoint 2010 应用程序的单元测试](using-emulators-to-isolate-unit-tests-for-sharepoint-2010-applications.md)
+## [使用 Visual Studio 2017 Enterprise Edition 中的实时单元测试](live-unit-testing.md)
+### [实时单元测试常见问题解答](live-unit-testing-faq.md)
 ## [使用 UI 自动化来测试代码](use-ui-automation-to-test-your-code.md)
 ### [演练：创建、编辑和维护编码的 UI 测试](walkthrough-creating-editing-and-maintaining-a-coded-ui-test.md)
 ### [使用编码的 UI 测试来测试 Windows 应用商店 8.1 应用](test-windows-store-8-1-apps-with-coded-ui-tests.md)
@@ -58,7 +60,7 @@
 ##### [示例 Excel 扩展：Element 类](sample-excel-extension-element-classes.md)
 ##### [示例 Excel 扩展：ActionFilter 类](sample-excel-extension-actionfilter-class.md)
 ### [从 Visual Studio 2010 升级编码的 UI 测试](upgrading-coded-ui-tests-from-visual-studio-2010.md)
-## [分析应用程序质量](../code-quality)
+## [分析应用程序质量](../code-quality/analyzing-application-quality-by-using-code-analysis-tools.md)
 ## [质量工具疑难解答](troubleshooting-quality-tools.md)
 ### [代码分析问题疑难解答](troubleshooting-code-analysis-issues.md)
 ### [代码度量问题疑难解答](troubleshooting-code-metrics-issues.md)
@@ -70,8 +72,3 @@
 ### [使用 Visual Studio 静态代码分析来分析应用商店应用的代码质量](analyze-the-code-quality-of-store-apps-using-visual-studio-static-code-analysis.md)
 #### [使用 Visual Studio 静态代码分析来分析应用商店应用中的 Visual Basic 和 C# 代码质量](analyze-visual-basic-and-csharp-code-quality-in-store-apps-using-visual-studio-static-code-analysis.md)
 #### [使用 Visual Studio 静态代码分析来分析应用商店应用的 C++ 代码质量](analyze-cpp-code-quality-of-store-apps-using-visual-studio-static-code-analysis.md)
-
-
-<!--HONumber=Feb17_HO4-->
-
-

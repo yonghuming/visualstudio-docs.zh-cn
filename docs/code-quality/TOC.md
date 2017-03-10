@@ -267,15 +267,15 @@
 ##### [CA2242：正确测试 NaN](ca2242-test-for-nan-correctly.md)
 ##### [CA2243：应正确分析特性字符串文本](ca2243-attribute-string-literals-should-parse-correctly.md)
 #### [代码分析策略错误](code-analysis-policy-errors.md)
-## [使用代码分析来分析 C-C++ 代码质量](analyzing-c-cpp-code-quality-by-using-code-analysis.md)
-### [快速入门：C-C++ 代码分析](quick-start-code-analysis-for-c-cpp.md)
+## [使用代码分析来分析 C/C++ 代码质量](analyzing-c-cpp-code-quality-by-using-code-analysis.md)
+### [快速入门：C/C++ 代码分析](quick-start-code-analysis-for-c-cpp.md)
 ### [使用规则集指定要运行的 C++ 规则](using-rule-sets-to-specify-the-cpp-rules-to-run.md)
 ### [使用 C++ 核心准则检查程序](using-the-cpp-core-guidelines-checkers.md)
-### [C-C++ 代码分析概述](code-analysis-for-c-cpp-overview.md)
-### [如何：设置 C-C++ 项目的代码分析属性](how-to-set-code-analysis-properties-for-c-cpp-projects.md)
-### [演练：对 C-C++ 代码进行缺陷分析](walkthrough-analyzing-c-cpp-code-for-defects.md)
+### [ 代码分析概述](code-analysis-for-c-cpp-overview.md)
+### [如何：设置 C/C++ 项目的代码分析属性](how-to-set-code-analysis-properties-for-c-cpp-projects.md)
+### [演练：对 C/C++ 代码进行缺陷分析](walkthrough-analyzing-c-cpp-code-for-defects.md)
 #### [演示示例](demo-sample.md)
-### [使用 SAL 批注以减少 C-C++ 代码缺陷](using-sal-annotations-to-reduce-c-cpp-code-defects.md)
+### [使用 SAL 批注以减少 C/C++ 代码缺陷](using-sal-annotations-to-reduce-c-cpp-code-defects.md)
 #### [了解 SAL](understanding-sal.md)
 #### [对函数参数和返回值进行批注](annotating-function-parameters-and-return-values.md)
 #### [对函数行为进行批注](annotating-function-behavior.md)
@@ -609,8 +609,3 @@
 # [质量工具疑难解答](troubleshooting-quality-tools.md)
 ## [代码分析问题疑难解答](troubleshooting-code-analysis-issues.md)
 ## [代码度量问题疑难解答](troubleshooting-code-metrics-issues.md)
-
-
-<!--HONumber=Feb17_HO4-->
-
-

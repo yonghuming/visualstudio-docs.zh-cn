@@ -199,7 +199,7 @@
 ### [调试准备：Visual C++ 项目类型](debugging-preparation-visual-cpp-project-types.md)
 ### [如何：调试优化的代码](how-to-debug-optimized-code.md)
 ### [DebugBreak 和 __debugbreak](debugbreak-and-debugbreak.md)
-### [C-C++ 断言](c-cpp-assertions.md)
+### [C/C++ 断言](c-cpp-assertions.md)
 ### [如何：调试内联程序集代码](how-to-debug-inline-assembly-code.md)
 ### [MFC 调试技术](mfc-debugging-techniques.md)
 ### [CRT 调试方法](crt-debugging-techniques.md)

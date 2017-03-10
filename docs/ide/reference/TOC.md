@@ -41,9 +41,9 @@
 ### [“选项”->“文本编辑器”->“所有语言”](options-text-editor-all-languages.md)
 ### [“选项”->“文本编辑器”->“所有语言”->“选项卡”](options-text-editor-all-languages-tabs.md)
 ### [“选项”->“文本编辑器”->“基本”(Visual Basic)](options-text-editor-basic-visual-basic.md)
-### [“选项”->“文本编辑器”->“C-C++”->“格式设置”](options-text-editor-c-cpp-formatting.md)
-### [“选项”->“文本编辑器”->“C-C++”->“高级”](options-text-editor-c-cpp-advanced.md)
-### [“选项”->“文本编辑器”->“C-C++”->“实验”](options-text-editor-c-cpp-experimental.md)
+### [“选项”->“文本编辑器”->“C/C++”->“格式设置”](options-text-editor-c-cpp-formatting.md)
+### [“选项”->“文本编辑器”->“C/C++”->“高级”](options-text-editor-c-cpp-advanced.md)
+### [“选项”->“文本编辑器”->“C/C++”->“实验”](options-text-editor-c-cpp-experimental.md)
 ### [“选项”->“文本编辑器”->“C#”->“格式设置”](options-text-editor-csharp-formatting.md)
 ### [“选项”->“文本编辑器”->“C#”->“高级”](options-text-editor-csharp-advanced.md)
 ### [“选项”->“文本编辑器”->“C#”->“IntelliSense”](options-text-editor-csharp-intellisense.md)
@@ -88,6 +88,7 @@
 ### [“工具箱”->“组件”选项卡](toolbox-components-tab.md)
 ### [“工具箱”->“数据”选项卡](toolbox-data-tab.md)
 ### [“工具箱”->“HTML”选项卡](toolbox-html-tab.md)
+## [“XAML 设计器”选项页](xaml-designer.md)
 # [Devenv 命令行开关](devenv-command-line-switches.md)
 ## [-? (devenv.exe)](q-devenv-exe.md)
 ## [-Build (devenv.exe)](build-devenv-exe.md)
@@ -162,8 +163,3 @@
 ## [Microsoft 提供的辅助功能产品和服务](accessibility-products-and-services-from-microsoft.md)
 ## [用于设计支持辅助功能的应用程序的资源](resources-for-designing-accessible-applications.md)
 ## [所需的代理身份验证](proxy-authorization-required.md)
-
-
-<!--HONumber=Feb17_HO4-->
-
-

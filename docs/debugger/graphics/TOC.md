@@ -12,12 +12,14 @@
 ## [Mip 贴图生成变量](mip-map-generation-variant.md)
 ## [Half/Quarter 纹理维度变量](half-quarter-texture-dimensions-variant.md)
 ## [BC 纹理压缩变量](bc-texture-compression-variant.md)
-# [图形事件列表](graphics-event-list.md)
-# [图形状态](graphics-state.md)
-# [图形管道阶段](graphics-pipeline-stages.md)
-# [图形事件调用堆栈](graphics-event-call-stack.md)
-# [图形像素历史记录](graphics-pixel-history.md)
-# [图形对象表](graphics-object-table.md)
+# [事件列表](graphics-event-list.md)
+# [状态](graphics-state.md)
+# [管道阶段](graphics-pipeline-stages.md)
+# [事件调用堆栈](graphics-event-call-stack.md)
+# [像素历史记录](graphics-pixel-history.md)
+# [对象表](graphics-object-table.md)
+# [API 和内存统计信息](graphics-api-and-memory-statistics.md)
+# [帧验证](graphics-frame-validation.md)
 # [HLSL 着色器调试器](hlsl-shader-debugger.md)
 # [命令行捕获工具](command-line-capture-tool.md)
 # [图形诊断示例](graphics-diagnostics-examples.md)
@@ -45,8 +47,3 @@
 ## [DONT_SAVE_VSGLOG_TO_TEMP](dont-save-vsglog-to-temp.md)
 ## [VSG_DEFAULT_RUN_FILENAME](vsg-default-run-filename.md)
 ## [VSG_NODEFAULT_INSTANCE](vsg-nodefault-instance.md)
-
-
-<!--HONumber=Feb17_HO4-->
-
-

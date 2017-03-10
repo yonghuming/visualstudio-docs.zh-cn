@@ -4,7 +4,4 @@
 # [Visual Studio 管理员指南](visual-studio-administrator-guide.md)
 ## [使用命令行参数安装 Visual Studio](use-command-line-parameters-to-install-visual-studio.md)
 ## [创建 Visual Studio 的脱机安装](create-an-offline-installation-of-visual-studio.md)
-
-<!--HONumber=Feb17_HO4-->
-
-
+## [Visual Studio 工作负荷和组件 ID](workload-and-component-ids.md)

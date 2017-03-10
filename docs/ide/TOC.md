@@ -1,4 +1,4 @@
-# [Visual Studio IDE](visual-studio-ide.md)
+# [Visual Studio IDE 功能教程](visual-studio-ide.md)
 # [Visual Studio 入门](get-started-with-visual-studio.md)
 # [用户帐户和更新](user-accounts-and-updates.md)
 ## [登录 Visual Studio](signing-in-to-visual-studio.md)
@@ -111,6 +111,7 @@
 ### [如何：在编辑器中更改文本大小写](how-to-change-text-case-in-the-editor.md)
 ### [如何：管理编辑器模式](how-to-manage-editor-modes.md)
 ### [如何：管理编辑器窗口](how-to-manage-editor-windows.md)
+## [在 Visual Studio 中开发代码而无需项目或解决方案](develop-code-in-visual-studio-without-projects-or-solutions.md)
 ## [创建可移植的自定义编辑器设置](create-portable-custom-editor-options.md)
 ## [如何：通过自定义滚动条来跟踪代码](how-to-track-your-code-by-customizing-the-scrollbar.md)
 ## 导航代码
