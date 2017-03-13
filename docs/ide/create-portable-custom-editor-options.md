@@ -1,7 +1,7 @@
 ---
 title: "创建可移植的自定义编辑器设置 |Microsoft Docs"
 ms.custom: 
-ms.date: 12/14/2016
+ms.date: 02/17/2017
 ms.reviewer: 
 ms.suite: 
 ms.tgt_pltfrm: 
@@ -33,8 +33,9 @@ translation.priority.ht:
 - zh-cn
 - zh-tw
 translationtype: Human Translation
-ms.sourcegitcommit: 31f433b28b67dc6f3179be87cb5894b5b3f0aa4f
-ms.openlocfilehash: 8c986958f141d3efc2ffe29b4176b43e9960e0e1
+ms.sourcegitcommit: 203e1e27cc892e96b103fc6cb22a73672a8e16af
+ms.openlocfilehash: 70f3c6c7e4356a698aa6c1dd265f6c79c662673e
+ms.lasthandoff: 03/01/2017
 
 ---
 # <a name="create-portable-custom-editor-settings"></a>创建可移植的自定义编辑器设置
@@ -86,8 +87,15 @@ Visual Studio 中的编辑器支持 EditorConfig 选项核心组的以下值。
 > [!NOTE]
 >  将 .editorconfig 文件添加到项目或基本代码不会将现有样式转换为新样式，而仅应用于新添加的行。 如果从项目或基本代码删除 .editorconfig 文件，必须重新加载编辑器设置的代码文件，还原为全局设置。 在 Visual studio 中，.editorconfig 文件中的任何错误都会报告在“错误”窗口。
 
+## <a name="support-editorconfig-for-your-language-service"></a>支持语言服务的 EditorConfig
 
+在大多数情况下，实现 Visual Studio 语言服务时，无需任何其他工作即可支持 EditorConfig 通用属性。 当用户打开文件时，核心编辑器将自动发现并读取 .editorconfig 文件，并设置相应的文本缓冲区和视图选项。 但是，用户编辑或设置文本格式时，某些语言服务将选择使用相应的上下文文本视图选项，而不是对制表符和空格等项使用全局设置。 在这些情况下，必须更新语言服务以支持 EditorConfig 文件。
 
-<!--HONumber=Feb17_HO4-->
+下表列出了更新语言服务以支持 EditorConfig 文件所需的更改。
 
+| 已弃用的全局语言特定选项 | 上下文选项替换 |
+| :------------- | :------------- |
+| Microsoft.VisualStudio.TextManager.Interop.LANGPREFERENCES.fInsertTabs 或 Microsoft.VisualStudio.Package.LanguagePreferences.InsertTabs | !textBufferOptions.GetOptionValue(DefaultOptions.ConvertTabsToSpacesOptionId) 或 !textView.Options.GetOptionValue(DefaultOptions.ConvertTabsToSpacesOptionId) |
+| Microsoft.VisualStudio.TextManager.Interop.LANGPREFERENCES.uIndentSize 或 Microsoft.VisualStudio.Package.LanguagePreferences.InsertTabs.IndentSize | textBufferOptions.GetOptionValue(DefaultOptions. IndentSizeOptionId) 或 textView.Options.GetOptionValue(DefaultOptions. IndentSizeOptionId) |
+| Microsoft.VisualStudio.TextManager.Interop.LANGPREFERENCES.uTabSize 或 Microsoft.VisualStudio.Package.LanguagePreferences.InsertTabs.TabSize | textBufferOptions.GetOptionValue(DefaultOptions.TabSizeOptionId) 或 textView.Options.GetOptionValue(DefaultOptions.TabSizeOptionId) |
 

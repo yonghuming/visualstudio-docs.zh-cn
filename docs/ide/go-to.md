@@ -27,16 +27,18 @@ translation.priority.ht:
 - zh-cn
 - zh-tw
 translationtype: Human Translation
-ms.sourcegitcommit: b259c5d02a452bfaa3bd59f2096b43ee1c1c5942
-ms.openlocfilehash: 352de7f71f8a6c16439061c9815219e5f2b3840a
+ms.sourcegitcommit: 3b812629bf0f655f39c35a56eb1b3ca9113303a6
+ms.openlocfilehash: 8bf6d49b21d128d15f5312fb230d4a8e7a8195af
+ms.lasthandoff: 03/01/2017
 
 ---
 
 # <a name="go-to"></a>转到
 你可以采用多种方法在 Visual Studio IDE 中轻松定位代码，包括使用键盘和鼠标。
 
+<!-- VERSIONLESS -->
 ## <a name="go-to-all"></a>转到全部
-浏览代码以查找正在寻找的特定位。  你可以在简单的界面搜索特定的行、类型、符号、文件及其他项目。
+此功能存在于 Visual Studio 2017 及更高版本。  它使你能够浏览代码以查找正在寻找的特定位。  你可以在简单统一的界面内搜索特定的行、类型、符号、文件等。
 
 ### <a name="how-to-use"></a>使用方法
 * **键盘**
@@ -81,6 +83,7 @@ T      | ![类型图标](media/gotoall_typeicon.png)     | Ctrl+1、Ctrl+T | 查
 使用预览选项卡 | 在 IDE 的预览选项卡中立即显示所选的项
 显示详细信息    | 在窗口的文档注释中显示项目、文件、行和摘要信息
 使窗口居中   | 将窗口移到 IDE 的中心而不是右上方
+<!-- END VERSIONLESS -->
 
 ## <a name="go-to-definition"></a>转到定义
 导航到某个类型的源，并在新选项卡中打开结果：
@@ -125,8 +128,3 @@ T      | ![类型图标](media/gotoall_typeicon.png)     | Ctrl+1、Ctrl+T | 查
 **Ctrl+Shift+-**    | 在堆栈中向前导航
 
 你还可以使用“查看”>“向后导航”和“查看”>“向前导航”菜单项。
-
-
-<!--HONumber=Feb17_HO4-->
-
-
