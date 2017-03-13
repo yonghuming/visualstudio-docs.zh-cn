@@ -1,7 +1,7 @@
 ---
 title: "Project 元素 (MSBuild) | Microsoft Docs"
 ms.custom: 
-ms.date: 02/21/2017
+ms.date: 03/13/2017
 ms.reviewer: 
 ms.suite: 
 ms.technology:
@@ -49,7 +49,7 @@ ms.lasthandoff: 03/01/2017
 
 ## <a name="syntax"></a>语法  
 
-```xml  
+```  
 <Project InitialTargets="TargetA;TargetB"  
          DefaultTargets="TargetC;TargetD"  
          TreatAsLocalProperty="PropertyA;PropertyB"  

@@ -1,7 +1,7 @@
 ---
 title: "Otherwise 元素 (MSBuild) | Microsoft Docs"
 ms.custom: 
-ms.date: 11/04/2016
+ms.date: 03/13/2017
 ms.reviewer: 
 ms.suite: 
 ms.technology:
@@ -45,7 +45,7 @@ ms.lasthandoff: 02/22/2017
 ---
 # <a name="otherwise-element-msbuild"></a>Otherwise 元素 (MSBuild)
 指定当且仅当所有 `When` 元素的条件的计算结果为 `false` 时才执行的代码块。  
-  
+
  \<Project>  
  \<Choose>  
  \<When>  
@@ -54,45 +54,45 @@ ms.lasthandoff: 02/22/2017
  \<Otherwise>  
  \<Choose>  
  ...  
-  
+
 ## <a name="syntax"></a>语法  
-  
-```xml  
+
+```  
 <Otherwise>  
     <PropertyGroup>... </PropertyGroup>  
     <ItemGroup>... </ItemGroup>  
     <Choose>... </Choose>  
 </Otherwise>  
 ```  
-  
+
 ## <a name="attributes-and-elements"></a>特性和元素  
  下列各节描述了特性、子元素和父元素。  
-  
+
 ### <a name="attributes"></a>特性  
  无。  
-  
+
 ### <a name="child-elements"></a>子元素  
-  
+
 |元素|说明|  
 |-------------|-----------------|  
 |[Choose](../msbuild/choose-element-msbuild.md)|可选元素。<br /><br /> 评估子元素以选择代码的一部分来执行。 `Choose` 元素中可能有零个或零个以上的 `Otherwise` 元素。|  
 |[ItemGroup](../msbuild/itemgroup-element-msbuild.md)|可选元素。<br /><br /> 包含一组用户定义的 [Item](../msbuild/item-element-msbuild.md) 元素。 `ItemGroup` 元素中可能有零个或零个以上的 `Otherwise` 元素。|  
 |[PropertyGroup](../msbuild/propertygroup-element-msbuild.md)|可选元素。<br /><br /> 包含一组用户定义的 [Property](../msbuild/property-element-msbuild.md) 元素。 `PropertyGroup` 元素中可能有零个或零个以上的 `Otherwise` 元素。|  
-  
+
 ### <a name="parent-elements"></a>父元素  
-  
+
 |元素|说明|  
 |-------------|-----------------|  
 |[Choose](../msbuild/choose-element-msbuild.md)|评估子元素以选择代码的一部分来执行。|  
-  
+
 ## <a name="remarks"></a>备注  
  `Choose` 元素中可能只有一个 `Otherwise`元素，并且它必须是最后一个元素。  
-  
+
  `Choose`、`When` 和 `Otherwise` 元素一起用来提供一种方式，通过这种方式选择代码的一部分来执行许多种可能的替代选择。 有关详细信息，请参阅[条件构造](../msbuild/msbuild-conditional-constructs.md)。  
-  
+
 ## <a name="example"></a>示例  
  以下项目使用 `Choose` 元素来选择要在 `When` 元素中设置的属性值组。 如果两个 `When` 元素的 `Condition` 属性的计算结果均为 `false`，则将设置 `Otherwise` 元素中的属性值。  
-  
+
 ```xml  
 <Project  
     xmlns="http://schemas.microsoft.com/developer/msbuild/2003" >  
@@ -137,7 +137,8 @@ ms.lasthandoff: 02/22/2017
     <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />  
 </Project>  
 ```  
-  
+
 ## <a name="see-also"></a>另请参阅  
  [条件构造](../msbuild/msbuild-conditional-constructs.md)   
  [项目文件架构参考](../msbuild/msbuild-project-file-schema-reference.md)
+
