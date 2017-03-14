@@ -1,7 +1,7 @@
 ---
 title: "Visual Studio 中的安全性 | Microsoft Docs"
 ms.custom: 
-ms.date: 11/04/2016
+ms.date: 02/17/2017
 ms.reviewer: 
 ms.suite: 
 ms.technology:
@@ -31,9 +31,9 @@ translation.priority.ht:
 - zh-cn
 - zh-tw
 translationtype: Human Translation
-ms.sourcegitcommit: 5658ecf52637a38bc3c2a5ad9e85b2edebf7d445
-ms.openlocfilehash: 8e34062596ab2f87ae97934b89b4c292e8f28f32
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: 7a282fc04c1eb01f0c56b1d76880276fc270686d
+ms.openlocfilehash: 96136c7223f3d5f78fff9bfe3106d48cab4dd44a
+ms.lasthandoff: 03/01/2017
 
 ---
 # <a name="security-in-visual-studio"></a>Visual Studio 中的安全性
@@ -56,3 +56,12 @@ ms.lasthandoff: 02/22/2017
   
  [安全性最佳做法](/visual-cpp/top/security-best-practices-for-cpp)  
  讨论缓冲区溢出并提供 Microsoft Visual C++ 安全检查功能（由 /GS 编译时标志提供）的全面介绍。
+
+## <a name="building-for-security"></a>构建安全性  
+ 安全性也是生成过程中的一个重要考虑因素。  一些额外步骤可以提高所部署应用的安全性，并帮助防止未经授权的反向工程、欺骗或其他攻击。
+
+ [Dotfuscator Community Edition (CE)](dotfuscator/index.md)  
+ 说明如何设置和开始使用免费的 PreEmptive Protection - Dotfuscator Community Edition，以保护 .NET 程序集免受反向工程威胁和未经授权的使用（如未经授权的调试）。
+  
+ [管理程序集签名和清单签名](managing-assembly-and-manifest-signing.md)  
+ 讨论强名称签名，它可用于唯一标识软件组件，从而防止名称欺骗。

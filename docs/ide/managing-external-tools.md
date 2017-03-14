@@ -1,7 +1,7 @@
 ---
 title: "管理外部工具 | Microsoft Docs"
 ms.custom: 
-ms.date: 01/23/2017
+ms.date: 02/17/2017
 ms.reviewer: 
 ms.suite: 
 ms.technology:
@@ -76,43 +76,33 @@ translation.priority.ht:
 - zh-cn
 - zh-tw
 translationtype: Human Translation
-ms.sourcegitcommit: 66e09a22bcedb37f82eb9517a8f9d4affbe3a374
-ms.openlocfilehash: ad9461bb29dba3e8e2ffe242c1f709587729ce22
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: c36d97b83aa0892235c8f196cf6af63520b3547c
+ms.openlocfilehash: a31b90643e3707348595fce02ec37a1c02a97195
+ms.lasthandoff: 03/01/2017
 
 ---
 # <a name="manage-external-tools"></a>管理外部工具
-您可以从 Visual Studio 内部调用外部工具。 “工具”菜单上提供了几个默认工具，但你可以添加自己的其他可执行文件。  
-  
+可以使用“工具”菜单从 Visual Studio 内部调用外部工具。 “工具”菜单上提供了几个默认工具，但你可以添加自己的其他可执行文件。  
+
 ## <a name="tools-available-on-the-visual-studio-tools-menu"></a>Visual Studio Tools 菜单中提供的工具
- 可从 [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] 中的“工具”菜单调用以下工具。 也可从“快速启动”窗口通过名称调用它们。 例如，若要调用 GuidGen.exe，请键入“创建 GUID”。  
-  
-1.  创建 GUID：生成 GUID。  
-  
-2.  错误查找：从输入的值中获取错误消息。 有关详细信息，请参阅 [ERRLOOK 参考](/visual-cpp/build/reference/errlook-reference)。  
-  
-3.  ATL/MFC 跟踪工具：显示 ATL 和 MFC 源中的调试跟踪消息。  
-  
-4.  PreEmptive Dotfuscator 和 Analytics：防止 .NET 程序受到反向工程。  
-  
-5.  SPY++：以图形方式显示进程、线程、窗口和窗口消息。  
-  
-6.  WCF 服务配置编辑器：允许您创建和修改 WCF 服务的配置设置。  
-  
-> [!WARNING]
->  您可能会看到其他外部工具列表，具体取决于已安装的 Visual Studio 的版本以及已应用的设置配置文件。 有关详细信息，请参阅[在 Visual Studio 中自定义开发设置](http://msdn.microsoft.com/en-us/22c4debb-4e31-47a8-8f19-16f328d7dcd3)。  
-  
+ “工具”菜单包含若干内置命令，如：
+
+*  用于[管理 Visual Studio 扩展](finding-and-using-visual-studio-extensions.md)的“扩展和更新”
+*  用于[整理代码片段](code-snippets.md#code-snippet-manager)的“代码片段管理器...”
+*  用于启动 [Dotfuscator Community Edition (CE)](dotfuscator/index.md)（如果[已安装](dotfuscator/install.md)）的 **PreEmptive Protection - Dotfuscator**
+*  用于[自定义菜单和工具栏](how-to-customize-menus-and-toolbars-in-visual-studio)的“自定义...”
+*  用于[为 Visual Studio IDE 和其他工具设置各种不同选项](reference/options-dialog-box-visual-studio.md)的“选项...”
+
 ## <a name="add-new-tools-to-the-tools-menu"></a>将新工具添加到“工具”菜单 
- 可将外部工具添加到“工具”菜单。 打开“外部工具”对话框并单击“添加”，然后填写信息。 例如，以下条目会导致 Windows 资源管理器在当前已在 Visual Studio 中打开的文件目录中打开：  
+ 可将外部工具添加到“工具”菜单。 打开“外部工具...”对话框并单击“添加”，然后填写信息。 例如，以下条目会导致 Windows 资源管理器在当前已在 Visual Studio 中打开的文件目录中打开：  
   
-1.  标题：打开文件位置  
+1.  标题：打开文件位置
   
-2.  命令：explorer.exe  
+2.  命令：`explorer.exe`  
   
-3.  参数：/root, "$(ItemDir)"  
+3.  参数：`/root, "$(ItemDir)"`  
   
-## <a name="arguments-for-external-tools"></a>外部工具参数  
- 以下自变量是在启动外部工具时分配的 Visual Studio 变量。 使用“外部工具”对话框，可以在“工具”菜单上列出指向外部工具（如记事本或 Spy++）的链接。  
+ 以下是在定义外部工具时可以使用的参数的完整列表。
   
 > [!NOTE]
 >  IDE 状态栏会显示当前行和当前列变量，以指示插入点在活动代码编辑器中的位置。 当前文本变量返回在该位置选择的文本或代码。  
@@ -135,7 +125,7 @@ ms.lasthandoff: 02/22/2017
 |项目文件名|$(ProjFileName)|当前项目的文件名（驱动器 + 路径 + 文件名）。|  
 |解决方案目录|$(SolutionDir)|当前解决方案的目录（驱动器 + 路径）。|  
 |解决方案文件名|$(SolutionFileName)|当前解决方案的文件名（驱动器 + 路径 + 文件名）。|  
-  
+
 ## <a name="see-also"></a>另请参阅  
  [C/C++ 生成工具](/visual-cpp/build/reference/c-cpp-build-tools)
 
