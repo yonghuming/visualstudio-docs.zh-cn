@@ -29,9 +29,9 @@ translation.priority.mt:
 - pt-br
 - tr-tr
 translationtype: Human Translation
-ms.sourcegitcommit: 65bceca75b87aaf187926ebbed1a54ce4f0e8eec
-ms.openlocfilehash: 5978cf2b0edd1e5d979f6f9679717389278a1f55
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: 8a3c6e60d0ea85d93281764ec3a3435538b9baa0
+ms.openlocfilehash: b81ce391ad842085f95ff0a4a6e906036406230a
+ms.lasthandoff: 02/28/2017
 
 ---
 # <a name="memory-usage"></a>内存使用率
@@ -41,61 +41,94 @@ ms.lasthandoff: 02/22/2017
   
 -   你还可以比较 (diff) 一个应用的两个快照，以便在你的代码中查找导致内存使用随时间增加的区域。  
   
- 下图显示 Visual Studio 2015 Update 1 中的“诊断工具”  窗口：  
+ 下图显示“诊断工具”窗口（Visual Studio 2015 Update 1 及更高版本中提供）：  
   
  ![DiagnosticTools&#45;Update1](../profiling/media/diagnostictools-update1.png "DiagnosticTools-Update1")  
   
- 虽然可以随时在 **内存使用率** 工具中收集内存快照，不过可以使用 Visual Studio 调试器在调查性能问题时控制应用程序的执行方式。 断点设置、步进、全部中断和其他调试器操作可以帮助将性能调查集中在最相关的代码路径上。 在应用运行期间执行这些操作可以从代码中消除不感兴趣的噪声，并可以显著减少用于诊断问题所花费的时间量。  
+ 虽然可以随时在 **内存使用率** 工具中收集内存快照，不过可以使用 Visual Studio 调试器在调查性能问题时控制应用程序的执行方式。 断点设置、步进、全部中断和其他调试器操作可以帮助将性能调查集中在最相关的代码路径上。 在应用运行期间执行这些操作可以消除因无关紧要的代码而带来的烦扰，并可以显著减少用于诊断问题所花费的时间量。  
   
  还可以在调试器外部使用内存工具。 请参阅[不调试的内存使用情况](../profiling/memory-usage-without-debugging2.md)。  
   
 > [!NOTE]
 >  **自定义分配器支持** 本机内存探查器的工作原理是在运行时收集 [ETW](https://msdn.microsoft.com/en-us/library/windows/desktop/bb968803\(v=vs.85\).aspx) 分配事件数据。  CRT 和 Windows SDK 中的分配器在源级别上注释，因此可以捕获其分配数据。  如果你正在编写你自己的分配器，则返回一个指向新分配的堆内存的任何函数都可用 [__declspec](/visual-cpp/cpp/declspec)（分配器）进行修饰，如此 myMalloc 示例所示：  
 >   
->  `__declspec(allocator) void* myMalloc(size_t size)`  
+>  `__declspec(allocator) void* myMalloc(size_t size)` 
+
+## <a name="collect-memory-usage-data"></a>收集内存使用率数据
+
+1.  打开要在 Visual Studio 中调试的项目，并在应用中开始检查内存使用率的位置设置断点。
+
+    如果你怀疑某个区域存在内存问题，请在内存问题发生之前设置第一个断点。
+
+    > [!TIP]
+    >  因为在应用经常分配和取消分配内存时捕获感兴趣的操作的内存配置文件十分具有挑战性，所以请在操作的开始和结束位置设置断点（或逐步执行操作）以查找内存变化的确切点。 
+
+2.  在函数末尾或想要分析的代码区域中（或在发生可疑的内存问题之后）设置第二个断点。
   
-## <a name="analyze-memory-use-with-the-debugger"></a>使用调试器分析内存使用  
+3.  将自动显示 **“诊断工具”** 窗口，除非你已将其关闭。 若要再次显示该窗口，请依次单击“调试”、“Windows”、“显示诊断工具”。
+
+4.  使用工具栏上的“选择工具”设置选择“内存使用率”。
+
+     ![显示诊断工具](../profiling/media/DiagToolsSelectTool.png "DiagToolsSelectTool")
+
+5.  依次单击“调试”、“启动调试”或单击工具栏上的“启动”或按 **F5**。
+
+     当应用完成加载后，将显示诊断工具的“摘要”视图。
+
+     ![诊断工具“摘要”选项卡](../profiling/media/DiagToolsSummaryTab.png "DiagToolsSummaryTab")
+
+     > [!NOTE]
+     >  因为收集内存数据可能会影响本机或混合模式应用的调试性能，所以内存快照在默认情况下处于禁用状态。 若要对本机或混合模式应用启用快照，请启动调试会话（快捷键：**F5**）。 当“诊断工具”窗口出现时，选择“内存使用率”选项卡，然后选择“堆分析”。  
+     >   
+     >  ![启用快照](../profiling/media/dbgdiag_mem_mixedtoolbar_enablesnapshot.png "DBGDIAG_MEM_MixedToolbar_EnableSnapshot")  
+     >   
+     >  停止（快捷键： **Shift + F5**）并重新启动调试。  
+
+6.  若要在调试会话开始时拍摄快照，请选择“内存使用率”摘要工具栏上的“拍摄快照”。 （在此处设置断点可能也会有所帮助。）
+
+    ![拍摄快照](../profiling/media/dbgdiag_mem_mixedtoolbar_takesnapshot.png "DBGDIAG_MEM_MixedToolbar_TakeSnapshot") 
+     
+     > [!TIP]
+     >  -   若要为进行内存比较而创建基线，请考虑在调试会话开始时拍摄快照。  
+
+6.  运行会触发第一个断点的方案。
+
+7.  当调试器在第一个断点处暂停时，选择“内存使用率”摘要工具栏上的“拍摄快照”。  
+
+8.  按 F5 将应用运行到第二个断点。
+
+9.  现在，拍摄另一个快照。
+
+     现在可以开始分析数据。    
   
-> [!NOTE]
->  因为收集内存数据可能会影响本机或混合模式应用的调试性能，所以内存快照在默认情况下处于禁用状态。 若要对本机或混合模式应用启用快照，请启动调试会话（快捷键： **F5**）。 当 **“诊断工具”** 窗口出现时，选择“内存使用率”选项卡，然后选择 **“启用快照”**。  
->   
->  ![启用快照](../profiling/media/dbgdiag_mem_mixedtoolbar_enablesnapshot.png "DBGDIAG_MEM_MixedToolbar_EnableSnapshot")  
->   
->  停止（快捷键： **Shift + F5**）并重新启动调试。  
+## <a name="analyze-memory-usage-data"></a>分析内存使用率数据
+“内存使用率”摘要表中的行会列出在调试会话期间拍摄的快照，并提供指向更详细视图的链接。
+
+![内存摘要表](../profiling/media/dbgdiag_mem_summarytable.png "DBGDIAG_MEM_SummaryTable")
+
+ 列的名称取决于在项目属性中选择的调试模式：.NET、本机或混合（.NET 和本机）。  
   
- 每当要捕获内存状态时，请在 **“内存使用率”** 摘要工具栏上选择 **“拍摄快照”** 。  
+-   “对象(差异)”和“分配(差异)”列显示拍摄快照时 .NET 和本机内存中的对象数。  
   
- ![拍摄快照](../profiling/media/dbgdiag_mem_mixedtoolbar_takesnapshot.png "DBGDIAG_MEM_MixedToolbar_TakeSnapshot")  
+-   “堆大小(差异)”列显示 .NET 和本机堆中的字节数 
+
+拍摄多个快照时，摘要表的单元格包含行快照与前一个快照之间的值变化。  
   
-> [!TIP]
->  -   若要为进行内存比较而创建基线，请考虑在调试会话开始时拍摄快照。  
-> -   因为在应用经常分配并取消分配内存时捕获感兴趣的操作的内存配置文件十分具有挑战性，所以请在操作开始和结束时设置断点，或逐步执行操作以查找内存变化的确切点。  
+![内存摘要表单元格](../profiling/media/dbgdiag_mem_summarytablecell.png "DBGDIAG_MEM_SummaryTableCell")  
+
+若要分析内存使用率，请单击其中一个链接，打开内存使用率详细报表：  
+
+-   若要查看当前快照与前一个快照之间的差异的详细信息，请选择箭头左侧的更改链接（![内存使用率增加](../profiling/media/prof-tour-mem-usage-up-arrow.png "Memory Usage Increase")）。 红色箭头表示内存使用率增加，绿色箭头表示减少）。
+
+    > [!TIP]
+    >  为了帮助更快地识别内存问题，差异报告按照总体数量增加最多（“对象(差异)”列中的更改链接）的对象类型或整体堆大小增加最多（“堆大小(差异)”列中的更改链接）的对象类型进行排序。
+
+-   若要仅查看所选快照的详细信息，请选择无更改链接。 
   
-## <a name="viewing-memory-snapshot-details"></a>查看内存快照详细信息  
- 内存使用率摘要表中的行会列出在调试会话期间拍摄的快照。  
-  
- 行的列取决于在项目属性中选择的调试模式：.NET、本机或混合（.NET 和本机）。  
-  
--   **“托管对象”**和 **“本机分配”** 列显示拍摄快照时 .NET 和本机内存中的对象数。  
-  
--   **“托管堆大小”** 和 **“本机堆大小”** 列显示 .NET 和本机堆中的字节数  
-  
--   拍摄多个快照时，摘要表的单元格包含行快照与前一个快照之间的值变化。  
-  
-     ![内存摘要表单元格](../profiling/media/dbgdiag_mem_summarytablecell.png "DBGDIAG_MEM_SummaryTableCell")  
-  
- **查看详细信息报表：**  
-  
--   若要仅查看所选快照的详细信息，请选择当前链接。  
-  
--   若要查看当前快照与前一个快照之间的差异的详细信息，请选择更改链接。  
-  
- 报告会出现在单独的窗口中。  
-  
-## <a name="memory-usage-details-reports"></a>内存使用率详细信息报告  
+ 报告会出现在单独的窗口中。   
   
 ### <a name="managed-types-reports"></a>托管类型报告  
- 在内存使用率摘要表中选择 **“托管对象”** 或 **“托管堆大小”** 单元格的当前链接。  
+ 在内存使用率摘要表中选择“对象(差异)”或“分配(差异)”单元格的当前链接。  
   
  ![调试器托管的类型报表 - 根路径](../profiling/media/dbgdiag_mem_managedtypesreport_pathstoroot.png "DBGDIAG_MEM_ManagedTypesReport_PathsToRoot")  
   
@@ -114,7 +147,7 @@ ms.lasthandoff: 02/22/2017
  **“实例”** 视图显示上部窗格的快照中所选对象的实例。 “根的路径”和“引用的对象”窗格显示引用所选实例的对象以及所选实例引用的类型。 当调试器在拍摄快照的点停止时，可以将鼠标悬停在“值”单元格上方以在工具提示中显示对象的值。  
   
 ### <a name="native-type-reports"></a>本机类型报告  
- 在 **“诊断工具”** 窗口的内存使用率摘要表中选择 **“本机分配”** 或 **“本机堆大小”** 单元格的当前链接。  
+ 在“诊断工具”窗口的内存使用率摘要表中选择“分配(差异)”或“堆大小(差异)”单元格的当前链接。  
   
  ![本机类型视图](../profiling/media/dbgdiag_mem_native_typesview.png "DBGDIAG_MEM_Native_TypesView")  
   

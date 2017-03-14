@@ -31,9 +31,9 @@ translation.priority.mt:
 - pt-br
 - tr-tr
 translationtype: Human Translation
-ms.sourcegitcommit: 5ec205ee98f61b400112a39197e1f2aa9dddbd7d
-ms.openlocfilehash: 2d6ec94f7e68a84a4bb4a606882997fadec49e01
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: 8f844c2d7d975476bc4c059d211a1d6cb0df64eb
+ms.openlocfilehash: 4c995fb6df6316ce7f84fae7075b81063b54ebf7
+ms.lasthandoff: 02/28/2017
 
 ---
 # <a name="profiling-tools"></a>分析工具
@@ -62,12 +62,12 @@ ms.lasthandoff: 02/22/2017
 ## <a name="gpu-usage"></a>GPU 使用情况  
  ![DiagGPUUsage](../profiling/media/diaggpuusage.png "DiagGPUUsage")  
   
- 使用 [GPU 使用情况](../debugger/gpu-usage.md)工具可以更好地了解 Direct3D 应用的高级硬件利用率。 此工具可用于桌面和 Windows 通用应用，但不可用于 ASP.NET 应用。 “GPU 使用率”  工具可以在调试时从“诊断工具”  窗口运行（“调试”/“显示诊断工具”），也可以在调试器外部运行（“调试”/“性能探查器...”）。  
+ 使用 [GPU 使用情况](../debugger/gpu-usage.md)工具可以更好地了解 Direct3D 应用的高级硬件利用率。 此工具可用于桌面和 Windows 通用应用，但不可用于 ASP.NET 应用。 可以在调试器外部运行“GPU 使用情况”工具（“调试/性能探查器...”）。  
   
 ## <a name="application-timeline"></a>应用程序时间线  
  ![DiagAppTimeline](../profiling/media/diagapptimeline.png "DiagAppTimeline")  
   
- [应用程序时间线](../profiling/application-timeline.md)工具提供应用程序资源使用情况的详细视图，可帮助提高 XAML 应用程序的性能。 “应用程序时间线”  工具可用于桌面和 Windows 通用应用，但不可用于 ASP.NET 应用。  “应用程序时间线”工具可以从“诊断工具”  窗口（“调试”/“性能探查器…”）运行。
+ [应用程序时间线](../profiling/application-timeline.md)工具提供应用程序资源使用情况的详细视图，可帮助提高 XAML 应用程序的性能。 “应用程序时间线”  工具可用于桌面和 Windows 通用应用，但不可用于 ASP.NET 应用。 可以在调试器外部运行“应用程序时间线”工具（“调试/性能探查器...”）。
   
 ## <a name="perftips"></a>性能提示  
  ![DiagPerfTips](../profiling/media/diagperftips.png "DiagPerfTips")  
@@ -85,12 +85,12 @@ ms.lasthandoff: 02/22/2017
 ## <a name="javascript-memory"></a>“JavaScript 内存”  
  ![DiagJSMemory](../profiling/media/diagjsmemory.png "DiagJSMemory")  
   
- 通过收集进入和退出应用中各功能的计时信息，[JavaScript 内存](../profiling/javascript-memory.md)工具可用于测量、评估和解决代码中的性能相关问题。 此工具可用于 Windows 通用 HTML 应用。  “JavaScript 函数计时”工具可以从“诊断工具”  窗口（“调试”/“性能探查器…”）运行。  
+ 通过 [JavaScript 内存](../profiling/javascript-memory.md)工具可在应用中查找内存泄漏和低效内存使用情况。 该工具让你可以拍摄 JavaScript 堆的快照。 此工具可用于 Windows 通用 HTML 应用。 可以在调试器外部运行“JavaScript 内存”工具（“调试/性能探查器...”）。  
   
 ## <a name="html-ui-responsiveness"></a>HTML UI 响应能力  
  ![DiagHTMLResp](../profiling/media/diaghtmlresp.png "DiagHTMLResp")  
   
- [HTML UI 响应能力](../profiling/html-ui-responsiveness.md)工具有助于隔离应用中的性能问题，包括响应能力不足、加载时间缓慢以及视觉对象更新频率小于预期。 此工具可用于 Windows 通用 HTML 应用。  “HTML UI 响应能力”工具可以从“诊断工具”  窗口（“调试”/“性能探查器…”）运行。  
+ [HTML UI 响应能力](../profiling/html-ui-responsiveness.md)工具有助于隔离应用中的性能问题，包括响应能力不足、加载时间缓慢以及视觉对象更新频率小于预期。 此工具可用于 Windows 通用 HTML 应用。 可以在调试器外部运行“HTML UI 响应能力”工具（“调试/性能探查器...”）。  
   
 ## <a name="intellitrace"></a>IntelliTrace  
  ![DiagIntelliTrace](../profiling/media/diagintellitrace.png "DiagIntelliTrace")  
