@@ -1,0 +1,54 @@
+---
+title: "IDiaSymbol::get_callingConvention | Microsoft Docs"
+ms.custom: ""
+ms.date: "11/04/2016"
+ms.reviewer: ""
+ms.suite: ""
+ms.technology: 
+  - "vs-ide-debug"
+ms.tgt_pltfrm: ""
+ms.topic: "article"
+dev_langs: 
+  - "C++"
+helpviewer_keywords: 
+  - "IDiaSymbol::get_callingConvention 方法"
+ms.assetid: 355d3877-b6b6-45fd-a1d8-baed428d8f96
+caps.latest.revision: 9
+author: "mikejo5000"
+ms.author: "mikejo"
+manager: "ghogen"
+caps.handback.revision: 9
+---
+# IDiaSymbol::get_callingConvention
+[!INCLUDE[vs2017banner](../../code-quality/includes/vs2017banner.md)]
+
+返回调用约定的指示符的方法。  
+  
+## 语法  
+  
+```cpp#  
+HRESULT get_callingConvention (   
+   DWORD* pRetVal  
+);  
+```  
+  
+#### 参数  
+ `pRetVal`  
+ \[out\] 返回从指定方法的调用约定的 [CV\_call\_e 枚举](../../debugger/debug-interface-access/cv-call-e.md) 枚举的值。  
+  
+## 返回值  
+ 如果成功，则返回; `S_OK`否则，返回 `S_FALSE` 或错误代码。  
+  
+> [!NOTE]
+>  `S_FALSE` 的返回值表示该属性用于符号不可用。  
+  
+## 要求  
+  
+|要求|说明|  
+|--------|--------|  
+|标题:|dia2.h|  
+|版本:|DIA SDK v7.0|  
+  
+## 请参阅  
+ [IDiaSymbol](../../debugger/debug-interface-access/idiasymbol.md)   
+ [CV\_call\_e 枚举](../../debugger/debug-interface-access/cv-call-e.md)

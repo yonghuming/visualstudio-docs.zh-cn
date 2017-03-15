@@ -1,0 +1,57 @@
+---
+title: "辅助功能提示和技巧 | Microsoft Docs"
+ms.custom: ""
+ms.date: "11/04/2016"
+ms.reviewer: ""
+ms.suite: ""
+ms.technology: 
+  - "vs-ide-general"
+ms.tgt_pltfrm: ""
+ms.topic: "article"
+helpviewer_keywords: 
+  - "辅助功能 [Visual Studio]"
+ms.assetid: 6b491d88-f79e-4686-8841-857624bdcfda
+caps.latest.revision: 22
+author: "kempb"
+ms.author: "kempb"
+manager: "ghogen"
+caps.handback.revision: 21
+---
+# <a name="accessibility-tips-and-tricks"></a>辅助功能提示和技巧
+[!INCLUDE[vsprvs](../../code-quality/includes/vsprvs_md.md)] 包含一些内置的辅助功能，可帮助用户轻松地操作键盘和使用屏幕阅读器或其他辅助技术设备。 本主题包括关于优化 [!INCLUDE[vsprvs](../../code-quality/includes/vsprvs_md.md)] 辅助功能的一些建议，以及一些有用的快捷组合键。  
+  
+> [!NOTE]
+>  显示的对话框和菜单命令可能会与“帮助”中的描述不同，具体取决于你现用的设置或版本。 若要更改设置，请在 **“工具”** 菜单上选择 **“导入和导出设置”** 。 有关详细信息，请参阅[在 Visual Studio 中自定义开发设置](http://msdn.microsoft.com/en-us/22c4debb-4e31-47a8-8f19-16f328d7dcd3)。  
+  
+## <a name="save-your-ide-settings"></a>保存 IDE 设置  
+ 可以通过保存窗口布局、键盘映射方案和其他首选项来自定义 IDE 体验。 有关详细信息，请参阅[在 Visual Studio 中自定义开发设置](http://msdn.microsoft.com/en-us/22c4debb-4e31-47a8-8f19-16f328d7dcd3)。  
+  
+## <a name="common-windows-shortcut-key-combinations"></a>常用 Windows 快捷组合键  
+ 在 [!INCLUDE[vsprvs](../../code-quality/includes/vsprvs_md.md)] 中，可以使用许多标准 Windows 快捷组合键来执行任务。 下面列举了其中一些快捷组合键：  
+  
+|描述|组合键|  
+|-----------------|---------------------|  
+|打开或关闭高对比度|左 **Alt + 左 Shift + PRINT SCREEN**|  
+|选中或清除对话框中的复选框选项|**空格键**|  
+|显示选定项的属性。 例如，如果选中窗体，则将焦点放在“属性”窗口中，如果选中项目，则打开“属性页”对话框。|**Alt+Enter**|  
+|在对话框的活动列表（如下拉列表）中显示项|**Alt** + 向下键|  
+|在网格的活动下拉列表中显示项|**Shift** + **Alt** + **向下键**|  
+  
+## <a name="hidden-visual-studio-shortcut-key-combinations"></a>隐藏的 Visual Studio 快捷组合键  
+ 某些功能具有可用的快捷键，但这些快捷键并未显示在“选项”对话框的“环境”\“键盘”窗格上。 这类快捷组合键包括：  
+  
+|功能|描述|组合键|  
+|-------------|-----------------|---------------------|  
+|工具箱窗口|在工具箱选项卡之间移动|**Ctrl** + **向上键**<br /><br /> 和<br /><br /> **Ctrl** + **向下键**|  
+|工具箱窗口|将工具箱中的控件添加到窗体或设计器|**Enter**|  
+|“选项”对话框 ->“环境”->“键盘”|删除在“按快捷键”选项中输入的组合键|**Backspace**|  
+|所有工具窗口|选择窗口的工具栏上的第一个按钮|**Shift** + **Alt**|  
+|IDE 工具栏|选择“标准”工具栏上的第一个按钮|**Alt**、**Ctrl** + **Tab** **注意：**再次按 **Ctrl** + **Tab** 可选择下一个 IDE 工具栏上的第一个按钮。|  
+  
+## <a name="see-also"></a>另请参阅  
+ [Visual Studio 的辅助功能](../../ide/reference/accessibility-features-of-visual-studio.md)
+
+
+<!--HONumber=Feb17_HO4-->
+
+

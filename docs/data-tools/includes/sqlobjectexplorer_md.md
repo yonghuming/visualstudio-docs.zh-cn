@@ -1,0 +1,2 @@
+> [!NOTE]
+>  在 [!INCLUDE[vs_dev12](../../data-tools/includes/vs_dev12_md.md)] 中，可从**“SQL Server 对象资源管理器”**或从**“服务器资源管理器”**中的**“数据连接”**节点连接到 SQL Server 数据库。**“SQL Server 对象资源管理器”**提供了类似于 SQL Server Management Studio 的视图。若要从菜单栏打开该资源管理器，请依次选择**“视图”**、**“SQL Server 对象资源管理器”**。有关详细信息，请参阅[连接的数据库开发](http://go.microsoft.com/fwlink/?LinkId=233646)。

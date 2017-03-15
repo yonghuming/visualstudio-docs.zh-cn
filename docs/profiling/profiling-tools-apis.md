@@ -1,0 +1,53 @@
+---
+title: "分析工具 API | Microsoft Docs"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-debug
+ms.tgt_pltfrm: 
+ms.topic: article
+ms.assetid: bd9ca972-e5bf-45a6-9a5d-ac30a4d9ee02
+caps.latest.revision: 8
+author: mikejo5000
+ms.author: mikejo
+manager: ghogen
+translation.priority.ht:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+translationtype: Human Translation
+ms.sourcegitcommit: 5db97d19b1b823388a465bba15d057b30ff0b3ce
+ms.openlocfilehash: 0fc7e0fbadf0a19f055bc698afedd2f235ef3db6
+ms.lasthandoff: 02/22/2017
+
+---
+# <a name="profiling-tools-apis"></a>分析工具 API
+可插入 [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] 分析工具 API 的托管或本机方法，以便在运行分析时控制数据收集。 本节介绍了 API的 方法，以及如何使用它们。  
+  
+## <a name="in-this-section"></a>本节内容  
+ [Visual Studio 探查器 API 参考（本机）](../profiling/visual-studio-profiler-api-reference-native.md)  
+ 介绍 C++ 分析工具方法。  
+  
+ <xref:Microsoft.VisualStudio.Profiler>  
+ 介绍 .NET 分析工具方法。  
+  
+ [演练：使用探查器 API](../profiling/walkthrough-using-profiler-apis.md)  
+ 了解如何在此完整示例中使用 .NET 分析工具方法。  
+  
+## <a name="related-sections"></a>相关章节  
+ [控制数据收集](../profiling/controlling-data-collection.md)  
+  
+## <a name="see-also"></a>另请参阅  
+ [性能资源管理器](../profiling/performance-explorer.md)
