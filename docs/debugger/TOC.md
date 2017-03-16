@@ -1,5 +1,4 @@
-# [在 Visual Studio 中进行调试](debugging-in-visual-studio.md)
-# [调试器功能简介](debugger-feature-tour.md)
+# [调试功能导览](debugger-feature-tour.md)
 # [Visual Studio 中调试器的新增功能](what-s-new-for-the-debugger-in-visual-studio.md)
 # [调试器基础知识](debugger-basics.md)
 ## [调试器入门](getting-started-with-the-debugger.md)
