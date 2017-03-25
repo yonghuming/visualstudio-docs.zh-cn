@@ -28,14 +28,12 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 translationtype: Machine Translation
-ms.sourcegitcommit: 221f4911981deec0330f76a82c0cc8a1b968e56e
-ms.openlocfilehash: 081a569fc7e38fecc8cc1ae5b0f8138ae8f25521
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: 8163a0e1230712734936b7548bef1753ee0c1d2a
+ms.openlocfilehash: 2e6e4b3d9d1528d57fe181b3765e1ce3624bebad
+ms.lasthandoff: 03/07/2017
 
 ---
 # <a name="changes-in-visual-studio-2017-extensibility"></a>Visual Studio 2017 扩展中的更改
-
->**注意︰**本文档是初定版，根据 Visual Studio 2017 RC 版本。
 
 使用 Visual Studio 2017，我们提供[更快、 更精简的 Visual Studio 安装体验](https://blogs.msdn.microsoft.com/visualstudio/2016/04/01/faster-leaner-visual-studio-installer)时向用户提供更好的选择对工作负荷和安装的功能可减少用户在系统上，Visual Studio 的影响。 若要支持这些改进，我们对扩展性模型中，进行了更改，并对 Visual Studio 扩展性做出一些重大更改。 本文档将介绍这些更改，以及可以做什么来解决它们的技术详细信息。 请注意一些信息为时间点实现的详细信息，可能会更高版本发生更改。
 
@@ -46,7 +44,7 @@ ms.lasthandoff: 02/22/2017
 为 VSIX 格式的更改包括︰
 
 * 安装程序先决条件的声明。 为了兑现承诺的一种轻型，快速安装 Visual Studio 中，安装程序将立即向用户提供更多配置选项。 因此，若要确保安装的功能和扩展所需的组件，扩展将需要声明它们的依赖项。
-  * RC 版本中，将自动提供 Visual Studio 2017 安装程序获得并安装的过程中安装您的扩展的用户所必需的组件。
+  * Visual Studio 2017 安装程序将自动提供要获得并安装的过程中安装您的扩展的用户所必需的组件。
   * 在尝试安装的扩展，未生成使用新的 VSIX v3 格式，即使它们已标记为面向版本 15.0 其清单中时，还会警告用户。
 * VSIX 格式的增强的功能。 在传递[低影响安装](https://blogs.msdn.microsoft.com/visualstudio/2016/04/25/anatomy-of-a-low-impact-visual-studio-install)还支持通过并行安装的 Visual studio，我们不再将最多的配置数据保存到系统注册表且已移出 gac 中的 Visual Studio 特定程序集。 我们也大为增加 VSIX 格式和 VSIX 安装引擎的功能允许您使用它而不是 MSI 或 EXE 安装某些类型的安装程序扩展。
 
@@ -124,5 +122,5 @@ ms.lasthandoff: 02/22/2017
 
 ## <a name="change-lightweight-solution-load"></a>更改︰ 种轻量型解决方案，负载
 
-轻量解决方案加载 (LSL) 减少了通过在用户与他们开始工作之前未完全加载项目解决方案加载时间。 这可能会影响假定一个项目被完全加载的扩展。 请参阅[轻型解决方案加载](lightweight-solution-load-extension-impact.md)若要了解是否可能会影响您的扩展，并获得更新您的扩展的指导。
+轻量解决方案加载 (LSL) 减少通过在用户与他们开始工作之前未完全加载项目解决方案加载时间。 这可能会影响假定一个项目被完全加载的扩展。 请参阅[轻型解决方案加载](lightweight-solution-load-extension-impact.md)若要了解是否可能会影响您的扩展，并获得更新您的扩展的指导。
 

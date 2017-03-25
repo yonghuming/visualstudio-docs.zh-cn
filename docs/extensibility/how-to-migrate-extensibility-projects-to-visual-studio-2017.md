@@ -28,18 +28,16 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 translationtype: Machine Translation
-ms.sourcegitcommit: 4f93b8c1db59dd8d8a407c82002240641be43018
-ms.openlocfilehash: 1f9248442357c4447703ac6d6dac8a27934904e8
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: 5b6334c38a6c058f274498c06f8e07c934931910
+ms.openlocfilehash: efd17a3317302fedcb9bd42aded7a38adee2f75f
+ms.lasthandoff: 03/22/2017
 
 ---
 # <a name="how-to-migrate-extensibility-projects-to-visual-studio-2017"></a>如何︰ 迁移到 Visual Studio 2017 扩展性项目
 
->**注意︰**本文档是初定版，根据 Visual Studio 2017 RC 版本。
-
 本文档介绍如何将可扩展性项目升级到 Visual Studio 2017。 除了介绍如何更新项目文件，它还描述如何从扩展清单版本 2 (VSIX v2) 升级到新的版本 3 VSIX 清单格式 (VSIX v3)。
 
-## <a name="install-visual-studio-2017-rc-with-required-workloads"></a>安装所需的工作负荷的 Visual Studio 2017 RC
+## <a name="install-visual-studio-2017-with-required-workloads"></a>安装 Visual Studio 2017 具有所需的工作负荷
 
 请确保您的安装包括以下工作负荷︰
 
@@ -59,19 +57,16 @@ VSIX 项目中所有需要的主要版本单向升级到 Visual Studio 2017。
 
 >**注意︰**如果您的解决方案不引用 Microsoft.VSSDK.BuildTools NuGet 包，您可以跳过此步骤。
 
-若要生成您的扩展在新的 VSIX v3 （版本 3） 格式，您的解决方案将需要使用新的 VSSDK 构建工具生成。 此功能将安装与 Visual Studio 2017 RC 中，但您的 VSIX v2 扩展可能会保持到通过 NuGet 较旧版本的引用。 如果是这样，您将需要手动安装更新 Microsoft.VSSDK.BuildTools NuGet 程序包为您的解决方案。 在 RC 版本时，此包将处于"预发布版"状态。
+若要生成您的扩展在新的 VSIX v3 （版本 3） 格式，您的解决方案将需要使用新的 VSSDK 构建工具生成。 此功能将安装与 Visual Studio 2017，但您的 VSIX v2 扩展可能会保持到通过 NuGet 较旧版本的引用。 如果是这样，您将需要手动安装更新 Microsoft.VSSDK.BuildTools NuGet 程序包为您的解决方案。
 
 若要更新对 Microsoft.VSSDK.BuildTools 的 NuGet 引用︰
 
 * 右击该解决方案，然后选择**为解决方案管理 NuGet 包...**
 * 导航到**更新**选项卡。
-* 旁边的复选框**包括预发行版**。
 * 选择 Microsoft.VSSDK.BuildTools （最新版本）。
 * 按**更新**。
 
 ![VSSDK 生成工具](media/vssdk-build-tools.png)
-
->**注意︰**屏幕快照显示不同版本的 BuildTools。 请选择 RC 版本。
 
 ## <a name="make-changes-to-the-vsix-extension-manifest"></a>对 VSIX 扩展清单进行更改
 
@@ -110,7 +105,7 @@ VSIX 项目中所有需要的主要版本单向升级到 Visual Studio 2017。
 
   ![VSIX 清单设计器](media/vsix-manifest-designer.png)
 
-* **添加新必备**将会打开窗口。
+* **添加新系统必备**将会打开窗口。
 
   ![添加 vsix 必备组件](media/add-vsix-prerequisite.png)
 
@@ -161,7 +156,7 @@ VSIX 将会成功安装在计算机并且所需的所有系统必备组件安装
 
 尝试安装该扩展︰
 
-* 在 Visual Studio 2017 RC
+* 在 Visual Studio 2017
 
 ![在 Visual Studio 2017 VSIX 安装程序](media/vsixinstaller-vs-2017.png)
 
@@ -170,7 +165,7 @@ VSIX 将会成功安装在计算机并且所需的所有系统必备组件安装
   * 应该适用于 Visual Studio 2012、 Visual Studio 2013、 Visual Studio 2015。
 * 可选︰ 检查 VSIX 安装程序版本检查器提供了一种版本。
   * 包括 Visual Studio 的早期版本 （如果已安装）。
-  * 包括 Visual Studio 2017 RC。
+  * 包括 Visual Studio 2017。
 
 如果最近打开 Visual Studio，您可能会看到如下对话框︰
 
@@ -182,7 +177,7 @@ VSIX 将会成功安装在计算机并且所需的所有系统必备组件安装
 
 ## <a name="check-when-missing-the-required-prerequisites"></a>缺少所需的必备组件时检查
 
-* 尝试安装该扩展的计算机上使用 Visual Studio 2017 RC 不包含系统必备组件 （上述） 中定义的所有组件。
+* 尝试安装该扩展的计算机上使用 Visual Studio 2017 不包含系统必备组件 （上述） 中定义的所有组件。
 * 检查安装标识缺少的组件/s 和列表作为 VSIXInstaller 中的必备组件。
 * 注意︰ 提升都会要求提供如果需要使用该扩展安装任何系统必备组件。
 
@@ -196,7 +191,7 @@ VSIX 将会成功安装在计算机并且所需的所有系统必备组件安装
 
 扩展类型 | 显示名称 |    Id
 --- | --- | ---
-编辑器 | Visual Studio 核心编辑器    | Microsoft.VisualStudio.CoreEditor
+编辑器 | Visual Studio 核心编辑器    | Microsoft.VisualStudio.Component.CoreEditor
 Roslyn | C# 和 Visual Basic | Microsoft.VisualStudio.Component.Roslyn.LanguageServices
 WPF | 管理桌面工作负荷核心 | Microsoft.VisualStudio.Component.ManagedDesktop.Core
 调试器 | 在实时调试器 | Microsoft.VisualStudio.Component.Debugger.JustInTime
@@ -216,5 +211,5 @@ Visual Studio 产品按排序的组件列表中位于[Visual Studio 2017 工作�
 示例：
 
 * 如果调试器扩展，并且知道您的项目具有 VSDebugEng.dll 和 VSDebug.dll 的参考，请单击中的筛选器按钮**二进制文件 / 文件名称**标头。  搜索"VSDebugEng.dll"并选择确定。  下一步中的筛选器按钮上单击**二进制文件 / 文件名称**再次标头并搜索"VSDebug.dll"。  选中"添加当前所选内容来筛选"的复选框，然后选择确定。  现在请浏览**组件名称**若要查找的组件的大多数与您的扩展类型相关。 在此示例中，您将选择实时调试，并将其添加到您 vsixmanifest。
-* 如果您知道您的项目处理调试器的元素，您可以搜索在"调试器"筛选器在搜索框中以查看哪些组件包含其名称中的调试器。
+* 如果您知道您的项目处理调试器元素，您可以搜索在"调试器"筛选器在搜索框中以查看哪些组件包含其名称中的调试器。
 

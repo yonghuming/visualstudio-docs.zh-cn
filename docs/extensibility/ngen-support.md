@@ -28,14 +28,12 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 translationtype: Machine Translation
-ms.sourcegitcommit: 5db97d19b1b823388a465bba15d057b30ff0b3ce
-ms.openlocfilehash: 42ab3add7d1d070e82565dd70fbfabac27713d3a
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: 8163a0e1230712734936b7548bef1753ee0c1d2a
+ms.openlocfilehash: 46b6f4d13b4c1938797dbe6cf6023e3c8c42d1ed
+ms.lasthandoff: 03/07/2017
 
 ---
 # <a name="ngen-support-in-vsix-v3"></a>在 VSIX v3 Ngen 支持
-
->**注意︰**本文档是初定版，根据 Visual Studio 2017 RC 版本。
 
 使用 Visual Studio 2017 和新的 VSIX v3 （版本 3） 扩展清单的格式，现在扩展开发人员可以"ngen"及其在安装时的程序集。
 
