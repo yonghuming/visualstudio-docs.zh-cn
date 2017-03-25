@@ -1,25 +1,44 @@
 ---
-title: "Visual C# 代码段 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-general"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-helpviewer_keywords: 
-  - "代码段 [C#], 默认代码段"
-  - "代码段 [C#], 代码段插入器"
-  - "代码段插入器 [J#]"
-  - "代码段插入器 [C#]"
-  - "Visual C#, 默认代码段"
+title: "Visual C# 代码片段 |Microsoft Docs"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-general
+ms.tgt_pltfrm: 
+ms.topic: article
+helpviewer_keywords:
+- snippets [C#], default snippets
+- snippets [C#], Code Snippet Inserter
+- Code Snippet Inserter [J#]
+- Code Snippet Inserter [C#]
+- Visual C#, default snippets
 ms.assetid: dbea3dd6-e650-4190-b874-c9f097d7de6e
 caps.latest.revision: 33
-author: "kempb"
-ms.author: "kempb"
-manager: "ghogen"
-caps.handback.revision: 33
+author: kempb
+ms.author: kempb
+manager: ghogen
+translation.priority.ht:
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- ru-ru
+- zh-cn
+- zh-tw
+translation.priority.mt:
+- cs-cz
+- pl-pl
+- pt-br
+- tr-tr
+translationtype: Human Translation
+ms.sourcegitcommit: 5b6334c38a6c058f274498c06f8e07c934931910
+ms.openlocfilehash: 01c13c4e0c9107f07580fb1701f81eac74a5022f
+ms.lasthandoff: 03/22/2017
+
 ---
 # <a name="visual-c-code-snippets"></a>Visual C# 代码段
 代码片段是现成的代码段，可快速插入到代码中。 例如，`for` 代码片段刻创建一个空 `for` 循环。 有些代码片段为外侧代码片段，让你可以选择代码行，然后选择包含所选代码行的代码片段。 例如，选择代码行并激活 `for` 代码片段时，会通过循环块内的代码行创建 `for` 循环。 使用代码片段可以更快、更容易且更可靠地编写程序代码。  
@@ -59,7 +78,7 @@ caps.handback.revision: 33
 |mbox|创建对 <xref:System.Windows.Forms.MessageBox.Show%2A?displayProperty=fullName> 的调用。 可能还需要添加对 System.Windows.Forms.dll 的引用。|在方法、索引器、属性访问器或事件访问器内。|  
 |namespace|创建[命名空间](/dotnet/csharp/language-reference/keywords/namespace)声明。|在命名空间（包括全局命名空间）中。|  
 |属性|创建[自动实现的属性](/dotnet/csharp/programming-guide/classes-and-structs/auto-implemented-properties)声明。|在类或结构中。|  
-ropfull|创建具有 get 和 set 访问器的属性声明。|在类或结构中。|  
+propfull|创建具有 get 和 set 访问器的属性声明。|在类或结构中。|  
 |propg|创建一个带有专用“set”访问器的只读[自动实现的属性](/dotnet/csharp/programming-guide/classes-and-structs/auto-implemented-properties)。|在类或结构中。|  
 |sim|创建 [static](/dotnet/csharp/language-reference/keywords/static)[int](/dotnet/csharp/language-reference/keywords/int) Main 方法声明。|在类或结构中。|  
 |struct|创建[结构](/dotnet/csharp/language-reference/keywords/struct)声明。|在命名空间（包括全局命名空间）、类或结构中。|  
@@ -79,8 +98,4 @@ ropfull|创建具有 get 和 set 访问器的属性声明。|在类或结构中�
  [模板参数](../ide/template-parameters.md)   
  [如何：使用外侧代码片段](../ide/how-to-use-surround-with-code-snippets.md)   
  
-
-
-<!--HONumber=Feb17_HO4-->
-
 
