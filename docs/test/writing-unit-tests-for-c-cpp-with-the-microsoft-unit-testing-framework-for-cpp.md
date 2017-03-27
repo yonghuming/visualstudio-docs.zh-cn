@@ -1,5 +1,5 @@
 ---
-title: "使用适用于 C++ 的 Microsoft 单元测试框架编写 C-C++ 单元测试 | Microsoft Docs"
+title: "使用适用于 C++ 的 Microsoft 单元测试框架编写 C/C++ 单元测试 | Microsoft Docs"
 ms.custom: 
 ms.date: 11/04/2016
 ms.reviewer: 
@@ -28,8 +28,9 @@ translation.priority.mt:
 - pt-br
 - tr-tr
 translationtype: Human Translation
-ms.sourcegitcommit: 5658ecf52637a38bc3c2a5ad9e85b2edebf7d445
-ms.openlocfilehash: dd88409bb0774342e0a9f50178e1204cabf72e46
+ms.sourcegitcommit: a42f5a30375192c89c9984e40ba0104da98d7253
+ms.openlocfilehash: 76721dbf816cf7b7b8691efc10d22aac6b69cb05
+ms.lasthandoff: 03/07/2017
 
 ---
 # <a name="writing-unit-tests-for-cc-with-the-microsoft-unit-testing-framework-for-c"></a>用 Microsoft 适用于 C++ 的单元测试框架编写 C/C++ 单元测试
@@ -97,7 +98,7 @@ ms.openlocfilehash: dd88409bb0774342e0a9f50178e1204cabf72e46
   
         3.  在测试的快捷菜单中，选择“调试所选测试”  以在调试器中运行测试。  
   
-##  <a name="a-namewalkthrougha-walkthrough-developing-an-unmanaged-dll-with-test-explorer"></a><a name="walkthrough"></a>演练：使用测试资源管理器开发非托管 DLL  
+##  <a name="walkthrough"></a>演练：使用测试资源管理器开发非托管 DLL  
  你可以调整此演练，以便开发自己的 DLL。 主要步骤如下所示：  
   
 1.  [创建本机单元测试项目](#unitTestProject)。 这些测试是通过你开发的 DLL 在单独项目中创建的。  
@@ -116,7 +117,7 @@ ms.openlocfilehash: dd88409bb0774342e0a9f50178e1204cabf72e46
   
 8.  [将单元与外部资源隔离](https://msdn.microsoft.com/library/hh549174.aspx)。 通常，DLL 依赖于你开发的系统的其他组件，例如其他 DLL、数据库或远程子系统。 在测试每个单元时，使之与它的依赖项相隔离非常有用。 外部组件可能会降低测试的运行速度。 在开发期间，其他组件可能不完整。  
   
-###  <a name="a-nameunittestprojecta-create-a-native-unit-test-project"></a><a name="unitTestProject"></a> 创建本机单元测试项目  
+###  <a name="unitTestProject"></a> 创建本机单元测试项目  
   
 1.  在“文件”  菜单上，选择“新建” 、“项目” 。  
   
@@ -165,7 +166,7 @@ ms.openlocfilehash: dd88409bb0774342e0a9f50178e1204cabf72e46
   
          ![具有&1; 个已通过测试的单元测试资源管理器](../test/media/utecpp04.png "UteCpp04")  
   
-###  <a name="a-namecreatedllprojecta-create-an-unmanaged-dll-project"></a><a name="createDllProject"></a> 创建非托管 DLL 项目  
+###  <a name="createDllProject"></a> 创建非托管 DLL 项目  
   
 1.  使用“Win32 项目”  模板，创建“Visual C++”  项目。  
   
@@ -195,7 +196,7 @@ ms.openlocfilehash: dd88409bb0774342e0a9f50178e1204cabf72e46
     }  
     ```  
   
-###  <a name="a-namecoupleprojectsa-couple-the-test-project-to-the-dll-project"></a><a name="coupleProjects"></a> 将测试项目耦合到 DLL 项目  
+###  <a name="coupleProjects"></a> 将测试项目耦合到 DLL 项目  
   
 1.  将 DLL 项目添加到测试项目的项目引用中：  
   
@@ -245,7 +246,7 @@ ms.openlocfilehash: dd88409bb0774342e0a9f50178e1204cabf72e46
   
  你已设置测试和代码项目，并已验证可运行测试（运行测试项目中的函数）。 现在可以开始编写实际测试和代码。  
   
-###  <a name="a-nameiteratea-iteratively-augment-the-tests-and-make-them-pass"></a><a name="iterate"></a> 以迭代方式增加测试并使它们通过  
+###  <a name="iterate"></a> 以迭代方式增加测试并使它们通过  
   
 1.  添加新测试：  
   
@@ -303,7 +304,7 @@ ms.openlocfilehash: dd88409bb0774342e0a9f50178e1204cabf72e46
     > [!TIP]
     >  通过一次添加一个测试来开发代码。 确保每次迭代后所有的测试都会通过。  
   
-###  <a name="a-namedebuga-debug-a-failing-test"></a><a name="debug"></a> 调试失败测试  
+###  <a name="debug"></a> 调试失败测试  
   
 1.  添加另一个测试：  
   
@@ -378,7 +379,7 @@ ms.openlocfilehash: dd88409bb0774342e0a9f50178e1204cabf72e46
 > [!TIP]
 >  如果各个测试没有防止其以任何顺序运行的依赖项，则可使用工具栏上的 ![UTE_parallelicon - 小](../test/media/ute_parallelicon-small.png "UTE_parallelicon-small")切换按钮来打开并行测试执行。 这可以显著降低运行所有测试所需的时间。  
   
-###  <a name="a-namerefactora-refactor-the-code-without-changing-tests"></a><a name="refactor"></a> 在不更改测试的情况下重构代码  
+###  <a name="refactor"></a> 在不更改测试的情况下重构代码  
   
 1.  简化 SquareRoot 函数中的核心计算：  
   
@@ -414,8 +415,3 @@ ms.openlocfilehash: dd88409bb0774342e0a9f50178e1204cabf72e46
  [调试本机代码](../debugger/debugging-native-code.md)   
  [演练：创建和使用动态链接库 (C++)](http://msdn.microsoft.com/Library/3ae94848-44e7-4955-bbad-7d40f493e941)   
  [导入和导出](/visual-cpp/build/importing-and-exporting)
-
-
-<!--HONumber=Feb17_HO4-->
-
-

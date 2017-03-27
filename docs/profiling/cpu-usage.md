@@ -1,6 +1,6 @@
 ---
-title: "CPU 使用率 | Microsoft Docs"
-ms.custom: 
+title: "分析 Visual Studio 中的 CPU 使用率 | Microsoft Docs"
+ms.custom: H1Hack27Feb2017
 ms.date: 11/04/2016
 ms.reviewer: 
 ms.suite: 
@@ -29,12 +29,12 @@ translation.priority.mt:
 - pt-br
 - tr-tr
 translationtype: Human Translation
-ms.sourcegitcommit: 8a3c6e60d0ea85d93281764ec3a3435538b9baa0
-ms.openlocfilehash: d89f4c4bf3d1d4230592896be14dd7d64d90825f
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: a42f5a30375192c89c9984e40ba0104da98d7253
+ms.openlocfilehash: bb13868209d29ee88aaca25d37bbe0041f49961b
+ms.lasthandoff: 03/07/2017
 
 ---
-# <a name="cpu-usage"></a>CPU 使用率
+# <a name="analyze-cpu-usage"></a>分析 CPU 的使用量
 如需调查应用中的性能问题，最好从了解其使用 CPU 的方式开始。 **CPU 使用率** 工具可显示 CPU 耗用时间执行 Visual C++、Visual C#/Visual Basic 和 JavaScript 代码的位置。 从 Visual Studio 2015 Update 1 开始，不离开调试器即可查看每个函数的 CPU 使用率细目。 可以在调试时打开和关闭 CPU 分析，并在停止执行时（例如在断点处）查看结果。  
   
 有多个选项可用于运行和管理诊断会话。 例如，你可以在本地或远程计算机上或在模拟器或仿真程序中运行“CPU 使用率”  工具。 可以分析在 Visual Studio（附加在运行的应用上）中打开的项目的性能，或启动从 Windows 应用商店安装的应用。 有关详细信息，请参阅[使用或不使用调试器运行分析工具](../profiling/running-profiling-tools-with-or-without-the-debugger.md)。 有关分析 Windows 应用商店应用性能的演练，请参阅 [分析应用商店应用中的 CPU 使用率](https://msdn.microsoft.com/en-us/library/windows/apps/dn641982.aspx)。 

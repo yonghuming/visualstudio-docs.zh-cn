@@ -1,6 +1,6 @@
 ---
-title: "HTML UI 响应能力 | Microsoft Docs"
-ms.custom: 
+title: "分析 UWP 应用中的 HTML UI 响应能力 | Microsoft Docs"
+ms.custom: H1Hack27Feb2017
 ms.date: 11/04/2016
 ms.reviewer: 
 ms.suite: 
@@ -40,12 +40,12 @@ translation.priority.mt:
 - pt-br
 - tr-tr
 translationtype: Human Translation
-ms.sourcegitcommit: bdfe341252a7c4340a8c0a624d4394124c3efada
-ms.openlocfilehash: 1d230cb011c93ce48a855e86355d4a6ccdf55a29
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: a42f5a30375192c89c9984e40ba0104da98d7253
+ms.openlocfilehash: 618aaec3a0ae735560d14bea43cc2b08bd9e5445
+ms.lasthandoff: 03/07/2017
 
 ---
-# <a name="html-ui-responsiveness"></a>HTML UI 响应能力
+# <a name="analyze-html-ui-responsiveness-in-universal-windows-apps"></a>分析中通用 Windows 应用中的 HTML UI 响应能力
 本主题介绍如何使用 UI 响应能力探查器（一种可用于 Windows 通用应用的性能工具）隔离应用中的性能问题。  
   
  UI 响应能力探查器可以帮助你隔离诸如 UI 响应问题或平台副效应等问题，它们通常具有以下症状：  

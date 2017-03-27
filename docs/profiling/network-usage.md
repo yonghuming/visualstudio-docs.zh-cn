@@ -1,21 +1,40 @@
 ---
-title: "分析网络使用 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-debug"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
+title: "分析 Visual Studio 中 UWP 应用中的网络使用情况 | Microsoft Docs"
+ms.custom: H1Hack27Feb2017
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-debug
+ms.tgt_pltfrm: 
+ms.topic: article
 ms.assetid: 45fa397d-d7a1-4c4c-9c97-ede6c21643bd
 caps.latest.revision: 7
-author: "mikejo5000"
-ms.author: "mikejo"
-manager: "ghogen"
-caps.handback.revision: 5
+author: mikejo5000
+ms.author: mikejo
+manager: ghogen
+translation.priority.ht:
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- ru-ru
+- zh-cn
+- zh-tw
+translation.priority.mt:
+- cs-cz
+- pl-pl
+- pt-br
+- tr-tr
+translationtype: Human Translation
+ms.sourcegitcommit: a42f5a30375192c89c9984e40ba0104da98d7253
+ms.openlocfilehash: 60d05761993a4bd7547d83274e103de1b5c30b34
+ms.lasthandoff: 03/07/2017
+
 ---
-# <a name="network-usage"></a>网络使用情况
+# <a name="analyze-network-usage-in-uwp-apps"></a>分析 UWP 应用中的网络使用情况
 Visual Studio“网络”诊断工具用于收集有关使用 [Windows.Web.Http API](https://msdn.microsoft.com/library/windows/apps/windows.web.http.aspx) 执行的网络操作的数据。 分析数据可以帮助你解决问题（如访问和身份验证问题、不正确的缓存用法和不良的显示和下载性能）。  
   
  “网络”工具仅支持 Windows 通用平台应用。 目前不支持其他平台。  
@@ -74,8 +93,3 @@ Visual Studio“网络”诊断工具用于收集有关使用 [Windows.Web.Http 
  [运行带或不带调试器的分析工具](../profiling/running-profiling-tools-with-or-without-the-debugger.md)
  [Visual Studio 博客：Visual Studio 的网络检查器简介](http://go.microsoft.com/fwlink/?LinkId=535022)   
  [第 9 频道视频：VS 诊断工具 – 新的网络探查器](http://channel9.msdn.com/Series/ConnectOn-Demand/206)
-
-
-<!--HONumber=Feb17_HO4-->
-
-

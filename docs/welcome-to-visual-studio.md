@@ -1,7 +1,7 @@
 ---
-title: "欢迎使用 Visual Studio 2017 RC | Microsoft Docs"
+title: "欢迎使用 Visual Studio 2017 | Microsoft Docs"
 ms.custom: 
-ms.date: 11/16/2016
+ms.date: 03/02/2017
 ms.reviewer: 
 ms.suite: 
 ms.tgt_pltfrm: 
@@ -10,7 +10,7 @@ f1_keywords:
 - msdnstart
 helpviewer_keywords:
 - Visual Studio
-- Visual Studio 2017 RC
+- Visual Studio 2017
 ms.assetid: ba237712-f8c4-4d13-854b-ab4a16afa309
 caps.latest.revision: 125
 author: kempb
@@ -32,26 +32,25 @@ translation.priority.mt:
 - pt-br
 - tr-tr
 translationtype: Human Translation
-ms.sourcegitcommit: 5db97d19b1b823388a465bba15d057b30ff0b3ce
-ms.openlocfilehash: 10e877cbba18807926ad032e9cc1b94f08f0c843
+ms.sourcegitcommit: a42f5a30375192c89c9984e40ba0104da98d7253
+ms.openlocfilehash: 7ec312bf7c85759fef700f0746c0981f263d46e2
+ms.lasthandoff: 03/07/2017
 
 ---
-# <a name="welcome-to-visual-studio-2017-rc"></a>欢迎使用 Visual Studio 2017 RC
-欢迎使用 Visual Studio！ 我们提供你为设备或桌面应用、Web 和云创建优秀应用所需的一切内容。 可在单个集成开发环境 (IDE) 中为 iOS、Android 和 Windows 编写代码。 获得很棒的 IntelliSense、方便的代码导航、快速生成和快速部署。 Visual Studio 可提高你的工作效率，使你可单独或作为较大团队的一部分轻松地完成工作。  
+# <a name="welcome-to-visual-studio-2017"></a>欢迎使用 Visual Studio 2017！
+我们提供你为设备或桌面应用、Web 和云创建优秀应用所需的一切内容。 可在单个集成开发环境 (IDE) 中为 iOS、Android 和 Linux 等编写代码。 获得很棒的交互式代码帮助 (IntelliSense)、方便的代码导航和调试、快速生成和快速部署。 Visual Studio 可提高你的工作效率，使你可单独或作为较大团队的一部分轻松地完成工作。  
 
 > [!NOTE]
->  单击此处，了解 [Visual Studio 2017 RC](https://go.microsoft.com/fwlink/?linkid=834799) 的发行说明。    
+>  单击此处，了解 [Visual Studio 2017](https://go.microsoft.com/fwlink/?linkid=834799) 的发行说明。    
 
- 免费下载 [Visual Studio 社区](http://go.microsoft.com/fwlink/?LinkId=517106) 以立即开始编码。 如果要进行跨平台开发，请确保安装可选包。 （可以通过[其他 Visual Studio 版本](http://www.visualstudio.com)获得更多功能。）  
+ 免费下载 [Visual Studio 社区](http://go.microsoft.com/fwlink/?LinkId=517106) 以立即开始编码。 如果要进行跨平台开发，请确保安装可选包。 如果需要更多功能，请参阅[其他 Visual Studio 版本](http://www.visualstudio.com)。
 
- 可以通过从 [Visual Studio 下载](http://www.visualstudio.com/downloads/download-visual-studio-vs.aspx)页面下载并安装 Visual Studio 2017 RC。 若要了解有关安装过程的详细信息，请参阅[安装 Visual Studio 2017 RC](https://go.microsoft.com/fwlink/?linkid=833223)。 立即投入，创建新项目，或打开代码文件，然后开始编写代码。 选择要创建的应用类型。 或者，可以[浏览](https://go.microsoft.com/fwlink/?linkid=833058) Visual Studio IDE 以深入了解工具。  
+ 可以通过从 [Visual Studio 下载](http://www.visualstudio.com/downloads/download-visual-studio-vs.aspx)页面下载安装 Visual Studio 2017。 若要了解有关安装过程的详细信息，请参阅[安装 Visual Studio 2017](https://go.microsoft.com/fwlink/?linkid=833223)。 立即投入，创建新项目，或打开代码文件，然后开始编写代码。 选择要创建的应用类型。 或者，可以[浏览](https://go.microsoft.com/fwlink/?linkid=833058) Visual Studio IDE 以深入了解工具。
 
- 同时，别忘了浏览我们的 [代码库](https://code.msdn.microsoft.com/) ，以找到可帮助你更快编写应用的示例！ 在[第 9 频道](https://channel9.msdn.com/VisualStudio)上查看多个 Visual Studio 视频。
+ 同时，别忘了浏览我们的 [代码库](https://code.msdn.microsoft.com/) ，以找到可帮助你更快编写应用的示例！ 关于许多免费 Visual Studio 视频，请参阅[第 9 频道](https://channel9.msdn.com/VisualStudio)和 [Microsoft Virtual Academy](https://mva.microsoft.com/product-training/visual-studio-courses#!jobf=Developer&lang=1033)。
 
-## <a name="build-apps-and-games-for-android-ios-and-windows"></a>生成适用于 Android、iOS 和 Windows 的应用和游戏  
- 可使用 Visual Studio 生成适用于 Android、iOS 和 Windows 设备的应用。 若要了解详细信息，请参阅[跨平台移动开发](cross-platform/cross-platform-mobile-development-in-visual-studio.md)。  
-
- 有关通用 Windows 应用 (UWP) 的信息，请参阅 [通用 Windows 应用](https://dev.windows.com/en-us/windows-apps)。  
+## <a name="build-cross-platform-apps-and-games"></a>生成跨平台应用和游戏  
+ 可使用 Visual Studio 生成适用于 Android、iOS 和 Linux 等设备的应用和游戏。 若要了解详细信息，请参阅[跨平台移动开发](cross-platform/cross-platform-mobile-development-in-visual-studio.md)。  通用 Windows 应用可帮助在多个平台中利用代码。 有关详细信息，请参阅[通用 Windows 应用](https://dev.windows.com/en-us/windows-apps)。
 
  基于应用要求和要使用的语言选择所需工具。  
 
@@ -67,14 +66,16 @@ ms.openlocfilehash: 10e877cbba18807926ad032e9cc1b94f08f0c843
 
 [使用 Visual Studio 创建游戏](https://www.visualstudio.com/vs/game-development/)，通过 DirectX、Unity、Unreal、Cocos 等游戏开发工具。
 
-## <a name="connect-your-apps-to-services"></a>将应用连接到服务  
- 可以连接到以下现成服务（假设你具有用于每个服务的帐户）：  
+## <a name="connect-your-apps-to-cloud-services"></a>将应用连接到云服务  
+ 如果有 Azure 等联机帐户服务，可使用“连接的服务”立即与其连接。
 
 - [Azure 移动服务](http://azure.microsoft.com/documentation/services/mobile-services/)  
 
 - [Azure 存储](http://azure.microsoft.com/documentation/services/storage/)  
 
-可以安装 [Azure 开发工具](https://azure.microsoft.com/en-us/tools/)，以便直接从 IDE 创建云支持的应用并连接到 Azure 服务。
+安装 Visual Studio 时，可以选择安装 **Azure 开发**工作负载，获取用于 .NET 的 Azure SDK。 这些工具使你能够连接到 Azure 服务，还能使你从 IDE 直接创建和管理由云提供支持的应用和资源。
+
+- [HockeyApp](https://www.visualstudio.com/hockey-app/) 有助于分发测试版本、收集实时故障报表和获取真实用户的反馈。
 
 此外，可将 Office 365 REST API 集成到你自己的应用中，以连接到云中存储的数据。 有关详细信息，请参阅 [这些示例](https://github.com/OfficeDev/?utf8=%E2%9C%93&query=o365)。
 
@@ -84,7 +85,7 @@ ms.openlocfilehash: 10e877cbba18807926ad032e9cc1b94f08f0c843
 ## <a name="build-test-and-manage-your-code"></a>生成、测试和管理你的代码  
 
 ### <a name="check-in-your-code"></a>签入你的代码  
- 如果你在团队中工作，则还需要共享代码的最新版本，以便团队中的每个人都使用相同的基本代码。 Visual Studio 与 Visual Studio Team Services 或 Team Foundation Server 无缝集成，以使用 [Git](https://www.visualstudio.com/en-us/docs/git/overview) 或 [TFVC（Team Foundation 版本控制）](https://www.visualstudio.com/en-us/docs/tfvc/overview)提供版本控制。
+ 如果你在团队中工作，则需要共享代码的最新版本，以便团队中的每个人都使用相同的基本代码。 Visual Studio 与 Visual Studio Team Services 或 Team Foundation Server 无缝集成，以使用 [Git](https://www.visualstudio.com/en-us/docs/git/overview) 或 [TFVC（Team Foundation 版本控制）](https://www.visualstudio.com/en-us/docs/tfvc/overview)提供版本控制。
 
  使用 [Visual Studio Team Services](https://www.visualstudio.com/team-services/) 可将代码存储在云中，而无需维护本地服务器。 如果需要使用本地服务器，请使用 [Team Foundation Server](https://www.visualstudio.com/tfs/)。 每次创建代码项目时，你都可以选择将其添加到版本控制。 了解最适合于需求的版本控制系统：[Choosing the right version control for your project](https://www.visualstudio.com/en-us/docs/tfvc/comparison-git-tfvc)（选择适合项目的版本控制）。  
 
@@ -106,7 +107,7 @@ ms.openlocfilehash: 10e877cbba18807926ad032e9cc1b94f08f0c843
 
 |||  
 |-|-|  
-|[Visual Studio 2017 RC 的新增功能](ide/whats-new-in-visual-studio.md)|[Visual C++ 的新增功能](/cpp/top/what-s-new-for-visual-cpp-in-visual-studio)
+|[Visual Studio 2017 中的新增功能](ide/whats-new-in-visual-studio.md)|[Visual C++ 的新增功能](/cpp/top/what-s-new-for-visual-cpp-in-visual-studio)
 |[Visual C# 的新增功能](/dotnet/articles/csharp/csharp-7)|
 
 
@@ -118,9 +119,4 @@ ms.openlocfilehash: 10e877cbba18807926ad032e9cc1b94f08f0c843
 可以使用 .NET Compiler Platform (Roslyn) 编写自己的代码分析器和代码生成器。 在 [Roslyn](https://github.com/dotnet/Roslyn)中查找所需的一切内容。  
 
 查找由 Microsoft 开发人员以及我们的开发社区创建的 [现有 VS IDE 扩展](https://visualstudiogallery.msdn.microsoft.com/) 。  
-
-
-
-<!--HONumber=Feb17_HO4-->
-
 

@@ -1,21 +1,40 @@
 ---
-title: "应用程序时间线 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-debug"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
+title: "在 Visual Studio 中分析 XAML 应用中的资源消耗情况 | Microsoft Docs"
+ms.custom: H1Hack27Feb2017
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-debug
+ms.tgt_pltfrm: 
+ms.topic: article
 ms.assetid: df7d854b-0a28-45a9-8a64-c015a4327701
 caps.latest.revision: 11
-author: "mikejo5000"
-ms.author: "mikejo"
-manager: "ghogen"
-caps.handback.revision: 9
+author: mikejo5000
+ms.author: mikejo
+manager: ghogen
+translation.priority.ht:
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- ru-ru
+- zh-cn
+- zh-tw
+translation.priority.mt:
+- cs-cz
+- pl-pl
+- pt-br
+- tr-tr
+translationtype: Human Translation
+ms.sourcegitcommit: a42f5a30375192c89c9984e40ba0104da98d7253
+ms.openlocfilehash: 5455d9a16004fef1aec02fbaf856f336c67dfb05
+ms.lasthandoff: 03/07/2017
+
 ---
-# <a name="application-timeline"></a>应用程序时间线
+# <a name="analyze-resource-consumption-and-ui-thread-acitivity-xaml"></a>分析资源消耗情况和 UI 线程活动 (XAML)
 使用 **“应用程序时间线”** 探查器查找并修正 XAML 应用程序中应用程序交互的相关性能问题。 此工具提供应用程序资源使用情况的详细视图，可帮助提高 XAML 应用程序的性能。 你可以分析应用程序准备 UI 框架（布局和呈现）以及为网络和磁盘请求提供服务所花费的时间，以及在应用程序启动、页面加载以及调整窗口大小等应用场景中花费的时间。  
   
  **应用程序时间线**是可使用**调试/性能探测器...** 命令启动的工具之一。  
@@ -37,7 +56,7 @@ caps.handback.revision: 9
 > [!NOTE]
 >  你可以收集和分析 CPU 使用率数据和能耗数据以及 **“应用程序时间线”** 数据。 请参阅[运行带或不带调试器的分析工具](../profiling/running-profiling-tools-with-or-without-the-debugger.md)。
   
-##  <a name="a-namebkmkcollecttimelinedataforyourappa-collect-application-timeline-data"></a><a name="BKMK_Collect_Timeline_data_for_your_app"></a>收集应用程序时间线数据  
+##  <a name="BKMK_Collect_Timeline_data_for_your_app"></a>收集应用程序时间线数据  
  可以在本地计算机、连接的设备、Visual Studio 模拟器或仿真程序或者远程设备上分析应用的响应能力。 请参阅[运行带或不带调试器的分析工具](../profiling/running-profiling-tools-with-or-without-the-debugger.md)。
   
 > [!TIP]
@@ -62,34 +81,34 @@ caps.handback.revision: 9
   
      ![时间线探查器报告](../profiling/media/timeline_base.png "TIMELINE_Base")  
   
-##  <a name="a-namebkmkanalyzetimelineprofilingdataa-analyze-timeline-profiling-data"></a><a name="BKMK_Analyze_Timeline_profiling_data"></a>分析时间线分析数据  
+##  <a name="BKMK_Analyze_Timeline_profiling_data"></a>分析时间线分析数据  
  收集分析数据之后，可以按照以下步骤开始分析：  
   
 1.  检查 **“UI 线程使用率”** 和 **“可视吞吐量(FPS)”** 图中的信息，然后使用时间线导航栏选择要分析的时间范围。  
   
 2.  使用“UI 线程使用率”  或  “可视吞吐量 (FPS)”图中的信息，检查  “时间线详细信息”视图中的详细信息可以发现导致任何明显缺少响应能力情况的可能原因。  
   
-###  <a name="a-namebkmkreportscenarioscategoriesandeventsa-report-scenarios-categories-and-events"></a><a name="BKMK_Report_scenarios_categories_and_events"></a>报告方案、类别和事件  
+###  <a name="BKMK_Report_scenarios_categories_and_events"></a>报告方案、类别和事件  
  **“应用程序时间线”** 工具将显示方案、类别和与 XAML 性能相关的事件的计时数据。  
   
-###  <a name="a-namebkmkdiagnosticsessiontimelinea-diagnostic-session-timeline"></a><a name="BKMK_Diagnostic_session_timeline"></a>诊断会话时间线  
+###  <a name="BKMK_Diagnostic_session_timeline"></a>诊断会话时间线  
  ![性能和诊断时间线](../profiling/media/diaghub_timelinewithusermarks.png "DIAGHUB_TimelineWithUserMarks")  
   
  页面顶部的标尺将显示已分析信息的时间线。 此时间线适用于 **“UI 线程使用率”** 图和 **“可视吞吐量”** 图。 你可以通过拖动时间线上的导航栏选择一段时间线，缩小报告的范围。  
   
  时间线还显示已插入的任何用户标记和应用程序的激活生命周期事件。  
   
-###  <a name="a-namebkmkuithreadutilizationgrapha-ui-thread-utilization-graph"></a><a name="BKMK_UI_thread_utilization_graph"></a>UI 线程使用率图  
+###  <a name="BKMK_UI_thread_utilization_graph"></a>UI 线程使用率图  
  ![CPU 使用率图](../profiling/media/timeline_cpuutilization.png "TIMELINE_CpuUtilization")  
   
   “UI 线程使用率 (%)”图是一个条形图，它显示了一个集合段内某个类别中耗用的相对时间量。  
   
-###  <a name="a-namebkmkvisualthroughputfpsgrapha-visual-throughput-fps-graph"></a><a name="BKMK_Visual_throughput_FPS_graph"></a>可视吞吐量 (FPS) 图  
+###  <a name="BKMK_Visual_throughput_FPS_graph"></a>可视吞吐量 (FPS) 图  
  ![可视吞吐量图](../profiling/media/timeline_visualthroughput.png "TIMELINE_VisualThroughput")  
   
  **“可视吞吐量(FPS)”** 折线图显示了应用程序的 UI 线程和复合线程上的每秒帧数 (FPS)。  
   
-###  <a name="a-namebkmktimelinedetailsa-timeline-details"></a><a name="BKMK_Timeline_details_"></a>时间线详细信息  
+###  <a name="BKMK_Timeline_details_"></a>时间线详细信息  
  详细视图是你将在其中花费大部分时间分析报表的地方。 它显示了应用程序 CPU 使用率的详细视图，应用程序按 UI 框架子系统或使用 CPU 的系统组件分类。  
   
  支持以下事件：  
@@ -106,7 +125,7 @@ caps.handback.revision: 9
 > [!TIP]
 >  当开始分析时，选择 **“CPU 使用率”** 工具和 **“时间线”** 工具查看在 UI 线程上执行的应用方法。 将长时间运行的应用代码移动到后台线程可以提高 UI 响应能力。  
   
-####  <a name="a-namebkmkcustomizingtimelinedetailsa-customizing-timeline-details"></a><a name="BKMK_Customizing_Timeline_details_"></a>自定义时间线详细信息  
+####  <a name="BKMK_Customizing_Timeline_details_"></a>自定义时间线详细信息  
  使用  “时间线详细信息”工具栏排序、筛选和指定  “时间线详细信息”视图条目的批注。  
   
 |||  
@@ -120,8 +139,3 @@ caps.handback.revision: 9
  [WPF 团队博客：用于 WPF 应用程序的新 UI 性能分析工具](http://blogs.msdn.com/b/wpf/archive/2015/01/16/new-ui-performance-analysis-tool-for-wpf-applications.aspx)   
  [使用 C++、C# 和 Visual Basic 的 Windows 应用商店应用的性能最佳做法](http://msdn.microsoft.com/en-us/567bcefa-5da5-4e42-a4b8-1358c71adfa2)   
  [优化 WPF 应用程序性能](http://msdn.microsoft.com/Library/ac8c6aa3-3c68-4a24-9827-3b6c829c1ebf)
-
-
-<!--HONumber=Feb17_HO4-->
-
-

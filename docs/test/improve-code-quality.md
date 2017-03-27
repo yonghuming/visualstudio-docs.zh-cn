@@ -30,9 +30,9 @@ translation.priority.ht:
 - zh-cn
 - zh-tw
 translationtype: Human Translation
-ms.sourcegitcommit: 7a282fc04c1eb01f0c56b1d76880276fc270686d
-ms.openlocfilehash: df5195e7cc435f6da8ebfee4589d7c6258018993
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: a42f5a30375192c89c9984e40ba0104da98d7253
+ms.openlocfilehash: 2fa87621ed76fb93a9e92d558be5519d783274c5
+ms.lasthandoff: 03/07/2017
 
 ---
 # <a name="improve-code-quality"></a>提高代码质量
@@ -48,6 +48,7 @@ ms.lasthandoff: 03/01/2017
 |||  
 |-|-|  
 |[单元测试代码](../test/unit-test-your-code.md)|“测试资源管理器”可以在开发实践中轻松地集成单元测试。 可以使用 Microsoft 单元测试框架或若干第三方和开源框架之一。|  
+|[使用 Visual Studio 进行实时单元测试](../test/live-unit-testing.md)|Live Unit Testing 会自动在后台运行单元测试，并在 Visual Studio 代码编辑器中以图形方式显示代码覆盖率和测试结果。|  
 |[分析应用程序质量](../code-quality/analyzing-application-quality-by-using-code-analysis-tools.md)|静态代码分析工具可查找 C++ 和托管代码里的设计、使用、可维护性和样式问题。 其中的许多问题可能导致难以在标准测试环境中重现的 bug。|  
 |[测量托管代码的复杂性和可维护性](../code-quality/measuring-complexity-and-maintainability-of-managed-code.md)|代码度量是一组软件度量值，使开发人员可以更好地了解他们正在开发的代码。 度量值包括函数和类的可维护性指数、函数的圈复杂度、类的继承深度和类耦合度的数值。|  
   
