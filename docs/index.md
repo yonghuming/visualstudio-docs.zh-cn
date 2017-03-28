@@ -4,9 +4,9 @@ hide_bc: true
 title: "Visual Studio 文档"
 description: "了解如何使用 Visual Studio 2017 并以你喜欢的语言来开发适用于你的平台和设备的应用程序、服务和工具。"
 translationtype: Human Translation
-ms.sourcegitcommit: a42f5a30375192c89c9984e40ba0104da98d7253
-ms.openlocfilehash: 2a782993b8e2787c99c384c6df9c72316fe11521
-ms.lasthandoff: 03/07/2017
+ms.sourcegitcommit: 371d314bfb81e47a13e7f00d4d4269313477ecf9
+ms.openlocfilehash: c00f51ce4662806d4c7112a3bd7a5e531e3ba521
+ms.lasthandoff: 03/23/2017
 
 ---
 <div id="main" class="v2">
@@ -570,8 +570,26 @@ ms.lasthandoff: 03/07/2017
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>扩展</h3>
-                                                    <p>将自己的功能添加到 Visual Studio IDE，从而改进开发体验。
-                                                    </p>
+                                                    <p>将自己的功能添加到 Visual Studio IDE，从而改进开发体验。</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/visualstudio/data-tools/accessing-data-in-visual-studio">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage bgdAccent1">
+                                                        <img data-scaleimage="./images/vs_features-9.svg" src="./images/vs_features-9.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>数据</h3>
+                                                    <p>创建几乎连接到任意数据库产品或服务中的数据的应用程序，无论数据采用何种格式、位于何处（本地计算机、区域网或公有/私有/混合云）均可连接。</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -767,4 +785,3 @@ ms.lasthandoff: 03/07/2017
         </ul>
     </div>
 </div>
-
