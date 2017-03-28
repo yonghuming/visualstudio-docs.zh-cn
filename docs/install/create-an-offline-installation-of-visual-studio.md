@@ -1,8 +1,8 @@
 ---
-title: "创建 Visual Studio 2017 RC 的脱机安装 | Microsoft Docs"
-description: "了解如何创建 Visual Studio 的脱机安装。"
+title: "创建 Visual Studio 2017 的脱机安装程序 | Microsoft Docs"
+description: "了解如何创建 Visual Studio 的脱机安装程序。"
 ms.custom: 
-ms.date: 02/14/2017
+ms.date: 03/21/2017
 ms.reviewer: 
 ms.suite: 
 ms.technology:
@@ -12,6 +12,7 @@ ms.topic: article
 f1_keywords:
 - offline installation [Visual Studio]
 - offline install [Visual Studio]
+- offline installer [Visual Studio]
 - ISO [Visual Studio]
 ms.assetid: 7bd7e724-7bfd-43f1-9935-981919be5a00
 author: TerryGLee
@@ -33,102 +34,83 @@ translation.priority.mt:
 - pt-br
 - tr-tr
 translationtype: Human Translation
-ms.sourcegitcommit: d4d1bd45ce697017480b3f63d0c7feb5ab20d2d6
-ms.openlocfilehash: 33e765d205aa7ad8a3d8c5b871863ab659092a77
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: 5b6334c38a6c058f274498c06f8e07c934931910
+ms.openlocfilehash: 563c78a49eb55886b1ddbd4f437951c99c6568e5
+ms.lasthandoff: 03/22/2017
 
 ---
-# <a name="create-an-offline-installation-of-visual-studio-2017-rc"></a>创建 Visual Studio 2017 RC 的脱机安装
+# <a name="create-an-offline-installer-for-visual-studio-2017"></a>创建 Visual Studio 2017 的脱机安装程序
+我们了解很多客户希望使用 [Visual Studio 2017](https://go.microsoft.com/fwlink/?linkid=844067) 的脱机安装程序。 尽管我们不提供 ISO 映像，但很容易创建在脱机情况下用于安装的文件夹。
 
-## <a name="create-a-layout"></a>创建布局
-如果想在另一台无法访问 Internet 的计算机上安装 [Visual Studio 2017 RC](https://www.visualstudio.com/vs/visual-studio-2017-rc/)，首先要创建一个包含所有必需的 Visual Studio 文件和组件的脱机安装布局。
+操作方法如下。
 
-然后可以使用所创建的脱机安装布局将 Visual Studio 安装到目标计算机中。     
+## <a name="download-the-setup-file-you-want"></a>下载所需安装程序文件
+**[下载](https://www.visualstudio.com/downloads?utm_source=mscom&utm_campaign=msdocs)**所需 Visual Studio 版本。 请确保单击“保存”，然后单击“打开文件夹”。
 
-> [!WARNING]
-> 目前，Android SDK 不支持脱机安装体验。 如果在未连接到 Internet 的计算机上安装 Android SDK 安装程序项，则安装可能失败。 有关这一方面的详细信息，请转到本主题中的[脱机安装故障排除](#tshootofflineinstall)部分。
+安装程序文件&mdash;或更具体点，引导程序文件&mdash;将与下面其中一项匹配。
 
+|版本 | 文件|  
+|-------------|-----------------------|  
+|Visual Studio Enterprise |**vs_enterprise.exe**|  
+|Visual Studio Professional |**vs_professional.exe**|  
+|Visual Studio 社区 |**vs_community.exe**|
 
-#### <a name="to-create-an-offline-installation-layout-of-visual-studio"></a>创建 Visual Studio 的脱机安装布局
-1. 将 Visual Studio 安装程序可执行文件下载到本地计算机上的驱动器中。
-  例如，[下载 vs_enterprise.exe 文件](https://www.visualstudio.com/vs/visual-studio-2017-rc/)。
-2. 在命令提示符下使用以下参数（开关）运行 `vs_enterprise.exe`：
+其他受支持的引导程序包括 vs_buildtools.exe、vs_feedbackclient.exe、vs_teamexplorer.exe、vs_testagent.exe、vs_testcontroller.exe 和 vs_testprofessional.exe。
 
-   a. 添加 `--layout <path>`，其中 `<path>` 是要将布局下载到的位置。 请注意，目前不支持相对路径（例如 `..\vs2017`）。 默认情况下会下载所有语言。 （请参阅示例 A。）
+## <a name="create-an-offline-installation-folder"></a>创建脱机安装文件夹
+若要创建含所有语言和所有功能的脱机安装，请使用下面示例中的命令之一。
 
-   b. 通过提供 `--lang <language>` 参数限制为仅下载一部分可用语言，其中 `<language>` 是一个或多个语言区域设置。  （请参阅示例 B 和示例 C。）
+（请确保从下载目录运行该命令。 通常情况下，在运行 Windows 10 的计算机上为：`C:\Users\<username>\Downloads`）。
 
-   c. 通过提供 `--add <package ID>` 参数限制为仅下载一部分工作负载和组件。 如此一来，只会下载指定的工作负载和组件（及其依赖项）。 （请参阅示例 D 和示例 E。）
+- 对于 Visual Studio Enterprise，请运行： <br>  ```vs_enterprise.exe --layout c:\vs2017offline```
+- 对于 Visual Studio Professional，请运行： <br> ```vs_professional.exe --layout c:\vs2017offline```
+- 对于 Visual Studio Community，请运行： <br> ```vs_community.exe --layout c:\vs2017offline```
 
-   有关按 Visual Studio 产品排序的工作负载和组件 ID 的完整列表，请参阅我们的 [Visual Studio 2017 Workload and Component IDs](https://aka.ms/vs2017componentids)（Visual Studio 2017 工作负载和组件 ID）页面。
+有关更多示例，请参阅本页的[如何自定义脱机安装程序](#how-to-customize-your-offline- installer)部分。
 
-### <a name="examples"></a>示例
-**示例 A**：下载所有语言的所有工作负载和组件
-  > ```vs_enterprise.exe --layout C:\vs2017```
+## <a name="install-from-the-offline-installation-folder"></a>从脱机安装文件夹安装
+立即或以后运行脱机安装；由你决定。 但在执行时，请按照下列步骤操作。
 
-**示例 B**：下载一种语言的所有工作负载和组件  
-  > ```vs_enterprise.exe --layout C:\vs2017 --lang en-US```
+  1. 安装证书（它们位于“布局”文件夹中的“证书”文件夹中。 只需右键单击每个证书即可安装）。
 
-**示例 C**：下载多种语言的所有工作负载和组件
-  > ```vs_enterprise.exe --layout C:\vs2017 --lang en-US de-DE ja-JP```
+  2. 运行安装文件。 例如，运行： <br> ```c:\vs2017offline\vs_enterprise.exe```
 
-**示例 D**：下载所有语言的一个工作负载
-  > ```vs_enterprise.exe --layout C:\vs2017 --add Microsoft.VisualStudio.Workload.Azure ```
+## <a name="additional-tips-for-offline-installers"></a>脱机安装程序的其他提示
+自定义或更新脱机安装程序很容易；以下是相关说明。 如果脱机安装程序出现问题，我们也为你提供了故障排除和支持信息。
 
-**示例 E**：下载三种语言的两个工作负载和一个可选组件
-  > ```vs_enterprise.exe --layout C:\vs2017 --add Microsoft.VisualStudio.Workload.Azure Microsoft.VisualStudio.Workload.ManagedDesktop Component.GitHub.VisualStudio --lang en-US de-DE ja-JP ```
+### <a name="how-to-customize-your-offline-installer"></a>如何自定义脱机安装程序
+可通过多种方法自定义脱机安装程序。 以下是如何通过[语言区域设置](use-command-line-parameters-to-install-visual-studio.md#list-of-language-locales)对其进行自定义的几个示例。
 
-  > [!WARNING]
-  > 如果安装程序 .exe 文件名包含数字，则 --layout 参数将失败。 若要解决此问题，必须从文件名 &mdash; 中删除数字，例如，将 *vs_community__198521760.1486960229.exe* 重命名为 ***vs_community.exe***。
-
-### <a name="language-locales"></a>语言区域设置
-
-| 语言-区域设置 | 语言 |
-| -----   | ----- |
-| cs-CZ    | 捷克语 |
-| de-DE    | 德语 |
-| zh-CN    | 英语 |
-| es-ES    | 西班牙语 |
-| fr-FR    | 法语 |
-| it-IT    | 意大利语 |
-| ja-JP    | 日语 |
-| ko-KR    | 朝鲜语 |
-| pl-PL    | 波兰语 |
-| pt-BR    | 葡萄牙语 - 巴西 |
-| ru-RU    | 俄语 |
-| tr-TR    | 土耳其语 |
-| zh-CN    | 中文 - 简体 |
-| zh-TW    | 中文 - 繁体 |
+ - 若要下载仅一种语言的所有工作负载和组件，请运行： <br>```vs_enterprise.exe --layout C:\vs2017offline --lang en-US```
+ - 若要下载多种语言的所有工作负载和组件，请运行： <br>```vs_enterprise.exe --layout C:\vs2017offline --lang en-US de-DE ja-JP```
+ - 若要下载所有语言的一个工作负载，请运行 <br> ```vs_enterprise.exe --layout C:\vs2017offline --add Microsoft.VisualStudio.Workload.Azure ```
+ - 若要下载三种语言的两个工作负载和一个可选组件，请运行： <br>```vs_enterprise.exe --layout C:\vs2017offline --add Microsoft.VisualStudio.Workload.Azure Microsoft.VisualStudio.Workload.ManagedDesktop Component.GitHub.VisualStudio --lang en-US de-DE ja-JP ```若要深入了解可用于自定义安装的选项，请参阅[使用命令行参数安装 Visual Studio 2017 ](use-command-line-parameters-to-install-visual-studio.md)页。
 
 
-## <a name="install-from-a-layout"></a>从布局安装
-#### <a name="to-install-visual-studio-from-an-offline-installation-layout"></a>从脱机安装布局安装 Visual Studio
-1. 在目标计算机上，导航到“证书”文件夹，该文件夹位于“布局”文件夹中。
-2. 右键单击并安装“证书”文件夹中的每个证书。
+### <a name="how-to-update-an-offline-installer"></a>如何更新脱机安装程序
+你可能需要在以后更新脱机安装程序。 操作方法如下。
+* 若要更新从脱机安装文件夹安装的 Visual Studio 实例，请运行 Visual Studio 安装程序，然后单击“更新”。
+* 若要刷新脱机安装文件夹，以使其包括最新更新，请再次运行 ```--layout``` 命令。 请确保指向之前使用的同一个文件夹；这样一来，将仅下载上次运行 ```--layout``` 后更新的组件。
 
-  （如果在安装证书后，系统提示输入密码，请单击“继续”。）  
-3. 从“布局”文件夹运行 `vs_enterprise.exe`。
 
-注意：如果要从部分布局进行安装，并且选择布局中不可用的工作负载、组件或语言，安装程序将尝试下载它们。  如果没有 Internet 访问权限，将无法安装这些项。
+### <a name="how-to-troubleshoot-an-offline-installer"></a>如何解决脱机安装程序问题
+有时会出现问题。 以下是有关已知问题和有用的解决方案的表格。
 
-> [!CAUTION]
-> 当前，脱机安装布局会创建一些具有受限权限 (ACL) 的文件，使部分用户无法访问。  在共享脱机安装*之前*，请确保调整权限 (ACL)，以便向其他用户授予读取访问权限。
+| 问题       | 项                   | 解决方案 |
+| ----------- | ---------------------- | -------- |
+| 你将收到一条警告消息，指示无法安装某些组件和包。  | Android SDK 安装程序（API 级别） | 如果想要包含 Android SDK（API 级别）包，创建脱机安装程序时必须可连接 Internet。 如果网络受限，则必须允许访问以下 URL： <br><br> - http://dl.google.com:443 <br> - http://dl-ssl.google.com:443 <br>  - https://dl-ssl.google.com/android/repository/*<br><br>有关如何使用代理设置解决可能的问题的详细信息，请参阅 [Visual Studio install failures (Android SDK Setup) behind a Proxy](https://blogs.msdn.microsoft.com/peterhauge/2016/09/22/visual-studio-2015-install-failures-android-sdk-setup-behind-a-proxy/)（使用代理时的 Visual Studio 安装故障（Android SDK 安装程序））博客文章。  |  
+| 用户没有访问文件的权限。 | 权限 (ACL) | 请确保调整权限 (ACL)，以便他们在共享脱机安装前先向其他用户授予“读取”权限。 |
+| 无法安装新的工作负载、组件或语言。  | `--layout`  | 如果要从部分布局进行安装，并且选择之前布局中不可用的工作负载、组件或语言，请确保可连接到 Internet。 |
 
-## <a name="update-an-installation-layout"></a>更新安装布局
-当 Visual Studio 2017 RC 有可用更新时，用户可以再次运行 `--layout` 命令，并指向同一布局文件夹，以确保该文件夹包含最新的组件。 系统只会下载自上一次运行 `--layout` 以来已更新的那些组件。
+### <a name="how-to-get-support-for-your-offline-installer"></a>如何获取关于脱机安装程序的支持
+如果脱机安装遇到问题，请告知我们。 告知我们的最好方式是使用[报告问题](../ide/how-to-report-a-problem-with-visual-studio-2017.md)工具。 使用此工具时，可发送我们诊断和修复问题所需的遥测数据和日志。
 
-## <a id="tshootofflineinstall"> </a>安装布局故障排除
-从脱机安装缓存进行脱机安装时，可能会看到提示无法安装某些组件和包的警告消息。 下表包含针对这些情况可能的解决方案。
+我们还提供其他支持选项。 有关列表，请参阅[联系我们](../ide/how-to-report-a-problem-with-visual-studio-2017.md)页。
 
-| 组件或包 | 解决方案 |
-| -------------------- | -------- |
-|Android SDK 安装程序（API 级别）| 必须连接 Internet 才能安装 Android SDK（API 级别）包。 如果处于受限网络上，则在安装 Visual Studio 时必须允许访问以下 URL： <br><br> - http://dl.google.com:443 <br>- http://dl-ssl.google.com:443 <br>  - https://dl-ssl.google.com/android/repository/*<br><br>有关如何使用代理设置解决可能的问题的详细信息，请参阅 [Visual Studio install failures (Android SDK Setup) behind a Proxy](https://blogs.msdn.microsoft.com/peterhauge/2016/09/22/visual-studio-2015-install-failures-android-sdk-setup-behind-a-proxy/)（使用代理时的 Visual Studio 安装故障（Android SDK 安装程序））博客文章。  |  
 
- > [!IMPORTANT]
- > 虽然一般情况下支持在生产环境中使用 Visual Studio 2017 RC，但安装 UI 中标记为“预览”的工作负载和组件不支持在生产环境中使用。
-
- ## <a name="see-also"></a>另请参阅
- * [安装 Visual Studio](install-visual-studio.md)
- * [使用命令行参数安装 Visual Studio](use-command-line-parameters-to-install-visual-studio.md)
- * [报告 Visual Studio 的问题](../ide/how-to-report-a-problem-with-visual-studio-2017.md)
+## <a name="see-also"></a>另请参阅
+* [安装 Visual Studio](install-visual-studio.md)
+* [Visual Studio 管理员指南](visual-studio-administrator-guide.md)
+* [使用命令行参数安装 Visual Studio](use-command-line-parameters-to-install-visual-studio.md)
+* [Visual Studio 工作负荷和组件 ID](workload-and-component-ids.md)
 
