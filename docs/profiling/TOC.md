@@ -7,6 +7,7 @@
 ### [不调试的内存使用情况](memory-usage-without-debugging2.md)
 ## [CPU 使用率](cpu-usage.md)
 ### [分析 Windows 通用应用中的 CPU 使用率](analyze-cpu-usage-in-a-windows-universal-app.md)
+## [GPU 使用情况](gpu-usage.md)
 ## [应用程序时间线](application-timeline.md)
 ## [PerfTips](perftips.md)
 ## [JavaScript 内存](javascript-memory.md)
