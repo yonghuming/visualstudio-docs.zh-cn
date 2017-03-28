@@ -29,9 +29,9 @@ translation.priority.ht:
 - zh-cn
 - zh-tw
 translationtype: Human Translation
-ms.sourcegitcommit: a42f5a30375192c89c9984e40ba0104da98d7253
-ms.openlocfilehash: 9f888c27357a5e13fd5e1977bd51a200e928be64
-ms.lasthandoff: 03/07/2017
+ms.sourcegitcommit: 5b6334c38a6c058f274498c06f8e07c934931910
+ms.openlocfilehash: 746dd25dde790d5e262e25a3702b49721edc3510
+ms.lasthandoff: 03/22/2017
 
 ---
 
@@ -127,7 +127,7 @@ Visual Studio 各版本支持的功能：
 
 | Web | 2017 | 2015 | 2013 Comm | 2013 Desktop | 2013 Web | 2013 Pro+ | 2012 Pro+ | 2010 SP1 Pro+ |
 | --- | --- | --- | --- | --- | --- | --- | --- | ---|
-| Djano Web 项目 | &#10004; | &#10004; | &#10004; | &#10007; | &#10004; | &#10004; | &#10004; | &#10004; |
+| Django Web 项目 | &#10004; | &#10004; | &#10004; | &#10007; | &#10004; | &#10004; | &#10004; | &#10004; |
 | Bottle Web 项目 | &#10004; | &#10004; | &#10004; | &#10007; | &#10004; | &#10004; | &#10004; | &#10004; |
 | Flask Web 项目 | &#10004; | &#10004; | &#10004; | &#10007; | &#10004; | &#10004; | &#10004; | &#10004; |
 | Generic Web 项目 | &#10004; | &#10004; | &#10004; | &#10007; | &#10004; | &#10004; | &#10004; | &#10004; |
@@ -192,3 +192,4 @@ Visual Studio 各版本支持的功能：
 
 - [使用 PyKinect 通过 Python 编写 Kinect 游戏](https://github.com/Microsoft/PTVS/wiki/PyKinect) (GitHub wiki)
 - [IIS 和 Python 之间 WFastCGI 桥](https://pypi.python.org/pypi/wfastcgi) (python.org)
+
