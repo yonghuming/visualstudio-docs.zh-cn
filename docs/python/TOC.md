@@ -4,6 +4,7 @@
 ### [用于 Python 的 Azure SDK](azure-sdk-for-python.md)
 ## [Python 入门](getting-started.md)
 ### [发布到 Azure](publishing-to-azure.md)
+### [创建适用于 Python 的 C++ 扩展](cpp-and-python.md)
 ## [Python 项目](python-projects.md)
 ### [Web 项目模板](template-web.md)
 ### [Django Web 项目模板](template-django.md)
