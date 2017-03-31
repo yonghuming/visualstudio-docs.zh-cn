@@ -1,7 +1,7 @@
 ---
-title: Visual Studio IDE | Microsoft Docs
+title: "Visual Studio IDE 功能导览 | Microsoft Docs"
 ms.custom: 
-ms.date: 01/17/2016
+ms.date: 03/07/2017
 ms.reviewer: 
 ms.suite: 
 ms.tgt_pltfrm: 
@@ -27,200 +27,220 @@ translation.priority.mt:
 - pt-br
 - tr-tr
 translationtype: Human Translation
-ms.sourcegitcommit: dac3cb1d7767c2ff76ac25f6a486ad30a8d54831
-ms.openlocfilehash: 10db0535b950f1a1525bab89a6df25e4e3f40012
-ms.lasthandoff: 03/03/2017
+ms.sourcegitcommit: b0d84db6a16861fb9554af2a644423f906784748
+ms.openlocfilehash: b2ff9c3505b117469854a24cad8e9b13d8039db8
+ms.lasthandoff: 03/07/2017
 
 ---
-# <a name="visual-studio-ide"></a>Visual Studio IDE
-Microsoft Visual Studio 2017 RC 是一套用于创建软件的工具，包括通过 UI 设计的规划阶段、编码、测试、调试、分析代码质量和性能、部署到用户以及收集使用的遥测。 这些工具旨在尽可能地无缝协同工作，并都通过 Visual Studio 集成开发环境 (IDE) 公开。  
+# <a name="visual-studio-ide-feature-tour"></a>Visual Studio IDE 功能导览
+本文介绍了 Visual Studio IDE 的功能。 Visual Studio IDE 是一个交互式开发环境 (IDE)；它是一种创新启动板，可以通过它来查看和编辑几乎任何类型的代码，并调试、生成和发布适用于 Android、iOS、Windows、Web 和云的应用。 有适用于 Mac 和适用于 Windows 的版本。 本文介绍可以通过 Visual Studio 执行的一些操作以及如何安装和使用 Visual Studio，我们会引导你创建一个简单的项目、提供有关调试和部署代码的指导并介绍各种工具窗口。
 
- 可使用 Visual Studio 创建很多类型的应用程序，从移动客户端的简单应用商店应用和游戏到电力企业和数据中心的大型复杂系统均可实现。 你可以创建  
+## <a name="what-can-you-do-with-the-visual-studio-ide"></a>你可以通过 Visual Studio IDE 做什么？
+要创建一个适用于 Android 手机的应用？ 可以。 想使用 C++ 来创建一个热门游戏？ 也可以，此外还可以做很多其他事情。 Visual Studio 提供了各种模板，可以帮助你制作网站、游戏、桌面应用、移动应用和 Office 相关应用等。
 
- - 同时可在 Windows 上以及 Android 和 iOS 上运行的应用和游戏。
+![Visual Studio 项目](../ide/media/VSIDE_Tour_Projects_List.png)
 
- - 基于 ASP.NET、JQuery、AngularJS 和其他常用框架的网站和 Web 服务。
+或者，你只需打开从任何地方获取的几乎任何代码即可开始处理。 在 GitHub 上看到了喜欢的项目？ 只需克隆存储库，在 Visual Studio 中将其打开，然后就可以开始编写代码！
 
- - 适用于众多平台和设备（如 Azure、Office、Sharepoint、Hololens、Kinect 和 Internet of Things 等）的应用程序。
+### <a name="create-mobile-apps"></a>创建移动应用
+可通过使用 Visual C# 和 Xamarin 或 Visual C++ 创建不同平台的本机移动应用，或者通过结合使用 JavaScript 和 Apache Cordova 创建混合应用。 可以编写适用于 Unity、Unreal、DirectX、Cocos 等的移动游戏。 Visual Studio 带有 Android 仿真程序，可以帮助你运行和调试 Android 应用。
 
- - 适用于各种使用 DirectX 的 Windows 设备（包括 Xbox）的游戏和图形密集型应用程序。
+可以创建 Azure 应用服务，将云的强大功能应用到移动应用。 通过 Azure 应用服务，应用可将数据存储在云端、安全地验证用户身份并自动缩放其资源以满足你的应用和业务需求。 有关详细信息，请参阅[移动应用开发](https://www.visualstudio.com/vs/mobile-app-development/)。
+
+### <a name="create-cloud-apps-for-azure"></a>创建 Azure 云应用
+通过 Visual Studio 提供的工具套件，可以轻松地创建由 Microsoft Azure 提供支持的云启用应用程序。 可以轻松地从 IDE 直接配置、构建、调试、打包和部署 Microsoft Azure 上的应用程序和服务。 通过连接的服务为应用使用 Azure 服务。 若要获取用于 .NET 的 Azure 工具，安装 Visual Studio 时请选择“Azure 开发”工作负载。 有关详细信息，请参阅 [Visual Studio Tools for Azure](https://www.visualstudio.com/vs/azure-tools/)。
+
+### <a name="create-apps-for-the-web"></a>创建 web 应用
+Web 推动着现代社会前进，Visual Studio 可以帮助你编写 Web 应用。 可以使用 ASP.NET、Node.js、Python、JavaScript 和 TypeScript 来创建 Web 应用。 Visual Studio 了解 Angular、jQuery、Express 等 Web 框架。 ASP.NET Core 和 .NET Core 在 Windows、Mac 和 Linux 操作系统上运行。 有关详细信息，请参阅[新式 Web 工具](https://www.visualstudio.com/vs/modern-web-tooling/)。
+
+### <a name="write-code-in-a-world-class-editing-environment"></a>在全球领先的编辑环境中编写代码
+Visual Studio 可以通过语法着色、语句完成、IntelliSense（所选代码元素的弹出说明）、代码大纲、设置断点进行调试等功能帮助你快速轻松地编写代码。
+
+![JavaScript 代码示例](../ide/media/vside_tour_javascript_example.gif)
+
+有关详细信息，请参阅[在代码和文本编辑器中编写代码](https://docs.microsoft.com/visualstudio/ide/writing-code-in-the-code-and-text-editor)。
+
+Visual Studio 能够帮助你实现更多操作。 有关更完整的列表，请参阅 [Visual Studio IDE](https://www.visualstudio.com/vs/)。
 
 
- 默认情况下，Visual Studio 支持 C#、C 和 C++、JavaScript、TypeScript、F# 以及 Visual Basic。 Visual Studio 可与 Xamarin（通过[用于 Visual Studio 的 Xamarin](https://www.xamarin.com/visual-studio)）以及 Unity（通过 [Visual Studio Tools for Unity](../cross-platform/visual-studio-tools-for-unity.md) 扩展）和 Apache Cordova（通过 [Visual Studio Tools for Apache Cordova](../misc/get-started-with-visual-studio-tools-for-apache-cordova2.md)）等第三方应用程序配合使用并完美集成。 可利用 [Visual Studio SDK](../extensibility/visual-studio-sdk.md) 通过创建执行专门任务的自定义工具自行扩展 Visual Studio。
+## <a name="install-the-visual-studio-ide"></a>安装 Visual Studio IDE
+首先，请下载 Visual Studio 并将其安装到你的系统上。 可以在 [Visual Studio 2017](https://www.visualstudio.com/vs/visual-studio-2017/) 中进行下载。
 
-## <a name="find-out-whats-new"></a>了解新增功能
- 如果以前从未使用 Visual Studio，请通过[使用 Visual Studio 进行开发入门](../ide/get-started-with-visual-studio.md)了解基础知识。
-若要了解 Visual Studio 2017 RC 的新增功能，请参阅 [Visual Studio 2017 中的新增功能](../ide/whats-new-in-visual-studio.md)。
+Visual Studio 现在达到了前所未有的轻量！ 通过新的模块化安装程序，可以选择和安装工作负荷。工作负荷是你习惯使用的编程语言或平台所需的一些功能。 此策略使 Visual Studio 安装的占用空间比之前更小，这也意味着其安装和更新速度会更快。
 
-## <a name="set-up-visual-studio"></a>设置 Visual Studio
- 可在 [Visual Studio 产品](https://www.visualstudio.com/products/)了解最适合你的 Visual Studio 版本。
+![Visual Studio 安装程序](../install/media/vs2017-workloads.png)
 
- 可以通过从 [Visual Studio 下载](https://www.visualstudio.com/vs/)页面下载并安装 Visual Studio 2017 RC。 若要了解有关安装过程的详细信息，请参阅[安装 Visual Studio 2017 RC](https://go.microsoft.com/fwlink/?linkid=833223)。
+除了安装性能的改进之外，Visual Studio 2017 还做出了许多改进，使整体的 IDE 启动时间和解决方案加载时间都有所减少。 例如，在主菜单的“工具”，“选项”，“项目和解决方案”下选择新的“轻量级解决方案加载”功能可以更快地加载更大的解决方案。 若要了解设置系统上的 Visual Studio 的详细信息，请参阅[安装 Visual Studio 2017](https://docs.microsoft.com/visualstudio/install/install-visual-studio)。
+
+## <a name="sign-in"></a>登录
+首次启动 Visual Studio 时，可选择使用 Microsoft 帐户或者单位或学校帐户登录。 登录后可以跨多个设备同步窗口布局等 Visual Studio 设置。 还能将你自动连接到你可能需要的服务，例如 Azure 订阅和 Visual Studio Team Services。
+
+
+## <a name="create-a-program"></a>创建程序
+
+学习的最好方式是动手操作！ 现在我们来深入了解并创建一个简单的新程序。
+
+1. 打开 Visual Studio。 在菜单上，依次选择“文件”“新建”“项目”。 （使用默认的项目值。）
+
+  ![屏幕截图](../ide/media/VSIDE_Tour_NewProject1.png)
+
+1. “新建项目”对话框中会显示几个项目模板。 在“Visual C#”下选择“Windows Universal”类别，再选择“空白应用(通用 Windows)”模板，然后选择“确定”按钮。
+
+  ![屏幕截图](../ide/media/VSIDE_Tour_NewProject2.png)
+
+  此操作创建了一个新的空白 Universal Windows 应用项目，该项目使用 Visual C# 和 XAML 作为编程语言。 稍等片刻，等待 Visual Studio 设置项目。 如果系统出现任何信息提示，现在都接受默认值。
+
+1. 稍后，你将看到类似于以下屏幕截图的内容。 右侧名为“解决方案资源管理器”的窗口中列出了你的项目文件。
+
+  ![屏幕截图](../ide/media/VSIDE_Tour_NewProject3.png)
+
+1. 在解决方案资源管理器中，选择 MainPage.xaml 文件旁边小的黑色三角形，将其展开，在下面应该可以看到一个 MainPage.xaml.cs 文件。 选择此文件（其中包含 C# 代码）将其打开。
+
+  MainPage.xaml.cs 中的 C# 代码将出现在屏幕左侧的代码编辑器中。 请注意，已经自动将代码语法着色，以指示语句或注释等不同类型的代码。 此外，代码中的垂直短虚线指示哪两个大括号相匹配，行号能够帮助你在以后查找代码。 可以通过选择带减号的小方形来折叠或展开代码。 此代码大纲功能可以隐藏不需要的代码，最大程度地减少屏幕混乱。
+
+  ![](../ide/media/VSIDE_Tour_NewProject3a.png)
+
+  还提供了一些其他的菜单和工具窗口，但是现在我们继续下一步操作。
+
+1. 在 XAML 窗体中添加按钮，让用户可以和你的应用交互。 若要执行此操作，请打开 MainPage.xaml 文件。 下面是一个拆分视图：上面是一个可以直观放置控件的设计器，下面是一个代码视图，代码视图中显示了设计器对应的 XAML 代码。 以后运行该程序时，设计器中的内容会成为用户将看到的窗口，即一个“窗体”，并且窗体上显示的内容由基础 XAML 决定。
+
+1. 在屏幕左侧，选择“工具箱”选项卡以打开工具箱。 工具箱中有许多可以添加到窗体的可视化控件。 现在我们只添加一个按钮控件。
+
+1. 展开“常用 XAML 控件”部分，然后将按钮控件拖动到窗体的大概中间位置。 （位置的准确性并不重要。）
+
+  ![屏幕截图](../ide/media/VSIDE_Tour_Toolbox.png)
+
+  完成后，应该看到类似于以下屏幕截图的内容。
+
+  ![屏幕截图](../ide/media/VSIDE_Tour_XAMLButton.png)
+
+  按钮位于设计器上，其基础代码（高亮显示）被自动添加到了设计器的 XAML 代码中。
+
+1. 我们对 XAML 代码进行一些更改。 将按钮代码中的文本从 `Button` 重命名为 `Hello!`。
+
+  ![屏幕截图](../ide/media/VSIDE_Tour_XAMLButton2.png)
+
+1. 现在启动该应用。 可以通过选择工具栏上的“启动”（![启动按钮）](../ide/media/VSIDE_StartButton.png)），或者通过选择 F5 键，或者通过在菜单中依次选择“调试”、“开始调试”来实现此操作。
+
+  ![屏幕截图](../ide/media/VSIDE_Tour_RunButton.png)
+
+  应用将开始其生成过程，并且会在输出窗口中显示状态消息。 不久后应显示窗体，并且你添加的按钮在该窗体上。 现在你拥有了一个正在运行的应用！
+
+  ![屏幕截图](../ide/media/VSIDE_Tour_RunProject.png)
+
+  当然，现在它还不能实现太多功能，但是如果你愿意，可以稍后为其添加更多功能。
+
+1. 该程序运行完毕后，选择工具栏上的“停止”（![“停止”按钮](../ide/media/VSIDE_StopButton.png)）按钮来使其停止。
+
+我们来回顾一下到目前为止的操作：在 Visual Studio 中新建一个 C# Windows Universal 项目、查看该项目的代码、在设计器中添加一个控件、更改某些 XAML 代码，然后运行该项目。 虽然本示例中的流程经过简化，但它为你展示了开发自己的应用时一些常用的 Visual Studio IDE 部件。 如需有关此示例的详细信息，请参阅[创建一个“Hello, world”应用 (XAML)](https://docs.microsoft.com/windows/uwp/get-started/create-a-hello-world-app-xaml-universal)。
+
+
+## <a name="debug-test-and-improve-your-code"></a>调试、测试和改进代码
+没有始终可以完美运行的应用。 编写代码时，需要运行并测试该代码以了解 bug 和性能。 使用 Visual Studio 先进的调试系统，可以调试在本地项目、远程设备或仿真程序（例如 Android 或 Windows Phone 设备的仿真程序）上运行的代码。 可以一次一个语句逐行执行代码并随时检查变量，可以逐行执行多个线程应用程序，还可以设置只在特定条件为“真”时才命中的断点。 代码运行时可以监视变量的值等。 上述所有操作均可在代码编辑器中管理，因此无需离开代码。
+
+![调试](../ide/media/VSIDE_Tour_Debugging.png)
+
+针对测试，Visual Studio 提供了单元测试、IntelliTest、负载和性能测试等。 有关 Visual Studio 调试过程的详细信息，请参阅[调试器功能简介](https://review.docs.microsoft.com/visualstudio/debugger/debugger-feature-tour?branch=mikejo-tour)。 有关测试的详细信息，请参阅[测试工具](https://www.visualstudio.com/vs/testing-tools/)。 有关提升应用性能的详细信息，请参阅[分析工具](https://docs.microsoft.com/visualstudio/profiling/profiling-tools)。
+
+## <a name="deploy-your-finished-application"></a>部署完成的应用程序  
+当应用程序可以部署给用户或客户时，无论是部署到 Windows 应用商店还是 Sharepoint 站点，无论是通过 Installshield 还是 Windows Installer 技术进行部署，Visual Studio 都会提供实现此操作的工具。 这些都可以通过 IDE 进行访问。 有关详细信息，请参阅[部署应用程序、服务和组件](../deployment/deploying-applications-services-and-components.md)。
 
 ## <a name="quick-tour-of-the-ide"></a>IDE 快速教程
- 下图显示具有一个打开项目和几个主要工具窗口的 Visual Studio IDE。
- - [解决方案资源管理器](../ide/solutions-and-projects-in-visual-studio.md)可让你查看和导航代码文件。
- - 利用版本控制技术（如 [Git](https://git-scm.com/) 和 [Team Foundation 版本控制 (TFVC)](https://www.visualstudio.com/en-us/docs/tfvc/overview)），[团队资源管理器](https://www.visualstudio.com/en-us/docs/connect/work-team-explorer)可让你跟踪工作项并与他人共享代码。
- - [Cloud Explorer](https://azure.microsoft.com/en-us/documentation/articles/vs-azure-tools-resources-managing-with-cloud-explorer/) 可让你查看和管理 Azure 资源，如虚拟机、表格以及 SQL 数据库等。
- - [编辑器](../ide/writing-code-in-the-code-and-text-editor.md)窗口可让你查看并编辑数据源代码和设计器数据。
- - [输出](../ide/reference/output-window.md)窗口显示编译、运行、调试等输出。
+为了向你提供有关 Visual Studio 的高级直观概览，下图显示了在 Visual Studio 中打开的一个项目，以及你最有可能用到的若干关键工具窗口。
+ - [解决方案资源管理器](../ide/solutions-and-projects-in-visual-studio.md)可让你查看、导航和管理代码文件。
+ - [编辑器](../ide/writing-code-in-the-code-and-text-editor.md)窗口中显示代码，你可以通过该窗口编辑源代码和设计器数据。
+ - [输出](../ide/reference/output-window.md)窗口显示编译、运行、调试等输出消息。
+ - 利用版本控制技术（如 [Git](https://git-scm.com/) 和 [Team Foundation 版本控制 (TFVC)](https://www.visualstudio.com/docs/tfvc/overview)），[团队资源管理器](https://www.visualstudio.com/docs/connect/work-team-explorer)可让你跟踪工作项并与他人共享代码。
+ - [Cloud Explorer](https://azure.microsoft.com/documentation/articles/vs-azure-tools-resources-managing-with-cloud-explorer/) 可让你查看和管理 Azure 资源，如虚拟机、表格以及 SQL 数据库等。
 
+![Visual Studio IDE](../ide/media/visualstudioide.png)  
 
- ![Visual Studio IDE](../ide/media/visualstudioide.png "VisualStudioIDE")  
+下面是 Visual Studio 中其他一些常见的工作效率功能。  
 
- ### <a name="sign-in"></a>登录
-  首次启动 Visual Studio 时，可使用 Microsoft 帐户或者单位或学校帐户登录。 登录后，可跨多个设备同步设置（例如，窗口布局）并自动连接到所需的服务，如 Azure 订阅和 Visual Studio Team Services。 如果你拥有基于订阅的许可证，则需要定期登录 Visual Studio 以保持许可证令牌为最新。 如果你拥有产品密钥许可证，则无需登录，但登录后可更便捷地连接到 Visual Studio Team Services 和 Azure、Office 365、Salesforce.com 帐户。 有关详细信息，请参阅[登录 Visual Studio](../ide/signing-in-to-visual-studio.md)。
+- 使用[快速启动](https://docs.microsoft.com/en-us/visualstudio/ide/reference/quick-launch-environment-options-dialog-box)搜索框可以在 Visual Studio 中快速找到所需内容。 只需输入要查找内容的名称，Visual Studio 就会为你提供选项，这些选项可以准确地将你导向目标位置。 “快速启动”还可以显示链接，这些链接可以启动任何工作负荷或单个组件的 Visual Studio 安装程序。
 
-  如果你拥有多个 Visual Studio Team Services 帐户、Azure 帐户或 MSDN 订阅，则可使用单一登录进行链接并访问所有帐户中的资源和服务。 有关详细信息，请参阅[使用多个用户帐户](../ide/work-with-multiple-user-accounts.md)。
-
- ### <a name="stay-up-to-date"></a>随时了解最新信息
-  标题栏上角的通知图标会通知你何时提供适用于 Visual Studio 或已安装的任何相关组件的更新。 可选择关闭或处理这些通知。 有关详细信息，请参阅 [Visual Studio 通知](../ide/visual-studio-notifications.md)。
-
- ### <a name="find-things-and-get-help"></a>查找内容和获取帮助
-  如果不知道键盘快捷键或菜单位置，可利用以下屏幕截图框红位置的[快速启动](../ide/reference/quick-launch-environment-options-dialog-box.md)窗口快速查找 Visual Studio 命令、工具和功能等。 只需键入要查找的内容，“快速启动”便会提供一个相关链接。
-
- ![“新建项目”的快速启动结果](../ide/media/Productivity_QuickLaunch.png "Productivity_QuickLaunch")
-
- 在 Visual Studio 中，可以按 **F1** 转到活动窗口的联机帮助。 还可以在代码编辑器中按 **F1** 转到 API 或当前插入符号位置处关键字的帮助页。 例如，在 C# 文件中，将插入符号放置在 `System.String` 声明内的某处或末尾，然后按 **F1** 转到[字符串](assetId:///T:System.String?qualifyHint=False&autoUpgrade=True)的帮助页。
-
-### <a name="give-feedback"></a>提供反馈
- 可随时向我们提供对 Visual Studio 的反馈，操作简单便捷。 单击“快速启动”旁标题栏中的反馈图标  ，然后单击“报告问题”  或“提供建议” 。
-
-![提供反馈](../ide/media/VSIDE_reportproblem.png)
-
- Visual Studio 的预发行版本还具有“评价此产品”  选项。 我们会查看所有这些评论，并利用它们来改进产品。 有关详细信息，请参阅[与我们交流](../ide/talk-to-us.md)。
-
-### <a name="personalize-the-ide"></a>个性化 IDE
- 可自定义窗口布局，以适合自己的开发风格。 可以随时停靠、浮动或隐藏任何窗口，还可以在全屏模式下运行编辑器。 可以创建并保存多个自定义窗口布局，仅用于显示特定上下文所需的窗口。 例如，可以创建全屏布局，以便代码编辑器全屏显示。 还可以创建不同布局，用于调试和团队操作。 有关详细信息，请参阅[自定义窗口布局](../ide/customizing-window-layouts-in-visual-studio.md)。
-
- 可以采用多种其他的方法来自定义 Visual Studio，并且可将设置漫游到使用的多台计算机中。 有关详细信息，请参阅[个性化 IDE](../ide/personalizing-the-visual-studio-ide.md)。
-
- 几乎所有操作都有键盘快捷键，并且也可以对其进行自定义。 若要创建新的快捷键，请在“快速启动”中键入“Keyboard”打开“键盘”对话框。 如果需要有关选项的详细信息，请在此处按 F1 转到帮助页。 有关详细信息，请参阅 [Visual Studio 中的默认键盘键](../ide/default-keyboard-shortcuts-in-visual-studio.md)。
-
-## <a name="connect-to-visual-studio-team-services-and-team-foundation-server"></a>连接到 Visual Studio Team Services 和 Team Foundation Server
-  Visual Studio Team Services (VSTS) 是一种基于云的服务，用于承载软件项目和启用团队中的协作。 VSTS 支持 Git 和 Team Foundation 源控件系统以及 Scrum、CMMI 和 Agile 开发方法。 Team Foundation 版本控制 (TFVC) 采用单一的集中式服务器存储库来跟踪文件和调整它的版本。 本地更改始终签入到中央服务器，其他开发人员可在此处获得最新的更改。 Team Foundation Server (TFS) 2015 是 Visual Studio 的应用程序生命周期管理中心。 它使用单个解决方案，使开发过程中涉及的所有人均可参与该开发过程。 TFS 对于管理异类团队和项目也非常有用。
-
-  如果你的网络中已经具有 Visual Studio Team Services 帐户或 Team Foundation Server，则可通过“团队资源管理器”窗口连接。 可在此窗口中将代码签入（出）源控件、管理工作项、启动生成以及访问团队聊天室和工作区。 可从“快速启动”或者从“视图”|“团队资源管理器”或“团队”|“管理连接”的主菜单打开“团队资源管理器”。  有关 Visual Studio Team Services 的详细信息，请参阅 [www.visualstudio.com](https://www.visualstudio.com/)。 有关 Team Foundation Server 的详细信息，请参阅 [Team Foundation Server](https://www.visualstudio.com/products/tfs-overview-vs)。
-
-  下图显示了 VSTS 中托管的解决方案的“团队资源管理器”窗格：
-
- ![Visual Studio 团队资源管理器](../ide/media/vs2017_teamexplorer.png "VS2017_TeamExplorer")  
-
-## <a name="create-solutions-and-projects"></a>创建解决方案和项目
-  尽管可以使用 Visual Studio 浏览单个代码文件，但更常见的是在 *项目*中进行操作。 对应用程序而言，Visual Studio 项目是一个编译为单个二进制可执行文件（例如 .exe、DLL 或 appx）的文件和资源的集合。 而对于非 ASP.NET 网站，则不生成任何可执行文件，因此项目中只包含 HTML、JavaScript 文件和图像。 因为有时可能需要创建多个二进制文件或密切相关的网站，所以 Visual Studio 提供了解决方案的概念，其中可包含多个项目和网站。 创建项目时，实际创建的是解决方案内的项目，并且以后在必要时可向此解决方案添加更多项目。 例如，如果你拥有 DLL 项目，则可以向加载和使用此 DLL 的解决方案添加 .exe 项目。
-
-  *项目模板* 是指可快速创建特定类型应用程序的预填充代码文件和配置设置的集合。 Visual Studio 附带了很多项目模板以供选择，如果所有默认模板都不适用，也可以自行创建。 利用模板创建项目后，便可以在提供的文件或添加的新文件中将自己的代码写入项目。 有关详细信息，请参阅[解决方案和项目](../ide/solutions-and-projects-in-visual-studio.md)。 下图显示了具有适用于 ASP.NET 应用程序的项目模板的“新建项目”对话框。
-
- ![Visual Studio“新建项目”对话框](../ide/media/vs2017_newprojectdialog.png "VS2017_NewProjectDialog")  
-
-## <a name="write-navigate-and-understand-code"></a>编写、导航和了解代码  
- 如果你是一名开发人员，则可能会在“编辑器”窗口花费大部分时间。 Visual Studio 包含对 C#、C++、Visual Basic、F#、JavaScript、TypeScript、XML、HTML 和 CSS 的内置编辑支持。 Visual Studio 还支持使用多种其他语言进行编辑和编译处理。
-
- 可以单击“文件”|“打开”|“文件”，在文本编辑器中编辑单个文件。 若要编辑打开项目中的文件，请在“解决方案资源管理器”中选择并打开该文件名。 代码被着色，你可以通过在“快速启动”中键入“Colors”来个性化设置配色方案。 可同时打开多个文本编辑器选项卡式窗口。 可独立拆分每个窗口。 还可以在全屏模式下运行文本编辑器。  
-
- ![代码编辑器中的代码](../ide/media/codewindow.png "代码编辑器")  
-
- 文本编辑器可实现高度交互（如果你希望如此），具有很多工作效率功能，可帮助更好更快地编写代码。 功能因语言而异，并且不必使用以上任意语言（在“快速启动”中键入“Editor”）来打开或关闭功能。一些常见的工作效率功能为：  
+  ![“快速启动”搜索框](../ide/media/VSIDE_Tour_QuickLaunch.png)
 
 -  [重构](../ide/refactoring-in-visual-studio.md)包括智能重命名变量、移动选定的代码行到单独的函数、移动代码到其他位置、重新排序函数参数以及更多操作。
 
-  ![重构](../ide/media/VSIDE_refactor.png)  
+ ![重构](../ide/media/VSIDE_refactor.png)  
 
 -  “IntelliSense”是一组常用功能的涵盖性术语，这些功能可用于在编辑器中直接显示代码的类型信息，并且可在某些情况下编写小段代码。 如同在编辑器中拥有了基本文档内联，从而节省了在单独帮助窗口查看类型信息的时间。 IntelliSense 功能因语言而异。 有关详细信息，请参阅 [Visual C# IntelliSense](../ide/visual-csharp-intellisense.md)、[Visual C++ Intellisense](../ide/visual-cpp-intellisense.md)、[JavaScript IntelliSense](../ide/javascript-intellisense.md) 和 [Visual Basic 特定的 IntelliSense](../ide/visual-basic-specific-intellisense.md)。 下图显示了一些处于工作状态的 IntelliSense 功能：  
 
-     ![Visual Studio 成员列表](../ide/media/vs2017_Intellisense.png "vs2017_Intellisense")  
+  ![Visual Studio 成员列表](../ide/media/vs2017_Intellisense.png)  
 
--  “波形曲线” 实时警告键入时代码中的错误或潜在问题，这样便可以立即修复错误，而无需等到编译时或运行时才发现。 如果将鼠标悬停在波形曲线上，将看到关于此错误的其他信息。 左边距上也可能会出现一个灯泡，提供有关如何修复此错误的建议。 有关详细信息，请参阅[使用灯泡执行快速操作](../ide/perform-quick-actions-with-light-bulbs.md)。  
+-  **波形曲线**是红色的波浪形下划线，它可以在你键入时实时警告你注意代码中的错误或者潜在问题。 这样一来，你可立即修复错误，而无需等到编译或运行时才发现错误。 如果将鼠标悬停在波形曲线上，将看到关于此错误的其他信息。 左边距上也可能会出现一个灯泡，提供有关如何修复此错误的建议。 有关详细信息，请参阅[使用灯泡执行快速操作](../ide/perform-quick-actions-with-light-bulbs.md)。  
 
-  ![Squiggles](../ide/media/vs2017_squiggle.png "VS2017_Squiggles")  
+ ![波形曲线](../ide/media/vs2017_squiggle.png)  
 
--  [书签](../ide/setting-bookmarks-in-code.md)使你能够快速导航到文件中正在主动处理的特定行。
+-  可以在文本编辑器上下文菜单中打开[调用层次结构](../ide/reference/call-hierarchy.md)窗口，以显示调用方法、被调用方法和插入点下的方法（插入点）。
 
-    ![书签窗口](../ide/media/VSIDE_bookmarks.png)
+ ![“调用层次结构”窗口](../ide/media/VSIDE_call_hierarchy.png)
 
--  可以在文本编辑器“上下文”菜单中对[调用层次结构](../ide/reference/call-hierarchy.md)窗口进行调用，以显示调用方法、被调用方法和插入点下的方法。
+-  “CodeLens”[](../ide/find-code-changes-and-other-history-with-codelens.md)能够查找代码引用、代码更改、链接错误、工作项、代码评审和单元测试，所有操作都在编辑器上进行。
 
-    ![“调用层次结构”窗口](../ide/media/VSIDE_call_hierarchy.png)
+ ![CodeLens](../ide/media/codelensoverview.png)
 
--  “CodeLens”能够查找代码引用、代码更改、链接错误、工作项、代码评审和单元测试，所有操作都在编辑器上进行。
+-  “查看定义” [](../ide/how-to-view-and-edit-code-by-using-peek-definition-alt-plus-f12.md) 窗口显示方法或类型的定义内联，而无需离开当前的上下文。  
 
-    ![CodeLens](../ide/media/codelensoverview.png)
-
-  有关详细信息，请参阅[查找代码更改和其他历史记录](../ide/find-code-changes-and-other-history-with-codelens.md)。  
-
--  “查看定义”  窗口显示方法或类型的定义内联，而无需离开当前的上下文。 此窗口现在也适用于 XAML。  
-
-    ![查看定义](../ide/media/VSIDE_peek_definition.png)
+ ![查看定义](../ide/media/VSIDE_peek_definition.png)
 
 -  “转到定义”  上下文菜单选项可直接进入其中定义函数或对象的位置。 还可以在编辑器中右键单击来获取其他导航命令。
 
-    ![转到定义](../ide/media/VSIDE_go_to_definition.png)
+ ![转到定义](../ide/media/VSIDE_go_to_definition.png)
 
-- [对象浏览器](http://msdn.microsoft.com/en-us/f89acfc5-1152-413d-9f56-3dc16e3f0470)，作为相关的工具，可以检查系统上的 .NET 或 Windows 运行时程序集，以查看其中包含的类型以及这些类型包含的方法和属性。  
+- [对象浏览器](http://msdn.microsoft.com/f89acfc5-1152-413d-9f56-3dc16e3f0470)，作为相关的工具，可以检查系统上的 .NET 或 Windows 运行时程序集，以查看其中包含的类型以及这些类型包含的成员（属性、方法、事件）。
 
-     ![显示 System.Timer 的对象浏览器](../ide/media/objectbrowser.png "ObjectBrowser")  
+  ![显示 System.Timer 的对象浏览器](../ide/media/objectbrowser.png)  
 
- “编辑”菜单和“视图”菜单上的大多数项都以某种方式关联代码编辑器。 关于编辑器的详细信息，请参阅[编写代码](../ide/writing-code-in-the-code-and-text-editor.md)和[编辑代码](https://www.visualstudio.com/features/ide-vs)。  
+## <a name="collaborate-with-others-and-control-your-source-code"></a>与他人进行协作和控制源代码
+可以在任意提供商（包括 GitHub）托管的 Git 存储库中管理源代码。 或者，使用 [Visual Studio Team Services (VSTS)](https://www.visualstudio.com/team-services/) 管理整个项目的代码、Bug 和工作项。
 
-## <a name="compile-and-build-your-code"></a>编译和生成代码  
- 生成项目是指编译源代码并执行生成可执行文件所必需的任何步骤。 不同语言具有不同的生成操作，而常规网站根本不生成。 无论是何种项目类型，“生成”菜单都是这些命令的标准位置。 若要编译代码并通过单个击键运行，请按 F5 键。 每个编译器都可通过 IDE 完全配置。 “生成”工具栏可指定是生成程序的调试版本（启用符号和额外错误检查以支持调试器中的断点和单步执行），还是生成将最终呈现给用户的发布版本。 可在项目的属性页中配置其他生成设置和许多其他设置。 在解决方案资源管理器中选择项目节点的上下文（右键单击）菜单，然后选择属性命令。 还可以从命令行运行生成。  
+Visual Studio Team Services 是一种基于云的服务，用于承载软件项目和启用团队中的协作。 VSTS 支持 Git 和 Team Foundation 源控件系统以及 Scrum、CMMI 和 Agile 开发方法。 Team Foundation 版本控制 (TFVC) 采用单一的集中式服务器存储库来跟踪文件和调整它的版本。 本地更改始终签入到中央服务器，其他开发人员可在此处获得最新的更改。
 
- 生成输出（包括错误或成功消息）将显示在“输出”窗口中。 “错误列表”（如下所示）提供有关生成错误的详细信息。  
+Team Foundation Server (TFS) 是 Visual Studio 的应用程序生命周期管理中心。 它使用单个解决方案，使开发过程中涉及的所有人均可参与该开发过程。 TFS 对于管理异类团队和项目也非常有用。
 
- ![显示 C# 编译器错误的错误列表](../ide/media/VS2017_errorlist.png "VS2017_error_list")  
+如果你的网络中已经具有 Visual Studio Team Services 帐户或 Team Foundation Server，则可通过 Visual Studio 中的“团队资源管理器”窗口连接。 可在此窗口中将代码签入（出）源控件、管理工作项、启动生成以及访问团队聊天室和工作区。 可以从“快速启动”框，或者“视图，团队资源”或“团队，管理连接”的主菜单中打开“团队资源管理器”。  
 
-## <a name="debug-your-code"></a>调试代码  
- 使用 Visual Studio 的先进调试器，可以调试在本地项目、远程设备或仿真程序（例如 Android 或 Windows Phone 设备的仿真程序）上运行的代码。 可以一次一个语句逐行执行代码并随时检查变量，可以逐行执行多个线程应用程序，还可以设置只在特定条件为“真”时才命中的断点。 代码运行时可以监视变量的值。 上述所有操作均可在代码编辑器中管理，因此无需离开代码的上下文。  
+下图显示了 VSTS 中托管的解决方案的“团队资源管理器”窗口：
 
- ![断点设置查看窗口](../ide/media/dbg_breakpoints_peekwindow.png "DBG_Breakpoints_PeekWindow")  
+![Visual Studio 团队资源管理器](../ide/media/vs2017_teamexplorer.png)  
 
- 调试器本身具有多个窗口，可用于查看和操作本地变量、调用堆栈和运行时环境的其他方面。 可以在“调试”  菜单中找到这些窗口。  
-
- [即时窗口](../ide/reference/immediate-window.md)使你能够在表达式中键入并立即查看其结果。
-
-![即时窗口](../ide/media/VSIDE_immediate_window.png)
-
- [IntelliTrace](../debugger/intellitrace.md) 窗口会记录在运行 .NET 程序中的每个方法调用和其他事件，并可帮助快速找到问题来源位置。
-
- 有关详细信息，请参阅[使用 Visual Studio 进行调试](../debugger/debugging-in-visual-studio.md)。  
-
-## <a name="test-your-code"></a>测试代码  
- Visual Studio 包含一个用于托管代码 (.NET) 的单元测试框架和一个用于本机 C++ 的单元测试框架。 若要创建单元测试，只需将测试项目添加到解决方案，编写测试，然后在“测试资源管理器”窗口中运行。 有关详细信息，请参阅[单元测试代码](../test/unit-test-your-code.md)。  
-
- ![单元测试资源管理器](../ide/media/ute_failedpassednotrunsummary.png "UTE_FailedPassedNotRunSummary")  
-
-## <a name="analyze-code-quality-and-performance"></a>分析代码质量和性能  
- Visual Studio 包含用于静态和运行时分析的强大工具。 静态分析工具帮助识别设计、全球化、互操作性、性能、安全性和其他类别中的潜在错误。 性能测试（也称为分析）涉及测量程序的运行方式。 可从“分析”  菜单中访问这些工具。 有关详细信息，请参阅[使用 Visual Studio 诊断工具提高质量](../test/improve-code-quality.md)。  
-
-## <a name="connect-to-cloud-services-and-databases"></a>连接到云服务和数据库  
- Visual Studio 中的 [Cloud Explorer](https://azure.microsoft.com/en-us/documentation/articles/vs-azure-tools-resources-managing-with-cloud-explorer/) 可显示你登录的 Azure 订阅下托管的所有帐户中的 Azure 资源。 可通过安装 [Azure SDK](https://azure.microsoft.com/en-us/downloads/) 获取 Cloud Explorer。
+有关 Visual Studio Team Services 的详细信息，请参阅 [Visual Studio Team Services](https://www.visualstudio.com/team-services/)。 有关 Team Foundation Server 的详细信息，请参阅 [Team Foundation Server](https://www.visualstudio.com/products/tfs-overview-vs)。
 
 
- ![Cloud Explorer](../ide/media/VSIDE_CloudExplorer.png)
+## <a name="connect-to-services-databases-and-cloud-based-resources"></a>连接到服务、数据库和基于云的资源
+云对当今的联机环境至关重要，Visual Studio 为你提供了利用云的方法。 例如，连接的服务功能可以将应用与服务相连接。 应用可以通过该功能将其数据存储到 Azure 存储。
 
- 还可使用[服务器资源管理器](https://msdn.microsoft.com/en-us/library/cd2cz7yy.aspx)帮助你浏览并管理 Azure、Salesforce.com、Office 365 和网站上的 SQL Server 实例以及资产。
+![连接的服务](../ide/media/VSIDE_Tour_Connected_Services.png)
 
- Visual Studio 包括 [Microsoft SQL Server Data Tools](https://msdn.microsoft.com/en-us/data/tools.aspx) (SSDT)，使你能够构建、调试、维护和重构数据库。 可使用数据库项目，或直接使用已连接的数据库实例（本地或非本地）。  
+在“连接的服务”页上选择一个服务可以启动“连接的服务向导”，该向导会配置项目、下载必要的 NuGet 数据包，从而帮助你根据服务需要进行编码。
 
- Visual Studio 中的 [SQL Server 对象资源管理器](https://msdn.microsoft.com/en-us/library/hh231250.aspx)提供类似于 SQL Server Management Studio 中的数据库对象。 SQL Server 对象资源管理器可以执行轻负载数据库管理和设计工作，包括使用 SQL Server 对象资源管理器右侧的上下文菜单编辑表数据、对比架构和执行查询。 SSDT 还包括特殊项目类型和工具，用于开发 SQL Server 2012 Analysis Services、Reporting Services 和 Integration Services 商业智能 (BI) 解决方案（以前称为 Business Intelligence Development Studio）。  
+可以通过使用 [Cloud Explorer](https://azure.microsoft.com/documentation/articles/vs-azure-tools-resources-managing-with-cloud-explorer/) 来查看和管理 Visual Studio 中基于 Azure 的云资源。 Cloud Explorer 可以显示你登录的 Azure 订阅下托管的所有帐户中的 Azure 资源。 在 Visual Studio 安装程序中选择 Azure 开发工作负载即可获取 Cloud Explorer。
 
- ![SQL Server 对象资源管理器](../ide/media/vs2015_sqlobjectexplorer.png "vs2015_SQLObjectExplorer")  
+![Cloud Explorer](../ide/media/VSIDE_CloudExplorer.png)
 
-## <a name="deploy-your-finished-application"></a>部署完成的应用程序  
- 当应用程序可以部署到客户时，无论是部署到 Windows 应用商店还是 Sharepoint 站点，无论是通过 Installshield 还是 Windows Installer 技术进行部署，Visual Studio 都会提供实现此操作的工具。 这些都可以通过 IDE 进行访问。 有关详细信息，请参阅[部署应用程序、服务和组件](../deployment/deploying-applications-services-and-components.md)。  
+**服务器资源管理器**能够帮助你浏览并管理 Azure、Salesforce.com、Office 365 和网站上的 SQL Server 实例以及资产。 若要打开“服务器资源管理器”，请在主菜单上依次选择“视图”、“服务器资源管理器”。 请参阅[添加新连接](https://docs.microsoft.com/visualstudio/data-tools/add-new-connections)，了解有关使用服务器资源管理器的详细信息。
 
-## <a name="architecture-and-modeling-tools-enterprise-only"></a>体系结构和建模工具（仅适用于企业）  
- 可以使用 Visual Studio 体系结构和建模工具来设计和建模应用程序。 这些工具可帮助实现代码的结构、行为和关系的可视化效果。 在开发过程中，可以在整个应用程序生命周期的不同详细信息级别上创建模型。 可通过将模型元素链接到 Team Foundation Server 工作项和开发计划来跟踪要求、任务、测试用例、Bug 和其他与模型关联的工作。 有关详细信息，请参阅[设计和建模应用程序](../modeling/analyze-and-model-your-architecture.md)。  
+[SQL Server Data Tools (SSDT)](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt) 是一个适用于 SQL Server、Azure SQL 数据库和 Azure SQL 数据仓库的强大的开发环境。 通过它可以生成、调试、维护和重构数据库。 可使用数据库项目，或直接使用已连接的数据库实例（本地或非本地）。
 
-## <a name="extend-visual-studio-through-the-visual-studio-sdk"></a>通过 Visual Studio SDK 扩展 Visual Studio  
- Visual Studio 是一个可扩展的平台。 Visual Studio 扩展是与 IDE 集成的自定义工具。 可以添加第三方扩展，或创建自己的扩展。 有关详细信息，请参阅[开始开发 Visual Studio 扩展](../extensibility/starting-to-develop-visual-studio-extensions.md)。  
+Visual Studio 中的 **SQL Server 对象资源管理器**提供类似于 SQL Server Management Studio 中的数据库对象。 使用 SQL Server 对象资源管理器可以执行轻负载数据库管理和设计工作，包括使用 SQL Server 对象资源管理器右侧的上下文菜单编辑表数据、对比架构和执行查询等。 请参阅[通过使用对象资源管理器管理对象](https://docs.microsoft.com/sql/ssms/object/manage-objects-by-using-object-explorer)，了解详细信息。
 
- [Visual Studio 用户体验指南](../extensibility/ux-guidelines/visual-studio-user-experience-guidelines.md)是编写 Visual Studio 扩展的必备参考。 这些特定于平台的指南包括有关对话框设计、字体、颜色、图标、常用控件以及可使你的新增功能与 Visual Studio 无缝集成的其他交互模式的信息。  
+![SQL Server 对象资源管理器](../ide/media/vs2015_sqlobjectexplorer.png)  
 
-## <a name="see-also"></a>另请参阅  
- [安装 Visual Studio 2017 RC](../install/install-visual-studio.md)   
- [编辑代码](https://www.visualstudio.com/features/ide-vs)   
- [Visual Studio 2017 RC 中的新增功能](../ide/whats-new-in-visual-studio.md)   
- [移植、迁移和升级 Visual Studio 项目](../porting/port-migrate-and-upgrade-visual-studio-projects.md)   
- [与我们交流](../ide/talk-to-us.md)
+## <a name="extend-visual-studio"></a>扩展 Visual Studio
+如果 Visual Studio 中没有你需要的确切功能，你可以进行添加！ 可以根据你的工作流和风格自定义 IDE，对尚未与 Visual Studio 集成的外部工具添加支持并修改现有的功能，以提高工作效率。 Visual Studio 提供来自 Microsoft、我们的合作伙伴和社区的工具、控件和模板。 若要了解有关扩展 Visual Studio 的详细信息，请参阅[扩展 Visual Studio IDE](https://www.visualstudio.com/vs/extend/)。
+
+## <a name="learn-more-and-find-out-whats-new"></a>了解详细信息和新增功能
+如果你以前从未使用过 Visual Studio，请了解基础知识（可阅读 [Visual Studio 入门](../ide/get-started-with-visual-studio.md)）或者观看 [Microsoft 虚拟学院](https://mva.microsoft.com/product-training/visual-studio-courses#!index=2&lang=1033)上的 Visual Studio 免费课程。如果想了解 Visual Studio 2017 中的新增功能，请参阅 [Visual Studio 2017 新增功能](../ide/whats-new-in-visual-studio.md)。
+
+恭喜你，你已经完成了 Visual Studio IDE 课程！ 希望你已经对 Visual Studio 的一些主要功能有所了解。
+
+## <a name="see-also"></a>另请参阅
+* [Visual Studio IDE](https://www.visualstudio.com/vs/)
+* [Visual Studio 下载](https://www.visualstudio.com/downloads/)
+* [Visual Studio 博客](https://blogs.msdn.microsoft.com/visualstudio/)
+* [Visual Studio 论坛](https://social.msdn.microsoft.com/Forums/vstudio/en-US/home?category=visualstudio%2Cvsarch%2Cvsdbg%2Cvstest%2Cvstfs%2Cvsdata%2Cvsappdev%2Cvisualbasic%2Cvisualcsharp%2Cvisualc)
+* [Microsoft 虚拟学院](https://mva.microsoft.com/)
+* [第 9 频道](https://channel9.msdn.com/)
 

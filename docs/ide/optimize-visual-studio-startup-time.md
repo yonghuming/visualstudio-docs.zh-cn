@@ -18,9 +18,9 @@ manager: ghogen
 f1_keywords:
 - vs.performancecenter
 translationtype: Human Translation
-ms.sourcegitcommit: ba88bad0753653dcde8a4d28b4dd1c71522d6506
-ms.openlocfilehash: 435197f1536dc9006691c0f2e58fafd0fcf27718
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: a42f5a30375192c89c9984e40ba0104da98d7253
+ms.openlocfilehash: 27a265dbbb1f9426ba2dd254095c84239bbd0db7
+ms.lasthandoff: 03/07/2017
 
 ---
 # <a name="optimize-visual-studio-startup-time"></a>优化 Visual Studio 启动时间
@@ -28,7 +28,7 @@ ms.lasthandoff: 02/22/2017
 
 ## <a name="control-startup-behavior"></a>控制启动行为
 
-为了避免延长启动时间，Visual Studio 2017 RC 使用按需加载方法以避免在启动时加载扩展。 这意味着不会在 Visual Studio 启动后立即打开扩展，而是在启动后根据需要以异步方式打开。 此外，由于在之前的 Visual Studio 会话中保持工具窗口的打开状态会使启动时间变慢，因此 Visual Studio 以更智能的方式打开工具窗口，从而避免影响启动时间。
+为了避免延长启动时间，Visual Studio 2017 使用按需加载方法以避免在启动时加载扩展。 这意味着不会在 Visual Studio 启动后立即打开扩展，而是在启动后根据需要以异步方式打开。 此外，由于在之前的 Visual Studio 会话中保持工具窗口的打开状态会使启动时间变慢，因此 Visual Studio 以更智能的方式打开工具窗口，从而避免影响启动时间。
 
 如果 Visual Studio 检测到启动速度较慢，则会弹出一条消息，提示你导致速度变慢的扩展或工具窗口。 此消息还提供了**管理 Visual Studio 性能**对话框的链接，此对话框中列出了影响启动性能的扩展和工具窗口。 通过此对话框可以更改扩展和工具窗口的设置以提高启动性能。
 
@@ -55,7 +55,7 @@ ms.lasthandoff: 02/22/2017
 
 ## <a name="speed-up-solution-load"></a>加速解决方案的加载
 
-Visual Studio 2017 RC 引入了名为**轻型解决方案加载**的新功能，可减少在 IDE 中加载大型解决方案所需的时间和内存。 如果你有包含多个 C#、VB 或 C++ 项目的大型解决方案，则启用轻型解决方案加载可能会看到显著的性能优势。
+Visual Studio 2017 引入了名为**轻型解决方案加载**的新功能，可减少在 IDE 中加载大型解决方案所需的时间和内存。 如果你有包含多个 C#、VB 或 C++ 项目的大型解决方案，则启用轻型解决方案加载可能会看到显著的性能优势。
 
 由于启用轻型解决方案加载时某些 IDE 功能不是完全可用的，因此默认情况下此功能处于关闭状态。 以下内容将帮助你决定是否启用此功能。
 
@@ -77,7 +77,7 @@ Visual Studio 2017 RC 引入了名为**轻型解决方案加载**的新功能，
 
 ### <a name="automatically-enable-lightweight-solution-load"></a>自动启用轻型解决方案加载
 
-在 Visual Studio 2017 RC 中打开大型解决方案时，你可能会看到一个弹出消息，提示你启用轻型解决方案加载。 仅针对包含许多 C#、VB 或 C++ 项目的解决方案才显示此消息。 选择“启用”命令即可仅对此解决方案启用轻型解决方案加载。 不会更改 IDE 范围设置。
+在 Visual Studio 2017 中打开大型解决方案时，你可能会看到一个弹出消息，提示你启用轻型解决方案加载。 仅针对包含许多 C#、VB 或 C++ 项目的解决方案才显示此消息。 选择“启用”命令即可仅对此解决方案启用轻型解决方案加载。 不会更改 IDE 范围设置。
 
 ![弹出窗口](../ide/media/VSIDE_LSL Popup.png)
 
