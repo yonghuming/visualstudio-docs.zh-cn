@@ -34,8 +34,9 @@ translation.priority.ht:
 - zh-cn
 - zh-tw
 translationtype: Human Translation
-ms.sourcegitcommit: a1edc88394193474b273968d8435e8df06415044
-ms.openlocfilehash: 6169b6d1805808c96647425706bf555e379679a8
+ms.sourcegitcommit: e9a05d008f671fb79d6813a14c594b82f27697e3
+ms.openlocfilehash: ba9c9b60de651eecc92ea10ba44579a7dadc36df
+ms.lasthandoff: 03/27/2017
 
 ---
 # <a name="options-text-editor-cc-advanced"></a>选项，文本编辑器，C/C++，高级
@@ -139,7 +140,10 @@ ms.openlocfilehash: 6169b6d1805808c96647425706bf555e379679a8
  在任一时刻为 IntelliSense 请求保持活动状态的最大转换单元数。 指定的值必须介于 2 到 15 之间。 此数字直接关系到将要运行的最大 VCPkgSrv.exe 进程数（针对 Visual Studio 的给定实例）。 默认值为 2，但如果有可用内存，可以增加此值，这样可能会略微提升 IntelliSense 的性能。  
   
  有关转换单元的详细信息，请参阅[转换阶段](/visual-cpp/preprocessor/phases-of-translation)。  
-  
+
+ **成员列表的点到箭头替换**  
+ 当可用于成员列表时，将“.”替换为“->”。
+
  **禁用主动成员列表**  
  键入类型或变量的名称时不显示成员列表。 如“成员列表提交字符”选项中所定义，此列表仅在键入某个提交字符后显示。  
   
@@ -169,12 +173,14 @@ ms.openlocfilehash: 6169b6d1805808c96647425706bf555e379679a8
  隐藏“查找所有引用”结果中的未确认项。 如果未设置“禁用解析”选项，则可以使用此选项来隐藏结果中的未确认项。  
   
  **禁用引用突出显示**  
+
+ ## <a name="text-editor"></a>文本编辑器
+ **启用展开作用域**  
+ 如果启用，你可以用大括号将所选文本括起来，方法是在文本编辑器中输入“{”。  
+  
+ **启用展开优先级**  
+ 如果启用，你可以用括号将所选文本括起来，方法是在文本编辑器中输入“(”。  
   
 ## <a name="see-also"></a>另请参阅  
  [设置语言特定的编辑器选项](../../ide/reference/setting-language-specific-editor-options.md)
-
-
-
-<!--HONumber=Feb17_HO4-->
-
 
