@@ -1,14 +1,10 @@
 ---
-title:
-- "Visual Studio 2017 工作负载和组件 ID | Microsoft Docs"
+title: "Visual Studio 2017 工作负载和组件 ID | Microsoft Docs"
 description: "使用工作负载和组件 ID 通过命令行安装 Visual Studio 或指定为 VSIX 清单中的依赖项"
 keywords: 
-author:
-- TerryGLee
-ms.author:
-- tglee
-manager:
-- ghogen
+author: TerryGLee
+ms.author: tglee
+manager: ghogen
 ms.date: 03/07/2017
 ms.topic: article
 helpviewer_keywords:

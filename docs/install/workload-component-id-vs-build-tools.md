@@ -1,14 +1,10 @@
 ---
-title:
-- "Visual Studio Build Tools 2017 工作负载和组件 ID | Microsoft Docs"
+title: "Visual Studio Build Tools 2017 工作负载和组件 ID | Microsoft Docs"
 description: "使用 Visual Studio 工作负载和组件 ID 来构建基于 Windows 的经典应用程序"
 keywords: 
-author:
-- TerryGLee
-ms.author:
-- tglee
-manager:
-- ghogen
+author: TerryGLee
+ms.author: tglee
+manager: ghogen
 ms.date: 03/07/2017
 ms.topic: article
 helpviewer_keywords:

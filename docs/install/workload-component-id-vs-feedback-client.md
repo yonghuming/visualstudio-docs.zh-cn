@@ -1,14 +1,10 @@
 ---
-title:
-- "Visual Studio Feedback Client 2017 工作负载和组件 ID | Microsoft Docs"
+title: "Visual Studio Feedback Client 2017 工作负载和组件 ID | Microsoft Docs"
 description: "使用 Visual Studio 工作负载和组件 ID 提供有关 Visual Studio Team Services 或 Team Foundation Server 的大量反馈"
 keywords: 
-author:
-- TerryGLee
-ms.author:
-- tglee
-manager:
-- ghogen
+author: TerryGLee
+ms.author: tglee
+manager: ghogen
 ms.date: 03/07/2017
 ms.topic: article
 helpviewer_keywords:
