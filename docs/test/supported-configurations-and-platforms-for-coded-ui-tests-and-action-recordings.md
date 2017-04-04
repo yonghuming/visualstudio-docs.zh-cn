@@ -1,20 +1,39 @@
 ---
 title: "支持编码的 UI 测试和操作录制的配置和平台 | Microsoft Docs"
-ms.custom: ""
-ms.date: "2015-10-04"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-devops-test"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-helpviewer_keywords: 
-  - "编码的 UI 测试"
+ms.custom: 
+ms.date: 2015-10-04
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-devops-test
+ms.tgt_pltfrm: 
+ms.topic: article
+helpviewer_keywords:
+- coded UI tests
 ms.assetid: 544742b5-4ec1-4d51-b941-72b2f6ff17bc
 caps.latest.revision: 106
-ms.author: "mlearned"
-manager: "douge"
-caps.handback.revision: 104
+ms.author: douge
+manager: douge
+translation.priority.ht:
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- ru-ru
+- zh-cn
+- zh-tw
+translation.priority.mt:
+- cs-cz
+- pl-pl
+- pt-br
+- tr-tr
+translationtype: Human Translation
+ms.sourcegitcommit: 5db97d19b1b823388a465bba15d057b30ff0b3ce
+ms.openlocfilehash: b4ca42eedec0f6fe2daaa70b04ab9fdaf37865fc
+ms.lasthandoff: 02/22/2017
+
 ---
 # <a name="supported-configurations-and-platforms-for-coded-ui-tests-and-action-recordings"></a>支持编码的 UI 测试和操作录制的配置和平台
 下表针对 Visual Studio Enterprise 列出了编码的 UI 测试支持的配置和平台。 这些配置也适用于使用[!INCLUDE[MTRlong](../test/includes/mtrlong_md.md)]创建的操作录制。  
@@ -70,8 +89,4 @@ caps.handback.revision: 104
 ## <a name="see-also"></a>另请参阅  
  [使用 UI 自动化来测试代码](../test/use-ui-automation-to-test-your-code.md)   
  [通过现有操作录制生成编码的 UI 测试](/devops-test-docs/test/generating-a-coded-ui-test-from-an-existing-action-recording)
-
-
-<!--HONumber=Feb17_HO4-->
-
 

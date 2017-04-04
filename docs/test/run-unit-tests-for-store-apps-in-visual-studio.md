@@ -10,9 +10,8 @@ ms.tgt_pltfrm:
 ms.topic: article
 ms.assetid: 5a6f5b32-bfce-4a63-81e9-02d54c592539
 caps.latest.revision: 12
-author: alexhomer1
-ms.author: ahomer
-manager: robinr
+ms.author: douge
+manager: douge
 translation.priority.ht:
 - cs-cz
 - de-de
@@ -138,3 +137,4 @@ ms.lasthandoff: 02/22/2017
 2.  在测试资源管理器中，选择测试方法，然后选择快捷菜单上的“调试选定的测试”。  
   
  有关该调试器的详细信息，请参阅[在 Visual Studio 中进行调试](../debugger/debugging-in-visual-studio.md)。
+

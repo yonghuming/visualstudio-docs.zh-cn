@@ -10,7 +10,7 @@ ms.tgt_pltfrm:
 ms.topic: article
 ms.assetid: 6b0f72a4-70ca-4e55-b236-2ea1034fd8a7
 caps.latest.revision: 30
-ms.author: mlearned
+ms.author: douge
 manager: douge
 translation.priority.ht:
 - cs-cz
@@ -94,3 +94,4 @@ ms.lasthandoff: 02/22/2017
  [使用 UI 自动化来测试代码](../test/use-ui-automation-to-test-your-code.md)   
  [编码的 UI 测试的最佳做法](../test/best-practices-for-coded-ui-tests.md)   
  [支持编码的 UI 测试和操作录制的配置和平台](../test/supported-configurations-and-platforms-for-coded-ui-tests-and-action-recordings.md)
+

@@ -10,7 +10,7 @@ ms.tgt_pltfrm:
 ms.topic: article
 ms.assetid: 4f4b5f10-7314-4725-8c6e-e72f52eff918
 caps.latest.revision: 14
-ms.author: mlearned
+ms.author: douge
 manager: douge
 translation.priority.ht:
 - de-de
@@ -415,3 +415,4 @@ ms.lasthandoff: 03/07/2017
  [调试本机代码](../debugger/debugging-native-code.md)   
  [演练：创建和使用动态链接库 (C++)](http://msdn.microsoft.com/Library/3ae94848-44e7-4955-bbad-7d40f493e941)   
  [导入和导出](/visual-cpp/build/importing-and-exporting)
+

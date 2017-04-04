@@ -13,7 +13,7 @@ helpviewer_keywords:
 - team-based development
 ms.assetid: 73baa961-c21f-43fe-bb92-3f59ae9b5945
 caps.latest.revision: 39
-ms.author: mlearned
+ms.author: douge
 manager: douge
 translation.priority.ht:
 - cs-cz
@@ -70,3 +70,4 @@ ms.lasthandoff: 03/07/2017
   
  [使用 Visual Studio Online 或 Team Foundation Server 跟踪工作](https://www.visualstudio.com/docs/work/overview)  
  可以使用 [!INCLUDE[vstsTfsLong](../test/includes/vststfslong_md.md)] 规划并跟踪你的项目，不论你使用的是敏捷过程、正式过程还是这些过程的变化形式，都是如此。 通过规划项目、对照计划跟踪进度并作出必要的调整，可以降低风险、避免出现不好的意外事件以及控制项目的成本。
+

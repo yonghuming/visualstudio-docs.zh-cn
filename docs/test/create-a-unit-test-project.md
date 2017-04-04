@@ -1,18 +1,37 @@
 ---
-title: "创建单元测试项目 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-devops-test"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
+title: "创建单元测试项目 |Microsoft Docs"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-devops-test
+ms.tgt_pltfrm: 
+ms.topic: article
 ms.assetid: a608bfba-1a43-4a60-b73a-1fe53ef58098
 caps.latest.revision: 8
-ms.author: "mlearned"
-manager: "douge"
-caps.handback.revision: 8
+ms.author: douge
+manager: douge
+translation.priority.ht:
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- ru-ru
+- zh-cn
+- zh-tw
+translation.priority.mt:
+- cs-cz
+- pl-pl
+- pt-br
+- tr-tr
+translationtype: Human Translation
+ms.sourcegitcommit: 5db97d19b1b823388a465bba15d057b30ff0b3ce
+ms.openlocfilehash: 7cd8ed6aea56b5f59abbbf96709af3d42d2857c5
+ms.lasthandoff: 02/22/2017
+
 ---
 # <a name="create-a-unit-test-project"></a>创建单元测试项目
 单元测试往往反映被测代码的结构。 例如，系统会为项目中的每个代码项目创建一个单元测试项目。 测试项目可以与成品代码位于同一解决方案中，也可以位于单独的解决方案中。 解决方案中可以有多个单元测试项目。  
@@ -50,8 +69,4 @@ caps.handback.revision: 8
  **运行单元测试**  
   
  [使用测试资源管理器运行单元测试](../test/run-unit-tests-with-test-explorer.md)
-
-
-<!--HONumber=Feb17_HO4-->
-
 

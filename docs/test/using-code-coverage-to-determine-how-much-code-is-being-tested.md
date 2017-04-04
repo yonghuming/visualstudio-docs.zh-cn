@@ -12,7 +12,7 @@ helpviewer_keywords:
 - code coverage
 ms.assetid: 800fc739-acd2-4242-84cb-1d83b4d82cf9
 caps.latest.revision: 36
-ms.author: mlearned
+ms.author: douge
 manager: douge
 translation.priority.ht:
 - cs-cz
@@ -302,3 +302,4 @@ ExcludeSourceFromCodeCoverage(Exclusion4, L"*\\unittest1.cpp");
  [自定义代码覆盖率分析](../test/customizing-code-coverage-analysis.md)   
  [代码覆盖率疑难解答](../test/troubleshooting-code-coverage.md)   
  [单元测试代码](../test/unit-test-your-code.md)
+

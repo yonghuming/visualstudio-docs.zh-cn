@@ -10,7 +10,7 @@ ms.tgt_pltfrm:
 ms.topic: article
 ms.assetid: 51b53778-469c-4cc9-854c-4e4992d6389b
 caps.latest.revision: 30
-ms.author: mlearned
+ms.author: douge
 manager: douge
 translation.priority.ht:
 - de-de
@@ -166,3 +166,4 @@ uiGridKeyboardInputEdit.Text=value;
  [验证和调试 SharePoint 代码](/office-dev/office-dev/verifying-and-debugging-sharepoint-code)   
  [生成和调试 SharePoint 解决方案](/office-dev/office-dev/building-and-debugging-sharepoint-solutions)   
  [分析 SharePoint 应用程序的性能](/office-dev/office-dev/profiling-the-performance-of-sharepoint-applications)
+

@@ -10,7 +10,7 @@ ms.tgt_pltfrm:
 ms.topic: article
 ms.assetid: f7e9e4a2-5d01-4f78-b408-5be3892bd162
 caps.latest.revision: 25
-ms.author: mlearned
+ms.author: douge
 manager: douge
 translation.priority.ht:
 - de-de
@@ -30,6 +30,7 @@ translation.priority.mt:
 translationtype: Human Translation
 ms.sourcegitcommit: 5658ecf52637a38bc3c2a5ad9e85b2edebf7d445
 ms.openlocfilehash: 04c981d458912aaf3802e727369893759faab3a5
+ms.lasthandoff: 02/22/2017
 
 ---
 # <a name="configure-unit-tests-by-using-a-runsettings-file"></a>使用 .runsettings 文件配置单元测试
@@ -58,7 +59,7 @@ ms.openlocfilehash: 04c981d458912aaf3802e727369893759faab3a5
   
  ![启用运行设置文件](../test/media/runsettings-1.png "RunSettings-1")  
   
-##  <a name="a-nameexamplea-copy-this-example-runsettings-file"></a><a name="example"></a>复制此示例 .runsettings 文件  
+##  <a name="example"></a>复制此示例 .runsettings 文件  
  这是典型的 *.runsettings 文件。 文件的每个元素是可选的，因为每个值都有默认值。  
   
 ```xml  
@@ -180,8 +181,4 @@ ms.openlocfilehash: 04c981d458912aaf3802e727369893759faab3a5
 ## <a name="see-also"></a>另请参阅  
  [自定义代码覆盖率分析](../test/customizing-code-coverage-analysis.md)   
  [指定 Visual Studio 测试的测试设置](/devops-test-docs/test/specifying-test-settings-for-visual-studio-tests)
-
-
-<!--HONumber=Feb17_HO4-->
-
 

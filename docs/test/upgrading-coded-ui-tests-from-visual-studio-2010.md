@@ -10,7 +10,7 @@ ms.tgt_pltfrm:
 ms.topic: article
 ms.assetid: 11232a83-73ea-46bd-bc0c-46f74f6e3a42
 caps.latest.revision: 33
-ms.author: mlearned
+ms.author: douge
 manager: douge
 translation.priority.ht:
 - de-de
@@ -85,3 +85,4 @@ ms.lasthandoff: 03/03/2017
  [使用 UI 自动化来测试代码](../test/use-ui-automation-to-test-your-code.md)   
  [通过现有操作录制生成编码的 UI 测试](/devops-test-docs/test/generating-a-coded-ui-test-from-an-existing-action-recording)   
  [支持编码的 UI 测试和操作录制的配置和平台](../test/supported-configurations-and-platforms-for-coded-ui-tests-and-action-recordings.md)
+
