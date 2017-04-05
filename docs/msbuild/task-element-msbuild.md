@@ -86,7 +86,7 @@ ms.lasthandoff: 03/13/2017
  如果任务的父 `Target` 元素中存在任何 [OnError](../msbuild/onerror-element-msbuild.md) 元素，当任务失败且 `ContinueOnError` 具有值 `false` 时仍将对该元素评估。 有关任务的详细信息，请参阅[任务](../msbuild/msbuild-tasks.md)。  
 
 ## <a name="example"></a>示例  
- 下面的代码示例创建 [Csc 任务](../msbuild/csc-task.md)类的实例、设置其中&6; 个属性并执行任务。 执行任何后，对象的 `OutputAssembly` 属性的值将放入名为 `FinalAssemblyName` 的项列表中。  
+ 下面的代码示例创建 [Csc 任务](../msbuild/csc-task.md)类的实例、设置其中 6 个属性并执行任务。 执行任何后，对象的 `OutputAssembly` 属性的值将放入名为 `FinalAssemblyName` 的项列表中。  
 
 ```xml  
 <Target Name="Compile" DependsOnTarget="Resources" >  
