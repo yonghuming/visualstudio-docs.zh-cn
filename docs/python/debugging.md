@@ -29,9 +29,9 @@ translation.priority.ht:
 - zh-cn
 - zh-tw
 translationtype: Human Translation
-ms.sourcegitcommit: b0d84db6a16861fb9554af2a644423f906784748
-ms.openlocfilehash: 3ca6c45cd1f61dc4a4419ab01794e24c0c19d44a
-ms.lasthandoff: 03/07/2017
+ms.sourcegitcommit: e9a05d008f671fb79d6813a14c594b82f27697e3
+ms.openlocfilehash: b5d72a83092c2b97b30b7a8af539a0b1aca50418
+ms.lasthandoff: 03/27/2017
 
 ---
 
@@ -67,7 +67,7 @@ ms.lasthandoff: 03/07/2017
 
 基础调试工作流包括如以下各节中所述的设置断点、逐句通过代码、检查值以及处理异常。 有关 Visual Studio 调试器的完整详细信息，请参阅 [Visual Studio 中的调试](../debugger/debugging-in-visual-studio.md)。
 
-使用“调试”>“开始调试”命令、工具栏上的“开始”按钮或 F5 键启动调试会话。 这将使用项目的活动环境和任意命令行参数或项目属性中已指定的搜索路径（请参阅[项目调试选项](#project-debugging-options)）来启动项目的启动文件（在解决方案资源管理器中以粗体显示）。
+使用“调试”>“开始调试”命令、工具栏上的“开始”按钮或 F5 键启动调试会话。 这将使用项目的活动环境和任意命令行参数或项目属性中已指定的搜索路径（请参阅[项目调试选项](#project-debugging-options)）来启动项目的启动文件（在解决方案资源管理器中以粗体显示）。 如果出于某种原因而未设置启动文件，则会看到 Python 输出窗口短暂出现并消失。 在此情况下，请右键单击相应文件，然后选择“设为启动文件”。
 
 > [!Note]
 > 调试器始终通过项目的活动 Python 环境启动。 若要更改环境，请如 [Python 环境](python-environments.md)中所述，将其他环境更改为活动状态。

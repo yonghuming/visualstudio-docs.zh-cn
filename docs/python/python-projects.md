@@ -29,9 +29,9 @@ translation.priority.ht:
 - zh-cn
 - zh-tw
 translationtype: Human Translation
-ms.sourcegitcommit: 7d726441c2d6953bd7b50451bec7fff05d5d71b0
-ms.openlocfilehash: 8ae79f6b8e7eb87c0138b0152d8f9ce46eac9a69
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: e9a05d008f671fb79d6813a14c594b82f27697e3
+ms.openlocfilehash: fb8cb89d6d369a3e8460c2bcf1e65e88ba44b104
+ms.lasthandoff: 03/27/2017
 
 ---
 
@@ -71,7 +71,10 @@ Visual Studio 提供多种 Python 项目模板用于快速设置多个应用程�
 
 开发应用程序时，通常需要将不同类型的新文件添加到项目。 通过以下两种方式可以轻松完成此操作：右键单击项目并选择“添加”>“现有项...”，然后浏览到要添加文件；或选择“添加”>“新建项...”，随后将打开包含各种项模板的对话框，项模板包括空的 python 文件、python 类、单元测试，和与 Web 应用程序相关的各种文件。 建议使用测试项目研究这些选项以了解所用 Visual Studio 版本中可用的选项。
 
-每个 Python 项目有一个分配的启动文件，解决方案资源管理器中以粗体显示该文件。 启动调试（F5 或“调试”>“开始调试”）时，或在交互窗口中执行项目（Shift+Alt+F5 或“调试”>“在 Python 交互中执行项目”）时，将运行该文件。 若要更改，请右键单击新文件，然后选择“设为启动文件”。
+每个 Python 项目有一个分配的启动文件，解决方案资源管理器中以粗体显示该文件。 启动调试（F5 或“调试”>“开始调试”）时，或在交互窗口中运行项目（Shift+Alt+F5 或“调试”>“在 Python 交互中执行项目”）时，将运行该文件。 若要更改，请右键单击新文件，然后选择“设为启动文件”。
+
+> [!Tip]
+> 如果从项目中删除了所选启动文件而不选择新文件，则尝试运行项目会导致 Python 输出窗口显示后几乎立即消失。 如果遇到此行为，请检查你是否拥有分配的启动文件。 此外，若要在这种情况下使输出窗口保持打开状态，请选择“属性”，选择“调试”选项卡，然后将 `-i` 添加到**解释器参数**字段。 这会导致解释器在程序完成后进入交互模式，从而使窗口保持打开状态，直到按 Ctrl+Z, Enter 退出为止。
 
 新项目将始终与默认全局 Python 环境相关联。 若要将项目与其他环境（包括虚拟环境）相关联，请右键单击项目中的“Python 环境”节点，选择“添加/删除 Python 环境”，然后选择所需的环境。 若要更改活动的环境，请右键单击所需环境，并选择“激活环境”，如下所示。 有关详细信息，请参阅 [Python 环境](python-environments.md#project-specific-environments)。
 
@@ -97,6 +100,7 @@ Visual Studio 提供多种方法用于从零开始，或根据现有代码设置
 | IronPython Silverlight 网页 | 在使用 Silverlight 的浏览器中运行的 IronPython 项目。 应用程序的 Python 代码作为脚本包含在网页中。 样本脚本标记将拉取一些 JavaScript 代码，这些代码将初始化在 Silverlight 中运行的 IronPython，Python 代码以此可与 DOM 交互。 |
 | IronPython Windows 窗体应用程序 | 使用由 Windows 窗体代码创建的 IronPython withUI 的项目结构。 应用程序运行时不显示控制台。 |
 | 后台应用程序 (IoT) | 支持部署 Python 项目，将其作为设备上的后台服务运行。 有关详细信息，请访问[Windows IoT 开发人员中心](https://dev.windows.com/en-us/iot)。 |
+| Python 扩展模块 | 如果随 Visual Studio 2017 预览版中的 Python 工作负载一起安装了 **Python 本机开发工具**，则此模板会显示在 Visual C++ 下（请参阅[安装](installation.md)）。 它为 C++ 扩展 DLL 提供核心结构，类似于[创建适用于 Python 的 C++ 扩展](cpp-and-python.md)中所述内容。 |
 
 <a name="create-project-from-existing-files"</a>
 ### <a name="creating-a-project-from-existing-files"></a>根据现有文件创建项目

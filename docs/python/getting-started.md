@@ -28,9 +28,9 @@ translation.priority.ht:
 - zh-cn
 - zh-tw
 translationtype: Human Translation
-ms.sourcegitcommit: 7d726441c2d6953bd7b50451bec7fff05d5d71b0
-ms.openlocfilehash: 0b87d25195b8e288252e6c53279897d1edff93bd
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: e9a05d008f671fb79d6813a14c594b82f27697e3
+ms.openlocfilehash: 2659c1a3b1adfc3f462971205460942c5fe5171f
+ms.lasthandoff: 03/27/2017
 
 ---
 
@@ -230,6 +230,8 @@ Visual Studio 中的 Python 支持包括大量的[项目模板](python-projects.
     > if __name__ == "__main__":  
     >     sys.exit(int(main() or 0))      
     > ```
+    > 
+    > 或者，如果曾遇到输出窗口意外自动关闭的情况，请右键单击项目，选择“属性”，选择“调试”选项卡，然后将 `-i` 添加到**解释器参数**字段。 这会导致解释器在程序完成后进入交互模式，从而使窗口保持打开状态，直到按 Ctrl+Z, Enter 退出为止。
 
 1. 要在 `main` 函数的第一行上设置断点，可通过单击该行左侧的灰色边距，或将插入符号置于该行并使用“调试”>“切换断点”*命令 (F9) 实现。 将在灰色边距中显示一个红点来表示该断点（如以下蓝色箭头标记所示）：
 

@@ -29,9 +29,9 @@ translation.priority.ht:
 - zh-cn
 - zh-tw
 translationtype: Human Translation
-ms.sourcegitcommit: 7d726441c2d6953bd7b50451bec7fff05d5d71b0
-ms.openlocfilehash: dbedb933ce3cabf000e7487fcf03133db3a326b4
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: e9a05d008f671fb79d6813a14c594b82f27697e3
+ms.openlocfilehash: e0a51155a42fb51244114da86a292381a7a28a21
+ms.lasthandoff: 03/27/2017
 
 ---
 
@@ -52,13 +52,13 @@ ms.lasthandoff: 03/10/2017
 
 ## <a name="visual-studio-2017"></a>Visual Studio 2017
 
-1. 安装 [Visual Studio 2017 预览版](https://www.visualstudio.com/vs/preview)。 目前这是安装针对 Visual Studio 2017 的 Python 工作负载的唯一方法。
+1. [从 https://www.visualstudio.com/vs/preview 安装“Visual Studio 2017 预览版”](https://www.visualstudio.com/vs/preview)。 **注意：**此预览版通道与 Visual Studio 2017 的已发布版本不同，并且包含将来 Visual Studio 2017 更新的正在开发中的功能，其中包括 Python 支持。
 
 1. 在预览版安装程序中，选择“Web 和云”>“Python 开发”工作负载：
 
     ![Visual Studio 安装程序中的 Python 开发工作负载](media/installation-python-workload.png)
 
-1. 在安装程序的右侧，选择 Python 解释器和想要包括其他相关工具。
+1. 在安装程序的右侧，选择 Python 解释器和想要包括其他相关工具。 例如，如果计划开发适用于 Python 的 C++ 扩展，请包括“Python 本机开发工具”选项。
 
     ![Visual Studio 安装程序中的 Python 开发选项](media/installation-python-options.png)
 

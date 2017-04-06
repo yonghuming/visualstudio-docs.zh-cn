@@ -28,9 +28,9 @@ translation.priority.ht:
 - zh-cn
 - zh-tw
 translationtype: Human Translation
-ms.sourcegitcommit: 79460291e91f0659df0a4241e17616e55187a0e2
-ms.openlocfilehash: ac979e7287046164db37848778f648656f7230a6
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: ce1142acf4acb0e44e85b7e9ab313136d7ed7727
+ms.openlocfilehash: 0ef80ff90b0182405f72f9413de13b699aed971d
+ms.lasthandoff: 03/28/2017
 
 ---
 # <a name="how-to-configure-targets-and-tasks"></a>如何；配置目标和任务
@@ -113,17 +113,18 @@ ms.lasthandoff: 02/22/2017
       <SimpleTask MSBuildRuntime="$(FrameworkVerion)" MSBuildArchitecture= "x86"/>  
    </Target>  
 </Project>  
-```xml  
+```  
   
- Unlike other task parameters, `MSBuildRuntime` and `MSBuildArchitecture` are not apparent to the task itself.  To write a task that is aware of the context in which it runs, you must either test the context by calling the .NET Framework, or use build properties to pass the context information through other task parameters.  
-  
-> [!NOTE]
->  `UsingTask` attributes can be set from toolset and environment properties.  
-  
- The `MSBuildRuntime` and `MSBuildArchitecture` parameters provide the most flexible way to set the target context, but also the most limited in scope.  On the one hand, because they are set on the task instance itself and are not evaluated until the task is about to run, they can derive their value from the full scope of properties available at both evaluation-time and build-time.  On the other hand, these parameters only apply to a particular instance of a task in a particular target.  
+ 与其他任务参数不同，`MSBuildRuntime` 和 `MSBuildArchitecture` 并不对任务本身显示。  若要编写可识别其运行的上下文的任务，必须通过调用 .NET Framework 来测试上下文，或使用生成属性通过其他任务参数来传递上下文信息。  
   
 > [!NOTE]
->  Task parameters are evaluated in the context of the parent node, not in the context of the task host.Environment variables that are runtime- or architecture- dependent (such as the Program files location) will evaluate to the value that matches the parent node.  However, if the same environment variable is read directly by the task, it will correctly be evaluated in the context of the task host.  
+> 可通过工具集和环境属性设置  `UsingTask` 特性。  
   
-## See Also  
- [Configuring Targets and Tasks](../msbuild/configuring-targets-and-tasks.md)
+ `MSBuildRuntime` 和 `MSBuildArchitecture` 参数提供设置目标上下文的最灵活方式，但其范围也最受限制。  一方面，因为这些参数是在任务实例本身上设置的，并在任务运行之前不会进行计算，因此可从计算时和生成时都可用的全部属性范围中派生其值。  另一方面，这些参数仅适用于特定目标中任务的特定实例。  
+  
+> [!NOTE]
+>  任务参数在父节点的上下文中，而不是任务主机的上下文中进行计算；运行时相关或体系结构相关的环境变量（例如程序文件位置）将计算为与该父节点匹配的值。  但是，如果同一个环境变量直接由任务读取，则它会在任务主机的上下文中正确计算。  
+  
+## <a name="see-also"></a>另请参阅  
+ [配置目标和任务](../msbuild/configuring-targets-and-tasks.md)
+

@@ -29,15 +29,15 @@ translation.priority.ht:
 - zh-cn
 - zh-tw
 translationtype: Human Translation
-ms.sourcegitcommit: 7d726441c2d6953bd7b50451bec7fff05d5d71b0
-ms.openlocfilehash: 1e1f72619618d252c43537093b9ebd30eee715ab
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: e9a05d008f671fb79d6813a14c594b82f27697e3
+ms.openlocfilehash: ddbac5b8ed52e6ed7afae7e7b04dc2fa15f7a0c2
+ms.lasthandoff: 03/27/2017
 
 ---
 
 # <a name="debugging-python-and-c-together"></a>一起调试 Python 和 C++
 
-最常规的 Python 调试器，包括版本 2.0 之前的针对 Visual Studio 的 Python 工具 (PTVS)，仅支持 Python 代码调试。 但是，实际上，Python 结合 C 或 C++ 一起使用，需要高性能或能够直接调用平台 API。 PTVS 2.0 及更高版本（在任何 Visual Studio 版本中）具有合并调用堆栈、能够在在 Python 和本机代码之间进行单步执行、在任一类型的代码中产生断点以及能够查看本机帧中对象的 Python 表示形式（反之亦然），为 Python 和本机 (C/C++) 提供集成的同时混合模式调试：
+大多数常规 Python 调试器支持仅调试 Python 代码。 但实际上，Python 结合 C 或 C++ 一起使用时需要高性能或能够直接调用平台 API（请参阅[创建适用于 Python 的 C++ 扩展](cpp-and-python.md)以查看示例）。 Visual Studio（使用针对 Visual Studio 2.0 及更高版本的 Python 工具时）具有合并调用堆栈、能够在在 Python 和本机代码之间进行单步执行、在任一类型的代码中产生断点以及能够查看本机帧中对象的 Python 表示形式（反之亦然），为 Python 和本机 C/C++ 提供集成的同时混合模式调试：
 
 ![混合模式调试](media/mixed-mode-debugging.png) 
 
@@ -51,6 +51,9 @@ ms.lasthandoff: 03/10/2017
 
     ![启用本机代码调试](media/mixed-mode-debugging-enable-native.png)
 
+    > [!Tip]    
+    > 启用本机代码调试后，Python 输出窗口可能在程序完成后立即消失，而不出现通常的“按任何键以继续...”暂停界面。 若要强制暂停，请在启用本机代码调试后，向“调试”选项卡上的“运行”>“解释器参数”字段添加 `-i` 选项。 这会在代码完成后将 Python 解释器置于交互模式，此时它将等待你按 Ctrl+Z, Enter 以退出。
+
 1. 将混合模式调试器附加到现有进程（“调试”>“附加到进程...”）时，选择“选择...”按钮以打开“选择代码类型”对话框，设置“调试这些代码类型”选项，然后在列表中选择**本机** 和 **Python**：
 
     ![选择本机和 Python 代码类型](media/mixed-mode-debugging-code-type.png)
@@ -59,8 +62,9 @@ ms.lasthandoff: 03/10/2017
 
     除**本机**代码类型还可以选择其他代码类型，或者不选择本机代码类型。 例如，如果托管应用程序承载 CPython，后者又使用本机扩展模块，并且你想要调试所有三种类型，则可以一起勾选“Python”、“本机”和“托管”，以获得统一调试体验，其中包括合并调用堆栈以及在所有三个运行时之间进行单步执行。
 
-1. 首次在混合模式下开始调试时，你可能会看到“需要 Python 符号”对话框。 有关详细信息，请参阅[混合模式调试的符号](debugging-symbols-for-mixed-mode.md)。 你只需为任何给定的 Python 环境安装一次符号。
+1. 首次在混合模式下开始调试时，可能会看到“需要 Python 符号”对话框。 有关详细信息，请参阅[混合模式调试的符号](debugging-symbols-for-mixed-mode.md)。 你只需为任何给定的 Python 环境安装一次符号。 请注意，如果通过 Visual Studio 2017 安装程序安装 Python 支持，则符号会自动包括在其中。
 
+1. 可能还需其自身具备现成的 Python 源代码。 对于标准 Python，可从 [https://www.python.org/downloads/source/](https://www.python.org/downloads/source/) 获取。 下载适合版本的存档，并将其提取到文件夹中。 无论系统何时发出提示，都需将 Visual Studio 指向该文件夹中的特定文件。
 
 ## <a name="mixed-mode-specific-features"></a>混合模式特定功能
 

@@ -97,6 +97,7 @@
 ## [远程调试 IIS 计算机上的 ASP.NET](remote-debugging-aspnet-on-a-remote-iis-7-5-computer.md)
 ## [远程调试 C# 项目](remote-debugging-csharp.md)
 ## [远程调试 C++ 项目](remote-debugging-cpp.md)
+## [远程调试 Azure 上的 ASP.NET](remote-debugging-azure.md)
 ## [配置 Windows 防火墙以便进行远程调试](configure-the-windows-firewall-for-remote-debugging.md)
 ## [远程调试器端口分配](remote-debugger-port-assignments.md)
 ## [远程调试错误和疑难解答](remote-debugging-errors-and-troubleshooting.md)
