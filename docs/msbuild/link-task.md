@@ -1,44 +1,62 @@
 ---
 title: "Link 任务 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "VC.Project.VCLinkerTool.ForceFileOutput"
-  - "VC.Project.VCLinkerTool.LinkStatus"
-  - "VC.Project.VCLinkerTool.CLRUnmanagedCodeCheck"
-  - "VC.Project.VCLinkerTool.SpecifySectionAttributes"
-  - "VC.Project.VCLinkerTool.SupportNobindOfDelayLoadedDLL"
-  - "VC.Project.VCLinkerTool.MinimumRequiredVersion"
-  - "VC.Project.VCLinkerTool.PerUserRedirection"
-  - "VC.Project.VCLinkerTool.CreateHotPatchableImage"
-  - "VC.Project.VCLinkerTool.DataExecutionPrevention"
-  - "VC.Project.VCLinkerTool.TreatLinkerWarningsAsErrors"
-  - "vc.task.link"
-  - "VC.Project.VCLinkerTool.ImageHasSafeExceptionHandlers"
-  - "VC.Project.VCLinkerTool.CLRSupportLastError"
-dev_langs: 
-  - "VB"
-  - "CSharp"
-  - "C++"
-  - "jsharp"
-helpviewer_keywords: 
-  - "MSBuild （Visual c + +），将任务链接"
-  - "Link 任务 (MSBuild (Visual C++))"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords:
+- VC.Project.VCLinkerTool.ForceFileOutput
+- VC.Project.VCLinkerTool.LinkStatus
+- VC.Project.VCLinkerTool.CLRUnmanagedCodeCheck
+- VC.Project.VCLinkerTool.SpecifySectionAttributes
+- VC.Project.VCLinkerTool.SupportNobindOfDelayLoadedDLL
+- VC.Project.VCLinkerTool.MinimumRequiredVersion
+- VC.Project.VCLinkerTool.PerUserRedirection
+- VC.Project.VCLinkerTool.CreateHotPatchableImage
+- VC.Project.VCLinkerTool.DataExecutionPrevention
+- VC.Project.VCLinkerTool.TreatLinkerWarningsAsErrors
+- vc.task.link
+- VC.Project.VCLinkerTool.ImageHasSafeExceptionHandlers
+- VC.Project.VCLinkerTool.CLRSupportLastError
+dev_langs:
+- VB
+- CSharp
+- C++
+- jsharp
+helpviewer_keywords:
+- MSBuild (Visual C++), Link task
+- Link task (MSBuild (Visual C++))
 ms.assetid: 0a61f168-3113-4fa7-83a3-d9142e2a33f8
 caps.latest.revision: 12
-author: "kempb"
-ms.author: "kempb"
-manager: "ghogen"
-caps.handback.revision: 12
+author: kempb
+ms.author: kempb
+manager: ghogen
+translation.priority.ht:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+translationtype: Human Translation
+ms.sourcegitcommit: ca7c86466fa23fb21a932f26dc24e37c71cf29b4
+ms.openlocfilehash: a062b0a929ce812f19bcc6c89594b8f3b2e93b6f
+ms.lasthandoff: 04/05/2017
+
 ---
 # <a name="link-task"></a>Link 任务
-包装 Visual C++ 链接器工具 link.exe。 链接器工具将通用对象文件格式 (COFF) 对象文件和库链接起来，以创建可执行 (.exe) 文件或动态链接库 (DLL)。 有关详细信息，请参阅[链接器选项](/visual-cpp/build/reference/linker-options)。  
+包装 Visual C++ 链接器工具 link.exe。 链接器工具将通用对象文件格式 (COFF) 对象文件和库链接起来，以创建可执行 (.exe) 文件或动态链接库 (DLL)。 有关详细信息，请参阅[链接器选项](/cpp/build/reference/linker-options)。  
   
 ## <a name="parameters"></a>参数  
  下表描述了 **Link** 任务的参数。 大多数任务参数和若干组参数都对应于命令行选项。  
@@ -49,7 +67,7 @@ caps.handback.revision: 12
   
      指定要添加到命令的输入文件的列表。  
   
-     有关详细信息，请参阅 [LINK 输入文件](/visual-cpp/build/reference/link-input-files)。  
+     有关详细信息，请参阅 [LINK 输入文件](/cpp/build/reference/link-input-files)。  
   
 -   **AdditionalLibraryDirectories**  
   
@@ -57,7 +75,7 @@ caps.handback.revision: 12
   
      重写环境库路径。 指定目录名。  
   
-     有关详细信息，请参阅 [/LIBPATH（附加的 Libpath）](/visual-cpp/build/reference/libpath-additional-libpath)。  
+     有关详细信息，请参阅 [/LIBPATH（附加的 Libpath）](/cpp/build/reference/libpath-additional-libpath)。  
   
 -   **AdditionalManifestDependencies**  
   
@@ -65,7 +83,7 @@ caps.handback.revision: 12
   
      指定将放入清单文件的 `dependency` 节的属性。  
   
-     有关详细信息，请参阅 [/MANIFESTDEPENDENCY（指定清单依赖项）](/visual-cpp/build/reference/manifestdependency-specify-manifest-dependencies)。 另请参阅 [MSDN](http://go.microsoft.com/fwlink/?LinkId=737) 网站上的“发布服务器配置文件”。  
+     有关详细信息，请参阅 [/MANIFESTDEPENDENCY（指定清单依赖项）](/cpp/build/reference/manifestdependency-specify-manifest-dependencies)。 另请参阅 [MSDN](http://go.microsoft.com/fwlink/?LinkId=737) 网站上的“发布服务器配置文件”。  
   
 -   **AdditionalOptions**  
   
@@ -73,7 +91,7 @@ caps.handback.revision: 12
   
      在命令行上指定的链接器选项列表。 例如，**"***/option1 /option2 /option#*"。 使用此参数可指定未由任何其他 **Link** 任务参数表示的链接器选项。  
   
-     有关详细信息，请参阅[链接器选项](/visual-cpp/build/reference/linker-options)。  
+     有关详细信息，请参阅[链接器选项](/cpp/build/reference/linker-options)。  
   
 -   **AddModuleNamesToAssembly**  
   
@@ -81,7 +99,7 @@ caps.handback.revision: 12
   
      向程序集添加模块引用。  
   
-     有关详细信息，请参阅 [/ASSEMBLYMODULE（向程序集添加 MSIL 模块）](/visual-cpp/build/reference/assemblymodule-add-a-msil-module-to-the-assembly)。  
+     有关详细信息，请参阅 [/ASSEMBLYMODULE（向程序集添加 MSIL 模块）](/cpp/build/reference/assemblymodule-add-a-msil-module-to-the-assembly)。  
   
 -   **AllowIsolation**  
   
@@ -89,7 +107,7 @@ caps.handback.revision: 12
   
      如果为 `true`，则将导致操作系统进行清单查找和加载。 如果为 `false`，则指示将加载 DLL，仿佛没有清单一样。  
   
-     有关详细信息，请参阅 [/ALLOWISOLATION（清单查找）](/visual-cpp/build/reference/allowisolation-manifest-lookup)。  
+     有关详细信息，请参阅 [/ALLOWISOLATION（清单查找）](/cpp/build/reference/allowisolation-manifest-lookup)。  
   
 -   **AssemblyDebug**  
   
@@ -97,7 +115,7 @@ caps.handback.revision: 12
   
      如果为 `true`，则发出 **DebuggableAttribute** 属性以及调试信息跟踪，并禁用 JIT 优化。 如果为 `false`，则发出 **DebuggableAttribute** 属性，但禁用调试信息跟踪，启用 JIT 优化。  
   
-     有关详细信息，请参阅 [/ASSEMBLYDEBUG（添加 DebuggableAttribute）](/visual-cpp/build/reference/assemblydebug-add-debuggableattribute)。  
+     有关详细信息，请参阅 [/ASSEMBLYDEBUG（添加 DebuggableAttribute）](/cpp/build/reference/assemblydebug-add-debuggableattribute)。  
   
 -   **AssemblyLinkResource**  
   
@@ -105,7 +123,7 @@ caps.handback.revision: 12
   
      创建指向输出文件中的 .NET Framework 资源的链接；资源文件不会放入输出文件中。 指定资源的名称。  
   
-     有关详细信息，请参阅 [/ASSEMBLYLINKRESOURCE（链接到 .NET Framework 资源）](/visual-cpp/build/reference/assemblylinkresource-link-to-dotnet-framework-resource)。  
+     有关详细信息，请参阅 [/ASSEMBLYLINKRESOURCE（链接到 .NET Framework 资源）](/cpp/build/reference/assemblylinkresource-link-to-dotnet-framework-resource)。  
   
 -   **AttributeFileTracking**  
   
@@ -119,7 +137,7 @@ caps.handback.revision: 12
   
      为正在生成的程序或 DLL 设置基址。 指定 `{address[,size] | @filename,key}`。  
   
-     有关详细信息，请参阅 [/BASE（基址）](/visual-cpp/build/reference/base-base-address)。  
+     有关详细信息，请参阅 [/BASE（基址）](/cpp/build/reference/base-base-address)。  
   
 -   **BuildingInIDE**  
   
@@ -145,7 +163,7 @@ caps.handback.revision: 12
   
     -   **ForceSafeILImage** - **/CLRIMAGETYPE:SAFE**  
   
-     有关详细信息，请参阅 [/CLRIMAGETYPE（指定 CLR 映像的类型）](/visual-cpp/build/reference/clrimagetype-specify-type-of-clr-image)。  
+     有关详细信息，请参阅 [/CLRIMAGETYPE（指定 CLR 映像的类型）](/cpp/build/reference/clrimagetype-specify-type-of-clr-image)。  
   
 -   **CLRSupportLastError**  
   
@@ -161,7 +179,7 @@ caps.handback.revision: 12
   
     -   **SystemDlls** - **/CLRSupportLastError:SYSTEMDLL**  
   
-     有关详细信息，请参阅 [/CLRSUPPORTLASTERROR（为 PInvoke 调用保留上次的错误代码）](/visual-cpp/build/reference/clrsupportlasterror-preserve-last-error-code-for-pinvoke-calls)。  
+     有关详细信息，请参阅 [/CLRSUPPORTLASTERROR（为 PInvoke 调用保留上次的错误代码）](/cpp/build/reference/clrsupportlasterror-preserve-last-error-code-for-pinvoke-calls)。  
   
 -   **CLRThreadAttribute**  
   
@@ -177,7 +195,7 @@ caps.handback.revision: 12
   
     -   **STAThreadingAttribute** - **/CLRTHREADATTRIBUTE:STA**  
   
-     有关详细信息，请参阅 [/CLRTHREADATTRIBUTE（设置 CLR 线程特性）](/visual-cpp/build/reference/clrthreadattribute-set-clr-thread-attribute)。  
+     有关详细信息，请参阅 [/CLRTHREADATTRIBUTE（设置 CLR 线程特性）](/cpp/build/reference/clrthreadattribute-set-clr-thread-attribute)。  
   
 -   **CLRUnmanagedCodeCheck**  
   
@@ -185,7 +203,7 @@ caps.handback.revision: 12
   
      指定链接器是否将 **SuppressUnmanagedCodeSecurityAttribute** 应用到链接器生成的从托管代码到本机 DLL 的 P/Invoke 调用。  
   
-     有关详细信息，请参阅 [/CLRUNMANAGEDCODECHECK（添加 SupressUnmanagedCodeSecurityAttribute）](/visual-cpp/build/reference/clrunmanagedcodecheck-add-supressunmanagedcodesecurityattribute)。  
+     有关详细信息，请参阅 [/CLRUNMANAGEDCODECHECK（添加 SupressUnmanagedCodeSecurityAttribute）](/cpp/build/reference/clrunmanagedcodecheck-add-supressunmanagedcodesecurityattribute)。  
   
 -   **CreateHotPatchableImage**  
   
@@ -203,7 +221,7 @@ caps.handback.revision: 12
   
     -   **ItaniumImage** - **/FUNCTIONPADMIN:16**  
   
-     有关详细信息，请参阅 [/FUNCTIONPADMIN（创建可热修补的映像）](/visual-cpp/build/reference/functionpadmin-create-hotpatchable-image)。  
+     有关详细信息，请参阅 [/FUNCTIONPADMIN（创建可热修补的映像）](/cpp/build/reference/functionpadmin-create-hotpatchable-image)。  
   
 -   **DataExecutionPrevention**  
   
@@ -211,7 +229,7 @@ caps.handback.revision: 12
   
      如果为 `true`，则指示可执行文件已经就是否与 Windows 数据执行保护功能兼容进行了测试。  
   
-     有关详细信息，请参阅 [/NXCOMPAT（与数据执行保护兼容）](/visual-cpp/build/reference/nxcompat-compatible-with-data-execution-prevention)。  
+     有关详细信息，请参阅 [/NXCOMPAT（与数据执行保护兼容）](/cpp/build/reference/nxcompat-compatible-with-data-execution-prevention)。  
   
 -   **DelayLoadDLLs**  
   
@@ -219,7 +237,7 @@ caps.handback.revision: 12
   
      此参数导致 DLL *延迟加载*。 指定要延迟加载的 DLL 的名称。  
   
-     有关详细信息，请参阅 [/DELAYLOAD（延迟加载导入）](/visual-cpp/build/reference/delayload-delay-load-import)。  
+     有关详细信息，请参阅 [/DELAYLOAD（延迟加载导入）](/cpp/build/reference/delayload-delay-load-import)。  
   
 -   **DelaySign**  
   
@@ -227,7 +245,7 @@ caps.handback.revision: 12
   
      如果为 `true`，则对程序集进行部分签名。 默认情况下，该值为 `false`。  
   
-     有关详细信息，请参阅 [/DELAYSIGN（对程序集进行部分签名）](/visual-cpp/build/reference/delaysign-partially-sign-an-assembly)。  
+     有关详细信息，请参阅 [/DELAYSIGN（对程序集进行部分签名）](/cpp/build/reference/delaysign-partially-sign-an-assembly)。  
   
 -   **Driver**  
   
@@ -245,7 +263,7 @@ caps.handback.revision: 12
   
     -   **WDM** - **/DRIVER:WDM**  
   
-     有关详细信息，请参阅 [/DRIVER（Windows NT 内核模式驱动程序）](/visual-cpp/build/reference/driver-windows-nt-kernel-mode-driver)。  
+     有关详细信息，请参阅 [/DRIVER（Windows NT 内核模式驱动程序）](/cpp/build/reference/driver-windows-nt-kernel-mode-driver)。  
   
 -   **EmbedManagedResourceFile**  
   
@@ -253,7 +271,7 @@ caps.handback.revision: 12
   
      将资源文件嵌入程序集。 指定所需的资源文件名。 （可选）指定用于加载资源的逻辑名称，和指示在程序集清单中该资源文件为私有的 **PRIVATE** 选项。  
   
-     有关详细信息，请参阅 [/ASSEMBLYRESOURCE（嵌入托管资源）](/visual-cpp/build/reference/assemblyresource-embed-a-managed-resource)。  
+     有关详细信息，请参阅 [/ASSEMBLYRESOURCE（嵌入托管资源）](/cpp/build/reference/assemblyresource-embed-a-managed-resource)。  
   
 -   **EnableCOMDATFolding**  
   
@@ -261,7 +279,7 @@ caps.handback.revision: 12
   
      如果为 `true`，则启用相同的 COMDAT 折叠。  
   
-     有关详细信息，请参阅 [/OPT（优化）](/visual-cpp/build/reference/opt-optimizations)的 `ICF[= iterations]` 参数。  
+     有关详细信息，请参阅 [/OPT（优化）](/cpp/build/reference/opt-optimizations)的 `ICF[= iterations]` 参数。  
   
 -   **EnableUAC**  
   
@@ -269,7 +287,7 @@ caps.handback.revision: 12
   
      如果为 `true`，则指定将用户帐户控制 (UAC) 信息嵌入到程序清单中。  
   
-     有关详细信息，请参阅 [/MANIFESTUAC（将 UAC 信息嵌入到清单中）](/visual-cpp/build/reference/manifestuac-embeds-uac-information-in-manifest)。  
+     有关详细信息，请参阅 [/MANIFESTUAC（将 UAC 信息嵌入到清单中）](/cpp/build/reference/manifestuac-embeds-uac-information-in-manifest)。  
   
 -   **EntryPointSymbol**  
   
@@ -277,7 +295,7 @@ caps.handback.revision: 12
   
      将某个入口点函数指定为 .exe 文件或 DLL 的起始地址。 将函数名称指定为参数值。  
   
-     有关详细信息，请参阅 [/ENTRY（入口点符号）](/visual-cpp/build/reference/entry-entry-point-symbol)。  
+     有关详细信息，请参阅 [/ENTRY（入口点符号）](/cpp/build/reference/entry-entry-point-symbol)。  
   
 -   **FixedBaseAddress**  
   
@@ -285,7 +303,7 @@ caps.handback.revision: 12
   
      如果为 `true`，则创建只能在其首选基址加载的程序或 DLL。  
   
-     有关详细信息，请参阅 [/FIXED（固定基址）](/visual-cpp/build/reference/fixed-fixed-base-address)。  
+     有关详细信息，请参阅 [/FIXED（固定基址）](/cpp/build/reference/fixed-fixed-base-address)。  
   
 -   **ForceFileOutput**  
   
@@ -301,7 +319,7 @@ caps.handback.revision: 12
   
     -   **UndefinedSymbolOnly** - **/FORCE:UNRESOLVED**  
   
-     有关详细信息，请参阅 [/FORCE（强制文件输出）](/visual-cpp/build/reference/force-force-file-output)。  
+     有关详细信息，请参阅 [/FORCE（强制文件输出）](/cpp/build/reference/force-force-file-output)。  
   
 -   **ForceSymbolReferences**  
   
@@ -309,7 +327,7 @@ caps.handback.revision: 12
   
      此参数告知链接器将指定的符号添加到符号表中。  
   
-     有关详细信息，请参阅 [/INCLUDE（强制符号引用）](/visual-cpp/build/reference/include-force-symbol-references)。  
+     有关详细信息，请参阅 [/INCLUDE（强制符号引用）](/cpp/build/reference/include-force-symbol-references)。  
   
 -   **FunctionOrder**  
   
@@ -317,7 +335,7 @@ caps.handback.revision: 12
   
      此参数通过将指定的已打包函数 (COMDATs) 按预定顺序放置到映像中，来优化程序。  
   
-     有关详细信息，请参阅 [/ORDER（按顺序放置函数）](/visual-cpp/build/reference/order-put-functions-in-order)。  
+     有关详细信息，请参阅 [/ORDER（按顺序放置函数）](/cpp/build/reference/order-put-functions-in-order)。  
   
 -   **GenerateDebugInformation**  
   
@@ -325,7 +343,7 @@ caps.handback.revision: 12
   
      如果为 `true`，则为 .exe 文件或 DLL 创建调试信息。  
   
-     有关详细信息，请参阅 [/DEBUG（生成调试信息）](/visual-cpp/build/reference/debug-generate-debug-info)。  
+     有关详细信息，请参阅 [/DEBUG（生成调试信息）](/cpp/build/reference/debug-generate-debug-info)。  
   
 -   **GenerateManifest**  
   
@@ -333,7 +351,7 @@ caps.handback.revision: 12
   
      如果为 `true`，则创建并行清单文件。  
   
-     有关详细信息，请参阅 [/MANIFEST（创建并行程序集清单）](/visual-cpp/build/reference/manifest-create-side-by-side-assembly-manifest)。  
+     有关详细信息，请参阅 [/MANIFEST（创建并行程序集清单）](/cpp/build/reference/manifest-create-side-by-side-assembly-manifest)。  
   
 -   **GenerateMapFile**  
   
@@ -341,7 +359,7 @@ caps.handback.revision: 12
   
      如果为 `true`，则创建*映射文件*。 映射文件的文件扩展名为 .map。  
   
-     有关详细信息，请参阅 [/MAP（生成映射文件）](/visual-cpp/build/reference/map-generate-mapfile)。  
+     有关详细信息，请参阅 [/MAP（生成映射文件）](/cpp/build/reference/map-generate-mapfile)。  
   
 -   **HeapCommitSize**  
   
@@ -349,7 +367,7 @@ caps.handback.revision: 12
   
      指定在堆上一次性分配的物理内存量。  
   
-     有关详细信息，请参阅 [/HEAP（设置堆大小）](/visual-cpp/build/reference/heap-set-heap-size)中的 `commit` 参数。 另请参阅 **HeapReserveSize** 参数。  
+     有关详细信息，请参阅 [/HEAP（设置堆大小）](/cpp/build/reference/heap-set-heap-size)中的 `commit` 参数。 另请参阅 **HeapReserveSize** 参数。  
   
 -   **HeapReserveSize**  
   
@@ -357,7 +375,7 @@ caps.handback.revision: 12
   
      指定虚拟内存中的堆分配总量。  
   
-     有关详细信息，请参阅 [/HEAP（设置堆大小）](/visual-cpp/build/reference/heap-set-heap-size)中的 `reserve` 参数。 另请参阅此表格中的 **HeapCommitSize** 参数。  
+     有关详细信息，请参阅 [/HEAP（设置堆大小）](/cpp/build/reference/heap-set-heap-size)中的 `reserve` 参数。 另请参阅此表格中的 **HeapCommitSize** 参数。  
   
 -   **IgnoreAllDefaultLibraries**  
   
@@ -365,7 +383,7 @@ caps.handback.revision: 12
   
      如果为 `true`，则告知链接器从其在解析外部引用时搜索的库列表中移除一个或多个默认库。  
   
-     有关详细信息，请参阅 [/NODEFAULTLIB（忽略库）](/visual-cpp/build/reference/nodefaultlib-ignore-libraries)。  
+     有关详细信息，请参阅 [/NODEFAULTLIB（忽略库）](/cpp/build/reference/nodefaultlib-ignore-libraries)。  
   
 -   **IgnoreEmbeddedIDL**  
   
@@ -373,7 +391,7 @@ caps.handback.revision: 12
   
      如果为 `true`，则指定不应将源代码中的任何 IDL 属性处理到 .idl 文件中。  
   
-     有关详细信息，请参阅 [/IGNOREIDL（不将属性处理到 MIDL 中）](/visual-cpp/build/reference/ignoreidl-don-t-process-attributes-into-midl)。  
+     有关详细信息，请参阅 [/IGNOREIDL（不将属性处理到 MIDL 中）](/cpp/build/reference/ignoreidl-don-t-process-attributes-into-midl)。  
   
 -   **IgnoreImportLibrary**  
   
@@ -389,7 +407,7 @@ caps.handback.revision: 12
   
      指定一个或多个要忽略的默认库的名称。 使用分号分隔多个库。  
   
-     有关详细信息，请参阅 [/NODEFAULTLIB（忽略库）](/visual-cpp/build/reference/nodefaultlib-ignore-libraries)。  
+     有关详细信息，请参阅 [/NODEFAULTLIB（忽略库）](/cpp/build/reference/nodefaultlib-ignore-libraries)。  
   
 -   **ImageHasSafeExceptionHandlers**  
   
@@ -397,13 +415,13 @@ caps.handback.revision: 12
   
      如果为 `true`，则仅当链接器还可以生成映像安全异常处理程序的表时，才生成映像。  
   
-     有关详细信息，请参阅 [/SAFESEH（映像具有安全异常处理程序）](/visual-cpp/build/reference/safeseh-image-has-safe-exception-handlers)。  
+     有关详细信息，请参阅 [/SAFESEH（映像具有安全异常处理程序）](/cpp/build/reference/safeseh-image-has-safe-exception-handlers)。  
   
 -   **ImportLibrary**  
   
      替换默认库名称的用户指定的导入库名称。  
   
-     有关详细信息，请参阅 [/IMPLIB（命名导入库）](/visual-cpp/build/reference/implib-name-import-library)。  
+     有关详细信息，请参阅 [/IMPLIB（命名导入库）](/cpp/build/reference/implib-name-import-library)。  
   
 -   **KeyContainer**  
   
@@ -411,7 +429,7 @@ caps.handback.revision: 12
   
      包含已签名程序集的密钥的容器。  
   
-     有关详细信息，请参阅 [/KEYCONTAINER（指定密钥容器以便为程序集签名）](/visual-cpp/build/reference/keycontainer-specify-a-key-container-to-sign-an-assembly)。 另请参阅此表格中的 **KeyFile** 参数。  
+     有关详细信息，请参阅 [/KEYCONTAINER（指定密钥容器以便为程序集签名）](/cpp/build/reference/keycontainer-specify-a-key-container-to-sign-an-assembly)。 另请参阅此表格中的 **KeyFile** 参数。  
   
 -   **KeyFile**  
   
@@ -419,7 +437,7 @@ caps.handback.revision: 12
   
      指定包含已签名程序集的密钥的文件。  
   
-     有关详细信息，请参阅 [/KEYFILE（指定密钥或密钥对以便为程序集签名）](/visual-cpp/build/reference/keyfile-specify-key-or-key-pair-to-sign-an-assembly)。 另请参阅 **KeyContainer** 参数。  
+     有关详细信息，请参阅 [/KEYFILE（指定密钥或密钥对以便为程序集签名）](/cpp/build/reference/keyfile-specify-key-or-key-pair-to-sign-an-assembly)。 另请参阅 **KeyContainer** 参数。  
   
 -   **LargeAddressAware**  
   
@@ -427,7 +445,7 @@ caps.handback.revision: 12
   
      如果为 `true`，则应用程序可以处理大于 2 GB 的地址。  
   
-     有关详细信息，请参阅 [/LARGEADDRESSAWARE（处理大地址）](/visual-cpp/build/reference/largeaddressaware-handle-large-addresses)。  
+     有关详细信息，请参阅 [/LARGEADDRESSAWARE（处理大地址）](/cpp/build/reference/largeaddressaware-handle-large-addresses)。  
   
 -   **LinkDLL**  
   
@@ -435,7 +453,7 @@ caps.handback.revision: 12
   
      如果为 `true`，则将 DLL 作为主输出文件生成。  
   
-     有关详细信息，请参阅 [/DLL（生成 DLL）](/visual-cpp/build/reference/dll-build-a-dll)。  
+     有关详细信息，请参阅 [/DLL（生成 DLL）](/cpp/build/reference/dll-build-a-dll)。  
   
 -   **LinkErrorReporting**  
   
@@ -453,7 +471,7 @@ caps.handback.revision: 12
   
     -   **SendErrorReport** - **/ERRORREPORT:SEND**  
   
-     有关详细信息，请参阅 [/ERRORREPORT（报告内部链接器错误）](/visual-cpp/build/reference/errorreport-report-internal-linker-errors)。  
+     有关详细信息，请参阅 [/ERRORREPORT（报告内部链接器错误）](/cpp/build/reference/errorreport-report-internal-linker-errors)。  
   
 -   **LinkIncremental**  
   
@@ -461,7 +479,7 @@ caps.handback.revision: 12
   
      如果为 `true`，则启用增量链接。  
   
-     有关详细信息，请参阅 [/INCREMENTAL（增量链接）](/visual-cpp/build/reference/incremental-link-incrementally)。  
+     有关详细信息，请参阅 [/INCREMENTAL（增量链接）](/cpp/build/reference/incremental-link-incrementally)。  
   
 -   **LinkLibraryDependencies**  
   
@@ -477,7 +495,7 @@ caps.handback.revision: 12
   
      如果为 `true`，则指定链接器显示用来指示链接完成百分比的进度指示器。  
   
-     有关详细信息，请参阅 [/LTCG（链接时间代码生成）](/visual-cpp/build/reference/ltcg-link-time-code-generation)的 `STATUS` 参数。  
+     有关详细信息，请参阅 [/LTCG（链接时间代码生成）](/cpp/build/reference/ltcg-link-time-code-generation)的 `STATUS` 参数。  
   
 -   **LinkTimeCodeGeneration**  
   
@@ -499,7 +517,7 @@ caps.handback.revision: 12
   
          \- **/LTCG:PGUpdate**  
   
-     有关详细信息，请参阅 [/LTCG（链接时间代码生成）](/visual-cpp/build/reference/ltcg-link-time-code-generation)。  
+     有关详细信息，请参阅 [/LTCG（链接时间代码生成）](/cpp/build/reference/ltcg-link-time-code-generation)。  
   
 -   **ManifestFile**  
   
@@ -507,7 +525,7 @@ caps.handback.revision: 12
   
      将默认清单文件名更改为指定的文件名。  
   
-     有关详细信息，请参阅 [/MANIFESTFILE（命名清单文件）](/visual-cpp/build/reference/manifestfile-name-manifest-file)。  
+     有关详细信息，请参阅 [/MANIFESTFILE（命名清单文件）](/cpp/build/reference/manifestfile-name-manifest-file)。  
   
 -   **MapExports**  
   
@@ -515,7 +533,7 @@ caps.handback.revision: 12
   
      如果为 `true`，则告知链接器将导出的函数包括在映射文件中。  
   
-     有关详细信息，请参阅 [/MAPINFO（将信息包括在映射文件中）](/visual-cpp/build/reference/mapinfo-include-information-in-mapfile)中的 `EXPORTS` 参数。  
+     有关详细信息，请参阅 [/MAPINFO（将信息包括在映射文件中）](/cpp/build/reference/mapinfo-include-information-in-mapfile)中的 `EXPORTS` 参数。  
   
 -   **MapFileName**  
   
@@ -529,7 +547,7 @@ caps.handback.revision: 12
   
      指定 .idl 文件的文件名和文件扩展名。  
   
-     有关详细信息，请参阅 [/IDLOUT（命名 MIDL 输出文件）](/visual-cpp/build/reference/idlout-name-midl-output-files)。  
+     有关详细信息，请参阅 [/IDLOUT（命名 MIDL 输出文件）](/cpp/build/reference/idlout-name-midl-output-files)。  
   
 -   **MergeSections**  
   
@@ -537,7 +555,7 @@ caps.handback.revision: 12
   
      合并映像中的节。 指定 `from-section=to-section`。  
   
-     有关详细信息，请参阅 [/MERGE（合并节）](/visual-cpp/build/reference/merge-combine-sections)。  
+     有关详细信息，请参阅 [/MERGE（合并节）](/cpp/build/reference/merge-combine-sections)。  
   
 -   **MidlCommandFile**  
   
@@ -545,7 +563,7 @@ caps.handback.revision: 12
   
      指定包含 MIDL 命令行选项的文件的名称。  
   
-     有关详细信息，请参阅 [/MIDL（指定 MIDL 命令行选项）](/visual-cpp/build/reference/midl-specify-midl-command-line-options)。  
+     有关详细信息，请参阅 [/MIDL（指定 MIDL 命令行选项）](/cpp/build/reference/midl-specify-midl-command-line-options)。  
   
 -   **MinimumRequiredVersion**  
   
@@ -557,9 +575,9 @@ caps.handback.revision: 12
   
      可选 **String** 参数。  
   
-     指定[模块定义文件](/visual-cpp/build/reference/module-definition-dot-def-files)的名称。  
+     指定[模块定义文件](/cpp/build/reference/module-definition-dot-def-files)的名称。  
   
-     有关详细信息，请参阅 [/DEF（指定模块定义文件）](/visual-cpp/build/reference/def-specify-module-definition-file)。  
+     有关详细信息，请参阅 [/DEF（指定模块定义文件）](/cpp/build/reference/def-specify-module-definition-file)。  
   
 -   **MSDOSStubFileName**  
   
@@ -567,7 +585,7 @@ caps.handback.revision: 12
   
      将指定的 MS-DOS 存根程序附加到 Win32 程序。  
   
-     有关详细信息，请参阅 [/STUB（MS-DOS 存根文件名）](/visual-cpp/build/reference/stub-ms-dos-stub-file-name)。  
+     有关详细信息，请参阅 [/STUB（MS-DOS 存根文件名）](/cpp/build/reference/stub-ms-dos-stub-file-name)。  
   
 -   **NoEntryPoint**  
   
@@ -575,7 +593,7 @@ caps.handback.revision: 12
   
      如果为 `true`，则指定纯资源 DLL。  
   
-     有关详细信息，请参阅 [/NOENTRY（无入口点）](/visual-cpp/build/reference/noentry-no-entry-point)。  
+     有关详细信息，请参阅 [/NOENTRY（无入口点）](/cpp/build/reference/noentry-no-entry-point)。  
   
 -   **ObjectFiles**  
   
@@ -589,7 +607,7 @@ caps.handback.revision: 12
   
      如果为 `true`，则清除从未引用过的函数和/或数据。  
   
-     有关详细信息，请参阅 [/OPT （优化）](/visual-cpp/build/reference/opt-optimizations) 中的 `REF` 参数。  
+     有关详细信息，请参阅 [/OPT （优化）](/cpp/build/reference/opt-optimizations) 中的 `REF` 参数。  
   
 -   **OutputFile**  
   
@@ -597,7 +615,7 @@ caps.handback.revision: 12
   
      覆盖链接器所创建程序的默认名称和位置。  
   
-     有关详细信息，请参阅 [/OUT（输出文件名）](/visual-cpp/build/reference/out-output-file-name)。  
+     有关详细信息，请参阅 [/OUT（输出文件名）](/cpp/build/reference/out-output-file-name)。  
   
 -   **PerUserRedirection**  
   
@@ -617,7 +635,7 @@ caps.handback.revision: 12
   
      如果为 `true`，则向 Bind.exe 指示不应绑定已链接映像。  
   
-     有关详细信息，请参阅 [/ALLOWBIND（禁止 DLL 绑定）](/visual-cpp/build/reference/allowbind-prevent-dll-binding)。  
+     有关详细信息，请参阅 [/ALLOWBIND（禁止 DLL 绑定）](/cpp/build/reference/allowbind-prevent-dll-binding)。  
   
 -   **Profile**  
   
@@ -625,7 +643,7 @@ caps.handback.revision: 12
   
      如果为 `true`，则生成一个可与“性能工具”探查器结合使用的输出文件。  
   
-     有关详细信息，请参阅 [/PROFILE（性能工具探查器）](/visual-cpp/build/reference/profile-performance-tools-profiler)。  
+     有关详细信息，请参阅 [/PROFILE（性能工具探查器）](/cpp/build/reference/profile-performance-tools-profiler)。  
   
 -   **ProfileGuidedDatabase**  
   
@@ -633,7 +651,7 @@ caps.handback.revision: 12
   
      指定将用于保存有关运行中程序的信息的 .pgd 文件的名称  
   
-     有关详细信息，请参阅 [/PGD（指定数据库以按配置文件优化）](/visual-cpp/build/reference/pgd-specify-database-for-profile-guided-optimizations)。  
+     有关详细信息，请参阅 [/PGD（指定数据库以按配置文件优化）](/cpp/build/reference/pgd-specify-database-for-profile-guided-optimizations)。  
   
 -   **ProgramDatabaseFile**  
   
@@ -641,7 +659,7 @@ caps.handback.revision: 12
   
      指定链接器所创建程序数据库 (PDB) 的名称。  
   
-     有关详细信息，请参阅 [/PDB（使用程序数据库）](/visual-cpp/build/reference/pdb-use-program-database)。  
+     有关详细信息，请参阅 [/PDB（使用程序数据库）](/cpp/build/reference/pdb-use-program-database)。  
   
 -   **RandomizedBaseAddress**  
   
@@ -649,7 +667,7 @@ caps.handback.revision: 12
   
      如果为 `true`，则使用 Windows 的*地址空间布局随机化* (ASLR) 功能，生成可在加载时随机变基的可执行映像。  
   
-     有关详细信息，请参阅 [/DYNAMICBASE（使用地址空间布局随机化）](/visual-cpp/build/reference/dynamicbase-use-address-space-layout-randomization)。  
+     有关详细信息，请参阅 [/DYNAMICBASE（使用地址空间布局随机化）](/cpp/build/reference/dynamicbase-use-address-space-layout-randomization)。  
   
 -   **RegisterOutput**  
   
@@ -661,9 +679,9 @@ caps.handback.revision: 12
   
      可选 **Integer** 参数。  
   
-     指定程序的线性地址空间内每节的对齐方式。 该参数值是字节单位数，并且是&2; 的幂。  
+     指定程序的线性地址空间内每节的对齐方式。 该参数值是字节单位数，并且是 2 的幂。  
   
-     有关详细信息，请参阅 [/ALIGN（节对齐）](/visual-cpp/build/reference/align-section-alignment)。  
+     有关详细信息，请参阅 [/ALIGN（节对齐）](/cpp/build/reference/align-section-alignment)。  
   
 -   **SetChecksum**  
   
@@ -671,7 +689,7 @@ caps.handback.revision: 12
   
      如果为 `true`，则在 .exe 文件的标头中设置校验和。  
   
-     有关详细信息，请参阅 [/RELEASE（设置校验和）](/visual-cpp/build/reference/release-set-the-checksum)。  
+     有关详细信息，请参阅 [/RELEASE（设置校验和）](/cpp/build/reference/release-set-the-checksum)。  
   
 -   **ShowProgress**  
   
@@ -695,7 +713,7 @@ caps.handback.revision: 12
   
     -   **LinkVerboseCLR** - **/VERBOSE:CLR**  
   
-     有关详细信息，请参阅 [/VERBOSE（打印进度消息）](/visual-cpp/build/reference/verbose-print-progress-messages)。  
+     有关详细信息，请参阅 [/VERBOSE（打印进度消息）](/cpp/build/reference/verbose-print-progress-messages)。  
   
 -   **Sources**  
   
@@ -709,7 +727,7 @@ caps.handback.revision: 12
   
      指定节的属性。 这将覆盖在编译节的 .obj 文件时所设置的属性。  
   
-     有关详细信息，请参阅 [/SECTION（指定节属性）](/visual-cpp/build/reference/section-specify-section-attributes)。  
+     有关详细信息，请参阅 [/SECTION（指定节属性）](/cpp/build/reference/section-specify-section-attributes)。  
   
 -   **StackCommitSize**  
   
@@ -717,7 +735,7 @@ caps.handback.revision: 12
   
      指定分配额外内存时，每次分配的物理内存量。  
   
-     有关详细信息，请参阅 [/STACK（堆栈分配）](/visual-cpp/build/reference/stack-stack-allocations)的 `commit` 参数。  
+     有关详细信息，请参阅 [/STACK（堆栈分配）](/cpp/build/reference/stack-stack-allocations)的 `commit` 参数。  
   
 -   **StackReserveSize**  
   
@@ -725,7 +743,7 @@ caps.handback.revision: 12
   
      指定虚拟内存中的堆栈分配总大小。  
   
-     有关详细信息，请参阅 [/STACK（堆栈分配）](/visual-cpp/build/reference/stack-stack-allocations)的 `reserve` 参数。  
+     有关详细信息，请参阅 [/STACK（堆栈分配）](/cpp/build/reference/stack-stack-allocations)的 `reserve` 参数。  
   
 -   **StripPrivateSymbols**  
   
@@ -733,7 +751,7 @@ caps.handback.revision: 12
   
      创建第二个程序数据库 (PDB) 文件，该文件将省略你不希望向客户分布的符号。 指定第二个 PDB 文件的名称。  
   
-     有关详细信息，请参阅 [/PDBSTRIPPED（去除私有符号）](/visual-cpp/build/reference/pdbstripped-strip-private-symbols)。  
+     有关详细信息，请参阅 [/PDBSTRIPPED（去除私有符号）](/cpp/build/reference/pdbstripped-strip-private-symbols)。  
   
 -   **SubSystem**  
   
@@ -763,7 +781,7 @@ caps.handback.revision: 12
   
     -   **POSIX** - **/SUBSYSTEM:POSIX**  
   
-     有关详细信息，请参阅 [/SUBSYSTEM（指定子系统）](/visual-cpp/build/reference/subsystem-specify-subsystem)。  
+     有关详细信息，请参阅 [/SUBSYSTEM（指定子系统）](/cpp/build/reference/subsystem-specify-subsystem)。  
   
 -   **SupportNobindOfDelayLoadedDLL**  
   
@@ -771,7 +789,7 @@ caps.handback.revision: 12
   
      如果为 `true`，则告知链接器不要在最终映像中包含可绑定的导入地址表 (IAT)。  
   
-     有关详细信息，请参阅 [/DELAY（延迟加载导入设置）](/visual-cpp/build/reference/delay-delay-load-import-settings)的 `NOBIND` 参数。  
+     有关详细信息，请参阅 [/DELAY（延迟加载导入设置）](/cpp/build/reference/delay-delay-load-import-settings)的 `NOBIND` 参数。  
   
 -   **SupportUnloadOfDelayLoadedDLL**  
   
@@ -779,7 +797,7 @@ caps.handback.revision: 12
   
      如果为 `true`，则告知延迟加载 Helper 函数支持 DLL 的显式卸载。  
   
-     有关详细信息，请参阅 [/DELAY（延迟加载导入设置）](/visual-cpp/build/reference/delay-delay-load-import-settings)的 `UNLOAD` 参数。  
+     有关详细信息，请参阅 [/DELAY（延迟加载导入设置）](/cpp/build/reference/delay-delay-load-import-settings)的 `UNLOAD` 参数。  
   
 -   **SuppressStartupBanner**  
   
@@ -787,7 +805,7 @@ caps.handback.revision: 12
   
      如果为 `true`，则在任务开始时阻止显示版权和版本号消息。  
   
-     有关详细信息，请参阅 [/NOLOGO（取消显示启动版权标志）（链接器）](/visual-cpp/build/reference/nologo-suppress-startup-banner-linker)。  
+     有关详细信息，请参阅 [/NOLOGO（取消显示启动版权标志）（链接器）](/cpp/build/reference/nologo-suppress-startup-banner-linker)。  
   
 -   **SwapRunFromCD**  
   
@@ -795,7 +813,7 @@ caps.handback.revision: 12
   
      如果为 `true`，则告知操作系统首先将连接器输出复制到交换文件，然后从那里运行映像。  
   
-     有关详细信息，请参阅 [/SWAPRUN（将链接器输出加载到交换文件）](/visual-cpp/build/reference/swaprun-load-linker-output-to-swap-file)的 `CD` 参数。 另请参阅 **SwapRunFromNET** 参数。  
+     有关详细信息，请参阅 [/SWAPRUN（将链接器输出加载到交换文件）](/cpp/build/reference/swaprun-load-linker-output-to-swap-file)的 `CD` 参数。 另请参阅 **SwapRunFromNET** 参数。  
   
 -   **SwapRunFromNET**  
   
@@ -803,7 +821,7 @@ caps.handback.revision: 12
   
      如果为 `true`，则告知操作系统首先将连接器输出复制到交换文件，然后从那里运行映像。  
   
-     有关详细信息，请参阅 [/SWAPRUN（将链接器输出加载到交换文件）](/visual-cpp/build/reference/swaprun-load-linker-output-to-swap-file)的 `NET` 参数。 另请参阅此表格中的 **SwapRunFromCD** 参数。  
+     有关详细信息，请参阅 [/SWAPRUN（将链接器输出加载到交换文件）](/cpp/build/reference/swaprun-load-linker-output-to-swap-file)的 `NET` 参数。 另请参阅此表格中的 **SwapRunFromCD** 参数。  
   
 -   **TargetMachine**  
   
@@ -837,7 +855,7 @@ caps.handback.revision: 12
   
     -   **MachineX86** - **/MACHINE:X86**  
   
-     有关详细信息，请参阅 [/MACHINE（指定目标平台）](/visual-cpp/build/reference/machine-specify-target-platform)。  
+     有关详细信息，请参阅 [/MACHINE（指定目标平台）](/cpp/build/reference/machine-specify-target-platform)。  
   
 -   **TerminalServerAware**  
   
@@ -845,7 +863,7 @@ caps.handback.revision: 12
   
      如果为 `true`，则在程序映像的可选标头中的 IMAGE_OPTIONAL_HEADER DllCharacteristics 字段中设置一个标志。 当设置此标志后，终端服务器将不会向应用程序进行某些更改。  
   
-     有关详细信息，请参阅 [/TSAWARE（创建终端服务器感知应用程序）](/visual-cpp/build/reference/tsaware-create-terminal-server-aware-application)。  
+     有关详细信息，请参阅 [/TSAWARE（创建终端服务器感知应用程序）](/cpp/build/reference/tsaware-create-terminal-server-aware-application)。  
   
 -   **TrackerLogDirectory**  
   
@@ -859,7 +877,7 @@ caps.handback.revision: 12
   
      如果为 `true`，则指示在链接器生成警告的情况下不生成任何输出文件。  
   
-     有关详细信息，请参阅 [/WX（将链接器警告视为错误）](/visual-cpp/build/reference/wx-treat-linker-warnings-as-errors)。  
+     有关详细信息，请参阅 [/WX（将链接器警告视为错误）](/cpp/build/reference/wx-treat-linker-warnings-as-errors)。  
   
 -   **TurnOffAssemblyGeneration**  
   
@@ -867,7 +885,7 @@ caps.handback.revision: 12
   
      如果为 `true`，则创建当前输出文件的映像，但不包含 .NET Framework 程序集。  
   
-     有关详细信息，请参阅 [/NOASSEMBLY（创建 MSIL 模块）](/visual-cpp/build/reference/noassembly-create-a-msil-module)。  
+     有关详细信息，请参阅 [/NOASSEMBLY（创建 MSIL 模块）](/cpp/build/reference/noassembly-create-a-msil-module)。  
   
 -   **TypeLibraryFile**  
   
@@ -875,7 +893,7 @@ caps.handback.revision: 12
   
      指定 .tlb 文件的文件名和文件扩展名。 指定文件名，或者路径和文件名。  
   
-     有关详细信息，请参阅 [/TLBOUT（命名 .TLB 文件）](/visual-cpp/build/reference/tlbout-name-dot-tlb-file)。  
+     有关详细信息，请参阅 [/TLBOUT（命名 .TLB 文件）](/cpp/build/reference/tlbout-name-dot-tlb-file)。  
   
 -   **TypeLibraryResourceID**  
   
@@ -883,7 +901,7 @@ caps.handback.revision: 12
   
      指定链接器所创建类型库的用户指定值。 指定一个介于 1 和 65535 之间的值。  
   
-     有关详细信息，请参阅 [/TLBID（指定类型库的资源 ID）](/visual-cpp/build/reference/tlbid-specify-resource-id-for-typelib)。  
+     有关详细信息，请参阅 [/TLBID（指定类型库的资源 ID）](/cpp/build/reference/tlbid-specify-resource-id-for-typelib)。  
   
 -   **UACExecutionLevel**  
   
@@ -899,7 +917,7 @@ caps.handback.revision: 12
   
     -   **RequireAdministrator** - `level='requireAdministrator'`  
   
-     有关详细信息，请参阅 [/MANIFESTUAC（将 UAC 信息嵌入到清单中）](/visual-cpp/build/reference/manifestuac-embeds-uac-information-in-manifest)的 `level` 参数。  
+     有关详细信息，请参阅 [/MANIFESTUAC（将 UAC 信息嵌入到清单中）](/cpp/build/reference/manifestuac-embeds-uac-information-in-manifest)的 `level` 参数。  
   
 -   **UACUIAccess**  
   
@@ -907,7 +925,7 @@ caps.handback.revision: 12
   
      如果为 `true`，则应用程序绕过用户界面保护级别并将输入引导到桌面上的更高权限窗口；否则为 `false`。  
   
-     有关详细信息，请参阅 [/MANIFESTUAC（将 UAC 信息嵌入到清单中）](/visual-cpp/build/reference/manifestuac-embeds-uac-information-in-manifest)的 `uiAccess` 参数。  
+     有关详细信息，请参阅 [/MANIFESTUAC（将 UAC 信息嵌入到清单中）](/cpp/build/reference/manifestuac-embeds-uac-information-in-manifest)的 `uiAccess` 参数。  
   
 -   **UseLibraryDependencyInputs**  
   
@@ -921,12 +939,7 @@ caps.handback.revision: 12
   
      在 .exe 或 .dll 文件的标头中放置一个版本号。 指定 "`major[.minor]`"。 `major` 和 `minor` 参数是介于 0 到 65535 之间的十进制数字。  
   
-     有关详细信息，请参阅 [/VERSION（版本信息）](/visual-cpp/build/reference/version-version-information)。  
+     有关详细信息，请参阅 [/VERSION（版本信息）](/cpp/build/reference/version-version-information)。  
   
 ## <a name="see-also"></a>另请参阅  
  [任务参考](../msbuild/msbuild-task-reference.md)
-
-
-<!--HONumber=Feb17_HO4-->
-
-

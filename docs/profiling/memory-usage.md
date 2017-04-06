@@ -29,9 +29,9 @@ translation.priority.mt:
 - pt-br
 - tr-tr
 translationtype: Human Translation
-ms.sourcegitcommit: a42f5a30375192c89c9984e40ba0104da98d7253
-ms.openlocfilehash: 6f77b935309f5b0877fdeb9794a29fed3f0df9c0
-ms.lasthandoff: 03/07/2017
+ms.sourcegitcommit: ca7c86466fa23fb21a932f26dc24e37c71cf29b4
+ms.openlocfilehash: 697b8f5517ad9a953a04f920be39c9ef2cfa2558
+ms.lasthandoff: 04/05/2017
 
 ---
 # <a name="analyze-memory-usage"></a>分析内存使用量
@@ -50,7 +50,7 @@ ms.lasthandoff: 03/07/2017
  还可以在调试器外部使用内存工具。 请参阅[不调试的内存使用情况](../profiling/memory-usage-without-debugging2.md)。  
   
 > [!NOTE]
->  **自定义分配器支持** 本机内存探查器的工作原理是在运行时收集 [ETW](https://msdn.microsoft.com/en-us/library/windows/desktop/bb968803\(v=vs.85\).aspx) 分配事件数据。  CRT 和 Windows SDK 中的分配器在源级别上注释，因此可以捕获其分配数据。  如果你正在编写你自己的分配器，则返回一个指向新分配的堆内存的任何函数都可用 [__declspec](/visual-cpp/cpp/declspec)（分配器）进行修饰，如此 myMalloc 示例所示：  
+>  **自定义分配器支持** 本机内存探查器的工作原理是在运行时收集 [ETW](https://msdn.microsoft.com/en-us/library/windows/desktop/bb968803\(v=vs.85\).aspx) 分配事件数据。  CRT 和 Windows SDK 中的分配器在源级别上注释，因此可以捕获其分配数据。  如果你正在编写你自己的分配器，则返回一个指向新分配的堆内存的任何函数都可用 [__declspec](/cpp/cpp/declspec)（分配器）进行修饰，如此 myMalloc 示例所示：  
 >   
 >  `__declspec(allocator) void* myMalloc(size_t size)` 
 

@@ -1,26 +1,44 @@
 ---
 title: "演练：从头开始创建 MSBuild 项目文件 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-helpviewer_keywords: 
-  - "MSBuild 教程"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+helpviewer_keywords:
+- MSBuild, tutorial
 ms.assetid: e3acff7c-cb4e-4ae1-8be2-a871bcff847b
 caps.latest.revision: 20
-author: "kempb"
-ms.author: "kempb"
-manager: "ghogen"
-caps.handback.revision: 20
+author: kempb
+ms.author: kempb
+manager: ghogen
+translation.priority.ht:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+translationtype: Human Translation
+ms.sourcegitcommit: ca7c86466fa23fb21a932f26dc24e37c71cf29b4
+ms.openlocfilehash: 8cc8cb349901c7a2b0c94875d29e602c33baa5bf
+ms.lasthandoff: 04/05/2017
+
 ---
 # <a name="walkthrough-creating-an-msbuild-project-file-from-scratch"></a>演练：从头开始创建 MSBuild 项目文件
 面向 .NET Framework 的编程语言将使用 MSBuild 项目文件来介绍并控制应用程序生成过程。 使用 Visual Studio 创建 MSBuild 项目文件时，会自动将适当的 XML 添加到该文件。 但是，你可能会发现，了解 XML 的组织方式以及如何能够更改 XML 来控制生成将非常有用。  
   
- 有关为 C++ 项目创建项目文件的信息，请参阅 [MSBuild (Visual C++)](/visual-cpp/build/msbuild-visual-cpp)。  
+ 有关为 C++ 项目创建项目文件的信息，请参阅 [MSBuild (Visual C++)](/cpp/build/msbuild-visual-cpp)。  
   
  此演练演示如何只使用文本编辑器以增量方式创建基本项目文件。 演练采用以下步骤：  
   
@@ -480,8 +498,3 @@ caps.handback.revision: 20
 ## <a name="see-also"></a>另请参阅  
 [MSBuild 概述](../msbuild/msbuild.md)  
  [MSBuild 参考](../msbuild/msbuild-reference.md)
-
-
-<!--HONumber=Feb17_HO4-->
-
-

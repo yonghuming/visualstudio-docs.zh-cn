@@ -31,9 +31,9 @@ translation.priority.ht:
 - zh-cn
 - zh-tw
 translationtype: Human Translation
-ms.sourcegitcommit: d014b703c491603c86fcd6a89c1dc17f35b0deae
-ms.openlocfilehash: 99850b840fbda9f7e7674d926822ff461e69da17
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: ca7c86466fa23fb21a932f26dc24e37c71cf29b4
+ms.openlocfilehash: 79d77230e46bade8e89d4503dbf95b1f1831e464
+ms.lasthandoff: 04/05/2017
 
 ---
 # <a name="msbuild"></a>MSBuild
@@ -41,7 +41,7 @@ ms.lasthandoff: 02/22/2017
   
  Visual Studio 使用 MSBuild 来加载和生成托管项目。 Visual Studio 中的项目文件（.csproj、.vbproj、vcxproj 等）包含 MSBuild XML 代码，当你使用 IDE 来生成项目时，此代码就会运行。 Visual Studio 项目会导入所有必要的设置和生成过程来执行典型的开发工作，但你可以从 Visual Studio 内或通过使用 XML 编辑器对其进行扩展或修改。  
   
- 有关适用于 C++ 的 MSBuild 的信息，请参阅 [MSBuild (Visual C++)](/visual-cpp/build/msbuild-visual-cpp)。  
+ 有关适用于 C++ 的 MSBuild 的信息，请参阅 [MSBuild (Visual C++)](/cpp/build/msbuild-visual-cpp)。  
   
  下面的示例介绍了什么情况下可使用 MSBuild 命令行而不是 Visual Studio IDE 来运行生成。  
   

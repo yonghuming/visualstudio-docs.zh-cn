@@ -1,21 +1,40 @@
 ---
 title: "并发可视化工具标记 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-debug"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "vs.cv.markersui"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-debug
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords:
+- vs.cv.markersui
 ms.assetid: c4692d17-6cd2-4ad1-8590-d7275c771c70
 caps.latest.revision: 12
-author: "mikejo5000"
-ms.author: "mikejo"
-manager: "ghogen"
-caps.handback.revision: 12
+author: mikejo5000
+ms.author: mikejo
+manager: ghogen
+translation.priority.ht:
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- ru-ru
+- zh-cn
+- zh-tw
+translation.priority.mt:
+- cs-cz
+- pl-pl
+- pt-br
+- tr-tr
+translationtype: Human Translation
+ms.sourcegitcommit: ca7c86466fa23fb21a932f26dc24e37c71cf29b4
+ms.openlocfilehash: dcabdd5ca1381ec15e66637a35044c456411c8c7
+ms.lasthandoff: 04/05/2017
+
 ---
 # <a name="concurrency-visualizer-markers"></a>并发可视化工具标记
 在并发可视化工具中，标记是代表应用事件的图标。  通常，应用生成这些事件是为了指定应用程序中的阶段或匹配项。  事件可以由应用或应用所使用的库和运行时生成。  
@@ -49,11 +68,11 @@ caps.handback.revision: 12
   
 -   [并行 LINQ (PLINQ)](http://msdn.microsoft.com/Library/3d4d0cd3-bde4-490b-99e7-f4e41be96455)  
   
--   [并发运行时](/visual-cpp/parallel/concrt/concurrency-runtime)  
+-   [并发运行时](/cpp/parallel/concrt/concurrency-runtime)  
   
 -   [方案标记支持](http://msdn.microsoft.com/en-us/e3b55bc2-b451-4214-ae00-0c7f5a5baec8)  
   
--   [C++ AMP (C++ Accelerated Massive Parallelism)](/visual-cpp/parallel/amp/cpp-amp-cpp-accelerated-massive-parallelism)  
+-   [C++ AMP (C++ Accelerated Massive Parallelism)](/cpp/parallel/amp/cpp-amp-cpp-accelerated-massive-parallelism)  
   
  使用[高级设置](../profiling/advanced-settings-dialog-box-concurrency-visualizer.md)对话框中的“标记”选项卡，可以控制是否在并发可视化工具中显示来自不同源的标记，也可以根据重要性和类别来筛选标记。  
   
@@ -65,8 +84,3 @@ caps.handback.revision: 12
  [消息标记](../profiling/message-markers.md)   
  [范围标记](../profiling/span-markers.md)   
  [将 EventSource 事件作为标记可视化](../profiling/visualizing-eventsource-events-as-markers.md)
-
-
-<!--HONumber=Feb17_HO4-->
-
-

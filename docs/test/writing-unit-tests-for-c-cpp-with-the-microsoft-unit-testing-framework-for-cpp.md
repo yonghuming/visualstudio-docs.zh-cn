@@ -28,9 +28,9 @@ translation.priority.mt:
 - pt-br
 - tr-tr
 translationtype: Human Translation
-ms.sourcegitcommit: a42f5a30375192c89c9984e40ba0104da98d7253
-ms.openlocfilehash: 76721dbf816cf7b7b8691efc10d22aac6b69cb05
-ms.lasthandoff: 03/07/2017
+ms.sourcegitcommit: ca7c86466fa23fb21a932f26dc24e37c71cf29b4
+ms.openlocfilehash: 84549f28f33933eacbf44742b5be129df8ab780e
+ms.lasthandoff: 04/05/2017
 
 ---
 # <a name="writing-unit-tests-for-cc-with-the-microsoft-unit-testing-framework-for-c"></a>用 Microsoft 适用于 C++ 的单元测试框架编写 C/C++ 单元测试
@@ -48,7 +48,7 @@ ms.lasthandoff: 03/07/2017
   
     -   `#include` 包含 DLL 外部访问函数声明的 `.h` 文件。  
   
-         `.h` 文件应包含用 `_declspec(dllimport)` 标记的函数声明。 或者，可以使用 DEF 文件导出方法。 有关详细信息，请参阅[导入和导出](/visual-cpp/build/importing-and-exporting)。  
+         `.h` 文件应包含用 `_declspec(dllimport)` 标记的函数声明。 或者，可以使用 DEF 文件导出方法。 有关详细信息，请参阅[导入和导出](/cpp/build/importing-and-exporting)。  
   
          单元测试仅可以访问从所测试 DLL 导出的函数。  
   
@@ -164,7 +164,7 @@ ms.lasthandoff: 03/07/2017
   
          测试显示在“通过的测试” 下方。  
   
-         ![具有&1; 个已通过测试的单元测试资源管理器](../test/media/utecpp04.png "UteCpp04")  
+         ![具有 1 个已通过测试的单元测试资源管理器](../test/media/utecpp04.png "UteCpp04")  
   
 ###  <a name="createDllProject"></a> 创建非托管 DLL 项目  
   
@@ -184,7 +184,7 @@ ms.lasthandoff: 03/07/2017
   
      ![使用 API 宏新建 DLL 代码项目和 .h 文件](../test/media/utecpp07.png "UteCpp07")  
   
-     声明符 `__declspec(dllexport)` 会导致类的公共和受保护成员在 DLL 外可见。 有关详细信息，请参阅 [Using dllimport and dllexport in C++ Classes](/visual-cpp/cpp/using-dllimport-and-dllexport-in-cpp-classes)。  
+     声明符 `__declspec(dllexport)` 会导致类的公共和受保护成员在 DLL 外可见。 有关详细信息，请参阅 [Using dllimport and dllexport in C++ Classes](/cpp/cpp/using-dllimport-and-dllexport-in-cpp-classes)。  
   
 4.  在主体 .cpp 文件中，添加最小的函数体：  
   
@@ -414,5 +414,5 @@ ms.lasthandoff: 03/07/2017
  [托管/非托管代码互操作性概述](http://msdn.microsoft.com/library/ms973872.aspx)   
  [调试本机代码](../debugger/debugging-native-code.md)   
  [演练：创建和使用动态链接库 (C++)](http://msdn.microsoft.com/Library/3ae94848-44e7-4955-bbad-7d40f493e941)   
- [导入和导出](/visual-cpp/build/importing-and-exporting)
+ [导入和导出](/cpp/build/importing-and-exporting)
 
