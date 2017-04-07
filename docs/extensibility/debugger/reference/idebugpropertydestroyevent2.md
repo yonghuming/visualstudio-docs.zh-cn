@@ -1,58 +1,74 @@
 ---
-title: "IDebugPropertyDestroyEvent2 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "IDebugPropertyDestroyEvent2"
-helpviewer_keywords: 
-  - "IDebugPropertyDestroyEvent2 接口"
+title: "IDebugPropertyDestroyEvent2 |Microsoft 文档"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords:
+- IDebugPropertyDestroyEvent2
+helpviewer_keywords:
+- IDebugPropertyDestroyEvent2 interface
 ms.assetid: 301b7a75-ecfa-46f1-9131-66cf3e4be147
 caps.latest.revision: 11
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 11
----
-# IDebugPropertyDestroyEvent2
-[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
+ms.author: gregvanl
+manager: ghogen
+translation.priority.mt:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+translationtype: Machine Translation
+ms.sourcegitcommit: ca7c86466fa23fb21a932f26dc24e37c71cf29b4
+ms.openlocfilehash: ac2019677354d99c396cad63d982f72920594ff3
+ms.lasthandoff: 04/05/2017
 
-调试引擎 \(DE\)发送此接口添加到该会话调试管理器 \(SDM\)，在与中的属性特定文件将被销毁。  
+---
+# <a name="idebugpropertydestroyevent2"></a>IDebugPropertyDestroyEvent2
+即将销毁与特定文档相关联的属性时，此接口是由的调试引擎 (DE) 发送到会话调试管理器 (SDM) 中。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
 ```  
 IDebugPropertyDestroyEvent2 : IUnknown  
 ```  
   
-## 实现者说明  
- DE implements 报告此的接口销毁了 "。  在对象必须实现 [IDebugEvent2](../../../extensibility/debugger/reference/idebugevent2.md) 接口和此接口相同。  SDM 使用 [QueryInterface](/visual-cpp/atl/queryinterface) 访问 `IDebugEvent2` 接口。  DE，如果以前创建了一个属性与脚本，此接口实现;在销毁 " 从 IDE 中移除该关联的脚本。  
+## <a name="notes-for-implementers"></a>实施者注意事项  
+ DE 实现此接口可报告属性已被破坏。 [IDebugEvent2](../../../extensibility/debugger/reference/idebugevent2.md)接口必须实现该接口对同一个对象。 SDM 使用[QueryInterface](/cpp/atl/queryinterface)访问`IDebugEvent2`接口。 如果 DE 以前创建了与脚本; 关联的属性，实现此接口销毁属性从 IDE 中删除关联的脚本。  
   
-## 调用方的说明  
- DE 创建和发送此事件对象报告销毁了 "。  事件发送通过使用 SDM 提供的 [IDebugEventCallback2](../../../extensibility/debugger/reference/idebugeventcallback2.md) 回调函数，则附加到正在调试时的过程。  
+## <a name="notes-for-callers"></a>调用方的说明  
+ DE 创建，并将此事件对象发送到已销毁属性的报表。 通过使用发送事件[IDebugEventCallback2](../../../extensibility/debugger/reference/idebugeventcallback2.md) SDM 时将其附加到正在调试的程序提供的回调函数。  
   
-## 方法按 Vtable 顺序  
- 下表显示 `IDebugPropertyDestroyEvent2`方法。  
+## <a name="methods-in-vtable-order"></a>Vtable 顺序中的方法  
+ 下表显示的方法`IDebugPropertyDestroyEvent2`。  
   
 |方法|说明|  
-|--------|--------|  
-|[GetDebugProperty](../../../extensibility/debugger/reference/idebugpropertydestroyevent2-getdebugproperty.md)|获取属性销毁。|  
+|------------|-----------------|  
+|[GetDebugProperty](../../../extensibility/debugger/reference/idebugpropertydestroyevent2-getdebugproperty.md)|获取的属性，将其销毁。|  
   
-## 备注  
- 为 [IDebugPropertyCreateEvent2](../../../extensibility/debugger/reference/idebugpropertycreateevent2.md) 参见备注有关的原因的详细信息使用这些事件。  
+## <a name="remarks"></a>备注  
+ 请参阅备注以[IDebugPropertyCreateEvent2](../../../extensibility/debugger/reference/idebugpropertycreateevent2.md)这些事件用于有关原因的详细信息。  
   
-## 要求  
- 标题:msdbg.h  
+## <a name="requirements"></a>要求  
+ 标头︰ msdbg.h  
   
- 命名空间:Microsoft.VisualStudio.Debugger.Interop  
+ Namespace: Microsoft.VisualStudio.Debugger.Interop  
   
- 程序集:Microsoft.VisualStudio.Debugger.Interop.dll  
+ 程序集︰ Microsoft.VisualStudio.Debugger.Interop.dll  
   
-## 请参阅  
+## <a name="see-also"></a>另请参阅  
  [核心接口](../../../extensibility/debugger/reference/core-interfaces.md)   
  [IDebugEvent2](../../../extensibility/debugger/reference/idebugevent2.md)   
  [IDebugEventCallback2](../../../extensibility/debugger/reference/idebugeventcallback2.md)   

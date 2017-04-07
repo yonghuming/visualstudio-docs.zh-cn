@@ -1,7 +1,7 @@
 ---
-title: "CPU 采样初学者指南 | Microsoft Docs"
-ms.custom: 
-ms.date: 11/04/2016
+title: "Visual Studio 中 CPU 采样初学者指南 | Microsoft Docs"
+ms.custom: H1Hack27Feb2017
+ms.date: 03/06/2017
 ms.reviewer: 
 ms.suite: 
 ms.technology:
@@ -34,8 +34,9 @@ translation.priority.ht:
 - zh-cn
 - zh-tw
 translationtype: Human Translation
-ms.sourcegitcommit: 53907b9b88deca671ee0695385dcbc856a35d309
-ms.openlocfilehash: 072783e138fcc20d80ccbe8ec8b66905778cf67d
+ms.sourcegitcommit: a42f5a30375192c89c9984e40ba0104da98d7253
+ms.openlocfilehash: ddd52c1af0a164235de2e5055896e020dc8715c3
+ms.lasthandoff: 03/07/2017
 
 ---
 # <a name="beginners-guide-to-cpu-sampling"></a>CPU 采样初学者指南
@@ -53,7 +54,7 @@ ms.openlocfilehash: 072783e138fcc20d80ccbe8ec8b66905778cf67d
 > [!TIP]
 >  如果分析调用 Windows 函数的代码，应确保具有最新的 .pdb 文件。 如果没有这些文件，报告视图将列出含义隐晦、难以理解的 Windows 函数名称。 若要深入了解如何确保具有所需文件，请参阅[如何：引用 Windows 符号信息](../profiling/how-to-reference-windows-symbol-information.md)。  
   
-##  <a name="a-namestep1a-create-and-run-a-performance-session"></a><a name="Step1"></a>创建并运行性能会话  
+##  <a name="Step1"></a>创建并运行性能会话  
  若要获取需要分析的数据，必须先创建性能会话，然后运行会话。 可通过**性能向导**实现这两项操作。  
   
  如果不对 Windows 桌面应用或 ASP.NET 应用进行性能分析，则必须使用一种其他分析工具。 请参阅[分析工具](../profiling/profiling-tools.md)。  
@@ -65,7 +66,7 @@ ms.openlocfilehash: 072783e138fcc20d80ccbe8ec8b66905778cf67d
     > [!IMPORTANT]
     >  如果你在所使用的计算机上并非管理员身份，则在使用探查器时应以管理员身份运行 Visual Studio。 （右键单击 Visual Studio 应用程序图标，然后单击“以管理员身份运行”。  
   
-2.  在“调试”菜单上，单击“性能探查器”。  
+2.  在“调试”菜单中，选择“探查器”，然后选择“性能探查器”。  
   
 3.  检查“性能向导”选项，然后单击“启动”。  
   
@@ -79,7 +80,7 @@ ms.openlocfilehash: 072783e138fcc20d80ccbe8ec8b66905778cf67d
   
      完成应用程序运行后，分析数据的“摘要”视图将显示在 Visual Studio 主窗口中，并且新会话的图标将显示在“性能资源管理器”窗口中。  
   
-##  <a name="a-namestep2a-step-2-analyze-sampling-data"></a><a name="Step2"></a>步骤 2：分析采样数据  
+##  <a name="Step2"></a>步骤 2：分析采样数据  
  完成性能会话运行后，分析报告的“摘要”视图将显示在 Visual Studio 的主窗口中。  
   
  建议通过检查“热路径”开始分析数据，然后检查执行大部分工作的函数列表，最后通过使用“摘要时间线”将重点放在其他函数上。 也可查看“错误列表”窗口中的分析建议和警告。  
@@ -124,7 +125,7 @@ ms.openlocfilehash: 072783e138fcc20d80ccbe8ec8b66905778cf67d
   
     -   若要查看有关该警告的详细信息，请右键单击错误，然后单击“显示错误帮助”  
   
-##  <a name="a-namestep3a-step-3-revise-code-and-rerun-a-session"></a><a name="Step3"></a>步骤 3：修改代码并重新运行会话  
+##  <a name="Step3"></a>步骤 3：修改代码并重新运行会话  
  找到并优化一个或多个函数后，可反复进行分析运行并比较数据，从而查看所做更改使应用程序性能产生的差异。  
   
 #### <a name="to-revise-code-and-rerun-the-profiler"></a>修改代码并重新运行探查器  
@@ -143,8 +144,3 @@ ms.openlocfilehash: 072783e138fcc20d80ccbe8ec8b66905778cf67d
  [性能资源管理器](../profiling/performance-explorer.md)   
  [入门](../profiling/getting-started-with-performance-tools.md)   
  [概述](../profiling/overviews-performance-tools.md)
-
-
-<!--HONumber=Feb17_HO4-->
-
-

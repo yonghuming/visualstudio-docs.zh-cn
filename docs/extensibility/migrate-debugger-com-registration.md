@@ -28,14 +28,12 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 translationtype: Machine Translation
-ms.sourcegitcommit: 5db97d19b1b823388a465bba15d057b30ff0b3ce
-ms.openlocfilehash: e273f31cb1f43ff79fd9a4ade37d112351dea9b5
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: 8163a0e1230712734936b7548bef1753ee0c1d2a
+ms.openlocfilehash: 19ce2d4cc1ff92240529f35f42845778ded49fdf
+ms.lasthandoff: 03/07/2017
 
 ---
 # <a name="migrate-64-bit-debugger-com-class-registration"></a>迁移 64 位调试器 COM 类注册
-
->**注意︰**本文档是初定版，根据 Visual Studio 2017 RC 版本。
 
 对于那些在 HKEY_CLASSES_ROOT 中的 COM 类注册 （通过使用 regasm，regsvr32，或直接写入注册表） 并且加载到 msvsmon.exe （远程调试器） 调试器扩展，现可能提供此注册到 msvsmon 而无需写入 HKEY_CLASSES_ROOT。 这会影响旧版.NET 调试器表达式计算器或配置为在 msvsmon.exe 进程中加载的调试引擎。
 

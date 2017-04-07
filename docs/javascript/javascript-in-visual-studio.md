@@ -28,28 +28,21 @@ translation.priority.ht:
 - zh-cn
 - zh-tw
 translationtype: Human Translation
-ms.sourcegitcommit: 5658ecf52637a38bc3c2a5ad9e85b2edebf7d445
-ms.openlocfilehash: d4741ff741b89997bbfe4fea9b0f60bba84e63db
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: 77e7ce26df70e41e2328442454fe78c7a663f1f3
+ms.openlocfilehash: de00ef86413571739446b61427c3a8e6c4680c06
+ms.lasthandoff: 03/08/2017
 
 ---
 # <a name="javascript-in-visual-studio"></a>Visual Studio 中的 JavaScript
 JavaScript 是 Visual Studio 中的一级语言。 当你在 Visual Studio IDE 中编写 JavaScript 代码时，你可以使用该标准编辑帮助（代码片段，IntelliSense 等等）的大部分或全部。 对于许多应用程序类型和服务，可以编写 JavaScript 代码。  
   
- 有关 JavaScript 语言参考文档，请参阅 [JavaScript](http://msdn.microsoft.com/library/d1et7k7c\(v=vs.94\).aspx)。  
+ 有关 JavaScript 语言参考文档，请参阅 [JavaScript](https://docs.microsoft.com/scripting/javascript/javascript-language-reference)。
   
  可能需要特定版本的 Visual Studio 或特定 Visual Studio 扩展来使用 HTML 和 JavaScript 开发特定应用程序类型和服务。 下面的列表包含指向详细信息的链接。  
   
--   若要使用 Apache Cordova 创建跨平台的应用，请[获取 Visual Studio 用于 Apache Cordova 的工具](http://go.microsoft.com/fwlink/p/?LinkId=397606)。  
+-   若要使用 Apache Cordova 创建跨平台的应用，请参阅 [Visual Studio Tools for Apache Cordova](https://docs.microsoft.com/visualstudio/cross-platform/tools-for-cordova/)。  
   
--   若要创建 [Windows 应用商店](http://dev.windows.com/develop)、[Windows Phone](http://dev.windows.com/develop) 和通用应用（支持这两种平台的应用），请[获取这些工具](http://dev.windows.com/en-us/develop/downloads)。  
-  
--   若要创建基于云的服务，请参阅 [Microsoft Azure 站点](http://azure.microsoft.com/documentation/)。  
-  
--   若要创建网站和 Web 应用，请[参阅 ASP.NET 站点](http://www.asp.net/get-started/websites)。  
-  
-    > [!NOTE]
-    >  你可以创建一个空的 ASP.Net Web 站点，然后将其用于 HTML、CSS 和 JavaScript 编程。 由 ASP.NET 提供的 Webconfig 文件会在 Visual Studio 中启用调试（你也可以在运行该应用时使用 F12 工具）。  
+-   有关 Visual Studio 中可使用的 JavaScript 技术的链接，请参阅 [JavaScript](https://docs.microsoft.com/scripting/javascript/) 和 [Scripting Technologies](https://docs.microsoft.com/scripting/)（脚本编写技术）页。
   
  Visual Studio 中的 JavaScript 编辑器提供 IntelliSense 支持。 有关详细信息，请参阅 [JavaScript IntelliSense](../ide/javascript-intellisense.md)。  
   

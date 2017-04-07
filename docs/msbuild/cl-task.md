@@ -1,35 +1,53 @@
 ---
 title: "CL 任务 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "VC.Project.VCCLCompilerTool.UseUnicodeForAssemblerListing"
-  - "vc.task.cl"
-  - "VC.Project.VCCLCompilerTool.TreatSpecificWarningsAsErrors"
-  - "VC.Project.VCCLCompilerTool.CreateHotpatchableImage"
-dev_langs: 
-  - "VB"
-  - "CSharp"
-  - "C++"
-  - "jsharp"
-helpviewer_keywords: 
-  - "MSBuild （Visual c + +），CL 任务"
-  - "CL 任务 (MSBuild (Visual C++))"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords:
+- VC.Project.VCCLCompilerTool.UseUnicodeForAssemblerListing
+- vc.task.cl
+- VC.Project.VCCLCompilerTool.TreatSpecificWarningsAsErrors
+- VC.Project.VCCLCompilerTool.CreateHotpatchableImage
+dev_langs:
+- VB
+- CSharp
+- C++
+- jsharp
+helpviewer_keywords:
+- MSBuild (Visual C++), CL task
+- CL task (MSBuild (Visual C++))
 ms.assetid: 651ba971-b755-4f03-a549-4816beb3cc0d
 caps.latest.revision: 18
-author: "kempb"
-ms.author: "kempb"
-manager: "ghogen"
-caps.handback.revision: 18
+author: kempb
+ms.author: kempb
+manager: ghogen
+translation.priority.ht:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+translationtype: Human Translation
+ms.sourcegitcommit: ca7c86466fa23fb21a932f26dc24e37c71cf29b4
+ms.openlocfilehash: bde2b08fb3cc1b183d224ab3282e44f21a094403
+ms.lasthandoff: 04/05/2017
+
 ---
 # <a name="cl-task"></a>CL 任务
-包装 Visual C++ 编译器工具 cl.exe。 编译器生成可执行 (.exe) 文件、动态链接库 (.dll) 文件或者代码模块 (.netmodule) 文件。 有关详细信息，请参阅[编译器选项](/visual-cpp/build/reference/compiler-options)。  
+包装 Visual C++ 编译器工具 cl.exe。 编译器生成可执行 (.exe) 文件、动态链接库 (.dll) 文件或者代码模块 (.netmodule) 文件。 有关详细信息，请参阅[编译器选项](/cpp/build/reference/compiler-options)。  
   
 ## <a name="parameters"></a>参数  
  下表描述了 **CL** 任务的参数。 大多数任务参数和若干组参数都对应于命令行选项。  
@@ -40,7 +58,7 @@ caps.handback.revision: 18
   
      将目录添加到在其中搜索包含文件的目录列表中。  
   
-     有关详细信息，请参阅 [/I（附加包含目录）](/visual-cpp/build/reference/i-additional-include-directories)。  
+     有关详细信息，请参阅 [/I（附加包含目录）](/cpp/build/reference/i-additional-include-directories)。  
   
 -   **AdditionalOptions**  
   
@@ -48,13 +66,13 @@ caps.handback.revision: 18
   
      命令行选项列表。 例如，“/*option1* /*option2* /*option#*”。 使用此参数可指定未由任何其他任务参数表示的命令行选项。  
   
-     有关详细信息，请参阅[编译器选项](/visual-cpp/build/reference/compiler-options)。  
+     有关详细信息，请参阅[编译器选项](/cpp/build/reference/compiler-options)。  
   
 -   **AdditionalUsingDirectories**可选 String[] 参数。  
   
      指定在解析传递给 **#using** 指令的文件引用时编译器将搜索的目录。  
   
-     有关详细信息，请参阅 [/AI（指定元数据目录）](/visual-cpp/build/reference/ai-specify-metadata-directories)。  
+     有关详细信息，请参阅 [/AI（指定元数据目录）](/cpp/build/reference/ai-specify-metadata-directories)。  
   
 -   **AlwaysAppend**  
   
@@ -66,7 +84,7 @@ caps.handback.revision: 18
   
      创建包含程序集代码的列表文件。  
   
-     有关详细信息，请参阅 [/FA、/Fa（列表文件）](/visual-cpp/build/reference/fa-fa-listing-file)中的 **/Fa** 选项。  
+     有关详细信息，请参阅 [/FA、/Fa（列表文件）](/cpp/build/reference/fa-fa-listing-file)中的 **/Fa** 选项。  
   
 -   **AssemblerOutput**  
   
@@ -86,13 +104,13 @@ caps.handback.revision: 18
   
     -   **All** - **/FAcs**  
   
-     有关详细信息，请参阅 [/FA、/Fa（列表文件）](/visual-cpp/build/reference/fa-fa-listing-file)中的 **/FA**、**/FAc**、**/FAs** 和 **/FAcs** 选项。  
+     有关详细信息，请参阅 [/FA、/Fa（列表文件）](/cpp/build/reference/fa-fa-listing-file)中的 **/FA**、**/FAc**、**/FAs** 和 **/FAcs** 选项。  
   
 -   **BasicRuntimeChecks**  
   
      可选 String 参数。  
   
-     结合 [runtime_checks](/visual-cpp/preprocessor/runtime-checks) 杂注，启用和禁用运行时错误检查功能。  
+     结合 [runtime_checks](/cpp/preprocessor/runtime-checks) 杂注，启用和禁用运行时错误检查功能。  
   
      指定以下值之一，其中每个值对应于一个命令行选项。  
   
@@ -104,7 +122,7 @@ caps.handback.revision: 18
   
     -   **EnableFastChecks** -                          **/RTC1**  
   
-     有关详细信息，请参阅 [/RTC（运行时错误检查）](/visual-cpp/build/reference/rtc-run-time-error-checks)。  
+     有关详细信息，请参阅 [/RTC（运行时错误检查）](/cpp/build/reference/rtc-run-time-error-checks)。  
   
 -   **BrowseInformation**  
   
@@ -112,7 +130,7 @@ caps.handback.revision: 18
   
      如果为 `true`，则创建浏览信息文件。  
   
-     有关详细信息，请参阅 [/FR、/Fr（创建 .Sbr 文件）](/visual-cpp/build/reference/fr-fr-create-dot-sbr-file)中的 **/FR** 选项。  
+     有关详细信息，请参阅 [/FR、/Fr（创建 .Sbr 文件）](/cpp/build/reference/fr-fr-create-dot-sbr-file)中的 **/FR** 选项。  
   
 -   **BrowseInformationFile**  
   
@@ -120,7 +138,7 @@ caps.handback.revision: 18
   
      指定浏览信息文件的文件名称。  
   
-     有关详细信息，请参阅此表中的 **BrowseInformation** 参数，同时还请参阅 [/FR、/Fr （创建 .Sbr 文件）](/visual-cpp/build/reference/fr-fr-create-dot-sbr-file)。  
+     有关详细信息，请参阅此表中的 **BrowseInformation** 参数，同时还请参阅 [/FR、/Fr （创建 .Sbr 文件）](/cpp/build/reference/fr-fr-create-dot-sbr-file)。  
   
 -   **BufferSecurityCheck**  
   
@@ -128,7 +146,7 @@ caps.handback.revision: 18
   
      如果为 `true`，则检测覆盖返回地址的某些缓冲区溢出，这是一种开发不强制执行缓冲区大小限制的代码的常见技术。  
   
-     有关详细信息，请参阅 [/GS（缓冲区安全检查）](/visual-cpp/build/reference/gs-buffer-security-check)。  
+     有关详细信息，请参阅 [/GS（缓冲区安全检查）](/cpp/build/reference/gs-buffer-security-check)。  
   
 -   **BuildingInIDE**  
   
@@ -150,7 +168,7 @@ caps.handback.revision: 18
   
     -   **StdCall** -                          **/Gz**  
   
-     有关详细信息，请参阅 [/Gd、/Gr、/Gv、/Gz（调用约定）](/visual-cpp/build/reference/gd-gr-gv-gz-calling-convention)。  
+     有关详细信息，请参阅 [/Gd、/Gr、/Gv、/Gz（调用约定）](/cpp/build/reference/gd-gr-gv-gz-calling-convention)。  
   
 -   **CompileAs**  
   
@@ -166,7 +184,7 @@ caps.handback.revision: 18
   
     -   **CompileAsCpp** - **/TP**  
   
-     有关详细信息，请参阅 [/Tc、/Tp、/TC、/TP（指定源文件类型）](/visual-cpp/build/reference/tc-tp-tc-tp-specify-source-file-type)。  
+     有关详细信息，请参阅 [/Tc、/Tp、/TC、/TP（指定源文件类型）](/cpp/build/reference/tc-tp-tc-tp-specify-source-file-type)。  
   
 -   **CompileAsManaged**  
   
@@ -186,7 +204,7 @@ caps.handback.revision: 18
   
     -   **OldSyntax** - **/clr:oldSyntax**  
   
-     有关详细信息，请参阅 [/clr（公共语言运行时编译）](/visual-cpp/build/reference/clr-common-language-runtime-compilation)。  
+     有关详细信息，请参阅 [/clr（公共语言运行时编译）](/cpp/build/reference/clr-common-language-runtime-compilation)。  
   
 -   **CreateHotpatchableImage**  
   
@@ -194,7 +212,7 @@ caps.handback.revision: 18
   
      如果为 `true`，则告知编译器准备用于*热修补*的映像。 此参数确保每个函数的第一个指令为两个字节，这是进行热修补所要求的。  
   
-     有关详细信息，请参阅 [/hotpatch（创建可热修补的映像）](/visual-cpp/build/reference/hotpatch-create-hotpatchable-image)。  
+     有关详细信息，请参阅 [/hotpatch（创建可热修补的映像）](/cpp/build/reference/hotpatch-create-hotpatchable-image)。  
   
 -   **DebugInformationFormat**  
   
@@ -210,7 +228,7 @@ caps.handback.revision: 18
   
     -   **EditAndContinue** - **/ZI**  
   
-     有关详细信息，请参阅 [/Z7、/Zi、/ZI（调试信息格式）](/visual-cpp/build/reference/z7-zi-zi-debug-information-format)。  
+     有关详细信息，请参阅 [/Z7、/Zi、/ZI（调试信息格式）](/cpp/build/reference/z7-zi-zi-debug-information-format)。  
   
 -   **DisableLanguageExtensions**  
   
@@ -218,7 +236,7 @@ caps.handback.revision: 18
   
      如果为 **true**，则告知编译器发出不与 ANSI C 或 ANSI C++ 兼容的语言构造错误。  
   
-     有关详细信息，请参阅 [/Za、/Ze（禁用语言扩展）](/visual-cpp/build/reference/za-ze-disable-language-extensions)的 **/Za** 选项。  
+     有关详细信息，请参阅 [/Za、/Ze（禁用语言扩展）](/cpp/build/reference/za-ze-disable-language-extensions)的 **/Za** 选项。  
   
 -   **DisableSpecificWarnings**  
   
@@ -226,7 +244,7 @@ caps.handback.revision: 18
   
      禁用在以分号分隔的列表中指定的警告编号。  
   
-     有关详细信息，请参阅 [/w、/W0、/W1、/W2、/W3、/W4、/w1、/w2、/w3、/w4、/Wall、/wd、/we、/wo、/Wv、/WX（警告等级）](/visual-cpp/build/reference/compiler-option-warning-level)中的 `/wd` 选项。  
+     有关详细信息，请参阅 [/w、/W0、/W1、/W2、/W3、/W4、/w1、/w2、/w3、/w4、/Wall、/wd、/we、/wo、/Wv、/WX（警告等级）](/cpp/build/reference/compiler-option-warning-level)中的 `/wd` 选项。  
   
 -   **EnableEnhancedInstructionSet**  
   
@@ -240,7 +258,7 @@ caps.handback.revision: 18
   
     -   **StreamingSIMDExtensions2** - **/arch:SSE2**  
   
-     有关详细信息，请参阅 [/arch (x86)](/visual-cpp/build/reference/arch-x86)。  
+     有关详细信息，请参阅 [/arch (x86)](/cpp/build/reference/arch-x86)。  
   
 -   **EnableFiberSafeOptimizations**  
   
@@ -248,7 +266,7 @@ caps.handback.revision: 18
   
      如果为 `true`，则支持使用静态线程本地存储分配的数据（也就是使用 `__declspec(thread)` 分配的数据）的纤程安全。  
   
-     有关详细信息，请参阅 [/GT （支持纤程安全线程本地存储）](/visual-cpp/build/reference/gt-support-fiber-safe-thread-local-storage)。  
+     有关详细信息，请参阅 [/GT （支持纤程安全线程本地存储）](/cpp/build/reference/gt-support-fiber-safe-thread-local-storage)。  
   
 -   **EnablePREfast**  
   
@@ -256,7 +274,7 @@ caps.handback.revision: 18
   
      如果为 `true`，则启用代码分析。  
   
-     有关详细信息，请参阅 [/analyze（代码分析）](/visual-cpp/build/reference/analyze-code-analysis)。  
+     有关详细信息，请参阅 [/analyze（代码分析）](/cpp/build/reference/analyze-code-analysis)。  
   
 -   **ErrorReporting**  
   
@@ -274,7 +292,7 @@ caps.handback.revision: 18
   
     -   **Send** - **/errorReport:send**  
   
-     有关详细信息，请参阅 [/errorReport（报告内部编译器错误）](/visual-cpp/build/reference/errorreport-report-internal-compiler-errors)。  
+     有关详细信息，请参阅 [/errorReport（报告内部编译器错误）](/cpp/build/reference/errorreport-report-internal-compiler-errors)。  
   
 -   **ExceptionHandling**  
   
@@ -292,7 +310,7 @@ caps.handback.revision: 18
   
     -   **SyncCThrow** - **/EHs**  
   
-     有关详细信息，请参阅 [/EH（异常处理模型）](/visual-cpp/build/reference/eh-exception-handling-model)。  
+     有关详细信息，请参阅 [/EH（异常处理模型）](/cpp/build/reference/eh-exception-handling-model)。  
   
 -   **ExpandAttributedSource**  
   
@@ -300,7 +318,7 @@ caps.handback.revision: 18
   
      如果为 `true`，则创建将扩展的属性插入到源文件中的列表文件。  
   
-     有关详细信息，请参阅 [/Fx （合并插入的代码）](/visual-cpp/build/reference/fx-merge-injected-code)。  
+     有关详细信息，请参阅 [/Fx （合并插入的代码）](/cpp/build/reference/fx-merge-injected-code)。  
   
 -   **FavorSizeOrSpeed**  
   
@@ -316,7 +334,7 @@ caps.handback.revision: 18
   
     -   **Speed** - **/Ot**  
   
-     有关详细信息，请参阅 [/Os、/Ot（代码大小优先、代码速度优先）](/visual-cpp/build/reference/os-ot-favor-small-code-favor-fast-code)。  
+     有关详细信息，请参阅 [/Os、/Ot（代码大小优先、代码速度优先）](/cpp/build/reference/os-ot-favor-small-code-favor-fast-code)。  
   
 -   **FloatingPointExceptions**  
   
@@ -324,7 +342,7 @@ caps.handback.revision: 18
   
      如果为 `true`，则启用可靠的浮点异常模型。 异常将在触发后立即引发。  
   
-     有关详细信息，请参阅 [/fp（指定浮点行为）](/visual-cpp/build/reference/fp-specify-floating-point-behavior)中的 /**fp:except** 选项。  
+     有关详细信息，请参阅 [/fp（指定浮点行为）](/cpp/build/reference/fp-specify-floating-point-behavior)中的 /**fp:except** 选项。  
   
 -   **FloatingPointModel**  
   
@@ -340,13 +358,13 @@ caps.handback.revision: 18
   
     -   **Fast** - **/fp:fast**  
   
-     有关详细信息，请参阅 [/fp（指定浮点行为）](/visual-cpp/build/reference/fp-specify-floating-point-behavior)。  
+     有关详细信息，请参阅 [/fp（指定浮点行为）](/cpp/build/reference/fp-specify-floating-point-behavior)。  
   
 -   **ForceConformanceInForLoopScope**  
   
      可选的布尔参数。  
   
-     如果为 `true`，则在使用 Microsoft 扩展 ([/Ze](/visual-cpp/build/reference/za-ze-disable-language-extensions)) 的 [for](/visual-cpp/cpp/for-statement-cpp) 循环中实现标准 C++ 行为。  
+     如果为 `true`，则在使用 Microsoft 扩展 ([/Ze](/cpp/build/reference/za-ze-disable-language-extensions)) 的 [for](/cpp/cpp/for-statement-cpp) 循环中实现标准 C++ 行为。  
   
      有关详细信息，请参阅 [/Zc:forScope（强制执行 For 循环范围中的合规性）](http://msdn.microsoft.com/Library/3031f02d-3b14-4ad0-869e-22b0110c3aed)。  
   
@@ -356,7 +374,7 @@ caps.handback.revision: 18
   
      促使预处理器处理一个或多个指定的头文件。  
   
-     有关详细信息，请参阅 [/FI（命名强制包含文件）](/visual-cpp/build/reference/fi-name-forced-include-file)。  
+     有关详细信息，请参阅 [/FI（命名强制包含文件）](/cpp/build/reference/fi-name-forced-include-file)。  
   
 -   **ForcedUsingFiles**  
   
@@ -364,7 +382,7 @@ caps.handback.revision: 18
   
      促使预处理器处理一个或多个指定的 **#using** 文件。  
   
-     有关详细信息，请参阅 [/FU（命名强制 #using 文件）](/visual-cpp/build/reference/fu-name-forced-hash-using-file)。  
+     有关详细信息，请参阅 [/FU（命名强制 #using 文件）](/cpp/build/reference/fu-name-forced-hash-using-file)。  
   
 -   **FunctionLevelLinking**  
   
@@ -372,7 +390,7 @@ caps.handback.revision: 18
   
      如果为 `true`，则允许编译器以打包函数 (COMDAT) 形式对各个函数进行打包。  
   
-     有关详细信息，请参阅 [/Gy （启用函数级链接）](/visual-cpp/build/reference/gy-enable-function-level-linking)。  
+     有关详细信息，请参阅 [/Gy （启用函数级链接）](/cpp/build/reference/gy-enable-function-level-linking)。  
   
 -   **GenerateXMLDocumentationFiles**  
   
@@ -380,7 +398,7 @@ caps.handback.revision: 18
   
      如果为 `true`，则促使编译器处理源代码文件中的文档注释，并为每个包含文档注释的源代码文件创建 .xdc 文件。  
   
-     有关详细信息，请参阅 [/doc（处理文档注释）(C/C++)](/visual-cpp/build/reference/doc-process-documentation-comments-c-cpp)。 另请参阅此表中的 **XMLDocumentationFileName** 参数。  
+     有关详细信息，请参阅 [/doc（处理文档注释）(C/C++)](/cpp/build/reference/doc-process-documentation-comments-c-cpp)。 另请参阅此表中的 **XMLDocumentationFileName** 参数。  
   
 -   **IgnoreStandardIncludePath**  
   
@@ -388,7 +406,7 @@ caps.handback.revision: 18
   
      如果为 `true`，则禁止编译器在 PATH 和 INCLUDE 环境变量指定的目录中搜索包含文件。  
   
-     有关详细信息，请参阅 [/X （忽略标准包含路径）](/visual-cpp/build/reference/x-ignore-standard-include-paths)。  
+     有关详细信息，请参阅 [/X （忽略标准包含路径）](/cpp/build/reference/x-ignore-standard-include-paths)。  
   
 -   **InlineFunctionExpansion**  
   
@@ -406,7 +424,7 @@ caps.handback.revision: 18
   
     -   **AnySuitable** - **/Ob2**  
   
-     有关详细信息，请参阅 [/Ob（内联函数扩展）](/visual-cpp/build/reference/ob-inline-function-expansion)。  
+     有关详细信息，请参阅 [/Ob（内联函数扩展）](/cpp/build/reference/ob-inline-function-expansion)。  
   
 -   **IntrinsicFunctions**  
   
@@ -414,7 +432,7 @@ caps.handback.revision: 18
   
      如果为 `true`，则将某些函数调用替换为内部函数或有助于提高应用程序运行速度的其他特殊形式函数。  
   
-     有关详细信息，请参阅 [/Oi （生成内部函数）](/visual-cpp/build/reference/oi-generate-intrinsic-functions)。  
+     有关详细信息，请参阅 [/Oi （生成内部函数）](/cpp/build/reference/oi-generate-intrinsic-functions)。  
   
 -   **MinimalRebuild**  
   
@@ -422,7 +440,7 @@ caps.handback.revision: 18
   
      如果为 `true`，则启用最小重新生成，它确定是否必须重新编译包含已更改的 C++ 类定义的 C++ 源文件，该定义存储在标头 (.h) 文件中。  
   
-     有关详细信息，请参阅 [/Gm（启用最小重新生成）](/visual-cpp/build/reference/gm-enable-minimal-rebuild) 。  
+     有关详细信息，请参阅 [/Gm（启用最小重新生成）](/cpp/build/reference/gm-enable-minimal-rebuild) 。  
   
 -   **MultiProcessorCompilation**  
   
@@ -430,7 +448,7 @@ caps.handback.revision: 18
   
      如果为 `true`，则使用多个处理器进行编译。 此参数在计算机上为每个有效的处理器创建进程。  
   
-     有关详细信息，请参阅 [/MP（使用多个进程生成）](/visual-cpp/build/reference/mp-build-with-multiple-processes)。 另请参阅此表格中的 **ProcessorNumber** 参数。  
+     有关详细信息，请参阅 [/MP（使用多个进程生成）](/cpp/build/reference/mp-build-with-multiple-processes)。 另请参阅此表格中的 **ProcessorNumber** 参数。  
   
 -   **ObjectFileName**  
   
@@ -438,7 +456,7 @@ caps.handback.revision: 18
   
      指定对象 (.obj) 文件的名称或要使用的目录，而不是默认目录。  
   
-     有关详细信息，请参阅 [/Fo（对象文件名）](/visual-cpp/build/reference/fo-object-file-name)。  
+     有关详细信息，请参阅 [/Fo（对象文件名）](/cpp/build/reference/fo-object-file-name)。  
   
 -   **ObjectFiles**  
   
@@ -452,7 +470,7 @@ caps.handback.revision: 18
   
      如果为 `true`，则省略对象 (.obj) 文件中的默认 C 运行时库名称。 默认情况下，编译器将库的名称放入 .obj 文件中以将链接器定向到正确的库。  
   
-     有关详细信息，请参阅 [/Zl（省略默认库名）](/visual-cpp/build/reference/zl-omit-default-library-name)。  
+     有关详细信息，请参阅 [/Zl（省略默认库名）](/cpp/build/reference/zl-omit-default-library-name)。  
   
 -   **OmitFramePointers**  
   
@@ -460,7 +478,7 @@ caps.handback.revision: 18
   
      如果为 `true`，则禁止在调用堆栈上创建帧指针。  
   
-     有关详细信息，请参阅 [/Oy （框架指针省略）](/visual-cpp/build/reference/oy-frame-pointer-omission)。  
+     有关详细信息，请参阅 [/Oy （框架指针省略）](/cpp/build/reference/oy-frame-pointer-omission)。  
   
 -   **OpenMPSupport**  
   
@@ -468,7 +486,7 @@ caps.handback.revision: 18
   
      如果为 `true`，则促使编译器处理 OpenMP 子句和指令。  
   
-     有关详细信息，请参阅 [/openmp（启用 OpenMP 2.0 支持）](/visual-cpp/build/reference/openmp-enable-openmp-2-0-support)。  
+     有关详细信息，请参阅 [/openmp（启用 OpenMP 2.0 支持）](/cpp/build/reference/openmp-enable-openmp-2-0-support)。  
   
 -   **优化**  
   
@@ -486,7 +504,7 @@ caps.handback.revision: 18
   
     -   **Full** - **/Ox**  
   
-     有关详细信息，请参阅 [/O 选项（优化代码）](/visual-cpp/build/reference/o-options-optimize-code)。  
+     有关详细信息，请参阅 [/O 选项（优化代码）](/cpp/build/reference/o-options-optimize-code)。  
   
 -   **PrecompiledHeader**  
   
@@ -502,7 +520,7 @@ caps.handback.revision: 18
   
     -   **Use** - **/Yu**  
   
-     有关详细信息，请参阅 [/Yc （创建预编译头文件）](/visual-cpp/build/reference/yc-create-precompiled-header-file)和 [/Yu（使用预编译头文件）](/visual-cpp/build/reference/yu-use-precompiled-header-file)。 另外，请参阅此表中的 **PrecompiledHeaderFile** 和 **PrecompiledHeaderOutputFile** 参数。  
+     有关详细信息，请参阅 [/Yc （创建预编译头文件）](/cpp/build/reference/yc-create-precompiled-header-file)和 [/Yu（使用预编译头文件）](/cpp/build/reference/yu-use-precompiled-header-file)。 另外，请参阅此表中的 **PrecompiledHeaderFile** 和 **PrecompiledHeaderOutputFile** 参数。  
   
 -   **PrecompiledHeaderFile**  
   
@@ -510,7 +528,7 @@ caps.handback.revision: 18
   
      指定要创建或使用的预编译头文件名。  
   
-     有关详细信息，请参阅 [/Yc （创建预编译头文件）](/visual-cpp/build/reference/yc-create-precompiled-header-file)和 [/Yu（使用预编译头文件）](/visual-cpp/build/reference/yu-use-precompiled-header-file)。  
+     有关详细信息，请参阅 [/Yc （创建预编译头文件）](/cpp/build/reference/yc-create-precompiled-header-file)和 [/Yu（使用预编译头文件）](/cpp/build/reference/yu-use-precompiled-header-file)。  
   
 -   **PrecompiledHeaderOutputFile**  
   
@@ -518,7 +536,7 @@ caps.handback.revision: 18
   
      指定预编译标头的路径名称，而不是使用默认路径名称。  
   
-     有关详细信息，请参阅 [/Fp（命名 .Pch 文件）](/visual-cpp/build/reference/fp-name-dot-pch-file)。  
+     有关详细信息，请参阅 [/Fp（命名 .Pch 文件）](/cpp/build/reference/fp-name-dot-pch-file)。  
   
 -   **PreprocessKeepComments**  
   
@@ -526,7 +544,7 @@ caps.handback.revision: 18
   
      如果为 `true`，则在预处理期间保留注释。  
   
-     有关详细信息，请参阅 [/C（在预处理期间保留注释）](/visual-cpp/build/reference/c-preserve-comments-during-preprocessing)。  
+     有关详细信息，请参阅 [/C（在预处理期间保留注释）](/cpp/build/reference/c-preserve-comments-during-preprocessing)。  
   
 -   **PreprocessorDefinitions**  
   
@@ -534,7 +552,7 @@ caps.handback.revision: 18
   
      定义源文件的预处理符号。  
   
-     有关详细信息，请参阅 [/D（预处理器定义）](/visual-cpp/build/reference/d-preprocessor-definitions)。  
+     有关详细信息，请参阅 [/D（预处理器定义）](/cpp/build/reference/d-preprocessor-definitions)。  
   
 -   **PreprocessOutput**  
   
@@ -548,7 +566,7 @@ caps.handback.revision: 18
   
      指定 **PreprocessToFile** 参数将预处理输出写入其中的输出文件的名称。  
   
-     有关详细信息，请参阅 [/Fi（预处理输出文件名）](/visual-cpp/build/reference/fi-preprocess-output-file-name)。  
+     有关详细信息，请参阅 [/Fi（预处理输出文件名）](/cpp/build/reference/fi-preprocess-output-file-name)。  
   
 -   **PreprocessSuppressLineNumbers**  
   
@@ -556,7 +574,7 @@ caps.handback.revision: 18
   
      如果为 `true`，则预处理 C 和 C++ 源文件，并将预处理过的文件复制到标准输出设备。  
   
-     有关详细信息，请参阅 [/EP（不使用 #line 指令预处理到 stdout）](/visual-cpp/build/reference/ep-preprocess-to-stdout-without-hash-line-directives)。  
+     有关详细信息，请参阅 [/EP（不使用 #line 指令预处理到 stdout）](/cpp/build/reference/ep-preprocess-to-stdout-without-hash-line-directives)。  
   
 -   **PreprocessToFile**  
   
@@ -564,7 +582,7 @@ caps.handback.revision: 18
   
      如果为 `true`，则预处理 C 和 C++ 源文件，并将预处理的输出写入文件。  
   
-     有关详细信息，请参阅 [/P（预处理到文件）](/visual-cpp/build/reference/p-preprocess-to-a-file)。  
+     有关详细信息，请参阅 [/P（预处理到文件）](/cpp/build/reference/p-preprocess-to-a-file)。  
   
 -   **ProcessorNumber**  
   
@@ -578,7 +596,7 @@ caps.handback.revision: 18
   
      指定程序数据库 (PDB) 文件的文件名。  
   
-     有关详细信息，请参阅 [/Fd（程序数据库文件名）](/visual-cpp/build/reference/fd-program-database-file-name)。  
+     有关详细信息，请参阅 [/Fd（程序数据库文件名）](/cpp/build/reference/fd-program-database-file-name)。  
   
 -   **RuntimeLibrary**  
   
@@ -596,7 +614,7 @@ caps.handback.revision: 18
   
     -   **MultiThreadedDebugDLL** - **/MDd**  
   
-     有关详细信息，请参阅 [/MD、/MT、/LD（使用运行时库）](/visual-cpp/build/reference/md-mt-ld-use-run-time-library)。  
+     有关详细信息，请参阅 [/MD、/MT、/LD（使用运行时库）](/cpp/build/reference/md-mt-ld-use-run-time-library)。  
   
 -   **RuntimeTypeInfo**  
   
@@ -604,7 +622,7 @@ caps.handback.revision: 18
   
      如果为 `true`，添加在运行时检查 C++ 对象类型（运行时类型信息）的代码。  
   
-     有关详细信息，请参阅 [/GR（启用运行时类型信息）](/visual-cpp/build/reference/gr-enable-run-time-type-information)。  
+     有关详细信息，请参阅 [/GR（启用运行时类型信息）](/cpp/build/reference/gr-enable-run-time-type-information)。  
   
 -   **ShowIncludes**  
   
@@ -612,7 +630,7 @@ caps.handback.revision: 18
   
      如果为 `true`，则促使编译器输出包含文件的列表。  
   
-     有关详细信息，请参阅 [/showIncludes（列出包含文件）](/visual-cpp/build/reference/showincludes-list-include-files)。  
+     有关详细信息，请参阅 [/showIncludes（列出包含文件）](/cpp/build/reference/showincludes-list-include-files)。  
   
 -   **SmallerTypeCheck**  
   
@@ -620,7 +638,7 @@ caps.handback.revision: 18
   
      如果为 `true`，则在某个值分配给较小的数据类型且导致数据丢失时，报告运行时错误。  
   
-     有关详细信息，请参阅 [/RTC（运行时错误检查）](/visual-cpp/build/reference/rtc-run-time-error-checks)中的 **/RTCc** 选项。  
+     有关详细信息，请参阅 [/RTC（运行时错误检查）](/cpp/build/reference/rtc-run-time-error-checks)中的 **/RTCc** 选项。  
   
 -   **Sources**  
   
@@ -634,7 +652,7 @@ caps.handback.revision: 18
   
      如果为 `true`，则编译器能够在程序映像中创建相同字符串的一个副本。  
   
-     有关详细信息，请参阅 [/GF（消除重复字符串）](/visual-cpp/build/reference/gf-eliminate-duplicate-strings)。  
+     有关详细信息，请参阅 [/GF（消除重复字符串）](/cpp/build/reference/gf-eliminate-duplicate-strings)。  
   
 -   **StructMemberAlignment**  
   
@@ -656,7 +674,7 @@ caps.handback.revision: 18
   
     -   **16Bytes** - **/Zp16**  
   
-     有关详细信息，请参阅 [/Zp（结构成员对齐）](/visual-cpp/build/reference/zp-struct-member-alignment)。  
+     有关详细信息，请参阅 [/Zp（结构成员对齐）](/cpp/build/reference/zp-struct-member-alignment)。  
   
 -   **SuppressStartupBanner**  
   
@@ -664,7 +682,7 @@ caps.handback.revision: 18
   
      如果为 `true`，则在任务开始时阻止显示版权和版本号消息。  
   
-     有关详细信息，请参阅 [/nologo（取消显示启动版权标志）(C/C++)](/visual-cpp/build/reference/nologo-suppress-startup-banner-c-cpp)。  
+     有关详细信息，请参阅 [/nologo（取消显示启动版权标志）(C/C++)](/cpp/build/reference/nologo-suppress-startup-banner-c-cpp)。  
   
 -   **TrackerLogDirectory**  
   
@@ -680,7 +698,7 @@ caps.handback.revision: 18
   
      将编译器警告的指定列表视为错误。  
   
-     有关详细信息，请参阅 [/w、/W0、/W1、/W2、/W3、/W4、/w1、/w2、/w3、/w4、/Wall、/wd、/we、/wo、/Wv、/WX（警告等级）](/visual-cpp/build/reference/compiler-option-warning-level)中的 **/we**`n` 选项。  
+     有关详细信息，请参阅 [/w、/W0、/W1、/W2、/W3、/W4、/w1、/w2、/w3、/w4、/Wall、/wd、/we、/wo、/Wv、/WX（警告等级）](/cpp/build/reference/compiler-option-warning-level)中的 **/we**`n` 选项。  
   
 -   **TreatWarningAsError**  
   
@@ -688,7 +706,7 @@ caps.handback.revision: 18
   
      如果为 `true`，则将所有编译器警告视为错误。  
   
-     有关详细信息，请参阅 [/w、/W0、/W1、/W2、/W3、/W4、/w1、/w2、/w3、/w4、/Wall、/wd、/we、/wo、/Wv、/WX（警告等级）](/visual-cpp/build/reference/compiler-option-warning-level)中的 **/WX** 选项。  
+     有关详细信息，请参阅 [/w、/W0、/W1、/W2、/W3、/W4、/w1、/w2、/w3、/w4、/Wall、/wd、/we、/wo、/Wv、/WX（警告等级）](/cpp/build/reference/compiler-option-warning-level)中的 **/WX** 选项。  
   
 -   **TreatWChar_tAsBuiltInType**  
   
@@ -704,7 +722,7 @@ caps.handback.revision: 18
   
      如果为 `true`，则取消定义编译器定义的特定于 Microsoft 的符号。  
   
-     有关详细信息，请参阅 [/U、/u（未定义符号）](/visual-cpp/build/reference/u-u-undefine-symbols)中的 **/u** 选项。  
+     有关详细信息，请参阅 [/U、/u（未定义符号）](/cpp/build/reference/u-u-undefine-symbols)中的 **/u** 选项。  
   
 -   **UndefinePreprocessorDefinitions**  
   
@@ -712,7 +730,7 @@ caps.handback.revision: 18
   
      指定一个或多个要取消定义的预处理器符号的列表。  
   
-     有关详细信息，请参阅 [/U、/u（未定义符号）](/visual-cpp/build/reference/u-u-undefine-symbols)中的 **/U** 选项。  
+     有关详细信息，请参阅 [/U、/u（未定义符号）](/cpp/build/reference/u-u-undefine-symbols)中的 **/U** 选项。  
   
 -   **UseFullPaths**  
   
@@ -720,7 +738,7 @@ caps.handback.revision: 18
   
      如果为 `true`，则在诊断中显示传递给编译器的源代码文件的完整路径。  
   
-     有关详细信息，请参阅 [/FC（所诊断源代码文件的完整路径）](/visual-cpp/build/reference/fc-full-path-of-source-code-file-in-diagnostics)。  
+     有关详细信息，请参阅 [/FC（所诊断源代码文件的完整路径）](/cpp/build/reference/fc-full-path-of-source-code-file-in-diagnostics)。  
   
 -   **UseUnicodeForAssemblerListing**  
   
@@ -728,7 +746,7 @@ caps.handback.revision: 18
   
      如果为 `true`，则指示使用 UTF-8 格式创建输出文件。  
   
-     有关详细信息，请参阅 [/FA、/Fa（列表文件）](/visual-cpp/build/reference/fa-fa-listing-file)中的 **/FAu** 选项。  
+     有关详细信息，请参阅 [/FA、/Fa（列表文件）](/cpp/build/reference/fa-fa-listing-file)中的 **/FAu** 选项。  
   
 -   **WarningLevel**  
   
@@ -750,7 +768,7 @@ caps.handback.revision: 18
   
     -   **EnableAllWarnings** - **/Wall**  
   
-     有关详细信息，请参阅 [/w、/W0、/W1、/W2、/W3、/W4、/w1、/w2、/w3、/w4、/Wall、/wd、/we、/wo、/Wv、/WX（警告等级）](/visual-cpp/build/reference/compiler-option-warning-level)中的 **/W***n* 选项。  
+     有关详细信息，请参阅 [/w、/W0、/W1、/W2、/W3、/W4、/w1、/w2、/w3、/w4、/Wall、/wd、/we、/wo、/Wv、/WX（警告等级）](/cpp/build/reference/compiler-option-warning-level)中的 **/W***n* 选项。  
   
 -   **WholeProgramOptimization**  
   
@@ -758,7 +776,7 @@ caps.handback.revision: 18
   
      如果为 `true`，则启用全程序优化。  
   
-     有关详细信息，请参阅 [/GL（全程序优化）](/visual-cpp/build/reference/gl-whole-program-optimization)。  
+     有关详细信息，请参阅 [/GL（全程序优化）](/cpp/build/reference/gl-whole-program-optimization)。  
   
 -   **XMLDocumentationFileName**  
   
@@ -766,7 +784,7 @@ caps.handback.revision: 18
   
      指定所生成的 XML 文档文件的名称。 此参数可以是文件，也可以是目录名。  
   
-     有关详细信息，请参阅 [/doc（处理文档注释）(C/C++)](/visual-cpp/build/reference/doc-process-documentation-comments-c-cpp) 中的 `name` 参数。 另请参阅此表中的 **GenerateXMLDocumentationFiles** 参数。  
+     有关详细信息，请参阅 [/doc（处理文档注释）(C/C++)](/cpp/build/reference/doc-process-documentation-comments-c-cpp) 中的 `name` 参数。 另请参阅此表中的 **GenerateXMLDocumentationFiles** 参数。  
   
 -   **MinimalRebuildFromTracking**  
   
@@ -802,8 +820,3 @@ caps.handback.revision: 18
   
 ## <a name="see-also"></a>另请参阅  
  [任务参考](../msbuild/msbuild-task-reference.md)
-
-
-<!--HONumber=Feb17_HO4-->
-
-

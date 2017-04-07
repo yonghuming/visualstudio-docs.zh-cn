@@ -1,6 +1,6 @@
 ---
-title: "分析 Windows 通用应用中的 CPU 使用率 | Microsoft Docs"
-ms.custom: 
+title: "分析通用 Windows 应用中的 CPU 使用率 | Microsoft Docs"
+ms.custom: H1Hack27Feb2017
 ms.date: 11/04/2016
 ms.reviewer: 
 ms.suite: 
@@ -30,12 +30,12 @@ translation.priority.mt:
 - pt-br
 - tr-tr
 translationtype: Human Translation
-ms.sourcegitcommit: 3d3a1b062063a24f70f8f6cab90ad25d458d0146
-ms.openlocfilehash: a2f2c81345a5477df5e2d6f88bf95935330af1dc
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: a42f5a30375192c89c9984e40ba0104da98d7253
+ms.openlocfilehash: c0fa199f2ccbdc7b4e60b4295645ccf83792d435
+ms.lasthandoff: 03/07/2017
 
 ---
-# <a name="analyze-cpu-usage-in-a-windows-universal-app"></a>分析 Windows 通用应用中的 CPU 使用率
+# <a name="analyze-cpu-usage-in-a-universal-windows-app-uwp"></a>分析通用 Windows 应用 (UWP) 中的 CPU 使用率
 ![适用于 Windows 和 Windows Phone](../debugger/media/windows_and_phone_content.png "windows_and_phone_content")  
   
  如需调查应用中的性能问题，最好从了解其使用 CPU 的方式开始。 **CPU 使用率**工具可显示 CPU 耗用时间执行代码的位置。 若要专注于特定方案，可在单个诊断会话中使用[应用程序时间](../profiling/application-timeline.md)工具、[能量消耗](../profiling/analyze-energy-use-in-store-apps.md)工具或者同时使用这两种工具来运行 CPU 使用率。  
@@ -45,7 +45,7 @@ ms.lasthandoff: 02/22/2017
   
  本演练介绍如何收集和分析简单 Windows 通用 XAML 应用的 CPU 使用率。  
   
-##  <a name="a-namebkmkcreatethecpuusedemoprojecta-create-the-cpuusedemo-project"></a><a name="BKMK_Create_the_CpuUseDemo_project"></a>创建 CpuUseDemo 项目  
+##  <a name="BKMK_Create_the_CpuUseDemo_project"></a>创建 CpuUseDemo 项目  
  **CpuUseDemo** 是为演示如何收集和分析 CPU 使用率数据而创建的应用。 通过调用方法（该方法从对函数的多次调用中选择最大值），按钮将生成一个数字。 被调用的函数将创建大量的随机值，然后将返回最后一个随机值。 数据将显示在文本框中。  
   
 1.  使用 **BlankApp** 模板创建名为 **CpuUseDemo** 的新 C# Windows 通用应用项目。  
@@ -58,7 +58,7 @@ ms.lasthandoff: 02/22/2017
   
 4.  构建该应用并对其进行测试。 该应用程序十分简单，可显示一些常见 CPU 使用率数据分析案例。  
   
-##  <a name="a-namebkmkcollectcpuusagedataa-collect-cpu-usage-data"></a><a name="BKMK_Collect_CPU_usage_data"></a>收集 CPU 使用率数据  
+##  <a name="BKMK_Collect_CPU_usage_data"></a>收集 CPU 使用率数据  
  ![在模拟器中运行应用的发布版本](../profiling/media/cpu_use_wt_setsimulatorandretail.png "CPU_USE_WT_SetSimulatorAndRetail")  
   
 1.  在 Visual Studio 中，将部署目标设置为“模拟器”并将解决方案配置设置为“发布”。  
@@ -83,14 +83,14 @@ ms.lasthandoff: 02/22/2017
   
  ![CpuUsage 报告](../profiling/media/cpu_use_wt_report.png "CPU_USE_WT_Report")  
   
-##  <a name="a-namebkmkanalyzethecpuusagereporta-analyze-the-cpu-usage-report"></a><a name="BKMK_Analyze_the_CPU_Usage_report"></a>分析 CPU 使用率报告  
+##  <a name="BKMK_Analyze_the_CPU_Usage_report"></a>分析 CPU 使用率报告  
   
-###  <a name="a-namebkmkcpuutilizationtimelinegrapha-cpu-utilization-timeline-graph"></a><a name="BKMK_CPU_utilization_timeline_graph"></a>CPU 使用率时间线关系图  
+###  <a name="BKMK_CPU_utilization_timeline_graph"></a>CPU 使用率时间线关系图  
  ![CPU 使用率 (%) 时间线关系图](../profiling/media/cpu_use_wt_timelinegraph.png "CPU_USE_WT_TimelineGraph")  
   
  CPU 使用量关系图借助设备上的所有处理器内核，以所有 CPU 时间的百分比形式显示应用的 CPU 活动。 在双核计算机上收集此报告的数据。 两个较大的峰值表示两次按钮单击事件的 CPU 活动。 `GetMaxNumberButton_Click` 将在单核上同步执行，因此方法的关系图高度永远不超过 50% 是合理的。 `GetMaxNumberAsycButton_Click` 跨两个内核异步运行，因此其峰值接近于同时在这两个内核上使用的所有 CPU 资源量，这看起来也是合理的。  
   
-####  <a name="a-namebkmkselecttimelinesegmentstoviewdetailsa-select-timeline-segments-to-view-details"></a><a name="BKMK_Select_timeline_segments_to_view_details"></a>选择时间线段以查看详细信息  
+####  <a name="BKMK_Select_timeline_segments_to_view_details"></a>选择时间线段以查看详细信息  
  使用“诊断会话”时间线上的选择栏以专注于 GetMaxNumberButton_Click 数据：  
   
  ![已选定 GetMaxNumberButton_Click ](../profiling/media/cpu_use_wt_getmaxnumberreport.png "CPU_USE_WT_GetMaxNumberReport")  
@@ -103,10 +103,10 @@ ms.lasthandoff: 02/22/2017
   
  完成此方法的速度比完成 `GetMaxNumberButton_Click` 的速度快了一秒钟，然而调用关系树项的含义却不太明显。  
   
-###  <a name="a-namebkmkthecpuusagecalltreea-the-cpu-usage-call-tree"></a><a name="BKMK_The_CPU_Usage_call_tree"></a>CPU 使用率调用关系树  
+###  <a name="BKMK_The_CPU_Usage_call_tree"></a>CPU 使用率调用关系树  
  若要开始了解调用关系树的信息，重新选择 `GetMaxNumberButton_Click` 段，查看调用关系树的详细信息。  
   
-####  <a name="a-namebkmkcalltreestructurea-call-tree-structure"></a><a name="BKMK_Call_tree_structure"></a>调用关系树结构  
+####  <a name="BKMK_Call_tree_structure"></a>调用关系树结构  
  ![GetMaxNumberButton_Click 调用关系树](../profiling/media/cpu_use_wt_getmaxnumbercalltree_annotated.png "CPU_USE_WT_GetMaxNumberCallTree_annotated")  
   
 |||  
@@ -116,7 +116,7 @@ ms.lasthandoff: 02/22/2017
 |![第 3 步](../profiling/media/procguid_3.png "ProcGuid_3")|二级节点的子级为用户代码方法和异步例程，它们由二级系统和框架代码进行调用或创建。|  
 |![第 4 步](../profiling/media/procguid_4.png "ProcGuid_4")|方法的子节点仅包含用于父方法调用的数据。 禁用“显示外部代码”  后，应用方法只能包含 **[外部代码]** 节点。|  
   
-####  <a name="a-namebkmkexternalcodea-external-code"></a><a name="BKMK_External_Code"></a>外部代码  
+####  <a name="BKMK_External_Code"></a>外部代码  
  外部代码由编写的代码执行的系统和框架组件中的函数组成。 外部代码包含的部分函数，可启动和停止应用、绘制 UI、控制线程以及向应用提供其他低级别服务。 在大多数情况下，你不会对外部代码感兴趣，因此 CPU 使用率调用关系树可将用户方法的外部函数收集到一个 **[外部代码]** 节点中。  
   
  若要查看外部代码的调用路径，请从 **“筛选器视图”** 列表中选择 **“显示外部代码”** ，然后选择 **“应用”**。  
@@ -131,7 +131,7 @@ ms.lasthandoff: 02/22/2017
   
  ![搜索嵌套的外部代码](../profiling/media/cpu_use_wt_showexternalcodetoowide_found.png "CPU_USE_WT_ShowExternalCodeTooWide_Found")  
   
-###  <a name="a-namebkmkcalltreedatacolumnsa-call-tree-data-columns"></a><a name="BKMK_Call_tree_data_columns"></a>调用关系树数据列  
+###  <a name="BKMK_Call_tree_data_columns"></a>调用关系树数据列  
   
 |||  
 |-|-|  
@@ -141,7 +141,7 @@ ms.lasthandoff: 02/22/2017
 |**自测 CPU (毫秒)**|所选时间范围内函数调用以及该函数调用函数所耗用的毫秒数。|  
 |**模块**|包含函数的模块的名称或包含 [外部代码] 节点中的函数的模块数。|  
   
-###  <a name="a-namebkmkasynchronousfunctionsinthecpuusagecalltreea-asynchronous-functions-in-the-cpu-usage-call-tree"></a><a name="BKMK_Asynchronous_functions_in_the_CPU_Usage_call_tree"></a>CPU 使用率调用关系树中的异步函数  
+###  <a name="BKMK_Asynchronous_functions_in_the_CPU_Usage_call_tree"></a>CPU 使用率调用关系树中的异步函数  
  当编译器遇到异步方法时，它会创建一个隐藏的类以控制方法的执行。 从概念上讲，此类是一个状态机，包括编译器生成的函数（以异步方式调用原始方法的操作）的列表、回调、计划程序和所需的相应迭代器。 当由父方法调用原始方法时，运行时将从父方法的执行上下文中移除该原始方法，并且将在控制系统和框架代码的上下文中运行隐藏类的方法，以控制应用的执行。 异步方法通常（但不总是）在一个或多个不同线程上执行。 此代码将显示在 CPU 使用率调用关系树中，作为树的顶层节点正下方的 **[外部代码]** 节点的子级。  
   
  若要在我们的示例中查看该示例，请在时间线中重新选择 `GetMaxNumberAsyncButton_Click` 段。  
@@ -158,7 +158,7 @@ ms.lasthandoff: 02/22/2017
   
 -   `MainPage::<GetNumberAsync>b__b` 显示调用 `GetNumber` 的任务的活动。  
   
-##  <a name="a-namebkmknextstepsa-next-steps"></a><a name="BKMK_Next_steps"></a>后续步骤  
+##  <a name="BKMK_Next_steps"></a>后续步骤  
  CpuUseDemo 应用并非最出色的应用，但你可以在性能和诊断中心中，使用异步操作和其他工具对其进行实验，以扩展它的实用功能。  
   
 -   请注意，`MainPage::<GetNumberAsync>b__b` 在[外部代码]中花费的时间多于其执行 GetNumber 方法所需的时间。 异步操作占用了其中大部分时间。 尝试增加任务（在 MainPage.xaml.cs 的 `NUM_TASKS` 常量中设置的任务）的数量，并尝试减少 `GetNumber` 中的迭代数（更改 `MIN_ITERATIONS` 值）。 运行收集方案，并将 `MainPage::<GetNumberAsync>b__b` 的 CPU 活动与原始 CPU 使用量诊断会话中的 CPU 活动进行比较。 尝试减少任务并增加迭代。  
@@ -167,7 +167,7 @@ ms.lasthandoff: 02/22/2017
   
      在诊断和性能中心中创建新会话，并同时添加 XAML UI 响应能力工具和 CPU 使用量工具。 运行收集方案。 如果已阅读了前面的内容，该报告显示的内容可能你早已了解，但前两个方法的“UI 线程使用率”时间线图中的差异却令人印象深刻。 在复杂且真实的应用中，工具的组合使用将很有帮助。  
   
-##  <a name="a-namebkmkmainpagexamla-mainpagexaml"></a><a name="BKMK_MainPage_xaml"></a> MainPage.xaml  
+##  <a name="BKMK_MainPage_xaml"></a> MainPage.xaml  
   
 ```xaml  
 <Page  
@@ -202,7 +202,7 @@ ms.lasthandoff: 02/22/2017
   
 ```  
   
-##  <a name="a-namebkmkmainpagexamlcsa-mainpagexamlcs"></a><a name="BKMK_MainPage_xaml_cs"></a> MainPage.xaml.cs  
+##  <a name="BKMK_MainPage_xaml_cs"></a> MainPage.xaml.cs  
   
 ```CSharp  
 using System;  

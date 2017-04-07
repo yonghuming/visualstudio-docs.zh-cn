@@ -1,7 +1,7 @@
 ---
-title: "“XAML 设计器”->“选项”| Microsoft Docs"
+title: "XAML 设计器选项页 | Microsoft Docs"
 ms.custom: 
-ms.date: 01/17/2017
+ms.date: 03/02/2017
 ms.reviewer: 
 ms.suite: 
 ms.technology:
@@ -30,12 +30,13 @@ translation.priority.ht:
 - zh-cn
 - zh-tw
 translationtype: Human Translation
-ms.sourcegitcommit: 7c944afe8c89b8a5e30bf1e5937e848e078954ac
-ms.openlocfilehash: f4a4832e5659a46b236cdcf9ff2eecdc3cabf57d
+ms.sourcegitcommit: a42f5a30375192c89c9984e40ba0104da98d7253
+ms.openlocfilehash: d23a47b708754248cd5c3fb8d86510a0c96491fa
+ms.lasthandoff: 03/07/2017
 
 ---
-# <a name="options-xaml-designer"></a>“XAML 设计器”->“选项”
-使用“XAML 设计器”属性页可指定如何在 XAML 文档中设置元素和特性的格式。 若要打开“选项”对话框，请选择“工具”菜单，然后选择“选项”。 若要访问“XAML 设计器”属性页，请选择“XAML 设计器”节点。 打开文档时将应用 XAML 设计器的相关设置。 因此，如果对设置进行更改，则需关闭并重新打开 Visual Studio，才能看到更改。
+# <a name="xaml-designer-options-page"></a>XAML 设计器选项页
+使用“XAML 设计器”选项页可指定如何在 XAML 文档中设置元素和特性的格式。 若要打开此页，请选择“工具”菜单，然后选择“选项”。 若要访问“XAML 设计器”属性页，请选择“XAML 设计器”节点。 打开文档时将应用 XAML 设计器的相关设置。 因此，如果对设置进行更改，则需关闭并重新打开 Visual Studio，才能看到更改。
 
 > [!NOTE]
 >  显示的对话框和菜单命令可能会与“帮助”中的描述不同，具体取决于你现用的设置或版本。 若要更改设置，请在 **“工具”** 菜单上选择 **“导入和导出设置”** 。 有关详细信息，请参阅[在 Visual Studio 中自定义开发设置](http://msdn.microsoft.com/en-us/22c4debb-4e31-47a8-8f19-16f328d7dcd3)。  
@@ -118,9 +119,4 @@ ms.openlocfilehash: f4a4832e5659a46b236cdcf9ff2eecdc3cabf57d
  [WPF 中的 XAML](http://msdn.microsoft.com/Library/5d858575-a83b-42df-ad3f-047ed2d6e3c8)   
  [如何：更改 XAML 视图设置](http://msdn.microsoft.com/en-us/aee87c79-ca01-4f84-8fb7-a9e47048ee47)   
  [XAML 和代码演练](http://msdn.microsoft.com/en-us/b3ff41a0-a2a3-4f61-b698-ac88ec8f799c)
-
-
-
-<!--HONumber=Feb17_HO4-->
-
 

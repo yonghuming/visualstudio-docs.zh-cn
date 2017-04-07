@@ -1,74 +1,89 @@
 ---
 title: "对应用商店应用的 Visual C++ DLL 进行单元测试 | Microsoft Docs"
-ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-general"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-general
+ms.tgt_pltfrm: 
+ms.topic: article
 ms.assetid: 24afc90a-8774-4699-ab01-6602a7e6feb2
 caps.latest.revision: 13
-caps.handback.revision: 13
-author: "alexhomer1"
-ms.author: "ahomer"
-manager: "robinr"
----
-# 对应用商店应用的 Visual C++ DLL 进行单元测试
-[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
+ms.author: douge
+manager: douge
+translation.priority.ht:
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- ru-ru
+- zh-cn
+- zh-tw
+translation.priority.mt:
+- cs-cz
+- pl-pl
+- pt-br
+- tr-tr
+translationtype: Human Translation
+ms.sourcegitcommit: 5ab78b6b8eaa8156ed2c8a807b1d8a80e75afa84
+ms.openlocfilehash: 571ea6daab6ea9cbfb30976514e163b5dcbe398d
+ms.lasthandoff: 04/04/2017
 
-本主题介绍一种为 Windows 应用商店应用创建针对 C\+\+ DLL 的单元测试的方法。RooterLib DLL 可通过实现计算给定数平方根的估计值的函数，演示微积分极限理论的模糊内存。  然后，可能会将 DLL 包括在一个 Windows 应用商店应用中，向用户展示可通过数学完成的有趣操作。  
+---
+# <a name="unit-testing-a-visual-c-dll-for-store-apps"></a>对应用商店应用的 Visual C++ DLL 进行单元测试
+本主题介绍一种为 Windows 应用商店应用创建针对 C++ DLL 的单元测试的方法。RooterLib DLL 可通过实现计算给定数平方根的估计值的函数，演示微积分极限理论的模糊内存。 然后，可能会将 DLL 包括在一个 Windows 应用商店应用中，向用户展示可通过数学完成的有趣操作。  
   
- 本主题演示如何使用单元测试作为开发的第一步。  在此方法中，首先编写验证要测试的系统的特定行为的测试方法，然后编写通过测试的代码。  通过按照以下过程的顺序进行更改，您可调转此策略的顺序，即先编写要测试的代码，然后编写单元测试。  
+ 本主题演示如何使用单元测试作为开发的第一步。 在此方法中，首先编写验证要测试的系统的特定行为的测试方法，然后编写通过测试的代码。 通过按照以下过程的顺序进行更改，您可调转此策略的顺序，即先编写要测试的代码，然后编写单元测试。  
   
- 本主题还为单元测试和要测试的 DLL 创建一个 Visual Studio 解决方案和单独的项目。  你还可在 DLL 项目中直接包含单元测试，也可以为单元测试和 .DLL 创建不同的解决方案。  请参阅[向现有的 C\+\+ 应用程序添加单元测试](../test/unit-testing-existing-cpp-applications-with-test-explorer.md)，获取使用哪个结构的提示。  
+ 本主题还为单元测试和要测试的 DLL 创建一个 Visual Studio 解决方案和单独的项目。 你还可在 DLL 项目中直接包含单元测试，也可以为单元测试和 .DLL 创建不同的解决方案。 有关要使用的指令的提示，请参阅[向现有的 C++ 应用程序添加单元测试](../test/unit-testing-existing-cpp-applications-with-test-explorer.md)。  
   
-##  <a name="BKMK_In_this_topic"></a> 在本主题中  
+##  <a name="BKMK_In_this_topic"></a> 主题内容  
  本主题将指导你完成以下任务：  
   
  [创建解决方案和单元测试项目](#BKMK_Create_the_solution_and_the_unit_test_project)  
   
- [验证测试是否在测试资源管理器中运行](#BKMK_Verify_that_the_tests_run_in_Test_Explorer)  
+ [验证测试是否可在资源管理器中运行](#BKMK_Verify_that_the_tests_run_in_Test_Explorer)  
   
  [向解决方案添加 DLL 项目](#BKMK_Add_the_DLL_project_to_the_solution)  
   
- [将测试项目耦合到 dll 项目](#BKMK_Couple_the_test_project_to_the_dll_project)  
+ [将测试项目耦合到 DLL 项目](#BKMK_Couple_the_test_project_to_the_dll_project)  
   
  [以迭代方式增加测试并使它们通过](#BKMK_Iteratively_augment_the_tests_and_make_them_pass)  
   
- [调试未通过的测试](#BKMK_Debug_a_failing_test)  
+ [调试失败测试](#BKMK_Debug_a_failing_test)  
   
  [在不更改测试的情况下重构代码](#BKMK_Refactor_the_code_without_changing_tests)  
   
 ##  <a name="BKMK_Create_the_solution_and_the_unit_test_project"></a> 创建解决方案和单元测试项目  
   
-1.  在**“文件”**菜单上选择**“新建”**，然后选择**“新建项目”**。  
+1.  在“文件”菜单上选择“新建”，然后选择“新建项目”。  
   
-2.  在“新建项目”对话框中，展开**“已安装”**，然后展开**Visual C\+\+**，并选择**“Windows 应用商店”**。  然后从项目模板列表中选择**“单元测试库\(Windows Store 应用程序\)”**。  
+2.  在“新建项目”对话框中，展开“已安装”，然后展开“Visual C++”，并选择“Windows 应用商店”。 然后从项目模板列表中选择“单元测试库(Windows 应用商店应用)”。  
   
-     ![创建 C&#43;&#43; 单元测试库](../test/media/ute_cpp_windows_unittestlib_create.png "UTE\_Cpp\_windows\_UnitTestLib\_Create")  
+     ![创建 C&#43;&#43; 单元测试库](../test/media/ute_cpp_windows_unittestlib_create.png "UTE_Cpp_windows_UnitTestLib_Create")  
   
-3.  将项目命名为 `RooterLibTests`；指定位置；将解决方案命名为 `RooterLib`；确保勾选了**“创建解决方案的目录”**。  
+3.  将项目命名为 `RooterLibTests`；指定位置；将解决方案命名为 `RooterLib`；确保选中了“创建解决方案的目录”。  
   
-     ![指定解决方案和项目名称以及位置](../test/media/ute_cpp_windows_unittestlib_createspecs.png "UTE\_Cpp\_windows\_UnitTestLib\_CreateSpecs")  
+     ![指定解决方案和项目名称和位置](../test/media/ute_cpp_windows_unittestlib_createspecs.png "UTE_Cpp_windows_UnitTestLib_CreateSpecs")  
   
 4.  在新项目中，打开 **unittest1.cpp**。  
   
-     ![unittest1.cpp](../test/media/ute_cpp_windows_unittest1_cpp.png "UTE\_Cpp\_windows\_unittest1\_cpp")  
+     ![unittest1.cpp](../test/media/ute_cpp_windows_unittest1_cpp.png "UTE_Cpp_windows_unittest1_cpp")  
   
      请注意：  
   
     -   每个测试都使用 `TEST_METHOD(YourTestName){...}` 来定义。  
   
-         你不必编写常规函数签名。  签名由宏 TEST\_METHOD 来创建。  此宏将生成一个返回 void 的实例函数。  它还将生成返回有关测试方法的信息的静态函数。  此信息允许测试资源管理器查找方法。  
+         你不必编写常规函数签名。 签名由宏 TEST_METHOD 来创建。 该宏将生成一个返回 void 的实例函数。 它还将生成返回有关测试方法的信息的静态函数。 此信息允许测试资源管理器查找方法。  
   
-    -   使用 `TEST_CLASS(YourClassName){...}` 将测试方法分组为各个类。  
+    -   使用 `TEST_CLASS(YourClassName){...}`将测试方法分组为各个类。  
   
-         当测试运行时，将为每个测试类创建一个实例。  测试方法以未指定的顺序进行调用。  您可定义在每个模块、每个类或每个方法前后调用的特定方法。  有关详细信息，请参阅 MSDN 库中的[使用 Microsoft.VisualStudio.TestTools.CppUnitTestFramework](../test/using-microsoft-visualstudio-testtools-cppunittestframework.md)。  
+         当测试运行时，将为每个测试类创建一个实例。 测试方法以未指定的顺序进行调用。 可以定义在每个模块、类或方法之前和之后调用的特殊方法。 有关详细信息，请参阅 MSDN 库中的[使用 Microsoft.VisualStudio.TestTools.CppUnitTestFramework](../test/using-microsoft-visualstudio-testtools-cppunittestframework.md)。  
   
-##  <a name="BKMK_Verify_that_the_tests_run_in_Test_Explorer"></a> 验证测试是否在测试资源管理器中运行  
+##  <a name="BKMK_Verify_that_the_tests_run_in_Test_Explorer"></a> 验证测试是否可在资源管理器中运行  
   
 1.  插入某些测试代码：  
   
@@ -79,23 +94,23 @@ manager: "robinr"
     }  
     ```  
   
-     请注意，`Assert` 类提供的若干静态方法可用于验证测试方法的结果。  
+     请注意， `Assert` 类提供了几个可以用来验证测试方法结果的静态方法。  
   
-2.  在**“测试”**菜单上，选择**“运行”**，然后选择**“全部运行”**。  
+2.  在“测试”菜单上，选择“运行”，然后选择“全部运行”。  
   
-     将生成并运行测试项目。  随即显示“测试资源管理器”窗口，并且测试列出在**“已通过的测试”**下。  窗口底部的“摘要”窗格将提供有关所选测试的其他详细信息。  
+     将生成并运行测试项目。 随即显示“测试资源管理器”窗口，并且测试列出在“通过的测试”下。 窗口底部的“摘要”窗格将提供有关所选测试的其他详细信息。  
   
-     ![测试资源管理器](../test/media/ute_cpp_testexplorer_testmethod1.png "UTE\_Cpp\_TestExplorer\_TestMethod1")  
+     ![测试资源管理器](../test/media/ute_cpp_testexplorer_testmethod1.png "UTE_Cpp_TestExplorer_TestMethod1")  
   
 ##  <a name="BKMK_Add_the_DLL_project_to_the_solution"></a> 向解决方案添加 DLL 项目  
   
-1.  在解决方案资源管理器中，选择解决方案名称。  从快捷菜单中选择**“添加”**，然后选择**“添加新项目”**。  
+1.  在解决方案资源管理器中，选择解决方案名称。 从快捷菜单中选择“添加”，然后选择“添加新项目”。  
   
-     ![创建 RooterLib 项目](../test/media/ute_cpp_windows_rooterlib_create.png "UTE\_Cpp\_windows\_RooterLib\_Create")  
+     ![创建 RooterLib 项目](../test/media/ute_cpp_windows_rooterlib_create.png "UTE_Cpp_windows_RooterLib_Create")  
   
-2.  在**“添加新项目”**对话框中，选择**“DLL \(Windows 应用商店应用\)”**。  
+2.  在“添加新项目”对话框中，选择“DLL (Windows 应用商店应用)”。  
   
-3.  向 **RooterLib.h** 文件添加以下代码：  
+3.  将以下代码添加到 **RooterLib.h** 文件中：  
   
     ```cpp  
     // The following ifdef block is the standard way of creating macros which make exporting   
@@ -117,21 +132,21 @@ manager: "robinr"
     };  
     ```  
   
-     注释向 dll 的开发人员以及任何在其项目中引用 DLL 的用户说明了 ifdef 块。  可以通过使用 DLL 的项目属性将 ROOTERLIB\_EXPORTS 符号添加到命令行。  
+     注释向 dll 的开发人员以及任何在其项目中引用 DLL 的用户说明了 ifdef 块。 可以通过使用 DLL 的项目属性将 ROOTERLIB_EXPORTS 符号添加到命令行。  
   
      `CRooterLib` 类声明一个构造函数和 `SqareRoot` estimator 方法。  
   
-4.  将 ROOTERLIB\_EXPORTS 符号添加到命令行。  
+4.  将 ROOTERLIB_EXPORTS 符号添加到命令行。  
   
-    1.  在解决方案资源管理器中，选择**“RooterLib”**项目，然后从快捷菜单选择**“属性”**。  
+    1.  在解决方案资源管理器中，选择“RooterLib”项目，然后从快捷菜单选择“属性”。  
   
-         ![添加预处理器符号定义](../test/media/ute_cpp_windows_addpreprocessorsymbol.png "UTE\_Cpp\_windows\_AddPreprocessorSymbol")  
+         ![添加预处理器符号定义](../test/media/ute_cpp_windows_addpreprocessorsymbol.png "UTE_Cpp_windows_AddPreprocessorSymbol")  
   
-    2.  在 RooterLib 属性页对话框中，依次展开**“配置属性”**、**C\+\+**，然后选择**“预处理器”**。  
+    2.  在 RooterLib 属性页对话框中，依次展开“配置属性”、“C++”，然后选择“预处理器”。  
   
-    3.  从**“预处理器定义”**列表选择**“\<编辑...\>”**，然后在“预处理器定义”对话框中添加 `ROOTERLIB_EXPORTS`。  
+    3.  从“预处理器定义”列表选择“\<编辑...>”，然后在“预处理器定义”对话框中添加 `ROOTERLIB_EXPORTS`。  
   
-5.  添加已声明函数的最小实现。  打开 **RooterLib.cpp** 并添加以下代码：  
+5.  添加已声明函数的最小实现。 打开 **RooterLib.cpp** 并添加以下代码：  
   
     ```  
     // constructor  
@@ -147,17 +162,17 @@ manager: "robinr"
   
     ```  
   
-##  <a name="BKMK_Couple_the_test_project_to_the_dll_project"></a> 将测试项目耦合到 dll 项目  
+##  <a name="BKMK_Couple_the_test_project_to_the_dll_project"></a> 将测试项目耦合到 DLL 项目  
   
 1.  将 RooterLib 添加到 RooterLibTests 项目。  
   
-    1.  在解决方案资源管理器中，选择 **RooterLibTests** 项目，然后选择快捷菜单上的**“引用...”**。  
+    1.  在解决方案资源管理器中，选择 **RooterLibTests** 项目，然后选择快捷菜单上的“引用...”。  
   
-    2.  在 RooterLib 项目属性对话框上，展开**“通用属性”**，然后选择**“框架和引用”**。  
+    2.  在 RooterLib 项目属性对话框上，展开“通用属性”，然后选择“框架和引用”。  
   
-    3.  选择**“添加新引用...”**  
+    3.  选择“添加新引用....”  
   
-    4.  在**“添加引用”**对话框上，展开 **“解决方案”**，然后选择**“项目”**。  然后选择 **RouterLib** 项。  
+    4.  在“添加引用”对话框上，展开“解决方案”，然后选择“项目”。 然后选择“RouterLib”项。  
   
 2.  将 RooterLib 头文件包括到 **unittest1.cpp** 中。  
   
@@ -169,7 +184,7 @@ manager: "robinr"
         #include "..\RooterLib\RooterLib.h"  
         ```  
   
-3.  添加一个使用 imported 函数的测试。  将下列代码添加到 **unittest1.cpp**：  
+3.  添加一个使用 imported 函数的测试。 将以下代码添加到 **unittest1.cpp**：  
   
     ```  
     TEST_METHOD(BasicTest)  
@@ -192,13 +207,13 @@ manager: "robinr"
   
 4.  生成解决方案。  
   
-     新测试将显示在测试资源管理器的**“未运行的测试”**节点中。  
+     新测试将显示在测试资源管理器的“未运行的测试”节点中。  
   
-5.  在测试资源管理器中，选择**“全部运行”**。  
+5.  在“测试资源管理器”中，选择 **“全部运行”**。  
   
-     ![已通过基本测试](../test/media/ute_cpp_testexplorer_basictest.png "UTE\_Cpp\_TestExplorer\_BasicTest")  
+     ![已通过基本测试](../test/media/ute_cpp_testexplorer_basictest.png "UTE_Cpp_TestExplorer_BasicTest")  
   
- 你已设置测试和代码项目，并已验证可运行测试（运行测试项目中的函数）。  现在可以开始编写实际测试和代码。  
+ 你已设置测试和代码项目，并已验证可运行测试（运行测试项目中的函数）。 现在可以开始编写实际测试和代码。  
   
 ##  <a name="BKMK_Iteratively_augment_the_tests_and_make_them_pass"></a> 以迭代方式增加测试并使它们通过  
   
@@ -220,20 +235,20 @@ manager: "robinr"
     ```  
   
     > [!TIP]
-    >  建议你不更改已通过的测试。  相反，请添加新测试，更新代码，使测试通过，然后添加其他测试，依此类推。  
+    >  建议你不更改已通过的测试。 相反，请添加新测试，更新代码，使测试通过，然后添加其他测试，依此类推。  
     >   
-    >  当用户更改其要求时，请禁用不再正确的测试。  编写新测试并使它们以相同的增量方式一次运行一个。  
+    >  当用户更改其要求时，请禁用不再正确的测试。 编写新测试，并以相同的增量方式使他们每次运行一个。  
   
-2.  在测试资源管理器中，选择**“全部运行”**。  
+2.  在“测试资源管理器”中，选择 **“全部运行”**。  
   
 3.  测试将不会通过。  
   
-     ![RangeTest 未通过](../test/media/ute_cpp_testexplorer_rangetest_fail.png "UTE\_Cpp\_TestExplorer\_RangeTest\_Fail")  
+     ![RangeTest 未通过](../test/media/ute_cpp_testexplorer_rangetest_fail.png "UTE_Cpp_TestExplorer_RangeTest_Fail")  
   
     > [!TIP]
-    >  验证每个测试是否在编写之后立即失败。  这有助于避免编写从不失败的测试这一易犯错误。  
+    >  验证每个测试是否在编写之后立即失败。 这有助于避免编写从不失败的测试这一易犯错误。  
   
-4.  增强受测代码，以便新测试通过。  将为以下内容添加到 **RooterLib.cpp**：  
+4.  增强受测代码，以便新测试通过。 将以下内容添加到 **RooterLib.cpp**：  
   
     ```cpp  
     #include <math.h>  
@@ -254,16 +269,16 @@ manager: "robinr"
   
     ```  
   
-5.  生成解决方案，然后在测试资源管理器中，选择**“全部运行”**。  
+5.  生成解决方案，然后在测试资源管理器中选择“全部运行” 。  
   
      两个测试均通过。  
   
 > [!TIP]
->  通过一次添加一个测试来开发代码。  确保每次迭代后所有的测试都会通过。  
+>  通过一次添加一个测试来开发代码。 确保每次迭代后所有的测试都会通过。  
   
-##  <a name="BKMK_Debug_a_failing_test"></a> 调试未通过的测试  
+##  <a name="BKMK_Debug_a_failing_test"></a> 调试失败测试  
   
-1.  向 **unittest1.cpp** 添加另一个测试：  
+1.  将另一个测试添加到 **unittest1.cpp**：  
   
     ```  
     // Verify that negative inputs throw an exception.  
@@ -295,21 +310,21 @@ manager: "robinr"
   
     ```  
   
-2.  在测试资源管理器中，选择**“全部运行”**。  
+2.  在“测试资源管理器”中，选择 **“全部运行”**。  
   
-     测试将不会通过。  在测试资源管理器中选择测试名称。  失败的断言会突出显示。  失败消息会显示在测试资源管理器的详细信息窗格中。  
+     测试将不会通过。 在测试资源管理器中选择测试名称。 失败的断言会突出显示。 失败消息会显示在测试资源管理器的详细信息窗格中。  
   
-     ![NegativeRangeTests 未通过](../test/media/ute_cpp_testexplorer_negativerangetest_fail.png "UTE\_Cpp\_TestExplorer\_NegativeRangeTest\_Fail")  
+     ![NegativeRangeTests 失败](../test/media/ute_cpp_testexplorer_negativerangetest_fail.png "UTE_Cpp_TestExplorer_NegativeRangeTest_Fail")  
   
-3.  若要查看测试未通过的原因，请单步执行以下函数：  
+3.  若要查看未通过测试的原因，请单步调试函数：  
   
     1.  在 `SquareRoot` 函数的开头设置断点。  
   
-    2.  在未通过测试的快捷菜单上，选择**“调试选定的测试”**。  
+    2.  在失败测试的快捷菜单上，选择“调试所选测试” 。  
   
-         当运行在断点处停止时，请单步执行以下代码。  
+         当在断点处停止运行时，请单步调试代码。  
   
-    3.  将代码添加到 **RooterLib.cpp** 以捕获异常：  
+    3.  将代码添加到 **RooterLib.cpp** 来捕获异常：  
   
         ```  
         #include <stdexcept>  
@@ -325,11 +340,11 @@ manager: "robinr"
   
         ```  
   
-    1.  在测试资源管理器中，选择**“全部运行”**以测试已纠正的方法，并确保您未引入回归测试。  
+    1.  在测试资源管理器中，选择“全部运行”以测试已更正的方法，并确保你未引入回归。  
   
- 所有测试都将通过。  
+ 现在所有测试均通过。  
   
- ![所有测试通过](../test/media/ute_ult_alltestspass.png "UTE\_ULT\_AllTestsPass")  
+ ![所有测试均通过](../test/media/ute_ult_alltestspass.png "UTE_ULT_AllTestsPass")  
   
 ##  <a name="BKMK_Refactor_the_code_without_changing_tests"></a> 在不更改测试的情况下重构代码  
   
@@ -343,9 +358,10 @@ manager: "robinr"
   
     ```  
   
-2.  选择**“全部运行”**以测试已重构的方法，并确保您未引入回归测试。  
+2.  选择“全部运行”以测试已重构的方法，并确保你未引入回归。  
   
     > [!TIP]
-    >  一组稳定的优良单元测试可保证您在更改代码时不会引入 Bug。  
+    >  一组稳定的优良单元测试可保证你在更改代码时不会引入 Bug。  
     >   
     >  将重构更改与其他更改分开。
+

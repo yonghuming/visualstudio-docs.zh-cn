@@ -2,7 +2,6 @@
 # [Visual Studio 图形诊断概述](overview-of-visual-studio-graphics-diagnostics.md)
 # [Visual Studio 图形诊断入门](getting-started-with-visual-studio-graphics-diagnostics.md)
 # [捕获图形信息](capturing-graphics-information.md)
-# [GPU 使用情况](gpu-usage.md)
 # [图形日志文档](graphics-log-document.md)
 # [图形帧分析](graphics-frame-analysis.md)
 ## [1x1 视区大小变量](1x1-viewport-size-variant.md)

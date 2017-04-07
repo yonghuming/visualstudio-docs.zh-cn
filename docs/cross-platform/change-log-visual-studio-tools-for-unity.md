@@ -1,22 +1,46 @@
 ---
-title: "更改日志（Visual Studio Tools for Unity） | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "tgt-pltfrm-cross-plat"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
+title: "更改日志 (Visual Studio Tools for Unity) | Microsoft Docs"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- tgt-pltfrm-cross-plat
+ms.tgt_pltfrm: 
+ms.topic: article
 ms.assetid: ea490b7e-fc0d-44b1-858a-a725ce20e396
 caps.latest.revision: 12
-author: "ghogen"
-ms.author: "ghogen"
-manager: "ghogen"
-caps.handback.revision: 10
+author: ghogen
+ms.author: ghogen
+manager: ghogen
+translation.priority.ht:
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- ru-ru
+- zh-cn
+- zh-tw
+translation.priority.mt:
+- cs-cz
+- pl-pl
+- pt-br
+- tr-tr
+translationtype: Human Translation
+ms.sourcegitcommit: 91fde66abf2f325ef0a6a0a2fd30e36981f44033
+ms.openlocfilehash: 8c13675dbd06111bb0eced77f9343c80959afba1
+ms.lasthandoff: 03/08/2017
+
 ---
 # <a name="change-log-visual-studio-tools-for-unity"></a>更改日志（Visual Studio Tools for Unity）
 Visual Studio Tools for Unity 更改日志。  
+
+## <a name="3001"></a>3.0.0.1
+ 发布时间 2017-03-07
+
+### <a name="this-version-includes-all-new-features-and-bug-fixes-introduced-with-28x-series"></a>此版本包括 2.8.x 系列引入的所有新功能和 Bug 修复。
 
 ## <a name="282-30-preview-3"></a>2.8.2（3.0 预览版 3）
  发布时间 2017-01-25
@@ -912,9 +936,4 @@ Visual Studio Tools for Unity 更改日志。
   
 ## <a name="10--initial-release"></a>1.0 – 初始版本  
  发布时间 2012-08-22
-
-
-
-<!--HONumber=Feb17_HO4-->
-
 

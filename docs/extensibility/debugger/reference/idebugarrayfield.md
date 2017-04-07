@@ -31,13 +31,13 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 translationtype: Machine Translation
-ms.sourcegitcommit: 5db97d19b1b823388a465bba15d057b30ff0b3ce
-ms.openlocfilehash: e73ab513461077ed44bec2eed7410f5317fb6a4e
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: ca7c86466fa23fb21a932f26dc24e37c71cf29b4
+ms.openlocfilehash: d294afcdbf434f65f556a3437af9cfa7e179703d
+ms.lasthandoff: 04/05/2017
 
 ---
 # <a name="idebugarrayfield"></a>IDebugArrayField
-此接口描述的数组符号或类型。  
+此接口描述数组符号或类型。  
   
 ## <a name="syntax"></a>语法  
   
@@ -46,15 +46,15 @@ IDebugArrayField : IDebugContainerField
 ```  
   
 ## <a name="notes-for-implementers"></a>实施者注意事项  
- 符号提供程序实现的相同对象上实现此接口[IDebugContainerField](../../../extensibility/debugger/reference/idebugcontainerfield.md)接口。 此接口是表示数组对象的专用化。  
+ 符号提供程序实现此接口上实现的相同对象[IDebugContainerField](../../../extensibility/debugger/reference/idebugcontainerfield.md)接口。 此接口是表示数组对象的专用化。  
   
 ## <a name="notes-for-callers"></a>调用方的说明  
- 使用[QueryInterface](/visual-cpp/atl/queryinterface)以获取此接口从[IDebugContainerField](../../../extensibility/debugger/reference/idebugcontainerfield.md)接口[GetKind](../../../extensibility/debugger/reference/idebugfield-getkind.md)返回标志`FIELD_TYPE_ARRAY`。  
+ 使用[QueryInterface](/cpp/atl/queryinterface)获取此接口从[IDebugContainerField](../../../extensibility/debugger/reference/idebugcontainerfield.md)接口如果[GetKind](../../../extensibility/debugger/reference/idebugfield-getkind.md)返回标志`FIELD_TYPE_ARRAY`。  
   
 ## <a name="methods-in-vtable-order"></a>Vtable 顺序中的方法  
- 除了上方法[IDebugField](../../../extensibility/debugger/reference/idebugfield.md)和[IDebugContainerField](../../../extensibility/debugger/reference/idebugcontainerfield.md)接口，此接口实现了下列︰  
+ 除了上的方法[IDebugField](../../../extensibility/debugger/reference/idebugfield.md)和[IDebugContainerField](../../../extensibility/debugger/reference/idebugcontainerfield.md)接口，此接口实现以下︰  
   
-|方法|描述|  
+|方法|说明|  
 |------------|-----------------|  
 |[GetNumberOfElements](../../../extensibility/debugger/reference/idebugarrayfield-getnumberofelements.md)|获取数组中的元素数。|  
 |[GetElementType](../../../extensibility/debugger/reference/idebugarrayfield-getelementtype.md)|获取数组中元素的类型。|  

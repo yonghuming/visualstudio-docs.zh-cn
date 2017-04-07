@@ -1,58 +1,74 @@
 ---
-title: "IDebugQueryEngine2 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "IDebugQueryEngine2"
-helpviewer_keywords: 
-  - "IDebugQueryEngine2 接口"
+title: "IDebugQueryEngine2 |Microsoft 文档"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords:
+- IDebugQueryEngine2
+helpviewer_keywords:
+- IDebugQueryEngine2 interface
 ms.assetid: 8f0e1838-a818-4459-9138-a3dceb7408de
 caps.latest.revision: 11
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 11
----
-# IDebugQueryEngine2
-[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
+ms.author: gregvanl
+manager: ghogen
+translation.priority.mt:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+translationtype: Machine Translation
+ms.sourcegitcommit: ca7c86466fa23fb21a932f26dc24e37c71cf29b4
+ms.openlocfilehash: cdf774a97ef3b1d0bfeec0be8482d2c116806885
+ms.lasthandoff: 04/05/2017
 
-此接口允许会议调试管理器 \(SDM\)检索表示调试引擎 \(DE\)的接口。  
+---
+# <a name="idebugqueryengine2"></a>IDebugQueryEngine2
+此接口允许调试管理器 (SDM) 检索表示的调试引擎 (DE) 的接口的会话。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
 ```  
 IDebugQueryEngine2 : IUnknown  
 ```  
   
-## 实现者说明  
- DE implements 在实现最常见的、 interfaces 对象的此接口 \(例如 [IDebugProgram2](../../../extensibility/debugger/reference/idebugprogram2.md)、 [IDebugThread2](../../../extensibility/debugger/reference/idebugthread2.md)和 [IDebugStackFrame2](../../../extensibility/debugger/reference/idebugstackframe2.md)\) 来允许访问、 [IDebugEngine2](../../../extensibility/debugger/reference/idebugengine2.md) 接口的访问。  
+## <a name="notes-for-implementers"></a>实施者注意事项  
+ DE 实现此接口上实现最常见的 DE 接口的对象 (如[IDebugProgram2](../../../extensibility/debugger/reference/idebugprogram2.md)， [IDebugThread2](../../../extensibility/debugger/reference/idebugthread2.md)，和[IDebugStackFrame2](../../../extensibility/debugger/reference/idebugstackframe2.md)) 以允许访问[IDebugEngine2](../../../extensibility/debugger/reference/idebugengine2.md) DE 本身的接口。  
   
-## 调用方的说明  
- 调用在典型的、 interface 的 [QueryInterface](/visual-cpp/atl/queryinterface) 获取此接口。  
+## <a name="notes-for-callers"></a>调用方的说明  
+ 调用[QueryInterface](/cpp/atl/queryinterface)典型 DE 接口，以获得此接口上。  
   
-## 方法按 Vtable 顺序  
- 下表显示 `IDebugQueryEngine2`方法。  
+## <a name="methods-in-vtable-order"></a>Vtable 顺序中的方法  
+ 下表显示的方法`IDebugQueryEngine2`。  
   
-|方法|说明|  
-|--------|--------|  
-|[GetEngineInterface](../Topic/IDebugQueryEngine2::GetEngineInterface.md)|获取自定义调试引擎 \(DE\)接口。|  
+|方法|描述|  
+|------------|-----------------|  
+|[GetEngineInterface](../../../extensibility/debugger/reference/idebugqueryengine2-getengineinterface.md)|获取自定义调试引擎 (DE) 接口。|  
   
-## 备注  
- 此接口在对象通常实现 [IDebugProgram2](../../../extensibility/debugger/reference/idebugprogram2.md) 实现接口以便支持通过功能因果关系顺序的步骤;也就是说，当调试器单步执行函数外时，执行的下一个函数不能完全位于堆栈以前的功能，而在另一个线程的函数。  有关 “因果关系的定义，请参见 [Visual Studio 调试器术语表](../../../extensibility/debugger/reference/visual-studio-debugger-glossary.md)。  
+## <a name="remarks"></a>备注  
+ 通常在实现的对象中实现此接口[IDebugProgram2](../../../extensibility/debugger/reference/idebugprogram2.md)接口以支持因果关系排序逐句通过函数; 即，在时调试器跳出执行函数，要执行的下一步函数可能不会在堆栈上的前一个函数，但另一个线程中的函数完全。 有关"因果关系"的定义，请参阅[Visual Studio 调试器术语表](../../../extensibility/debugger/reference/visual-studio-debugger-glossary.md)。  
   
-## 要求  
- 标题:msdbg.h  
+## <a name="requirements"></a>要求  
+ 标头︰ msdbg.h  
   
- 命名空间:Microsoft.VisualStudio.Debugger.Interop  
+ Namespace: Microsoft.VisualStudio.Debugger.Interop  
   
- 程序集:Microsoft.VisualStudio.Debugger.Interop.dll  
+ 程序集︰ Microsoft.VisualStudio.Debugger.Interop.dll  
   
-## 请参阅  
+## <a name="see-also"></a>另请参阅  
  [核心接口](../../../extensibility/debugger/reference/core-interfaces.md)   
  [IDebugProgram2](../../../extensibility/debugger/reference/idebugprogram2.md)   
  [IDebugThread2](../../../extensibility/debugger/reference/idebugthread2.md)   

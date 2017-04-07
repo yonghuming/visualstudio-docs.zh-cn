@@ -1,68 +1,84 @@
 ---
-title: "IDebugStackFrame3 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "IDebugStackFrame3"
-helpviewer_keywords: 
-  - "IDebugStackFrame3 接口"
+title: "IDebugStackFrame3 |Microsoft 文档"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords:
+- IDebugStackFrame3
+helpviewer_keywords:
+- IDebugStackFrame3 interface
 ms.assetid: 39af2f57-0a01-42b8-b093-b7fbc61e2909
 caps.latest.revision: 15
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 15
----
-# IDebugStackFrame3
-[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
+ms.author: gregvanl
+manager: ghogen
+translation.priority.mt:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+translationtype: Machine Translation
+ms.sourcegitcommit: ca7c86466fa23fb21a932f26dc24e37c71cf29b4
+ms.openlocfilehash: 71ffa007c894090b9c0af2ad16429f381eb2db8b
+ms.lasthandoff: 04/05/2017
 
-此接口来处理被截取的异常扩展 [IDebugStackFrame2](../../../extensibility/debugger/reference/idebugstackframe2.md) 。  
+---
+# <a name="idebugstackframe3"></a>IDebugStackFrame3
+此接口扩展[IDebugStackFrame2](../../../extensibility/debugger/reference/idebugstackframe2.md)来处理截获的异常。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
 ```  
 IDebugStackFrame3 : IDebugStackFrame2  
 ```  
   
-## 实现者说明  
- 调试引擎 \(DE\)实现在同一对象的此接口实现支持 [IDebugStackFrame2](../../../extensibility/debugger/reference/idebugstackframe2.md) 的接口截获了异常。  
+## <a name="notes-for-implementers"></a>实施者注意事项  
+ 调试引擎 (DE) 实现此接口上实现的相同对象[IDebugStackFrame2](../../../extensibility/debugger/reference/idebugstackframe2.md)接口以支持截获的异常。  
   
-## 调用方的说明  
- 调用 `IDebugStackFrame2` 接口的 [QueryInterface](/visual-cpp/atl/queryinterface) 获取此接口。  
+## <a name="notes-for-callers"></a>调用方的说明  
+ 调用[QueryInterface](/cpp/atl/queryinterface)上`IDebugStackFrame2`接口，以获得此接口。  
   
-## 方法按 Vtable 顺序  
- 除了从 [IDebugStackFrame2](../../../extensibility/debugger/reference/idebugstackframe2.md)继承的方法之外， `IDebugStackFrame3` 显示以下方法。  
+## <a name="methods-in-vtable-order"></a>Vtable 顺序中的方法  
+ 除了从继承的方法[IDebugStackFrame2](../../../extensibility/debugger/reference/idebugstackframe2.md)，`IDebugStackFrame3`公开以下方法。  
   
-|方法|说明|  
-|--------|--------|  
-|[InterceptCurrentException](../../../extensibility/debugger/reference/idebugstackframe3-interceptcurrentexception.md)|处理当前堆栈帧的异常在任何常规异常处理之前。|  
-|[GetUnwindCodeContext](../../../extensibility/debugger/reference/idebugstackframe3-getunwindcodecontext.md)|; 如果堆栈展开是发生，返回代码上下文。|  
+|方法|描述|  
+|------------|-----------------|  
+|[InterceptCurrentException](../../../extensibility/debugger/reference/idebugstackframe3-interceptcurrentexception.md)|处理针对当前堆栈帧之前任何常规异常处理的异常。|  
+|[GetUnwindCodeContext](../../../extensibility/debugger/reference/idebugstackframe3-getunwindcodecontext.md)|如果出现堆栈展开，则返回代码的上下文。|  
   
-## 备注  
- 已截获的异常表示调试器可以处理异常，在所有普通异常处理实例在运行时之前调用。  在运行时的截获的异常表示基本模拟与异常处理程序存在，即使不。  
+## <a name="remarks"></a>备注  
+ 截获的异常意味着之前由运行时调用任何普通的异常处理例程，调试器可以处理异常。 实质上截获异常意味着使假设是存在，即使没有异常处理程序的运行的时间。  
   
- [InterceptCurrentException](../../../extensibility/debugger/reference/idebugstackframe3-interceptcurrentexception.md) 对所有常规异常回调事件期间 \(此唯一的例外是，如果正在调试混合模式的代码 \(托管和非托管代码\)，因此，在异常无法截获在之前机会回调期间\) 情况下。  如果 DE 不实现 `IDebugStackFrame3`或 DE 返回从 IDebugStackFrame3 的错误::`InterceptCurrentException` \(例如 `E_NOTIMPL`\)，调试器通常将处理异常。  
+ [InterceptCurrentException](../../../extensibility/debugger/reference/idebugstackframe3-interceptcurrentexception.md)在 （唯一的例外是如果你正在调试混合模式代码 （托管和非托管代码），将在上一次机会回调过程中，在这种情况下无法截获异常） 的所有一般异常回调事件过程中调用。 如果 DE 不实现`IDebugStackFrame3`，则 DE 从 IDebugStackFrame3 返回一个错误::`InterceptCurrentException` (如`E_NOTIMPL`)，则调试器将正常处理的异常。  
   
- 通过截获异常，调试器可以允许用户对正在调试的程序状态的更改然后继续执行在引发异常的点。  
+ 通过截获异常，调试器可以允许用户来对正在调试的程序的状态进行更改，然后继续执行在引发异常的断点。  
   
 > [!NOTE]
->  被截取的异常在托管代码只允许，即，在运行于公共语言运行时 \(clr\) 下运行的程序 \(CLR\)。  
+>  截获允许异常仅在托管代码中，即，运行在公共语言运行时 (CLR) 的程序中。  
   
- 调试引擎指示使用 `SetMetric` 功能，它通过设置 “metricExceptions”支持截获的异常为值 1 在运行时。  有关更多信息，请参见 [SDK 帮助器调试](../../../extensibility/debugger/reference/sdk-helpers-for-debugging.md)。  
+ 调试引擎，它支持通过设置"metricExceptions"截获异常为值 1 在运行时通过使用指示`SetMetric`函数。 有关详细信息，请参阅[SDK 以便进行调试的帮助器](../../../extensibility/debugger/reference/sdk-helpers-for-debugging.md)。  
   
-## 要求  
- 标题:msdbg.h  
+## <a name="requirements"></a>要求  
+ 标头︰ msdbg.h  
   
- 命名空间:Microsoft.VisualStudio.Debugger.Interop  
+ Namespace: Microsoft.VisualStudio.Debugger.Interop  
   
- 程序集:Microsoft.VisualStudio.Debugger.Interop.dll  
+ 程序集︰ Microsoft.VisualStudio.Debugger.Interop.dll  
   
-## 请参阅  
+## <a name="see-also"></a>另请参阅  
  [核心接口](../../../extensibility/debugger/reference/core-interfaces.md)   
  [IDebugStackFrame2](../../../extensibility/debugger/reference/idebugstackframe2.md)   
- [SDK 帮助器调试](../../../extensibility/debugger/reference/sdk-helpers-for-debugging.md)
+ [用于调试的 SDK 帮助程序](../../../extensibility/debugger/reference/sdk-helpers-for-debugging.md)

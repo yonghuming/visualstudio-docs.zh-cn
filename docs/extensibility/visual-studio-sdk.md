@@ -33,9 +33,9 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 translationtype: Machine Translation
-ms.sourcegitcommit: 477f57bbca9c49e7d7d13155fc1f6e55ee4667a8
-ms.openlocfilehash: efc5a2722757229057a91f5e3a6c2ad3681f5a89
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: 8163a0e1230712734936b7548bef1753ee0c1d2a
+ms.openlocfilehash: b3cd444e48893057a057c39c515e51ff8b509b34
+ms.lasthandoff: 03/07/2017
 
 ---
 # <a name="visual-studio-sdk"></a>Visual Studio SDK
@@ -58,10 +58,10 @@ Visual Studio SDK 可帮助您扩展 Visual Studio 功能或集成到 Visual Stu
  如果您从未编写过 Visual Studio 扩展中的之前，您应发现和有关这些功能的详细信息[开始开发的 Visual Studio 扩展到](../extensibility/starting-to-develop-visual-studio-extensions.md)。  
   
 ## <a name="installing-the-visual-studio-sdk"></a>安装 Visual Studio SDK  
- 启动 Visual Studio 2015 中，您并不安装 Visual Studio SDK 从下载中心获得。 它将包括作为 Visual Studio 安装程序中的可选功能。 您还可以在以后安装 VS SDK。 有关详细信息，请参阅[安装 Visual Studio SDK](../extensibility/installing-the-visual-studio-sdk.md)。  
+ Visual Studio SDK 是 Visual Studio 安装程序中的可选功能。 您还可以在以后安装 VS SDK。 有关详细信息，请参阅[安装 Visual Studio SDK](../extensibility/installing-the-visual-studio-sdk.md)。  
   
-## <a name="whats-new-in-the-visual-studio-2015-sdk"></a>什么是 Visual Studio 2015 SDK 中的新增功能  
- Visual Studio SDK 具有一些新功能，包括电灯泡并允许您创建菜单命令、 工具窗口和编辑器扩展使用 VSIX 包的新项目项。 有关详细信息，请参阅[What's New in Visual Studio 2015 SDK](../extensibility/what-s-new-in-the-visual-studio-2015-sdk.md)。  
+## <a name="whats-new-in-the-visual-studio-2017-sdk"></a>什么是 Visual Studio 2017 SDK 中的新增功能  
+ Visual Studio SDK 有一些新功能，例如对轻型解决方案加载和 VSIX v3 格式，以及重大更改，这可能会要求您更新您的扩展的支持。 有关详细信息，请参阅[What's New in Visual Studio 2017 SDK](../extensibility/what-s-new-in-the-visual-studio-2017-sdk.md)。  
   
 ## <a name="visual-studio-user-experience-guidelines"></a>Visual Studio 用户体验指南  
  获得不错的提示设计为在扩展插件的 UI [Visual Studio 用户体验指南](../extensibility/ux-guidelines/visual-studio-user-experience-guidelines.md)。  
@@ -92,7 +92,7 @@ Visual Studio SDK 可帮助您扩展 Visual Studio 功能或集成到 Visual Stu
   
 ## <a name="see-also"></a>另请参阅  
  [使用菜单命令创建扩展](../extensibility/creating-an-extension-with-a-menu-command.md)   
- [如何︰ 将可扩展性项目迁移到 Visual Studio 2015](../extensibility/how-to-migrate-extensibility-projects-to-visual-studio-2015.md)   
+ [如何︰ 迁移到 Visual Studio 2017 扩展性项目](../extensibility/how-to-migrate-extensibility-projects-to-visual-studio-2017.md)   
  [常见问题︰ 将加载项转换为 VSPackage 扩展](../extensibility/faq-converting-add-ins-to-vspackage-extensions.md)   
  [管理在托管代码中的多个线程](../extensibility/managing-multiple-threads-in-managed-code.md)   
  [扩展的菜单和命令](../extensibility/extending-menus-and-commands.md)   
@@ -111,4 +111,4 @@ Visual Studio SDK 可帮助您扩展 Visual Studio 功能或集成到 Visual Stu
  [在 Visual Studio SDK](../extensibility/internals/inside-the-visual-studio-sdk.md)   
  [对 Visual Studio SDK 的支持](../extensibility/support-for-the-visual-studio-sdk.md)   
  [存档](../extensibility/archive.md)   
- [Visual Studio SDK 参考](../extensibility/visual-studio-sdk-reference.md)
+ [Visual Studio SDK 引用](../extensibility/visual-studio-sdk-reference.md)

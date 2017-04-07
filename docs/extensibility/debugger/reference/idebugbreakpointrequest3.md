@@ -1,57 +1,73 @@
 ---
-title: "IDebugBreakpointRequest3 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "IDebugBreakpointRequest3"
-helpviewer_keywords: 
-  - "IDebugBreakpointRequest3"
+title: "IDebugBreakpointRequest3 |Microsoft 文档"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords:
+- IDebugBreakpointRequest3
+helpviewer_keywords:
+- IDebugBreakpointRequest3
 ms.assetid: 8a042beb-b319-48e3-b3c8-9c8336ab371b
 caps.latest.revision: 8
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 8
----
-# IDebugBreakpointRequest3
-[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
+ms.author: gregvanl
+manager: ghogen
+translation.priority.mt:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+translationtype: Machine Translation
+ms.sourcegitcommit: ca7c86466fa23fb21a932f26dc24e37c71cf29b4
+ms.openlocfilehash: 61307781f8d386e7011422c0df815d80113b95cd
+ms.lasthandoff: 04/05/2017
 
-此接口表示必需的信息创建和绑定任何类型的断点。  它是 [IDebugBreakpointRequest2](../../../extensibility/debugger/reference/idebugbreakpointrequest2.md)扩展。  
+---
+# <a name="idebugbreakpointrequest3"></a>IDebugBreakpointRequest3
+此接口表示创建并将任何类型的断点绑定需要的信息。 它是扩展的[IDebugBreakpointRequest2](../../../extensibility/debugger/reference/idebugbreakpointrequest2.md)。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
 ```  
 IDebugBreakpointRequest3 : IDebugBreakpointRequest2  
 ```  
   
-## 实现者说明  
- 会议调试管理器 \(SDM\)通常实现此接口。  
+## <a name="notes-for-implementers"></a>实施者注意事项  
+ 会话调试管理器 (SDM) 通常实现此接口。  
   
-## 调用方的说明  
- 此接口通过调用 IDebugBreakpointRequest2 接口的 [QueryInterface](/visual-cpp/atl/queryinterface) 在调用收到对 [CreatePendingBreakpoint](../../../extensibility/debugger/reference/idebugengine2-creatependingbreakpoint.md)的调试引擎 \(DE\)访问。  
+## <a name="notes-for-callers"></a>调用方的说明  
+ 调试引擎 (DE) 访问此接口，通过调用[QueryInterface](/cpp/atl/queryinterface)上对的调用中接收的 IDebugBreakpointRequest2 接口[CreatePendingBreakpoint](../../../extensibility/debugger/reference/idebugengine2-creatependingbreakpoint.md)。  
   
-## 方法按 Vtable 顺序  
- 除了从 [IDebugBreakpointRequest2](../../../extensibility/debugger/reference/idebugbreakpointrequest2.md) 继承的方法之外，`IDebugBreakpointRequest3` 接口还公开以下方法。  
+## <a name="methods-in-vtable-order"></a>Vtable 顺序中的方法  
+ 除了从继承的方法[IDebugBreakpointRequest2](../../../extensibility/debugger/reference/idebugbreakpointrequest2.md)、`IDebugBreakpointRequest3`接口公开以下方法。  
   
 |方法|说明|  
-|--------|--------|  
-|[GetRequestInfo2](../../../extensibility/debugger/reference/idebugbreakpointrequest3-getrequestinfo2.md)|获取描述该断点请求的断点请求信息。|  
+|------------|-----------------|  
+|[GetRequestInfo2](../../../extensibility/debugger/reference/idebugbreakpointrequest3-getrequestinfo2.md)|获取描述此断点请求的断点请求信息。|  
   
-## 备注  
- 此接口用于提供附加信息。 DE 通过 [BP\_REQUEST\_INFO2](../../../extensibility/debugger/reference/bp-request-info2.md) 结构。  此附加信息包括 DE 的供应商 ID \(使用 GUID 的形式\)，跟踪点的名称和断点约束的名称。  
+## <a name="remarks"></a>备注  
+ 此接口用于向通过 DE 提供其他信息[BP_REQUEST_INFO2](../../../extensibility/debugger/reference/bp-request-info2.md)结构。 此附加信息包括 DE 的供应商 ID （以 GUID 形式）、 跟踪点的名称和断点约束的名称。  
   
-## 要求  
- 标题:msdbg.h  
+## <a name="requirements"></a>要求  
+ 标头︰ msdbg.h  
   
- 命名空间:Microsoft.VisualStudio.Debugger.Interop  
+ Namespace: Microsoft.VisualStudio.Debugger.Interop  
   
- 程序集:Microsoft.VisualStudio.Debugger.Interop.dll  
+ 程序集︰ Microsoft.VisualStudio.Debugger.Interop.dll  
   
-## 请参阅  
+## <a name="see-also"></a>另请参阅  
  [IDebugBreakpointRequest2](../../../extensibility/debugger/reference/idebugbreakpointrequest2.md)   
- [BP\_REQUEST\_INFO2](../../../extensibility/debugger/reference/bp-request-info2.md)
+ [BP_REQUEST_INFO2](../../../extensibility/debugger/reference/bp-request-info2.md)

@@ -1,5 +1,5 @@
 ---
-title: "分析工具 | Microsoft Docs"
+title: "Visual Studio 中的分析工具 | Microsoft Docs"
 ms.custom: 
 ms.date: 11/04/2016
 ms.reviewer: 
@@ -31,9 +31,9 @@ translation.priority.mt:
 - pt-br
 - tr-tr
 translationtype: Human Translation
-ms.sourcegitcommit: 8f844c2d7d975476bc4c059d211a1d6cb0df64eb
-ms.openlocfilehash: 4c995fb6df6316ce7f84fae7075b81063b54ebf7
-ms.lasthandoff: 02/28/2017
+ms.sourcegitcommit: 0d129b4820944f5717c63243cb8550bc4fed3385
+ms.openlocfilehash: 380b65540d8f5c6ea6d8a8adf1f3c5575f5dd9dc
+ms.lasthandoff: 03/20/2017
 
 ---
 # <a name="profiling-tools"></a>分析工具
@@ -103,15 +103,16 @@ ms.lasthandoff: 02/28/2017
 ## <a name="which-tool-should-i-use"></a>应使用哪一种工具？  
  下表列出了 Visual Studio 提供的不同工具以及适用的不同项目类型：  
   
-|性能工具|Windows 桌面|Windows 通用/应用商店|ASP.NET|  
+|性能工具|Windows 桌面|Windows 通用/应用商店|ASP.NET/ASP.NET Core|  
 |----------------------|---------------------|------------------------------|-------------|  
 |[内存使用率](../profiling/memory-usage.md)|是|是|是|  
 |[CPU 使用率](../profiling/cpu-usage.md)|是|是|是|  
 |[GPU 使用情况](../debugger/gpu-usage.md)|是|是|no|  
 |[应用程序时间线](../profiling/application-timeline.md)|是|是|no|  
-|[PerfTips](../profiling/perftips.md)|是|XAML 适用，HTML 不适用|no|  
-|[性能资源管理器](../profiling/performance-explorer.md)|是|no|是|  
-|[IntelliTrace](../debugger/intellitrace.md)|仅限 .NET Enterprise|仅限 .NET Enterprise|仅限 .NET Enterprise|  
+|[PerfTips](../profiling/perftips.md)|是|XAML 适用，HTML 不适用|是|  
+|[性能资源管理器](../profiling/performance-explorer.md)|是|no|是（不适用于 ASP.NET Core）|  
+|[IntelliTrace](../debugger/intellitrace.md)|仅限 .NET Enterprise|仅限 .NET Enterprise|仅限 .NET Enterprise|
+|[网络使用情况](../profiling/network-usage.md)|no|是|no| 
 |[HTML UI 响应能力](../profiling/html-ui-responsiveness.md)|no|HTML 适用，XAML 不适用|no|  
 |[JavaScript 内存](../profiling/javascript-memory.md)|no|HTML 适用，XAML 不适用|no|  
   

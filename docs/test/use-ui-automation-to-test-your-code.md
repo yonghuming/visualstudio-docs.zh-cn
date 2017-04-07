@@ -1,27 +1,46 @@
 ---
 title: "使用 UI 自动化来测试代码 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-devops-test"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "vs.codedUITest"
-  - "vs.codedUITest.recorder"
-  - "vs.codedUITest.testbuilder"
-  - "vs.codedUITest.addAssertions"
-  - "vs.codedUITest.createdialog"
-helpviewer_keywords: 
-  - "自动测试, 测试 UI 接口"
-  - "编码的 UI 测试"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-devops-test
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords:
+- vs.codedUITest
+- vs.codedUITest.recorder
+- vs.codedUITest.testbuilder
+- vs.codedUITest.addAssertions
+- vs.codedUITest.createdialog
+helpviewer_keywords:
+- automated tests, testing UI interface
+- coded UI test
 ms.assetid: ad9e3eaa-ab86-436e-95b8-dc20eb1f8b2a
 caps.latest.revision: 85
-ms.author: "mlearned"
-manager: "douge"
-caps.handback.revision: 83
+ms.author: douge
+manager: douge
+translation.priority.ht:
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- ru-ru
+- zh-cn
+- zh-tw
+translation.priority.mt:
+- cs-cz
+- pl-pl
+- pt-br
+- tr-tr
+translationtype: Human Translation
+ms.sourcegitcommit: 5658ecf52637a38bc3c2a5ad9e85b2edebf7d445
+ms.openlocfilehash: 753a39940ba32052cff14460f007a8f8a2d191dd
+ms.lasthandoff: 02/22/2017
+
 ---
 # <a name="use-ui-automation-to-test-your-code"></a>使用 UI 自动化来测试代码
 通过应用程序的用户界面 (UI) 来操作该应用程序的自动测试称为编码的 UI 测试 (CUIT)。 这些测试包括对 UI 控件的功能测试。 它们使你可以验证整个应用程序（包括其用户界面）是否正常运行。 编码的 UI 测试对于在用户界面中存在验证或其他逻辑（例如在网页中）的情况特别有用。 它们也经常用于自动化现有的手动测试。  
@@ -62,7 +81,7 @@ caps.handback.revision: 83
   
 -   [后续步骤](#VerifyCodeUsingCUITWhatsNext)  
   
-##  <a name="a-nameverifyingcodeusingcuitcreatea-creating-coded-ui-tests"></a><a name="VerifyingCodeUsingCUITCreate"></a> 创建编码的 UI 测试  
+##  <a name="VerifyingCodeUsingCUITCreate"></a> 创建编码的 UI 测试  
   
 1.  **创建编码的 UI 测试项目。**  
   
@@ -153,7 +172,7 @@ caps.handback.revision: 83
   
  如需更详尽的示例，请参阅[演练：创建、编辑和维护编码的 UI 测试](../test/walkthrough-creating-editing-and-maintaining-a-coded-ui-test.md)。 在该演练中，你将创建一个简单的 Windows Presentation Foundation (WPF) 应用程序来演示如何创建、编辑和维护编码的 UI 测试。 本演练为更正由各种计时问题和控件重构中断的测试提供了解决方案。  
   
-###  <a name="a-namestartinga-starting-and-stopping-the-application-under-test"></a><a name="starting"></a> 启动和停止受测应用程序  
+###  <a name="starting"></a> 启动和停止受测应用程序  
  *我不想针对每个测试分别启动和停止应用程序、浏览器或数据库。如何避免该操作?*  
   
 -   ![先决条件](../test/media/prereq.png "Prereq") 如果不希望录制启动受测应用程序的操作，则必须在选择“录制”图标之前启动应用程序。  
@@ -164,7 +183,7 @@ caps.handback.revision: 83
   
 -   ![先决条件](../test/media/prereq.png "Prereq") 可以添加一个在每个测试方法结束时运行代码的测试清理方法（通过 [TestCleanup] 属性标识）。 例如，可以从 TestCleanup 方法调用用于关闭应用程序的方法。  
   
-###  <a name="a-nameverifyingcodeusingcuitgenerateassertionsa-validating-the-properties-of-ui-controls"></a><a name="VerifyingCodeUsingCUITGenerateAssertions"></a> 验证 UI 控件的属性  
+###  <a name="VerifyingCodeUsingCUITGenerateAssertions"></a> 验证 UI 控件的属性  
  使用“编码的 UI 测试生成器”，可以向测试的 <xref:Microsoft.VisualStudio.TestTools.UITest.Common.UIMap.UIMap> 添加用户界面 (UI) 控件，也可以为使用 UI 控件的断言的验证方法生成代码。  
   
  若要为 UI 控件生成断言，请选择编码的 UI 测试生成器中的“添加断言”工具，并且将其拖放到受测应用程序上的控件，因为你希望验证该应用程序是否正确。 在框确定控件的轮廓时，释放鼠标。 将立即在 `UIMap.Designer.cs` 文件中创建该控件类代码。  
@@ -285,7 +304,7 @@ Mouse.Hover(uIItem1Text, new Point(87, 9));
   
 ```  
   
-##  <a name="a-nameverifyingcodecuitmodifya-customizing-your-coded-ui-test"></a><a name="VerifyingCodeCUITModify"></a> 自定义编码的 UI 测试  
+##  <a name="VerifyingCodeCUITModify"></a> 自定义编码的 UI 测试  
  在创建编码的 UI 测试之后，你可以通过使用 Visual Studio 中的以下任何工具对其进行编辑：  
   
 -   **编码的 UI 测试生成器：**使用编码的 UI 测试生成器来将其他控件和验证添加到你的测试。 请参阅本主题中的[添加控件并验证它们的属性](#VerifyingCodeUsingCUITGenerateAssertions)部分。  
@@ -312,7 +331,7 @@ Mouse.Hover(uIItem1Text, new Point(87, 9));
   
         -   [支持编码的 UI 测试和操作录制的配置和平台](../test/supported-configurations-and-platforms-for-coded-ui-tests-and-action-recordings.md)  
   
-###  <a name="a-namegeneratedcodea-the-generated-code"></a><a name="generatedCode"></a> 生成的代码  
+###  <a name="generatedCode"></a> 生成的代码  
  当你选择“生成代码”时，将创建多段代码：  
   
 -   **测试方法中的行。**  
@@ -380,7 +399,7 @@ Mouse.Hover(uIItem1Text, new Point(87, 9));
   
  有关生成的代码的更多信息，请参阅[编码的 UI 测试剖析](../test/anatomy-of-a-coded-ui-test.md)。  
   
-###  <a name="a-nameactionsa-coding-ui-control-actions-and-properties"></a><a name="actions"></a> 编码 UI 控件操作和属性  
+###  <a name="actions"></a> 编码 UI 控件操作和属性  
  在编码的 UI 测试中使用 UI 测试控件时，这些控件分为两部分：操作和属性。  
   
 -   第一部分包括可对 UI 测试控件执行的操作。 例如，编码的 UI 测试可以模拟鼠标点击 UI 测试控件，或模拟键盘键入来影响 UI 测试控件。  
@@ -436,10 +455,10 @@ Mouse.Hover(uIItem1Text, new Point(87, 9));
   
      `SetProperty(myWinCheckBox.PropertyNames.Checked, true);`  
   
-###  <a name="a-namedebugginga-debugging"></a><a name="debugging"></a>调试  
+###  <a name="debugging"></a>调试  
  你可以使用编码的 UI 测试日志分析编码的 UI 测试。 编码的 UI 测试日志筛选并录制关于编码的 UI 测试运行的重要信息。 日志的格式使你能够快速调试问题。 有关详细信息，请参阅[使用编码的 UI 测试日志分析编码的 UI 测试](../test/analyzing-coded-ui-tests-using-coded-ui-test-logs.md)。  
   
-##  <a name="a-nameverifycodeusingcuitwhatsnexta-whats-next"></a><a name="VerifyCodeUsingCUITWhatsNext"></a> 后续步骤  
+##  <a name="VerifyCodeUsingCUITWhatsNext"></a> 后续步骤  
  **运行编码的 UI 测试的其他选项：**你可以直接从 Visual Studio 运行编码的 UI 测试，如本主题前面所述。 此外，你可以从 [!INCLUDE[TCMext](../misc/includes/tcmext_md.md)] 或从 [!INCLUDE[esprbuild](../misc/includes/esprbuild_md.md)] 运行自动 UI 测试。 与其他自动测试不同，当编码的 UI 测试为自动时，在运行时它们必须与桌面进行交互。  
   
 -   [如何：从 Microsoft Visual Studio 运行测试](http://msdn.microsoft.com/Library/1a1207a9-2a33-4a1e-a1e3-ddf0181b1046)  
@@ -491,8 +510,4 @@ Mouse.Hover(uIItem1Text, new Point(87, 9));
  [支持编码的 UI 测试和操作录制的配置和平台](../test/supported-configurations-and-platforms-for-coded-ui-tests-and-action-recordings.md)   
  [从 Visual Studio 2010 升级编码的 UI 测试](../test/upgrading-coded-ui-tests-from-visual-studio-2010.md)   
  [通过现有操作录制生成编码的 UI 测试](/devops-test-docs/test/generating-a-coded-ui-test-from-an-existing-action-recording)
-
-
-<!--HONumber=Feb17_HO4-->
-
 

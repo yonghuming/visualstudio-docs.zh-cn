@@ -15,7 +15,7 @@ helpviewer_keywords:
 - unit tests, running
 ms.assetid: dd3e8a6a-b366-433e-a409-b9a9b89da89a
 caps.latest.revision: 21
-ms.author: mlearned
+ms.author: douge
 manager: douge
 translation.priority.ht:
 - de-de
@@ -166,3 +166,4 @@ Visual Studio 支持对托管的 [!INCLUDE[win8_appname_long](../debugger/includ
 ## <a name="see-also"></a>另请参阅  
  [使用 Visual Studio 测试应用商店应用](../test/testing-store-apps-with-visual-studio.md)   
  [使用 Team Foundation Build 生成并测试 Windows 应用商店应用](http://msdn.microsoft.com/Library/d0ca17bb-deae-4f3d-a18d-1a99bebceaa9)
+

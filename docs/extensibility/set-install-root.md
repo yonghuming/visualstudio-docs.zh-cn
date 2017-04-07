@@ -28,14 +28,12 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 translationtype: Machine Translation
-ms.sourcegitcommit: 4e8ceb1c988f639d0ea18b94e206ddec2d3e764c
-ms.openlocfilehash: 5c103b5f038260a17f64af56f78f0b3f37e3bb32
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: 8163a0e1230712734936b7548bef1753ee0c1d2a
+ms.openlocfilehash: 6d87c86d0a7793f661c6a3b28e95340f3a28c616
+ms.lasthandoff: 03/07/2017
 
 ---
 # <a name="installing-outside-the-extensions-folder"></a>安装扩展文件夹之外
-
->**注意︰**本文档是初定版，根据 Visual Studio 2017 RC 版本。
 
 从 Visual Studio 2017 和 VSIX v3 （版本 3），现在支持用于安装外部 extensions 文件夹的扩展资产。 目前，作为有效的安装位置 （其中 [installdir] 映射到 Visual Studio 实例的安装目录），应启用下列位置︰
 

@@ -1,5 +1,5 @@
 ---
-title: "使用适用于 C++ 的 Microsoft 单元测试框架编写 C-C++ 单元测试 | Microsoft Docs"
+title: "使用适用于 C++ 的 Microsoft 单元测试框架编写 C/C++ 单元测试 | Microsoft Docs"
 ms.custom: 
 ms.date: 11/04/2016
 ms.reviewer: 
@@ -10,7 +10,7 @@ ms.tgt_pltfrm:
 ms.topic: article
 ms.assetid: 4f4b5f10-7314-4725-8c6e-e72f52eff918
 caps.latest.revision: 14
-ms.author: mlearned
+ms.author: douge
 manager: douge
 translation.priority.ht:
 - de-de
@@ -28,8 +28,9 @@ translation.priority.mt:
 - pt-br
 - tr-tr
 translationtype: Human Translation
-ms.sourcegitcommit: 5658ecf52637a38bc3c2a5ad9e85b2edebf7d445
-ms.openlocfilehash: dd88409bb0774342e0a9f50178e1204cabf72e46
+ms.sourcegitcommit: ca7c86466fa23fb21a932f26dc24e37c71cf29b4
+ms.openlocfilehash: 84549f28f33933eacbf44742b5be129df8ab780e
+ms.lasthandoff: 04/05/2017
 
 ---
 # <a name="writing-unit-tests-for-cc-with-the-microsoft-unit-testing-framework-for-c"></a>用 Microsoft 适用于 C++ 的单元测试框架编写 C/C++ 单元测试
@@ -47,7 +48,7 @@ ms.openlocfilehash: dd88409bb0774342e0a9f50178e1204cabf72e46
   
     -   `#include` 包含 DLL 外部访问函数声明的 `.h` 文件。  
   
-         `.h` 文件应包含用 `_declspec(dllimport)` 标记的函数声明。 或者，可以使用 DEF 文件导出方法。 有关详细信息，请参阅[导入和导出](/visual-cpp/build/importing-and-exporting)。  
+         `.h` 文件应包含用 `_declspec(dllimport)` 标记的函数声明。 或者，可以使用 DEF 文件导出方法。 有关详细信息，请参阅[导入和导出](/cpp/build/importing-and-exporting)。  
   
          单元测试仅可以访问从所测试 DLL 导出的函数。  
   
@@ -97,7 +98,7 @@ ms.openlocfilehash: dd88409bb0774342e0a9f50178e1204cabf72e46
   
         3.  在测试的快捷菜单中，选择“调试所选测试”  以在调试器中运行测试。  
   
-##  <a name="a-namewalkthrougha-walkthrough-developing-an-unmanaged-dll-with-test-explorer"></a><a name="walkthrough"></a>演练：使用测试资源管理器开发非托管 DLL  
+##  <a name="walkthrough"></a>演练：使用测试资源管理器开发非托管 DLL  
  你可以调整此演练，以便开发自己的 DLL。 主要步骤如下所示：  
   
 1.  [创建本机单元测试项目](#unitTestProject)。 这些测试是通过你开发的 DLL 在单独项目中创建的。  
@@ -116,7 +117,7 @@ ms.openlocfilehash: dd88409bb0774342e0a9f50178e1204cabf72e46
   
 8.  [将单元与外部资源隔离](https://msdn.microsoft.com/library/hh549174.aspx)。 通常，DLL 依赖于你开发的系统的其他组件，例如其他 DLL、数据库或远程子系统。 在测试每个单元时，使之与它的依赖项相隔离非常有用。 外部组件可能会降低测试的运行速度。 在开发期间，其他组件可能不完整。  
   
-###  <a name="a-nameunittestprojecta-create-a-native-unit-test-project"></a><a name="unitTestProject"></a> 创建本机单元测试项目  
+###  <a name="unitTestProject"></a> 创建本机单元测试项目  
   
 1.  在“文件”  菜单上，选择“新建” 、“项目” 。  
   
@@ -163,9 +164,9 @@ ms.openlocfilehash: dd88409bb0774342e0a9f50178e1204cabf72e46
   
          测试显示在“通过的测试” 下方。  
   
-         ![具有&1; 个已通过测试的单元测试资源管理器](../test/media/utecpp04.png "UteCpp04")  
+         ![具有 1 个已通过测试的单元测试资源管理器](../test/media/utecpp04.png "UteCpp04")  
   
-###  <a name="a-namecreatedllprojecta-create-an-unmanaged-dll-project"></a><a name="createDllProject"></a> 创建非托管 DLL 项目  
+###  <a name="createDllProject"></a> 创建非托管 DLL 项目  
   
 1.  使用“Win32 项目”  模板，创建“Visual C++”  项目。  
   
@@ -183,7 +184,7 @@ ms.openlocfilehash: dd88409bb0774342e0a9f50178e1204cabf72e46
   
      ![使用 API 宏新建 DLL 代码项目和 .h 文件](../test/media/utecpp07.png "UteCpp07")  
   
-     声明符 `__declspec(dllexport)` 会导致类的公共和受保护成员在 DLL 外可见。 有关详细信息，请参阅 [Using dllimport and dllexport in C++ Classes](/visual-cpp/cpp/using-dllimport-and-dllexport-in-cpp-classes)。  
+     声明符 `__declspec(dllexport)` 会导致类的公共和受保护成员在 DLL 外可见。 有关详细信息，请参阅 [Using dllimport and dllexport in C++ Classes](/cpp/cpp/using-dllimport-and-dllexport-in-cpp-classes)。  
   
 4.  在主体 .cpp 文件中，添加最小的函数体：  
   
@@ -195,7 +196,7 @@ ms.openlocfilehash: dd88409bb0774342e0a9f50178e1204cabf72e46
     }  
     ```  
   
-###  <a name="a-namecoupleprojectsa-couple-the-test-project-to-the-dll-project"></a><a name="coupleProjects"></a> 将测试项目耦合到 DLL 项目  
+###  <a name="coupleProjects"></a> 将测试项目耦合到 DLL 项目  
   
 1.  将 DLL 项目添加到测试项目的项目引用中：  
   
@@ -245,7 +246,7 @@ ms.openlocfilehash: dd88409bb0774342e0a9f50178e1204cabf72e46
   
  你已设置测试和代码项目，并已验证可运行测试（运行测试项目中的函数）。 现在可以开始编写实际测试和代码。  
   
-###  <a name="a-nameiteratea-iteratively-augment-the-tests-and-make-them-pass"></a><a name="iterate"></a> 以迭代方式增加测试并使它们通过  
+###  <a name="iterate"></a> 以迭代方式增加测试并使它们通过  
   
 1.  添加新测试：  
   
@@ -303,7 +304,7 @@ ms.openlocfilehash: dd88409bb0774342e0a9f50178e1204cabf72e46
     > [!TIP]
     >  通过一次添加一个测试来开发代码。 确保每次迭代后所有的测试都会通过。  
   
-###  <a name="a-namedebuga-debug-a-failing-test"></a><a name="debug"></a> 调试失败测试  
+###  <a name="debug"></a> 调试失败测试  
   
 1.  添加另一个测试：  
   
@@ -378,7 +379,7 @@ ms.openlocfilehash: dd88409bb0774342e0a9f50178e1204cabf72e46
 > [!TIP]
 >  如果各个测试没有防止其以任何顺序运行的依赖项，则可使用工具栏上的 ![UTE_parallelicon - 小](../test/media/ute_parallelicon-small.png "UTE_parallelicon-small")切换按钮来打开并行测试执行。 这可以显著降低运行所有测试所需的时间。  
   
-###  <a name="a-namerefactora-refactor-the-code-without-changing-tests"></a><a name="refactor"></a> 在不更改测试的情况下重构代码  
+###  <a name="refactor"></a> 在不更改测试的情况下重构代码  
   
 1.  简化 SquareRoot 函数中的核心计算：  
   
@@ -413,9 +414,5 @@ ms.openlocfilehash: dd88409bb0774342e0a9f50178e1204cabf72e46
  [托管/非托管代码互操作性概述](http://msdn.microsoft.com/library/ms973872.aspx)   
  [调试本机代码](../debugger/debugging-native-code.md)   
  [演练：创建和使用动态链接库 (C++)](http://msdn.microsoft.com/Library/3ae94848-44e7-4955-bbad-7d40f493e941)   
- [导入和导出](/visual-cpp/build/importing-and-exporting)
-
-
-<!--HONumber=Feb17_HO4-->
-
+ [导入和导出](/cpp/build/importing-and-exporting)
 
