@@ -1,61 +1,77 @@
 ---
-title: "IDebugModule3 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "IDebugModule3"
-helpviewer_keywords: 
-  - "IDebugModule3 接口"
+title: "IDebugModule3 |Microsoft 文档"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords:
+- IDebugModule3
+helpviewer_keywords:
+- IDebugModule3 interface
 ms.assetid: 44f8e96e-9c59-4ffc-9a08-9c908a0e4de7
 caps.latest.revision: 11
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 11
----
-# IDebugModule3
-[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
+ms.author: gregvanl
+manager: ghogen
+translation.priority.mt:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+translationtype: Machine Translation
+ms.sourcegitcommit: ca7c86466fa23fb21a932f26dc24e37c71cf29b4
+ms.openlocfilehash: 8d06621cc46499d763fd16797813d9dd71e9fdfb
+ms.lasthandoff: 04/05/2017
 
-此接口表示支持符号和 JustMyCode 状态的备用位置的模块。  
+---
+# <a name="idebugmodule3"></a>IDebugModule3
+此接口表示一个模块，支持备用位置的符号和 JustMyCode 状态。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
 ```  
 IDebugModule3 : IDebugModule2  
 ```  
   
-## 实现者说明  
- 调试引擎 \(DE\)实现此接口支持符号的备用位置与 JustMyCode 状态使用 \(“JustMyCode”定义参见 [Visual Studio 调试器术语表](../../../extensibility/debugger/reference/visual-studio-debugger-glossary.md) \)。  
+## <a name="notes-for-implementers"></a>实施者注意事项  
+ 调试引擎 (DE) 实现此接口可支持备用位置的符号，并可以使用 JustMyCode 状态 (请参阅[Visual Studio 调试器术语表](../../../extensibility/debugger/reference/visual-studio-debugger-glossary.md)有关"JustMyCode"的定义)。  
   
-## 调用方的说明  
- 为 [GetSymbolSearchInfo](../../../extensibility/debugger/reference/idebugsymbolsearchevent2-getsymbolsearchinfo.md) 的调用返回此接口。  DE 发送 [IDebugSymbolSearchEvent2](../../../extensibility/debugger/reference/idebugsymbolsearchevent2.md) 接口添加到该会话调试使用 [事件](../../../extensibility/debugger/reference/idebugeventcallback2-event.md) 方法管理器 \(SDM\)的。  此外，对于 [QueryInterface](/visual-cpp/atl/queryinterface) 的调用在 [IDebugModule2](../../../extensibility/debugger/reference/idebugmodule2.md) 接口返回此接口。  
+## <a name="notes-for-callers"></a>调用方的说明  
+ 调用[GetSymbolSearchInfo](../../../extensibility/debugger/reference/idebugsymbolsearchevent2-getsymbolsearchinfo.md)返回此接口。 DE 发送[IDebugSymbolSearchEvent2](../../../extensibility/debugger/reference/idebugsymbolsearchevent2.md)接口的会话调试管理器 (SDM) 的使用[事件](../../../extensibility/debugger/reference/idebugeventcallback2-event.md)方法。 此外，调用[QueryInterface](/cpp/atl/queryinterface)上[IDebugModule2](../../../extensibility/debugger/reference/idebugmodule2.md)接口返回此接口。  
   
-## 方法按 Vtable 顺序  
- 除了在 [IDebugModule2](../../../extensibility/debugger/reference/idebugmodule2.md) 接口的方法之外，此接口执行以下方法:  
+## <a name="methods-in-vtable-order"></a>Vtable 顺序中的方法  
+ 除了上的方法[IDebugModule2](../../../extensibility/debugger/reference/idebugmodule2.md)接口，此接口实现以下方法︰  
   
-|方法|说明|  
-|--------|--------|  
-|[GetSymbolInfo](../../../extensibility/debugger/reference/idebugmodule3-getsymbolinfo.md)|返回符号和搜索每个路径的结果的搜索路径的列表。|  
-|[LoadSymbols](../Topic/IDebugModule3::LoadSymbols.md)|加载并初始化当前模块的符号。|  
-|[IsUserCode](../../../extensibility/debugger/reference/idebugmodule3-isusercode.md)|返回指定模块是否的标志表示用户代码。|  
-|[SetJustMyCodeState](../Topic/IDebugModule3::SetJustMyCodeState.md)|指定是否应考虑模块用户代码。|  
+|方法|描述|  
+|------------|-----------------|  
+|[GetSymbolInfo](../../../extensibility/debugger/reference/idebugmodule3-getsymbolinfo.md)|返回的搜索符号和搜索每个路径的结果的路径的列表。|  
+|[LoadSymbols](../../../extensibility/debugger/reference/idebugmodule3-loadsymbols.md)|加载并初始化为当前模块的符号。|  
+|[IsUserCode](../../../extensibility/debugger/reference/idebugmodule3-isusercode.md)|返回指定模块是否表示用户代码的标志。|  
+|[SetJustMyCodeState](../../../extensibility/debugger/reference/idebugmodule3-setjustmycodestate.md)|指定是否模块应视为用户代码或不。|  
   
-## 备注  
- Visual Studio 是此接口典型的使用者。  
+## <a name="remarks"></a>备注  
+ Visual Studio 是此接口的典型使用者。  
   
-## 要求  
- 标题:msdbg.h  
+## <a name="requirements"></a>要求  
+ 标头︰ msdbg.h  
   
- 命名空间:Microsoft.VisualStudio.Debugger.Interop  
+ Namespace: Microsoft.VisualStudio.Debugger.Interop  
   
- 程序集:Microsoft.VisualStudio.Debugger.Interop.dll  
+ 程序集︰ Microsoft.VisualStudio.Debugger.Interop.dll  
   
-## 请参阅  
+## <a name="see-also"></a>另请参阅  
  [核心接口](../../../extensibility/debugger/reference/core-interfaces.md)   
  [IDebugModule2](../../../extensibility/debugger/reference/idebugmodule2.md)   
  [IDebugSymbolSearchEvent2](../../../extensibility/debugger/reference/idebugsymbolsearchevent2.md)   

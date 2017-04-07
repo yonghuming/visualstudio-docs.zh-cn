@@ -1,58 +1,74 @@
 ---
-title: "IDebugPointerField | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "IDebugPointerField"
-helpviewer_keywords: 
-  - "IDebugPointerField 接口"
+title: "IDebugPointerField |Microsoft 文档"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords:
+- IDebugPointerField
+helpviewer_keywords:
+- IDebugPointerField interface
 ms.assetid: d51bd5b2-f18e-4e27-b4fb-e6f652fbf635
 caps.latest.revision: 8
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 8
----
-# IDebugPointerField
-[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
+ms.author: gregvanl
+manager: ghogen
+translation.priority.mt:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+translationtype: Machine Translation
+ms.sourcegitcommit: ca7c86466fa23fb21a932f26dc24e37c71cf29b4
+ms.openlocfilehash: 82656209181d02aa6514def10af1cff17ae1bcf5
+ms.lasthandoff: 04/05/2017
 
+---
+# <a name="idebugpointerfield"></a>IDebugPointerField
 此接口表示指针类型。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
 ```  
 IDebugPointerField : IDebugContainerField  
 ```  
   
-## 实现者说明  
- 符号提供程序实现此接口表示指针。  
+## <a name="notes-for-implementers"></a>实施者注意事项  
+ 符号提供程序实现此接口来表示指针。  
   
-## 调用方的说明  
- ，如果 [GetKind](../Topic/IDebugField::GetKind.md) 返回 `FIELD_TYPE_POINTER`，请使用 [QueryInterface](/visual-cpp/atl/queryinterface) 从 [IDebugField](../../../extensibility/debugger/reference/idebugfield.md) 接口的此接口。  
+## <a name="notes-for-callers"></a>调用方的说明  
+ 使用[QueryInterface](/cpp/atl/queryinterface)获取此接口从[IDebugField](../../../extensibility/debugger/reference/idebugfield.md)接口如果[GetKind](../../../extensibility/debugger/reference/idebugfield-getkind.md)返回`FIELD_TYPE_POINTER`。  
   
-## 方法按 Vtable 顺序  
- 除了在 `IDebugField` 和 `IDebugContainerField` 接口的方法之外，此接口执行以下方法:  
+## <a name="methods-in-vtable-order"></a>Vtable 顺序中的方法  
+ 除了上的方法`IDebugField`和`IDebugContainerField`接口，此接口实现以下方法︰  
   
-|方法|说明|  
-|--------|--------|  
-|[GetDereferencedField](../../../extensibility/debugger/reference/idebugpointerfield-getdereferencedfield.md)|返回描述指针的目标 [IDebugField](../../../extensibility/debugger/reference/idebugfield.md) 。|  
+|方法|描述|  
+|------------|-----------------|  
+|[GetDereferencedField](../../../extensibility/debugger/reference/idebugpointerfield-getdereferencedfield.md)|返回[IDebugField](../../../extensibility/debugger/reference/idebugfield.md)描述目标的指针。|  
   
-## 备注  
- 在 C\/C\+\+，则为; 如果使用数组表示法，指针可以是容器。  例如命名 `char *pString`， `pString` 具有指针的类型。 `char`。  `pString[3]` 具有是指向 `char` 引用该容器的第四个元素容器的类型。  
+## <a name="remarks"></a>备注  
+ C/c + + 中，如果在使用数组表示法，指针可以为一个容器。 例如，给定`char *pString`，`pString`具有指针类型`char`。 `pString[3]`具有类型的一个容器，它是一个指向`char`引用该容器的第四个元素。  
   
-## 要求  
- 标题:sh.h  
+## <a name="requirements"></a>要求  
+ 标头︰ sh.h  
   
- 命名空间:Microsoft.VisualStudio.Debugger.Interop  
+ Namespace: Microsoft.VisualStudio.Debugger.Interop  
   
- 程序集:Microsoft.VisualStudio.Debugger.Interop.dll  
+ 程序集︰ Microsoft.VisualStudio.Debugger.Interop.dll  
   
-## 请参阅  
+## <a name="see-also"></a>另请参阅  
  [符号提供程序接口](../../../extensibility/debugger/reference/symbol-provider-interfaces.md)   
  [IDebugField](../../../extensibility/debugger/reference/idebugfield.md)   
  [IDebugContainerField](../../../extensibility/debugger/reference/idebugcontainerfield.md)

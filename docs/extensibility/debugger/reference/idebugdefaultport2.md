@@ -1,59 +1,75 @@
 ---
-title: "IDebugDefaultPort2 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "IDebugDefaultPort2"
-helpviewer_keywords: 
-  - "IDebugDefaultPort2 接口"
+title: "IDebugDefaultPort2 |Microsoft 文档"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords:
+- IDebugDefaultPort2
+helpviewer_keywords:
+- IDebugDefaultPort2 interface
 ms.assetid: 7b3452af-9a96-4c4c-9946-4339b72d3d7b
 caps.latest.revision: 8
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 8
----
-# IDebugDefaultPort2
-[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
+ms.author: gregvanl
+manager: ghogen
+translation.priority.mt:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+translationtype: Machine Translation
+ms.sourcegitcommit: ca7c86466fa23fb21a932f26dc24e37c71cf29b4
+ms.openlocfilehash: d048bf55d8a8cb721e8ebf85444e49c3bfa771b9
+ms.lasthandoff: 04/05/2017
 
-此接口提供了几个用于访问端口的服务器和通知结构。  
+---
+# <a name="idebugdefaultport2"></a>IDebugDefaultPort2
+此接口提供几种方法访问端口的服务器和通知功能。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
 ```  
 IDebugDefaultPort2 : IDebugPort2  
 ```  
   
-## 实现者说明  
- Visual Studio 实现此接口表示访问的程序的调试端口。  自定义端口提供程序还可以实现此接口，则它处理远程调试。  
+## <a name="notes-for-implementers"></a>实施者注意事项  
+ Visual Studio 实现此接口来表示用于访问程序的调试端口。 如果它处理远程调试，自定义端口供应商还可以实现此接口。  
   
-## 调用方的说明  
- 对方法的参数。 [IDebugProgramProvider2](../../../extensibility/debugger/reference/idebugprogramprovider2.md) 接口提供此接口。  调用 [IDebugPort2](../../../extensibility/debugger/reference/idebugport2.md) 接口的 [QueryInterface](/visual-cpp/atl/queryinterface) 还可以获取此接口。  
+## <a name="notes-for-callers"></a>调用方的说明  
+ 上的方法的自变量[IDebugProgramProvider2](../../../extensibility/debugger/reference/idebugprogramprovider2.md)接口提供此接口。 调用[QueryInterface](/cpp/atl/queryinterface)上[IDebugPort2](../../../extensibility/debugger/reference/idebugport2.md)接口还可以获取此接口。  
   
-## 方法按 Vtable 顺序  
- 除了在 [IDebugPort2](../../../extensibility/debugger/reference/idebugport2.md)定义的方法之外，此接口执行以下方法:  
+## <a name="methods-in-vtable-order"></a>Vtable 顺序中的方法  
+ 除了中定义的方法[IDebugPort2](../../../extensibility/debugger/reference/idebugport2.md)，此接口实现以下方法︰  
   
 |方法|说明|  
-|--------|--------|  
-|[GetPortNotify](../Topic/IDebugDefaultPort2::GetPortNotify.md)|从此端口获取端口通知接口。|  
-|[GetServer](../../../extensibility/debugger/reference/idebugdefaultport2-getserver.md)|具有接口承载此端口的服务器。|  
-|[QueryIsLocal](../../../extensibility/debugger/reference/idebugdefaultport2-queryislocal.md)|确定此端口是否在本地计算机上运行。|  
+|------------|-----------------|  
+|[GetPortNotify](../../../extensibility/debugger/reference/idebugdefaultport2-getportnotify.md)|获取此端口从端口通知接口。|  
+|[GetServer](../../../extensibility/debugger/reference/idebugdefaultport2-getserver.md)|获取承载此端口的服务器接口。|  
+|[QueryIsLocal](../../../extensibility/debugger/reference/idebugdefaultport2-queryislocal.md)|确定此端口是否正在运行在本地计算机上。|  
   
-## 备注  
- ，因为它不表示默认端口，名称 “`IDebugDefaultPort2`”是错误的名称的位。  它可称为 “IDebugPort3”。  
+## <a name="remarks"></a>备注  
+ 名称"`IDebugDefaultPort2`"就会执行不当，因为它不表示默认端口。 它无法调用"IDebugPort3。"  
   
-## 要求  
- 标题:msdbg.h  
+## <a name="requirements"></a>要求  
+ 标头︰ msdbg.h  
   
- 命名空间:Microsoft.VisualStudio.Debugger.Interop  
+ Namespace: Microsoft.VisualStudio.Debugger.Interop  
   
- 程序集:Microsoft.VisualStudio.Debugger.Interop.dll  
+ 程序集︰ Microsoft.VisualStudio.Debugger.Interop.dll  
   
-## 请参阅  
+## <a name="see-also"></a>另请参阅  
  [IDebugPort2](../../../extensibility/debugger/reference/idebugport2.md)   
  [IDebugProgramProvider2](../../../extensibility/debugger/reference/idebugprogramprovider2.md)

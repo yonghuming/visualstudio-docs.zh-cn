@@ -31,13 +31,13 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 translationtype: Machine Translation
-ms.sourcegitcommit: 5db97d19b1b823388a465bba15d057b30ff0b3ce
-ms.openlocfilehash: 9222dbe5752fe5d511ca8e4ca947294e561d7761
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: ca7c86466fa23fb21a932f26dc24e37c71cf29b4
+ms.openlocfilehash: fa8e3915d2098f59af506b353e4c95a96d3f757e
+ms.lasthandoff: 04/05/2017
 
 ---
 # <a name="idebugprocesscreateevent2"></a>IDebugProcessCreateEvent2
-启动进程时将发送此接口。  
+启动进程时发送此接口。  
   
 ## <a name="syntax"></a>语法  
   
@@ -46,10 +46,10 @@ IDebugProcessCreateEvent2 : IUnknown
 ```  
   
 ## <a name="notes-for-implementers"></a>实施者注意事项  
- 调试引擎 (DE) 或自定义端口提供程序实现此接口，以报告已创建一个进程。 [IDebugEvent2](../../../extensibility/debugger/reference/idebugevent2.md)接口必须实现该接口对同一个对象。 使用 SDM [QueryInterface](/visual-cpp/atl/queryinterface)访问`IDebugEvent2`接口。  
+ 调试引擎 (DE) 或自定义端口提供程序实现此接口来报告已创建了一个过程。 [IDebugEvent2](../../../extensibility/debugger/reference/idebugevent2.md)接口必须实现该接口对同一个对象。 SDM 使用[QueryInterface](/cpp/atl/queryinterface)访问`IDebugEvent2`接口。  
   
 ## <a name="notes-for-callers"></a>调用方的说明  
- DE 或自定义端口提供程序创建并发送此事件对象来报告创建进程。 DE 发送该事件通过使用[IDebugEventCallback2](../../../extensibility/debugger/reference/idebugeventcallback2.md) SDM 附加到正在调试的程序时提供的回调函数。 自定义端口供应商发送该事件使用[IDebugPortEvents2](../../../extensibility/debugger/reference/idebugportevents2.md)接口。  
+ DE 或自定义端口供应商创建并发送要报告的过程创建此事件对象。 DE 发送该事件通过使用[IDebugEventCallback2](../../../extensibility/debugger/reference/idebugeventcallback2.md) SDM 时将其附加到正在调试的程序提供的回调函数。 自定义端口供应商发送此事件使用[IDebugPortEvents2](../../../extensibility/debugger/reference/idebugportevents2.md)接口。  
   
 ## <a name="requirements"></a>要求  
  标头︰ msdbg.h  

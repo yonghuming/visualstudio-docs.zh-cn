@@ -1,51 +1,67 @@
 ---
-title: "IDebugBreakEvent2 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "IDebugBreakEvent2"
-helpviewer_keywords: 
-  - "IDebugBreakEvent2 接口"
+title: "IDebugBreakEvent2 |Microsoft 文档"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords:
+- IDebugBreakEvent2
+helpviewer_keywords:
+- IDebugBreakEvent2 interface
 ms.assetid: 57dfdbc2-4e68-4dbf-9579-006cd6fb1c62
 caps.latest.revision: 13
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 13
----
-# IDebugBreakEvent2
-[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
+ms.author: gregvanl
+manager: ghogen
+translation.priority.mt:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+translationtype: Machine Translation
+ms.sourcegitcommit: ca7c86466fa23fb21a932f26dc24e37c71cf29b4
+ms.openlocfilehash: 3eb66792461f9b31b1af5415a212130a07bb7b2c
+ms.lasthandoff: 04/05/2017
 
-此接口一个会话调试管理器 \(SDM\)异步中断已成功完成。  
+---
+# <a name="idebugbreakevent2"></a>IDebugBreakEvent2
+此接口通知会话调试管理器 (SDM) 已成功完成一个异步中断。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
 ```  
 IDebugBreakEvent2 : IUnknown  
 ```  
   
-## 实现者说明  
- DE implements 支持在程序的用户中断的此接口。  在对象必须实现 [IDebugEvent2](../../../extensibility/debugger/reference/idebugevent2.md) 接口和此接口相同 \(SDM 使用 [QueryInterface](/visual-cpp/atl/queryinterface) 访问 `IDebugEvent2` 接口\)。  
+## <a name="notes-for-implementers"></a>实施者注意事项  
+ DE 实现此接口可在程序中支持用户中断。 [IDebugEvent2](../../../extensibility/debugger/reference/idebugevent2.md)接口必须实现该接口对同一个对象 (SDM 使用[QueryInterface](/cpp/atl/queryinterface)访问`IDebugEvent2`接口)。  
   
-## 调用方的说明  
- ，当用户请求正在调试的程序暂停时， SDM 调用 [CauseBreak](../../../extensibility/debugger/reference/idebugprogram2-causebreak.md) 。  当程序成功暂停时， DE 发送 `IDebugBreakEvent2` 事件。  ，它附加到正在调试的程序，此事件发送通过使用 SDM 提供的 [IDebugEventCallback2](../../../extensibility/debugger/reference/idebugeventcallback2.md) 回调函数。  
+## <a name="notes-for-callers"></a>调用方的说明  
+ SDM 调用[CauseBreak](../../../extensibility/debugger/reference/idebugprogram2-causebreak.md)时用户已请求必须暂停正在调试的程序。 当已成功暂停程序时，将发送 DE`IDebugBreakEvent2`事件。 通过使用发送此事件[IDebugEventCallback2](../../../extensibility/debugger/reference/idebugeventcallback2.md) SDM 时将其附加到正在调试的程序所提供的回调函数。  
   
-## 备注  
- 例如，用户可以在 **调试** 菜单的 **中断任何** 命令运行无限循环的发生程序。  SDM 告诉程序路过调用 [CauseBreak](../../../extensibility/debugger/reference/idebugprogram2-causebreak.md)。  最后，当程序终止时， DE 发送 `IDebugBreakEvent2` 。  
+## <a name="remarks"></a>备注  
+ 例如，用户可以选择**全部中断**命令**调试**菜单中断正在运行一个无限循环的程序。 SDM 通知程序停止通过调用[CauseBreak](../../../extensibility/debugger/reference/idebugprogram2-causebreak.md)。 DE 发送`IDebugBreakEvent2`程序最后停止。  
   
-## 要求  
- 标题:msdbg.h  
+## <a name="requirements"></a>要求  
+ 标头︰ msdbg.h  
   
- 命名空间:Microsoft.VisualStudio.Debugger.Interop  
+ Namespace: Microsoft.VisualStudio.Debugger.Interop  
   
- 程序集:Microsoft.VisualStudio.Debugger.Interop.dll  
+ 程序集︰ Microsoft.VisualStudio.Debugger.Interop.dll  
   
-## 请参阅  
+## <a name="see-also"></a>另请参阅  
  [CauseBreak](../../../extensibility/debugger/reference/idebugprogram2-causebreak.md)   
  [IDebugEvent2](../../../extensibility/debugger/reference/idebugevent2.md)   
  [IDebugEventCallback2](../../../extensibility/debugger/reference/idebugeventcallback2.md)

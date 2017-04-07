@@ -31,13 +31,13 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 translationtype: Machine Translation
-ms.sourcegitcommit: 5db97d19b1b823388a465bba15d057b30ff0b3ce
-ms.openlocfilehash: 005911465f7ba78a3a6dcdf8249a96443cd12355
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: ca7c86466fa23fb21a932f26dc24e37c71cf29b4
+ms.openlocfilehash: e36f2863680dea79451e57d06bd749b52fbed933
+ms.lasthandoff: 04/05/2017
 
 ---
 # <a name="idebugaddress2"></a>IDebugAddress2
-此接口提供由该接口表示访问拥有其地址的对象的进程 ID。  
+此接口提供对拥有其地址的对象的进程 ID 访问表示通过此接口。  
   
 ## <a name="syntax"></a>语法  
   
@@ -46,17 +46,17 @@ IDebugAddress2 : IDebugAddress
 ```  
   
 ## <a name="notes-for-implementers"></a>实施者注意事项  
- 符号提供程序实现的相同对象上实现此接口[IDebugAddress](../../../extensibility/debugger/reference/idebugaddress.md)接口。 此接口提供对拥有的对象，该地址与相关的进程的 ID 的访问。  
+ 符号提供程序实现此接口上实现的相同对象[IDebugAddress](../../../extensibility/debugger/reference/idebugaddress.md)接口。 此接口提供访问权限的进程拥有与此地址相关的对象的 ID。  
   
 ## <a name="notes-for-callers"></a>调用方的说明  
- 使用[QueryInterface](/visual-cpp/atl/queryinterface)以获取此接口从[IDebugAddress](../../../extensibility/debugger/reference/idebugaddress.md)接口。  
+ 使用[QueryInterface](/cpp/atl/queryinterface)获取此接口从[IDebugAddress](../../../extensibility/debugger/reference/idebugaddress.md)接口。  
   
 ## <a name="methods-in-vtable-order"></a>Vtable 顺序中的方法  
- 除了从继承的方法[IDebugAddress](../../../extensibility/debugger/reference/idebugaddress.md)接口，此接口实现了以下方法︰  
+ 除了从继承的方法[IDebugAddress](../../../extensibility/debugger/reference/idebugaddress.md)接口，此接口实现以下方法︰  
   
 |方法|说明|  
 |------------|-----------------|  
-|[GetProcessID](../../../extensibility/debugger/reference/idebugaddress2-getprocessid.md)|检索表示此接口的对象拥有的进程的 ID。|  
+|[GetProcessID](../../../extensibility/debugger/reference/idebugaddress2-getprocessid.md)|检索此接口表示该对象所属的进程的 ID。|  
   
 ## <a name="requirements"></a>要求  
  标头︰ sh.h  

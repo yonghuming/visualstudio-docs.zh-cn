@@ -1,45 +1,61 @@
 ---
-title: "服务基础知识 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-helpviewer_keywords: 
-  - "服务 essentials"
+title: "服务 Essentials |Microsoft 文档"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+helpviewer_keywords:
+- services, essentials
 ms.assetid: fbe84ad9-efe1-48b1-aba3-b50b90424d47
 caps.latest.revision: 13
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 13
----
-# 服务基础知识
-[!INCLUDE[vs2017banner](../../code-quality/includes/vs2017banner.md)]
+ms.author: gregvanl
+manager: ghogen
+translation.priority.mt:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+translationtype: Machine Translation
+ms.sourcegitcommit: ca7c86466fa23fb21a932f26dc24e37c71cf29b4
+ms.openlocfilehash: 8ff357d7ed3542a01cf8d98e36b9d0e99a122864
+ms.lasthandoff: 04/05/2017
 
-服务是两个 VSPackages 迁移之间的协定。 一个 VSPackage 提供了一组特定的另一个的 VSPackage，若要使用的接口。[!INCLUDE[vsprvs](../../code-quality/includes/vsprvs_md.md)] 本身就是为其他 VSPackages 提供服务的 Vspackage 的集合。  
+---
+# <a name="service-essentials"></a>服务 Essentials
+服务是两个 Vspackage 之间的协定。 一个 VSPackage 提供一组特定的接口，另一个 VSPackage 来使用。 [!INCLUDE[vsprvs](../../code-quality/includes/vsprvs_md.md)]本身就是向其他 Vspackage 提供服务的 Vspackage 集合的形式。  
   
- 例如，可以使用 SVsActivityLog 服务以获取 IVsActivityLog 接口，它可用于写入活动日志。 有关详细信息，请参阅[如何︰ 使用活动日志](../../extensibility/how-to-use-the-activity-log.md)。  
+ 例如，SVsActivityLog 服务可用于获取 IVsActivityLog 接口，它可用于写入活动日志。 有关详细信息，请参阅[如何︰ 使用活动日志](../../extensibility/how-to-use-the-activity-log.md)。  
   
- [!INCLUDE[vsprvs](../../code-quality/includes/vsprvs_md.md)] 此外提供了一些内置的服务未注册。 Vspackage 可以通过提供的服务重写替换内置或其他服务。 只有一个服务重写被允许的任何服务。  
+ [!INCLUDE[vsprvs](../../code-quality/includes/vsprvs_md.md)]此外提供了一些内置服务未注册。 Vspackage 可以通过提供服务重写替换内置或其他服务。 仅一个服务重写被允许的任何服务。  
   
- 服务有任何可发现性。 因此，您必须知道您想要使用的服务的服务标识符 \(SID\)，并且您必须知道它提供的接口。 该服务的参考文档提供此信息。  
+ 服务具有任何可发现性。 因此，你必须知道你想要使用，服务的服务标识符 (SID)，而且你必须知道它提供的接口。 该服务的参考文档提供此信息。  
   
--   提供服务的 Vspackage 被称为服务提供商。  
+-   提供服务的 Vspackage 称为服务提供商。  
   
--   提供给其他 VSPackages 迁移的服务称为全球服务。  
+-   向其他 Vspackage 提供的服务称为全球服务。  
   
--   仅适用于为 VSPackage 实现它们，或到它创建的任何对象，称为本地服务的服务。  
+-   仅适用于 VSPackage 实现它们，或到它创建的任何对象，称为本地服务的服务。  
   
--   替换内置的服务或由其他程序包提供服务的服务被称为服务重写。  
+-   替换内置的服务或所提供的其他包中，服务的服务称为服务重写。  
   
--   按需加载服务或服务重写，服务提供程序属性时由另一个 VSPackage 请求它提供了该服务，即会加载。  
+-   按需加载服务或服务重写，后，它提供的服务请求由另一个 VSPackage 时，即加载服务提供程序。  
   
--   若要支持按需加载，服务提供商注册其全球服务和 [!INCLUDE[vsprvs](../../code-quality/includes/vsprvs_md.md)]。 有关详细信息，请参阅[注册服务](../../misc/registering-services.md)。  
+-   若要支持按需加载，服务提供程序注册其全球服务和[!INCLUDE[vsprvs](../../code-quality/includes/vsprvs_md.md)]。 有关详细信息，请参阅[注册服务](../../misc/registering-services.md)。  
   
--   获取服务后，使用 [QueryInterface](/visual-cpp/atl/queryinterface) \(非托管代码\) 或强制转换 \(托管代码\) 来获得所需的接口中，例如:  
+-   获取服务后，使用[QueryInterface](/cpp/atl/queryinterface) （非托管代码） 或强制转换 （托管代码） 来获取所需的接口，例如︰  
   
     ```vb#  
     TryCast(GetService(GetType(SVsActivityLog)), IVsActivityLog)  
@@ -50,16 +66,16 @@ caps.handback.revision: 13
   
     ```  
   
--   托管的代码指由其类型的服务，而非托管的代码是指由其 GUID 的服务。  
+-   托管的代码是指按照其类型的服务而非托管的代码是指由其 GUID 的服务。  
   
--   当 [!INCLUDE[vsprvs](../../code-quality/includes/vsprvs_md.md)] 加载的 VSPackage 时，将其传递服务提供商到 VSPackage 以便 VSPackage 访问全球服务。 这称为"选址"VSPackage。  
+-   当[!INCLUDE[vsprvs](../../code-quality/includes/vsprvs_md.md)]加载 VSPackage，它将传递服务提供商给 VSPackage 全球服务使 VSPackage 能够访问。 这称为"安置功能"VSPackage。  
   
--   Vspackage 可以是服务提供商为他们创建的对象。 例如，窗体可能会将颜色服务的请求发送到其框架，可能会传递到请求 [!INCLUDE[vsprvs](../../code-quality/includes/vsprvs_md.md)]。  
+-   Vspackage 可以是服务提供商他们创建的对象。 例如，窗体可能会将颜色服务的请求发送到其进行处理，从而可能将传递到请求[!INCLUDE[vsprvs](../../code-quality/includes/vsprvs_md.md)]。  
   
--   托管的对象的深度嵌套，或在所有位置不正确可能会调用 <xref:Microsoft.VisualStudio.Shell.Package.GetGlobalService%2A> 以直接访问全球服务。 有关详细信息，请参阅[如何：使用 GetGlobalService](../../misc/how-to-use-getglobalservice.md)。  
+-   深度嵌套，或在所有位置不正确的托管的对象可以调用<xref:Microsoft.VisualStudio.Shell.Package.GetGlobalService%2A>直接访问全球服务。</xref:Microsoft.VisualStudio.Shell.Package.GetGlobalService%2A> 有关详细信息，请参阅[如何︰ 使用 GetGlobalService](../../misc/how-to-use-getglobalservice.md)。  
   
-## 请参阅  
+## <a name="see-also"></a>另请参阅  
  [可用服务列表](../../extensibility/internals/list-of-available-services.md)   
- [使用并提供服务](../../extensibility/using-and-providing-services.md)   
+ [使用和提供服务](../../extensibility/using-and-providing-services.md)   
  [强制转换和类型转换](/dotnet/csharp/programming-guide/types/casting-and-type-conversions)   
- [强制转换](/visual-cpp/cpp/casting)
+ [强制转换](/cpp/cpp/casting)

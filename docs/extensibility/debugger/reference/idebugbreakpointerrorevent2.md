@@ -1,60 +1,76 @@
 ---
-title: "IDebugBreakpointErrorEvent2 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "IDebugBreakpointErrorEvent2"
-helpviewer_keywords: 
-  - "IDebugBreakpointErrorEvent2"
+title: "IDebugBreakpointErrorEvent2 |Microsoft 文档"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords:
+- IDebugBreakpointErrorEvent2
+helpviewer_keywords:
+- IDebugBreakpointErrorEvent2
 ms.assetid: adee79df-8db5-4510-a7df-c50f4dbf5e35
 caps.latest.revision: 14
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 14
----
-# IDebugBreakpointErrorEvent2
-[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
+ms.author: gregvanl
+manager: ghogen
+translation.priority.mt:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+translationtype: Machine Translation
+ms.sourcegitcommit: ca7c86466fa23fb21a932f26dc24e37c71cf29b4
+ms.openlocfilehash: 94ab4dfbe72d28f52767c6dde259483d6905e401
+ms.lasthandoff: 04/05/2017
 
-此接口一个会话调试管理器 \(SDM\)由于警告或错误，挂起的断点不能绑定到一个加载程序，。  
+---
+# <a name="idebugbreakpointerrorevent2"></a>IDebugBreakpointErrorEvent2
+此接口通知会话调试管理器 (SDM) 不能与加载程序，由于警告或错误绑定挂起断点。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
 ```  
 IDebugBreakpointErrorEvent2 : IUnknown  
 ```  
   
-## 实现者说明  
- DE 作为它的部分此接口为断点支持的 implements。  在对象必须实现 [IDebugEvent2](../../../extensibility/debugger/reference/idebugevent2.md) 接口和此接口相同 \(SDM 使用 [QueryInterface](/visual-cpp/atl/queryinterface) 访问 `IDebugEvent2` 接口\)。  
+## <a name="notes-for-implementers"></a>实施者注意事项  
+ DE 实现此接口作为断点其支持的一部分。 [IDebugEvent2](../../../extensibility/debugger/reference/idebugevent2.md)接口必须实现该接口对同一个对象 (SDM 使用[QueryInterface](/cpp/atl/queryinterface)访问`IDebugEvent2`接口)。  
   
-## 调用方的说明  
- ，当挂起的断点不能绑定到正在调试时，的程序、创建和发送此事件对象。  ，它附加到正在调试的程序，该事件发送通过使用 SDM 提供的 [IDebugEventCallback2](../../../extensibility/debugger/reference/idebugeventcallback2.md) 回调函数。  
+## <a name="notes-for-callers"></a>调用方的说明  
+ DE 创建，并将此事件的对象发送时挂起断点无法绑定到被调试的程序。 通过使用发送事件[IDebugEventCallback2](../../../extensibility/debugger/reference/idebugeventcallback2.md) SDM 时将其附加到正在调试的程序所提供的回调函数。  
   
-## 方法按 Vtable 顺序  
- 下表显示 `IDebugBreakpointErrorEvent2`方法。  
+## <a name="methods-in-vtable-order"></a>Vtable 顺序中的方法  
+ 下表显示的方法`IDebugBreakpointErrorEvent2`。  
   
 |方法|说明|  
-|--------|--------|  
-|[GetErrorBreakpoint](../../../extensibility/debugger/reference/idebugbreakpointerrorevent2-geterrorbreakpoint.md)|获取描述警告或错误的 [IDebugErrorBreakpoint2](../../../extensibility/debugger/reference/idebugerrorbreakpoint2.md) 接口。|  
+|------------|-----------------|  
+|[GetErrorBreakpoint](../../../extensibility/debugger/reference/idebugbreakpointerrorevent2-geterrorbreakpoint.md)|获取[IDebugErrorBreakpoint2](../../../extensibility/debugger/reference/idebugerrorbreakpoint2.md)描述警告或错误的接口。|  
   
-## 备注  
- 每当断点绑定，事件发送到 SDM。  如果断点不能绑定，发送 `IDebugBreakpointErrorEvent2` ;否则，发送 [IDebugBreakpointBoundEvent2](../../../extensibility/debugger/reference/idebugbreakpointboundevent2.md) 。  
+## <a name="remarks"></a>备注  
+ 每当绑定断点，则会将事件发送到 SDM。 如果无法绑定断点，`IDebugBreakpointErrorEvent2`发送; 否则为[IDebugBreakpointBoundEvent2](../../../extensibility/debugger/reference/idebugbreakpointboundevent2.md)发送。  
   
- 例如，在中，当条件与挂起的断点无法分析或计算时，发出警告挂起的断点不能此时绑定。  ，如果断点的代码中没有加载，则会发生此错误。  
+ 例如，当与挂起断点关联的条件失败时分析或评估，发送警告，不能在此时绑定挂起断点。 如果为断点的代码不具有尚未加载，也可能出现。  
   
-## 要求  
- 标题:msdbg.h  
+## <a name="requirements"></a>要求  
+ 标头︰ msdbg.h  
   
- 命名空间:Microsoft.VisualStudio.Debugger.Interop  
+ Namespace: Microsoft.VisualStudio.Debugger.Interop  
   
- 程序集:Microsoft.VisualStudio.Debugger.Interop.dll  
+ 程序集︰ Microsoft.VisualStudio.Debugger.Interop.dll  
   
-## 请参阅  
+## <a name="see-also"></a>另请参阅  
  [IDebugEvent2](../../../extensibility/debugger/reference/idebugevent2.md)   
  [IDebugErrorBreakpoint2](../../../extensibility/debugger/reference/idebugerrorbreakpoint2.md)   
  [IDebugPendingBreakpoint2](../../../extensibility/debugger/reference/idebugpendingbreakpoint2.md)   

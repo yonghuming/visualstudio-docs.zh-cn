@@ -1,58 +1,74 @@
 ---
-title: "IDebugPropertyCreateEvent2 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "IDebugPropertyCreateEvent2"
-helpviewer_keywords: 
-  - "IDebugPropertyCreateEvent2 接口"
+title: "IDebugPropertyCreateEvent2 |Microsoft 文档"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords:
+- IDebugPropertyCreateEvent2
+helpviewer_keywords:
+- IDebugPropertyCreateEvent2 interface
 ms.assetid: 33b3082b-a42e-488a-a1e4-dadf506f922c
 caps.latest.revision: 13
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 13
----
-# IDebugPropertyCreateEvent2
-[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
+ms.author: gregvanl
+manager: ghogen
+translation.priority.mt:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+translationtype: Machine Translation
+ms.sourcegitcommit: ca7c86466fa23fb21a932f26dc24e37c71cf29b4
+ms.openlocfilehash: f8925c755189dbf6392534e1463e799ed5e01889
+ms.lasthandoff: 04/05/2017
 
-调试引擎 \(DE\)发送此接口添加到该会话调试管理器 \(SDM\)，在创建与特定文件的属性时。  
+---
+# <a name="idebugpropertycreateevent2"></a>IDebugPropertyCreateEvent2
+创建与特定文档相关联的属性时，此接口是由的调试引擎 (DE) 发送到会话调试管理器 (SDM) 中。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
 ```  
 IDebugPropertyCreateEvent2 : IUnknown  
 ```  
   
-## 实现者说明  
- DE implements 报告此接口的属性创建了。  在对象必须实现 [IDebugEvent2](../../../extensibility/debugger/reference/idebugevent2.md) 接口和此接口相同。  SDM 使用 [QueryInterface](/visual-cpp/atl/queryinterface) 访问 `IDebugEvent2` 接口。  此接口由实现，如果 DE 创建了一个属性与已加载或已创建的脚本，并且，如果该脚本需要显示在 IDE 中。  
+## <a name="notes-for-implementers"></a>实施者注意事项  
+ DE 实现此接口来报告已创建了一个属性。 [IDebugEvent2](../../../extensibility/debugger/reference/idebugevent2.md)接口必须实现该接口对同一个对象。 SDM 使用[QueryInterface](/cpp/atl/queryinterface)访问`IDebugEvent2`接口。 如果 DE 已创建与已加载或创建的脚本关联的属性，而该脚本需要出现在 IDE 中，被实现此接口。  
   
-## 调用方的说明  
- DE 创建和发送此事件对象的属性创建了。  事件发送通过使用 SDM 提供的 [IDebugEventCallback2](../../../extensibility/debugger/reference/idebugeventcallback2.md) 回调函数，则附加到正在调试时的过程。  
+## <a name="notes-for-callers"></a>调用方的说明  
+ DE 创建，并将此事件对象发送到报表创建属性。 通过使用发送事件[IDebugEventCallback2](../../../extensibility/debugger/reference/idebugeventcallback2.md) SDM 时将其附加到正在调试的程序提供的回调函数。  
   
-## 方法按 Vtable 顺序  
- 下表显示 `IDebugPropertyCreateEvent2` 接口的方法。  
+## <a name="methods-in-vtable-order"></a>Vtable 顺序中的方法  
+ 下表显示的方法`IDebugPropertyCreateEvent2`接口。  
   
-|方法|说明|  
-|--------|--------|  
-|[GetDebugProperty](../../../extensibility/debugger/reference/idebugpropertycreateevent2-getdebugproperty.md)|获取新属性。|  
+|方法|描述|  
+|------------|-----------------|  
+|[GetDebugProperty](../../../extensibility/debugger/reference/idebugpropertycreateevent2-getdebugproperty.md)|获取新的属性。|  
   
-## 备注  
- 如果特性具有特定文件或脚本与其关联， DE 可以发送此事件。 SDM 为了更新具有文档的名称的 **脚本文档** 窗口。  SDM 将调用变量 `guidDocument` 的 [GetExtendedInfo](../../../extensibility/debugger/reference/idebugproperty2-getextendedinfo.md) 检索包含 [IUnknown](/visual-cpp/atl/iunknown) 指针的 `VARIANT` 。  SDM 将调用此指针的 [QueryInterface](/visual-cpp/atl/queryinterface) 检索用于更新 **脚本文档** 窗口的 [IDebugDocument2](../../../extensibility/debugger/reference/idebugdocument2.md) 接口。  
+## <a name="remarks"></a>备注  
+ 如果属性具有特定文档或与之关联的脚本，DE 可以此将事件发送至 SDM 以更新**脚本文档**窗口与文档的名称。 将调用 SDM [GetExtendedInfo](../../../extensibility/debugger/reference/idebugproperty2-getextendedinfo.md)具有自变量`guidDocument`检索`VARIANT`包含[IUnknown](/cpp/atl/iunknown)指针。 将调用 SDM [QueryInterface](/cpp/atl/queryinterface)上检索此指针[IDebugDocument2](../../../extensibility/debugger/reference/idebugdocument2.md)接口用于更新**脚本文档**窗口。  
   
-## 要求  
- 标题:msdbg.h  
+## <a name="requirements"></a>要求  
+ 标头︰ msdbg.h  
   
- 命名空间:Microsoft.VisualStudio.Debugger.Interop  
+ Namespace: Microsoft.VisualStudio.Debugger.Interop  
   
- 程序集:Microsoft.VisualStudio.Debugger.Interop.dll  
+ 程序集︰ Microsoft.VisualStudio.Debugger.Interop.dll  
   
-## 请参阅  
+## <a name="see-also"></a>另请参阅  
  [核心接口](../../../extensibility/debugger/reference/core-interfaces.md)   
  [IDebugEvent2](../../../extensibility/debugger/reference/idebugevent2.md)   
  [IDebugEventCallback2](../../../extensibility/debugger/reference/idebugeventcallback2.md)   

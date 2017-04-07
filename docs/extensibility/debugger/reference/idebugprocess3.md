@@ -1,68 +1,84 @@
 ---
-title: "IDebugProcess3 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "IDebugProcess3"
-helpviewer_keywords: 
-  - "IDebugProcess3 接口"
+title: "IDebugProcess3 |Microsoft 文档"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords:
+- IDebugProcess3
+helpviewer_keywords:
+- IDebugProcess3 interface
 ms.assetid: 7bd6b952-cf34-4e66-b8f6-d472dac3748f
 caps.latest.revision: 24
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 24
----
-# IDebugProcess3
-[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
+ms.author: gregvanl
+manager: ghogen
+translation.priority.mt:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+translationtype: Machine Translation
+ms.sourcegitcommit: ca7c86466fa23fb21a932f26dc24e37c71cf29b4
+ms.openlocfilehash: 6b98394c4880ce78eb8069534b009ea351608cd6
+ms.lasthandoff: 04/05/2017
 
-此接口表示正在运行的进程及其程序。  此接口存在作为替换为在 [IDebugProgram2](../../../extensibility/debugger/reference/idebugprogram2.md) 接口的方法。  它提供对所有程序的控件在处理。  
+---
+# <a name="idebugprocess3"></a>IDebugProcess3
+此接口表示正在运行的进程和其程序。 此接口存在几种方法中代替[IDebugProgram2](../../../extensibility/debugger/reference/idebugprogram2.md)接口。 它提供了控制过程中的所有程序。  
   
 > [!NOTE]
->  [继续](../../../extensibility/debugger/reference/idebugprogram2-continue.md)、 [执行](../../../extensibility/debugger/reference/idebugprogram2-execute.md)和 [单步执行](../../../extensibility/debugger/reference/idebugprogram2-step.md) 方法已弃用，因此不应再使用。  使用在 `IDebugProcess3` 接口的相应方法。  
+>  [继续](../../../extensibility/debugger/reference/idebugprogram2-continue.md)，[执行](../../../extensibility/debugger/reference/idebugprogram2-execute.md)，和[步骤](../../../extensibility/debugger/reference/idebugprogram2-step.md)方法已弃用且应不再使用。 在上使用相应的方法`IDebugProcess3`接口。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
 ```  
 IDebugProcess3 : IDebugProcess2  
 ```  
   
-## 实现者说明  
- 此接口由自定义端口提供程序实现托管程序作为组。  当程序管理作为组时，可以控制其执行并建立表达式计算器的一种语言。  必须由端口提供程序实现此接口。  
+## <a name="notes-for-implementers"></a>实施者注意事项  
+ 自定义端口的供应商联系，以作为一个组管理程序通过实现此接口。 当作为一个组管理程序时，您可以控制其执行和表达式计算器为建立一种语言。 必须通过端口提供程序实现此接口。  
   
-## 调用方的说明  
- 此接口主要由该会话调用调试管理器 \(SDM\)为了在中标识程序的一组进程交互。  
+## <a name="notes-for-callers"></a>调用方的说明  
+ 此接口称为主要由会话调试管理器 (SDM) 才能与一组在此过程中标识的程序进行交互。  
   
- 调用 [IDebugProcess2](../../../extensibility/debugger/reference/idebugprocess2.md) 接口的 [QueryInterface](/visual-cpp/atl/queryinterface) 获取此接口。  
+ 调用[QueryInterface](/cpp/atl/queryinterface)上[IDebugProcess2](../../../extensibility/debugger/reference/idebugprocess2.md)接口，以获得此接口。  
   
-## 方法按 Vtable 顺序  
- 除了从 [IDebugProcess2](../../../extensibility/debugger/reference/idebugprocess2.md)继承的方法之外， `IDebugProcess3` 执行以下操作方法。  
+## <a name="methods-in-vtable-order"></a>Vtable 顺序中的方法  
+ 除了从继承的方法[IDebugProcess2](../../../extensibility/debugger/reference/idebugprocess2.md)，`IDebugProcess3`实现以下方法。  
   
-|方法|说明|  
-|--------|--------|  
-|[继续](../../../extensibility/debugger/reference/idebugprocess3-continue.md)|继续执行或逐句通过处理。|  
-|[执行](../../../extensibility/debugger/reference/idebugprocess3-execute.md)|启动进程的执行。|  
-|[单步执行](../../../extensibility/debugger/reference/idebugprocess3-step.md)|进度一个命令或语句在处理。|  
-|[GetDebugReason](../../../extensibility/debugger/reference/idebugprocess3-getdebugreason.md)|获取处理用于调试生成的原因。|  
-|[SetHostingProcessLanguage](../../../extensibility/debugger/reference/idebugprocess3-sethostingprocesslanguage.md)|设置此类型主语言，以便调试引擎可以将相应的表达式计算器。|  
-|[GetHostingProcessLanguage](../../../extensibility/debugger/reference/idebugprocess3-gethostingprocesslanguage.md)|检索为此当前设置的语言处理。|  
-|[DisableENC](../../../extensibility/debugger/reference/idebugprocess3-disableenc.md)|禁用此编辑并继续 " \(ENC\) 处理。<br /><br /> 自定义端口提供程序不执行此方法 \(它应始终返回 `E_NOTIMPL`\)。|  
-|[GetENCAvailableState](../../../extensibility/debugger/reference/idebugprocess3-getencavailablestate.md)|此的 ENC 状态过程的访问。<br /><br /> 自定义端口提供程序不执行此方法 \(它应始终返回 `E_NOTIMPL`\)。|  
-|[GetEngineFilter](../../../extensibility/debugger/reference/idebugprocess3-getenginefilter.md)|检索数组可用的唯一标识符调试引擎。|  
+|方法|描述|  
+|------------|-----------------|  
+|[继续](../../../extensibility/debugger/reference/idebugprocess3-continue.md)|继续执行或单步执行完成的过程。|  
+|[执行](../../../extensibility/debugger/reference/idebugprocess3-execute.md)|开始执行的进程。|  
+|[步骤](../../../extensibility/debugger/reference/idebugprocess3-step.md)|一个指令或在过程中的语句，将转发步骤。|  
+|[GetDebugReason](../../../extensibility/debugger/reference/idebugprocess3-getdebugreason.md)|获取进程已启动用于调试的原因。|  
+|[SetHostingProcessLanguage](../../../extensibility/debugger/reference/idebugprocess3-sethostingprocesslanguage.md)|设置宿主的语言，以便调试引擎可以加载适当的表达式计算器。|  
+|[GetHostingProcessLanguage](../../../extensibility/debugger/reference/idebugprocess3-gethostingprocesslanguage.md)|检索当前为此过程设置的语言。|  
+|[DisableENC](../../../extensibility/debugger/reference/idebugprocess3-disableenc.md)|有关此过程中禁用编辑并继续 (ENC)。<br /><br /> 自定义端口供应商提供未实现此方法 (它应始终返回`E_NOTIMPL`)。|  
+|[GetENCAvailableState](../../../extensibility/debugger/reference/idebugprocess3-getencavailablestate.md)|获取此进程 ENC 状态。<br /><br /> 自定义端口供应商提供未实现此方法 (它应始终返回`E_NOTIMPL`)。|  
+|[GetEngineFilter](../../../extensibility/debugger/reference/idebugprocess3-getenginefilter.md)|检索有关可用的调试引擎的唯一标识符的数组。|  
   
-## 要求  
- 标题:Msdbg.h  
+## <a name="requirements"></a>要求  
+ 标头︰ Msdbg.h  
   
- 命名空间:Microsoft.VisualStudio.Debugger.Interop  
+ Namespace: Microsoft.VisualStudio.Debugger.Interop  
   
- 程序集:Microsoft.VisualStudio.Debugger.Interop.dll  
+ 程序集︰ Microsoft.VisualStudio.Debugger.Interop.dll  
   
-## 请参阅  
+## <a name="see-also"></a>另请参阅  
  [核心接口](../../../extensibility/debugger/reference/core-interfaces.md)   
  [IDebugProcess2](../../../extensibility/debugger/reference/idebugprocess2.md)   
  [IDebugProgram2](../../../extensibility/debugger/reference/idebugprogram2.md)
