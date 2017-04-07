@@ -35,9 +35,9 @@ translation.priority.ht:
 - zh-cn
 - zh-tw
 translationtype: Human Translation
-ms.sourcegitcommit: a42f5a30375192c89c9984e40ba0104da98d7253
-ms.openlocfilehash: f70339a150a53d346ab9a6f59b4b1634263f5b9e
-ms.lasthandoff: 03/07/2017
+ms.sourcegitcommit: ca7c86466fa23fb21a932f26dc24e37c71cf29b4
+ms.openlocfilehash: 80ce7de7e89844d8c9cb1052499b2d873e04965e
+ms.lasthandoff: 04/05/2017
 
 ---
 # <a name="options-text-editor-cc-formatting"></a>选项，文本编辑器，C/C++，格式设置
@@ -81,16 +81,16 @@ ms.lasthandoff: 03/07/2017
  在文本编辑器中打开一个文件时，可以启用大纲显示功能。 有关详细信息，请参阅[大纲显示](../../ide/outlining.md)。 选择此选项后，打开文件时将启用大纲显示功能。  
   
  **#Pragma 区域块的自动大纲显示**  
- 选择此选项时，将对[杂注指令](/visual-cpp/preprocessor/pragma-directives-and-the-pragma-keyword)启用自动大纲显示。 这使你可以在大纲模式中展开或折叠杂注区域块。  
+ 选择此选项时，将对[杂注指令](/cpp/preprocessor/pragma-directives-and-the-pragma-keyword)启用自动大纲显示。 这使你可以在大纲模式中展开或折叠杂注区域块。  
   
  **语句块的自动大纲显示**  
  选择此选项时，将对下列语句构造启用自动大纲显示：  
   
 -   [if-else](/dotnet/csharp/language-reference/keywords/if-else)  
   
--   [switch 语句 (C++)](/visual-cpp/cpp/switch-statement-cpp)  
+-   [switch 语句 (C++)](/cpp/cpp/switch-statement-cpp)  
   
--   [while 语句 (C++)](/visual-cpp/cpp/while-statement-cpp)  
+-   [while 语句 (C++)](/cpp/cpp/while-statement-cpp)  
   
 ## <a name="see-also"></a>另请参阅  
  [“选项”对话框 ->“环境”->“常规”](../../ide/reference/general-environment-options-dialog-box.md)   

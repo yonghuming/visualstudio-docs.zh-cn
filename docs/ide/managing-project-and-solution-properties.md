@@ -28,9 +28,9 @@ translation.priority.ht:
 - zh-cn
 - zh-tw
 translationtype: Human Translation
-ms.sourcegitcommit: 5db97d19b1b823388a465bba15d057b30ff0b3ce
-ms.openlocfilehash: e843adb473be51e185fd3b5dc514b44f16106157
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: ca7c86466fa23fb21a932f26dc24e37c71cf29b4
+ms.openlocfilehash: 332ef0d4534d8f607a1b5d92038855ebd247657f
+ms.lasthandoff: 04/05/2017
 
 ---
 # <a name="managing-project-and-solution-properties"></a>管理项目和解决方案属性
@@ -60,7 +60,7 @@ ms.lasthandoff: 02/22/2017
   
  ![Visual C++ 项目属性](../ide/media/vs2015_projprops_cpp.png "VS2015_ProjProps_cpp")  
   
- 有关 C++ 项目属性的信息，请参阅[使用项目属性](/visual-cpp/ide/working-with-project-properties)。 有关 JavaScript 属性的详细信息，请参阅[属性页，JavaScript](../ide/reference/property-pages-javascript.md)。  
+ 有关 C++ 项目属性的信息，请参阅[使用项目属性](/cpp/ide/working-with-project-properties)。 有关 JavaScript 属性的详细信息，请参阅[属性页，JavaScript](../ide/reference/property-pages-javascript.md)。  
   
 ## <a name="solution-properties"></a>解决方案属性  
  若要访问解决方案上的属性，请右键单击“解决方案资源管理器”中的解决方案节点，然后选择“属性”。 在对话框中，可以设置用于“调试”或“发布”版本的项目配置，选择按下 F5 时应为启动项目的项目，然后设置代码分析选项。  

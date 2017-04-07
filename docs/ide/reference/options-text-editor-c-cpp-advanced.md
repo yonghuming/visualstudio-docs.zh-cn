@@ -34,9 +34,9 @@ translation.priority.ht:
 - zh-cn
 - zh-tw
 translationtype: Human Translation
-ms.sourcegitcommit: e9a05d008f671fb79d6813a14c594b82f27697e3
-ms.openlocfilehash: ba9c9b60de651eecc92ea10ba44579a7dadc36df
-ms.lasthandoff: 03/27/2017
+ms.sourcegitcommit: ca7c86466fa23fb21a932f26dc24e37c71cf29b4
+ms.openlocfilehash: 9c9e9e8c63d69e797a28ce4f8b1ac0adcf074b77
+ms.lasthandoff: 04/05/2017
 
 ---
 # <a name="options-text-editor-cc-advanced"></a>选项，文本编辑器，C/C++，高级
@@ -139,7 +139,7 @@ ms.lasthandoff: 03/27/2017
  **最大缓存的转换单元数**  
  在任一时刻为 IntelliSense 请求保持活动状态的最大转换单元数。 指定的值必须介于 2 到 15 之间。 此数字直接关系到将要运行的最大 VCPkgSrv.exe 进程数（针对 Visual Studio 的给定实例）。 默认值为 2，但如果有可用内存，可以增加此值，这样可能会略微提升 IntelliSense 的性能。  
   
- 有关转换单元的详细信息，请参阅[转换阶段](/visual-cpp/preprocessor/phases-of-translation)。  
+ 有关转换单元的详细信息，请参阅[转换阶段](/cpp/preprocessor/phases-of-translation)。  
 
  **成员列表的点到箭头替换**  
  当可用于成员列表时，将“.”替换为“->”。

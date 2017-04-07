@@ -76,9 +76,9 @@ translation.priority.ht:
 - zh-cn
 - zh-tw
 translationtype: Human Translation
-ms.sourcegitcommit: c36d97b83aa0892235c8f196cf6af63520b3547c
-ms.openlocfilehash: a31b90643e3707348595fce02ec37a1c02a97195
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: ca7c86466fa23fb21a932f26dc24e37c71cf29b4
+ms.openlocfilehash: 07dfd26933090708cf40adff5f7ceb4785686245
+ms.lasthandoff: 04/05/2017
 
 ---
 # <a name="manage-external-tools"></a>管理外部工具
@@ -127,5 +127,5 @@ ms.lasthandoff: 03/01/2017
 |解决方案文件名|$(SolutionFileName)|当前解决方案的文件名（驱动器 + 路径 + 文件名）。|  
 
 ## <a name="see-also"></a>另请参阅  
- [C/C++ 生成工具](/visual-cpp/build/reference/c-cpp-build-tools)
+ [C/C++ 生成工具](/cpp/build/reference/c-cpp-build-tools)
 

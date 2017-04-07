@@ -31,8 +31,9 @@ translation.priority.mt:
 - pt-br
 - tr-tr
 translationtype: Human Translation
-ms.sourcegitcommit: 5db97d19b1b823388a465bba15d057b30ff0b3ce
-ms.openlocfilehash: 9f7b45efa01eb245cc4c933126578bbf9aa52f81
+ms.sourcegitcommit: ca7c86466fa23fb21a932f26dc24e37c71cf29b4
+ms.openlocfilehash: 168e14b8f7e913a2dc4656f01f8cc5cc8ff80284
+ms.lasthandoff: 04/05/2017
 
 ---
 # <a name="visual-c-enumerations-in-class-designer"></a>类设计器中的 Visual C++ 枚举
@@ -58,13 +59,8 @@ enum class CardSuit {
   
  类图中的 C++ 枚举形状的外观和工作原理与结构形状类似，只不过其标签显示为 **Enum** 或 **Enum class**，标签的颜色为粉色而不是蓝色，并且具有带颜色的边框左边和上边。 两种枚举形状和结构形状都具有方角。  
   
- 有关使用 `enum` 类型的更多信息，请参阅[枚举](/visual-cpp/cpp/enumerations-cpp)。  
+ 有关使用 `enum` 类型的更多信息，请参阅[枚举](/cpp/cpp/enumerations-cpp)。  
   
 ## <a name="see-also"></a>另请参阅  
  [使用 Visual C++ 代码（类设计器）](../ide/working-with-visual-cpp-code-class-designer.md)   
- [枚举](/visual-cpp/cpp/enumerations-cpp)
-
-
-<!--HONumber=Feb17_HO4-->
-
-
+ [枚举](/cpp/cpp/enumerations-cpp)

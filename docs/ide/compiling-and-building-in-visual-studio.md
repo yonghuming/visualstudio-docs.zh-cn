@@ -1,22 +1,40 @@
 ---
 title: "在 Visual Studio 中编译和生成 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-general"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-helpviewer_keywords: 
-  - "生成 [Visual Studio]，关于 Visual Studio 中的生成"
-  - "自定义生成步骤，生成类型"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-general
+ms.tgt_pltfrm: 
+ms.topic: article
+helpviewer_keywords:
+- builds [Visual Studio], about building in Visual Studio
+- custom build steps, types of builds
 ms.assetid: c7958821-285f-4e28-9e7a-b5d8b40336a1
 caps.latest.revision: 28
-author: "kempb"
-ms.author: "kempb"
-manager: "ghogen"
-caps.handback.revision: 28
+author: kempb
+ms.author: kempb
+manager: ghogen
+translation.priority.ht:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+translationtype: Human Translation
+ms.sourcegitcommit: 5581224b17a7b42f65b69f741f984a144d78fc26
+ms.openlocfilehash: f4ae98f4e9b7dbf4b1066120316ee5a167ae78f2
+ms.lasthandoff: 04/04/2017
+
 ---
 # <a name="compiling-and-building-in-visual-studio"></a>在 Visual Studio 中编译和生成
 在开发周期中，您可以使用 Visual Studio 频繁生成应用程序和创建程序集和可执行程序。 通过经常生成您的代码，您可以更早地标识编译时错误，如不正确的语法、拼错的关键字和类型不匹配项。 您还可以通过频繁生成并运行调试版本的代码来检测和纠正运行时错误，如逻辑错误和语义错误。  
@@ -29,7 +47,7 @@ caps.handback.revision: 28
 |生成方法|优点|更多相关信息|  
 |------------------|--------------|--------------------------|  
 |使用 IDE|-   可以更轻松地创建并立即运行生成。<br />-   可以运行 C++ 和 C# 项目的多处理器生成。<br />-   可以自定义生成系统的某些方面。|[在 Visual Studio 中生成和清理项目和解决方案](../ide/building-and-cleaning-projects-and-solutions-in-visual-studio.md)|  
-|运行 MSBuild 命令行|-   可以生成项目，而无需安装 Visual Studio。<br />-   可以运行所有项目类型的多处理器生成。<br />-   可以自定义生成系统的大多数区域。|[MSBuild](../msbuild/msbuild1.md)|  
+|运行 MSBuild 命令行|-   可以生成项目，而无需安装 Visual Studio。<br />-   可以运行所有项目类型的多处理器生成。<br />-   可以自定义生成系统的大多数区域。|[MSBuild](../msbuild/msbuild.md)|  
 |使用 Team Foundation Build|-   可以将生成过程自动化。 例如，您可以在夜间或每次签入此代码时生成一个或多个项目。 还可以在共享的生成服务器而不是开发计算机上生成项目。<br />-   可以快速指定要生成的代码、要运行的测试和其他常用选项。<br />-   可以修改生成工作流，并根据需要创建生成活动以执行深层的自定义任务。|[生成应用程序](http://msdn.microsoft.com/Library/a971b0f9-7c28-479d-a37b-8fd7e27ef692)|  
   
 ## <a name="building-from-the-ide"></a>从 IDE 生成  
@@ -55,8 +73,3 @@ caps.handback.revision: 28
  [了解生成平台](../ide/understanding-build-platforms.md)   
  [构建（编译）网站项目](http://msdn.microsoft.com/Library/a9cbb88c-8fff-4c67-848b-98fbfd823193)   
  [如何：创建和删除项目依赖项](../ide/how-to-create-and-remove-project-dependencies.md)
-
-
-<!--HONumber=Feb17_HO4-->
-
-
