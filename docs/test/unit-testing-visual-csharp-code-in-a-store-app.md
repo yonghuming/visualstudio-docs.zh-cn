@@ -1,66 +1,81 @@
 ---
 title: "对应用商店应用中的 Visual C# 代码进行单元测试 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-general"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-general
+ms.tgt_pltfrm: 
+ms.topic: article
 ms.assetid: 23cb0d82-0451-464e-98ea-fa66e7010ead
 caps.latest.revision: 19
-author: "alexhomer1"
-ms.author: "ahomer"
-manager: "robinr"
-caps.handback.revision: 19
----
-# 对应用商店应用中的 Visual C# 代码进行单元测试
-[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
+ms.author: douge
+manager: douge
+translation.priority.ht:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+translationtype: Human Translation
+ms.sourcegitcommit: 5ab78b6b8eaa8156ed2c8a807b1d8a80e75afa84
+ms.openlocfilehash: dcb028c04558e4795297f5704102068c84d1d532
+ms.lasthandoff: 04/04/2017
 
-本主题介绍了一种在 Windows 应用商店应用中对 Visual C\# 类创建单元测试的方法。  Rooter 类通过实现计算给定数的平方根的估计的函数来演示限制计算理论的模糊内存。  Maths 应用程序之后可使用此函数为用户演示可通过 math 完成的有趣操作。  
+---
+# <a name="unit-testing-visual-c-code-in-a-store-app"></a>对应用商店应用中的 Visual C# 代码进行单元测试
+本主题介绍了一种在 Windows 应用商店应用中对 Visual C# 类创建单元测试的方法。 Rooter 类通过实现计算给定数的平方根的估计的函数来演示限制计算理论的模糊内存。 Maths 应用程序之后可使用此函数为用户演示可通过 math 完成的有趣操作。  
   
- 本主题演示如何使用单元测试作为开发的第一步。  在此方法中，首先编写验证要测试的系统的特定行为的测试方法，然后编写通过测试的代码。  通过按照以下过程的顺序进行更改，您可调转此策略的顺序，即先编写要测试的代码，然后编写单元测试。  
+ 本主题演示如何使用单元测试作为开发的第一步。 在此方法中，首先编写验证要测试的系统的特定行为的测试方法，然后编写通过测试的代码。 通过按照以下过程的顺序进行更改，您可调转此策略的顺序，即先编写要测试的代码，然后编写单元测试。  
   
- 本主题还为单元测试和要测试的 DLL 创建一个 Visual Studio 解决方案和单独的项目。  您还可在 DLL 项目中直接包含单元测试，也可以为单元测试和 DLL 创建不同的解决方案。  
+ 本主题还为单元测试和要测试的 DLL 创建一个 Visual Studio 解决方案和单独的项目。 您还可在 DLL 项目中直接包含单元测试，也可以为单元测试和 DLL 创建不同的解决方案。  
   
 > [!NOTE]
->  Visual Studio Community、Enterprise.  和 Professional 提供其他适用于单元测试的功能。  
+>  Visual Studio Community、Enterprise. 和 Professional 提供其他适用于单元测试的功能。  
 >   
->  -   使用已为 Microsoft 测试资源管理器创建附加设备适配器的任何第三方和开放源代码单元测试框架。  还可为测试分析并显示代码覆盖率信息。  
+>  -   使用已为 Microsoft 测试资源管理器创建附加设备适配器的任何第三方和开放源代码单元测试框架。 还可为测试分析并显示代码覆盖率信息。  
 > -   在每次生成后运行测试。  
 > -   VS Enterprise 还包含 Microsoft Fakes（托管代码的隔离框架），通过替换系统和第三方功能的测试代码帮助你将测试集中于自己的代码之上。  
 >   
 >  有关详细信息，请参阅 MSDN 库中的[使用单元测试验证代码](http://msdn.microsoft.com/library/dd264975.aspx)。  
   
-##  <a name="BKMK_In_this_topic"></a> 在本主题中  
+##  <a name="BKMK_In_this_topic"></a> 主题内容  
  [创建解决方案和单元测试项目](#BKMK_Create_the_solution_and_the_unit_test_project)  
   
- [验证测试是否在测试资源管理器中运行](#BKMK_Verify_that_the_tests_run_in_Test_Explorer)  
+ [验证测试是否可在资源管理器中运行](#BKMK_Verify_that_the_tests_run_in_Test_Explorer)  
   
  [向 Maths 项目添加 Rooter 类](#BKMK_Add_the_Rooter_class_to_the_Maths_project)  
   
- [将测试项目合并为应用程序项目](#BKMK_Couple_the_test_project_to_the_app_project)  
+ [将测试项目和应用项目相关联](#BKMK_Couple_the_test_project_to_the_app_project)  
   
  [以迭代方式增加测试并使它们通过](#BKMK_Iteratively_augment_the_tests_and_make_them_pass)  
   
- [调试未通过的测试](#BKMK_Debug_a_failing_test)  
+ [调试失败测试](#BKMK_Debug_a_failing_test)  
   
  [重构代码](#BKMK_Refactor_the_code_)  
   
 ##  <a name="BKMK_Create_the_solution_and_the_unit_test_project"></a> 创建解决方案和单元测试项目  
   
-1.  在**“文件”**菜单上选择**“新建”**，然后选择**“新建项目”**。  
+1.  在“文件”菜单上选择“新建”，然后选择“新建项目”。  
   
-2.  在**“新建项目”**对话框中，展开**“已安装”**、**“Visual C\#”**，选择**“Windows Store”**。  然后从项目模板列表中选择**“空白应用程序”**。  
+2.  在“新建项目”对话框中，依次展开“已安装”和“Visual C#”，然后选择“Windows 应用商店”。 然后，从项目模板列表中选择“空白应用”。  
   
-3.  将项目命名为 `Maths`，并确保选中**“创建解决方案的目录”**。  
+3.  将项目命名为“`Maths`”，并确保已选中“创建解决方案的目录”。  
   
-4.  在解决方案资源管理器中，选择解决方案名称，从快捷菜单中选择**“添加”**，然后选择**“新建项目”**。  
+4.  在“解决方案资源管理器”中，选择解决方案名称，然后从快捷菜单中依次选择“添加”和“新建项目”。  
   
-5.  在**“新建项目”**对话框中，展开**“已安装”**，然后展开 **Visual C\#**，并选择**“Windows 应用商店”**。  然后从项目模板列表中选择**“单元测试库\(Windows Store 应用程序\)”**。  
+5.  在“新建项目”对话框中，依次展开“已安装”和“Visual C#”，然后选择“Windows 应用商店”。 然后从项目模板列表中选择“单元测试库(Windows 应用商店应用)”。  
   
-     ![创建单元测试项目](../test/media/ute_cs_windows_createunittestproject.png "UTE\_Cs\_windows\_CreateUnitTestProject")  
+     ![创建单元测试项目](../test/media/ute_cs_windows_createunittestproject.png "UTE_Cs_windows_CreateUnitTestProject")  
   
 6.  在 Visual Studio 编辑器中打开 UnitTest1.cs。  
   
@@ -88,17 +103,17 @@ caps.handback.revision: 19
   
      请注意：  
   
-    1.  每个测试都是使用 `[TestMethod]` 定义的。  测试方法必须返回 void，并且不能具有任何参数。  
+    1.  每个测试都是使用 `[TestMethod]` 定义的。 测试方法必须返回 void，并且不能具有任何参数。  
   
     2.  测试方法必须位于使用 `[TestClass]` 特性修饰的类中。  
   
-         运行测试时，将为每个测试类创建一个实例。  测试方法以未指定的顺序进行调用。  
+         运行测试时，将为每个测试类创建一个实例。 测试方法以未指定的顺序进行调用。  
   
-    3.  您可定义在每个模块、每个类或每个方法前后调用的特定方法。  有关详细信息，请参阅 MSDN 库中的[在单元测试中使用 Microsoft.VisualStudio.TestTools.UnitTesting 成员](../test/using-microsoft-visualstudio-testtools-unittesting-members-in-unit-tests.md)。  
+    3.  可以定义在每个模块、类或方法之前和之后调用的特殊方法。 有关详细信息，请参阅 MSDN 库中的[在单元测试中使用 Microsoft.VisualStudio.TestTools.UnitTesting 成员](../test/using-microsoft-visualstudio-testtools-unittesting-members-in-unit-tests.md)。  
   
-##  <a name="BKMK_Verify_that_the_tests_run_in_Test_Explorer"></a> 验证测试是否在测试资源管理器中运行  
+##  <a name="BKMK_Verify_that_the_tests_run_in_Test_Explorer"></a> 验证测试是否可在资源管理器中运行  
   
-1.  在 `TestMethod1` 文件的 **UnitTest1.cs** 中插入一些测试代码：  
+1.  在 **UnitTest1.cs** 文件的 `TestMethod1` 中插入一些测试代码：  
   
     ```c#  
   
@@ -110,19 +125,19 @@ caps.handback.revision: 19
   
     ```  
   
-     请注意，`Assert` 类提供的若干静态方法可用于验证测试方法的结果。  
+     请注意， `Assert` 类提供了几个可以用来验证测试方法结果的静态方法。  
   
-2.  在**“测试”**菜单上，选择**“运行”**，然后选择**“全部运行”**。  
+2.  在“测试”菜单上，选择“运行”，然后选择“全部运行”。  
   
-     将生成并运行测试项目。  随即显示“测试资源管理器”窗口，并且测试列出在**“已通过的测试”**下。  窗口底部的“摘要”窗格将提供有关所选测试的其他详细信息。  
+     将生成并运行测试项目。 随即显示“测试资源管理器”窗口，并且测试列出在“通过的测试”下。 窗口底部的“摘要”窗格将提供有关所选测试的其他详细信息。  
   
-     ![测试资源管理器](../test/media/ute_cpp_testexplorer_testmethod1.png "UTE\_Cpp\_TestExplorer\_TestMethod1")  
+     ![测试资源管理器](../test/media/ute_cpp_testexplorer_testmethod1.png "UTE_Cpp_TestExplorer_TestMethod1")  
   
-##  <a name="BKMK_Add_the_Rooter_class_to_the_Maths_project"></a> 向 Maths 项目添加 Rooter 类  
+##  <a name="BKMK_Add_the_Rooter_class_to_the_Maths_project"></a>向 Maths 项目添加 Rooter 类  
   
-1.  在“解决方案资源管理器”中，选择**“Maths”**项目名称。  从快捷菜单中选择**“添加”**，然后选择**“类”**。  
+1.  在“解决方案资源管理器”中，选择“Maths”项目名称。 从快捷菜单中依次选择“添加”和“类”。  
   
-2.  将类文件命名为 `Rooter.cs`  
+2.  将类文件命名为“`Rooter.cs`”  
   
 3.  将以下代码添加到 Rooter 类 **Rooter.cs** 文件中：  
   
@@ -144,19 +159,19 @@ caps.handback.revision: 19
   
 4.  `SqareRoot` 方法只是一个最小实现，足以为测试设置测试基本结构。  
   
-##  <a name="BKMK_Couple_the_test_project_to_the_app_project"></a> 将测试项目合并为应用程序项目  
+##  <a name="BKMK_Couple_the_test_project_to_the_app_project"></a>将测试项目和应用项目相关联  
   
 1.  将对 Maths 应用程序的引用添加到 RooterTests 项目。  
   
-    1.  在解决方案资源管理器中，选择**“RooterTests”**项目，然后选择快捷菜单上的**“添加引用...”**。  
+    1.  在“解决方案资源管理器”中，依次选择“RooterTests”项目和快捷菜单中的“添加引用...”。  
   
-    2.  在**“添加引用 \- RooterTests”**对话框上，展开**“解决方案”**，再选择**“项目”**。  然后选择**“Maths”**项目。  
+    2.  在“添加引用 - RooterTests”对话框中，展开“解决方案”，然后选择“项目”。 然后，选择“Maths”项。  
   
-         ![添加一个对 Maths 项目的引用](../test/media/ute_cs_windows_addreference.png "UTE\_Cs\_windows\_AddReference")  
+         ![添加对 Maths 项目的引用](../test/media/ute_cs_windows_addreference.png "UTE_Cs_windows_AddReference")  
   
 2.  向 UnitTest1.cs 文件添加 using 语句：  
   
-    1.  打开 **UnitTest1.cs**。  
+    1.  打开“UnitTest1.cs”。  
   
     2.  在 `using Microsoft.VisualStudio.TestPlatform.UnitTestFramework;` 行下添加以下代码：  
   
@@ -164,7 +179,7 @@ caps.handback.revision: 19
         using Maths;  
         ```  
   
-3.  添加使用 Rooter 函数的测试。  将下列代码添加到 **UnitTest1.cpp**：  
+3.  添加使用 Rooter 函数的测试。 将以下代码添加到 **UnitTest1.cpp**：  
   
     ```c#  
     [TestMethod]  
@@ -181,13 +196,13 @@ caps.handback.revision: 19
   
 4.  生成解决方案。  
   
-     新测试将显示在测试资源管理器的**“未运行的测试”**节点中。  
+     新测试将显示在测试资源管理器的“未运行的测试”节点中。  
   
-5.  在测试资源管理器中，选择**“全部运行”**。  
+5.  在“测试资源管理器”中，选择 **“全部运行”**。  
   
-     ![已通过基本测试](../test/media/ute_cpp_testexplorer_basictest.png "UTE\_Cpp\_TestExplorer\_BasicTest")  
+     ![已通过基本测试](../test/media/ute_cpp_testexplorer_basictest.png "UTE_Cpp_TestExplorer_BasicTest")  
   
- 你已设置测试和代码项目，并已验证可运行测试（运行测试项目中的函数）。  现在可以开始编写实际测试和代码。  
+ 你已设置测试和代码项目，并已验证可运行测试（运行测试项目中的函数）。 现在可以开始编写实际测试和代码。  
   
 ##  <a name="BKMK_Iteratively_augment_the_tests_and_make_them_pass"></a> 以迭代方式增加测试并使它们通过  
   
@@ -210,20 +225,20 @@ caps.handback.revision: 19
     ```  
   
     > [!TIP]
-    >  建议你不更改已通过的测试。  相反，请添加新测试，更新代码，使测试通过，然后添加其他测试，依此类推。  
+    >  建议你不更改已通过的测试。 相反，请添加新测试，更新代码，使测试通过，然后添加其他测试，依此类推。  
     >   
-    >  当用户更改其要求时，请禁用不再正确的测试。  编写新测试并使它们以相同的增量方式一次运行一个。  
+    >  当用户更改其要求时，请禁用不再正确的测试。 编写新测试，并以相同的增量方式使他们每次运行一个。  
   
-2.  在测试资源管理器中，选择**“全部运行”**。  
+2.  在“测试资源管理器”中，选择 **“全部运行”**。  
   
 3.  测试将不会通过。  
   
-     ![RangeTest 未通过](../test/media/ute_cpp_testexplorer_rangetest_fail.png "UTE\_Cpp\_TestExplorer\_RangeTest\_Fail")  
+     ![RangeTest 未通过](../test/media/ute_cpp_testexplorer_rangetest_fail.png "UTE_Cpp_TestExplorer_RangeTest_Fail")  
   
     > [!TIP]
-    >  编写测试后，立即验证每个测试是否都将失败。  这有助于避免编写从不失败的测试这一易犯错误。  
+    >  编写测试后，立即验证每个测试是否都将失败。 这有助于避免编写从不失败的测试这一易犯错误。  
   
-4.  增强受测代码，以便新测试通过。  将 `SqareRoot` 中的 **Rooter.cs** 函数更改为：  
+4.  增强受测代码，以便新测试通过。 将 **Rooter.cs** 中的 `SqareRoot` 函数更改为：  
   
     ```c#  
     public double SquareRoot(double x)  
@@ -241,16 +256,16 @@ caps.handback.revision: 19
   
     ```  
   
-5.  生成解决方案，然后在测试资源管理器中，选择**“全部运行”**。  
+5.  生成解决方案，然后在测试资源管理器中选择“全部运行” 。  
   
      现在所有三个测试都将通过。  
   
 > [!TIP]
->  通过一次添加一个测试来开发代码。  确保每次迭代后所有的测试都会通过。  
+>  通过一次添加一个测试来开发代码。 确保每次迭代后所有的测试都会通过。  
   
-##  <a name="BKMK_Debug_a_failing_test"></a> 调试未通过的测试  
+##  <a name="BKMK_Debug_a_failing_test"></a> 调试失败测试  
   
-1.  向 **UnitTest1.cs** 添加另一个测试：  
+1.  将另一个测试添加到 **UnitTest1.cs** 中：  
   
     ```c#  
     // Verify that negative inputs throw an exception.  
@@ -283,19 +298,19 @@ caps.handback.revision: 19
   
     ```  
   
-2.  在测试资源管理器中，选择**“全部运行”**。  
+2.  在“测试资源管理器”中，选择 **“全部运行”**。  
   
-     测试将不会通过。  在测试资源管理器中选择测试名称。  失败的断言会突出显示。  失败消息会显示在测试资源管理器的详细信息窗格中。  
+     测试将不会通过。 在测试资源管理器中选择测试名称。 失败的断言会突出显示。 失败消息会显示在测试资源管理器的详细信息窗格中。  
   
-     ![NegativeRangeTests 未通过](../test/media/ute_cpp_testexplorer_negativerangetest_fail.png "UTE\_Cpp\_TestExplorer\_NegativeRangeTest\_Fail")  
+     ![NegativeRangeTests 失败](../test/media/ute_cpp_testexplorer_negativerangetest_fail.png "UTE_Cpp_TestExplorer_NegativeRangeTest_Fail")  
   
-3.  若要查看测试未通过的原因，请单步执行以下函数：  
+3.  若要查看未通过测试的原因，请单步调试函数：  
   
     1.  在 `SquareRoot` 函数的开头设置断点。  
   
-    2.  在未通过测试的快捷菜单上，选择**“调试选定的测试”**。  
+    2.  在失败测试的快捷菜单上，选择“调试所选测试” 。  
   
-         当运行在断点处停止时，请单步执行以下代码。  
+         当在断点处停止运行时，请单步调试代码。  
   
     3.  向 Rooter 方法添加代码以捕获异常：  
   
@@ -309,14 +324,14 @@ caps.handback.revision: 19
   
         ```  
   
-    1.  在测试资源管理器中，选择**“全部运行”**以测试已纠正的方法，并确保您未引入回归测试。  
+    1.  在测试资源管理器中，选择“全部运行”以测试已更正的方法，并确保你未引入回归。  
   
- 所有测试都将通过。  
+ 现在所有测试均通过。  
   
- ![所有测试通过](../test/media/ute_ult_alltestspass.png "UTE\_ULT\_AllTestsPass")  
+ ![所有测试均通过](../test/media/ute_ult_alltestspass.png "UTE_ULT_AllTestsPass")  
   
-##  <a name="BKMK_Refactor_the_code_"></a> 重构代码  
- **简化了 SquareRoot 函数的核心计算过程。**  
+##  <a name="BKMK_Refactor_the_code_"></a>重构代码  
+ **简化 SquareRoot 函数的核心计算。**  
   
 1.  更改结果实现  
   
@@ -328,14 +343,14 @@ caps.handback.revision: 19
   
     ```  
   
-2.  选择**“全部运行”**以测试已重构的方法，并确保您未引入回归测试。  
+2.  选择“全部运行”以测试已重构的方法，并确保你未引入回归。  
   
 > [!TIP]
->  一组稳定的优良单元测试可保证您在更改代码时不会引入 Bug。  
+>  一组稳定的优良单元测试可保证你在更改代码时不会引入 Bug。  
   
  **重构测试代码以消除重复代码。**  
   
- 请注意，`RangeTest` 方法对 `Assert` 方法中使用的公差变量的分母进行硬编码。  如果您计划添加其他使用同一公差计算的测试，则在多个位置使用硬编码的值可能导致错误。  
+ 请注意，`RangeTest` 方法对 `Assert` 方法中使用的公差变量的分母进行硬编码。 如果您计划添加其他使用同一公差计算的测试，则在多个位置使用硬编码的值可能导致错误。  
   
 1.  向 Unit1Test 类添加一个私有方法以计算公差值，然后改调用该方法。  
   
@@ -361,7 +376,8 @@ caps.handback.revision: 19
   
     ```  
   
-2.  选择**“全部运行”**以测试已重构的方法，并确保您未引入错误。  
+2.  选择“全部运行”，测试重构后的方法，并确保未引入任何错误。  
   
 > [!NOTE]
->  若要向测试类添加帮助器方法，请勿向该方法添加 `[TestMethod]` 特性。  测试资源管理器未注册要运行的方法。
+>  若要向测试类添加帮助器方法，请勿向该方法添加 `[TestMethod]` 特性。 测试资源管理器未注册要运行的方法。
+

@@ -1,27 +1,43 @@
 ---
 title: "演练：使用配置文件定义数据源 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-devops-test"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-helpviewer_keywords: 
-  - "配置文件 [Visual Studio ALM], 定义数据源"
-  - "数据源, 使用配置文件定义"
-  - "单元测试, 演练"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-devops-test
+ms.tgt_pltfrm: 
+ms.topic: article
+helpviewer_keywords:
+- configuration files [Visual Studio ALM], defining data sources
+- unit tests, walkthrough
+- data sources, defining with configuration files
 ms.assetid: 95fa5214-b12e-4e1f-84e5-cc4c2d86b0d7
 caps.latest.revision: 32
-ms.author: "mlearned"
-manager: "douge"
-caps.handback.revision: 32
----
-# 演练：使用配置文件定义数据源
-[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
+ms.author: douge
+manager: douge
+translation.priority.ht:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+translationtype: Human Translation
+ms.sourcegitcommit: 5ab78b6b8eaa8156ed2c8a807b1d8a80e75afa84
+ms.openlocfilehash: 212b8bd6e6c6e695bcc7a4486cbcde59e7309446
+ms.lasthandoff: 04/04/2017
 
-本演练演示如何使用 app.config 文件中定义的数据源进行单元测试。  你将学习如何创建用于定义可供 <xref:Microsoft.VisualStudio.TestTools.UnitTesting.DataSourceAttribute> 类使用的数据源的 app.config 文件。  本演练包括以下任务：  
+---
+# <a name="walkthrough-using-a-configuration-file-to-define-a-data-source"></a>演练：使用配置文件定义数据源
+本演练演示如何使用 app.config 文件中定义的数据源进行单元测试。 你将了解如何创建 app.config 文件来定义 <xref:Microsoft.VisualStudio.TestTools.UnitTesting.DataSourceAttribute> 类可使用的数据源。 本演练包括以下任务：  
   
 -   创建 app.config 文件。  
   
@@ -33,7 +49,7 @@ caps.handback.revision: 32
   
 -   使用 <xref:Microsoft.VisualStudio.TestTools.UnitTesting.DataSourceAttribute> 类访问数据源。  
   
-## 系统必备  
+## <a name="prerequisites"></a>先决条件  
  若要完成此演练，您需要：  
   
 -   Visual Studio Enterprise  
@@ -42,28 +58,28 @@ caps.handback.revision: 32
   
 -   包含测试项目的 Visual Studio 解决方案。  
   
-## 创建 App.config 文件  
+## <a name="create-the-appconfig-file"></a>创建 App.config 文件  
   
-#### 若要将 app.config 文件添加到项目  
+#### <a name="to-add-an-appconfig-file-to-the-project"></a>若要将 app.config 文件添加到项目  
   
-1.  如果你的测试项目已具备 app.config 文件，请转到[定义自定义配置节](#DefineCustomConfigurationSection)。  
+1.  如果测试项目已有 app.config 文件，请转到[定义自定义配置节](#DefineCustomConfigurationSection)。  
   
-2.  在**“解决方案资源管理器”**中右键单击测试项目，指向**“添加”**，然后单击**“新建项”**。  
+2.  在“解决方案资源管理器”中右键单击测试项目，指向“添加”，然后单击“新建项”。  
   
-     **“添加新项”**窗口随即打开。  
+     此时，“添加新项”窗口会打开。  
   
-3.  选择**“应用程序配置文件”**模板，然后单击**“添加”**。  
+3.  选择“应用配置文件”模板，然后单击“添加”。  
   
-##  <a name="DefineCustomConfigurationSection"></a> 定义自定义配置节  
- 检查 app.config 文件。  它至少包含 XML 声明和一个根元素。  
+##  <a name="DefineCustomConfigurationSection"></a>定义自定义配置节  
+ 检查 app.config 文件。 它至少包含 XML 声明和一个根元素。  
   
-#### 若要将自定义配置节添加到 app.config 文件  
+#### <a name="to-add-the-custom-configuration-section-to-the-appconfig-file"></a>若要将自定义配置节添加到 app.config 文件  
   
-1.  App.config 的根元素应为 `configuration` 元素。  在 `configuration` 元素内创建一个 `configSections` 元素。  `configSections` 应为 app.config 文件中的第一个元素。  
+1.  App.config 的根元素应为 `configuration` 元素。 在 `configuration` 元素内创建一个 `configSections` 元素。 `configSections` 应为 app.config 文件中的第一个元素。  
   
 2.  在 `configSections` 元素内，创建一个 `section` 元素。  
   
-3.  在 `section` 元素中，添加一个名为 `name` 的特性，并为其分配一个等于 `microsoft.visualstudio.testtools` 的值。  再添加一个名为 `type` 的特性，并为其分配一个等于 `Microsoft.VisualStudio.TestTools.UnitTesting.TestConfigurationSection, Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a` 的值  
+3.  在 `section` 元素中，添加一个名为 `name` 的特性，并为其分配一个等于 `microsoft.visualstudio.testtools` 的值。 再添加一个名为 `type` 的特性，并为其分配一个等于 `Microsoft.VisualStudio.TestTools.UnitTesting.TestConfigurationSection, Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a` 的值  
   
  `section` 元素应类似于此：  
   
@@ -72,12 +88,12 @@ caps.handback.revision: 32
 ```  
   
 > [!NOTE]
->  程序集名称必须与你正在使用的 Microsoft Visual Studio .NET Framework 版本相匹配。  如果你正在使用 Visual Studio .NET Framework 3.5，请将版本设置为 9.0.0.0。  如果你正在使用的 Visual Studio .NET Framework 2.0，请将版本设置为 8.0.0.0。  
+>  程序集名称必须与你正在使用的 Microsoft Visual Studio .NET Framework 版本相匹配。 如果你正在使用 Visual Studio .NET Framework 3.5，请将版本设置为 9.0.0.0。 如果你正在使用的 Visual Studio .NET Framework 2.0，请将版本设置为 8.0.0.0。  
   
-## 定义连接字符串  
- 连接字符串定义了用于访问数据源的提供程序特定信息。  配置文件中定义的连接字符串提供了跨应用程序可重用的数据提供程序信息。  在本节中，你将创建两个由自定义配置节中定义的数据源使用的连接字符串。  
+## <a name="define-connection-strings"></a>定义连接字符串  
+ 连接字符串定义了用于访问数据源的提供程序特定信息。 配置文件中定义的连接字符串提供了跨应用程序可重用的数据提供程序信息。 在本节中，你将创建两个由自定义配置节中定义的数据源使用的连接字符串。  
   
-#### 定义连接字符串  
+#### <a name="to-define-connection-strings"></a>定义连接字符串  
   
 1.  在 `configSections` 元素后，创建一个 `connectionStrings` 元素。  
   
@@ -86,7 +102,7 @@ caps.handback.revision: 32
 3.  在第一个 `add` 元素中，创建下列特性和值以连接到 Microsoft Access 数据库：  
   
 |特性|值|  
-|--------|-------|  
+|---------------|------------|  
 |`name`|`"MyJetConn"`|  
 |`connectionString`|`"Provider=Microsoft.Jet.OLEDB.4.0; Data Source=C:\testdatasource.accdb; Persist Security Info=False;"`|  
 |`providerName`|`"System.Data.OleDb"`|  
@@ -108,7 +124,7 @@ caps.handback.revision: 32
 </connectionStrings>  
 ```  
   
-## 定义数据源  
+## <a name="define-data-sources"></a>定义数据源  
  数据源节包含测试引擎用于从数据源检索数据的四个特性。  
   
 -   `name` 定义了 <xref:Microsoft.VisualStudio.TestTools.UnitTesting.DataSourceAttribute> 用于指定要使用哪个数据源的标识。  
@@ -121,9 +137,9 @@ caps.handback.revision: 32
   
  在本节中，你将定义两个数据源以在单元测试中使用。  
   
-#### 若要定义数据源  
+#### <a name="to-define-data-sources"></a>若要定义数据源  
   
-1.  在 `connectionStrings` 元素后，创建一个 `microsoft.visualstudio.testtools` 元素。  本节在“定义自定义配置节”中创建。  
+1.  在 `connectionStrings` 元素后，创建一个 `microsoft.visualstudio.testtools` 元素。 本节在“定义自定义配置节”中创建。  
   
 2.  在 `microsoft.visualstudio.testtools` 元素内，创建一个 `dataSources` 元素。  
   
@@ -132,7 +148,7 @@ caps.handback.revision: 32
 4.  在第一个 `add` 元素中，为 Microsoft Access 数据源创建下列特性和值：  
   
 |特性|值|  
-|--------|-------|  
+|---------------|------------|  
 |`name`|`"MyJetDataSource"`|  
 |`connectionString`|`"MyJetConn"`|  
 |`dataTableName`|`"MyDataTable"`|  
@@ -179,14 +195,14 @@ caps.handback.revision: 32
 </configuration>  
 ```  
   
-## 使用 app.config 中定义的数据源创建单元测试  
- 由于已定义了 app.config 文件，你将创建一个单元测试，它会使用位于 app.config 文件中定义的数据源中的数据。  在本节中，我们将：  
+## <a name="create-a-unit-test-using-data-sources-defined-in-appconfig"></a>使用 app.config 中定义的数据源创建单元测试  
+ 由于已定义了 app.config 文件，你将创建一个单元测试，它会使用位于 app.config 文件中定义的数据源中的数据。 在本节中，我们将：  
   
 -   创建在 app.config 文件中找到的数据源。  
   
 -   使用两个可比较每个数据源中的值的测试方法中的数据源。  
   
-#### 若要创建 Microsoft Access 数据源  
+#### <a name="to-create-a-microsoft-access-data-source"></a>若要创建 Microsoft Access 数据源  
   
 1.  创建一个名为 `testdatasource.accdb` 的 Microsoft Access 数据库。  
   
@@ -194,13 +210,13 @@ caps.handback.revision: 32
   
 3.  使用 `Number` 数据类型在 `MyDataTable` 中创建两个分别名为 `Arg1` 和 `Arg2` 的字段。  
   
-4.  使用 `Arg1` 和 `Arg2` 的下列值将五个实体分别添加到 `MyDataTable`：\(10,50\)、\(3,2\)、\(6,0\)、\(0,8\) 和 \(12312,1000\)。  
+4.  使用 `Arg1` 和 `Arg2` 的下列值将五个实体分别添加到 `MyDataTable`：(10,50)、(3,2)、(6,0)、(0,8) 和 (12312,1000)。  
   
 5.  保存并关闭数据库。  
   
-6.  更改连接字符串以指向数据库的位置。  更改 `Data Source` 的值以反映数据库的位置。  
+6.  更改连接字符串以指向数据库的位置。 更改 `Data Source` 的值以反映数据库的位置。  
   
-#### 若要创建 Microsoft Excel 数据源  
+#### <a name="to-create-a-microsoft-excel-data-source"></a>若要创建 Microsoft Excel 数据源  
   
 1.  创建一个名为 `data.xlsx` 的 Microsoft Excel 电子表格。  
   
@@ -208,17 +224,17 @@ caps.handback.revision: 32
   
 3.  在 `Sheet1` 中创建两个列标头，并将它们命名为 `Val1` 和 `Val2`。  
   
-4.  使用 `Val1` 和 `Val2` 的下列值将五个实体分别添加到 `Sheet1`：\(1,1\)、\(2,2\)、\(3,3\)、\(4,4\) 和 \(5,0\)。  
+4.  使用 `Val1` 和 `Val2` 的下列值将五个实体分别添加到 `Sheet1`：(1,1)、(2,2)、(3,3)、(4,4) 和 (5,0)。  
   
 5.  保存并关闭电子表格。  
   
-6.  更改连接字符串以指向电子表格的位置。  更改 `dbq` 的值以反映电子表格的位置。  
+6.  更改连接字符串以指向电子表格的位置。 更改 `dbq` 的值以反映电子表格的位置。  
   
-#### 若要使用 app.config 数据源创建单元测试  
+#### <a name="to-create-a-unit-test-using-the-appconfig-data-sources"></a>若要使用 app.config 数据源创建单元测试  
   
 1.  向测试项目添加一个单元测试。  
   
-     有关详细信息，请参阅[针对现有代码创建并运行单元测试](http://msdn.microsoft.com/zh-cn/e8370b93-085b-41c9-8dec-655bd886f173)。  
+     有关详细信息，请参阅[针对现有代码创建并运行单元测试](http://msdn.microsoft.com/en-us/e8370b93-085b-41c9-8dec-655bd886f173)。  
   
 2.  将单元测试中自动生成的内容替换为以下代码：  
   
@@ -260,15 +276,16 @@ caps.handback.revision: 32
     }  
     ```  
   
-3.  检查数据源特性。  请注意 app.config 文件中的设置名称。  
+3.  检查数据源特性。 请注意 app.config 文件中的设置名称。  
   
 4.  生成你的解决方案并运行 MyTestMethod 和 MyTestMethod2 测试。  
   
 > [!IMPORTANT]
 >  部署数据源等项，以便部署目录中的测试可以访问它们。  
   
-## 请参阅  
+## <a name="see-also"></a>另请参阅  
  [单元测试代码](../test/unit-test-your-code.md)   
- [针对现有代码创建并运行单元测试](http://msdn.microsoft.com/zh-cn/e8370b93-085b-41c9-8dec-655bd886f173)   
- [测试应用程序](/devops-test-docs/test/test-apps-early-and-often)   
+ [为现有代码创建和运行单元测试](http://msdn.microsoft.com/en-us/e8370b93-085b-41c9-8dec-655bd886f173)   
+ [测试应用](/devops-test-docs/test/test-apps-early-and-often)   
  [如何：创建数据驱动的单元测试](../test/how-to-create-a-data-driven-unit-test.md)
+

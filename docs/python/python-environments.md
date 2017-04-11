@@ -29,9 +29,9 @@ translation.priority.ht:
 - zh-cn
 - zh-tw
 translationtype: Human Translation
-ms.sourcegitcommit: 7d726441c2d6953bd7b50451bec7fff05d5d71b0
-ms.openlocfilehash: 69740c73cc133e08254fc546d2b59885270725f2
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: 2a6555eb9c0a88b1533428cf2aa932b3fc4960ec
+ms.openlocfilehash: 2a92d10d4e47983de6e3f3c5b55adfcc5dc68c8a
+ms.lasthandoff: 03/30/2017
 
 ---
 
@@ -89,6 +89,11 @@ Python 支持除了随 Visual Studio 2017 预览版提供外，并未随 Python 
 >
 > ![“Python 环境”窗口扩展后的视图](media/environments-expanded-view.png)
 
+> [!Note]
+> 尽管 Visual Studio 遵循系统-站点-包选项，但它没有提供从 Visual Studio 中更改它的方法。
+
+### <a name="creating-an-environment-for-an-existing-interpreter"></a>为现有解释器创建环境
+
 Visual Studio 通常通过检查注册表来查找已安装的 Python 解释器，但如果解释器以非标准的方式安装，它可能找不到它。 在这种情况下，可以如下所示，将 Visual Studio 直接指向解释器：
 
 1. 在环境窗口中选择“+ 自定义...”，这将创建一个新环境，然后打开[“配置”选项卡](#configure-tab)（如下所示）。
@@ -100,9 +105,6 @@ Visual Studio 通常通过检查注册表来查找已安装的 Python 解释器�
 1. 选择“自动检测”让 Visual Studio 完成余下的字段，或手动完成它们。
 1. 选择“应用”保存环境。
 1. 如果需要删除环境，请在“配置”选项卡上选择“删除”命令。
-
-> [!Note]
-> 尽管 Visual Studio 遵循系统-站点-包选项，但它没有提供从 Visual Studio 中更改它的方法。
 
 ### <a name="overview-tab"></a>概述选项卡
 

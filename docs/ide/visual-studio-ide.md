@@ -27,9 +27,9 @@ translation.priority.mt:
 - pt-br
 - tr-tr
 translationtype: Human Translation
-ms.sourcegitcommit: b0d84db6a16861fb9554af2a644423f906784748
-ms.openlocfilehash: b2ff9c3505b117469854a24cad8e9b13d8039db8
-ms.lasthandoff: 03/07/2017
+ms.sourcegitcommit: 06cdfb076120ffd7459a16b56c659bb86942cd7f
+ms.openlocfilehash: c8276097c53ea49d223c43ada5511ab5d5f38036
+ms.lasthandoff: 03/31/2017
 
 ---
 # <a name="visual-studio-ide-feature-tour"></a>Visual Studio IDE 功能导览
@@ -68,7 +68,7 @@ Visual Studio 能够帮助你实现更多操作。 有关更完整的列表，�
 
 Visual Studio 现在达到了前所未有的轻量！ 通过新的模块化安装程序，可以选择和安装工作负荷。工作负荷是你习惯使用的编程语言或平台所需的一些功能。 此策略使 Visual Studio 安装的占用空间比之前更小，这也意味着其安装和更新速度会更快。
 
-![Visual Studio 安装程序](../install/media/vs2017-workloads.png)
+![Visual Studio 安装程序](../ide/media/vside_tour_install_dialog.png)
 
 除了安装性能的改进之外，Visual Studio 2017 还做出了许多改进，使整体的 IDE 启动时间和解决方案加载时间都有所减少。 例如，在主菜单的“工具”，“选项”，“项目和解决方案”下选择新的“轻量级解决方案加载”功能可以更快地加载更大的解决方案。 若要了解设置系统上的 Visual Studio 的详细信息，请参阅[安装 Visual Studio 2017](https://docs.microsoft.com/visualstudio/install/install-visual-studio)。
 
@@ -83,6 +83,8 @@ Visual Studio 现在达到了前所未有的轻量！ 通过新的模块化安�
 1. 打开 Visual Studio。 在菜单上，依次选择“文件”“新建”“项目”。 （使用默认的项目值。）
 
   ![屏幕截图](../ide/media/VSIDE_Tour_NewProject1.png)
+
+  也可以使用起始页来新建项目。 有关详细信息，请参阅[借力于经重新设计的起始页（博文）](https://blogs.msdn.microsoft.com/visualstudio/2016/11/29/harness-the-power-of-the-redesigned-start-page/)。
 
 1. “新建项目”对话框中会显示几个项目模板。 在“Visual C#”下选择“Windows Universal”类别，再选择“空白应用(通用 Windows)”模板，然后选择“确定”按钮。
 
@@ -193,16 +195,15 @@ Visual Studio 现在达到了前所未有的轻量！ 通过新的模块化安�
 
   ![显示 System.Timer 的对象浏览器](../ide/media/objectbrowser.png)  
 
-## <a name="collaborate-with-others-and-control-your-source-code"></a>与他人进行协作和控制源代码
-可以在任意提供商（包括 GitHub）托管的 Git 存储库中管理源代码。 或者，使用 [Visual Studio Team Services (VSTS)](https://www.visualstudio.com/team-services/) 管理整个项目的代码、Bug 和工作项。
+## <a name="manage-your-source-code-and-collaborate-with-others"></a>管理源代码并与他人协作
+可以在任意提供商（包括 GitHub）托管的 Git 存储库中管理源代码。 或者，使用 [Visual Studio Team Services (VSTS)](https://www.visualstudio.com/team-services/) 管理整个项目的代码、Bug 和工作项。 若要详细了解如何在 Visual Studio 中使用团队资源管理器管理 Git 存储库，请参阅[开始使用 Git 和 Team Services](https://www.visualstudio.com/en-us/docs/git/gitquickstart-vs2017)。  Visual Studio 还内置有其他源代码管理功能。 若要了解详细信息，请参阅 [Visual Studio 2017 中的新 Git 功能（博文）](https://blogs.msdn.microsoft.com/visualstudioalm/2017/03/06/new-git-features-in-visual-studio-2017/)。
 
 Visual Studio Team Services 是一种基于云的服务，用于承载软件项目和启用团队中的协作。 VSTS 支持 Git 和 Team Foundation 源控件系统以及 Scrum、CMMI 和 Agile 开发方法。 Team Foundation 版本控制 (TFVC) 采用单一的集中式服务器存储库来跟踪文件和调整它的版本。 本地更改始终签入到中央服务器，其他开发人员可在此处获得最新的更改。
 
 Team Foundation Server (TFS) 是 Visual Studio 的应用程序生命周期管理中心。 它使用单个解决方案，使开发过程中涉及的所有人均可参与该开发过程。 TFS 对于管理异类团队和项目也非常有用。
 
-如果你的网络中已经具有 Visual Studio Team Services 帐户或 Team Foundation Server，则可通过 Visual Studio 中的“团队资源管理器”窗口连接。 可在此窗口中将代码签入（出）源控件、管理工作项、启动生成以及访问团队聊天室和工作区。 可以从“快速启动”框，或者“视图，团队资源”或“团队，管理连接”的主菜单中打开“团队资源管理器”。  
-
-下图显示了 VSTS 中托管的解决方案的“团队资源管理器”窗口：
+如果你的网络中已经具有 Visual Studio Team Services 帐户或 Team Foundation Server，则可通过 Visual Studio 中的“团队资源管理器”窗口连接。 可在此窗口中将代码签入（出）源控件、管理工作项、启动生成以及访问团队聊天室和工作区。 可以从“快速启动”框，或者“视图，团队资源”或“团队，管理连接”的主菜单中打开“团队资源管理器”。
+下图展示了 VSTS 中托管的解决方案的“团队资源管理器”窗口。
 
 ![Visual Studio 团队资源管理器](../ide/media/vs2017_teamexplorer.png)  
 
@@ -232,7 +233,8 @@ Visual Studio 中的 **SQL Server 对象资源管理器**提供类似于 SQL Ser
 如果 Visual Studio 中没有你需要的确切功能，你可以进行添加！ 可以根据你的工作流和风格自定义 IDE，对尚未与 Visual Studio 集成的外部工具添加支持并修改现有的功能，以提高工作效率。 Visual Studio 提供来自 Microsoft、我们的合作伙伴和社区的工具、控件和模板。 若要了解有关扩展 Visual Studio 的详细信息，请参阅[扩展 Visual Studio IDE](https://www.visualstudio.com/vs/extend/)。
 
 ## <a name="learn-more-and-find-out-whats-new"></a>了解详细信息和新增功能
-如果你以前从未使用过 Visual Studio，请了解基础知识（可阅读 [Visual Studio 入门](../ide/get-started-with-visual-studio.md)）或者观看 [Microsoft 虚拟学院](https://mva.microsoft.com/product-training/visual-studio-courses#!index=2&lang=1033)上的 Visual Studio 免费课程。如果想了解 Visual Studio 2017 中的新增功能，请参阅 [Visual Studio 2017 新增功能](../ide/whats-new-in-visual-studio.md)。
+如果之前从未用过 Visual Studio，请学习基础知识（可从 [Visual Studio 入门](../ide/get-started-with-visual-studio.md)入手），或观看 [Microsoft Virtual Academy](https://mva.microsoft.com/product-training/visual-studio-courses#!index=2&lang=1033) 上的 Visual Studio 免费课程。
+若要了解 Visual Studio 2017 的新增功能，请参阅 [Visual Studio 2017 中的新增功能](../ide/whats-new-in-visual-studio.md)。
 
 恭喜你，你已经完成了 Visual Studio IDE 课程！ 希望你已经对 Visual Studio 的一些主要功能有所了解。
 
