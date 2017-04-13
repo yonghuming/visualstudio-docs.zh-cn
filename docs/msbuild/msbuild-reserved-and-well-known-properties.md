@@ -59,24 +59,18 @@ ms.lasthandoff: 02/22/2017
 |`MSBuildProgramFiles32`|32 位程序文件夹的位置；例如 `C:\Program Files (x86)`。<br /><br /> 不要在此属性上添加最终反斜杠。|保留|  
 |`MSBuildProjectDefaultTargets`|`DefaultTargets` 元素的 `Project` 特性中指定的目标的完整列表。 例如，下面的 `Project` 元素的 `MSBuildDefaultTargets` 属性值为 `A;B;C`：<br /><br /> `<Project DefaultTargets="A;B;C" >`|保留|  
 |`MSBuildProjectDirectory`|项目文件所在目录的绝对路径，例如 `C:\MyCompany\MyProduct`。<br /><br /> 不要在此属性上添加最终反斜杠。|保留|  
-|`MSBuildProjectDirectoryNoRoot`|
-          `MSBuildProjectDirectory` 属性的值，但不包括根驱动器。<br /><br /> 不要在此属性上添加最终反斜杠。|保留|  
+|`MSBuildProjectDirectoryNoRoot`|`MSBuildProjectDirectory` 属性的值，但不包括根驱动器。<br /><br /> 不要在此属性上添加最终反斜杠。|保留|  
 |`MSBuildProjectExtension`|项目文件的文件扩展名（包括点号）；例如，.proj。|保留|  
 |`MSBuildProjectFile`|项目文件的完整文件名（包括文件扩展名）；例如，MyApp.proj。|保留|  
 |`MSBuildProjectFullPath`|项目文件的绝对路径和完整文件名（包括文件名扩展），例如，C:\MyCompany\MyProduct\MyApp.proj。|保留|  
 |`MSBuildProjectName`|项目文件的文件名（不包括文件扩展名）；例如，MyApp。|保留|  
 |`MSBuildStartupDirectory`|在其中调用 [!INCLUDE[vstecmsbuild](../extensibility/internals/includes/vstecmsbuild_md.md)] 的文件夹的绝对路径。 通过使用此属性，你无需在每个目录中都创建 dirs.proj 文件就可以在项目树中的某个特定点下生成所有内容。 而你只有一个项目，例如 c:\traversal.proj（如此处所示）：<br /><br /> `<Project ...>     <ItemGroup>         <ProjectFiles              Include="$            (MSBuildStartupDirectory)            **\*.csproj"/>     </ItemGroup>     <Target Name="build">         <MSBuild             Projects="@(ProjectFiles)"/>     </Target> </Project>`<br /><br /> 若要在该树中的任意一点生成，请键入：<br /><br /> `msbuild c:\traversal.proj`<br /><br /> 不要在此属性上添加最终反斜杠。|保留|  
-|`MSBuildThisFile`|
-          `MSBuildThisFileFullPath` 的文件名和文件扩展名部分。|保留|  
-|`MSBuildThisFileDirectory`|
-          `MSBuildThisFileFullPath` 的目录部分。<br /><br /> 将最终反斜杠包括在路径中。|保留|  
-|`MSBuildThisFileDirectoryNoRoot`|
-          `MSBuildThisFileFullPath` 的目录部分不包括根驱动器。<br /><br /> 将最终反斜杠包括在路径中。|保留|  
-|`MSBuildThisFileExtension`|
-          `MSBuildThisFileFullPath`的文件扩展名部分。|保留|  
+|`MSBuildThisFile`|`MSBuildThisFileFullPath` 的文件名和文件扩展名部分。|保留|  
+|`MSBuildThisFileDirectory`|`MSBuildThisFileFullPath` 的目录部分。<br /><br /> 将最终反斜杠包括在路径中。|保留|  
+|`MSBuildThisFileDirectoryNoRoot`|`MSBuildThisFileFullPath` 的目录部分不包括根驱动器。<br /><br /> 将最终反斜杠包括在路径中。|保留|  
+|`MSBuildThisFileExtension`|`MSBuildThisFileFullPath`的文件扩展名部分。|保留|  
 |`MSBuildThisFileFullPath`|项目或包含正在运行目标的目标文件的绝对路径。<br /><br /> 提示：可指定在相对于目标文件而不是相对于原始项目文件的目标文件中的相对路径。|保留|  
-|`MSBuildThisFileName`|
-          `MSBuildThisFileFullPath` 的文件名部分，不包含文件扩展名。|保留|  
+|`MSBuildThisFileName`|`MSBuildThisFileFullPath` 的文件名部分，不包含文件扩展名。|保留|  
 |`MSBuildToolsPath`|与 [!INCLUDE[vstecmsbuild](../extensibility/internals/includes/vstecmsbuild_md.md)]的值相关联的 `MSBuildToolsVersion` 版本的安装路径。<br /><br /> 不要将最终的反斜杠包含在路径中。<br /><br /> 不能重写此属性。|保留|  
 |`MSBuildToolsVersion`|用于生成项目的 [!INCLUDE[vstecmsbuild](../extensibility/internals/includes/vstecmsbuild_md.md)] 工具集版本。<br /><br /> 注意：[!INCLUDE[vstecmsbuild](../extensibility/internals/includes/vstecmsbuild_md.md)] 工具集由用于生成应用程序的任务、目标和工具组成。 工具包括编译器例如 csc.exe 和 vbc.exe。 有关详细信息，请参阅 [工具集 (ToolsVersion)](../msbuild/msbuild-toolset-toolsversion.md)和[标准和自定义工具集配置](../msbuild/standard-and-custom-toolset-configurations.md)。|保留|  
   

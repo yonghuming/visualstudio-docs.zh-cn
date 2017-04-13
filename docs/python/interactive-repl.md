@@ -1,7 +1,7 @@
 ---
 title: "Visual Studio 中的 Python 交互式 REPL | Microsoft Docs"
 ms.custom: 
-ms.date: 3/7/2017
+ms.date: 4/10/2017
 ms.prod: visual-studio-dev15
 ms.reviewer: 
 ms.suite: 
@@ -29,9 +29,9 @@ translation.priority.ht:
 - zh-cn
 - zh-tw
 translationtype: Human Translation
-ms.sourcegitcommit: 7d726441c2d6953bd7b50451bec7fff05d5d71b0
-ms.openlocfilehash: f31d92f193af3fb32f61030ca52e444ae2baa60b
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: 9328c347d548a03a536cea16bd5851817c03d5a2
+ms.openlocfilehash: ca444dbe9fea25b205ae2060d462f23957368496
+ms.lasthandoff: 04/10/2017
 
 ---
 
@@ -72,7 +72,7 @@ Visual Studio 有大量 Python REPL 模式可供选择：
 
 ![在 Python 交互菜单中执行项目](media/interactive-execute-project.png)
 
-最后，可以选中文件中的代码，然后如下所述，使用“将代码发送到交互命令”[](#send-code-to-interactive)命令。
+最后，可以选中文件中的代码，然后如下所述，使用“将代码发送到交互命令”[](#send-code-to-interactive-command)命令。
 
 ## <a name="interactive-window-options"></a>交互窗口选项
 

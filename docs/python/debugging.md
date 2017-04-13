@@ -29,9 +29,9 @@ translation.priority.ht:
 - zh-cn
 - zh-tw
 translationtype: Human Translation
-ms.sourcegitcommit: e9a05d008f671fb79d6813a14c594b82f27697e3
-ms.openlocfilehash: b5d72a83092c2b97b30b7a8af539a0b1aca50418
-ms.lasthandoff: 03/27/2017
+ms.sourcegitcommit: adf122a478b29674dc2924dcf7d42972a5a3f52e
+ms.openlocfilehash: 1d26ca1a464e2ec15c0d5d338a46b6fb1e7e1d65
+ms.lasthandoff: 04/10/2017
 
 ---
 
@@ -105,7 +105,7 @@ ms.lasthandoff: 03/27/2017
 
 ### <a name="inspecting-and-modifying-values"></a>检查和修改值
 
-在调试器中停止时，可检查和修改变量的值。 还可以使用监视窗口监视单个变量，以及自定义表达式。 （请参阅[检查变量](../debugger/getting-started-with-the-debugger.md#BKMK_Inspect_Variables)，了解常规详细信息。）
+在调试器中停止时，可检查和修改变量的值。 还可以使用监视窗口监视单个变量，以及自定义表达式。 （请参阅[检查变量](../debugger/getting-started-with-the-debugger.md#inspect-variables-with-the-autos-and-locals-windows)，了解常规详细信息。）
 
 若要使用数据提示查看值，只需将鼠标悬停在编辑器中的任何变量上即可。 可以单击值进行更改：
 

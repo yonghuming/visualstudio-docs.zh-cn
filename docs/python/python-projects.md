@@ -1,7 +1,7 @@
 ---
 title: "Visual Studio 中的 Python 项目| Microsoft Docs"
 ms.custom: 
-ms.date: 3/7/2017
+ms.date: 4/10/2017
 ms.prod: visual-studio-dev15
 ms.reviewer: 
 ms.suite: 
@@ -29,9 +29,9 @@ translation.priority.ht:
 - zh-cn
 - zh-tw
 translationtype: Human Translation
-ms.sourcegitcommit: e9a05d008f671fb79d6813a14c594b82f27697e3
-ms.openlocfilehash: fb8cb89d6d369a3e8460c2bcf1e65e88ba44b104
-ms.lasthandoff: 03/27/2017
+ms.sourcegitcommit: 9328c347d548a03a536cea16bd5851817c03d5a2
+ms.openlocfilehash: eb3abd0f37e52f2b1db3793a5471b74a5e0c37ff
+ms.lasthandoff: 04/10/2017
 
 ---
 
@@ -47,7 +47,7 @@ Visual Studio 提供多种 Python 项目模板用于快速设置多个应用程�
 
 在本主题中：
 
-- [添加文件、分配启动文件和设置环境](#adding-file-assigning-a-startup-file-and-setting-environments)
+- [添加文件、分配启动文件和设置环境](#adding-files-assigning-a-startup-file-and-setting-environments)
 - [项目模板](#project-templates)
 - [链接文件](#linked-files)
 - [参考资料](#references)
