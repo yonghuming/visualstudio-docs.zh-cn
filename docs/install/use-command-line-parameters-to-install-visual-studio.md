@@ -1,7 +1,7 @@
 ---
 title: "使用命令行参数安装 Visual Studio | Microsoft Docs"
 ms.custom: 
-ms.date: 03/07/2017
+ms.date: 04/06/2017
 ms.reviewer: 
 ms.suite: 
 ms.technology:
@@ -32,16 +32,16 @@ translation.priority.mt:
 - pt-br
 - tr-tr
 translationtype: Human Translation
-ms.sourcegitcommit: 2a6555eb9c0a88b1533428cf2aa932b3fc4960ec
-ms.openlocfilehash: e8ddcebccc5a8a949c75a33de6732d42134e6445
-ms.lasthandoff: 03/30/2017
+ms.sourcegitcommit: 9328c347d548a03a536cea16bd5851817c03d5a2
+ms.openlocfilehash: 09c6971e21e48d250e3a9869860459fd8cbbb50f
+ms.lasthandoff: 04/10/2017
 
 ---
 # <a name="use-command-line-parameters-to-install-visual-studio-2017"></a>使用命令行参数安装 Visual Studio 2017
-通过命令提示符安装 Visual Studio 2017 时，可以使用各种命令行参数来控制或自定义安装。 借助命令行，可以：
-- 启动预先选定了特定选项的安装； 
-- 自动执行安装过程
-- 创建安装文件的缓存（布局）以备日后使用。 
+通过命令提示符安装 Visual Studio 2017 时，可以使用各种命令行参数来控制或自定义安装。 通过命令行可以进行以下操作：
+- 启动预先选定了特定选项的安装。
+- 自动执行安装过程。
+- 创建安装文件的缓存（布局）以备日后使用。
 
 命令行选项与安装引导程序结合使用，安装引导程序是启动下载过程的小型（大约 1 MB）文件。 安装引导程序是你从 Visual Studio 网站下载时启动的第一个可执行文件。 通过下面这些链接，可以直接获取要安装的产品版本的最新版安装引导程序：
 
@@ -54,11 +54,12 @@ ms.lasthandoff: 03/30/2017
 
 >  语法：`vs_enterprise.exe [command] <options>...`
 
-（将 `vs_enterprise.exe` 替换为要安装的相应产品版本）
+（将 `vs_enterprise.exe` 替换为要安装的相应产品版本。 有关示例，请参阅[命令行参数示例](command-line-parameter-examples.md)页。）
+
 
 | **命令** | **描述** |
-| ----------------------- | --------------- | 
-| (空白) | 安装产品。 | 
+| ----------------------- | --------------- |
+| (空白) | 安装产品。 |
 | ```modify``` | 修改已安装的产品。 |
 | ```update``` | 更新已安装的产品。 |
 | ```repair``` | 修复已安装的产品。 |
@@ -108,7 +109,6 @@ ms.lasthandoff: 03/30/2017
 | de-DE | 德语 |
 | zh-CN | 英语 |
 | es-ES | 西班牙语 |
-| cs-CZ | 捷克语 |
 | fr-FR | 法语 |
 | it-IT | 意大利语 |
 | ja-JP | 日语 |
@@ -123,17 +123,19 @@ ms.lasthandoff: 03/30/2017
 
 ## <a name="error-codes"></a>错误代码
 `%ERRORLEVEL%` 环境变量设为下列值之一，具体视操作结果而定：
+
 | **值** | **结果** |
 | --------- | ---------- |
 | 0 | 操作成功完成 |
 | 3010 | 操作成功完成，但安装需要重启才能使用 |
 | 其他 | 发生了故障，请查看日志，了解详细信息 |
 
-每个操作都会在 `%TEMP%` 目录中生成多个日志文件来指明安装进度。 按日期对文件夹进行排序，然后查找以“`dd_bootstrapper`”、“`dd_client`”和“`dd_setup`”开头的文件，分别查找安装引导程序、安装程序应用和安装程序引擎。 
+每个操作都会在 `%TEMP%` 目录中生成多个日志文件来指明安装进度。 按日期对文件夹进行排序，然后查找以“`dd_bootstrapper`”、“`dd_client`”和“`dd_setup`”开头的文件，分别查找安装引导程序、安装程序应用和安装程序引擎。
 
-## <a name="see-also"></a>请参阅
+## <a name="see-also"></a>另请参阅
 
- * [安装 Visual Studio](install-visual-studio.md)
+ * [安装 Visual Studio 2017](install-visual-studio.md)
  * [创建 Visual Studio 2017 的脱机安装](create-an-offline-installation-of-visual-studio.md)
- * [报告 Visual Studio 的问题](../ide/how-to-report-a-problem-with-visual-studio-2017.md)
+ * [Visual Studio 2017 安装的命令行参数示例](command-line-parameter-examples.md)
+ * [报告 Visual Studio 2017 的问题](../ide/how-to-report-a-problem-with-visual-studio-2017.md)
 

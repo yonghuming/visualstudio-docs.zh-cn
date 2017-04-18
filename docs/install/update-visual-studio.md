@@ -1,7 +1,7 @@
 ---
 title: "更新 Visual Studio 2017 | Microsoft Docs"
 description: "了解更新 Visual Studio 的分步流程。"
-ms.date: 04/05/2017
+ms.date: 04/06/2017
 ms.reviewer: 
 ms.suite: 
 ms.technology:
@@ -32,9 +32,9 @@ translation.priority.mt:
 - pt-br
 - tr-tr
 translationtype: Human Translation
-ms.sourcegitcommit: 4e33dc3ebb32569b547aa9bcb6db9a15dbe4fc21
-ms.openlocfilehash: 24c955a8c571ab0466f33de4d61fd8e65f8ef18c
-ms.lasthandoff: 04/05/2017
+ms.sourcegitcommit: 47c39bd711b69efdb863d71f11e3e472054a3ce3
+ms.openlocfilehash: d97358681ba486d75b30d59da1aba8b460c6f757
+ms.lasthandoff: 04/06/2017
 
 ---
 # <a name="update-visual-studio-2017-to-the-most-recent-release"></a>将 Visual Studio 2017 更新到最新版本
@@ -47,13 +47,15 @@ ms.lasthandoff: 04/05/2017
 
   单击或点击通知标志，打开“通知”中心。
 
-  ![使用“通知”中心更新 Visual Studio 2017](media/notification-center.png "Visual Studio 中的“通知”中心")
+  ![使用“通知”中心更新 Visual Studio 2017](media/notifications-hub.png "Visual Studio 中的“通知”中心")
 
-  然后，单击或点击“有‘Visual Studio 更新’”，打开“扩展和更新”对话框。
+2. 单击或点击“有‘Visual Studio 更新’”，打开“扩展和更新”对话框。
 
-  ![使用“通知”中心更新 Visual Studio 2017](media/notification-extension-and-updates.png "Visual Studio 中的“扩展和更新”对话框")
+  ![使用“通知”中心更新 Visual Studio 2017](media/notifications-hub-select.png "Visual Studio 中的“通知”中心")
 
-2. 单击或点击“更新”按钮。
+3. 在“扩展和更新”对话框中，单击或点击“更新”按钮。
+
+  ![使用“通知”中心更新 Visual Studio 2017](media/notifications-extensions-and-updates.png "Visual Studio 中的“扩展和更新”对话框")
 
 ## <a name="update-by-using-the-visual-studio-installer"></a>使用 Visual Studio 安装程序进行更新
 1.    打开安装程序。 可能需要先更新安装程序，然后才能继续操作。 如果确是这种情况，系统会提示你更新安装程序。
@@ -62,7 +64,9 @@ ms.lasthandoff: 04/05/2017
 
 2.    在安装程序中的“产品”页上，确定已安装的 Visual Studio 版本。
 
-3.    若有更新，你会看到“更新”按钮。 （可能需要等待几秒钟的时间，安装程序才能确定是否有更新。）单击或点击“更新”按钮来安装更新。
+3.    若有更新，你会看到“更新”按钮。 （可能需要等待几秒钟的时间，安装程序才能确定是否有更新。）
+
+  单击或点击“更新”按钮来安装更新。
 
      ![使用 Visual Studio 安装程序更新 Visual Studio 2017](media/update-visual-studio.png "使用 Visual Studio 安装程序更新 Visual Studio 2017")
 
@@ -71,7 +75,8 @@ ms.lasthandoff: 04/05/2017
 
 ## <a name="see-also"></a>请参阅
 * [安装 Visual Studio 2017](https://go.microsoft.com/fwlink/?linkid=833223)
-* [修改 Visual Studio](modify-visual-studio.md)
+* [修改 Visual Studio 2017](modify-visual-studio.md)
 * [卸载 Visual Studio 2017](uninstall-visual-studio.md)
-* [如何报告 Visual Studio 2017 的问题](../ide/how-to-report-a-problem-with-visual-studio-2017.md)
+* [适用于 Visual Studio 2017 的 Visual Studio 管理员指南](visual-studio-administrator-guide.md)
+* [报告 Visual Studio 2017 的问题](../ide/how-to-report-a-problem-with-visual-studio-2017.md)
 

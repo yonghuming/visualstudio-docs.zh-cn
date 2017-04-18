@@ -2,7 +2,7 @@
 title: "安装 Visual Studio 2017 | Microsoft Docs"
 description: "了解如何逐步安装 Visual Studio。"
 ms.custom: 
-ms.date: 04/03/2017
+ms.date: 04/06/2017
 ms.reviewer: 
 ms.suite: 
 ms.technology:
@@ -37,9 +37,9 @@ translation.priority.mt:
 - pt-br
 - tr-tr
 translationtype: Human Translation
-ms.sourcegitcommit: af9699b63fdfb81a274affb78856817520c38b05
-ms.openlocfilehash: 47688935cec36db174c3a0c424b1705ae47c6118
-ms.lasthandoff: 04/03/2017
+ms.sourcegitcommit: 47c39bd711b69efdb863d71f11e3e472054a3ce3
+ms.openlocfilehash: 059dd2068c5aa0d55f94f293d8430a1f401354ba
+ms.lasthandoff: 04/06/2017
 
 ---
 # <a name="install-visual-studio-2017"></a>安装 Visual Studio 2017
@@ -76,7 +76,7 @@ ms.lasthandoff: 04/03/2017
 
 1.  在“安装 Visual Studio”屏幕中找到所需的工作负载。  
 
-  ![Visual Studio 2017 安装程序对话框](media/vs2017-workloads.PNG "安装 Visual Studio 2017")
+  ![Visual Studio 2017 安装程序对话框](media/vs2017-workloads.PNG "安装 Visual Studio 工作负载")
 
      例如，选择 .NET 桌面开发工作负载。 它附带默认核心编辑器，该编辑器针对超过 20 种语言提供基本代码编辑支持，能够打开和编辑任意文件夹中的代码（而无需使用项目），还提供集成的源代码管理。  
 
@@ -90,7 +90,7 @@ ms.lasthandoff: 04/03/2017
 
 如果不想使用现成的工作负载功能来自定义 Visual Studio 安装，请从 Visual Studio 安装程序中单击“各个组件”选项，选择所需组件，然后按提示操作。
 
-  ![Visual Studio 2017 - 安装各个组件](media/vs2017-workloads.PNG "安装 Visual Studio 各个组件")
+  ![Visual Studio 2017 - 安装各个组件](media/vs2017-components.PNG "安装 Visual Studio 各个组件")
 
 ## <a name="install-language-packs"></a>安装语言包
 
@@ -107,7 +107,10 @@ ms.lasthandoff: 04/03/2017
 
 ## <a name="see-also"></a>请参阅  
 * [修改 Visual Studio 2017](modify-visual-studio.md)
+* [更新 Visual Studio](update-visual-studio.md)
 * [卸载 Visual Studio 2017](uninstall-visual-studio.md)
 * [Visual Studio 管理员指南](visual-studio-administrator-guide.md)
+* [创建 Visual Studio 2017 的脱机安装程序](create-an-offline-installation-of-visual-studio.md)
+* [使用命令行参数安装 Visual Studio 2017](use-command-line-parameters-to-install-visual-studio.md) 
 * [如何报告 Visual Studio 2017 的问题](../ide/how-to-report-a-problem-with-visual-studio-2017.md)
 

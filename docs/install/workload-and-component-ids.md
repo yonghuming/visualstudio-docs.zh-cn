@@ -5,7 +5,7 @@ keywords:
 author: TerryGLee
 ms.author: tglee
 manager: ghogen
-ms.date: 03/07/2017
+ms.date: 04/07/2017
 ms.topic: article
 helpviewer_keywords:
 - workload ID, Visual Studio
@@ -33,9 +33,9 @@ translation.priority.mt:
 - pt-br
 - tr-tr
 translationtype: Human Translation
-ms.sourcegitcommit: 8163a0e1230712734936b7548bef1753ee0c1d2a
-ms.openlocfilehash: 82010bee0c2d80e8b91e9ba2cc5d664d0e91bc12
-ms.lasthandoff: 03/07/2017
+ms.sourcegitcommit: 293d694cfff4c375b342d8322483c84fbbeb446c
+ms.openlocfilehash: d6ffa77642cb03bbea777e5caf23913d1ba3386e
+ms.lasthandoff: 04/07/2017
 
 ---
 
@@ -45,15 +45,18 @@ ms.lasthandoff: 03/07/2017
 * [Visual Studio Enterprise 2017](workload-component-id-vs-enterprise.md)
 * [Visual Studio Professional 2017 ](workload-component-id-vs-professional.md)
 * [Visual Studio Community 2017](workload-component-id-vs-community.md)
+* [Visual Studio 团队资源管理器 2017](workload-component-id-vs-team-explorer.md)
 * [Visual Studio 生成工具 2017](workload-component-id-vs-build-tools.md)
 * [Visual Studio Test Agent 2017](workload-component-id-vs-test-agent.md)
 * [Visual Studio Test Controller 2017 ](workload-component-id-vs-test-controller.md)
 * [Visual Studio Test Professional 2017](workload-component-id-vs-test-professional.md)
 * [Visual Studio Feedback Client 2017](workload-component-id-vs-feedback-client.md)
 
-有关如何使用这些列表的详细信息，请参阅[使用命令行参数安装 Visual Studio 2017](use-command-line-parameters-to-install-visual-studio.md)页和[如何：将扩展性项目迁移到 Visual Studio 2017](../extensibility/how-to-migrate-extensibility-projects-to-visual-studio-2017.md)页。
+有关如何使用这些列表的详细信息，请参阅[使用命令行参数安装 Visual Studio 2017](use-command-line-parameters-to-install-visual-studio.md) 页和[如何：将扩展性项目迁移到 Visual Studio 2017](../extensibility/how-to-migrate-extensibility-projects-to-visual-studio-2017.md) 页。
 
 ## <a name="see-also"></a>另请参阅
-* [Visual Studio 管理员指南](visual-studio-administrator-guide.md)
-* [创建 Visual Studio 的脱机安装](create-an-offline-installation-of-visual-studio.md)
+* [适用于 Visual Studio 2017 的 Visual Studio 管理员指南](visual-studio-administrator-guide.md)
+* [创建 Visual Studio 2017 的脱机安装](create-an-offline-installation-of-visual-studio.md)
+* [Visual Studio 2017 安装的命令行参数示例](command-line-parameter-examples.md)
+* [报告 Visual Studio 2017 的问题](../ide/how-to-report-a-problem-with-visual-studio-2017.md)
 
