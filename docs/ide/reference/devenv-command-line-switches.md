@@ -1,31 +1,50 @@
 ---
 title: "Devenv 命令行开关 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-general"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-helpviewer_keywords: 
-  - "应用程序 [Visual Studio], 执行"
-  - "生成 [Team System], 命令行"
-  - "命令行 [Visual Studio], 开关"
-  - "命令行开关, Devenv"
-  - "编译器, Devenv 命令"
-  - "编译源代码, Devenv"
-  - "Devenv"
-  - "Devenv, 语法和开关列表"
-  - "环境, Devenv 命令"
-  - "开关"
-  - "开关, Devenv"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-general
+ms.tgt_pltfrm: 
+ms.topic: article
+helpviewer_keywords:
+- switches, Devenv
+- builds [Team System], command-line
+- applications [Visual Studio], executing
+- compiling source code, Devenv
+- command-line switches, Devenv
+- command line [Visual Studio], switches
+- Devenv
+- environment, Devenv commands
+- compilers, Devenv commands
+- switches
+- Devenv, syntax and list of switches
 ms.assetid: e12bc6ed-74fd-4bea-8d7c-89b99c20bad8
 caps.latest.revision: 33
-author: "kempb"
-ms.author: "kempb"
-manager: "ghogen"
-caps.handback.revision: 29
+author: kempb
+ms.author: kempb
+manager: ghogen
+translation.priority.ht:
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- ru-ru
+- zh-cn
+- zh-tw
+translation.priority.mt:
+- cs-cz
+- pl-pl
+- pt-br
+- tr-tr
+translationtype: Human Translation
+ms.sourcegitcommit: ca7c86466fa23fb21a932f26dc24e37c71cf29b4
+ms.openlocfilehash: 5666566315e94f109c5ca214dcf5b2a539911203
+ms.lasthandoff: 04/05/2017
+
 ---
 # <a name="devenv-command-line-switches"></a>Devenv 命令行开关
 Devenv 可用来设置集成开发环境 (IDE) 的各个选项，以及从命令行生成、调试和部署项目。 使用这些开关从脚本或 .bat 文件（例如每夜生成的脚本）运行 IDE，或以特定配置启动 IDE。  
@@ -73,7 +92,7 @@ Devenv 可用来设置集成开发环境 (IDE) 的各个选项，以及从命令
 |[/Log (devenv.exe)](../../ide/reference/log-devenv-exe.md)|启动 [!INCLUDE[vsprvs](../../code-quality/includes/vsprvs_md.md)] 并将所有活动记录到日志文件中。|  
 |[/Run (devenv.exe)](../../ide/reference/run-devenv-exe.md) 或 `/r`|编译并运行指定的解决方案。|  
 |[/Runexit (devenv.exe)](../../ide/reference/runexit-devenv-exe.md)|编译并运行指定的解决方案，在运行该解决方案时最小化 IDE，并在解决方案完成运行后关闭 IDE。|  
-|[/UseEnv (devenv.exe)](../../ide/reference/useenv-devenv-exe.md)|使 IDE 使用 PATH、INCLUDE 和 LIB 环境变量进行 [!INCLUDE[vcprvc](../../code-quality/includes/vcprvc_md.md)] 编译，而不是使用“选项”对话框中“项目”选项的“VC++ 目录”节中指定的设置。 有关详细信息，请参阅[为命令行生成设置路径和环境变量](/visual-cpp/build/setting-the-path-and-environment-variables-for-command-line-builds)|  
+|[/UseEnv (devenv.exe)](../../ide/reference/useenv-devenv-exe.md)|使 IDE 使用 PATH、INCLUDE 和 LIB 环境变量进行 [!INCLUDE[vcprvc](../../code-quality/includes/vcprvc_md.md)] 编译，而不是使用“选项”对话框中“项目”选项的“VC++ 目录”节中指定的设置。 有关详细信息，请参阅[为命令行生成设置路径和环境变量](/cpp/build/setting-the-path-and-environment-variables-for-command-line-builds)|  
 |[/Edit (devenv.exe)](../../ide/reference/edit-devenv-exe.md)|在此应用程序的运行实例中打开指定的文件。 如果没有正在运行的实例，它将启动具有简化的窗口布局的新实例。|  
 |[/ResetAddin (devenv.exe)](../../ide/reference/resetaddin-devenv-exe.md)|启动 Visual Studio IDE 的实例而不加载指定的外接程序。|  
 |[/SafeMode (devenv.exe)](../../ide/reference/safemode-devenv-exe.md)|以安全模式启动 [!INCLUDE[vsprvs](../../code-quality/includes/vsprvs_md.md)]，并仅加载默认的环境和服务以及第三方包的发布版。|  
@@ -100,8 +119,3 @@ Devenv 可用来设置集成开发环境 (IDE) 的各个选项，以及从命令
   
 ## <a name="see-also"></a>另请参阅  
  [“选项”对话框 ->“环境”->“常规”](../../ide/reference/general-environment-options-dialog-box.md)
-
-
-<!--HONumber=Feb17_HO4-->
-
-

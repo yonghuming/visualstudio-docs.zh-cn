@@ -30,9 +30,9 @@ translation.priority.ht:
 - zh-cn
 - zh-tw
 translationtype: Human Translation
-ms.sourcegitcommit: 5db97d19b1b823388a465bba15d057b30ff0b3ce
-ms.openlocfilehash: a9f75e48f1fa8834a4232d234a54ca32c0a43e38
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: ca7c86466fa23fb21a932f26dc24e37c71cf29b4
+ms.openlocfilehash: fd5955068a899199969c970434ff14401a654d35
+ms.lasthandoff: 04/05/2017
 
 ---
 # <a name="specifying-custom-build-events-in-visual-studio"></a>在 Visual Studio 中指定自定义生成事件
@@ -44,7 +44,7 @@ ms.lasthandoff: 02/22/2017
   
 -   Visual C# 和 F#--[如何：指定生成事件 (C#)](../ide/how-to-specify-build-events-csharp.md)。  
   
--   Visual C++--[指定生成事件](/visual-cpp/ide/specifying-build-events)。  
+-   Visual C++--[指定生成事件](/cpp/ide/specifying-build-events)。  
   
 ## <a name="syntax"></a>语法  
  生成事件遵循与 DOS 命令相同的语法，但可以使用宏更轻松地创建生成事件。 有关可用宏的列表，请参阅[预生成事件/生成后事件命令行对话框](../ide/reference/pre-build-event-post-build-event-command-line-dialog-box.md)。  

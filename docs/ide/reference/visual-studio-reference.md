@@ -1,19 +1,38 @@
 ---
 title: "Visual Studio 参考 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-general"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-general
+ms.tgt_pltfrm: 
+ms.topic: article
 ms.assetid: c4ddcffd-d5b7-4ce8-8775-14e649c34518
 caps.latest.revision: 35
-author: "kempb"
-ms.author: "kempb"
-manager: "ghogen"
-caps.handback.revision: 35
+author: kempb
+ms.author: kempb
+manager: ghogen
+translation.priority.ht:
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- ru-ru
+- zh-cn
+- zh-tw
+translation.priority.mt:
+- cs-cz
+- pl-pl
+- pt-br
+- tr-tr
+translationtype: Human Translation
+ms.sourcegitcommit: ca7c86466fa23fb21a932f26dc24e37c71cf29b4
+ms.openlocfilehash: e32d7a177a1a6ff0e26fba7f418f368a64bb1337
+ms.lasthandoff: 04/05/2017
+
 ---
 # <a name="visual-studio-reference"></a>Visual Studio 参考
 本节包括用户界面参考、等效语言和其他参考文档。  
@@ -34,8 +53,8 @@ caps.handback.revision: 35
  [Visual Studio for Applications 参考](../../ide/reference/visual-studio-for-applications-reference.md)  
  包含可用于将 .NET Framework 脚本引擎集成到应用程序中的接口的参考文档。  
   
- [MSBuild](../../msbuild/msbuild1.md)  
- 包含有关如何使用集成到 [!INCLUDE[vsprvs](../../code-quality/includes/vsprvs_md.md)] 中的 Microsoft 生成平台的文档。  
+ [MSBuild](../../msbuild/msbuild.md)
+收录了有关如何使用 [!INCLUDE[vsprvs](../../code-quality/includes/vsprvs_md.md)] 中集成的 Microsoft 生成平台的文档。  
   
  [用于排除 IDE 错误的资源](../../ide/reference/resources-for-troubleshooting-integrated-development-environment-errors.md)  
  包含指向用于帮助你解析 IDE 错误消息的资源的链接  
@@ -50,7 +69,7 @@ caps.handback.revision: 35
  [Visual Basic 参考](/dotnet/visual-basic/reference/index)  
  包含 [!INCLUDE[vbprvb](../../code-quality/includes/vbprvb_md.md)] 升级信息以及 [!INCLUDE[vbprvb](../../code-quality/includes/vbprvb_md.md)] 语言和运行时参考。  
   
- [C/C++ 语言和标准库](/visual-cpp/cpp/c-cpp-language-and-standard-libraries)  
+ [C/C++ 语言和标准库](/cpp/cpp/c-cpp-language-and-standard-libraries)  
  包含语言参考文档。  
   
  [JScript 参考](http://msdn.microsoft.com/en-us/2e47f004-963c-4661-b887-a14e4660aadd)  
@@ -58,8 +77,3 @@ caps.handback.revision: 35
   
  .[NET Framework 参考信息](/dotnet/visual-basic/reference/net-framework-reference-information)  
  包含有关 [!INCLUDE[dnprdnshort](../../code-quality/includes/dnprdnshort_md.md)] 类库、编译器和语言参考以及 [!INCLUDE[vstecasp](../../code-quality/includes/vstecasp_md.md)] 语法、XSD 参考及其他主题的文档。
-
-
-<!--HONumber=Feb17_HO4-->
-
-

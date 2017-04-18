@@ -32,9 +32,9 @@ translation.priority.ht:
 - zh-cn
 - zh-tw
 translationtype: Human Translation
-ms.sourcegitcommit: 6de96c79f998cc53fe4230e902fc927b72745d3f
-ms.openlocfilehash: 79391c494271c55a677dc5071139d27c473a6e88
-ms.lasthandoff: 02/22/2017
+ms.sourcegitcommit: ca7c86466fa23fb21a932f26dc24e37c71cf29b4
+ms.openlocfilehash: 89ce216f1273678adf9b97ff789c7d48f3130d77
+ms.lasthandoff: 04/05/2017
 
 ---
 # <a name="configuring-warnings-in-visual-basic"></a>在 Visual Basic 中配置警告
@@ -140,4 +140,4 @@ ms.lasthandoff: 02/22/2017
  [/nowarn](/dotnet/visual-basic/reference/command-line-compiler/nowarn)   
  [/warnaserror (Visual Basic)](/dotnet/visual-basic/reference/command-line-compiler/warnaserror)   
  [“项目设计器”->“编译”页 (Visual Basic)](../ide/reference/compile-page-project-designer-visual-basic.md)   
- [默认情况下处于关闭状态的编译器警告](/visual-cpp/preprocessor/compiler-warnings-that-are-off-by-default)
+ [默认情况下处于关闭状态的编译器警告](/cpp/preprocessor/compiler-warnings-that-are-off-by-default)

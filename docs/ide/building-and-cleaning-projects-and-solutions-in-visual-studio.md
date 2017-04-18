@@ -1,33 +1,52 @@
 ---
 title: "在 Visual Studio 中生成和清理项目和解决方案 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-general"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "VS.BuildProjectPicker"
-  - "vs.batchbuild"
-helpviewer_keywords: 
-  - "清理解决方案命令"
-  - "生成 [Visual Studio]，管理"
-  - "解决方案生成配置，正在启动"
-  - "生成解决方案命令"
-  - "项目生成配置，正在启动"
-  - "生成配置，正在启动"
-  - "项目生成配置，依赖项"
-  - "重新生成解决方案命令"
-  - "解决方案生成配置，生成顺序"
-  - "生成 [Visual Studio]，准备"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-general
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords:
+- VS.BuildProjectPicker
+- vs.batchbuild
+helpviewer_keywords:
+- Clean Solution command
+- builds [Visual Studio], managing
+- solution build configurations, starting
+- Build Solution command
+- project build configurations, starting
+- build configurations, starting
+- project build configurations, dependencies
+- Rebuild Solution command
+- solution build configurations, build order
+- builds [Visual Studio], preparing
 ms.assetid: 710891fd-379e-42c2-a84b-44a7af694ca0
 caps.latest.revision: 35
-author: "kempb"
-ms.author: "kempb"
-manager: "ghogen"
-caps.handback.revision: 35
+author: kempb
+ms.author: kempb
+manager: ghogen
+translation.priority.ht:
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- ru-ru
+- zh-cn
+- zh-tw
+translation.priority.mt:
+- cs-cz
+- pl-pl
+- pt-br
+- tr-tr
+translationtype: Human Translation
+ms.sourcegitcommit: ca7c86466fa23fb21a932f26dc24e37c71cf29b4
+ms.openlocfilehash: ce6f346f77217e61d93879118610934422cdc642
+ms.lasthandoff: 04/05/2017
+
 ---
 # <a name="building-and-cleaning-projects-and-solutions-in-visual-studio"></a>在 Visual Studio 中生成和清理项目和解决方案
 通过本主题中的过程，学会生成、重新生成或清除解决方案中的所有/部分项目/项目项。 有关分步教程，请参阅[演练：生成应用程序](../ide/walkthrough-building-an-application.md)。  
@@ -112,11 +131,6 @@ caps.handback.revision: 35
  [编译和生成](../ide/compiling-and-building-in-visual-studio.md)   
  [了解生成配置](../ide/understanding-build-configurations.md)   
  [调试和发布项目配置](http://msdn.microsoft.com/en-us/0440b300-0614-4511-901a-105b771b236e)   
- [C/C++ 生成参考](/visual-cpp/build/reference/c-cpp-building-reference)   
+ [C/C++ 生成参考](/cpp/build/reference/c-cpp-building-reference)   
  [Devenv 命令行开关](../ide/reference/devenv-command-line-switches.md)   
  [解决方案和项目](../ide/solutions-and-projects-in-visual-studio.md)
-
-
-<!--HONumber=Feb17_HO4-->
-
-

@@ -31,9 +31,9 @@ translation.priority.ht:
 - zh-cn
 - zh-tw
 translationtype: Human Translation
-ms.sourcegitcommit: 7a282fc04c1eb01f0c56b1d76880276fc270686d
-ms.openlocfilehash: 96136c7223f3d5f78fff9bfe3106d48cab4dd44a
-ms.lasthandoff: 03/01/2017
+ms.sourcegitcommit: ca7c86466fa23fb21a932f26dc24e37c71cf29b4
+ms.openlocfilehash: 57f7d51786d2636eb865eb81bb3468e79c6f19f9
+ms.lasthandoff: 04/05/2017
 
 ---
 # <a name="security-in-visual-studio"></a>Visual Studio 中的安全性
@@ -54,7 +54,7 @@ ms.lasthandoff: 03/01/2017
  [安全编码准则](http://msdn.microsoft.com/Library/4f882d94-262b-4494-b0a6-ba9ba1f5f177)  
  提供对组件进行分类以解决安全性问题的准则。  
   
- [安全性最佳做法](/visual-cpp/top/security-best-practices-for-cpp)  
+ [安全性最佳做法](/cpp/top/security-best-practices-for-cpp)  
  讨论缓冲区溢出并提供 Microsoft Visual C++ 安全检查功能（由 /GS 编译时标志提供）的全面介绍。
 
 ## <a name="building-for-security"></a>构建安全性  

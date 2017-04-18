@@ -1,7 +1,7 @@
 ---
 title: "Visual Studio 2017 中的新增功能 | Microsoft Docs"
 ms.custom: 
-ms.date: 03/08/2017
+ms.date: 04/06/2017
 ms.reviewer: 
 ms.suite: 
 ms.tgt_pltfrm: 
@@ -31,9 +31,9 @@ translation.priority.mt:
 - pt-br
 - tr-tr
 translationtype: Human Translation
-ms.sourcegitcommit: 8c4e45eadd81c54a372885ce89ccced1256d3b3d
-ms.openlocfilehash: 14a06f4344989052b0a020570dc87d9697ba95d0
-ms.lasthandoff: 03/09/2017
+ms.sourcegitcommit: ddc84f3b92d8e0febaea3d23b415bd6e703cc530
+ms.openlocfilehash: e04b972187b7b7ec225b48cc9b8904d804399ff8
+ms.lasthandoff: 04/07/2017
 
 ---
 # <a name="what39s-new-in-visual-studio-2017"></a>Visual Studio 2017 中的新增功能
@@ -49,7 +49,7 @@ ms.lasthandoff: 03/09/2017
 * **使用 Azure 开发云应用**。 通过内置的 Azure 工具套件，你可以轻松地创建由 Microsoft Azure 提供支持的云优先应用。 借助 Visual Studio，可以轻松配置、构建、调试、打包和部署 Azure 上的应用和服务。
 * **移动应用开发**。 在 Visual Studio 2017 中，可以使用 Xamarin 进行创新并快速得出结果。Xamarin 通过使用一个核心基本代码和技能集统一你的多平台移动需求。 利用现有的团队、技术投资和 C# 代码，在预算范围内提前实现优质的用户体验。 加速移动生命周期的每一步，提供一流的用户体验或一系列可提高员工工作效率的工作效率应用。
 
-以下是一部分重大更改的详细信息。
+下面更详细地介绍了部分最值得注意的变更。
 
 ## <a name="performance-improvements"></a>性能改进
 
@@ -122,6 +122,21 @@ Visual Studio 可以移动自身的扩展（以及第三方扩展），从而根
 在 Visual Studio Enterprise 2017 中，当你进行编码时，实时单元测试能够在编辑器中提供实时单元测试结果和代码覆盖率。 该功能可用于适用于 .NET Framework 的 C# 和 Visual Basic 项目，并支持 MSTest xUnit 和 NUnit 这三种测试框架。
 
 ![实时单元测试](../ide/media/lut-codewindow.png "Visual Studio 的 Enterprise 版本中新增的实时单元测试功能的示例")
+
+有关详细信息，请参阅 [Visual Studio 2017 Enterprise 中的实时单元测试](https://blogs.msdn.microsoft.com/visualstudio/2017/03/09/live-unit-testing-in-visual-studio-2017-enterprise/)博文。
+
+### <a name="devops"></a>DevOps
+#### <a name="redgate-data-tools"></a>Redgate Data Tools：
+现在可以在以下版本的 Visual Studio 2017 中使用 Redgate Data Tools，将 DevOps 功能扩展到 SQL Server 数据库开发。
+
+Visual Studio 2017 Enterprise 随附：
+- [Redgate ReadyRoll Core](http://www.red-gate.com/products/sql-development/readyroll/entrypage/microsoft-and-readyroll?utm_source=microsoft&utm_medium=link&utm_campaign=readyroll&utm_term=docs-newinvs) 有助于开发迁移脚本、使用源代码管理功能来管理数据库更改，并安全地自动部署 SQL Server 数据库更改和应用更改。
+- [Redgate SQL Prompt Core](http://www.red-gate.com/products/sql-development/sql-prompt/entrypage/microsoft-and-sql-prompt?utm_source=microsoft&utm_medium=link&utm_campaign=sqlprompt&utm_term=docs-newinvs) 提供智能代码填写帮助，有助于更快更准确地编写 SQL。 SQL Prompt 可自动完成数据库、系统对象和关键字，并在你键入时提供列建议。 这样一来，代码不仅更简洁，而且错误也少了，因为无需记住每个列名称或别名。
+
+Visual Studio 2017 所有版本随附：
+- [Redgate SQL Search](http://www.red-gate.com/products/sql-development/sql-search/?utm_source=microsoft&utm_medium=link&utm_campaign=sqlsearch&utm_term=docs-newinvs) 有助于跨多个数据库快速查找 SQL 片段和对象，从而提高工作效率。
+
+若要了解详细信息，请参阅我们的 [Visual Studio 2017 中的 Redgate Data Tools](https://blogs.msdn.microsoft.com/visualstudio/2017/03/07/redgate-data-tools-in-visual-studio-2017/) 博文。
 
 ### <a name="visual-studio-ide-enhancements"></a>Visual Studio IDE 增强功能
 #### <a name="interact-with-git"></a>与 Git 进行交互：

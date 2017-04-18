@@ -2,7 +2,7 @@
 title: "创建 Visual Studio 2017 的脱机安装程序 | Microsoft Docs"
 description: "了解如何创建 Visual Studio 的脱机安装程序。"
 ms.custom: 
-ms.date: 03/21/2017
+ms.date: 04/05/2017
 ms.reviewer: 
 ms.suite: 
 ms.technology:
@@ -34,9 +34,9 @@ translation.priority.mt:
 - pt-br
 - tr-tr
 translationtype: Human Translation
-ms.sourcegitcommit: 5b6334c38a6c058f274498c06f8e07c934931910
-ms.openlocfilehash: 563c78a49eb55886b1ddbd4f437951c99c6568e5
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: 4e33dc3ebb32569b547aa9bcb6db9a15dbe4fc21
+ms.openlocfilehash: fda1a4fbfebd856312174fe24ff161b0e9d04bb9
+ms.lasthandoff: 04/05/2017
 
 ---
 # <a name="create-an-offline-installer-for-visual-studio-2017"></a>创建 Visual Studio 2017 的脱机安装程序
@@ -66,7 +66,7 @@ ms.lasthandoff: 03/22/2017
 - 对于 Visual Studio Professional，请运行： <br> ```vs_professional.exe --layout c:\vs2017offline```
 - 对于 Visual Studio Community，请运行： <br> ```vs_community.exe --layout c:\vs2017offline```
 
-有关更多示例，请参阅本页的[如何自定义脱机安装程序](#how-to-customize-your-offline- installer)部分。
+有关更多示例，请参阅本页的[如何自定义脱机安装程序](#how-to-customize-your-offline-installer)部分。
 
 ## <a name="install-from-the-offline-installation-folder"></a>从脱机安装文件夹安装
 立即或以后运行脱机安装；由你决定。 但在执行时，请按照下列步骤操作。
@@ -98,6 +98,7 @@ ms.lasthandoff: 03/22/2017
 
 | 问题       | 项                   | 解决方案 |
 | ----------- | ---------------------- | -------- |
+| 收到 Visual Studio 安装程序发出的错误消息“安装已完成，但有警告”，然后 Windows 仿真器安装失败。 | Windows 10 仿真器 | 打开 Visual Studio 的脱机安装文件夹，转到子文件夹“Win10_Emulator_10.0.15063,version=10.0.15063.12,chip=x64”，然后运行 EmulatorSetup.exe 来安装 Windows 仿真器。 |
 | 你将收到一条警告消息，指示无法安装某些组件和包。  | Android SDK 安装程序（API 级别） | 如果想要包含 Android SDK（API 级别）包，创建脱机安装程序时必须可连接 Internet。 如果网络受限，则必须允许访问以下 URL： <br><br> - http://dl.google.com:443 <br> - http://dl-ssl.google.com:443 <br>  - https://dl-ssl.google.com/android/repository/*<br><br>有关如何使用代理设置解决可能的问题的详细信息，请参阅 [Visual Studio install failures (Android SDK Setup) behind a Proxy](https://blogs.msdn.microsoft.com/peterhauge/2016/09/22/visual-studio-2015-install-failures-android-sdk-setup-behind-a-proxy/)（使用代理时的 Visual Studio 安装故障（Android SDK 安装程序））博客文章。  |  
 | 用户没有访问文件的权限。 | 权限 (ACL) | 请确保调整权限 (ACL)，以便他们在共享脱机安装前先向其他用户授予“读取”权限。 |
 | 无法安装新的工作负载、组件或语言。  | `--layout`  | 如果要从部分布局进行安装，并且选择之前布局中不可用的工作负载、组件或语言，请确保可连接到 Internet。 |

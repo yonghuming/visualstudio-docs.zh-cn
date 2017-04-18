@@ -5,7 +5,7 @@ keywords:
 author: TerryGLee
 ms.author: tglee
 manager: ghogen
-ms.date: 03/07/2017
+ms.date: 04/06/2017
 ms.topic: article
 helpviewer_keywords:
 - workload ID, Visual Studio
@@ -32,9 +32,9 @@ translation.priority.mt:
 - pt-br
 - tr-tr
 translationtype: Human Translation
-ms.sourcegitcommit: 8163a0e1230712734936b7548bef1753ee0c1d2a
-ms.openlocfilehash: 230d04f93e8e857fc0dbaf018e56567259ac6c38
-ms.lasthandoff: 03/07/2017
+ms.sourcegitcommit: 47c39bd711b69efdb863d71f11e3e472054a3ce3
+ms.openlocfilehash: 5760b4f89bea1a972e75aaec8c45527e07ad28ca
+ms.lasthandoff: 04/06/2017
 
 ---
 
@@ -58,11 +58,11 @@ ms.lasthandoff: 03/07/2017
 
 ### <a name="components-included-by-this-workload"></a>此工作负载所包含的组件
 
-组件 ID | 名称 | 依赖项类型
---- | --- | ---
-Microsoft.Component.MSBuild | MSBuild | 必需
-Microsoft.VisualStudio.Component.CoreBuildTools | Visual Studio 生成工具核心 | 必需
-Microsoft.VisualStudio.Component.Roslyn.Compiler | C# 和 Visual Basic Roslyn 编译器 | 必需
+组件 ID | 名称 | 版本 | 依赖项类型
+--- | --- | --- | ---
+Microsoft.Component.MSBuild | MSBuild | 15.0.26208.0 | 必需
+Microsoft.VisualStudio.Component.CoreBuildTools | Visual Studio 生成工具核心 | 15.0.26228.0 | 必需
+Microsoft.VisualStudio.Component.Roslyn.Compiler | C# 和 Visual Basic Roslyn 编译器 | 15.0.26208.0 | 必需
 
 
 ## <a name="visual-c-build-tools"></a>Visual C++ 生成工具
@@ -73,27 +73,27 @@ Microsoft.VisualStudio.Component.Roslyn.Compiler | C# 和 Visual Basic Roslyn �
 
 ### <a name="components-included-by-this-workload"></a>此工作负载所包含的组件
 
-组件 ID | 名称 | 依赖项类型
---- | --- | ---
-Microsoft.VisualStudio.Component.VC.CoreBuildTools | Visual C++ 生成工具的核心功能 | 必需
-Microsoft.VisualStudio.Component.Windows10SDK | Windows 通用 C 运行时 | 必需
-Microsoft.VisualStudio.Component.VC.CMake.Project | 适用于 CMake 的 Visual C++ 工具 | 建议
-Microsoft.VisualStudio.Component.Windows10SDK.14393 | Windows 10 SDK (10.0.14393.0) | 建议
-Microsoft.Component.VC.Runtime.UCRTSDK | Windows 通用 CRT SDK | Optional
-Microsoft.Net.Component.4.6.1.SDK | .NET Framework 4.6.1 SDK | Optional
-Microsoft.Net.Component.4.6.1.TargetingPack | .NET Framework 4.6.1 目标包 | Optional
-Microsoft.VisualStudio.Component.Static.Analysis.Tools | 静态分析工具 | Optional
-Microsoft.VisualStudio.Component.VC.ATL | Visual C++ ATL 支持 | Optional
-Microsoft.VisualStudio.Component.VC.ATLMFC | MFC 和 ATL 支持（x86 和 x64） | Optional
-Microsoft.VisualStudio.Component.VC.ClangC2 | Clang/C2（实验） | Optional
-Microsoft.VisualStudio.Component.VC.CLI.Support | C++/CLI 支持 | Optional
-Microsoft.VisualStudio.Component.VC.CoreIde | Visual Studio C++ 核心功能 | Optional
-Microsoft.VisualStudio.Component.VC.Modules.x86.x64 | 标准库模块 | Optional
-Microsoft.VisualStudio.Component.VC.Tools.x86.x64 | VC++ 2017 v141 工具集（x86、x64） | Optional
-Microsoft.VisualStudio.Component.Windows10SDK.10240 | Windows 10 SDK (10.0.10240.0) | Optional
-Microsoft.VisualStudio.Component.Windows10SDK.10586 | Windows 10 SDK (10.0.10586.0) | Optional
-Microsoft.VisualStudio.Component.Windows81SDK | Windows 8.1 SDK | Optional
-Microsoft.VisualStudio.ComponentGroup.NativeDesktop.Win81 | Windows 8.1 SDK 和 UCRT SDK | Optional
+组件 ID | 名称 | 版本 | 依赖项类型
+--- | --- | --- | ---
+Microsoft.VisualStudio.Component.VC.CoreBuildTools | Visual C++ 生成工具的核心功能 | 15.0.26208.0 | 必需
+Microsoft.VisualStudio.Component.Windows10SDK | Windows 通用 C 运行时 | 15.0.26208.0 | 必需
+Microsoft.VisualStudio.Component.VC.CMake.Project | 适用于 CMake 的 Visual C++ 工具 | 15.0.26208.0 | 建议
+Microsoft.VisualStudio.Component.Windows10SDK.14393 | Windows 10 SDK (10.0.14393.0) | 15.0.26208.0 | 建议
+Microsoft.Component.VC.Runtime.UCRTSDK | Windows 通用 CRT SDK | 15.0.26208.0 | Optional
+Microsoft.Net.Component.4.6.1.SDK | .NET Framework 4.6.1 SDK | 15.0.26208.0 | Optional
+Microsoft.Net.Component.4.6.1.TargetingPack | .NET Framework 4.6.1 目标包 | 15.0.26208.0 | Optional
+Microsoft.VisualStudio.Component.Static.Analysis.Tools | 静态分析工具 | 15.0.26208.0 | Optional
+Microsoft.VisualStudio.Component.VC.ATL | Visual C++ ATL 支持 | 15.0.26208.0 | Optional
+Microsoft.VisualStudio.Component.VC.ATLMFC | MFC 和 ATL 支持（x86 和 x64） | 15.0.26208.0 | Optional
+Microsoft.VisualStudio.Component.VC.ClangC2 | Clang/C2（实验） | 15.0.26208.0 | Optional
+Microsoft.VisualStudio.Component.VC.CLI.Support | C++/CLI 支持 | 15.0.26208.0 | Optional
+Microsoft.VisualStudio.Component.VC.CoreIde | Visual Studio C++ 核心功能 | 15.0.26208.0 | Optional
+Microsoft.VisualStudio.Component.VC.Modules.x86.x64 | 标准库模块 | 15.0.26208.0 | Optional
+Microsoft.VisualStudio.Component.VC.Tools.x86.x64 | VC++ 2017 v141 工具集（x86、x64） | 15.0.26208.0 | Optional
+Microsoft.VisualStudio.Component.Windows10SDK.10240 | Windows 10 SDK (10.0.10240.0) | 15.0.26208.0 | Optional
+Microsoft.VisualStudio.Component.Windows10SDK.10586 | Windows 10 SDK (10.0.10586.0) | 15.0.26208.0 | Optional
+Microsoft.VisualStudio.Component.Windows81SDK | Windows 8.1 SDK | 15.0.26208.0 | Optional
+Microsoft.VisualStudio.ComponentGroup.NativeDesktop.Win81 | Windows 8.1 SDK 和 UCRT SDK | 15.0.26208.0 | Optional
 
 
 ## <a name="web-development-build-tools"></a>Web 开发生成工具
@@ -104,16 +104,16 @@ Microsoft.VisualStudio.ComponentGroup.NativeDesktop.Win81 | Windows 8.1 SDK 和 
 
 ### <a name="components-included-by-this-workload"></a>此工作负载所包含的组件
 
-组件 ID | 名称 | 依赖项类型
---- | --- | ---
-Microsoft.VisualStudio.Web.BuildTools.ComponentGroup | Web 开发生成工具 | 必需
+组件 ID | 名称 | 版本 | 依赖项类型
+--- | --- | --- | ---
+Microsoft.VisualStudio.Web.BuildTools.ComponentGroup | Web 开发生成工具 | 15.0.26323.1 | 必需
 ## <a name="unaffiliated-components"></a>独立组件
 
 这些组件不随附于任何工作负载，但可选择作为单个组件。
 
-组件 ID | 名称
---- | ---
-无 | 无
+组件 ID | 名称 | 版本
+--- | --- | ---
+无 | 不可用 | 无
 
 
 ## <a name="see-also"></a>另请参阅
@@ -121,5 +121,6 @@ Microsoft.VisualStudio.Web.BuildTools.ComponentGroup | Web 开发生成工具 | 
 * [Visual Studio 工作负荷和组件 ID](workload-and-component-ids.md)
 * [Visual Studio 管理员指南](visual-studio-administrator-guide.md)
 * [使用命令行参数安装 Visual Studio](use-command-line-parameters-to-install-visual-studio.md)
+  * [命令行参数示例](command-line-parameter-examples.md)
 * [创建 Visual Studio 的脱机安装](create-an-offline-installation-of-visual-studio.md)
 
