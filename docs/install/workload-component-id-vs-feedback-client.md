@@ -5,7 +5,7 @@ keywords:
 author: TerryGLee
 ms.author: tglee
 manager: ghogen
-ms.date: 03/07/2017
+ms.date: 04/06/2017
 ms.topic: article
 helpviewer_keywords:
 - workload ID, Visual Studio
@@ -32,9 +32,9 @@ translation.priority.mt:
 - pt-br
 - tr-tr
 translationtype: Human Translation
-ms.sourcegitcommit: 8163a0e1230712734936b7548bef1753ee0c1d2a
-ms.openlocfilehash: c7fb39d5a9c39f5436c9f3953cc2783409eeb3be
-ms.lasthandoff: 03/07/2017
+ms.sourcegitcommit: 47c39bd711b69efdb863d71f11e3e472054a3ce3
+ms.openlocfilehash: 6b981d8ec1594da3db8fa1384ddeeee9da519837
+ms.lasthandoff: 04/06/2017
 
 ---
 
@@ -58,21 +58,24 @@ ms.lasthandoff: 03/07/2017
 
 ### <a name="components-included-by-this-workload"></a>此工作负载所包含的组件
 
-组件 ID | 名称 | 依赖项类型
---- | --- | ---
-Microsoft.VisualStudio.Component.TestTools.FeedbackClient | Microsoft Feedback Client | 必需
+组件 ID | 名称 | 版本 | 依赖项类型
+--- | --- | --- | ---
+Microsoft.VisualStudio.Component.TestTools.FeedbackClient | Microsoft Feedback Client | 15.0.26208.0 | 必需
+
 ## <a name="unaffiliated-components"></a>独立组件
 
 这些组件不随附于任何工作负载，但可选择作为单个组件。
 
-组件 ID | 名称
---- | ---
-无 | 无
+组件 ID | 名称 | 版本
+--- | --- | ---
+无 | 不可用 | 无
+
 
 ## <a name="see-also"></a>另请参阅
 
 * [Visual Studio 工作负荷和组件 ID](workload-and-component-ids.md)
 * [Visual Studio 管理员指南](visual-studio-administrator-guide.md)
 * [使用命令行参数安装 Visual Studio](use-command-line-parameters-to-install-visual-studio.md)
+  * [命令行参数示例](command-line-parameter-examples.md)
 * [创建 Visual Studio 的脱机安装](create-an-offline-installation-of-visual-studio.md)
 

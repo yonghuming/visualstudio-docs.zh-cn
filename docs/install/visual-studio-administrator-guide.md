@@ -1,7 +1,7 @@
 ---
 title: "Visual Studio 管理员指南 | Microsoft Docs"
 ms.custom: 
-ms.date: 04/03/2017
+ms.date: 04/06/2017
 ms.prod: visual-studio-dev15
 ms.reviewer: 
 ms.suite: 
@@ -33,9 +33,9 @@ translation.priority.mt:
 - pt-br
 - tr-tr
 translationtype: Human Translation
-ms.sourcegitcommit: af9699b63fdfb81a274affb78856817520c38b05
-ms.openlocfilehash: fb7a87b720ad29252c602d9be5b958d8417ab93e
-ms.lasthandoff: 04/03/2017
+ms.sourcegitcommit: 47c39bd711b69efdb863d71f11e3e472054a3ce3
+ms.openlocfilehash: aebd3abc671f997773fc7c557627ca23b9bf82bd
+ms.lasthandoff: 04/06/2017
 
 ---
 # <a name="visual-studio-administrator-guide-for-visual-studio-2017"></a>适用于 Visual Studio 2017 的 Visual Studio 管理员指南
@@ -77,5 +77,6 @@ ms.lasthandoff: 04/03/2017
 * [安装 Visual Studio 2017](install-visual-studio.md)
 * [创建 Visual Studio 2017 的脱机安装程序](create-an-offline-installation-of-visual-studio.md)
 * [使用命令行参数安装 Visual Studio 2017](use-command-line-parameters-to-install-visual-studio.md)
+  * [命令行参数示例](command-line-parameter-examples.md)
 * [报告 Visual Studio 2017 的问题](../ide/how-to-report-a-problem-with-visual-studio-2017.md)
 
