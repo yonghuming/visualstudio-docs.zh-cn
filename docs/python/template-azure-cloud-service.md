@@ -1,7 +1,7 @@
 ---
 title: "Python 的 Azure 云服务项目模板 |Microsoft Docs"
 ms.custom: 
-ms.date: 3/7/2017
+ms.date: 4/10/2017
 ms.prod: visual-studio-dev15
 ms.reviewer: 
 ms.suite: 
@@ -29,15 +29,15 @@ translation.priority.ht:
 - zh-cn
 - zh-tw
 translationtype: Human Translation
-ms.sourcegitcommit: a42f5a30375192c89c9984e40ba0104da98d7253
-ms.openlocfilehash: 10ea76d474d96ba4b5aa95584fd1893abe05d991
-ms.lasthandoff: 03/07/2017
+ms.sourcegitcommit: 9328c347d548a03a536cea16bd5851817c03d5a2
+ms.openlocfilehash: 5dd1c40c925327c9494e3a334cdf348692a4981d
+ms.lasthandoff: 04/10/2017
 
 ---
 
 # <a name="azure-cloud-service-projects-for-python"></a>Python 的 Azure 云服务项目
 
-针对 Visual Studio 的 Python 工具 (PTVS) 提供了模板，可帮助使用 Python 创建 Azure 云服务。
+Visual Studio 提供的模板有助于使用 Python 创建 Azure 云服务。
 
 [云服务](http://go.microsoft.com/fwlink/?LinkId=306052)包含任意数量的辅助角色和 Web 角色，每个角色执行概念上独立的任务，但可以根据缩放需要在虚拟机中单独复制。 Web 角色为前端 Web 应用程序提供托管。 在使用 Python 的情况下，任何支持 WSGI 的 Web 框架都可用于编写这样的应用程序 - 如同受 [Web 项目模板](template-web.md)支持一样。 辅助角色用于不直接与用户交互的长时间运行的进程。 它们通常使用[数据服务](http://go.microsoft.com/fwlink/?LinkId=401571)和[应用服务](http://go.microsoft.com/fwlink/?LinkId=401572)库，这些库可能通过 `pip install`&nbsp;[`azure`](http://pypi.org/project/azure) 进行安装。
 
@@ -58,7 +58,7 @@ ms.lasthandoff: 03/07/2017
 
 1. 向项目添加新角色后，将显示一些配置说明。 这些说明通常不必要，但可能对以后自定义项目有用。 请注意，同时添加多个角色时，只有最后一个角色的说明保持打开状态。 但是，可以在其他角色的相应 `readme.mht` 文件中找到自身说明和故障排除提示，该文件位于角色的根路径或 `bin` 文件夹中。
 
-1. 项目的 `bin` 文件夹还包含一个或两个用于配置远程虚拟机的 PowerShell 脚本，包括安装 Python、项目中任何 [requirements.txt](#requirementstxt) 文件和设置 IIS（如有需要）。 可以根据需要编辑这些文件以用于部署，也可以通过其他方式管理最常用选项（请参阅下面的[配置角色部署](#configuring-role-deployment)）。 请勿删除这些文件，因为如果这些文件不可用，将改用旧版配置脚本。
+1. 项目的 `bin` 文件夹还包含一个或两个用于配置远程虚拟机的 PowerShell 脚本，包括安装 Python、项目中任何 [requirements.txt](#dependencies) 文件和设置 IIS（如有需要）。 可以根据需要编辑这些文件以用于部署，也可以通过其他方式管理最常用选项（请参阅下面的[配置角色部署](#configuring-role-deployment)）。 请勿删除这些文件，因为如果这些文件不可用，将改用旧版配置脚本。
 
     ![辅助角色支持文件](media/template-azure-cloud-service-worker-role-support-files.png)
 

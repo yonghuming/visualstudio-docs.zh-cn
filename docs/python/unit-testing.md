@@ -29,9 +29,9 @@ translation.priority.ht:
 - zh-cn
 - zh-tw
 translationtype: Human Translation
-ms.sourcegitcommit: 7d726441c2d6953bd7b50451bec7fff05d5d71b0
-ms.openlocfilehash: f1148cb9e4d50241580190f274d6a4c2e3979b80
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: adf122a478b29674dc2924dcf7d42972a5a3f52e
+ms.openlocfilehash: 878bd0baaa0e08a31274645213b222bf6faeb412
+ms.lasthandoff: 04/10/2017
 
 ---
 
@@ -62,7 +62,7 @@ Python 单元测试广泛应用于在程序设计期间验证方案。 针对 Vi
       unittest.main()
   ```
 
-1. 根据需要保存该文件，然后通过“文本”>“窗口”>“文本资源管理器”菜单命令打开测试资源管理器。
+1. 根据需要保存该文件，然后通过“测试”>“窗口”>“测试资源管理器”菜单命令打开测试资源管理器。
 
 1. 测试资源管理器将搜索要测试的项目并进行显示，如下所示。 双击测试打开其源文件。
 

@@ -29,9 +29,9 @@ translation.priority.ht:
 - zh-cn
 - zh-tw
 translationtype: Human Translation
-ms.sourcegitcommit: 46846db26bee30841e6cb35913d533b512d01ba0
-ms.openlocfilehash: 730207e42f42c0cd5d1b78dc558e58267343d186
-ms.lasthandoff: 03/27/2017
+ms.sourcegitcommit: 9328c347d548a03a536cea16bd5851817c03d5a2
+ms.openlocfilehash: 002c77b27f7283ecd28d7ec5470b0ed44b2bb7a4
+ms.lasthandoff: 04/10/2017
 
 ---
 
@@ -45,7 +45,7 @@ ms.lasthandoff: 03/27/2017
 
 本主题介绍了如何为 CPython 生成 C++ 扩展模块，该模块计算双曲正切并从 Python 代码中调用它。 为了演示性能差异，首先需使用 Python 创建和测试例程。
 
-此处采用的方法适用于 [Python 文档](https://docs.python.org/e/c-api/)中所述的标准 CPython 扩展。 本主题末尾的[替代方法](#alternative-approaches)下将此方法与其他方法进行了比较。
+此处采用的方法适用于 [Python 文档](https://docs.python.org/3/c-api/)中所述的标准 CPython 扩展。 本主题末尾的[替代方法](#alternative-approaches)下将此方法与其他方法进行了比较。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -231,7 +231,7 @@ ms.lasthandoff: 03/27/2017
 
 1. 如果使用 Visual Studio 2017，请运行 Visual Studio 安装程序，选择“修改”，然后选择“各个组件”>“编译器、生成工具和运行时”>“Visual C++ 2015.3 v140 工具集”。 这是因为 Python（适用于 Windows）本身是使用 Visual Studio 2015（版本 14.0）构建的，并期望通过此处所述的方法生成扩展时能够使用这些工具。
 
-1. 在 C++ 项目中创建名为 `setup.py` 的文件，方法是右键单击项目，选择“添加”>“新建项...”*，搜索“Python”，然后选择“Python 文件”**，将其命名为 setup.py，然后选择“确定”*。 当编辑器中出现该文件时，将以下代码粘贴到其中：
+1. 在 C++ 项目中创建名为 `setup.py` 的文件，方法是右键单击项目，选择“添加”>“新建项...”**，搜索“Python”，然后选择“Python 文件”**，将其命名为 setup.py，然后选择“确定”。 当编辑器中出现该文件时，将以下代码粘贴到其中：
 
     ```python
     from distutils.core import setup, Extension, DEBUG
@@ -284,7 +284,7 @@ Visual Studio 中的 Python 支持包括[同时调试 Python 和 C++ 代码](deb
 
 | 方法 | 年份 | 代表用户 | 优点 | 缺点 |
 | --- | --- | --- | --- | --- |
-| 适用于 CPython 的 C/C++ 扩展模块 | 1991 | 标准库 | [丰富的文档和教程](https://docs.python.org/e/c-api/)。 完全控制。 | 编译、可移植性、引用管理。 扎实的 C 知识。 |
+| 适用于 CPython 的 C/C++ 扩展模块 | 1991 | 标准库 | [丰富的文档和教程](https://docs.python.org/3/c-api/)。 完全控制。 | 编译、可移植性、引用管理。 扎实的 C 知识。 |
 | SWIG | 1996 | [crfsuite](http://www.chokkan.org/software/crfsuite/) | 针对多种语言立即生成绑定。 | 如果 Python 是唯一目标，则开销过大。 |
 | ctype | 2003 | [oscrypto](https://github.com/wbond/oscrypto) | 无编译，广泛可用性。 | 访问和转变 C 结构的过程比较繁琐且容易出错。 |
 | Cython | 2007 | [gevent](http://www.gevent.org/)、[kivy](https://kivy.org/) | 类似于 Python。 非常成熟。 高性能。 | 编译、新语法和工具链。 |

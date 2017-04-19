@@ -1,7 +1,7 @@
 ---
-title: "在针对 Visual Studio 的 Python 工具中编辑代码 | Microsoft Docs"
+title: "在 Visual Studio 中编辑 Python 代码 | Microsoft Docs"
 ms.custom: 
-ms.date: 3/7/2017
+ms.date: 4/10/2017
 ms.prod: visual-studio-dev15
 ms.reviewer: 
 ms.suite: 
@@ -29,15 +29,15 @@ translation.priority.ht:
 - zh-cn
 - zh-tw
 translationtype: Human Translation
-ms.sourcegitcommit: a42f5a30375192c89c9984e40ba0104da98d7253
-ms.openlocfilehash: 79d7c18b672119b745258feee0f646dff96c1922
-ms.lasthandoff: 03/07/2017
+ms.sourcegitcommit: 9328c347d548a03a536cea16bd5851817c03d5a2
+ms.openlocfilehash: 0f2ecd6ca52a04e8813610c0f406251ef4604354
+ms.lasthandoff: 04/10/2017
 
 ---
 
 # <a name="editing-python-code"></a>编辑 Python 代码
 
-开发人员在代码编辑器上花费大量时间，因此针对 Visual Studio 的 Python 工具 (PTVS) 提供有助于提高工作效率的功能，如 IntelliSense 语法突出显示、自动完成、签名帮助、方法重写以及搜索和导航。 
+开发人员会在代码编辑器上花费大量时间，因此 Visual Studio 中的 Python 支持提供有助于提高工作效率的功能，如 IntelliSense 语法突出显示、自动完成、签名帮助、方法重写以及搜索和导航。 
 
 在本主题中：
 
@@ -45,9 +45,9 @@ ms.lasthandoff: 03/07/2017
 - [代码片段](#code-snippets)
 - [导航代码](#navigating-your-code)
 
-有关在 Visual Studio 中编辑代码的常规文档，请参阅[在代码和文本编辑器中编写代码](../ide/writing-code-in-the-code-and-text-editor.md)。 另请参阅 [Visual Studio 中的大纲显示](../ide/outlining.md)，方便你将重点放在代码的特定部分。 PTVS 支持使用 Visual Studio 对象浏览器（“视图”>“其他窗口”>“对象浏览器”或 Ctrl+W、J）检查每个模块中定义的类及这些类中定义的函数。 
+有关在 Visual Studio 中编辑代码的常规文档，请参阅[在代码和文本编辑器中编写代码](../ide/writing-code-in-the-code-and-text-editor.md)。 另请参阅 [Visual Studio 中的大纲显示](../ide/outlining.md)，方便你将重点放在代码的特定部分。 Python 支持包括使用 Visual Studio 对象浏览器（“视图”>“其他窗口”>“对象浏览器”或 Ctrl+W、J）检查每个模块中定义的类及这些类中定义的函数。 
 
-有关编辑 Python 代码的简介，请参阅 [PTVS 入门，第 3 部分：编辑](https://youtu.be/uZGZNEyyeKs?list=PLReL099Y5nRdLgGAdrb_YeTdEnd23s6Ff)（youtube.com，3 分 48 秒）：
+有关编辑 Python 代码的简介，请参阅 [ Visual Studio 中的 Python 入门，第 3 部分：编辑](https://youtu.be/uZGZNEyyeKs?list=PLReL099Y5nRdLgGAdrb_YeTdEnd23s6Ff)（youtube.com，3 分 48 秒）：
 
 > [!VIDEO https://www.youtube.com/embed/uZGZNEyyeKs]
 
@@ -136,12 +136,12 @@ IntelliSense 可提供[完成](#completions)、[签名帮助](#signature-help)�
 若要创建自己的代码段，请参阅[演练：创建代码段](https://docs.microsoft.com/en-us/visualstudio/ide/walkthrough-creating-a-code-snippet)。
 通过[创建代码段](https://msdn.microsoft.com/en-us/library/ms165394.aspx)并导入可自定义代码片段 
 
-如果编写优质的代码片段并且想要将其共享，请随时发布到 gist 并[告诉我们](https://github.com/Microsoft/PTVS/issues)。 我们可能将其包含在 PTVS 的未来版本中。
+如果编写优质的代码片段并且想要将其共享，请随时发布到 gist 并[告诉我们](https://github.com/Microsoft/PTVS/issues)。 我们可能将其包含在 Visual Studio 的未来版本中。
 
 
 ## <a name="navigating-your-code"></a>导航代码
 
-PTVS 可提供多种方式在代码中快速导航，其中包括其源代码可用的库：[导航栏](#navigation-bar)、[转到定义](#go-to-definition)、[导航到](#navigate-to)、[查找所有引用](#find-all-references)和[对象浏览器](#object-browser)。
+Visual Studio 中的 Python 支持可提供多种方式在代码中快速导航，其中包括其源代码可用的库：[导航栏](#navigation-bar)、[转到定义](#go-to-definition)、[导航到](#navigate-to)、[查找所有引用](#find-all-references)，如下所述。 还可以使用 Visual Studio [对象浏览器](../ide/viewing-the-structure-of-code.md#BKMK_ObjectBrowser)。
 
 ### <a name="navigation-bar"></a>导航栏
 
