@@ -1,7 +1,7 @@
 ---
-title: "在针对 Visual Studio 的 Python 工具中设置代码格式 | Microsoft Docs"
+title: "在 Visual Studio 中设置 Python 代码格式 | Microsoft Docs"
 ms.custom: 
-ms.date: 3/7/2017
+ms.date: 4/10/2017
 ms.prod: visual-studio-dev15
 ms.reviewer: 
 ms.suite: 
@@ -29,22 +29,22 @@ translation.priority.ht:
 - zh-cn
 - zh-tw
 translationtype: Human Translation
-ms.sourcegitcommit: 7d726441c2d6953bd7b50451bec7fff05d5d71b0
-ms.openlocfilehash: c1d7a19438b796c5666daecef33052e43d1f720f
-ms.lasthandoff: 03/10/2017
+ms.sourcegitcommit: 9328c347d548a03a536cea16bd5851817c03d5a2
+ms.openlocfilehash: b9e1c2b6be671adb99a13e4a0eb4357fbba477b2
+ms.lasthandoff: 04/10/2017
 
 ---
 
 # <a name="formatting-python-code"></a>设置 Python 代码格式
 
-在针对 Visual Studio 的 Python 工具 (PTVS) 2.0 版及更高版本中设置代码格式，可以快速重新设置代码格式，以匹配预先配置的格式选项。
+在 Visual Studio 中，可以快速重新设置代码格式以匹配预先配置的格式设置选项。
 
 - 若要设置选定内容的格式：请选择“编辑”>“高级”>“设置选定内容的格式”或按 Ctrl+E、F。
 - 若要设置整个文件的格式：请选择“编辑”>“高级”>“设置文档的格式”或按 Ctrl+E、D。
 
 通过“工具”>“选项”>“文本编辑器”>“Python”>“格式”及其子选项卡设置选项，并且默认情况下设置为匹配 [PEP 8 样式指南](http://www.python.org/dev/peps/pep-0008/)的超集。 “常规”选项卡确定何时应用格式；其他三个子页面在下面各部分定义。
 
-PTVS 还将向“编辑”>“高级”菜单添加有用的[填充注释段落](#fill-comment-paragraph)命令，如下所述。
+Visual Studio 中的 Python 还将向“编辑”>“高级”菜单添加有用的[填充注释段落](#fill-comment-paragraph-command)命令，如下所述。
 
 ## <a name="spacing"></a>间距
 
@@ -109,7 +109,7 @@ PTVS 还将向“编辑”>“高级”菜单添加有用的[填充注释段落]
 
 ## <a name="wrapping"></a>换行
 
-“换行”使你可设置“最大注释宽度”（默认值为 80），以便在设置“换行过宽注释”选项后，PTVS 将重新设置注释格式，使其不超过该宽度。
+对于“换行”，可设置“最大注释宽度”（默认值为 80），以便在设置“换行过宽注释”选项后，Visual Studio 重新设置注释格式，使其不超过该宽度。
 
 ```python
 # Wrapped to 40 columns

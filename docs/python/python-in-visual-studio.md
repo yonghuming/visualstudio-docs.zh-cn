@@ -29,9 +29,9 @@ translation.priority.ht:
 - zh-cn
 - zh-tw
 translationtype: Human Translation
-ms.sourcegitcommit: 5b6334c38a6c058f274498c06f8e07c934931910
-ms.openlocfilehash: 746dd25dde790d5e262e25a3702b49721edc3510
-ms.lasthandoff: 03/22/2017
+ms.sourcegitcommit: 06f5b9d2223ccb9cbbbff8f2960d89c8efbf05b2
+ms.openlocfilehash: 83a676c5f2f838b6920c5fafbe78dc9b49fbb4cb
+ms.lasthandoff: 04/12/2017
 
 ---
 
@@ -39,7 +39,7 @@ ms.lasthandoff: 03/22/2017
 
 Python 是一个受欢迎的编程语言，它可靠、灵活、易于学习、可在所有操作系统上免费使用，并且强大的开发人员社区和很多免费库都支持它。 Python 支持所有开发方式，包括 Web 应用程序、Web 服务、桌面应用、脚本编写和科学计算，许多高校人员、科学家、业余和专业开发人员都在使用 Python。 可以在 [python.org](https://www.python.org) 和 [Python for Beginners](https://www.python.org/about/gettingstarted/)（面向初学者的 Python）中了解有关该语言的详细信息。
 
-Visual Studio 通过 Python 工作负载 (Visual Studio 2017) 和免费的针对 Visual Studio 的 Python 工具扩展（Visual Studio 2015 及更早版本），为 Python 提供[开源代码](https://github.com/Microsoft/ptvs)支持。 
+Visual Studio 通过 Python 工作负载 (Visual Studio 2017) 和免费的针对 Visual Studio 的 Python 工具扩展（Visual Studio 2015 及更早版本），为 Python 语言提供[开源代码](https://github.com/Microsoft/ptvs)支持。 
 
 请按照[安装说明](installation.md)设置 Python 工作负载，然后使用下方的链接详细了解与 Python 相关的功能，以及 Visual Studio 本身的功能。
 
@@ -57,9 +57,19 @@ Visual Studio 通过 Python 工作负载 (Visual Studio 2017) 和免费的针对
 
 Python 工作负载还包括[用于 Python 的 Azure SDK](azure-sdk-for-python.md)，它用于简化 Azure 服务的使用，并且提供面向 Windows、Mac OS X 和 Linux 的支持。
 
-另请参阅 YouTube 上的[入门和进阶视频](https://www.youtube.com/playlist?list=PLReL099Y5nRdLgGAdrb_YeTdEnd23s6Ff)系列，了解关于主要功能的概述。
+YouTube 上的[入门和进阶视频](https://www.youtube.com/playlist?list=PLReL099Y5nRdLgGAdrb_YeTdEnd23s6Ff)系列概述了主要功能。
 
 [![Python 工具视频](media/video-general.png)](https://www.youtube.com/playlist?list=PLReL099Y5nRdLgGAdrb_YeTdEnd23s6Ff)
+
+## <a name="questions-and-answers"></a>问题和解答
+
+**问：构建 Python UI 可以使用什么工具？**
+
+答： 该领域的主要产品是 [Qt 项目](https://www.qt.io/qt-for-application-development/)，其中与 Python 的绑定称为[PySide（官方绑定）](http://wiki.qt.io/PySide)（另请参阅 [PySide 下载](https://download.qt.io/official_releases/pyside/.)）和 [PyQt](https://wiki.python.org/moin/PyQt)。 目前，Visual Studio 中的 Python 支持不包括用于 UI 开发的任何特定工具。
+
+**问：Python 项目是否可以生成独立的可执行文件？**
+
+答： Python 通常是一种解释型语言，代码在适合 Python 功能的环境（如 Visual Studio 和 Web 服务器）中按需运行。 目前，Visual Studio 本身不提供创建独立可执行文件的方法，它本质上是一个具有嵌入式 Python 解释器的程序。 但是，如 [StackOverflow](http://stackoverflow.com/questions/5458048/how-to-make-a-python-script-standalone-executable-to-run-without-any-dependency) 所述，Python 社区中有多种方法可以实现此功能。 如博客文章 [Using CPython's Embeddable Zip File](https://blogs.msdn.microsoft.com/pythonengineering/2016/04/26/cpython-embeddable-zip-file/)（使用 CPython 可嵌入 zip 文件）中所述，CPython 还支持嵌入到本机应用程序中。
 
 ## <a name="features-matrix"></a>功能矩阵
 
@@ -68,8 +78,8 @@ Python 工作负载还包括[用于 Python 的 Azure SDK](azure-sdk-for-python.m
 - [Visual Studio 2017 预览版](https://www.visualstudio.com/vs/preview)
 - [Visual Studio 2015（所有版本）](https://www.visualstudio.com/zh-cn/downloads/visual-studio-2015-downloads-vs)
 - [Visual Studio 2013 Community Edition](https://www.visualstudio.com/zh-cn/products/visual-studio-community-vs.aspx)
-- [Visual Studio Express 2013 for Web、Visual Studio Express 2013 Update 2 或更高版本](http://www.microsoft.com/en-us/download/details.aspx?id=40747)
-- [用于桌面的 Visual Studio 2013 Express、Visual Studio Express 2013 Update 2 或更高版本](http://www.microsoft.com/en-us/download/details.aspx?id=40787)
+- [Visual Studio Express 2013 for Web、Visual Studio Express 2013 Update 2 或更高版本](https://www.microsoft.com/en-us/download/details.aspx?id=44912)
+- [用于桌面的 Visual Studio 2013 Express、Visual Studio Express 2013 Update 2 或更高版本](https://www.microsoft.com/en-US/download/details.aspx?id=44914)
 - Visual Studio 2013（Pro 或更高版本）
 - Visual Studio 2012（Pro 或更高版本）
 - Visual Studio 2010 SP1（Pro 或更高版本；需要 .NET 4.5）

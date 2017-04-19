@@ -1,7 +1,7 @@
 ---
-title: "使用针对 Visual Studio 的 Python 工具进行混合模式调试的符号 | Microsoft Docs"
+title: "Visual Studio 中 Python/C++ 混合模式调试的符号 | Microsoft Docs"
 ms.custom: 
-ms.date: 3/7/2017
+ms.date: 4/4/2017
 ms.prod: visual-studio-dev15
 ms.reviewer: 
 ms.suite: 
@@ -29,41 +29,60 @@ translation.priority.ht:
 - zh-cn
 - zh-tw
 translationtype: Human Translation
-ms.sourcegitcommit: a42f5a30375192c89c9984e40ba0104da98d7253
-ms.openlocfilehash: 9f7ba91262875344ded1e09277883abff292f359
-ms.lasthandoff: 03/07/2017
+ms.sourcegitcommit: adf122a478b29674dc2924dcf7d42972a5a3f52e
+ms.openlocfilehash: b8bf362f506255c09468934f01a7beeef3a632dd
+ms.lasthandoff: 04/10/2017
 
 ---
 
 # <a name="installing-debugging-symbols-for-python-interpreters"></a>安装用于 Python 解释器的调试符号
 
-若要提供完整的调试体验，针对 Visual Studio 的 Python 工具 (PTVS) 中的[混合模式调试器](debugging-mixed-mode.md)需要分析正在使用的 Python 解释器内的大量内部数据结构。 这需要解释器本身的调试符号。 例如，python27.dll 对应的符号文件是 python27.pdb。
+为了提供完整的调试体验，Visual Studio 中 [Python 混合模式调试器](debugging-mixed-mode.md)需要分析正在使用的 Python 解释器内的大量内部数据结构。 这需要解释器本身的调试符号。 例如，对于 python27.dll，相应的符号文件是 python27.pdb；对于 python36.dll，符号文件是 python36.pdb。 解释器的每个版本都提供了各种模块的符号文件。
 
-当 PTVS 检测到它需要符号时，它会提示你指向包含符号文件的文件夹或下载它们：
+对于 Visual Studio 2017，“Python 3”和“Anaconda 3”解释器会自动安装其各自的符号，Visual Studio 会自动找到它们。 对于 Visual Studio 2015 及更早版本，或使用其他解释器时，需要单独下载符号，然后通过“调试”>“符号”选项卡中的“工具”>“选项”对话框，将 Visual Studio 指向它们。 以下各节将详细介绍这些步骤。
 
-![混合模式调试过程中的符号提示](media/mixed-mode-debugging-symbols-required.png) 
+Visual Studio 可能会在需要符号的时候（通常是在启动混合模式的调试会话时）提示你。 在这种情况下，将显示一个对话框，其中包含两个选项：
 
-如下所述，可从[正式分发](#official-distribution)或 [Enthought Canopy](#enthought-canopy) 下载符号文件。 如果使用 ActiveState Python 等第三方 Python 分发，你需要联系该分发的作者并请求他们为你提供符号。 （但是，WinPython 采用了未做更改的标准 Python 器，因此请使用正式分发的符号来表示相应的版本号。）
+- “打开符号设置”对话框将打开“选项”对话框以转到“调试”>“符号”选项卡。
+- “为解释器下载符号”将打开当前文档页面，在这种情况下，选择“工具”>“选项”并导航到“调试”>“符号”选项卡以继续操作。
 
-如下所示，获得解释器的 .pdb 文件后，你将使 PTVS 注意到它们，以便在启动调试会话时自动加载它们：
+    ![混合模式调试器符号提示](media/mixed-mode-debugging-symbols-required.png)
 
-1. 选择“工具”>“选项”菜单命令，然后导航至“调试”>“符号”：
+## <a name="downloading-symbols"></a>正在下载符号
 
-![混合模式调试器符号选项](media/mixed-mode-debugging-symbols.png)
+- Python 3.5 及更高版本：通过 Python 安装程序获取调试符号。 选择“自定义安装”，选择“下一步”以转到“高级选项”，然后选择“下载调试符号”和“下载调试二进制文件”这两个框：
 
-1. 选择工具栏上的“添加”按钮（如上所示最左侧的按钮，位于 ！ 图标 右侧），导航到包含 .pdb 文件的文件夹，然后选择“确定”。
+    ![Python 3.x 安装程序包含调试符号](media/mixed-mode-debugging-symbols-installer35.png)
 
+    将在根安装文件夹中找到符号文件 (`.pdb`)（各个模块的符号文件也在 `DLLs` 文件夹中）。 因此，Visual Studio 会自动找到它们，不需要进一步操作。
 
-## <a name="official-distribution"></a>正式分发
+- Python 3.4.x 及更早版本：[正式分发](#official-distributions)或 [Enthought Canopy](#enthought-canopy) 以可下载 zip 文件的形式提供符号，如下所示。 下载后，将文件提取到本地文件夹（如 Python 文件夹内的 `Symbols` 文件夹）以继续操作。
 
-使用 Python 3.5 及更高版本时，可以通过安装程序（通过新的安装或修改现有安装）包括调试符号。 选择“自定义安装”，选择“下一步”以转到“高级选项”，然后选择“下载调试符号”**复选框，然后选择“下载调试二进制文件”**：
+    > [!Important]
+    > Python 较低版本之间，以及 32 位 和 64 位版本之间的符号都有所不同，因此需要完全匹配这些版本。 若要检查所使用的解释器，请在解决方案资源管理器中展开项目下的“Python 环境”节点，并记下环境名称。 然后切换到“Python 环境”窗口，并记下安装位置。 然后，在该位置打开命令窗口，并启动 `python.exe`，后者将显示确切版本以及版本属于 32 位还是 64 位。
 
-![Python 3.x 安装程序包含调试符号](media/mixed-mode-debugging-symbols-installer35.png)
+- 对于 ActiveState Python 等任何其他第三方 Python 分发，请联系该分发的作者并请求他们为你提供符号。 WinPython 部件采用了未做更改的标准 Python 器，因此请使用相应版本号的正式分发中的符号。
 
-对于 Python 3.4.x 和早期版本，符号均以可下载的 .zip 文件提供。 下载后，请将这些文件提取到文件夹，然后安装上一节中的说明注册到 PTVS。
+## <a name="pointing-visual-studio-to-the-symbols"></a>将 Visual Studio 指向符号
+
+如果单独下载符号，请按照以下步骤使 Visual Studio 找到符号。 如果通过 Python 3.5 或更高版本的安装程序安装符号，Visual Studio 会自动找到它们。
+
+1. 选择“工具”>“选项”菜单，然后导航到“调试”>“符号”。
+    
+1. 选择工具栏上的“添加”按钮（见下文），输入在其中展开了下载的符号的文件夹位置（即 `python.pdb` 所在的文件夹，例如 `c:\python34\Symbols`，如下所示），然后选择“确定”。 
+
+    ![混合模式调试器符号选项](media/mixed-mode-debugging-symbols.png)
+
+1. 在调试会话期间，Visual Studio 可能还会提示你输入 Python 解释器的源文件位置。 如果已下载源文件（例如从 [python.org/downloads](https://www.python.org/downloads)，当然也可以指向它们。
+
+> [!Note]
+> 对话框中显示的符号缓存功能用于创建从联机源获取的符号的本地缓存。 Python 解释器符号不需要这些功能，因为你已经将它们下载到了本地。 有关任何情况的详细信息，请参阅[在 Visual Studio 调试器中指定符号和源文件](../debugger/specify-symbol-dot-pdb-and-source-files-in-the-visual-studio-debugger.md)。
+
+## <a name="official-distributions"></a>正式分发
 
 | Python 版本 | 下载 | 
 | --- | --- | 
+| 3.5 及更高版本 | 通过 Python 安装程序安装符号。 | 
 | 3.4.4 | [32 位](https://www.python.org/ftp/python/3.4.4/python-3.4.4-pdb.zip) - [64 位](https://www.python.org/ftp/python/3.4.4/python-3.4.4.amd64-pdb.zip) |
 | 3.4.3 | [32 位](https://www.python.org/ftp/python/3.4.3/python-3.4.3-pdb.zip) - [64 位](https://www.python.org/ftp/python/3.4.3/python-3.4.3.amd64-pdb.zip) |
 | 3.4.2 | [32 位](https://www.python.org/ftp/python/3.4.2/python-3.4.2-pdb.zip) - [64 位](https://www.python.org/ftp/python/3.4.2/python-3.4.2.amd64-pdb.zip) |

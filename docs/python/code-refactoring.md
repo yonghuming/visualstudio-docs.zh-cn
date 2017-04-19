@@ -1,7 +1,7 @@
 ---
-title: "在针对 Visual Studio 的 Python 工具中重构代码 | Microsoft Docs"
+title: "在 Visual Studio 中重构 Python 代码 | Microsoft Docs"
 ms.custom: 
-ms.date: 3/7/2017
+ms.date: 4/10/2017
 ms.prod: visual-studio-dev15
 ms.reviewer: 
 ms.suite: 
@@ -29,15 +29,15 @@ translation.priority.ht:
 - zh-cn
 - zh-tw
 translationtype: Human Translation
-ms.sourcegitcommit: b0d84db6a16861fb9554af2a644423f906784748
-ms.openlocfilehash: dc51f41277c91288c0812cb5c22f48d827d741aa
-ms.lasthandoff: 03/07/2017
+ms.sourcegitcommit: 9328c347d548a03a536cea16bd5851817c03d5a2
+ms.openlocfilehash: ea69604524010ab794a4de0e85aea1e5fd680ac4
+ms.lasthandoff: 04/10/2017
 
 ---
 
 # <a name="refactoring-python-code"></a>重构 Python 代码
 
-针对 Visual Studio 的 Python 工具 (PTVS) 提供用于自动转换和清理源代码的多个命令：
+Visual Studio 提供用于自动转换和清理 Python 源代码的多个命令：
 
 - [重命名](#rename)：可重命名所选类、方法或变量名称
 - [提取方法](#extract-method)：根据所选代码创建新的方法
@@ -72,7 +72,7 @@ ms.lasthandoff: 03/07/2017
 
 ## <a name="add-import"></a>添加导入
 
-将光标放在缺少类型信息的标识符上时，PTVS 将提供其命令将添加必需 `import` 或 `from ... import` 语句的智能标记（代码左侧的灯泡图标）：
+将光标放在缺少类型信息的标识符上时，Visual Studio 将提供一个智能标记（代码左侧的灯泡图标），该标记的命令将添加必需的 `import` 或 `from ... import` 语句：
 
 ![添加导入智能标记](media/code-refactor-add-import-1.png)
 
@@ -80,23 +80,23 @@ ms.lasthandoff: 03/07/2017
 
 ![添加导入的结果](media/code-refactor-add-import-2.png)
 
-PTVS 尝试筛选出实际未在模块中定义的成员，如导入其他模块但不属于执行导入操作的模块的子级的模块。 例如，许多模块使用 `import sys` 而不是 `from xyz import sys`，因此 PTVS 不提供用于从其他模块导入 `sys` 的完成，即使模块缺少可排除 `sys` 的 `__all__` 成员。
+Visual Studio 尝试筛选出实际未在模块中定义的成员，例如导入其他模块但不属于执行导入操作的模块的子级的模块。 例如，许多模块使用 `import sys` 而不是 `from xyz import sys`，因此你不会看到从其他模块导入 `sys` 的完成，即使模块缺少可排除 `sys` 的 `__all__` 成员。
 
-同样，PTVS 将筛选从其他模块或内置命名空间导入的函数。 例如，如果某个模块从 `sys` 模块导入 `settrace` 函数，从理论上讲，可以从该模块导入它。 但最好直接使用 `import settrace from sys`，以便 PTVS 专门提供该语句。
+同样，Visual Studio 将筛选从其他模块或内置命名空间导入的函数。 例如，如果某个模块从 `sys` 模块导入 `settrace` 函数，从理论上讲，可以从该模块导入它。 但最好直接使用 `import settrace from sys`，以便 Visual Studio 专门提供该语句。
 
-最后，如果由于上述规则将排除某些内容，但该内容具有将包括的其他值（例如，因为名称分配有模块中的值），PTVS 仍将排除该导入。 这假定不应导出该值，因为它定义于其他模块，因此其他分配可能为也不被导出的虚拟值。
+最后，如果由于上述规则将排除某些内容，但该内容具有将包括的其他值（例如，由于名称分配有模块中的值），Visual Studio 仍将排除该导入。 这假定不应导出该值，因为它定义于其他模块，因此其他分配可能为也不被导出的虚拟值。
 
 <a name="remove-imports"</a>
 ## <a name="remove-unused-imports"></a>删除未使用的导入
 
-编写代码时，可对根本未使用的模块使用 `import` 语句结尾。 因为 PTVS 分析你的代码，它查看所导入名称在出现语句的位置下是否被使用，从而自动确定是否需要 `import` 语句。
+编写代码时，可对根本未使用的模块使用 `import` 语句结尾。 因为 Visual Studio 可对代码进行分析，因此它可自动确定是否需要 `import` 语句，方法是查看所导入名称在出现语句的位置下方是否被使用。
 
 在编辑器中右键单击任意位置，然后选择“删除导入”，这将为你提供从“所有范围”或仅“当前范围”中删除的选项：
 
 ![删除导入菜单](media/code-refactor-remove-imports-1.png)
 
-PTVS 然后将对代码进行相应更改：
+Visual Studio 然后将对代码进行相应更改：
 
 ![删除导入的影响](media/code-refactor-remove-imports-2.png)
 
-请注意，PTVS 不考虑控制流；在 `import` 语句前使用名称将视该名称为实际已使用。 PTVS 还会忽略所有 `from __future__` 导入，在类定义中执行的导入以及来自 `from ... import *` 语句中的导入。
+请注意，Visual Studio 不考虑控制流；在 `import` 语句前使用某个名称，该名称将被视为实际已使用。 Visual Studio 还会忽略所有 `from __future__` 导入、在类定义中执行的导入以及来自 `from ... import *` 语句中的导入。

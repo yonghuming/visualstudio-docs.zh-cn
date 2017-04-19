@@ -29,13 +29,42 @@ translation.priority.mt:
 - pt-br
 - tr-tr
 translationtype: Human Translation
-ms.sourcegitcommit: 91fde66abf2f325ef0a6a0a2fd30e36981f44033
-ms.openlocfilehash: 8c13675dbd06111bb0eced77f9343c80959afba1
-ms.lasthandoff: 03/08/2017
+ms.sourcegitcommit: 47c39bd711b69efdb863d71f11e3e472054a3ce3
+ms.openlocfilehash: 2af148cb8367ea3a584ac8e028c8167e4ad6123b
+ms.lasthandoff: 04/06/2017
 
 ---
 # <a name="change-log-visual-studio-tools-for-unity"></a>更改日志（Visual Studio Tools for Unity）
 Visual Studio Tools for Unity 更改日志。  
+
+## <a name="3100"></a>3.1.0.0
+ 发布时间 2017-04-07
+
+### <a name="new-features"></a>新增功能  
+  
+-   **调试器：**  
+
+    -   增加了对新的 Unity 运行时（与 .NET 4.6/C# 6 兼容）的支持。
+        
+-   **项目生成：**  
+
+    -   添加了对 .NET 4.6 配置文件的支持。
+    
+    -   添加了对 mcs.rsp 文件的支持。
+    
+    -   使用 Unity 5.6 时，始终启用不安全编译开关。
+    
+    -   使用 Windows 应用商店平台和 il2cpp 后端时，增加了对“Player”项目生成的支持。
+   
+### <a name="bug-fixes"></a>Bug 修复  
+  
+-   **代码编辑器：**  
+
+    -   使用自动完成功能修复了插入方法后的插入符号位置。
+  
+-   **项目生成：**  
+  
+    -   删除了程序集版本后处理。
 
 ## <a name="3001"></a>3.0.0.1
  发布时间 2017-03-07

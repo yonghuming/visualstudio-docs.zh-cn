@@ -1,7 +1,7 @@
 ---
-title: "针对 Visual Studio 的 Python 工具中的混合模式调试 | Microsoft Docs"
+title: "Visual Studio 中 Python 的混合模式调试 | Microsoft Docs"
 ms.custom: 
-ms.date: 3/7/2017
+ms.date: 4/10/2017
 ms.prod: visual-studio-dev15
 ms.reviewer: 
 ms.suite: 
@@ -29,9 +29,9 @@ translation.priority.ht:
 - zh-cn
 - zh-tw
 translationtype: Human Translation
-ms.sourcegitcommit: e9a05d008f671fb79d6813a14c594b82f27697e3
-ms.openlocfilehash: ddbac5b8ed52e6ed7afae7e7b04dc2fa15f7a0c2
-ms.lasthandoff: 03/27/2017
+ms.sourcegitcommit: 9328c347d548a03a536cea16bd5851817c03d5a2
+ms.openlocfilehash: bdc621831893f907beba7ec5ad503fe4d96c0042
+ms.lasthandoff: 04/10/2017
 
 ---
 
@@ -70,7 +70,7 @@ ms.lasthandoff: 03/27/2017
 
 - [合并调用堆栈](#combined-call-stack)
 - [在 Python 和本机代码之间进行单步执行](#stepping-between-python-and-native-code)
-- [本机代码中的 PyObject 值视图](#pyobject-values-in-native-code)
+- [本机代码中的 PyObject 值视图](#pyobject-values-view-in-native-code)
 - [Python 代码中的本机值视图](#native-values-view-in-python-code)
 
 ### <a name="combined-call-stack"></a>合并调用堆栈
@@ -153,7 +153,7 @@ static int FobObject_init(FobObject* self, PyObject* args, PyObject* kwds) {
 - 不支持的功能：条件断点、调试交互窗口和跨平台远程调试。
 - 即时窗口：可用但其功能有限，包括此处列出的所有限制。
 - 支持的 Python 版本：仅限 CPython 2.7 和 3.3+。
-- Visual Studio Shell：将 Visual Studio Shell 与 PTVS 配合使用时（例如，如果已使用集成安装程序安装），Visual Studio 不能打开 C++ 项目，且 C++ 文件的编辑体验只是一个基本的文本编辑器。 但是，在调试器窗口中含源代码、单步执行本机代码和 C++ 表达式评估的 Shell 中完全支持 C/C++ 调试和混合模式调试。
+- Visual Studio Shell：将 Visual Studio Shell 与 Python 配合使用时（例如，如果已使用集成安装程序安装），Visual Studio 无法打开 C++ 项目，且 C++ 文件的编辑体验只是一个基本的文本编辑器。 但是，在调试器窗口中含源代码、单步执行本机代码和 C++ 表达式评估的 Shell 中完全支持 C/C++ 调试和混合模式调试。
 - 查看和扩展对象：在局部变量和监视调试器工具窗口中查看 Python 对象时，混合模式调试器仅显示对象的结构。 它不会自动评估属性，也不会显示计算特性。 对于集合，它仅显示内置集合类型的元素（`tuple`、`list`、`dict` 和 `set`。 自定义集合类型不会可视化为集合，除非它们继承自某些内置集合类型。
 - 表达式评估：请参阅下文。
 
