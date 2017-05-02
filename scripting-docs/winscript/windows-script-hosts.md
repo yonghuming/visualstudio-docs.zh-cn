@@ -37,4 +37,4 @@ caps.handback.revision: 7
  这些限制都不适用于选择实现一个自由线程的 [IActiveScriptSite](../winscript/reference/iactivescriptsite.md) 接口和一个自由线程的对象模型的主机。  此宿主可以使用所有线程的 [IActiveScript](../winscript/reference/iactivescript.md) 接口，因此，不受限制。  
   
 ## 请参阅  
- [\<PAVE OVER\> Microsoft Windows 脚本接口 \- 介绍](../Topic/%3CPAVE%20OVER%3E%20Microsoft%20Windows%20Script%20Interfaces%20-%20Introduction.md)
+ [\<PAVE OVER\> Microsoft Windows 脚本接口 \- 介绍](http://msdn.microsoft.com/library/3d10169f-2984-49ef-90c6-dd89c97f1dd6)

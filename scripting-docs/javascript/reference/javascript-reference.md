@@ -43,7 +43,7 @@ caps.handback.revision: 28
   
 -   有关 [!INCLUDE[win8_appname_long](../../javascript/includes/win8-appname-long-md.md)] API 的信息，请参见 [Windows 运行时的 API 参考和 Windows JavaScript 库](http://go.microsoft.com/fwlink/p/?LinkID=250938)。  
   
- Visual Studio 中的 JavaScript 编辑器提供 IntelliSense 支持。  有关更多信息，请参见 [JavaScript IntelliSense](../Topic/JavaScript%20IntelliSense.md)。  
+ Visual Studio 中的 JavaScript 编辑器提供 IntelliSense 支持。  有关更多信息，请参见 [JavaScript IntelliSense](~/ide/javascript-intellisense.md)。  
   
 ## 本节内容  
  [版本信息](../../javascript/reference/javascript-version-information.md)  

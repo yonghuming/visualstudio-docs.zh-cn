@@ -37,7 +37,7 @@ Debug.function
 ## 备注  
  不需要实例化 Debug 对象。 可以通过调用 `function` 访问其所有属性和方法。  
   
- 调试 Internet Explorer 和 [!INCLUDE[win8_appname_long](../../javascript/includes/win8-appname-long-md.md)] 应用的方式有所不同。 在 [!INCLUDE[win8_appname_long](../../javascript/includes/win8-appname-long-md.md)] 应用中，`Debug` 对象的 `write` 和 `writeln` 函数在运行时在 Visual Studio 的“输出”窗口中显示字符串。 有关调试 [!INCLUDE[win8_appname_long](../../javascript/includes/win8-appname-long-md.md)] 应用的详细信息，请参阅[在 Visual Studio 中调试应用程序](../Topic/Debug%20Store%20apps%20in%20Visual%20Studio.md)。  
+ 调试 Internet Explorer 和 [!INCLUDE[win8_appname_long](../../javascript/includes/win8-appname-long-md.md)] 应用的方式有所不同。 在 [!INCLUDE[win8_appname_long](../../javascript/includes/win8-appname-long-md.md)] 应用中，`Debug` 对象的 `write` 和 `writeln` 函数在运行时在 Visual Studio 的“输出”窗口中显示字符串。 有关调试 [!INCLUDE[win8_appname_long](../../javascript/includes/win8-appname-long-md.md)] 应用的详细信息，请参阅[在 Visual Studio 中调试应用程序](~/debugger/debug-store-apps-in-visual-studio.md)。  
   
  若要调试 Internet Explorer 脚本，必须安装有脚本调试器且必须在调试模式下运行脚本。 Internet Explorer 8 及更高版本包括 [!INCLUDE[javascript](../../javascript/includes/javascript-md.md)] 调试器。 如果使用的是 Internet Explorer 的早期版本，请参阅[如何：从 Internet Explorer 启用和启动脚本调试](http://go.microsoft.com/fwlink/?LinkId=133801)。  
   

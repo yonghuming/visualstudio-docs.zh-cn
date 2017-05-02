@@ -22,7 +22,7 @@ caps.handback.revision: 8
 在 JavaScript 可以使用 Windows 运行时 API 的几乎每一个元素。  但是，有的 Windows 运行时元素的 JavaScript 表示形式的某些方面您应谨记。  
   
 > [!IMPORTANT]
->  有关在 C\+\+、C\# 或 Visual Basic 中创建 Windows 运行时组件的信息以及在 JavaScript 中简化它们，请参见 [创建 Windows 运行时组件](../Topic/Creating%20Windows%20Runtime%20Components.md)。  
+>  有关在 C\+\+、C\# 或 Visual Basic 中创建 Windows 运行时组件的信息以及在 JavaScript 中简化它们，请参见 [创建 Windows 运行时组件](http://msdn.microsoft.com/library/9a6b8f0a-7d5e-40a0-a9c5-a59b4908e133)。  
   
 ## 在 Windows 运行时类型的 JavaScript 表示形式的特殊情况  
   

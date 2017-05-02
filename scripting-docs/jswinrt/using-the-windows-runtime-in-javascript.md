@@ -30,7 +30,7 @@ caps.handback.revision: 13
  有关参考文档，请参阅 [Windows Runtime reference](http://msdn.microsoft.com/zh-cn/8fe97dbf-8cd4-435f-b481-9e83d0519f9e)。  代码示例在 JavaScript 中以及在 C\+\+、C\# 和 Visual Basic 中可用。  
   
 ## 在 C\+\+、C\# 或 Visual Basic 中编写 Windows 运行时组件  
- 有关针对可以在 JavaScript 中使用的 Windows 运行时组件编写的说明和准则，请参阅 [创建 Windows 运行时组件](../Topic/Creating%20Windows%20Runtime%20Components.md)。  
+ 有关针对可以在 JavaScript 中使用的 Windows 运行时组件编写的说明和准则，请参阅 [创建 Windows 运行时组件](http://msdn.microsoft.com/library/9a6b8f0a-7d5e-40a0-a9c5-a59b4908e133)。  
   
 ## 使用 Windows 运行时功能的大小写约定  
  在 JavaScript 中针对 Windows 运行时功能的大小写约定与其他语言中的约定略有不同：  
