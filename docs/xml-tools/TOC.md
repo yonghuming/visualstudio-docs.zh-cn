@@ -60,8 +60,3 @@
 ### [XSLT 默认模板](xslt-default-templates.md)
 ### [调试程序用户界面 (XSLT)](debugger-user-interface-xslt.md)
 ### [XSLT 探查器](xslt-profiler.md)
-
-
-<!--HONumber=Feb17_HO4-->
-
-

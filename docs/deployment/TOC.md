@@ -104,8 +104,3 @@
 #### [<Strings> 元素（引导程序）](strings-element-bootstrapper.md)
 #### [<Schedules> 元素（引导程序）](schedules-element-bootstrapper.md)
 ## [InstallShield Limited Edition](installshield-limited-edition.md)
-
-
-<!--HONumber=Feb17_HO4-->
-
-

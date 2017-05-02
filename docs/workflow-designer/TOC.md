@@ -129,8 +129,3 @@
 ##### [“选择规则集”对话框（旧版）](select-rule-set-dialog-box-legacy.md)
 ##### [“主题配置”对话框（旧版）](theme-configuration-dialog-box-legacy.md)
 ##### [“主题、工作流设计器和选项”对话框（旧版）](themes-workflow-designer-options-dialog-box-legacy.md)
-
-
-<!--HONumber=Feb17_HO4-->
-
-
