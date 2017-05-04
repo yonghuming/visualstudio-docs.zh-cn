@@ -98,7 +98,7 @@ caps.handback.revision: 100
  你还可以编写代码以响应任意对象的事件，包括主机控件、应用程序或文档事件。  有关详细信息，请参阅[演练：根据 NamedRange 控件的事件进行编程](../vsto/walkthrough-programming-against-events-of-a-namedrange-control.md)。  
   
 ## 将数据绑定到任务窗格上的控件  
- 操作窗格上控件的数据绑定容量等于 Windows 窗体上控件的容量。  你可以将控件绑定到数据集、类型化数据集和 XML 等数据源。  有关详细信息，请参阅[数据绑定和 Windows 窗体](../Topic/Data%20Binding%20and%20Windows%20Forms.md)。  
+ 操作窗格上控件的数据绑定容量等于 Windows 窗体上控件的容量。  你可以将控件绑定到数据集、类型化数据集和 XML 等数据源。  有关详细信息，请参阅[数据绑定和 Windows 窗体](http://msdn.microsoft.com/library/419aac5e-819b-4aad-88b0-73a2f8c0bd27)。  
   
  可以将操作窗格上的控件和文档上的控件绑定到同一数据集。  例如，可以在操作窗格上的控件和工作表上的控件之间创建主\/从关系。  有关详细信息，请参阅[演练：将数据绑定到 Excel 操作窗格上的控件](../vsto/walkthrough-binding-data-to-controls-on-an-excel-actions-pane.md)。  
   
@@ -124,7 +124,7 @@ caps.handback.revision: 100
  [!code-vb[Trin_VstcoreActionsPaneExcel#10](../snippets/visualbasic/VS_Snippets_OfficeSP/Trin_VstcoreActionsPaneExcel/VB/ThisWorkbook.vb#10)]  
   
 ## 定位控件  
- 如果用户在运行时调整操作窗格的大小，则控件的大小可随操作窗格而变。  你可以使用 Windows 窗体控件的 <xref:System.Windows.Forms.Control.Anchor%2A> 属性将控件定位到操作窗格。  还可以相同方式将 Windows 窗体控件定位到用户控件上。  有关详细信息，请参阅[如何：在 Windows 窗体上锚定控件](../Topic/How%20to:%20Anchor%20Controls%20on%20Windows%20Forms.md)。  
+ 如果用户在运行时调整操作窗格的大小，则控件的大小可随操作窗格而变。  你可以使用 Windows 窗体控件的 <xref:System.Windows.Forms.Control.Anchor%2A> 属性将控件定位到操作窗格。  还可以相同方式将 Windows 窗体控件定位到用户控件上。  有关详细信息，请参阅[如何：在 Windows 窗体上锚定控件](http://msdn.microsoft.com/library/59ea914f-fbd3-427a-80fe-decd02f7ae6d)。  
   
 ## 调整操作窗格的大小  
  无法直接更改 <xref:Microsoft.Office.Tools.ActionsPane> 的大小，因为 <xref:Microsoft.Office.Tools.ActionsPane> 内嵌在任务窗格中。  但是，通过设置表示任务窗格的 <xref:Microsoft.Office.Core.CommandBar> 的 <xref:Microsoft.Office.Core.CommandBar.Width%2A> 属性，即可以编程方式更改任务窗格的宽度。  无论任务窗格时水平停靠的还是浮动的，都可更改它的高度。  

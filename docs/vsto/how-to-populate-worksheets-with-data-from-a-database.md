@@ -38,7 +38,7 @@ caps.handback.revision: 38
   
 1.  在 Visual Studio 中打开一个 Excel 文档级项目，让工作表在设计器中打开。  
   
-2.  打开**“数据源”**窗口，为项目创建一个数据源。  有关更多信息，请参见[如何：连接到数据库中的数据](../Topic/How%20to:%20Connect%20to%20Data%20in%20a%20Database.md)。  
+2.  打开**“数据源”**窗口，为项目创建一个数据源。  有关更多信息，请参见[如何：连接到数据库中的数据](~/data-tools/how-to-connect-to-data-in-a-database.md)。  
   
 3.  将所需的字段或表从**“数据源”**窗口拖到工作表中。  
   
@@ -55,11 +55,11 @@ caps.handback.revision: 38
   
 -   一个类型化数据集，该数据集封装您在数据库中所连接到的数据表。  有关更多信息，请参见[在 Visual Studio 中使用数据集](../data-tools/dataset-tools-in-visual-studio.md)。  
   
--   一个 <xref:System.Windows.Forms.BindingSource>，它将控件连接到类型化数据集。  有关更多信息，请参见[BindingSource 组件概述](../Topic/BindingSource%20Component%20Overview.md)。  
+-   一个 <xref:System.Windows.Forms.BindingSource>，它将控件连接到类型化数据集。  有关更多信息，请参见[BindingSource 组件概述](http://msdn.microsoft.com/library/be838caf-fcb0-4b68-827f-58b2c04b747f)。  
   
 -   一个 TableAdapter，将类型化数据集连接到数据库。  有关更多信息，请参见[TableAdapter 概述](/visual-studio/data-tools/tableadapter-overview)。  
   
--   一个 TableAdapterManager，用于在数据集中协调表适配器以便实现分层更新。  有关更多信息，请参见[分层更新](../data-tools/hierarchical-update.md)和[TableAdapterManager 概述](../Topic/TableAdapterManager%20Overview.md)。  
+-   一个 TableAdapterManager，用于在数据集中协调表适配器以便实现分层更新。  有关更多信息，请参见[分层更新](../data-tools/hierarchical-update.md)和[TableAdapterManager 概述](http://msdn.microsoft.com/library/33076d42-6b41-491a-ac11-6c6339aea650)。  
   
  运行项目时，控件将显示数据源中的第一条记录。  可以使用 <xref:System.Windows.Forms.BindingSource>，以使用户能够在记录之间滚动。  
   

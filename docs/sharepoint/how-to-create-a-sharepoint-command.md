@@ -30,7 +30,7 @@ caps.handback.revision: 21
   
 1.  创建一个具有以下配置的类库项目：  
   
-    -   以 .NET Framework 3.5 为目标。  有关选择目标框架的更多信息，请参见[如何：面向 .NET Framework 的某个版本](../Topic/How%20to:%20Target%20a%20Version%20of%20the%20.NET%20Framework.md)。  
+    -   以 .NET Framework 3.5 为目标。  有关选择目标框架的更多信息，请参见[如何：面向 .NET Framework 的某个版本](~/ide/how-to-target-a-version-of-the-dotnet-framework.md)。  
   
     -   以 AnyCPU 或 x64 平台为目标。  默认情况下，类库项目的目标平台是 AnyCPU。  有关选择目标平台的更多信息，请参见[NIB: How to: Optimize an Application for a Specific CPU Type](http://msdn.microsoft.com/zh-cn/294a75d2-4279-4b72-8298-2bea05be907a)。  
   
@@ -53,7 +53,7 @@ caps.handback.revision: 21
   
     -   该方法还可以具有一个返回值，但此值是可选的。  
   
-    -   第二个参数和返回值必须属于可由 Windows Communication Foundation \(WCF\) 序列化的类型。  有关更多信息，请参见[数据协定序列化程序支持的类型](../Topic/Types%20Supported%20by%20the%20Data%20Contract%20Serializer.md)和[使用 XmlSerializer 类](../Topic/Using%20the%20XmlSerializer%20Class.md)。  
+    -   第二个参数和返回值必须属于可由 Windows Communication Foundation \(WCF\) 序列化的类型。  有关更多信息，请参见[数据协定序列化程序支持的类型](http://msdn.microsoft.com/library/7381b200-437a-4506-9556-d77bf1bc3f34)和[使用 XmlSerializer 类](http://msdn.microsoft.com/library/c680602d-39d3-44f1-bf22-8e6654ad5069)。  
   
     -   该方法可以具有任何可见性（**public**、**internal** 或 **private**），并且它可以是静态的也可以是非静态的。  
   

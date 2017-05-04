@@ -135,7 +135,7 @@ caps.handback.revision: 41
   
  若要处理 Visual Basic 项目中的事件，从代码编辑器顶部的方法名列表中选择一个事件。  
   
- 若要处理 C\# 项目中的事件，订阅 <xref:Microsoft.Office.Tools.Outlook.FormRegionControl.FormRegionShowing> 方法中的控件事件。  有关详细信息，请参阅[如何：订阅和取消订阅事件（C&#35; 编程指南）](../Topic/How%20to:%20Subscribe%20to%20and%20Unsubscribe%20from%20Events%20(C%23%20Programming%20Guide).md)。  
+ 若要处理 C\# 项目中的事件，订阅 <xref:Microsoft.Office.Tools.Outlook.FormRegionControl.FormRegionShowing> 方法中的控件事件。  有关详细信息，请参阅[如何：订阅和取消订阅事件（C&#35; 编程指南）](http://msdn.microsoft.com/library/6319f39f-282c-4173-8a62-6c4657cf51cd)。  
   
  可在窗体区域工厂类的 `InitializeManifest` 方法中更改窗体区域属性。  
   

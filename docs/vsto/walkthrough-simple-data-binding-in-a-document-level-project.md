@@ -191,7 +191,7 @@ caps.handback.revision: 57
   
 -   将单元格绑定到表中的多个列，而不是绑定到一个字段。  有关更多信息，请参见[演练：文档级项目中的复杂数据绑定](../vsto/walkthrough-complex-data-binding-in-a-document-level-project.md)。  
   
--   使用 <xref:System.Windows.Forms.BindingNavigator> 控件滚动记录。  有关更多信息，请参见[如何：使用 Windows 窗体 BindingNavigator 控件定位数据](../Topic/How%20to:%20Navigate%20Data%20with%20the%20Windows%20Forms%20BindingNavigator%20Control.md)。  
+-   使用 <xref:System.Windows.Forms.BindingNavigator> 控件滚动记录。  有关更多信息，请参见[如何：使用 Windows 窗体 BindingNavigator 控件定位数据](http://msdn.microsoft.com/library/0e5d4f34-bc9b-47cf-9b8d-93acbb1f1dbb)。  
   
 ## 请参阅  
  [将数据绑定到 Office 解决方案中的控件](../vsto/binding-data-to-controls-in-office-solutions.md)   

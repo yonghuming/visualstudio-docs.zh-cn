@@ -54,7 +54,7 @@ caps.handback.revision: 48
  当开始调试 Office 项目时，F10 和 F11 的行为与开始调试其他 Visual Basic 或 C\# 的项目时的行为不同。 在 Visual Basic 或 C\# 项目中，调试器将在主函数中停止；在 Office 项目中，Visual Studio 无法控制 Office 应用程序的主函数。 但在调试期间，F10 和 F11 确实具有 Visual Basic 和 C\# 项目中的相同函数。  
   
 ## 显示异常  
- 由于托管代码与非托管代码进行交互的方式，Visual Studio 不会显示 Microsoft Office 应用程序引发的错误。 例如，如果通过使用 Visual Studio 中的 Office 开发工具创建的 VSTO 外接程序引发了异常，Microsoft Office 应用程序将继续运行而不显示错误。 若要查看这些错误，将调试器设置为发生公共语言运行时异常时中断。 有关详细信息，请参阅[如何：在引发异常时中断](../Topic/How%20to:%20Break%20When%20an%20Exception%20is%20Thrown.md)。  
+ 由于托管代码与非托管代码进行交互的方式，Visual Studio 不会显示 Microsoft Office 应用程序引发的错误。 例如，如果通过使用 Visual Studio 中的 Office 开发工具创建的 VSTO 外接程序引发了异常，Microsoft Office 应用程序将继续运行而不显示错误。 若要查看这些错误，将调试器设置为发生公共语言运行时异常时中断。 有关详细信息，请参阅[如何：在引发异常时中断](~/misc/how-to-break-when-an-exception-is-thrown.md)。  
   
  如果将调试器设置为发生公共语言运行时异常时中断，则所有异常都将中断调试器，包括已处理的异常和一些源自运行时本身的最有可能的异常，而这些可能与项目无关。 未找出的有关 msosec 的错误将显示在每个项目中，但可以放心地忽略。 这些 msosec 异常不会影响解决方案。  
   

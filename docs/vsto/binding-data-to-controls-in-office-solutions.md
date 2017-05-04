@@ -34,7 +34,7 @@ caps.handback.revision: 69
   
  宿主控件扩展 Word 和 Excel 对象模型中的对象，例如 Word 中的内容控件和 Excel 中的命名范围。 有关更多信息，请参见[宿主项和宿主控件概述](../vsto/host-items-and-host-controls-overview.md)。  
   
- Windows 窗体和宿主控件使用Windows 窗体数据绑定模型，该模型支持到数据源（例如数据集和数据表）的*简单数据绑定* 和*复杂数据绑定*。 有关 Windows 窗体中数据绑定模型的完整信息，请参阅[数据绑定和 Windows 窗体](../Topic/Data%20Binding%20and%20Windows%20Forms.md)。  
+ Windows 窗体和宿主控件使用Windows 窗体数据绑定模型，该模型支持到数据源（例如数据集和数据表）的*简单数据绑定* 和*复杂数据绑定*。 有关 Windows 窗体中数据绑定模型的完整信息，请参阅[数据绑定和 Windows 窗体](http://msdn.microsoft.com/library/419aac5e-819b-4aad-88b0-73a2f8c0bd27)。  
   
  ![链接到视频](../vsto/media/playvideo.png "链接到视频") 相关视频演示，请参阅[如何实现：在 Excel 中使用数据库数据？](http://go.microsoft.com/fwlink/?LinkID=130287)。  
   
@@ -53,7 +53,7 @@ caps.handback.revision: 69
 ## 复杂数据绑定  
  当控件属性绑定到多个数据元素（例如数据表中的多个列）时，即存在复杂数据绑定。 Excel 的 <xref:Microsoft.Office.Tools.Excel.ListObject> 控件是唯一支持复杂数据绑定的宿主控件。 此外，还有很多支持复杂数据绑定的 Windows 窗体控件，例如 <xref:System.Windows.Forms.DataGridView> 控件。  
   
- 若要执行复杂数据绑定，请将控件的 DataSource 属性设置为复杂数据绑定支持的数据源对象。 例如，<xref:Microsoft.Office.Tools.Excel.ListObject> 控件的 <xref:Microsoft.Office.Tools.Excel.ListObject.DataSource%2A> 属性可以绑定到一个数据表中的多个列。 数据表中的所有数据都在 <xref:Microsoft.Office.Tools.Excel.ListObject> 控件中显示，而当数据表中的数据发生更改时，<xref:Microsoft.Office.Tools.Excel.ListObject> 也会发生更改。 有关可用于复杂数据绑定的数据源的列表，请参阅 [Windows 窗体支持的数据源](../Topic/Data%20Sources%20Supported%20by%20Windows%20Forms.md)。  
+ 若要执行复杂数据绑定，请将控件的 DataSource 属性设置为复杂数据绑定支持的数据源对象。 例如，<xref:Microsoft.Office.Tools.Excel.ListObject> 控件的 <xref:Microsoft.Office.Tools.Excel.ListObject.DataSource%2A> 属性可以绑定到一个数据表中的多个列。 数据表中的所有数据都在 <xref:Microsoft.Office.Tools.Excel.ListObject> 控件中显示，而当数据表中的数据发生更改时，<xref:Microsoft.Office.Tools.Excel.ListObject> 也会发生更改。 有关可用于复杂数据绑定的数据源的列表，请参阅 [Windows 窗体支持的数据源](http://msdn.microsoft.com/library/3d2c43f6-462b-4d35-9c86-13e9afe012e1)。  
   
  下面的代码示例创建具有两个 <xref:System.Data.DataTable> 对象的 <xref:System.Data.DataSet>，并使用数据填充其中一个表。 代码随后将 <xref:Microsoft.Office.Tools.Excel.ListObject> 绑定到包含数据的表。 此示例适用于 Excel 文档级项目。  
   
@@ -63,7 +63,7 @@ caps.handback.revision: 69
  有关演示复杂数据绑定的演练，请参阅[演练：文档级项目中的复杂数据绑定](../vsto/walkthrough-complex-data-binding-in-a-document-level-project.md)（文档级项目）或[演练：VSTO 外接程序项目中的复杂数据绑定](../vsto/walkthrough-complex-data-binding-in-vsto-add-in-project.md)（VSTO 外接程序项目）。  
   
 ## 在文档和工作簿中显示数据  
- 在文档级项目中，可通过与用于 Windows 窗体相同的方法，使用“数据源”窗口轻松地将数据绑定控件添加到文档或工作簿中。 有关使用“数据源”窗口的详细信息，请参阅[在 Visual Studio 中将 Windows 窗体控件绑定到数据](../Topic/Binding%20Windows%20Forms%20controls%20to%20data%20in%20Visual%20Studio.md)和[“数据源”窗口](../Topic/Data%20Sources%20Window.md)。  
+ 在文档级项目中，可通过与用于 Windows 窗体相同的方法，使用“数据源”窗口轻松地将数据绑定控件添加到文档或工作簿中。 有关使用“数据源”窗口的详细信息，请参阅[在 Visual Studio 中将 Windows 窗体控件绑定到数据](../Topic/Binding%20Windows%20Forms%20controls%20to%20data%20in%20Visual%20Studio.md)和[“数据源”窗口](http://msdn.microsoft.com/library/0d20f699-cc95-45b3-8ecb-c7edf1f67992)。  
   
 ### 从“数据源”窗口中拖动控件  
  从“数据源”窗口中将一个对象拖到文档中时，会在此文档中创建一个控件。 所创建的控件的类型取决于绑定的是单列数据还是多列数据。  
@@ -103,8 +103,8 @@ caps.handback.revision: 69
   
 ## 请参阅  
  [如何实现：在 Excel 中使用数据库数据？](http://go.microsoft.com/fwlink/?LinkID=130287)   
- [数据绑定和 Windows 窗体](../Topic/Data%20Binding%20and%20Windows%20Forms.md)   
- [如何：在 Windows 窗体上创建简单绑定控件](../Topic/How%20to:%20Create%20a%20Simple-Bound%20Control%20on%20a%20Windows%20Form.md)   
+ [数据绑定和 Windows 窗体](http://msdn.microsoft.com/library/419aac5e-819b-4aad-88b0-73a2f8c0bd27)   
+ [如何：在 Windows 窗体上创建简单绑定控件](http://msdn.microsoft.com/library/3bcaded8-0f1a-4cc0-8830-f59be253bf4e)   
  [在 Visual Studio 中将 Windows 窗体控件绑定到数据](../Topic/Binding%20Windows%20Forms%20controls%20to%20data%20in%20Visual%20Studio.md)   
  [将数据保存在数据集中](../Topic/Saving%20data%20back%20to%20the%20database.md)   
  [如何：使用 TableAdapter 更新数据](../data-tools/update-data-by-using-a-tableadapter.md)   

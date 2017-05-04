@@ -44,6 +44,6 @@ caps.handback.revision: 47
  [如何：以编程方式使用 Word 中的内置对话框](../vsto/how-to-programmatically-use-built-in-dialog-boxes-in-word.md)   
  [Word 对象模型概述](../vsto/word-object-model-overview.md)   
  [Office 解决方案中的后期绑定](../vsto/late-binding-in-office-solutions.md)   
- [反射（C&#35; 和 Visual Basic）](../Topic/Reflection%20(C%23%20and%20Visual%20Basic).md)  
+ [反射（C&#35; 和 Visual Basic）](http://msdn.microsoft.com/library/5d1d1bcf-08de-4d0b-97a8-912d17c00f26)  
   
   

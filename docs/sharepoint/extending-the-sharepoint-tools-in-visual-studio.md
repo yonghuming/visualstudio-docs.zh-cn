@@ -48,7 +48,7 @@ caps.handback.revision: 38
   
  此外还建议您安装 [!INCLUDE[vssdk_current_long](../sharepoint/includes/vssdk-current-long-md.md)]。  SDK 包含可用于扩展 Visual Studio 的项目模板和工具。  具体而言，SDK 包含可用于轻松创建 Visual Studio 扩展 \(VSIX\) 包的项目模板。  VSIX 包是首选方法部署在 Visual Studio 的 Visual Studio 扩展。  所有 SharePoint 工具扩展都必须使用 VSIX 包来部署。  本文档中的所有演练都假定您已安装 [!INCLUDE[vssdk_current_long](../sharepoint/includes/vssdk-current-long-md.md)]。  
   
- 若要下载 SDK，请访问 [http:\/\/go.microsoft.com\/fwlink\/?LinkId\=164562](http://go.microsoft.com/fwlink/?LinkId=164562)。  有关 Visual Studio 扩展的更多信息，请参见[开发 Visual Studio 扩展](../Topic/Developing%20Visual%20Studio%20Extensions.md)。  
+ 若要下载 SDK，请访问 [http:\/\/go.microsoft.com\/fwlink\/?LinkId\=164562](http://go.microsoft.com/fwlink/?LinkId=164562)。  有关 Visual Studio 扩展的更多信息，请参见[开发 Visual Studio 扩展](http://msdn.microsoft.com/library/5b1b5db3-6005-44cf-83b0-e608d7764d14)。  
   
 ## 请参阅  
  [Overview of the Programming Model of SharePoint Tools Extensions](../sharepoint/overview-of-the-programming-model-of-sharepoint-tools-extensions.md)   

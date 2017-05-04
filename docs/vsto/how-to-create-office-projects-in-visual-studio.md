@@ -44,7 +44,7 @@ caps.handback.revision: 95
      此时将出现**“新建项目”**对话框。  
   
     > [!NOTE]  
-    >  默认情况下，Office 项目均面向 [!INCLUDE[net_v45](../vsto/includes/net-v45-md.md)]。  有关详细信息，请参阅 [.NET Framework Client Profile](../Topic/.NET%20Framework%20Client%20Profile.md)。  
+    >  默认情况下，Office 项目均面向 [!INCLUDE[net_v45](../vsto/includes/net-v45-md.md)]。  有关详细信息，请参阅 [.NET Framework Client Profile](http://msdn.microsoft.com/library/f0219919-1f02-4588-8704-327a62fd91f1)。  
   
 2.  在模板窗格中，从要使用的语言节点下展开“Office\/SharePoint”。  
   
@@ -95,7 +95,7 @@ caps.handback.revision: 95
      此时将出现**“新建项目”**对话框。  
   
     > [!NOTE]  
-    >  默认情况下，Office 项目均面向 [!INCLUDE[net_v45](../vsto/includes/net-v45-md.md)]。  有关详细信息，请参阅 [.NET Framework Client Profile](../Topic/.NET%20Framework%20Client%20Profile.md)。  
+    >  默认情况下，Office 项目均面向 [!INCLUDE[net_v45](../vsto/includes/net-v45-md.md)]。  有关详细信息，请参阅 [.NET Framework Client Profile](http://msdn.microsoft.com/library/f0219919-1f02-4588-8704-327a62fd91f1)。  
   
 2.  在模板窗格中，从要使用的语言节点下展开“Office\/SharePoint”。  
   

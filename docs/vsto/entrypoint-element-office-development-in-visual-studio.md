@@ -50,7 +50,7 @@ caps.handback.revision: 22
 ### assemblyIdentity  
  必需。`vstav3`  命名空间中的 `assemblyIdentity` 元素引用 [!INCLUDE[ndptecclick](../vsto/includes/ndptecclick-md.md)] 应用程序清单中的现有 `assemblyIdentity` 元素。  
   
- `assemblyIdentity` 的角色及其属性在 [&#60;assemblyIdentity&#62; 元素（ClickOnce 应用程序）](../Topic/%3CassemblyIdentity%3E%20Element%20(ClickOnce%20Application).md) 中定义。  
+ `assemblyIdentity` 的角色及其属性在 [&#60;assemblyIdentity&#62; 元素（ClickOnce 应用程序）](~/deployment/assemblyidentity-element-clickonce-application.md) 中定义。  
   
 ## 文档级自定义项示例  
   

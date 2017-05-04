@@ -98,7 +98,7 @@ caps.handback.revision: 52
   
 1.  调用控件的 <xref:System.Windows.Forms.BindingSource> 的 <xref:System.Windows.Forms.BindingSource.EndEdit%2A> 方法。  
   
-     在设计时将数据绑定控件添加到文档或工作簿时，会自动生成 <xref:System.Windows.Forms.BindingSource>。<xref:System.Windows.Forms.BindingSource> 将该控件连接到项目中的类型化数据集。 有关详细信息，请参阅[BindingSource 组件概述](../Topic/BindingSource%20Component%20Overview.md)。  
+     在设计时将数据绑定控件添加到文档或工作簿时，会自动生成 <xref:System.Windows.Forms.BindingSource>。<xref:System.Windows.Forms.BindingSource> 将该控件连接到项目中的类型化数据集。 有关详细信息，请参阅[BindingSource 组件概述](http://msdn.microsoft.com/library/be838caf-fcb0-4b68-827f-58b2c04b747f)。  
   
      下面的代码示例假定你的项目包含一个名为 `customersBindingSource` 的 <xref:System.Windows.Forms.BindingSource>。  
   

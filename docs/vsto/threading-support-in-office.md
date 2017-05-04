@@ -42,7 +42,7 @@ caps.handback.revision: 32
   
 -   封送处理  
   
- 有关多线程处理的常规信息，请参见[组件中的多线程处理](../Topic/Multithreading%20in%20Components.md)。  
+ 有关多线程处理的常规信息，请参见[组件中的多线程处理](http://msdn.microsoft.com/library/2fc31e68-fb71-4544-b654-0ce720478779)。  
   
  Office 运行于主 STA 中。  了解其含义有助于理解如何通过 Office 使用多个线程。  
   
@@ -68,16 +68,16 @@ caps.handback.revision: 32
  [!code-csharp[Trin_VstcoreCreatingExcel#5](../snippets/csharp/VS_Snippets_OfficeSP/Trin_VstcoreCreatingExcel/CS/ThisWorkbook.cs#5)]
  [!code-vb[Trin_VstcoreCreatingExcel#5](../snippets/visualbasic/VS_Snippets_OfficeSP/Trin_VstcoreCreatingExcel/VB/ThisWorkbook.vb#5)]  
   
- 有关更多信息，请参见[Managed Threading Best Practices](../Topic/Managed%20Threading%20Best%20Practices.md)。  
+ 有关更多信息，请参见[Managed Threading Best Practices](http://msdn.microsoft.com/library/e51988e7-7f4b-4646-a06d-1416cee8d557)。  
   
 ## 无模式窗体  
  无模式窗体允许在显示窗体时与应用程序进行某种类型的交互。  用户与窗体交互，窗体无需关闭就能与应用程序交互。  Office 对象模型支持托管的无模式窗体；但是，不应该在后台线程上使用这些窗体。  
   
 ## 请参阅  
- [组件中的多线程处理](../Topic/Multithreading%20in%20Components.md)   
- [Managed Threading](../Topic/Managed%20Threading.md)   
- [线程处理（C&#35; 和 Visual Basic）](../Topic/Threading%20(C%23%20and%20Visual%20Basic).md)   
- [Using Threads and Threading](../Topic/Using%20Threads%20and%20Threading.md)   
+ [组件中的多线程处理](http://msdn.microsoft.com/library/2fc31e68-fb71-4544-b654-0ce720478779)   
+ [Managed Threading](http://msdn.microsoft.com/library/7b46a7d9-c6f1-46d1-a947-ae97471bba87)   
+ [线程处理（C&#35; 和 Visual Basic）](http://msdn.microsoft.com/library/552f6c68-dbdb-4327-ae36-32cf9063d88c)   
+ [Using Threads and Threading](http://msdn.microsoft.com/library/9b5ec2cd-121b-4d49-b075-222cf26f2344)   
  [设计和创建 Office 解决方案](../vsto/designing-and-creating-office-solutions.md)  
   
   

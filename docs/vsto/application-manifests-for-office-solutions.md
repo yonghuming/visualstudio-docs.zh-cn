@@ -28,12 +28,12 @@ caps.handback.revision: 40
   
 |元素|说明|特性|  
 |--------|--------|--------|  
-|[&#60;assembly&#62; 元素（ClickOnce 应用程序）](../Topic/%3Cassembly%3E%20Element%20(ClickOnce%20Application).md)|必需。 顶级元素。|`manifestVersion`|  
-|[&#60;assemblyIdentity&#62; 元素（ClickOnce 应用程序）](../Topic/%3CassemblyIdentity%3E%20Element%20(ClickOnce%20Application).md)|必需。 标识 [!INCLUDE[ndptecclick](../vsto/includes/ndptecclick-md.md)] 应用程序的主程序集。|`name`<br /><br /> `version`<br /><br /> `publicKeyToken`<br /><br /> `processorArchitecture`<br /><br /> `language`|  
-|[&#60;trustInfo&#62; 元素（ClickOnce 应用程序）](../Topic/%3CtrustInfo%3E%20Element%20(ClickOnce%20Application).md)|标识应用程序安全性要求。|无|  
-|[&#60;entryPoint&#62; 元素（ClickOnce 应用程序）](../Topic/%3CentryPoint%3E%20Element%20(ClickOnce%20Application).md)|必需。 标识用于执行的应用程序代码入口点。|`name`<br /><br /> `dependencyName`<br /><br /> `customHostSpecified`|  
-|[&#60;dependency&#62; 元素（ClickOnce 应用程序）](../Topic/%3Cdependency%3E%20Element%20(ClickOnce%20Application).md)|必需。 标识应用程序运行所需的每个依赖项。 （可选）标识需要进行预安装的程序集。|无|  
-|[&#60;file&#62; 元素（ClickOnce 应用程序）](../Topic/%3Cfile%3E%20Element%20(ClickOnce%20Application).md)|必需。 标识应用程序使用的每个非程序集文件。 可以包括与文件关联的组件对象模型 \(COM\) 隔离数据。|`name`<br /><br /> `size`|  
+|[&#60;assembly&#62; 元素（ClickOnce 应用程序）](~/deployment/assembly-element-clickonce-application.md)|必需。 顶级元素。|`manifestVersion`|  
+|[&#60;assemblyIdentity&#62; 元素（ClickOnce 应用程序）](~/deployment/assemblyidentity-element-clickonce-application.md)|必需。 标识 [!INCLUDE[ndptecclick](../vsto/includes/ndptecclick-md.md)] 应用程序的主程序集。|`name`<br /><br /> `version`<br /><br /> `publicKeyToken`<br /><br /> `processorArchitecture`<br /><br /> `language`|  
+|[&#60;trustInfo&#62; 元素（ClickOnce 应用程序）](~/deployment/trustinfo-element-clickonce-application.md)|标识应用程序安全性要求。|无|  
+|[&#60;entryPoint&#62; 元素（ClickOnce 应用程序）](~/deployment/entrypoint-element-clickonce-application.md)|必需。 标识用于执行的应用程序代码入口点。|`name`<br /><br /> `dependencyName`<br /><br /> `customHostSpecified`|  
+|[&#60;dependency&#62; 元素（ClickOnce 应用程序）](~/deployment/dependency-element-clickonce-application.md)|必需。 标识应用程序运行所需的每个依赖项。 （可选）标识需要进行预安装的程序集。|无|  
+|[&#60;file&#62; 元素（ClickOnce 应用程序）](http://msdn.microsoft.com/library/56e3490c-eed5-4841-b1bf-eefe778b6ac9)|必需。 标识应用程序使用的每个非程序集文件。 可以包括与文件关联的组件对象模型 \(COM\) 隔离数据。|`name`<br /><br /> `size`|  
   
  Office 解决方案的应用程序清单具有 `co.v1` 命名空间中的以下元素。  
   
@@ -70,7 +70,7 @@ caps.handback.revision: 40
 |[&#60;vstoRuntime&#62; 元素（Visual Studio 中的 Office 开发）](../vsto/vstoruntime-element-office-development-in-visual-studio.md)|必需。 介绍 Office 解决方案支持的特定版本的 Visual Studio Tools for Office Runtime。|`release`<br /><br /> `version`<br /><br /> `supportUrl`|  
   
 ## 备注  
- 可以在 Office 解决方案中手动编辑应用程序和部署清单。 此后，必须通过使用清单生成和编辑工具 \(mage.exe 和 mageui.exe\) 对应用程序和部署清单重新签名。 有关详细信息，请参阅[如何：为应用程序和部署清单重新签名](../Topic/How%20to:%20Re-sign%20Application%20and%20Deployment%20Manifests.md)。  
+ 可以在 Office 解决方案中手动编辑应用程序和部署清单。 此后，必须通过使用清单生成和编辑工具 \(mage.exe 和 mageui.exe\) 对应用程序和部署清单重新签名。 有关详细信息，请参阅[如何：为应用程序和部署清单重新签名](~/deployment/how-to-re-sign-application-and-deployment-manifests.md)。  
   
 ## 文件位置  
  应用程序清单特定于单一版本的解决方案。 为此，应用程序清单应与部署清单分开存储。[!INCLUDE[vsprvs](../sharepoint/includes/vsprvs-md.md)] 将特定于版本的文件放置在一个子目录中，该子目录以发布文件夹中**应用程序文件**子目录中的关联版本命名。  

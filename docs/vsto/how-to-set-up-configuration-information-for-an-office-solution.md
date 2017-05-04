@@ -41,12 +41,12 @@ caps.handback.revision: 33
   
 5.  单击**“添加”**。  
   
-6.  根据应用程序配置文件架构来创建配置文件。  有关更多信息，请参见[.NET Framework 的配置文件架构](../Topic/Configuration%20File%20Schema%20for%20the%20.NET%20Framework.md)。  
+6.  根据应用程序配置文件架构来创建配置文件。  有关更多信息，请参见[.NET Framework 的配置文件架构](http://msdn.microsoft.com/library/69003d39-dc8a-460c-a6be-e6d93e690b38)。  
   
  对 Office 项目使用配置文件没有特殊的注意事项。  
   
 ## 请参阅  
- [.NET Framework 的配置文件架构](../Topic/Configuration%20File%20Schema%20for%20the%20.NET%20Framework.md)   
+ [.NET Framework 的配置文件架构](http://msdn.microsoft.com/library/69003d39-dc8a-460c-a6be-e6d93e690b38)   
  [设计和创建 Office 解决方案](../vsto/designing-and-creating-office-solutions.md)   
  [部署 Office 解决方案](../vsto/deploying-an-office-solution.md)  
   

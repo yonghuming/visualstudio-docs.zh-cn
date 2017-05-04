@@ -95,11 +95,11 @@ caps.handback.revision: 14
   
  在 VSPackage 中，可以通过使用以下方法之一来请求 <xref:Microsoft.VisualStudio.SharePoint.ISharePointProjectService> 对象：  
   
--   派生自 <xref:Microsoft.VisualStudio.Shell.Package> 类的托管 VSPackage 的 <xref:System.IServiceProvider.GetService%2A> 方法。  有关更多信息，请参见[如何: 获取服务](../Topic/How%20to:%20Get%20a%20Service.md)。  
+-   派生自 <xref:Microsoft.VisualStudio.Shell.Package> 类的托管 VSPackage 的 <xref:System.IServiceProvider.GetService%2A> 方法。  有关更多信息，请参见[如何: 获取服务](~/extensibility/how-to-get-a-service.md)。  
   
--   静态 <xref:Microsoft.VisualStudio.Shell.Package.GetGlobalService%2A> 方法。  有关更多信息，请参见[如何：使用 GetGlobalService](../Topic/How%20to:%20Use%20GetGlobalService.md)。  
+-   静态 <xref:Microsoft.VisualStudio.Shell.Package.GetGlobalService%2A> 方法。  有关更多信息，请参见[如何：使用 GetGlobalService](~/misc/how-to-use-getglobalservice.md)。  
   
- 在具有对 <xref:EnvDTE80.DTE2> 对象的访问权的 Visual Studio 扩展中，可以通过使用 <xref:Microsoft.VisualStudio.Shell.ServiceProvider> 对象的 <xref:Microsoft.VisualStudio.Shell.ServiceProvider.GetService%2A> 方法来请求 <xref:Microsoft.VisualStudio.SharePoint.ISharePointProjectService> 对象。  有关更多信息，请参见[如何：从 DTE 对象获取服务](../Topic/How%20to:%20Get%20a%20Service%20from%20the%20DTE%20Object.md)。  
+ 在具有对 <xref:EnvDTE80.DTE2> 对象的访问权的 Visual Studio 扩展中，可以通过使用 <xref:Microsoft.VisualStudio.Shell.ServiceProvider> 对象的 <xref:Microsoft.VisualStudio.Shell.ServiceProvider.GetService%2A> 方法来请求 <xref:Microsoft.VisualStudio.SharePoint.ISharePointProjectService> 对象。  有关更多信息，请参见[如何：从 DTE 对象获取服务](~/misc/how-to-get-a-service-from-the-dte-object.md)。  
   
 ### 示例  
  下面的代码示例演示如何在 Visual Studio 外接程序中检索项目服务。  若要使用此代码，请从外接程序项目的 `Connect` 类中运行此代码。  外接程序项目中会自动生成 `_applicationObject` 对象；此对象是 <xref:EnvDTE80.DTE2> 接口的一个实例。  
@@ -109,15 +109,15 @@ caps.handback.revision: 14
   
  此示例需要：  
   
--   Visual Studio 外接程序项目。  有关更多信息，请参见[如何：创建外接程序](../Topic/How%20to:%20Create%20an%20Add-In.md)。  
+-   Visual Studio 外接程序项目。  有关更多信息，请参见[如何：创建外接程序](http://msdn.microsoft.com/library/50be56d2-e3a5-4cd2-8569-2a0666b268ce)。  
   
 -   对 Microsoft.VisualStudio.OLE.Interop、Microsoft.VisualStudio.Shell 和 Microsoft.VisualStudio.SharePoint 程序集的引用。  
   
 ## 请参阅  
  [Using the SharePoint Project Service](../sharepoint/using-the-sharepoint-project-service.md)   
- [如何：创建外接程序](../Topic/How%20to:%20Create%20an%20Add-In.md)   
- [如何: 获取服务](../Topic/How%20to:%20Get%20a%20Service.md)   
- [如何：从 DTE 对象获取服务](../Topic/How%20to:%20Get%20a%20Service%20from%20the%20DTE%20Object.md)   
- [如何：使用向导来处理项目模板](../Topic/How%20to:%20Use%20Wizards%20with%20Project%20Templates.md)  
+ [如何：创建外接程序](http://msdn.microsoft.com/library/50be56d2-e3a5-4cd2-8569-2a0666b268ce)   
+ [如何: 获取服务](~/extensibility/how-to-get-a-service.md)   
+ [如何：从 DTE 对象获取服务](~/misc/how-to-get-a-service-from-the-dte-object.md)   
+ [如何：使用向导来处理项目模板](~/extensibility/how-to-use-wizards-with-project-templates.md)  
   
   

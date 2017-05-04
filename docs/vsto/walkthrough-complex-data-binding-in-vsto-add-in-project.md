@@ -73,7 +73,7 @@ caps.handback.revision: 37
   
 4.  如果已与 `AdventureWorksLT` 数据库建立连接，请选择此连接，然后单击“下一步”。  
   
-     否则，单击“新建连接”，然后使用“添加连接”对话框创建新连接。 有关详细信息，请参阅[如何：连接到数据库中的数据](../Topic/How%20to:%20Connect%20to%20Data%20in%20a%20Database.md)。  
+     否则，单击“新建连接”，然后使用“添加连接”对话框创建新连接。 有关详细信息，请参阅[如何：连接到数据库中的数据](~/data-tools/how-to-connect-to-data-in-a-database.md)。  
   
 5.  在“将连接字符串保存到应用程序配置文件中”页中，单击“下一步”。  
   
@@ -146,6 +146,6 @@ caps.handback.revision: 37
  [在 Visual Studio 中将 Windows 窗体控件绑定到数据](../Topic/Binding%20Windows%20Forms%20controls%20to%20data%20in%20Visual%20Studio.md)   
  [在 Office 解决方案中使用本地数据库文件概述](../vsto/using-local-database-files-in-office-solutions-overview.md)   
  [连接到 Windows 窗体应用程序中的数据](/visual-studio/data-tools/connecting-to-data-in-windows-forms-applications)   
- [BindingSource 组件概述](../Topic/BindingSource%20Component%20Overview.md)  
+ [BindingSource 组件概述](http://msdn.microsoft.com/library/be838caf-fcb0-4b68-827f-58b2c04b747f)  
   
   

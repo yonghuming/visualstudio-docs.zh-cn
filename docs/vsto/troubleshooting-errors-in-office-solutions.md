@@ -206,7 +206,7 @@ Word.Document document = Globals.ThisAddIn.Application.ActiveDocument;
   
  “无法加载自定义项，原因是无法创建应用程序域。”  
   
- 在加载 Office 解决方案之前，Visual Studio 使用 Fusion（.NET Framework 程序集加载程序）来缓存程序集。  请确保 Visual Studio 可以写入 Fusion 缓存，然后重试。  有关详细信息，请参阅[影像复制程序集](../Topic/Shadow%20Copying%20Assemblies.md)。  
+ 在加载 Office 解决方案之前，Visual Studio 使用 Fusion（.NET Framework 程序集加载程序）来缓存程序集。  请确保 Visual Studio 可以写入 Fusion 缓存，然后重试。  有关详细信息，请参阅[影像复制程序集](http://msdn.microsoft.com/library/de8b8759-fca7-4260-896b-5a4973157672)。  
   
 ### 使用“编辑并继续”后在文档级项目中停止调试器时出错  
  如果在项目处于中断模式时使用“编辑并继续”对 Excel 或 Word 的文档级项目中的代码进行更改，随后停止调试器，则可能会看到一个对话框，其中包含下面的错误消息。  

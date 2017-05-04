@@ -28,7 +28,7 @@ caps.handback.revision: 17
   
  [!INCLUDE[appliesto_all](../vsto/includes/appliesto-all-md.md)]  
   
- 如果使用清单生成和编辑工具（mage.exe 和 mageui.exe）手动编辑应用程序清单和部署清单，您必须对这些清单进行重新签名，然后才能使用它们。  有关更多信息，请参见[如何：为应用程序和部署清单重新签名](../Topic/How%20to:%20Re-sign%20Application%20and%20Deployment%20Manifests.md)。  
+ 如果使用清单生成和编辑工具（mage.exe 和 mageui.exe）手动编辑应用程序清单和部署清单，您必须对这些清单进行重新签名，然后才能使用它们。  有关更多信息，请参见[如何：为应用程序和部署清单重新签名](~/deployment/how-to-re-sign-application-and-deployment-manifests.md)。  
   
 ## 使用证书进行签名  
  证书是一个文件，其中包含解决方案发布者的唯一密钥和标识。  您可以从证书颁发机构购买证书，也可以创建自己的证书并让证书颁发机构为其签名。  

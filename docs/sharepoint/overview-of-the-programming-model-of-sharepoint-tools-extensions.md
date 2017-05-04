@@ -27,7 +27,7 @@ caps.handback.revision: 54
   在 Visual Studio 中创建 SharePoint 工具扩展时，首先将实现由 SharePoint 工具公开的一个或多个扩展性接口。  在大多数情况下，你还将使用 SharePoint 工具提供的其他类型来实现扩展中的功能。  在某些方案中，你还可以使用 Visual Studio 和 SharePoint 提供的其他对象模型中的类型。  你必须了解每个对象模型的用途以及如何将这些对象模型结合使用，以创建 SharePoint 工具扩展。  
   
 ## 通过实现扩展性接口来扩展 SharePoint 工具  
- Visual Studio 使用 .NET Framework 4 中的 Managed Extensibility Framework \(MEF\) 为 SharePoint 工具提供扩展性模型。  MEF 是一个在 System.ComponentModel.Composition 程序集中实现的 API，它使应用程序能够公开扩展性点，并在运行时发现和加载扩展。  有关 MEF 的详细信息，请参阅 [Managed Extensibility Framework &#40;MEF&#41;](../Topic/Managed%20Extensibility%20Framework%20(MEF).md)。  
+ Visual Studio 使用 .NET Framework 4 中的 Managed Extensibility Framework \(MEF\) 为 SharePoint 工具提供扩展性模型。  MEF 是一个在 System.ComponentModel.Composition 程序集中实现的 API，它使应用程序能够公开扩展性点，并在运行时发现和加载扩展。  有关 MEF 的详细信息，请参阅 [Managed Extensibility Framework &#40;MEF&#41;](http://msdn.microsoft.com/library/6c61b4ec-c6df-4651-80f1-4854f8b14dde)。  
   
  若要扩展 SharePoint 工具，请实现由 Visual Studio 公开的一个或多个扩展性接口。  必要时，你还必须将 <xref:System.ComponentModel.Composition.ExportAttribute> 和其他特定于 SharePoint 工具的特性应用于接口实现。  下表列出了一些接口，可实现这些接口以扩展 SharePoint 工具。  
   
@@ -75,7 +75,7 @@ caps.handback.revision: 54
   
  EnvDTE.dll 程序集中定义了 Visual Studio 自动化对象模型的主要部分。  EnvDTE80.dll、EnvDTE90.dll、EnvDTE100.dll 和 EnvDTE110.dll 程序集分别提供在 Visual Studio 2005、Visual Studio 2008、Visual Studio 2010 和 [!INCLUDE[vs_dev11_long](../sharepoint/includes/vs-dev11-long-md.md)] 中引入的其他功能。  这些程序集包含在 Visual Studio 中。  
   
- 有关自动化对象模型的详细信息，请参阅[扩展 Visual Studio 环境](../Topic/Extending%20the%20Visual%20Studio%20Environment.md)和[自动化与扩展性参考](../Topic/Automation%20and%20Extensibility%20Reference.md)。  
+ 有关自动化对象模型的详细信息，请参阅[扩展 Visual Studio 环境](http://msdn.microsoft.com/library/4173a963-7ac7-4966-9bb7-e28a9d9f6792)和[自动化与扩展性参考](http://msdn.microsoft.com/library/93112562-db21-4188-9383-ed19ad79bddf)。  
   
 ### Visual Studio 集成对象模型  
  集成对象模型提供了一些 API，可以使用这些 API 通过创建 *VSPackage* 来向 Visual Studio 中添加功能。  VSPackage 是一个模块，它通过提供自定义功能（如工具窗口、编辑器、设计器、服务和项目）来扩展 Visual Studio IDE。  

@@ -25,7 +25,7 @@ manager: "ghogen"
 caps.handback.revision: 19
 ---
 # 为 Web 部件或应用程序页创建可重用控件
-  通过 Visual Studio，您可以创建可由在 SharePoint 中运行的应用程序页和 Web 部件使用的自定义可重用控件。  这些控件称作用户控件。  有关用户控件的更多信息，请参见[ASP.NET User Controls](../Topic/ASP.NET%20User%20Controls.md)。  
+  通过 Visual Studio，您可以创建可由在 SharePoint 中运行的应用程序页和 Web 部件使用的自定义可重用控件。  这些控件称作用户控件。  有关用户控件的更多信息，请参见[ASP.NET User Controls](http://msdn.microsoft.com/library/5e601b3d-bb16-4dbe-9e35-7e92a34565ca)。  
   
 ## 创建用户控件  
  若要创建用户控件，请向一个**“空 SharePoint 项目”**中添加**“用户控件”**。  有关详细信息，请参阅[如何：为 SharePoint 应用程序页或 Web 部件创建用户控件](../sharepoint/how-to-create-a-user-control-for-a-sharepoint-application-page-or-web-part.md)。  
@@ -44,7 +44,7 @@ caps.handback.revision: 19
 ## 使用用户控件  
  只有在将用户控件包括在应用程序页或 Web 部件中时，用户控件才会显示在 SharePoint 中。  
   
- 若要将用户控件包含在应用程序页中，请将 [@ Register](http://msdn.microsoft.com/zh-cn/66f34922-be41-4e36-9dc8-1774d85311d1) 指令添加到应用程序页，然后在该页中的一个或多个内容占位符内声明该用户控件。  有关如何在标准 ASP.NET 网页中完成此任务的示例，请参见[How to: Include a User Control in an ASP.NET Web Page](../Topic/How%20to:%20Include%20a%20User%20Control%20in%20an%20ASP.NET%20Web%20Page.md)。  
+ 若要将用户控件包含在应用程序页中，请将 [@ Register](http://msdn.microsoft.com/zh-cn/66f34922-be41-4e36-9dc8-1774d85311d1) 指令添加到应用程序页，然后在该页中的一个或多个内容占位符内声明该用户控件。  有关如何在标准 ASP.NET 网页中完成此任务的示例，请参见[How to: Include a User Control in an ASP.NET Web Page](http://msdn.microsoft.com/library/7c3bfd74-846c-4b88-b1ef-45d75860af92)。  
   
  若要在 Web 部件中包括某个用户控件，请将该用户控件添加到 Web 部件代码文件中的 Web 部件 <xref:System.Web.UI.WebControls.WebParts.Part.Controls%2A> 集合。  下面的示例将一个用户控件添加到 Web 部件的 <xref:System.Web.UI.WebControls.WebParts.Part.Controls%2A> 集合。  
   

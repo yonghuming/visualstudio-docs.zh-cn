@@ -54,7 +54,7 @@ caps.handback.revision: 19
 |[如何：添加或移除 SharePoint 连接](../sharepoint/how-to-add-or-remove-sharepoint-connections.md)|描述将新的 SharePoint 网站添加到**“服务器资源管理器”**的**“SharePoint 连接”**节点中所需的步骤。|  
   
 ## 请参阅  
- [服务器资源管理器](../Topic/Server%20Explorer.md)   
+ [服务器资源管理器](http://msdn.microsoft.com/library/4ea29b3b-bbb2-45e4-9082-eaf635c41c4d)   
  [开发 SharePoint 解决方案](../sharepoint/developing-sharepoint-solutions.md)  
   
   

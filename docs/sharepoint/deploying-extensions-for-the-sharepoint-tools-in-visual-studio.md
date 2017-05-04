@@ -220,7 +220,7 @@ caps.handback.revision: 39
 ## 手动创建 VSIX 包  
  如果要为 SharePoint 工具扩展手动创建 VSIX 包，请执行以下步骤：  
   
-1.  创建 extension.vsixmanifest 文件、\[Content\_Types\].xml 和 VSIX 包文件（.vsix 文件）。  有关更多信息，请参见[VSIX 包的剖析](../extensibility/anatomy-of-a-vsix-package.md)和[如何：手动将扩展打包（VSIX 部署）](../Topic/How%20to:%20Manually%20Package%20an%20Extension%20(VSIX%20Deployment).md)。  
+1.  创建 extension.vsixmanifest 文件、\[Content\_Types\].xml 和 VSIX 包文件（.vsix 文件）。  有关更多信息，请参见[VSIX 包的剖析](../extensibility/anatomy-of-a-vsix-package.md)和[如何：手动将扩展打包（VSIX 部署）](~/misc/how-to-manually-package-an-extension-vsix-deployment.md)。  
   
 2.  将扩展程序集添加到 VSIX 包中。  如果扩展中包括某个 SharePoint 命令，则也将实现该 SharePoint 命令的程序集添加到 VSIX 包中。  
   

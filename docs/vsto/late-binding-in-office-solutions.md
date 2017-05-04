@@ -68,7 +68,7 @@ caps.handback.revision: 48
  [Office 解决方案中的可选参数](../vsto/optional-parameters-in-office-solutions.md)   
  [使用类型 dynamic（C&#35; 编程指南）](/dotnet/csharp/programming-guide/types/using-type-dynamic)   
  [Option Strict 语句](/dotnet/visual-basic/language-reference/statements/option-strict-statement)   
- [反射（C&#35; 和 Visual Basic）](../Topic/Reflection%20(C%23%20and%20Visual%20Basic).md)   
+ [反射（C&#35; 和 Visual Basic）](http://msdn.microsoft.com/library/5d1d1bcf-08de-4d0b-97a8-912d17c00f26)   
  [设计和创建 Office 解决方案](../vsto/designing-and-creating-office-solutions.md)  
   
   

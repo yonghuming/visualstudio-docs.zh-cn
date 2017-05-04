@@ -62,11 +62,11 @@ caps.handback.revision: 43
   
 #### 使用“数据源”窗口  
   
-1.  打开“数据源”窗口并为项目创建数据源。 有关详细信息，请参阅[如何：连接到数据库中的数据](../Topic/How%20to:%20Connect%20to%20Data%20in%20a%20Database.md)。  
+1.  打开“数据源”窗口并为项目创建数据源。 有关详细信息，请参阅[如何：连接到数据库中的数据](~/data-tools/how-to-connect-to-data-in-a-database.md)。  
   
 2.  将表从“数据源”窗口拖到工作表中。  
   
-     数据绑定 <xref:Microsoft.Office.Tools.Excel.ListObject> 控件将添加到工作表中。 有关详细信息，请参阅[数据绑定和 Windows 窗体](../Topic/Data%20Binding%20and%20Windows%20Forms.md)。  
+     数据绑定 <xref:Microsoft.Office.Tools.Excel.ListObject> 控件将添加到工作表中。 有关详细信息，请参阅[数据绑定和 Windows 窗体](http://msdn.microsoft.com/library/419aac5e-819b-4aad-88b0-73a2f8c0bd27)。  
   
 ##  <a name="runtimedoclevel"></a> 在运行时在文档级项目中添加 ListObject 控件  
  可以在运行时动态添加 <xref:Microsoft.Office.Tools.Excel.ListObject> 控件。 这使得你可以创建宿主控件以响应事件。 工作表关闭时，动态创建的列表对象不作为宿主控件保留在工作表中。 有关更多信息，请参见[在运行时向 Office 文档添加控件](../vsto/adding-controls-to-office-documents-at-run-time.md)。  

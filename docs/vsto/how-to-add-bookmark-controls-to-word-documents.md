@@ -53,7 +53,7 @@ caps.handback.revision: 51
   
 -   从**“数据源”**窗口。  
   
-     你可以从**“数据源”**窗口将 <xref:Microsoft.Office.Tools.Word.Bookmark> 控件拖动到你的文档中。 当你想要在同一时间将控件绑定到数据时，这一方式会非常有用。 可以用从**“数据源”**窗口添加 Windows 窗体控件相同的方式添加主机控件。 有关详细信息，请参阅[数据绑定和 Windows 窗体](../Topic/Data%20Binding%20and%20Windows%20Forms.md)。  
+     你可以从**“数据源”**窗口将 <xref:Microsoft.Office.Tools.Word.Bookmark> 控件拖动到你的文档中。 当你想要在同一时间将控件绑定到数据时，这一方式会非常有用。 可以用从**“数据源”**窗口添加 Windows 窗体控件相同的方式添加主机控件。 有关详细信息，请参阅[数据绑定和 Windows 窗体](http://msdn.microsoft.com/library/419aac5e-819b-4aad-88b0-73a2f8c0bd27)。  
   
  [!INCLUDE[note_settings_general](../sharepoint/includes/note-settings-general-md.md)]  
   

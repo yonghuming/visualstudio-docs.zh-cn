@@ -71,7 +71,7 @@ caps.handback.revision: 22
   
  若要能够从窗体区域代码文件外部访问控件，请在窗体区域代码文件中创建属性来返回该控件。  
   
- 有关如何在 C\# 中创建属性的详细信息，请参阅[如何：声明和使用读&#47;写属性（C&#35; 编程指南）](../Topic/How%20to:%20Declare%20and%20Use%20Read%20Write%20Properties%20(C%23%20Programming%20Guide).md)。  
+ 有关如何在 C\# 中创建属性的详细信息，请参阅[如何：声明和使用读&#47;写属性（C&#35; 编程指南）](http://msdn.microsoft.com/library/a4962fef-af7e-4c4b-a929-4ae4d646ab8a)。  
   
  有关如何在 Visual Basic 中创建属性的详细信息，请参阅[不在生成中：如何：将字段和属性添加到类](http://msdn.microsoft.com/zh-cn/ae53f61b-3abc-413e-8931-703c5f5e8fc2)。  
   

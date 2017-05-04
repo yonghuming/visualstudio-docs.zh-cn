@@ -39,7 +39,7 @@ caps.handback.revision: 39
   
 #### 若要添加数据对象  
   
--   打开“数据源”窗口并从对象创建数据源。 有关详细信息，请参阅[如何：连接到对象中的数据](../Topic/How%20to:%20Connect%20to%20Data%20in%20Objects.md)。  
+-   打开“数据源”窗口并从对象创建数据源。 有关详细信息，请参阅[如何：连接到对象中的数据](http://msdn.microsoft.com/library/862fd351-0f4d-4220-9743-6103b87dc24b)。  
   
 ## 将数据对象连接到 BindingSource  
  在文档级项目中，可以在设计时向文档中添加控件并将其绑定到数据。  
@@ -75,6 +75,6 @@ caps.handback.revision: 39
  [如何：用数据库中的数据填充文档](../vsto/how-to-populate-documents-with-data-from-a-database.md)   
  [如何：使用宿主控件中的数据更新数据源](../vsto/how-to-update-a-data-source-with-data-from-a-host-control.md)   
  [连接到 Windows 窗体应用程序中的数据](/visual-studio/data-tools/connecting-to-data-in-windows-forms-applications)   
- [BindingSource 组件概述](../Topic/BindingSource%20Component%20Overview.md)  
+ [BindingSource 组件概述](http://msdn.microsoft.com/library/be838caf-fcb0-4b68-827f-58b2c04b747f)  
   
   

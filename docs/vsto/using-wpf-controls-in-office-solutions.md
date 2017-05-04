@@ -22,7 +22,7 @@ manager: "ghogen"
 caps.handback.revision: 24
 ---
 # 在 Office 解决方案中使用 WPF 控件
-  虽然使用 Visual Studio 中的 Office 开发工具创建的解决方案旨在直接使用 Windows 窗体控件，但你也可以在解决方案中使用 WPF 控件。  Windows Presentation Foundation \(WPF\) 就设计用户界面这方面而言可替代 Windows 窗体。  WPF 使用一种称为可扩展应用程序标记语言 \(XAML\) 的标记语言提供用于整合 UI、媒体和文档的新技术。  有关详细信息，请参阅 [Visual Studio 2015 中的 WPF 简介](../Topic/Introduction%20to%20WPF%20in%20Visual%20Studio%202015.md)。  
+  虽然使用 Visual Studio 中的 Office 开发工具创建的解决方案旨在直接使用 Windows 窗体控件，但你也可以在解决方案中使用 WPF 控件。  Windows Presentation Foundation \(WPF\) 就设计用户界面这方面而言可替代 Windows 窗体。  WPF 使用一种称为可扩展应用程序标记语言 \(XAML\) 的标记语言提供用于整合 UI、媒体和文档的新技术。  有关详细信息，请参阅 [Visual Studio 2015 中的 WPF 简介](http://msdn.microsoft.com/library/582a314e-e23d-4144-b45b-acbbd5579252)。  
   
  [!INCLUDE[appliesto_all](../vsto/includes/appliesto-all-md.md)]  
   
@@ -98,21 +98,21 @@ caps.handback.revision: 24
 ## WPF 资源  
  有关用于在 Windows 窗体控件和窗体上承载 WPF 控件的体系结构和设计问题的详细信息，请参阅以下主题：  
   
--   [Windows 窗体和 WPF 互操作性输入体系结构](../Topic/Windows%20Forms%20and%20WPF%20Interoperability%20Input%20Architecture.md)  
+-   [Windows 窗体和 WPF 互操作性输入体系结构](http://msdn.microsoft.com/library/0eb6f137-f088-4c5e-9e37-f96afd28f235)  
   
--   [Windows 窗体和 WPF 属性映射](../Topic/Windows%20Forms%20and%20WPF%20Property%20Mapping.md)  
+-   [Windows 窗体和 WPF 属性映射](http://msdn.microsoft.com/library/999d8298-9c04-467d-a453-86e41002057d)  
   
--   [WPF 和 Windows 窗体互操作](../Topic/WPF%20and%20Windows%20Forms%20Interoperation.md)  
+-   [WPF 和 Windows 窗体互操作](http://msdn.microsoft.com/library/9e8aa6b6-112c-4579-98d1-c974917df499)  
   
--   [Windows 窗体控件和等效的 WPF 控件](../Topic/Windows%20Forms%20Controls%20and%20Equivalent%20WPF%20Controls.md)  
+-   [Windows 窗体控件和等效的 WPF 控件](http://msdn.microsoft.com/library/8a157e6b-8054-46db-a5cf-a78966acc7a1)  
   
  有关在设计时将 WPF 控件添加到 Visual Studio 中 Windows 窗体控件和窗体的详细信息，请参阅以下主题：  
   
--   [演练：设计时在 Windows 窗体上创建新的 WPF 内容](../Topic/Walkthrough:%20Creating%20New%20WPF%20Content%20on%20Windows%20Forms%20at%20Design%20Time.md)  
+-   [演练：设计时在 Windows 窗体上创建新的 WPF 内容](http://msdn.microsoft.com/library/2e92d8e8-f0e4-4df7-9f07-2acf35cd798c)  
   
--   [演练：设计时在 Windows 窗体上排列 WPF 内容](../Topic/Walkthrough:%20Arranging%20WPF%20Content%20on%20Windows%20Forms%20at%20Design%20Time.md)  
+-   [演练：设计时在 Windows 窗体上排列 WPF 内容](http://msdn.microsoft.com/library/5efb1c53-1484-43d6-aa8a-f4861b99bb8a)  
   
--   [演练：设置 WPF 内容的样式](../Topic/Walkthrough:%20Styling%20WPF%20Content.md)  
+-   [演练：设置 WPF 内容的样式](http://msdn.microsoft.com/library/e574aac7-7ea4-4cdb-8034-bab541f000df)  
   
 ## 请参阅  
  [Office UI 自定义](../vsto/office-ui-customization.md)   

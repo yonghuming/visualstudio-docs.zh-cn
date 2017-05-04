@@ -155,7 +155,7 @@ caps.handback.revision: 64
  有关将 Office 解决方案中的主机控件绑定到数据的概述，请参阅[将数据绑定到 Office 解决方案中的控件](../vsto/binding-data-to-controls-in-office-solutions.md)。  
   
 ### 使用 Windows 窗体数据绑定模型  
- 大多数内容控件都支持 Windows 窗体使用的简单数据绑定模型。  简单数据绑定意味着将控件绑定到单个数据元素，例如数据表中某一列的值。  有关详细信息，请参阅[数据绑定和 Windows 窗体](../Topic/Data%20Binding%20and%20Windows%20Forms.md)。  
+ 大多数内容控件都支持 Windows 窗体使用的简单数据绑定模型。  简单数据绑定意味着将控件绑定到单个数据元素，例如数据表中某一列的值。  有关详细信息，请参阅[数据绑定和 Windows 窗体](http://msdn.microsoft.com/library/419aac5e-819b-4aad-88b0-73a2f8c0bd27)。  
   
  在文档级项目中，可以使用 [!INCLUDE[vsprvs](../sharepoint/includes/vsprvs-md.md)] 中的**“数据源”**窗口将数据绑定到内容控件。  有关如何将绑定了数据的内容控件添加到文档的详细信息，请参阅[如何：用数据库中的数据填充文档](../vsto/how-to-populate-documents-with-data-from-a-database.md)以及[如何：用对象中的数据填充文档](../vsto/how-to-populate-documents-with-data-from-objects.md)。  
   

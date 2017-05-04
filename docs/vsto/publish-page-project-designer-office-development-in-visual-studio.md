@@ -99,7 +99,7 @@ caps.handback.revision: 27
  **发布语言**  
  此选项设置 Microsoft 软件许可条款的语言，并包括系统必备组件列表中的语言包。 它不会影响自定义项的语言。 安装程序中的语言取决于 Visual Studio 已安装的语言。  
   
- 有关如何更改“发布语言”的详细信息，请参阅[如何：更改 ClickOnce 应用程序的发布语言](../Topic/How%20to:%20Change%20the%20Publish%20Language%20for%20a%20ClickOnce%20Application.md)。  
+ 有关如何更改“发布语言”的详细信息，请参阅[如何：更改 ClickOnce 应用程序的发布语言](~/deployment/how-to-change-the-publish-language-for-a-clickonce-application.md)。  
   
  **发布版本**  
  设置自定义项的版本号。 版本号更改时，会将应用程序作为更新发布。 在生成过程中，会针对每个版本创建一个新的文件夹，以免覆盖先前发布的版本。 发布版本的每个部分（“主要”、“次要”、“生成”、“修订”）最多都可以包含五位数。  

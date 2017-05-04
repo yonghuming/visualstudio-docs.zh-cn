@@ -53,7 +53,7 @@ caps.handback.revision: 53
   
  了解以下概念很有用，但对于完成本演练并不是必需的：  
   
--   Visual Studio 中的项目和项模板的向导。  有关更多信息，请参见[如何：使用向导来处理项目模板](../Topic/How%20to:%20Use%20Wizards%20with%20Project%20Templates.md)和 <xref:Microsoft.VisualStudio.TemplateWizard.IWizard> 接口。  
+-   Visual Studio 中的项目和项模板的向导。  有关更多信息，请参见[如何：使用向导来处理项目模板](~/extensibility/how-to-use-wizards-with-project-templates.md)和 <xref:Microsoft.VisualStudio.TemplateWizard.IWizard> 接口。  
   
 -   SharePoint 中的网站栏。  有关更多信息，请参见 [列](http://go.microsoft.com/fwlink/?LinkId=183547)。  
   
@@ -121,7 +121,7 @@ caps.handback.revision: 53
   
 3.  确保目标框架设置为 .NET Framework 4.5，而不是 .NET Framework 4.5 客户端配置文件。  
   
-     有关详细信息，请参阅[如何：面向 .NET Framework 的某个版本](../Topic/How%20to:%20Target%20a%20Version%20of%20the%20.NET%20Framework.md)。  
+     有关详细信息，请参阅[如何：面向 .NET Framework 的某个版本](~/ide/how-to-target-a-version-of-the-dotnet-framework.md)。  
   
 4.  打开 “ProjectTemplateWizard”项目节点的快捷菜单，选择“添加”，然后选择 “新项目”。  
   
@@ -168,7 +168,7 @@ caps.handback.revision: 53
   
 13. 如果正在开发 Visual Basic 项目，请使用“项目设计器”将 ProjectTemplateWizard 命名空间导入您的项目。  
   
-     有关详细信息，请参阅[如何：添加或移除导入的命名空间 &#40;Visual Basic&#41;](../Topic/How%20to:%20Add%20or%20Remove%20Imported%20Namespaces%20(Visual%20Basic).md)。  
+     有关详细信息，请参阅[如何：添加或移除导入的命名空间 &#40;Visual Basic&#41;](~/ide/how-to-add-or-remove-imported-namespaces-visual-basic.md)。  
   
 #### 配置 SharePointCommands 项目  
   
@@ -551,6 +551,6 @@ caps.handback.revision: 53
  [Defining Custom SharePoint Project Item Types](../sharepoint/defining-custom-sharepoint-project-item-types.md)   
  [Creating Item Templates and Project Templates for SharePoint Project Items](../sharepoint/creating-item-templates-and-project-templates-for-sharepoint-project-items.md)   
  [Visual Studio 模板架构参考](../extensibility/visual-studio-template-schema-reference.md)   
- [如何：使用向导来处理项目模板](../Topic/How%20to:%20Use%20Wizards%20with%20Project%20Templates.md)  
+ [如何：使用向导来处理项目模板](~/extensibility/how-to-use-wizards-with-project-templates.md)  
   
   

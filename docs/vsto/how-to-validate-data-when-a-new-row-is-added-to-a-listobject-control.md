@@ -32,7 +32,7 @@ caps.handback.revision: 42
  每当向绑定到数据的 <xref:Microsoft.Office.Tools.Excel.ListObject> 添加行时，便会引发 <xref:Microsoft.Office.Tools.Excel.ListObject.BeforeAddDataBoundRow> 事件。 可以处理此事件以执行数据验证。 例如，如果应用程序要求只能向数据源添加年龄在 18 岁与 65 岁之间的员工，则可以在添加行之前验证输入的年龄是否处于该范围内。  
   
 > [!NOTE]  
->  除了在客户端上，还应始终在服务器上检查用户输入。 有关详细信息，请参阅[安全客户端应用程序](../Topic/Secure%20Client%20Applications.md)。  
+>  除了在客户端上，还应始终在服务器上检查用户输入。 有关详细信息，请参阅[安全客户端应用程序](http://msdn.microsoft.com/library/6239592e-fa7d-4dea-9f00-d296d0048b01)。  
   
 #### 在向数据绑定 ListObject 添加新行时验证数据  
   

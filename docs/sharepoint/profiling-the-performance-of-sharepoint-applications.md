@@ -66,7 +66,7 @@ caps.handback.revision: 17
   
 ## 请参阅  
  [生成和调试 SharePoint 解决方案](../sharepoint/building-and-debugging-sharepoint-solutions.md)   
- [测试应用程序](../Topic/Test%20apps%20early%20and%20often.md)   
+ [测试应用程序](http://msdn.microsoft.com/library/796b7d6d-ad45-4772-9719-55eaf5490dac)   
  [提高代码质量](../test/improve-code-quality.md)  
   
   

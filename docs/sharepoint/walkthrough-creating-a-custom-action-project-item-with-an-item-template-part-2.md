@@ -49,7 +49,7 @@ caps.handback.revision: 43
   
  了解以下概念很有用，但对于完成本演练并不是必需的：  
   
--   Visual Studio 中的项目和项模板的向导。  有关更多信息，请参见[如何：使用向导来处理项目模板](../Topic/How%20to:%20Use%20Wizards%20with%20Project%20Templates.md)和 <xref:Microsoft.VisualStudio.TemplateWizard.IWizard> 接口。  
+-   Visual Studio 中的项目和项模板的向导。  有关更多信息，请参见[如何：使用向导来处理项目模板](~/extensibility/how-to-use-wizards-with-project-templates.md)和 <xref:Microsoft.VisualStudio.TemplateWizard.IWizard> 接口。  
   
 -   SharePoint 中的自定义操作。  有关更多信息，请参见 [Custom Action](http://go.microsoft.com/fwlink/?LinkId=177800)（自定义操作）。  
   
@@ -84,7 +84,7 @@ caps.handback.revision: 43
   
 2.  在 **项目设计器**，请确保目标框架设置为 .NET Framework 4.5。  
   
-     对于 visual C\# 项目中，可以在 **应用程序** 选项的该值。  对于 Visual Basic 项目中，可以在 **编译** 选项的该值。  有关更多信息，请参见[如何：面向 .NET Framework 的某个版本](../Topic/How%20to:%20Target%20a%20Version%20of%20the%20.NET%20Framework.md)。  
+     对于 visual C\# 项目中，可以在 **应用程序** 选项的该值。  对于 Visual Basic 项目中，可以在 **编译** 选项的该值。  有关更多信息，请参见[如何：面向 .NET Framework 的某个版本](~/ide/how-to-target-a-version-of-the-dotnet-framework.md)。  
   
 3.  在 **ItemTemplateWizard** 项目中，添加一个 **Window \(WPF\)** 项添加到项目中，然后将项目命名为 **WizardWindow**。  
   
@@ -354,7 +354,7 @@ caps.handback.revision: 43
  [Defining Custom SharePoint Project Item Types](../sharepoint/defining-custom-sharepoint-project-item-types.md)   
  [Creating Item Templates and Project Templates for SharePoint Project Items](../sharepoint/creating-item-templates-and-project-templates-for-sharepoint-project-items.md)   
  [Visual Studio 模板架构参考](../extensibility/visual-studio-template-schema-reference.md)   
- [如何：使用向导来处理项目模板](../Topic/How%20to:%20Use%20Wizards%20with%20Project%20Templates.md)   
+ [如何：使用向导来处理项目模板](~/extensibility/how-to-use-wizards-with-project-templates.md)   
  [默认自定义操作位置和 ID](http://go.microsoft.com/fwlink/?LinkId=181964)  
   
   

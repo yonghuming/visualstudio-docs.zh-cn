@@ -34,7 +34,7 @@ caps.handback.revision: 39
   
 ### 使用 Web 服务的数据填充文档级项目  
   
-1.  打开“数据源”窗口并为项目创建服务数据源。 有关详细信息，请参阅[如何：连接到服务中的数据](../Topic/How%20to:%20Connect%20to%20Data%20in%20a%20Service.md)。  
+1.  打开“数据源”窗口并为项目创建服务数据源。 有关详细信息，请参阅[如何：连接到服务中的数据](~/data-tools/how-to-connect-to-data-in-a-service.md)。  
   
 2.  将所需的表或字段从“数据源”窗口拖动到你的文档。  
   

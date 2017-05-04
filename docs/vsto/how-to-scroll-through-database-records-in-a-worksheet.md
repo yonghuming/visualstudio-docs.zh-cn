@@ -35,7 +35,7 @@ caps.handback.revision: 32
   
 1.  在 Visual Studio 中打开一个 Excel 应用程序项目。  
   
-2.  打开**“数据源”**窗口，并从数据库创建一个数据源。  有关更多信息，请参见[如何：连接到数据库中的数据](../Topic/How%20to:%20Connect%20to%20Data%20in%20a%20Database.md)。  
+2.  打开**“数据源”**窗口，并从数据库创建一个数据源。  有关更多信息，请参见[如何：连接到数据库中的数据](~/data-tools/how-to-connect-to-data-in-a-database.md)。  
   
 3.  展开包含要显示数据的表，并选择特定的列。  
   
@@ -43,7 +43,7 @@ caps.handback.revision: 32
   
 5.  将 <xref:Microsoft.Office.Tools.Excel.NamedRange> 控件拖动到要显示数据的单元格上。  
   
-6.  从**“工具箱”**的**“Windows 窗体”**选项卡中向工作表添加一个 <xref:System.Windows.Forms.BindingNavigator> 控件，并设置要使用的控件。  有关更多信息，请参见[BindingNavigator 控件概述（Windows 窗体）](../Topic/BindingNavigator%20Control%20Overview%20(Windows%20Forms).md)。  
+6.  从**“工具箱”**的**“Windows 窗体”**选项卡中向工作表添加一个 <xref:System.Windows.Forms.BindingNavigator> 控件，并设置要使用的控件。  有关更多信息，请参见[BindingNavigator 控件概述（Windows 窗体）](http://msdn.microsoft.com/library/4423eede-f8d1-4d02-822f-5bf8432680d0)。  
   
 ## 请参阅  
  [将数据绑定到 Office 解决方案中的控件](../vsto/binding-data-to-controls-in-office-solutions.md)  

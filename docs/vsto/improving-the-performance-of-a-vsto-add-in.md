@@ -77,9 +77,9 @@ caps.handback.revision: 13
   
     ```  
   
-     有关如何在 C\# 项目中创建生成后事件的信息，请参阅 [如何：指定生成事件 &#40;C&#35;&#41;](../Topic/How%20to:%20Specify%20Build%20Events%20(C%23).md)。  
+     有关如何在 C\# 项目中创建生成后事件的信息，请参阅 [如何：指定生成事件 &#40;C&#35;&#41;](~/ide/how-to-specify-build-events-csharp.md)。  
   
-     有关如何在 Visual Basic 项目中创建生成后事件的信息，请参阅 [如何：指定生成事件 &#40;C&#35;&#41;](../Topic/How%20to:%20Specify%20Build%20Events%20(C%23).md)。  
+     有关如何在 Visual Basic 项目中创建生成后事件的信息，请参阅 [如何：指定生成事件 &#40;C&#35;&#41;](~/ide/how-to-specify-build-events-csharp.md)。  
   
 ##  <a name="Publish"></a> 使用 Windows Installer 发布 Office 解决方案  
  如果使用 Windows Installer 发布解决方案，则在加载 VSTO外接程序时，Visual Studio 2010 Tools for Office Runtime 会绕过以下步骤。  

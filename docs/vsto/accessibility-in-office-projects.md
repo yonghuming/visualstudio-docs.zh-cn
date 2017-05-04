@@ -60,7 +60,7 @@ caps.handback.revision: 23
 ## 运行时辅助功能  
   
 ### Office 文档中的 Windows 窗体控件  
- Windows 窗体控件公开了辅助功能属性以提供与控件的辅助功能（例如屏幕读取器）有关的信息。  当控件位于文档级自定义项中的 Office 文档上时，可以利用这些辅助功能属性。  有关更多信息，请参见[为 Windows 窗体上的控件提供辅助功能信息](../Topic/Providing%20Accessibility%20Information%20for%20Controls%20on%20a%20Windows%20Form.md)。  
+ Windows 窗体控件公开了辅助功能属性以提供与控件的辅助功能（例如屏幕读取器）有关的信息。  当控件位于文档级自定义项中的 Office 文档上时，可以利用这些辅助功能属性。  有关更多信息，请参见[为 Windows 窗体上的控件提供辅助功能信息](http://msdn.microsoft.com/library/887dee6f-5059-4d57-957d-7c6fcd4acb10)。  
   
  但是，如果 Windows 窗体控件承载于 Excel 工作簿或 Word 文档中，则运行时存在一些辅助功能限制：  
   

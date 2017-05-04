@@ -39,7 +39,7 @@ caps.handback.revision: 47
   
 1.  当文档在设计器中打开时，打开 [!INCLUDE[vsprvs](../sharepoint/includes/vsprvs-md.md)] 中 Word 文档级项目。  
   
-2.  打开**“数据源”**窗口并从数据库创建数据源。  有关详细信息，请参阅[如何：连接到数据库中的数据](../Topic/How%20to:%20Connect%20to%20Data%20in%20a%20Database.md)。  
+2.  打开**“数据源”**窗口并从数据库创建数据源。  有关详细信息，请参阅[如何：连接到数据库中的数据](~/data-tools/how-to-connect-to-data-in-a-database.md)。  
   
 3.  将所需字段从**“数据源”**窗口拖动到你的文档。  
   
@@ -52,11 +52,11 @@ caps.handback.revision: 47
   
 -   一个类型化数据集，它会封装数据库中你连接到的数据表。  有关详细信息，请参阅 [在 Visual Studio 中使用数据集](../data-tools/dataset-tools-in-visual-studio.md)。  
   
--   一个 <xref:System.Windows.Forms.BindingSource>，它将控件连接到类型化数据集。  有关详细信息，请参阅 [BindingSource 组件概述](../Topic/BindingSource%20Component%20Overview.md)。  
+-   一个 <xref:System.Windows.Forms.BindingSource>，它将控件连接到类型化数据集。  有关详细信息，请参阅 [BindingSource 组件概述](http://msdn.microsoft.com/library/be838caf-fcb0-4b68-827f-58b2c04b747f)。  
   
 -   一个 TableAdapter，它将类型化数据集连接到数据库。  有关详细信息，请参阅 [TableAdapter 概述](/visual-studio/data-tools/tableadapter-overview)。  
   
--   一个 TableAdapterManager，它用于协调数据集中的表适配器来启用分层更新。  有关详细信息，请参阅[分层更新](../data-tools/hierarchical-update.md)和 [TableAdapterManager 概述](../Topic/TableAdapterManager%20Overview.md)。  
+-   一个 TableAdapterManager，它用于协调数据集中的表适配器来启用分层更新。  有关详细信息，请参阅[分层更新](../data-tools/hierarchical-update.md)和 [TableAdapterManager 概述](http://msdn.microsoft.com/library/33076d42-6b41-491a-ac11-6c6339aea650)。  
   
  运行项目时，该控件将显示数据源中的第一条记录。  可以借助 <xref:System.Windows.Forms.BindingSource> 来使用户能滚动显示各个记录。  
   
@@ -74,6 +74,6 @@ caps.handback.revision: 47
  [如何：使用宿主控件中的数据更新数据源](../vsto/how-to-update-a-data-source-with-data-from-a-host-control.md)   
  [在 Office 解决方案中使用本地数据库文件概述](../vsto/using-local-database-files-in-office-solutions-overview.md)   
  [连接到 Windows 窗体应用程序中的数据](/visual-studio/data-tools/connecting-to-data-in-windows-forms-applications)   
- [BindingSource 组件概述](../Topic/BindingSource%20Component%20Overview.md)  
+ [BindingSource 组件概述](http://msdn.microsoft.com/library/be838caf-fcb0-4b68-827f-58b2c04b747f)  
   
   

@@ -152,7 +152,7 @@ caps.handback.revision: 75
  [在运行时向 Office 文档添加控件](../vsto/adding-controls-to-office-documents-at-run-time.md)   
  [宿主项和宿主控件概述](../vsto/host-items-and-host-controls-overview.md)   
  [操作窗格概述](../vsto/actions-pane-overview.md)   
- [Windows 窗体控件](../Topic/Windows%20Forms%20Controls.md)   
+ [Windows 窗体控件](http://msdn.microsoft.com/library/f050de8f-4ebd-4042-94b8-edf9a1dbd52a)   
  [Office 文档上的 Windows 窗体控件的限制](../vsto/limitations-of-windows-forms-controls-on-office-documents.md)   
  [如何：为 Office 文档添加 Windows 窗体控件](../vsto/how-to-add-windows-forms-controls-to-office-documents.md)   
  [如何：调整工作表单元格中的控件的大小](../vsto/how-to-resize-controls-within-worksheet-cells.md)   

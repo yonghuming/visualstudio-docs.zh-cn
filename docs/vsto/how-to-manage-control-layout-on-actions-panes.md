@@ -31,7 +31,7 @@ caps.handback.revision: 55
  这些控件的堆叠顺序取决于操作窗格是垂直停靠还是水平停靠。  
   
 > [!NOTE]  
->  如果用户在运行时会调整操作窗格的大小，则可以设置控件，使其可随操作窗格一起调整大小。  可以使用 Windows 窗体控件的 <xref:System.Windows.Forms.Control.Anchor%2A> 属性将控件锚定到操作窗格。  有关更多信息，请参见[如何：在 Windows 窗体上锚定控件](../Topic/How%20to:%20Anchor%20Controls%20on%20Windows%20Forms.md)。  
+>  如果用户在运行时会调整操作窗格的大小，则可以设置控件，使其可随操作窗格一起调整大小。  可以使用 Windows 窗体控件的 <xref:System.Windows.Forms.Control.Anchor%2A> 属性将控件锚定到操作窗格。  有关更多信息，请参见[如何：在 Windows 窗体上锚定控件](http://msdn.microsoft.com/library/59ea914f-fbd3-427a-80fe-decd02f7ae6d)。  
   
 > [!NOTE]  
 >  以下说明中的某些 Visual Studio 用户界面元素在计算机上出现的名称或位置可能会不同。  您安装的 Visual Studio 版本以及使用的设置决定了这些元素。  有关更多信息，请参见[Customizing Development Settings in Visual Studio](http://msdn.microsoft.com/zh-cn/22c4debb-4e31-47a8-8f19-16f328d7dcd3)。  

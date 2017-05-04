@@ -43,7 +43,7 @@ caps.handback.revision: 66
   
  程序集通过应用程序的主互操作程序集与应用程序的 COM 组件进行通信。 有关详细信息，请参阅[Office 主互操作程序集](../vsto/office-primary-interop-assemblies.md)和[Office 解决方案开发概述 &#40;VSTO&#41;](../vsto/office-solutions-development-overview-vsto.md)。  
   
- 如果为应用程序安装了多个 VSTO 外接程序，那么，每个 VSTO 外接程序都会加载到不同的应用程序域中。 这意味着某个行为不正确的 VSTO 外接程序不会导致其他 VSTO 外接程序失败。 这还有助于确保在关闭应用程序时，所有 VSTO 外接程序程序集都将从内存中卸载。 有关应用程序域的详细信息，请参阅[应用程序域](../Topic/Application%20Domains.md)。  
+ 如果为应用程序安装了多个 VSTO 外接程序，那么，每个 VSTO 外接程序都会加载到不同的应用程序域中。 这意味着某个行为不正确的 VSTO 外接程序不会导致其他 VSTO 外接程序失败。 这还有助于确保在关闭应用程序时，所有 VSTO 外接程序程序集都将从内存中卸载。 有关应用程序域的详细信息，请参阅[应用程序域](http://msdn.microsoft.com/library/113a8bbf-6875-4a72-a49d-ca2d92e19cc8)。  
   
 > [!NOTE]  
 >  对于使用 Visual Studio 中的 Office 开发人员工具创建的 VSTO 外接程序，仅当最终用户启动主机 Microsoft Office 应用程序时才会使用。 如果以编程方式（例如，通过使用自动化）启动应用程序，VSTO 外接程序可能不会按预期工作。  
