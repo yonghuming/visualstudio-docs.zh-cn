@@ -1,5 +1,5 @@
 ---
-title: "其他 Office 解决方案开发资源 | Microsoft Docs"
+title: "其他 Office 解决方案开发资源"
 ms.custom: ""
 ms.date: "02/02/2017"
 ms.prod: "visual-studio-dev14"

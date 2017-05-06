@@ -1,5 +1,5 @@
 ---
-title: "可替换参数 | Microsoft Docs"
+title: "可替换参数"
 ms.custom: ""
 ms.date: "02/02/2017"
 ms.prod: "visual-studio-dev14"

@@ -1,5 +1,5 @@
 ---
-title: "从其他 Office 解决方案调用 VSTO 外接程序中的代码 | Microsoft Docs"
+title: "从其他 Office 解决方案调用 VSTO 外接程序中的代码"
 ms.custom: ""
 ms.date: "02/02/2017"
 ms.prod: "visual-studio-dev14"

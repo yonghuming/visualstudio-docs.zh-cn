@@ -1,5 +1,5 @@
 ---
-title: "如何：调整工作表单元格中的控件的大小 | Microsoft Docs"
+title: "如何：调整工作表单元格中的控件的大小"
 ms.custom: ""
 ms.date: "02/02/2017"
 ms.prod: "visual-studio-dev14"

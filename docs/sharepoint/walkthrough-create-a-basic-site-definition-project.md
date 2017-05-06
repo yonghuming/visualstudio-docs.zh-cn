@@ -1,5 +1,5 @@
 ---
-title: "演练：创建基本网站定义项目 | Microsoft Docs"
+title: "演练：创建基本网站定义项目"
 ms.custom: ""
 ms.date: "02/02/2017"
 ms.prod: "visual-studio-dev14"

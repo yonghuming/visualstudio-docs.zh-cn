@@ -1,5 +1,5 @@
 ---
-title: "此计算机上未安装 Microsoft Office | Microsoft Docs"
+title: "此计算机上未安装 Microsoft Office"
 ms.custom: ""
 ms.date: "02/02/2017"
 ms.prod: "visual-studio-dev14"

@@ -1,5 +1,5 @@
 ---
-title: "演练：导入带有图像的自定义母版页和网站页 | Microsoft Docs"
+title: "演练：导入带有图像的自定义母版页和网站页"
 ms.custom: ""
 ms.date: "02/02/2017"
 ms.prod: "visual-studio-dev14"

@@ -1,5 +1,5 @@
 ---
-title: "使用 Visual Studio 创建 VSTO 外接程序 | Microsoft Docs"
+title: "使用 Visual Studio 创建 VSTO 外接程序"
 ms.custom: ""
 ms.date: "02/02/2017"
 ms.prod: "visual-studio-dev14"

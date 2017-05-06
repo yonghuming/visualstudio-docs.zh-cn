@@ -1,5 +1,5 @@
 ---
-title: "如何：将功能区从功能区设计器导出为功能区 XML | Microsoft Docs"
+title: "如何：将功能区从功能区设计器导出为功能区 XML"
 ms.custom: ""
 ms.date: "02/02/2017"
 ms.prod: "visual-studio-dev14"

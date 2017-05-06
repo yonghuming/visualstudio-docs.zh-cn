@@ -1,5 +1,5 @@
 ---
-title: "使用 ClickOnce 部署 Office 解决方案 | Microsoft Docs"
+title: "使用 ClickOnce 部署 Office 解决方案"
 ms.custom: ""
 ms.date: "02/02/2017"
 ms.prod: "visual-studio-dev14"

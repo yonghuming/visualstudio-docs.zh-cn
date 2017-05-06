@@ -1,5 +1,5 @@
 ---
-title: "如何：在 Visual Studio 中创建 Office 项目 | Microsoft Docs"
+title: "如何：在 Visual Studio 中创建 Office 项目"
 ms.custom: ""
 ms.date: "02/02/2017"
 ms.prod: "visual-studio-dev14"

@@ -1,5 +1,5 @@
 ---
-title: "如何：以编程方式创建电子邮件项 | Microsoft Docs"
+title: "如何：以编程方式创建电子邮件项"
 ms.custom: ""
 ms.date: "02/02/2017"
 ms.prod: "visual-studio-dev14"

@@ -1,5 +1,5 @@
 ---
-title: "如何：将 ListObject 列映射到数据 | Microsoft Docs"
+title: "如何：将 ListObject 列映射到数据"
 ms.custom: ""
 ms.date: "02/02/2017"
 ms.prod: "visual-studio-dev14"

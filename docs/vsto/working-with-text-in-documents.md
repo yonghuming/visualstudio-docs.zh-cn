@@ -1,5 +1,5 @@
 ---
-title: "在文档中处理文本 | Microsoft Docs"
+title: "在文档中处理文本"
 ms.custom: ""
 ms.date: "02/02/2017"
 ms.prod: "visual-studio-dev14"

@@ -1,5 +1,5 @@
 ---
-title: "如何：以编程方式及工作簿形式打开文本文件 | Microsoft Docs"
+title: "如何：以编程方式及工作簿形式打开文本文件"
 ms.custom: ""
 ms.date: "02/02/2017"
 ms.prod: "visual-studio-dev14"

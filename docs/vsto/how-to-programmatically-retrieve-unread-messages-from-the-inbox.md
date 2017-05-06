@@ -1,5 +1,5 @@
 ---
-title: "如何：以编程方式检索收件箱中的未读邮件 | Microsoft Docs"
+title: "如何：以编程方式检索收件箱中的未读邮件"
 ms.custom: ""
 ms.date: "02/02/2017"
 ms.prod: "visual-studio-dev14"

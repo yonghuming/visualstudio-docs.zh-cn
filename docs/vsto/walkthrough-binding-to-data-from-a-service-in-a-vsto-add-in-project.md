@@ -1,5 +1,5 @@
 ---
-title: "演练：在 VSTO 外接程序项目中绑定到服务中的数据 | Microsoft Docs"
+title: "演练：在 VSTO 外接程序项目中绑定到服务中的数据"
 ms.custom: ""
 ms.date: "02/02/2017"
 ms.prod: "visual-studio-dev14"

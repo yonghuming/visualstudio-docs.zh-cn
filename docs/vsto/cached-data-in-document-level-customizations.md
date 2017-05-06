@@ -1,5 +1,5 @@
 ---
-title: "文档级自定义项中的缓存数据 | Microsoft Docs"
+title: "文档级自定义项中的缓存数据"
 ms.custom: ""
 ms.date: "02/02/2017"
 ms.prod: "visual-studio-dev14"

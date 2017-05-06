@@ -1,5 +1,5 @@
 ---
-title: "处理表格 | Microsoft Docs"
+title: "处理表格"
 ms.custom: ""
 ms.date: "02/02/2017"
 ms.prod: "visual-studio-dev14"

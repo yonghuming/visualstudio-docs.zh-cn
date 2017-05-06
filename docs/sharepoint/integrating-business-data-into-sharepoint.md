@@ -1,5 +1,5 @@
 ---
-title: "将业务数据集成到 SharePoint 中 | Microsoft Docs"
+title: "将业务数据集成到 SharePoint 中"
 ms.custom: ""
 ms.date: "02/02/2017"
 ms.prod: "visual-studio-dev14"

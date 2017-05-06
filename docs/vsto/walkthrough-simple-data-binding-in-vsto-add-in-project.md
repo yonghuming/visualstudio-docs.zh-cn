@@ -1,5 +1,5 @@
 ---
-title: "演练：VSTO 外接程序项目中的简单数据绑定 | Microsoft Docs"
+title: "演练：VSTO 外接程序项目中的简单数据绑定"
 ms.custom: ""
 ms.date: "02/02/2017"
 ms.prod: "visual-studio-dev14"

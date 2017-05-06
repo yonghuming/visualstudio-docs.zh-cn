@@ -1,5 +1,5 @@
 ---
-title: "演练：使用项目模板创建网站栏项目项（第 1 部分） | Microsoft Docs"
+title: "演练：使用项目模板创建网站栏项目项（第 1 部分）"
 ms.custom: ""
 ms.date: "02/02/2017"
 ms.prod: "visual-studio-dev14"

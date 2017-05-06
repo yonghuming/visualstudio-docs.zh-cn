@@ -1,5 +1,5 @@
 ---
-title: "演练：设计 Outlook 窗体区域 | Microsoft Docs"
+title: "演练：设计 Outlook 窗体区域"
 ms.custom: ""
 ms.date: "02/02/2017"
 ms.prod: "visual-studio-dev14"

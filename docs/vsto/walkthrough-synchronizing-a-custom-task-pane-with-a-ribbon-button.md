@@ -1,5 +1,5 @@
 ---
-title: "演练：将自定义任务窗格与功能区按钮同步 | Microsoft Docs"
+title: "演练：将自定义任务窗格与功能区按钮同步"
 ms.custom: ""
 ms.date: "02/02/2017"
 ms.prod: "visual-studio-dev14"

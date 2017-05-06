@@ -1,5 +1,5 @@
 ---
-title: "如何：以编程方式在创建范围时排除段落标记 | Microsoft Docs"
+title: "如何：以编程方式在创建范围时排除段落标记"
 ms.custom: ""
 ms.date: "02/02/2017"
 ms.prod: "visual-studio-dev14"

@@ -1,5 +1,5 @@
 ---
-title: "非托管 API 参考（Visual Studio 中的 Office 开发） | Microsoft Docs"
+title: "非托管 API 参考（Visual Studio 中的 Office 开发）"
 ms.custom: ""
 ms.date: "02/02/2017"
 ms.prod: "visual-studio-dev14"

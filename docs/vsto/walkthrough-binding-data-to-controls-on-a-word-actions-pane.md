@@ -1,5 +1,5 @@
 ---
-title: "演练：将数据绑定到“Word 操作”窗格上的控件 | Microsoft Docs"
+title: "演练：将数据绑定到“Word 操作”窗格上的控件"
 ms.custom: ""
 ms.date: "02/02/2017"
 ms.prod: "visual-studio-dev14"

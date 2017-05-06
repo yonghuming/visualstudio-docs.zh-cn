@@ -1,5 +1,5 @@
 ---
-title: "如何：以编程方式移除文档中的所有注释 | Microsoft Docs"
+title: "如何：以编程方式移除文档中的所有注释"
 ms.custom: ""
 ms.date: "02/02/2017"
 ms.prod: "visual-studio-dev14"

@@ -1,5 +1,5 @@
 ---
-title: "演练：创建您的第一个 Word 文档级自定义项 | Microsoft Docs"
+title: "演练：创建您的第一个 Word 文档级自定义项"
 ms.custom: ""
 ms.date: "02/02/2017"
 ms.prod: "visual-studio-dev14"

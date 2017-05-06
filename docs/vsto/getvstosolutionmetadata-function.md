@@ -1,5 +1,5 @@
 ---
-title: "GetVstoSolutionMetadata 函数 | Microsoft Docs"
+title: "GetVstoSolutionMetadata 函数"
 ms.custom: ""
 ms.date: "02/02/2017"
 ms.prod: "visual-studio-dev14"

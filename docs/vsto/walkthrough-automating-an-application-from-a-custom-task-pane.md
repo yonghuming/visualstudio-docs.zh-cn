@@ -1,5 +1,5 @@
 ---
-title: "演练：从自定义任务窗格自动化应用程序 | Microsoft Docs"
+title: "演练：从自定义任务窗格自动化应用程序"
 ms.custom: ""
 ms.date: "02/02/2017"
 ms.prod: "visual-studio-dev14"

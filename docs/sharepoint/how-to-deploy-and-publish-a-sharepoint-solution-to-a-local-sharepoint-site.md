@@ -1,5 +1,5 @@
 ---
-title: "如何：将 SharePoint 解决方案部署和发布到本地 SharePoint 网站 | Microsoft Docs"
+title: "如何：将 SharePoint 解决方案部署和发布到本地 SharePoint 网站"
 ms.custom: ""
 ms.date: "02/02/2017"
 ms.prod: "visual-studio-dev14"

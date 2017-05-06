@@ -1,5 +1,5 @@
 ---
-title: "如何：调整 Bookmark 控件的大小 | Microsoft Docs"
+title: "如何：调整 Bookmark 控件的大小"
 ms.custom: ""
 ms.date: "02/02/2017"
 ms.prod: "visual-studio-dev14"

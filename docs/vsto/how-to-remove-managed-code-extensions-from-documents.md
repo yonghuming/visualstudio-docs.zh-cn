@@ -1,5 +1,5 @@
 ---
-title: "如何：移除文档中的托管代码扩展 | Microsoft Docs"
+title: "如何：移除文档中的托管代码扩展"
 ms.custom: ""
 ms.date: "02/02/2017"
 ms.prod: "visual-studio-dev14"

@@ -1,5 +1,5 @@
 ---
-title: "如何：为 Office 解决方案设置配置信息 | Microsoft Docs"
+title: "如何：为 Office 解决方案设置配置信息"
 ms.custom: ""
 ms.date: "02/02/2017"
 ms.prod: "visual-studio-dev14"

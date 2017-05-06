@@ -1,5 +1,5 @@
 ---
-title: "如何：向 Finder 方法中添加筛选器描述符 | Microsoft Docs"
+title: "如何：向 Finder 方法中添加筛选器描述符"
 ms.custom: ""
 ms.date: "02/02/2017"
 ms.prod: "visual-studio-dev14"

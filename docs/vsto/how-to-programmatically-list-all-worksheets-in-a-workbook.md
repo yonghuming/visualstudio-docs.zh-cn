@@ -1,5 +1,5 @@
 ---
-title: "如何：以编程方式列出工作簿中的所有工作表 | Microsoft Docs"
+title: "如何：以编程方式列出工作簿中的所有工作表"
 ms.custom: ""
 ms.date: "02/02/2017"
 ms.prod: "visual-studio-dev14"

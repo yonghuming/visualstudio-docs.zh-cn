@@ -1,5 +1,5 @@
 ---
-title: "Excel 文档级自定义项编程入门 | Microsoft Docs"
+title: "Excel 文档级自定义项编程入门"
 ms.custom: ""
 ms.date: "02/02/2017"
 ms.prod: "visual-studio-dev14"

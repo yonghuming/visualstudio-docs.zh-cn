@@ -1,5 +1,5 @@
 ---
-title: "如何：在功能区上显示“开发人员”选项卡 | Microsoft Docs"
+title: "如何：在功能区上显示“开发人员”选项卡"
 ms.custom: ""
 ms.date: "02/02/2017"
 ms.prod: "visual-studio-dev14"

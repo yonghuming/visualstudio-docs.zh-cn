@@ -1,5 +1,5 @@
 ---
-title: "如何：安装 Office 主互操作程序集 | Microsoft Docs"
+title: "如何：安装 Office 主互操作程序集"
 ms.custom: ""
 ms.date: "02/02/2017"
 ms.prod: "visual-studio-dev14"

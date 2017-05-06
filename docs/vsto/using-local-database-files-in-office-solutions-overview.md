@@ -1,5 +1,5 @@
 ---
-title: "在 Office 解决方案中使用本地数据库文件概述 | Microsoft Docs"
+title: "在 Office 解决方案中使用本地数据库文件概述"
 ms.custom: ""
 ms.date: "02/02/2017"
 ms.prod: "visual-studio-dev14"

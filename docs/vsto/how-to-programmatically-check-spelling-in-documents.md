@@ -1,5 +1,5 @@
 ---
-title: "如何：以编程方式在文档中检查拼写 | Microsoft Docs"
+title: "如何：以编程方式在文档中检查拼写"
 ms.custom: ""
 ms.date: "02/02/2017"
 ms.prod: "visual-studio-dev14"

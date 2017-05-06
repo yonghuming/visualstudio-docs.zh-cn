@@ -1,5 +1,5 @@
 ---
-title: "如何：向模型添加实体 | Microsoft Docs"
+title: "如何：向模型添加实体"
 ms.custom: ""
 ms.date: "02/02/2017"
 ms.prod: "visual-studio-dev14"

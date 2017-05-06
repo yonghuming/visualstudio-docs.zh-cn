@@ -1,5 +1,5 @@
 ---
-title: "如何：以编程方式向 Word 表中的单元格添加文本和格式设置 | Microsoft Docs"
+title: "如何：以编程方式向 Word 表中的单元格添加文本和格式设置"
 ms.custom: ""
 ms.date: "02/02/2017"
 ms.prod: "visual-studio-dev14"

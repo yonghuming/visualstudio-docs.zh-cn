@@ -1,5 +1,5 @@
 ---
-title: "为 SharePoint 创建应用程序页 | Microsoft Docs"
+title: "为 SharePoint 创建应用程序页"
 ms.custom: ""
 ms.date: "02/02/2017"
 ms.prod: "visual-studio-dev14"

@@ -1,5 +1,5 @@
 ---
-title: "如何：以编程方式创建自定义日历 | Microsoft Docs"
+title: "如何：以编程方式创建自定义日历"
 ms.custom: ""
 ms.date: "02/02/2017"
 ms.prod: "visual-studio-dev14"

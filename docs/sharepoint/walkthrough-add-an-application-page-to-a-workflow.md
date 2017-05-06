@@ -1,5 +1,5 @@
 ---
-title: "演练：向工作流中添加应用程序页 | Microsoft Docs"
+title: "演练：向工作流中添加应用程序页"
 ms.custom: ""
 ms.date: "02/02/2017"
 ms.prod: "visual-studio-dev14"

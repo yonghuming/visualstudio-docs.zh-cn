@@ -1,5 +1,5 @@
 ---
-title: "SharePoint 解决方案的安全性 | Microsoft Docs"
+title: "SharePoint 解决方案的安全性"
 ms.custom: ""
 ms.date: "02/02/2017"
 ms.prod: "visual-studio-dev14"

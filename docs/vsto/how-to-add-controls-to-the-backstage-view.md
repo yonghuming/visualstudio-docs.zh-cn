@@ -1,5 +1,5 @@
 ---
-title: "如何：向 Backstage 视图添加控件 | Microsoft Docs"
+title: "如何：向 Backstage 视图添加控件"
 ms.custom: ""
 ms.date: "02/02/2017"
 ms.prod: "visual-studio-dev14"

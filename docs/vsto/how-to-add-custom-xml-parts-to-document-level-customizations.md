@@ -1,5 +1,5 @@
 ---
-title: "如何：向文档级自定义项中添加自定义 XML 部件 | Microsoft Docs"
+title: "如何：向文档级自定义项中添加自定义 XML 部件"
 ms.custom: ""
 ms.date: "02/02/2017"
 ms.prod: "visual-studio-dev14"

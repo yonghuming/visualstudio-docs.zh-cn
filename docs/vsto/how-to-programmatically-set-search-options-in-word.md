@@ -1,5 +1,5 @@
 ---
-title: "如何：以编程方式在 Word 中设置搜索选项 | Microsoft Docs"
+title: "如何：以编程方式在 Word 中设置搜索选项"
 ms.custom: ""
 ms.date: "02/02/2017"
 ms.prod: "visual-studio-dev14"

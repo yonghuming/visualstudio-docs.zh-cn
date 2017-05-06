@@ -1,5 +1,5 @@
 ---
-title: "对文档级自定义项进行编程 | Microsoft Docs"
+title: "对文档级自定义项进行编程"
 ms.custom: ""
 ms.date: "02/02/2017"
 ms.prod: "visual-studio-dev14"

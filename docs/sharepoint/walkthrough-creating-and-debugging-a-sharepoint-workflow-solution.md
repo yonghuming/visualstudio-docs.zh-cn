@@ -1,5 +1,5 @@
 ---
-title: "演练：创建和调试 SharePoint 工作流解决方案 | Microsoft Docs"
+title: "演练：创建和调试 SharePoint 工作流解决方案"
 ms.custom: ""
 ms.date: "02/02/2017"
 ms.prod: "visual-studio-dev14"

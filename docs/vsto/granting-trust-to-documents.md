@@ -1,5 +1,5 @@
 ---
-title: "向文档授予信任 | Microsoft Docs"
+title: "向文档授予信任"
 ms.custom: ""
 ms.date: "02/02/2017"
 ms.prod: "visual-studio-dev14"

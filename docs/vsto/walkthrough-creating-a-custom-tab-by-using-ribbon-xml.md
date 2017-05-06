@@ -1,5 +1,5 @@
 ---
-title: "演练：使用功能区 XML 创建自定义选项卡 | Microsoft Docs"
+title: "演练：使用功能区 XML 创建自定义选项卡"
 ms.custom: ""
 ms.date: "02/02/2017"
 ms.prod: "visual-studio-dev14"

@@ -1,5 +1,5 @@
 ---
-title: "如何：用服务中的数据填充文档 | Microsoft Docs"
+title: "如何：用服务中的数据填充文档"
 ms.custom: ""
 ms.date: "02/02/2017"
 ms.prod: "visual-studio-dev14"

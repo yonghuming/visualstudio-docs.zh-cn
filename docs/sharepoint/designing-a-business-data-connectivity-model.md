@@ -1,5 +1,5 @@
 ---
-title: "设计业务数据连接模型 | Microsoft Docs"
+title: "设计业务数据连接模型"
 ms.custom: ""
 ms.date: "02/02/2017"
 ms.prod: "visual-studio-dev14"

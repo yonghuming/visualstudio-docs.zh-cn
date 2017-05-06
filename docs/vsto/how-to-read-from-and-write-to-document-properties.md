@@ -1,5 +1,5 @@
 ---
-title: "如何：从文档属性中读取或向文档属性写入 | Microsoft Docs"
+title: "如何：从文档属性中读取或向文档属性写入"
 ms.custom: ""
 ms.date: "02/02/2017"
 ms.prod: "visual-studio-dev14"

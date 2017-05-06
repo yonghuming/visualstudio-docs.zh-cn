@@ -1,5 +1,5 @@
 ---
-title: "Office 解决方案中的后期绑定 | Microsoft Docs"
+title: "Office 解决方案中的后期绑定"
 ms.custom: ""
 ms.date: "02/02/2017"
 ms.prod: "visual-studio-dev14"

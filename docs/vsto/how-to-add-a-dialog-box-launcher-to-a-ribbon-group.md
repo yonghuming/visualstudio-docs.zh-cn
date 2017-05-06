@@ -1,5 +1,5 @@
 ---
-title: "如何：向功能区组添加对话框启动器 | Microsoft Docs"
+title: "如何：向功能区组添加对话框启动器"
 ms.custom: ""
 ms.date: "02/02/2017"
 ms.prod: "visual-studio-dev14"

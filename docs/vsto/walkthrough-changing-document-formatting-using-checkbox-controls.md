@@ -1,5 +1,5 @@
 ---
-title: "演练：使用 CheckBox 控件更改文档格式设置 | Microsoft Docs"
+title: "演练：使用 CheckBox 控件更改文档格式设置"
 ms.custom: ""
 ms.date: "02/02/2017"
 ms.prod: "visual-studio-dev14"

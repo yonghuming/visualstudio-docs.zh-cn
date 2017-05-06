@@ -1,5 +1,5 @@
 ---
-title: "如何：为 Office 文档添加 Windows 窗体控件 | Microsoft Docs"
+title: "如何：为 Office 文档添加 Windows 窗体控件"
 ms.custom: ""
 ms.date: "02/02/2017"
 ms.prod: "visual-studio-dev14"

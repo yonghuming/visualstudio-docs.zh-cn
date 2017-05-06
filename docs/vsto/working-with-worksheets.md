@@ -1,5 +1,5 @@
 ---
-title: "使用工作表 | Microsoft Docs"
+title: "使用工作表"
 ms.custom: ""
 ms.date: "02/02/2017"
 ms.prod: "visual-studio-dev14"

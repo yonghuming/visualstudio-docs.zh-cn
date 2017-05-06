@@ -1,5 +1,5 @@
 ---
-title: "演练：添加功能事件接收器 | Microsoft Docs"
+title: "演练：添加功能事件接收器"
 ms.custom: ""
 ms.date: "02/02/2017"
 ms.prod: "visual-studio-dev14"

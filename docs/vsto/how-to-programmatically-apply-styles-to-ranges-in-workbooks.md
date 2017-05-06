@@ -1,5 +1,5 @@
 ---
-title: "如何：以编程方式将样式应用于工作簿中的所选区域 | Microsoft Docs"
+title: "如何：以编程方式将样式应用于工作簿中的所选区域"
 ms.custom: ""
 ms.date: "02/02/2017"
 ms.prod: "visual-studio-dev14"

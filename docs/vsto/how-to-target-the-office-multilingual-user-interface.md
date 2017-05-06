@@ -1,5 +1,5 @@
 ---
-title: "如何：面向 Office 多语言用户界面 | Microsoft Docs"
+title: "如何：面向 Office 多语言用户界面"
 ms.custom: ""
 ms.date: "02/02/2017"
 ms.prod: "visual-studio-dev14"

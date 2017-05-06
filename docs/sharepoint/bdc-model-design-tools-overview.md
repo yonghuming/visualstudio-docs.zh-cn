@@ -1,5 +1,5 @@
 ---
-title: "BDC 模型设计工具概述 | Microsoft Docs"
+title: "BDC 模型设计工具概述"
 ms.custom: ""
 ms.date: "02/02/2017"
 ms.prod: "visual-studio-dev14"

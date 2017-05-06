@@ -1,5 +1,5 @@
 ---
-title: "信息权限管理与托管代码扩展概述 | Microsoft Docs"
+title: "信息权限管理与托管代码扩展概述"
 ms.custom: ""
 ms.date: "02/02/2017"
 ms.prod: "visual-studio-dev14"

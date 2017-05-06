@@ -1,5 +1,5 @@
 ---
-title: "VSTO 外接程序编程入门 | Microsoft Docs"
+title: "VSTO 外接程序编程入门"
 ms.custom: ""
 ms.date: "02/02/2017"
 ms.prod: "visual-studio-dev14"

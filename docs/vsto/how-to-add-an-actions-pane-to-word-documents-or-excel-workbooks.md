@@ -1,5 +1,5 @@
 ---
-title: "如何：向 Word 文档或 Excel 工作簿添加操作窗格 | Microsoft Docs"
+title: "如何：向 Word 文档或 Excel 工作簿添加操作窗格"
 ms.custom: ""
 ms.date: "02/02/2017"
 ms.prod: "visual-studio-dev14"

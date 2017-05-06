@@ -1,5 +1,5 @@
 ---
-title: "如何：使用 VSTO 外接程序将自定义 XML 部件添加到文档 | Microsoft Docs"
+title: "如何：使用 VSTO 外接程序将自定义 XML 部件添加到文档"
 ms.custom: ""
 ms.date: "02/02/2017"
 ms.prod: "visual-studio-dev14"

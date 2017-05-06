@@ -1,5 +1,5 @@
 ---
-title: "文档级自定义项的体系结构 | Microsoft Docs"
+title: "文档级自定义项的体系结构"
 ms.custom: ""
 ms.date: "02/02/2017"
 ms.prod: "visual-studio-dev14"

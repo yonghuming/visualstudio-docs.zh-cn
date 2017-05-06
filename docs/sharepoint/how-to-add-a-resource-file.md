@@ -1,5 +1,5 @@
 ---
-title: "如何：添加资源文件 | Microsoft Docs"
+title: "如何：添加资源文件"
 ms.custom: ""
 ms.date: "02/02/2017"
 ms.prod: "visual-studio-dev14"

@@ -1,5 +1,5 @@
 ---
-title: "如何：向 SharePoint 项目添加现有 BDC 模型文件 | Microsoft Docs"
+title: "如何：向 SharePoint 项目添加现有 BDC 模型文件"
 ms.custom: ""
 ms.date: "02/02/2017"
 ms.prod: "visual-studio-dev14"

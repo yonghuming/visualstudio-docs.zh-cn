@@ -1,5 +1,5 @@
 ---
-title: "演练：根据 NamedRange 控件的事件进行编程 | Microsoft Docs"
+title: "演练：根据 NamedRange 控件的事件进行编程"
 ms.custom: ""
 ms.date: "02/02/2017"
 ms.prod: "visual-studio-dev14"

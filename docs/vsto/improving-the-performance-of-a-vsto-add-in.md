@@ -1,5 +1,5 @@
 ---
-title: "提高 VSTO 外接程序的性能 | Microsoft Docs"
+title: "提高 VSTO 外接程序的性能"
 ms.custom: ""
 ms.date: "02/02/2017"
 ms.prod: "visual-studio-dev14"

@@ -1,5 +1,5 @@
 ---
-title: "如何：打开 Office 解决方案但不运行代码 | Microsoft Docs"
+title: "如何：打开 Office 解决方案但不运行代码"
 ms.custom: ""
 ms.date: "02/02/2017"
 ms.prod: "visual-studio-dev14"

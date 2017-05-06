@@ -1,5 +1,5 @@
 ---
-title: "文档级自定义项中的 XML 架构和数据 | Microsoft Docs"
+title: "文档级自定义项中的 XML 架构和数据"
 ms.custom: ""
 ms.date: "02/02/2017"
 ms.prod: "visual-studio-dev14"

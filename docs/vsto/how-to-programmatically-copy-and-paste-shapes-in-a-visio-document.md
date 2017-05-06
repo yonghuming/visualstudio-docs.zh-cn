@@ -1,5 +1,5 @@
 ---
-title: "如何：以编程方式在 Visio 文档中复制和粘贴形状 | Microsoft Docs"
+title: "如何：以编程方式在 Visio 文档中复制和粘贴形状"
 ms.custom: ""
 ms.date: "02/02/2017"
 ms.prod: "visual-studio-dev14"

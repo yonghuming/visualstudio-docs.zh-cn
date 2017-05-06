@@ -1,5 +1,5 @@
 ---
-title: "演练：为 Outlook 中的电子邮件显示自定义任务窗格 | Microsoft Docs"
+title: "演练：为 Outlook 中的电子邮件显示自定义任务窗格"
 ms.custom: ""
 ms.date: "02/02/2017"
 ms.prod: "visual-studio-dev14"

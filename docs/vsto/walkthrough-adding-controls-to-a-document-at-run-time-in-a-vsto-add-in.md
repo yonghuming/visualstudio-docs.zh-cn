@@ -1,5 +1,5 @@
 ---
-title: "演练：运行时在 VSTO 外接程序中将控件添加到文档 | Microsoft Docs"
+title: "演练：运行时在 VSTO 外接程序中将控件添加到文档"
 ms.custom: ""
 ms.date: "02/02/2017"
 ms.prod: "visual-studio-dev14"

@@ -1,5 +1,5 @@
 ---
-title: "向 Office 解决方案授予信任 | Microsoft Docs"
+title: "向 Office 解决方案授予信任"
 ms.custom: ""
 ms.date: "02/02/2017"
 ms.prod: "visual-studio-dev14"

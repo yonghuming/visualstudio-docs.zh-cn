@@ -1,5 +1,5 @@
 ---
-title: "演练：将 SharePoint Designer 可重用工作流导入 Visual Studio | Microsoft Docs"
+title: "演练：将 SharePoint Designer 可重用工作流导入 Visual Studio"
 ms.custom: ""
 ms.date: "02/02/2017"
 ms.prod: "visual-studio-dev14"

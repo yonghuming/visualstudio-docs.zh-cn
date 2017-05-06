@@ -1,5 +1,5 @@
 ---
-title: "如何：以编程方式在工作表范围内搜索文本 | Microsoft Docs"
+title: "如何：以编程方式在工作表范围内搜索文本"
 ms.custom: ""
 ms.date: "02/02/2017"
 ms.prod: "visual-studio-dev14"

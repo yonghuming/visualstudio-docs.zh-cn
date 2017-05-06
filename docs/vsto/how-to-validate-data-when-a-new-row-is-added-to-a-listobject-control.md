@@ -1,5 +1,5 @@
 ---
-title: "如何：在向 ListObject 控件添加新行时验证数据 | Microsoft Docs"
+title: "如何：在向 ListObject 控件添加新行时验证数据"
 ms.custom: ""
 ms.date: "02/02/2017"
 ms.prod: "visual-studio-dev14"

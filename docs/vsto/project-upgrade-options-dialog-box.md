@@ -1,5 +1,5 @@
 ---
-title: "“选项”对话框 -&gt;“项目升级” | Microsoft Docs"
+title: "“选项”对话框 -&gt;“项目升级”"
 ms.custom: ""
 ms.date: "02/02/2017"
 ms.prod: "visual-studio-dev14"

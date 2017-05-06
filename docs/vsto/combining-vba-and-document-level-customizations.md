@@ -1,5 +1,5 @@
 ---
-title: "结合 VBA 和文档级自定义项 | Microsoft Docs"
+title: "结合 VBA 和文档级自定义项"
 ms.custom: ""
 ms.date: "02/02/2017"
 ms.prod: "visual-studio-dev14"

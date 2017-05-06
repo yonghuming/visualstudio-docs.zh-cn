@@ -1,5 +1,5 @@
 ---
-title: "在运行时在 VSTO 外接程序中扩展 Word 文档和 Excel 工作簿 | Microsoft Docs"
+title: "在运行时在 VSTO 外接程序中扩展 Word 文档和 Excel 工作簿"
 ms.custom: ""
 ms.date: "02/02/2017"
 ms.prod: "visual-studio-dev14"

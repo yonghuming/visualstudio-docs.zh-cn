@@ -1,5 +1,5 @@
 ---
-title: "如何：允许代码在具有受限制权限的文档的后台运行 | Microsoft Docs"
+title: "如何：允许代码在具有受限制权限的文档的后台运行"
 ms.custom: ""
 ms.date: "02/02/2017"
 ms.prod: "visual-studio-dev14"

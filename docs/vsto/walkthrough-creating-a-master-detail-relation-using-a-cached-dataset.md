@@ -1,5 +1,5 @@
 ---
-title: "演练：使用缓存的数据集创建主/从关系 | Microsoft Docs"
+title: "演练：使用缓存的数据集创建主/从关系"
 ms.custom: ""
 ms.date: "02/02/2017"
 ms.prod: "visual-studio-dev14"

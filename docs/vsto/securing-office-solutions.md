@@ -1,5 +1,5 @@
 ---
-title: "保护 Office 解决方案的安全 | Microsoft Docs"
+title: "保护 Office 解决方案的安全"
 ms.custom: ""
 ms.date: "02/02/2017"
 ms.prod: "visual-studio-dev14"

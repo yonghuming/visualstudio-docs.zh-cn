@@ -1,5 +1,5 @@
 ---
-title: "如何：管理操作窗格上的控件布局 | Microsoft Docs"
+title: "如何：管理操作窗格上的控件布局"
 ms.custom: ""
 ms.date: "02/02/2017"
 ms.prod: "visual-studio-dev14"

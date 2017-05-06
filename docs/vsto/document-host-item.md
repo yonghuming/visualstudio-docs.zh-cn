@@ -1,5 +1,5 @@
 ---
-title: "文档宿主项 | Microsoft Docs"
+title: "文档宿主项"
 ms.custom: ""
 ms.date: "02/02/2017"
 ms.prod: "visual-studio-dev14"

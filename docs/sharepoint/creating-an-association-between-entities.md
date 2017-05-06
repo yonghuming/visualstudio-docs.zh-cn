@@ -1,5 +1,5 @@
 ---
-title: "创建实体之间的关联 | Microsoft Docs"
+title: "创建实体之间的关联"
 ms.custom: ""
 ms.date: "02/02/2017"
 ms.prod: "visual-studio-dev14"

@@ -1,5 +1,5 @@
 ---
-title: "如何：以编程方式向 Word 表中添加行和列 | Microsoft Docs"
+title: "如何：以编程方式向 Word 表中添加行和列"
 ms.custom: ""
 ms.date: "02/02/2017"
 ms.prod: "visual-studio-dev14"

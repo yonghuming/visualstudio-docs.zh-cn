@@ -1,5 +1,5 @@
 ---
-title: "使用 ServerDocument 类管理服务器上的文档 | Microsoft Docs"
+title: "使用 ServerDocument 类管理服务器上的文档"
 ms.custom: ""
 ms.date: "02/02/2017"
 ms.prod: "visual-studio-dev14"

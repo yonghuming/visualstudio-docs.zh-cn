@@ -1,5 +1,5 @@
 ---
-title: "沙盒解决方案与场解决方案之间的差异 | Microsoft Docs"
+title: "沙盒解决方案与场解决方案之间的差异"
 ms.custom: ""
 ms.date: "02/02/2017"
 ms.prod: "visual-studio-dev14"

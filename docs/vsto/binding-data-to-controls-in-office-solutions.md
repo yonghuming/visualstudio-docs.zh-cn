@@ -1,5 +1,5 @@
 ---
-title: "将数据绑定到 Office 解决方案中的控件 | Microsoft Docs"
+title: "将数据绑定到 Office 解决方案中的控件"
 ms.custom: ""
 ms.date: "02/02/2017"
 ms.prod: "visual-studio-dev14"

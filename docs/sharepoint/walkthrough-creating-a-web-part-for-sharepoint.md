@@ -1,5 +1,5 @@
 ---
-title: "演练：为 SharePoint 创建 Web 部件 | Microsoft Docs"
+title: "演练：为 SharePoint 创建 Web 部件"
 ms.custom: ""
 ms.date: "02/02/2017"
 ms.prod: "visual-studio-dev14"

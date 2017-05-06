@@ -1,5 +1,5 @@
 ---
-title: "如何：以编程方式在 Office 文档中缓存数据源 | Microsoft Docs"
+title: "如何：以编程方式在 Office 文档中缓存数据源"
 ms.custom: ""
 ms.date: "02/02/2017"
 ms.prod: "visual-studio-dev14"

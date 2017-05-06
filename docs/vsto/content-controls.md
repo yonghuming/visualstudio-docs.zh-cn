@@ -1,5 +1,5 @@
 ---
-title: "内容控件 | Microsoft Docs"
+title: "内容控件"
 ms.custom: ""
 ms.date: "02/02/2017"
 ms.prod: "visual-studio-dev14"

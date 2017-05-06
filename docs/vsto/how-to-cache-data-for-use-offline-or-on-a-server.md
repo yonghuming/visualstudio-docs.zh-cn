@@ -1,5 +1,5 @@
 ---
-title: "如何：缓存数据以便脱机使用或在服务器上使用 | Microsoft Docs"
+title: "如何：缓存数据以便脱机使用或在服务器上使用"
 ms.custom: ""
 ms.date: "02/02/2017"
 ms.prod: "visual-studio-dev14"

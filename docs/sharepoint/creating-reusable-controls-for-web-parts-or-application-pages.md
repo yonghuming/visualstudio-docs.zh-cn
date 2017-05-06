@@ -1,5 +1,5 @@
 ---
-title: "为 Web 部件或应用程序页创建可重用控件 | Microsoft Docs"
+title: "为 Web 部件或应用程序页创建可重用控件"
 ms.custom: ""
 ms.date: "02/02/2017"
 ms.prod: "visual-studio-dev14"

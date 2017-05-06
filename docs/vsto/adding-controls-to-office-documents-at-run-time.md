@@ -1,5 +1,5 @@
 ---
-title: "在运行时向 Office 文档添加控件 | Microsoft Docs"
+title: "在运行时向 Office 文档添加控件"
 ms.custom: ""
 ms.date: "02/02/2017"
 ms.prod: "visual-studio-dev14"

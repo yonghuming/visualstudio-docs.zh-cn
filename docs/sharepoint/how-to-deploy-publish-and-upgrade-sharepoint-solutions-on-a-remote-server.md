@@ -1,5 +1,5 @@
 ---
-title: "如何：在远程服务器上部署、发布和升级 SharePoint 解决方案 | Microsoft Docs"
+title: "如何：在远程服务器上部署、发布和升级 SharePoint 解决方案"
 ms.custom: ""
 ms.date: "02/02/2017"
 ms.prod: "visual-studio-dev14"

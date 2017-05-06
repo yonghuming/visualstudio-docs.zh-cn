@@ -1,5 +1,5 @@
 ---
-title: "宿主项和宿主控件概述 | Microsoft Docs"
+title: "宿主项和宿主控件概述"
 ms.custom: ""
 ms.date: "02/02/2017"
 ms.prod: "visual-studio-dev14"

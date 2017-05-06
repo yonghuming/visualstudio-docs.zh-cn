@@ -1,5 +1,5 @@
 ---
-title: "如何：创建和修改自定义文档属性 | Microsoft Docs"
+title: "如何：创建和修改自定义文档属性"
 ms.custom: ""
 ms.date: "02/02/2017"
 ms.prod: "visual-studio-dev14"

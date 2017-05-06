@@ -1,5 +1,5 @@
 ---
-title: "如何：定义参数的类型描述符 | Microsoft Docs"
+title: "如何：定义参数的类型描述符"
 ms.custom: ""
 ms.date: "02/02/2017"
 ms.prod: "visual-studio-dev14"

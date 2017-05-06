@@ -1,5 +1,5 @@
 ---
-title: "将窗体区域与 Outlook 邮件类关联 | Microsoft Docs"
+title: "将窗体区域与 Outlook 邮件类关联"
 ms.custom: ""
 ms.date: "02/02/2017"
 ms.prod: "visual-studio-dev14"

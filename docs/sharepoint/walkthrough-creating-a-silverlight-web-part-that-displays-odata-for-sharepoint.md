@@ -1,5 +1,5 @@
 ---
-title: "演练：创建显示 SharePoint OData 的 Silverlight Web 部件 | Microsoft Docs"
+title: "演练：创建显示 SharePoint OData 的 Silverlight Web 部件"
 ms.custom: ""
 ms.date: "02/22/2017"
 ms.prod: "visual-studio-dev14"

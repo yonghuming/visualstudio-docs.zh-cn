@@ -1,5 +1,5 @@
 ---
-title: "如何：为 SharePoint 应用程序页或 Web 部件创建用户控件 | Microsoft Docs"
+title: "如何：为 SharePoint 应用程序页或 Web 部件创建用户控件"
 ms.custom: ""
 ms.date: "02/02/2017"
 ms.prod: "visual-studio-dev14"

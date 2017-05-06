@@ -1,5 +1,5 @@
 ---
-title: "使用扩展性接口自定义 UI 功能 | Microsoft Docs"
+title: "使用扩展性接口自定义 UI 功能"
 ms.custom: ""
 ms.date: "02/02/2017"
 ms.prod: "visual-studio-dev14"

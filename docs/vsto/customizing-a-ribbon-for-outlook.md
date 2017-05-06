@@ -1,5 +1,5 @@
 ---
-title: "自定义 Outlook 功能区 | Microsoft Docs"
+title: "自定义 Outlook 功能区"
 ms.custom: ""
 ms.date: "02/02/2017"
 ms.prod: "visual-studio-dev14"

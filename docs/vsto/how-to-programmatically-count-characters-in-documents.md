@@ -1,5 +1,5 @@
 ---
-title: "如何：以编程方式统计文档中的字符数 | Microsoft Docs"
+title: "如何：以编程方式统计文档中的字符数"
 ms.custom: ""
 ms.date: "02/02/2017"
 ms.prod: "visual-studio-dev14"

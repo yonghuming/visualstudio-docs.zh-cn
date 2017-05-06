@@ -1,5 +1,5 @@
 ---
-title: "功能区 XML | Microsoft Docs"
+title: "功能区 XML"
 ms.custom: ""
 ms.date: "02/02/2017"
 ms.prod: "visual-studio-dev14"

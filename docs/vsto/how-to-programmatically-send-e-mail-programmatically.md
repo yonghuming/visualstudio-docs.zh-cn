@@ -1,5 +1,5 @@
 ---
-title: "如何：以编程方式发送电子邮件 | Microsoft Docs"
+title: "如何：以编程方式发送电子邮件"
 ms.custom: ""
 ms.date: "02/02/2017"
 ms.prod: "visual-studio-dev14"

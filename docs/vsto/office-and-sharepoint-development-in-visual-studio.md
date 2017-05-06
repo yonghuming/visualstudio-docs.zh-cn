@@ -1,5 +1,5 @@
 ---
-title: "Visual Studio 中的 Office 和 SharePoint 开发 | Microsoft Docs"
+title: "Visual Studio 中的 Office 和 SharePoint 开发"
 ms.custom: ""
 ms.date: "02/02/2017"
 ms.prod: "visual-studio-dev14"

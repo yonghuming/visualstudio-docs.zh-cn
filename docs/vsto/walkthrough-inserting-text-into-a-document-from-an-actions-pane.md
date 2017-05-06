@@ -1,5 +1,5 @@
 ---
-title: "演练：从操作窗格将文本插入到文档中 | Microsoft Docs"
+title: "演练：从操作窗格将文本插入到文档中"
 ms.custom: ""
 ms.date: "02/02/2017"
 ms.prod: "visual-studio-dev14"

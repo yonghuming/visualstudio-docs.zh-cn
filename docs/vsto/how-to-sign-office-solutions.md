@@ -1,5 +1,5 @@
 ---
-title: "如何：对 Office 解决方案进行签名 | Microsoft Docs"
+title: "如何：对 Office 解决方案进行签名"
 ms.custom: ""
 ms.date: "02/02/2017"
 ms.prod: "visual-studio-dev14"

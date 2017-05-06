@@ -1,5 +1,5 @@
 ---
-title: "如何：以编程方式在收到电子邮件后执行操作 | Microsoft Docs"
+title: "如何：以编程方式在收到电子邮件后执行操作"
 ms.custom: ""
 ms.date: "02/02/2017"
 ms.prod: "visual-studio-dev14"

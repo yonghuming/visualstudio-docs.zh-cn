@@ -1,5 +1,5 @@
 ---
-title: "Excel 解决方案的全球化和本地化 | Microsoft Docs"
+title: "Excel 解决方案的全球化和本地化"
 ms.custom: ""
 ms.date: "02/02/2017"
 ms.prod: "visual-studio-dev14"

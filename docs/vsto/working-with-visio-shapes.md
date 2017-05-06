@@ -1,5 +1,5 @@
 ---
-title: "使用 Visio 形状 | Microsoft Docs"
+title: "使用 Visio 形状"
 ms.custom: ""
 ms.date: "02/02/2017"
 ms.prod: "visual-studio-dev14"

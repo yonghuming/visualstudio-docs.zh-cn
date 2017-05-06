@@ -1,5 +1,5 @@
 ---
-title: "使用服务器资源管理器浏览 SharePoint 连接 | Microsoft Docs"
+title: "使用服务器资源管理器浏览 SharePoint 连接"
 ms.custom: ""
 ms.date: "02/02/2017"
 ms.prod: "visual-studio-dev14"

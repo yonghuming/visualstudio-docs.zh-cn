@@ -1,5 +1,5 @@
 ---
-title: "演练：创建 SharePoint 的网站栏、内容类型和列表 | Microsoft Docs"
+title: "演练：创建 SharePoint 的网站栏、内容类型和列表"
 ms.custom: ""
 ms.date: "02/02/2017"
 ms.prod: "visual-studio-dev14"

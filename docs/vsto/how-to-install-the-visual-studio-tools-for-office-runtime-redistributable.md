@@ -1,5 +1,5 @@
 ---
-title: "如何：安装 Visual Studio Tools for Office Runtime 可再发行组件 | Microsoft Docs"
+title: "如何：安装 Visual Studio Tools for Office Runtime 可再发行组件"
 ms.custom: ""
 ms.date: "02/02/2017"
 ms.prod: "visual-studio-dev14"

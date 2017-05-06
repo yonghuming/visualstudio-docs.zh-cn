@@ -1,5 +1,5 @@
 ---
-title: "文档级解决方案中的文档保护 | Microsoft Docs"
+title: "文档级解决方案中的文档保护"
 ms.custom: ""
 ms.date: "02/02/2017"
 ms.prod: "visual-studio-dev14"

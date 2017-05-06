@@ -1,5 +1,5 @@
 ---
-title: "设计和创建 Office 解决方案 | Microsoft Docs"
+title: "设计和创建 Office 解决方案"
 ms.custom: ""
 ms.date: "02/02/2017"
 ms.prod: "visual-studio-dev14"

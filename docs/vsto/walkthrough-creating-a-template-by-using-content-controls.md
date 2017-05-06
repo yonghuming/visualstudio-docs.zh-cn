@@ -1,5 +1,5 @@
 ---
-title: "演练：使用内容控件创建模板 | Microsoft Docs"
+title: "演练：使用内容控件创建模板"
 ms.custom: ""
 ms.date: "02/02/2017"
 ms.prod: "visual-studio-dev14"

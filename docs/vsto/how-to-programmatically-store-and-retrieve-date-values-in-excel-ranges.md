@@ -1,5 +1,5 @@
 ---
-title: "如何：以编程方式在 Excel 范围内存储和检索日期值 | Microsoft Docs"
+title: "如何：以编程方式在 Excel 范围内存储和检索日期值"
 ms.custom: ""
 ms.date: "02/02/2017"
 ms.prod: "visual-studio-dev14"

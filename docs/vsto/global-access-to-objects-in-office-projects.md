@@ -1,5 +1,5 @@
 ---
-title: "对 Office 项目中对象的全局访问 | Microsoft Docs"
+title: "对 Office 项目中对象的全局访问"
 ms.custom: ""
 ms.date: "02/02/2017"
 ms.prod: "visual-studio-dev14"

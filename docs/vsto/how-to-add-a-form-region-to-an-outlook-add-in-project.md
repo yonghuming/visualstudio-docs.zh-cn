@@ -1,5 +1,5 @@
 ---
-title: "如何：向 Outlook 外接程序项目中添加窗体区域 | Microsoft Docs"
+title: "如何：向 Outlook 外接程序项目中添加窗体区域"
 ms.custom: ""
 ms.date: "02/02/2017"
 ms.prod: "visual-studio-dev14"

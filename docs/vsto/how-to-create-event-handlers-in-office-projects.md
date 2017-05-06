@@ -1,5 +1,5 @@
 ---
-title: "如何：在 Office 项目中创建事件处理程序 | Microsoft Docs"
+title: "如何：在 Office 项目中创建事件处理程序"
 ms.custom: ""
 ms.date: "02/02/2017"
 ms.prod: "visual-studio-dev14"

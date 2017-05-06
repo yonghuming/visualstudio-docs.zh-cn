@@ -1,5 +1,5 @@
 ---
-title: "演练：部署项目任务列表定义 | Microsoft Docs"
+title: "演练：部署项目任务列表定义"
 ms.custom: ""
 ms.date: "02/02/2017"
 ms.prod: "visual-studio-dev14"

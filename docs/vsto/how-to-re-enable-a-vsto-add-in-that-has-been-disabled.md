@@ -1,5 +1,5 @@
 ---
-title: "如何：重新启用已禁用的 VSTO 外接程序 | Microsoft Docs"
+title: "如何：重新启用已禁用的 VSTO 外接程序"
 ms.custom: ""
 ms.date: "02/02/2017"
 ms.prod: "visual-studio-dev14"

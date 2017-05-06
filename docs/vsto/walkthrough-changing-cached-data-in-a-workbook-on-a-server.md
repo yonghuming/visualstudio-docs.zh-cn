@@ -1,5 +1,5 @@
 ---
-title: "演练：更改服务器上的工作簿中的缓存数据 | Microsoft Docs"
+title: "演练：更改服务器上的工作簿中的缓存数据"
 ms.custom: ""
 ms.date: "02/02/2017"
 ms.prod: "visual-studio-dev14"

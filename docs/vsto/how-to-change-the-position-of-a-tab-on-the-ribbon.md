@@ -1,5 +1,5 @@
 ---
-title: "如何：更改功能区上选项卡的位置 | Microsoft Docs"
+title: "如何：更改功能区上选项卡的位置"
 ms.custom: ""
 ms.date: "02/02/2017"
 ms.prod: "visual-studio-dev14"

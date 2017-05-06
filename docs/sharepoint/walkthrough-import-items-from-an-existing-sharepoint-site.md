@@ -1,5 +1,5 @@
 ---
-title: "演练：从现有的 SharePoint 网站导入项 | Microsoft Docs"
+title: "演练：从现有的 SharePoint 网站导入项"
 ms.custom: ""
 ms.date: "02/02/2017"
 ms.prod: "visual-studio-dev14"

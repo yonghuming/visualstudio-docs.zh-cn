@@ -1,5 +1,5 @@
 ---
-title: "Office 解决方案演练中的数据 | Microsoft Docs"
+title: "Office 解决方案演练中的数据"
 ms.custom: ""
 ms.date: "02/02/2017"
 ms.prod: "visual-studio-dev14"

@@ -1,5 +1,5 @@
 ---
-title: "如何：以编程方式遍历在文档中找到的项 | Microsoft Docs"
+title: "如何：以编程方式遍历在文档中找到的项"
 ms.custom: ""
 ms.date: "02/02/2017"
 ms.prod: "visual-studio-dev14"

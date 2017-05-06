@@ -1,5 +1,5 @@
 ---
-title: "演练：创建带有关联窗体和启动窗体的工作流 | Microsoft Docs"
+title: "演练：创建带有关联窗体和启动窗体的工作流"
 ms.custom: ""
 ms.date: "02/02/2017"
 ms.prod: "visual-studio-dev14"

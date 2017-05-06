@@ -1,5 +1,5 @@
 ---
-title: "如何：在 BDC 功能中引入自定义程序集 | Microsoft Docs"
+title: "如何：在 BDC 功能中引入自定义程序集"
 ms.custom: ""
 ms.date: "02/02/2017"
 ms.prod: "visual-studio-dev14"

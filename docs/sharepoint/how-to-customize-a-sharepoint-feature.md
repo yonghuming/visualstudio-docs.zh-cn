@@ -1,5 +1,5 @@
 ---
-title: "如何：自定义 SharePoint 功能 | Microsoft Docs"
+title: "如何：自定义 SharePoint 功能"
 ms.custom: ""
 ms.date: "02/02/2017"
 ms.prod: "visual-studio-dev14"

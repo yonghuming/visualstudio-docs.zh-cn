@@ -1,5 +1,5 @@
 ---
-title: "如何：以编程方式检索范围中的开始字符和结束字符 | Microsoft Docs"
+title: "如何：以编程方式检索范围中的开始字符和结束字符"
 ms.custom: ""
 ms.date: "02/02/2017"
 ms.prod: "visual-studio-dev14"

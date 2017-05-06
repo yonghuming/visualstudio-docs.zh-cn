@@ -1,5 +1,5 @@
 ---
-title: "开发 SharePoint 解决方案的要求 | Microsoft Docs"
+title: "开发 SharePoint 解决方案的要求"
 ms.custom: ""
 ms.date: "02/02/2017"
 ms.prod: "visual-studio-dev14"

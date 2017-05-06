@@ -1,5 +1,5 @@
 ---
-title: "如何：以编程方式删除 Outlook 联系人 | Microsoft Docs"
+title: "如何：以编程方式删除 Outlook 联系人"
 ms.custom: ""
 ms.date: "02/02/2017"
 ms.prod: "visual-studio-dev14"

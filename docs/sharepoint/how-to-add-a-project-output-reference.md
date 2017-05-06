@@ -1,5 +1,5 @@
 ---
-title: "如何：添加项目输出引用 | Microsoft Docs"
+title: "如何：添加项目输出引用"
 ms.custom: ""
 ms.date: "02/02/2017"
 ms.prod: "visual-studio-dev14"

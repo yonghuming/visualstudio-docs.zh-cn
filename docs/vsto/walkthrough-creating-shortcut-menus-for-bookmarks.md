@@ -1,5 +1,5 @@
 ---
-title: "演练：创建书签的快捷菜单 | Microsoft Docs"
+title: "演练：创建书签的快捷菜单"
 ms.custom: ""
 ms.date: "02/02/2017"
 ms.prod: "visual-studio-dev14"

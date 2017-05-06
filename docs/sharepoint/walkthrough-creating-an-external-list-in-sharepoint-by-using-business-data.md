@@ -1,5 +1,5 @@
 ---
-title: "演练：使用业务数据在 SharePoint 中创建外部列表 | Microsoft Docs"
+title: "演练：使用业务数据在 SharePoint 中创建外部列表"
 ms.custom: ""
 ms.date: "02/02/2017"
 ms.prod: "visual-studio-dev14"

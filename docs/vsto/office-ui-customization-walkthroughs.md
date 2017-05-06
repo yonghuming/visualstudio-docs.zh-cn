@@ -1,5 +1,5 @@
 ---
-title: "Office UI 自定义演练 | Microsoft Docs"
+title: "Office UI 自定义演练"
 ms.custom: ""
 ms.date: "02/02/2017"
 ms.prod: "visual-studio-dev14"

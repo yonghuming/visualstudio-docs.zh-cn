@@ -1,5 +1,5 @@
 ---
-title: "如何：以编程方式在联系人中搜索电子邮件地址 | Microsoft Docs"
+title: "如何：以编程方式在联系人中搜索电子邮件地址"
 ms.custom: ""
 ms.date: "02/02/2017"
 ms.prod: "visual-studio-dev14"

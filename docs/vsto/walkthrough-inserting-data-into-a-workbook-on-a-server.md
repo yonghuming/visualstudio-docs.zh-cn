@@ -1,5 +1,5 @@
 ---
-title: "演练：将数据插入到服务器上的工作簿中 | Microsoft Docs"
+title: "演练：将数据插入到服务器上的工作簿中"
 ms.custom: ""
 ms.date: "02/02/2017"
 ms.prod: "visual-studio-dev14"

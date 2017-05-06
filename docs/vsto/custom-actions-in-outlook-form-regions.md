@@ -1,5 +1,5 @@
 ---
-title: "Outlook 窗体区域中的自定义操作 | Microsoft Docs"
+title: "Outlook 窗体区域中的自定义操作"
 ms.custom: ""
 ms.date: "02/02/2017"
 ms.prod: "visual-studio-dev14"

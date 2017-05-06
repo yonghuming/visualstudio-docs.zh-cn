@@ -1,5 +1,5 @@
 ---
-title: "如何：以编程方式在 Word 文档中插入文本 | Microsoft Docs"
+title: "如何：以编程方式在 Word 文档中插入文本"
 ms.custom: ""
 ms.date: "02/02/2017"
 ms.prod: "visual-studio-dev14"

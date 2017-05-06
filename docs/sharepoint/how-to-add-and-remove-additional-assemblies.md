@@ -1,5 +1,5 @@
 ---
-title: "如何：添加和移除附加程序集 | Microsoft Docs"
+title: "如何：添加和移除附加程序集"
 ms.custom: ""
 ms.date: "02/02/2017"
 ms.prod: "visual-studio-dev14"

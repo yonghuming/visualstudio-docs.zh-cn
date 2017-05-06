@@ -1,5 +1,5 @@
 ---
-title: "按 Office 应用程序和项目类型提供的功能 | Microsoft Docs"
+title: "按 Office 应用程序和项目类型提供的功能"
 ms.custom: ""
 ms.date: "02/02/2017"
 ms.prod: "visual-studio-dev14"

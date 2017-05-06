@@ -1,5 +1,5 @@
 ---
-title: "如何：使用 MSBuild 目标自定义 SharePoint 解决方案包 | Microsoft Docs"
+title: "如何：使用 MSBuild 目标自定义 SharePoint 解决方案包"
 ms.custom: ""
 ms.date: "02/02/2017"
 ms.prod: "visual-studio-dev14"

@@ -1,5 +1,5 @@
 ---
-title: "合并功能和包清单中的 XML | Microsoft Docs"
+title: "合并功能和包清单中的 XML"
 ms.custom: ""
 ms.date: "02/02/2017"
 ms.prod: "visual-studio-dev14"

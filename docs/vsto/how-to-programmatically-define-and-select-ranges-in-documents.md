@@ -1,5 +1,5 @@
 ---
-title: "如何：以编程方式在文档中定义和选择范围 | Microsoft Docs"
+title: "如何：以编程方式在文档中定义和选择范围"
 ms.custom: ""
 ms.date: "02/02/2017"
 ms.prod: "visual-studio-dev14"

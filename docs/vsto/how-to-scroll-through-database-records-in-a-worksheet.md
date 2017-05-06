@@ -1,5 +1,5 @@
 ---
-title: "如何：在工作表中滚动查看数据库记录 | Microsoft Docs"
+title: "如何：在工作表中滚动查看数据库记录"
 ms.custom: ""
 ms.date: "02/02/2017"
 ms.prod: "visual-studio-dev14"

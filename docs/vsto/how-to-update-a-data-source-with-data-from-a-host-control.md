@@ -1,5 +1,5 @@
 ---
-title: "如何：使用宿主控件中的数据更新数据源 | Microsoft Docs"
+title: "如何：使用宿主控件中的数据更新数据源"
 ms.custom: ""
 ms.date: "02/02/2017"
 ms.prod: "visual-studio-dev14"

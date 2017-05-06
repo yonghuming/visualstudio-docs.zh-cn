@@ -1,5 +1,5 @@
 ---
-title: "如何：在受密码保护的文档中缓存数据 | Microsoft Docs"
+title: "如何：在受密码保护的文档中缓存数据"
 ms.custom: ""
 ms.date: "02/02/2017"
 ms.prod: "visual-studio-dev14"

@@ -1,5 +1,5 @@
 ---
-title: "IManagedAddin 接口 | Microsoft Docs"
+title: "IManagedAddin 接口"
 ms.custom: ""
 ms.date: "02/02/2017"
 ms.prod: "visual-studio-dev14"

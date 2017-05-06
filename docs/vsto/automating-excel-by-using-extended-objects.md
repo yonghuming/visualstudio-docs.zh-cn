@@ -1,5 +1,5 @@
 ---
-title: "使用扩展对象实现 Excel 自动化 | Microsoft Docs"
+title: "使用扩展对象实现 Excel 自动化"
 ms.custom: ""
 ms.date: "02/02/2017"
 ms.prod: "visual-studio-dev14"

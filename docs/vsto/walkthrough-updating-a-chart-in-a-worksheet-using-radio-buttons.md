@@ -1,5 +1,5 @@
 ---
-title: "演练：使用单选按钮更新工作表中的图表 | Microsoft Docs"
+title: "演练：使用单选按钮更新工作表中的图表"
 ms.custom: ""
 ms.date: "02/02/2017"
 ms.prod: "visual-studio-dev14"

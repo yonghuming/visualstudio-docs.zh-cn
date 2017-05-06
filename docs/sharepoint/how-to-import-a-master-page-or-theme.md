@@ -1,5 +1,5 @@
 ---
-title: "如何：导入母版页或主题 | Microsoft Docs"
+title: "如何：导入母版页或主题"
 ms.custom: ""
 ms.date: "02/02/2017"
 ms.prod: "visual-studio-dev14"

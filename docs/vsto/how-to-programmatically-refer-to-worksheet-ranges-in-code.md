@@ -1,5 +1,5 @@
 ---
-title: "如何：以编程方式使用代码引用工作表范围 | Microsoft Docs"
+title: "如何：以编程方式使用代码引用工作表范围"
 ms.custom: ""
 ms.date: "02/02/2017"
 ms.prod: "visual-studio-dev14"

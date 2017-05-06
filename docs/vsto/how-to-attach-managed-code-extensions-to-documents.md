@@ -1,5 +1,5 @@
 ---
-title: "如何：将托管代码扩展附加到文档 | Microsoft Docs"
+title: "如何：将托管代码扩展附加到文档"
 ms.custom: ""
 ms.date: "02/02/2017"
 ms.prod: "visual-studio-dev14"

@@ -1,5 +1,5 @@
 ---
-title: "如何：以编程方式向文档中的文本添加注释 | Microsoft Docs"
+title: "如何：以编程方式向文档中的文本添加注释"
 ms.custom: ""
 ms.date: "02/02/2017"
 ms.prod: "visual-studio-dev14"

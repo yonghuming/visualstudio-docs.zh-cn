@@ -1,5 +1,5 @@
 ---
-title: "如何：用数据填充 ListObject 控件 | Microsoft Docs"
+title: "如何：用数据填充 ListObject 控件"
 ms.custom: ""
 ms.date: "02/02/2017"
 ms.prod: "visual-studio-dev14"

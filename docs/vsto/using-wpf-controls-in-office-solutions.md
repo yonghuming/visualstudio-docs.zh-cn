@@ -1,5 +1,5 @@
 ---
-title: "在 Office 解决方案中使用 WPF 控件 | Microsoft Docs"
+title: "在 Office 解决方案中使用 WPF 控件"
 ms.custom: ""
 ms.date: "02/02/2017"
 ms.prod: "visual-studio-dev14"

@@ -1,5 +1,5 @@
 ---
-title: "在运行时访问功能区 | Microsoft Docs"
+title: "在运行时访问功能区"
 ms.custom: ""
 ms.date: "02/02/2017"
 ms.prod: "visual-studio-dev14"

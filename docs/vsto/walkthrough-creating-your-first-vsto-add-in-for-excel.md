@@ -1,5 +1,5 @@
 ---
-title: "演练：创建你的第一个 Excel VSTO 外接程序 | Microsoft Docs"
+title: "演练：创建你的第一个 Excel VSTO 外接程序"
 ms.custom: ""
 ms.date: "02/02/2017"
 ms.prod: "visual-studio-dev14"

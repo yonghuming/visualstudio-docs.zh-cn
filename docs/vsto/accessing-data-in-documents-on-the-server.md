@@ -1,5 +1,5 @@
 ---
-title: "访问服务器上的文档数据 | Microsoft Docs"
+title: "访问服务器上的文档数据"
 ms.custom: ""
 ms.date: "02/02/2017"
 ms.prod: "visual-studio-dev14"

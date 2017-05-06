@@ -1,5 +1,5 @@
 ---
-title: "功能区设计器 | Microsoft Docs"
+title: "功能区设计器"
 ms.custom: ""
 ms.date: "02/02/2017"
 ms.prod: "visual-studio-dev14"

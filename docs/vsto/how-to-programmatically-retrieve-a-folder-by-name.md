@@ -1,5 +1,5 @@
 ---
-title: "如何：以编程方式按名称检索文件夹 | Microsoft Docs"
+title: "如何：以编程方式按名称检索文件夹"
 ms.custom: ""
 ms.date: "02/02/2017"
 ms.prod: "visual-studio-dev14"

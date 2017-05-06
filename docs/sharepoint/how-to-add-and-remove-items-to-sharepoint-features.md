@@ -1,5 +1,5 @@
 ---
-title: "如何：在 SharePoint 功能中添加和移除项 | Microsoft Docs"
+title: "如何：在 SharePoint 功能中添加和移除项"
 ms.custom: ""
 ms.date: "02/02/2017"
 ms.prod: "visual-studio-dev14"

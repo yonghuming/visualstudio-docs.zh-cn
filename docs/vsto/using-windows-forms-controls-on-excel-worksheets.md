@@ -1,5 +1,5 @@
 ---
-title: "在 Excel 工作表中使用 Windows 窗体控件 | Microsoft Docs"
+title: "在 Excel 工作表中使用 Windows 窗体控件"
 ms.custom: ""
 ms.date: "02/02/2017"
 ms.prod: "visual-studio-dev14"

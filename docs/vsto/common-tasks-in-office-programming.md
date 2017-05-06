@@ -1,5 +1,5 @@
 ---
-title: "Office 编程中的常规任务 | Microsoft Docs"
+title: "Office 编程中的常规任务"
 ms.custom: ""
 ms.date: "02/02/2017"
 ms.prod: "visual-studio-dev14"

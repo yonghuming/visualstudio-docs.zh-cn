@@ -1,5 +1,5 @@
 ---
-title: "演练：在 Visual Basic 项目中调用 VBA 中的代码 | Microsoft Docs"
+title: "演练：在 Visual Basic 项目中调用 VBA 中的代码"
 ms.custom: ""
 ms.date: "02/02/2017"
 ms.prod: "visual-studio-dev14"

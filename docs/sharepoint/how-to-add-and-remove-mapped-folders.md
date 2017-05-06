@@ -1,5 +1,5 @@
 ---
-title: "如何：添加和移除映射文件夹 | Microsoft Docs"
+title: "如何：添加和移除映射文件夹"
 ms.custom: ""
 ms.date: "02/02/2017"
 ms.prod: "visual-studio-dev14"

@@ -1,5 +1,5 @@
 ---
-title: "如何：以编程方式对工作表中的数据进行排序 | Microsoft Docs"
+title: "如何：以编程方式对工作表中的数据进行排序"
 ms.custom: ""
 ms.date: "02/02/2017"
 ms.prod: "visual-studio-dev14"

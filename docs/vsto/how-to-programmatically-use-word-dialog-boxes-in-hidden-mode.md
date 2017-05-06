@@ -1,5 +1,5 @@
 ---
-title: "如何：以编程方式在隐藏模式下使用 Word 对话框 | Microsoft Docs"
+title: "如何：以编程方式在隐藏模式下使用 Word 对话框"
 ms.custom: ""
 ms.date: "02/02/2017"
 ms.prod: "visual-studio-dev14"

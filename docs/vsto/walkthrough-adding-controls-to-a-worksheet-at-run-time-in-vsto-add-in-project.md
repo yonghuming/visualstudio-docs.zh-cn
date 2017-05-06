@@ -1,5 +1,5 @@
 ---
-title: "演练：在运行时在 VSTO 外接程序项目中向工作表中添加控件 | Microsoft Docs"
+title: "演练：在运行时在 VSTO 外接程序项目中向工作表中添加控件"
 ms.custom: ""
 ms.date: "02/02/2017"
 ms.prod: "visual-studio-dev14"
