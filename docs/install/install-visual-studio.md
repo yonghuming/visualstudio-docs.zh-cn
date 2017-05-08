@@ -36,18 +36,19 @@ translation.priority.mt:
 - pl-pl
 - pt-br
 - tr-tr
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 47c39bd711b69efdb863d71f11e3e472054a3ce3
 ms.openlocfilehash: 059dd2068c5aa0d55f94f293d8430a1f401354ba
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/06/2017
 
 ---
 # <a name="install-visual-studio-2017"></a>安装 Visual Studio 2017
-欢迎以全新方式安装 Visual Studio！ 在最新版本中，用户可以更轻松地选择并安装所需的功能 — 我们缩减了 Visual Studio 的最小占用空间，使其相比以前安装更快、系统影响更小。  
+欢迎以全新方式安装 Visual Studio！ 在最新版本中，用户可以更轻松地选择并安装所需的功能 — 我们缩减了 Visual Studio 的最小占用空间，使其相比以前安装更快、系统影响更小。
 
  想要详细了解其他新增功能？ 请参阅我们的[发行说明](https://www.visualstudio.com/news/releasenotes/vs15-relnotes)。 有关我们如何重新设计安装体验的更深入的信息，请参阅我们的博客文章“[Faster and leaner Visual Studio installer](https://blogs.msdn.microsoft.com/visualstudio/2016/04/01/faster-leaner-visual-studio-installer/)”（更快、更精简的 Visual Studio 安装程序）和“[Anatomy of a low-impact Visual Studio installation](https://blogs.msdn.microsoft.com/visualstudio/2016/04/25/anatomy-of-a-low-impact-visual-studio-install/)”（低影响 Visual Studio 安装剖析）。  
 
- 准备安装？ 我们将逐步引导你完成安装。 让我们开始吧。  
+ 准备安装？ 我们将逐步引导你完成安装。 让我们开始吧。
 
 ## <a name="install-the-installer"></a>安装安装程序  
  下载 Visual Studio 2017 时，将获取一个引导程序文件，用于安装全新的轻型安装程序。 这个新安装程序包含自定义安装所需的所有组件。  
