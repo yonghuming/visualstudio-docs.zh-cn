@@ -1,6 +1,6 @@
 ---
 title: "Dotfuscator 社区版 (CE) | Microsoft Docs"
-ms.date: 2017-02-08
+ms.date: 2017-05-10
 ms.prod: visual-studio-dev15
 ms.devlang: dotnet
 ms.technology:
@@ -32,9 +32,10 @@ translation.priority.ht:
 - tr-tr
 - zh-cn
 - zh-tw
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 507ff049dae50698d86e1536ed21ab982da1af85
 ms.openlocfilehash: a4dd4e0f9a8f6c89452bc20e05139dfa5d062e0f
+ms.contentlocale: zh-cn
 ms.lasthandoff: 02/22/2017
 
 ---
@@ -43,6 +44,8 @@ ms.lasthandoff: 02/22/2017
 
 PreEmptive Protection – Dotfuscator 提供全方位的 .NET 应用程序保护，能轻松融入用户的安全软件开发生命周期。 它可以加强、保护和精简桌面、移动、服务器和嵌入式应用程序，帮助保护商业机密和其他知识产权 (IP)，减少盗版和伪造，并防止篡改和未经授权进行调试。
 Dotfuscator 无需进行其他编程，甚至无需访问源代码，即可处理已编译程序集。
+
+![](media/header.svg)
 
 ## <a name="why-protection-matters"></a>保护为什么至关重要
 
@@ -121,3 +124,4 @@ Dotfuscator CE 提供现成的基础保护。
 [features]: https://www.preemptive.com/dotfuscator/ce/docs/help/5.27/analytics_features.html
 
 [full]: https://www.preemptive.com/dotfuscator/ce/docs/help/5.27/index.html
+
