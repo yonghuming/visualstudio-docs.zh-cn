@@ -5,7 +5,7 @@ keywords:
 author: TerryGLee
 ms.author: tglee
 manager: ghogen
-ms.date: 04/06/2017
+ms.date: 05/10/2017
 ms.topic: article
 helpviewer_keywords:
 - workload ID, Visual Studio
@@ -31,9 +31,10 @@ translation.priority.mt:
 - pl-pl
 - pt-br
 - tr-tr
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 47c39bd711b69efdb863d71f11e3e472054a3ce3
 ms.openlocfilehash: 6b981d8ec1594da3db8fa1384ddeeee9da519837
+ms.contentlocale: zh-cn
 ms.lasthandoff: 04/06/2017
 
 ---
@@ -61,7 +62,6 @@ ms.lasthandoff: 04/06/2017
 组件 ID | 名称 | 版本 | 依赖项类型
 --- | --- | --- | ---
 Microsoft.VisualStudio.Component.TestTools.FeedbackClient | Microsoft Feedback Client | 15.0.26208.0 | 必需
-
 ## <a name="unaffiliated-components"></a>独立组件
 
 这些组件不随附于任何工作负载，但可选择作为单个组件。
@@ -69,7 +69,6 @@ Microsoft.VisualStudio.Component.TestTools.FeedbackClient | Microsoft Feedback C
 组件 ID | 名称 | 版本
 --- | --- | ---
 无 | 不可用 | 无
-
 
 ## <a name="see-also"></a>另请参阅
 
