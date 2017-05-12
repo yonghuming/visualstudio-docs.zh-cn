@@ -1,22 +1,37 @@
 ---
 title: "使用 NuGet 与扩展 SDK 添加引用 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-general"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "vs.toolsoptionspages.nuget_package_manager.general"
-  - "vs.toolsoptionspages.nuget_package_manager.package_sources"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-general
+ms.tgt_pltfrm: 
+ms.topic: article
 ms.assetid: 2175581e-83cb-444c-bb52-cc1fca8ea196
 caps.latest.revision: 21
-author: "kempb"
-ms.author: "kempb"
-manager: "ghogen"
-caps.handback.revision: 21
+author: kempb
+ms.author: kempb
+manager: ghogen
+translation.priority.ht:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+translationtype: Human Translation
+ms.sourcegitcommit: 5db97d19b1b823388a465bba15d057b30ff0b3ce
+ms.openlocfilehash: 3f4740d442a7ef24803d6360cdcc480d9d6fca84
+ms.lasthandoff: 02/22/2017
+
 ---
 # <a name="adding-references-using-nuget-versus-an-extension-sdk"></a>使用 NuGet 与扩展 SDK 添加引用
 可以利用 Visual Studio 的 NuGet 扩展或软件开发工具包 (SDK) 提供 Visual Studio 项目中使用的包。 本主题通过介绍这两种机制的相似和不同之处，帮助你选择最适合你任务的机制。  
@@ -69,8 +84,3 @@ caps.handback.revision: 21
   
 ## <a name="see-also"></a>另请参阅  
  [管理项目中的引用](../ide/managing-references-in-a-project.md)
-
-
-<!--HONumber=Feb17_HO4-->
-
-
