@@ -27,9 +27,10 @@ translation.priority.ht:
 - tr-tr
 - zh-cn
 - zh-tw
-translationtype: Machine Translation
+ms.translationtype: Machine Translation
 ms.sourcegitcommit: 08aabdfe0e268f93ef7723076375b7f65b15ccf3
 ms.openlocfilehash: b7cb109d11669f411b5ca3bdf3c4c32a63ac53a1
+ms.contentlocale: zh-cn
 ms.lasthandoff: 02/22/2017
 
 ---
@@ -100,11 +101,11 @@ ms.lasthandoff: 02/22/2017
  若要测试用例（例如“添加订单项”），测试方法可能包括类似下面的代码：  
   
 ```  
-Order order = … ; // set up an order  
+Order order = ... ; // set up an order  
 // Store prior state:  
 int countBefore = order.MenuItems.Count;   
 // Perform use case:  
-MenuItem chosenItem = …; // choose an item  
+MenuItem chosenItem = ...; // choose an item  
 AddItemToOrder (chosenItem, order);   
 // Verify part of postcondition:  
 int countAfter = order.MenuItems.Count;  
@@ -145,7 +146,7 @@ Assert (countAfter == countBefore = 1);
   
  从测试的角度来看，可以将需求模型看做是测试的简略形式。 因此，在整个项目中维护测试和模型之间的关系非常重要。  
   
-##  <a name="a-nameattachinga-attaching-test-cases-to-model-elements"></a><a name="Attaching"></a>附加到模型元素的测试用例  
+##  <a name="Attaching"></a>附加到模型元素的测试用例  
  如果你的项目使用 [!INCLUDE[TCMlong](../modeling/includes/tcmlong_md.md)]，则你可以将测试链接到模型中的元素。 这样你便可以快速找到受要求中的更改影响的测试，并且可帮助你跟踪要求的实现程度。  
   
  你可以将测试链接到所有类型的元素。 以下是一些示例。  
