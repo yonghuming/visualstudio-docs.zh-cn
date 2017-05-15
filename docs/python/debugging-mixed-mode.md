@@ -1,7 +1,7 @@
 ---
 title: "Visual Studio 中 Python 的混合模式调试 | Microsoft Docs"
 ms.custom: 
-ms.date: 4/10/2017
+ms.date: 5/8/2017
 ms.prod: visual-studio-dev15
 ms.reviewer: 
 ms.suite: 
@@ -28,22 +28,26 @@ translation.priority.ht:
 - tr-tr
 - zh-cn
 - zh-tw
-translationtype: Human Translation
-ms.sourcegitcommit: 9328c347d548a03a536cea16bd5851817c03d5a2
-ms.openlocfilehash: bdc621831893f907beba7ec5ad503fe4d96c0042
-ms.lasthandoff: 04/10/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 85576806818a6ed289c2f660f87b5c419016c600
+ms.openlocfilehash: 919227fb624f4b6dc51e13ccadea8e2682b9816f
+ms.contentlocale: zh-cn
+ms.lasthandoff: 05/10/2017
 
 ---
 
 # <a name="debugging-python-and-c-together"></a>一起调试 Python 和 C++
 
-大多数常规 Python 调试器支持仅调试 Python 代码。 但实际上，Python 结合 C 或 C++ 一起使用时需要高性能或能够直接调用平台 API（请参阅[创建适用于 Python 的 C++ 扩展](cpp-and-python.md)以查看示例）。 Visual Studio（使用针对 Visual Studio 2.0 及更高版本的 Python 工具时）具有合并调用堆栈、能够在在 Python 和本机代码之间进行单步执行、在任一类型的代码中产生断点以及能够查看本机帧中对象的 Python 表示形式（反之亦然），为 Python 和本机 C/C++ 提供集成的同时混合模式调试：
+大多数常规 Python 调试器支持仅调试 Python 代码。 但实际上，Python 结合 C 或 C++ 一起使用时需要高性能或能够直接调用平台 API（请参阅[创建适用于 Python 的 C++ 扩展](cpp-and-python.md)以查看示例）。 Visual Studio 具有合并调用堆栈、能够在 Python 和本机代码之间进行单步执行、在任一类型的代码中产生断点以及能够查看本机帧中对象的 Python 表示形式（反之亦然），为 Python 和本机 C/C++ 提供集成的同时混合模式调试：
 
 ![混合模式调试](media/mixed-mode-debugging.png) 
 
 有关使用 Visual Studio 生成、测试和调试本机 C 模块的介绍，请参阅[深入了解：创建本机模块](https://youtu.be/D9RlT06a1EI)（youtube.com，9 分 9 秒）。
 
 > [!VIDEO https://www.youtube.com/embed/D9RlT06a1EI]
+
+> [!Note]
+> 针对 Visual Studio 1.x 的 Python 工具不提供混合模式调试。
 
 ## <a name="enabling-mixed-mode-debugging"></a>启用混合模式调试
 

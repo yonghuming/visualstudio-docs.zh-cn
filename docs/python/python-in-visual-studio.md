@@ -1,7 +1,7 @@
 ---
 title: "Visual Studio 中的 Python | Microsoft Docs"
 ms.custom: 
-ms.date: 3/7/2017
+ms.date: 5/2/2017
 ms.prod: visual-studio-dev15
 ms.reviewer: 
 ms.suite: 
@@ -28,10 +28,11 @@ translation.priority.ht:
 - tr-tr
 - zh-cn
 - zh-tw
-translationtype: Human Translation
-ms.sourcegitcommit: 06f5b9d2223ccb9cbbbff8f2960d89c8efbf05b2
-ms.openlocfilehash: 83a676c5f2f838b6920c5fafbe78dc9b49fbb4cb
-ms.lasthandoff: 04/12/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 85576806818a6ed289c2f660f87b5c419016c600
+ms.openlocfilehash: c46c8b7a0d9ea1509dcda2ef711562b3cf95b259
+ms.contentlocale: zh-cn
+ms.lasthandoff: 05/10/2017
 
 ---
 
@@ -39,7 +40,7 @@ ms.lasthandoff: 04/12/2017
 
 Python 是一个受欢迎的编程语言，它可靠、灵活、易于学习、可在所有操作系统上免费使用，并且强大的开发人员社区和很多免费库都支持它。 Python 支持所有开发方式，包括 Web 应用程序、Web 服务、桌面应用、脚本编写和科学计算，许多高校人员、科学家、业余和专业开发人员都在使用 Python。 可以在 [python.org](https://www.python.org) 和 [Python for Beginners](https://www.python.org/about/gettingstarted/)（面向初学者的 Python）中了解有关该语言的详细信息。
 
-Visual Studio 通过 Python 工作负载 (Visual Studio 2017) 和免费的针对 Visual Studio 的 Python 工具扩展（Visual Studio 2015 及更早版本），为 Python 语言提供[开源代码](https://github.com/Microsoft/ptvs)支持。 
+Visual Studio 通过 Python 开发和数据科学工作负载 (Visual Studio 2017) 和免费的针对 Visual Studio 的 Python 工具扩展（Visual Studio 2015 及更早版本），为 Python 语言提供[开源代码](https://github.com/Microsoft/ptvs)支持。 
 
 请按照[安装说明](installation.md)设置 Python 工作负载，然后使用下方的链接详细了解与 Python 相关的功能，以及 Visual Studio 本身的功能。
 
@@ -75,7 +76,7 @@ YouTube 上的[入门和进阶视频](https://www.youtube.com/playlist?list=PLRe
 
 如[安装指南](installation.md)所述，可在以下版本的 Visual Studio 中安装 Python 支持：
 
-- [Visual Studio 2017 预览版](https://www.visualstudio.com/vs/preview)
+- [Visual Studio 2017（所有版本）](https://www.visualstudio.com/vs/)
 - [Visual Studio 2015（所有版本）](https://www.visualstudio.com/zh-cn/downloads/visual-studio-2015-downloads-vs)
 - [Visual Studio 2013 Community Edition](https://www.visualstudio.com/zh-cn/products/visual-studio-community-vs.aspx)
 - [Visual Studio Express 2013 for Web、Visual Studio Express 2013 Update 2 或更高版本](https://www.microsoft.com/en-us/download/details.aspx?id=44912)
@@ -202,4 +203,5 @@ Visual Studio 各版本支持的功能：
 
 - [使用 PyKinect 通过 Python 编写 Kinect 游戏](https://github.com/Microsoft/PTVS/wiki/PyKinect) (GitHub wiki)
 - [IIS 和 Python 之间 WFastCGI 桥](https://pypi.python.org/pypi/wfastcgi) (python.org)
+- - [Microsoft Virtual Academy 上的免费 Phthon 课程](https://mva.microsoft.com/search/SearchResults.aspx#!q=python)
 

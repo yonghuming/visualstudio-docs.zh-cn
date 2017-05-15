@@ -1,7 +1,7 @@
 ---
-title: "针对 Visual Studio 的 Python 工具的 CookieCutter 扩展 | Microsoft Docs"
+title: "Visual Studio 中适用于 Python 的 CookieCutter 扩展 | Microsoft Docs"
 ms.custom: 
-ms.date: 3/7/2017
+ms.date: 5/8/2017
 ms.prod: visual-studio-dev15
 ms.reviewer: 
 ms.suite: 
@@ -28,10 +28,11 @@ translation.priority.ht:
 - tr-tr
 - zh-cn
 - zh-tw
-translationtype: Human Translation
-ms.sourcegitcommit: 7d726441c2d6953bd7b50451bec7fff05d5d71b0
-ms.openlocfilehash: e9a822b98d4cbcf2fd52d96a199e596cec4e2c3b
-ms.lasthandoff: 03/10/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 85576806818a6ed289c2f660f87b5c419016c600
+ms.openlocfilehash: 44aa74104cbb27de62fe739dbdd8f269fbf42c53
+ms.contentlocale: zh-cn
+ms.lasthandoff: 05/10/2017
 
 ---
 

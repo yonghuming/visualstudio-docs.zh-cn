@@ -1,7 +1,7 @@
 ---
-title: "针对 Visual Studio 的 Python 工具中的 Web 项目模板 | Microsoft Docs"
+title: "Visual Studio 中适用于 Python 的 Web 项目模板 | Microsoft Docs"
 ms.custom: 
-ms.date: 3/7/2017
+ms.date: 5/8/2017
 ms.prod: visual-studio-dev15
 ms.reviewer: 
 ms.suite: 
@@ -28,16 +28,17 @@ translation.priority.ht:
 - tr-tr
 - zh-cn
 - zh-tw
-translationtype: Human Translation
-ms.sourcegitcommit: 7d726441c2d6953bd7b50451bec7fff05d5d71b0
-ms.openlocfilehash: 2375c0c3b1a692d03d8790e400e3fea606355831
-ms.lasthandoff: 03/10/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 85576806818a6ed289c2f660f87b5c419016c600
+ms.openlocfilehash: 20edb7a53adf400fba94556e659b4215a0060c1b
+ms.contentlocale: zh-cn
+ms.lasthandoff: 05/10/2017
 
 ---
 
 # <a name="python-web-project-templates"></a>Python Web 项目模板
 
-针对 Visual Studio 的 Python 工具 (PTVS) 包括对在 Bottle、Django 和 Flask 等框架中开发 Web 项目的支持。 这包括项目模板和一个可配置来处理不同框架的调试启动程序。 PTVS 不包括框架本身，而必须通过右键单击该项目并选择“Python”>“安装/升级框架...”来单独安装。
+Visual Studio 中对 Python 的支持包括对在 Bottle、Django 和 Flask 等框架中开发 Web 项目的支持。 这包括项目模板和一个可配置来处理不同框架的调试启动程序。 但是，Visual Studio 不包括框架本身，而必须通过右键单击该项目并选择“Python”>“安装/升级框架...”来单独安装。
 
 每个模板（通过“文件”>“新建”>“项目...”访问）在随机选择的本地端口中启动 Web 服务器、调试时打开默认浏览器，并允许直接发布到 [Microsoft Azure](http://www.azure.com)。 提供用于 Bottle、Flask 和 Django 的模板，且你可以对 Pyramid 等其他框架使用常规“Web 项目”模板。
 
@@ -59,7 +60,7 @@ ms.lasthandoff: 03/10/2017
 
 ## <a name="debugging"></a>调试
 
-启动 Web 项目进行调试时，PTVS 将本地启动 Web 服务器，并打开默认浏览器浏览至该地址和端口。 若要指定其他选项，请右键单击项目，选择“属性”和“Web 启动器”选项卡：
+启动 Web 项目进行调试时，Visual Studio 在本地启动 Web 服务器，并打开默认浏览器浏览至该地址和端口。 若要指定其他选项，请右键单击项目，选择“属性”和“Web 启动器”选项卡：
 
   ![常规 Web 模板的 Web 启动器属性](media/template-web-launcher-properties.png)
 
@@ -67,7 +68,7 @@ ms.lasthandoff: 03/10/2017
 
 - “搜索路径”、“脚本参数”、“解释器参数”和“解释器路径”与用于[普通调试](debugging.md)的相同
 - **启动 URL**：指定将在浏览器中打开的 URL。 默认为 `localhost`。
-- **端口号**：URL 中未指定端口时使用的端口（默认情况下，PTVS 会自动选择一个）。 这允许你替代 `SERVER_PORT` 环境变量的默认值，该变量由模板用来配置本地调试服务器侦听的端口。
+- **端口号**：URL 中未指定端口时使用的端口（默认情况下，Visual Studio 会自动选择一个）。 这允许你替代 `SERVER_PORT` 环境变量的默认值，该变量由模板用来配置本地调试服务器侦听的端口。
 
 “运行服务器命令”和“调试服务器命令”组（后者位于图像中所显示内容的下方）中的属性确定启动 Web 服务器的方式。 由于许多框架需要使用当前项目外的脚本，因此可在此处配置该脚本并将启动模块的名称作为参数进行传递。
 
@@ -94,7 +95,7 @@ Bottle Web 项目模板包括执行必要配置的 Boilerplate 代码。 导入�
     - **命令**：`bottle`（模块）
     - **参数**：`--debug --bind=%SERVER_HOST%:%SERVER_PORT% {StartupModule}:app`
 
-使用 PTVS 进行调试时，不建议使用 `--reload` 选项。
+使用 Visual Studio 进行调试时，不建议使用 `--reload` 选项。
 
 ### <a name="sample-pyramid-configuration"></a>Pyramid 示例配置
 

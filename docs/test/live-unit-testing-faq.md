@@ -26,10 +26,11 @@ translation.priority.ht:
 - tr-tr
 - zh-cn
 - zh-tw
-translationtype: Human Translation
-ms.sourcegitcommit: e9a05d008f671fb79d6813a14c594b82f27697e3
-ms.openlocfilehash: 03abb5a6508a6c93c6770bd9373381c9173b7103
-ms.lasthandoff: 03/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: c9df048a49580f3526b48e29041ef3758722ed27
+ms.openlocfilehash: 08677472bc13d58d9ab0b42b856955f8434089e4
+ms.contentlocale: zh-cn
+ms.lasthandoff: 05/03/2017
 
 ---
 # <a name="live-unit-testing-frequently-asked-questions"></a>Live Unit Testing 常见问题解答
@@ -229,6 +230,8 @@ Live Unit Testing 只要检测到源文件已更改，就会启动一个生成�
 - 转到“工具”、“选项”、“Live Unit Testing”，将日志记录选项更改为“详细”。 这会使显示在输出窗口中的日志更详细。 
 
 - 将 `LiveUnitTesting_BuildLog` 用户环境变量设置为想要用于捕获 MSBuild 日志的文件名称。 然后就可从该文件中检索 Live Unit Testing 生成中详细的 MSBuild 日志消息。
+
+- 将 `LiveUnitTesting_TestPlatformLog` 用户环境变量设置为 `1` 以捕获测试平台日志。 然后就可从 `[Solution Root]\.vs\[Solution Name]\log\[VisualStudio Process ID]` 中检索 Live Unit Testing 运行中详细的测试平台日志消息。
 
 - 创建一个名为 `VS_UTE_DIAGNOSTICS` 的用户级环境变量并将其设置为 1（或任何值），然后重启 Visual Studio。 现在，应可在 Visual Studio 中的“输出”–“测试”选项卡看到大量日志记录。 
  

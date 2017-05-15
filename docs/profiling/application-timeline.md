@@ -28,13 +28,14 @@ translation.priority.mt:
 - pl-pl
 - pt-br
 - tr-tr
-translationtype: Human Translation
-ms.sourcegitcommit: a42f5a30375192c89c9984e40ba0104da98d7253
-ms.openlocfilehash: 5455d9a16004fef1aec02fbaf856f336c67dfb05
-ms.lasthandoff: 03/07/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 4c744284c198a645440494ee79ee0e722904fda5
+ms.openlocfilehash: b6fd9ebbd931604b12c772f4e2514c86f5c9dd70
+ms.contentlocale: zh-cn
+ms.lasthandoff: 05/04/2017
 
 ---
-# <a name="analyze-resource-consumption-and-ui-thread-acitivity-xaml"></a>分析资源消耗情况和 UI 线程活动 (XAML)
+# <a name="analyze-resource-consumption-and-ui-thread-activity-xaml"></a>分析资源消耗情况和 UI 线程活动 (XAML)
 使用 **“应用程序时间线”** 探查器查找并修正 XAML 应用程序中应用程序交互的相关性能问题。 此工具提供应用程序资源使用情况的详细视图，可帮助提高 XAML 应用程序的性能。 你可以分析应用程序准备 UI 框架（布局和呈现）以及为网络和磁盘请求提供服务所花费的时间，以及在应用程序启动、页面加载以及调整窗口大小等应用场景中花费的时间。  
   
  **应用程序时间线**是可使用**调试/性能探测器...** 命令启动的工具之一。  
@@ -88,7 +89,7 @@ ms.lasthandoff: 03/07/2017
   
 2.  使用“UI 线程使用率”  或  “可视吞吐量 (FPS)”图中的信息，检查  “时间线详细信息”视图中的详细信息可以发现导致任何明显缺少响应能力情况的可能原因。  
   
-###  <a name="BKMK_Report_scenarios_categories_and_events"></a>报告方案、类别和事件  
+###  <a name="BKMK_Report_scenarios_categories_and_events"></a> 报表方案、类别和事件  
  **“应用程序时间线”** 工具将显示方案、类别和与 XAML 性能相关的事件的计时数据。  
   
 ###  <a name="BKMK_Diagnostic_session_timeline"></a>诊断会话时间线  
@@ -108,7 +109,7 @@ ms.lasthandoff: 03/07/2017
   
  **“可视吞吐量(FPS)”** 折线图显示了应用程序的 UI 线程和复合线程上的每秒帧数 (FPS)。  
   
-###  <a name="BKMK_Timeline_details_"></a>时间线详细信息  
+###  <a name="BKMK_Timeline_details_"></a> 时间线详细信息  
  详细视图是你将在其中花费大部分时间分析报表的地方。 它显示了应用程序 CPU 使用率的详细视图，应用程序按 UI 框架子系统或使用 CPU 的系统组件分类。  
   
  支持以下事件：  
@@ -119,13 +120,13 @@ ms.lasthandoff: 03/07/2017
 |**布局**|在大型应用程序中，可能会同时在屏幕上显示数千个元素。 这可能会导致 UI 帧速率降低以及应用程序响应能力相应地变差。 布局事件可准确地确定对每个元素进行布局的成本（即 Arrange、Measure、ApplyTemplate、ArrangeOverride 和 ArrangeOverride 所用的时间），并生成参与了布局过程的可视化树。 你可以使用此可视化效果来确定需要修剪的逻辑树，或评估其他延期机制，以优化布局过程。|  
 |**呈现**|在屏幕上绘制 XAML 元素所耗用的时间。|  
 |**I/0**|从本地磁盘或从通过 [Microsoft Windows Internet (WinINet) API](https://msdn.microsoft.com/en-us/library/windows/desktop/aa385331.aspx)访问的网络资源中检索数据所耗用的时间。|  
-|**应用代码**|执行与分析或布局无关的应用程序（用户）代码所耗用的时间。|  
+|**App Code**|执行与分析或布局无关的应用程序（用户）代码所耗用的时间。|  
 |**Xaml 其他**|执行 XAML 运行时代码所耗用的时间。|  
   
 > [!TIP]
 >  当开始分析时，选择 **“CPU 使用率”** 工具和 **“时间线”** 工具查看在 UI 线程上执行的应用方法。 将长时间运行的应用代码移动到后台线程可以提高 UI 响应能力。  
   
-####  <a name="BKMK_Customizing_Timeline_details_"></a>自定义时间线详细信息  
+####  <a name="BKMK_Customizing_Timeline_details_"></a> 自定义时间线详细信息  
  使用  “时间线详细信息”工具栏排序、筛选和指定  “时间线详细信息”视图条目的批注。  
   
 |||  

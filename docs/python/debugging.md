@@ -1,7 +1,7 @@
 ---
-title: "针对 Visual Studio 的 Python 工具中的调试 | Microsoft Docs"
+title: "在 Visual Studio 中调试 Python | Microsoft Docs"
 ms.custom: 
-ms.date: 3/7/2017
+ms.date: 5/8/2017
 ms.prod: visual-studio-dev15
 ms.reviewer: 
 ms.suite: 
@@ -28,16 +28,17 @@ translation.priority.ht:
 - tr-tr
 - zh-cn
 - zh-tw
-translationtype: Human Translation
-ms.sourcegitcommit: adf122a478b29674dc2924dcf7d42972a5a3f52e
-ms.openlocfilehash: 1d26ca1a464e2ec15c0d5d338a46b6fb1e7e1d65
-ms.lasthandoff: 04/10/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 85576806818a6ed289c2f660f87b5c419016c600
+ms.openlocfilehash: e15edc1f2739cad0960619aa6cb4b089589eebd8
+ms.contentlocale: zh-cn
+ms.lasthandoff: 05/10/2017
 
 ---
 
 # <a name="debugging-your-python-code"></a>调试 Python 代码
 
-针对 Visual Studio 的 Python 工具 (PTVS) 提供全面的 Python 调试体验，包括附加到正在运行的进程，在监视窗口和即时窗口中计算表达式，检查局部变量、单步执行/单步跳出/单步跳过语句、设置下一语句等。 
+Visual Studio 提供全面的 Python 调试体验，包括附加到正在运行的进程，在监视窗口和即时窗口中计算表达式，检查局部变量、断点、单步执行/单步跳出/单步跳过语句、设置下一语句等。 
 
 有关调试概述，请参阅[PTVS 入门，第 4 部分：调试](https://youtu.be/bO7wpzgy74A?list=PLReL099Y5nRdLgGAdrb_YeTdEnd23s6Ff)（youtube.com，3 分 30 秒）。
 
@@ -58,7 +59,7 @@ ms.lasthandoff: 04/10/2017
 
 <a name="debugging-without-a-project"</a>
 > [!Tip]
-> PTVS 支持不含项目进行调试。 在 Visual Studio 中打开独立的 Python 文件后，在编辑器中单击右键，选择“开始调试”，PTVS 将使用全局默认环境且不使用参数（请参阅 [Python 环境](python-environments.md)）启动脚本。 之后，你就获得完整的调试支持。
+> Visual Studio 中的 Python 支持不含项目进行调试。 打开独立的 Python 文件后，在编辑器中单击右键，选择“开始调试”，Visual Studio 将使用全局默认环境且不使用参数（请参阅 [Python 环境](python-environments.md)）启动脚本。 之后，你就获得完整的调试支持。
 >
 > 若要控制环境和参数，需要针对代码创建项目。 通过[基于现有的 Python 代码](python-projects.md#creating-a-project-from-existing-files)可轻松执行此操作。
 

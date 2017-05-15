@@ -1,7 +1,7 @@
 ---
 title: "分析 Visual Studio 中的内存使用率 | Microsoft Docs"
 ms.custom: H1Hack27Feb2017
-ms.date: 11/04/2016
+ms.date: 04/25/2017
 ms.reviewer: 
 ms.suite: 
 ms.technology:
@@ -28,10 +28,11 @@ translation.priority.mt:
 - pl-pl
 - pt-br
 - tr-tr
-translationtype: Human Translation
-ms.sourcegitcommit: ca7c86466fa23fb21a932f26dc24e37c71cf29b4
-ms.openlocfilehash: 697b8f5517ad9a953a04f920be39c9ef2cfa2558
-ms.lasthandoff: 04/05/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 137f6faa156d188afb99cafb2b1e9dbababdeb4f
+ms.openlocfilehash: a7de37fd82f94fdcef6f839884ea30c5c77061e5
+ms.contentlocale: zh-cn
+ms.lasthandoff: 04/28/2017
 
 ---
 # <a name="analyze-memory-usage"></a>分析内存使用量
@@ -47,7 +48,7 @@ ms.lasthandoff: 04/05/2017
   
  虽然可以随时在 **内存使用率** 工具中收集内存快照，不过可以使用 Visual Studio 调试器在调查性能问题时控制应用程序的执行方式。 断点设置、步进、全部中断和其他调试器操作可以帮助将性能调查集中在最相关的代码路径上。 在应用运行期间执行这些操作可以消除因无关紧要的代码而带来的烦扰，并可以显著减少用于诊断问题所花费的时间量。  
   
- 还可以在调试器外部使用内存工具。 请参阅[不调试的内存使用情况](../profiling/memory-usage-without-debugging2.md)。  
+ 还可以在调试器外部使用内存工具。 请参阅 [Memory Usage without Debugging](../profiling/memory-usage-without-debugging2.md)。  
   
 > [!NOTE]
 >  **自定义分配器支持** 本机内存探查器的工作原理是在运行时收集 [ETW](https://msdn.microsoft.com/en-us/library/windows/desktop/bb968803\(v=vs.85\).aspx) 分配事件数据。  CRT 和 Windows SDK 中的分配器在源级别上注释，因此可以捕获其分配数据。  如果你正在编写你自己的分配器，则返回一个指向新分配的堆内存的任何函数都可用 [__declspec](/cpp/cpp/declspec)（分配器）进行修饰，如此 myMalloc 示例所示：  
@@ -89,7 +90,7 @@ ms.lasthandoff: 04/05/2017
     ![拍摄快照](../profiling/media/dbgdiag_mem_mixedtoolbar_takesnapshot.png "DBGDIAG_MEM_MixedToolbar_TakeSnapshot") 
      
      > [!TIP]
-     >  -   若要为进行内存比较而创建基线，请考虑在调试会话开始时拍摄快照。  
+     >  若要为进行内存比较而创建基线，请考虑在调试会话开始时拍摄快照。  
 
 6.  运行会触发第一个断点的方案。
 
@@ -113,17 +114,15 @@ ms.lasthandoff: 04/05/2017
 -   “堆大小(差异)”列显示 .NET 和本机堆中的字节数 
 
 拍摄多个快照时，摘要表的单元格包含行快照与前一个快照之间的值变化。  
-  
-![内存摘要表单元格](../profiling/media/dbgdiag_mem_summarytablecell.png "DBGDIAG_MEM_SummaryTableCell")  
 
 若要分析内存使用率，请单击其中一个链接，打开内存使用率详细报表：  
 
--   若要查看当前快照与前一个快照之间的差异的详细信息，请选择箭头左侧的更改链接（![内存使用率增加](../profiling/media/prof-tour-mem-usage-up-arrow.png "Memory Usage Increase")）。 红色箭头表示内存使用率增加，绿色箭头表示减少）。
+-   若要查看当前快照与前一个快照之间的差异的详细信息，请选择箭头左侧的更改链接（![内存使用率增加](../profiling/media/prof-tour-mem-usage-up-arrow.png "Memory Usage Increase")）。 红色箭头表示内存使用率增加，绿色箭头表示减少。
 
     > [!TIP]
-    >  为了帮助更快地识别内存问题，差异报告按照总体数量增加最多（“对象(差异)”列中的更改链接）的对象类型或整体堆大小增加最多（“堆大小(差异)”列中的更改链接）的对象类型进行排序。
+    >  为了帮助更快地识别内存问题，差异报告按照总体数量增加最多（单击“对象(差异)”列中的更改链接）的对象类型或整体堆大小增加最多（单击“堆大小(差异)”列中的更改链接）的对象类型进行排序。
 
--   若要仅查看所选快照的详细信息，请选择无更改链接。 
+-   若要仅查看所选快照的详细信息，请单击无更改链接。 
   
  报告会出现在单独的窗口中。   
   
@@ -180,8 +179,8 @@ ms.lasthandoff: 04/05/2017
 ## <a name="blogs-and-videos"></a>博客和视频  
  [Visual Studio 2015 中的“诊断工具”调试器窗口](http://blogs.msdn.com/b/visualstudioalm/archive/2015/01/16/diagnostic-tools-debugger-window-in-visual-studio-2015.aspx)  
   
- [Blog: Memory Usage Tool while debugging in Visual Studio 2015](http://blogs.msdn.com/b/visualstudioalm/archive/2014/11/13/memory-usage-tool-while-debugging-in-visual-studio-2015.aspx)（博客：在 Visual Studio 2015 中进行调试时的内存使用率工具）  
+ [博客：在 Visual Studio 2015 中进行调试时的内存使用工具](http://blogs.msdn.com/b/visualstudioalm/archive/2014/11/13/memory-usage-tool-while-debugging-in-visual-studio-2015.aspx)  
   
- [Visual C++ Blog: Native Memory Diagnostics in VS2015 Preview](http://blogs.msdn.com/b/vcblog/archive/2014/11/21/native-memory-diagnostics-in-vs2015-preview.aspx)（Visual C++ 博客：VS2015 预览版中的本机内存诊断）  
+ [Visual C++ 博客：VS2015 预览版中的本机内存诊断](http://blogs.msdn.com/b/vcblog/archive/2014/11/21/native-memory-diagnostics-in-vs2015-preview.aspx)  
   
- [Visual C++ Blog: Native Memory Diagnostic Tools for Visual Studio 2015 CTP](http://blogs.msdn.com/b/vcblog/archive/2014/06/04/native-memory-diagnostic-tools-for-visual-studio-14-ctp1.aspx)（Visual C++ 博客：Visual Studio 2015 CTP 中的本机内存诊断工具）
+ [Visual C++ 博客：Visual Studio 2015 CTP 中的本机内存诊断工具](http://blogs.msdn.com/b/vcblog/archive/2014/06/04/native-memory-diagnostic-tools-for-visual-studio-14-ctp1.aspx)
