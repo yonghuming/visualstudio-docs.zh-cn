@@ -1,7 +1,7 @@
 ---
 title: "在 Visual Studio 中安装 Python | Microsoft Docs"
 ms.custom: 
-ms.date: 3/7/2017
+ms.date: 5/8/2017
 ms.prod: visual-studio-dev15
 ms.reviewer: 
 ms.suite: 
@@ -28,14 +28,15 @@ translation.priority.ht:
 - tr-tr
 - zh-cn
 - zh-tw
-translationtype: Human Translation
-ms.sourcegitcommit: e9a05d008f671fb79d6813a14c594b82f27697e3
-ms.openlocfilehash: e0a51155a42fb51244114da86a292381a7a28a21
-ms.lasthandoff: 03/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 85576806818a6ed289c2f660f87b5c419016c600
+ms.openlocfilehash: 9cdd87d81f0b0f4748a25c7bb87fb840e246854c
+ms.contentlocale: zh-cn
+ms.lasthandoff: 05/10/2017
 
 ---
 
-# <a name="installing-python-support-for-visual-studio"></a>安装针对 Visual Studio 的 Python 支持
+# <a name="installing-python-support-in-visual-studio"></a>安装针对 Visual Studio 的 Python 支持
 
 若要安装针对 Visual Studio 的 Python 支持，请按照与你的 Visual Studio 版本匹配的部分中的说明进行操作：
 
@@ -52,11 +53,14 @@ ms.lasthandoff: 03/27/2017
 
 ## <a name="visual-studio-2017"></a>Visual Studio 2017
 
-1. [从 https://www.visualstudio.com/vs/preview 安装“Visual Studio 2017 预览版”](https://www.visualstudio.com/vs/preview)。 **注意：**此预览版通道与 Visual Studio 2017 的已发布版本不同，并且包含将来 Visual Studio 2017 更新的正在开发中的功能，其中包括 Python 支持。
+1. 从 [https://www.visualstudio.com/vs/](https://www.visualstudio.com/vs/) 安装 Visual Studio 2017。
 
-1. 在预览版安装程序中，选择“Web 和云”>“Python 开发”工作负载：
+1. 在 Visual Studio 安装程序中，选择“Web 和云”>“Python 开发”工作负载。
 
     ![Visual Studio 安装程序中的 Python 开发工作负载](media/installation-python-workload.png)
+
+    > [!Note]
+    > Python 也包含在**数据科学和分析应用程序**工作负载中。
 
 1. 在安装程序的右侧，选择 Python 解释器和想要包括其他相关工具。 例如，如果计划开发适用于 Python 的 C++ 扩展，请包括“Python 本机开发工具”选项。
 
@@ -88,7 +92,7 @@ ms.lasthandoff: 03/27/2017
 
 默认情况下，为计算机上的所有用户安装 Python 支持。
 
-对于 Visual Studio 2017，Python 工作负载安装在 `%ProgramFiles(x86)%\Microsoft Visual Studio\Preview\<VS_edition>Common7\IDE\Extensions\Microsoft\Python` 中，其中 &lt;VS_edition&gt; 为社区版、专业版或企业版。
+对于 Visual Studio 2017，Python 工作负载安装在 `%ProgramFiles(x86)%\Microsoft Visual Studio\2017\<VS_edition>Common7\IDE\Extensions\Microsoft\Python` 中，其中 &lt;VS_edition&gt; 为社区版、专业版或企业版。
 
 对于 Visual Studio 2015 及更早版本，安装路径如下所示：
 

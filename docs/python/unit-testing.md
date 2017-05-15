@@ -1,7 +1,7 @@
 ---
-title: "针对 Visual Studio 的 Python 工具中的单元测试 | Microsoft Docs"
+title: "Visual Studio 中的 Python 单元测试 | Microsoft Docs"
 ms.custom: 
-ms.date: 3/7/2017
+ms.date: 5/8/2017
 ms.prod: visual-studio-dev15
 ms.reviewer: 
 ms.suite: 
@@ -28,10 +28,11 @@ translation.priority.ht:
 - tr-tr
 - zh-cn
 - zh-tw
-translationtype: Human Translation
-ms.sourcegitcommit: adf122a478b29674dc2924dcf7d42972a5a3f52e
-ms.openlocfilehash: 878bd0baaa0e08a31274645213b222bf6faeb412
-ms.lasthandoff: 04/10/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 85576806818a6ed289c2f660f87b5c419016c600
+ms.openlocfilehash: 2597583912c7694495617c53839f41aa13cda871
+ms.contentlocale: zh-cn
+ms.lasthandoff: 05/10/2017
 
 ---
 
@@ -39,13 +40,13 @@ ms.lasthandoff: 04/10/2017
 
 单元测试是测试应用程序中其他代码单元的代码片段，通常为独立函数、类等。 应用程序通过其所有单元测试后，至少可以相信其低级功能正确无误。
 
-Python 单元测试广泛应用于在程序设计期间验证方案。 针对 Visual Studio 的 Python 工具 (PTVS) 支持在开发过程的上下文中发现、执行和调试单元测试，无需单独运行单元测试。
+Python 单元测试广泛应用于在程序设计期间验证方案。 针对 Visual Studio 的 Python 支持包括在开发过程的上下文中发现、执行和调试单元测试，无需单独运行单元测试。
 
 本主题简要介绍了适用于 Python 语言的 Visual Studio 中的单元测试功能。 有关单元测试的的更多常见信息，请参阅[对代码进行单元测试](../test/unit-test-your-code.md)。
 
 ## <a name="discovering-and-viewing-tests"></a>发现和查看测试
 
-根据惯例，PTVS 会将测试标识为名称以“test”开头的方法。 若要查看，请执行以下操作：
+根据惯例，Visual Studio 将测试标识为名称以“test”开头的方法。 若要查看，请执行以下操作：
 
 1. 打开一个 Visual Studio 中加载的 [Python 项目](python-projects.md)，右键单击该项目，选择“添加”>“新建项目...”，然后选择其后有“添加”的“Python 单元测试”。
 
@@ -98,13 +99,13 @@ Python 单元测试广泛应用于在程序设计期间验证方案。 针对 Vi
 
 ## <a name="debugging-tests"></a>调试测试
 
-因为单元测试是代码片段，所以和任何其他代码一样会受到 bug 的影响，有时需要在调试器中运行，以便在其中设置断点、检查变量和单步执行代码。 PTVS 还提供了诊断工具
+因为单元测试是代码片段，所以和任何其他代码一样会受到 bug 的影响，有时需要在调试器中运行，以便在其中设置断点、检查变量和单步执行代码。 Visual Studio 还提供了诊断工具
 
 若要开始调试，请在代码中设置初始断点，然后在测试资源管理器中右键单击测试（或所做选择），然后选择“调试所选测试”。 Visual Studio 将启动 Python 调试器，与为应用程序代码启动 Python 调试器一样。
 
 ![调试测试](media/unit-test-debugging.png)
 
-还可使用“分析所选测试的代码覆盖率”和“配置文件测试”命令，具体取决于 PTVS 版本（请参阅[功能矩阵](python-in-visual-studio.md#features-matrix)）。
+还可使用“分析所选测试的代码覆盖率”和“配置文件测试”命令，具体取决于 Visual Studio 版本（请参阅[功能矩阵](python-in-visual-studio.md#features-matrix)）。
 
 ### <a name="known-issues"></a>已知问题
 

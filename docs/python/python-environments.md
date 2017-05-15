@@ -1,7 +1,7 @@
 ---
-title: "针对 Visual Studio 的 Python 工具中的Python 环境 | Microsoft Docs"
+title: "Visual Studio 中的 Python 环境| Microsoft Docs"
 ms.custom: 
-ms.date: 3/7/2017
+ms.date: 5/8/2017
 ms.prod: visual-studio-dev15
 ms.reviewer: 
 ms.suite: 
@@ -28,18 +28,26 @@ translation.priority.ht:
 - tr-tr
 - zh-cn
 - zh-tw
-translationtype: Human Translation
-ms.sourcegitcommit: adf122a478b29674dc2924dcf7d42972a5a3f52e
-ms.openlocfilehash: 1f8f68e36f94aaf253d304edaa2360333b261be3
-ms.lasthandoff: 04/10/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 85576806818a6ed289c2f660f87b5c419016c600
+ms.openlocfilehash: 9140ca7549eefc3ac221f3ca0aa54fde482c8623
+ms.contentlocale: zh-cn
+ms.lasthandoff: 05/10/2017
 
 ---
 
 # <a name="python-environments"></a>Python 环境
 
-Python 代码始终在特定的 Python *环境*中运行，环境由解释器、库（通常是 Python 标准库）以及一组已安装的包组成。 这些内容共同确定哪些语言结构和语法有效、哪些操作系统功能可访问以及哪些程序包可使用。
+Visual Studio 中的 Python 使管理多个 Python 环境更加简单，并且对于不同的项目可轻松在各环境间切换。 
 
-Visual Studio 中的 Python 工作负载使管理多个 Python 环境更简单，并且对于不同的项目可轻松在各环境间切换。 环境还包括一个用于环境的库的 IntelliSense 数据库，这样一来，在 Visual Studio 中键入类似 `import` 的语句将自动显示可用库以及这些库内的模块的列表。
+注意：如果是初次使用 Visual Studio 中的 Python，请首先参阅以下主题，其中提供了相关内容的讨论：
+
+    - [在 Visual Studio 中使用 Python](python-in-visual-studio.md)
+    - [安装针对 Visual Studio 的 Python 支持](installation.md)
+
+始终运行 Python 代码的 Python *环境* 由解释器、库（通常是 Python 标准库）以及一组已安装的包组成。 这些内容共同确定哪些语言结构和语法有效、哪些操作系统功能可访问以及哪些程序包可使用。
+
+在 Visual Studio 中，环境还包括一个用于环境的库的 IntelliSense 数据库，这样一来，在 Visual Studio 中键入类似 `import` 的语句将自动显示可用库以及这些库内的模块的列表。
 
 开发人员通常只使用单一的全局 Python 环境，但如本主题中所述，有些情况需要管理多个全局环境、特定于项目的环境，或许还有虚拟环境：
 
@@ -57,7 +65,7 @@ Visual Studio 中的 Python 工作负载使管理多个 Python 环境更简单�
 
 ## <a name="selecting-and-installing-python-interpreters"></a>选择并安装 Python 解释程序
 
-Python 支持除了随 Visual Studio 2017 预览版提供外，并未随 Python 解释器提供，因此需要安装以下解释器之一才能运行代码。 一般情况下，Visual Studio 将自动检测新安装的解释器，并为其设置环境。 如果它并未执行这些操作，请参阅下面的[为现有解释器创建环境](#creating-an-environment-for-an-existing-interpreter)。
+Python 支持除了随 Visual Studio 2017 提供外，并未随 Python 解释器提供，因此需要安装以下解释器之一才能运行代码。 一般情况下，Visual Studio 将自动检测新安装的解释器，并为其设置环境。 如果它并未执行这些操作，请参阅下面的[为现有解释器创建环境](#creating-an-environment-for-an-existing-interpreter)。
 
 | 解释器 | 说明 | 
 | --- | --- | 
@@ -82,7 +90,7 @@ Python 支持除了随 Visual Studio 2017 预览版提供外，并未随 Python 
 
 ![“Python 环境”窗口](media/environments-default-view.png)
 
-在上述示例中，我们将 Python 3.4（32 位 CPython）与 32 位和 64 位版本的 IronPython 一起安装。 粗体显示的默认环境是 Python 3.4，将对任何新项目使用它。 如果未看到任何环境列出，表示已安装针对 Visual Studio 的 Python 工具，但尚未安装 Python 解释器（请参阅上述[选择并安装 Python 解释器](#selecting-and-installing-python-interpreters)）。
+上述示例显示 Python 3.4（32 位 CPython）与 32 位和 64 位版本的 IronPython 2.7 一起安装。 在这种情况下，粗体显示的默认环境是 Python 3.4，将对任何新项目使用它。 如果未看到任何环境列出，表示已安装针对 Visual Studio 2015 或更早版本中的 Visual Studio 的 Python 工具，但尚未安装 Python 解释器（请参阅上述[选择并安装 Python 解释器](#selecting-and-installing-python-interpreters)）。 
 
 > [!Tip]
 > **Python 环境*窗口较窄时（如上所示），环境在顶部列出和各选项卡在底部列出。 如果将窗口展开足够大，就可以看到较宽的视图，这可能处理起来更方便。

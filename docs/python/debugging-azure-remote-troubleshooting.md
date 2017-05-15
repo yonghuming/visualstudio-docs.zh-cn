@@ -1,7 +1,7 @@
 ---
-title: "使用针对 Visual Studio 的 Python 工具对 Azure 远程调试进行故障排除 | Microsoft Docs"
+title: "Visual Studio 中适用于 Python 的 Azure 远程调试故障排除 | Microsoft Docs"
 ms.custom: 
-ms.date: 3/7/2017
+ms.date: 5/8/2017
 ms.prod: visual-studio-dev15
 ms.reviewer: 
 ms.suite: 
@@ -28,10 +28,11 @@ translation.priority.ht:
 - tr-tr
 - zh-cn
 - zh-tw
-translationtype: Human Translation
-ms.sourcegitcommit: a42f5a30375192c89c9984e40ba0104da98d7253
-ms.openlocfilehash: fcf44a3967c0bd391808c9f6b3a23f39aeff05fd
-ms.lasthandoff: 03/07/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 85576806818a6ed289c2f660f87b5c419016c600
+ms.openlocfilehash: f9d9d1bc974e43cdd7d1da2a1468a9b7ef84f44b
+ms.contentlocale: zh-cn
+ms.lasthandoff: 05/10/2017
 
 ---
 
@@ -46,7 +47,7 @@ Visual Studio 将由于下列任意原因而无法附加到 [Azure 应用服务�
 | 项目未使用调试配置进行部署。 | 右键单击解决方案资源管理器中的项目并选择“发布”，重新部署应用程序。 在“设置”选项卡中，确保“调试”是所选的配置。 |
 | 应用服务未在运行。 | 从 Visual Studio 中的服务器资源管理器或 Azure 门户启动它。 |
 | 应用服务未针对 Web 套接字进行配置。 | 转到“Azure 门户”[](https://portal.azure.com)，导航到应用服务，打开“设置”>“应用程序设置”边栏选项卡，将“常规设置”>“Web 套接字”切换为“打开”，然后选择“保存”。 （请注意，此边栏选项卡上显示的“调试”选项*不*适用于 Python 调试。） |
-| 已修改 `web.debug.config` 以禁用调试代理。 | 删除文件并将项目重新发布到应用服务，在此期间，针对 Visual Studio 的 Python 工具将重新创建该文件。 |
+| 已修改 `web.debug.config` 以禁用调试代理。 | 删除文件并将项目重新发布到应用服务，在此期间，Visual Studio 将重新创建该文件。 |
 
 另请参阅：
 

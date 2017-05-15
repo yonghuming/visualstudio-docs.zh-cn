@@ -28,10 +28,11 @@ translation.priority.ht:
 - tr-tr
 - zh-cn
 - zh-tw
-translationtype: Human Translation
-ms.sourcegitcommit: 9328c347d548a03a536cea16bd5851817c03d5a2
-ms.openlocfilehash: eb3abd0f37e52f2b1db3793a5471b74a5e0c37ff
-ms.lasthandoff: 04/10/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 85576806818a6ed289c2f660f87b5c419016c600
+ms.openlocfilehash: 3190be68fbba464a84a7a25b2d829979944bdb1f
+ms.contentlocale: zh-cn
+ms.lasthandoff: 05/10/2017
 
 ---
 
@@ -100,7 +101,7 @@ Visual Studio 提供多种方法用于从零开始，或根据现有代码设置
 | IronPython Silverlight 网页 | 在使用 Silverlight 的浏览器中运行的 IronPython 项目。 应用程序的 Python 代码作为脚本包含在网页中。 样本脚本标记将拉取一些 JavaScript 代码，这些代码将初始化在 Silverlight 中运行的 IronPython，Python 代码以此可与 DOM 交互。 |
 | IronPython Windows 窗体应用程序 | 使用由 Windows 窗体代码创建的 IronPython withUI 的项目结构。 应用程序运行时不显示控制台。 |
 | 后台应用程序 (IoT) | 支持部署 Python 项目，将其作为设备上的后台服务运行。 有关详细信息，请访问[Windows IoT 开发人员中心](https://dev.windows.com/en-us/iot)。 |
-| Python 扩展模块 | 如果随 Visual Studio 2017 预览版中的 Python 工作负载一起安装了 **Python 本机开发工具**，则此模板会显示在 Visual C++ 下（请参阅[安装](installation.md)）。 它为 C++ 扩展 DLL 提供核心结构，类似于[创建适用于 Python 的 C++ 扩展](cpp-and-python.md)中所述内容。 |
+| Python 扩展模块 | 如果随 Visual Studio 2017 中的 Python 工作负载一起安装了 **Python 本机开发工具**，则此模板会显示在 Visual C++ 下（请参阅[安装](installation.md)）。 它为 C++ 扩展 DLL 提供核心结构，类似于[创建适用于 Python 的 C++ 扩展](cpp-and-python.md)中所述内容。 |
 
 <a name="create-project-from-existing-files"</a>
 ### <a name="creating-a-project-from-existing-files"></a>根据现有文件创建项目

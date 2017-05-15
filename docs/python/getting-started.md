@@ -1,7 +1,7 @@
 ---
 title: "开始使用 Visual Studio 中的 Pytho | Microsoft Docs"
 ms.custom: 
-ms.date: 3/7/2017
+ms.date: 5/1/2017
 ms.reviewer: 
 ms.suite: 
 ms.technology:
@@ -27,16 +27,17 @@ translation.priority.ht:
 - tr-tr
 - zh-cn
 - zh-tw
-translationtype: Human Translation
-ms.sourcegitcommit: e9a05d008f671fb79d6813a14c594b82f27697e3
-ms.openlocfilehash: 2659c1a3b1adfc3f462971205460942c5fe5171f
-ms.lasthandoff: 03/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 85576806818a6ed289c2f660f87b5c419016c600
+ms.openlocfilehash: 8001036077b8b14af80fabceafad5d3aff9b25f4
+ms.contentlocale: zh-cn
+ms.lasthandoff: 05/10/2017
 
 ---
 
 # <a name="getting-started-with-python-in-visual-studio"></a>Visual Studio 中的 Python 入门
 
-安装了附带 Python 工作负荷的 Visual Studio (Visual Studio 2017) 或附带针对 Visual Studio 的 Python 工具的 Visual Studio（Visual Studio 2015 及更早版本）后，便可以介绍 Python 开发体验。
+安装了附带 Python 工作负荷的 Visual Studio (Visual Studio 2017) 或附带针对 Visual Studio 的 Python 工具的 Visual Studio（Visual Studio 2015 及更早版本）后，便可以介绍 Python 开发体验。 （如果需要，请参阅[安装](installation.md)。）
 
 在本演练中，将创建新的空 Python 应用程序，选择要配合使用的 Python 环境，然后开始编写一些代码以查看工作中的 IntelliSense。 然后与交互式 REPL 窗口短时间配合使用以创建更多代码，再完成该程序，并通过其本身和调试器运行该程序。
 
@@ -271,4 +272,5 @@ Visual Studio 中的 Python 支持包括大量的[项目模板](python-projects.
 - 使用 Visual Studio 能够在远程服务器上调试应用程序，如[跨平台远程调试](debugging-cross-platform-remote.md)和 [Azure 远程调试](debugging-azure-remote.md)中所述。
 - 可使用 [Visual Studio 分析](profiling.md)评估 Python 代码的性能。
 - 如[单元测试](unit-testing.md)中所述，将使用 Python 编写的单元测试直接与 Visual Studio 测试资源管理器集成。
+- [Microsoft Virtual Academy 上的免费 Phthon 课程](https://mva.microsoft.com/search/SearchResults.aspx#!q=python)
 

@@ -30,17 +30,18 @@ translation.priority.mt:
 - pl-pl
 - pt-br
 - tr-tr
-translationtype: Human Translation
-ms.sourcegitcommit: ddc84f3b92d8e0febaea3d23b415bd6e703cc530
-ms.openlocfilehash: e04b972187b7b7ec225b48cc9b8904d804399ff8
-ms.lasthandoff: 04/07/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: edc126208bb401c8dba9a6be722cbd0dbda21caf
+ms.openlocfilehash: 720048b861bfb208489a62340efca28ae88d1951
+ms.contentlocale: zh-cn
+ms.lasthandoff: 04/22/2017
 
 ---
 # <a name="what39s-new-in-visual-studio-2017"></a>Visual Studio 2017 中的新增功能
 为任何开发、应用和平台提供无与伦比的效率。 使用 Visual Studio 2017 开发适用于 Android、iOS、Windows、Linux、Web 和云的应用。 快速编码、轻松调试和诊断、时常测试，并且可以放心地进行发布。 还可通过构建自己的扩展，以便扩展和自定义 Visual Studio。 此新版本发布之后，可使用版本控制、更具敏捷性且可高效协作！
 
 > [!NOTE]
-> 有关 Visual Studio 2017 中新增功能的完整列表，请参阅[发行说明](https://www.visualstudio.com/news/vs2015-vs)。
+> 有关 Visual Studio 2017 中新增功能的完整列表，请参阅[发行说明](https://www.visualstudio.com/news/releasenotes/vs2017-relnotes)。
 
 以下是我们所做更改的高级扼要重述：
 

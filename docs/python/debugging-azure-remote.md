@@ -1,7 +1,7 @@
 ---
-title: "使用针对 Visual Studio 的 Python 工具进行 Azure 远程调试 | Microsoft Docs"
+title: "使用针对 Visual Studio 的 Python 进行 Azure 远程调试 | Microsoft Docs"
 ms.custom: 
-ms.date: 3/7/2017
+ms.date: 5/8/2017
 ms.prod: visual-studio-dev15
 ms.reviewer: 
 ms.suite: 
@@ -28,16 +28,17 @@ translation.priority.ht:
 - tr-tr
 - zh-cn
 - zh-tw
-translationtype: Human Translation
-ms.sourcegitcommit: a42f5a30375192c89c9984e40ba0104da98d7253
-ms.openlocfilehash: ad4cbf1305eec911aa5d6267fefc2c30f622e69a
-ms.lasthandoff: 03/07/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 85576806818a6ed289c2f660f87b5c419016c600
+ms.openlocfilehash: d2caa21359655a2079a853123baea31e471ba040
+ms.contentlocale: zh-cn
+ms.lasthandoff: 05/10/2017
 
 ---
 
 # <a name="remotely-debugging-python-code-on-azure"></a>在 Azure 上远程调试 Python 代码
 
-Visual Studio 中的 Python 支持包括远程调试在 Azure 应用服务上运行的 Python 代码。 与简单的远程调试不同，此方案中的目标计算机不能直接通过 TCP 访问，因此 Visual Studio 提供一个通过 HTTP 公开调试器协议的代理。 使用 Web 模板创建的项目在生成的 `web.debug.config` 文件中自动配置此代理。 如 [发布到 Azure 应用服务](template-web.md#publishing-to-azure-app-service)中所述发布项目的调试配置时，同时启用了远程调试。
+[Visual Studio 中的 Python 支持](installation.md)包括远程调试在 Azure 应用服务上运行的 Python 代码的功能。 与简单的远程调试不同，此方案中的目标计算机不能直接通过 TCP 访问，因此 Visual Studio 提供一个通过 HTTP 公开调试器协议的代理。 使用 Web 模板创建的项目在生成的 `web.debug.config` 文件中自动配置此代理。 如 [发布到 Azure 应用服务](template-web.md#publishing-to-azure-app-service)中所述发布项目的调试配置时，同时启用了远程调试。
 
 由于 Azure 远程调试使用 Web 套接字，因此必须通过 [Azure 门户](https://portal.azure.com)为应用服务启用套接字，方法是转到“设置”>“应用程序设置”并将“常规设置”>“Web 套接字”切换为“打开”，然后选择“保存”应用更改。 （请注意，“调试”设置不适用于调试 Python。）
 
@@ -51,7 +52,7 @@ Visual Studio 可能会直接转到一组用于直接附加的指令，如下面
 
 ![调试 Azure 应用服务 Web 站点](media/azure-remote-debugging-attached.png)
 
-附加后，调试体验与常规远程调试体验大体相同，但受几个限制约束。 特别是，通过 FastCGI 处理传入请求并将它们委托给 Python 代码的 IIS Web 服务器具有针对处理请求的超时设置，其默认值为 90 秒。 如果处理请求花费的时间长于&90; 秒（例如，由于进程在断点处暂停），IIS 将终止该进程，这将立即结束调试会话。 
+附加后，调试体验与常规远程调试体验大体相同，但受几个限制约束。 特别是，通过 FastCGI 处理传入请求并将它们委托给 Python 代码的 IIS Web 服务器具有针对处理请求的超时设置，其默认值为 90 秒。 如果处理请求花费的时间长于 90 秒（例如，由于进程在断点处暂停），IIS 将终止该进程，这将立即结束调试会话。 
 
 ## <a name="attaching-without-server-explorer"></a>不使用服务器资源管理器进行附加
 
