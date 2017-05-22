@@ -28,10 +28,11 @@ translation.priority.ht:
 - tr-tr
 - zh-cn
 - zh-tw
-translationtype: Human Translation
-ms.sourcegitcommit: 9328c347d548a03a536cea16bd5851817c03d5a2
-ms.openlocfilehash: b9e1c2b6be671adb99a13e4a0eb4357fbba477b2
-ms.lasthandoff: 04/10/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 85576806818a6ed289c2f660f87b5c419016c600
+ms.openlocfilehash: a14bc7e8c9194fff3a1bec2739c9e9c2480e905b
+ms.contentlocale: zh-cn
+ms.lasthandoff: 05/10/2017
 
 ---
 
@@ -44,7 +45,7 @@ ms.lasthandoff: 04/10/2017
 
 通过“工具”>“选项”>“文本编辑器”>“Python”>“格式”及其子选项卡设置选项，并且默认情况下设置为匹配 [PEP 8 样式指南](http://www.python.org/dev/peps/pep-0008/)的超集。 “常规”选项卡确定何时应用格式；其他三个子页面在下面各部分定义。
 
-Visual Studio 中的 Python 还将向“编辑”>“高级”菜单添加有用的[填充注释段落](#fill-comment-paragraph-command)命令，如下所述。
+借助 [Visual Studio 中的 Python 支持](installation.md)，还可以使用“编辑”>“高级”菜单中添加的“填充注释段”[](#fill-comment-paragraph-command)实用命令，如下所述。
 
 ## <a name="spacing"></a>间距
 

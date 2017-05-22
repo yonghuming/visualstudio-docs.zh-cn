@@ -28,10 +28,11 @@ translation.priority.ht:
 - tr-tr
 - zh-cn
 - zh-tw
-translationtype: Human Translation
-ms.sourcegitcommit: 9328c347d548a03a536cea16bd5851817c03d5a2
-ms.openlocfilehash: 002c77b27f7283ecd28d7ec5470b0ed44b2bb7a4
-ms.lasthandoff: 04/10/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 85576806818a6ed289c2f660f87b5c419016c600
+ms.openlocfilehash: f8a0bef07667e5f876473c966ed3d14a1b84dd0b
+ms.contentlocale: zh-cn
+ms.lasthandoff: 05/10/2017
 
 ---
 
@@ -49,11 +50,14 @@ ms.lasthandoff: 04/10/2017
 
 ## <a name="prerequisites"></a>先决条件
 
-本演练面向包含**使用 C++ 的桌面开发**和 **Python 开发**工作负载及其默认选项（例如作为默认解释器的 Python 3.6）的 Visual Studio 2017 预览版。 在 **Python 开发**工作负载中，还可以选中右侧的“Python 本机开发工具”复选框，以设置本主题中所述的大多数选项。 （此选项还自动包括 C++ 工作负载。）
+本演练针对的是包含“C++ 桌面开发”和“Python 开发”工作负载及其默认选项（如作为默认解释器的 Python 3.6）的 Visual Studio 2017。 在 **Python 开发**工作负载中，还可以选中右侧的“Python 本机开发工具”复选框，以设置本主题中所述的大多数选项。 （此选项还自动包括 C++ 工作负载。） 
 
 ![选择“Python 本机开发工具”选项](media/cpp-install-native.png)
 
 有关详细信息，请参阅[安装针对 Visual Studio 的 Python 支持](installation.md)，其中包括使用其他版本的 Visual Studio。 如果单独安装 Python，请务必在安装程序的“高级选项”下选择“下载调试符号”和“下载调试二进制文件”。 这可确保在选择进行调试生成时能够使用必要的调试库。
+
+> [!Note]
+> 还可以通过“数据科学和分析应用程序”工作负载使用 Python，此工作负载默认包含 Anaconda 3 64 位（含有最新版 CPython）和“Python 本机开发工具”选项。
 
 ## <a name="create-the-python-application"></a>创建 Python 应用程序
 
@@ -265,7 +269,7 @@ ms.lasthandoff: 04/10/2017
 
 ## <a name="debug-the-c-code"></a>调试 C++ 代码
 
-Visual Studio 中的 Python 支持包括[同时调试 Python 和 C++ 代码](debugging-mixed-mode.md)的功能。 若要体验此功能，请执行以下操作：
+[Visual Studio 中的 Python 支持](installation.md)包括可[同时调试 Python 和 C++ 代码](debugging-mixed-mode.md)。 若要体验此功能，请执行以下操作：
 
 1. 在解决方案资源管理器中，右键单击 Python 项目，依次选择“属性”、“调试”选项卡，然后选择“调试”>“启用本机代码调试”选项。
 
