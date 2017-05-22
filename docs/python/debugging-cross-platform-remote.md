@@ -28,10 +28,11 @@ translation.priority.ht:
 - tr-tr
 - zh-cn
 - zh-tw
-translationtype: Human Translation
-ms.sourcegitcommit: adf122a478b29674dc2924dcf7d42972a5a3f52e
-ms.openlocfilehash: df4d74d9fe884f3aff1998f4b0b38dbff6d1359f
-ms.lasthandoff: 04/10/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 85576806818a6ed289c2f660f87b5c419016c600
+ms.openlocfilehash: fa3d69cbb34a61a327d0b4c27430ff04b670a568
+ms.contentlocale: zh-cn
+ms.lasthandoff: 05/10/2017
 
 ---
 
@@ -111,7 +112,10 @@ Visual Studio 可在 Windows 计算机本地和远程启动和调试 Python 应�
 
 1. 在出现的“附加到进程”对话框中，将“连接类型”设置为“Python 远程(ptvsd)”。 （在旧版本的 Visual Studio 中，这些选项被称为“传输”和“Python 远程调试”。）
 
-1. 在“连接目标”字段（旧版本中为“限定符”）中，输入 `tcp://<secret>@<ip_address>:5678`，其中 `<secret>` 是 Python 代码中传递给 `enable_attach` 的字符串，`<ip_address>` 是远程计算机（可以是显式地址或名称，如 myvm.cloudapp.net），而 `:5678` 是远程调试的端口号。 
+1. 在“连接目标”字段（旧版本中为“限定符”）中，输入 `tcp://<secret>@<ip_address>:5678`，其中 `<secret>` 是 Python 代码中传递给 `enable_attach` 的字符串，`<ip_address>` 是远程计算机（可以是显式地址或名称，如 myvm.cloudapp.net），而 `:5678` 是远程调试的端口号。
+
+    > [!Warning]
+    > 如果要连接公共 Internet，应改用 `tcps`，并按照以下有关[使用 SSL 保护调试器连接](#securing-the-debugger-connection-with-ssl)的说明操作。
 
 1. 按 Enter 填充该计算机上可用 ptvsd 进程的列表：
 
@@ -194,5 +198,5 @@ Visual Studio 可在 Windows 计算机本地和远程启动和调试 Python 应�
     ![SSL 证书主机名警告](media/remote-debugging-ssl-warning2.png)
 
 > [!Warning]
-> 目前，如果忽略这些警告，Visual Studio 2017 预览版将挂起。 请务必在尝试连接之前更正所有问题。
+> 目前，如果忽略这些警告，Visual Studio 2017 会挂起。 请务必在尝试连接之前更正所有问题。
 

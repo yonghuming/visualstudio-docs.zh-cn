@@ -28,16 +28,17 @@ translation.priority.ht:
 - tr-tr
 - zh-cn
 - zh-tw
-translationtype: Human Translation
-ms.sourcegitcommit: 9328c347d548a03a536cea16bd5851817c03d5a2
-ms.openlocfilehash: 0f2ecd6ca52a04e8813610c0f406251ef4604354
-ms.lasthandoff: 04/10/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 85576806818a6ed289c2f660f87b5c419016c600
+ms.openlocfilehash: b71d44150662c97f355c9b0c14a7888baf6c0683
+ms.contentlocale: zh-cn
+ms.lasthandoff: 05/10/2017
 
 ---
 
 # <a name="editing-python-code"></a>编辑 Python 代码
 
-开发人员会在代码编辑器上花费大量时间，因此 Visual Studio 中的 Python 支持提供有助于提高工作效率的功能，如 IntelliSense 语法突出显示、自动完成、签名帮助、方法重写以及搜索和导航。 
+由于开发者会在代码编辑器上花费大量时间，因此 [Visual Studio 中的 Python 支持](installation.md)提供有助于提高工作效率的功能，如 IntelliSense 语法突出显示、自动完成、签名帮助、方法重写以及搜索和导航。 
 
 在本主题中：
 

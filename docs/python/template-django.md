@@ -1,7 +1,7 @@
 ---
-title: "针对 Visual Studio 的 Python 工具中的 Django Web 项目模板 | Microsoft Docs"
+title: "Visual Studio 中适用于 Python 的 Django Web 项目模板 | Microsoft Docs"
 ms.custom: 
-ms.date: 3/7/2017
+ms.date: 5/8/2017
 ms.prod: visual-studio-dev15
 ms.reviewer: 
 ms.suite: 
@@ -28,18 +28,19 @@ translation.priority.ht:
 - tr-tr
 - zh-cn
 - zh-tw
-translationtype: Human Translation
-ms.sourcegitcommit: a42f5a30375192c89c9984e40ba0104da98d7253
-ms.openlocfilehash: 7f65641fbf15edfe16931badc19602a0fc773bff
-ms.lasthandoff: 03/07/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 85576806818a6ed289c2f660f87b5c419016c600
+ms.openlocfilehash: 4a5db2deb3633e8305dbf83cbe6ba8c0e3344c72
+ms.contentlocale: zh-cn
+ms.lasthandoff: 05/10/2017
 
 ---
 
 # <a name="django-web-project-template"></a>Django Web 项目模板
 
-[Django](https://www.djangoproject.com/) 是高级 Python 框架，用于快速、安全及可扩展的 Web 开发。 针对 Visual Studio 的 Python 工具 (PTVS) 提供项目模板以设置基于 Django 的 Web 应用程序的结构。 若要在 Visual Studio 中使用模板，请选择“文件”>“新建”>“项目”，搜索“Django”，然后选择“Django Web 项目”模板。 生成的项目将包含 Boilerplate 代码，以及默认的 SQLite 数据库。 “空白 Django Web 项目”模板类似，但不包括数据库。
+[Django](https://www.djangoproject.com/) 是高级 Python 框架，用于快速、安全及可扩展的 Web 开发。 借助 Visual Studio 中的 Python 支持，可以使用项目模板来设置 Django Web 应用程序的结构。 若要在 Visual Studio 中使用模板，请选择“文件”>“新建”>“项目”，搜索“Django”，然后选择“Django Web 项目”模板。 生成的项目将包含 Boilerplate 代码，以及默认的 SQLite 数据库。 “空白 Django Web 项目”模板类似，但不包括数据库。
 
-PTVS 为 Django 项目提供完整的 IntelliSense：
+Visual Studio 为 Django 项目提供完整的 IntelliSense：
 
 - 传递给模板的上下文变量：
 
@@ -56,7 +57,7 @@ PTVS 为 Django 项目提供完整的 IntelliSense：
     ![JavaScript IntelliSense](media/template-django-intellisense-js.png)
 
 
-PTVS 还为 Django 项目提供完整的[调试支持](debugging.md)： 
+Visual Studio 还为 Django 项目提供完整的[调试支持](debugging.md)： 
 
 ![断点](media/template-django-debugging.png)
 
