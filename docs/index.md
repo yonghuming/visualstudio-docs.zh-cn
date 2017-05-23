@@ -4,8 +4,8 @@ hide_bc: true
 title: "Visual Studio 文档"
 description: "了解如何使用 Visual Studio 2017 并以你喜欢的语言来开发适用于你的平台和设备的应用程序、服务和工具。"
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 2831d252fbc9601e62c372ac3df7704e1dc65f2a
-ms.openlocfilehash: a8f12e3418da5ec6fe778d3a7eaed610c120a859
+ms.sourcegitcommit: 601cfd86b10f6194d817fc02e6ea0087608fd0ff
+ms.openlocfilehash: ec537370a7bc42a6d93ac377b9cd280733da6799
 ms.contentlocale: zh-cn
 ms.lasthandoff: 05/10/2017
 
@@ -247,25 +247,25 @@ ms.lasthandoff: 05/10/2017
                                         </div>
                                     </div>
                                 </a>
-                            </li>                            
-                            <li>        
-                                <a href="https://go.microsoft.com/fwlink/?linkid=834748">        
-                                  <div class="cardSize">        
-                                    <div class="cardPadding">        
-                                      <div class="card">        
-                                        <div class="cardImageOuter">        
-                                          <div class="cardImage bgdAccent1 cardScaleImage">        
-                                            <img data-scaleimage="./images/vs_web-6.svg" src="./images/vs_web-6.svg" alt="" />        
-                                        </div>        
-                                        </div>        
-                                          <div class="cardText">        
-                                            <h3>数据科学和分析应用程序</h3>        
-                                            <p>用于创建数据科学应用程序（包括 Python、R 和F#）的语言和工具。</p>        
-                                        </div>        
-                                      </div>        
-                                    </div>        
-                                  </div>        
-                                </a>        
+                            </li>
+                            <li>
+                                <a href="https://go.microsoft.com/fwlink/?linkid=834748">
+                                  <div class="cardSize">
+                                    <div class="cardPadding">
+                                      <div class="card">
+                                        <div class="cardImageOuter">
+                                          <div class="cardImage bgdAccent1 cardScaleImage">
+                                            <img data-scaleimage="./images/vs_web-6.svg" src="./images/vs_web-6.svg" alt="" />
+                                        </div>
+                                        </div>
+                                          <div class="cardText">
+                                            <h3>数据科学和分析应用程序</h3>
+                                            <p>用于创建数据科学应用程序的语言和工具，包括 Python、R 和 F#。</p>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </a>
                             </li>
                             <li>
                                 <a href="https://go.microsoft.com/fwlink/?linkid=833075">
@@ -794,7 +794,7 @@ ms.lasthandoff: 05/10/2017
                 <a href="https://go.microsoft.com/fwlink/?linkid=833101">Twitter</a>
             </li>
             <li>
-                <a href="https://go.microsoft.com/fwlink/?linkid=833103">Stack Overflow</a>
+                <a href="https://go.microsoft.com/fwlink/?linkid=833103"> Stack Overflow </a>
             </li>
             <li>
                 <a href="https://go.microsoft.com/fwlink/?linkid=833104">问题报告</a>
