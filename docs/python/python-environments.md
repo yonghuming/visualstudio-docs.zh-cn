@@ -42,8 +42,8 @@ Visual Studio 中的 Python 使管理多个 Python 环境更加简单，并且�
 
 注意：如果是初次使用 Visual Studio 中的 Python，请首先参阅以下主题，其中提供了相关内容的讨论：
 
-    - [在 Visual Studio 中使用 Python](python-in-visual-studio.md)
-    - [安装针对 Visual Studio 的 Python 支持](installation.md)
+- [在 Visual Studio 中使用 Python](python-in-visual-studio.md)
+- [安装针对 Visual Studio 的 Python 支持](installation.md)
 
 始终运行 Python 代码的 Python *环境* 由解释器、库（通常是 Python 标准库）以及一组已安装的包组成。 这些内容共同确定哪些语言结构和语法有效、哪些操作系统功能可访问以及哪些程序包可使用。
 
