@@ -26,10 +26,11 @@ translation.priority.ht:
 - tr-tr
 - zh-cn
 - zh-tw
-translationtype: Human Translation
-ms.sourcegitcommit: 5658ecf52637a38bc3c2a5ad9e85b2edebf7d445
-ms.openlocfilehash: 612a2a800227d3a0bd1b416160058c44ba3e2cd8
-ms.lasthandoff: 02/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 47057e9611b824c17077b9127f8d2f8b192d6eb8
+ms.openlocfilehash: 2ad95e87681907117eb9a3329716a3dd590bd6b8
+ms.contentlocale: zh-cn
+ms.lasthandoff: 05/13/2017
 
 ---
 # <a name="extending-coded-ui-tests-and-action-recordings-to-support-microsoft-excel"></a>扩展编码的 UI 测试和操作录制以支持 Microsoft Excel
@@ -79,7 +80,7 @@ ms.lasthandoff: 02/22/2017
   
  “`%CommonProgramFiles(x86)%\Microsoft Shared\VSTT\<version number>\UITestExtensionPackages\*.*`”，根据 Visual Studio 版本，其中的版本号可能为 11.0 和 12.0 等。  
   
- `ExcelUICommunicationHelper` DLL 和 PDB 文件复制到 `"%ProgramFiles(x86)%\Microsoft Visual Studio <version number>\Common7\IDE\PrivateAssemblies”`。  
+ `ExcelUICommunicationHelper` DLL 和 PDB 文件复制到 `"%ProgramFiles(x86)%\Microsoft Visual Studio <version number>\Common7\IDE\PrivateAssemblies"`。  
   
  你可能必须调整准确的复制路径，但无需进行其他安装。 在 64 位计算机上，使用 32 位 Visual Studio Enterprise 命令提示符运行 `CopyDrop.bat` 文件。  
   
