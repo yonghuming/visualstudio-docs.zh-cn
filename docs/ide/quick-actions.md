@@ -1,7 +1,7 @@
 ---
 title: "快速操作 | Microsoft Docs"
 ms.custom: 
-ms.date: 03/10/2017
+ms.date: 05/08/2017
 ms.reviewer: 
 ms.suite: 
 ms.technology:
@@ -10,8 +10,8 @@ ms.tgt_pltfrm:
 ms.topic: article
 ms.devlang: csharp
 ms.assetid: e173fb7d-c5bd-4568-ba0f-aa61913b3244
-author: BrianPeek
-ms.author: brpeek
+author: kempb
+ms.author: kempb
 manager: ghogen
 dev_langs:
 - CSharp
@@ -30,10 +30,11 @@ translation.priority.ht:
 - tr-tr
 - zh-cn
 - zh-tw
-translationtype: Human Translation
-ms.sourcegitcommit: 46846db26bee30841e6cb35913d533b512d01ba0
-ms.openlocfilehash: 226e51ace56d51945cc380aaaf3450ae7dacf8e4
-ms.lasthandoff: 03/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 2831d252fbc9601e62c372ac3df7704e1dc65f2a
+ms.openlocfilehash: e59204427c8d7d1706ca6c85261733efdcbc440e
+ms.contentlocale: zh-cn
+ms.lasthandoff: 05/10/2017
 
 ---
 # <a name="quick-actions"></a>快速操作
@@ -105,7 +106,7 @@ switch(myEnum)
     case MyEnum.Item3:
         break;
     default:
-        break;    
+        break;
 }
 ```
 
@@ -313,7 +314,7 @@ Debug.WriteLine("Hello")
 ```
 
 ### <a name="convert-to-interpolated-string"></a>转换为内插字符串
-类似于 **[String.Format](https://msdn.microsoft.com/library/system.string.format(v=vs.110).aspx)** 方法，[内插字符串](/dotnet/articles/csharp/language-reference/keywords/interpolated-strings)是使用嵌入式变量来表达字符串的一种简单方式。  此快速操作将识别字符串连接在一起的 case 或使用 **String.Format** 的 case，然后将用法更改为内插字符串。
+类似于 **[String.Format](https://msdn.microsoft.com/library/system.string.format.aspx)** 方法，[内插字符串](/dotnet/articles/csharp/language-reference/keywords/interpolated-strings)是使用嵌入式变量来表达字符串的一种简单方式。  此快速操作可识别何时需要将字符串连接在一起或使用 **String.Format**，然后将用法更改为内插字符串。
 
 ```CSharp
 // Before
@@ -339,5 +340,95 @@ Dim num as Integer = 3
 Dim s As String = $"My string with {num} in the middle"
 ```
 
+### <a name="remove-merge-conflict-markers"></a>移除合并冲突标记
+借助这些快速操作，可以通过“接受更改”（即移除冲突的代码和标记）解决合并冲突问题。 （仅适用于 Visual Studio 2017（版本 15.3 - 预览版）。）
+
+![重构 - 解决合并冲突](../ide/media/vside-refactoring-merge-conflicts.png)
+
+### <a name="add-null-checks-for-parameters"></a>添加 null 参数检查
+借助此快速操作，可以在代码中添加检查，从而指明参数是否为 null。 （仅适用于 Visual Studio 2017（版本 15.3 - 预览版）。）
+
+![重构 - 添加 null 检查](../ide/media/vside-refactoring-nullcheck.png)
+
+### <a name="constructor-generator-improvements"></a>构造函数生成器改进
+借助此快速操作，可以在创建构造函数时选择要生成的属性或字段，也可以从空白主体生成构造函数。 此外，还可以从调用站点将参数添加到现有构造函数中。 （仅适用于 Visual Studio 2017（版本 15.3 - 预览版）。）
+
+![重构 - 生成构造函数](../ide/media/vside-refactoring-constructors.png)
+
+### <a name="remove-unused-variables"></a>删除未使用的变量
+借助此快速操作，可以从代码中删除已声明但从未用过的变量。 （仅适用于 Visual Studio 2017（版本 15.3 - 预览版）。）
+
+![重构 - 未使用的变量](../ide/media/vside-refactoring-unusedvars.png)
+
+### <a name="generate-overrides"></a>生成重写函数
+借助此快速操作，可以从类或结构中的空白行创建重写函数。 使用“选取成员”对话框，可以选择要重写的成员。 （仅适用于 Visual Studio 2017（版本 15.3 - 预览版）。）
+
+![重构 - 重写函数](../ide/media/vside-refactoring-overrides.png)
+
+![重构 - 重写函数对话框](../ide/media/vside-refactoring-overrides-dialog.png)
+
+### <a name="change-base-for-numeric-literals"></a>更改数字参数的基数
+借助此快速操作，可以将数字文本从一种基本数制转换成另一种。 例如，可以将数字更改为十六进制或二进制格式。 （仅适用于 Visual Studio 2017（版本 15.3 - 预览版）。）
+
+![重构 - 更改基本数制](../ide/media/vside-refactoring-changebase1.png)
+
+![重构 - 更改基本数制](../ide/media/vside-refactoring-changebase2.png)
+
+### <a name="insert-digit-separators-into-literals"></a>将数字分隔符插入数字文本
+借助此快速操作，可以将分隔符添加到数字文本值中。 （仅适用于 Visual Studio 2017（版本 15.3 - 预览版）。）
+
+![重构 - 更改数字分隔符](../ide/media/vside-refactoring-separators.png)
+
+### <a name="convert-if-construct-to-switch"></a>将 **if** 构造转换成 **switch**
+借助此快速操作，可以将 **if-then-else** 构造转换成 **switch** 构造。 （仅适用于 Visual Studio 2017（版本 15.3 - 预览版）。）
+
+```CSharp
+// Before
+if (obj is string s)
+{
+  Console.WriteLine("obj is a string: " + s);  
+}
+
+else if (obj is int i && i > 10)
+{
+  Console.WriteLine("obj is an int greater than 10");
+}
+
+// Convert to switch
+
+// After
+switch (obj)
+{
+  case string s:
+    Console.WriteLine("Obj is a string: " + s);
+    break;
+  case int i when i > 10:
+    Console.WriteLine("obj is an int greater than 10");
+    break;
+}
+```
+
+```VB
+' Before
+If TypeOf obj Is String s Then
+    Console.WriteLine("obj is a string: " + s)
+Else If TypeOf obj Is Integer i And i > 10 Then
+    Console.WriteLine("obj is an int greater than 10")
+End If
+
+' Convert to switch
+
+' After
+Select Case obj
+  Case String s
+    Console.WriteLine("Obj is a string: " + s)
+    Exit Sub
+  Case Integer i when i > 10
+    Console.WriteLine("obj is an int greater than 10")
+    Exit Sub
+End Select
+```
+
 # <a name="see-also"></a>另请参阅
 * [代码样式和快速操作](code-styles-and-quick-actions.md)
+

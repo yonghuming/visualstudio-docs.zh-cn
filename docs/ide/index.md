@@ -5,9 +5,10 @@ ms.author: apexprodleads
 ms.topic: landing-page
 title: "Visual Studio IDE 文档"
 description: "了解 Visual Studio 集成开发环境 (IDE) 如何帮助使用几乎任何代码语言开发应用。"
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 0e5a449ef396e7b9fd23a2c018bdc7f8791b7b38
 ms.openlocfilehash: 7f55b5d4cc58620e292cc11399c086e26184081f
+ms.contentlocale: zh-cn
 ms.lasthandoff: 03/13/2017
 
 ---
@@ -54,7 +55,7 @@ ms.lasthandoff: 03/13/2017
         </a>
     </li>
     <li>
-        <a href="/dotnet/articles/welcome">
+        <a href="/dotnet/welcome">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
