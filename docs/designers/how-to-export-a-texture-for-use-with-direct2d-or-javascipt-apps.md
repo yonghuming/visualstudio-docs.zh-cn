@@ -13,14 +13,15 @@ caps.latest.revision: 11
 author: BrianPeek
 ms.author: brpeek
 manager: ghogen
-translationtype: Human Translation
-ms.sourcegitcommit: 5db97d19b1b823388a465bba15d057b30ff0b3ce
-ms.openlocfilehash: fa78fa1e06619cd784831a47644e0092e6a9a0ab
-ms.lasthandoff: 02/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 47057e9611b824c17077b9127f8d2f8b192d6eb8
+ms.openlocfilehash: 77f610f9bf40cbd1ff840832203a78ccbaa3eeb2
+ms.contentlocale: zh-cn
+ms.lasthandoff: 05/13/2017
 
 ---
 # <a name="how-to-export-a-texture-for-use-with-direct2d-or-javascipt-apps"></a>如何：导出纹理以用于 Direct2D 或 Javascipt 应用程序
-图像内容管道可以生成与 Direct2D 的内部呈现约定相兼容的纹理。 这种类型的纹理适合在使用 Direct2D 的应用和使用 JavaScript 创建的 Windows 应用商店应用中使用。  
+图像内容管道可以生成与 Direct2D 的内部呈现约定兼容的纹理。 这种类型的纹理适合在使用 Direct2D 的应用和使用 JavaScript 创建的 Windows 应用商店应用中使用。  
   
  本文档演示了这些活动：  
   
@@ -51,7 +52,7 @@ ms.lasthandoff: 02/22/2017
   
 #### <a name="to-create-a-texture-thats-compatible-with-direct2d-rendering-conventions"></a>创建与 Direct2D 呈现约定相兼容的纹理  
   
-1.  从基本纹理开始。 加载现有映像，或如[如何：创建基本纹理](../designers/how-to-create-a-basic-texture.md)中所述，创建一个新纹理。 若要支持 .dds 格式的块压缩，请指定宽度和高度为 4 的倍数（例如，100x100、128x128 或 256x192）的纹理。 由于不支持 mipmapping，因此纹理无需为正方形，并且大小无需为&2; 的幂。  
+1.  从基本纹理开始。 加载现有映像，或如[如何：创建基本纹理](../designers/how-to-create-a-basic-texture.md)中所述，创建一个新纹理。 若要支持 .dds 格式的块压缩，请指定宽度和高度为 4 的倍数（例如，100x100、128x128 或 256x192）的纹理。 由于不支持 mipmapping，因此纹理无需为正方形，并且大小无需为 2 的幂。  
   
 2.  配置纹理文件，使其由图像内容管道进行处理。 在“解决方案资源管理器”中，打开刚刚创建的纹理文件的快捷菜单，然后选择“属性”。 在“配置属性”，常规”页上，将“项目类型”属性设置为“图像内容管道”。 请确保将“内容”属性设置为“是”，并且将“从生成中排除”设置为“否”，然后选择“应用”按钮。 将出现“图像内容管道”配置属性页。  
   
@@ -64,6 +65,6 @@ ms.lasthandoff: 02/22/2017
   
 5.  配置图像内容管道，使其不生成 mipmap。 在“配置属性”、“图像内容管道”、“常规”页上，将“生成 Mip”属性设置为“否”。  
   
-6.  选择“确定”  按钮。  
+6.  选择**“确定”** 按钮。  
   
- 生成项目时，图像内容管道会将源映像从工作格式转换为指定的输出格式（转换包括生成预乘的 Alpha），并且结果将被复制到项目的输出目录。
+ 生成项目时，图像内容管道会将源图像从工作格式转换为指定的输出格式（转换包括生成预乘 Alpha），并且结果将被复制到项目的输出目录。

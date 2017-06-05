@@ -26,10 +26,11 @@ translation.priority.ht:
 - tr-tr
 - zh-cn
 - zh-tw
-translationtype: Human Translation
-ms.sourcegitcommit: 5ab78b6b8eaa8156ed2c8a807b1d8a80e75afa84
-ms.openlocfilehash: a4c6024c6e35e8e88ce04b607a784e4adfa87d61
-ms.lasthandoff: 04/04/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 47057e9611b824c17077b9127f8d2f8b192d6eb8
+ms.openlocfilehash: d9588eff64ef29c757b6d4224c17975e6ee9d0ee
+ms.contentlocale: zh-cn
+ms.lasthandoff: 05/13/2017
 
 ---
 # <a name="using-stubs-to-isolate-parts-of-your-application-from-each-other-for-unit-testing"></a>使用存根针对单元测试隔离应用程序的各个部分
@@ -82,7 +83,7 @@ ms.lasthandoff: 04/04/2017
 ##  <a name="How"></a>如何使用存根  
   
 ###  <a name="Dependency"></a>依赖项注入设计  
- 若要使用存根，则必须将应用程序设计为使不同的组件不相互依赖，而只依赖接口定义。 各个组件在运行时连接在一起，而不是在编译时进行耦合。 这种模式可帮助制作可靠且易于更新的软件，因为更改往往不会跨组件边界传播。 我们建议，即使你未使用存根，也要采用此模式。 若要编写新代码，遵循[依赖项注入](http://en.wikipedia.org/wiki/Dependency_injection)模式就很简单。 如果要为现有软件编写测试，你可能必须重构它。 如果这样做可行，则可以考虑改用填充码。  
+ 若要使用存根，则必须将应用程序设计为使不同的组件不相互依赖，而只依赖接口定义。 各个组件在运行时连接在一起，而不是在编译时进行耦合。 这种模式可帮助制作可靠且易于更新的软件，因为更改往往不会跨组件边界传播。 即使未使用存根，也建议采用此模式。 若要编写新代码，采用[依赖项注入](http://en.wikipedia.org/wiki/Dependency_injection)模式会很容易。 如果要为现有软件编写测试，你可能必须重构它。 如果这样做可行，则可以考虑改用填充码。  
   
  让我们通过一个有趣的示例（关系图中的示例）开始此讨论。 类 StockAnalyzer 读取股票价格并生成一些有趣的结果。 它具有一些公共方法，我们要测试这些方法。 为简单起见，我们只讨论其中的一个方法，即，一个非常简单的、用于报告特定股票的当前价格的方法。 我们希望编写该方法的单元测试。 下面是测试的初稿：  
   
@@ -190,7 +191,7 @@ analyzer = new StockAnalyzer(new StockFeed())
  执行此连接有更灵活的方式。 例如，StockAnalyzer 可以接受可在不同的条件下实例化 IStockFeed 的不同实现的工厂对象。  
   
 ###  <a name="GeneratingStubs"></a>生成存根  
- 你已经将要测试的类与它使用的其他组件分离。 分离不但使应用程序更加可靠和灵活，还让你能够将接受测试的组件连接到接口的存根实现以便进行测试。  
+ 已经将要测试的类与它使用的其他组件分离。 分离不但使应用程序更加可靠和灵活，还让你能够将接受测试的组件连接到接口的存根实现以便进行测试。  
   
  你只需用常规方式将存根编写为类即可。 但是，Microsoft Fakes 提供了一个更灵活的方式来为每个测试创建最合适的存根。  
   
@@ -417,7 +418,7 @@ interface IWithEvents
 ```  
   
 ###  <a name="BKMK_Generic_methods"></a>泛型方法  
- 可以通过为方法的每个必需的实例化提供委托来对泛型方法进行存根处理。 例如，假定有以下包含泛型方法的接口：  
+ 通过为方法的每个必需的实例化提供委托可以对泛型方法进行存根处理。 例如，假定有以下包含泛型方法的接口：  
   
 ```c#  
 // code under test  
@@ -475,7 +476,7 @@ public void TestGetValue()
 // unit test code  
 var stub = new Fakes.MyClass();  
 stub.CallBase = false;  
-// No delegate set – default delegate:  
+// No delegate set - default delegate:  
 Assert.AreEqual(0, stub.DoVirtual(1));  
   
 stub.CallBase = true;  
@@ -517,7 +518,7 @@ StubBehaviors.Current =
 ## <a name="external-resources"></a>外部资源  
   
 ### <a name="guidance"></a>指导  
- [使用 Visual Studio 2012 对连续交付进行测试 - 第 2 章：单元测试：测试内部](http://go.microsoft.com/fwlink/?LinkID=255188)  
+ [使用 Visual Studio 2012 测试连续交付 - 第 2 章：单元测试：测试内部](http://go.microsoft.com/fwlink/?LinkID=255188)  
   
 ## <a name="see-also"></a>另请参阅  
  [用 Microsoft Fakes 隔离测试代码](../test/isolating-code-under-test-with-microsoft-fakes.md)

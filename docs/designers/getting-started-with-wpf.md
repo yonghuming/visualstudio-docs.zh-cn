@@ -28,10 +28,11 @@ translation.priority.mt:
 - pl-pl
 - pt-br
 - tr-tr
-translationtype: Human Translation
-ms.sourcegitcommit: 5658ecf52637a38bc3c2a5ad9e85b2edebf7d445
-ms.openlocfilehash: b4c56d1428506de5998f4f430239422d72df9a44
-ms.lasthandoff: 02/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 47057e9611b824c17077b9127f8d2f8b192d6eb8
+ms.openlocfilehash: a737c447bc97738c6e8f5285f672e9964578061b
+ms.contentlocale: zh-cn
+ms.lasthandoff: 05/13/2017
 
 ---
 # <a name="getting-started-with-wpf"></a>WPF 入门
@@ -41,7 +42,7 @@ Windows Presentation Foundation (WPF) 是一个可创建桌面客户端应用程
   
 |||  
 |-|-|  
-|我希望直接开始使用…|[演练：我的第一个 WPF 桌面应用程序](../designers/walkthrough-my-first-wpf-desktop-application2.md)<br /><br /> [演练：创建连接到 Azure 移动服务的 WPF 桌面应用程序](../designers/walkthrough-create-a-wpf-desktop-application-connected-to-an-azure-mobile-service.md)|  
+|我希望直接开始使用...|[演练：我的第一个 WPF 桌面应用程序](../designers/walkthrough-my-first-wpf-desktop-application2.md)<br /><br /> [演练：创建连接到 Azure 移动服务的 WPF 桌面应用程序](../designers/walkthrough-create-a-wpf-desktop-application-connected-to-an-azure-mobile-service.md)|  
 |如何设计应用程序 UI？|[在 Visual Studio 和 Blend for Visual Studio 中设计 XAML](../designers/designing-xaml-in-visual-studio.md)|  
 |是否是初次使用 .NET？|[.NET Framework 概述](https://msdn.microsoft.com/en-us/library/zw4w595w\(v=vs.140\).aspx)<br /><br /> [应用程序要点](http://msdn.microsoft.com/Library/653da4ba-3752-4d1f-a08a-de017dc86ecc)<br /><br /> [Visual C# 和 Visual Basic 入门](https://msdn.microsoft.com/en-us/library/dd492171\(v=vs.140\).aspx)|  
 |有关 WPF 的详细信息...|[WPF 介绍](../designers/introduction-to-wpf.md)<br /><br /> [XAML 概述 (WPF)](https://msdn.microsoft.com/en-us/library/ms752059\(v=vs.100\).aspx)<br /><br /> [控件](https://msdn.microsoft.com/en-us/library/bb613551\(v=vs.100\).aspx)<br /><br /> [数据绑定概述](https://msdn.microsoft.com/en-us/library/ms752347\(v=vs.100\).aspx)<br /><br /> [使用 LINQ to XML 进行 WPF 数据绑定](../designers/wpf-data-binding-with-linq-to-xml.md)|  

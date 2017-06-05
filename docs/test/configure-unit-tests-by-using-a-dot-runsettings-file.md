@@ -27,16 +27,17 @@ translation.priority.mt:
 - pl-pl
 - pt-br
 - tr-tr
-translationtype: Human Translation
-ms.sourcegitcommit: 5658ecf52637a38bc3c2a5ad9e85b2edebf7d445
-ms.openlocfilehash: 04c981d458912aaf3802e727369893759faab3a5
-ms.lasthandoff: 02/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 47057e9611b824c17077b9127f8d2f8b192d6eb8
+ms.openlocfilehash: 1600207e0c504f4b4dcbf620e92bcc06e14ec035
+ms.contentlocale: zh-cn
+ms.lasthandoff: 05/13/2017
 
 ---
 # <a name="configure-unit-tests-by-using-a-runsettings-file"></a>使用 .runsettings 文件配置单元测试
 通过使用 *.runsettings 文件，可配置 Visual Studio 中的单元测试。 （文件名并不重要，前提是使用扩展名“.runsettings”。）例如，可以更改将运行测试的 .NET Framework、提供测试结果的目录以及在测试运行期间收集的数据。  
   
- 如果你不希望执行任何特殊配置，则无需 *.runsettings 文件。 最常见的用途是自定义[代码覆盖率](../test/customizing-code-coverage-analysis.md)。  
+ 如果不希望执行任何特殊配置，则无需 *.runsettings 文件。 最常见的用途是自定义[代码覆盖率](../test/customizing-code-coverage-analysis.md)。  
   
 > [!NOTE]
 >  **.runsettings 和 .testsettings**  
@@ -149,7 +150,7 @@ ms.lasthandoff: 02/22/2017
 |`MaxCpuCount`|1|它利用计算机上的可用内核，在运行单元测试时控制并行测试执行的程度。  测试执行引擎在每个可用内核上作为单独的进程启动，并为每个内核提供包含要执行的测试的容器，如程序集、DLL 或相关项目。  测试容器即计划单位。  在每个容器中，测试将根据测试框架进行执行。  如果存在多个容器，进程在容器内完成测试执行时，系统会向它们提供下一个可用容器。<br /><br /> MaxCpuCount 可以是：<br /><br /> n，其中 1 <= n <= 内核数：最多将启动 n 个进程<br /><br /> n，其中 n = 任何其他值：启动的进程数将等于计算机上的可用内核数|  
   
 ### <a name="diagnostic-data-adapters-data-collectors"></a>诊断数据适配器（数据收集器）  
- `DataCollectors` 元素指定诊断数据适配器的设置。 诊断数据适配器用于收集有关测试环境和受测的应用程序的其他信息。 每个适配器都具有默认设置，因此如果你不希望使用默认值，则你仅需提供设置。  
+ `DataCollectors` 元素指定诊断数据适配器的设置。 诊断数据适配器用于收集有关测试环境和受测的应用程序的其他信息。 每个适配器都具有默认设置，因此如果不希望使用默认值，只需提供设置。  
   
 #### <a name="code-coverage-adapter"></a>代码覆盖率适配器  
  代码覆盖率数据收集器创建应用程序代码的哪些部分已在测试中执行过的日志。 有关自定义代码覆盖率设置的详细信息，请参阅[自定义代码覆盖率分析](../test/customizing-code-coverage-analysis.md)。  

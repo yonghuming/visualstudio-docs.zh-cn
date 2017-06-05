@@ -26,10 +26,11 @@ translation.priority.ht:
 - tr-tr
 - zh-cn
 - zh-tw
-translationtype: Human Translation
-ms.sourcegitcommit: 5ab78b6b8eaa8156ed2c8a807b1d8a80e75afa84
-ms.openlocfilehash: 5778e6b7c4a93c2d03ff00fcaaaf5a25807b0a00
-ms.lasthandoff: 04/04/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 90b2481b0ec4f9387fe3a2c0b733a103e8c03845
+ms.openlocfilehash: 01dc224a571144744028e98153df1c525c461156
+ms.contentlocale: zh-cn
+ms.lasthandoff: 05/23/2017
 
 ---
 # <a name="customizing-code-coverage-analysis"></a>自定义代码覆盖率分析
@@ -64,7 +65,7 @@ ms.lasthandoff: 04/04/2017
   
 3.  在“测试”菜单上，依次选择“测试设置”、“选择测试设置文件”和文件。  
   
-4.  现在，当你运行“分析代码覆盖率”时，此 `.runsettings` 文件将会控制其行为。 不要忘记你必须再次运行代码覆盖率：在运行测试或更新代码时，你之前的覆盖率结果和代码着色不会自动更新。  
+4.  现在，当你运行“分析代码覆盖率”时，此 `.runsettings` 文件将会控制其行为。 不要忘记必须再次运行代码覆盖率：在运行测试或更新代码时，之前的覆盖率结果和代码着色不会自动更新。  
   
 5.  若要禁用和启用自定义设置，请依次选择“测试”和“测试设置”菜单，然后取消选择或选择文件。  
   
@@ -156,7 +157,7 @@ ms.lasthandoff: 04/04/2017
   
 -   `ModulePath` - 按程序集文件路径指定的程序集。  
   
--   `CompanyName` - 按“公司”特性匹配程序集。  
+-   `CompanyName` - 按“公司”匹配程序集。  
   
 -   `PublicKeyToken` - 按公钥标记匹配签名程序集。 例如，若要与所有 Visual Studio 组件和扩展匹配，请使用 `<PublicKeyToken>^B03F5F7F11D50A3A$</PublicKeyToken>`。  
   
@@ -284,7 +285,7 @@ Included items must then not match any entries in the exclude list to remain inc
             <!-- Match attributes on any code element: -->  
             <Attributes>  
               <Exclude>  
-                <!—Don't forget "Attribute" at the end of the name -->  
+                <!-- Don't forget "Attribute" at the end of the name -->  
                 <Attribute>^System\.Diagnostics\.DebuggerHiddenAttribute$</Attribute>  
                 <Attribute>^System\.Diagnostics\.DebuggerNonUserCodeAttribute$</Attribute>  
                 <Attribute>^System\.Runtime\.CompilerServices.CompilerGeneratedAttribute$</Attribute>  

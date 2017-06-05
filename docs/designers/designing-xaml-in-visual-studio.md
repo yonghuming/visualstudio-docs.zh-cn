@@ -1,19 +1,39 @@
 ---
-title: "Designing XAML in Visual Studio | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-general"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
+title: "在 Visual Studio 中设计 XAML | Microsoft Docs"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-general
+ms.tgt_pltfrm: 
+ms.topic: article
 ms.assetid: 288e2415-9fcf-408e-bc35-9848315e14fd
 caps.latest.revision: 4
-author: "kempb"
-ms.author: "kempb"
-manager: "ghogen"
-caps.handback.revision: 4
+author: kempb
+ms.author: kempb
+manager: ghogen
+translation.priority.ht:
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- ru-ru
+- zh-cn
+- zh-tw
+translation.priority.mt:
+- cs-cz
+- pl-pl
+- pt-br
+- tr-tr
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 47057e9611b824c17077b9127f8d2f8b192d6eb8
+ms.openlocfilehash: e832941dd00fa81bea1566f17504fe7e27c41a48
+ms.contentlocale: zh-cn
+ms.lasthandoff: 05/13/2017
+
 ---
 # <a name="designing-xaml-in-visual-studio"></a>在 Visual Studio 中设计 XAML
 Visual Studio 和 Blend for Visual Studio 两者都是可视化工具，用于针对基于 XAML 的 Windows 桌面、Web、 [Windows Phone](http://msdn.microsoft.com/library/windowsphone/develop/jj683071.aspx)和 [Windows 应用商店](http://msdn.microsoft.com/library/windows/apps/jj129478.aspx) 应用构建具有吸引力的用户界面和丰富的媒体体验。 两者共享一组通用的设计和工具窗口以及一个 XAML 编辑器，但是 Blend for Visual Studio 为更高级的任务（如动画和行为）提供了额外的设计工具。  
@@ -32,17 +52,17 @@ Visual Studio 和 Blend for Visual Studio 两者都是可视化工具，用于�
   
 -   **XAML IntelliSense：** 两个 IDE 都支持期望从 IntelliSense 获得的所有常见功能，包括语句完成、对常见编辑器操作（如对代码进行注释和格式设置）的支持以及针对资源、绑定和代码进行的导航。  
   
--   **基本调试功能：** 现在可以在 Blend 中进行调试，包括在代码中设置断点来调试正在运行的应用。 为了保持与 Visual Studio 一致的调试体验，Blend for Visual Studio 包含大多数 Visual Studio 调试窗口和工具栏。 高级调试功能（如诊断和代码分析）仅在 Visual Studio 中可用。 请参阅[在 Visual Studio 中调试](../debugger/debugging-in-visual-studio.md)。  
+-   **基本调试功能：** 现在可以在 Blend 中进行调试，包括在代码中设置断点来调试正在运行的应用。 为了保持与 Visual Studio 一致的调试体验，Blend for Visual Studio 包含 Visual Studio 的大多数调试窗口和工具栏。 高级调试功能（如诊断和代码分析）仅在 Visual Studio 中可用。 请参阅 [Debugging in Visual Studio](../debugger/debugging-in-visual-studio.md)。  
   
 -   **文件重载体验：** 可以在 Blend for Visual Studio 或 Visual Studio 中编辑 XAML 文件，并且在它们之间切换时自动重载编辑后的文件。 若要最大程度减少工作流中断，现在可以在文件重载对话框中设置文件重载首选项。  
   
      ![文件重载体验](../designers/media/blendfilereload.png "BlendFileReload")  
   
--   **同步的布局和设置：** 通过自定义布局可以保存并应用工具窗口布局自定义项。 使用相同 Microsoft 帐户登录时，Visual Studio 会在计算机之间为 Visual Studio 和 Blend for Visual Studio 同步这些自定义项和首选项。 请参阅[在 Visual Studio 中自定义开发设置](http://msdn.microsoft.com/en-us/22c4debb-4e31-47a8-8f19-16f328d7dcd3)。  
+-   **同步的布局和设置：** 通过自定义布局可以保存并应用工具窗口布局自定义项。 使用相同 Microsoft 帐户登录时，Visual Studio 会在计算机之间为 Visual Studio 和 Blend for Visual Studio 同步这些自定义项和首选项。 请参阅 [在 Visual Studio 中自定义开发设置](http://msdn.microsoft.com/en-us/22c4debb-4e31-47a8-8f19-16f328d7dcd3)。  
   
 -   **通用的解决方案资源管理器：** 解决方案资源管理器可提供项目及其文件的组织有序的视图，并且可用于访问与它们关联的命令。 借助解决方案资源管理器，可以更方便地处理大型企业项目。 请参阅[解决方案和项目](../ide/solutions-and-projects-in-visual-studio.md)。  
   
--   **团队资源管理器：** 通过团队资源管理器可以使用 GIT 或 TFS 存储库管理项目以促进团队协作。 请参阅[在团队资源管理器中工作](http://msdn.microsoft.com/Library/fd7a5cf7-7916-4fa0-b5e6-5a83cf377a02)。  
+-   **团队资源管理器：** 通过团队资源管理器可以使用 GIT 或 TFS 存储库管理项目以促进团队协作。 请参阅 [在团队资源管理器中工作](http://msdn.microsoft.com/Library/fd7a5cf7-7916-4fa0-b5e6-5a83cf377a02)。  
   
 -   **NuGet：** 可以在 Visual Studio 和 Blend for Visual Studio 中管理 NuGet 包。 NuGet 是用于 .NET Framework 的程序包管理器，它简化了从解决方案安装和删除程序包的过程。  
   
@@ -53,14 +73,9 @@ Visual Studio 和 Blend for Visual Studio 两者都是可视化工具，用于�
 |--------|-------------------|-----------------------------|----------------------|  
 |**创建动画**|没有用于动画的设计工具；必须以编程方式创建它们。 这需要对 WPF 中的动画和时间系统的了解以及丰富的编码专业知识。|可直观地创建动画，并且可以在 Blend for Visual Studio 中预览它们。 这比采用代码构建动画更快且更精确。 可以添加触发器以处理用户交互，并且可以切换到代码以添加事件处理程序和其他功能。|[动态显示对象](../designers/animate-objects-in-xaml-designer.md)|  
 |**将形状和文本转换为路径以便于操作**|不支持。|可以通过将形状（如矩形和椭圆）转换为路径（这样可提供更好的编辑控制）来对形状进行细微或显著的更改。  可以重新调整路径形状或合并路径，以及从多个形状创建复合路径。<br /><br /> 还可以将文本块转换为路径以便将它们作为矢量图像进行操作。|[绘制形状和路径](../designers/draw-shapes-and-paths.md)|  
-|**向 UI 设计添加交互性**|需要 C#、Visual Basic 或 C++ 代码。|将行为拖放到控件上以便向静态设计添加交互性。 行为是随时可用的代码段，用于封装各种功能（例如拖放、缩放和可视状态更改）。 有一组可进行选择的不断增加的行为，并且可以创建自己的行为。<br /><br /> 随后可以通过在 Blend for Visual Studio 中更改其属性或在代码中添加事件处理程序，来自定义每个行为。|[插入控件并修改其行为](../designers/insert-controls-and-modify-their-behavior-in-xaml-designer.md)|  
+|**向 UI 设计添加交互性**|需要 C#、Visual Basic 或 C++ 代码。|将行为拖放到控件上以便向静态设计添加交互性。 行为是随时可用的代码段，用于封装各种功能（例如拖放、缩放和可视状态更改）。 有一组不断增加的行为可供选择，并且可以创建自己的行为。<br /><br /> 随后可以通过在 Blend for Visual Studio 中更改其属性或在代码中添加事件处理程序，来自定义每个行为。|[插入控件并修改其行为](../designers/insert-controls-and-modify-their-behavior-in-xaml-designer.md)|  
 |**使用 Adobe 图稿**|不支持。|在 Blend for Visual Studio 中导入 Adobe FXG、PhotoShop 或 Illustrator 图稿并实现 UI。|[插入图像、视频和音频剪辑](../designers/insert-images-videos-and-audio-clips-in-xaml-designer.md)|  
 |**编辑控件、模板和样式**|需要 WPF 样式和模板方面的编码和知识。|将任何图像转换为控件。<br /><br /> 使用模板编辑工具，只需少量鼠标单击便可对控件、样式和模板进行更改。<br /><br /> 例如，可以使用 Blend for Visual Studio 样式资源实现常用 WPF 控件（如按钮、列表框、滚动条、菜单等）并直接在 Blend for Visual Studio 中更改其颜色、样式或基础模板。 如果需要，随后可以切换到代码以完成收尾工作。|[修改对象样式](../designers/modify-the-style-of-objects-in-blend.md)|  
 |**将 UI 连接到数据**|可以从资源（如 SQL Server 数据库、WCF 或 Web 服务、对象或 SharePoint 列表创建数据源，并将数据源绑定到 UI 控件。<br /><br /> 必须手动创建设计时数据来获得交互设计体验。|可轻松地为原型制作和测试创建示例数据。 在准备就绪时切换到实时数据。<br /><br /> Blend for Visual Studio 的数据生成功能十分出色（可以轻松地动态添加名称、数字、URL、照片），可以节省大量时间。<br /><br /> 对于实时数据，可以将 UI 控件绑定到 XML 文件或任何 CLR 数据源。|[显示数据](../designers/display-data-in-blend.md)|  
   
  有关高级 XAML 设计的详细信息，请参阅。 [使用 Blend for Visual Studio 创建 UI](../designers/creating-a-ui-by-using-blend-for-visual-studio.md)
-
-
-<!--HONumber=Feb17_HO4-->
-
-

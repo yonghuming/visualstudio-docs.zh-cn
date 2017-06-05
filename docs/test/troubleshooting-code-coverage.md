@@ -26,10 +26,11 @@ translation.priority.ht:
 - tr-tr
 - zh-cn
 - zh-tw
-translationtype: Human Translation
-ms.sourcegitcommit: 5658ecf52637a38bc3c2a5ad9e85b2edebf7d445
-ms.openlocfilehash: 670fb2cb0d0c5b6aa954f5c4c02154c397ec4944
-ms.lasthandoff: 02/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 47057e9611b824c17077b9127f8d2f8b192d6eb8
+ms.openlocfilehash: e2d04ac6463143efacf4fe4967d9e555aed84d05
+ms.contentlocale: zh-cn
+ms.lasthandoff: 05/13/2017
 
 ---
 # <a name="troubleshooting-code-coverage"></a>代码覆盖率疑难解答
@@ -57,7 +58,7 @@ Visual Studio 中的代码覆盖率分析工具可收集本机和托管程序集
  解决方法  
  在测试资源管理器中，选择“全部运行”以验证测试是否成功运行。 在使用“分析代码覆盖率”前修复所有错误。  
   
-### <a name="youre-looking-at-a-previous-result"></a>你看到的是前一个结果  
+### <a name="youre-looking-at-a-previous-result"></a>现在出现的是前一个结果  
  在修改并重新运行测试时，前一个代码覆盖率结果可能仍是可见的，包括来自上次运行的代码着色。  
   
 1.  运行“分析代码覆盖率”。  

@@ -26,14 +26,15 @@ translation.priority.ht:
 - tr-tr
 - zh-cn
 - zh-tw
-translationtype: Human Translation
-ms.sourcegitcommit: 5ab78b6b8eaa8156ed2c8a807b1d8a80e75afa84
-ms.openlocfilehash: 82335c611d4904188de6acc4a3a9496156eba4b5
-ms.lasthandoff: 04/04/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 47057e9611b824c17077b9127f8d2f8b192d6eb8
+ms.openlocfilehash: 59c18804574725c584b1b06df8f1ba8a5cf37824
+ms.contentlocale: zh-cn
+ms.lasthandoff: 05/13/2017
 
 ---
 # <a name="enable-coded-ui-testing-of-your-controls"></a>启用控件的编码的 UI 测试
-如果实现对编码的 UI 测试框架的支持，则可以更轻松地测试你的控件。 您能够以增量方式增加支持级别。 您可以先从支持录制、播放和属性验证开始。 在此基础上，您可以允许编码的 UI 测试生成器识别控件的自定义属性，并提供自定义类以便从生成的代码访问这些属性。 你还可以帮助编码的 UI 测试生成器，使之以一种与所录制操作的目的更为接近的方法来捕获操作。  
+如果实现对编码的 UI 测试框架的支持，则可以更轻松地测试你的控件。 您能够以增量方式增加支持级别。 您可以先从支持录制、播放和属性验证开始。 在此基础上，可以允许编码的 UI 测试生成器识别控件的自定义属性，并提供自定义类以便从生成的代码访问这些属性。 你还可以帮助编码的 UI 测试生成器，使之以一种与所录制操作的目的更为接近的方法来捕获操作。  
   
  **本主题内容：**  
   
@@ -57,11 +58,11 @@ ms.lasthandoff: 04/04/2017
  ![CUIT&#95;Record](../test/media/cuit_record.png "CUIT_Record")  
   
 ### <a name="to-support-record-and-playback-property-validation-and-navigation-for-a-windows-forms-control"></a>支持录制和播放、属性验证以及 Windows 窗体控件的导航  
- 根据以下过程中的概述，实现控件的可访问性（<xref:System.Windows.Forms.AccessibleObject> 中对此进行了详细介绍）。  
+ 根据以下过程中的概述和 <xref:System.Windows.Forms.AccessibleObject> 中的详细介绍，为您的控件实现辅助功能。  
   
  ![CUIT&#95;Accessible](../test/media/cuit_accessible.png "CUIT_Accessible")  
   
-1.  实现派生自 <xref:System.Windows.Forms.Control.ControlAccessibleObject> 的类，并替代 <xref:System.Windows.Forms.Control.AccessibilityObject%2A> 属性以返回类对象。  
+1.  实现一个从 <xref:System.Windows.Forms.Control.ControlAccessibleObject> 派生的类，并重写 <xref:System.Windows.Forms.Control.AccessibilityObject%2A> 属性以便返回类的对象。  
   
     ```c#  
     public partial class ChartControl : UserControl  
@@ -86,24 +87,24 @@ ms.lasthandoff: 04/04/2017
     }  
     ```  
   
-2.  替代可访问对象的 <xref:System.Windows.Forms.AccessibleObject.Role%2A>、<xref:System.Windows.Forms.AccessibleObject.State%2A>、<xref:System.Windows.Forms.AccessibleObject.GetChild%2A> 和 <xref:System.Windows.Forms.AccessibleObject.GetChildCount%2A> 属性和方法。  
+2.  替代可访问对象的 <xref:System.Windows.Forms.AccessibleObject.Role%2A>、<xref:System.Windows.Forms.AccessibleObject.State%2A>、<xref:System.Windows.Forms.AccessibleObject.GetChild%2A> 和 <xref:System.Windows.Forms.AccessibleObject.GetChildCount%2A> 属性及方法。  
   
-3.  实现子控件的另一个可访问性对象，并替代子控件的 <xref:System.Windows.Forms.Control.AccessibilityObject%2A> 属性以返回相应的可访问性对象。  
+3.  实现子控件的另一个辅助功能对象并替代子控件的 <xref:System.Windows.Forms.Control.AccessibilityObject%2A> 属性，以便返回该辅助功能对象。  
   
-4.  替代子控件的可访问性对象的 <xref:System.Windows.Forms.AccessibleObject.Bounds%2A>、<xref:System.Windows.Forms.AccessibleObject.Name%2A>、<xref:System.Windows.Forms.AccessibleObject.Parent%2A>、<xref:System.Windows.Forms.AccessibleObject.Role%2A>、<xref:System.Windows.Forms.AccessibleObject.State%2A>、<xref:System.Windows.Forms.AccessibleObject.Navigate%2A> 和 <xref:System.Windows.Forms.AccessibleObject.Select%2A> 属性和方法。  
+4.  替代子控件辅助功能对象的 <xref:System.Windows.Forms.AccessibleObject.Bounds%2A>、<xref:System.Windows.Forms.AccessibleObject.Name%2A>、<xref:System.Windows.Forms.AccessibleObject.Parent%2A>、<xref:System.Windows.Forms.AccessibleObject.Role%2A>、<xref:System.Windows.Forms.AccessibleObject.State%2A>、<xref:System.Windows.Forms.AccessibleObject.Navigate%2A> 和 <xref:System.Windows.Forms.AccessibleObject.Select%2A> 属性及方法。  
   
 > [!NOTE]
->  本主题从此过程中 <xref:System.Windows.Forms.AccessibleObject> 的可访问性示例入手，然后在此基础之上完成剩余过程。 如果要创建辅助功能示例的可行版本，请创建一个控制台应用程序，然后用示例代码替换 Program.cs 中的代码。 您需要添加对辅助功能、System.Drawing 和 System.Windows.Forms 的引用。 若要消除生成警告，应将可访问性的“嵌入互操作类型”更改为“False”。 可以将项目的输出类型从“控制台应用”更改为“Windows 应用”，这样就不会在运行应用时看到控制台窗口了。  
+>  本主题在此过程中从 <xref:System.Windows.Forms.AccessibleObject> 辅助功能示例开始，然后在此基础上完成剩余过程。 如果要创建辅助功能示例的可行版本，请创建一个控制台应用程序，然后用示例代码替换 Program.cs 中的代码。 需要添加对辅助功能、System.Drawing 和 System.Windows.Forms 的引用。 若要消除生成警告，应将可访问性的“嵌入互操作类型”更改为“False”。 可以将项目的输出类型从“控制台应用程序”更改为“Windows 应用程序”，以便在运行应用时不显示控制台窗口。  
   
 ##  <a name="customproprties"></a>通过实现属性提供程序来支持自定义属性验证  
- 实现对录制、播放和属性验证的基本支持后，便可以通过实现 <xref:Microsoft.VisualStudio.TestTools.UITesting.UITestPropertyProvider> 插件，使控件的自定义属性可供编码的 UI 测试使用。 例如，下面的过程将创建一个属性提供程序，该程序允许编码的 UI 测试访问图表控件 CurveLegend 子控件的 State 属性。  
+ 在实现对录制、播放和属性验证的基本支持后，可以通过实现 <xref:Microsoft.VisualStudio.TestTools.UITesting.UITestPropertyProvider> 插件，使控件的自定义属性可供编码的 UI 测试使用。 例如，下面的过程将创建一个属性提供程序，该程序允许编码的 UI 测试访问图表控件的 CurveLegend 子控件的 State 属性。  
   
  ![CUIT&#95;CustomProps](../test/media/cuit_customprops.png "CUIT_CustomProps")  
   
 ### <a name="to-support-custom-property-validation"></a>支持自定义属性验证  
  ![CUIT&#95;Props](../test/media/cuit_props.png "CUIT_Props")  
   
-1.  替代曲线图例可访问对象的 <xref:System.Windows.Forms.AccessibleObject.Description%2A> 属性，以便在说明字符串中传递丰富的属性值，并通过分号 (;) 与主说明分隔开来（如果要实现多个属性，则每个属性之间也要相互分隔开来）。  
+1.  替代曲线图例可访问对象的 <xref:System.Windows.Forms.AccessibleObject.Description%2A> 属性，以便传递说明字符串中丰富的属性值，并通过分号 (;) 与主说明分隔开来（如果要实现多个属性，则每个属性之间也相互分隔）。  
   
     ```c#  
     public class CurveLegendAccessibleObject : AccessibleObject  
@@ -113,8 +114,8 @@ ms.lasthandoff: 04/04/2017
         {  
             get  
             {  
-                // Add “;” and the state value to the end  
-                // of the curve legend’s description  
+                // Add ";" and the state value to the end  
+                // of the curve legend's description  
                 return "CurveLegend; " + State.ToString();  
             }  
         }  
@@ -123,7 +124,7 @@ ms.lasthandoff: 04/04/2017
   
 2.  通过创建一个类库项目并添加对辅助功能、Microsoft.VisualStudio.TestTools.UITesting、Microsoft.VisualStudio.TestTools.UITest.Common 和 Microsoft.VisualStudio.TestTools.Extension 的引用，为你的控件创建一个 UI 测试扩展包。 将可访问性的“嵌入互操作类型”更改为“False”。  
   
-3.  添加派生自 <xref:Microsoft.VisualStudio.TestTools.UITesting.UITestPropertyProvider> 的属性提供程序类。  
+3.  添加一个派生自 <xref:Microsoft.VisualStudio.TestTools.UITesting.UITestPropertyProvider> 的属性提供程序类。  
   
     ```c#  
     using System;  
@@ -142,25 +143,25 @@ ms.lasthandoff: 04/04/2017
     }  
     ```  
   
-4.  将属性名称和属性描述符置于 <xref:System.Collections.Generic.Dictionary%602> 中，实现属性提供程序。  
+4.  通过将属性名称和属性描述符放在 <xref:System.Collections.Generic.Dictionary%602> 中，实施此属性提供程序。  
   
 <CodeContentPlaceHolder>3</CodeContentPlaceHolder>  
-5.  替代 <xref:Microsoft.VisualStudio.TestTools.UITesting.UITestPropertyProvider.GetControlSupportLevel%2A?displayProperty=fullName>，指明由程序集为控件及其子控件提供控件专属支持。  
+5.  重写 <xref:Microsoft.VisualStudio.TestTools.UITesting.UITestPropertyProvider.GetControlSupportLevel%2A?displayProperty=fullName>，指明您的程序集为控件及其子控件提供特定于控件的支持。  
   
 <CodeContentPlaceHolder>4</CodeContentPlaceHolder>  
-6.  替代 <xref:Microsoft.VisualStudio.TestTools.UITesting.UITestPropertyProvider?displayProperty=fullName> 的剩余抽象方法。  
+6.  重写 <xref:Microsoft.VisualStudio.TestTools.UITesting.UITestPropertyProvider?displayProperty=fullName> 的剩余抽象方法。  
   
 <CodeContentPlaceHolder>5</CodeContentPlaceHolder>  
-7.  添加派生自 <xref:Microsoft.VisualStudio.TestTools.UITest.Extension.UITestExtensionPackage> 的扩展包类。  
+7.  添加一个派生自 <xref:Microsoft.VisualStudio.TestTools.UITest.Extension.UITestExtensionPackage> 的扩展包类。  
   
 <CodeContentPlaceHolder>6</CodeContentPlaceHolder>  
 8.  定义程序集的 `UITestExtensionPackage` 特性。  
   
 <CodeContentPlaceHolder>7</CodeContentPlaceHolder>  
-9. 在扩展包类中，替代 <xref:Microsoft.VisualStudio.TestTools.UITest.Extension.UITestExtensionPackage.GetService%2A?displayProperty=fullName>，以在请求获取属性提供程序时返回属性提供程序类。  
+9. 在扩展包类中，重写 <xref:Microsoft.VisualStudio.TestTools.UITest.Extension.UITestExtensionPackage.GetService%2A?displayProperty=fullName>，以便在请求属性提供程序时返回属性提供程序类。  
   
 <CodeContentPlaceHolder>8</CodeContentPlaceHolder>  
-10. 替代 <xref:Microsoft.VisualStudio.TestTools.UITest.Extension.UITestExtensionPackage> 的剩余抽象方法和属性。  
+10. 重写 <xref:Microsoft.VisualStudio.TestTools.UITest.Extension.UITestExtensionPackage> 的剩余抽象方法和属性。  
   
 <CodeContentPlaceHolder>9</CodeContentPlaceHolder>  
 11. 生成二进制文件，然后将其复制到 **%ProgramFiles%\Common\Microsoft Shared\VSTT\10.0\UITestExtensionPackages**。  
@@ -169,25 +170,25 @@ ms.lasthandoff: 04/04/2017
 >  此扩展包将应用于类型为“Text”的所有控件。 如果测试同一类型的多个控件，则需要分别进行测试，并管理在录制测试时要部署哪些扩展包。  
   
 ##  <a name="codegeneration"></a>通过实现用于访问自定义属性的类来支持代码生成  
- 通过会话录制生成代码时，编码的 UI 测试生成器会使用 <xref:Microsoft.VisualStudio.TestTools.UITesting.UITestControl> 类来访问控件。  
+ 当编码的 UI 测试时生成器生成会话录制的代码时，它将使用 <xref:Microsoft.VisualStudio.TestTools.UITesting.UITestControl> 类来访问您的控件。  
   
 <CodeContentPlaceHolder>10</CodeContentPlaceHolder>  
- 如果已实现一个属性提供程序来访问控件的自定义属性，则可以添加一个用于访问这些属性的专用化类，以便简化所生成的代码。  
+ 如果已实现一个属性提供程序来访问控件的自定义属性，则可以添加一个用于访问这些属性的专用类，以便简化所生成的代码。  
   
 <CodeContentPlaceHolder>11</CodeContentPlaceHolder>  
 ### <a name="to-add-a-specialized-class-to-access-your-control"></a>添加专用类以访问您的控件  
  ![CUIT&#95;CodeGen](../test/media/cuit_codegen.png "CUIT_CodeGen")  
   
-1.  实现派生自 <xref:Microsoft.VisualStudio.TestTools.UITesting.WinControls.WinControl> 的类，并将控件的类型添加到构造函数的搜索属性集合中。  
+1.  实现派生自 <xref:Microsoft.VisualStudio.TestTools.UITesting.WinControls.WinControl> 类，并将控件的类型添加到构造函数中的搜索属性集合。  
   
 <CodeContentPlaceHolder>12</CodeContentPlaceHolder>  
 2.  实现控件的自定义属性，作为类的属性。  
   
 <CodeContentPlaceHolder>13</CodeContentPlaceHolder>  
-3.  替代属性提供程序的 <xref:Microsoft.VisualStudio.TestTools.UITesting.UITestPropertyProvider.GetSpecializedClass%2A?displayProperty=fullName> 方法，以返回曲线图例子控件的新类类型。  
+3.  替代属性提供程序的 <xref:Microsoft.VisualStudio.TestTools.UITesting.UITestPropertyProvider.GetSpecializedClass%2A?displayProperty=fullName> 方法，以便返回曲线图例子控件的新类的类型。  
   
 <CodeContentPlaceHolder>14</CodeContentPlaceHolder>  
-4.  替代属性提供程序的 <xref:Microsoft.VisualStudio.TestTools.UITesting.UITestPropertyProvider.GetPropertyNamesClassType%2A> 方法，以返回新类的 PropertyNames 方法的类型。  
+4.  替代属性提供程序的 <xref:Microsoft.VisualStudio.TestTools.UITesting.UITestPropertyProvider.GetPropertyNamesClassType%2A> 方法，以便返回新类的 PropertyNames 方法的类型。  
   
 <CodeContentPlaceHolder>15</CodeContentPlaceHolder>  
 ##  <a name="intentawareactions"></a>通过实现操作筛选器来支持意向感知操作  
@@ -196,13 +197,13 @@ ms.lasthandoff: 04/04/2017
 ### <a name="to-support-intent-aware-actions"></a>支持目的感知操作  
  ![CUIT&#95;Actions](../test/media/cuit_actions.png "CUIT_Actions")  
   
-1.  实现派生自 <xref:Microsoft.VisualStudio.TestTools.UITest.Common.UITestActionFilter> 的操作筛选器类，同时替代属性 <xref:Microsoft.VisualStudio.TestTools.UITest.Common.UITestActionFilter.ApplyTimeout%2A>、<xref:Microsoft.VisualStudio.TestTools.UITest.Common.UITestActionFilter.Category%2A>、<xref:Microsoft.VisualStudio.TestTools.UITest.Common.UITestActionFilter.Enabled%2A>、<xref:Microsoft.VisualStudio.TestTools.UITest.Common.UITestActionFilter.FilterType%2A>、<xref:Microsoft.VisualStudio.TestTools.UITest.Common.UITestActionFilter.Group%2A> 和 <xref:Microsoft.VisualStudio.TestTools.UITest.Common.UITestActionFilter.Name%2A>。  
+1.  实现派生自 <xref:Microsoft.VisualStudio.TestTools.UITest.Common.UITestActionFilter> 的操作筛选器类，并替代属性 <xref:Microsoft.VisualStudio.TestTools.UITest.Common.UITestActionFilter.ApplyTimeout%2A>、<xref:Microsoft.VisualStudio.TestTools.UITest.Common.UITestActionFilter.Category%2A>、<xref:Microsoft.VisualStudio.TestTools.UITest.Common.UITestActionFilter.Enabled%2A>、<xref:Microsoft.VisualStudio.TestTools.UITest.Common.UITestActionFilter.FilterType%2A>、<xref:Microsoft.VisualStudio.TestTools.UITest.Common.UITestActionFilter.Group%2A> 和 <xref:Microsoft.VisualStudio.TestTools.UITest.Common.UITestActionFilter.Name%2A>。  
   
 <CodeContentPlaceHolder>16</CodeContentPlaceHolder>  
-2.  替代 <xref:Microsoft.VisualStudio.TestTools.UITest.Common.UITestActionFilter.ProcessRule%2A>。 这里的示例将一个双击操作替换成了单击操作。  
+2.  重写 <xref:Microsoft.VisualStudio.TestTools.UITest.Common.UITestActionFilter.ProcessRule%2A>。 这里的示例将一个双击操作替换成了单击操作。  
   
 <CodeContentPlaceHolder>17</CodeContentPlaceHolder>  
-3.  将操作筛选器添加到扩展包的 <xref:Microsoft.VisualStudio.TestTools.UITest.Extension.UITestExtensionPackage.GetService%2A> 方法中。  
+3.  将操作筛选器添加到扩展包的 <xref:Microsoft.VisualStudio.TestTools.UITest.Extension.UITestExtensionPackage.GetService%2A> 方法。  
   
 <CodeContentPlaceHolder>18</CodeContentPlaceHolder>  
 4.  生成二进制文件，然后将其复制到 %ProgramFiles%\Common Files\Microsoft Shared\VSTT\10.0\UITestExtensionPackages。  
@@ -232,7 +233,7 @@ ms.lasthandoff: 04/04/2017
 ## <a name="external-resources"></a>外部资源  
   
 ### <a name="guidance"></a>指导  
- [使用 Visual Studio 2012 对连续交付进行测试 - 第 2 章：单元测试：测试内部](http://go.microsoft.com/fwlink/?LinkID=255188)  
+ [使用 Visual Studio 2012 测试连续交付 - 第 2 章：单元测试：测试内部](http://go.microsoft.com/fwlink/?LinkID=255188)  
   
 ## <a name="see-also"></a>另请参阅  
  <xref:System.Windows.Forms.AccessibleObject>   

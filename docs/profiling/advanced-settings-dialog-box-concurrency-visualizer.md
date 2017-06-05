@@ -30,10 +30,11 @@ translation.priority.mt:
 - pl-pl
 - pt-br
 - tr-tr
-translationtype: Human Translation
-ms.sourcegitcommit: 5658ecf52637a38bc3c2a5ad9e85b2edebf7d445
-ms.openlocfilehash: 0b25d326d103c5da3b09b79d3a574734debed071
-ms.lasthandoff: 02/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 47057e9611b824c17077b9127f8d2f8b192d6eb8
+ms.openlocfilehash: 89694c49fdd115064d1ebe9f5dfe910b77548a76
+ms.contentlocale: zh-cn
+ms.lasthandoff: 05/13/2017
 
 ---
 # <a name="advanced-settings-dialog-box-concurrency-visualizer"></a>“高级设置”对话框（并发可视化工具）
@@ -63,7 +64,7 @@ ms.lasthandoff: 02/22/2017
  CLR 会从两个提供程序生成事件：运行时和断开。  如果要收集 CLR 运行时事件，但要避免收集断开事件，请选中“禁用断开事件”复选框。  这会减少由集合生成的跟踪文件的大小，但有些堆栈可能无法解析。 有关详细信息，请参阅 [CLR ETW 提供程序](http://msdn.microsoft.com/Library/0beafad4-b2c8-47f4-b342-83411d57a51f)  
   
 ### <a name="sample-events"></a>样本事件  
- 您可以使用样本事件来收集与线程执行有关的调用堆栈。 对于在当前进程中执行的线程，这些事件大约&1; 毫秒收集一次。 如果禁止收集样本事件，则会减少所收集跟踪的大小，但无法查看与线程执行有关的任何调用堆栈。  
+ 您可以使用样本事件来收集与线程执行有关的调用堆栈。 对于在当前进程中执行的线程，这些事件大约 1 毫秒收集一次。 如果禁止收集样本事件，则会减少所收集跟踪的大小，但无法查看与线程执行有关的任何调用堆栈。  
   
 ### <a name="gpu-events"></a>GPU 事件  
  GPU 事件是 DirectX 生成的事件。 如果禁止收集 GPU 事件，则会减少所收集跟踪的大小，但无法查看“使用率”视图中的任何 GPU 活动或“线程”视图中的 DirectX 引擎活动。  
@@ -75,7 +76,7 @@ ms.lasthandoff: 02/22/2017
  在“标记”选项卡上，可以配置在并发可视化工具中显示为“标记”的 ETW 提供程序组。  还可以根据重要性级别和 ETW 类别来筛选“标记”集合。  如果使用[并发可视化工具 SDK](../profiling/concurrency-visualizer-sdk.md) 并使用自己的标记提供程序，则可以在此处注册，以便其显示在“线程”视图中。  
   
 ### <a name="adding-a-new-provider"></a>添加新提供程序  
- 如果代码使用[并发可视化工具 SDK](../profiling/concurrency-visualizer-sdk.md) 或生成符合 <xref:System.Diagnostics.Tracing.EventSource> 约定的 ETW 事件，则可以在此对话框中注册这些事件，以便在并发可视化工具中查看它们。  
+ 如果代码使用[并发可视化工具 SDK](../profiling/concurrency-visualizer-sdk.md) 或生成符合 <xref:System.Diagnostics.Tracing.EventSource> 约定的 ETW 事件，则可以通过在此对话框中注册这些事件，在并发可视化工具中查看它们。  
   
  在“名称”字段中，输入一个名称，用以描述由提供程序生成的事件。  在“GUID”字段中，输入与此提供程序关联的 GUID。 （GUID 与每个 ETW 提供程序相关联。）  
   

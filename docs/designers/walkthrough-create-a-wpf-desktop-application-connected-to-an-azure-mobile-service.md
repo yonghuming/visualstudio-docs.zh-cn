@@ -28,16 +28,18 @@ translation.priority.mt:
 - pl-pl
 - pt-br
 - tr-tr
-translationtype: Human Translation
-ms.sourcegitcommit: 5db97d19b1b823388a465bba15d057b30ff0b3ce
-ms.openlocfilehash: df243cc90a27f971c4e57eb6f9f6a251513d8fb2
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 47057e9611b824c17077b9127f8d2f8b192d6eb8
+ms.openlocfilehash: 7716a0e9249c67760ae7b31160dcae89b77b9ca7
+ms.contentlocale: zh-cn
+ms.lasthandoff: 05/13/2017
 
 ---
 # <a name="walkthrough-create-a-wpf-desktop-application-connected-to-an-azure-mobile-service"></a>演练：创建连接到 Azure 移动服务的 WPF 桌面应用程序
 Windows Presentation Foundation (WPF) 可用于快速创建现代桌面应用程序，该程序使用 Azure 移动服务来存储和提供数据。  
   
-##  <a name="a-namerequirementsa-prerequisites"></a><a name="Requirements"></a>先决条件  
- 若要完成本演练，你需要具备以下条件：  
+##  <a name="Requirements"></a> 先决条件  
+ 若要完成本演练，需要满足以下条件：  
   
 -   Visual Studio 2015 – 支持 WPF 开发的任何版本。  
   
@@ -78,16 +80,16 @@ Windows Presentation Foundation (WPF) 可用于快速创建现代桌面应用程
      必需的引用将添加到“解决方案资源管理器” 。  
   
     > [!NOTE]
-    >  如果不同意许可条款，选择“我拒绝”  按钮。 你将无法完成本演练的其余部分。  
+    >  如果不同意许可条款，请选择“我拒绝” 按钮。 你将无法完成本演练的其余部分。  
   
 ## <a name="create-the-user-interface"></a>创建用户界面  
- 下一步是创建应用程序的用户界面。 首先创建一个可重用用户控件，用于显示两个标准的并排窗格布局。 将用户控件添加到应用程序主窗口，并添加控件以输入和显示数据，然后编写一些代码来定义与移动服务的交互。  
+ 下一步是创建应用程序的用户界面。 首先创建一个可重用用户控件，用于显示两个标准的并排窗格布局。 将用户控件添加到应用程序主窗口，并添加控件以输入和显示数据，然后编写一些代码来定义与移动服务后端的交互。  
   
 #### <a name="to-add-a-user-control"></a>要添加用户控件  
   
 1.  在“解决方案资源管理器” 中，打开“WPFQuickStart”  节点的快捷菜单，然后选择“添加” 、“新建文件夹” 。  
   
-2.  为文件夹 `Common` 命名。  
+2.  将该文件夹命名为 `Common`注册一个免费试用帐户。  
   
 3.  打开“Common”  文件夹的快捷菜单，并选择“添加” 、“用户控件” 。  
   
@@ -221,10 +223,10 @@ Windows Presentation Foundation (WPF) 可用于快速创建现代桌面应用程
   
 1.  在“解决方案资源管理器” 中，打开  “MainWindow.xaml”文件。  
   
-2.  **重要**。 此步骤仅适用于 C#。 如果使用的是 Visual Basic，请跳到下一步。 在设计器下方窗格中，找到行 `xmlns:local=”clr-namespace:WPFQuickStart”` ，并用它替换下面的 XAML 代码：  
+2.  **重要**。 此步骤仅适用于 C#。 如果使用的是 Visual Basic，请跳到下一步。 在设计器下方窗格中，找到行 `xmlns:local="clr-namespace:WPFQuickStart"` ，并用它替换下面的 XAML 代码：  
   
     ```xaml  
-    xmlns:local=”clr-namespace:WPFQuickStart.Common”  
+    xmlns:local="clr-namespace:WPFQuickStart.Common"  
     ```  
   
 3.  在“新建项目”  窗口中，展开“常用” **Common** 类别节点，然后选择“标题”  属性，再输入 `WPF Todo List` 并按“”  键。  
@@ -303,7 +305,7 @@ Windows Presentation Foundation (WPF) 可用于快速创建现代桌面应用程
      ![设计器中的主窗口](../designers/media/wpfquickstart2.PNG "WPFQuickStart2")  
   
     > [!NOTE]
-    >  在操作后面的几个程序期间，如果“错误列表”  处于打开状态，你可能会看到其中的错误。 别担心；一旦完成剩余程序，这些错误就会消失。  
+    >  在操作后面的几个程序期间，如果“错误列表”  处于打开状态，你可能会看到其中的错误。 别担心；一旦完成剩余步骤，这些错误就会消失。  
   
 6.  在“解决方案资源管理器” 中，展开“MainWindow.xaml”  节点并打开“MainWindow.xaml.cs”  或“MainWindow.xaml.vb”  文件。  
   
@@ -501,7 +503,7 @@ Windows Presentation Foundation (WPF) 可用于快速创建现代桌面应用程
   
      这会将服务 URL 设置为 *https://wpfquickstart01.azure-mobile.net/*。  
   
-4.  在“数据库”  列表中，选择一个数据库。 由于它可能是不常使用的应用程序，因此建议选择“创建免费的 20MB SQL 数据库”  选项，或选择已与你的订阅关联的免费数据库。  
+4.  在“数据库”  列表中，选择一个数据库。 由于此应用程序可能不常用，因此建议选择“创建免费的 20MB SQL 数据库”选项，或选择已与订阅关联的免费数据库。  
   
 5.  在“区域”  列表中，选择想要在其中部署移动服务的数据中心，然后选择“下一步”  （右箭头）按钮。  
   
@@ -518,7 +520,7 @@ Windows Presentation Foundation (WPF) 可用于快速创建现代桌面应用程
   
 9. 在“管理访问密钥”  对话框中，复制 **应用程序密钥**。  
   
-     你将在下一过程中使用它。  
+     在下一过程中将使用它。  
   
 #### <a name="to-create-a-table"></a>要创建表  
   
@@ -558,7 +560,7 @@ Windows Presentation Foundation (WPF) 可用于快速创建现代桌面应用程
      此代码允许应用程序访问在 Microsoft Azure 上运行的移动服务。  
   
 ## <a name="test-the-application"></a>测试应用程序  
- 就是这样 – 你已创建了访问 Azure 移动服务的 WPF 桌面应用程序。 现在剩下的就是运行该应用程序并观察它的运行。  
+ 就这么简单 – 你已创建了访问 Azure 移动服务的 WPF 桌面应用程序。 现在剩下的就是运行该应用程序并观察它的运行。  
   
 #### <a name="to-run-the-application"></a>要运行应用程序  
   
@@ -577,7 +579,7 @@ Windows Presentation Foundation (WPF) 可用于快速创建现代桌面应用程
      这将调用 **UpdateCheckedTodoItem** 方法并从列表和数据库中删除该项。  
   
 ## <a name="next-steps"></a>后续步骤  
- 你已完成具有 Azure 后端的 WPF 桌面应用程序的相当简单的示例。 当然，实际的应用程序很可能更为复杂，但应用的都是相同的基本概念。 请参阅 [.NET Framework 中的 WPF](https://msdn.microsoft.com/en-us/library/ms754130\(v=vs.100\).aspx)。  
+ 你已通过 Azure 后端完成了 WPF 桌面应用程的一个相当简单的示例。 当然，实际的应用程序很可能更为复杂，但应用的都是相同的基本概念。 请参阅 [.NET Framework 中的 WPF](https://msdn.microsoft.com/en-us/library/ms754130\(v=vs.100\).aspx)。  
   
  你可以通过添加颜色、形状、图形和甚至动画来使用户界面更有吸引力。 请参阅[在 Visual Studio 和 Blend for Visual Studio 中设计 XAML](../designers/designing-xaml-in-visual-studio.md)。  
   
@@ -586,8 +588,3 @@ Windows Presentation Foundation (WPF) 可用于快速创建现代桌面应用程
 ## <a name="see-also"></a>另请参阅  
  [演练：我的第一个 WPF 桌面应用程序](../designers/walkthrough-my-first-wpf-desktop-application2.md)   
  [使用 Windows Presentation Foundation 创建现代桌面应用程序](../designers/create-modern-desktop-applications-with-windows-presentation-foundation.md)
-
-
-<!--HONumber=Feb17_HO4-->
-
-

@@ -28,10 +28,11 @@ translation.priority.ht:
 - tr-tr
 - zh-cn
 - zh-tw
-translationtype: Human Translation
-ms.sourcegitcommit: 5658ecf52637a38bc3c2a5ad9e85b2edebf7d445
-ms.openlocfilehash: 86e3e1625cffabf3b64edd0da7307db7773adf4c
-ms.lasthandoff: 02/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 47057e9611b824c17077b9127f8d2f8b192d6eb8
+ms.openlocfilehash: 90d4fec70dd131289f37d35f896d87c6e0843e83
+ms.contentlocale: zh-cn
+ms.lasthandoff: 05/13/2017
 
 ---
 # <a name="using-code-coverage-to-determine-how-much-code-is-being-tested"></a>使用代码覆盖率确定所测试的代码量
@@ -65,7 +66,7 @@ ms.lasthandoff: 02/22/2017
 >      如果要处理非托管（本机）代码，请使用调试版本。  
 > -   确保为每个程序集生成 .pdb（符号）文件。  
 >   
->  如果没有获得预期的结果，请参阅[代码覆盖率疑难解答](../test/troubleshooting-code-coverage.md)。 。 不要忘记在更新代码后再次运行代码覆盖率。 在修改代码后或运行测试时，覆盖率结果和代码着色不会自动更新。  
+>  如果没有获得预期的结果，请参阅[代码覆盖率疑难解答](../test/troubleshooting-code-coverage.md)。 . 不要忘记在更新代码后再次运行代码覆盖率。 在修改代码后或运行测试时，覆盖率结果和代码着色不会自动更新。  
   
 ## <a name="reporting-in-blocks-or-lines"></a>报告块或行  
  代码覆盖率将以块为单位计数。 块是恰好有一个入口点和出口点的一段代码。  在测试运行期间，如果程序的控制流通过某个块，则将该块计为“已覆盖”。 块的使用次数对结果没有影响。  
@@ -263,7 +264,7 @@ ExcludeSourceFromCodeCoverage(Exclusion4, L"*\\unittest1.cpp");
  你可以通过编写 .runsettings 文件来加强控制为代码覆盖率分析选择哪些程序集和元素。 例如，你可以排除特定类型的程序集，而不必向它们的类添加特性。 有关详细信息，请参阅[自定义代码覆盖率分析](../test/customizing-code-coverage-analysis.md)。  
   
 ## <a name="analyzing-code-coverage-in-the-build-service"></a>分析生成服务中的代码覆盖率  
- 签入代码时，你的测试以及其他团队成员的所有其他测试将在生成服务器中运行。 （如果还没有对此进行设置，请参阅 [Run tests in your build process](http://msdn.microsoft.com/Library/d05743a1-c5cf-447e-bed9-bed3cb595e38)（在生成过程中运行测试）。）对生成服务分析代码覆盖率很有用，因为这样能提供整个项目中的覆盖率的最新、最全面的情报。 它还包含你不常在开发计算机上运行的自动系统测试和其他编码的测试。  
+ 签入代码时，你的测试以及其他团队成员的所有其他测试将在生成服务器中运行。 （如果还没有对此进行设置，请参阅[在生成过程中运行测试](http://msdn.microsoft.com/Library/d05743a1-c5cf-447e-bed9-bed3cb595e38)。）对生成服务分析代码覆盖率很有用，因为这样能提供整个项目中的覆盖率的最新、最全面的情报。 它还包含用户不常在开发计算机上运行的自动系统测试和其他编码的测试。  
   
 1.  在“团队资源管理器”中，打开“生成”，然后添加或编辑生成定义。  
   
@@ -271,7 +272,7 @@ ExcludeSourceFromCodeCoverage(Exclusion4, L"*\\unittest1.cpp");
   
      如果你有多个测试源定义，请对每个定义重复此步骤。  
   
-    -   但是，没有名为“运行设置文件的类型”的字段。  
+    -   但是，没有名为“运行设置文件的类型”的字段。**  
   
          在“自动测试”下，选择“测试程序集”，然后选择行尾的省略号按钮“[...]”。 在“添加/编辑测试运行”对话框的“测试运行程序”下，选择“Visual Studio 测试运行程序”。  
   
@@ -296,7 +297,7 @@ ExcludeSourceFromCodeCoverage(Exclusion4, L"*\\unittest1.cpp");
 ## <a name="external-resources"></a>外部资源  
   
 ### <a name="guidance"></a>指导  
- [使用 Visual Studio 2012 对连续交付进行测试 - 第 2 章：单元测试：测试内部](http://go.microsoft.com/fwlink/?LinkID=255188)  
+ [使用 Visual Studio 2012 测试连续交付 - 第 2 章：单元测试：测试内部](http://go.microsoft.com/fwlink/?LinkID=255188)  
   
 ## <a name="see-also"></a>另请参阅  
  [自定义代码覆盖率分析](../test/customizing-code-coverage-analysis.md)   

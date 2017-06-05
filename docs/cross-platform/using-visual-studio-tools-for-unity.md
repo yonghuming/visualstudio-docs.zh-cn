@@ -27,10 +27,11 @@ translation.priority.ht:
 - tr-tr
 - zh-cn
 - zh-tw
-translationtype: Human Translation
-ms.sourcegitcommit: 5db97d19b1b823388a465bba15d057b30ff0b3ce
-ms.openlocfilehash: 65bcf9081699a793ddc1876fec266c8b3ed9ba90
-ms.lasthandoff: 02/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 47057e9611b824c17077b9127f8d2f8b192d6eb8
+ms.openlocfilehash: 28bbc6d742a072f1305b0daed7720816492083fd
+ms.contentlocale: zh-cn
+ms.lasthandoff: 05/13/2017
 
 ---
 # <a name="using-visual-studio-tools-for-unity"></a>使用 Visual Studio Tools for Unity
@@ -80,7 +81,7 @@ ms.lasthandoff: 02/22/2017
   
 3.  查找要重载的方法。 在“创建脚本方法”窗口中，开始在文本框中键入方法的名称。 将出现与输入的名称相匹配的方法的列表。  
   
-4.  选择要重载的方法。 所需方法显示在列表中时，使用鼠标或箭头键选择它，然后按 **Enter**。 如果它是列表中的唯一方法，可以直接按 **Enter**。 将该方法插入你的代码中。  
+4.  选择要重载的方法。 所需方法显示在列表中时，使用鼠标或箭头键选择它，然后按 **Enter**。 如果这是列表中的唯一方法，可直接按 **Enter**。 将该方法插入你的代码中。  
   
 ### <a name="unity-project-explorer"></a>Unity 项目资源管理器  
  Unity 项目资源管理器可用于导航 Visual Studio 内部的 Unity 项目。  
@@ -93,7 +94,7 @@ ms.lasthandoff: 02/22/2017
   
      ![查看 Unity 项目资源管理器窗口。](../cross-platform/media/vstu_view_unity_project_explorer.png "vstu_view_unity_project_explorer")  
   
- Unity 项目资源管理器将使用与 Unity 编辑器相同的方法显示所有的 Unity 项目文件和目录 — 这与使用解决方案资源管理器导航 unity 脚本不同：后者仅包含你的脚本文件，将其显示为项目，并且由 Visual Studio Tools for Unity 生成的解决方案将对其进行组织。 尤其是在大型项目中，使用 Unity 项目资源管理器通常可以更轻松地定位需修改的脚本；还可以轻松地在 Visual studio 中修改其他种类的文件（例如，基于文本的配置文件），而无需将它们添加到 Visual Studio 解决方案中的一个项目中。  
+ Unity 项目资源管理器将使用与 Unity 编辑器相同的方法显示所有 Unity 项目文件和目录 — 这与使用解决方案资源管理器导航 unity 脚本不同：后者仅包含脚本文件，将其显示为项目，并且由 Visual Studio Tools for Unity 生成的解决方案将对其进行组织。 尤其是在大型项目中，使用 Unity 项目资源管理器通常可以更轻松地定位需修改的脚本；还可以轻松地在 Visual studio 中修改其他种类的文件（例如，基于文本的配置文件），而无需将它们添加到 Visual Studio 解决方案中的一个项目中。  
   
 ### <a name="unity-error-list"></a>Unity 错误列表  
  连接到 Unity 实例时，可以从 Visual Studio 内部的 Unity 控制台查看消息。 这包括 Unity 中的错误和警告。 消息将显示在 Visual Studio 的“错误列表”窗口中；Unity 中的错误消息将显示在“错误”选项卡上，警告消息将显示在“警告”选项卡，而其他消息（比如通过使用 Debug.Log Unity API 发送的消息）将显示在“消息”选项卡上。  

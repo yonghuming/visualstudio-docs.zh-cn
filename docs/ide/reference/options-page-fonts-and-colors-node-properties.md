@@ -30,9 +30,10 @@ translation.priority.ht:
 - tr-tr
 - zh-cn
 - zh-tw
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 5658ecf52637a38bc3c2a5ad9e85b2edebf7d445
 ms.openlocfilehash: b54f38aa51904ca502ab7298359fdc7124a807a9
+ms.contentlocale: zh-cn
 ms.lasthandoff: 02/22/2017
 
 ---
@@ -44,11 +45,11 @@ ms.lasthandoff: 02/22/2017
 ## <a name="text-editor-or-printer-or-dialogs-and-tool-windows"></a>文本编辑器、打印机或对话框和工具窗口  
  `DTE.Properties("FontsAndColors", "TextEditor")`  
   
- - 或 -  
+ -或-  
   
  `DTE.Properties("FontsAndColors", "Printer")`  
   
- - 或 -  
+ -或-  
   
  `DTE.Properties("FontsAndColors", "Dialogs and Tool Windows")`  
   

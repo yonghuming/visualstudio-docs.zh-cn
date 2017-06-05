@@ -27,10 +27,11 @@ translation.priority.mt:
 - pl-pl
 - pt-br
 - tr-tr
-translationtype: Human Translation
-ms.sourcegitcommit: 5db97d19b1b823388a465bba15d057b30ff0b3ce
-ms.openlocfilehash: b55b2ffdc3c5bd0ec0fb1b1b556a8f343aab1844
-ms.lasthandoff: 02/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 47057e9611b824c17077b9127f8d2f8b192d6eb8
+ms.openlocfilehash: 7ab8ce7199fec306a0f50344619200266a2261b8
+ms.contentlocale: zh-cn
+ms.lasthandoff: 05/13/2017
 
 ---
 # <a name="testing-sharepoint-2010-applications-with-coded-ui-tests"></a>使用编码的 UI 测试来测试 SharePoint 2010 应用程序
@@ -41,7 +42,7 @@ ms.lasthandoff: 02/22/2017
 -   Visual Studio Enterprise  
   
 ## <a name="what-else-should-i-know-about-coded-ui-tests"></a>还应当编码的 UI 测试了解什么?  
- 若要详细了解使用编码的 UI 测试的相关好处，请参阅[使用 UI 自动化来测试代码](../test/use-ui-automation-to-test-your-code.md)和[使用 Visual Studio 2012 测试持续交付 - 第 5 章：实现系统测试的自动化](http://go.microsoft.com/fwlink/?LinkID=255196)。  
+ 若要详细了解使用编码的 UI 测试的相关好处，请参阅[使用 UI 自动化测试代码](../test/use-ui-automation-to-test-your-code.md)和[使用 Visual Studio 2012 测试持续交付 - 第 5 章：实现系统测试的自动化](http://go.microsoft.com/fwlink/?LinkID=255196)。  
   
  **注意**  
   
@@ -50,12 +51,12 @@ ms.lasthandoff: 02/22/2017
 -   ![先决条件](../test/media/prereq.png "Prereq") 不支持 SharePoint 应用程序中对 Visio 和 PowerPoint 2010 控件的支持。  
   
 ## <a name="creating-a-coded-ui-test-for-your-sharepoint-app"></a>为您的 SharePoint 应用程序创建编码的 UI 测试  
- 为 SharePoint 2010 应用程序[创建编码的 UI 测试](../test/use-ui-automation-to-test-your-code.md#VerifyingCodeUsingCUITCreate)与为其他类型的应用程序创建测试相同。 支持对 Web 编辑界面上的所有控件进行录制和播放。 选择类别和 Web 部件的接口都是标准 Web 控件。  
+ 为 SharePoint 2010 应用程序[创建编码的 UI 测试](../test/use-ui-automation-to-test-your-code.md#VerifyingCodeUsingCUITCreate) ，与为其他类型的应用程序创建测试相同。 支持对 Web 编辑界面上的所有控件进行录制和播放。 选择类别和 Web 部件的接口都是标准 Web 控件。  
   
  ![SharePoint Web 部件](../test/media/cuit_sharepoint.png "CUIT_SharePoint")  
   
 > [!NOTE]
->  如果要录制操作，请在生成代码前验证操作。 因为有多种行为与鼠标悬停操作相关联，所以它在默认情况下处于开启状态。 注意从编码的 UI 测试中移除冗余的悬停操作。 为此，可以编辑测试的代码，或者使用[编码的 UI 测试编辑器](../test/editing-coded-ui-tests-using-the-coded-ui-test-editor.md)。  
+>  如果要录制操作，请在生成代码前验证操作。 因为有多种行为与鼠标悬停操作相关联，所以它在默认情况下处于开启状态。 注意从编码的 UI 测试中移除冗余的悬停操作。 为此，您可以编辑测试的代码，或者使用 [编码的 UI 测试编辑器](../test/editing-coded-ui-tests-using-the-coded-ui-test-editor.md)。  
   
 ## <a name="including-testing-of-office-2010-controls-within-your-sharepoint-app"></a>在 SharePoint 应用程序中包括 Office 2010 控件的测试  
  若要对 SharePoint 应用中的某些 office 2010 Web 部件实现自动化，您必须作出一些细微的代码修改。  
@@ -145,13 +146,13 @@ uiGridKeyboardInputEdit.Text=value;
 ## <a name="external-resources"></a>外部资源  
   
 ### <a name="blogs"></a>博客  
- [UI Testing SharePoint 2010 with Visual Studio 2012](http://blogs.msdn.com/b/visualstudioalm/archive/2012/11/01/ui-testing-sharepoint-2010-with-visual-studio-2012.aspx)（使用 Visual Studio 2012 对 SharePoint 2010 进行 UI 测试）  
+ [使用 Visual Studio 2012 对 SharePoint 2010 进行 UI 测试](http://blogs.msdn.com/b/visualstudioalm/archive/2012/11/01/ui-testing-sharepoint-2010-with-visual-studio-2012.aspx)  
   
- [Understanding the Search logic for Silverlight controls in Coded UI Test](http://blogs.msdn.com/b/tapas_sahoos_blog/archive/2010/11/16/understanding-the-search-logic-for-silverlight-controls-in-coded-ui-test.aspx)（了解编码的 UI 测试中的 Silverlight 控件的搜索逻辑）  
+ [了解编码的 UI 测试中的 Silverlight 控件的搜索逻辑](http://blogs.msdn.com/b/tapas_sahoos_blog/archive/2010/11/16/understanding-the-search-logic-for-silverlight-controls-in-coded-ui-test.aspx)  
   
- [Fetching Property of a Silverlight control](http://blogs.msdn.com/b/tapas_sahoos_blog/archive/2010/11/16/fetching-property-of-a-silverlight-control.aspx)（获取 Silverlight 控件的属性）  
+ [获取 Silverlight 控件的属性](http://blogs.msdn.com/b/tapas_sahoos_blog/archive/2010/11/16/fetching-property-of-a-silverlight-control.aspx)  
   
- [Content Index for Coded UI Test](http://blogs.msdn.com/b/mathew_aniyan/archive/2010/02/11/content-index-for-coded-ui-test.aspx)（编码的 UI 测试的内容索引）  
+ [编码的 UI 测试的内容索引](http://blogs.msdn.com/b/mathew_aniyan/archive/2010/02/11/content-index-for-coded-ui-test.aspx)  
   
 ### <a name="guidance"></a>指导  
  [使用 Visual Studio 2012 测试持续交付 - 第 5 章：实现系统测试的自动化](http://go.microsoft.com/fwlink/?LinkID=255196)  

@@ -29,14 +29,14 @@ translation.priority.mt:
 - pt-br
 - tr-tr
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 137f6faa156d188afb99cafb2b1e9dbababdeb4f
-ms.openlocfilehash: a7de37fd82f94fdcef6f839884ea30c5c77061e5
+ms.sourcegitcommit: 47057e9611b824c17077b9127f8d2f8b192d6eb8
+ms.openlocfilehash: b2308ef41ea8068c153d286f58dcf8ac4c581ddd
 ms.contentlocale: zh-cn
-ms.lasthandoff: 04/28/2017
+ms.lasthandoff: 05/13/2017
 
 ---
 # <a name="analyze-memory-usage"></a>分析内存使用量
-使用调试器集成的 **内存使用率** 诊断工具在进行调试时查找内存泄漏和低效内存。 通过内存使用率工具可以拍摄托管和本机内存堆的一个或多个快照  。 可以收集 .NET、本机或混合模式（.NET 和本机）应用的快照。  
+使用集成了调试器的内存使用情况诊断工具在进行调试时查找内存泄漏和低效内存。 通过内存使用率工具可以拍摄托管和本机内存堆的一个或多个快照  。 可以收集 .NET、本机或混合模式（.NET 和本机）应用的快照。  
   
 -   你可以分析单个快照以了解有关内存使用的对象类型的相对影响，并在你的应用中查找低效使用内存的代码。  
   
@@ -46,7 +46,7 @@ ms.lasthandoff: 04/28/2017
   
  ![DiagnosticTools&#45;Update1](../profiling/media/diagnostictools-update1.png "DiagnosticTools-Update1")  
   
- 虽然可以随时在 **内存使用率** 工具中收集内存快照，不过可以使用 Visual Studio 调试器在调查性能问题时控制应用程序的执行方式。 断点设置、步进、全部中断和其他调试器操作可以帮助将性能调查集中在最相关的代码路径上。 在应用运行期间执行这些操作可以消除因无关紧要的代码而带来的烦扰，并可以显著减少用于诊断问题所花费的时间量。  
+ 虽然可以随时在 **内存使用率** 工具中收集内存快照，不过可以使用 Visual Studio 调试器在调查性能问题时控制应用程序的执行方式。 断点设置、步进、全部中断和其他调试器操作可以帮助将性能调查集中在最相关的代码路径上。 在应用运行期间执行这些操作可以消除无关紧要的代码带来的烦扰，并可以显著减少用于诊断问题所花费的时间。  
   
  还可以在调试器外部使用内存工具。 请参阅 [Memory Usage without Debugging](../profiling/memory-usage-without-debugging2.md)。  
   
@@ -172,7 +172,7 @@ ms.lasthandoff: 04/28/2017
   
      ![从“比较对象”列表中选择一个快照](../profiling/media/dbgdiag_mem_choosecompareto.png "DBGDIAG_MEM_ChooseCompareTo")  
   
- 更改报告会向基本报告添加一些列（使用 **“(差异)”**进行标记），这些列显示基本快照值与比较快照之间的差异。 下面是本机类型视图差异报告的可能外观：  
+ 更改报告会向基本报告添加一些列（使用 **“(差异)”**进行标记），这些列显示基本快照值与比较快照之间的差异。 下面是本机类型视图差异报告可能会采用的外观：  
   
  ![本机类型差异视图](../profiling/media/dbgdiag_mem_native_typesviewdiff.png "DBGDIAG_MEM_Native_TypesViewDiff")  
   

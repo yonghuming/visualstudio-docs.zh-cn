@@ -27,10 +27,11 @@ translation.priority.mt:
 - pl-pl
 - pt-br
 - tr-tr
-translationtype: Human Translation
-ms.sourcegitcommit: 5ab78b6b8eaa8156ed2c8a807b1d8a80e75afa84
-ms.openlocfilehash: b40df6e53321efa72081166a1c77d0f3accf914e
-ms.lasthandoff: 04/04/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 47057e9611b824c17077b9127f8d2f8b192d6eb8
+ms.openlocfilehash: 806c1b22718a26e02916ada853372df4f11fb6cd
+ms.contentlocale: zh-cn
+ms.lasthandoff: 05/13/2017
 
 ---
 # <a name="test-windows-uwp-and-81-store-apps-with-coded-ui-tests"></a>使用编码的 UI 测试来测试 Windows UWP 和应用商店 8.1 应用
@@ -39,7 +40,7 @@ ms.lasthandoff: 04/04/2017
   
 ## <a name="create-a-simple-windows-store-app"></a>创建简单的 Windows 应用商店应用  
   
-1.  如果你想要针对基于 XAML 的 Windows 应用商店应用运行编码的 UI 测试，你必须[设置可标识每个控件的唯一的自动化属性](../test/set-a-unique-automation-property-for-windows-store-controls-for-testing.md)。  
+1.  如果你想要针对基于 XAML 的 Windows 应用商店应用运行编码的 UI 测试，你必须 [设置可标识每个控件的唯一的自动化属性](../test/set-a-unique-automation-property-for-windows-store-controls-for-testing.md)。  
   
      在 **“工具”** 菜单上，指向 **“选项”** ，然后依次选择 **“文本编辑器”**、 **“XAML”**和 **“其他”**。  
   
@@ -301,7 +302,7 @@ ms.lasthandoff: 04/04/2017
   
      ![从测试资源管理器运行编码的 UI 测试](../test/media/cuit_windowsstoreapp_runtest.png "CUIT_WindowsStoreApp_RunTest")  
   
-     将启动 Windows 应用商店应用、完成点击按钮的操作，以及使用断言方法填充和验证文本框的“文本”属性。  
+     此时 Windows 应用商店应用启动，点击按钮操作完成，然后会使用断言方法填充并验证文本框的 Text 属性。  
   
      ![运行编码的 UI 测试](../test/media/cuit_windowsstoreapp_running.png "CUIT_WindowsStoreApp_Running")  
   
@@ -311,7 +312,7 @@ ms.lasthandoff: 04/04/2017
   
 ## <a name="q--a"></a>问题解答  
   
-#### <a name="q-why-dont-i-see-the-option-to-record-my-coded-ui-test-in-the-generate-code-for-a-coded-ui-test-dialog"></a>问：为什么我在“生成编码的 UI 测试的代码”对话框中看不到用于记录我的编码的 UI 测试的选项？**  
+#### <a name="q-why-dont-i-see-the-option-to-record-my-coded-ui-test-in-the-generate-code-for-a-coded-ui-test-dialog"></a>问：为什么在“生成编码的 UI 测试的代码”对话框中看不到用于记录编码的 UI 测试的选项？**  
   
 **答**：Windows 应用商店应用不支持记录选项。  
   
@@ -334,7 +335,7 @@ ms.lasthandoff: 04/04/2017
   
 创建项目后，将测试创作为与之前保持相同。  
   
-#### <a name="q-why-cant-i-modify-the-code-in-the-uimapdesigner-file"></a>问：为什么我无法在 UIMap.Designer 文件中修改代码？**  
+#### <a name="q-why-cant-i-modify-the-code-in-the-uimapdesigner-file"></a>问：为什么无法修改 UIMap.Designer 文件中的代码？**  
   
 **答**：每次使用“UIMap - 编码的 UI 测试生成器”生成代码时，都将覆盖在 UIMapDesigner.cs 文件中所做的任何代码更改。 如果必须修改录制的方法，则必须将其复制到 UIMap.cs 文件并对其重命名。 UIMap.cs 文件可用于重写 UIMapDesigner.cs 文件中的方法和属性。 必须在 Coded UITest.cs 文件中删除对原始方法的引用，并将其替换为重命名的方法名称。  
   

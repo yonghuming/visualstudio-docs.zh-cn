@@ -29,10 +29,11 @@ translation.priority.mt:
 - pl-pl
 - pt-br
 - tr-tr
-translationtype: Human Translation
-ms.sourcegitcommit: 77e7ce26df70e41e2328442454fe78c7a663f1f3
-ms.openlocfilehash: 7ceaa18fa104d8131ad415a890cd15baf3efcacb
-ms.lasthandoff: 03/08/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 47057e9611b824c17077b9127f8d2f8b192d6eb8
+ms.openlocfilehash: f01484e64f8d8c90cd38fbcdcb934ef43cfe3390
+ms.contentlocale: zh-cn
+ms.lasthandoff: 05/13/2017
 
 ---
 # <a name="cross-platform-mobile-development-in-visual-studio"></a>Visual Studio 中的跨平台移动开发
@@ -78,34 +79,34 @@ ms.lasthandoff: 03/08/2017
 
  完成后，“新建项目”对话框中将显示项目模板。 最简单的 Xamarin 模板查找方法是针对“Xamarin”进行搜索。
 
- Xamarin 将 Android、iOS 和 Windows 的本机功能公开为 .NET 对象。 因此，你的应用可不受限制地访问本机 API 和本机用户控件，它们的响应速度可媲美按本机平台语言编写的应用。
+ Xamarin 将 Android、iOS 和 Windows 的本机功能公开为 .NET 对象。 因此，你的应用可不受限制地访问本机 API 和本机用户控件，它们的响应速度可媲美使用本机平台语言编写的应用。
 
- 创建项目之后，可以利用 Visual Studio 的所有工作效率功能。 例如，可使用设计器创建页面，使用 IntelliSense 了解移动平台的本机 API。 准备好运行应用并查看其外观后，可通过适用于 Android 的 Visual Studio 模拟器或 Android SDK 仿真程序，本机运行 Windows 应用或运行 Windows Phone 仿真程序上的 Windows 应用。 还可直接使用受限的 Android 和 Windows 设备。 对于 iOS 项目，请连接到联网的 Mac 并从 Visual Studio 中启动 Mac 仿真程序，或者连接到受限设备。
+ 创建项目之后，可以利用 Visual Studio 的所有工作效率功能。 例如，可使用设计器创建页面，使用 IntelliSense 了解移动平台的本机 API。 准备好运行应用并查看其外观后，可通过适用于 Android 的 Visual Studio 模拟器或 Android SDK 仿真程序，本机运行 Windows 应用，或使用 Windows Phone 仿真程序运行 Windows 应用。 还可直接使用受限的 Android 和 Windows 设备。 对于 iOS 项目，请连接到联网的 Mac 并从 Visual Studio 中启动 Mac 仿真程序，或者连接到受限设备。
 
 #### <a name="design-one-set-of-pages-that-render-across-all-devices-by-using-xamarinforms"></a>使用 Xamarin.Forms 设计一组在所有设备中呈现的页面
- 根据应用设计的复杂性，可以考虑使用项目模板“移动应用”  组中的 **Xamarin.Forms** 模板生成应用。 Xamarin.Forms 是一个 UI 工具包，可用于创建在 Android、iOS 和 Windows 之间共享的单一界面。  编译 Xamarin.Forms 解决方案时，会分别获得&1; 个 Android 应用、iOS 应用和 Windows 应用。 有关详细信息，请参阅[了解如何使用 Xamarin 进行移动开发](../cross-platform/learn-about-mobile-development-with-xamarin.md)。
+ 根据应用设计的复杂性，可以考虑使用项目模板“移动应用”  组中的 **Xamarin.Forms** 模板生成应用。 Xamarin.Forms 是一个 UI 工具包，可用于创建在 Android、iOS 和 Windows 之间共享的单一界面。  编译 Xamarin.Forms 解决方案时，会分别获得一个 Android 应用、iOS 应用和 Windows 应用。 有关详细信息，请参阅[了解如何使用 Xamarin 进行移动开发](../cross-platform/learn-about-mobile-development-with-xamarin.md)。
 
-####  <a name="ShareHTML"></a>在 Android、iOS 和 Windows 应用间共享代码
- 如果不使用 Xamarin.Forms 并选择为每个平台单独设计，可在平台项目（Android、 iOS 和 Windows）之间共享大多数的非 UI 代码。 这包括所有的业务逻辑、云集成、数据库访问和其他所有面向 .NET 框架的代码。 唯一不能共享的代码是面向特定平台的代码。
+####  <a name="ShareHTML"></a> 在 Android、iOS 和 Windows 应用间共享代码
+ 如果不使用 Xamarin.Forms 并选择为每个平台单独设计，可在平台项目（Android、iOS 和 Windows）之间共享大多数的非 UI 代码。 这包括所有的业务逻辑、云集成、数据库访问和其他所有面向 .NET 框架的代码。 唯一不能共享的代码是面向特定平台的代码。
 
  ![在 Windows、iOS 和 Android UI 之间共享代码](../cross-platform/media/sharecode.png "共享代码")
 
  你可以通过使用共享项目、可移植类库项目或同时使用这两种项目来共享你的代码。 你可能会发现有些代码最适合在共享项目中使用，而有些代码在可移植类库项目中使用会发挥更好的效果。
 
-|**了解详细信息**|
+|**了解更多信息**|
 |--------------------|
 |选择是否通过使用共享项目、可移植类库项目或同时使用这两种项目来共享你的代码。<br /><br /> [跨平台共享代码](http://blogs.msdn.com/b/dotnet/archive/2014/04/21/sharing-code-across-platforms.aspx) （.NET Framework 博客）<br /><br /> [共享代码选项](http://developer.xamarin.com/guides/cross-platform/application_fundamentals/building_cross_platform_applications/sharing_code_options/) (Xamarin)<br /><br /> [使用 .NET Framework 的代码共享选项](http://msdn.microsoft.com/library/dn720832.aspx) （MSDN 库）|
 
 ###  <a name="WindowsHTML"></a>面向 Windows 10 设备
  ![Windows 设备](../cross-platform/media/windowsdevices.png "Windows 设备")
 
- 若想创建面向全部 Windows 10 设备的单个应用，请创建通用 Windows 应用。 你将使用单个项目来设计应用，并且无论使用何种设备进行查看，页面都将正确呈现。
+ 若想创建面向全部 Windows 10 设备的单个应用，请创建通用 Windows 应用。 将使用单个项目来设计应用，并且无论使用何种设备进行查看，页面都将正确呈现。
 
- 使用通用 Windows 应用项目模板开始设计。 直观地设计页面，然后在预览窗口中将其打开以查看页面在各种类型设备中的显示方式。 如果你不喜欢某设备上的页面显示方式，可优化页面以更好地适应屏幕尺寸、分辨率或不同的方向（如横向模式或纵向模式）。 可使用 Visual Studio 中直观的工具窗口和易访问的菜单选项来执行所有这些操作。 如果已准备好运行应用和逐行执行代码，可在“标准”  工作栏的一个下拉列表中找到所有设备仿真程序和不同类型设备的仿真程序。
+ 使用通用 Windows 应用项目模板开始设计。 直观地设计页面，然后在预览窗口中将其打开以查看页面在各种类型设备中的显示方式。 如果不喜欢某设备上的页面显示方式，可优化页面以更好地适应屏幕尺寸、分辨率或不同的方向（如横向模式或纵向模式）。 可使用 Visual Studio 中直观的工具窗口和易访问的菜单选项来执行所有这些操作。 如果已准备好运行应用和逐行执行代码，可在“标准” 工作栏的一个下拉列表中找到所有设备仿真程序和不同类型设备的模拟器。
 
- 由于 Windows 10 是相当新的系统，因此你也将查找面向 Windows 8.1 的项目模板。 如果你愿意，可以使用这些项目模板，并且你的应用将在 Windows 10 手机、平板电脑和 PC 中运行。 但是，所有运行 Windows 8.1 的设备将收到自动升级到 Windows 10 的消息，因此除非你有面向 Windows 8.1 的特定原因，否则我们建议使用面向 Windows 10 的项目模板。
+ 由于 Windows 10 是相当新的系统，因此也将查找面向 Windows 8.1 的项目模板。 如果你愿意，可以使用这些项目模板，并且你的应用将在 Windows 10 手机、平板电脑和 PC 中运行。 但是，所有运行 Windows 8.1 的设备都将收到自动升级到 Windows 10 的消息，因此除非有面向 Windows 8.1 的特定原因，否则我们建议使用面向 Windows 10 的项目模板。
 
-|**了解详细信息**|
+|**了解更多信息**|
 |--------------------|
 |[了解通用 Windows 应用](https://msdn.microsoft.com/library/windows/apps/dn894631.aspx) （Windows 开发人员中心）|
 |[生成首个 Windows 应用](http://msdn.microsoft.com/library/windows/apps/dn609832.aspx) （Windows 开发人员中心）|
@@ -115,23 +116,23 @@ ms.lasthandoff: 03/08/2017
 ##  <a name="HTML"></a>构建面向 Android、iOS 和 Windows 的应用 (HTML/JavaScript)
  ![设备](../cross-platform/media/homedevices.png "家庭设备")
 
- 如果你是一名 Web 开发者且熟悉 HTML 和 JavaScript，则可通过使用 Visual Studio Tools for Apache Cordova 面向 Windows、Android 和 iOS。 这些应用可以针对全部三个平台，还可以使用你最熟悉的技能和进程来生成。
+ 如果你是一名 Web 开发者且熟悉 HTML 和 JavaScript，则可通过使用适用于 Apache Cordova 的 Visual Studio 工具来面向 Windows、Android 和 iOS。 这些应用可以针对全部三个平台，还可以使用你最熟悉的技能和进程来生成。
 
- Apache Cordova 是一种包含插件模型的框架。 该插件模型提供了一个 JavaScript API，可用于访问全部&3; 个平台（Android、iOS 和 Windows）的本机设备功能。
+ Apache Cordova 是一种包含插件模型的框架。 该插件模型提供了一个 JavaScript API，可用于访问全部 3 个平台（Android、iOS 和 Windows）的本机设备功能。
 
  由于这些 API 是跨平台的，因此你可以在三个平台之间共享所编写的大部分内容。 这样可以减少开发和维护成本。 此外，无需从头开始。 如果已创建了其他类型的 Web 应用程序，则可以与 Cordova 应用共享这些文件，而无需以任何方式修改或重新设计。
 
  ![多设备混合应用](../cross-platform/media/multidevicehybridapps.png "多设备混合应用")
 
- 在开始之前，请安装 Visual Studio 2015 并在安装过程中选择 **HTML/JavaScript (Apache Cordova)** 功能。 如果使用 Visual Studio 2013，则请安装 Visual Studio Tools for Apache Cordova 扩展。 无论是哪种方式，Cordova 工具都会自动安装构建多平台应用所需的所有第三方软件。
+ 在开始之前，请安装 Visual Studio 2015 并在安装过程中选择 **HTML/JavaScript (Apache Cordova)** 功能。 如果使用 Visual Studio 2013，则请安装适用于 Apache Cordova 的 Visual Studio 工具扩展。 无论是哪种方式，Cordova 工具都会自动安装构建多平台应用所需的所有第三方软件。
 
- 安装扩展后，打开 Visual Studio 并创建 **空白应用 (Apache Cordova)** 项目。 然后，便可使用 JavaScript 或 TypeScript 来开发应用了。 也可以添加插件来扩展应用的功能，编写代码时插件的 API 会出现在 IntelliSense 中。
+ 安装扩展后，打开 Visual Studio 并创建空白应用 (Apache Cordova)项目。 然后，便可使用 JavaScript 或 TypeScript 来开发应用了。 也可以添加插件来扩展应用的功能，编写代码时插件的 API 会出现在 IntelliSense 中。
 
- 如果准备好运行应用并逐行执行代码，请选择&1; 个浏览器、1 台已直接连接到计算机的设备，以及&1; 个仿真程序（例如 Apache Ripple 仿真程序或用于 Android/Windows Phone 的 Visual Studio 模拟器）。 然后，启动应用。 如果是在 Windows PC 上开发的应用程序，则可在其中运行。 所有这些选项都作为 Visual Studio Tools for Apache Cordova 的一部分内置在 Visual Studio 中。
+ 如果已准备好运行应用并逐行执行代码，请选择一个仿真程序（如 Apache Ripple 仿真程序或适用于 Android 或 Windows Phone 的 Visual Studio 仿真程序）、一个浏览器，或一个已直接连接到计算机的设备。 然后，启动应用。 如果是在 Windows PC 上开发应用，则甚至可在其中运行。 所有这些选项都作为 Visual Studio Tools for Apache Cordova 的一部分内置在 Visual Studio 中。
 
  Visual Studio 中用于创建通用 Windows 应用的项目模板仍然可用，因此，如果你打算创建仅面向 Windows 设备的应用，则可以放心使用这些模板。 如果决定稍后面向 Android 和 iOS，可始终将代码移植到 Cordova 项目中。 WinJS API 有开源版本，所以你可以对使用这些 API 的任何代码进行重复使用。 也就是说，如果你计划在将来创建面向其他平台的应用，建议你开始使用 Visual Studio Tools for Apache Cordova。
 
-|**了解详细信息**|
+|**了解更多信息**|
 |--------------------|
 |[安装 Visual Studio](http://www.visualstudio.com/products/visual-studio-community-vs) (VisualStudio.com)|
 |[Visual Studio Tools for Apache Cordova 入门](https://docs.microsoft.com/visualstudio/cross-platform/tools-for-cordova/) (docs.microsoft.com)|
@@ -146,7 +147,7 @@ ms.lasthandoff: 03/08/2017
 
  ![本机活动项目模板](../cross-platform/media/cross-plat_cpp_native.png "Cross-Plat_CPP_Native")
 
- 当你准备好运行你的应用并查看其外观时，请使用适用于 Android 的 Visual Studio 仿真程序。 它快速、可靠且易于安装和配置。
+ 准备好运行应用并查看其外观时，请使用适用于 Android 的 Visual Studio 仿真程序。 它快速、可靠且易于安装和配置。
 
  你也可以使用 C++ 和通用 Windows 应用项目模板生成面向全部 Windows 10 设备的应用。 有关此操作的详细信息，请参阅本主题中的上述[面向 Windows 10 设备](#WindowsHTML)部分。
 
@@ -158,11 +159,11 @@ ms.lasthandoff: 03/08/2017
 
  在这些库中编写代码时，可以使用 IntelliSense 探索 Android 和 Windows 平台的本机 API。 这些库项目与 Visual Studio 调试器完全集成，因此可以使用调试器的所有高级功能设置断点、逐句执行代码以及查找和修复问题。
 
-|**了解详细信息**|
+|**了解更多信息**|
 |--------------------|
 |[下载 Visual Studio。](http://www.visualstudio.com/products/visual-studio-community-vs) (VisualStudio.com)|
-|[安装适用于跨平台移动开发的 Visual C++ 工具。](https://msdn.microsoft.com/library/dn872463\(v=vs.140\).aspx) （MSDN 库）|
-|[详细了解如何通过 C++ 面向多个平台。](https://www.visualstudio.com/vs/cplusplus-mdd/) (VisualStudio.com)|
+|[安装用于跨平台移动开发的 Visual C++ 工具。](https://msdn.microsoft.com/library/dn872463\(v=vs.140\).aspx) （MSDN 库）|
+|[了解面向多个平台使用 C++ 的更多信息。](https://www.visualstudio.com/vs/cplusplus-mdd/) (VisualStudio.com)|
 |[安装所需内容，然后针对 Android 创建本机活动应用程序](https://msdn.microsoft.com/library/dn872463\(v=vs.140\).aspx) （MSDN 库）|
 |[了解适用于 Android 的 Visual Studio 仿真程序](http://www.visualstudio.com/explore/msft-android-emulator-vs) (VisualStudio.com)|
 |[深入了解如何与 Android 和 Windows 应用共享 C++ 代码](https://www.visualstudio.com/vs/cplusplus-mdd/) (VisualStudio.com)|
@@ -170,7 +171,7 @@ ms.lasthandoff: 03/08/2017
 |[C++ 的其他跨平台移动开发示例](https://code.msdn.microsoft.com/site/search?f%5B0%5D.Type=SearchText&f%5B0%5D.Value=android&f%5B1%5D.Type=ProgrammingLanguage&f%5B1%5D.Value=C%2B%2B&f%5B1%5D.Text=C%2B%2B) (code.msdn)|
 
 ##  <a name="Unity"></a>使用 Visual Studio Tools for Unity 构建面向 Android、iOS 和 Windows 的跨平台游戏
- Visual Studio Tools for Unity 是一款免费的 Visual Studio 扩展，用于将 Visual Studio 强大的代码编辑工具、生产力工具和调试工具与 *Unity* 进行集成。Unity 是一款热门的跨平台游戏/图形引擎和开发环境，针对面向 Windows、iOS、Android 和其他平台（如 Web）的沉浸式应用。
+ 适用于 Unity 的 Visual Studio 工具是一款免费的 Visual Studio 扩展，用于将 Visual Studio 强大的代码编辑工具、生产力工具和调试工具与 Unity 进行集成。Unity 是一款热门的跨平台游戏/图形引擎和开发环境，针对面向 Windows、iOS、Android 和其他平台（如 Web）的沉浸式应用。
 
  ![VSTU 开发环境](../cross-platform/media/vstu_overview.png "VSTU_Overview")
 
@@ -178,13 +179,13 @@ ms.lasthandoff: 03/08/2017
 
  立即开始使用 Unity 和 Visual Studio Tools for Unity 生成游戏。
 
-|**了解详细信息**|
+|**了解更多信息**|
 |--------------------|
-|[深入了解如何使用 Visual Studio 构建 Unity 游戏](https://www.visualstudio.com/en-us/features/unitytools-vs.aspx)|
-|[了解有关 Visual Studio Tools for Unity 的详细信息](../cross-platform/visual-studio-tools-for-unity.md)（MSDN 库）|
-|[开始使用 Visual Studio Tools for Unity](../cross-platform/getting-started-with-visual-studio-tools-for-unity.md)（MSDN 库）|
-|[了解关于 Visual Studio Tools 的 Unity 2.0 预览版的最新增强功能](http://blogs.msdn.com/b/visualstudio/archive/2014/12/03/visual-studio-tools-for-unity-2-0-preview.aspx) （Visual Studio 博客）|
-|[观看适用于 Unity 2.0 预览版的 Visual Studio Tools 的简介视频](http://www.bing.com/videos/search?q=visual+studio+tools+for+unity&qs=n&form=QBVLPG&pq=visual+studio+tools+for+unity&sc=6-29&sp=-1&sk=#view=detail&mid=0A13177F0BC7463A24080A13177F0BC7463A2408) （视频）|
+|[了解有关使用 Visual Studio 构建 Unity 游戏的更多信息](https://www.visualstudio.com/en-us/features/unitytools-vs.aspx)|
+|[了解有关 Visual Studio Tools for Unity 的详细信息](../cross-platform/visual-studio-tools-for-unity.md) （MSDN 库）|
+|[开始使用 Visual Studio Tools for Unity](../cross-platform/getting-started-with-visual-studio-tools-for-unity.md) （MSDN 库）|
+|[了解关于 Visual Studio Tools for Unity 2.0 预览版的最新增强功能](http://blogs.msdn.com/b/visualstudio/archive/2014/12/03/visual-studio-tools-for-unity-2-0-preview.aspx) （Visual Studio 博客）|
+|[观看 Visual Studio Tools for Unity 2.0 预览版的简介视频](http://www.bing.com/videos/search?q=visual+studio+tools+for+unity&qs=n&form=QBVLPG&pq=visual+studio+tools+for+unity&sc=6-29&sp=-1&sk=#view=detail&mid=0A13177F0BC7463A24080A13177F0BC7463A2408) （视频）|
 |[了解 Unity](http://unity3d.com/) （Unity 网站）|
 
 ## <a name="see-also"></a>另请参阅

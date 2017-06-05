@@ -39,10 +39,11 @@ translation.priority.mt:
 - pl-pl
 - pt-br
 - tr-tr
-translationtype: Human Translation
-ms.sourcegitcommit: a42f5a30375192c89c9984e40ba0104da98d7253
-ms.openlocfilehash: 618aaec3a0ae735560d14bea43cc2b08bd9e5445
-ms.lasthandoff: 03/07/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 47057e9611b824c17077b9127f8d2f8b192d6eb8
+ms.openlocfilehash: 90fed413835f118e59bc32f0b94cb62a40baaca1
+ms.contentlocale: zh-cn
+ms.lasthandoff: 05/13/2017
 
 ---
 # <a name="analyze-html-ui-responsiveness-in-universal-windows-apps"></a>分析中通用 Windows 应用中的 HTML UI 响应能力
@@ -83,7 +84,7 @@ ms.lasthandoff: 03/07/2017
   
 4.  启动 UI 响应能力探查器时，可能会显示一个用户帐户控制窗口，要求您提供运行 Visual Studio ETW Collector.exe 的权限。 选择 **“是”**。  
   
-     与应用程序交互，测试相关的性能方案。 有关详细工作流，请参阅[隔离 UI 响应能力问题](#Workflow)和[隔离可视吞吐量问题](#IsolateVisualThroughput)。  
+     与应用程序交互，测试相关的性能方案。 有关详细工作流，请参阅 [隔离 UI 响应能力问题](#Workflow) 和 [Isolate a visual throughput problem](#IsolateVisualThroughput)。  
   
 5.  按 Alt+Tab 切换到 Visual Studio。  
   
@@ -103,7 +104,7 @@ ms.lasthandoff: 03/07/2017
   
 3.  切换回 Visual Studio（按 Alt+Tab），并停止应用程序 (Shift+F5)。  
   
-4.  或者，使用[标记要分析的代码](#ProfileMark)将用户标记添加到代码中。  
+4.  或者，使用 performance.mark [标记要分析的代码](#ProfileMark)。  
   
     > [!TIP]
     >  在查看探查器数据时，用户标记可帮助你确定响应能力问题。 例如，可以在导致响应能力问题的代码部分的开头和结尾添加用户标记。  
@@ -149,7 +150,7 @@ ms.lasthandoff: 03/07/2017
   
 13. 放大后，选择“CPU 使用率”或“可视吞吐量”图的一部分。 做出选择后，探查器下方窗格中的“时间线详细信息”图将更改为仅显示选定时间段。  
   
-###  <a name="IsolateVisualThroughput"></a> 隔离可视吞吐量问题  
+###  <a name="IsolateVisualThroughput"></a> Isolate a visual throughput problem  
  CPU 利用率过高的时间段可能会导致帧速率较低或不一致。 如果开发富媒体应用程序和游戏，“可视吞吐量”图可能会比“CPU 使用率”图提供更重要的数据。  
   
  若要隔离可视吞吐量问题，请按照上节所述的步骤操作，但要使用“可视吞吐量”图作为其中一个关键数据点。  
@@ -313,7 +314,7 @@ if (performance.mark && performance.measure) {
   
  若要筛选出用户度量，请清除 **“用户测量”** 选项。 用户测量是无子项的顶级事件。  
   
-###  <a name="GroupFrames"></a> 按帧为事件分组  
+###  <a name="GroupFrames"></a> 通过框为事件分组  
  你可以将时间线详细信息视图中显示的事件分组为单个帧。 这些帧事件是工具生成的事件，并且代表所有在绘制事件之间发生的 UI 线程工作的顶级事件容器。 若要启用此视图，请选择 **“按帧为顶级事件分组”**。  
   
  ![按帧为顶级事件分组](../profiling/media/js_htmlvizprofiler_frame_grouping_button.png "JS_HTMLVizProfiler_Frame_Grouping_Button")  
@@ -325,20 +326,20 @@ if (performance.mark && performance.measure) {
 ##  <a name="SaveSession"></a> 保存诊断会话  
  在 Visual Studio 中，你可以在关闭与诊断会话关联的选项卡时保存此会话。 保存的会话以后可以重新打开。  
   
-##  <a name="ProfilerEvents"></a> 探查器事件引用  
+##  <a name="ProfilerEvents"></a> Profiler event reference  
  UI 响应能力探查器中对探查器事件进行了分类和彩色编码。 事件类别如下：  
   
--   **加载**。 指示应用程序首次加载时检索应用程序资源和解析 HTML 与 CSS 所用的时间。 这可能包括网络请求。  
+-   **加载。** 指示应用程序首次加载时检索应用程序资源和解析 HTML 与 CSS 所用的时间。 这可能包括网络请求。  
   
--   **脚本编写**。 指示解析和运行 JavaScript 所用的时间。 这包括 DOM 事件、计时器、脚本计算和动画帧工作。 其中包含用户代码和库代码。  
+-   **脚本。** 指示解析和运行 JavaScript 所用的时间。 这包括 DOM 事件、计时器、脚本计算和动画帧工作。 其中包含用户代码和库代码。  
   
--   **GC**。 指示垃圾回收所用的时间。  
+-   **GC。** 指示垃圾回收所用的时间。  
   
--   **样式设置**。 指示解析 CSS 和计算元素呈现与布局所用的时间。  
+-   **样式。** 指示解析 CSS 和计算元素呈现与布局所用的时间。  
   
--   **呈现**。 指示绘制屏幕所用的时间。  
+-   **呈现。** 指示绘制屏幕所用的时间。  
   
--   **图像解码**。 指示对图像进行解压缩和解码所用的时间。  
+-   **图像解码。** 指示对图像进行解压缩和解码所用的时间。  
   
  对于脚本和样式类别，UI 响应能力探查器可能提供你在“时间线详细信息”图中可操作的数据。 如果识别出脚本问题，你可以运行 CPU 采样探查器与 UI 响应能力探查器。 或者，可以使用 Visual Studio 函数探查器以获取更详细的数据。 有关详细信息，请参阅 [JavaScript 内存](../profiling/javascript-memory.md)。  
   
@@ -356,7 +357,7 @@ if (performance.mark && performance.measure) {
 |DOM 事件|“脚本”|已发生并执行 DOM 事件。<br /><br /> DOM 事件的 `context` 属性（例如  `DOMContentLoaded` 或 `click`）显示在括号中。|  
 |事件侦听器|“脚本”|已调用并执行事件侦听器。|  
 |媒体查询侦听器|“脚本”|已注册的媒体查询无效化，这导致了其关联的侦听器的执行。|  
-|转变观察器|“脚本”|修改一个或多个观察到的 DOM 元素，这导致了 MutationObserver 的相关联回调的执行。|  
+|转变观察器|“脚本”|已修改一个或多个观察到的 DOM 元素，这导致执行与 MutationObserver 关联的回调。|  
 |脚本计算|“脚本”|在 DOM 中找到了新的脚本元素，并且尝试解析和执行此脚本。|  
 |计时器|“脚本”|计划的计时器过时，从而导致执行其关联的回调函数。|  
 |Windows 运行时异步回调函数|“脚本”|Windows 运行时对象完成了触发 `Promise` 回调函数的异步操作。|  

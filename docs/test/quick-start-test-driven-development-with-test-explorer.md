@@ -27,10 +27,11 @@ translation.priority.mt:
 - pl-pl
 - pt-br
 - tr-tr
-translationtype: Human Translation
-ms.sourcegitcommit: 5ab78b6b8eaa8156ed2c8a807b1d8a80e75afa84
-ms.openlocfilehash: e5e0d87e05a5900d335670cf9dcb79d58839892e
-ms.lasthandoff: 04/04/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 47057e9611b824c17077b9127f8d2f8b192d6eb8
+ms.openlocfilehash: 2efe98a5b421fbffbe2a39cc69a5e0acf06af7db
+ms.contentlocale: zh-cn
+ms.lasthandoff: 05/13/2017
 
 ---
 # <a name="quick-start-test-driven-development-with-test-explorer"></a>快速入门：通过测试资源管理器进行测试驱动开发
@@ -83,7 +84,7 @@ ms.lasthandoff: 04/04/2017
 > [!NOTE]
 >  如果未显示任何测试，请确保已安装适配器，将“测试资源管理器”与你使用的测试框架连接起来。 有关更多信息，请参见 [将不同测试框架与“测试资源管理器”配合使用](#frameworks)。  
   
-##  <a name="walkthrough"></a>演练：使用单元测试开发方法  
+##  <a name="walkthrough"></a> 演练：使用单元测试开发方法  
  本演练演示如何使用 Microsoft 单元测试框架开发 C# 语言的受测试方法。 你可以将其轻松改写为其他语言，也可加以调整以使用其他测试框架，例如 NUnit。 有关更多信息，请参见 [使用不同的测试框架](#frameworks)。  
   
 #### <a name="creating-the-test-and-method"></a>创建测试和方法  

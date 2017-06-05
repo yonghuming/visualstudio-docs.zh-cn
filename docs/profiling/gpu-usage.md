@@ -27,10 +27,11 @@ translation.priority.ht:
 - tr-tr
 - zh-cn
 - zh-tw
-translationtype: Human Translation
-ms.sourcegitcommit: e9a05d008f671fb79d6813a14c594b82f27697e3
-ms.openlocfilehash: 1613943840c79028e3c60db0f54a73243eb3948c
-ms.lasthandoff: 03/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 47057e9611b824c17077b9127f8d2f8b192d6eb8
+ms.openlocfilehash: a2958c20bbfbd9f4f3d03946dbe230326894b1c1
+ms.contentlocale: zh-cn
+ms.lasthandoff: 05/13/2017
 
 ---
 # <a name="gpu-usage"></a>GPU 使用情况
@@ -57,7 +58,7 @@ ms.lasthandoff: 03/27/2017
   
 1.  在主菜单上，选择“调试”，然后选择“性能和诊断”（键盘：按 Alt+F2）。  
   
-2.  在“性能和诊断”中心，选中“GPU 使用情况”旁的复选框。 （可选）选中你希望使用的其他工具旁的复选框。 你可以同时运行几个性能和诊断工具，以便对应用的性能有一个更全面的了解。  
+2.  在“性能和诊断”中心，选中“GPU 使用情况”旁的复选框。 （可选）选中你希望使用的其他工具旁的复选框。 可同时运行多个性能和诊断工具，更全面地了解应用的性能。  
   
      ![选择要使用的诊断工具。](media/gfx_diag_diagsession_tools.png "gfx_diag_diagsession_tools")  
   
@@ -68,7 +69,7 @@ ms.lasthandoff: 03/27/2017
   
  实时显示的高级信息包括帧时间、帧速率和 GPU 利用率。 每条信息都显示在独立的图形中，但使用公共的时间刻度，因此你可以轻松将它们联系在一起。  
   
- “帧时间(毫秒)”和“每秒帧数(FPS)”图形包含两条红色水平线，用于表示每秒 60 帧和 30 帧的性能目标。 在“帧时间”图形中，图形低于红线表示应用超过性能目标，高于红线表示未达到性能目标。 在“每秒帧数”图形中则相反，图形高于红线表示你的应用超过性能目标，低于红线表示未达到性能目标。 这些图形主要用于对你应用的性能有一个大致的了解，并确定你可能希望调查的减速情况，例如帧速率突降或 GPU 利用率陡升。  
+ “帧时间(毫秒)”和“每秒帧数(FPS)”图形包含两条红色水平线，用于表示每秒 60 帧和 30 帧的性能目标。 在“帧时间”图形中，图形低于红线表示应用超过性能目标，高于红线表示未达到性能目标。 在“每秒帧数”图形中则相反，图形高于红线表示应用超过性能目标，低于红线表示未达到性能目标。 这些图形主要用于大致了解应用的性能，并确定可能希望调查的减速情况，例如帧速率突降或 GPU 利用率陡升。  
   
  当你的应用在 GPU 使用情况工具下运行时，诊断会话还会收集有关在 GPU 上执行的图形事件的详细信息。 此信息用于生成有关应用如何利用硬件的更精细报告。 由于从收集的信息生成此报告需要一些时间，因此仅当诊断会话完成信息收集之后此报告才可用。  
   
@@ -84,7 +85,7 @@ ms.lasthandoff: 03/27/2017
   
      ![收集之后，选择范围以查看详细信息](media/gfx_diag_gpu_usage_select1.png "gfx_diag_gpu_usage_select1")  
   
-3.  在报告底部的“...单击此处查看该范围内的 GPU 使用情况详细信息”消息中，选择“查看详细信息”链接，以查看所选内容的详细时间线。  
+3.  在报告底部的“...单击此处查看该范围内的 GPU 使用情况详细信息”消息中，选择“查看详细信息”链接，查看所选内容的详细时间线。  
   
      ![收集之后，选定范围](media/gfx_diag_gpu_usage_select2.png "gfx_diag_gpu_usage_select2")  
   
@@ -106,9 +107,9 @@ ms.lasthandoff: 03/27/2017
   
  ![GPU 使用情况报告，提供 CPU 和 GPU 时间线](media/gfx_diag_gpu_usage_report.png "gfx_diag_gpu_usage_report")  
   
- 选择报告下半部分的其中一个事件会在相关时间线中的相应事件处放置一个标记，通常一个事件在 CPU 线程上，表示 API 调用；另一个事件在 GPU 时间线上，表示 GPU 完成任务的时间。 同样，选择时间线中的一个事件将在报告的下半部分突出显示相应事件。当缩小显示报告上半部分的时间线时，仅最耗时的事件可见。 若要查看持续时间更短的事件，可通过对你的指针设备使用 Ctrl + 滚轮或使用顶部面板左下角的缩放控件来放大时间线。 还可以拖动时间线面板中的内容，以浏览记录的事件。  
+ 选择报告下半部分的其中一个事件会在相关时间线中的相应事件处放置一个标记，通常一个事件在 CPU 线程上，表示 API 调用；另一个事件在 GPU 时间线上，表示 GPU 完成任务的时间。 同样，选择时间线中的一个事件将在报告的下半部分突出显示相应事件。当缩小显示报告上半部分的时间线时，仅最耗时的事件可见。 若要查看持续时间更短的事件，可通过对你的指针设备使用 Ctrl + 滚轮或使用顶部面板左下角的缩放控件来放大时间线。 还可以拖动时间线面板中的内容，浏览记录的事件。  
   
- 为了帮助你找到要寻找的内容，可以基于进程名、线程 ID 和事件名筛选 GPU 使用情况报告。此外，还可以选择决定垂直同步线的显示器刷新率，如果你的应用使用 ID3DUserDefinedAnnotation 接口分组呈现命令，你还可以按层次结构排列事件。  
+ 为了帮助你找到要寻找的内容，可以基于进程名、线程 ID 和事件名筛选 GPU 使用情况报告。此外，还可以选择决定垂直同步线的显示器刷新率，如果应用使用 ID3DUserDefinedAnnotation 接口分组呈现命令，还可以按层次结构排列事件。  
   
  以下是更多详细信息：  
   
@@ -157,8 +158,8 @@ ms.lasthandoff: 03/27/2017
   
 |Vendor|GPU 说明|要求的驱动程序版本|  
 |------------|---------------------|-----------------------------|  
-|Intel®|第四代 Intel® 芯处理器（“Haswell”）<br /><br /> -   Intel® HD Graphics (GT1)<br />-   Intel® HD Graphics 4200 (GT2)<br />-   Intel® HD Graphics 4400 (GT2)<br />-   Intel® HD Graphics 4600 (GT2)<br />-   Intel® HD Graphics P4600 (GT2)<br />-   Intel® HD Graphics P4700 (GT2)<br />-   Intel® HD Graphics 5000 (GT3)<br />-   Intel® Iris™ Graphics 5100 (GT3)<br />-   Intel® Iris™ Pro Graphics 5200 (GT3e)|--（使用最新驱动程序）|  
-|AMD®|AMD Radeon™ HD 7000 系列之后的大多数产品（AMD Radeon™ HD 7350-7670 除外）<br /><br /> 具有 Graphics Core Next (GCN) 体系结构的 AMD Radeon™ GPU、AMD FirePro™ GPU 和 AMD FirePro GPU 加速器<br /><br /> 具有 Graphics Core Next (GCN) 体系结构的 MD® E 系列和 AMD A 系列加速处理单元 (APU)（“Kaveri”、“Kabini”、“Temash”、“Beema”、“Mullins”）|14.7 RC3 或更高版本|  
+|Intel®|第四代 Intel® 酷睿处理器（“Haswell”）<br /><br /> -   Intel® HD Graphics (GT1)<br />-   Intel® HD Graphics 4200 (GT2)<br />-   Intel® HD Graphics 4400 (GT2)<br />-   Intel® HD Graphics 4600 (GT2)<br />-   Intel® HD Graphics P4600 (GT2)<br />-   Intel® HD Graphics P4700 (GT2)<br />-   Intel® HD Graphics 5000 (GT3)<br />-   Intel® Iris™ Graphics 5100 (GT3)<br />-   Intel® Iris™ Pro Graphics 5200 (GT3e)|--（使用最新驱动程序）|  
+|AMD®|AMD Radeon™ HD 7000 系列之后的大多数产品（AMD Radeon™ HD 7350-7670 除外）<br /><br /> 具有 Graphics Core Next (GCN) 体系结构的 AMD Radeon™ GPU、AMD FirePro™ GPU 和 AMD FirePro GPU 加速器<br /><br /> 具有 Graphics Core Next (GCN) 体系结构的 AMD® E 系列和 AMD A 系列加速处理单元 (APU)（“Kaveri”、“Kabini”、“Temash”、“Beema”、“Mullins”）|14.7 RC3 或更高版本|  
 |NVIDIA®|NVIDIA GeForce® 400 系列之后的大多数产品<br /><br /> 具有 Fermi™、Kepler™ 或 Maxwell™ 体系结构的 NVIDIA® GeForce® GPU、NVIDIA Quadro® GPU 和 NVIDIA® Tesla™ GPU 加速器|343.37 或更高版本|  
   
  暂不支持 VIDIA® SLI™ 和 AMD Crossfire™ 等多 GPU 配置。 支持 VIDIA® Optimus™ 和 AMD Enduro™ 等混合图形设置。  

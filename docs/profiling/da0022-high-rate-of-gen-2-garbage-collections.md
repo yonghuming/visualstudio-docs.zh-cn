@@ -1,54 +1,72 @@
 ---
-title: "DA0022: 第 2 代垃圾回收的速率很高 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-debug"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "vs.performance.DA0022"
-  - "vs.performance.rules.DA0022"
-  - "vs.performance.22"
+title: "DA0022：第 2 代垃圾回收的速率很高 | Microsoft Docs"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-debug
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords:
+- vs.performance.DA0022
+- vs.performance.rules.DA0022
+- vs.performance.22
 ms.assetid: f871a547-0e6f-4b11-b2d7-174d30fc2ed8
 caps.latest.revision: 8
-author: "mikejo5000"
-ms.author: "mikejo"
-manager: "ghogen"
-caps.handback.revision: 8
----
-# DA0022: 第 2 代垃圾回收的速率很高
-[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
+author: mikejo5000
+ms.author: mikejo
+manager: ghogen
+translation.priority.ht:
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- ru-ru
+- zh-cn
+- zh-tw
+translation.priority.mt:
+- cs-cz
+- pl-pl
+- pt-br
+- tr-tr
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 47057e9611b824c17077b9127f8d2f8b192d6eb8
+ms.openlocfilehash: 0bab264151049d595959a439a9659224b01c6cda
+ms.contentlocale: zh-cn
+ms.lasthandoff: 05/13/2017
 
+---
+# <a name="da0022-high-rate-of-gen-2-garbage-collections"></a>DA0022: 第 2 代垃圾回收的速率很高
 |||  
 |-|-|  
 |规则 ID|DA0022|  
-|类别|.NET Framework 使用|  
+|类别|.NET Framework 使用情况|  
 |分析方法|全部|  
-|消息|第 2 代垃圾回收的发生率非常高。  如果特意分配程序的大多数数据结构并将其保留很长一段时间，这通常不会成为问题。  但是，如果此行为是无意的，则可能是您的应用程序锁定了对象。  如果不确定，可以收集 .NET 内存分配数据和对象生存期信息，以了解应用程序使用的内存分配模式。|  
+|消息|第 2 代垃圾回收率非常高。 按设计来说，如果分配了大部分程序的数据结构且其保留时间较长，那么这通常并不是问题。 但是，如果此行为不在计划内，则表示应用程序可能锁定了对象。 如果不能确定，则可收集 .NET 内存分配数据和对象生存期信息，了解应用程序使用的内存分配模式。|  
 |规则类型|警告|  
   
- 在使用采样、.NET 内存或资源争用方法进行分析时，必须收集至少 10 个样本才能触发此规则。  
+ 使用采样法、.NET 内存或资源争用方法进行分析时，必须收集至少 10 个样本才能触发此规则。  
   
-## 原因  
- 分析期间收集的系统性能数据表明，与第 0 代和第 1 代垃圾回收相比，第 2 代垃圾回收中回收了 .NET Framework 对象的很大一部分内存。  
+## <a name="cause"></a>原因  
+ 分析期间收集的系统性能数据表明：与第 0 代和第 1 代垃圾回收相比，第 2 代垃圾回收中为 .NET Framework 对象回收的内存比例较高。  
   
-## 规则说明  
- Microsoft .NET 公共语言运行时 \(CLR\) 提供了自动内存管理机制，该系统使用垃圾回收器从应用程序不再使用的对象回收内存。  垃圾回收器是面向代的，并假定许多分配的生存期都较短。  例如，本地变量的生存期应比较短。  新创建的对象从第 0 代 \(gen 0\) 开始，然后如果这些对象在运行垃圾回收后仍然存在，则它们进入第 1 代，最后如果应用程序仍然使用这些对象，则它们最终进入第 2 代。  
+## <a name="rule-description"></a>规则说明  
+ Microsoft .NET 公共语言运行时 (CLR) 提供自动内存管理机制，该机制使用垃圾回收器从应用程序不再使用的对象回收内存。 垃圾回收器是面向生成的，基于大量分配为短期分配的假设。 例如，局部变量应是短期的。 新创建的对象在 0 代中启动，如果在垃圾回收后它们仍然存在，则将提升到 1 代，如果应用程序仍使用它们，则最后将过渡到 2 代。  
   
- 第 0 代的对象常被收集而且通常收集效率非常高。  第 1 代的对象收集得较少而且收集效率较低。  最后，应更少地收集第 2 代生存期长的对象。  第 2 代回收运行的是完整垃圾回收，也是最消耗资源的操作。  
+ 收集 0 代中的对象时，通常频率和效率都较高。 收集 1 代中的对象时，通常频率和效率都较低。 最后，应以更低的频率收集 2 代中生存期较长的对象。 2 代回收是完整的垃圾回收运行，也是成本最高的操作。  
   
- 如果发生第 2 代垃圾回收的发生率过高，则会激发此规则。  功能良好的 .NET Framework 应用程序发生第 1 代垃圾回收的次数比第 2 代回收次数要多出 5 倍以上。（10 倍可能最为理想。）  
+ 第 2 代垃圾回收比例过高时将触发此规则。 运行良好的 .NET Framework 应用程序的第 1 代垃圾回收是第 2 代回收的 5 倍以上。 （理想值是 10 倍。）  
   
-## 如何调查警告  
- 双击“错误列表”窗口中的该消息以导航到分析数据的[“标记”视图](../profiling/marks-view.md)。  找到**“.NET CLR Memory\\\# of Gen 0 Collections”**和**“.NET CLR Memory\\\# of Gen 1 Collections”**列。  确定程序执行过程中是否有一些特定阶段的垃圾回收较为频繁。  将这些值与**“% Time in GC”**列进行比较，看托管内存分配模式是否是导致内存管理开销过大的原因。  
+## <a name="how-to-investigate-a-warning"></a>如何调查警告  
+ 双击“错误列表”窗口中的消息，导航到分析数据的[标记视图](../profiling/marks-view.md)。 查找 **.NET CLR Memory\\# of Gen 0 Collections** 和 **.NET CLR Memory\\# of Gen 1 Collections** 列。 确定是否存在特定阶段的程序执行，其中垃圾回收更频繁。 将这些值与 **%Time in GC** 列进行比较，查看托管内存分配的模式是否会导致内存管理开销过多。  
   
- 第 2 代垃圾回收的比例高并不总是问题。  这可能是设计使然。  如果某个应用程序分配的大型数据结构必须在执行期间长时间保持活动状态，则可能会触发此规则。  如果此类应用程序处于内存压力之下，它可能会被迫频繁执行垃圾回收。  如果资源消耗较少的第 0 代和第 1 代垃圾回收只能回收少量托管内存，则将安排更频繁的第 2 代垃圾回收。  
+ 第 2 代垃圾回收比例较高并不总是表示有问题。 可能设计即是如此。 如果应用程序在执行期间分配必须长时间保持活跃状态的大型数据结构，则可能触发此规则。 此类应用程序存在内存压力时，可能会强制其频繁执行垃圾回收。 如果开销较低的 0 代和 1 代垃圾回收仅能回收少量托管内存，则将安排较为频繁的 2 代垃圾回收。  
   
- 标记视图中有附加的 .NET CLR 内存列，可帮助您确定垃圾回收问题。  **“% Time in GC”**列有助于了解内存管理开销目前有多大。  如果您的应用程序通常使用比较少量的大型但持久的对象，那么，频繁进行第 2 代回收应该不会占用过量的 CPU 时间。  如果应用程序由于需要更多物理内存 \(RAM\) 而处于内存压力之下，则也可能会激发计算**“Memory\\Pages\/sec”**列值的相关规则。  
+ “标记”视图中存在有助于识别垃圾回收问题的其他 .NET CLR 内存列。 **%Time in GC** 列有助于了解当前的内存管理开销量。 如果应用程序通常使用相对较少的大型但持久的对象，则频繁的 2 代回收应该不会占用过多 CPU 时间。 如果应用程序因为需要更多物理内存 (RAM) 而产生内存压力，则还可能触发评估 **Memory\Pages/sec** 列值的相关规则。  
   
- 若要了解应用程序的托管内存使用模式，可通过运行 .NET 内存分配分析对其重新进行分析，并选择对象生存期分析选项。  
+ 若要了解应用程序的托管内存使用模式，请运行 .NET 内存分配分析再次进行分析，并选择对象生存期分析选项。  
   
- 有关如何提高垃圾回收性能的信息，请参见 Microsoft 网站上的 [垃圾回收器基础知识和性能提示](http://go.microsoft.com/fwlink/?LinkId=148226)。  有关自动垃圾回收的开销信息，请参见 [大型对象堆揭密](http://go.microsoft.com/fwlink/?LinkId=177836)。
+ 有关如何提高垃圾回收性能的信息，请参阅 Microsoft 网站上的 [Garbage Collector Basics and Performance Hints](http://go.microsoft.com/fwlink/?LinkId=148226)（垃圾回收器基础知识和性能提示）。 有关自动垃圾回收的开销的信息，请参阅[大型对象堆揭密](http://go.microsoft.com/fwlink/?LinkId=177836)。
