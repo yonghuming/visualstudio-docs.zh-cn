@@ -26,9 +26,10 @@ translation.priority.mt:
 - pl-pl
 - pt-br
 - tr-tr
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 06cdfb076120ffd7459a16b56c659bb86942cd7f
 ms.openlocfilehash: c8276097c53ea49d223c43ada5511ab5d5f38036
+ms.contentlocale: zh-cn
 ms.lasthandoff: 03/31/2017
 
 ---
@@ -179,11 +180,11 @@ Visual Studio 现在达到了前所未有的轻量！ 通过新的模块化安�
 
  ![“调用层次结构”窗口](../ide/media/VSIDE_call_hierarchy.png)
 
--  “CodeLens”[](../ide/find-code-changes-and-other-history-with-codelens.md)能够查找代码引用、代码更改、链接错误、工作项、代码评审和单元测试，所有操作都在编辑器上进行。
+-  [“CodeLens”](../ide/find-code-changes-and-other-history-with-codelens.md)能够查找代码引用、代码更改、链接错误、工作项、代码评审和单元测试，所有操作都在编辑器上进行。
 
  ![CodeLens](../ide/media/codelensoverview.png)
 
--  “查看定义” [](../ide/how-to-view-and-edit-code-by-using-peek-definition-alt-plus-f12.md) 窗口显示方法或类型的定义内联，而无需离开当前的上下文。  
+-  [“查看定义”](../ide/how-to-view-and-edit-code-by-using-peek-definition-alt-plus-f12.md) 窗口显示方法或类型的定义内联，而无需离开当前的上下文。  
 
  ![查看定义](../ide/media/VSIDE_peek_definition.png)
 
