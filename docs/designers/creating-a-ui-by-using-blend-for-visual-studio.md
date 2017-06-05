@@ -1,21 +1,40 @@
 ---
 title: "使用 Blend for Visual Studio 创建 UI | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-general"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "Blend.Start.Dev12"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-general
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords:
+- Blend.Start.Dev12
 ms.assetid: efd12263-cc2d-4081-a2bb-9a2cc17c442c
 caps.latest.revision: 31
-author: "kempb"
-ms.author: "kempb"
-manager: "ghogen"
-caps.handback.revision: 29
+author: kempb
+ms.author: kempb
+manager: ghogen
+translation.priority.ht:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 47057e9611b824c17077b9127f8d2f8b192d6eb8
+ms.openlocfilehash: f880816f383712f87624467c9ed3b45a1c2ccb8c
+ms.contentlocale: zh-cn
+ms.lasthandoff: 05/13/2017
+
 ---
 # <a name="creating-a-ui-by-using-blend-for-visual-studio"></a>使用 Blend for Visual Studio 创建 UI
 Blend for Visual Studio 可帮助设计基于 XAML 的 Windows 桌面、Web、[Windows Phone](http://msdn.microsoft.com/library/windowsphone/develop/jj683071.aspx) 和 [Windows 应用商店](http://msdn.microsoft.com/library/windows/apps/jj129478.aspx)应用。 它提供了与 Visual studio 相同的基本 XAML 设计体验，并添加了可视化设计器，以用于高级任务，例如动画和行为。  
@@ -37,7 +56,7 @@ Blend for Visual Studio 可帮助设计基于 XAML 的 Windows 桌面、Web、[W
   
 -   [“属性”面板概览](#Properties)  
   
-##  <a name="a-nametoolsa-tour-of-the-tools-panel"></a><a name="Tools"></a>“工具”面板概览  
+##  <a name="Tools"></a>“工具”面板概览  
  可在应用程序中通过 Blend for Visual Studio 的“工具”面板创建和修改对象。 可以通过使用鼠标选择工具并在美工板上进行绘制来创建对象。  
   
  ![工具面板](../designers/media/blend5toolspanel.png "Blend5Toolspanel")  
@@ -53,7 +72,7 @@ Blend for Visual Studio 可帮助设计基于 XAML 的 Windows 桌面、Web、[W
   
  **观看简短视频：** ![配置已安装的功能](../designers/media/bldadminconsoleinitialconfigicon.PNG "BldAdminConsoleInitialConfigIcon") [工具栏](https://www.youtube.com/watch?v=VkdUJcvoo54&list=PLBDF977B2F1DAB358&index=4)。  
   
-##  <a name="a-nameassetsa-tour-of-the-assets-panel"></a><a name="Assets"></a>“资产”面板概览  
+##  <a name="Assets"></a>“资产”面板概览  
  可在“资产”面板中找到所有控件，它类似于 Visual Studio 中的“工具箱”。 除控件外，“资产”面板还包括所有可添加到美工板的内容，例如样式、媒体、行为和效果等。  
   
  ![资产面板](../designers/media/blend5_assets_panel.png "Blend5_Assets_panel")  
@@ -66,7 +85,7 @@ Blend for Visual Studio 可帮助设计基于 XAML 的 Windows 桌面、Web、[W
 |![](../designers/media/b1_4.png "B1_4")|**样式** - 显示资源字典中包含的所有样式。|  
 |![](../designers/media/b1_5.png "B1_5")|**说明** - 查看所选资产类别或子类别的说明。|  
   
-##  <a name="a-nameobjectsa-tour-of-the-objects-and-timeline-panel"></a><a name="Objects"></a>“对象和时间线”面板概览  
+##  <a name="Objects"></a>“对象和时间线”面板概览  
  使用此面板可在美工板上组织对象以及（如果需要）对它们进行动画处理。  
   
  ![动画模式中的“对象和时间线”面板](../designers/media/b5_object_timeline_animation.png "b5_object_timeline_animation")  
@@ -74,8 +93,8 @@ Blend for Visual Studio 可帮助设计基于 XAML 的 Windows 桌面、Web、[W
 |||  
 |-|-|  
 |![](../designers/media/b1_1.png "B1_1")|**对象视图** - 查看文档的可视树。 可以深化到不同级别的详细信息。 还可以添加层以便进一步在美工板上组织对象。 通过这种方式可以将它们作为组进行锁定和隐藏。|  
-|![](../designers/media/b1_2.png "B1_2")|**记录模式指示器** - 查看是否在时间线中记录属性更改。|  
-|![](../designers/media/b1_3.png "B1_3")|**情节提要选取器** - 查看已创建的情节提要的列表。|  
+|![](../designers/media/b1_2.png "B1_2")|记录模式指示器 - 查看是否在时间线中记录属性更改。|  
+|![](../designers/media/b1_3.png "B1_3")|情节提要选取器 - 查看已创建的情节提要的列表。|  
 |![](../designers/media/b1_4.png "B1_4")|**关闭情节提要** - 关闭当前情节提要。|  
 |![](../designers/media/b1_5.png "B1_5")|**情节提要选项** - 创建、复制、反向、删除、重命名或关闭情节提要。|  
 |![](../designers/media/b1_6.png "B1_6")|**播放控件** - 在时间线中导航。 也可拖动播放指针来定位（或*推移*）时间线。|  
@@ -90,7 +109,7 @@ Blend for Visual Studio 可帮助设计基于 XAML 的 Windows 桌面、Web、[W
 |![](../designers/media/b1_15.png "B1_15")|**时间线缩放** - 设置时间线的缩放分辨率。 通过放大，可以编辑动画的更多细节；而通过缩小，可更全面地显示在更长时间段内发生的情况。 如果进行放大，但无法在所需时间位置设置关键帧，请验证设置的对齐分辨率是否足够高。|  
 |![标注 16](../designers/media/b5_label_16.png "b5_label_16")|**时间线构成区域** - 查看时间线，并通过拖动关键帧或通过其快捷菜单移动关键帧。|  
   
-##  <a name="a-namepropertiesa-tour-of-the-properties-panel"></a><a name="Properties"></a>“属性”面板概览  
+##  <a name="Properties"></a>“属性”面板概览  
  使用此面板可查看和修改对象的属性。 还可以直接在美工板上设置它们。 若如此操作，则“属性”面板中将反映出属性更改。  
   
  ![属性面板](../designers/media/blend5_properties_panel.png "Blend5_properties_panel")  
@@ -124,8 +143,3 @@ Blend for Visual Studio 可帮助设计基于 XAML 的 Windows 桌面、Web、[W
  [动态显示对象](../designers/animate-objects-in-xaml-designer.md)   
  [绘制形状和路径](../designers/draw-shapes-and-paths.md)   
  [在 Visual Studio 和 Blend for Visual Studio 中设计 XAML](../designers/designing-xaml-in-visual-studio.md)
-
-
-<!--HONumber=Feb17_HO4-->
-
-

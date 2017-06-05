@@ -26,10 +26,11 @@ translation.priority.ht:
 - tr-tr
 - zh-cn
 - zh-tw
-translationtype: Human Translation
-ms.sourcegitcommit: 5658ecf52637a38bc3c2a5ad9e85b2edebf7d445
-ms.openlocfilehash: 2aff9b2c34bf8897adc7edee3a1205317258fc0f
-ms.lasthandoff: 02/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 47057e9611b824c17077b9127f8d2f8b192d6eb8
+ms.openlocfilehash: 5acc74abd56b128bf9df708ab7c0f3451c6eb270
+ms.contentlocale: zh-cn
+ms.lasthandoff: 05/13/2017
 
 ---
 # <a name="code-generation-compilation-and-naming-conventions-in-microsoft-fakes"></a>Microsoft Fakes 中的代码生成、编译和命名约定
@@ -40,15 +41,32 @@ ms.lasthandoff: 02/22/2017
 -   Visual Studio Enterprise  
   
 ##  <a name="BKMK_In_this_topic"></a> 主题内容  
- [代码生成和编译](#BKMK_Code_generation_and_compilation)  
   
--   [配置存根的代码生成](#BKMK_Configuring_code_generation_of_stubs) • [类型筛选](#BKMK_Type_filtering) • [将实际类和虚拟方法用作存根](#BKMK_Stubbing_concrete_classes_and_virtual_methods) • [内部类型](#BKMK_Internal_types) • [优化生成时间](#BKMK_Optimizing_build_times) • [避免程序集名称冲突](#BKMK_Avoiding_assembly_name_clashing)  
+-   [代码生成和编译](#BKMK_Code_generation_and_compilation)  
   
- [Fakes 命名约定](#BKMK_Fakes_naming_conventions)  
+-   [配置存根的代码生成](#BKMK_Configuring_code_generation_of_stubs)
   
--   [填充码类型和存根类型命名约定](#BKMK_Shim_type_and_stub_type_naming_conventions) • [填充码委托属性或存根委托字段命名约定](#BKMK_Shim_delegate_property_or_stub_delegate_field_naming_conventions) • [参数类型命名约定](#BKMK_Parameter_type_naming_conventions) • [递归规则](#BKMK_Recursive_rules)  
+-   [类型筛选](#BKMK_Type_filtering)
   
- [外部资源](#BKMK_External_resources)  
+-   [将具体类和虚拟方法用作存根](#BKMK_Stubbing_concrete_classes_and_virtual_methods)
+  
+-   [内部类型](#BKMK_Internal_types)
+  
+-   [优化生成时间](#BKMK_Optimizing_build_times)
+  
+-   [避免程序集名称冲突](#BKMK_Avoiding_assembly_name_clashing)  
+  
+-   [Fakes 命名约定](#BKMK_Fakes_naming_conventions)  
+  
+-   [填充码类型和存根类型命名约定](#BKMK_Shim_type_and_stub_type_naming_conventions)
+  
+-   [填充码委托属性或存根委托字段命名约定](#BKMK_Shim_delegate_property_or_stub_delegate_field_naming_conventions)
+  
+-   [参数类型命名约定](#BKMK_Parameter_type_naming_conventions)
+  
+-   [递归规则](#BKMK_Recursive_rules)  
+  
+-   [外部资源](#BKMK_External_resources)  
   
 -   [指南](#BKMK_Guidance)  
   
@@ -250,7 +268,7 @@ attribute of the Assembly element in the .fakes:
   
 -   如果方法名称是显式接口实现，则删除点。  
   
--   如果是泛型方法，则追加 `Of`*n*，其中 *n* 是泛型方法自变量的数量。  
+-   如果是泛型方法，则追加 `Of`n，其中 n 是泛型方法自变量的数量。  
   
  **特殊方法名称**（比如属性 getter 或 setter）将按下表所述方式处理。  
   
@@ -273,7 +291,7 @@ attribute of the Assembly element in the .fakes:
   
 -   **参数类型**名称已转换并串联。  
   
--   除非具有重载多义性，否则将忽略**返回类型**。 如果是这样，将在名称末尾追加返回类型  
+-   除非具有重载多义性，否则将忽略返回类型。 如果是这样，将在名称末尾追加返回类型  
   
 ###  <a name="BKMK_Parameter_type_naming_conventions"></a>参数类型命名约定  
   
@@ -285,7 +303,7 @@ attribute of the Assembly element in the .fakes:
 |**数组类型**`T[]`|`TArray`|  
 |**多维数组**类型 `T[ , , ]`|`T3`|  
 |**指针**类型 `T*`|`TPtr`|  
-|**泛型类型**`T<R1, …>`|`TOfR1`|  
+|**泛型类型**`T<R1, ...>`|`TOfR1`|  
 |类型 `C<TType>` 的**泛型类型参数**`!i`|`Ti`|  
 |方法 `M<MMethod>` 的**泛型方法自变量**`!!i`|`Mi`|  
 |**嵌套类型**`N.T`|先追加 `N`，然后追加 `T`|  
@@ -299,8 +317,8 @@ attribute of the Assembly element in the .fakes:
   
 ##  <a name="BKMK_External_resources"></a>外部资源  
   
-###  <a name="BKMK_Guidance"></a>指导  
- [使用 Visual Studio 2012 对连续交付进行测试 - 第 2 章：单元测试：测试内部](http://go.microsoft.com/fwlink/?LinkID=255188)  
+###  <a name="BKMK_Guidance"></a> 指导  
+ [使用 Visual Studio 2012 测试连续交付 - 第 2 章：单元测试：测试内部](http://go.microsoft.com/fwlink/?LinkID=255188)  
   
 ## <a name="see-also"></a>另请参阅  
  [用 Microsoft Fakes 隔离测试代码](../test/isolating-code-under-test-with-microsoft-fakes.md)

@@ -28,10 +28,11 @@ translation.priority.ht:
 - tr-tr
 - zh-cn
 - zh-tw
-translationtype: Human Translation
-ms.sourcegitcommit: 5db97d19b1b823388a465bba15d057b30ff0b3ce
-ms.openlocfilehash: 9885f3cff76b9c5e1d053550be80c4b68cf9de1b
-ms.lasthandoff: 02/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 47057e9611b824c17077b9127f8d2f8b192d6eb8
+ms.openlocfilehash: 2c4cb515c4442b3c48c42f47f9116e9ff536a5f4
+ms.contentlocale: zh-cn
+ms.lasthandoff: 05/13/2017
 
 ---
 # <a name="creating-a-data-driven-coded-ui-test"></a>创建数据驱动的编码的 UI 测试
@@ -78,7 +79,7 @@ ms.lasthandoff: 02/22/2017
   
      表明测试通过还是失败的测试结果会显示在测试资源管理器窗口中。 若要打开测试资源管理器窗口，请从“测试”菜单中选择“窗口”，然后选择“测试资源管理器”。  
   
-6.  因为数据源还可以用于断言参数值（用于测试验证预期的值），所以我们来添加断言以验证这两个数的总和是正确的。 将游标放在上面所示的测试方法中，打开上下文菜单，然后依次选择“为编码的 UI 测试生成代码”、“使用编码的 UI 测试生成器”。  
+6.  因为数据源还可以用于断言参数值（供测试用于验证预期的值），所以通过添加断言来验证这两个数的总和是正确的。 将游标放在上面所示的测试方法中，打开上下文菜单，然后依次选择“为编码的 UI 测试生成代码”、“使用编码的 UI 测试生成器”。  
   
      映射显示总和的计算器中的文本控件。  
   
@@ -107,7 +108,7 @@ ms.lasthandoff: 02/22/2017
   
 9. 通过 `ValidateSum()` 方法验证测试正常运行。 将游标放在上面所示的测试方法中，打开上下文菜单，然后选择“运行测试”。 （键盘快捷键：Ctrl + R、T)。  
   
-     在这一点上，所有参数值在方法中都定义为常量。 然后，创建数据集让测试成为数据驱动。  
+     在这一点上，所有参数值在方法中都定义为常量。 然后，创建数据集，让测试成为数据驱动的测试。  
   
 #### <a name="step-2---create-a-data-set"></a>步骤 2 - 创建数据集  
   
@@ -127,7 +128,7 @@ ms.lasthandoff: 02/22/2017
   
      ![使用数据填充 .CSV 文件](../test/media/cuit_datadriven_adddatatocsvfile.png "CUIT_dataDriven_AddDataToCSVFile")  
   
-3.  务必使用正确的编码保存 .csv 文件。 在“文件”菜单上，选择“高级保存选项”并选择“Unicode (无签名的 UTF-8) - 代码页 65001”作为编码。  
+3.  务必使用正确的编码保存 .csv 文件。 在“文件”菜单上，选择“高级保存选项”，并选择“Unicode (无签名的 UTF-8) - 代码页 65001”作为编码。  
   
 4.  必须将 .csv 文件复制到输出目录，否则测试无法运行。 使用属性窗口进行复制。  
   
@@ -135,7 +136,7 @@ ms.lasthandoff: 02/22/2017
   
      数据集已经创建，接下来将数据绑定到测试。  
   
-#### <a name="step-3--add-data-source-binding"></a>步骤 3 – 添加数据源绑定  
+#### <a name="step-3---add-data-source-binding"></a>步骤 3 - 添加数据源绑定  
   
 1.  若要绑定数据源，请将 `DataSource` 属性添加在现有 `[TestMethod]` 属性（就在测试方法上面）中。  
   
@@ -161,9 +162,9 @@ ms.lasthandoff: 02/22/2017
   
      注意，测试通过三种迭代运行。 这是因为绑定的数据源包含三行数据。 不过，你还要注意测试每次依然使用常数参数值并且添加 1 + 2，和为 3。  
   
-     接下来，使用数据源文件中的值配置测试。  
+     接下来，将测试配置为使用数据源文件中的值。  
   
-#### <a name="step-4--use-the-data-in-the-coded-ui-test"></a>步骤 4 – 将数据用于编码的 UI 测试中  
+#### <a name="step-4---use-the-data-in-the-coded-ui-test"></a>步骤 4 - 将数据用于编码的 UI 测试中  
   
 1.  将 `using Microsoft.VisualStudio.TestTools.UITesting.WinControls` 添加至 CodedUITest.cs 文件的顶部：  
   
@@ -212,7 +213,7 @@ ms.lasthandoff: 02/22/2017
   
 3.  保存解决方案。  
   
-#### <a name="step-5--run-the-data-driven-test"></a>步骤 5 – 运行数据驱动的测试  
+#### <a name="step-5---run-the-data-driven-test"></a>步骤 5 - 运行数据驱动的测试  
   
 1.  通过再次运行测试来验证现在测试是数据驱动的。  
   
@@ -220,7 +221,7 @@ ms.lasthandoff: 02/22/2017
   
  **指南**  
   
- 有关其他信息，请参阅 [Testing for Continuous Delivery with Visual Studio 2012 – Chapter 2: Unit Testing: Testing the Inside](http://go.microsoft.com/fwlink/?LinkID=255188)（使用 Visual Studio 2012 测试连续交付 - 第 2 章：单元测试：测试内部）和 [Testing for Continuous Delivery with Visual Studio 2012 – Chapter 5: Automating System Tests](http://go.microsoft.com/fwlink/?LinkID=255196)（使用 Visual Studio 2012 测试连续交付 - 第 5 章：自动化系统测试）  
+ 有关其他信息，请参阅[使用 Visual Studio 2012 测试连续交付 - 第 2 章：单元测试：测试内部](http://go.microsoft.com/fwlink/?LinkID=255188)和[使用 Visual Studio 2012 测试连续交付 - 第 5 章：自动化系统测试](http://go.microsoft.com/fwlink/?LinkID=255196)  
   
 ## <a name="q--a"></a>问题解答  
   
@@ -262,7 +263,7 @@ public void DataDrivingDemo_MyTestMethod(int x, int y)
   
  有关详细信息，请参阅[对 Windows Phone 应用使用数据驱动的编码的 UI 测试](../test/test-windows-phone-8-1-apps-with-coded-ui-tests.md#TestingPhoneAppsCodedUI_DataDriven)。  
   
-### <a name="q-why-cant-i-modify-the-code-in-the-uimapdesigner-file"></a>问：为什么我无法修改 UIMap.Designer 文件中的代码？  
+### <a name="q-why-cant-i-modify-the-code-in-the-uimapdesigner-file"></a>问：为什么无法修改 UIMap.Designer 文件中的代码？  
  **答：**每次使用“UIMap - 编码的 UI 测试生成器”生成代码时，都将覆盖在 UIMapDesigner.cs 文件中所做的任何代码更改。 在该示例中以及大多数情况下，为了让测试可以使用某项数据而需要更改代码，这时可以对该测试的源代码文件（即 CodedUITest1.cs）进行更改。  
   
  如果必须修改录制的方法，则必须将其复制到 UIMap.cs 文件并对其重命名。  UIMap.cs 文件可用于重写 UIMapDesigner.cs 文件中的方法和属性。 必须在 Coded UITest.cs 文件中删除对原始方法的引用，并将其替换为重命名的方法名称。  

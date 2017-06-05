@@ -1,50 +1,68 @@
 ---
-title: "DA0021: 第 1 代垃圾回收的速率很高 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-debug"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "vs.performance.21"
-  - "vs.performance.DA0021"
-  - "vs.performance.rules.DA0021"
+title: "DA0021：第 1 代垃圾回收的速率很高 | Microsoft Docs"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-debug
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords:
+- vs.performance.21
+- vs.performance.DA0021
+- vs.performance.rules.DA0021
 ms.assetid: ebf5d9b3-a1ac-4688-8f0f-39a85f4dd15f
 caps.latest.revision: 9
-author: "mikejo5000"
-ms.author: "mikejo"
-manager: "ghogen"
-caps.handback.revision: 9
----
-# DA0021: 第 1 代垃圾回收的速率很高
-[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
+author: mikejo5000
+ms.author: mikejo
+manager: ghogen
+translation.priority.ht:
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- ru-ru
+- zh-cn
+- zh-tw
+translation.priority.mt:
+- cs-cz
+- pl-pl
+- pt-br
+- tr-tr
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 47057e9611b824c17077b9127f8d2f8b192d6eb8
+ms.openlocfilehash: e666eb5fab2ed4d9d8903f1801c606cd879c9a62
+ms.contentlocale: zh-cn
+ms.lasthandoff: 05/13/2017
 
+---
+# <a name="da0021-high-rate-of-gen-1-garbage-collections"></a>DA0021: 第 1 代垃圾回收的速率很高
 |||  
 |-|-|  
 |规则 ID|DA0021|  
-|类别|.NET Framework 使用|  
+|类别|.NET Framework 使用情况|  
 |分析方法|全部|  
-|消息|第 1 代垃圾回收的发生率非常高。  如果特意分配程序的大多数数据结构并将其保留很长一段时间，这通常不会成为问题。  但是，如果此行为是无意的，则可能是您的应用程序锁定了对象。  如果不确定，可以收集 .NET 内存分配数据和对象生存期信息，以了解应用程序使用的内存分配模式。|  
+|消息|第 1 代垃圾回收率非常高。 按设计来说，如果分配了大部分程序的数据结构且其保留时间较长，那么这通常并不是问题。 但是，如果此行为不在计划内，则表示应用程序可能锁定了对象。 如果不能确定，则可收集 .NET 内存分配数据和对象生存期信息，了解应用程序使用的内存分配模式。|  
 |规则类型|信息|  
   
- 在使用采样、.NET 内存或资源争用方法进行分析时，必须收集至少 10 个样本才能触发此规则。  
+ 使用采样法、.NET 内存或资源争用方法进行分析时，必须收集至少 10 个样本才能触发此规则。  
   
-## 原因  
- 分析期间收集的系统性能数据表明，与第 0 代数据收集相比，第 1 代垃圾回收中回收了 .NET Framework 对象的很大一部分内存。  
+## <a name="cause"></a>原因  
+ 分析期间收集的系统性能数据表明：与 0 代数据回收相比，1 代垃圾回收中回收 .NET Framework 对象的内存比例较高。  
   
-## 规则说明  
- Microsoft .NET 公共语言运行时 \(CLR\) 提供了自动内存管理机制，该系统使用垃圾回收器从应用程序不再使用的对象回收内存。  垃圾回收器是面向代的，并假定许多分配的生存期都较短。  例如，本地变量的生存期应比较短。  新创建的对象从第 0 代 \(gen 0\) 开始，然后如果这些对象在运行垃圾回收后仍然存在，则它们进入第 1 代，最后如果应用程序仍然使用这些对象，则它们最终进入第 2 代。  
+## <a name="rule-description"></a>规则说明  
+ Microsoft .NET 公共语言运行时 (CLR) 提供自动内存管理机制，该机制使用垃圾回收器从应用程序不再使用的对象回收内存。 垃圾回收器是面向生成的，基于大量分配为短期分配的假设。 例如，局部变量应是短期的。 新创建的对象在 0 代中启动，如果在垃圾回收后它们仍然存在，则将提升到 1 代，如果应用程序仍使用它们，则最后将过渡到 2 代。  
   
- 第 0 代的对象常被收集而且通常收集效率非常高。  第 1 代的对象收集得较少而且收集效率较低。  最后，应更少地收集第 2 代生存期长的对象。  第 2 代回收运行的是完整垃圾回收，也是最消耗资源的操作。  
+ 收集 0 代中的对象时，通常频率和效率都较高。 收集 1 代中的对象时，通常频率和效率都较低。 最后，应以更低的频率收集 2 代中生存期较长的对象。 2 代回收是完整的垃圾回收运行，也是成本最高的操作。  
   
- 如果发生第 1 代垃圾回收的发生率过高，则会激发此规则。  如果在第 0 代回收后仍然存在太多生存期较短的对象，但随后可以在第 1 代回收中回收这些对象，则内存管理的成本可能会变得过高。  有关更多信息，请参见MSDN网站上发布在Rico Mariani's Performance Tidbits的 [中年危机](http://go.microsoft.com/fwlink/?LinkId=177835) 。  
+ 1 代垃圾回收比例过高时将触发此规则。 如果过多生存期较短的对象通过 0 代回收，但在1 代回收中被回收，那么内存管理的成本将过高。 有关详细信息，请参阅 MSDN 网站上 Rico Mariani 关于性能问题的见解的 [Mid-life crisis](http://go.microsoft.com/fwlink/?LinkId=177835)（中年危机）一文。  
   
-## 如何调查警告  
- 双击“错误列表”窗口中的该消息以导航到分析数据的[“标记”视图](../profiling/marks-view.md)。  找到**“.NET CLR Memory\\\# of Gen 0 Collections”**和**“.NET CLR Memory\\\# of Gen 1 Collections”**列。  确定程序执行过程中是否有一些特定阶段的垃圾回收较为频繁。  将这些值与**“% Time in GC”**列进行比较，看托管内存分配模式是否是导致内存管理开销过大的原因。  
+## <a name="how-to-investigate-a-warning"></a>如何调查警告  
+ 双击“错误列表”窗口中的消息，导航到分析数据的[标记视图](../profiling/marks-view.md)。 查找 **.NET CLR Memory\\# of Gen 0 Collections** 和 **.NET CLR Memory\\# of Gen 1 Collections** 列。 确定是否存在特定阶段的程序执行，其中垃圾回收更频繁。 将这些值与 **%Time in GC** 列进行比较，查看托管内存分配的模式是否会导致内存管理开销过多。  
   
- 若要了解应用程序的托管内存使用模式，可通过运行 .NET 内存分配分析对其重新进行分析，并请求对象生存期测量。  
+ 若要了解应用程序的托管内存使用模式，请运行 .NET 内存分配分析再次进行分析，并请求“对象生存期”度量值。  
   
- 有关如何提高垃圾回收性能的信息，请参见 Microsoft 网站上的 [垃圾回收器基础知识和性能提示](http://go.microsoft.com/fwlink/?LinkId=148226)。  有关自动垃圾回收的开销信息，请参见 [大型对象堆揭密](http://go.microsoft.com/fwlink/?LinkId=177836)。
+ 有关如何提高垃圾回收性能的信息，请参阅 Microsoft 网站上的 [Garbage Collector Basics and Performance Hints](http://go.microsoft.com/fwlink/?LinkId=148226)（垃圾回收器基础知识和性能提示）。 有关自动垃圾回收的开销的信息，请参阅[大型对象堆揭密](http://go.microsoft.com/fwlink/?LinkId=177836)。

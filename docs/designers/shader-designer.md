@@ -1,22 +1,42 @@
 ---
 title: "着色器设计器 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-general"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "vs.graphics.designer.effectdesigner"
-  - "vs.graphics.shaderdesigner"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-general
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords:
+- vs.graphics.designer.effectdesigner
+- vs.graphics.shaderdesigner
 ms.assetid: 5db09a16-b82c-4ba3-8ec9-630cdc109397
 caps.latest.revision: 32
-author: "BrianPeek"
-ms.author: "brpeek"
-manager: "ghogen"
-caps.handback.revision: 32
+author: BrianPeek
+ms.author: brpeek
+manager: ghogen
+translation.priority.ht:
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- ru-ru
+- zh-cn
+- zh-tw
+translation.priority.mt:
+- cs-cz
+- pl-pl
+- pt-br
+- tr-tr
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 47057e9611b824c17077b9127f8d2f8b192d6eb8
+ms.openlocfilehash: af7472d5152babe2088ae3cc49caaf718a539878
+ms.contentlocale: zh-cn
+ms.lasthandoff: 05/13/2017
+
 ---
 # <a name="shader-designer"></a>着色器设计器
 本文档介绍如何使用 [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] 着色器设计器来创建、修改和导出名为“着色器”的自定义视觉效果。  
@@ -112,7 +132,7 @@ caps.handback.revision: 32
   
 -   在“着色器设计器模式”工具栏上，选择所需的形状。  
   
-####  <a name="a-namewwsmaterialparametersa-textures-and-material-parameters"></a><a name="WWS_MaterialParameters"></a>纹理和材料参数  
+####  <a name="WWS_MaterialParameters"></a>纹理和材料参数  
  许多着色器依赖于纹理和材料属性，为应用中的每种对象生成唯一外观。 若要查看着色器在应用中的外观，可以设置用于呈现预览的纹理和材料属性，以匹配在应用中可能采用的纹理和参数。  
   
 ###### <a name="to-bind-a-different-texture-to-a-texture-register-or-to-modify-other-material-parameters"></a>将不同的纹理绑定到一个纹理寄存器中，或修改其他材料参数  
@@ -125,8 +145,8 @@ caps.handback.revision: 32
   
 |参数|属性|  
 |---------------|----------------|  
-|**纹理 1** – **纹理 8**|**访问**：如果允许从模型编辑器设置属性，则为“公共”；否则为“私有”。<br /><br /> **文件名**：与此纹理寄存器关联的纹理文件的完整路径。|  
-|**材料环境**|**访问**：如果允许从模型编辑器设置属性，则为“公共”；否则为“私有”。<br /><br /> **值**：间接（或环境）光照引起的当前像素的漫射颜色。|  
+|纹理 1 - 纹理 8|**访问**：如果允许从模型编辑器设置属性，则为“公共”；否则为“私有”。<br /><br /> **文件名**：与此纹理寄存器关联的纹理文件的完整路径。|  
+|**材料环境**|**访问**：如果允许从模型编辑器设置属性，则为“公共”；否则为“私有”。<br /><br /> 值：间接（或环境）光照引起的当前像素的漫射颜色。|  
 |**材料漫射**|**访问**：如果允许从模型编辑器设置属性，则为“公共”；否则为“私有”。<br /><br /> **值**：一种颜色，描述当前像素如何漫射直接光照。|  
 |**材料放射**|**访问**：如果允许从模型编辑器设置属性，则为“公共”；否则为“私有”。<br /><br /> **值**：由自发光照引起的当前像素的颜色量。|  
 |**材料反射**|**访问**：如果允许从模型编辑器设置属性，则为“公共”；否则为“私有”。<br /><br /> **值**：一种颜色，描述当前像素如何反射直接光照。|  
@@ -185,8 +205,3 @@ caps.handback.revision: 32
 |[为游戏和应用使用三维资产](../designers/working-with-3-d-assets-for-games-and-apps.md)|概述了可用来处理纹理和图像、三维模型和着色器效果的 [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] 工具。|  
 |[图像编辑器](../designers/image-editor.md)|描述如何使用 [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] 图像编辑器处理纹理和图像。|  
 |[模型编辑器](../designers/model-editor.md)|介绍如何使用 [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] 模型编辑器处理三维模型。|
-
-
-<!--HONumber=Feb17_HO4-->
-
-

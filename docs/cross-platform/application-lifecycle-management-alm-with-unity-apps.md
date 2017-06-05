@@ -1,22 +1,42 @@
 ---
-title: "适用于 Unity 应用的 Visual Studio 应用程序生命周期管理 (ALM) | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "tgt-pltfrm-cross-plat"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
+title: "适用于 Unity 应用的应用程序生命周期管理 (ALM) | Microsoft Docs"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- tgt-pltfrm-cross-plat
+ms.tgt_pltfrm: 
+ms.topic: article
 ms.assetid: 2dc61e63-9ba2-4c16-b1ad-f46249e576b6
 caps.latest.revision: 12
-author: "ghogen"
-ms.author: "ghogen"
-manager: "ghogen"
-caps.handback.revision: 12
+author: ghogen
+ms.author: ghogen
+manager: ghogen
+translation.priority.ht:
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- ru-ru
+- zh-cn
+- zh-tw
+translation.priority.mt:
+- cs-cz
+- pl-pl
+- pt-br
+- tr-tr
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 47057e9611b824c17077b9127f8d2f8b192d6eb8
+ms.openlocfilehash: 7e95cec543216f13de06d2c2b86bc08040d1a7fb
+ms.contentlocale: zh-cn
+ms.lasthandoff: 05/13/2017
+
 ---
 # <a name="application-lifecycle-management-alm-with-unity-apps"></a>适用于 Unity 应用的 Visual Studio 应用程序生命周期管理 (ALM)
-开发适用于现代平台的应用涉及许多活动，并不仅仅只是编写代码。 这些活动被称为 DevOps（开发+操作），它们跨越应用的整个生命周期，包括计划和跟踪工作、设计和实现代码、管理源代码存储库、运行生成、管理持续集成和部署、测试（包括单元测试和 UI 测试）、在开发和生产环境中运行各种形式的诊断以及通过遥测和分析实时监控应用的性能和用户行为。  
+开发适用于现代平台的应用涉及许多活动，并不仅仅只是编写代码。 这些活动被称为 DevOps（开发 + 操作），它们跨越应用的整个生命周期，包括计划和跟踪工作、设计和实现代码、管理源代码存储库、运行生成、管理持续集成和部署、测试（包括单元测试和 UI 测试）、在开发和生产环境中运行各种形式的诊断以及通过遥测和分析实时监控应用的性能和用户行为。  
   
  Visual Studio、Visual Studio Team Services 和 Team Foundation Server 提供了各种 DevOps 功能，也被称为应用程序生命周期管理或 ALM。 其中许多都适用于跨平台项目，包括采用 Unity 创建的游戏和沉浸式图形应用 - 特别是在将 C# 用作脚本语言时。 但是，由于 Unity 具有其自己的开发环境和运行时引擎，大量的 ALM 功能并不能像适用于在 Visual Studio 中生成的其他项目一样适用。  
   
@@ -90,7 +110,7 @@ caps.handback.revision: 12
 |测试管理器（记录和播放测试）|仅限 Windows 设备和 Android 模拟器||  
 |代码覆盖率|无|Unity 内进行单元测试时以及不是 Visual Studio 时不适用，请参阅下文。|  
 |[单元测试代码](../test/unit-test-your-code.md)|在 Unity 中，但不在 Visual Studio 中|Unity 提供了自己的单元测试框架作为 [Unity 测试工具](https://www.assetstore.unity3d.com/en/#!/content/13802)（Unity 资产商店）的一部分。 单元测试结果在 Unity 中报告，将不会出现在 Visual Studio 内。|  
-|[使用 UI 自动化来测试代码](../test/use-ui-automation-to-test-your-code.md)|No|编码的 UI 测试依赖于应用 UI 中可读取的控件；Unity 应用程序在本质上都是图形，因此编码的 UI 测试工具无法读取其内容。|  
+|[使用 UI 自动化来测试代码](../test/use-ui-automation-to-test-your-code.md)|No|编码的 UI 测试依赖于应用 UI 中可读取的控件；Unity 应用在本质上都是图形，因此编码的 UI 测试工具无法读取其内容。|  
   
 ## <a name="improve-code-quality"></a>提高代码质量  
  参考链接：**[提高代码质量](http://msdn.microsoft.com/Library/73baa961-c21f-43fe-bb92-3f59ae9b5945)**  
@@ -118,8 +138,3 @@ caps.handback.revision: 12
 |功能|通过 Unity 提供支持|其他注释|  
 |-------------|--------------------------|-------------------------|  
 |故障分析、遥测和 beta 版本分发|是|HockeyApp 主要用于处理 beta 版本分布和获取故障报告。<br /><br /> 对于 C# 脚本中的遥测，则可以使用任何分析框架，前提是它在运行时使用的 .NET 版本也用于 Unity。 但是，这仅允许在游戏脚本内进行分析，而不是更加深入 Unity 引擎内部。 目前，没有任何适用于 Application Insights 的插件，但有适用于其他分析解决方案的插件，例如 [Unity 分析](https://www.assetstore.unity3d.com/en/#!/content/28120)和 [Google 分析](https://github.com/googleanalytics/google-analytics-plugin-for-unity)。 当然，了解 Unity 项目本质的 Unity 分析等服务将提供更多比一般框架更有意义的分析。|
-
-
-<!--HONumber=Feb17_HO4-->
-
-

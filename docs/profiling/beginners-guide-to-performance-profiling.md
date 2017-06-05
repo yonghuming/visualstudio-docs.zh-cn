@@ -1,7 +1,7 @@
 ---
 title: "Visual Studio 性能分析初学者指南 | Microsoft Docs"
 ms.custom: H1Hack27Feb2017
-ms.date: 11/04/2016
+ms.date: 02/27/2017
 ms.reviewer: 
 ms.suite: 
 ms.technology:
@@ -34,10 +34,11 @@ translation.priority.ht:
 - tr-tr
 - zh-cn
 - zh-tw
-translationtype: Human Translation
-ms.sourcegitcommit: a42f5a30375192c89c9984e40ba0104da98d7253
-ms.openlocfilehash: fe329cd5395db3afae1c3f3e98bb6e480323e21f
-ms.lasthandoff: 03/07/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 90b2481b0ec4f9387fe3a2c0b733a103e8c03845
+ms.openlocfilehash: 36770fe6fad52e33144f382446d7e851734f87c5
+ms.contentlocale: zh-cn
+ms.lasthandoff: 05/23/2017
 
 ---
 # <a name="beginners-guide-to-performance-profiling"></a>性能分析初学者指南
@@ -149,13 +150,13 @@ ms.lasthandoff: 03/07/2017
 
 ## <a name="BKMK_External_Code"></a>查看外部代码
 
-外部代码是你编写的代码执行的系统和框架组件中的函数。 外部代码包含函数，可启动和停止应用、绘制 UI、控制线程以及向应用提供其他低级别服务。 在大多数情况下，你不会对外部代码感兴趣，因此 CPU 使用率工具可将用户方法的外部函数收集到一个 **[外部代码]** 节点中。
+外部代码是你编写的代码执行的系统和框架组件中的函数。 外部代码包含函数，可启动和停止应用、绘制 UI、控制线程以及向应用提供其他低级别服务。 在大多数情况下，你不会对外部代码感兴趣，因此 CPU 使用率工具可将用户方法的外部函数收集到一个 [外部代码] 节点中。
   
 若要查看外部代码的调用路径，请从“筛选器视图”列表中选择“显示外部代码”，然后选择“应用”。  
   
 ![选择“筛选器视图”，然后选择“显示外部代码”](../profiling/media/DiagToolsShowExternalCode.png "DiagToolsShowExternalCode")  
   
-请注意，许多外部代码调用链已深度嵌套，因此函数名列的宽度可能超过所有计算机监视器（最大的计算机监视器除外）的显示宽度。 发生这种情况时，函数名显示为 **[…]**。
+请注意，许多外部代码调用链已深度嵌套，因此函数名列的宽度可能超过所有计算机监视器（最大的计算机监视器除外）的显示宽度。 发生这种情况时，函数名将显示为 […]。
   
 使用搜索框找到要查找的节点，然后滑动水平滚动条将数据带入视图中。
 

@@ -30,10 +30,11 @@ translation.priority.ht:
 - tr-tr
 - zh-cn
 - zh-tw
-translationtype: Human Translation
-ms.sourcegitcommit: 5db97d19b1b823388a465bba15d057b30ff0b3ce
-ms.openlocfilehash: 1dee6e1a0e92ecf5c8be64c4c3c477cf31291203
-ms.lasthandoff: 02/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 47057e9611b824c17077b9127f8d2f8b192d6eb8
+ms.openlocfilehash: fb1bcd92e8f7bda12e774b969da2c71dfc38ab2f
+ms.contentlocale: zh-cn
+ms.lasthandoff: 05/13/2017
 
 ---
 # <a name="how-to-create-and-apply-a-resource"></a>如何创建和应用资源
@@ -80,7 +81,7 @@ XAML 设计器中元素的样式和模板存储在称作资源的可重用实体
         > [!NOTE]
         >  “编辑模板”用于应用控件模板。 “编辑其他模板”用于应用其他模板类型。  
   
-     资源可应用于兼容的任何位置。 例如，画笔资源可应用于 <xref:Windows.UI.Xaml.Controls.TextBox> 控件的“前景色”属性。  
+     资源可应用于兼容的任何位置。 例如，画笔资源可应用于 <xref:Windows.UI.Xaml.Controls.TextBox> 控件的“前景”属性。  
   
 ### <a name="to-edit-a-resource"></a>编辑资源的步骤  
   

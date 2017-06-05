@@ -26,10 +26,11 @@ translation.priority.ht:
 - tr-tr
 - zh-cn
 - zh-tw
-translationtype: Human Translation
-ms.sourcegitcommit: 5db97d19b1b823388a465bba15d057b30ff0b3ce
-ms.openlocfilehash: 75dc59de6446e4de3f1fa0522150eabcf800b24b
-ms.lasthandoff: 02/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 47057e9611b824c17077b9127f8d2f8b192d6eb8
+ms.openlocfilehash: b7ef6829b8fca9f08b9c1fc526c975dad54f24d2
+ms.contentlocale: zh-cn
+ms.lasthandoff: 05/13/2017
 
 ---
 # <a name="walkthrough-creating-editing-and-maintaining-a-coded-ui-test"></a>演练：创建、编辑和维护编码的 UI 测试
@@ -187,7 +188,7 @@ ms.lasthandoff: 02/22/2017
   
 14. 在“方法名称”中键入 **SimpleAppTest**，然后选择“添加并生成”。 几秒后，编码的 UI 测试将出现，并且会添加到“解决方案”中。  
   
-15. 关闭“UIMap – 编码的 UI 测试生成器”。  
+15. 关闭“UIMap - 编码的 UI 测试生成器”。  
   
      CodedUITest1.cs 文件将出现在代码编辑器中。  
   
@@ -312,11 +313,11 @@ ms.lasthandoff: 02/22/2017
   
 1.  在 CodedUITest1.cs 文件的 **CodedUITestMethod1()** 方法中，右键单击并选择“为编码的 UI 测试生成代码”，然后选择“使用编码的 UI 测试生成器”。  
   
-     将出现“UIMap – 编码的 UI 测试生成器”。  
+     将出现“UIMap - 编码的 UI 测试生成器”。  
   
 2.  使用你之前创建的桌面快捷方式，运行你在之前创建的 SimpleWPFApp 应用程序。  
   
-3.  在“UIMap – 编码的 UI 测试生成器”中，将十字线工具拖至 SimpleWPFApp 中的“Start”按钮。  
+3.  在“UIMap - 编码的 UI 测试生成器”中，将十字线工具拖到 SimpleWPFApp 中的“启动”按钮。  
   
      “Start”按钮包围在蓝色框中，编码的 UI 测试生成器需要几秒钟来为选定控件处理数据并显示控件属性。 请注意，**AutomationUId** 命名为 **buttonA**。  
   
@@ -328,15 +329,15 @@ ms.lasthandoff: 02/22/2017
   
 6.  在“UIMap - 编码的 UI 测试生成器”中，选择“生成代码”。  
   
-     将显示“编码的 UI 测试生成器 – 生成代码”，其中包含一个注释，指示不需要任何新方法，并且只为 UI 控件图的更改生成代码。  
+     将显示“编码的 UI 测试生成器 –-生成代码”，其中包含一个注释，指示不需要任何新方法，并且只为 UI 控件图的更改生成代码。  
   
 7.  选择“生成”。  
   
 8.  关闭 SimpleWPFApp.exe。  
   
-9. 关闭“UIMap – 编码的 UI 测试生成器”。  
+9. 关闭“UIMap - 编码的 UI 测试生成器”。  
   
-     “UIMap – 编码的 UI 测试生成器”需要几秒钟来处理 UI 控件图更改。  
+     “UIMap - 编码的 UI 测试生成器”需要几秒钟来处理 UI 控件图更改。  
   
 10. 在解决方案资源管理器中，打开 UIMap.Designer.cs 文件。  
   
@@ -384,11 +385,11 @@ ms.lasthandoff: 02/22/2017
 ## <a name="external-resources"></a>外部资源  
   
 ### <a name="videos"></a>视频  
- ![链接至视频](../data-tools/media/playvideo.gif "PlayVideo") [编码的 UI 测试-DeepDive-第&1; 集-入门](http://go.microsoft.com/fwlink/?LinkID=230573)  
+ ![链接至视频](../data-tools/media/playvideo.gif "PlayVideo") [编码的 UI 测试-DeepDive-第 1 集-入门](http://go.microsoft.com/fwlink/?LinkID=230573)  
   
- ![链接至视频](../data-tools/media/playvideo.gif "PlayVideo") [编码的 UI 测试-DeepDive-第&2; 集-维护和调试](http://go.microsoft.com/fwlink/?LinkID=230574)  
+ ![链接至视频](../data-tools/media/playvideo.gif "PlayVideo") [编码的 UI 测试-DeepDive-第 2 集-维护和调试](http://go.microsoft.com/fwlink/?LinkID=230574)  
   
- ![链接至视频](../data-tools/media/playvideo.gif "PlayVideo") [编码的 UI 测试-DeepDive-第&3; 集-手工编码](http://go.microsoft.com/fwlink/?LinkID=230575)  
+ ![链接至视频](../data-tools/media/playvideo.gif "PlayVideo") [编码的 UI 测试-DeepDive-第 3 集-手工编码](http://go.microsoft.com/fwlink/?LinkID=230575)  
   
 ### <a name="hands-on-lab"></a>动手实验  
  [MSDN 虚拟实验室：使用 Visual Studio 2010 创建编码的 UI 测试的简介](http://go.microsoft.com/fwlink/?LinkID=22508)  
@@ -396,7 +397,7 @@ ms.lasthandoff: 02/22/2017
 ### <a name="faq"></a>FAQ  
  [编码的 UI 测试常见问题 - 1](http://go.microsoft.com/fwlink/?LinkID=230576)  
   
- [编码的 UI 测试常见问题 -&2;](http://go.microsoft.com/fwlink/?LinkID=230578)  
+ [编码的 UI 测试常见问题 - 2](http://go.microsoft.com/fwlink/?LinkID=230578)  
   
 ### <a name="forum"></a>论坛  
  [Visual Studio UI 自动测试（包括 CodedUI）](http://go.microsoft.com/fwlink/?LinkID=224497)  

@@ -13,9 +13,11 @@ caps.latest.revision: 8
 author: mikejo5000
 ms.author: mikejo
 manager: ghogen
-translationtype: Human Translation
-ms.sourcegitcommit: 5db97d19b1b823388a465bba15d057b30ff0b3ce
-ms.openlocfilehash: 2cfcc962e41d67995f1e1e04b787a49edfbbfbf6
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 47057e9611b824c17077b9127f8d2f8b192d6eb8
+ms.openlocfilehash: 8d0cc37019b04d6f734d6bd604c0ddd948b6dc9f
+ms.contentlocale: zh-cn
+ms.lasthandoff: 05/13/2017
 
 ---
 # <a name="running-profiling-tools-with-or-without-the-debugger"></a>运行带或不带调试器的分析工具
@@ -28,17 +30,17 @@ Visual Studio 现提供一些性能工具的选择，其中一些（如“CPU �
   
 1.  应用程序开发过程中是否出现该问题，或已发布的版本中是否存在该问题？  
   
-     如果在开发过程中出现了正在处理的问题，那么很可能无需在发布版本中运行性能工具。 如果在发布版本中出现该问题，应使用发布配置重新生成该问题，然后决定调试器是否帮助进行进一步调查。  
+     如果在开发过程中出现了正在处理的问题，则可能无需在发布版本中运行性能工具。 如果在发布版本中出现该问题，应使用发布配置重新生成该问题，然后决定调试器是否帮助进行进一步调查。  
   
 2.  该问题是由占用大量 CPU 的处理所引发的吗？  
   
-     很多问题由外部性能问题（如文件 I/O 或网络响应能力）所致，因此使用/不使用调试器的情况下运行性能工具并没有多大影响。 如果问题源于大量占用 CPU 的调用，那么发布配置和调试配置间的差异可能会很大，应该在使用集成了调试器的工具之前应该进行检查以查看发布版本中是否存在该问题  
+     很多问题由外部性能问题（如文件 I/O 或网络响应能力）所致，因此无论是否使用调试器，都不会对运行性能工具造成很大影响。 如果问题源于大量占用 CPU 的调用，那么发布配置和调试配置间的差异可能会很大，应该在使用集成了调试器的工具之前应该进行检查以查看发布版本中是否存在该问题  
   
 3.  是否需要精确地测量性能，或大致数值是否可以接受？  
   
      调试版本缺少发布版本提供的某些优化，例如内联函数调用和常量、修剪未使用的代码路径及以调试器不能使用的方式存储变量。 调试器自身会更改性能时间，因为它将执行调试所必需的某些操作（如截获异常和模块加载事件）。 因此，集成了调试器的工具中的性能数字只精确到数十毫秒内。 而运行未集成调试器的工具的发布配置的性能数字要精确得多。  
   
-##  <a name="a-namebkmkquickstartcollectdiagnosticdataa-collect-profiling-data-while-debugging"></a><a name="BKMK_Quick_start__Collect_diagnostic_data"></a> 在调试期间收集分析数据  
+##  <a name="BKMK_Quick_start__Collect_diagnostic_data"></a> 在调试期间收集分析数据  
  下面这一节对本地调试进行介绍。 后续章节介绍关于在设备上进行调试和远程调试的信息。  
   
 1.  打开想要调试的项目，然后单击“调试”/“启动调试”  （或工具栏上的“启动”  或按 **F5**）。  
@@ -140,8 +142,3 @@ Visual Studio 现提供一些性能工具的选择，其中一些（如“CPU �
  [Visual Studio 2015 中的“诊断工具”调试器窗口](http://blogs.msdn.com/b/visualstudioalm/archive/2015/01/16/diagnostic-tools-debugger-window-in-visual-studio-2015.aspx)  
   
  [Visual Studio Enterprise 2015 中的 IntelliTrace](http://blogs.msdn.com/b/visualstudioalm/archive/2015/01/16/intellitrace-in-visual-studio-ultimate-2015.aspx)
-
-
-<!--HONumber=Feb17_HO4-->
-
-

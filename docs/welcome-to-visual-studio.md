@@ -31,14 +31,15 @@ translation.priority.mt:
 - pl-pl
 - pt-br
 - tr-tr
-translationtype: Human Translation
-ms.sourcegitcommit: a42f5a30375192c89c9984e40ba0104da98d7253
-ms.openlocfilehash: 7ec312bf7c85759fef700f0746c0981f263d46e2
-ms.lasthandoff: 03/07/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 47057e9611b824c17077b9127f8d2f8b192d6eb8
+ms.openlocfilehash: 362a756e434f93eb39776c76382d059cc2744cae
+ms.contentlocale: zh-cn
+ms.lasthandoff: 05/13/2017
 
 ---
 # <a name="welcome-to-visual-studio-2017"></a>欢迎使用 Visual Studio 2017！
-我们提供你为设备或桌面应用、Web 和云创建优秀应用所需的一切内容。 可在单个集成开发环境 (IDE) 中为 iOS、Android 和 Linux 等编写代码。 获得很棒的交互式代码帮助 (IntelliSense)、方便的代码导航和调试、快速生成和快速部署。 Visual Studio 可提高你的工作效率，使你可单独或作为较大团队的一部分轻松地完成工作。  
+我们提供了为设备或桌面应用、Web 和云创建优秀应用所需的一切内容。 可在单个集成开发环境 (IDE) 中为 iOS、Android 和 Linux 等编写代码。 获得很棒的交互式代码帮助 (IntelliSense)、方便的代码导航和调试、快速生成和快速部署。 Visual Studio 可提高你的工作效率，使你可单独或作为较大团队的一部分轻松地完成工作。  
 
 > [!NOTE]
 >  单击此处，了解 [Visual Studio 2017](https://go.microsoft.com/fwlink/?linkid=834799) 的发行说明。    
@@ -47,7 +48,7 @@ ms.lasthandoff: 03/07/2017
 
  可以通过从 [Visual Studio 下载](http://www.visualstudio.com/downloads/download-visual-studio-vs.aspx)页面下载安装 Visual Studio 2017。 若要了解有关安装过程的详细信息，请参阅[安装 Visual Studio 2017](https://go.microsoft.com/fwlink/?linkid=833223)。 立即投入，创建新项目，或打开代码文件，然后开始编写代码。 选择要创建的应用类型。 或者，可以[浏览](https://go.microsoft.com/fwlink/?linkid=833058) Visual Studio IDE 以深入了解工具。
 
- 同时，别忘了浏览我们的 [代码库](https://code.msdn.microsoft.com/) ，以找到可帮助你更快编写应用的示例！ 关于许多免费 Visual Studio 视频，请参阅[第 9 频道](https://channel9.msdn.com/VisualStudio)和 [Microsoft Virtual Academy](https://mva.microsoft.com/product-training/visual-studio-courses#!jobf=Developer&lang=1033)。
+ 同时，别忘了浏览我们的 [代码库](https://code.msdn.microsoft.com/)，以找到可帮助你更快编写应用的示例！ 关于许多免费 Visual Studio 视频，请参阅[第 9 频道](https://channel9.msdn.com/VisualStudio)和 [Microsoft Virtual Academy](https://mva.microsoft.com/product-training/visual-studio-courses#!jobf=Developer&lang=1033)。
 
 ## <a name="build-cross-platform-apps-and-games"></a>生成跨平台应用和游戏  
  可使用 Visual Studio 生成适用于 Android、iOS 和 Linux 等设备的应用和游戏。 若要了解详细信息，请参阅[跨平台移动开发](cross-platform/cross-platform-mobile-development-in-visual-studio.md)。  通用 Windows 应用可帮助在多个平台中利用代码。 有关详细信息，请参阅[通用 Windows 应用](https://dev.windows.com/en-us/windows-apps)。
@@ -90,7 +91,7 @@ ms.lasthandoff: 03/07/2017
  使用 [Visual Studio Team Services](https://www.visualstudio.com/team-services/) 可将代码存储在云中，而无需维护本地服务器。 如果需要使用本地服务器，请使用 [Team Foundation Server](https://www.visualstudio.com/tfs/)。 每次创建代码项目时，你都可以选择将其添加到版本控制。 了解最适合于需求的版本控制系统：[Choosing the right version control for your project](https://www.visualstudio.com/en-us/docs/tfvc/comparison-git-tfvc)（选择适合项目的版本控制）。  
 
 ### <a name="build-your-app"></a>生成应用程序  
- 可[在本地生成应用](ide/compiling-and-building-in-visual-studio.md)并确保它正常运行。 然后使用[调试工具](debugger/debugging-in-visual-studio.md)修复与应用相关的任何问题。 或者，可以在共享生成服务器上或在云中生成项目。 自动执行生成过程以生成团队中的开发人员签入到版本控制的代码。 例如，您可以在夜间或每次签入此代码时生成一个或多个项目。 有关详细信息，请参阅 [Continuous integration on any platform](https://www.visualstudio.com/en-us/docs/build/overview)（任何平台上的持续集成）。
+ 你可以 [在本地生成应用](ide/compiling-and-building-in-visual-studio.md) 并确保它正常运行。 然后使用 [调试工具](debugger/debugging-in-visual-studio.md) 修复与应用有关的任何问题。 或者，可以在共享生成服务器上或在云中生成项目。 自动执行生成过程以生成团队中的开发人员签入到版本控制的代码。 例如，您可以在夜间或每次签入此代码时生成一个或多个项目。 有关详细信息，请参阅 [Continuous integration on any platform](https://www.visualstudio.com/en-us/docs/build/overview)（任何平台上的持续集成）。
 
 ### <a name="test-and-improve-your-app"></a>测试和改进应用  
 [创建单元测试](test/unit-test-your-code.md)以提高应用的质量。 这些测试可以在每次进行签入时以及作为生成的一部分运行。  
@@ -100,7 +101,7 @@ ms.lasthandoff: 03/07/2017
 诊断内存和 CPU 使用情况以及其他应用程序级别的问题。 有关详细信息，请参阅[分析工具](profiling/profiling-tools.md)。
 
 ### <a name="deliver-your-teams-code-faster"></a>更快地交付团队代码  
- 消除团队成员之间的障碍并改进协作。 更进一步，自动向开发到生产中的每个阶段发布应用。 实时监视应用性能和可用性。 收集有关客户实际上如何使用应用的实时使用情况数据。 有关详细信息，请参阅 [DevOps 和应用程序生命周期管理](https://www.visualstudio.com/en-us/docs/vsts-tfs-overview)。  
+ 消除团队成员之间的障碍并改进协作。 更进一步，自动向开发到生产中的每个阶段发布应用。 实时监视应用性能和可用性。 收集有关客户实际上如何使用应用的实时使用情况数据。 有关详细信息，请参阅 [DevOps 和应用程序生命周期管理](https://www.visualstudio.com/en-us/docs/vsts-tfs-overview) 。  
 
 ## <a name="whats-new"></a>新增功能  
 了解 Visual Studio 中的新增功能。

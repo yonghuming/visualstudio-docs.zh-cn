@@ -26,16 +26,17 @@ translation.priority.ht:
 - tr-tr
 - zh-cn
 - zh-tw
-translationtype: Human Translation
-ms.sourcegitcommit: 1694abeb37e7fa0e5766dfda16a05bd5e7895885
-ms.openlocfilehash: 9168eb964b86f375390157511bf9ec9526709d7b
-ms.lasthandoff: 04/05/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 47057e9611b824c17077b9127f8d2f8b192d6eb8
+ms.openlocfilehash: b95ff54bded55d16391f57ee53b8a95ca99ca867
+ms.contentlocale: zh-cn
+ms.lasthandoff: 05/13/2017
 
 ---
 # <a name="set-a-unique-automation-property-for-windows-store-controls-for-testing"></a>为 Windows 应用商店控件设置唯一的自动化属性以进行测试
 必须有可标识每个控件的唯一自动化属性，才能对基于 XAML 的 Windows 应用商店应用运行编码的 UI 测试。  
   
- 可以根据应用中 XAML 控件的类型分配唯一自动化属性。 下面介绍了如何在以下情况下分配此唯一自动化属性：  
+ 可以根据应用中 XAML 控件的类型分配唯一自动化属性。 下面介绍了如何在以下情况分配此唯一自动化属性：  
   
 -   [控件的静态 XAML 定义](#UniquePropertyWindowsStoreControlsStaticXAML)  
   
@@ -73,7 +74,7 @@ ms.lasthandoff: 04/05/2017
  在控件 XAML 中将 AutomationProperties.AutomationId 显式设为“ButtonX”。  
   
 ```xaml  
-<Button AutomationProperties.AutomationId=“ButtonX” Height="31" HorizontalAlignment="Left" Margin="23,26,0,0"  VerticalAlignment="Top" Width="140" Click="ButtonX_Click" />  
+<Button AutomationProperties.AutomationId="ButtonX" Height="31" HorizontalAlignment="Left" Margin="23,26,0,0"  VerticalAlignment="Top" Width="140" Click="ButtonX_Click" />  
   
 ```  
   
@@ -196,8 +197,8 @@ public override string ToString()
   
 ```xaml  
   
-<Button Content=”Button1” Style="{StaticResource MyButton}" Width="140"/>  
-<Button Content=”Button2” Style="{StaticResource MyButton}" Width="140"/>  
+<Button Content="Button1" Style="{StaticResource MyButton}" Width="140"/>  
+<Button Content="Button2" Style="{StaticResource MyButton}" Width="140"/>  
 ```  
   
 ###  <a name="UniquePropertyWindowsStoreControlsDynamicControls"></a>动态控件  

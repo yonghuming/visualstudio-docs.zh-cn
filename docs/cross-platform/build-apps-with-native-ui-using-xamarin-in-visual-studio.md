@@ -1,19 +1,39 @@
 ---
 title: "在 Visual Studio 中使用 Xamarin 生成具有本机 UI 的应用 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "tgt-pltfrm-cross-plat"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- tgt-pltfrm-cross-plat
+ms.tgt_pltfrm: 
+ms.topic: article
 ms.assetid: 30f137e6-595d-4ce7-b8f5-415b07c1caa2
 caps.latest.revision: 31
-author: "ghogen"
-ms.author: "ghogen"
-manager: "ghogen"
-caps.handback.revision: 23
+author: ghogen
+ms.author: ghogen
+manager: ghogen
+translation.priority.ht:
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- ru-ru
+- zh-cn
+- zh-tw
+translation.priority.mt:
+- cs-cz
+- pl-pl
+- pt-br
+- tr-tr
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 47057e9611b824c17077b9127f8d2f8b192d6eb8
+ms.openlocfilehash: 48b5010ae161b2ce6ad22513afbca4a8e5fe82d3
+ms.contentlocale: zh-cn
+ms.lasthandoff: 05/13/2017
+
 ---
 # <a name="build-apps-with-native-ui-using-xamarin-in-visual-studio"></a>在 Visual Studio 中使用 Xamarin 生成具有本机 UI 的应用
 完成[设置和安装](../cross-platform/setup-and-install.md)以及[验证 Xamarin 环境](../cross-platform/verify-your-xamarin-environment.md)中的步骤后，此演示将介绍如何使用本机 UI 层生成基本 Xamarin 应用（如下所示）。 在本机 UI 中，共享代码驻留在可移植类库 (PCL) 中，并且单个平台项目都包含 UI 定义。  
@@ -22,7 +42,7 @@ caps.handback.revision: 23
   
  你将执行以下操作来生成它：  
   
--   [设置解决方案](#solution)  
+-   [设置你的解决方案](#solution)  
   
 -   [编写共享的数据服务代码](#dataservice)  
   
@@ -45,23 +65,23 @@ caps.handback.revision: 23
 >      -   [Hello，Android](https://developer.xamarin.com/guides/android/getting_started/hello,android/) （具有单个屏幕的简单应用）  
 >     -   [Hello，Android 多屏显示](https://developer.xamarin.com/guides/android/getting_started/hello,android_multiscreen/) （可在屏幕之间导航的应用）  
 >     -   [Android 片段演练](http://developer.xamarin.com/guides/android/platform_features/fragments/fragments_walkthrough/) （用于主屏幕/详细信息屏幕等）  
->     -   [了解 iOS](https://developer.xamarin.com/guides/ios/getting_started/hello,_iOS/)  
->     -   [了解 iOS 多屏显示](https://developer.xamarin.com/guides/ios/getting_started/hello,_iOS_multiscreen/)  
+>     -   [Hello，iOS](https://developer.xamarin.com/guides/ios/getting_started/hello,_iOS/)  
+>     -   [Hello，iOS 多屏显示](https://developer.xamarin.com/guides/ios/getting_started/hello,_iOS_multiscreen/)  
 > -   具有 Xamarin.Forms（共享 UI）的 Xamarin 应用  
 >   
->      -   [了解 Xamarin.Forms](https://developer.xamarin.com/guides/cross-platform/xamarin-forms/getting-started/hello-xamarin-forms/quickstart/)  
+>      -   [Hello，Xamarin.Forms](https://developer.xamarin.com/guides/cross-platform/xamarin-forms/getting-started/hello-xamarin-forms/quickstart/)  
 >     -   [了解 Xamarin.Forms 多屏显示](https://developer.xamarin.com/guides/cross-platform/xamarin-forms/getting-started/hello-xamarin-forms-multiscreen/)  
   
-##  <a name="a-namesolutiona-set-up-your-solution"></a><a name="solution"></a>设置解决方案  
+##  <a name="solution"></a>设置解决方案  
  这些步骤使用本机 UI 创建 Xamarin 解决方案，该方案包含共享代码的 PCL 和两个添加的 NuGet 包。  
   
 1.  在 Visual Studio 中，创建新的“空白应用(本机可移植)”解决方案，并将其命名为 **WeatherApp**。 通过在搜索字段中输入“本机可移植”可以非常方便地找到此模板。  
   
      如果不存在，则可能需要安装 Xamarin 或启用 Visual Studio 2015 功能，请参阅[设置和安装](../cross-platform/setup-and-install.md)。  
   
-2.  单击“确定”以创建解决方案后，将会得到多个单独项目：  
+2.  单击“确定”创建解决方案后，将会得到多个单独项目：  
   
-    -   **Weatherapp（可移植）**：PCL，你将在其中编写跨平台共享的代码，包括与 Xamarin.Forms 结合使用的常见业务逻辑和 UI 代码。  
+    -   WeatherApp（可移植）：PCL，用于在其中编写跨平台共享的代码，包括与 Xamarin.Forms 结合使用的常见业务逻辑和 UI 代码。  
   
     -   **WeatherApp.Droid**：包含本机 Android 代码的项目。 这将设置为默认启动项目。  
   
@@ -71,7 +91,7 @@ caps.handback.revision: 23
   
      在每个本机项目中，你有权访问相应平台的本机设计器，并且可以实现特定于平台的屏幕。  
   
-3.  将 **Newtonsoft.Json** 和 NuGet 包添加到 PCL 项目中，其将用于处理从天气数据服务中检索的信息：  
+3.  将 Newtonsoft.Json 和 NuGet 包添加到 PCL 项目中，用于处理从天气数据服务中检索的信息：  
   
     -   在“解决方案资源管理器”中，右键单击“解决方案‘WeatherApp’”，然后选择“管理解决方案 NuGet 包...”。  
   
@@ -91,8 +111,8 @@ caps.handback.revision: 23
   
 5.  生成解决方案并验证没有生成错误。  
   
-##  <a name="a-namedataservicea-write-shared-data-service-code"></a><a name="dataservice"></a>编写共享的数据服务代码  
- **WeatherApp（可移植）** 项目是将在其中编写可移植类库 (PCL) 的代码的项目，该代码在所有平台之间共享。 PCL 自动包含在 iOS、Android 和 Windows Phone 项目生成的应用包中。  
+##  <a name="dataservice"></a> 编写共享的数据服务代码  
+ WeatherApp（可移植）项目是将在其中编写可移植类库 (PCL) 代码的项目，该代码可在所有平台之间共享。 PCL 自动包含在 iOS、Android 和 Windows Phone 项目生成的应用包中。  
   
  然后，以下步骤会将代码添加到 PCL，以访问和存储天气服务的数据：  
   
@@ -131,7 +151,7 @@ caps.handback.revision: 23
     }  
     ```  
   
-4.  将另一个类添加到名为 **DataService.cs** 的 PCL 项目中，该类用于在该项目中处理天气数据服务的 JSON 数据。  
+4.  将另一个名为 DataService.cs 的类添加到 PCL 项目中，该类用于处理天气数据服务的 JSON 数据。  
   
 5.  将 **DataService.cs** 的全部内容替换为以下代码：  
   
@@ -162,7 +182,7 @@ caps.handback.revision: 23
     }  
     ```  
   
-6.  将第三个类添加到名为 **核心** 的 PCL，你将在此 PCL 中放置共享业务逻辑，例如通过使用邮编形成查询字符串、调用天气数据服务以及填充 **天气** 类的实例的逻辑。  
+6.  将名为核心的第三个类添加到 PCL，将在此类中放置共享业务逻辑，例如通过使用邮政编码形成查询字符串、调用天气数据服务以及填充天气类的实例的逻辑。  
   
 7.  将 **Core.cs** 的内容替换为以下内容：  
   
@@ -220,7 +240,7 @@ caps.handback.revision: 23
   
 10. 生成 **weatherapp** PCL 项目，以确保代码正确无误。  
   
-##  <a name="a-nameandroida-design-ui-for-android"></a><a name="Android"></a>适用于 Android 的设计 UI  
+##  <a name="Android"></a>适用于 Android 的设计 UI  
  现在，我们将设计用户界面，将其连接到你的共享代码，然后运行此应用。  
   
 ### <a name="design-the-look-and-feel-of-your-app"></a>设计应用的外观和感觉  
@@ -254,7 +274,7 @@ caps.handback.revision: 23
     |**textStyle**|`bold`|  
   
     > [!TIP]
-    >  注意：许多属性不包含你可以选择的值的下拉列表。  可能难以猜测给定属性适用于什么样的字符串值。 有关建议，请尝试在 [R.attr](http://developer.android.com/reference/android/R.attr.html) 类页中搜索属性的名称。  
+    >  请注意，许多属性不包含可选值的下拉列表。  可能难以猜测给定属性适用于什么样的字符串值。 有关建议，请尝试在 [R.attr](http://developer.android.com/reference/android/R.attr.html) 类页中搜索属性的名称。  
     >   
     >  此外，快速 Web 搜索通常指向 [http://stackoverflow.com/](http://stackoverflow.com/) 上的页面，在这里其他人使用相同的属性。  
   
@@ -279,7 +299,7 @@ caps.handback.revision: 23
   
     |属性|值|  
     |--------------|-----------|  
-    |**text**|**邮政编码**|  
+    |**文本**|**“邮政编码”**|  
     |**id**|`@+id/ZipCodeLabel`|  
     |**layout_marginLeft**|`10dp`|  
     |**layout_marginTop**|`5dp`|  
@@ -325,7 +345,7 @@ caps.handback.revision: 23
     |属性|值|  
     |--------------|-----------|  
     |**id**|`@+id/weatherBtn`|  
-    |**text**|**获取天气信息**|  
+    |**文本**|**获取天气信息**|  
     |**layout_marginLeft**|`20dp`|  
     |**layout_alignBottom**|`@id/zipCodeEntry`|  
     |**width**|`165dp`|  
@@ -523,8 +543,8 @@ caps.handback.revision: 23
 > [!TIP]
 >  可在 [GitHub 上的 mobile-samples 存储库](https://github.com/xamarin/mobile-samples/tree/master/Weather)中找到此项目的完整源代码。  
   
-##  <a name="a-namewindowsa-design-ui-for-windows-phone"></a><a name="Windows"></a>适用于 Windows Phone 的设计 UI  
- 现在，我们将设计适用于 Windows Phone 的用户界面，将其连接到你的共享代码，然后运行此应用。  
+##  <a name="Windows"></a>适用于 Windows Phone 的设计 UI  
+ 现在，我们将设计适用于 Windows Phone 的用户界面，将其连接到你的共享代码，然后运行应用。  
   
 ### <a name="design-the-look-and-feel-of-your-app"></a>设计应用的外观和感觉  
  在 Xamarin 应用中设计本机 Windows Phone UI 的进程不同于任何其他本机 Windows Phone 应用。 出于此原因，我们将不再详细介绍如何使用设计器。 有关信息，请参阅[使用 XAML 设计器创建 UI](../designers/creating-a-ui-by-using-xaml-designer-in-visual-studio.md)。  
@@ -629,10 +649,10 @@ caps.handback.revision: 23
 > [!TIP]
 >  可在 [GitHub 上的 mobile-samples 存储库](https://github.com/xamarin/mobile-samples/tree/master/Weather)中找到此项目的完整源代码。  
   
-##  <a name="a-namenexta-next-steps"></a><a name="next"></a>后续步骤  
+##  <a name="next"></a>后续步骤  
  **将适用于 iOS 的 UI 添加到解决方案**  
   
- 通过添加适用于 iOS 的本机 UI 来扩展此示例。 为此，连接到本地网络上安装了 Xcode 和 Xamarin 的 Mac。 连接后，可直接在 Visual Studio 中使用 iOS 设计器。 有关已完成的应用，请参阅 [GitHub 上的 mobile-samples 存储库](https://github.com/xamarin/mobile-samples/tree/master/Weather)。  
+ 通过添加适用于 iOS 的本机 UI 来扩展此示例。 为此，请连接到本地网络上安装了 Xcode 和 Xamarin 的 Mac。 连接后，可直接在 Visual Studio 中使用 iOS 设计器。 有关已完成的应用，请参阅 [GitHub 上的 mobile-samples 存储库](https://github.com/xamarin/mobile-samples/tree/master/Weather)。  
   
  另请参阅 [Hello, iOS](http://developer.xamarin.com/guides/ios/getting_started/hello,_iOS/hello,iOS_quickstart/)（了解 iOS）(xamarin.com) 演练。 请注意，在此页上，请选择 xamarin.com 页右上角的“Visual Studio”，以便显示正确的一组指令。  
   
@@ -644,8 +664,3 @@ caps.handback.revision: 23
  [Xamarin 开发人员站点](http://developer.xamarin.com/)   
  [Windows 开发人员中心](https://dev.windows.com/en-us)   
  [Swift 与 C# 快速参考海报](http://aka.ms/scposter)
-
-
-<!--HONumber=Feb17_HO4-->
-
-

@@ -37,10 +37,11 @@ translation.priority.ht:
 - tr-tr
 - zh-cn
 - zh-tw
-translationtype: Human Translation
-ms.sourcegitcommit: 5db97d19b1b823388a465bba15d057b30ff0b3ce
-ms.openlocfilehash: ca6a274a99d070bf13f257709dc21fb7f6ceab75
-ms.lasthandoff: 02/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 47057e9611b824c17077b9127f8d2f8b192d6eb8
+ms.openlocfilehash: 75cd4dbc1f2d0179a4077ac296dde40503321853
+ms.contentlocale: zh-cn
+ms.lasthandoff: 05/13/2017
 
 ---
 # <a name="generatedeploymentmanifest-task"></a>GenerateDeploymentManifest 任务
@@ -57,7 +58,7 @@ ms.lasthandoff: 02/22/2017
 |`DeploymentUrl`|可选 `String` 参数。<br /><br /> 指定应用程序的更新位置。 如果未指定此参数，则不会为应用程序定义更新位置。 但是，如果 `UpdateEnabled` 参数为 `true`，则必须指定更新位置。 指定的值应为完全限定的 URL 或 UNC 路径。|  
 |`Description`|可选 `String` 参数。<br /><br /> 指定应用程序的可选说明。|  
 |`DisallowUrlActivation`|可选 `Boolean` 参数。<br /><br /> 指定当通过 URL 打开应用程序时是否应该自动运行该应用程序。 如果此参数为 `true`，则应用程序只能从“开始”菜单中启动。 此参数的默认值为 `false`。 仅当 `Install` 参数值为 `true` 时才应用此输入。|  
-|`EntryPoint`|可选 <xref:Microsoft.Build.Framework.ITaskItem>`[]` 参数。<br /><br /> 指示生成的清单程序集的入口点。 对于 [!INCLUDE[ndptecclick](../deployment/includes/ndptecclick_md.md)] 部署清单，此输入指定了 [!INCLUDE[ndptecclick](../deployment/includes/ndptecclick_md.md)] 应用程序清单。<br /><br /> 在 [!INCLUDE[vsprvslong](../code-quality/includes/vsprvslong_md.md)] 中，[GenerateApplicationManifest 任务](../msbuild/generateapplicationmanifest-task.md)要求具有 `EntryPoint` 才能生成应用程序清单。 （程序集或本机清单无需 `EntryPoint`。）当出现以下生成错误时强制执行此要求：“MSB3185：未指定清单的入口点。”<br /><br /> 如果未指定 `EntryPoint` 任务参数，则 [!INCLUDE[vstecmsbuild](../extensibility/internals/includes/vstecmsbuild_md.md)] 不会发出此错误。 相反，会将 \<customHostSpecified> 标记作为 \<entryPoint> 标记的子级插入，例如：<br /><br /> `<entryPoint xmlns="urn:schemas-`<br /><br /> `microsoft-com:asm.v2">`<br /><br /> `<co.v1:customHostSpecified />`<br /><br /> `</entryPoint>`<br /><br /> 通过执行以下步骤，可将 DDL 依赖项添加到应用程序清单：<br /><br /> 1.通过调用 <xref:Microsoft.Build.Tasks.ResolveAssemblyReference> 解析程序集引用。<br />2.将前一个任务的输出和程序集本身传递至 <xref:Microsoft.Build.Tasks.ResolveManifestFiles>。<br />3.使用 `Dependencies` 参数将依赖项传递至 <xref:Microsoft.Build.Tasks.GenerateApplicationManifest>。|  
+|`EntryPoint`|可选 <xref:Microsoft.Build.Framework.ITaskItem>`[]` 参数。<br /><br /> 指示生成的清单程序集的入口点。 对于 [!INCLUDE[ndptecclick](../deployment/includes/ndptecclick_md.md)] 部署清单，此输入指定了 [!INCLUDE[ndptecclick](../deployment/includes/ndptecclick_md.md)] 应用程序清单。<br /><br /> 在 [!INCLUDE[vsprvslong](../code-quality/includes/vsprvslong_md.md)] 中，[GenerateApplicationManifest 任务](../msbuild/generateapplicationmanifest-task.md)要求具有 `EntryPoint` 才能生成应用程序清单。 （程序集或本机清单无需 `EntryPoint`。）当出现以下生成错误时强制执行此要求：“MSB3185：未指定清单的入口点。”<br /><br /> 如果未指定 `EntryPoint` 任务参数，则 [!INCLUDE[vstecmsbuild](../extensibility/internals/includes/vstecmsbuild_md.md)] 不会发出此错误。 相反，会将 \<customHostSpecified> 标记作为 \<entryPoint> 标记的子级插入，例如：<br /><br /> `<entryPoint xmlns="urn:schemas-`<br /><br /> `microsoft-com:asm.v2">`<br /><br /> `<co.v1:customHostSpecified />`<br /><br /> `</entryPoint>`<br /><br /> 通过执行以下步骤，可将 DDL 依赖项添加到应用程序清单：<br /><br /> 1.通过调用 <xref:Microsoft.Build.Tasks.ResolveAssemblyReference> 解析程序集引用。<br />2.将上一个任务的输出和程序集本身传递给 <xref:Microsoft.Build.Tasks.ResolveManifestFiles>。<br />3.使用 `Dependencies` 参数将依赖项传递给 <xref:Microsoft.Build.Tasks.GenerateApplicationManifest>。|  
 |`ErrorReportUrl`|可选 [String](assetId:///String?qualifyHint=False&autoUpgrade=True) 参数。<br /><br /> 指定安装 ClickOnce 过程中显示在对话框中的网页 URL。|  
 |`InputManifest`|可选 <xref:Microsoft.Build.Framework.ITaskItem> 参数。<br /><br /> 指示输入 XML 文档，使其充当清单生成器的基础。 这使得结构化数据（如自定义清单定义）可反映在输出清单中。 XML 文档中的根元素必须是 asmv1 命名空间中的程序集节点。|  
 |`Install`|可选 `Boolean` 参数。<br /><br /> 指定应用程序是已安装应用程序还是仅联机应用程序。 如果此参数为 `true`，则应用程序将安装在用户的“开始”菜单中，并可通过“添加或删除程序”对话框将其删除。 如果此参数为 `false`，则应用程序适用于在网页上联机使用。 此参数的默认值为 `true`。|  
@@ -78,7 +79,7 @@ ms.lasthandoff: 02/22/2017
 |`UpdateUnit`|可选 `String` 参数。<br /><br /> 指定 `UpdateInterval` 参数的单位。 此参数可以具有下列值：<br /><br /> -   `Hours`<br />-   `Days`<br />-   `Weeks`<br /><br /> 仅当 `Install` 和 `UpdateEnabled` 参数的值都为 `true` 时才应用此参数。|  
   
 ## <a name="remarks"></a>备注  
- 除了上面列出的参数，此任务还从 <xref:Microsoft.Build.Tasks.GenerateManifestBase> 类继承参数，该类本身继承自 <xref:Microsoft.Build.Utilities.Task> 类。 有关任务类的参数列表，请参阅[任务基类](../msbuild/task-base-class.md)。  
+ 除上面列出的参数外，此任务还从 <xref:Microsoft.Build.Tasks.GenerateManifestBase> 类继承参数，后者自身继承自 <xref:Microsoft.Build.Utilities.Task> 类。 有关任务类的参数列表，请参阅[任务基类](../msbuild/task-base-class.md)。  
   
 ## <a name="see-also"></a>另请参阅  
  [任务](../msbuild/msbuild-tasks.md)   

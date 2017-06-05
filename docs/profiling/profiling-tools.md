@@ -30,10 +30,11 @@ translation.priority.mt:
 - pl-pl
 - pt-br
 - tr-tr
-translationtype: Human Translation
-ms.sourcegitcommit: 0d129b4820944f5717c63243cb8550bc4fed3385
-ms.openlocfilehash: 380b65540d8f5c6ea6d8a8adf1f3c5575f5dd9dc
-ms.lasthandoff: 03/20/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 47057e9611b824c17077b9127f8d2f8b192d6eb8
+ms.openlocfilehash: 09c33f3cc331af03659922e178e4089f177132de
+ms.contentlocale: zh-cn
+ms.lasthandoff: 05/13/2017
 
 ---
 # <a name="profiling-tools"></a>分析工具
@@ -52,7 +53,7 @@ ms.lasthandoff: 03/20/2017
 ## <a name="memory-usage"></a>内存使用率  
  ![DiagMemorySmall](../profiling/media/diagmemorysmall.png "DiagMemorySmall")  
   
- 使用“内存使用率”  工具进行调试时可查找内存泄漏和低效内存。 该工具可以拍摄托管和本机内存堆的快照。 此工具可用于桌面应用、Windows 通用应用和 ASP.NET 应用。 “内存使用率”  工具可以在调试时从“诊断工具”  窗口运行（“调试”/“Windows”/“显示诊断工具”），也可以在调试器外部运行（“调试”/“性能探查器...”）。 有关详细信息，请参阅[内存使用情况](../profiling/memory-usage.md)和[不调试情况下的内存使用情况](../profiling/Memory-Usage-without-Debugging2.md)。  
+ 使用“内存使用率” 工具进行调试时可查找内存泄漏和低效内存。 该工具可以拍摄托管和本机内存堆的快照。 此工具可用于桌面应用、Windows 通用应用和 ASP.NET 应用。 “内存使用率”  工具可以在调试时从“诊断工具”  窗口运行（“调试”/“Windows”/“显示诊断工具”），也可以在调试器外部运行（“调试”/“性能探查器...”）。 有关详细信息，请参阅[内存使用情况](../profiling/memory-usage.md)和[不调试情况下的内存使用情况](../profiling/Memory-Usage-without-Debugging2.md)。  
   
 ## <a name="cpu-usage"></a>CPU 使用率  
  ![DiagCPUSmall](../profiling/media/diagcpusmall.png "DiagCPUSmall")  
@@ -72,7 +73,7 @@ ms.lasthandoff: 03/20/2017
 ## <a name="perftips"></a>性能提示  
  ![DiagPerfTips](../profiling/media/diagperftips.png "DiagPerfTips")  
   
- 调试器在断点或单步执行操作中停止执行时，中断与上一个断点之间经过的时间会显示为在编辑器窗口中的提示。 这些[性能提示](../profiling/perftips.md)有助于在调试期间监视和分析应用的性能。 可以在桌面应用、Windows 通用应用和 ASP.NET 应用中查看“性能提示”  。
+ 调试器在断点或单步执行操作中停止执行时，中断与上一个断点之间经过的时间会显示为在编辑器窗口中的提示。 这些 [PerfTips](../profiling/perftips.md) 有助于在调试期间监视和分析应用的性能。 可以在桌面应用、Windows 通用应用和 ASP.NET 应用中查看“性能提示”  。
 
 ## <a name="performance-explorer"></a>性能资源管理器  
  ![PerfTools](../profiling/media/perftools.png "PerfTools")  
@@ -98,7 +99,7 @@ ms.lasthandoff: 03/20/2017
  [IntelliTrace](../debugger/intellitrace.md) 可以记录特定事件、检查调试器事件和函数调用期间“局部变量”窗口中的数据以及调试难以再现的问题。  IntelliTrace 主要是一个调试工具，但它还可以提供可用于性能调查的信息。 此工具仅可在 Visual Studio Enterprise 中与桌面应用、Windows 通用应用和 C# ASP.NET 应用结合使用。 调试时可以在“诊断工具”  窗口找到 IntelliTrace（“调试”/“Windows”/“显示诊断工具”）。  
   
 ## <a name="profiling-in-production"></a>在生产中分析  
- 在生产中进行分析的推荐方法是从[使用 vsperf.exe 的命令行](../profiling/using-the-profiling-tools-from-the-command-line.md)分析，以收集 CPU 配置文件。 有关 Azure App Service 中的远程分析支持，请参阅 [服务器资源管理器或 Kudu 门户](https://azure.microsoft.com/en-us/blog/remote-profiling-support-in-azure-app-service/)。  
+ 在生产中进行分析的推荐方法是从 [使用 vsperf.exe 的命令行](../profiling/using-the-profiling-tools-from-the-command-line.md) 分析，以收集 CPU 配置文件。 有关 Azure App Service 中的远程分析支持，请参阅 [服务器资源管理器或 Kudu 门户](https://azure.microsoft.com/en-us/blog/remote-profiling-support-in-azure-app-service/)。  
   
 ## <a name="which-tool-should-i-use"></a>应使用哪一种工具？  
  下表列出了 Visual Studio 提供的不同工具以及适用的不同项目类型：  
@@ -109,11 +110,11 @@ ms.lasthandoff: 03/20/2017
 |[CPU 使用率](../profiling/cpu-usage.md)|是|是|是|  
 |[GPU 使用情况](../debugger/gpu-usage.md)|是|是|no|  
 |[应用程序时间线](../profiling/application-timeline.md)|是|是|no|  
-|[PerfTips](../profiling/perftips.md)|是|XAML 适用，HTML 不适用|是|  
+|[性能提示](../profiling/perftips.md)|是|XAML 适用，HTML 不适用|是|  
 |[性能资源管理器](../profiling/performance-explorer.md)|是|no|是（不适用于 ASP.NET Core）|  
 |[IntelliTrace](../debugger/intellitrace.md)|仅限 .NET Enterprise|仅限 .NET Enterprise|仅限 .NET Enterprise|
 |[网络使用情况](../profiling/network-usage.md)|no|是|no| 
-|[HTML UI 响应能力](../profiling/html-ui-responsiveness.md)|no|HTML 适用，XAML 不适用|no|  
+|[HTML UI responsiveness](../profiling/html-ui-responsiveness.md)|no|HTML 适用，XAML 不适用|no|  
 |[JavaScript 内存](../profiling/javascript-memory.md)|no|HTML 适用，XAML 不适用|no|  
   
 ## <a name="see-also"></a>另请参阅  

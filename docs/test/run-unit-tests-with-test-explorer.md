@@ -29,16 +29,17 @@ translation.priority.mt:
 - pl-pl
 - pt-br
 - tr-tr
-translationtype: Human Translation
-ms.sourcegitcommit: 5ab78b6b8eaa8156ed2c8a807b1d8a80e75afa84
-ms.openlocfilehash: bcfa2bb3a1841f2d960580506b638edcf650ca9e
-ms.lasthandoff: 04/04/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 47057e9611b824c17077b9127f8d2f8b192d6eb8
+ms.openlocfilehash: b6b865f51ca12312ad439d059097c328576dfa4e
+ms.contentlocale: zh-cn
+ms.lasthandoff: 05/13/2017
 
 ---
 # <a name="run-unit-tests-with-test-explorer"></a>使用测试资源管理器运行单元测试
 使用测试资源管理器从 Visual Studio 或第三方单元测试项目中运行单元测试、将测试分组到类别中、筛选测试列表以及创建、保存和运行测试的播放列表。 你还可以调试测试并分析测试性能和代码覆盖率。  
   
-##  <a name="BKMK_Contents"></a>目录  
+##  <a name="BKMK_Contents"></a> 内容  
  [单元测试框架和测试项目](#BKMK_Unit_test_frameworks_and_test_projects)  
   
  [在测试资源管理器中运行测试](#BKMK_Run_tests_in_Test_Explorer)  
@@ -49,7 +50,7 @@ ms.lasthandoff: 04/04/2017
   
  [创建自定义播放列表](#BKMK_Create_custom_playlists)  
   
- [调试和分析单元测试](#BKMK_Debug_and_analyze_unit_tests)  
+ [调试并分析单元测试](#BKMK_Debug_and_analyze_unit_tests)  
   
  [外部资源](#BKMK_External_resources)  
   
@@ -106,7 +107,7 @@ ms.lasthandoff: 04/04/2017
   
  当你运行、编写以及重新运行测试时，测试资源管理器将在 **“失败的测试”**、 **“通过的测试”**、 **“跳过的测试”** 和 **“未运行的测试”**组中显示结果。 测试运行的摘要显示在测试资源管理器底部的细节窗格中。  
   
-###  <a name="BKMK_View_test_details"></a>查看测试详细信息  
+###  <a name="BKMK_View_test_details"></a> 查看测试详细信息  
  若要查看单个测试的详细信息，请选择该测试。  
   
  ![测试执行详细信息](../test/media/ute_testdetails.png "UTE_TestDetails")  
@@ -149,7 +150,7 @@ ms.lasthandoff: 04/04/2017
 |**持续时间**|按执行时间对测试进行分组： **“快速”**、 **“中速”**和 **“慢速”**。|  
 |**结果**|按执行结果对测试进行分组： **“失败的测试”**、 **“跳过的测试”**、 **“通过的测试”**。|  
 |**特征**|按你定义的类别/值对对测试进行分组。 用于指定特征类别和值的语法由单元测试框架定义。|  
-|**项目**|按项目名称对测试进行分组。|  
+|**Project**|按项目名称对测试进行分组。|  
   
  ![返回页首](../debugger/media/pcs_backtotop.png "PCS_BackToTop") [目录](#BKMK_Contents)  
   
@@ -158,7 +159,7 @@ ms.lasthandoff: 04/04/2017
   
  **适用于托管代码的 Microsoft 单元测试框架中的特征**  
   
- 在适用于托管应用的 Microsoft 单元测试框架中，可以在 <xref:Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute> 特性中定义特征名称/值对。 测试框架还包括以下预定义特征：  
+ 在适用于托管应用的 Microsoft 单元测试框架中，在 <xref:Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute> 属性中定义特征名称/值对。 测试框架还包括以下预定义特征：  
   
 |特征|描述|  
 |-----------|-----------------|  
@@ -219,13 +220,13 @@ TEST_METHOD(Method1)
 > [!NOTE]
 >  搜索不区分大小，并将指定字符串与条件值的任何部分匹配。  
   
-|限定符|说明|  
+|限定符|描述|  
 |---------------|-----------------|  
 |**特征**|搜索特征类别和值的匹配项。 用于指定特征类别和值的语法由单元测试框架定义。|  
-|**项目**|搜索测试项目名称的匹配项。|  
+|**Project**|搜索测试项目名称的匹配项。|  
 |**错误消息**|搜索由失败的断言返回的用户定义错误消息的匹配项。|  
 |**文件路径**|搜索测试源文件的完全限定文件名的匹配项。|  
-|**完全限定的名称**|搜索测试命名空间、类和方法的完全限定文件名的匹配项。|  
+|**完全限定名**|搜索测试命名空间、类和方法的完全限定文件名的匹配项。|  
 |**输出**|搜索写入标准输出 (stdout) 或标准错误 (stderr) 的用户定义错误消息。 用于指定输出消息的语法由单元测试框架定义。|  
 |**结果**|搜索测试资源管理器类别名的匹配项： **“失败的测试”**、 **“跳过的测试”**、 **“通过的测试”**。|  
   
@@ -305,8 +306,8 @@ FullName:"MyClass" - FullName:"PerfTest"
   
 ##  <a name="BKMK_External_resources"></a>外部资源  
   
-###  <a name="BKMK_Guidance"></a>指导  
- [使用 Visual Studio 2012 对连续交付进行测试 - 第 2 章：单元测试：测试内部](http://go.microsoft.com/fwlink/?LinkID=255188)  
+###  <a name="BKMK_Guidance"></a> 指导  
+ [使用 Visual Studio 2012 测试连续交付 - 第 2 章：单元测试：测试内部](http://go.microsoft.com/fwlink/?LinkID=255188)  
   
 ## <a name="see-also"></a>另请参阅  
  [单元测试代码](../test/unit-test-your-code.md)   

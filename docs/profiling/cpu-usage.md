@@ -28,10 +28,11 @@ translation.priority.mt:
 - pl-pl
 - pt-br
 - tr-tr
-translationtype: Human Translation
-ms.sourcegitcommit: a42f5a30375192c89c9984e40ba0104da98d7253
-ms.openlocfilehash: bb13868209d29ee88aaca25d37bbe0041f49961b
-ms.lasthandoff: 03/07/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 47057e9611b824c17077b9127f8d2f8b192d6eb8
+ms.openlocfilehash: 8ef43b82ba8a9ca138872a152e8811174e20d1fe
+ms.contentlocale: zh-cn
+ms.lasthandoff: 05/13/2017
 
 ---
 # <a name="analyze-cpu-usage"></a>分析 CPU 的使用量
@@ -61,7 +62,7 @@ ms.lasthandoff: 03/07/2017
   
      ![选择 CPU 使用率](../profiling/media/cpuuse_lib_choosecpuusage.png "CPUUSE_LIB_ChooseCpuUsage")  
   
-4.  启动应用时，单击“获取最大数” 。 显示输出后等待约&1; 秒时间，然后选择“获取最大数，异步” 。 在单击按钮之间进行停顿有助于更轻松地隔离诊断报告中的按钮单击例程。  
+4.  启动应用时，单击“获取最大数” 。 显示输出后等待约 1 秒时间，然后选择“获取最大数，异步” 。 在单击按钮之间进行停顿有助于更轻松地隔离诊断报告中的按钮单击例程。  
   
 5.  在第二个输出行显示之后，在性能和诊断中心中选择 **“停止收集”** 。  
   
@@ -73,7 +74,7 @@ ms.lasthandoff: 03/07/2017
   
 ## <a name="analyze-the-cpu-usage-report"></a>分析 CPU 使用量报告  
   
-###  <a name="BKMK_The_CPU_Usage_call_tree"></a>CPU 使用率调用关系树  
+###  <a name="BKMK_The_CPU_Usage_call_tree"></a> CPU 使用率调用关系树  
  若要开始了解调用关系树的信息，重新选择 `GetMaxNumberButton_Click` 段，查看调用关系树的详细信息。  
   
 ####  <a name="BKMK_Call_tree_structure"></a>调用关系树结构  
@@ -86,14 +87,14 @@ ms.lasthandoff: 03/07/2017
 |![第 3 步](../profiling/media/procguid_3.png "ProcGuid_3")|二级节点的子级为用户代码方法和异步例程，它们由二级系统和框架代码进行调用或创建。|  
 |![第 4 步](../profiling/media/procguid_4.png "ProcGuid_4")|方法的子节点仅包含用于父方法调用的数据。 禁用“显示外部代码”  后，应用方法只能包含 **[外部代码]** 节点。|  
   
-####  <a name="BKMK_External_Code"></a>外部代码  
- 外部代码是你编写的代码执行的系统和框架组件中的函数。 外部代码包含函数，可启动和停止应用、绘制 UI、控制线程以及向应用提供其他低级别服务。 在大多数情况下，你不会对外部代码感兴趣，因此 CPU 使用率调用关系树可将用户方法的外部函数收集到一个 **[外部代码]** 节点中。  
+####  <a name="BKMK_External_Code"></a> 外部代码  
+ 外部代码是你编写的代码执行的系统和框架组件中的函数。 外部代码包含函数，可启动和停止应用、绘制 UI、控制线程以及向应用提供其他低级别服务。 在大多数情况下，你不会对外部代码感兴趣，因此 CPU 使用率调用关系树可将用户方法的外部函数收集到一个[外部代码]节点中。  
   
  若要查看外部代码的调用路径，请从 **“筛选器视图”** 列表中选择 **“显示外部代码”** ，然后选择 **“应用”**。  
   
  ![选择“筛选器视图”，然后选择“显示外部代码”](../profiling/media/cpu_use_wt_filterview.png "CPU_USE_WT_FilterView")  
   
- 请注意，许多外部代码调用链已深度嵌套，因此函数名列的宽度可能超过所有计算机监视器（最大的计算机监视器除外）的显示宽度。 发生这种情况时，函数名将显示为 **[…]**：  
+ 请注意，许多外部代码调用链已深度嵌套，因此函数名列的宽度可能超过所有计算机监视器（最大的计算机监视器除外）的显示宽度。 发生这种情况时，函数名将显示为 […]：  
   
  ![在调用关系树中嵌套外部代码](../profiling/media/cpu_use_wt_showexternalcodetoowide.png "CPU_USE_WT_ShowExternalCodeTooWide")  
   
@@ -107,12 +108,12 @@ ms.lasthandoff: 03/07/2017
 |-|-|  
 |**总 CPU (%)**|![总数据量 % 等式](../profiling/media/cpu_use_wt_totalpercentequation.png "CPU_USE_WT_TotalPercentEquation")<br /><br /> 所选时间范围内应用的 CPU 活动百分比（函数调用和函数调用的函数使用的）。 请注意，这不同于“CPU 利用率”  时间线图，后者是将时间范围内的应用总活动量与可用的 CPU 总容量相比较。|  
 |**自测 CPU (%)**|![自测 % 等式](../profiling/media/cpu_use_wt_selflpercentequation.png "CPU_USE_WT_SelflPercentEquation")<br /><br /> 所选时间范围内应用的 CPU 活动百分比（函数调用使用，不包括函数调用的函数活动）。|  
-|**总 CPU (毫秒)**|所选时间范围内函数调用以及该函数调用函数所耗用的毫秒数。|  
-|**自测 CPU (毫秒)**|所选时间范围内函数调用以及该函数调用函数所耗用的毫秒数。|  
+|**总 CPU(毫秒)**|所选时间范围内函数调用以及该函数调用函数所耗用的毫秒数。|  
+|**自 CPU(毫秒)**|所选时间范围内函数调用以及该函数调用函数所耗用的毫秒数。|  
 |**模块**|包含函数的模块的名称或包含 [外部代码] 节点中的函数的模块数。|  
   
-###  <a name="BKMK_Asynchronous_functions_in_the_CPU_Usage_call_tree"></a>CPU 使用率调用关系树中的异步函数  
- 当编译器遇到异步方法时，它会创建一个隐藏的类以控制方法的执行。 从概念上讲，此类是一个状态机，包括编译器生成的函数（以异步方式调用原始方法的操作）的列表、回调、计划程序和所需的相应迭代器。 当由父方法调用原始方法时，运行时将从父方法的执行上下文中移除该原始方法，并且将在控制系统和框架代码的上下文中运行隐藏类的方法，以控制应用的执行。 异步方法通常（但不总是）在一个或多个不同线程上执行。 此代码将显示在 CPU 使用率调用关系树中，作为树的顶层节点正下方的 **[外部代码]** 节点的子级。  
+###  <a name="BKMK_Asynchronous_functions_in_the_CPU_Usage_call_tree"></a> CPU 使用率调用关系树中的异步函数  
+ 当编译器遇到异步方法时，它会创建一个隐藏的类来控制方法的执行。 从概念上讲，此类是一个状态机，包括编译器生成的函数（以异步方式调用原始方法的操作）的列表、回调、计划程序和所需的相应迭代器。 当由父方法调用原始方法时，运行时将从父方法的执行上下文中删除该原始方法，并且在控制应用执行的系统上下文和框架代码中运行隐藏类的方法。 异步方法通常（但不总是）在一个或多个不同线程上执行。 此代码将显示在 CPU 使用率调用关系树中，作为树的顶层节点正下方的 **[外部代码]** 节点的子级。  
   
  若要在我们的示例中查看该示例，请在时间线中重新选择 `GetMaxNumberAsyncButton_Click` 段。  
   
@@ -124,6 +125,6 @@ ms.lasthandoff: 03/07/2017
   
 -   `MainPage::GetMaxNumberAsyncButton_Click` 执行的内容很少；主要管理任务值列表、计算结果最大值以及显示输出。  
   
--   `MainPage+<GetMaxNumberAsyncButton_Click>d__3::MoveNext` 显示用于计划和启动 48 个任务所需的活动，这些任务将包装对 `GetNumberAsync` 的调用。  
+-   `MainPage+<GetMaxNumberAsyncButton_Click>d__3::MoveNext` 显示用于计划和启动 48 个任务所需的活动，这些任务将包装对 `GetNumberAsync`的调用。  
   
--   `MainPage::<GetNumberAsync>b__b` 显示调用 `GetNumber` 的任务的活动。
+-   `MainPage::<GetNumberAsync>b__b` 显示调用 `GetNumber`的任务的活动。

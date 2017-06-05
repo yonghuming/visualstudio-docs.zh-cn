@@ -28,10 +28,11 @@ translation.priority.mt:
 - pl-pl
 - pt-br
 - tr-tr
-translationtype: Human Translation
-ms.sourcegitcommit: 47c39bd711b69efdb863d71f11e3e472054a3ce3
-ms.openlocfilehash: 2af148cb8367ea3a584ac8e028c8167e4ad6123b
-ms.lasthandoff: 04/06/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 47057e9611b824c17077b9127f8d2f8b192d6eb8
+ms.openlocfilehash: 7aa8de1116409f30cf1a0cd2fd689c03c2242724
+ms.contentlocale: zh-cn
+ms.lasthandoff: 05/13/2017
 
 ---
 # <a name="change-log-visual-studio-tools-for-unity"></a>更改日志（Visual Studio Tools for Unity）
@@ -760,7 +761,7 @@ Visual Studio Tools for Unity 更改日志。
   
 -   修复了 bug UV-11：协同程序中的局部变量。  
   
-## <a name="11--beta-release"></a>1.1 – Beta 版本  
+## <a name="11---beta-release"></a>1.1 - Beta 版本  
  发布日期 2014-10-09  
   
 ## <a name="1013"></a>1.0.13  
@@ -818,9 +819,9 @@ Visual Studio Tools for Unity 更改日志。
   
 -   分析信息控制台消息，使在错误列表中单击可将你带到第一个具有符号的堆栈帧。  
   
--   增添了 [API](../cross-platform/customize-project-files-created-by-vstu.md)，让用户可参与项目生成。  
+-   添加 [API](../cross-platform/customize-project-files-created-by-vstu.md) 以使用户能够参与项目生成。  
   
--   添加 [API](../cross-platform/share-the-unity-log-callback-with-vstu.md)，让用户可参与 LogCallback。  
+-   添加 [API](../cross-platform/share-the-unity-log-callback-with-vstu.md) 以使用户能够参与 LogCallback。  
   
 ### <a name="bug-fixes"></a>Bug 修复  
   
@@ -963,6 +964,6 @@ Visual Studio Tools for Unity 更改日志。
   
 -   修复了 UnityScript 和 Boo 的资产文件夹内 dll 的完成。  
   
-## <a name="10--initial-release"></a>1.0 – 初始版本  
+## <a name="10---initial-release"></a>1.0 - 初始版本  
  发布时间 2012-08-22
 

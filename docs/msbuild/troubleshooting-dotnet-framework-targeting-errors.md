@@ -36,17 +36,18 @@ translation.priority.ht:
 - tr-tr
 - zh-cn
 - zh-tw
-translationtype: Human Translation
-ms.sourcegitcommit: 79460291e91f0659df0a4241e17616e55187a0e2
-ms.openlocfilehash: f3ddafbe0dd5c0fcec9a2c092b50ad3538c11361
-ms.lasthandoff: 02/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 47057e9611b824c17077b9127f8d2f8b192d6eb8
+ms.openlocfilehash: 23510bfb61028db6d62912066bc6f4756e8ec37e
+ms.contentlocale: zh-cn
+ms.lasthandoff: 05/13/2017
 
 ---
 # <a name="troubleshooting-net-framework-targeting-errors"></a>.NET Framework 目标错误疑难解答
 本主题介绍可能由引用问题导致的 MSBuild 错误以及解决这些错误的方法。  
   
 ## <a name="you-have-referenced-a-project-or-assembly-that-targets-a-different-version-of-the-net-framework"></a>已引用面向不同版本的 .NET Framework 的项目或程序集  
- 你可以创建一些应用程序，这些应用程序引用面向不同版本的 [!INCLUDE[dnprdnshort](../code-quality/includes/dnprdnshort_md.md)] 的项目或程序集。 例如，可以创建面向 [!INCLUDE[net_v40_short](../code-quality/includes/net_v40_short_md.md)] 的客户端配置文件，但引用面向 .NET Framework 2.0 的程序集的应用程序。 但是，如果创建的项目面向早期版本的 [!INCLUDE[dnprdnshort](../code-quality/includes/dnprdnshort_md.md)]，则不能在该项目中设置对面向 [!INCLUDE[net_v40_short](../code-quality/includes/net_v40_short_md.md)] 或 [!INCLUDE[net_v40_short](../code-quality/includes/net_v40_short_md.md)] 本身的项目或程序集的引用。 若要解决此错误，请确保应用程序面向与该应用程序引用的项目或程序集所面向的配置文件兼容的配置文件。  
+ 你可以创建一些应用程序，这些应用程序引用面向不同版本的 [!INCLUDE[dnprdnshort](../code-quality/includes/dnprdnshort_md.md)] 的项目或程序集。 例如，可以创建面向 [!INCLUDE[net_v40_short](../code-quality/includes/net_v40_short_md.md)] 的客户端配置文件，但引用面向 .NET Framework 2.0 的程序集的应用程序。 但是，如果创建的项目面向早期版本的 [!INCLUDE[dnprdnshort](../code-quality/includes/dnprdnshort_md.md)]，则不能在该项目中设置对面向 [!INCLUDE[net_v40_short](../code-quality/includes/net_v40_short_md.md)] 或 [!INCLUDE[net_v40_short](../code-quality/includes/net_v40_short_md.md)] 本身的项目或程序集的引用。 若要解决此错误，请确保应用程序面向的配置文件与该应用程序引用的项目或程序集所面向的配置文件兼容。  
   
 ## <a name="you-have-re-targeted-a-project-to-a-different-version-of-the-net-framework"></a>已将项目重新面向不同版本的 .NET Framework  
  如果更改应用程序的 [!INCLUDE[dnprdnshort](../code-quality/includes/dnprdnshort_md.md)] 的目标版本，则 Visual Studio 将更改某些引用，可能需要手动更新某些引用。 例如，如果将应用程序更改为面向 [!INCLUDE[net_v35SP1_long](../msbuild/includes/net_v35sp1_long_md.md)]，并且该应用程序具有依赖于 [!INCLUDE[net_v40_short](../code-quality/includes/net_v40_short_md.md)] 的客户端配置文件的资源或设置，则可能出现先前提到的错误之一。  

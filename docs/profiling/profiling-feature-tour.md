@@ -1,7 +1,7 @@
 ---
 title: "分析功能简介 | Microsoft Docs"
-ms.custom: 
-ms.date: 02/03/2016
+ms.custom: H1HackMay2017
+ms.date: 05/18/2017
 ms.reviewer: 
 ms.suite: 
 ms.technology:
@@ -30,13 +30,14 @@ translation.priority.mt:
 - pl-pl
 - pt-br
 - tr-tr
-translationtype: Human Translation
-ms.sourcegitcommit: 2beee9df6c4897d1fa7d55502a7ed277a1eb6046
-ms.openlocfilehash: 4a64d7385009b6d502fc20acfbead4b49323fa4f
-ms.lasthandoff: 03/21/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 90b2481b0ec4f9387fe3a2c0b733a103e8c03845
+ms.openlocfilehash: a219a09f96b34a434a3bf1103e560104c294eb96
+ms.contentlocale: zh-cn
+ms.lasthandoff: 05/23/2017
 
 ---
-# <a name="profiling-feature-tour"></a>分析功能简介
+# <a name="feature-tour-of-profiling-in-visual-studio"></a>Visual Studio 中的分析功能简介
 
 Visual Studio 提供了各种分析工具，可依据你的应用类型帮助你诊断不同种类的性能问题。
 
@@ -172,11 +173,11 @@ JavaScript 内存工具类似于适用于其他应用类型的内存使用量工
 |[CPU 使用率](../profiling/cpu-usage.md)|是|是|是|  
 |[GPU 使用情况](../debugger/gpu-usage.md)|是|是|no|  
 |[应用程序时间线](../profiling/application-timeline.md)|是|是|no|  
-|[PerfTips](../profiling/perftips.md)|是|XAML 适用，HTML 不适用|是|  
+|[性能提示](../profiling/perftips.md)|是|XAML 适用，HTML 不适用|是|  
 |[性能资源管理器](../profiling/performance-explorer.md)|是|no|是（不适用于 ASP.NET Core）|  
 |[IntelliTrace](../debugger/intellitrace.md)|仅限 .NET Enterprise|仅限 .NET Enterprise|仅限 .NET Enterprise|
 |[网络使用情况](../profiling/network-usage.md)|no|是|no| 
-|[HTML UI 响应能力](../profiling/html-ui-responsiveness.md)|no|HTML 适用，XAML 不适用|no|  
+|[HTML UI responsiveness](../profiling/html-ui-responsiveness.md)|no|HTML 适用，XAML 不适用|no|  
 |[JavaScript 内存](../profiling/javascript-memory.md)|no|HTML 适用，XAML 不适用|no|  
 
 ## <a name="see-also"></a>另请参阅  

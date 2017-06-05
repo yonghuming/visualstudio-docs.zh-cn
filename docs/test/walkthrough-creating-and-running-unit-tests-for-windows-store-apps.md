@@ -32,14 +32,15 @@ translation.priority.mt:
 - pl-pl
 - pt-br
 - tr-tr
-translationtype: Human Translation
-ms.sourcegitcommit: 5658ecf52637a38bc3c2a5ad9e85b2edebf7d445
-ms.openlocfilehash: 8ce2ccc55a53d03b72f0d1d81c206b2b9a980eed
-ms.lasthandoff: 02/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 47057e9611b824c17077b9127f8d2f8b192d6eb8
+ms.openlocfilehash: 11ae1d653bc34ccb9c8fd8834d134b7212bc4f9a
+ms.contentlocale: zh-cn
+ms.lasthandoff: 05/13/2017
 
 ---
 # <a name="walkthrough-creating-and-running-unit-tests-for-windows-store-apps"></a>演练：为 Windows 应用商店应用程序创建和运行单元测试
-Visual Studio 支持对托管的 [!INCLUDE[win8_appname_long](../debugger/includes/win8_appname_long_md.md)]应用进行单元测试，并包括 Visual C#、Visual Basic 和 Visual C++ 的单元测试库模板。  
+Visual Studio 支持对托管的 [!INCLUDE[win8_appname_long](../debugger/includes/win8_appname_long_md.md)] 应用进行单元测试，并包括 Visual C#、Visual Basic 和 Visual C++ 的单元测试库模板。  
   
 > [!TIP]
 >  有关开发 [!INCLUDE[win8_appname_long](../debugger/includes/win8_appname_long_md.md)] 应用的详细信息，请参阅 [Windows 应用商店应用入门](http://go.microsoft.com/fwlink/?LinkID=241410)。  
@@ -59,7 +60,7 @@ Visual Studio 支持对托管的 [!INCLUDE[win8_appname_long](../debugger/includ
 ## <a name="prerequisites"></a>先决条件  
  Visual Studio  
   
-##  <a name="CreateAndRunUnitTestWin8Tailored_Create"></a>创建单元测试项目  
+##  <a name="CreateAndRunUnitTestWin8Tailored_Create"></a> 创建单元测试项目  
   
 #### <a name="to-create-a-unit-test-project-for-a-windows-store-app"></a>为 Windows 应用商店应用创建单元测试项目  
   
@@ -67,12 +68,12 @@ Visual Studio 支持对托管的 [!INCLUDE[win8_appname_long](../debugger/includ
   
      此时将显示“新建项目”对话框。  
   
-2.  在“模板”之下，选择要用以创建单元测试的编程语言，然后选择关联的 [!INCLUDE[win8_appname_long](../debugger/includes/win8_appname_long_md.md)]单元测试库。 例如，选择 **“Visual C#”** ，然后选择 **“Windows 应用商店”**，再选择 **“单元测试库(Windows 应用商店应用)”**。  
+2.  在“模板”之下，选择要用以创建单元测试的编程语言，然后选择关联的 [!INCLUDE[win8_appname_long](../debugger/includes/win8_appname_long_md.md)] 单元测试库。 例如，选择 **“Visual C#”** ，然后选择 **“Windows 应用商店”**，再选择 **“单元测试库(Windows 应用商店应用)”**。  
   
     > [!NOTE]
     >  Visual Studio 包括 Visual C#、Visual Basic 和 Visual C++ 的单元测试库模板。  
   
-3.  （可选）在“名称”文本框中，输入要用于 [!INCLUDE[win8_appname_long](../debugger/includes/win8_appname_long_md.md)]单元测试项目的名称。  
+3.  （可选）在 **“名称”** 文本框中，输入要用于 [!INCLUDE[win8_appname_long](../debugger/includes/win8_appname_long_md.md)]单元测试项目的名称。  
   
 4.  （可选）通过在 **“位置”** 文本框中输入路径，或选择 **“浏览”** 按钮，修改项目的创建路径。  
   
@@ -91,7 +92,7 @@ Visual Studio 支持对托管的 [!INCLUDE[win8_appname_long](../debugger/includ
   
 #### <a name="to-edit-the-unit-test-projects-windows-store-application-manifest-file"></a>编辑单元测试项目的 Windows 应用商店应用程序清单文件  
   
-1.  在解决方案资源管理器中的新 [!INCLUDE[win8_appname_long](../debugger/includes/win8_appname_long_md.md)] 单元测试项目中，右键单击 Package.appxmanifest 文件并选择“打开”。  
+1.  在“解决方案资源管理器”中的新 [!INCLUDE[win8_appname_long](../debugger/includes/win8_appname_long_md.md)] 单元测试项目中，右击 Package.appxmanifest 文件并选择 **“打开”**。  
   
      “清单设计器”将显示以便进行编辑。  
   
@@ -100,7 +101,7 @@ Visual Studio 支持对托管的 [!INCLUDE[win8_appname_long](../debugger/includ
 3.  在 **“功能”**下面的列表中，选择你的单元测试和所测试代码需要具备的功能。 例如，单元测试及其测试的代码需要具备访问 Internet 的功能，那么请选中 **“Internet”** 复选框。  
   
     > [!NOTE]
-    >  所选功能只应包括 [!INCLUDE[win8_appname_long](../debugger/includes/win8_appname_long_md.md)]单元测试正常运行所需的功能。 这些功能完全不必包含不属于所测试 [!INCLUDE[win8_appname_long](../debugger/includes/win8_appname_long_md.md)]应用的功能，一般应是为所测试 [!INCLUDE[win8_appname_long](../debugger/includes/win8_appname_long_md.md)]应用指定的功能的子集。  
+    >  所选功能只应包括 [!INCLUDE[win8_appname_long](../debugger/includes/win8_appname_long_md.md)] 单元测试正常运行所需的功能。 这些功能完全不必包含不属于所测试 [!INCLUDE[win8_appname_long](../debugger/includes/win8_appname_long_md.md)]应用的功能，一般应是为所测试 [!INCLUDE[win8_appname_long](../debugger/includes/win8_appname_long_md.md)]应用指定的功能的子集。  
   
      有关详细信息，请参阅 [Configure a Windows 8.1 app package by using the manifest designer](http://msdn.microsoft.com/Library/24c58b7f-9c6d-41c3-b385-c1e8497d5b2d)（使用清单设计器配置 Windows 8.1 应用包）。  
   
@@ -114,7 +115,7 @@ Visual Studio 支持对托管的 [!INCLUDE[win8_appname_long](../debugger/includ
   
      有关详细信息，请参阅 MSDN Library 中的 [使用 Assert 类](http://go.microsoft.com/fwlink/?LinkID=224991) 。  
   
-##  <a name="CreateAndRunUnitTestWin8Tailored_Run"></a>运行单元测试  
+##  <a name="CreateAndRunUnitTestWin8Tailored_Run"></a> 运行单元测试  
   
 #### <a name="to-build-the-solution-and-run-the-unit-test-using-test-explorer"></a>生成解决方案并在“测试资源管理器”中运行单元测试  
   
@@ -161,7 +162,7 @@ Visual Studio 支持对托管的 [!INCLUDE[win8_appname_long](../debugger/includ
  [Visual Studio 单元测试](http://go.microsoft.com/fwlink/?LinkId=224477)  
   
 ### <a name="msdn-library"></a>MSDN Library  
- [MSDN 库 - 为现有代码创建和运行单元测试 (Visual Studio 2010)](http://go.microsoft.com/fwlink/?LinkID=223683)  
+ [MSDN Library - 为现有代码创建和运行单元测试 (Visual Studio 2010)](http://go.microsoft.com/fwlink/?LinkID=223683)  
   
 ## <a name="see-also"></a>另请参阅  
  [使用 Visual Studio 测试应用商店应用](../test/testing-store-apps-with-visual-studio.md)   
