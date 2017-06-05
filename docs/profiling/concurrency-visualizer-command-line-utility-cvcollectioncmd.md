@@ -1,21 +1,41 @@
 ---
 title: "并发可视化工具命令行实用工具 (CVCollectionCmd) | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-debug"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "vs.cv.performance.cvcollectioncmd"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-debug
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords:
+- vs.cv.performance.cvcollectioncmd
 ms.assetid: 476601be-1608-4014-af15-5aba6ccbed1c
 caps.latest.revision: 21
-author: "mikejo5000"
-ms.author: "mikejo"
-manager: "ghogen"
-caps.handback.revision: 21
+author: mikejo5000
+ms.author: mikejo
+manager: ghogen
+translation.priority.ht:
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- ru-ru
+- zh-cn
+- zh-tw
+translation.priority.mt:
+- cs-cz
+- pl-pl
+- pt-br
+- tr-tr
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 47057e9611b824c17077b9127f8d2f8b192d6eb8
+ms.openlocfilehash: da79533a7a40b6e1b79c66f023beba2c1162bd08
+ms.contentlocale: zh-cn
+ms.lasthandoff: 05/13/2017
+
 ---
 # <a name="concurrency-visualizer-command-line-utility-cvcollectioncmd"></a>并发可视化工具命令行实用工具 (CVCollectionCmd)
 你可以使用并发可视化工具命令行实用程序 (CVCollectionCmd.exe) 以从命令行收集跟踪，使你可以在 Visual Studio 的并发可视化工具中查看它们。 这些工具可以在未安装 Visual Studio 的计算机上使用。  
@@ -40,11 +60,11 @@ caps.handback.revision: 21
   
 |选项|说明|参数|返回值|  
 |------------|-----------------|----------------|-------------------|  
-|查询|返回是否可以启动收集。|无|如果准备开始启动收集，则为&0;。<br /><br /> 如果收集已在进行中，则为&1;。<br /><br /> 如果收集未在进行，但是已经启用一个或多个必需的 [ETW](http://msdn.microsoft.com/Library/ac99a063-e2d2-40cc-b659-d23c2f783f92) 会话，则为&2;。|  
-|启动|在并发可视化工具下运行指定的进程。|可执行文件的路径。|如果运行已成功，则为&0;。<br /><br /> 如果因为目标应用程序无法启动而运行失败，则为&1;。<br /><br /> 如果因为 CVCollectionCmd 没有足够的权限写入指定的输出目录而运行失败，则为&13;。|  
-|Attach|开始收集系统级跟踪，否则如果指定了一个进程，则附加到该进程。|无。|如果附加成功，则为&0;。<br /><br /> 如果因为指定的进程无效或不明确而附加失败，则为&1;。<br /><br /> 如果因为 CVCollectionCmd 没有足够的权限写入指定的输出目录而附加失败，则为&13;。|  
-|Detach|停止收集。|无。|如果分离成功，则为&0;。<br /><br /> 如果因为收集当前没有进行而分离失败，则为&1;。<br /><br /> 如果因为无法停止收集而分离失败，则为&2;。|  
-|分析|分析指定的跟踪。|CVTrace 文件的完整路径。|如果分析成功，则为&0;。<br /><br /> 如果因为指定的跟踪为系统级但是未指定目标进程而无法启动分析，则为&1;。<br /><br /> 如果因为跟踪并非系统级并且已指定进程而无法启动分析，则为&2;。<br /><br /> 如果因为指定的进程无效而分析失败，则为&3;。<br /><br /> 如果因为指定的 CVTrace 文件无效而分析失败，则为&4;。|  
+|查询|返回是否可以启动收集。|无|如果准备开始启动收集，则为 0。<br /><br /> 如果收集已在进行中，则为 1。<br /><br /> 如果收集未在进行，但是已经启用一个或多个必需的 [ETW](http://msdn.microsoft.com/Library/ac99a063-e2d2-40cc-b659-d23c2f783f92) 会话，则为 2。|  
+|启动|在并发可视化工具下运行指定的进程。|可执行文件的路径。|如果运行已成功，则为 0。<br /><br /> 如果因为目标应用程序无法启动而运行失败，则为 1。<br /><br /> 如果因为 CVCollectionCmd 没有足够的权限写入指定的输出目录而运行失败，则为 13。|  
+|Attach|开始收集系统级跟踪，否则如果指定了一个进程，则附加到该进程。|无。|如果附加成功，则为 0。<br /><br /> 如果因为指定的进程无效或不明确而附加失败，则为 1。<br /><br /> 如果因为 CVCollectionCmd 没有足够的权限写入指定的输出目录而附加失败，则为 13。|  
+|Detach|停止收集。|无。|如果分离成功，则为 0。<br /><br /> 如果因为收集当前没有进行而分离失败，则为 1。<br /><br /> 如果因为无法停止收集而分离失败，则为 2。|  
+|分析|分析指定的跟踪。|CVTrace 文件的完整路径。|如果分析成功，则为 0。<br /><br /> 如果因为指定的跟踪为系统级但是未指定目标进程而无法启动分析，则为 1。<br /><br /> 如果因为跟踪并非系统级并且已指定进程而无法启动分析，则为 2。<br /><br /> 如果因为指定的进程无效而分析失败，则为 3。<br /><br /> 如果因为指定的 CVTrace 文件无效而分析失败，则为 4。|  
 |LaunchArgs|指定目标可执行文件参数。 此选项仅适用于“启动”命令。|应用程序的命令行参数。|无。|  
 |Outdir|指定用于保存跟踪文件的目录。 适用于“启动”和“附加”命令。|目录路径或相对路径。|无。|  
 |进程|当执行“附加”命令时，指定要附加到的进程，或者当执行“分析”命令时，指定要分析的跟踪中的进程。 适用于“附加”和“分析”命令。|PID 或进程的名称。|无。|  
@@ -54,7 +74,7 @@ caps.handback.revision: 21
  如果你使用 CVCollectionCmd 来收集跟踪并且希望自定义收集设置，则使用配置文件来指定它们。  
   
 > [!NOTE]
->  当你使用 Visual Studio 收集跟踪时，请不要直接修改配置文件。  而是使用[高级设置](../profiling/advanced-settings-dialog-box-concurrency-visualizer.md)对话框来修改设置。  
+>  当你使用 Visual Studio 收集跟踪时，请不要直接修改配置文件。  而是使用 [高级设置](../profiling/advanced-settings-dialog-box-concurrency-visualizer.md) 对话框来修改设置。  
   
  若要修改收集设置，则在你将运行 CVCollectionCmd 实用工具的计算机上创建配置文件。 你可以从头开始创建配置文件，或者可以在安装了 Visual Studio 的计算机上复制配置文件并修改该文件。 该文件名为 `UserConfig.xml` 并且位于“本地 AppData”  文件夹中。 当你运行实用工具时，与“启动”、“附加”或“分析”命令结合使用 Config 选项。  在与 Config 选项相关联的参数中，指定配置文件的路径。  
   
@@ -150,8 +170,3 @@ caps.handback.revision: 21
 </LocalConfig>  
   
 ```
-
-
-<!--HONumber=Feb17_HO4-->
-
-
