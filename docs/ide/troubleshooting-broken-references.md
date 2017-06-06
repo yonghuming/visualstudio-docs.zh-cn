@@ -33,9 +33,10 @@ translation.priority.ht:
 - tr-tr
 - zh-cn
 - zh-tw
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 06cdfb076120ffd7459a16b56c659bb86942cd7f
 ms.openlocfilehash: ffcc69f2a329799fe7800b8e2ebf9eae9d5c5fa3
+ms.contentlocale: zh-cn
 ms.lasthandoff: 03/31/2017
 
 ---
@@ -75,7 +76,7 @@ ms.lasthandoff: 03/31/2017
 
 3.  如果使用 Visual Basic，请选择“引用”页，并单击“引用路径”按钮。 在“引用路径”对话框中，键入包含要在“文件夹”字段中引用的项的文件夹路径，然后单击”添加文件夹”按钮。  
 
-     - 或 -  
+     -或-  
 
      如果使用 Visual C#，请选择“引用路径”页。 在“文件夹”字段中，键入包含要引用项的文件夹路径，然后单击”添加文件夹”按钮。  
 
