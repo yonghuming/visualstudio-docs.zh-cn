@@ -33,10 +33,11 @@ translation.priority.mt:
 - pl-pl
 - pt-br
 - tr-tr
-translationtype: Human Translation
-ms.sourcegitcommit: a42f5a30375192c89c9984e40ba0104da98d7253
-ms.openlocfilehash: 9ff0dfb7330f70bb66597127347c8375f2c4c9ea
-ms.lasthandoff: 03/07/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 47057e9611b824c17077b9127f8d2f8b192d6eb8
+ms.openlocfilehash: baf1e18c56587b071aaa25fd522e3aa1b27a0b30
+ms.contentlocale: zh-cn
+ms.lasthandoff: 05/13/2017
 
 ---
 # <a name="memory-usage-without-the-debugger"></a>不使用调试器情况下的内存使用率
@@ -75,7 +76,7 @@ ms.lasthandoff: 03/07/2017
  若要在不创建报告的情况下监视会话，只需关闭诊断窗口。 若要在拍摄内存快照后生成报告，请选择“停止”。  
   
 ##  <a name="BKMK_Take_snapshots_to_analyze_the_memory_state_of_your_app"></a>拍摄应用的内存状态快照  
- 如果发现要调查的内存问题，可以在诊断会话期间拍摄快照，以在特定时刻捕获内存中的对象。 由于应用使用大量不同类型的对象，因此你可能希望集中分析某一种情况。 还有一个较好的办法是，在出现内存问题之前获取应用的基线快照，首次出现问题后获取另一个快照，并且在重复执行该方案时获取一个或多个其他快照。  
+ 如果发现要调查的内存问题，可以在诊断会话期间拍摄快照，以在特定时刻捕获内存中的对象。 由于应用使用大量不同类型的对象，因此你可能希望集中分析某一种情况。 还有一个较好的办法是，获取应用在出现内存问题之前的基线快照、首次出现问题后的另一个快照，以及一个或多个其他快照（如果可重复执行该方案）。  
   
  若要收集快照，请启动新的诊断会话。 在想要捕获内存数据时选择“拍摄快照”。 若要生成报告，请选择“停止”。  
   
@@ -121,7 +122,7 @@ ms.lasthandoff: 03/07/2017
   
  实例名是由内存使用量工具生成的唯一 ID。  
   
- 如果注意到不能轻易标识的类型或如果不知道它是如何涉及在代码中，它很可能是内存使用情况工具显示的 .NET Framework、操作系统或编译器中的对象，因为它涉及对象的所有权链。  
+ 如果发现无法轻易识别的类型，或如果不知道它如何包含在代码中，它很可能是 .NET Framework、操作系统或内存使用量工具显示的编译器中的对象，因为它涉及对象的所有权链。  
   
 ###  <a name="BKMK_Report_tree_filters_"></a>报告树筛选器  
  大多数应用都包含超乎想像的大量类型，然而应用开发人员对其中的大多数类型都不是很感兴趣。 **内存使用情况**工具定义了两个筛选器，它们可用于隐藏**托管堆**和**根路径**树中的大多数类型。 还可按类型名称筛选树。  

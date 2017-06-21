@@ -28,9 +28,11 @@ translation.priority.mt:
 - pl-pl
 - pt-br
 - tr-tr
-translationtype: Human Translation
-ms.sourcegitcommit: d014b703c491603c86fcd6a89c1dc17f35b0deae
-ms.openlocfilehash: 4e0a5eca9b1d7da650c9e612076bda80b4eeda24
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 47057e9611b824c17077b9127f8d2f8b192d6eb8
+ms.openlocfilehash: f680d18660c15e96c87d868cc45cc3a66e8fc553
+ms.contentlocale: zh-cn
+ms.lasthandoff: 05/13/2017
 
 ---
 # <a name="msbuild-glossary"></a>MSBuild 词汇表
@@ -187,8 +189,3 @@ ms.openlocfilehash: 4e0a5eca9b1d7da650c9e612076bda80b4eeda24
   
 ## <a name="see-also"></a>另请参阅  
  [MSBuild](../msbuild/msbuild.md)
-
-
-<!--HONumber=Feb17_HO4-->
-
-
