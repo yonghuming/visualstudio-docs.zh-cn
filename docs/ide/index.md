@@ -126,8 +126,6 @@ ms.lasthandoff: 03/13/2017
         </div>
         </a>
     </li>
-</ul>
-<ul class="panelContent cardsFTitle">    
     <li>
         <a href="https://mva.microsoft.com/product-training/visual-studio-courses">
         <div class="cardSize">
