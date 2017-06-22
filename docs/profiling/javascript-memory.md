@@ -206,7 +206,7 @@ JavaScript 内存分析器在 Visual Studio 中提供，旨在帮助你了解内
   
 13. 若要查看差异视图中的对象植根于全局对象中的位置，以防止将其作为垃圾回收，请打开对象的快捷菜单，然后选择 **“在根视图中显示”**。 大量对象可能保留在内存中，因为它们由单个对象（或几个对象）引用，并且它们植根于全局对象中。  
   
-14. 如果留下的对象视图中的对象太多，请尝试进一步隔离发生内存泄漏的期间，然后重新拍摄这三个快照。 若要进一步隔离内存泄露，请使用 [Associate source code with memory usage data](#JSConsoleCommands)、 [Associate source code with memory usage data](#JSConsoleCommands)以及内存分析器中提供的其他内存使用量数据。  
+14. 如果留下的对象视图中的对象太多，请尝试进一步隔离发生内存泄漏的期间，然后重新拍摄这三个快照。 若要进一步隔离内存泄露，请使用 [将源代码与内存使用量数据关联](#JSConsoleCommands)、 [将源代码与内存使用量数据关联](#JSConsoleCommands)以及内存分析器中提供的其他内存使用量数据。  
   
 ##  <a name="LiveMemory"></a> 查看实时内存使用量摘要  
  实时内存使用量摘要视图提供了正在运行的应用程序的内存使用量图，以及所有快照摘要图块的集合。 在此视图中，可以执行拍摄快照、分析摘要信息和导航到其他视图等基本任务。 当你停止收集数据时，内存关系图将消失，你将只看到 [View a snapshot summary](#SnapshotSummary) 视图。  
