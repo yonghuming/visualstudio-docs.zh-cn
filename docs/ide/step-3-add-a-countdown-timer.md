@@ -1,22 +1,42 @@
 ---
-title: "步骤 3：添加一个倒计时计时器 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-general"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
+title: "步骤 3：添加倒计时计时器 | Microsoft Docs"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-general
+ms.tgt_pltfrm: 
+ms.topic: article
 ms.assetid: 62670a2b-efdc-45c6-9646-9b17eeb33dcb
 caps.latest.revision: 23
-author: "kempb"
-ms.author: "kempb"
-manager: "ghogen"
-caps.handback.revision: 23
+author: kempb
+ms.author: kempb
+manager: ghogen
+translation.priority.ht:
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- ru-ru
+- zh-cn
+- zh-tw
+translation.priority.mt:
+- cs-cz
+- pl-pl
+- pt-br
+- tr-tr
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 5db97d19b1b823388a465bba15d057b30ff0b3ce
+ms.openlocfilehash: 8e26dba9e7be7f66f57973c8bf0b3af411231695
+ms.contentlocale: zh-cn
+ms.lasthandoff: 02/22/2017
+
 ---
 # <a name="step-3-add-a-countdown-timer"></a>步骤 3：添加一个倒计时计时器
-在本教程的第&3; 部分中，您将添加一个倒计时计时器，用于跟踪测验对象完成测验所剩秒数。  
+在本教程的第 3 部分中，您将添加一个倒计时计时器，用于跟踪测验对象完成测验所剩秒数。  
   
 > [!NOTE]
 >  本主题是基本编码概念教程系列中的一部分。 有关本教程的概述，请参阅[教程 2：创建计时数学测验](../ide/tutorial-2-create-a-timed-math-quiz.md)。  
@@ -47,7 +67,7 @@ caps.handback.revision: 23
      [!code-vb[VbExpressTutorial3Step3#6](../ide/codesnippet/VisualBasic/step-3-add-a-countdown-timer_2.vb)]
      [!code-cs[VbExpressTutorial3Step3#6](../ide/codesnippet/CSharp/step-3-add-a-countdown-timer_2.cs)]  
   
-     根据刚才添加的语句，计时器将每秒检查一次“timeLeft”整型变量是否大于 0，从而确定时间是否已用完。 如果大于&0;，则表示仍有剩余时间。 首先，计时器从 timeLeft 中减去 1，然后更新 `timeLabel` 控件的“Text”属性，以便向测验者显示剩余的秒数。  
+     根据刚才添加的语句，计时器将每秒检查一次“timeLeft”整型变量是否大于 0，从而确定时间是否已用完。 如果大于 0，则表示仍有剩余时间。 首先，计时器从 timeLeft 中减去 1，然后更新 `timeLabel` 控件的“Text”属性，以便向测验者显示剩余的秒数。  
   
      如果没有剩余时间，则计时器停止并更改 `timeLabel` 控件的文本，使之显示“Time's up!”（时间到!）。 此时将通过一个消息框宣布测验结束，并公布答案，在此示例中，是将 addend1 和 addend2 相加。 将 `startButton` 控件的“Enabled”属性设置为 `true`，以便测验者开始其他测试。  
   
@@ -107,8 +127,3 @@ caps.handback.revision: 23
 -   若要转到下一个教程，请参阅[步骤 4：添加 CheckTheAnswer() 方法](../ide/step-4-add-the-checktheanswer-parens-method.md)。  
   
 -   若要返回上一个教程，请参阅[步骤 2：创建随机加法问题](../ide/step-2-create-a-random-addition-problem.md)。
-
-
-<!--HONumber=Feb17_HO4-->
-
-
