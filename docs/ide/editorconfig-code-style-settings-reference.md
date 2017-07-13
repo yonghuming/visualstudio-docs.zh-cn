@@ -7,8 +7,8 @@ ms.suite:
 ms.tgt_pltfrm: 
 ms.topic: article
 dev_langs:
-- VB
 - CSharp
+- VB
 helpviewer_keywords:
 - editor
 ms.assetid: 
@@ -30,16 +30,19 @@ translation.priority.ht:
 - tr-tr
 - zh-cn
 - zh-tw
-translationtype: Human Translation
-ms.sourcegitcommit: 46846db26bee30841e6cb35913d533b512d01ba0
-ms.openlocfilehash: a5b26ed093ed86c8c438b2024f69d371fde2de36
-ms.lasthandoff: 03/27/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 8ce85525f6af336682f6f8547c2f6c13dde73c8c
+ms.openlocfilehash: 288595f50555bd8314d0ad60cd2e1ce8121a8ab0
+ms.contentlocale: zh-cn
+ms.lasthandoff: 06/23/2017
 
 ---
 
-# <a name="net-code-style-settings-for-editorconfig"></a>EditorConfig 的 .NET 代码样式设置
+# EditorConfig 的 .NET 代码样式设置
+<a id="net-code-style-settings-for-editorconfig" class="xliff"></a>
 
-## <a name="possible-values"></a>可能的值：
+## 可能的值：
+<a id="possible-values" class="xliff"></a>
 
 `options_name = false|true : none|suggestion|warning|error`
 
@@ -52,7 +55,8 @@ ms.lasthandoff: 03/27/2017
 警告 | 如未遵循此样式，显示编译器警告。
 错误 | 如未遵循此样式，显示编译器错误。
 
-## <a name="net-code-style-options"></a>.NET 代码样式选项
+## .NET 代码样式选项
+<a id="net-code-style-options" class="xliff"></a>
 
 - [.NET 代码样式设置](#this_and_me)
     - [“This.”和“me.”限定](#this_and_me)
@@ -102,7 +106,8 @@ ms.lasthandoff: 03/27/2017
 | True | 更喜欢非静态方法中使用的所有非静态字段以 `this.` 开始（在 C# 中）或以 `Me.` 开始（在 Visual Basic 中）。 | **C#：** <br>`this.capacity = 0;` <br><br> **Visual Basic：**`Me.capacity = 0`
 | False | 更喜欢非静态方法中使用的所有非静态字段不以 `this.` 开始（在 C# 中）或不以 `Me.` 开始（在 Visual Basic 中）。 | **C#：** <br>`capacity = 0;` <br><br> **Visual Basic：**`capacity = 0`
 
-#### <a name="example-editorconfig-file"></a>editorconfig 文件示例：
+#### editorconfig 文件示例：
+<a id="example-editorconfig-file" class="xliff"></a>
 ```
 # CSharp and VisualBasic code style settings:
 [*.cs,*.vb]
@@ -120,7 +125,8 @@ dotnet_style_qualification_for_field = false:suggestion
 | True | 更喜欢非静态方法中使用的所有非静态属性以 `this.` 开始（在 C# 中）或以 `Me.` 开始（在 Visual Basic 中）。| **C#：** <br>`this.ID = 0;` <br><br> **Visual Basic：**`Me.ID = 0`
 | False | 更喜欢非静态方法中使用的所有非静态属性不以 `this.` 开始（在 C# 中）或不以 `Me.` 开始（在 Visual Basic 中）。 | **C#：** <br>`ID = 0;` <br><br> **Visual Basic：**`ID = 0`
 
-#### <a name="example-editorconfig-file"></a>editorconfig 文件示例：
+#### editorconfig 文件示例：
+<a id="example-editorconfig-file" class="xliff"></a>
 ```
 # CSharp and VisualBasic code style settings:
 [*.cs,*.vb]
@@ -139,7 +145,8 @@ dotnet_style_qualification_for_property = false:suggestion
 | False | 更喜欢从非静态方法中调用的所有非静态方法不以 `this.` 开始（在 C# 中）和不以 `Me.` 开始（在 VB 中）。 | **C#：** <br>`Display();` <br><br> **Visual Basic：**`Display()`
 
 
-#### <a name="example-editorconfig-file"></a>editorconfig 文件示例：
+#### editorconfig 文件示例：
+<a id="example-editorconfig-file" class="xliff"></a>
 ```
 # CSharp and VisualBasic code style settings:
 [*.cs, *.vb]
@@ -156,7 +163,8 @@ dotnet_style_qualification_for_method = false:suggestion
 | True | 更喜欢从非静态方法中引用的所有非静态事件以 `this.` 开始（在 C# 中）和以 `Me.` 开始（在 VB 中）。| **C#：** <br>`this.Elapsed += Handler;` <br><br> **Visual Basic：**`AddHandler Me.Elapsed, AddressOf Handler`
 | False | 更喜欢从非静态方法中引用的所有非静态事件不以 `this.` 开始（在 C# 中）和不以 `Me.` 开始（在 VB 中）。 | **C#：** <br>`Elapsed += Handler;` <br><br> **Visual Basic：**`AddHandler Elapsed, AddressOf Handler`
 
-#### <a name="example-editorconfig-file"></a>editorconfig 文件示例：
+#### editorconfig 文件示例：
+<a id="example-editorconfig-file" class="xliff"></a>
 ```
 # CSharp and VisualBasic code style settings:
 [*.cs, *.vb]
@@ -174,7 +182,8 @@ dotnet_style_qualification_for_event = false:suggestion
 | True | 对于局部变量、参数和类型成员，更喜欢具有语言关键字（用于表示它们）的类型（`int`、`double`、`float`、`short`、`long`、`decimal` 和 `string`），以使用关键字而不是类型名称（`Int32` 和 `Int64` 等）。| **C#：** <br>`private int _member;` <br><br> **Visual Basic：**`Private _member As Integer`
 | False | 对于局部变量、参数和类型成员，更喜欢具有语言关键字（用于表示它们）的类型（`int`、`double`、`float`、`short`、`long`、`decimal` 和 `string`），以使用类型名称（`Int32` 和 `Int64` 等）而不是关键字。  | **C#：** <br>`private Int32 _member;` <br><br> **Visual Basic：**`Private _member As Int32`
 
-#### <a name="example-editorconfig-file"></a>editorconfig 文件示例：
+#### editorconfig 文件示例：
+<a id="example-editorconfig-file" class="xliff"></a>
 ```
 # CSharp and VisualBasic code style settings:
 [*.cs, *.vb]
@@ -191,7 +200,8 @@ dotnet_style_predefined_type_for_locals_parameters_members = true:suggestion
 | True | 每当在具有关键字表示形式的类型上使用成员访问表达式时选择关键字（`int`、`double`、`float`、`short`、`long`、`decimal` 和 `string`）。| **C#：** <br>`var local = int.MaxValue;` <br><br> **Visual Basic：**`Dim local = Integer.MaxValue`
 | False | 每当在具有关键字表示形式的类型上使用成员访问表达式时选择类型名称（`int`、`double`、`float`、`short`、`long`、`decimal` 和 `string`）。 | **C#：** <br>`var local = Int32.MaxValue;` <br><br> **Visual Basic：**`Dim local = Int32.MaxValue`
 
-#### <a name="example-editorconfig-file"></a>editorconfig 文件示例：
+#### editorconfig 文件示例：
+<a id="example-editorconfig-file" class="xliff"></a>
 ```
 # CSharp and VisualBasic code style settings:
 [*.cs, *.vb]
@@ -209,7 +219,8 @@ dotnet_style_predefined_type_for_member_access = true:suggestion
 | True | 在可能情况下，更倾向使用对象初始值设定项来初始化对象。| **C#：** <br>`var c = new Customer(){ Age = 21 };` <br><br> **Visual Basic：**`Dim c = New Customer() With { .Age = 21 }`
 | False | 更倾向不使用对象初始值设定项来初始化对象。 | **C#：** <br>`var c = new Customer();`<br>`c.Age = 21;` <br><br> **Visual Basic：** <br>`Dim c = new Customer() `<br>`c.Age = 21`
 
-#### <a name="example-editorconfig-file"></a>editorconfig 文件示例：
+#### editorconfig 文件示例：
+<a id="example-editorconfig-file" class="xliff"></a>
 ```
 # CSharp and VisualBasic code style settings:
 [*.cs, *.vb]
@@ -226,7 +237,8 @@ dotnet_style_object_initializer = true:suggestion
 | True | 在可能情况下，更倾向使用集合初始值设定项来初始化集合。| **C#：** <br>`var list = new List<int>{ 1, 2, 3 };` <br><br> **Visual Basic：** <br> `Dim list = new List(Of Integer) From { 1, 2, 3}`
 | False | 更倾向不使用集合初始值设定项来初始化对象。 | **C#：** <br>`var list = new List<int>();`<br>`list.Add(1);`<br>`list.Add(2);`<br>`list.Add(3);` <br><br> **Visual Basic：** <br>`Dim list = new List(Of Integer)`<br>`list.Add(1)`<br>`list.Add(2)`<br>`list.Add(3)`
 
-#### <a name="example-editorconfig-file"></a>editorconfig 文件示例：
+#### editorconfig 文件示例：
+<a id="example-editorconfig-file" class="xliff"></a>
 ```
 # CSharp and VisualBasic code style settings:
 [*.cs, *.vb]
@@ -243,7 +255,8 @@ dotnet_style_collection_initializer = true:suggestion
 | True | 比起 ItemX 属性更倾向元祖名称。| **C#：** <br>`(string name, int age) customer = GetCustomer();`<br>`var name = customer.name;` <br><br> **Visual Basic：** <br> `Dim customer As (name As String, age As Integer) = GetCustomer()`<br>`Dim name = customer.name`
 | False | 比起元组名称更倾向 ItemX 属性。 | **C#：** <br>`(string name, int age) customer = GetCustomer();`<br>`var name = customer.Item1;` <br><br> **Visual Basic：** <br>`Dim customer As (name As String, age As Integer) = GetCustomer()`<br> `Dim name = customer.Item1`
 
-#### <a name="example-editorconfig-file"></a>editorconfig 文件示例：
+#### editorconfig 文件示例：
+<a id="example-editorconfig-file" class="xliff"></a>
 ```
 # CSharp and VisualBasic code style settings:
 [*.cs, *.vb]
@@ -260,7 +273,8 @@ dotnet_style_explicit_tuple_names = true:suggestion
 | True | 比起 三元运算符检查更倾向 null 合并表达式。| **C#：** <br>`var v = x ?? y;` <br><br> **Visual Basic：** <br> `Dim v = If(x, y)`
 | False | 比起 null 合并表达式更倾向三元运算符检查。 | **C#：** <br>`var v = x != null ? x : y; // or`<br>`var v = x == null ? y : x;` <br><br> **Visual Basic：** <br>`Dim v = If(x Is Nothing, y, x) ' or`<br> `Dim v = If(x IsNot Nothing, x, y)`
 
-#### <a name="example-editorconfig-file"></a>editorconfig 文件示例：
+#### editorconfig 文件示例：
+<a id="example-editorconfig-file" class="xliff"></a>
 ```
 # CSharp and VisualBasic code style settings:
 [*.cs, *.vb]
@@ -277,7 +291,8 @@ dotnet_style_coalesce_expression = true:suggestion
 | True | 如可能，更倾向使用 null 条件运算符。| **C#：** <br>`var v = o?.ToString();` <br><br> **Visual Basic：** <br> `Dim v = o?.ToString()`
 | False | 如可能，更倾向使用三元 null 检查。 | **C#：** <br>`var v = o == null ? null : o.ToString(); // or`<br>`var v = o != null ? o.String() : null;` <br><br> **Visual Basic：** <br>`Dim v = If(o Is Nothing, Nothing, o.ToString()) ' or`<br> `Dim v = If(o IsNot Nothing, o.ToString(), Nothing)`
 
-#### <a name="example-editorconfig-file"></a>editorconfig 文件示例：
+#### editorconfig 文件示例：
+<a id="example-editorconfig-file" class="xliff"></a>
 ```
 # CSharp and VisualBasic code style settings:
 [*.cs, *.vb]
@@ -296,7 +311,8 @@ dotnet_style_null_propagation = true:suggestion
 | True | 更倾向在内置系统类型（如 `int`）中使用 `var`。| **C#：** <br>`var x = 5;`
 | False | 更倾向在内置系统类型（如 `int`）中不使用 `var`。 | **C#：** <br>`int x = 5;`
 
-#### <a name="example-editorconfig-file"></a>editorconfig 文件示例：
+#### editorconfig 文件示例：
+<a id="example-editorconfig-file" class="xliff"></a>
 ```
 # CSharp code style settings:
 [*.cs]
@@ -313,7 +329,8 @@ csharp_style_var_for_built_in_types = true:suggestion
 | True | 声明表达式右侧已提到该类型时更倾向使用 `var`。| **C#：** <br>`var obj = new C();`
 | False | 声明表达式右侧已提到该类型时更倾向不使用 `var`。 | **C#：** <br>`C obj = new C();`
 
-#### <a name="example-editorconfig-file"></a>editorconfig 文件示例：
+#### editorconfig 文件示例：
+<a id="example-editorconfig-file" class="xliff"></a>
 ```
 # CSharp code style settings:
 [*.cs]
@@ -330,7 +347,8 @@ csharp_style_var_when_type_is_apparent = true:suggestion
 | True | 在所有情况下更倾向使用 `var`，除非被另一个代码样式规则重写。| **C#：** <br>`var f = this.Init();`
 | False | 在所有情况下更倾向不使用“var”，除非被另一个代码样式规则重写。| **C#：** <br>`bool f = this.Init();`
 
-#### <a name="example-editorconfig-file"></a>editorconfig 文件示例：
+#### editorconfig 文件示例：
+<a id="example-editorconfig-file" class="xliff"></a>
 ```
 # CSharp code style settings:
 [*.cs]
@@ -347,7 +365,8 @@ csharp_style_var_elsewhere = true:suggestion
 | True | 倾向于使用方法的 expression-bodied 成员。| **C#：** <br>`public int GetAge() => this.Age;`
 | False | 倾向于不使用方法的 expression-bodied 成员。| **C#：** <br>`public int GetAge() { return this.Age; }`
 
-#### <a name="example-editorconfig-file"></a>editorconfig 文件示例：
+#### editorconfig 文件示例：
+<a id="example-editorconfig-file" class="xliff"></a>
 ```
 # CSharp code style settings:
 [*.cs]
@@ -364,7 +383,8 @@ csharp_style_expression_bodied_methods = false:none
 | True | 倾向于使用构造函数的 expression-bodied 成员。| **C#：** <br>`public Customer(int age) => Age = age;`
 | False | 倾向于不使用构造函数的 expression-bodied 成员。| **C#：** <br>`public Customer(int age) { Age = age; }`
 
-#### <a name="example-editorconfig-file"></a>editorconfig 文件示例：
+#### editorconfig 文件示例：
+<a id="example-editorconfig-file" class="xliff"></a>
 ```
 # CSharp code style settings:
 [*.cs]
@@ -381,7 +401,8 @@ csharp_style_expression_bodied_constructors = false:none
 | True | 倾向于使用运算符的 expression-bodied 成员。| **C#：** <br>`public static ComplexNumber operator +(ComplexNumber c1, ComplexNumber c2)`<br>`=> new ComplexNumber(c1.Real + c2.Real, c1.Imaginary + c2.Imaginary);`
 | False | 倾向于不使用运算符的 expression-bodied 成员。| **C#：** <br>`public static ComplexNumber operator +(ComplexNumber c1, ComplexNumber c2)`<br>`{ return new ComplexNumber(c1.Real + c2.Real, c1.Imaginary + c2.Imaginary); }`
 
-#### <a name="example-editorconfig-file"></a>editorconfig 文件示例：
+#### editorconfig 文件示例：
+<a id="example-editorconfig-file" class="xliff"></a>
 ```
 # CSharp code style settings:
 [*.cs]
@@ -398,7 +419,8 @@ csharp_style_expression_bodied_operators = false:none
 | True | 倾向于使用属性的 expression-bodied 成员。| **C#：** <br>`public int Age => _age;`
 | False | 倾向于不使用属性的 expression-bodied 成员。| **C#：** <br>`public int Age { get { return _age; }}`
 
-#### <a name="example-editorconfig-file"></a>editorconfig 文件示例：
+#### editorconfig 文件示例：
+<a id="example-editorconfig-file" class="xliff"></a>
 ```
 # CSharp code style settings:
 [*.cs]
@@ -415,7 +437,8 @@ csharp_style_expression_bodied_properties = false:none
 | True | 倾向于使用索引器的 expression-bodied 成员。| **C#：** <br>`public T this[int i] => _value[i];`
 | False | 倾向于不使用索引器的 expression-bodied 成员。| **C#：** <br>`public T this[int i] { get { return _values[i]; } }`
 
-#### <a name="example-editorconfig-file"></a>editorconfig 文件示例：
+#### editorconfig 文件示例：
+<a id="example-editorconfig-file" class="xliff"></a>
 ```
 # CSharp code style settings:
 [*.cs]
@@ -432,7 +455,8 @@ csharp_style_expression_bodied_indexers = false:none
 | True | 倾向于使用访问器的 expression-bodied 成员。| **C#：** <br>`public int Age { get => _age; set => _age = value; }`
 | False | 倾向于不使用访问器的 expression-bodied 成员。| **C#：** <br>`public int Age { get { return _age; } set { _age = value; } }`
 
-#### <a name="example-editorconfig-file"></a>editorconfig 文件示例：
+#### editorconfig 文件示例：
+<a id="example-editorconfig-file" class="xliff"></a>
 ```
 # CSharp code style settings:
 [*.cs]
@@ -450,7 +474,8 @@ csharp_style_expression_bodied_accessors = false:none
 | True | 倾向于使用模式匹配，而不是带类型强制转换的 `is` 表达式。| **C#：** <br>`if (o is int i) {...}`
 | False | 倾向于使用带类型强制转换的 `is` 表达式，而不是模式匹配。| **C#：** <br>`if (o is int) {var i = (int)o; ... }`
 
-#### <a name="example-editorconfig-file"></a>editorconfig 文件示例：
+#### editorconfig 文件示例：
+<a id="example-editorconfig-file" class="xliff"></a>
 ```
 # CSharp code style settings:
 [*.cs]
@@ -467,7 +492,8 @@ csharp_style_pattern_matching_over_is_with_cast_check = true:suggestion
 | True | 倾向于使用模式匹配，而不是带 null 检查的 `as` 表达式，来确定内容是否为某个特定类型。| **C#：** <br>`if (o is string s) {...}`
 | False | 倾向于使用带 null 检查的 `as` 表达式，而不是模式匹配，来确定内容是否为某个特定类型。| **C#：** <br>`var s = o as string; if (s != null) {...}`
 
-#### <a name="example-editorconfig-file"></a>editorconfig 文件示例：
+#### editorconfig 文件示例：
+<a id="example-editorconfig-file" class="xliff"></a>
 ```
 # CSharp code style settings:
 [*.cs]
@@ -484,7 +510,8 @@ csharp_style_pattern_matching_over_as_with_null_check = true:suggestion
 | True | 如可能，更倾向内联声明 `out` 变量。 | **C#：** <br>`if (int.TryParse(value, out int i) {...}`
 | False | 如可能，更倾向显式声明 `out` 变量。| **C#：** <br>`int i; if (int.TryParse(value, out i) {...}`
 
-#### <a name="example-editorconfig-file"></a>editorconfig 文件示例：
+#### editorconfig 文件示例：
+<a id="example-editorconfig-file" class="xliff"></a>
 ```
 # CSharp code style settings:
 [*.cs]
@@ -502,7 +529,8 @@ csharp_style_inlined_variable_declaration = true:suggestion
 | True | 更倾向使用 throw 表达式而不是 throw 语句。 | **C#：** <br>`this.s = ss ?? throw new ArgumentNullException(nameof(s));`
 | False | 更倾向使用 throw 语句而不是 throw 表达式。| **C#：** <br>`if (s==null) {throw new ArgumentNullException(nameof(s));} this.s = s;`
 
-#### <a name="example-editorconfig-file"></a>editorconfig 文件示例：
+#### editorconfig 文件示例：
+<a id="example-editorconfig-file" class="xliff"></a>
 ```
 # CSharp code style settings:
 [*.cs]
@@ -519,7 +547,8 @@ csharp_style_throw_expression = true:suggestion
 | True | 调用 lambda 时，更倾向使用条件合并操作 (`?.`)，而不是执行 null 检查。 | **C#：** <br>`func?.Invoke(args);`
 | False | 调用 lambda 前，更倾向执行 null 检查，而不是使用条件合并运算符 (`?.`)。| **C#：** <br>`if (func!=null) { func(args); }`
 
-#### <a name="example-editorconfig-file"></a>editorconfig 文件示例：
+#### editorconfig 文件示例：
+<a id="example-editorconfig-file" class="xliff"></a>
 ```
 # CSharp code style settings:
 [*.cs]

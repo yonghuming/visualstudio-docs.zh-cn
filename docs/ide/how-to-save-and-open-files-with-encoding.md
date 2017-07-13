@@ -32,16 +32,19 @@ translation.priority.ht:
 - tr-tr
 - zh-cn
 - zh-tw
-translationtype: Human Translation
-ms.sourcegitcommit: 5658ecf52637a38bc3c2a5ad9e85b2edebf7d445
-ms.openlocfilehash: 6b0b95bfd2112383229c6a36ee7b9c6cdab827eb
-ms.lasthandoff: 02/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 3d32d11a430227800cb3ed53831a9565eb6adeb3
+ms.openlocfilehash: 83faa2ad32073c4133295953afa6259e88eee2d5
+ms.contentlocale: zh-cn
+ms.lasthandoff: 05/30/2017
 
 ---
-# <a name="how-to-save-and-open-files-with-encoding"></a>如何：保存和打开带有编码的文件
+# 如何：保存和打开带有编码的文件
+<a id="how-to-save-and-open-files-with-encoding" class="xliff"></a>
 可以使用特定字符编码保存文件，以支持双向语言。 还可以在打开文件时指定编码，以便 Visual Studio 正确显示文件。  
   
-### <a name="to-save-a-file-with-encoding"></a>使用编码保存文件  
+### 使用编码保存文件
+<a id="to-save-a-file-with-encoding" class="xliff"></a>  
   
 1.  从“文件”菜单中选择“将文件另存为”，然后单击“保存”按钮旁边的下拉按钮。  
   
@@ -55,7 +58,8 @@ ms.lasthandoff: 02/22/2017
   
      如果要使用已知通过特定方式编码的文件，则可以让 Visual Studio 在打开该文件时使用相应编码。 所使用的方法取决于文件是否是项目的一部分。  
   
-### <a name="to-open-an-encoded-file-that-is-part-of-a-project"></a>打开属于项目一部分的编码文件  
+### 打开属于项目一部分的编码文件
+<a id="to-open-an-encoded-file-that-is-part-of-a-project" class="xliff"></a>  
   
 1.  在**“解决方案资源管理器”**中右键单击文件，然后选择**“打开方式”**  
   
@@ -65,7 +69,8 @@ ms.lasthandoff: 02/22/2017
   
 3.  在“编码”对话框中，选择编辑器应使用的编码。  
   
-### <a name="to-open-an-encoded-file-that-is-not-part-of-a-project"></a>打开不属于项目一部分的编码文件  
+### 打开不属于项目一部分的编码文件
+<a id="to-open-an-encoded-file-that-is-not-part-of-a-project" class="xliff"></a>  
   
 1.  在“文件”菜单上，指向“打开”、选择“文件”或“来自 Web 的文件”，然后选择要打开的文件。  
   
@@ -73,6 +78,7 @@ ms.lasthandoff: 02/22/2017
   
 3.  按照上述步骤中的步骤 2 和步骤 3 操作。  
   
-## <a name="see-also"></a>另请参阅  
- [编码和 Windows 窗体全球化](http://msdn.microsoft.com/Library/22e8965d-a712-42b3-8167-3ee346bd70f9)   
+## 另请参阅
+<a id="see-also" class="xliff"></a>  
+ [编码和 Windows 窗体全球化](/dotnet/framework/winforms/advanced/encoding-and-windows-forms-globalization)   
  [对应用程序进行全球化和本地化](../ide/globalizing-and-localizing-applications.md)

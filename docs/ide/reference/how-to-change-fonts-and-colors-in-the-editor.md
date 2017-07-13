@@ -33,13 +33,15 @@ translation.priority.ht:
 - tr-tr
 - zh-cn
 - zh-tw
-translationtype: Human Translation
-ms.sourcegitcommit: 5db97d19b1b823388a465bba15d057b30ff0b3ce
-ms.openlocfilehash: 860a68779acb3a70a3513d5706e3bc359c9b8e99
-ms.lasthandoff: 02/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 5ea9179ad37514ffad4876177b05150eecc22def
+ms.openlocfilehash: 7ee0bae36003baff806dc010082668bec019a837
+ms.contentlocale: zh-cn
+ms.lasthandoff: 05/24/2017
 
 ---
-# <a name="how-to-change-fonts-and-colors-in-the-editor"></a>如何：更改编辑器中的字体和颜色
+# 如何：更改编辑器中的字体和颜色
+<a id="how-to-change-fonts-and-colors-in-the-editor" class="xliff"></a>
 在“代码编辑器”中，可以更改默认字体、调整字体大小以及更改不同文本“显示项”的前景色和背景色。 更改字体设置时，请牢记以下信息：  
   
 -   “字体”和“大小”设置适用于所有 [!INCLUDE[vsprvs](../../code-quality/includes/vsprvs_md.md)] 编辑器中的所有文本元素。  
@@ -49,9 +51,10 @@ ms.lasthandoff: 02/22/2017
 -   可以为每种文本元素类型设置“项前景”、“项背景”和“粗体”选项。 例如，如果更改“注释”和“书签”的颜色，并为它们选择“粗体”，其他类型的文本元素不会受影响。  
   
 > [!NOTE]
->  显示的对话框和菜单命令可能与“帮助”中的描述不同，具体取决于现用的设置或版本。 若要更改设置，请在 **“工具”** 菜单上选择 **“导入和导出设置”** 。 有关详细信息，请参阅[在 Visual Studio 中自定义开发设置](http://msdn.microsoft.com/en-us/22c4debb-4e31-47a8-8f19-16f328d7dcd3)。  
+>  显示的对话框和菜单命令可能与“帮助”中的描述不同，具体取决于现用的设置或版本。 若要更改设置，请在 **“工具”** 菜单上选择 **“导入和导出设置”** 。 有关详细信息，请参阅[个性化设置 Visual Studio IDE](../../ide/personalizing-the-visual-studio-ide.md)。  
   
-### <a name="to-change-the-default-font-face-size-and-colors"></a>更改默认字体、字体大小和颜色  
+### 更改默认字体、字体大小和颜色
+<a id="to-change-the-default-font-face-size-and-colors" class="xliff"></a>  
   
 1.  从“工具”菜单中选择“选项”，并在“环境”文件夹中选择“字体和颜色”。  
   
@@ -68,7 +71,8 @@ ms.lasthandoff: 02/22/2017
   
 5.  单击“确定”。  
   
-## <a name="see-also"></a>另请参阅  
+## 另请参阅
+<a id="see-also" class="xliff"></a>  
  [自定义编辑器](../../ide/customizing-the-editor.md)   
  [“选项”对话框 ->“文本编辑器”](../../ide/reference/text-editor-options-dialog-box.md)   
  [编写代码](../../ide/writing-code-in-the-code-and-text-editor.md)   

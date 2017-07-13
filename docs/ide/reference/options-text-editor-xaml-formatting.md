@@ -49,19 +49,22 @@ translation.priority.ht:
 - tr-tr
 - zh-cn
 - zh-tw
-translationtype: Human Translation
-ms.sourcegitcommit: 7c944afe8c89b8a5e30bf1e5937e848e078954ac
-ms.openlocfilehash: 6594d739b29dcd8a8296f5650fc364f5179bbd98
-ms.lasthandoff: 02/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 3d32d11a430227800cb3ed53831a9565eb6adeb3
+ms.openlocfilehash: 0d087d735f3db1f1d8fa7f37f049b6208e5242c0
+ms.contentlocale: zh-cn
+ms.lasthandoff: 05/30/2017
 
 ---
-# <a name="options-text-editor-xaml-formatting"></a>选项，文本编辑器，XAML，格式
+# 选项，文本编辑器，XAML，格式
+<a id="options-text-editor-xaml-formatting" class="xliff"></a>
 使用“格式设置”属性页可指定如何在 XAML 文档中设置元素和特性的格式。 若要打开“选项”对话框，请单击“工具”菜单，然后单击“选项”。 若要访问“格式设置”属性页，请依次展开“文本编辑器”、“XAML”、“格式设置”节点。  
 
 > [!NOTE]
->  显示的对话框和菜单命令可能会与“帮助”中的描述不同，具体取决于你现用的设置或版本。 若要更改设置，请在 **“工具”** 菜单上选择 **“导入和导出设置”** 。 有关详细信息，请参阅[在 Visual Studio 中自定义开发设置](http://msdn.microsoft.com/en-us/22c4debb-4e31-47a8-8f19-16f328d7dcd3)。  
+>  显示的对话框和菜单命令可能会与“帮助”中的描述不同，具体取决于你现用的设置或版本。 若要更改设置，请在 **“工具”** 菜单上选择 **“导入和导出设置”** 。 有关详细信息，请参阅[个性化设置 Visual Studio IDE](../../ide/personalizing-the-visual-studio-ide.md)。  
 
-## <a name="auto-formatting-events"></a>自动格式化事件  
+## 自动格式化事件
+<a id="auto-formatting-events" class="xliff"></a>  
  检测到以下任一事件时，可能引发自动格式设置。  
 
 -   完成结束标记或简单标记。  
@@ -80,7 +83,8 @@ ms.lasthandoff: 02/22/2017
 |**开始标记完成时**|完成键入开始标记时引发自动格式设置。|  
 |**从剪贴板粘贴时**|将 XAML 从剪贴板粘贴到 XAML 视图时引发自动格式设置。|  
 
-## <a name="quotation-mark-style"></a>引号样式  
+## 引号样式
+<a id="quotation-mark-style" class="xliff"></a>  
  此设置指示特性值是括在单引号内，还是括在双引号内。 自动格式设置程序和 IntelliSense 自动完成功能都使用此设置。  
 
  设置此选项后，受影响的只有随后在 XAML 视图中使用设计器添加或手动添加的特性。  
@@ -90,7 +94,8 @@ ms.lasthandoff: 02/22/2017
 |**双引号 (")**|特性值括在双引号内。<br /><br /> `<Button Name="button1">Hello</Button>`|  
 |**单引号 (')**|特性值括在单引号内。<br /><br /> `<Button Name='button1'>Hello</Button>`|  
 
-## <a name="tag-wrapping"></a>标记换行  
+## 标记换行
+<a id="tag-wrapping" class="xliff"></a>  
  可以为标记换行指定一个行长度。 启用标记换行后，随后使用设计器添加的所有 XAML 将进行适当换行。  
 
 |||  
@@ -98,7 +103,8 @@ ms.lasthandoff: 02/22/2017
 |**对超出指定长度的标记执行换行**|指定是否在“长度”指定的行长度处换行。|  
 |**长度**|一行中可以包含的字符数。 如有必要，某些 XAML 行可以超过指定的行长度。|  
 
-## <a name="attribute-spacing"></a>特性间距  
+## 特性间距
+<a id="attribute-spacing" class="xliff"></a>  
  使用此设置可以控制特性在 XAML 文档中的排列方式  
 
 |||  
@@ -108,7 +114,8 @@ ms.lasthandoff: 02/22/2017
 |**将各个特性分行放置**|每个特性单占一行。 当存在很多特性时，此设置非常有用。<br /><br /> `<Button`<br /><br /> `Height="23"`<br /><br /> `Name="button1"`<br /><br /> `Width="75">Hello</Button>`|  
 |**将第一个特性放在与开始标记相同的行上**|选中该项时，第一个特性与元素的开始标记显示在同一行上。<br /><br /> `<Button Height="23"`<br /><br /> `Name="button1"`<br /><br /> `Width="75">Hello</Button>`|  
 
-## <a name="element-spacing"></a>元素间距  
+## 元素间距
+<a id="element-spacing" class="xliff"></a>  
  使用此设置可以控制元素在 XAML 文档中的排列方式  
 
 |||  
@@ -117,7 +124,8 @@ ms.lasthandoff: 02/22/2017
 |**将内容中的多个空行折叠为单个行**|元素内容中的多个空行会折叠为单个行。<br /><br /> `<Grid>`<br /><br /> ``<br /><br /> `<Button Name="button1">Hello</Button>`<br /><br /> ``<br /><br /> `</Grid>`|  
 |**移除内容中的空行**|移除元素内容中的所有空行。<br /><br /> `<Grid>`<br /><br /> `<Button Name="button1">Hello</Button>`<br /><br /> `</Grid>`|  
 
-## <a name="miscellaneous-section-auto-insert"></a>“杂项”部分->“自动插入”  
+## “杂项”部分->“自动插入”
+<a id="miscellaneous-section-auto-insert" class="xliff"></a>  
  使用此设置可以控制自动生成标记和引号的时间。  
 
 |||  
@@ -127,8 +135,9 @@ ms.lasthandoff: 02/22/2017
 |**MarkupExtensions 的右大括号**|指定键入左括号字符 ({) 时，是否自动生成标记扩展的右括号 (})。|  
 |**用于分隔 MarkupExtension 参数的逗号**|指定在标记扩展中键入多个参数时是否生成逗号。|  
 
-## <a name="see-also"></a>另请参阅  
- [WPF 中的 XAML](http://msdn.microsoft.com/Library/5d858575-a83b-42df-ad3f-047ed2d6e3c8)   
+## 另请参阅
+<a id="see-also" class="xliff"></a>  
+ [WPF 中的 XAML](/dotnet/framework/wpf/advanced/xaml-in-wpf)   
  [如何：更改 XAML 视图设置](http://msdn.microsoft.com/en-us/aee87c79-ca01-4f84-8fb7-a9e47048ee47)   
  [XAML 和代码演练](http://msdn.microsoft.com/en-us/b3ff41a0-a2a3-4f61-b698-ac88ec8f799c)
 

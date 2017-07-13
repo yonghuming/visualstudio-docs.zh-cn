@@ -30,19 +30,22 @@ translation.priority.ht:
 - tr-tr
 - zh-cn
 - zh-tw
-translationtype: Human Translation
-ms.sourcegitcommit: 5658ecf52637a38bc3c2a5ad9e85b2edebf7d445
-ms.openlocfilehash: 5c6c36ca969d5ca9ca3957a886ce45597159bc5c
-ms.lasthandoff: 02/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 5ea9179ad37514ffad4876177b05150eecc22def
+ms.openlocfilehash: a41015624d9c64e053770707bf09b73d8606cb03
+ms.contentlocale: zh-cn
+ms.lasthandoff: 05/24/2017
 
 ---
-# <a name="projects-and-solutions-options-dialog-box"></a>“选项”对话框 ->“项目和解决方案”
+# “选项”对话框 ->“项目和解决方案”
+<a id="projects-and-solutions-options-dialog-box" class="xliff"></a>
 设置 [!INCLUDE[vsprvs](../../code-quality/includes/vsprvs_md.md)] 项目文件夹的默认路径，并在开发和生成项目时确定“输出”窗口、“任务列表”和“解决方案资源管理器”的默认行为。 若要访问此对话框，请单击“工具/选项”，展开“项目和解决方案”，然后单击“常规”。  
   
 > [!NOTE]
->  对话框中的可用选项以及显示的菜单命令的名称和位置可能与“帮助”中的描述不同，具体取决于您的当前设置或版本。 此帮助页是根据“常规开发设置”而编写的。 若要查看或更改设置，请在“工具”菜单上选择“导入和导出设置”。 有关详细信息，请参阅[在 Visual Studio 中自定义开发设置](http://msdn.microsoft.com/en-us/22c4debb-4e31-47a8-8f19-16f328d7dcd3)。  
+>  对话框中的可用选项以及显示的菜单命令的名称和位置可能与“帮助”中的描述不同，具体取决于您的当前设置或版本。 此帮助页是根据“常规开发设置”而编写的。 若要查看或更改设置，请在“工具”菜单上选择“导入和导出设置”。 有关详细信息，请参阅[个性化设置 Visual Studio IDE](../../ide/personalizing-the-visual-studio-ide.md)。  
   
-## <a name="settings"></a>设置  
+## 设置
+<a id="settings" class="xliff"></a>  
  **项目位置**  
  设置在其中创建新的项目和解决方案文件夹以及目录的默认位置。 几个对话框还使用此选项中为文件夹起始点设置的位置。 例如，“打开项目”对话框将此位置用于“我的项目”的快捷方式。  
   
@@ -78,5 +81,6 @@ ms.lasthandoff: 02/22/2017
  **在重命名文件时提示重命名符号**  
  选定后，将显示一个消息框，询问是否[!INCLUDE[vsprvs](../../code-quality/includes/vsprvs_md.md)]还应该将项目中的所有引用重命名为代码元素。  
   
-## <a name="see-also"></a>另请参阅  
+## 另请参阅
+<a id="see-also" class="xliff"></a>  
  [“选项”对话框 ->“项目和解决方案”->“生成和运行”](../../ide/reference/options-dialog-box-projects-and-solutions-build-and-run.md)
