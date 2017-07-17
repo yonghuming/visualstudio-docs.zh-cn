@@ -34,7 +34,7 @@ HRESULT CvLeaveSpan(
   
 #### 参数  
  `pSpan`  
- 范围对象为上一 CvEnterSpan\* 调用返回的对象。。  不能为 NULL。  
+ 范围对象为上一 CvEnterSpan\* 调用返回的对象。  不能为 NULL。  
   
 ## 返回值  
  S\_OK，当消息成功写入。  错误代码，当有任何错误时。  使用 SUCCEEDED\/FAILED 宏检查错误状态。  
