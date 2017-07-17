@@ -22,21 +22,6 @@ caps.latest.revision: 46
 author: kempb
 ms.author: kempb
 manager: ghogen
-translation.priority.ht:
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- ru-ru
-- zh-cn
-- zh-tw
-translation.priority.mt:
-- cs-cz
-- pl-pl
-- pt-br
-- tr-tr
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 5ea9179ad37514ffad4876177b05150eecc22def
 ms.openlocfilehash: 9a4b04dc59c409a5c68ad1fb376abb33b3859ff6
@@ -44,8 +29,10 @@ ms.contentlocale: zh-cn
 ms.lasthandoff: 05/24/2017
 
 ---
+
 # 创建解决方案和项目
 <a id="create-solutions-and-projects" class="xliff"></a>
+
 项目是生成应用程序所需的所有内容的逻辑容器。 依次选择主菜单上的“文件”、“新建”和“项目”创建项目时，[!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] 会创建将项目包含在内的解决方案。 如有必要，可以继续向解决方案添加更多新项目或现有项目。 可以从现有代码文件创建项目，也可创建在使用完毕后删除的临时项目（仅 .NET）。
 
 > [!NOTE]
