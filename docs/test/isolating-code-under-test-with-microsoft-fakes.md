@@ -26,10 +26,11 @@ translation.priority.ht:
 - tr-tr
 - zh-cn
 - zh-tw
-translationtype: Human Translation
-ms.sourcegitcommit: 5ab78b6b8eaa8156ed2c8a807b1d8a80e75afa84
-ms.openlocfilehash: acc2f3de7000e438829486b23b9652cb8d34db26
-ms.lasthandoff: 04/04/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 47057e9611b824c17077b9127f8d2f8b192d6eb8
+ms.openlocfilehash: 3941968fa0e2e6205c94076f555c8366f009d4c0
+ms.contentlocale: zh-cn
+ms.lasthandoff: 05/13/2017
 
 ---
 # <a name="isolating-code-under-test-with-microsoft-fakes"></a>用 Microsoft Fakes 隔离测试代码
@@ -58,7 +59,7 @@ Microsoft Fakes 将应用的其余部分替换为*存根*或*垫片*，有助于
   
  **静态方法和密封类型方法。** 你只能使用存根实现接口。 因此，存根类型不能用于静态方法、非虚方法、密封虚方法、密封类型中的方法，等等。  
   
- **内部类型。** 存根和垫片都能够与可使用程序集特性 <xref:System.Runtime.CompilerServices.InternalsVisibleToAttribute> 访问的内部类型结合使用。  
+ **内部类型。** 存根和填充码都可用于可通过程序集特性 <xref:System.Runtime.CompilerServices.InternalsVisibleToAttribute> 访问的内部类型。  
   
  **私有方法。** 如果方法签名中的所有类型都是可见的，则填充码可替换对私有方法的调用。 存根只能替换可见方法。  
   
@@ -176,7 +177,7 @@ Microsoft Fakes 将应用的其余部分替换为*存根*或*垫片*，有助于
   
  在测试过程中，你希望填充 `Now` 属性，因为每次调用时实际版本都会返回不同的值，从而造成了不便。  
   
- 若要使用填充码，你不必修改应用程序代码或以特定方式来编写代码。  
+ 若要使用填充码，无需修改应用程序代码，也无需以特定方式来编写代码。  
   
 1.  **添加 Fakes 程序集**  
   

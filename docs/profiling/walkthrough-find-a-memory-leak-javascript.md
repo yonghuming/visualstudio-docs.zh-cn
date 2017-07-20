@@ -35,9 +35,10 @@ translation.priority.mt:
 - pl-pl
 - pt-br
 - tr-tr
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 5db97d19b1b823388a465bba15d057b30ff0b3ce
 ms.openlocfilehash: 7e848a57962636a8ca346e809f3dadad675a7963
+ms.contentlocale: zh-cn
 ms.lasthandoff: 02/22/2017
 
 ---
@@ -163,7 +164,7 @@ ms.lasthandoff: 02/22/2017
   
      当您启动内存分析器时，可能会发现用户帐户控制正在请求运行 VsEtwCollector.exe 的权限。 选择 **“是”**。  
   
-4.  连续选择 **“泄露内存”** 按钮&4; 次。  
+4.  连续选择 **“泄露内存”** 按钮 4 次。  
   
      当选择此按钮时，default.js 中的事件处理代码将起作用，导致内存泄漏。 你将使用此内存泄漏用于诊断目的。  
   
@@ -240,7 +241,7 @@ ms.lasthandoff: 02/22/2017
     > [!TIP]
     >  有时，定位与 `Global` 对象相关的对象可能有助于确定此问题。 为此，请打开标识符的快捷菜单，然后选择 **“在根视图中显示”**。  
   
-##  <a name="a-namefixingmemorya-fixing-the-memory-issue"></a><a name="FixingMemory"></a>修复内存问题  
+##  <a name="FixingMemory"></a>修复内存问题  
   
 1.  通过使用探查器显示的数据，可以检查负责移除 ID 为“item”的 DOM 元素的代码。 它将出现在 `initialize()` 函数中。  
   
@@ -284,7 +285,7 @@ ms.lasthandoff: 02/22/2017
   
 5.  按照与前面相同的步骤来拍摄三张快照。 步骤摘要如下：  
   
-    1.  在应用程序中，连续选择 **“泄露内存”** 按钮&4; 次。  
+    1.  在应用程序中，连续选择 **“泄露内存”** 按钮 4 次。  
   
     2.  切换到 Visual Studio 并选择 **“拍摄堆快照”** 以拍摄基线快照。  
   

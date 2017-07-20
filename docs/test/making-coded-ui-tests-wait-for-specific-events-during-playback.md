@@ -26,14 +26,15 @@ translation.priority.ht:
 - tr-tr
 - zh-cn
 - zh-tw
-translationtype: Human Translation
-ms.sourcegitcommit: 5658ecf52637a38bc3c2a5ad9e85b2edebf7d445
-ms.openlocfilehash: 060dc127a1cc08dcf28a59feaa774b0094e42d56
-ms.lasthandoff: 02/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 47057e9611b824c17077b9127f8d2f8b192d6eb8
+ms.openlocfilehash: 3be7ff30658fc7e0de4cf04cab71fdae44b1b15e
+ms.contentlocale: zh-cn
+ms.lasthandoff: 05/13/2017
 
 ---
 # <a name="making-coded-ui-tests-wait-for-specific-events-during-playback"></a>播放期间让编码的 UI 测试等待特定事件
-在编码的 UI 测试播放中，你可以指示测试等待某些事件发生，如某个窗口出现、进度栏消失等。 为此，请使用合适的 UITestControl.WaitForControlXXX() 方法，如下表中所述。 有关等待使用 <xref:Microsoft.VisualStudio.TestTools.UITesting.UITestControl.WaitForControlEnabled%2A> 方法启用某个控件的编码的 UI 测试示例，请参阅[演练：创建、编辑和维护编码的 UI 测试](../test/walkthrough-creating-editing-and-maintaining-a-coded-ui-test.md)。  
+在编码的 UI 测试播放中，你可以指示测试等待某些事件发生，如某个窗口出现、进度栏消失等。 为此，请使用合适的 UITestControl.WaitForControlXXX() 方法，如下表中所述。 有关使用 <xref:Microsoft.VisualStudio.TestTools.UITesting.UITestControl.WaitForControlEnabled%2A> 方法等待启用某个控件的编码的 UI 测试示例，请参阅[演练：创建、编辑和维护编码的 UI 测试](../test/walkthrough-creating-editing-and-maintaining-a-coded-ui-test.md)。  
   
  **要求**  
   
@@ -109,13 +110,13 @@ UITestControl.WaitForCondition<UITestControl[]>(new UITestControl[] { statusText
   
  如果等待失败，则方法返回 true，如果等待失败，则返回 false。  
   
- 等待操作的隐式超时时间由 <xref:Microsoft.VisualStudio.TestTools.UITesting.PlaybackSettings.WaitForReadyTimeout%2A> 属性指定。 此属性的默认值是 60000 毫秒（1 分钟）。  
+ 等待操作的隐式超时由 <xref:Microsoft.VisualStudio.TestTools.UITesting.PlaybackSettings.WaitForReadyTimeout%2A> 属性指定。 此属性的默认值是 60000 毫秒（1 分钟）。  
   
  这些方法具有采用显式超时（以毫秒为单位）的重载。 但是，当等待操作导致对控件进行隐式搜索时，或是当应用程序繁忙时，实际等待时间可能会多于指定超时。  
   
  前面的函数强大且灵活，应该可满足几乎所有情况。 但是，如果这些方法不能满足你的需求，并且你需要在代码中对 <xref:Microsoft.VisualStudio.TestTools.UITesting.Playback.Wait%2A> 或 <xref:System.Threading.Thread.Sleep%2A> 进行编码，则建议你使用 Playback.Wait()，而不是 Thread.Sleep() API。 这样做的原因是：  
   
- 你可以使用 <xref:Microsoft.VisualStudio.TestTools.UITesting.PlaybackSettings.ThinkTimeMultiplier%2A> 属性修改睡眠的持续时间。 默认情况下，此变量是 1，但可以增大或减小它以更改整个代码的等待时间。 例如，如果要专门在慢速网络上进行测试或是测试某种其他的慢速性能情况，则可以在一个位置（甚至是在配置文件中）将此变量更改为 1.5，以在所有位置增加 50% 的额外等待。  
+ 可以使用 <xref:Microsoft.VisualStudio.TestTools.UITesting.PlaybackSettings.ThinkTimeMultiplier%2A> 属性修改睡眠的持续时间。 默认情况下，此变量是 1，但可以增大或减小它以更改整个代码的等待时间。 例如，如果要专门在慢速网络上进行测试或是测试某种其他的慢速性能情况，则可以在一个位置（甚至是在配置文件中）将此变量更改为 1.5，以在所有位置增加 50% 的额外等待。  
   
  Playback.Wait() 采用 For 循环在较小区块中内部调用 Thread.Sleep()（进行以上计算之后），同时检查是否存在用户取消\中断操作。 换句话说，Playback.Wait() 使你可以在等待结束之前取消播放，而睡眠可能会也可能不会引发异常。  
   
@@ -124,7 +125,7 @@ UITestControl.WaitForCondition<UITestControl[]>(new UITestControl[] { statusText
   
  **指南**  
   
- 有关其他信息，请参阅 [Testing for Continuous Delivery with Visual Studio 2012 – Chapter 5: Automating System Tests](http://go.microsoft.com/fwlink/?LinkID=255196)（使用 Visual Studio 2012 测试持续交付 - 第 5 章：自动化系统测试）。  
+ 有关其他信息，请参阅[使用 Visual Studio 2012 测试持续交付 - 第 5 章：自动化系统测试](http://go.microsoft.com/fwlink/?LinkID=255196)  
   
 ## <a name="see-also"></a>另请参阅  
  [使用 UI 自动化来测试代码](../test/use-ui-automation-to-test-your-code.md)   

@@ -35,9 +35,10 @@ translation.priority.ht:
 - tr-tr
 - zh-cn
 - zh-tw
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 5db97d19b1b823388a465bba15d057b30ff0b3ce
 ms.openlocfilehash: 0baf22ca488f4500fb3f4e845a0957b6225dd327
+ms.contentlocale: zh-cn
 ms.lasthandoff: 02/22/2017
 
 ---
@@ -69,7 +70,7 @@ ms.lasthandoff: 02/22/2017
 |[“列出内存”命令](../../ide/reference/list-memory-command.md)|d|Debug.ListMemory|  
 |[“列出内存”命令](../../ide/reference/list-memory-command.md)（按 ANSI）|da|Debug.ListMemory /Ansi|  
 |[“列表内存”命令](../../ide/reference/list-memory-command.md)（1 字节格式）|db|Debug.ListMemory /Format:OneByte|  
-|[“列出内存”命令](../../ide/reference/list-memory-command.md)（根据 ANSI&4; 字节格式）|dc|Debug.ListMemory /Format:FourBytes /Ansi|  
+|[“列出内存”命令](../../ide/reference/list-memory-command.md)（根据 ANSI 4 字节格式）|dc|Debug.ListMemory /Format:FourBytes /Ansi|  
 |[“列表内存”命令](../../ide/reference/list-memory-command.md)（4 字节格式）|dd|Debug.ListMemory /Format:FourBytes|  
 |删除到行首|DelBOL|Edit.DeleteToBOL|  
 |删除到行尾|DelEOL|Edit.DeleteToEOL|  

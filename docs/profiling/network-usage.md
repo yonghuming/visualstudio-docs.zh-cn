@@ -28,10 +28,11 @@ translation.priority.mt:
 - pl-pl
 - pt-br
 - tr-tr
-translationtype: Human Translation
-ms.sourcegitcommit: a42f5a30375192c89c9984e40ba0104da98d7253
-ms.openlocfilehash: 60d05761993a4bd7547d83274e103de1b5c30b34
-ms.lasthandoff: 03/07/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 47057e9611b824c17077b9127f8d2f8b192d6eb8
+ms.openlocfilehash: 44110390bcddc67d86dcfcc81c2d5961e346ccf7
+ms.contentlocale: zh-cn
+ms.lasthandoff: 05/13/2017
 
 ---
 # <a name="analyze-network-usage-in-uwp-apps"></a>分析 UWP 应用中的网络使用情况
@@ -49,7 +50,7 @@ Visual Studio“网络”诊断工具用于收集有关使用 [Windows.Web.Http 
   
 2.  在菜单上，单击“调试/性能探查器...”。 选择“网络”，然后选择“启动”。  
   
-3.  网络工具将开始收集应用的 HTTP 流量。  
+3.  网络工具开始收集应用的 HTTP 流量。  
   
      当运行应用时，左窗格中的摘要视图将自动显示捕获的 HTTP 操作列表。 在摘要视图中选择一个项，以在右窗格的“详细信息”面板中查看详细信息。  
   

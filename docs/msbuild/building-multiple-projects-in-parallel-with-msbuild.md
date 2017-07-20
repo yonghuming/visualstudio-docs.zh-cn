@@ -31,9 +31,10 @@ translation.priority.ht:
 - tr-tr
 - zh-cn
 - zh-tw
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 5db97d19b1b823388a465bba15d057b30ff0b3ce
 ms.openlocfilehash: aa5896619558a1534722fe4aa5bef3ec3b08dfe2
+ms.contentlocale: zh-cn
 ms.lasthandoff: 02/22/2017
 
 ---
@@ -48,13 +49,13 @@ ms.lasthandoff: 02/22/2017
 >  命令行中的 **/verbosity** (**/v**) 开关也会影响生成性能。 如果将生成日志信息的详细级别设置为详细或诊断以用于疑难解答，生成性能可能会降低。 有关详细信息，请参阅[获取生成日志](../msbuild/obtaining-build-logs-with-msbuild.md)和[命令行引用](../msbuild/msbuild-command-line-reference.md)。  
   
 ## <a name="maxcpucount-switch"></a>/maxcpucount 开关  
- 如果使用 `/maxcpucount` 开关（简写为 `/m`），MSBuild 将可以创建指定数量的能够并行运行的 MSBuild.exe 进程。 这些进程也称为“辅助进程”。 每个工作进程使用单独的核心或处理器（若有），以便在其他可用处理器可能生成其他项目的同时生成项目。 例如，如果将此开关的值设置为“4”，MSBuild 将创建&4; 个辅助进程来生成项目。  
+ 如果使用 `/maxcpucount` 开关（简写为 `/m`），MSBuild 将可以创建指定数量的能够并行运行的 MSBuild.exe 进程。 这些进程也称为“辅助进程”。 每个工作进程使用单独的核心或处理器（若有），以便在其他可用处理器可能生成其他项目的同时生成项目。 例如，如果将此开关的值设置为“4”，MSBuild 将创建 4 个辅助进程来生成项目。  
   
  如果包含 `/maxcpucount` 开关而没有指定值，MSBuild 将使用计算机上的处理器总数作为其值。  
   
  有关 MSBuild 3.5 中引入的此开关的详细信息，请参阅[命令行引用](../msbuild/msbuild-command-line-reference.md)。  
   
- 下面的示例指示 MSBuild 使用&3; 个辅助进程。 如果使用此配置，MSBuild 可以同时生成三个项目。  
+ 下面的示例指示 MSBuild 使用 3 个辅助进程。 如果使用此配置，MSBuild 可以同时生成三个项目。  
   
 ```  
 msbuild.exe myproj.proj /maxcpucount:3  

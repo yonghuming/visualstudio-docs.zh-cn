@@ -75,25 +75,29 @@ translation.priority.ht:
 - tr-tr
 - zh-cn
 - zh-tw
-translationtype: Human Translation
-ms.sourcegitcommit: ca7c86466fa23fb21a932f26dc24e37c71cf29b4
-ms.openlocfilehash: 07dfd26933090708cf40adff5f7ceb4785686245
-ms.lasthandoff: 04/05/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 5ea9179ad37514ffad4876177b05150eecc22def
+ms.openlocfilehash: 1d273749cc41eb975dc9f93329edf9a57aaae09a
+ms.contentlocale: zh-cn
+ms.lasthandoff: 05/24/2017
 
 ---
-# <a name="manage-external-tools"></a>管理外部工具
+# 管理外部工具
+<a id="manage-external-tools" class="xliff"></a>
 可以使用“工具”菜单从 Visual Studio 内部调用外部工具。 “工具”菜单上提供了几个默认工具，但你可以添加自己的其他可执行文件。  
 
-## <a name="tools-available-on-the-visual-studio-tools-menu"></a>Visual Studio Tools 菜单中提供的工具
+## Visual Studio Tools 菜单中提供的工具
+<a id="tools-available-on-the-visual-studio-tools-menu" class="xliff"></a>
  “工具”菜单包含若干内置命令，如：
 
 *  用于[管理 Visual Studio 扩展](finding-and-using-visual-studio-extensions.md)的“扩展和更新”
 *  用于[整理代码片段](code-snippets.md#code-snippet-manager)的“代码片段管理器...”
 *  用于启动 [Dotfuscator Community Edition (CE)](dotfuscator/index.md)（如果[已安装](dotfuscator/install.md)）的 **PreEmptive Protection - Dotfuscator**
-*  用于[自定义菜单和工具栏](how-to-customize-menus-and-toolbars-in-visual-studio)的“自定义...”
+*  用于[自定义菜单和工具栏](how-to-customize-menus-and-toolbars-in-visual-studio.md)的“自定义...”
 *  用于[为 Visual Studio IDE 和其他工具设置各种不同选项](reference/options-dialog-box-visual-studio.md)的“选项...”
 
-## <a name="add-new-tools-to-the-tools-menu"></a>将新工具添加到“工具”菜单 
+## 将新工具添加到“工具”菜单
+<a id="add-new-tools-to-the-tools-menu" class="xliff"></a> 
  可将外部工具添加到“工具”菜单。 打开“外部工具...”对话框并单击“添加”，然后填写信息。 例如，以下条目会导致 Windows 资源管理器在当前已在 Visual Studio 中打开的文件目录中打开：  
   
 1.  标题：打开文件位置
@@ -126,6 +130,7 @@ ms.lasthandoff: 04/05/2017
 |解决方案目录|$(SolutionDir)|当前解决方案的目录（驱动器 + 路径）。|  
 |解决方案文件名|$(SolutionFileName)|当前解决方案的文件名（驱动器 + 路径 + 文件名）。|  
 
-## <a name="see-also"></a>另请参阅  
+## 另请参阅
+<a id="see-also" class="xliff"></a>  
  [C/C++ 生成工具](/cpp/build/reference/c-cpp-build-tools)
 

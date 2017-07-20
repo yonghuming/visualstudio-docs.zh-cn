@@ -32,25 +32,29 @@ translation.priority.ht:
 - tr-tr
 - zh-cn
 - zh-tw
-translationtype: Human Translation
-ms.sourcegitcommit: 5658ecf52637a38bc3c2a5ad9e85b2edebf7d445
-ms.openlocfilehash: bb3fc61c821aa9412421c1e2ff9024465b078d1e
-ms.lasthandoff: 02/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 3d32d11a430227800cb3ed53831a9565eb6adeb3
+ms.openlocfilehash: 45e9bb684e7f1f83c41b04dd4b9e9b3218df8358
+ms.contentlocale: zh-cn
+ms.lasthandoff: 05/30/2017
 
 ---
-# <a name="targeting-a-specific-net-framework-version"></a>面向特定的 .NET Framework 版本
+# 面向特定的 .NET Framework 版本
+<a id="targeting-a-specific-net-framework-version" class="xliff"></a>
 在 Visual Studio 中，可以指定希望项目面向的 .NET Framework 的版本或配置文件。 对于在另一台计算机上运行的应用程序，应用程序面向的 Framework 版本必须与计算机上安装的 Framework 版本兼容。  
   
  本部分包含介绍如何在项目中面向 [!INCLUDE[dnprdnshort](../code-quality/includes/dnprdnshort_md.md)] 的特定版本的主题。  
   
-## <a name="in-this-section"></a>本节内容  
+## 本节内容
+<a id="in-this-section" class="xliff"></a>  
  [Visual Studio 多目标概述](../ide/visual-studio-multi-targeting-overview.md)  
  概述 Visual Studio 中的多目标功能。  
   
  [如何：面向 .NET Framework 的某个版本](../ide/how-to-target-a-version-of-the-dotnet-framework.md)  
  详细介绍了如何为你的 Visual Basic、Visual C# 或 Visual F # 项目指定特定的 [!INCLUDE[dnprdnshort](../code-quality/includes/dnprdnshort_md.md)]。  
   
-## <a name="related-sections"></a>相关章节  
+## 相关章节
+<a id="related-sections" class="xliff"></a>  
  [用于 ASP.NET Web 项目的 .NET Framework 多目标](http://msdn.microsoft.com/Library/8b8145a9-62f6-4fc4-8a83-47b0487cbe76)  
  说明如何使用此版本的 Visual Studio 开发在早期版本的 .NET Framework 下运行的 Web 应用程序。  
   
@@ -60,5 +64,5 @@ ms.lasthandoff: 02/22/2017
  [“项目设计器”->“应用程序”页 (Visual Basic)](../ide/reference/application-page-project-designer-visual-basic.md)  
  介绍 [!INCLUDE[vbprvb](../code-quality/includes/vbprvb_md.md)] 项目的项目设计器中的“目标框架”控件。  
   
- [如何：修改目标框架和平台工具集](http://msdn.microsoft.com/Library/031b1d54-e6e1-4da7-9868-3e75a87d9ffe)  
+ [如何：修改目标框架和平台工具集](/cpp/build/how-to-modify-the-target-framework-and-platform-toolset)  
  介绍如何更改 Visual C++ 项目的设置以面向不同版本的 .NET Framework 并使用不同的平台工具集。

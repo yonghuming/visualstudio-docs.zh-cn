@@ -27,12 +27,14 @@ translation.priority.ht:
 - tr-tr
 - zh-cn
 - zh-tw
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 5db97d19b1b823388a465bba15d057b30ff0b3ce
 ms.openlocfilehash: 9226dacfa63287857c09e5c6945363ccafadc2c7
+ms.contentlocale: zh-cn
+ms.lasthandoff: 02/22/2017
 
 ---
-# <a name="getting-started-with-debugging-in-visual-studio"></a>Visual Studio&2015; 中的调试入门
+# <a name="getting-started-with-debugging-in-visual-studio"></a>Visual Studio 2015 中的调试入门
 Visual Studio 提供一组强大的集成项目生成和调试工具。 本主题将介绍如何开始使用一组最基本的调试 UI 功能。  
 
  注意：此页底部有指向更高级功能以及特定于平台或功能的主题的链接。  
@@ -183,7 +185,7 @@ Visual Studio 提供一组强大的集成项目生成和调试工具。 本主�
 
  ![Visual Studio 条件断点](../ide/media/vs_ide_gs_debug_breakpoint_conditional.PNG "Vs_ide_gs_debug_breakpoint_conditional")  
 
- 有关如何声明用于评估条件断点的表达式的详细信息，请观看第&9; 频道视频 [Breakpoint Configuration Experience in Visual Studio](http://channel9.msdn.com/Events/Visual-Studio/Connect-event-2014/711)（Visual Studio 中的断点配置体验）。  
+ 有关如何声明用于评估条件断点的表达式的详细信息，请观看第 9 频道视频 [Breakpoint Configuration Experience in Visual Studio](http://channel9.msdn.com/Events/Visual-Studio/Connect-event-2014/711)（Visual Studio 中的断点配置体验）。  
 
 ### <a name="inspecting-your-code-at-run-time"></a>在运行时检查你的代码  
  当运行代码达到断点并暂停时，你可以检查变量和调用堆栈以确定发生了什么情况。 这些值是否在你期望的范围内？ 调用是否正按正确的顺序进行？  
@@ -208,9 +210,4 @@ Visual Studio 提供一组强大的集成项目生成和调试工具。 本主�
  [调试器设置和准备](../debugger/debugger-settings-and-preparation.md)   
  [调试 64 位应用程序](../debugger/debug-64-bit-applications.md)   
  [调试器基础知识](../debugger/debugger-basics.md)
-
-
-
-<!--HONumber=Feb17_HO4-->
-
 

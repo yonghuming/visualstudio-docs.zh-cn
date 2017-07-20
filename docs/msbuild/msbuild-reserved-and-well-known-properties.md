@@ -34,18 +34,21 @@ translation.priority.ht:
 - tr-tr
 - zh-cn
 - zh-tw
-translationtype: Human Translation
-ms.sourcegitcommit: 5db97d19b1b823388a465bba15d057b30ff0b3ce
-ms.openlocfilehash: 078576d6e1988bf1cefbb09646ea44f61085f5cf
-ms.lasthandoff: 02/22/2017
+ms.translationtype: HT
+ms.sourcegitcommit: 7a873df77756e5a957d327049566c8e0db1f3a8a
+ms.openlocfilehash: f1f9931e6e7c8dda4cb74f407901f41467c690cc
+ms.contentlocale: zh-cn
+ms.lasthandoff: 07/14/2017
 
 ---
-# <a name="msbuild-reserved-and-well-known-properties"></a>MSBuild 保留属性和已知属性
+# MSBuild 保留属性和已知属性
+<a id="msbuild-reserved-and-well-known-properties" class="xliff"></a>
 [!INCLUDE[vstecmsbuild](../extensibility/internals/includes/vstecmsbuild_md.md)] 提供了一组预定义的属性，这些属性存储有关项目文件和 [!INCLUDE[vstecmsbuild](../extensibility/internals/includes/vstecmsbuild_md.md)] 二进制文件的信息。 这些属性的计算方式与其他 [!INCLUDE[vstecmsbuild](../extensibility/internals/includes/vstecmsbuild_md.md)] 属性相同。 例如，要使用 `MSBuildProjectFile` 属性，应键入 `$(MSBuildProjectFile)`。  
   
  MSBuild 使用下表中的值预定义保留的属性和已知的属性。 无法重写保留的属性，但可以使用名称相同的环境属性、全局属性或已在项目文件中声明的属性重写已知的属性。  
   
-## <a name="reserved-and-well-known-properties"></a>保留的属性和已知的属性  
+## 保留的属性和已知的属性
+<a id="reserved-and-well-known-properties" class="xliff"></a>  
  下表介绍了 [!INCLUDE[vstecmsbuild](../extensibility/internals/includes/vstecmsbuild_md.md)] 预定义的属性。  
   
 |属性|描述|保留或已知|  
@@ -64,6 +67,7 @@ ms.lasthandoff: 02/22/2017
 |`MSBuildProjectFile`|项目文件的完整文件名（包括文件扩展名）；例如，MyApp.proj。|保留|  
 |`MSBuildProjectFullPath`|项目文件的绝对路径和完整文件名（包括文件名扩展），例如，C:\MyCompany\MyProduct\MyApp.proj。|保留|  
 |`MSBuildProjectName`|项目文件的文件名（不包括文件扩展名）；例如，MyApp。|保留|  
+|`MSBuildRuntimeType`|当前正在执行的运行时类型。 在 MSBuild 15 中引入。 可能未定义值（MSBuild 15 之前）， `Full` 指示 MSBuild 在桌面 .NET Framework 上运行，`Core` 指示 MSBuild 在 .NET Core 上运行，`Mono` 指示 MSBuild 在 Mono 上运行。|保留|  
 |`MSBuildStartupDirectory`|在其中调用 [!INCLUDE[vstecmsbuild](../extensibility/internals/includes/vstecmsbuild_md.md)] 的文件夹的绝对路径。 通过使用此属性，你无需在每个目录中都创建 dirs.proj 文件就可以在项目树中的某个特定点下生成所有内容。 而你只有一个项目，例如 c:\traversal.proj（如此处所示）：<br /><br /> `<Project ...>     <ItemGroup>         <ProjectFiles              Include="$            (MSBuildStartupDirectory)            **\*.csproj"/>     </ItemGroup>     <Target Name="build">         <MSBuild             Projects="@(ProjectFiles)"/>     </Target> </Project>`<br /><br /> 若要在该树中的任意一点生成，请键入：<br /><br /> `msbuild c:\traversal.proj`<br /><br /> 不要在此属性上添加最终反斜杠。|保留|  
 |`MSBuildThisFile`|`MSBuildThisFileFullPath` 的文件名和文件扩展名部分。|保留|  
 |`MSBuildThisFileDirectory`|`MSBuildThisFileFullPath` 的目录部分。<br /><br /> 将最终反斜杠包括在路径中。|保留|  
@@ -74,6 +78,6 @@ ms.lasthandoff: 02/22/2017
 |`MSBuildToolsPath`|与 [!INCLUDE[vstecmsbuild](../extensibility/internals/includes/vstecmsbuild_md.md)]的值相关联的 `MSBuildToolsVersion` 版本的安装路径。<br /><br /> 不要将最终的反斜杠包含在路径中。<br /><br /> 不能重写此属性。|保留|  
 |`MSBuildToolsVersion`|用于生成项目的 [!INCLUDE[vstecmsbuild](../extensibility/internals/includes/vstecmsbuild_md.md)] 工具集版本。<br /><br /> 注意：[!INCLUDE[vstecmsbuild](../extensibility/internals/includes/vstecmsbuild_md.md)] 工具集由用于生成应用程序的任务、目标和工具组成。 工具包括编译器例如 csc.exe 和 vbc.exe。 有关详细信息，请参阅 [工具集 (ToolsVersion)](../msbuild/msbuild-toolset-toolsversion.md)和[标准和自定义工具集配置](../msbuild/standard-and-custom-toolset-configurations.md)。|保留|  
   
-## <a name="see-also"></a>另请参阅  
- [MSBuild 参考](../msbuild/msbuild-reference.md)
- [MSBuild 属性](../msbuild/msbuild-properties.md)
+## 另请参阅
+<a id="see-also" class="xliff"></a>  
+ [MSBuild 参考](../msbuild/msbuild-reference.md) [MSBuild 属性](../msbuild/msbuild-properties.md)

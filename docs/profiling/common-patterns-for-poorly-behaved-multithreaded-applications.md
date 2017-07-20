@@ -1,23 +1,43 @@
 ---
 title: "性能不佳的多线程应用程序的常见模式 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-debug"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "vs.cv.threads.tools.gallery"
-helpviewer_keywords: 
-  - "并发可视化工具，性能不佳的多线程应用程序的常见模式"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-debug
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords:
+- vs.cv.threads.tools.gallery
+helpviewer_keywords:
+- Concurrency Visualizer, common patterns for poorly-behaved multithreaded applications
 ms.assetid: 00d10629-e20f-4d6d-8643-c59a3879812e
 caps.latest.revision: 12
-author: "mikejo5000"
-ms.author: "mikejo"
-manager: "ghogen"
-caps.handback.revision: 12
+author: mikejo5000
+ms.author: mikejo
+manager: ghogen
+translation.priority.ht:
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- ru-ru
+- zh-cn
+- zh-tw
+translation.priority.mt:
+- cs-cz
+- pl-pl
+- pt-br
+- tr-tr
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 5db97d19b1b823388a465bba15d057b30ff0b3ce
+ms.openlocfilehash: 930567937eea5afade80fa607d20fbe70c9526a9
+ms.contentlocale: zh-cn
+ms.lasthandoff: 02/22/2017
+
 ---
 # <a name="common-patterns-for-poorly-behaved-multithreaded-applications"></a>性能不佳的多线程应用程序的常见模式
 并发可视化工具可帮助开发者将多线程应用程序的行为可视化。 此工具包含性能不佳的多线程应用程序的常见模式库。 该库包括通过工具公开的典型、可识别的视觉对象模式，以及每种模式所表示的行为的解释，该行为可能造成的结果以及解决它最常用的方法。  
@@ -45,7 +65,7 @@ caps.handback.revision: 12
 ## <a name="oversubscription"></a>过度订阅  
  ![过度订阅](../profiling/media/oversubscription.png "Oversubscription")  
   
- 在出现过度订阅的情况下，进程中活动线程的数量将超出系统上可用的逻辑内核数。 上图显示过度订阅的结果，以及所有活动线程中明显的抢占区段。 此外，图例显示了抢占占用了大部分的时间（在本例中为&84;%）。 这可能表示进程正在要求系统执行多于逻辑核心数的并发线程。 但是，这也可能表示系统上的其他进程正在使用假设为此进程所提供的资源。  
+ 在出现过度订阅的情况下，进程中活动线程的数量将超出系统上可用的逻辑内核数。 上图显示过度订阅的结果，以及所有活动线程中明显的抢占区段。 此外，图例显示了抢占占用了大部分的时间（在本例中为 84%）。 这可能表示进程正在要求系统执行多于逻辑核心数的并发线程。 但是，这也可能表示系统上的其他进程正在使用假设为此进程所提供的资源。  
   
  评估此问题时，应注意以下事项：  
   
@@ -65,8 +85,3 @@ caps.handback.revision: 12
   
 ## <a name="see-also"></a>另请参阅  
  [线程视图](../profiling/threads-view-parallel-performance.md)
-
-
-<!--HONumber=Feb17_HO4-->
-
-

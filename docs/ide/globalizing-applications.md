@@ -31,21 +31,25 @@ translation.priority.ht:
 - tr-tr
 - zh-cn
 - zh-tw
-translationtype: Human Translation
-ms.sourcegitcommit: 5658ecf52637a38bc3c2a5ad9e85b2edebf7d445
-ms.openlocfilehash: 0d8671ed0cad330a83482a84198ef397a3c4ad08
-ms.lasthandoff: 02/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 3d32d11a430227800cb3ed53831a9565eb6adeb3
+ms.openlocfilehash: e77d5d86e16dd360759c8e289ad545efaa6a4870
+ms.contentlocale: zh-cn
+ms.lasthandoff: 05/30/2017
 
 ---
-# <a name="globalizing-applications"></a>全球化应用程序
+# 全球化应用程序
+<a id="globalizing-applications" class="xliff"></a>
 全球化是指设计和开发针对多个区域性的软件产品的过程。 本节内容适用于 Windows 窗体和 Web 窗体页面。  
   
-## <a name="in-this-section"></a>本节内容  
+## 本节内容
+<a id="in-this-section" class="xliff"></a>  
  [全球 Windows 窗体和 Web 窗体的区域性特定类](../ide/culture-specific-classes-for-global-windows-forms-and-web-forms.md)  
  介绍根据区域性设置，为日期、时间、数字、货币和其他信息设置格式的类。  
   
-## <a name="related-sections"></a>相关章节  
- [全球化 Windows 窗体](http://msdn.microsoft.com/Library/72f6cd92-83be-45ec-aa37-9cb8e3ebc3c5)  
+## 相关章节
+<a id="related-sections" class="xliff"></a>  
+ [全球化 Windows 窗体](/dotnet/framework/winforms/advanced/globalizing-windows-forms)  
  提供 Windows 窗体全球化帮助页的链接。  
   
  [全球化和本地化](http://msdn.microsoft.com/Library/8ef3838e-9d05-4236-9dd0-ceecff9df80d)  

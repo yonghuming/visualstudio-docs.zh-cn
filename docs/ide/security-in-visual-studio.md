@@ -30,34 +30,39 @@ translation.priority.ht:
 - tr-tr
 - zh-cn
 - zh-tw
-translationtype: Human Translation
-ms.sourcegitcommit: ca7c86466fa23fb21a932f26dc24e37c71cf29b4
-ms.openlocfilehash: 57f7d51786d2636eb865eb81bb3468e79c6f19f9
-ms.lasthandoff: 04/05/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 3d32d11a430227800cb3ed53831a9565eb6adeb3
+ms.openlocfilehash: 7314921a9416184c4bd63312bd5a82cef4102ddd
+ms.contentlocale: zh-cn
+ms.lasthandoff: 05/30/2017
 
 ---
-# <a name="security-in-visual-studio"></a>Visual Studio 中的安全性
+# Visual Studio 中的安全性
+<a id="security-in-visual-studio" class="xliff"></a>
 你应该考虑应用程序开发的所有环节（从设计到部署）的安全性。 从尽可能安全地运行 Visual Studio 开始。 请参阅[用户权限](../ide/user-permissions-and-visual-studio.md)。  
   
  若要高效地开发安全的应用程序，应对安全概念和开发所针对的平台的安全特性有基本的了解。 你还应对安全编码技术有所了解。  
   
-## <a name="understanding-security"></a>了解安全性  
- [安全性](http://msdn.microsoft.com/Library/9a9621d7-8883-4a4f-a874-65e8e09e20a6)  
+## 了解安全性
+<a id="understanding-security" class="xliff"></a>  
+ [安全性](/dotnet/standard/security/index)  
  描述 .NET Framework 代码访问安全性、基于角色的安全性、安全策略和安全工具。  
   
  [Defend Your Code with Top Ten Security Tips Every Developer Must Know](http://go.microsoft.com/fwlink/?LinkId=72877)（使用开发人员必知十大安全技巧保卫你的代码）  
  介绍你应注意的问题，以免危害你的数据或系统。  
   
-## <a name="coding-for-security"></a>安全编码  
+## 安全编码
+<a id="coding-for-security" class="xliff"></a>  
  导致安全漏洞的大多数编码错误都是由于开发人员在处理用户输入时所做的假定错误，或者是由于他们对开发平台了解不够充分。  
   
- [安全编码准则](http://msdn.microsoft.com/Library/4f882d94-262b-4494-b0a6-ba9ba1f5f177)  
+ [安全编码准则](/dotnet/standard/security/secure-coding-guidelines)  
  提供对组件进行分类以解决安全性问题的准则。  
   
  [安全性最佳做法](/cpp/top/security-best-practices-for-cpp)  
  讨论缓冲区溢出并提供 Microsoft Visual C++ 安全检查功能（由 /GS 编译时标志提供）的全面介绍。
 
-## <a name="building-for-security"></a>构建安全性  
+## 构建安全性
+<a id="building-for-security" class="xliff"></a>  
  安全性也是生成过程中的一个重要考虑因素。  一些额外步骤可以提高所部署应用的安全性，并帮助防止未经授权的反向工程、欺骗或其他攻击。
 
  [Dotfuscator Community Edition (CE)](dotfuscator/index.md)  

@@ -36,18 +36,21 @@ translation.priority.mt:
 - pl-pl
 - pt-br
 - tr-tr
-translationtype: Human Translation
-ms.sourcegitcommit: ca7c86466fa23fb21a932f26dc24e37c71cf29b4
-ms.openlocfilehash: b88c533d613d531a7dcc24e0610e2fb2a7a3d880
-ms.lasthandoff: 04/05/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 8bf0b097be929b30627e0f1139c6e0b145933ab4
+ms.openlocfilehash: 5a8237e5c437878b22bd3c67a3a4ba2cdc3fa126
+ms.contentlocale: zh-cn
+ms.lasthandoff: 05/26/2017
 
 ---
-# <a name="prerequisites-dialog-box"></a>Prerequisites Dialog Box
+# Prerequisites Dialog Box
+<a id="prerequisites-dialog-box" class="xliff"></a>
 此对话框指定安装哪些必备组件、如何安装以及组件包的安装顺序。  
   
  若要访问此对话框，请在“解决方案资源管理器”中选择项目节点，然后在“项目”菜单上单击“属性”。 当 **“项目设计器”** 出现时，单击 **“发布”** 选项卡。 在“发布”页上，单击“系统必备”。 对于安装项目，在“项目”菜单上单击“属性”。 “属性页”对话框出现后，单击“系统必备”。  
   
-## <a name="uielement-list"></a>UIElement 列表  
+## UIElement 列表
+<a id="uielement-list" class="xliff"></a>  
   
 |元素|说明|  
 |-------------|-----------------|  
@@ -58,15 +61,16 @@ ms.lasthandoff: 04/05/2017
 |**从与我的应用程序相同的位置下载系统必备组件**|指定从与应用程序相同的位置安装系统必备组件。 这会将所有系统必备包复制到发布位置。 要让此选项正常工作，系统必备包必须位于开发计算机上。|  
 |**从下列位置下载系统必备组件**|指定从选定的位置安装系统必备组件。 可使用“浏览”按钮选择位置。|  
   
-## <a name="prerequisites-information"></a>系统必备信息  
+## 系统必备信息
+<a id="prerequisites-information" class="xliff"></a>  
  出现在“系统必备”对话框中的系统必备组件可能与下面列表中的不同。 第一次打开对话框时将自动设置**“系统必备”对话框**中所列的必备组件包。 如果随后更改项目的目标框架，则必须手动选择必备组件，以便与新目标框架相匹配。  
   
 |元素|说明|  
 |-------------|-----------------|  
 |**.NET Framework 3.5 SP1**|此程序包会安装下列系统必备组件：<br /><br /> - .NET Framework 2.0、3.0 和 3.5 版<br />- 支持 32 位 (x86) 和 64 位 (x64) 操作系统上的所有 .NET Framework 版本。<br />- 与程序包一起安装的每个 .NET Framework 版本的语言包。<br />- .NET Framework 2.0 和 3.0 服务包。<br /><br /> .NET Framework 3.0 随 Windows Vista 一起提供，.NET Framework 3.5 随 [!INCLUDE[vsprvs](../../code-quality/includes/vsprvs_md.md)] 一起提供。 .NET Framework 3.5 是针对 32 位操作系统进行编译且目标框架设置为“.NET Framework 3.5”的所有 Visual Basic 和 Visual C# 项目的必需组件，也是针对 64 位操作系统编译的 Visual Basic 和 Visual C# 项目的必需组件。 （不支持 IA64。）注意，默认情况下 Visual Basic 和 Visual C# 项目是针对所有 CPU 体系结构编译的。 有关详细信息，请参阅 [Visual Studio 多目标概述](../../ide/visual-studio-multi-targeting-overview.md)、[再发行 .NET Framework](http://msdn.microsoft.com/en-us/a18d0456-fd89-493e-97f4-756505bfe287) 和[部署 64 位应用程序的必备组件](../../deployment/deploying-prerequisites-for-64-bit-applications.md)。<br /><br /> 默认情况下，此项处于选定状态。|  
-|**.NET Framework 3.5 SP1 Client Profile**|.NET Framework Client Profile 是完整版 .NET Framework 3.5 SP1 的子集，面向客户端应用程序。 它提供 Windows Presentation Foundation (WPF)、Windows 窗体、Windows Communication Foundation (WCF) 和 ClickOnce 功能的简化子集。 这样可以实现 WPF、Windows 窗体、WCF 和面向 .NET Framework Client Profile 的控制台应用程序的快速部署。 有关详细信息，请参阅 [.NET Framework Client Profile](http://msdn.microsoft.com/Library/f0219919-1f02-4588-8704-327a62fd91f1)。|  
+|**.NET Framework 3.5 SP1 Client Profile**|.NET Framework Client Profile 是完整版 .NET Framework 3.5 SP1 的子集，面向客户端应用程序。 它提供 Windows Presentation Foundation (WPF)、Windows 窗体、Windows Communication Foundation (WCF) 和 ClickOnce 功能的简化子集。 这样可以实现 WPF、Windows 窗体、WCF 和面向 .NET Framework Client Profile 的控制台应用程序的快速部署。 有关详细信息，请参阅 [.NET Framework Client Profile](/dotnet/framework/deployment/client-profile)。|  
 |**Microsoft .NET Framework 4（x86 和 x64）**|此程序包会为 x86 和 x64 平台安装 .NET Framework 4。<br /><br /> 有关详细信息，请参阅 [Visual Studio 多目标概述](../../ide/visual-studio-multi-targeting-overview.md)、[再发行 .NET Framework](http://msdn.microsoft.com/en-us/a18d0456-fd89-493e-97f4-756505bfe287) 和[部署 64 位应用程序的必备组件](../../deployment/deploying-prerequisites-for-64-bit-applications.md)。<br /><br /> 默认情况下，此项处于选定状态。|  
-|**Microsoft .NET Framework 4 Client Profile（x86 和 x64）**|.NET Framework 4 Client Profile 是完整版 .NET Framework 4 的子集，面向客户端应用程序。 它提供 Windows Presentation Foundation (WPF)、Windows 窗体、Windows Communication Foundation (WCF) 和 ClickOnce 功能的简化子集。 这样可以实现 WPF、Windows 窗体和面向 .NET Framework 4 Client Profile 的控制台应用程序的快速部署。 有关详细信息，请参阅 [.NET Framework Client Profile](http://msdn.microsoft.com/Library/f0219919-1f02-4588-8704-327a62fd91f1)。|  
+|**Microsoft .NET Framework 4 Client Profile（x86 和 x64）**|.NET Framework 4 Client Profile 是完整版 .NET Framework 4 的子集，面向客户端应用程序。 它提供 Windows Presentation Foundation (WPF)、Windows 窗体、Windows Communication Foundation (WCF) 和 ClickOnce 功能的简化子集。 这样可以实现 WPF、Windows 窗体和面向 .NET Framework 4 Client Profile 的控制台应用程序的快速部署。 有关详细信息，请参阅 [.NET Framework Client Profile](/dotnet/framework/deployment/client-profile)。|  
 |**Microsoft Office 2007 Primary Interop Assemblies**|此程序包会为 2007 Microsoft Office 产品安装主互操作程序集。 主互操作程序集使托管代码可与 Microsoft Office 应用程序的 COM 对象模型进行交互。 有关详细信息，请参阅 [Office Primary Interop Assemblies](/office-dev/office-dev/office-primary-interop-assemblies)。|  
 |**Microsoft Visual Basic PowerPacks 版本 10.0**|Power Pack 是外接程序、控件、组件和工具，可帮助你开发 Visual Basic 应用程序。 此版本包含 <xref:Microsoft.VisualBasic.PowerPacks.Printing.PrintForm> 组件（使用该组件可以打印 Windows 窗体的内容）和 Printer Compatibility Library（使用它可以不经修改地运行 Visual Basic 6.0 Printer 代码）。|  
 |**面向 .NET 2.0 的 Microsoft Visual F# 运行时**|此程序包会为 x86 和 x64 操作系统安装 Visual F# 运行库，它们提供对函数编程以及传统的面向对象及命令性（过程）编程的支持。 如果应用程序或其组件在 Visual F# 和 .NET Framework 2.0、.NET Framework 3.0 或 .NET Framework 3.5 中编写，则必须安装此程序包。<br /><br /> 有关详细信息，请参阅 [F# Language Reference](http://msdn.microsoft.com/Library/16b706f8-b5f2-4ff7-b2c1-64df33cd6adf)（F# 语言参考）。|  
@@ -81,7 +85,8 @@ ms.lasthandoff: 04/05/2017
 |**Windows Installer 3.1**|此程序包安装 Microsoft Windows Installer 可再发行版本 3.1，以便可以安装 Windows Installer 安装项目。 它预安装在 Windows Server 2003 SP1 和更高版本上。<br /><br /> 默认情况下，此项处于选定状态。|  
 |**Windows Installer 4.5**|此程序包安装 Microsoft Windows Installer 可再发行版本 4.5，以便可以安装 Windows Installer 安装项目。|  
   
-## <a name="see-also"></a>另请参阅  
+## 另请参阅
+<a id="see-also" class="xliff"></a>  
  [“项目设计器”->“发布”页](../../ide/reference/publish-page-project-designer.md)   
  [应用程序部署必备](../../deployment/application-deployment-prerequisites.md)   
  [再发行 .NET Framework](http://msdn.microsoft.com/en-us/a18d0456-fd89-493e-97f4-756505bfe287)   

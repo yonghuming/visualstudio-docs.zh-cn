@@ -11,7 +11,7 @@ ms.tgt_pltfrm:
 f1_keywords:
 - vs.toolsoptionspages.r_tools
 - vs.toolsoptionspages.r_tools.advanced
-- VS.ToolsOptionsPages.R_Tools.%23150
+- vs.toolsoptionspages.r_tools.#150
 ms.topic: article
 ms.assetid: 554dc602-ecad-4cd0-8e6f-a60bb8a2328f
 caps.latest.revision: 1
@@ -58,7 +58,7 @@ ms.lasthandoff: 05/12/2017
 
 ![Visual Studio 中的数据科学家窗口布局](media/installation-data-scientist-layout-result.png)
 
-> [!Important]        
+> [!Important]      
 > 若稍后要还原到其他 Visual Studio 设置，请先使用“工具”>“导入和导出设置”命令，选择“导出所选环境设置”，然后指定一个文件名。 若要还原这些设置，请使用相同的命令，然后选择“导入所选环境设置”。 如果要更改数据科学家布局，并且想要稍后返回该布局，还可使用相同的命令，而不是直接使用“数据科学设置”命令。
 
 ## <a name="debugging"></a>调试

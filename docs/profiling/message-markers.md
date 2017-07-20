@@ -1,30 +1,48 @@
 ---
 title: "消息标记 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-debug"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "vs.cv.markers.message"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-debug
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords:
+- vs.cv.markers.message
 ms.assetid: 721f40ca-5af2-4a01-b8b6-2b90f6cb7f89
 caps.latest.revision: 13
-author: "mikejo5000"
-ms.author: "mikejo"
-manager: "ghogen"
-caps.handback.revision: 13
----
-# 消息标记
-[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
+author: mikejo5000
+ms.author: mikejo
+manager: ghogen
+translation.priority.ht:
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- ru-ru
+- zh-cn
+- zh-tw
+translation.priority.mt:
+- cs-cz
+- pl-pl
+- pt-br
+- tr-tr
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 47057e9611b824c17077b9127f8d2f8b192d6eb8
+ms.openlocfilehash: 0fa95a9a7ff262f03608d5b076a45220d2b56fec
+ms.contentlocale: zh-cn
+ms.lasthandoff: 05/13/2017
 
-消息标记代表日志输出。  消息是特定线程按特定时间发出的字符串。  可以导出消息到文本文件,与其他工具一起使用。  可以将鼠标指针停在并发可视化工具的信息上来显示信息字符串。  您可以在 [标记报告](../profiling/markers-report.md)的所有消息标记。以下插图显示了消息标记。  
+---
+# <a name="message-markers"></a>消息标记
+消息标记代表日志输出。 消息是特定线程在特定时间发出的字符串。 可以将消息导出到文本文件，以便与其他工具一起使用。 可以将鼠标指针放在并发可视化工具中的某一消息上，以便查看消息字符串。 可以在[标记报告](../profiling/markers-report.md)中查看所有消息标记。  下图显示消息标记。  
   
-## 消息标记聚合  
- 有时并发可视化工具的多个消息发生的过于接近以至于它们不能单独绘制。  发生这种情况时，表示显示基础消息的 *消息聚合标记*。  当将鼠标停在这些图标之一上时，工具提示显示表示基础消息的数量。  若要显示消息，请放大。如果始终放大并且仍获取聚合标记，您可在查看 [标记报告](../profiling/markers-report.md)的基础信息。  
+## <a name="message-aggregation-markers"></a>消息聚合标记  
+ 有时，并发可视化工具中多个消息的发生时间过于接近，导致无法单独绘制。 发生这种情况时，将显示代表基础消息的消息聚合标记。 当将鼠标指针放在这些图标上时，工具提示将显示所代表的基础消息数量。 若要查看这些消息，请放大。  如果一直放大但仍显示聚合标记，则可在[标记报告](../profiling/markers-report.md)中查看基础消息。  
   
-## 请参阅  
+## <a name="see-also"></a>另请参阅  
  [并发可视化工具标记](../profiling/concurrency-visualizer-markers.md)   
  [并发可视化工具 SDK](../profiling/concurrency-visualizer-sdk.md)

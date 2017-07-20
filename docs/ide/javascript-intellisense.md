@@ -44,13 +44,15 @@ translation.priority.ht:
 - tr-tr
 - zh-cn
 - zh-tw
-translationtype: Human Translation
-ms.sourcegitcommit: 9328c347d548a03a536cea16bd5851817c03d5a2
-ms.openlocfilehash: 35ad2826fb25557d05be3548351aabd27e005cba
-ms.lasthandoff: 04/10/2017
+ms.translationtype: HT
+ms.sourcegitcommit: 359e1eb5df8f19774d352ace631802367b6dd8c9
+ms.openlocfilehash: 759ffc281b8c673f5987afc6512b225434b69dec
+ms.contentlocale: zh-cn
+ms.lasthandoff: 07/11/2017
 
 ---
-# <a name="javascript-intellisense"></a>JavaScript IntelliSense
+# JavaScript IntelliSense
+<a id="javascript-intellisense" class="xliff"></a>
 [!include[vs_dev15](../misc/includes/vs_dev15_md.md)] 提供了功能强大、即时可用的 JavaScript 编辑体验。 借助于基于 TypeScript 的语言服务所提供的支持，Visual Studio 提供功能更丰富的 IntelliSense、现代 JavaScript 功能支持，以及改进的工作效率功能（如“转到定义”、重构等）。
 
 > [!NOTE]
@@ -58,7 +60,8 @@ ms.lasthandoff: 04/10/2017
 
 有关 [!INCLUDE[vs_current_short](../code-quality/includes/vs_current_short_md.md)] 的常规 IntelliSense 功能的详细信息，请参阅[使用 IntelliSense](../ide/using-intellisense.md)。 
 
-## <a name="whats-new-in-the-javascript-language-service-in-includevsdev15miscincludesvsdev15mdmd"></a>[!include[vs_dev15](../misc/includes/vs_dev15_md.md)] 中 JavaScript 语言服务的新增功能
+## [!include[vs_dev15](../misc/includes/vs_dev15_md.md)] 中 JavaScript 语言服务的新增功能
+<a id="whats-new-in-the-javascript-language-service-in-includevsdev15miscincludesvsdev15mdmd" class="xliff"></a>
 
 [!include[vs_dev15](../misc/includes/vs_dev15_md.md)] 中的 JavaScript IntelliSense 现将显示有关参数和成员列表的更多信息。
 此新信息由 TypeScript 语言服务提供，该服务在后台使用静态分析来更好地了解使用者的代码。
@@ -130,7 +133,7 @@ function Foo(param1) {
 
 ### <a name="TsDeclFiles"></a>基于 TypeScript 声明文件的 IntelliSense
 
-由于 JavaScript 和 TypeScript 现基于同一语言服务，因此它们能够以更丰富的方式进行交互。 例如，可以为在 `.d.ts` 文件（[详细信息](https://github.com/Microsoft/TypeScript-Handbook/blob/master/pages/Writing%20Definition%20Files.md)）中声明的值提供 JavaScript IntelliSense，而且在 TypeScript 中声明的类型（如接口和类）可用作 JsDoc 注释中的类型。 
+由于 JavaScript 和 TypeScript 现基于同一语言服务，因此它们能够以更丰富的方式进行交互。 例如，可以为在 `.d.ts` 文件（[详细信息](https://www.typescriptlang.org/docs/handbook/declaration-files/introduction.html)）中声明的值提供 JavaScript IntelliSense，而且在 TypeScript 中声明的类型（如接口和类）可用作 JsDoc 注释中的类型。 
 
 下面是一个简单的示例，其中演示 TypeScript 定义文件通过接口向同一项目的 JavaScrip 文件提供此类类型信息（使用 JsDoc 标记）。
 

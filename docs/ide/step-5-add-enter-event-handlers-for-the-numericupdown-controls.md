@@ -1,22 +1,42 @@
 ---
 title: "步骤 5：为 NumericUpDown 控件添加 Enter 事件处理程序 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-general"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-general
+ms.tgt_pltfrm: 
+ms.topic: article
 ms.assetid: 45a99a5d-c881-4298-b74d-adb481dec5ee
 caps.latest.revision: 18
-author: "kempb"
-ms.author: "kempb"
-manager: "ghogen"
-caps.handback.revision: 18
+author: kempb
+ms.author: kempb
+manager: ghogen
+translation.priority.ht:
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- ru-ru
+- zh-cn
+- zh-tw
+translation.priority.mt:
+- cs-cz
+- pl-pl
+- pt-br
+- tr-tr
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 5db97d19b1b823388a465bba15d057b30ff0b3ce
+ms.openlocfilehash: c4060c35d7bfd0f82cb05a7fbb99931fae0d1f1e
+ms.contentlocale: zh-cn
+ms.lasthandoff: 02/22/2017
+
 ---
 # <a name="step-5-add-enter-event-handlers-for-the-numericupdown-controls"></a>步骤 5：为 NumericUpDown 控件添加 Enter 事件处理程序
-在本教程的第&5; 部分中，您将添加 Enter 事件处理程序，以便在输入测验问题的答案时变得轻松一些。 当测验对象选择每个 NumericUpDown 控件中的当前值并开始输入其他值时，此代码将立即选中并清除该当前值。  
+在本教程的第 5 部分中，您将添加 Enter 事件处理程序，以便在输入测验问题的答案时变得轻松一些。 当测验对象选择每个 NumericUpDown 控件中的当前值并开始输入其他值时，此代码将立即选中并清除该当前值。  
   
 > [!NOTE]
 >  本主题是基本编码概念教程系列中的一部分。 有关本教程的概述，请参阅[教程 2：创建计时数学测验](../ide/tutorial-2-create-a-timed-math-quiz.md)。  
@@ -72,8 +92,3 @@ caps.handback.revision: 18
 -   若要转到下一个教程，请参阅[步骤 6：添加减法问题](../ide/step-6-add-a-subtraction-problem.md)。  
   
 -   若要返回上一个教程，请参阅[步骤 4：添加 CheckTheAnswer() 方法](../ide/step-4-add-the-checktheanswer-parens-method.md)。
-
-
-<!--HONumber=Feb17_HO4-->
-
-

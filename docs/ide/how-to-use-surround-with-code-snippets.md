@@ -30,14 +30,15 @@ translation.priority.ht:
 - tr-tr
 - zh-cn
 - zh-tw
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 5db97d19b1b823388a465bba15d057b30ff0b3ce
 ms.openlocfilehash: ef49e2d41d0f234a77963960f6bf6f39a4ad0f3f
+ms.contentlocale: zh-cn
 ms.lasthandoff: 02/22/2017
 
 ---
 # <a name="how-to-use-surround-with-code-snippets"></a>如何：使用外侧代码段
-下列过程描述如何使用环绕代码片段。 可通过&3; 种方式使用环绕代码片段：键盘快捷方式、“编辑”菜单和上下文菜单。  
+下列过程描述如何使用环绕代码片段。 可通过 3 种方式使用环绕代码片段：键盘快捷方式、“编辑”菜单和上下文菜单。  
   
 ### <a name="to-use-surround-with-code-snippets-through-keyboard-shortcut"></a>通过键盘快捷方式使用环绕代码片段  
   

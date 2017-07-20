@@ -39,28 +39,32 @@ translation.priority.ht:
 - tr-tr
 - zh-cn
 - zh-tw
-translationtype: Human Translation
-ms.sourcegitcommit: 507ff049dae50698d86e1536ed21ab982da1af85
-ms.openlocfilehash: eeabf6db465f57ab373c592b01a682ed6442800f
-ms.lasthandoff: 02/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 8ce85525f6af336682f6f8547c2f6c13dde73c8c
+ms.openlocfilehash: 60ca38639f6523cdbace4efa4aa48b48d5e9a886
+ms.contentlocale: zh-cn
+ms.lasthandoff: 06/23/2017
 
 ---
 
-# <a name="upgrade-dotfuscator-community-edition-ce"></a>升级 Dotfuscator Community Edition (CE)
+# 升级 Dotfuscator Community Edition (CE)
+<a id="upgrade-dotfuscator-community-edition-ce" class="xliff"></a>
 
 Dotfuscator Community Edition (Dotfuscator CE) 直接向使用 Microsoft Visual Studio 的所有开发人员提供许多应用程序保护和强化功能。
 升级 Dotfuscator 版本的用户还可使用更多功能。
 
-## <a name="registering-dotfuscator-ce"></a>注册 Dotfuscator CE
+## 注册 Dotfuscator CE
+<a id="registering-dotfuscator-ce" class="xliff"></a>
 
 Dotfuscator CE 的注册用户可以访问其他功能（如[命令行支持][cli]），将 Dotfuscator CE 轻松集成到自动生成过程中。
 
 注册快速、简单而且免费。
 若要注册 Dotfuscator CE，请参阅[完整 Dotfuscator CE 用户指南“入门”页上的“注册 Dotfuscator CE”部分][register-ce]。
 
-## <a name="dotfuscator-professional"></a>Dotfuscator Professional
+## Dotfuscator Professional
+<a id="dotfuscator-professional" class="xliff"></a>
 
-虽然 Dotfuscator Community Edition 提供了基本级别的保护，但 ***PreEmptive Protection - Dotfuscator* Professional Edition** 包含增强的模糊处理转换和保护功能。
+虽然 Dotfuscator Community Edition 提供了基本级别的保护，但 **_PreEmptive Protection - Dotfuscator_ Professional Edition** 包含增强的模糊处理转换和保护功能。
 其中包括:
 
 * 知识产权保护
@@ -91,7 +95,8 @@ Dotfuscator Professional 是行业标准的 [.NET 模糊处理程序][ net-obfus
 有关 Dotfuscator Professional 的高级应用程序保护功能的详细信息，请访问 PreEmptive Solutions 的 [Dotfuscator 概述页][ product-about]和[将其与 Community Edition 进行比较][product-compare]。
 [可在 preemptive.com 申请有全面支持的试用版][eval]。
 
-## <a name="see-also"></a>另请参阅
+## 另请参阅
+<a id="see-also" class="xliff"></a>
 
 [完整 Dotfuscator CE 用户指南中的本主题][full]
 
@@ -112,7 +117,8 @@ Dotfuscator Professional 是行业标准的 [.NET 模糊处理程序][ net-obfus
 [product-about]: https://www.preemptive.com/products/dotfuscator/overview
 [product-compare]: https://www.preemptive.com/products/dotfuscator/compare-editions
 
-[cli]: https://www.preemptive.com/dotfuscator/ce/docs/help/5.27/intro_cli.html
-[register-ce]: https://www.preemptive.com/dotfuscator/ce/docs/help/5.27/gui_getstarted.html#register
+[cli]: https://www.preemptive.com/dotfuscator/ce/docs/help/intro_cli.html
+[register-ce]: https://www.preemptive.com/dotfuscator/ce/docs/help/gui_getstarted.html#register
 
-[full]: https://www.preemptive.com/dotfuscator/ce/docs/help/5.27/intro_upgrades.html
+[full]: https://www.preemptive.com/dotfuscator/ce/docs/help/intro_upgrades.html
+

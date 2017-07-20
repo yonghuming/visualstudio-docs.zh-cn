@@ -1,20 +1,40 @@
 ---
-title: "了解关于使用 Xamarin 进行移动开发的信息 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.tgt_pltfrm: ""
-ms.topic: "article"
+title: "了解如何使用 Xamarin 进行移动开发 | Microsoft Docs"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.tgt_pltfrm: 
+ms.topic: article
 ms.assetid: e970d936-1df4-4c0c-96e3-ef6191295882
 caps.latest.revision: 12
-author: "ghogen"
-ms.author: "ghogen"
-manager: "ghogen"
-caps.handback.revision: 11
+author: ghogen
+ms.author: ghogen
+manager: ghogen
+translation.priority.ht:
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- ru-ru
+- zh-cn
+- zh-tw
+translation.priority.mt:
+- cs-cz
+- pl-pl
+- pt-br
+- tr-tr
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 47057e9611b824c17077b9127f8d2f8b192d6eb8
+ms.openlocfilehash: a8acd1f49f66ff0e5fb3023bff5de18db9c8c308
+ms.contentlocale: zh-cn
+ms.lasthandoff: 05/13/2017
+
 ---
 # <a name="learn-about-mobile-development-with-xamarin"></a>了解关于使用 Xamarin 进行移动开发的信息
-本主题可将引导你概览有助于了解如何使用 Xamarin 开发跨平台移动应用的资料。 如果尚未安装 Visual Studio 和 Xamarin，请先启动[设置和安装](../cross-platform/setup-and-install.md)过程，然后在安装程序运行期间返回此处浏览这些资源。  
+本主题可将引导你概览有助于了解如何使用 Xamarin 开发跨平台移动应用的资料。 如果尚未安装 Visual Studio 和 Xamarin，请首先启动 [Setup and install](../cross-platform/setup-and-install.md) 过程，然后在安装程序运行期间返回此处浏览这些资源。  
   
 > [!NOTE]
 >  除另有说明的情况外，我们建议最初仅浏览直接链接至此的页面而不浏览子页面。 如果完成此列表后安装过程仍在运行，请随意返回浏览其他主题。  
@@ -33,7 +53,7 @@ caps.handback.revision: 11
   
 -   将使用具备 Visual Studio 和 Xamarin 的 Windows 计算机完成大部分工作。 将在此计算机上直接构建 Windows 和 Android 应用，然后在设备或仿真程序上运行和调试这些应用。 你还将通过 Mac 远程生成、运行和调试 iOS 应用。 Windows 计算机上的 Visual Studio 还可连接到 iOS 情节提要设计器和 iOS 模拟器。  
   
--   安装了 Xcode 和 Xamarin 的 Mac 将做为 iOS 应用的生成/签名主机和运行时环境。 不再使用 Windows 计算机上的 Visual Studio，而是转由此 Mac 构建 iOS；通过 Visual Studio 调试 iOS 应用时，它将在 Mac 的 iOS 模拟器上运行，或者在连接到该 Mac 的受限设备上直接运行。 在本例中，你将与 Mac 上或其周边的应用程序进行交互，并在 Visual Studio 中进行调试体验。  
+-   安装了 Xcode 和 Xamarin 的 Mac 将做为 iOS 应用的生成/签名主机和运行时环境。 不再使用 Windows 计算机上的 Visual Studio，而是转由此 Mac 构建 iOS；通过 Visual Studio 调试 iOS 应用时，它将在 Mac 的 iOS 模拟器上运行，或者在连接到该 Mac 的受限设备上直接运行。 在本例中，将与 Mac 上或其周边的应用进行交互，并在 Visual Studio 中进行调试体验。  
   
  下面阐明了这些关系，你还可以在 [适用于 Visual Studio 的 Xamarin.iOS 简介](http://developer.xamarin.com/guides/ios/getting_started/installation/windows/introduction_to_xamarin_ios_for_visual_studio/) (xamarin.com) 上阅读有关生成 iOS 应用的更多信息。  
   
@@ -55,7 +75,7 @@ caps.handback.revision: 11
   
  Xamarin.Forms 提供了一组通用 API，让你能够在一个可移植类库中为所有平台编写共享 UI 层。  Xamarin.Forms 将向每个目标平台呈现本机控件，以提供本机观感。  通过 Xamarin.Forms，不是使用设计器而是使用 C# 和 XAML 生成 UI。  
   
- 你无需预先决定使用哪种方法；可以使用 Xamarin 本机与 Xamarin.Forms 的组合来实现应用：  
+ 无需预先决定使用哪种方法；可以使用 Xamarin 本机与 Xamarin.Forms 的组合来实现应用：  
   
 -   使用 Xamarin.Forms 生成可跨平台提供相同 UI 和功能（例如登录、联系人窗体和搜索结果）的通用屏幕。  
   
@@ -69,35 +89,30 @@ caps.handback.revision: 11
   
 1.  [Xamarin.Forms](http://developer.xamarin.com/guides/cross-platform/xamarin-forms/) (xamarin.com) 提供了 Xamarin.Forms 与本机 UI 层（即 Xamarin.iOS 和 Xamarin.Android）的简要概述以及各自的利弊。  
   
-2.  James Montemagno 的视频 [Xamarin.Forms：使用 C# 和 XAML 创建本机 iOS、Android 和 Windows 应用](https://channel9.msdn.com/events/Visual-Studio/Connect-event-2015/704)（第 9 频道，13 分 3 秒），也可在此了解概述并可继续观看演示。  
+2.  James Montemagno 的视频 [Xamarin.Forms：使用 C# 和 XAML 创建本机 iOS、Android 和 Windows 应用](https://channel9.msdn.com/events/Visual-Studio/Connect-event-2015/704)（第 9 频道，13 分 3 秒）前三分钟提供了另一个概述，也可继续观看演示。  
   
 3.  （选读） [Xamarin.Forms 简介](http://developer.xamarin.com/guides/cross-platform/xamarin-forms/getting-started/introduction-to-xamarin-forms/) (xamarin.com)  
   
 4.  （选读）在 [设备类](http://developer.xamarin.com/guides/xamarin-forms/platform-features/device/) 文档 (xamarin.com) 中查看使用 OnPlatform 进行自定义的示例  
   
-5.  （选读）由 MSDN 杂志的 Jason Smith 撰写的 [跨平台 - 通过 Xamarin.Forms 跨移动平台共享 UI 代码](https://msdn.microsoft.com/magazine/dn904669.aspx)，其中概括了 Xamarin.Forms 中的各个自定义选项。详情请参见 [自定义每个平台上的控件](http://developer.xamarin.com/guides/xamarin-forms/custom-renderer/) (xamarin.com) 。  
+5.  （选读）由 MSDN 杂志的 Jason Smith 撰写的 [跨平台 - 通过 Xamarin.Forms 跨移动平台共享 UI 代码](https://msdn.microsoft.com/magazine/dn904669.aspx) 概括了 Xamarin.Forms 中的各个自定义选项，其中 [自定义每个平台上的控件](http://developer.xamarin.com/guides/xamarin-forms/custom-renderer/) (xamarin.com) 介绍了其详细信息。  
   
 ## <a name="deeper-dive-debugging-with-emulators"></a>深入了解：使用模拟器进行调试  
  *10-15 分钟*  
   
  若要在不使用物理设备的情况下调试跨平台应用程序，则需要使用以下工具：  
   
-1.  **Android 模拟器。** 根据你使用的 Windows 版本，我们建议使用 Microsoft 的 Visual Studio Android 模拟器或 Xamarin 播放器，它们均能提供优越的性能并支持各种设备功能：  
+1.  **Android 模拟器。** 根据使用的 Windows 版本，建议使用适用于 Android 的 Visual Studio 模拟器或 Xamarin 播放器，它们均能提供优越的性能并支持各种设备功能：  
   
-    -   **Windows 8 + 计算机：** 我们强烈建议使用随 Visual Studio 一起安装的 Microsoft [Visual Studio Android 模拟器](https://www.visualstudio.com/en-us/features/msft-android-emulator-vs.aspx)。  [Visual Studio Android 模拟器](https://channel9.msdn.com/events/Visual-Studio/Connect-event-2015/711) 视频（第 9 频道，5 分 55 秒）提供了相关概述与演示。  
+    -   Windows 8+ 计算机：强烈建议使用随 Visual Studio 一起安装的 Microsoft [适用于 Android 的 Visual Studio 仿真程序](https://www.visualstudio.com/en-us/features/msft-android-emulator-vs.aspx)。  [Visual Studio Android 模拟器](https://channel9.msdn.com/events/Visual-Studio/Connect-event-2015/711) 视频（第 9 频道，5 分 55 秒）提供了相关概述与演示。  
   
     -   **Windows 7 或更低版本/在 Mac OS X 上运行的 Windows**：请使用 [Xamarin Android 播放器](http://developer.xamarin.com/guides/android/getting_started/installation/android-player) (xamarin.com)。  
   
-2.  **Apple 的 iOS 模拟器。** 有关详细信息，请参阅 [iOS 模拟器入门](https://developer.apple.com/library/prerelease/content/documentation/IDEs/Conceptual/iOS_Simulator_Guide/GettingStartedwithiOSSimulator/GettingStartedwithiOSSimulator.html#//apple_ref/doc/uid/TP40012848-CH5-SW1) (apple.com)。  
+2.  Apple 的 iOS 模拟器。 若要了解详细信息，请参阅 [iOS 模拟器入门](https://developer.apple.com/library/prerelease/content/documentation/IDEs/Conceptual/iOS_Simulator_Guide/GettingStartedwithiOSSimulator/GettingStartedwithiOSSimulator.html#//apple_ref/doc/uid/TP40012848-CH5-SW1) (apple.com)。  
   
-3.  **Microsoft 的 Windows Phone 仿真程序。** 有关详细信息，请参阅[适用于 Windows Phone 8 的 Windows Phone 仿真程序](https://msdn.microsoft.com/library/dn632391.aspx)。  
+3.  Microsoft 的 Windows Phone 仿真程序。 若要了解详细信息，请参阅 [适用于 Windows Phone 8 的 Windows Phone 模拟器](https://msdn.microsoft.com/library/dn632391.aspx)。  
   
-##  <a name="a-namecomponentsa-deeper-dive-xamarin-components"></a><a name="components"></a>深入了解：Xamarin 组件  
+##  <a name="components"></a> Deeper Dive: Xamarin Components  
  *10 分钟*  
   
  Xamarin 应用可通过 Xamarin 组件使用许多扩展功能。 你可以在 [http://components.xamarin.com/](http://components.xamarin.com/)上下载完整目录，其中包括其他 UI 控件、身份验证和 Microsoft Azure 等各种云服务以及其他更多部分。
-
-
-<!--HONumber=Feb17_HO4-->
-
-

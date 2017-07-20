@@ -33,20 +33,23 @@ translation.priority.ht:
 - tr-tr
 - zh-cn
 - zh-tw
-translationtype: Human Translation
-ms.sourcegitcommit: ca7c86466fa23fb21a932f26dc24e37c71cf29b4
-ms.openlocfilehash: d4772671e61d2225a97ef5e36f24e6f8a4a45c35
-ms.lasthandoff: 04/05/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 3d32d11a430227800cb3ed53831a9565eb6adeb3
+ms.openlocfilehash: 9e45ed816d117a21ca680e101e0beaabb41da6d3
+ms.contentlocale: zh-cn
+ms.lasthandoff: 05/30/2017
 
 ---
-# <a name="supplying-xml-code-comments"></a>提供 XML 代码注释
+# 提供 XML 代码注释
+<a id="supplying-xml-code-comments" class="xliff"></a>
 你可以将源代码文件中的注释作为 IntelliSense 提供。 将 /doc 开关添加到 Visual Basic、C# 或 C++ 编译器命令行时，会生成一个 .xml 文件，作为 IntelliSense 文档的基础。  
   
- 有关 Visual Basic 中的代码文档化的详细信息，请参阅[如何：创建 XML 文档注释](http://msdn.microsoft.com/Library/27b5b06c-09b9-496a-8245-f9542d846230)。  
+ 有关 Visual Basic 中的代码文档化的详细信息，请参阅[如何：创建 XML 文档注释](/dotnet/visual-basic/programming-guide/program-structure/how-to-create-xml-documentation)。  
   
  有关 C# 中的代码文档化的详细信息，请参阅 [XML 文档注释](/dotnet/csharp/programming-guide/xmldoc/xml-documentation-comments)。  
   
  有关 C++ 中的代码文档化的详细信息，请参阅[注释](/cpp/cpp/comments-cpp)和 [XML 文档注释](/cpp/ide/xml-documentation-visual-cpp)。  
   
-## <a name="see-also"></a>另请参阅  
+## 另请参阅
+<a id="see-also" class="xliff"></a>  
  [使用 IntelliSense](../ide/using-intellisense.md)

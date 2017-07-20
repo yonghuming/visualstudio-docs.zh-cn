@@ -1,42 +1,62 @@
 ---
-title: "How to: Add Comments to Class Diagrams (Class Designer) | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-general"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "vs.classdesigner.comment"
-helpviewer_keywords: 
-  - "annotations, class diagrams"
-  - "class diagrams, adding comment shapes"
-  - "comment shapes"
+title: "如何：向类图添加注释（类设计器）| Microsoft Docs"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-general
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords:
+- vs.classdesigner.comment
+helpviewer_keywords:
+- annotations, class diagrams
+- class diagrams, adding comment shapes
+- comment shapes
 ms.assetid: d54005d5-a29d-4c4e-b153-feb6e84dd44f
 caps.latest.revision: 11
-author: "kempb"
-ms.author: "kempb"
-manager: "ghogen"
-caps.handback.revision: 11
----
-# How to: Add Comments to Class Diagrams (Class Designer)
-[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
+author: kempb
+ms.author: kempb
+manager: ghogen
+translation.priority.ht:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+ms.translationtype: HT
+ms.sourcegitcommit: 63aad78bdc7df685ca3a73ec16a9cbc87b78151f
+ms.openlocfilehash: fe17aaf87c9ec8af55e6e175103e795991a02b5a
+ms.contentlocale: zh-cn
+ms.lasthandoff: 07/14/2017
 
-您可以使用注释形状来批注类关系图。  注释形状有一个**“文本”**属性，在该属性中可以键入文本。  注释形状仅存在于关系图图面上，代码中没有注释形状。  
+---
+# 如何：向类关系图添加注释（类设计器）
+<a id="how-to-add-comments-to-class-diagrams-class-designer" class="xliff"></a>
+注释形状可用于批注类图。 注释形状具有可在其中键入文本的属性 Text。 注释形状仅存在于关系图面上而非代码中。  
   
- 注释驻留在**“类设计器”**中的类关系图视图上；如果您在同一个项目上打开另一个类关系图，您在第一个视图中创建的注释则不可见。  如果删除关系图，它上面包含的所有注释也将被删除。  
+ 注释位于“类设计器”中的类图视图上；如果在同一个项目中打开第二个类图，那么在第一个视图中创建的注释不可见。 如果删除关系图，也将删除其包含的所有注释。  
   
- 您可以调整注释形状的大小，但不能更改其外观的其他方面，比如它的背景色、字体或字体大小。  
+ 可以调整注释形状的大小，但不能更改其外观的其他方面，如背景色、字体或字号。  
   
-### 添加注释  
+### 添加注释
+<a id="to-add-a-comment" class="xliff"></a>  
   
-1.  将注释从**“类设计器工具箱”**拖到类关系图上。  
+1.  将注释从“类设计器工具箱”拖动到类图。  
   
-2.  单击关系图上的新注释形状，然后键入您要添加的文本。  
+2.  单击关系图上的新注释形状，并键入所需文本。  
   
-## 请参阅  
- [Working with Class Diagrams \(Class Designer\)](../ide/working-with-class-diagrams-class-designer.md)   
- [Working with Class Diagrams \(Class Designer\)](../ide/working-with-class-diagrams-class-designer.md)   
- [How to: Customize Class Diagrams \(Class Designer\)](../ide/how-to-customize-class-diagrams-class-designer.md)
+## 另请参阅
+<a id="see-also" class="xliff"></a>  
+ [使用类图（类设计器）](../ide/working-with-class-diagrams-class-designer.md)   
+ [使用类图（类设计器）](../ide/working-with-class-diagrams-class-designer.md)   
+ [如何：自定义类图（类设计器）](../ide/how-to-customize-class-diagrams-class-designer.md)

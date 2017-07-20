@@ -32,13 +32,15 @@ translation.priority.ht:
 - tr-tr
 - zh-cn
 - zh-tw
-translationtype: Human Translation
-ms.sourcegitcommit: ca7c86466fa23fb21a932f26dc24e37c71cf29b4
-ms.openlocfilehash: 0dc9fed1e5fc5a827e836310175d558b14cd41b4
-ms.lasthandoff: 04/05/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 3d32d11a430227800cb3ed53831a9565eb6adeb3
+ms.openlocfilehash: badbf6892698c6e35ce76500001839c7c9e6734a
+ms.contentlocale: zh-cn
+ms.lasthandoff: 05/30/2017
 
 ---
-# <a name="user-permissions-and-visual-studio"></a>用户权限与 Visual Studio
+# 用户权限与 Visual Studio
+<a id="user-permissions-and-visual-studio" class="xliff"></a>
 出于安全目的，你应尽可能以普通用户的身份来运行 Visual Studio。  
 
 > [!WARNING]
@@ -58,16 +60,18 @@ ms.lasthandoff: 04/05/2017
 ||在生成 C++ 项目时包括一个注册步骤。|[了解自定义生成步骤和生成事件](/cpp/ide/understanding-custom-build-steps-and-build-events)|  
 |调试|调试使用提升的权限运行的应用程序。|[调试器设置和准备](../debugger/debugger-settings-and-preparation.md)|  
 ||调试在其他用户帐户下运行的应用程序，例如 ASP.NET 网站。|[调试 ASP.NET 和 AJAX 应用程序](../debugger/debugging-aspnet-and-ajax-applications.md)|  
-||在区域中调试 XAML 浏览器应用程序 (XBAP)。|[WPF 主机 (PresentationHost.exe)](http://msdn.microsoft.com/Library/3215bfa1-722c-4ac8-a7c5-bdd02d30afbd)|  
+||在区域中调试 XAML 浏览器应用程序 (XBAP)。|[WPF 主机 (PresentationHost.exe)](/dotnet/framework/wpf/app-development/wpf-host-presentationhost-exe)|  
 ||使用模拟器可以调试 Microsoft Azure 的云服务项目。|[在 Visual Studio 中调试云服务](http://go.microsoft.com/fwlink/?LinkId=266725)|  
 ||配置远程调试的防火墙。|[远程调试](../debugger/remote-debugging.md)|  
 |性能工具|分析应用程序。|[性能分析初学者指南](../profiling/beginners-guide-to-performance-profiling.md)|  
 |部署|在本地计算机上将 Web 应用程序部署到 Internet Information Services (IIS)。|[使用 Visual Studio 或 Visual Web Developer 将 ASP.NET Web 应用程序部署到承载提供程序：作为测试环境部署到 IIS](http://go.microsoft.com/fwlink/?LinkId=266478)|
 
-## <a name="running-visual-studio-as-an-administrator"></a>以管理员身份运行 Visual Studio  
+## 以管理员身份运行 Visual Studio
+<a id="running-visual-studio-as-an-administrator" class="xliff"></a>  
  每次启动 IDE 时，可利用管理权限启动 Visual Studio，或可以修改应用程序快捷方式以便始终利用管理权限运行。 有关详细信息，请参阅 Windows 帮助。  
 
-#### <a name="to-run-visual-studio-with-administrative-permissions-on-includewin8debuggerincludeswin8mdmd-includewin81debuggerincludeswin81mdmd-includewinserver8debuggerincludeswinserver8mdmd-or-includewinblueserver2ideincludeswinblueserver2mdmd"></a>在 [!INCLUDE[win8](../debugger/includes/win8_md.md)]、[!INCLUDE[win81](../debugger/includes/win81_md.md)]、[!INCLUDE[winserver8](../debugger/includes/winserver8_md.md)] 或 [!INCLUDE[winblue_server_2](../ide/includes/winblue_server_2_md.md)]上利用管理权限运行 Visual Studio  
+#### 在 [!INCLUDE[win8](../debugger/includes/win8_md.md)]、[!INCLUDE[win81](../debugger/includes/win81_md.md)]、[!INCLUDE[winserver8](../debugger/includes/winserver8_md.md)] 或 [!INCLUDE[winblue_server_2](../ide/includes/winblue_server_2_md.md)]上利用管理权限运行 Visual Studio
+<a id="to-run-visual-studio-with-administrative-permissions-on-includewin8debuggerincludeswin8mdmd-includewin81debuggerincludeswin81mdmd-includewinserver8debuggerincludeswinserver8mdmd-or-includewinblueserver2ideincludeswinblueserver2mdmd" class="xliff"></a>  
 
 1.  在“开始”屏幕上，键入“Visual Studio”。 你应会看到你所安装的一个或多个 Visual Studio 版本。  
 
@@ -75,7 +79,8 @@ ms.lasthandoff: 04/05/2017
 
      Visual Studio 启动时，标题栏的产品名后显示“(管理员)”。  
 
-#### <a name="to-run-visual-studio-with-administrative-permissions-on-includewin7debuggerincludeswin7mdmd-or-includewinsvr08r2debuggerincludeswinsvr08r2mdmd"></a>在 [!INCLUDE[win7](../debugger/includes/win7_md.md)] 或 [!INCLUDE[winsvr08_r2](../debugger/includes/winsvr08_r2_md.md)] 上利用管理权限运行 Visual Studio  
+#### 在 [!INCLUDE[win7](../debugger/includes/win7_md.md)] 或 [!INCLUDE[winsvr08_r2](../debugger/includes/winsvr08_r2_md.md)] 上利用管理权限运行 Visual Studio
+<a id="to-run-visual-studio-with-administrative-permissions-on-includewin7debuggerincludeswin7mdmd-or-includewinsvr08r2debuggerincludeswinsvr08r2mdmd" class="xliff"></a>  
 
 1.  在“开始”菜单上，选择“所有程序”。  
 
@@ -83,7 +88,8 @@ ms.lasthandoff: 04/05/2017
 
      Visual Studio 启动时，标题栏的产品名后显示“(管理员)”。  
 
-## <a name="see-also"></a>另请参阅  
+## 另请参阅
+<a id="see-also" class="xliff"></a>  
  [移植、迁移和升级 Visual Studio 项目](../porting/port-migrate-and-upgrade-visual-studio-projects.md)   
  [安装 Visual Studio](../install/install-visual-studio.md)
 
