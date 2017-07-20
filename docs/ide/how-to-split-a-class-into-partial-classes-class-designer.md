@@ -37,8 +37,7 @@ ms.contentlocale: zh-cn
 ms.lasthandoff: 07/14/2017
 
 ---
-# 如何：将类拆分为分部类（类设计器）
-<a id="how-to-split-a-class-into-partial-classes-class-designer" class="xliff"></a>
+# <a name="how-to-split-a-class-into-partial-classes-class-designer"></a>如何：将类拆分为分部类（类设计器）
 可以通过使用 Visual Basic 中的 `Partial` 关键字或 Visual C# 中的 `partial` 关键字来划分类声明或多个声明中的结构。 可以根据需要在任意数量的不同源文件中或一个源文件中使用任意数量的分部声明。 但是，所有声明都必须在相同的程序集和相同的命名空间中。  
   
  分部类在以下几种情况下有用。 例如，在使用大型项目时，将类分隔到多个文件可以使多个程序员同时对其进行处理。 在使用 Visual Studio 生成的代码时，可以更改类，而无需重新创建源文件。 （Visual Studio 生成的代码的示例包括 Windows 窗体和 Web 服务包装器代码。）因此，无需修改 Visual Studio 创建的文件，就可以创建使用自动生成的类的代码。  
@@ -54,8 +53,7 @@ ms.lasthandoff: 07/14/2017
   
  有关 Visual Basic 中分部类型的详细信息，请参阅[分部](/dotnet/visual-basic/language-reference/modifiers/partial)。  
   
-## 示例
-<a id="example" class="xliff"></a>  
+## <a name="example"></a>示例  
  若要拆分 Visual Basic 中的类定义，请使用 `Partial` 关键字，如以下示例所示。  
   
 ```vb#  
@@ -72,8 +70,7 @@ Partial Public Class Employee
 End Class  
 ```  
   
-## 示例
-<a id="example" class="xliff"></a>  
+## <a name="example"></a>示例  
  若要拆分 Visual C# 中的类定义，请使用 `partial` 关键字，如以下示例所示。  
   
 ```c#  
@@ -94,8 +91,7 @@ public partial class Employee
 }  
 ```  
   
-## 另请参阅
-<a id="see-also" class="xliff"></a>  
+## <a name="see-also"></a>另请参阅  
  [分部类和方法](/dotnet/csharp/programming-guide/classes-and-structs/partial-classes-and-methods)   
  [分部（类型）](/dotnet/csharp/language-reference/keywords/partial-type)   
  [分部（方法）（C# 参考）](/dotnet/csharp/language-reference/keywords/partial-method)   
