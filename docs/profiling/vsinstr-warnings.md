@@ -33,10 +33,11 @@ translation.priority.ht:
 - tr-tr
 - zh-cn
 - zh-tw
-translationtype: Human Translation
-ms.sourcegitcommit: 5658ecf52637a38bc3c2a5ad9e85b2edebf7d445
-ms.openlocfilehash: a116306cdd3fc0cd636077bf2a0d6bc87b49e96b
-ms.lasthandoff: 02/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 3d32d11a430227800cb3ed53831a9565eb6adeb3
+ms.openlocfilehash: e13a7e293038cf3a9b085d14e428767c561e5e3e
+ms.contentlocale: zh-cn
+ms.lasthandoff: 05/30/2017
 
 ---
 # <a name="vsinstr-warnings"></a>VSInstr 警告
@@ -45,7 +46,7 @@ ms.lasthandoff: 02/22/2017
 |警告编号|说明|  
 |--------------------|-----------------|  
 |**VSP2000**|内部错误。 无法获取此可执行文件的模块文件名。|  
-|**VSP2001**|\<程序集名称> 是强名称程序集。 必须先对其重新签名，然后才能执行它。<br /><br /> 当检测到签名程序集时，将发出此警告。 可使用 sn.exe 工具重新签名二进制，或暂时关闭强名称要求。 有关详细信息，请参阅 [Sn.exe （强名称工具）](http://msdn.microsoft.com/Library/c1d2b532-1b8e-4c7a-8ac5-53b801135ec6)。|  
+|**VSP2001**|\<程序集名称> 是强名称程序集。 必须先对其重新签名，然后才能执行它。<br /><br /> 当检测到签名程序集时，将发出此警告。 可使用 sn.exe 工具重新签名二进制，或暂时关闭强名称要求。 有关详细信息，请参阅 [Sn.exe （强名称工具）](/dotnet/framework/tools/sn-exe-strong-name-tool)。|  
 |**VSP2002**|未能在文件 \<文件名> 中找到函数 \<函数名><br /><br /> 如果无法在指定文件中找到某个函数，将出现此警告。|  
 |**VSP2003**|未能在文件 \<文件名> 中找到任何指向函数 \<函数名> 的交叉跳转。<br /><br /> 如果 VSInstr 无法置空交叉跳转，将出现此警告。 交叉跳转用于代码优化。|  
 |**VSP2004**|已通过 EXCLUDE 命令行开关排除了函数 \<函数名>，但因为该函数包含交叉跳转，所以仍需要它。<br /><br /> 如果使用 EXCLUDE 选项排除了函数，但在检测过程中仍需要该函数，则将出现此警告。 探查器会自动包括所需的函数。|  

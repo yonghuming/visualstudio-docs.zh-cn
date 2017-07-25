@@ -31,10 +31,10 @@ translation.priority.mt:
 - pt-br
 - tr-tr
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 47057e9611b824c17077b9127f8d2f8b192d6eb8
-ms.openlocfilehash: 89694c49fdd115064d1ebe9f5dfe910b77548a76
+ms.sourcegitcommit: 3d32d11a430227800cb3ed53831a9565eb6adeb3
+ms.openlocfilehash: ae3359dc390dc5486d7de93a4b745f44fe7c0ae6
 ms.contentlocale: zh-cn
-ms.lasthandoff: 05/13/2017
+ms.lasthandoff: 05/30/2017
 
 ---
 # <a name="advanced-settings-dialog-box-concurrency-visualizer"></a>“高级设置”对话框（并发可视化工具）
@@ -61,7 +61,7 @@ ms.lasthandoff: 05/13/2017
  默认情况下，仅在分析托管进程时才会收集 CLR 事件，因为它们对本机进程来说通常不是必需的。  在某些情况下（例如，本机进程正托管 CLR）时，您可能需要收集本机进程的 CLR 事件。  如果是这样，请选中“为本机进程收集”复选框。  
   
 ### <a name="disable-rundown-events"></a>禁用断开事件  
- CLR 会从两个提供程序生成事件：运行时和断开。  如果要收集 CLR 运行时事件，但要避免收集断开事件，请选中“禁用断开事件”复选框。  这会减少由集合生成的跟踪文件的大小，但有些堆栈可能无法解析。 有关详细信息，请参阅 [CLR ETW 提供程序](http://msdn.microsoft.com/Library/0beafad4-b2c8-47f4-b342-83411d57a51f)  
+ CLR 会从两个提供程序生成事件：运行时和断开。  如果要收集 CLR 运行时事件，但要避免收集断开事件，请选中“禁用断开事件”复选框。  这会减少由集合生成的跟踪文件的大小，但有些堆栈可能无法解析。 有关详细信息，请参阅 [CLR ETW 提供程序](/dotnet/framework/performance/clr-etw-providers)  
   
 ### <a name="sample-events"></a>样本事件  
  您可以使用样本事件来收集与线程执行有关的调用堆栈。 对于在当前进程中执行的线程，这些事件大约 1 毫秒收集一次。 如果禁止收集样本事件，则会减少所收集跟踪的大小，但无法查看与线程执行有关的任何调用堆栈。  

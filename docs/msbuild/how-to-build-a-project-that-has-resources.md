@@ -1,24 +1,43 @@
 ---
 title: "如何：生成具有资源的项目 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-helpviewer_keywords: 
-  - "资源文件，用 MSBuild 编译"
-  - "用 MSBuild 编译的资源 [Visual Studio]"
-  - "生成项目 [.NET Framework]"
-  - "MSBuild 中，使用资源生成项目"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+helpviewer_keywords:
+- resource files, compiling with MSBuild
+- resources [Visual Studio], compiling with MSBuild
+- projects [.NET Framework], building
+- MSBuild, building a project with resources
 ms.assetid: d07ac73f-2c2d-4e9a-812a-6dcb632bafe2
 caps.latest.revision: 14
-author: "kempb"
-ms.author: "kempb"
-manager: "ghogen"
-caps.handback.revision: 14
+author: kempb
+ms.author: kempb
+manager: ghogen
+translation.priority.ht:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 3d32d11a430227800cb3ed53831a9565eb6adeb3
+ms.openlocfilehash: 641697cabee22a86e3b5ee7a360cbea154ead486
+ms.contentlocale: zh-cn
+ms.lasthandoff: 05/30/2017
+
 ---
 # <a name="how-to-build-a-project-that-has-resources"></a>如何：生成具有资源的项目
 如果你正在构建一个项目的本地化版本，则所有用户界面元素必须都分入不同语言的资源文件。 如果该项目仅使用字符串，则资源文件使用文本文件。 或者，你可以将 .resx 文件用作资源文件。  
@@ -39,7 +58,7 @@ caps.handback.revision: 14
 ## <a name="example"></a>示例  
  以下代码示例演示 `Output` 元素如何指定 `GenerateResource` 任务的 `OutputResources` 属性将包含已编译的资源文件 `alpha.resources` 和 `beta.resources`，且这两个文件将放在 `Resources` 项列表内。 通过将这些 .resources 文件识别为具有相同名称的项的集合，你可以轻松地将它们用作另一个任务（如 [Csc](../msbuild/csc-task.md) 任务）的输入。  
   
- 此任务相当于使用适用于 [Resgen.exe](http://msdn.microsoft.com/Library/8ef159de-b660-4bec-9213-c3fbc4d1c6f4) 的 **/compile** 开关：  
+ 此任务相当于使用适用于 [Resgen.exe](/dotnet/framework/tools/resgen-exe-resource-file-generator) 的 **/compile** 开关：  
   
  `Resgen.exe /compile alpha.resx,alpha.resources /compile beta.txt,beta.resources`  
   
@@ -80,9 +99,4 @@ caps.handback.revision: 14
 [MSBuild](../msbuild/msbuild.md)  
  [GenerateResource 任务](../msbuild/generateresource-task.md)   
  [Csc 任务](../msbuild/csc-task.md)   
- [Resgen.exe（资源文件生成器）](http://msdn.microsoft.com/Library/8ef159de-b660-4bec-9213-c3fbc4d1c6f4)
-
-
-<!--HONumber=Feb17_HO4-->
-
-
+ [Resgen.exe（资源文件生成器）](/dotnet/framework/tools/resgen-exe-resource-file-generator)

@@ -29,10 +29,10 @@ translation.priority.mt:
 - pt-br
 - tr-tr
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 47057e9611b824c17077b9127f8d2f8b192d6eb8
-ms.openlocfilehash: 1464a7e654c68828e132e2d6973c9e558ebe23a5
+ms.sourcegitcommit: 6fbf89668d47d55d1d77a1d7f11765567fc73405
+ms.openlocfilehash: e5ed1f9b6771b489218d2c6118454f1070535b6d
 ms.contentlocale: zh-cn
-ms.lasthandoff: 05/13/2017
+ms.lasthandoff: 05/26/2017
 
 ---
 # <a name="application-lifecycle-management-alm-with-xamarin-apps"></a>适用于 Xamarin 应用的应用程序生命周期管理 (ALM)
@@ -81,7 +81,7 @@ ms.lasthandoff: 05/13/2017
 |-------------|----------------------------|-------------------------|  
 |[使用 Team Foundation 版本控制](http://msdn.microsoft.com/Library/1d629052-c65d-4c5d-81eb-eaa4413fe285)或 Visual Studio Team Services|是||  
 |[Team Services 中的 Git 入门](http://msdn.microsoft.com/Library/32f46ecd-1b03-4ef0-a9c4-8a120da2b03f)|是||  
-|[代码分析/提高代码质量（引用、建议的更改等）](http://msdn.microsoft.com/Library/73baa961-c21f-43fe-bb92-3f59ae9b5945)|是||  
+|[提高代码质量](/visualstudio/test/improve-code-quality)|是||  
 |[查找代码更改和其他历史记录](../ide/find-code-changes-and-other-history-with-codelens.md)|是|排除跨特定于平台的边界，在这些地方直到运行时才会对实现进行解析。|  
 |[使用代码图调试应用程序](../modeling/use-code-maps-to-debug-your-applications.md)|是||  
   
@@ -109,7 +109,7 @@ ms.lasthandoff: 05/13/2017
 |[使用 UI 自动化来测试代码](../test/use-ui-automation-to-test-your-code.md)|仅限 Windows|Visual Studio 的 UI 测试记录器仅用于 Windows。 有关所有平台，请参阅 [Xamarin Test Recorder](https://www.xamarin.com/test-cloud/recorder)（Xamarin 测试记录器）。|  
   
 ## <a name="improve-code-quality"></a>提高代码质量  
- 参考链接：**[提高代码质量](http://msdn.microsoft.com/Library/73baa961-c21f-43fe-bb92-3f59ae9b5945)**  
+ 参考链接：**[提高代码质量](/visualstudio/test/improve-code-quality)**  
   
 |功能|通过 Xamarin 提供支持|其他注释|  
 |-------------|----------------------------|-------------------------|  
