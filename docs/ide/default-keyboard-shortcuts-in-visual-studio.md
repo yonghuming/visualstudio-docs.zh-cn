@@ -1,7 +1,7 @@
 ---
 title: "Visual Studio 中的默认键盘快捷键 | Microsoft Docs"
 ms.custom: 
-ms.date: 05/02/2017
+ms.date: 06/26/2017
 ms.reviewer: 
 ms.suite: 
 ms.technology:
@@ -35,16 +35,18 @@ translation.priority.mt:
 - pt-br
 - tr-tr
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 4c744284c198a645440494ee79ee0e722904fda5
-ms.openlocfilehash: c3686170b93717c1e55d209a3f8bc8d2725c265d
+ms.sourcegitcommit: 669bc5894727c207691a7e37937f432d98fee8b1
+ms.openlocfilehash: b94ea904245695667a72eeaec251b3e85d37f691
 ms.contentlocale: zh-cn
-ms.lasthandoff: 05/04/2017
+ms.lasthandoff: 06/30/2017
 
 ---
 # <a name="default-keyboard-shortcuts-in-visual-studio"></a>Visual Studio 中的默认键盘快捷键
-你可以通过选择相应的键盘快捷键，更轻松地访问 Visual Studio 中的各种命令和窗口。 本主题列出了常规开发配置文件的默认快捷键，你在安装 Visual Studio 时可能已选择该配置文件。 无论选择哪个配置文件，都可以通过打开“选项”对话框，展开“环境”节点，然后选择“键盘”，认识命令的快捷键。 你还可以为任意给定命令分配不同的快捷键，以自定义你的快捷键。  
+有关键盘辅助功能的详细信息，请参阅[辅助功能提示和技巧](../ide/reference/accessibility-tips-and-tricks.md)和[如何：仅使用键盘进行操作](../ide/reference/how-to-use-the-keyboard-exclusively.md)。
 
- 有关常见键盘快捷键列表和其他工作效率信息，请参阅[提示和技巧](../ide/tips-and-tricks-for-visual-studio.md)和[工作效率提示](../ide/productivity-tips-for-visual-studio.md)。  
+通过选择相应的键盘快捷方式，可访问 Visual Studio 中的各种命令和窗口。 本主题列出了常规开发配置文件的默认快捷键，安装 Visual Studio 时可能已选择该配置文件。 无论选择哪个配置文件，都可以通过打开“选项”对话框，展开“环境”节点，然后选择“键盘”，认识命令的快捷键。 你还可以为任意给定命令分配不同的快捷键，以自定义你的快捷键。
+
+ 有关常见键盘快捷方式列表和其他工作效率信息，请参阅 [Visual Studio 中常用命令的默认键盘快捷方式](../ide/default-keyboard-shortcuts-for-frequently-used-commands-in-visual-studio.md)、[提示和技巧](../ide/tips-and-tricks-for-visual-studio.md)以及[工作效率提示](../ide/productivity-tips-for-visual-studio.md)。
 
  下表中的各部分包含全局命令，你可以从 Visual Studio 中的任意位置使用键盘快捷键访问它们：  
 

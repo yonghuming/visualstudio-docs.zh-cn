@@ -28,10 +28,10 @@ translation.priority.ht:
 - zh-cn
 - zh-tw
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 5db97d19b1b823388a465bba15d057b30ff0b3ce
-ms.openlocfilehash: 9226dacfa63287857c09e5c6945363ccafadc2c7
+ms.sourcegitcommit: 669bc5894727c207691a7e37937f432d98fee8b1
+ms.openlocfilehash: fa857220def2da9b05f1bbed70e906034727b8af
 ms.contentlocale: zh-cn
-ms.lasthandoff: 02/22/2017
+ms.lasthandoff: 06/30/2017
 
 ---
 # <a name="getting-started-with-debugging-in-visual-studio"></a>Visual Studio 2015 中的调试入门
@@ -53,11 +53,11 @@ Visual Studio 提供一组强大的集成项目生成和调试工具。 本主�
 
  ![Visual Studio“配置文件管理器”窗口](../ide/media/vs_ide_gs_debug_build_cf_mgr.PNG "Vs_ide_gs_debug_build_cf_mgr")  
 
- 可以使用“配置管理器”指定要面向的生成配置。 启动管理器，单击“配置”或“CPU”下拉列表，然后选择“新建...” 创建新的生成或平台。  
+ 可以使用“配置管理器”指定要面向的生成配置。 启动管理器，单击“配置”或“CPU”下拉列表，然后选择“新建...”，创建新的生成或平台。  
 
  ![Visual Studio“配置管理器”窗口](../ide/media/vs_ide_gs_debug_build_cf_mgr_2.PNG "Vs_ide_gs_debug_build_cf_mgr_2")  
 
- 刚开始时，只使用**调试**和 **x86** 分别作为生成配置和平台。 完成编码和调试时，将配置更改为**发布**并指定特定的平台。 （较旧版本的 Visual Studio 为 .Net 代码项目提供了 **AnyCPU** 默认平台。）  
+ 刚开始时，只使用**调试**和 **x86** 分别作为生成配置和平台。 完成编码和调试时，将配置更改为“发布”并指定特定的平台。 （较旧版本的 Visual Studio 为 .Net 代码项目提供了 **AnyCPU** 默认平台。）  
 
  注意：生成项目时，配置和平台值还用于确定创建哪些项目目录路径用于存储可执行文件。 通常，此路径为 **\<path-to-project>\\<project-name>\\<configuration\>\\<platform\>**。 例如，配置为 `Debug`、平台为 `x86` 的项目位于 `Projects\MyProjectNameHere\MyProjectNameHere\bin\Debug\x86` 下面。 这在你拥有自己的工具和脚本来管理这些生成可执行文件时非常有用。  
 
@@ -75,11 +75,11 @@ Visual Studio 提供一组强大的集成项目生成和调试工具。 本主�
  ![Visual Studio 成功的生成输出](../ide/media/vs_ide_gs_debug_success_build.PNG "vs_ide_gs_debug_success_build")  
 
 ### <a name="reviewing-the-error-list"></a>审阅错误列表  
- 除非你已对之前成功编译的代码进行了修改，否则很可能出现错误。 如果你不熟悉编码，则很可能出现许多错误。 错误有时很明显，如简单的语法错误或不正确的变量名，有时它们则难以理解，只有一个神秘代码显示给你。 有关这些问题更清晰的视图，请导航至生成“输出”窗口的底部，然后单击“错误列表”选项卡。 在此选项卡中，你可以看到关于项目错误和警告的一个更有条理的视图，并为你提供一些额外的选项。  
+ 除非未对之前成功编译的代码进行修改，否则很可能出现错误。 如果不熟悉编码，则可能出现许多错误。 错误有时很明显，如简单的语法错误或不正确的变量名，有时它们则难以理解，只有一个神秘代码显示给你。 有关这些问题更清晰的视图，请导航至生成“输出”窗口的底部，然后单击“错误列表”选项卡。 在此选项卡中，你可以看到关于项目错误和警告的一个更有条理的视图，并为你提供一些额外的选项。  
 
  ![Visual Studio 输出和错误列表](../ide/media/vs_ide_gs_debug_bad_build_error_list.PNG "Vs_ide_gs_debug_bad_build_error_list")  
 
- 单击“错误列表”窗口中的错误行，并跳转至发生错误的行。 （或单击右上侧的“快速启动”栏，在其中键入行号，然后按 Enter，以打开行号。 这是转至“选项”窗口条目最快的方法，你可以在这里打开行号。 了解如何使用“快速启动”栏，可以省去多次单击 UI！）  
+ 单击“错误列表”窗口中的错误行，并跳转至发生错误的行。 （或单击右上方的“快速启动”栏，在其中键入行号，然后按 Enter，以打开行号。 这是转至“选项”窗口条目最快的方法，你可以在这里打开行号。 了解如何使用“快速启动”栏，可以省去多次单击 UI！）  
 
  ![具有行号的 Visual Studio 编辑器](../ide/media/vs_ide_gs_debug_line_numbers.png "Vs_ide_gs_debug_line_numbers")  
 
@@ -87,7 +87,7 @@ Visual Studio 提供一组强大的集成项目生成和调试工具。 本主�
 
  使用 Ctrl+G 快速跳转至发生错误的行号。  
 
- 错误由红色的“波形曲线”下划线标识。 将鼠标悬停在下划线上以获取其他详细信息。 修复后下划线消失，尽管纠正过程中可能会引入新的错误。 （此过程被称为“回归测试”。）  
+ 错误由红色的“波形曲线”下划线标识。 将鼠标悬停在下划线上以获取其他详细信息。 修复后下划线消失，尽管纠正过程中可能会引入新的错误。 （此过程被称为“回归”。）  
 
  ![Visual Studio 错误悬停](../ide/media/vs_ide_gs_debug_error_hover1.png "Vs_ide_gs_debug_error_hover1")  
 
@@ -137,7 +137,7 @@ Visual Studio 提供一组强大的集成项目生成和调试工具。 本主�
  有关灯泡的详细信息，请阅读[使用灯泡执行快速操作](../ide/perform-quick-actions-with-light-bulbs.md)。  
 
 ### <a name="debugging-your-running-code"></a>调试运行代码  
- 现在你已成功生成了代码并执行了一些清理，请按 F5 或者选择“调试”->“开始调试”来运行代码。 这将在调试环境中启动你的应用，便于你观察其详细行为。 Visual Studio IDE 在应用运行时会发生变化：“输出”窗口由两个新窗口代替（使用默认的窗口配置），这两个新窗口分别是**自动/局部变量/模块/监视**选项卡式窗口和**调用堆栈/断点/异常设置/输出**选项卡式窗口。 这两个窗口具有多个选项卡，可用于检查和评估应用的变量、线程、调用堆栈及其运行时的各种其他行为。  
+ 现在已成功生成了代码并执行了一些清理，请按 F5 或者选择“调试”->“开始调试”来运行代码。 这将在调试环境中启动你的应用，便于你观察其详细行为。 Visual Studio IDE 在应用运行时会发生变化：“输出”窗口由两个新窗口代替（使用默认的窗口配置），这两个新窗口分别是**自动/局部变量/模块/监视**选项卡式窗口和**调用堆栈/断点/异常设置/输出**选项卡式窗口。 这两个窗口具有多个选项卡，可用于检查和评估应用的变量、线程、调用堆栈及其运行时的各种其他行为。  
 
  ![Visual Studio 自动和调用堆栈窗口](../ide/media/vs_ide_gs_debug_autos_and_call_stack.PNG "Vs_ide_gs_debug_autos_and_call_stack")  
 
@@ -149,9 +149,9 @@ Visual Studio 提供一组强大的集成项目生成和调试工具。 本主�
 
  ![Visual Studio“继续调试”按钮](../ide/media/vs_ide_gs_debug_continue_button.png "Vs_ide_gs_debug_continue_button")  
 
- 按 Shift + F5 或单击“停止”按钮可以停止应用程序。 或者，你可以仅关闭应用的主窗口（或命令行对话框）。  
+ 按 Shift + F5 或单击“停止”按钮可以停止应用程序。 或者，可以仅关闭应用的主窗口（或命令行对话框）。  
 
- 如果你的代码按预期完美而准确地运行，祝贺你！ 将生成配置更改为**发布**并重新生成以进行部署！ （尽管专业人员可能想要在结束时跳转到单元测试上的位。）但是，如果它挂起、崩溃，或为您带来一些奇怪的结果，你需要找到这些问题的根源并修复 bug。  
+ 如果你的代码按预期完美而准确地运行，祝贺你！ 将生成配置更改为**发布**并重新生成以进行部署！ （尽管专业人员可能想要在结束时跳转到单元测试上的位。）但是，如果它挂起、崩溃，或带来一些奇怪的结果，则需要找到这些问题的根源并修复 bug。  
 
 ### <a name="setting-simple-breakpoints"></a>设置简单断点  
  断点是可靠调试的最基本和最重要的功能。 断点指示 Visual Studio 应在哪个位置挂起你的运行代码，以使你可以查看变量的值或内存的行为，或确定代码的分支是否运行。 在设置或移除断点后，你不需要重新生成项目。  
@@ -160,7 +160,7 @@ Visual Studio 提供一组强大的集成项目生成和调试工具。 本主�
 
  ![Visual Studio 断点](../ide/media/vs_ide_gs_debug_breakpoint1.png "Vs_ide_gs_debug_breakpoint1")  
 
- 代码中断时，标记的代码行尚未执行。 此时，你可能想要执行由断点标记的代码行的说明，并检查更改的值。 这称为“单步执行”代码。 如果标记的代码是方法调用，可以按 F11 单步执行它。 你还可以按 F10“逐过程”执行该代码行。 有关断点步骤操作的详细信息，请阅读[使用调试器在代码中导航](../debugger/navigating-through-code-with-the-debugger.md)。  
+ 代码中断时，标记的代码行尚未执行。 此时，你可能想要执行由断点标记的代码行的说明，并检查更改的值。 这称为“单步执行”代码。 如果标记的代码是方法调用，可以按 F11 单步执行它。 还可以按 F10“逐过程”执行该代码行。 有关代码单步执行的详细信息，请阅读[使用调试器在代码中导航](../debugger/navigating-through-code-with-the-debugger.md)。  
 
  断点的常见用途包括：  
 
@@ -175,9 +175,9 @@ Visual Studio 提供一组强大的集成项目生成和调试工具。 本主�
  有关使用断点的详细信息，请参阅[使用断点](../debugger/using-breakpoints.md)。  
 
 ### <a name="setting-conditional-breakpoints"></a>设置条件断点  
- 如果循环或递归中存在断点，或者有许多频繁单步执行的断点，请使用条件断点以确保你的代码仅在满足特定条件时挂起。 否则，你将会按很多次 F11。  
+ 如果循环或递归中存在断点，或者有许多频繁单步执行的断点，请使用条件断点以确保你的代码仅在满足特定条件时挂起。 否则，将需要按很多次 F11。  
 
- 若要在变量设置为某个特定值或传递某个特定阈值时设置条件断点并挂起你的代码，请在边距中单击以设置断点，然后从出现的悬停菜单中选择“嵌齿”。  
+ 若要在变量设置为某个特定值或传递某个特定阈值时设置条件断点并挂起代码，请在边距中单击以设置断点，然后从出现的悬停菜单中选择“嵌齿”。  
 
  ![Visual Studio 断点设置](../ide/media/vs_ide_gs_debug_breakpoint_settings.png "Vs_ide_gs_debug_breakpoint_settings")  
 
@@ -192,9 +192,9 @@ Visual Studio 提供一组强大的集成项目生成和调试工具。 本主�
 
  ![Visual Studio 运行时值检查](../ide/media/vs_ide_gs_debug_inspect_value.PNG "vs_ide_gs_debug_inspect_value")  
 
- 将鼠标悬停在变量上以查看它当前包含的值和引用。 如果你看到一个意外的值，表示代码的前一行或调用行可能出现了 bug。 将断点上移或向现有断点添加条件，以进一步缩小搜索范围。  
+ 将鼠标悬停在变量上以查看它当前包含的值和引用。 如果出现意外值，则表示代码的前一行或调用行可能出现了 bug。 将断点上移或向现有断点添加条件，以进一步缩小搜索范围。  
 
- 此外，Visual Studio 显示“诊断工具”窗口，你可以在此窗口中观察随时间变化的应用的 CPU 和内存使用情况。 使用它们来查找意外的高 CPU 使用率或内存分配。 结合使用“监视”窗口和断点，以确定什么原因导致意外的高使用率或未释放的资源。  
+ 此外，Visual Studio 显示“诊断工具”窗口，可从其中观察随时间变化的应用的 CPU 和内存使用情况。 使用它们来查找意外的高 CPU 使用率或内存分配。 结合使用“监视”窗口和断点，确定导致意外的高使用率或未释放的资源的原因。  
 
  ![Visual Studio“诊断工具”窗口](../ide/media/vs_ide_gs_debug_diagnostic_tools.PNG "Vs_ide_gs_debug_diagnostic_tools")  
 
@@ -206,7 +206,7 @@ Visual Studio 提供一组强大的集成项目生成和调试工具。 本主�
  若要了解有关 Visual Studio 中的单元测试以及它们如何帮助你创建更高质量代码的详细信息，请阅读[单元测试的基础知识](../test/unit-test-basics.md)。  
 
 ## <a name="see-also"></a>另请参阅  
- [在 Visual Studio 中进行调试](../debugger/debugging-in-visual-studio.md)   
+ [调试器功能简介](../debugger/debugger-feature-tour.md)   
  [调试器设置和准备](../debugger/debugger-settings-and-preparation.md)   
  [调试 64 位应用程序](../debugger/debug-64-bit-applications.md)   
  [调试器基础知识](../debugger/debugger-basics.md)

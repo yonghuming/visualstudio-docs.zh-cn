@@ -27,10 +27,11 @@ translation.priority.ht:
 - tr-tr
 - zh-cn
 - zh-tw
-translationtype: Human Translation
-ms.sourcegitcommit: ca7c86466fa23fb21a932f26dc24e37c71cf29b4
-ms.openlocfilehash: 332ef0d4534d8f607a1b5d92038855ebd247657f
-ms.lasthandoff: 04/05/2017
+ms.translationtype: HT
+ms.sourcegitcommit: 359e1eb5df8f19774d352ace631802367b6dd8c9
+ms.openlocfilehash: 481153e7f3d609c56f313ff5ee9f3f1b511dc5ef
+ms.contentlocale: zh-cn
+ms.lasthandoff: 07/11/2017
 
 ---
 # <a name="managing-project-and-solution-properties"></a>管理项目和解决方案属性
@@ -38,7 +39,7 @@ ms.lasthandoff: 04/05/2017
   
  ![项目上下文菜单](../ide/media/vs2015_proj_prop_menu.gif "vs2015_proj_prop_menu")  
   
- 在项目树本身，.NET 项目也具有一个属性节点。  
+ 在项目树本身，.NET 项目也可能具有一个属性节点。  
   
  ![解决方案资源管理器树中的属性节点](../ide/media/vs2015_props_se.png "VS2015_Props_SE")  
   
@@ -48,8 +49,8 @@ ms.lasthandoff: 04/05/2017
 ## <a name="project-properties"></a>项目属性  
  项目属性分到各个组且每组具有自己的属性页，而这些页面可能因语言和项目类型不同而有所不同。  
   
-### <a name="c-and-visual-basic-projects"></a>C# 和 Visual Basic 项目  
- 在 C# 和 Visual Basic 项目中，属性在“项目设计器”中公开。 下图显示了 C# 中的 WPF 项目的生成属性页：  
+### <a name="c-visual-basic-and-f-projects"></a>C#、Visual Basic 和 F# 项目  
+ 在 C#、Visual Basic 和 F# 项目中，属性在“项目设计器”中公开。 下图显示了 C# 中的 WPF 项目的生成属性页：  
   
  ![Visual Studio 项目设计器](../ide/media/vs2015_proppage_build.png "VS2015_PropPage_Build")  
   
@@ -63,7 +64,8 @@ ms.lasthandoff: 04/05/2017
  有关 C++ 项目属性的信息，请参阅[使用项目属性](/cpp/ide/working-with-project-properties)。 有关 JavaScript 属性的详细信息，请参阅[属性页，JavaScript](../ide/reference/property-pages-javascript.md)。  
   
 ## <a name="solution-properties"></a>解决方案属性  
- 若要访问解决方案上的属性，请右键单击“解决方案资源管理器”中的解决方案节点，然后选择“属性”。 在对话框中，可以设置用于“调试”或“发布”版本的项目配置，选择按下 F5 时应为启动项目的项目，然后设置代码分析选项。  
+ 若要访问解决方案上的属性，请右键单击“解决方案资源管理器”中的解决方案节点，然后选择“属性”。 在对话框中，可以设置用于“调试”或“发布”版本的项目配置，选择按下 F5 时应启动的项目，然后设置代码分析选项。  
   
 ## <a name="see-also"></a>另请参阅  
  [Visual Studio 中的解决方案和项目](../ide/solutions-and-projects-in-visual-studio.md)
+
