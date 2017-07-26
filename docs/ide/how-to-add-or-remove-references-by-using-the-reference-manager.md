@@ -1,7 +1,7 @@
 ---
 title: "如何：使用引用管理器添加或删除引用 | Microsoft Docs"
 ms.custom: 
-ms.date: 11/04/2016
+ms.date: 06/21/2017
 ms.reviewer: 
 ms.suite: 
 ms.technology:
@@ -42,10 +42,10 @@ translation.priority.ht:
 - zh-cn
 - zh-tw
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 5db97d19b1b823388a465bba15d057b30ff0b3ce
-ms.openlocfilehash: 1e73cc14de8a94b2e2ce631834e36b6bc30fa7a6
+ms.sourcegitcommit: d2f4eba36e9069a35cf279ccf1c78f72a51d77a1
+ms.openlocfilehash: b2141a16d27725c54b3407e92151e0ed7afd745e
 ms.contentlocale: zh-cn
-ms.lasthandoff: 02/22/2017
+ms.lasthandoff: 06/23/2017
 
 ---
 # <a name="how-to-add-or-remove-references-by-using-the-reference-manager"></a>如何：使用引用管理器添加或删除引用
@@ -70,11 +70,11 @@ ms.lasthandoff: 02/22/2017
 -   “浏览”组，包含“最近”子组。  
 
 ## <a name="assemblies-tab"></a>“程序集”选项卡  
- “程序集”选项卡列出可供引用的所有 .NET Framework 程序集。 “程序集”选项卡不会列出全局程序集缓存 (GAC) 中的任何程序集，这是因为 GAC 中的程序集是运行时环境的一部分。 如果某个应用程序包含对在 GAC 中注册的程序集的引用，则在部署或复制该应用程序时，无论“复制本地”设置为何，所引用的程序集都不会与该应用程序一起部署或复制。 有关详细信息，请参阅[项目引用](http://go.microsoft.com/fwlink/?LinkId=238512)。  
+ “程序集”选项卡列出可供引用的所有 .NET Framework 程序集。 “程序集”选项卡不会列出全局程序集缓存 (GAC) 中的任何程序集，因为 GAC 中的程序集是运行时环境的一部分。 如果某个应用程序包含对在 GAC 中注册的程序集的引用，则在部署或复制该应用程序时，无论“复制本地”设置为何，所引用的程序集都不会与该应用程序一起部署或复制。 有关详细信息，请参阅[管理项目中的引用](../ide/managing-references-in-a-project.md)。  
 
- 在添加对任何 EnvDTE 命名空间（EnvDTE、EnvDTE80、EnvDTE90、EnvDTE90a 或 EnvDTE100）的引用时，请在“属性”窗口中将引用的“嵌入互操作类型”属性设置为“False”。 将此属性设置为“True”可能会导致生成问题，因为某些 EnvDTE 属性是不能嵌入的。  
+ 在添加对任何 EnvDTE 命名空间（EnvDTE、EnvDTE80、EnvDTE90、EnvDTE90a 或 EnvDTE100）的引用时，请在“属性”窗口中将引用的“嵌入互操作类型”属性设置为“False”。 将此属性设置为“True”可能会导致出现问题，因为某些 EnvDTE 属性是不能嵌入的。  
 
- 所有桌面项目都包含对 mscorlib 的隐式引用。 [!INCLUDE[vbprvb](../code-quality/includes/vbprvb_md.md)] 项目包含对 Microsoft.VisualBasic 的隐式引用。 在 [!INCLUDE[vs_dev11_long](../data-tools/includes/vs_dev11_long_md.md)] 中，所有项目都包含对 System.Core 的隐式引用，即使从引用列表中移除了 System.Core 也是如此。  
+ 所有桌面项目都包含对 mscorlib 的隐式引用。 [!INCLUDE[vbprvb](../code-quality/includes/vbprvb_md.md)] 项目包含对 Microsoft.VisualBasic 的隐式引用。 在 [!INCLUDE[vs_dev11_long](../data-tools/includes/vs_dev11_long_md.md)] 中，所有项目都包含对 System.Core 的隐式引用，即使从引用列表中删除了 System.Core 也是如此。  
 
  如果项目类型不支持程序集，则此选项卡不会显示在“引用管理器”对话框中。  
 
@@ -84,7 +84,7 @@ ms.lasthandoff: 02/22/2017
 
     -   当你的项目以目标框架的配置文件为目标时，公布的程序集在完整框架中并在“框架”列表中枚举。 公布的程序集显示为灰色，以便与项目的目标框架配置文件中存在的程序集区分。 例如，如果项目以 .NET Framework 4 Client 为目标，“框架”列表将显示 .NET Framework 4 中的公布程序集。 用户添加已公布的程序集时，在“引用管理器”对话框关闭后，用户将收到通知，表明项目将重定目标为 .NET Framework 4，并将添加已公布的程序集。  
 
-    -   默认情况下，针对 [!INCLUDE[win8_appname_long](../debugger/includes/win8_appname_long_md.md)]应用的项目在项目创建时包含对目标[!INCLUDE[net_win8_profile](../ide/includes/net_win8_profile_md.md)] 中所有程序集的引用。 在托管项目中，“解决方案资源管理器”中“引用”文件夹下的只读节点指示对整个框架的引用。 因此，“框架”选项卡不从框架枚举任何程序集，而是显示以下消息：“已引用所有框架程序集。 请使用对象浏览器浏览框架中的引用。” 对于桌面项目，“框架”选项卡枚举目标框架中的程序集，用户必须添加应用程序所需的引用。  
+    -   默认情况下，针对 [!INCLUDE[win8_appname_long](../debugger/includes/win8_appname_long_md.md)]应用的项目在项目创建时包含对目标[!INCLUDE[net_win8_profile](../ide/includes/net_win8_profile_md.md)] 中所有程序集的引用。 在托管项目中，“解决方案资源管理器”中“引用”文件夹下的只读节点指示对整个框架的引用。 因此，“框架”选项卡不从框架枚举任何程序集，而是显示以下消息：“已引用所有框架程序集。 请使用对象浏览器浏览框架中的引用”。 对于桌面项目，“框架”选项卡枚举目标框架中的程序集，用户必须添加应用程序所需的引用。  
 
 2.  “扩展”列出了组件和控件的外部供应商为扩展目标框架而开发的所有程序集。 根据用户应用程序的用途，可能需要这些程序集。  
 
@@ -163,7 +163,7 @@ ms.lasthandoff: 02/22/2017
 
  在 [!INCLUDE[vs_dev11_long](../data-tools/includes/vs_dev11_long_md.md)] 中，如果一个项目以 .NET Framework 4 为目标，另一项目以早期版本为目标，则将创建文件引用而非项目引用。  
 
- 以[!INCLUDE[net_win8_profile](../ide/includes/net_win8_profile_md.md)] 为目标的项目不能添加对以 .NET Framework 为目标的项目的项目引用，反之亦然。  
+ 以 [!INCLUDE[net_win8_profile](../ide/includes/net_win8_profile_md.md)] 为目标的项目不能添加对以 .NET Framework 为目标的项目的项目引用，反之亦然。  
 
 ## <a name="windows-tab"></a>“Windows”选项卡  
  “Windows”选项卡列出特定于 Windows 操作系统运行所在平台的所有 SDK。  
@@ -229,9 +229,8 @@ ms.lasthandoff: 02/22/2017
  “程序集”、“COM”、“Windows”和“浏览”均支持“最近”选项卡，此选项卡可枚举最近添加到项目的组件的列表。  
 
 ## <a name="search"></a>搜索  
- “引用管理器”对话框中的搜索栏在处于焦点的选项卡上运行。 例如，在“解决方案”选项卡处于焦点时，如果用户在搜索栏中键入“System”，则除非解决方案具有包含“System”的项目名称，否则搜索不会返回任何结果。  
+ “引用管理器”对话框中的搜索栏在具有焦点的选项卡上运行。 例如，在“解决方案”选项卡具有焦点时，如果用户在搜索栏中键入“System”，则除非解决方案具有包含“System”的项目名称，否则搜索不会返回任何结果。  
 
 ## <a name="see-also"></a>另请参阅  
- [NIB 如何：使用“添加引用”对话框添加或删除引用](http://msdn.microsoft.com/en-us/3bd75d61-f00c-47c0-86a2-dd1f20e231c9)   
  [管理项目中的引用](../ide/managing-references-in-a-project.md)
 

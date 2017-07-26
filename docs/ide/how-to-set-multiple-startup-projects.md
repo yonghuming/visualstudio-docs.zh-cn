@@ -1,7 +1,7 @@
 ---
 title: "如何：设置多个启动项目 | Microsoft Docs"
 ms.custom: 
-ms.date: 11/04/2016
+ms.date: 06/21/2017
 ms.reviewer: 
 ms.suite: 
 ms.technology:
@@ -29,25 +29,30 @@ translation.priority.ht:
 - tr-tr
 - zh-cn
 - zh-tw
-translationtype: Human Translation
-ms.sourcegitcommit: 5db97d19b1b823388a465bba15d057b30ff0b3ce
-ms.openlocfilehash: e0ed2d6fb66d7560a8b22328e3f78999a1e4d9f9
-ms.lasthandoff: 02/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: d2f4eba36e9069a35cf279ccf1c78f72a51d77a1
+ms.openlocfilehash: 745a92734a6b7bfcee1e0e566aa08a03c3b70850
+ms.contentlocale: zh-cn
+ms.lasthandoff: 06/23/2017
 
 ---
 # <a name="how-to-set-multiple-startup-projects"></a>如何：设置多个启动项目
 Visual Studio 允许指定在启动调试器时如何运行多个项目。  
-  
+
 ### <a name="to-set-multiple-startup-projects"></a>设置多个启动项目  
-  
-1.  在“解决方案资源管理器”中，选择解决方案（最高层节点）。 右键单击要获取上下文菜单的节点。  
-  
-2.  选择“属性”。 将打开“解决方案属性页”对话框。  
-  
-3.  展开“通用属性”节点，然后单击“启动项目”。  
-  
-4.  单击“多个启动项目”并设置适当的操作。 有关详细信息，请参阅 [NIB 如何：修改项目属性和配置设置](http://msdn.microsoft.com/en-us/e7184bc5-2f2b-4b4f-aa9a-3ecfcbc48b67)。  
-  
+
+1.  在“解决方案资源管理器”中，选择解决方案（最高层节点）。  
+
+2.  选择解决方案节点的上下文（右键单击）菜单，然后选择“属性”。 “解决方案属性页”对话框随即显示。  
+
+3.  展开“通用属性”节点，然后选择“启动项目”。  
+
+4.  选择“多个启动项目”选项并设置适当的操作。
+
 ## <a name="see-also"></a>另请参阅  
- [编译和生成](../ide/compiling-and-building-in-visual-studio.md)   
+ [编译和生成](../ide/compiling-and-building-in-visual-studio.md)
+
  [创建解决方案和项目](../ide/creating-solutions-and-projects.md)
+
+ [管理项目和解决方案属性](../ide/managing-project-and-solution-properties.md)
+

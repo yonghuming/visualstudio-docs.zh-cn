@@ -1,6 +1,6 @@
 ---
 title: "安装问题疑难解答 | Microsoft Docs"
-description: '{{PLACEHOLDER}}'
+description: "有时也会遇到问题。 如果 Visual Studio 安装或升级失败，可在此页寻求帮助。"
 ms.date: 04/14/2017
 ms.reviewer: 
 ms.suite: 
@@ -31,13 +31,13 @@ translation.priority.mt:
 - pt-br
 - tr-tr
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 85576806818a6ed289c2f660f87b5c419016c600
-ms.openlocfilehash: d8125873ab5a92d9af26c556cb2f953a606c28d9
+ms.sourcegitcommit: d9de84bed187c62962a76424aabdc5f355dff4dc
+ms.openlocfilehash: e6c301a7b784c5966d4f7216e67067ef6ce3ed70
 ms.contentlocale: zh-cn
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/15/2017
 
 ---
-# <a name="troubleshooting-visual-studio-2017-installation-and-upgrade-failures"></a>排查 Visual Studio 2017 安装和升级故障
+# <a name="troubleshooting-visual-studio-2017-installation-and-upgrade-issues"></a>Visual Studio 2017 安装和升级问题疑难解答
 
 ## <a name="symptoms"></a>症状
 尝试安装或更新 Microsoft Visual Studio 2017 时，操作失败。
@@ -58,7 +58,7 @@ Visual Studio 安装程序引导程序是最轻型的可执行文件，用于安
 2. 删除 Visual Studio 安装程序目录。 此目录通常位于 C:\Program Files (x86)\Microsoft Visual Studio\Installer。
 3. 运行 Visual Studio 安装程序引导程序。 引导程序位于“下载”文件夹中，文件名格式为 ```vs_[Visual Studio edition]__*.exe```。 如果找不到此应用程序，可以转到 [Visual Studio 下载](https://www.visualstudio.com/downloads/)页，然后单击你的 Visual Studio 版本所对应的“下载”，便可下载引导程序。 运行此可执行文件，重置安装元数据。
 4. 尝试重新安装或更新 Visual Studio。 如果安装程序仍无法安装，请立即查看下面的第 4 步。
-<br/>**注意：**此步骤会重新安装 Visual Studio 安装程序文件，并重置安装元数据。 
+<br/>**注意：**此步骤会重新安装 Visual Studio 安装程序文件，并重置安装元数据。
 
 ### <a name="step-4---report-a-problem"></a>第 4 步 - 报告问题
 在某些情况下（如出现与文件损坏相关的问题时），可能需要逐个调查每个问题：
@@ -92,6 +92,4 @@ Visual Studio 安装程序引导程序是最轻型的可执行文件，用于安
 | ----------- | ---------------------- | -------- |
 | 用户没有访问文件的权限。 | 权限 (ACL) | 请确保调整权限 (ACL)，以便他们在共享脱机安装前先向其他用户授予“读取”权限。 |
 | 无法安装新的工作负载、组件或语言。  | `--layout`  | 如果要从部分布局进行安装，并且选择之前布局中不可用的工作负载、组件或语言，请确保可连接到 Internet。 |
-
-
 

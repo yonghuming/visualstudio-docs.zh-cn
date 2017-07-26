@@ -29,10 +29,10 @@ translation.priority.mt:
 - pt-br
 - tr-tr
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 5db97d19b1b823388a465bba15d057b30ff0b3ce
-ms.openlocfilehash: 8e26dba9e7be7f66f57973c8bf0b3af411231695
+ms.sourcegitcommit: 47057e9611b824c17077b9127f8d2f8b192d6eb8
+ms.openlocfilehash: 451635681519303b5e85b70788534e22af21707c
 ms.contentlocale: zh-cn
-ms.lasthandoff: 02/22/2017
+ms.lasthandoff: 05/13/2017
 
 ---
 # <a name="step-3-add-a-countdown-timer"></a>步骤 3：添加一个倒计时计时器
@@ -45,8 +45,7 @@ ms.lasthandoff: 02/22/2017
   
 1.  添加一个名为“timeLeft”的整型变量，就像在上一个过程中一样。 你的代码应类似以下内容。  
   
-     [!code-vb[VbExpressTutorial3Step3#5](../ide/codesnippet/VisualBasic/step-3-add-a-countdown-timer_1.vb)]
-     [!code-cs[VbExpressTutorial3Step3#5](../ide/codesnippet/CSharp/step-3-add-a-countdown-timer_1.cs)]  
+     [!code-vb[VbExpressTutorial3Step3#5](../ide/codesnippet/VisualBasic/step-3-add-a-countdown-timer_1.vb)]  [!code-cs[VbExpressTutorial3Step3#5](../ide/codesnippet/CSharp/step-3-add-a-countdown-timer_1.cs)]  
   
      现在您需要一个进行实际读秒的方法（例如计时器），此方法在您指定的时间后将引发一个事件。  
   
@@ -64,8 +63,7 @@ ms.lasthandoff: 02/22/2017
   
 5.  将下面的语句添加到新事件处理程序方法。  
   
-     [!code-vb[VbExpressTutorial3Step3#6](../ide/codesnippet/VisualBasic/step-3-add-a-countdown-timer_2.vb)]
-     [!code-cs[VbExpressTutorial3Step3#6](../ide/codesnippet/CSharp/step-3-add-a-countdown-timer_2.cs)]  
+     [!code-vb[VbExpressTutorial3Step3#6](../ide/codesnippet/VisualBasic/step-3-add-a-countdown-timer_2.vb)]  [!code-cs[VbExpressTutorial3Step3#6](../ide/codesnippet/CSharp/step-3-add-a-countdown-timer_2.cs)]  
   
      根据刚才添加的语句，计时器将每秒检查一次“timeLeft”整型变量是否大于 0，从而确定时间是否已用完。 如果大于 0，则表示仍有剩余时间。 首先，计时器从 timeLeft 中减去 1，然后更新 `timeLabel` 控件的“Text”属性，以便向测验者显示剩余的秒数。  
   
@@ -74,7 +72,7 @@ ms.lasthandoff: 02/22/2017
      您刚刚添加了 `if else` 语句，可通过这种方式告诉程序做出判断。 `if else` 语句如下所示。  
   
     > [!NOTE]
-    >  下面的示例仅用于说明，请勿将其添加到您的项目。  
+    >  下面的示例仅用于说明，请勿添加到你的项目。  
   
     ```vb  
     If (something that your program will check) Then  
@@ -101,8 +99,7 @@ ms.lasthandoff: 02/22/2017
   
      请仔细查看您刚才在 `else` 块中添加的、用于显示加法题答案的语句。  
   
-     [!code-vb[VbExpressTutorial3Step3#24](../ide/codesnippet/VisualBasic/step-3-add-a-countdown-timer_3.vb)]
-     [!code-cs[VbExpressTutorial3Step3#24](../ide/codesnippet/CSharp/step-3-add-a-countdown-timer_3.cs)]  
+     [!code-vb[VbExpressTutorial3Step3#24](../ide/codesnippet/VisualBasic/step-3-add-a-countdown-timer_3.vb)]  [!code-cs[VbExpressTutorial3Step3#24](../ide/codesnippet/CSharp/step-3-add-a-countdown-timer_3.cs)]  
   
      语句 `addend1 + addend2` 会将两个变量中的值相加。 第一部分 (`sum.Value`) 使用 sum `NumericUpDown` 控件的“Value”属性来显示正确答案。 您稍后将使用相同的属性来检查测验的答案。  
   
@@ -110,8 +107,7 @@ ms.lasthandoff: 02/22/2017
   
 6.  将三行代码添加到 `StartTheQuiz()` 方法的结尾，以使代码类似于下面这样。  
   
-     [!code-vb[VbExpressTutorial3Step3#7](../ide/codesnippet/VisualBasic/step-3-add-a-countdown-timer_4.vb)]
-     [!code-cs[VbExpressTutorial3Step3#7](../ide/codesnippet/CSharp/step-3-add-a-countdown-timer_4.cs)]  
+     [!code-vb[VbExpressTutorial3Step3#7](../ide/codesnippet/VisualBasic/step-3-add-a-countdown-timer_4.vb)]  [!code-cs[VbExpressTutorial3Step3#7](../ide/codesnippet/CSharp/step-3-add-a-countdown-timer_4.cs)]  
   
      现在，当测验开始时，“timeLeft”变量将设置为 30，而 `timeLabel` 控件的“Text”属性将设置为 30 秒。 然后，`Timer` 控件的 `Start()` 方法开始倒计时。 （测验现在还不会检查答案，接下来将介绍此内容。）  
   

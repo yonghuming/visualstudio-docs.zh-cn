@@ -30,10 +30,11 @@ translation.priority.ht:
 - tr-tr
 - zh-cn
 - zh-tw
-translationtype: Human Translation
-ms.sourcegitcommit: ca7c86466fa23fb21a932f26dc24e37c71cf29b4
-ms.openlocfilehash: 2587e4a10a4caa1192a0efc31448078db553dfb4
-ms.lasthandoff: 04/05/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 47057e9611b824c17077b9127f8d2f8b192d6eb8
+ms.openlocfilehash: dc9e7534160b244850a94285587eab56d7805c10
+ms.contentlocale: zh-cn
+ms.lasthandoff: 05/13/2017
 
 ---
 # <a name="walkthrough-creating-a-multiple-computer-build-environment"></a>演练：创建多计算机生成环境
@@ -43,7 +44,7 @@ ms.lasthandoff: 04/05/2017
   
 ||  
 |-|  
-|免责声明<br /><br /> 本文档是“按原样”提供的。 虽然我们已测试概述的步骤，但无法全面彻底地测试每一个配置。 我们将尝试保持文档与了解到的任何其他信息保持最新。 本文档中表达的信息和观点（包括 URL 和其他 Internet 网站引用）如有更改，恕不另行通知。 Microsoft 对此处提供的信息不提供任何明示或暗示的保证。 您自行承担其使用风险。<br /><br /> 本文档未向您提供任何 Microsoft 产品中任何知识产权的任何合法权利。 您可为了内部参考目的复制和使用本文档。<br /><br /> 您没有义务为 Microsoft 提供有关本文档的任何建议、评论或其他反馈（以下简称“反馈”）。 但是，可能在 Microsoft 产品和相关规范或其他文档（统称为“Microsoft 服务内容”）中使用您自愿提供的任何反馈，其他第三方可能反过来依赖这些内容来开发其自己的产品。 因此，如果您为 Microsoft 提供有关本文档任何形式或有关其适用于的 Microsoft 服务内容的反馈，则您同意：(a) Microsoft 可自由使用、重现、许可、分发您的反馈以及以其他方式使您的反馈在任何 Microsoft 服务内容中商业化；(b) 您还免费授予第三方权利，仅限于支持其他产品与吸收了您的反馈的 Microsoft 产品的任何特定部分结合使用或交互所需的专利权；以及 (c) 您不会向 Microsoft 提供任何符合下列条件的反馈 (i) 您有理由认为受任何第三方的任何专利、版权或其他知识产权或声明约束；或 (ii) 受追求需要任何 Microsoft 服务内容吸收或派生自此类反馈的许可条款、或要授予许可或以其他方式与任何第三方共享的其他 Microsoft 知识产权约束。|  
+|免责声明<br /><br /> 本文档“按原样”提供。 虽然我们已测试概述的步骤，但无法全面彻底地测试每一个配置。 我们将尝试保持文档与了解到的任何其他信息保持最新。 本文档中表达的信息和观点（包括 URL 和其他 Internet 网站引用）如有更改，恕不另行通知。 Microsoft 对此处提供的信息不提供任何明示或暗示的保证。 您自行承担其使用风险。<br /><br /> 本文档未向您提供任何 Microsoft 产品中任何知识产权的任何合法权利。 您可为了内部参考目的复制和使用本文档。<br /><br /> 您没有义务为 Microsoft 提供有关本文档的任何建议、评论或其他反馈（以下简称“反馈”）。 但是，可能在 Microsoft 产品和相关规范或其他文档（统称为“Microsoft 服务内容”）中使用您自愿提供的任何反馈，其他第三方可能反过来依赖这些内容来开发其自己的产品。 因此，如果您为 Microsoft 提供有关本文档任何形式或有关其适用于的 Microsoft 服务内容的反馈，则您同意：(a) Microsoft 可自由使用、重现、许可、分发您的反馈以及以其他方式使您的反馈在任何 Microsoft 服务内容中商业化；(b) 您还免费授予第三方权利，仅限于支持其他产品与吸收了您的反馈的 Microsoft 产品的任何特定部分结合使用或交互所需的专利权；以及 (c) 您不会向 Microsoft 提供任何符合下列条件的反馈 (i) 您有理由认为受任何第三方的任何专利、版权或其他知识产权或声明约束；或 (ii) 受追求需要任何 Microsoft 服务内容吸收或派生自此类反馈的许可条款、或要授予许可或以其他方式与任何第三方共享的其他 Microsoft 知识产权约束。|  
   
  已通过在命令行上执行 MSBuild 和通过使用 Team Foundation Build 对下列操作系统验证了此演练。  
   
@@ -334,7 +335,7 @@ ms.lasthandoff: 04/05/2017
   
 #### <a name="to-copy-assemblies-from-the-host-computer-and-install-them-on-the-build-computer"></a>从主计算机复制程序集并在生成计算机上安装它们  
   
-1.  从主计算机将下列程序集复制到生成计算机。 由于它们将安装到 GAC，因此将其放置在生成计算机上的什么位置并不重要。  
+1.  从主计算机将下列程序集复制到生成计算机。 由于它们将安装到 GAC，因此将其放在生成计算机上的什么位置并不重要。  
   
     -   %ProgramFiles%\MSBuild\Microsoft.Cpp\v4.0\v110\Microsoft.Build.CPPTasks.Common.v110.dll  
   
@@ -366,7 +367,7 @@ ms.lasthandoff: 04/05/2017
 >  **msbuild** *solution.sln* **/p:PlatformToolset=v110**  
   
 ##  <a name="CreatingForSourceControl"></a>创建可以签入源代码管理的生成环境  
- 您可以创建可部署到不同计算机的生成环境，这不需要 GAC 文件，也不需要修改注册表设置。 下列步骤只是实现此目的的一种途径。 使这些步骤适应您的生成环境的独特特征。  
+ 可创建可部署到不同计算机的生成环境，它不需要 GAC 文件，也不需要修改注册表设置。 下列步骤只是实现此目的的一种途径。 使这些步骤适应您的生成环境的独特特征。  
   
 > [!NOTE]
 >  您必须禁用增量生成，以便 tracker.exe 不会在生成期间引发错误。 若要禁用增量生成，请设置此生成参数：  
@@ -424,7 +425,7 @@ ms.lasthandoff: 04/05/2017
     </Project>  
     ```  
   
-5.  在每个项目文件中，在顶部的 `<Project Default Targets…>` 行后添加以下行。  
+5.  在每个项目文件中，在顶部的 `<Project Default Targets...>` 行后添加以下行。  
   
     ```  
     <Import Project="$([MSBuild]::GetDirectoryNameOfFileAbove($(MSBuildThisFileDirectory), Partner.AutoImports.props))\Partner.AutoImports.props"/>  

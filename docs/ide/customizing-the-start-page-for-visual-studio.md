@@ -35,10 +35,11 @@ translation.priority.ht:
 - tr-tr
 - zh-cn
 - zh-tw
-translationtype: Human Translation
-ms.sourcegitcommit: d797017eb46f38a81f4d5ba6f1999457aa816d1c
-ms.openlocfilehash: 69cc33533afd449e50bfc3ecbc8384359253fabb
-ms.lasthandoff: 02/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 5ea9179ad37514ffad4876177b05150eecc22def
+ms.openlocfilehash: 102091f8214b822a5b6be1c93f913d6ddbcd8d9b
+ms.contentlocale: zh-cn
+ms.lasthandoff: 05/24/2017
 
 ---
 # <a name="customize-the-start-page-for-visual-studio"></a>自定义 Visual Studio 的起始页
@@ -73,6 +74,6 @@ ms.lasthandoff: 02/22/2017
 > [!NOTE]
 >  如果自定义起始页中的错误导致 Visual Studio 崩溃，则可以使用安全模式下启动 Visual Studio，然后将其设置为使用默认起始页。 请参阅 [/SafeMode (devenv.exe)](../ide/reference/safemode-devenv-exe.md)。  
 
-## <a name="see-also"></a>另请参阅  
- [在 Visual Studio 中自定义开发设置](http://msdn.microsoft.com/en-us/22c4debb-4e31-47a8-8f19-16f328d7dcd3)   
+## <a name="see-also"></a>请参阅  
+ [个性化设置 Visual Studio IDE](../ide/personalizing-the-visual-studio-ide.md)   
 

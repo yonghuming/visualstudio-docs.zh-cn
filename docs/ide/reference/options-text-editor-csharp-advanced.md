@@ -38,17 +38,18 @@ translation.priority.ht:
 - tr-tr
 - zh-cn
 - zh-tw
-translationtype: Human Translation
-ms.sourcegitcommit: 5db97d19b1b823388a465bba15d057b30ff0b3ce
-ms.openlocfilehash: d0d1bb04347f3b4ce4578a15acf8f9118a6ba02d
-ms.lasthandoff: 02/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 5ea9179ad37514ffad4876177b05150eecc22def
+ms.openlocfilehash: 61a061b6a58b18451fc53c8d53f77889cc1ea253
+ms.contentlocale: zh-cn
+ms.lasthandoff: 05/24/2017
 
 ---
 # <a name="options-text-editor-c-advanced"></a>选项，文本编辑器，C#，高级
 使用此对话框可修改 Visual C# 的编辑器格式设置、代码重构设置和 XML 文档注释设置。 若要访问此对话框，请在“工具菜单”上单击“选项”，展开“文本编辑器”文件夹，再展开“C#”，然后单击“高级”。  
   
 > [!NOTE]
->  显示的对话框和菜单命令可能会与“帮助”中的描述不同，具体取决于你现用的设置或版本。 若要更改设置，请在 **“工具”** 菜单上选择 **“导入和导出设置”** 。 有关详细信息，请参阅[在 Visual Studio 中自定义开发设置](http://msdn.microsoft.com/en-us/22c4debb-4e31-47a8-8f19-16f328d7dcd3)。  
+>  显示的对话框和菜单命令可能会与“帮助”中的描述不同，具体取决于你现用的设置或版本。 若要更改设置，请在 **“工具”** 菜单上选择 **“导入和导出设置”** 。 有关详细信息，请参阅[个性化设置 Visual Studio IDE](../../ide/personalizing-the-visual-studio-ide.md)。  
   
 ## <a name="outlining"></a>大纲显示  
  打开文件时进入大纲模式  
@@ -91,7 +92,7 @@ ms.lasthandoff: 02/22/2017
   
 ## <a name="organize-usings"></a>组织用法  
  对 using 排序时将“System”指令排在第一位  
- 选中后，`System` using 指令将出现在其他 using 指令之前。 有关详细信息，请参阅 [对 Using 排序](../../misc/sort-usings.md)。  
+ 选中后，`System` using 指令将出现在其他 using 指令之前。 有关详细信息，请参阅 [Visual C# IntelliSense](../../ide/visual-csharp-intellisense.md#automatic-code-generation) 中的组织 using。  
   
 ## <a name="see-also"></a>另请参阅  
  [XML 文档注释](/dotnet/csharp/programming-guide/xmldoc/xml-documentation-comments)   

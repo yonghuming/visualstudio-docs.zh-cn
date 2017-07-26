@@ -31,10 +31,11 @@ translation.priority.ht:
 - tr-tr
 - zh-cn
 - zh-tw
-translationtype: Human Translation
-ms.sourcegitcommit: 5658ecf52637a38bc3c2a5ad9e85b2edebf7d445
-ms.openlocfilehash: fb24d1c3e48b1125e025b89fe25cfb362ced11be
-ms.lasthandoff: 02/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 5ea9179ad37514ffad4876177b05150eecc22def
+ms.openlocfilehash: ab506c0d3bdf9a03ee2212d6e4767d8443c604e5
+ms.contentlocale: zh-cn
+ms.lasthandoff: 05/24/2017
 
 ---
 # <a name="setting-language-specific-editor-options"></a>设置语言特定的编辑器选项
@@ -72,5 +73,5 @@ ms.lasthandoff: 02/22/2017
  [自定义编辑器](../../ide/customizing-the-editor.md)  
  提供指向一些主题的链接，这些主题介绍可设置首选项的编辑器的方方面面。  
   
- [在 Visual Studio 中自定义开发设置](http://msdn.microsoft.com/en-us/22c4debb-4e31-47a8-8f19-16f328d7dcd3)  
+ [个性化设置 Visual Studio IDE](../../ide/personalizing-the-visual-studio-ide.md)  
  提供指向一些主题的链接，这些主题介绍如何自定义设置、密钥绑定以及集成开发环境 (IDE) 的其他功能。

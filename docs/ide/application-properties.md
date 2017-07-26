@@ -1,30 +1,47 @@
 ---
 title: "应用程序属性 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-general"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-helpviewer_keywords: 
-  - "项目设计器中的“应用程序”页"
-  - "应用程序属性 [Visual Studio]"
-  - "项目设计器, “应用程序”页"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-general
+ms.tgt_pltfrm: 
+ms.topic: article
+helpviewer_keywords:
+- application properties [Visual Studio]
+- Project Designer, Application page
+- Application page in Project Designer
 ms.assetid: 0ad4926f-636e-41f8-a5b1-faf9d9b0a254
 caps.latest.revision: 20
-author: "kempb"
-ms.author: "kempb"
-manager: "ghogen"
-caps.handback.revision: 20
----
-# 应用程序属性
-[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
+author: kempb
+ms.author: kempb
+manager: ghogen
+translation.priority.ht:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 7e372d9d6d935ff40054b8ba3f7684bf5ea9c458
+ms.openlocfilehash: 3274157b4463c902bc14fe077f1b8d2ca022170c
+ms.contentlocale: zh-cn
+ms.lasthandoff: 06/22/2017
 
-你可以在**“项目设计器”**的**“应用程序”**窗格中为 Visual Basic、C\# 和 F\# 应用程序设置常规应用程序属性，如应用程序类型、启动对象和程序集信息。  
+---
+# <a name="application-properties"></a>Application Properties
+可在“项目设计器”的“应用程序”窗格中为 Visual Basic、C# 和 F# 应用程序设置常规应用程序属性，如应用程序类型、启动对象和程序集信息。  
   
- 可以在**“应用程序”**窗格中完成以下任务：  
+ 可在“应用程序”窗格中完成以下任务：  
   
 -   指定程序集信息  
   
@@ -52,16 +69,15 @@ caps.handback.revision: 20
   
  适用于应用程序的任务取决于使用的开发语言。  
   
-## 本节内容  
- [如何：指定应用程序图标（Visual Basic、C\#）](../Topic/How%20to:%20Specify%20an%20Application%20Icon%20\(Visual%20Basic,%20C%23\).md)  
+## <a name="in-this-section"></a>本节内容  
+ [如何：指定应用程序图标（Visual Basic、C#）](../ide/how-to-specify-an-application-icon-visual-basic-csharp.md)  
   
-## 请参阅  
- [“项目设计器”, “应用程序”页 \(Visual Basic\)](../ide/reference/application-page-project-designer-visual-basic.md)   
- [“项目设计器”\-\>“应用程序”页 \(C\#\)](../ide/reference/application-page-project-designer-csharp.md)   
- [Introduction to the Project Designer](http://msdn.microsoft.com/zh-cn/898dd854-c98d-430c-ba1b-a913ce3c73d7)   
+## <a name="see-also"></a>另请参阅  
+ [应用程序页、项目设计器 (Visual Basic)](../ide/reference/application-page-project-designer-visual-basic.md)   
+ [应用程序页、项目设计器 (C#)](../ide/reference/application-page-project-designer-csharp.md)   
  [发布 ClickOnce 应用程序](../deployment/publishing-clickonce-applications.md)   
  [保护 ClickOnce 应用程序](../deployment/securing-clickonce-applications.md)   
- [Managing Debugging Properties](http://msdn.microsoft.com/zh-cn/92474d16-e7fe-4fac-9287-6bd6b3a7eb68)   
- [Managing Compilation Properties](http://msdn.microsoft.com/zh-cn/94308881-f10f-4caf-a729-f1028e596a2c)   
- [管理应用程序资源 \(.NET\)](../ide/managing-application-resources-dotnet.md)   
- [管理应用程序设置 \(.NET\)](../ide/managing-application-settings-dotnet.md)
+ [管理调试属性](http://msdn.microsoft.com/en-us/92474d16-e7fe-4fac-9287-6bd6b3a7eb68)   
+ [管理编译属性](http://msdn.microsoft.com/en-us/94308881-f10f-4caf-a729-f1028e596a2c)   
+ [管理应用程序资源 (.NET)](../ide/managing-application-resources-dotnet.md)   
+ [管理应用程序设置 (.NET)](../ide/managing-application-settings-dotnet.md)

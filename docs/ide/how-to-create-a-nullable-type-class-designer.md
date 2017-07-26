@@ -30,10 +30,11 @@ translation.priority.ht:
 - tr-tr
 - zh-cn
 - zh-tw
-translationtype: Human Translation
-ms.sourcegitcommit: 5658ecf52637a38bc3c2a5ad9e85b2edebf7d445
-ms.openlocfilehash: 5b55bd1c7b6be5c8fabafded8cd3a658ec9602d8
-ms.lasthandoff: 02/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 3d32d11a430227800cb3ed53831a9565eb6adeb3
+ms.openlocfilehash: 001e8d8c1a6371d76b1a52826da16d471f07c1ba
+ms.contentlocale: zh-cn
+ms.lasthandoff: 05/30/2017
 
 ---
 # <a name="how-to-create-a-nullable-type-class-designer"></a>如何：创建可以为 null 的类型（类设计器）
@@ -87,5 +88,5 @@ ms.lasthandoff: 02/22/2017
  <xref:System.Nullable%601>   
  [可以为 null 的类型](/dotnet/csharp/programming-guide/nullable-types/index)   
  [使用可以为 null 的类型](/dotnet/csharp/programming-guide/nullable-types/using-nullable-types)   
- [如何：标识可以为 null 的类型](http://msdn.microsoft.com/Library/d4b67ee2-66e8-40c1-ae9d-545d32c71387)   
+ [如何：标识可以为 null 的类型](/dotnet/csharp/programming-guide/nullable-types/how-to-identify-a-nullable-type)   
  [可以为 null 的值类型](/dotnet/visual-basic/programming-guide/language-features/data-types/nullable-value-types)

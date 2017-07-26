@@ -31,10 +31,10 @@ translation.priority.mt:
 - pt-br
 - tr-tr
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 85576806818a6ed289c2f660f87b5c419016c600
-ms.openlocfilehash: 2c709b5aa90ff4f5f70f0411c7f4f1870d1725d4
+ms.sourcegitcommit: 7a873df77756e5a957d327049566c8e0db1f3a8a
+ms.openlocfilehash: c77f0321e50a27635e083d656cf6ba8011a4ef4d
 ms.contentlocale: zh-cn
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/12/2017
 
 ---
 # <a name="how-to-define-settings-in-a-response-file"></a>如何在响应文件中定义设置
@@ -103,4 +103,6 @@ vs_enterprise.exe --in customInstall.json
     ]
 }
 ```
+## <a name="see-also"></a>请参阅
+* [Visual Studio 2017 工作负载和组件 ID](workload-and-component-ids.md)
 

@@ -33,10 +33,10 @@ translation.priority.mt:
 - pt-br
 - tr-tr
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 054126ddbdc9f0144983a1ef21fa43875699cbee
-ms.openlocfilehash: 4e042e3bbe96764f3d79137d2ee1a20e085ed23d
+ms.sourcegitcommit: 47057e9611b824c17077b9127f8d2f8b192d6eb8
+ms.openlocfilehash: 25704ab33e59ccea06d2234e3761b3a05106fcdd
 ms.contentlocale: zh-cn
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 05/13/2017
 
 ---
 
@@ -101,7 +101,7 @@ Microsoft.Net.Component.4.5.2.TargetingPack | .NET Framework 4.5.2 目标包 | 1
 Microsoft.Net.Component.4.5.TargetingPack | .NET Framework 4.5 目标包 | 15.0.26208.0 | 建议
 Microsoft.Net.Component.4.6.TargetingPack | .NET Framework 4.6 目标包 | 15.0.26208.0 | 建议
 Microsoft.Net.Component.4.TargetingPack | .NET Framework 4 目标包 | 15.0.26208.0 | 建议
-Microsoft.Net.ComponentGroup.TargetingPacks.Common | .NET Framework 4 – 4.6 开发工具 | 15.0.26208.0 | 建议
+Microsoft.Net.ComponentGroup.TargetingPacks.Common | .NET Framework 4 - 4.6 开发工具 | 15.0.26208.0 | 建议
 Microsoft.VisualStudio.Component.AppInsights.Tools | 开发人员分析工具 | 15.0.26323.1 | 建议
 Microsoft.VisualStudio.Component.Azure.AuthoringTools | Azure 创作工具 | 15.0.26419.1 | 建议
 Microsoft.VisualStudio.Component.Azure.Compute.Emulator | Azure 计算仿真程序 | 15.0.26419.1 | 建议
@@ -167,7 +167,7 @@ Microsoft.Net.Component.4.6.1.TargetingPack | .NET Framework 4.6.1 目标包 | 1
 Microsoft.Net.Component.4.6.TargetingPack | .NET Framework 4.6 目标包 | 15.0.26208.0 | 建议
 Microsoft.Net.Component.4.TargetingPack | .NET Framework 4 目标包 | 15.0.26208.0 | 建议
 Microsoft.Net.ComponentGroup.DevelopmentPrerequisites | .NET framework 4.6.1 开发工具 | 15.0.26208.0 | 建议
-Microsoft.Net.ComponentGroup.TargetingPacks.Common | .NET Framework 4 – 4.6 开发工具 | 15.0.26208.0 | 建议
+Microsoft.Net.ComponentGroup.TargetingPacks.Common | .NET Framework 4 - 4.6 开发工具 | 15.0.26208.0 | 建议
 Microsoft.VisualStudio.Component.AppInsights.Tools | 开发人员分析工具 | 15.0.26323.1 | 建议
 Microsoft.VisualStudio.Component.Azure.AuthoringTools | Azure 创作工具 | 15.0.26419.1 | 建议
 Microsoft.VisualStudio.Component.Azure.ClientLibs | .NET 的 Azure 库 | 15.0.26208.0 | 建议
@@ -275,7 +275,7 @@ Microsoft.Net.Component.4.5.2.TargetingPack | .NET Framework 4.5.2 目标包 | 1
 Microsoft.Net.Component.4.5.TargetingPack | .NET Framework 4.5 目标包 | 15.0.26208.0 | 建议
 Microsoft.Net.Component.4.6.TargetingPack | .NET Framework 4.6 目标包 | 15.0.26208.0 | 建议
 Microsoft.Net.Component.4.TargetingPack | .NET Framework 4 目标包 | 15.0.26208.0 | 建议
-Microsoft.Net.ComponentGroup.TargetingPacks.Common | .NET Framework 4 – 4.6 开发工具 | 15.0.26208.0 | 建议
+Microsoft.Net.ComponentGroup.TargetingPacks.Common | .NET Framework 4 - 4.6 开发工具 | 15.0.26208.0 | 建议
 Microsoft.VisualStudio.Component.CoreEditor | Visual Studio 核心编辑器 | 15.0.26208.0 | 建议
 Microsoft.VisualStudio.Component.DiagnosticTools | 分析工具 | 15.0.26208.0 | 建议
 Microsoft.VisualStudio.Component.EntityFramework | Entity Framework 6 工具 | 15.0.26208.0 | 建议
@@ -416,7 +416,7 @@ Microsoft.Net.Component.4.6.1.TargetingPack | .NET Framework 4.6.1 目标包 | 1
 Microsoft.Net.Component.4.6.TargetingPack | .NET Framework 4.6 目标包 | 15.0.26208.0 | Optional
 Microsoft.Net.Component.4.TargetingPack | .NET Framework 4 目标包 | 15.0.26208.0 | Optional
 Microsoft.Net.ComponentGroup.DevelopmentPrerequisites | .NET framework 4.6.1 开发工具 | 15.0.26208.0 | Optional
-Microsoft.Net.ComponentGroup.TargetingPacks.Common | .NET Framework 4 – 4.6 开发工具 | 15.0.26208.0 | Optional
+Microsoft.Net.ComponentGroup.TargetingPacks.Common | .NET Framework 4 - 4.6 开发工具 | 15.0.26208.0 | Optional
 Microsoft.VisualStudio.Component.Roslyn.Compiler | C# 和 Visual Basic Roslyn 编译器 | 15.0.26208.0 | Optional
 Microsoft.VisualStudio.Component.Roslyn.LanguageServices | C# 和 Visual Basic | 15.0.26208.0 | Optional
 Microsoft.VisualStudio.Component.Windows10SDK.10240 | Windows 10 SDK (10.0.10240.0) | 15.0.26208.0 | Optional
@@ -594,7 +594,7 @@ Microsoft.VisualStudio.Component.WebDeploy | Web Deploy | 15.0.26208.0 | 必需
 Microsoft.Net.Component.4.5.1.TargetingPack | .NET Framework 4.5.1 目标包 | 15.0.26208.0 | 建议
 Microsoft.Net.Component.4.6.TargetingPack | .NET Framework 4.6 目标包 | 15.0.26208.0 | 建议
 Microsoft.Net.Component.4.TargetingPack | .NET Framework 4 目标包 | 15.0.26208.0 | 建议
-Microsoft.Net.ComponentGroup.TargetingPacks.Common | .NET Framework 4 – 4.6 开发工具 | 15.0.26208.0 | 建议
+Microsoft.Net.ComponentGroup.TargetingPacks.Common | .NET Framework 4 - 4.6 开发工具 | 15.0.26208.0 | 建议
 Microsoft.VisualStudio.Component.CloudExplorer | Cloud Explorer | 15.0.26208.0 | 建议
 Microsoft.VisualStudio.Component.CoreEditor | Visual Studio 核心编辑器 | 15.0.26208.0 | 建议
 Microsoft.VisualStudio.Component.DiagnosticTools | 分析工具 | 15.0.26208.0 | 建议
@@ -736,7 +736,7 @@ Microsoft.Net.Component.4.6.1.TargetingPack | .NET Framework 4.6.1 目标包 | 1
 Microsoft.Net.Component.4.6.TargetingPack | .NET Framework 4.6 目标包 | 15.0.26208.0 | Optional
 Microsoft.Net.Component.4.TargetingPack | .NET Framework 4 目标包 | 15.0.26208.0 | Optional
 Microsoft.Net.ComponentGroup.DevelopmentPrerequisites | .NET framework 4.6.1 开发工具 | 15.0.26208.0 | Optional
-Microsoft.Net.ComponentGroup.TargetingPacks.Common | .NET Framework 4 – 4.6 开发工具 | 15.0.26208.0 | Optional
+Microsoft.Net.ComponentGroup.TargetingPacks.Common | .NET Framework 4 - 4.6 开发工具 | 15.0.26208.0 | Optional
 Microsoft.VisualStudio.Component.AppInsights.Tools | 开发人员分析工具 | 15.0.26323.1 | 可选
 Microsoft.VisualStudio.Component.Azure.AuthoringTools | Azure 创作工具 | 15.0.26419.1 | 可选
 Microsoft.VisualStudio.Component.Azure.ClientLibs | .NET 的 Azure 库 | 15.0.26208.0 | 可选

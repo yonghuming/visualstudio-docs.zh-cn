@@ -29,10 +29,11 @@ translation.priority.ht:
 - tr-tr
 - zh-cn
 - zh-tw
-translationtype: Human Translation
-ms.sourcegitcommit: 4166ed8bfa0234e1cc453bd045974b412f87ae42
-ms.openlocfilehash: a1a310aa6bf0e3d0042f35f5c49612f33b89fb61
-ms.lasthandoff: 02/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 5ea9179ad37514ffad4876177b05150eecc22def
+ms.openlocfilehash: 6bf0181e49d8390eed8f750d16b706780d71f08a
+ms.contentlocale: zh-cn
+ms.lasthandoff: 05/24/2017
 
 ---
 # <a name="synchronize-your-settings-in-visual-studio"></a>在 Visual Studio 中同步你的设置
@@ -41,7 +42,7 @@ ms.lasthandoff: 02/22/2017
 ## <a name="synchronized-settings"></a>同步设置  
  默认情况下，以下设置会进行同步。  
 
--   开发设置（必须在首次运行 Visual Studio 时选择一组设置，但是可以随时更改选择。 有关详细信息，请参阅[在 Visual Studio 中自定义开发设置](http://msdn.microsoft.com/en-us/22c4debb-4e31-47a8-8f19-16f328d7dcd3)。  
+-   开发设置（必须在首次运行 Visual Studio 时选择一组设置，但是可以随时更改选择。 有关详细信息，请参阅[个性化设置 Visual Studio IDE](../ide/personalizing-the-visual-studio-ide.md)。）  
 
 -   “工具”|“选项”页中的以下选项：  
 
@@ -64,7 +65,7 @@ ms.lasthandoff: 02/22/2017
 -   “窗口”|“管理窗口布局”页中用户定义的窗口布局  
 
 ## <a name="turn-off-synchronized-settings-on-a-particular-computer"></a>关闭特定计算机上的同步设置  
- 默认情况下启用 Visual Studio 的同步设置。 可以通过转到“工具”|“选项”|“环境”|“同步设置”页并取消选中复选框，来关闭计算机上的同步设置。  例如，如果你决定不同步计算机 A 上的 Visual Studio 设置，那么计算机 A 上的任何设置更改将不会出现在计算机 B 或计算机 C 上。计算机 B 和 C 将继续彼此同步，但不与计算机 A 同步。  
+ 默认情况下启用 Visual Studio 的同步设置。 可以通过转到“工具”|“选项”|“环境”|“同步设置”页并取消选中复选框，来关闭计算机上的同步设置。  例如，如果决定不同步计算机 A 上的 Visual Studio 设置，那么计算机 A 上的任何设置更改将不会出现在计算机 B 或计算机 C 上。计算机 B 和 C 将继续彼此同步，但不与计算机 A 同步。  
 
 ## <a name="synchronize-settings-across-visual-studio-family-products-and-editions"></a>在 Visual Studio 系列产品和版本之间同步设置  
  可以在 Visual Studio 的任何版本（包括 Community 版本）之间同步设置。 Visual Studio 系列产品之间的设置也是同步的。 但是，这些系列产品中的每一个都可能具有它自己与 Visual Studio 不共享的设置。 例如，特定于计算机 A 上的某种产品的设置将与计算机 B 上的另一种产品共享，但不与计算机 A 或 B 上的 Visual Studio 共享。  

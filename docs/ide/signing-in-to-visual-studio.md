@@ -1,19 +1,39 @@
 ---
 title: "登录 Visual Studio | Microsoft Docs"
-ms.custom: ""
-ms.date: "01/23/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-general"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
+ms.custom: 
+ms.date: 01/23/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-general
+ms.tgt_pltfrm: 
+ms.topic: article
 ms.assetid: b9531c25-e4cf-43ae-b331-a9f31a8cd171
 caps.latest.revision: 30
-author: "kempb"
-ms.author: "kempb"
-manager: "ghogen"
-caps.handback.revision: 28
+author: kempb
+ms.author: kempb
+manager: ghogen
+translation.priority.ht:
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- ru-ru
+- zh-cn
+- zh-tw
+translation.priority.mt:
+- cs-cz
+- pl-pl
+- pt-br
+- tr-tr
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 47057e9611b824c17077b9127f8d2f8b192d6eb8
+ms.openlocfilehash: 8b1f56944190c60795d5bbd726388309caca7070
+ms.contentlocale: zh-cn
+ms.lasthandoff: 05/13/2017
+
 ---
 # <a name="sign-in-to-visual-studio"></a>登录 Visual Studio
 如果通过登录到 IDE 设置了“个性化”帐户，则可以个性化和优化 Visual Studio 中的开发体验。  
@@ -23,15 +43,15 @@ caps.handback.revision: 28
 
 -   **授予访问 Visual Studio Dev Essentials 程序中大量优点的权限** ，包括免费软件、培训、支持等。 请参阅 [Visual Studio Dev Essential](http://aka.ms/vsdevhelp) 了解详细信息。  
 
--   **同步你的 Visual Studio 设置** – 当你登录到任何设备上的 Visual Studio 时，将立即应用你自定义的设置（例如，键绑定、窗口布局和颜色主题）。 请参阅 [Visual Studio 中的同步设置](../ide/synchronized-settings-in-visual-studio.md)。  
+-   **同步 Visual Studio 设置** - 登录到任何设备上的 Visual Studio 时，将立即应用自定义设置（例如，键绑定、窗口布局和颜色主题）。 请参阅 [Visual Studio 中的同步设置](../ide/synchronized-settings-in-visual-studio.md)。  
 
--   **永久解锁 Visual Studio Express Edition** – 你可以根据自己的需要长时间使用任何版本的 Visual Studio Express，而不会限定为 30 天试用期。  
+-   **永久解锁 Visual Studio Express Edition** - 可根据自身需要长时间使用任何版本的 Visual Studio Express，而不会限定为 30 天试用期。  
 
 -   **解锁 Visual Studio Community Edition** 而不会限定为 30 天试用期。  
 
--   **延长 Visual Studio 试用期** – 可以将 Visual Studio Professional 或 Visual Studio Enterprise 的使用延长 90 天，而不会限定为 30 天试用期。  
+-   **延长 Visual Studio 试用期** - 可将 Visual Studio Professional 或 Visual Studio Enterprise 的使用延长 90 天，而不会限定为 30 天试用期。  
 
--   **解锁 Visual Studio（如果使用与 MSDN 或 VSO 订阅相关联的帐户）**。 请参阅[如何解锁 Visual Studio](../ide/how-to-unlock-visual-studio.md)。  
+-   **解锁 Visual Studio（如果使用与 MSDN 或 VSO 订阅相关联的帐户）**。 请参阅 [如何解锁 Visual Studio](../ide/how-to-unlock-visual-studio.md)。  
 
 -   在 IDE 中**自动连接到服务（如 Azure 和 Visual Studio Team Services）** ，而不会再次提示对同一账户输入凭据。  
 
@@ -58,9 +78,4 @@ caps.handback.revision: 28
 4.  更改所需的设置。  
 
 5.  完成后，选择 **“保存更改”** 按钮。
-
-
-
-<!--HONumber=Feb17_HO4-->
-
 

@@ -1,25 +1,45 @@
 ---
-title: "“项目设计器”-&gt;“应用程序”页 (C#) | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-general"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "cs.ProjectPropertiesApplicationWPF"
-  - "cs.ProjectPropertiesApplication"
-helpviewer_keywords: 
-  - "“项目设计器”, “应用程序”页"
-  - "项目设计器中的“应用程序”页"
+title: "“项目设计器”->“应用程序”页 (C#) | Microsoft Docs"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-general
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords:
+- cs.ProjectPropertiesApplicationWPF
+- cs.ProjectPropertiesApplication
+helpviewer_keywords:
+- Project Designer, Application page
+- Application page in Project Designer
 ms.assetid: f13701a8-4e2e-4474-9d60-bb43decbe0c1
 caps.latest.revision: 56
-author: "kempb"
-ms.author: "kempb"
-manager: "ghogen"
-caps.handback.revision: 56
+author: kempb
+ms.author: kempb
+manager: ghogen
+translation.priority.ht:
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- ru-ru
+- zh-cn
+- zh-tw
+translation.priority.mt:
+- cs-cz
+- pl-pl
+- pt-br
+- tr-tr
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 6fbf89668d47d55d1d77a1d7f11765567fc73405
+ms.openlocfilehash: 3f0056a62dc11c5584e38e9912ccd94f5b9e9b0e
+ms.contentlocale: zh-cn
+ms.lasthandoff: 05/26/2017
+
 ---
 # <a name="application-page-project-designer-c"></a>“项目设计器”->“应用程序”页 (C#)
 使用“项目设计器”的“应用程序”页指定项目的应用程序设置和属性。  
@@ -56,7 +76,7 @@ caps.handback.revision: 56
   
  对于 Web 应用程序项目，必须指定“类库”。  
   
- 如果指定“WinMD 文件”选项，可以将类型投影到任何 Windows 运行时编程语言中。 通过将项目输出打包为 WinMD 文件，可以用多种语言编写应用程序代码，并让代码进行互操作，就像代码全部是用同一种语言编写的一样。 可以为面向 Windows 运行时库的解决方案（包括 [!INCLUDE[win8_appname_long](../../debugger/includes/win8_appname_long_md.md)] 应用）指定此选项。 有关详细信息，请参阅[用 C# 和 Visual Basic 创建 Windows 运行时组件](http://go.microsoft.com/fwlink/?LinkId=231895)。  
+ 如果指定“WinMD 文件”选项，可以将类型投影到任何 Windows 运行时编程语言中。 通过将项目输出打包为 WinMD 文件，可以用多种语言编写应用程序代码，并让代码进行互操作，就像代码全部是用同一种语言编写的一样。 可以为面向 Windows 运行时库的解决方案（包括 [!INCLUDE[win8_appname_long](../../debugger/includes/win8_appname_long_md.md)] 应用）指定此选项。 有关详细信息，请参阅[用 C# 和 Visual Basic 创建 Windows 运行时组件](/windows/uwp/winrt-components/creating-windows-runtime-components-in-csharp-and-visual-basic)。  
   
 > [!NOTE]
 >  Windows 运行时可以投影类型，使其在任何一种使用它们的语言中看起来都像本机对象一样。 例如，与 Windows 运行时交互的 JavaScript 应用程序将其用作一组 JavaScript 对象，而 C# 应用程序则将库用作一个 .NET 对象集合。 通过将项目输出打包为 WinMD 文件，可以充分利用 Windows 运行时所用的技术。  
@@ -82,7 +102,7 @@ caps.handback.revision: 56
  **图标**  
  设置要用作程序图标的 .ico 文件。 单击省略号按钮浏览现有图形或键入所需文件的名称。 有关详细信息，请参阅 [/win32icon（C# 编译器选项）](/dotnet/csharp/language-reference/compiler-options/win32icon-compiler-option)。 若要以编程方式访问此属性，请参阅 <xref:VSLangProj.ProjectProperties.ApplicationIcon%2A>。  
   
- **清单**  
+ **Manifest**  
  当应用程序在 Windows Vista 上以用户帐户控制 (UAC) 模式运行时，选择一个清单生成选项。 此选项可以有下列值：  
   
 -   **嵌入带默认设置的清单**。 支持 Visual Studio 在 Windows Vista 上的典型操作方式，即，将安全信息嵌入应用程序的可执行文件中，并指定 `requestedExecutionLevel` 为 `AsInvoker`。 这是默认选项。  
@@ -99,8 +119,3 @@ caps.handback.revision: 56
 ## <a name="see-also"></a>另请参阅  
 [管理应用程序属性](../../ide/application-properties.md)  
  [在 Office 解决方案中编写代码](/office-dev/office-dev/writing-code-in-office-solutions)
-
-
-<!--HONumber=Feb17_HO4-->
-
-

@@ -27,10 +27,11 @@ translation.priority.ht:
 - tr-tr
 - zh-cn
 - zh-tw
-translationtype: Human Translation
-ms.sourcegitcommit: 4f237be3ffdfe2bca52e885822a9fbfbbf97ba6a
-ms.openlocfilehash: 738e8c25509253872274a49303b2b02a8f7ba1a6
-ms.lasthandoff: 02/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 3d32d11a430227800cb3ed53831a9565eb6adeb3
+ms.openlocfilehash: dc4bcdcc11e357979641268ae77a8e39f8408f7a
+ms.contentlocale: zh-cn
+ms.lasthandoff: 05/30/2017
 
 ---
 # <a name="walkthrough-building-an-application"></a>演练：生成应用程序
@@ -51,7 +52,7 @@ ms.lasthandoff: 02/22/2017
  [创建版本生成](../ide/walkthrough-building-an-application.md#BKMK_releasebuild)  
   
 ##  <a name="BKMK_installapp"></a> 安装示例应用程序  
- 使用“扩展和更新”对话框，在 Microsoft 网站上的示例库中找到 [Introduction to Building WPF Applications](http://code.msdn.microsoft.com/Introduction-to-Building-b8d16419?SRC=VSIDE)（生成 WPF 应用程序简介）示例并安装。 示例库提供各种各样的示例项目和代码，你可以在计划和开发应用程序时下载和查看。  
+ 使用“扩展和更新”对话框，在 Microsoft 网站上的示例库中找到 [Introduction to Building WPF Applications](http://code.msdn.microsoft.com/Introduction-to-Building-b8d16419?SRC=VSIDE)（生成 WPF 应用程序简介）示例并进行安装。 示例库提供各种各样的示例项目和代码，你可以在计划和开发应用程序时下载和查看。  
   
 #### <a name="to-install-the-sample-application"></a>安装示例应用程序  
   
@@ -92,7 +93,7 @@ ms.lasthandoff: 02/22/2017
 ##  <a name="BKMK_CreateBuildConfig"></a> 创建自定义生成配置  
  创建解决方案时，调试和发布生成配置，并为解决方案自动定义它们的默认平台目标。 然后，可以自定义这些配置，或创建自己的配置。 生成配置指定生成类型。 生成平台指定应用程序为该配置定向的操作系统。 有关详细信息，请参阅[了解生成配置](../ide/understanding-build-configurations.md)、[了解生成平台](../ide/understanding-build-platforms.md)以及[调试和发布项目配置](http://msdn.microsoft.com/en-us/0440b300-0614-4511-901a-105b771b236e)。  
   
- 可以使用“配置管理器”对话框更改或创建配置和平台设置。 在此过程中，将创建用于测试的生成配置。  
+ 可以使用“配置管理器”对话框更改或创建配置和平台设置。 在此过程中将创建用于测试的生成配置。  
   
 #### <a name="to-create-a-build-configuration"></a>创建生成配置  
   
@@ -123,7 +124,7 @@ ms.lasthandoff: 02/22/2017
  ![“标准”工具栏->“解决方案配置”选项](../ide/media/buildwalk_standardtoolbarsolutioncongfig.png "BuildWalk_StandardToolbarSolutionCongfig")  
   
 ##  <a name="BKMK_building"></a> 生成应用程序  
- 接下来，将生成具有自定义生成配置的解决方案。  
+ 接下来将生成具有自定义生成配置的解决方案。  
   
 #### <a name="to-build-the-solution"></a>生成解决方案  
   
@@ -243,7 +244,7 @@ ms.lasthandoff: 02/22/2017
   
      ![“生成”菜单上的“生成解决方案”命令](../ide/media/exploreide-buildsolution.png "ExploreIDE-BuildSolution")  
   
-#### <a name="to-specify-a-release-build-for-visual-c"></a>指定 Visual C 的版本生成# #
+#### <a name="to-specify-a-release-build-for-visual-c"></a>指定 Visual C# 的版本生成 #
   
 1.  打开“项目设计器”。  
   
@@ -271,7 +272,7 @@ ms.lasthandoff: 02/22/2017
  祝贺：你已成功完成此演练。  
   
 ## <a name="see-also"></a>另请参阅  
- [演练：生成项目(C++)](http://msdn.microsoft.com/Library/d459bc03-88ef-48d0-9f9a-82d17f0b6a4d)   
+ [演练：生成项目(C++)](/cpp/ide/walkthrough-building-a-project-cpp)   
  [ASP.NET Web 应用程序项目预编译概述](http://msdn.microsoft.com/en-us/b940abbd-178d-4570-b441-52914fa7b887)   
  [演练：使用 MSBuild](../msbuild/walkthrough-using-msbuild.md)
 

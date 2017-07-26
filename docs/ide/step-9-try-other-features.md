@@ -27,10 +27,11 @@ translation.priority.ht:
 - tr-tr
 - zh-cn
 - zh-tw
-translationtype: Human Translation
-ms.sourcegitcommit: 9044821c2bfee0dba8ffa91f3d91afd565b8d957
-ms.openlocfilehash: 9d5e8a86d71cf1f6aa47853b862a4668dea05633
-ms.lasthandoff: 02/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 47057e9611b824c17077b9127f8d2f8b192d6eb8
+ms.openlocfilehash: b0ef009dae267ca566a41bad3d6f0a9ef81cb02b
+ms.contentlocale: zh-cn
+ms.lasthandoff: 05/13/2017
 
 ---
 # <a name="step-9-try-other-features"></a>步骤 9：尝试其他功能
@@ -58,7 +59,7 @@ ms.lasthandoff: 02/22/2017
 -   通过将图板变大，增加游戏的难度。  
   
     > [!TIP]
-    >  你将不仅需要向 TableLayoutPanel 中添加行和列，还需要考虑创建的图标数目。  
+    >  不仅需要向 TableLayoutPanel 中添加行和列，还需要考虑创建的图标数目。  
   
 -   如果玩家反应太慢，在定量时间前没有选择第二个图标，则隐藏第一个图标，以使游戏更具挑战性。  
   

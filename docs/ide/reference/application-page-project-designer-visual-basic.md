@@ -1,25 +1,45 @@
 ---
-title: "Application Page, Project Designer (Visual Basic) | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-general"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "vb.ProjectPropertiesApplicationWPF"
-  - "vb.ProjectPropertiesApplication"
-helpviewer_keywords: 
-  - "“项目设计器”, “应用程序”页"
-  - "“项目设计器”中的“应用程序”页"
+title: "“项目设计器”->“应用程序”页 (Visual Basic) | Microsoft Docs"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-general
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords:
+- vb.ProjectPropertiesApplicationWPF
+- vb.ProjectPropertiesApplication
+helpviewer_keywords:
+- Project Designer, Application page
+- Application page in Project Designer
 ms.assetid: 8cec9fea-cd92-47ff-88dd-7c928f0b4a74
 caps.latest.revision: 64
-author: "kempb"
-ms.author: "kempb"
-manager: "ghogen"
-caps.handback.revision: 64
+author: kempb
+ms.author: kempb
+manager: ghogen
+translation.priority.ht:
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- ru-ru
+- zh-cn
+- zh-tw
+translation.priority.mt:
+- cs-cz
+- pl-pl
+- pt-br
+- tr-tr
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 6fbf89668d47d55d1d77a1d7f11765567fc73405
+ms.openlocfilehash: 4be8a1f36d81e2cb36d9daab9817f04d18ecb94a
+ms.contentlocale: zh-cn
+ms.lasthandoff: 05/26/2017
+
 ---
 # <a name="application-page-project-designer-visual-basic"></a>Application Page, Project Designer (Visual Basic)
 使用项目设计器的“应用程序”页可指定项目的应用程序设置和属性。  
@@ -63,12 +83,12 @@ caps.handback.revision: 64
   
  对于 Web 应用程序项目，必须指定“类库”。  
   
- 如果指定“WinMD 文件”选项，可以将类型投影到任何 Windows 运行时编程语言中。 通过将项目输出打包为 WinMD 文件，可以用多种语言编写应用程序代码，并让代码进行互操作，就像代码全部是用同一种语言编写的一样。 可以对面向 Windows 运行时库的解决方案（包括 [!INCLUDE[win8_appname_long](../../debugger/includes/win8_appname_long_md.md)] 应用）使用“WinMD 文件”选项。 有关详细信息，请参阅[用 C# 和 Visual Basic 创建 Windows 运行时组件](http://go.microsoft.com/fwlink/?LinkId=231895)。  
+ 如果指定“WinMD 文件”选项，可以将类型投影到任何 Windows 运行时编程语言中。 通过将项目输出打包为 WinMD 文件，可以用多种语言编写应用程序代码，并让代码进行互操作，就像代码全部是用同一种语言编写的一样。 可以对面向 Windows 运行时库的解决方案（包括 [!INCLUDE[win8_appname_long](../../debugger/includes/win8_appname_long_md.md)] 应用）使用“WinMD 文件”选项。 有关详细信息，请参阅[用 C# 和 Visual Basic 创建 Windows 运行时组件](/windows/uwp/winrt-components/creating-windows-runtime-components-in-csharp-and-visual-basic)。  
   
 > [!NOTE]
 >  Windows 运行时可以投影类型，使其在任何一种使用它们的语言中看起来都像本机对象一样。 例如，与 Windows 运行时交互的 JavaScript 应用程序将其用作一组 JavaScript 对象，而 C# 应用程序则将库用作一个 .NET 对象集合。 通过将项目输出打包为 WinMD 文件，可以充分利用 Windows 运行时所用的技术。  
   
- 有关“应用程序类型”属性的详细信息，请参阅 [/target (Visual Basic)](/dotnet/visual-basic/reference/command-line-compiler/target)。 有关如何以编程方式访问该属性的信息，请参阅 <xref:VSLangProj.ProjectProperties.OutputType%2A>。  
+ 有关“应用程序类型”属性的详细信息，请参阅 [/target (Visual Basic)](/dotnet/visual-basic/reference/command-line-compiler/target)。 有关如何以编程方式访问此属性的信息，请参阅 <xref:VSLangProj.ProjectProperties.OutputType%2A>。  
   
  **图标**  
  设置要用作程序图标的 .ico 文件。 选择“\<浏览...>”以浏览现有图形。 有关详细信息，请参阅 [/win32icon](/dotnet/visual-basic/reference/command-line-compiler/win32icon)（或 [/win32icon（C# 编译器选项）](/dotnet/csharp/language-reference/compiler-options/win32icon-compiler-option)）。 若要以编程方式访问此属性，请参阅 <xref:VSLangProj.ProjectProperties.ApplicationIcon%2A>。  
@@ -78,7 +98,7 @@ caps.handback.revision: 64
   
  如果“启用应用程序框架”处于选中状态（默认设置），则此列表的标题为“启动窗体”，并且仅显示窗体，因为应用程序框架仅支持启动窗体，不支持对象。  
   
- 如果项目是 WPF 浏览器应用程序，则此列表的标题为“启动 URI”，默认值为“Page1.xaml”。 “启动 URI”列表用于指定应用程序启动时显示的用户界面资源（一种 XAML 元素）。 有关详细信息，请参阅 <xref:System.Windows.Application.StartupUri%2A>。  
+ 如果项目是 WPF 浏览器应用程序，则此列表的标题为“启动 URI”，默认值为“Page1.xaml”。 “启动 URI”列表用于指定应用程序启动时显示的用户界面资源（一种 XAML 元素）。 有关更多信息，请参见<xref:System.Windows.Application.StartupUri%2A>。  
   
  如果“启用应用程序框架”处于清除状态，则此列表将变为“启动对象”，并且同时显示窗体和带有 `Sub Main` 的类或模块。  
   
@@ -153,13 +173,8 @@ caps.handback.revision: 64
  **查看应用程序事件**  
  单击此按钮以在代码编辑器中显示 `Application` 分部类文件 (Application.xaml.vb)。 如果该文件不存在，项目设计器将创建一个具有适当类名和命名空间的此类文件。  
   
- <xref:System.Windows.Application> 对象在出现某些应用程序状态变化时（例如，在应用程序启动或关闭时）引发事件。 有关此类公开的事件的完整列表，请参阅 <xref:System.Windows.Application>。 这些事件在 `Application` 分部类的用户代码节中进行处理。  
+ <xref:System.Windows.Application> 对象在应用程序状态出现某些变化时（例如，在应用程序启动或关闭时）引发事件。 有关此类公开的事件的完整列表，请参阅 <xref:System.Windows.Application>。 这些事件在 `Application` 分部类的用户代码节中进行处理。  
   
 ## <a name="see-also"></a>另请参阅  
 [管理应用程序属性](../../ide/application-properties.md)
  [在 Office 解决方案中编写代码](/office-dev/office-dev/writing-code-in-office-solutions)
-
-
-<!--HONumber=Feb17_HO4-->
-
-

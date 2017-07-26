@@ -28,17 +28,19 @@ translation.priority.mt:
 - pl-pl
 - pt-br
 - tr-tr
-translationtype: Human Translation
-ms.sourcegitcommit: c0966f42efc54452d0f7cd11e19c6f82f7686474
-ms.openlocfilehash: 079c15ffcc9b51fc1f4630051c561f9f8ff7fb87
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 47057e9611b824c17077b9127f8d2f8b192d6eb8
+ms.openlocfilehash: 65b94b58da1e06febb1c189ddff85f792fef1737
+ms.contentlocale: zh-cn
+ms.lasthandoff: 05/13/2017
 
 ---
 # <a name="getting-started-with-c-in-visual-studio"></a>Visual Studio 中的 C++ 入门
-通过完成本演练，你将熟悉在使用 Visual Studio 开发应用程序时可使用的许多工具和对话框。 当你了解了在集成开发环境 (IDE) 中工作的更多知识后，你可以创建简单的“Hello, World”风格的应用程序。  
+通过完成本演练，你将熟悉在使用 Visual Studio 开发应用程序时可使用的许多工具和对话框。 了解在集成开发环境 (IDE) 中工作的更多知识后，你将可以创建简单的“Hello, World”风格的应用程序。  
   
  本主题包含以下各节：  
   
- [登录 Visual Studio](../ide/getting-started-with-cpp-in-visual-studio.md#BKMK_Configure)  
+ [登录到 Visual Studio](../ide/getting-started-with-cpp-in-visual-studio.md#BKMK_Configure)  
   
  [创建简单的应用程序](../ide/getting-started-with-cpp-in-visual-studio.md#BKMK_CreateApp)  
   
@@ -48,8 +50,8 @@ ms.openlocfilehash: 079c15ffcc9b51fc1f4630051c561f9f8ff7fb87
   
  [生成应用程序的发布版本](../ide/getting-started-with-cpp-in-visual-studio.md#BKMK_BuildRelease)  
   
-##  <a name="a-namebkmkconfigurea-sign-in-to-visual-studio"></a><a name="BKMK_Configure"></a>登录 Visual Studio  
- 首次启动 Visual Studio 时，有机会使用 Live 或 Outlook 之类的 Microsoft 帐户登录。 登录允许你的设置在所有设备上同步。 有关详细信息，请参阅 [登录 Visual Studio](../ide/signing-in-to-visual-studio.md)。  
+##  <a name="BKMK_Configure"></a> 登录到 Visual Studio  
+ 首次启动 Visual Studio 时，有机会使用 Live 或 Outlook 之类的 Microsoft 帐户登录。 登录允许你的设置在所有设备上同步。 有关详细信息，请参阅 [Signing in to Visual Studio](../ide/signing-in-to-visual-studio.md)。  
   
  图 1：Visual Studio IDE  
   
@@ -57,8 +59,8 @@ ms.openlocfilehash: 079c15ffcc9b51fc1f4630051c561f9f8ff7fb87
   
  在你打开 Visual Studio 后，可查看 IDE 的三个基本部分：工具窗口、菜单和工具栏，以及主窗口空间。 工具窗口停靠在应用程序窗口的左侧和右侧，其顶部有“快速启动” 、菜单栏和标准工具栏。 应用程序窗口的中心包含“起始页” 。 当你打开解决方案或项目时，将在这里显示编辑器和设计器。 开发应用程序时，大部分时间都将用在此中心区域。  
   
-##  <a name="a-namebkmkcreateappa-create-a-simple-application"></a><a name="BKMK_CreateApp"></a>创建简单的应用程序  
- 在 Visual Studio 中创建应用程序时，应首先创建项目和解决方案。 在此示例中，你将创建一个 Windows 控制台应用程序。  
+##  <a name="BKMK_CreateApp"></a> 创建简单的应用程序  
+ 在 Visual Studio 中创建应用程序时，应首先创建项目和解决方案。 本示例将创建的是 Windows 控制台应用程序。  
   
 #### <a name="to-create-a-console-app"></a>要创建控制台应用程序  
   
@@ -81,10 +83,10 @@ ms.openlocfilehash: 079c15ffcc9b51fc1f4630051c561f9f8ff7fb87
   
  ![解决方案资源管理器中解决方案的文件](../ide/media/c--ide_solutioncontents.png "C++IDE_SolutionContents")  
   
-##  <a name="a-namebkmkaddcodea-add-code-to-the-application"></a><a name="BKMK_AddCode"></a>将代码添加到应用程序  
+##  <a name="BKMK_AddCode"></a>将代码添加到应用程序  
  接下来，你将添加代码以在控制台窗口中显示单词“Hello”。  
   
-#### <a name="to-display-hello-in-the-console-window"></a>要在控制台窗口中显示“Hello”  
+#### <a name="to-display-hello-in-the-console-window"></a>在控制台窗口中显示“Hello”  
   
 1.  在 GreetingsConsoleApp.cpp 文件中，在行 `return 0;` 之前输入一个空行，然后输入以下代码：  
   
@@ -107,7 +109,7 @@ ms.openlocfilehash: 079c15ffcc9b51fc1f4630051c561f9f8ff7fb87
     using namespace std;  
     ```  
   
-     当你输入代码时，你可能注意到出现了一个框，提供你输入的字符的有关建议。 此框是 C++ IntelliSense 的一部分，它提供了编码提示，包括列出类或接口的成员和参数信息。 你还可以使用代码段，它们是预定义的代码块。 有关详细信息，请参阅[使用 IntelliSense](../ide/using-intellisense.md) 和[代码片段](../ide/code-snippets.md)。  
+     当你输入代码时，你可能注意到出现了一个框，提供你输入的字符的有关建议。 此框是 C++ IntelliSense 的一部分，它提供了编码提示，包括列出类或接口的成员和参数信息。 你还可以使用代码段，它们是预定义的代码块。 有关详细信息，请参阅 [Using IntelliSense](../ide/using-intellisense.md) 和 [Code Snippets](../ide/code-snippets.md)。  
   
      修复该错误后， `cout` 下面的红色波浪线将消失。  
   
@@ -115,7 +117,7 @@ ms.openlocfilehash: 079c15ffcc9b51fc1f4630051c561f9f8ff7fb87
   
      ![修复计数错误的代码](../ide/media/c--ide_coutfix.png "C++IDE_CoutFix")  
   
-##  <a name="a-namebkmkdebugtesta-debug-and-test-the-application"></a><a name="BKMK_DebugTest"></a>调试并测试应用程序  
+##  <a name="BKMK_DebugTest"></a>调试并测试应用程序  
  你可以调试 GreetingsConsoleApp 以查看控制台窗口中是否显示单词“Hello”。  
   
 #### <a name="to-debug-the-application"></a>若要调试该应用程序  
@@ -144,7 +146,7 @@ ms.openlocfilehash: 079c15ffcc9b51fc1f4630051c561f9f8ff7fb87
   
  有关详细信息，请参阅[控制台项目](../debugger/debugging-preparation-console-projects.md)。  
   
-##  <a name="a-namebkmkbuildreleasea-build-a-release-version-of-the-app"></a><a name="BKMK_BuildRelease"></a>生成应用程序的发布版本  
+##  <a name="BKMK_BuildRelease"></a> 生成应用程序的发布版本  
  确认一切就绪后，可以准备该应用程序的发布版本。  
   
 #### <a name="to-clean-the-solution-files-and-build-a-release-version"></a>要清理解决方案文件并生成发布版本  
@@ -169,8 +171,3 @@ ms.openlocfilehash: 079c15ffcc9b51fc1f4630051c561f9f8ff7fb87
  [Visual Studio 的工作效率提示](../ide/productivity-tips-for-visual-studio.md)   
  [Visual Studio 示例](../ide/visual-studio-samples.md)   
  [Visual Studio 开发入门](../ide/get-started-developing-with-visual-studio.md)
-
-
-<!--HONumber=Feb17_HO4-->
-
-

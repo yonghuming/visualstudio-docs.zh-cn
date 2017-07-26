@@ -1,6 +1,6 @@
 ---
 title: "安装 Dotfuscator Community Edition (CE) | Microsoft Docs"
-ms.date: 2017-02-08
+ms.date: 2017-06-22
 ms.prod: visual-studio-dev15
 ms.devlang: dotnet
 ms.technology:
@@ -37,10 +37,11 @@ translation.priority.ht:
 - tr-tr
 - zh-cn
 - zh-tw
-translationtype: Human Translation
-ms.sourcegitcommit: 507ff049dae50698d86e1536ed21ab982da1af85
-ms.openlocfilehash: 4831a41cc82ecb1030d61263f46b1d41ec0c37a1
-ms.lasthandoff: 02/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 8ce85525f6af336682f6f8547c2f6c13dde73c8c
+ms.openlocfilehash: fb5356632ecf8183945b1d50ba940ed05abcf96f
+ms.contentlocale: zh-cn
+ms.lasthandoff: 06/23/2017
 
 ---
 
@@ -60,7 +61,7 @@ Visual Studio 2017 引入了一种影响较小的新式安装体验。
 
 1. 在“快速启动”(Ctrl+Q) 搜索栏中，键入 `dotfuscator`。 <br/> <br/> ![](media/install_from_vs_12.png) <br/> <br/>
 2. 在显示的快速启动结果中的“安装”标题下，选择“PreEmptive Protection - Dotfuscator (各个组件)”。
-  * 如果“菜单”标题下显示的是“工具”→“PreEmptive Protection - Dotfuscator”，则表示已经安装了 Dotfuscator CE。 有关使用方法的详细信息，请参阅[完整 Dotfuscator CE 用户指南的入门页][get-started]。
+  * 如果“菜单”标题下显示的是“工具”-“PreEmptive Protection - Dotfuscator”，则表示已经安装了 Dotfuscator CE。 有关使用方法的详细信息，请参阅[完整 Dotfuscator CE 用户指南的入门页][get-started]。
 3. “Visual Studio 安装程序”窗口将会启动，并为安装 Dotfuscator CE 进行预配置。
   * 可能需要提供管理员凭据才能继续。
 4. 关闭 Visual Studio IDE 的所有实例。 <br/> <br/> ![](media/install_from_vs_345.png) <br/> <br/>
@@ -92,8 +93,9 @@ Visual Studio 2017 引入了一种影响较小的新式安装体验。
 <!-- Copyright © 2017 PreEmptive Solutions, LLC -->
 
 [2017-install]: https://www.visualstudio.com/downloads/#vs-2017
-[get-started]: https://www.preemptive.com/dotfuscator/ce/docs/help/5.27/gui_getstarted.html
+[get-started]: https://www.preemptive.com/dotfuscator/ce/docs/help/gui_getstarted.html
 
 [download]: https://www.preemptive.com/products/dotfuscator/downloads
 
-[full]: https://www.preemptive.com/dotfuscator/ce/docs/help/5.27/intro_install.html
+[full]: https://www.preemptive.com/dotfuscator/ce/docs/help/intro_install.html
+

@@ -31,10 +31,11 @@ translation.priority.ht:
 - tr-tr
 - zh-cn
 - zh-tw
-translationtype: Human Translation
-ms.sourcegitcommit: 5db97d19b1b823388a465bba15d057b30ff0b3ce
-ms.openlocfilehash: 2ce4f6545e3497b829234a6f21983a406059d3e0
-ms.lasthandoff: 02/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 5ea9179ad37514ffad4876177b05150eecc22def
+ms.openlocfilehash: 99f7756369fe4848fc5641009e95bbba23c95227
+ms.contentlocale: zh-cn
+ms.lasthandoff: 05/24/2017
 
 ---
 # <a name="visual-c-intellisense"></a>Visual C# IntelliSense
@@ -53,7 +54,7 @@ ms.lasthandoff: 02/22/2017
   
 -   [扩展方法](#ExtensionMethods)  
   
- C# 中的完成列表也足够智能，可筛选出不相关的标记，并可基于上下文预先选择标记。 有关详细信息，请参阅 [C# 中经过筛选的完成列表](../misc/filtered-completion-lists-in-csharp.md)和 [C# 中预选择的完成列表项](../misc/pre-selected-completion-list-items-in-csharp.md)。  
+ C# 中的完成列表也足够智能，可筛选出不相关的标记，并可基于上下文预先选择标记。 有关详细信息，请参阅[经过筛选的完成列表](#filtered-completion-lists)。  
   
 ###  <a name="CodeSnippets"></a> 完成列表中的代码片段  
  在 Visual C# 中，完成列表包含代码片段，可助你将预定义的代码体轻松插入程序。 代码片段作为片段的 [Shortcut 元素（Intellisense 代码片段）](http://msdn.microsoft.com/en-us/052cc97a-5c70-42f8-b398-4c3adf670cfa)出现在完成列表中。  若要了解 Visual C# 中默认情况下可用的代码片段，请参阅 [Visual C# 代码片段](../ide/visual-csharp-code-snippets.md)。  
@@ -65,7 +66,7 @@ ms.lasthandoff: 02/22/2017
  在 Visual C# 中，完成列表包含位于作用域的扩展方法。  
   
 > [!NOTE]
->  完成列表不会显示 <xref:System.String> 对象的所有扩展方法。  
+>  完成列表不显示 <xref:System.String> 对象的所有扩展方法。  
   
  扩展方法使用不同于实例方法的图标。 若要了解列表图标的列表，请参阅[类视图和对象浏览器图标](../ide/class-view-and-object-browser-icons.md)。 当具有相同名称的实例方法和扩展方法都处于作用域时，完成列表将显示扩展方法图标。  
   
@@ -76,7 +77,7 @@ ms.lasthandoff: 02/22/2017
   
 -   **接口和基类** IntelliSense 自动从接口和基类完成列表、类声明基类和接口列表和约束列表中移除项。 例如，枚举不会出现在基类的完成列表中，因为枚举无法用于基类。 基类的完成列表仅包含接口和命名空间。 如果在列表中选择一个项，再键入逗号，则 IntelliSense 从完成列表移除基类，因为 Visual C# 不支持多重继承。 相同的行为也发生在约束子句中。  
   
--   **属性**：将属性应用于类型时，会对完成列表进行筛选，从而使列表中包含的类型都是源自含有那些类型的命名空间，如 <xref:System.Attribute>。  
+-   **特性**：将特性应用于类型时，对完成列表进行筛选，从而使列表仅包含源自包含那些类型的命名空间的类型，如 <xref:System.Attribute>。  
   
 -   `as` 和 `is` 运算符。  
   
@@ -85,6 +86,8 @@ ms.lasthandoff: 02/22/2017
 -   **对象初始值设定项**：完成列表中将仅列出可进行初始化的成员。  
   
 -   **新关键字**：键入 `new` 并按空格键后，将显示完成列表。 基于代码的上下文将在列表中自动选择项。 例如，自动为声明和方法中的 return 语句在完成列表中选择项。  
+  
+-   **enum 关键字**：当在枚举赋值的等号后按空格键时，将出现完成列表。 基于代码的上下文将在列表中自动选择项。 例如，键入关键字 return 之后以及进行声明时，将在完成列表中自动选择项。  
   
 -   **as 和 is 运算符**：键入 `as` 或 `is` 关键字后按空格键，将自动显示经过筛选的完成列表。  
   
@@ -125,6 +128,8 @@ ms.lasthandoff: 02/22/2017
  IntelliSense 提供了一个选项，可帮助你在使用代码编辑器时自动实现抽象基类的成员。 通常情况下，实现抽象基类的成员需要在你的派生类中为抽象基类的每个方法创建新的方法定义。 使用 IntelliSense，在类声明中键入抽象基类的名称后，将显示智能标记。 智能标记将提供自动实现基类方法的选项。  
   
  通过“实现抽象基类”功能生成的方法存根将由文件 MethodStub.snippet 中定义的代码片段进行建模。 代码片段是可修改的。 有关详细信息，请参阅[演练：创建代码片段](../ide/walkthrough-creating-a-code-snippet.md)。  
+  
+<a name="generate-from-usage></a>  
   
 ### <a name="generate-from-usage"></a>使用时生成  
  通过“使用时生成”功能，用户能够在定义类和成员之前使用它们。 你可以为想要使用但尚未定义的任何类、构造函数、方法、属性、字段或枚举生成存根。 可以生成新的类型和成员而无需离开你在代码中的当前位置。 这将使工作流的中断降至最低。  
@@ -169,8 +174,6 @@ ms.lasthandoff: 02/22/2017
   
 > [!NOTE]
 >  使用“视图”菜单上的“向后导航”命令 (Ctrl+-) 可返回到事件挂钩语句。  
-  
- 下面的任务演示 IntelliSense 如何自动将名为 `button1_Click` 的事件处理程序挂钩到名为 `button1.Click` 的事件字段。  
   
 ## <a name="see-also"></a>另请参阅  
  [Visual Studio IDE](../ide/visual-studio-ide.md)

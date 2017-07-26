@@ -33,10 +33,11 @@ translation.priority.ht:
 - tr-tr
 - zh-cn
 - zh-tw
-translationtype: Human Translation
-ms.sourcegitcommit: ca7c86466fa23fb21a932f26dc24e37c71cf29b4
-ms.openlocfilehash: 9c9e9e8c63d69e797a28ce4f8b1ac0adcf074b77
-ms.lasthandoff: 04/05/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 5ea9179ad37514ffad4876177b05150eecc22def
+ms.openlocfilehash: aecc19cb20592940ab773322764e5383365b3865
+ms.contentlocale: zh-cn
+ms.lasthandoff: 05/24/2017
 
 ---
 # <a name="options-text-editor-cc-advanced"></a>选项，文本编辑器，C/C++，高级
@@ -45,7 +46,7 @@ ms.lasthandoff: 04/05/2017
  若要访问此页，请在“选项”对话框的左窗格中，展开“文本编辑器”，再展开“C/C++”，然后选择“高级”。  
   
 > [!NOTE]
->  以下说明中的某些 Visual Studio 用户界面元素在计算机上出现的名称或位置可能会不同。 这些元素取决于你所使用的 Visual Studio 版本和你所使用的设置。 请参阅[在 Visual Studio 中自定义开发设置](http://msdn.microsoft.com/en-us/22c4debb-4e31-47a8-8f19-16f328d7dcd3)。  
+>  以下说明中的某些 Visual Studio 用户界面元素在计算机上出现的名称或位置可能会不同。 这些元素取决于你所使用的 Visual Studio 版本和你所使用的设置。 请参阅[个性化设置 Visual Studio IDE](../../ide/personalizing-the-visual-studio-ide.md)。  
   
 ## <a name="browsingnavigation"></a>浏览/导航  
  除在极少数情况下，比如解决方案太大以致数据库活动占用过多的系统资源，否则不应选择以下选项。  
@@ -109,7 +110,7 @@ ms.lasthandoff: 04/05/2017
  指示代码浏览数据库和 IntelliSense 文件应该始终存储在指定为“回退位置”的文件夹中，而不是和 .sln 文件存储在一起。 IDE 永远不会尝试将 SDF 或 iPCH 文件与解决方案目录放在一起，并且始终使用回退位置。  
   
  **如果已使用回退位置，则不警告**  
- 如果已使用“回退位置”，不会发出通知或提示。 通常，IDE 会告知你是否必须使用回退位置。 此选项将关闭该警告。  
+ 如果已使用“回退位置”，则不会发出通知或提示。 通常，IDE 会告知你是否必须使用回退位置。 此选项将关闭该警告。  
   
  **回退位置**  
  此值用作存储代码浏览数据库或 IntelliSense 文件的备用位置。 默认情况下，临时目录为回退位置。 IDE 将在指定路径（或临时目录）下创建一个子目录，该子目录包含解决方案名称以及解决方案完整路径的哈希，从而避免产生解决方案名称相同的问题。  
@@ -134,7 +135,7 @@ ms.lasthandoff: 04/05/2017
  禁用 `#include` 语句的自动完成。  
   
  **在 #include 自动完成中使用正斜杠**  
- 使用“/”时触发 `#include` 语句的自动完成。 默认分隔符为反斜杠“\”。 编译器两者均可接受，因此可使用此选项指定基本代码所使用的分隔符。  
+ 使用“/”时触发 `#include` 语句的自动完成。 默认分隔符为反斜杠“\'”。 编译器两者均可接受，因此可使用此选项指定基本代码所使用的分隔符。  
   
  **最大缓存的转换单元数**  
  在任一时刻为 IntelliSense 请求保持活动状态的最大转换单元数。 指定的值必须介于 2 到 15 之间。 此数字直接关系到将要运行的最大 VCPkgSrv.exe 进程数（针对 Visual Studio 的给定实例）。 默认值为 2，但如果有可用内存，可以增加此值，这样可能会略微提升 IntelliSense 的性能。  

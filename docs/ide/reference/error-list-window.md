@@ -34,10 +34,11 @@ translation.priority.ht:
 - tr-tr
 - zh-cn
 - zh-tw
-translationtype: Human Translation
-ms.sourcegitcommit: 5db97d19b1b823388a465bba15d057b30ff0b3ce
-ms.openlocfilehash: 11c0b7e3bf572aa99610acf6b218cccf360ed7ba
-ms.lasthandoff: 02/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 5ea9179ad37514ffad4876177b05150eecc22def
+ms.openlocfilehash: ee881a2ecb205ad01a1d8be6229947dd748cb2b7
+ms.contentlocale: zh-cn
+ms.lasthandoff: 05/24/2017
 
 ---
 # <a name="error-list-window"></a>“错误列表”窗口
@@ -65,7 +66,7 @@ ms.lasthandoff: 02/22/2017
  若要对列表进行排序，请单击任一列标头。 若要按其他列对列表进行进一步排序，请按住 Shift 键并单击其他列标头。 若要选择显示哪些列和隐藏哪些列，请从快捷菜单中选择“显示列”。 若要更改列的显示顺序，请将任意列标头向左或向右拖动。  
   
 > [!NOTE]
->  显示的对话框和菜单命令可能与此处的描述不同，具体取决于你的当前设置或版本。 若要更改设置，请单击“工具”/“导入和导出设置”。 有关详细信息，请参阅[在 Visual Studio 中自定义开发设置](http://msdn.microsoft.com/en-us/22c4debb-4e31-47a8-8f19-16f328d7dcd3)。  
+>  显示的对话框和菜单命令可能与此处的描述不同，具体取决于你的当前设置或版本。 若要更改设置，请单击“工具”/“导入和导出设置”。 有关详细信息，请参阅[个性化设置 Visual Studio IDE](../../ide/personalizing-the-visual-studio-ide.md)。  
   
 ## <a name="error-list-filters"></a>错误列表筛选器  
  两个下拉列表框中有两种类型的筛选器，分别位于工具栏右侧和左侧。 工具栏左侧的下拉列表用于指定要使用的代码文件集（“整体解决方案”、“打开的文档”、“当前项目”、“当前文档”）。  
@@ -81,7 +82,7 @@ ms.lasthandoff: 02/22/2017
   
 3.  **当前文档**：显示“编辑器”或“解决方案资源管理器”中当前选定文档的错误、警告和消息。  
   
- 如果某个筛选器当前已应用到搜索结果，该筛选器的名称会显示在“错误列表”标题栏上。 然后，“错误”、“警告”和“消息”按钮会显示经过筛选后显示出来的项目数量以及项目总数；例如，这些按钮会演示筛选出 x 个错误，总共有 y 个错误。 如果未应用筛选器，标题栏将仅显示为“错误列表”。  
+ 如果某个筛选器当前已应用到搜索结果，该筛选器的名称会显示在“错误列表”标题栏上。 然后，“错误”、“警告”和“消息”按钮会显示经过筛选后显示出来的项目数量以及项目总数；例如，这些按钮会演示筛选出 x 个错误，总共有 y 个错误。 如果未应用筛选器，标题栏将仅显示“错误列表”。  
   
  工具栏右侧的列表用于指定是显示生成错误（由于生成操作导致的错误）、IntelliSense 错误（运行生成之前检测到的错误）还是同时显示这两种错误。  
   

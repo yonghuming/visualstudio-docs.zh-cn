@@ -28,10 +28,11 @@ translation.priority.mt:
 - pl-pl
 - pt-br
 - tr-tr
-translationtype: Human Translation
-ms.sourcegitcommit: a42f5a30375192c89c9984e40ba0104da98d7253
-ms.openlocfilehash: d580064a03291aad49134674bd42413ae05e3e72
-ms.lasthandoff: 03/07/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 47057e9611b824c17077b9127f8d2f8b192d6eb8
+ms.openlocfilehash: 99d1cfc816d5fd64367ff4524de89776ef25a4b8
+ms.contentlocale: zh-cn
+ms.lasthandoff: 05/13/2017
 
 ---
 # <a name="talk-to-us"></a>Talk to Us
@@ -64,7 +65,7 @@ Microsoft 支持服务取决于当时的价格、条款和条件。 价格、条
  如果想与其他开发人员分享你的问题和答案，则可以使用 [Visual Studio 开发人员社区](https://developercommunity.visualstudio.com/index.html)站点、[MSDN 论坛](http://social.msdn.microsoft.com/Forums/home) 或 [StackOverflow](http://stackoverflow.com/)。 你还可以在 [开发人员代码示例](http://code.msdn.microsoft.com/) 和 [CodePlex](http://www.codeplex.com/) 网站上查看其他开发人员的代码并分享你自己的示例。 最后但也是最重要的一点，你可以在 [docs.microsoft.com](https://docs.microsoft.com/visualstudio/) 上的任意 Visual Studio 页面的“注释”部分回复客户的反馈，从而分享你的专业技能。
 
 ## <a name="i-want-to-help-improve-the-visual-studio-documentation"></a>我希望帮助改进 Visual Studio 文档  
-  请使用我们位于页面底部的反馈按钮（“此页面是否有所帮助?”）。 所有我们的文档页面上都有这个按钮。 如果你正在寻找某个问题的答案但却找不到，请告诉我们你想要查找的信息。 （或者，你可以使用“注释”部分在 [docs.microsoft.com](https://docs.microsoft.com/visualstudio/) 上的任何 Visual Studio 页面上添加反馈。）
+  请使用我们位于页面底部的反馈按钮（“此页面是否有所帮助?”）。 所有我们的文档页面上都有这个按钮。 如果你正在寻找解答但却找不到，请告诉我们你想要查找的信息。 （或者，你可以使用“注释”部分在 [docs.microsoft.com](https://docs.microsoft.com/visualstudio/) 上的任何 Visual Studio 页面上添加反馈。）
 
 ## <a name="see-also"></a>另请参阅  
  [如何报告 Visual Studio 的问题](how-to-report-a-problem-with-visual-studio-2017.md)

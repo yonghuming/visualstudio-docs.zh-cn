@@ -1,57 +1,74 @@
 ---
-title: "“选项”对话框 -&gt;“环境”-&gt;“查找和替换” | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-general"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "VS.ToolsOptionsPages.Environment.FindReplace"
-  - "VS.ToolsOptionsPages.Environment.FindandReplace"
-helpviewer_keywords: 
-  - "查找和替换，“选项”对话框"
-  - "查找和替换，自定义"
+title: "“选项”对话框 ->“环境”->“查找和替换”| Microsoft Docs"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-general
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords:
+- VS.ToolsOptionsPages.Environment.FindReplace
+- VS.ToolsOptionsPages.Environment.FindandReplace
+helpviewer_keywords:
+- Find and Replace, Options dialog box
+- Find and Replace, customizing
 ms.assetid: f804d6d5-6309-46e4-8294-b83e880b5ec9
 caps.latest.revision: 12
-author: "kempb"
-ms.author: "kempb"
-manager: "ghogen"
-caps.handback.revision: 12
----
-# “选项”对话框 -&gt;“环境”-&gt;“查找和替换”
-[!INCLUDE[vs2017banner](../../code-quality/includes/vs2017banner.md)]
+author: kempb
+ms.author: kempb
+manager: ghogen
+translation.priority.ht:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 5ea9179ad37514ffad4876177b05150eecc22def
+ms.openlocfilehash: 64cee61bb8818dc8910d6fdb32293d03a9770ad3
+ms.contentlocale: zh-cn
+ms.lasthandoff: 05/24/2017
 
-使用**“选项”**对话框的此页，可以控制查找和替换操作的消息框及其他方面。  可以从**“工具”**菜单中访问此对话框，方法是：单击**“选项”**，展开**“环境”**，然后单击**“查找和替换”**。  如果此页未出现在列表中，请在**“选项”**对话框中选择**“显示所有设置”**。  
+---
+# <a name="find-and-replace-environment-options-dialog-box"></a>“选项”对话框 ->“环境”->“查找和替换”
+使用“选项”对话框的此页，可以控制消息框及查找和替换操作的其他方面。 单击“选项”，扩展“环境”，然后单击“查找和替换”，即可从“工具”菜单访问此对话框。 如果此页未出现在列表中，请在“选项”对话框中选择“显示所有设置”。  
   
 > [!NOTE]
->  对话框中的可用选项以及显示的菜单命令的名称和位置可能会与“帮助”中的描述不同，具体取决于您的现用设置或版本。  若要更改设置，请在**“工具”**菜单上选择**“导入和导出设置”**。  有关更多信息，请参见 [Customizing Development Settings in Visual Studio](http://msdn.microsoft.com/zh-cn/22c4debb-4e31-47a8-8f19-16f328d7dcd3)。  
+>  对话框中的可用选项以及显示的菜单命令的名称和位置可能与“帮助”中的描述不同，具体取决于您的当前设置或版本。 若要更改设置，请在 **“工具”** 菜单上选择 **“导入和导出设置”** 。 有关详细信息，请参阅[个性化设置 Visual Studio IDE](../../ide/personalizing-the-visual-studio-ide.md)。  
   
-## UIElement 列表  
- **显示信息性消息**  
- 选择此选项将显示所有“查找和替换”信息性消息，并提供**“总是显示此消息”**选项。  例如，如果您选择不显示“查找达到了搜索的起始点。”消息，则当您使用“查找和替换”时，选择此选项会使此信息性消息再次出现。  
+## <a name="uielement-list"></a>UIElement 列表  
+ 显示信息性消息  
+ 选择此选项可以显示所有具有“始终显示此消息”选项的“查找和替换”信息性消息。 例如，如果选择不显示消息“查找已到达搜索的起始点”，则选择此选项将导致此信息性消息在使用“查找和替换”时再次出现。  
   
- 如果不希望看到有关“查找和替换”的任何信息性消息，请清除此选项。  
+ 如果不想看到“查找和替换”的任何信息性消息，请清除此选项。  
   
- 如果您针对某些而不是全部的**“查找和替换”**信息性消息清除了**“总是显示此消息”**选项，则**“显示信息性消息”**复选框好像是选中，实际并未选中。  若要还原所有可选**“查找和替换”**消息，请先清除此选项，然后重新选中。  
-  
-> [!NOTE]
->  对那些不显示**“总是显示此消息”**选项的任何**“查找和替换”**信息性消息，此选项不产生影响。  
-  
- **显示警告消息**  
- 选择此选项将显示所有“查找和替换”警告性消息，并提供**“总是显示此消息”**选项。  例如，如果您选择不显示**“全部替换”**警告消息，此消息是当您尝试在当前没有为编辑而打开的文件中进行替换时出现的，那么，选择此选项以后，如果您尝试进行“全部替换”，此警告消息就会再次出现。  
-  
- 如果不希望看到有关“查找和替换”的任何警告性消息，请清除此选项。  
-  
- 如果您针对某些而不是全部的**“查找和替换”**警告消息清除了**“总是显示此消息”**选项，则**“显示警告消息”**复选框好像是选中，实际并未选中。  若要还原所有可选**“查找和替换”**消息，请先清除此选项，然后重新选中。  
+ 如果对某些“查找和替换”信息性消息（但不是全部）清除“始终显示此消息”选项，“显示信息性消息”复选框将被填充，但不会被选中。 若要还原所有可选的“查找和替换”消息，请先清除此选项，然后再次选择。  
   
 > [!NOTE]
->  对那些不显示**“总是显示此消息”**选项的任何**“查找和替换”**警告消息，此选项不产生影响。  
+>  此选项不会影响任何未显示“始终显示此消息”选项的“查找和替换”信息性消息。  
   
- **自动使用编辑器中的文本填充“查找内容”**  
- 选择此选项可将文本粘贴到当前编辑器的插入点的任意一侧**查找内容** 字段选择的任何视图时 **查找和替换** 窗口从 **编辑**菜单。  清除该选项将使用**“查找内容”**字符串的前一个搜索中的最后一个搜索模式。  
+ 显示警告消息  
+ 选择此选项可以显示所有具有“始终显示此消息”选项的“查找和替换”警告消息。 例如，如果选择不显示“全部替换”警告消息，而此消息又在你尝试在当前未打开进行编辑的文件中进行替换时出现，则选择此选项将导致此警告消息在你尝试全部替换时再次显示。  
   
-## 请参阅  
+ 如果不想看到“查找和替换”的任何警告消息，请清除此选项。  
+  
+ 如果对某些“查找和替换”警告消息（但不是全部）清除“始终显示此消息”选项，“显示警告消息”复选框将被填充，但不会被选中。 若要还原所有可选的“查找和替换”消息，请先清除此选项，然后再次选择。  
+  
+> [!NOTE]
+>  此选项不会影响任何未显示“始终显示此消息”选项的“查找和替换”警告消息。  
+  
+ 使用编辑器中的文本自动填充“查找内容”  
+ 如果选择此选项，从“编辑”菜单选择“查找和替换”窗口的任何视图时，可以将当前编辑器插入点任何一侧的文本粘贴到“查找内容”字段。 清除此选项可以将上次搜索的最后一个搜索模式用作“查找内容”字符串。  
+  
+## <a name="see-also"></a>另请参阅  
  [查找和替换文本](../../ide/finding-and-replacing-text.md)

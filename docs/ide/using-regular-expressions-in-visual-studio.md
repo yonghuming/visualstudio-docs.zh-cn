@@ -37,14 +37,15 @@ translation.priority.ht:
 - tr-tr
 - zh-cn
 - zh-tw
-translationtype: Human Translation
-ms.sourcegitcommit: 5658ecf52637a38bc3c2a5ad9e85b2edebf7d445
-ms.openlocfilehash: 6d7266c35746fa4413ffd4ce058b1acbe9229af2
-ms.lasthandoff: 02/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 3d32d11a430227800cb3ed53831a9565eb6adeb3
+ms.openlocfilehash: 541b728d006f85fc550c5ddad2a7cd74190c244a
+ms.contentlocale: zh-cn
+ms.lasthandoff: 05/30/2017
 
 ---
 # <a name="using-regular-expressions-in-visual-studio"></a>在 Visual Studio 中使用正则表达式
-[!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] 使用 .NET Framework 正则表达式来查找和替换文本。 有关 .NET 正则表达式的详细信息，请参阅 [.NET Framework 正则表达式](http://msdn.microsoft.com/Library/521b3f6d-f869-42e1-93e5-158c54a6895d)。  
+[!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] 使用 .NET Framework 正则表达式来查找和替换文本。 有关 .NET 正则表达式的详细信息，请参阅 [.NET Framework 正则表达式](/dotnet/standard/base-types/regular-expressions)。  
   
  在 Visual Studio 2012 之前，Visual Studio 在查找和替换窗口中使用自定义的正则表达式语法。 请参阅 [Visual Studio 正则表达式转换](https://msdn.microsoft.com/en-us/library/2k3te2cs\(v=vs.110\).aspx)，了解如何将一些比较常用的自定义正则表达式符号转换为 .NET 版本。  
   
@@ -52,7 +53,7 @@ ms.lasthandoff: 02/22/2017
 >  在 Windows 操作系统中，大多数行以“\r\n”（回车符后跟新行）结束。 这些字符不可见，但在编辑器中存在并传递给 .NET 正则表达式服务。  
   
 > [!TIP]
->  有关在替换模式中使用的正则表达式的信息，请参阅[替换](http://msdn.microsoft.com/Library/d1f52431-1c7d-4dc6-8792-6b988256892e)。 若要使用已编号的捕获组，语法是 `$1`用于指定编号组）和 `(x)`（指定相关组）。 例如，已分组的正则表达式 `(\d)([a-z])` 在以下字符串中查找四个匹配项：**1a 2b 3c 4d**。 替换字符串 `z$1` 将该字符串转换为 **z1 z2 z3 z4**。  
+>  有关在替换模式中使用的正则表达式的信息，请参阅[替换](/dotnet/standard/base-types/substitutions-in-regular-expressions)。 若要使用已编号的捕获组，语法是 `$1`用于指定编号组）和 `(x)`（指定相关组）。 例如，已分组的正则表达式 `(\d)([a-z])` 在以下字符串中查找四个匹配项：**1a 2b 3c 4d**。 替换字符串 `z$1` 将该字符串转换为 **z1 z2 z3 z4**。  
   
 ## <a name="regular-expressions-in-visual-studio"></a>Visual Studio 中的正则表达式  
  以下是一些示例  
@@ -70,7 +71,7 @@ ms.lasthandoff: 02/22/2017
 |将匹配字符串定位到行尾|\r?$|`End\r?$` 仅在出现于行尾时才匹配“end”。|  
 |匹配集中的任何单个字符|[abc]|`b[abc]` 匹配“ba”、“bb”和“bc”。|  
 |匹配的字符范围中的任意字符|[a-f]|`be[n-t]` 匹配“between”中的“bet”，“beneath”中的“ben”，“beside”中的“bes”，但不匹配“below”。|  
-|捕获包含在括号中的表达式并对其进行隐式编号|()|`([a-z])X\1` 匹配“aXa”和“bXb”，但不匹配“aXb”。 ". “\1”是指第一个表达式组“[a-z]”。|  
+|捕获包含在括号中的表达式并对其进行隐式编号|()|`([a-z])X\1` 匹配“aXa”和“bXb”，但不匹配“aXb”。 ". “\1”指第一个表达式组“[a-z]”。|  
 |使匹配无效|(?!abc)|`real (?!ity)` 匹配“realty”和“really”中的“real”，但不匹配“reality”。 它还可找到“realityreal”中的第二个“real”（而非第一个“real”）。|  
 |匹配不在给定字符集中的任意字符|[^abc]|`be[^n-t]` 匹配“before”中的“bef”，“behind”中的“beh”和“below”中的“bel”，但不匹配“beneath”。|  
 |匹配符号前或符号后的表达式。|&#124;|`(sponge&#124;mud) bath` 匹配“sponge bath”和“mud bath”。|  
