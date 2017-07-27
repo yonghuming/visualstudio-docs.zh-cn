@@ -21,10 +21,10 @@ author: kempb
 ms.author: kempb
 manager: ghogen
 ms.translationtype: HT
-ms.sourcegitcommit: dc7a0c10390de67b56a83d2824224bed24125db0
-ms.openlocfilehash: 974a032e57397592b7c09bffe28c55cb02c01a0a
+ms.sourcegitcommit: e48ebcafaca37505dbcc92bce682d0c6169004e1
+ms.openlocfilehash: 8e5165b4b17195e5f9172dd25962c9486a7aeeeb
 ms.contentlocale: zh-cn
-ms.lasthandoff: 07/17/2017
+ms.lasthandoff: 07/26/2017
 
 ---
 
@@ -61,5 +61,5 @@ ms.lasthandoff: 07/17/2017
 
 ## <a name="see-also"></a>另请参阅  
 -[编译和生成](../../ide/compiling-and-building-in-visual-studio.md)
-- [“选项”对话框、项目和解决方案](../../ide/projects-and-solutions-options-dialog-box.md)
-- [“选项”对话框、项目和解决方案、Web 项目](../../ide/reference/options-dialog-box-projects-and-solutions-web-projects.md)
+- [“选项”对话框、项目和解决方案](projects-and-solutions-options-dialog-box.md)
+- [“选项”对话框、项目和解决方案、Web 项目](options-dialog-box-projects-and-solutions-web-projects.md)
