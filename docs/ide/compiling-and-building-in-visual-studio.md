@@ -17,10 +17,10 @@ author: kempb
 ms.author: kempb
 manager: ghogen
 ms.translationtype: HT
-ms.sourcegitcommit: dc7a0c10390de67b56a83d2824224bed24125db0
-ms.openlocfilehash: 744e1c5a3861a1fbc486a03f158c602fddc4877c
+ms.sourcegitcommit: e48ebcafaca37505dbcc92bce682d0c6169004e1
+ms.openlocfilehash: 800fcd5ff96e9e6d05b79c4d6fc5ccf17ba3084b
 ms.contentlocale: zh-cn
-ms.lasthandoff: 07/17/2017
+ms.lasthandoff: 07/26/2017
 
 ---
 
@@ -48,7 +48,7 @@ ms.lasthandoff: 07/17/2017
 
 有关在 IDE 中生成的初次介绍，请参阅[演练：生成应用程序](walkthrough-building-an-application.md)。  
 
-接下来，请参阅[在 Visual Studio 中生成和清理项目和解决方案](building-and-cleaning-projects-and-solutions-in-visual-studio)，了解你可以对过程进行哪些不同方面的自定义设置。 自定义包括[更改输出目录](how-to-change-the-build-output-directory.md)、[指定自定义生成事件](specifying-custom-build-events-in-visual-studio.md)、[管理项目依赖项](how-to-create-and-remove-project-dependencies.md)、[管理生成日志文件](how-to-view-save-and-configure-build-log-files.md)以及[禁止显示编译器警告](how-to-suppress-compiler-warnings.md)。
+接下来，请参阅[在 Visual Studio 中生成和清理项目和解决方案](building-and-cleaning-projects-and-solutions-in-visual-studio.md)，了解你可以对过程进行哪些不同方面的自定义设置。 自定义包括[更改输出目录](how-to-change-the-build-output-directory.md)、[指定自定义生成事件](specifying-custom-build-events-in-visual-studio.md)、[管理项目依赖项](how-to-create-and-remove-project-dependencies.md)、[管理生成日志文件](how-to-view-save-and-configure-build-log-files.md)以及[禁止显示编译器警告](how-to-suppress-compiler-warnings.md)。
 
 你还可以浏览各种其他任务：
 - [了解生成配置](understanding-build-configurations.md)

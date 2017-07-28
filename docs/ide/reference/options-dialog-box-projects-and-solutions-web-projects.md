@@ -16,10 +16,10 @@ author: kempb
 ms.author: kempb
 manager: ghogen
 ms.translationtype: HT
-ms.sourcegitcommit: dc7a0c10390de67b56a83d2824224bed24125db0
-ms.openlocfilehash: 5d6a77a0ff273bd5a3f243183526d90a09fa3c1a
+ms.sourcegitcommit: e48ebcafaca37505dbcc92bce682d0c6169004e1
+ms.openlocfilehash: cebc1598001459d6ab1c920fa390273242e893e0
 ms.contentlocale: zh-cn
-ms.lasthandoff: 07/17/2017
+ms.lasthandoff: 07/26/2017
 
 ---
 
@@ -41,5 +41,5 @@ ms.lasthandoff: 07/17/2017
 如果已设置此选项，则在尝试运行存在编译错误的 Web 应用程序时，将发出警告。
 
 ## <a name="see-also"></a>另请参阅  
-- [“选项”对话框、项目和解决方案](../../ide/projects-and-solutions-options-dialog-box.md)
-- [“选项”对话框 ->“项目和解决方案”->“生成和运行”](../../ide/reference/options-dialog-box-projects-and-solutions-web-projects.md)
+- [“选项”对话框、项目和解决方案](projects-and-solutions-options-dialog-box.md)
+- [“选项”对话框 ->“项目和解决方案”->“生成和运行”](options-dialog-box-projects-and-solutions-web-projects.md)
