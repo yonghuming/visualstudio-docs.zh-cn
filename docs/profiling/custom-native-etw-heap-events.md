@@ -29,16 +29,17 @@ translation.priority.ht:
 - tr-tr
 - zh-cn
 - zh-tw
-translationtype: Human Translation
-ms.sourcegitcommit: 83fbf12dce91f79d537b574ea9903af5d6e61d1f
-ms.openlocfilehash: 0cc24f68ddef374f539c299d87cede8a13fac1a2
-ms.lasthandoff: 02/28/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 795bf9746c4ae48ac04141a05ba56462ecb90482
+ms.openlocfilehash: afc044be4d63b7a292a6d94e360366913bd28883
+ms.contentlocale: zh-cn
+ms.lasthandoff: 06/23/2017
 
 ---
 
 # <a name="custom-native-etw-heap-events"></a>自定义本机 ETW 堆事件
 
-Visual Studio 包含本机内存探查器等各种[分析和诊断工具](https://docs.microsoft.com/en-us/visualstudio/profiling/profiling-tools)。  此探查器与堆提供程序中的 [ETW 事件](https://msdn.microsoft.com/en-us/library/windows/desktop/aa363668(v=vs.85).aspx)挂钩，并分析如何分配和使用内存。  默认情况下，此工具仅可以分析从标准的 Windows 堆进行的分配，不会显示此本机堆以外的任何分配。
+Visual Studio 包含本机内存探查器等各种[分析和诊断工具](https://docs.microsoft.com/en-us/visualstudio/profiling/profiling-tools)。  此探查器与堆提供程序中的 [ETW 事件](/windows-hardware/drivers/devtest/event-tracing-for-windows--etw-)挂钩，并分析如何分配和使用内存。  默认情况下，此工具仅可以分析从标准的 Windows 堆进行的分配，不会显示此本机堆以外的任何分配。
 
 在很多情况下，你可能想要用自己的自定义堆，并避免标准堆的分配开销。  例如，可以使用 [VirtualAlloc](https://msdn.microsoft.com/library/windows/desktop/aa366887(v=vs.85).aspx) 在应用或游戏的开头分配大量内存，然后管理该列表中属于自己的块。  在此方案中，内存探查器工具只会看到初始分配，并且看不到在内存块内执行的自定义管理。  但是，通过使用自定义本机堆 ETW 提供程序，可让工具了解你在标准堆外进行的分配。
 

@@ -23,8 +23,7 @@ ms.lasthandoff: 07/12/2017
 
 ---
 
-# 在 Visual Studio 中使用 R
-<a id="working-with-r-in-visual-studio" class="xliff"></a>
+# <a name="working-with-r-in-visual-studio"></a>在 Visual Studio 中使用 R
 
 R 是用于统计计算和图形的高度可扩展语言和环境。 它是使用 GNU 通用公共许可证免费分发的工具，提供强大的社区支持，并因能够生成发布质量的绘图（包括数学符号和公式）而闻名。 若要了解详细信息，请参阅 [r-project.org](https://www.r-project.org/about.html) 和 [R 简介](https://cran.r-project.org/doc/manuals/r-release/R-intro.html)。
 
@@ -53,8 +52,7 @@ R 是用于统计计算和图形的高度可扩展语言和环境。 它是使�
 
 > [!VIDEO https://www.youtube.com/embed/RcSDEfMgUvU]
 
-## 常见问题
-<a id="frequently-asked-questions" class="xliff"></a>
+## <a name="frequently-asked-questions"></a>常见问题
 
 **问：RTVS 能否用于 Visual Studio Express 版本？**
 
@@ -122,8 +120,7 @@ R 是用于统计计算和图形的高度可扩展语言和环境。 它是使�
 
 答： 否，Visual Studio 不支持从网络共享中加载项目。
 
-## 向我们发送反馈！
-<a id="send-us-your-feedback" class="xliff"></a>
+## <a name="send-us-your-feedback"></a>向我们发送反馈！
 
 1. Github 问题：联系 RTVS 团队的最佳方式是[在 GitHub 中上报问题](https://github.com/Microsoft/RTVS/issues)，或使用“R 工具 > 反馈”菜单。
 

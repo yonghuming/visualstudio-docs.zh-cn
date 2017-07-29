@@ -1,21 +1,40 @@
 ---
 title: "演练：使用 MSBuild | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-helpviewer_keywords: 
-  - "MSBuild 教程"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+helpviewer_keywords:
+- MSBuild, tutorial
 ms.assetid: b8a8b866-bb07-4abf-b9ec-0b40d281c310
 caps.latest.revision: 32
-author: "kempb"
-ms.author: "kempb"
-manager: "ghogen"
-caps.handback.revision: 32
+author: kempb
+ms.author: kempb
+manager: ghogen
+translation.priority.ht:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+ms.translationtype: HT
+ms.sourcegitcommit: 6d25db4639f2c8391c1e32542701ea359f560178
+ms.openlocfilehash: 34c78f4573bc2b11e738c3722cefaa8e294287b5
+ms.contentlocale: zh-cn
+ms.lasthandoff: 07/18/2017
+
 ---
 # <a name="walkthrough-using-msbuild"></a>演练：使用 MSBuild
 MSBuild 是 Microsoft 和 Visual Studio 的生成平台。 本演练介绍 MSBuild 的构建基块，并演示如何编写、操作和调试 MSBuild 项目。 学习内容：  
@@ -436,7 +455,7 @@ $(PropertyName)
 1.  从代码编辑器中使用此行替换 Message 任务：  
   
     ```xml  
-    <Message Text="Compile item type contains @(XFiles)" />  
+    <Message Text="XFiles item type contains @(XFiles)" />  
     ```  
   
 2.  在 Import 元素后添加此项组：  
@@ -458,7 +477,7 @@ $(PropertyName)
 5.  检查输出。 应看到此行：  
   
     ```  
-    Compile item type contains Form1.cs;Program.cs;Properties/Resources.resx  
+    XFiles item type contains Form1.cs;Program.cs;Properties/Resources.resx  
     ```  
   
 ## <a name="item-metadata"></a>项元数据  
@@ -578,8 +597,4 @@ $(PropertyName)
 ## <a name="see-also"></a>另请参阅
 [MSBuild 概述](../msbuild/msbuild.md)  
  [MSBuild 参考](../msbuild/msbuild-reference.md)
-
-
-<!--HONumber=Feb17_HO4-->
-
 

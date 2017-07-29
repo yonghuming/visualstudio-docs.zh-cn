@@ -32,10 +32,11 @@ translation.priority.ht:
 - tr-tr
 - zh-cn
 - zh-tw
-translationtype: Human Translation
-ms.sourcegitcommit: 5db97d19b1b823388a465bba15d057b30ff0b3ce
-ms.openlocfilehash: 9b29250916c91c98176585bbdb8c5a4018dbd6c7
-ms.lasthandoff: 02/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9713f09b7379b14b9362e3853a910948935c501e
+ms.openlocfilehash: 3524c21503d0432d509c607ea157f3fe675b443d
+ms.contentlocale: zh-cn
+ms.lasthandoff: 05/31/2017
 
 ---
 # <a name="how-to-create-item-templates"></a>如何：创建项模板
@@ -43,7 +44,7 @@ ms.lasthandoff: 02/22/2017
 
  向导执行大量工作为你创建基本模板，但在许多情况下，你将需要在导出模板后手动修改 .vstemplate 文件。 例如，如果希望该项显示在 [!INCLUDE[win8_appname_long](../debugger/includes/win8_appname_long_md.md)] 应用项目的“添加新项”对话框中，则需要执行一些额外步骤。 本主题中的[第二个过程](../ide/how-to-create-item-templates.md#modify_template)有助于完成该任务。  
 
- 若要指定应仅对某些项目子类型（如 Office、数据库或 Web）显示模板，请参阅[本节](../ide/how-to-create-multi-file-item-templates.md#enable_templates)。  
+ 若要指定应仅对某些项目子类型（如 Office、数据库或 Web）显示模板，请参阅[本节](#enable_templates)。  
 
  在某些情况下，你可能希望或需要从头开始手动创建项模板。 [第三个过程](../ide/how-to-create-item-templates.md#create_template)演示如何做到这一点。  
 
@@ -80,11 +81,13 @@ ms.lasthandoff: 02/22/2017
 
 3.  在 Visual Studio 中打开 .vstemplate 文件。  
 
-4.  对于 Windows 8.1 应用商店 C# 项目，在 .vstemplate 文件的开始和结束 `<TemplateData>` 标记内添加以下 XML：`<TemplateGroupID>WinRT-Managed</TemplateGroupID>`。  
+4.  对于通用 Windows C# 项目，在 .vstemplate 文件的开始 `<TemplateData>` 标记内添加以下 XML：`<TemplateID>Microsoft.CSharp.Class</TemplateID>`。 
 
-     C++ Windows 8.1 应用商店项目使用的值为 `WinRT-Native-6.3`。 有关 Windows 10 及其他项目类型，请参阅 [TemplateGroupID 元素（Visual Studio 模板）](../extensibility/templategroupid-element-visual-studio-templates.md)。  
+    对于 Windows 8.1 应用商店 C# 项目，在 .vstemplate 文件的开始和结束 `<TemplateData>` 标记内添加以下 XML：`<TemplateGroupID>WinRT-Managed</TemplateGroupID>`。  
 
-     下面的示例显示添加 XML 行 `<TemplateGroupID>WinRT-Managed</TemplateGroupID>` 之后，.vstemplate 文件的全部内容。 此示例特定于 C# 项目。 可以修改 <ProjectTpe> 和 \<[TemplateGroupID](../extensibility/templategroupid-element-visual-studio-templates.md)> 元素，从而指定其他语言和项目类型。  
+    C++ Windows 8.1 应用商店项目使用的值为 `WinRT-Native-6.3`。 有关 Windows 10 及其他项目类型，请参阅 [TemplateGroupID 元素（Visual Studio 模板）](../extensibility/templategroupid-element-visual-studio-templates.md)。  
+
+    下面的示例显示添加 XML 行 `<TemplateGroupID>WinRT-Managed</TemplateGroupID>` 之后，.vstemplate 文件的全部内容。 此示例特定于 C# 项目。 可以修改 <ProjectTpe> 和 \<[TemplateGroupID](../extensibility/templategroupid-element-visual-studio-templates.md)> 元素，从而指定其他语言和项目类型。  
 
     ```xml  
     <VSTemplate Version="3.0.0" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" Type="Item">  
@@ -116,8 +119,9 @@ ms.lasthandoff: 02/22/2017
  现在，可以使用“添加新项”对话框，将基于此模板的项添加到 [!INCLUDE[win8_appname_long](../debugger/includes/win8_appname_long_md.md)] 项目。  
 
  有关参数名称的详细信息，请参阅[模板参数](../ide/template-parameters.md)。  
-
-### <a name="to-enable-templates-for-specific-project-sub-types"></a>启用特定项目子类型的模板  
+  
+ 
+### <a name="enable_templates"></a>启用特定项目子类型的模板  
 
 1.  借助开发环境，你可以将项目项设置为在某些项目的“添加项”对话框中可用。 请遵循此过程以使自定义项可用于 Windows、Web、Office 或数据库项目。  
 

@@ -38,10 +38,11 @@ translation.priority.ht:
 - tr-tr
 - zh-cn
 - zh-tw
-translationtype: Human Translation
-ms.sourcegitcommit: 5658ecf52637a38bc3c2a5ad9e85b2edebf7d445
-ms.openlocfilehash: 4669932307d37593154e337265288919a1042f37
-ms.lasthandoff: 02/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 3d32d11a430227800cb3ed53831a9565eb6adeb3
+ms.openlocfilehash: e4abacb0286de16c148076572e73043daed4d567
+ms.contentlocale: zh-cn
+ms.lasthandoff: 05/30/2017
 
 ---
 # <a name="signing-page-project-designer"></a>“项目设计器”->“签名”页
@@ -83,7 +84,7 @@ ms.lasthandoff: 02/22/2017
  “为程序集签名”复选框  
  选择此复选框可为程序集签名并创建强名称密钥文件。 有关使用“项目设计器”为程序集签名的详细信息，请参阅[如何：为程序集签名 (Visual Studio)](http://msdn.microsoft.com/en-us/f468a7d3-234c-4353-924d-8e0ae5896564)。  
   
- 此选项使用 [!INCLUDE[winsdklong](../../deployment/includes/winsdklong_md.md)] 提供的 Al.exe 工具对程序集签名。 有关 Al.exe 的详细信息，请参阅[如何：使用强名称为程序集签名](http://msdn.microsoft.com/Library/2c30799a-a826-46b4-a25d-c584027a6c67)。  
+ 此选项使用 [!INCLUDE[winsdklong](/dotnet/framework/app-domains/how-to-sign-an-assembly-with-a-strong-name) 提供的 Al.exe 工具。  
   
  “选择强名称密钥文件”列表  
  使你可以指定一个新的或现有强名称密钥文件，用来对程序集签名。 选择“\<浏览...>”以选择现有的密钥文件。  
@@ -98,7 +99,7 @@ ms.lasthandoff: 02/22/2017
  “仅延迟签名”复选框  
  选中此复选框以启用延迟签名。  
   
- 请注意，延迟签名的项目将不会运行，也不能调试。 但是，可以使用 [Sn.exe（强名称工具）](http://msdn.microsoft.com/Library/c1d2b532-1b8e-4c7a-8ac5-53b801135ec6)及 `-Vr` 选项，在开发过程中跳过验证。  
+ 请注意，延迟签名的项目将不会运行，也不能调试。 但是，可以使用 [Sn.exe（强名称工具）](/dotnet/framework/tools/sn-exe-strong-name-tool)及 `-Vr` 选项，在开发过程中跳过验证。  
   
 > [!NOTE]
 >  对程序集签名时，可能并不总是有权访问私钥。 例如，一个组织可能具有开发人员不是每天都能访问的严密保护密钥对。 公钥可能可用，但私钥的访问权限仅限于少数几个人。 在这种情况下，你可以使用延迟或部分签名来提供公钥，将私钥的添加延迟到转交该程序集后。  
@@ -109,5 +110,5 @@ ms.lasthandoff: 02/22/2017
  [托管应用程序的强名称签名](http://msdn.microsoft.com/en-us/5fef3490-c519-4363-94fd-8b1ad260dab5)   
  [如何：对应用程序和部署清单进行签名](../../ide/how-to-sign-application-and-deployment-manifests.md)   
  [如何：为程序集签名 (Visual Studio)](http://msdn.microsoft.com/en-us/f468a7d3-234c-4353-924d-8e0ae5896564)   
- [如何：使用强名称为程序集签名](http://msdn.microsoft.com/Library/2c30799a-a826-46b4-a25d-c584027a6c67)   
+ [如何：使用强名称为程序集签名](/dotnet/framework/app-domains/how-to-sign-an-assembly-with-a-strong-name)   
  [具有强名称的程序集](http://msdn.microsoft.com/Library/d4a80263-f3e0-4d81-9b61-f0cbeae3797b)

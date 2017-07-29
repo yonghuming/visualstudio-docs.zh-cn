@@ -31,10 +31,11 @@ translation.priority.mt:
 - pl-pl
 - pt-br
 - tr-tr
-translationtype: Human Translation
-ms.sourcegitcommit: a42f5a30375192c89c9984e40ba0104da98d7253
-ms.openlocfilehash: 15f7678c7d0cba1afaa71e0443efc756880d99cc
-ms.lasthandoff: 03/07/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 47057e9611b824c17077b9127f8d2f8b192d6eb8
+ms.openlocfilehash: 078619c93e18fd25dfbc728d75835f5af58988fe
+ms.contentlocale: zh-cn
+ms.lasthandoff: 05/13/2017
 
 ---
 # <a name="get-started-with-visual-studio"></a>Visual Studio 入门
@@ -55,7 +56,7 @@ Visual Studio 提供一组工具窗口、菜单和工具栏，统称为集成的
 
 ### <a name="solution-explorer"></a>“解决方案资源管理器”
 
-称为“解决方案资源管理器”的工具窗口将列出所有代码文件。 解决方案资源管理器可将代码文件分组为解决方案和项目，从而帮助整理代码。 以粗体显示的项目称为启动项目。 它是启动解决方案时运行的第一个代码。 可以更改启动项目。 有关详细信息，请观看视频 [Getting Started with Visual Studio – Building blocks of the IDE](https://www.youtube.com/watch?v=JHc3_gsCmZg&index=2&list=PLReL099Y5nRfw6VNvzMkv0sabT2crbSpK)（Visual Studio 入门 - IDE 的构建基块）。
+称为“解决方案资源管理器”的工具窗口将列出所有代码文件。 解决方案资源管理器可将代码文件分组为解决方案和项目，从而帮助整理代码。 以粗体显示的项目称为启动项目。 它是启动解决方案时运行的第一个代码。 可以更改启动项目。 有关详细信息，请观看视频 [Visual Studio 入门 - IDE 的构建基块](https://www.youtube.com/watch?v=JHc3_gsCmZg&index=2&list=PLReL099Y5nRfw6VNvzMkv0sabT2crbSpK)。
 
 ![解决方案资源管理器折叠节点](../ide/media/VSIDE_SolutionExplorer2_callouts.png)
 
@@ -79,7 +80,7 @@ Visual Studio 提供一组工具窗口、菜单和工具栏，统称为集成的
 ### <a name="team-explorer"></a>Team Explorer
 “团队资源管理器”可用于连接源控件工具（如 [Git](https://git-scm.com/) 和 [Team Foundation 版本控制 (TFVC)](https://www.visualstudio.com/en-us/docs/tfvc/overview)），以在本地存储代码或在托管服务上与他人共享。 还可利用它跟踪任务等。
 
-有关详细信息，请观看视频 [Getting Started with Visual Studio – Building blocks of the IDE](https://www.youtube.com/watch?v=JHc3_gsCmZg&index=2&list=PLReL099Y5nRfw6VNvzMkv0sabT2crbSpK)（Visual Studio 入门 - IDE 的构建基块）和 [Getting Started with Visual Studio – Opening a project from Source Control](https://www.youtube.com/watch?v=pc9vX_4RGV4&list=PLReL099Y5nRfw6VNvzMkv0sabT2crbSpK&index=3)（Visual Studio 入门 - 从源控件打开项目）。
+有关详细信息，请观看视频 [Visual Studio 入门 - IDE 的构建基块](https://www.youtube.com/watch?v=JHc3_gsCmZg&index=2&list=PLReL099Y5nRfw6VNvzMkv0sabT2crbSpK)和 [Visual Studio 入门 - 从源控件打开项目](https://www.youtube.com/watch?v=pc9vX_4RGV4&list=PLReL099Y5nRfw6VNvzMkv0sabT2crbSpK&index=3)。
 
 ![Team Explorer](../ide/media/TeamExplorer.png)
 

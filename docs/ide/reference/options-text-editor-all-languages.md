@@ -1,98 +1,117 @@
 ---
-title: "选项、文本编辑器、所有语言 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-general"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "VS.ToolsOptionsPages.Text_Editor.JavaScript.General"
-  - "VS.ToolsOptionsPages.Text_Editor.ResJSON.General"
-  - "vs.toolsoptionspages.text_editor.all_languages.scrollbars"
-helpviewer_keywords: 
-  - "“文本编辑器选项”对话框"
-  - "语句结束"
-  - "自动换行"
-  - "“常规”对话框"
-  - "行号"
-  - "虚拟空间"
+title: "“选项”->“文本编辑器”->“所有语言”| Microsoft Docs"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-general
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords:
+- VS.ToolsOptionsPages.Text_Editor.JavaScript.General
+- VS.ToolsOptionsPages.Text_Editor.ResJSON.General
+- vs.toolsoptionspages.text_editor.all_languages.scrollbars
+helpviewer_keywords:
+- Text Editor Options dialog box
+- statement completion
+- word wrap
+- General dialog box
+- line numbers
+- virtual space
 ms.assetid: 49ee7306-9d46-4170-850f-a1716171752d
 caps.latest.revision: 20
-author: "kempb"
-ms.author: "kempb"
-manager: "ghogen"
-caps.handback.revision: 20
----
-# 选项、文本编辑器、所有语言
-[!INCLUDE[vs2017banner](../../code-quality/includes/vs2017banner.md)]
+author: kempb
+ms.author: kempb
+manager: ghogen
+translation.priority.ht:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 5ea9179ad37514ffad4876177b05150eecc22def
+ms.openlocfilehash: 00829d499ae9d5a52e94094eed15b1ae39894075
+ms.contentlocale: zh-cn
+ms.lasthandoff: 05/24/2017
 
-使用此对话框可以更改代码编辑器的默认行为。  这些设置也适用于其他基于代码编辑器的编辑器，如 HTML 设计器的“源”视图。  若要打开此对话框，请从**“工具”**菜单中选择**“选项”**。  在**“文本编辑器”**文件夹中展开**“所有语言”**子文件夹，再选择 **“常规”**。  
+---
+# <a name="options-text-editor-all-languages"></a>选项、文本编辑器、所有语言
+使用此对话框可更改代码编辑器的默认行为。 这些设置也适用于其他基于代码编辑器的编辑器，如 HTML 设计器的“源”视图。 若要打开此对话框，请从“工具”菜单中选择“选项”。 在“文本编辑器”文件夹中，展开“所有语言”子文件夹，然后选择“常规”。  
   
 > [!CAUTION]
->  此页面设置所有开发语言的默认选项。  请注意，重置此对话框中的一个选项会将所有语言的“常规”选项重置为在此处选择的任何选项。  若要只为一种语言更改文本编辑器选项，请展开该语言的子文件夹并选择其选项页。  
+>  在此页面用于设置所有开发语言的默认选项。 请记住，重置此对话框中的一个选项会将所有语言的“常规”选项重置为在此处选择的任何选项。 若要只为一种语言更改文本编辑器选项，请展开该语言的子文件夹并选择其选项页。  
   
  当在“常规”选项页上为某些编程语言选择了一个选项，而没有为其他编程语言选择该选项时，会显示一个灰色复选标记。  
   
 > [!NOTE]
->  显示的对话框和菜单命令可能会与“帮助”中的描述不同，具体取决于您现用的设置或版本。  若要更改设置，请在**“工具”**菜单上选择**“导入和导出设置”**。  有关更多信息，请参见 [Customizing Development Settings in Visual Studio](http://msdn.microsoft.com/zh-cn/22c4debb-4e31-47a8-8f19-16f328d7dcd3)。  
+>  显示的对话框和菜单命令可能会与“帮助”中的描述不同，具体取决于你现用的设置或版本。 若要更改设置，请在 **“工具”** 菜单上选择 **“导入和导出设置”** 。 有关详细信息，请参阅[个性化设置 Visual Studio IDE](../../ide/personalizing-the-visual-studio-ide.md)。  
   
-## 语句结束  
+## <a name="statement-completion"></a>语句结束  
  自动列出成员  
- 选定后，当您在编辑器中键入时，IntelliSense 会显示可用的成员、属性、值或方法的弹出列表。  从弹出列表中选择任何项会将此项插入到代码中。  选择此选项将启用**“隐藏高级成员”**选项。  
+ 选中后，在编辑器中键入时，IntelliSense 会显示可用的成员、属性、值或方法的弹出列表。 从弹出列表中选择任何项即可将该项插入代码中。 选择此选项将启用“隐藏高级成员”选项。  
   
  隐藏高级成员  
- 选定后，通过只显示最常用的项，缩短弹出语句完成列表。  其他项从列表中被筛选掉。  
+ 选中后，通过只显示最常用的项，缩短弹出语句完成列表。 其他项从列表中被筛选掉。  
   
  参数信息  
- 选定后，当前声明或过程的完整语法及其所有可用的参数显示在编辑器中的插入点下。  下一个可赋值参数以粗体显示。  
+ 选中后，当前声明或过程的完整语法及其所有可用的参数显示在编辑器中的插入点下。 下一个可赋值参数以粗体显示。  
   
-## 设置  
- 启用虚拟空间  
- 当选定此选项并清除**“自动换行”**时，可以在代码编辑器中行尾以外的任意位置单击并键入。  此功能可用于将注释定位在代码旁边的一致位置。  
+## <a name="settings"></a>设置  
+ 启用虚拟空格  
+ 选中此选项并清除“自动换行”时，可以在代码编辑器中行尾以外的任意位置单击并键入。 此功能可以用于将注释放置在代码旁的一致点处。  
   
  自动换行  
- 选定后，行中水平方向超出可视编辑器区域的任何部分会自动显示在下一行。  选择此选项将启用**“显示可视的自动换行标志符号”**选项。  
+ 选中后，行中水平方向超出可视编辑器区域的任何部分会自动显示在下一行。 选择此选项将启用“显示可视的自动换行标志符号”选项。  
   
 > [!NOTE]
->  **“自动换行”**打开时，**“虚拟空间”**功能会被关闭。  
+>  “自动换行”打开时，“虚空格”功能会被关闭。  
   
  显示可视的自动换行标志符号  
- 选定后，在一个长行换行到第二行的位置会显示一个回车箭头指示符。  
+ 选中后，在一个长行换行到第二行的位置会显示一个回车箭头指示符。  
   
- 如果不想显示这些指示符，请清除此选项。  
+ ![LineBreakSymbol 屏幕截图](../../ide/reference/media/linebreak.gif "linebreak")  
+  
+ 如果不希望显示这些指示符，则清除此选项。  
   
 > [!NOTE]
->  这些提醒箭头不会添加到代码中，也不会打印出来。  它们仅供参考。  
+>  这些提醒箭头不会添加到代码中，也不会打印出来。 它们仅供参考。  
   
  没有选定内容时对空行应用剪切或复制命令  
- 当您将插入点放置在空行上，未选中任何内容然后复制或剪切时，此选项设置编辑器的行为。  
+ 此选项设置当你将插入点放置在空行上，未选中任何内容，然后复制或剪切时，编辑器的行为。  
   
--   选定此选项后，将复制或剪切空行。  如果接着执行粘贴操作，会插入一个新的空行。  
+-   选中此选项后，将复制或剪切空行。 如果随后执行粘贴操作，会插入一个新的空行。  
   
--   清除此选项时，“剪切”命令将移除空行。  但仍保留剪贴板中的数据。  因此，如果随后使用“粘贴”命令，则会粘贴最近复制到剪贴板的内容。  如果先前没有复制任何内容，则不会粘贴任何内容。  
+-   清除此选项后，“剪切”命令将移除空行。 但仍保留剪贴板中的数据。 因此，如果随后使用“粘贴”命令，则会粘贴最近复制到剪贴板的内容。 如果先前没有复制任何内容，则不会粘贴任何内容。  
   
- 此设置对行非空时的复制或剪切操作无效。  如果未选择任何内容，将会对整行进行复制或剪切。  如果接着执行粘贴操作，则粘贴整行文本及其行尾字符。  
+ 此设置对行非空时的复制或剪切操作无效。 如果未选择任何内容，将会对整行进行复制或剪切。 如果随后执行粘贴操作，则粘贴整行文本及其行尾字符。  
   
 > [!TIP]
->  若要显示空格、制表符和行尾的指示符，从而区分缩进行和完全空白的行，请从**“编辑”**菜单中选择**“高级”**，然后选择**“查看空白”**。  
+>  若要显示空格、制表符和行尾的指示符，从而区分缩进行和完全空白的行，请从“编辑”菜单中选择“高级”，然后选择“查看空白”。  
   
-## 显示  
+## <a name="display"></a>显示  
  行号  
- 选定后，行号出现在每行代码的旁边。  
+ 选中后，行号出现在每行代码的旁边。  
   
 > [!NOTE]
->  这些行号不会添加到代码中，也不会打印出来。  它们仅供参考。  
+>  这些行号不会添加到代码中，也不会打印出来。 它们仅供参考。  
   
  启用单击 URL 定位  
- 选定后，鼠标光标在经过编辑器中的 URL 时会变成向上指的手形。  可以单击该 URL 以在 Web 浏览器中显示指示页面。  
+ 选中后，鼠标光标在经过编辑器中的 URL 时会变成向上指的手形。 可以单击该 URL 以在 Web 浏览器中显示指示页面。  
   
  导航栏  
- 选定后，将在代码编辑器的顶部显示**“导航栏”**。  它的下拉**“对象”**和**“成员”**列表可用于在代码中选择特定的对象，从它的成员中选择，然后定位到代码编辑器中选定成员的声明。  
+ 选中后，将在代码编辑器的顶部显示“导航栏”。 它的下拉“对象”和“成员”列表可用于在代码中选择特定的对象，从它的成员中选择，然后导航到代码编辑器中选定成员的声明。  
   
-## 请参阅  
- [选项，文本编辑器，所有语言，选项卡](../../ide/reference/options-text-editor-all-languages-tabs.md)   
- [“选项”对话框 \-\>“环境”\-\>“常规”](../../ide/reference/general-environment-options-dialog-box.md)   
+## <a name="see-also"></a>另请参阅  
+ [“选项”->“文本编辑器”->“所有语言”->“制表符”](../../ide/reference/options-text-editor-all-languages-tabs.md)   
+ [“选项”对话框 ->“环境”->“常规”](../../ide/reference/general-environment-options-dialog-box.md)   
  [使用 IntelliSense](../../ide/using-intellisense.md)

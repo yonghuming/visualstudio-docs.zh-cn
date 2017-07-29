@@ -27,10 +27,11 @@ translation.priority.ht:
 - tr-tr
 - zh-cn
 - zh-tw
-translationtype: Human Translation
-ms.sourcegitcommit: 5db97d19b1b823388a465bba15d057b30ff0b3ce
-ms.openlocfilehash: 39319385995b4d282336adc295bf8b469094b0af
-ms.lasthandoff: 02/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 47057e9611b824c17077b9127f8d2f8b192d6eb8
+ms.openlocfilehash: 555a0f9b39d28166c0f414b1bcbf81c2a137d0ff
+ms.contentlocale: zh-cn
+ms.lasthandoff: 05/13/2017
 
 ---
 # <a name="visual-c-intellisense"></a>Visual C++ Intellisense

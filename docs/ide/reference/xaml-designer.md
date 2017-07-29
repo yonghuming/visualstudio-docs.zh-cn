@@ -29,17 +29,18 @@ translation.priority.ht:
 - tr-tr
 - zh-cn
 - zh-tw
-translationtype: Human Translation
-ms.sourcegitcommit: a42f5a30375192c89c9984e40ba0104da98d7253
-ms.openlocfilehash: d23a47b708754248cd5c3fb8d86510a0c96491fa
-ms.lasthandoff: 03/07/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 3d32d11a430227800cb3ed53831a9565eb6adeb3
+ms.openlocfilehash: bda254d18dc391f3c10e3544ee09fd09171d0938
+ms.contentlocale: zh-cn
+ms.lasthandoff: 05/30/2017
 
 ---
 # <a name="xaml-designer-options-page"></a>XAML 设计器选项页
 使用“XAML 设计器”选项页可指定如何在 XAML 文档中设置元素和特性的格式。 若要打开此页，请选择“工具”菜单，然后选择“选项”。 若要访问“XAML 设计器”属性页，请选择“XAML 设计器”节点。 打开文档时将应用 XAML 设计器的相关设置。 因此，如果对设置进行更改，则需关闭并重新打开 Visual Studio，才能看到更改。
 
 > [!NOTE]
->  显示的对话框和菜单命令可能会与“帮助”中的描述不同，具体取决于你现用的设置或版本。 若要更改设置，请在 **“工具”** 菜单上选择 **“导入和导出设置”** 。 有关详细信息，请参阅[在 Visual Studio 中自定义开发设置](http://msdn.microsoft.com/en-us/22c4debb-4e31-47a8-8f19-16f328d7dcd3)。  
+>  显示的对话框和菜单命令可能会与“帮助”中的描述不同，具体取决于你现用的设置或版本。 若要更改设置，请在 **“工具”** 菜单上选择 **“导入和导出设置”** 。 有关详细信息，请参阅[个性化设置 Visual Studio IDE](../../ide/personalizing-the-visual-studio-ide.md)。  
 
 ## <a name="enable-xaml-designer"></a>启用 XAML 设计器
 选择此设置后，将启用 XAML 设计器。 XAML 设计器提供一个可视的工作区域，供你编辑 XAML 文档。 Visual Studio 中的某些功能（例如，用于资源和数据绑定的 IntelliSense）需要启用 XAML 设计器。
@@ -116,7 +117,7 @@ ms.lasthandoff: 03/07/2017
 |**缩放阈值**|指定当选中“呈现效果”复选框时所呈现效果的缩放百分比。 如果缩放值超过此设置，则 XAML 设计器不再呈现效果。|  
 
 ## <a name="see-also"></a>另请参阅  
- [WPF 中的 XAML](http://msdn.microsoft.com/Library/5d858575-a83b-42df-ad3f-047ed2d6e3c8)   
+ [WPF 中的 XAML](/dotnet/framework/wpf/advanced/xaml-in-wpf)   
  [如何：更改 XAML 视图设置](http://msdn.microsoft.com/en-us/aee87c79-ca01-4f84-8fb7-a9e47048ee47)   
  [XAML 和代码演练](http://msdn.microsoft.com/en-us/b3ff41a0-a2a3-4f61-b698-ac88ec8f799c)
 

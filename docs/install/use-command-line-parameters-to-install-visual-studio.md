@@ -31,11 +31,11 @@ translation.priority.mt:
 - pl-pl
 - pt-br
 - tr-tr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b5b496e0de0a12c9f52c944ef9e768c82d9be783
-ms.openlocfilehash: 429d55b3d0050eb0743d4abf39c202ad1b8383b1
+ms.translationtype: HT
+ms.sourcegitcommit: 6d25db4639f2c8391c1e32542701ea359f560178
+ms.openlocfilehash: 90e19f6e693733162065754b441fb213fd0bd9f8
 ms.contentlocale: zh-cn
-ms.lasthandoff: 05/08/2017
+ms.lasthandoff: 07/18/2017
 
 ---
 # <a name="use-command-line-parameters-to-install-visual-studio-2017"></a>使用命令行参数安装 Visual Studio 2017
@@ -71,8 +71,8 @@ ms.lasthandoff: 05/08/2017
 | `--installPath <dir>` | 要对其执行操作的实例的安装目录。 对于安装命令，这是**可选**选项，表示实例的安装位置。 对于其他命令，这是**必需**选项，表示以前安装的实例的安装位置。 |
 | `--addProductLang <language-locale>` | **可选**：在安装或修改操作期间，这可确定要在产品中安装的 UI 语言包。 可以在命令行处多次使用此选项，从而添加多个语言包。 如果不存在此参数，安装将使用计算机区域设置。 有关详细信息，请参阅本页的[语言区域设置列表](#list-of-language-locales)部分。|
 | `--removeProductLang <language-locale>` | **可选**：在安装或修改操作期间，这可确定要从产品中删除的 UI 语言包。 可以在命令行处多次使用此选项，从而添加多个语言包。 有关详细信息，请参阅本页的[语言区域设置列表](#list-of-language-locales)部分。|
-| `--add <one or more workload or component IDs>` | **可选**：要添加的一个或多个工作负荷或组件 ID。 将安装项目的所需组件，而不是建议组件或可选组件。 可以使用 `--includeRecommended` 和/或 `--includeOptional` 全局控制其他组件。 若要进行更精细的控制，可以将 `;includeRecommended` 或 `;includeOptional` 追加到 ID 中（例如，`--add Workload1;includeRecommended` 或 `--add Workload2;includeRecommended;includeOptional`）。 有关详细信息，请参阅[工作负载和组件 ID](workload-and-component-ids.md) 页。|
-| `--remove <one or more workload or component IDs>` | **可选**：要删除的一个或多个工作负荷或组件 ID。 有关详细信息，请参阅[工作负载和组件 ID](workload-and-component-ids.md) 页。|
+| `--add <workload or component ID>` | **可选**：要添加的工作负载或组件 ID。 将安装项目的所需组件，而不是建议组件或可选组件。 可以使用 `--includeRecommended` 和/或 `--includeOptional` 全局控制其他组件。 若要进行更精细的控制，可以将 `;includeRecommended` 或 `;includeOptional` 追加到 ID 中（例如，`--add Workload1;includeRecommended` 或 `--add Workload2;includeRecommended;includeOptional`）。 有关详细信息，请参阅[工作负载和组件 ID](workload-and-component-ids.md) 页。 可以根据需要重复此选项。|
+| `--remove <workload or component ID>` | **可选**：要删除的工作负载或组件 ID。 有关详细信息，请参阅[工作负载和组件 ID](workload-and-component-ids.md) 页。 可以根据需要重复此选项。|
 | `--in <path>` | **可选**：响应文件的 URI 或路径。  |
 | `--all` | **可选**：是否安装产品的所有工作负荷和组件。 |
 | `--allWorkloads` | **可选**：安装所有工作负荷及其所需的组件，不安装建议组件或可选组件。 |

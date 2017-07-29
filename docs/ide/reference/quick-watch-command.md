@@ -1,52 +1,69 @@
 ---
 title: "“快速监视”命令 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-general"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "debug.quickwatch"
-helpviewer_keywords: 
-  - "Debug.Quickwatch 命令"
-  - "“快速监视”命令"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-general
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords:
+- debug.quickwatch
+helpviewer_keywords:
+- Quick Watch command
+- Debug.Quickwatch command
 ms.assetid: 9670ac3a-8f2f-4874-974d-cb87d3b0cde1
 caps.latest.revision: 11
-author: "kempb"
-ms.author: "kempb"
-manager: "ghogen"
-caps.handback.revision: 11
----
-# “快速监视”命令
-[!INCLUDE[vs2017banner](../../code-quality/includes/vs2017banner.md)]
+author: kempb
+ms.author: kempb
+manager: ghogen
+translation.priority.ht:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 5ea9179ad37514ffad4876177b05150eecc22def
+ms.openlocfilehash: b9b6af3a8db0aef28a7704f8e266e1610b436ba6
+ms.contentlocale: zh-cn
+ms.lasthandoff: 05/24/2017
 
-显示在[“快速监视”对话框](../Topic/How%20to:%20Use%20the%20QuickWatch%20Dialog%20Box.md)的“表达式”字段中选定或指定的文本。  可以使用此对话框计算调试器所识别的变量或表达式的当前值或者寄存器的内容。  另外，可以更改任何非常数变量的值或任何寄存器的内容。  
+---
+# <a name="quick-watch-command"></a>“快速监视”命令
+在[快速监视](../../debugger/watch-and-quickwatch-windows.md)窗口的“表达式”字段中显示选定或指定的文本。 可使用此对话框计算调试器所识别的变量或表达式的当前值或计算寄存器的内容。 此外，可更改任何非常量变量的值或任何寄存器的内容。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
 ```  
 Debug.QuickWatchq [text]  
 ```  
   
-## 参数  
+## <a name="arguments"></a>参数  
  `text`  
- 可选。  要添加到**“快速监视”**对话框中的文本。  
+ 可选。 要添加到“快速监视”对话框的文本。  
   
-## 备注  
- 如果省略 `text`，在光标处的当前选定文本或单词将添加到“监视”窗口中。  
+## <a name="remarks"></a>备注  
+ 如果忽略了 `text`，则光标处当前选中的文本或字词将添加到“监视”窗口。  
   
-## 示例  
+## <a name="example"></a>示例  
   
 ```  
 >Debug.QuickWatch  
 ```  
   
-## 请参阅  
- [如何：使用“快速监视”对话框](../Topic/How%20to:%20Use%20the%20QuickWatch%20Dialog%20Box.md)   
+## <a name="see-also"></a>另请参阅  
+ [在 Visual Studio 中使用“监视”窗口和“快速监视”窗口对变量设置监视](../../debugger/watch-and-quickwatch-windows.md)   
  [Visual Studio 命令](../../ide/reference/visual-studio-commands.md)   
  [“命令”窗口](../../ide/reference/command-window.md)   
- [“查找\/命令”框](../../ide/find-command-box.md)   
+ [“查找/命令”框](../../ide/find-command-box.md)   
  [Visual Studio 命令别名](../../ide/reference/visual-studio-command-aliases.md)

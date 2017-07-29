@@ -1,60 +1,80 @@
 ---
-title: "Visual Studio 中的解决方案和项目 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/16/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-general"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "vs.savedeferredsaveprojectonclose"
-  - "vs.untrustedtemplateopeningdocuments"
-  - "Project Properties.FullPath"
-  - "vs.addnewsolutionitem"
-  - "vs.environment.projects"
-  - "vs.openproject"
-  - "vs.getopenfilename"
-  - "vs.addnewitem"
-  - "vs.encoding"
-  - "vs.addexistingitem"
-  - "Project Properties.URL"
-  - "VS.SolutionExplorer"
-  - "Project Properties.FileName"
-  - "SolutionProperties.Name"
-  - "VS.SaveChangesDlg"
-  - "vs.newproject"
-  - "VS.SolutionExplorer.Selection"
-  - "SolutionProperties.Path"
-  - "vs.getdirectoryname"
-  - "vs.addexistingsolutionitem"
-  - "SolutionProperties.Description"
-  - "vs.environment.solutions"
-  - "vs.saveordiscarddeferredsaveproject"
-  - "VS.SolutionExplorer.Solutions"
-helpviewer_keywords: 
-  - "vs.solutionpropertypages"
-  - "vs.solutionpropertypages.startupproject"
-  - "vs.solutionpropertypages.configurationsettings"
-  - "解决方案项，在解决方案资源管理器中的文件夹"
-  - "解决方案项共享"
-  - "解决方案 [Visual Studio]"
-  - "关于项目项的项目项 [Visual Studio]"
-  - "工作区"
-  - "设计解决方案 [Visual Studio]"
-  - "项目 [Visual Studio]"
-  - "解决方案 [Visual Studio]，项目和"
-  - "vs.solutionpropertypages.projectdependencies"
-  - "应用程序 [Visual Studio]"
-  - "设置项目 [Visual Studio]"
-  - "杂项文件"
+title: "Visual Studio 中的解决方案和项目| Microsoft Docs"
+ms.custom: 
+ms.date: 06/12/2017
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-general
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords:
+- vs.savedeferredsaveprojectonclose
+- vs.untrustedtemplateopeningdocuments
+- Project Properties.FullPath
+- vs.addnewsolutionitem
+- vs.environment.projects
+- vs.openproject
+- vs.getopenfilename
+- vs.addnewitem
+- vs.encoding
+- vs.addexistingitem
+- Project Properties.URL
+- VS.SolutionExplorer
+- Project Properties.FileName
+- SolutionProperties.Name
+- VS.SaveChangesDlg
+- vs.newproject
+- VS.SolutionExplorer.Selection
+- SolutionProperties.Path
+- vs.getdirectoryname
+- vs.addexistingsolutionitem
+- SolutionProperties.Description
+- vs.environment.solutions
+- vs.saveordiscarddeferredsaveproject
+- VS.SolutionExplorer.Solutions
+helpviewer_keywords:
+- vs.solutionpropertypages
+- vs.solutionpropertypages.startupproject
+- vs.solutionpropertypages.configurationsettings
+- solution items, folder in Solution Explorer
+- solution items, shared
+- solutions [Visual Studio]
+- project items [Visual Studio], about project items
+- workspaces
+- solutions [Visual Studio], designing
+- projects [Visual Studio]
+- solutions [Visual Studio], projects and
+- vs.solutionpropertypages.projectdependencies
+- applications [Visual Studio]
+- projects [Visual Studio], setting up
+- miscellaneous files
 ms.assetid: aeaf56cb-c2dd-47f6-b012-23b84b7a7254
 caps.latest.revision: 35
-author: "kempb"
-ms.author: "kempb"
-manager: "ghogen"
-caps.handback.revision: 35
+author: kempb
+ms.author: kempb
+manager: ghogen
+translation.priority.ht:
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- ru-ru
+- zh-cn
+- zh-tw
+translation.priority.mt:
+- cs-cz
+- pl-pl
+- pt-br
+- tr-tr
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 8ce85525f6af336682f6f8547c2f6c13dde73c8c
+ms.openlocfilehash: 28dfbb85790cfda2c3d840ce2d57468b5421bee0
+ms.contentlocale: zh-cn
+ms.lasthandoff: 06/23/2017
+
 ---
 # <a name="solutions-and-projects-in-visual-studio"></a>Visual Studio 中的解决方案和项目
 在 Visual Studio 中创建应用、应用程序、网站、Web 应用、脚本、插件等时，会从 *项目*开始。 在逻辑意义上，项目包含所有源代码文件、图标、图像、数据文件以及将编译到可执行程序或网站中，或是执行编译所需的任何其他内容。  项目还包含所有编译器设置以及程序将与之通信的各种服务或组件需要的其他配置文件。
@@ -71,15 +91,15 @@ caps.handback.revision: 35
 
  下图显示项目与解决方案，以及它们在逻辑上包含的项之间的关系。  
 
- ![Visual Studio 项目和解决方案](../ide/media/vs2015_project_diagram.png "vs2015_project_diagram")  
+ ![Visual Studio 项目和解决方案](../ide/media/vside-project-diagram.png)  
 
  还可以创建自定义项目和项模板。 有关详细信息，请参阅[创建项目和项模板](../ide/creating-project-and-item-templates.md)。  
 
 ## <a name="creating-new-projects"></a>创建新项目  
- 创建新项目的最简单方法是从预定义的项目模板开始，该模板包含一组基本的预生成代码文件、配置文件、资产和设置，这些内容使你可以开始采用特定编程语言创建特定类型的应用程序或网站。 这些模板是从主菜单选择“文件”&#124;“新建”&#124;“项目”或“文件”&#124;“新建”&#124;“网站”，然后进行导航时在“新建项目对话框”中看到的内容。 有关详细信息，请参阅[创建解决方案和项目](../ide/creating-solutions-and-projects.md)和 [NIB Creating Projects from Templates](http://msdn.microsoft.com/en-us/7c36d86a-6b79-4480-8228-0f925f1204b2)（NIB 从模板创建项目）。  
+ 创建新项目的最简单方法是从预定义的项目模板开始，该模板包含一组基本的预生成代码文件、配置文件、资产和设置，这些内容使你可以开始采用特定编程语言创建特定类型的应用程序或网站。 这些模板是从主菜单选择“文件”&#124;“新建”&#124;“项目”或“文件”&#124;“新建”&#124;“网站”，然后进行导航时在“新建项目对话框”中看到的内容。 有关详细信息，请参阅[创建解决方案和项目](../ide/creating-solutions-and-projects.md)。  
 
 ## <a name="managing-projects-in-solution-explorer"></a>在解决方案资源管理器中管理项目  
- 创建新项目之后，可使用 **“解决方案资源管理器”** 查看和管理项目和解决方案及其关联项。 下图显示具有一个包含两个项目的 C# 解决方案的服务器资源管理器。  
+ 创建新项目之后，可使用 **“解决方案资源管理器”** 查看和管理项目和解决方案及其关联项。 下图显示具有一个包含两个项目的 C# 解决方案的解决方案资源管理器。  
 
  ![解决方案资源管理器](../ide/media/vs2015_solution_explorer.png "vs2015_solution_explorer")  
 
@@ -105,9 +125,4 @@ caps.handback.revision: 35
 
 ## <a name="see-also"></a>另请参阅  
  [Visual Studio IDE](../ide/visual-studio-ide.md)
-
-
-
-<!--HONumber=Feb17_HO4-->
-
 

@@ -1,19 +1,39 @@
 ---
 title: "如何解锁 Visual Studio | Microsoft Docs"
-ms.custom: ""
-ms.date: "01/23/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-general"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
+ms.custom: 
+ms.date: 01/23/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-general
+ms.tgt_pltfrm: 
+ms.topic: article
 ms.assetid: ffb580a1-8b5d-48f5-b811-87f8036f50ea
 caps.latest.revision: 8
-author: "kempb"
-ms.author: "kempb"
-manager: "ghogen"
-caps.handback.revision: 8
+author: kempb
+ms.author: kempb
+manager: ghogen
+translation.priority.ht:
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- ru-ru
+- zh-cn
+- zh-tw
+translation.priority.mt:
+- cs-cz
+- pl-pl
+- pt-br
+- tr-tr
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 47057e9611b824c17077b9127f8d2f8b192d6eb8
+ms.openlocfilehash: 4a1e79dbceb4c0cfd02dab4b3132190e44ac3273
+ms.contentlocale: zh-cn
+ms.lasthandoff: 05/13/2017
+
 ---
 # <a name="how-to-unlock-visual-studio"></a>如何解锁 Visual Studio
 可以免费使用 Visual Studio 长达 30 天。 登录 IDE 时，可以将试用期延长 90 天。 若要继续使用 Visual Studio，可以解锁 IDE，方法是  
@@ -22,10 +42,10 @@ caps.handback.revision: 8
   
 2.  输入产品密钥。  
   
-## <a name="to-unlock-visual-studio-using-an-online-subscription"></a>使用在线订阅解锁 Visual Studio  
+## <a name="to-unlock-visual-studio-using-an-online-subscription"></a>使用在线订阅解锁 Visual studio 的步骤  
  使用 MSDN 或者与 Microsoft 帐户、工作或学校帐户相关联的 Visual Studio 在线订阅解锁 Visual Studio：  
   
-1.  单击 IDE 右上角的“登录”按钮（或转到“文件”>“帐户设置”，以打开“帐户设置”对话框，然后单击"登录"按钮。）  
+1.  单击 IDE 右上角的“登录”按钮（或转到“文件”>“帐户设置”，打开“帐户设置”对话框，然后单击"登录"按钮。）  
   
 2.  对 Microsoft 帐户、工作或学校帐户输入凭据。 Visual Studio 将查找 MSDN 订阅或与你的帐户相关联的 Visual Studio Team Services 订阅。  
   
@@ -66,13 +86,8 @@ caps.handback.revision: 8
   
 1.  续订你的订阅 若要查看有关正在使用的许可证的详细信息，请转到“文件”>“帐户设置”对话框，然后在该对话框的右侧查看许可证信息。  
   
-2.  如果拥有另一个与不同的帐户相关联的订阅，请通过单击“添加帐户...”链接，将该帐户添加到“文件”>“帐户设置”对话框左侧的“所有帐户” 列表中。  
+2.  如果拥有另一个与不同的帐户关联的订阅，请通过单击"添加帐户..."链接，将该帐户添加到“文件”>“帐户设置”对话框左侧的“所有帐户”列表中。  
   
-## <a name="see-also"></a>另请参阅  
+## <a name="see-also"></a>请参阅  
  [登录 Visual Studio](../ide/signing-in-to-visual-studio.md)
-
-
-
-<!--HONumber=Feb17_HO4-->
-
 

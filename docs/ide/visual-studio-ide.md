@@ -1,7 +1,7 @@
 ---
 title: "Visual Studio IDE 功能导览 | Microsoft Docs"
 ms.custom: 
-ms.date: 03/07/2017
+ms.date: 06/28/2017
 ms.reviewer: 
 ms.suite: 
 ms.tgt_pltfrm: 
@@ -27,10 +27,10 @@ translation.priority.mt:
 - pt-br
 - tr-tr
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 06cdfb076120ffd7459a16b56c659bb86942cd7f
-ms.openlocfilehash: c8276097c53ea49d223c43ada5511ab5d5f38036
+ms.sourcegitcommit: 669bc5894727c207691a7e37937f432d98fee8b1
+ms.openlocfilehash: 8d2c20b32201b3df85e5150828565eee84d66375
 ms.contentlocale: zh-cn
-ms.lasthandoff: 03/31/2017
+ms.lasthandoff: 06/30/2017
 
 ---
 # <a name="visual-studio-ide-feature-tour"></a>Visual Studio IDE 功能导览
@@ -143,10 +143,10 @@ Visual Studio 现在达到了前所未有的轻量！ 通过新的模块化安�
 
 ![调试](../ide/media/VSIDE_Tour_Debugging.png)
 
-针对测试，Visual Studio 提供了单元测试、IntelliTest、负载和性能测试等。 有关 Visual Studio 调试过程的详细信息，请参阅[调试器功能简介](https://review.docs.microsoft.com/visualstudio/debugger/debugger-feature-tour?branch=mikejo-tour)。 有关测试的详细信息，请参阅[测试工具](https://www.visualstudio.com/vs/testing-tools/)。 有关提升应用性能的详细信息，请参阅[分析工具](https://docs.microsoft.com/visualstudio/profiling/profiling-tools)。
+针对测试，Visual Studio 提供了单元测试、IntelliTest、负载和性能测试等。 有关 Visual Studio 调试过程的详细信息，请参阅[调试器功能简介](../debugger/debugger-feature-tour.md)。 有关测试的详细信息，请参阅[测试工具](https://www.visualstudio.com/vs/testing-tools/)。 有关提升应用性能的详细信息，请参阅[分析功能导览](../profiling/profiling-feature-tour.md)。
 
 ## <a name="deploy-your-finished-application"></a>部署完成的应用程序  
-当应用程序可以部署给用户或客户时，无论是部署到 Windows 应用商店还是 Sharepoint 站点，无论是通过 Installshield 还是 Windows Installer 技术进行部署，Visual Studio 都会提供实现此操作的工具。 这些都可以通过 IDE 进行访问。 有关详细信息，请参阅[部署应用程序、服务和组件](../deployment/deploying-applications-services-and-components.md)。
+当应用程序可以部署给用户或客户时，无论是部署到 Windows 应用商店还是 SharePoint 站点，无论是通过 InstallShield 还是 Windows Installer 技术进行部署，Visual Studio 都会提供实现此操作的工具。 这些都可以通过 IDE 进行访问。 有关详细信息，请参阅[部署应用程序、服务和组件](../deployment/deploying-applications-services-and-components.md)。
 
 ## <a name="quick-tour-of-the-ide"></a>IDE 快速教程
 为了向你提供有关 Visual Studio 的高级直观概览，下图显示了在 Visual Studio 中打开的一个项目，以及你最有可能用到的若干关键工具窗口。

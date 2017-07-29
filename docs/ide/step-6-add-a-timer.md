@@ -27,10 +27,11 @@ translation.priority.ht:
 - tr-tr
 - zh-cn
 - zh-tw
-translationtype: Human Translation
-ms.sourcegitcommit: 5db97d19b1b823388a465bba15d057b30ff0b3ce
-ms.openlocfilehash: 0f5730af2e61bb1bd342e607db7c1244ad7d0008
-ms.lasthandoff: 02/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 47057e9611b824c17077b9127f8d2f8b192d6eb8
+ms.openlocfilehash: 996ec0a9fa601517993cb6049a114796c36489fe
+ms.contentlocale: zh-cn
+ms.lasthandoff: 05/13/2017
 
 ---
 # <a name="step-6-add-a-timer"></a>步骤 6：添加计时器
@@ -50,8 +51,7 @@ ms.lasthandoff: 02/22/2017
   
 3.  选择 Windows 窗体设计器中的计时器控件图标，然后按 Enter 键或双击该计时器，以添加空的“Tick”事件处理程序。 用下列代码替换该代码，或手动将下列代码输入到事件处理程序。  
   
-     [!code-cs[VbExpressTutorial4Step6#7](../ide/codesnippet/CSharp/step-6-add-a-timer_1.cs)]
-     [!code-vb[VbExpressTutorial4Step6#7](../ide/codesnippet/VisualBasic/step-6-add-a-timer_1.vb)]  
+     [!code-cs[VbExpressTutorial4Step6#7](../ide/codesnippet/CSharp/step-6-add-a-timer_1.cs)]  [!code-vb[VbExpressTutorial4Step6#7](../ide/codesnippet/VisualBasic/step-6-add-a-timer_1.vb)]  
   
      Tick 事件处理程序将执行三个操作：首先，通过调用 `Stop()` 方法确保计时器没有运行。 然后，它使用两个引用变量 `firstClicked` 和 `secondClicked`，使得玩家选择的两个标签的图标再次不可见。 最后，它将 `firstClicked` 和 `secondClicked` 引用变量重置为 `null`（Visual C# 中）或 `Nothing`（Visual Basic 中）。 这一步很重要，因为程序本身就是这样重置的。 现在，它不跟踪任何 `Label` 控件，并已准备好让玩家再次选择标签。  
   
@@ -60,12 +60,11 @@ ms.lasthandoff: 02/22/2017
   
 4.  若要查看正在使用的新计时器，请转至代码编辑器，将以下代码添加到 `label_Click()` 事件处理程序方法的顶部和底部。 （你要将 `if` 语句添加到顶部，将三个语句添加到底部；该方法的其余部分保持相同。）  
   
-     [!code-cs[VbExpressTutorial4Step6#8](../ide/codesnippet/CSharp/step-6-add-a-timer_2.cs)]
-     [!code-vb[VbExpressTutorial4Step6#8](../ide/codesnippet/VisualBasic/step-6-add-a-timer_2.vb)]  
+     [!code-cs[VbExpressTutorial4Step6#8](../ide/codesnippet/CSharp/step-6-add-a-timer_2.cs)]  [!code-vb[VbExpressTutorial4Step6#8](../ide/codesnippet/VisualBasic/step-6-add-a-timer_2.vb)]  
   
      该方法顶部的代码通过检查 **Enabled** 属性的值来检查计时器是否已启动。 这样，如果玩家选择第一个和第二个 `Label` 控件，且计时器启动，则选择第三个标签将不会执行任何操作。  
   
-     该方法底部的代码将 `secondClicked` 引用变量设置为跟踪玩家选择的第二个 `Label` 控件，然后将该标签的图标颜色设置为黑色以使其可见。 然后，它在单触发模式下启动计时器，以便在等待 750 毫秒后触发单个 Tick 事件。 计时器的 Tick 事件处理程序会隐藏这两个图标，并重置 `firstClicked` 和 `secondClicked` 引用变量，以便窗体准备就绪以供玩家选择另一对图标。  
+     该方法底部的代码将 `secondClicked` 引用变量设置为跟踪玩家选择的第二个 `Label` 控件，然后将该标签的图标颜色设置为黑色以使其可见。 然后，它在单触发模式下启动计时器，以便在等待 750 毫秒后触发单个 Tick 事件。 计时器的 Tick 事件处理程序会隐藏这两个图标，并重置 `firstClicked` 和 `secondClicked` 引用变量，以便窗体准备就绪供玩家选择另一对图标。  
   
 5.  保存并运行程序。 选择一个图标，它将显示出来。  
   

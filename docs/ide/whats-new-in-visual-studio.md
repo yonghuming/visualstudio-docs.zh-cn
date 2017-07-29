@@ -31,10 +31,10 @@ translation.priority.mt:
 - pt-br
 - tr-tr
 ms.translationtype: Human Translation
-ms.sourcegitcommit: edc126208bb401c8dba9a6be722cbd0dbda21caf
-ms.openlocfilehash: 720048b861bfb208489a62340efca28ae88d1951
+ms.sourcegitcommit: 8bf0b097be929b30627e0f1139c6e0b145933ab4
+ms.openlocfilehash: 28c6a166a423b3341ae32676830861eaa78cb40d
 ms.contentlocale: zh-cn
-ms.lasthandoff: 04/22/2017
+ms.lasthandoff: 05/26/2017
 
 ---
 # <a name="what39s-new-in-visual-studio-2017"></a>Visual Studio 2017 中的新增功能
@@ -132,7 +132,7 @@ Visual Studio 可以移动自身的扩展（以及第三方扩展），从而根
 
 Visual Studio 2017 Enterprise 随附：
 - [Redgate ReadyRoll Core](http://www.red-gate.com/products/sql-development/readyroll/entrypage/microsoft-and-readyroll?utm_source=microsoft&utm_medium=link&utm_campaign=readyroll&utm_term=docs-newinvs) 有助于开发迁移脚本、使用源代码管理功能来管理数据库更改，并安全地自动部署 SQL Server 数据库更改和应用更改。
-- [Redgate SQL Prompt Core](http://www.red-gate.com/products/sql-development/sql-prompt/entrypage/microsoft-and-sql-prompt?utm_source=microsoft&utm_medium=link&utm_campaign=sqlprompt&utm_term=docs-newinvs) 提供智能代码填写帮助，有助于更快更准确地编写 SQL。 SQL Prompt 可自动完成数据库、系统对象和关键字，并在你键入时提供列建议。 这样一来，代码不仅更简洁，而且错误也少了，因为无需记住每个列名称或别名。
+- [Redgate SQL Prompt Core](http://www.red-gate.com/products/sql-development/sql-prompt/entrypage/microsoft-and-sql-prompt?utm_source=microsoft&utm_medium=link&utm_campaign=sqlprompt&utm_term=docs-newinvs) 提供智能代码填写帮助，有助于更快更准确地编写 SQL。 SQL Prompt 可自动完成数据库、系统对象和关键字，并在你键入时提供列建议。 这样一来，代码不仅更简洁，而且错误也更少，因为无需记住每个列名称或别名。
 
 Visual Studio 2017 所有版本随附：
 - [Redgate SQL Search](http://www.red-gate.com/products/sql-development/sql-search/?utm_source=microsoft&utm_medium=link&utm_campaign=sqlsearch&utm_term=docs-newinvs) 有助于跨多个数据库快速查找 SQL 片段和对象，从而提高工作效率。
@@ -146,7 +146,7 @@ Visual Studio 2017 所有版本随附：
 ![Visual Studio 2017 与 Git 进行交互对话框](../ide/media/vsIDE-GitInteraction.png "Visual Studio IDE 中的 Git 工具")
 
 #### <a name="view-and-navigate-code-with-structure-visualizer"></a>通过结构可视化工具查看和导航代码：
-结构可视化工具可以在代码上绘制结构参考线（也称为 缩进参考线）。 通过使用该工具，无需滚动即可将代码可视化，并随时了解你处于哪一段代码中。 悬停在行上时将显示工具提示，通过工具提示可以看到该代码段的开头及其父级。 通过 TextMate 语法以及 C#、Visual Basic 和 XAML 支持的所有语言都可以使用该工具。
+结构可视化工具可以在代码上绘制结构参考线（也称为 缩进参考线）。 通过使用该工具，无需滚动即可将代码可视化，并随时了解当前位于哪一代码块。 悬停在行上时将显示工具提示，通过工具提示可以看到该代码段的开头及其父级。 通过 TextMate 语法以及 C#、Visual Basic 和 XAML 支持的所有语言都可以使用该工具。
 
 ![Visual Studio 2017 结构可视化工具](../ide/media/vsIDE-StructureVisualizer.png "Visual Studio 中的结构可视化工具")
 
@@ -159,7 +159,7 @@ Visual Studio 2017 所有版本随附：
 
  ![改进后的“转到全部”](../ide/media/vs2017ide-navigation-go-to.png "改进后的“转到全部”功能的示例")
 
-* **查找所有引用 (Shift+F12)** &ndash; 通过语法着色，可以按项目、定义和路径的组合对“查找所有引用”的结果进行分组。 还可以“锁定”结果，这样既可以继续查找其他引用，又不会丢失之前的结果。
+* **查找所有引用 (Shift+F12)** &ndash; 通过语法着色，可以按项目、定义和路径的组合对“查找所有引用”的结果进行分组。 还可以“锁定”结果，这样既可以继续查找其他引用，又不会丢失原始结果。
 
  ![新的“查找所有引用”工具](../ide/media/vs2017ide-find-all-references.png "新的“查找所有引用”工具的示例")
 
@@ -199,11 +199,11 @@ Visual Studio 中的若干改进包括：在 Visual Studio 中分发 C++ 核心�
  有时，一条消息不足以说明所遇问题的总体影响。 如果遇到挂起、崩溃或其他性能问题，可利用“报告问题”工具与我们轻松共享重现步骤和支持文件（如屏幕快照以及跟踪和堆转储文件）。 有关如何使用此工具的详细信息，请参阅[如何报告问题](how-to-report-a-problem-with-visual-studio-2017.md)页。  
 
 ### <a name="track-your-issue-in-connect"></a>在“连接”中跟踪你的问题  
- 如果要跟踪 Visual Studio 反馈状态，请转至[“连接”](http://connect.microsoft.com/)并在那里报告 Bug。 报告后，可返回至“连接”来跟踪其状态。  
+ 如果要跟踪 Visual Studio 反馈的状态，只需转到 [Connect](http://connect.microsoft.com/)，并在其中报告 bug。 报告后，可返回至“连接”来跟踪其状态。  
 
 ## <a name="see-also"></a>另请参阅  
 * [Visual C++ 中的新增功能](/cpp/top/what-s-new-for-visual-cpp-in-visual-studio)
-* [C# 中的新增功能](https://docs.microsoft.com/en-us/dotnet/articles/csharp/csharp-7)  
+* [C# 中的新增功能](https://docs.microsoft.com/en-us/dotnet/csharp/csharp-7)  
 * [Team Foundation Server 中的新增功能](https://www.visualstudio.com/en-us/docs/whats-new)
 * [Visual Studio 发行说明](https://www.visualstudio.com/news/vs2015-vs)
 

@@ -32,10 +32,11 @@ translation.priority.ht:
 - tr-tr
 - zh-cn
 - zh-tw
-translationtype: Human Translation
-ms.sourcegitcommit: ca7c86466fa23fb21a932f26dc24e37c71cf29b4
-ms.openlocfilehash: a990441ed4ef551a0fc6defcda45d51ff0c0d209
-ms.lasthandoff: 04/05/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 3d32d11a430227800cb3ed53831a9565eb6adeb3
+ms.openlocfilehash: b42679476f9e1da034011eb7e9b81250c0c81a1e
+ms.contentlocale: zh-cn
+ms.lasthandoff: 05/30/2017
 
 ---
 # <a name="managing-assembly-and-manifest-signing"></a>管理程序集签名和清单签名
@@ -81,7 +82,7 @@ ms.lasthandoff: 04/05/2017
   
  也可以指向已创建的密钥。 有关创建密钥的详细信息，请参阅[如何：创建公钥/私钥对](http://msdn.microsoft.com/Library/05026813-f3bd-4d7c-9e0b-fc588eb3d114)。  
   
- 如果仅对公钥具有访问权限，可以使用延迟签名来推迟分配密钥。 可通过选择“仅延迟签名”复选框来启用延迟签名。 延迟签名的项目不会运行也不能进行调试。 但是，可以使用 [Sn.exe（强名称工具）](http://msdn.microsoft.com/Library/c1d2b532-1b8e-4c7a-8ac5-53b801135ec6)及 `-Vr` 选项，在开发过程中跳过验证。  
+ 如果仅对公钥具有访问权限，可以使用延迟签名来推迟分配密钥。 可通过选择“仅延迟签名”复选框来启用延迟签名。 延迟签名的项目将不会运行，因此无法调试。 但是，可以使用 [Sn.exe（强名称工具）](/dotnet/framework/tools/sn-exe-strong-name-tool)及 `-Vr` 选项，在开发过程中跳过验证。  
   
  有关对清单进行签名的详细信息，请参阅[如何：对应用程序和部署清单进行签名](../ide/how-to-sign-application-and-deployment-manifests.md)。  
   

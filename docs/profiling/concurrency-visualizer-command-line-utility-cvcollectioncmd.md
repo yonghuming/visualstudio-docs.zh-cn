@@ -31,10 +31,10 @@ translation.priority.mt:
 - pt-br
 - tr-tr
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 47057e9611b824c17077b9127f8d2f8b192d6eb8
-ms.openlocfilehash: da79533a7a40b6e1b79c66f023beba2c1162bd08
+ms.sourcegitcommit: c559290c8e88c8b4e37feabc7014188fad15434d
+ms.openlocfilehash: f219ae7937ea3810b58faa34f6320a627ede99ae
 ms.contentlocale: zh-cn
-ms.lasthandoff: 05/13/2017
+ms.lasthandoff: 06/08/2017
 
 ---
 # <a name="concurrency-visualizer-command-line-utility-cvcollectioncmd"></a>并发可视化工具命令行实用工具 (CVCollectionCmd)
@@ -60,7 +60,7 @@ ms.lasthandoff: 05/13/2017
   
 |选项|说明|参数|返回值|  
 |------------|-----------------|----------------|-------------------|  
-|查询|返回是否可以启动收集。|无|如果准备开始启动收集，则为 0。<br /><br /> 如果收集已在进行中，则为 1。<br /><br /> 如果收集未在进行，但是已经启用一个或多个必需的 [ETW](http://msdn.microsoft.com/Library/ac99a063-e2d2-40cc-b659-d23c2f783f92) 会话，则为 2。|  
+|查询|返回是否可以启动收集。|无|如果准备开始启动收集，则为 0。<br /><br /> 如果收集已在进行中，则为 1。<br /><br /> 如果收集未在进行，但是已经启用一个或多个必需的 [ETW](/dotnet/framework/wcf/samples/etw-tracing) 会话，则为 2。|  
 |启动|在并发可视化工具下运行指定的进程。|可执行文件的路径。|如果运行已成功，则为 0。<br /><br /> 如果因为目标应用程序无法启动而运行失败，则为 1。<br /><br /> 如果因为 CVCollectionCmd 没有足够的权限写入指定的输出目录而运行失败，则为 13。|  
 |Attach|开始收集系统级跟踪，否则如果指定了一个进程，则附加到该进程。|无。|如果附加成功，则为 0。<br /><br /> 如果因为指定的进程无效或不明确而附加失败，则为 1。<br /><br /> 如果因为 CVCollectionCmd 没有足够的权限写入指定的输出目录而附加失败，则为 13。|  
 |Detach|停止收集。|无。|如果分离成功，则为 0。<br /><br /> 如果因为收集当前没有进行而分离失败，则为 1。<br /><br /> 如果因为无法停止收集而分离失败，则为 2。|  
@@ -170,3 +170,4 @@ ms.lasthandoff: 05/13/2017
 </LocalConfig>  
   
 ```
+

@@ -19,9 +19,11 @@ caps.latest.revision: 13
 author: kempb
 ms.author: kempb
 manager: ghogen
-translationtype: Human Translation
-ms.sourcegitcommit: 5db97d19b1b823388a465bba15d057b30ff0b3ce
-ms.openlocfilehash: 1901f0dde22fb44ecf3d1b549505590125999700
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 47057e9611b824c17077b9127f8d2f8b192d6eb8
+ms.openlocfilehash: 65cb324c1a7ed91ad5209da7826a1899657a414f
+ms.contentlocale: zh-cn
+ms.lasthandoff: 05/13/2017
 
 ---
 # <a name="adding-visual-studio-editor-support-for-other-languages"></a>为其他语言添加 Visual Studio 编辑器支持
@@ -80,14 +82,9 @@ ms.openlocfilehash: 1901f0dde22fb44ecf3d1b549505590125999700
   
  在 Windows 中，%userprofile% 解析为路径：c:\Users\\*\<user name>*。 如果系统上不存在扩展文件夹，则需要创建它。 如果该文件夹已存在，它将被隐藏。  
   
- 有关如何创建 TextMate 语法的详细信息，请参阅 [TextMate – Introduction to Language Grammars: How to add source code syntax highlighting embedded in HTML](https://developmentality.wordpress.com/2011/02/08/textmate-introduction-to-language-grammars/)（TextMate - 语言语法简介：如何在 HTML 中添加嵌入的源代码语法突出显示）和 [Notes on how to create a Language Grammar and Custom Theme for a Textmate Bundle](https://benparizek.com/notebook/notes-on-how-to-create-a-language-grammar-and-custom-theme-for-a-textmate-bundle)（如何创建 Textmate 包的语言语法和自定义主题说明）。  
+ 有关如何创建 TextMate 语法的详细信息，请参阅 [TextMate - Introduction to Language Grammars: How to add source code syntax highlighting embedded in HTML](https://developmentality.wordpress.com/2011/02/08/textmate-introduction-to-language-grammars/)（TextMate - 语言语法简介：如何在 HTML 中添加嵌入的源代码语法突出显示）和 [Notes on how to create a Language Grammar and Custom Theme for a Textmate Bundle](https://benparizek.com/notebook/notes-on-how-to-create-a-language-grammar-and-custom-theme-for-a-textmate-bundle)（如何创建 Textmate 包的语言语法和自定义主题说明）。  
   
 ## <a name="see-also"></a>另请参阅  
  [Visual Studio 2013 Navigate To Improvements](https://blogs.msdn.microsoft.com/mvpawardprogram/2013/10/22/visual-studio-2013-navigate-to-improvements/) （Visual Studio 2013“导航到”改进）  
  [演练：创建代码片段](../ide/walkthrough-creating-a-code-snippet.md)   
  [演练：显示语句完成](../extensibility/walkthrough-displaying-statement-completion.md)
-
-
-<!--HONumber=Feb17_HO4-->
-
-

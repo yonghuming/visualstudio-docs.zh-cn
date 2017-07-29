@@ -33,10 +33,11 @@ translation.priority.ht:
 - tr-tr
 - zh-cn
 - zh-tw
-translationtype: Human Translation
-ms.sourcegitcommit: 5658ecf52637a38bc3c2a5ad9e85b2edebf7d445
-ms.openlocfilehash: 47cc71da3637ae7f3bdb7ff4b09451a87d546bff
-ms.lasthandoff: 02/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 3d32d11a430227800cb3ed53831a9565eb6adeb3
+ms.openlocfilehash: e165ec6487a17819313dacd819ca1147b9953339
+ms.contentlocale: zh-cn
+ms.lasthandoff: 05/30/2017
 
 ---
 # <a name="localizing-applications"></a>本地化应用程序
@@ -59,7 +60,7 @@ ms.lasthandoff: 02/22/2017
  [基于 .NET Framework 的国际应用程序简介](../ide/introduction-to-international-applications-based-on-the-dotnet-framework.md)  
  讨论有关使用 Visual Basic 或 Visual C# 为国际市场开发软件的概念。  
   
- [全球化 Windows 窗体](http://msdn.microsoft.com/Library/72f6cd92-83be-45ec-aa37-9cb8e3ebc3c5)  
+ [全球化 Windows 窗体](/dotnet/framework/winforms/advanced/globalizing-windows-forms)  
  提供有关创建支持多种区域性的 Windows 应用程序的页面的链接。  
   
  [全球化和本地化](http://msdn.microsoft.com/Library/8ef3838e-9d05-4236-9dd0-ceecff9df80d)  

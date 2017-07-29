@@ -29,10 +29,10 @@ translation.priority.mt:
 - pt-br
 - tr-tr
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 47057e9611b824c17077b9127f8d2f8b192d6eb8
-ms.openlocfilehash: 7e95cec543216f13de06d2c2b86bc08040d1a7fb
+ms.sourcegitcommit: 6fbf89668d47d55d1d77a1d7f11765567fc73405
+ms.openlocfilehash: de365cf073ed234ece1d9af56232a29b7ef8eec4
 ms.contentlocale: zh-cn
-ms.lasthandoff: 05/13/2017
+ms.lasthandoff: 05/26/2017
 
 ---
 # <a name="application-lifecycle-management-alm-with-unity-apps"></a>适用于 Unity 应用的 Visual Studio 应用程序生命周期管理 (ALM)
@@ -77,7 +77,7 @@ ms.lasthandoff: 05/13/2017
 |-------------|--------------------------|-------------------------|  
 |[使用 Team Foundation 版本控制](http://msdn.microsoft.com/Library/1d629052-c65d-4c5d-81eb-eaa4413fe285)或 Visual Studio Team Services|是|像其他项目一样，Unity 项目仅可放入版本控制系统的文件集合，但有几点需要特别注意，见此表后所述内容。|  
 |[Team Services 中的 Git 入门](http://msdn.microsoft.com/Library/32f46ecd-1b03-4ef0-a9c4-8a120da2b03f)|是|请参阅表后的注释。|  
-|[代码分析/提高代码质量（引用、建议的更改等）](http://msdn.microsoft.com/Library/73baa961-c21f-43fe-bb92-3f59ae9b5945)|是||  
+|[提高代码质量](/visualstudio/test/improve-code-quality)|是||  
 |[查找代码更改和其他历史记录](../ide/find-code-changes-and-other-history-with-codelens.md)|是||  
 |[使用代码图调试应用程序](../modeling/use-code-maps-to-debug-your-applications.md)|是||  
   
@@ -113,7 +113,7 @@ ms.lasthandoff: 05/13/2017
 |[使用 UI 自动化来测试代码](../test/use-ui-automation-to-test-your-code.md)|No|编码的 UI 测试依赖于应用 UI 中可读取的控件；Unity 应用在本质上都是图形，因此编码的 UI 测试工具无法读取其内容。|  
   
 ## <a name="improve-code-quality"></a>提高代码质量  
- 参考链接：**[提高代码质量](http://msdn.microsoft.com/Library/73baa961-c21f-43fe-bb92-3f59ae9b5945)**  
+ 参考链接：**[提高代码质量](/visualstudio/test/improve-code-quality)**  
   
 |功能|通过 Unity 提供支持|其他注释|  
 |-------------|--------------------------|-------------------------|  

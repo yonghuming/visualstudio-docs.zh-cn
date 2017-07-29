@@ -1,34 +1,54 @@
 ---
 title: "在 Visual Studio 中自定义窗口布局 | Microsoft Docs"
-ms.custom: ""
-ms.date: "01/23/2017"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-general"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "vs.windows"
-  - "vs.environment"
-helpviewer_keywords: 
-  - "AutoHide 窗口"
-  - "自定义布局"
-  - "自定义窗口配置"
-  - "调试模式"
-  - "文档窗口 [Visual Studio]"
-  - "接口模式"
-  - "布局 [Visual Studio], 窗口管理"
-  - "MDI, 窗口界面模式"
-  - "多监视器"
-  - "“选项卡式文档”模式"
-  - "窗口 [Visual Studio], 管理"
+ms.custom: 
+ms.date: 01/23/2017
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-general
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords:
+- vs.windows
+- vs.environment
+helpviewer_keywords:
+- windows [Visual Studio], managing
+- custom window configurations
+- layout [Visual Studio], window management
+- document windows [Visual Studio]
+- interface modes
+- AutoHide windows
+- MDI, window interface modes
+- multiple monitors
+- Tabbed Document mode
+- debug mode
+- custom layouts
 ms.assetid: 7517ff13-76de-4ecf-9c1b-eb9b7ff4d718
 caps.latest.revision: 27
-author: "kempb"
-ms.author: "kempb"
-manager: "ghogen"
-caps.handback.revision: 27
+author: kempb
+ms.author: kempb
+manager: ghogen
+translation.priority.ht:
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- ru-ru
+- zh-cn
+- zh-tw
+translation.priority.mt:
+- cs-cz
+- pl-pl
+- pt-br
+- tr-tr
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 5ea9179ad37514ffad4876177b05150eecc22def
+ms.openlocfilehash: 8ab795965dc205cd783f469d134d64fb2b5dacf6
+ms.contentlocale: zh-cn
+ms.lasthandoff: 05/24/2017
+
 ---
 # <a name="customize-window-layouts-in-visual-studio"></a>在 Visual Studio 中自定义窗口布局
 在 Visual Studio 中，你可以自定义窗口的位置、大小和行为，以为各种开发工作流创建最佳窗口布局。 自定义布局时，IDE 会记住它。 例如，如果你更改了 **“解决方案资源管理器”** 的停靠位置然后关闭 Visual Studio，则下次启动时（即使在另一台计算机上工作）， **“解决方案资源管理器”** 将停靠在相同位置。 还可以为自定义布局命名并将其保存，并通过单个命令在各布局间切换。 例如，可以创建一个用于编辑的布局和另一个用于调试的布局，并通过使用“窗口”|“应用窗口布局”菜单命令在二者之间切换。  
@@ -74,7 +94,7 @@ caps.handback.revision: 27
  可以通过拖动、使用 **“窗口”** 菜单上的命令或右键单击待排列窗口的标题栏，来排列工具窗口和文档窗口。  
 
 > [!NOTE]
->  以下说明中的某些 Visual Studio 用户界面元素在计算机上出现的名称或位置可能会不同。 这些元素取决于你所使用的 Visual Studio 版本和你所使用的设置。 有关详细信息，请参阅[在 Visual Studio 中自定义开发设置](http://msdn.microsoft.com/en-us/22c4debb-4e31-47a8-8f19-16f328d7dcd3)。  
+>  以下说明中的某些 Visual Studio 用户界面元素在计算机上出现的名称或位置可能会不同。 这些元素取决于你所使用的 Visual Studio 版本和你所使用的设置。 有关详细信息，请参阅[个性化设置 Visual Studio IDE](../ide/personalizing-the-visual-studio-ide.md)。  
 
 ### <a name="dock-windows"></a>停靠窗口  
  单击和拖动工具窗口的标题栏或文档窗口的选项卡时，将显示一个菱形引导标记。 进行拖动操作时，当鼠标光标悬停在菱形中的一个箭头之上时，将出现一个阴影区域，显示如果现在释放鼠标按钮，窗口将停靠的位置。  
@@ -103,7 +123,7 @@ caps.handback.revision: 27
  ![自动隐藏](../ide/media/vs2015_auto_hide.png "vs2017_auto_hide")  
 
 > [!NOTE]
->  若要设置“自动隐藏”是单独针对工具窗口执行还是作为停靠组执行，请选中或清除 **“选项”** 对话框中的 **“自动隐藏按钮仅影响活动工具窗口”** 。 有关详细信息，请参阅[“选项”对话框 ->“环境”->“常规”](../ide/reference/general-environment-options-dialog-box.md)。  
+>  若要设置“自动隐藏”是单独针对工具窗口执行还是作为停靠组执行，请选中或清除 **“选项”** 对话框中的 **“自动隐藏按钮仅影响活动工具窗口”** 。 有关详细信息，请参阅 [General, Environment, Options Dialog Box](../ide/reference/general-environment-options-dialog-box.md)。  
 
 > [!NOTE]
 >  当窗口处于使用状态时，启用了“自动隐藏”的工具窗口可能会暂时滑入视野。 若要再次隐藏该窗口，请选择位于当前窗口之外的项。 当窗口不处于使用状态时，它将滑出视野。  
@@ -148,7 +168,7 @@ caps.handback.revision: 27
 
 2.  在解决方案资源管理器中右键单击新项目，然后选择 **“在对象资源管理器中查看”**。 这将显示 **“SQL Server 对象资源管理器”** 窗口，可在该窗口中访问你的数据库中的表格、视图和其他对象。 可使此窗口浮动或停靠。 根据需要调整其他工具窗口。 如果要增强真实性，可添加实际数据库，但本演练不必这样做。  
 
-3.  如果布局满足你的要求，在主菜单中选择“窗口”>“保存窗口布局”。 将此布局命名为“DB 项目”。 （对于此项目，我们不会涉及调试模式布局。）  
+3.  如果布局满足你的要求，在主菜单中选择“窗口”>“保存窗口布局”。 将此布局命名为“DB 项目”。 （此项目不涉及调试模式布局。）  
 
 ##### <a name="switch-between-the-layouts"></a>在布局之间切换  
 
@@ -175,9 +195,4 @@ caps.handback.revision: 27
 ## <a name="related-topics"></a>相关主题  
 
 [如何：在 IDE 中移动](../ide/how-to-move-around-in-the-visual-studio-ide.md)
-
-
-
-<!--HONumber=Feb17_HO4-->
-
 

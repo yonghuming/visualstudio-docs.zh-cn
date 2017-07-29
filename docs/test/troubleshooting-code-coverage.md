@@ -27,10 +27,10 @@ translation.priority.ht:
 - zh-cn
 - zh-tw
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 47057e9611b824c17077b9127f8d2f8b192d6eb8
-ms.openlocfilehash: e2d04ac6463143efacf4fe4967d9e555aed84d05
+ms.sourcegitcommit: 3d32d11a430227800cb3ed53831a9565eb6adeb3
+ms.openlocfilehash: c435bb9e490e9a3c59de78f383632552c0ca4641
 ms.contentlocale: zh-cn
-ms.lasthandoff: 05/13/2017
+ms.lasthandoff: 05/30/2017
 
 ---
 # <a name="troubleshooting-code-coverage"></a>代码覆盖率疑难解答
@@ -106,7 +106,7 @@ Visual Studio 中的代码覆盖率分析工具可收集本机和托管程序集
  验证程序集不是从本机映像缓存加载的。  
   
  说明  
- 出于性能原因，将不分析本机映像程序集。 有关详细信息，请参阅 [Ngen.exe（本机映像生成器）](http://msdn.microsoft.com/Library/44bf97aa-a9a4-4eba-9a0d-cfaa6fc53a66)。  
+ 出于性能原因，将不分析本机映像程序集。 有关详细信息，请参阅 [Ngen.exe（本机映像生成器）](/dotnet/framework/tools/ngen-exe-native-image-generator)。  
   
  解决方法  
  使用 MSIL 版本的程序集。 不使用 NGen 处理它。  

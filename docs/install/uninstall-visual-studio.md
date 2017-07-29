@@ -31,10 +31,11 @@ translation.priority.mt:
 - pl-pl
 - pt-br
 - tr-tr
-translationtype: Human Translation
-ms.sourcegitcommit: 47c39bd711b69efdb863d71f11e3e472054a3ce3
-ms.openlocfilehash: 3aa97878f868f59d0e5dbdb6eb1eac7268e9efd3
-ms.lasthandoff: 04/06/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 47057e9611b824c17077b9127f8d2f8b192d6eb8
+ms.openlocfilehash: b430c85c7ef2979a9052685529cace6879432b96
+ms.contentlocale: zh-cn
+ms.lasthandoff: 05/13/2017
 
 ---
 
@@ -43,7 +44,7 @@ ms.lasthandoff: 04/06/2017
 
 1.  在计算机上找到 Visual Studio 安装程序。  
 
-     例如，在运行 Windows 10 周年更新的计算机上，选择“启动”，然后滚动到字母“V”，在此处可以看到其列示为“Visual Studio 安装程序”。  
+     例如，在运行 Windows 10 周年更新的计算机上，选择“启动”，然后滚动到字母“V”，在此处可以看到其作为“Visual Studio 安装程序”列出。  
 
      ![Visual Studio 安装程序](media/vs2017-locate-the-visual-studio-installer.PNG "查找 Microsoft Visual Studio 安装程序")
 

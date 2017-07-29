@@ -1,36 +1,56 @@
 ---
-title: "Refactoring Classes and Types (Class Designer) | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-general"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "vs.ClassDesigner.OverrideMembersDialog"
-helpviewer_keywords: 
-  - "members, overriding"
-  - "overriding members"
-  - "classes [Visual Studio], refactoring"
-  - "type members, overriding"
-  - "refactoring, types"
-  - "types [Visual Studio], refactoring"
-  - "Class Designer [Visual Studio], refactoring classes"
-  - "refactoring, classes"
+title: "重构类和类型（类设计器）| Microsoft Docs"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-general
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords:
+- vs.ClassDesigner.OverrideMembersDialog
+helpviewer_keywords:
+- members, overriding
+- overriding members
+- classes [Visual Studio], refactoring
+- type members, overriding
+- refactoring, types
+- types [Visual Studio], refactoring
+- Class Designer [Visual Studio], refactoring classes
+- refactoring, classes
 ms.assetid: dcf07bb4-fa3b-4224-9dec-566fd924a8ce
 caps.latest.revision: 26
-author: "kempb"
-ms.author: "kempb"
-manager: "ghogen"
-caps.handback.revision: 26
+author: kempb
+ms.author: kempb
+manager: ghogen
+translation.priority.ht:
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- ru-ru
+- zh-cn
+- zh-tw
+translation.priority.mt:
+- cs-cz
+- pl-pl
+- pt-br
+- tr-tr
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 47057e9611b824c17077b9127f8d2f8b192d6eb8
+ms.openlocfilehash: ba2ed6d0973e4775b1137c300608bc5ca1bdcb66
+ms.contentlocale: zh-cn
+ms.lasthandoff: 05/13/2017
+
 ---
 # <a name="refactoring-classes-and-types-class-designer"></a>重构类和类型（类设计器）
 重构代码时，通过更改它的内部结构和它的对象的设计方式，而不是更改它的外部行为，你可以让它变得更易理解、维护以及更加高效。 在 Visual Studio 项目中重构 Visual C#.NET、Visual Basic.NET 或 C++ 代码时可以通过使用类设计器和类的详细信息窗口减少必要的工作量并降低引入 bug 的几率。  
   
 > [!NOTE]
->  项目文件可能为只读类型，原因是这个项目受源代码管理且还未签出；它是一个引用项目；或它的文件在磁盘上被标记为只读。 所工作的项目处于这些状态中的某一种之下时，将有多种不同的方式可以用来保存工作，具体取决于项目的状态。 这种情况适用于重构代码，也适用于通过其他方法（如直接编辑代码）更改的代码。 有关详细信息，请参阅 [Display of Read-Only Information (Class Designer)](http://msdn.microsoft.com/en-us/33e2d3a9-1668-4d10-ae56-fa09b3156e0a)（显示只读信息（类设计器））。  
+>  项目文件可能为只读类型，原因是这个项目受源代码管理且还未签出；它是一个引用项目；或它的文件在磁盘上被标记为只读。 当正在处理的项目处于这些状态中的某一状态时，可通过多种方式保存工作，具体取决于项目的状态。 这种情况适用于重构代码，也适用于通过其他方法（如直接编辑代码）更改的代码。 有关详细信息，请参阅 [显示只读信息（类设计器）](http://msdn.microsoft.com/en-us/33e2d3a9-1668-4d10-ae56-fa09b3156e0a)。  
   
 ## <a name="common-tasks"></a>常规任务  
   
@@ -40,7 +60,7 @@ caps.handback.revision: 26
 |**使用接口：** 在类设计器中，可以在类图上实现接口，方法是将它连接到为接口方法提供代码的类。|-   [如何：实现接口（类设计器）](../ide/how-to-implement-an-interface-class-designer.md)|  
 |**重构类型、类型成员和参数：** 通过使用类设计器，可以重命名类型、重写类型成员，或将它们从一种类型移动到另一种类型。 此外还可创建可以为 null 的类型。|-   [重命名类型和类型成员](../ide/refactoring-classes-and-types-class-designer.md#RenamingTypesAndMembers)<br />-   [将类型成员从一个类型移到另一个类型](../ide/refactoring-classes-and-types-class-designer.md#MovingTypeMembers)<br />-   [如何：创建可以为 null 的类型（类设计器）](../ide/how-to-create-a-nullable-type-class-designer.md)|  
   
-###  <a name="a-namerenamingtypesandmembersa-renaming-types-and-type-members"></a><a name="RenamingTypesAndMembers"></a>重命名类型和类型成员  
+###  <a name="RenamingTypesAndMembers"></a>重命名类型和类型成员  
  在类设计器中，你可以在类图上或在属性窗口中重命名类型或类型成员。 在类详细信息窗口中，你可以更改成员名称但不能更改类型名称。 类型或类型成员的重命名将传播到所有的窗口和旧名称出现的代码位置。  
   
 ##### <a name="to-rename-a-name-in-the-class-designer"></a>在类设计器中重新命名  
@@ -74,7 +94,7 @@ caps.handback.revision: 26
   
      新名称将传播到所有的窗口和当前项目中旧名称出现的代码位置。  
   
-###  <a name="a-namemovingtypemembersa-moving-type-members-from-one-type-to-another"></a><a name="MovingTypeMembers"></a>将类型成员从一个类型移到另一个类型  
+###  <a name="MovingTypeMembers"></a> 将类型成员从一个类型移到另一个  
  使用“类设计器” 可以将类型成员从一个类型移到另一个类型，前提是两个类型均在当前类图中可见。  
   
 ##### <a name="to-move-a-type-member-from-one-type-to-another"></a>将类型成员从一个类型移到另一个类型  
@@ -91,8 +111,3 @@ caps.handback.revision: 26
 |-----------|-----------------|  
 |[查看类型和关系（类设计器）](../ide/viewing-types-and-relationships-class-designer.md)||  
 |[设计类和类型（类设计器）](../ide/designing-classes-and-types-class-designer.md)||
-
-
-<!--HONumber=Feb17_HO4-->
-
-

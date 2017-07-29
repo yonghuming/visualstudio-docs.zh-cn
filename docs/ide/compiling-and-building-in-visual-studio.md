@@ -1,7 +1,7 @@
 ---
 title: "在 Visual Studio 中编译和生成 | Microsoft Docs"
 ms.custom: 
-ms.date: 11/04/2016
+ms.date: 7/14/2017
 ms.reviewer: 
 ms.suite: 
 ms.technology:
@@ -16,60 +16,48 @@ caps.latest.revision: 28
 author: kempb
 ms.author: kempb
 manager: ghogen
-translation.priority.ht:
-- cs-cz
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pl-pl
-- pt-br
-- ru-ru
-- tr-tr
-- zh-cn
-- zh-tw
-translationtype: Human Translation
-ms.sourcegitcommit: 5581224b17a7b42f65b69f741f984a144d78fc26
-ms.openlocfilehash: f4ae98f4e9b7dbf4b1066120316ee5a167ae78f2
-ms.lasthandoff: 04/04/2017
+ms.translationtype: HT
+ms.sourcegitcommit: e48ebcafaca37505dbcc92bce682d0c6169004e1
+ms.openlocfilehash: 800fcd5ff96e9e6d05b79c4d6fc5ccf17ba3084b
+ms.contentlocale: zh-cn
+ms.lasthandoff: 07/26/2017
 
 ---
+
 # <a name="compiling-and-building-in-visual-studio"></a>在 Visual Studio 中编译和生成
-在开发周期中，您可以使用 Visual Studio 频繁生成应用程序和创建程序集和可执行程序。 通过经常生成您的代码，您可以更早地标识编译时错误，如不正确的语法、拼错的关键字和类型不匹配项。 您还可以通过频繁生成并运行调试版本的代码来检测和纠正运行时错误，如逻辑错误和语义错误。  
-  
- 在完全开发和充分调试项目或解决方案之后，您可以在发行版中编译其组件。 默认情况下，发行版将进行优化，并且设计为比调试版本更小且运行速度更快。 有关详细信息，请参阅[演练：生成应用程序](../ide/walkthrough-building-an-application.md)。  
-  
-## <a name="choosing-a-build-method"></a>选择一种生成方法  
- 您可以在命令提示符处使用 IDE 中的默认生成选项或使用 Team Foundation Build 来生成应用程序。 其中的每个选项都将 MSBuild 用作基础技术，并且每种方法都有特定的好处，如下表所示。  
-  
-|生成方法|优点|更多相关信息|  
-|------------------|--------------|--------------------------|  
-|使用 IDE|-   可以更轻松地创建并立即运行生成。<br />-   可以运行 C++ 和 C# 项目的多处理器生成。<br />-   可以自定义生成系统的某些方面。|[在 Visual Studio 中生成和清理项目和解决方案](../ide/building-and-cleaning-projects-and-solutions-in-visual-studio.md)|  
-|运行 MSBuild 命令行|-   可以生成项目，而无需安装 Visual Studio。<br />-   可以运行所有项目类型的多处理器生成。<br />-   可以自定义生成系统的大多数区域。|[MSBuild](../msbuild/msbuild.md)|  
-|使用 Team Foundation Build|-   可以将生成过程自动化。 例如，您可以在夜间或每次签入此代码时生成一个或多个项目。 还可以在共享的生成服务器而不是开发计算机上生成项目。<br />-   可以快速指定要生成的代码、要运行的测试和其他常用选项。<br />-   可以修改生成工作流，并根据需要创建生成活动以执行深层的自定义任务。|[生成应用程序](http://msdn.microsoft.com/Library/a971b0f9-7c28-479d-a37b-8fd7e27ef692)|  
-  
-## <a name="building-from-the-ide"></a>从 IDE 生成  
- 创建一个项目时，将为此项目定义默认生成配置，并为其分配解决方案生成配置以便为生成提供上下文。 解决方案配置定义如何生成和部署解决方案中的项目。 项目配置是一组项目属性，这些属性对于平台和生成类型是唯一的（例如，Release Win32）。 您可以编辑这些默认配置，并且可以创建您自己的配置。 有关详细信息，请参阅[项目设计器介绍](http://msdn.microsoft.com/en-us/898dd854-c98d-430c-ba1b-a913ce3c73d7)和 [NIB 如何：修改项目属性和配置设置](http://msdn.microsoft.com/en-us/e7184bc5-2f2b-4b4f-aa9a-3ecfcbc48b67)。  
-  
- 从 IDE 中，你可以执行以下额外任务：  
-  
--   [更改生成输出目录](../ide/how-to-change-the-build-output-directory.md)。  
-  
--   [标识依赖于另一个项目中的输出的项目以便正确生成](../ide/how-to-create-and-remove-project-dependencies.md)。  
-  
--   [更改包含在生成日志或生成的“输出”窗口中的信息量](../ide/how-to-view-save-and-configure-build-log-files.md)。  
-  
--   [隐藏 Visual C#、Visual C++ 或 Visual Basic 的特定编译器警告](../ide/how-to-suppress-compiler-warnings.md)。  
-  
--   [为生成指定自定义预编译和编译后操作](../ide/specifying-custom-build-events-in-visual-studio.md)。  
-  
--   通过使用并行生成改进生成性能。 有关详细信息，请参阅[并行生成多个项目](../msbuild/building-multiple-projects-in-parallel-with-msbuild.md)或博客文章 [Tuning C++ build parallelism](http://blogs.msdn.com/b/msbuild/archive/2010/03/08/tuning-c-build-parallelism-in-vs2010.aspx)（调整 C++ 并行生成）。  
+
+在开发周期内随时从源代码中运行生成创建程序集和可执行的应用程序。 一般情况下，生成过程在许多不同的项目类型（如 Windows、ASP.NET、移动应用和其他类型）中非常相似。 生成过程在诸如 C#、Visual Basic、C++ 和 F# 等编程语言之间也非常相似。 
+
+通过经常生成你的代码，你可以快速识别编译时错误，如不正确的语法、拼错的关键字和类型不匹配项。 还可以通过频繁生成并运行调试版本的代码来快速检测和纠正运行时错误，如逻辑错误和语义错误。  
+
+成功的生成实质上是确认应用程序的源代码包含正确的语法，并且已解决对库、程序集和其他组件的所有静态引用。 这会生成一个应用程序可执行文件，然后可以在[调试环境](../debugger/index.md)中通过各种手动和自动测试[验证代码质量](../test/improve-code-quality.md)，测试该可执行文件以便正常运行。 该应用程序经过完全测试后，你可以编译一个发布版本以部署到你的客户。 有关此过程的简介，请参阅[演练：生成应用程序](../ide/walkthrough-building-an-application.md)。  
+
+在 Visual Studio 产品系列中，有三种方法可用于生成应用程序：Visual Studio IDE、MSBuild 命令行工具和 Visual Studio Team Services 上的 Team Foundation Build：
+ 
+| 生成方法 | 优点 | 
+| --- |--- | --- |  
+| IDE |- 立即创建生成并在调试程序中对其进行测试。<br />- 运行 C++ 和 C# 项目的多处理器生成。<br />- 自定义生成系统的不同方面。 |
+| MSBuild 命令行| - 在无需安装 Visual Studio 的情况下生成项目。<br />- 运行所有项目类型的多处理器生成。<br />- 自定义生成系统的大多数区域。|
+| Team Foundation Build | - 自动执行生成过程作为持续集成/持续交付管道的一部分。<br />- 将自动测试应用于每个生成。<br />- 为生成过程采用几乎无限的基于云的资源。<br />- 修改生成工作流，并创建生成活动以执行深层的自定义任务。|  
+
+本节中的文档将详细介绍基于 IDE 的生成过程。 有关其他方法的详细信息，请分别参阅 [MSBuild](../msbuild/msbuild.md) 和[持续集成和部署](https://www.visualstudio.com/docs/build/overview)。
+
+## <a name="overview-of-building-from-the-ide"></a>从 IDE 生成的概述  
+
+创建项目时，Visual Studio 创建了该项目的默认生成配置和包含该项目的解决方案。  这些配置定义如何生成和部署解决方案和项目。 尤其是项目配置，对于目标平台（如 Windows 或 Linux）和生成类型（如调试或发布）必须是唯一的。 但是，你可以根据喜好编辑这些配置，也可以根据需要创建自己的配置。
+
+有关在 IDE 中生成的初次介绍，请参阅[演练：生成应用程序](walkthrough-building-an-application.md)。  
+
+接下来，请参阅[在 Visual Studio 中生成和清理项目和解决方案](building-and-cleaning-projects-and-solutions-in-visual-studio.md)，了解你可以对过程进行哪些不同方面的自定义设置。 自定义包括[更改输出目录](how-to-change-the-build-output-directory.md)、[指定自定义生成事件](specifying-custom-build-events-in-visual-studio.md)、[管理项目依赖项](how-to-create-and-remove-project-dependencies.md)、[管理生成日志文件](how-to-view-save-and-configure-build-log-files.md)以及[禁止显示编译器警告](how-to-suppress-compiler-warnings.md)。
+
+你还可以浏览各种其他任务：
+- [了解生成配置](understanding-build-configurations.md)
+- [了解生成平台](understanding-build-platforms.md)
+- [管理项目和解决方案属性](managing-project-and-solution-properties.md)。  
+- 指定 [C#](how-to-specify-build-events-csharp.md) 和 [Visual Basic](how-to-specify-build-events-visual-basic.md) 中的生成事件。 
+- [设置生成选项](reference/options-dialog-box-projects-and-solutions-build-and-run.md)
+- [并行生成多个项目](../msbuild/building-multiple-projects-in-parallel-with-msbuild.md)。  
   
 ## <a name="see-also"></a>另请参阅  
- [演练：生成应用程序](../ide/walkthrough-building-an-application.md)   
- [了解生成配置](../ide/understanding-build-configurations.md)   
- [了解生成平台](../ide/understanding-build-platforms.md)   
- [构建（编译）网站项目](http://msdn.microsoft.com/Library/a9cbb88c-8fff-4c67-848b-98fbfd823193)   
- [如何：创建和删除项目依赖项](../ide/how-to-create-and-remove-project-dependencies.md)
+
+- [生成（编译）网站项目](http://msdn.microsoft.com/Library/a9cbb88c-8fff-4c67-848b-98fbfd823193)   

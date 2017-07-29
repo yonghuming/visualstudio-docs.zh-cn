@@ -28,14 +28,15 @@ translation.priority.mt:
 - pl-pl
 - pt-br
 - tr-tr
-translationtype: Human Translation
-ms.sourcegitcommit: 5658ecf52637a38bc3c2a5ad9e85b2edebf7d445
-ms.openlocfilehash: 0a5c51b66cb7e5a88b9432c74432947ab94ae316
-ms.lasthandoff: 02/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 3d32d11a430227800cb3ed53831a9565eb6adeb3
+ms.openlocfilehash: c82f07f9514e20fbb365d61a375a7b473f17e1a1
+ms.contentlocale: zh-cn
+ms.lasthandoff: 05/30/2017
 
 ---
 # <a name="walkthrough-create-a-simple-application-with-visual-c-or-visual-basic"></a>演练：使用 Visual C# 或 Visual Basic 创建简单应用程序
-通过完成本演练，你将熟悉在使用 Visual Studio 开发应用程序时可使用的许多工具、对话框和设计器。 你将创建一个简单的“Hello, World”样式的应用程序、设计 UI、添加代码并调试错误，同时会更多地了解如何在集成开发环境 (IDE) 中工作。  
+通过完成本演练，你将熟悉在使用 Visual Studio 开发应用程序时可使用的许多工具、对话框和设计器。 你将创建一个简单的“Hello, World”样式的应用程序、设计 UI、添加代码并调试错误，同时会详细了解如何在集成开发环境 (IDE) 中工作。  
   
  本主题包含以下各节：  
   
@@ -46,14 +47,14 @@ ms.lasthandoff: 02/22/2017
  [调试并测试应用程序](../ide/walkthrough-create-a-simple-application-with-visual-csharp-or-visual-basic.md#BKMK_DebugTest)  
   
 > [!NOTE]
->  此演练基于 Visual Studio Professional，你将使用其中提供的 WPF 应用程序模板生成用于此演练的项目。 Visual Studio Express for Windows Desktop 也提供此模板，但 Visual Studio Express for Windows 和 Visual Studio Express for Web 不提供。 有关如何使用 Visual Studio Express for Windows 的介绍性信息，请参阅 [Windows 应用商店应用开发人员中心](http://msdn.microsoft.com/windows/apps/br229519)。 有关如何使用 Visual Studio Express for Web 的介绍性信息，请参阅 [Get Started with ASP.NET](http://www.asp.net/get-started)（ASP.NET 入门）。 此外，你的 Visual Studio 版本和你使用的设置将决定某些用户界面元素的名称和位置。 请参阅[在 Visual Studio 中自定义开发设置](http://msdn.microsoft.com/en-us/22c4debb-4e31-47a8-8f19-16f328d7dcd3)。  
+>  此演练基于 Visual Studio Professional，你将使用其中提供的 WPF 应用程序模板生成用于此演练的项目。 Visual Studio Express for Windows Desktop 也提供此模板，但 Visual Studio Express for Windows 和 Visual Studio Express for Web 不提供。 有关如何使用 Visual Studio Express for Windows 的介绍性信息，请参阅 [Windows 应用商店应用开发人员中心](http://msdn.microsoft.com/windows/apps/br229519)。 有关如何使用 Visual Studio Express for Web 的介绍性信息，请参阅 [Get Started with ASP.NET](http://www.asp.net/get-started)（ASP.NET 入门）。 此外，你的 Visual Studio 版本和你使用的设置将决定某些用户界面元素的名称和位置。 请参阅[个性化设置 Visual Studio IDE](../ide/personalizing-the-visual-studio-ide.md)。  
   
 ##  <a name="BKMK_ConfigureIDE"></a> 配置 IDE  
  第一次启动 Visual Studio 时，Visual Studio 会提示使用 Microsoft 服务帐户 (MSA)登录， [登录到 Visual Studio](http://blogs.msdn.com/b/visualstudio/archive/2013/06/28/welcome-sign-in-to-visual-studio.aspx)。 您不需要登录，而是可以稍后登录。  
   
  在您的 Visual Studio 启动时，您接下来必须选择适用于 IDE 的一组预定义的自定义项的设置组合。 每个设置组合旨在使你更轻松地开发应用程序。  
   
- 此演练假设您应用 **常规开发设置**，这样对 IDE 应用的自定义项数量最少。 如果您已经选择 C# 或 Visual Basic（两者都是很好的选择），您无需更改您的设置。  如果您想要更改您的设置，则可以使用 **导入和导出设置向导**。 请参阅[在 Visual Studio 中自定义开发设置](http://msdn.microsoft.com/en-us/22c4debb-4e31-47a8-8f19-16f328d7dcd3)。  
+ 此演练假设您应用 **常规开发设置**，这样对 IDE 应用的自定义项数量最少。 如果已经选择 C# 或 Visual Basic（两者都是很好的选择），则无需更改设置。  如果您想要更改您的设置，则可以使用 **导入和导出设置向导**。 请参阅[个性化设置 Visual Studio IDE](../ide/personalizing-the-visual-studio-ide.md)。  
   
  在你打开 Visual Studio 后，可识别工具窗口、菜单和工具栏，以及主窗口空间。 工具窗口停靠在应用程序窗口的左侧和右侧，其顶部有 **“快速启动”**、菜单栏和标准工具栏。 应用程序窗口的中心是 **“起始页”**。 当您加载解决方案或项目时，编辑器和设计器将显示在 **起始页** 的空间中。 开发应用程序时，大部分时间都将用在此中心区域。  
   
@@ -61,17 +62,17 @@ ms.lasthandoff: 02/22/2017
   
  ![应用了常规设置的 IDE](../ide/media/exploreide-idewithgeneralsettings.png "ExploreIDE IDEwithgeneralsettings")  
   
- 你可以通过使用 **“选项”** 对话框对 Visual Studio 进行其他自定义操作，如更改编辑器中文本的字体和字号，或者更改 IDE 的颜色主题。 根据你采用的设置组合，此对话框中的一些项可能不会自动出现。 你可以通过选中 **“显示全部设置”** 复选框确保显示所有可能的选项。  
+ 你可以通过使用 **“选项”** 对话框对 Visual Studio 进行其他自定义操作，如更改编辑器中文本的字体和字号，或者更改 IDE 的颜色主题。 根据应用的设置组合，此对话框中的一些项可能不会自动显示。 你可以通过选中 **“显示全部设置”** 复选框确保显示所有可能的选项。  
   
  图 3：“选项”对话框  
   
  ![具有“显示所有设置”选项的“选项”对话框](../ide/media/exploreide-optionsdialogbox.png "ExploreIDE-Optionsdialogbox")  
   
- 在此示例中，你要将 IDE 的颜色主题从浅更改为深。  如果您愿意，您可以跳到创建项目。  
+ 此示例会将 IDE 的颜色主题从浅色更改为深色。  如果您愿意，您可以跳到创建项目。  
   
 #### <a name="to-change-the-color-theme-of-the-ide"></a>更改 IDE 的颜色主题  
   
-1.  通过选择顶部的 **“选项”** 菜单打开 **选项** 对话框，然后选择 **“选项” …** 项。  
+1.  选择顶部的“工具”菜单，然后选择“选项...”项，打开“选项”对话框。  
   
      ![“工具”菜单上的“选项”命令](../ide/media/exploreide-toolsoptionsmenu.png "ExploreIDE ToolsOptionsmenu")  
   
@@ -83,16 +84,16 @@ ms.lasthandoff: 02/22/2017
   
  ![应用了深色主题的 IDE](../ide/media/exploreide-darkthemeide.png "ExploreIDE DarkThemeIDE")  
   
- 本演练剩余部分的图片使用的颜色主题是浅色主题。 若要深入了解如何自定义 IDE，请参阅 [在 Visual Studio 中自定义开发设置](http://msdn.microsoft.com/en-us/22c4debb-4e31-47a8-8f19-16f328d7dcd3)。  
+ 本演练剩余部分的图片使用的颜色主题是浅色主题。 有关自定义 IDE 的详细信息，请参阅[个性化设置 Visual Studio IDE](../ide/personalizing-the-visual-studio-ide.md)。  
   
-##  <a name="BKMK_CreateApp"></a>创建简单的应用程序  
+##  <a name="BKMK_CreateApp"></a> 创建简单的应用程序  
   
 ### <a name="create-the-project"></a>创建项目  
- 在 Visual Studio 中创建应用程序时，应首先创建项目和解决方案。 在此示例中，您将创建一个 Windows Presentation Foundation 项目。  
+ 在 Visual Studio 中创建应用程序时，应首先创建项目和解决方案。 此示例将创建一个 Windows Presentation Foundation (WPF) 项目。  
   
 ##### <a name="to-create-the-wpf-project"></a>创建 WPF 项目  
   
-1.  创建新项目。 在菜单栏上，依次选择 **文件**、 **新建**和 **项目…**。  
+1.  创建新项目。 在菜单栏上，依次选择“文件”、“新建”、“项目...”。  
   
      ![在菜单栏上，依次选择“文件”、“新建”、“项目”](../ide/media/exploreide-filenewproject.png "ExploreIDE-FileNewProject")  
   
@@ -108,7 +109,7 @@ ms.lasthandoff: 02/22/2017
   
      ![创建 Visual C# WPF 项目，HelloWPFApp](../ide/media/exploreide-newprojectcsharp.png "ExploreIDE-NewProjectcsharp")  
   
- Visual Studio 将创建 HelloWPFApp 项目和解决方案， **解决方案资源管理器** 将显示各种文件。 WPF 设计器在拆分视图中显示 MainWindow.xaml 的设计视图和 XAML 视图。 您可以滑动拆分器，以显示任一视图的更多或更少部分。  您可以选择只查看可视化视图或 XAML 视图。 （有关详细信息，请参阅[面向 Windows 窗体开发人员的 WPF 设计器](http://msdn.microsoft.com/en-us/47ad0909-e89b-4996-b4ac-874d929f94ca)）。 **“解决方案资源管理器”**中显示以下项：  
+ Visual Studio 将创建 HelloWPFApp 项目和解决方案， **解决方案资源管理器** 将显示各种文件。 WPF 设计器在拆分视图中显示 MainWindow.xaml 的设计视图和 XAML 视图。 您可以滑动拆分器，以显示任一视图的更多或更少部分。  您可以选择只查看可视化视图或 XAML 视图。 （有关详细信息，请参阅 [适用于 Windows 窗体开发人员的 WPF 设计器](http://msdn.microsoft.com/en-us/47ad0909-e89b-4996-b4ac-874d929f94ca)）。 **“解决方案资源管理器”**中显示以下项：  
   
  图 5：项目项  
   
@@ -118,7 +119,7 @@ ms.lasthandoff: 02/22/2017
   
 ##### <a name="to-change-the-name-of-mainwindowxaml"></a>更改 MainWindow.xaml 的名称  
   
-1.  在下面的过程中，你将为 MainWindow 指定一个更具体的名称。 在 **“解决方案资源管理器”**中，选择 MainWindow.xaml。 您应该会看到 **属性** 窗口，但如果您不这样做，请选择 **视图** 菜单和 **属性窗口** 项。 将 **“文件名称”** 属性更改为 `Greetings.xaml`。  
+1.  在下面的过程中，需为 MainWindow 提供更具体的名称。 在 **“解决方案资源管理器”**中，选择 MainWindow.xaml。 此时应看到“属性”窗口，如果没有，请依次选择“视图”菜单和“属性窗口”项。 将 **“文件名称”** 属性更改为 `Greetings.xaml`。  
   
      ![突出显示文件名的“属性”窗口](../ide/media/exploreide-filenameinpropertieswindow.png "ExploreIDE FilenameinPropertiesWindow")  
   
@@ -160,13 +161,13 @@ ms.lasthandoff: 02/22/2017
   
 ##### <a name="to-customize-the-text-in-the-text-block"></a>自定义文本块中的文本  
   
-1.  在 XAML 视图中，找到 TextBlock 的标记并更改 Text 属性：`Text=”Select a message option and then choose the Display button.”`  
+1.  在 XAML 视图中，找到 TextBlock 的标记并更改 Text 属性：`Text="Select a message option and then choose the Display button."`  
   
 2.  如果 TextBlock 为适应设计视图而不进行扩展，请放大 TextBlock 控件（使用边上的抓取手柄），以使其显示全部文本。  
   
 3.  通过按 Ctrl-s 或使用 **文件** 菜单项保存所做的更改。  
   
- 接下来，向窗体添加两个 [RadioButton](http://msdn.microsoft.com/Library/6c9ba847-eab7-4bba-9c74-6b56ef72067b) 控件。  
+ 接下来，向窗体添加两个 [RadioButton](/dotnet/framework/wpf/controls/radiobutton) 控件。  
   
 ##### <a name="to-add-radio-buttons"></a>添加单选按钮  
   
@@ -194,15 +195,15 @@ ms.lasthandoff: 02/22/2017
   
 2.  通过在选择 RadioButton2 时按鼠标右键打开 RadioButton2 的快捷菜单，选择 **编辑文本**，然后输入 `Goodbye`。  
   
- 最后添加的 UI 元素是 [Button](http://msdn.microsoft.com/Library/a9d8f5a5-c98c-463e-808a-5a4e63173098) 控件。  
+ 最后添加的 UI 元素是 [Button](/dotnet/framework/wpf/controls/button) 控件。  
   
 ##### <a name="to-add-the-button-control"></a>添加 Button 控件  
   
 1.  在 **工具箱**中，搜索 **按钮** 控件，然后通过选择按钮并将其拖到设计视图的窗体中，将其添加到 RadioButton 控件下方的设计界面中。  
   
-2.  在 XAML 视图中，将 Button 控件的 **内容** 值从 `Content=”Button”` 更改为 `Content=”Display”`，然后保存更改（Ctrl-s 或使用 **文件** 菜单）。  
+2.  在 XAML 视图中，将 Button 控件的 **内容** 值从 `Content="Button"` 更改为 `Content="Display"`，然后保存更改（Ctrl-s 或使用 **文件** 菜单）。  
   
-     标记应与以下示例类似：`<Button Content="Display" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="215,204,0,0"/>`  
+     标记应与以下示例类似： `<Button Content="Display" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="215,204,0,0"/>`  
   
  你的窗口应与下图类似。  
   
@@ -211,7 +212,7 @@ ms.lasthandoff: 02/22/2017
  ![包含控件标签的 Greetings 窗体](../ide/media/exploreide-greetingswithconrollabels.png "ExploreIDE-Greetingswithconrollabels")  
   
 ### <a name="add-code-to-the-display-button"></a>向显示按钮添加代码  
- 此应用程序运行时，用户首先选择单选按钮，再选择 **“显示”** 按钮之后，会显示一个消息框。 选择 Hello 将显示一个消息框，选择 Goodbye 将显示另一个。 要创建此行为，需将代码添加至 Greetings.xaml.vb 或 Greetings.xaml.cs 中的 Button_Click 事件。  
+ 此应用程序运行时，用户首先选择单选按钮，再选择 **“显示”** 按钮之后，会显示一个消息框。 选择 Hello 将显示一个消息框，选择 Goodbye 将显示另一个。 要创建此行为，需将代码添加到 Greetings.xaml.vb 或 Greetings.xaml.cs 中的 Button_Click 事件。  
   
 ##### <a name="add-code-to-display-message-boxes"></a>添加代码以显示消息框  
   
@@ -264,10 +265,10 @@ ms.lasthandoff: 02/22/2017
 3.  保存应用程序。  
   
 ##  <a name="BKMK_DebugTest"></a> 调试并测试应用程序  
- 接下来，你将调试应用程序以查找错误并测试两个消息框是否正确显示。 下面的说明介绍如何生成和启动调试器，但以后可以阅读[生成 WPF 应用程序 (WPF)](http://msdn.microsoft.com/Library/a58696fd-bdad-4b55-9759-136dfdf8b91c) 和[调试 WPF](../debugger/debugging-wpf.md) 以获取有关详细信息。  
+ 接下来将调试应用程序，查找错误并测试两个消息框是否正确显示。 下面的说明介绍如何生成和启动调试器，但以后可以阅读[生成 WPF 应用程序 (WPF)](/dotnet/framework/wpf/app-development/building-a-wpf-application-wpf) 和[调试 WPF](../debugger/debugging-wpf.md) 以获取有关详细信息。  
   
 ### <a name="find-and-fix-errors"></a>查找并修复错误  
- 在此步骤中，你会发现我们之前因更改主窗口 XAML 文件的名称而引起的错误。  
+ 在此步骤中将遇到之前因更改主窗口 XAML 文件的名称而引起的错误。  
   
 ##### <a name="to-start-debugging-and-find-the-error"></a>开始调试和查找错误  
   
@@ -275,7 +276,7 @@ ms.lasthandoff: 02/22/2017
   
      ![“调试”菜单上的“启动调试”命令](../ide/media/exploreide-startdebugging.png "ExploreIDE-StartDebugging")  
   
-     此时将显示对话框，指示 IOException 已发生：无法定位资源“mainwindow.xaml”。  
+     此时将显示对话框，指示已出现 IOException：找不到资源“mainwindow.xaml”。  
   
 2.  选择 **“确定”** 按钮，然后停止调试器。  
   
@@ -296,7 +297,7 @@ ms.lasthandoff: 02/22/2017
   
 ##### <a name="to-add-breakpoints"></a>添加断点  
   
-1.  打开 Greetings.xaml.vb 或 Greetings.xaml.cs，然后选择以下行：`MessageBox.Show("Hello.")`  
+1.  打开 Greetings.xaml.vb 或 Greetings.xaml.cs，然后选择以下行： `MessageBox.Show("Hello.")`  
   
 2.  通过选择 **“调试”**-&gt; **“切换断点”**，从菜单中添加断点。  
   
@@ -312,9 +313,9 @@ ms.lasthandoff: 02/22/2017
   
      行 `MessageBox.Show("Hello.")` 将用黄色突出显示。 在 IDE 底部，“自动”、“本地”和“监视”窗口一起停靠在左侧，而“调用堆栈”、“断点”、“命令”、“即时”和“输出”窗口一起停靠在右侧。  
   
-6.  在菜单栏上，选择 **“调试”**-&gt; **“跳出”**。  
+6.  在菜单栏上，选择 **“调试”**-> **“跳出”**。  
   
-     应用程序继续执行，并显示带单词“Hello”的消息框。  
+     应用程序继续执行，并将显示出带有“Hello”的消息框。  
   
 7.  选择消息框上的 **“确定”** 按钮将其关闭。  
   
@@ -326,18 +327,18 @@ ms.lasthandoff: 02/22/2017
   
 10. 按 SHIFT + F5 键（先按 shift 并按住，再按 F5 键）以停止调试。  
   
-11. 在菜单栏上，选择 **“调试”**-&gt; **“禁用所有断点”**。  
+11. 在菜单栏上，选择 **“调试”**-> **“禁用所有断点”**。  
   
 ### <a name="build-a-release-version-of-the-application"></a>生成应用程序的发布版本  
  确认一切就绪后，可以准备该应用程序的发布版本。  
   
-##### <a name="to-clean-the-solution-files-and-build-a-release-version"></a>清理解决方案文件并生成发布版本  
+##### <a name="to-clean-the-solution-files-and-build-a-release-version"></a>要清理解决方案文件并生成发布版本  
   
 1.  在主菜单中，选择 **生成**，然后选择 **清理解决方案** ，删除上一生成过程中创建的中间文件和输出文件。  这不是必需的，但它会清理调试生成输出。  
   
      ![“生成”菜单上的“清理解决方案”命令](../ide/media/exploreide-cleansolution.png "ExploreIDE-CleanSolution")  
   
-2.  使用工具栏（它当前表示“调试”）上的下拉列表控件把 HelloWPFApp 的生成配置从 **调试** 更改为 **发布** 。  
+2.  使用工具栏（当前显示“调试”）上的下拉列表控件把 HelloWPFApp 的生成配置从“调试”更改为“发布”。  
   
      ![选定了“发布”的“标准”工具栏](../ide/media/exploreide-releaseversion.png "ExploreIDE-ReleaseVersion")  
   
@@ -345,9 +346,9 @@ ms.lasthandoff: 02/22/2017
   
      ![“生成”菜单上的“生成解决方案”命令](../ide/media/exploreide-buildsolution.png "ExploreIDE-BuildSolution")  
   
- 祝贺你完成本演练！ 可以在解决方案和项目目录下找到生成的.exe 文件 (…\HelloWPFApp\HelloWPFApp\bin\Release\\)。 如要了解更多示例，请参阅 [Visual Studio 示例](../ide/visual-studio-samples.md)。  
+ 祝贺你完成本演练！ 可在解决方案和项目目录 (...\HelloWPFApp\HelloWPFApp\bin\Release\\) 下找到生成的 .exe 文件。 如要了解更多示例，请参阅 [Visual Studio Samples](../ide/visual-studio-samples.md)。  
   
 ## <a name="see-also"></a>另请参阅  
- [Visual Studio 2015 中的新增功能](../ide/what-s-new-in-visual-studio-2015.md)   
+ [Visual Studio 2017 中的新增功能](../ide/whats-new-in-visual-studio.md)   
  [Visual Studio 开发入门](../ide/get-started-developing-with-visual-studio.md)   
  [工作效率提示](../ide/productivity-tips-for-visual-studio.md)

@@ -42,10 +42,11 @@ translation.priority.ht:
 - tr-tr
 - zh-cn
 - zh-tw
-translationtype: Human Translation
-ms.sourcegitcommit: 5db97d19b1b823388a465bba15d057b30ff0b3ce
-ms.openlocfilehash: 438567598a70b945f00346154e6da4c78c861d36
-ms.lasthandoff: 02/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 47057e9611b824c17077b9127f8d2f8b192d6eb8
+ms.openlocfilehash: b016ce5c67f1aa7242d7af3f3fb1142b61145f63
+ms.contentlocale: zh-cn
+ms.lasthandoff: 05/13/2017
 
 ---
 # <a name="install-and-manage-local-content"></a>安装和管理本地内容
@@ -67,7 +68,7 @@ ms.lasthandoff: 02/22/2017
   
     -   输入 .msha 文件的路径或服务终结点的 URL。  
   
-    -   选择“浏览 (**...**)”按钮以导航到 .msha 文件。  
+    -   选择“浏览 (...)”按钮导航到 .msha 文件。  
   
     -   在此列表中，选择最近使用的条目。  
   
