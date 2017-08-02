@@ -38,7 +38,7 @@ caps.handback.revision: 46
   
 -   [公开不在宿主项类中的代码](#NonHostItem)  
   
- ![链接到视频](~/docs/data-tools/media/playvideo.gif "链接到视频") 有关相关的视频演示，请参见 [How Do I: Call VSTO Code from VBA?](http://go.microsoft.com/fwlink/?LinkId=136757)（如何实现：从 VBA 调用 VSTO 代码）。  
+ ![链接到视频](~/data-tools/media/playvideo.gif "链接到视频") 有关相关的视频演示，请参见 [How Do I: Call VSTO Code from VBA?](http://go.microsoft.com/fwlink/?LinkId=136757)（如何实现：从 VBA 调用 VSTO 代码）。  
   
 ##  <a name="HostItemCode"></a> 公开宿主项类中的代码  
  为了使 VBA 代码能够调用宿主项类中的 Visual Basic 代码，请将宿主项的**“EnableVbaCallers”**属性设置为**“True”**。  

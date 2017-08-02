@@ -49,7 +49,7 @@ manager: "ghogen"
   
 2.  在“帧列表”中，选择演示未显示该模型的帧。 更新呈现目标以反映所选的帧。 在此方案中，图形日志选项卡如下所示：  
   
-     ![.vsglog 选项卡帧缓冲区预览和帧列表](~/docs/debugger/graphics/media/vsg_walkthru1_experiment.png "vsg\_walkthru1\_experiment")  
+     ![.vsglog 选项卡帧缓冲区预览和帧列表](~/debugger/graphics/media/vsg_walkthru1_experiment.png "vsg\_walkthru1\_experiment")  
   
  选择演示问题的帧后，可以使用“图形事件列表”进行诊断。 “图形事件列表”包含用以呈现活动帧的各个 Direct3D API 调用，例如设置设备状态、创建和更新缓冲区、绘制在帧中显示的对象的 API 调用。 许多类型的调用（例如绘图、调度、复制或清除调用）都很有趣，因为当应用按照预期运行时通常（但不总是）在呈现目标中会有相应的变动。 绘图调用特别有趣，因为每个绘图调用都表示应用呈现的几何图形（调度调用也可呈现几何图形）。  
   
@@ -107,4 +107,4 @@ manager: "ghogen"
   
  确定呈现问题的原因可能是配置错误的深度函数后，可以利用此信息以及你对代码的了解查找错误设置深度函数的位置，并解决此问题。 如果你不熟悉该代码，可以使用调试时收集的线索来查找问题。例如，根据此方案中的“深度模具描述”，你可以在代码中搜索“depth”或“GREATER”等单词。 修复代码后，重新生成并运行应用以查明呈现的问题是否已解决：  
   
- ![修复问题后的应用程序](~/docs/debugger/graphics/media/vsg_walkthru1_finalview.png "vsg\_walkthru1\_finalview")
+ ![修复问题后的应用程序](~/debugger/graphics/media/vsg_walkthru1_finalview.png "vsg\_walkthru1\_finalview")

@@ -30,7 +30,7 @@ caps.handback.revision: 101
 # 快速入门：调试 HTML 和 CSS
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
 
-![适用于 Windows 和 Windows Phone](~/docs/debugger/media/windows_and_phone_content.png "windows\_and\_phone\_content")  
+![适用于 Windows 和 Windows Phone](~/debugger/media/windows_and_phone_content.png "windows\_and\_phone\_content")  
   
  Visual Studio 针对 JavaScript 应用提供全面的调试体验，其中包括 Internet Explorer 和 Visual Studio 开发人员熟悉的多项功能。 这些功能支持 [!INCLUDE[win8_appname_long](../debugger/includes/win8_appname_long_md.md)]、Windows Phone 应用商店应用，以及使用用于 Apache Cordova 的 Visual Studio 工具创建的应用。  
   
@@ -108,7 +108,7 @@ caps.handback.revision: 101
   
      下图显示了在 Phone 仿真程序中运行该应用程序（与模拟器中的情况类似）时希望看到的状态。 但是，若要让应用程序进入此状态，我们必须先修复大量 Bug。  
   
-     ![显示所需结果的 FlipView 应用](~/docs/debugger/media/js_dom_appfixed.png "JS\_DOM\_AppFixed")  
+     ![显示所需结果的 FlipView 应用](~/debugger/media/js_dom_appfixed.png "JS\_DOM\_AppFixed")  
   
 7.  从**“调试”**工具栏上的**“启动调试”**按钮旁的下拉列表中，选择**“模拟器”**或**“仿真程序 8.1 WVGA 4 英寸 512MB”**：  
   
@@ -193,7 +193,7 @@ caps.handback.revision: 101
   
 2.  打开 default.html，然后通过将 `"fView"` DIV 元素的 height 和 width 均设置为 100%，对源代码进行修改。  
   
-3.  选择“调试”工具栏上的**“刷新 Windows 应用程序”**按钮（或按 F4）。 该按钮如下所示：![“刷新 Windows 应用程序”按钮](~/docs/debugger/media/js_refresh.png "JS\_Refresh")。  
+3.  选择“调试”工具栏上的**“刷新 Windows 应用程序”**按钮（或按 F4）。 该按钮如下所示：![“刷新 Windows 应用程序”按钮](~/debugger/media/js_refresh.png "JS\_Refresh")。  
   
      随后将重新加载应用程序页面，并且模拟器或 Phone 仿真程序将返回前台。  
   
@@ -216,7 +216,7 @@ caps.handback.revision: 101
   
  在选择**“选择元素”**之前，可通过切换**“显示网页突出显示”**按钮来指定是否在正在运行的应用中突出显示元素。 下图显示了该按钮。 默认情况下，将显示突出显示的元素。  
   
- ![显示网页突出显示按钮](~/docs/debugger/media/js_dom_display_highlights_button.png "JS\_DOM\_Display\_Highlights\_Button")  
+ ![显示网页突出显示按钮](~/debugger/media/js_dom_display_highlights_button.png "JS\_DOM\_Display\_Highlights\_Button")  
   
  在选择突出显示元素时，将突出显示模拟器中指针悬停在其上方的元素。 突出显示的元素的颜色与 DOM 资源管理器的**“布局”**选项卡中显示的方框模型匹配。  
   

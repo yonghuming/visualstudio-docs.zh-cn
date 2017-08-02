@@ -103,7 +103,7 @@ manager: "douge"
   
      这就是默认应用在 Visual Studio Emulator for Android 中的样子。  
   
-     ![运行你的应用程序的仿真器](~/docs/cross-platform/media/cppmdd_emulator_running_app.PNG "CppMDD\_Emulator\_Running\_App")  
+     ![运行你的应用程序的仿真器](~/cross-platform/media/cppmdd_emulator_running_app.PNG "CppMDD\_Emulator\_Running\_App")  
   
     > [!TIP]
     >  Visual Studio 启动仿真程序，需要几秒钟时间来加载和部署你的代码。  一旦你的应用启动，你可以设置断点，并使用调试器逐步调试代码，检查局部变量并监视值。  

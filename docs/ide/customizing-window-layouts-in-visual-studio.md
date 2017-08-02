@@ -105,22 +105,22 @@ ms.lasthandoff: 05/24/2017
 
  下图显示文档窗口（仅可停靠在编辑框内）的菱形引导标记：  
 
- ![文档窗口菱形引导标记](~/docs/ide/media/documentwindowguidediamonds.png "Documentwindowguidediamonds")  
+ ![文档窗口菱形引导标记](~/ide/media/documentwindowguidediamonds.png "Documentwindowguidediamonds")  
 
  工具窗口可固定到 IDE 中框架的一侧或固定到编辑框内。 当将工具窗口拖动到另一个位置时，会显示一个菱形引导标记，以帮助你轻松地重新停靠窗口。  
 
  工具窗口的菱形引导标记  
 
- ![工具窗口菱形引导标记](~/docs/ide/media/vs10guidediamond.png "VS10GuideDiamond")  
+ ![工具窗口菱形引导标记](~/ide/media/vs10guidediamond.png "VS10GuideDiamond")  
 
  下图显示将解决方案资源管理器停靠到新位置（用蓝色阴影区域显示）：  
 
- ![新位置处的停靠解决方案资源管理器](~/docs/ide/media/vs2015_dock_diamond.png "VS2017_Dock_diamond")  
+ ![新位置处的停靠解决方案资源管理器](~/ide/media/vs2015_dock_diamond.png "VS2017_Dock_diamond")  
 
 ### <a name="close-and-auto-hide-tool-windows"></a>关闭和自动隐藏工具窗口  
  可以通过单击标题栏右上角的 X 关闭工具窗口；若要重新打开该窗口，可使用其键盘快捷方式或菜单命令。 工具窗口支持一个名为“自动隐藏”的功能，这可导致窗口在你使用其他窗口时滑开。 窗口自动隐藏时，其名称将显示在 IDE 边缘的选项卡上。 若要再次使用该窗口，请指向该选项卡，使该窗口滑回视野。  
 
- ![自动隐藏](~/docs/ide/media/vs2015_auto_hide.png "vs2017_auto_hide")  
+ ![自动隐藏](~/ide/media/vs2015_auto_hide.png "vs2017_auto_hide")  
 
 > [!NOTE]
 >  若要设置“自动隐藏”是单独针对工具窗口执行还是作为停靠组执行，请选中或清除 **“选项”** 对话框中的 **“自动隐藏按钮仅影响活动工具窗口”** 。 有关详细信息，请参阅 [General, Environment, Options Dialog Box](../ide/reference/general-environment-options-dialog-box.md)。  
@@ -186,7 +186,7 @@ ms.lasthandoff: 05/24/2017
 
 1.  可通过选择“窗口”>“管理窗口布局”来删除、重命名或重新排列自定义布局。 如果移动布局，则键绑定自动调整以反映列表中的新位置。 绑定不能以其他方式修改，因此一次可存储最多 10 个布局。  
 
-     ![管理窗口布局](~/docs/ide/media/managewindowlayouts.png "ManageWindowLayouts")  
+     ![管理窗口布局](~/ide/media/managewindowlayouts.png "ManageWindowLayouts")  
 
      要提醒自己哪个键盘快捷键分配给了哪个布局，可选择“窗口”>“应用窗口布局”。  
 

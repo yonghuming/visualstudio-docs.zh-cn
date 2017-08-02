@@ -44,7 +44,7 @@ caps.handback.revision: 29
   
      语句用于指示程序执行操作。  在 Visual C\# 中，语句始终以分号结束。  在 Visual Basic 中，行的结尾即为语句的结尾。（Visual Basic 中不需要使用分号。）前面的语句将告知 `PictureBox` 控件下载用户使用**“OpenFileDialog”**组件选择的文件。  
   
- ![链接到视频](~/docs/data-tools/media/playvideo.gif "PlayVideo") 有关本主题的视频版本，请参阅[教程 1：在 Visual Basic 中创建图片查看器 \- 视频 5](http://go.microsoft.com/fwlink/?LinkId=205216) 或[教程 1：在 C\# 中创建图片查看器 \- 视频 5](http://go.microsoft.com/fwlink/?LinkId=205206)。  这些视频使用 Visual Studio 的早期版本，因此在一些菜单命令和其他用户界面元素上略有差异。  但是，概念和过程与当前版本的 Visual Studio 大同小异。  
+ ![链接到视频](~/data-tools/media/playvideo.gif "PlayVideo") 有关本主题的视频版本，请参阅[教程 1：在 Visual Basic 中创建图片查看器 \- 视频 5](http://go.microsoft.com/fwlink/?LinkId=205216) 或[教程 1：在 C\# 中创建图片查看器 \- 视频 5](http://go.microsoft.com/fwlink/?LinkId=205206)。  这些视频使用 Visual Studio 的早期版本，因此在一些菜单命令和其他用户界面元素上略有差异。  但是，概念和过程与当前版本的 Visual Studio 大同小异。  
   
 ### 添加注释  
   
@@ -65,7 +65,7 @@ caps.handback.revision: 29
   
 2.  在运行程序之前，通过选择如下所示的**“全部保存”**工具栏按钮来保存程序。  
   
-     ![“全部保存”工具栏按钮](~/docs/ide/media/express_iconsaveall.png "Express\_IconSaveAll")  
+     ![“全部保存”工具栏按钮](~/ide/media/express_iconsaveall.png "Express\_IconSaveAll")  
 “全部保存”按钮  
   
      或者，若要保存程序，请在菜单栏上依次选择**“文件”**、**“全部保存”**。  最佳做法是尽早且经常保存。  

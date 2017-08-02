@@ -59,7 +59,7 @@ XML 架构资源管理器与 Microsoft Visual Studio 和 XML 编辑器相集成�
   
  下面是树结构的示例：  
   
- ![XML 架构资源管理器](~/docs/xml-tools/media/xmlschemaexplorer.gif "XMLSchemaExplorer")  
+ ![XML 架构资源管理器](~/xml-tools/media/xmlschemaexplorer.gif "XMLSchemaExplorer")  
   
 ## 选择和激活  
  若要突出显示并选择节点，请在架构资源管理器中单击一次。  

@@ -29,7 +29,7 @@ caps.handback.revision: 29
   
  可以使用 [!INCLUDE[vsto_runtime](../vsto/includes/vsto-runtime-md.md)]提供的某个 RemoveCustomization 方法来移除自定义项程序集。  使用哪个方法取决于您是要在运行时（也就是说，通过在 Word 文档或 Excel 工作簿打开时运行自定义项中的代码）移除自定义项，还是要从关闭的文档或未安装 Microsoft Office 的服务器上的文档中移除自定义项。  
   
- ![链接到视频](~/docs/data-tools/media/playvideo.gif "链接到视频") 如需相关视频演示，请参见 [How Do I: Attach or Detach a VSTO Assembly from a Word Document?](http://go.microsoft.com/fwlink/?LinkId=136782)（如何实现：在 Word 文档中附加或分离 VSTO 程序集）。  
+ ![链接到视频](~/data-tools/media/playvideo.gif "链接到视频") 如需相关视频演示，请参见 [How Do I: Attach or Detach a VSTO Assembly from a Word Document?](http://go.microsoft.com/fwlink/?LinkId=136782)（如何实现：在 Word 文档中附加或分离 VSTO 程序集）。  
   
 ### 在运行时移除自定义项程序集  
   

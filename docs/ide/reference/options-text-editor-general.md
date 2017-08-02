@@ -98,7 +98,7 @@ ms.lasthandoff: 05/24/2017
   
 |打开选定内容的边距|关闭选定内容的边距|  
 |-------------------------|--------------------------|  
-|![HTMLpageSelectionMarginOn 屏幕截图](~/docs/ide/reference/media/vxselmaron.gif "vxSelmaron")|![HTMLpageSelectionMarginOff 屏幕截图](~/docs/ide/reference/media/vxselmaroff.gif "vxSelmaroff")|  
+|![HTMLpageSelectionMarginOn 屏幕截图](~/ide/reference/media/vxselmaron.gif "vxSelmaron")|![HTMLpageSelectionMarginOff 屏幕截图](~/ide/reference/media/vxselmaroff.gif "vxSelmaroff")|  
   
  指示器边距  
  勾选此项后，将显示编辑器文本区域的左侧边缘外的垂直边距。 在此边距内单击时，会显示与文本有关的图标和工具提示。 例如，指示器边距内会出现断点或任务列表快捷方式。 但不显示指示器边距信息。  

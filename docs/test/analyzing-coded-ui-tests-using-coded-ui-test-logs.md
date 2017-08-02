@@ -100,7 +100,7 @@ ms.lasthandoff: 05/13/2017
   
      这将显示测试的输出，该输出将包括指向操作日志的链接。  
   
-     ![编码的 UI 测试的结果和输出链接](~/docs/test/media/cuit_htmlactionlog2.png "CUIT_HTMLActionLog2")  
+     ![编码的 UI 测试的结果和输出链接](~/test/media/cuit_htmlactionlog2.png "CUIT_HTMLActionLog2")  
   
 5.  选择 UITestActionLog.html 链接。  
   

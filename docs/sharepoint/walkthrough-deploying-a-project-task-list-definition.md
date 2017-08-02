@@ -166,7 +166,7 @@ caps.handback.revision: 33
   
 2.  在 **发布** 对话框中，选择 **发布到文件系统** 选项按钮。  
   
-     通过选择省略号按钮 ![“省略号”图标](~/docs/sharepoint/media/ellipsisicon.gif "“省略号”图标") 将定位 **发布** 更改对话框的目标位置到另一个位置。  
+     通过选择省略号按钮 ![“省略号”图标](~/sharepoint/media/ellipsisicon.gif "“省略号”图标") 将定位 **发布** 更改对话框的目标位置到另一个位置。  
   
 3.  选择**“发布”**按钮。  
   

@@ -34,7 +34,7 @@ caps.handback.revision: 25
   
 3.  右击功能区设计器，然后单击**“属性”**。  
   
-4.  在**“属性”**窗口中，选择**“Tab”**属性，然后单击省略号按钮 \(![ASP.NET 移动设计器中的省略号](~/docs/sharepoint/media/mwellipsis.gif "ASP.NET 移动设计器中的省略号")\)。  
+4.  在**“属性”**窗口中，选择**“Tab”**属性，然后单击省略号按钮 \(![ASP.NET 移动设计器中的省略号](~/sharepoint/media/mwellipsis.gif "ASP.NET 移动设计器中的省略号")\)。  
   
      将显示**“Tab 集合编辑器”**。  
   

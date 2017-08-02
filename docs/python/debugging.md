@@ -77,7 +77,7 @@ Visual Studio 提供全面的 Python 调试体验，包括附加到正在运行�
 
 断点在标记的点处停止执行代码，便于检查程序状态。 单击代码编辑器的左边距或右键单击代码行，然后选择“断点”>“插入断点”可设置断点。 包含断点的每行上将出现一个红点。
 
-![Visual Studio 中的断点](~/docs/python/media/debugging-breakpoints.png)
+![Visual Studio 中的断点](~/python/media/debugging-breakpoints.png)
 
 单击红点或右键单击代码行，选择“断点”>“删除断点”可删除断点。 若不删除断点，也可以使用“断点”>“禁用断点”命令禁用断点。
 
@@ -88,7 +88,7 @@ Visual Studio 提供全面的 Python 调试体验，包括附加到正在运行�
 
 设置条件时，还可以设置“操作”并创建一条消息以记录到输出窗口，从而选择性地继续自动执行。 这将直接创建一个所谓的*跟踪点*，而无需将日志记录代码引入应用程序：
 
-![使用断点创建跟踪点](~/docs/python/media/debugging-tracepoint.png)
+![使用断点创建跟踪点](~/python/media/debugging-tracepoint.png)
 
 ### <a name="stepping-through-code"></a>逐句通过代码
 
@@ -110,27 +110,27 @@ Visual Studio 提供全面的 Python 调试体验，包括附加到正在运行�
 
 若要使用数据提示查看值，只需将鼠标悬停在编辑器中的任何变量上即可。 可以单击值进行更改：
 
-![调试器中的数据提示](~/docs/python/media/debugging-quick-tips.png)
+![调试器中的数据提示](~/python/media/debugging-quick-tips.png)
 
 自动变量窗口（“调试”>“窗口”>“自动变量”）包含接近当前语句的变量和表达式。 可以在值列中双击或选择值并按 F2 来编辑值：
 
-![调试器中的自动变量窗口](~/docs/python/media/debugging-autos-window.png)
+![调试器中的自动变量窗口](~/python/media/debugging-autos-window.png)
 
 局部变量窗口（“调试”>“窗口”>“局部变量”）显示当前范围内所有可再次编辑的变量：
 
-![调试器中的局部变量窗口](~/docs/python/media/debugging-locals-window.png)
+![调试器中的局部变量窗口](~/python/media/debugging-locals-window.png)
 
 有关使用自动变量和局部变量的详细信息，请参阅[在自动变量窗口和局部变量窗口中检查变量](../debugger/autos-and-locals-windows.md)。
 
 通过监视窗口（“调试”>“窗口”>“监视”>“监视 1-4”）可以输入任意 Python 表达式并查看结果。 每个步骤都重新计算了表达式：
 
-![调试器中的监视窗口](~/docs/python/media/debugging-watch-window.png)
+![调试器中的监视窗口](~/python/media/debugging-watch-window.png)
 
 有关使用监视的详细信息，请参阅[使用监视窗口和快速监视窗口对变量设置监视](../debugger/watch-and-quickwatch-windows.md)。
 
 检查到字符串值（`str`、`unicode`、`bytes` 和 `bytearray` 均被视为用于此目的字符串）时，将在该值的右侧看到一个放大镜图标。 单击该图标将在弹出对话框中显示不带引号的字符串值，对话框具有换行和滚动功能，有助于显示长字符串。 此外，单击图标上的下拉箭头可选择纯文本、HTML、XML 和 JSON 可视化效果：
 
-![字符串可视化工具](~/docs/python/media/debugging-string-visualizers.png)
+![字符串可视化工具](~/python/media/debugging-string-visualizers.png)
 
 HTML、XML 和 JSON 可视化效果显示在单独的弹出窗口中，其中突出显示了语法并采用树状视图。
 
@@ -138,13 +138,13 @@ HTML、XML 和 JSON 可视化效果显示在单独的弹出窗口中，其中突
 
 如果调试器时出错，但你没有相应的异常处理程序，调试器将在异常点处中断：
 
-![异常弹出窗口](~/docs/python/media/debugging-exception-popup.png)
+![异常弹出窗口](~/python/media/debugging-exception-popup.png)
 
 此时，可以检查程序状态，包括调用堆栈。 但如果尝试逐句通过代码，将继续引发该异常，直到异常得以处理或程序退出为止。
 
 “调试”>“窗口”>“异常设置”菜单命令将打开一个窗口，可在其中展开“Python 异常”：
 
-![异常窗口](~/docs/python/media/debugging-exception-settings.png)
+![异常窗口](~/python/media/debugging-exception-settings.png)
 
 每个异常的复选框控制引发该异常时调试器是否*始终*中断。 如果想要针对特定异常比较频繁地进行中断，应选中此框。
 
@@ -156,7 +156,7 @@ HTML、XML 和 JSON 可视化效果显示在单独的弹出窗口中，其中突
 
 默认情况下，调试器使用标准 Python 启动器且不使用命令行参数和其他特殊路径或条件启动程序。 可通过右键单击解决方案资源管理器中的项目，选择“属性”，然后选择“调试”选项卡来访问该项目的调试属性，从而更改这些选项。
 
-![项目调试属性](~/docs/python/media/debugging-project-properties.png)
+![项目调试属性](~/python/media/debugging-project-properties.png)
 
 ### <a name="launch-mode-options"></a>启动模式选项
 
@@ -188,7 +188,7 @@ HTML、XML 和 JSON 可视化效果显示在单独的弹出窗口中，其中突
 
 Python 调试交互窗口（“调试”>“窗口”>“Python 调试交互窗口”）更丰富，因为它可以在调试（包括编写和运行代码）时提供完整的[交互式 REPL](interactive-repl.md) 体验。 它会自动连接到使用标准 Python 启动器在调试器中启动的任何进程（包括通过连接*“调试”>“附加到进程”附加的进程）。 但使用 C/C++ 混合模式调试时，它不可用。
 
-![Python 调试交互窗口](~/docs/python/media/debugging-interactive.png)
+![Python 调试交互窗口](~/python/media/debugging-interactive.png)
 
 除[标准 REPL 命令](interactive-repl.md#meta-commands)外，调试交互窗口还支持特殊元命令：
 
@@ -215,4 +215,4 @@ Python 调试交互窗口（“调试”>“窗口”>“Python 调试交互窗�
 
 调试交互窗口自身具有一组选项，可通过“工具”>“选项”>“Python 工具”>“调试交互窗口”进行访问。 与常规 Python 交互窗口（针对每个 Python 环境具有单独的实例）不同，该交互窗口只有一个调试交互窗口，并且它始终对正在调试的进程使用 Python 解释器。
 
-![调试交互窗口选项](~/docs/python/media/debugging-interactive-options.png)
+![调试交互窗口选项](~/python/media/debugging-interactive-options.png)

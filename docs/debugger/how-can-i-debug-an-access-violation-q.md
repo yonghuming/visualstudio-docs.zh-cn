@@ -44,7 +44,7 @@ manager: "ghogen"
   
  如果在 Visual Studio 2015 Update 1 中运行此代码，你将看到以下异常对话框：  
   
- ![AccessViolationCPlus](~/docs/debugger/media/accessviolationcplus.png "AccessViolationCPlus")  
+ ![AccessViolationCPlus](~/debugger/media/accessviolationcplus.png "AccessViolationCPlus")  
   
  如果无法确定为该指针为何导致访问冲突，请对代码进行跟踪以确保正确指出了导致问题的指针。  如果它作为参数传递，请确保正确传递且未意外创建[浅表副本](http://stackoverflow.com/questions/184710/what-is-the-difference-between-a-deep-copy-and-a-shallow-copy)。 然后验证未由于创建数据断点而在程序中某些位置无意更改了所述指针的值，以确保没有在程序中其他位置对其进行修改。 有关数据断点的详细信息，请参阅[使用断点](../debugger/using-breakpoints.md)中的数据断点部分。  
   

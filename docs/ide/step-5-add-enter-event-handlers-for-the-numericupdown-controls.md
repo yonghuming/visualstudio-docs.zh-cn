@@ -63,7 +63,7 @@ ms.lasthandoff: 02/22/2017
   
 2.  选择“Enter”事件，输入 `answer_Enter`，然后选择 Enter 键。  
   
-     ![“属性”对话框](~/docs/ide/media/express_answerenter.png "Express_AnswerEnter")  
+     ![“属性”对话框](~/ide/media/express_answerenter.png "Express_AnswerEnter")  
 “属性”对话框  
   
      刚才已为 sum NumericUpDown 控件添加一个 Enter 事件处理程序，并将此处理程序命名为“answer_Enter”。  

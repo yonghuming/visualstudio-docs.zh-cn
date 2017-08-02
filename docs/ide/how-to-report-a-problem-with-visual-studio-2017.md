@@ -34,7 +34,7 @@ ms.lasthandoff: 03/07/2017
   1. 单击“登录”；它位于工具左侧，如下面的屏幕截图中所示。
   2. 按照屏幕上的说明登录。
 
-  ![登录以报告问题](~/docs/ide/media/vs2017-report-a-problem-sign-in.png "登录以报告问题")
+  ![登录以报告问题](~/ide/media/vs2017-report-a-problem-sign-in.png "登录以报告问题")
 
 
 ## <a name="search-and-vote-for-similar-problems"></a>搜索类似的问题并为其投票  
@@ -43,7 +43,7 @@ ms.lasthandoff: 03/07/2017
 1.  搜索问题，并查看是否其他人已报告此问题。
 2.  如果有人已报告此问题，请为其“投票”以便让我们知道。  
 
-  ![VS15-FeedbackTool-SearchForSimilarReportedProblems](~/docs/ide/media/vs2017-report-a-problem-search-and-vote.png "搜索类似的问题并为其投票")
+  ![VS15-FeedbackTool-SearchForSimilarReportedProblems](~/ide/media/vs2017-report-a-problem-search-and-vote.png "搜索类似的问题并为其投票")
 
 
 ## <a name="report-a-new-problem"></a>报告新问题

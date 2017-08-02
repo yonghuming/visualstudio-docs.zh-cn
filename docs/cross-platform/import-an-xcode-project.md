@@ -31,11 +31,11 @@ ms.openlocfilehash: 828aa9efccd636e517535947606a33322a3bbc4b
   
 1.  在“文件”菜单上，依次选择“新建”、“导入”和“从 XCode 导入”。 这将启动“从 XCode 导入”向导对话框。  
   
-     ![选择要导入的 XCode 目标项目](~/docs/cross-platform/media/cppmdd_u2_importxcode_choose.PNG "CPPMDD_U2_ImportXCode_Choose")  
+     ![选择要导入的 XCode 目标项目](~/cross-platform/media/cppmdd_u2_importxcode_choose.PNG "CPPMDD_U2_ImportXCode_Choose")  
   
 2.  在“选择项目”窗格中，选择“浏览”按钮以选择 XCode.pbxproj 文件。 导航到“选择 XCode 项目文件”对话框中的项目文件，然后选择“打开”。  
   
-     ![在“选择 Xcode 项目文件”对话框中选择一个项目文件](~/docs/cross-platform/media/cppmdd_u2_importxcode_browse.PNG "CPPMDD_U2_ImportXCode_Browse")  
+     ![在“选择 Xcode 项目文件”对话框中选择一个项目文件](~/cross-platform/media/cppmdd_u2_importxcode_browse.PNG "CPPMDD_U2_ImportXCode_Browse")  
   
      在“从 XCode 导入”向导中，选择“下一步”。  
   

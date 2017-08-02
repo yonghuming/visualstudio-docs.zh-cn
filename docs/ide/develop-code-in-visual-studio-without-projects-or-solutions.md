@@ -73,7 +73,7 @@ ms.lasthandoff: 03/07/2017
 1. 转到想要克隆的存储库。
 1. 在存储库的 GitHub 页上，选择“克隆或下载”按钮，然后在下拉菜单中选择“复制到剪贴板”按钮，以便复制 GitHub 网站的安全 URL。
 
-  ![GitHub 克隆按钮](~/docs/ide/media/VSIDE_Code_Clone.png)
+  ![GitHub 克隆按钮](~/ide/media/VSIDE_Code_Clone.png)
 
     > [!NOTE]
     >  本示例演示如何通过使用安全 URL 方法克隆存储库，但是你也可以选择在桌面上打开项目，或者下载项目的 .zip 文件。
@@ -81,12 +81,12 @@ ms.lasthandoff: 03/07/2017
 1. 在 Visual Studio 中，选择“团队资源管理器”选项卡，打开团队资源管理器。
 1. 在团队资源管理器的“本地 Git 存储库”部分中，选择“克隆”命令，然后将 GitHub 页的 URL 粘贴到文本框。
 
-  ![克隆项目](~/docs/ide/media/VSIDE_Code_Clone2.png)
+  ![克隆项目](~/ide/media/VSIDE_Code_Clone2.png)
 
 1. 选择“克隆”按钮，将项目的文件克隆到本地 Git 存储库。 此过程可能需要几分钟的时间，具体取决于存储库的大小。
 1. 将存储库克隆到系统后，在“团队资源管理器”中，在新克隆项目的上下文（右键单击）菜单上，选择“打开”命令。
 
-  ![克隆的项目](~/docs/ide/media/VSIDE_Code_Clone3.png)
+  ![克隆的项目](~/ide/media/VSIDE_Code_Clone3.png)
 
 1. 选择“显示文件夹视图”命令，查看解决方案资源管理器中的文件
 
@@ -94,7 +94,7 @@ ms.lasthandoff: 03/07/2017
 
   此时，可以浏览克隆项目中的文件夹和文件，并在具有语法着色和其他功能的 Visual Studio 代码编辑器中查看和搜索代码。
 
-    ![搜索克隆项目的代码](~/docs/ide/media/VSIDE_Code_Clone4.png)
+    ![搜索克隆项目的代码](~/ide/media/VSIDE_Code_Clone4.png)
 
 
 ## <a name="debug-your-code"></a>调试代码
@@ -102,7 +102,7 @@ ms.lasthandoff: 03/07/2017
 
 工具栏上“开始”按钮旁的下拉列表框中列出了 Visual Studio 检测到的所有启动项，以及你在文件夹中专门选择的项。
 
-![运行按钮](~/docs/ide/media/VSIDE_Code_Run_Button.png)
+![运行按钮](~/ide/media/VSIDE_Code_Run_Button.png)
 
 Visual Studio 会自动识别项目，但是需要你将脚本（例如 Python 和 JavaScript）显式选择为启动项之后，项目才会出现在列表中。
 此外，某些启动项（例如 MSBuild 和 CMake）可能有多个生成配置，这些生成配置会显示在运行按钮的下拉列表中。
@@ -138,11 +138,11 @@ Visual Studio 可以运行多种语言，但它不能运行所有语言。 如�
 
 1. 在解决方案资源管理器中，选择要创建任务的项目的文件或文件夹，在文件或文件夹的上下文（右键单击）菜单上，选择“配置任务”。
 
-  ![配置任务](~/docs/ide/media/VSIDE_Code_Config_Task.png)
+  ![配置任务](~/ide/media/VSIDE_Code_Config_Task.png)
 
   选择“配置任务”可打开名为 tasks.vs.json 的文件。 如果此文件不存在，系统将创建此文件。 此文件中包含所选文件或文件夹的生成任务。
 
-  ![Tasks.vs.json 文件](~/docs/ide/media/VSIDE_Code_Tasks_JSON.png)
+  ![Tasks.vs.json 文件](~/ide/media/VSIDE_Code_Tasks_JSON.png)
 
 1. 将以下生成任务添加到 tasks.vs.json。 此示例中，我们将添加一个名为“列出输出”的简单任务，该任务将在输出窗口中列出所选文件夹中的文件和子文件夹。 （新任务将添加到现有的“任务”数组中。）
 
@@ -159,12 +159,12 @@ Visual Studio 可以运行多种语言，但它不能运行所有语言。 如�
   ```
   完整的生成任务应如下所示。
 
-  ![任意的生成任务](~/docs/ide/media/VSIDE_Code_Tasks_ArbTask.png)
+  ![任意的生成任务](~/ide/media/VSIDE_Code_Tasks_ArbTask.png)
 
 1. 保存项目。
 1. 打开所选文件夹的上下文菜单。 应该可以在上下文菜单底部看到新的任意生成任务。
 
-  ![任意生成任务命令](~/docs/ide/media/VSIDE_Code_Tasks_ArbTask2.png)
+  ![任意生成任务命令](~/ide/media/VSIDE_Code_Tasks_ArbTask2.png)
 
 1. 通过选择新的“列出输出”命令来执行该任务。
 
@@ -174,7 +174,7 @@ Visual Studio 可以运行多种语言，但它不能运行所有语言。 如�
 
 1. 在解决方案资源管理器中，选择项目文件，我们之后会将该文件指定为启动项。 在该文件的上下文（右键单击）菜单上，选择“配置任务”。
 
-  ![自定义生成任务命令](~/docs/ide/media/VSIDE_Code_Tasks_CustTask1.png)
+  ![自定义生成任务命令](~/ide/media/VSIDE_Code_Tasks_CustTask1.png)
 
 1. 将以下生成任务添加到 tasks.vs.json。 本示例中，我们将添加两个任务：一个任务名为“makefile-build”，该任务使用 nMake 命令来生成项目；另一个任务名为“makefile-clean”，该任务调用带有“clean”自变量的 nMake 命令。 应将这两个任务添加到现有的“任务”数组中。 （请注意，这些仅是生成任务的示例。 要使其生效，还需要在系统上安装包含 [nNake](https://docs.microsoft.com/en-us/cpp/build/nmake-reference) 的工作负载。）
 
@@ -199,12 +199,12 @@ Visual Studio 可以运行多种语言，但它不能运行所有语言。 如�
   ```
   完整的自定义生成任务应如下所示。
 
-  ![自定义生成任务](~/docs/ide/media/VSIDE_Code_Tasks_CustTask2.png)
+  ![自定义生成任务](~/ide/media/VSIDE_Code_Tasks_CustTask2.png)
 
 1. 保存项目。
 1. 打开所选文件的上下文菜单。 新的自定义生成任务应该出现在上下文菜单的中间位置。
 
-  ![自定义生成任务命令](~/docs/ide/media/VSIDE_Code_Tasks_CustTask3.png)
+  ![自定义生成任务命令](~/ide/media/VSIDE_Code_Tasks_CustTask3.png)
 
   > [!NOTE]
   > 由于命令的 `contextType` 设置，命令显示在“配置任务”命令下；“build”和“clean”是生成命令，因此它们出现在上下文菜单中间位置的生成部分。
@@ -213,11 +213,11 @@ Visual Studio 可以运行多种语言，但它不能运行所有语言。 如�
 
 1. 在文件的上下文菜单中，选择“设置为启动项”。
 
-  ![自定义生成任务命令](~/docs/ide/media/VSIDE_Code_Tasks_CustTask4.png)
+  ![自定义生成任务命令](~/ide/media/VSIDE_Code_Tasks_CustTask4.png)
 
 1. 在工具栏上，选择“开始”按钮旁边的下拉箭头。 启动项现在显示为一个选项。
 
-  ![自定义生成任务命令](~/docs/ide/media/VSIDE_Code_Tasks_CustTask5.png)
+  ![自定义生成任务命令](~/ide/media/VSIDE_Code_Tasks_CustTask5.png)
 
 现在可以通过选择“开始”按钮或者 F5 键来运行基础代码。 即使 Visual Studio 无法识别基本代码的生成工具，也可以在 Visual Studio 中编辑和调试基本代码。 生成任务的输出将显示在“输出”窗口中，而生成错误将显示在“错误列表”中。 tasks.vs.json 生成任务文件将 Visual Studio 内部开发循环与基本代码所使用的自定义生成工具紧密结合起来。
 
@@ -237,7 +237,7 @@ Visual Studio 可以运行多种语言，但它不能运行所有语言。 如�
 
 默认情况下，tasks.vs.json 文件位于一个名为 `.vs` 的隐藏文件夹中。 若要在 Visual Studio 中查看隐藏文件夹，请在解决方案资源管理器工具栏上选择“显示所有文件”按钮。
 
-![任意生成任务命令](~/docs/ide/media/VSIDE_Code_Tasks_FileLocation.png)
+![任意生成任务命令](~/ide/media/VSIDE_Code_Tasks_FileLocation.png)
 
 tasks.vs.json 文件通常是隐藏状态，因为一般情况下大多数用户不希望在源控件中打开该文件。 但是如果要在源控件中打开该文件，请将其拖入项目的根目录，此处将显示该文件。
 

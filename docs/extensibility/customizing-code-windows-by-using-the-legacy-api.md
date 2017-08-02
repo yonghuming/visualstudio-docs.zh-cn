@@ -25,7 +25,7 @@ caps.handback.revision: 19
   
  代码窗口则 <xref:Microsoft.VisualStudio.Shell.Interop.IVsWindowFrame> 具有文本视图和对象中放置任何修饰的对象。 语言服务在创建时代码窗口在核心您实例化过程编辑器，可以将附加 <xref:Microsoft.VisualStudio.TextManager.Interop.IVsCodeWindowManager> 到代码窗口中，作为显示在下图中。  
   
- ![CodeWindow 图](~/docs/extensibility/media/vscodewindow.gif "vscodewindow")  
+ ![CodeWindow 图](~/extensibility/media/vscodewindow.gif "vscodewindow")  
 “代码”窗口  
   
  语言服务实现代码窗口管理器，并负责管理修饰，如下拉栏。 代码窗口调用 <xref:Microsoft.VisualStudio.TextManager.Interop.IVsCodeWindowManager.AddAdornments%2A> 在代码窗口初始化过程中的方法。 语言服务时进行此调用时，可以添加下拉栏或按钮栏 \(<xref:Microsoft.VisualStudio.TextManager.Interop.IVsButtonBarClient>\) 到代码窗口。  

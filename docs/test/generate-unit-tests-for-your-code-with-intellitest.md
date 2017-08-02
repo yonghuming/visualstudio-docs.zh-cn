@@ -60,7 +60,7 @@ IntelliTest 浏览你的 .NET 代码，以生成测试数据和单元测试套�
   
 2.  在代码中右键单击一种方法并选择“运行 IntelliTest”  ，为方法中的代码生成单元测试。  
   
-     ![在方法中右键单击以生成单元测试](~/docs/test/media/runpex.png "RunPEX")  
+     ![在方法中右键单击以生成单元测试](~/test/media/runpex.png "RunPEX")  
   
      IntelliTest 使用不同的输入多次运行你的代码。 每次运行都会在表中表示出来，显示输入测试数据以及产生的输出或异常。  
   
@@ -92,7 +92,7 @@ IntelliTest 浏览你的 .NET 代码，以生成测试数据和单元测试套�
   
      查看警告，确定后续操作。  
   
-     ![查看警告](~/docs/test/media/pexviewwarning.png "PEXViewWarning")  
+     ![查看警告](~/test/media/pexviewwarning.png "PEXViewWarning")  
   
 2.  调查代码并了解要测试的内容后，可修复警告，以选择要用于测试该接口的类。  
   
@@ -154,7 +154,7 @@ IntelliTest 浏览你的 .NET 代码，以生成测试数据和单元测试套�
   
  接受默认格式以生成测试，或更改项目和测试的命名方式。 你可以创建新的测试项目或将你的测试保存到现有项目。  
   
- ![使用 MSTest 默认值创建 IntelliTest](~/docs/test/media/pexcreateintellitestmstest.png "PEXCreateIntelliTestMSTest")  
+ ![使用 MSTest 默认值创建 IntelliTest](~/test/media/pexcreateintellitestmstest.png "PEXCreateIntelliTestMSTest")  
 
 <a name="extend-framework"></a>  
 ### <a name="q-can-i-use-other-unit-test-frameworks-with-intellitest"></a>问：是否可以将其他单元测试框架用于 IntelliTest？  

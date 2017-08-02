@@ -398,10 +398,10 @@ caps.handback.revision: 8
 |-----------|----------------|--------------------|  
 |**处于未选中状态**|默认|![默认按钮状态](../../extensibility/ux-guidelines/media/0713-10_defaultstate.png "0713-10_DefaultState")||  
 |**主要选择**|可调整大小|![具有重设大小句柄的主要选择](../../extensibility/ux-guidelines/media/0713-11_primaryresize.png "0713-11_PrimaryResize")|![具有的主要选择调整大小控点和 #40; 放大 &#41;](../../extensibility/ux-guidelines/media/0713-12_primaryresizezoom.png "0713-12_PrimaryResizeZoom")|  
-|**主要选择**|不可调整大小|![没有重设大小句柄的主要选择](~/docs/extensibility/ux-guidelines/media/0713-13_primarynoresize.png "0713-13_PrimaryNoResize")|![没有的主要选择调整大小控点和 #40; 放大 &#41;](../../extensibility/ux-guidelines/media/0713-14_primarynoresizezoom.png "0713-14_PrimaryNoResizeZoom")|  
+|**主要选择**|不可调整大小|![没有重设大小句柄的主要选择](~/extensibility/ux-guidelines/media/0713-13_primarynoresize.png "0713-13_PrimaryNoResize")|![没有的主要选择调整大小控点和 #40; 放大 &#41;](../../extensibility/ux-guidelines/media/0713-14_primarynoresizezoom.png "0713-14_PrimaryNoResizeZoom")|  
 |**主要选择**|锁定|![锁定的主要选择](../../extensibility/ux-guidelines/media/0713-15_primarylocked.png "0713-15_PrimaryLocked")|![锁定的主要选择 &#40; 放大 &#41;](../../extensibility/ux-guidelines/media/0713-16_primarylockedzoom.png "0713-16_PrimaryLockedZoom")|  
-|**次要选择**|可调整大小|![具有重设大小句柄的次要选择](../../extensibility/ux-guidelines/media/0713-17_secondaryresize.png "0713-17_SecondaryResize")|![具有的次要选择调整大小控点和 #40; 放大 &#41;](~/docs/extensibility/ux-guidelines/media/0713-18_secondaryresizezoom.png "0713-18_SecondaryResizeZoom")|  
-|**次要选择**|不可调整大小|![没有重设大小句柄的次要选择](~/docs/extensibility/ux-guidelines/media/0713-19_secondarynoresize.png "0713-19_SecondaryNoResize")|![没有重设大小 &#40; 的次要选择缩放 &#41;](~/docs/extensibility/ux-guidelines/media/0713-20_secondarynoresizezoom.png "0713-20_SecondaryNoResizeZoom")|  
+|**次要选择**|可调整大小|![具有重设大小句柄的次要选择](../../extensibility/ux-guidelines/media/0713-17_secondaryresize.png "0713-17_SecondaryResize")|![具有的次要选择调整大小控点和 #40; 放大 &#41;](~/extensibility/ux-guidelines/media/0713-18_secondaryresizezoom.png "0713-18_SecondaryResizeZoom")|  
+|**次要选择**|不可调整大小|![没有重设大小句柄的次要选择](~/extensibility/ux-guidelines/media/0713-19_secondarynoresize.png "0713-19_SecondaryNoResize")|![没有重设大小 &#40; 的次要选择缩放 &#41;](~/extensibility/ux-guidelines/media/0713-20_secondarynoresizezoom.png "0713-20_SecondaryNoResizeZoom")|  
 |**次要选择**|锁定|![锁定的次要选择](../../extensibility/ux-guidelines/media/0713-21_secondarylocked.png "0713-21_SecondaryLocked")|![锁定的次要选择 （&) #40; 放大 &#41;](../../extensibility/ux-guidelines/media/0713-22_secondarylockedzoom.png "0713-22_SecondaryLockedZoom")|  
 |**UI 活动**|默认|![UI 活动状态](../../extensibility/ux-guidelines/media/0713-23_uiactive.png "0713-23_UIActive")|![UI 活动状态 &#40; 放大 &#41;](../../extensibility/ux-guidelines/media/0713-24_uiactivezoom.png "0713-24_UIActiveZoom")|  
   
@@ -410,7 +410,7 @@ caps.handback.revision: 8
 #### <a name="tree-view"></a>树视图  
  与简单突出显示一起显示在树视图中的所选内容。 如果用户单击节点名称或节点图标上时，将成为选择的节点。 展开左侧的节点的三角形标志符号或协定树控件，但不是会影响用户的选择，但有一个例外︰ 在折叠父节点，该节点的子节点上所选内容时，所选内容将移到父级。  
   
- ![Visual Studio 中的典型树视图](~/docs/extensibility/ux-guidelines/media/0713-25_treeview.png "0713-25_TreeView")  
+ ![Visual Studio 中的典型树视图](~/extensibility/ux-guidelines/media/0713-25_treeview.png "0713-25_TreeView")  
   
  **Visual Studio 中的典型树视图**  
   

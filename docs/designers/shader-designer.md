@@ -79,7 +79,7 @@ ms.lasthandoff: 05/13/2017
   
  以下是“着色器设计器模式”工具栏：  
   
- ![着色器设计器模式工具栏。](~/docs/designers/media/digit-dsd-modal-toolbar.png "Digit-DSD-Modal-Toolbar")  
+ ![着色器设计器模式工具栏。](~/designers/media/digit-dsd-modal-toolbar.png "Digit-DSD-Modal-Toolbar")  
   
  下表介绍了“着色器设计器模式”工具栏上的项，按其从左至右的显示顺序列出：  
   

@@ -56,7 +56,7 @@ ms.lasthandoff: 05/24/2017
   
 1.  在菜单栏上，依次选择“工具” 、“选项” 。 展开“文本编辑器”节点，然后选择正在使用的语言对应的节点，或选择“所有语言”，在所有语言中启用行号。 或者，也可以在“快速启动”框中键入**行号**。  
   
-2.  ![用于在编辑器中显示行号的选项](~/docs/ide/reference/media/vs_displaylinenumbers.png "VS_DisplayLineNumbers")  
+2.  ![用于在编辑器中显示行号的选项](~/ide/reference/media/vs_displaylinenumbers.png "VS_DisplayLineNumbers")  
   
 > [!NOTE]
 >  根据你的语言或设置，可能必须在“选项”对话框中选中“显示所有设置”复选框才能显示“所有语言”子节点。  

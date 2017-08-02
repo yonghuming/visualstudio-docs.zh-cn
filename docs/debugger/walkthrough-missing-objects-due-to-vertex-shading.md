@@ -36,7 +36,7 @@ manager: "ghogen"
   
  在此方案中，当应用程序运行测试时，背景如预期呈现，但是，其中一个对象不会出现。 通过使用“图形诊断”，捕获图形日志的问题，以便调试该应用。 应用中的问题如下所示：  
   
- ![无法看到对象。](~/docs/debugger/graphics/media/gfx_diag_demo_missing_object_shader_problem.png "gfx\_diag\_demo\_missing\_object\_shader\_problem")  
+ ![无法看到对象。](~/debugger/graphics/media/gfx_diag_demo_missing_object_shader_problem.png "gfx\_diag\_demo\_missing\_object\_shader\_problem")  
   
 ## 调查  
  通过使用图形诊断工具，你可以加载图形日志文件以检测测试期间捕获的帧。  
@@ -68,7 +68,7 @@ manager: "ghogen"
   
 4.  当到达对应于缺失对象的绘图调用时即停止。 在此方案中，“图形管道阶段”窗口指示几何图形发布到 GPU（由存在“输入装配器”缩略图指示），但由于在顶点着色器阶段出现问题而未显示于呈现目标中（由“顶点着色器”缩略图指示）。  
   
-     ![DrawIndexed 事件及其对管道的影响](~/docs/debugger/graphics/media/gfx_diag_demo_missing_object_shader_step_2.png "gfx\_diag\_demo\_missing\_object\_shader\_step\_2")  
+     ![DrawIndexed 事件及其对管道的影响](~/debugger/graphics/media/gfx_diag_demo_missing_object_shader_step_2.png "gfx\_diag\_demo\_missing\_object\_shader\_step\_2")  
   
  在确认该应用被分配为缺失对象的几何图形的绘制调用并在顶点着色器阶段期间出现问题之后，可以使用 HLSL 调试器检查顶点着色器，查明对象的几何图形发生了什么情况。 你可以使用 HLSL 调试器检查 HLSL 变量在执行期间的状态，分步执行 HLSL 代码，并设置断点以帮助诊断问题。  
   
@@ -80,19 +80,19 @@ manager: "ghogen"
   
 3.  第一次修改 `output` 时，写入成员 `worldPos`。  
   
-     ![“output.worldPos”的值看起来合理](~/docs/debugger/graphics/media/gfx_diag_demo_missing_object_shader_step_4.png "gfx\_diag\_demo\_missing\_object\_shader\_step\_4")  
+     ![“output.worldPos”的值看起来合理](~/debugger/graphics/media/gfx_diag_demo_missing_object_shader_step_4.png "gfx\_diag\_demo\_missing\_object\_shader\_step\_4")  
   
      由于其值看起来是合理的，因此将继续分步执行代码，直至修改 `output` 的下一行。  
   
 4.  下一次修改 `output` 时，写入成员 `pos`。  
   
-     ![“output.pos”的值已归零](~/docs/debugger/graphics/media/gfx_diag_demo_missing_object_shader_step_5.png "gfx\_diag\_demo\_missing\_object\_shader\_step\_5")  
+     ![“output.pos”的值已归零](~/debugger/graphics/media/gfx_diag_demo_missing_object_shader_step_5.png "gfx\_diag\_demo\_missing\_object\_shader\_step\_5")  
   
      这一次，`pos` 成员的值全部为零，这看上去很可疑。 接下来，你需要确定 `output.pos` 的值为什么全为零。  
   
 5.  你注意到，`output.pos` 从名为 `temp` 的变量获取其值。 在上一行中，可以看到 `temp` 的值是其上一个值乘以名为 `projection` 的常量所得的结果。 怀疑 `temp` 的可疑值是否是此乘积的结果。 将指针停留在 `projection` 之上时，即可注意到其值也全为零。  
   
-     ![投影矩阵包含错误的转换](~/docs/debugger/graphics/media/gfx_diag_demo_missing_object_shader_step_6.png "gfx\_diag\_demo\_missing\_object\_shader\_step\_6")  
+     ![投影矩阵包含错误的转换](~/debugger/graphics/media/gfx_diag_demo_missing_object_shader_step_6.png "gfx\_diag\_demo\_missing\_object\_shader\_step\_6")  
   
      在此方案中，检查显示 `temp` 的可疑值很可能是乘以 `projection` 而导致的；而由于 `projection` 是用于包含投影矩阵的常量，因此它包含的所有值不应全部为零。  
   
@@ -104,7 +104,7 @@ manager: "ghogen"
   
 2.  在调用堆栈中向上导航到应用的源代码。 在“图形事件调用堆栈”窗口中，选择最顶层调用以查看是否在该处填充了常量缓冲区。 如果不是，则在调用堆栈中继续向上查找，直至找到填充位置。 在此方案中，你将发现常量缓冲区是在堆栈的更上级处名为 `MarbleMaze::Render` 的函数中，通过使用 `UpdateSubresource` Direct3D API 填充的，并且其值来自名为 `m_marbleConstantBufferData` 的常量缓冲区对象：  
   
-     ![设置对象的常量缓冲区的代码](~/docs/debugger/graphics/media/gfx_diag_demo_missing_object_shader_step_7.png "gfx\_diag\_demo\_missing\_object\_shader\_step\_7")  
+     ![设置对象的常量缓冲区的代码](~/debugger/graphics/media/gfx_diag_demo_missing_object_shader_step_7.png "gfx\_diag\_demo\_missing\_object\_shader\_step\_7")  
   
     > [!TIP]
     >  如果同时调试你的应用，则可以在此位置设置一个断点，在呈现下一帧时将命中该断点。 你随后还可以检查 `m_marbleConstantBufferData` 的成员，以确认填充常量缓冲区后是否已将 `projection` 成员的值设置为全零。  
@@ -119,12 +119,12 @@ manager: "ghogen"
   
  找到设置 `m_marbleConstantBufferData.projection` 的位置后，你可以检查周围的源代码以确定错误值的起源。 在此方案中，你将发现 `m_marbleConstantBufferData.projection` 的值在初始化为由下一行中的代码 `m_camera->GetProjection(&projection);` 给定的值之前，已被设置为名为 `projection` 的本地变量。  
   
- ![在初始化之前设置大理石投影](~/docs/debugger/graphics/media/gfx_diag_demo_missing_object_shader_step_9.png "gfx\_diag\_demo\_missing\_object\_shader\_step\_9")  
+ ![在初始化之前设置大理石投影](~/debugger/graphics/media/gfx_diag_demo_missing_object_shader_step_9.png "gfx\_diag\_demo\_missing\_object\_shader\_step\_9")  
   
  若要解决此问题，可将设置 `m_marbleConstantBufferData.projection` 的值的代码行移动到对局部变量 `projection` 的值进行初始化的行之后。  
   
- ![已更正的 C&#43;&#43; 源代码](~/docs/debugger/graphics/media/gfx_diag_demo_missing_object_shader_step_10.png "gfx\_diag\_demo\_missing\_object\_shader\_step\_10")  
+ ![已更正的 C&#43;&#43; 源代码](~/debugger/graphics/media/gfx_diag_demo_missing_object_shader_step_10.png "gfx\_diag\_demo\_missing\_object\_shader\_step\_10")  
   
  修复代码后，你可以重新生成并运行应用以查明呈现的问题是否已解决：  
   
- ![现在已显示对象。](~/docs/debugger/graphics/media/gfx_diag_demo_missing_object_shader_resolution.png "gfx\_diag\_demo\_missing\_object\_shader\_resolution")
+ ![现在已显示对象。](~/debugger/graphics/media/gfx_diag_demo_missing_object_shader_resolution.png "gfx\_diag\_demo\_missing\_object\_shader\_resolution")

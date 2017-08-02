@@ -35,7 +35,7 @@ caps.handback.revision: 15
   
  以下步骤显示如何创建表示“靶心”目标的纹理。完成后，该纹理应如下图所示。 为了更好地演示纹理中的透明度，已将图像编辑器配置为使用绿色的方格棋盘图案来显示它。  
   
- ![显示为绿色的透明“靶心”目标](~/docs/designers/media/digit-bullseye-texture-in-editor.png "Digit-Bullseye-Texture-In-Editor")  
+ ![显示为绿色的透明“靶心”目标](~/designers/media/digit-bullseye-texture-in-editor.png "Digit-Bullseye-Texture-In-Editor")  
   
  开始前，请确保显示“属性”窗口”。 在工作时，可以使用“属性”窗口设置图像的大小、更改工具属性以及指定颜色。  
   
@@ -83,7 +83,7 @@ caps.handback.revision: 15
   
  “靶心”目标纹理是完整的。 下面是最终图像（以透明度显示）。  
   
- ![完整的“靶心”目标纹理](~/docs/designers/media/gfx_image_demo_bullseye.png "gfx_image_demo_bullseye")  
+ ![完整的“靶心”目标纹理](~/designers/media/gfx_image_demo_bullseye.png "gfx_image_demo_bullseye")  
   
  作为下一步，可以为此纹理生成 MIP 级别。 有关信息，请参阅[如何：创建和修改 MIP 级别](../designers/how-to-create-and-modify-mip-levels.md)。  
   

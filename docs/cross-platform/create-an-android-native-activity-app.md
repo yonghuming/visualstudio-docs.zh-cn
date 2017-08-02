@@ -93,7 +93,7 @@ ms.lasthandoff: 05/13/2017
   
      以下是适用于 Android 的 Visual Studio 仿真程序中的默认应用。  
   
-     ![运行你的应用的仿真程序](~/docs/cross-platform/media/cppmdd_emulator_running_app.PNG "CppMDD_Emulator_Running_App")  
+     ![运行你的应用的仿真程序](~/cross-platform/media/cppmdd_emulator_running_app.PNG "CppMDD_Emulator_Running_App")  
   
      Visual Studio 启动仿真程序，需要几秒钟时间来加载和部署你的代码。 一旦你的应用启动，你可以设置断点，并使用调试器逐步调试代码，检查局部变量并监视值。  
   

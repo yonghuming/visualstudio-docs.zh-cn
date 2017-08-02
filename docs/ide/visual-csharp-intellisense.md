@@ -108,11 +108,11 @@ ms.lasthandoff: 05/24/2017
   
  若要启动“添加 using”操作，请将光标放在无法解析的类型引用上。 例如，创建控制台应用程序并将 `XmlTextReader` 添加到 `Main` 方法主体时，`XmlTextReader` 最右边的字符下方将出现智能标记，因其显示为无法解析的类型引用。  
   
- ![添加 using 智能标记图像](~/docs/ide/media/addusesmart.gif "AddUseSmart")  
+ ![添加 using 智能标记图像](~/ide/media/addusesmart.gif "AddUseSmart")  
   
  然后可以通过从“IntelliSense”菜单或上下文菜单的“解析”子菜单中选择“添加 using”来对其进行调用，或通过智能标记调用“添加 using”。 只有当光标位于未绑定的类型上或靠近它时，才可见智能标记。  
   
- ![添加 using，智能标记展开图像](~/docs/ide/media/addusesmartexp.gif "AddUseSmartExp")  
+ ![添加 using，智能标记展开图像](~/ide/media/addusesmartexp.gif "AddUseSmartExp")  
   
 ### <a name="organize-usings"></a>组织 using  
  “组织 Using”选项对 `using` 和 `extern` 声明进行排序和删除，而无需更改源代码的行为。 一段时间后，由于不必要和未经组织的`using`指令，源文件可能会变得臃肿且难以读取。 “组织 Using”选项通过删除未使用的 `using` 指令来压缩源代码，并通过对其进行排序提高可读性。  
@@ -161,11 +161,11 @@ ms.lasthandoff: 05/24/2017
   
  在 .cs 文件中的一个事件字段后键入 `+=` 运算符时，IntelliSense 提示你按 TAB 键这一选项。 这会插入委托的新实例，该委托指向处理事件的方法。  
   
- ![按钮自动挂钩](~/docs/ide/media/vxautohookup.gif "vxAutoHookUp")  
+ ![按钮自动挂钩](~/ide/media/vxautohookup.gif "vxAutoHookUp")  
   
  如果按 TAB，IntelliSense 将自动为你完成该语句，并在代码编辑器中将事件处理程序引用显示为所选文本。 若要完成自动事件挂钩，IntelliSense 会提示你再次按 TAB 键，以便为事件处理程序创建空的存根。  
   
- ![生成事件处理程序](~/docs/ide/media/vxgenerateeventhandler.gif "vxGenerateEventHandler")  
+ ![生成事件处理程序](~/ide/media/vxgenerateeventhandler.gif "vxGenerateEventHandler")  
   
 > [!NOTE]
 >  如果由 IntelliSense 创建的新委托引用现有的事件处理程序，IntelliSense 将在工具提示中传达此信息。 然后，可以修改此引用；已在代码编辑器中选定该文本。 否则，自动事件挂钩将在此时完成。  

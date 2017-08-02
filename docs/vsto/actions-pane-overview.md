@@ -34,7 +34,7 @@ caps.handback.revision: 100
 > [!NOTE]  
 >  操作窗格不同于自定义任务窗格。  自定义任务窗格与应用程序（而不是特定文档）相关联。  你可以在 VSTO 外接程序中为某些 Microsoft Office 应用程序创建自定义任务窗格。  有关详细信息，请参阅[自定义任务窗格](../vsto/custom-task-panes.md)。  
   
- ![链接到视频](~/docs/data-tools/media/playvideo.gif "链接到视频") 有关相关的视频演示，请参见[如何实现：在 Excel 操作窗格中使用 WPF 控件](http://go.microsoft.com/fwlink/?LinkId=132763)。  
+ ![链接到视频](~/data-tools/media/playvideo.gif "链接到视频") 有关相关的视频演示，请参见[如何实现：在 Excel 操作窗格中使用 WPF 控件](http://go.microsoft.com/fwlink/?LinkId=132763)。  
   
 ## 显示操作窗格  
  操作窗格表示为<xref:Microsoft.Office.Tools.ActionsPane> 类。  当你创建文档级项目时，通过使用项目中 `ThisWorkbook`（针对 Excel）或 `ThisDocument`（针对 Word）类的 `ActionsPane` 字段向你的代码提供此类的实例。  若要显示操作窗格，请将 Windows 窗体控件添加到 `ActionsPane` 字段的 <xref:Microsoft.Office.Tools.ActionsPane.Controls%2A> 属性。  下列代码示例将名为 `actions` 的控件添加到操作窗格。  

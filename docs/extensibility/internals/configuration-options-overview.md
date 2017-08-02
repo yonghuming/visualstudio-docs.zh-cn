@@ -65,7 +65,7 @@ ms.lasthandoff: 02/22/2017
   
  下图显示如何实现这些接口支持解决方案和项目配置︰  
   
- ![配置界面图](~/docs/extensibility/internals/media/vsconfiginterfaces.gif "vsConfigInterfaces")  
+ ![配置界面图](~/extensibility/internals/media/vsconfiginterfaces.gif "vsConfigInterfaces")  
 配置接口  
   
  与上一个关系图相关的一些注释︰  

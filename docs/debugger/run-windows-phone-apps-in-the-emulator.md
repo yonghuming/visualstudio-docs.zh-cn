@@ -24,7 +24,7 @@ manager: "ghogen"
 # 在仿真程序中运行 Windows Phone 应用
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
 
-![仅适用于 Windows Phone](~/docs/debugger/media/phone_only_content.png "phone\_only\_content")  
+![仅适用于 Windows Phone](~/debugger/media/phone_only_content.png "phone\_only\_content")  
   
  Windows Phone 仿真程序是一个可模拟 Windows Phone 的桌面应用程序。该仿真程序提供了一个虚拟环境，你可以在其中调试并测试计算机上的 Windows Phone 应用，而无需使用物理设备。你可以模拟常用的触摸和旋转事件，还可以选择要模拟的物理屏幕大小和分辨率。还可以测试许多常用的功能，例如定位、网络、通知、传感器、加速计以及可选的 SD 卡。  
   
@@ -78,7 +78,7 @@ manager: "ghogen"
   
 2.  在**“标准”**工具栏上，选择一个仿真程序选项。  
   
-     ![Windows Phone 仿真程序图像列表](~/docs/debugger/media/wp_emulator_list.png "WP\_Emulator\_list")  
+     ![Windows Phone 仿真程序图像列表](~/debugger/media/wp_emulator_list.png "WP\_Emulator\_list")  
   
 3.  若要在调试时部署并运行应用，则在**“调试”**菜单上，单击**“开始调试”**，或者按 F5。  
   
@@ -132,9 +132,9 @@ manager: "ghogen"
   
 |工具栏按钮|配置选项|  
 |-----------|----------|  
-|![Windows Phone 仿真程序工具栏上的输入选项](~/docs/debugger/media/wp_emulator_.png "WP\_Emulator\_")|**配置单点或多点输入**<br /><br /> 当启用多点输入时，可右击以移动触摸点，而无需触摸屏幕。然后你可以左击以同时移动这两个触摸点。|  
-|![Windows Phone 仿真程序工具栏上的“方向”](~/docs/debugger/media/wp_emulator_rotation.png "WP\_Emulator\_rotation")|**配置仿真程序的方向**<br /><br /> 可以在 Windows Phone 仿真程序中将方向更改为以下三种方向之一：纵向、横向朝左或横向朝右。在更改方向时不会更改仿真程序的大小。<br /><br /> 若要更改方向，请单击**“向左旋转”**按钮或**“向右旋转”**按钮。|  
-|![Windows Phone 仿真程序工具栏上的大小选项](~/docs/debugger/media/wp_emulator_size.png "WP\_Emulator\_size")|**配置仿真程序的大小**<br /><br /> 可以在主机屏幕上更改仿真程序的大小。仿真程序的每英寸点数 \(DPI\) 以主机监视器 DPI 为基础，无论缩放值如何。<br /><br /> -   若要使仿真程序适合屏幕的大小，请单击**“适应屏幕”**按钮。<br />-   若要更改缩放设置，请单击**“缩放”**按钮。将打开**“缩放”**对话框。在**“缩放”**对话框中，输入 33 到 100 之间的缩放值。|  
+|![Windows Phone 仿真程序工具栏上的输入选项](~/debugger/media/wp_emulator_.png "WP\_Emulator\_")|**配置单点或多点输入**<br /><br /> 当启用多点输入时，可右击以移动触摸点，而无需触摸屏幕。然后你可以左击以同时移动这两个触摸点。|  
+|![Windows Phone 仿真程序工具栏上的“方向”](~/debugger/media/wp_emulator_rotation.png "WP\_Emulator\_rotation")|**配置仿真程序的方向**<br /><br /> 可以在 Windows Phone 仿真程序中将方向更改为以下三种方向之一：纵向、横向朝左或横向朝右。在更改方向时不会更改仿真程序的大小。<br /><br /> 若要更改方向，请单击**“向左旋转”**按钮或**“向右旋转”**按钮。|  
+|![Windows Phone 仿真程序工具栏上的大小选项](~/debugger/media/wp_emulator_size.png "WP\_Emulator\_size")|**配置仿真程序的大小**<br /><br /> 可以在主机屏幕上更改仿真程序的大小。仿真程序的每英寸点数 \(DPI\) 以主机监视器 DPI 为基础，无论缩放值如何。<br /><br /> -   若要使仿真程序适合屏幕的大小，请单击**“适应屏幕”**按钮。<br />-   若要更改缩放设置，请单击**“缩放”**按钮。将打开**“缩放”**对话框。在**“缩放”**对话框中，输入 33 到 100 之间的缩放值。|  
   
 ##  <a name="BKMK_buttons"></a> 在仿真程序上使用模拟的硬件按钮  
  通过使用仿真程序屏幕右侧的模拟的硬件按钮，可模拟手机的硬件按钮的使用。  
@@ -153,7 +153,7 @@ manager: "ghogen"
   
 3.  右侧图像将在点击**“提高音量”**按钮后显示仿真程序以提高音量。  
   
- ![Windows Phone 仿真程序上的按钮](~/docs/debugger/media/wp_emulator_buttons.png "WP\_Emulator\_buttons")  
+ ![Windows Phone 仿真程序上的按钮](~/debugger/media/wp_emulator_buttons.png "WP\_Emulator\_buttons")  
   
 ##  <a name="BKMK_tasks_kbd"></a> 将计算机键盘与仿真程序一起使用  
  仿真程序支持开发计算机上的硬件键盘在 Windows Phone 键盘上的映射。键行为与在 Windows Phone 设备中相同。  
@@ -218,12 +218,12 @@ manager: "ghogen"
   
  原始仿真程序图像始终显示为**“检查点”**列表中的首个项目，并且无法更改或删除。但是，你可以选择不同的快照作为默认的仿真程序图像。  
   
- ![Windows Phone 仿真程序的“检查点”选项卡](~/docs/debugger/media/wp_emulator_checkpoints.png "WP\_Emulator\_checkpoints")  
+ ![Windows Phone 仿真程序的“检查点”选项卡](~/debugger/media/wp_emulator_checkpoints.png "WP\_Emulator\_checkpoints")  
   
 ##  <a name="BKMK_tasks_shot"></a> 在仿真程序中捕获屏幕快照  
  通过使用“附加工具”窗口中的屏幕快照工具，可创建 Windows Phone 应用的屏幕快照。该工具可创建与正在运行的仿真程序的分辨率相匹配的 PNG 文件。  
   
- ![来自 Windows Phone 仿真程序的屏幕快照](~/docs/debugger/media/wp_emulator_screenshots.png "WP\_Emulator\_screenshots")  
+ ![来自 Windows Phone 仿真程序的屏幕快照](~/debugger/media/wp_emulator_screenshots.png "WP\_Emulator\_screenshots")  
   
 #### 使用内置仿真程序屏幕快照工具创建应用屏幕快照  
   

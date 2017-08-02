@@ -32,7 +32,7 @@ manager: "douge"
 ## 使用的对象和接口  
  下图中显示了用于创建就地激活的对象。  
   
- ![就地激活编辑器](~/docs/extensibility/media/vsinplaceactivationeditor.gif "vsInPlaceActivationEditor")  
+ ![就地激活编辑器](~/extensibility/media/vsinplaceactivationeditor.gif "vsInPlaceActivationEditor")  
 就地激活编辑器  
   
 > [!NOTE]

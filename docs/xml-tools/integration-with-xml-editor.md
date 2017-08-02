@@ -26,7 +26,7 @@ XML 编辑器中集成了 XML 架构设计器。如果在 XML 编辑器中修改
   
  以下屏幕快照显示了在 XML 架构资源管理器中打开的某个 XML 架构。XML 架构资源管理器在树视图中显示架构集。XML 编辑器显示当前在 XML 架构资源管理器中处于活动状态的节点的文本视图。  
   
- ![XSDDesignerWithXMLEditor](~/docs/xml-tools/media/xsddesignerwithxmleditor.gif "XSDDesignerWithXMLEditor")  
+ ![XSDDesignerWithXMLEditor](~/xml-tools/media/xsddesignerwithxmleditor.gif "XSDDesignerWithXMLEditor")  
   
  有时，在 XML 编辑器中和在图形设计器中并行查看代码是很有帮助的。若要同时查看两个文件，请右击 XML 编辑器中的任意位置并选择**“视图设计器”**。在“Visual Studio Windows”菜单中，选择**“新建水平 \(或垂直\) 选项卡组”**。  
   

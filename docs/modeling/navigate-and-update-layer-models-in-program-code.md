@@ -63,14 +63,14 @@ using (ILinkedUndoTransaction t =
 ## <a name="dependency-links"></a>依赖关系链接  
  依赖关系链接由一个对象表示。 可以在任一方向导航链接：  
   
- ![一个 ILayerDependencyLink 连接两个 ILayers。] (~/docs/modeling/media/layerapi_dependency.png "LayerApi_Dependency")  
+ ![一个 ILayerDependencyLink 连接两个 ILayers。] (~/modeling/media/layerapi_dependency.png "LayerApi_Dependency")  
   
  若要创建依赖关系链接，请调用 `source.CreateDependencyLink(target)`。  
   
 ## <a name="comments"></a>注释  
  注释可以包含在层或层模型内部，也可以链接到任何层元素：  
   
- ![可以将注释附加到任何层元素。] (~/docs/modeling/media/layerapi_comments.png "LayerApi_Comments")  
+ ![可以将注释附加到任何层元素。] (~/modeling/media/layerapi_comments.png "LayerApi_Comments")  
   
  注释可以链接到任意数量的元素，也可以不链接任何元素。  
   
@@ -136,7 +136,7 @@ public void ... (...)
     if (element != null) ... }}  
 ```  
   
- ![每个 ilayerelement 都由一个 ishape 表示。] (~/docs/modeling/media/layerapi_shapes.png "LayerApi_Shapes")  
+ ![每个 ilayerelement 都由一个 ishape 表示。] (~/modeling/media/layerapi_shapes.png "LayerApi_Shapes")  
   
  <xref:Microsoft.VisualStudio.ArchitectureTools.Extensibility.Presentation.IShape>和<xref:Microsoft.VisualStudio.ArchitectureTools.Extensibility.Presentation.IDiagram>也用于显示 UML 模型。</xref:Microsoft.VisualStudio.ArchitectureTools.Extensibility.Presentation.IDiagram></xref:Microsoft.VisualStudio.ArchitectureTools.Extensibility.Presentation.IShape> 有关详细信息，请参阅[在关系图上显示 UML 模型](../modeling/display-a-uml-model-on-diagrams.md)。  
   

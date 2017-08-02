@@ -34,7 +34,7 @@ caps.handback.revision: 58
   
  [!INCLUDE[appliesto_olkallapp](../vsto/includes/appliesto-olkallapp-md.md)]  
   
- ![链接到视频](~/docs/data-tools/media/playvideo.gif "链接到视频") 相关视频演示，请参阅[如何实现：使用 Outlook 创建自定义任务报表？](http://go.microsoft.com/fwlink/?LinkID=130315)。  
+ ![链接到视频](~/data-tools/media/playvideo.gif "链接到视频") 相关视频演示，请参阅[如何实现：使用 Outlook 创建自定义任务报表？](http://go.microsoft.com/fwlink/?LinkID=130315)。  
   
 ## 访问 Outlook 项目中的对象  
  Outlook 提供了许多可与之交互的对象。 若要有效地使用对象模型，你应熟悉以下顶级对象：  

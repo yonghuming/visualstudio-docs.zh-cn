@@ -199,7 +199,7 @@ Visual Studio 图像库查看器工具可以加载和搜索图像的清单，这
   
  为每个映像源显示的信息，包括哪种类型的背景以显示，指示是否可为主题也支持高对比度，它是有效的何种大小或它是否非特定大小，以及是否映像来自本机程序集。  
   
- ![图像库查看器 罐形主题](~/docs/extensibility/internals/media/image-library-viewer-can-theme.png "Image Library Viewer Can Theme")  
+ ![图像库查看器 罐形主题](~/extensibility/internals/media/image-library-viewer-can-theme.png "Image Library Viewer Can Theme")  
   
  在验证图像清单时，我们建议你部署清单和映像在其实际位置的 DLL。 这将验证正常工作的任何相对路径以及映像库可以查找和加载的清单和映像 DLL。  
   

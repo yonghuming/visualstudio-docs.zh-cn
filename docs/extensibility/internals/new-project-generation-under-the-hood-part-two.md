@@ -134,7 +134,7 @@ namespace Simple
   
  生成的 Windows 应用程序文件夹结构如下所示︰  
   
- ![SimpleSolution](~/docs/extensibility/internals/media/simplesolution.png "SimpleSolution")  
+ ![SimpleSolution](~/extensibility/internals/media/simplesolution.png "SimpleSolution")  
   
  第一个和唯一\<项目 1> 模板读取的标记︰  
   

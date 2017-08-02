@@ -65,13 +65,13 @@ ms.lasthandoff: 05/13/2017
 
 2.  在安装程序中，单击“启动”_旁的“其他选择”（三条杠图标）按钮，然后选择“修改”：  
   
-     ![选择 Visual Studio 安装程序中的“修改”选项](~/docs/cross-platform/media/cross-plat-xamarin-setup-1a.png "跨平台 Xamarin 安装 1")  
+     ![选择 Visual Studio 安装程序中的“修改”选项](~/cross-platform/media/cross-plat-xamarin-setup-1a.png "跨平台 Xamarin 安装 1")  
   
 3.  选中以下选框：
 
     1.  “移动和游戏”>“使用 .NET 的移动环境”。 这也将自动选择“常用工具和软件开发工具包”下的各种 Android 工具。 此选项还应更新现有的所有 Xamarin 安装。  
   
-         ![选择“游戏和移动开发”下的“移动开发”选项](~/docs/cross-platform/media/cross-plat-xamarin-setup-2a.png "跨平台 Xamarin 安装 2")  
+         ![选择“游戏和移动开发”下的“移动开发”选项](~/cross-platform/media/cross-plat-xamarin-setup-2a.png "跨平台 Xamarin 安装 2")  
   
     2. （可选）**“Windows”>“通用 Windows 平台开发”**。 这包括安装需要较长下载时间的仿真器映像的选项；稍后可以随时返回 Visual Studio 安装程序添加它们。  
 
@@ -130,8 +130,8 @@ ms.lasthandoff: 05/13/2017
 
     2.  如下所示，从 Visual Studio 的生成下拉列表中选择“iPhoneSimulator”目标。 如果未列出任何模拟器，请在 Mac 上启动 Xcode，选择“Xcode”->“参数设置”，然后单击“下载”。 在“组件”  下，应显示了可以下载的仿真程序版本。 在 Xamarin 的[调试](https://developer.xamarin.com/guides/ios/deployment,_testing,_and_metrics/debugging_in_xamarin_ios/#Debugging_on_the_Simulator)页 (xamarin.com) 上可以找到关于调试的其他说明。
 
-         ![选择 iPhoneSimulator 生成目标](~/docs/cross-platform/media/crossplat-xamarin-verify-5.png "CrossPlat Xamarin Verify 5")
+         ![选择 iPhoneSimulator 生成目标](~/cross-platform/media/crossplat-xamarin-verify-5.png "CrossPlat Xamarin Verify 5")
 
     3.  如下所示，从 Visual Studio 的调试下拉菜单中选择 iPhone 目标，并按 F5 启动调试器。 此时将在 Mac 上启动仿真程序，在 Visual Studio 中进行调试时，将在该仿真程序中与应用进行交互。
 
-         ![选择 iPhone 调试目标](~/docs/cross-platform/media/crossplat-xamarin-verify-6.png "CrossPlat Xamarin Verify 6")
+         ![选择 iPhone 调试目标](~/cross-platform/media/crossplat-xamarin-verify-6.png "CrossPlat Xamarin Verify 6")

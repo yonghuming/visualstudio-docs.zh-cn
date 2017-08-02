@@ -70,24 +70,24 @@ ms.lasthandoff: 05/13/2017
 
 4.  使用工具栏上的“选择工具”设置选择“内存使用率”。
 
-     ![显示诊断工具](~/docs/profiling/media/DiagToolsSelectTool.png "DiagToolsSelectTool")
+     ![显示诊断工具](~/profiling/media/DiagToolsSelectTool.png "DiagToolsSelectTool")
 
 5.  依次单击“调试”、“启动调试”或单击工具栏上的“启动”或按 **F5**。
 
      当应用完成加载后，将显示诊断工具的“摘要”视图。
 
-     ![诊断工具“摘要”选项卡](~/docs/profiling/media/DiagToolsSummaryTab.png "DiagToolsSummaryTab")
+     ![诊断工具“摘要”选项卡](~/profiling/media/DiagToolsSummaryTab.png "DiagToolsSummaryTab")
 
      > [!NOTE]
      >  因为收集内存数据可能会影响本机或混合模式应用的调试性能，所以内存快照在默认情况下处于禁用状态。 若要对本机或混合模式应用启用快照，请启动调试会话（快捷键：**F5**）。 当“诊断工具”窗口出现时，选择“内存使用率”选项卡，然后选择“堆分析”。  
      >   
-     >  ![启用快照](~/docs/profiling/media/dbgdiag_mem_mixedtoolbar_enablesnapshot.png "DBGDIAG_MEM_MixedToolbar_EnableSnapshot")  
+     >  ![启用快照](~/profiling/media/dbgdiag_mem_mixedtoolbar_enablesnapshot.png "DBGDIAG_MEM_MixedToolbar_EnableSnapshot")  
      >   
      >  停止（快捷键： **Shift + F5**）并重新启动调试。  
 
 6.  若要在调试会话开始时拍摄快照，请选择“内存使用率”摘要工具栏上的“拍摄快照”。 （在此处设置断点可能也会有所帮助。）
 
-    ![拍摄快照](~/docs/profiling/media/dbgdiag_mem_mixedtoolbar_takesnapshot.png "DBGDIAG_MEM_MixedToolbar_TakeSnapshot") 
+    ![拍摄快照](~/profiling/media/dbgdiag_mem_mixedtoolbar_takesnapshot.png "DBGDIAG_MEM_MixedToolbar_TakeSnapshot") 
      
      > [!TIP]
      >  若要为进行内存比较而创建基线，请考虑在调试会话开始时拍摄快照。  
@@ -105,7 +105,7 @@ ms.lasthandoff: 05/13/2017
 ## <a name="analyze-memory-usage-data"></a>分析内存使用率数据
 “内存使用率”摘要表中的行会列出在调试会话期间拍摄的快照，并提供指向更详细视图的链接。
 
-![内存摘要表](~/docs/profiling/media/dbgdiag_mem_summarytable.png "DBGDIAG_MEM_SummaryTable")
+![内存摘要表](~/profiling/media/dbgdiag_mem_summarytable.png "DBGDIAG_MEM_SummaryTable")
 
  列的名称取决于在项目属性中选择的调试模式：.NET、本机或混合（.NET 和本机）。  
   
@@ -117,7 +117,7 @@ ms.lasthandoff: 05/13/2017
 
 若要分析内存使用率，请单击其中一个链接，打开内存使用率详细报表：  
 
--   若要查看当前快照与前一个快照之间的差异的详细信息，请选择箭头左侧的更改链接（![内存使用率增加](~/docs/profiling/media/prof-tour-mem-usage-up-arrow.png "Memory Usage Increase")）。 红色箭头表示内存使用率增加，绿色箭头表示减少。
+-   若要查看当前快照与前一个快照之间的差异的详细信息，请选择箭头左侧的更改链接（![内存使用率增加](~/profiling/media/prof-tour-mem-usage-up-arrow.png "Memory Usage Increase")）。 红色箭头表示内存使用率增加，绿色箭头表示减少。
 
     > [!TIP]
     >  为了帮助更快地识别内存问题，差异报告按照总体数量增加最多（单击“对象(差异)”列中的更改链接）的对象类型或整体堆大小增加最多（单击“堆大小(差异)”列中的更改链接）的对象类型进行排序。
@@ -137,9 +137,9 @@ ms.lasthandoff: 05/13/2017
   
  **“引用的类型”** 树显示上部窗格中选择的类型所持有的引用。  
   
- ![托管的引用类型报表视图](~/docs/profiling/media/dbgdiag_mem_managedtypesreport_referencedtypes.png "DBGDIAG_MEM_ManagedTypesReport_ReferencedTypes")  
+ ![托管的引用类型报表视图](~/profiling/media/dbgdiag_mem_managedtypesreport_referencedtypes.png "DBGDIAG_MEM_ManagedTypesReport_ReferencedTypes")  
   
- 若要显示上部窗格中所选类型的实例，请选择 ![实例图标](~/docs/profiling/media/dbgdiag_mem_instanceicon.png "DBGDIAG_MEM_InstanceIcon") 图标。  
+ 若要显示上部窗格中所选类型的实例，请选择 ![实例图标](~/profiling/media/dbgdiag_mem_instanceicon.png "DBGDIAG_MEM_InstanceIcon") 图标。  
   
  ![实例视图](../profiling/media/dbgdiag_mem_managedtypesreport_instances.png "DBGDIAG_MEM_ManagedTypesReport_Instances")  
   
@@ -152,7 +152,7 @@ ms.lasthandoff: 05/13/2017
   
  **“类型视图”** 显示快照中类型的数量和大小。  
   
--   选择所选类型的实例图标（![“对象类型”列中的实例图标](~/docs/profiling/media/dbg_mma_instancesicon.png "DBG_MMA_InstancesIcon")）可显示有关快照中所选类型的对象信息。  
+-   选择所选类型的实例图标（![“对象类型”列中的实例图标](~/profiling/media/dbg_mma_instancesicon.png "DBG_MMA_InstancesIcon")）可显示有关快照中所选类型的对象信息。  
   
      **“实例”** 视图显示所选类型的每个实例。 选择实例可显示导致在 **“分配调用堆栈”** 窗格中创建实例的调用堆栈。  
   
@@ -166,15 +166,15 @@ ms.lasthandoff: 05/13/2017
   
 -   在 **“诊断工具”** 窗口上的 **“内存使用率”** 选项卡的摘要表单元格中选择更改链接。  
   
-     ![选择更改（差异）报告](~/docs/profiling/media/dbgdiag_mem_choosediffreport.png "DBGDIAG_MEM_ChooseDiffReport")  
+     ![选择更改（差异）报告](~/profiling/media/dbgdiag_mem_choosediffreport.png "DBGDIAG_MEM_ChooseDiffReport")  
   
 -   在托管或本机报告的 **“与之比较的对象”** 列表中选择快照。  
   
-     ![从“比较对象”列表中选择一个快照](~/docs/profiling/media/dbgdiag_mem_choosecompareto.png "DBGDIAG_MEM_ChooseCompareTo")  
+     ![从“比较对象”列表中选择一个快照](~/profiling/media/dbgdiag_mem_choosecompareto.png "DBGDIAG_MEM_ChooseCompareTo")  
   
  更改报告会向基本报告添加一些列（使用 **“(差异)”**进行标记），这些列显示基本快照值与比较快照之间的差异。 下面是本机类型视图差异报告可能会采用的外观：  
   
- ![本机类型差异视图](~/docs/profiling/media/dbgdiag_mem_native_typesviewdiff.png "DBGDIAG_MEM_Native_TypesViewDiff")  
+ ![本机类型差异视图](~/profiling/media/dbgdiag_mem_native_typesviewdiff.png "DBGDIAG_MEM_Native_TypesViewDiff")  
   
 ## <a name="blogs-and-videos"></a>博客和视频  
  [Visual Studio 2015 中的“诊断工具”调试器窗口](http://blogs.msdn.com/b/visualstudioalm/archive/2015/01/16/diagnostic-tools-debugger-window-in-visual-studio-2015.aspx)  

@@ -51,7 +51,7 @@ Visual Studio 可以帮助生成部分源代码，让你专注于实际工作。
 
 <a name="#quick-actions"></a>
 ## <a name="quick-actions"></a>快速操作
-通过快速操作，只凭单个操作便可轻松重构、生成或修改代码。  可使用灯泡图标![小灯泡图标](~/docs/ide/media/vs2015_lightbulbsmall.png "VS2017_LightBulbSmall")，或按“Ctrl+.”应用这些快速操作， 前提是光标位于相应的代码行上。
+通过快速操作，只凭单个操作便可轻松重构、生成或修改代码。  可使用灯泡图标![小灯泡图标](~/ide/media/vs2015_lightbulbsmall.png "VS2017_LightBulbSmall")，或按“Ctrl+.”应用这些快速操作， 前提是光标位于相应的代码行上。
 
 * [快速操作](quick-actions.md)
 * [代码样式和快速操作](code-styles-and-quick-actions.md)

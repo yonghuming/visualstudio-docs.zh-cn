@@ -65,7 +65,7 @@ caps.handback.revision: 22
   
 1.  在先前创建的项目中，选择一个映射文件夹。  
   
-2.  在**“属性”**窗口中，选择 **Deployment location** 属性旁的省略号按钮 \(![ASP.NET 移动设计器中的省略号](~/docs/sharepoint/media/mwellipsis.gif "ASP.NET 移动设计器中的省略号")\)。  
+2.  在**“属性”**窗口中，选择 **Deployment location** 属性旁的省略号按钮 \(![ASP.NET 移动设计器中的省略号](~/sharepoint/media/mwellipsis.gif "ASP.NET 移动设计器中的省略号")\)。  
   
 3.  在**“添加 SharePoint 映射文件夹”**对话框中，浏览找到要将映射文件夹指向的文件夹。  
   

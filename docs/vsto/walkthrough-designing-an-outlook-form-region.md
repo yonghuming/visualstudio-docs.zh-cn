@@ -48,7 +48,7 @@ caps.handback.revision: 40
   
 -   [!INCLUDE[Outlook_15_short](../vsto/includes/outlook-15-short-md.md)] 或 [!INCLUDE[Outlook_14_short](../vsto/includes/outlook-14-short-md.md)]。  
   
- ![链接到视频](~/docs/data-tools/media/playvideo.gif "链接到视频") 有关本主题的视频版本，请参阅[视频帮助：设计 Outlook 窗体区域](http://go.microsoft.com/fwlink/?LinkID=140824)。  
+ ![链接到视频](~/data-tools/media/playvideo.gif "链接到视频") 有关本主题的视频版本，请参阅[视频帮助：设计 Outlook 窗体区域](http://go.microsoft.com/fwlink/?LinkID=140824)。  
   
 ## 创建新的 Outlook VSTO 外接程序项目  
  首先创建基本的 VSTO 外接程序项目。  

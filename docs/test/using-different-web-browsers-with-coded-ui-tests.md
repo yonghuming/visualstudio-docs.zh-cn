@@ -117,17 +117,17 @@ ms.lasthandoff: 05/13/2017
  *我还应该知道什么？*  
  **注意**  
   
--   ![先决条件](~/docs/test/media/prereq.png "Prereq") 不支持 Apple Safari Web 浏览器。  
+-   ![先决条件](~/test/media/prereq.png "Prereq") 不支持 Apple Safari Web 浏览器。  
   
--   ![先决条件](~/docs/test/media/prereq.png "Prereq") 必须在编码的 UI 测试期间启动 Web 浏览器。  
+-   ![先决条件](~/test/media/prereq.png "Prereq") 必须在编码的 UI 测试期间启动 Web 浏览器。  
   
      如果你已打开 Web 浏览器并想在其中运行步骤，则播放将失败，除非你使用 Internet Explorer。 因此，最佳做法是将 Web 浏览器的启动操作作为编码的 UI 测试的一部分。  
   
--   ![先决条件](~/docs/test/media/prereq.png "Prereq") 不支持自动执行浏览器专属 UI 操作（如最大化、最小化和还原）。  
+-   ![先决条件](~/test/media/prereq.png "Prereq") 不支持自动执行浏览器专属 UI 操作（如最大化、最小化和还原）。  
   
  **提示**  
   
--   ![提示](~/docs/test/media/tip.png "Tip") 可以将输出配置为在编码的 UI 日志中添加屏幕截图。 为此，你需要在 QTAgent32.exe.config 文件中设置某些配置设置。 默认情况下，该文件安装在以下位置：  
+-   ![提示](~/test/media/tip.png "Tip") 可以将输出配置为在编码的 UI 日志中添加屏幕截图。 为此，你需要在 QTAgent32.exe.config 文件中设置某些配置设置。 默认情况下，该文件安装在以下位置：  
   
      **C:\Program Files (x86)\Microsoft Visual Studio 11.0\Common7\IDE**  
   

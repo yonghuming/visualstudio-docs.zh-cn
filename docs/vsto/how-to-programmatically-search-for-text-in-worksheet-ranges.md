@@ -33,7 +33,7 @@ caps.handback.revision: 47
 > [!NOTE]  
 >  <xref:Microsoft.Office.Interop.Excel.Range.FindNext%2A> 方法在到达搜索范围末尾后将重新回到范围开始处进行搜索。  您的代码必须确保搜索不会进入死循环。  该示例过程演示了一种使用 <xref:Microsoft.Office.Interop.Excel.Range.Address%2A> 属性处理这种情况的方法。  
   
- ![链接到视频](~/docs/data-tools/media/playvideo.gif "链接到视频") 有关相关视频演示，请参见 [How Do I: Use the Find Method in an Excel Add\-in?](http://go.microsoft.com/fwlink/?LinkID=130294)（如何实现：在 Excel 外接程序中使用查找方法？）。  
+ ![链接到视频](~/data-tools/media/playvideo.gif "链接到视频") 有关相关视频演示，请参见 [How Do I: Use the Find Method in an Excel Add\-in?](http://go.microsoft.com/fwlink/?LinkID=130294)（如何实现：在 Excel 外接程序中使用查找方法？）。  
   
 ### 在工作表范围内搜索文本  
   

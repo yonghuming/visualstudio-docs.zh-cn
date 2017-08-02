@@ -29,7 +29,7 @@ caps.handback.revision: 10
 ## 将专用库添加到扩展和 Visual Studio 中的更新  
  提供一个专用库时，您可以将其添加到 **扩展和更新** Visual Studio 中。  
   
- ![“扩展管理器添加”对话框](~/docs/extensibility/media/em_adddialog.png "EM\_AddDialog")  
+ ![“扩展管理器添加”对话框](~/extensibility/media/em_adddialog.png "EM\_AddDialog")  
   
 #### 若要将私有库添加到扩展和更新  
   
@@ -67,7 +67,7 @@ DisplayNamePackageGuid={GUID} (REG_SZ)
 ## 从专用库安装扩展  
  您可以搜索并安装专用库，在从 Visual Studio 扩展 **扩展和更新**。 下列步骤将使用专用库中名为 `My Gallery`。  
   
- ![安装专用库的扩展管理器](~/docs/extensibility/media/em_.png "EM\_")  
+ ![安装专用库的扩展管理器](~/extensibility/media/em_.png "EM\_")  
   
 #### 搜索和从私有库安装扩展  
   
@@ -80,7 +80,7 @@ DisplayNamePackageGuid={GUID} (REG_SZ)
 ## 从专用库更新扩展  
  在专用的库中发布新版本的 Visual Studio 扩展，可以更新已安装的扩展。 下列步骤将使用专用库中名为 `My Repository`。  
   
- ![扩展管理器专用库更新](~/docs/extensibility/media/em_update.png "EM\_Update")  
+ ![扩展管理器专用库更新](~/extensibility/media/em_update.png "EM\_Update")  
   
 #### 若要更新已安装的扩展从私有库  
   

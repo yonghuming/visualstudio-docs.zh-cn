@@ -139,7 +139,7 @@ caps.handback.revision: 51
   
 -   [Word、InfoPath 和 PowerPoint](#WordAndInfoPath)  
   
- ![链接到视频](~/docs/data-tools/media/playvideo.gif "链接到视频") 有关相关的视频演示，请参阅[如何实现：在 Word VSTO 外接程序中管理任务窗格？](http://go.microsoft.com/fwlink/?LinkId=136781)。  
+ ![链接到视频](~/data-tools/media/playvideo.gif "链接到视频") 有关相关的视频演示，请参阅[如何实现：在 Word VSTO 外接程序中管理任务窗格？](http://go.microsoft.com/fwlink/?LinkId=136781)。  
   
 ##  <a name="Outlook"></a> Outlook  
  为 Outlook 创建自定义任务窗格时，自定义任务窗格与特定资源管理器或检查器窗口关联。  资源管理器是用于显示文件夹内容的窗口，检查器是用于显示诸如电子邮件或任务等项的窗口。  

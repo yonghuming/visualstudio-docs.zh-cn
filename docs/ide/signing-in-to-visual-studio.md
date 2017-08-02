@@ -47,7 +47,7 @@ ms.lasthandoff: 07/21/2017
 
  提供设置后，Visual Studio 将启动，然后你就会进行登录并准备好开始操作。 若要验证你是否已登录，请在 Visual Studio 环境的右上角查找名称。  
 
- ![VS2017 中当前登录的用户](~/docs/ide/media/vs2017_username.png)
+ ![VS2017 中当前登录的用户](~/ide/media/vs2017_username.png)
 
  除非注销，否则在启动 Visual Studio 时会自动登录，并自动应用于对同步设置所做的所有更改。 若要注销，请依次选择 Visual Studio 环境中的配置文件名称旁边的下箭头、 **“帐户设置”** 命令和 **“注销”** 链接。 若要再次登录，请选择 Visual Studio 环境的右上角中的 **“登录”** 命令。  
 

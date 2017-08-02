@@ -75,7 +75,7 @@ ms.lasthandoff: 02/22/2017
 ####  <a name="a-namebkmkmodalerrormessagedialogsa-modal-error-message-dialogs"></a><a name="BKMK_ModalErrorMessageDialogs"></a>模式错误消息对话框  
  模式错误消息对话框用于显示错误消息，要求用户确认或操作。  
   
- ![模式错误消息](~/docs/extensibility/ux-guidelines/media/0901-01_modalerrormessage.png "0901年&01;_ModalErrorMessage")  
+ ![模式错误消息](~/extensibility/ux-guidelines/media/0901-01_modalerrormessage.png "0901年&01;_ModalErrorMessage")  
   
  **模式错误消息对话框提醒用户数据库无效的连接字符串**  
   
@@ -88,14 +88,14 @@ ms.lasthandoff: 02/22/2017
   
  状态栏还着色通信各种 IDE 状态更改，例如当 IDE 处于调试模式下通过添加视觉效果和功能的值。  
   
- ![IDE 状态栏颜色更改](~/docs/extensibility/ux-guidelines/media/0901-02_idestatusbar.png "0901年&02;_IDEStatusBar")  
+ ![IDE 状态栏颜色更改](~/extensibility/ux-guidelines/media/0901-02_idestatusbar.png "0901年&02;_IDEStatusBar")  
   
  **IDE 状态栏的颜色**  
   
 ####  <a name="a-namebkmkembeddedinfobara-embedded-infobar"></a><a name="BKMK_EmbeddedInfobar"></a>嵌入式信息栏  
  可以在文档窗口或工具窗口的顶部使用一个信息栏，用于通知状态或条件的用户。 它还可以提供的命令，以使用户可以轻松地执行操作的方法。 信息栏是一个标准外壳控件。 避免创建您自己，它将执行操作并显示在 IDE 中与其他人不一致。 请参阅[信息栏](../../extensibility/ux-guidelines/notifications-and-progress-for-visual-studio.md#BKMK_Infobars)有关实现详细信息和使用情况的指导。  
   
- ![嵌入式信息栏](~/docs/extensibility/ux-guidelines/media/0901-03_embeddedinfobar.png "0901年&03;_EmbeddedInfobar")  
+ ![嵌入式信息栏](~/extensibility/ux-guidelines/media/0901-03_embeddedinfobar.png "0901年&03;_EmbeddedInfobar")  
   
  **一个信息栏嵌入在文档窗口中，警报 IDE 是历史调试模式下，编辑器将不会响应相同的方式与在标准调试模式下的用户。**  
   
@@ -114,21 +114,21 @@ ms.lasthandoff: 02/22/2017
   
  通知窗口不是当前可扩展的。  
   
- ![Visual Studio 通知窗口](~/docs/extensibility/ux-guidelines/media/0901-06_vsnotificationswindow.png "0901年&06;_VSNotificationsWindow")  
+ ![Visual Studio 通知窗口](~/extensibility/ux-guidelines/media/0901-06_vsnotificationswindow.png "0901年&06;_VSNotificationsWindow")  
   
  **Visual Studio 通知工具窗口**  
   
 ####  <a name="a-namebkmkerrorlista-error-list"></a><a name="BKMK_ErrorList"></a>错误列表  
  错误列表中的通知指示错误和警告的编译过程中发生和或生成过程中，并允许用户在该特定的代码错误的代码中导航。  
   
- ![错误列表](~/docs/extensibility/ux-guidelines/media/0901-08_errorlist.png "0901年&08;_ErrorList")  
+ ![错误列表](~/extensibility/ux-guidelines/media/0901-08_errorlist.png "0901年&08;_ErrorList")  
   
  **在 Visual Studio 中的错误列表**  
   
 ####  <a name="a-namebkmkembeddedstatusbarsa-embedded-status-bars"></a><a name="BKMK_EmbeddedStatusBars"></a>嵌入式的状态栏  
  IDE 状态栏是动态的使用其客户端区域上下文设置为活动文档窗口和更新用户的上下文和/或系统响应上的信息，因为很难维护连续显示信息或使对长期异步进程的状态。 例如，IDE 状态栏会显示不适合的多个运行和/或立即采取行动的项选择的测试运行结果的通知。 请务必保留此类上下文中的用户进行的选择，或将启动一个进程的文档或工具窗口的状态信息。  
   
- ![嵌入式的状态栏](~/docs/extensibility/ux-guidelines/media/0901-09_embeddedstatusbar.png "0901年&09;_EmbeddedStatusBar")  
+ ![嵌入式的状态栏](~/extensibility/ux-guidelines/media/0901-09_embeddedstatusbar.png "0901年&09;_EmbeddedStatusBar")  
   
  **在 Visual Studio 中的嵌入式的状态栏**  
   
@@ -140,7 +140,7 @@ ms.lasthandoff: 02/22/2017
 ####  <a name="a-namebkmknotificationbubblesa-notification-bubbles"></a><a name="BKMK_NotificationBubbles"></a>通知气泡  
  通知气泡可作为信息性编辑器/设计器中或作为 Windows 通知区域的一部分出现。 用户感觉这是一项优势为非关键通知这些气泡为更高版本，它们可以解决的问题。 气泡都不适合于用户必须立即解决的关键信息。 如果您在 Visual Studio 中使用通知气泡，请按照[Windows 桌面通知气泡指南](https://msdn.microsoft.com/en-us/library/windows/desktop/dn742472\(v=vs.85\).aspx)。  
   
- ![通知气泡](~/docs/extensibility/ux-guidelines/media/0901-07_notificationbubbles.png "0901年&07;_NotificationBubbles")  
+ ![通知气泡](~/extensibility/ux-guidelines/media/0901-07_notificationbubbles.png "0901年&07;_NotificationBubbles")  
   
  **用于 Visual Studio 的 Windows 通知区域中的通知气泡**  
   
@@ -191,14 +191,14 @@ ms.lasthandoff: 02/22/2017
 #### <a name="progress-bars"></a>进度栏  
   
 ##### <a name="indeterminate"></a>不确定  
- ![不确定的进度栏](~/docs/extensibility/ux-guidelines/media/0901-04_indeterminate.png "0901年&04;_Indeterminate")  
+ ![不确定的进度栏](~/extensibility/ux-guidelines/media/0901-04_indeterminate.png "0901年&04;_Indeterminate")  
   
  **不确定的进度栏**  
   
  "不确定"意味着某项操作的总体进度或无法确定过程。 使用不确定的进度条为需要一段时间的不受限制的操作或访问未知的数量的对象。 使用的文本说明伴随发生了什么情况。 使用超时功能赋予边界访问基于时间的操作。 不确定的进度栏使用动画以显示进度操作正在进行，但不提供任何其他信息。 不要选择仅基于单独的准确性可能缺乏不确定的进度栏。  
   
 ##### <a name="determinate"></a>确定  
- ![确定的进度栏](~/docs/extensibility/ux-guidelines/media/0901-05_determinate.png "0901年&05;_Determinate")  
+ ![确定的进度栏](~/extensibility/ux-guidelines/media/0901-05_determinate.png "0901年&05;_Determinate")  
   
  **确定的进度栏**  
   
@@ -217,12 +217,12 @@ ms.lasthandoff: 02/22/2017
 #### <a name="other-progress-indicators"></a>其他进度指示器  
   
 ##### <a name="ants-animated-horizontal-dots"></a>Ants （动画水平点）  
- ![进度蚂蚁](~/docs/extensibility/ux-guidelines/media/0903-01_ants.png "0903年&01;_Ants")  
+ ![进度蚂蚁](~/extensibility/ux-guidelines/media/0903-01_ants.png "0903年&01;_Ants")  
   
  "蚂蚁"动画的水平点，为不确定的往返服务器过程提供可视参考。  
   
 ##### <a name="spinner-progress-ring"></a>微调框 （进度环）  
- ![进度微调框](~/docs/extensibility/ux-guidelines/media/0903-02_spinner.png "0903年&02;_Spinner")  
+ ![进度微调框](~/extensibility/ux-guidelines/media/0903-02_spinner.png "0903年&02;_Spinner")  
   
  微调框 （也称为"进度环"） 是相对于上下文的用户界面主要用于不确定的进度指示器。 在紧靠其相关的内容，如文本类别标题、 消息、 或控件中显示微调框。  
   
@@ -234,69 +234,69 @@ ms.lasthandoff: 02/22/2017
 ##### <a name="status-bar"></a>状态栏  
  状态栏为您的应用程序提供了位置不会中断用户的工作的情况下向用户显示消息和有用的信息。 通常显示在窗口底部，进度的状态将不包括有关进度的度量标准的消息中与进度条指示器结合使用的工具提示窗格。  
   
- ![具有进度栏的状态栏](~/docs/extensibility/ux-guidelines/media/0903-03_statusbarprogressbar.png "0903年&03;_StatusBarProgressBar")  
+ ![具有进度栏的状态栏](~/extensibility/ux-guidelines/media/0903-03_statusbarprogressbar.png "0903年&03;_StatusBarProgressBar")  
   
  **具有进度栏的状态栏**  
   
- ![具有消息传递的状态栏](~/docs/extensibility/ux-guidelines/media/0903-04_statusbarmessage.png "0903年&04;_StatusBarMessage")  
+ ![具有消息传递的状态栏](~/extensibility/ux-guidelines/media/0903-04_statusbarmessage.png "0903年&04;_StatusBarMessage")  
   
  **具有文本说明的状态栏**  
   
 ##### <a name="infobar"></a>信息栏  
  类似于状态栏信息栏提供上下文通知和消息处理，它还可以使用如进度栏或微调框的不确定的进度指示器配对。 细粒度级别的进度或确定的进度指示不应对提供的信息栏。 请参阅[信息栏](../../extensibility/ux-guidelines/notifications-and-progress-for-visual-studio.md#BKMK_Infobars)。  
   
- ![具有进度栏和消息传送的信息栏](~/docs/extensibility/ux-guidelines/media/0903-05_infobar.png "0903年&05;_InfoBar")  
+ ![具有进度栏和消息传送的信息栏](~/extensibility/ux-guidelines/media/0903-05_infobar.png "0903年&05;_InfoBar")  
   
  **具有进度栏和文本说明的信息栏**  
   
- ![一个窗口中的信息栏](~/docs/extensibility/ux-guidelines/media/0903-06_infobarinwindow.png "0903年&06;_InfoBarInWindow")  
+ ![一个窗口中的信息栏](~/extensibility/ux-guidelines/media/0903-06_infobarinwindow.png "0903年&06;_InfoBarInWindow")  
   
  **代码分析窗口中的信息栏**  
   
 ##### <a name="inline"></a>内联  
  内联进度指示可以表示任何进度加载器类型。 通常的进度指示器配对使用消息，但这不是一项要求。  
   
- ![内联进度微调框](~/docs/extensibility/ux-guidelines/media/0903-07_inlinespinner.png "0903年&07;_InlineSpinner")  
+ ![内联进度微调框](~/extensibility/ux-guidelines/media/0903-07_inlinespinner.png "0903年&07;_InlineSpinner")  
   
  **微调框与文本说明结合使用**  
   
- ![内联堆积进度栏](~/docs/extensibility/ux-guidelines/media/0903-08_inlinestackedprogress.png "0903年&08;_InlineStackedProgress")  
+ ![内联堆积进度栏](~/extensibility/ux-guidelines/media/0903-08_inlinestackedprogress.png "0903年&08;_InlineStackedProgress")  
   
  **确定堆积的进度栏**  
   
- ![内联进度消息传递](~/docs/extensibility/ux-guidelines/media/0903-09_inlinetext.png "0903年&09;_InlineText")  
+ ![内联进度消息传递](~/extensibility/ux-guidelines/media/0903-09_inlinetext.png "0903年&09;_InlineText")  
   
  **服务器资源管理器中的内联文本︰ 刷新...**  
   
 ##### <a name="tool-windows"></a>工具窗口  
  全局进度指示由正下方的工具栏中定位的不确定的进度栏表示。  
   
- ![全局不确定的进度栏](~/docs/extensibility/ux-guidelines/media/0903-23_globalindeterminate.png "0903年&23;_GlobalIndeterminate")  
+ ![全局不确定的进度栏](~/extensibility/ux-guidelines/media/0903-23_globalindeterminate.png "0903年&23;_GlobalIndeterminate")  
   
  **团队资源管理器全局不确定的进度栏**  
   
 ##### <a name="dialogs"></a>对话框  
  对话框可以包含任何进度加载器类型。 进度指示器可以是与消息传送成对出现，以及与多个级别的来精确表示日期和子进程的进度指示结合使用。  
   
- ![具有多个进度指示器类型的对话框](~/docs/extensibility/ux-guidelines/media/0903-11_dialog.png "0903年&11;_Dialog")  
+ ![具有多个进度指示器类型的对话框](~/extensibility/ux-guidelines/media/0903-11_dialog.png "0903年&11;_Dialog")  
   
  **Visual Studio 与并发流程和多个进度指示器类型对话框**  
   
- ![具有进度加载器和消息传递的对话框](~/docs/extensibility/ux-guidelines/media/0903-12_dialog2.png "0903年&12;_Dialog2")  
+ ![具有进度加载器和消息传递的对话框](~/extensibility/ux-guidelines/media/0903-12_dialog2.png "0903年&12;_Dialog2")  
   
  **Visual Studio 具有进度加载器和消息传送内联发出命令对话框**  
   
 ##### <a name="document-well"></a>好的文档  
  嗯，文档可以在与控件一起显示多个进度加载器类型。  
   
- ![文档进度消息传递也](~/docs/extensibility/ux-guidelines/media/0903-13_documentwell.png "0903年&13;_DocumentWell")  
+ ![文档进度消息传递也](~/extensibility/ux-guidelines/media/0903-13_documentwell.png "0903年&13;_DocumentWell")  
   
  **不确定的进度栏下方工具栏**  
   
 ##### <a name="output-window"></a>输出窗口  
  输出窗口是合适的处理过程前进和通过内联文本消息传送的进度状态。 应使用状态栏以及任何输出窗口进度报告。  
   
- ![输出窗口中的消息的进度](~/docs/extensibility/ux-guidelines/media/0903-14_outputwindow.png "0903年&14;_OutputWindow")  
+ ![输出窗口中的消息的进度](~/extensibility/ux-guidelines/media/0903-14_outputwindow.png "0903年&14;_OutputWindow")  
   
  **正在进行的进程状态下的输出窗口，并等到消息传送**  
   
@@ -305,7 +305,7 @@ ms.lasthandoff: 02/22/2017
 ### <a name="overview"></a>概述  
  信息栏向用户提供接近关注其点指示符，并使用共享的信息栏控件确保可视外观和交互的一致性。  
   
- ![信息栏](~/docs/extensibility/ux-guidelines/media/0904-01_infobar.png "0904年&01;_Infobar")  
+ ![信息栏](~/extensibility/ux-guidelines/media/0904-01_infobar.png "0904年&01;_Infobar")  
   
  **在 Visual Studio 中的信息栏**  
   
@@ -377,7 +377,7 @@ public InfoBarModel(string text, IEnumerable<IVsInfoBarActionItem> actionItems, 
   
  下面是带有一些文本与超链接、 一个操作按钮和图标创建 InfoBarModel 示例。  
   
- ![具有超链接的信息栏](~/docs/extensibility/ux-guidelines/media/0904-02_infobarhyperlink.png "0904年&02;_InfobarHyperlink")  
+ ![具有超链接的信息栏](~/extensibility/ux-guidelines/media/0904-02_infobarhyperlink.png "0904年&02;_InfobarHyperlink")  
   
 ```  
 var infoBar = new InfoBarModel(  
@@ -495,31 +495,31 @@ public interface IVsInfoBarUIEvents
 ### <a name="field-validation"></a>字段验证  
  窗体和字段验证由三个组件组成︰ 一个控件、 一个图标和工具提示。 虽然可以使用几种类型的控件，这样，文本框将用作一个示例。  
   
- ![字段验证 （空）](~/docs/extensibility/ux-guidelines/media/0905-01_fieldvalidation.png "0905年&01;_FieldValidation")  
+ ![字段验证 （空）](~/extensibility/ux-guidelines/media/0905-01_fieldvalidation.png "0905年&01;_FieldValidation")  
   
  如果此字段是必需的应该有打水印文本指出**\<必需&1;>**字段背景应该为 light 和黄色 (VSColor: `Environment.ControlEditRequiredBackground`) 和前景应为灰色 (VSColor: `Environment.ControlEditRequiredHintText`):  
   
- ![字段验证具有"必须"标签](~/docs/extensibility/ux-guidelines/media/0905-02_fieldvalidationrequired.png "0905年&02;_FieldValidationRequired")  
+ ![字段验证具有"必须"标签](~/extensibility/ux-guidelines/media/0905-02_fieldvalidationrequired.png "0905年&02;_FieldValidationRequired")  
   
  该程序可以确定该控件处于的状态*输入的无效内容*焦点移动到另一个控件时或当用户单击确定提交按钮时或者当用户保存文档或窗体。  
   
  在确定无效的内容状态后，在控件内或只是其旁边出现一个图标。 对错误进行描述的工具提示应显示的图标或控件的悬停时的。 此外，1 像素的边框应创建无效的状态的控件周围出现。  
   
- ![字段验证布局规范](~/docs/extensibility/ux-guidelines/media/0905-03_layoutspecs.png "0905年&03;_LayoutSpecs")  
+ ![字段验证布局规范](~/extensibility/ux-guidelines/media/0905-03_layoutspecs.png "0905年&03;_LayoutSpecs")  
   
  **字段验证布局规范**  
   
 #### <a name="acceptable-variations-for-icon-location"></a>可接受的变体图标位置  
  有大量用户需要了解有关验证错误的唯一情况。 考虑到控件类型和配置用户界面中，选择适合于您的具体情况的图标位置。  
   
- ![图标位置的可接受位置](~/docs/extensibility/ux-guidelines/media/0905-04_iconlocation.png "0905年&04;_IconLocation")  
+ ![图标位置的可接受位置](~/extensibility/ux-guidelines/media/0905-04_iconlocation.png "0905年&04;_IconLocation")  
   
  **可接受的变体字段验证图标位置**  
   
 #### <a name="validation-requiring-a-round-trip-to-a-server-or-network-connection"></a>需要到服务器或网络连接的往返行程的验证  
  在某些情况下，到服务器的往返行程要求验证的内容，而且是很重要，以显示用户进度，验证，以及错误状态。 下图显示了这种情况和建议的用户界面的示例。  
   
- ![涉及到一台服务器的往返行程的验证](~/docs/extensibility/ux-guidelines/media/0905-05_roundtrip.png "0905年&05;_RoundTrip")  
+ ![涉及到一台服务器的往返行程的验证](~/extensibility/ux-guidelines/media/0905-05_roundtrip.png "0905年&05;_RoundTrip")  
   
  **涉及到一台服务器的往返行程的验证**  
   
@@ -528,13 +528,13 @@ public interface IVsInfoBarUIEvents
 #### <a name="in-place-warning-text"></a>就地警告文本  
  如果空间可用于将接近控件的错误消息放入错误的状态，这是优于使用单独的工具提示。  
   
- ![就地警告](~/docs/extensibility/ux-guidelines/media/0905-06_inplacewarning.png "0905年&06;_InPlaceWarning")  
+ ![就地警告](~/extensibility/ux-guidelines/media/0905-06_inplacewarning.png "0905年&06;_InPlaceWarning")  
   
  **就地警告文本**  
   
 #### <a name="watermarks"></a>水印  
  有时整个控件或窗口处于错误状态。 在此情况下，使用水印以指示错误。  
   
- ![水印](~/docs/extensibility/ux-guidelines/media/0905-07_watermark.png "0905年&07;_Watermark")  
+ ![水印](~/extensibility/ux-guidelines/media/0905-07_watermark.png "0905年&07;_Watermark")  
   
  **水印字段验证**

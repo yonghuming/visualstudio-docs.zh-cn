@@ -70,7 +70,7 @@ ms.lasthandoff: 02/22/2017
 ##  <a name="BKMK_Running_tests_in_Test_Explorer"></a> 在测试资源管理器中运行测试  
  在生成测试项目时，测试将出现在测试资源管理器中。 如果测试资源管理器不可见，请选择 Visual Studio 菜单上的“测试”  ，然后依次选择“Windows” 、“测试资源管理器” 。  
   
- ![单元测试资源管理器](~/docs/ide/media/ute_failedpassednotrunsummary.png "UTE_FailedPassedNotRunSummary")  
+ ![单元测试资源管理器](~/ide/media/ute_failedpassednotrunsummary.png "UTE_FailedPassedNotRunSummary")  
   
  当你运行、编写以及重新运行测试时，测试资源管理器将在 **“失败的测试”**、 **“通过的测试”**、 **“跳过的测试”** 和 **“未运行的测试”**默认组中显示结果。 你可以更改测试资源管理器对测试进行分组的方式。  
   
@@ -119,7 +119,7 @@ ms.lasthandoff: 02/22/2017
   
 |||  
 |-|-|  
-|![测试资源管理器的分组按钮](~/docs/test/media/ute_groupby_btn.png "UTE_GroupBy_btn")|若要按执行它们所花的时间对测试进行分组，请打开“分组方式”列表并选择“持续时间”。 选择“测试结果”以切换到原始分组。|  
+|![测试资源管理器的分组按钮](~/test/media/ute_groupby_btn.png "UTE_GroupBy_btn")|若要按执行它们所花的时间对测试进行分组，请打开“分组方式”列表并选择“持续时间”。 选择“测试结果”以切换到原始分组。|  
   
 ###  <a name="BKMK_Searching_and_filtering_the_test_list"></a>搜索和筛选测试列表  
  当有大量的测试时，可在测试资源管理器搜索框中键入指定的字符串，以按该字符串筛选列表。 在输入搜索字符串之前，可以通过从筛选器列表中进行选择来将筛选器限制为特定类型的字符串。  

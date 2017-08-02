@@ -77,7 +77,7 @@ manager: "ghogen"
   
      若要在代码中设置简单断点，请打开 Visual Studio 编辑器中的源文件。 设置光标要中断的代码行，然后在上下文菜单上选择**“断点”**、**“插入断点”**（键盘：**F9**）。 调试器将在执行该代码行之前中断执行。  
   
-     ![设置断点](~/docs/debugger/media/dbg_basics_setbreakpoint.png "DBG\_Basics\_SetBreakpoint")  
+     ![设置断点](~/debugger/media/dbg_basics_setbreakpoint.png "DBG\_Basics\_SetBreakpoint")  
   
      Visual Studio 中的断点提供了一组丰富的附加功能，例如条件断点和跟踪点。 请参阅 [使用断点](../debugger/using-breakpoints.md)。  
   
@@ -116,12 +116,12 @@ manager: "ghogen"
   
  如果是重载函数，或者函数在多个命名空间，你可以在**“选择断点”**对话框中选择想要的函数。  
   
- ![“选择断点”对话框](~/docs/debugger/media/dbg_execution_overloadedbreakpoints.png "DBG\_Execution\_OverloadedBreakpoints")  
+ ![“选择断点”对话框](~/debugger/media/dbg_execution_overloadedbreakpoints.png "DBG\_Execution\_OverloadedBreakpoints")  
   
 ##  <a name="BKMK_Set_the_next_statement_to_execute"></a> 设置要执行的下一语句  
  将调试器中断后，你可以移动执行点，设置下一个要执行的代码语句。 源窗口或“反汇编”窗口的空白区域中的黄色箭头标记要执行的下一条语句的位置。 通过移动此箭头，可以跳过部分代码或返回到以前执行过的行。 在某些情况下可以使用此方法，例如，跳过包含已知 bug 的代码段。  
   
- ![Example2](~/docs/debugger/media/dbg_basics_example2.png "DBG\_Basics\_Example2")  
+ ![Example2](~/debugger/media/dbg_basics_example2.png "DBG\_Basics\_Example2")  
   
  要设置下一条要执行的语句，请使用以下过程之一：  
   

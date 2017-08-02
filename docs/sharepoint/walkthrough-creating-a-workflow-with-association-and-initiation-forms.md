@@ -275,15 +275,15 @@ caps.handback.revision: 37
   
 6.  在**“属性”**窗口中，为 **CorrelationToken** 属性输入属性值 *taskToken*。  
   
-7.  通过选择 **CorrelationToken** 属性旁边的加号 \(![TreeView 加号](~/docs/sharepoint/media/plus.gif "TreeView 加号")\) 来展开此属性。  
+7.  通过选择 **CorrelationToken** 属性旁边的加号 \(![TreeView 加号](~/sharepoint/media/plus.gif "TreeView 加号")\) 来展开此属性。  
   
 8.  选择 **OwnerActivityName** 子属性上的下拉箭头，然后设置 *Workflow1* 值。  
   
-9. 选择 **TaskId** 属性，然后选择省略号 \(![ASP.NET 移动设计器中的省略号](~/docs/sharepoint/media/mwellipsis.gif "ASP.NET 移动设计器中的省略号")\) 按钮以显示**“绑定属性”**对话框。  
+9. 选择 **TaskId** 属性，然后选择省略号 \(![ASP.NET 移动设计器中的省略号](~/sharepoint/media/mwellipsis.gif "ASP.NET 移动设计器中的省略号")\) 按钮以显示**“绑定属性”**对话框。  
   
 10. 选择 **绑定到新成员** 选项卡，选择 **创建字段** 选项按钮，然后选择 **确定** 按钮。  
   
-11. 选择 **TaskProperties** 属性，然后选择省略号 \(![ASP.NET 移动设计器中的省略号](~/docs/sharepoint/media/mwellipsis.gif "ASP.NET 移动设计器中的省略号")\) 按钮以显示**“绑定属性”**对话框。  
+11. 选择 **TaskProperties** 属性，然后选择省略号 \(![ASP.NET 移动设计器中的省略号](~/sharepoint/media/mwellipsis.gif "ASP.NET 移动设计器中的省略号")\) 按钮以显示**“绑定属性”**对话框。  
   
 12. 选择 **绑定到新成员** 选项卡，选择 **创建字段** 选项按钮，然后选择 **确定** 按钮。  
   
@@ -363,7 +363,7 @@ caps.handback.revision: 37
   
 5.  在**“属性”**窗口中，选择**“Condition”**属性的下拉箭头，然后设置 *Code Condition*的值。  
   
-6.  通过选择**“Condition”**属性旁边的加号 \(![TreeView 加号](~/docs/sharepoint/media/plus.gif "TreeView 加号")\) 来展开此属性，然后将其值设置为 *checkApprovalNeeded*。  
+6.  通过选择**“Condition”**属性旁边的加号 \(![TreeView 加号](~/sharepoint/media/plus.gif "TreeView 加号")\) 来展开此属性，然后将其值设置为 *checkApprovalNeeded*。  
   
 7.  在工作流设计器中，打开**“logToHistoryListActivity1”**活动的快捷菜单，然后选择**“生成处理程序”**，以便为 `MethodInvoking` 事件生成空方法。  
   

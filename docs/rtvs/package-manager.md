@@ -48,15 +48,15 @@ ms.lasthandoff: 05/12/2017
 
 - “可用”用于浏览要安装的程序包。 如果已安装程序包，右侧的“安装”按钮将改为“卸载”。
 
-    ![针对 Visual Studio 的 R 工具程序包管理器中的可用程序包选项卡](~/docs/rtvs/media/package-manager-available.png)
+    ![针对 Visual Studio 的 R 工具程序包管理器中的可用程序包选项卡](~/rtvs/media/package-manager-available.png)
 
 - “已安装”显示所有已安装和已加载的程序包。 程序包旁边的绿色园点指示该程序包已加载到 R 会话中。 左侧的红色 X 图标或右侧的“卸载”按钮可用于卸载程序包。 如果有较新版本可用，可通过已安装程序包右侧的蓝色向上箭头更新程序包。
 
-    ![针对 Visual Studio 的 R 工具程序包管理器中的已安装程序包选项卡](~/docs/rtvs/media/package-manager-installed.png)
+    ![针对 Visual Studio 的 R 工具程序包管理器中的已安装程序包选项卡](~/rtvs/media/package-manager-installed.png)
 
 - “已加载”仅显示已加载到 R 会话中的程序包，因此显示的所有程序包都会带有绿色园点。 还可在此处卸载和更新程序包。
 
-    ![针对 Visual Studio 的 R 工具程序包管理器中的已加载程序包选项卡](~/docs/rtvs/media/package-manager-loaded.png)
+    ![针对 Visual Studio 的 R 工具程序包管理器中的已加载程序包选项卡](~/rtvs/media/package-manager-loaded.png)
 
 ## <a name="package-locations"></a>程序包位置
 

@@ -58,7 +58,7 @@ caps.handback.revision: 64
   
  [!INCLUDE[appliesto_wdalldocapp](../vsto/includes/appliesto-wdalldocapp-md.md)]  
   
- ![链接到视频](~/docs/data-tools/media/playvideo.gif "链接到视频") 相关的视频演示，请参阅[使用 Visual Studio Tools for the Office System \(3.0\) 将数据绑定到 Word 2007 内容控件](http://go.microsoft.com/fwlink/?LinkId=136785)。  
+ ![链接到视频](~/data-tools/media/playvideo.gif "链接到视频") 相关的视频演示，请参阅[使用 Visual Studio Tools for the Office System \(3.0\) 将数据绑定到 Word 2007 内容控件](http://go.microsoft.com/fwlink/?LinkId=136785)。  
   
 ## 内容控件概述  
  内容控件提供了已针对用户输入和打印进行优化的 UI。  将内容控件添加到文档时，该控件通过边框、标题以及能够为用户提供说明的临时文本进行识别。  打印版本的文档中不会出现控件的边框和标题。  

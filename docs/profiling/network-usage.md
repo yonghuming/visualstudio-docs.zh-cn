@@ -58,7 +58,7 @@ Visual Studio“网络”诊断工具用于收集有关使用 [Windows.Web.Http 
   
  “报表”窗口应类似于以下形式：  
   
- ![“网络”窗口](~/docs/profiling/media/network_fullwindow.png "NETWORK_FullWindow")  
+ ![“网络”窗口](~/profiling/media/network_fullwindow.png "NETWORK_FullWindow")  
   
 ## <a name="analyzing-data"></a>分析数据  
  通过选择摘要视图上显示的任何网络操作，可在运行应用的同时（甚至在已关闭应用后）分析捕获的 HTTP 流量。  

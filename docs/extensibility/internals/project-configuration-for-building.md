@@ -31,7 +31,7 @@ caps.handback.revision: 11
   
  当用户选择 **多重选择** 项环境中配置下拉列表中，显示一个对话框，提供的可用配置的列表。  
   
- ![多重配置](~/docs/extensibility/internals/media/vsmultiplecfgs.gif "vsMultipleCfgs")  
+ ![多重配置](~/extensibility/internals/media/vsmultiplecfgs.gif "vsMultipleCfgs")  
 多个配置  
   
  在此对话框中，用户可以选择一个或多个配置。 选择后，显示在属性页对话框中的属性值将反映所选配置的值的交集。  
@@ -40,7 +40,7 @@ caps.handback.revision: 11
   
  项目依赖项和生成顺序是独立的解决方案配置: 也就是说，您只能设置为所有解决方案中项目的一个依赖关系树。 右键单击该解决方案或项目并选择其中任一 **项目依赖项** 或 **项目生成顺序** 选项打开 **项目依赖项** 对话框。 此外可以从打开 **项目** 菜单。  
   
- ![项目依赖项](~/docs/extensibility/internals/media/vsprojdependencies.gif "vsProjDependencies")  
+ ![项目依赖项](~/extensibility/internals/media/vsprojdependencies.gif "vsProjDependencies")  
 项目依赖项  
   
  项目依赖项决定生成项目的顺序。 若要查看解决方案中的项目将生成，并使用依赖关系选项卡来修改生成顺序的准确顺序，请使用对话框中生成顺序选项卡。  

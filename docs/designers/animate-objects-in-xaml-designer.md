@@ -24,20 +24,20 @@ caps.handback.revision: 9
   
  下图显示了一个名为“MoveUp”的情节提要。 时间线包含标记矩形的 X 和 Y 位置的关键帧。 当此动画运行时，矩形平滑地从一个位置移动到另一个位置。  
   
- ![](~/docs/designers/media/982f031a-74a3-414a-abc2-a0f41a741075.png "982f031a\-74a3\-414a\-abc2\-a0f41a741075")  
+ ![](~/designers/media/982f031a-74a3-414a-abc2-a0f41a741075.png "982f031a\-74a3\-414a\-abc2\-a0f41a741075")  
   
  通过观看这些视频了解如何创建动画。  
   
 |观看简短视频：|了解如何：|  
 |-------------|-----------|  
-|![配置已安装功能](~/docs/designers/media/bldadminconsoleinitialconfigicon.PNG "BldAdminConsoleInitialConfigIcon") [创建时间线](http://www.popscreen.com/v/6A4eF/Microsoft-Expression-Blend-Creating-Timelines)|创建时间线，以及在时间线中使用对象。|  
-|![配置已安装功能](~/docs/designers/media/bldadminconsoleinitialconfigicon.PNG "BldAdminConsoleInitialConfigIcon") [添加关键帧和重复动画](http://www.popscreen.com/v/6A4fi/Microsoft-Expression-Blend-Adding-Keyframes-and-Repeating-an-Animation)|添加关键帧，并在每个关键帧处设置属性。 随后运行动画并观看对象在它们之间平滑过渡。|  
-|![配置已安装功能](~/docs/designers/media/bldadminconsoleinitialconfigicon.PNG "BldAdminConsoleInitialConfigIcon") [添加事件触发器以实现交互性](http://www.popscreen.com/v/6A4e4/Microsoft-Expression-Blend-Adding-Event-Triggers-for-Interactivity)|在事件发生时启动动画。 例如，在窗口加载时启动一个动画。|  
-|![配置已安装功能](~/docs/designers/media/bldadminconsoleinitialconfigicon.PNG "BldAdminConsoleInitialConfigIcon") [对颜色进行动画处理](http://www.popscreen.com/v/6A4gv/Microsoft-Expression-Blend-Animating-Colors)|使用动画更改对象的颜色。|  
-|![配置已安装功能](~/docs/designers/media/bldadminconsoleinitialconfigicon.PNG "BldAdminConsoleInitialConfigIcon") [创建和修改运动路径](http://www.popscreen.com/v/6A4fX/Microsoft-Expression-Blend-Creating-and-Modifying-Motion-Paths)|沿着路径对对象进行动画处理。|  
-|![配置已安装功能](~/docs/designers/media/bldadminconsoleinitialconfigicon.PNG "BldAdminConsoleInitialConfigIcon") [使关键帧缓动](http://www.popscreen.com/v/6A4dM/Microsoft-Expression-Blend-Easing-Keyframes)|在接近开头（*缓动进入*）或接近末尾（*缓动退出*）处加快或减慢动画。|  
-|![配置已安装功能](~/docs/designers/media/bldadminconsoleinitialconfigicon.PNG "BldAdminConsoleInitialConfigIcon") [对按钮进行动画处理](http://www.popscreen.com/v/6A4fK/Microsoft-Expression-Blend-Animating-a-Button)|创建在用户指向按钮时出现在按钮上的有趣效果。|  
-|![配置已安装功能](~/docs/designers/media/bldadminconsoleinitialconfigicon.PNG "BldAdminConsoleInitialConfigIcon") [创建动画和使用缓动](https://www.youtube.com/watch?v=mAJXYrwxGYo)|当用户按下计算器图像上的按钮时出现的动画效果。|  
+|![配置已安装功能](~/designers/media/bldadminconsoleinitialconfigicon.PNG "BldAdminConsoleInitialConfigIcon") [创建时间线](http://www.popscreen.com/v/6A4eF/Microsoft-Expression-Blend-Creating-Timelines)|创建时间线，以及在时间线中使用对象。|  
+|![配置已安装功能](~/designers/media/bldadminconsoleinitialconfigicon.PNG "BldAdminConsoleInitialConfigIcon") [添加关键帧和重复动画](http://www.popscreen.com/v/6A4fi/Microsoft-Expression-Blend-Adding-Keyframes-and-Repeating-an-Animation)|添加关键帧，并在每个关键帧处设置属性。 随后运行动画并观看对象在它们之间平滑过渡。|  
+|![配置已安装功能](~/designers/media/bldadminconsoleinitialconfigicon.PNG "BldAdminConsoleInitialConfigIcon") [添加事件触发器以实现交互性](http://www.popscreen.com/v/6A4e4/Microsoft-Expression-Blend-Adding-Event-Triggers-for-Interactivity)|在事件发生时启动动画。 例如，在窗口加载时启动一个动画。|  
+|![配置已安装功能](~/designers/media/bldadminconsoleinitialconfigicon.PNG "BldAdminConsoleInitialConfigIcon") [对颜色进行动画处理](http://www.popscreen.com/v/6A4gv/Microsoft-Expression-Blend-Animating-Colors)|使用动画更改对象的颜色。|  
+|![配置已安装功能](~/designers/media/bldadminconsoleinitialconfigicon.PNG "BldAdminConsoleInitialConfigIcon") [创建和修改运动路径](http://www.popscreen.com/v/6A4fX/Microsoft-Expression-Blend-Creating-and-Modifying-Motion-Paths)|沿着路径对对象进行动画处理。|  
+|![配置已安装功能](~/designers/media/bldadminconsoleinitialconfigicon.PNG "BldAdminConsoleInitialConfigIcon") [使关键帧缓动](http://www.popscreen.com/v/6A4dM/Microsoft-Expression-Blend-Easing-Keyframes)|在接近开头（*缓动进入*）或接近末尾（*缓动退出*）处加快或减慢动画。|  
+|![配置已安装功能](~/designers/media/bldadminconsoleinitialconfigicon.PNG "BldAdminConsoleInitialConfigIcon") [对按钮进行动画处理](http://www.popscreen.com/v/6A4fK/Microsoft-Expression-Blend-Animating-a-Button)|创建在用户指向按钮时出现在按钮上的有趣效果。|  
+|![配置已安装功能](~/designers/media/bldadminconsoleinitialconfigicon.PNG "BldAdminConsoleInitialConfigIcon") [创建动画和使用缓动](https://www.youtube.com/watch?v=mAJXYrwxGYo)|当用户按下计算器图像上的按钮时出现的动画效果。|  
   
 ## 请参阅  
  [使用 Blend for Visual Studio 创建 UI](../designers/creating-a-ui-by-using-blend-for-visual-studio.md)

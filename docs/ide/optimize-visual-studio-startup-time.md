@@ -34,7 +34,7 @@ ms.lasthandoff: 07/21/2017
 
 如果 Visual Studio 检测到启动速度较慢，则会弹出一条消息，提示你导致速度变慢的扩展或工具窗口。 该消息还提供了“管理 Visual Studio 性能”对话框的链接，该对话框还可以使用“帮助 > 管理 Visual Studio 性能”菜单命令打开。
 
-![“管理 Visual Studio 性能”- 弹出窗口显示“我们注意到扩展 ... 正在拖慢 Visual Studio”](~/docs/ide/media/vside_perfdialog_popup.PNG)
+![“管理 Visual Studio 性能”- 弹出窗口显示“我们注意到扩展 ... 正在拖慢 Visual Studio”](~/ide/media/vside_perfdialog_popup.PNG)
 
 该对话框会列出影响启动性能的扩展和工具窗口。 通过此对话框可以更改扩展和工具窗口的设置以提高启动性能。
 
@@ -42,7 +42,7 @@ ms.lasthandoff: 07/21/2017
 
 如果某个扩展使 Visual Studio 的启动变慢，那么选择它的一个扩展类型时，此扩展将显示在“管理 Visual Studio 性能”对话框中。 该对话框会显示启动时影响性能的扩展、加载解决方案的时间以及在编辑器中键入的时间。
 
-![管理 Visual Studio 性能 - 扩展视图](~/docs/ide/media/vside_perfdialog_extensions.PNG)
+![管理 Visual Studio 性能 - 扩展视图](~/ide/media/vside_perfdialog_extensions.PNG)
 
 如果对启动、解决方案加载或键入时间的影响严重到令人无法接受，请通过选择“禁用”按钮禁用该方案的扩展。 可以始终使用“扩展管理器”或“管理 Visual Studio 性能”对话框重新启用扩展，以用于以后的会话。
 
@@ -53,7 +53,7 @@ ms.lasthandoff: 07/21/2017
 - **启动时不显示窗口：**下一次打开 Visual Studio 时指定的工具窗口将始终关闭，即使它在上一个会话中保留打开状态。 可以从相应的菜单中打开工具窗口。
 - **启动时自动隐藏窗口：**如果工具窗口在上一个会话中保留打开状态，则此选项将在启动时折叠工具窗口组，以避免初始化工具窗口。 如果经常使用工具窗口，那么这是一个不错的选择。因为工具窗口仍然可用，但不会再对 Visual Studio 启动时间产生负面影响。
 
-![管理 Visual Studio 性能 - 工具窗口视图](~/docs/ide/media/vside_perfdialog_toolwindows.PNG)
+![管理 Visual Studio 性能 - 工具窗口视图](~/ide/media/vside_perfdialog_toolwindows.PNG)
 
 可以随时返回到此对话框，更改任何给定工具窗口的设置。
 
@@ -69,7 +69,7 @@ Visual Studio 2017 支持“轻型解决方案加载”的新功能，可减少�
 
 若要更改为所有项目和解决方案设置的轻型解决方案加载，请转到“工具 > 选项 > 项目和解决方案 > 常规”，并选择以下三个加载选项之一：
 
-![“工具选项”对话框](~/docs/ide/media/VSIDE_LightweightSolutionLoad.png)
+![“工具选项”对话框](~/ide/media/VSIDE_LightweightSolutionLoad.png)
 
 - **让 Visual Studio 选择最适合我的解决方案的内容：**Visual Studio 通过在打开每个解决方案时对其进行分析来确定是否应用轻型解决方案加载。 
 - **启用：**为此解决方案启用轻型解决方案加载，而不考虑 IDE 范围的设置。
@@ -77,7 +77,7 @@ Visual Studio 2017 支持“轻型解决方案加载”的新功能，可减少�
 
 若要对单个解决方案启用轻型解决方案加载，请选择“解决方案资源管理器”中的顶层解决方案节点。 在“属性”窗口中，为“轻型加载”属性选择“默认”、“启用”或“禁用”。
 
-![“解决方案资源管理器”](~/docs/ide/media/VSIDE_LSL Solution Setting.png)
+![“解决方案资源管理器”](~/ide/media/VSIDE_LSL Solution Setting.png)
 
 还可以右键单击“解决方案资源管理器”中的顶层解决方案节点，并选择“启用轻型解决方案加载”（如果该功能目前已禁用）或“禁用轻型解决方案加载”（如果该功能目前已启用）：
 
@@ -87,7 +87,7 @@ Visual Studio 2017 支持“轻型解决方案加载”的新功能，可减少�
 
 在 Visual Studio 2017 中打开大型解决方案时，你可能会看到一个弹出消息，提示你启用轻型解决方案加载。 仅针对包含多个 C#、VB 或 C++ 项目的解决方案显示此消息。 选择启用仅对此解决方案激活的轻型解决方案加载。 IDE 范围的设置不会更改。
 
-![弹出窗口](~/docs/ide/media/VSIDE_LSL Popup.png)
+![弹出窗口](~/ide/media/VSIDE_LSL Popup.png)
 
 可以稍后在解决方案的“属性”窗口中禁用轻型解决方案加载。
 

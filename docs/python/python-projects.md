@@ -42,7 +42,7 @@ ms.lasthandoff: 05/10/2017
 
 此外，项目始终在 Visual Studio 解决方案内进行管理，而解决方案中可包含任意数量可相互引用的项目。 例如，Python 项目可引用扩展模块的 C++ 项目，开始调试 Python 项目时，Visual Studio 将自动生成 C++ 项目（如有需要）。 （有关综合讨论，请参阅 [Visual Studio 中的解决方案和项目](../ide/solutions-and-projects-in-visual-studio.md)。）
 
-![解决方案资源管理器中的 Python 项目](~/docs/python/media/projects-solution-explorer.png)
+![解决方案资源管理器中的 Python 项目](~/python/media/projects-solution-explorer.png)
 
 Visual Studio 提供多种 Python 项目模板用于快速设置多个应用程序结构，包括用于根据现有文件夹树创建项目的模板和用于创建干净的空项目的模板。 若要查看索引，请参阅下文中的[项目模板](#project-templates)。
 
@@ -79,14 +79,14 @@ Visual Studio 提供多种 Python 项目模板用于快速设置多个应用程�
 
 新项目将始终与默认全局 Python 环境相关联。 若要将项目与其他环境（包括虚拟环境）相关联，请右键单击项目中的“Python 环境”节点，选择“添加/删除 Python 环境”，然后选择所需的环境。 若要更改活动的环境，请右键单击所需环境，并选择“激活环境”，如下所示。 有关详细信息，请参阅 [Python 环境](python-environments.md#project-specific-environments)。
 
-![激活 Python 项目的环境](~/docs/python/media/projects-activate-environment.png)
+![激活 Python 项目的环境](~/python/media/projects-activate-environment.png)
 
 <a name="project-types"</a>
 ## <a name="project-templates"></a>项目模板
 
 Visual Studio 提供多种方法用于从零开始，或根据现有代码设置 Python 项目。 若要使用模板，请选择“文件”>“新建”>“项目...”菜单命令，或右键单击解决方案资源管理器中的解决方案，选择“添加”>“新建项目...”，这两种方法都会打开下方的“新建项目”对话框。 若要查看特定于 Python 的模板，请搜索“Python”或选择“模板”>“其他语言”>“Python”节点：
 
-![Python 的新建项目对话框模板](~/docs/python/media/projects-new-project-dialog.png)
+![Python 的新建项目对话框模板](~/python/media/projects-new-project-dialog.png)
 
 下表总结了 Visual Studio 2017 中提供的模板（并非所有以前版本都提供了这些模板）：
 
@@ -109,21 +109,21 @@ Visual Studio 提供多种方法用于从零开始，或根据现有代码设置
 1. 选择“文件”>“新建”>“项目...”菜单，然后选择“根据现有 Python 代码”模板。
 1. 在随后的对话框中，设置现有代码、文件类型筛选器的路径，以及任何项目需要的搜索路径，然后选择“下一步”：
 
-    ![根据现有代码新建项目，第一步](~/docs/python/media/projects-from-existing-1.png)
+    ![根据现有代码新建项目，第一步](~/python/media/projects-from-existing-1.png)
 
 1. 为项目和启动文件选择环境，然后按“下一步”。 （请注意，对话框仅显示文件夹树根路径中的文件；如果所需的文件在子文件夹中，请将启动文件保留为空，稍后在解决方案资源管理器中进行设置）。
 
-    ![根据现有代码新建项目，第二步](~/docs/python/media/projects-from-existing-2.png)
+    ![根据现有代码新建项目，第二步](~/python/media/projects-from-existing-2.png)
 
 1. 选择要保存项目文件的位置（此操作不会移动或复制原始源文件，所以，如果需要副本，应在使用模板之前创建副本）。 还可以在此对话框中包括虚拟环境的自动检测和自定义不同 Web 框架的项目。
 
-    ![根据现有代码新建项目，第三步](~/docs/python/media/projects-from-existing-3.png)
+    ![根据现有代码新建项目，第三步](~/python/media/projects-from-existing-3.png)
 
 1.  选择“完成”，Visual Studio 将创建项目并在解决方案资源管理器中打开该项目。 若要将.pyproj 文件移动到其他位置，请在解决方案资源管理器中选中它，并选择“文件”>“另存为”。 这将更新项目中的文件引用，但不会移动任何代码文件。
 
 ## <a name="linked-files"></a>链接文件
 
-链接文件是指放入项目，但通常位于应用程序项目文件夹外的文件。 这些文件在解决方案资源管理器中显示为普通文件，具有重叠的快捷方式图标： ![链接文件图标](~/docs/python/media/projects-linked-file-icon.png)
+链接文件是指放入项目，但通常位于应用程序项目文件夹外的文件。 这些文件在解决方案资源管理器中显示为普通文件，具有重叠的快捷方式图标： ![链接文件图标](~/python/media/projects-linked-file-icon.png)
 
 链接文件通过普通 `<Compile Include="...">` 元素在 `.pyproj` 文件中指定。 如果链接文件使用目录结构之外的相对路径，则为隐式连接文件，如果在解决方案资源管理器中指定其路径，则为显式链接文件：
 
@@ -154,7 +154,7 @@ Visual Studio 提供多种方法用于从零开始，或根据现有代码设置
 
 Visual Studio 项目支持将引用添加到项目和扩展，添加的引用将显示在解决方案资源管理器中的“引用”节点下：
 
-![Python 项目中的扩展引用](~/docs/python/media/projects-extension-references.png)
+![Python 项目中的扩展引用](~/python/media/projects-extension-references.png)
 
 扩展引用通常指示项目之间的依赖项，在设计时用于提供 IntelliSense，在编译时用于提供链接。 Python 项目以类似的方式使用引用，但由于 Python 的动态特性，引用主要用于在设计时提供改进的 IntelliSense。 此外，还可以用于部署到 Microsoft Azure 以安装其他依赖项。
 
@@ -176,4 +176,4 @@ Visual Studio 项目支持将引用添加到项目和扩展，添加的引用将
 
 可以向 WebPI 产品条目添加引用以部署到 Microsoft Azure 云服务，你可以在其中通过 WebPI 源安装其他组件。 默认情况下，显示的源特定于 Python，包括 Django、CPython和其他核心组件。 还可以选择自己的源，如下所示。 发布到 Microsoft Azure 时，安装任务将安装所有引用的产品。
 
-![WebPI 引用](~/docs/python/media/projects-webPI-components.png)
+![WebPI 引用](~/python/media/projects-webPI-components.png)

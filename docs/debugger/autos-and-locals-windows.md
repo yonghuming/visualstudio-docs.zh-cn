@@ -109,7 +109,7 @@ static void Main(string[] args) { int a, b, c, d; a = 1; b = 2; c = 3; d = 4; in
 ## “调试位置”工具栏  
  你可以使用“调试位置”工具栏来选择所需的函数、线程或进程。 设置断点并开始调试。 （如果看不到此工具栏，你可以通过单击工具栏区域的空白部分启用它。 你应当看到工具栏的列表；选择“调试位置”）。 当到达断点时，执行将停止，并且你可以看到“调试位置”工具栏，即下图的最后一行：  
   
- ![DebugLocationToolbar](~/docs/debugger/media/debuglocationtoolbar.png "DebugLocationToolbar")  
+ ![DebugLocationToolbar](~/debugger/media/debuglocationtoolbar.png "DebugLocationToolbar")  
   
  你还可以通过双击“调用堆栈”窗口、“线程”窗口或“进程”窗口中的元素，将上下文更改为其他函数调用、线程或进程。  
   

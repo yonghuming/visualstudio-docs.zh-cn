@@ -28,7 +28,7 @@ caps.handback.revision: 17
   
  **“查找\/命令”**框保留输入的最后 20 项，并将它们显示在下拉列表中。  可以浏览该列表中选择箭头键。  
   
- ![“查找&#47;命令”框](~/docs/ide/media/findcommandbox.png "FindCommandBox")  
+ ![“查找&#47;命令”框](~/ide/media/findcommandbox.png "FindCommandBox")  
 “查找\/命令”框  
   
 ## 搜索文本  

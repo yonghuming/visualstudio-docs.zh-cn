@@ -143,7 +143,7 @@ Visual Studio 对话框的大多数都是 [实用程序对话框布局](../../ex
   
  **图 h: 08.01 主题对话框**  
   
- ![Themed dialog dimensions](~/docs/extensibility/ux-guidelines/media/0801-i_themeddialogdimensions.png "0801\-i\_ThemedDialogDimensions")  
+ ![Themed dialog dimensions](~/extensibility/ux-guidelines/media/0801-i_themeddialogdimensions.png "0801\-i\_ThemedDialogDimensions")  
   
  **图 i: 08.01 主题对话框 – 维度**  
   
@@ -151,7 +151,7 @@ Visual Studio 对话框的大多数都是 [实用程序对话框布局](../../ex
   
  **图 j: 08.01 主题对话框 – 字体**  
   
- ![Themed dialog colors](~/docs/extensibility/ux-guidelines/media/0801-k_themeddialogcolors.png "0801\-k\_ThemedDialogColors")  
+ ![Themed dialog colors](~/extensibility/ux-guidelines/media/0801-k_themeddialogcolors.png "0801\-k\_ThemedDialogColors")  
   
  **图 k: 08.01 主题对话框 – 颜色**  
   

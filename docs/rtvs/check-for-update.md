@@ -44,7 +44,7 @@ ms.lasthandoff: 05/12/2017
 
 可前往 Visual Studio 的“帮助”>“关于”检查版本，并向下滚动到“针对 Visual Studio 的 R 工具”条目：
 
-![检查 Visual Studio 中的 RTVS 版本 (VS2017)](~/docs/rtvs/media/current-version.png)
+![检查 Visual Studio 中的 RTVS 版本 (VS2017)](~/rtvs/media/current-version.png)
 
 有关 Visual Studio 和 Windows 的相关要求，请参阅[安装](installation.md)。
 

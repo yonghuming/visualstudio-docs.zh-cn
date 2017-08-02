@@ -307,7 +307,7 @@ ms.lasthandoff: 02/22/2017
   
  开发人员通过扩展 PaymentProcessing 类并选择其成员来浏览代码图，以查看可能受影响的区域：  
   
- ![PaymentProcessing 和依赖关系中的方法](~/docs/modeling/media/depgraph_expandeddn.png "DepGraph_ExpandedDN")  
+ ![PaymentProcessing 和依赖关系中的方法](~/modeling/media/depgraph_expandeddn.png "DepGraph_ExpandedDN")  
   
  **PaymentProcessing 类以及其依赖项中的方法**  
   
@@ -362,7 +362,7 @@ ms.lasthandoff: 02/22/2017
   
  为了帮助 Lucerne 描述和讨论参与“处理付款”用例的实体，他们绘制了以下类图：  
   
- ![处理付款实体在类图上的](~/docs/modeling/media/uml_payentities.png "UML_PayEntities")  
+ ![处理付款实体在类图上的](~/modeling/media/uml_payentities.png "UML_PayEntities")  
   
  **处理付款实体在类图上**  
   

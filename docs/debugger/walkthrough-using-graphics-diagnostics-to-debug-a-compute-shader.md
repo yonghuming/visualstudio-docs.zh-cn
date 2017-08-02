@@ -32,7 +32,7 @@ manager: "ghogen"
 ## 方案  
  在此方案中，你编写了流体动力学模拟，它利用 DirectCompute 来执行模拟更新的计算量最大的部分。  应用运行时，数据集和用户界面的呈现看起来正常，但模拟未按预期运作。  通过使用“图形诊断”，可以捕获图形日志的问题，以便调试该应用。  应用中的问题如下所示：  
   
- ![模拟流体的行为不正确。](~/docs/debugger/graphics/media/gfx_diag_demo_compute_shader_fluid_problem.png "gfx\_diag\_demo\_compute\_shader\_fluid\_problem")  
+ ![模拟流体的行为不正确。](~/debugger/graphics/media/gfx_diag_demo_compute_shader_fluid_problem.png "gfx\_diag\_demo\_compute\_shader\_fluid\_problem")  
   
  有关如何捕获图形日志中的图形问题的信息，请参阅[捕获图形信息](../debugger/capturing-graphics-information.md)。  
   
@@ -55,13 +55,13 @@ manager: "ghogen"
   
 2.  检查呈现数据集的 draw 事件的“图形事件列表”。  若要简化此过程，请在“图形事件列表”窗口右上角的“搜索”框中输入 `Draw`。  这将筛选列表，使其仅包含在其标题中具有的“Draw”的事件。  在此方案中，你将发现发生了以下 draw 事件：  
   
-     ![事件列表 &#40;EL&#41; 显示 draw 事件。](~/docs/debugger/graphics/media/gfx_diag_demo_compute_shader_fluid_step_2.png "gfx\_diag\_demo\_compute\_shader\_fluid\_step\_2")  
+     ![事件列表 &#40;EL&#41; 显示 draw 事件。](~/debugger/graphics/media/gfx_diag_demo_compute_shader_fluid_step_2.png "gfx\_diag\_demo\_compute\_shader\_fluid\_step\_2")  
   
 3.  查看图形日志文档选项卡中的呈现目标时，请浏览每个 draw 事件。  
   
 4.  在呈现目标首次显示呈现的数据集时停止。  在此方案中，在第一个 draw 事件中呈现数据集。  显示模拟中的错误：  
   
-     ![此 draw 事件呈现模拟数据集。](~/docs/debugger/graphics/media/gfx_diag_demo_compute_shader_fluid_step_3.png "gfx\_diag\_demo\_compute\_shader\_fluid\_step\_3")  
+     ![此 draw 事件呈现模拟数据集。](~/debugger/graphics/media/gfx_diag_demo_compute_shader_fluid_step_3.png "gfx\_diag\_demo\_compute\_shader\_fluid\_step\_3")  
   
 5.  现在检查更新模拟的 `Dispatch` 事件的“图形事件列表”。  由于模拟可能在呈现之前就进行了更新，因而可以先关注在呈现结果的 draw 事件之前发生的 `Dispatch` 事件。  若要简化此过程，请修改“搜索”框以读取 `Draw;Dispatch;CSSetShader(`。  这将筛选列表，使其还包含除 draw 事件以外的 `Dispatch` 和 `CSSetShader` 事件。  在此方案中，你将发现发生在 draw 事件之前的多个 `Dispatch` 事件：  
   
@@ -89,7 +89,7 @@ manager: "ghogen"
   
 3.  检查集成步骤的计算着色器源代码以搜索错误源。  使用“图形诊断”调试 HLSL 计算着色器代码时，可以单步执行代码并使用其他熟悉的调试工具（如监视窗口）。  在此方案中，你确定了在执行集成步骤的计算着色器中似乎没有错误。  
   
-     ![调试 IntegrateCS 计算着色器。](~/docs/debugger/graphics/media/gfx_diag_demo_compute_shader_fluid_step_7.png "gfx\_diag\_demo\_compute\_shader\_fluid\_step\_7")  
+     ![调试 IntegrateCS 计算着色器。](~/debugger/graphics/media/gfx_diag_demo_compute_shader_fluid_step_7.png "gfx\_diag\_demo\_compute\_shader\_fluid\_step\_7")  
   
 4.  若要停止调试计算着色器，请在“调试”工具栏上选择“停止调试”（键盘：Shift\+F5）。  
   
@@ -101,12 +101,12 @@ manager: "ghogen"
   
 6.  检查力计算步骤的计算着色器源代码。  在此方案中，你可以确定此处为错误源。  
   
-     ![调试 ForceCS&#95;Simple 计算着色器。](~/docs/debugger/graphics/media/gfx_diag_demo_compute_shader_fluid_step_9.png "gfx\_diag\_demo\_compute\_shader\_fluid\_step\_9")  
+     ![调试 ForceCS&#95;Simple 计算着色器。](~/debugger/graphics/media/gfx_diag_demo_compute_shader_fluid_step_9.png "gfx\_diag\_demo\_compute\_shader\_fluid\_step\_9")  
   
  确定错误的位置之后，可以停止调试并修改计算着色器源代码，以正确地计算相互作用的粒子之间的距离。  在此方案中，只需将行 `float2 diff = N_position + P_position;` 更改为 `float2 diff = N_position - P_position;`：  
   
- ![已更正的计算着色器代码。](~/docs/debugger/graphics/media/gfx_diag_demo_compute_shader_fluid_step_10.png "gfx\_diag\_demo\_compute\_shader\_fluid\_step\_10")  
+ ![已更正的计算着色器代码。](~/debugger/graphics/media/gfx_diag_demo_compute_shader_fluid_step_10.png "gfx\_diag\_demo\_compute\_shader\_fluid\_step\_10")  
   
  在此方案中，因为计算着色器是在运行时进行编译的，所以在更改后只需重新启动该应用便可观察更改对模拟的影响。  无需重新生成应用。  运行应用时，可发现此时模拟运行正常。  
   
- ![模拟流体的行为正确。](~/docs/debugger/graphics/media/gfx_diag_demo_compute_shader_fluid_resolution.png "gfx\_diag\_demo\_compute\_shader\_fluid\_resolution")
+ ![模拟流体的行为正确。](~/debugger/graphics/media/gfx_diag_demo_compute_shader_fluid_resolution.png "gfx\_diag\_demo\_compute\_shader\_fluid\_resolution")

@@ -80,7 +80,7 @@ ms.lasthandoff: 02/22/2017
   
 5.  关闭程序，然后重新运行。 请注意，每个标签都分配了不同的图标，如下图所示。  
   
-     ![具有随机图标的匹配游戏](~/docs/ide/media/express_tut4step3.png "Express_Tut4Step3")  
+     ![具有随机图标的匹配游戏](~/ide/media/express_tut4step3.png "Express_Tut4Step3")  
 具有随机图标的匹配游戏  
   
      你没有隐藏这些图标，所以现在可以看到。 若要向玩家隐藏图标，可以将每个标签的 `Forecolor` 属性设置为与 `BackColor` 属性相同的颜色。  

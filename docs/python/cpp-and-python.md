@@ -52,7 +52,7 @@ ms.lasthandoff: 05/10/2017
 
 本演练针对的是包含“C++ 桌面开发”和“Python 开发”工作负载及其默认选项（如作为默认解释器的 Python 3.6）的 Visual Studio 2017。 在 **Python 开发**工作负载中，还可以选中右侧的“Python 本机开发工具”复选框，以设置本主题中所述的大多数选项。 （此选项还自动包括 C++ 工作负载。） 
 
-![选择“Python 本机开发工具”选项](~/docs/python/media/cpp-install-native.png)
+![选择“Python 本机开发工具”选项](~/python/media/cpp-install-native.png)
 
 有关详细信息，请参阅[安装针对 Visual Studio 的 Python 支持](installation.md)，其中包括使用其他版本的 Visual Studio。 如果单独安装 Python，请务必在安装程序的“高级选项”下选择“下载调试符号”和“下载调试二进制文件”。 这可确保在选择进行调试生成时能够使用必要的调试库。
 
@@ -278,7 +278,7 @@ ms.lasthandoff: 05/10/2017
 
 1. 在 C++ 代码的 `tanh` 方法内的第 1 行设置一个断点，然后启动调试器。 该代码被调用时，调试器将停止：
 
-    ![在 C++ 代码中的断点处停止](~/docs/python/media/cpp-debugging.png)
+    ![在 C++ 代码中的断点处停止](~/python/media/cpp-debugging.png)
 
 1. 此时，可浏览 C++ 代码、检查变量等，[同时调试 Python 和 C++](debugging-mixed-mode.md) 中对此进行了详细介绍。
 

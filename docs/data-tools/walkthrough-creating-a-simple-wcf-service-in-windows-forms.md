@@ -37,7 +37,7 @@ manager: "ghogen"
     > [!NOTE]
     >  这将创建可以测试和访问的工作服务。  以下两个步骤演示您可以如何修改使用不同数据类型的默认方法。  在实际应用中，您还会向服务中添加您自己的函数。  
   
-3.  ![IService1 文件](~/docs/data-tools/media/wcf2.png "wcf2")  
+3.  ![IService1 文件](~/data-tools/media/wcf2.png "wcf2")  
   
      在解**决方案资源管理器**中、双击 IService1.vb 或 IService1.cs 并找到以下行：  
   
@@ -120,7 +120,7 @@ manager: "ghogen"
   
 5.  按 **F5** 运行该项目。  输入一些文本，然后单击按钮。  该标签将显示“输入：”和您输入的文本。  
   
-     ![显示结果的表单](~/docs/data-tools/media/wcf10.png "wcf10")  
+     ![显示结果的表单](~/data-tools/media/wcf10.png "wcf10")  
   
 ## 请参阅  
  [使用 ASMX 和 WCF 服务示例](http://msdn.microsoft.com/zh-cn/788ddf2c-2ac1-416b-8789-2fbb1e29b8fe)

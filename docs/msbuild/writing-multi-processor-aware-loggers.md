@@ -35,7 +35,7 @@ caps.handback.revision: 12
 ### 集中式日志记录模型  
  在集中式日志记录模型中，MSBuild.exe 的一个实例充当“中心节点”，该中心节点的子实例（“辅助节点）连接至中心节点，以帮助它执行生成任务。  
   
- ![中心记录器模型](~/docs/msbuild/media/centralnode.png "CentralNode")  
+ ![中心记录器模型](~/msbuild/media/centralnode.png "CentralNode")  
   
  连接至中心节点的各种类型的记录器称为“中心记录器”。在同一时刻，每种记录器类型只能有一个实例可以连接到中心节点。  
   
@@ -55,7 +55,7 @@ public interface INodeLogger: ILogger
 ### 分布式日志记录模型  
  在集中式日志记录模型中，过多的传入消息通信量会严重影响中心节点，例如在同时生成许多项目时。  这样可能会对系统资源造成压力，并降低生成性能。  为了缓解此问题，[!INCLUDE[vstecmsbuild](../extensibility/internals/includes/vstecmsbuild_md.md)] 支持分布式日志记录模型。  
   
- ![分布式日志记录模型](~/docs/msbuild/media/distnode.png "DistNode")  
+ ![分布式日志记录模型](~/msbuild/media/distnode.png "DistNode")  
   
  分布式日志记录模型允许用户创建转发记录器，从而对集中式日志记录模型进行了扩展。  
   

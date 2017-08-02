@@ -300,11 +300,11 @@ protected static void SetFontStyles(Control topControl, Control parent, Font ref
 ### <a name="testing-the-environment-font"></a>测试环境字体  
  若要确保你的 UI 使用环境字体，且会保留大小设置，请打开**工具 > 选项 > 环境 > 字体和颜色**，在下面选择"环境字体""显示其设置:"下拉列表菜单。  
   
- ![在工具的字体和颜色设置&gt;选项对话框](~/docs/extensibility/ux-guidelines/media/0201-a_optionsfonts.png "0201-a_OptionsFonts")<br />在工具的字体和颜色设置&gt;选项对话框
+ ![在工具的字体和颜色设置&gt;选项对话框](~/extensibility/ux-guidelines/media/0201-a_optionsfonts.png "0201-a_OptionsFonts")<br />在工具的字体和颜色设置&gt;选项对话框
   
  设置为更非常不同于默认字体。 若要更加明显的 UI 不会更新，请选择带衬线 （例如"Times New Roman") 字体并设置非常大的大小。 然后测试你的 UI，以确保它遵循环境。 下面是一个示例使用许可证对话框︰  
   
- ![不遵从环境字体的 UI 文本的示例](~/docs/extensibility/ux-guidelines/media/0201-b_wrongfontdialog.png "0201-b_WrongFontDialog")<br />不遵从环境字体的 UI 文本的示例
+ ![不遵从环境字体的 UI 文本的示例](~/extensibility/ux-guidelines/media/0201-b_wrongfontdialog.png "0201-b_WrongFontDialog")<br />不遵从环境字体的 UI 文本的示例
   
  "用户信息"和"产品信息"不在此情况下，遵从字体。 在某些情况下，这可能是一个明确的设计选择，但它可以是 bug 的显式字体未指定为红线规范的一部分。  
   
@@ -443,7 +443,7 @@ protected static void SetFontStyles(Control topControl, Control parent, Font ref
   
 |||  
 |-|-|  
-|**用法︰**<br /><br /> 在文档中的节标题很好地 UI<br />-报表<br /><br /> **执行︰**使用句子大小写<br /><br /> **不要：**<br /><br /> -粗体、 斜体或加粗斜体<br />-用于正文文本<br />-使用标准 Visual Studio 控件中<br />-使用工具窗口中|**显示为︰** 14 pt Segoe UI<br /><br /> **Visual 示例︰**<br /><br /> ![155%环境字体标题的示例](~/docs/extensibility/ux-guidelines/media/0202-c_ef155.png "0202-c_EF155")|  
+|**用法︰**<br /><br /> 在文档中的节标题很好地 UI<br />-报表<br /><br /> **执行︰**使用句子大小写<br /><br /> **不要：**<br /><br /> -粗体、 斜体或加粗斜体<br />-用于正文文本<br />-使用标准 Visual Studio 控件中<br />-使用工具窗口中|**显示为︰** 14 pt Segoe UI<br /><br /> **Visual 示例︰**<br /><br /> ![155%环境字体标题的示例](~/extensibility/ux-guidelines/media/0202-c_ef155.png "0202-c_EF155")|  
   
 #### <a name="133-environment-font"></a>133%环境字体  
   

@@ -92,7 +92,7 @@ manager: "ghogen"
   
 6.  配置完成后，将显示远程调试器窗口。  
   
-     ![RemoteDebuggerWindow](~/docs/debugger/media/remotedebuggerwindow.png "RemoteDebuggerWindow")  
+     ![RemoteDebuggerWindow](~/debugger/media/remotedebuggerwindow.png "RemoteDebuggerWindow")  
   
  你可以通过单击窗口上的“文件”\/“退出”来停止远程调试器。 你可以从“开始”菜单或从以下命令行重新启动它：  
   
@@ -170,7 +170,7 @@ manager: "ghogen"
   
 7.  对于“调试”配置，请选中“部署”复选框。  
   
-     ![RemoteDebugCplusDeploy](~/docs/debugger/media/remotedebugcplusdeploy.png "RemoteDebugCplusDeploy")  
+     ![RemoteDebugCplusDeploy](~/debugger/media/remotedebugcplusdeploy.png "RemoteDebugCplusDeploy")  
   
 8.  开始调试（单击“调试”\/“启动调试”，或按 **F5**）。  
   

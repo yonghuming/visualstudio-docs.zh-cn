@@ -23,7 +23,7 @@ caps.handback.revision: 12
 
 环境处理 **Save**、 **Save As**和 **Save All** 命令。  当用户单击 **保存**时， **保存**，在 **文件** 菜单的 **或者全部保存** 或关闭解决方案，从而导致保存整个，下面的过程将。  
   
- ![客户编辑器中的“保存”](~/docs/extensibility/internals/media/private.gif "Private")  
+ ![客户编辑器中的“保存”](~/extensibility/internals/media/private.gif "Private")  
 保存，保存，并保存正在为自定义编辑器的所有命令  
   
  这将在下面的过程的步骤详细信息:  

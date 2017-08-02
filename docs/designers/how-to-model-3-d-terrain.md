@@ -37,7 +37,7 @@ caps.handback.revision: 17
   
  完成后，模型应如下所示：  
   
- ![显示地形模型的三维场景](~/docs/designers/media/digit-terrain-model.png "Digit\-Terrain\-Model")  
+ ![显示地形模型的三维场景](~/designers/media/digit-terrain-model.png "Digit\-Terrain\-Model")  
   
  在开始之前，请确保显示**“属性”**窗口和**“工具箱”**。  
   
@@ -65,7 +65,7 @@ caps.handback.revision: 17
   
  地形模型已完成。  下面又是最终模型，并 Phong 卷影应用：  
   
- ![显示地形模型的三维场景](~/docs/designers/media/digit-terrain-model.png "Digit\-Terrain\-Model")  
+ ![显示地形模型的三维场景](~/designers/media/digit-terrain-model.png "Digit\-Terrain\-Model")  
   
  可以使用此地域模型来演示 [如何：创建基于几何图形的渐变着色器](../designers/how-to-create-a-geometry-based-gradient-shader.md) 中描述的渐变着色器的效果。  
   

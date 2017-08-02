@@ -75,7 +75,7 @@ Live Unit Testing 适用于下表中列出的三个常用的单元测试框架�
 
 可以通过从顶级 Visual Studio 菜单中选择“工具”>“选项”，然后在“选项”对话框左窗格中选择“Live Unit Testing”来配置 Live Unit Testing。 下图显示对话框中可用的 Live Unit Testing 配置选项。
 
-  ![Image](~/docs/test/media/lut-options.png)
+  ![Image](~/test/media/lut-options.png)
 
 可配置选项包括：
 
@@ -104,21 +104,21 @@ Live Unit Testing 适用于下表中列出的三个常用的单元测试框架�
 
 一旦启用，Live Unit Testing 将在 Visual Studio 编辑器中更新每行代码，以显示正在编写的代码是否由单元测试覆盖以及覆盖这些代码的测试是否通过。  下图显示测试通过和失败的代码行，以及测试未覆盖的代码行。 绿色“✓”修饰的行表示仅由通过测试覆盖，红色“🞩”修饰的行表示由一项或多项失败测试覆盖，蓝色“”修饰的行表示未被任何测试覆盖。
 
-  ![Image](~/docs/ide/media/lut-codewindow.png)
+  ![Image](~/ide/media/lut-codewindow.png)
 
 当你在代码编辑器中修改代码后，将立即更新 Live Unit Testing 覆盖率可视化效果。 处理编辑时，可视化效果将变化，通过在通过、失败和未覆盖符号下方添加圆形计时器图像来指示数据非最新，如下图所示。
 
-  ![Image](~/docs/test/media/lut-codeupdating.png)
+  ![Image](~/test/media/lut-codeupdating.png)
  
 ## <a name="getting-information-on-successful-or-failed-tests"></a>获取关于成功或失败测试的信息
 
 将鼠标悬停在代码窗口中的成功或失败符号上，可以看到符合此条件的测试数目。 如果单击该符号，可以查看各个测试的状态，如下图所示。
  
-  ![Image](~/docs/test/media/lut-failedinfo.png) 
+  ![Image](~/test/media/lut-failedinfo.png) 
 
 当鼠标悬停于工具提示中的失败测试时，它将展开以提供关于失败的详细信息，如下图所示。 如果单击工具提示中的未通过测试，你可以直接导航到它。
 
-  ![Image](~/docs/test/media/lut-failedmsg.png) 
+  ![Image](~/test/media/lut-failedmsg.png) 
 
 ## <a name="diagnosing-and-correcting-test-failures"></a>诊断和更正测试失败
 

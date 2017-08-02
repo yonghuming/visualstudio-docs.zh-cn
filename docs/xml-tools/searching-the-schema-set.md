@@ -27,7 +27,7 @@ caps.handback.revision: 3
 ## 关键字搜索  
  可通过在 XML 架构资源管理器工具栏的**“搜索架构集”\[Search SchemaSet\]**文本框中输入子字符串来执行关键字搜索。  
   
- ![XML 架构资源管理器关键字搜索](~/docs/xml-tools/media/schemaexplorersearch.gif "SchemaExplorerSearch")  
+ ![XML 架构资源管理器关键字搜索](~/xml-tools/media/schemaexplorersearch.gif "SchemaExplorerSearch")  
   
  XML 架构资源管理器在架构集中搜索以下内容：  
   

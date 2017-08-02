@@ -67,11 +67,11 @@ ms.lasthandoff: 03/07/2017
 
 1. 系统提示安装外部包时，选择“安装到虚拟环境”。 请注意，对话框底部的“显示所需包”控件将显示要安装的包：
 
-  ![安装所需包](~/docs/python/media/tutorials-common-external-packages.png)
+  ![安装所需包](~/python/media/tutorials-common-external-packages.png)
 
 1. 为虚拟环境选择首选基解释器（例如，**Python 2.7** 或 **Python 3.4**），单击“创建”：
 
-  ![创建项目时添加虚拟环境](~/docs/python/media/tutorials-common-add-virtual-environment.png)
+  ![创建项目时添加虚拟环境](~/python/media/tutorials-common-add-virtual-environment.png)
 
 1. 创建项目后，选择“调试”>“开始调试”或按 F5 进行本地测试。 默认情况下，应用程序使用内存中存储库，这并不需要任何配置。 停止 Web 服务器时，所有数据都将丢失。
 
@@ -85,7 +85,7 @@ ms.lasthandoff: 03/07/2017
 
 1. 在“发布”对话框中，选择“Microsoft Azure 应用服务”：
 
-  ![发布到 Azure 步骤 1](~/docs/python/media/tutorials-common-publish-1.png)
+  ![发布到 Azure 步骤 1](~/python/media/tutorials-common-publish-1.png)
 
 1. 选择目标：
 
@@ -94,7 +94,7 @@ ms.lasthandoff: 03/07/2017
 
 1. 应用服务详细信息显示在下面的“发布”对话框的“连接”选项卡中。
 
-  ![发布到 Azure 步骤 2](~/docs/python/media/tutorials-common-publish-2.png)
+  ![发布到 Azure 步骤 2](~/python/media/tutorials-common-publish-2.png)
 
 1. 根据需要选择“下一步 >”，查看其他设置。 如果计划[在 Azure 上远程调试 Python 代码](debugging-azure-remote.md)，必须将“配置”设置为“调试”
 1. 选择“发布”。 应用程序部署到 Azure 后，将在该站点上打开默认浏览器。 

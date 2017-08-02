@@ -37,7 +37,7 @@ caps.handback.revision: 53
   
 -   [在运行时在 VSTO 外接程序中添加控件](#runtimeaddin)  
   
- ![链接到视频](~/docs/data-tools/media/playvideo.gif "链接到视频") 相关视频演示，请参阅[如何实现：在运行时将控件添加到文档图面？](http://go.microsoft.com/fwlink/?LinkId=132782)。  
+ ![链接到视频](~/data-tools/media/playvideo.gif "链接到视频") 相关视频演示，请参阅[如何实现：在运行时将控件添加到文档图面？](http://go.microsoft.com/fwlink/?LinkId=132782)。  
   
 ##  <a name="designtime"></a> 在设计时添加控件  
  有几种方式在设计时向文档级项目中的文档添加 Windows 窗体控件。  

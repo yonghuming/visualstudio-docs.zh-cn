@@ -55,7 +55,7 @@ manager: "ghogen"
   
  转储文件主要用于调试发生在开发人员无权访问的计算机上的问题。  例如，当无法在你的计算机上重现客户的故障或挂起时，可以从客户的计算机使用转储文件。  测试人员还会创建转储文件来保存故障或挂起数据，以便让测试计算机可用于更多测试。  Visual Studio 调试器可为托管或本机代码保存转储文件。  该调试器可加载由 Visual Studio 创建或由以小型转储格式保存文件的其他程序创建的转储文件。  
   
- ![返回页首](~/docs/debugger/media/pcs_backtotop.png "PCS\_BackToTop") [内容](#BKMK_Contents)  
+ ![返回页首](~/debugger/media/pcs_backtotop.png "PCS\_BackToTop") [内容](#BKMK_Contents)  
   
 ##  <a name="BKMK_Dump_files__with_or_without_heaps"></a> 带有或不带堆的转储文件  
  你可以创建带有或不带堆信息的转储文件。  
@@ -64,7 +64,7 @@ manager: "ghogen"
   
 -   **不带堆的转储文件**比带有堆信息的转储文件小得多。  但是，调试器必须加载应用程序二进制文件才能查找符号信息。  该二进制文件必须与创建转储时使用的二进制文件完全匹配。  仅在不带堆数据的转储文件中存储堆栈变量的值。  
   
- ![返回页首](~/docs/debugger/media/pcs_backtotop.png "PCS\_BackToTop") [内容](#BKMK_Contents)  
+ ![返回页首](~/debugger/media/pcs_backtotop.png "PCS\_BackToTop") [内容](#BKMK_Contents)  
   
 ##  <a name="BKMK_Requirements_and_limitations"></a> 要求和限制  
   
@@ -82,7 +82,7 @@ manager: "ghogen"
   
 -   若要用 Visual Studio 中的 [SOS.dll（SOS 调试扩展）](../Topic/SOS.dll%20\(SOS%20Debugging%20Extension\).md)进行调试，则必须安装适用于 Windows 的调试工具（作为 Windows 驱动程序工具包 \(WDK\) 的一部分）。  请参阅 [Windows 8.1 预览版：下载工具包、组件和工具](http://msdn.microsoft.com/library/windows/hardware/bg127147.aspx)。  
   
- ![返回页首](~/docs/debugger/media/pcs_backtotop.png "PCS\_BackToTop") [内容](#BKMK_Contents)  
+ ![返回页首](~/debugger/media/pcs_backtotop.png "PCS\_BackToTop") [内容](#BKMK_Contents)  
   
 ##  <a name="BKMK_Create_a_dump_file"></a> 创建转储文件  
  使用 Visual Studio 创建转储文件：  
@@ -93,7 +93,7 @@ manager: "ghogen"
   
  你还可以使用支持 Windows 小型转储格式的任意程序创建转储文件。  例如，[Windows Sysinternals](http://technet.microsoft.com/sysinternals/default) 中的 **Procdump** 命令行实用工具可以基于触发器或按需创建进程故障转储文件。  有关使用其他工具创建转储文件的其他信息，请参阅本主题中的[要求和限制](../debugger/using-dump-files.md#BKMK_Requirements_and_limitations)。  
   
- ![返回页首](~/docs/debugger/media/pcs_backtotop.png "PCS\_BackToTop") [内容](#BKMK_Contents)  
+ ![返回页首](~/debugger/media/pcs_backtotop.png "PCS\_BackToTop") [内容](#BKMK_Contents)  
   
 ##  <a name="BKMK_Open_a_dump_file"></a> 打开转储文件  
   
@@ -136,7 +136,7 @@ manager: "ghogen"
   
  如果 Visual Studio 找不到调试转储中的模块所需要的文件，则会显示相应的页（**“未找到二进制文件”**、**“未找到符号”**或**“未找到源”**）。  这些页面提供了有关问题原因的详细信息，并提供了可帮助你识别文件的正确位置的操作链接。  请参阅[指定符号 \(.pdb\) 和源文件](../debugger/specify-symbol-dot-pdb-and-source-files-in-the-visual-studio-debugger.md)。  
   
- ![返回页首](~/docs/debugger/media/pcs_backtotop.png "PCS\_BackToTop") [内容](#BKMK_Contents)  
+ ![返回页首](~/debugger/media/pcs_backtotop.png "PCS\_BackToTop") [内容](#BKMK_Contents)  
   
 ## 请参阅  
  [实时调试](../debugger/just-in-time-debugging-in-visual-studio.md)   

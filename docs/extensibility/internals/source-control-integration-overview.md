@@ -40,7 +40,7 @@ ms.lasthandoff: 02/22/2017
 ## <a name="source-control-integration"></a>源代码管理集成  
  [!INCLUDE[vsprvs](../../code-quality/includes/vsprvs_md.md)]支持两种类型的源代码管理集成选项。 在所有版本的[!INCLUDE[vsprvs](../../code-quality/includes/vsprvs_md.md)]，您仍可以集成基于源控制插件 API （以前也称为 MSSCCI API），这在使用 Visual Studio 源控制用户界面 (UI) 的同时提供基本的源控件功能的插件。 源代码管理 VSPackage，另一方面，提供了新的深度集成[!INCLUDE[vsipsdk](../../extensibility/includes/vsipsdk_md.md)]路径适用于要求复杂程度和在其源控件模型中的自治的高程度的源代码管理集成。  
   
- ![源控件概述](~/docs/extensibility/internals/media/sourcectnrloverview.gif "SourceCtnrlOverview")  
+ ![源控件概述](~/extensibility/internals/media/sourcectnrloverview.gif "SourceCtnrlOverview")  
   
 ## <a name="source-control-plug-in"></a>源代码管理插件  
  所有版本的 Visual Studio 都支持集成路径作为源控制插件 API 规范 1.2 版。 源控制插件实施者将写入一个 DLL，它实现进行源代码管理集成和注册的源控制插件 API 函数中所述[创建源代码管理插件](../../extensibility/internals/creating-a-source-control-plug-in.md)。 在这种方法，集成开发环境 (IDE) 使用[!INCLUDE[vsprvs](../../code-quality/includes/vsprvs_md.md)]UI 对话框，如签入签出、 工具/选项属性页、 工具栏和源控件标志符号。 严格遵守源控制插件 API 将确保方便地集成到 Visual Studio 和用户提供完美的体验。 这意味着源代码管理插件必须实现的大多数功能和详细的 API 中的回调。  

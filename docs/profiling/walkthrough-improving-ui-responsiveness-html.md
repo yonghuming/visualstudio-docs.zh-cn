@@ -200,13 +200,13 @@ ms.lasthandoff: 02/22/2017
   
 7.  在“CPU 使用率”图的中间选择一个一到两秒的部分（单击并拖动或使用 Tab 键和箭头键）。 下图显示了做出选择后的“CPU 使用率”图。 非共享区域为选定内容。  
   
-     ![CPU 使用率图](~/docs/profiling/media/js_htmlviz_app_cpu.png "JS_HTMLViz_App_CPU")  
+     ![CPU 使用率图](~/profiling/media/js_htmlviz_app_cpu.png "JS_HTMLViz_App_CPU")  
   
 8.  选择“放大”。  
   
      此图将更改，更详细地显示选定时间段。 下图显示了放大后的“CPU 使用率”图。 （具体数据可能不同，但常规模式是明显的。）  
   
-     ![放大视图](~/docs/profiling/media/js_htmlviz_app_zoom.png "JS_HTMLViz_App_Zoom")  
+     ![放大视图](~/profiling/media/js_htmlviz_app_zoom.png "JS_HTMLViz_App_Zoom")  
   
      下方窗格中的“时间线详细信息”显示选定时间段的详细信息的示例。  
   

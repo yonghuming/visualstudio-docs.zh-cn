@@ -141,11 +141,11 @@ Visual Studio 编辑器提供了许多功能，可方便你更加轻松地编写
 ## <a name="navigate-and-find-code"></a>导航和查找代码  
 可以使用多种不同的方式在文档中移动。 除标准操作外，还可以使用工具栏上的“向后导航”  （CTRL + 减号）和“向前导航” （CTRL + SHIFT + 减号）按钮，将插入点移到先前位置，或返回到活动文档中更新的位置。 这些按钮保留插入点的最后 20 个位置。
 
-![向前和向后导航按钮](~/docs/ide/media/vs2017_nav_buttons.png)
+![向前和向后导航按钮](~/ide/media/vs2017_nav_buttons.png)
 
 代码编辑器中的结构可视化工具功能可显示*结构参考线*，即指明代码库中成对大括号的垂直虚线。 这样一来，你可以更加轻松地判断逻辑块的开始和结束位置。
 
-![结构可视化工具](~/docs/ide/media/vside_structure_visualizer.png)
+![结构可视化工具](~/ide/media/vside_structure_visualizer.png)
 
 若要禁用结构参考线，请依次转到“工具”、“选项”、“文本编辑器”和“常规”，然后取消选中“显示结构参考线”框。
 
@@ -167,7 +167,7 @@ Visual Studio 编辑器提供了许多功能，可方便你更加轻松地编写
 
  也可以使用“导航栏”（代码窗口顶部的下拉框），在代码库中查找代码。 选择类型或成员即可直接转到。 在 Visual Basic、C# 或 C++ 代码库中编辑代码时，可以看到导航栏。
 
- ![代码导航栏](~/docs/ide/media/vside_navigation_bar.png)
+ ![代码导航栏](~/ide/media/vside_navigation_bar.png)
 
  若要隐藏导航栏，请在“文本编辑器”的“所有语言”设置中更改“导航栏”选项（依次选择“工具”、“选项”、“文本编辑器”和所有语言”，也可以单独更改各语言的设置）。 可在下拉框中导航，如下所示：  
 
@@ -194,7 +194,7 @@ Visual Studio 的“转到”命令可对代码执行重点搜索，有助于在
 1. 在主菜单中，依次选择“编辑”和“转到”。 代码编辑器的上方会出现一个小文本框。
 1. 在文本框中，输入要查找的代码元素的名称。
 
-    ![“导航到”窗口](~/docs/ide/media/vside_navigatetowindow.png "“导航到”窗口")
+    ![“导航到”窗口](~/ide/media/vside_navigatetowindow.png "“导航到”窗口")
 
     键入内容时，结果显示在文本框下的下拉列表中。
 1. 若要转到某个元素，请在列表中选择它。
@@ -217,11 +217,11 @@ Visual Studio 的“转到”命令可对代码执行重点搜索，有助于在
 
 还可以选择“转到”对话框工具栏上的按钮，快速更改搜索筛选器。 筛选器更改按钮位于左侧，而搜索范围更改按钮则位于右侧。
 
-![](~/docs/ide/media/vside_navigation_toolbar.png)
+![](~/ide/media/vside_navigation_toolbar.png)
 
 如果在代码中使用[驼峰式大小写](https://en.wikipedia.org/wiki/Camel_case)，可以仅输入代码元素名称的大写字母，更快地查找代码元素。 例如，如果代码中有 `CredentialViewModel` 类型，可以选择“类型筛选器”("t")，然后在“转到”对话框中仅输入名称的大写字母 (`CVM`) 来缩小搜索范围。
 
-![转到窗口 - 使用大写字母进行搜索](~/docs/ide/media/vside_capitalsearch.png)
+![转到窗口 - 使用大写字母进行搜索](~/ide/media/vside_capitalsearch.png)
 
 如果代码名称很长，此功能就非常有用。
 
@@ -239,7 +239,7 @@ Visual Studio 的“转到”命令可对代码执行重点搜索，有助于在
 
 还可以将鼠标悬停在任一搜索结果之上，从而预览返回项。
 
-![“查找所有引用”工具窗口](~/docs/ide/media/vside_findallreferences.png)
+![“查找所有引用”工具窗口](~/ide/media/vside_findallreferences.png)
 
 若要保留搜索结果，请选择“保留结果”按钮。 选择此按钮后，当前的搜索结果会继续保留在此窗口中，而新的搜索结果则会显示在新的工具窗口中。
 

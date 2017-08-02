@@ -55,7 +55,7 @@ ms.lasthandoff: 02/22/2017
 # <a name="map-dependencies-across-your-solutions"></a>映射解决方案中的依赖项
 若要了解代码之间的依赖关系，可通过创建代码图使其可视化。 这样有助于你查看代码如何相互配合，而无需读取文件和各行代码。  
   
- ![查看解决方案中的依赖关系](~/docs/modeling/media/codemapsmainintro.png "CodeMapsMainIntro")  
+ ![查看解决方案中的依赖关系](~/modeling/media/codemapsmainintro.png "CodeMapsMainIntro")  
   
  **以下是一些相关视频**：  
   
@@ -101,7 +101,7 @@ ms.lasthandoff: 02/22/2017
   
 2.  选择需映射的所有项目、程序集引用、文件夹、文件、类型或成员。  
   
-3.  在**解决方案资源管理器**工具栏上，选择**在代码图上显示**![创建新关系图从所选节点按钮](~/docs/modeling/media/createnewgraphfromselectedbutton.gif "CreateNewGraphFromSelectedButton")。 或者打开快捷菜单并选择“在代码图上显示” 。 还可以将项从类视图或对象浏览器拖到新代码图或现有代码图中。  
+3.  在**解决方案资源管理器**工具栏上，选择**在代码图上显示**![创建新关系图从所选节点按钮](~/modeling/media/createnewgraphfromselectedbutton.gif "CreateNewGraphFromSelectedButton")。 或者打开快捷菜单并选择“在代码图上显示” 。 还可以将项从类视图或对象浏览器拖到新代码图或现有代码图中。  
   
 4.  [查看特定依赖关系](#SeeSpecificSource) 以了解可如何使用代码图来查看解决方案中的特定依赖关系。  
   
@@ -135,23 +135,23 @@ ms.lasthandoff: 02/22/2017
   
 1.  在“体系结构”  菜单上，选择“生成解决方案的代码图” 。  
   
-     ![生成代码映射命令](~/docs/modeling/media/codemapsarchitecturemenu.png "CodeMapsArchitectureMenu")  
+     ![生成代码映射命令](~/modeling/media/codemapsarchitecturemenu.png "CodeMapsArchitectureMenu")  
   
      你将获得显示顶级程序集和这些程序集之间的聚合链接的代码图。 聚合链路越广，它所代表的依赖关系就越多。  
   
 2.  使用代码图工具栏上的“图例”  按钮以显示或隐藏项目类型图标（如测试项目、Web 项目和 Phone 项目）、代码项（如类、方法和属性）以及关系类型（如继承自、实现和调用）的列表。  
   
-     ![程序集的顶级依赖项关系图](~/docs/modeling/media/dependencygraph_toplevelassemblies.png "DependencyGraph_TopLevelAssemblies")  
+     ![程序集的顶级依赖项关系图](~/modeling/media/dependencygraph_toplevelassemblies.png "DependencyGraph_TopLevelAssemblies")  
   
      此示例解决方案包含解决方案文件夹（“测试” 和“组件” ），测试项目、Web 项目和程序集。 默认情况下，所有包含关系均以 *“组”*的形式显示，你可以对其进行展开和折叠。  “外部”组包含你的解决方案之外的任何内容，包括平台依赖项。 外部程序集仅显示已使用的项。 默认情况下，系统基类型隐藏在代码图中以减少混乱。  
   
 3.  若要深入了解代码图中，请展开表示项目和程序集的组。 可以通过按“CTRL+A”  展开全部内容以选择所有节点，然后选择“组” ，再选择快捷菜单中的“展开”  。  
   
-     ![展开代码映射中的所有组](~/docs/modeling/media/codemapsexpandallgroups.png "CodeMapsExpandAllGroups")  
+     ![展开代码映射中的所有组](~/modeling/media/codemapsexpandallgroups.png "CodeMapsExpandAllGroups")  
   
 4.  但是，这对大型解决方案可能并无作用。 事实上，对于复杂的解决方案，内存限制可能会阻止你展开所有组。 相反，若要在单个节点内进行查看，则将其展开。 将鼠标指针移动到节点的顶部，然后单击出现的 V 形。  
   
-     ![展开代码映射中的节点](~/docs/modeling/media/dependencygraph_containment.png "DependencyGraph_Containment")  
+     ![展开代码映射中的节点](~/modeling/media/dependencygraph_containment.png "DependencyGraph_Containment")  
   
      或使用键盘选择项，然后按加号键（“+”**+**）。 若要查看更深层次的代码，请对命名空间、类型和成员执行相同操作。  
   
@@ -160,13 +160,13 @@ ms.lasthandoff: 02/22/2017
   
 5.  若要简化代码图并将重点关注各个部分，选择代码图工具栏上的“筛选器”  ，然后仅选择你感兴趣的节点和链接类型。 例如，可以隐藏所有的解决方案文件夹和程序集容器。  
   
-     ![通过筛选容器来简化代码图](~/docs/modeling/media/codemapsfilterfoldersassemblies.png "CodeMapsFilterFoldersAssemblies")  
+     ![通过筛选容器来简化代码图](~/modeling/media/codemapsfilterfoldersassemblies.png "CodeMapsFilterFoldersAssemblies")  
   
      还可以通过从代码图中隐藏或删除单个组和项来简化代码图，而不影响基础解决方案代码。  
   
 6.  若要查看各项间的关系，请在代码图中选择各项。 链接的颜色指示关系的类型，如“图例”  窗格中所示。  
   
-     ![查看解决方案中的依赖关系](~/docs/modeling/media/codemapsmainintro.png "CodeMapsMainIntro")  
+     ![查看解决方案中的依赖关系](~/modeling/media/codemapsmainintro.png "CodeMapsMainIntro")  
   
      在此示例中，紫色链接为调用，点式链接为引用，浅蓝色链接为字段访问。 绿色链接可以是继承，也可能是指示一个以上关系（或 *“类别”* ）类型的 *“聚合链接”*。  
   
@@ -175,25 +175,25 @@ ms.lasthandoff: 02/22/2017
   
 7.  若要获取有关项或链接的详细信息，请将指针移至其顶部，直至出现工具提示。 这将显示代码元素或链接所表示的类别的详细信息。  
   
-     ![显示关系的类别](~/docs/modeling/media/codemapsshowlinkcatgories.png "CodeMapsShowLinkCatgories")  
+     ![显示关系的类别](~/modeling/media/codemapsshowlinkcatgories.png "CodeMapsShowLinkCatgories")  
   
 8.  若要检查聚合链接表示的项和依赖项，请首先选择该链接，然后打开它的快捷菜单。 选择“显示参与链接”  （或“在新代码图上显示参与链接” ）。 这将展开位于链接两端的组，且仅显示参与链接的项和依赖项。  
   
 9. 若要关注代码图的特定部分，可继续删除不感兴趣的项。 例如，若要深入了解类和成员视图，只需筛选“筛选器”  窗格中的所有命名空间节点。  
   
-     ![类和成员级别向下钻取](~/docs/modeling/media/dependencygraph_expandedselectedgroups_2012.png "DependencyGraph_ExpandedSelectedGroups_2012")  
+     ![类和成员级别向下钻取](~/modeling/media/dependencygraph_expandedselectedgroups_2012.png "DependencyGraph_ExpandedSelectedGroups_2012")  
   
 10. 集中精力处理复杂的解决方案代码图的另一种方式是从现有代码图生成包含选定项的新代码图。 按住“CTRL”  同时选择需关注的项，打开快捷菜单并选择“从选定内容新建图” 。  
   
-     ![在新代码图上显示的选定的项](~/docs/ide/media/codemapsshowonnewmap.png "CodeMapsShowOnNewMap")  
+     ![在新代码图上显示的选定的项](~/ide/media/codemapsshowonnewmap.png "CodeMapsShowOnNewMap")  
   
 11. 将包含上下文转入新代码图。 使用“筛选器”  窗格隐藏解决方案文件夹以及不想看到的任何其他容器。  
   
-     ![筛选容器以简化视图](~/docs/modeling/media/codemapsexpandnewgroups.png "CodeMapsExpandNewGroups")  
+     ![筛选容器以简化视图](~/modeling/media/codemapsexpandnewgroups.png "CodeMapsExpandNewGroups")  
   
 12. 展开组，选择代码图中的项，以便查看关系。  
   
-     ![选择要查看的关系的项目](~/docs/modeling/media/codemapsviewnewrelationships.png "CodeMapsViewNewRelationships")  
+     ![选择要查看的关系的项目](~/modeling/media/codemapsviewnewrelationships.png "CodeMapsViewNewRelationships")  
   
  另请参阅：  
   
@@ -215,19 +215,19 @@ ms.lasthandoff: 02/22/2017
 ##  <a name="a-nameseespecificsourcea-see-specific-dependencies"></a><a name="SeeSpecificSource"></a>查看特定依赖关系  
  例如，假设你在一些具有挂起更改的文件中执行代码审阅。 若要查看这些更改中的依赖关系，请从这些文件中创建一个代码图。  
   
- ![在代码图上显示的特定依赖关系](~/docs/modeling/media/codemapsspecificdependenciesintro.png "CodeMapsSpecificDependenciesIntro")  
+ ![在代码图上显示的特定依赖关系](~/modeling/media/codemapsspecificdependenciesintro.png "CodeMapsSpecificDependenciesIntro")  
   
 ### <a name="see-specific-dependencies-in-your-solution"></a>查看解决方案中特定的依赖关系  
   
 1.  打开“解决方案资源管理器” 。 选择你感兴趣的项目、程序集引用、文件夹、文件、类型和成员。 若要找出与类型或成员有依赖关系的项，请从“解决方案资源管理器”中打开类型或成员的快捷菜单 。 选择依赖关系类型，然后选择结果。  
   
-2.  映射你的项及其成员。 在**解决方案资源管理器**工具栏上单击**在代码图上显示**![创建新关系图从所选节点按钮](~/docs/modeling/media/createnewgraphfromselectedbutton.gif "CreateNewGraphFromSelectedButton")。  
+2.  映射你的项及其成员。 在**解决方案资源管理器**工具栏上单击**在代码图上显示**![创建新关系图从所选节点按钮](~/modeling/media/createnewgraphfromselectedbutton.gif "CreateNewGraphFromSelectedButton")。  
   
-     ![选择要映射的项目](~/docs/modeling/media/codemapsselectinsolutionexplorer.png "CodeMapsSelectInSolutionExplorer")  
+     ![选择要映射的项目](~/modeling/media/codemapsselectinsolutionexplorer.png "CodeMapsSelectInSolutionExplorer")  
   
 3.  代码图将显示在选定项的包含程序集内的选定项。  
   
-     ![选定项显示为地图上的组](~/docs/modeling/media/codemapsshowitemsfromsolnexplorer.png "CodeMapsShowItemsFromSolnExplorer")  
+     ![选定项显示为地图上的组](~/modeling/media/codemapsshowitemsfromsolnexplorer.png "CodeMapsShowItemsFromSolnExplorer")  
   
      还可以将项从解决方案资源管理器、类视图或对象浏览器拖到空白代码图或现有代码图中。 若要创建空代码图，请参阅 [创建空代码图](#GetStarted)。 若要包含项的父层次结构，在按住“CTRL”  键的同时拖动项，或者使用代码图工具栏上的“包括父级”  按钮来指定默认操作。  
   
@@ -236,15 +236,15 @@ ms.lasthandoff: 02/22/2017
   
 4.  如要查看项，请把项展开。 将鼠标指针移动到项的顶部，然后单击出现的 V 形（向下键）。  
   
-     ![展开代码映射中的节点](~/docs/modeling/media/dependencygraph_containment.png "DependencyGraph_Containment")  
+     ![展开代码映射中的节点](~/modeling/media/dependencygraph_containment.png "DependencyGraph_Containment")  
   
      若要展开所有项，使用“CTRL+A” 选择它们，然后打开代码图的快捷菜单并依次选择“组” 、“展开” 。 然而，如果展开所有组会生成不可用的代码图或产生内存问题，则该选项不可用。  
   
 5.  根据需要，继续展开感兴趣的项，直到类和成员级别。  
   
-     ![将组展开到类和成员级别](~/docs/modeling/media/codemapsexpandtoclassandmember.png "CodeMapsExpandToClassAndMember")  
+     ![将组展开到类和成员级别](~/modeling/media/codemapsexpandtoclassandmember.png "CodeMapsExpandToClassAndMember")  
   
-     若要在地图上查看代码中，但不会显示成员，请单击**重新提取子级**图标![重新提取子级图标](~/docs/modeling/media/dependencygraph_deletednodesicon.png "DependencyGraph_DeletedNodesIcon")中的一组左上角。  
+     若要在地图上查看代码中，但不会显示成员，请单击**重新提取子级**图标![重新提取子级图标](~/modeling/media/dependencygraph_deletednodesicon.png "DependencyGraph_DeletedNodesIcon")中的一组左上角。  
   
 6.  若要查看更多与代码图上的项相关的项，请选择其中一个，再选择代码图工具栏上的“显示相关内容”  ，然后选择要添加到图中的相关项的类型。 或者，选择一个或多个项，打开快捷菜单，然后为要添加到图中的相关项类型选择“显示…”  选项。 例如：  
   
@@ -287,15 +287,15 @@ ms.lasthandoff: 02/22/2017
     |**显示包含类型**|添加父类型。|  
     |**显示包含类型、 Namespace 和程序集**|添加父容器的层次结构。|  
   
-     ![显示此成员调用的方法](~/docs/modeling/media/codemapsshowrelatedmethods.png "CodeMapsShowRelatedMethods")  
+     ![显示此成员调用的方法](~/modeling/media/codemapsshowrelatedmethods.png "CodeMapsShowRelatedMethods")  
   
 7.  代码图显示关系。 在此示例中，则为由 `Find` 调用的方法及其在解决方案中或在外部的位置。  
   
-     ![在代码图上显示的特定依赖关系](~/docs/modeling/media/codemapsspecificdependenciesintro.png "CodeMapsSpecificDependenciesIntro")  
+     ![在代码图上显示的特定依赖关系](~/modeling/media/codemapsspecificdependenciesintro.png "CodeMapsSpecificDependenciesIntro")  
   
 8.  若要简化代码图并将重点关注各个部分，选择代码图工具栏上的“筛选器”  ，然后仅选择你感兴趣的节点和链接类型。 例如，关闭解决方案文件夹、程序集和命名空间的显示。  
   
-     ![使用筛选器窗格以简化显示](~/docs/modeling/media/almcodemapfilterpane.png "ALMCodeMapFilterPane")  
+     ![使用筛选器窗格以简化显示](~/modeling/media/almcodemapfilterpane.png "ALMCodeMapFilterPane")  
   
 ##  <a name="a-nameseesourceheadera-see-dependencies-between-c-and-c-source-files-and-header-files"></a><a name="SeeSourceHeader"></a>请参阅 C 和 c + + 源文件和头文件之间的依赖关系  
  如果要创建更多 C++ 项目的完整代码图，请在这些项目上设置浏览信息编译器选项 (**/FR**)。 否则，将出现一条消息并提示你设置此选项。 如果选择“确定” ，就只会为当前代码图设置选项。 可以选择隐藏所有之后的代码图的信息。 如果你隐藏了该信息，则可以让它再显示。 将以下注册表项设置为 `0` 或删除该项：  
@@ -306,11 +306,11 @@ ms.lasthandoff: 02/22/2017
   
 -   若要查看解决方案中所有源文件和头文件间的依赖关系，请在“体系结构”  菜单上，选择“生成包含文件的关系图” 。  
   
-     ![对于本机代码的依赖项关系图](~/docs/modeling/media/dependencygraphgeneral_nativecode.png "DependencyGraphGeneral_NativeCode")  
+     ![对于本机代码的依赖项关系图](~/modeling/media/dependencygraphgeneral_nativecode.png "DependencyGraphGeneral_NativeCode")  
   
 -   若要查看当前打开文件和相关的源文件以及头文件之间的依赖关系，请打开相关的源文件或头文件。 在文件内的任何地方打开文件快捷菜单。 选择“生成包含文件的关系图” 。  
   
-     ![.H 文件的第一级依赖项关系图](~/docs/modeling/media/dependencygraph_native_firstlevel.png "DependencyGraph_Native_FirstLevel")  
+     ![.H 文件的第一级依赖项关系图](~/modeling/media/dependencygraph_native_firstlevel.png "DependencyGraph_Native_FirstLevel")  
   
 ###  <a name="a-nametroubleshootinga-troubleshoot-maps-for-c-and-c-code"></a><a name="Troubleshooting"></a>故障排除图 C 和 c + + 代码  
  C 和 C++ 代码不支持这些项：  
@@ -345,7 +345,7 @@ ms.lasthandoff: 02/22/2017
   
 -   直接编辑代码图文件，以删除不需要的节点和链接。 更改代码图不会影响基础代码。 请参阅[通过编辑 DGML 文件自定义代码图](../modeling/customize-code-maps-by-editing-the-dgml-files.md)。  
   
- ![跳过生成和包括父级按钮](~/docs/modeling/media/codemapsfilterskipbuildicons.png "CodeMapsFilterSkipBuildIcons")  
+ ![跳过生成和包括父级按钮](~/modeling/media/codemapsfilterskipbuildicons.png "CodeMapsFilterSkipBuildIcons")  
   
  尽管 Visual Studio 可在 1 GB 内存下运行，但我们建议你的计算机至少具有 2 GB 内存，以避免在 Visual Studio 创建代码索引并生成代码图时产生长时间的延迟。  
   
@@ -362,7 +362,7 @@ ms.lasthandoff: 02/22/2017
   
  若要将映射保存为特定项目的一部分，在代码图工具栏上，选择**共享**，**移动** \< *CodeMapName*>**到.dgml**，然后选择您想要保存该映射的项目。  
   
- ![将映射移动到另一个项目](~/docs/modeling/media/codemapsmovemapmenu.png "CodeMapsMoveMapMenu")  
+ ![将映射移动到另一个项目](~/modeling/media/codemapsmovemapmenu.png "CodeMapsMoveMapMenu")  
   
  Visual Studio 将代码图另存为 .dgml 文件，以便你可与 Visual Studio Enterprise 和 Visual Studio Professional 的其他用户共享。  
   

@@ -98,7 +98,7 @@ manager: "ghogen"
 #### 统计意义  
  为了引起对具有最高相关性的呈现变体的注意，帧分析将确定每个呈现变体的统计意义，并将有意义的变体显示为黑体字。  它将提升性能的变体显示为绿色，将降低性能的变体显示为红色。  它还将不具有统计学意义的结果显示为正常字体。  
   
- ![绘图调用变量的统计相关性](~/docs/debugger/graphics/media/pix_frame_analysis_summary_stats.png "pix\_frame\_analysis\_summary\_stats")  
+ ![绘图调用变量的统计相关性](~/debugger/graphics/media/pix_frame_analysis_summary_stats.png "pix\_frame\_analysis\_summary\_stats")  
   
  为了确定统计相关性，帧分析将使用[学生 t 检验](http://www.wikipedia.org/wiki/Student%27s_t-test)。  
   

@@ -42,7 +42,7 @@ ms.lasthandoff: 04/05/2017
 ## <a name="extensibility-architecture"></a>可扩展性体系结构  
  下图显示 Visual Studio 扩展性体系结构。 Vspackage 提供作为服务在 IDE 之间共享的应用程序功能。 标准 IDE 还提供了广泛的服务，如<xref:Microsoft.VisualStudio.Shell.Interop.SVsUIShell>，它提供的信息对 IDE 窗口化功能的访问。</xref:Microsoft.VisualStudio.Shell.Interop.SVsUIShell>  
   
- ![环境体系结构图](~/docs/extensibility/internals/media/environment.gif "environment")  
+ ![环境体系结构图](~/extensibility/internals/media/environment.gif "environment")  
 Visual Studio 体系结构的通用的视图  
   
 ## <a name="vspackages"></a>VSPackages  
@@ -75,7 +75,7 @@ Visual Studio 体系结构的通用的视图
   
  请考虑下图的 Visual Studio 中，其中包含多个工具窗口。  
   
- ![屏幕截图](~/docs/extensibility/internals/media/t1gui.png "T1gui")  
+ ![屏幕截图](~/extensibility/internals/media/t1gui.png "T1gui")  
   
  某些工具窗口一起停靠在单一的窗格显示解决方案资源管理器工具窗口和隐藏的其他工具窗口但使它们可通过单击选项卡。 图中显示了两个其他工具窗口，**错误列表**和**输出**窗口一起停靠在单一的窗格。  
   

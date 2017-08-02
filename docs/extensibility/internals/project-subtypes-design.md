@@ -52,7 +52,7 @@ caps.handback.revision: 32
   
  下图显示多个项目子类型总结的一个图示。  
   
- ![图：Visual Studio 多级项目风格](~/docs/extensibility/internals/media/vs_multilevelprojectflavor.gif "VS\_MultilevelProjectFlavor")  
+ ![图：Visual Studio 多级项目风格](~/extensibility/internals/media/vs_multilevelprojectflavor.gif "VS\_MultilevelProjectFlavor")  
 多个项目子类型  
   
  多个项目子类型摘要中三个级别，基本项目，由项目子类型聚合，然后进一步复合由高级项目子类型。  该图重点介绍提供作为 [!INCLUDE[vsprvs](../../code-quality/includes/vsprvs_md.md)] 项目子类型体系结构的节中的某些支持的接口。  
@@ -62,7 +62,7 @@ caps.handback.revision: 32
   
  下图介绍自动化扩展程序实现，项目配置特别是浏览对象，用于使项目子类型扩展了基本项目系统。  
   
- ![图：VS 项目风格自动扩展程序](~/docs/extensibility/internals/media/vs_projectflavorautoextender.gif "VS\_ProjectFlavorAutoExtender")  
+ ![图：VS 项目风格自动扩展程序](~/extensibility/internals/media/vs_projectflavorautoextender.gif "VS\_ProjectFlavorAutoExtender")  
 项目子类型自动化扩展程序。  
   
  项目子类型可以通过扩展自动化对象模型进一步扩展基本项目系统。  这些定义，对自动化对象的部件和用于扩展项目 `ProjectItem` 对象、对象和 `Configuration` 对象。  有关更多信息，请参见[扩展的对象模型的基本项目](../../extensibility/internals/extending-the-object-model-of-the-base-project.md)。  

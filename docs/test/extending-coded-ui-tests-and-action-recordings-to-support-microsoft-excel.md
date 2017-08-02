@@ -42,7 +42,7 @@ ms.lasthandoff: 05/13/2017
   
  本节提供编码的 UI 测试扩展，该扩展可以录制和播放 Excel 工作表的测试。 本节和针对开发人员（该开发人员只想创建一个这样的扩展）的代码注释中对扩展的每个部分进行了介绍。  
   
- ![UI 测试体系结构](~/docs/test/media/ui_testarch.png "UI_TestArch")  
+ ![UI 测试体系结构](~/test/media/ui_testarch.png "UI_TestArch")  
 体系结构概述  
   
 ## <a name="download-the-sample"></a>下载示例  

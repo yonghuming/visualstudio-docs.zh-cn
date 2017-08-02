@@ -115,7 +115,7 @@ ms.lasthandoff: 05/13/2017
   
      计时器将开始倒计时。 当时间用完时，测验将结束，并显示答案。 下图显示了正在进行的测验。  
   
-     ![数学测验正在进行中](~/docs/ide/media/express_addcountdown.png "Express_AddCountdown")  
+     ![数学测验正在进行中](~/ide/media/express_addcountdown.png "Express_AddCountdown")  
 数学测验正在进行中  
   
 ### <a name="to-continue-or-review"></a>继续或查看  

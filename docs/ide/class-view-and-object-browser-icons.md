@@ -31,19 +31,19 @@ caps.handback.revision: 20
   
 |图标|说明|图标|说明|  
 |--------|--------|--------|--------|  
-|![命名空间符号](~/docs/ide/media/vxnamespace_icon.gif "vxNamespace\_Icon")|命名空间|![声明符号](~/docs/ide/media/vxmethod_icon.gif "vxMethod\_Icon")|方法或函数|  
-|![“类”图标](~/docs/ide/media/vxclass_icon.gif "vxClass\_Icon")|类|![运算符符号](~/docs/ide/media/vxoperator_icon.gif "vxOperator\_Icon")|运算符|  
-|![棒棒糖形状的接口符号](~/docs/ide/media/vxinterface_icon.gif "vxInterface\_Icon")|接口|![属性符号](~/docs/ide/media/vxproperty_icon.gif "vxProperty\_Icon")|属性|  
-|![结构符号](~/docs/ide/media/vxstruct_icon.gif "vxStruct\_Icon")|结构|![“字段”图标](~/docs/ide/media/vxfield_icon.gif "vxField\_Icon")|字段或变量|  
-|![联合符号](~/docs/ide/media/vxunion_icon.gif "vxUnion\_Icon")|Union|![事件符号](~/docs/ide/media/vxevent_icon.gif "vxEvent\_Icon")|Event|  
-|![枚举符号](~/docs/ide/media/vxenum_icon.gif "vxEnum\_Icon")|Enum|![“常量”图标](~/docs/ide/media/vxconstant_icon.gif "vxConstant\_Icon")|常量|  
-|![类型定义符号](~/docs/ide/media/vxtypedef_icon.gif "vxTypeDef\_Icon")|TypeDef|![枚举项符号](~/docs/ide/media/vxenumitem_icon.gif "vxEnumItem\_Icon")|枚举项|  
-|![Visual Studio 模块符号](~/docs/ide/media/vxmodule_icon.gif "vxModule\_Icon")|模块|![映射项符号](~/docs/ide/media/vxmapitem_icon.gif "vxMapItem\_Icon")|映射项|  
-|![扩展方法符号](~/docs/ide/media/extensionmethod.gif "ExtensionMethod")|扩展方法|![声明符号](~/docs/ide/media/vxmethod_icon.gif "vxMethod\_Icon")|外部声明|  
-|![委托符号](~/docs/ide/media/vxdelegate_icon.gif "vxDelegate\_Icon")|委托|![类视图和对象浏览器的“错误”图标](~/docs/ide/media/erroricon.gif "ErrorIcon")|错误|  
-|![异常符号](~/docs/ide/media/vxexception_icon.gif "vxException\_Icon")|异常|![模板符号](~/docs/ide/media/vxtemplate_icon.gif "vxTemplate\_Icon")|模板|  
-|![映射符号](~/docs/ide/media/vxmap_icon.gif "vxMap\_Icon")|映射|![错误感叹号符号](~/docs/ide/media/vxerror_icon.gif "vxError\_Icon")|未知|  
-|![“类型转发”符号](~/docs/ide/media/ob_type_forward.gif "ob\_type\_forward")|类型转发|||  
+|![命名空间符号](~/ide/media/vxnamespace_icon.gif "vxNamespace\_Icon")|命名空间|![声明符号](~/ide/media/vxmethod_icon.gif "vxMethod\_Icon")|方法或函数|  
+|![“类”图标](~/ide/media/vxclass_icon.gif "vxClass\_Icon")|类|![运算符符号](~/ide/media/vxoperator_icon.gif "vxOperator\_Icon")|运算符|  
+|![棒棒糖形状的接口符号](~/ide/media/vxinterface_icon.gif "vxInterface\_Icon")|接口|![属性符号](~/ide/media/vxproperty_icon.gif "vxProperty\_Icon")|属性|  
+|![结构符号](~/ide/media/vxstruct_icon.gif "vxStruct\_Icon")|结构|![“字段”图标](~/ide/media/vxfield_icon.gif "vxField\_Icon")|字段或变量|  
+|![联合符号](~/ide/media/vxunion_icon.gif "vxUnion\_Icon")|Union|![事件符号](~/ide/media/vxevent_icon.gif "vxEvent\_Icon")|Event|  
+|![枚举符号](~/ide/media/vxenum_icon.gif "vxEnum\_Icon")|Enum|![“常量”图标](~/ide/media/vxconstant_icon.gif "vxConstant\_Icon")|常量|  
+|![类型定义符号](~/ide/media/vxtypedef_icon.gif "vxTypeDef\_Icon")|TypeDef|![枚举项符号](~/ide/media/vxenumitem_icon.gif "vxEnumItem\_Icon")|枚举项|  
+|![Visual Studio 模块符号](~/ide/media/vxmodule_icon.gif "vxModule\_Icon")|模块|![映射项符号](~/ide/media/vxmapitem_icon.gif "vxMapItem\_Icon")|映射项|  
+|![扩展方法符号](~/ide/media/extensionmethod.gif "ExtensionMethod")|扩展方法|![声明符号](~/ide/media/vxmethod_icon.gif "vxMethod\_Icon")|外部声明|  
+|![委托符号](~/ide/media/vxdelegate_icon.gif "vxDelegate\_Icon")|委托|![类视图和对象浏览器的“错误”图标](~/ide/media/erroricon.gif "ErrorIcon")|错误|  
+|![异常符号](~/ide/media/vxexception_icon.gif "vxException\_Icon")|异常|![模板符号](~/ide/media/vxtemplate_icon.gif "vxTemplate\_Icon")|模板|  
+|![映射符号](~/ide/media/vxmap_icon.gif "vxMap\_Icon")|映射|![错误感叹号符号](~/ide/media/vxerror_icon.gif "vxError\_Icon")|未知|  
+|![“类型转发”符号](~/ide/media/ob_type_forward.gif "ob\_type\_forward")|类型转发|||  
   
 ## 信号图标  
  以下信号图标适用于前面的所有图标，指示它们的可访问性。  
@@ -54,11 +54,11 @@ caps.handback.revision: 20
 |图标|说明|  
 |--------|--------|  
 |\<无信号图标\>|公共。  可从该组件内的任何地方访问或从任何引用它的组件访问。|  
-|![信号 Protected 符号](~/docs/ide/media/vxsignal_icon_key.gif "vxSignal\_Icon\_Key")|受保护。  可从包含类或类型内访问或从由包含类或类型派生的类或类型内访问。|  
-|![信号 Private 符号](~/docs/ide/media/vxsignal_icon_lock.gif "vxSignal\_Icon\_Lock")|私有。  仅可在包含类或类型内访问。|  
-|![信号 Sealed 符号](~/docs/ide/media/vxsignal_icon_envelope.gif "vxSignal\_Icon\_Envelope")|密封。|  
-|![信号 Friend&#47;Internal 符号](~/docs/ide/media/vxsignal_icon_diamond.gif "vxSignal\_Icon\_Diamond")|朋友\/内部。  仅可以从此项目内访问。|  
-|![信号图标箭头](~/docs/ide/media/vxsignal_icon_arrow.gif "vxSignal\_Icon\_Arrow")|快捷方式。  对象的快捷方式。|  
+|![信号 Protected 符号](~/ide/media/vxsignal_icon_key.gif "vxSignal\_Icon\_Key")|受保护。  可从包含类或类型内访问或从由包含类或类型派生的类或类型内访问。|  
+|![信号 Private 符号](~/ide/media/vxsignal_icon_lock.gif "vxSignal\_Icon\_Lock")|私有。  仅可在包含类或类型内访问。|  
+|![信号 Sealed 符号](~/ide/media/vxsignal_icon_envelope.gif "vxSignal\_Icon\_Envelope")|密封。|  
+|![信号 Friend&#47;Internal 符号](~/ide/media/vxsignal_icon_diamond.gif "vxSignal\_Icon\_Diamond")|朋友\/内部。  仅可以从此项目内访问。|  
+|![信号图标箭头](~/ide/media/vxsignal_icon_arrow.gif "vxSignal\_Icon\_Arrow")|快捷方式。  对象的快捷方式。|  
   
 ## 请参阅  
  [查看代码的结构](../ide/viewing-the-structure-of-code.md)

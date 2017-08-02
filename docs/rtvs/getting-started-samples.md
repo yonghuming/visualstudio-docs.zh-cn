@@ -52,11 +52,11 @@ ms.lasthandoff: 05/12/2017
 
 - `1-Getting Started with R.R` 介绍了许多 R 基础知识，包括使用包、加载和分析数据以及绘图等。
 
-    ![1-Getting Started with R.R 示例的示例输出](~/docs/rtvs/media/samples-getting-started-output.png)
+    ![1-Getting Started with R.R 示例的示例输出](~/rtvs/media/samples-getting-started-output.png)
 
 - `2-Introduction to ggplot2.R` 引入了 ggplot2 图形包，该图形包以其极具视觉吸引力的绘图和简单的语法而著称。 此示例直观的展示斐济的地震数据。
 
-    ![2-Introduction to ggplot2.R 示例的示例输出](~/docs/rtvs/media/samples-ggplot-output.png)
+    ![2-Introduction to ggplot2.R 示例的示例输出](~/rtvs/media/samples-ggplot-output.png)
 
 
 ## <a name="microsoft-r-server-and-machine-learning"></a>Microsoft R Server 和机器学习
@@ -67,7 +67,7 @@ ms.lasthandoff: 05/12/2017
 
 - `Benchmarks` 运行大量计算密集型基准，显示使用 Microsoft R Open 和 Intel Math Kernel Library (MKL) 进行快速的并行线性代数计算可能提升的性能。 借助模拟数据，它仔细比较了分别使用两个线程和一个线程来进行特定矩阵相关计算的情况。   
 
-    ![基准绘图示例](~/docs/rtvs/media/samples-mro-benchmark-plot.png)
+    ![基准绘图示例](~/rtvs/media/samples-mro-benchmark-plot.png)
 
 - `Bike_Rental_Estimation_with_MRS` 使用 Microsoft R Server，根据历史数据集创建用于单车租赁的需求预测模型。 
 
@@ -76,7 +76,7 @@ ms.lasthandoff: 05/12/2017
     - `Import Data from URL to xdf.R` 演示如何将 URL 标识的数据文件以 xdf 文件的形式加载到 Microsoft R Server。 （需要 MRS。）
     - `Using ggplot2.R` 是`A First Look at R/2-Introduction to ggplot2.R` 示例的扩展，它更深入地介绍了 ggplot2 的功能，包括交互式 3D 绘图。
 
-        ![使用 ggplot2.R 示例的输出](~/docs/rtvs/media/samples-3d-interactive.png)
+        ![使用 ggplot2.R 示例的输出](~/rtvs/media/samples-3d-interactive.png)
 
 - `Datasets` 包含其他示例使用的三个 `.csv` 文件
 - `Flight_Delays_Prediction_with_R` 和 `Flight_Delays_Prediction_with_MRS` 演示如何使用 R 机器学习、历史实时性能和天气数据预测航班延误。 
@@ -100,11 +100,11 @@ ms.lasthandoff: 05/12/2017
 
 以下比较显示，进行某些矩阵计算时，使用 MKL 的 MRS 和 MRO 可实现的性能明显优于不使用 MKL 的 R 和 MRO。 此计算中使用模拟数据：
 
-![比较使用 MKL 的 MRS 和 MRO 与不使用 MKL 的 R 和 MRO](~/docs/rtvs/media/samples-speed-comparison.png)
+![比较使用 MKL 的 MRS 和 MRO 与不使用 MKL 的 R 和 MRO](~/rtvs/media/samples-speed-comparison.png)
 
 有关 R 与 MRO 和 MRS 的技术比较，请参阅关于该主题的 [Lixun Zhang 详细讨论](http://htmlpreview.github.io/?https://github.com/lixzhang/R-MRO-MRS/blob/master/Introduction_to_MRO_and_MRS.html)。
 
 然后，下图比较生成逻辑回归模型所用的运行时间（秒），从而预测计划的乘客航班到达时间是否会延误超过 15 分钟。 行数的微小增加将会导致 CRAN R 中的运行时间显著增加，而 MRS 的增加量仅约为行数的两倍。 有关此基准的详细信息，请参阅 `Benchmarks/rxGlm_benchmark.R` 示例。
 
-![rxGlm 基准](~/docs/rtvs/media/samples-rxGLM-benchmark.png)
+![rxGlm 基准](~/rtvs/media/samples-rxGLM-benchmark.png)
 

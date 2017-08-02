@@ -120,7 +120,7 @@ manager: "ghogen"
   
      如果方法在应用程序代码中，Visual Studio 将转到该方法。  
   
-     ![从性能事件转到应用程序代码](~/docs/debugger/media/ffr_itsummarypageperformancegotocode.png "FFR\_ITSummaryPagePerformanceGoToCode")  
+     ![从性能事件转到应用程序代码](~/debugger/media/ffr_itsummarypageperformancegotocode.png "FFR\_ITSummaryPagePerformanceGoToCode")  
   
      现在你可以查看其他记录的值和调用堆栈、单步执行代码，或者使用“IntelliTrace”窗口在此性能事件期间调用的[其他方法之间“及时”前后移动](../debugger/intellitrace.md)。  
   

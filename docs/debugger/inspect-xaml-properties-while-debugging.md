@@ -79,11 +79,11 @@ private void button_Click(object sender, RoutedEventArgs e)
   
  当窗口出现时，单击**“添加项”**按钮两次。  将显示如下所示的内容：  
   
- ![该应用的主窗口](~/docs/debugger/media/livevisualtree-app.png "LiveVIsualTree\-App")  
+ ![该应用的主窗口](~/debugger/media/livevisualtree-app.png "LiveVIsualTree\-App")  
   
  现在打开**“实时可视化树”**窗口（**“调试”\/“Windows”\/“实时可视化树”**，或沿 IDE 左侧查找它）。  将其拖离其停靠位置以便我们可以并排查看此窗口和**“实时属性”**窗口。  在**“实时可视化树”**窗口中，展开 **ContentPresenter** 节点。  它应包含按钮和列表框的节点。  展开该列表框（然后展开 **ScrollContentPresenter** 和 **ItemsPresenter**）以查找列表框各项。  该窗口应如下所示：  
   
- ![实时可视化树中 ListBoxItem](~/docs/debugger/media/livevisualtree-listboxitems.png "LiveVisualTree\-ListBoxItems")  
+ ![实时可视化树中 ListBoxItem](~/debugger/media/livevisualtree-listboxitems.png "LiveVisualTree\-ListBoxItems")  
   
  返回到应用程序窗口并再添加几个项。  你应该看到更多的列表框项显示在**“实时可视化树”**中。  
   
@@ -95,7 +95,7 @@ private void button_Click(object sender, RoutedEventArgs e)
   
  **“在运行的应用程序中显示布局装饰器”**。  当选择“启用选择”按钮右侧紧靠的按钮时，可以启用此模式。  当**“显示布局装饰器“**打开时，它会导致应用程序窗口沿所选对象的边界显示水平线和垂直线，以便你可以看到它与什么对齐，以及显示边距的矩形。  例如，打开**“启用选择”**和**“显示布局”**这两项，然后选择应用程序中的**“添加项”**文本块。  你应该看到**“实时可视化树”**中的文本块节点和**“实时属性查看器”**中的文本块属性，以及文本块边界上的水平线和垂直线。  
   
- ![DisplayLayout 中的 LivePropertyViewer](~/docs/debugger/media/livevisualtreelivepropertyviewer-displaylayout.png "LiveVisualTreeLivePropertyViewer\-DisplayLayout")  
+ ![DisplayLayout 中的 LivePropertyViewer](~/debugger/media/livevisualtreelivepropertyviewer-displaylayout.png "LiveVisualTreeLivePropertyViewer\-DisplayLayout")  
   
  **“预览所选内容”**。  你可以通过选择“实时可视化树”工具栏上从左侧起第三个按钮来启用此模式。  如果你有访问该应用程序的源代码的权限，则此模式将在声明元素处显示 XAML。  选择**“启用选择”**和**“预览所选内容”**，然后在测试应用程序中选择该按钮。  MainWindow.xaml 文件在 Visual Studio 中打开并且光标放置在定义按钮的行上。  
   

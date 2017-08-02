@@ -20,7 +20,7 @@ caps.handback.revision: 14
 
 一旦创建新的解决方案，实际上就生成了所运行的程序。  该程序并未执行其他操作，它只是显示了一个在标题栏中显示**“Form1”**的空窗口。  但该程序确实在运行，您即将查明这一点。  
   
- ![链接到视频](~/docs/data-tools/media/playvideo.gif "PlayVideo") 有关本主题的视频版本，请参阅[教程 1：用 Visual Basic 创建图片查看器 \- 视频 1](http://go.microsoft.com/fwlink/?LinkId=205209) 或[教程 1：用 C\# 创建图片查看器 \- 视频 1](http://go.microsoft.com/fwlink/?LinkId=205199)。  这些视频使用 Visual Studio 的早期版本，因此在一些菜单命令和其他用户界面元素上略有差异。  但是，概念和过程与当前版本的 Visual Studio 大同小异。  
+ ![链接到视频](~/data-tools/media/playvideo.gif "PlayVideo") 有关本主题的视频版本，请参阅[教程 1：用 Visual Basic 创建图片查看器 \- 视频 1](http://go.microsoft.com/fwlink/?LinkId=205209) 或[教程 1：用 C\# 创建图片查看器 \- 视频 1](http://go.microsoft.com/fwlink/?LinkId=205199)。  这些视频使用 Visual Studio 的早期版本，因此在一些菜单命令和其他用户界面元素上略有差异。  但是，概念和过程与当前版本的 Visual Studio 大同小异。  
   
 ### 运行程序  
   
@@ -37,12 +37,12 @@ caps.handback.revision: 14
   
 2.  Visual Studio 将运行程序，并显示一个名为**“Form1”**的窗口。  下图显示了刚生成的程序。  该程序正在运行，您很快会向它添加内容。  
   
-     ![Windows 窗体应用程序正在运行](~/docs/ide/media/express_firstrun.png "Express\_FirstRun")  
+     ![Windows 窗体应用程序正在运行](~/ide/media/express_firstrun.png "Express\_FirstRun")  
 正在运行的 Windows 窗体应用程序  
   
 3.  返回 Visual Studio 集成开发环境 \(IDE\)，并查看新的工具栏。  当您运行程序时，工具栏上将显示其他按钮。  利用这些按钮，您可执行停止和启动程序之类的操作，并帮助您跟踪到可能具有的任何错误 \(Bug\)。  在本示例中，我们仅用它来启动和停止程序。  
   
-     ![调试工具栏](~/docs/ide/media/express_debugtoolbar.png "Express\_DebugToolbar")  
+     ![调试工具栏](~/ide/media/express_debugtoolbar.png "Express\_DebugToolbar")  
 调试工具栏  
   
 4.  使用下列方式之一停止程序。  

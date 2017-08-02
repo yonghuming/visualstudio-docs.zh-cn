@@ -51,7 +51,7 @@ manager: "ghogen"
   
 4.  在“实时调试器”窗口中，选择你想要用于调试的 Visual Studio 版本。  
   
-     ![JustInTimeDebugger](~/docs/debugger/media/justintimedebugger.png "JustInTimeDebugger")  
+     ![JustInTimeDebugger](~/debugger/media/justintimedebugger.png "JustInTimeDebugger")  
   
 5.  将启动 Visual Studio 新实例，并在 `Debugger.Launch()` 方法处停止执行。  
   

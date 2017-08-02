@@ -65,7 +65,7 @@ manager: "ghogen"
   
      ![工具 &#45; 选项 &#45; 调试 &#45; 符号页](../debugger/media/dbg_tools_options_symbols.png "DBG\_Tools\_Options\_Symbols")  
   
-2.  选择文件夹 ![工具&#47; 选项&#47; 调试&#47;符号文件夹图标](~/docs/debugger/media/dbg_tools_options_foldersicon.png "DBG\_Tools\_Options\_FoldersIcon") 图标。**“符号文件\(.pdb\)位置”**框中将显示可编辑的文本。  
+2.  选择文件夹 ![工具&#47; 选项&#47; 调试&#47;符号文件夹图标](~/debugger/media/dbg_tools_options_foldersicon.png "DBG\_Tools\_Options\_FoldersIcon") 图标。**“符号文件\(.pdb\)位置”**框中将显示可编辑的文本。  
   
 3.  键入符号服务器或符号位置的 URL 或目录路径。 语句结束有助于找到正确的格式。  
   
@@ -147,7 +147,7 @@ manager: "ghogen"
   
 -   若要在未找到源文件或符号文件的情况下始终显示反汇编，请选择**“选项”**对话框链接，然后选择**“启用地址级调试”**和**“源代码不可用时显示反汇编”**。  
   
-     ![“选项”&#47;“调试”&#47;“常规反汇编”选项](~/docs/debugger/media/dbg_options_general_disassembly_checkbox.png "DBG\_Options\_General\_disassembly\_checkbox")  
+     ![“选项”&#47;“调试”&#47;“常规反汇编”选项](~/debugger/media/dbg_options_general_disassembly_checkbox.png "DBG\_Options\_General\_disassembly\_checkbox")  
   
  **从快捷菜单更改符号选项**  
   
@@ -214,7 +214,7 @@ manager: "ghogen"
   
 2.  在**“公共属性”**节点下，选择**“调试源文件”**。  
   
-3.  单击文件夹 ![工具&#47; 选项&#47; 调试&#47;符号文件夹图标](~/docs/debugger/media/dbg_tools_options_foldersicon.png "DBG\_Tools\_Options\_FoldersIcon") 图标。 可编辑文本将显示在**“包含源代码的目录”**列表中。  
+3.  单击文件夹 ![工具&#47; 选项&#47; 调试&#47;符号文件夹图标](~/debugger/media/dbg_tools_options_foldersicon.png "DBG\_Tools\_Options\_FoldersIcon") 图标。 可编辑文本将显示在**“包含源代码的目录”**列表中。  
   
 4.  添加要搜索的路径。  
   
@@ -238,7 +238,7 @@ manager: "ghogen"
   
 4.  选择**“启用源服务器支持”**复选框。  
   
-     ![启用源服务器选项](~/docs/debugger/media/dbg_options_general_enablesrcsrvr_checkbox.png "DBG\_Options\_General\_EnableSrcSrvr\_checkbox")  
+     ![启用源服务器选项](~/debugger/media/dbg_options_general_enablesrcsrvr_checkbox.png "DBG\_Options\_General\_EnableSrcSrvr\_checkbox")  
   
 5.  （可选）选择所需的子选项。  
   

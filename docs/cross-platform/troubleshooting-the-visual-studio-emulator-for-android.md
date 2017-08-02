@@ -227,11 +227,11 @@ ms.lasthandoff: 05/13/2017
   
     2.  对于 vEthernet（内部以太网端口 Windows Phone 仿真程序内部交换机）适配器，从上下文菜单选择 **“属性”** 。  
   
-         ![由 Hyper-V 使用的虚拟适配器](~/docs/cross-platform/media/android_emu_virtual_adapter.png "Android_Emu_Virtual_Adapter")  
+         ![由 Hyper-V 使用的虚拟适配器](~/cross-platform/media/android_emu_virtual_adapter.png "Android_Emu_Virtual_Adapter")  
   
          此处显示了适配器属性。  
   
-         ![虚拟适配器属性](~/docs/cross-platform/media/android_emu_virtual_adapter_properties.png "Android_Emu_Virtual_Adapter_Properties")  
+         ![虚拟适配器属性](~/cross-platform/media/android_emu_virtual_adapter_properties.png "Android_Emu_Virtual_Adapter_Properties")  
   
     3.  对于此适配器，应在 **“此连接使用下列项”** 下选择的项只能为：  
   
@@ -259,7 +259,7 @@ ms.lasthandoff: 05/13/2017
   
     -   打开 Hyper V 并转入虚拟交换机管理器。 创建名为“Windows Phone 仿真程序内部交换机”的虚拟交换机，并将其连接类型设置为 **“内部网络”**。  
   
-         ![虚拟交换机管理器](~/docs/cross-platform/media/android_emu_virtual_switch_manager.png "Android_Emu_Virtual_Switch_Manager")  
+         ![虚拟交换机管理器](~/cross-platform/media/android_emu_virtual_switch_manager.png "Android_Emu_Virtual_Switch_Manager")  
   
      现在启动仿真程序。 它应正常工作。  
   

@@ -43,7 +43,7 @@ ms.lasthandoff: 05/13/2017
   
  IDE 提供一种名为 IntelliSense 的强大工具，可帮助您编写代码。 当您输入代码时，IDE 会打开一个框，其中显示与您所输入的部分单词对应的完整建议内容。 它尝试确定您接下来要做的事情，并自动跳到您从列表中选择的最后一项。 您可以使用向上键或向下键在列表中进行移动，也可以继续键入字母以缩小选择范围。 当您看到所需的选项时，请选择 Tab 键以将其选中。 或者，也可以忽略不需要的建议。  
   
- ![视频链接](~/docs/data-tools/media/playvideo.gif "PlayVideo")有关本主题的视频版本，请观看[Tutorial 1: Create a Picture Viewer in Visual Basic - Video 4](http://go.microsoft.com/fwlink/?LinkId=205215)（教程 1：用 Visual Basic 创建图片查看器 - 视频 4）或 [Tutorial 1: Create a Picture Viewer in C# - Video 4](http://go.microsoft.com/fwlink/?LinkId=205203)（教程 1：用 C# 创建图片查看器 - 视频 4）。 这些视频使用 Visual Studio 的早期版本，因此在一些菜单命令和其他用户界面元素上略有差异。 但是，概念和过程与当前版本的 Visual Studio 大同小异。  
+ ![视频链接](~/data-tools/media/playvideo.gif "PlayVideo")有关本主题的视频版本，请观看[Tutorial 1: Create a Picture Viewer in Visual Basic - Video 4](http://go.microsoft.com/fwlink/?LinkId=205215)（教程 1：用 Visual Basic 创建图片查看器 - 视频 4）或 [Tutorial 1: Create a Picture Viewer in C# - Video 4](http://go.microsoft.com/fwlink/?LinkId=205203)（教程 1：用 C# 创建图片查看器 - 视频 4）。 这些视频使用 Visual Studio 的早期版本，因此在一些菜单命令和其他用户界面元素上略有差异。 但是，概念和过程与当前版本的 Visual Studio 大同小异。  
   
 ### <a name="to-write-code-for-the-show-a-picture-button-event-handler"></a>为“显示图片”按钮事件处理程序编写代码  
   
@@ -56,7 +56,7 @@ ms.lasthandoff: 05/13/2017
   
 3.  “IntelliSense”窗口应该会突出显示“if”一词。 （如果没有，请输入小写的 `f`，它将突出显示。）注意“IntelliSense”窗口旁会显示一个小的工具提示框，其中包含说明“if 语句的代码片段”。 （在 Visual Basic 中，该工具提示还指明这是一个代码段，但用词会略有不同。）你希望使用此代码片段，因此请选择 Tab 键将“if”插入代码中。 然后再次选择 Tab 键即可使用“if”代码片段。 （如果选择其他位置后“IntelliSense”窗口消失，那么请按 Backspace 删除“i”并重新键入它，此时“IntelliSense”窗口将再次打开。）  
   
-     ![Visual C&#35; 代码](~/docs/ide/media/express_highlighttrue.png "Express_HighlightTrue")  
+     ![Visual C&#35; 代码](~/ide/media/express_highlighttrue.png "Express_HighlightTrue")  
 Visual C# 代码  
   
 4.  接下来，使用 IntelliSense 输入更多代码，打开“打开文件”对话框。 如果用户选择“确定”按钮，则 PictureBox 将加载用户选择的文件。 下面的步骤演示如何输入代码，尽管步骤很多，但只需几次击键即可完成：  
@@ -72,13 +72,13 @@ Visual C# 代码
         > [!NOTE]
         >  “IntelliSense”窗口可以同时显示属性和方法。 若要确定所显示的内容，请查看“IntelliSense”窗口中每一项左侧的图标。 您将看到每种方法旁都有一个块型图片，每个属性旁都有一个扳手图片。 每个事件旁边还会有一个闪电形图标。 这些图片如下所示。  
   
-         ![“方法”图标](~/docs/ide/media/express_iconmethod.png "Express_IconMethod")  
+         ![“方法”图标](~/ide/media/express_iconmethod.png "Express_IconMethod")  
 “方法”图标  
   
-         ![“属性”图标](~/docs/ide/media/express_iconproperty.png "Express_IconProperty")  
+         ![“属性”图标](~/ide/media/express_iconproperty.png "Express_IconProperty")  
 “属性”图标  
   
-         ![“事件”图标](~/docs/ide/media/express_iconevent.png "Express_IconEvent")  
+         ![“事件”图标](~/ide/media/express_iconevent.png "Express_IconEvent")  
 “事件”图标  
   
     4.  开始键入 `ShowDialog`（是否大写对 IntelliSense 来说不重要）。 `ShowDialog()` 方法将显示“打开文件”对话框。 在窗口突出显示“ShowDialog”之后，请选择 Tab 键。 也可突出显示“ShowDialog”并选择 F1 键，获取有关它的帮助。  

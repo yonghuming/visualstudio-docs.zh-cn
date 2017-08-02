@@ -73,10 +73,10 @@ ms.lasthandoff: 05/24/2017
   
 3.  找到 `TestMethod1()` 方法并将其重命名为 `DefaultAutomobileIsInitializedCorrectly()`。 在此方法中，创建名为 `Automobile`的类的新实例，如下图所示。 会出现波浪形下划线，指示编译时错误，并会在类型名称下出现智能标记。 智能标记的确切位置会有所不同，具体取决于使用的是 [!INCLUDE[vbprvb](../code-quality/includes/vbprvb_md.md)] 还是 [!INCLUDE[csprcs](../data-tools/includes/csprcs_md.md)]。  
   
-     ![Visual Basic 中的智能标记下划线](~/docs/ide/media/genclass_underlinevb.png "GenClass_UnderlineVB")  
+     ![Visual Basic 中的智能标记下划线](~/ide/media/genclass_underlinevb.png "GenClass_UnderlineVB")  
 Visual Basic  
   
-     ![C# 中的智能标记下划线](~/docs/ide/media/genclass_underline.png "GenClass_Underline")  
+     ![C# 中的智能标记下划线](~/ide/media/genclass_underline.png "GenClass_Underline")  
 Visual C#  
   
 4.  将鼠标指针悬停在智能标记上以查看错误消息，该消息陈述尚未定义名为 `Automobile` 的类型。 单击智能标记或按 CTRL+。 按（CTRL+句点）可打开“从使用中生成”快捷菜单，如下图所示。  
@@ -112,10 +112,10 @@ Visual C#
   
      下图展示智能标记快捷菜单。  
   
-     ![Visual Basic 中的“生成属性”上下文菜单](~/docs/ide/media/genpropertysmarttagvb.png "GenPropertySmartTagVB")  
+     ![Visual Basic 中的“生成属性”上下文菜单](~/ide/media/genpropertysmarttagvb.png "GenPropertySmartTagVB")  
 Visual Basic  
   
-     ![C# 中的“生成属性”上下文菜单](~/docs/ide/media/genpropertysmarttagcs.png "GenPropertySmartTagCS")  
+     ![C# 中的“生成属性”上下文菜单](~/ide/media/genpropertysmarttagcs.png "GenPropertySmartTagCS")  
 Visual C#  
   
 ### <a name="to-locate-the-source-code"></a>定位源代码  
@@ -161,7 +161,7 @@ Visual C#
   
      下图显示了“测试结果”  窗口。  
   
-     ![失败的测试结果](~/docs/ide/media/testsfailed.png "TestsFailed")  
+     ![失败的测试结果](~/ide/media/testsfailed.png "TestsFailed")  
 “测试结果”窗口  
   
 2.  在“测试结果”  窗口中，双击每个测试结果行以转到每个测试失败的位置。  

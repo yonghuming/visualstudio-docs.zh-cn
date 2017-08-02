@@ -46,13 +46,13 @@ ms.lasthandoff: 05/13/2017
 ## <a name="span-category"></a>范围类别  
  范围标记可用 5 种不同的颜色显示，具体取决于其类别。 如果类别超过 5 个，则颜色将会重复。 类别可以是任意整数。 此图显示 5 种可能的颜色：  
   
- ![不同类别中的 5 个范围](~/docs/profiling/media/cvmarkerspancategory.png "CVMarkerSpanCategory")  
+ ![不同类别中的 5 个范围](~/profiling/media/cvmarkerspancategory.png "CVMarkerSpanCategory")  
 前 5 个范围类别的颜色  
   
 ## <a name="span-aggregation-markers"></a>范围聚合标记  
  有时，并发可视化工具中范围标记发生时间过于接近，导致无法单独绘制。 发生这种情况时，将会显示代表基础范围的灰色范围聚合标记。 当将鼠标指针放在这些图标上时，工具提示将显示所代表的基础范围数量。 若要查看范围，请放大。 如果一直放大但仍显示范围聚合标记，则可以在[标记报告](../profiling/markers-report.md)中查看基础范围标记。 此图显示范围聚合标记：  
   
- ![并发可视化工具中的聚合范围](~/docs/profiling/media/cvmarkerspanaggregate.png "CVMarkerSpanAggregate")  
+ ![并发可视化工具中的聚合范围](~/profiling/media/cvmarkerspanaggregate.png "CVMarkerSpanAggregate")  
 范围聚合标记  
   
 ## <a name="see-also"></a>另请参阅  

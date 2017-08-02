@@ -194,7 +194,7 @@ caps.handback.revision: 34
   
     1.  在**“解决方案资源管理器”**中，选择**“SPD 工作流TestFT”**节点。  
   
-    2.  选择某个列表属性旁边选择省略号 \(![ASP.NET 移动设计器中的省略号](~/docs/sharepoint/media/mwellipsis.gif "ASP.NET 移动设计器中的省略号")\) 按钮，如 **目标列表** 属性。  
+    2.  选择某个列表属性旁边选择省略号 \(![ASP.NET 移动设计器中的省略号](~/sharepoint/media/mwellipsis.gif "ASP.NET 移动设计器中的省略号")\) 按钮，如 **目标列表** 属性。  
   
     3.  在" SharePoint 自定义向导"中填入缺少的值，然后选择 **完成** 按钮。  
   

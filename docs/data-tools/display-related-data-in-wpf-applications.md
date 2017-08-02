@@ -56,7 +56,7 @@ manager: "ghogen"
   
      下图演示了**“数据源”**窗口的数据集中的**“Customers”**表的相关**“Orders”**表。  
   
-     ![显示关系的数据源窗口](~/docs/data-tools/media/datasources2.gif "DataSources2")  
+     ![显示关系的数据源窗口](~/data-tools/media/datasources2.gif "DataSources2")  
   
 ## 请参阅  
  [在 Visual Studio 中将 WPF 控件绑定到数据](../data-tools/bind-wpf-controls-to-data-in-visual-studio1.md)   

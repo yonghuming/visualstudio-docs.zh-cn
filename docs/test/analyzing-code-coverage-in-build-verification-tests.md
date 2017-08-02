@@ -49,7 +49,7 @@ Microsoft Visual Studio 中的代码覆盖率分析显示有多少代码正在�
   
          在“自动测试”下，选择“测试程序集”，然后选择行尾的省略号按钮“[...]”。 在“添加/编辑测试运行”对话框的“测试运行程序”下，选择“Visual Studio 测试运行程序”。  
   
- ![为代码覆盖率设置生成定义](~/docs/test/media/codecoverage-plaincc.png "CodeCoverage-plainCC")  
+ ![为代码覆盖率设置生成定义](~/test/media/codecoverage-plaincc.png "CodeCoverage-plainCC")  
   
  生成运行后，代码覆盖率结果显示在生成摘要中。  
   

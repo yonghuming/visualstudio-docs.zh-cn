@@ -25,7 +25,7 @@ caps.handback.revision: 22
 ## Colorizer 模型  
  语言服务实现 <xref:Microsoft.VisualStudio.TextManager.Interop.IVsColorizer> 接口，编辑然后使用。  如下图所示，此实现是从语言服务的一个单独的对象，。  
   
- ![SVC 着色程序图](~/docs/extensibility/internals/media/figlgsvccolorizer.gif "FigLgSvcColorizer")  
+ ![SVC 着色程序图](~/extensibility/internals/media/figlgsvccolorizer.gif "FigLgSvcColorizer")  
 简单的 colorizer 模型  
   
 > [!NOTE]

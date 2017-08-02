@@ -41,7 +41,7 @@ caps.handback.revision: 15
   
 2.  向 Web 部件中添加两个控件：一个文本框和一个按钮。  分别保留名称的默认值 TextBox1 和 Button1。  
   
-3.  向 Web 部件的**“安全控制项”**属性中添加两项。  为此，请选择**“属性”**窗口中**“安全控制项”**属性旁边的省略号 \(![ASP.NET 移动设计器中的省略号](~/docs/sharepoint/media/mwellipsis.gif "ASP.NET 移动设计器中的省略号")\) 按钮。  
+3.  向 Web 部件的**“安全控制项”**属性中添加两项。  为此，请选择**“属性”**窗口中**“安全控制项”**属性旁边的省略号 \(![ASP.NET 移动设计器中的省略号](~/sharepoint/media/mwellipsis.gif "ASP.NET 移动设计器中的省略号")\) 按钮。  
   
      将出现**“安全控制项”**对话框。  
   
@@ -77,7 +77,7 @@ caps.handback.revision: 15
   
 7.  在**“其他程序集”**下，选择**“添加”**按钮，然后从列表中选择**“添加现有程序集”**。  
   
-8.  在**“添加现有程序集”**对话框中，选择**“源文件路径”**旁边的省略号 \(![ASP.NET 移动设计器中的省略号](~/docs/sharepoint/media/mwellipsis.gif "ASP.NET 移动设计器中的省略号")\) 按钮。  
+8.  在**“添加现有程序集”**对话框中，选择**“源文件路径”**旁边的省略号 \(![ASP.NET 移动设计器中的省略号](~/sharepoint/media/mwellipsis.gif "ASP.NET 移动设计器中的省略号")\) 按钮。  
   
 9. 从您在步骤 1 中创建的 SharePoint 解决方案选择程序集，然后选择 **打开** 按钮。  
   

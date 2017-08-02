@@ -43,7 +43,7 @@ ms.lasthandoff: 05/12/2017
 
 要打开“工作区”窗口，请使用“R 工具”>“Windows”>“工作区”命令，或按 Ctrl+9。
 
-![针对 Visual Studio (VS2017) 的 R 工具中的工作区](~/docs/rtvs/media/workspaces-window.png)
+![针对 Visual Studio (VS2017) 的 R 工具中的工作区](~/rtvs/media/workspaces-window.png)
 
 在此窗口中，绿色选中标记表示 RTVS 绑定的活动工作区。 选择蓝色箭头来设置活动工作区。 通过每个工作区右侧的设置（齿轮）图表可更改工作区的名称、位置和命令行参数。 使用红色 X 将删除手动添加的工作区。
 
@@ -76,7 +76,7 @@ RTVS 可能无法检测以非标准方式（例如，仅仅将文件复制到文
 1. 输入 R 根文件夹的路径，在此文件夹中具有包含解释器的 `bin` 文件夹，以及在被 RTVS 启动时传递给解释器的可选命令行参数。
 1. 完成操作后，选择“保存”。
 
-![添加一个新工作区](~/docs/rtvs/media/workspaces-add-new.png)
+![添加一个新工作区](~/rtvs/media/workspaces-add-new.png)
 
 ## <a name="remote-workspaces"></a>远程工作区
 
@@ -102,7 +102,7 @@ RTVS 一次只能绑定一个单独的工作区，“工作区”窗口中该工
 
 如果尝试切换到已卸载的本地工作区或不可用的远程工作区，则有可能遇到 RTVS 项目未绑定到任何工作区的情况。 结果，当你在交互窗口输入代码，或尝试运行其他代码时，将出现如下所示的错误。 要更正此问题，只仅需在“工作区”窗口中切换到其他工作区。 如果都不可用，则需安装 R 解释器。 还可以在 Visual Studio 运行期间，尝试重启已安装解释器的 Visual Studio。
 
-![工作区未绑定到 RTVS 时出错](~/docs/rtvs/media/workspaces-disconnected-interactive-window.png)
+![工作区未绑定到 RTVS 时出错](~/rtvs/media/workspaces-disconnected-interactive-window.png)
 
 ### <a name="switching-to-a-remote-workspace"></a>切换到远程工作区
 
@@ -110,7 +110,7 @@ RTVS 一次只能绑定一个单独的工作区，“工作区”窗口中该工
 
 根据服务器的配置，在连接时有可能遇到证书警告“远程 R 服务提供的安全证书阻止我们证明你确实正连接到计算机（名称）。”
 
-![连接到远程工作区时的自签名证书警告](~/docs/rtvs/media/workspaces-remote-self-signed-certificate-warning.png)
+![连接到远程工作区时的自签名证书警告](~/rtvs/media/workspaces-remote-self-signed-certificate-warning.png)
 
 该证书是你正尝试连接的计算机向 RTVS 提供的文档，其中包含标识该计算机 URI 的字段。 当 RTVS 检测到证书中 URI 和连接计算机所用 URI 不匹配时，系统将发出警告，指示服务器的安全性可能已遭破坏。
 
@@ -145,7 +145,7 @@ RTVS 一次只能绑定一个单独的工作区，“工作区”窗口中该工
 
 [项目属性](projects.md#project-properties)决定 RTVS 是否在项目运行时复制文件、以及究竟复制哪些文件。 要打开此页，请选择“项目”>“(名称)属性...”菜单命令，或在解决方案资源管理器中右键单击项目，选择“属性...”。
 
-![包含文件传输设置的项目属性运行选项卡](~/docs/rtvs/media/workspaces-remote-file-transfer-filter-settings.png)
+![包含文件传输设置的项目属性运行选项卡](~/rtvs/media/workspaces-remote-file-transfer-filter-settings.png)
 
 在此处，“运行时传输文件”决定 RTVS 是否自动复制项目文件。 然后，“要传输的文件”值将准确筛选出传输的文件。 默认情况下，仅复制 `.R`、`.Rmd`、`.sql`、`.md` 和 `.cpp` 文件。 这样可避免在每次运行时不慎将大型数据文件复制到服务器。 
 

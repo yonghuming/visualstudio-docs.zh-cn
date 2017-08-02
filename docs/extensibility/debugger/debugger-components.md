@@ -37,7 +37,7 @@ caps.handback.revision: 30
   
  下面的关系图显示了 Visual Studio 调试器中这些元素的关系。  
   
- ![调试组件概述](~/docs/extensibility/debugger/media/dbugcompovrview.gif "DBugCompOvrview")  
+ ![调试组件概述](~/extensibility/debugger/media/dbugcompovrview.gif "DBugCompOvrview")  
   
 ## 本节内容  
  [调试包](../../extensibility/debugger/debug-package.md)  

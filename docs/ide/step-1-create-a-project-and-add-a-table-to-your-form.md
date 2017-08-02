@@ -102,7 +102,7 @@ ms.lasthandoff: 05/13/2017
   
      现在，窗体布局已设置完毕。 其外观应类似于下图。  
   
-     ![初始匹配游戏窗体](~/docs/ide/media/express_tut4step1.png "Express_Tut4Step1")  
+     ![初始匹配游戏窗体](~/ide/media/express_tut4step1.png "Express_Tut4Step1")  
 初始匹配游戏窗体  
   
 ### <a name="to-continue-or-review"></a>继续或查看  

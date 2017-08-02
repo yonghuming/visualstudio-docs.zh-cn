@@ -61,7 +61,7 @@ caps.handback.revision: 16
   
  当自动化使用者所请求的任何事件对象时，创建具有为你的 VSPackage 支持任何事件的方法的根对象。 环境调用相应 `get_` 对此对象的方法。 例如，如果 `DTE.Events.AutomationProjectsEvents` 调用时， `get_AutomationProjectsEvents` 调用上的根对象的方法。  
   
- ![Visual Studio 项目事件](~/docs/extensibility/internals/media/projectevents.gif "ProjectEvents")  
+ ![Visual Studio 项目事件](~/extensibility/internals/media/projectevents.gif "ProjectEvents")  
 事件的自动化模型  
   
  类 `CProjectEventsContainer` BscProjectsEvents，表示源对象时 `CProjectItemsEventsContainer` BscProjectItemsEvents 表示源对象。  

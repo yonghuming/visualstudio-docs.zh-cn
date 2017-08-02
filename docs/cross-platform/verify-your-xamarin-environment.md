@@ -90,7 +90,7 @@ ms.lasthandoff: 05/13/2017
   
     -   如下所示，在 Visual Studio 调试下拉菜单中，选择“模拟程序 8.1”目标或附加设备，并按 F5 启动调试器。  
   
-         ![选择 Windows Phone 模拟器作为调试目标](~/docs/cross-platform/media/crossplat-xamarin-verify-4.png "CrossPlat Xamarin Verify 4")  
+         ![选择 Windows Phone 模拟器作为调试目标](~/cross-platform/media/crossplat-xamarin-verify-4.png "CrossPlat Xamarin Verify 4")  
   
     -   如果在使用模拟器时遇到问题，请参阅 [Windows Phone 8 模拟器疑难解答](https://msdn.microsoft.com/library/windows/apps/jj681694.aspx)。  
   
@@ -106,11 +106,11 @@ ms.lasthandoff: 05/13/2017
   
     2.  如下所示，从 Visual Studio 的生成下拉菜单中选择“iPhoneSimulator”目标；如果使用受限设备，请选择“iPhone”目标。 如果未列出任何模拟器，请在 Mac 上启动 Xcode，选择“Xcode”->“参数设置”，然后单击“下载”。 在“组件”  下，应显示了可以下载的仿真程序版本。 在 Xamarin 的[调试](https://developer.xamarin.com/guides/ios/deployment,_testing,_and_metrics/debugging_in_xamarin_ios/#Debugging_on_the_Simulator)页 (xamarin.com) 上可以找到关于调试的其他说明。  
   
-         ![选择 iPhoneSimulator 生成目标](~/docs/cross-platform/media/crossplat-xamarin-verify-5.png "CrossPlat Xamarin Verify 5")  
+         ![选择 iPhoneSimulator 生成目标](~/cross-platform/media/crossplat-xamarin-verify-5.png "CrossPlat Xamarin Verify 5")  
   
     3.  如下所示，从 Visual Studio 的调试下拉菜单中选择 iPhone 目标，并按 F5 启动调试器。 此时将在 Mac 上启动仿真程序，在 Visual Studio 中进行调试时，将在该仿真程序中与应用进行交互。 如果你的物理 iPhone 或 iPad 连接到 Mac，则它将显示在此处，并且你可以改选它。 如果没看到列出了任何设备或模拟器，可通过查看上述第 1 步中链接的主题，或转到“工具”  >**iOS** >  
   
-         ![选择 iPhone 调试目标](~/docs/cross-platform/media/crossplat-xamarin-verify-6.png "CrossPlat Xamarin Verify 6")  
+         ![选择 iPhone 调试目标](~/cross-platform/media/crossplat-xamarin-verify-6.png "CrossPlat Xamarin Verify 6")  
   
     4.  如果在连接到 Mac 时遇到问题，请参阅 [连接疑难解答](http://developer.xamarin.com/guides/ios/getting_started/installation/windows/xamarin-mac-agent/xma-troubleshooting/) (xamarin.com)。  
   

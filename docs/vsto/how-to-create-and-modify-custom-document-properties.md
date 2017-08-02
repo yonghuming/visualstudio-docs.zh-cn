@@ -32,7 +32,7 @@ caps.handback.revision: 46
   
  下面的示例演示如何在 Excel 文档级自定义项中添加自定义属性并为其赋值。  
   
- ![链接到视频](~/docs/data-tools/media/playvideo.gif "链接到视频") 相关视频演示，请参阅[如何实现：在 Microsoft Word 中访问和操作自定义文档属性？](http://go.microsoft.com/fwlink/?LinkId=136772)。  
+ ![链接到视频](~/data-tools/media/playvideo.gif "链接到视频") 相关视频演示，请参阅[如何实现：在 Microsoft Word 中访问和操作自定义文档属性？](http://go.microsoft.com/fwlink/?LinkId=136772)。  
   
 ## 示例  
  [!code-csharp[Trin_VstcoreProgramming#6](../snippets/csharp/VS_Snippets_OfficeSP/Trin_VstcoreProgramming/CS/ThisWorkbook.cs#6)]

@@ -237,7 +237,7 @@ public void My_Test ()
 ##  <a name="BKMK_Running_tests_in_Test_Explorer"></a> 在测试资源管理器中运行测试  
  在生成测试项目时，测试将出现在测试资源管理器中。 如果测试资源管理器不可见，请选择 Visual Studio 菜单上的“测试”  ，然后依次选择“Windows” 、“测试资源管理器” 。  
   
- ![单元测试资源管理器](~/docs/ide/media/ute_failedpassednotrunsummary.png "UTE_FailedPassedNotRunSummary")  
+ ![单元测试资源管理器](~/ide/media/ute_failedpassednotrunsummary.png "UTE_FailedPassedNotRunSummary")  
   
  当你运行、编写并重新运行测试时，测试资源管理器的默认视图将显示“失败的测试” 、“通过的测试” 、“跳过的测试”  和“未运行的测试” 组中的结果。 你可以选择组标题以打开显示该组中的所有这些测试的视图。  
   
@@ -259,7 +259,7 @@ public void My_Test ()
   
 |||  
 |-|-|  
-|![生成后运行](~/docs/test/media/ute_runafterbuild_btn.png "UTE_RunAfterBuild_btn")|若要在每个本地生成后运行单元测试，请在标准菜单上选择“测试”  ，然后在测试资源管理器工具栏上选择“生成后运行测试”  。|  
+|![生成后运行](~/test/media/ute_runafterbuild_btn.png "UTE_RunAfterBuild_btn")|若要在每个本地生成后运行单元测试，请在标准菜单上选择“测试”  ，然后在测试资源管理器工具栏上选择“生成后运行测试”  。|  
   
 ###  <a name="BKMK_Filtering_and_grouping_the_test_list"></a> 筛选和分组测试列表  
  当你有大量测试时，你可以在测试资源管理器搜索框中键入，以按指定的字符串筛选列表。 你可以通过从筛选器列表中选择以更多地限制筛选器事件。  
@@ -268,7 +268,7 @@ public void My_Test ()
   
 |||  
 |-|-|  
-|![测试资源管理器的分组按钮](~/docs/test/media/ute_groupby_btn.png "UTE_GroupBy_btn")|若要按类别分组测试，请选择“分组依据”  按钮。|  
+|![测试资源管理器的分组按钮](~/test/media/ute_groupby_btn.png "UTE_GroupBy_btn")|若要按类别分组测试，请选择“分组依据”  按钮。|  
   
  有关详细信息，请参阅[使用测试资源管理器运行单元测试](../test/run-unit-tests-with-test-explorer.md)  
   
@@ -290,7 +290,7 @@ public void My_Test ()
   
  **答：** 使用 IntelliSense 在你的项目代码中生成类和方法。 编写调用你想要生成的类或方法的测试方法中的语句，然后打开调用下面的 IntelliSense 菜单。 如果调用新类的构造函数，请从菜单选择“生成新类型”  并按照向导在你的代码项目中插入此类。 如果调用方法，请从 IntelliSense 菜单选择“生成新方法”  。  
   
- ![生成方法存根 Intellisense 菜单](~/docs/test/media/ute_generatemethodstubintellisense.png "UTE_GenerateMethodStubIntellisense")  
+ ![生成方法存根 Intellisense 菜单](~/test/media/ute_generatemethodstubintellisense.png "UTE_GenerateMethodStubIntellisense")  
   
  **问：我能否创建需要使用多组数据作为输入才能运行的单元测试？**  
   
@@ -358,7 +358,7 @@ public void AddIntegerHelper_DataDrivenValues_AllShouldPass()
   
  **答：** 可以，请按照下列步骤 [查找和安装其他框架](../test/install-third-party-unit-test-frameworks.md)。 在重新启动 Visual Studio 后，重新打开解决方案以创建单元测试，然后在此处选择你已安装的框架：  
   
- ![选择安装的其他单元测试框架](~/docs/test/media/createunittestsdialogextensions.png "CreateUnitTestsDialogExtensions")  
+ ![选择安装的其他单元测试框架](~/test/media/createunittestsdialogextensions.png "CreateUnitTestsDialogExtensions")  
   
  将使用选定的框架创建单元测试存根。
 

@@ -67,7 +67,7 @@ ms.lasthandoff: 04/04/2017
   
 3.  将项目命名为 `RooterLibTests`；指定位置；将解决方案命名为 `RooterLib`；确保选中了“创建解决方案的目录”。  
   
-     ![指定解决方案和项目名称和位置](~/docs/test/media/ute_cpp_windows_unittestlib_createspecs.png "UTE_Cpp_windows_UnitTestLib_CreateSpecs")  
+     ![指定解决方案和项目名称和位置](~/test/media/ute_cpp_windows_unittestlib_createspecs.png "UTE_Cpp_windows_UnitTestLib_CreateSpecs")  
   
 4.  在新项目中，打开 **unittest1.cpp**。  
   
@@ -100,7 +100,7 @@ ms.lasthandoff: 04/04/2017
   
      将生成并运行测试项目。 随即显示“测试资源管理器”窗口，并且测试列出在“通过的测试”下。 窗口底部的“摘要”窗格将提供有关所选测试的其他详细信息。  
   
-     ![测试资源管理器](~/docs/test/media/ute_cpp_testexplorer_testmethod1.png "UTE_Cpp_TestExplorer_TestMethod1")  
+     ![测试资源管理器](~/test/media/ute_cpp_testexplorer_testmethod1.png "UTE_Cpp_TestExplorer_TestMethod1")  
   
 ##  <a name="BKMK_Add_the_DLL_project_to_the_solution"></a> 向解决方案添加 DLL 项目  
   
@@ -211,7 +211,7 @@ ms.lasthandoff: 04/04/2017
   
 5.  在“测试资源管理器”中，选择 **“全部运行”**。  
   
-     ![已通过基本测试](~/docs/test/media/ute_cpp_testexplorer_basictest.png "UTE_Cpp_TestExplorer_BasicTest")  
+     ![已通过基本测试](~/test/media/ute_cpp_testexplorer_basictest.png "UTE_Cpp_TestExplorer_BasicTest")  
   
  你已设置测试和代码项目，并已验证可运行测试（运行测试项目中的函数）。 现在可以开始编写实际测试和代码。  
   

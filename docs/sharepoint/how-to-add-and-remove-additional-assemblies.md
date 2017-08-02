@@ -43,7 +43,7 @@ caps.handback.revision: 21
   
      将出现**“添加现有程序集”**对话框。  
   
-4.  选择省略号 \(![ASP.NET 移动设计器中的省略号](~/docs/sharepoint/media/mwellipsis.gif "ASP.NET 移动设计器中的省略号")\)，并选择要添加的程序集。  为了实现可移植性，建议您使用选定程序集的相对路径。  
+4.  选择省略号 \(![ASP.NET 移动设计器中的省略号](~/sharepoint/media/mwellipsis.gif "ASP.NET 移动设计器中的省略号")\)，并选择要添加的程序集。  为了实现可移植性，建议您使用选定程序集的相对路径。  
   
 5.  对于**“部署目标”**，选择**“GlobalAssemblyCache”**选择按钮，以将程序集部署到全局程序集缓存中，或选择**“WebApplication”**以将程序集部署到正在运行的 SharePoint Server 的 WebApplication 文件夹中。  
   
@@ -81,7 +81,7 @@ caps.handback.revision: 21
   
 2.  在**“类资源”**窗格中，选择**“单击此处添加新项目”**按钮。  
   
-3.  在**“文件名”**列中，选择省略号 \(![ASP.NET 移动设计器中的省略号](~/docs/sharepoint/media/mwellipsis.gif "ASP.NET 移动设计器中的省略号")\)，并选择您要添加的类资源。  
+3.  在**“文件名”**列中，选择省略号 \(![ASP.NET 移动设计器中的省略号](~/sharepoint/media/mwellipsis.gif "ASP.NET 移动设计器中的省略号")\)，并选择您要添加的类资源。  
   
 ## 删除自定义程序集  
  可以从 SharePoint 包中删除程序集，或从现有程序集中删除安全控件和类资源。  

@@ -39,7 +39,7 @@ ms.lasthandoff: 02/22/2017
   
  **属性**窗口中，可以通过在键盘上按 F4 或选择打开**属性窗口**上**视图**菜单上，用来查看和编辑所选对象的独立于配置的、 设计时属性和事件。 解决方案和项目，与关联的依赖于配置的属性显示在[属性页](../../extensibility/internals/property-pages.md)。 有关详细信息，请参阅[NIB︰ 项目属性](http://msdn.microsoft.com/en-us/fb126574-24ad-4c96-9b2b-6e1f3879ba50)，[管理配置选项](../../extensibility/internals/managing-configuration-options.md)，和[NIB︰ 项管理项目中](http://msdn.microsoft.com/en-us/762e606b-7f44-4b66-97a1-e30a703654a0)。  
   
- ![属性窗口概述](~/docs/extensibility/internals/media/vspropertieswindow.png "vsPropertiesWindow")  
+ ![属性窗口概述](~/extensibility/internals/media/vspropertieswindow.png "vsPropertiesWindow")  
 “属性”窗口  
   
  本部分提供相关的各个区域的详细的信息**属性**窗口和必须实现的接口，并调用来填充窗口中。  

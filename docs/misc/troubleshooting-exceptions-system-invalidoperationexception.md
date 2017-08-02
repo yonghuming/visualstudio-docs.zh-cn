@@ -80,7 +80,7 @@ private async void ThreadsExampleBtn_Click(object sender, RoutedEventArgs e) { T
 private async void ThreadsExampleBtn_Click(object sender, EventArgs e) { TextBox1.Text = String.Empty; var tbLinesList = new List<string>() {"Simulating work on UI thread."}; TextBox1.Lines = tbLinesList.ToArray(); DoSomeWork(20, tbLinesList); tbLinesList.Add("Simulating work on non-UI thread."); TextBox1.Lines = tbLinesList.ToArray(); await Task.Run(() => DoSomeWork(1000, tbLinesList)); tbLinesList.Add("ThreadsExampleBtn_Click completes."); TextBox1.Lines = tbLinesList.ToArray(); } private void DoSomeWork(int msOfWork, List<string> tbLinesList) { // simulate work var endTime = DateTime.Now.AddMilliseconds(msOfWork); while (DateTime.Now < endTime) { }; { // spin }; // report completion var msg = String.Format("Some work completed in {0} ms on UI thread. \n", msOfWork); tbLinesList.Add(msg); TextBox1.Lines = tbLinesList.ToArray(); }  
 ```  
   
- ![返回页首](~/docs/debugger/media/pcs_backtotop.png "PCS\_BackToTop") [本文内容](#BKMK_In_this_article) ![In this section](../misc/media/pcs_backtotopmid.png "PCS\_BackToTopMid") [在非 UI 线程上运行的方法会更新 UI](#BKMK_A_method_running_on_a_non_UI_thread_updates_the_UI)  
+ ![返回页首](~/debugger/media/pcs_backtotop.png "PCS\_BackToTop") [本文内容](#BKMK_In_this_article) ![In this section](../misc/media/pcs_backtotopmid.png "PCS\_BackToTopMid") [在非 UI 线程上运行的方法会更新 UI](#BKMK_A_method_running_on_a_non_UI_thread_updates_the_UI)  
   
 ###  <a name="BKMK_Avoiding_InvalidOperationExceptions_on_non_UI_threads"></a> 避免在非 UI 线程上引发 InvalidOperationException  
  Windows UI 框架实现*“调度程序”*模式，此模式包含一种用以检查 UI 线程上当前是否正在执行对 UI 元素成员的调用的方法，还包含其他用以计划对 UI 线程的调用的方法。  
@@ -110,7 +110,7 @@ private void DoSomeWork(int msOfWork, List<string> tbLinesList) { // simulate wo
 private void DoSomeWork(int msOfWork) { // simulate work var endTime = DateTime.Now.AddMilliseconds(msOfWork); while (DateTime.Now < endTime) { // spin }; // report completion var msgFormat = "Some work completed in {0} ms on {1}UI thread.\n"; var msg = String.Empty; if (TextBox1.Dispatcher.HasThreadAccess) { msg = String.Format(msgFormat, msOfWork, String.Empty); TextBox1.Text += msg; } else { msg = String.Format(msgFormat, msOfWork, "non-"); TextBox1.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal,()=> {TextBox1.Text += msg;}); } }  
 ```  
   
- ![返回页首](~/docs/debugger/media/pcs_backtotop.png "PCS\_BackToTop") [本文内容](#BKMK_In_this_article) ![In this section](../misc/media/pcs_backtotopmid.png "PCS\_BackToTopMid") [在非 UI 线程上运行的方法会更新 UI](#BKMK_A_method_running_on_a_non_UI_thread_updates_the_UI)  
+ ![返回页首](~/debugger/media/pcs_backtotop.png "PCS\_BackToTop") [本文内容](#BKMK_In_this_article) ![In this section](../misc/media/pcs_backtotopmid.png "PCS\_BackToTopMid") [在非 UI 线程上运行的方法会更新 UI](#BKMK_A_method_running_on_a_non_UI_thread_updates_the_UI)  
   
 ##  <a name="BKMK_A_statement_in_a_foreach_For_Each_in_Visual_Basic_block_changes_the_collection_it_is_iterating"></a> foreach（Visual Basic 中的 For Each）块中的语句会更改其循环访问的集合。  
  [使用 foreach 引发 InvalidOperationException](#BKMK_Causing_an_InvalidOperationException_with_foreach)  **&#124;**  [在循环中避免 InvalidOperationException](#BKMK_Avoiding_InvalidOperationExceptions_in_loops)  
@@ -125,7 +125,7 @@ private void DoSomeWork(int msOfWork) { // simulate work var endTime = DateTime.
 -   附加信息: 集合已修改；枚举操作无法执行。  
   
 <CodeContentPlaceHolder>5</CodeContentPlaceHolder>  
- ![返回页首](~/docs/debugger/media/pcs_backtotop.png "PCS\_BackToTop") [本文内容](#BKMK_In_this_article) ![In this section](../misc/media/pcs_backtotopmid.png "PCS\_BackToTopMid") [foreach（Visual Basic 中的 For Each）块中的语句会更改其循环访问的集合。](#BKMK_A_statement_in_a_foreach_For_Each_in_Visual_Basic_block_changes_the_collection_it_is_iterating)  
+ ![返回页首](~/debugger/media/pcs_backtotop.png "PCS\_BackToTop") [本文内容](#BKMK_In_this_article) ![In this section](../misc/media/pcs_backtotopmid.png "PCS\_BackToTopMid") [foreach（Visual Basic 中的 For Each）块中的语句会更改其循环访问的集合。](#BKMK_A_statement_in_a_foreach_For_Each_in_Visual_Basic_block_changes_the_collection_it_is_iterating)  
   
 ###  <a name="BKMK_Avoiding_InvalidOperationExceptions_in_loops"></a> 在循环中避免 InvalidOperationException  
   
@@ -136,7 +136,7 @@ private void DoSomeWork(int msOfWork) { // simulate work var endTime = DateTime.
  如果你的情况要求你在循环访问集合时向列表添加元素或从列表中删除元素，请使用 [for](/dotnet/csharp/language-reference/keywords/for)（Visual Basic 中的 [For](/dotnet/visual-basic/language-reference/statements/for-next-statement)）循环：  
   
 <CodeContentPlaceHolder>7</CodeContentPlaceHolder>  
- ![返回页首](~/docs/debugger/media/pcs_backtotop.png "PCS\_BackToTop") [本文内容](#BKMK_In_this_article) ![In this section](../misc/media/pcs_backtotopmid.png "PCS\_BackToTopMid") [foreach（Visual Basic 中的 For Each）块中的语句会更改其循环访问的集合。](#BKMK_A_statement_in_a_foreach_For_Each_in_Visual_Basic_block_changes_the_collection_it_is_iterating)  
+ ![返回页首](~/debugger/media/pcs_backtotop.png "PCS\_BackToTop") [本文内容](#BKMK_In_this_article) ![In this section](../misc/media/pcs_backtotopmid.png "PCS\_BackToTopMid") [foreach（Visual Basic 中的 For Each）块中的语句会更改其循环访问的集合。](#BKMK_A_statement_in_a_foreach_For_Each_in_Visual_Basic_block_changes_the_collection_it_is_iterating)  
   
 ##  <a name="BKMK_A_Nullable_T_that_is_null_is_cast_to_T"></a> 为 null 的 Nullable\<T\> 转换为 T  
  [通过无效强制转换引发 InvalidOperationException](#BKMK_Causing_an_InvalidOperationException_with_an_invalid_cast)  **&#124;**  [避免错误的强制转换引发 InvalidOperationException](#BKMK_Avoiding_InvalidOperationException_from_a_bad_cast)  
@@ -155,7 +155,7 @@ private void MapQueryResults() { var dbQueryResults = new int?[] { 1, 2, null, 4
   
 ```  
   
- ![返回页首](~/docs/debugger/media/pcs_backtotop.png "PCS\_BackToTop") [本文内容](#BKMK_In_this_article) ![In this section](../misc/media/pcs_backtotopmid.png "PCS\_BackToTopMid") [为 null 的 Nullable&lt;T&gt; 转换为 T](#BKMK_A_Nullable_T_that_is_null_is_cast_to_T)  
+ ![返回页首](~/debugger/media/pcs_backtotop.png "PCS\_BackToTop") [本文内容](#BKMK_In_this_article) ![In this section](../misc/media/pcs_backtotopmid.png "PCS\_BackToTopMid") [为 null 的 Nullable&lt;T&gt; 转换为 T](#BKMK_A_Nullable_T_that_is_null_is_cast_to_T)  
   
 ###  <a name="BKMK_Avoiding_InvalidOperationException_from_a_bad_cast"></a> 避免错误的强制转换引发 InvalidOperationException  
  若要避免 <xref:System.InvalidOperationException>：  
@@ -179,7 +179,7 @@ private void MapQueryResults() { var dbQueryResults = new int?[] { 1, 2, null, 4
   
 ```  
   
- ![返回页首](~/docs/debugger/media/pcs_backtotop.png "PCS\_BackToTop") [本文内容](#BKMK_In_this_article) ![In this section](../misc/media/pcs_backtotopmid.png "PCS\_BackToTopMid") [为 null 的 Nullable&lt;T&gt; 转换为 T](#BKMK_A_Nullable_T_that_is_null_is_cast_to_T)  
+ ![返回页首](~/debugger/media/pcs_backtotop.png "PCS\_BackToTop") [本文内容](#BKMK_In_this_article) ![In this section](../misc/media/pcs_backtotopmid.png "PCS\_BackToTopMid") [为 null 的 Nullable&lt;T&gt; 转换为 T](#BKMK_A_Nullable_T_that_is_null_is_cast_to_T)  
   
 ##  <a name="BKMK_A_System_Linq_Enumerable_method_is_called_on_an_empty_collection"></a> 对空集合调用了 System.Linq.Enumerable 方法  
  <xref:System.Linq.Enumerable> 方法 <xref:System.Linq.Enumerable.Aggregate%2A>、<xref:System.Linq.Enumerable.Average%2A>、<xref:System.Linq.Enumerable.Last%2A>、<xref:System.Linq.Enumerable.Max%2A>、<xref:System.Linq.Enumerable.Min%2A>、<xref:System.Linq.Enumerable.First%2A>、<xref:System.Linq.Enumerable.Single%2A> 和 <xref:System.Linq.Enumerable.SingleOrDefault%2A> 对序列执行操作并返回单一结果。  
@@ -219,7 +219,7 @@ private void FindAverageOfNumbersGreaterThan4() { var dbQueryResults = new[] { 1
   
 ```  
   
- ![返回页首](~/docs/debugger/media/pcs_backtotop.png "PCS\_BackToTop") [本文内容](#BKMK_In_this_article) ![In this section](../misc/media/pcs_backtotopmid.png "PCS\_BackToTopMid") [对空集合调用了 System.Linq.Enumerable 方法](#BKMK_A_System_Linq_Enumerable_method_is_called_on_an_empty_collection)  
+ ![返回页首](~/debugger/media/pcs_backtotop.png "PCS\_BackToTop") [本文内容](#BKMK_In_this_article) ![In this section](../misc/media/pcs_backtotopmid.png "PCS\_BackToTopMid") [对空集合调用了 System.Linq.Enumerable 方法](#BKMK_A_System_Linq_Enumerable_method_is_called_on_an_empty_collection)  
   
 ###  <a name="BKMK_First_and_FirstOrDefault_methods"></a> First 和 FirstOrDefault 方法  
  <xref:System.Linq.Enumerable.First%2A> 返回序列中的第一项，如果序列为空，则引发 <xref:System.InvalidOperationException>。  你可以调用 <xref:System.Linq.Enumerable.FirstOrDefault%2A> 方法而非 <xref:System.Linq.Enumerable.First%2A> 以返回特定值或默认值，避免引发异常。  
@@ -254,7 +254,7 @@ private void FindANumbersGreaterThan4() { var dbQueryResults = new[] { 1, 2, 3, 
   
 ```  
   
- ![返回页首](~/docs/debugger/media/pcs_backtotop.png "PCS\_BackToTop") [本文内容](#BKMK_In_this_article) ![In this section](../misc/media/pcs_backtotopmid.png "PCS\_BackToTopMid") [对空集合调用了 System.Linq.Enumerable 方法](#BKMK_A_System_Linq_Enumerable_method_is_called_on_an_empty_collection)  
+ ![返回页首](~/debugger/media/pcs_backtotop.png "PCS\_BackToTop") [本文内容](#BKMK_In_this_article) ![In this section](../misc/media/pcs_backtotopmid.png "PCS\_BackToTopMid") [对空集合调用了 System.Linq.Enumerable 方法](#BKMK_A_System_Linq_Enumerable_method_is_called_on_an_empty_collection)  
   
 ###  <a name="BKMK_Single_and_SingleOrDefault_methods"></a> Single 和 SingleOrDefault 方法  
  <xref:System.Linq.Enumerable.Single%2A?displayProperty=fullName> 方法返回序列的唯一元素，或者序列中满足指定测试的唯一元素。  
@@ -313,7 +313,7 @@ private void FindTheOnlyNumberGreaterThan2() { var dbQueryResults = new[] { (obj
   
 ```  
   
- ![返回页首](~/docs/debugger/media/pcs_backtotop.png "PCS\_BackToTop") [本文内容](#BKMK_In_this_article) ![In this section](../misc/media/pcs_backtotopmid.png "PCS\_BackToTopMid") [对空集合调用了 System.Linq.Enumerable 方法](#BKMK_A_System_Linq_Enumerable_method_is_called_on_an_empty_collection)  
+ ![返回页首](~/debugger/media/pcs_backtotop.png "PCS\_BackToTop") [本文内容](#BKMK_In_this_article) ![In this section](../misc/media/pcs_backtotopmid.png "PCS\_BackToTopMid") [对空集合调用了 System.Linq.Enumerable 方法](#BKMK_A_System_Linq_Enumerable_method_is_called_on_an_empty_collection)  
   
 ##  <a name="BKMK_Related_articles"></a> 相关文章  
  [异常设计准则（.NET Framework 设计准则）](http://msdn.microsoft.com/library/ms229014)  
@@ -346,4 +346,4 @@ private void FindTheOnlyNumberGreaterThan2() { var dbQueryResults = new[] { (obj
   
  [处理网络应用 \(XAML\) 中的异常 \(Windows\)](http://msdn.microsoft.com/library/Dn263240)  
   
- ![返回页首](~/docs/debugger/media/pcs_backtotop.png "PCS\_BackToTop") [本文内容](#BKMK_In_this_article)
+ ![返回页首](~/debugger/media/pcs_backtotop.png "PCS\_BackToTop") [本文内容](#BKMK_In_this_article)

@@ -23,7 +23,7 @@ caps.handback.revision: 29
   
  窗体上包含四个按钮，IDE 将它们分别命名为“button1” 、“button2” 、“button3” 和 “button4”。 只看这些按钮的当前名称，你并不知道哪个按钮是“关闭”  按钮，哪个按钮是“显示图片”  按钮。 这就是为按钮控件提供包含更多信息的名字会很有帮助的原因。  
   
- ![视频链接](~/docs/data-tools/media/playvideo.gif "PlayVideo")有关本主题的视频版本，请观看[Tutorial 1: Create a Picture Viewer in Visual Basic - Video 3](http://go.microsoft.com/fwlink/?LinkId=205213)（教程 1：用 Visual Basic 创建图片查看器 - 视频 3）或 [Tutorial 1: Create a Picture Viewer in C# - Video 3](http://go.microsoft.com/fwlink/?LinkId=205202)（教程 1：用 C# 创建图片查看器 - 视频 3）。 这些视频使用 Visual Studio 的早期版本，因此在一些菜单命令和其他用户界面元素上略有差异。 但是，概念和过程与当前版本的 Visual Studio 大同小异。  
+ ![视频链接](~/data-tools/media/playvideo.gif "PlayVideo")有关本主题的视频版本，请观看[Tutorial 1: Create a Picture Viewer in Visual Basic - Video 3](http://go.microsoft.com/fwlink/?LinkId=205213)（教程 1：用 Visual Basic 创建图片查看器 - 视频 3）或 [Tutorial 1: Create a Picture Viewer in C# - Video 3](http://go.microsoft.com/fwlink/?LinkId=205202)（教程 1：用 C# 创建图片查看器 - 视频 3）。 这些视频使用 Visual Studio 的早期版本，因此在一些菜单命令和其他用户界面元素上略有差异。 但是，概念和过程与当前版本的 Visual Studio 大同小异。  
   
 ### <a name="to-name-your-button-controls"></a>要命名按钮控件  
   
@@ -39,7 +39,7 @@ caps.handback.revision: 29
   
 3.  双击窗体上的“显示图片”  按钮。 或者，选择窗体上的“显示图片”  按钮，然后选择 Enter 键。 此时，IDE 将在名为“Form1.cs”  （如果使用的是 Visual Basic，则名为“Form1.vb” ）的主窗口中打开一个附加选项卡。 此选项卡将显示窗体后面的代码文件，如下图所示。  
   
-     ![包含 Visual C&#35; 代码的 Form1.cs 选项卡](~/docs/ide/media/express_showbuttoncode.png "Express_ShowButtonCode")  
+     ![包含 Visual C&#35; 代码的 Form1.cs 选项卡](~/ide/media/express_showbuttoncode.png "Express_ShowButtonCode")  
 包含 Visual C# 代码的 Form1.cs 选项卡  
   
 4.  重点考虑这一部分的代码。 （如果你要使用 Visual Basic 查看代码的 Visual Basic 版本，请选择下面的  “VB”选项卡。）  

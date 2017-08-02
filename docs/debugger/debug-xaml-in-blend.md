@@ -115,7 +115,7 @@ caps.handback.revision: 5
   
 5.  双击“‘http:\/\/schemas.microsoft.com\/winfx\/2006\/xaml’命名空间中没有属性‘Mame’”。“Mame”中的“M”应为“N”。将“M”替换为“N”。现在可以分析 XAML，应用将显示在设计图面上。  
   
-     ![在 Blend for Visual Studio 中调试 XAML](~/docs/debugger/media/blend_debugartboard_xaml.png "blend\_debugArtboard\_XAML")  
+     ![在 Blend for Visual Studio 中调试 XAML](~/debugger/media/blend_debugartboard_xaml.png "blend\_debugArtboard\_XAML")  
   
      按 Ctrl\+Shift\+B 生成项目，并确认没有剩余错误。  
   

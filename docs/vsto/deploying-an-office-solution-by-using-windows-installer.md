@@ -132,7 +132,7 @@ caps.handback.revision: 87
 2. 在菜单栏上，依次选择**“查看”**、**“打开”**。  
   
 3. 在**“项目助手”**页下方，选择**“应用程序文件”**按钮，如下图所示。  
-    ![“应用程序文件”按钮。](~/docs/vsto/media/installshield-applicationfiles.png "“应用程序文件”按钮。")  
+    ![“应用程序文件”按钮。](~/vsto/media/installshield-applicationfiles.png "“应用程序文件”按钮。")  
   
 4. 在**“应用程序文件”**页上，选择**“添加项目输出”**按钮。  
   
@@ -267,7 +267,7 @@ caps.handback.revision: 87
     在菜单栏上，依次选择**“查看”**、**“打开”**。  
   
 2. 在**“项目助手”**页下方，选择**“应用程序注册表”**按钮，如下图所示。  
-    ![“应用程序注册表”按钮。](~/docs/vsto/media/installshield-applicationregistry.gif "“应用程序注册表”按钮。")  
+    ![“应用程序注册表”按钮。](~/vsto/media/installshield-applicationregistry.gif "“应用程序注册表”按钮。")  
   
     此时将显示**“应用程序注册表项”**页。  
   
@@ -385,7 +385,7 @@ caps.handback.revision: 87
 2. 在菜单栏上，依次选择**“查看”**、**“打开”**。  
   
 3. 在**“项目助手”**页下方，选择**“应用程序文件”**按钮，如下图所示。  
-    ![“应用程序文件”按钮。](~/docs/vsto/media/installshield-applicationfiles.png "“应用程序文件”按钮。")  
+    ![“应用程序文件”按钮。](~/vsto/media/installshield-applicationfiles.png "“应用程序文件”按钮。")  
   
 4. 在**“应用程序文件”**页上，选择**“添加项目输出”**按钮。  
     此时会显示**“Visual Studio 输出选择器”**对话框。  

@@ -27,7 +27,7 @@ caps.handback.revision: 53
 # 如何：从文档属性中读取或向文档属性写入
   可以存储文档以及文档属性。 Office 应用程序提供了许多内置的属性，例如作者、标题和主题。 本主题演示如何在 Microsoft Office Excel 和 Microsoft Office Word 中设置文档属性。  
   
- ![链接到视频](~/docs/data-tools/media/playvideo.gif "链接到视频") 相关视频演示，请参阅[如何实现：在 Microsoft Word 中访问和操作自定义文档属性？](http://go.microsoft.com/fwlink/?LinkId=136772)。  
+ ![链接到视频](~/data-tools/media/playvideo.gif "链接到视频") 相关视频演示，请参阅[如何实现：在 Microsoft Word 中访问和操作自定义文档属性？](http://go.microsoft.com/fwlink/?LinkId=136772)。  
   
  [!INCLUDE[appliesto_docprops](../vsto/includes/appliesto-docprops-md.md)]  
   

@@ -53,7 +53,7 @@ ms.lasthandoff: 03/31/2017
 
  若要添加引用，请右键单击“解决方案资源管理器”中的“引用”节点，然后选择 **“添加引用”**。 有关详细信息，请参阅[如何：使用引用管理器添加或删除引用](../ide/how-to-add-or-remove-references-by-using-the-reference-manager.md)。  
 
- ![在 Visual C++ 中添加引用](~/docs/ide/media/vs2015_cpp_add_reference.png "vs2015_cpp_add_reference")  
+ ![在 Visual C++ 中添加引用](~/ide/media/vs2015_cpp_add_reference.png "vs2015_cpp_add_reference")  
 
  可以对以下类型的组件/服务设置引用：  
 

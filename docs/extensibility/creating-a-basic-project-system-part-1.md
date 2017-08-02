@@ -75,7 +75,7 @@ caps.handback.revision: 47
   
 3.  使不同的图标。 此图标将出现在 **新项目** 更高版本在本演练中的对话框。  
   
-     ![“简单项目”图标](~/docs/extensibility/media/simpleprojicon.png "SimpleProjIcon")  
+     ![“简单项目”图标](~/extensibility/media/simpleprojicon.png "SimpleProjIcon")  
   
 4.  保存图标，并关闭图标编辑器。  
   
@@ -471,7 +471,7 @@ caps.handback.revision: 47
   
 2.  在 **属性** windows，减至 16 × 16 像素的位图。 使不同的位图。  
   
-     ![简单项目命令](~/docs/extensibility/media/simpleprojprojectcomm.png "SimpleProjProjectComm")  
+     ![简单项目命令](~/extensibility/media/simpleprojprojectcomm.png "SimpleProjProjectComm")  
   
 3.  在 **属性** 窗口中，更改 **生成操作** 为位图的 **嵌入的资源**。  
   
@@ -546,7 +546,7 @@ caps.handback.revision: 47
   
 2.  在新创建的项目，请注意 SimpleProjectNode.bmp 用作项目节点图标。  
   
-     ![简单项目“新建项目节点”](~/docs/extensibility/media/simpleprojnewprojectnode.png "SimpleProjNewProjectNode")  
+     ![简单项目“新建项目节点”](~/extensibility/media/simpleprojnewprojectnode.png "SimpleProjNewProjectNode")  
   
 3.  在代码编辑器中打开 Program.cs。 您应看到类似于下面的代码的源代码。  
   
@@ -649,6 +649,6 @@ caps.handback.revision: 47
   
 6.  开始调试项目。 新的项目应编译、 运行和显示"Hello VSX\!\!\!" 在控制台窗口中。  
   
-     ![简单项目命令](~/docs/extensibility/media/simpleprojcommand.png "SimpleProjCommand")  
+     ![简单项目命令](~/extensibility/media/simpleprojcommand.png "SimpleProjCommand")  
   
  祝贺你！ 您已实现基本的托管的项目系统。

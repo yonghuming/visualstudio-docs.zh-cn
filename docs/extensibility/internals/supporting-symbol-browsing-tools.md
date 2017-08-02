@@ -38,7 +38,7 @@ caps.handback.revision: 26
   
  数据交换的关系图下面包含请求的关键元素示例\/进程在库和 Visual Studio 对象管理器之间。  在关系图的接口是托管代码应用程序的一部分。  
   
- ![库与对象管理器间的数据流](~/docs/extensibility/internals/media/callbrowserdiagram.gif "CallBrowserDiagram")  
+ ![库与对象管理器间的数据流](~/extensibility/internals/media/callbrowserdiagram.gif "CallBrowserDiagram")  
   
  若要提供列表符号给 Visual Studio 对象管理器，可以通过调用 <xref:Microsoft.VisualStudio.Shell.Interop.IVsObjectManager2.RegisterSimpleLibrary%2A> 方法必须先注册了 Visual Studio 对象管理器的库。  在库注册后， Visual Studio 对象管理器请求有关的库功能的特定信息。  例如，通过调用 <xref:Microsoft.VisualStudio.Shell.Interop.IVsSimpleLibrary2.GetLibFlags2%2A> 和 <xref:Microsoft.VisualStudio.Shell.Interop.IVsSimpleLibrary2.GetSupportedCategoryFields2%2A> 方法请求库标志和支持的类别。  有时，那么，当某个工具请求从该库中的数据时，对象管理器请求顶部列表符号通过调用 <xref:Microsoft.VisualStudio.Shell.Interop.IVsSimpleLibrary2.GetList2%2A> 方法。  作为响应合理库生成符号列表并将其显示在 Visual Studio 对象管理器通过 <xref:Microsoft.VisualStudio.Shell.Interop.IVsSimpleObjectList2> 接口。  [!INCLUDE[vsprvs](../../code-quality/includes/vsprvs_md.md)] 对象管理器确定多少项列表中通过调用 <xref:Microsoft.VisualStudio.Shell.Interop.IVsSimpleObjectList2.GetItemCount%2A> 方法。  所有后面的请求与列表中的特定项相关并提供在每个请求的项的索引号。  Visual Studio 对象管理器继续调用 <xref:Microsoft.VisualStudio.Shell.Interop.IVsSimpleObjectList2.GetCategoryField2%2A> 方法收集有关类型、辅助功能和项目的其他属性的信息。  
   
