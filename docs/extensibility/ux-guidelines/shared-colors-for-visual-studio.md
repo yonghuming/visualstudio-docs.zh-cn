@@ -55,7 +55,7 @@ ms.lasthandoff: 05/04/2017
 
 ### <a name="button-controls"></a>按钮控件
 
-![按钮控件红线](~/extensibility/ux-guidelines/media/0303-155_buttoncontrolredline.png "0303年 155_ButtonControlRedline")
+![按钮控件红线](../../extensibility/ux-guidelines/media/0303-155_buttoncontrolredline.png "0303年 155_ButtonControlRedline")
 
 | 使用... | 请勿使用... |
 | --- | --- |
@@ -63,7 +63,7 @@ ms.lasthandoff: 05/04/2017
 
 **按钮︰ 标准状态**
 
-![标准按钮](~/extensibility/ux-guidelines/media/03.03.Button.Standard.png "03.03.Button.Standard")<br />标准按钮
+![标准按钮](../../extensibility/ux-guidelines/media/03.03.Button.Standard.png "03.03.Button.Standard")<br />标准按钮
 
 | 元素 | 标记名称：Category.color |
 | --- | --- |
@@ -72,7 +72,7 @@ ms.lasthandoff: 05/04/2017
 
 **按钮︰ 默认状态**
 
-![默认按钮](~/extensibility/ux-guidelines/media/03.03.Button.Default.png "03.03.Button.Default")<br />默认按钮
+![默认按钮](../../extensibility/ux-guidelines/media/03.03.Button.Default.png "03.03.Button.Default")<br />默认按钮
 
 | 元素 | 标记名称：Category.color | 
 | --- | --- | 
@@ -81,7 +81,7 @@ ms.lasthandoff: 05/04/2017
 
 **按钮︰ 已禁用的状态**  
 
-![禁用的按钮](~/extensibility/ux-guidelines/media/03.03.Button.Disabled.png "03.03.Button.Disabled")<br />禁用的按钮  
+![禁用的按钮](../../extensibility/ux-guidelines/media/03.03.Button.Disabled.png "03.03.Button.Disabled")<br />禁用的按钮  
 
 | 元素 | 标记名称：Category.color |
 | --- | --- |
@@ -90,7 +90,7 @@ ms.lasthandoff: 05/04/2017
 
 **按钮︰ 悬停状态**  
 
-![悬停时的按钮](~/extensibility/ux-guidelines/media/03.03.Button.hover.png "03.03.Button.hover")<br />悬停时的按钮  
+![悬停时的按钮](../../extensibility/ux-guidelines/media/03.03.Button.hover.png "03.03.Button.hover")<br />悬停时的按钮  
 
 | 元素 | 标记名称：Category.color |
 | --- | --- |
@@ -99,7 +99,7 @@ ms.lasthandoff: 05/04/2017
 
 **按钮︰ 已按下的状态**  
 
-![按下的按钮](~/extensibility/ux-guidelines/media/03.03.Button.Pressed.png "03.03.Button.Pressed")<br />按下的按钮  
+![按下的按钮](../../extensibility/ux-guidelines/media/03.03.Button.Pressed.png "03.03.Button.Pressed")<br />按下的按钮  
 
 | 元素 | 标记名称：Category.color |
 | --- | --- |
@@ -108,7 +108,7 @@ ms.lasthandoff: 05/04/2017
 
 **已设定焦点的按钮︰ 状态**  
 
-![已设定焦点的按钮](~/extensibility/ux-guidelines/media/03.03.Button.Focused.png "03.03.Button.Focused")<br />已设定焦点的按钮  
+![已设定焦点的按钮](../../extensibility/ux-guidelines/media/03.03.Button.Focused.png "03.03.Button.Focused")<br />已设定焦点的按钮  
 
 | 元素 | 标记名称：Category.color |
 | --- | --- |
@@ -116,7 +116,7 @@ ms.lasthandoff: 05/04/2017
 | 按钮边框 | `CommonControls.ButtonBorderFocused` |
 
 ### <a name="check-box-controls"></a>复选框控件  
-![复选框 （红线）](~/extensibility/ux-guidelines/media/0303-161_checkboxredline.png "0303-161_CheckboxRedline")<br />复选框 （红线）  
+![复选框 （红线）](../../extensibility/ux-guidelines/media/0303-161_checkboxredline.png "0303-161_CheckboxRedline")<br />复选框 （红线）  
 
 | 使用... | 请勿使用... |
 | --- | --- |
@@ -187,7 +187,7 @@ ms.lasthandoff: 05/04/2017
 
 **下拉列表和组合框︰ 这是默认状态**  
 
-![默认下拉/组合框](~/extensibility/ux-guidelines/media/0303-168_dropdowncombobox.png "0303-168_DropDownComboBox")<br />默认下拉/组合框
+![默认下拉/组合框](../../extensibility/ux-guidelines/media/0303-168_dropdowncombobox.png "0303-168_DropDownComboBox")<br />默认下拉/组合框
 
 | 元素 | 标记名称：Category.color |
 | --- | --- |
@@ -200,7 +200,7 @@ ms.lasthandoff: 05/04/2017
 
 **下拉列表和组合框︰ 已禁用状态**  
 
-![已禁用的下拉/组合框](~/extensibility/ux-guidelines/media/0303-169_dropdowncomboboxdisabled.png "0303-169_DropDownComboBoxDisabled")<br />已禁用的下拉/组合框
+![已禁用的下拉/组合框](../../extensibility/ux-guidelines/media/0303-169_dropdowncomboboxdisabled.png "0303-169_DropDownComboBoxDisabled")<br />已禁用的下拉/组合框
 
 | 元素 | 标记名称：Category.color |
 | --- | --- |
@@ -239,7 +239,7 @@ ms.lasthandoff: 05/04/2017
 
 **下拉列表和组合框列表项视图︰ 按下状态**  
 
- ![按下的列表项视图的下拉/组合框](~/extensibility/ux-guidelines/media/0303-174_dropdowncomboboxlistview.png "0303-174_DropDownComboBoxListView")<br />按下的列表项视图的下拉/组合框  
+ ![按下的列表项视图的下拉/组合框](../../extensibility/ux-guidelines/media/0303-174_dropdowncomboboxlistview.png "0303-174_DropDownComboBoxListView")<br />按下的列表项视图的下拉/组合框  
 
 | 元素 | 标记名称：Category.color |
 | --- | --- |
@@ -272,7 +272,7 @@ ms.lasthandoff: 05/04/2017
 ### <a name="tabular-data-grid-controls"></a>表格数据（网格）控件  
 表格数据控件（也称为网格控件）是可以用于在多列中呈现大量数据的 Visual Studio 公共控件。 可以在 Visual Studio 中的多个位置中找到标准表格数据控件：错误列表工具窗口、IntelliTrace 报告和内存堆视图及其他位置。 始终使用提供的标准表格数据控件。 在某些极少数情况下，你可能无法访问标准表格数据控件。 在这些情况下，请使用以下标记名称以确保 UI 与 Visual Studio 中的其他表格数据控件保持一致。  
 
-![表格的数据网格控件 （红线）](~/extensibility/ux-guidelines/media/0303-197_tabulardatagridcontrolredline.png "0303-197_TabularDataGridControlRedline")<br />表格的数据网格控件 （红线）
+![表格的数据网格控件 （红线）](../../extensibility/ux-guidelines/media/0303-197_tabulardatagridcontrolredline.png "0303-197_TabularDataGridControlRedline")<br />表格的数据网格控件 （红线）
 
 | 使用... | 请勿使用... |
 | --- | --- |
@@ -340,7 +340,7 @@ ms.lasthandoff: 05/04/2017
 #### <a name="instructional-text"></a>说明文本
 说明性文本提供了要执行的操作中的对话框或文档页面的突出显示主要说明。
 
-![默认的说明文本](~/extensibility/ux-guidelines/media/0303_InstructionalText.png "0303_InstructionalText.png")<br />默认的说明文本
+![默认的说明文本](../../extensibility/ux-guidelines/media/0303_InstructionalText.png "0303_InstructionalText.png")<br />默认的说明文本
 
 | 元素 | 标记名称：Category.color |
 | --- | --- |
@@ -349,7 +349,7 @@ ms.lasthandoff: 05/04/2017
 #### <a name="secondary-instructional-text"></a>辅助说明文本
 在具有许多文本和控件的文档页中，一些说明性文本使用不同的颜色值。 这有助于传达的信息是最重要并降低总体密度的 UI 元素。 (另请参阅下面有关提示文本部分。)
 
-![辅助说明文本](~/extensibility/ux-guidelines/media/0303_SecondaryInstructionalText.png "0303_SecondaryInstructionalText.png")<br />辅助说明文本
+![辅助说明文本](../../extensibility/ux-guidelines/media/0303_SecondaryInstructionalText.png "0303_SecondaryInstructionalText.png")<br />辅助说明文本
 
 | 元素 | 标记名称：Category.color |
 | --- | --- |
@@ -360,7 +360,7 @@ ms.lasthandoff: 05/04/2017
 
 **默认提示文本**
 
-![默认提示文本](~/extensibility/ux-guidelines/media/0303_HintText.png "0303_HintText.png")<br />默认提示文本
+![默认提示文本](../../extensibility/ux-guidelines/media/0303_HintText.png "0303_HintText.png")<br />默认提示文本
 
 | 元素 | 标记名称：Category.color |
 | --- | --- |
@@ -368,7 +368,7 @@ ms.lasthandoff: 05/04/2017
 
 **所需的提示文本**
 
-![所需的提示文本](~/extensibility/ux-guidelines/media/0303_RequiredHintText.png "0303_RequiredHintText.png")<br />所需的提示文本
+![所需的提示文本](../../extensibility/ux-guidelines/media/0303_RequiredHintText.png "0303_RequiredHintText.png")<br />所需的提示文本
 
 | 元素 | 标记名称：Category.color |
 | --- | --- |
@@ -379,7 +379,7 @@ ms.lasthandoff: 05/04/2017
 
 > 请参阅[搜索框](../../extensibility/ux-guidelines/shared-colors-for-visual-studio.md#BKMK_SearchBoxes)为与搜索控制相关的其他颜色标记。
 
-![搜索框控件文本](~/extensibility/ux-guidelines/media/0303_SearchBoxControl.png "0303_SearchBoxControl.png")<br />搜索框控件文本
+![搜索框控件文本](../../extensibility/ux-guidelines/media/0303_SearchBoxControl.png "0303_SearchBoxControl.png")<br />搜索框控件文本
 
 | 元素 | 标记名称：Category.color |
 | --- | --- |
@@ -420,7 +420,7 @@ ms.lasthandoff: 05/04/2017
 
 **超链接︰ 已禁用的状态**
 
-![已禁用的超链接](~/extensibility/ux-guidelines/media/0303-137_hyperlinkdisabled.png "0303-137_HyperlinkDisabled")<br />已禁用的超链接  
+![已禁用的超链接](../../extensibility/ux-guidelines/media/0303-137_hyperlinkdisabled.png "0303-137_HyperlinkDisabled")<br />已禁用的超链接  
 
 | 元素 | 标记名称：Category.color |
 | --- | --- |
@@ -429,7 +429,7 @@ ms.lasthandoff: 05/04/2017
 ### <a name="infobars"></a>信息栏  
 信息栏用于提供有关给定上下文的详细信息，始终出现在文档窗口或工具窗口顶部。  
 
-![信息栏 （红线）](~/extensibility/ux-guidelines/media/0303-138_infobarredline.png "0303-138_InfobarRedline")<br />信息栏 （红线）
+![信息栏 （红线）](../../extensibility/ux-guidelines/media/0303-138_infobarredline.png "0303-138_InfobarRedline")<br />信息栏 （红线）
 
 | 使用... | 请勿使用... |
 | --- | --- |
@@ -437,7 +437,7 @@ ms.lasthandoff: 05/04/2017
 
 **信息栏︰ 默认状态**
 
-![默认信息栏](~/extensibility/ux-guidelines/media/0303-139_infobar.png "0303-139_Infobar")<br />默认信息栏
+![默认信息栏](../../extensibility/ux-guidelines/media/0303-139_infobar.png "0303-139_Infobar")<br />默认信息栏
 
 | 元素 | 标记名称：Category.color |
 | --- | --- |
@@ -447,7 +447,7 @@ ms.lasthandoff: 05/04/2017
 
 **信息栏关闭 (&times;) 按钮︰ 这是默认状态**
 
-![默认关闭的信息栏 (&times;) 按钮](~/extensibility/ux-guidelines/media/0303_InfobarCloseDefault.png "0303_InfobarCloseDefault.png")<br />默认关闭的信息栏 (&times;) 按钮
+![默认关闭的信息栏 (&times;) 按钮](../../extensibility/ux-guidelines/media/0303_InfobarCloseDefault.png "0303_InfobarCloseDefault.png")<br />默认关闭的信息栏 (&times;) 按钮
 
 | 元素 | 标记名称：Category.color |
 | --- | --- |
@@ -457,7 +457,7 @@ ms.lasthandoff: 05/04/2017
 
 **信息栏关闭 (&times;) 按钮︰ 将鼠标悬停状态**
 
-![信息栏关闭 (&times;) 悬停时的按钮](~/extensibility/ux-guidelines/media/0303_InfobarCloseHover.png "0303_InfobarCloseHover.png")<br />信息栏关闭 (&times;) 悬停时的按钮
+![信息栏关闭 (&times;) 悬停时的按钮](../../extensibility/ux-guidelines/media/0303_InfobarCloseHover.png "0303_InfobarCloseHover.png")<br />信息栏关闭 (&times;) 悬停时的按钮
 
 | 元素 | 标记名称：Category.color |
 | --- | --- |
@@ -467,7 +467,7 @@ ms.lasthandoff: 05/04/2017
 
 **信息栏关闭 (&times;) 按钮︰ 按下状态**
 
-![按下关闭信息栏 (&times;) 按钮](~/extensibility/ux-guidelines/media/0303_InfobarClosePressed.png "0303_InfobarClosePressed.png")<br />按下关闭信息栏 (&times;) 按钮
+![按下关闭信息栏 (&times;) 按钮](../../extensibility/ux-guidelines/media/0303_InfobarClosePressed.png "0303_InfobarClosePressed.png")<br />按下关闭信息栏 (&times;) 按钮
 
 | 元素 | 标记名称：Category.color |
 | --- | --- |
@@ -477,7 +477,7 @@ ms.lasthandoff: 05/04/2017
 
 **信息栏超链接按钮︰ 这是默认状态**
 
-![默认信息栏超链接按钮](~/extensibility/ux-guidelines/media/0303_InfobarHyperlinkButtonDefault.png "0303_InfobarHyperlinkButtonDefault.png")<br />默认信息栏超链接按钮
+![默认信息栏超链接按钮](../../extensibility/ux-guidelines/media/0303_InfobarHyperlinkButtonDefault.png "0303_InfobarHyperlinkButtonDefault.png")<br />默认信息栏超链接按钮
 
 | 元素 | 标记名称：Category.color |
 | --- | --- |
@@ -485,7 +485,7 @@ ms.lasthandoff: 05/04/2017
 
 **信息栏超链接按钮︰ 将鼠标悬停状态**
 
-![悬停时的信息栏超链接按钮](~/extensibility/ux-guidelines/media/0303_InfobarHyperlinkButtonHover.png "0303_InfobarHyperlinkButtonHover.png")<br />悬停时的信息栏超链接按钮
+![悬停时的信息栏超链接按钮](../../extensibility/ux-guidelines/media/0303_InfobarHyperlinkButtonHover.png "0303_InfobarHyperlinkButtonHover.png")<br />悬停时的信息栏超链接按钮
 
 | 元素 | 标记名称：Category.color |
 | --- | --- |
@@ -493,7 +493,7 @@ ms.lasthandoff: 05/04/2017
 
 **信息栏超链接按钮︰ 按下状态**
 
-![按下的信息栏超链接按钮](~/extensibility/ux-guidelines/media/0303_InfobarHyperlinkButtonPressed.png "0303_InfobarHyperlinkButtonPressed.png")<br />按下的信息栏超链接按钮
+![按下的信息栏超链接按钮](../../extensibility/ux-guidelines/media/0303_InfobarHyperlinkButtonPressed.png "0303_InfobarHyperlinkButtonPressed.png")<br />按下的信息栏超链接按钮
 
 | 元素 | 标记名称：Category.color |
 | --- | --- |
@@ -501,7 +501,7 @@ ms.lasthandoff: 05/04/2017
 
 **信息栏内联超链接 （在句子）︰ 这是默认状态**
 
-![默认内联信息栏超链接按钮](~/extensibility/ux-guidelines/media/0303_InfobarHyperlinkButtonDefault.png "0303_InfobarHyperlinkButtonDefault.png")<br />默认内联信息栏超链接按钮
+![默认内联信息栏超链接按钮](../../extensibility/ux-guidelines/media/0303_InfobarHyperlinkButtonDefault.png "0303_InfobarHyperlinkButtonDefault.png")<br />默认内联信息栏超链接按钮
 
 | 元素 | 标记名称：Category.color |
 | --- | --- |
@@ -509,7 +509,7 @@ ms.lasthandoff: 05/04/2017
 
 **信息栏内联超链接 （在句子）︰ 将鼠标悬停状态**
 
-![悬停时的信息栏内联超链接按钮](~/extensibility/ux-guidelines/media/0303_InfobarHyperlinkInlineHover.png "0303_InfobarHyperlinkInlineHover.png")<br />悬停时的信息栏内联超链接按钮
+![悬停时的信息栏内联超链接按钮](../../extensibility/ux-guidelines/media/0303_InfobarHyperlinkInlineHover.png "0303_InfobarHyperlinkInlineHover.png")<br />悬停时的信息栏内联超链接按钮
 
 | 元素 | 标记名称：Category.color |
 | --- | --- |
@@ -517,7 +517,7 @@ ms.lasthandoff: 05/04/2017
 
 **信息栏内联超链接 （在句子）︰ 按下状态**
 
-![按下的信息栏内联超链接按钮](~/extensibility/ux-guidelines/media/0303_InfobarHyperlinkInlinePressed.png "0303_InfobarHyperlinkInlinePressed.png")<br />按下的信息栏内联超链接按钮
+![按下的信息栏内联超链接按钮](../../extensibility/ux-guidelines/media/0303_InfobarHyperlinkInlinePressed.png "0303_InfobarHyperlinkInlinePressed.png")<br />按下的信息栏内联超链接按钮
 
 | 元素 | 标记名称：Category.color |
 | --- | --- |
@@ -525,7 +525,7 @@ ms.lasthandoff: 05/04/2017
 
 **信息栏按钮︰ 这是默认状态**
 
-![默认信息栏按钮](~/extensibility/ux-guidelines/media/0303_InfobarButtonDefault.png "0303_InfobarButtonDefault.png")<br />默认信息栏按钮
+![默认信息栏按钮](../../extensibility/ux-guidelines/media/0303_InfobarButtonDefault.png "0303_InfobarButtonDefault.png")<br />默认信息栏按钮
 
 | 元素 | 标记名称：Category.color |
 | --- | --- |
@@ -535,7 +535,7 @@ ms.lasthandoff: 05/04/2017
 
 **信息栏按钮︰ 将鼠标悬停状态**
 
-![悬停时的信息栏按钮](~/extensibility/ux-guidelines/media/0303_InfobarButtonHover.png "0303_InfobarButtonHover.png")<br />悬停时的信息栏按钮
+![悬停时的信息栏按钮](../../extensibility/ux-guidelines/media/0303_InfobarButtonHover.png "0303_InfobarButtonHover.png")<br />悬停时的信息栏按钮
 
 | 元素 | 标记名称：Category.color |
 | --- | --- |
@@ -545,7 +545,7 @@ ms.lasthandoff: 05/04/2017
 
 **信息栏按钮︰ 按下状态**
 
-![按下的信息栏按钮](~/extensibility/ux-guidelines/media/0303_InfobarButtonPressed.png "0303_InfobarButtonPressed.png")<br />按下的信息栏按钮
+![按下的信息栏按钮](../../extensibility/ux-guidelines/media/0303_InfobarButtonPressed.png "0303_InfobarButtonPressed.png")<br />按下的信息栏按钮
 
 | 元素 | 标记名称：Category.color |
 | --- | --- |
@@ -555,7 +555,7 @@ ms.lasthandoff: 05/04/2017
 
 **信息栏按钮︰ 已禁用状态**
 
-![已禁用信息栏按钮](~/extensibility/ux-guidelines/media/0303_InfobarButtonDisabled.png "0303_InfobarButtonDisabled.png")<br />已禁用信息栏按钮
+![已禁用信息栏按钮](../../extensibility/ux-guidelines/media/0303_InfobarButtonDisabled.png "0303_InfobarButtonDisabled.png")<br />已禁用信息栏按钮
 
 | 元素 | 标记名称：Category.color |
 | --- | --- |
@@ -565,7 +565,7 @@ ms.lasthandoff: 05/04/2017
 
 **信息栏按钮︰ 已设定焦点状态**
 
-![已设定焦点的信息栏按钮](~/extensibility/ux-guidelines/media/0303_InfobarButtonFocus.png "0303_InfobarButtonFocus.png")<br />已设定焦点的信息栏按钮
+![已设定焦点的信息栏按钮](../../extensibility/ux-guidelines/media/0303_InfobarButtonFocus.png "0303_InfobarButtonFocus.png")<br />已设定焦点的信息栏按钮
 
 | 元素 | 标记名称：Category.color |
 | --- | --- |
@@ -576,7 +576,7 @@ ms.lasthandoff: 05/04/2017
 ### <a name="scroll-bars"></a>滚动条  
 滚动条的风格由 Visual Studio 环境中，且无需具有主题。 但是，你可能决定你想要利用滚动条中使用，因此，你的 UI 显示方式始终与这部分 Visual Studio 环境一致的颜色。  
 
-![滚动条 （红线）](~/extensibility/ux-guidelines/media/0303-140_scrollbarredline.png "0303-140_ScrollbarRedline")<br />滚动条 （红线）
+![滚动条 （红线）](../../extensibility/ux-guidelines/media/0303-140_scrollbarredline.png "0303-140_ScrollbarRedline")<br />滚动条 （红线）
 
 | 使用... | 请勿使用... |
 | --- | --- |
@@ -611,7 +611,7 @@ ms.lasthandoff: 05/04/2017
 
 **滚动条箭头︰ 这是默认状态**  
 
-![默认滚动条箭头](~/extensibility/ux-guidelines/media/0303-142_scrollbararrow.png "0303-142_ScrollbarArrow")<br />默认滚动条箭头
+![默认滚动条箭头](../../extensibility/ux-guidelines/media/0303-142_scrollbararrow.png "0303-142_ScrollbarArrow")<br />默认滚动条箭头
 
 | 元素 | 标记名称：Category.color |
 | --- | --- |
@@ -680,7 +680,7 @@ ms.lasthandoff: 05/04/2017
 
 **失去焦点的非活动搜索输入的字段**
 
-![失去焦点的非活动搜索输入的字段](~/extensibility/ux-guidelines/media/0303-114-1_searchinputfieldunfocusedinactive.png "0303-114-1_SearchInputFieldUnfocusedInactive")<br />失去焦点的非活动搜索输入的字段  
+![失去焦点的非活动搜索输入的字段](../../extensibility/ux-guidelines/media/0303-114-1_searchinputfieldunfocusedinactive.png "0303-114-1_SearchInputFieldUnfocusedInactive")<br />失去焦点的非活动搜索输入的字段  
 
 | 元素 | 标记名称：Category.color |
 | --- | --- |
@@ -767,7 +767,7 @@ ms.lasthandoff: 05/04/2017
 
 **失去焦点的搜索下拉按钮**
 
-![失去焦点的搜索下拉按钮](~/extensibility/ux-guidelines/media/0303-116_searchdropdownbuttonunfocused.png "0303-116_SearchDropdownButtonUnfocused")<br />失去焦点的搜索下拉按钮
+![失去焦点的搜索下拉按钮](../../extensibility/ux-guidelines/media/0303-116_searchdropdownbuttonunfocused.png "0303-116_SearchDropdownButtonUnfocused")<br />失去焦点的搜索下拉按钮
 
 | 元素 | 标记名称：Category.color |
 | --- | --- |
@@ -836,7 +836,7 @@ ms.lasthandoff: 05/04/2017
 
 ![搜索复选框](../../extensibility/ux-guidelines/media/0303-126_searchcheckbox.png "0303-126_SearchCheckbox")<br />默认搜索选项 （复选框）  
 
-![搜索选项](~/extensibility/ux-guidelines/media/0303-127_searchoptions.png "0303-127_SearchOptions")<br />默认搜索选项 （链接）  
+![搜索选项](../../extensibility/ux-guidelines/media/0303-127_searchoptions.png "0303-127_SearchOptions")<br />默认搜索选项 （链接）  
 
 | 元素 | 标记名称：Category.color |
 | --- | --- |
@@ -861,7 +861,7 @@ ms.lasthandoff: 05/04/2017
 
 **搜索选项︰ 按下状态**  
 
-![按下的搜索选项 （复选框）](~/extensibility/ux-guidelines/media/0303-131_searchsuggestedpressed.png "0303-131_SearchSuggestedPressed")<br />按下的搜索选项 （复选框）   
+![按下的搜索选项 （复选框）](../../extensibility/ux-guidelines/media/0303-131_searchsuggestedpressed.png "0303-131_SearchSuggestedPressed")<br />按下的搜索选项 （复选框）   
 
 ![按下的搜索选项 （链接）](../../extensibility/ux-guidelines/media/0303-132_searchoptionspressed.png "0303-132_SearchOptionsPressed")<br />按下的搜索选项 （链接）  
 
@@ -895,7 +895,7 @@ ms.lasthandoff: 05/04/2017
 
 **树视图项︰ 将鼠标悬停状态**
 
-![悬停时的树视图项](~/extensibility/ux-guidelines/media/0303-149_treeviewhover.png "0303-149_TreeViewHover")<br />悬停时的树视图项
+![悬停时的树视图项](../../extensibility/ux-guidelines/media/0303-149_treeviewhover.png "0303-149_TreeViewHover")<br />悬停时的树视图项
 
 | 元素 | 标记名称：Category.color |
 | --- | --- |
@@ -939,7 +939,7 @@ ms.lasthandoff: 05/04/2017
 
 **树视图项︰ 悬停，则选定，并且已设定焦点状态**
 
-![悬停时的所选的专注于树视图项](~/extensibility/ux-guidelines/media/0303-153_treeviewfocusedhover.png "0303-153_TreeViewFocusedHover")<br />悬停时的所选的专注于树视图项  
+![悬停时的所选的专注于树视图项](../../extensibility/ux-guidelines/media/0303-153_treeviewfocusedhover.png "0303-153_TreeViewFocusedHover")<br />悬停时的所选的专注于树视图项  
 
 | 元素 | 标记名称：Category.color |
 | --- | --- |
@@ -950,7 +950,7 @@ ms.lasthandoff: 05/04/2017
 
 **树视图项︰ 悬停、 选择状态，但失去焦点的状态**
 
-![悬停时的所选和失去焦点的树视图项](~/extensibility/ux-guidelines/media/0303-154_treeviewunfocusedhover.png "0303-154_TreeViewUnfocusedHover")<br />悬停时的所选和失去焦点的树视图项  
+![悬停时的所选和失去焦点的树视图项](../../extensibility/ux-guidelines/media/0303-154_treeviewunfocusedhover.png "0303-154_TreeViewUnfocusedHover")<br />悬停时的所选和失去焦点的树视图项  
 
 | 元素 | 标记名称：Category.color |
 | --- | --- |
@@ -988,7 +988,7 @@ ms.lasthandoff: 05/04/2017
 ### <a name="command-shelf"></a>命令架  
 有两组标记名称用于命令架背景：一组用于菜单栏所在的位置，另一组用于命令栏所在的位置。 单个命令栏组具有自己的背景色值（在“命令栏”部分中进行更详细的讨论）。 菜单栏和命令栏文本分别在菜单和命令栏部分中进行了讨论。  
 
-![Visual Studio 命令架 （红线）](~/extensibility/ux-guidelines/media/0303-188_commandshelfredline.png "0303-188_CommandShelfRedline")<br />Visual Studio 命令架 （红线）  
+![Visual Studio 命令架 （红线）](../../extensibility/ux-guidelines/media/0303-188_commandshelfredline.png "0303-188_CommandShelfRedline")<br />Visual Studio 命令架 （红线）  
 
 | 使用... | 请勿使用... |
 | --- | --- |
@@ -1128,7 +1128,7 @@ ms.lasthandoff: 05/04/2017
 #### <a name="menu-items"></a>菜单项
 各个菜单项由菜单文本和可选的图标、复选框或子菜单标志符号组成。 其背景和文本颜色会在鼠标悬停在上方时更改。 此颜色标记是前景/背景对。  
 
-![菜单项红线](~/extensibility/ux-guidelines/media/0303-009_menuitemredline.png "0303年 009_MenuItemRedline")  
+![菜单项红线](../../extensibility/ux-guidelines/media/0303-009_menuitemredline.png "0303年 009_MenuItemRedline")  
 
 | 使用... | 请勿使用...  |
 |---|---|
@@ -1137,7 +1137,7 @@ ms.lasthandoff: 05/04/2017
 
 **菜单项︰ 这是默认状态**
 
-![默认菜单项](~/extensibility/ux-guidelines/media/0303-010_menudefault.png "0303-010_MenuDefault")<br />默认菜单项  
+![默认菜单项](../../extensibility/ux-guidelines/media/0303-010_menudefault.png "0303-010_MenuDefault")<br />默认菜单项  
 
 | 元素 | 标记名称：Category.color |
 | --- | --- |
@@ -1153,7 +1153,7 @@ ms.lasthandoff: 05/04/2017
 
 ![选中的菜单](../../extensibility/ux-guidelines/media/0303-011_menuchecked.png "0303-011_MenuChecked")<br />已选中的菜单项
 
-![选定的菜单](~/extensibility/ux-guidelines/media/0303-012_menuselected.png "0303-012_MenuSelected")<br />选定的菜单项    
+![选定的菜单](../../extensibility/ux-guidelines/media/0303-012_menuselected.png "0303-012_MenuSelected")<br />选定的菜单项    
 
 | 元素 | 标记名称：Category.color |
 | --- | --- |
@@ -1238,7 +1238,7 @@ ms.lasthandoff: 05/04/2017
 
 **命令图标︰ 这是默认状态**  
 
-![命令图标默认值](~/extensibility/ux-guidelines/media/0303-023_commandicondefault.png "0303-023_CommandIconDefault")<br />默认命令图标
+![命令图标默认值](../../extensibility/ux-guidelines/media/0303-023_commandicondefault.png "0303-023_CommandIconDefault")<br />默认命令图标
 
 | 元素 | 标记名称：Category.color |
 | --- | --- |
@@ -1310,7 +1310,7 @@ ms.lasthandoff: 05/04/2017
 
 **命令栏的组合框输入的字段︰ 这是默认状态**
 
-![命令栏的组合框输入的字段](~/extensibility/ux-guidelines/media/0303-030_comboboxinputfield.png "0303-030_ComboBoxInputField")<br />命令栏的组合框输入的字段  
+![命令栏的组合框输入的字段](../../extensibility/ux-guidelines/media/0303-030_comboboxinputfield.png "0303-030_ComboBoxInputField")<br />命令栏的组合框输入的字段  
 
 | 元素 | 标记名称：Category.color |
 | --- | --- |
@@ -1330,7 +1330,7 @@ ms.lasthandoff: 05/04/2017
 
 **命令栏下拉列表︰ 这是默认状态**
 
-![命令栏下拉列表](~/extensibility/ux-guidelines/media/0303-032_comboboxdropdownlist.png "0303-032_ComboBoxDropdownList")<br />命令栏下拉列表
+![命令栏下拉列表](../../extensibility/ux-guidelines/media/0303-032_comboboxdropdownlist.png "0303-032_ComboBoxDropdownList")<br />命令栏下拉列表
 
 | 元素 | 标记名称：Category.color |
 | --- | --- |
@@ -1484,7 +1484,7 @@ ms.lasthandoff: 05/04/2017
 
 **命令栏下拉按钮︰ 将鼠标悬停状态**  
 
-![悬停时的命令栏下拉按钮](~/extensibility/ux-guidelines/media/0303-047_dropdownbuttonhover.png "0303-047_DropdownButtonHover")<br />悬停时的命令栏下拉按钮  
+![悬停时的命令栏下拉按钮](../../extensibility/ux-guidelines/media/0303-047_dropdownbuttonhover.png "0303-047_DropdownButtonHover")<br />悬停时的命令栏下拉按钮  
 
 | 元素 | 标记名称：Category.color |
 | --- | --- |
@@ -1667,7 +1667,7 @@ ms.lasthandoff: 05/04/2017
 
 **已设定焦点，浮动文档窗口框架︰ 这是默认状态**
 
-![已设定焦点，浮动文档窗口框架的默认](~/extensibility/ux-guidelines/media/0303-067_framefocused.png "0303-067_FrameFocused")<br />已设定焦点，浮动文档窗口框架的默认
+![已设定焦点，浮动文档窗口框架的默认](../../extensibility/ux-guidelines/media/0303-067_framefocused.png "0303-067_FrameFocused")<br />已设定焦点，浮动文档窗口框架的默认
 
 | 元素 | 标记名称：Category.color |
 | --- | --- |
@@ -1735,7 +1735,7 @@ ms.lasthandoff: 05/04/2017
 
 -   背景选项卡为不是当前已选定选项卡的任何文档选项卡。 单击之后，它们会成为已选定选项卡，并从这些标记名称获取所有背景、边框和文本颜色。  
 
-![打开文档选项卡 （红线）](~/extensibility/ux-guidelines/media/0303-073_opendocumenttabredline.png "0303-073_OpenDocumentTabRedline")<br />打开文档选项卡 （红线）
+![打开文档选项卡 （红线）](../../extensibility/ux-guidelines/media/0303-073_opendocumenttabredline.png "0303-073_OpenDocumentTabRedline")<br />打开文档选项卡 （红线）
 
 | 使用...  | 请勿使用... |
 | --- | --- |
@@ -1807,7 +1807,7 @@ ms.lasthandoff: 05/04/2017
 
 **失去焦点的选定预览选项卡**  
 
-![失去焦点的选定预览选项卡](~/extensibility/ux-guidelines/media/0303-080_previewtabunfocused.png "0303-080_PreviewTabUnfocused")<br />失去焦点的选定预览选项卡
+![失去焦点的选定预览选项卡](../../extensibility/ux-guidelines/media/0303-080_previewtabunfocused.png "0303-080_PreviewTabUnfocused")<br />失去焦点的选定预览选项卡
 
 | 元素 | 标记名称：Category.color |
 | --- | --- |
@@ -1879,7 +1879,7 @@ ms.lasthandoff: 05/04/2017
 ### <a name="tagging"></a>标记  
 Visual Studio 支持标记，这使用户可以声明可搜索的关键字以用于跟踪。 例如，项目经理和开发人员可以使用 Team Foundation Server (TFS) 对工作项进行标记。 下表为标记本身以及在悬停和已选定状态下出现的“关闭图标”标志符号提供颜色名称。  
 
-![在 Visual Studio 中标记 （红线）](~/extensibility/ux-guidelines/media/0303-176_taggingredline.png "0303-176_TaggingRedline")<br />在 Visual Studio 中标记 （红线）  
+![在 Visual Studio 中标记 （红线）](../../extensibility/ux-guidelines/media/0303-176_taggingredline.png "0303-176_TaggingRedline")<br />在 Visual Studio 中标记 （红线）  
 
 | 使用... | 请勿使用... |
 | --- | --- |
@@ -1889,7 +1889,7 @@ Visual Studio 支持标记，这使用户可以声明可搜索的关键字以用
 
 **标记︰ 默认状态**
 
-![默认标记](~/extensibility/ux-guidelines/media/0303-177_tag.png "0303-177_Tag")<br />默认标记
+![默认标记](../../extensibility/ux-guidelines/media/0303-177_tag.png "0303-177_Tag")<br />默认标记
 
 | 元素 | 标记名称：Category.color |
 | --- | --- |  
@@ -1916,7 +1916,7 @@ Visual Studio 支持标记，这使用户可以声明可搜索的关键字以用
 
 **标记︰ 选定的状态**
 
-![所选的标记](~/extensibility/ux-guidelines/media/0303-180_tagselected.png "0303-180_TagSelected")<br />所选的标记  
+![所选的标记](../../extensibility/ux-guidelines/media/0303-180_tagselected.png "0303-180_TagSelected")<br />所选的标记  
 
 | 元素 | 标记名称：Category.color |
 | --- | --- |
@@ -1946,7 +1946,7 @@ Visual Studio 支持标记，这使用户可以声明可搜索的关键字以用
 
 **关闭 (&times;) 标记标志符号︰ 按下状态**
 
-![按下关闭 (&times;) 标记标志符号](~/extensibility/ux-guidelines/media/0303-183_tagglyphpressed.png "0303-183_TagGlyphPressed")<br />按下关闭 (&times;) 标记标志符号
+![按下关闭 (&times;) 标记标志符号](../../extensibility/ux-guidelines/media/0303-183_tagglyphpressed.png "0303-183_TagGlyphPressed")<br />按下关闭 (&times;) 标记标志符号
 
 | 元素 | 标记名称：Category.color |
 | --- | --- |
@@ -2032,7 +2032,7 @@ Visual Studio 中的工具窗口用于许多不同的任务，可以采用多个
 ### <a name="toolbox-like-windows"></a>类似于工具箱的 windows
 工具箱是 Visual Studio 中的最常用公共工具窗口之一。 它是实质上是一个使用了特殊主题和样式应用的树控件。  
 
-![类似于工具箱的窗口 （红线）](~/extensibility/ux-guidelines/media/0303-189_toolboxredline.png "0303-189_ToolboxRedline")<br />类似于工具箱的窗口 （红线）
+![类似于工具箱的窗口 （红线）](../../extensibility/ux-guidelines/media/0303-189_toolboxredline.png "0303-189_ToolboxRedline")<br />类似于工具箱的窗口 （红线）
 
 | 使用... | 请勿使用... |
 | --- | --- |
@@ -2079,7 +2079,7 @@ Visual Studio 中的工具窗口用于许多不同的任务，可以采用多个
 
 ![已选定、 失去焦点的工具箱父节点](../../extensibility/ux-guidelines/media/0303-195_toolboxparentnodeunfocused.png "0303-195_ToolboxParentNodeUnfocused")<br />已选定、 失去焦点的工具箱父节点  
 
-![已选定、 失去焦点的工具箱子节点](~/extensibility/ux-guidelines/media/0303-196_toolboxchildnodeunfocused.png "0303-196_ToolboxChildNodeUnfocused")<br />已选定、 失去焦点的工具箱子节点  
+![已选定、 失去焦点的工具箱子节点](../../extensibility/ux-guidelines/media/0303-196_toolboxchildnodeunfocused.png "0303-196_ToolboxChildNodeUnfocused")<br />已选定、 失去焦点的工具箱子节点  
 
 | 元素 | 标记名称：Category.color |
 | --- | --- |
@@ -2110,7 +2110,7 @@ Visual Studio 中的工具窗口用于许多不同的任务，可以采用多个
 
 **失去焦点的标题栏**  
 
-![失去焦点的标题栏](~/extensibility/ux-guidelines/media/0303-094_titlebarunfocused.png "0303-094_TitleBarUnfocused")<br />失去焦点的标题栏
+![失去焦点的标题栏](../../extensibility/ux-guidelines/media/0303-094_titlebarunfocused.png "0303-094_TitleBarUnfocused")<br />失去焦点的标题栏
 
 | 元素 | 标记名称：Category.color |
 | --- | --- |
@@ -2120,7 +2120,7 @@ Visual Studio 中的工具窗口用于许多不同的任务，可以采用多个
 | 拖动句柄 | `Environment.TitleBarDragHandle` |
 
 #### <a name="tool-window-title-bar-buttons"></a>工具窗口标题栏按钮  
-![标题栏按钮 （红线）](~/extensibility/ux-guidelines/media/0303-095_titlebarbuttonredline.png "0303-095_TitleBarButtonRedline")<br />标题栏按钮 （红线）  
+![标题栏按钮 （红线）](../../extensibility/ux-guidelines/media/0303-095_titlebarbuttonredline.png "0303-095_TitleBarButtonRedline")<br />标题栏按钮 （红线）  
 
 | 使用... | 请勿使用... |
 | --- | --- |
@@ -2139,7 +2139,7 @@ Visual Studio 中的工具窗口用于许多不同的任务，可以采用多个
 
 **失去焦点的标题栏按钮︰ 这是默认状态**
 
-![默认情况下，失去焦点的标题栏按钮](~/extensibility/ux-guidelines/media/0303-097_titlebarbuttonunfocused.png "0303-097_TitleBarButtonUnfocused")<br />默认情况下，失去焦点的标题栏按钮    
+![默认情况下，失去焦点的标题栏按钮](../../extensibility/ux-guidelines/media/0303-097_titlebarbuttonunfocused.png "0303-097_TitleBarButtonUnfocused")<br />默认情况下，失去焦点的标题栏按钮    
 
 | 元素 | 标记名称：Category.color |
 | --- | --- |
@@ -2206,7 +2206,7 @@ Visual Studio 中的工具窗口用于许多不同的任务，可以采用多个
 
 **已选定、 失去焦点的工具窗口选项卡**  
 
-![已选定、 失去焦点的工具窗口选项卡](~/extensibility/ux-guidelines/media/0303-104_toolwindowtabunfocused.png "0303-104_ToolWindowTabUnfocused")<br />已选定、失去焦点的工具窗口选项卡
+![已选定、 失去焦点的工具窗口选项卡](../../extensibility/ux-guidelines/media/0303-104_toolwindowtabunfocused.png "0303-104_ToolWindowTabUnfocused")<br />已选定、失去焦点的工具窗口选项卡
 
 | 元素 | 标记名称：Category.color |
 | --- | --- |
@@ -2216,7 +2216,7 @@ Visual Studio 中的工具窗口用于许多不同的任务，可以采用多个
 
 **背景工具窗口选项卡︰ 这是默认状态**
 
-![默认背景工具窗口选项卡](~/extensibility/ux-guidelines/media/0303-105_toolwindowbackgroundtab.png "0303-105_ToolWindowBackgroundTab")<br />默认背景工具窗口选项卡  
+![默认背景工具窗口选项卡](../../extensibility/ux-guidelines/media/0303-105_toolwindowbackgroundtab.png "0303-105_ToolWindowBackgroundTab")<br />默认背景工具窗口选项卡  
 
 | 元素 | 标记名称：Category.color |
 | --- | --- |
@@ -2236,7 +2236,7 @@ Visual Studio 中的工具窗口用于许多不同的任务，可以采用多个
 
 ### <a name="auto-hide-tabs"></a>自动隐藏选项卡  
 
-![自动隐藏选项卡 （红线）](~/extensibility/ux-guidelines/media/0303-107_autohideredline.png "0303年 107_AutoHideRedline")自动隐藏选项卡 （红线）
+![自动隐藏选项卡 （红线）](../../extensibility/ux-guidelines/media/0303-107_autohideredline.png "0303年 107_AutoHideRedline")自动隐藏选项卡 （红线）
 
 | 使用... | 请勿使用... |
 | --- | --- |
