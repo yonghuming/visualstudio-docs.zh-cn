@@ -38,7 +38,7 @@ manager: "ghogen"
   
 #### 捕获帧  
   
--   在 Visual Studio 的**“图形”**工具栏上，选择**“捕获帧”**按钮![“图形捕获按钮”图标](../debugger/media/debuggingdirectxgraphics.png "DebuggingDirectXGraphics")。  
+-   在 Visual Studio 的**“图形”**工具栏上，选择**“捕获帧”**按钮![“图形捕获按钮”图标](~/docs/debugger/graphics/media/debuggingdirectxgraphics.png "DebuggingDirectXGraphics")。  
   
 -   在键盘上，按 Print Screen。  
   

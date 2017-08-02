@@ -59,7 +59,7 @@ ms.lasthandoff: 02/22/2017
   
 1.  创建一个具有解决方案**域特定语言**模板，可在下找到**其他项目类型/扩展性**中**新项目**对话框。  
   
-     ![创建 DSL 对话框](../modeling/media/create_dsldialog.png "Create_DSLDialog")  
+     ![创建 DSL 对话框](~/docs/modeling/media/create_dsldialog.png "Create_DSLDialog")  
   
      当您单击**确定**、**域特定语言向导**将打开并显示模板 DSL 解决方案的列表。  
   
@@ -110,7 +110,7 @@ ms.lasthandoff: 02/22/2017
   
  如果运行一个解决方案创建从**最小语言**模板、 实验[!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)]将类似于下面的示例︰  
   
- ![](../modeling/media/dsl_min.png "DSL_min")  
+ ![](~/docs/modeling/media/dsl_min.png "DSL_min")  
   
  试验这些工具。 创建元素并连接它们。  
   
@@ -296,7 +296,7 @@ ms.lasthandoff: 02/22/2017
   
     4.  确保复选标记出现在每个修饰器名称旁边。  
   
-     ![形状映射和 DSL 详细信息窗口](../modeling/media/dsldetailswindow.png "DslDetailsWindow")  
+     ![形状映射和 DSL 详细信息窗口](~/docs/modeling/media/dsldetailswindow.png "DslDetailsWindow")  
   
 7.  **请为创建域类的元素的工具箱项。**  
   
@@ -359,7 +359,7 @@ ms.lasthandoff: 02/22/2017
   
  **设置关系中，允许重复属性**如果同一对模型元素之间可存在多个同一个类的链接。 例如，可以允许 Teacher 向相同的 Student 教授多个 Subject。  
   
- ![形状映射的连接器](../modeling/media/music_connector.png "Music_Connector")  
+ ![形状映射的连接器](~/docs/modeling/media/music_connector.png "Music_Connector")  
   
  有关详细信息，请参阅[域关系属性](../modeling/properties-of-domain-relationships.md)和[域角色的属性](../modeling/properties-of-domain-roles.md)。  
   
@@ -426,7 +426,7 @@ ms.lasthandoff: 02/22/2017
   
  采用在 DSL 定义中实现此效果的最简单方法，为容器定义一个域类，并为每个列表定义一个域类。 将容器类映射到隔离舱形状。  
   
- ![形状映射](../modeling/media/music_mapcomp.png "Music_MapComp")  
+ ![形状映射](~/docs/modeling/media/music_mapcomp.png "Music_MapComp")  
   
  有关详细信息，请参阅[隔离舱形状属性](../modeling/properties-of-compartment-shapes.md)。  
   
@@ -516,7 +516,7 @@ ms.lasthandoff: 02/22/2017
   
 7.  打开语言资源管理器。 验证是否可以看到内部具有列表项节点的容器节点。  
   
- ![生成资源管理器的 DSL](../modeling/media/music_explorer.png "Music_Explorer")  
+ ![生成资源管理器的 DSL](~/docs/modeling/media/music_explorer.png "Music_Explorer")  
   
  在首次测试隔离舱形状后，你可能想要调整它的某些属性并添加一些更高级的功能。 有关详细信息，请参阅[自定义和扩展域特定语言](../modeling/customizing-and-extending-a-domain-specific-language.md)。  
   

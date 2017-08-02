@@ -23,7 +23,7 @@ caps.handback.revision: 10
 # 调试 WebView 控件
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
 
-![适用于 Windows 和 Windows Phone](../debugger/media/windows_and_phone_content.png "windows\_and\_phone\_content")  
+![适用于 Windows 和 Windows Phone](~/docs/debugger/media/windows_and_phone_content.png "windows\_and\_phone\_content")  
   
  若要检查并调试 Windows 运行时应用中的 `WebView` 控件，你可以在启动应用时配置 Visual Studio 以附加脚本调试器。  从 Visual Studio 2013 Update 2 开始，可通过两种方式来使用调试器与 `WebView` 控件交互：  
   
@@ -78,7 +78,7 @@ caps.handback.revision: 10
   
 5.  在控制台窗口中，选择网页或**“目标”**列表中 `WebView` 控件显示的 `iFrame`。  
   
-     ![JavaScript 控制台窗口中的目标选择](../debugger/media/js_console_target.png "JS\_Console\_Target")  
+     ![JavaScript 控制台窗口中的目标选择](~/docs/debugger/media/js_console_target.png "JS\_Console\_Target")  
   
     > [!NOTE]
     >  通过使用控制台，可以与单个 `WebView`、`iFrame` 交互，每次还可以共享协定或 Web Worker。  每个元素都需要单独的 Web 平台主机 \(WWAHost.exe\) 的实例。  一次可与一个主机交互。  

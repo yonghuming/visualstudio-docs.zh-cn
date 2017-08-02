@@ -44,17 +44,17 @@ ms.lasthandoff: 02/22/2017
 删除不需要的依赖关系是管理技术债务的重要组成部分。
 依赖项的实时验证现在包含，提供有关问题的精确信息，并完全从中错误列表和编辑器中的新增功能。
 
-![在操作中的实时依赖项验证](media/dep-validation-whatsnew-01.png)
+![在操作中的实时依赖项验证](~/docs/modeling/media/dep-validation-whatsnew-01.png)
 
 创作体验已更改，以使依赖项验证更容易地发现、 更易于访问，更改到"依赖项关系图"从"层关系图"术语。
 
 **体系结构**菜单现在包含直接创建一个依赖项关系图的命令︰
 
-![体系结构菜单中的实时依赖项](media/dep-validation-whatsnew-02.png)
+![体系结构菜单中的实时依赖项](~/docs/modeling/media/dep-validation-whatsnew-02.png)
 
 ...和依赖项关系图中和它们的说明中的层的属性名称已更改，以使它们更有意义︰
 
-![实时更新的依赖项属性名称](media/dep-validation-whatsnew-03.png)
+![实时更新的依赖项属性名称](~/docs/modeling/media/dep-validation-whatsnew-03.png)
 
 您现在看到立即在当前解决方案中的代码分析结果中所做的更改的影响每次保存关系图。 您不必再等待完成的"验证依赖关系"命令。
 

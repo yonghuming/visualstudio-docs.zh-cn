@@ -31,7 +31,7 @@ caps.handback.revision: 15
  C\# Example.Nested 项目示例中，您可以找到嵌套项目的示例。  
   
 ## 嵌套的项目的示例  
- ![嵌套项目解决方案](../../extensibility/internals/media/vsnestedprojects.gif "vsNestedProjects")  
+ ![嵌套项目解决方案](~/docs/extensibility/internals/media/vsnestedprojects.gif "vsNestedProjects")  
 嵌套的项目的示例  
   
 ## 请参阅  

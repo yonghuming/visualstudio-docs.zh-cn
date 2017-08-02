@@ -85,7 +85,7 @@ manager: "ghogen"
   
 1.  **设置断点。**在调用 `app.start()` 后紧接执行的语句 `callTrack = "module function";` 处设置断点。 选择源代码编辑器的阴影滚动条槽中的行（键盘：将光标置于该行上并按 **F9** 键）。  
   
-     ![在 example1 处设置一个断点](../debugger/media/dbg_jsnav_example1_breakpoint.png "DBG\_JSNAV\_example1\_breakpoint")  
+     ![在 example1 处设置一个断点](~/docs/debugger/media/dbg_jsnav_example1_breakpoint.png "DBG\_JSNAV\_example1\_breakpoint")  
   
      该断点图标将显示在滚动条槽中。  
   
@@ -93,13 +93,13 @@ manager: "ghogen"
   
      应用随即开始执行，并恰好在设置了断点的语句前挂起执行。 滚动条槽中的当前行图标标识你的位置，当前语句会突出显示。  
   
-     ![运行到断点处](../debugger/media/dbg_jsnav_example1_run_to_breakpoint.png "DBG\_JSNAV\_example1\_run\_to\_breakpoint")  
+     ![运行到断点处](~/docs/debugger/media/dbg_jsnav_example1_run_to_breakpoint.png "DBG\_JSNAV\_example1\_run\_to\_breakpoint")  
   
      你现在可控制应用的执行，并且可以在逐步执行程序语句时检查程序状态。  
   
 3.  **单步执行函数。**在“调试”菜单上，选择“单步执行”（键盘：**F11**）。  
   
-     ![单步执行代码行](../debugger/media/dbg_jsnav_example1_step_into.png "DBG\_JSNAV\_example1\_step\_into")  
+     ![单步执行代码行](~/docs/debugger/media/dbg_jsnav_example1_step_into.png "DBG\_JSNAV\_example1\_step\_into")  
   
      请注意，调试器会移动到下一行，这是对 `example1` 函数的调用。 再次选择“单步执行”。 调试器会移动到 `example1` 函数的第一个代码行。 尚未执行突出显示的行，但已在调用堆栈上加载了该函数，并分配了局部变量的内存。  
   
@@ -113,7 +113,7 @@ manager: "ghogen"
   
 5.  **在数据提示中查看变量值。**继续单步执行 `example1` 的语句，直到达到退出点。 调试器会突出显示函数的右大括号。 鼠标悬停在变量名上方时，变量的名称和值会显示在数据提示中。  
   
-     ![查看数据提示中的变量值](../debugger/media/dbg_jsnav_data_tip.png "DBG\_JSNAV\_data\_tip")  
+     ![查看数据提示中的变量值](~/docs/debugger/media/dbg_jsnav_data_tip.png "DBG\_JSNAV\_data\_tip")  
   
 6.  **为 callTrack 变量添加监视。** `callTrack` 变量在本快速入门全篇中用于显示示例中调用的函数。 要更加方便地查看变量的值，请将它添加到监视窗口中。 在编辑器中选择变量名，然后从快捷菜单中选择“添加监视”。  
   
@@ -132,14 +132,14 @@ manager: "ghogen"
   
  逐过程执行和跳出执行函数都会执行函数。  
   
- ![单步执行、逐过程执行和跳出执行方法](../debugger/media/dbg_basics_stepintooverout.png "DBG\_Basics\_StepIntoOverOut")  
+ ![单步执行、逐过程执行和跳出执行方法](~/docs/debugger/media/dbg_basics_stepintooverout.png "DBG\_Basics\_StepIntoOverOut")  
   
 ###  <a name="BKMK_Example_2"></a> 示例 2  
  在此示例中，你将单步执行、逐过程执行和跳出执行函数。  
   
 1.  **在 module 函数中调用 example2 函数。**编辑 `module` 函数，并将 `var callTrack = "module function"` 之后的行替换为 `example2();`。  
   
-     ![调用 example2 函数](../debugger/media/dbg_jsnav_example2.png "DBG\_JSNAV\_example2")  
+     ![调用 example2 函数](~/docs/debugger/media/dbg_jsnav_example2.png "DBG\_JSNAV\_example2")  
   
 2.  **运行到断点处。**通过在**“调试”**菜单上选择**“启动调试”**（键盘：F5）来启动调试会话。 调试器会在断点处挂起执行。  
   
@@ -147,7 +147,7 @@ manager: "ghogen"
   
 4.  **单步执行 Example2 和 Example2\_A。**按 **F11** 键，以单步执行 `example2` 函数。 继续单步执行 `example2` 语句，直到达到行 `var x = example2_a();`。 再次单步执行此行以移动到 `example2_a` 的入口点。 继续单步执行 `example2_a` 的每个语句，直到返回 `example2`。  
   
-     ![逐过程执行函数](../debugger/media/dbg_jsnav_example2_a.png "DBG\_JSNAV\_example2\_a")  
+     ![逐过程执行函数](~/docs/debugger/media/dbg_jsnav_example2_a.png "DBG\_JSNAV\_example2\_a")  
   
 5.  **逐过程执行函数。**请注意，`example2` 中的下一个行 `var y = example2_a();` 基本上与上一行相同。 可以安全地逐过程执行此行。 按 **F10** 键，以从 `example2` 的恢复移动到对 `example2_a` 第二次调用。 请注意，`callTrack` 字符串指示 `example2_a` 函数执行了两次。  
   
@@ -167,7 +167,7 @@ manager: "ghogen"
   
 1.  **在 module 函数中调用 example3 函数。**编辑 `module` 函数，并将 `var callTrack = "module function";` 之后的行替换为行 `example3();`。  
   
-     ![调用 example3](../debugger/media/dbg_jsnav_example3.png "DBG\_JSNAV\_example3")  
+     ![调用 example3](~/docs/debugger/media/dbg_jsnav_example3.png "DBG\_JSNAV\_example3")  
   
 2.  **运行到断点处。**通过在“调试”菜单上选择“启动调试”（键盘：**F5**）来启动调试会话。 调试器会在 `module` 函数中的断点处挂起执行。  
   
@@ -177,7 +177,7 @@ manager: "ghogen"
   
      选中“条件”复选框，然后在文本框中键入 `i == 500;`。 选择**“为 true”**选项，然后选择**“确定”**。 通过断点可以检查 `for` 循环的第 500 次迭代处的值。 可以通过其白色十字来识别条件断点图标。  
   
-     ![“条件断点”图标](../debugger/media/dbg_jsnav_breakpoint_condition_icon.png "DBG\_JSNAV\_Breakpoint\_Condition\_icon")  
+     ![“条件断点”图标](~/docs/debugger/media/dbg_jsnav_breakpoint_condition_icon.png "DBG\_JSNAV\_Breakpoint\_Condition\_icon")  
   
 5.  **运行到断点处。**在“调试”菜单上，选择“继续”（键盘：**F5**）。 将鼠标悬停在 `i` 上，以确认 `i` 的当前值是否为 500。 另请注意，变量 `s` 表示为单个行，比数据提示窗口长得多。  
   
@@ -185,7 +185,7 @@ manager: "ghogen"
   
      “文本可视化工具”窗口随即出现，字符串的值会显示为多行字符串。  
   
-     ![调试文本可视化工具](../debugger/media/dbg_jsnav_text_visualizer.png "DBG\_JSNAV\_Text\_Visualizer")  
+     ![调试文本可视化工具](~/docs/debugger/media/dbg_jsnav_text_visualizer.png "DBG\_JSNAV\_Text\_Visualizer")  
   
 7.  **运行到光标处。**选择行 `callTrack += "->example3";`，然后选择快捷菜单上的“运行到光标处”（键盘：**Ctrl\+F10**）。 调试器会完成循环迭代，然后在该行处挂起执行。  
   
@@ -211,7 +211,7 @@ manager: "ghogen"
   
 1.  **向 module 函数添加一个数组对象。**编辑 `module` 函数，并将 `var callTrack = "module function"` 之后的行替换为 `var myArray = new Array(1, 2, 3);`  
   
-     ![myArray 定义](../debugger/media/dbg_jsnav_myarray.png "DBG\_JSNAV\_myArray")  
+     ![myArray 定义](~/docs/debugger/media/dbg_jsnav_myarray.png "DBG\_JSNAV\_myArray")  
   
 2.  **运行到断点处。**通过在“调试”菜单上选择“启动调试”（键盘：**F5**）来启动调试会话。 调试器会在断点处挂起执行。 单步执行到该行。  
   
@@ -248,7 +248,7 @@ manager: "ghogen"
   
 1.  **从 module 函数中调用 example4 函数。**编辑 `module` 函数，并将 `var callTrack = "module function"` 之后的行替换为 `example4()`：  
   
-     ![调用 example4](../debugger/media/dbg_jsnav_example4.png "DBG\_JSNAV\_example4")  
+     ![调用 example4](~/docs/debugger/media/dbg_jsnav_example4.png "DBG\_JSNAV\_example4")  
   
 2.  **运行到断点处。**通过在“调试”菜单上选择“启动调试”（键盘：**F5**）来启动调试会话。 调试器会在断点处挂起执行。  
   
@@ -258,7 +258,7 @@ manager: "ghogen"
   
 5.  **单步执行 example4 并检查其局部变量和作用域变量**。单步执行（键盘：F11）`example4` 函数。 因为在 `module` 函数中定义了 `example4`，因此 `module` 函数将成为父作用域。`example4` 可以调用 `module` 函数中的任何函数并访问其变量。 展开“局部变量”窗口中的“\[作用域\]”节点，并请注意，它包含 `module` 函数的相同对象和变量。  
   
-     ![example4 方法的范围](../debugger/media/dbg_jsnav_locals_example4_scope.png "DBG\_JSNAV\_Locals\_example4\_scope")  
+     ![example4 方法的范围](~/docs/debugger/media/dbg_jsnav_locals_example4_scope.png "DBG\_JSNAV\_Locals\_example4\_scope")  
   
 6.  **单步执行example4\_a 并检查其局部变量和作用域变量**。继续单步执行 `example4` 和对 `example4_a` 的调用。 请注意，局部变量现在来自 `example4_a`而“\[作用域\]”节点继续保留 `module` 函数的变量。 即使 `example4` 的变量处于活动状态，`example4_a` 也无法访问这些变量，并且这些变量不再是作用域链的一部分。  
   
@@ -284,7 +284,7 @@ manager: "ghogen"
   
 1.  **在 module 函数中调用 example5 函数。**编辑 `module` 函数，并将 `var callTrack = "module function";` 之后的行替换为行 `example5();`。  
   
-     ![调用 example5](../debugger/media/dbg_jsnav_example5.png "DBG\_JSNAV\_example5")  
+     ![调用 example5](~/docs/debugger/media/dbg_jsnav_example5.png "DBG\_JSNAV\_example5")  
   
 2.  **运行到断点处。**通过在“调试”菜单上选择“启动调试”（键盘：**F5**）来启动调试会话。 调试器在 module 函数中的断点处挂起执行。  
   
@@ -296,7 +296,7 @@ manager: "ghogen"
   
 4.  **单步执行函数以到达 example5\_d 函数。**在“调试”菜单中选择“单步执行”（键盘：**F11**），以在调用路径中执行调用，直到达到 example5\_d 函数的入口点。 请注意，函数每次调用函数时，都会保存调用函数的行号，并将被调用的函数置于堆栈的顶部。 调用函数的行号是调用函数已挂起执行的点。 黄色箭头指向当前正在执行的函数。  
   
-     ![“调用堆栈”窗口](../debugger/media/dbg_jsnav_callstack_windows.png "DBG\_JSNAV\_CallStack\_windows")  
+     ![“调用堆栈”窗口](~/docs/debugger/media/dbg_jsnav_callstack_windows.png "DBG\_JSNAV\_CallStack\_windows")  
   
 5.  **使用“调用堆栈”窗口导航到 example5\_a 代码并设置断点。**在“调用堆栈”窗口中，选择 `example5_a` 列表项，然后选择快捷菜单上的“转到源”。 代码编辑器将其光标设置在函数的返回行处。 在此行上设置断点。 请注意，当前执行的行未发生更改。 只是移动了编辑器光标。  
   

@@ -39,7 +39,7 @@ caps.handback.revision: 10
   
      例如，在上下文菜单中的断点特定命令通过 **新断点**包括 **移除断点** ，显示在下面的屏幕快照。  
   
-     ![标记上下文菜单](../extensibility/media/vsmarkercontextmenu.png "vsMarkercontextmenu")  
+     ![标记上下文菜单](~/docs/extensibility/media/vsmarkercontextmenu.gif "vsMarkercontextmenu")  
   
 2.  通过一个自定义命令的名称一些文本。  例如，在中，如果环境已未提供它， **移除断点** 可能是自定义命令。  还通过命令是否支持，可用和启用，和\/或一个打开 \- 关闭触发器。  此环境使用此信息显示在上下文菜单中自定义命令的正确方式。  
   

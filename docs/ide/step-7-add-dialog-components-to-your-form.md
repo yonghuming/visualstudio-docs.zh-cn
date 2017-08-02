@@ -22,7 +22,7 @@ caps.handback.revision: 15
   
  组件在某些方面与控件相似。  使用工具箱向窗体添加一个组件，然后使用**“属性”**窗口设置该组件的属性。  但与控件不同，向窗体添加组件不会添加用户可从窗体中查看的可见项。  相反，这将提供可使用代码触发的某些行为。  此组件是一个可打开**“打开文件”**对话框的组件。  
   
- ![链接到视频](../data-tools/media/playvideo.png "PlayVideo") 有关本主题的视频版本，请参阅[教程 1：在 Visual Basic 中创建图片查看器 \- 视频 3](http://go.microsoft.com/fwlink/?LinkId=205213) 或[教程 1：在 C\# 中创建图片查看器 \- 视频 3](http://go.microsoft.com/fwlink/?LinkId=205202)。  这些视频使用 Visual Studio 的早期版本，因此在一些菜单命令和其他用户界面元素上略有差异。  但是，概念和过程与当前版本的 Visual Studio 大同小异。  
+ ![链接到视频](~/docs/data-tools/media/playvideo.gif "PlayVideo") 有关本主题的视频版本，请参阅[教程 1：在 Visual Basic 中创建图片查看器 \- 视频 3](http://go.microsoft.com/fwlink/?LinkId=205213) 或[教程 1：在 C\# 中创建图片查看器 \- 视频 3](http://go.microsoft.com/fwlink/?LinkId=205202)。  这些视频使用 Visual Studio 的早期版本，因此在一些菜单命令和其他用户界面元素上略有差异。  但是，概念和过程与当前版本的 Visual Studio 大同小异。  
   
 ### 向窗体添加对话框组件  
   

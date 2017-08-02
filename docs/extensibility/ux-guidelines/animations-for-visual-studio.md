@@ -328,7 +328,7 @@ UI 元素组装在此模式中，它更改颜色 A 为颜色 b。
 #### <a name="x-y-position-change"></a>X，Y 位置更改  
 使用此模式中，UI 元素更改和 / 或其 X 或 Y 位置。  
   
-![X，Y 位置更改动画](../../extensibility/ux-guidelines/media/1202-f_xypositionchange.png "1202-f_XYPositionChange")<br />X，Y 位置更改动画  
+![X，Y 位置更改动画](~/docs/extensibility/ux-guidelines/media/1202-f_xypositionchange.png "1202-f_XYPositionChange")<br />X，Y 位置更改动画  
   
 ##### <a name="correct-usage"></a>正确使用  
 与在 UI 元素到另一个上下文从更改位置动画转换。  
@@ -351,7 +351,7 @@ UI 元素组装在此模式中，它更改颜色 A 为颜色 b。
 #### <a name="rotate"></a>旋转  
 使用此模式中，UI 元素将旋转。  
   
-![UI 元素旋转动画](../../extensibility/ux-guidelines/media/1202-g_rotate.png "1202-g_Rotate")<br />UI 元素旋转动画  
+![UI 元素旋转动画](~/docs/extensibility/ux-guidelines/media/1202-g_rotate.png "1202-g_Rotate")<br />UI 元素旋转动画  
   
 ##### <a name="correct-usage"></a>正确使用  
 仅对不确定旋转进度指示器。  

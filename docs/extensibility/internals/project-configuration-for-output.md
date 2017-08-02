@@ -34,7 +34,7 @@ caps.handback.revision: 10
   
  组还可以具有允许打包快捷方式，以指向有意义的内容密钥输出。 任何组可能在给定配置中，为空，因此任何假设应不成为有关的一组大小。 任何配置中每个组的大小 \(多个输出\) 可以是相同的配置中的其他组的大小不同。 这也可以是另一种配置中的相同组的大小不同。  
   
- ![图：输出组](../../extensibility/internals/media/vsoutputgroups.png "vsOutputGroups")  
+ ![图：输出组](~/docs/extensibility/internals/media/vsoutputgroups.gif "vsOutputGroups")  
 输出组  
   
  主要用途 <xref:Microsoft.VisualStudio.Shell.Interop.IVsProjectCfg> 接口是提供访问以生成、 部署和调试管理对象和允许到组输出自由的项目。 使用此接口的详细信息，请参阅 [项目配置对象](../../extensibility/internals/project-configuration-object.md)。  

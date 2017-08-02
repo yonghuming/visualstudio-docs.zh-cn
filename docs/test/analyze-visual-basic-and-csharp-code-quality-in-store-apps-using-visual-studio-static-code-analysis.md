@@ -21,7 +21,7 @@ manager: "douge"
 # 使用 Visual Studio 静态代码分析来分析应用商店应用中的 Visual Basic 和 C# 代码质量
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
 
-![适用于 Windows 和 Windows Phone](../debugger/media/windows_and_phone_content.png "windows\_and\_phone\_content")  
+![适用于 Windows 和 Windows Phone](~/docs/debugger/media/windows_and_phone_content.png "windows\_and\_phone\_content")  
   
  Visual Studio Express 中的代码分析工具可检查代码中是否存在一组常见缺陷以及违反良好编程习惯的情况。  代码分析警告与编译器错误和警告不同，因为代码分析工具搜索的是虽然有效但仍会为你或使用你代码的其他人员带来问题的特定代码模式。  代码分析还可在代码中找到通过测试难以发现的缺陷。  在开发过程中定期运行代码分析工具可提高所编写的应用程序的质量。  
   
@@ -63,7 +63,7 @@ manager: "douge"
   
  展开警告后，将在 Visual Studio 代码编辑器中突出显示导致警告的代码行。  
   
- ![代码分析文本突出显示](../test/media/ca_managed_sourceline.png "CA\_Managed\_SourceLine")  
+ ![代码分析文本突出显示](~/docs/test/media/ca_managed_sourceline.png "CA\_Managed\_SourceLine")  
   
  了解问题后，可在代码中解决该问题。  然后，重新运行代码分析，以确保“代码分析”窗口中不再显示警告，并确保修复行为不会引发新的警告。  
   

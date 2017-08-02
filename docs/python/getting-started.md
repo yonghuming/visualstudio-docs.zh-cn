@@ -52,7 +52,7 @@ Visual Studio 中的 Python 支持包括大量的[项目模板](python-projects.
 
 1. 可在左侧的“模板”>”其他语言”>“Python”下或只需搜索“Python”即可找到 Python 模板：
 
-    ![显示 Python 项目的新建项目对话框](media/getting-started-new-project.png)
+    ![显示 Python 项目的新建项目对话框](~/docs/python/media/getting-started-new-project.png)
 
 1. 选择“Python 应用程序”模板，为项目指定文件夹并选择“确定”。 （如果想要立即为项目创建本地存储库，还需选择“添加到源控件”选项）。
 
@@ -61,11 +61,11 @@ Visual Studio 中的 Python 支持包括大量的[项目模板](python-projects.
 
 1. 几分钟后，将看到该项目在 Visual Studio 解决方案资源管理器窗口中打开。 在此处可以浏览项目中的文件和文件夹，也可以管理环境。
 
-    ![具有 Python 项目的解决方案资源管理器](media/getting-started-solution-explorer-1.png)
+    ![具有 Python 项目的解决方案资源管理器](~/docs/python/media/getting-started-solution-explorer-1.png)
 
 1. 展开“Python 环境”节点，将会看到此项目当前默认的 Python 解释器。 如果同时展开该解释器节点，将看到该环境中可用的库列表：
 
-    ![显示 Python 环境的解决方案资源管理器](media/getting-started-solution-explorer-2.png)
+    ![显示 Python 环境的解决方案资源管理器](~/docs/python/media/getting-started-solution-explorer-2.png)
 
 1. 如果使用 Visual Studio 2015 或更早版本，则不会默认安装 Python 解释器。 请参阅[选择并安装 Python 解释器](python-environments.md#selecting-and-installing-python-interpreters)，了解此过程。
 
@@ -82,11 +82,11 @@ Visual Studio 中的 Python 支持包括大量的[项目模板](python-projects.
 
 1. 开始键入 `print("Hello world")`，注意 Visual Studio IntelliSense 如何在此过程中显示自动完成选项。 下拉列表中加外边框的选项是按 Tab 键时使用的默认完成选项。 涉及到较长的语句或标识符时，可以使用该选项。
 
-    ![IntelliSense 自动完成弹出窗口](media/getting-started-coding-1.png)
+    ![IntelliSense 自动完成弹出窗口](~/docs/python/media/getting-started-coding-1.png)
 
 1. IntelliSense 根据正在使用的语句、正在调用的函数等显示不同的信息。 使用 `print` 函数时，键入 `(` 进行调用可弹出有关该函数的完整用法信息，甚至可以对需要提供的当前参数进行加粗（如此处所示的 **value**）：
 
-    ![某函数的 IntelliSense 自动完成弹出窗口](media/getting-started-coding-2.png)
+    ![某函数的 IntelliSense 自动完成弹出窗口](~/docs/python/media/getting-started-coding-2.png)
 
 1. 完成该语句，使其与以下内容匹配：
 
@@ -96,28 +96,28 @@ Visual Studio 中的 Python 支持包括大量的[项目模板](python-projects.
 
 1. 若要运行此代码，请在下面所示的工具栏上选择“开始”按钮，按 F5 或选择“调试”>“开始调试”菜单项。
 
-    ![调试工具栏上的“开始”按钮](media/getting-started-coding-3.png)
+    ![调试工具栏上的“开始”按钮](~/docs/python/media/getting-started-coding-3.png)
 
     > [!Note]
     > 如果在 Visual Studio 2015 或更早版本中看到一条消息 - 不存在任何解释器，请参阅[选择并安装 Python 解释器](python-environments.md#selecting-and-installing-python-interpreters)（因为默认未安装 Python 解释器）。
 
 1. Visual Studio 将使用默认环境在项目中运行代码，并在命令窗口中显示结果。 按某个键关闭该窗口并结束调试会话。
 
-    ![调试工具栏上的“开始”按钮](media/getting-started-coding-4.png)
+    ![调试工具栏上的“开始”按钮](~/docs/python/media/getting-started-coding-4.png)
 
 1. 除了语句和函数外，IntelliSense 还提供 `import` 语句的完成。 这有助于轻松发现环境中可用的模块以及模块中可用的成员。 在编辑器中，删除 `print` 行，开始键入 `import`。 将看到一个模块列表出现：
 
-    ![显示 import 语句的可用模块的 IntellSense](media/getting-started-coding-5.png)
+    ![显示 import 语句的可用模块的 IntellSense](~/docs/python/media/getting-started-coding-5.png)
 
 1. 通过键入或选择 `sys` 完成行。
 
 1. 在下一行中，键入 `from` 再次查看模块列表：
 
-    ![显示 from 语句的可用模块的 IntellSense](media/getting-started-coding-6.png)
+    ![显示 from 语句的可用模块的 IntellSense](~/docs/python/media/getting-started-coding-6.png)
 
 1. 选择或键入 `math`，然后继续键入一个空格和 `import`，将显示模块成员：
 
-    ![显示模块成员的 IntellSense](media/getting-started-coding-7.png)
+    ![显示模块成员的 IntellSense](~/docs/python/media/getting-started-coding-7.png)
 
 1. 通过导入 `sin`、`cos` 和 `radians` 成员完成，注意自动完成可用于每个成员。 完成后，代码应如下所示：
 
@@ -145,15 +145,15 @@ Visual Studio 中的 Python 支持包括大量的[项目模板](python-projects.
 
 1. 通过从 Visual Studio 主菜单选择“视图”>“其他窗口”>“Python 交互窗口”打开交互窗口。 该窗口打开时，出现常用的 >>> Python REPL 提示符。 请注意，你可以随时使用工具栏上的下拉列表菜单更改环境：
 
-    ![Python 交互窗口](media/getting-started-interactive-1.png)
+    ![Python 交互窗口](~/docs/python/media/getting-started-interactive-1.png)
 
 1. 输入几个语句（如 `print("hello")`）和表达式（如 `123/567`）即可查看即时结果：
 
-    ![Python 交互窗口即时结果](media/getting-started-interactive-2.png)
+    ![Python 交互窗口即时结果](~/docs/python/media/getting-started-interactive-2.png)
 
 1. 开始编写多行语句（例如函数定义）时，交互窗口将针对后续行显示 ... 提示符，它与命令行 REPL 不同，可以提供自动缩进：
 
-    ![含语句后续符的 Python 交互窗口](media/getting-started-interactive-3.png)
+    ![含语句后续符的 Python 交互窗口](~/docs/python/media/getting-started-interactive-3.png)
 
 1. 交互窗口提供所有已输入内容的完整历史记录，并通过多行历史记录项改进了命令行 REPL。 例如，你可以轻松地将上述 `f` 函数的整个定义重新调用为单个单元，并轻松地将名称更改为 `make_double`，而不是逐行重新创建函数。
 
@@ -166,7 +166,7 @@ Visual Studio 中的 Python 支持包括大量的[项目模板](python-projects.
 
 1. 选择 hello.py 中的所有代码（包括 `import` 语句），单击右键，选择“发送到交互”(Ctrl+Enter)。 代码将立即粘贴至交互窗口并运行。 由于代码定义了一个函数，因此可通过数次调用它来快速测试该函数：
 
-    ![将代码发送到交互窗口](media/getting-started-interactive-4.png)
+    ![将代码发送到交互窗口](~/docs/python/media/getting-started-interactive-4.png)
 
 1. 使用“发送到交互窗口”，可有效地将多行代码（如联机查找的内容）粘贴到交互窗口中，而此操作无法直接完成。 例如，复制以下代码，尝试将其粘贴 (Ctrl+V) 到交互窗口中，可以看到没有任何反应。 但可以将其粘贴到编辑器中，选择它，然后使用“发送到交互”命令即可看到其运行。
 
@@ -176,13 +176,13 @@ Visual Studio 中的 Python 支持包括大量的[项目模板](python-projects.
       print(s) 
   ```
 
-    ![使用“发送到交互窗口”粘贴多行代码](media/getting-started-interactive-5.png)
+    ![使用“发送到交互窗口”粘贴多行代码](~/docs/python/media/getting-started-interactive-5.png)
 
 1. 因为函数定义再次在 REPL 历史记录中作为单个单元，因此可轻易返回并进行任何所需的更改，然后再次测试函数。
 
 1. 如果对编写的代码感到满意，可在交互窗口中选择代码，单击右键，选择“复制代码”，然后粘贴到编辑器中。 “复制代码”命令的特殊功能是，它会自动忽略任何输出以及 >>> 和 ... 提示文本。 例如，将此命令用于以下所示的选择内容：
 
-  ![交互窗口复制代码命令](media/getting-started-interactive-6.png)
+  ![交互窗口复制代码命令](~/docs/python/media/getting-started-interactive-6.png)
 
   仅粘贴以下内容：
 
@@ -236,17 +236,17 @@ Visual Studio 中的 Python 支持包括大量的[项目模板](python-projects.
 
 1. 要在 `main` 函数的第一行上设置断点，可通过单击该行左侧的灰色边距，或将插入符号置于该行并使用“调试”>“切换断点”*命令 (F9) 实现。 将在灰色边距中显示一个红点来表示该断点（如以下蓝色箭头标记所示）：
 
-    ![设置断点](media/getting-started-debugging-1.png)
+    ![设置断点](~/docs/python/media/getting-started-debugging-1.png)
 
 1. 再次启动调试器，将看到代码运行至包含该断点的行处停止。 可在此处查看调用堆栈，并在局部变量窗口中检查局部变量：
 
-    ![Python 的断点 UI 体验](media/getting-started-debugging-2.png)
+    ![Python 的断点 UI 体验](~/docs/python/media/getting-started-debugging-2.png)
 
 1. 使用 F10、“调试”>“单步跳过”命令或“单步跳过”工具栏按钮逐行执行 `for` 循环的几次迭代。 这意味着调试器将运行对 `make_dot_string` 的每个调用，但不会在该函数内部停止（除非设置断点）。
 
 1. 在工具栏中，下面显示的三个执行按钮从左到右依次是：单步执行、单步跳过和单步跳出：
 
-    ![执行工具栏按钮](media/getting-started-debugging-3.png)
+    ![执行工具栏按钮](~/docs/python/media/getting-started-debugging-3.png)
 
 1. 使用单步执行命令 (F11) 立即单步执行 `make_dot_string`。 将看到从 `for` 循环执行到该函数。 再次执行将返回到 `for` 循环，但如果函数中有其他行，需要逐个执行。 如果正在函数中，且想要运行其行的其余部分并返回到调用代码，请使用单步跳出 (Shift+F11)。
 
@@ -254,7 +254,7 @@ Visual Studio 中的 Python 支持包括大量的[项目模板](python-projects.
 
 1. 逐句通过循环的上百次迭代可能会很单调，因此可向之前设定的断点添加条件，使其仅在 `i` 的值超过特定值（例如 1600）时中断。 为此，请右键单击红色断点，选择“条件...”。 在显示的“断点设置”窗口中，输入 `i > 1600` 作为表达式，选择“关闭”。 现在，按 F5 继续，将看到程序再次中断前运行了一段时间。 
 
-    ![设定断点条件](media/getting-started-debugging-4.png)
+    ![设定断点条件](~/docs/python/media/getting-started-debugging-4.png)
 
 1. 若要完成程序，可再次切换断点，然后按 F5。 完成调试后，Visual Studio 将返回到其编辑模式。
 

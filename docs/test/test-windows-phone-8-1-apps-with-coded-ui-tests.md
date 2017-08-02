@@ -46,7 +46,7 @@ ms.lasthandoff: 05/13/2017
   
 2.  在解决方案资源管理器中，打开 MainPage.xaml。 从工具箱中，将按钮控件和文本框控件拖动到设计图面。  
   
-     ![向 MainPage.xaml 添加控件](../test/media/cuit_phone_app_addcontrols.png "CUIT_Phone_App_AddControls")  
+     ![向 MainPage.xaml 添加控件](~/docs/test/media/cuit_phone_app_addcontrols.png "CUIT_Phone_App_AddControls")  
   
 3.  在“属性”窗口中命名该按钮控件。  
   
@@ -104,7 +104,7 @@ ms.lasthandoff: 05/13/2017
   
 2.  选择使用十字线工具编辑 UI 映射。  
   
-     ![使用十字线工具生成编码的 UI 测试。](../test/media/cuit_phone_howgencodedialog.png "CUIT_Phone_HowGenCodeDialog")  
+     ![使用十字线工具生成编码的 UI 测试。](~/docs/test/media/cuit_phone_howgencodedialog.png "CUIT_Phone_HowGenCodeDialog")  
   
 3.  使用十字线工具选择该应用，然后复制应用的 AutomationId 属性值，稍后该值将用于在测试中启动应用。  
   

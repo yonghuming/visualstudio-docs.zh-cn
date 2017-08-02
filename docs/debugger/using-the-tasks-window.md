@@ -80,7 +80,7 @@ manager: "ghogen"
 ## 父子视图  
  （此视图仅可用于托管代码。） 通过右击列标题并单击**“父子视图”**，您可以将任务列表切换为分层视图，在分层视图中，每个子任务都是一个子节点，可以在其父级下显示或隐藏该子节点。  下图所示为父子视图中的任务。  
   
- ![“并行任务”窗口中的父子视图](../debugger/media/parallel_tasks_parentchildview.png "Parallel\_Tasks\_ParentChildView")  
+ ![“并行任务”窗口中的父子视图](~/docs/debugger/media/parallel_tasks_parentchildview.png "Parallel\_Tasks\_ParentChildView")  
   
 ## 标记任务  
  可以标记运行任务的线程，方法是选择任务列表项然后从上下文菜单中选择**“标志”**，或者单击第一列中的标志图标。  如果标记了多个任务，则可以按标记列进行排序以在顶部显示标记的所有任务，从而仅关注这些任务。  此外，还可以使用**“并行堆栈”**窗口仅查看已标记任务。  这样，您便可以为调试操作滤出不相关的任务。  标记不会在调试会话之间保留。  

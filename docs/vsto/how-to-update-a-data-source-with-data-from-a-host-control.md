@@ -78,7 +78,7 @@ caps.handback.revision: 52
   
 3.  在“属性”窗口中，展开“\(DataBindings\)”属性。  
   
-4.  在“\(Advanced\)”属性旁边，单击省略号按钮 \(![VisualStudioEllipsesButton 屏幕快照](../vsto/media/vbellipsesbutton.png "VisualStudioEllipsesButton 屏幕快照")\)。  
+4.  在“\(Advanced\)”属性旁边，单击省略号按钮 \(![VisualStudioEllipsesButton 屏幕快照](~/docs/vsto/media/vbellipsesbutton.png "VisualStudioEllipsesButton 屏幕快照")\)。  
   
 5.  在“格式设置和高级绑定”对话框中，单击“数据源更新模式”下拉列表并选择以下值之一：  
   

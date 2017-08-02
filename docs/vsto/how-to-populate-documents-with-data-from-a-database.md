@@ -31,7 +31,7 @@ caps.handback.revision: 47
   
  下列示例演示了如何使用设计器在文档级项目中添加数据绑定控件。  有关如何在运行时在 VSTO 外接程序项目中添加数据绑定控件的示例，请参阅[演练：VSTO 外接程序项目中的简单数据绑定](../vsto/walkthrough-simple-data-binding-in-vsto-add-in-project.md)。  
   
- ![链接到视频](../vsto/media/playvideo.png "链接到视频") 相关的视频演示，请参阅[使用 Visual Studio Tools for the Office System \(3.0\) 将数据绑定到 Word 2007 内容控件](http://go.microsoft.com/fwlink/?LinkId=136785)。  
+ ![链接到视频](~/docs/data-tools/media/playvideo.gif "链接到视频") 相关的视频演示，请参阅[使用 Visual Studio Tools for the Office System \(3.0\) 将数据绑定到 Word 2007 内容控件](http://go.microsoft.com/fwlink/?LinkId=136785)。  
   
 ## 在设计时向文档添加控件  
   

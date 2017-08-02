@@ -120,7 +120,7 @@ Visual Studio 分析工具提供五种可用于收集性能数据的方法。  �
 ##  <a name="tier_interaction"></a> 层交互  
  层交互分析向分析数据文件中添加有关 [!INCLUDE[vstecasp](../code-quality/includes/vstecasp_md.md)] 页（或其他应用程序）与 [!INCLUDE[ssNoVersion](../data-tools/includes/ssnoversion_md.md)] 数据库之间的同步 [!INCLUDE[vstecado](../data-tools/includes/vstecado_md.md)] 调用的信息。  数据包括调用的次数和时间，以及最长时间和最短时间。  可将层交互数据添加到使用采样、检测、.NET 内存或并发方法收集的分析数据中。  
   
- ![层交互分析数据](../profiling/media/tierinteraction_profilingtools.png "TierInteraction\_ProfilingTools")  
+ ![层交互分析数据](~/docs/profiling/media/tierinteraction_profilingtools.png "TierInteraction\_ProfilingTools")  
 通过分析工具收集的层交互数据  
   
  [收集层交互数据](../profiling/collecting-tier-interaction-data.md)  

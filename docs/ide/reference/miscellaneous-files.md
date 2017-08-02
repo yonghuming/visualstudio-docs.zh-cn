@@ -34,7 +34,7 @@ caps.handback.revision: 11
   
  由于各种原因，独立于容器打开文件很有用。  您可能有一个需要在开发基于项目的解决方案时查看的文件，但它对于解决方案的开发并非必不可少。  通用示例包括开发说明或指令、数据库架构和代码剪辑。  此外，您可能还需要创建独立文件。  
   
- ![解决方案项目](../../ide/reference/media/projects_solutions_misc.gif "Projects\_Solutions\_Misc")  
+ ![解决方案项目](~/docs/ide/reference/media/projects_solutions_misc.gif "Projects\_Solutions\_Misc")  
   
  如果启用了相应的文件夹选项，则解决方案资源管理器可为这类文件显示一个“杂项文件”文件夹。  可从[“选项”对话框 \-\>“环境”\-\>“文档”](../../ide/reference/documents-environment-options-dialog-box.md)中设置这些选项。  关闭某个杂项文件后，该文件与任何特定解决方案或项目都不相关，除非也启用了使之相关的选项。  
   

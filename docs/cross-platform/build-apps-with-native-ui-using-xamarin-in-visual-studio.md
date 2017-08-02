@@ -38,7 +38,7 @@ ms.lasthandoff: 05/13/2017
 # <a name="build-apps-with-native-ui-using-xamarin-in-visual-studio"></a>在 Visual Studio 中使用 Xamarin 生成具有本机 UI 的应用
 完成[设置和安装](../cross-platform/setup-and-install.md)以及[验证 Xamarin 环境](../cross-platform/verify-your-xamarin-environment.md)中的步骤后，此演示将介绍如何使用本机 UI 层生成基本 Xamarin 应用（如下所示）。 在本机 UI 中，共享代码驻留在可移植类库 (PCL) 中，并且单个平台项目都包含 UI 定义。  
   
- ![Android 和 Windows Phone 中的 Xamarin 应用](../cross-platform/media/cross-plat-xamarin-build-1.png "跨平台 Xamarin 版本 1")  
+ ![Android 和 Windows Phone 中的 Xamarin 应用](~/docs/cross-platform/media/cross-plat-xamarin-build-1.png "跨平台 Xamarin 版本 1")  
   
  你将执行以下操作来生成它：  
   
@@ -468,7 +468,7 @@ ms.lasthandoff: 05/13/2017
   
 13. 保存该文件，然后切换到“设计”视图。 你的 UI 应如下显示：  
   
-     ![适用于 Android 应用的 UI](../cross-platform/media/xamarin_androidui.png "Xamarin_AndroidUI")  
+     ![适用于 Android 应用的 UI](~/docs/cross-platform/media/xamarin_androidui.png "Xamarin_AndroidUI")  
   
 14. 打开“MainActivity.cs”，然后在 OnCreate 方法中删除行，这些行指先前已删除的默认按钮。 完成后，代码应如下所示：  
   
@@ -597,13 +597,13 @@ ms.lasthandoff: 05/13/2017
   
  在设计视图中，你的 UI 应如下显示：  
   
- ![Windows Phone 应用 UI](../cross-platform/media/xamarin_winphone_finalui.png "Xamarin_WinPhone_FinalUI")  
+ ![Windows Phone 应用 UI](~/docs/cross-platform/media/xamarin_winphone_finalui.png "Xamarin_WinPhone_FinalUI")  
   
 ### <a name="consume-your-shared-code"></a>使用你的共享代码  
   
 1.  在设计器中，选择 **“获取天气信息”** 按钮。  
   
-2.  在“属性”窗口中，选择“事件处理程序”按钮（![“Visual Studio 事件处理程序”图标](../cross-platform/media/blend_vs_eventhandlers_icon.png "blend_VS_EventHandlers_icon")）。  
+2.  在“属性”窗口中，选择“事件处理程序”按钮（![“Visual Studio 事件处理程序”图标](~/docs/cross-platform/media/blend_vs_eventhandlers_icon.png "blend_VS_EventHandlers_icon")）。  
   
      在 **“属性”** 窗口的顶部显示此图标。  
   

@@ -24,7 +24,7 @@ caps.handback.revision: 15
 ## 一个和两维的坐标系  
  一维坐标位置根据第一个字符的字符位置缓冲区，如 147。  使用 <xref:Microsoft.VisualStudio.TextManager.Interop.IVsTextStream> 界面访问一个一维位置缓冲区。  二维坐标系基于行，并对索引。  例如，在缓冲区中的字符在 43， 5 在行 43，在第一个字符右侧的五个字符在该行。  您访问缓冲区的二维位置使用 <xref:Microsoft.VisualStudio.TextManager.Interop.IVsTextLines> 接口。  <xref:Microsoft.VisualStudio.TextManager.Interop.IVsTextLines> 和 <xref:Microsoft.VisualStudio.TextManager.Interop.IVsTextStream> 接口由文本缓冲区对象 \(<xref:Microsoft.VisualStudio.TextManager.Interop.VsTextBuffer>\) 实现使用 `QueryInterface`，并且可以彼此进行访问。  下图显示这些并在 <xref:Microsoft.VisualStudio.TextManager.Interop.VsTextBuffer>的其他关键接口。  
   
- ![文本缓冲区对象](../extensibility/media/vstextbuffer.png "vsTextBuffer")  
+ ![文本缓冲区对象](~/docs/extensibility/media/vstextbuffer.gif "vsTextBuffer")  
 文本缓冲区对象  
   
  虽然任何坐标系统在文本缓冲区工作，则会优化使用二维坐标。  一维坐标系统可以创建性能开销。  因此，请使用二维坐标系尽可能。  

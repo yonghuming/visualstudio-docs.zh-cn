@@ -29,7 +29,7 @@ caps.handback.revision: 7
 # 快速入门：使用控制台调试 JavaScript
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
 
-![适用于 Windows 和 Windows Phone](../debugger/media/windows_and_phone_content.png "windows\_and\_phone\_content")  
+![适用于 Windows 和 Windows Phone](~/docs/debugger/media/windows_and_phone_content.png "windows\_and\_phone\_content")  
   
  可以使用 JavaScript 控制台窗口中与使用 JavaScrip 生成的应用商店应用进行交互并对它进行调试。 这些功能支持 [!INCLUDE[win8_appname_long](../debugger/includes/win8_appname_long_md.md)] 应用、Windows Phone 应用商店应用，以及使用用于 Apache Cordova 的 Visual Studio 工具创建的应用。 有关控制台命令参考的信息，请参见 [JavaScript 控制台命令](../debugger/javascript-console-commands.md)。  
   
@@ -161,7 +161,7 @@ caps.handback.revision: 7
   
      当执行过程抵达 `updateImages()` 函数时，应用程序进入中断模式，并以黄色突出显示程序执行的当前行。  
   
-     ![将中断模式与 JavaScript 控制台一起使用](../debugger/media/js_breakmode.png "JS\_BreakMode")  
+     ![将中断模式与 JavaScript 控制台一起使用](~/docs/debugger/media/js_breakmode.png "JS\_BreakMode")  
   
      更改变量的值即可立即影响程序状态，而不会结束当前的调试会话。  
   
@@ -199,7 +199,7 @@ caps.handback.revision: 7
   
  下图显示了“JavaScript 控件台”窗口中的“目标”列表。  
   
- ![JavaScript 控制台窗口中的目标选择](../debugger/media/js_console_target.png "JS\_Console\_Target")  
+ ![JavaScript 控制台窗口中的目标选择](~/docs/debugger/media/js_console_target.png "JS\_Console\_Target")  
   
  你也可以使用 `cd` 命令切换执行上下文，但是你必须知道其他执行上下文的名称并且你使用的引用必须在范围内。**“目标”**列表提供更好的方式来访问其他执行上下文。  
   

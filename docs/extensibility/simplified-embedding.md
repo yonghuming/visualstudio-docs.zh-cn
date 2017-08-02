@@ -21,7 +21,7 @@ caps.handback.revision: 16
 
 简化的嵌入在编辑器中启用，其文档视图对象父 \(即提交子级\) 时 [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)]，并且， <xref:Microsoft.VisualStudio.Shell.Interop.IVsWindowPane> 接口实现处理其窗口的命令。  简化嵌入编辑不能承载活动控件。  使用的对象的简化的嵌入创建编辑如下图所示。  
   
- ![图：简化的嵌入式编辑器](../extensibility/media/vssimplifiedembeddingeditor.png "vsSimplifiedEmbeddingEditor")  
+ ![图：简化的嵌入式编辑器](~/docs/extensibility/media/vssimplifiedembeddingeditor.gif "vsSimplifiedEmbeddingEditor")  
 与简化的嵌入的编辑  
   
 > [!NOTE]

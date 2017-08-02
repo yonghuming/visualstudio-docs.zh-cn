@@ -78,7 +78,7 @@ ImageList_Create(VsUI::DpiHelper::LogicalToDeviceUnitsX(16),VsUI::DpiHelper::Log
   
  下表显示示例应如何以相应的 DPI 缩放图像的缩放比例系数。 以绿色图像表示从 Visual Studio 2013 （100%的 200 %dpi 缩放） 起我们最佳实践 ︰  
   
- ![DPI 问题 缩放](../extensibility/media/dpi-issues-scaling.png "DPI Issues Scaling")  
+ ![DPI 问题 缩放](~/docs/extensibility/media/dpi-issues-scaling.png "DPI Issues Scaling")  
   
 ## 布局问题  
  主要通过扩展用户界面中，并相对于另一个保留点而不是使用绝对位置 （具体而言，以像素为单位），可以避免常见的布局问题。 例如:  

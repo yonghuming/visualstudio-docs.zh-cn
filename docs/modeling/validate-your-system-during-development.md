@@ -53,7 +53,7 @@ Visual Studio 可帮助使你的软件与用户的要求和系统的体系结构
   
 |**类别**|**链接**|  
 |------------------|---------------|  
-|**视频**|![视频链接](../data-tools/media/playvideo.gif "PlayVideo")[第 9 频道︰ Doug 七︰ 代码理解和使用 Visual Studio 2010 的系统设计](http://go.microsoft.com/fwlink/?LinkId=216100)<br /><br /> ![视频链接](../data-tools/media/playvideo.gif "PlayVideo")[第 9 频道︰ 构建应用程序使用的依赖项关系图](http://go.microsoft.com/fwlink/?LinkID=201117)<br /><br /> ![视频链接](../data-tools/media/playvideo.gif "PlayVideo") [MSDN 如何实现系列︰ 如何使用依赖项关系图验证代码](http://go.microsoft.com/fwlink/?LinkID=214405)|  
+|**视频**|![视频链接](~/docs/data-tools/media/playvideo.gif "PlayVideo")[第 9 频道︰ Doug 七︰ 代码理解和使用 Visual Studio 2010 的系统设计](http://go.microsoft.com/fwlink/?LinkId=216100)<br /><br /> ![视频链接](~/docs/data-tools/media/playvideo.gif "PlayVideo")[第 9 频道︰ 构建应用程序使用的依赖项关系图](http://go.microsoft.com/fwlink/?LinkID=201117)<br /><br /> ![视频链接](~/docs/data-tools/media/playvideo.gif "PlayVideo") [MSDN 如何实现系列︰ 如何使用依赖项关系图验证代码](http://go.microsoft.com/fwlink/?LinkID=214405)|  
 |**论坛**|-   [Visual Studio 可视化 < 建模工具](http://go.microsoft.com/fwlink/?LinkId=184720)<br />-   [Visual Studio 可视化 < 建模 SDK （DSL 工具）](http://go.microsoft.com/fwlink/?LinkId=184721)|  
 |**博客**|-   [Visual Studio ALM + Team Foundation Server 博客](http://go.microsoft.com/fwlink/?LinkID=201340)|  
 |**技术文章和日志**|[MSDN 体系结构中心](http://go.microsoft.com/fwlink/?LinkId=201343)|  

@@ -56,15 +56,15 @@ RTVS 支持将 SQL 查询添加到 R 项目，允许用户在单独的上下文�
 
 若要添加 SQL 查询文件，请在解决方案资源管理器中右键单击项目，选择“添加”>“新项...”，然后选择“SQL 查询”文件类型：
 
-![向项目添加“SQL 查询”项](media/sql-add-item.png)
+![向项目添加“SQL 查询”项](~/docs/rtvs/media/sql-add-item.png)
 
 此时 Visual Studio 的 Transact-SQL 编辑器打开该文件，该编辑器可为 SQL 提供完整的 IntelliSense 及运行查询的功能。 但若要使用这些功能，需使用编辑器工具栏中的连接按钮连接到数据库，或只需尝试运行查询（按 Ctrl+Shift+E 也可进行选择）。 无论使用哪种方法，此时都会弹出“连接”对话框：
 
-![“SQL 连接”对话框](media/sql-connection-dialog.png)
+![“SQL 连接”对话框](~/docs/rtvs/media/sql-connection-dialog.png)
 
 建立连接后，即可运行查询并查看结果：
 
-![SQL 窗口查询结果](media/sql-query-results.png)
+![SQL 窗口查询结果](~/docs/rtvs/media/sql-query-results.png)
 
 Transact-SQL 编辑器支持其他各种功能，例如查看查询的执行计划，查看查询调试器。Transact-SQL 编辑器中还有许多其他功能可供使用。 有关详细信息，请参阅[使用 Transact-SQL 编辑器编辑和执行脚本](https://msdn.microsoft.com/library/hh272706.aspx)。
 
@@ -86,11 +86,11 @@ Transact-SQL 编辑器支持其他各种功能，例如查看查询的执行计�
 
 1. 选择“R 工具”>“数据”>“添加数据库连接”，弹出“连接属性”对话框，在其中可以指定数据源的名称（本案例中为 SQL Server）、服务器名称、身份验证模式和数据库名称。 关闭对话框前，可选择“测试连接”验证输入。
  
-    ![“SQL 连接”对话框](media/sql-connection-string-dialog.png)
+    ![“SQL 连接”对话框](~/docs/rtvs/media/sql-connection-string-dialog.png)
 
 1. 在通过有效连接选择“确定”后，Visual Studio 会在新 `settings.R` 文件中生成一个名为 `dbConnection` 的连接字符串。 RTVS 会自动寻源（运行）此文件，因此可立即使用 R 脚本的连接：
 
-![SQL Settings.R 文件](media/sql-settings-dot-r.png)
+![SQL Settings.R 文件](~/docs/rtvs/media/sql-settings-dot-r.png)
 
 ### <a name="write-and-test-a-sql-stored-procedure"></a>编写和测试 SQL 存储过程
 
@@ -98,7 +98,7 @@ Transact-SQL 编辑器支持其他各种功能，例如查看查询的执行计�
  
 RTVS 会为存储过程创建三个文件，为 R 代码创建 `.R` 文件，为 SQL 代码创建 `.Query.sql` 文件，以及结合这两个文件的 `.Template.sql` 文件。 后两者会作为 `.R` 文件的子文件出现在解决方案资源管理器中：
 
-![使用 R 的 SQL 存储过程的解决方案资源管理器展开视图](media/sql-solution-explorer-expanded.png)
+![使用 R 的 SQL 存储过程的解决方案资源管理器展开视图](~/docs/rtvs/media/sql-solution-explorer-expanded.png)
 
 `StoredProcedure.R`（在本例中）是编写 R 代码的位置。 默认内容如下：
 
@@ -126,7 +126,7 @@ OutputDataSet <- InputDataSet
 
 对 SQL 代码感到满意后，只需将 `.sql` 文件拖放到 `.R` 文件打开的编辑器中，即可轻松地将该代码与 `StoredProcedure.R` 中的 R 代码集成。 在下图中，`StoredProcedure.Query.sql` 已被拖到 `sqlQuery(channel, )` 中逗号后的位置：
 
-![将 SQL 文件读入 R 字符串变量](media/sql-reference-sql-file-from-r.png)
+![将 SQL 文件读入 R 字符串变量](~/docs/rtvs/media/sql-reference-sql-file-from-r.png)
 
 如图所示，这个简单的步骤可自动生成 R 代码，打开 `.sql` 文件，将其内容读入字符串，并将其传递给 RODBC 包以发送到 SQL Sever。
 
@@ -167,7 +167,7 @@ WITH RESULT SETS ((medallion NVARCHAR(max), hack_license NVARCHAR(max)));
 1. 选择“R工具”>“数据”>“使用选项发布...”菜单命令。
 1. 在出现的对话框中，将“发布到:”更改为“数据库”，指定目标，选择“发布”，然后 RTVS 会生成和发布存储过程：
 
-    ![“发布存储过程”对话框](media/sql-publish-with-options.png)
+    ![“发布存储过程”对话框](~/docs/rtvs/media/sql-publish-with-options.png)
 
 1. 若要发布项目中所有的存储过程，还可使用“R 工具”>“数据”>“发布存储过程”命令。右键单击解决方案资源管理器中的项目也可使用该命令。
 

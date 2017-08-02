@@ -44,7 +44,7 @@ Cookiecutter 需要 Python 3.3 或更高版本（32 位或 64 位）或者 Anaco
 
 安装后，选择“视图”>“Cookicutter 资源管理器”以打开其窗口：
 
-![Cookiecutter 主窗口](media/cookiecutter-overview.png)
+![Cookiecutter 主窗口](~/docs/python/media/cookiecutter-overview.png)
 
 ## <a name="cookiecutter-workflow"></a>Cookiecutter 工作流
 
@@ -76,7 +76,7 @@ Cookiecutter 主页上显示可选择的模板列表，分为以下几组：
 
 本地安装模板后，Cookiecutter 将显示选项页，在该页中可以指定 Cookiecutter 生成文件的位置以及其他选项：
 
-![Cookiecutter 选项页](media/cookiecutter-template-options.png)
+![Cookiecutter 选项页](~/docs/python/media/cookiecutter-template-options.png)
 
 每个 Cookiecutter 模板定义各自的选项集，并为每个选项指定默认值（显示为每个条目字段中的建议文本）。 如果默认值是使用其他选项的动态值，则通常为代码片段。 
 
@@ -90,13 +90,13 @@ Cookiecutter 主页上显示可选择的模板列表，分为以下几组：
 
 成功创建文件后，Cookiecutter 提供在“解决方案资源管理器”中打开文件的选项：
 
-![显示解决方案资源管理器命令的 Cookiecutter](media/cookiecutter-files-created.png)
+![显示解决方案资源管理器命令的 Cookiecutter](~/docs/python/media/cookiecutter-files-created.png)
 
 ## <a name="cookiecutter-options"></a>Cookiecutter 选项
 
 通过“工具”>“选项”>“Cookiecutter”，可使用 Cookiecutter 选项：
 
-![Cookiecutter 选项](media/cookiecutter-tools-options.png)
+![Cookiecutter 选项](~/docs/python/media/cookiecutter-tools-options.png)
 
 | 选项 | 说明 |
 | --- | --- |

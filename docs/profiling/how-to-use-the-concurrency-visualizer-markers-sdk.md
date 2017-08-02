@@ -52,7 +52,7 @@ caps.handback.revision: 9
   
 4.  在菜单栏上，依次选择“分析”、“并发可视化工具”、“从当前项目开始”以运行应用并显示并发可视化工具。 下图显示并发可视化工具中的三个范围和三种标记。  
   
-     ![具有 3 种标记和警报的并发可视化工具](../profiling/media/cvmarkersnative.png "CvMarkersNative")  
+     ![具有 3 种标记和警报的并发可视化工具](~/docs/profiling/media/cvmarkersnative.png "CvMarkersNative")  
   
 5.  添加代码，以通过调用 `marker_series` 的构造函数（对标记系列采用字符串名称）来创建附加的自定义标记系列。  
   

@@ -79,7 +79,7 @@ ms.lasthandoff: 05/24/2017
  显示可视的自动换行标志符号  
  选中后，在一个长行换行到第二行的位置会显示一个回车箭头指示符。  
   
- ![LineBreakSymbol 屏幕截图](../../ide/reference/media/linebreak.gif "linebreak")  
+ ![LineBreakSymbol 屏幕截图](~/docs/ide/reference/media/linebreak.gif "linebreak")  
   
  如果不希望显示这些指示符，则清除此选项。  
   

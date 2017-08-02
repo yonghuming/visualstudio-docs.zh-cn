@@ -23,7 +23,7 @@ caps.handback.revision: 43
 # 在远程计算机上运行 Windows 应用商店应用
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
 
-![仅适用于 Windows](../debugger/media/windows_only_content.png "windows\_only\_content")  
+![仅适用于 Windows](~/docs/debugger/media/windows_only_content.png "windows\_only\_content")  
   
  通过 Visual Studio 远程工具，可从一台运行 Visual Studio 的计算机上运行、调试、分析和测试在另一台设备上运行的 Windows 应用商店应用。 当 Visual Studio 计算机不支持 Windows 应用商店应用特有的功能（如触摸、地理位置和物理方向）时，在远程设备上运行尤为有效。 本主题介绍配置和启动远程会话的过程。  
   
@@ -147,7 +147,7 @@ caps.handback.revision: 43
 ##  <a name="BKMK_ConnectVS"></a> 配置 Visual Studio 项目以便进行远程调试  
  可在项目的属性中指定所连接到的远程计算机。 该过程因编程语言而有所不同。 可键入远程设备的网络名称，也可从“选择远程调试器连接”对话框中选择该设备。  
   
- ![“选择远程调试器连接”对话框](../debugger/media/vsrun_selectremotedebuggerdlg.png "VSRUN\_SelectRemoteDebuggerDlg")  
+ ![“选择远程调试器连接”对话框](~/docs/debugger/media/vsrun_selectremotedebuggerdlg.png "VSRUN\_SelectRemoteDebuggerDlg")  
   
  该对话框仅列出在 Visual Studio 计算机的本地子网上并且正在运行远程调试器的那些设备。  
   
@@ -166,7 +166,7 @@ caps.handback.revision: 43
 4.  在**“远程计算机”**框中输入远程设备的网络名称，或选择**“查找”**，从**“选择远程调试器连接”**对话框中选择该设备。  
   
 ###  <a name="BKMK_Choosing_the_remote_device_for_JavaScript_and_C___projects"></a> 为 JavaScript 和 C\+\+ 项目选择远程设备  
- ![用于远程调试的 C&#43;&#43; 项目属性](../debugger/media/vsrun_cpp_projprop_remote.png "VSRUN\_CPP\_ProjProp\_Remote")  
+ ![用于远程调试的 C&#43;&#43; 项目属性](~/docs/debugger/media/vsrun_cpp_projprop_remote.png "VSRUN\_CPP\_ProjProp\_Remote")  
   
 1.  在解决方案资源管理器中选择项目名称，然后从快捷菜单中选择**“属性”**。  
   

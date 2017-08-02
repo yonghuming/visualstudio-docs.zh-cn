@@ -45,7 +45,7 @@ ms.lasthandoff: 02/22/2017
   
  当设计 DSL 时，可以将其作为 Visual Studio 集成扩展 (VSIX) 包的一部分进行分发。 用户使用的 DSL [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)]:  
   
- ![家谱关系图、 工具箱和资源管理器](../modeling/media/familyt_instance.png "FamilyT_Instance")  
+ ![家谱关系图、 工具箱和资源管理器](~/docs/modeling/media/familyt_instance.png "FamilyT_Instance")  
   
  表示法是只有 DSL 的一部分。 表示法，以及 VSIX 包包括工具，用户可以应用以帮助他们编辑和从其模型生成材料。  
   
@@ -77,7 +77,7 @@ ms.lasthandoff: 02/22/2017
   
 3.  单击**域特定语言设计器**。  
   
-     ![创建 DSL 对话框](../modeling/media/create_dsldialog.png "Create_DSLDialog")  
+     ![创建 DSL 对话框](~/docs/modeling/media/create_dsldialog.png "Create_DSLDialog")  
   
 4.  在**名称**框中，键入**FamilyTree**。 单击“确定”。  
   
@@ -153,7 +153,7 @@ ms.lasthandoff: 02/22/2017
   
  实验[!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)]将类似于下面的示例︰  
   
- ![](../modeling/media/dsl_min.png "DSL_min")  
+ ![](~/docs/modeling/media/dsl_min.png "DSL_min")  
   
 ### <a name="the-content-of-a-model"></a>模型的内容  
  DSL 的实例的文件的内容被称为*模型*。 该模型包含*模型**元素*和*链接*元素之间。 DSL 定义中指定哪些类型的模型元素，并可以存在于模型中的链接。 例如，在从最小语言模板创建 DSL，没有一种类型的模型元素和一种类型的链接。  
@@ -213,7 +213,7 @@ ms.lasthandoff: 02/22/2017
   
 1.  在 DslDefinition 图中，重命名**ExampleModel**到**FamilyTreeModel**， **ExampleElement**到**人**，**目标**到**父级**，和**源**到**子级**。 您可以单击每个标签以更改它。  
   
-     ![DSL 定义关系图-家谱模型](../modeling/media/familyt_person.png "FamilyT_Person")  
+     ![DSL 定义关系图-家谱模型](~/docs/modeling/media/familyt_person.png "FamilyT_Person")  
   
 2.  重命名的元素和连接器工具。  
   
@@ -288,7 +288,7 @@ ms.lasthandoff: 02/22/2017
   
 6.  在.tt 文件中，您可以添加代码来获取每个 person 的属性。  
   
- ![家谱关系图、 工具箱和资源管理器](../modeling/media/familyt_instance.png "FamilyT_Instance")  
+ ![家谱关系图、 工具箱和资源管理器](~/docs/modeling/media/familyt_instance.png "FamilyT_Instance")  
   
 ### <a name="define-new-classes"></a>定义新类  
  可以向模型添加域类和关系。 例如，您可以创建一个新类来表示城镇和一个新的关系来表示某个人居住在城镇。  

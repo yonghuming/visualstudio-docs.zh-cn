@@ -38,7 +38,7 @@ caps.handback.revision: 26
   
  下图演示一个图表 DSL 显示一个小模式:  
   
- ![都铎王朝家谱模型](../modeling/media/tudor_familytreemodel.png "Tudor\_FamilyTreeModel")  
+ ![都铎王朝家谱模型](~/docs/modeling/media/tudor_familytreemodel.png "Tudor\_FamilyTreeModel")  
   
 ## 可对 DSL  
  DSL 的典型的应用程序是生成程序代码或其他项目。  在定义 DSL 时，可以定义 DSL 读取模型并生成文本文件 *的文本模板* 。  

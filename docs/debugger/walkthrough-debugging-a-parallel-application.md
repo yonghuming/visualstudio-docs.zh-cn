@@ -104,7 +104,7 @@ manager: "ghogen"
   
      主线程的调用堆栈显示在一个框中，其他四个线程的调用堆栈则划分到另一个框中。  将这四个线程划分在一起是因为其堆栈帧共享相同的方法上下文；也就是说，它们处于相同的方法中：`A`、`B` 和 `C`。  若要查看处于同一框中的线程的线程 ID 和名称，请将鼠标指针悬停在标题（**“4 个线程”**）上。  当前线程显示为粗体，如下图所示。  
   
-     ![显示线程 ID 和名称的工具提示](../debugger/media/pdb_walkthrough_1a.png "PDB\_Walkthrough\_1A")  
+     ![显示线程 ID 和名称的工具提示](~/docs/debugger/media/pdb_walkthrough_1a.png "PDB\_Walkthrough\_1A")  
   
      黄色箭头指示当前线程的活动堆栈帧。  若要获取更多信息，请将鼠标指针悬停在堆栈帧上。  
   
@@ -114,7 +114,7 @@ manager: "ghogen"
   
      方框周围的蓝色突出显示指示当前线程是该框的一部分。  工具提示中的粗体堆栈帧也可指示当前线程。  如果双击“线程”窗口中的主线程，您可以看到**“并行堆栈”**窗口中的蓝色突出显示将相应移动。  
   
-     ![“并行堆栈”窗口中突出显示的主线程](../debugger/media/pdb_walkthrough_1c.png "PDB\_Walkthrough\_1C")  
+     ![“并行堆栈”窗口中突出显示的主线程](~/docs/debugger/media/pdb_walkthrough_1c.png "PDB\_Walkthrough\_1C")  
   
 #### 继续执行到第二个断点  
   
@@ -213,7 +213,7 @@ manager: "ghogen"
   
 5.  在**“调试”**菜单上指向**“窗口”**，然后单击**“并行任务”**。  下图所示为**“并行任务”**窗口。  
   
-     ![“并行任务”窗口中的 4 个正在运行的任务](../debugger/media/pdw_walkthrough_6.png "PDW\_Walkthrough\_6")  
+     ![“并行任务”窗口中的 4 个正在运行的任务](~/docs/debugger/media/pdw_walkthrough_6.png "PDW\_Walkthrough\_6")  
   
      对于运行的每一项任务，您可以读取其 ID（由名称相同的属性返回）、运行该任务的线程的 ID 和名称以及任务位置（悬停以显示具有整个调用堆栈的工具提示）。  此外，**“任务”**列下还会显示传递到任务中的方法，即起始点。  
   
@@ -241,7 +241,7 @@ manager: "ghogen"
   
      在先前使用**“并行堆栈”**窗口时，您已查看了应用程序线程。  请再次查看**“并行堆栈”**窗口，但这次查看应用程序任务。  请在左上方的框中选择**“任务”**来执行此操作。  下图所示为任务视图。  
   
-     ![“并行堆栈”窗口中的“线程”视图](../debugger/media/pdb_walkthrough_8.png "PDB\_Walkthrough\_8")  
+     ![“并行堆栈”窗口中的“线程”视图](~/docs/debugger/media/pdb_walkthrough_8.png "PDB\_Walkthrough\_8")  
   
      当前未在执行任务的线程不会显示在**“并行堆栈”**窗口的任务视图中。  此外，对于执行任务的线程，某些与任务无关的堆栈帧将从堆栈的顶部和底部筛选掉。  
   
@@ -267,7 +267,7 @@ manager: "ghogen"
   
      在**“并行堆栈”**窗口中右击 S.P，再单击**“转至线程”**。  此时，窗口将切换到线程视图，并显示相应帧。  您可以在同一线程上查看两个任务。  
   
-     ![“线程”视图中突出显示的线程](../debugger/media/pdb_walkthrough_9b.png "PDB\_Walkthrough\_9B")  
+     ![“线程”视图中突出显示的线程](~/docs/debugger/media/pdb_walkthrough_9b.png "PDB\_Walkthrough\_9B")  
   
      这是**“并行堆栈”**窗口中的任务视图的另一优势（相较于**“线程”**窗口而言）。  
   
@@ -287,7 +287,7 @@ manager: "ghogen"
   
      可以按列对任务进行分组。  在**“并行任务”**窗口中，右击**“状态”**列标题并单击**“按状态分组”**。  下图所示为按状态分组的**“并行任务”**窗口。  
   
-     ![“并行任务”窗口中的已分组任务](../debugger/media/pdb_walkthrough_12.png "PDB\_Walkthrough\_12")  
+     ![“并行任务”窗口中的已分组任务](~/docs/debugger/media/pdb_walkthrough_12.png "PDB\_Walkthrough\_12")  
   
      此外，还可以按其他列进行分组。  通过对任务进行分组，您可以关注某个任务子集。  每个可折叠的组都包含一个分组在一起的项的计数。  也可以通过单击**“折叠”**按钮右侧的**“标志”**按钮来快速标记该组中的所有项。  
   

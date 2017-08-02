@@ -301,7 +301,7 @@ Windows 使用几个增加的文本、 背景和映像，颜色对比度的高�
   
 蓝色主题中的编辑器面的示例︰  
   
-![蓝色主题中的编辑器](../../extensibility/ux-guidelines/media/030303-c_editorblue.png "030303-c_EditorBlue")<br />蓝色主题中的编辑器
+![蓝色主题中的编辑器](~/docs/extensibility/ux-guidelines/media/030303-c_editorblue.png "030303-c_EditorBlue")<br />蓝色主题中的编辑器
   
 ![高对比度 #1 主题中的编辑器](../../extensibility/ux-guidelines/media/030303-d_editorhc1.png "030303-d_EditorHC1")<br />高对比度 #1 主题中的编辑器
   
@@ -725,11 +725,11 @@ Visual Studio 主机触发器插件主题时最终用户所做的更改的更改
   
 **颜色主题︰**  
   
-![颜色主题更改](../../extensibility/ux-guidelines/media/0305-a_colortheme.png "0305-a_ColorTheme")<br />颜色主题更改  
+![颜色主题更改](~/docs/extensibility/ux-guidelines/media/0305-a_colortheme.png "0305-a_ColorTheme")<br />颜色主题更改  
   
 **环境主题︰**  
   
-![环境主题更改](../../extensibility/ux-guidelines/media/0305-b_environmenttheme.png "0305-b_EnvironmentTheme")<br />环境主题更改  
+![环境主题更改](~/docs/extensibility/ux-guidelines/media/0305-b_environmenttheme.png "0305-b_EnvironmentTheme")<br />环境主题更改  
   
 **操作系统主题**（仅在更改与其他高对比度）︰  
   

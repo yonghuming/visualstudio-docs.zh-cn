@@ -90,7 +90,7 @@ ms.lasthandoff: 03/07/2017
   
  图中每个带编号的区域都与过程中的一个步骤相关。  
   
- ![采样的摘要报告视图](../profiling/media/summary_sampling.png "Summary_Sampling")  
+ ![采样的摘要报告视图](~/docs/profiling/media/summary_sampling.png "Summary_Sampling")  
   
 #### <a name="to-analyze-sampling-data"></a>分析采样数据  
   

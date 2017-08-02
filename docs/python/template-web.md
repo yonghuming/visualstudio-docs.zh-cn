@@ -42,13 +42,13 @@ Visual Studio 中对 Python 的支持包括对在 Bottle、Django 和 Flask 等�
 
 每个模板（通过“文件”>“新建”>“项目...”访问）在随机选择的本地端口中启动 Web 服务器、调试时打开默认浏览器，并允许直接发布到 [Microsoft Azure](http://www.azure.com)。 提供用于 Bottle、Flask 和 Django 的模板，且你可以对 Pyramid 等其他框架使用常规“Web 项目”模板。
 
-![新建 Web 项目模板](media/template-web-new-project.png)
+![新建 Web 项目模板](~/docs/python/media/template-web-new-project.png)
 
 每个 Bottle、Flask 和 Django 模板包括一个入门网站，其中包含一些页面和静态文件。 此代码足以本地运行和调试服务器（此情况下某些设置需从环境中获得），且足以部署到 Microsoft Azure（此情况下需要提供 [WSGI 应用](http://www.python.org/dev/peps/pep-3333/)对象）。
 
 从特定于框架的模板创建项目时，将出现一个对话框，有助于使用 pip 安装所需的包。 我们还建议对 Web 项目使用[虚拟环境](python-environments.md#virtual-environments)，以便发布网站时包含正确的依赖关项：
 
-![为项目模板安装所需包的对话框](media/template-web-requirements-txt-wizard.png)
+![为项目模板安装所需包的对话框](~/docs/python/media/template-web-requirements-txt-wizard.png)
 
 部署到 Microsoft Azure 应用服务时，需要选择一个 Python 版本作为[站点扩展](https://aka.ms/PythonOnAppService)并手动安装包。 此外，因为 Azure 应用服务从 Visual Studio 部署时**不会**自动安装 `requirements.txt` 中的包，请遵照 [aka.ms/PythonOnAppService](https://aka.ms/PythonOnAppService) 上的配置详细信息操作。
 
@@ -62,7 +62,7 @@ Visual Studio 中对 Python 的支持包括对在 Bottle、Django 和 Flask 等�
 
 启动 Web 项目进行调试时，Visual Studio 在本地启动 Web 服务器，并打开默认浏览器浏览至该地址和端口。 若要指定其他选项，请右键单击项目，选择“属性”和“Web 启动器”选项卡：
 
-  ![常规 Web 模板的 Web 启动器属性](media/template-web-launcher-properties.png)
+  ![常规 Web 模板的 Web 启动器属性](~/docs/python/media/template-web-launcher-properties.png)
 
 在“调试”组中：
 
@@ -124,7 +124,7 @@ Pyramid 应用当前最好使用 `pcreate` 命令行工具进行创建。 创建
 
 可使用两种主要方式发布到 Azure 应用服务。 首先，如 [Azure 文档](http://azure.microsoft.com/en-us/documentation/articles/web-sites-publish-source-control/)中所述，源控件中的部署可采用与用于其他语言的相同方式进行使用。 若要直接从 Visual Studio 发布，请右键单击项目并选择“发布”：
 
-![在项目的上下文菜单上发布命令](media/template-web-publish-command.png)
+![在项目的上下文菜单上发布命令](~/docs/python/media/template-web-publish-command.png)
 
 选择命令后，向导将引导你完成创建网站或导入发布设置、预览修改的文件以及发布到远程服务器。
 
@@ -134,7 +134,7 @@ Pyramid 应用当前最好使用 `pcreate` 命令行工具进行创建。 创建
 
 可通过 [Azure 门户](https://portal.azure.com/)，使用应用服务的“开发工具”>“扩展”边栏选项卡，选择“添加”并滚动列表查找用于 Python 的扩展来部署站点扩展：
 
-![在 Azure 门户上添加站点扩展](media/template-web-site-extensions.png)
+![在 Azure 门户上添加站点扩展](~/docs/python/media/template-web-site-extensions.png)
 
 如果使用 JSON 部署模板，可以将站点扩展指定为站点的资源：
 
@@ -173,7 +173,7 @@ c:\Python27\python.exe -m pip install -r D:\home\site\wwwroot\requirements.txt
 
 部署到 Azure 应用服务时，站点将在 Microsoft IIS 之后运行。 若要使站点与 IIS 配合使用，至少需要添加一个 `web.config` 文件。 为某些常见部署目标提供有模板，通过右键单击该项目并选择“添加”>“新建项...”提供（请参见以下对话框），并且可以轻松修改它们以作他用。 请参阅 [IIS 配置引用](https://www.iis.net/configreference)，了解可用配置设置的相关信息。
 
-![Azure 项模板](media/template-web-azure-items.png)
+![Azure 项模板](~/docs/python/media/template-web-azure-items.png)
 
 可用的项包括：
 
@@ -186,9 +186,9 @@ c:\Python27\python.exe -m pip install -r D:\home\site\wwwroot\requirements.txt
 
 如果将调试 `web.config` 模板添加到项目和计划以使用 Python 远程调试，需要在“调试”配置中发布站点。 此设置独立于当前的活动解决方案配置，且始终默认为“发布”。 若要更改，请打开“设置”选项卡，使用发布向导中的“配置”组合框（请参阅 [Azure 文档](https://azure.microsoft.com/develop/python/)，了解创建和部署到 Azure Web 应用的详细信息）：
 
-![更改发布配置](media/template-web-publish-config.png)
+![更改发布配置](~/docs/python/media/template-web-publish-config.png)
 
 “转换为 Microsoft Azure 云服务项目”命令（见下图）会将云服务项目添加到解决方案。 此项目包括要使用的虚拟机和服务的部署设置和配置。 应使用云项目上的“发布”命令部署到云服务；Python 项目上的“发布”命令将仍部署到网站。 请参阅 [Azure 云服务项目](template-azure-cloud-service.md)了解详细信息。
 
-![转换为 Microsoft Azure 云服务项目命令](media/template-web-convert-menu.png)
+![转换为 Microsoft Azure 云服务项目命令](~/docs/python/media/template-web-convert-menu.png)
 

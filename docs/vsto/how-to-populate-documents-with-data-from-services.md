@@ -30,7 +30,7 @@ caps.handback.revision: 39
   
  下列示例演示了如何在设计时向文档中添加数据绑定控件。 有关如何在运行时在 VSTO 外接程序中添加数据绑定控件的示例，请参阅 [演练：在 VSTO 外接程序项目中绑定到服务中的数据](../vsto/walkthrough-binding-to-data-from-a-service-in-a-vsto-add-in-project.md)。  
   
- ![链接到视频](../vsto/media/playvideo.png "链接到视频") 有关相关的视频演示，请参阅 [我如何从 Microsoft Excel 中与 Web 服务交互？](http://go.microsoft.com/fwlink/?LinkID=130284)。  
+ ![链接到视频](~/docs/data-tools/media/playvideo.gif "链接到视频") 有关相关的视频演示，请参阅 [我如何从 Microsoft Excel 中与 Web 服务交互？](http://go.microsoft.com/fwlink/?LinkID=130284)。  
   
 ### 使用 Web 服务的数据填充文档级项目  
   

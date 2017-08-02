@@ -56,7 +56,7 @@ JavaScript 不允许显式变量声明用于键入。  因此，IntelliSense 始
   
  **无法识别的对象完成选项**  
   
- ![适用于标识符的 JavaScript IntelliSense](../ide/media/js_intellisense_identifiers.png "js\_intellisense\_identifiers")  
+ ![适用于标识符的 JavaScript IntelliSense](~/docs/ide/media/js_intellisense_identifiers.png "js\_intellisense\_identifiers")  
   
  您可以通过使用 XML 文档注释或 JavaScript IntelliSense 的扩展性功能覆盖对象的完成列表。  使用这些功能，您可以提供类型信息和更具描述性的 IntelliSense 信息时它可能否则不可用。  有关更多信息，请参见[扩展 JavaScript IntelliSense](../ide/extending-javascript-intellisense.md)和 [如何：创建 JavaScript XML 文档注释](../ide/create-xml-documentation-comments-for-javascript-intellisense.md)。  
   

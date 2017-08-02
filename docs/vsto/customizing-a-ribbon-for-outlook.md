@@ -28,7 +28,7 @@ caps.handback.revision: 41
 # 自定义 Outlook 功能区
   在 Microsoft Office Outlook 中自定义功能区时，必须考虑自定义功能区在应用程序中出现的位置。  在主应用程序用户界面 \(UI\) 和用户执行某些任务（例如创建电子邮件消息）时打开的窗口中，Outlook 会显示功能区。  这些应用程序窗口被命名为检查器。  
   
- ![链接到视频](../vsto/media/playvideo.png "链接到视频") 有关相关视频演示，请参阅[如何实现：使用功能区设计器在 Outlook 中自定义功能区](http://go.microsoft.com/fwlink/?LinkID=130312)。  
+ ![链接到视频](~/docs/data-tools/media/playvideo.gif "链接到视频") 有关相关视频演示，请参阅[如何实现：使用功能区设计器在 Outlook 中自定义功能区](http://go.microsoft.com/fwlink/?LinkID=130312)。  
   
  [!INCLUDE[appliesto_olkallapp](../vsto/includes/appliesto-olkallapp-md.md)]  
   

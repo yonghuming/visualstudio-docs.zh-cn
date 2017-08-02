@@ -49,7 +49,7 @@ manager: "ghogen"
   
 -   编写代码以填充数据表。  
   
- ![链接到视频](../data-tools/media/playvideo.png "PlayVideo") 有关本主题的视频版本，请参阅[视频帮助：创建 N 层数据应用程序](http://go.microsoft.com/fwlink/?LinkId=115188)。  
+ ![链接到视频](~/docs/data-tools/media/playvideo.gif "PlayVideo") 有关本主题的视频版本，请参阅[视频帮助：创建 N 层数据应用程序](http://go.microsoft.com/fwlink/?LinkId=115188)。  
   
 ## 系统必备  
  若要完成本演练，你需要：  

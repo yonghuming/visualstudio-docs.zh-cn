@@ -46,14 +46,14 @@ ms.lasthandoff: 05/13/2017
   
  **注意**  
   
--   ![先决条件](../test/media/prereq.png "Prereq") 只有 SharePoint 2010 支持对 SharePoint 应用程序进行编码的 UI 测试。  
+-   ![先决条件](~/docs/test/media/prereq.png "Prereq") 只有 SharePoint 2010 支持对 SharePoint 应用程序进行编码的 UI 测试。  
   
--   ![先决条件](../test/media/prereq.png "Prereq") 不支持 SharePoint 应用程序中对 Visio 和 PowerPoint 2010 控件的支持。  
+-   ![先决条件](~/docs/test/media/prereq.png "Prereq") 不支持 SharePoint 应用程序中对 Visio 和 PowerPoint 2010 控件的支持。  
   
 ## <a name="creating-a-coded-ui-test-for-your-sharepoint-app"></a>为您的 SharePoint 应用程序创建编码的 UI 测试  
  为 SharePoint 2010 应用程序[创建编码的 UI 测试](../test/use-ui-automation-to-test-your-code.md#VerifyingCodeUsingCUITCreate) ，与为其他类型的应用程序创建测试相同。 支持对 Web 编辑界面上的所有控件进行录制和播放。 选择类别和 Web 部件的接口都是标准 Web 控件。  
   
- ![SharePoint Web 部件](../test/media/cuit_sharepoint.png "CUIT_SharePoint")  
+ ![SharePoint Web 部件](~/docs/test/media/cuit_sharepoint.png "CUIT_SharePoint")  
   
 > [!NOTE]
 >  如果要录制操作，请在生成代码前验证操作。 因为有多种行为与鼠标悬停操作相关联，所以它在默认情况下处于开启状态。 注意从编码的 UI 测试中移除冗余的悬停操作。 为此，您可以编辑测试的代码，或者使用 [编码的 UI 测试编辑器](../test/editing-coded-ui-tests-using-the-coded-ui-test-editor.md)。  

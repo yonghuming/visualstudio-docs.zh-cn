@@ -50,7 +50,7 @@ ed## 使用在线订阅解锁 Visual studio
 ### <a name="update-stale-licenses"></a>更新过时的许可证  
  你可能已见过以下消息，Visual Studio 的许可证即将过期，消息显示为“你的许可证已过期，必须进行更新。”
   
- ![Visual Studio 过期许可证消息](../ide/media/vs2017_stale-license.png)  
+ ![Visual Studio 过期许可证消息](~/docs/ide/media/vs2017_stale-license.png)  
   
  此消息表示你的订阅可能仍将有效，但 Visual Studio 用来保持订阅更新的许可证令牌尚未刷新，且由于以下原因之一已过时：  
   

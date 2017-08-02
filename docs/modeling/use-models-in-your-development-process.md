@@ -142,7 +142,7 @@ ms.lasthandoff: 02/22/2017
   
 |**类别**|**链接**|  
 |------------------|---------------|  
-|**视频**|![视频链接](../data-tools/media/playvideo.gif "PlayVideo") [MSDN 如何实现视频︰ 如何创建和使用 UML 模型和关系图 (Visual Studio 2010 Ultimate)](http://go.microsoft.com/fwlink/?LinkId=214460)<br /><br /> ![视频链接](../data-tools/media/playvideo.gif "PlayVideo")[第 9 频道︰ Visual Studio 2010 中的 UML](http://go.microsoft.com/fwlink/?LinkID=201106)<br /><br /> ![视频链接](../data-tools/media/playvideo.gif "PlayVideo") [MSDN 如何实现系列︰ UML 工具和扩展性 (Visual Studio 2010 Ultimate)](http://go.microsoft.com/fwlink/?LinkID=214467)|  
+|**视频**|![视频链接](~/docs/data-tools/media/playvideo.gif "PlayVideo") [MSDN 如何实现视频︰ 如何创建和使用 UML 模型和关系图 (Visual Studio 2010 Ultimate)](http://go.microsoft.com/fwlink/?LinkId=214460)<br /><br /> ![视频链接](~/docs/data-tools/media/playvideo.gif "PlayVideo")[第 9 频道︰ Visual Studio 2010 中的 UML](http://go.microsoft.com/fwlink/?LinkID=201106)<br /><br /> ![视频链接](~/docs/data-tools/media/playvideo.gif "PlayVideo") [MSDN 如何实现系列︰ UML 工具和扩展性 (Visual Studio 2010 Ultimate)](http://go.microsoft.com/fwlink/?LinkID=214467)|  
 |**论坛**|-   [Visual Studio 可视化 & 建模工具](http://go.microsoft.com/fwlink/?LinkId=184720)<br />-   [Visual Studio 可视化 & 建模 SDK （DSL 工具）](http://go.microsoft.com/fwlink/?LinkId=184721)|  
 |**博客**|[Visual Studio ALM + Team Foundation Server 博客](http://go.microsoft.com/fwlink/?LinkID=201340)|  
 |**技术文章和日志**|[MSDN 体系结构中心](http://go.microsoft.com/fwlink/?LinkId=201343)<br /><br /> [Visual Studio 体系结构工具指南](../modeling/visual-studio-architecture-tooling-guidance.md)|  

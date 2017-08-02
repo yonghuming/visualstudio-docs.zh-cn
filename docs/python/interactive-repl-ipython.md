@@ -58,17 +58,17 @@ IPython 模式下的 Visual Studio 交互窗口是目前非常先进的用户友
 
 1. 如果一切配置正确，应看到类似以下示例的内容：
 
-    ![IPython 配置输出 ](media/ipython-repl-01.png)
+    ![IPython 配置输出 ](~/docs/python/media/ipython-repl-01.png)
 
 1. 打开 Visual Studio，切换到 Python 环境窗口（“视图”>“其他窗口”>“Python 环境”），然后选择 Python 环境。
 1. 查看“pip”选项卡，确保列出 `IPython` 和 `matplotlib`。 如果没有，请在此处安装。
 1. 选择“概述”选项卡，然后选择“配置交互选项”，将“交互模式”设置为 IPython，然后选择“确定”：
 
-    ![将交互模式设置为 IPython](media/ipython-repl-02.png)
+    ![将交互模式设置为 IPython](~/docs/python/media/ipython-repl-02.png)
 
 1. 选择“打开交互窗口”，在 IPython 的 PyLab 模式下打开交互窗口。 如果更改了交互模式，可能需要重置窗口：
 
-    ![IPython 模式中的交互窗口](media/ipython-repl-03.png)
+    ![IPython 模式中的交互窗口](~/docs/python/media/ipython-repl-03.png)
 
 1. 输入以下代码：
 
@@ -80,7 +80,7 @@ IPython 模式下的 Visual Studio 交互窗口是目前非常先进的用户友
 
 1. 输入最后一行后，应看到一个内联关系图（可根据需要，拖动右下角重设大小）。
 
-    ![交互窗口中的内联关系图](media/ipython-repl-04.png)
+    ![交互窗口中的内联关系图](~/docs/python/media/ipython-repl-04.png)
 
 1. 可在编辑器中编写代码，然后选中，单击右键，选择“发送到交互”命令（Ctrl-E、E），而无需键入 REPL。 请将以下代码粘贴到编辑器中，使用 Ctrl-A 选中，然后发送到交互窗口。 （请注意，Visual Studio 将代码发送到交互窗口时，会将其作为一个单元发送，以免仅提供关系图的中间部分或其中一部分。）
 
@@ -105,15 +105,15 @@ IPython 模式下的 Visual Studio 交互窗口是目前非常先进的用户友
     plt.show()
     ```
 
-    ![将代码从编辑器发送到交互窗口](media/ipython-repl-05.png)
+    ![将代码从编辑器发送到交互窗口](~/docs/python/media/ipython-repl-05.png)
 
 1. 若要查看在交互窗口之外的关系图，请运行代码，而不是使用“调试”>“启动但不调试”命令。
     
 1. IPython 有很多有用的功能，如转义到系统外壳、变量替换、捕获输出等。有关详细信息，请参阅 IPython 参考指南：
 
-    ![转义到系统外壳](media/ipython-repl-06.png)
+    ![转义到系统外壳](~/docs/python/media/ipython-repl-06.png)
 
 1. 你还可以在“笔记本”模式下使用 IPython，以便将任意操作系统上的任意浏览器作为画布使用。 后端 IPython 引擎可以位于计算机本地，也可以位于远程。 Azure 支持[在 Windows 或 Linux VM 上运行 IPython](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-jupyter-notebook)。 有关作为 Azure 服务的免费 Jupyter 笔记本，另请参阅 [Azure 笔记本预览版](https://notebooks.azure.com)：
 
-    ![IPython 笔记本模式](media/ipython-repl-07.png)
+    ![IPython 笔记本模式](~/docs/python/media/ipython-repl-07.png)
 

@@ -20,7 +20,7 @@ ms.lasthandoff: 02/22/2017
 # <a name="creating-a-windows-forms-based-domain-specific-language"></a>创建基于 Windows 窗体的域特定语言
 Windows 窗体可用于显示特定于域的语言 (DSL) 模型，而不是使用 DSL 关系图的状态。 本主题将指导您完成将 Windows 窗体绑定到 DSL，请使用[!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)]可视化和建模 SDK。  
   
- ![DSL-Wpf-2](../modeling/media/dsl-wpf-2.png "DSL-Wpf-2")  
+ ![DSL-Wpf-2](~/docs/modeling/media/dsl-wpf-2.png "DSL-Wpf-2")  
 DSL 实例中，显示 Windows 窗体用户界面和模型资源管理器。  
   
 ## <a name="creating-a-windows-forms-dsl"></a>创建 Windows 窗体 DSL  
@@ -71,7 +71,7 @@ DSL 实例中，显示 Windows 窗体用户界面和模型资源管理器。
 ## <a name="updating-the-dsl-definition"></a>更新 DSL 定义  
  本演练中使用 DSL 定义下面。  
   
- ![DSL Wpf&1;](../modeling/media/dsl-wpf-1.png "DSL-Wpf-1")  
+ ![DSL Wpf&1;](~/docs/modeling/media/dsl-wpf-1.png "DSL-Wpf-1")  
   
 #### <a name="to-update-the-dsl-definition"></a>若要更新 DSL 定义  
   
@@ -130,7 +130,7 @@ DSL 实例中，显示 Windows 窗体用户界面和模型资源管理器。
   
      属性和关系的 model 类显示在数据源窗口。  
   
-     ![DslWpf&3;](../modeling/media/dslwpf-3.png "DslWpf&3;")  
+     ![DslWpf&3;](~/docs/modeling/media/dslwpf-3.png "DslWpf&3;")  
   
 #### <a name="to-connect-your-model-to-a-form"></a>若要将您的模型连接到窗体  
   
@@ -175,7 +175,7 @@ DSL 实例中，显示 Windows 窗体用户界面和模型资源管理器。
   
 -   它可以确保，当用户选择的行，则属性窗口将显示相应的模型元素，而不是数据网格行的属性。  
   
- ![DslWpf4](../modeling/media/dslwpf4.png "DslWpf4")  
+ ![DslWpf4](~/docs/modeling/media/dslwpf4.png "DslWpf4")  
 数据源和视图之间的链接的架构。  
   
 #### <a name="to-complete-the-bindings-to-the-dsl"></a>若要完成到 DSL 的绑定  
@@ -305,7 +305,7 @@ DSL 实例中，显示 Windows 窗体用户界面和模型资源管理器。
   
      您应能够编辑数据网格视图中的元素的名称。 此外可以在从那里删除它。  
   
- ![DSL Wpf&2;](../modeling/media/dsl-wpf-2.png "DSL-Wpf-2")  
+ ![DSL Wpf&2;](~/docs/modeling/media/dsl-wpf-2.png "DSL-Wpf-2")  
   
 ### <a name="about-the-code-to-add-an-element"></a>有关用于添加一个元素的代码  
  对于新的元素按钮，以下替代代码是稍微简单些。  

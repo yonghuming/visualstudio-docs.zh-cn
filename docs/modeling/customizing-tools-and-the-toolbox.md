@@ -201,17 +201,17 @@ using Microsoft.VisualStudio.Modeling.Diagrams;
   
  **从嵌套组件进入到 OutPort 的连接**  
   
- ![连接生成器](../modeling/media/connectionbuilder_3.png "ConnectionBuilder_3")  
+ ![连接生成器](~/docs/modeling/media/connectionbuilder_3.png "ConnectionBuilder_3")  
   
  因此，你可能想要指定可从嵌套组件传送到 OutPort 的连接。 若要指定此类连接，您将设置**使用自定义接受**上**InPort**作为源角色类型和**OutPort**为目标角色类型**DSL 详细信息**窗口，如下面的插图中所示︰  
   
  **链接连接指令在 DSL 资源管理器**  
   
- ![连接生成器图像](../modeling/media/connectionbuilder_4a.png "ConnectionBuilder_4a")  
+ ![连接生成器图像](~/docs/modeling/media/connectionbuilder_4a.png "ConnectionBuilder_4a")  
   
  **链接连接指令在 DSL 详细信息窗口**  
   
- ![](../modeling/media/connectionbuilder_4b.png "ConnectionBuilder_4b")  
+ ![](~/docs/modeling/media/connectionbuilder_4b.png "ConnectionBuilder_4b")  
   
  然后，必须在 ConnectionBuilder 类中提供方法：  
   

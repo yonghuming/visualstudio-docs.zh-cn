@@ -40,7 +40,7 @@ caps.handback.revision: 25
   
  在源代码管理包是有效的包，另一方面中使用 [!INCLUDE[vsipsdk](../../extensibility/includes/vsipsdk_md.md)] 源代码管理包，接口，源代码管理存根与包直接通信。  源代码管理包在其自己的源代码管理负责 UI。  
   
- ![源代码管理体系结构图](../../extensibility/internals/media/vsipsccarch.png "VSIPSCCArch")  
+ ![源代码管理体系结构图](~/docs/extensibility/internals/media/vsipsccarch.gif "VSIPSCCArch")  
   
  向源代码管理包， [!INCLUDE[vsprvs](../../code-quality/includes/vsprvs_md.md)] 不提供源代码管理代码或 API 集成的。  将此与源代码管理插件必须实现严格的功能集和回调的 [创建了源代码管理插件](../../extensibility/internals/creating-a-source-control-plug-in.md) 概述的方法。  
   

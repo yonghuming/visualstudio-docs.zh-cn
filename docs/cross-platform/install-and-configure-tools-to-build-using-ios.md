@@ -127,7 +127,7 @@ ms.lasthandoff: 05/13/2017
   
  第一次启动代理和每次创建新客户端证书时，将向你提供在 Visual Studio 中配置代理所需的信息，包括主机名、端口和 PIN。  
   
- ![使用 vcremote 生成安全 PIN](../cross-platform/media/cppmdd_vcremote_generateclientcert.png "CPPMDD_vcremote_generateClientCert")  
+ ![使用 vcremote 生成安全 PIN](~/docs/cross-platform/media/cppmdd_vcremote_generateclientcert.png "CPPMDD_vcremote_generateClientCert")  
   
  如果打算在 Visual Studio 中使用主机名配置远程代理，请使用该主机名从 Windows 对 Mac 进行 ping 操作，以确认它是可连接的。 否则，你可能需要使用 IP 地址。  
   
@@ -177,7 +177,7 @@ ms.lasthandoff: 05/13/2017
   
 7.  选择“配对”以启用配对。  
   
-     ![为 iOS 版本配置 vcremote 连接](../cross-platform/media/cppmdd_options_ios.PNG "CPPMDD_Options_iOS")  
+     ![为 iOS 版本配置 vcremote 连接](~/docs/cross-platform/media/cppmdd_options_ios.PNG "CPPMDD_Options_iOS")  
   
      除非更改主机名或端口，否则配对会一直存在。 如果在“选项”  对话框中更改了主机名或端口，要撤销此更改，请选择“还原”  按钮以还原到上一配对。  
   

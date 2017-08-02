@@ -41,13 +41,13 @@ ms.lasthandoff: 04/10/2017
 
 右键单击解决方案资源管理器中的 Python 项目，并选择“Python”>“运行 PyLint...”：
 
-![用于 Python 项目的上下文菜单上的 PyLint 命令](media/code-pylint-command.png)
+![用于 Python 项目的上下文菜单上的 PyLint 命令](~/docs/python/media/code-pylint-command.png)
 
 如有需要，使用命令提示符将 PyLint 安装到活动环境。
 
 PyLint 警告和错误显示在“错误列表”窗口：
 
-![PyLint 错误列表](media/code-pylint-error-list.png)
+![PyLint 错误列表](~/docs/python/media/code-pylint-error-list.png)
 
 双击错误可直接转到出现问题的源代码。
 

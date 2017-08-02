@@ -37,7 +37,7 @@ caps.handback.revision: 29
 ## 新项目对话框中  
  所有它将开始时选择一个新的项目的项目类型。 首先，通过单击 **新项目** 上 **文件** 菜单。**新项目** 出现对话框，外观如下所示︰  
   
- ![“新建项目”对话框](../../extensibility/internals/media/newproject.png "NewProject")  
+ ![“新建项目”对话框](~/docs/extensibility/internals/media/newproject.gif "NewProject")  
   
  让我们仔细看。**项目类型** 树列出了您可以创建的各种项目类型。 当选择项目类型，如 **Visual C\# Windows**, ，您将看到应用程序模板帮助您入门的列表。**Visual Studio 已安装的模板** Visual Studio 安装并可供您的计算机的任何用户。 创建或收集的新模板可以添加到 **我的模板** 并且仅提供给你。  
   
@@ -107,11 +107,11 @@ devenv /installvstemplates
   
  对 C\# 开发人员设置，Visual Studio **项目类型** 树看上去如下所示︰  
   
- ![项目类型](../../extensibility/internals/media/projecttypes.png "ProjectTypes")  
+ ![项目类型](~/docs/extensibility/internals/media/projecttypes.png "ProjectTypes")  
   
  如下所示的相应 ProjectTemplates 文件夹中︰  
   
- ![项目模板](../../extensibility/internals/media/projecttemplates.png "ProjectTemplates")  
+ ![项目模板](~/docs/extensibility/internals/media/projecttemplates.png "ProjectTemplates")  
   
  当 **新项目** 对话框将打开， [!INCLUDE[vsprvs](../../code-quality/includes/vsprvs_md.md)] 遍历 ProjectTemplates 文件夹，并重新创建其结构处于 **项目类型** 树中的某些更改︰  
   
@@ -209,7 +209,7 @@ devenv /installvstemplates
   
 1.  打开 **新项目** 对话框框中，展开 **Visual C\#** 项目节点。  
   
- ![MyProjectNode](../../extensibility/internals/media/myprojectnode.png "MyProjectNode")  
+ ![MyProjectNode](~/docs/extensibility/internals/media/myprojectnode.png "MyProjectNode")  
   
  **MyProjectNode** 显示为一个子节点的 Visual C\# Windows 节点的紧下方。  
   

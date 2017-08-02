@@ -21,7 +21,7 @@ caps.handback.revision: 13
 
 以下方式表示源控件实现的示例。  在设计时，您会看到必须实现的接口和必须调用的环境服务。  与所有服务，实际上调用通过服务中获取特定的接口的方法。  类的名称标识使其更易于查看源代码管理如何执行。  
   
- ![SCC&#95;TUP 示例](../../extensibility/internals/media/scc_tup.png "SCC\_TUP")  
+ ![SCC&#95;TUP 示例](~/docs/extensibility/internals/media/scc_tup.gif "SCC\_TUP")  
 示例源代码管理项目  
   
 ## 接口  

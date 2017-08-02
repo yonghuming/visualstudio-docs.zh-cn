@@ -95,7 +95,7 @@ ms.lasthandoff: 02/22/2017
   
  “图像编辑器模式”工具栏如下：  
   
- ![图像编辑器模式工具栏。](../designers/media/digit-tre-modal-toolbar.png "Digit-TRE-Modal-Toolbar")  
+ ![图像编辑器模式工具栏。](~/docs/designers/media/digit-tre-modal-toolbar.png "Digit-TRE-Modal-Toolbar")  
   
  下表描述“图像编辑器模式”工具栏上的各项，按其从左至右的显示顺序依次列出。  
   
@@ -119,7 +119,7 @@ ms.lasthandoff: 02/22/2017
   
  “图像编辑器”工具栏如下。  
   
- ![图像编辑器工具栏](../designers/media/digit-tre-toolbar.png "Digit-TRE-Toolbar")  
+ ![图像编辑器工具栏](~/docs/designers/media/digit-tre-toolbar.png "Digit-TRE-Toolbar")  
   
  下表描述“图像编辑器”工具栏上的项目，按其从上到下的显示顺序列出。  
   

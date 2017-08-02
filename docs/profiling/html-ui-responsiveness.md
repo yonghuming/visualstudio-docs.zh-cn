@@ -66,7 +66,7 @@ ms.lasthandoff: 05/13/2017
   
      如果要更改探查器的分析目标，请选择“更改目标”。  
   
-     ![更改分析目标](../profiling/media/js_tools_target.png "JS_Tools_Target")  
+     ![更改分析目标](~/docs/profiling/media/js_tools_target.png "JS_Tools_Target")  
   
      以下选项可用于分析目标：  
   
@@ -117,7 +117,7 @@ ms.lasthandoff: 05/13/2017
   
 8.  如果你已添加用户标记，它们将显示在探查器的 [查看诊断会话时间线](#Ruler) 中。 下图显示了一个用于指定你的代码中某一特定操作的用户标记。  
   
-     ![显示用户标记的诊断标尺](../profiling/media/js_htmlvizprofiler_usermark.png "JS_HTMLVizProfiler_UserMark")  
+     ![显示用户标记的诊断标尺](~/docs/profiling/media/js_htmlvizprofiler_usermark.png "JS_HTMLVizProfiler_UserMark")  
   
 9. 可使用用户标记、应用程序生命周期事件或图中可见的数据，确定时间线和探查器图中相关的区域。 以下是一些帮助你分析和使用图中的数据的准则：  
   
@@ -131,7 +131,7 @@ ms.lasthandoff: 05/13/2017
   
      下图显示了 CPU 使用率图，突出显示了相关的区域。  
   
-     ![CPU 使用率图](../profiling/media/js_htmlvizprof_cpu_util.png "JS_HTMLVizProf_CPU_Util")  
+     ![CPU 使用率图](~/docs/profiling/media/js_htmlvizprof_cpu_util.png "JS_HTMLVizProf_CPU_Util")  
   
 11. 使用 [查看时间线详细信息](#TimelineDetails) 获取有关运行太过频繁或要花费太多时间来完成的事件的详细信息。 例如，查找以下内容：  
   
@@ -174,7 +174,7 @@ if (performance && performance.mark) {
   
  下图显示了包含一个用户标记及其工具提示的诊断标尺。  
   
- ![显示用户标记的诊断标尺](../profiling/media/js_htmlvizprofiler_usermark.png "JS_HTMLVizProfiler_UserMark")  
+ ![显示用户标记的诊断标尺](~/docs/profiling/media/js_htmlvizprofiler_usermark.png "JS_HTMLVizProfiler_UserMark")  
   
  你还可以在时间线详细信息视图中创建工具生成的事件，以显示两个用户标记之间所经过的持续时间。 以下代码添加第二个用户标记和在两个用户标记的执行之间所经过的时间度量（上面的代码显示第一个用户标记）。  
   
@@ -199,7 +199,7 @@ if (performance.mark && performance.measure) {
   
  下面是诊断会话时间线的外观，其中包含为几个应用程序生命周期事件显示的工具提示：  
   
- ![诊断会话标尺](../profiling/media/js_htmlvizprof_ruler.png "JS_HTMLVizProf_Ruler")  
+ ![诊断会话标尺](~/docs/profiling/media/js_htmlvizprof_ruler.png "JS_HTMLVizProf_Ruler")  
   
  时间线显示应用程序生命周期事件（例如激活事件）的发生时间，并显示可添加到代码中的用户标记（用户标记三角形）。 可选择事件以显示包含更多信息的工具提示。 有关用户标记的详细信息，请参阅本主题中的 [标记要分析的代码](#ProfileMark) 。  
   
@@ -219,7 +219,7 @@ if (performance.mark && performance.measure) {
   
  下例显示了“CPU 使用率”图的外观：  
   
- ![CPU 使用率图](../profiling/media/js_htmlvizprof_cpu_util.png "JS_HTMLVizProf_CPU_Util")  
+ ![CPU 使用率图](~/docs/profiling/media/js_htmlvizprof_cpu_util.png "JS_HTMLVizProf_CPU_Util")  
   
  使用此图可以：  
   
@@ -303,7 +303,7 @@ if (performance.mark && performance.measure) {
   
  若要筛选出图像解码、推理下载和 GC 事件，请从下窗格中的筛选器图标中清除 **“后台活动”** 选项。 由于这些事件不是很好操作，因此默认情况下已将其隐藏。  
   
- ![筛选时间线中的事件](../profiling/media/js_htmlvizprofiler_event_filter.png "JS_HTMLVizProfiler_Event_Filter")  
+ ![筛选时间线中的事件](~/docs/profiling/media/js_htmlvizprofiler_event_filter.png "JS_HTMLVizProfiler_Event_Filter")  
   
  若要筛选出 HTTP 请求事件，请从下窗格中的筛选器图标中清除 **“网络流量”** 选项。 默认情况下，这些事件显示在“时间线详细信息”图中。  
   
@@ -317,7 +317,7 @@ if (performance.mark && performance.measure) {
 ###  <a name="GroupFrames"></a> 通过框为事件分组  
  你可以将时间线详细信息视图中显示的事件分组为单个帧。 这些帧事件是工具生成的事件，并且代表所有在绘制事件之间发生的 UI 线程工作的顶级事件容器。 若要启用此视图，请选择 **“按帧为顶级事件分组”**。  
   
- ![按帧为顶级事件分组](../profiling/media/js_htmlvizprofiler_frame_grouping_button.png "JS_HTMLVizProfiler_Frame_Grouping_Button")  
+ ![按帧为顶级事件分组](~/docs/profiling/media/js_htmlvizprofiler_frame_grouping_button.png "JS_HTMLVizProfiler_Frame_Grouping_Button")  
   
  当按帧为事件分组时，时间线详细信息视图中的每个顶级事件代表一帧。  
   

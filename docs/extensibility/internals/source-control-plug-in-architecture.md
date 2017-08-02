@@ -29,7 +29,7 @@ caps.handback.revision: 24
 ## 组件  
  在关系图的源控件适配器包是将用户请求源代码管理操作转换为函数调用支持受源代码管理插件 IDE 的元素。  为了使发生，将此 IDE 和源代码管理插件必须具有来回传递信息 IDE 中该插件之间的有效对话框。  为了使出现此的对话框，它们必须都使用同一种语言。  本文档概述的源代码管理插件 API 是此替换的常见术语。  
   
- ![源代码管理体系结构示意图](../../extensibility/internals/media/vs_sccsdk_plug_in_arch.png "vs\_sccsdk\_plug\_in\_arch")  
+ ![源代码管理体系结构示意图](~/docs/extensibility/internals/media/vs_sccsdk_plug_in_arch.gif "vs\_sccsdk\_plug\_in\_arch")  
 显示交互之间的和源代码管理插件的体系结构关系图  
   
  根据体系结构示意图所示， [!INCLUDE[vsprvs](../../code-quality/includes/vsprvs_md.md)] shell，标记对关系图的 shell，以承载用户的工作计划和关联的元素，如编辑和解决方案资源管理器。  源控件适配器包处理 IDE 和源代码管理插件之间的交互。  源控件适配器包提供自己的数据源控件 UI。  它是顶级 UI 用户交互以启动和定义源代码管理操作的大小。  

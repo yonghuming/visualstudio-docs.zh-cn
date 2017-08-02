@@ -58,7 +58,7 @@ IntelliSense 是许多功能的总称：列出成员、参数信息、快速信�
   
  以粗体显示的参数指示键入函数时所需的下一参数。  对于重载函数，可以使用向上和向下键查看函数重载的替代参数信息。  
   
- ![参数信息](../ide/media/vs2015_param_info.png "VS2015\_param\_Info")  
+ ![参数信息](~/docs/ide/media/vs2015_param_info.png "VS2015\_param\_Info")  
   
  当用 XML 文档注释批注函数和参数时，相关注释也将显示为“参数信息”。  有关详细信息，请参阅[提供 XML 代码注释](../ide/supplying-xml-code-comments.md)。  
   
@@ -67,11 +67,11 @@ IntelliSense 是许多功能的总称：列出成员、参数信息、快速信�
 ## 快速信息  
  “快速信息”可显示代码中任意标识符的完整声明。  
   
- ![Visual Studio 快速信息](../ide/media/vs2015_quick_info.png "VS2015\_Quick\_info")  
+ ![Visual Studio 快速信息](~/docs/ide/media/vs2015_quick_info.png "VS2015\_Quick\_info")  
   
  从**“列出成员”**框选择成员时也会显示“快速信息”。  
   
- ![C&#35; 代码文件中的参数信息](../ide/media/vs2015_paraminfo.png "VS2015\_ParamInfo")  
+ ![C&#35; 代码文件中的参数信息](~/docs/ide/media/vs2015_paraminfo.png "VS2015\_ParamInfo")  
   
  可以通过单击**“编辑\/IntelliSense\/快速信息”**、键入 CTRL\+I 或单击编辑器工具栏上的**“快速信息”**按钮，手动调用“快速信息”。  
   

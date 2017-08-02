@@ -56,11 +56,11 @@ manager: "ghogen"
 ##  <a name="BKMK_Overview"></a> 在源代码中设置函数断点  
  可通过两种方法在源代码中设置函数断点：在源代码文件的左边距中单击；或将光标放在一行代码上，然后按 F9 键。 断点显示为左边距中的一个红点，且该代码行也会变色：  
   
- ![设置断点](../debugger/media/basicbreakpoint.png "BasicBreakpoint")  
+ ![设置断点](~/docs/debugger/media/basicbreakpoint.png "BasicBreakpoint")  
   
  在调试程序中运行此代码时，只要命中断点，就会在执行该行上的代码之前停止执行。 源代码行会变为黄色：  
   
- ![断点执行已停止](../debugger/media/breakpointexecution.png "BreakpointExecution")  
+ ![断点执行已停止](~/docs/debugger/media/breakpointexecution.png "BreakpointExecution")  
   
  此时，`testInt` 的值仍为 1。  
   
@@ -134,7 +134,7 @@ manager: "ghogen"
 ##  <a name="BKMK_Specify_advanced_properties_of_a_breakpoint_"></a> 管理断点  
  你可以使用“断点”窗口（“调试”\/“窗口”\/“断点”，或“CTRL \+ ALT \+ B”）来查看在你的解决方案中已设置的所有断点。  
   
- ![“断点”窗口](../debugger/media/breakpointswindow.png "BreakpointsWindow")  
+ ![“断点”窗口](~/docs/debugger/media/breakpointswindow.png "BreakpointsWindow")  
   
  **“断点”**窗口提供管理所有断点的中心位置，这在断点非常关键的大型解决方案或复杂调试应用场景中特别有用。 如果需要保存或共享一组断点的状态和位置，则可以仅从**“断点”**窗口导出和导入断点。  
   

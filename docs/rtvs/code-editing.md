@@ -57,15 +57,15 @@ ms.lasthandoff: 05/12/2017
 
 除通过颜色区分不同的代码部分（如字符串、注释和关键字），RTVS 还可以在注释中突出显示和启用链接：
 
-![R 代码的语法着色](media/editing-syntax-colors.png)
+![R 代码的语法着色](~/docs/rtvs/media/editing-syntax-colors.png)
 
 要自定义字体和某些突出显示颜色，请选择“工具”>“选项”命令，导航到“环境”>“字体和颜色”，然后在“显示项:”对话框中更改与 R 相关的项的设置：
 
-![R 代码的字体和颜色选项](media/editing-syntax-colors-options.png)
+![R 代码的字体和颜色选项](~/docs/rtvs/media/editing-syntax-colors-options.png)
 
 Visual Studio 同时还用下划线标出编辑器中的语法错误：
 
-![R 代码中的语法错误突出显示](media/editing-syntax-error.png)
+![R 代码中的语法错误突出显示](~/docs/rtvs/media/editing-syntax-error.png)
 
 要更改此行为，请查看[“编辑器选项”](#editor-options)下的“高级”>“语法检查”设置。
 
@@ -73,11 +73,11 @@ Visual Studio 同时还用下划线标出编辑器中的语法错误：
 
 键入代码时，RTVS 将提供 [IntelliSense](code-intellisense.md) 页中所述的自动补全功能。 它还将设置自动格式，如大括号和括号补全： 
 
-![内联格式设置动画](media/editing-inline-formatting.gif)
+![内联格式设置动画](~/docs/rtvs/media/editing-inline-formatting.gif)
 
 当键入对具有多个参数的函数的调用时，通常希望将这些参数排成一列，以方便阅读代码。 RTVS 会记住为参数设置的缩进，并将其自动应用于后续行：
 
-![自动缩进动画](media/editing-auto-indentation.gif)
+![自动缩进动画](~/docs/rtvs/media/editing-auto-indentation.gif)
 
 要更改此行为，请查看“选项卡”[](#editor-options)组下的**“编辑器选项”**。
 
@@ -85,7 +85,7 @@ Visual Studio 同时还用下划线标出编辑器中的语法错误：
 
 要创建自己的区域，请在所需代码周围添加以 `---` 结尾的注释。 通过代码左侧的小型 +/- 控件可以展开或折叠区域：
 
-![创建含注释的可折叠区域](media/editing-collapsible-regions.gif)
+![创建含注释的可折叠区域](~/docs/rtvs/media/editing-collapsible-regions.gif)
  
 默认情况下，按下 Tab 键时 Visual Studio 将插入空格。 可以按[操作、文本编辑器、选项卡](../ide/reference/options-text-editor-all-languages.md)中所述再次更改此行为。
 
@@ -99,7 +99,7 @@ Visual Studio 同时还用下划线标出编辑器中的语法错误：
 
 “速览定义”通过右键单击菜单或按 Alt+F12 调用，在函数调用的下方插入包含函数源代码的只读、可滚动区域：
 
-![速览定义动画](media/editing-peek-definition.gif)
+![速览定义动画](~/docs/rtvs/media/editing-peek-definition.gif)
 
 ## <a name="sending-code-to-the-interactive-window"></a>将代码发送到交互窗口
 
@@ -131,7 +131,7 @@ f <- function(a) { return(a + 1) }
 
 RTVS 提供一种快捷方式，通过使用函数的参数名来生成 [Roxygen](http://roxygen.org/) 注释。 只需在函数定义上方的空白行中键入 `###`：
 
-![插入 Roxygen 注释动画](media/editing-roxygen-comments.gif)
+![插入 Roxygen 注释动画](~/docs/rtvs/media/editing-roxygen-comments.gif)
 
 ## <a name="editor-options"></a>编辑器选项
 

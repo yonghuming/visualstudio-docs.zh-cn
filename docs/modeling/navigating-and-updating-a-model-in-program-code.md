@@ -70,11 +70,11 @@ ms.lasthandoff: 02/22/2017
 ##  <a name="a-nameexamplea-an-example-dsl-definition"></a><a name="example"></a>示例 DSL 定义  
  这是本主题中的示例 DslDefinition.dsl 的主要部分︰  
   
- ![DSL 定义关系图-家谱模型](../modeling/media/familyt_person.png "FamilyT_Person")  
+ ![DSL 定义关系图-家谱模型](~/docs/modeling/media/familyt_person.png "FamilyT_Person")  
   
  此模型是此 DSL 的实例︰  
   
- ![都铎王朝家谱模型](../modeling/media/tudor_familytreemodel.png "Tudor_FamilyTreeModel")  
+ ![都铎王朝家谱模型](~/docs/modeling/media/tudor_familytreemodel.png "Tudor_FamilyTreeModel")  
   
 ### <a name="references-and-namespaces"></a>引用和命名空间  
  若要运行本主题中的代码，您应引用︰  
@@ -365,7 +365,7 @@ using (Transaction t = targetDiagram.Store.
  在 DSL，域模型元素，它表示概念如人或歌曲，是独立于形状元素，它表示关系图上看到的内容。 域模型元素存储的重要属性和关系的概念。 形状元素存储大小、 位置和颜色的关系图中，该对象的视图和其组成部分的布局。  
   
 ### <a name="presentation-elements"></a>表示元素  
- ![基本形状和元素类型的类图](../modeling/media/dslshapesandelements.png "DSLshapesAndElements")  
+ ![基本形状和元素类型的类图](~/docs/modeling/media/dslshapesandelements.png "DSLshapesAndElements")  
   
  在 DSL 定义中，您指定的每个元素创建从以下标准类之一派生一个类。  
   

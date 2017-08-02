@@ -70,7 +70,7 @@ RTVS 要求通过 HTTP 实现所有与远程服务器的通信，这就要求服
 
 为此，在使用自签名证书连接服务器时，RTVS 总会发出下列警告：
 
-![自签名证书警告对话框](media/workspaces-remote-self-signed-certificate-warning.png)
+![自签名证书警告对话框](~/docs/rtvs/media/workspaces-remote-self-signed-certificate-warning.png)
 
 颁发自签名证书：
 
@@ -93,7 +93,7 @@ RTVS 要求通过 HTTP 实现所有与远程服务器的通信，这就要求服
 
 要在远程计算机上安装证书，请从自命令提示符运行 `certlm.msc`（证书管理器）。 右键单击“个人”文件夹，选择“所有任务”>“导入”命令：
 
-![导入证书命令](media/workspaces-remote-certificate-import.png)
+![导入证书命令](~/docs/rtvs/media/workspaces-remote-certificate-import.png)
 
 
 ### <a name="granting-permissions-to-read-the-ssl-certificates-private-key"></a>授予读取 SSL 证书私钥的权限
@@ -105,7 +105,7 @@ RTVS 要求通过 HTTP 实现所有与远程服务器的通信，这就要求服
 1. 邮件单击证书，在“所有任务”下选择“管理私钥”命令
 1. 在出现的对话框中选择“添加”，然后输入 `NETWORK SERVICE` 作为帐户名：
 
-    ![管理私钥对话框，添加 NETWORK_SERVICE](media/workspaces-remote-manage-private-key-dialog.png)
+    ![管理私钥对话框，添加 NETWORK_SERVICE](~/docs/rtvs/media/workspaces-remote-manage-private-key-dialog.png)
 
 1. 连续选择“确定”两次以消除对话框，并提交更改。
 

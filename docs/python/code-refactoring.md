@@ -50,11 +50,11 @@ Visual Studio 提供用于自动转换和清理 Python 源代码的多个命令�
 1. 右键单击想要重命名的标识符，然后选择“重命名”，或将光标置于标识符上，然后选择“编辑”>“重构”>“重命名...”菜单命令或按 F2。
 1. 在出现的“重命名”对话框中，为标识符输入新名并选择“确定”：
 
-  ![新标识符名称的重命名提示](media/code-refactor-rename-1.png)
+  ![新标识符名称的重命名提示](~/docs/python/media/code-refactor-rename-1.png)
 
 1. 在下一个对话框中，选择代码中想要向其应用重命名的文件和实例；选择任何单个实例可预览特定更改：
 
-  ![用于选择应用更改位置的重命名对话框](media/code-refactor-rename-2.png)
+  ![用于选择应用更改位置的重命名对话框](~/docs/python/media/code-refactor-rename-2.png)
 
 1. 选择“应用”对源代码文件进行更改。 这是可撤消操作。
 
@@ -64,21 +64,21 @@ Visual Studio 提供用于自动转换和清理 Python 源代码的多个命令�
 1. 选择“编辑”>“重构”>“提取方法...”菜单命令或键入 Ctrl-R、M。
 1. 在出现的对话框中，输入新的方法名称，指示将其提取到的位置，然后选择任何闭包变量。 闭包未选择的变量将返回到方法参数中：
 
-  ![“提取方法”对话框](media/code-refactor-extract-method-1.png)
+  ![“提取方法”对话框](~/docs/python/media/code-refactor-extract-method-1.png)
 
 1. 选择“确定”，然后代码将进行相应修改：
 
-  ![提取方法的影响](media/code-refactor-extract-method-2.png)
+  ![提取方法的影响](~/docs/python/media/code-refactor-extract-method-2.png)
 
 ## <a name="add-import"></a>添加导入
 
 将光标放在缺少类型信息的标识符上时，Visual Studio 将提供一个智能标记（代码左侧的灯泡图标），该标记的命令将添加必需的 `import` 或 `from ... import` 语句：
 
-![添加导入智能标记](media/code-refactor-add-import-1.png)
+![添加导入智能标记](~/docs/python/media/code-refactor-add-import-1.png)
 
 对当前项目和标准库中顶级包和模块提供 `import` 完成；对子模块和子包及模块成员提供 `from ... import` 完成。 这包括函数、类或导出的数据。 选择任一选项将在其他导入后向文件顶部添加语句，或者在已导入相同模块时，向现有 `from ... import` 语句添加语句。
 
-![添加导入的结果](media/code-refactor-add-import-2.png)
+![添加导入的结果](~/docs/python/media/code-refactor-add-import-2.png)
 
 Visual Studio 尝试筛选出实际未在模块中定义的成员，例如导入其他模块但不属于执行导入操作的模块的子级的模块。 例如，许多模块使用 `import sys` 而不是 `from xyz import sys`，因此你不会看到从其他模块导入 `sys` 的完成，即使模块缺少可排除 `sys` 的 `__all__` 成员。
 
@@ -93,10 +93,10 @@ Visual Studio 尝试筛选出实际未在模块中定义的成员，例如导入
 
 在编辑器中右键单击任意位置，然后选择“删除导入”，这将为你提供从“所有范围”或仅“当前范围”中删除的选项：
 
-![删除导入菜单](media/code-refactor-remove-imports-1.png)
+![删除导入菜单](~/docs/python/media/code-refactor-remove-imports-1.png)
 
 Visual Studio 然后将对代码进行相应更改：
 
-![删除导入的影响](media/code-refactor-remove-imports-2.png)
+![删除导入的影响](~/docs/python/media/code-refactor-remove-imports-2.png)
 
 请注意，Visual Studio 不考虑控制流；在 `import` 语句前使用某个名称，该名称将被视为实际已使用。 Visual Studio 还会忽略所有 `from __future__` 导入、在类定义中执行的导入以及来自 `from ... import *` 语句中的导入。

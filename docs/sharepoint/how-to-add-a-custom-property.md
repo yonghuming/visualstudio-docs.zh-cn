@@ -37,7 +37,7 @@ caps.handback.revision: 9
   
 2.  在菜单栏上，选择**“视图”**，**“属性窗口”**。  
   
-3.  在**“属性”**窗口中，选择**“自定义属性”**属性，然后选择省略号按钮 \(![ASP.NET 移动设计器中的省略号](../sharepoint/media/mwellipsis.png "ASP.NET 移动设计器中的省略号")\)。  
+3.  在**“属性”**窗口中，选择**“自定义属性”**属性，然后选择省略号按钮 \(![ASP.NET 移动设计器中的省略号](~/docs/sharepoint/media/mwellipsis.gif "ASP.NET 移动设计器中的省略号")\)。  
   
      将出现**“属性编辑器”**对话框。  
   

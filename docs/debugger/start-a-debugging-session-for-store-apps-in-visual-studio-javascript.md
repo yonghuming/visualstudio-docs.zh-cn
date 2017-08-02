@@ -26,7 +26,7 @@ caps.handback.revision: 24
 # 在 Visual Studio 中为应用商店应用启动调试会话 (JavaScript)
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
 
-![适用于 Windows 和 Windows Phone](../debugger/media/windows_and_phone_content.png "windows\_and\_phone\_content")  
+![适用于 Windows 和 Windows Phone](~/docs/debugger/media/windows_and_phone_content.png "windows\_and\_phone\_content")  
   
  本主题介绍如何针对用 JavaScript 和 HTML5 编写的 Windows 应用商店应用启动调试会话。你可以使用单个按键启动调试，或者你可以为特定的场景配置调试会话，然后选择启动应用的方式。  
   
@@ -67,7 +67,7 @@ caps.handback.revision: 24
 -   [附加调试器](#BKMK_Attach_the_debugger)  
   
 ##  <a name="BKMK_The_easy_way_to_start_debugging"></a> 启动调试的简单方法  
- ![仅适用于 Windows](../debugger/media/windows_only_content.png "windows\_only\_content")  
+ ![仅适用于 Windows](~/docs/debugger/media/windows_only_content.png "windows\_only\_content")  
   
 1.  在 Visual Studio 中打开应用解决方案。  
   
@@ -75,7 +75,7 @@ caps.handback.revision: 24
   
 3.  按 F5。  
   
- ![仅适用于 Windows Phone](../debugger/media/phone_only_content.png "phone\_only\_content")  
+ ![仅适用于 Windows Phone](~/docs/debugger/media/phone_only_content.png "phone\_only\_content")  
   
  Visual Studio 生成并启动附有调试器的应用。持续执行至抵达某个断点、手动暂停执行、发生无法处理的异常或应用程序结束为止。有关详细信息，请参阅[快速入门：调试 HTML 和 CSS](../debugger/quickstart-debug-html-and-css.md)。  
   
@@ -97,7 +97,7 @@ caps.handback.revision: 24
 ###  <a name="BKMK_Choose_the_deployment_target"></a> 选择部署目标  
  可在 Visual Studio 计算机上、本地计算机上的 Visual Studio 模拟器中或远程计算机上部署和调试应用。对于项目，从**“调试”**属性页上的**“要启动的调试器”**列表中选择目标。  
   
- ![仅适用于 Windows](../debugger/media/windows_only_content.png "windows\_only\_content")  
+ ![仅适用于 Windows](~/docs/debugger/media/windows_only_content.png "windows\_only\_content")  
   
  对于 Windows 应用商店应用，从**“目标设备”**列表选择以下任一选项：  
   
@@ -113,12 +113,12 @@ caps.handback.revision: 24
   
 -   选择**“计算机名称”**框中的向下箭头，然后选择**“\<定位...\>”**。然后，从**“选择远程调试器连接”**对话框中选择远程计算机。  
   
-     ![选择远程调试器连接](../debugger/media/vsrun_pro_selectremotedebuggerdlg.png "VSRUN\_PRO\_SelectRemoteDebuggerDlg")  
+     ![选择远程调试器连接](~/docs/debugger/media/vsrun_pro_selectremotedebuggerdlg.png "VSRUN\_PRO\_SelectRemoteDebuggerDlg")  
   
     > [!NOTE]
     >  “选择远程调试器连接”对话框显示本地子网上的计算机以及通过以太网电缆直接连接到 Visual Studio 计算机的计算机。若要指定其他计算机，请在**“计算机名称”**框中输入名称。  
   
- ![仅适用于 Windows Phone](../debugger/media/phone_only_content.png "phone\_only\_content")  
+ ![仅适用于 Windows Phone](~/docs/debugger/media/phone_only_content.png "phone\_only\_content")  
   
  对于 Windows Phone 应用商店应用，从**“目标设备”**列表中选择**“设备”**或一个仿真程序。  
   
@@ -145,7 +145,7 @@ caps.handback.revision: 24
 -   选择**“是”**以立即启动应用。  
   
 ###  <a name="BKMK__Optional__Disable_network_loopbacks"></a> （可选）禁用网络环回  
- ![仅适用于 Windows](../debugger/media/windows_only_content.png "windows\_only\_content")  
+ ![仅适用于 Windows](~/docs/debugger/media/windows_only_content.png "windows\_only\_content")  
   
  为安全起见，不允许以标准方式安装的 Windows 应用商店应用对装有它的设备进行网络调用。默认情况下，Visual Studio 部署功能为所部署的应用程序创建此规则的例外。通过此例外，在一台计算机上即可测试通信过程。向 Window 应用商店提交应用之前，应在没有例外的情况下测试应用。  
   

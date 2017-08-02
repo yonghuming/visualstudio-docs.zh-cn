@@ -45,7 +45,7 @@ ms.lasthandoff: 03/07/2017
 
 到"ngen"的程序集，顺序 VSIX 必须安装"每个实例每台计算机"。 可以通过检查 extension.vsixmanifest 设计器中的"所有用户"复选框来启用该选项︰
 
-![检查所有用户](media/check-all-users.png)
+![检查所有用户](~/docs/extensibility/media/check-all-users.png)
 
 ## <a name="how-to-enable-ngen"></a>如何启用 Ngen
 
@@ -60,7 +60,7 @@ ms.lasthandoff: 03/07/2017
 
 下面我们来看**属性**中操作的窗口︰
 
-![在属性中的 ngen](media/ngen-in-properties.png)
+![在属性中的 ngen](~/docs/extensibility/media/ngen-in-properties.png)
 
 这会将元数据添加到 VSIX 项目的.csproj 文件内的项目引用︰
 

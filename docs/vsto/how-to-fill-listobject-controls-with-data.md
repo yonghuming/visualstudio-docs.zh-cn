@@ -31,7 +31,7 @@ caps.handback.revision: 26
   
  [!INCLUDE[appliesto_xlalldocapp](../vsto/includes/appliesto-xlalldocapp-md.md)]  
   
- ![链接到视频](../vsto/media/playvideo.png "链接到视频") 相关视频演示，请参阅[如何：在 Excel 中创建连接到 SharePoint 列表的列表](http://go.microsoft.com/fwlink/?LinkID=130263)。  
+ ![链接到视频](~/docs/data-tools/media/playvideo.gif "链接到视频") 相关视频演示，请参阅[如何：在 Excel 中创建连接到 SharePoint 列表的列表](http://go.microsoft.com/fwlink/?LinkID=130263)。  
   
 ### 将数据绑定到 ListObject 控件  
   

@@ -115,7 +115,7 @@ Windows Presentation Foundation (WPF) 可用于快速创建现代桌面应用程
   
      此 XAML 代码将创建具有数字、标题和说明字段占位符的可重用布局。 在运行时可将占位符替换为下图中所示的文本。  
   
-     ![QuickStartTask 用户控件](../designers/media/wpfquickstart1.PNG "WPFQuickStart1")  
+     ![QuickStartTask 用户控件](~/docs/designers/media/wpfquickstart1.PNG "WPFQuickStart1")  
   
 6.  在“解决方案资源管理器” 中，展开“QuickStartTask.xaml”  节点，然后打开“QuickStartTask.xaml.cs”  或“QuickStartTask.xaml.vb”  文件。  
   
@@ -302,7 +302,7 @@ Windows Presentation Foundation (WPF) 可用于快速创建现代桌面应用程
   
      此时，你的设计应类似于下图。  
   
-     ![设计器中的主窗口](../designers/media/wpfquickstart2.PNG "WPFQuickStart2")  
+     ![设计器中的主窗口](~/docs/designers/media/wpfquickstart2.PNG "WPFQuickStart2")  
   
     > [!NOTE]
     >  在操作后面的几个程序期间，如果“错误列表”  处于打开状态，你可能会看到其中的错误。 别担心；一旦完成剩余步骤，这些错误就会消失。  
@@ -572,7 +572,7 @@ Windows Presentation Foundation (WPF) 可用于快速创建现代桌面应用程
   
      请注意，已将这两个条目添加到“查询和更新数据”  列表，如下图所示。  
   
-     ![待处理项被添加到列表中。](../designers/media/wpfquickstart3.PNG "WPFQuickStart3")  
+     ![待处理项被添加到列表中。](~/docs/designers/media/wpfquickstart3.PNG "WPFQuickStart3")  
   
 4.  选中列表中的“Do something else”  条目的复选框。  
   

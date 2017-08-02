@@ -37,7 +37,7 @@ caps.handback.revision: 16
   
 2.  在**“视图”**菜单上，单击**“属性窗口”**。  
   
-3.  在**“属性”**窗口中，选择**“程序集”**属性，然后（单击）省略号按钮 \(![ASP.NET 移动设计器中的省略号](../sharepoint/media/mwellipsis.png "ASP.NET 移动设计器中的省略号")\)。  
+3.  在**“属性”**窗口中，选择**“程序集”**属性，然后（单击）省略号按钮 \(![ASP.NET 移动设计器中的省略号](~/docs/sharepoint/media/mwellipsis.gif "ASP.NET 移动设计器中的省略号")\)。  
   
      将出现**“将引用的程序集分配给 LobSystem”**对话框。  
   

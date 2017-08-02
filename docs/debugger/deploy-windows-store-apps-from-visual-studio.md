@@ -23,7 +23,7 @@ caps.handback.revision: 14
 # 从 Visual Studio 部署 Windows 应用商店应用程序
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
 
-![仅适用于 Windows](../debugger/media/windows_only_content.png "windows\_only\_content")  
+![仅适用于 Windows](~/docs/debugger/media/windows_only_content.png "windows\_only\_content")  
   
  Visual Studio 部署功能可在目标设备上生成和注册随 Visual Studio 创建的 Windows 应用商店应用。 应用的实际注册方法取决于目标设备是本地还是远程：  
   
@@ -80,13 +80,13 @@ caps.handback.revision: 14
   
 4.  你可以键入远程设备的名称或 IP 地址，也可以从**“选择远程调试器连接”**对话框选择该设备。  
   
-     ![“选择远程调试器连接”对话框](../debugger/media/vsrun_selectremotedebuggerdlg.png "VSRUN\_SelectRemoteDebuggerDlg")  
+     ![“选择远程调试器连接”对话框](~/docs/debugger/media/vsrun_selectremotedebuggerdlg.png "VSRUN\_SelectRemoteDebuggerDlg")  
   
      **“选择远程调试器连接”**对话框显示本地子网上的设备以及通过以太网电缆直接连接到 Visual Studio 计算机的任何设备。  
   
  **在 JavaScript 或 Visual C\+\+ 项目页中指定远程设备**  
   
- ![用于远程调试的 C&#43;&#43; 项目属性](../debugger/media/vsrun_cpp_projprop_remote.png "VSRUN\_CPP\_ProjProp\_Remote")  
+ ![用于远程调试的 C&#43;&#43; 项目属性](~/docs/debugger/media/vsrun_cpp_projprop_remote.png "VSRUN\_CPP\_ProjProp\_Remote")  
   
 1.  从**“要启动的调试器”**列表中选择**“远程调试器”**。  
   

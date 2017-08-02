@@ -29,7 +29,7 @@ JavaScript IntelliSense 扩展性功能使您可以自定义在 JavaScript 编�
   
  JavaScript 语言服务添加到项目的第三方 JavaScript 库提供 IntelliSense 功能。  对于大多数库，语句完成的语言服务自动提供。  下图显示了语句完成的示例：  
   
- ![语句结束示例](../ide/media/js_intellisense_completion.png "js\_intellisense\_completion")  
+ ![语句结束示例](~/docs/ide/media/js_intellisense_completion.png "js\_intellisense\_completion")  
   
  如果您的库在标准 JavaScript 注释标记包含变量的声明，函数和对象 \(\/\)，则从 IntelliSense 扩展性功能自动受益，默认情况下，提供在弹出框的描述性信息在完成的元素右侧显示列表中，或者，在中键入时的左括号函数调用。  在弹出框中键入注释包含成员的说明。  下面的示例演示完成的弹出框列表。  
   
@@ -315,7 +315,7 @@ intellisense.addEventListener('statementcompletion', function (event) {
   
 5.  在 appCode.js，键入以下代码。  在键入时，您会看到用作 IntelliSense 显示的扩展的标准注释快速信息的。  
   
-     ![显示 intellisense.annotate 使用情况的示例](../ide/media/js_intellisense_annotations.png "js\_intellisense\_annotations")  
+     ![显示 intellisense.annotate 使用情况的示例](~/docs/ide/media/js_intellisense_annotations.png "js\_intellisense\_annotations")  
   
 ###  <a name="Logging"></a> 将消息发送到输出窗口  
  下面的过程演示如何将消息发送到输出窗口。  可以发送消息来帮助调试 IntelliSense 扩展。  
@@ -488,7 +488,7 @@ intellisense.addEventListener('statementcompletion', function (event) {
   
 4.  在 appCode.js，键入以下代码。  在键入时，您会看到命名空间的图标已更改为“{}”，用于 C\#。  
   
-     ![显示标志符号属性使用情况的示例](../ide/media/js_intellisense_glyph_namespace.png "js\_intellisense\_glyph\_namespace")  
+     ![显示标志符号属性使用情况的示例](~/docs/ide/media/js_intellisense_glyph_namespace.png "js\_intellisense\_glyph\_namespace")  
   
 5.  在 appCode.js，键入以下代码。  在键入时，您为命名 Enum1 成员将看到新枚举图标和这个 SomeClass1 成员的新选件类图标。  
   
@@ -530,7 +530,7 @@ intellisense.addEventListener('statementcompletion', function (event) {
   
 3.  在 appCode.js，键入以下代码。  该标识符列表将显示而不是 IntelliSense，因为该包装函数从不调用，这意味着，`throttled` 函数不返回任何结果。  
   
-     ![覆盖 intellisense 结果的示例](../ide/media/js_intellisense_override.png "js\_intellisense\_override")  
+     ![覆盖 intellisense 结果的示例](~/docs/ide/media/js_intellisense_override.png "js\_intellisense\_override")  
   
 4.  将以下代码添加到 exampleLib.intellisense.js。  这将更改设计时行为，以便 IntelliSense 为所包装的功能显示，按预期方式工作。  
   
@@ -543,7 +543,7 @@ intellisense.addEventListener('statementcompletion', function (event) {
   
 5.  在 appCode.js，通过键入先前键入的相同代码测试结果。  此时，IntelliSense 会提供所需信息。  
   
-     ![覆盖 IntelliSense 结果的示例](../ide/media/js_intellisense_override_fixed.png "js\_intellisense\_override\_fixed")  
+     ![覆盖 IntelliSense 结果的示例](~/docs/ide/media/js_intellisense_override_fixed.png "js\_intellisense\_override\_fixed")  
   
 ## 请参阅  
  [JavaScript IntelliSense](../ide/javascript-intellisense.md)   

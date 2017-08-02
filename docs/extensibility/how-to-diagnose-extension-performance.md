@@ -41,7 +41,7 @@ ms.lasthandoff: 02/22/2017
 
 为了帮助用户了解在这种影响，我们通知用户的慢速扩展 Visual Studio 中添加一项新功能。 当 Visual Studio 会检测减缓解决方案加载或启动一个新的扩展时，用户将看到在 IDE 中指向"管理 Visual Studio 性能"新建对话框的通知。 若要浏览先前检测到的扩展的帮助菜单也始终可以访问此对话框。
 
-![管理 Visual Studio 性能](media/manage-performance.png)
+![管理 Visual Studio 性能](~/docs/extensibility/media/manage-performance.png)
 
 本文档旨在帮助扩展开发人员通过说明如何计算扩展的影响以及如何您可以在此分析本地测试是否作为一种性能影响扩展，扩展可能会显示。
 
@@ -143,7 +143,7 @@ private void DoMoreWork()
 
 一旦您安装 Visual Studio 环境与您安装的扩展，您可以通过打开 PerfView 收集对话框从菜单并打开"收集"记录启动的跟踪。
 
-![perfview 收集菜单](media/perfview-collect-menu.png)
+![perfview 收集菜单](~/docs/extensibility/media/perfview-collect-menu.png)
 
 默认选项将为 CPU 占用率提供调用堆栈，但由于我们感兴趣以及阻塞时间，您还应启用"线程时间"堆栈。 准备好设置后可以单击"开始收集"并启动 Visual Studio 时，一旦开始录制。
 
@@ -155,7 +155,7 @@ private void DoMoreWork()
 
 对于此示例的目的，我们是主要感兴趣的是"线程时间堆栈"视图可在"高级组"下找到。 此视图将显示由方法包括 CPU 时间和阻塞的时间，如磁盘 IO 或等待句柄的线程上所花费的总时间。
 
- ![线程时间堆栈](media/perfview-thread-time-stacks.png)
+ ![线程时间堆栈](~/docs/extensibility/media/perfview-thread-time-stacks.png)
 
  当打开"时间堆栈线程"视图，您应选择"devenv"过程，以启动分析。
 
@@ -170,11 +170,11 @@ PerfView 提供了详细指导如何阅读更详细的分析自己帮助菜单�
 
 1. IO 使用 System.IO 类︰ 尽管这些框架中的非独占成本可能不在跟踪中开销非常大，它们是问题的可能的原因，由于文件 IO 速度将会在计算机之间相差。
 
-  ![系统 io 帧](media/perfview-system-io-frames.png)
+  ![系统 io 帧](~/docs/extensibility/media/perfview-system-io-frames.png)
 
 2. 阻塞等待其他异步工作的调用︰ 非独占时间将在这种情况下表示主线程受阻时在异步工作完成的时间。
 
-  ![阻止调用框架](media/perfview-blocking-call-frames.png)
+  ![阻止调用框架](~/docs/extensibility/media/perfview-blocking-call-frames.png)
 
 另一种视图将用于确定影响的跟踪中将"图像加载堆栈"。 可以将应用相同的筛选器应用到"时间堆栈线程"视图，并找出所有程序集加载，因为您自动加载的包执行的代码。
 

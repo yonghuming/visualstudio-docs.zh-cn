@@ -40,11 +40,11 @@ manager: "ghogen"
   
 2.  在**“视图”**菜单中，选择**“其他窗口”**\>**“数据源”**。  
   
-     ![查看其他 Windows 数据源](../data-tools/media/viewdatasources.png "ViewDataSources")  
+     ![查看其他 Windows 数据源](~/docs/data-tools/media/viewdatasources.png "ViewDataSources")  
   
 3.  在**“数据源”**窗口中，单击**“添加新数据源”**。  
   
-     ![添加新数据源](../data-tools/media/dataaddnewdatasource.png "dataAddNewDataSource")  
+     ![添加新数据源](~/docs/data-tools/media/dataaddnewdatasource.png "dataAddNewDataSource")  
   
 4.  在**“选择数据源类型”**页上，选择**“数据库”**，然后单击**“下一步”**。  
   
@@ -87,11 +87,11 @@ manager: "ghogen"
   
 2.  在**“视图”**菜单中，选择**“其他窗口”**\>**“数据源”**。  
   
-     ![查看其他 Windows 数据源](../data-tools/media/viewdatasources.png "ViewDataSources")  
+     ![查看其他 Windows 数据源](~/docs/data-tools/media/viewdatasources.png "ViewDataSources")  
   
 3.  在**“数据源”**窗口中，单击**“添加新数据源”**。  
   
-     ![添加新数据源](../data-tools/media/dataaddnewdatasource.png "dataAddNewDataSource")  
+     ![添加新数据源](~/docs/data-tools/media/dataaddnewdatasource.png "dataAddNewDataSource")  
   
 4.  在**“选择数据源类型”**页上，选择**“数据库”**，然后单击**“下一步”**。  
   

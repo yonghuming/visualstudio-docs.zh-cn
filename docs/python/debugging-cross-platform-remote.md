@@ -119,7 +119,7 @@ Visual Studio 可在 Windows 计算机本地和远程启动和调试 Python 应�
 
 1. 按 Enter 填充该计算机上可用 ptvsd 进程的列表：
 
-    ![输入连接目标并列出进程](media/remote-debugging-qualifier.png)
+    ![输入连接目标并列出进程](~/docs/python/media/remote-debugging-qualifier.png)
 
     如果在填写此列表后碰巧在远程机器上启动了另一个程序，请选择“刷新”按钮。
 
@@ -127,7 +127,7 @@ Visual Studio 可在 Windows 计算机本地和远程启动和调试 Python 应�
 
 1. Visual Studio 将切换为调试模式，而脚本继续在远程计算机上运行，并提供所有常用“调试”[](debugging.md)功能。 例如，在 `if guess < number:` 行上设置断点，然后切换到远程计算机上，输入其他猜测。 执行此操作后，本地计算机上的 Visual Studio 将在该断点处停止、显示局部变量等：
 
-    ![触发断点](media/remote-debugging-breakpoint-hit.png)
+    ![触发断点](~/docs/python/media/remote-debugging-breakpoint-hit.png)
 
 1. 停止调试后，Visual Studio 将与远程计算机上继续运行的程序分离。 ptvsd 还会继续侦听附加调试器，因此可以随时重新附加到该进程。
 
@@ -183,7 +183,7 @@ Visual Studio 可在 Windows 计算机本地和远程启动和调试 Python 应�
 
 1. 在 Visual Studio 中重复如前所述的附加进程，现在使用 `tcps://` 作为“连接目标”或（“限定符”）的协议。
 
-    ![选择使用 SSL 进行远程调试传输](media/remote-debugging-qualifier-ssl.png)
+    ![选择使用 SSL 进行远程调试传输](~/docs/python/media/remote-debugging-qualifier-ssl.png)
 
 ### <a name="warnings"></a>警告
 
@@ -191,11 +191,11 @@ Visual Studio 可在 Windows 计算机本地和远程启动和调试 Python 应�
 
 1. 如果看到下面的“远程证书不是受信任的证书”警告，则表示未正确地将证书添加到受信任根 CA。 请检查相关步骤并重试。
 
-    ![SSL 证书信任警告](media/remote-debugging-ssl-warning.png)
+    ![SSL 证书信任警告](~/docs/python/media/remote-debugging-ssl-warning.png)
 
 1. 如果看到下面的“远程证书名称与主机名不匹配”警告，则表示创建证书时，未使用适当的主机名或 IP 地址作为“公用名”。
 
-    ![SSL 证书主机名警告](media/remote-debugging-ssl-warning2.png)
+    ![SSL 证书主机名警告](~/docs/python/media/remote-debugging-ssl-warning2.png)
 
 > [!Warning]
 > 目前，如果忽略这些警告，Visual Studio 2017 会挂起。 请务必在尝试连接之前更正所有问题。

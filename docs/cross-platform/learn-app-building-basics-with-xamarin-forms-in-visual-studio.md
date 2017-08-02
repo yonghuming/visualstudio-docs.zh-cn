@@ -91,7 +91,7 @@ ms.lasthandoff: 05/13/2017
   
     -   单击“更新” 。  
   
-         ![更新 Xamarin.Forms NuGet 包](../cross-platform/media/crossplat-xamarin-formsguide-4.png "CrossPlat Xamarin FormsGuide 4")  
+         ![更新 Xamarin.Forms NuGet 包](~/docs/cross-platform/media/crossplat-xamarin-formsguide-4.png "CrossPlat Xamarin FormsGuide 4")  
   
 4.  将 Newtonsoft.Json 和 NuGet 包添加到 PCL 项目中，用于处理从天气数据服务中检索的信息：  
   

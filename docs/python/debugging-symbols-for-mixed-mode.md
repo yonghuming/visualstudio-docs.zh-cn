@@ -46,13 +46,13 @@ Visual Studio 可能会在需要符号的时候（通常是在启动混合模式
 - “打开符号设置”对话框将打开“选项”对话框以转到“调试”>“符号”选项卡。
 - “为解释器下载符号”将打开当前文档页面，在这种情况下，选择“工具”>“选项”并导航到“调试”>“符号”选项卡以继续操作。
 
-    ![混合模式调试器符号提示](media/mixed-mode-debugging-symbols-required.png)
+    ![混合模式调试器符号提示](~/docs/python/media/mixed-mode-debugging-symbols-required.png)
 
 ## <a name="downloading-symbols"></a>正在下载符号
 
 - Python 3.5 及更高版本：通过 Python 安装程序获取调试符号。 选择“自定义安装”，选择“下一步”以转到“高级选项”，然后选择“下载调试符号”和“下载调试二进制文件”这两个框：
 
-    ![Python 3.x 安装程序包含调试符号](media/mixed-mode-debugging-symbols-installer35.png)
+    ![Python 3.x 安装程序包含调试符号](~/docs/python/media/mixed-mode-debugging-symbols-installer35.png)
 
     将在根安装文件夹中找到符号文件 (`.pdb`)（各个模块的符号文件也在 `DLLs` 文件夹中）。 因此，Visual Studio 会自动找到它们，不需要进一步操作。
 
@@ -71,7 +71,7 @@ Visual Studio 可能会在需要符号的时候（通常是在启动混合模式
     
 1. 选择工具栏上的“添加”按钮（见下文），输入在其中展开了下载的符号的文件夹位置（即 `python.pdb` 所在的文件夹，例如 `c:\python34\Symbols`，如下所示），然后选择“确定”。 
 
-    ![混合模式调试器符号选项](media/mixed-mode-debugging-symbols.png)
+    ![混合模式调试器符号选项](~/docs/python/media/mixed-mode-debugging-symbols.png)
 
 1. 在调试会话期间，Visual Studio 可能还会提示你输入 Python 解释器的源文件位置。 如果已下载源文件（例如从 [python.org/downloads](https://www.python.org/downloads)，当然也可以指向它们。
 

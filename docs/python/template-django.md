@@ -44,22 +44,22 @@ Visual Studio 为 Django 项目提供完整的 IntelliSense：
 
 - 传递给模板的上下文变量：
 
-    ![IntelliSense 的上下文变量](media/template-django-intellisense.png)
+    ![IntelliSense 的上下文变量](~/docs/python/media/template-django-intellisense.png)
 
 - 针对内置和用户定义的标记和筛选器：
 
-    ![IntelliSense 的标记和筛选器](media/template-django-intellisense-filter.png)
+    ![IntelliSense 的标记和筛选器](~/docs/python/media/template-django-intellisense-filter.png)
 
 - 嵌入式 CSS 和 JavaScript 的语法着色：
 
-    ![CSS IntelliSense](media/template-django-intellisense-css.png)
+    ![CSS IntelliSense](~/docs/python/media/template-django-intellisense-css.png)
 
-    ![JavaScript IntelliSense](media/template-django-intellisense-js.png)
+    ![JavaScript IntelliSense](~/docs/python/media/template-django-intellisense-js.png)
 
 
 Visual Studio 还为 Django 项目提供完整的[调试支持](debugging.md)： 
 
-![断点](media/template-django-debugging.png)
+![断点](~/docs/python/media/template-django-debugging.png)
 
 ## <a name="django-management-console"></a>Django 管理控制台
 
@@ -67,16 +67,16 @@ Django 管理控制台可通过“项目”菜单上的各种命令或在解决�
 
 - **打开 Django Shell...**：将打开应用程序上下文中的 shell，这使你能够操作模型
 
-    ![控制台](media/template-django-console-shell.png)
+    ![控制台](~/docs/python/media/template-django-console-shell.png)
 
 - **Django 同步数据库**：在交互式窗口中执行 `manage.py syncdb`：
 
-    ![控制台](media/template-django-console-sync-db.png)
+    ![控制台](~/docs/python/media/template-django-console-sync-db.png)
 
 - **收集静态文件**：执行 `manage.py collectstatic --noinput` 以将所有静态文件复制到由 `settings.py` 中的 `STATIC_ROOT` 指定的路径中。 请注意，当[发布到 Microsoft Azure](template-web.md#publishing-to-azure-app-service) 时，将自动收集静态文件，作为发布操作的一部分。
 
-    ![控制台](media/template-django-console-collect-static.png)
+    ![控制台](~/docs/python/media/template-django-console-collect-static.png)
 
 - **验证**：执行 `manage.py validate`，它将报告由 `settings.py` 中 `INSTALLED_APPS` 指定的已安装模型中的任何验证错误：
 
-    ![控制台](media/template-django-console-validate.png)
+    ![控制台](~/docs/python/media/template-django-console-validate.png)

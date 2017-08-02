@@ -42,9 +42,9 @@ Visual Studio 的 Windows 应用商店应用程序模拟器是一个桌面应用
 ##  <a name="BKMK_Choose_an_interaction_mode"></a> 选择交互模式  
  可以选择下列交互模式  
   
--   ![“鼠标模式”按钮](../debugger/media/simulator_mousemodebtn.png "SIMULATOR\_MouseModeBtn") 鼠标模式：将交互模式设置为鼠标手势。 鼠手势包括单击、双击和拖动。  
+-   ![“鼠标模式”按钮](~/docs/debugger/media/simulator_mousemodebtn.png "SIMULATOR\_MouseModeBtn") 鼠标模式：将交互模式设置为鼠标手势。 鼠手势包括单击、双击和拖动。  
   
--   ![“启动触摸仿真”按钮](../debugger/media/simulator_starttouchemulationbtn.png "SIMULATOR\_StartTouchEmulationBtn") 开始触摸仿真：将交互模式设置为单指的触摸手势。 单指事件包括点击、拖动和轻扫。  
+-   ![“启动触摸仿真”按钮](~/docs/debugger/media/simulator_starttouchemulationbtn.png "SIMULATOR\_StartTouchEmulationBtn") 开始触摸仿真：将交互模式设置为单指的触摸手势。 单指事件包括点击、拖动和轻扫。  
   
      ![Simulator one finger target](../debugger/media/simulator_onefinger.png "SIMULATOR\_OneFinger") 单目标图标指示事件在模拟器中的位置。 使用鼠标为指针定位。  
   
@@ -53,7 +53,7 @@ Visual Studio 的 Windows 应用商店应用程序模拟器是一个桌面应用
 ## 捏合与缩放  
  将交互模式设置为双指的捏合与缩放手势。  
   
--   ![Siimulator two finger target](../debugger/media/simulator_twofinger.png "SIMULATOR\_TwoFinger")  
+-   ![Siimulator two finger target](~/docs/debugger/media/simulator_twofinger.png "SIMULATOR\_TwoFinger")  
   
      双目标图标指示双指在设备屏幕上的位置。  
   
@@ -108,7 +108,7 @@ Visual Studio 的 Windows 应用商店应用程序模拟器是一个桌面应用
   
 -   若要设置屏幕快照所在的位置，请选择“屏幕快照设置”按钮，然后从快捷菜单中选择该位置。  
   
-     ![屏幕快照设置上下文菜单](../debugger/media/simulator_screenshotsettingscntxmnu.png "SIMULATOR\_ScreenShotSettingsCntxMnu")  
+     ![屏幕快照设置上下文菜单](~/docs/debugger/media/simulator_screenshotsettingscntxmnu.png "SIMULATOR\_ScreenShotSettingsCntxMnu")  
   
 ##  <a name="BKMK_Simulate_network_connection_properties"></a> 模拟网络连接属性  
  你可以通过维护感知网络连接成本或数据计划状态更改的能力并允许你的应用程序使用此信息避免产生额外的漫游成本或超出指定的数据传输限制，来帮助你的应用程序用户管理所测量网络连接的成本。 利用 [Windows.Networking.Connectivity](https://msdn.microsoft.com/en-us/library/windows/apps/windows.networking.connectivity.aspx) API 能够对签名的 [NetworkStatusChanged](https://msdn.microsoft.com/en-us/library/windows/apps/windows.networking.connectivity.networkinformation.networkstatuschanged.aspx) 和 [TriggerType](https://msdn.microsoft.com/en-us/library/windows/apps/windows.applicationmodel.background.systemtrigger.triggertype.aspx) 事件作出响应。 请参见[快速入门：管理按流量计费的网络成本约束](http://msdn.microsoft.com/library/windows/apps/Hh750310.aspx)。  

@@ -71,7 +71,7 @@ ms.lasthandoff: 05/13/2017
   
 12. 选择 Checkbox 控件。 在“属性”窗口中，将“名称”属性的值从 \<无名称> 更改为 checkBox1，然后清除“IsEnabled”属性。  
   
-     ![简单 WPF 应用程序](../test/media/codedui_wpfapp.png "CodedUI_WPFApp")  
+     ![简单 WPF 应用程序](~/docs/test/media/codedui_wpfapp.png "CodedUI_WPFApp")  
   
 13. 双击按钮控件，以添加单击事件处理程序。  
   
@@ -163,11 +163,11 @@ ms.lasthandoff: 05/13/2017
   
 8.  在“UIMap - 编码的 UI 测试生成器”中选择“开始记录”。  
   
-     ![开始记录](../test/media/cuit_builder_record.png "CUIT_Builder_Record")  
+     ![开始记录](~/docs/test/media/cuit_builder_record.png "CUIT_Builder_Record")  
   
      如果需要，你可以暂停记录（例如，如果你必须处理传入的邮件）。  
   
-     ![暂停记录](../test/media/cuit_.png "CUIT_")  
+     ![暂停记录](~/docs/test/media/cuit_.png "CUIT_")  
   
     > [!WARNING]
     >  将录制在桌面上执行的所有操作。 如果你正在执行可能会导致敏感数据被包括在录制中的操作，则暂停录制。  
@@ -385,11 +385,11 @@ ms.lasthandoff: 05/13/2017
 ## <a name="external-resources"></a>外部资源  
   
 ### <a name="videos"></a>视频  
- ![链接至视频](../data-tools/media/playvideo.gif "PlayVideo") [编码的 UI 测试-DeepDive-第 1 集-入门](http://go.microsoft.com/fwlink/?LinkID=230573)  
+ ![链接至视频](~/docs/data-tools/media/playvideo.gif "PlayVideo") [编码的 UI 测试-DeepDive-第 1 集-入门](http://go.microsoft.com/fwlink/?LinkID=230573)  
   
- ![链接至视频](../data-tools/media/playvideo.gif "PlayVideo") [编码的 UI 测试-DeepDive-第 2 集-维护和调试](http://go.microsoft.com/fwlink/?LinkID=230574)  
+ ![链接至视频](~/docs/data-tools/media/playvideo.gif "PlayVideo") [编码的 UI 测试-DeepDive-第 2 集-维护和调试](http://go.microsoft.com/fwlink/?LinkID=230574)  
   
- ![链接至视频](../data-tools/media/playvideo.gif "PlayVideo") [编码的 UI 测试-DeepDive-第 3 集-手工编码](http://go.microsoft.com/fwlink/?LinkID=230575)  
+ ![链接至视频](~/docs/data-tools/media/playvideo.gif "PlayVideo") [编码的 UI 测试-DeepDive-第 3 集-手工编码](http://go.microsoft.com/fwlink/?LinkID=230575)  
   
 ### <a name="hands-on-lab"></a>动手实验  
  [MSDN 虚拟实验室：使用 Visual Studio 2010 创建编码的 UI 测试的简介](http://go.microsoft.com/fwlink/?LinkID=22508)  

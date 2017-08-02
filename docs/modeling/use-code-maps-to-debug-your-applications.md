@@ -42,12 +42,12 @@ caps.handback.revision: 49
   
  因此你开始通过搜索 `Undo` 方法来进行调查。  你将会在 `PaintCanvas` 类中找到它。  
   
- ![代码映射 &#45; 查找代码](../modeling/media/codemapstoryboardpaint1.png "CodeMapStoryboardPaint1")  
+ ![代码映射 &#45; 查找代码](~/docs/modeling/media/codemapstoryboardpaint1.png "CodeMapStoryboardPaint1")  
   
 ## 开始映射代码  
  现在开始映射 `undo` 方法及其关系。  从代码编辑器中，将 `undo` 方法及其引用的字段添加到新的代码图。  创建新的代码图时，可能需要一些时间来为代码编制索引。  这有助于加快后续操作的运行速度。  
   
- ![代码映射 &#45; 显示方法和相关的字段](../modeling/media/codemapstoryboardpaint3.png "CodeMapStoryboardPaint3")  
+ ![代码映射 &#45; 显示方法和相关的字段](~/docs/modeling/media/codemapstoryboardpaint3.png "CodeMapStoryboardPaint3")  
   
 > [!TIP]
 >  突出显示的绿色部分显示了上次添加到代码图中的项。  绿色箭头显示你的光标在代码中的位置。  各项之间的箭头表示不同的关系。  你可以通过将鼠标悬停在项上并查看相应的工具提示来详细了解有关代码图上各项的详细信息。  
@@ -69,7 +69,7 @@ caps.handback.revision: 49
   
  ![代码映射 &#45; 查找所有引用](../modeling/media/codemapstoryboardpaint6.png "CodeMapStoryboardPaint6")  
   
- ![从代码编辑器打开代码图](../modeling/media/codemapstoryboardpaint6a.png "CodeMapStoryboardPaint6A")  
+ ![从代码编辑器打开代码图](~/docs/modeling/media/codemapstoryboardpaint6a.PNG "CodeMapStoryboardPaint6A")  
   
 > [!NOTE]
 >  如果你从多个应用（如 Windows Phone 或 Windows 应用商店）之间共享的项目添加项，那么这些项将始终与当前活动的应用程序项目一起显示在代码图上。  因此，如果将上下文更改为另一个应用项目，那么代码图上的上下文也会更改为共享项目中的任何新添加项。  你对代码图上的项执行的操作仅适用于共享相同上下文的项。  

@@ -52,7 +52,7 @@ ms.lasthandoff: 02/22/2017
   
 3.  选择“属性”窗口工具栏上的“事件”按钮，在“属性”窗口中查看“事件”页面。 向下滚动到“Click”事件，在框中输入“label_Click”，如下图所示。  
   
-     ![显示 Click 事件的“属性”窗口](../ide/media/express_labelclick.png "Express_labelClick")  
+     ![显示 Click 事件的“属性”窗口](~/docs/ide/media/express_labelclick.png "Express_labelClick")  
 显示 Click 事件的“属性”窗口  
   
 4.  按 Enter 键。 IDE 将称为 `label_Click()` 的 Click 事件处理程序添加到代码中，并将其挂钩到窗体上的每个标签。  

@@ -51,7 +51,7 @@ caps.handback.revision: 78
 > [!NOTE]  
 >  有一些任务无法通过使用功能区设计器来完成。  有关这些任务以及如何才能完成它们的更多信息，请参见[功能区概述](../vsto/ribbon-overview.md)。  
   
- ![链接到视频](../vsto/media/playvideo.png "链接到视频") 有关相关视频演示，请参见 [How Do I: Use the Ribbon Designer to Customize the Ribbon in Outlook?](http://go.microsoft.com/fwlink/?LinkID=130312)（如何实现：使用功能区设计器在 Outlook 中自定义功能区？）。  
+ ![链接到视频](~/docs/data-tools/media/playvideo.gif "链接到视频") 有关相关视频演示，请参见 [How Do I: Use the Ribbon Designer to Customize the Ribbon in Outlook?](http://go.microsoft.com/fwlink/?LinkID=130312)（如何实现：使用功能区设计器在 Outlook 中自定义功能区？）。  
   
 ## 将功能区（可视化设计器）项添加到项目  
  若要使用功能区设计器，请将一个新的**“功能区\(可视化设计器\)”**项添加到项目。  有关详细信息，请参阅 [如何：开始自定义功能区](../vsto/how-to-get-started-customizing-the-ribbon.md)。  
@@ -109,7 +109,7 @@ caps.handback.revision: 78
   
 -   打开**“Tab 集合编辑器”**，然后单击**“添加”**。  
   
-     若要打开**“Tab 集合编辑器”**，请在**“属性”**窗口中选择**“Tab”**属性，然后单击省略号按钮 ![ASP.NET 移动设计器中的省略号](../sharepoint/media/mwellipsis.png "ASP.NET 移动设计器中的省略号")。  
+     若要打开**“Tab 集合编辑器”**，请在**“属性”**窗口中选择**“Tab”**属性，然后单击省略号按钮 ![ASP.NET 移动设计器中的省略号](~/docs/sharepoint/media/mwellipsis.gif "ASP.NET 移动设计器中的省略号")。  
   
  添加选项卡后，可以添加组以包含控件。  
   

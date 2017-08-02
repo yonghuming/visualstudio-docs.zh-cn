@@ -28,7 +28,7 @@ caps.handback.revision: 20
 # 刷新应用程序 (JavaScript)
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
 
-![适用于 Windows 和 Windows Phone](../debugger/media/windows_and_phone_content.png "windows\_and\_phone\_content")  
+![适用于 Windows 和 Windows Phone](~/docs/debugger/media/windows_and_phone_content.png "windows\_and\_phone\_content")  
   
  可在进行调试时对代码进行更改，然后通过选择**“调试”**工具栏上的**“刷新 Windows 应用”**按钮，刷新使用 JavaScript 的应用商店应用。  选择此按钮将重新加载应用程序，但不会停止并重新启动调试器。  通过“刷新”功能，可修改 HTML、CSS 和 JavaScript 代码并迅速看到结果。  Windows 应用商店和 Windows Phone 应用商店应用均支持此功能。  
   
@@ -77,7 +77,7 @@ caps.handback.revision: 20
     Hello!  
     ```  
   
-7.  单击**“刷新 Windows 应用程序”**按钮，该按钮类似于此：![“刷新 Windows 应用程序”按钮](../debugger/media/js_refresh.png "JS\_Refresh")。  （或按 F4。）  
+7.  单击**“刷新 Windows 应用程序”**按钮，该按钮类似于此：![“刷新 Windows 应用程序”按钮](~/docs/debugger/media/js_refresh.png "JS\_Refresh")。  （或按 F4。）  
   
 8.  切换到该应用程序。  将重新加载该应用程序，但不重新启动调试器，并显示新的页面标题。  
   

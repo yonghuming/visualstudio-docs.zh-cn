@@ -23,7 +23,7 @@ caps.handback.revision: 8
 
 环境处理保存，保存，并保存所有命令。  当用户选择 **保存**、 **保存**或 **" 全部保存** 从 **文件** 菜单或关闭解决方案，使 **" 全部保存**，下面的过程中发生。  
   
- ![标准编辑器](../../extensibility/internals/media/public.png "Public")  
+ ![标准编辑器](~/docs/extensibility/internals/media/public.gif "Public")  
 保存，保存，并保存过程与标准编辑的所有命令  
   
  这将在下面的过程的步骤详细信息:  

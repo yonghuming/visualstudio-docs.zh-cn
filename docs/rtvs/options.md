@@ -45,7 +45,7 @@ ms.lasthandoff: 05/12/2017
  
 要访问设置，可使用“R 工具”>“选项”**菜单，也可使用“工具”>“选项”****，然后滚到“R 工具”**进：
  
-  ![R 工具的选项对话框](media/options-dialog.png)
+  ![R 工具的选项对话框](~/docs/rtvs/media/options-dialog.png)
 
 以下各节描述此页中提供的各个选项...
 
@@ -56,7 +56,7 @@ ms.lasthandoff: 05/12/2017
 
 还有一个特殊菜单项 “R 工具”>“数据科学设置”，可使用针对数据科学家的需求进行了优化的布局来配置 Visual Studio IDE。 具体而言，这个选项将打开[交互](interactive-repl.md)、[变量资源管理器](variable-explorer.md)和[工作区](workspaces.md)窗口：
 
-![Visual Studio 中的数据科学家窗口布局](media/installation-data-scientist-layout-result.png)
+![Visual Studio 中的数据科学家窗口布局](~/docs/rtvs/media/installation-data-scientist-layout-result.png)
 
 > [!Important]      
 > 若稍后要还原到其他 Visual Studio 设置，请先使用“工具”>“导入和导出设置”命令，选择“导出所选环境设置”，然后指定一个文件名。 若要还原这些设置，请使用相同的命令，然后选择“导入所选环境设置”。 如果要更改数据科学家布局，并且想要稍后返回该布局，还可使用相同的命令，而不是直接使用“数据科学设置”命令。

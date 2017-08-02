@@ -106,7 +106,7 @@ ms.lasthandoff: 02/22/2017
 ### <a name="the-explorer-displays-the-embedding-tree"></a>浏览器可显示嵌入树  
  DSL 定义还会创建 explorer 中，用户会看到其模型关系图旁边。  
   
- ![生成资源管理器的 DSL](../modeling/media/music_explorer.png "Music_Explorer")  
+ ![生成资源管理器的 DSL](~/docs/modeling/media/music_explorer.png "Music_Explorer")  
   
  资源管理器在模型中，甚至那些不为其定义的所有形状显示的所有元素。 它显示的元素以及嵌入关系，但不是能引用关系。  
   
@@ -124,7 +124,7 @@ ms.lasthandoff: 02/22/2017
   
  在下面的图中，之间的界线**Publisher**域类和**PublisherCatalog**域之间的关系是源角色。 域关系之间的线条和**唱片集**域类是目标角色。  
   
- ![角色和属性。] (../modeling/media/propertycode.png "PropertyCode")  
+ ![角色和属性。] (~/docs/modeling/media/propertycode.png "PropertyCode")  
   
  编写遍历模型的程序代码时，与关系相关联的名称是特别重要。 例如，在生成 DSL 解决方案时，发布服务器生成的类将有一个属性是集合的唱片集的目录。 唱片集的类具有一个属性是类发布服务器具有单个实例的发布服务器。  
   

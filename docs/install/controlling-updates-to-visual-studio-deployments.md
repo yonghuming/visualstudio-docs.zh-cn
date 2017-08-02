@@ -74,7 +74,7 @@ ms.lasthandoff: 05/10/2017
  8. 安装 Visual Studio 的新用户将直接通过此布局自动安装更新后的 Visual Studio 版本。
 
 ## <a name="controlling-notifications-in-the-visual-studio-ide"></a>在 Visual Studio IDE 中控制通知
-如上所述，Visual Studio 检查其安装位置（例如，网络共享或 Internet），以确定是否有任何更新。 若有更新，Visual Studio 默认会在窗口右上角显示通知标志 ![更新通知标志](media/notification-flag.png) 来通知用户
+如上所述，Visual Studio 检查其安装位置（例如，网络共享或 Internet），以确定是否有任何更新。 若有更新，Visual Studio 默认会在窗口右上角显示通知标志 ![更新通知标志](~/docs/install/media/notification-flag.png) 来通知用户
 
 如果不希望最终用户收到更新通知（例如，通过中央软件分发机制提供更新），可以禁用这些通知。
 

@@ -63,7 +63,7 @@ ms.lasthandoff: 05/23/2017
 
 4.  可以使用工具栏上的“选择工具”设置，选择是否查看 **CPU 使用率**[内存使用](../profiling/Memory-Usage.md)或同时查看两者。 如果运行的是 Visual Studio Enterprise，则可依次选择“工具”、“选项”、“IntelliTrace”启用或禁用 IntelliTrace。
 
-     ![显示诊断工具](../profiling/media/DiagToolsSelectTool.png "DiagToolsSelectTool")
+     ![显示诊断工具](~/docs/profiling/media/DiagToolsSelectTool.png "DiagToolsSelectTool")
 
      我们将主要查看 CPU 使用率，因此请确保已启用**CPU 使用率**（默认情况下已启用）。
 
@@ -71,7 +71,7 @@ ms.lasthandoff: 05/23/2017
 
      当应用完成加载后，将显示诊断工具的“摘要”视图。
 
-     ![诊断工具“摘要”选项卡](../profiling/media/DiagToolsSummaryTab.png "DiagToolsSummaryTab")
+     ![诊断工具“摘要”选项卡](~/docs/profiling/media/DiagToolsSummaryTab.png "DiagToolsSummaryTab")
 
      有关事件的详细信息，请参阅[搜索和筛选“诊断工具”窗口中的“事件”选项卡](http://blogs.msdn.com/b/visualstudioalm/archive/2015/11/12/searching-and-filtering-the-events-tab-of-the-diagnostic-tools-window.aspx)
 
@@ -79,7 +79,7 @@ ms.lasthandoff: 05/23/2017
 
 7.  调试器暂停时，启用收集 CPU 使用率数据，然后打开“CPU 使用率”选项卡。
 
-     ![诊断工具启用 CPU 分析](../profiling/media/DiagToolsEnableCPUProfiling.png "DiagToolsEnableCPUProfiling")
+     ![诊断工具启用 CPU 分析](~/docs/profiling/media/DiagToolsEnableCPUProfiling.png "DiagToolsEnableCPUProfiling")
 
      选择“启用 CPU 分析”时，Visual Studio 将开始记录函数和执行这些函数所用的时间。 应用程序在断点处中断时，仅可以查看此收集的数据。
 
@@ -89,15 +89,15 @@ ms.lasthandoff: 05/23/2017
 
 9.  选择希望在 CPU 时间线中进行分析的区域（必须是显示分析数据的区域）。
 
-     ![诊断工具选择时间段](../profiling/media/DiagToolsSelectTimeSegment.png "DiagToolsSelectTimeSegment")
+     ![诊断工具选择时间段](~/docs/profiling/media/DiagToolsSelectTimeSegment.png "DiagToolsSelectTimeSegment")
 
      探查器开始准备线程数据。 等待其完成。
 
-     ![诊断工具准备线程](../profiling/media/DiagToolsPreparingThreads.png "DiagToolsPreparingThreads")
+     ![诊断工具准备线程](~/docs/profiling/media/DiagToolsPreparingThreads.png "DiagToolsPreparingThreads")
   
      CPU 使用率工具在“CPU 使用率”选项卡中显示报表。
   
-     ![诊断工具“ CPU 使用率”选项卡](../profiling/media/DiagToolsCPUUsageTab.png "DiagToolsCPUUsageTab")
+     ![诊断工具“ CPU 使用率”选项卡](~/docs/profiling/media/DiagToolsCPUUsageTab.png "DiagToolsCPUUsageTab")
 
      现在可以开始分析数据。
 
@@ -107,7 +107,7 @@ ms.lasthandoff: 05/23/2017
 
 1. 在函数列表中，检查执行大部分工作的函数。
 
-    ![诊断工具 CPU 使用率函数列表](../profiling/media/DiagToolsCPUUsageFunctionList.png "DiagToolsCPUUsageFunctionList")
+    ![诊断工具 CPU 使用率函数列表](~/docs/profiling/media/DiagToolsCPUUsageFunctionList.png "DiagToolsCPUUsageFunctionList")
 
     > [!TIP]
     > 函数将按执行工作量从多到少排列（不按调用顺序）。 这有助于快速标识运行时间最长的函数。
@@ -116,7 +116,7 @@ ms.lasthandoff: 05/23/2017
 
     双击该函数时，将在左侧窗格中打开“调用方/被调用方”视图。 
 
-    ![诊断工具调用方和被调用方视图](../profiling/media/DiagToolsCallerCallee.png "DiagToolsCallerCallee")
+    ![诊断工具调用方和被调用方视图](~/docs/profiling/media/DiagToolsCallerCallee.png "DiagToolsCallerCallee")
 
     在此视图中，所选函数显示在标题和“当前函数”框中（本例中为 GetNumber）。 调用当前函数的函数显示在左侧的“调用函数”中，当前函数调用的任何函数均显示在右侧的“被调用函数”框中。 （可选择其中一个框来更改当前函数。）
 
@@ -131,7 +131,7 @@ ms.lasthandoff: 05/23/2017
  
     图中每个带编号的区域都与过程中的一个步骤相关。
   
-    ![诊断工具调用关系树](../profiling/media/DiagToolsCallTree.png "DiagToolsCallTree")
+    ![诊断工具调用关系树](~/docs/profiling/media/DiagToolsCallTree.png "DiagToolsCallTree")
   
 |||
 |-|-|
@@ -154,7 +154,7 @@ ms.lasthandoff: 05/23/2017
   
 若要查看外部代码的调用路径，请从“筛选器视图”列表中选择“显示外部代码”，然后选择“应用”。  
   
-![选择“筛选器视图”，然后选择“显示外部代码”](../profiling/media/DiagToolsShowExternalCode.png "DiagToolsShowExternalCode")  
+![选择“筛选器视图”，然后选择“显示外部代码”](~/docs/profiling/media/DiagToolsShowExternalCode.png "DiagToolsShowExternalCode")  
   
 请注意，许多外部代码调用链已深度嵌套，因此函数名列的宽度可能超过所有计算机监视器（最大的计算机监视器除外）的显示宽度。 发生这种情况时，函数名将显示为 […]。
   

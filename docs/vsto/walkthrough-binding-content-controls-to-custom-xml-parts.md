@@ -89,15 +89,15 @@ caps.handback.revision: 50
     > [!NOTE]  
     >  如果**“开发人员”**选项卡不可见，则必须首先显示它。  有关详细信息，请参阅[如何：在功能区上显示“开发人员”选项卡](../vsto/how-to-show-the-developer-tab-on-the-ribbon.md)。  
   
-6.  在**“控件”**组中，选择**“文本”**按钮 ![PlainTextContentControl](../vsto/media/plaintextcontrol.png "PlainTextContentControl") 以将 <xref:Microsoft.Office.Tools.Word.PlainTextContentControl> 添加到第一个单元格。  
+6.  在**“控件”**组中，选择**“文本”**按钮 ![PlainTextContentControl](~/docs/vsto/media/plaintextcontrol.gif "PlainTextContentControl") 以将 <xref:Microsoft.Office.Tools.Word.PlainTextContentControl> 添加到第一个单元格。  
   
 7.  在表格的第二列中，选择第二行（**“雇用日期”**旁边）。  
   
-8.  在**“控件”**组中，选择**“日期选取器”**按钮 ![DatePickerContentControl](../vsto/media/datepicker.png "DatePickerContentControl") 以将 <xref:Microsoft.Office.Tools.Word.DatePickerContentControl> 添加到第二个单元格。  
+8.  在**“控件”**组中，选择**“日期选取器”**按钮 ![DatePickerContentControl](~/docs/vsto/media/datepicker.gif "DatePickerContentControl") 以将 <xref:Microsoft.Office.Tools.Word.DatePickerContentControl> 添加到第二个单元格。  
   
 9. 在表格的第二列中，选择第三行（**“职务”**旁边）。  
   
-10. 在**“控件”**组中，选择**“下拉列表”**按钮 ![DropDownListContentControl](../vsto/media/dropdownlist.png "DropDownListContentControl") 以将 <xref:Microsoft.Office.Tools.Word.DropDownListContentControl> 添加到最后一个单元格。  
+10. 在**“控件”**组中，选择**“下拉列表”**按钮 ![DropDownListContentControl](~/docs/vsto/media/dropdownlist.gif "DropDownListContentControl") 以将 <xref:Microsoft.Office.Tools.Word.DropDownListContentControl> 添加到最后一个单元格。  
   
  这是此项目的整个用户界面。  如果现在运行项目，则可以在第一行中键入文本并在第二行选择一个日期。  下一步是将需要显示的数据附加到 XML 文件中的文档。  
   

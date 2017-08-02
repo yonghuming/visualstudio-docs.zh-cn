@@ -67,11 +67,11 @@ Python 单元测试广泛应用于在程序设计期间验证方案。 针对 Vi
 
 1. 测试资源管理器将搜索要测试的项目并进行显示，如下所示。 双击测试打开其源文件。
 
-    ![显示默认 test_A 的测试资源管理器](media/unit-test-A.png)
+    ![显示默认 test_A 的测试资源管理器](~/docs/python/media/unit-test-A.png)
 
 1. 向项目添加更多测试时，可以使用工具栏上的“分组”菜单整理测试资源管理器中视图：
 
-    ![测试资源管理器分组工具栏菜单](media/unit-test-group-menu.png)
+    ![测试资源管理器分组工具栏菜单](~/docs/python/media/unit-test-group-menu.png)
 
 1. 还可以在搜索字段中输入文本以按名称筛选测试。
 
@@ -89,13 +89,13 @@ Python 单元测试广泛应用于在程序设计期间验证方案。 针对 Vi
 
 - 通过的测试将显示一个绿勾和运行测试所花费的时间：
 
-    ![test_A 通过状态](media/unit-test-A-pass.png)
+    ![test_A 通过状态](~/docs/python/media/unit-test-A-pass.png)
 
 - 失败的测试将显示带有**输出**链接的红叉，该链接显示控制台输出和测试运行中的 `unittest` 输出：
 
-    ![test_A 失败状态](media/unit-test-A-fail.png)
+    ![test_A 失败状态](~/docs/python/media/unit-test-A-fail.png)
 
-    ![test_A 失败及原因](media/unit-test-A-fail-reason.png)
+    ![test_A 失败及原因](~/docs/python/media/unit-test-A-fail-reason.png)
 
 ## <a name="debugging-tests"></a>调试测试
 
@@ -103,7 +103,7 @@ Python 单元测试广泛应用于在程序设计期间验证方案。 针对 Vi
 
 若要开始调试，请在代码中设置初始断点，然后在测试资源管理器中右键单击测试（或所做选择），然后选择“调试所选测试”。 Visual Studio 将启动 Python 调试器，与为应用程序代码启动 Python 调试器一样。
 
-![调试测试](media/unit-test-debugging.png)
+![调试测试](~/docs/python/media/unit-test-debugging.png)
 
 还可使用“分析所选测试的代码覆盖率”和“配置文件测试”命令，具体取决于 Visual Studio 版本（请参阅[功能矩阵](python-in-visual-studio.md#features-matrix)）。
 

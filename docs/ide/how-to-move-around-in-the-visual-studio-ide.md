@@ -74,7 +74,7 @@ ms.lasthandoff: 05/24/2017
   
  “IDE 导航器”工作方式非常类似于 Windows 应用程序切换器。 不能从菜单使用它，仅可使用键盘快捷方式进行访问。 可以使用两个命令中的任一个来访问“IDE 导航器”（如下所示）以便在文件间循环切换，具体取决于你希望的循环切换顺序。  
   
- ![Visual Studio IDE 导航器](../ide/media/vs2015_ide_navigator.png "VS2015_IDE_Navigator")  
+ ![Visual Studio IDE 导航器](~/docs/ide/media/vs2015_ide_navigator.png "VS2015_IDE_Navigator")  
   
  使用 `Window.PreviousDocumentWindowNav` 可移动到最近访问的文件，使用 `Window.NextDocumentWindowNav` 可按相反顺序移动。 常规开发设置将 CTRL + SHIFT + TAB 分配给 `Window.PreviousDocumentWindowNav`，将 CTRL + TAB 分配给 `Window.NextDocumentWindowNav`。  
   

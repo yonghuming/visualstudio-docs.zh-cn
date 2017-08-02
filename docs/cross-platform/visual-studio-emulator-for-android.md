@@ -100,7 +100,7 @@ ms.lasthandoff: 05/13/2017
   
  在 Visual Studio 2015 中，可以通过使用仿真程序管理器安装、卸载和启用设备配置文件。 通过选择“工具”，然后选择“适用于 Android 的 Visual Studio 仿真程序”访问仿真程序管理器。  
   
- ![适用于 Android 管理器的 Visual Studio 仿真程序](../cross-platform/media/android_emu_manager.png "Android_Emu_Manager")  
+ ![适用于 Android 管理器的 Visual Studio 仿真程序](~/docs/cross-platform/media/android_emu_manager.png "Android_Emu_Manager")  
   
  默认情况下，有四个预安装的设备配置文件（KitKat 和 Lollipop 手机/5"和平板电脑/7"配置），如下白色文本和图标所示。 在选择“安装配置文件”按钮以及安装完成之前，列表中的其他配置文件将显示处于灰显状态。 可以按 API 级别筛选列表，然后单击配置文件底部右侧上的详细信息箭头，查看其完整的配置详细信息。  
   

@@ -29,7 +29,7 @@ caps.handback.revision: 16
   
  此规则将按递归方式应用到复制的元素和链接。  
   
- ![复制和粘贴的元素](../modeling/media/dslcopypastedefault.png "DslCopyPasteDefault")  
+ ![复制和粘贴的元素](~/docs/modeling/media/dslcopypastedefault.png "DslCopyPasteDefault")  
   
  复制的元素和链接将进行序列化并存储在位于剪贴板上的 <xref:Microsoft.VisualStudio.Modeling.ElementGroupPrototype> \(EGP\)。  
   
@@ -237,7 +237,7 @@ partial class MyDslClipboardCommandSet // EDIT NAME
 > [!TIP]
 >  有关通过使用程序代码自定义模型的详细信息，请参阅[在程序代码中导航和更新模型](../modeling/navigating-and-updating-a-model-in-program-code.md)。  
   
- ![复制操作的序列图](../modeling/media/dslcopyseqdiagram.png "dslCopySeqDiagram")  
+ ![复制操作的序列图](~/docs/modeling/media/dslcopyseqdiagram.png "dslCopySeqDiagram")  
   
  ![粘贴操作的序列图](../modeling/media/dslpasteseqdiagram.png "dslPasteSeqDiagram")  
   

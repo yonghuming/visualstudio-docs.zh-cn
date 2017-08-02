@@ -31,7 +31,7 @@ caps.handback.revision: 3
   
 2.  在 [XML 资源管理器](../xml-tools/xml-schema-explorer.md)工具栏的搜索文本框中键入“purchaseOrder”，然后单击搜索按钮。  
   
-     ![XML 架构资源管理器关键字搜索](../xml-tools/media/schemaexplorersearch.gif "SchemaExplorerSearch")  
+     ![XML 架构资源管理器关键字搜索](~/docs/xml-tools/media/schemaexplorersearch.gif "SchemaExplorerSearch")  
   
      搜索结果将突出显示在 XML 架构资源管理器中，并用垂直滚动条上的刻度标记。  
   

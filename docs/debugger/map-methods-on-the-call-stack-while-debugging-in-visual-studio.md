@@ -75,7 +75,7 @@ ms.lasthandoff: 02/22/2017
   
 2.  你的应用进入中断模式或你单步执行某一函数之后，请选择**代码图**。 (Keyboard: **Ctrl** + **Shift** + **`**)  
   
-     ![选择代码图以开始映射调用堆栈](../debugger/media/debuggermap_choosecodemap.png "DebuggerMap_ChooseCodeMap")  
+     ![选择代码图以开始映射调用堆栈](~/docs/debugger/media/debuggermap_choosecodemap.png "DebuggerMap_ChooseCodeMap")  
   
      当前的调用堆栈在新代码图上显示为橙色：  
   
@@ -136,11 +136,11 @@ ms.lasthandoff: 02/22/2017
   
      默认情况下，只有你自己的代码会显示在图中。 若要查看外部代码，它在打开**调用堆栈**窗口︰  
   
-     ![使用调用堆栈窗口显示外部代码](../debugger/media/debuggermap_callstackmenu.png "DebuggerMap_CallStackMenu")  
+     ![使用调用堆栈窗口显示外部代码](~/docs/debugger/media/debuggermap_callstackmenu.png "DebuggerMap_CallStackMenu")  
   
      或者关闭**启用 ' 仅我的代码**在 Visual Studio 调试选项︰  
   
-     ![使用选项对话框显示外部代码](../debugger/media/debuggermap_debugoptions.png "DebuggerMap_DebugOptions")  
+     ![使用选项对话框显示外部代码](~/docs/debugger/media/debuggermap_debugoptions.png "DebuggerMap_DebugOptions")  
   
 -   **更改图是否会影响代码？**  
   
@@ -168,7 +168,7 @@ ms.lasthandoff: 02/22/2017
   
 -   **如何停止此图自动添加新的调用堆栈？**  
   
-     选择![按钮的显示调用堆栈代码图上自动](../debugger/media/debuggermap_automaticupdateicon.gif "DebuggerMap_AutomaticUpdateIcon")图工具栏上。 若要手动添加到映射的当前调用堆栈，请按**Ctrl** + **Shift** + **`**。  
+     选择![按钮的显示调用堆栈代码图上自动](~/docs/debugger/media/debuggermap_automaticupdateicon.gif "DebuggerMap_AutomaticUpdateIcon")图工具栏上。 若要手动添加到映射的当前调用堆栈，请按**Ctrl** + **Shift** + **`**。  
   
      在你进行调试时，图中将继续突出显示现有调用堆栈。  
   

@@ -36,7 +36,7 @@ ms.openlocfilehash: 0bb84ea6c47764aa0429fdebf160dae0fd47e570
 ### <a name="open-in-xcode"></a>在 XCode 中打开  
  若要从 Visual Studio 打开 XCode 中的项目，请在“远程计算机”子菜单上选择“在 XCode 中打开”以便在配对的远程计算机上打开所选项目。 vcremote 服务器用于在 Mac 上打开 XCode，并导航到 Mac 上创建的包含项目副本的临时目录。 Visual Studio 会弹出一个对话框，显示用于项目的临时目录。 远程计算机上执行的操作也会在 Visual Studio 的“输出”窗口中显示。 若要查看它们，可能需要在“输出”窗口顶部的“显示输出”下拉菜单中选择“Visual C++ 远程计算机”。  
   
- ![“输出”窗口显示远程计算机操作。](../cross-platform/media/cppmdd_u2_remotemachine_output.png "CPPMDD_U2_RemoteMachine_Output")  
+ ![“输出”窗口显示远程计算机操作。](~/docs/cross-platform/media/cppmdd_u2_remotemachine_output.png "CPPMDD_U2_RemoteMachine_Output")  
   
  在 Mac 上，可通过任意 XCode 工具编辑代码和资源、情节提要以及操作。 iOS 应用程序项目在 Visual Studio 中注释为“在 XCode 中打开”，这表示可能在远程计算机上进行了更改。 编辑完成后，可使用“从远程拉取”或“从远程增量拉取”命令将更改复制回 Visual Studio 项目。  
   

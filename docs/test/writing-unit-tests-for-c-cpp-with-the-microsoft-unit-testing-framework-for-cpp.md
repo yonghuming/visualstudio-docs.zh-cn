@@ -132,7 +132,7 @@ ms.lasthandoff: 05/30/2017
   
 2.  在新项目中，检查 **unittest1.cpp**  
   
-     ![具有 TEST&#95;CLASS 和 TEST&#95;METHOD 的测试项目](../test/media/utecpp2.png "UteCpp2")  
+     ![具有 TEST&#95;CLASS 和 TEST&#95;METHOD 的测试项目](~/docs/test/media/utecpp2.png "UteCpp2")  
   
      请注意：  
   
@@ -165,7 +165,7 @@ ms.lasthandoff: 05/30/2017
   
          测试显示在“通过的测试” 下方。  
   
-         ![具有 1 个已通过测试的单元测试资源管理器](../test/media/utecpp04.png "UteCpp04")  
+         ![具有 1 个已通过测试的单元测试资源管理器](~/docs/test/media/utecpp04.png "UteCpp04")  
   
 ###  <a name="createDllProject"></a> 创建非托管 DLL 项目  
   
@@ -183,7 +183,7 @@ ms.lasthandoff: 05/30/2017
   
 3.  在主体 .h 文件中声明导出函数：  
   
-     ![使用 API 宏新建 DLL 代码项目和 .h 文件](../test/media/utecpp07.png "UteCpp07")  
+     ![使用 API 宏新建 DLL 代码项目和 .h 文件](~/docs/test/media/utecpp07.png "UteCpp07")  
   
      声明符 `__declspec(dllexport)` 会导致类的公共和受保护成员在 DLL 外可见。 有关详细信息，请参阅 [Using dllimport and dllexport in C++ Classes](/cpp/cpp/using-dllimport-and-dllexport-in-cpp-classes)。  
   
@@ -243,7 +243,7 @@ ms.lasthandoff: 05/30/2017
   
 5.  在“测试资源管理器”中，选择 **“全部运行”**。  
   
-     ![单元测试资源管理器 &#45; 已通过基本测试](../test/media/utecpp10.png "UteCpp10")  
+     ![单元测试资源管理器 &#45; 已通过基本测试](~/docs/test/media/utecpp10.png "UteCpp10")  
   
  你已设置测试和代码项目，并已验证可运行测试（运行测试项目中的函数）。 现在可以开始编写实际测试和代码。  
   

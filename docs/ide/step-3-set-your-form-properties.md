@@ -20,7 +20,7 @@ caps.handback.revision: 18
 
 接下来，使用**“属性”**窗口来更改窗体的外观。  
   
- ![链接到视频](../data-tools/media/playvideo.png "PlayVideo") 有关本主题的视频版本，请参阅[教程 1：用 Visual Basic 创建图片查看器 \- 视频 1](http://go.microsoft.com/fwlink/?LinkId=205209) 或[教程 1：用 C\# 创建图片查看器 \- 视频 1](http://go.microsoft.com/fwlink/?LinkId=205199)。  这些视频使用 Visual Studio 的早期版本，因此在一些菜单命令和其他用户界面元素上略有差异。  但是，概念和过程与当前版本的 Visual Studio 大同小异。  
+ ![链接到视频](~/docs/data-tools/media/playvideo.gif "PlayVideo") 有关本主题的视频版本，请参阅[教程 1：用 Visual Basic 创建图片查看器 \- 视频 1](http://go.microsoft.com/fwlink/?LinkId=205209) 或[教程 1：用 C\# 创建图片查看器 \- 视频 1](http://go.microsoft.com/fwlink/?LinkId=205199)。  这些视频使用 Visual Studio 的早期版本，因此在一些菜单命令和其他用户界面元素上略有差异。  但是，概念和过程与当前版本的 Visual Studio 大同小异。  
   
 ### 设置窗体属性  
   
@@ -41,7 +41,7 @@ caps.handback.revision: 18
   
 4.  返回 Windows 窗体设计器。  选择窗体右下角的拖动手柄，此拖动手柄是位于窗体右下角的白色小正方形，如下所示。  
   
-     ![拖动句柄](../ide/media/express_bottomrt_drag.png "Express\_BottomRT\_Drag")  
+     ![拖动句柄](~/docs/ide/media/express_bottomrt_drag.png "Express\_BottomRT\_Drag")  
 拖动手柄  
   
      拖动手柄以调整窗体的大小，使其更宽且更高一些。  

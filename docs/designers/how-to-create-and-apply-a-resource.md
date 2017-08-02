@@ -50,7 +50,7 @@ XAML 设计器中元素的样式和模板存储在称作资源的可重用实体
   
      将出现用于创建资源的相应对话框。 当从画笔创建资源时，就会出现此对话框：  
   
-     ![“创建资源”对话框](../designers/media/xaml_create_resource.png "xaml_create_resource")  
+     ![“创建资源”对话框](~/docs/designers/media/xaml_create_resource.png "xaml_create_resource")  
   
 3.  在“名称(关键字)”框中，输入关键字名称。 这是当希望其他元素可以引用该资源时，可以使用的名称。  
   

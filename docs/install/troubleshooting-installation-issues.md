@@ -65,9 +65,9 @@ Visual Studio 安装程序引导程序是最轻型的可执行文件，用于安
 
 1. 下载并运行 [Microsoft Visual Studio 和 .NET Framework 日志收集工具](https://www.microsoft.com/en-us/download/details.aspx?id=12493)。 此工具可收集并编译 Visual Studio、.NET Framework 和 SQL Server 安装的安装程序日志。
 2. 打开 Visual Studio 安装程序，然后单击“报告问题”，打开 Visual Studio 反馈工具。
-![可以使用 Tab 键定位到“提供反馈”按钮，从而打开反馈工具](media/report-a-problem.png)
+![可以使用 Tab 键定位到“提供反馈”按钮，从而打开反馈工具](~/docs/install/media/report-a-problem.png)
 3. 为问题报告命名一个标题，然后输入相关详细信息。 单击“下一步”，转到“附件”部分，然后附加生成的日志文件（此文件通常位于 %TEMP%\vslogs.zip）。
-![使用 Tab 键定位到“报告新问题”按钮，然后完成所有相关步骤](media/problem-report-details.png)
+![使用 Tab 键定位到“报告新问题”按钮，然后完成所有相关步骤](~/docs/install/media/problem-report-details.png)
 4. 单击“下一步”，检查问题报告，然后单击“提交”。
 
 ### <a name="step-5---run-installcleanupexe-to-clean-up-installation-files"></a>第 5 步 - 运行 InstallCleanup.exe 清理安装文件

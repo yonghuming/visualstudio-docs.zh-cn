@@ -53,7 +53,7 @@ ms.lasthandoff: 05/13/2017
   
 2.  选择记录操作。  
   
-     ![选择记录操作](../test/media/cuit_datadriven_generatecodedialog.png "CUIT_dataDriven_GenerateCodeDialog")  
+     ![选择记录操作](~/docs/test/media/cuit_datadriven_generatecodedialog.png "CUIT_dataDriven_GenerateCodeDialog")  
   
 3.  打开计算器应用程序并开始记录测试。  
   
@@ -61,7 +61,7 @@ ms.lasthandoff: 05/13/2017
   
 4.  添加 1 + 2，暂停记录器并生成测试方法。 以后我们将用数据文件中的值替换该用户输入的值。  
   
-     ![生成测试方法](../test/media/cuit_datadriven_cuitbuildergencode.png "CUIT_dataDriven_CUITBuilderGenCode")  
+     ![生成测试方法](~/docs/test/media/cuit_datadriven_cuitbuildergencode.png "CUIT_dataDriven_CUITBuilderGenCode")  
   
      关闭测试生成器。 方法已添加到测试中：  
   
@@ -91,7 +91,7 @@ ms.lasthandoff: 05/13/2017
   
 8.  配置断言之后，再次从生成器生成代码。 这就创建一个新的验证方法。  
   
-     ![生成断言方法](../test/media/cuit_datadriven_assertiongencode.png "CUIT_dataDriven_AssertionGenCode")  
+     ![生成断言方法](~/docs/test/media/cuit_datadriven_assertiongencode.png "CUIT_dataDriven_AssertionGenCode")  
   
      因为 `ValidateSum` 方法验证了 `AddNumbers` 方法的结果，将其移至代码块的底部。  
   

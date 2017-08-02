@@ -60,7 +60,7 @@ Visual Studio 项目具有针对你的程序的单独发布和调试配置。  �
   
 2.  在工具栏上，从**“解决方案配置”**列表框选择**“调试”**或**“发布”**。  
   
-     ![工具栏生成配置](../debugger/media/toolbarbuildconfiguration.png "ToolbarBuildConfiguration")  
+     ![工具栏生成配置](~/docs/debugger/media/toolbarbuildconfiguration.png "ToolbarBuildConfiguration")  
   
      Express 版中不提供此工具栏。  您可以使用**“生成解决方案 F6”**和**“启动调试 F5”**菜单项来选择配置。  
   

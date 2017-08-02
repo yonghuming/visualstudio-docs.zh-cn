@@ -49,7 +49,7 @@ manager: "ghogen"
 > [!NOTE]
 >  **“显示外部代码”**设置会保存到当前用户的探查器。  它会应用于所有语言中由用户打开的所有项目。  
   
- ![返回页首](../debugger/media/pcs_backtotop.png "PCS\_BackToTop") [内容](#BKMK_Contents)  
+ ![返回页首](~/docs/debugger/media/pcs_backtotop.png "PCS\_BackToTop") [内容](#BKMK_Contents)  
   
 ##  <a name="BKMK__NET_Framework_Just_My_Code"></a> .NET framework“仅我的代码”  
  [用户和非用户代码](#BKMK_NET_User_and_non_user_code) **&#124;** [单步执行行为](#BKMK_NET_Stepping_behavior) **&#124;** [断点行为](#BKMK_NET_Breakpoint_behavior) **&#124;** [异常行为](#BKMK_NET_Exception_behavior)  
@@ -71,24 +71,24 @@ manager: "ghogen"
   
  将所有其他代码都视为用户代码。  
   
- ![返回页首](../debugger/media/pcs_backtotop.png "PCS\_BackToTop") [内容](#BKMK_Contents) **&#124;** [.NET framework“仅我的代码”](#BKMK__NET_Framework_Just_My_Code)  
+ ![返回页首](~/docs/debugger/media/pcs_backtotop.png "PCS\_BackToTop") [内容](#BKMK_Contents) **&#124;** [.NET framework“仅我的代码”](#BKMK__NET_Framework_Just_My_Code)  
   
 ###  <a name="BKMK_NET_Stepping_behavior"></a> 单步执行行为  
  **“单步执行”**（键盘快捷键：F11）非用户代码时，调试器会逐过程执行代码到下一个用户语句。  **“跳出”**（键盘： Shift \+ F11）时，调试器会运行到下一行用户代码。  如果未遇到用户代码，则执行会继续，直到应用退出、命中断点或发生异常。  
   
- ![返回页首](../debugger/media/pcs_backtotop.png "PCS\_BackToTop") [内容](#BKMK_Contents) **&#124;** [.NET framework“仅我的代码”](#BKMK__NET_Framework_Just_My_Code)  
+ ![返回页首](~/docs/debugger/media/pcs_backtotop.png "PCS\_BackToTop") [内容](#BKMK_Contents) **&#124;** [.NET framework“仅我的代码”](#BKMK__NET_Framework_Just_My_Code)  
   
 ###  <a name="BKMK_NET_Breakpoint_behavior"></a> 断点行为  
  启用“仅我的代码”后，可以选择**“全部中断”**（键盘：Ctrl \+ Alt \+ Break），在不显示用户代码的位置处停止执行。  发生这种情况时，会显示“无源”窗口。  如果随后选择“单步执行”命令，则调试器会到达下一行用户代码。  
   
- ![返回页首](../debugger/media/pcs_backtotop.png "PCS\_BackToTop") [内容](#BKMK_Contents) **&#124;** [.NET framework“仅我的代码”](#BKMK__NET_Framework_Just_My_Code)  
+ ![返回页首](~/docs/debugger/media/pcs_backtotop.png "PCS\_BackToTop") [内容](#BKMK_Contents) **&#124;** [.NET framework“仅我的代码”](#BKMK__NET_Framework_Just_My_Code)  
   
 ###  <a name="BKMK_NET_Exception_behavior"></a> 异常行为  
  如果在非用户代码中出现未经处理的异常，则调试器会在用户代码中生成异常的行上中断。  
   
  如果针对异常启用了第一机会异常，则以绿色突出显示用户代码行。  调用堆栈会显示标签为**“\[外部代码\]”**的带批注帧。  
   
- ![返回页首](../debugger/media/pcs_backtotop.png "PCS\_BackToTop") [内容](#BKMK_Contents) **&#124;** [.NET framework“仅我的代码”](#BKMK__NET_Framework_Just_My_Code)  
+ ![返回页首](~/docs/debugger/media/pcs_backtotop.png "PCS\_BackToTop") [内容](#BKMK_Contents) **&#124;** [.NET framework“仅我的代码”](#BKMK__NET_Framework_Just_My_Code)  
   
 ##  <a name="BKMK_C___Just_My_Code"></a> C\+\+“仅我的代码”  
  [用户和非用户代码](#BKMK_CPP_User_and_non_user_code) **&#124;** [单步执行行为](#BKMK_CPP_Stepping_behavior) **&#124;** [异常行为](#BKMK_CPP_Exception_behavior) **&#124;** [自定义单步执行行为](#BKMK_CPP_Customize_stepping_behavior) **&#124;** [自定义调用堆栈行为](#BKMK_CPP_Customize_call_stack_behavior)  
@@ -112,19 +112,19 @@ manager: "ghogen"
   
  可以在 `%USERPROFILE%\My Documents\Visual Studio 2015\Visualizers` 中创建自己的 `.natstepfilter` 和 `.natjmc` 以自定义单步执行和调用堆栈窗口行为。  
   
- ![返回页首](../debugger/media/pcs_backtotop.png "PCS\_BackToTop") [内容](#BKMK_Contents) **&#124;** [C++“仅我的代码”](#BKMK_C___Just_My_Code)  
+ ![返回页首](~/docs/debugger/media/pcs_backtotop.png "PCS\_BackToTop") [内容](#BKMK_Contents) **&#124;** [C++“仅我的代码”](#BKMK_C___Just_My_Code)  
   
 ###  <a name="BKMK_CPP_Stepping_behavior"></a> 单步执行行为  
  从用户代码**“单步执行”**（键盘快捷键：F11）非用户代码时，调试器会逐过程执行代码到下一行用户代码。  **“跳出”**（键盘： Shift \+ F11）时，调试器会运行到下一行用户代码。  如果未遇到用户代码，则执行会继续，直到应用退出、命中断点或发生异常。  
   
  如果调试器在非用户代码中中断（例如，如果“全部中断”命令在非用户代码中停止），则单步执行会继续在非用户代码中进行。  
   
- ![返回页首](../debugger/media/pcs_backtotop.png "PCS\_BackToTop") [内容](#BKMK_Contents) **&#124;** [C++“仅我的代码”](#BKMK_C___Just_My_Code)  
+ ![返回页首](~/docs/debugger/media/pcs_backtotop.png "PCS\_BackToTop") [内容](#BKMK_Contents) **&#124;** [C++“仅我的代码”](#BKMK_C___Just_My_Code)  
   
 ###  <a name="BKMK_CPP_Exception_behavior"></a> 异常行为  
  当调试器遇到异常时，它会异常处停止，而不考虑是处于用户还是非用户代码中。  会忽略**“异常”**对话框中的**“用户未处理的”**选项。  
   
- ![返回页首](../debugger/media/pcs_backtotop.png "PCS\_BackToTop") [内容](#BKMK_Contents) **&#124;** [C++“仅我的代码”](#BKMK_C___Just_My_Code)  
+ ![返回页首](~/docs/debugger/media/pcs_backtotop.png "PCS\_BackToTop") [内容](#BKMK_Contents) **&#124;** [C++“仅我的代码”](#BKMK_C___Just_My_Code)  
   
 ###  <a name="BKMK_CPP_Customize_stepping_behavior"></a> 自定义单步执行行为  
  可以通过在 `*.natstepfilter` 文件中将函数列为非用户代码来指定要逐过程执行的函数。  
@@ -158,7 +158,7 @@ manager: "ghogen"
 |`Module`|可选。  ECMA\-262 格式的正则表达式，指定包含函数的模块的完整路径。  匹配不区分大小写。|  
 |`Action`|必需。  以下区分大小写的值之一：<br /><br /> -   `NoStepInto`  – 告知调试器逐过程执行匹配的函数。<br />-   `StepInto`  – 告知调试器单步执行匹配的函数，为匹配的函数重写任何其他 `NoStepInto`。|  
   
- ![返回页首](../debugger/media/pcs_backtotop.png "PCS\_BackToTop") [内容](#BKMK_Contents) **&#124;** [C++“仅我的代码”](#BKMK_C___Just_My_Code)  
+ ![返回页首](~/docs/debugger/media/pcs_backtotop.png "PCS\_BackToTop") [内容](#BKMK_Contents) **&#124;** [C++“仅我的代码”](#BKMK_C___Just_My_Code)  
   
 ###  <a name="BKMK_CPP_Customize_call_stack_behavior"></a> 自定义调用堆栈行为  
  可以通过在 `*.natjmc` 文件中指定模块、源文件和函数，将它们指定视为调用堆栈中的非用户代码。  
@@ -210,7 +210,7 @@ manager: "ghogen"
 |`Module`|可选。  包含函数的模块的名称或完整路径。  可以使用此特性区分具有相同名称的函数。|  
 |`ExceptionImplementation`|设置为 `true` 时，调用堆栈显示的是引发异常的函数，而不是此函数。|  
   
- ![返回页首](../debugger/media/pcs_backtotop.png "PCS\_BackToTop") [内容](#BKMK_Contents) **&#124;** [C++“仅我的代码”](#BKMK_C___Just_My_Code)  
+ ![返回页首](~/docs/debugger/media/pcs_backtotop.png "PCS\_BackToTop") [内容](#BKMK_Contents) **&#124;** [C++“仅我的代码”](#BKMK_C___Just_My_Code)  
   
 ##  <a name="BKMK_JavaScript_Just_My_Code"></a> JavaScript“仅我的代码”  
  [用户和非用户代码](#BKMK_JS_User_and_non_user_code) **&#124;** [单步执行行为](#BKMK_JS_Stepping_behavior) **&#124;** [断点行为](#BKMK_JS_Breakpoint_behavior) **&#124;** [异常行为](#BKMK_JS_Exception_behavior) **&#124;** [自定义“仅我的代码”](#BKMK_JS_Customize_Just_My_Code)  
@@ -242,7 +242,7 @@ manager: "ghogen"
   
  所有其他代码都分类为 **MyCode**。  
   
- ![返回页首](../debugger/media/pcs_backtotop.png "PCS\_BackToTop") [内容](#BKMK_Contents) **&#124;** [JavaScript“仅我的代码”](#BKMK_JavaScript_Just_My_Code)  
+ ![返回页首](~/docs/debugger/media/pcs_backtotop.png "PCS\_BackToTop") [内容](#BKMK_Contents) **&#124;** [JavaScript“仅我的代码”](#BKMK_JavaScript_Just_My_Code)  
   
 ###  <a name="BKMK_JS_Stepping_behavior"></a> 单步执行行为  
   
@@ -254,7 +254,7 @@ manager: "ghogen"
   
 -   **跳出**（键盘：Shift \+ F11）会在下一行用户代码上停止。  如果未遇到用户代码，则执行会继续，直到应用退出、命中断点或发生异常。  
   
- ![返回页首](../debugger/media/pcs_backtotop.png "PCS\_BackToTop") [内容](#BKMK_Contents) **&#124;** [JavaScript“仅我的代码”](#BKMK_JavaScript_Just_My_Code)  
+ ![返回页首](~/docs/debugger/media/pcs_backtotop.png "PCS\_BackToTop") [内容](#BKMK_Contents) **&#124;** [JavaScript“仅我的代码”](#BKMK_JavaScript_Just_My_Code)  
   
 ###  <a name="BKMK_JS_Breakpoint_behavior"></a> 断点行为  
   
@@ -266,7 +266,7 @@ manager: "ghogen"
   
     -   **UnrelatedCode** 代码，调试器不会停止。  
   
- ![返回页首](../debugger/media/pcs_backtotop.png "PCS\_BackToTop") [内容](#BKMK_Contents) **&#124;** [JavaScript“仅我的代码”](#BKMK_JavaScript_Just_My_Code)  
+ ![返回页首](~/docs/debugger/media/pcs_backtotop.png "PCS\_BackToTop") [内容](#BKMK_Contents) **&#124;** [JavaScript“仅我的代码”](#BKMK_JavaScript_Just_My_Code)  
   
 ###  <a name="BKMK_JS_Exception_behavior"></a> 异常行为  
  如果在以下内容中出现未经处理的异常：  
@@ -281,7 +281,7 @@ manager: "ghogen"
   
 -   如果异常未经过处理，则调试器中断。  
   
- ![返回页首](../debugger/media/pcs_backtotop.png "PCS\_BackToTop") [内容](#BKMK_Contents) **&#124;** [JavaScript“仅我的代码”](#BKMK_JavaScript_Just_My_Code)  
+ ![返回页首](~/docs/debugger/media/pcs_backtotop.png "PCS\_BackToTop") [内容](#BKMK_Contents) **&#124;** [JavaScript“仅我的代码”](#BKMK_JavaScript_Just_My_Code)  
   
 ###  <a name="BKMK_JS_Customize_Just_My_Code"></a> 自定义“仅我的代码”  
  若要针对单个 Visual Studio 项目对用户和非用户代码进行分类，请将一个名为 `mycode.json` 的 .json 文件添加到该项目的根文件夹。  
@@ -352,4 +352,4 @@ manager: "ghogen"
   
  url 或文件字符串可以包含一个或多个 `*` 字符，这些字符匹配零个或多个字符。  `*` 是正则表达式 `.*` 的等效项。  
   
- ![返回页首](../debugger/media/pcs_backtotop.png "PCS\_BackToTop") [内容](#BKMK_Contents) **&#124;** [JavaScript“仅我的代码”](#BKMK_JavaScript_Just_My_Code)
+ ![返回页首](~/docs/debugger/media/pcs_backtotop.png "PCS\_BackToTop") [内容](#BKMK_Contents) **&#124;** [JavaScript“仅我的代码”](#BKMK_JavaScript_Just_My_Code)

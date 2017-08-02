@@ -44,7 +44,7 @@ manager: "douge"
   
  对于每个应用程序，GC 维护跟踪由应用程序所引用的对象的引用树。  *引用树*具有一组根，其中包括全局和静态对象，以及相关联的线程堆栈和动态实例化的对象。  如果一个对象具有至少一个保存对其引用的父对象，则该对象为根对象。  只有当应用程序中的其他对象或变量都不具有对它的引用时，GC 才能回收对象的内存。  
   
- ![返回页首](../debugger/media/pcs_backtotop.png "PCS\_BackToTop") [内容](#BKMK_Contents)  
+ ![返回页首](~/docs/debugger/media/pcs_backtotop.png "PCS\_BackToTop") [内容](#BKMK_Contents)  
   
 ##  <a name="BKMK_Identify_a_memory_issue_in_an_app"></a> 在应用中标识内存问题  
  内存问题的最明显症状是应用的性能，尤其是如果随着时间的推移性能降低。  当你的应用运行时，其他应用的性能下降，也可能表示存在内存问题。  如果你怀疑存在内存问题，请使用类似于任务管理器或 [Windows 性能监视器](http://technet.microsoft.com/library/cc749249.aspx)的工具进行进一步调查。  例如，查看无法解释为内存泄漏可能来源的内存总大小的增长：  
@@ -73,7 +73,7 @@ manager: "douge"
   
  若要分析应用内存使用中的增长，请从该应用的单个实例收集两个转储文件。  
   
- ![返回页首](../debugger/media/pcs_backtotop.png "PCS\_BackToTop") [内容](#BKMK_Contents)  
+ ![返回页首](~/docs/debugger/media/pcs_backtotop.png "PCS\_BackToTop") [内容](#BKMK_Contents)  
   
 ##  <a name="BKMK_Analyze_memory_use"></a> 分析内存使用  
  [筛选对象列表](#BKMK_Filter_the_list_of_objects) **&#124;** [从单个快照中分析内存数据](#BKMK_Analyze_memory_data_in_from_a_single_snapshot) **&#124;** [比较两个内存快照](#BKMK_Compare_two_memory_snapshots)  
@@ -88,7 +88,7 @@ manager: "douge"
   
  内存分析程序启动调试会话以分析文件并且在“堆视图”页面上显示结果：  
   
- ![返回页首](../debugger/media/pcs_backtotop.png "PCS\_BackToTop") [内容](#BKMK_Contents)  
+ ![返回页首](~/docs/debugger/media/pcs_backtotop.png "PCS\_BackToTop") [内容](#BKMK_Contents)  
   
 ###  <a name="BKMK_Filter_the_list_of_objects"></a> 筛选对象列表  
  默认情况下，内存分析程序在内存快照中筛选对象列表，以便只显示用户代码的类型和实例，并且只显示那些总包含大小超过总堆大小阈值百分比的类型。  你可以在**“视图设置”**列表中更改这些选项：  
@@ -100,14 +100,14 @@ manager: "douge"
   
  通过在**“搜索”**框中输入字符串，你还可以筛选类型列表。  该列表只显示那些名称中包含字符串的类型。  
   
- ![返回页首](../debugger/media/pcs_backtotop.png "PCS\_BackToTop") [内容](#BKMK_Contents)  
+ ![返回页首](~/docs/debugger/media/pcs_backtotop.png "PCS\_BackToTop") [内容](#BKMK_Contents)  
   
 ###  <a name="BKMK_Analyze_memory_data_in_from_a_single_snapshot"></a> 从单个快照中分析内存数据  
  Visual Studio 启动新的调试会话以分析文件，并且在“堆视图”窗口中显示内存数据。  
   
  ![“对象类型”列表](../misc/media/dbg_mma_objecttypelist.png "DBG\_MMA\_ObjectTypeList")  
   
- ![返回页首](../debugger/media/pcs_backtotop.png "PCS\_BackToTop") [内容](#BKMK_Contents)  
+ ![返回页首](~/docs/debugger/media/pcs_backtotop.png "PCS\_BackToTop") [内容](#BKMK_Contents)  
   
 #### 对象类型表  
  上表列出了在内存中保留的对象的类型。  
@@ -118,7 +118,7 @@ manager: "douge"
   
 -   **“非独占大小（字节）”**包括引用对象的大小。  
   
- 你可以在**“对象类型”**列中选择实例图标 \(![“对象类型”列中的实例图标](../misc/media/dbg_mma_instancesicon.png "DBG\_MMA\_InstancesIcon")\) 以查看该类实例的列表。  
+ 你可以在**“对象类型”**列中选择实例图标 \(![“对象类型”列中的实例图标](~/docs/profiling/media/dbg_mma_instancesicon.png "DBG\_MMA\_InstancesIcon")\) 以查看该类实例的列表。  
   
 #### 实例表  
  ![实例表](../misc/media/dbg_mma_instancestable.png "DBG\_MMA\_InstancesTable")  
@@ -181,7 +181,7 @@ manager: "douge"
   
  还会将**“引用计数差异”**列添加到**“根路径”**表。  
   
- ![返回页首](../debugger/media/pcs_backtotop.png "PCS\_BackToTop") [内容](#BKMK_Contents)  
+ ![返回页首](~/docs/debugger/media/pcs_backtotop.png "PCS\_BackToTop") [内容](#BKMK_Contents)  
   
 ## 请参阅  
  [VS ALM TFS 博客：使用 Visual Studio 2013 来诊断生产中的 .NET 内存问题](http://blogs.msdn.com/b/visualstudioalm/archive/2013/06/20/using-visual-studio-2013-to-diagnose-net-memory-issues-in-production.aspx)   

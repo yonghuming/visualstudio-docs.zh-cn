@@ -84,11 +84,11 @@ ms.lasthandoff: 05/13/2017
   
 1.  为 Windows 应用商店应用创建新编码的 UI 测试项目。  
   
-     ![新编码的 UI 测试项目（Windows 应用商店应用）](../test/media/cuit_windowsstore_newproject.png "CUIT_WindowsStore_NewProject")  
+     ![新编码的 UI 测试项目（Windows 应用商店应用）](~/docs/test/media/cuit_windowsstore_newproject.png "CUIT_WindowsStore_NewProject")  
   
 2.  选择使用十字线工具编辑 UI 映射。  
   
-     ![选择编辑 UI 映射或添加断言](../test/media/cuit_windowsstoreapp_createproject_gencodedialog.png "CUIT_WindowsStoreApp_CreateProject_GenCodeDialog")  
+     ![选择编辑 UI 映射或添加断言](~/docs/test/media/cuit_windowsstoreapp_createproject_gencodedialog.png "CUIT_WindowsStoreApp_CreateProject_GenCodeDialog")  
   
 3.  在编码的 UI 测试生成器中使用十字线工具以选择应用磁贴、右键单击 **“AutomationId”** ，然后选择 **“将值复制到剪贴板”**。 稍后将剪贴板中的值用于编写操作以启动可供测试的应用。  
   
@@ -116,7 +116,7 @@ ms.lasthandoff: 05/13/2017
   
 9. 为断言添加并生成代码。  
   
-     ![为文本框断言生成代码](../test/media/cuit_windowsstoreapp_textbox_generate_assertion.png "CUIT_WindowsStoreApp_Textbox_Generate_Assertion")  
+     ![为文本框断言生成代码](~/docs/test/media/cuit_windowsstoreapp_textbox_generate_assertion.png "CUIT_WindowsStoreApp_Textbox_Generate_Assertion")  
   
 10. **Visual C#**  
   

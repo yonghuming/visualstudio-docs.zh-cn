@@ -27,7 +27,7 @@ caps.handback.revision: 14
 # “URL 选取器”对话框（Visual Studio 中的 SharePoint 开发）
   在URL选择器对话框中，您可以选择文件，如位于项目中或本地运行 SharePoint 的Server 上的母版页文件或图像文件。  
   
- 在能够选择某个文件以设置属性时，将会显示该对话框。  通过选择**“属性”**窗口中各个属性旁边的省略号按钮 \(![ASP.NET 移动设计器中的省略号](../sharepoint/media/mwellipsis.png "ASP.NET 移动设计器中的省略号")\) 可打开此对话框。  此外，在将值分配给设计器的**“源”**视图中的某些特性时，省略号按钮将显示为 Intellisense 提示。  
+ 在能够选择某个文件以设置属性时，将会显示该对话框。  通过选择**“属性”**窗口中各个属性旁边的省略号按钮 \(![ASP.NET 移动设计器中的省略号](~/docs/sharepoint/media/mwellipsis.gif "ASP.NET 移动设计器中的省略号")\) 可打开此对话框。  此外，在将值分配给设计器的**“源”**视图中的某些特性时，省略号按钮将显示为 Intellisense 提示。  
   
 ## UIElement 列表  
  **项目文件夹**  
