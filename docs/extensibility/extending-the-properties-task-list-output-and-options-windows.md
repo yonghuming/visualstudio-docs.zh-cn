@@ -64,7 +64,7 @@ ms.lasthandoff: 02/22/2017
   
 3.  拖动**TextBox**、**按钮**，和一个**ListBox**到画布上。 排列元素，使文本框和按钮在同一个级别，以及在列表框填充其余部分的下方，如下面的图片中所示的窗口。  
   
-     ![完成工具窗口](../extensibility/media/t5-toolwindow.png "T5 工具窗口")  
+     ![完成工具窗口](~/extensibility/media/t5-toolwindow.png "T5 工具窗口")  
   
 4.  在 XAML 窗格中，找到按钮，并将其内容的属性设置为**添加**。 通过添加重新连接到按钮控件按钮事件处理程序`Click="button1_Click"`属性。 画布块应如下所示︰  
   
@@ -152,7 +152,7 @@ ms.lasthandoff: 02/22/2017
   
      当用户打开选项页上时，它应类似于下图。  
   
-     ![选项页](../extensibility/media/t5optionspage.gif "T5OptionsPage")  
+     ![选项页](~/extensibility/media/t5optionspage.gif "T5OptionsPage")  
   
      请注意该类别**ToDo**和 subcategory**常规**。  
   
@@ -165,7 +165,7 @@ ms.lasthandoff: 02/22/2017
   
      若要使数据中可用**属性**窗口中，您将数据转换为具有两个特殊属性的公共属性`Description`和`Category`。 `Description`是在底部显示的文本**属性**窗口。 `Category`确定该属性应出现时**属性**窗口显示在**按分类顺序**视图。 如下图中**属性**窗口处于**按分类顺序**视图中，**名称**中的属性**ToDo 字段**选择类别后，和的说明**名称**属性显示在窗口的底部。  
   
-     ![属性窗口](../extensibility/media/t5properties.png "T5Properties")  
+     ![属性窗口](~/extensibility/media/t5properties.png "T5Properties")  
   
 2.  添加以下 using 语句 TodoItem.cs 文件。  
   

@@ -87,19 +87,19 @@ caps.handback.revision: 42
     > [!NOTE]  
     >  如果**“开发人员”**选项卡不可见，则必须首先显示它。  有关详细信息，请参阅[如何：在功能区上显示“开发人员”选项卡](../vsto/how-to-show-the-developer-tab-on-the-ribbon.md)。  
   
-6.  在**“控件”**组中，单击**“文本”**按钮 ![PlainTextContentControl](../vsto/media/plaintextcontrol.png "PlainTextContentControl")，以将 <xref:Microsoft.Office.Tools.Word.PlainTextContentControl> 添加到第一个单元格。  
+6.  在**“控件”**组中，单击**“文本”**按钮 ![PlainTextContentControl](~/vsto/media/plaintextcontrol.gif "PlainTextContentControl")，以将 <xref:Microsoft.Office.Tools.Word.PlainTextContentControl> 添加到第一个单元格。  
   
 7.  单击第二列中的第二个单元格（**“雇佣日期”**旁边）。  
   
-8.  在**“控件”**组中，单击**“日期选取器”**按钮 ![DatePickerContentControl](../vsto/media/datepicker.png "DatePickerContentControl")，以将 <xref:Microsoft.Office.Tools.Word.DatePickerContentControl> 添加到第二个单元格。  
+8.  在**“控件”**组中，单击**“日期选取器”**按钮 ![DatePickerContentControl](~/vsto/media/datepicker.gif "DatePickerContentControl")，以将 <xref:Microsoft.Office.Tools.Word.DatePickerContentControl> 添加到第二个单元格。  
   
 9. 单击第二列中的第三个单元格（**“职务”**旁边）。  
   
-10. 在**“控件”**组中，单击**“组合框”**按钮 ![ComboBoxContentControl](../vsto/media/combobox.png "ComboBoxContentControl")，以将 <xref:Microsoft.Office.Tools.Word.ComboBoxContentControl> 添加到第三个单元格。  
+10. 在**“控件”**组中，单击**“组合框”**按钮 ![ComboBoxContentControl](~/vsto/media/combobox.gif "ComboBoxContentControl")，以将 <xref:Microsoft.Office.Tools.Word.ComboBoxContentControl> 添加到第三个单元格。  
   
 11. 单击第二列中的最后一个单元格（**“照片”**旁边）。  
   
-12. 在**“控件”**组中，单击**“图片内容控件”**按钮 ![PictureContentControl](../vsto/media/pictcontentcontrol.png "PictureContentControl")，以将 <xref:Microsoft.Office.Tools.Word.PictureContentControl> 添加到最后一个单元格。  
+12. 在**“控件”**组中，单击**“图片内容控件”**按钮 ![PictureContentControl](~/vsto/media/pictcontentcontrol.gif "PictureContentControl")，以将 <xref:Microsoft.Office.Tools.Word.PictureContentControl> 添加到最后一个单元格。  
   
 ## 创建客户反馈表  
  创建一个包含三种不同类型的内容控件的表格，用户可以在其中输入客户反馈信息。  
@@ -124,15 +124,15 @@ caps.handback.revision: 42
   
 6.  在功能区上，单击**“开发人员”**选项卡。  
   
-7.  在**“控件”**组中，单击**“文本”**按钮 ![PlainTextContentControl](../vsto/media/plaintextcontrol.png "PlainTextContentControl")，以将 <xref:Microsoft.Office.Tools.Word.PlainTextContentControl> 添加到第一个单元格。  
+7.  在**“控件”**组中，单击**“文本”**按钮 ![PlainTextContentControl](~/vsto/media/plaintextcontrol.gif "PlainTextContentControl")，以将 <xref:Microsoft.Office.Tools.Word.PlainTextContentControl> 添加到第一个单元格。  
   
 8.  单击第二列的第二个单元格（**“满意度”**旁边）。  
   
-9. 在**“控件”**组中，单击**“下拉列表”**按钮 ![DropDownListContentControl](../vsto/media/dropdownlist.png "DropDownListContentControl")，以将 <xref:Microsoft.Office.Tools.Word.DropDownListContentControl> 添加到第二个单元格。  
+9. 在**“控件”**组中，单击**“下拉列表”**按钮 ![DropDownListContentControl](~/vsto/media/dropdownlist.gif "DropDownListContentControl")，以将 <xref:Microsoft.Office.Tools.Word.DropDownListContentControl> 添加到第二个单元格。  
   
 10. 单击第二列的第三个单元格（**“注释”**旁边）。  
   
-11. 在**“控件”**组中，单击**“RTF”**按钮 ![RichTextContentControl](../vsto/media/richtextcontrol.png "RichTextContentControl")，以将 <xref:Microsoft.Office.Tools.Word.RichTextContentControl> 添加到第三个单元格。  
+11. 在**“控件”**组中，单击**“RTF”**按钮 ![RichTextContentControl](~/vsto/media/richtextcontrol.gif "RichTextContentControl")，以将 <xref:Microsoft.Office.Tools.Word.RichTextContentControl> 添加到第三个单元格。  
   
 ## 以编程方式填充组合框和下拉列表  
  使用 [!INCLUDE[vsprvs](../sharepoint/includes/vsprvs-md.md)] 中的**“属性”**窗口，可以在设计时初始化内容控件。  也可以在运行时初始化它们，这让你能够动态设置它们的初始状态。  对于本演练，使用代码在运行时填充 <xref:Microsoft.Office.Tools.Word.ComboBoxContentControl> 和 <xref:Microsoft.Office.Tools.Word.DropDownListContentControl> 中的条目，以便你了解这些对象的工作方式。  

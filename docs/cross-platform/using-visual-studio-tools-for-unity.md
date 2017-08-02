@@ -50,7 +50,7 @@ ms.lasthandoff: 05/13/2017
 ### <a name="unity-monobehavior-scripting-wizard"></a>Unity MonoBehavior 脚本向导  
  在 Unity 中，大多数脚本都是通过从 MonoBehavior 类派生并替代它的一些方法而实现的。 MonoBehavior 向导可用于快速创建要重载的 MonoBehavior 方法的空定义。 使用此向导，可以指定要从可用方法列表中重载的一个或多个方法，选择将它们插入到代码中的位置，并决定是否要包括有关如何使用这些方法的注释。  
   
- ![Monobehavior 向导对话框。](../cross-platform/media/vstu_monobehavior_wizard_full.png "vstu_monobehavior_wizard_full")  
+ ![Monobehavior 向导对话框。](~/cross-platform/media/vstu_monobehavior_wizard_full.png "vstu_monobehavior_wizard_full")  
   
 ##### <a name="to-create-empty-monobehavior-method-definitions-by-using-the-monobehavior-wizard"></a>通过使用 MonoBehavior 向导创建 MonoBehavior 方法的空定义  
   
@@ -71,7 +71,7 @@ ms.lasthandoff: 05/13/2017
 #### <a name="quick-monobehavior-scripting-wizard"></a>快速 MonoBehavior 脚本向导  
  已经熟悉 Unity API 后，便可以使用快速 MonoBehavior 向导更快地实现重载的方法。 使用此向导，可以仅指定在光标位置插入的不带方法注释的一种方法。  
   
- ![快速 Monobehavior 向导对话框。](../cross-platform/media/vstu_monobehavior_wizard_quick.png "vstu_monobehavior_wizard_quick")  
+ ![快速 Monobehavior 向导对话框。](~/cross-platform/media/vstu_monobehavior_wizard_quick.png "vstu_monobehavior_wizard_quick")  
   
 ###### <a name="to-create-an-empty-monobehavior-method-definition-by-using-the-quick-monobehavior-wizard"></a>通过使用快速 MonoBehavior 向导创建 MonoBehavior 方法的空定义  
   
@@ -86,13 +86,13 @@ ms.lasthandoff: 05/13/2017
 ### <a name="unity-project-explorer"></a>Unity 项目资源管理器  
  Unity 项目资源管理器可用于导航 Visual Studio 内部的 Unity 项目。  
   
- ![Unity 项目资源管理器窗口。](../cross-platform/media/vstu_unity_project_explorer.png "vstu_unity_project_explorer")  
+ ![Unity 项目资源管理器窗口。](~/cross-platform/media/vstu_unity_project_explorer.png "vstu_unity_project_explorer")  
   
 ##### <a name="to-view-the-unity-project-explorer"></a>查看 Unity 项目资源管理器  
   
 -   在 Visual Studio 的主菜单上选择“视图”，然后选择“Unity 项目资源管理器”。 键盘：**Alt+Shift+E**  
   
-     ![查看 Unity 项目资源管理器窗口。](../cross-platform/media/vstu_view_unity_project_explorer.png "vstu_view_unity_project_explorer")  
+     ![查看 Unity 项目资源管理器窗口。](~/cross-platform/media/vstu_view_unity_project_explorer.png "vstu_view_unity_project_explorer")  
   
  Unity 项目资源管理器将使用与 Unity 编辑器相同的方法显示所有 Unity 项目文件和目录 — 这与使用解决方案资源管理器导航 unity 脚本不同：后者仅包含脚本文件，将其显示为项目，并且由 Visual Studio Tools for Unity 生成的解决方案将对其进行组织。 尤其是在大型项目中，使用 Unity 项目资源管理器通常可以更轻松地定位需修改的脚本；还可以轻松地在 Visual studio 中修改其他种类的文件（例如，基于文本的配置文件），而无需将它们添加到 Visual Studio 解决方案中的一个项目中。  
   
@@ -126,18 +126,18 @@ ms.lasthandoff: 05/13/2017
   
 -   在 Visual Studio 的主菜单上选择“调试”，然后选择“附加 Unity 调试器”。  
   
-     ![附加 Unity 调试器。](../cross-platform/media/vstu_debugging_attach_unity_debugger.png "vstu_debugging_attach_unity_debugger")  
+     ![附加 Unity 调试器。](~/cross-platform/media/vstu_debugging_attach_unity_debugger.png "vstu_debugging_attach_unity_debugger")  
   
 -   或者，在 Visual Studio 的状态栏中，选择 Visual Studio 右下角的插入图标。  
   
-     ![此图标显示 VSTU 已连接到 Unity。](../cross-platform/media/vstu_connection_connected.png "vstu_connection_connected")  
+     ![此图标显示 VSTU 已连接到 Unity。](~/cross-platform/media/vstu_connection_connected.png "vstu_connection_connected")  
   
 > [!TIP]
 >  如果插入图标显示选中标记，则已连接到 Unity 实例。  
   
  “选择 Unity 实例”对话框将显示有关每个可以连接的 Unity 实例的信息。  
   
- ![选择要连接到的 Unity 实例。](../cross-platform/media/vstu_connection_to_unity.png "vstu_connection_to_unity")  
+ ![选择要连接到的 Unity 实例。](~/cross-platform/media/vstu_connection_to_unity.png "vstu_connection_to_unity")  
   
  **项目**  
  在此 Unity 实例中运行的 Unity 项目的名称。  
@@ -186,13 +186,13 @@ ms.lasthandoff: 05/13/2017
   
 1.  将现有的 DLL 项目添加到由 Visual Studio Tools for Unity 生成的 Visual Studio 解决方案中。 不太常见的情况是：你可能会启动一个新的托管 DLL 项目，以便在 Unity 项目中包含代码组件；如果是这种情况，则可将新的托管 DLL 项目添加到 Visual Studio 解决方案。 有关向解决方案添加新项目或现有项目的详细信息，请参阅[如何：向解决方案添加项目](https://msdn.microsoft.com/en-us/library/vstudio/ff460187.aspx)。  
   
-     ![将现有的 DLL 项目添加到解决方案。](../cross-platform/media/vstu_debugging_dll_add_existing.png "vstu_debugging_dll_add_existing")  
+     ![将现有的 DLL 项目添加到解决方案。](~/cross-platform/media/vstu_debugging_dll_add_existing.png "vstu_debugging_dll_add_existing")  
   
      在任一情况下，Visual Studio Tools for Unity 均将维护项目引用，即使不得不再次重新生成项目和解决方案文件，所以你只需要执行一次这些步骤。  
   
 2.  引用 DLL 项目中正确的 Unity 框架配置文件。 在 Visual Studio 的 DLL 项目属性中，将“目标框架”属性设置为正在使用的 Unity 框架版本。 这是与你的项目作为目标的 API 兼容性相匹配的 Unity 基类库，如 Unity 完整、微型或 Web 基类库。 这可以防止你的 DLL 调用存在于其他框架或兼容性级别中而不存在于你正在使用的 Unity 框架版本中的框架方法。  
   
-     ![将 DLL 的目标框架设置为 Unity 框架。](../cross-platform/media/vstu_debugging_dll_target_framework.png "vstu_debugging_dll_target_framework")  
+     ![将 DLL 的目标框架设置为 Unity 框架。](~/cross-platform/media/vstu_debugging_dll_target_framework.png "vstu_debugging_dll_target_framework")  
   
 3.  将 DLL 复制到 Unity 项目的资产文件夹。 在 Unity 中，资产是与 Unity 应用一起打包和部署的文件，所以可以在运行时加载它们。 由于 DLL 于运行时链接，因而必须将 DLL 作为资产部署。 若要部署为资产，Unity 编辑器需要将 DLL 放置在 Unity 项目的“资产”文件夹中。 可以采用两种方法执行此操作：  
   

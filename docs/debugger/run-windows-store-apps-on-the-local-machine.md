@@ -23,7 +23,7 @@ caps.handback.revision: 15
 # 在本地计算机上运行 Windows 应用商店应用程序
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
 
-![仅适用于 Windows](../debugger/media/windows_only_content.png "windows\_only\_content")  
+![仅适用于 Windows](~/debugger/media/windows_only_content.png "windows\_only\_content")  
   
  要在 Windows 应用商店应用上调试、测试或运行性能分析，你可以在托管 Visual Studio 的相同计算机上运行该应用。  如果设备上的显示屏支持触控，你可以执行应用的完整功能；否则，你只能使用有限的鼠标和键盘手势。  
   
@@ -47,7 +47,7 @@ caps.handback.revision: 15
   
 -   在 C\# 和 Visual Basic 项目中，单击**“调试”**，然后从**“目标设备”**下拉列表中选择**“本地计算机”**。  
   
-     ![C&#35; 和 Visual Basic 项目属性页](../debugger/media/vsrun_cs_vb_projprop_local.png "VSRUN\_CS\_VB\_ProjProp\_Local")  
+     ![C&#35; 和 Visual Basic 项目属性页](~/debugger/media/vsrun_cs_vb_projprop_local.png "VSRUN\_CS\_VB\_ProjProp\_Local")  
   
 -   在 C\+\+ 和 JavaScript 项目中，展开**“配置属性”**节点，单击**“调试”**，然后从**“要启动的调试器”**列表中选择**“本地调试器”**。  
   

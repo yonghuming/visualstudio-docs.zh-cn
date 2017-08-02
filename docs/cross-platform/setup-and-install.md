@@ -74,13 +74,13 @@ ms.lasthandoff: 05/13/2017
   
 2.  在安装程序中，单击“启动”_旁边_的“其他选项”（三横杠图标）按钮，然后选择“修改”：  
   
-     ![选择 Visual Studio 安装程序中的“修改”选项](../cross-platform/media/cross-plat-xamarin-setup-1a.png "跨平台 Xamarin 安装 1")  
+     ![选择 Visual Studio 安装程序中的“修改”选项](~/cross-platform/media/cross-plat-xamarin-setup-1a.png "跨平台 Xamarin 安装 1")  
   
 3.  选中以下选框：  
   
     1.  “移动和游戏”>“使用 .NET 的移动环境”。 这也将自动选择“常用工具和软件开发工具包”下的各种 Android 工具。 此选项还应更新现有的所有 Xamarin 安装。  
   
-         ![选择“游戏和移动开发”下的“移动开发”选项](../cross-platform/media/cross-plat-xamarin-setup-2a.png "跨平台 Xamarin 安装 2")  
+         ![选择“游戏和移动开发”下的“移动开发”选项](~/cross-platform/media/cross-plat-xamarin-setup-2a.png "跨平台 Xamarin 安装 2")  
   
     2. （可选）“Windows”>“通用 Windows 平台开发”。 这包括用于安装需要较长时间下载的仿真器映像的选项；稍后可以随时返回 Visual Studio 安装程序进行添加。 
   

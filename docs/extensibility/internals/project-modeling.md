@@ -49,7 +49,7 @@ Projects
   
  The project automation follows the path in the following diagram.  
   
- ![Visual Studio 项目对象](../../extensibility/internals/media/projectobjects.png "ProjectObjects")  
+ ![Visual Studio 项目对象](~/extensibility/internals/media/projectobjects.gif "ProjectObjects")  
 Project automation  
   
  If you do not implement a `Project` object, the environment will still return a generic `Project` object that contains only the name of the project.  

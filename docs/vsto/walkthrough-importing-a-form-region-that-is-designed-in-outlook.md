@@ -47,7 +47,7 @@ caps.handback.revision: 31
 > [!NOTE]  
 >  以下说明中的某些 Visual Studio 用户界面元素在计算机上出现的名称或位置可能会不同。 这些元素取决于你所使用的 Visual Studio 版本和你所使用的设置。 有关详细信息，请参阅[在 Visual Studio 中自定义开发设置](http://msdn.microsoft.com/zh-cn/22c4debb-4e31-47a8-8f19-16f328d7dcd3)。  
   
- ![链接到视频](../vsto/media/playvideo.png "链接到视频") 关于相关视频演示，请参阅[如何：使用 Visual Studio 2008 创建 Outlook 窗体区域？](http://go.microsoft.com/fwlink/?LinkID=130305)。  
+ ![链接到视频](~/data-tools/media/playvideo.gif "链接到视频") 关于相关视频演示，请参阅[如何：使用 Visual Studio 2008 创建 Outlook 窗体区域？](http://go.microsoft.com/fwlink/?LinkID=130305)。  
   
 ## 使用 Outlook 中的窗体区域设计器来设计窗体区域  
  在此步骤中，将在 Outlook 中设计一个窗体区域。 然后将该窗体区域保存到一个易于查找的位置，以便将其导入 [!INCLUDE[vsprvs](../sharepoint/includes/vsprvs-md.md)]。  

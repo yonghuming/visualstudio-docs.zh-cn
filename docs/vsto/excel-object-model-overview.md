@@ -47,7 +47,7 @@ caps.handback.revision: 65
   
  本主题概要介绍 Excel 对象模型。  有关可从中了解关于整个 Excel 对象模型的详细信息的资源，请参阅[使用 Excel 对象模型文档](#ExcelOMDocumentation)。  
   
- ![链接到视频](../vsto/media/playvideo.png "链接到视频") 相关视频演示，请参阅[如何：在 Excel 2007 外接程序中使用事件处理程序？](http://go.microsoft.com/fwlink/?LinkID=130291)和[如何：使用形状在 Excel 中创建气泡图？](http://go.microsoft.com/fwlink/?LinkID=130313)。  
+ ![链接到视频](~/data-tools/media/playvideo.gif "链接到视频") 相关视频演示，请参阅[如何：在 Excel 2007 外接程序中使用事件处理程序？](http://go.microsoft.com/fwlink/?LinkID=130291)和[如何：使用形状在 Excel 中创建气泡图？](http://go.microsoft.com/fwlink/?LinkID=130313)。  
   
 ## 访问 Excel 项目中的对象  
  为 Excel 创建新的 VSTO 外接程序项目时，Visual Studio 将自动创建 ThisAddIn.vb 或 ThisAddIn.cs 代码文件。  可以通过使用 `Me.Application` 或 `this.Application` 访问应用程序对象。  

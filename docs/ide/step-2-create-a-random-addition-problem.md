@@ -59,7 +59,7 @@ caps.handback.revision: 27
   
      请注意，当您在代码中的 randomizer 后输入点 \(.\) 时，将打开一个 IntelliSense 窗口，并显示您可调用的 `Random` 对象的所有方法。  例如，Intellisense 将列出 `Next()` 方法，如下所示。  
   
-     ![Next 方法](../ide/media/express_randomwhite.png "Express\_RandomWhite")  
+     ![Next 方法](~/ide/media/express_randomwhite.png "Express\_RandomWhite")  
 Next 方法  
   
      在对象后输入点时，IntelliSense 将显示对象成员的列表，如属性、方法和事件。  

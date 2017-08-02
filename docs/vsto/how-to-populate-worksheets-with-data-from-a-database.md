@@ -30,7 +30,7 @@ caps.handback.revision: 38
   
  下面的示例演示如何使用设计器在文档级项目中添加数据绑定控件。  有关演示如何在运行时向应用程序级项目中添加数据绑定控件的示例，请参见[演练：VSTO 外接程序项目中的复杂数据绑定](../vsto/walkthrough-complex-data-binding-in-vsto-add-in-project.md)。  
   
- ![链接到视频](../vsto/media/playvideo.png "链接到视频") 如需相关视频演示，请参见 [How Do I: Transfer Data Into an Excel Worksheet?](http://go.microsoft.com/fwlink/?LinkID=130277)（如何实现：将数据传输到 Excel 工作表？）以及 [How Do I: Consume Database Data in Excel?](http://go.microsoft.com/fwlink/?LinkID=130287)（如何实现：在 Excel 中使用数据库数据？）。  
+ ![链接到视频](~/data-tools/media/playvideo.gif "链接到视频") 如需相关视频演示，请参见 [How Do I: Transfer Data Into an Excel Worksheet?](http://go.microsoft.com/fwlink/?LinkID=130277)（如何实现：将数据传输到 Excel 工作表？）以及 [How Do I: Consume Database Data in Excel?](http://go.microsoft.com/fwlink/?LinkID=130287)（如何实现：在 Excel 中使用数据库数据？）。  
   
 ## 在设计时向工作表中添加数据绑定控件  
   

@@ -91,7 +91,7 @@ ms.lasthandoff: 06/23/2017
 
  下图显示项目与解决方案，以及它们在逻辑上包含的项之间的关系。  
 
- ![Visual Studio 项目和解决方案](../ide/media/vside-project-diagram.png)  
+ ![Visual Studio 项目和解决方案](~/ide/media/vside-project-diagram.png)  
 
  还可以创建自定义项目和项模板。 有关详细信息，请参阅[创建项目和项模板](../ide/creating-project-and-item-templates.md)。  
 
@@ -101,7 +101,7 @@ ms.lasthandoff: 06/23/2017
 ## <a name="managing-projects-in-solution-explorer"></a>在解决方案资源管理器中管理项目  
  创建新项目之后，可使用 **“解决方案资源管理器”** 查看和管理项目和解决方案及其关联项。 下图显示具有一个包含两个项目的 C# 解决方案的解决方案资源管理器。  
 
- ![解决方案资源管理器](../ide/media/vs2015_solution_explorer.png "vs2015_solution_explorer")  
+ ![解决方案资源管理器](~/ide/media/vs2015_solution_explorer.png "vs2015_solution_explorer")  
 
 ## <a name="in-this-section"></a>本节内容  
 

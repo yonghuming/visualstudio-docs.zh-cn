@@ -52,18 +52,18 @@ ms.lasthandoff: 05/13/2017
 
      例如，在运行 Windows 10 周年更新的计算机上，选择“启动”，然后滚动到字母“V”，在此处可以看到其作为“Visual Studio 安装程序”列出。  
 
-     ![Visual Studio 安装程序](media/vs2017-locate-the-visual-studio-installer.PNG "查找 Microsoft Visual Studio 安装程序")
+     ![Visual Studio 安装程序](~/install/media/vs2017-locate-the-visual-studio-installer.PNG "查找 Microsoft Visual Studio 安装程序")
 
      >[!NOTE]
      对于某些计算机，Visual Studio 安装程序可能列在字母**“M”**下，即 **Microsoft Visual Studio 安装程序**。
 
 2.  单击或点击以启动安装程序，然后选择“修改”。  
 
-     ![启动或修改 Visual Studio](media/vs2017-modify.PNG "修改 Visual Studio 2017")  
+     ![启动或修改 Visual Studio](~/install/media/vs2017-modify.PNG "修改 Visual Studio 2017")  
 
 3.  从“工作负载”屏幕中，选择或取消选择要安装或卸载的工作负载。  
 
-    ![Visual Studio 2017 设置对话框](media/vs2017-modify-workloads.PNG "选择 Visual Studio 2017 中的工作负载")
+    ![Visual Studio 2017 设置对话框](~/install/media/vs2017-modify-workloads.PNG "选择 Visual Studio 2017 中的工作负载")
 
 4. 再次单击或点击“修改”**修改**。  
 

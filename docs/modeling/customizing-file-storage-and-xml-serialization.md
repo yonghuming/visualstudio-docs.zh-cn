@@ -51,11 +51,11 @@ caps.handback.revision: 17
 ## <a name="the-default-serialization-scheme"></a>默认序列化方案  
  若要创建一个用于本主题的示例，使用以下 DSL 定义。  
   
- ![DSL 定义关系图 &#45;王朝家谱模型](../modeling/media/familyt_person.png "FamilyT_Person")  
+ ![DSL 定义关系图 &#45;王朝家谱模型](~/modeling/media/familyt_person.png "FamilyT_Person")  
   
  此 DSL 用于创建在屏幕具有以下外观的模型。  
   
- ![家谱关系图、工具箱和资源管理器](../modeling/media/familyt_instance.png "FamilyT_Instance")  
+ ![家谱关系图、工具箱和资源管理器](~/modeling/media/familyt_instance.png "FamilyT_Instance")  
   
  此模型进行保存，然后重新在 XML 文本编辑器中打开它︰  
   

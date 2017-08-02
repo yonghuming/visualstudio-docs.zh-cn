@@ -99,7 +99,7 @@ JavaScript 内存分析器在 Visual Studio 中提供，旨在帮助你了解内
   
      默认情况下，将分析当前启动项目。 如果要更改分析目标，请选择 **“更改目标”**。  
   
-     ![更改分析目标](../profiling/media/js_tools_target.png "JS_Tools_Target")  
+     ![更改分析目标](~/profiling/media/js_tools_target.png "JS_Tools_Target")  
   
      以下选项可用于分析目标：  
   
@@ -177,7 +177,7 @@ JavaScript 内存分析器在 Visual Studio 中提供，旨在帮助你了解内
   
      下图演示了第二个和第三个快照的示例：  
   
-     ![第二个和第三个快照](../profiling/media/js_mem_leak_workflow.png "JS_Mem_Leak_Workflow")  
+     ![第二个和第三个快照](~/profiling/media/js_mem_leak_workflow.png "JS_Mem_Leak_Workflow")  
   
      通过拍摄此工作流中的基线快照、第二个和第三个快照，可以更轻松地筛选出与内存泄漏不相关的更改。 例如，预计可能有一些更改（如在页面上更新页眉和页脚）会造成内存使用量的更改，但可能与内存泄漏不相关。  
   
@@ -213,7 +213,7 @@ JavaScript 内存分析器在 Visual Studio 中提供，旨在帮助你了解内
   
  内存关系图显示应用程序进程内存的活动视图，包括专用字节、本机内存和 JavaScript 堆。 内存关系图是进程内存的可滚动视图。 如下所示：  
   
- ![JavaScript 内存分析器内存图](../profiling/media/js_mem_memory_graph.png "JS_Mem_Memory_Graph")  
+ ![JavaScript 内存分析器内存图](~/profiling/media/js_mem_memory_graph.png "JS_Mem_Memory_Graph")  
   
  如果你已将用户标记添加到应用代码（请参阅 [Associate source code with memory usage data](#JSConsoleCommands)），将在内存使用量图中显示一个插入的三角形以指示何时达到该代码部分。  
   
@@ -252,7 +252,7 @@ JavaScript 内存分析器在 Visual Studio 中提供，旨在帮助你了解内
   
  此图显示了快照详细信息的类型视图，以及按保留的大小排序的内存使用量数据。  
   
- ![显示潜在问题的快照详细信息视图](../profiling/media/js_mem_snapshot_details.png "JS_Mem_Snapshot_Details")  
+ ![显示潜在问题的快照详细信息视图](~/profiling/media/js_mem_snapshot_details.png "JS_Mem_Snapshot_Details")  
   
  在快照详细信息视图中，你可以通过从工具栏中选择相应的选项来按类型、根或控制器查看内存使用量数据：  
   
@@ -308,7 +308,7 @@ JavaScript 内存分析器在 Visual Studio 中提供，旨在帮助你了解内
   
 -   **快照 #\<编号> 中的所有对象**。 此筛选器设置不会筛选出堆上的任何对象。  
   
- 若要显示不匹配当前“范围”筛选器的对象引用，请选择窗格右上角的设置列表 ![内存分析器中的“设置”下拉列表](../profiling/media/js_mem_settings.png "JS_Mem_Settings") 中的“显示不匹配的引用”。 如果启用此设置，将以灰色文本显示非匹配引用。  
+ 若要显示不匹配当前“范围”筛选器的对象引用，请选择窗格右上角的设置列表 ![内存分析器中的“设置”下拉列表](~/profiling/media/js_mem_settings.png "JS_Mem_Settings") 中的“显示不匹配的引用”。 如果启用此设置，将以灰色文本显示非匹配引用。  
   
 > [!TIP]
 >  建议按照以下部分中的步骤进行操作： [Isolate a memory leak](#Isolate) ，然后使用留下的对象 **“范围”** 筛选器帮助标识正在泄露内存的对象。  
@@ -316,7 +316,7 @@ JavaScript 内存分析器在 Visual Studio 中提供，旨在帮助你了解内
 ##  <a name="FoldObjects"></a> 按控制器查看对象  
  在类型和控制器视图中，你可以选择是否查看折叠到其控制器的对象（这是“控制器”选项卡中的默认视图）。 当选中此视图时，仅控制器在对象的顶级视图中显示。 （非全局对象的派生对象从顶级视图中隐藏。）对于某些应用，这可以通过减少数据中的噪点来澄清哪些对象正在导致内存泄露。  
   
- 若要按控制器切换对象的视图，请选择 **“按控制器折叠对象”** 按钮。 ![将对象叠放到其控制器](../profiling/media/js_mem_fold_objects.png "JS_Mem_Fold_Objects")  
+ 若要按控制器切换对象的视图，请选择 **“按控制器折叠对象”** 按钮。 ![将对象叠放到其控制器](~/profiling/media/js_mem_fold_objects.png "JS_Mem_Fold_Objects")  
   
  有关控制器的详细信息，请参阅 [查看快照详细信息](#SnapshotDetails).  
   
@@ -334,7 +334,7 @@ JavaScript 内存分析器在 Visual Studio 中提供，旨在帮助你了解内
 > [!NOTE]
 >  使用星号 (*) 和信息性工具提示显示循环引用，并且无法展开。 否则，它们将阻止你向上遍历引用树并标识正在保留内存的对象。  
   
- 如果需要额外的帮助来标识等效对象，请在上窗格右上角的设置列表 ![内存分析器中的“设置”下拉列表](../profiling/media/js_mem_settings.png "JS_Mem_Settings") 中选择“显示对象 ID”。 此选项将在 **“标识符”** 列表中的对象名称旁显示对象 ID（ID 将显示在所有视图中，而不只是显示在对象引用列表中）。 具有相同 ID 的对象是共享引用。  
+ 如果需要额外的帮助来标识等效对象，请在上窗格右上角的设置列表 ![内存分析器中的“设置”下拉列表](~/profiling/media/js_mem_settings.png "JS_Mem_Settings") 中选择“显示对象 ID”。 此选项将在 **“标识符”** 列表中的对象名称旁显示对象 ID（ID 将显示在所有视图中，而不只是显示在对象引用列表中）。 具有相同 ID 的对象是共享引用。  
   
  下图显示了选定项目的对象引用列表以及显示的 ID。  
   
@@ -343,7 +343,7 @@ JavaScript 内存分析器在 Visual Studio 中提供，旨在帮助你了解内
 ##  <a name="BuiltInValues"></a> 显示内置对象  
  默认情况下，控制器和类型视图仅显示你在应用程序中创建的对象。 这可帮助你筛选出不需要的信息，并隔离应用程序相关的问题。 但是，有时查看由 JavaScript 运行时为你的应用程序生成的所有对象可能会很有用。  
   
- 若要显示这些对象，请在窗格右上角的设置列表 ![内存分析器中的“设置”下拉列表](../profiling/media/js_mem_settings.png "JS_Mem_Settings") 中选择“显示内置对象”。  
+ 若要显示这些对象，请在窗格右上角的设置列表 ![内存分析器中的“设置”下拉列表](~/profiling/media/js_mem_settings.png "JS_Mem_Settings") 中选择“显示内置对象”。  
   
 ##  <a name="Save"></a> 保存诊断会话文件  
  诊断快照摘要与其关联的详细信息视图一起保存为 .diagsession 文件。 **“解决方案资源管理器”** 在诊断会话文件夹中显示前几个诊断会话。 在 **“解决方案资源管理器”**中，可以打开前几个会话或者删除或重命名文件。  

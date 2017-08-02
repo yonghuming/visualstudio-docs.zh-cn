@@ -144,7 +144,7 @@ typedef struct _CrtMemBlockHeader
  新对象 \(0xCD\)  
  分配新对象时，这些对象用 0xCD 填充。  
   
- ![返回页首](../debugger/media/pcs_backtotop.png "PCS\_BackToTop") [内容](#BKMK_Contents)  
+ ![返回页首](~/debugger/media/pcs_backtotop.png "PCS\_BackToTop") [内容](#BKMK_Contents)  
   
 ##  <a name="BKMK_Types_of_blocks_on_the_debug_heap"></a> 调试堆中的块类型  
  调试堆中的每个内存块都分配以五种分配类型之一。  出于泄漏检测和状态报告目的对这些类型进行不同地跟踪和报告。  可以指定块的类型，方法是使用对其中一个调试堆分配函数（如 [\_malloc\_dbg](/visual-cpp/c-runtime-library/reference/malloc-dbg)）的直接调用来分配块。  调试堆中的五种内存块类型（在 **\_CrtMemBlockHeader** 结构的 **nBlockUse** 成员中设置）如下所示：  
@@ -178,7 +178,7 @@ freedbg(pbData, _CLIENT_BLOCK|(MYSUBTYPE<<16));
 #define _BLOCK_SUBTYPE(block)       (block >> 16 & 0xFFFF)  
 ```  
   
- ![返回页首](../debugger/media/pcs_backtotop.png "PCS\_BackToTop") [内容](#BKMK_Contents)  
+ ![返回页首](~/debugger/media/pcs_backtotop.png "PCS\_BackToTop") [内容](#BKMK_Contents)  
   
 ##  <a name="BKMK_Check_for_heap_integrity_and_memory_leaks"></a> 检查堆完整性和内存泄漏  
  许多调试堆功能必须从代码内访问。  下一节描述其中一些功能以及如何使用这些功能。  
@@ -199,7 +199,7 @@ freedbg(pbData, _CLIENT_BLOCK|(MYSUBTYPE<<16));
 |**\_CRTDBG\_CHECK\_CRT\_DF**|Off|导致将标记为 **\_CRT\_BLOCK** 类型的块包括在泄漏检测和状态差异操作中。  当该位为 off 时，在这些操作期间将忽略由运行库内部使用的内存。|  
 |**\_CRTDBG\_LEAK\_CHECK\_DF**|Off|导致在程序退出时通过调用 **\_CrtDumpMemoryLeaks** 来执行泄漏检查。  如果应用程序未能释放其所分配的所有内存，将生成错误报告。|  
   
- ![返回页首](../debugger/media/pcs_backtotop.png "PCS\_BackToTop") [内容](#BKMK_Contents)  
+ ![返回页首](~/debugger/media/pcs_backtotop.png "PCS\_BackToTop") [内容](#BKMK_Contents)  
   
 ##  <a name="BKMK_Configure_the_debug_heap"></a> 配置调试堆  
  对于堆函数（例如 `malloc`、`free`、`calloc`、`realloc`、`new` 和 `delete`）的所有调用均解析为这些函数在调试堆中运行的调试版本。  当释放内存块时，调试堆自动检查已分配区域两侧的缓冲区的完整性，如果发生覆盖，将发出错误报告。  
@@ -234,7 +234,7 @@ tmpFlag &= ~_CRTDBG_CHECK_CRT_DF;
 _CrtSetDbgFlag( tmpFlag );  
 ```  
   
- ![返回页首](../debugger/media/pcs_backtotop.png "PCS\_BackToTop") [内容](#BKMK_Contents)  
+ ![返回页首](~/debugger/media/pcs_backtotop.png "PCS\_BackToTop") [内容](#BKMK_Contents)  
   
 ##  <a name="BKMK_new__delete__and__CLIENT_BLOCKs_in_the_C___debug_heap"></a> C\+\+ 调试堆中的 new、delete 和 \_CLIENT\_BLOCK  
  C 运行库的调试版本包含 C\+\+ `new` 和 `delete` 运算符的调试版本。  如果使用 `_CLIENT_BLOCK` 分配类型，则必须直接调用 `new` 运算符的调试版本，或者创建可在调试模式中替换 `new` 运算符的宏，如下面的示例所示：  
@@ -272,7 +272,7 @@ int main( )   {
   
  `delete` 运算符的“Debug”版本可用于所有块类型，并且编译“Release”版本时程序中不需要任何更改。  
   
- ![返回页首](../debugger/media/pcs_backtotop.png "PCS\_BackToTop") [内容](#BKMK_Contents)  
+ ![返回页首](~/debugger/media/pcs_backtotop.png "PCS\_BackToTop") [内容](#BKMK_Contents)  
   
 ##  <a name="BKMK_Heap_State_Reporting_Functions"></a> 堆状态报告函数  
  **\_CrtMemState**  
@@ -309,7 +309,7 @@ typedef struct _CrtMemState
 |[\_CrtMemDumpAllObjectsSince](/visual-cpp/c-runtime-library/reference/crtmemdumpallobjectssince)|转储有关在堆的给定快照之后，或是从执行开始时起，分配的所有对象的信息。  如果已使用 **\_CrtSetDumpClient** 安装挂钩函数，则每次它转储 **\_CLIENT\_BLOCK** 块时，都会调用应用程序所提供的挂钩函数。|  
 |[\_CrtDumpMemoryLeaks](/visual-cpp/c-runtime-library/reference/crtdumpmemoryleaks)|确定自程序开始执行以来是否发生过内存泄漏，如果发生过，则转储所有已分配对象。  如果已使用 **\_CrtSetDumpClient** 安装挂钩函数，则每次 **\_CrtDumpMemoryLeaks** 转储 **\_CLIENT\_BLOCK** 块时，都会调用应用程序所提供的挂钩函数。|  
   
- ![返回页首](../debugger/media/pcs_backtotop.png "PCS\_BackToTop") [内容](#BKMK_Contents)  
+ ![返回页首](~/debugger/media/pcs_backtotop.png "PCS\_BackToTop") [内容](#BKMK_Contents)  
   
 ##  <a name="BKMK_Track_Heap_Allocation_Requests"></a> 跟踪堆分配请求  
  尽管查明在其中执行断言或报告宏的源文件名和行号对于定位问题原因常常很有用，对于堆分配函数却可能不是这样。  虽然可在应用程序的逻辑树中的许多适当点插入宏，但分配经常隐藏在特殊例程中，该例程会在很多不同时刻从很多不同位置进行调用。  问题通常并不在于如何确定哪行代码进行了错误分配，而在于如何确定该行代码进行的上千次分配中的哪一次是错误分配以及原因。  
@@ -364,7 +364,7 @@ int addNewRecord(struct RecStruct *prevRecord,
   
  在其中调用 `addNewRecord` 的源文件名和行号将存储在产生的每个块中（这些块是在调试堆中分配的），并将在检查该块时进行报告。  
   
- ![返回页首](../debugger/media/pcs_backtotop.png "PCS\_BackToTop") [内容](#BKMK_Contents)  
+ ![返回页首](~/debugger/media/pcs_backtotop.png "PCS\_BackToTop") [内容](#BKMK_Contents)  
   
 ## 请参阅  
  [调试本机代码](../debugger/debugging-native-code.md)

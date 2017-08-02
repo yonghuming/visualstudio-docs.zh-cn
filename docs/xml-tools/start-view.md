@@ -33,7 +33,7 @@ caps.handback.revision: 3
 ## 工具栏  
  可使用 XML 架构设计器工具栏在起始视图、[内容模型视图](../xml-tools/content-model-view.md)和[图形视图](../xml-tools/graph-view.md)之间导航。  
   
- ![XML 架构设计器工具栏](../xml-tools/media/xsdstartviewtoolbar.gif "XSDStartViewToolbar")  
+ ![XML 架构设计器工具栏](~/xml-tools/media/xsdstartviewtoolbar.gif "XSDStartViewToolbar")  
   
  当起始视图处于活动状态时，会在 XSD 设计器工具栏中启用以下按钮：  
   

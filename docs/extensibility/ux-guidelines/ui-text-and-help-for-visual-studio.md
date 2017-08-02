@@ -65,7 +65,7 @@ caps.handback.revision: 2
   
  **Visual Studio 中的补充文本**  
   
- ![Supplemental text in Visual Studio](../../extensibility/ux-guidelines/media/0601-c_supplementaltext2.png "0601\-c\_SupplementalText2")  
+ ![Supplemental text in Visual Studio](~/extensibility/ux-guidelines/media/0601-c_supplementaltext2.png "0601\-c\_SupplementalText2")  
   
  **Visual Studio 中的补充文本**  
   
@@ -108,7 +108,7 @@ caps.handback.revision: 2
   
 -   在启动对话，维护省略号的标准: 导航栏中，如果任务需要额外的用户界面的省略号没有省略号。  
   
-     ![Help link in Visual Studio](../../extensibility/ux-guidelines/media/0601-e_helplink.png "0601\-e\_HelpLink")  
+     ![Help link in Visual Studio](~/extensibility/ux-guidelines/media/0601-e_helplink.png "0601\-e\_HelpLink")  
   
      **省略号 \(...\) 在提供的帮助链接指示任务将需要其他用户界面。**  
   
@@ -260,7 +260,7 @@ caps.handback.revision: 2
   
 |好|错误|  
 |-------|--------|  
-|"您拨打的号码服务中已不存在。 请检查数以及重试或为操作符拨打 0。"|-   "错误 \(: 449\): 非法数字"<br />-   "此未处理的异常错误情况表示操作成功完成"。<br /><br /> ![Bad error message in Visual Studio](../../extensibility/ux-guidelines/media/0602-a_errordialog.png "0602\-a\_ErrorDialog")|  
+|"您拨打的号码服务中已不存在。 请检查数以及重试或为操作符拨打 0。"|-   "错误 \(: 449\): 非法数字"<br />-   "此未处理的异常错误情况表示操作成功完成"。<br /><br /> ![Bad error message in Visual Studio](~/extensibility/ux-guidelines/media/0602-a_errordialog.png "0602\-a\_ErrorDialog")|  
   
 ## 访问帮助  
   

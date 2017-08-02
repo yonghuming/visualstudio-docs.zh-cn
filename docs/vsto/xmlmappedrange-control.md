@@ -28,7 +28,7 @@ caps.handback.revision: 39
   
  [!INCLUDE[appliesto_xlalldoc](../vsto/includes/appliesto-xlalldoc-md.md)]  
   
- ![链接到视频](../vsto/media/playvideo.png "链接到视频") 有关相关视频演示，请参见 [How Do I: Use XML Mapping in Excel?](http://go.microsoft.com/fwlink/?LinkID=130288)（如何实现：在 Excel 中使用 XML 映射？）。  
+ ![链接到视频](~/data-tools/media/playvideo.gif "链接到视频") 有关相关视频演示，请参见 [How Do I: Use XML Mapping in Excel?](http://go.microsoft.com/fwlink/?LinkID=130288)（如何实现：在 Excel 中使用 XML 映射？）。  
   
 ## 将数据绑定到控件  
  <xref:Microsoft.Office.Tools.Excel.XmlMappedRange> 控件支持绑定到单个数据字段（简单数据绑定）。  <xref:Microsoft.Office.Tools.Excel.ListObject> 控件可以支持复杂数据绑定，此控件在重复架构元素映射到单元格上时自动被创建。  有关更多信息，请参见[ListObject 控件](../vsto/listobject-control.md)。  

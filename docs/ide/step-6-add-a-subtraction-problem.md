@@ -51,12 +51,12 @@ caps.handback.revision: 25
   
      您可以用多种方法调用 `Random` 类的 `Next()` 方法，在本教程的前面部分中，您已将此类命名为“randomizer”。  可使用多种方式调用的方法称为重载，您可以使用 IntelliSense 来探索这些方法。  请再次查看 IntelliSense 窗口中关于 `Next()` 方法的工具提示。  
   
-     ![Intellisense 窗口工具提示](../ide/media/express_overloads.png "Express\_Overloads")  
+     ![Intellisense 窗口工具提示](~/ide/media/express_overloads.png "Express\_Overloads")  
 Intellisense 窗口工具提示  
   
      此工具提示显示**“\(\+ 2 重载\)”**，这意味着您可以用另外两种方法来调用 `Next()` 方法。  重载包含不同数量或类型的参数，因此，它们的工作方式彼此略有不同。  例如，某个方法可能只采用一个整型参数，而其重载之一则可能采用一个整数和一个字符串。  您应选择正确的重载，使之执行您所需操作。  将代码添加到 `StartTheQuiz()` 方法后，当您输入 `randomizer.Next(` 时，Intellisense 窗口中将立即显示更多信息。  选择向上键和向下键可循环显示各个重载，如下图中所示。  
   
-     ![IntelliSense 中 Next&#40;&#41; 方法的重载](../ide/media/express_nextoverload.png "Express\_NextOverload")  
+     ![IntelliSense 中 Next&#40;&#41; 方法的重载](~/ide/media/express_nextoverload.png "Express\_NextOverload")  
 IntelliSense 中 Next\(\) 方法的重载  
   
      在此示例中，您想要选择最后一个重载，因为您可以指定最小值和最大值。  

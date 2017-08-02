@@ -257,7 +257,7 @@ ms.lasthandoff: 05/13/2017
   
      下面的插图显示带导航窗口按钮的应用程序。  
   
-     ![ExpenseIt 示例屏幕快照](../designers/media/gettingstartedfigure1.png "GettingStartedFigure1")  
+     ![ExpenseIt 示例屏幕快照](~/designers/media/gettingstartedfigure1.png "GettingStartedFigure1")  
   
 6.  关闭应用程序以返回到设计模式。  
   
@@ -313,7 +313,7 @@ ms.lasthandoff: 05/13/2017
   
 3.  生成并运行应用程序。 下图显示了此过程中 XAML 创建的控件的运行时外观。  
   
-     ![ExpenseIt 示例屏幕快照](../designers/media/gettingstartedfigure2.png "GettingStartedFigure2")  
+     ![ExpenseIt 示例屏幕快照](~/designers/media/gettingstartedfigure2.png "GettingStartedFigure2")  
   
 4.  关闭应用程序以返回到设计模式。  
   
@@ -480,7 +480,7 @@ ms.lasthandoff: 05/13/2017
   
 6.  如果在此时生成并运行应用程序，其外观应类似于下图：  
   
-     ![ExpenseIt 示例屏幕快照](../designers/media/gettingstartedfigure3.png "GettingStartedFigure3")  
+     ![ExpenseIt 示例屏幕快照](~/designers/media/gettingstartedfigure3.png "GettingStartedFigure3")  
   
 #### <a name="to-add-code-to-the-button"></a>若要将代码添加到按钮  
   

@@ -67,7 +67,7 @@ REPL 中以前的所有输入和输出都是只读的，不能更改。 但是�
 
 也就是说，如果开始键入语句并按 Enter，RTVS 将知道语句何时需要继续，并通过左侧的 + 提示和适当的缩进进入多行模式。 RTVS 还会使用成对的圆括号、方括号和大括号：
 
-![交互窗口中的多行语句条目](media/repl-multiline-entry.png)
+![交互窗口中的多行语句条目](~/rtvs/media/repl-multiline-entry.png)
 
 在这个多行模式下，仅当位于代码块末尾时，按 Enter 才会运行该代码块，否则将插入新行。 但是，可在任意位置按 Ctrl+Enter，立即运行代码块。
 
@@ -75,23 +75,23 @@ REPL 中以前的所有输入和输出都是只读的，不能更改。 但是�
 
 交互窗口及其工具栏如下图所示：
 
-![交互窗口与工具栏](media/repl-window.png)
+![交互窗口与工具栏](~/rtvs/media/repl-window.png)
 
 工具栏命令如下所示，其中多数命令具有键盘等效项，并且可在“R 工具”>“会话”和“R 工具”>“工作目录”菜单（或如上所述）中获取：
 
 | Button | 命令 | 组合键 | 描述 | 
 | --- | --- | --- | --- |
-| ![“重置”按钮](media/repl-toolbar-01-reset.png) | 重置 | Ctrl+Shift+F10 | 重置交互窗口会话，清除所有变量和历史记录。 |
-| ![“清除”按钮](media/repl-toolbar-02-clear.png) | 清除 | Ctrl+L | 清除交互窗口中显示的输出，不影响会话变量或历史记录。 |
-| ![“历史记录”按钮](media/repl-toolbar-03-history.png) | “上一条历史记录”命令<br/>“下一条历史记录”命令 | 向上，向下<br/>Alt+向上键，Alt+向下键 | 滚动浏览历史记录，以及多行代码块的某些行为。 请参阅[历史记录](#history)。 |
-| ![“加载工作区”按钮](media/repl-toolbar-04-load-workspace.png) | 加载工作区 | 无 | 加载以前保存的工作区（请参阅[工作区和会话](#workspaces-and-sessions)。 |
-| ![“工作区另存为”按钮](media/repl-toolbar-05-save-workspace-as.png)| 工作区另存为 | 无 | 将当前状态的会话另存为工作区（请参阅[工作区和会话](#workspaces-and-sessions)。 |
-| ![“源化 R 脚本”按钮](media/repl-toolbar-06-source-r-script.png) | 源化 R 脚本 | Ctrl+Shift+S | 在 Visual Studio 编辑器中使用当前活动的 R 脚本调用 `source`，它将运行代码。  仅当在 Visual Studio 编辑器中打开 R 文件时，才会显示此按钮。 | 
-| ![“源化带有回响的 R 脚本”按钮](media/repl-toolbar-07-source-r-script-with-echo.png) | 源化带有回响的 R 脚本 | Ctrl+Shift+Enter | 与源化 R 脚本相同，但在交互窗口中显示脚本内容。 | 
-| ![“中断 R”按钮](media/repl-toolbar-08-interrupt-r.png)| 中断 R | Esc | 停止交互窗口中任何正在运行的代码，如上面的屏幕截图中的 `while`。 |
-| ![“附加调试器”按钮](media/repl-toolbar-09b-attach-debugger.png)| 附加调试器 | 无 | 也可使用“调试”>“附加到 R 交互”命令。 | 
-| ![“将工作目录设置为源文件位置”按钮](media/repl-toolbar-10-set-working-directory-source.png)| 将工作目录设置为源文件位置 | Ctrl+Shift+E | 将工作目录设置为加载到交互窗口（使用`source`）的最新源文件。 请参阅[工作目录](#working-directory)。 |
-| ![“将工作目录设置为项目位置”按钮](media/repl-toolbar-11-set-working-directory-to-project.png) | 将工作目录设置为项目位置 | Ctrl+Shift+P | 将工作目录设置为 Visual Studio 中当前加载项目的根目录。 请参阅[工作目录](#working-directory)。 |
+| ![“重置”按钮](~/rtvs/media/repl-toolbar-01-reset.png) | 重置 | Ctrl+Shift+F10 | 重置交互窗口会话，清除所有变量和历史记录。 |
+| ![“清除”按钮](~/rtvs/media/repl-toolbar-02-clear.png) | 清除 | Ctrl+L | 清除交互窗口中显示的输出，不影响会话变量或历史记录。 |
+| ![“历史记录”按钮](~/rtvs/media/repl-toolbar-03-history.png) | “上一条历史记录”命令<br/>“下一条历史记录”命令 | 向上，向下<br/>Alt+向上键，Alt+向下键 | 滚动浏览历史记录，以及多行代码块的某些行为。 请参阅[历史记录](#history)。 |
+| ![“加载工作区”按钮](~/rtvs/media/repl-toolbar-04-load-workspace.png) | 加载工作区 | 无 | 加载以前保存的工作区（请参阅[工作区和会话](#workspaces-and-sessions)。 |
+| ![“工作区另存为”按钮](~/rtvs/media/repl-toolbar-05-save-workspace-as.png)| 工作区另存为 | 无 | 将当前状态的会话另存为工作区（请参阅[工作区和会话](#workspaces-and-sessions)。 |
+| ![“源化 R 脚本”按钮](~/rtvs/media/repl-toolbar-06-source-r-script.png) | 源化 R 脚本 | Ctrl+Shift+S | 在 Visual Studio 编辑器中使用当前活动的 R 脚本调用 `source`，它将运行代码。  仅当在 Visual Studio 编辑器中打开 R 文件时，才会显示此按钮。 | 
+| ![“源化带有回响的 R 脚本”按钮](~/rtvs/media/repl-toolbar-07-source-r-script-with-echo.png) | 源化带有回响的 R 脚本 | Ctrl+Shift+Enter | 与源化 R 脚本相同，但在交互窗口中显示脚本内容。 | 
+| ![“中断 R”按钮](~/rtvs/media/repl-toolbar-08-interrupt-r.png)| 中断 R | Esc | 停止交互窗口中任何正在运行的代码，如上面的屏幕截图中的 `while`。 |
+| ![“附加调试器”按钮](~/rtvs/media/repl-toolbar-09b-attach-debugger.png)| 附加调试器 | 无 | 也可使用“调试”>“附加到 R 交互”命令。 | 
+| ![“将工作目录设置为源文件位置”按钮](~/rtvs/media/repl-toolbar-10-set-working-directory-source.png)| 将工作目录设置为源文件位置 | Ctrl+Shift+E | 将工作目录设置为加载到交互窗口（使用`source`）的最新源文件。 请参阅[工作目录](#working-directory)。 |
+| ![“将工作目录设置为项目位置”按钮](~/rtvs/media/repl-toolbar-11-set-working-directory-to-project.png) | 将工作目录设置为项目位置 | Ctrl+Shift+P | 将工作目录设置为 Visual Studio 中当前加载项目的根目录。 请参阅[工作目录](#working-directory)。 |
 | (文本字段) | 选择工作目录 | 无 | 工作目录的直接输入字段。 请参阅[工作目录](#working-directory)。 |
 
 

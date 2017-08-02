@@ -51,7 +51,7 @@ EditorConfig 文件中的设置用于维护某种语言一致的编码风格和�
 ## <a name="override-editorconfig-settings"></a>替代 EditorConfig 设置
 如果在文件层次结构中将 .editorconfig 文件添加到文件夹，则其设置将应用于该级别和更低级别的所有适用文件。 若要替代特定项目或基本代码的 EditorConfig 设置，并使用异于顶级 .editorconfig 文件的不同值或替代值，只需将 .editorconfig 文件添加到想要更改的级别即可。
 
-![EditorConfig 层次结构](../ide/media/vside_editorconfig_hierarchy.png)
+![EditorConfig 层次结构](~/ide/media/vside_editorconfig_hierarchy.png)
 
 新的 .editorconfig 文件设置将应用于其所在级别和所有子文件。
 
@@ -70,19 +70,19 @@ Visual Studio 中的编辑器支持 EditorConfig 选项核心组的以下值。
 ## <a name="example"></a>示例
 以下示例演示将 .editorconfig 文件添加到项目之前和之后 C# 代码片段的缩进状态。 Visual Studio 文本编辑器“选项”对话框中的“Tab”设置被设置为在代码中按 Tab 键时可生成空格字符。
 
-![文本编辑器 Tab 设置](../ide/media/vside_editorconfig_tabsetting.png)
+![文本编辑器 Tab 设置](~/ide/media/vside_editorconfig_tabsetting.png)
 
 按预期，在下一行按 Tab 键会使该行首行缩进四个空格字符。
 
-![使用 EditorConfig 之前的代码](../ide/media/vside_editorconfig_before.png)
+![使用 EditorConfig 之前的代码](~/ide/media/vside_editorconfig_before.png)
 
 将以下名为 .editorconfig 的新文件添加到项目。 （`[*.cs]` 设置意味着此更改仅应用于此项目中的 .cs 文件。）
 
-![已将 .editorconfig 文件添加到项目](../ide/media/vside_editorconfig_addconfig.png)
+![已将 .editorconfig 文件添加到项目](~/ide/media/vside_editorconfig_addconfig.png)
 
 现在，如果按 Tab 键，会获得制表符而非空格。
 
-![使用 Tab 添加制表符](../ide/media/vside_editorconfig_tab.png)
+![使用 Tab 添加制表符](~/ide/media/vside_editorconfig_tab.png)
 
 > [!NOTE]
 >  将 .editorconfig 文件添加到项目或基本代码不会将现有样式转换为新样式，而仅应用于新添加的行。 如果从项目或基本代码删除 .editorconfig 文件，必须重新加载编辑器设置的代码文件，还原为全局设置。 在 Visual studio 中，.editorconfig 文件中的任何错误都会报告在“错误”窗口。

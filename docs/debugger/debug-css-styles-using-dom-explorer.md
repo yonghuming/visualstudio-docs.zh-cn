@@ -29,7 +29,7 @@ caps.handback.revision: 44
 # 使用 DOM 资源管理器调试 CSS 样式
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
 
-![适用于 Windows 和 Windows Phone](../debugger/media/windows_and_phone_content.png "windows\_and\_phone\_content")  
+![适用于 Windows 和 Windows Phone](~/debugger/media/windows_and_phone_content.png "windows\_and\_phone\_content")  
   
  调试 Windows 应用商店应用、Windows Phone 应用商店应用以及使用 Visual Studio Tools for Apache Cordova 创建的应用程序时，可查看和更改选定 DOM 元素及其子元素的 CSS 规则。  
   
@@ -47,7 +47,7 @@ caps.handback.revision: 44
 -   使用“更改”选项卡（仅限 Windows 应用商店和 Windows Phone 应用商店应用）可标识和跟踪在调试会话期间更改的 CSS 样式。  
   
 > [!TIP]
->  在**“样式”**和**“已计算”**选项卡中作出的更改并不是永久性的。 停止调试后，这些更改将丢失。 若要在不停止和重启调试器的情况下更改源代码并重新加载页面，请使用“调试”工具栏上的 ![“刷新 Windows 应用程序”按钮](../debugger/media/js_refresh.png "JS\_Refresh") 按钮（“刷新 Windows 应用程序”）刷新应用程序（仅限 Windows 应用商店和 Windows Phone 应用商店应用）。 有关更多信息，请参见 [刷新应用程序 \(JavaScript\)](../debugger/refresh-an-app-javascript.md)。  
+>  在**“样式”**和**“已计算”**选项卡中作出的更改并不是永久性的。 停止调试后，这些更改将丢失。 若要在不停止和重启调试器的情况下更改源代码并重新加载页面，请使用“调试”工具栏上的 ![“刷新 Windows 应用程序”按钮](~/debugger/media/js_refresh.png "JS\_Refresh") 按钮（“刷新 Windows 应用程序”）刷新应用程序（仅限 Windows 应用商店和 Windows Phone 应用商店应用）。 有关更多信息，请参见 [刷新应用程序 \(JavaScript\)](../debugger/refresh-an-app-javascript.md)。  
   
 ## 修复 CSS 规则的示例  
  此示例演示如何检查 CSS 规则和调试样式问题。 在此示例中，假设你要更改用于显示 [!INCLUDE[win8_appname_long](../debugger/includes/win8_appname_long_md.md)]“拆分应用”模板中的组标题的字体颜色。  
@@ -122,13 +122,13 @@ caps.handback.revision: 44
   
 9. 清除 `color` 样式的第一个匹配项的复选框，该匹配项适用于 `.itemspage .itemslist .item .item-overlay .item-title` 选择器。 此时，在模拟器中，你会看到所有项标题的颜色都按要求变为橙色，并且将不再重写已在 CSS 中修改的选择器 `.itemspage .itemslist .item`（即，不再对该选择器应用带删除线的文本）。 这是清除复选框后的**“已计算”**选项卡。  
   
-     ![更新 CSS 样式后的“已计算”选项卡](../debugger/media/js_css_styles_fixed.png "JS\_CSS\_Styles\_Fixed")  
+     ![更新 CSS 样式后的“已计算”选项卡](~/debugger/media/js_css_styles_fixed.png "JS\_CSS\_Styles\_Fixed")  
   
 10. 选择**“更改”**选项卡。  
   
      使用**“更改”**选项卡可标识和跟踪在调试会话期间所做的样式更改。 下图显示了**“更改”**选项卡中的 `.itemspage .itemslist .item .item-overlay .item-title` 选择器（现已覆盖）。  
   
-     ![DOM 资源管理器的“更改”选项卡](../debugger/media/js_css_styles_changes.png "JS\_CSS\_Styles\_Changes")  
+     ![DOM 资源管理器的“更改”选项卡](~/debugger/media/js_css_styles_changes.png "JS\_CSS\_Styles\_Changes")  
   
 11. 你还可手动编辑 CSS 样式值并使用**“样式”**选项卡查看即时结果。  
   
@@ -140,7 +140,7 @@ caps.handback.revision: 44
   
 15. 使用键盘可修改此值。 将此值更改为 `rgb(255, 255, 0, 0.87)`，然后按 Enter。 随后，模拟器中项标题的颜色全部变为黄色。  
   
-16. 若要更改源 CSS 文件，请单击**“样式”**选项卡上的**“items.css”**链接。 这将打开 items.css，你可以在其中更改应用程序代码中 `color` 样式的值。 若要在不停止和重启调试器的情况下刷新应用，请单击“调试”工具栏上的 ![“刷新 Windows 应用程序”按钮](../debugger/media/js_refresh.png "JS\_Refresh")（“刷新 Windows 应用”）按钮。  
+16. 若要更改源 CSS 文件，请单击**“样式”**选项卡上的**“items.css”**链接。 这将打开 items.css，你可以在其中更改应用程序代码中 `color` 样式的值。 若要在不停止和重启调试器的情况下刷新应用，请单击“调试”工具栏上的 ![“刷新 Windows 应用程序”按钮](~/debugger/media/js_refresh.png "JS\_Refresh")（“刷新 Windows 应用”）按钮。  
   
 ## 请参阅  
  [快速入门：调试 HTML 和 CSS](../debugger/quickstart-debug-html-and-css.md)   

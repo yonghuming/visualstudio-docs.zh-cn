@@ -34,7 +34,7 @@ manager: "ghogen"
   
  在此方案中，你最近向应用添加了对象，并添加了用于转换该对象并为其提供独特外观的新顶点和像素着色器。 在测试过程中运行该应用时，该对象将呈现为纯黑色。 通过使用“图形诊断”，捕获图形日志的问题，以便调试该应用。 应用中的问题如下所示：  
   
- ![呈现对象所使用的颜色不正确。](../debugger/media/gfx_diag_demo_render_error_shader_problem.png "gfx\_diag\_demo\_render\_error\_shader\_problem")  
+ ![呈现对象所使用的颜色不正确。](~/debugger/graphics/media/gfx_diag_demo_render_error_shader_problem.png "gfx\_diag\_demo\_render\_error\_shader\_problem")  
   
 ## 调查  
  通过使用图形诊断工具，您可以加载图形日志文档以检测测试期间已捕获的帧。  
@@ -45,7 +45,7 @@ manager: "ghogen"
   
 2.  在“帧列表”中，选择其中对象外观不正确的帧。 更新呈现目标以反映所选的帧。 在此方案中，图形日志文档窗口如下所示：  
   
-     ![Visual Studio 中的图形日志文档。](../debugger/media/gfx_diag_demo_render_error_shader_step_1.png "gfx\_diag\_demo\_render\_error\_shader\_step\_1")  
+     ![Visual Studio 中的图形日志文档。](~/debugger/graphics/media/gfx_diag_demo_render_error_shader_step_1.png "gfx\_diag\_demo\_render\_error\_shader\_step\_1")  
   
  选择演示问题的帧后，可以使用“图形像素历史记录”窗口进行诊断。 “图形像素历史记录”窗口将按时间顺序显示可能已对特定像素、其着色器及其呈现器目标产生影响的基元。  
   
@@ -59,7 +59,7 @@ manager: "ghogen"
   
      将更新“图形像素历史记录”窗口以反映所选像素。 在此方案中，“图形像素历史记录”窗口如下所示：  
   
-     ![像素历史记录显示一个 DrawIndexed 事件。](../debugger/media/gfx_diag_demo_render_error_shader_step_3.png "gfx\_diag\_demo\_render\_error\_shader\_step\_3")  
+     ![像素历史记录显示一个 DrawIndexed 事件。](~/debugger/graphics/media/gfx_diag_demo_render_error_shader_step_3.png "gfx\_diag\_demo\_render\_error\_shader\_step\_3")  
   
      请注意，像素着色器的结果是完全不透明的黑色 \(0, 0, 0, 1\)，而“输出合并器”将其与该像素的“上一个”颜色结合，从而使“结果”也是完全不透明的黑色。  
   
@@ -73,7 +73,7 @@ manager: "ghogen"
   
 3.  将指针停留在 `input.color` 之上。 请注意，其值是完全不透明黑 \(0, 0, 0, 1\)。  
   
-     ![“input”的“color”成员为黑色。](../debugger/media/gfx_diag_demo_render_error_shader_step_5.png "gfx\_diag\_demo\_render\_error\_shader\_step\_5")  
+     ![“input”的“color”成员为黑色。](~/debugger/graphics/media/gfx_diag_demo_render_error_shader_step_5.png "gfx\_diag\_demo\_render\_error\_shader\_step\_5")  
   
      在此方案中，检查指示不正确的颜色可能是顶点着色器未对要操作的像素着色器提供正确的颜色信息所导致的结果。  
   
@@ -87,7 +87,7 @@ manager: "ghogen"
   
 3.  确认绝不会从输入结构中复制颜色成员。 由于 `output.color` 的值仅在返回 `output` 结构之前设置为完全不透明黑，因此确保在上一行上不正确初始化 `output` 的值是个好主意。 在您看到 `output.color` 的值时，逐句通过顶点着色器代码，直至到达将 `output.color` 设置为黑色的行。 请注意，在 `output.color` 设置为黑色之前，其值不进行初始化。 这可确认应修改而不是删除将 `output.color` 设置为黑色的代码行。  
   
-     ![“output.color”的值为黑色。](../debugger/media/gfx_diag_demo_render_error_shader_step_7.png "gfx\_diag\_demo\_render\_error\_shader\_step\_7")  
+     ![“output.color”的值为黑色。](~/debugger/graphics/media/gfx_diag_demo_render_error_shader_step_7.png "gfx\_diag\_demo\_render\_error\_shader\_step\_7")  
   
  在确定导致出现呈现问题的原因是顶点着色器未向像素着色器提供正确的颜色值之后，您可使用此信息来修复问题。 在此方案中，您可通过更改顶点着色器中的以下代码来修复问题  
   
@@ -103,8 +103,8 @@ output.color = input.color;
   
  此代码仅传递来自该对象未经修改的顶点的颜色 \- 更复杂的顶点着色器可以在传递颜色之前对其进行修改。 已更正的顶点着色器代码应如下所示：  
   
- ![已更正的顶点着色器代码。](../debugger/media/gfx_diag_demo_render_error_shader_step_8.png "gfx\_diag\_demo\_render\_error\_shader\_step\_8")  
+ ![已更正的顶点着色器代码。](~/debugger/graphics/media/gfx_diag_demo_render_error_shader_step_8.png "gfx\_diag\_demo\_render\_error\_shader\_step\_8")  
   
  修复代码后，重新生成并运行应用以查明呈现的问题是否已解决。  
   
- ![呈现对象所使用的颜色正确。](../debugger/media/gfx_diag_demo_render_error_shader_resolution.png "gfx\_diag\_demo\_render\_error\_shader\_resolution")
+ ![呈现对象所使用的颜色正确。](~/debugger/graphics/media/gfx_diag_demo_render_error_shader_resolution.png "gfx\_diag\_demo\_render\_error\_shader\_resolution")

@@ -64,7 +64,7 @@ ms.lasthandoff: 02/22/2017
  本主题介绍您可以使用依赖项关系图的元素。 有关详细信息，有关如何创建和绘制依赖项关系图，请参阅[依赖项关系图︰ 准则](../modeling/layer-diagrams-guidelines.md)。 有关分层模式的详细信息，请访问[模式 < 和实施方案网站](http://go.microsoft.com/fwlink/?LinkId=145794)。  
   
 ## <a name="reading-dependency-diagrams"></a>读取依赖项关系图  
- ![依赖项关系图上的元素](../modeling/media/uml_layerrefreading.png "UML_LayerRefReading")  
+ ![依赖项关系图上的元素](~/modeling/media/uml_layerrefreading.png "UML_LayerRefReading")  
   
  下表描述你可以使用依赖项关系图的元素。  
   

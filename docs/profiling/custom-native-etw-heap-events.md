@@ -67,7 +67,7 @@ Foo* pFoo3 = (Foo*)mPool.allocate();
 
 在不含自定义堆跟踪的[内存使用量](https://docs.microsoft.com/en-us/visualstudio/profiling/memory-usage)工具的快照中，仅显示了单个 8192 字节分配，并且池未进行任何自定义分配：
 
-![Windows 堆分配](media/heap-example-windows-heap.png)
+![Windows 堆分配](~/profiling/media/heap-example-windows-heap.png)
 
 通过执行以下步骤，我们可以使用同一工具跟踪自定义堆中的内存使用情况。
 
@@ -158,17 +158,17 @@ Foo* pFoo3 = (Foo*)mPool.allocate();
 ## <a name="tracking-memory-usage"></a>跟踪内存使用量
 随着这些调用就位，现可使用 Visual Studio 中的标准**内存使用量**工具跟踪自定义堆使用情况。  有关如何使用此工具的详细信息，请参阅[内存使用量](https://docs.microsoft.com/en-us/visualstudio/profiling/memory-usage)文档。 确保已通过快照启用堆分析，否则你的自定义堆使用情况将不会显示。 
 
-![启用堆分析](media/heap-enable-heap.png)
+![启用堆分析](~/profiling/media/heap-enable-heap.png)
 
 若要查看自定义堆跟踪，请使用位于“快照”窗口右上角的“堆”下拉菜单，将视图从“NT 堆” 更改为之前已命名的自己的堆。
 
-![堆选择](media/heap-example-custom-heap.png)
+![堆选择](~/profiling/media/heap-example-custom-heap.png)
 
 通过使用上面的代码示例，当 `MemoryPool` 创建 `VSHeapTracker::CHeapTracker` 对象，并且我们自己的 `allocate` 方法在调用 `AllocateEvent` 方法时，你可以查看该自定义分配的结果，结果显示 3 个实例，合计 24 个字节，均为类型 `Foo`。
 
 默认的 NT 堆看起来与前面的相同，同时添加了 `CHeapTracker` 对象。
 
-![带跟踪器的 NT 堆](media/heap-example-windows-heap.png)
+![带跟踪器的 NT 堆](~/profiling/media/heap-example-windows-heap.png)
 
 如[](https://docs.microsoft.com/en-us/visualstudio/profiling/memory-usage)文档中所述，与标准的 Windows 堆一样，你还可使用此工具比较快照，并查找自定义堆中的泄漏和损坏。
 

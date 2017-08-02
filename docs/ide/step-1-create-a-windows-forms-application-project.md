@@ -20,7 +20,7 @@ caps.handback.revision: 22
 
 创建图片查看器时，第一步是创建 Windows 窗体应用程序项目。  
   
- ![链接到视频](../data-tools/media/playvideo.png "PlayVideo") 有关本主题的视频版本，请参阅[教程 1：用 Visual Basic 创建图片查看器 \- 视频 1](http://go.microsoft.com/fwlink/?LinkId=205209) 或[教程 1：用 C\# 创建图片查看器 \- 视频 1](http://go.microsoft.com/fwlink/?LinkId=205199)。  这些视频使用 Visual Studio 的早期版本，因此在一些菜单命令和其他用户界面元素上略有差异。  但是，概念和过程与当前版本的 Visual Studio 大同小异。  
+ ![链接到视频](~/data-tools/media/playvideo.gif "PlayVideo") 有关本主题的视频版本，请参阅[教程 1：用 Visual Basic 创建图片查看器 \- 视频 1](http://go.microsoft.com/fwlink/?LinkId=205209) 或[教程 1：用 C\# 创建图片查看器 \- 视频 1](http://go.microsoft.com/fwlink/?LinkId=205199)。  这些视频使用 Visual Studio 的早期版本，因此在一些菜单命令和其他用户界面元素上略有差异。  但是，概念和过程与当前版本的 Visual Studio 大同小异。  
   
 ### 创建 Windows 窗体应用程序项目  
   
@@ -40,7 +40,7 @@ caps.handback.revision: 22
     > [!NOTE]
     >  您的窗口布局可能与此图不完全相同。  确切的窗口布局取决于 Visual Studio 的版本、所使用的编程语言以及一些其他因素。  但是，您应验证是否显示了全部三个窗口。  
   
-     ![IDE 窗口](../ide/media/express_ideoverview_visio.png "Express\_IDEOverview\_Visio")  
+     ![IDE 窗口](~/ide/media/express_ideoverview_visio.png "Express\_IDEOverview\_Visio")  
 IDE 窗口  
   
      界面中包含三个窗口：主窗口、**“解决方案资源管理器”**和**“属性”**窗口。  
@@ -62,7 +62,7 @@ IDE 窗口
   
      或者，在工具栏上选择**“全部保存”**按钮，如下图所示。  
   
-     ![“全部保存”工具栏按钮](../ide/media/express_iconsaveall.png "Express\_IconSaveAll")  
+     ![“全部保存”工具栏按钮](~/ide/media/express_iconsaveall.png "Express\_IconSaveAll")  
 “全部保存”工具栏按钮  
   
      Visual Studio 将自动填充文件夹名称和项目名称，并将项目保存在项目文件夹中。  

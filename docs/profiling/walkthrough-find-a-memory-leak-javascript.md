@@ -43,7 +43,7 @@ ms.lasthandoff: 02/22/2017
 
 ---
 # <a name="walkthrough-find-a-memory-leak-javascript"></a>演练：查找内存泄漏 (JavaScript)
-![适用于 Windows 和 Windows Phone](../debugger/media/windows_and_phone_content.png "windows_and_phone_content")  
+![适用于 Windows 和 Windows Phone](~/debugger/media/windows_and_phone_content.png "windows_and_phone_content")  
   
  本演练带领你完成使用 JavaScript 内存分析器确定并修复简单内存问题的过程。 JavaScript 内存分析器在 Visual Studio 中提供，适用于使用 JavaScript 为 Windows 生成的 Windows 应用商店应用。 在此方案中，你将创建一个在内存中错误保留 DOM 元素，而非以创建这些元素时的相同速率将其释放的应用。  
   
@@ -228,7 +228,7 @@ ms.lasthandoff: 02/22/2017
   
 15. 打开对象树顶部的 HTMLDivElement 对象（如此处所示）。  
   
-     ![堆的对象计数的“差异”视图](../profiling/media/js_mem_app_typesdiff.png "JS_Mem_App_TypesDiff")  
+     ![堆的对象计数的“差异”视图](~/profiling/media/js_mem_app_typesdiff.png "JS_Mem_App_TypesDiff")  
   
      此视图显示有关内存泄漏的有用信息，例如：  
   

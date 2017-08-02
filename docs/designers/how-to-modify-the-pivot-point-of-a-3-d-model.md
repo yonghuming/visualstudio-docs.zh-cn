@@ -46,7 +46,7 @@ caps.handback.revision: 14
   
  具有已修改透视点的模型:  
   
- ![具有已修改透视点的建筑模型](../designers/media/digit-modified-model.png "Digit\-Modified\-Model")  
+ ![具有已修改透视点的建筑模型](~/designers/media/digit-modified-model.png "Digit\-Modified\-Model")  
   
 ## 请参阅  
  [如何：创建基本三维模型](../Topic/How%20to:%20Create%20a%20Basic%203-D%20Model.md)   

@@ -52,7 +52,7 @@ ms.lasthandoff: 05/12/2017
 1. 选择“文件”>“新建”>“项目...”(Ctrl+Shift+N)
 1. 选择“模板”>“R”下的“R 项目”，指定项目的名称和位置，然后选择“确定”：
 
-   ![Visual Studio 中 R（VS2017 中的 RTVS）的“新建项目”对话框](media/getting-started-01-new-project.png)
+   ![Visual Studio 中 R（VS2017 中的 RTVS）的“新建项目”对话框](~/rtvs/media/getting-started-01-new-project.png)
 
 1. 创建项目后，将看到以下各项：
 
@@ -67,29 +67,29 @@ ms.lasthandoff: 05/12/2017
 
 1. 键入 `3 + 4` 然后按 Enter 查看结果，测试交互窗口是否正常运行：
 
-    ![Visual Studio 2017 (VS2017) 中的 R 交互窗口](media/getting-started-02-interactive1.png)
+    ![Visual Studio 2017 (VS2017) 中的 R 交互窗口](~/rtvs/media/getting-started-02-interactive1.png)
 
 1. 输入稍微复杂一点内容，如 `ds <- c(1.5, 6.7, 8.9) * 1:12`，然后输入 `ds` 查看结果：
 
-    ![Visual Studio 中的 R 的其他交互示例](media/getting-started-03-interactive2.png)
+    ![Visual Studio 中的 R 的其他交互示例](~/rtvs/media/getting-started-03-interactive2.png)
 
 1. 键入 `mean(ds)`，但请注意，键入 `m` 或 `me` 后，Visual Studio IntelliSense 会立即提供自动完成选项，如下所示。 如果从列表中选择了所需完成选项并按 Tab 将其插入，可以使用箭头键或鼠标更改选定内容。
 
-    ![IntelliSense 会在输入代码时出现](media/getting-started-04-intellisense1.png)
+    ![IntelliSense 会在输入代码时出现](~/rtvs/media/getting-started-04-intellisense1.png)
 
 1. 完成 `mean` 后，键入左括号 `(`，并注意 IntelliSense 如何提供关于函数的内联帮助：
 
-    ![显示函数相关帮助的 IntelliSense](media/getting-started-05-intellisense2.png)
+    ![显示函数相关帮助的 IntelliSense](~/rtvs/media/getting-started-05-intellisense2.png)
 
 1. 完成行 `mean(ds)`，然后按 Enter 查看结果 (`[1] 39.51667`)。
 
 1. 交互窗口已与帮助集成，因此请输入 `?mean`，例如，将在 Visual Studio 的“R 帮助”窗口中看到关于该函数的帮助。 有关此功能的其他详细信息，请参阅 [Help in R Tools for Visual Studio](getting-started-help.md)（针对 Visual Studio 的 R 工具中的帮助）。
 
-    ![Visual Studio 中的 R 帮助窗口](media/getting-started-06-help.png)
+    ![Visual Studio 中的 R 帮助窗口](~/rtvs/media/getting-started-06-help.png)
 
 1. 如果无法在交互窗口中直接显示输出，某些命令（如 `plot(1:100)`）将在 Visual Studio 中打开一个新窗口：
 
-    ![Visual Studio 中的绘图显示](media/getting-started-07-plot-window.png)
+    ![Visual Studio 中的绘图显示](~/rtvs/media/getting-started-07-plot-window.png)
 
 使用交互窗口，还可查看历史记录、加载和保存工作区、附加到调试器，以及与源代码文件交互，简化复制粘贴操作。 有关详细信息，请参阅 [Working with the R Interactive Window](interactive-repl.md)（使用 R 交互窗口）。
 
@@ -113,7 +113,7 @@ ms.lasthandoff: 05/12/2017
 
 1. 若要快速查看结果，请选择所有代码 (Ctrl+A)，然后按 Ctrl+Enter，或右键单击并选择“交互执行”。 这将在交互窗口中输入所有选定代码，就像直接键入一样，并且绘图窗口中将显示结果：
 
-    ![Visual Studio 中的绘图显示](media/getting-started-08-plot1.png)
+    ![Visual Studio 中的绘图显示](~/rtvs/media/getting-started-08-plot1.png)
 
 1. 对于单行，可随时通过按 Ctrl+Enter 在交互窗口中运行该行。
 
@@ -132,7 +132,7 @@ ms.lasthandoff: 05/12/2017
 
 1. 再次按 Ctrl+A 和 Ctrl+Enter，重新运行代码，生成以下结果：
 
-    ![Visual Studio 中更新后的双重绘图](media/getting-started-09-plot2.png)
+    ![Visual Studio 中更新后的双重绘图](~/rtvs/media/getting-started-09-plot2.png)
 
 1. 问题是第一个绘图确定了垂直刻度，因此无法容纳第二个绘图（使用 `lines`）。 若要纠正此问题，需要对 `plot` 调用设置 `ylim` 参数，但为了正确执行该操作，需要添加代码，计算最大垂直值。 在交互窗口中逐行执行该操作不太方便，因为需要在调用 `plot` 前重新排列代码才能使用 `samp.means`。 然而，在代码文件中，可以轻松执行相应编辑：
 
@@ -154,7 +154,7 @@ ms.lasthandoff: 05/12/2017
 
 1. 再次按 Ctrl+A 和 Ctrl+Enter 可查看结果：
 
-    ![Visual Studio 中刻度适当的更新后双重绘图](media/getting-started-10-plot3.png)
+    ![Visual Studio 中刻度适当的更新后双重绘图](~/rtvs/media/getting-started-10-plot3.png)
 
 在编辑器中还可以执行其他操作。 有关详细信息，请参阅[编辑代码](code-editing.md)[IntelliSense](code-intellisense.md) 和[代码片段](code-snippets.md)。
 
@@ -166,23 +166,23 @@ Visual Studio 的一个主要优势就是它的调试 UI。 RTVS 构建于这一
 
 1. 使用上一节中创建的 `script.R` 文件，在以 `pop <-` 开头的行上设置断点，方法是将插入符号放置于该行中，然后按 F9，或选择“调试”>“切换断点”菜单命令。 可通过在该行的左边距（或装订线）中单击一步完成该操作，该边距（或装订线）中将出现一个红色断点：
 
-    ![在编辑器中设置断点](media/getting-started-11-debug1.png)
+    ![在编辑器中设置断点](~/rtvs/media/getting-started-11-debug1.png)
 
 1. 选择工具栏上的“源化启动文件”按钮，选择“调试”>“源化启动文件”菜单项，或按 F5，使用 `script.R` 中的代码启动调试器。 这将使 Visual Studio 进入调试模式，并开始运行代码。 但是，将在设置断点的行停止运行：
 
-    ![在 Visual Studio 调试器中的断点处停止](media/getting-started-12-debug2.png)
+    ![在 Visual Studio 调试器中的断点处停止](~/rtvs/media/getting-started-12-debug2.png)
 
 1. 调试期间，Visual Studio 将提供逐行执行代码的功能，其中包括单步执行函数，逐过程执行函数，或跳出函数，运行到调用上下文。 可在“调试”菜单、编辑器的右击上下文菜单和调试工具栏中找到这些功能以及其他功能：
 
-    ![Visual Studio 中的调试工具栏](media/getting-started-13-debug3.png)
+    ![Visual Studio 中的调试工具栏](~/rtvs/media/getting-started-13-debug3.png)
 
 1. 如果在断点处停止，可以检查变量值。 找到 Visual Studio 中的“自动”窗口，并选择底部名为“局部变量”的选项卡。 “局部变量”窗口将显示程序中当前位置的局部变量。 如果在之前设置的断点处停止，将看到尚未定义 `pop` 变量。 现在，如果使用“调试”>“逐过程执行”命令 (F10)，将显示 pop 的值：
 
-    ![Visual Studio 中的“局部变量”窗口](media/getting-started-14-debug4.png)
+    ![Visual Studio 中的“局部变量”窗口](~/rtvs/media/getting-started-14-debug4.png)
 
 1. 若要检查不同范围（包括全局范围和包范围）内的变量，可使用[变量资源管理器](variable-explorer.md)，如下所示。 变量资源管理器还提供以下功能：切换到含可排序列的表格视图、将数据导出到 CSV 文件。
 
-    ![变量资源管理器的展开视图](media/variable-explorer-expanded-results.png)
+    ![变量资源管理器的展开视图](~/rtvs/media/variable-explorer-expanded-results.png)
 
 1. 可继续逐行逐句执行程序，也可选择“继续”(F5) 运行程序，直到完成（或下一个断点）。
 

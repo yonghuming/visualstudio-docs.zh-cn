@@ -30,7 +30,7 @@ caps.handback.revision: 22
  [!INCLUDE[appliesto_olkallapp](../vsto/includes/appliesto-olkallapp-md.md)]  
   
 ## 向窗体区域中添加自定义操作  
- 若要将自定义操作添加到窗体区域中，请使用**“自定义操作”**对话框。  通过展开 **清单** 节点，选择 **CustomActions** 属性，然后单击省略号按钮以在 **解决方案资源管理器** 的 **自定义操作** 对话框 \(![ASP.NET 移动设计器中的省略号](../sharepoint/media/mwellipsis.png "ASP.NET 移动设计器中的省略号")\)。  
+ 若要将自定义操作添加到窗体区域中，请使用**“自定义操作”**对话框。  通过展开 **清单** 节点，选择 **CustomActions** 属性，然后单击省略号按钮以在 **解决方案资源管理器** 的 **自定义操作** 对话框 \(![ASP.NET 移动设计器中的省略号](~/sharepoint/media/mwellipsis.gif "ASP.NET 移动设计器中的省略号")\)。  
   
  使用**“自定义操作”**对话框可以指定目标窗体。  目标窗体是当用户执行自定义操作时显示的窗体。  
   

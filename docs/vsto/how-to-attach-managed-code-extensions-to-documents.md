@@ -32,7 +32,7 @@ caps.handback.revision: 32
 > [!NOTE]  
 >  如果代码需要指定文档所没有的控件，自定义项将加载失败。  
   
- ![链接到视频](../vsto/media/playvideo.png "链接到视频") 如需相关视频演示，请参见 [How Do I: Attach or Detach a VSTO Assembly from a Word Document?](http://go.microsoft.com/fwlink/?LinkId=136782)（如何实现：在 Word 文档中附加或分离 VSTO 程序集）。  
+ ![链接到视频](~/data-tools/media/playvideo.gif "链接到视频") 如需相关视频演示，请参见 [How Do I: Attach or Detach a VSTO Assembly from a Word Document?](http://go.microsoft.com/fwlink/?LinkId=136782)（如何实现：在 Word 文档中附加或分离 VSTO 程序集）。  
   
 ### 将托管代码扩展附加到文档  
   

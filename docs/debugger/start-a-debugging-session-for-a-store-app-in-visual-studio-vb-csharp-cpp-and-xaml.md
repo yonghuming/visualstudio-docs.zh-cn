@@ -44,7 +44,7 @@ manager: "ghogen"
 # 为 Visual Studio 中的应用商店应用启动调试会话（VB、C#、C++ 和 XAML）
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
 
-![适用于 Windows 和 Windows Phone](../debugger/media/windows_and_phone_content.png "windows\_and\_phone\_content")  
+![适用于 Windows 和 Windows Phone](~/debugger/media/windows_and_phone_content.png "windows\_and\_phone\_content")  
   
  本主题介绍如何针对用 XAML 和 Visual C\+\+、Visual C\# 或 Visual Basic 编写的应用商店应用启动调试会话。 调试应用程序涉及配置调试会话和选择启动应用程序的方式。  
   
@@ -104,11 +104,11 @@ manager: "ghogen"
   
     -   对于 Visual C\# 和 Visual Basic 应用程序，选择**“调试”**。  
   
-         ![C&#35; &#47; VB 项目调试属性页](../debugger/media/dbg_csvb_debugpropertypage.png "DBG\_CsVb\_DebugPropertyPage")  
+         ![C&#35; &#47; VB 项目调试属性页](~/debugger/media/dbg_csvb_debugpropertypage.png "DBG\_CsVb\_DebugPropertyPage")  
   
     -   对于 Visual C\+\+ 应用程序，展开**“配置属性”**节点，然后选择**“调试”**。  
   
-         ![C&#43;&#43; Windows 应用商店应用调试属性页](../debugger/media/dbg_cpp_debugpropertypage.png "DBG\_CPP\_DebugPropertyPage")  
+         ![C&#43;&#43; Windows 应用商店应用调试属性页](~/debugger/media/dbg_cpp_debugpropertypage.png "DBG\_CPP\_DebugPropertyPage")  
   
 ###  <a name="BKMK_Choose_the_build_configuration_options"></a> 选择生成配置选项  
   
@@ -117,7 +117,7 @@ manager: "ghogen"
 2.  从**“平台”**列表中选择要生成的目标平台。 在大多数情况下，**“任意 CPU”**（Visual C\+\+ 中的**“所有平台”**）是最佳选择。  
   
 ###  <a name="BKMK_Choose_the_deployment_target"></a> 选择部署目标  
- ![仅适用于 Windows](../debugger/media/windows_only_content.png "windows\_only\_content")  
+ ![仅适用于 Windows](~/debugger/media/windows_only_content.png "windows\_only\_content")  
   
  可在 Visual Studio 计算机上、本地计算机上的 Visual Studio 模拟器中或远程设备上部署和调试 Windows 应用商店应用。  
   
@@ -149,12 +149,12 @@ manager: "ghogen"
   
     -   对于 C\+\+ 应用，选择**“计算机名称”**框中的向下箭头，然后选择**“\<定位...\>”**。  
   
-     ![“选择远程调试器连接”对话框](../debugger/media/vsrun_selectremotedebuggerdlg.png "VSRUN\_SelectRemoteDebuggerDlg")  
+     ![“选择远程调试器连接”对话框](~/debugger/media/vsrun_selectremotedebuggerdlg.png "VSRUN\_SelectRemoteDebuggerDlg")  
   
     > [!NOTE]
     >  **“选择远程调试器连接”**对话框显示本地子网上的计算机以及通过以太网电缆直接连接到 Visual Studio 计算机的计算机。 若要指定其他计算机，请在**“计算机名称”**框中输入名称。  
   
- ![仅适用于 Windows Phone](../debugger/media/phone_only_content.png "phone\_only\_content")  
+ ![仅适用于 Windows Phone](~/debugger/media/phone_only_content.png "phone\_only\_content")  
   
  可以在设备或某个 Visual Studio 手机仿真程序上部署并调试 Windows Phone 应用商店应用。 从**“目标设备”**列表选择设备或仿真程序。  
   
@@ -177,7 +177,7 @@ manager: "ghogen"
 |**混合\(托管和本机\)**|调试应用程序中的本机 C\/C\+\+ 代码和托管代码。 忽略 JavaScript 代码。|  
 |**仅限 GPU**|调试在图形处理单元 \(GPU\) 上运行的本机 C\+\+ 代码。|  
   
- ![仅适用于 Windows Phone](../debugger/media/phone_only_content.png "phone\_only\_content")  
+ ![仅适用于 Windows Phone](~/debugger/media/phone_only_content.png "phone\_only\_content")  
   
  对于 Windows 应用商店手机应用，你还可以选择调试器以用于**“后台任务进程”**中的后台进程。  
   
@@ -191,7 +191,7 @@ manager: "ghogen"
 -   对于 Visual C\+\+ 应用程序，从**“调试”**属性页上的**“启动应用程序”**列表中选择**“是”**。  
   
 ###  <a name="BKMK__Optional__Disable_network_loopbacks"></a> （可选）禁用网络环回  
- ![仅适用于 Windows](../debugger/media/windows_only_content.png "windows\_only\_content")  
+ ![仅适用于 Windows](~/debugger/media/windows_only_content.png "windows\_only\_content")  
   
  为安全起见，不允许以标准方式安装的 Windows 应用商店应用程序对装有它的设备进行网络调用。 默认情况下，Visual Studio 部署功能为所部署的应用程序创建此规则的例外。 通过此例外，在一台计算机上即可测试通信过程。 向 Window 应用商店提交应用程序之前，应在没有例外的情况下测试应用程序。  
   
@@ -205,7 +205,7 @@ manager: "ghogen"
  若要诊断 Visual C\# 或 Visual Basic 应用程序的安装和初始配置问题，请选择**“调试”**属性页上的**“卸载并重新安装我的程序包”**以在启动调试时重新创建原始安装。 此选项对于 Visual C\+\+ 项目不可用。  
   
 ###  <a name="BKMK__Optional__Disable_authentication_requirement_to_start_the_remote_debugger"></a> （可选）禁用身份验证要求以启动远程调试器  
- ![仅适用于 Windows](../debugger/media/windows_only_content.png "windows\_only\_content")  
+ ![仅适用于 Windows](~/debugger/media/windows_only_content.png "windows\_only\_content")  
   
  默认情况下，必须提供凭据才能运行远程调试器。  
   

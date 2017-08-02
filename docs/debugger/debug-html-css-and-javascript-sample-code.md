@@ -23,7 +23,7 @@ caps.handback.revision: 13
 # 调试 HTML、CSS 和 JavaScript 示例代码
 [!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
 
-![适用于 Windows 和 Windows Phone](../debugger/media/windows_and_phone_content.png "windows\_and\_phone\_content")  
+![适用于 Windows 和 Windows Phone](~/debugger/media/windows_and_phone_content.png "windows\_and\_phone\_content")  
   
  本主题中的代码是以下主题的示例文件[快速入门：调试 HTML 和 CSS](../debugger/quickstart-debug-html-and-css.md).  此版本的代码中修复了快速入门中有意出现的错误。  
   

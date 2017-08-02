@@ -32,7 +32,7 @@ caps.handback.revision: 12
   
  具有 **项目属性页** 对话框的两种泛型类型中可用 [!INCLUDE[vsprvs](../../code-quality/includes/vsprvs_md.md)]。  使用字段布局，如下面的屏幕快照所示，在第一， Visual Basic 项目中，例如，属性将显示页，。  在第二个集合中，后面显示在本节中，这些类用于属性网格类似于在 " 属性 " 窗口中找到的数据。  
   
- ![Visual Basic 属性页](../../extensibility/internals/media/vsvbproppages.png "vsVBPropPages")  
+ ![Visual Basic 属性页](~/extensibility/internals/media/vsvbproppages.gif "vsVBPropPages")  
 项目属性具有字段布局和树结构的页 " 对话框  
   
  使用 <xref:Microsoft.VisualStudio.Shell.Interop.IVsHierarchy>， " 属性页 " 对话框中的树结构不进行生成。  环境，具体取决于级别名称传递给它 <xref:Microsoft.VisualStudio.OLE.Interop.ISpecifyPropertyPages> 和 <xref:Microsoft.VisualStudio.Shell.Interop.IVsPropertyPage> 接口，对其进行编译。  
@@ -57,7 +57,7 @@ caps.handback.revision: 12
   
  如下面的屏幕快照所示，属性页的第二种类型的示例宿主公开的属性网格的窗体，。  
   
- ![VC 属性页](../../extensibility/internals/media/vsvcproppages.gif "vsVCPropPages")  
+ ![VC 属性页](~/extensibility/internals/media/vsvcproppages.gif "vsVCPropPages")  
 属性调用具有属性网格的对话框  
   
  接口 `IVSMDPropertyBrowser` 和 `IVSMDPropertyGrid` \(声明在 vsmanaged.h\) 用于创建和填充在对话框或窗口中的属性网格。  

@@ -48,7 +48,7 @@ manager: "ghogen"
   
 #### 捕获图形信息  
   
--   在“图形诊断”工具栏上，选择“捕获”按钮。![“图形捕获按钮”图标](../debugger/media/debuggingdirectxgraphics.png "DebuggingDirectXGraphics")  
+-   在“图形诊断”工具栏上，选择“捕获”按钮。![“图形捕获按钮”图标](~/debugger/graphics/media/debuggingdirectxgraphics.png "DebuggingDirectXGraphics")  
   
      \- 或 \-  
   

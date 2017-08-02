@@ -78,7 +78,7 @@ ms.lasthandoff: 05/30/2017
   
 1.  在“解决方案资源管理器”中，打开要更改的项目的快捷菜单，然后选择“属性”。  
   
-     ![Visual Studio 解决方案资源管理器属性](../ide/media/vs_slnexplorer_properties.png "vs_slnExplorer_Properties")  
+     ![Visual Studio 解决方案资源管理器属性](~/ide/media/vs_slnexplorer_properties.png "vs_slnExplorer_Properties")  
   
     > [!IMPORTANT]
     >  有关如何更改 C++ 项目目标版本的信息，请参阅[如何：修改目标框架和平台工具集](/cpp/build/how-to-modify-the-target-framework-and-platform-toolset)。  

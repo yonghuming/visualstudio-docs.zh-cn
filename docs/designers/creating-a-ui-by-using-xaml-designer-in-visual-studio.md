@@ -82,7 +82,7 @@ Visual Studio 中的 XAML 设计器提供可视化界面，有助于设计基于
   
  在“设计”视图中，其他美工板命令在屏幕的左下角区域可用，如下所示：  
   
- ![设计视图命令](../designers/media/xaml_editor_design_controls.png "xaml_editor_design_controls")  
+ ![设计视图命令](~/designers/media/xaml_editor_design_controls.png "xaml_editor_design_controls")  
   
  此工具栏上的这些命令可用：  
   

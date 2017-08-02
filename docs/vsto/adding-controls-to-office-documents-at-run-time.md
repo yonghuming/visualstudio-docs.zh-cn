@@ -44,7 +44,7 @@ caps.handback.revision: 101
   
 -   [向文档中添加 Windows 窗体控件](#WindowsForms)。  
   
- ![链接到视频](../vsto/media/playvideo.png "链接到视频")相关视频演示，请参阅[如何：在运行时向文档图面添加控件？](http://go.microsoft.com/fwlink/?LinkId=132782)。  
+ ![链接到视频](~/data-tools/media/playvideo.gif "链接到视频")相关视频演示，请参阅[如何：在运行时向文档图面添加控件？](http://go.microsoft.com/fwlink/?LinkId=132782)。  
   
 ##  <a name="ControlsCollection"></a> 使用控件集合在运行时管理控件  
  若要在运行时添加、获取或删除控件，请使用 <xref:Microsoft.Office.Tools.Excel.ControlCollection> 和 <xref:Microsoft.Office.Tools.Word.ControlCollection> 对象的帮助器方法。  

@@ -24,7 +24,7 @@ caps.handback.revision: 15
 ## 文本视图对象  
  每个视图与自己的文本缓冲区，因此，视图中的数据的 windows 缓冲区。  下图显示文本视图对象的关键接口，该接口由 <xref:Microsoft.VisualStudio.TextManager.Interop.VsTextView>表示。  
   
- ![Visual Studio 文本视图对象](../extensibility/media/vstextview.png "vstextview")  
+ ![Visual Studio 文本视图对象](~/extensibility/media/vstextview.gif "vstextview")  
 文本视图对象  
   
  视图存在缓冲区的文本模式。  它包括诸如自动换行和大纲显示，因此，与您在视图中看到非 text 的精确表示缓冲区中的。  

@@ -46,18 +46,18 @@ ms.lasthandoff: 05/13/2017
 
      例如，在运行 Windows 10 周年更新的计算机上，选择“启动”，然后滚动到字母“V”，在此处可以看到其作为“Visual Studio 安装程序”列出。  
 
-     ![Visual Studio 安装程序](media/vs2017-locate-the-visual-studio-installer.PNG "查找 Microsoft Visual Studio 安装程序")
+     ![Visual Studio 安装程序](~/install/media/vs2017-locate-the-visual-studio-installer.PNG "查找 Microsoft Visual Studio 安装程序")
 
      >[!NOTE]
      对于某些计算机，Visual Studio 安装程序可能列在字母**“M”**下，即 **Microsoft Visual Studio 安装程序**。
 
-2.  单击以启动安装程序，单击![“详细信息”图标](media/vs2017uninstall-UninstallIcon.png "“选择选项”图标")，然后单击“卸载”。  
+2.  单击以启动安装程序，单击![“详细信息”图标](~/install/media/vs2017uninstall-UninstallIcon.png "“选择选项”图标")，然后单击“卸载”。  
 
-     ![修改 Visual Studio 2017；修改、启动、修复或卸载](media/vs2017-uninstall.PNG "修复或卸载 Visual Studio 2017")  
+     ![修改 Visual Studio 2017；修改、启动、修复或卸载](~/install/media/vs2017-uninstall.PNG "修复或卸载 Visual Studio 2017")  
 
 3.  单击“确定”确认所做选择。
 
-     ![修改 Visual Studio 2017；卸载产品](media/vs2017-uninstall-confirm.PNG "确认卸载 Visual Studio 2017")  
+     ![修改 Visual Studio 2017；卸载产品](~/install/media/vs2017-uninstall-confirm.PNG "确认卸载 Visual Studio 2017")  
 
 如果以后改变主意，想重新安装 Visual Studio 2017，只需再次启动 Visual Studio 安装程序，然后从选择屏幕中选择“安装”。
 

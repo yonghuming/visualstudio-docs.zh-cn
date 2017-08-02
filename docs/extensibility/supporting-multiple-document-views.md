@@ -35,7 +35,7 @@ caps.handback.revision: 25
 ## 确定是否文档已打开的数据  
  运行文档在集成开发环境帮助 \(IDE\)跟踪的表 \(RDT\)数据。文档是否已打开，则，如下图所示。  
   
- ![DocDataView 图](../extensibility/media/docdataview.png "Docdataview")  
+ ![DocDataView 图](~/extensibility/media/docdataview.gif "Docdataview")  
 多个视图  
   
  默认情况下，每个视图 \(文档视图对象\) 在其自己的窗架 \(<xref:Microsoft.VisualStudio.Shell.Interop.IVsWindowFrame>\) 包含。  如已经注意到，但是，文档数据可以显示在多个视图。  若要实现此功能， Visual Studio 检查 RDT 确定相关的文档是否已打开在编辑器中  当 IDE 调用 <xref:Microsoft.VisualStudio.Shell.Interop.IVsEditorFactory.CreateEditorInstance%2A> 创建编辑器时，在 `punkDocDataExisting` 参数返回的非空值指示文档已打开的在其他编辑器。  有关 RDT 方式的更多信息函数，请参见 [正在运行的 Document 表](../extensibility/internals/running-document-table.md)。  

@@ -49,11 +49,11 @@ R 项目（`.rxproj` 文件）标识与项目关联的所有源和内容文件�
 1. 选择“文件”>“新建”>“项目...”(Ctrl+Shift+N)
 1. 选择“模板”>“R”下的“R 项目”，指定项目的名称和位置，然后选择“确定”：
 
-    ![Visual Studio 中 R（VS2017 中的 RTVS）的“新建项目”对话框](media/getting-started-01-new-project.png)
+    ![Visual Studio 中 R（VS2017 中的 RTVS）的“新建项目”对话框](~/rtvs/media/getting-started-01-new-project.png)
 
 此时将创建一个项目，并在编辑器中打开一个空 `script.R` 文件。 此外，请注意在“解决方案资源管理器”中，项目中存在其他两个文件：
 
-![从模板创建的 R 项目的内容](media/projects-template-results.png)
+![从模板创建的 R 项目的内容](~/rtvs/media/projects-template-results.png)
 
 `.Rhistory` 记录用户在 [R 交互](interactive-repl.md)窗口中输入的所有命令。 可使用“R 工具”>“窗口”>“历史记录”命令打开专用历史记录窗口，该窗口具有可用于清除历史记录内容的工具栏按钮和上下文菜单项。
 
@@ -133,7 +133,7 @@ Visual Studio 解决方案可以在一个逻辑位置方便地收集和管理相
 
 在以下示例中，此解决方案包含一个 R 项目（附带使用 R 和 Azure 机器学习生成的模型）、一个 Python/scikit-learn 项目，一个 C++ 项目（包含用于密集计算工作的模块）、一个用于管理数据的 SQL 项目，以及一个发布结果的网站的 Python/Bottle 项目：
 
-![在解决方案中显示多个相关项目的 Visual Studio 解决方案资源管理器](media/projects-polyglot.png)
+![在解决方案中显示多个相关项目的 Visual Studio 解决方案资源管理器](~/rtvs/media/projects-polyglot.png)
 
 以粗体突出显示的项目是解决方案的“启动”项目；若要进行更改，请右键单击其他项目，然后选择“设置为启动项目”。
 

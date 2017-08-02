@@ -66,7 +66,7 @@ VSIX 项目中所有需要的主要版本单向升级到 Visual Studio 2017。
 * 选择 Microsoft.VSSDK.BuildTools （最新版本）。
 * 按**更新**。
 
-![VSSDK 生成工具](media/vssdk-build-tools.png)
+![VSSDK 生成工具](~/extensibility/media/vssdk-build-tools.png)
 
 ## <a name="make-changes-to-the-vsix-extension-manifest"></a>对 VSIX 扩展清单进行更改
 
@@ -103,18 +103,18 @@ VSIX 项目中所有需要的主要版本单向升级到 Visual Studio 2017。
 * 打开 source.extension.vsixmanifest [设计] 文件。
 * 选择**先决条件**选项卡，然后按**新建**按钮。
 
-  ![VSIX 清单设计器](media/vsix-manifest-designer.png)
+  ![VSIX 清单设计器](~/extensibility/media/vsix-manifest-designer.png)
 
 * **添加新系统必备**将会打开窗口。
 
-  ![添加 vsix 必备组件](media/add-vsix-prerequisite.png)
+  ![添加 vsix 必备组件](~/extensibility/media/add-vsix-prerequisite.png)
 
 * 单击下拉列表中为**名称**，然后选择所需的必备组件。
 * 如果需要，更新的版本。
 
   >注意: 版本字段将预先填充了具有范围跨越多达 （但不是包括） 的当前已安装组件的版本的组件的下一个主版本。
 
-  ![添加 roslyn 必备组件](media/add-roslyn-prerequisite.png)
+  ![添加 roslyn 必备组件](~/extensibility/media/add-roslyn-prerequisite.png)
 
 * Press **OK**.
 
@@ -133,7 +133,7 @@ VSIX 项目中所有需要的主要版本单向升级到 Visual Studio 2017。
 C:\Program Files (x86)\Microsoft Visual Studio\2017\Enterprise\Common7\IDE\devenv.exe
 ```
 
-![启动外部程序](media/start-external-program.png)
+![启动外部程序](~/extensibility/media/start-external-program.png)
 
 >**注意︰**调试启动操作通常存储在。 csproj.user 文件。 此文件通常包含在.gitignore 文件，并因此，不正常情况下会保存其他项目时使用文件提交到源代码管理。 在这种情况下，如果已拉入您的解决方案从源代码管理全新很可能此项目将具有为启动操作设置的任何值。 必须使用 Visual Studio 2017 创建的新 VSIX 项目。 csproj.user 文件以指向当前 Visual Studio 安装目录的默认设置创建。 但是如果您要迁移的 VSIX v2 扩展插件，则很可能的。 csproj.user 文件将包含到上一 Visual Studio 版本的安装目录的引用。 设置值的**调试** > **启动操作**将允许正确的 Visual Studio 实验实例，以启动 when you try to 调试您的扩展。
 
@@ -158,7 +158,7 @@ VSIX 将会成功安装在计算机并且所需的所有系统必备组件安装
 
 * 在 Visual Studio 2017
 
-![在 Visual Studio 2017 VSIX 安装程序](media/vsixinstaller-vs-2017.png)
+![在 Visual Studio 2017 VSIX 安装程序](~/extensibility/media/vsixinstaller-vs-2017.png)
 
 * Visual Studio 的早期版本的可选︰ 检查。
   * 证明向后兼容性。
@@ -169,7 +169,7 @@ VSIX 将会成功安装在计算机并且所需的所有系统必备组件安装
 
 如果最近打开 Visual Studio，您可能会看到如下对话框︰
 
-![正在运行的进程的 vs](media/vs-running-processes.png)
+![正在运行的进程的 vs](~/extensibility/media/vs-running-processes.png)
 
 等待进程关闭，或者手动结束任务。 按照所列的名称，或使用在括号中列出的 PID，您可以找到这些进程。
 
@@ -181,7 +181,7 @@ VSIX 将会成功安装在计算机并且所需的所有系统必备组件安装
 * 检查安装标识缺少的组件/s 和列表作为 VSIXInstaller 中的必备组件。
 * 注意︰ 提升都会要求提供如果需要使用该扩展安装任何系统必备组件。
 
-![vsixinstaller 缺少的先决条件](media/vsixinstaller-missing-prerequisite.png)
+![vsixinstaller 缺少的先决条件](~/extensibility/media/vsixinstaller-missing-prerequisite.png)
 
 ## <a name="deciding-on-components"></a>确定组件
 

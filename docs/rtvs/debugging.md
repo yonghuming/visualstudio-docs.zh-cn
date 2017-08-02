@@ -43,7 +43,7 @@ ms.lasthandoff: 05/12/2017
 
 在 R 项目中启动 R 启动文件的调试器与启动其它项目类型的调试器相同：使用“调试”>“启动调试”，按 F5 键，或选择调试工具栏上的“源化启动文件”，如下所示。 要更改启动文件，请右键单击解决方案资源管理器中的文件，并选择“设置为启动 R 脚本”。
 
-![R 的调试器启动按钮](media/debugger-start-button.png)
+![R 的调试器启动按钮](~/rtvs/media/debugger-start-button.png)
 
 在所有情况下，启动调试器都会在交互窗口中“源化”文件，这意味在该处加载并运行文件。 实际上，在开始调试后，可以在交互窗口中看到如下所示的输出：
 
@@ -85,5 +85,5 @@ add <- function(x, y) {
 | 帮助 | 显示帮助：在交互窗口中显示可用命令。 |
 | &lt;expr&gt; | 在 expr 中计算表达式。 |
 
-![交互窗口中的环境浏览器](media/debugger-environment-browser.png)
+![交互窗口中的环境浏览器](~/rtvs/media/debugger-environment-browser.png)
 

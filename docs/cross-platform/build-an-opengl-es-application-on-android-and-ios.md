@@ -109,7 +109,7 @@ ms.lasthandoff: 05/13/2017
   
      Visual Studio 启动仿真程序，需要几秒钟时间来加载和部署代码。 下面是应用在适用于 Android 的 Visual Studio 仿真程序中的显示方式。  
   
-     ![在 Android 仿真器中运行的应用](../cross-platform/media/cppmdd_opengles_andemulator.png "CPPMDD_OpenGLES_AndEmulator")  
+     ![在 Android 仿真器中运行的应用](~/cross-platform/media/cppmdd_opengles_andemulator.png "CPPMDD_OpenGLES_AndEmulator")  
   
      一旦你的应用启动，你可以设置断点，并使用调试器逐步调试代码，检查局部变量并监视值。  
   
@@ -150,7 +150,7 @@ ms.lasthandoff: 05/13/2017
   
      启动应用后，你可以设置断点，并使用 Visual Studio 调试器检查局部变量、查看调用堆栈并监视值。  
   
-     ![iOS 应用中断点处的调试器](../cross-platform/media/cppmdd_opengles_iosdebug.png "CPPMDD_OpenGLES_iOSDebug")  
+     ![iOS 应用中断点处的调试器](~/cross-platform/media/cppmdd_opengles_iosdebug.png "CPPMDD_OpenGLES_iOSDebug")  
   
 5.  按下 Shift + F5 来停止调试。  
   

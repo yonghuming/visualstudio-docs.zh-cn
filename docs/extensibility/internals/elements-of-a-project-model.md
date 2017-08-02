@@ -35,7 +35,7 @@ caps.handback.revision: 18
   
  下面的插图显示了组成一种典型的项目中实现的主要接口、服务以及对象。  您可以使用应用程序帮助器， HierUtil7，创建基础对象和其他编程的样本。  有关 HierUtil7 应用程序帮助器的更多信息，请参见 [Not in Build: Using HierUtil7 Project Classes to Implement a Project Type \(C\+\+\)](http://msdn.microsoft.com/zh-cn/a5c16a09-94a2-46ef-87b5-35b815e2f346)。  
   
- ![Visual Studio 项目模型图](../../extensibility/internals/media/vsprojectmodel.png "vsProjectModel")  
+ ![Visual Studio 项目模型图](~/extensibility/internals/media/vsprojectmodel.gif "vsProjectModel")  
 项目模型  
   
  有关在上图中和服务列表的接口以及在关系图中未包含的其他选项接口的更多信息，请参见 [项目模型核心组件](../../extensibility/internals/project-model-core-components.md)。  

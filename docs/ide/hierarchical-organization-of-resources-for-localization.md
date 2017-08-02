@@ -40,11 +40,11 @@ caps.handback.revision: 8
   
  存储资源的最佳方式是尽可能将资源一般化。 也就是说，尽可能将本地化的字符串、图像等存储在非特定区域性的资源文件中，而不是特定区域性的资源文件中。 例如，如果你具有比利时法语 ("fr-BE") 区域性的资源以及紧邻英语回退资源且位于其上方的资源，那么如果某人使用一个系统上的应用程序且该系统配置为加拿大法语区域性，则可能会发生问题。 该系统会查找 "fr-CA" 的附属程序集，然后会找不到它，接着会加载包含英语回退资源的主程序集，而不会加载法语资源。 下图显示了存在这种问题的情况。  
   
- ![仅特定资源](../ide/media/vbspecificresourcesonly.gif "vbSpecificResourcesOnly")  
+ ![仅特定资源](~/ide/media/vbspecificresourcesonly.gif "vbSpecificResourcesOnly")  
   
  如果遵循上述建议的做法，即将尽可能多的资源放置在 "fr" 区域性的非特定区域性资源文件中，则加拿大法语用户不会看到为 "fr-BE" 区域性所标记的资源，而是会看到法语字符串。 下面的情况显示了这一建议使用的方案。  
   
- ![NeutralSpecificResources 图](../ide/media/vbneutralspecificresources.gif "vbNeutralSpecificResources")  
+ ![NeutralSpecificResources 图](~/ide/media/vbneutralspecificresources.gif "vbNeutralSpecificResources")  
   
 ## <a name="see-also"></a>另请参阅  
  [用于本地化的非特定资源语言](../ide/neutral-resources-languages-for-localization.md)   

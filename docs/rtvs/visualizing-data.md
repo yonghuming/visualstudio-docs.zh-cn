@@ -41,7 +41,7 @@ ms.lasthandoff: 05/12/2017
 
 绘图是数据科学家工作流的关键部分。 在针对 Visual Studio 的 R 工具 (RTVS) 中，所有绘图活动围绕一个或多个绘图窗口进行，这些窗口旨在提高此关键活动的生产效率。
 
-![绘制英雄形象](media/plotting-hero-image.png)
+![绘制英雄形象](~/rtvs/media/plotting-hero-image.png)
 
 在本主题中：
 
@@ -58,7 +58,7 @@ ms.lasthandoff: 05/12/2017
 
 绘图窗口包含一系列绘图，每个绘图均由 `plot` 命令生成。 例如，如果无可用绘图窗口，则可使用 `plot(1:100)` 创建新绘图窗口：
 
-![1 到 100 的线性图](media/plotting-1-to-100.png)
+![1 到 100 的线性图](~/rtvs/media/plotting-1-to-100.png)
 
 从技术上讲，R `plot` 命令将其输出呈现到 R 图形设备；绘图窗口会呈现 R 图形设备的内容，这就是为什么每个绘图窗口都有设备编号的原因。
 
@@ -76,16 +76,16 @@ ms.lasthandoff: 05/12/2017
 
 | Button | 命令 | 描述 | 
 | --- | --- | --- |
-| ![“新建绘图窗口”按钮](media/plotting-toolbar-01-new-plot-window.png) | 新建绘图窗口 | 创建具有自己的历史记录的单独绘图窗口。 请参阅[多个绘图窗口](#multiple-plot-windows)。 |
-| ![“激活绘图窗口”按钮](media/plotting-toolbar-02-activate-plot-window.png) | 激活绘图窗口 | 将当前绘图窗口设置为活动窗口，以便将后续 `plot` 命令呈现给该窗口。 请参阅[多个绘图窗口](#multiple-plot-windows)。 请参阅[多个绘图窗口](#multiple-plot-windows)。 |
-| ![“绘图历史记录窗口”按钮](media/plotting-toolbar-03-plot-history.png) | 绘图历史记录窗口 | 打开一个窗口，其中历史记录中的所有绘图均显示为缩略图。 请参阅[绘图历史记录](#plot-history)。 |
-| ![“绘图历史记录”按钮](media/plotting-toolbar-04-plot-history-arrows.png) | 上一个/下一个绘图 |  导航到历史记录中的上一个或下一个绘图。 还可使用 Ctrl+Alt+F11（上一个）和 Ctrl+Alt+F12（下一个）在历史记录中导航。 请参阅[绘图历史记录](#plot-history)。 |
-| ![“另存为图像”按钮](media/plotting-toolbar-05-save-as-image.png)| 另存为图像 | 提示输入文件名并将当前绘图（按窗口大小显示的窗口内容）保存到图像文件。 可用格式为 `.png`、`.jpg`、`.bmp` 和 `.tif`。 |
-| ![“另存为 PDF”按钮](media/plotting-toolbar-06-save-as-pdf.png)| 另存为 PDF | 使用当前窗口大小将当前绘图保存到 PDF 文件。 如果 PDF 进行了缩放，则会重新呈现绘图。 |
-| ![“复制为位图”按钮](media/plotting-toolbar-07-copy-as-bitmap.png)| 复制为位图 | 使用当前窗口大小将图形复制到剪贴板作为光栅位图。 | 
-| ![“复制为图元文件”按钮](media/plotting-toolbar-08-copy-as-metafile.png)| 复制为图元文件 | 将绘图复制到剪贴板作为 [Windows 图元文件](https://en.wikipedia.org/wiki/Windows_Metafile)（维基百科）。 | 
-| ![“删除绘图”按钮](media/plotting-toolbar-09-remove-plot.png)| 删除绘图 | 从历史记录中删除当前绘图。 |
-| ![“清除所有绘图”按钮](media/plotting-toolbar-10-clear-all-plots.png) | 清除所有绘图 | 从历史记录中删除所有绘图（确认提示）。 |
+| ![“新建绘图窗口”按钮](~/rtvs/media/plotting-toolbar-01-new-plot-window.png) | 新建绘图窗口 | 创建具有自己的历史记录的单独绘图窗口。 请参阅[多个绘图窗口](#multiple-plot-windows)。 |
+| ![“激活绘图窗口”按钮](~/rtvs/media/plotting-toolbar-02-activate-plot-window.png) | 激活绘图窗口 | 将当前绘图窗口设置为活动窗口，以便将后续 `plot` 命令呈现给该窗口。 请参阅[多个绘图窗口](#multiple-plot-windows)。 请参阅[多个绘图窗口](#multiple-plot-windows)。 |
+| ![“绘图历史记录窗口”按钮](~/rtvs/media/plotting-toolbar-03-plot-history.png) | 绘图历史记录窗口 | 打开一个窗口，其中历史记录中的所有绘图均显示为缩略图。 请参阅[绘图历史记录](#plot-history)。 |
+| ![“绘图历史记录”按钮](~/rtvs/media/plotting-toolbar-04-plot-history-arrows.png) | 上一个/下一个绘图 |  导航到历史记录中的上一个或下一个绘图。 还可使用 Ctrl+Alt+F11（上一个）和 Ctrl+Alt+F12（下一个）在历史记录中导航。 请参阅[绘图历史记录](#plot-history)。 |
+| ![“另存为图像”按钮](~/rtvs/media/plotting-toolbar-05-save-as-image.png)| 另存为图像 | 提示输入文件名并将当前绘图（按窗口大小显示的窗口内容）保存到图像文件。 可用格式为 `.png`、`.jpg`、`.bmp` 和 `.tif`。 |
+| ![“另存为 PDF”按钮](~/rtvs/media/plotting-toolbar-06-save-as-pdf.png)| 另存为 PDF | 使用当前窗口大小将当前绘图保存到 PDF 文件。 如果 PDF 进行了缩放，则会重新呈现绘图。 |
+| ![“复制为位图”按钮](~/rtvs/media/plotting-toolbar-07-copy-as-bitmap.png)| 复制为位图 | 使用当前窗口大小将图形复制到剪贴板作为光栅位图。 | 
+| ![“复制为图元文件”按钮](~/rtvs/media/plotting-toolbar-08-copy-as-metafile.png)| 复制为图元文件 | 将绘图复制到剪贴板作为 [Windows 图元文件](https://en.wikipedia.org/wiki/Windows_Metafile)（维基百科）。 | 
+| ![“删除绘图”按钮](~/rtvs/media/plotting-toolbar-09-remove-plot.png)| 删除绘图 | 从历史记录中删除当前绘图。 |
+| ![“清除所有绘图”按钮](~/rtvs/media/plotting-toolbar-10-clear-all-plots.png) | 清除所有绘图 | 从历史记录中删除所有绘图（确认提示）。 |
 
 ## <a name="multiple-plot-windows"></a>多个绘图窗口
 
@@ -104,7 +104,7 @@ ms.lasthandoff: 05/12/2017
 若要查看整个绘图集合，请使用工具栏按钮或“R 工具”>“绘图”>“绘图历史窗口”打开“绘图历史记录窗口”。
 此时会显示已在该窗口中显示的绘图缩略图列表，并且按不同绘图窗口（或设备）进行了分组。 使用工具栏上的“缩放”按钮更改缩略图的大小。
 
-![绘图历史记录窗口](media/plotting-plot-history-window.png)
+![绘图历史记录窗口](~/rtvs/media/plotting-plot-history-window.png)
 
 若要在其关联的窗口中打开绘图，请双击并选中该会图，然后选择“显示绘图”工具栏按钮，或右键单击并选择“显示绘图”。 还可选中单个绘图，并从右键单击上下文或“编辑”菜单进行复制、剪切或删除。
 

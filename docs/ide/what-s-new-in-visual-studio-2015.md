@@ -33,7 +33,7 @@ manager: "ghogen"
   
  Visual Studio 2015 安装体验已进行组件化，因此你只需要安装所需的部件。 这让涉及 .NET 或 Web 开发的许多常用方案的安装变得更加快速。 如果进行其他类型的开发（例如跨平台移动开发），或在 C\+\+ 或 F\# 中工作，则选择**“自定义”**安装，然后选择所需的组件和可选第三方 SDK。 还可以稍后再安装任何自定义组件。 例如，如果选择基本安装，并随后尝试创建一个新的 C\+\+ 项目，则系统会提示你下载 C\+\+ 开发工具。  
   
- ![Visual Studio 2015 安装对话框](../ide/media/vs2015_setup_screen.png "VS2015\_Setup\_screen")  
+ ![Visual Studio 2015 安装对话框](~/ide/media/vs2015_setup_screen.png "VS2015\_Setup\_screen")  
   
 ## 使用多个帐户登录  
  借助 Visual Studio 2015，全新简化的登录体验旨在大大简化对联机资源的访问，即使你拥有多个 Visual Studio 帐户也是如此。 登录到 Visual Studio 后，你会自动登录到 Visual Studio 2015 的所有实例和你计算机上的 Blend。 登录操作会自动开始为你漫游设置。 在 Visual Studio 2015 中，你的帐户跨功能共享，所以只要拥有适当令牌，就可以从“团队资源管理器”访问你的 Visual Studio Team Services 帐户，从服务器资源管理器中的 Microsoft Azure 订阅访问资源和网站。 你也将在 Application Insights 项目的“新建项目”对话框中看到你的 Azure 资源，并且在新的“添加连接的服务”对话框中看到你的 Azure 移动、Azure 存储、[Microsoft Office 365](http://msdn.microsoft.com/office/aa905340.aspx) 和 [Saleforce.com 开发人员](https://developer.salesforce.com/)帐户。  
@@ -64,7 +64,7 @@ manager: "ghogen"
 ### 适用于任何 Windows 10 设备的通用 Windows 应用  
  使用通用 Windows 平台和我们的一项 Windows 核心，可在任何 Windows 10 设备上（从电话到桌面）运行同一应用。 使用 Visual Studio 2015 和通用 Windows 应用开发工具创建这些通用 Windows 应用。  
   
- ![通用 Windows 平台](../cross-platform/media/uwp_coreextensions.png "UWP\_CoreExtensions")  
+ ![通用 Windows 平台](~/cross-platform/media/uwp_coreextensions.png "UWP\_CoreExtensions")  
   
  在 Windows 10 手机、Windows 10 台式机或 Xbox 上运行应用。 它是相同的应用程序包！ 通过引入 Windows 10 的单个统一核心，一个应用程序包可以跨所有平台运行。 多个平台都具有可添加到应用以利用平台特定行为的扩展 SDK。 例如，用于移动功能的扩展 SDK 控制 Windows phone 上按下的后退按钮。 如果在项目中引用扩展 SDK，只需添加运行时检查来测试该 SDK 是否可在该平台上可用。 这就是对每个平台使用相同应用程序包的方法了！  
   
@@ -95,7 +95,7 @@ manager: "ghogen"
 ## 设备预览菜单栏  
  在通用 Windows 平台项目中，设备预览菜单栏使你可以查看基于 XAML 的 UI 在各种屏幕尺寸上的呈现方式。  
   
- ![“设备预览”菜单](../ide/media/vs2015_device_preview.png "vs2015\_device\_preview")  
+ ![“设备预览”菜单](~/ide/media/vs2015_device_preview.png "vs2015\_device\_preview")  
   
 ## Visual Studio 图形诊断  
  自 Visual Studio 2013 开始，Visual Studio 图形诊断已添加许多新功能，包括帧分析，Windows Phone 支持、着色器编辑和应用，以及命令行捕获工具。 它还添加了对 DirectX12 应用调试的支持。 有关详细信息，请参阅 [Visual Studio 图形诊断](../debugger/visual-studio-graphics-diagnostics.md)。  
@@ -113,7 +113,7 @@ manager: "ghogen"
   
  新服务将不断增加，你可通过单击向导中的“查找新服务链接”来发现这些服务。  
   
- ![添加已连接的服务对话框](../ide/media/vs2015_addconnectedservicedialog.png "VS2015\_AddConnectedServiceDialog")  
+ ![添加已连接的服务对话框](~/ide/media/vs2015_addconnectedservicedialog.png "VS2015\_AddConnectedServiceDialog")  
   
 ## 设计你的 UI  
  设计 XAML 用户界面的 Blend 体验获得了巨大提升。 Blend 已经过完全重新设计，以提供更直观的 UI、更强大的 XAML 编辑功能（包括 IntelliSense）并实现与 Visual Studio 更好的集成。 有关更多信息，请参见[Designing XAML in Visual Studio and Blend for Visual Studio](../designers/designing-xaml-in-visual-studio.md)。  
@@ -168,7 +168,7 @@ manager: "ghogen"
 ### 高分辨率图像和触摸屏支持  
  Visual Studio IDE 可在高清晰度显示屏上显示真正的高分辨率图像（例如菜单、上下文菜单、工具窗口命令栏等区域内，以及解决方案资源管理器中的一些项目中）。 同时，在 Visual Studio 代码编辑器窗口的触摸屏上，现在可以使用以下功能：点触并按住、捏放、点击等以缩放、滚动、选择文本以及调用上下文菜单。  
   
- ![编辑器中的触控支持](../ide/media/vs2015_touchsupport.png "VS2015\_TouchSupport")  
+ ![编辑器中的触控支持](~/ide/media/vs2015_touchsupport.png "VS2015\_TouchSupport")  
   
 ### 自定义布局  
  你可以创建、保存和漫游自定义窗口布局。 例如，你可以定义一个在台式计算机上使用的首选布局以及在笔记本电脑或小屏幕设备上使用的不同布局。 或者你可为 UI 项目定义一个布局，为数据库项目定义另一个布局。 键盘关联可使你在不同布局之间快速切换。 登录 Visual Studio 后，Visual Studio 的任何实例均可提供这些布局。 有关详细信息，请参阅[创建自定义窗口布局](../misc/create-custom-window-layouts.md)。  
@@ -189,7 +189,7 @@ manager: "ghogen"
   
 -   查看显示更改你的代码的人员的图。 这可以帮助发现团队更改中的模式并评估它们的影响。  
   
-     ![CodeLens：通过图形查看代码更改历史记录](../ide/media/codelens.png "CodeLens")  
+     ![CodeLens：通过图形查看代码更改历史记录](~/ide/media/codelens.png "CodeLens")  
   
 -   轻松查看上次更改代码的时间。  
   
@@ -204,7 +204,7 @@ manager: "ghogen"
   
  在此版本中，通过将命令组合为与选择、编辑、管理组和更改组内容的布局相关的部分，代码元素和链接的快捷菜单变得更加易于使用。 另请注意，测试项目的显示风格与其他项目不同，并且我们将代码图中的元素图标更新到了更合适的版本。  
   
- ![显示新代码映射上的选定项](../ide/media/codemapsshowonnewmap.png "CodeMapsShowOnNewMap")  
+ ![显示新代码映射上的选定项](~/ide/media/codemapsshowonnewmap.png "CodeMapsShowOnNewMap")  
   
  其他改进包括：  
   

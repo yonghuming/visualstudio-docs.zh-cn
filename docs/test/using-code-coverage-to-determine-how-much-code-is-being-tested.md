@@ -52,7 +52,7 @@ ms.lasthandoff: 05/13/2017
   
 1.  在“测试”菜单上，选择“分析代码覆盖率”。  
   
-2.  若要查看已运行的行，请选择![“显示代码覆盖率着色”图标](../test/media/codecoverage-showcoloringicon.png "CodeCoverage-ShowColoringIcon")**显示代码覆盖率着色**。  
+2.  若要查看已运行的行，请选择![“显示代码覆盖率着色”图标](~/test/media/codecoverage-showcoloringicon.png "CodeCoverage-ShowColoringIcon")**显示代码覆盖率着色**。  
   
      若要更改颜色或使用加粗，请依次选择“工具”、“选项”、“环境”、“字体和颜色”和“显示其设置：文本编辑器”。 在“显示项”下，调整覆盖率项。  
   
@@ -97,7 +97,7 @@ ms.lasthandoff: 05/13/2017
   
  例如，假设你在运行某个测试（输入为“2”）时发现某个特定函数已被覆盖了 50%。 当你第二次运行该测试（输入为“-2”）时，你在覆盖着色视图中发现该函数的另外 50% 也被覆盖。 现在，你合并来自这两个测试运行的结果，报告和覆盖率着色视图显示该函数已经 100% 被覆盖。  
   
- 为此，请使用![“代码覆盖率”窗口中“合并”按钮的图标](../test/media/codecoverage-mergeicon.png "CodeCoverage-MergeIcon")**合并代码覆盖率结果**。 你可以选择最近的运行或导入的结果的任意组合。 如果要组合导出的结果，则必须先将其导入。  
+ 为此，请使用![“代码覆盖率”窗口中“合并”按钮的图标](~/test/media/codecoverage-mergeicon.png "CodeCoverage-MergeIcon")**合并代码覆盖率结果**。 你可以选择最近的运行或导入的结果的任意组合。 如果要组合导出的结果，则必须先将其导入。  
   
  使用“导出代码覆盖率结果”可保存合并操作的结果。  
   
@@ -276,7 +276,7 @@ ExcludeSourceFromCodeCoverage(Exclusion4, L"*\\unittest1.cpp");
   
          在“自动测试”下，选择“测试程序集”，然后选择行尾的省略号按钮“[...]”。 在“添加/编辑测试运行”对话框的“测试运行程序”下，选择“Visual Studio 测试运行程序”。  
   
- ![为代码覆盖率设置生成定义](../test/media/codecoverage-plaincc.png "CodeCoverage-plainCC")  
+ ![为代码覆盖率设置生成定义](~/test/media/codecoverage-plaincc.png "CodeCoverage-plainCC")  
   
  生成运行后，代码覆盖率结果将附加到测试运行并显示在生成摘要中。  
   

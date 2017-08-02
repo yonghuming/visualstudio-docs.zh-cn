@@ -40,7 +40,7 @@ ms.lasthandoff: 05/12/2017
 
 感谢安装针对 Visual Studio 的 R 工具 (RTVS)！ 请查看该工具，并使用下[资源](#resources)下的链接告诉我们你的想法。
 
-![RTVS 屏幕截图](media/installer-screenshot.png)
+![RTVS 屏幕截图](~/rtvs/media/installer-screenshot.png)
 
 ## <a name="resources"></a>资源
 

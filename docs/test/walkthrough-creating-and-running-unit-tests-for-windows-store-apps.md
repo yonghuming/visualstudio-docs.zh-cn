@@ -147,7 +147,7 @@ Visual Studio 支持对托管的 [!INCLUDE[win8_appname_long](../debugger/includ
     >   
     >  此外，你也可以选择 **“调试所选测试”**、 **“打开测试”**，并使用 **“属性”** 选项。  
     >   
-    >  ![单元测试资源管理器 &#45; 单元测试上下文菜单](../test/media/unit_test_win8_unittestexplorer_contextmenu.png "Unit_Test_Win8_UnitTestExplorer_ContextMenuRun")  
+    >  ![单元测试资源管理器 &#45; 单元测试上下文菜单](~/test/media/unit_test_win8_unittestexplorer_contextmenu.png "Unit_Test_Win8_UnitTestExplorer_ContextMenuRun")  
   
      单元测试将运行。 完成后，“测试资源管理器”会显示测试状态、运行时间并提供指向源的链接。  
   

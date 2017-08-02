@@ -46,7 +46,7 @@ ms.lasthandoff: 05/13/2017
 -   在一个窗口中查看你需要的所有信息。  
   
 ## <a name="using-test-explorer"></a>使用“测试资源管理器”  
- ![显示“全部运行”按钮的单元测试资源管理器](../test/media/unittestexplorer-beta-.png "UnitTestExplorer(beta)")  
+ ![显示“全部运行”按钮的单元测试资源管理器](~/test/media/unittestexplorer-beta-.png "UnitTestExplorer(beta)")  
   
 #### <a name="to-run-unit-tests-by-using-test-explorer"></a>使用“测试资源管理器”运行单元测试  
   

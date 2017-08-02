@@ -41,7 +41,7 @@ ms.lasthandoff: 02/22/2017
 ## <a name="objects-in-the-automation-model"></a>自动化模型中的对象  
  自动化模型由相关组的对象，用于控制常见环境的主要方面。 下面是显示一组广泛的对象编写自动化模型的关系图。  
   
- ![Visual Studio 自动化对象图](../../extensibility/internals/media/vsvisualstudioautomationobjectchart.gif "vsVisualStudioAutomationObjectChart")  
+ ![Visual Studio 自动化对象图](~/extensibility/internals/media/vsvisualstudioautomationobjectchart.gif "vsVisualStudioAutomationObjectChart")  
 Visual Studio 自动化对象  
   
  有关详细信息，请参阅[扩展 Visual Studio 环境](http://msdn.microsoft.com/Library/4173a963-7ac7-4966-9bb7-e28a9d9f6792)。  

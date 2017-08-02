@@ -140,7 +140,7 @@ public partial class ParentsHaveChildren
   
  该示例将应用到以下域模型。 ParentsHaveChildren 关系具有称为 Child 和 Parent 的角色。  
   
- ![DSL 定义关系图和 #45;王朝家谱模型](../modeling/media/familyt_person.png "FamilyT_Person")  
+ ![DSL 定义关系图和 #45;王朝家谱模型](~/modeling/media/familyt_person.png "FamilyT_Person")  
   
 ## <a name="validation-categories"></a>验证类别  
  在 <xref:Microsoft.VisualStudio.Modeling.Validation.ValidationMethodAttribute> 属性中，指定应执行验证方法时。  

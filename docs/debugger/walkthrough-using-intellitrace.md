@@ -54,7 +54,7 @@ caps.handback.revision: 4
   
      以下屏幕截图取自 Visual Studio 2015 Update 1。  
   
-     ![IntelliTrace&#45;Update1](../debugger/media/intellitrace-update1.png "IntelliTrace\-Update1")  
+     ![IntelliTrace&#45;Update1](~/debugger/media/intellitrace-update1.png "IntelliTrace\-Update1")  
   
 7.  选择该事件以展开其详细信息。  
   
@@ -68,7 +68,7 @@ caps.handback.revision: 4
   
      以下屏幕截图取自 Visual Studio 2015 Update 1。  
   
-     ![HistoricalDebugging&#45;Update1](../debugger/media/historicaldebugging-update1.png "HistoricalDebugging\-Update1")  
+     ![HistoricalDebugging&#45;Update1](~/debugger/media/historicaldebugging-update1.png "HistoricalDebugging\-Update1")  
   
 8.  如果找不到 bug，请尝试检查导致 bug 的其他事件。 还可以让 IntelliTrace 记录调用信息，以便你可以单步执行函数调用。  
   

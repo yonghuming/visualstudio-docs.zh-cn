@@ -39,7 +39,7 @@ caps.handback.revision: 46
   
  有关 <xref:Microsoft.Office.Tools.Excel.ListObject> 控件的详细信息，请参阅 [ListObject 控件](../vsto/listobject-control.md)。  
   
- ![链接到视频](../vsto/media/playvideo.png "链接到视频") 相关视频演示，请参阅[如何实现：在运行时向数据绑定列表对象添加列？）](http://go.microsoft.com/fwlink/?LinkID=130318)。  
+ ![链接到视频](~/data-tools/media/playvideo.gif "链接到视频") 相关视频演示，请参阅[如何实现：在运行时向数据绑定列表对象添加列？）](http://go.microsoft.com/fwlink/?LinkID=130318)。  
   
 ##  <a name="designtime"></a> 在设计时重设 ListObject 控件的大小  
  若要重设列表的大小，可以单击并拖动其中一个尺寸控点，或者在“重设列表大小”对话框中重新定义其大小。  

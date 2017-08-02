@@ -49,13 +49,13 @@ Visual Studio 中的代码片段提供了一些快捷方式，可用于快速插
 
 代码片段的用途远不只是拼写完字符。 例如，它们可以帮助你免于记忆复杂函数调用中的参数名称，例如这个通过 `read.csv` 函数来读取 CSV 文件的代码片段：
 
-![使用代码片段插入对 read.csv 的调用的动画](media/code-snippet-expansion.gif)
+![使用代码片段插入对 read.csv 的调用的动画](~/rtvs/media/code-snippet-expansion.gif)
 
 在这种情况下，当键入 `readc` 时，IntelliSense 将显示一个完成列表。 在下拉菜单中选择该完成项，按 Tab 选择 `readc`，然后再次按 Tab 展开代码片段。 （因此，通常认为展开代码片段是“键入代码片段并按 Tab 两次”）。 在大多数情况下，第一次按 Tab 完成 IntelliSense 选择，第二次按 Tab 触发展开。
 
 要查看所有可用的代码片段，请打开“工具”>“代码片段管理器...”对话框（Ctrl+K、B），并为“语言”选择“R”。 展开组并选择单独的代码片段，查看说明和快捷方式文本：
 
-![R 的代码片段对话框](media/code-snippet-dialog.png)
+![R 的代码片段对话框](~/rtvs/media/code-snippet-dialog.png)
 
 要创建自定义代码片段，请按照[演练：创建代码片段](../ide/walkthrough-creating-a-code-snippet.md)中的说明进行操作。 最终，代码片段只是一个 XML 文件。 例如，以下代码片段用于管道操作（快捷方式 `>`）
 

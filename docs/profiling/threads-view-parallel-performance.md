@@ -66,7 +66,7 @@ caps.handback.revision: 21
   
  下面是“线程”视图的图示：  
   
- ![线程视图](../profiling/media/threadsviewnarrowing.png "ThreadsViewNarrowing")  
+ ![线程视图](~/profiling/media/threadsviewnarrowing.png "ThreadsViewNarrowing")  
 线程视图  
   
  最初，线程按创建顺序进行排序，以便主应用程序线程处于第一位。 可以使用视图左上角的排序选项按其他条件对线程排序（例如，按执行最多执行工作）。  

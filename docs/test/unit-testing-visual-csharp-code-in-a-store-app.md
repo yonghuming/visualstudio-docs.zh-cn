@@ -131,7 +131,7 @@ ms.lasthandoff: 04/04/2017
   
      将生成并运行测试项目。 随即显示“测试资源管理器”窗口，并且测试列出在“通过的测试”下。 窗口底部的“摘要”窗格将提供有关所选测试的其他详细信息。  
   
-     ![测试资源管理器](../test/media/ute_cpp_testexplorer_testmethod1.png "UTE_Cpp_TestExplorer_TestMethod1")  
+     ![测试资源管理器](~/test/media/ute_cpp_testexplorer_testmethod1.png "UTE_Cpp_TestExplorer_TestMethod1")  
   
 ##  <a name="BKMK_Add_the_Rooter_class_to_the_Maths_project"></a>向 Maths 项目添加 Rooter 类  
   
@@ -200,7 +200,7 @@ ms.lasthandoff: 04/04/2017
   
 5.  在“测试资源管理器”中，选择 **“全部运行”**。  
   
-     ![已通过基本测试](../test/media/ute_cpp_testexplorer_basictest.png "UTE_Cpp_TestExplorer_BasicTest")  
+     ![已通过基本测试](~/test/media/ute_cpp_testexplorer_basictest.png "UTE_Cpp_TestExplorer_BasicTest")  
   
  你已设置测试和代码项目，并已验证可运行测试（运行测试项目中的函数）。 现在可以开始编写实际测试和代码。  
   

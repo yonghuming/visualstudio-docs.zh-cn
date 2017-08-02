@@ -50,7 +50,7 @@ ms.lasthandoff: 05/13/2017
   
      本插图显示了名为 `Print()` 的方法的“查看定义”窗口：  
   
-     ![“查看”窗口](../ide/media/peekwindow.png "PeekWindow")  
+     ![“查看”窗口](~/ide/media/peekwindow.png "PeekWindow")  
   
      定义窗口显示在原始文件的 `printer.Print("Hello World!")` 行的下方。 该窗口不会隐藏原始文件中的任何代码。 跟在 `printer.Print("Hello World!")` 调用后的行显示在定义窗口下。  
   
@@ -64,13 +64,13 @@ ms.lasthandoff: 05/13/2017
   
 -   如果“查看定义”窗口已打开，则可以对该窗口中的代码再次调用“查看定义”。 此时将打开另一个定义窗口。 一组痕迹点将显示在定义窗口选项卡旁边，可用于在定义窗口之间导航。 每个点上的工具提示显示该点表示的定义文件的文件名和路径。  
   
-     ![“查看”窗口中的“查看”窗口](../ide/media/peekwithinpeek.png "PeekWithinPeek")  
+     ![“查看”窗口中的“查看”窗口](~/ide/media/peekwithinpeek.png "PeekWithinPeek")  
   
 #### <a name="to-use-peek-definition-with-multiple-results"></a>使用“查看定义”时具有多个结果  
   
 -   如果对具有多个定义的代码（例如，分部类）使用“查看定义”，则代码定义视图的右侧将显示结果列表。 你可选择列表中的任意结果来显示其定义。  
   
-     ![多个结果的查看窗口](../ide/media/peekmultiple.png "PeekMultiple")  
+     ![多个结果的查看窗口](~/ide/media/peekmultiple.png "PeekMultiple")  
   
 #### <a name="to-edit-inside-the-peek-definition-window"></a>在“查看定义”窗口中编辑  
   

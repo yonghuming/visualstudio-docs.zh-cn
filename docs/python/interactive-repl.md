@@ -39,7 +39,7 @@ ms.lasthandoff: 04/10/2017
 
 Visual Studio 为每个 Python 环境提供交互式读取-评估-打印-循环 (REPL) 窗口，改进了在命令行中运行 `python.exe` 获得的 REPL。 在交互窗口中（使用“视图”>“其他窗口”>&lt;环境&gt;交互窗口菜单命令打开），可以输入任意 Python 代码，并查看即时结果，从而帮助学习和实验 API，还可以使用交互方式开发要包括在项目中的工作代码。
 
-![Python 交互窗口](media/interactive-window.png)
+![Python 交互窗口](~/python/media/interactive-window.png)
 
 Visual Studio 有大量 Python REPL 模式可供选择：
 
@@ -62,15 +62,15 @@ Visual Studio 有大量 Python REPL 模式可供选择：
 
 方法一，切换到 Python 环境窗口（“视图”>“其他窗口”>“Python 环境”或 Ctrl-K、Ctrl-'），然后针对选定的环境，选择“打开交互窗口”命令或按钮。
 
-![Python 环境窗口中的交互窗口链接](media/interactive-window-opening.png)
+![Python 环境窗口中的交互窗口链接](~/python/media/interactive-window-opening.png)
 
 方法二，“视图”>“其他窗口”中针对每个环境都具有**交互窗口**命令，通常显示在菜单底部附近：
 
-![“视图”>“其他窗口”中的交互窗口菜单项](media/interactive-window-menu.png)
+![“视图”>“其他窗口”中的交互窗口菜单项](~/python/media/interactive-window-menu.png)
 
 方法三，可以通过选择“调试”>“在 Python 交互窗口中执行 [项目 | 文件]”菜单命令 (Shift+Alt+F5)，打开项目中启动文件的交互窗口，或独立文件的交互窗口：
 
-![在 Python 交互菜单中执行项目](media/interactive-execute-project.png)
+![在 Python 交互菜单中执行项目](~/python/media/interactive-execute-project.png)
 
 最后，可以选中文件中的代码，然后如下所述，使用“将代码发送到交互命令”[](#send-code-to-interactive-command)命令。
 
@@ -88,7 +88,7 @@ Visual Studio 有大量 Python REPL 模式可供选择：
 
 交互窗口打开后，可以在 `>>>` 提示符处逐行输入代码。 交互窗口将执行输入的每一行代码，包括导入模块、定义变量等。 如下图中的前两行所示：
 
-![Python 交互窗口](media/interactive-window.png)
+![Python 交互窗口](~/python/media/interactive-window.png)
 
 语句以冒号结束的情况除外（如上述的 `for` 语句），因为交互窗口知道该语句需要其他代码行，才可以正确执行代码块。 在这种情况下，行提示符将更改为 `...`，以指示需要输入程序块的其他行，如上图中的第四和第五行所示。 在空行上按 Enter 键时，交互窗口将关闭程序块，并在解释器中执行该程序块。
 
@@ -116,20 +116,20 @@ Visual Studio 有大量 Python REPL 模式可供选择：
 
 默认情况下，项目交互窗口的范围为项目的启动文件，就像从命令提示符处运行一样。 对于独立文件，其范围为该文件。 但是，可随时使用交互窗口顶部的下拉列表菜单在 REPL 会话期间更改范围：
 
-![交互窗口的范围](media/interactive-scopes.png)
+![交互窗口的范围](~/python/media/interactive-scopes.png)
 
 导入模块后（如键入 `import os`），下拉列表中将显示可切换到该模块任意范围的选项。 交互窗口中还将显示指示新范围的消息，以便追踪会话期间如何达到某个特定状态。
 
 在某个范围中输入 `dir()` 将显示该范围的有效标识符，包括函数名称、类和变量。 例如，使用 `$mod importlib` 后跟 `dir()` 将显示以下内容：
 
-![Importlib 范围中的交互窗口](media/interactive-importlib-scope.png)
+![Importlib 范围中的交互窗口](~/python/media/interactive-importlib-scope.png)
 
 <a name="sending-code-to-interactive"</a>
 ## <a name="send-code-to-interactive-command"></a>将代码发送到交互命令
 
 除了直接在交互窗口中处理代码，还可以在编辑器中选中代码，单击右键，并选择“发送到交互”：
 
-![发送到交互式菜单命令](media/interactive-send-to.png)
+![发送到交互式菜单命令](~/python/media/interactive-send-to.png)
 
 这非常适用于迭代或演化代码开发，包括在开发时测试代码。 例如，将一段代码发送到交互窗口并显示其输出后，可以按向上键再次显示代码、对其进行修改，并通过按 Ctrl + Enter 快速测试。 （在输入结束时按 Enter 将执行它，但在输入过程中按 Enter 将插入新行。）如果有需要的代码，可以轻松将其复制回项目文件。
 

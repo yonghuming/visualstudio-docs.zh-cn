@@ -105,13 +105,13 @@ ms.lasthandoff: 05/30/2017
   
 3.  在“新建解决方案配置”对话框中，命名新配置 `Test`，复制现有“调试”配置中的设置，然后选择“确定”按钮。  
   
-     ![“新建解决方案配置”对话框](../ide/media/buildwalk_newsolutionconfigdlgbox.png "BuildWalk_NewSolutionConfigDlgBox")  
+     ![“新建解决方案配置”对话框](~/ide/media/buildwalk_newsolutionconfigdlgbox.png "BuildWalk_NewSolutionConfigDlgBox")  
   
 4.  在“活动解决方案平台”列表中，选择“新建”。  
   
 5.  在“新建解决方案平台”对话框中，选择“x64”，且不要复制 x86 平台中的设置。  
   
-     ![“新建解决方案平台”对话框](../ide/media/buildwalk_newsolutionplatform.png "BuildWalk_NewSolutionPlatform")  
+     ![“新建解决方案平台”对话框](~/ide/media/buildwalk_newsolutionplatform.png "BuildWalk_NewSolutionPlatform")  
   
 6.  选择“确定”  按钮。  
   
@@ -134,7 +134,7 @@ ms.lasthandoff: 05/30/2017
   
  图 1：Visual Basic 警告  
   
- ![“输出”窗口 Visual Basic](../ide/media/buildwalk_vbbuildoutputwnd.png "BuildWalk_VBBuildOutputWnd")  
+ ![“输出”窗口 Visual Basic](~/ide/media/buildwalk_vbbuildoutputwnd.png "BuildWalk_VBBuildOutputWnd")  
   
  图 2：Visual C# 警告  
   
@@ -181,7 +181,7 @@ ms.lasthandoff: 05/30/2017
   
  “输出”窗口仅显示生成的摘要信息。  
   
- ![“Visual Basic 生成警告”->“输出”窗口](../ide/media/buildwalk_visualbasicbuildwarnings.png "BuildWalk_VisualBasicBuildWarnings")  
+ ![“Visual Basic 生成警告”->“输出”窗口](~/ide/media/buildwalk_visualbasicbuildwarnings.png "BuildWalk_VisualBasicBuildWarnings")  
   
  有关详细信息，请参阅[如何：禁止显示编译器警告](../ide/how-to-suppress-compiler-warnings.md)。  
   

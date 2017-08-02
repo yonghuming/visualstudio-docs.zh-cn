@@ -35,7 +35,7 @@ caps.handback.revision: 22
   
 3.  添加 `List` 对象时，请注意打开的**“IntelliSense”**窗口。  下面是一个 Visual C\# 示例，但在 Visual Basic 中添加列表时会显示类似文本。  
   
-     ![显示 Click 事件的“属性”窗口](../ide/media/express_listintellisense.png "Express\_ListIntellisense")  
+     ![显示 Click 事件的“属性”窗口](~/ide/media/express_listintellisense.png "Express\_ListIntellisense")  
 “IntelliSense”窗口  
   
     > [!NOTE]

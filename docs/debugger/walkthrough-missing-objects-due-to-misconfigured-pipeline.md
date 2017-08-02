@@ -36,7 +36,7 @@ manager: "ghogen"
   
  在此方案中，运行应用对其进行测试时，背景按预期方式呈现，但其中一个对象未显示。 通过使用“图形诊断”，捕获图形日志的问题，以便调试该应用。 应用中的问题如下所示：  
   
- ![无法显示对象](../debugger/media/gfx_diag_demo_misconfigured_pipeline_problem.png "gfx\_diag\_demo\_misconfigured\_pipeline\_problem")  
+ ![无法显示对象](~/debugger/graphics/media/gfx_diag_demo_misconfigured_pipeline_problem.png "gfx\_diag\_demo\_misconfigured\_pipeline\_problem")  
   
 ## 调查  
  通过使用图形诊断工具，您可以加载图形日志文档以检测测试期间已捕获的帧。  
@@ -100,7 +100,7 @@ manager: "ghogen"
   
  若要解决此问题，通过 `ID3D11DeviceContext::PSSetShader` API 调用的第一个参数来分配正确的像素着色器。  
   
- ![已更正的 C&#43;&#43; 源代码](../debugger/media/gfx_diag_demo_misconfigured_pipeline_step_6.png "gfx\_diag\_demo\_misconfigured\_pipeline\_step\_6")  
+ ![已更正的 C&#43;&#43; 源代码](~/debugger/graphics/media/gfx_diag_demo_misconfigured_pipeline_step_6.png "gfx\_diag\_demo\_misconfigured\_pipeline\_step\_6")  
   
  修复代码后，你可以重新生成并运行应用以验证呈现问题是否已解决：  
   

@@ -96,7 +96,7 @@ caps.handback.revision: 87
   
  以下示例是关于 VSTO 外接程序的功能介绍。 该 VSTO 外接程序向 PowerPoint 添加了多个功能区控件、一个自定义任务窗格和一个对话框。  
   
- ![PowerPoint 外接程序解决方案](../vsto/media/powerpointaddin.png "PowerPoint 外接程序解决方案")  
+ ![PowerPoint 外接程序解决方案](~/vsto/media/powerpointaddin.png "PowerPoint 外接程序解决方案")  
   
  **了解更多信息**  
   

@@ -39,7 +39,7 @@ ms.lasthandoff: 06/23/2017
   
  以下是“GPU 使用情况报告”窗口：  
   
- ![GPU 使用情况报告，提供 CPU 和 GPU 时间线](media/gfx_diag_gpu_usage_report.png "gfx_diag_gpu_usage_report")  
+ ![GPU 使用情况报告，提供 CPU 和 GPU 时间线](~/profiling/media/gfx_diag_gpu_usage_report.png "gfx_diag_gpu_usage_report")  
   
 ## <a name="requirements"></a>要求  
  以下是除图形诊断要求之外使用 GPU 使用情况工具的要求。  
@@ -60,7 +60,7 @@ ms.lasthandoff: 06/23/2017
   
 2.  在“性能和诊断”中心，选中“GPU 使用情况”旁的复选框。 （可选）选中你希望使用的其他工具旁的复选框。 可同时运行多个性能和诊断工具，更全面地了解应用的性能。  
   
-     ![选择要使用的诊断工具。](media/gfx_diag_diagsession_tools.png "gfx_diag_diagsession_tools")  
+     ![选择要使用的诊断工具。](~/profiling/media/gfx_diag_diagsession_tools.png "gfx_diag_diagsession_tools")  
   
     > [!NOTE]
     >  并非所有性能和诊断工具都可以同时使用。  
@@ -79,15 +79,15 @@ ms.lasthandoff: 06/23/2017
   
 1.  在诊断会话窗口底部，选择“停止收集”链接，或按左上角的“停止”。  
   
-     ![收集 GPU 和 CPU 计时信息。](media/gfx_diag_gpu_usage_collect.png "gfx_diag_gpu_usage_collect")  
+     ![收集 GPU 和 CPU 计时信息。](~/profiling/media/gfx_diag_gpu_usage_collect.png "gfx_diag_gpu_usage_collect")  
   
 2.  在报告的顶部，从显示要调查问题的图形中选择一个。 所选内容最长可达 3 秒，较长部分将被截尾。  
   
-     ![收集之后，选择范围以查看详细信息](media/gfx_diag_gpu_usage_select1.png "gfx_diag_gpu_usage_select1")  
+     ![收集之后，选择范围以查看详细信息](~/profiling/media/gfx_diag_gpu_usage_select1.png "gfx_diag_gpu_usage_select1")  
   
 3.  在报告底部的“...单击此处查看该范围内的 GPU 使用情况详细信息”消息中，选择“查看详细信息”链接，查看所选内容的详细时间线。  
   
-     ![收集之后，选定范围](media/gfx_diag_gpu_usage_select2.png "gfx_diag_gpu_usage_select2")  
+     ![收集之后，选定范围](~/profiling/media/gfx_diag_gpu_usage_select2.png "gfx_diag_gpu_usage_select2")  
   
  这将打开一个新的标签页式文档，文档中包含报告。 GPU 使用情况报告可帮助你了解图形事件在 CPU 上的启动时间、到达 GPU 的时间以及 GPU 执行该事件所花费的时间。 此信息可以帮助你确定瓶颈和机遇，以提高代码的并行度。  
 
@@ -95,7 +95,7 @@ ms.lasthandoff: 06/23/2017
 ## <a name="export-to-gpuview-or-windows-performance-analyzer"></a>导出到 GPUView 或 Windows Performance Analyzer
 从 Visual Studio 2017 开始，可通过单击诊断会话右下角处的“在 GpuView 中打开”或“在 WPA 中打开”链接来使用 [GPUView](/windows-hardware/drivers/display/using-gpuview) 和 [Windows Performance Analyzer](/windows-hardware/test/wpt/windows-performance-analyzer) 打开此数据。
 
-![打开方式...](media/gfx_diag_open_in.png)
+![打开方式...](~/profiling/media/gfx_diag_open_in.png)
 <!-- /VERSIONLESS -->
 
 ## <a name="using-the-gpu-usage-report"></a>使用 GPU 使用情况报告  
@@ -105,7 +105,7 @@ ms.lasthandoff: 06/23/2017
   
  以下是“GPU 使用情况报告”窗口：  
   
- ![GPU 使用情况报告，提供 CPU 和 GPU 时间线](media/gfx_diag_gpu_usage_report.png "gfx_diag_gpu_usage_report")  
+ ![GPU 使用情况报告，提供 CPU 和 GPU 时间线](~/profiling/media/gfx_diag_gpu_usage_report.png "gfx_diag_gpu_usage_report")  
   
  选择报告下半部分的其中一个事件会在相关时间线中的相应事件处放置一个标记，通常一个事件在 CPU 线程上，表示 API 调用；另一个事件在 GPU 时间线上，表示 GPU 完成任务的时间。 同样，选择时间线中的一个事件将在报告的下半部分突出显示相应事件。当缩小显示报告上半部分的时间线时，仅最耗时的事件可见。 若要查看持续时间更短的事件，可通过对你的指针设备使用 Ctrl + 滚轮或使用顶部面板左下角的缩放控件来放大时间线。 还可以拖动时间线面板中的内容，浏览记录的事件。  
   
@@ -146,7 +146,7 @@ ms.lasthandoff: 06/23/2017
   
 3.  在“常规”属性页上的“GPU 分析配置”下，取消选中“在应用启动时开始分析”复选框以推迟分析。  
   
-     ![配置 GPU 使用情况收集何时开始](media/gfx_diag_gpu_usage_config.png "gfx_diag_gpu_usage_config")  
+     ![配置 GPU 使用情况收集何时开始](~/profiling/media/gfx_diag_gpu_usage_config.png "gfx_diag_gpu_usage_config")  
   
 > [!IMPORTANT]
 >  Direct3D 12 当前不支持推迟分析。  

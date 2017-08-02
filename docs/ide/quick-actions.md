@@ -40,7 +40,7 @@ ms.lasthandoff: 05/26/2017
 # 快速操作
 <a id="quick-actions" class="xliff"></a>
 
-通过[快速操作](refactoring-code-generation-quick-actions.md#quick-actions)，只凭单个操作便可轻松重构、生成或修改代码。  尽管许多快速操作仅专门适用于 C# 或 Visual Basic，但也有一些快速操作同时适用于 C# 和 Visual Basic 项目。  可使用灯泡图标![小灯泡图标](media/vs2015_lightbulbsmall.png "VS2017_LightBulbSmall")，或按“Ctrl+.”应用这些快速操作， 前提是光标位于相应的代码行上。
+通过[快速操作](refactoring-code-generation-quick-actions.md#quick-actions)，只凭单个操作便可轻松重构、生成或修改代码。  尽管许多快速操作仅专门适用于 C# 或 Visual Basic，但也有一些快速操作同时适用于 C# 和 Visual Basic 项目。  可使用灯泡图标![小灯泡图标](~/ide/media/vs2015_lightbulbsmall.png "VS2017_LightBulbSmall")，或按“Ctrl+.”应用这些快速操作， 前提是光标位于相应的代码行上。
 
 如果有红色波形曲线，则将看到灯泡，Visual Studio 针对如何解决此问题有一条建议。 例如，如果你遇到红色波形曲线指示的错误，则在可对该错误进行修复时，会显示灯泡。 对于任何语言，第三方均可提供自定义诊断和建议（例如，作为 SDK 的一部分），Visual Studio 电灯泡会根据这些规则亮起。  
 
@@ -51,7 +51,7 @@ ms.lasthandoff: 05/26/2017
 
 2. 在行上的任意位置按“Ctrl + .” 可调用电灯泡并直接转到潜在修复列表。  
 
-   ![带鼠标悬停的灯泡](../ide/media/vs2015_lightbulb_hover.png "VS2017_LightBulb_Hover")  
+   ![带鼠标悬停的灯泡](~/ide/media/vs2015_lightbulb_hover.png "VS2017_LightBulb_Hover")  
 
 ### 查看潜在修复
 <a id="to-see-potential-fixes" class="xliff"></a>  
@@ -357,47 +357,47 @@ Dim s As String = $"My string with {num} in the middle"
 <a id="remove-merge-conflict-markers" class="xliff"></a>
 借助这些快速操作，可以通过“接受更改”（即移除冲突的代码和标记）解决合并冲突问题。 （仅适用于 Visual Studio 2017（版本 15.3 - 预览版）。）
 
-![重构 - 解决合并冲突](../ide/media/vside-refactoring-merge-conflicts.png)
+![重构 - 解决合并冲突](~/ide/media/vside-refactoring-merge-conflicts.png)
 
 ### 添加 null 参数检查
 <a id="add-null-checks-for-parameters" class="xliff"></a>
 借助此快速操作，可以在代码中添加检查，从而指明参数是否为 null。 （仅适用于 Visual Studio 2017（版本 15.3 - 预览版）。）
 
-![重构 - 添加 null 检查](../ide/media/vside-refactoring-nullcheck.png)
+![重构 - 添加 null 检查](~/ide/media/vside-refactoring-nullcheck.png)
 
 ### 构造函数生成器改进
 <a id="constructor-generator-improvements" class="xliff"></a>
 借助此快速操作，可以在创建构造函数时选择要生成的属性或字段，也可以从空白主体生成构造函数。 此外，还可以从调用站点将参数添加到现有构造函数中。 （仅适用于 Visual Studio 2017（版本 15.3 - 预览版）。）
 
-![重构 - 生成构造函数](../ide/media/vside-refactoring-constructors.png)
+![重构 - 生成构造函数](~/ide/media/vside-refactoring-constructors.png)
 
 ### 删除未使用的变量
 <a id="remove-unused-variables" class="xliff"></a>
 借助此快速操作，可以从代码中删除已声明但从未用过的变量。 （仅适用于 Visual Studio 2017（版本 15.3 - 预览版）。）
 
-![重构 - 未使用的变量](../ide/media/vside-refactoring-unusedvars.png)
+![重构 - 未使用的变量](~/ide/media/vside-refactoring-unusedvars.png)
 
 ### 生成重写函数
 <a id="generate-overrides" class="xliff"></a>
 借助此快速操作，可以从类或结构中的空白行创建重写函数。 使用“选取成员”对话框，可以选择要重写的成员。 （仅适用于 Visual Studio 2017（版本 15.3 - 预览版）。）
 
-![重构 - 重写函数](../ide/media/vside-refactoring-overrides.png)
+![重构 - 重写函数](~/ide/media/vside-refactoring-overrides.png)
 
-![重构 - 重写函数对话框](../ide/media/vside-refactoring-overrides-dialog.png)
+![重构 - 重写函数对话框](~/ide/media/vside-refactoring-overrides-dialog.png)
 
 ### 更改数字参数的基数
 <a id="change-base-for-numeric-literals" class="xliff"></a>
 借助此快速操作，可以将数字文本从一种基本数制转换成另一种。 例如，可以将数字更改为十六进制或二进制格式。 （仅适用于 Visual Studio 2017（版本 15.3 - 预览版）。）
 
-![重构 - 更改基本数制](../ide/media/vside-refactoring-changebase1.png)
+![重构 - 更改基本数制](~/ide/media/vside-refactoring-changebase1.png)
 
-![重构 - 更改基本数制](../ide/media/vside-refactoring-changebase2.png)
+![重构 - 更改基本数制](~/ide/media/vside-refactoring-changebase2.png)
 
 ### 将数字分隔符插入数字文本
 <a id="insert-digit-separators-into-literals" class="xliff"></a>
 借助此快速操作，可以将分隔符添加到数字文本值中。 （仅适用于 Visual Studio 2017（版本 15.3 - 预览版）。）
 
-![重构 - 更改数字分隔符](../ide/media/vside-refactoring-separators.png)
+![重构 - 更改数字分隔符](~/ide/media/vside-refactoring-separators.png)
 
 ### 将 **if** 构造转换成 **switch**
 <a id="convert-if-construct-to-switch" class="xliff"></a>

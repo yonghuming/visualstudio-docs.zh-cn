@@ -38,7 +38,7 @@ ms.lasthandoff: 02/22/2017
 # <a name="project-configuration-object"></a>项目配置对象
 项目配置对象管理对 UI 的配置信息的显示。  
   
- ![Visual Studio 项目配置](../../extensibility/internals/media/vsprojectcfg.gif "vsProjectCfg")  
+ ![Visual Studio 项目配置](~/extensibility/internals/media/vsprojectcfg.gif "vsProjectCfg")  
 项目配置属性页  
   
  项目配置提供程序管理的项目配置。 环境和其他程序包，才能访问和检索有关项目的配置的信息，请调用附加到项目的配置提供程序对象的接口。  

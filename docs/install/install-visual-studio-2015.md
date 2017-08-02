@@ -47,7 +47,7 @@ manager: "ghogen"
 ##  <a name="custom"></a> 默认安装与自定义安装  
  在安装 Visual Studio 2015 时，你可以包括或排除你每天都会使用的组件。 这意味着，默认安装比自定义安装所占用的空间更小，安装速度更快。 这还意味着在以前的版本中，默认安装的许多组件现在被视为必须在此版本中显式选择的自定义组件。  
   
- ![Visual Studio 2015 安装对话框](../ide/media/vs2015_setup_screen.png "VS2015\_Setup\_screen")  
+ ![Visual Studio 2015 安装对话框](~/ide/media/vs2015_setup_screen.png "VS2015\_Setup\_screen")  
   
  自定义组件包括 Visual C\+\+、Visual F\#、SQL Server Data Tools、跨平台移动工具和 SDK，以及第三方 SDK 和扩展。 如果在初始安装过程中没有选择这些自定义组件，则可以在之后安装任何自定义组件。  
   

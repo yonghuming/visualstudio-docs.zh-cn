@@ -124,7 +124,7 @@ manager: "ghogen"
   
  若要查看顶点着色器阶段的结果，请选择顶点着色器阶段缩略图，以查看网格的完整大小光栅化框架（经过顶点着色器转换之后）。  
   
- ![顶点着色器阶段结果预览](../debugger/media/gfx_diag_vertex_shader_preview.png "gfx\_diag\_vertex\_shader\_preview")  
+ ![顶点着色器阶段结果预览](~/debugger/graphics/media/gfx_diag_vertex_shader_preview.png "gfx\_diag\_vertex\_shader\_preview")  
   
 ## 请参阅  
  [演练：因顶点着色而缺少对象](../debugger/walkthrough-missing-objects-due-to-vertex-shading.md)   

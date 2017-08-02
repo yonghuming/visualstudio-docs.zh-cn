@@ -63,11 +63,11 @@ Visual Studio 现提供一些性能工具的选择，其中一些（如“CPU �
   
  窗口中现在有搜索框，因此你可以在事件列表中任何位置查找指定的字符串。 例如，下图显示搜索字符串“install”的结果，其匹配四个事件：  
   
- ![DiagnosticsEventSearch](../profiling/media/diagnosticseventsearch.png "DiagnosticsEventSearch")  
+ ![DiagnosticsEventSearch](~/profiling/media/diagnosticseventsearch.png "DiagnosticsEventSearch")  
   
  你也可以在该窗口中的视图内和视图外筛选事件。 在“筛选”  下拉列表中，你可以勾选或取消勾选指定事件类别： 类别名称与前缀名称相同。  
   
- ![DiagnosticEventFilter](../profiling/media/diagnosticeventfilter.png "DiagnosticEventFilter")  
+ ![DiagnosticEventFilter](~/profiling/media/diagnosticeventfilter.png "DiagnosticEventFilter")  
   
  有关详细信息，请参阅 [搜索和筛选“诊断工具”窗口中的“事件”选项卡](http://blogs.msdn.com/b/visualstudioalm/archive/2015/11/12/searching-and-filtering-the-events-tab-of-the-diagnostic-tools-window.aspx)。  
   
@@ -80,7 +80,7 @@ Visual Studio 现提供一些性能工具的选择，其中一些（如“CPU �
   
 3.  在诊断启动页上，选择要在会话中运行的一个或多个工具。 将仅显示适用于项目类型、操作系统和编程语言的工具。 选择诊断工具时，将禁用对不能在同一诊断会话中运行的工具的选择。 对于 C# Windows 通用应用，你的选择可能如下所示：  
   
-     ![选择诊断工具](../profiling/media/diag_selecttool.png "DIAG_SelectTool")  
+     ![选择诊断工具](~/profiling/media/diag_selecttool.png "DIAG_SelectTool")  
   
 4.  若要启动诊断会话，请单击“开始”。  
   
@@ -88,7 +88,7 @@ Visual Studio 现提供一些性能工具的选择，其中一些（如“CPU �
   
      在运行会话时，一些工具将在诊断工具启动页上显示实时数据图。  
   
-     ![在“性能和诊断”页上收集数据](../profiling/media/pdhub_collectdata.png "PDHUB_CollectData")  
+     ![在“性能和诊断”页上收集数据](~/profiling/media/pdhub_collectdata.png "PDHUB_CollectData")  
   
 6.  若要结束诊断会话，请单击“停止收集”。  
   
@@ -96,32 +96,32 @@ Visual Studio 现提供一些性能工具的选择，其中一些（如“CPU �
   
  还可从诊断工具启动页上的最近打开列表打开已保存的 .diagnosis 会话文件。  
   
- ![打开保存的诊断会话文件](../profiling/media/pdhub_openexistingdiagsession.png "PDHUB_OpenExistingDiagSession")  
+ ![打开保存的诊断会话文件](~/profiling/media/pdhub_openexistingdiagsession.png "PDHUB_OpenExistingDiagSession")  
   
 ## <a name="the-profiling-report"></a>分析报告  
- ![诊断工具报告](../profiling/media/diag_report.png "DIAG_Report")  
+ ![诊断工具报告](~/profiling/media/diag_report.png "DIAG_Report")  
   
 |||  
 |-|-|  
-|![第 1 步](../profiling/media/procguid_1.png "ProcGuid_1")|时间线显示分析会话的长度、应用程序生命周期激活事件以及用户标记。|  
-|![第 2 步](../profiling/media/procguid_2.png "ProcGuid_2")|你可以通过拖动蓝色条选择时间线的一个区域，将报告限制到这一部分时间线内。|  
-|![第 3 步](../profiling/media/procguid_3.png "ProcGuid_3")|一个工具可显示一个或多个主关系图。 如果是使用多个工具创建的诊断会话，则将显示所有主关系图。|  
-|![第 4 步](../profiling/media/procguid_4.png "ProcGuid_4")|可以折叠和展开各个关系图。|  
-|![第 5 步](../profiling/media/procguid_6.png "ProcGuid_6")|当你的数据包含来自多个工具的信息时，则将在选项卡下收集工具的详细信息。|  
-|![第 6 步](../profiling/media/procguid_6a.png "ProcGuid_6a")|一个工具可具有一个或多个详细信息视图。 视图将按时间线的选定区域进行筛选。|  
+|![第 1 步](~/profiling/media/procguid_1.png "ProcGuid_1")|时间线显示分析会话的长度、应用程序生命周期激活事件以及用户标记。|  
+|![第 2 步](~/profiling/media/procguid_2.png "ProcGuid_2")|你可以通过拖动蓝色条选择时间线的一个区域，将报告限制到这一部分时间线内。|  
+|![第 3 步](~/profiling/media/procguid_3.png "ProcGuid_3")|一个工具可显示一个或多个主关系图。 如果是使用多个工具创建的诊断会话，则将显示所有主关系图。|  
+|![第 4 步](~/profiling/media/procguid_4.png "ProcGuid_4")|可以折叠和展开各个关系图。|  
+|![第 5 步](~/profiling/media/procguid_6.png "ProcGuid_6")|当你的数据包含来自多个工具的信息时，则将在选项卡下收集工具的详细信息。|  
+|![第 6 步](~/profiling/media/procguid_6a.png "ProcGuid_6a")|一个工具可具有一个或多个详细信息视图。 视图将按时间线的选定区域进行筛选。|  
   
 ## <a name="setting-the-analysis-target-to-another-device"></a>将分析目标设置为其他设备  
  除了从 Visual Studio 项目启动应用以外，还可以在备用目标上运行诊断会话。 例如，你可能需要诊断有关从 Windows 应用商店安装的应用的版本的性能问题。  
   
- ![选择诊断工具分析目标](../profiling/media/pdhub_chooseanalysistarget.png "PDHUB_ChooseAnalysisTarget")  
+ ![选择诊断工具分析目标](~/profiling/media/pdhub_chooseanalysistarget.png "PDHUB_ChooseAnalysisTarget")  
   
  可以启动已安装在设备上的应用，也可以将诊断工具附加到已在运行的一些应用上。 选择“运行应用”或“安装应用”后，从发现指定部署目标上的应用的列表选择应用。  
   
- ![选择要诊断的正在运行或已安装的应用](../profiling/media/pdhub_selectrunningapp.png "PDHUB_SelectRunningApp")  
+ ![选择要诊断的正在运行或已安装的应用](~/profiling/media/pdhub_selectrunningapp.png "PDHUB_SelectRunningApp")  
   
  如果你选择“Internet Explorer”，请指定 URL，并且你可以更改电话部署目标。  
   
- ![指定要在 Internet Explorer 中显示的 URL](../profiling/media/pdhub_choosephoneanalysistarget.png "PDHUB_ChoosePhoneAnalysisTarget")  
+ ![指定要在 Internet Explorer 中显示的 URL](~/profiling/media/pdhub_choosephoneanalysistarget.png "PDHUB_ChoosePhoneAnalysisTarget")  
   
 ## <a name="remote-debugging"></a>Remote Debugging  
  要在远程 PC 或平板电脑上运行诊断会话，需要在远程目标上安装和运行 Visual Studio 远程工具。 对于桌面应用，请参阅[远程调试](../debugger/remote-debugging.md)。  对于 Windows 通用应用，请参阅[在远程计算机上运行 Windows 应用商店应用](../debugger/run-windows-store-apps-on-a-remote-machine.md)。  

@@ -23,7 +23,7 @@ manager: "douge"
 ## 扩展性的体系结构  
  下图显示 [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] 扩展性的体系结构。  请注意软件应用程序的概念不存在。  相反， IDE 中承载软件组件，调用 Vspackage，提供应用程序功能。  此函数在 IDE 中，反过来，共享作为服务。  Vspackage 提供服务以及其他 Vspackage 使用。  标准 IDE 还提供各种服务，如 <xref:Microsoft.VisualStudio.Shell.Interop.SVsUIShell>，提供对 IDE 多窗口功能。  
   
- ![环境体系结构图](../extensibility/internals/media/environment.png "environment")  
+ ![环境体系结构图](~/extensibility/internals/media/environment.gif "environment")  
 Visual Studio 体系结构的通用视图  
   
  通知 Vspackage 和服务之间的关系是双向的。  虽然 Vspackage 使用服务由其他提供，使用 <xref:Microsoft.VisualStudio.Shell.Interop.IProfferService> 接口，它们也可以提供自己的服务。  此基于服务的体系结构增大 Microsoft ActiveX 设计器实现的外部，服务有关接口一组执行任务。  从强 COM 角度来看，在单个 COM 类必须实现一个特定服务的任何接口。  

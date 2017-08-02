@@ -24,7 +24,7 @@ caps.handback.revision: 12
 ## 下拉栏接口  
  如下图所示，在 [!INCLUDE[vcprvc](../debugger/includes/vcprvc_md.md)]，例如，该下拉栏包含用于 [!INCLUDE[vcprvc](../debugger/includes/vcprvc_md.md)] 项目和 [!INCLUDE[vcprvc](../debugger/includes/vcprvc_md.md)] 项目成员函数，。  
   
- ![下拉栏](../extensibility/media/vsdropdown_bar.gif "vsDropdown\_bar")  
+ ![下拉栏](~/extensibility/media/vsdropdown_bar.gif "vsDropdown\_bar")  
 下拉栏  
   
  当实现一个下拉栏时，有四个主要接口重要:  

@@ -48,7 +48,7 @@ Visual Studio 和 Blend for Visual Studio 两者都是可视化工具，用于�
   
 -   **一致的用户界面：** 可以在熟悉的 Visual Studio 用户界面环境中设计应用程序，这会使 IDE 之间的切换成为更加愉快且高效的体验。 Blend for Visual Studio 使用 Visual Studio 深色主题，该主题可提高你的内容与用户界面之间的对比度，从而帮助你专注于正在设计的内容。 请参阅[使用 XAML 设计器创建 UI](../designers/creating-a-ui-by-using-xaml-designer-in-visual-studio.md)。  
   
-     ![Blend for Visual Studio IDE](../designers/media/blendide.png "BlendIDE")  
+     ![Blend for Visual Studio IDE](~/designers/media/blendide.png "BlendIDE")  
   
 -   **XAML IntelliSense：** 两个 IDE 都支持期望从 IntelliSense 获得的所有常见功能，包括语句完成、对常见编辑器操作（如对代码进行注释和格式设置）的支持以及针对资源、绑定和代码进行的导航。  
   
@@ -56,7 +56,7 @@ Visual Studio 和 Blend for Visual Studio 两者都是可视化工具，用于�
   
 -   **文件重载体验：** 可以在 Blend for Visual Studio 或 Visual Studio 中编辑 XAML 文件，并且在它们之间切换时自动重载编辑后的文件。 若要最大程度减少工作流中断，现在可以在文件重载对话框中设置文件重载首选项。  
   
-     ![文件重载体验](../designers/media/blendfilereload.png "BlendFileReload")  
+     ![文件重载体验](~/designers/media/blendfilereload.png "BlendFileReload")  
   
 -   **同步的布局和设置：** 通过自定义布局可以保存并应用工具窗口布局自定义项。 使用相同 Microsoft 帐户登录时，Visual Studio 会在计算机之间为 Visual Studio 和 Blend for Visual Studio 同步这些自定义项和首选项。 请参阅 [在 Visual Studio 中自定义开发设置](http://msdn.microsoft.com/en-us/22c4debb-4e31-47a8-8f19-16f328d7dcd3)。  
   

@@ -88,16 +88,16 @@ Visual Studio 工具窗口具有不同的状态，其中一些用户激活 （�
   
 -   **选项卡式的文档**工具窗口可以停靠在文档中也。 这可用于大工具窗口，如对象浏览器，需要更多房地产超出与帧边缘停靠允许。  
   
-![Visual Studio 中的工具窗口状态](../../extensibility/ux-guidelines/media/0702-01_toolwindowstates.png "0702-01_ToolWindowStates")<br />Visual Studio 中的“工具”窗口状态
+![Visual Studio 中的工具窗口状态](~/extensibility/ux-guidelines/media/0702-01_toolwindowstates.png "0702-01_ToolWindowStates")<br />Visual Studio 中的“工具”窗口状态
   
 #### <a name="single-instance-and-multi-instance"></a>单实例和多实例  
 工具窗口是单实例或多实例。 多实例工具窗口可能不时，某些单实例工具窗口可能有与活动文档窗口中，相关联。 多实例工具窗口响应**窗口&gt;新窗口**命令通过创建窗口的新实例。 下图阐释了工具窗口的窗口实例处于活动状态时启用新窗口命令︰  
   
-![工具窗口中，这样新建窗口命令窗口的实例时处于活动状态](../../extensibility/ux-guidelines/media/0702-02_toolwindowenablingcommand.png "0702-02_ToolWindowEnablingCommand")<br />工具窗口中，这样新建窗口命令窗口的实例时处于活动状态  
+![工具窗口中，这样新建窗口命令窗口的实例时处于活动状态](~/extensibility/ux-guidelines/media/0702-02_toolwindowenablingcommand.png "0702-02_ToolWindowEnablingCommand")<br />工具窗口中，这样新建窗口命令窗口的实例时处于活动状态  
   
 可以隐藏或显示，而多实例工具窗口可以被关闭，以及隐藏单实例工具窗口。 所有工具窗口可以都停靠，选项卡链接、 浮动或设置为多文档界面 (MDI) 子窗口 （类似于文档窗口）。 所有工具窗口应都响应窗口菜单中的相应的窗口管理命令︰  
   
-![在 Visual Studio 窗口菜单中的窗口管理命令](../../extensibility/ux-guidelines/media/0702-03_windowmanagementcontrols.png "0702-03_WindowManagementControls")<br />在 Visual Studio 窗口菜单中的窗口管理命令
+![在 Visual Studio 窗口菜单中的窗口管理命令](~/extensibility/ux-guidelines/media/0702-03_windowmanagementcontrols.png "0702-03_WindowManagementControls")<br />在 Visual Studio 窗口菜单中的窗口管理命令
   
 #### <a name="document-specific-tool-windows"></a>特定于文档的工具窗口  
 某些工具窗口用于更改基于给定类型的文档。 这些窗口不断进行更新，以反映适用于 IDE 中的活动文档窗口的功能。  
@@ -330,7 +330,7 @@ Specialty"签名"对话框可能主题。 主题对话框都具有独特的外�
 ####  <a name="BKMK_SimpleDialogs"></a>简单对话框  
 简单对话框是一个模式窗口中的控件的演示。 此演示文稿可能包含变体的复杂控件模式，如域选取器。 有关简单对话框，请遵循标准的常规布局，以及所需的复杂控件分组任何特定布局。
   
-![> 创建强名称密钥是一个简单的对话框在 Visual Studio 中的一个示例。](../../extensibility/ux-guidelines/media/0704-01_createstrongnamekey.png "0704-01_CreateStrongNameKey")<br />创建强名称密钥是一个简单的对话框在 Visual Studio 中的一个示例。
+![> 创建强名称密钥是一个简单的对话框在 Visual Studio 中的一个示例。](~/extensibility/ux-guidelines/media/0704-01_createstrongnamekey.png "0704-01_CreateStrongNameKey")<br />创建强名称密钥是一个简单的对话框在 Visual Studio 中的一个示例。
   
 ####  <a name="BKMK_LayeredDialogs"></a>分层的对话框  
 分层的对话框包括选项卡、 仪表板和嵌入的树。 它们用于最大化房地产有多个组的一段单独的 UI 中提供的控件时。 分组进行分层，以便用户可以选择以在任何时候查看哪些分组。  
@@ -339,7 +339,7 @@ Specialty"签名"对话框可能主题。 主题对话框都具有独特的外�
   
 **工具&gt;选项**对话框是分层对话框使用嵌入的树的示例︰  
   
-![工具 > 选项是分层对话框在 Visual Studio 中的一个示例。](../../extensibility/ux-guidelines/media/0704-02_toolsoptions.png "0704-02_ToolsOptions")<br />工具 > 选项是分层对话框在 Visual Studio 中的一个示例。
+![工具 > 选项是分层对话框在 Visual Studio 中的一个示例。](~/extensibility/ux-guidelines/media/0704-02_toolsoptions.png "0704-02_ToolsOptions")<br />工具 > 选项是分层对话框在 Visual Studio 中的一个示例。
   
 ####  <a name="BKMK_Wizards"></a>向导  
 向导可用于将用户通过一系列逻辑步骤定向中的任务完成。 选择一系列提供连续面板中，用户必须继续完成然后再继续到下的每个步骤。 一旦足够的默认值为可用，**完成**按钮处于启用状态。  
@@ -395,12 +395,12 @@ Specialty"签名"对话框可能主题。 主题对话框都具有独特的外�
   
 -   已弃用的标题栏中的帮助按钮。 不要将它们添加到新的对话框。 当它们存在时，他们应启动在概念上与任务相关的帮助主题。  
   
- ![Visual Studio 对话框中的标题栏的原则规范](../../extensibility/ux-guidelines/media/0704-03_titlebarspecs.png "0704-03_TitleBarSpecs")<br />Visual Studio 对话框中的标题栏的原则规范
+ ![Visual Studio 对话框中的标题栏的原则规范](~/extensibility/ux-guidelines/media/0704-03_titlebarspecs.png "0704-03_TitleBarSpecs")<br />Visual Studio 对话框中的标题栏的原则规范
   
 #### <a name="control-buttons"></a>控件按钮  
 一般情况下，**确定**，**取消**，和**帮助**按钮应在对话框右下角中水平排列。 如果对话框有表示与控件按钮 visual 混淆的对话框底部的其他几个按钮，则允许备用垂直堆栈。  
   
-![可接受配置 Visual Studio 对话框中的控件按钮](../../extensibility/ux-guidelines/media/0704-04_controlbuttonconfig.png "0704-04_ControlButtonConfig")<br />可接受配置 Visual Studio 对话框中的控件按钮
+![可接受配置 Visual Studio 对话框中的控件按钮](~/extensibility/ux-guidelines/media/0704-04_controlbuttonconfig.png "0704-04_ControlButtonConfig")<br />可接受配置 Visual Studio 对话框中的控件按钮
   
 对话框必须包括默认控件按钮。 若要确定最佳的命令，以便使用作为默认值，请选择从以下选项 （按优先级顺序列出）︰  
   
@@ -446,7 +446,7 @@ Specialty"签名"对话框可能主题。 主题对话框都具有独特的外�
   
 或者，一个用户界面，而不是重构的不太常见功能分为不同的位置，则只需一个仪表板提供单个集合中的所有可用的功能。  
   
-![用于公开其他 UI 在 Outlook 中的过道概念](../../extensibility/ux-guidelines/media/0704-08_hallway.png "0704-08_Hallway")<br />用于公开其他 UI 在 Outlook 中的过道概念
+![用于公开其他 UI 在 Outlook 中的过道概念](~/extensibility/ux-guidelines/media/0704-08_hallway.png "0704-08_Hallway")<br />用于公开其他 UI 在 Outlook 中的过道概念
   
 ##### <a name="adaptive-ui"></a>自适应用户界面  
 显示或隐藏用户界面基于使用情况或用户的自助报告的体验是另一种同时隐藏了其他部分中提供必要的 UI。 这不是建议在 Visual Studio 中，用于确定何时显示或隐藏 UI 算法可能会很棘手，以及规则将始终为错误的情况下的某一集。  
@@ -509,10 +509,10 @@ Specialty"签名"对话框可能主题。 主题对话框都具有独特的外�
   
 | 鼠标指针 | 命令 | 描述 |  
 | :---: | --- | --- |  
-| ![鼠标"不放下"图标](../../extensibility/ux-guidelines/media/0706-01_mousenodrop.png "0706年 01_MouseNoDrop") | 不拖放 | 不到指定位置删除项。 |  
-| ![鼠标"复制"图标](../../extensibility/ux-guidelines/media/0706-02_mousecopy.png "0706年 02_MouseCopy") | 复制 | 将项复制到目标位置。 |  
-| ![鼠标"移动"图标](../../extensibility/ux-guidelines/media/0706-03_mousemove.png "0706年 03_MouseMove") | 移动 | 项将移到目标位置。 |  
-| ![鼠标"添加引用"图标](../../extensibility/ux-guidelines/media/0706-04_mouseaddref.png "0706年 04_MouseAddRef") | 添加引用 | 对所选的项的引用将添加到目标位置。 |
+| ![鼠标"不放下"图标](~/extensibility/ux-guidelines/media/0706-01_mousenodrop.png "0706年 01_MouseNoDrop") | 不拖放 | 不到指定位置删除项。 |  
+| ![鼠标"复制"图标](~/extensibility/ux-guidelines/media/0706-02_mousecopy.png "0706年 02_MouseCopy") | 复制 | 将项复制到目标位置。 |  
+| ![鼠标"移动"图标](~/extensibility/ux-guidelines/media/0706-03_mousemove.png "0706年 03_MouseMove") | 移动 | 项将移到目标位置。 |  
+| ![鼠标"添加引用"图标](~/extensibility/ux-guidelines/media/0706-04_mouseaddref.png "0706年 04_MouseAddRef") | 添加引用 | 对所选的项的引用将添加到目标位置。 |
 
 #### <a name="reference-based-projects"></a>基于引用的项目  
  下表总结了应执行基于对于基于引用的目标项目按下的源项和修饰符键的性质的拖放 （以及剪切/复制/粘贴） 操作︰  

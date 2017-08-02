@@ -48,7 +48,7 @@ Visual Studio 提供一组工具窗口、菜单和工具栏，统称为集成的
 ### <a name="code-editor"></a>代码编辑器
 这是 Visual Studio 中最常使用的工具窗口之一，可以在该窗口编写、查看和浏览代码。
 
-![代码编辑器](../ide/media/VSIDE_CodeWindow.png)
+![代码编辑器](~/ide/media/VSIDE_CodeWindow.png)
 
 利用语句完成、语法着色、地图模式等功能，代码编辑器可帮助你在输入代码时更快、更轻松地编写和查找代码。 有关详细信息，请观看视频 [Getting Started with Visual Studio - Editing and navigating your code](https://www.youtube.com/watch?v=4glwwioCVjA&list=PLReL099Y5nRfw6VNvzMkv0sabT2crbSpK&index=5)（Visual Studio 入门 - 编辑和浏览代码）
 
@@ -58,22 +58,22 @@ Visual Studio 提供一组工具窗口、菜单和工具栏，统称为集成的
 
 称为“解决方案资源管理器”的工具窗口将列出所有代码文件。 解决方案资源管理器可将代码文件分组为解决方案和项目，从而帮助整理代码。 以粗体显示的项目称为启动项目。 它是启动解决方案时运行的第一个代码。 可以更改启动项目。 有关详细信息，请观看视频 [Visual Studio 入门 - IDE 的构建基块](https://www.youtube.com/watch?v=JHc3_gsCmZg&index=2&list=PLReL099Y5nRfw6VNvzMkv0sabT2crbSpK)。
 
-![解决方案资源管理器折叠节点](../ide/media/VSIDE_SolutionExplorer2_callouts.png)
+![解决方案资源管理器折叠节点](~/ide/media/VSIDE_SolutionExplorer2_callouts.png)
 
  展开项目节点时，除了解决方案和项目，解决方案资源管理器还会列出每个项目中的所有文件。 每个项目包含一个或多个文件，如源代码文件和资源文件（如图像或库）。
 
-![“解决方案资源管理器”](../ide/media/VSIDE_SolutionExplorer3.png)
+![“解决方案资源管理器”](~/ide/media/VSIDE_SolutionExplorer3.png)
 
 若要查看解决方案、项目和文件的属性，请在快捷方式（右键单击）菜单上选择“属性”命令，或选择菜单上的“视图”-“属性”窗口。
 
-![“属性”窗口](../ide/media/VSIDE_SolutionExplorer4.png)
+![“属性”窗口](~/ide/media/VSIDE_SolutionExplorer4.png)
 
 无需创建解决方案或项目即可开始编写代码。 只需在 Visual Studio 中打开代码文件（如从 Git 存储库克隆的文件）即可立即编辑它们。 这些文件会显示在“解决方案资源管理器”中，并带有语法着色和基本语句完成等，同传统解决方案一样。 请参阅[在 Visual Studio 中开发代码而无需创建项目或解决方案](../ide/develop-code-in-visual-studio-without-projects-or-solutions.md)了解详细信息。
 
 ### <a name="toolbar-and-menus"></a>工具栏和菜单
 若要运行项目、创建新解决方案和保存文件等，请使用 Visual Studio 工具栏和菜单命令。 例如，代码已准备好进行调试时，可以选择工具栏上的“启动”按钮，或选择菜单上的“调试”-“启动调试”。 若要创建新的解决方案，请选择“新建项目”按钮，或选择菜单上的“文件”-“新建”-“项目”等。
 
-![Visual Studio 工具栏](../ide/media/VSIDE_SolutionExplorer5_callouts.png)
+![Visual Studio 工具栏](~/ide/media/VSIDE_SolutionExplorer5_callouts.png)
 
 请注意，工具栏图标和菜单命令可能会根据上下文发生更改，表示当前已选中该项。 通过键盘命令以及鼠标可以访问几乎所有的命令。
 
@@ -87,7 +87,7 @@ Visual Studio 提供一组工具窗口、菜单和工具栏，统称为集成的
 ### <a name="output-window"></a>“输出”窗口
 “输出”窗口是 Visual Studio 发送通知（例如，调试和错误消息、编译器警告、发布状态消息等）的位置。 每个消息类型都有自己的选项卡。
 
-![“输出”窗口](../ide/media/VSIDE_OutputWindow.png)
+![“输出”窗口](~/ide/media/VSIDE_OutputWindow.png)
 
 若要深入了解如何使用“输出”窗口进行调试，请参阅 [The Output window while debugging with Visual Studio](https://blogs.msdn.microsoft.com/visualstudioalm/2015/02/09/the-output-window-while-debugging-with-visual-studio/)（使用 Visual Studio 进行调试时的“输出”窗口）。
 
@@ -105,7 +105,7 @@ Visual Studio 提供一组工具窗口、菜单和工具栏，统称为集成的
 
 安装 Azure 开发工作负载后，Visual Studio 中会提供名为“Cloud Explorer”的新工具窗口。 Cloud Explorer 可用于在 Visual Studio 中浏览并管理 Azure 资产和资源。 如果某一特定操作需要 Azure 门户，Cloud Explorer 会提供你在 Azure 门户中所需位置的链接。
 
-![Cloud Explorer](../ide/media/VSIDE_CloudExplorer.png)
+![Cloud Explorer](~/ide/media/VSIDE_CloudExplorer.png)
 
 若要深入了解如何使用 Cloud Explorer，请参阅[使用 Cloud Explorer 管理 Azure 资源](https://azure.microsoft.com/en-us/documentation/articles/vs-azure-tools-resources-managing-with-cloud-explorer/)。
 安装 Azure 开发工作负载还会提供 [Visual Studio Tools for Azure](https://www.visualstudio.com/vs/azure-tools/) 以及其他相关工具。

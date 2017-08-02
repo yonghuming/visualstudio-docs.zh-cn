@@ -99,7 +99,7 @@ ms.lasthandoff: 05/30/2017
   
      你还可以在“快速启动”  框中输入 **新项目** ，完成相同的工作。  
   
-     ![在“快速启动”框中，指定新项目](../ide/media/exploreide-quicklaunchnewprojectsmall.png "ExploreIDE QuickLaunchNewProjectsmall")  
+     ![在“快速启动”框中，指定新项目](~/ide/media/exploreide-quicklaunchnewprojectsmall.png "ExploreIDE QuickLaunchNewProjectsmall")  
   
 2.  例如，通过在左窗格 **已安装**、 **模板**、 **Visual C#**、 **Windows**中进行选择，然后选择中间窗格中的 WPF 应用程序，以选择 Visual Basic 或 Visual C# WPF 应用程序模板。  命名新项目对话框底部的项目 HelloWPFApp。  
   
@@ -113,7 +113,7 @@ ms.lasthandoff: 05/30/2017
   
  图 5：项目项  
   
- ![已加载 HelloWPFApp 文件的解决方案资源管理器](../ide/media/exploreide-hellowpfappfiles.png "ExploreIDE-HelloWPFAppFiles")  
+ ![已加载 HelloWPFApp 文件的解决方案资源管理器](~/ide/media/exploreide-hellowpfappfiles.png "ExploreIDE-HelloWPFAppFiles")  
   
  你可以在创建项目后进行自定义。 通过使用 **属性** 窗口（ **视图** 菜单上），您可以显示和更改应用程序中的项目项、控件和其他项的选项。 通过使用项目属性和属性页，可以显示和更改项目和解决方案的选项。  
   
@@ -121,7 +121,7 @@ ms.lasthandoff: 05/30/2017
   
 1.  在下面的过程中，需为 MainWindow 提供更具体的名称。 在 **“解决方案资源管理器”**中，选择 MainWindow.xaml。 此时应看到“属性”窗口，如果没有，请依次选择“视图”菜单和“属性窗口”项。 将 **“文件名称”** 属性更改为 `Greetings.xaml`。  
   
-     ![突出显示文件名的“属性”窗口](../ide/media/exploreide-filenameinpropertieswindow.png "ExploreIDE FilenameinPropertiesWindow")  
+     ![突出显示文件名的“属性”窗口](~/ide/media/exploreide-filenameinpropertieswindow.png "ExploreIDE FilenameinPropertiesWindow")  
   
      **解决方案资源管理器** 显示该文件的名称现在是 Greetings.xaml，并且如果您展开 MainWindow.xaml 的节点（通过将焦点放在该节点上并按右箭头键），您将看到 MainWindow.xaml.vb 或 MainWindow.xaml.cs 的名称现在是 Greetings.xaml.vb 或 Greetings.xaml.cs。 此代码文件被嵌套在 .xaml 文件节点下面，以显示它们的关系十分紧密。  
   
@@ -274,7 +274,7 @@ ms.lasthandoff: 05/30/2017
   
 1.  选择 **“调试”**-&gt; **“启动调试”**，启动调试器。  
   
-     ![“调试”菜单上的“启动调试”命令](../ide/media/exploreide-startdebugging.png "ExploreIDE-StartDebugging")  
+     ![“调试”菜单上的“启动调试”命令](~/ide/media/exploreide-startdebugging.png "ExploreIDE-StartDebugging")  
   
      此时将显示对话框，指示已出现 IOException：找不到资源“mainwindow.xaml”。  
   
@@ -340,7 +340,7 @@ ms.lasthandoff: 05/30/2017
   
 2.  使用工具栏（当前显示“调试”）上的下拉列表控件把 HelloWPFApp 的生成配置从“调试”更改为“发布”。  
   
-     ![选定了“发布”的“标准”工具栏](../ide/media/exploreide-releaseversion.png "ExploreIDE-ReleaseVersion")  
+     ![选定了“发布”的“标准”工具栏](~/ide/media/exploreide-releaseversion.png "ExploreIDE-ReleaseVersion")  
   
 3.  通过选择 **生成**，然后是 **生成解决方案** 或按 F6 键构建解决方案。  
   

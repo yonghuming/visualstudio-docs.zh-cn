@@ -45,11 +45,11 @@ ms.lasthandoff: 02/22/2017
   
  下面是灯泡图标如下所示。 在 Visual Basic 或 Visual C# 项目中，红色的波浪线将显示下一个变量名称时是无效的。 当您将鼠标移无效的标识符时，灯泡图标将显示在光标附近。  
   
- ![灯泡图标中](../extensibility/media/lightbulb.png "灯泡图标")  
+ ![灯泡图标中](~/extensibility/media/lightbulb.png "灯泡图标")  
   
  如果通过灯泡图标中单击向下箭头，会显示一组建议的操作，以及所选操作的预览。 在这种情况下，它显示如果执行该操作会对您的代码进行的更改。  
   
- ![灯泡预览](../extensibility/media/lightbulbpreview.png "LightBulbPreview")  
+ ![灯泡预览](~/extensibility/media/lightbulbpreview.png "LightBulbPreview")  
   
  灯泡图标可用于提供建议的操作。 例如，你可以提供操作来移动打开到新行的大括号或将它们移到前一行的末尾。 下面的演练演示如何创建对当前字词出现一个灯泡，已有两个建议的操作︰**将转换为大写**和**转换为小写**。  
   
@@ -371,12 +371,12 @@ ms.lasthandoff: 02/22/2017
   
 3.  创建一个文本文件并键入一些文本。 您应该看到灯泡图标中的文本的左侧。  
   
-     ![测试灯泡](../extensibility/media/testlightbulb.png "TestLIghtBulb")  
+     ![测试灯泡](~/extensibility/media/testlightbulb.png "TestLIghtBulb")  
   
 4.  指向灯泡图标中。 您应看到向下箭头。  
   
 5.  当您单击灯泡图标中时，两个建议的操作应显示，以及所选操作的预览。  
   
-     ![测试灯泡，已展开](../extensibility/media/testlightbulbexpanded.gif "TestLIghtBulbExpanded")  
+     ![测试灯泡，已展开](~/extensibility/media/testlightbulbexpanded.gif "TestLIghtBulbExpanded")  
   
 6.  如果单击第一个操作，则当前单词中的所有文本都将转换为大写。 如果单击第二个操作，则所有文本都将转换为小写。

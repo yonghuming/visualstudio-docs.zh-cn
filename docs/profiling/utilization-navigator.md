@@ -22,7 +22,7 @@ caps.handback.revision: 9
 
 您可以使用并发可视化工具中的利用导航器来选择跟踪的时间间隔。  并发可视化工具显示目标进程一段时间内 的CPU 内核使用率。  这样便于检查 CPU 使用率模式并可以启用在利用数据和其他视图的数据之间的比较。  使用率导航器显示在并发可视化工具的每个视图的顶部。  下图显示利用导航器。  
   
- ![显示选定时间范围的利用率导航器](../profiling/media/cvutilizationnavigator.png "CVUtilizationNavigator")  
+ ![显示选定时间范围的利用率导航器](~/profiling/media/cvutilizationnavigator.png "CVUtilizationNavigator")  
 利用率导航器和一个选定时间的框架。  
   
  在图中，选择的时间由一个红色矩形定义的，即 *Thumb控件*。  

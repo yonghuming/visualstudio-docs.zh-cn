@@ -61,7 +61,7 @@ ms.lasthandoff: 05/26/2017
 
  安装 Visual Studio 时，你将看到的最重要的更改是其新的安装体验。 在“工作负荷”选项卡上，你将看到表示常见框架、语言和平台的分组安装选项。 它涵盖 Windows、Linux 和 iOS 上从 .NET 桌面开发到 C++ 应用程序开发的所有内容。   
 
- ![Visual Studio 2017 安装对话框](../install/media/vs2017-workloads.PNG "Visual Studio 2017 安装屏幕")
+ ![Visual Studio 2017 安装对话框](~/install/media/vs2017-workloads.PNG "Visual Studio 2017 安装屏幕")
 
 选择所需的工作负载，并在需要时对其进行更改。
 
@@ -75,12 +75,12 @@ ms.lasthandoff: 05/26/2017
 ### <a name="decrease-solution-load-time"></a>缩短解决方案加载时间
 处理包含大量项目的解决方案并非意味着必须同时处理所有文件或项目。 现在，无需等待 Visual Studio 加载每个项目即可进行编辑和调试。 若要通过托管项目尝试此操作，请从“工具”->“选项”->“项目和解决方案”打开“轻型解决方案加载”。
 
-  ![Visual Studio 2017 中的选项对话框](../ide/media/vs2017ide-LightweightSolutionLoad.PNG "Visual Studio 2017 - 选项对话框 - 轻型解决方案加载")
+  ![Visual Studio 2017 中的选项对话框](~/ide/media/vs2017ide-LightweightSolutionLoad.PNG "Visual Studio 2017 - 选项对话框 - 轻型解决方案加载")
 
 ### <a name="faster-on-demand-loading-of-extensions"></a>按需加载扩展速度更快
 Visual Studio 可以移动自身的扩展（以及第三方扩展），从而根据需要加载扩展，而不是在 IDE 启动时加载。 想了解哪些扩展会影响启动、解决方案加载和键入性能？ 可以在“帮助”->“管理 Visual Studio 性能”中查看此信息。
 
-  ![Visual Studio 2017 中的选项对话框](../ide/media/vs2017ide-manage-vs-perf.png "Visual Studio 帮助对话框 - 性能管理")
+  ![Visual Studio 2017 中的选项对话框](~/ide/media/vs2017ide-manage-vs-perf.png "Visual Studio 帮助对话框 - 性能管理")
 
 ## <a name="productivity-improvements"></a>提高工作效率
 
@@ -94,18 +94,18 @@ Visual Studio 可以移动自身的扩展（以及第三方扩展），从而根
 
 若要查看 Visual Studio 中的扩展列表，请单击“工具”>“扩展”>“更新”，再单击“漫游扩展管理器”。
 
-![Visual Studio 2017 - 扩展和更新对话框](../ide/media/vs2017ide-extensions-and-updates.png "Visual Studio 2017-“工具”>“扩展和更新”对话框")
+![Visual Studio 2017 - 扩展和更新对话框](~/ide/media/vs2017ide-extensions-and-updates.png "Visual Studio 2017-“工具”>“扩展和更新”对话框")
 
 漫游扩展管理器会跟踪安装的所有扩展，但你可以选择要添加到漫游列表的扩展。
 
-![Visual Studio 2017 - 扩展和更新对话框](../ide/media/vs2017ide-RoamingExtensionManager.png "Visual Studio 2017 - 漫游扩展管理器")
+![Visual Studio 2017 - 扩展和更新对话框](~/ide/media/vs2017ide-RoamingExtensionManager.png "Visual Studio 2017 - 漫游扩展管理器")
 
 使用漫游扩展管理器时，列表中会出现 3 种图标类型：
-* ![“漫游”图标](../ide/media/vs2017ide-roamedicon.png "“漫游”图标") ***“漫游”***：表示存在于漫游列表中，但未在计算机上安装的扩展。
+* ![“漫游”图标](~/ide/media/vs2017ide-roamedicon.png "“漫游”图标") ***“漫游”***：表示存在于漫游列表中，但未在计算机上安装的扩展。
   （可通过“下载”按钮安装这些扩展。）
-* ![“漫游且已安装”图标](../ide/media/vs2017ide-roamedinstalledicon.png "“漫游且已安装”图标") ***“漫游且已安装”***：表示存在于漫游列表中且已在此环境中安装的所有扩展。
+* ![“漫游且已安装”图标](~/ide/media/vs2017ide-roamedinstalledicon.png "“漫游且已安装”图标") ***“漫游且已安装”***：表示存在于漫游列表中且已在此环境中安装的所有扩展。
   （如果确定不希望漫游，可通过“停止漫游”按钮删除它们。）
-* ![“已安装”图标](../ide/media/vs2017ide-installedicon.png "“已安装”图标") ***“已安装”***：表示此环境中已安装、但不属于漫游列表的所有扩展。
+* ![“已安装”图标](~/ide/media/vs2017ide-installedicon.png "“已安装”图标") ***“已安装”***：表示此环境中已安装、但不属于漫游列表的所有扩展。
   （可通过“启动漫游”按钮将扩展添加到漫游列表。）
 
 登录时下载的所有扩展都将作为“漫游且已安装”的内容添加到列表，因此将包含在漫游列表中，可从任何计算机对其进行访问。
@@ -116,13 +116,13 @@ Visual Studio 可以移动自身的扩展（以及第三方扩展），从而根
 
 “错误列表”中显示错误，文本编辑器中的波形曲线显示此违反行为的精确位置。 现在降低了引入非必需依赖关系的可能性。
 
-![体系结构的实时验证](../ide/media/vs2017ide-LiveArchitectureDepedendencyValidation.png "体系结构依赖关系的实时验证")
+![体系结构的实时验证](~/ide/media/vs2017ide-LiveArchitectureDepedendencyValidation.png "体系结构依赖关系的实时验证")
 
 #### <a name="live-unit-testing"></a>实时单元测试：
 
 在 Visual Studio Enterprise 2017 中，当你进行编码时，实时单元测试能够在编辑器中提供实时单元测试结果和代码覆盖率。 该功能可用于适用于 .NET Framework 的 C# 和 Visual Basic 项目，并支持 MSTest xUnit 和 NUnit 这三种测试框架。
 
-![实时单元测试](../ide/media/lut-codewindow.png "Visual Studio 的 Enterprise 版本中新增的实时单元测试功能的示例")
+![实时单元测试](~/ide/media/lut-codewindow.png "Visual Studio 的 Enterprise 版本中新增的实时单元测试功能的示例")
 
 有关详细信息，请参阅 [Visual Studio 2017 Enterprise 中的实时单元测试](https://blogs.msdn.microsoft.com/visualstudio/2017/03/09/live-unit-testing-in-visual-studio-2017-enterprise/)博文。
 
@@ -143,12 +143,12 @@ Visual Studio 2017 所有版本随附：
 #### <a name="interact-with-git"></a>与 Git 进行交互：
 在 Visual Studio 中处理项目时，可以对代码进行设置，并将其快速提交和发布到 Git 服务。 还可以通过单击 IDE 右下角的按钮调出菜单来管理 Git 存储库。
 
-![Visual Studio 2017 与 Git 进行交互对话框](../ide/media/vsIDE-GitInteraction.png "Visual Studio IDE 中的 Git 工具")
+![Visual Studio 2017 与 Git 进行交互对话框](~/ide/media/vsIDE-GitInteraction.png "Visual Studio IDE 中的 Git 工具")
 
 #### <a name="view-and-navigate-code-with-structure-visualizer"></a>通过结构可视化工具查看和导航代码：
 结构可视化工具可以在代码上绘制结构参考线（也称为 缩进参考线）。 通过使用该工具，无需滚动即可将代码可视化，并随时了解当前位于哪一代码块。 悬停在行上时将显示工具提示，通过工具提示可以看到该代码段的开头及其父级。 通过 TextMate 语法以及 C#、Visual Basic 和 XAML 支持的所有语言都可以使用该工具。
 
-![Visual Studio 2017 结构可视化工具](../ide/media/vsIDE-StructureVisualizer.png "Visual Studio 中的结构可视化工具")
+![Visual Studio 2017 结构可视化工具](~/ide/media/vsIDE-StructureVisualizer.png "Visual Studio 中的结构可视化工具")
 
 #### <a name="experience-improved-navigation-controls"></a>体验经过改进的导航控件：
 我们改善了导航体验，可让你更自信地从 A 导航到 B，同时减少此过程中的干扰。
@@ -157,11 +157,11 @@ Visual Studio 2017 所有版本随附：
 
 * **转到全部**（Ctrl+T 或 Ctrl+,）&ndash;直接导航到任何文件/类型/成员/符号声明。 可以筛选结果列表，也可以使用查询语法（例如使用“f searchTerm”导航到文件，使用“t searchTerm”导航到类型等）。
 
- ![改进后的“转到全部”](../ide/media/vs2017ide-navigation-go-to.png "改进后的“转到全部”功能的示例")
+ ![改进后的“转到全部”](~/ide/media/vs2017ide-navigation-go-to.png "改进后的“转到全部”功能的示例")
 
 * **查找所有引用 (Shift+F12)** &ndash; 通过语法着色，可以按项目、定义和路径的组合对“查找所有引用”的结果进行分组。 还可以“锁定”结果，这样既可以继续查找其他引用，又不会丢失原始结果。
 
- ![新的“查找所有引用”工具](../ide/media/vs2017ide-find-all-references.png "新的“查找所有引用”工具的示例")
+ ![新的“查找所有引用”工具](~/ide/media/vs2017ide-find-all-references.png "新的“查找所有引用”工具的示例")
 
 * **缩进参考线** &ndash; 灰色的垂直虚线，作为代码中的结构参考线，可在你的可视范围内提供上下文。 可以通过热门的 Productivity Power Tool 进行识别。
 
@@ -180,13 +180,13 @@ Visual Studio 中的若干改进包括：在 Visual Studio 中分发 C++ 核心�
 
 现在，在调试过程中快进变得更容易，无需在要停止的行上设置断点。 若要在调试器中停止，只需将鼠标放在代码行上，然后单击出现在代码行旁边的图标即可。 下次在代码路径中命中该代码时，代码即会运行至该行并停在此处。
 
-![Visual Studio 2017 调试 - 运行时单击](../ide/media/vs2017ide-RunToClick.png "Visual Studio 调试和诊断中的运行时单击")
+![Visual Studio 2017 调试 - 运行时单击](~/ide/media/vs2017ide-RunToClick.png "Visual Studio 调试和诊断中的运行时单击")
 
 #### <a name="the-new-exception-helper"></a>新的异常帮助器：
 
 新的异常帮助程序可以帮助你一目了然地查看异常信息。 异常信息以压缩形式呈现，你可以即时访问内部异常。 诊断 NullReferenceException 时，在异常帮助程序中可以快速查看为 null 的内容。
 
-![Visual Studio 中新的“异常帮助程序”对话框](../ide/media/vs2017ide-ExceptionHelper.png "新的“异常帮助程序”对话框")
+![Visual Studio 中新的“异常帮助程序”对话框](~/ide/media/vs2017ide-ExceptionHelper.png "新的“异常帮助程序”对话框")
 
 有关详细信息，请参阅 [Using the New Exception Helper in Visual Studio](https://blogs.msdn.microsoft.com/visualstudioalm/2016/03/31/using-the-new-exception-helper-in-visual-studio-15-preview/)（使用 Visual Studio 中的新异常帮助器）博客文章。
 

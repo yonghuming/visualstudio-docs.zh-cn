@@ -39,7 +39,7 @@ ms.lasthandoff: 02/22/2017
 # <a name="create-dependency-diagrams-from-your-code"></a>在代码中创建依赖项关系图
 若要可视化软件系统的高级逻辑体系结构，创建*依赖项关系图*Visual Studio 中。 若要确保你的代码保持与此设计保持一致，请验证您的代码与依赖项关系图。 您可以创建 Visual C#.NET 和 Visual Basic.NET 项目的依赖项关系图。 若要查看哪些版本的 Visual Studio 支持此功能，请参阅[体系结构和建模工具的版本支持](../modeling/what-s-new-for-design-in-visual-studio.md#VersionSupport)  
   
- ![创建一个依赖项关系图](../modeling/media/layerdiagramvisualizecode.png "LayerDiagramVisualizeCode")  
+ ![创建一个依赖项关系图](~/modeling/media/layerdiagramvisualizecode.png "LayerDiagramVisualizeCode")  
   
  依赖项关系图，你将 Visual Studio 解决方案项组织到名为的逻辑抽象组*层*。 你可以使用层来描述这些项目执行的主要任务或系统的主要组件。 每个层可包含描述更详细任务的其他层。 您还可以指定预期或现有*依赖关系*各层之间。 这些依赖项（表示为箭头）显示哪些层可以使用或当前正在使用由其他层表示的功能。 若要维护代码的体系结构控制，请在关系图上显示预期的依赖项，然后对照关系图验证代码。  
   
@@ -88,7 +88,7 @@ ms.lasthandoff: 02/22/2017
 
 7. 这将显示当前应用程序体系结构。 决定你想要的体系结构并相应地修改依赖项关系图。
 
-![从代码图生成依赖项关系图](media/dependency-validation-01.png)
+![从代码图生成依赖项关系图](~/modeling/media/dependency-validation-01.png)
   
 ##  <a name="a-namecreatelayersa-create-layers-from-artifacts"></a><a name="CreateLayers"></a>从项目中创建层  
  你可以从 Visual Studio 解决方案项（如项目、代码文件、命名空间、类和方法）中创建层。 这将自动在这些层和项（包括在层验证过程中）之间创建链接。  

@@ -91,7 +91,7 @@ caps.handback.revision: 36
   
  以下是**“模型编辑器”**工具栏：  
   
- ![模型查看器工具栏](../designers/media/digit-mre-toolbar.png "Digit\-MRE\-Toolbar")  
+ ![模型查看器工具栏](~/designers/media/digit-mre-toolbar.png "Digit\-MRE\-Toolbar")  
   
  下个表描述**“模型编辑器”**工具栏上的项目，按其从上到下的显示顺序列出。  
   

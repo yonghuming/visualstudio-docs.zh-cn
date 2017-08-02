@@ -41,7 +41,7 @@ ms.lasthandoff: 05/13/2017
   
 1.  在 Windows 窗体设计器中的工具箱中，请选择“Timer”（位于“组件”类别中），然后按 Enter 键，或双击该计时器，向窗体中添加一个计时器控件。 该计时器的图标名为 **Timer1**，应显示在窗体下的空间中，如下图所示。  
   
-     ![计时器](../ide/media/express_timer.png "Express_Timer")  
+     ![计时器](~/ide/media/express_timer.png "Express_Timer")  
 计时器  
   
     > [!NOTE]

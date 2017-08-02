@@ -48,11 +48,11 @@ Visual Studio 提供的模板有助于使用 Python 创建 Azure 云服务。
 1. 安装需要使用云服务模板的[用于 Visual Studio 的 Azure.NET SDK](https://www.visualstudio.com/vs/azure-tools/)。
 1. 在 Visual Studio 中，选择“文件”>“新建”>“项目...”，然后搜索“Azure Python”，并从列表中选择“Azure 云服务”：
 
-    ![用于 Python 的 Azure 云项目模板](media/template-azure-cloud-project.png)
+    ![用于 Python 的 Azure 云项目模板](~/python/media/template-azure-cloud-project.png)
 
 1. 选择要包括的一个或多个角色。 云项目可合并不同语言编写的角色，因此可轻松使用最适合的语言编写应用程序的各个部分。 若要在完成此对话框后向项目添加新角色，请右键单击解决方案资源管理器中的“角色”，然后选择“添加”中的某项。
 
-    ![在 Azure 云项目模板中添加角色](media/template-azure-cloud-service-project-wizard.png)
+    ![在 Azure 云项目模板中添加角色](~/python/media/template-azure-cloud-service-project-wizard.png)
 
 1. 创建单个角色项目时，如果选择了使用其他 Python 软件包（如 Django、Bottle、Flask 框架）的角色，系统可能会提示安装该软件包。
 
@@ -60,7 +60,7 @@ Visual Studio 提供的模板有助于使用 Python 创建 Azure 云服务。
 
 1. 项目的 `bin` 文件夹还包含一个或两个用于配置远程虚拟机的 PowerShell 脚本，包括安装 Python、项目中任何 [requirements.txt](#dependencies) 文件和设置 IIS（如有需要）。 可以根据需要编辑这些文件以用于部署，也可以通过其他方式管理最常用选项（请参阅下面的[配置角色部署](#configuring-role-deployment)）。 请勿删除这些文件，因为如果这些文件不可用，将改用旧版配置脚本。
 
-    ![辅助角色支持文件](media/template-azure-cloud-service-worker-role-support-files.png)
+    ![辅助角色支持文件](~/python/media/template-azure-cloud-service-worker-role-support-files.png)
 
     若要将这些配置脚本添加到新项目，请右键单击项目，选择“添加”>“新建项目...”，然后选择“Web 角色支持文件”或“辅助角色支持文件”。
    

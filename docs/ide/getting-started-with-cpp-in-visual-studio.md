@@ -124,7 +124,7 @@ ms.lasthandoff: 05/13/2017
   
 -   启动调试器。  
   
-     ![“调试”菜单上的“启动调试”命令](../ide/media/exploreide-startdebugging.png "ExploreIDE-StartDebugging")  
+     ![“调试”菜单上的“启动调试”命令](~/ide/media/exploreide-startdebugging.png "ExploreIDE-StartDebugging")  
   
      调试器启动并运行代码。 在调试器停止运行时，控制台窗口（类似命令提示符的单独窗口）将显示几秒钟，但是将很快关闭。 若要查看文本，你需要设置一个断点以停止程序执行。  
   
@@ -157,7 +157,7 @@ ms.lasthandoff: 05/13/2017
   
 2.  将 GreetingsConsoleApp 的生成配置从“调试”  更改为 “发布”。  
   
-     ![生成应用程序的发布版本](../ide/media/c--ide_changingbuildtorelease.png "C++IDE_ChangingBuildtoRelease")  
+     ![生成应用程序的发布版本](~/ide/media/c--ide_changingbuildtorelease.png "C++IDE_ChangingBuildtoRelease")  
   
 3.  生成解决方案。  
   

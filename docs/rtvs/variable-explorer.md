@@ -49,11 +49,11 @@ n <- c(1,2,3,5,8,13)
  
 则会出现“变量资源管理器”窗口，如下所示：
 
-![Visual Studio 中的“变量资源管理器”窗口](media/variable-explorer-window.png)
+![Visual Studio 中的“变量资源管理器”窗口](~/rtvs/media/variable-explorer-window.png)
 
 如果在会话中定义了更复杂的 R 数据帧，则可在数据中导航。 例如，运行 `cars <- mtcars` 后，可展开变量资源管理器中的不同节点，浏览数据集：
  
-![变量资源管理器的展开视图](media/variable-explorer-expanded-results.png)
+![变量资源管理器的展开视图](~/rtvs/media/variable-explorer-expanded-results.png)
  
 若要删除变量，请右键单击并选择“删除”，或选择该变量，然后按 Delete 键。
 
@@ -63,29 +63,29 @@ n <- c(1,2,3,5,8,13)
 
 由于数据通常是表格形式，因此可以通过选择放大镜图标或右键单击并选择“显示详细信息”，以单独表格形式查看复杂数据类型。 
 
-![“变量资源管理器”表视图](media/variable-explorer-table-view.png)
+![“变量资源管理器”表视图](~/rtvs/media/variable-explorer-table-view.png)
 
 单击列标题按列对数据排序（在升序和降序之间切换）。 按下 Shift 键并单击其他列，将这些列添加到排序中。 单击列（不按 Shift 键）将返回单列排序。
 
 单击列标题的顺序决定了执行排序的顺序。 例如，按住 Shift 键，单击“cyl”列，然后按住 Shift 键，单击“mpg”列两次，该操作将对列表中的气缸数进行升序排序，对每加仑行驶英里数进行降序排序：
 
-![按两列排序的数据表视图。](media/variable-explorer-table-view-sorting.png)
+![按两列排序的数据表视图。](~/rtvs/media/variable-explorer-table-view-sorting.png)
 
 因为变量资源管理器和表视图位于不同 Visual Studio 窗口，因此可随意安排以进行并排处理。 请参阅[自定义 Visual Studio 中的窗口布局](../ide/customizing-window-layouts-in-visual-studio.md)，了解常规说明。
 
 ## <a name="open-in-excel-or-other-csv-capable-application"></a>在 Excel（或其他支持 CSV 的应用程序）中打开
 
-为了进行进一步的操作和分析，通常需要将会话变量导出为 CSV。通过变量资源管理器中每个节点旁的小 Excel 图标（![Excel 导出图标](media/variable-explorer-excel-icon.png)），或者通过右键单击项并选择“在 CSV 应用中打开”即可完成此操作。 选择该图标即可将数据写入 `%userprofile%\Documents\RTVS_CSV_Exports` 文件夹中的新 CSV 文件，然后启动该文件，在与 `.csv` 扩展名关联的所有应用程序中打开该文件。
+为了进行进一步的操作和分析，通常需要将会话变量导出为 CSV。通过变量资源管理器中每个节点旁的小 Excel 图标（![Excel 导出图标](~/rtvs/media/variable-explorer-excel-icon.png)），或者通过右键单击项并选择“在 CSV 应用中打开”即可完成此操作。 选择该图标即可将数据写入 `%userprofile%\Documents\RTVS_CSV_Exports` 文件夹中的新 CSV 文件，然后启动该文件，在与 `.csv` 扩展名关联的所有应用程序中打开该文件。
 
 ## <a name="scopes"></a>范围
 
 默认情况下，变量浏览器向全局范围开放。 可从窗口顶部的下拉列表中选择包，切换到包范围。
 
-![显示包范围的变量资源管理器](media/variable-explorer-package-scopes.png)
+![显示包范围的变量资源管理器](~/rtvs/media/variable-explorer-package-scopes.png)
 
 在调试器断点处停止时，也可切换到函数范围（请注意，变量资源管理器不会自动切换到被调试代码的函数范围）：
 
-![在调试过程中显示数据帧的变量资源管理器](media/variable-explorer-as-locals-window.png)
+![在调试过程中显示数据帧的变量资源管理器](~/rtvs/media/variable-explorer-as-locals-window.png)
 
 在调试器中逐行执行代码时（例如在函数中显示局部变量），变量资源管理器可自动更改函数范围。
 
@@ -96,5 +96,5 @@ n <- c(1,2,3,5,8,13)
 
 确定要导入的 CSV 文件后，针对 Visual Studio 的 R 工具会显示一个“导入数据集”对话框，在其中可以选择数据文件的解析方式（即，采用什么字段分隔符以及如何处理引号），并可以预览导入的数据帧和原始数据文件：
 
-![“添加数据集”对话框](media/variable-explorer-import-dataset-dialog.png)
+![“添加数据集”对话框](~/rtvs/media/variable-explorer-import-dataset-dialog.png)
 

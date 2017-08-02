@@ -84,11 +84,11 @@ static void Main(string[] args) { int a, b, c; a = 1; b = 2; c = 0; for (int i =
   
  例如，如果你在前一部分中列出了代码，你可以获得三个值的平均值，如下所示：  
   
- ![WatchExpression](../debugger/media/watchexpression.png "WatchExpression")  
+ ![WatchExpression](~/debugger/media/watchexpression.png "WatchExpression")  
   
  一般而言，“监视”窗口中的表达式计算规则与编码语言中表达式的计算规则相同。 如果你的表达式具有语法错误，则在代码编辑器中将会出现相同的编译器错误。 以下是一个示例：  
   
- ![WatchExpressionError](../debugger/media/watchexpressionerror.png "WatchExpressionError")  
+ ![WatchExpressionError](~/debugger/media/watchexpressionerror.png "WatchExpressionError")  
   
 ##  <a name="bkmk_refreshWatch"></a> 刷新过期的“监视”值  
  在特定环境中，当在计算“监视”窗口中的表达式时，你可能会看到一个刷新图标（一个带有两个箭头的圆圈，或带有两个波浪条纹的圆圈）。  例如，如果你关闭了属性计算（**“工具”\/“选项”\/“调试”\/“启用”属性计算和其他隐式函数调用**），那么你具有以下代码：  

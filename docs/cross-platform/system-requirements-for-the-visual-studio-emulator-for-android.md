@@ -101,7 +101,7 @@ ms.lasthandoff: 05/13/2017
   
  要检查 RAM 和 Windows 的要求，请在“控制面板”中选择“系统和安全”，然后选择“系统”。  
   
- ![验证系统要求](../cross-platform/media/android_emu_system_requirements.png "Android_Emu_System_Requirements")  
+ ![验证系统要求](~/cross-platform/media/android_emu_system_requirements.png "Android_Emu_System_Requirements")  
   
 ##  <a name="Network"></a>网络要求  
  网络必须满足以下要求：  
@@ -147,7 +147,7 @@ ms.lasthandoff: 05/13/2017
 > [!IMPORTANT]
 >  加入该组后，注销或重启以使更改生效。  
   
- ![加入 Hyper-V 管理员安全组](../cross-platform/media/android_emu_hyperv_admin.png "Android_Emu_HyperV_Admin")  
+ ![加入 Hyper-V 管理员安全组](~/cross-platform/media/android_emu_hyperv_admin.png "Android_Emu_HyperV_Admin")  
   
  要手动将自己添加到组中，请打开本地用户和组管理单元。 有关详细信息，请参阅 [向组添加用户帐户](http://windows.microsoft.com/en-us/windows/add-user-account-to-group#1TC=windows-7)。 （此 Windows 7 主题也适用于 Windows 8。）  
   

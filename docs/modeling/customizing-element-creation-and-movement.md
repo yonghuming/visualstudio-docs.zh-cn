@@ -48,7 +48,7 @@ caps.handback.revision: 36
 ## <a name="defining-an-element-merge-directive"></a>定义元素合并指令  
  可以将元素合并指令添加到域类、 域关系、 形状、 连接器和关系图。 你可以添加或接收的域类下 DSL 资源管理器中找到它们。 接收类是元素的已在模型中，和上要合并的新的或复制的元素的域。  
   
- ![DSL &#45;EMD &#95; 详细信息](../modeling/media/dsl-emd_details.png "DSL-EMD_Details")  
+ ![DSL &#45;EMD &#95; 详细信息](~/modeling/media/dsl-emd_details.png "DSL-EMD_Details")  
   
   **索引类** 是可合并到接收的类的成员的元素的域。 索引类的子类的实例将还合并通过此 EMD，除非你设置 **适用于子类** 为 False。  
   

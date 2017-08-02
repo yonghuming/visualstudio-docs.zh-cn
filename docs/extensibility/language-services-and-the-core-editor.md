@@ -47,7 +47,7 @@ ms.lasthandoff: 02/22/2017
   
  基础语言服务是在下图中所示。  
   
- ![语言服务模型图](../extensibility/media/vslanguageservicemodel.gif "vsLanguageServiceModel")  
+ ![语言服务模型图](~/extensibility/media/vslanguageservicemodel.gif "vsLanguageServiceModel")  
 核心编辑器和语言服务对象  
   
  核心编辑器文档的数据对象称为文本缓冲区，由表示<xref:Microsoft.VisualStudio.TextManager.Interop.VsTextBuffer>对象。</xref:Microsoft.VisualStudio.TextManager.Interop.VsTextBuffer> 文档视图对象称为文本视图，由表示<xref:Microsoft.VisualStudio.TextManager.Interop.VsCodeWindow>对象。</xref:Microsoft.VisualStudio.TextManager.Interop.VsCodeWindow> 通过语言服务提供核心编辑器的统一的视图，这两个对象一起工作。 文本缓冲区和文档窗口中显示的文本视图中的信息称为代码窗口。 代码窗口文档由代码窗口管理器管理。  

@@ -104,7 +104,7 @@ ms.lasthandoff: 05/04/2017
 #### <a name="layout"></a>布局  
 组合框和下拉列表的大小以适合内容不适用于在其中显示它们，窗口的宽度也任意匹配长的字段，例如，路径的长度。  
   
-![不正确︰ 下拉宽度为太长，将显示的内容。](../../extensibility/ux-guidelines/media/0707-03_incorrectdropdownlayout.png "0707-03_IncorrectDropDownLayout")<br />不正确︰ 下拉宽度为太长，将显示的内容。
+![不正确︰ 下拉宽度为太长，将显示的内容。](~/extensibility/ux-guidelines/media/0707-03_incorrectdropdownlayout.png "0707-03_IncorrectDropDownLayout")<br />不正确︰ 下拉宽度为太长，将显示的内容。
   
 ![正确︰ 下拉列表的大小以允许翻译增长，但不是会不必要地长。](../../extensibility/ux-guidelines/media/0707-04_correctdropdownlayout.png "0707-04_CorrectDropDownLayout")<br />正确︰ 下拉列表的大小以允许翻译增长，但不是会不必要地长。 
   
@@ -160,11 +160,11 @@ ms.lasthandoff: 05/04/2017
 
 静态文本可以是在其自己在对话框中，而无需任何包含没有分组冲突。 决定是否真正必要的额外行的一个框。 一个示例是目录路径组行中，所创建部分下的显示，如下所示︰  
 
-![文本控件中的静态文本的信息](../../extensibility/ux-guidelines/media/DisplayingStaticText.png "DisplayingStaticText.png")<br />文本控件中的静态文本的信息
+![文本控件中的静态文本的信息](~/extensibility/ux-guidelines/media/DisplayingStaticText.png "DisplayingStaticText.png")<br />文本控件中的静态文本的信息
 
 在对话框中存在其他分组的区域，其中包含的信息可帮助提高可读性，和部分可以隐藏或显示时 (如**属性窗口**说明窗格) 或你想要与类似 UI 保持一致，将静态文本放在一个框内。 此分组框应为单个规则和带有`ButtonShadow`:
 
-![在属性窗口中的静态文本](../../extensibility/ux-guidelines/media/PropertiesWindow.png "PropertiesWindow.png")<br />在属性窗口中的静态文本
+![在属性窗口中的静态文本](~/extensibility/ux-guidelines/media/PropertiesWindow.png "PropertiesWindow.png")<br />在属性窗口中的静态文本
 
 ### <a name="read-only-text-box"></a>只读文本框
 
@@ -172,7 +172,7 @@ ms.lasthandoff: 05/04/2017
 
 文本框可以变为活动状态 （编辑） 时用户更改关联的控件，例如检查/取消选中复选框，或选择/取消选择一个单选按钮。 例如，在**工具&gt;选项**页所示，**主页**文本框将成为活动时**使用默认值**复选框处于未选中状态。
 
-![只读文本框中，显示非活动和活动状态](../../extensibility/ux-guidelines/media/ReadOnlyTextBox.png "ReadOnlyTextBox.png")<br />只读文本框中，显示非活动和活动状态
+![只读文本框中，显示非活动和活动状态](~/extensibility/ux-guidelines/media/ReadOnlyTextBox.png "ReadOnlyTextBox.png")<br />只读文本框中，显示非活动和活动状态
 
 ### <a name="using-text-in-dialogs"></a>在对话框中使用文本
 
@@ -219,7 +219,7 @@ ms.lasthandoff: 05/04/2017
 
 -   水印可以居中或两端对齐。 将标准设计规则的应用进行对齐方式的决策时。 水印不能选择背景上。
 
-![水印文本示例](../../extensibility/ux-guidelines/media/WatermarkTextExample.gif)<br />水印文本示例
+![水印文本示例](~/extensibility/ux-guidelines/media/WatermarkTextExample.gif)<br />水印文本示例
 
 ### <a name="context-specific-dynamic-text"></a>特定于上下文 （动态） 文本
 
@@ -319,12 +319,12 @@ Visual Studio 中的大多数按钮将显示实用程序对话框中，并且不
 | 函数 | Button |  
 | --- | --- |  
 | 添加 | ![图形"添加"按钮](../../extensibility/ux-guidelines/media/070703-08_buttonadd.png "070703 08_ButtonAdd") |
-| 删除 | ![图形"删除"按钮](../../extensibility/ux-guidelines/media/070703-09_buttonremove.png "070703 09_ButtonRemove") |
+| 删除 | ![图形"删除"按钮](~/extensibility/ux-guidelines/media/070703-09_buttonremove.png "070703 09_ButtonRemove") |
 | 全部添加 | ![图形"全部添加"按钮](../../extensibility/ux-guidelines/media/070703-10_buttonaddall.png "070703 10_ButtonAddAll") |
 | 全部移除 | ![图形"全部删除"按钮](../../extensibility/ux-guidelines/media/070703-11_buttonremoveall.png "070703 11_ButtonRemoveAll") |
 | 上移 | ![图形"上移"按钮](../../extensibility/ux-guidelines/media/070703-12_buttonmoveup.png "070703 12_ButtonMoveUp") |
-| 下移 | ![图形"下移"按钮](../../extensibility/ux-guidelines/media/070703-13_buttonmovedown.png "070703 13_ButtonMoveDown") |
-| 删除 | ![图形"删除"按钮](../../extensibility/ux-guidelines/media/070703-14_buttondelete.png "070703 14_ButtonDelete") |
+| 下移 | ![图形"下移"按钮](~/extensibility/ux-guidelines/media/070703-13_buttonmovedown.png "070703 13_ButtonMoveDown") |
+| 删除 | ![图形"删除"按钮](~/extensibility/ux-guidelines/media/070703-14_buttondelete.png "070703 14_ButtonDelete") |
   
 ##### <a name="sizing-and-spacing"></a>大小和间距  
 大小调整图形按钮为与的较短形式相同**[浏览...]**按钮 （26 x 23 像素为单位）︰  
@@ -371,7 +371,7 @@ Visual Studio 中的大多数按钮将显示实用程序对话框中，并且不
 #### <a name="scroll-bars"></a>滚动条  
 如果内容适合在树视图控件，应始终隐藏滚动条。 它是可接受的滚动条在可滚动的窗口中是隐藏的或不完全透明和显示包含的树视图窗口拥有焦点时或在树的悬停时查看本身。  
   
-![因为内容已经超出了树视图控件的限制，则会显示这两个垂直和水平滚动条。](../../extensibility/ux-guidelines/media/070705-4_scrollbars.png "070705-4_Scrollbars")<br />因为内容已经超出了树视图控件的限制，则会显示这两个垂直和水平滚动条。
+![因为内容已经超出了树视图控件的限制，则会显示这两个垂直和水平滚动条。](~/extensibility/ux-guidelines/media/070705-4_scrollbars.png "070705-4_Scrollbars")<br />因为内容已经超出了树视图控件的限制，则会显示这两个垂直和水平滚动条。
   
 ###  <a name="BKMK_TreeViewInteractions"></a>树视图交互  
   

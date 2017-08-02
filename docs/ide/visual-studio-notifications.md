@@ -44,7 +44,7 @@ Visual Studio 的通知系统可发出各种事件警报，如以下事件
   
  你可以选择始终忽略通知，这样 Visual Studio 将不再显示。 可以在[“选项”对话框 ->“环境”->“通知”](../ide/reference/notifications-environment-options-dialog-box.md)中重置忽略的通知列表。  
   
- ![Visual Studio 通知图标](../ide/media/vs2015_notificationicon.png "vs2015_NotificationIcon")  
+ ![Visual Studio 通知图标](~/ide/media/vs2015_notificationicon.png "vs2015_NotificationIcon")  
   
 ## <a name="see-also"></a>另请参阅  
  [Visual Studio IDE](../ide/visual-studio-ide.md)

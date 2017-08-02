@@ -38,7 +38,7 @@ ms.lasthandoff: 07/19/2017
 # <a name="introduction-to-wpf"></a>WPF 介绍
 使用 Windows Presentation Foundation (WPF)，你可以创建适用于 Windows 且具有非凡视觉效果的桌面客户端应用程序。  
   
- ![Contoso Healthcare UI 示例](../designers/media/wpfintrofigure24.png "WPFIntroFigure24")  
+ ![Contoso Healthcare UI 示例](~/designers/media/wpfintrofigure24.png "WPFIntroFigure24")  
   
  WPF 的核心是一个与分辨率无关且基于矢量的呈现引擎，旨在充分利用现代图形硬件。 WPF 通过一套完善的应用程序开发功能对该核心进行了扩展，这些功能包括可扩展应用程序标记语言 (XAML)、控件、数据绑定、布局、二维和三维图形、动画、样式、模板、文档、媒体、文本和版式。 WPF 包含在 .NET Framework 中，因此你可以生成整合其他 .NET Framework 类库元素的应用程序。  
   
@@ -81,7 +81,7 @@ ms.lasthandoff: 07/19/2017
   
  下图显示上一个示例中的 XAML 定义的用户界面 (UI)。  
   
- ![包含按钮的窗口](../designers/media/wpfintrofigure10.png "WPFIntroFigure10")  
+ ![包含按钮的窗口](~/designers/media/wpfintrofigure10.png "WPFIntroFigure10")  
   
  由于 XAML 是基于 XML 的，因此使用它编写的 UI 汇集在嵌套元素的层次结构中，称为 [元素树](https://msdn.microsoft.com/en-us/library/ms753391\(v=vs.100\).aspx)。 元素树提供了一种直观的逻辑方式来创建和管理 UI。  
   
@@ -158,7 +158,7 @@ End Namespace
   
  下图显示单击该按钮后的结果。  
   
- ![消息框](../designers/media/wpfintrofigure25.png "WPFIntroFigure25")  
+ ![消息框](~/designers/media/wpfintrofigure25.png "WPFIntroFigure25")  
   
 ##  <a name="Controls"></a> 控件  
  应用程序模型带来的用户体验是构造的控件。 在 WPF 中，“控件”是适用于 WPF 类这一类别的总括术语，这些类托管在窗口或页中、具有用户界面并实现一些行为。  
@@ -229,7 +229,7 @@ End Namespace
   
  下图显示上一个示例中的 XAML 标记的结果。  
   
- ![DockPanel 页](../designers/media/wpfintrofigure11.png "WPFIntroFigure11")  
+ ![DockPanel 页](~/designers/media/wpfintrofigure11.png "WPFIntroFigure11")  
   
 ##  <a name="Data_Binding"></a> 数据绑定  
  大多数应用程序旨在为用户提供查看和编辑数据的方法。 对于 WPF 应用程序，已对存储和访问数据的工作提供技术（如 SQL Server 和 ADO.NET）。 访问数据并将数据加载到应用程序的托管对象后，WPF 应用程序的复杂工作开始。 从根本上来说，这涉及到两件事：  
@@ -276,7 +276,7 @@ End Namespace
 ### <a name="2-d-shapes"></a>二维形状  
  WPF 提供一个常用矢量绘制的二维形状库，如下图中所示的矩形和椭圆。  
   
- ![椭圆和矩形](../designers/media/wpfintrofigure4.PNG "WPFIntroFigure4")  
+ ![椭圆和矩形](~/designers/media/wpfintrofigure4.PNG "WPFIntroFigure4")  
   
  形状的一个有趣功能是它们不只是用于显示；形状实现许多你期望的控件功能，包括键盘和鼠标输入。 下面的示例演示要处理的 <xref:System.Windows.UIElement.MouseUp> 的 <xref:System.Windows.Shapes.Ellipse> 事件。  
   
@@ -287,7 +287,7 @@ End Namespace
   
  下图显示了前面的代码生成的内容。  
   
- ![包含文本“你已单击省略号!”的窗口](../designers/media/wpfintrofigure12.png "WPFIntroFigure12")  
+ ![包含文本“你已单击省略号!”的窗口](~/designers/media/wpfintrofigure12.png "WPFIntroFigure12")  
   
  有关详细信息，请参阅 [WPF 中的形状和基本绘图概述](https://msdn.microsoft.com/en-us/library/ms747393\(v=vs.100\).aspx)。  
   
@@ -298,28 +298,28 @@ End Namespace
   
  <xref:System.Windows.Media.Geometry> 对象可用于剪辑、命中测试以及呈现二维图形数据。  
   
- ![Path 的各种用法](../designers/media/wpfintrofigure5.PNG "WPFIntroFigure5")  
+ ![Path 的各种用法](~/designers/media/wpfintrofigure5.PNG "WPFIntroFigure5")  
   
  有关详细信息，请参阅 [几何图形概述](https://msdn.microsoft.com/en-us/library/ms751808\(v=vs.100\).aspx)  
   
 ### <a name="2-d-effects"></a>二维效果  
  WPF 二维功能的子集包括视觉效果，如渐变、位图、绘图、用视频绘画、旋转、缩放和倾斜。 这些效果都可以使用画笔实现；下图演示了一些示例。  
   
- ![不同画笔的图示](../designers/media/wpfintrofigure6.PNG "WPFIntroFigure6")  
+ ![不同画笔的图示](~/designers/media/wpfintrofigure6.PNG "WPFIntroFigure6")  
   
  有关详细信息，请参阅 [WPF 画笔概述](https://msdn.microsoft.com/en-us/library/aa970904\(v=vs.100\).aspx)。  
   
 ### <a name="3-d-rendering"></a>三维呈现  
  WPF 还包括三维呈现功能，这些功能与二维图形集成，以创建更精彩、更有趣的用户界面。 例如，下图显示呈现在三维形状上的二维图像。  
   
- ![Visual3D 示例屏幕快照](../designers/media/wpfintrofigure13.png "WPFIntroFigure13")  
+ ![Visual3D 示例屏幕快照](~/designers/media/wpfintrofigure13.png "WPFIntroFigure13")  
   
  有关详细信息，请参阅 [三维图形概述](https://msdn.microsoft.com/en-us/library/ms747437\(v=vs.100\).aspx)。  
   
 ##  <a name="Animation"></a> 动画  
  WPF 动画支持可以使控件变大、抖动、旋转和淡出，以形成有趣的页面过渡等。 你可以对大多数 WPF 类，甚至自定义类进行动画处理。 下图显示了运行中的一个简单动画。  
   
- ![具有动画多维数据集的图像](../designers/media/wpfintrofigure7.png "WPFIntroFigure7")  
+ ![具有动画多维数据集的图像](~/designers/media/wpfintrofigure7.png "WPFIntroFigure7")  
   
  有关详细信息，请参阅 [动画概述](https://msdn.microsoft.com/en-us/library/ms752312\(v=vs.100\).aspx)。  
   
@@ -329,7 +329,7 @@ End Namespace
 ### <a name="images"></a>图像  
  图像对大多数应用程序很常见，WPF 提供多种方式来使用它们。 下图显示一个用户界面，该用户界面中的列表框中包含缩略图图像。 选中一个缩略图后，将显示该图像的原尺寸。  
   
- ![缩略图图像和完整尺寸图像](../designers/media/wpfintrofigure8.PNG "WPFIntroFigure8")  
+ ![缩略图图像和完整尺寸图像](~/designers/media/wpfintrofigure8.PNG "WPFIntroFigure8")  
   
  有关详细信息，请参阅 [图像概述](https://msdn.microsoft.com/en-us/library/ms748873\(v=vs.100\).aspx)。  
   
@@ -340,7 +340,7 @@ End Namespace
   
  下图中的窗口显示了运行中的 <xref:System.Windows.Controls.MediaElement> 控件。  
   
- ![具有音频和视频的 MediaElement 控件](../designers/media/wpfintrofigure1.png "WPFIntroFigure1")  
+ ![具有音频和视频的 MediaElement 控件](~/designers/media/wpfintrofigure1.png "WPFIntroFigure1")  
   
  有关详细信息，请参阅 [WPF 图形、动画和媒体概述](https://msdn.microsoft.com/en-us/library/ms742562\(v=vs.100\).aspx)。  
   
@@ -359,7 +359,7 @@ End Namespace
   
  作为文本与图形集成的演示，下图显示了文本修饰的应用程序。  
   
- ![具有各种文本修饰的文本](../designers/media/wpfintrofigure23.png "WPFIntroFigure23")  
+ ![具有各种文本修饰的文本](~/designers/media/wpfintrofigure23.png "WPFIntroFigure23")  
   
  有关详细信息，请参阅 [Windows Presentation Foundation 中的版式](https://msdn.microsoft.com/en-us/library/ms742190\(v=vs.100\).aspx)。  
   
@@ -379,7 +379,7 @@ End Namespace
   
  下图显示结果。  
   
- ![包含文本的 TextBox 控件](../designers/media/wpfintrofigure21.png "WPFIntroFigure21")  
+ ![包含文本的 TextBox 控件](~/designers/media/wpfintrofigure21.png "WPFIntroFigure21")  
   
  但是，其他控件可以包含不同内容类型的多个项； <xref:System.Windows.Controls.Button>的内容（由 <xref:System.Windows.Controls.ContentControl.Content%2A> 属性指定）可以包含各种项（包括布局控件、文本、图像和形状）。 下面的示例演示了 <xref:System.Windows.Controls.Button> ，其内容包括 <xref:System.Windows.Controls.DockPanel>、 <xref:System.Windows.Controls.Label>、 <xref:System.Windows.Controls.Border>和 <xref:System.Windows.Controls.MediaElement>。  
   
@@ -389,7 +389,7 @@ End Namespace
   
  下图显示此按钮的内容。  
   
- ![包含多种类型的内容的按钮](../designers/media/wpfintrofigure22.png "WPFIntroFigure22")  
+ ![包含多种类型的内容的按钮](~/designers/media/wpfintrofigure22.png "WPFIntroFigure22")  
   
  有关各种控件支持的内容类型的详细信息，请参阅 [WPF 内容模型](https://msdn.microsoft.com/en-us/library/bb613548\(v=vs.100\).aspx)。  
   
@@ -410,12 +410,12 @@ End Namespace
   
  在此示例中，默认按钮用户界面已被替换为 <xref:System.Windows.Shapes.Ellipse> ，它具有深蓝色边框并使用 <xref:System.Windows.Media.RadialGradientBrush>进行填充。 <xref:System.Windows.Controls.ContentPresenter> 控件显示 <xref:System.Windows.Controls.Button>的内容，“单击我!” 单击 <xref:System.Windows.Controls.Button> 后，在 <xref:System.Windows.Controls.Primitives.ButtonBase.Click> 控件的默认行为中，仍将引发 <xref:System.Windows.Controls.Button> 事件。 结果如下图所示。  
   
- ![省略号按钮和第二个窗口](../designers/media/wpfintrofigure2.png "WPFIntroFigure2")  
+ ![省略号按钮和第二个窗口](~/designers/media/wpfintrofigure2.png "WPFIntroFigure2")  
   
 ### <a name="data-templates"></a>数据模板  
  使用控件模板可以指定控件的外观，而使用数据模板则可以指定控件内容的外观。 数据模板经常用于改进绑定数据的显示方式。 下图显示 <xref:System.Windows.Controls.ListBox> 的默认外观，它绑定到 `Task` 对象的集合，其中每个任务都具有名称、描述和优先级。  
   
- ![具有默认外观的列表框](../designers/media/wpfintrofigure18.png "WPFIntroFigure18")  
+ ![具有默认外观的列表框](~/designers/media/wpfintrofigure18.png "WPFIntroFigure18")  
   
  默认外观是你对 <xref:System.Windows.Controls.ListBox>的期望。 但是，每个任务的默认外观仅包含任务名称。 若要显示任务名称、描述和优先级，必须使用 <xref:System.Windows.Controls.ListBox> 更改 <xref:System.Windows.DataTemplate>控件绑定列表项的默认外观。 下面的 XAML 定义了此类 <xref:System.Windows.DataTemplate>，它通过使用 <xref:System.Windows.Controls.ItemsControl.ItemTemplate%2A> 特性应用于每个任务。  
   
@@ -426,7 +426,7 @@ End Namespace
   
  下图显示了此代码的作用。  
   
- ![使用数据模板的列表框](../designers/media/wpfintrofigure19.png "WPFIntroFigure19")  
+ ![使用数据模板的列表框](~/designers/media/wpfintrofigure19.png "WPFIntroFigure19")  
   
  注意， <xref:System.Windows.Controls.ListBox> 已保留其行为和整体外观；仅列表框显示的内容外观已更改。  
   
@@ -442,7 +442,7 @@ End Namespace
   
  由于此样式针对所有 <xref:System.Windows.Controls.Button> 控件，因此将自动应用于窗口中的所有按钮，如下图所示。  
   
- ![两个橙色按钮](../designers/media/wpfintrofigure20.png "WPFIntroFigure20")  
+ ![两个橙色按钮](~/designers/media/wpfintrofigure20.png "WPFIntroFigure20")  
   
  有关详细信息，请参阅[样式设置和模板化](https://msdn.microsoft.com/en-us/library/ms745683\(v=vs.100\).aspx)。  
   
@@ -507,7 +507,7 @@ End Namespace
   
  下图显示了 `NumericUpDown` 中托管的 <xref:System.Windows.Window>控件。  
   
- ![自定义用户控件](../designers/media/wpfintrofigure3.png "WPFIntroFigure3")  
+ ![自定义用户控件](~/designers/media/wpfintrofigure3.png "WPFIntroFigure3")  
   
  有关自定义控件的详细信息，请参阅 [控件创作概述](https://msdn.microsoft.com/en-us/library/ms745025\(v=vs.100\).aspx)。  
   

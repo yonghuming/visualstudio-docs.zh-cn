@@ -32,11 +32,11 @@ caps.handback.revision: 5
   
      下面是搜索字符串后滚动条的外观。  注意将显示字符串的所有实例。  
   
-     ![搜索字符串后的滚动条。](../ide/media/enhancedscrollbarsearch.png "EnhancedScrollbarSearch")  
+     ![搜索字符串后的滚动条。](~/ide/media/enhancedscrollbarsearch.png "EnhancedScrollbarSearch")  
   
      下面是替换字符串的所有实例后滚动条的外观。  将立即看到操作导致了一些问题。  
   
-     ![替换字符串并发生错误后的滚动条](../ide/media/enhancedscrollbarreplace.png "EnhancedScrollbarReplace")  
+     ![替换字符串并发生错误后的滚动条](~/ide/media/enhancedscrollbarreplace.png "EnhancedScrollbarReplace")  
   
 ### 设置滚动条的显示模式  
   
@@ -46,10 +46,10 @@ caps.handback.revision: 5
   
      下面是启用映射模式且宽度设置为“中等”时搜索示例的外观：  
   
-     ![映射模式中的滚动条](../ide/media/enhancedscrollbar.png "EnhancedScrollbar")  
+     ![映射模式中的滚动条](~/ide/media/enhancedscrollbar.png "EnhancedScrollbar")  
   
 2.  映射模式下，若要在滚动条上上下移动游标时启用代码预览，选择**“显示预览工具提示”**选项。  下面是它的外观：  
   
-     ![显示工具提示的滚动条](../ide/media/enhancedscrollbarsearchtooltip.png "EnhancedScrollbarSearchTooltip")  
+     ![显示工具提示的滚动条](~/ide/media/enhancedscrollbarsearchtooltip.png "EnhancedScrollbarSearchTooltip")  
   
      如果要保留映射模式滚动行为和预览工具提示，但不需要看到源代码概述，可将**“源概述”**设置为**“关闭”**。

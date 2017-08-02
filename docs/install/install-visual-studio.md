@@ -75,7 +75,7 @@ ms.lasthandoff: 05/31/2017
 
 2.  我们会要求确认 Microsoft [许可条款](https://www.visualstudio.com/license-terms/)和 Microsoft [隐私声明](https://go.microsoft.com/fwlink/?LinkID=824704)。 单击 **“继续”**。  
 
-   ![许可条款和隐私声明](media/vs2017-privacy-and-license-terms.PNG "Microsoft 许可条款和隐私声明")  
+   ![许可条款和隐私声明](~/install/media/vs2017-privacy-and-license-terms.PNG "Microsoft 许可条款和隐私声明")  
 
 将出现多个显示安装进度的状态屏幕。 等安装程序完成安装之后，就可以选择所需的功能集或工作负载了。
 
@@ -86,7 +86,7 @@ ms.lasthandoff: 05/31/2017
 
 1.  在“安装 Visual Studio”屏幕中找到所需的工作负载。  
 
-  ![Visual Studio 2017 安装程序对话框](media/vs2017-workloads.PNG "安装 Visual Studio 工作负载")
+  ![Visual Studio 2017 安装程序对话框](~/install/media/vs2017-workloads.PNG "安装 Visual Studio 工作负载")
 
      例如，选择 .NET 桌面开发工作负载。 它附带默认核心编辑器，该编辑器针对超过 20 种语言提供基本代码编辑支持，能够打开和编辑任意文件夹中的代码（而无需使用项目），还提供集成的源代码管理。  
 
@@ -100,13 +100,13 @@ ms.lasthandoff: 05/31/2017
 
 如果不想使用现成的工作负载功能来自定义 Visual Studio 安装，请从 Visual Studio 安装程序中单击“各个组件”选项，选择所需组件，然后按提示操作。
 
-  ![Visual Studio 2017 - 安装各个组件](media/vs2017-components.PNG "安装 Visual Studio 各个组件")
+  ![Visual Studio 2017 - 安装各个组件](~/install/media/vs2017-components.PNG "安装 Visual Studio 各个组件")
 
 ## <a name="install-language-packs"></a>安装语言包
 
 若要以所选语言安装 Visual Studio 2017，请从 Visual Studio 安装程序中单击“语言包”选项，并按提示操作。
 
-  ![Visual Studio 2017 - 安装语言包](media/vs2017-languages.PNG "安装 Visual Studio 语言包")
+  ![Visual Studio 2017 - 安装语言包](~/install/media/vs2017-languages.PNG "安装 Visual Studio 语言包")
 
 ### <a name="change-the-installer-language"></a>更改安装程序语言
 

@@ -102,7 +102,7 @@ manager: "ghogen"
   
 4.  按 **F5** 使应用程序进入调试模式。 注意，**“调试位置”**工具栏上的**“进程”**列表显示应用程序包名称以指示您处于调试模式下。  
   
-     ![后台任务过程列表](../debugger/media/dbg_backgroundtask_processlist.png "DBG\_BackgroundTask\_ProcessList")  
+     ![后台任务过程列表](~/debugger/media/dbg_backgroundtask_processlist.png "DBG\_BackgroundTask\_ProcessList")  
   
 5.  从**“调试位置”**工具栏上的事件列表中，选择要启动的后台任务。  
   

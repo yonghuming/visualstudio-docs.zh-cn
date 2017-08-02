@@ -59,7 +59,7 @@ caps.handback.revision: 58
   
 -   Microsoft [!INCLUDE[Outlook_15_short](../vsto/includes/outlook-15-short-md.md)] 或 Microsoft Outlook 2010。  
   
- ![链接到视频](../vsto/media/playvideo.png "链接到视频")有关相关的视频演示，请参阅[如何：使用 Outlook 中的任务窗格？](http://go.microsoft.com/fwlink/?LinkID=130309)。  
+ ![链接到视频](~/data-tools/media/playvideo.gif "链接到视频")有关相关的视频演示，请参阅[如何：使用 Outlook 中的任务窗格？](http://go.microsoft.com/fwlink/?LinkID=130309)。  
   
 ## 创建项目  
  在 VSTO 加载项中实现自定义任务窗格。 首先为 Outlook 创建 VSTO 外接程序项目。  

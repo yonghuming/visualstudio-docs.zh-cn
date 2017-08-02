@@ -59,7 +59,7 @@ ms.lasthandoff: 02/22/2017
   
  下图演示了如何实现的语言服务提供上下文`IVsLanguageContextProvider`。  
   
- ![LangServiceImplementation2 图](../extensibility/media/vslanguageservice2.gif "vsLanguageService2")  
+ ![LangServiceImplementation2 图](~/extensibility/media/vslanguageservice2.gif "vsLanguageService2")  
 语言服务上下文  
   
  正如您在图中，可以看到[!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)]核心文本编辑器具有附加到它的上下文包。 此上下文包指向三个单独的子上下文包︰ 语言服务、 默认编辑器和文本标记。 语言服务和文本标记子上下文包包含用于该语言服务特性和关键字，如果<xref:Microsoft.VisualStudio.TextManager.Interop.IVsLanguageContextProvider>接口实现，以及文本标记如果<xref:Microsoft.VisualStudio.TextManager.Interop.IVsTextMarkerContextProvider>接口实现。</xref:Microsoft.VisualStudio.TextManager.Interop.IVsTextMarkerContextProvider> </xref:Microsoft.VisualStudio.TextManager.Interop.IVsLanguageContextProvider> 如果未实现这些接口之一，编辑器中对默认编辑器子上下文包中光标位置处关键字提供上下文。  

@@ -33,7 +33,7 @@ caps.handback.revision: 41
   
  [!INCLUDE[appliesto_pptallapp](../vsto/includes/appliesto-pptallapp-md.md)]  
   
- ![链接到视频](../vsto/media/playvideo.png "链接到视频") 有关相关的视频演示，请参阅[如何：为 Microsoft PowerPoint 创建外接程序？](http://go.microsoft.com/fwlink/?LinkId=132767)。  
+ ![链接到视频](~/data-tools/media/playvideo.gif "链接到视频") 有关相关的视频演示，请参阅[如何：为 Microsoft PowerPoint 创建外接程序？](http://go.microsoft.com/fwlink/?LinkId=132767)。  
   
 ## 使用 PowerPoint 对象模型自动化 PowerPoint  
  PowerPoint 对象模型公开了许多你能用于自动化 PowerPoint 的模型。 这些类型使你能够编写代码来完成常规任务：  

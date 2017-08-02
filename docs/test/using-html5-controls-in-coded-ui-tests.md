@@ -59,7 +59,7 @@ ms.lasthandoff: 04/04/2017
 ###  <a name="UsingHTML5ControlsCodedUITestsAudio"></a>音频控件  
  **音频控件：**正确录制和播放 HTML5 音频控件上的操作。  
   
- ![HTML5 音频控件](../test/media/codedui_html5_audio.png "CodedUI_HTML5_Audio")  
+ ![HTML5 音频控件](~/test/media/codedui_html5_audio.png "CodedUI_HTML5_Audio")  
   
 |操作|录制|生成的代码|  
 |------------|---------------|--------------------|  
@@ -102,7 +102,7 @@ string Volume
 ###  <a name="UsingHTML5ControlsCodedUITestsVideo"></a>视频控件  
  **视频控件：**正确录制和播放 HTML5 视频控件上的操作。  
   
- ![HTML5 视频控件](../test/media/codedui_html5_video.png "CodedUI_HTML5_Video")  
+ ![HTML5 视频控件](~/test/media/codedui_html5_video.png "CodedUI_HTML5_Video")  
   
 |操作|录制|生成的代码|  
 |------------|---------------|--------------------|  
@@ -132,7 +132,7 @@ string VideoWidth
 ###  <a name="UsingHTML5ControlsCodedUITestsSlider"></a>滑块  
  **滑块控件：**正确录制和播放 HTML5 滑块控件上的操作。  
   
- ![HTML5 滑块控件](../test/media/codedui_html5_slider.png "CodedUI_HTML5_Slider")  
+ ![HTML5 滑块控件](~/test/media/codedui_html5_slider.png "CodedUI_HTML5_Slider")  
   
 |操作|录制|生成的代码|  
 |------------|---------------|--------------------|  
@@ -152,7 +152,7 @@ string ValueAsNumber
 ###  <a name="UsingHTML5ControlsCodedUITestsProgressbar"></a>进度栏  
  **进度栏控件：**进度栏是一种不可交互的控件。 你可以对此控件的 `Value` 和 `Max` 属性添加断言。  
   
- ![HTML5 进度栏控件](../test/media/codedui_html5_progressbar.png "CodedUI_HTML5_ProgressBar")  
+ ![HTML5 进度栏控件](~/test/media/codedui_html5_progressbar.png "CodedUI_HTML5_ProgressBar")  
   
 ## <a name="see-also"></a>另请参阅  
  [HTML 元素](http://go.microsoft.com/fwlink/?LinkID=232441)   

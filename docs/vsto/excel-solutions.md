@@ -74,7 +74,7 @@ caps.handback.revision: 30
   
  有关 VSTO 外接程序工作原理的常规信息，请参阅 [VSTO 外接程序的体系结构](../vsto/architecture-of-vsto-add-ins.md)。  
   
- ![链接到视频](../vsto/media/playvideo.png "链接到视频") 有关相关的视频演示，请参阅[如何从 Excel 外接程序自动化 PowerPoint？](http://go.microsoft.com/fwlink/?LinkID=130300)。  
+ ![链接到视频](~/data-tools/media/playvideo.gif "链接到视频") 有关相关的视频演示，请参阅[如何从 Excel 外接程序自动化 PowerPoint？](http://go.microsoft.com/fwlink/?LinkID=130300)。  
   
 ### Excel 外接程序编程模型  
  创建 Excel VSTO 外接程序项目时，Visual Studio 将生成一个名为 `ThisAddIn` 的类，这是你的解决方案的基础。 此类提供了编写代码的起点，并且还将 Excel 的对象模型公开到 VSTO 外接程序。  

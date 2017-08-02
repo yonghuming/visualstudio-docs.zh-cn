@@ -25,7 +25,7 @@ caps.handback.revision: 3
 ## 为什么要使用历史调试？  
  设置断点以查找 Bug 会是一件没有太多确定性的事情。  在紧邻代码中你怀疑可能存在 Bug 的位置设置断点，然后在调试中程序中运行应用程序，并希望命中断点且执行中断的位置可以揭示 Bug 的源。  如果没有命中，则需要尝试在代码中的其他位置设置断点并重新运行调试程序，反复执行测试步骤直到发现问题。  
   
- ![设置断点](../debugger/media/breakpointprocesa.png "BreakpointProcesa")  
+ ![设置断点](~/debugger/media/breakpointprocesa.png "BreakpointProcesa")  
   
  可以使用 IntelliTrace 和历史调试在应用程序中四处漫游，并能在不设置断点、不重启调试且不重复测试步骤的情况下检查其状态（调用堆栈和局部变量）。  这可以为你节省大量时间，特别是在 Bug 位于需要很长时间才能完成执行的测试方案的深处时。  
   
@@ -71,7 +71,7 @@ private static int AddInt(int add)
   
 4.  打开**“诊断工具”**窗口（**“调试”\/“显示诊断工具”**）。  代码窗口应如下所示：  
   
-     ![断点处的代码窗口](../debugger/media/historicaldebuggingbreakpoint.png "HistoricalDebuggingBreakpoint")  
+     ![断点处的代码窗口](~/debugger/media/historicaldebuggingbreakpoint.png "HistoricalDebuggingBreakpoint")  
   
 5.  你应该在左边距旁边看到一个双箭头，就在断点上方。  此区域称为导航线，它用于历史调试。  单击箭头。  
   
@@ -79,7 +79,7 @@ private static int AddInt(int add)
   
      代码窗口现在如下所示：  
   
-     ![历史调试模式下的代码窗口](../debugger/media/historicaldebuggingback.png "HistoricalDebuggingBack")  
+     ![历史调试模式下的代码窗口](~/debugger/media/historicaldebuggingback.png "HistoricalDebuggingBack")  
   
 6.  现在，可以单步执行 `AddAll()` 方法（使用**“F11”**键，或导航线中的**“单步执行”**按钮）。  单步前进（使用**“F10”**键，或导航线中的**“转到下一个调用”**）。  粉红色的行现在变为 `j = AddInt(j);` 行。  在这种情况下，**“F10”**键不会单步执行到下一行代码。  相反，它将单步执行到下一个函数调用。  历史调试在调用之间进行导航，并跳过不包括函数调用的代码行。  
   

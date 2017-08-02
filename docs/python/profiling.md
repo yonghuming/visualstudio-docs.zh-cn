@@ -42,11 +42,11 @@ ms.lasthandoff: 05/13/2017
 
 通过“分析”>“启动 Python 分析”菜单命令（这将打开配置对话框）开始分析：
 
-![分析配置对话框](media/profiling-start.png)
+![分析配置对话框](~/python/media/profiling-start.png)
 
 选择“确定”后，探查器将运行并打开性能报告，通过此报告可以了解在应用程序中所用的时间：
 
-![分析性能报告](media/profiling-results.png)
+![分析性能报告](~/python/media/profiling-results.png)
 
 有关概述，请参阅以下内容
 
