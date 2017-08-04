@@ -1,38 +1,25 @@
 ---
 title: "在 Visual Studio 中使用 C++ 和 Python | Microsoft Docs"
 ms.custom: 
-ms.date: 3/27/2017
+ms.date: 7/12/2017
 ms.reviewer: 
 ms.suite: 
 ms.technology:
 - devlang-python
+ms.devlang: python
 ms.tgt_pltfrm: 
-ms.topic: article
+ms.topic: get-started-article
 ms.assetid: f7dbda92-21bf-4af0-bb34-29b8bf231f32
 description: "在 Visual Studio 中编写适用于 Python 的 C++ 扩展或模块的过程和步骤"
 caps.latest.revision: 1
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-translation.priority.ht:
-- cs-cz
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pl-pl
-- pt-br
-- ru-ru
-- tr-tr
-- zh-cn
-- zh-tw
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 85576806818a6ed289c2f660f87b5c419016c600
-ms.openlocfilehash: f8a0bef07667e5f876473c966ed3d14a1b84dd0b
+ms.translationtype: HT
+ms.sourcegitcommit: 6d25db4639f2c8391c1e32542701ea359f560178
+ms.openlocfilehash: 6128d78b99b7fa82ffd5676678a49b1b6a0de177
 ms.contentlocale: zh-cn
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 07/18/2017
 
 ---
 
@@ -41,27 +28,27 @@ ms.lasthandoff: 05/10/2017
 使用 C++（或 C）编写的模块常用于扩展 Python 解释器的功能和启用对低级别操作系统功能的访问。 主要有以下 3 种类型的模块：
 
 - 加速器模块：Python 是一种解释型语言，某些代码段可使用 C++ 进行编写来提高性能。 
-- 包装器模块：向 Python 代码公开现有 C/C++ 接口，或公开更“Python 化”的 API，其利用 Python 语言功能使 API 更易于使用。
+- 包装器模块：包装器向 Python 代码公开现有 C/C++ 接口，或公开易于通过 Python 使用的更“Python 化”的 API。
 - 低级别系统访问模块：用于访问 CPython 运行时的较低级别功能、操作系统或基础硬件。 
 
-本主题介绍了如何为 CPython 生成 C++ 扩展模块，该模块计算双曲正切并从 Python 代码中调用它。 为了演示性能差异，首先需使用 Python 创建和测试例程。
+本主题介绍了如何为 CPython 生成 C++ 扩展模块，该模块计算双曲正切并从 Python 代码中调用它。 首先使用 Python 实现此例程，以演示使用 C++ 实现此相同例程时可获得的性能提升。
 
 此处采用的方法适用于 [Python 文档](https://docs.python.org/3/c-api/)中所述的标准 CPython 扩展。 本主题末尾的[替代方法](#alternative-approaches)下将此方法与其他方法进行了比较。
 
 ## <a name="prerequisites"></a>先决条件
 
-本演练针对的是包含“C++ 桌面开发”和“Python 开发”工作负载及其默认选项（如作为默认解释器的 Python 3.6）的 Visual Studio 2017。 在 **Python 开发**工作负载中，还可以选中右侧的“Python 本机开发工具”复选框，以设置本主题中所述的大多数选项。 （此选项还自动包括 C++ 工作负载。） 
+本演练针对的是包含“C++ 桌面开发”和“Python 开发”工作负载及其默认选项（如作为默认解释器的 Python 3.6）的 Visual Studio 2017。 在 Python 开发工作负载中，还可以选中右侧的“Python 本机开发工具”复选框，以设置本主题中所述的大多数选项。 （此选项还自动包括 C++ 工作负载。） 
 
-![选择“Python 本机开发工具”选项](~/python/media/cpp-install-native.png)
+![选择“Python 本机开发工具”选项](media/cpp-install-native.png)
 
-有关详细信息，请参阅[安装针对 Visual Studio 的 Python 支持](installation.md)，其中包括使用其他版本的 Visual Studio。 如果单独安装 Python，请务必在安装程序的“高级选项”下选择“下载调试符号”和“下载调试二进制文件”。 这可确保在选择进行调试生成时能够使用必要的调试库。
+有关详细信息，请参阅[安装针对 Visual Studio 的 Python 支持](installation.md)，其中包括使用其他版本的 Visual Studio。 如果单独安装 Python，请务必在安装程序的“高级选项”下选择“下载调试符号”和“下载调试二进制文件”。 此选项确保在选择进行调试生成时能够使用必要的调试库。
 
 > [!Note]
 > 还可以通过“数据科学和分析应用程序”工作负载使用 Python，此工作负载默认包含 Anaconda 3 64 位（含有最新版 CPython）和“Python 本机开发工具”选项。
 
 ## <a name="create-the-python-application"></a>创建 Python 应用程序
 
-1. 在 Visual Studio 中创建新的 Python 项目，方法是选择“文件”>“新建”>“项目”菜单命令，然后搜索“Python”，选择“Python 应用程序”模板，指定合适的名称和位置，然后选择“确定”。
+1. 要在 Visual Studio 中创建新 Python 项目，请选择“文件”>“新建”>“项目”。 搜索"Python"，选择“Python 应用程序”模板，为其提供合适的名称和位置，然后选择“确定”。
 
 1. 在项目的 `.py` 文件中，粘贴以下代码，用于对双曲正切的计算进行基准测试（无需使用数学库即可实现，以便简化比较）。 可随意手动输入代码，体验某些 [Python 编辑功能](code-editing.md)。
 
@@ -111,7 +98,7 @@ ms.lasthandoff: 05/10/2017
         test(lambda d: [tanh(x) for x in d], '[tanh(x) for x in d]')
     ```
 
-1. 使用“调试”>“开始执行(不调试)”(Ctrl+F5) 运行程序以查看结果。 可看到每个基准测试需要几秒钟才能完成。
+1. 使用“调试”>“开始执行(不调试)”(Ctrl+F5) 运行程序以查看结果。 每个基准测试需要几秒钟才能完成。
 
 ## <a name="create-the-core-c-project"></a>创建核心 C++ 项目
 
@@ -127,23 +114,23 @@ ms.lasthandoff: 05/10/2017
 
     | Tab | 属性 | 值 | 
     | --- | --- | --- |
-    | 常规 | 常规 > 目标名称 | 将此设置为与 Python 看到的模块名称完全匹配。 |
+    | 常规 | 常规 > 目标名称 | 将此字段设置为与 Python 看到的模块名称完全匹配。 |
     | | 常规 > 目标扩展名 | .pyd |
     | | 项目默认值 > 配置类型 | 动态库(.dll) |
     | C/C++ > 常规 | 附加包含目录 | 根据相应的安装添加 Python `include` 文件夹，例如 `c:\Python36\include` |     
     | C/C++ > 代码生成 | 运行库 | 多线程 DLL (/MD)（请参阅下面的“警告”） |
-    | C/C++ > 预处理器 | 预处理器定义 | 将 `Py_LIMITED_API;` 添加到字符串开头。 这会限制可从 Python 调用的某些函数，并使代码在 Python 不同版本之间更易于移植。 |
+    | C/C++ > 预处理器 | 预处理器定义 | 在字符串的开头添加 `Py_LIMITED_API;`，可限制可从 Python 调用的某些函数，并使代码在 Python 不同版本之间更易于移植。 |
     | 链接器 > 常规 | 附加库目录 | 根据相应的安装添加包含 `.lib` 文件的 Python `lib` 文件夹，例如 `c:\Python36\libs`。 （务必指向包含 `.lib` 文件的 `libs` 文件夹，而非包含 `.py` 文件的 `Lib` 文件夹。） | 
 
     > [!Tip]
-    > 如果未看到 C/C++ 选项卡，这是因为项目不包含标识为 C/C++ 源文件的任何文件。 如果创建的源文件不含 `.c` 或 `.cpp` 扩展名，则可能出现这种情况。 例如，如果之前在“新建项”对话框中不小心输入了 `module.coo`（而不是 `module.cpp`），则 Visual Studio 会创建文件，但不会将文件类型设置为“C/C+ 代码”，而正是它激活 C/C++ 属性选项卡。 即使将文件重命名为带 `.cpp`，也不会起作用。 若要更正此问题，请在解决方案资源管理器中右键单击文件，选择“属性”，然后将“文件类型”设置为“C/C++ 代码”。
+    > 如果未看到 C/C++ 选项卡，这是因为项目不包含标识为 C/C++ 源文件的任何文件。 如果创建的源文件不含 `.c` 或 `.cpp` 扩展名，则可能出现这种情况。 例如，如果之前在“新建项”对话框中不小心输入了 `module.coo`（而不是 `module.cpp`），则 Visual Studio 会创建文件，但不会将文件类型设置为“C/C+ 代码”，而正是它激活 C/C++ 属性选项卡。 即使将文件重命名为带 `.cpp`，此识别错误仍会存在。 为了正确设置文件类型，请在解决方案资源管理器中右键单击文件，选择“属性”，然后将“文件类型”设置为“C/C++ 代码”。
 
     > [!Warning]
-    > 即使对于调试配置，也不要将“C/C++”>“代码生成”>“运行时库”选项设置为“多线程调试 DLL (/MDd)”。 需要选择“多线程 DLL (/MD)”运行时，因为必须使用此选项才能生成非调试 Python 二进制文件。 如果碰巧设置了 /MDd 选项，则会在生成 DLL 的调试配置时看到错误“C1189: Py_LIMITED_API 与 Py_DEBUG、Py_TRACE_REFS 和 Py_REF_DEBUG 不兼容”。 此外，如果删除 `Py_LIMITED_API` 来避免出现生成错误，则在尝试导入模块时，Python 将崩溃。 （如下所述，崩溃将发生在 DLL 对 `PyModule_Create` 的调用中，并出现输出消息“严重 Python 错误: PyThreadState_Get: 无当前线程”。）
+    > 即使对于调试配置，也不要将“C/C++”>“代码生成”>“运行时库”选项设置为“多线程调试 DLL (/MDd)”。 请选择“多线程 DLL (/MD)”运行时，因为必须使用此选项才能生成非调试 Python 二进制文件。 如果碰巧设置了 /MDd 选项，则会在生成 DLL 的调试配置时看到错误“C1189: Py_LIMITED_API 与 Py_DEBUG、Py_TRACE_REFS 和 Py_REF_DEBUG 不兼容”。 此外，如果删除 `Py_LIMITED_API` 来避免出现生成错误，则在尝试导入模块时，Python 会崩溃。 （如下所述，崩溃将发生在 DLL 对 `PyModule_Create` 的调用中，并出现输出消息“严重 Python 错误: PyThreadState_Get: 无当前线程”。）
     >
     > 请注意，/MDd 选项用于生成 Python 调试二进制文件（例如 python_d.exe），但对扩展 DLL 选择此选项仍会导致 `Py_LIMITED_API` 的生成错误。
    
-1. 右键单击 C++ 项目，然后选择“生成”以测试配置（包括“调试”和“发布”）。 请注意，将在解决方案文件夹中的“调试”和“发布”下找到 `.pyd` 文件，而非 C++ 项目文件夹本身。
+1. 右键单击 C++ 项目，然后选择“生成”来测试配置（包括“调试”和“发布”）。 `.pyd` 文件位于解决方案文件夹中的“调试”和“发布”下，而非位于 C++ 项目文件夹本身。
 
 1. 将以下代码添加到 C++ 项目的主 `.cpp` 文件：
 
@@ -213,7 +200,7 @@ ms.lasthandoff: 05/10/2017
     };
     ```
 
-1. 添加 Python 加载模块时要调用的方法，该模块必须命名为 `PyInit_<module-name>`，其中 *&lt;module_name&gt;* 与 C++ 项目的“常规”>“目标名称”属性完全匹配（也就是说，其与项目生成的 `.pyd` 的文件名相匹配）。
+1. 添加 Python 加载模块时要调用的方法，该模块必须命名为 `PyInit_<module-name>`，其中 &lt;module_name&gt; 与 C++ 项目的“常规”>“目标名称”属性完全匹配（也就是说，其与项目生成的 `.pyd` 的文件名相匹配）。
 
     ```cpp
     PyMODINIT_FUNC PyInit_superfastcode() {    
@@ -231,11 +218,11 @@ ms.lasthandoff: 05/10/2017
 
 1. 在解决方案资源管理器中，右键单击 Python 项目，然后选择“引用”。 在对话框中，依次选择“项目”选项卡、“superfastcode”项目，然后选择“确定”。
 
-第二，可在全局 Python 环境中安装模块，使其也可供其他 Python 项目使用。 请注意，此操作通常需要刷新该环境的 IntelliSense 完成数据库，并从环境中删除模块。
+第二，可在全局 Python 环境中安装模块，使其也可供其他 Python 项目使用。 执行此操作通常需要刷新该环境的 IntelliSense 完成数据库。 从环境中删除模块时也必须执行刷新。
 
-1. 如果使用 Visual Studio 2017，请运行 Visual Studio 安装程序，选择“修改”，然后选择“各个组件”>“编译器、生成工具和运行时”>“Visual C++ 2015.3 v140 工具集”。 这是因为 Python（适用于 Windows）本身是使用 Visual Studio 2015（版本 14.0）构建的，并期望通过此处所述的方法生成扩展时能够使用这些工具。
+1. 如果使用 Visual Studio 2017，请运行 Visual Studio 安装程序，选择“修改”，然后选择“各个组件”>“编译器、生成工具和运行时”>“Visual C++ 2015.3 v140 工具集”。 此步骤是必需的，因为 Python（适用于 Windows）本身是使用 Visual Studio 2015（版本 14.0）构建的，并期望通过此处所述的方法生成扩展时能够使用这些工具。
 
-1. 在 C++ 项目中创建名为 `setup.py` 的文件，方法是右键单击项目，选择“添加”>“新建项...”**，搜索“Python”，然后选择“Python 文件”**，将其命名为 setup.py，然后选择“确定”。 当编辑器中出现该文件时，将以下代码粘贴到其中：
+1. 在 C++ 项目中创建名为 `setup.py` 的文件，方法是右键单击项目，选择“添加”>“新建项...”，搜索“Python”，然后选择“Python 文件”，将其命名为 setup.py，然后选择“确定”。 当编辑器中出现该文件时，将以下代码粘贴到其中：
 
     ```python
     from distutils.core import setup, Extension, DEBUG
@@ -258,7 +245,7 @@ ms.lasthandoff: 05/10/2017
 
 现在，可调用模块的 `tanh` 代码，并将其性能与 Python 实现进行比较：
 
-1. 在 `tanhbenchmark.py` 中添加以下行以调用从 DLL 导出的 `fast_tanh` 方法，并将其添加到基准输出中。 如果手动键入 `from s` 语句，则将在完成列表中看到 `superfastcode` 出现，并在键入 `import` 后看到 `fast_tanh` 方法。
+1. 在 `tanhbenchmark.py` 中添加以下行以调用从 DLL 导出的 `fast_tanh` 方法，并将其添加到基准输出中。 如果手动键入 `from s` 语句，将看到 `superfastcode` 出现在完成列表中，键入 `import` 后，将显示出 `fast_tanh` 方法。
 
     ```python
     from superfastcode import fast_tanh    
@@ -269,16 +256,16 @@ ms.lasthandoff: 05/10/2017
 
 ## <a name="debug-the-c-code"></a>调试 C++ 代码
 
-[Visual Studio 中的 Python 支持](installation.md)包括可[同时调试 Python 和 C++ 代码](debugging-mixed-mode.md)。 若要体验此功能，请执行以下操作：
+[Visual Studio 中的 Python 支持](installation.md)包括可[同时调试 Python 和 C++ 代码](debugging-mixed-mode.md)。 若要体验此混合模式调试，请执行以下步骤：
 
 1. 在解决方案资源管理器中，右键单击 Python 项目，依次选择“属性”、“调试”选项卡，然后选择“调试”>“启用本机代码调试”选项。
 
     > [!Tip]
-    > 启用本机代码调试后，Python 输出窗口可能在程序完成后立即消失，而不出现通常的“按任何键以继续...”暂停界面。 若要强制暂停，请在启用本机代码调试后，向“调试”选项卡上的“运行”>“解释器参数”字段添加 `-i` 选项。 这会在代码完成后将 Python 解释器置于交互模式，此时它将等待你按 Ctrl+Z, Enter 以退出。 （或者，如果不介意修改 Python 代码，则可在程序结束时添加 `import os` 和 `os.system("pause")` 语句。 这会复制初始的暂停提示符。）
+    > 启用本机代码调试后，Python 输出窗口可能在程序完成后立即消失，而不出现通常的“按任何键以继续...”暂停界面。 若要强制暂停，请在启用本机代码调试后，向“调试”选项卡上的“运行”>“解释器参数”字段添加 `-i` 选项。 此参数会在代码完成后将 Python 解释器置于交互模式，此时它等待用户按 Ctrl+Z、Enter 退出。 （或者，如果不介意修改 Python 代码，则可在程序结束时添加 `import os` 和 `os.system("pause")` 语句。 此代码会复制初始的暂停提示符。）
 
-1. 在 C++ 代码的 `tanh` 方法内的第 1 行设置一个断点，然后启动调试器。 该代码被调用时，调试器将停止：
+1. 在 C++ 代码的 `tanh` 方法内的第 1 行设置一个断点，然后启动调试器。 调用此代码时，调试器将会停止：
 
-    ![在 C++ 代码中的断点处停止](~/python/media/cpp-debugging.png)
+    ![在 C++ 代码中的断点处停止](media/cpp-debugging.png)
 
 1. 此时，可浏览 C++ 代码、检查变量等，[同时调试 Python 和 C++](debugging-mixed-mode.md) 中对此进行了详细介绍。
 

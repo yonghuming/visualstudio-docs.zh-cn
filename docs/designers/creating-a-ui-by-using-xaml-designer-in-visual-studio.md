@@ -1,7 +1,7 @@
 ---
 title: "在 Visual Studio 中使用 XAML 设计器创建 UI | Microsoft Docs"
 ms.custom: 
-ms.date: 11/04/2016
+ms.date: 7/17/2017
 ms.reviewer: 
 ms.suite: 
 ms.technology:
@@ -18,32 +18,17 @@ caps.latest.revision: 29
 author: kempb
 ms.author: kempb
 manager: ghogen
-translation.priority.ht:
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- ru-ru
-- zh-cn
-- zh-tw
-translation.priority.mt:
-- cs-cz
-- pl-pl
-- pt-br
-- tr-tr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 47057e9611b824c17077b9127f8d2f8b192d6eb8
-ms.openlocfilehash: 0b6b302637113be1fb2700100124cf4079c06298
+ms.translationtype: HT
+ms.sourcegitcommit: 6d25db4639f2c8391c1e32542701ea359f560178
+ms.openlocfilehash: 0122714fa0c932a1fba849226e1200795ff20cfa
 ms.contentlocale: zh-cn
-ms.lasthandoff: 05/13/2017
+ms.lasthandoff: 07/18/2017
 
 ---
 # <a name="creating-a-ui-by-using-xaml-designer-in-visual-studio"></a>在 Visual Studio 中，使用 XAML 设计器创建 UI
-Visual Studio 中的 XAML 设计器提供可视化界面，有助于设计基于 XAML 的 Windows 应用商店、Windows Phone、WPF 和 Silverlight 应用程序。 可以通过拖动“工具箱”  中的控件，并在“属性”  窗口设置属性，为应用程序创建用户界面。 还可以直接在 XAML 视图中编辑 XAML。  
+Visual Studio 中的 XAML 设计器提供可视化界面，有助于设计基于 XAML 的 Windows 和 Web 应用。 可以通过拖动“工具箱”  中的控件，并在“属性”  窗口设置属性，为应用程序创建用户界面。 还可以直接在 XAML 视图中编辑 XAML。  
   
- 有关高级 XAML 设计任务（例如动画和行为）的详细信息，请参阅 [Creating a UI by using Blend for Visual Studio](../designers/creating-a-ui-by-using-blend-for-visual-studio.md)。  
+ 有关高级 XAML 设计任务（例如动画和行为）的详细信息，请参阅 [Creating a UI by using Blend for Visual Studio](../designers/creating-a-ui-by-using-blend-for-visual-studio.md)。 另请参阅[在 Visual Studio 和 Blend for Visual Studio 中设计 XAML](../designers/designing-xaml-in-visual-studio.md)，查看这两种工具之间的比较。
   
 ## <a name="xaml-designer-workspace"></a>XML 设计器工作区  
  XAML 设计器中的工作区由若干可视界面元素组成。 这些元素包括美工板、XAML 编辑器、“设备”窗口、“文档大纲”窗口和“属性”窗口。 若要打开 XAML 设计器，请右键单击“解决方案资源管理器”  中的 XAML 文件，然后选择“视图设计器” 。  
@@ -61,7 +46,7 @@ Visual Studio 中的 XAML 设计器提供可视化界面，有助于设计基于
  对齐线是显示为红色虚线的 *“对齐边界”* ，在控件的边缘对齐时或文本基线对齐时进行显示。 仅当启用了“对齐线对齐”  时，才会显示对齐边界。  
   
  **网格轨道**  
-使用 `Grid` 轨道可以管理 [网格](http://msdn.microsoft.com/library/windows/apps/windows.ui.xaml.controls.grid.aspx) 面板中的行和列。 可以创建和删除行和列，并可以调整其相对宽度和高度。 显示在美工板左侧的垂直网格轨道用于行，而显示在顶部的水平线则用于列。  
+ 使用`Grid` 轨道可以管理 [网格](http://msdn.microsoft.com/library/windows/apps/windows.ui.xaml.controls.grid.aspx) 面板中的行和列。 可以创建和删除行和列，并可以调整其相对宽度和高度。 显示在美工板左侧的垂直网格轨道用于行，而显示在顶部的水平线则用于列。  
   
  **网格装饰器**  
  `Grid` 装饰器显示为 `Grid` 轨道上具有垂直或水平线条附加到其上的一个三角形。 当拖动 `Grid` 装饰器时，相邻的列或行的宽度或高度随鼠标的移动而改变。  
@@ -82,7 +67,7 @@ Visual Studio 中的 XAML 设计器提供可视化界面，有助于设计基于
   
  在“设计”视图中，其他美工板命令在屏幕的左下角区域可用，如下所示：  
   
- ![设计视图命令](~/designers/media/xaml_editor_design_controls.png "xaml_editor_design_controls")  
+ ![设计视图命令](../designers/media/xaml_editor_design_controls.png "xaml_editor_design_controls")  
   
  此工具栏上的这些命令可用：  
   
@@ -109,7 +94,7 @@ Visual Studio 中的 XAML 设计器提供可视化界面，有助于设计基于
  标记缩放使你能够调整 XAML 视图大小。 可以从 20% 缩放到 400%。  
   
 ## <a name="device-window"></a>设备窗口  
- XAML 设计器中的“设备”窗口可以在设计时模拟各种视图、显示屏并显示 Windows 应用商店或 Windows Phone 项目的选项。 在 XAML 设计器中工作时，“设备”窗口在“设计”  菜单中可用。 如下所示：  
+ 通过 XAML 设计器中的“设备”窗口，可在设计时为项目模拟各种视图、显示屏和显示选项。 在 XAML 设计器中工作时，“设备”窗口在“设计”  菜单中可用。 如下所示：  
   
  ![“设备”窗口](../designers/media/xaml_editor_device_panel.png "xaml_editor_device_panel")  
   

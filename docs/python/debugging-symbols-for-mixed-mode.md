@@ -1,12 +1,13 @@
 ---
 title: "Visual Studio 中 Python/C++ 混合模式调试的符号 | Microsoft Docs"
 ms.custom: 
-ms.date: 4/4/2017
+ms.date: 7/12/2017
 ms.prod: visual-studio-dev15
 ms.reviewer: 
 ms.suite: 
 ms.technology:
 - devlang-python
+ms.devlang: python
 ms.tgt_pltfrm: 
 ms.topic: article
 ms.assetid: be5fdf2f-b55f-488a-9772-58adfe07a7ab
@@ -14,49 +15,36 @@ caps.latest.revision: 1
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-translation.priority.ht:
-- cs-cz
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pl-pl
-- pt-br
-- ru-ru
-- tr-tr
-- zh-cn
-- zh-tw
-translationtype: Human Translation
-ms.sourcegitcommit: adf122a478b29674dc2924dcf7d42972a5a3f52e
-ms.openlocfilehash: b8bf362f506255c09468934f01a7beeef3a632dd
-ms.lasthandoff: 04/10/2017
+ms.translationtype: HT
+ms.sourcegitcommit: 6d25db4639f2c8391c1e32542701ea359f560178
+ms.openlocfilehash: 1be4e28055f0501433f85325870654671c12f961
+ms.contentlocale: zh-cn
+ms.lasthandoff: 07/18/2017
 
 ---
 
 # <a name="installing-debugging-symbols-for-python-interpreters"></a>安装用于 Python 解释器的调试符号
 
-为了提供完整的调试体验，Visual Studio 中 [Python 混合模式调试器](debugging-mixed-mode.md)需要分析正在使用的 Python 解释器内的大量内部数据结构。 这需要解释器本身的调试符号。 例如，对于 python27.dll，相应的符号文件是 python27.pdb；对于 python36.dll，符号文件是 python36.pdb。 解释器的每个版本都提供了各种模块的符号文件。
+为了提供完整的调试体验，Visual Studio 中的 [Python 混合模式调试器](debugging-mixed-mode.md)需要 Python 解释器（正在用于分析大量内部数据结构）的调试符号。 例如，对于 python27.dll，相应的符号文件是 python27.pdb；对于 python36.dll，符号文件是 python36.pdb。 解释器的每个版本都提供了各种模块的符号文件。
 
-对于 Visual Studio 2017，“Python 3”和“Anaconda 3”解释器会自动安装其各自的符号，Visual Studio 会自动找到它们。 对于 Visual Studio 2015 及更早版本，或使用其他解释器时，需要单独下载符号，然后通过“调试”>“符号”选项卡中的“工具”>“选项”对话框，将 Visual Studio 指向它们。 以下各节将详细介绍这些步骤。
+对于 Visual Studio 2017，“Python 3”和“Anaconda 3”解释器会自动安装其各自的符号，Visual Studio 会自动找到这些符号。 对于 Visual Studio 2015 及更早版本，或使用其他解释器时，需要单独下载符号，然后通过“调试”>“符号”选项卡中的“工具”>“选项”对话框，将 Visual Studio 指向它们。 以下各节将详细介绍这些步骤。
 
 Visual Studio 可能会在需要符号的时候（通常是在启动混合模式的调试会话时）提示你。 在这种情况下，将显示一个对话框，其中包含两个选项：
 
 - “打开符号设置”对话框将打开“选项”对话框以转到“调试”>“符号”选项卡。
 - “为解释器下载符号”将打开当前文档页面，在这种情况下，选择“工具”>“选项”并导航到“调试”>“符号”选项卡以继续操作。
 
-    ![混合模式调试器符号提示](~/python/media/mixed-mode-debugging-symbols-required.png)
+    ![混合模式调试器符号提示](media/mixed-mode-debugging-symbols-required.png)
 
 ## <a name="downloading-symbols"></a>正在下载符号
 
 - Python 3.5 及更高版本：通过 Python 安装程序获取调试符号。 选择“自定义安装”，选择“下一步”以转到“高级选项”，然后选择“下载调试符号”和“下载调试二进制文件”这两个框：
 
-    ![Python 3.x 安装程序包含调试符号](~/python/media/mixed-mode-debugging-symbols-installer35.png)
+    ![Python 3.x 安装程序包含调试符号](media/mixed-mode-debugging-symbols-installer35.png)
 
     将在根安装文件夹中找到符号文件 (`.pdb`)（各个模块的符号文件也在 `DLLs` 文件夹中）。 因此，Visual Studio 会自动找到它们，不需要进一步操作。
 
-- Python 3.4.x 及更早版本：[正式分发](#official-distributions)或 [Enthought Canopy](#enthought-canopy) 以可下载 zip 文件的形式提供符号，如下所示。 下载后，将文件提取到本地文件夹（如 Python 文件夹内的 `Symbols` 文件夹）以继续操作。
+- Python 3.4.x 及更早版本：[正式分发](#official-distributions)或 [Enthought Canopy](#enthought-canopy) 以可下载 zip 文件的形式提供符号。 下载后，将文件提取到本地文件夹（如 Python 文件夹内的 `Symbols` 文件夹）以继续操作。
 
     > [!Important]
     > Python 较低版本之间，以及 32 位 和 64 位版本之间的符号都有所不同，因此需要完全匹配这些版本。 若要检查所使用的解释器，请在解决方案资源管理器中展开项目下的“Python 环境”节点，并记下环境名称。 然后切换到“Python 环境”窗口，并记下安装位置。 然后，在该位置打开命令窗口，并启动 `python.exe`，后者将显示确切版本以及版本属于 32 位还是 64 位。
@@ -71,12 +59,12 @@ Visual Studio 可能会在需要符号的时候（通常是在启动混合模式
     
 1. 选择工具栏上的“添加”按钮（见下文），输入在其中展开了下载的符号的文件夹位置（即 `python.pdb` 所在的文件夹，例如 `c:\python34\Symbols`，如下所示），然后选择“确定”。 
 
-    ![混合模式调试器符号选项](~/python/media/mixed-mode-debugging-symbols.png)
+    ![混合模式调试器符号选项](media/mixed-mode-debugging-symbols.png)
 
 1. 在调试会话期间，Visual Studio 可能还会提示你输入 Python 解释器的源文件位置。 如果已下载源文件（例如从 [python.org/downloads](https://www.python.org/downloads)，当然也可以指向它们。
 
 > [!Note]
-> 对话框中显示的符号缓存功能用于创建从联机源获取的符号的本地缓存。 Python 解释器符号不需要这些功能，因为你已经将它们下载到了本地。 有关任何情况的详细信息，请参阅[在 Visual Studio 调试器中指定符号和源文件](../debugger/specify-symbol-dot-pdb-and-source-files-in-the-visual-studio-debugger.md)。
+> 对话框中显示的符号缓存功能用于创建从联机源获取的符号的本地缓存。 Python 解释器符号不需要这些功能，因为符号已存在于本地。 有关任何情况的详细信息，请参阅[在 Visual Studio 调试器中指定符号和源文件](../debugger/specify-symbol-dot-pdb-and-source-files-in-the-visual-studio-debugger.md)。
 
 ## <a name="official-distributions"></a>正式分发
 
@@ -109,6 +97,6 @@ Visual Studio 可能会在需要符号的时候（通常是在启动混合模式
 
 ## <a name="enthought-canopy"></a>Enthought Canopy
 
-Enthought Canopy provides 从版本 1.2 开始为其二进制文件提供符号。 如之前所述，这些符号将自动与分发一起安装，但你仍需向符号路径手动添加包含这些符号的文件夹。 若 Canopy 采用典型的按用户安装，对于 64 位版本，符号位于 `%UserProfile%\AppData\Local\Enthought\Canopy\User\Scripts`，对于 32 位版本，符号位于 `%UserProfile%\AppData\Local\Enthought\Canopy32\User\Scripts`。
+Enthought Canopy provides 从版本 1.2 开始为其二进制文件提供符号。 如之前所述，这些符号将自动与分发一起安装，但仍需向符号路径手动添加包含这些符号的文件夹。 若 Canopy 采用典型的按用户安装，对于 64 位版本，符号位于 `%UserProfile%\AppData\Local\Enthought\Canopy\User\Scripts`，对于 32 位版本，符号位于 `%UserProfile%\AppData\Local\Enthought\Canopy32\User\Scripts`。
 
 Enthought Canopy 1.1 及早期版本，以及 Enthought Python 分发 (EPD) 不提供解释器符号，因此不兼容混合模式调试。

@@ -1,12 +1,13 @@
 ---
 title: "使用针对 Visual Studio 的 R 工具进行调试 | Microsoft Docs"
 ms.custom: 
-ms.date: 5/1/2017
+ms.date: 6/29/2017
 ms.prod: visual-studio-dev15
 ms.reviewer: 
 ms.suite: 
 ms.technology:
 - devlang-r
+ms.devlang: r
 ms.tgt_pltfrm: 
 ms.topic: article
 ms.assetid: cb5fe5f8-03bc-42bf-8346-c845036a9c6c
@@ -14,38 +15,25 @@ caps.latest.revision: 1
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-translation.priority.ht:
-- cs-cz
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pl-pl
-- pt-br
-- ru-ru
-- tr-tr
-- zh-cn
-- zh-tw
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7a873df77756e5a957d327049566c8e0db1f3a8a
-ms.openlocfilehash: 01bc916eb656cb8e24279498b7b0236fb8eb0e80
+ms.translationtype: HT
+ms.sourcegitcommit: 712cc780388acc5e373f71d51fc8f1f42adb5bed
+ms.openlocfilehash: e4b8d7fb27407bf8ef4463524e9da66bac591ff4
 ms.contentlocale: zh-cn
-ms.lasthandoff: 05/12/2017
+ms.lasthandoff: 07/12/2017
 
 ---
 
-
 # <a name="debugging-r-in-visual-studio"></a>在 Visual Studio 中调试 R
 
-针对 Visual Studio 的 R 工具 (RTVS) 与 Visual Studio 的完整调试体验（请参阅 [Debugging in Visual Studio](../debugger/debugging-in-visual-studio.md)（在 Visual Studio 中调试））集成，包括断点、附加至运行的进程、检查并监视变量、检查调用堆栈等。 本主题随后探讨了 R 和 RTVS 独有的调试属性。
+针对 Visual Studio 的 R 工具 (RTVS) 集成了 Visual Studio 的完整调试体验（请参阅[在 Visual Studio 中进行调试](../debugger/debugging-in-visual-studio.md)）。 此支持包括断点、附加到运行进程、检查和监视变量以及检查调用堆栈。 本主题随后探讨了 R 和 RTVS 独有的调试属性。
 
-在 R 项目中启动 R 启动文件的调试器与启动其它项目类型的调试器相同：使用“调试”>“启动调试”，按 F5 键，或选择调试工具栏上的“源化启动文件”，如下所示。 要更改启动文件，请右键单击解决方案资源管理器中的文件，并选择“设置为启动 R 脚本”。
+在 R 项目中启动 R 启动文件的调试器与启动其它项目类型的调试器相同：使用“调试”>“启动调试”，按 F5 键，或选择调试工具栏上的“源化启动文件”： 
 
-![R 的调试器启动按钮](~/rtvs/media/debugger-start-button.png)
+![R 的调试器启动按钮](media/debugger-start-button.png)
 
-在所有情况下，启动调试器都会在交互窗口中“源化”文件，这意味在该处加载并运行文件。 实际上，在开始调试后，可以在交互窗口中看到如下所示的输出：
+要更改启动文件，请右键单击解决方案资源管理器中的文件，并选择“设置为启动 R 脚本”。
+
+在所有情况下，启动调试器都会在交互窗口中“源化”文件，这意味在该处加载并运行文件，如交互窗口的输出中所示：
 
 ```output
 > rtvs::debug_source("c:/proj/rproject1/rproject1/script.R")
@@ -53,11 +41,11 @@ Sourcing: c:\proj\rproject1\rproject1\script.R
 Sourcing: c:\proj\rproject1\rproject1\Settings.R
 ```
 
-可以看到，使用的是 `rtvs::debug_source` 函数来源化脚本。 必须进行此操作，因为 RTVS 需要修改代码，为调试做准备。 如果要使用任意 RTVS 命令（例如，通过右键单击解决方案资源管理器中的某个文件，运行“源化选定的文件”命令），并且已附加调试器，调用将自动重定向到 `rtvs::debug_source`。
+请注意，`rtvs::debug_source` 函数用于获取脚本。 此函数是必需的，因为 RTVS 需要修改代码，为调试做准备。 使用 RTVS 源命令并且已附加调试器时，Visual Studio 将自动使用 `rtvs::debug_source`。
 
-也可以使用“R 工具”>“会话”>“附加调试器”命令、“调试”>“附加到 R 交互”命令或交互窗口的工具栏中的“附加调试器”命令，直接从交互窗口附加调试器。 进行此操作后，需要由你来源化要调试的文件。 如果要手动源化文件，请务必在 R 中使用 `rtvs::debug_source` 而非常规的 `source` 命令。在_某些_情况下，此命令可以起作用，但我们无法保证调试在所有情况下都成功，除非使用 `rtvs::debug_source` 命令。
+也可以使用“R 工具”>“会话”>“附加调试器”命令、“调试”>“附加到 R 交互”命令或交互窗口的工具栏中的“附加调试器”命令，直接从交互窗口附加调试器。 进行此操作后，需要由你来源化要调试的文件。 如果要手动获取文件，请确保使用 `rtvs::debug_source` 而非 R 中的常规 `source` 命令。
 
-调试器与交互窗口之间的此连接简化了使用不同参数值调用（和调试）函数等操作。 例如，假设源化文件中有如下所示的函数（意味着文件已加载到会话中）：
+调试器与交互窗口之间的此连接简化了使用不同参数值调用（和调试）函数等操作。 例如，假设（从某个源）获得的文件（意味着文件已加载到会话中）中有如下函数：
 
 ```R
 add <- function(x, y) {
@@ -65,7 +53,7 @@ add <- function(x, y) {
 }
 ```
 
-然后，在 `return` 语句中设置一个断点。 现在，在交互窗口中，如果输入 `add(4,5)`，则将看到调试器在断点处停止。
+然后，在 `return` 语句中设置一个断点。 现在在交互式窗口中，可输入 `add(4,5)` 使调试器在断点处停止。
 
 
 ## <a name="environment-browser-in-the-interactive-window"></a>交互窗口中的环境浏览器
@@ -85,5 +73,5 @@ add <- function(x, y) {
 | 帮助 | 显示帮助：在交互窗口中显示可用命令。 |
 | &lt;expr&gt; | 在 expr 中计算表达式。 |
 
-![交互窗口中的环境浏览器](~/rtvs/media/debugger-environment-browser.png)
+![交互窗口中的环境浏览器](media/debugger-environment-browser.png)
 

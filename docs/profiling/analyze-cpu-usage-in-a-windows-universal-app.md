@@ -30,14 +30,14 @@ translation.priority.mt:
 - pt-br
 - tr-tr
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 47057e9611b824c17077b9127f8d2f8b192d6eb8
-ms.openlocfilehash: 8e829f0c69a777dcdcda75aa9305b9202748f23e
+ms.sourcegitcommit: 669bc5894727c207691a7e37937f432d98fee8b1
+ms.openlocfilehash: 4d7596a891fd0cf6eef6c99ac44e21a0392847ae
 ms.contentlocale: zh-cn
-ms.lasthandoff: 05/13/2017
+ms.lasthandoff: 06/30/2017
 
 ---
 # <a name="analyze-cpu-usage-in-a-universal-windows-app-uwp"></a>分析通用 Windows 应用 (UWP) 中的 CPU 使用率
-![适用于 Windows 和 Windows Phone](~/debugger/media/windows_and_phone_content.png "windows_and_phone_content")  
+![适用于 Windows 和 Windows Phone](../debugger/media/windows_and_phone_content.png "windows_and_phone_content")  
   
  如需调查应用中的性能问题，最好从了解其使用 CPU 的方式开始。 **CPU 使用率**工具可显示 CPU 耗用时间执行代码的位置。 若要专注于特定方案，可在单个诊断会话中使用[应用程序时间](../profiling/application-timeline.md)工具、[能量消耗](../profiling/analyze-energy-use-in-store-apps.md)工具或者同时使用这两种工具来运行 CPU 使用率。  
   
@@ -51,7 +51,7 @@ ms.lasthandoff: 05/13/2017
   
 1.  使用 **BlankApp** 模板创建名为 **CpuUseDemo** 的新 C# Windows 通用应用项目。  
   
-     ![创建 CpuUseDemo 项目](~/profiling/media/cpu_use_newproject.png "CPU_USE_NewProject")  
+     ![创建 CpuUseDemo 项目](../profiling/media/cpu_use_newproject.png "CPU_USE_NewProject")  
   
 2.  使用[此代码](#BKMK_MainPage_xaml)替换 MainPage.xaml。  
   
@@ -60,7 +60,7 @@ ms.lasthandoff: 05/13/2017
 4.  构建该应用并对其进行测试。 该应用程序十分简单，可显示一些常见 CPU 使用率数据分析案例。  
   
 ##  <a name="BKMK_Collect_CPU_usage_data"></a>收集 CPU 使用率数据  
- ![在模拟器中运行应用的发布版本](~/profiling/media/cpu_use_wt_setsimulatorandretail.png "CPU_USE_WT_SetSimulatorAndRetail")  
+ ![在模拟器中运行应用的发布版本](../profiling/media/cpu_use_wt_setsimulatorandretail.png "CPU_USE_WT_SetSimulatorAndRetail")  
   
 1.  在 Visual Studio 中，将部署目标设置为“模拟器”并将解决方案配置设置为“发布”。  
   
@@ -72,35 +72,35 @@ ms.lasthandoff: 05/13/2017
   
 3.  在“性能和诊断”中心中，选择“CPU 使用率”，然后选择“启动”。  
   
-     ![启动 CpuUsage 诊断会话](~/profiling/media/cpu_use_wt_perfdiaghub.png "CPU_USE_WT_PerfDiagHub")  
+     ![启动 CpuUsage 诊断会话](../profiling/media/cpu_use_wt_perfdiaghub.png "CPU_USE_WT_PerfDiagHub")  
   
 4.  启动应用时，单击“获取最大数” 。 显示输出后等待约 1 秒时间，然后选择“获取最大数，异步” 。 在单击按钮之间进行停顿有助于更轻松地隔离诊断报告中的按钮单击例程。  
   
 5.  在第二个输出行显示之后，在性能和诊断中心中选择 **“停止收集”** 。  
   
- ![停止 CpuUsage 数据收集](~/profiling/media/cpu_use_wt_stopcollection.png "CPU_USE_WT_StopCollection")  
+ ![停止 CpuUsage 数据收集](../profiling/media/cpu_use_wt_stopcollection.png "CPU_USE_WT_StopCollection")  
   
  CPU 使用量工具可分析数据并显示报告。  
   
- ![CpuUsage 报告](~/profiling/media/cpu_use_wt_report.png "CPU_USE_WT_Report")  
+ ![CpuUsage 报告](../profiling/media/cpu_use_wt_report.png "CPU_USE_WT_Report")  
   
 ##  <a name="BKMK_Analyze_the_CPU_Usage_report"></a>分析 CPU 使用率报告  
   
 ###  <a name="BKMK_CPU_utilization_timeline_graph"></a>CPU 使用率时间线关系图  
- ![CPU 使用率 (%) 时间线关系图](~/profiling/media/cpu_use_wt_timelinegraph.png "CPU_USE_WT_TimelineGraph")  
+ ![CPU 使用率 (%) 时间线关系图](../profiling/media/cpu_use_wt_timelinegraph.png "CPU_USE_WT_TimelineGraph")  
   
  CPU 使用量关系图借助设备上的所有处理器内核，以所有 CPU 时间的百分比形式显示应用的 CPU 活动。 在双核计算机上收集此报告的数据。 两个较大的峰值表示两次按钮单击事件的 CPU 活动。 `GetMaxNumberButton_Click` 将在单核上同步执行，因此方法的关系图高度永远不超过 50% 是合理的。 `GetMaxNumberAsycButton_Click` 跨两个内核异步运行，因此其峰值接近于同时在这两个内核上使用的所有 CPU 资源量，这看起来也是合理的。  
   
 ####  <a name="BKMK_Select_timeline_segments_to_view_details"></a>选择时间线段以查看详细信息  
  使用“诊断会话”时间线上的选择栏以专注于 GetMaxNumberButton_Click 数据：  
   
- ![已选定 GetMaxNumberButton_Click ](~/profiling/media/cpu_use_wt_getmaxnumberreport.png "CPU_USE_WT_GetMaxNumberReport")  
+ ![已选定 GetMaxNumberButton_Click ](../profiling/media/cpu_use_wt_getmaxnumberreport.png "CPU_USE_WT_GetMaxNumberReport")  
   
  现在，“诊断会话”时间线将显示选定时间线段（根据该报告，应稍大于 2 秒）内花费的时间，并筛选在选定时间段中运行的这些方法的调用关系树。  
   
  现在选择 `GetMaxNumberAsyncButton_Click` 段。  
   
- ![GetMaxNumberAsyncButton_Click 报告选定内容](~/profiling/media/cpu_use_wt_getmaxnumberasync_selected.png "CPU_USE_WT_GetMaxNumberAsync_Selected")  
+ ![GetMaxNumberAsyncButton_Click 报告选定内容](../profiling/media/cpu_use_wt_getmaxnumberasync_selected.png "CPU_USE_WT_GetMaxNumberAsync_Selected")  
   
  完成此方法的速度比完成 `GetMaxNumberButton_Click` 的速度快了一秒钟，然而调用关系树项的含义却不太明显。  
   
@@ -108,36 +108,36 @@ ms.lasthandoff: 05/13/2017
  若要开始了解调用关系树的信息，重新选择 `GetMaxNumberButton_Click` 段，查看调用关系树的详细信息。  
   
 ####  <a name="BKMK_Call_tree_structure"></a>调用关系树结构  
- ![GetMaxNumberButton_Click 调用关系树](~/profiling/media/cpu_use_wt_getmaxnumbercalltree_annotated.png "CPU_USE_WT_GetMaxNumberCallTree_annotated")  
+ ![GetMaxNumberButton_Click 调用关系树](../profiling/media/cpu_use_wt_getmaxnumbercalltree_annotated.png "CPU_USE_WT_GetMaxNumberCallTree_annotated")  
   
 |||  
 |-|-|  
-|![第 1 步](~/profiling/media/procguid_1.png "ProcGuid_1")|CPU 使用量调用关系树中的顶级节点是一个伪节点|  
-|![第 2 步](~/profiling/media/procguid_2.png "ProcGuid_2")|在大多数应用中，当禁用 **“显示外部代码”** 选项时，二级节点是 **[外部代码]** 节点，该节点包含系统和框架代码，它可以启动和停止应用、绘制 UI、控制线程计划以及向应用提供其他低级服务。|  
-|![第 3 步](~/profiling/media/procguid_3.png "ProcGuid_3")|二级节点的子级为用户代码方法和异步例程，它们由二级系统和框架代码进行调用或创建。|  
-|![第 4 步](~/profiling/media/procguid_4.png "ProcGuid_4")|方法的子节点仅包含用于父方法调用的数据。 禁用“显示外部代码”  后，应用方法只能包含 **[外部代码]** 节点。|  
+|![第 1 步](../profiling/media/procguid_1.png "ProcGuid_1")|CPU 使用量调用关系树中的顶级节点是一个伪节点|  
+|![第 2 步](../profiling/media/procguid_2.png "ProcGuid_2")|在大多数应用中，当禁用 **“显示外部代码”** 选项时，二级节点是 **[外部代码]** 节点，该节点包含系统和框架代码，它可以启动和停止应用、绘制 UI、控制线程计划以及向应用提供其他低级服务。|  
+|![第 3 步](../profiling/media/procguid_3.png "ProcGuid_3")|二级节点的子级为用户代码方法和异步例程，它们由二级系统和框架代码进行调用或创建。|  
+|![第 4 步](../profiling/media/procguid_4.png "ProcGuid_4")|方法的子节点仅包含用于父方法调用的数据。 禁用“显示外部代码”  后，应用方法只能包含 **[外部代码]** 节点。|  
   
 ####  <a name="BKMK_External_Code"></a>外部代码  
  外部代码由编写的代码执行的系统和框架组件中的函数组成。 外部代码包含的部分函数，可启动和停止应用、绘制 UI、控制线程以及向应用提供其他低级别服务。 在大多数情况下，你不会对外部代码感兴趣，因此 CPU 使用率调用关系树可将用户方法的外部函数收集到一个[外部代码]节点中。  
   
  若要查看外部代码的调用路径，请从 **“筛选器视图”** 列表中选择 **“显示外部代码”** ，然后选择 **“应用”**。  
   
- ![选择“筛选器视图”，然后选择“显示外部代码”](~/profiling/media/cpu_use_wt_filterview.png "CPU_USE_WT_FilterView")  
+ ![选择“筛选器视图”，然后选择“显示外部代码”](../profiling/media/cpu_use_wt_filterview.png "CPU_USE_WT_FilterView")  
   
  请注意，许多外部代码调用链已深度嵌套，因此函数名列的宽度可能超过所有计算机监视器（最大的计算机监视器除外）的显示宽度。 发生这种情况时，函数名将显示为 […]：  
   
- ![在调用关系树中嵌套外部代码](~/profiling/media/cpu_use_wt_showexternalcodetoowide.png "CPU_USE_WT_ShowExternalCodeTooWide")  
+ ![在调用关系树中嵌套外部代码](../profiling/media/cpu_use_wt_showexternalcodetoowide.png "CPU_USE_WT_ShowExternalCodeTooWide")  
   
  使用搜索框以找到你正在查找的节点，然后使用水平滚动条以使数据在视图中显示：  
   
- ![搜索嵌套的外部代码](~/profiling/media/cpu_use_wt_showexternalcodetoowide_found.png "CPU_USE_WT_ShowExternalCodeTooWide_Found")  
+ ![搜索嵌套的外部代码](../profiling/media/cpu_use_wt_showexternalcodetoowide_found.png "CPU_USE_WT_ShowExternalCodeTooWide_Found")  
   
 ###  <a name="BKMK_Call_tree_data_columns"></a>调用关系树数据列  
   
 |||  
 |-|-|  
-|**总 CPU (%)**|![总数据量 % 等式](~/profiling/media/cpu_use_wt_totalpercentequation.png "CPU_USE_WT_TotalPercentEquation")<br /><br /> 所选时间范围内应用的 CPU 活动百分比（函数调用和函数调用的函数使用的）。 请注意，这不同于“CPU 利用率”  时间线图，后者是将时间范围内的应用总活动量与可用的 CPU 总容量相比较。|  
-|**自测 CPU (%)**|![自测 % 等式](~/profiling/media/cpu_use_wt_selflpercentequation.png "CPU_USE_WT_SelflPercentEquation")<br /><br /> 所选时间范围内应用的 CPU 活动百分比（函数调用使用，不包括函数调用的函数活动）。|  
+|**总 CPU (%)**|![总数据量 % 等式](../profiling/media/cpu_use_wt_totalpercentequation.png "CPU_USE_WT_TotalPercentEquation")<br /><br /> 所选时间范围内应用的 CPU 活动百分比（函数调用和函数调用的函数使用的）。 请注意，这不同于“CPU 利用率”  时间线图，后者是将时间范围内的应用总活动量与可用的 CPU 总容量相比较。|  
+|**自测 CPU (%)**|![自测 % 等式](../profiling/media/cpu_use_wt_selflpercentequation.png "CPU_USE_WT_SelflPercentEquation")<br /><br /> 所选时间范围内应用的 CPU 活动百分比（函数调用使用，不包括函数调用的函数活动）。|  
 |**总 CPU(毫秒)**|所选时间范围内函数调用以及该函数调用函数所耗用的毫秒数。|  
 |**自 CPU(毫秒)**|所选时间范围内函数调用以及该函数调用函数所耗用的毫秒数。|  
 |**模块**|包含函数的模块的名称或包含 [外部代码] 节点中的函数的模块数。|  
@@ -147,11 +147,11 @@ ms.lasthandoff: 05/13/2017
   
  若要在我们的示例中查看该示例，请在时间线中重新选择 `GetMaxNumberAsyncButton_Click` 段。  
   
- ![GetMaxNumberAsyncButton_Click 报告选定内容](~/profiling/media/cpu_use_wt_getmaxnumberasync_selected.png "CPU_USE_WT_GetMaxNumberAsync_Selected")  
+ ![GetMaxNumberAsyncButton_Click 报告选定内容](../profiling/media/cpu_use_wt_getmaxnumberasync_selected.png "CPU_USE_WT_GetMaxNumberAsync_Selected")  
   
  **[外部代码]** 下方的前两个节点是状态机类的编译器生成的方法。 第三个节点是对原始方法的调用。 通过展开生成的方法，可显示当前进行的操作。  
   
- ![展开的 GetMaxNumberAsyncButton_Click 调用关系树](~/profiling/media/cpu_use_wt_getmaxnumberasync_expandedcalltree.png "CPU_USE_WT_GetMaxNumberAsync_ExpandedCallTree")  
+ ![展开的 GetMaxNumberAsyncButton_Click 调用关系树](../profiling/media/cpu_use_wt_getmaxnumberasync_expandedcalltree.png "CPU_USE_WT_GetMaxNumberAsync_ExpandedCallTree")  
   
 -   `MainPage::GetMaxNumberAsyncButton_Click` 执行的内容很少；主要管理任务值列表、计算结果最大值以及显示输出。  
   
@@ -328,3 +328,5 @@ namespace CpuUseDemo
 }  
   
 ```
+## <a name="see-also"></a>另请参阅
+ [Visual Studio 中的分析](../profiling/index.md) [分析功能简介](../profiling/profiling-feature-tour.md)

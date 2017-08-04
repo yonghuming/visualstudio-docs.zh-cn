@@ -1,12 +1,13 @@
 ---
 title: "在 Visual Studio 中设置 Python 代码格式 | Microsoft Docs"
 ms.custom: 
-ms.date: 4/10/2017
+ms.date: 7/12/2017
 ms.prod: visual-studio-dev15
 ms.reviewer: 
 ms.suite: 
 ms.technology:
 - devlang-python
+ms.devlang: python
 ms.tgt_pltfrm: 
 ms.topic: article
 ms.assetid: 3d0f1631-360b-45d4-a0cb-01c3c10d25f2
@@ -14,25 +15,11 @@ caps.latest.revision: 1
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-translation.priority.ht:
-- cs-cz
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pl-pl
-- pt-br
-- ru-ru
-- tr-tr
-- zh-cn
-- zh-tw
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 85576806818a6ed289c2f660f87b5c419016c600
-ms.openlocfilehash: a14bc7e8c9194fff3a1bec2739c9e9c2480e905b
+ms.translationtype: HT
+ms.sourcegitcommit: 6d25db4639f2c8391c1e32542701ea359f560178
+ms.openlocfilehash: 9d04c52a595014d06b38205913e3eb1cdd264019
 ms.contentlocale: zh-cn
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 07/18/2017
 
 ---
 
@@ -43,9 +30,9 @@ ms.lasthandoff: 05/10/2017
 - 若要设置选定内容的格式：请选择“编辑”>“高级”>“设置选定内容的格式”或按 Ctrl+E、F。
 - 若要设置整个文件的格式：请选择“编辑”>“高级”>“设置文档的格式”或按 Ctrl+E、D。
 
-通过“工具”>“选项”>“文本编辑器”>“Python”>“格式”及其子选项卡设置选项，并且默认情况下设置为匹配 [PEP 8 样式指南](http://www.python.org/dev/peps/pep-0008/)的超集。 “常规”选项卡确定何时应用格式；其他三个子页面在下面各部分定义。
+通过“工具”>“选项”>“文本编辑器”>“Python”>“格式”及其嵌套选项卡设置选项，并且默认情况下设置为匹配 [PEP 8 样式指南](http://www.python.org/dev/peps/pep-0008/)的超集。 “常规”选项卡确定何时应用格式；本主题中介绍了设置其他三个选项卡。
 
-借助 [Visual Studio 中的 Python 支持](installation.md)，还可以使用“编辑”>“高级”菜单中添加的“填充注释段”[](#fill-comment-paragraph-command)实用命令，如下所述。
+借助 [Visual Studio 中的 Python 支持](installation.md)，还可在“编辑”>“高级”菜单中添加有用的“填充注释段落”[](#fill-comment-paragraph-command)命令，如下所述。
 
 ## <a name="spacing"></a>间距
 
@@ -55,7 +42,7 @@ ms.lasthandoff: 05/10/2017
 - 清除：删除所有间距。
 - 不确定：保留原始格式。
 
-下表提供关于各种选项的示例。
+下表提供关于各种选项的示例：
 
 | 类定义选项 | 已选中 | 清除 |
 | --- | --- | --- | 
@@ -99,7 +86,7 @@ ms.lasthandoff: 05/10/2017
 
 ## <a name="statements"></a>语句
 
-**语句**控制以其他更 Python 的形式自动重写各种语句。
+“语句”选项用于控制以其他更 Python 的形式自动重写各种语句。
 
 | 选项 | 设置格式前 | 设置格式后 |
 | --- | --- | --- |
@@ -110,7 +97,7 @@ ms.lasthandoff: 05/10/2017
 
 ## <a name="wrapping"></a>换行
 
-对于“换行”，可设置“最大注释宽度”（默认值为 80），以便在设置“换行过宽注释”选项后，Visual Studio 重新设置注释格式，使其不超过该宽度。
+“换行”选项用于设置“最大注释宽度”（默认值为 80）。 设置“对过宽的注释换行”选项后，Visual Studio 会重新设置注释格式，使其不超过该最大宽度。
 
 ```python
 # Wrapped to 40 columns
@@ -127,7 +114,7 @@ ms.lasthandoff: 05/10/2017
 
 ## <a name="fill-comment-paragraph-command"></a>填充注释段落命令
 
-使用“编辑”>“高级”>“填充注释段落”（Ctrl+E、Ctrl+P）可重排并设置注释文本格式，从而组合短行、分割长行。
+使用“编辑”>“高级”>“填充注释段落”（Ctrl+E、P）可重排并设置注释文本格式，从而组合短行、分割长行。
 
 例如: 
 

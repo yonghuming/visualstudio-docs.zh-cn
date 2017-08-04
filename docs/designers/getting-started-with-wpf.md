@@ -1,7 +1,7 @@
 ---
 title: "WPF 入门 | Microsoft Docs"
 ms.custom: 
-ms.date: 11/04/2016
+ms.date: 7/17/2017
 ms.reviewer: 
 ms.suite: 
 ms.technology:
@@ -13,26 +13,11 @@ caps.latest.revision: 5
 author: kempb
 ms.author: kempb
 manager: ghogen
-translation.priority.ht:
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- ru-ru
-- zh-cn
-- zh-tw
-translation.priority.mt:
-- cs-cz
-- pl-pl
-- pt-br
-- tr-tr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 47057e9611b824c17077b9127f8d2f8b192d6eb8
-ms.openlocfilehash: a737c447bc97738c6e8f5285f672e9964578061b
+ms.translationtype: HT
+ms.sourcegitcommit: 6d25db4639f2c8391c1e32542701ea359f560178
+ms.openlocfilehash: 1f384f593129c4a0e879762d6e2e7f5944171af6
 ms.contentlocale: zh-cn
-ms.lasthandoff: 05/13/2017
+ms.lasthandoff: 07/18/2017
 
 ---
 # <a name="getting-started-with-wpf"></a>WPF 入门
@@ -43,13 +28,13 @@ Windows Presentation Foundation (WPF) 是一个可创建桌面客户端应用程
 |||  
 |-|-|  
 |我希望直接开始使用...|[演练：我的第一个 WPF 桌面应用程序](../designers/walkthrough-my-first-wpf-desktop-application2.md)<br /><br /> [演练：创建连接到 Azure 移动服务的 WPF 桌面应用程序](../designers/walkthrough-create-a-wpf-desktop-application-connected-to-an-azure-mobile-service.md)|  
-|如何设计应用程序 UI？|[在 Visual Studio 和 Blend for Visual Studio 中设计 XAML](../designers/designing-xaml-in-visual-studio.md)|  
-|是否是初次使用 .NET？|[.NET Framework 概述](https://msdn.microsoft.com/en-us/library/zw4w595w\(v=vs.140\).aspx)<br /><br /> [应用程序要点](http://msdn.microsoft.com/Library/653da4ba-3752-4d1f-a08a-de017dc86ecc)<br /><br /> [Visual C# 和 Visual Basic 入门](https://msdn.microsoft.com/en-us/library/dd492171\(v=vs.140\).aspx)|  
-|有关 WPF 的详细信息...|[WPF 介绍](../designers/introduction-to-wpf.md)<br /><br /> [XAML 概述 (WPF)](https://msdn.microsoft.com/en-us/library/ms752059\(v=vs.100\).aspx)<br /><br /> [控件](https://msdn.microsoft.com/en-us/library/bb613551\(v=vs.100\).aspx)<br /><br /> [数据绑定概述](https://msdn.microsoft.com/en-us/library/ms752347\(v=vs.100\).aspx)<br /><br /> [使用 LINQ to XML 进行 WPF 数据绑定](../designers/wpf-data-binding-with-linq-to-xml.md)|  
-|是否是 Windows 窗体开发人员？|[Windows 窗体控件和等效的 WPF 控件](https://msdn.microsoft.com/en-us/library/ms750559\(v=vs.100\).aspx)<br /><br /> [WPF 和 Windows 窗体互操作中受支持的方案](https://msdn.microsoft.com/en-us/library/ms751797\(v=vs.100\).aspx)|  
+| 我想比较 XAML 设计工具... |[在 Visual Studio 和 Blend for Visual Studio 中设计 XAML](../designers/designing-xaml-in-visual-studio.md)|  
+|是否是初次使用 .NET？|[.NET Framework 概述](https://msdn.microsoft.com/en-us/library/zw4w595w\(v=vs.140\).aspx)<br /><br /> [应用程序要点](/dotnet/standard/application-essentials)<br /><br /> [Visual C# 和 Visual Basic 入门](../ide/getting-started-with-visual-csharp-and-visual-basic.md)|  
+|有关 WPF 的详细信息...|[WPF 介绍](../designers/introduction-to-wpf.md)<br /><br /> [XAML 概述 (WPF)](https://docs.microsoft.com/dotnet/framework/wpf/advanced/xaml-overview-wpf)<br /><br /> [控件](https://docs.microsoft.com/dotnet/framework/wpf/controls/)<br /><br /> [数据绑定概述](https://docs.microsoft.com/dotnet/framework/wpf/data/data-binding-overview)<br /><br /> [使用 LINQ to XML 进行 WPF 数据绑定](../designers/wpf-data-binding-with-linq-to-xml.md)|  
+|是否是 Windows 窗体开发人员？|[Windows 窗体控件和等效的 WPF 控件](https://docs.microsoft.com/dotnet/framework/wpf/advanced/windows-forms-controls-and-equivalent-wpf-controls).aspx)<br /><br /> [WPF 和 Windows 窗体互操作中受支持的方案](https://docs.microsoft.com/dotnet/framework/wpf/advanced/wpf-and-windows-forms-interoperation)|  
   
 ## <a name="see-also"></a>另请参阅  
- [类库 (WPF)](https://msdn.microsoft.com/en-us/library/ms753307\(v=vs.100\).aspx)   
- [应用程序开发概述](https://msdn.microsoft.com/en-us/library/bb613549\(v=vs.100\).aspx)   
- [.NET framework 开发人员中心](http://go.microsoft.com/fwlink/?LinkId=187437)   
- [使用 Windows Presentation Foundation 创建现代桌面应用程序](../designers/create-modern-desktop-applications-with-windows-presentation-foundation.md)
+ [类库 (WPF)](https://docs.microsoft.com/dotnet/framework/wpf/class-library-wpf)   
+ [应用程序开发概述](https://docs.microsoft.com/dotnet/framework/wpf/app-development/index)   
+ [.NET 文档主页](https://docs.microsoft.com/dotnet/index)   
+ [使用 Windows Presentation Foundation 创建新式桌面应用程序](../designers/create-modern-desktop-applications-with-windows-presentation-foundation.md)

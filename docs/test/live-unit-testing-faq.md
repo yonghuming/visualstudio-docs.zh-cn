@@ -26,11 +26,11 @@ translation.priority.ht:
 - tr-tr
 - zh-cn
 - zh-tw
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c9df048a49580f3526b48e29041ef3758722ed27
-ms.openlocfilehash: 08677472bc13d58d9ab0b42b856955f8434089e4
+ms.translationtype: HT
+ms.sourcegitcommit: 359e1eb5df8f19774d352ace631802367b6dd8c9
+ms.openlocfilehash: 2a58b84403189d824494af85bc732a1b8cf3d0b6
 ms.contentlocale: zh-cn
-ms.lasthandoff: 05/03/2017
+ms.lasthandoff: 07/11/2017
 
 ---
 # <a name="live-unit-testing-frequently-asked-questions"></a>Live Unit Testing 常见问题解答
@@ -39,7 +39,7 @@ ms.lasthandoff: 05/03/2017
 
 **答：**
 
-Live Unit Testing 当前不适用于 .NET Core。 我们正为将来添加此支持而努力。 
+可以。 Live Unit Testing 适用于 .NET Core 和 .NET Framework。 近期在 Visual Studio 2017 15.3 预览版中增加了对 .NET Core 的支持。 
 
 ## <a name="why-doesnt-live-unit-testing-work-when-i-turn-it-on"></a>启用 Live Unit Testing 后，为什么它不工作？ 
 
@@ -49,7 +49,7 @@ Live Unit Testing 当前不适用于 .NET Core。 我们正为将来添加此支
 
 - 如果未还原解决方案中项目引用的 NuGet 包，Live Unit Testing 不工作。 启用 Live Unit Testing 前，对解决方案执行显式生成或还原解决方案中的 NuGet 包应可解决此问题。 
 
-- 如果在项目中使用基于 MSTest 的测试，请确保删除对 `Microsoft.VisualStudio.QualityTools.UnitTestFramework` 的引用，并添加对最新 MSTest NuGet 包 `MSTest.TestAdapter`（要求最低版本为 1.1.4-预览版）和 `MSTest.TestFramework`（要求最低版本为 1.0.5-预览版）的引用。 有关详细信息，请参阅[使用 Visual Studio 2017 Enterprise Edition 中的 Live Unit Testing](live-unit-testing.md#supported-test-frameworks) 主题的“支持的测试框架”部分。
+- 如果在项目中使用基于 MSTest 的测试，请确保删除对 `Microsoft.VisualStudio.QualityTools.UnitTestFramework` 的引用，并添加对最新 MSTest NuGet 包 `MSTest.TestAdapter`（要求最低版本为 1.1.11）和 `MSTest.TestFramework`（要求最低版本为 1.1.11）的引用。 有关详细信息，请参阅[使用 Visual Studio 2017 Enterprise Edition 中的 Live Unit Testing](live-unit-testing.md#supported-test-frameworks) 主题的“支持的测试框架”部分。
  
 - 解决方案中至少一个项目应有针对 xUnit、NUnit 或 MSTest 测试框架的 NuGet 引用或直接引用。 此项目还应引用相应的 Visual Studio 测试适配器 NuGet 包。 还可以通过 `.runsettings` 文件引用 Visual Studio 测试适配器。 `.runsettings` 文件必须包含如下条目： 
 
@@ -89,7 +89,7 @@ Live Unit Testing 当前不适用于 .NET Core。 我们正为将来添加此支
 
 ## <a name="error-messages-with-ltoutputpathgt-or-ltoutdirgt"></a>&lt;OutputPath&gt;或&lt;OutDir&gt; 错误消息
 
-**Live Unit Testing 尝试生成解决方案时为什么出现了以下错误：“….似乎无条件地设置 `<OutputPath>` 或 `<OutDir>`。Live Unit Testing 将不会从输出程序集执行测试”？**
+Live Unit Testing 尝试生成解决方案时为什么出现了以下错误：“….似乎无条件地设置 `<OutputPath>` 或 `<OutDir>`。Live Unit Testing 将不会从输出程序集执行测试”？
 
 **答：**
 
@@ -150,7 +150,7 @@ Live Unit Testing 当前不适用于 .NET Core。 我们正为将来添加此支
 
 请参阅[使用 Visual Studio 2017 Enterprise Edition 中的实时单元测试](live-unit-testing.md#including-and-excluding-test-projects-and-test-methods)主题的“包括和排除测试项目和测试方法”部分，了解特定于用户的设置。 想要针对特定的编辑会话运行一组特定的测试或者保留个人偏好设置时，这非常有用。
   
-对于特定于解决方案的设置，可采用编程方式应用 <xref:System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverageAttribute?displayProperty=fullName> 属性，排除方法、属性、类或结构由 Live Unit Testing 进行检测。 此外，还可以在项目文件中将 `<ExcludeFromCodeCoverage>` 属性设置为 `true`，排除整个项目进行检测。 Live Unit Testing 仍将运行未经检测的测试，但其范围将不进行可视化。
+对于特定于解决方案的设置，可采用编程方式应用 <xref:System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverageAttribute?displayProperty=fullName> 属性，避免由 Live Unit Testing 来检测方法、属性、类或结构。 此外，还可以在项目文件中将 `<ExcludeFromCodeCoverage>` 属性设置为 `true`，排除整个项目进行检测。 Live Unit Testing 仍将运行未经检测的测试，但其范围将不进行可视化。
 
 还可以检查是否在当前应用程序域中加载 `Microsoft.CodeAnalysis.LiveUnitTesting.Runtime` 并禁用基于其的测试。 例如，可使用 xUnit 执行诸如以下所示的操作：
 
@@ -199,7 +199,7 @@ Live Unit Testing 只要检测到源文件已更改，就会启动一个生成�
 
 **答：**
 
-如果解决方案中的所有项目尚未进行加载，则 Live Unit Testing 当前无法有效地与轻型解决方案加载功能一起工作。 在这种情况下，可能会获取不正确的覆盖率信息。
+如果解决方案中的所有项目都尚未加载，则 Live Unit Testing 当前无法有效地与轻型解决方案加载功能一起工作。 在这种情况下，可能会获取不正确的覆盖率信息。
  
 ## <a name="why-does-live-unit-testing-does-not-capture-coverage-from-a-new-process-created-by-a-test"></a>为什么 Live Unit Testing 不会从由测试创建的新进程中捕获覆盖率？
  
@@ -233,9 +233,10 @@ Live Unit Testing 只要检测到源文件已更改，就会启动一个生成�
 
 - 将 `LiveUnitTesting_TestPlatformLog` 用户环境变量设置为 `1` 以捕获测试平台日志。 然后就可从 `[Solution Root]\.vs\[Solution Name]\log\[VisualStudio Process ID]` 中检索 Live Unit Testing 运行中详细的测试平台日志消息。
 
-- 创建一个名为 `VS_UTE_DIAGNOSTICS` 的用户级环境变量并将其设置为 1（或任何值），然后重启 Visual Studio。 现在，应可在 Visual Studio 中的“输出”–“测试”选项卡看到大量日志记录。 
+- 创建一个名为 `VS_UTE_DIAGNOSTICS` 的用户级环境变量并将其设置为 1（或任何值），然后重启 Visual Studio。 现在，应可在 Visual Studio 的“输出”–“测试”选项卡中看到大量日志记录。 
  
-## <a name="see-also"></a>另请参阅
+## <a name="see-also"></a>请参阅
 
 [实时单元测试](live-unit-testing.md)
  
+
