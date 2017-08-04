@@ -34,11 +34,11 @@ translation.priority.ht:
 - tr-tr
 - zh-cn
 - zh-tw
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 90b2481b0ec4f9387fe3a2c0b733a103e8c03845
-ms.openlocfilehash: 36770fe6fad52e33144f382446d7e851734f87c5
+ms.translationtype: HT
+ms.sourcegitcommit: 5c28e68b89f6583dc35a91b275693c11e0259dfd
+ms.openlocfilehash: 6e4094925eec3e4a8768219180e75fa9d1f1fa03
 ms.contentlocale: zh-cn
-ms.lasthandoff: 05/23/2017
+ms.lasthandoff: 07/13/2017
 
 ---
 # <a name="beginners-guide-to-performance-profiling"></a>性能分析初学者指南
@@ -47,6 +47,8 @@ ms.lasthandoff: 05/23/2017
 调试中断时，**CPU 使用率**工具收集有关应用程序中正在执行的函数的信息。 该工具将列出执行工作的函数，并提供时间线图，可专用于采样会话的特定部分。
 
 诊断中心提供了大量其他选项来运行和管理诊断会话。 如果**CPU 使用率**未提供所需数据，[其他分析工具](../profiling/Profiling-Tools.md)可提供可能有帮助的不同种类的信息。 在许多情况下，CPU 以外的因素可能会导致应用程序性能瓶颈，例如内存、呈现 UI 或网络请求时间。 诊断中心提供大量其他选项，可用于记录和分析此种数据。
+
+还可[观看介绍诊断工具用法的视频](#video)，了解如何分析 CPU 使用率以及如何分析内存使用情况。
 
 本主题讨论在普通调试工作流中分析 CPU 使用率。 还可以在不附加调试器的情况下或将运行中的应用作为目标来分析 CPU 使用率 - 有关详细信息，请参阅[在不调试的情况下运行分析工具](../profiling/running-profiling-tools-with-or-without-the-debugger.md)。
   
@@ -63,7 +65,7 @@ ms.lasthandoff: 05/23/2017
 
 4.  可以使用工具栏上的“选择工具”设置，选择是否查看 **CPU 使用率**[内存使用](../profiling/Memory-Usage.md)或同时查看两者。 如果运行的是 Visual Studio Enterprise，则可依次选择“工具”、“选项”、“IntelliTrace”启用或禁用 IntelliTrace。
 
-     ![显示诊断工具](~/profiling/media/DiagToolsSelectTool.png "DiagToolsSelectTool")
+     ![显示诊断工具](../profiling/media/DiagToolsSelectTool.png "DiagToolsSelectTool")
 
      我们将主要查看 CPU 使用率，因此请确保已启用**CPU 使用率**（默认情况下已启用）。
 
@@ -71,7 +73,7 @@ ms.lasthandoff: 05/23/2017
 
      当应用完成加载后，将显示诊断工具的“摘要”视图。
 
-     ![诊断工具“摘要”选项卡](~/profiling/media/DiagToolsSummaryTab.png "DiagToolsSummaryTab")
+     ![诊断工具“摘要”选项卡](../profiling/media/DiagToolsSummaryTab.png "DiagToolsSummaryTab")
 
      有关事件的详细信息，请参阅[搜索和筛选“诊断工具”窗口中的“事件”选项卡](http://blogs.msdn.com/b/visualstudioalm/archive/2015/11/12/searching-and-filtering-the-events-tab-of-the-diagnostic-tools-window.aspx)
 
@@ -79,7 +81,7 @@ ms.lasthandoff: 05/23/2017
 
 7.  调试器暂停时，启用收集 CPU 使用率数据，然后打开“CPU 使用率”选项卡。
 
-     ![诊断工具启用 CPU 分析](~/profiling/media/DiagToolsEnableCPUProfiling.png "DiagToolsEnableCPUProfiling")
+     ![诊断工具启用 CPU 分析](../profiling/media/DiagToolsEnableCPUProfiling.png "DiagToolsEnableCPUProfiling")
 
      选择“启用 CPU 分析”时，Visual Studio 将开始记录函数和执行这些函数所用的时间。 应用程序在断点处中断时，仅可以查看此收集的数据。
 
@@ -89,15 +91,15 @@ ms.lasthandoff: 05/23/2017
 
 9.  选择希望在 CPU 时间线中进行分析的区域（必须是显示分析数据的区域）。
 
-     ![诊断工具选择时间段](~/profiling/media/DiagToolsSelectTimeSegment.png "DiagToolsSelectTimeSegment")
+     ![诊断工具选择时间段](../profiling/media/DiagToolsSelectTimeSegment.png "DiagToolsSelectTimeSegment")
 
      探查器开始准备线程数据。 等待其完成。
 
-     ![诊断工具准备线程](~/profiling/media/DiagToolsPreparingThreads.png "DiagToolsPreparingThreads")
+     ![诊断工具准备线程](../profiling/media/DiagToolsPreparingThreads.png "DiagToolsPreparingThreads")
   
      CPU 使用率工具在“CPU 使用率”选项卡中显示报表。
   
-     ![诊断工具“ CPU 使用率”选项卡](~/profiling/media/DiagToolsCPUUsageTab.png "DiagToolsCPUUsageTab")
+     ![诊断工具“ CPU 使用率”选项卡](../profiling/media/DiagToolsCPUUsageTab.png "DiagToolsCPUUsageTab")
 
      现在可以开始分析数据。
 
@@ -107,7 +109,7 @@ ms.lasthandoff: 05/23/2017
 
 1. 在函数列表中，检查执行大部分工作的函数。
 
-    ![诊断工具 CPU 使用率函数列表](~/profiling/media/DiagToolsCPUUsageFunctionList.png "DiagToolsCPUUsageFunctionList")
+    ![诊断工具 CPU 使用率函数列表](../profiling/media/DiagToolsCPUUsageFunctionList.png "DiagToolsCPUUsageFunctionList")
 
     > [!TIP]
     > 函数将按执行工作量从多到少排列（不按调用顺序）。 这有助于快速标识运行时间最长的函数。
@@ -116,7 +118,7 @@ ms.lasthandoff: 05/23/2017
 
     双击该函数时，将在左侧窗格中打开“调用方/被调用方”视图。 
 
-    ![诊断工具调用方和被调用方视图](~/profiling/media/DiagToolsCallerCallee.png "DiagToolsCallerCallee")
+    ![诊断工具调用方和被调用方视图](../profiling/media/DiagToolsCallerCallee.png "DiagToolsCallerCallee")
 
     在此视图中，所选函数显示在标题和“当前函数”框中（本例中为 GetNumber）。 调用当前函数的函数显示在左侧的“调用函数”中，当前函数调用的任何函数均显示在右侧的“被调用函数”框中。 （可选择其中一个框来更改当前函数。）
 
@@ -131,7 +133,7 @@ ms.lasthandoff: 05/23/2017
  
     图中每个带编号的区域都与过程中的一个步骤相关。
   
-    ![诊断工具调用关系树](~/profiling/media/DiagToolsCallTree.png "DiagToolsCallTree")
+    ![诊断工具调用关系树](../profiling/media/DiagToolsCallTree.png "DiagToolsCallTree")
   
 |||
 |-|-|
@@ -154,7 +156,7 @@ ms.lasthandoff: 05/23/2017
   
 若要查看外部代码的调用路径，请从“筛选器视图”列表中选择“显示外部代码”，然后选择“应用”。  
   
-![选择“筛选器视图”，然后选择“显示外部代码”](~/profiling/media/DiagToolsShowExternalCode.png "DiagToolsShowExternalCode")  
+![选择“筛选器视图”，然后选择“显示外部代码”](../profiling/media/DiagToolsShowExternalCode.png "DiagToolsShowExternalCode")  
   
 请注意，许多外部代码调用链已深度嵌套，因此函数名列的宽度可能超过所有计算机监视器（最大的计算机监视器除外）的显示宽度。 发生这种情况时，函数名将显示为 […]。
   
@@ -162,8 +164,12 @@ ms.lasthandoff: 05/23/2017
 
 > [!TIP]
 > 如果分析调用 Windows 函数的外部代码，应确保具有最新的 .pdb 文件。 如果没有这些文件，报告视图将列出含义隐晦、难以理解的 Windows 函数名称。 有关如何确保具有所需文件的详细信息，请参阅[在调试器中指定符号 (.pdb) 和源文件](../debugger/specify-symbol-dot-pdb-and-source-files-in-the-visual-studio-debugger.md)。
+
+## <a name="video"></a>观看介绍诊断工具用法的视频
+
+<div style="padding-top: 56.25%; position: relative; width: 100%;">
+<iframe style="position: absolute;top: 0;left: 0;right: 0;bottom: 0;" width="100%" height="100%" src="https://mva.microsoft.com/en-US/training-courses-embed/getting-started-with-visual-studio-2017-17798/Profiling-with-Diagnostics-Tools-in-Visual-Studio-2017-daHnzMD6D_9211787171" frameborder="0" allowfullscreen></iframe>
+</div>
   
 ## <a name="see-also"></a>另请参阅  
- [[内存使用率](../profiling/memory-usage.md)
- [CPU 使用率](../profiling/cpu-usage.md)
- [分析工具](../profiling/profiling-tools.md)
+ [[内存使用情况](../profiling/memory-usage.md) [CPU 使用率](../profiling/cpu-usage.md) [Visual Studio 中的分析](../profiling/index.md) [分析功能简介](../profiling/profiling-feature-tour.md)

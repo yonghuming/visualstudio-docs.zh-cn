@@ -37,21 +37,22 @@ translation.priority.ht:
 - tr-tr
 - zh-cn
 - zh-tw
-translationtype: Human Translation
-ms.sourcegitcommit: 79460291e91f0659df0a4241e17616e55187a0e2
-ms.openlocfilehash: d4cb33cd46ab45c580e70ce7e590960ed4fd75a9
-ms.lasthandoff: 02/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 3d32d11a430227800cb3ed53831a9565eb6adeb3
+ms.openlocfilehash: 88b72484342e3658babf519ab746be3dc71aadb6
+ms.contentlocale: zh-cn
+ms.lasthandoff: 05/30/2017
 
 ---
 # <a name="markupcompilepass1-task"></a>MarkupCompilePass1 任务
-<xref:Microsoft.Build.Tasks.Windows.MarkupCompilePass1> 任务将不可本地化的 [!INCLUDE[TLA#tla_xaml](../msbuild/includes/tlasharptla_xaml_md.md)] 项目文件转换为编译的二进制文件格式。  
+<xref:Microsoft.Build.Tasks.Windows.MarkupCompilePass1> 任务会将非本地化的 [!INCLUDE[TLA#tla_xaml](../msbuild/includes/tlasharptla_xaml_md.md)] 项目文件转换成已编译的二进制格式。  
   
 ## <a name="task-parameters"></a>任务参数  
   
 |参数|说明|  
 |---------------|-----------------|  
-|`AllGeneratedFiles`|可选的 **ITaskItem[]** 输出参数。<br /><br /> 包含 <xref:Microsoft.Build.Tasks.Windows.MarkupCompilePass1> 任务所生成的文件的完整列表。|  
-|`AlwaysCompileMarkupFilesInSeparateDomain`|可选 **Boolean** 参数。<br /><br /> 指定是否在单独的 <xref:System.AppDomain> 中运行任务。 如果此参数返回 **false**，则任务将在与 [!INCLUDE[TLA#tla_msbuild](../msbuild/includes/tlasharptla_msbuild_md.md)] 相同的 <xref:System.AppDomain> 中运行，并且它运行得更快。 如果该参数返回 **true**，则任务将在独立于 [!INCLUDE[TLA2#tla_msbuild](../msbuild/includes/tla2sharptla_msbuild_md.md)] 的另一个 <xref:System.AppDomain> 中运行，且运行速度较慢。|  
+|`AllGeneratedFiles`|可选的 **ITaskItem[]** 输出参数。<br /><br /> 包含由 <xref:Microsoft.Build.Tasks.Windows.MarkupCompilePass1> 任务生成的文件的完整列表。|  
+|`AlwaysCompileMarkupFilesInSeparateDomain`|可选 **Boolean** 参数。<br /><br /> 指定是否在单独的 <xref:System.AppDomain> 下运行该任务。 如果此参数返回 false，则任务将在与 [!INCLUDE[TLA#tla_msbuild](../msbuild/includes/tlasharptla_msbuild_md.md)] 相同的 <xref:System.AppDomain> 中运行，且运行速度更快。 如果该参数返回 true，则任务将在独立于 [!INCLUDE[TLA2#tla_msbuild](../msbuild/includes/tla2sharptla_msbuild_md.md)] 的另一个 <xref:System.AppDomain> 中运行，且运行速度更慢。|  
 |`ApplicationMarkup`|可选的 **ITaskItem[]** 参数。<br /><br /> 指定应用程序定义 [!INCLUDE[TLA2#tla_xaml](../msbuild/includes/tla2sharptla_xaml_md.md)] 文件的名称。|  
 |`AssembliesGeneratedDuringBuild`|可选 **String []** 参数。<br /><br /> 指定在生成过程中对更改的程序集的引用。 例如，[!INCLUDE[TLA#tla_visualstu2005](../msbuild/includes/tlasharptla_visualstu2005_md.md)] 解决方案可能包含一个引用了另一个项目的已编译输出的项目。 在这种情况下，可以将第二个项目的已编译输出添加到 **AssembliesGeneratedDuringBuild** 参数。<br /><br /> 注意：**AssembliesGeneratedDuringBuild** 参数必须包含对生成解决方案所生成的一组完整程序集的引用。|  
 |`AssemblyName`|必需的 **String** 参数。<br /><br /> 指定为项目生成的程序集的简称。 例如，如果项目生成一个名为 **WinExeAssembly.exe** 的 [!INCLUDE[TLA#tla_mswin](../code-quality/includes/tlasharptla_mswin_md.md)] 可执行文件，则 **AssemblyName** 参数的值为 **WinExeAssembly**。|  
@@ -80,7 +81,7 @@ ms.lasthandoff: 02/22/2017
 |`XAMLDebuggingInformation`|可选 **Boolean** 参数。<br /><br /> 如果为 **true**，则会生成诊断信息并将其包括在编译的 [!INCLUDE[TLA2#tla_xaml](../msbuild/includes/tla2sharptla_xaml_md.md)] 中，以辅助调试。|  
   
 ## <a name="remarks"></a>备注  
- <xref:Microsoft.Build.Tasks.Windows.MarkupCompilePass1> 任务通常将 [!INCLUDE[TLA2#tla_xaml](../msbuild/includes/tla2sharptla_xaml_md.md)] 编译为二进制格式并生成代码文件。 如果 [!INCLUDE[TLA2#tla_xaml](../msbuild/includes/tla2sharptla_xaml_md.md)] 文件包含对在相同项目中定义的类型的引用，则将此文件编译为二进制格式的任务会被 **MarkupCompilePass1** 推迟到第二个标记编译阶段 (**MarkupCompilePass2**)。 必须将此类文件的编译推迟，因为必须等到所引用的以本地方式定义的类型编译完后，才会对其进行编译。 但是，如果 [!INCLUDE[TLA2#tla_xaml](../msbuild/includes/tla2sharptla_xaml_md.md)] 文件具有 `x:Class` 属性，则 <xref:Microsoft.Build.Tasks.Windows.MarkupCompilePass1> 将为其生成特定于语言的代码文件。  
+ <xref:Microsoft.Build.Tasks.Windows.MarkupCompilePass1> 任务通常将 [!INCLUDE[TLA2#tla_xaml](../msbuild/includes/tla2sharptla_xaml_md.md)] 编译成二进制格式并生成代码文件。 如果 [!INCLUDE[TLA2#tla_xaml](../msbuild/includes/tla2sharptla_xaml_md.md)] 文件包含对在相同项目中定义的类型的引用，则将此文件编译为二进制格式的任务会被 **MarkupCompilePass1** 推迟到第二个标记编译阶段 (**MarkupCompilePass2**)。 必须将此类文件的编译推迟，因为必须等到所引用的以本地方式定义的类型编译完后，才会对其进行编译。 但如果 [!INCLUDE[TLA2#tla_xaml](../msbuild/includes/tla2sharptla_xaml_md.md)] 文件具有 `x:Class` 属性，<xref:Microsoft.Build.Tasks.Windows.MarkupCompilePass1> 会为其生成特定于语言的代码文件。  
   
  如果 [!INCLUDE[TLA2#tla_xaml](../msbuild/includes/tla2sharptla_xaml_md.md)] 文件包含使用 `x:Uid` 属性的元素，则此文件是可本地化的文件：  
   
@@ -140,5 +141,5 @@ ms.lasthandoff: 02/22/2017
  [任务参考](../msbuild/wpf-msbuild-task-reference.md)   
  [MSBuild 参考](../msbuild/msbuild-reference.md)   
  [任务参考](../msbuild/msbuild-task-reference.md)   
- [Building a WPF Application (WPF)](http://msdn.microsoft.com/Library/a58696fd-bdad-4b55-9759-136dfdf8b91c) （生成 WPF 应用程序 (WPF)）  
- [WPF XAML Browser Applications Overview](http://msdn.microsoft.com/Library/3a7a86a8-75d5-4898-96b9-73da151e5e16)（WPF XAML 浏览器应用程序概述）
+ [Building a WPF Application (WPF)](/dotnet/framework/wpf/app-development/building-a-wpf-application-wpf) （生成 WPF 应用程序 (WPF)）  
+ [WPF XAML Browser Applications Overview](/dotnet/framework/wpf/app-development/wpf-xaml-browser-applications-overview)（WPF XAML 浏览器应用程序概述）

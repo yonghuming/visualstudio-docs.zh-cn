@@ -29,10 +29,11 @@ translation.priority.ht:
 - tr-tr
 - zh-cn
 - zh-tw
-translationtype: Human Translation
-ms.sourcegitcommit: 203e1e27cc892e96b103fc6cb22a73672a8e16af
-ms.openlocfilehash: f351952a256679ec2d6c9dc2daa5288ca7214ad0
-ms.lasthandoff: 03/01/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9713f09b7379b14b9362e3853a910948935c501e
+ms.openlocfilehash: c52ed7c7e6de33d10d2a653a1072766aa9fb8023
+ms.contentlocale: zh-cn
+ms.lasthandoff: 05/31/2017
 
 ---
 # <a name="property-functions"></a>属性函数
@@ -98,6 +99,10 @@ ms.lasthandoff: 03/01/2017
 -   System.IO.Path  
 
 -   System.Math  
+
+-   System.Runtime.InteropServices.OSPlatform
+
+-   System.Runtime.InteropServices.RuntimeInformation
 
 -   System.UInt16  
 
@@ -195,13 +200,22 @@ ms.lasthandoff: 03/01/2017
 |int BitwiseAnd(第一个整型值, 第二个整型值)|对第一个值和第二个值执行按位 `AND`（第一个值 & 第二个值）。|  
 |int BitwiseXor(第一个整型值, 第二个整型值)|对第一个值和第二个值执行按位 `XOR`（第一个值 ^ 第二个值）。|  
 |int BitwiseNot(第一个整型值)|执行按位 `NOT`（~第一个值）。|  
+|bool IsOsPlatform(string platformString)|指定当前 OS 平台是否为 `platformString`。 `platformString` 必须属于 `OSPlatform`。|
+|bool IsOSUnixLike|如果当前 OS 是 Unix 系统，则为 True。|
+|string NormalizePath(params string[] path)|获取指定路径的规范化完整路径，并确保其包含当前操作系统的正确目录分隔符。|
+|string NormalizeDirectory(params string[] path)|获取指定目录的规范化完整路径，确保其包含当前操作系统的正确目录分隔符，并确保其具有尾部反斜杠。|
+|string EnsureTrailingSlash(string path)|如果给定路径没有尾部反斜杠，请添加一个。 如果路径为空字符串，请勿其进行修改。|
+|string GetPathOfFileAbove(string file, string startingDirectory)|根据当前生成文件的位置，或根据 `startingDirectory`（如果已指定）搜索文件。|
+|GetDirectoryNameOfFileAbove(string startingDirectory, string fileName)|在指定目录或该目录上级的目录结构位置中查找文件。|
+|string MakeRelative(string basePath, string path)|将 `path` 关联到 `basePath`。 `basePath` 必须是绝对目录。 如果无法关联 `path`，则会返回逐字字符串。 类似于 `Uri.MakeRelativeUri`。|
+|string ValueOrDefault(string conditionValue, string defaultValue)|仅当“conditionValue”为空时在参数“defaultValue”中返回字符串，否则返回值 conditionValue。|
 
 ##  <a name="nested-property-functions"></a>嵌套的属性函数  
  可将属性函数组合在一起，组成更复杂的函数，如下例所示。  
 
  `$([MSBuild]::BitwiseAnd(32, $([System.IO.File]::GetAttributes(tempFile))))`  
 
- 此示例返回由路径 `tempFile` 所指定文件的 <xref:System.IO.FileAttributes>`Archive` 位（32 或 0）的值。 请注意，枚举的数据值不能以名称形式显示在属性函数内。 必须改用数字值 (32)。  
+ 此示例返回由路径 <xref:System.IO.FileAttributes> 所指定文件的 `Archive``tempFile` 位（32 或 0）的值。 请注意，枚举的数据值不能以名称形式显示在属性函数内。 必须改用数字值 (32)。  
 
  元数据也可以出现在嵌套的属性函数中。 有关详细信息，请参阅[批处理](../msbuild/msbuild-batching.md)。  
 

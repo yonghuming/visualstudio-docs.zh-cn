@@ -1,12 +1,13 @@
 ---
 title: "Visual Studio 中适用于 Python 的 CookieCutter 扩展 | Microsoft Docs"
 ms.custom: 
-ms.date: 5/8/2017
+ms.date: 7/12/2017
 ms.prod: visual-studio-dev15
 ms.reviewer: 
 ms.suite: 
 ms.technology:
 - devlang-python
+ms.devlang: python
 ms.tgt_pltfrm: 
 ms.topic: article
 ms.assetid: 783da5fd-726c-4716-994e-aa04d6b75896
@@ -14,25 +15,11 @@ caps.latest.revision: 1
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-translation.priority.ht:
-- cs-cz
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pl-pl
-- pt-br
-- ru-ru
-- tr-tr
-- zh-cn
-- zh-tw
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 85576806818a6ed289c2f660f87b5c419016c600
-ms.openlocfilehash: 44aa74104cbb27de62fe739dbdd8f269fbf42c53
+ms.translationtype: HT
+ms.sourcegitcommit: 6d25db4639f2c8391c1e32542701ea359f560178
+ms.openlocfilehash: 6db7e2efc54414dcb72899ab3238a9b7a0390921
 ms.contentlocale: zh-cn
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 07/18/2017
 
 ---
 
@@ -42,9 +29,9 @@ ms.lasthandoff: 05/10/2017
 
 Cookiecutter 需要 Python 3.3 或更高版本（32 位或 64 位）或者 Anaconda 3 4.2 或更高版本（32 位或 64 位）。 如果适用的 Python 解释器不可用，Visual Studio 将显示警告。 如果 Visual Studio 运行时安装 Python 解释器，请单击Cookiecutter 工具栏上的“开始”按钮，检测新安装的解释器。
 
-安装后，选择“视图”>“Cookicutter 资源管理器”以打开其窗口：
+安装后，选择“视图”>“Cookiecutter 资源管理器”打开其窗口：
 
-![Cookiecutter 主窗口](~/python/media/cookiecutter-overview.png)
+![Cookiecutter 主窗口](media/cookiecutter-overview.png)
 
 ## <a name="cookiecutter-workflow"></a>Cookiecutter 工作流
 
@@ -76,27 +63,27 @@ Cookiecutter 主页上显示可选择的模板列表，分为以下几组：
 
 本地安装模板后，Cookiecutter 将显示选项页，在该页中可以指定 Cookiecutter 生成文件的位置以及其他选项：
 
-![Cookiecutter 选项页](~/python/media/cookiecutter-template-options.png)
+![Cookiecutter 选项页](media/cookiecutter-template-options.png)
 
 每个 Cookiecutter 模板定义各自的选项集，并为每个选项指定默认值（显示为每个条目字段中的建议文本）。 如果默认值是使用其他选项的动态值，则通常为代码片段。 
 
-使用用户配置文件可为特定选项自定义默认值。 Cookiecutter 扩展检测到用户配置文件时，会使用用户配置的默认值覆盖模板的默认值。 Cookiecutter 文档的[用户配置](https://cookiecutter.readthedocs.io/en/latest/advanced/user_config.html)部分对此进行了讨论。
+使用用户配置文件可为特定选项自定义默认值。 Cookiecutter 扩展检测到用户配置文件时，会使用用户配置的默认值覆盖模板的默认值。 Cookiecutter 文档的[用户配置](https://cookiecutter.readthedocs.io/en/latest/advanced/user_config.html)部分对此行为进行了讨论。
 
 如果模板指定在代码生成后运行特定的 Visual Studio 任务，则将显示附加的“完成后运行其他任务”选项，该选项允许退出运行那些任务。 最常见的任务是打开 Web 浏览器、在编辑器中打开文件、安装依赖项等。
 
 ### <a name="create"></a>创建
 
-设置选项后，选择“创建”以生成代码。 请注意，如果输出文件夹不为空，将看到警告消息。 如果你对模板的输出很熟悉并且不介意覆盖文件，可以忽略该警告。 否则，请选择“取消”，指定一个空文件夹，然后将创建的文件手动复制到非空的输出文件夹。
+设置选项后，请选择“创建”来生成代码（如果输出文件夹不为空，则会出现警告）。 如果你对模板的输出很熟悉并且不介意覆盖文件，可以忽略该警告。 否则，请选择“取消”，指定一个空文件夹，然后将创建的文件手动复制到非空的输出文件夹。
 
 成功创建文件后，Cookiecutter 提供在“解决方案资源管理器”中打开文件的选项：
 
-![显示解决方案资源管理器命令的 Cookiecutter](~/python/media/cookiecutter-files-created.png)
+![显示解决方案资源管理器命令的 Cookiecutter](media/cookiecutter-files-created.png)
 
 ## <a name="cookiecutter-options"></a>Cookiecutter 选项
 
 通过“工具”>“选项”>“Cookiecutter”，可使用 Cookiecutter 选项：
 
-![Cookiecutter 选项](~/python/media/cookiecutter-tools-options.png)
+![Cookiecutter 选项](media/cookiecutter-tools-options.png)
 
 | 选项 | 说明 |
 | --- | --- |
@@ -105,19 +92,19 @@ Cookiecutter 主页上显示可选择的模板列表，分为以下几组：
 
 ## <a name="optimizing-cookiecutter-templates-for-visual-studio"></a>优化用于 Visual Studio 的 Cookiecutter 模板
 
-有关创作 Cookiecutter 模板的基础知识，请参阅 [Cookiecutter 文档](https://cookiecutter.readthedocs.io/en/latest/first_steps.html)。 请注意，用于 Visual Studio 的 Cookiecutter 扩展支持创建用于 Cookiecutter v1.4 的模板。
+有关创作 Cookiecutter 模板的基础知识，请参阅 [Cookiecutter 文档](https://cookiecutter.readthedocs.io/en/latest/first_steps.html)。 用于 Visual Studio 的 Cookiecutter 扩展支持创建用于 Cookiecutter v1.4 的模板。
 
 模板变量的默认呈现取决于数据类型（字符串或列表）：
 
 - 字符串：变量名称的标签、输入值的文本框和显示默认值的水印。 文本框上的工具提示显示默认值。
 - 列表：变量名称的标签、选择值的组合框。 组合框上的工具提示显示默认值。
 
-可以通过在特定于 Visual Studio 的 `cookiecutter.json` 文件（并且 Cookiecutter CLI 忽略了该文件）中指定其他元数据，对此进行改进。 所有属性都是可选的：
+通过在特定于 Visual Studio 的 `cookiecutter.json` 文件（并且 Cookiecutter CLI 忽略了该文件）中指定其他元数据，可以改进此呈现。 所有属性都是可选的：
 
 | 属性 | 说明 |
 | --- | --- |
 | 标签 | 指定编辑器上方显示的关于变量的内容，而不是变量名称。 |
-| 描述 | 指定编辑控件上的工具提示显示该说明，而不是该变量的默认值。 |
+| 描述 | 指定编辑控件上显示的工具提示，而不是该变量的默认值。 |
 | URL | 将标签转换为超链接，并使用工具提示显示该 URL。 单击超链接将打开用户默认浏览器，并转到该 URL。 |
 | 选择器 | 允许为变量自定义编辑器。 目前支持以下选择器：<ul><li>`string`：标准文本框，默认用于符串。</li><li>`list`：标准组合框，默认用于列表。</li><li>`yesno`：在 `y` 和 `n` 之间进行选择的组合框，用于字符串。</li><li>`odbcConnection`：具有“...”按钮的文本框，可用于打开数据库连接对话框。</li></ul> |
 
@@ -189,7 +176,7 @@ Cookiecutter 具有名为“后生成挂钩”的功能，允许文件生成后�
 ]
 ```
 
-对于多个参数，请使用数组。 对于开关，请将开关及其值拆分为单独的参数以确保正确引用。 例如: 
+对于多个参数，请使用数组。 对于开关，请将开关及其值拆分为单独的参数并使用正确的引用。 例如: 
 
 ```json
 "_visual_studio_post_cmds": [
@@ -206,13 +193,13 @@ Cookiecutter 具有名为“后生成挂钩”的功能，允许文件生成后�
 
 参数可以引用其他 Cookiecutter 变量。 在上述示例中，内部的 `_output_folder_path` 变量用于生成该生成文件的绝对路径。
 
-请注意，只有将文件添加到现有项目时，`Python.InstallProjectRequirements` 命令才有效。 因为该命令由 Python 项目在解决方案资源管理器中处理，并且“解决方案资源管理器”的“文件夹”视图中没有用于接收的消息的项目。 这是我们希望在将来版本中解决的限制（总体上优化文件夹视图）。
+请注意，只有将文件添加到现有项目时，`Python.InstallProjectRequirements` 命令才有效。 存在此限制的原因是，该命令由 Python 项目在解决方案资源管理器中处理，并且“解决方案资源管理器”的“文件夹”视图中没有用于接收的消息的项目。 我们希望在将来版本中消除此限制（并在总体上提供优化的文件夹视图）。
 
 ## <a name="troubleshooting"></a>疑难解答
 
 ### <a name="error-loading-template"></a>加载模板时出错
 
-某些模板可能正在其 `cookiecutter.json` 中使用无效的数据类型，如布尔值。 应将此错误报告给模板作者。 单击模板信息窗格中的“问题”链接。
+某些模板可能正在其 `cookiecutter.json` 中使用无效的数据类型，如布尔值。 选择模板信息窗格中的“问题”链接即可向模板作者报告此类实例。
 
 ### <a name="hook-script-failed"></a>挂钩脚本失败
 
@@ -220,7 +207,7 @@ Cookiecutter 具有名为“后生成挂钩”的功能，允许文件生成后�
 
 ### <a name="hook-script-not-supported-on-windows"></a>Windows 不支持挂钩脚本
 
-如果后期脚本为 `.sh`，则可能不会与 Windows 计算机上的应用程序相关联。 可能会弹出一个 Windows 对话框，要求在 Windows 应用商店中查找兼容的应用程序。
+如果后期脚本为 `.sh`，则可能不会与 Windows 计算机上的应用程序相关联。 可能会出现一个 Windows 对话框，要求在 Windows 应用商店中查找兼容的应用程序。
 
 ### <a name="templates-with-known-issues"></a>具有已知问题的模板
 

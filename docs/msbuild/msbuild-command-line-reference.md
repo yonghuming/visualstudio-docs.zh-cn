@@ -36,10 +36,11 @@ translation.priority.ht:
 - tr-tr
 - zh-cn
 - zh-tw
-translationtype: Human Translation
-ms.sourcegitcommit: 5db97d19b1b823388a465bba15d057b30ff0b3ce
-ms.openlocfilehash: 570915111874202930ee9ad6d5066fc6761b54d2
-ms.lasthandoff: 02/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 9713f09b7379b14b9362e3853a910948935c501e
+ms.openlocfilehash: e55b81428aa7d54d8383955c67e206df919bb1d1
+ms.contentlocale: zh-cn
+ms.lasthandoff: 05/31/2017
 
 ---
 # <a name="msbuild-command-line-reference"></a>MSBuild 命令行参考
@@ -68,10 +69,10 @@ MSBuild.exe [Switches] [ProjectFile]
 |/noautoresponse|/noautorsp|不自动包含任何 MSBuild.rsp 文件。|  
 |/nodeReuse:`value`|/nr:`value`|启用或禁用 MSBuild 节点的重复使用。 你可以指定以下值：<br /><br /> -   **True**。 节点在生成完成之后保留，以便后续生成可以使用它们（默认值）。<br />-   **False**。 节点在生成完成之后不保留。<br /><br /> 节点对应于正在执行的项目。 如果包含 **/maxcpucount** 开关，则多个节点可以并发执行。|  
 |/nologo||不显示启动版权标志或版权消息。|  
-|/preprocess[:`filepath`]|/pp[:`filepath`]|通过内联会在生成期间导入的所有文件（标记其边界）创建单一的聚合项目文件。 可以使用此开关更轻松地确定所导入的文件、从中导入文件的位置以及参与生成的文件。 使用此开关时，不生成项目。<br /><br /> 如果指定 `filepath`，则会将聚合项目文件输出到文件。 否则，输出将显示在控制台窗口中。<br /><br /> 若要了解如何使用 `Import` 元素将项目文件插入到另一个项目文件，请参阅 [Import 元素 (MSBuild)](../msbuild/import-element-msbuild.md) 和[如何：在多个项目文件中使用同一目标](../msbuild/how-to-use-the-same-target-in-multiple-project-files.md)。|  
+|<a name="preprocess"></a> /preprocess[:`filepath`]|/pp[:`filepath`]|通过内联会在生成期间导入的所有文件（标记其边界）创建单一的聚合项目文件。 可以使用此开关更轻松地确定所导入的文件、从中导入文件的位置以及参与生成的文件。 使用此开关时，不生成项目。<br /><br /> 如果指定 `filepath`，则会将聚合项目文件输出到文件。 否则，输出将显示在控制台窗口中。<br /><br /> 若要了解如何使用 `Import` 元素将项目文件插入到另一个项目文件，请参阅 [Import 元素 (MSBuild)](../msbuild/import-element-msbuild.md) 和[如何：在多个项目文件中使用同一目标](../msbuild/how-to-use-the-same-target-in-multiple-project-files.md)。|  
 |/property:`name`=`value`|/p:`name`=`value`|设置或重写指定项目级属性，其中 `name` 是属性名称，`value` 是属性值。 单独指定每个属性，或使用分号或逗号分隔多个属性，如以下示例所示：<br /><br /> `/property:WarningLevel=2;OutDir=bin\Debug`|  
 |/target:`targets`|/t:`targets`|在项目中生成指定目标。 单独指定每个目标，或使用分号或逗号分隔多个目标，如以下示例所示：<br /><br /> `/target:Resources;Compile`<br /><br /> 如果使用此开关指定任何目标，则它们会代替项目文件中的 `DefaultTargets` 特性中的任何目标来运行。 有关详细信息，请参阅[目标生成顺序](../msbuild/target-build-order.md)和[如何：指定首先生成的目标](../msbuild/how-to-specify-which-target-to-build-first.md)。<br /><br /> 目标是一组任务。 有关详细信息，请参阅[目标](../msbuild/msbuild-targets.md)。|  
-|/toolsversion:`version`|/tv:`version`|指定要用于生成项目的工具集的版本，如以下示例所示：`/toolsversion:3.5`<br /><br /> 使用此开关可以生成项目并指定与 [Project 元素 (MSBuild)](../msbuild/project-element-msbuild.md) 中指定的版本不同的版本。 有关详细信息，请参阅[重写 ToolsVersion 设置](../msbuild/overriding-toolsversion-settings.md)。<br /><br /> 对于 MSBuild 4.5，可以为 `version` 指定以下值：2.0、3.5 和 4.0。 如果指定 4.0，`VisualStudioVersion` 生成属性会指定要使用的子工具集。 有关详细信息，请参阅[工具集 (ToolsVersion)](../msbuild/msbuild-toolset-toolsversion.md) 的“子工具集”一节。<br /><br /> 包含用于生成应用程序的任务、目标和工具的工具集。 工具包括编译器例如 csc.exe 和 vbc.exe。 有关工具集的详细信息，请参阅[工具集 (ToolsVersion)](../msbuild/msbuild-toolset-toolsversion.md)、[标准和自定义工具集配置](../msbuild/standard-and-custom-toolset-configurations.md)和[多定向](../msbuild/msbuild-multitargeting-overview.md)。 **注意：**工具集版本与目标框架不同，后者是生成项目以在其上运行的 .NET Framework 的版本。 有关详细信息，请参阅[目标框架和目标平台](../msbuild/msbuild-target-framework-and-target-platform.md)。|  
+|/toolsversion:`version`|/tv:`version`|指定要用于生成项目的工具集的版本，如以下示例所示：`/toolsversion:3.5`<br /><br /> 使用此开关可以生成项目并指定与 [Project 元素 (MSBuild)](../msbuild/project-element-msbuild.md) 中指定的版本不同的版本。 有关详细信息，请参阅[重写 ToolsVersion 设置](../msbuild/overriding-toolsversion-settings.md)。<br /><br /> 对于 MSBuild 4.5，可以为 `version` 指定以下值：2.0、3.5 和 4.0。 如果指定 4.0，`VisualStudioVersion` 生成属性会指定要使用的子工具集。 有关详细信息，请参阅[工具集 (ToolsVersion)](../msbuild/msbuild-toolset-toolsversion.md) 的“子工具集”一节。<br /><br /> 包含用于生成应用程序的任务、目标和工具的工具集。 工具包括编译器例如 csc.exe 和 vbc.exe。 有关工具集的详细信息，请参阅[工具集 (ToolsVersion)](../msbuild/msbuild-toolset-toolsversion.md)、[标准和自定义工具集配置](../msbuild/standard-and-custom-toolset-configurations.md)和[多定向](../msbuild/msbuild-multitargeting-overview.md)。 注意：工具集版本与目标框架不同，它是在其中生成要运行项目的 .NET Framework 的版本。 有关详细信息，请参阅[目标框架和目标平台](../msbuild/msbuild-target-framework-and-target-platform.md)。|  
 |/validate:[`schema`]|/val[`schema`]|验证项目文件，如果验证成功，则生成项目。<br /><br /> 如果没有指定 `schema`，则针对默认架构验证项目。<br /><br /> 如果指定 `schema`，则针对指定的架构验证项目。<br /><br /> 下面的设置是一个示例：`/validate:MyExtendedBuildSchema.xsd`|  
 |/verbosity:`level`|/v:`level`|指定要在生成日志中显示的信息量。 每个记录器基于为该记录器设置的详细级别显示事件。<br /><br /> 可以指定以下详细级别：`q[uiet]`、`m[inimal]`、`n[ormal]`、`d[etailed]` 和 `diag[nostic]`。<br /><br /> 下面的设置是一个示例：`/verbosity:quiet`|  
 |/version|/ver|仅显示版本信息。 不生成项目。|  
@@ -106,3 +107,4 @@ msbuild SlnFolders.sln /t:NotInSolutionfolder:Rebuild;NewFolder\InSolutionFolder
 ## <a name="see-also"></a>另请参阅  
  [MSBuild 参考](../msbuild/msbuild-reference.md)   
  [常用的 MSBuild 项目属性](../msbuild/common-msbuild-project-properties.md)
+

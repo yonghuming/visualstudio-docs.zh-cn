@@ -26,10 +26,11 @@ translation.priority.ht:
 - tr-tr
 - zh-cn
 - zh-tw
-translationtype: Human Translation
-ms.sourcegitcommit: edb6c75d35f89df363a07eb24ba31e203bc6672e
-ms.openlocfilehash: 30261d8b75029bac15c9ab881d9f43c1a717d8cd
-ms.lasthandoff: 03/15/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: c559290c8e88c8b4e37feabc7014188fad15434d
+ms.openlocfilehash: 0a939044b9806236cf55333c30bce24ae0fdb28a
+ms.contentlocale: zh-cn
+ms.lasthandoff: 06/08/2017
 
 ---
 
@@ -38,10 +39,9 @@ ms.lasthandoff: 03/15/2017
 在你开发应用程序时，Live Unit Testing 将在后台自动运行任何受影响的单元测试并在 Visual Studio IDE 中实时显示结果和代码覆盖率。 在你修改代码时，Live Unit Testing 可提供关于更改如何影响现有测试和新增代码是否会被一个或多个现存测试覆盖的反馈。 这可在你进行 bug 修复或添加新功能时，温馨地提示你编写单元测试。
 
 > [!NOTE]
-> Live Unit Testing 适用于面向企业版 Visual Studio 2017 中的 .NET Framework 的 C# 和 Visual Basic 项目。 目前，不适用于 .NET Core。
+> Live Unit Testing 适用于面向企业版 Visual Studio 2017 中的 .NET Core 或 .NET Framework 的 C# 和 Visual Basic 项目。
 
 ## <a name="supported-test-frameworks"></a>受支持的测试框架
-
 Live Unit Testing 适用于下表中列出的三个常用的单元测试框架。 表中还列出了其适配器和框架支持的最低版本。 单元测试框架都可从 NuGet.org 获得。
  
 <table> 
@@ -62,8 +62,8 @@ Live Unit Testing 适用于下表中列出的三个常用的单元测试框架�
 </tr>
 <tr>
    <td>MSTest</td>
-   <td>MSTest.TestAdapter 1.1.4-预览版</td>
-   <td>MSTest.TestFramework 1.0.5-预览版</td>
+   <td>MSTest.TestAdapter 1.1.11</td>
+   <td>MSTest.TestFramework 1.1.11</td>
 </tr>
 </table>
 
@@ -71,11 +71,11 @@ Live Unit Testing 适用于下表中列出的三个常用的单元测试框架�
 
 在某些情况下，可能需要显式还原解决方案中项目引用的 NuGet 包，以便 Live Unit Testing 可正常运行。 你可以先通过显式生成解决方案（从顶级 Visual Studio 菜单中选择“生成”>“重新生成解决方案”）或通过还原解决方案中的包（右键单击解决方案并选择“还原 NuGet 包”）实现此操作，然后再启用 Living Unit Testing。 
 
-#    <a name="configuring-live-unit-testing"></a>配置 Live Unit Testing
+#   <a name="configuring-live-unit-testing"></a>配置 Live Unit Testing
 
 可以通过从顶级 Visual Studio 菜单中选择“工具”>“选项”，然后在“选项”对话框左窗格中选择“Live Unit Testing”来配置 Live Unit Testing。 下图显示对话框中可用的 Live Unit Testing 配置选项。
 
-  ![Image](~/test/media/lut-options.png)
+  ![Image](./media/lut-options.png)
 
 可配置选项包括：
 
@@ -100,25 +100,25 @@ Live Unit Testing 适用于下表中列出的三个常用的单元测试框架�
 - **停止**，用于完全停止 Live Unit Testing。 Live Unit Testing 将放弃所有已收集的数据
 - **重启**，相当于从“Live Unit Testing”菜单中选择“停止”，然后选择“开始”。
 
-##    <a name="viewing-coverage-visualization-in-the-editor-as-you-type"></a>在编辑器中查看键入时的覆盖率可视化效果
+##  <a name="viewing-coverage-visualization-in-the-editor-as-you-type"></a>在编辑器中查看键入时的覆盖率可视化效果
 
-一旦启用，Live Unit Testing 将在 Visual Studio 编辑器中更新每行代码，以显示正在编写的代码是否由单元测试覆盖以及覆盖这些代码的测试是否通过。  下图显示测试通过和失败的代码行，以及测试未覆盖的代码行。 绿色“✓”修饰的行表示仅由通过测试覆盖，红色“🞩”修饰的行表示由一项或多项失败测试覆盖，蓝色“”修饰的行表示未被任何测试覆盖。
+一旦启用，Live Unit Testing 将在 Visual Studio 编辑器中更新每行代码，以显示正在编写的代码是否由单元测试覆盖以及覆盖这些代码的测试是否通过。  下图显示测试通过和失败的代码行，以及测试未覆盖的代码行。 绿色“✓”修饰的行只表示通过测试，红色“🞩”修饰的行表示未通过一项或多项测试，蓝色“”修饰的行表示未经过任何测试。
 
-  ![Image](~/ide/media/lut-codewindow.png)
+  ![Image](./media/lut-codewindow.png)
 
 当你在代码编辑器中修改代码后，将立即更新 Live Unit Testing 覆盖率可视化效果。 处理编辑时，可视化效果将变化，通过在通过、失败和未覆盖符号下方添加圆形计时器图像来指示数据非最新，如下图所示。
 
-  ![Image](~/test/media/lut-codeupdating.png)
+  ![Image](./media/lut-codeupdating.png)
  
 ## <a name="getting-information-on-successful-or-failed-tests"></a>获取关于成功或失败测试的信息
 
 将鼠标悬停在代码窗口中的成功或失败符号上，可以看到符合此条件的测试数目。 如果单击该符号，可以查看各个测试的状态，如下图所示。
  
-  ![Image](~/test/media/lut-failedinfo.png) 
+  ![Image](./media/lut-failedinfo.png) 
 
 当鼠标悬停于工具提示中的失败测试时，它将展开以提供关于失败的详细信息，如下图所示。 如果单击工具提示中的未通过测试，你可以直接导航到它。
 
-  ![Image](~/test/media/lut-failedmsg.png) 
+  ![Image](./media/lut-failedmsg.png) 
 
 ## <a name="diagnosing-and-correcting-test-failures"></a>诊断和更正测试失败
 
@@ -142,8 +142,8 @@ Live Unit Testing 适用于下表中列出的三个常用的单元测试框架�
 
 例如，如果你的解决方法含数百个测试项目，你可以选择一组目标测试项目来参与 Live Unit Testing。 若要在单元测试中选择单个项目，请在启动 Live Unit Testing 后执行以下操作：
 
-1.    在解决方案资源管理器中单击解决方案并依次选择“实时测试”、“排除”以排除整个解决方案。
-2.    右键单击想要包括在测试中的每个测试项目，然后依次选择“实时测试”“包括”。
+1.  在解决方案资源管理器中单击解决方案并依次选择“实时测试”、“排除”以排除整个解决方案。
+2.  右键单击想要包括在测试中的每个测试项目，然后依次选择“实时测试”“包括”。
  
 使用代码编辑器窗口包含或排除单个测试方法。 在代码编辑器窗口中单击测试方法的签名，然后依次选择“实时测试”、“包括”或“实时测试”“排除”。 
 

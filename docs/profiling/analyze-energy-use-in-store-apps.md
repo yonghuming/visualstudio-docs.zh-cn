@@ -34,10 +34,10 @@ translation.priority.mt:
 - pt-br
 - tr-tr
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 47057e9611b824c17077b9127f8d2f8b192d6eb8
-ms.openlocfilehash: 28a8636db753eb71a90cb89f921f58b97aabdc59
+ms.sourcegitcommit: 669bc5894727c207691a7e37937f432d98fee8b1
+ms.openlocfilehash: 3a78a0d9afc766d316957b27d70269518f2d9d33
 ms.contentlocale: zh-cn
-ms.lasthandoff: 05/13/2017
+ms.lasthandoff: 06/30/2017
 
 ---
 # <a name="analyze-energy-use-in-store-apps"></a>分析应用商店应用中的能量使用
@@ -59,14 +59,14 @@ Visual Studio 的 **“能耗”** 探查器可以帮助你分析低功率平板
   
 -   能量 以电容或电势的形式衡量总功率数，如电池的功率容量或在一段时间内消耗的总功率。 能量单位为瓦时，即一瓦持续作用一小时所产生的功率数量。 在 **“能量摘要”**中，单位显示为毫瓦时 **“mW-h”**。  
   
- ![能量容量、已用电量和已用总能量](~/profiling/media/energyprof_capcitypowerused.png "ENERGYPROF_CapcityPowerUsed")  
+ ![能量容量、已用电量和已用总能量](../profiling/media/energyprof_capcitypowerused.png "ENERGYPROF_CapcityPowerUsed")  
   
  例如，平板电脑中充满电的电池存储了一定数量的能量。 当能量用于执行网络通信、计算值或显示图像等任务时，电池的功率以不同的速率消耗。 对于任意一段时间，消耗的功率的总和还可按能量进行衡量。  
   
 ##  <a name="BKMK_Identify_scenarios_with_user_marks"></a> 用用户标记标识方案  
  可以向分析数据添加“用户标记”  以帮助标识时间线标尺中的区域。  
   
- ![时间线中的用户标记](~/profiling/media/profilers_usermarktimeline.png "PROFILERS_UserMarkTimeline")  
+ ![时间线中的用户标记](../profiling/media/profilers_usermarktimeline.png "PROFILERS_UserMarkTimeline")  
   
  每次执行此方法时，标记将显示为时间线中的橙色三角形。 将鼠标指针悬停在该标记上时，将以工具提示的形式显示消息和时间。 如果有两个或更多个用户标记靠近在一起，则将合并这些标记，而且还将组合工具提示数据。 可以放大时间线来分隔标记。  
   
@@ -77,7 +77,7 @@ Visual Studio 的 **“能耗”** 探查器可以帮助你分析低功率平板
  执行此方法时，用户标记将与消息一起添加到分析数据中。  
   
 > [!NOTE]
->  -   Windows.Foundation.Diagnostics LoggingChannel 实现 [Windows.Foundation.IClosable](http://msdn.microsoft.com/library/windows/apps/windows.foundation.iclosable.aspx) 接口（在 C# 和 VB 中表现为 [System.IDisposable](http://msdn.microsoft.com/library/System.IDisposable.aspx)）。若要避免操作系统资源泄露，请在完成日志记录通道时调用 [LoggingChannel.Close](http://msdn.microsoft.com/library/windows/apps/windows.foundation.diagnostics.loggingchannel.close.aspx)（在 C# 和 VB 中为 [Windows.Foundation.Diagnostics.LoggingChannel.Dispose](https://msdn.microsoft.com/en-us/library/windows/apps/windows.foundation.diagnostics.loggingchannel.dispose.aspx)）。  
+>  -   Windows.Foundation.Diagnostics LoggingChannel 实现 [Windows.Foundation.IClosable](/uwp/api/windows.foundation.iclosable) 接口（在 C# 和 VB 中表现为 [System.IDisposable](/dotnet/api/system.idisposable)）。若要避免操作系统资源泄露，请在完成日志记录通道时调用 [LoggingChannel.Close](/uwp/api/Windows.Foundation.Diagnostics.LoggingChannel)（在 C# 和 VB 中为 [Windows.Foundation.Diagnostics.LoggingChannel.Dispose](/uwp/api/Windows.Foundation.Diagnostics.LoggingChannel)）。  
 > -   每个打开的日志记录通道都必须有唯一的名称。 尝试创建与未释放的通道同名的新日志记录通道会导致出现异常。  
   
  有关示例，请参阅 Windows SDK 示例 [LoggingSession 示例](http://code.msdn.microsoft.com/windowsapps/LoggingSession-Sample-ccd52336) 。  
@@ -117,7 +117,7 @@ if (performance && performance.mark) {
   
 4.  若要停止分析，请切回到 Visual Studio (Alt + Tab) 并在“诊断中心”页面上选择 **“停止收集”** 。  
   
-     ![停止收集数据](~/profiling/media/xamlprof_stopcollection.png "XAMLProf_StopCollection")  
+     ![停止收集数据](../profiling/media/xamlprof_stopcollection.png "XAMLProf_StopCollection")  
   
      Visual Studio 将分析收集的数据并显示结果。  
   
@@ -141,12 +141,12 @@ if (performance && performance.mark) {
   
 |||  
 |-|-|  
-|![第 1 步](~/profiling/media/procguid_1.png "ProcGuid_1")|报告文件名为 Report*YYYYMMDD-HHMM*.diagsession。 如果你决定保存此报告，可以更改此名称。|  
-|![第 2 步](~/profiling/media/procguid_2.png "ProcGuid_2")|时间线显示分析会话的长度、应用程序生命周期激活事件以及用户标记。|  
-|![第 3 步](~/profiling/media/procguid_3.png "ProcGuid_3")|你可以通过拖动蓝色条选择时间线的一个区域，将报告限制到这一部分时间线内。|  
-|![第 4 步](~/profiling/media/procguid_4.png "ProcGuid_4")|**“电源使用”** 图是一个多线图，显示分析会话期间由设备资源导致的功率输出的变化。 “能量消耗”探查器可跟踪 CPU、网络活动和屏幕显示所使用的功率。|  
-|![第 5 步](~/profiling/media/procguid_6.png "ProcGuid_6")|**“资源(打开/关闭)”**  图提供网络能量成本的详细信息。 **“网络”** 条表示网络连接的打开时间。 **“数据传输”** 子条为应用程序通过网络接收或发送数据的时间。|  
-|![第 6 步](~/profiling/media/procguid_6a.png "ProcGuid_6a")|**“能量使用率摘要”** 按比例显示选定时间线内 CPU、网络活动和屏幕显示使用的总能量。|  
+|![第 1 步](../profiling/media/procguid_1.png "ProcGuid_1")|报告文件名为 Report*YYYYMMDD-HHMM*.diagsession。 如果你决定保存此报告，可以更改此名称。|  
+|![第 2 步](../profiling/media/procguid_2.png "ProcGuid_2")|时间线显示分析会话的长度、应用程序生命周期激活事件以及用户标记。|  
+|![第 3 步](../profiling/media/procguid_3.png "ProcGuid_3")|你可以通过拖动蓝色条选择时间线的一个区域，将报告限制到这一部分时间线内。|  
+|![第 4 步](../profiling/media/procguid_4.png "ProcGuid_4")|**“电源使用”** 图是一个多线图，显示分析会话期间由设备资源导致的功率输出的变化。 “能量消耗”探查器可跟踪 CPU、网络活动和屏幕显示所使用的功率。|  
+|![第 5 步](../profiling/media/procguid_6.png "ProcGuid_6")|**“资源(打开/关闭)”**  图提供网络能量成本的详细信息。 **“网络”** 条表示网络连接的打开时间。 **“数据传输”** 子条为应用程序通过网络接收或发送数据的时间。|  
+|![第 6 步](../profiling/media/procguid_6a.png "ProcGuid_6a")|**“能量使用率摘要”** 按比例显示选定时间线内 CPU、网络活动和屏幕显示使用的总能量。|  
   
  **分析能量分布曲线数据**  
   
@@ -170,3 +170,6 @@ if (performance && performance.mark) {
      使用 Windows 应用商店应用程序的 Visual Studio 模拟器可以模拟网络信息 API 的数据连接属性。 请参见 [Run Windows Store apps in the simulator](../debugger/run-windows-store-apps-in-the-simulator.md)  
   
 -   **“JavaScript 函数计时”** 和 **“CPU 使用量”** 工具有助于降低由低效函数导致的 CPU 负载。 请参阅[分析 CPU 使用情况](../profiling/analyze-cpu-usage-in-a-windows-universal-app.md)。
+
+## <a name="see-also"></a>另请参阅
+ [Visual Studio 中的分析](../profiling/index.md) [分析功能简介](../profiling/profiling-feature-tour.md)

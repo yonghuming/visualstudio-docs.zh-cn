@@ -36,20 +36,21 @@ translation.priority.ht:
 - tr-tr
 - zh-cn
 - zh-tw
-translationtype: Human Translation
-ms.sourcegitcommit: 79460291e91f0659df0a4241e17616e55187a0e2
-ms.openlocfilehash: 8635b408edc4b8088ce04a18388a0da44e9cb435
-ms.lasthandoff: 02/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 3d32d11a430227800cb3ed53831a9565eb6adeb3
+ms.openlocfilehash: 22e870dfdd02e047160cf7b2ed9437c193f89f3e
+ms.contentlocale: zh-cn
+ms.lasthandoff: 05/30/2017
 
 ---
 # <a name="markupcompilepass2-task"></a>MarkupCompilePass2 任务
-<xref:Microsoft.Build.Tasks.Windows.MarkupCompilePass2> 任务在引用同一项目中的类型的 [!INCLUDE[TLA#tla_xaml](../msbuild/includes/tlasharptla_xaml_md.md)] 文件中执行第二轮标记编译。  
+<xref:Microsoft.Build.Tasks.Windows.MarkupCompilePass2> 任务对引用同一项目中的类型的 [!INCLUDE[TLA#tla_xaml](../msbuild/includes/tlasharptla_xaml_md.md)] 文件执行第二轮标记编译。  
   
 ## <a name="task-parameters"></a>任务参数  
   
 |参数|描述|  
 |---------------|-----------------|  
-|`AlwaysCompileMarkupFilesInSeparateDomain`|可选 **Boolean** 参数。<br /><br /> 指定是否在单独的 <xref:System.AppDomain> 中运行任务。 如果此参数返回 **false**，则任务将在与 [!INCLUDE[TLA#tla_msbuild](../msbuild/includes/tlasharptla_msbuild_md.md)] 相同的 <xref:System.AppDomain> 中运行，且运行速度更快。 如果该参数返回 **true**，则任务将在独立于 [!INCLUDE[TLA2#tla_msbuild](../msbuild/includes/tla2sharptla_msbuild_md.md)] 的另一个 <xref:System.AppDomain> 中运行，且运行速度较慢。|  
+|`AlwaysCompileMarkupFilesInSeparateDomain`|可选 **Boolean** 参数。<br /><br /> 指定是否在单独的 <xref:System.AppDomain> 下运行该任务。 如果此参数返回 false，则任务将在与 [!INCLUDE[TLA#tla_msbuild](../msbuild/includes/tlasharptla_msbuild_md.md)] 相同的 <xref:System.AppDomain> 中运行，且运行速度更快。 如果该参数返回 true，则任务将在独立于 [!INCLUDE[TLA2#tla_msbuild](../msbuild/includes/tla2sharptla_msbuild_md.md)] 的另一个 <xref:System.AppDomain> 中运行，且运行速度更慢。|  
 |`AssembliesGeneratedDuringBuild`|可选 **String []** 参数。<br /><br /> 指定在生成过程中对更改的程序集的引用。 例如，[!INCLUDE[TLA#tla_visualstu2005](../msbuild/includes/tlasharptla_visualstu2005_md.md)] 解决方案可能包含一个引用了另一个项目的已编译输出的项目。 在这种情况下，可以将第二个项目的已编译输出添加到 **AssembliesGeneratedDuringBuild**。<br /><br /> 注意：**AssembliesGeneratedDuringBuild** 必须包含对生成解决方案所生成的一组完整程序集的引用。|  
 |`AssemblyName`|必需的 **String** 参数。<br /><br /> 指定为项目生成的程序集的简称。 例如，如果项目生成一个名为 **WinExeAssembly.exe** 的 [!INCLUDE[TLA#tla_win](../msbuild/includes/tlasharptla_win_md.md)] 可执行文件，则 **AssemblyName** 参数的值为 **WinExeAssembly**。|  
 |`GeneratedBaml`|可选的 **ITaskItem[]** 输出参数。<br /><br /> 包含已生成的 [!INCLUDE[TLA2#tla_xaml](../msbuild/includes/tla2sharptla_xaml_md.md)] 二进制格式文件的列表。|  
@@ -58,7 +59,7 @@ ms.lasthandoff: 02/22/2017
 |`LocalizationDirectivesToLocFile`|可选 **String** 参数。<br /><br /> 指定如何针对每个源 [!INCLUDE[TLA2#tla_xaml](../msbuild/includes/tla2sharptla_xaml_md.md)] 文件生成本地化信息。 有效选项有“无”、“仅注释”和“全部”。|  
 |`OutputPath`|必需的 **String** 参数。<br /><br /> 指定在其中生成 [!INCLUDE[TLA2#tla_xaml](../msbuild/includes/tla2sharptla_xaml_md.md)] 二进制格式文件的目录。|  
 |`OutputType`|必需的 **String** 参数。<br /><br /> 指定项目生成的程序集的类型。 有效选项有 **winexe**、**exe**、**library** 和 **netmodule**。|  
-|`References`|可选的 **ITaskItem[]** 参数。<br /><br /> 指定引用列表，范围从文件到程序集，它们包含 [!INCLUDE[TLA2#tla_xaml](../msbuild/includes/tla2sharptla_xaml_md.md)] 文件中所使用的类型。 一种是引用 <xref:Microsoft.Build.Tasks.Windows.GenerateTemporaryTargetAssembly> 任务生成的程序集，该引用必须在 <xref:Microsoft.Build.Tasks.Windows.MarkupCompilePass2> 任务之前运行。|  
+|`References`|可选的 **ITaskItem[]** 参数。<br /><br /> 指定引用列表，范围从文件到程序集，它们包含 [!INCLUDE[TLA2#tla_xaml](../msbuild/includes/tla2sharptla_xaml_md.md)] 文件中所使用的类型。 一个引用针对的是 <xref:Microsoft.Build.Tasks.Windows.GenerateTemporaryTargetAssembly> 任务生成的程序集，该任务必须在 <xref:Microsoft.Build.Tasks.Windows.MarkupCompilePass2> 任务之前运行。|  
 |`RootNamespace`|可选 **String** 参数。<br /><br /> 指定项目内部的类的根命名空间。 当对应的 [!INCLUDE[TLA2#tla_xaml](../msbuild/includes/tla2sharptla_xaml_md.md)] 文件不包括 `x:Class` 属性时，**RootNamespace** 也将用作生成的托管代码文件的默认命名空间。|  
 |`XAMLDebuggingInformation`|可选 **Boolean** 参数。<br /><br /> 如果为 **true**，则会生成诊断信息并将其包括在编译的 [!INCLUDE[TLA2#tla_xaml](../msbuild/includes/tla2sharptla_xaml_md.md)] 中，以辅助调试。|  
   
@@ -68,7 +69,7 @@ ms.lasthandoff: 02/22/2017
  对生成的临时程序集的应用将在运行时提供给 <xref:Microsoft.Build.Tasks.Windows.MarkupCompilePass2>，使得在第一轮标记编译过程中编译有延迟的 [!INCLUDE[TLA2#tla_xaml](../msbuild/includes/tla2sharptla_xaml_md.md)] 文件现可编译为二进制格式。  
   
 ## <a name="example"></a>示例  
- 以下示例介绍如何使用 <xref:Microsoft.Build.Tasks.Windows.MarkupCompilePass2> 任务来执行第二轮编译。  
+ 下面的示例演示如何使用 <xref:Microsoft.Build.Tasks.Windows.MarkupCompilePass2> 任务来执行第二轮编译。  
   
 ```xml  
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">  
@@ -91,5 +92,5 @@ ms.lasthandoff: 02/22/2017
  [任务参考](../msbuild/wpf-msbuild-task-reference.md)   
  [MSBuild 参考](../msbuild/msbuild-reference.md)   
  [任务参考](../msbuild/msbuild-task-reference.md)   
- [Building a WPF Application (WPF)](http://msdn.microsoft.com/Library/a58696fd-bdad-4b55-9759-136dfdf8b91c) （生成 WPF 应用程序 (WPF)）  
- [WPF XAML Browser Applications Overview](http://msdn.microsoft.com/Library/3a7a86a8-75d5-4898-96b9-73da151e5e16)（WPF XAML 浏览器应用程序概述）
+ [Building a WPF Application (WPF)](/dotnet/framework/wpf/app-development/building-a-wpf-application-wpf) （生成 WPF 应用程序 (WPF)）  
+ [WPF XAML Browser Applications Overview](/dotnet/framework/wpf/app-development/wpf-xaml-browser-applications-overview)（WPF XAML 浏览器应用程序概述）

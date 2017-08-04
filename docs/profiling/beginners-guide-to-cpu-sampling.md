@@ -33,11 +33,11 @@ translation.priority.ht:
 - tr-tr
 - zh-cn
 - zh-tw
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a42f5a30375192c89c9984e40ba0104da98d7253
-ms.openlocfilehash: ddd52c1af0a164235de2e5055896e020dc8715c3
+ms.translationtype: HT
+ms.sourcegitcommit: 5c28e68b89f6583dc35a91b275693c11e0259dfd
+ms.openlocfilehash: 251b00c479c3853ba4fc00521f3e4cac74a93d27
 ms.contentlocale: zh-cn
-ms.lasthandoff: 03/07/2017
+ms.lasthandoff: 07/13/2017
 
 ---
 # <a name="beginners-guide-to-cpu-sampling"></a>CPU 采样初学者指南
@@ -90,7 +90,7 @@ ms.lasthandoff: 03/07/2017
   
  图中每个带编号的区域都与过程中的一个步骤相关。  
   
- ![采样的摘要报告视图](~/profiling/media/summary_sampling.png "Summary_Sampling")  
+ ![采样的摘要报告视图](../profiling/media/summary_sampling.png "Summary_Sampling")  
   
 #### <a name="to-analyze-sampling-data"></a>分析采样数据  
   
@@ -139,9 +139,9 @@ ms.lasthandoff: 03/07/2017
   
 4.  重新运行会话后，另一个数据文件便添加到“性能资源管理器”中会话的“报告”文件夹。 选择原始的和新的分析数据，右键单击所选内容，然后单击“比较性能报告”。  
   
-     此时将打开新的报告窗口，并显示比较结果。 若要深入了解如何使用比较视图，请参阅[如何：比较性能数据文件](../profiling/how-to-compare-performance-data-files.md)。  
+     此时将打开新的报告窗口，并显示比较结果。 若要深入了解如何使用比较视图，请参阅[如何：比较性能数据文件](../profiling/how-to-compare-performance-data-files.md)。
   
 ## <a name="see-also"></a>另请参阅  
  [性能资源管理器](../profiling/performance-explorer.md)   
  [入门](../profiling/getting-started-with-performance-tools.md)   
- [概述](../profiling/overviews-performance-tools.md)
+ [概述](../profiling/overviews-performance-tools.md)[Visual Studio 中的分析](../profiling/index.md) [分析功能简介](../profiling/profiling-feature-tour.md)

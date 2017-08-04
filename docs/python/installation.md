@@ -1,12 +1,13 @@
 ---
 title: "在 Visual Studio 中安装 Python | Microsoft Docs"
 ms.custom: 
-ms.date: 5/8/2017
+ms.date: 7/13/2017
 ms.prod: visual-studio-dev15
 ms.reviewer: 
 ms.suite: 
 ms.technology:
 - devlang-python
+ms.devlang: python
 ms.tgt_pltfrm: 
 ms.topic: article
 ms.assetid: ce3d3656-7ba2-490d-92df-0bb3e3badf92
@@ -14,29 +15,15 @@ caps.latest.revision: 11
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-translation.priority.ht:
-- cs-cz
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pl-pl
-- pt-br
-- ru-ru
-- tr-tr
-- zh-cn
-- zh-tw
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 85576806818a6ed289c2f660f87b5c419016c600
-ms.openlocfilehash: 9cdd87d81f0b0f4748a25c7bb87fb840e246854c
+ms.translationtype: HT
+ms.sourcegitcommit: 6d25db4639f2c8391c1e32542701ea359f560178
+ms.openlocfilehash: 613af31a2e44cc447980b68de4b0b5642dde1262
 ms.contentlocale: zh-cn
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 07/18/2017
 
 ---
 
-# <a name="installing-python-support-in-visual-studio"></a>安装针对 Visual Studio 的 Python 支持
+# <a name="installing-python-support-in-visual-studio-on-windows"></a>在 Windows 上的 Visual Studio 中安装 Python 支持
 
 若要安装针对 Visual Studio 的 Python 支持，请按照与你的 Visual Studio 版本匹配的部分中的说明进行操作：
 
@@ -44,12 +31,15 @@ ms.lasthandoff: 05/10/2017
 - [Visual Studio 2015](#visual-studio-2015)
 - [Visual Studio 2013 及更早版本](#visual-studio-2013-and-earlier)
 
-请注意，对于 Visual Studio 2015 及更早版本，需要单独安装所选的 Python 解释器。 请参阅 [Python 环境](python-environments.md)了解更多详细信息。
+对于 Visual Studio 2015 及更早版本，还需要单独安装所选的 Python 解释器。 有关详细信息，请参阅 [Python 环境](python-environments.md)。
 
 若要在执行安装步骤后快速测试 Python 支持，请按 Alt-I 并输入 `2+2` 打开 Python 交互式窗口。 如果看不到输出 `4`，请重新检查步骤。
 
 > [!Tip]
-> Python 工作负载包括有用的 Cookiecutter 扩展，扩展提供图形用户界面以发现模板、输入模板选项及创建项目和文件。 请参阅[使用 Cookiecutter](cookiecutter.md) 了解更多详细信息。
+> Python 工作负载包括有用的 Cookiecutter 扩展，扩展提供图形用户界面以发现模板、输入模板选项及创建项目和文件。 有关详细信息，请参阅[使用 Cookiecutter](cookiecutter.md)。
+
+> [!Note]
+> 目前尚未在 Visual Studio for Mac 中提供 Python 支持，但可在 Mac 和 Linux 上通过 Visual Studio Code 获取相应支持。 请参阅[问题和解答](python-in-visual-studio.md#questions-and-answers)。
 
 ## <a name="visual-studio-2017"></a>Visual Studio 2017
 
@@ -57,14 +47,16 @@ ms.lasthandoff: 05/10/2017
 
 1. 在 Visual Studio 安装程序中，选择“Web 和云”>“Python 开发”工作负载。
 
-    ![Visual Studio 安装程序中的 Python 开发工作负载](~/python/media/installation-python-workload.png)
+    ![Visual Studio 安装程序中的 Python 开发工作负载](media/installation-python-workload.png)
 
     > [!Note]
     > Python 也包含在**数据科学和分析应用程序**工作负载中。
 
 1. 在安装程序的右侧，选择 Python 解释器和想要包括其他相关工具。 例如，如果计划开发适用于 Python 的 C++ 扩展，请包括“Python 本机开发工具”选项。
 
-    ![Visual Studio 安装程序中的 Python 开发选项](~/python/media/installation-python-options.png)
+    ![Visual Studio 安装程序中的 Python 开发选项](media/installation-python-options.png)
+
+1. 如果计算机上已安装了解释器，请参阅[为现有解释器创建环境](python-environments.md#creating-an-environment-for-an-existing-interpreter)。
 
 ## <a name="visual-studio-2015"></a>Visual Studio 2015
 
@@ -74,9 +66,9 @@ ms.lasthandoff: 05/10/2017
 
 1. 选择“编程语言”>“针对 Visual Studio 的 Python 工具”，然后选择“下一步”：
 
-    ![Visual Studio 2015 安装程序中的 PTVS 选项](~/python/media/installation-vs2015.png)    
+    ![Visual Studio 2015 安装程序中的 PTVS 选项](media/installation-vs2015.png)    
 
-1. Visual Studio 安装程序完成后，[安装所选的 Python 解释器](python-environments.md#selecting-and-installing-python-interpreters)。
+1. Visual Studio 安装程序完成后，[安装所选的 Python 解释器](python-environments.md#selecting-and-installing-python-interpreters)。 如果已安装了解释器，请参阅[为现有解释器创建环境](python-environments.md#creating-an-environment-for-an-existing-interpreter)。
 
 ## <a name="visual-studio-2013-and-earlier"></a>Visual Studio 2013 及更早版本
 
@@ -86,7 +78,7 @@ ms.lasthandoff: 05/10/2017
     - Visual Studio 2012：[Visual Studio 2012 PTVS 2.1](https://pytools.codeplex.com/downloads/get/920478)
     - Visual Studio 2010：[Visual Studio 2010 PTVS 2.1](https://pytools.codeplex.com/downloads/get/920479)
 
-1. [安装所选的 Python 解释器](python-environments.md#selecting-and-installing-python-interpreters)。
+1. [安装所选的 Python 解释器](python-environments.md#selecting-and-installing-python-interpreters)。 如果已安装了解释器，请参阅[为现有解释器创建环境](python-environments.md#creating-an-environment-for-an-existing-interpreter)。
 
 ## <a name="install-locations"></a>安装位置
 

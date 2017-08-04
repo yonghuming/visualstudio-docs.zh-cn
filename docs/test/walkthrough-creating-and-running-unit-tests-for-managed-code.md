@@ -33,10 +33,11 @@ translation.priority.mt:
 - pl-pl
 - pt-br
 - tr-tr
-translationtype: Human Translation
-ms.sourcegitcommit: 5658ecf52637a38bc3c2a5ad9e85b2edebf7d445
-ms.openlocfilehash: a00b80092a44190d626b93b0ecc5689bafd1a4e3
-ms.lasthandoff: 02/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 11a9cee75f912c5fb31cf4a031644abe9c63d744
+ms.openlocfilehash: 8b60481a9895e818773273cecbf89212f557d620
+ms.contentlocale: zh-cn
+ms.lasthandoff: 06/03/2017
 
 ---
 # <a name="walkthrough-creating-and-running-unit-tests-for-managed-code"></a>演练：创建并运行托管代码的单元测试
@@ -84,7 +85,7 @@ ms.lasthandoff: 02/22/2017
   
 4.  在应用程序类型的列表中单击 **“类库”**。  
   
-5.  在“名称”框中，键入 `Bank`，然后单击“确定”。  
+5.  在 **“名称”** 框中键入 `Bank` ，然后单击 **“确定”**。  
   
     > [!NOTE]
     >  如果名称“Bank”已被使用，请为该项目选择其他名称。  
@@ -123,8 +124,8 @@ public void Debit(double amount)
   
 ```  
   
-##  <a name="BKMK_Create_a_unit_test_project"></a>创建单元测试项目  
- **系统必备**：按照[准备演练](../test/walkthrough-creating-and-running-unit-tests-for-managed-code.md#BKMK_Prepare_the_walkthrough)过程中的步骤操作。  
+##  <a name="BKMK_Create_a_unit_test_project"></a> 创建单元测试项目  
+ **系统必备**：按照 [Prepare the walkthrough](../test/walkthrough-creating-and-running-unit-tests-for-managed-code.md#BKMK_Prepare_the_walkthrough)过程中的步骤执行操作。  
   
 #### <a name="to-create-a-unit-test-project"></a>创建单元测试项目  
   
@@ -144,7 +145,7 @@ public void Debit(double amount)
   
 6.  在“引用管理器”对话框中，展开 **“解决方案”** ，然后选中 **“Bank”** 项。  
   
-##  <a name="BKMK_Create_the_test_class"></a>创建测试类  
+##  <a name="BKMK_Create_the_test_class"></a> 创建测试类  
  我们需要一个测试类来验证 `BankAccount` 类。 我们可以使用由项目模板生成的 UnitTest1.cs，但在对文件和类命名时应更具描述性。 通过重命名“解决方案资源管理器”中的文件，我们就可以一步完成这个操作。  
   
  **重命名类文件**  
@@ -179,7 +180,7 @@ namespace BankTests
 using BankAccountNS;  
 ```  
   
-###  <a name="BKMK_Test_class_requirements"></a>测试类要求  
+###  <a name="BKMK_Test_class_requirements"></a> 测试类要求  
  对测试类的最低要求如下：  
   
 -   在托管代码的 Microsoft 单元测试框架中，任何包含要在“测试资源管理器”中运行的单元测试方法的类都需要有 `[TestClass]` 特性。  
@@ -188,12 +189,12 @@ using BankAccountNS;
   
  单元测试项目中可以具有不含 `[TestClass]` 特性的其他类，测试类中可以具有不含 `[TestMethod]` 特性的其他方法。 可以在测试方法中使用这些其他的类和方法。  
   
-##  <a name="BKMK_Create_the_first_test_method"></a>创建第一个测试方法  
+##  <a name="BKMK_Create_the_first_test_method"></a> 创建第一个测试方法  
  在此过程中，我们将编写单元测试方法以验证 `Debit` 类的 `BankAccount` 方法的行为。 方法如上所列。  
   
  通过分析所测试的方法，我们确定至少需要检查三个行为：  
   
-1.  如果借方金额大于余额，该方法将引发 [ArgumentOutOfRangeException](assetId:///ArgumentOutOfRangeException?qualifyHint=False&autoUpgrade=True) 。  
+1.  如果借方金额大于余额，该方法将引发 <xref:System.ArgumentOutOfRangeException> 。  
   
 2.  如果借方金额小于零，它还会引发 `ArgumentOutOfRangeException` 。  
   
@@ -227,9 +228,9 @@ using BankAccountNS;
     }  
     ```  
   
- 此方法更加简单。 我们设置了有期初余额的新 `BankAccount` 对象，然后提取有效金额。 我们使用托管代码 <xref:Microsoft.VisualStudio.TestTools.UnitTesting.Assert.AreEqual%2A> 方法的 Microsoft 单元测试框架来验证期末余额是否符合我们的预期。  
+ 此方法更加简单。 我们设置了有期初余额的新 `BankAccount` 对象，然后提取有效金额。 使用托管代码 <xref:Microsoft.VisualStudio.TestTools.UnitTesting.Assert.AreEqual%2A> 方法的 Microsoft 单元测试框架来验证期末余额是否符合我们的预期。  
   
-###  <a name="BKMK_Test_method_requirements"></a>测试方法要求  
+###  <a name="BKMK_Test_method_requirements"></a> 测试方法要求  
  测试方法必须满足以下要求：  
   
 -   必须用 `[TestMethod]` 特性修饰该方法。  
@@ -238,7 +239,7 @@ using BankAccountNS;
   
 -   该方法不能含有参数。  
   
-##  <a name="BKMK_Build_and_run_the_test"></a>生成并运行测试  
+##  <a name="BKMK_Build_and_run_the_test"></a> 生成并运行测试  
   
 #### <a name="to-build-and-run-the-test"></a>生成并运行测试  
   
@@ -250,10 +251,10 @@ using BankAccountNS;
   
 3.  在这种情况下，测试就失败了。 测试方法将移动到 **“失败的测试”**。 组中列出。 在“测试资源管理器”中选择该方法可在窗口底部查看详细信息。  
   
-##  <a name="BKMK_Fix_your_code_and_rerun_your_tests"></a>修复代码并重新运行测试  
+##  <a name="BKMK_Fix_your_code_and_rerun_your_tests"></a> 修复代码并重新运行测试  
  **分析测试结果**  
   
- 测试结果包含一条描述失败的消息。 对于 `AreEquals` 方法，消息会向你显示预期的内容（**预期\<*XXX*>**参数）以及实际接收到的内容（**实际\<*YYY*>** 参数）。 我们本来预期余额会比期初余额越来越少，但却增加了取款金额。  
+ 测试结果包含一条描述失败的消息。 对于 `AreEquals` 方法，消息会显示预期的内容（预期 \<XXX> 参数）以及实际接收到的内容（实际 \<YYY> 参数）。 我们本来预期余额会比期初余额越来越少，但却增加了取款金额。  
   
  复查 Debit 代码后发现，单元测试成功找到 bug。 取款金额本应从帐户余额中减去，结果却增加到帐户余额中。  
   
@@ -275,7 +276,7 @@ m_balance -= amount;
   
  在“测试资源管理器”中，选择 **“全部运行”** 以重新运行测试。 红色/绿色栏变为绿色，测试移动到 **“已通过的测试”** 组。  
   
-##  <a name="BKMK_Use_unit_tests_to_improve_your_code"></a>使用单元测试以改进代码  
+##  <a name="BKMK_Use_unit_tests_to_improve_your_code"></a> 使用单元测试以改进代码  
  本部分介绍了分析的迭代过程、单元测试开发和重构如何帮助你增加成品代码的可靠性和有效性。  
   
  **分析问题**  
@@ -309,7 +310,7 @@ public void Debit_WhenAmountIsLessThanZero_ShouldThrowArgumentOutOfRange()
   
 ```  
   
- 我们使用 <xref:Microsoft.VisualStudio.TestTools.UnitTesting.ExpectedExceptionAttribute> 属性断言已引发正确的异常。 除非 `ArgumentOutOfRangeException` 已抛出，否则该特性将导致测试失败。 以正负 `debitAmount` 值运行测试，然后将所测试的方法暂时修改为在金额小于零时引发泛型 <xref:System.ApplicationException>，可证明测试行为正确。 若要测试提取金额大于余额的情况，只需执行以下操作即可：  
+ 我们使用 <xref:Microsoft.VisualStudio.TestTools.UnitTesting.ExpectedExceptionAttribute> 特性去断言正确的异常已抛出。 除非 `ArgumentOutOfRangeException` 已抛出，否则该特性将导致测试失败。 以正负 `debitAmount` 值运行测试，然后将所测试的方法暂时修改为在金额小于零时抛出泛型 <xref:System.ApplicationException> ，可证明测试行为正确。 若要测试提取金额大于余额的情况，只需执行以下操作即可：  
   
 1.  新建一个名为 `Debit_WhenAmountIsMoreThanBalance_ShouldThrowArgumentOutOfRange`的测试方法。  
   
@@ -331,7 +332,7 @@ public void Debit_WhenAmountIsLessThanZero_ShouldThrowArgumentOutOfRange()
 throw new ArgumentOutOfRangeException("amount");  
 ```  
   
- 通过搜索 MSDN 库，我们发现存在报告信息非常丰富的构造函数。 <xref:System.ArgumentOutOfRangeException.%23ctor%2A>`(String, Object, String)` 包括自变量名称、自变量值和用户定义消息。 我们可以重构所测试的方法，以使用此构造函数。 更理想的做法是使用公开的类型成员来指定错误。  
+ 通过搜索 MSDN 库，我们发现存在报告信息非常丰富的构造函数。 <xref:System.ArgumentOutOfRangeException.%23ctor%2A>`(String, Object, String)` 包括变量名称、变量值和用户定义的消息。 我们可以重构所测试的方法，以使用此构造函数。 更理想的做法是使用公开的类型成员来指定错误。  
   
  **重构所测试的代码**  
   
@@ -368,7 +369,7 @@ public const string DebitAmountLessThanZeroMessage = "Debit amount less than zer
   
 -   断言消息（构造函数的第三个参数）包括 `DebitAmountExceedsBalanceMessage` 类中定义的 `BankAccount` 。  
   
- Microsoft 单元测试框架中的 <xref:Microsoft.VisualStudio.TestTools.UnitTesting.StringAssert.Contains%2A?displayProperty=fullName> 方法使我们能在没有进行第一个选项所需的计算的情况下验证第二个选项。  
+ 使用 Microsoft 单元测试框架中的 <xref:Microsoft.VisualStudio.TestTools.UnitTesting.StringAssert.Contains%2A?displayProperty=fullName> 方法无需进行第一个选项所要求的计算，即可验证第二个选项。  
   
  修改 `Debit_WhenAmountIsMoreThanBalance_ShouldThrowArgumentOutOfRange` 的第二次尝试可能类似于：  
   
@@ -404,7 +405,7 @@ public void Debit_WhenAmountIsMoreThanBalance_ShouldThrowArgumentOutOfRange()
   
 3.  如果 `debitAmount` 值有效（即小于余额，但大于零），则不会捕获到异常，因此永远不会捕获断言。 测试方法通过。 这样是不好的，因为如果未抛出异常，我们希望测试方法失败。  
   
- 第三种情况是测试方法中的 bug。 为了尝试解决该问题，我们在测试方法末尾添加了 <xref:Microsoft.VisualStudio.TestTools.UnitTesting.Assert.Fail%2A> 断言，以处理未引发异常的情况。  
+ 第三种情况是测试方法中的 bug。 为了尝试解决该问题，我们在测试方法末尾添加了 <xref:Microsoft.VisualStudio.TestTools.UnitTesting.Assert.Fail%2A> 断言，以处理未抛出异常的情况。  
   
  但重新测试表明，如果捕获到正确的异常，测试现将失败。 catch 语句重置异常，而方法继续执行，因而在新断言处失败。 为了解决这个新问题，我们在 `return` 之后添加 `StringAssert`语句。 重新测试后证明问题得以解决。 `Debit_WhenAmountIsMoreThanBalance_ShouldThrowArgumentOutOfRange` 的最终版本如下：  
   

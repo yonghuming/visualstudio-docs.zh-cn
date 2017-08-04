@@ -29,10 +29,10 @@ translation.priority.mt:
 - pt-br
 - tr-tr
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 47057e9611b824c17077b9127f8d2f8b192d6eb8
-ms.openlocfilehash: 0c850e9be6f05bac6c312ef8d746b92754eb3e6c
+ms.sourcegitcommit: 669bc5894727c207691a7e37937f432d98fee8b1
+ms.openlocfilehash: 254f2d9121566ef14c5470c3d940e4f781a0f5e2
 ms.contentlocale: zh-cn
-ms.lasthandoff: 05/13/2017
+ms.lasthandoff: 06/30/2017
 
 ---
 # <a name="analyze-resource-consumption-and-ui-thread-activity-xaml"></a>分析资源消耗情况和 UI 线程活动 (XAML)
@@ -120,7 +120,7 @@ ms.lasthandoff: 05/13/2017
 |**布局**|在大型应用程序中，可能会同时在屏幕上显示数千个元素。 这可能会导致 UI 帧速率降低以及应用程序响应能力相应地变差。 布局事件可准确地确定对每个元素进行布局的成本（即 Arrange、Measure、ApplyTemplate、ArrangeOverride 和 ArrangeOverride 所用的时间），并生成参与了布局过程的可视化树。 你可以使用此可视化效果来确定需要修剪的逻辑树，或评估其他延期机制，以优化布局过程。|  
 |**呈现**|在屏幕上绘制 XAML 元素所耗用的时间。|  
 |**I/0**|从本地磁盘或从通过 [Microsoft Windows Internet (WinINet) API](https://msdn.microsoft.com/en-us/library/windows/desktop/aa385331.aspx)访问的网络资源中检索数据所耗用的时间。|  
-|**App Code**|执行与分析或布局无关的应用程序（用户）代码所耗用的时间。|  
+|**应用程序代码**|执行与分析或布局无关的应用程序（用户）代码所耗用的时间。|  
 |**Xaml 其他**|执行 XAML 运行时代码所耗用的时间。|  
   
 > [!TIP]
@@ -137,6 +137,6 @@ ms.lasthandoff: 05/13/2017
 |![自定义时间线详细信息](../profiling/media/timeline_viewsettings.png "TIMELINE_ViewSettings")|允许你指定事件的批注。|  
   
 ## <a name="see-also"></a>另请参阅  
- [WPF 团队博客：用于 WPF 应用程序的新 UI 性能分析工具](http://blogs.msdn.com/b/wpf/archive/2015/01/16/new-ui-performance-analysis-tool-for-wpf-applications.aspx)   
+ [WPF Team Blog: New UI Performance Analysis Tool for WPF Applications](http://blogs.msdn.com/b/wpf/archive/2015/01/16/new-ui-performance-analysis-tool-for-wpf-applications.aspx)（WPF 团队博客：用于 WPF 应用程序的新 UI 性能分析工具）  
  [使用 C++、C# 和 Visual Basic 的 Windows 应用商店应用的性能最佳做法](http://msdn.microsoft.com/en-us/567bcefa-5da5-4e42-a4b8-1358c71adfa2)   
- [优化 WPF 应用程序性能](http://msdn.microsoft.com/Library/ac8c6aa3-3c68-4a24-9827-3b6c829c1ebf)
+ [优化 WPF 应用程序性能](/dotnet/framework/wpf/advanced/optimizing-wpf-application-performance) [Visual Studio 中的分析](../profiling/index.md) [分析功能简介](../profiling/profiling-feature-tour.md)

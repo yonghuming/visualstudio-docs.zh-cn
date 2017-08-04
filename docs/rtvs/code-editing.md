@@ -1,12 +1,13 @@
 ---
 title: "在针对 Visual Studio 的 R 工具中编辑代码 | Microsoft Docs"
 ms.custom: 
-ms.date: 4/28/2017
+ms.date: 6/29/2017
 ms.prod: visual-studio-dev15
 ms.reviewer: 
 ms.suite: 
 ms.technology:
 - devlang-r
+ms.devlang: r
 ms.tgt_pltfrm: 
 ms.topic: article
 ms.assetid: a198ccc3-5506-48e7-b3b2-9399661b80d5
@@ -14,25 +15,11 @@ caps.latest.revision: 1
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-translation.priority.ht:
-- cs-cz
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pl-pl
-- pt-br
-- ru-ru
-- tr-tr
-- zh-cn
-- zh-tw
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7a873df77756e5a957d327049566c8e0db1f3a8a
-ms.openlocfilehash: e8b42484d471d4deac0eabcd4c55e09297d0873f
+ms.translationtype: HT
+ms.sourcegitcommit: 712cc780388acc5e373f71d51fc8f1f42adb5bed
+ms.openlocfilehash: 261cced8583b751d74701a8903a10a4584928940
 ms.contentlocale: zh-cn
-ms.lasthandoff: 05/12/2017
+ms.lasthandoff: 07/12/2017
 
 ---
 
@@ -57,15 +44,15 @@ ms.lasthandoff: 05/12/2017
 
 除通过颜色区分不同的代码部分（如字符串、注释和关键字），RTVS 还可以在注释中突出显示和启用链接：
 
-![R 代码的语法着色](~/rtvs/media/editing-syntax-colors.png)
+![R 代码的语法着色](media/editing-syntax-colors.png)
 
 要自定义字体和某些突出显示颜色，请选择“工具”>“选项”命令，导航到“环境”>“字体和颜色”，然后在“显示项:”对话框中更改与 R 相关的项的设置：
 
-![R 代码的字体和颜色选项](~/rtvs/media/editing-syntax-colors-options.png)
+![R 代码的字体和颜色选项](media/editing-syntax-colors-options.png)
 
 Visual Studio 同时还用下划线标出编辑器中的语法错误：
 
-![R 代码中的语法错误突出显示](~/rtvs/media/editing-syntax-error.png)
+![R 代码中的语法错误突出显示](media/editing-syntax-error.png)
 
 要更改此行为，请查看[“编辑器选项”](#editor-options)下的“高级”>“语法检查”设置。
 
@@ -73,37 +60,37 @@ Visual Studio 同时还用下划线标出编辑器中的语法错误：
 
 键入代码时，RTVS 将提供 [IntelliSense](code-intellisense.md) 页中所述的自动补全功能。 它还将设置自动格式，如大括号和括号补全： 
 
-![内联格式设置动画](~/rtvs/media/editing-inline-formatting.gif)
+![内联格式设置动画](media/editing-inline-formatting.gif)
 
 当键入对具有多个参数的函数的调用时，通常希望将这些参数排成一列，以方便阅读代码。 RTVS 会记住为参数设置的缩进，并将其自动应用于后续行：
 
-![自动缩进动画](~/rtvs/media/editing-auto-indentation.gif)
+![自动缩进动画](media/editing-auto-indentation.gif)
 
-要更改此行为，请查看“选项卡”[](#editor-options)组下的**“编辑器选项”**。
+若要更改此行为，请查看“选项卡”组的“编辑器选项”[](#editor-options)。
 
 通过可折叠代码区域，可以在编辑器中暂时隐藏部分代码。 对于多行语句，除非“高级”>“大纲显示”>“代码大纲显示”选项设为“关闭”，否则 Visual Studio 将自动创建多个区域。
 
 要创建自己的区域，请在所需代码周围添加以 `---` 结尾的注释。 通过代码左侧的小型 +/- 控件可以展开或折叠区域：
 
-![创建含注释的可折叠区域](~/rtvs/media/editing-collapsible-regions.gif)
+![创建含注释的可折叠区域](media/editing-collapsible-regions.gif)
  
 默认情况下，按下 Tab 键时 Visual Studio 将插入空格。 可以按[操作、文本编辑器、选项卡](../ide/reference/options-text-editor-all-languages.md)中所述再次更改此行为。
 
 ## <a name="code-navigation"></a>代码导航
 
-通过代码导航可以快速访问 R 程序及其库的源代码。 通过这些导航功能，你可以随时处于工作流中，无需浪费时间搜索和手动导航到感兴趣的代码。
+通过代码导航可以快速访问 R 程序及其库的源代码。 通过这些功能可以专注于工作，而不必手动搜索代码。
 
-通过“转到定义”，可快速跳到函数定义，或弹出一个内联微型编辑器，用于读取库函数的源代码。 只需右键单击感兴趣的函数，选择“转到定义”，或将游标置于函数中并按 F12。
+通过“转到定义”可快速跳到函数定义，或弹出一个内联微型编辑器，用于读取库函数的源代码。 只需右键单击感兴趣的函数，选择“转到定义”，或将游标置于函数中并按 F12。
 
-这将打开一个包含函数源代码的新编辑器窗口，游标已方便地停在函数定义的起始处。
+此命令将打开一个新编辑器窗口，其中包含该函数的源代码。 游标位于函数定义的开头，非常方便。
 
 “速览定义”通过右键单击菜单或按 Alt+F12 调用，在函数调用的下方插入包含函数源代码的只读、可滚动区域：
 
-![速览定义动画](~/rtvs/media/editing-peek-definition.gif)
+![速览定义动画](media/editing-peek-definition.gif)
 
 ## <a name="sending-code-to-the-interactive-window"></a>将代码发送到交互窗口
 
-许多开发人员喜欢在编辑器中编写代码，然后将代码发送到[交互窗口](interactive-repl.md)立即测试（也被称为读取-评估-输出-循环或 REPL）。 在 R 编辑器中，对当前代码行按 Ctrl+Enter 可以执行此操作，然后光标将移到下一行。 按 Ctrl+Enter，然后可在编辑器中有效地单步调试代码。
+许多开发人员喜欢在编辑器中编写代码，然后将代码发送到[交互窗口](interactive-repl.md)立即测试（也被称为读取-评估-输出-循环或 REPL）。 在 R 编辑器中按 Ctrl+Enter 可以将当前行的代码发送到交互式窗口，然后游标将移到下一行。 按 Ctrl+Enter，然后可在编辑器中有效地单步调试代码。
 
 也可选择代码，按 Ctrl+Enter 应用全部所选内容。 或者右键单击选择部分，然后选择“交互执行”。
 
@@ -123,15 +110,15 @@ f <- function(a) { return(a + 1) }
 
 若要重格式化整个代码文件：请选择“编辑”>“高级”>“设置文档的格式”（ Ctrl+E、D）。
 
-自动格式设置是可以撤消的单独操作。 例如，如果将代码粘贴到编辑器，然后应用格式设置，选择“编辑”>“撤销”或按一次 Ctrl+Z 将撤销格式设置；按第二次“撤销”将撤销粘贴操作。
+自动格式设置是可以撤消的单独操作。 例如，如果将代码及其应用的格式粘贴到编辑器，选择“编辑”>“撤消”或按一次 Ctrl+Z 将撤消格式设置；按第二次“撤消”将撤消粘贴操作。
  
-通过“文本编辑器”>“R”>“高级”选项卡上的“工具”>“选项”设置“格式格式”选项（包括关闭格式设置），通过使用“R 工具”>“编辑器选项...”命令或在编辑器中右键单击并选择“格式设置选项...”也可以直接转到此“格式设置”选项。 有关详细信息，请参阅下方的[编辑器选项](#editor-options)。
+通过“文本编辑器”>“R”>“高级”选项卡上的“工具”>“选项”可设置格式选项（包括关闭格式设置）。 可以使用“R 工具”>“编辑器选项...”命令，或通过在编辑器中右键单击并选择“格式设置选项...”直接转到此页面。 请参阅[编辑器选项](#editor-options)部分了解详细信息。
  
 ## <a name="inserting-roxygen-comments"></a>插入 Roxygen 注释
 
 RTVS 提供一种快捷方式，通过使用函数的参数名来生成 [Roxygen](http://roxygen.org/) 注释。 只需在函数定义上方的空白行中键入 `###`：
 
-![插入 Roxygen 注释动画](~/rtvs/media/editing-roxygen-comments.gif)
+![插入 Roxygen 注释动画](media/editing-roxygen-comments.gif)
 
 ## <a name="editor-options"></a>编辑器选项
 
@@ -154,7 +141,7 @@ RTVS 提供一种快捷方式，通过使用函数的参数名来生成 [Roxygen
 | | 逗号后空格 | On | 在逗号后添加空格。 |
 | | 关键字后空格 | On | 在 `if`、`while` 和 `repeat` 之类的关键字后添加空格。 |
 | | { 之前空格 | On | 在左大括号 { 之前添加空格。 |
-| | = 左右空格 | On | 在等于号左右添加空格。 |
+| | = 左右空格 | On | 在等号左右添加空格。 |
 | IntelliSense | Enter 键提交 | Off | 按下 Enter 后提交自动补全选择。 |
 | | 空格键提交 | Off | 按下空格键后提交自动补全选择。|
 | | 第一个字符显示补全列表 | On | 键入第一个字符时显示补全列表。 关闭时，通过“编辑”>“IntelliSense”>“列表成员”(Ctrl+J) 来显示补全列表。 |

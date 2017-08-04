@@ -1,46 +1,33 @@
 ---
 title: "Visual Studio 中的 Python | Microsoft Docs"
 ms.custom: 
-ms.date: 5/2/2017
+ms.date: 7/13/2017
 ms.prod: visual-studio-dev15
 ms.reviewer: 
 ms.suite: 
 ms.technology:
 - devlang-python
+ms.devlang: python
 ms.tgt_pltfrm: 
-ms.topic: article
+ms.topic: hero-article
 ms.assetid: 33f4f6fb-0ae4-4234-9df2-531f2d3af17f
 caps.latest.revision: 11
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-translation.priority.ht:
-- cs-cz
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pl-pl
-- pt-br
-- ru-ru
-- tr-tr
-- zh-cn
-- zh-tw
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 85576806818a6ed289c2f660f87b5c419016c600
-ms.openlocfilehash: c46c8b7a0d9ea1509dcda2ef711562b3cf95b259
+ms.translationtype: HT
+ms.sourcegitcommit: 6d25db4639f2c8391c1e32542701ea359f560178
+ms.openlocfilehash: 082ac09fcc1bb466de891d0daa7178e505c35770
 ms.contentlocale: zh-cn
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 07/18/2017
 
 ---
 
 # <a name="working-with-python-in-visual-studio"></a>在 Visual Studio 中使用 Python
 
-Python 是一个受欢迎的编程语言，它可靠、灵活、易于学习、可在所有操作系统上免费使用，并且强大的开发人员社区和很多免费库都支持它。 Python 支持所有开发方式，包括 Web 应用程序、Web 服务、桌面应用、脚本编写和科学计算，许多高校人员、科学家、业余和专业开发人员都在使用 Python。 可以在 [python.org](https://www.python.org) 和 [Python for Beginners](https://www.python.org/about/gettingstarted/)（面向初学者的 Python）中了解有关该语言的详细信息。
+Python 是一种受欢迎的编程语言，它可靠、灵活、易于学习、可在所有操作系统上免费使用，并且强大的开发人员社区和很多免费库都支持它。 Python 支持所有开发方式，包括 Web 应用程序、Web 服务、桌面应用、脚本编写和科学计算，许多高校人员、科学家、业余和专业开发人员都在使用 Python。 可以在 [python.org](https://www.python.org) 和 [Python for Beginners](https://www.python.org/about/gettingstarted/)（面向初学者的 Python）中了解有关该语言的详细信息。
 
-Visual Studio 通过 Python 开发和数据科学工作负载 (Visual Studio 2017) 和免费的针对 Visual Studio 的 Python 工具扩展（Visual Studio 2015 及更早版本），为 Python 语言提供[开源代码](https://github.com/Microsoft/ptvs)支持。 
+Windows 上的 Visual Studio 通过 Python 开发和数据科学工作负载 (Visual Studio 2017) 和免费的针对 Visual Studio 的 Python 工具扩展（Visual Studio 2015 及更早版本），为 Python 语言提供[开源代码](https://github.com/Microsoft/ptvs)支持。 Python 目前不支持在 Visual Studio for Mac 中使用，但可通过 Visual Studio Code 在 Mac 和 Linux 上使用（请参阅[下面的问题解答](#questions-and-answers)）。
 
 请按照[安装说明](installation.md)设置 Python 工作负载，然后使用下方的链接详细了解与 Python 相关的功能，以及 Visual Studio 本身的功能。
 
@@ -56,7 +43,7 @@ Visual Studio 通过 Python 开发和数据科学工作负载 (Visual Studio 201
 | [具有丰富报表的分析工具](profiling.md) | 了解应用程序中所用的时间，包括比较不同分析运行之间的性能差异。 | [分析工具](../profiling/profiling-tools.md)（并非所有 Visual Studio 分析功能都可用于 Python） |
 | [单元测试工具](unit-testing.md) | 在 Visual Studio 测试资源管理器中发现、运行和管理测试，并且可轻松调试单元测试。 | [单元测试代码](../test/unit-test-your-code.md) |
 
-Python 工作负载还包括[用于 Python 的 Azure SDK](azure-sdk-for-python.md)，它用于简化 Azure 服务的使用，并且提供面向 Windows、Mac OS X 和 Linux 的支持。
+Python 工作负载还包括[用于 Python 的 Azure SDK](azure-sdk-for-python.md)，它用于简化从 Windows、Mac OS X 和 Linux 应用使用 Azure 服务的过程。
 
 YouTube 上的[入门和进阶视频](https://www.youtube.com/playlist?list=PLReL099Y5nRdLgGAdrb_YeTdEnd23s6Ff)系列概述了主要功能。
 
@@ -64,13 +51,17 @@ YouTube 上的[入门和进阶视频](https://www.youtube.com/playlist?list=PLRe
 
 ## <a name="questions-and-answers"></a>问题和解答
 
+**问：是否可通过 Visual Studio for Mac 获得 Python 支持？**
+
+答： 此次不行，尽管是在 [UserVoice](https://visualstudio.uservoice.com/forums/563332-visual-studio-for-mac/suggestions/18670291-python-tools-for-visual-studio-mac) 上提出请求的。 [Visual Studio for Mac](https://docs.microsoft.com/visualstudio/mac/) 文档会标识当前支持的开发类型。 同时，Windows、Mac 和 Linux 上的 Visual Studio Code 可[通过可用扩展与 Python 配合工作](https://code.visualstudio.com/docs/languages/python)。
+
 **问：构建 Python UI 可以使用什么工具？**
 
-答： 该领域的主要产品是 [Qt 项目](https://www.qt.io/qt-for-application-development/)，其中与 Python 的绑定称为[PySide（官方绑定）](http://wiki.qt.io/PySide)（另请参阅 [PySide 下载](https://download.qt.io/official_releases/pyside/.)）和 [PyQt](https://wiki.python.org/moin/PyQt)。 目前，Visual Studio 中的 Python 支持不包括用于 UI 开发的任何特定工具。
+答： 该领域的主要产品是 [Qt 项目](https://www.qt.io/qt-for-application-development/)，其中与 Python 的绑定称为 [PySide（官方绑定）](http://wiki.qt.io/PySide)（另请参阅 [PySide 下载](https://download.qt.io/official_releases/pyside/.)）和 [PyQt](https://wiki.python.org/moin/PyQt)。 目前，Visual Studio 中的 Python 支持不包括用于 UI 开发的任何特定工具。
 
 **问：Python 项目是否可以生成独立的可执行文件？**
 
-答： Python 通常是一种解释型语言，代码在适合 Python 功能的环境（如 Visual Studio 和 Web 服务器）中按需运行。 目前，Visual Studio 本身不提供创建独立可执行文件的方法，它本质上是一个具有嵌入式 Python 解释器的程序。 但是，如 [StackOverflow](http://stackoverflow.com/questions/5458048/how-to-make-a-python-script-standalone-executable-to-run-without-any-dependency) 所述，Python 社区中有多种方法可以实现此功能。 如博客文章 [Using CPython's Embeddable Zip File](https://blogs.msdn.microsoft.com/pythonengineering/2016/04/26/cpython-embeddable-zip-file/)（使用 CPython 可嵌入 zip 文件）中所述，CPython 还支持嵌入到本机应用程序中。
+答： Python 通常是一种解释型语言，其代码在适合 Python 功能的环境（如 Visual Studio 和 Web 服务器）中按需运行。 目前，Visual Studio 本身不提供创建独立可执行文件的方法，它本质上是一个具有嵌入式 Python 解释器的程序。 但是，如 [StackOverflow](http://stackoverflow.com/questions/5458048/how-to-make-a-python-script-standalone-executable-to-run-without-any-dependency) 所述，Python 社区中有多种方法可以创建可执行文件。 如博客文章 [Using CPython's Embeddable Zip File](https://blogs.msdn.microsoft.com/pythonengineering/2016/04/26/cpython-embeddable-zip-file/)（使用 CPython 可嵌入 zip 文件）中所述，CPython 还支持嵌入到本机应用程序中。
 
 ## <a name="features-matrix"></a>功能矩阵
 
@@ -78,9 +69,9 @@ YouTube 上的[入门和进阶视频](https://www.youtube.com/playlist?list=PLRe
 
 - [Visual Studio 2017（所有版本）](https://www.visualstudio.com/vs/)
 - [Visual Studio 2015（所有版本）](https://www.visualstudio.com/zh-cn/downloads/visual-studio-2015-downloads-vs)
-- [Visual Studio 2013 Community Edition](https://www.visualstudio.com/zh-cn/products/visual-studio-community-vs.aspx)
-- [Visual Studio Express 2013 for Web、Visual Studio Express 2013 Update 2 或更高版本](https://www.microsoft.com/en-us/download/details.aspx?id=44912)
-- [用于桌面的 Visual Studio 2013 Express、Visual Studio Express 2013 Update 2 或更高版本](https://www.microsoft.com/en-US/download/details.aspx?id=44914)
+- Visual Studio 2013 Community Edition
+- Visual Studio 2013 Express for Web 和 Update 2 或更高版本
+- Visual Studio 2013 Express for Desktop 和 Update 2 或更高版本
 - Visual Studio 2013（Pro 或更高版本）
 - Visual Studio 2012（Pro 或更高版本）
 - Visual Studio 2010 SP1（Pro 或更高版本；需要 .NET 4.5）
@@ -146,9 +137,9 @@ Visual Studio 各版本支持的功能：
 
 | Azure | 2017 | 2015 | 2013 Comm | 2013 Desktop | 2013 Web | 2013 Pro+ | 2012 Pro+ | 2010 SP1 Pro+ |
 | --- | --- | --- | --- | --- | --- | --- | --- | ---|
-| 对网站的 Web 部署 | &#10004; | &#10004; | &#10004; | &#10007; | &#10004; | &#10004; | &#10004; | &#10004;<sup>2</sup> |
-| 对 Web 角色的 Web 部署 | &#10004; | &#10004; | &#10004; | &#10007; | &#10004;<sup>4</sup> | &#10004;<sup>4</sup> | &#10004;<sup>3</sup> | &#10007; |
-| 对辅助角色的 Web 部署 | ? | ? | ? | &#10007; | &#10004;<sup>4</sup> | &#10004;<sup>4</sup> | &#10004;<sup>3</sup> | &#10007; |
+| 对网站的部署 | &#10004; | &#10004; | &#10004; | &#10007; | &#10004; | &#10004; | &#10004; | &#10004;<sup>2</sup> |
+| 对 Web 角色的部署 | &#10004; | &#10004; | &#10004; | &#10007; | &#10004;<sup>4</sup> | &#10004;<sup>4</sup> | &#10004;<sup>3</sup> | &#10007; |
+| 对辅助角色的部署 | ? | ? | ? | &#10007; | &#10004;<sup>4</sup> | &#10004;<sup>4</sup> | &#10004;<sup>3</sup> | &#10007; |
 | 在 Azure 仿真程序中运行 | ? | ? | ? | &#10007; | &#10004;<sup>4</sup> | &#10004;<sup>4</sup> | &#10004;<sup>3</sup> | &#10007; |
 | 远程调试 | &#10004; | &#10004; | &#10004; | &#10007; | &#10004;<sup>6</sup> | &#10004;<sup>8</sup> | &#10004;<sup>8</sup> | &#10007; |
 | 服务器资源管理器附加 | &#10004; | &#10004; | &#10004; | &#10007; | &#10004;<sup>7</sup> | &#10004;<sup>7</sup> | &#10007; | &#10007; |
@@ -193,7 +184,7 @@ Visual Studio 各版本支持的功能：
 
 5. Visual Studio 2013 中的 Django 模板编辑器具有一些已知问题，可通过安装 Update 2 解决。
 
-6. 需要 Windows 8 或更高版本。 Visual Studio 2013 Express for Web 没有“附加到进程”对话框，但 Azure 网站远程调试仍然可能在服务器资源管理器中使用附加调试器 (Python) 命令。 这需要[用于.NET 2.3 - VS 2013 的 Azure SDK](http://go.microsoft.com/fwlink/?LinkId=323510) 或更高版本。
+6. 需要 Windows 8 或更高版本。 Visual Studio 2013 Express for Web 没有“附加到进程”对话框，但 Azure 网站远程调试仍然可能在服务器资源管理器中使用附加调试器 (Python) 命令。 远程调试需要[用于 .NET 2.3 的 Azure SDK - VS 2013](http://go.microsoft.com/fwlink/?LinkId=323510) 或更高版本。
 
 7. 需要 Windows 8 或更高版本。 使用服务器资源管理器中的附加调试器 (Python) 命令需要[用于 .NET 2.3 - VS 2013 的 Azure SDK](http://go.microsoft.com/fwlink/?LinkId=323510) 或更高版本。
 
@@ -203,5 +194,6 @@ Visual Studio 各版本支持的功能：
 
 - [使用 PyKinect 通过 Python 编写 Kinect 游戏](https://github.com/Microsoft/PTVS/wiki/PyKinect) (GitHub wiki)
 - [IIS 和 Python 之间 WFastCGI 桥](https://pypi.python.org/pypi/wfastcgi) (python.org)
-- - [Microsoft Virtual Academy 上的免费 Phthon 课程](https://mva.microsoft.com/search/SearchResults.aspx#!q=python)
+- [Microsoft Virtual Academy 上的免费 Phthon 课程](https://mva.microsoft.com/search/SearchResults.aspx#!q=python)
+- [Microsoft Virtual Academy 上的“Python 最常见问题”](https://aka.ms/mva-top-python-questions)
 

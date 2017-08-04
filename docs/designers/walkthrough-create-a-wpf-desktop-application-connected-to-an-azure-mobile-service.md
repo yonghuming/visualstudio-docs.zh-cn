@@ -13,26 +13,11 @@ caps.latest.revision: 7
 author: kempb
 ms.author: kempb
 manager: ghogen
-translation.priority.ht:
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- ru-ru
-- zh-cn
-- zh-tw
-translation.priority.mt:
-- cs-cz
-- pl-pl
-- pt-br
-- tr-tr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 47057e9611b824c17077b9127f8d2f8b192d6eb8
-ms.openlocfilehash: 7716a0e9249c67760ae7b31160dcae89b77b9ca7
+ms.translationtype: HT
+ms.sourcegitcommit: 6d25db4639f2c8391c1e32542701ea359f560178
+ms.openlocfilehash: b42e50dcfc4820b750c04085f1e881ee25f786f9
 ms.contentlocale: zh-cn
-ms.lasthandoff: 05/13/2017
+ms.lasthandoff: 07/18/2017
 
 ---
 # <a name="walkthrough-create-a-wpf-desktop-application-connected-to-an-azure-mobile-service"></a>演练：创建连接到 Azure 移动服务的 WPF 桌面应用程序
@@ -41,7 +26,7 @@ Windows Presentation Foundation (WPF) 可用于快速创建现代桌面应用程
 ##  <a name="Requirements"></a> 先决条件  
  若要完成本演练，需要满足以下条件：  
   
--   Visual Studio 2015 – 支持 WPF 开发的任何版本。  
+-   Visual Studio 2017 或支持 WPF 开发的任何版本。  
   
 -   活动的 Microsoft Azure 帐户。  
   
@@ -115,7 +100,7 @@ Windows Presentation Foundation (WPF) 可用于快速创建现代桌面应用程
   
      此 XAML 代码将创建具有数字、标题和说明字段占位符的可重用布局。 在运行时可将占位符替换为下图中所示的文本。  
   
-     ![QuickStartTask 用户控件](~/designers/media/wpfquickstart1.PNG "WPFQuickStart1")  
+     ![QuickStartTask 用户控件](../designers/media/wpfquickstart1.PNG "WPFQuickStart1")  
   
 6.  在“解决方案资源管理器” 中，展开“QuickStartTask.xaml”  节点，然后打开“QuickStartTask.xaml.cs”  或“QuickStartTask.xaml.vb”  文件。  
   
@@ -302,7 +287,7 @@ Windows Presentation Foundation (WPF) 可用于快速创建现代桌面应用程
   
      此时，你的设计应类似于下图。  
   
-     ![设计器中的主窗口](~/designers/media/wpfquickstart2.PNG "WPFQuickStart2")  
+     ![设计器中的主窗口](../designers/media/wpfquickstart2.PNG "WPFQuickStart2")  
   
     > [!NOTE]
     >  在操作后面的几个程序期间，如果“错误列表”  处于打开状态，你可能会看到其中的错误。 别担心；一旦完成剩余步骤，这些错误就会消失。  
@@ -572,7 +557,7 @@ Windows Presentation Foundation (WPF) 可用于快速创建现代桌面应用程
   
      请注意，已将这两个条目添加到“查询和更新数据”  列表，如下图所示。  
   
-     ![待处理项被添加到列表中。](~/designers/media/wpfquickstart3.PNG "WPFQuickStart3")  
+     ![待处理项被添加到列表中。](../designers/media/wpfquickstart3.PNG "WPFQuickStart3")  
   
 4.  选中列表中的“Do something else”  条目的复选框。  
   
@@ -581,8 +566,8 @@ Windows Presentation Foundation (WPF) 可用于快速创建现代桌面应用程
 ## <a name="next-steps"></a>后续步骤  
  你已通过 Azure 后端完成了 WPF 桌面应用程的一个相当简单的示例。 当然，实际的应用程序很可能更为复杂，但应用的都是相同的基本概念。 请参阅 [.NET Framework 中的 WPF](https://msdn.microsoft.com/en-us/library/ms754130\(v=vs.100\).aspx)。  
   
- 你可以通过添加颜色、形状、图形和甚至动画来使用户界面更有吸引力。 请参阅[在 Visual Studio 和 Blend for Visual Studio 中设计 XAML](../designers/designing-xaml-in-visual-studio.md)。  
-  
+ 你可以通过添加颜色、形状、图形和甚至动画来使用户界面更有吸引力。 请参阅[在 Visual Studio 中，使用 XAML 设计器创建 UI](creating-a-ui-by-using-xaml-designer-in-visual-studio.md) 和[使用 Blend for Visual Studio 创建 UI](creating-a-ui-by-using-blend-for-visual-studio.md)。 有关这两种工具的比较，请参阅[在 Visual Studio 和 Blend for Visual Studio 中设计 XAML](../designers/designing-xaml-in-visual-studio.md)。  
+
  你可以连接到现有的 SQL 数据库或其他使用 Azure 移动服务的数据源。 请参阅 [移动服务文档](http://azure.microsoft.com/en-us/services/app-service/mobile/)。  
   
 ## <a name="see-also"></a>另请参阅  

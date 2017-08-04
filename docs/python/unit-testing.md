@@ -1,12 +1,13 @@
 ---
 title: "Visual Studio 中的 Python 单元测试 | Microsoft Docs"
 ms.custom: 
-ms.date: 5/8/2017
+ms.date: 7/13/2017
 ms.prod: visual-studio-dev15
 ms.reviewer: 
 ms.suite: 
 ms.technology:
 - devlang-python
+ms.devlang: python
 ms.tgt_pltfrm: 
 ms.topic: article
 ms.assetid: f3ad6523-5a4e-4209-8977-adc2da305df2
@@ -14,25 +15,11 @@ caps.latest.revision: 1
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-translation.priority.ht:
-- cs-cz
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pl-pl
-- pt-br
-- ru-ru
-- tr-tr
-- zh-cn
-- zh-tw
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 85576806818a6ed289c2f660f87b5c419016c600
-ms.openlocfilehash: 2597583912c7694495617c53839f41aa13cda871
+ms.translationtype: HT
+ms.sourcegitcommit: 6d25db4639f2c8391c1e32542701ea359f560178
+ms.openlocfilehash: 04937d3cd1a16e0be90305221850e691c8d18c50
 ms.contentlocale: zh-cn
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 07/18/2017
 
 ---
 
@@ -46,11 +33,11 @@ Python 单元测试广泛应用于在程序设计期间验证方案。 针对 Vi
 
 ## <a name="discovering-and-viewing-tests"></a>发现和查看测试
 
-根据惯例，Visual Studio 将测试标识为名称以“test”开头的方法。 若要查看，请执行以下操作：
+根据惯例，Visual Studio 将测试标识为名称以“`test`”开头的方法。 若要查看此行为，请执行以下操作：
 
 1. 打开一个 Visual Studio 中加载的 [Python 项目](python-projects.md)，右键单击该项目，选择“添加”>“新建项目...”，然后选择其后有“添加”的“Python 单元测试”。
 
-1. 如果直接运行脚本，将创建具有导入标准 `unittest` 模块的代码的 test1.py 文件，从 `unittest.TestCase` 派生一个测试类，并调用 `unittest.main()`：
+1. 此操作将创建`test1.py file with code that imports the standard `unittest` module, derives a test class from `unittest。测试用例`, and invokes `unittest.main() 如果直接运行该脚本：
 
   ```python
   import unittest
@@ -65,13 +52,13 @@ Python 单元测试广泛应用于在程序设计期间验证方案。 针对 Vi
 
 1. 根据需要保存该文件，然后通过“测试”>“窗口”>“测试资源管理器”菜单命令打开测试资源管理器。
 
-1. 测试资源管理器将搜索要测试的项目并进行显示，如下所示。 双击测试打开其源文件。
+1. 测试资源管理器会搜索要测试的项目并进行显示，如下所示。 双击测试打开其源文件。
 
-    ![显示默认 test_A 的测试资源管理器](~/python/media/unit-test-A.png)
+    ![显示默认 test_A 的测试资源管理器](media/unit-test-A.png)
 
 1. 向项目添加更多测试时，可以使用工具栏上的“分组”菜单整理测试资源管理器中视图：
 
-    ![测试资源管理器分组工具栏菜单](~/python/media/unit-test-group-menu.png)
+    ![测试资源管理器分组工具栏菜单](media/unit-test-group-menu.png)
 
 1. 还可以在搜索字段中输入文本以按名称筛选测试。
 
@@ -89,27 +76,27 @@ Python 单元测试广泛应用于在程序设计期间验证方案。 针对 Vi
 
 - 通过的测试将显示一个绿勾和运行测试所花费的时间：
 
-    ![test_A 通过状态](~/python/media/unit-test-A-pass.png)
+    ![test_A 通过状态](media/unit-test-A-pass.png)
 
 - 失败的测试将显示带有**输出**链接的红叉，该链接显示控制台输出和测试运行中的 `unittest` 输出：
 
-    ![test_A 失败状态](~/python/media/unit-test-A-fail.png)
+    ![test_A 失败状态](media/unit-test-A-fail.png)
 
-    ![test_A 失败及原因](~/python/media/unit-test-A-fail-reason.png)
+    ![test_A 失败及原因](media/unit-test-A-fail-reason.png)
 
 ## <a name="debugging-tests"></a>调试测试
 
-因为单元测试是代码片段，所以和任何其他代码一样会受到 bug 的影响，有时需要在调试器中运行，以便在其中设置断点、检查变量和单步执行代码。 Visual Studio 还提供了诊断工具
+因为单元测试是代码片段，所以和任何其他代码一样会受到 bug 的影响，有时需要在调试器中运行。 在调试程序中，可以设置断点、检查变量和逐行执行代码。 Visual Studio 还提供了用于单元测试的诊断工具。
 
-若要开始调试，请在代码中设置初始断点，然后在测试资源管理器中右键单击测试（或所做选择），然后选择“调试所选测试”。 Visual Studio 将启动 Python 调试器，与为应用程序代码启动 Python 调试器一样。
+若要开始调试，请在代码中设置初始断点，然后在测试资源管理器中右键单击测试（或所做选择），然后选择“调试所选测试”。 Visual Studio 会启动 Python 调试程序，与为应用程序代码启动 Python 调试器一样。
 
-![调试测试](~/python/media/unit-test-debugging.png)
+![调试测试](media/unit-test-debugging.png)
 
 还可使用“分析所选测试的代码覆盖率”和“配置文件测试”命令，具体取决于 Visual Studio 版本（请参阅[功能矩阵](python-in-visual-studio.md#features-matrix)）。
 
 ### <a name="known-issues"></a>已知问题
 
-- 启动调试时，Visual Studio 将显示启动和停止调试，然后重新启动。 这是预期情况。
+- 启动调试时，Visual Studio 会显示启动和停止调试，然后重新启动。 此行为是预期的行为。
 - 调试多个测试时，因为每个测试都是独立运行，所以会中断调试会话。
-- 调试时，Visual Studio 启动测试将间歇性地失败。 通常情况下，尝试再次调试测试将会成功。
+- 调试时，Visual Studio 启动测试会间歇性地失败。 通常情况下，尝试再次调试测试会成功。
 - 调试时，可能会跳出测试转到 `unittest` 实现。 通常情况下，下一步会运行到程序结束，然后停止调试。

@@ -40,10 +40,11 @@ translation.priority.ht:
 - tr-tr
 - zh-cn
 - zh-tw
-translationtype: Human Translation
-ms.sourcegitcommit: ca7c86466fa23fb21a932f26dc24e37c71cf29b4
-ms.openlocfilehash: bde2b08fb3cc1b183d224ab3282e44f21a094403
-ms.lasthandoff: 04/05/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 3d32d11a430227800cb3ed53831a9565eb6adeb3
+ms.openlocfilehash: 0e6777ed52cb1695c90ae42d7795de57f9c62169
+ms.contentlocale: zh-cn
+ms.lasthandoff: 05/30/2017
 
 ---
 # <a name="cl-task"></a>CL 任务
@@ -366,7 +367,7 @@ ms.lasthandoff: 04/05/2017
   
      如果为 `true`，则在使用 Microsoft 扩展 ([/Ze](/cpp/build/reference/za-ze-disable-language-extensions)) 的 [for](/cpp/cpp/for-statement-cpp) 循环中实现标准 C++ 行为。  
   
-     有关详细信息，请参阅 [/Zc:forScope（强制执行 For 循环范围中的合规性）](http://msdn.microsoft.com/Library/3031f02d-3b14-4ad0-869e-22b0110c3aed)。  
+     有关详细信息，请参阅 [/Zc:forScope（强制执行 For 循环范围中的合规性）](/cpp/build/reference/zc-forscope-force-conformance-in-for-loop-scope)。  
   
 -   **ForcedIncludeFiles**  
   
@@ -714,7 +715,7 @@ ms.lasthandoff: 04/05/2017
   
      如果为 `true`，则将 `wchar_t` 类型视为本机类型。  
   
-     有关详细信息，请参阅 [/Zc:wchar_t（wchar_t 是本机类型）](http://msdn.microsoft.com/Library/b0de5a84-da72-4e5a-9a4e-541099f939e0)。  
+     有关详细信息，请参阅 [/Zc:wchar_t（wchar_t 是本机类型）](/cpp/build/reference/zc-wchar-t-wchar-t-is-native-type)。  
   
 -   **UndefineAllPreprocessorDefinitions**  
   
@@ -768,7 +769,7 @@ ms.lasthandoff: 04/05/2017
   
     -   **EnableAllWarnings** - **/Wall**  
   
-     有关详细信息，请参阅 [/w、/W0、/W1、/W2、/W3、/W4、/w1、/w2、/w3、/w4、/Wall、/wd、/we、/wo、/Wv、/WX（警告等级）](/cpp/build/reference/compiler-option-warning-level)中的 **/W***n* 选项。  
+     有关详细信息，请参阅 [/w、/W0、/W1、/W2、/W3、/W4、/w1、/w2、/w3、/w4、/Wall、/wd、/we、/wo、/Wv、/WX（警告等级）](/cpp/build/reference/compiler-option-warning-level)中的 /Wn 选项。  
   
 -   **WholeProgramOptimization**  
   
