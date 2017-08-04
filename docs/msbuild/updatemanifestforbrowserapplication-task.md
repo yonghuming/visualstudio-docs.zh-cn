@@ -37,18 +37,19 @@ translation.priority.ht:
 - tr-tr
 - zh-cn
 - zh-tw
-translationtype: Human Translation
-ms.sourcegitcommit: 79460291e91f0659df0a4241e17616e55187a0e2
-ms.openlocfilehash: 2a80b4c0ec826a43e768fc4f017c30536bb7c36a
-ms.lasthandoff: 02/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 3d32d11a430227800cb3ed53831a9565eb6adeb3
+ms.openlocfilehash: 2f36e0635b2cc3bcb3b17f8e3ce26ebc28b9c243
+ms.contentlocale: zh-cn
+ms.lasthandoff: 05/30/2017
 
 ---
 # <a name="updatemanifestforbrowserapplication-task"></a>UpdateManifestForBrowserApplication 任务
-当生成 [!INCLUDE[TLA#tla_xbap](../msbuild/includes/tlasharptla_xbap_md.md)] 项目时，会运行 <xref:Microsoft.Build.Tasks.Windows.UpdateManifestForBrowserApplication> 任务，以将 **\<hostInBrowser />** 元素添加到应用程序清单中 (*projectname*.exe.manifest)。  
+生成 [!INCLUDE[TLA#tla_xbap](../msbuild/includes/tlasharptla_xbap_md.md)] 项目时，运行 <xref:Microsoft.Build.Tasks.Windows.UpdateManifestForBrowserApplication> 任务，以将 \<hostInBrowser /> 元素添加到应用程序清单中 (projectname.exe.manifest)。  
   
 ## <a name="task-parameters"></a>任务参数  
   
-|参数|描述|  
+|参数|说明|  
 |---------------|-----------------|  
 |`ApplicationManifest`|必需的 **ITaskItem[]** 参数。<br /><br /> 指定想要将 `<hostInBrowser />` 元素添加到其中的应用程序清单文件的路径和名称。|  
 |`HostInBrowser`|所需的 **Boolean** 参数。<br /><br /> 指定是否要修改应用程序清单，以包括 **\<hostInBrowser />** 元素。 如果为 **true**，则一个新 `<`**hostInBrowser />** 元素将包括在 **\<entryPoint />** 元素中。 请注意，元素包含是累计的：如果 **\<hostInBrowser />** 元素已存在，则不会删除或覆盖它。 相反，将创建额外的 **\<hostInBrowser />** 元素。 如果为 **false**，则不会修改应用程序清单。|  
@@ -72,7 +73,7 @@ ms.lasthandoff: 02/22/2017
 />  
 ```  
   
- 生成 [!INCLUDE[TLA2#tla_xbap](../msbuild/includes/tla2sharptla_xbap_md.md)] 项目时，将运行 <xref:Microsoft.Build.Tasks.Windows.UpdateManifestForBrowserApplication> 任务，以便添加 `<hostInBrowser />` 元素。  
+ 当生成 [!INCLUDE[TLA2#tla_xbap](../msbuild/includes/tla2sharptla_xbap_md.md)] 项目时，将运行 <xref:Microsoft.Build.Tasks.Windows.UpdateManifestForBrowserApplication> 任务，以添加 `<hostInBrowser />` 元素。  
   
 ## <a name="example"></a>示例  
  以下示例演示如何确保 `<hostInBrowser />` 元素包括在应用程序清单文件中。  
@@ -95,5 +96,5 @@ ms.lasthandoff: 02/22/2017
  [任务参考](../msbuild/wpf-msbuild-task-reference.md)   
  [MSBuild 参考](../msbuild/msbuild-reference.md)   
  [任务参考](../msbuild/msbuild-task-reference.md)   
- [Building a WPF Application (WPF)](http://msdn.microsoft.com/Library/a58696fd-bdad-4b55-9759-136dfdf8b91c) （生成 WPF 应用程序 (WPF)）  
- [WPF XAML Browser Applications Overview](http://msdn.microsoft.com/Library/3a7a86a8-75d5-4898-96b9-73da151e5e16)（WPF XAML 浏览器应用程序概述）
+ [Building a WPF Application (WPF)](/dotnet/framework/wpf/app-development/building-a-wpf-application-wpf) （生成 WPF 应用程序 (WPF)）  
+ [WPF XAML Browser Applications Overview](/dotnet/framework/wpf/app-development/wpf-xaml-browser-applications-overview)（WPF XAML 浏览器应用程序概述）

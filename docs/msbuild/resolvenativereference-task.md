@@ -37,10 +37,11 @@ translation.priority.ht:
 - tr-tr
 - zh-cn
 - zh-tw
-translationtype: Human Translation
-ms.sourcegitcommit: 5db97d19b1b823388a465bba15d057b30ff0b3ce
-ms.openlocfilehash: b0b08a9602c81e504bf2cd01d1d1ce9720dc6b2a
-ms.lasthandoff: 02/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 11a9cee75f912c5fb31cf4a031644abe9c63d744
+ms.openlocfilehash: c3c8a58f0eeeb43ac43e2064c2e4c7de2e5bf469
+ms.contentlocale: zh-cn
+ms.lasthandoff: 06/03/2017
 
 ---
 # <a name="resolvenativereference-task"></a>ResolveNativeReference 任务
@@ -51,17 +52,17 @@ ms.lasthandoff: 02/22/2017
   
 |参数|描述|  
 |---------------|-----------------|  
-|`AdditionalSearchPaths`|必需的 [String](assetId:///String?qualifyHint=False&autoUpgrade=True)`[]` 参数。<br /><br /> 获取或设置用于解析本机引用的程序集标识的搜索路径。|  
+|`AdditionalSearchPaths`|必选 <xref:System.String?displayProperty=fullName>`[]` 参数。<br /><br /> 获取或设置用于解析本机引用的程序集标识的搜索路径。|  
 |`ContainedComComponents`|可选的 <xref:Microsoft.Build.Framework.ITaskItem>`[]` 输出参数。<br /><br /> 获取或设置本机程序集的 COM 组件。|  
 |`ContainedLooseEtcFiles`|可选的 <xref:Microsoft.Build.Framework.ITaskItem>`[]` 输出参数。<br /><br /> 获取或设置本机清单中列出的松散 Etc 文件。|  
 |`ContainedLooseTlbFiles`|可选的 <xref:Microsoft.Build.Framework.ITaskItem>`[]` 输出参数。<br /><br /> 获取或设置本机程序集的松宽松 .tlb 文件。|  
 |`ContainedPrerequisiteAssemblies`|可选的 <xref:Microsoft.Build.Framework.ITaskItem>`[]` 输出参数。<br /><br /> 获取或设置在可使用清单前必须存在的程序集。|  
 |`ContainedTypeLibraries`|可选的 <xref:Microsoft.Build.Framework.ITaskItem>`[]` 输出参数。<br /><br /> 获取或设置本机程序集的类型库。|  
 |`ContainingReferenceFiles`|可选的 <xref:Microsoft.Build.Framework.ITaskItem>`[]` 输出参数。<br /><br /> 获取或设置引用文件。|  
-|`NativeReferences`|所需的 <xref:Microsoft.Build.Framework.ITaskItem>`[]` 参数。<br /><br /> 获取或设置 Win32 本机程序集引用。|  
+|`NativeReferences`|必选 <xref:Microsoft.Build.Framework.ITaskItem>`[]` 参数。<br /><br /> 获取或设置 Win32 本机程序集引用。|  
   
 ## <a name="remarks"></a>备注  
- 除了上面列出的参数，此任务还从 <xref:Microsoft.Build.Tasks.TaskExtension> 类继承参数，此类本身继承自 <xref:Microsoft.Build.Utilities.Task> 类。 有关这些其他参数及其说明的列表，请参阅 [TaskExtension 基类](../msbuild/taskextension-base-class.md)。  
+ 除上面列出的参数外，此任务还从 <xref:Microsoft.Build.Tasks.TaskExtension> 类继承参数，后者自身继承自 <xref:Microsoft.Build.Utilities.Task> 类。 有关这些其他参数的列表及其说明的信息，请参阅 [TaskExtension Base Class](../msbuild/taskextension-base-class.md)。  
   
 ## <a name="see-also"></a>另请参阅  
  [任务](../msbuild/msbuild-tasks.md)   

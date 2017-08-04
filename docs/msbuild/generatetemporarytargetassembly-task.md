@@ -37,10 +37,11 @@ translation.priority.ht:
 - tr-tr
 - zh-cn
 - zh-tw
-translationtype: Human Translation
-ms.sourcegitcommit: 79460291e91f0659df0a4241e17616e55187a0e2
-ms.openlocfilehash: 97370aa7301442a6f7f416b92204461177acdc5a
-ms.lasthandoff: 02/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 3d32d11a430227800cb3ed53831a9565eb6adeb3
+ms.openlocfilehash: f7dae97d2018e220c5d2584f8aee3e1b911cf0f3
+ms.contentlocale: zh-cn
+ms.lasthandoff: 05/30/2017
 
 ---
 # <a name="generatetemporarytargetassembly-task"></a>GenerateTemporaryTargetAssembly 任务
@@ -93,5 +94,5 @@ ms.lasthandoff: 02/22/2017
  [任务参考](../msbuild/wpf-msbuild-task-reference.md)   
  [MSBuild 参考](../msbuild/msbuild-reference.md)   
  [任务参考](../msbuild/msbuild-task-reference.md)   
- [Building a WPF Application (WPF)](http://msdn.microsoft.com/Library/a58696fd-bdad-4b55-9759-136dfdf8b91c) （生成 WPF 应用程序 (WPF)）  
- [WPF XAML Browser Applications Overview](http://msdn.microsoft.com/Library/3a7a86a8-75d5-4898-96b9-73da151e5e16)（WPF XAML 浏览器应用程序概述）
+ [Building a WPF Application (WPF)](/dotnet/framework/wpf/app-development/building-a-wpf-application-wpf) （生成 WPF 应用程序 (WPF)）  
+ [WPF XAML Browser Applications Overview](/dotnet/framework/wpf/app-development/wpf-xaml-browser-applications-overview)（WPF XAML 浏览器应用程序概述）

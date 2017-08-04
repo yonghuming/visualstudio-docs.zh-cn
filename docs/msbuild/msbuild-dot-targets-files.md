@@ -35,10 +35,11 @@ translation.priority.ht:
 - tr-tr
 - zh-cn
 - zh-tw
-translationtype: Human Translation
-ms.sourcegitcommit: 203e1e27cc892e96b103fc6cb22a73672a8e16af
-ms.openlocfilehash: aa15581df771128117b0e4c75f5ddd749cdf5702
-ms.lasthandoff: 03/01/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 3fb5627d2cc92c36e9dcf34f4b94796b6620321f
+ms.openlocfilehash: e212fafb9eaf7891ff75084d4d5dd8b492718049
+ms.contentlocale: zh-cn
+ms.lasthandoff: 06/15/2017
 
 ---
 # <a name="msbuild-targets-files"></a>MSBuild .Targets 文件
@@ -59,8 +60,8 @@ ms.lasthandoff: 03/01/2017
 |Microsoft.CSharp.targets|定义 Visual C# 项目标准生成过程中的步骤。<br /><br /> 由 Visual C# 项目文件 (.csproj) 导入，其中包括以下语句：`<Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />`|  
 |Microsoft.VisualBasic.targets|定义 Visual Basic 项目标准生成过程中的步骤。<br /><br /> 由 Visual Basic 项目文件 (.vbproj) 导入，其中包括以下语句：`<Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />`|
 
-## <a name="directorybuildprops"></a>Directory.Build.Props
-Directory.Build.Props 是用户定义的对目录下的项目提供自定义选项的文件。 除非属性 **ImportDirectoryBuildTargets** 设为 **false**，否则该文件将从 Microsoft.Common.targets 自动导入。
+## <a name="directorybuildtargets"></a>Directory.Build.targets
+Directory.Build.targets 是用户定义的对目录下的项目提供自定义选项的文件。 除非属性 **ImportDirectoryBuildTargets** 设为 **false**，否则该文件将从 Microsoft.Common.targets 自动导入。
 
 ## <a name="see-also"></a>另请参阅  
  [Import 元素 (MSBuild)](../msbuild/import-element-msbuild.md)   

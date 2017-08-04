@@ -30,10 +30,10 @@ translation.priority.ht:
 - zh-cn
 - zh-tw
 ms.translationtype: Human Translation
-ms.sourcegitcommit: 47057e9611b824c17077b9127f8d2f8b192d6eb8
-ms.openlocfilehash: fbc3a182d2c3dbceaa17685f649ea73a3e73ed85
+ms.sourcegitcommit: 11a9cee75f912c5fb31cf4a031644abe9c63d744
+ms.openlocfilehash: db500747061b436db2a0897e5b43a1cae4a3acae
 ms.contentlocale: zh-cn
-ms.lasthandoff: 05/13/2017
+ms.lasthandoff: 06/03/2017
 
 ---
 # <a name="improve-code-quality"></a>提高代码质量
@@ -54,8 +54,8 @@ ms.lasthandoff: 05/13/2017
 |[测量托管代码的复杂性和可维护性](../code-quality/measuring-complexity-and-maintainability-of-managed-code.md)|代码度量是一组软件度量值，使开发人员可以更好地了解他们正在开发的代码。 度量值包括函数和类的可维护性指数、函数的圈复杂度、类的继承深度和类耦合度的数值。|  
   
 ## <a name="related-scenarios"></a>相关方案  
- [利用 Visual Studio 和 Team Foundation Server 进行应用程序生命周期管理](assetId:///7ae9182f-4762-4bd3-b238-39ce987932e5)  
- 如果不熟悉 Visual Studio Team Foundation，可以详细了解如何在团队开发环境中使用它来提高生产力并降低与应用程序开发相关的风险。  
+ [DevOps overview for Team Services and TFS](https://www.visualstudio.com/docs/devops-alm-overview)（Team Services 和 TFS 的 DevOps 概述）  
+ 如果不熟悉 Visual Studio Team Foundation 和 Visual Studio Team Services，可以详细了解如何在团队开发环境中使用它来提高生产力并降低与应用程序开发相关的风险。  
   
  [体系结构分析和建模](../modeling/analyze-and-model-your-architecture.md)  
  可以使用 [!INCLUDE[vsPreExt](../test/includes/vspreext_md.md)] 管理设计软件期间的难题和复杂性。 可以使用 [!INCLUDE[vsPreShort](../test/includes/vspreshort_md.md)]以直观的方式按照应用程序的现状和你希望的未来状况为应用程序建模。 可以创建和维护关系图，以帮助你在将应用程序的逻辑模型映射到物理模型的同时，将这些逻辑模型可视化；这使你可以更改、验证和分析处于“设计中”的软件。  

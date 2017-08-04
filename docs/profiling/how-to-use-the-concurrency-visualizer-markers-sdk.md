@@ -1,19 +1,39 @@
 ---
 title: "如何：使用并发可视化工具标记 SDK | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-debug"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-debug
+ms.tgt_pltfrm: 
+ms.topic: article
 ms.assetid: 19a45032-f8a7-4137-890e-2ceeec938b8d
 caps.latest.revision: 9
-author: "mikejo5000"
-ms.author: "mikejo"
-manager: "ghogen"
-caps.handback.revision: 9
+author: mikejo5000
+ms.author: mikejo
+manager: ghogen
+translation.priority.ht:
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- ru-ru
+- zh-cn
+- zh-tw
+translation.priority.mt:
+- cs-cz
+- pl-pl
+- pt-br
+- tr-tr
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 11a9cee75f912c5fb31cf4a031644abe9c63d744
+ms.openlocfilehash: d705cd8146a0ccb43be54e2d825387699e157379
+ms.contentlocale: zh-cn
+ms.lasthandoff: 06/03/2017
+
 ---
 # <a name="how-to-use-the-concurrency-visualizer-markers-sdk"></a>如何：使用并发可视化工具标记 SDK
 本主题演示如何使用并发可视化工具 SDK 来创建范围并编写标志、消息和警报。  
@@ -52,7 +72,7 @@ caps.handback.revision: 9
   
 4.  在菜单栏上，依次选择“分析”、“并发可视化工具”、“从当前项目开始”以运行应用并显示并发可视化工具。 下图显示并发可视化工具中的三个范围和三种标记。  
   
-     ![具有 3 种标记和警报的并发可视化工具](~/profiling/media/cvmarkersnative.png "CvMarkersNative")  
+     ![具有 3 种标记和警报的并发可视化工具](../profiling/media/cvmarkersnative.png "CvMarkersNative")  
   
 5.  添加代码，以通过调用 `marker_series` 的构造函数（对标记系列采用字符串名称）来创建附加的自定义标记系列。  
   
@@ -93,7 +113,7 @@ caps.handback.revision: 9
     using Microsoft.ConcurrencyVisualizer.Instrumentation;  
     ```  
   
-3.  添加代码以在默认标记系列中创建三个范围，并编写一个标志、一条消息和一个警报（各自对应一个范围）。 通过调用静态 [EnterSpan](assetId:///EnterSpan?qualifyHint=False&autoUpgrade=True) 方法创建 <xref:Microsoft.ConcurrencyVisualizer.Instrumentation.Span> 对象。 若要写入到默认系列，请使用 <xref:Microsoft.ConcurrencyVisualizer.Instrumentation.Markers> 类的静态写入方法。  
+3.  添加代码以在默认标记系列中创建三个范围，并编写一个标志、一条消息和一个警报（各自对应一个范围）。 通过调用静态 `EnterSpan` 方法创建 <xref:Microsoft.ConcurrencyVisualizer.Instrumentation.Span> 对象。 若要写入到默认序列，请使用 <xref:Microsoft.ConcurrencyVisualizer.Instrumentation.Markers> 类的静态写入方法。  
   
     ```VB  
   
@@ -138,7 +158,7 @@ caps.handback.revision: 9
   
      ![具有标记和警报的并发可视化工具](../profiling/media/cvmarkersmanaged.png "CvMarkersManaged")  
   
-5.  添加代码，以使用静态 <xref:Microsoft.ConcurrencyVisualizer.Instrumentation.Markers.CreateMarkerSeries%2A> 方法创建自定义标记系列。 <xref:Microsoft.ConcurrencyVisualizer.Instrumentation.MarkerSeries> 类包含用于创建范围以及编写标志、消息和警报的方法。  
+5.  添加代码，使用静态 <xref:Microsoft.ConcurrencyVisualizer.Instrumentation.Markers.CreateMarkerSeries%2A> 方法创建客户标记序列。 <xref:Microsoft.ConcurrencyVisualizer.Instrumentation.MarkerSeries> 类包含用于创建范围和编写标志、消息和警报的方法。  
   
     ```VB  
   
@@ -178,9 +198,4 @@ caps.handback.revision: 9
   
 ## <a name="see-also"></a>另请参阅  
  [并发可视化工具 SDK](../profiling/concurrency-visualizer-sdk.md)
-
-
-
-<!--HONumber=Feb17_HO4-->
-
 

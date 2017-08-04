@@ -37,10 +37,11 @@ translation.priority.ht:
 - tr-tr
 - zh-cn
 - zh-tw
-translationtype: Human Translation
-ms.sourcegitcommit: 79460291e91f0659df0a4241e17616e55187a0e2
-ms.openlocfilehash: 45d07bf0834aa1488e8c2e3b22ee460eb629539e
-ms.lasthandoff: 02/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 3d32d11a430227800cb3ed53831a9565eb6adeb3
+ms.openlocfilehash: a860a2bf2fe61f16e5e18a85fdd71e57de5188f1
+ms.contentlocale: zh-cn
+ms.lasthandoff: 05/30/2017
 
 ---
 # <a name="getwinfxpath-task"></a>GetWinFXPath 任务
@@ -55,7 +56,7 @@ ms.lasthandoff: 02/22/2017
 |`WinFXWowPath`|必需的 **String** 参数。<br /><br /> 指定 64 位系统上 32 位 **Windows on Windows** 模块中的 [!INCLUDE[TLA#tla_winfx](../msbuild/includes/tlasharptla_winfx_md.md)] 程序集的路径。|  
   
 ## <a name="remarks"></a>备注  
- 如果在 64 位处理器上执行 <xref:Microsoft.Build.Tasks.Windows.GetWinFXPath> 任务，则 **WinFXPath** 参数会设置为 **WinFXWowPath** 参数中存储的路径；否则，**WinFXPath** 参数会设置为 **WinFXNativePath** 参数中存储的路径。  
+ 如果在 64 位处理器上执行 <xref:Microsoft.Build.Tasks.Windows.GetWinFXPath> 任务，则 WinFXPath 参数会设置为 WinFXWowPath 参数中存储的路径；否则，WinFXPath 参数会设置为 WinFXNativePath 参数中存储的路径。  
   
 ## <a name="example"></a>示例  
  如下示例演示了如何使用 **GetWinFXPath** 任务来检测 [!INCLUDE[TLA2#tla_titlewinfx](../msbuild/includes/tla2sharptla_titlewinfx_md.md)] 运行时的本机路径。  
@@ -79,4 +80,4 @@ ms.lasthandoff: 02/22/2017
  [任务参考](../msbuild/wpf-msbuild-task-reference.md)   
  [MSBuild 参考](../msbuild/msbuild-reference.md)   
  [任务参考](../msbuild/msbuild-task-reference.md)   
- [Building a WPF Application (WPF)](http://msdn.microsoft.com/Library/a58696fd-bdad-4b55-9759-136dfdf8b91c)（生成 WPF 应用程序 (WPF)）
+ [Building a WPF Application (WPF)](/dotnet/framework/wpf/app-development/building-a-wpf-application-wpf)（生成 WPF 应用程序 (WPF)）

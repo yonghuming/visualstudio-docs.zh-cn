@@ -27,10 +27,11 @@ translation.priority.ht:
 - tr-tr
 - zh-cn
 - zh-tw
-translationtype: Human Translation
-ms.sourcegitcommit: 5658ecf52637a38bc3c2a5ad9e85b2edebf7d445
-ms.openlocfilehash: 5a16c3321222c57f68409e4c2c414cb73e24f258
-ms.lasthandoff: 02/22/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 3d32d11a430227800cb3ed53831a9565eb6adeb3
+ms.openlocfilehash: ce1b1f255fb3a276a17fa6c5248c475a9967579e
+ms.contentlocale: zh-cn
+ms.lasthandoff: 05/30/2017
 
 ---
 # <a name="wpf-data-binding-with-linq-to-xml-overview"></a>使用 LINQ to XML 进行 WPF 数据绑定概述
@@ -52,12 +53,12 @@ ms.lasthandoff: 02/22/2017
   
 |组件|描述|  
 |---------------|-----------------|  
-|绑定目标|要与数据源关联的 UI 元素。 WPF 中的可视化元素派生自 <xref:System.Windows.UIElement> 类。|  
-|目标属性|绑定目标的依赖项属性，反映数据绑定源的值。 派生 <xref:System.Windows.UIElement> 的 <xref:System.Windows.DependencyObject> 类直接支持依赖项属性。|  
+|绑定目标|要与数据源关联的 UI 元素。 WPF 中的可视元素是从 <xref:System.Windows.UIElement> 类派生的。|  
+|目标属性|绑定目标的依赖项属性，反映数据绑定源的值。 从中派生 <xref:System.Windows.DependencyObject> 的 <xref:System.Windows.UIElement> 类直接支持依赖项属性。|  
 |绑定源|提供给 UI 元素以便进行显示的一个或多个值的源对象。 WPF 自动支持以下类型作为绑定源：CLR 对象、ADO.NET 数据对象、XML 数据（来自 XPath 或 LINQ to XML 查询）或其他 <xref:System.Windows.DependencyObject>。|  
 |源路径|绑定源的属性，可解析为要绑定的一个或一组值。|  
   
- 依赖项属性是特定于 WPF 的概念，它表示 UI 元素的动态计算的属性。 例如，依赖项属性通常具有默认值或具有由父元素提供的值。 <xref:System.Windows.DependencyProperty> 类的实例（而不是支持标准属性的字段）支持这些特殊属性。 有关详细信息，请参阅[依赖项属性概述](http://msdn.microsoft.com/Library/d119d00c-3afb-48d6-87a0-c4da4f83dee5)。  
+ 依赖项属性是特定于 WPF 的概念，它表示 UI 元素的动态计算的属性。 例如，依赖项属性通常具有默认值或具有由父元素提供的值。 <xref:System.Windows.DependencyProperty> 类的实例（而不是支持标准属性的字段）支持这些特殊属性。 有关详细信息，请参阅[依赖项属性概述](/dotnet/framework/wpf/advanced/dependency-properties-overview)。  
   
 ### <a name="dynamic-data-binding-in-wpf"></a>WPF 中的动态数据绑定  
  默认情况下，仅在初始化目标 UI 元素时，才会发生数据绑定。 这称为“一次性”绑定。 这不能满足多数用途的需要；通常，数据绑定解决方案要求使用以下方式之一在运行时动态传播更改：  
@@ -66,9 +67,9 @@ ms.lasthandoff: 02/22/2017
   
 -   双向绑定，在这种方式中，对源所做的更改会自动传播到目标，而且对目标的更改也会自动传播到源。  
   
- 为了进行单向或双向绑定，源必须实现一种更改通知机制，例如通过实现 <xref:System.ComponentModel.INotifyPropertyChanged> 接口或通过对支持的每个属性使用 *PropertyNameChanged* 模式。  
+ 为了进行单向或双向绑定，源必须实现一种更改通知机制，例如通过实现 <xref:System.ComponentModel.INotifyPropertyChanged> 接口或通过对支持的每个属性使用 PropertyNameChanged 模式。  
   
- 有关 WPF 中数据绑定的详细信息，请参阅[数据绑定 (WPF)](http://msdn.microsoft.com/Library/90f79b97-17e7-40d1-abf0-3ba600ad1d7e)。  
+ 有关 WPF 中数据绑定的详细信息，请参阅[数据绑定 (WPF)](/dotnet/framework/wpf/data/data-binding-wpf)。  
   
 ## <a name="dynamic-properties-in-linq-to-xml-classes"></a>LINQ to XML 类中的动态属性  
  大多数 LINQ to XML 类都不适合作为适当的 WPF 动态数据源：一些最有用的信息只能通过方法（而不是属性）提供，并且这些类中的属性不实现更改通知。 为了支持 WPF 数据绑定，LINQ to XML 公开了一组动态属性。  
@@ -79,7 +80,7 @@ ms.lasthandoff: 02/22/2017
 >  <xref:System.Xml.Linq> 命名空间的各个类中的很多标准公共属性都可用于一次性数据绑定。 但请记住，在这种方案下，源和目标都不会动态更新。  
   
 ### <a name="accessing-dynamic-properties"></a>访问动态属性  
- 与标准属性一样，不能访问 <xref:System.Xml.Linq.XAttribute> 和 <xref:System.Xml.Linq.XElement> 类中的动态属性。 例如，在符合 CLR 的语言（如 C#）中，动态属性不能：  
+ 不能像访问标准属性那样访问 <xref:System.Xml.Linq.XAttribute> 和 <xref:System.Xml.Linq.XElement> 类中的动态属性。 例如，在符合 CLR 的语言（如 C#）中，动态属性不能：  
   
 -   在编译时直接访问。 动态属性对于编译器和 Visual Studio IntelliSense 是不可见的。  
   
@@ -106,6 +107,6 @@ ms.lasthandoff: 02/22/2017
 ## <a name="see-also"></a>另请参阅  
  [使用 LINQ to XML 进行 WPF 数据绑定](../designers/wpf-data-binding-with-linq-to-xml.md)   
  [LINQ to XML 动态属性](../designers/linq-to-xml-dynamic-properties.md)   
- [WPF 中的 XAML](http://msdn.microsoft.com/Library/5d858575-a83b-42df-ad3f-047ed2d6e3c8)   
- [数据绑定 (WPF)](http://msdn.microsoft.com/Library/90f79b97-17e7-40d1-abf0-3ba600ad1d7e)   
+ [WPF 中的 XAML](/dotnet/framework/wpf/advanced/xaml-in-wpf)   
+ [数据绑定 (WPF)](/dotnet/framework/wpf/data/data-binding-wpf)   
  [使用工作流标记](http://go.microsoft.com/fwlink/?LinkId=98685)

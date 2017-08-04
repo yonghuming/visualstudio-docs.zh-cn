@@ -30,10 +30,11 @@ translation.priority.ht:
 - tr-tr
 - zh-cn
 - zh-tw
-translationtype: Human Translation
-ms.sourcegitcommit: ca7c86466fa23fb21a932f26dc24e37c71cf29b4
-ms.openlocfilehash: 79d77230e46bade8e89d4503dbf95b1f1831e464
-ms.lasthandoff: 04/05/2017
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 44e9d5e7af0994c494522a043c74046c6667abeb
+ms.openlocfilehash: 3b7d14a96683da16d1c7e6bae6a5226bfbaaa616
+ms.contentlocale: zh-cn
+ms.lasthandoff: 06/08/2017
 
 ---
 # <a name="msbuild"></a>MSBuild
@@ -152,7 +153,7 @@ MSBuild.exe MyProj.proj /property:Configuration=Debug
 ###  <a name="BKMK_Tasks"></a>任务  
  任务是 [!INCLUDE[vstecmsbuild](../extensibility/internals/includes/vstecmsbuild_md.md)] 项目用于执行生成操作的可执行代码单元。 例如，任务可能编译输入文件或运行外部工具。 任务可以重用，并且可由不同项目中的不同开发人员共享。  
   
- 任务的执行逻辑在托管代码中编写，并使用 [UsingTask](../msbuild/usingtask-element-msbuild.md) 元素映射到 [!INCLUDE[vstecmsbuild](../extensibility/internals/includes/vstecmsbuild_md.md)]。 可通过创作实现 <xref:Microsoft.Build.Framework.ITask> 接口的托管类型来写入自己的任务。 有关如何编写任务的详细信息，请参阅[任务写入](../msbuild/task-writing.md)。  
+ 任务的执行逻辑在托管代码中编写，并使用 [UsingTask](../msbuild/usingtask-element-msbuild.md) 元素映射到 [!INCLUDE[vstecmsbuild](../extensibility/internals/includes/vstecmsbuild_md.md)]。 你可以通过创作一个实现 <xref:Microsoft.Build.Framework.ITask> 接口的托管类型来编写自己的任务。 有关如何编写任务的详细信息，请参阅[任务写入](../msbuild/task-writing.md)。  
   
  [!INCLUDE[vstecmsbuild](../extensibility/internals/includes/vstecmsbuild_md.md)] 包含一些可按需进行修改的常见任务。  例如，用于复制文件的[复制](../msbuild/copy-task.md)、用于创建目录的 [MakeDir](../msbuild/makedir-task.md) 以及用于编译 Visual C# 源代码文件的 [Csc](../msbuild/csc-task.md)。 有关可用任务的列表以及用法信息，请参阅 [任务参考](../msbuild/msbuild-task-reference.md)。  
   
@@ -224,5 +225,6 @@ MSBuild.exe MyProj.proj /property:Configuration=Debug
  [MSBuild 参考](../msbuild/msbuild-reference.md)  
  链接到包含参考信息的主题。  
   
- 词汇表  
- 定义常见 MSBuild 术语。
+ [术语](msbuild-glossary.md)
+定义常见 MSBuild 术语。
+

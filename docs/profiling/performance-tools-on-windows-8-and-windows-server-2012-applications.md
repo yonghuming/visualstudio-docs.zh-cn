@@ -1,27 +1,47 @@
 ---
-title: "分析 Windows 8 和 Windows Server 2012 应用程序 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-debug"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
+title: "Windows 8 和 Windows Server 2012 应用程序上的性能工具 | Microsoft Docs"
+ms.custom: 
+ms.date: 06/19/2017
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-debug
+ms.tgt_pltfrm: 
+ms.topic: article
 ms.assetid: a704215d-d252-4087-921b-ac81ebe2a9c9
 caps.latest.revision: 15
-author: "mikejo5000"
-ms.author: "mikejo"
-manager: "ghogen"
-caps.handback.revision: 13
+author: mikejo5000
+ms.author: mikejo
+manager: ghogen
+translation.priority.ht:
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- ru-ru
+- zh-cn
+- zh-tw
+translation.priority.mt:
+- cs-cz
+- pl-pl
+- pt-br
+- tr-tr
+ms.translationtype: Human Translation
+ms.sourcegitcommit: baf12bba10dfba15f10d75fd1f7a4cdc4000e441
+ms.openlocfilehash: a5d885f8604bdb52907adae4f231b41e0881017f
+ms.contentlocale: zh-cn
+ms.lasthandoff: 06/21/2017
+
 ---
 # <a name="performance-tools-on-windows-8-and-windows-server-2012-applications"></a>Windows 8 和 Windows Server 2012 应用程序上的性能工具
-Windows 8 和 Windows Server 2012 中增强的安全功能需要对 Visual Studio 性能工具在这些平台上收集数据的方式进行重大更改。 Windows 应用商店应用程序也需要新的收集技术。 本主题介绍针对 Windows 8 和 Windows Server 2012 平台上的性能工具的更改。  
+Windows 8 和 Windows Server 2012 中新增的增强安全功能需要对 Visual Studio 性能工具在这些平台上收集数据的方式进行重大更改。 Windows 应用商店应用程序也需要新的收集技术。 本主题介绍针对 Windows 8 和 Windows Server 2012 平台上新增的性能工具所做的更改。
   
 > [!NOTE]
->  其他受支持的 Windows 版本（Windows 7、Windows Server 2008 R2）的性能工具未更改。  
+>  其他受支持的 Windows 版本（Windows 7、Windows Server 2008 R2）的性能工具未更改。
   
-##  <a name="a-namebkmkinthistopica-in-this-topic"></a><a name="BKMK_In_this_topic"></a> 主题内容  
+##  <a name="BKMK_In_this_topic"></a> 主题内容  
  [从 Visual Studio IDE 收集有关 Windows 应用商店应用的数据](#BKMK_Profiling_Windows_Store_apps_from_the_Visual_Studio_IDE)  
   
  [从 Visual Studio IDE 收集有关在 Windows 8 桌面上或 Windows Server 2012 上运行的应用的数据](#BKMK_Profiling_apps_running_on_the_Windows_8_desktop_or_on_Windows_Server_2012_from_the_Visual_Studio_IDE)  
@@ -32,7 +52,7 @@ Windows 8 和 Windows Server 2012 中增强的安全功能需要对 Visual Studi
   
  [收集层交互 (TIP) 数据](#BKMK_Collecting_tier_interaction__TIP__data)  
   
-##  <a name="a-namebkmkprofilingwindowsstoreappsfromthevisualstudioidea-collecting-data-on-windows-store-apps-from-the-visual-studio-ide"></a><a name="BKMK_Profiling_Windows_Store_apps_from_the_Visual_Studio_IDE"></a> 从 Visual Studio IDE 收集有关 Windows 应用商店应用的数据  
+##  <a name="BKMK_Profiling_Windows_Store_apps_from_the_Visual_Studio_IDE"></a> 从 Visual Studio IDE 收集有关 Windows 应用商店应用的数据  
  分析在 JavaScript 和 HTML 5 中编写的 Windows 应用商店应用程序时，应收集 JavaScript 代码的检测数据。 分析在 Visual C++、Visual C# 或 Visual Basic 中编写的 Windows 应用商店应用程序或组件时，应收集本机代码和托管代码的采样数据。 可以在本地或远程计算机上分析应用。  
   
  分析 Windows 应用商店应用程序时不支持这些分析功能和选项：  
@@ -65,23 +85,23 @@ Windows 8 和 Windows Server 2012 中增强的安全功能需要对 Visual Studi
   
 -   [分析远程设备上的 Windows 应用商店应用中的 Visual C++、Visual C# 和 Visual Basic 代码](http://msdn.microsoft.com/en-us/b932a2be-11b0-40fd-b996-75c6b6a79d22)  
   
--   [分析 Windows 应用商店应用中的 Visual C++、Visual C# 和 Visual Basic 代码的性能数据](http://msdn.microsoft.com/en-us/5de4a413-d924-425f-afc4-e1ecfb0fca18)  
+-   [分析 Windows 应用商店应用程序中的 Visual C++、Visual C# 和 Visual Basic 代码的性能数据](http://msdn.microsoft.com/en-us/5de4a413-d924-425f-afc4-e1ecfb0fca18)  
   
  [主题内容](#BKMK_In_this_topic)  
   
-##  <a name="a-namebkmkprofilingappsrunningonthewindows8desktoporonwindowsserver2012fromthevisualstudioidea-collecting-data-on-apps-running-on-the-windows-8-desktop-or-on-windows-server-2012-from-the-visual-studio-ide"></a><a name="BKMK_Profiling_apps_running_on_the_Windows_8_desktop_or_on_Windows_Server_2012_from_the_Visual_Studio_IDE"></a> 从 Visual Studio IDE 收集有关在 Windows 8 桌面上或 Windows Server 2012 上运行的应用的数据  
+##  <a name="BKMK_Profiling_apps_running_on_the_Windows_8_desktop_or_on_Windows_Server_2012_from_the_Visual_Studio_IDE"></a> 从 Visual Studio IDE 收集有关在 Windows 8 桌面上或 Windows Server 2012 上运行的应用的数据  
  针对 Windows 8，使用检测方法进行分析并未更改。  
   
  使用采样方法时不支持层交互分析 (TIP)。  
   
-###  <a name="a-namebkmkprofilingappsrunningonthewindows8desktoporonwindowsserver2012byusingsamplingfromthevisualstudioidea-collecting-data-on-apps-running-on-the-windows-8-desktop-or-on-windows-server-2012-by-using-sampling-from-the-visual-studio-ide"></a><a name="BKMK_Profiling_apps_running_on_the_Windows_8_desktop_or_on_Windows_Server_2012_by_using_sampling_from_the_Visual_Studio_IDE"></a> 从 Visual Studio IDE 使用采样收集有关在 Windows 8 桌面上或 Windows Server 2012 上运行的应用的数据  
- 使用采样方法分析 Windows 8 桌面应用程序或 Windows Server 2012 应用程序时不支持这些分析功能和选项。  
+###  <a name="BKMK_Profiling_apps_running_on_the_Windows_8_desktop_or_on_Windows_Server_2012_by_using_sampling_from_the_Visual_Studio_IDE"></a> 从 Visual Studio IDE 使用采样收集有关在 Windows 8 桌面上或 Windows Server 2012 上运行的应用的数据  
+ 使用采样方法分析 Windows 8 桌面应用程序或 Windows Server 2012 应用程序时不支持这些分析功能和选项。
   
--   层交互分析 (TIP)。 使用检测时支持收集 TIP 数据。  
+-   层交互分析 (TIP)。 使用检测时支持收集 TIP 数据。
   
 -   采样选项，如设置采样事件和计时间隔，或收集其他性能计数器数据。  
   
-##  <a name="a-namebkmkprofilingfromthecommandlinea-profiling-from-the-command-line"></a><a name="BKMK_Profiling_from_the_command_line"></a> 从命令行分析  
+##  <a name="BKMK_Profiling_from_the_command_line"></a> 从命令行分析  
  你使用两个命令行工具收集 Windows 8 和 Windows Server 2012 设备上的分析数据，这些设备包括未安装 Visual Studio 的设备：  
   
 |工具名称|描述|  
@@ -102,18 +122,18 @@ Windows 8 和 Windows Server 2012 中增强的安全功能需要对 Visual Studi
   
  当从命令行分析 Windows 8 和 Windows Server 2012 应用程序时不支持这些分析功能和选项：  
   
--   通过将采样模式与 [VSPerfASPNetCmd](../profiling/vsperfaspnetcmd.md) 一同使用，从 Windows 8 和 Windows Server 2012 Web 应用收集数据。  
+-   通过将采样模式与 [VSPerfASPNetCmd](../profiling/vsperfaspnetcmd.md)一同使用，从 Windows 8 和 Windows Server 2012 Web 应用收集数据。  
   
 -   通过使用 VsPerfCmd.exe 收集采样数据。  
   
 -   采样选项，如设置采样事件和计时间隔，或收集其他性能计数器数据。  
   
-##  <a name="a-namebkmkcollectingtierinteractiontipdataa-collecting-tier-interaction-tip-data"></a><a name="BKMK_Collecting_tier_interaction__TIP__data"></a> 收集层交互 (TIP) 数据  
+##  <a name="BKMK_Collecting_tier_interaction__TIP__data"></a> 收集层交互 (TIP) 数据  
  层交互分析提供有关多层应用程序函数执行时间的附加信息，这些应用程序通过 ADO.NET 服务与数据库进行通信。 仅针对同步函数调用收集数据。  
   
  **Visual Studio 版本**  
   
- 可以使用 [!INCLUDE[vsUltLong](../code-quality/includes/vsultlong_md.md)]、[!INCLUDE[vsPreLong](../code-quality/includes/vsprelong_md.md)] 或 [!INCLUDE[vs_pro_current_short](../profiling/includes/vs_pro_current_short_md.md)] 收集层交互分析数据。 但是，只能在 [!INCLUDE[vsUltLong](../code-quality/includes/vsultlong_md.md)] 和 [!INCLUDE[vsPreLong](../code-quality/includes/vsprelong_md.md)] 中查看层交互分析数据。  
+ 可以使用 [!INCLUDE[vsUltLong](../code-quality/includes/vsultlong_md.md)]、 [!INCLUDE[vsPreLong](../code-quality/includes/vsprelong_md.md)]或 [!INCLUDE[vs_pro_current_short](../profiling/includes/vs_pro_current_short_md.md)]收集层交互分析数据。 但是，层交互分析数据只能在 [!INCLUDE[vsUltLong](../code-quality/includes/vsultlong_md.md)] 和 [!INCLUDE[vsPreLong](../code-quality/includes/vsprelong_md.md)]中查看。  
   
  **Windows 8 和 Windows Server 2012**  
   
@@ -133,7 +153,7 @@ Windows 8 和 Windows Server 2012 中增强的安全功能需要对 Visual Studi
   
  可以使用 [VSPerfCmd](../profiling/vsperfcmd.md) 或 [VSPerfASPNetCmd](../profiling/vsperfaspnetcmd.md) 收集分析数据。  
   
- **TIP 报告**  
+ **TIP 报表**  
   
  只能在 [!INCLUDE[vsUltLong](../code-quality/includes/vsultlong_md.md)] 或 [!INCLUDE[vsPreLong](../code-quality/includes/vsprelong_md.md)] IDE 中查看层交互数据。 通过 [VSPerfReport](../profiling/vsperfreport.md) 生成的基于文件的层交互报告不可用。  
   
@@ -141,8 +161,3 @@ Windows 8 和 Windows Server 2012 中增强的安全功能需要对 Visual Studi
  [性能资源管理器](../profiling/performance-explorer.md)   
  [配置性能会话](../profiling/configuring-performance-sessions.md)   
  [从命令行分析](../profiling/using-the-profiling-tools-from-the-command-line.md)
-
-
-<!--HONumber=Feb17_HO4-->
-
-
