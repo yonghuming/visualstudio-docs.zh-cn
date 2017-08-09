@@ -36,10 +36,11 @@ translation.priority.ht:
 - tr-tr
 - zh-cn
 - zh-tw
-translationtype: Human Translation
-ms.sourcegitcommit: 5658ecf52637a38bc3c2a5ad9e85b2edebf7d445
-ms.openlocfilehash: b59b417eb16674ff8c6c5223d790ae174ba20e09
-ms.lasthandoff: 02/22/2017
+ms.translationtype: HT
+ms.sourcegitcommit: a3c0f4d3bde8bb03d3766383eba01665e58458be
+ms.openlocfilehash: 18f1ea2f5ee76f4f8457b7254ff3dd3b7b3e4901
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/01/2017
 
 ---
 # <a name="how-to-sign-application-and-deployment-manifests"></a>如何：对应用程序和部署清单进行签名
@@ -49,7 +50,7 @@ ms.lasthandoff: 02/22/2017
   
  对于基于 .exe 的应用程序，对 ClickOnce 清单进行签名是可选的。 有关详细信息，请参阅本文档的“生成未签名的清单”部分。  
   
- 有关创建密钥的信息，请参阅[如何：创建公钥/私钥对](http://msdn.microsoft.com/Library/05026813-f3bd-4d7c-9e0b-fc588eb3d114)。  
+ 有关创建密钥的信息，请参阅[如何：创建公钥/私钥对](/dotnet/framework/app-domains/how-to-create-a-public-private-key-pair)。  
   
 > [!NOTE]
 >  [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] 仅支持具有 .pfx 扩展名的个人信息交换 (PFX) 密钥文件。 但是，可通过单击项目属性“签名”页上的“从存储中选择”，从当前用户的 Windows 证书存储中选择其他类型的证书。  
@@ -124,7 +125,7 @@ ms.lasthandoff: 02/22/2017
 3.  发布应用程序。  
   
 ## <a name="see-also"></a>另请参阅  
- [具有强名称的程序集](http://msdn.microsoft.com/Library/d4a80263-f3e0-4d81-9b61-f0cbeae3797b)   
- [如何：创建公钥/私钥对](http://msdn.microsoft.com/Library/05026813-f3bd-4d7c-9e0b-fc588eb3d114)   
+ [具有强名称的程序集](/dotnet/framework/app-domains/strong-named-assemblies)   
+ [如何：创建公钥/私钥对](/dotnet/framework/app-domains/how-to-create-a-public-private-key-pair)   
  [“项目设计器”->“签名”页](../ide/reference/signing-page-project-designer.md)   
  [ClickOnce 安全和部署](../deployment/clickonce-security-and-deployment.md)
