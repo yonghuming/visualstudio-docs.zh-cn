@@ -3,11 +3,11 @@ layout: HubPage
 hide_bc: true
 title: "Visual Studio 文档"
 description: "了解如何使用 Visual Studio 2017 并以你喜欢的语言来开发适用于你的平台和设备的应用程序、服务和工具。"
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 601cfd86b10f6194d817fc02e6ea0087608fd0ff
-ms.openlocfilehash: ec537370a7bc42a6d93ac377b9cd280733da6799
+ms.translationtype: HT
+ms.sourcegitcommit: df126a2964f2d60ecdd5d33bc68efb041bfe9878
+ms.openlocfilehash: 305044ddc8b5b117b6a7eff30b50834d966a3d7b
 ms.contentlocale: zh-cn
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 08/09/2017
 
 ---
 <div id="main" class="v2">
@@ -307,7 +307,7 @@ ms.lasthandoff: 05/10/2017
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>.NET 的移动开发</h3>
+                                                    <h3>使用 .NET 的移动开发</h3>
                                                     <p>使用 Xamarin 生成适用于 iOS、Android 或 Windows 的跨平台应用程序。</p>
                                                 </div>
                                             </div>
