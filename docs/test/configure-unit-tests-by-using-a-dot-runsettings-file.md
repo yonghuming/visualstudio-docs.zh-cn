@@ -27,24 +27,24 @@ translation.priority.mt:
 - pl-pl
 - pt-br
 - tr-tr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 47057e9611b824c17077b9127f8d2f8b192d6eb8
-ms.openlocfilehash: 1600207e0c504f4b4dcbf620e92bcc06e14ec035
+ms.translationtype: HT
+ms.sourcegitcommit: c00adbbabf0d3b82acb17f4a269dfc693246bc69
+ms.openlocfilehash: 4401606f97452de235b8a2d406451e5481518006
 ms.contentlocale: zh-cn
-ms.lasthandoff: 05/13/2017
+ms.lasthandoff: 08/01/2017
 
 ---
 # <a name="configure-unit-tests-by-using-a-runsettings-file"></a>使用 .runsettings 文件配置单元测试
-通过使用 *.runsettings 文件，可配置 Visual Studio 中的单元测试。 （文件名并不重要，前提是使用扩展名“.runsettings”。）例如，可以更改将运行测试的 .NET Framework、提供测试结果的目录以及在测试运行期间收集的数据。  
+通过使用 \*.runsettings 文件，可配置 Visual Studio 中的单元测试。 （文件名并不重要，前提是使用扩展名“.runsettings”。）例如，可以更改将运行测试的 .NET Framework、提供测试结果的目录以及在测试运行期间收集的数据。  
   
- 如果不希望执行任何特殊配置，则无需 *.runsettings 文件。 最常见的用途是自定义[代码覆盖率](../test/customizing-code-coverage-analysis.md)。  
+ 如果不希望执行任何特殊配置，则无需 \*.runsettings 文件。 最常见的用途是自定义[代码覆盖率](../test/customizing-code-coverage-analysis.md)。  
   
 > [!NOTE]
 >  **.runsettings 和 .testsettings**  
 >   
->  有两种类型的文件可供配置测试。 *.runsettings 用于单元测试。 \*.testsettings 用于[实验室环境测试](/devops-test-docs/test/specifying-test-settings-for-visual-studio-tests)、Web 性能和负载测试，以及用于自定义某些类型的诊断数据适配器（如 Intellitrace 和事件日志适配器）。  
+>  有两种类型的文件可供配置测试。 \*.runsettings 用于单元测试。 \*.testsettings 用于[实验室环境测试](/devops-test-docs/test/specifying-test-settings-for-visual-studio-tests)、Web 性能和负载测试，以及用于自定义某些类型的诊断数据适配器（如 Intellitrace 和事件日志适配器）。  
 >   
->  在 2010 之前的 Visual Studio 版本中，还可通过使用 *.testsettings 文件自定义单元测试。 你仍可以这么做，但是测试运行的速度将会比在 \*.runsettings 文件中使用等效配置慢得多。  
+>  在 2010 之前的 Visual Studio 版本中，还可通过使用 \*.testsettings 文件自定义单元测试。 你仍可以这么做，但是测试运行的速度将会比在 \*.runsettings 文件中使用等效配置慢得多。  
   
 ## <a name="customizing-tests-with-a-runsettings-file"></a>使用 .runsettings 文件自定义测试  
   
@@ -61,7 +61,7 @@ ms.lasthandoff: 05/13/2017
  ![启用运行设置文件](../test/media/runsettings-1.png "RunSettings-1")  
   
 ##  <a name="example"></a>复制此示例 .runsettings 文件  
- 这是典型的 *.runsettings 文件。 文件的每个元素是可选的，因为每个值都有默认值。  
+ 这是典型的 \*.runsettings 文件。 文件的每个元素是可选的，因为每个值都有默认值。  
   
 ```xml  
 <?xml version="1.0" encoding="utf-8"?>  
