@@ -5,7 +5,7 @@ keywords:
 author: TerryGLee
 ms.author: tglee
 manager: ghogen
-ms.date: 05/10/2017
+ms.date: 08/09/2017
 ms.topic: article
 helpviewer_keywords:
 - workload ID, Visual Studio
@@ -109,6 +109,8 @@ Microsoft.VisualStudio.ComponentGroup.NativeDesktop.Win81 | Windows 8.1 SDK 和 
 组件 ID | 名称 | 版本 | 依赖项类型
 --- | --- | --- | ---
 Microsoft.VisualStudio.Web.BuildTools.ComponentGroup | Web 开发生成工具 | 15.0.26323.1 | 必需
+
+
 ## <a name="unaffiliated-components"></a>独立组件
 
 这些组件不随附于任何工作负载，但可选择作为单个组件。
