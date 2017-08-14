@@ -35,10 +35,10 @@ translation.priority.ht:
 - zh-cn
 - zh-tw
 ms.translationtype: HT
-ms.sourcegitcommit: 5c28e68b89f6583dc35a91b275693c11e0259dfd
-ms.openlocfilehash: 6e4094925eec3e4a8768219180e75fa9d1f1fa03
+ms.sourcegitcommit: 14c21f67beb92d3b13a5c54c755ccb846d116a9c
+ms.openlocfilehash: aaa19a3a818c3fa3196d79959ee30c5eae4c1b5f
 ms.contentlocale: zh-cn
-ms.lasthandoff: 07/13/2017
+ms.lasthandoff: 08/05/2017
 
 ---
 # <a name="beginners-guide-to-performance-profiling"></a>性能分析初学者指南
@@ -48,7 +48,9 @@ ms.lasthandoff: 07/13/2017
 
 诊断中心提供了大量其他选项来运行和管理诊断会话。 如果**CPU 使用率**未提供所需数据，[其他分析工具](../profiling/Profiling-Tools.md)可提供可能有帮助的不同种类的信息。 在许多情况下，CPU 以外的因素可能会导致应用程序性能瓶颈，例如内存、呈现 UI 或网络请求时间。 诊断中心提供大量其他选项，可用于记录和分析此种数据。
 
-还可[观看介绍诊断工具用法的视频](#video)，了解如何分析 CPU 使用率以及如何分析内存使用情况。
+|         |         |
+|---------|---------|
+| ![观看视频](../install/media/video-icon.png "WatchVideo") | [观看介绍诊断工具用法的视频](#video)，了解如何分析 CPU 使用率以及如何分析内存使用情况。 |
 
 本主题讨论在普通调试工作流中分析 CPU 使用率。 还可以在不附加调试器的情况下或将运行中的应用作为目标来分析 CPU 使用率 - 有关详细信息，请参阅[在不调试的情况下运行分析工具](../profiling/running-profiling-tools-with-or-without-the-debugger.md)。
   
