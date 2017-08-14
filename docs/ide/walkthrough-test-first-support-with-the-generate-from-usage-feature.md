@@ -31,11 +31,11 @@ translation.priority.mt:
 - pl-pl
 - pt-br
 - tr-tr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5ea9179ad37514ffad4876177b05150eecc22def
-ms.openlocfilehash: b5c18e7d208879498c1923403ec1bd213adffb5a
+ms.translationtype: HT
+ms.sourcegitcommit: f0576ce6dd78fe1328bcea3ab9a27507ddc0f2c0
+ms.openlocfilehash: 4811dda912f20272733a4d878fc8c607eb2573fc
 ms.contentlocale: zh-cn
-ms.lasthandoff: 05/24/2017
+ms.lasthandoff: 08/07/2017
 
 ---
 # <a name="walkthrough-test-first-support-with-the-generate-from-usage-feature"></a>演练：带有“使用时生成”功能的测试先行支持
@@ -60,7 +60,21 @@ ms.lasthandoff: 05/24/2017
      ![“新建测试项目”对话框](../ide/media/newproject_test.png "NewProject_Test")  
 “新建项目”对话框  
   
-4.  单击“确定”  以关闭“新建项目”  对话框。 现在，你已经可以开始编写测试  
+4.  单击“确定”  以关闭“新建项目”  对话框。
+
+5.  在类项目的“解决方案资源管理器”中，右键单击“引用”条目，然后单击“添加引用”。
+
+6.  在“引用管理器”对话框中，选择“项目”，然后选择单元测试项目。
+
+7.  单击“确定”关闭“应用管理器”对话框。
+
+8.  在 Class1 文件中，在现有的最后一个 using 语句后立即添加测试项目的 using 语句。
+
+    * 在 Visual Basic 中，添加 `Using UnitTestProject1`
+    
+    * 在 C# 中，添加 `using UnitTestProject1;`
+    
+9.  保存解决方案。 现在，就可以开始编写测试。  
   
 ### <a name="to-generate-a-new-class-from-a-unit-test"></a>从单元测试生成一个新类  
   
@@ -73,10 +87,10 @@ ms.lasthandoff: 05/24/2017
   
 3.  找到 `TestMethod1()` 方法并将其重命名为 `DefaultAutomobileIsInitializedCorrectly()`。 在此方法中，创建名为 `Automobile`的类的新实例，如下图所示。 会出现波浪形下划线，指示编译时错误，并会在类型名称下出现智能标记。 智能标记的确切位置会有所不同，具体取决于使用的是 [!INCLUDE[vbprvb](../code-quality/includes/vbprvb_md.md)] 还是 [!INCLUDE[csprcs](../data-tools/includes/csprcs_md.md)]。  
   
-     ![Visual Basic 中的智能标记下划线](~/ide/media/genclass_underlinevb.png "GenClass_UnderlineVB")  
+     ![Visual Basic 中的智能标记下划线](../ide/media/genclass_underlinevb.png "GenClass_UnderlineVB")  
 Visual Basic  
   
-     ![C# 中的智能标记下划线](~/ide/media/genclass_underline.png "GenClass_Underline")  
+     ![C&#35; 中的智能标记下划线](../ide/media/genclass_underline.png "GenClass_Underline")  
 Visual C#  
   
 4.  将鼠标指针悬停在智能标记上以查看错误消息，该消息陈述尚未定义名为 `Automobile` 的类型。 单击智能标记或按 CTRL+。 按（CTRL+句点）可打开“从使用中生成”快捷菜单，如下图所示。  
@@ -84,7 +98,7 @@ Visual C#
      ![Visual Basic 中的智能标记上下文菜单](../ide/media/genclass_smartvb.png "GenClass_SmartVB")  
 Visual Basic  
   
-     ![C# 中的智能标记上下文菜单](../ide/media/genclass_smartcs.png "GenClass_SmartCS")  
+     ![C&#35; 中的智能标记上下文菜单](../ide/media/genclass_smartcs.png "GenClass_SmartCS")  
 Visual C#  
   
 5.  你现在有两个选择。 可单击 **“生成‘类 Automobile’”** 以在测试项目中创建一个新的文件并用名为 `Automobile`的空类填充该文件。 这是在当前项目中具有默认访问修饰符的新文件中创建一个新类的快速方法。 还可以单击“生成新类型”  以打开“生成新类型”  对话框。 这一操作提供的选项包括将该类放在现有文件和将该文件添加到另一个项目。  
@@ -112,10 +126,10 @@ Visual C#
   
      下图展示智能标记快捷菜单。  
   
-     ![Visual Basic 中的“生成属性”上下文菜单](~/ide/media/genpropertysmarttagvb.png "GenPropertySmartTagVB")  
+     ![Visual Basic 中的“生成属性”上下文菜单](../ide/media/genpropertysmarttagvb.png "GenPropertySmartTagVB")  
 Visual Basic  
   
-     ![C# 中的“生成属性”上下文菜单](~/ide/media/genpropertysmarttagcs.png "GenPropertySmartTagCS")  
+     ![C&#35; 中的“生成属性”上下文菜单](../ide/media/genpropertysmarttagcs.png "GenPropertySmartTagCS")  
 Visual C#  
   
 ### <a name="to-locate-the-source-code"></a>定位源代码  
@@ -161,7 +175,7 @@ Visual C#
   
      下图显示了“测试结果”  窗口。  
   
-     ![失败的测试结果](~/ide/media/testsfailed.png "TestsFailed")  
+     ![失败的测试结果](../ide/media/testsfailed.png "TestsFailed")  
 “测试结果”窗口  
   
 2.  在“测试结果”  窗口中，双击每个测试结果行以转到每个测试失败的位置。  

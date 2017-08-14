@@ -32,16 +32,16 @@ translation.priority.mt:
 - pl-pl
 - pt-br
 - tr-tr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c559290c8e88c8b4e37feabc7014188fad15434d
-ms.openlocfilehash: 3fc2e9c086d6cdd71577fccd33652cfc14a3ee6e
+ms.translationtype: HT
+ms.sourcegitcommit: c3fea7195cd41a48654ea4356ef67627ddcc25dc
+ms.openlocfilehash: 2c288a22c46a21b998bcc5aecf3c0a20f46e06c0
 ms.contentlocale: zh-cn
-ms.lasthandoff: 06/08/2017
+ms.lasthandoff: 08/04/2017
 
 ---
 
 # <a name="visual-studio-2017-workload-and-component-ids"></a>Visual Studio 2017 工作负荷和组件 ID
-以下页面列出了通过使用命令行安装 Visual Studio 或指定为 VSIX 清单中的依赖项所需的工作负载和组件 ID。
+单击下面的版本名称以查看通过使用命令行安装 Visual Studio 或指定为 VSIX 清单中的依赖项所需的工作负载和组件 ID。
 
 | **版本** | **ID** | **描述** |
 | ----------- | ------ | --------------- |
