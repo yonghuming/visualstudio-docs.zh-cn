@@ -148,7 +148,7 @@ ms.lasthandoff: 07/18/2017
         return (1 + pow(e, (-2 * x))) / (2 * pow(e, -x));
     }
 
-    double tanh(x) {
+    double tanh(double x) {
         return sinh(x) / cosh(x);
     }
     ```
@@ -163,7 +163,7 @@ ms.lasthandoff: 07/18/2017
 1. 在 C++ 文件的顶部，添加 `Python.h`：
 
     ```cpp
-    include <Python.h>
+    #include <Python.h>
     ```
 
 1. 修改 `tanh` 方法以接受和返回 Python 类型：
