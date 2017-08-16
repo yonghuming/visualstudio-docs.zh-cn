@@ -5,7 +5,7 @@ keywords:
 author: TerryGLee
 ms.author: tglee
 manager: ghogen
-ms.date: 05/10/2017
+ms.date: 08/09/2017
 ms.topic: article
 helpviewer_keywords:
 - workload ID, Visual Studio
@@ -32,11 +32,11 @@ translation.priority.mt:
 - pl-pl
 - pt-br
 - tr-tr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 47057e9611b824c17077b9127f8d2f8b192d6eb8
-ms.openlocfilehash: 25704ab33e59ccea06d2234e3761b3a05106fcdd
+ms.translationtype: HT
+ms.sourcegitcommit: f23906933add1f4706d8786b2950fb3b5d2e6781
+ms.openlocfilehash: aa13502c48937ec10e88ea175df2e15e97a8bcaf
 ms.contentlocale: zh-cn
-ms.lasthandoff: 05/13/2017
+ms.lasthandoff: 08/14/2017
 
 ---
 
@@ -54,6 +54,7 @@ ms.lasthandoff: 05/13/2017
 
 
 有关如何使用这些 ID 的详细信息，请参阅[使用命令行参数安装 Visual Studio 2017](use-command-line-parameters-to-install-visual-studio.md) 页。 另外，有关其他产品的工作负载和组件 ID 的列表，请参阅 [Visual Studio 2017 工作负载和组件 ID](workload-and-component-ids.md) 页。
+
 
 ## <a name="visual-studio-core-editor-included-with-visual-studio-enterprise-2017"></a>Visual Studio 核心编辑器（随附 Visual Studio Enterprise 2017）
 
@@ -101,7 +102,7 @@ Microsoft.Net.Component.4.5.2.TargetingPack | .NET Framework 4.5.2 目标包 | 1
 Microsoft.Net.Component.4.5.TargetingPack | .NET Framework 4.5 目标包 | 15.0.26208.0 | 建议
 Microsoft.Net.Component.4.6.TargetingPack | .NET Framework 4.6 目标包 | 15.0.26208.0 | 建议
 Microsoft.Net.Component.4.TargetingPack | .NET Framework 4 目标包 | 15.0.26208.0 | 建议
-Microsoft.Net.ComponentGroup.TargetingPacks.Common | .NET Framework 4 - 4.6 开发工具 | 15.0.26208.0 | 建议
+Microsoft.Net.ComponentGroup.TargetingPacks.Common | .NET Framework 4 – 4.6 开发工具 | 15.0.26208.0 | 建议
 Microsoft.VisualStudio.Component.AppInsights.Tools | 开发人员分析工具 | 15.0.26323.1 | 建议
 Microsoft.VisualStudio.Component.Azure.AuthoringTools | Azure 创作工具 | 15.0.26419.1 | 建议
 Microsoft.VisualStudio.Component.Azure.Compute.Emulator | Azure 计算仿真程序 | 15.0.26419.1 | 建议
@@ -167,7 +168,7 @@ Microsoft.Net.Component.4.6.1.TargetingPack | .NET Framework 4.6.1 目标包 | 1
 Microsoft.Net.Component.4.6.TargetingPack | .NET Framework 4.6 目标包 | 15.0.26208.0 | 建议
 Microsoft.Net.Component.4.TargetingPack | .NET Framework 4 目标包 | 15.0.26208.0 | 建议
 Microsoft.Net.ComponentGroup.DevelopmentPrerequisites | .NET framework 4.6.1 开发工具 | 15.0.26208.0 | 建议
-Microsoft.Net.ComponentGroup.TargetingPacks.Common | .NET Framework 4 - 4.6 开发工具 | 15.0.26208.0 | 建议
+Microsoft.Net.ComponentGroup.TargetingPacks.Common | .NET Framework 4 – 4.6 开发工具 | 15.0.26208.0 | 建议
 Microsoft.VisualStudio.Component.AppInsights.Tools | 开发人员分析工具 | 15.0.26323.1 | 建议
 Microsoft.VisualStudio.Component.Azure.AuthoringTools | Azure 创作工具 | 15.0.26419.1 | 建议
 Microsoft.VisualStudio.Component.Azure.ClientLibs | .NET 的 Azure 库 | 15.0.26208.0 | 建议
@@ -275,7 +276,7 @@ Microsoft.Net.Component.4.5.2.TargetingPack | .NET Framework 4.5.2 目标包 | 1
 Microsoft.Net.Component.4.5.TargetingPack | .NET Framework 4.5 目标包 | 15.0.26208.0 | 建议
 Microsoft.Net.Component.4.6.TargetingPack | .NET Framework 4.6 目标包 | 15.0.26208.0 | 建议
 Microsoft.Net.Component.4.TargetingPack | .NET Framework 4 目标包 | 15.0.26208.0 | 建议
-Microsoft.Net.ComponentGroup.TargetingPacks.Common | .NET Framework 4 - 4.6 开发工具 | 15.0.26208.0 | 建议
+Microsoft.Net.ComponentGroup.TargetingPacks.Common | .NET Framework 4 – 4.6 开发工具 | 15.0.26208.0 | 建议
 Microsoft.VisualStudio.Component.CoreEditor | Visual Studio 核心编辑器 | 15.0.26208.0 | 建议
 Microsoft.VisualStudio.Component.DiagnosticTools | 分析工具 | 15.0.26208.0 | 建议
 Microsoft.VisualStudio.Component.EntityFramework | Entity Framework 6 工具 | 15.0.26208.0 | 建议
@@ -416,7 +417,7 @@ Microsoft.Net.Component.4.6.1.TargetingPack | .NET Framework 4.6.1 目标包 | 1
 Microsoft.Net.Component.4.6.TargetingPack | .NET Framework 4.6 目标包 | 15.0.26208.0 | Optional
 Microsoft.Net.Component.4.TargetingPack | .NET Framework 4 目标包 | 15.0.26208.0 | Optional
 Microsoft.Net.ComponentGroup.DevelopmentPrerequisites | .NET framework 4.6.1 开发工具 | 15.0.26208.0 | Optional
-Microsoft.Net.ComponentGroup.TargetingPacks.Common | .NET Framework 4 - 4.6 开发工具 | 15.0.26208.0 | Optional
+Microsoft.Net.ComponentGroup.TargetingPacks.Common | .NET Framework 4 – 4.6 开发工具 | 15.0.26208.0 | Optional
 Microsoft.VisualStudio.Component.Roslyn.Compiler | C# 和 Visual Basic Roslyn 编译器 | 15.0.26208.0 | Optional
 Microsoft.VisualStudio.Component.Roslyn.LanguageServices | C# 和 Visual Basic | 15.0.26208.0 | Optional
 Microsoft.VisualStudio.Component.Windows10SDK.10240 | Windows 10 SDK (10.0.10240.0) | 15.0.26208.0 | Optional
@@ -594,7 +595,7 @@ Microsoft.VisualStudio.Component.WebDeploy | Web Deploy | 15.0.26208.0 | 必需
 Microsoft.Net.Component.4.5.1.TargetingPack | .NET Framework 4.5.1 目标包 | 15.0.26208.0 | 建议
 Microsoft.Net.Component.4.6.TargetingPack | .NET Framework 4.6 目标包 | 15.0.26208.0 | 建议
 Microsoft.Net.Component.4.TargetingPack | .NET Framework 4 目标包 | 15.0.26208.0 | 建议
-Microsoft.Net.ComponentGroup.TargetingPacks.Common | .NET Framework 4 - 4.6 开发工具 | 15.0.26208.0 | 建议
+Microsoft.Net.ComponentGroup.TargetingPacks.Common | .NET Framework 4 – 4.6 开发工具 | 15.0.26208.0 | 建议
 Microsoft.VisualStudio.Component.CloudExplorer | Cloud Explorer | 15.0.26208.0 | 建议
 Microsoft.VisualStudio.Component.CoreEditor | Visual Studio 核心编辑器 | 15.0.26208.0 | 建议
 Microsoft.VisualStudio.Component.DiagnosticTools | 分析工具 | 15.0.26208.0 | 建议
@@ -623,7 +624,7 @@ Microsoft.VisualStudio.Web.Mvc4.ComponentGroup | ASP.NET MVC 4 | 15.0.26208.0 | 
 
 **ID：**Microsoft.VisualStudio.Workload.Node
 
-**说明：**使用 Node.js（事件驱动的异步 JavaScript 运行时）生成可扩展的网络应用程序。
+**说明：**使用 Node.js（事件驱动的异步 JavaScript 运行时）生成可扩展的网络应用程序。 
 
 ### <a name="components-included-by-this-workload"></a>此工作负载所包含的组件
 
@@ -736,7 +737,7 @@ Microsoft.Net.Component.4.6.1.TargetingPack | .NET Framework 4.6.1 目标包 | 1
 Microsoft.Net.Component.4.6.TargetingPack | .NET Framework 4.6 目标包 | 15.0.26208.0 | Optional
 Microsoft.Net.Component.4.TargetingPack | .NET Framework 4 目标包 | 15.0.26208.0 | Optional
 Microsoft.Net.ComponentGroup.DevelopmentPrerequisites | .NET framework 4.6.1 开发工具 | 15.0.26208.0 | Optional
-Microsoft.Net.ComponentGroup.TargetingPacks.Common | .NET Framework 4 - 4.6 开发工具 | 15.0.26208.0 | Optional
+Microsoft.Net.ComponentGroup.TargetingPacks.Common | .NET Framework 4 – 4.6 开发工具 | 15.0.26208.0 | Optional
 Microsoft.VisualStudio.Component.AppInsights.Tools | 开发人员分析工具 | 15.0.26323.1 | 可选
 Microsoft.VisualStudio.Component.Azure.AuthoringTools | Azure 创作工具 | 15.0.26419.1 | 可选
 Microsoft.VisualStudio.Component.Azure.ClientLibs | .NET 的 Azure 库 | 15.0.26208.0 | 可选
@@ -909,6 +910,8 @@ Microsoft.VisualStudio.Component.SQL.CLR | SQL Server 的 CLR 数据类型 | 15.
 Microsoft.VisualStudio.Component.VisualStudioData | 数据源和服务引用 | 15.0.26208.0 | Optional
 Microsoft.VisualStudio.Component.Windows10SDK.15063.UWP | 适用于 UWP 的 Windows 10 SDK (10.0.15063.0)：C#、VB 和 JS | 15.0.26419.1 | 可选
 Microsoft.VisualStudio.ComponentGroup.UWP.Cordova | 适用于 Cordova 的通用 Windows 平台工具 | 15.0.26403.0 | Optional
+
+
 ## <a name="unaffiliated-components"></a>独立组件
 
 这些组件不随附于任何工作负载，但可选择作为单个组件。
@@ -929,6 +932,7 @@ Microsoft.VisualStudio.Component.TestTools.MicrosoftTestManager | Microsoft 测�
 Microsoft.VisualStudio.Component.TestTools.WebLoadTest | Web 性能和负载测试工具 | 15.0.26208.0
 Microsoft.VisualStudio.Component.TypeScript.2.0 | TypeScript 2.0 SDK | 15.0.26208.0
 Microsoft.VisualStudio.Component.TypeScript.2.1 | TypeScript 2.1 SDK | 15.0.26208.0
+
 
 ## <a name="see-also"></a>另请参阅
 
