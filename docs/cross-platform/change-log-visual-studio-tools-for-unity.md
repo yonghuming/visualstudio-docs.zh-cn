@@ -29,45 +29,23 @@ translation.priority.mt:
 - pt-br
 - tr-tr
 ms.translationtype: HT
-ms.sourcegitcommit: cd8418f782f800390d166403374ecb879970dbc3
-ms.openlocfilehash: 92304c73b1a098c32a74011956dadd8097b8329d
+ms.sourcegitcommit: a2cfae1be1415a2d770d1467a09f207f73eafd05
+ms.openlocfilehash: 5b872f1d28c132fe2910bed16882ba6fb01e6782
 ms.contentlocale: zh-cn
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="change-log-visual-studio-tools-for-unity"></a>更改日志（Visual Studio Tools for Unity）
 Visual Studio Tools for Unity 更改日志。  
 
-## <a name="3400"></a>3.4.0.0
- 发布时间 2017-08-22
+## <a name="3302"></a>3.3.0.2
+ 发布日期：2017-08-15
 
-### <a name="new-features"></a>新增功能  
-
--   **Project Generation:**  
-
-    -   添加了对 assembly.json 编译单元的支持。
-
-    -   停止将 Unity 程序集复制到项目文件夹。
-    
--   **调试器：**  
-
-    -   添加了对使用新的 Unity 运行时设置下一个语句的支持。
-    
-    -   添加了对使用新的 Unity 运行时的十进制类型的支持。
-    
-    -   添加了对隐式/显式转换的支持。
-    
 ### <a name="bug-fixes"></a>Bug 修复  
   
--   **评估版：**  
-
-    -   修复了使用隐式大小的数组创建。
-    
-    -   修复了编译器使用局部变量生成的项。
+-   **项目生成：**  
    
--   **Project Generation:**  
-   
-    -   修复了对 4.6 API 级别的 Microsoft.CSharp 的引用。
+    -   修复了如何在 Unity 5.5 及更低版本上生成 Visual Studio 解决方案。
    
 ## <a name="3300"></a>3.3.0.0
  发布时间 2017-08-14
