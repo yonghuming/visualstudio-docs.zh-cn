@@ -17,10 +17,10 @@ author: TerryGLee
 ms.author: tglee
 manager: ghogen
 ms.translationtype: HT
-ms.sourcegitcommit: b01caada54c08bb7f9c9baabfe9ece486e087794
-ms.openlocfilehash: 190a5e183757a5f02eeeb4aca7fc1c2e7f1beb1c
+ms.sourcegitcommit: 1e85a41fea58723b8f7f2119d0d0c951574c4f9c
+ms.openlocfilehash: f0fb1e91107017fd25e44f524550b0eef1732865
 ms.contentlocale: zh-cn
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 08/15/2017
 
 ---
 
@@ -45,6 +45,14 @@ ms.lasthandoff: 08/07/2017
      ![修改 Visual Studio 2017；卸载产品](media/vs2017-uninstall-confirm.PNG "确认卸载 Visual Studio 2017")  
 
 如果以后改变主意，想重新安装 Visual Studio 2017，请再次启动 Visual Studio 安装程序，然后从选择屏幕中选择“安装”。
+
+## <a name="uninstall-visual-studio-installer"></a>卸载 Visual Studio 安装程序
+要从计算机中彻底删除 Visual Studio 2017 及 Visual Studio 安装程序，请前往“应用和功能”执行此操作。
+1. 打开“应用和功能”。 例如，在 Windows 10 中，选择“开始”，然后在搜索栏中键入“应用和功能”。  
+2. 查找 Microsoft Visual Studio 2017。  
+3. 单击“卸载” 。  
+
+这将删除计算机中的一切 Visual Studio 2017 安装及 Visual Studio 安装程序。
 
 ## <a name="see-also"></a>请参阅  
 * [安装 Visual Studio](install-visual-studio.md)

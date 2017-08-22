@@ -5,7 +5,7 @@ keywords:
 author: TerryGLee
 ms.author: tglee
 manager: ghogen
-ms.date: 04/07/2017
+ms.date: 08/14/2017
 ms.topic: article
 helpviewer_keywords:
 - workload ID, Visual Studio
@@ -17,37 +17,22 @@ ms.technology:
 - vs-ide-install
 - vs-ide-sdk
 ms.assetid: 34e19ef1-abfb-44fd-aad2-33c5d7874482
-translation.priority.ht:
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- ru-ru
-- zh-cn
-- zh-tw
-translation.priority.mt:
-- cs-cz
-- pl-pl
-- pt-br
-- tr-tr
 ms.translationtype: HT
-ms.sourcegitcommit: c3fea7195cd41a48654ea4356ef67627ddcc25dc
-ms.openlocfilehash: 2c288a22c46a21b998bcc5aecf3c0a20f46e06c0
+ms.sourcegitcommit: 8a544bd1e1242bb6fabe00f7842ac33ed9d9d444
+ms.openlocfilehash: 2c4491ffbcc0fed757a18e044b9efdfe48898c3a
 ms.contentlocale: zh-cn
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 08/14/2017
 
 ---
 
 # <a name="visual-studio-2017-workload-and-component-ids"></a>Visual Studio 2017 工作负荷和组件 ID
-单击下面的版本名称以查看通过使用命令行安装 Visual Studio 或指定为 VSIX 清单中的依赖项所需的工作负载和组件 ID。
+单击下表中的版本名称，查看通过使用命令行安装 Visual Studio 或指定为 VSIX 清单中的依赖项所需的工作负载和组件 ID。
 
 | **版本** | **ID** | **描述** |
 | ----------- | ------ | --------------- |
 | [Visual&nbsp;Studio Enterprise&nbsp;2017](workload-component-id-vs-enterprise.md) | Microsoft.VisualStudio.Product.Enterprise | 面向任何规模的团队的工作效率和协作的 Microsoft DevOps 解决方案 |
 | [Visual&nbsp;Studio Professional&nbsp;2017](workload-component-id-vs-professional.md) | Microsoft.VisualStudio.Product.Professional | 面向小团队的开发人员工具和服务 |
-| [Visual&nbsp;Studio Community&nbsp;2017](workload-component-id-vs-community.md) | Microsoft.VisualStudio.Product.Community | 适用于学生、开源和个人开发人员的功能完备的免费 IDE |
+| [Visual&nbsp;Studio Community&nbsp;2017](workload-component-id-vs-community.md) | Microsoft.VisualStudio.Product.Community | 面向学生、开源和个人开发人员的功能完备的免费 IDE |
 | [Visual&nbsp;Studio Team&nbsp;Explorer&nbsp;2017](workload-component-id-vs-team-explorer.md) | Microsoft.VisualStudio.Product.TeamExplorer | 与 Team Foundation Server 和 Visual Studio Team Services 交互，不包含 Visual Studio 开发人员工具集 |
 | [Visual&nbsp;Studio Build&nbsp;Tools&nbsp;2017](workload-component-id-vs-build-tools.md) | Microsoft.VisualStudio.Product.BuildTools | 使用 Visual Studio 生成工具，无需借助 Visual Studio IDE，即可生成本机和托管的基于 MSBuild 的应用程序。 这些选项用于安装 Visual C++ 编译器和库、MFC、ATL 以及 C++/CLI 支持。 |
 | [Visual&nbsp;Studio Test&nbsp;Agent&nbsp;2017](workload-component-id-vs-test-agent.md)  | Microsoft.VisualStudio.Product.TestAgent | 支持运行自动测试和远程加载测试 |
