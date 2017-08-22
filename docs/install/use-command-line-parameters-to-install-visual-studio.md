@@ -32,10 +32,10 @@ translation.priority.mt:
 - pt-br
 - tr-tr
 ms.translationtype: HT
-ms.sourcegitcommit: 6d25db4639f2c8391c1e32542701ea359f560178
-ms.openlocfilehash: 90e19f6e693733162065754b441fb213fd0bd9f8
+ms.sourcegitcommit: 223750aef8d997c6ae017f49ea0a9522bdba72bc
+ms.openlocfilehash: 2b702407996fd104b62d9b8c6874d7914d7bd2e8
 ms.contentlocale: zh-cn
-ms.lasthandoff: 07/18/2017
+ms.lasthandoff: 08/10/2017
 
 ---
 # <a name="use-command-line-parameters-to-install-visual-studio-2017"></a>使用命令行参数安装 Visual Studio 2017
@@ -95,7 +95,6 @@ ms.lasthandoff: 07/18/2017
 | `--includeRecommended` | **可选**：包含所有已安装工作负载的推荐组件，但不包含可选组件。 可使用 `--allWorkloads` 或 `--add` 指定工作负载。 |
 | `--includeOptional` | **可选**：添加布局中包含的任何工作负载的推荐*和*可选组件。 可使用 `--add` 指定工作负载。  |
 
-
 | **高级安装选项** | **描述** |
 | ----------------------- | --------------- |
 | `--channelId <id>` | **可选**：将要安装的实例的通道 ID。 如果指定了 `--installPath`，对于安装命令，此为是必需选项，对于其他命令，此选项可忽略。 |
@@ -107,6 +106,7 @@ ms.lasthandoff: 07/18/2017
 | `--locale <language-locale>` | **可选**：更改安装程序本身的用户界面的显示语言。 将保留设置。 有关详细信息，请参阅本页的[语言区域设置列表](#list-of-language-locales)部分。|
 | `--cache` | **15.2 中的新增选项，可选**：如果指定，将在安装后保存包，以便后续修复时使用。 这将重写用于后续安装、修复或修改的全局策略设置。 默认策略是缓存包。 对于卸载命令，忽略此选项。 有关详细信息，请了解如何[禁用或移动包缓存](disable-or-move-the-package-cache.md)。 |
 | `--nocache` | **15.2 中的新增选项，可选**：如果指定，将在安装或修复后删除包。 只有在需要时才会重新下载，并且会在使用后再次删除。 这将重写用于后续安装、修复或修改的全局策略设置。 默认策略是缓存包。 对于卸载命令，忽略此选项。 有关详细信息，请了解如何[禁用或移动包缓存](disable-or-move-the-package-cache.md)。 |
+| `--noUpdateInstaller` | **15.2 中的新增功能（可选）**：如果存在，指定无提示安装时阻止安装程序进行自我更新。 如果在需要更新安装程序时通过无提示安装指定 noUpdateInstaller，则安装程序将忽略该命令并返回非零退出代码。 |
 
 ## <a name="list-of-workload-ids-and-component-ids"></a>工作负荷 ID 和组件 ID 列表
 有关按 Visual Studio 产品排序的工作负载和组件 ID 的列表，请参阅 [Visual Studio 2017 工作负载和组件 ID](workload-and-component-ids.md) 页面。

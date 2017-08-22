@@ -31,10 +31,10 @@ translation.priority.ht:
 - zh-cn
 - zh-tw
 ms.translationtype: HT
-ms.sourcegitcommit: 3037d92e9de377ab4b306a5a0e164e29fa6659e7
-ms.openlocfilehash: 600cd62e7843274b52da5ac7200b5168311cab07
+ms.sourcegitcommit: 223750aef8d997c6ae017f49ea0a9522bdba72bc
+ms.openlocfilehash: c5687a3971d4b670e73e55294e6dfd0c7c3f91d0
 ms.contentlocale: zh-cn
-ms.lasthandoff: 08/08/2017
+ms.lasthandoff: 08/10/2017
 
 ---
 
@@ -99,12 +99,15 @@ ms.lasthandoff: 08/08/2017
     - [“null”检查首选项](#null_checking)
         - [Throw 表达式](#null_checking_throw_expressions)
         - [条件委托调用](#null_checking_conditional_delegate_calls)
+    - [代码块首选项](#code_block)
+        - [首选大括号](#prefer_braces)
 
 ## <a name="this_and_me">“This.”和“me.”限定</a>
 ### <a name="this_and_me_fields">字段 (IDE0003/IDE0009)</a>
-|  选项名称 | `dotnet_style_qualification_for_field` |
-| ------------- |:-------------:|
-| **适用的语言** | C# 和 Visual Basic
+| **选项名称** | **适用的语言** | **Visual Studio 默认值** | **支持的版本** |
+| ----------- | -------------------- | ----------------------| ----------------  |
+|  `dotnet_style_qualification_for_field` | C# 和 Visual Basic | false:none | Visual Studio 2017 RTW |
+
 
 | 值 | 说明 | 已应用 
 | ------------- |:-------------|:-------------|
@@ -119,10 +122,10 @@ dotnet_style_qualification_for_field = false:suggestion
 ```
 
 ### <a name="this_and_me_properties">属性 (IDE0003/IDE0009)</a>
+| **选项名称** | **适用的语言** | **Visual Studio 默认值** | **支持的版本** |
+| ----------- | -------------------- | ----------------------| ----------------  |
+|`dotnet_style_qualification_for_property`| C# 和 Visual Basic | false:none | Visual Studio 2017 RTW |
 
-|  选项名称 | `dotnet_style_qualification_for_property` |
-| ------------- |:-------------:|
-| **适用的语言** | C# 和 Visual Basic
 
 | 值 | 说明 | 已应用 
 | ------------- |:-------------|:-------------|
@@ -137,9 +140,10 @@ dotnet_style_qualification_for_property = false:suggestion
 ```
 
 ### <a name="this_and_me_methods">方法 (IDE0003/IDE0009)</a>
-|  选项名称 | `dotnet_style_qualification_for_method` |
-| ------------- |:-------------:|
-| **适用的语言** | C# 和 Visual Basic
+| **选项名称** | **适用的语言** | **Visual Studio 默认值** | **支持的版本** |
+| ----------- | -------------------- | ----------------------| ----------------  |
+|`dotnet_style_qualification_for_method`| C# 和 Visual Basic | false:none | Visual Studio 2017 RTW |
+
 
 | 值 | 说明 | 已应用 
 | ------------- |:-------------|:-------------|
@@ -155,9 +159,10 @@ dotnet_style_qualification_for_method = false:suggestion
 ```
 
 ### <a name="this_and_me_events">事件 (IDE0003/IDE0009)</a>
-|  选项名称 | `dotnet_style_qualification_for_event` |
-| ------------- |:-------------:|
-| **适用的语言** | C# 和 Visual Basic
+| **选项名称** | **适用的语言** | **Visual Studio 默认值** | **支持的版本** |
+| ----------- | -------------------- | ----------------------| ----------------  |
+|`dotnet_style_qualification_for_event`| C# 和 Visual Basic | false:none | Visual Studio 2017 RTW |
+
 
 | 值 | 说明 | 已应用 
 | ------------- |:-------------|:-------------|
@@ -173,9 +178,10 @@ dotnet_style_qualification_for_event = false:suggestion
 
 ## <a name="language_keywords">语言关键字（int 和 string 等）与类型引用的框架类型名称</a>
 ### <a name="language_keywords_variables">局部变量、参数和成员 (IDE0012/IDE0014)</a>
-|  选项名称 | `dotnet_style_predefined_type_for_locals_parameters_members` |
-| ------------- |:-------------:|
-| **适用的语言** | C# 和 Visual Basic
+| **选项名称** | **适用的语言** | **Visual Studio 默认值** | **支持的版本** |
+| ----------- | -------------------- | ----------------------| ----------------  |
+|`dotnet_style_predefined_type_for_locals_parameters_members`| C# 和 Visual Basic | true:none | Visual Studio 2017 RTW |
+
 
 | 值 | 说明 | 已应用 
 | ------------- |:-------------|:-------------|
@@ -190,9 +196,10 @@ dotnet_style_predefined_type_for_locals_parameters_members = true:suggestion
 ``` 
 
 ### <a name="language_keywords_member_access">成员访问表达式 (IDE0013/IDE0015)</a>
-|  选项名称 | `dotnet_style_predefined_type_for_member_access` |
-| ------------- |:-------------:|
-| **适用的语言** | C# 和 Visual Basic
+| **选项名称** | **适用的语言** | **Visual Studio 默认值** | **支持的版本** |
+| ----------- | -------------------- | ----------------------| ----------------  |
+|`dotnet_style_predefined_type_for_member_access`| C# 和 Visual Basic | true:none | Visual Studio 2017 RTW |
+
 
 | 值 | 说明 | 已应用 
 | ------------- |:-------------|:-------------|
@@ -208,9 +215,10 @@ dotnet_style_predefined_type_for_member_access = true:suggestion
 
 ## <a name="expression_level">表达式级首选项</a>
 ### <a name="expression_level_object_initializers">对象初始值设定项 (IDE0017)</a>
-|  选项名称 | `dotnet_style_object_initializer` |
-| ------------- |:-------------:|
-| **适用的语言** | C# 和 Visual Basic
+| **选项名称** | **适用的语言** | **Visual Studio 默认值** | **支持的版本** |
+| ----------- | -------------------- | ----------------------| ----------------  |
+|`dotnet_style_object_initializer`| C# 和 Visual Basic | true:suggestion | Visual Studio 2017 RTW |
+
 
 | 值 | 说明 | 已应用 
 | ------------- |:-------------|:-------------|
@@ -225,9 +233,10 @@ dotnet_style_object_initializer = true:suggestion
 ``` 
 
 ### <a name="expression_level_collection_initializers">集合初始值设定项 (IDE0028)</a>
-|  选项名称 | `dotnet_style_collection_initializer` |
-| ------------- |:-------------:|
-| **适用的语言** | C# 和 Visual Basic
+| **选项名称** | **适用的语言** | **Visual Studio 默认值** | **支持的版本** |
+| ----------- | -------------------- | ----------------------| ----------------  |
+|`dotnet_style_collection_initializer`| C# 和 Visual Basic | true:suggestion | Visual Studio 2017 RTW |
+
 
 | 值 | 说明 | 已应用 
 | ------------- |:-------------|:-------------|
@@ -242,9 +251,10 @@ dotnet_style_collection_initializer = true:suggestion
 ```
 
 ### <a name="expression_level_tuple_names">显式元组名称 (IDE0033)</a>
-|  选项名称 | `dotnet_style_explicit_tuple_names` |
-| ------------- |:-------------:|
-| **适用的语言** | C# 7.0+ 和 Visual Basic 15+
+| **选项名称** | **适用的语言** | **Visual Studio 默认值** | **支持的版本** |
+| ----------- | -------------------- | ----------------------| ----------------  |
+|`dotnet_style_explicit_tuple_names`| C# 7.0+ 和 Visual Basic 15+ | true:suggestion | Visual Studio 2017 RTW |
+
 
 | 值 | 说明 | 已应用 
 | ------------- |:-------------|:-------------|
@@ -259,9 +269,10 @@ dotnet_style_explicit_tuple_names = true:suggestion
 ``` 
 
 ### <a name="expression_level_null_checking">“null”检查中的合并表达式 (IDE0029)</a>
-|  选项名称 | `dotnet_style_coalesce_expression` |
-| ------------- |:-------------:|
-| **适用的语言** | C# 和 Visual Basic
+| **选项名称** | **适用的语言** | **Visual Studio 默认值** | **支持的版本** |
+| ----------- | -------------------- | ----------------------| ----------------  |
+|`dotnet_style_coalesce_expression`| C# 和 Visual Basic | true:suggestion | Visual Studio 2017 RTW |
+
 
 | 值 | 说明 | 已应用 
 | ------------- |:-------------|:-------------|
@@ -276,9 +287,10 @@ dotnet_style_coalesce_expression = true:suggestion
 ``` 
 
 ### <a name="expression_level_null_propogation">“null”检查中的 null 传播 (IDE0031)</a>
-|  选项名称 | `dotnet_style_null_propagation` |
-| ------------- |:-------------:|
-| **适用的语言** | C# 和 Visual Basic
+| **选项名称** | **适用的语言** | **Visual Studio 默认值** | **支持的版本** |
+| ----------- | -------------------- | ----------------------| ----------------  |
+|`dotnet_style_null_propagation`| C# 6.0+ 和 Visual Basic 14+ | true:suggestion | Visual Studio 2017 RTW |
+
 
 | 值 | 说明 | 已应用 
 | ------------- |:-------------|:-------------|
@@ -295,9 +307,10 @@ dotnet_style_null_propagation = true:suggestion
 # <a name="csharp_codestyle">CSharp 代码样式设置</a>
 ## <a name="var">“var”和显式类型</a>
 ### <a name="var_built_in">内置类型的“var”(IDE0007, IDE0008)</a>
-|  选项名称 | `csharp_style_var_for_built_in_types` |
-| ------------- |:-------------:|
-| **适用的语言** | C#
+| **选项名称** | **适用的语言** | **Visual Studio 默认值** | **支持的版本** |
+| ----------- | -------------------- | ----------------------| ----------------  |
+|`csharp_style_var_for_built_in_types`| C# | true:none | Visual Studio 2017 RTW |
+
 
 | 值 | 说明 | 已应用 
 | ------------- |:-------------|:-------------|
@@ -312,9 +325,10 @@ csharp_style_var_for_built_in_types = true:suggestion
 ``` 
 
 ### <a name="var_apparent">类型为明显时的“var”(IDE0007, IDE0008)</a>
-|  选项名称 | `csharp_style_var_when_type_is_apparent` |
-| ------------- |:-------------:|
-| **适用的语言** | C#
+| **选项名称** | **适用的语言** | **Visual Studio 默认值** | **支持的版本** |
+| ----------- | -------------------- | ----------------------| ----------------  |
+|`csharp_style_var_when_type_is_apparent`| C# | true:none | Visual Studio 2017 RTW |
+
 
 | 值 | 说明 | 已应用 
 | ------------- |:-------------|:-------------|
@@ -329,9 +343,10 @@ csharp_style_var_when_type_is_apparent = true:suggestion
 ``` 
 
 ### <a name="var_elsewhere">其他位置 的“var”(IDE0007, IDE0008)</a>
-|  选项名称 | `csharp_style_var_elsewhere` |
-| ------------- |:-------------:|
-| **适用的语言** | C#
+| **选项名称** | **适用的语言** | **Visual Studio 默认值** | **支持的版本** |
+| ----------- | -------------------- | ----------------------| ----------------  |
+|`csharp_style_var_elsewhere`| C# | true:none | Visual Studio 2017 RTW |
+
 
 | 值 | 说明 | 已应用 
 | ------------- |:-------------|:-------------|
@@ -347,9 +362,10 @@ csharp_style_var_elsewhere = true:suggestion
 
 ##<a name="expression_bodied_members">Expression-bodied 成员</a>
 ### <a name="expression_bodied_members_methods">方法 (IDE0022)</a>
-|  选项名称 | `csharp_style_expression_bodied_methods` |
-| ------------- |:-------------:|
-| **适用的语言** | C# 6.0+
+| **选项名称** | **适用的语言** | **Visual Studio 默认值** | **支持的版本** |
+| ----------- | -------------------- | ----------------------| ----------------  |
+|`csharp_style_expression_bodied_methods`| C# 6.0+ | false:none | Visual Studio 2017 RTW |
+
 
 | 值 | 说明 | 已应用 
 | ------------- |:-------------|:-------------|
@@ -364,9 +380,10 @@ csharp_style_expression_bodied_methods = false:none
 ``` 
 
 ### <a name="expression_bodied_members_constructors">构造函数 (IDE0021)</a>
-|  选项名称 | `csharp_style_expression_bodied_constructors` |
-| ------------- |:-------------:|
-| **适用的语言** | C# 6.0+
+| **选项名称** | **适用的语言** | **Visual Studio 默认值** | **支持的版本** |
+| ----------- | -------------------- | ----------------------| ----------------  |
+|`csharp_style_expression_bodied_constructors`| C# 7.0+ | false:none | Visual Studio 2017 RTW |
+
 
 | 值 | 说明 | 已应用 
 | ------------- |:-------------|:-------------|
@@ -381,9 +398,10 @@ csharp_style_expression_bodied_constructors = false:none
 ``` 
 
 ### <a name="expression_bodied_members_operators">运算符 (IDE0023, IDE0024)</a>
-|  选项名称 | `csharp_style_expression_bodied_operators` |
-| ------------- |:-------------:|
-| **适用的语言** | C# 6.0+
+| **选项名称** | **适用的语言** | **Visual Studio 默认值** | **支持的版本** |
+| ----------- | -------------------- | ----------------------| ----------------  |
+|`csharp_style_expression_bodied_operators` | C# 7.0+ | false:none | Visual Studio 2017 RTW |
+
 
 | 值 | 说明 | 已应用 
 | ------------- |:-------------|:-------------|
@@ -398,9 +416,10 @@ csharp_style_expression_bodied_operators = false:none
 ``` 
 
 ### <a name="expression_bodied_members_properties">属性 (IDE0025)</a>
-|  选项名称 | `csharp_style_expression_bodied_properties` |
-| ------------- |:-------------:|
-| **适用的语言** | C# 7.0+
+| **选项名称** | **适用的语言** | **Visual Studio 默认值** | **支持的版本** |
+| ----------- | -------------------- | ----------------------| ----------------  |
+|`csharp_style_expression_bodied_properties` | C# 7.0+ | true:none | Visual Studio 2017 RTW |
+
 
 | 值 | 说明 | 已应用 
 | ------------- |:-------------|:-------------|
@@ -411,13 +430,14 @@ csharp_style_expression_bodied_operators = false:none
 ```
 # CSharp code style settings:
 [*.cs]
-csharp_style_expression_bodied_properties = false:none
+csharp_style_expression_bodied_properties = true:none
 ``` 
 
 ### <a name="expression_bodied_members_indexers">索引器 (IDE0026)</a>
-|  选项名称 | `csharp_style_expression_bodied_indexers` |
-| ------------- |:-------------:|
-| **适用的语言** | C# 7.0+
+| **选项名称** | **适用的语言** | **Visual Studio 默认值** | **支持的版本** |
+| ----------- | -------------------- | ----------------------| ----------------  |
+|`csharp_style_expression_bodied_indexers` | C# 7.0+ | true:none | Visual Studio 2017 RTW |
+
 
 | 值 | 说明 | 已应用 
 | ------------- |:-------------|:-------------|
@@ -432,9 +452,10 @@ csharp_style_expression_bodied_indexers = false:none
 ``` 
 
 ### <a name="expression_bodied_members_accessors">访问器 (IDE0027)</a>
-|  选项名称 | `csharp_style_expression_bodied_accessors` |
-| ------------- |:-------------:|
-| **适用的语言** | C# 7.0+
+| **选项名称** | **适用的语言** | **Visual Studio 默认值** | **支持的版本** |
+| ----------- | -------------------- | ----------------------| ----------------  |
+|`csharp_style_expression_bodied_accessors` | C# 7.0+ | true:none | Visual Studio 2017 RTW |
+
 
 | 值 | 说明 | 已应用 
 | ------------- |:-------------|:-------------|
@@ -450,9 +471,10 @@ csharp_style_expression_bodied_accessors = false:none
 
 ## <a name="pattern_matching">模式匹配</a>
 ### <a name="pattern_matching_is_cast">“is”和“cast”检查 (IDE0020)</a>
-|  选项名称 | `csharp_style_pattern_matching_over_is_with_cast_check` |
-| ------------- |:-------------:|
-| **适用的语言** | C# 7.0+
+| **选项名称** | **适用的语言** | **Visual Studio 默认值** | **支持的版本** |
+| ----------- | -------------------- | ----------------------| ----------------  |
+|`csharp_style_pattern_matching_over_is_with_cast_check` | C# 7.0+ | true:suggestion | Visual Studio 2017 RTW |
+
 
 | 值 | 说明 | 已应用 
 | ------------- |:-------------|:-------------|
@@ -467,9 +489,10 @@ csharp_style_pattern_matching_over_is_with_cast_check = true:suggestion
 ```
 
 ### <a name="pattern_matching_as_null">“as”和“null”检查 (IDE0019)</a>
-|  选项名称 | `csharp_style_pattern_matching_over_as_with_null_check` |
-| ------------- |:-------------:|
-| **适用的语言** | C# 7.0+
+| **选项名称** | **适用的语言** | **Visual Studio 默认值** | **支持的版本** |
+| ----------- | -------------------- | ----------------------| ----------------  |
+|`csharp_style_pattern_matching_over_as_with_null_check` | C# 7.0+ | true:suggestion | Visual Studio 2017 RTW |
+
 
 | 值 | 说明 | 已应用 
 | ------------- |:-------------|:-------------|
@@ -484,9 +507,10 @@ csharp_style_pattern_matching_over_as_with_null_check = true:suggestion
 ```
 
 ### <a name="inlined_variable_declarations">内联变量声明 (IDE0018)</a>
-|  选项名称 | `csharp_style_inlined_variable_declaration` |
-| ------------- |:-------------:|
-| **适用的语言** | C#
+| **选项名称** | **适用的语言** | **Visual Studio 默认值** | **支持的版本** |
+| ----------- | -------------------- | ----------------------| ----------------  |
+|`csharp_style_inlined_variable_declaration` | C# 7.0+ | true:suggestion | Visual Studio 2017 RTW |
+
 
 | 值 | 说明 | 已应用 
 | ------------- |:-------------|:-------------|
@@ -501,9 +525,10 @@ csharp_style_inlined_variable_declaration = true:suggestion
 ```
 ## <a name="expression_level_csharp">表达式级首选项</a>
 ### <a name="expression_level_default">简化 `default` 表达式 (IDE0034)</a>
-|  选项名称 | `csharp_prefer_simple_default_expression` |
-| ------------- |:-------------:|
-| **适用的语言** | C# 7.1+ 和 Visual Basic
+| **选项名称** | **适用的语言** | **Visual Studio 默认值** | **支持的版本** |
+| ----------- | -------------------- | ----------------------| ----------------  |
+|`csharp_prefer_simple_default_expression` | C# 7.1+ | true:suggestion | Visual Studio 2017 v. 15.3 |
+
 
 | 值 | 说明 | 已应用 
 | ------------- |:-------------|:-------------|
@@ -512,16 +537,17 @@ csharp_style_inlined_variable_declaration = true:suggestion
 
 #### <a name="example-editorconfig-file"></a>editorconfig 文件示例：
 ```
-# CSharp and VisualBasic code style settings:
+# CSharp code style settings:
 [*.cs]
 csharp_prefer_simple_default_expression = true:suggestion
 ``` 
 
 ## <a name="null_checking">“null”检查首选项</a>
 ### <a name="null_checking_throw_expressions">Throw 表达式 (IDE0016)</a>
-|  选项名称 | `csharp_style_throw_expression` |
-| ------------- |:-------------:|
-| **适用的语言** | C# 7.0+
+| **选项名称** | **适用的语言** | **Visual Studio 默认值** | **支持的版本** |
+| ----------- | -------------------- | ----------------------| ----------------  |
+|`csharp_style_throw_expression`  | C# 7.0+ | true:suggestion | Visual Studio 2017 RTW |
+
 
 | 值 | 说明 | 已应用 
 | ------------- |:-------------|:-------------|
@@ -536,9 +562,10 @@ csharp_style_throw_expression = true:suggestion
 ```
 
 ### <a name="null_checking_conditional_delegate_calls">更倾向使用条件委托调用 (IDE0041)</a>
-|  选项名称 | `csharp_style_conditional_delegate_call` |
-| ------------- |:-------------:|
-| **适用的语言** | C#
+| **选项名称** | **适用的语言** | **Visual Studio 默认值** | **支持的版本** |
+| ----------- | -------------------- | ----------------------| ----------------  |
+|`csharp_style_conditional_delegate_call`  | C# 6.0+ | true:suggestion | Visual Studio 2017 RTW |
+
 
 | 值 | 说明 | 已应用 
 | ------------- |:-------------|:-------------|
@@ -550,6 +577,25 @@ csharp_style_throw_expression = true:suggestion
 # CSharp code style settings:
 [*.cs]
 csharp_style_conditional_delegate_call = false:suggestion
+```
+
+## <a name="code_block">代码块首选项</a>
+### <a name="prefer_braces">首选大括号 (IDE0011)</a>
+| **选项名称** | **适用的语言** | **Visual Studio 默认值** | **支持的版本** |
+| ----------- | -------------------- | ----------------------| ----------------  |
+|`csharp_prefer_braces`  | C#  | true:none | Visual Studio 2017 v. 15.3 |
+
+
+| 值 | 说明 | 已应用 
+| ------------- |:-------------|:-------------|
+| True | 首选大括号 | **C#：** <br>`if (test) { this.Display(); }`
+| False | 尽可能不使用大括号 | **C#：** <br>`if (test) this.Display();`
+
+#### <a name="example-editorconfig-file"></a>editorconfig 文件示例：
+```
+# CSharp code style settings:
+[*.cs]
+csharp_prefer_braces = true:none
 ```
 
 # <a name="formatting">格式设置规则</a>
@@ -575,6 +621,7 @@ csharp_style_conditional_delegate_call = false:suggestion
         - [在查询表达式子句中的成员前新建行](#newline_before_query)
     - [缩进选项](#indent)
         - [缩进 `switch` Case 内容](#indent_switch)
+        - [缩进 `switch` 标签](#indent_switch_labels)
         - [标签定位](#label)
     - [间距选项](#spacing)
         - [转换后空格](#space_after_cast)
@@ -588,9 +635,10 @@ csharp_style_conditional_delegate_call = false:suggestion
 
 ## <a name="usings">组织 Using</a>
 ### <a name="usings_sort_system_first">首先排序系统指令</a>
-|  选项名称 | `dotnet_sort_system_directives_first` |
-| ------------- |:-------------:|
-| **适用的语言** | C# 和 Visual Basic
+| **选项名称** | **适用的语言** | **Visual Studio 默认值** | **支持的版本** |
+| ----------- | -------------------- | ----------------------| ----------------  |
+|`dotnet_sort_system_directives_first`  |  C# 和 Visual Basic | true | Visual Studio 2017 v. 15.3  |
+
 
 | 值 | 说明 | 已应用 
 | ------------- |:-------------|:-------------|
@@ -607,9 +655,10 @@ dotnet_sort_system_directives_first = true
 # <a name="csharp_formatting">C# 格式设置</a>
 ## <a name="newline">新建行选项</a>
 ### <a name="newline_before_brace"> 在左大括号 (`{`) 前新建行</a>
-|  选项名称 | `csharp_new_line_before_open_brace` |
-| ------------- |:-------------:|
-| **适用的语言** | C#
+| **选项名称** | **适用的语言** | **Visual Studio 默认值** | **支持的版本** |
+| ----------- | -------------------- | ----------------------| ----------------  |
+|`csharp_new_line_before_open_brace`  |  C#  | true | Visual Studio 2017 v. 15.3  |
+
 
 | 值 | 描述 
 | ------------- |:-------------|
@@ -646,9 +695,10 @@ csharp_new_line_before_open_brace = methods, properties, control_blocks, types
 ``` 
 
 ### <a name="newline_before_else"> 在 `else` 前新建行</a>
-|  选项名称 | `csharp_new_line_before_else` |
-| ------------- |:-------------:|
-| **适用的语言** | C#
+| **选项名称** | **适用的语言** | **Visual Studio 默认值** | **支持的版本** |
+| ----------- | -------------------- | ----------------------| ----------------  |
+|`csharp_new_line_before_else` |  C#  | true | Visual Studio 2017 v. 15.3  |
+
 
 | 值 | 描述 
 | ------------- |:-------------|
@@ -683,9 +733,10 @@ csharp_new_line_before_else = true
 ``` 
 
 ### <a name="newline_before_catch"> 在 `catch` 前新建行</a>
-|  选项名称 | `csharp_new_line_before_catch` |
-| ------------- |:-------------:|
-| **适用的语言** | C#
+| **选项名称** | **适用的语言** | **Visual Studio 默认值** | **支持的版本** |
+| ----------- | -------------------- | ----------------------| ----------------  |
+| `csharp_new_line_before_catch`|  C#  | true | Visual Studio 2017 v. 15.3  |
+
 
 | 值 | 描述 
 | ------------- |:-------------|
@@ -720,9 +771,10 @@ csharp_new_line_before_catch = true
 ``` 
 
 ### <a name="newline_before_finally"> 在 `finally` 前新建行</a>
-|  选项名称 | `csharp_new_line_before_catch` |
-| ------------- |:-------------:|
-| **适用的语言** | C#
+| **选项名称** | **适用的语言** | **Visual Studio 默认值** | **支持的版本** |
+| ----------- | -------------------- | ----------------------| ----------------  |
+| `csharp_new_line_before_finally`|  C#  | true | Visual Studio 2017 v. 15.3  |
+
 
 | 值 | 描述 
 | ------------- |:-------------|
@@ -762,9 +814,10 @@ csharp_new_line_before_finally = true
 ``` 
 
 ### <a name="newline_before_object"> 在对象初始值设定项中的成员前新建行</a>
-|  选项名称 | `csharp_new_line_before_members_in_object_initializers` |
-| ------------- |:-------------:|
-| **适用的语言** | C#
+| **选项名称** | **适用的语言** | **Visual Studio 默认值** | **支持的版本** |
+| ----------- | -------------------- | ----------------------| ----------------  |
+| `csharp_new_line_before_members_in_object_initializers`|  C#  | true | Visual Studio 2017 v. 15.3  |
+
 
 | 值 | 描述 
 | ------------- |:-------------|
@@ -797,9 +850,10 @@ csharp_new_line_before_members_in_object_initializers = true
 ``` 
 
 ### <a name="newline_before_anonymous"> 在匿名类型中的成员前新建行</a>
-|  选项名称 | `csharp_new_line_before_members_in_anonymous_types` |
-| ------------- |:-------------:|
-| **适用的语言** | C#
+| **选项名称** | **适用的语言** | **Visual Studio 默认值** | **支持的版本** |
+| ----------- | -------------------- | ----------------------| ----------------  |
+| `csharp_new_line_before_members_in_anonymous_types` |  C#  | true | Visual Studio 2017 v. 15.3  |
+
 
 | 值 | 描述 
 | ------------- |:-------------|
@@ -832,9 +886,10 @@ csharp_new_line_before_members_in_anonymous_types = true
 ``` 
 
 ### <a name="newline_before_query"> 在查询表达式子句中的成员前新建行</a>
-|  选项名称 | `csharp_new_line_within_query_expression_clauses` |
-| ------------- |:-------------:|
-| **适用的语言** | C#
+| **选项名称** | **适用的语言** | **Visual Studio 默认值** | **支持的版本** |
+| ----------- | -------------------- | ----------------------| ----------------  |
+|`csharp_new_line_within_query_expression_clauses`  |  C#  | true | Visual Studio 2017 v. 15.3  |
+
 
 | 值 | 描述 
 | ------------- |:-------------|
@@ -864,9 +919,9 @@ csharp_new_line_within_query_expression_clauses = true
 
 ## <a name="indent">缩进选项</a>
 ### <a name="indent_switch"> 缩进 `switch` Case 内容</a>
-|  选项名称 | `csharp_indent_case_contents` |
-| ------------- |:-------------:|
-| **适用的语言** | C#
+| **选项名称** | **适用的语言** | **Visual Studio 默认值** | **支持的版本** |
+| ----------- | -------------------- | ----------------------| ----------------  |
+| `csharp_indent_case_contents`  |  C#  | true | Visual Studio 2017 v. 15.3  |
 
 | 值 | 描述 
 | ------------- |:-------------|
@@ -911,10 +966,59 @@ switch(c) {
 csharp_indent_case_contents = true
 ``` 
 
+### <a name="indent_switch_labels"> 缩进 `switch` 标签</a>
+| **选项名称** | **适用的语言** | **Visual Studio 默认值** | **支持的版本** |
+| ----------- | -------------------- | ----------------------| ----------------  |
+| `csharp_indent_switch_labels`  |  C#  | true | Visual Studio 2017 v. 15.3  |
+
+| 值 | 描述 
+| ------------- |:-------------|
+| True | 缩进 `switch` 标签  |
+| False | 不缩进 `switch` 标签 |
+
+#### <a name="applied"></a>已应用：
+```csharp
+// csharp_indent_switch_labels = true
+switch(c) {
+    case Color.Red:
+        Console.WriteLine("The color is red");
+        break;
+    case Color.Blue:
+        Console.WriteLine("The color is blue");
+        break;
+    default:
+        Console.WriteLine("The color is unknown.");
+        break;
+}
+```
+
+```csharp
+// csharp_indent_switch_labels = false
+switch(c) {
+case Color.Red:
+    Console.WriteLine("The color is red");
+    break;
+case Color.Blue:
+    Console.WriteLine("The color is blue");
+    break;
+default:
+    Console.WriteLine("The color is unknown.");
+    break;
+}
+```
+
+#### <a name="example-editorconfig-file"></a>editorconfig 文件示例：
+```
+# CSharp formatting settings:
+[*.cs]
+csharp_indent_switch_labels = true
+``` 
+
 ### <a name="label">标签定位</a>
-|  选项名称 | `csharp_indent_labels` |
-| ------------- |:-------------:|
-| **适用的语言** | C#
+| **选项名称** | **适用的语言** | **Visual Studio 默认值** | **支持的版本** |
+| ----------- | -------------------- | ----------------------| ----------------  |
+|`csharp_indent_labels`  |  C#  | one_less | Visual Studio 2017 v. 15.3  |
+
 
 | 值 | 描述 
 | ------------- |:-------------|
@@ -956,9 +1060,10 @@ csharp_indent_labels = one_less
 
 ## <a name="spacing">间距选项</a>
 ### <a name="space_after_cast"> 转换后空格</a>
-|  选项名称 | `csharp_space_after_cast` |
-| ------------- |:-------------:|
-| **适用的语言** | C#
+| **选项名称** | **适用的语言** | **Visual Studio 默认值** | **支持的版本** |
+| ----------- | -------------------- | ----------------------| ----------------  |
+| `csharp_space_after_cast` |  C#  | false | Visual Studio 2017 v. 15.3  |
+
 
 | 值 | 说明 | 已应用 |
 | ------------- |:-------------|:-------------|
@@ -973,9 +1078,10 @@ csharp_space_after_cast = true
 ``` 
 
 ### <a name="space_control_flow"> 在控制流语句中的关键字后空格</a>
-|  选项名称 | `csharp_space_after_keywords_in_control_flow_statements` |
-| ------------- |:-------------:|
-| **适用的语言** | C#
+| **选项名称** | **适用的语言** | **Visual Studio 默认值** | **支持的版本** |
+| ----------- | -------------------- | ----------------------| ----------------  |
+| `csharp_space_after_keywords_in_control_flow_statements` |  C#  | true | Visual Studio 2017 v. 15.3  |
+
 
 | 值 | 说明 | 已应用 |
 | ------------- |:-------------|:-------------|
@@ -990,9 +1096,10 @@ csharp_space_after_keywords_in_control_flow_statements = true
 ``` 
 
 ### <a name="space_parameter_list"> 在方法声明参数和列表括号之间空格</a>
-|  选项名称 | `csharp_space_between_method_declaration_parameter_list_parentheses` |
-| ------------- |:-------------:|
-| **适用的语言** | C#
+| **选项名称** | **适用的语言** | **Visual Studio 默认值** | **支持的版本** |
+| ----------- | -------------------- | ----------------------| ----------------  |
+| `csharp_space_between_method_declaration_parameter_list_parentheses` |  C#  | false | Visual Studio 2017 v. 15.3  |
+
 
 | 值 | 说明 | 已应用 |
 | ------------- |:-------------|:-------------|
@@ -1007,9 +1114,10 @@ csharp_space_between_method_declaration_parameter_list_parentheses = true
 ```
 
 ### <a name="space_method_call"> 在方法调用参数列表的括号内空格</a>
-|  选项名称 | `csharp_space_between_method_call_parameter_list_parentheses` |
-| ------------- |:-------------:|
-| **适用的语言** | C#
+| **选项名称** | **适用的语言** | **Visual Studio 默认值** | **支持的版本** |
+| ----------- | -------------------- | ----------------------| ----------------  |
+|  `csharp_space_between_method_call_parameter_list_parentheses` |  C#  | false | Visual Studio 2017 v. 15.3  |
+
 
 | 值 | 说明 | 已应用 |
 | ------------- |:-------------|:-------------|
@@ -1024,9 +1132,10 @@ csharp_space_between_method_call_parameter_list_parentheses = control_flow_state
 ```  
 
 ### <a name="space_other"> 在其他选项的括号内空格</a>
-|  选项名称 | `csharp_space_between_parentheses` |
-| ------------- |:-------------:|
-| **适用的语言** | C#
+| **选项名称** | **适用的语言** | **Visual Studio 默认值** | **支持的版本** |
+| ----------- | -------------------- | ----------------------| ----------------  |
+|  `csharp_space_between_parentheses`  |  C#  | false | Visual Studio 2017 v. 15.3  |
+
 
 | 值 | 说明 | 已应用 |
 | ------------- |:-------------|:-------------|
@@ -1043,9 +1152,10 @@ csharp_space_between_parentheses = control_flow_statements, type_casts
 
 ## <a name="wrapping">换行选项</a>
 ### <a name="wrapping_statement">将语句和成员声明保留在同一行上</a>
-|  选项名称 | `csharp_preserve_single_line_statements` |
-| ------------- |:-------------:|
-| **适用的语言** | C#
+| **选项名称** | **适用的语言** | **Visual Studio 默认值** | **支持的版本** |
+| ----------- | -------------------- | ----------------------| ----------------  |
+|  `csharp_preserve_single_line_statements`   |  C#  | true | Visual Studio 2017 v. 15.3  |
+
 
 | 值 | 描述 |
 | ------------- |:-------------|
@@ -1072,9 +1182,10 @@ csharp_preserve_single_line_statements = true
 ``` 
 
 ### <a name="wrapping_block">将程序块保留在单个行上</a>
-|  选项名称 | `csharp_preserve_single_line_blocks` |
-| ------------- |:-------------:|
-| **适用的语言** | C#
+| **选项名称** | **适用的语言** | **Visual Studio 默认值** | **支持的版本** |
+| ----------- | -------------------- | ----------------------| ----------------  |
+|   `csharp_preserve_single_line_blocks`    |  C#  | true | Visual Studio 2017 v. 15.3  |
+
 
 | 值 | 描述 |
 | ------------- |:-------------|
@@ -1129,7 +1240,7 @@ styleTitle:<br>
 
  `none` 和 `silent` 是同义词，表示不应向用户显示任何形式的指示。 下面介绍禁用此规则的效果。
 
- `suggestion` 意味着，将向用户显示 errorlist: 中的下列内容和 IDE 中的下列内容。 `suggetion` 严重性将允许运行命名规则，但它不会导致内部版本中断。
+ `suggestion` 意味着将向用户显示 Error List: 中的下列内容和 IDE 中的下列内容。 `suggestion` 严重性将允许运行命名规则，但它不会导致内部版本中断。
 
 严重性 | 效果
 ------------ | -------------
@@ -1160,16 +1271,6 @@ styleTitle:<br>
 | `event` | | |
 | `delegate` | | |
 
-#### <a name="example-editorconfig-file"></a>editorconfig 文件示例：
-```
-# CSharp formatting settings:
-[*.cs]
-dotnet_naming_rule.async_methods_end_in_async.symbols = any_async_methods
-
-dotnet_naming_symbols.any_async_methods.applicable_kinds = method
-dotnet_naming_symbols.any_async_methods.applicable_accessibilities = *
-dotnet_naming_symbols.any_async_methods.required_modifiers = async
-``` 
 
 ### <a name="style-specification"></a>样式规范
 标识要应用于符号的命名样式。
@@ -1189,15 +1290,6 @@ dotnet_naming_symbols.any_async_methods.required_modifiers = async
 | 文字分隔符 | 标识符中文字之间的所需分隔符。 |
 | 大写 |`pascal_case`, `camel_case`, `first_word_upper`, `all_upper`, `all_lower` | 
 
-#### <a name="example-editorconfig-file"></a>editorconfig 文件示例：
-```
-# CSharp formatting settings:
-[*.cs]
-dotnet_naming_rule.async_methods_end_in_async.style = end_in_async
-
-dotnet_naming_style.end_in_async.required_suffix = Async
-dotnet_naming_style.end_in_async.capitalization = pascal_case
-``` 
 
 ### <a name="example-naming-convention"></a>命名约定示例
 ```

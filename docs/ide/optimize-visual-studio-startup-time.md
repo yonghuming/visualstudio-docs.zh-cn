@@ -18,15 +18,17 @@ manager: ghogen
 f1_keywords:
 - vs.performancecenter
 ms.translationtype: HT
-ms.sourcegitcommit: 3037d92e9de377ab4b306a5a0e164e29fa6659e7
-ms.openlocfilehash: 5448253ae93b82a2631e6c48495a31d2724ed0b7
+ms.sourcegitcommit: fe6d864baf518cba882cea8e985fdacbfdf5b8b2
+ms.openlocfilehash: f4e915655ffe11f28c071864cb2cbd68dc799881
 ms.contentlocale: zh-cn
-ms.lasthandoff: 08/08/2017
+ms.lasthandoff: 08/09/2017
 
 ---
 
 # <a name="optimize-visual-studio-startup-time"></a>优化 Visual Studio 启动时间
 理想情况下，Visual Studio 应总是尽可能快地启动。 但是，Visual Studio 扩展和开启工具窗口会对启动时间产生负面影响，因为在启动时会自动加载它们。 在“管理 Visual Studio 性能”窗口中，用户可以看到影响 Visual Studio 启动时间的扩展和功能，并可以控制这些扩展和功能的加载行为。
+
+有关提升性能的更多提示，请参阅 [Visual Studio 性能提示和技巧](../ide/visual-studio-performance-tips-and-tricks.md)。
 
 ## <a name="control-startup-behavior"></a>控制启动行为
 
@@ -98,4 +100,7 @@ Visual Studio 2017 支持“轻型解决方案加载”的新功能，可减少�
 - 启用轻型解决方案加载后，某些第三方扩展可能会发生意外行为。
 - 开始调试后“编辑并继续”功能在未加载的项目中不起作用。 在此类项目中包含的文件为只读文件，如果尝试编辑则会报告项目未加载的错误。
 - 启用轻量级解决方案加载后，F# 项目可能无法正确生成，且符号在“转到”中可能不完全可用。
+
+## <a name="see-also"></a>另请参阅
+[Visual Studio 性能提示和技巧](../ide/visual-studio-performance-tips-and-tricks.md)
 
