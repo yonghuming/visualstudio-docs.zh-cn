@@ -1,61 +1,81 @@
 ---
-title: "远程调试器端口分配 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-debug"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
+title: Remote Debugger Port Assignments | Microsoft Docs
+ms.custom: H1Hack27Feb2017
+ms.date: 05/18/2017
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-debug
+ms.tgt_pltfrm: 
+ms.topic: article
 ms.assetid: 238bb4ec-bb00-4c2b-986e-18ac278f3959
 caps.latest.revision: 5
-author: "mikejo5000"
-ms.author: "mikejo"
-manager: "ghogen"
-caps.handback.revision: 5
----
-# 远程调试器端口分配
-[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
+author: mikejo5000
+ms.author: mikejo
+manager: ghogen
+translation.priority.ht:
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- ru-ru
+- zh-cn
+- zh-tw
+translation.priority.mt:
+- cs-cz
+- pl-pl
+- pt-br
+- tr-tr
+ms.translationtype: HT
+ms.sourcegitcommit: 9e6c28d42bec272c6fd6107b4baf0109ff29197e
+ms.openlocfilehash: 1208ccaea240a05795659348e55c5497c75b195d
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/22/2017
 
-Visual Studio 远程调试器可作为应用程序或后台服务运行。 当它作为应用程序运行时，它将使用默认分配的端口，如下所示：  
+---
+# <a name="remote-debugger-port-assignments"></a>Remote Debugger Port Assignments
+The Visual Studio Remote Debugger can run as an application or as a background service. When it runs as an application, it uses a port that is assigned by default as follows:  
+
+-   Visual Studio 2017: 4022
+
+-   Visual Studio 2015: 4020  
   
--   Visual Studio 2015：4020  
+-   Visual Studio 2013: 4018  
   
--   Visual Studio 2013：4018  
+-   Visual Studio 2012: 4016  
   
--   Visual Studio 2012：4016  
+ In other words, the number of the port assigned to the remote debugger is incremented by 2 for each release. You can set a different port number of you like. We will explain how to set port numbers in a later section.  
   
- 换而言之，分配给远程调试器的端口数每个版本递增 2。 你可以根据需要设置其他端口号。 我们将在后面部分说明如何设置端口号。  
+## <a name="the-remote-debugger-port-on-32-bit-operating-systems"></a>The Remote Debugger Port on 32-bit Operating Systems  
+ TCP 4022 (in Visual Studio 2017) is the main port, and is required for all scenarios. You can configure this from either the command line or the remote debugger window.  
   
-## 32 位操作系统上的远程调试器端口  
- TCP 4020（在 Visual Studio 2015 中）是主端口，所有方案都必需。 你可以在命令行或远程调试器窗口中对此进行配置。  
+ In the remote debugger window, click **Tools > Options**, and set the TCP/IP port number.  
   
- 在远程调试器窗口中，单击“工具\/选项”，并设置 TCP\/IP 端口号。  
+ On the command line, start the remote debugger with the **/port** switch: **msvsmon /port \<port number>**.  
   
- 在命令行中，通过 **\/port** 开关启动远程调试器：**msvsmon \/port \<端口号\>**.  
+ You can find all the remote debugger command line switches in the remote debugging help (press **F1** or click **Help > Usage** in the remote debugger window).  
   
- 你可以在远程调试帮助（在远程调试器窗口中按 **F1** 或单击“帮助\/用法”）中找到所有远程调试器命令行开关。  
+## <a name="the-remote-debugger-port-on-64-bit-operating-systems"></a>The Remote Debugger Port on 64-bit Operating Systems  
+ When the 64-bit version of the remote debugger is started, it uses the 4022 port by default.  If you debug a 32-bit process, the 64-bit version of the remote debugger starts a 32-bit version of the remote debugger on port 4023. If you run the 32-bit remote debugger, it uses 4022, and 4023 is not used.  
   
-## 64 位操作系统上的远程调试器端口  
- 当启动 64 位版远程调试器时，它默认使用 4020 端口。  如果调试 32 位进程，则 64 位版远程调试器将在端口 4021 上启动 32 位版远程调试器。 如果运行 32 位远程调试器，它将使用 4020，而不使用 4021。  
+ This port is configurable from the command line: **Msvsmon /wow64port \<port number>**.  
   
- 此端口可在命令行中进行配置：**Msvsmon \/wow64port \<端口号\>**。  
+## <a name="the-discovery-port"></a>The Discovery Port  
+ UDP 3702 is used for finding running instances of the remote debugger on the network (for example, the **Find** dialog in the **Attach to Process** dialog). It is used only for discovering a machine running the remote debugger, so it is  optional if you have some other way of knowing the machine name or IP address of the target computer. This is a standard port for discovery, so the port number cannot be configured.  
   
-## 发现端口  
- UDP 3702 用于在网络上查找远程调试器的运行实例（例如，“附加到进程”对话框中的“查找”对话框）。 它仅用于发现运行远程调试器的计算机，因此如果你有某种其他方式来了解计算机名称或目标计算机的 IP 地址，它是可选的。 这是用于发现的标准端口，因此不能配置端口号。  
+ If you do not want to enable discovery, you can start msvsmon from the command line with discovery disabled:  **Msvsmon /nodiscovery**.  
   
- 如果你不想启用发现，可以在禁用发现的情况下从命令行启动 msvsmon：**Msvsmon \/nodiscovery**。  
-  
-## Azure 上的远程调试器端口  
- Azure 上的远程调试器使用以下端口。 云服务上的端口映射到各 VM 上的端口。 所有端口都是 TCP。  
+## <a name="remote-debugger-ports-on-azure"></a>Remote Debugger Ports on Azure  
+ The following ports are used by the remote debugger on Azure. The ports on the cloud service are mapped to the ports on the individual VM. All ports are TCP.  
   
 ||||  
 |-|-|-|  
-|**连接**|**云服务上的端口**|**VM 上的端口**|  
+|**Connection**|**Port on Cloud Service**|**Port on VM**|  
 |Microsoft.WindowsAzure.Plugins.RemoteDebugger.Connector|30400|30398|  
 |Microsoft.WindowsAzure.Plugins.RemoteDebugger.Forwarder|31400|31398|  
 |Microsoft.WindowsAzure.Plugins.RemoteDebugger.FileUpload|32400|32398|  
   
-## 请参阅  
- [远程调试](../debugger/remote-debugging.md)
+## <a name="see-also"></a>See Also  
+ [Remote Debugging](../debugger/remote-debugging.md)

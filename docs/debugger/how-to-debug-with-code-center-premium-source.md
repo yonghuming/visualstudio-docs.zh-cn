@@ -1,144 +1,161 @@
 ---
-title: "如何：调试 Code Center Premium 源代码 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-debug"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-dev_langs: 
-  - "FSharp"
-  - "VB"
-  - "CSharp"
-  - "C++"
-helpviewer_keywords: 
-  - "Code Center Premium"
-  - "调试 [Visual Studio], Code Center Premium"
+title: 'How to: Debug with Code Center Premium Source | Microsoft Docs'
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-debug
+ms.tgt_pltfrm: 
+ms.topic: article
+dev_langs:
+- CSharp
+- VB
+- FSharp
+- C++
+helpviewer_keywords:
+- Code Center Premium
+- debugging [Visual Studio], Code Center Premium
 ms.assetid: 18b4769d-b007-4428-9dae-9e72c283ff0d
 caps.latest.revision: 23
-author: "mikejo5000"
-ms.author: "mikejo"
-manager: "ghogen"
-caps.handback.revision: 23
----
-# 如何：调试 Code Center Premium 源代码
-[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
+author: mikejo5000
+ms.author: mikejo
+manager: ghogen
+translation.priority.ht:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+ms.translationtype: HT
+ms.sourcegitcommit: 9e6c28d42bec272c6fd6107b4baf0109ff29197e
+ms.openlocfilehash: 9d9c246234bc86cefb9e0a24f97f4c3d692d3942
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/22/2017
 
-使用 [!INCLUDE[vs_dev11_long](../data-tools/includes/vs_dev11_long_md.md)] 调试器可以调试来自 Microsoft MSDN Code Center Premium 的安全共享源。  
+---
+# <a name="how-to-debug-with-code-center-premium-source"></a>How to: Debug with Code Center Premium Source
+With the [!INCLUDE[vs_dev11_long](../data-tools/includes/vs_dev11_long_md.md)] debugger, you can debug secure shared source from Microsoft MSDN Code Center Premium.  
   
- 本主题介绍如何在 Visual Studio 中设置和调试 Code Center Premium 源代码。  
+ This topic explains how to set up and debug Code Center Premium source code in Visual Studio.  
   
-### 准备调试 Code Center Premium  
+### <a name="to-prepare-for-debugging-with-code-center-premium"></a>To prepare for debugging with Code Center Premium  
   
-1.  连接您的智能卡读卡器，并插入您从共享源计划所取得的智能卡。  
+1.  Connect your SmartCard reader and insert the card you obtained from the Shared Source Initiative.  
   
-2.  启动 Visual Studio。  
+2.  Launch Visual Studio.  
   
-3.  在**“工具”**菜单上，单击**“选项”**。  
+3.  On the **Tools** menu, click **Options**.  
   
-4.  在**“选项”**对话框中打开**“调试”**节点，然后单击**“常规”**。  
+4.  In the **Options** dialog box, open the **Debugging** node and click **General**.  
   
-5.  清除**“启用‘仅我的代码’\(仅限托管\)”**复选框。  
+5.  Clear the **Enable Just My Code (Managed Only)** check box.  
   
-6.  选中**“启用源服务器支持”**。  
+6.  Select **Enable Enable Source Server Support**.  
   
-7.  清除**“要求源文件与原始版本完全匹配”**。  
+7.  Clear **Require source files to exactly match the original version**.  
   
-8.  单击**“调试”**节点下面的**“符号”**。  
+8.  Under the **Debugging** node, click **Symbols**.  
   
-9. 在**“符号文件\(.pdb\)位置”**框中，清除**“Microsoft 服务器符号”**复选框，然后添加下列位置：  
+9. In the **Symbol File (.pdb) Locations** box, clear the **Microsoft Server Symbols** check box and add the following locations:  
   
      `https://codepremium.msdn.microsoft.com/symbols`  
   
      `src=https://codepremium.msdn.microsoft.com/source/Visual%20Studio%202010/SP1/`  
   
     > [!NOTE]
-    >  请务必在路径的末尾包含尾随斜杠 **\/**。  
+    >  Be sure to include the trailing slash**/** at the end of the path.  
   
-     将这些位置移至列表顶端以确保首先加载这些符号。  
+     Move these locations to the top of the list to ensure that these symbols are loaded first.  
   
     > [!NOTE]
-    >  必须先列出这些 Code Center Premium 位置，以使它们成为首先加载的位置。  在 Visual Studio 2010 中，您无法将任何服务器移至**“Microsoft 符号服务器”**条目的上方，这是您必须清除此复选框的原因。  
+    >  These Code Center Premium locations must be listed first so that they are the first locations that are loaded. In Visual Studio 2010, you cannot move any servers above the **Microsoft Symbol Servers** entry, which is why you must clear the check box.  
     >   
-    >  若要在调试会话期间从 Microsoft 符号加载符号，请执行下列操作：  
+    >  To load symbols from the Microsoft symbols during a debug session, do this:  
     >   
-    >  1.  在**“调试”**菜单上，选择**“Windows”**，然后选择**“模块”**。  
-    > 2.  选择需要其符号的模块，然后打开快捷菜单。  选择**“加载符号”**，然后选择**“Microsoft 符号服务器”**。  
+    >  1.  On the **Debug** menu, choose **Windows** and then choose **Modules**.  
+    > 2.  Select the module that you want symbols for, and then open the shortcut menu. Choose **Load Symbols From** and then choose **Microsoft Symbol Servers**.  
   
-10. 在**“将符号服务器中的符号缓存在此目录中”**框中，输入 Code Center Premium 可用以缓存符号的位置，例如 `C:\symbols`。  缓存符号可以大大提升调试期间的性能。  
+10. In the **Cache symbols from symbol servers in this directory** box, enter a location such as `C:\symbols` where Code Center Premium can cache the symbols. Caching symbols can significantly improve performance during debugging.  
   
-     若在完成此过程之后使用 [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] 调试源代码遇到困难，请检查缓存位置以确认是否有之前缓存过的过时符号文件。  删除过时的符号文件。  
+     If you experience difficulty debugging source code with [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] after you complete this procedure, check your cache location for previously cached and outdated symbol files. Remove the outdated symbol files.  
   
-11. 单击**“确定”**。  
+11. Click **OK**.  
   
-12. 重新启动 [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] 以确保各项设置得以保留。  
+12. Restart [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] to ensure that settings are persisted.  
   
-### 使用“附加到进程”调试源代码  
+### <a name="to-debug-your-source-code-using-attach-to-process"></a>To debug your source code using Attach to Process  
   
-1.  连接您的智能卡读卡器，并插入您从共享源计划所取得的智能卡。  
+1.  Connect your SmartCard reader and insert the card you obtained from the Shared Source Initiative.  
   
-2.  启动 Visual Studio。  
+2.  Launch Visual Studio.  
   
-3.  打开 Visual Studio 项目。  
+3.  Open your Visual Studio project.  
   
-4.  在**“工具”**菜单中，单击**“附加到进程”**。  
+4.  On the **Tools** menu, click **Attach to Process**.  
   
-5.  在**“附加到进程”**对话框中，单击**“选择”**。  
+5.  In the **Attach to Process** dialog box, click **Select**.  
   
-6.  在**“选择代码类型”**对话框中，在**“检测以下代码类型”\[Detect these code types\]**下面，选择**“本机”**、**“托管”**和**“托管\(v4.0\)”**。  
+6.  In the **Select Code Type** dialog box, under **Detect these code types**, select **Native**, **Managed**, and **Managed(v4.0)**.  
   
-7.  单击**“确定”**以关闭**“选择代码类型”**对话框。  
+7.  Click **OK** to dismiss the **Select Code Type** dialog box.  
   
-8.  在**“可用进程”**框中，选择您要调试的进程。  
+8.  In the **Available Processes** box, select the process you want to debug.  
   
-9. 单击**“附加”**。  
+9. Click **Attach**.  
   
-10. 在提示您确认证书时，请单击**“确定”**。  然后输入您的 PIN。  如有相应提示，请接受 Code Center Premium 的使用条款。  
+10. When you are prompted to confirm your certificate, click **OK**. Then enter your PIN. Accept the terms of use for Code Center Premium, if you are prompted,.  
   
-     根据网络速度，下载符号可能会占用大量时间。  所有符号下载成功之后，状态栏会有相应提示。  
+     Downloading symbols can take lots of time, depending on the network speed. The status bar will indicate when all symbols have been downloaded successfully.  
   
-11. 为解决方案中的所有托管项目重复执行附加步骤。  
+11. Repeat the attach steps for all managed projects in your Solution.  
   
-### 从现有解决方案调试源代码  
+### <a name="to-debug-source-code-from-an-existing-solution"></a>To debug source code from an existing solution  
   
-1.  在**“解决方案资源管理器”**中，打开解决方案的快捷菜单，然后选择**“属性”**。  
+1.  In **Solution Explorer**, open the shortcut menu for the solution and then choose **Properties**.  
   
-2.  在解决方案“属性页”对话框中，选择**“公共属性”**节点下的**“调试源文件”**。  
+2.  In the Solution Property Pages dialog box, choose **Debug Source Files** in the **Common Properties** node.  
   
-3.  将以下位置添加到**“包含源文件的目录”**列表：  
+3.  Add the following location to the **Directories containing source files** list:  
   
      `https://codepremium.msdn.microsoft.com/source/Visual%20Studio%202010/SP1/`  
   
     > [!NOTE]
-    >  请务必在路径的末尾包含尾随斜杠 **\/**。  
+    >  Be sure to include the trailing slash**/** at the end of the path.  
   
-4.  对于解决方案中的每个托管项目，请执行下列操作  
+4.  For each managed project in your solution, do the following  
   
-    1.  在“解决方案资源管理器”中，打开项目的快捷菜单，然后选择**“属性”**。  
+    1.  In Solution Explorer, open the shortcut menu for the project and then choose **Properties**.  
   
-    2.  选择**“调试”**，然后选择**“启用非托管代码调试”**。  
+    2.  Select **Debug** and then choose **Enable unmanaged code debugging**.  
   
-### 调试解决方案的 Code Center Premium 源代码  
+### <a name="to-debug-your-solution-with-code-center-premium-source"></a>To debug your solution with Code Center Premium source  
   
-1.  在 `Package` 类中，在包构造函数上设置一个断点。  
+1.  In your `Package` class, set a breakpoint on the package constructor.  
   
-2.  在`Debug`菜单中，单击**“启动调试”**。  
+2.  In the `Debug` menu, click **Start Debugging**.  
   
-3.  在运行到包构造函数中的断点时，请转至**“调用堆栈”**窗口，然后右击您要用以加载符号的程序集堆栈帧，然后单击**“加载符号”**。  
+3.  When you hit the breakpoint in the package constructor, go to the **Call Stack** window and right-click the stack frame of the assembly you want to load symbols from, then click **Load Symbols**.  
   
-     双击调用帧以加载源代码。  
+     Double-click the call frame to load the source.  
   
-### 浏览 Code Center Premium 上的源代码  
+### <a name="to-browse-source-code-on-code-center-premium"></a>To browse source code on Code Center Premium  
   
-1.  连接您的智能卡读卡器，并插入您从共享源计划所取得的智能卡。  
+1.  Connect your SmartCard reader and insert the card you obtained from the Shared Source Initiative.  
   
-2.  启动 Internet Explorer 输入下列 URL：`https://codepremium.msdn.microsoft.com`  
+2.  Launch Internet Explorer enter the following URL: `https://codepremium.msdn.microsoft.com`  
   
-3.  浏览找到所需的源代码。  
+3.  Browse to find the source you want.  
   
-## 请参阅  
- [调试设置和准备](../debugger/debugger-settings-and-preparation.md)   
- [调试器安全](../debugger/debugger-security.md)   
+## <a name="see-also"></a>See Also  
+ [Debugger Settings and Preparation](../debugger/debugger-settings-and-preparation.md)   
+ [Debugger Security](../debugger/debugger-security.md)   
  [Code Center Premium](http://www.microsoft.com/resources/sharedsource/ccp.mspx)

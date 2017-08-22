@@ -1,175 +1,208 @@
 ---
-title: "使用调试器浏览代码 | Microsoft Docs"
-ms.custom: ""
-ms.date: "12/08/2016"
-ms.prod: "visual-studio-dev14"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-debug"
-ms.tgt_pltfrm: ""
-ms.topic: "hero-article"
-f1_keywords: 
-  - "vs.debug.execution"
-dev_langs: 
-  - "FSharp"
-  - "VB"
-  - "CSharp"
-  - "C++"
-  - "JScript"
-helpviewer_keywords: 
-  - "调试 [Visual Studio], Execution 控件"
-  - "执行, 调试器中的控制"
-  - "单步执行"
+title: Navigate Code with the Debugger in Visual Studio | Microsoft Docs
+ms.custom: H1Hack27Feb2017
+ms.date: 02/07/2017
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-debug
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords:
+- vs.debug.execution
+helpviewer_keywords:
+- stepping
+- debugging [Visual Studio], execution control
+- execution, controlling in debugger
 ms.assetid: 759072ba-4aaa-447e-8e51-0dd1456fe896
 caps.latest.revision: 42
-caps.handback.revision: 28
-author: "mikejo5000"
-ms.author: "mikejo"
-manager: "ghogen"
----
-# 使用调试器浏览代码
-[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
+author: mikejo5000
+ms.author: mikejo
+manager: ghogen
+translation.priority.ht:
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- ru-ru
+- zh-cn
+- zh-tw
+translation.priority.mt:
+- cs-cz
+- pl-pl
+- pt-br
+- tr-tr
+ms.translationtype: HT
+ms.sourcegitcommit: 9e6c28d42bec272c6fd6107b4baf0109ff29197e
+ms.openlocfilehash: 7ccde2740ba5216ca8e2a6258c283f655da8b06f
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/22/2017
 
-有多种方法可以在调试程序中浏览代码：单步执行或通过方法、运行到断点或指定位置，并指定是否想要将调试对象限制为自己的代码或包括调试外部代码的符号。  
+---
+# <a name="navigate-code-with-the-visual-studio-debugger"></a>Navigate Code with the Visual Studio Debugger
+Get familiar with commands and shortcuts to navigate code in the debugger and that will make it faster and easier to find and resolve issues in your app. While you navigate code in the debugger, you can inspect the state of your app or learn more about its execution flow.  
   
-##  <a name="BKMK_Step_into__over__or_out_of_the_code"></a> 单步执行、逐过程执行或跳出代码  
- “单步执行”是最常见的调试过程之一。 “单步执行”即一次执行一行代码。 当你暂停执行时（例如运行调试器到断点），可以使用三个**“调试”**菜单命令来单步执行代码：  
+## <a name="start-debugging"></a>Start debugging  
+ Often, you start a debugging session using **F5** (**Debug** > **Start Debugging**). This command starts your app with the debugger attached.  
   
-|菜单命令|键盘快捷键|描述|  
-|----------|-----------|--------|  
-|**逐语句**|**F11**|如果某一行包含函数调用，**“逐语句”**仅执行调用本身，然后在函数内的第一个代码行处停止。 否则，请**“逐语句”**执行下一语句。|  
-|**逐过程**|**F10**|如果某一行包含函数调用，则**“逐过程”**执行调用函数，然后在调用函数的第一个代码行处停止。 否则，请**“逐语句”**执行下一语句。|  
-|**跳出**|**Shift\+F11**|**“跳出”**将一直执行代码，直到函数返回，然后在调用函数中的返回点处中断。|  
+ The green arrow also starts the debugger (same as **F5**).  
   
--   在嵌套函数调用上，**“逐语句”**将进入并单步执行嵌套最深的函数。 如果对类似 `Func1(Func2())` 的调用使用**“逐语句”**，调试器将进入并单步执行函数 `Func2`。  
+ ![DBG&#95;Basics&#95;Start&#95;Debugging](../debugger/media/dbg_basics_start_debugging.png "DBG_Basics_Start_Debugging")  
   
--   实际上，调试器逐句通过代码语句，而不是物理行。 例如，`if` 子句可以写在一行内：  
+ A few other ways that you can start the app with the debugger attached include **F11** ([step into code](#BKMK_Step_into__over__or_out_of_the_code)),  **F10** ([step over code](#BKMK_Step_over_Step_out)), or by using **Run to Cursor**.  See the other sections in this topic for info on what these options do.  
   
-    ```c#  
+ When you debug, the yellow line shows you the code that will execute next.  
+  
+ ![DBG&#95;Basics&#95;Break&#95;Mode](../debugger/media/dbg_basics_break_mode.png "DBG_Basics_Break_Mode")  
+  
+ While debugging, you can switch between commands like **F5**, **F11** and use other features described in this topic (like breakpoints) to quickly get to the code you want to look at.  
+  
+ Most debugger features, such as viewing variable values in the Locals window or evaluating expressions in the Watch window, are available only while the debugger is paused (also called *break mode*). When the debugger is paused, your app state is suspended while functions, variables, and objects remain in memory. While in break mode, you can examine the elements' positions and states to look for violations or bugs. For some project types, you can also make adjustments to the app while in break mode. To watch a video showing these features, see [Getting Started with the Debugger](https://www.youtube.com/watch?v=FtGCi5j30YU&list=PLReL099Y5nRfw6VNvzMkv0sabT2crbSpK&index=6).
+  
+##  <a name="BKMK_Step_into__over__or_out_of_the_code"></a> Step into code, line by line  
+ To stop on each line of code (each statement) while debugging, use the **F11** keyboard shortcut (or **Debug** > **Step Into** on the menu).  
+  
+> [!TIP]
+>  As you execute each line of code, you can hover over variables to see their values, or use the [Locals](../debugger/autos-and-locals-windows.md) and [Watch](../debugger/autos-and-locals-windows.md) windows to watch their values change.  
+  
+ Here are some details about the behavior of **Step Into**:  
+  
+-   On a nested function call, **Step Into** steps into the most deeply nested function. If you use **Step Into** on a call like `Func1(Func2())`, the debugger steps into the function `Func2`.  
+  
+-   The debugger actually steps through code statements rather than physical lines. For example an `if` clause can be written on one line:  
+  
+    ```CSharp  
     int x = 42;  
     string s = "Not answered";  
     if( int x == 42) s = "Answered!";  
     ```  
   
-    ```vb  
-    Dim x As Integet = 42  
+    ```VB  
+    Dim x As Integer = 42  
     Dim s As String = "Not answered"  
     If x = 42 Then s = "Answered!"  
     ```  
   
-     当你单步执行此行时，调试器将该条件视为一步，将结果视为另一步（在此示例中，条件为 true）。  
+     When you step into this line, the debugger treats the condition as one step and the consequence as another (In this example, the condition is true).  
   
- 若要在逐步执行函数的过程中对调用堆栈进行可视化跟踪，请参阅[调试时映射调用堆栈上的方法](../debugger/map-methods-on-the-call-stack-while-debugging-in-visual-studio.md)。  
+ To visually trace the call stack while stepping into functions, see [Map methods on the call stack while debugging](../debugger/map-methods-on-the-call-stack-while-debugging-in-visual-studio.md).  
   
-##  <a name="BKMK_Break_into_code_by_using_breakpoints_or_Break_All"></a> 使用断点或“全部中断”中断代码  
- 用 VS 调试器调试应用程序时，应用程序或者正在运行（执行）或处于中断模式。  
+##  <a name="BKMK_Step_over_Step_out"></a> Step through code, skipping functions  
+ When running code in the debugger, often you will realize that you don't need to see what happens in a particular function (you don't care about it or you know it works, like well-tested library code). Use these commands to skip through code (the functions still execute, of course, but the debugger skips over them).  
   
- 当执行到达断点或发生异常时，调试器将中断应用程序的执行。 你还可以随时手动中断执行。  
+|Keyboard Command|Menu Command|Description|  
+|----------------------|------------------|-----------------|  
+|**F10**|**Step Over**|If the current line contains a function call, **Step Over** runs the code then suspends execution at the first line of code after the called function returns.|  
+|**Shift+F11**|**Step Out**|**Step Out** continues running code and suspends execution when the current function returns (the debugger skips through the current function).|  
   
- 断点是一个信号，它通知调试器在某个特定点上暂时将应用程序执行挂起。 当执行在某个断点处挂起时，我们称程序处于中断模式。 进入中断模式并不会停止或结束程序的执行；执行可以在任何时候继续。  
+> [!TIP]
+>  If you need to find the entry point in your app, start with **F10** or **F11**. These commands are often helpful when you are inspecting your app state or trying to find out more about its execution flow.  
   
- 大多数调试器功能（例如，在本地窗口中查看变量值，或在“监视”窗口中计算表达式）仅在中断模式下可用。 应用程序的所有元素都将保留（例如，函数、变量和对象都保留在内存中），但其移动和活动将被挂起。 在中断模式下，你可以检查元素的位置和状态，以查看是否存在冲突或 Bug。 在中断模式下，你还可以对应用程序进行调整。  
+##  <a name="BKMK_Break_into_code_by_using_breakpoints_or_Break_All"></a> Run to a specific location or function  
+ Often the preferred method of debugging code, these methods are useful when you know exactly what code you want to inspect, or at least you know where you want to start debugging.  
   
- 你可以配置断点，挂起基于多种情况的执行。 请参阅 [使用断点](../debugger/using-breakpoints.md)。 本节描述两种中断代码的基本方式。  
+-   **Set breakpoints in the code**  
   
-1.  **在代码中设置断点**  
+     To set a simple breakpoint in your code, open the source file in the Visual Studio editor. Set the cursor at the line of code where you want to suspend execution, and then right-click in the code window to see the context menu and choose **Breakpoint > Insert Breakpoint** (or press **F9**). The debugger suspends execution right before the line is executed.  
   
-     若要在代码中设置简单断点，请打开 Visual Studio 编辑器中的源文件。 设置光标要中断的代码行，然后在上下文菜单上选择**“断点”**、**“插入断点”**（键盘：**F9**）。 调试器将在执行该代码行之前中断执行。  
+     ![Set a breakpoint](../debugger/media/dbg_basics_setbreakpoint.png "DBG_Basics_SetBreakpoint")  
   
-     ![设置断点](~/debugger/media/dbg_basics_setbreakpoint.png "DBG\_Basics\_SetBreakpoint")  
+     Breakpoints in Visual Studio provide a rich set of additional functionality, such as conditional breakpoints and tracepoints. See [Using Breakpoints](../debugger/using-breakpoints.md).  
   
-     Visual Studio 中的断点提供了一组丰富的附加功能，例如条件断点和跟踪点。 请参阅 [使用断点](../debugger/using-breakpoints.md)。  
+-   **Run to the cursor location**  
   
-2.  **手动中断代码**  
+     To run to the cursor location, place the cursor on an executable line of code in a source window. On the editor's context menu (right-click in the editor), choose **Run to Cursor**. This is like setting a temporary breakpoint.
+
+-   **Run to Click** 
+
+    To run to a point in your code while paused in the debugger, select the **Run execution to here** green arrow icon (you see the icon while hovering over a line of code). This eliminates the need to set temporary breakpoints.
+
+    ![Debugger's Run to Click](../debugger/media/dbg-run-to-click.png "DbgRunToClick") 
+
+    > [!NOTE]
+    > **Run to Click** is new in [!include[vs_dev15](../misc/includes/vs_dev15_md.md)].
   
-     若要在正在执行的应用程序上，中断下一个可用的代码行，请选择**“调试”**、**“全部中断”**（键盘：**Ctrl\+Alt\+Break**）。  
+-   **Manually break into code**  
   
--   如果使用“仅我的代码”选项进行调试，则可以在项目的下一个代码行中断执行。 请参阅 [限制单步执行“仅我的代码”](#BKMK_Restrict_stepping_to_Just_My_Code)。  
+     To break into the next available line of code in an executing app, choose **Debug**, **Break All** (keyboard: **Ctrl+Alt+Break**). 
   
--   如果正在调试多个程序，则默认情况下，断点或“全部中断”命令将影响所有被调试的程序。 请参阅 [配置多个进程的执行行为](../debugger/debug-multiple-processes.md#BKMK_Configure_the_execution_behavior_of_multiple_processes)。  
+     If you break while executing code without corresponding source or symbol (.pdb) files), the debugger displays a **Source Files Not Found** or a **Symbols Not Found** page that can help you find the appropriate files. See [Specify Symbol (.pdb) and Source Files](../debugger/specify-symbol-dot-pdb-and-source-files-in-the-visual-studio-debugger.md). If you can't access the supporting files, you can still debug the assembly instructions in the Disassembly window.  
   
--   如果中断正在执行的代码，而没有响应的源或符号 \(.pdb\) 文件，调试器将显示“未找到源文件”或“未找到符号”页面，帮助你找到相应的文件。 请参阅 [指定符号 \(.pdb\) 和源文件](../debugger/specify-symbol-dot-pdb-and-source-files-in-the-visual-studio-debugger.md)。  
+-   **Run to a function on the call stack**  
   
-     如果你无法访问支持文件，仍可以在“反汇编”窗口中调试汇编指令。  
+     In the **Call Stack** window (available while debugging), select the function, right-click and  choose **Run to Cursor**. To visually trace the call stack, see [Map methods on the call stack while debugging](../debugger/map-methods-on-the-call-stack-while-debugging-in-visual-studio.md).  
   
-##  <a name="BKMK_Run_to_a_specified_location_or_function"></a> 运行至指定位置或函数  
- 有时，你想执行到代码中的某一点，然后停止执行。 如果在想要中断的位置设置了断点，请选择**“调试”**、**“启动调试”**，如果还未启动调试，可以选择**“调试”**、**“继续”**。 （这两种情况下的快捷键都是 **F5**。） 执行代码时，调试器将在下一个断点停止。 选择**“调试”**、**“继续”**，直至到达所需的断点。  
+-   **Run to a function specified by name**  
   
- 你还可以运行到代码编辑器中光标停放的位置，或者运行到指定的函数。  
+     You can tell the debugger to run your application until it reaches a specified function. You can specify the function by name or you can choose it from the call stack.  
   
- **运行到光标处**  
+     To specify a function by name, choose **Debug**, **New Breakpoint**, **Break at Function**, then enter the name of the function and other identifying information.  
   
- 若要运行到光标位置，请将光标放在源窗口中可执行的代码行上。 在编辑器的上下文菜单上，选择**“运行到光标”**。  
+     ![New Breakpoint dialog box](../debugger/media/dbg_execution_newbreakpoint.png "DBG_Execution_NewBreakpoint")  
   
- **在调用堆栈上运行到函数**  
+     If the function is overloaded or is in multiple namespace, you can choose the functions that you want in the **Choose Breakpoints** dialog box.  
   
- 在**“调用堆栈”**窗口中，选择函数，然后从上下文菜单选择**“运行到光标”**。 若要对调用堆栈进行可视化跟踪，请参阅[调试时映射调用堆栈上的方法](../debugger/map-methods-on-the-call-stack-while-debugging-in-visual-studio.md)。  
+     ![Choose Breakpoints dialog box](../debugger/media/dbg_execution_overloadedbreakpoints.png "DBG_Execution_OverloadedBreakpoints")  
   
- **运行到通过名称指定的函数**  
+##  <a name="BKMK_Set_the_next_statement_to_execute"></a> Move the pointer to change the execution flow  
+ While the debugger is paused, you can move the instruction pointer to set the next statement of code to be executed. A yellow arrowhead in the margin of a source or Disassembly window marks the location of the next statement to be executed. By moving this arrowhead, you can skip over a portion of code or return to a line previously executed. You can use this for situations such as skipping a section of code that contains a known bug.  
   
- 可以命令调试器运行应用程序，直至到达指定的函数。 你可以通过名称指定函数，也可以从调用堆栈中选择函数。  
+ ![Moving the Pointer](../debugger/media/dbg_basics_example3.gif "DBG_Basics_Example3")
   
- 若要通过名称指定函数，请选择**“调试”**、**“新建断点”**、**“在函数处中断”**，然后输入函数名称和其他标识信息。  
+ To set the next statement to execute, use one of these procedures:  
   
- ![“新建断点”对话框](../debugger/media/dbg_execution_newbreakpoint.png "DBG\_Execution\_NewBreakpoint")  
+-   In a source window, drag the yellow arrowhead to a location where you want to set the next statement in the same source file  
   
- 如果是重载函数，或者函数在多个命名空间，你可以在**“选择断点”**对话框中选择想要的函数。  
+-   In a source window, set the cursor on the line that you want to execute next, right-click and choose **Set Next Statement**.  
   
- ![“选择断点”对话框](~/debugger/media/dbg_execution_overloadedbreakpoints.png "DBG\_Execution\_OverloadedBreakpoints")  
-  
-##  <a name="BKMK_Set_the_next_statement_to_execute"></a> 设置要执行的下一语句  
- 将调试器中断后，你可以移动执行点，设置下一个要执行的代码语句。 源窗口或“反汇编”窗口的空白区域中的黄色箭头标记要执行的下一条语句的位置。 通过移动此箭头，可以跳过部分代码或返回到以前执行过的行。 在某些情况下可以使用此方法，例如，跳过包含已知 bug 的代码段。  
-  
- ![Example2](~/debugger/media/dbg_basics_example2.png "DBG\_Basics\_Example2")  
-  
- 要设置下一条要执行的语句，请使用以下过程之一：  
-  
--   在源窗口中，将黄色箭头拖动希望执行下一语句的位置，该位置应在同一源文件。  
-  
--   在源窗口中，将光标放置在希望执行的下一行上，然后在上下文菜单上选择**“设置下一语句”**。  
-  
--   在“反汇编”窗口中，将光标放置在希望执行的下一汇编指令上，然后在上下文菜单上选择**“设置下一语句”**。  
+-   In the Disassembly window, set the cursor on the assembly instruction that you want to execute next, right-click an and choose **Set Next Statement**.  
   
 > [!CAUTION]
->  设置下一条语句将导致程序计数器直接跳到新位置。 使用此命令时要小心：  
+>  Setting the next statement causes the program counter to jump directly to the new location. Use this command with caution:  
 >   
->  -   不执行旧执行点和新执行点之间的指令。  
-> -   如果向后移动执行点，则不撤消插入的指令。  
-> -   将下一条语句移动到另一个函数或范围通常会导致调用堆栈损坏，导致一个运行时错误或异常。 如果尝试将下一条语句移动到另一个范围，则调试器将打开一个含有警告的对话框，并提供一个取消该操作的机会。 在 Visual Basic 中，不能将下一条语句移动到另一个范围或函数。  
-> -   在本机 C\+\+ 中，如果已启用运行时检查，设置下一条语句会导致执行到达方法的结尾时引发异常。  
-> -   当启用“编辑并继续”时，如果你进行了“编辑并继续”无法立即重新映射的编辑，那么**“设置下一语句”**将失败。 例如，如果你编辑了 catch 块中的代码，将发生这种情况。 发生这种情况时，你将看到一条错误消息，告诉你该操作不受支持。  
+>  -   Instructions between the old and new execution points are not executed.  
+> -   If you move the execution point backwards, intervening instructions are not undone.  
+> -   Moving the next statement to another function or scope usually results in call-stack corruption, causing a run-time error or exception. If you try moving the next statement to another scope, the debugger opens a dialog box with a warning and gives you a chance to cancel the operation. In Visual Basic, you cannot move the next statement to another scope or function.  
+> -   In native C++, if you have run-time checks enabled, setting the next statement can cause an exception to be thrown when execution reaches the end of the method.  
+> -   When Edit and Continue is enabled, **Set Next Statement** fails if you have made edits that Edit and Continue cannot remap immediately. This can occur, for example, if you have edited code inside a catch block. When this happens, you'll see an error message that tells you that the operation is not supported.  
   
 > [!NOTE]
->  在托管代码中，在以下情况下不能移动下一条语句：  
+>  In managed code, you cannot move the next statement under the following conditions:  
 >   
->  -   下一条语句与当前语句不在同一个方法中。  
-> -   使用实时调试启动调试。  
-> -   正在展开一个调用堆栈。  
-> -   已引发一个 System.StackOverflowException 或 System.Threading.ThreadAbortException 异常。  
+>  -   The next statement is in a different method than the current statement.  
+> -   Debugging was started by using Just-In-Time debugging.  
+> -   A callstack unwind is in progress.  
+> -   A System.StackOverflowException or System.Threading.ThreadAbortException exception has been thrown.  
   
- 应用程序处于活动运行状态时不能设置下一条语句。 要设置下一语句，调试器必须处于中断模式。  
+ You cannot set the next statement while your application is actively running. To set the next statement, the debugger must be in break mode.  
   
-##  <a name="BKMK_Restrict_stepping_to_Just_My_Code"></a> 限制单步执行“仅我的代码”  
- 有时，你在调试过程中可能只希望查看自己编写的代码，而忽略其他代码（如系统调用）。 为此，可以使用“仅我的代码”调试。 “仅我的代码”将隐藏非用户代码，从而使这些代码不出现在调试器窗口中。 单步执行时，调试器逐句通过所有非用户代码，但不在其中停止。 请参见[仅我的代码](../debugger/just-my-code.md)  
+## <a name="BKMK_Restrict_stepping_to_Just_My_Code"></a>Step into non-user code  
+ By default, the debugger tries to show you only your app code while debugging, which is determined by a debugger setting called *Just My Code*. (See [Just My Code](../debugger/just-my-code.md) to see how this works for different project types and languages and how you might customize the behavior.) However, sometimes while you are debugging, you might want to look at framework code, third-party library code, or calls to the operating system (system calls).  
+  
+ You can turn off Just My Code  by going to **Tools** > **Options** > **Debugging** and clear the **Enable Just My Code** checkbox.  
+  
+ When Just My Code is disabled, the debugger can step into non-user code and non-user code appears in the debugger windows.  
   
 > [!NOTE]
->  设备项目不支持“仅我的代码”。  
+>  Just My Code is not supported for device projects.  
   
-##  <a name="BKMK_Step_into_system_calls"></a> 单步执行系统调用  
- 如果你已加载系统代码的调试符号，且未启用“仅我的代码”，则可以单步执行系统调用，就像可以单步执行其他任何调用一样。  
+ **Step into system calls**  
   
- 若要访问 Microsoft 符号文件，请参阅[使用符号服务器查找不在你的本地计算机上的符号文件](../debugger/specify-symbol-dot-pdb-and-source-files-in-the-visual-studio-debugger.md#BKMK_Use_symbol_servers_to_find_symbol_files_not_on_your_local_machine)主题中的[指定符号 \(.pdb\) 和源文件](../debugger/specify-symbol-dot-pdb-and-source-files-in-the-visual-studio-debugger.md)。  
+ If you have loaded debugging symbols for system code and Just My Code is not enabled, you can step into a system call just as you can any other call.  
   
- 在调试时加载特定系统组件的符号：  
+ To access Microsoft symbol files, see [Use symbol servers to find symbol files not on your local machine](../debugger/specify-symbol-dot-pdb-and-source-files-in-the-visual-studio-debugger.md#BKMK_Use_symbol_servers_to_find_symbol_files_not_on_your_local_machine) in the [Specify Symbol (.pdb) and Source Files](../debugger/specify-symbol-dot-pdb-and-source-files-in-the-visual-studio-debugger.md) topic.  
   
-1.  打开“模块”窗口（键盘：**Ctrl\+Alt\+U**）。  
+ To load symbols for a specific system component while you are debugging:  
   
-2.  选择要加载符号的模块。  
+1.  Open the Modules window (keyboard: **Ctrl + Alt + U**).  
   
-     查看**“符号状态”**列可以了解哪些模块加载了符号。  
+2.  Select the module that you want to load symbols for.  
   
-3.  在上下文菜单中选择**“加载符号”**。  
+     You can tell which modules have symbols loaded by looking at the **Symbol Status** column.  
   
-##  <a name="BKMK_Step_into_properties_and_operators_in_managed_code"></a> 单步执行托管代码中的属性和运算符  
- 默认情况下，调试器将逐过程执行托管代码中的属性和运算符。 在多数情况下，这会提供较好的调试体验。 若要启用单步执行属性或运算符，请选择**“调试”**、**“选项和设置”**。 在**“调试”**、**“常规”**页面上，清除**“逐过程执行属性和运算符\(仅限托管\)”**复选框
+3.  Choose **Load Symbols** on the context menu.  
+  
+##  <a name="BKMK_Step_into_properties_and_operators_in_managed_code"></a> Step into properties and operators in managed code  
+ The debugger steps over properties and operators in managed code by default. In most cases, this provides a better debugging experience. To enable stepping into properties or operators, choose **Debug** > **Options**. On the **Debugging** > **General** page, clear the **Step over properties and operators (Managed only)** check box

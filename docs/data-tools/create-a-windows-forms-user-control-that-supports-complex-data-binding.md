@@ -1,181 +1,191 @@
 ---
-title: "演练：创建支持复杂数据绑定的 Windows 窗体用户控件 | Microsoft Docs"
-ms.custom: ""
-ms.date: "12/15/2016"
-ms.prod: "visual-studio-dev14"
-ms.reviewer: ""
-ms.suite: ""
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-dev_langs: 
-  - "VB"
-  - "CSharp"
-  - "C++"
-  - "aspx"
-helpviewer_keywords: 
-  - "数据绑定, 复杂"
-  - "数据绑定, 用户控件"
-  - "用户控件 [Visual Studio], 复杂的数据绑定"
+title: Create a Windows Forms user control with data binding | Microsoft Docs
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.tgt_pltfrm: 
+ms.topic: article
+dev_langs:
+- VB
+- CSharp
+- C++
+- aspx
+helpviewer_keywords:
+- data binding, user controls
+- data binding, complex
+- user controls [Visual Studio], complex data binding
 ms.assetid: c8f29c2b-b49b-4618-88aa-33b6105880b5
 caps.latest.revision: 13
-caps.handback.revision: 10
-author: "mikeblome"
-ms.author: "mblome"
-manager: "ghogen"
+author: mikeblome
+ms.author: mblome
+manager: ghogen
+translation.priority.ht:
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- ru-ru
+- zh-cn
+- zh-tw
+translation.priority.mt:
+- cs-cz
+- pl-pl
+- pt-br
+- tr-tr
+ms.translationtype: HT
+ms.sourcegitcommit: 9e6c28d42bec272c6fd6107b4baf0109ff29197e
+ms.openlocfilehash: f0daf48edc1739c31d0cd23156a7653954d352fc
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/22/2017
+
 ---
-# 演练：创建支持复杂数据绑定的 Windows 窗体用户控件
-在 Windows 应用程序的窗体上显示数据时，你可以从**“工具箱”**中选择现有的控件，而当标准控件无法提供应用程序所要求的功能时，你还可以创作自定义控件。  本演练显示了如何创建实现 <xref:System.ComponentModel.ComplexBindingPropertiesAttribute> 的控件。  实现 <xref:System.ComponentModel.ComplexBindingPropertiesAttribute> 的控件包含可以绑定到数据的 `DataSource` 和 `DataMember` 属性。  此类控件类似于 <xref:System.Windows.Forms.DataGridView> 或 <xref:System.Windows.Forms.ListBox>。  
+# <a name="create-a-windows-forms-user-control-that-supports-complex-data-binding"></a>Create a Windows Forms user control that supports complex data binding
+When displaying data on forms in Windows applications, you can choose existing controls from the **Toolbox**, or you can author custom controls if your application requires functionality that is not available in the standard controls. This walkthrough shows how to create a control that implements the <xref:System.ComponentModel.ComplexBindingPropertiesAttribute>. Controls that implement the <xref:System.ComponentModel.ComplexBindingPropertiesAttribute> contain a `DataSource` and `DataMember` property that can be bound to data. Such controls are similar to a <xref:System.Windows.Forms.DataGridView> or <xref:System.Windows.Forms.ListBox>.  
   
- 有关控件创作的详细信息，请参阅[设计时开发 Windows 窗体控件](../Topic/Developing%20Windows%20Forms%20Controls%20at%20Design%20Time.md)。  
+ For more information on control authoring, see [Developing Windows Forms Controls at Design Time](/dotnet/framework/winforms/controls/developing-windows-forms-controls-at-design-time).  
   
- 创建用于数据绑定方案的控件时，你需要实现以下数据绑定特性之一：  
+ When authoring controls for use in data-binding scenarios you need to implement one of the following data-binding attributes:  
   
-|数据绑定特性的用法|  
-|---------------|  
-|在简单控件上实现 <xref:System.ComponentModel.DefaultBindingPropertyAttribute>（如 <xref:System.Windows.Forms.TextBox>），此类控件用于显示数据的单个列（或属性）。  有关详细信息，请参阅[演练：创建支持简单数据绑定的 Windows 窗体用户控件](../data-tools/create-a-windows-forms-user-control-that-supports-simple-data-binding.md)。|  
-|在控件上实现 <xref:System.ComponentModel.ComplexBindingPropertiesAttribute>（如 <xref:System.Windows.Forms.DataGridView>），此类控件用于显示数据列表（或表）。  （本演练页面描述了此过程）。|  
-|在控件上实现 <xref:System.ComponentModel.LookupBindingPropertiesAttribute>（如 <xref:System.Windows.Forms.ComboBox>），此类控件用于显示数据列表（或表），也需要显示数据的单个列或属性。  有关详细信息，请参阅[演练：创建支持查找数据绑定的 Windows 窗体用户控件](../data-tools/create-a-windows-forms-user-control-that-supports-lookup-data-binding.md)。|  
+|Data-binding attribute usage|  
+|-----------------------------------|  
+|Implement the <xref:System.ComponentModel.DefaultBindingPropertyAttribute> on simple controls, like a <xref:System.Windows.Forms.TextBox>, that display a single column (or property) of data. For more information, see [Create a Windows Forms user control that supports simple data binding](../data-tools/create-a-windows-forms-user-control-that-supports-simple-data-binding.md).|  
+|Implement the <xref:System.ComponentModel.ComplexBindingPropertiesAttribute> on controls, like a <xref:System.Windows.Forms.DataGridView>, that display lists (or tables) of data. (This process is described in this walkthrough page.)|  
+|Implement the <xref:System.ComponentModel.LookupBindingPropertiesAttribute> on controls, like a <xref:System.Windows.Forms.ComboBox>, that display lists (or tables) of data but also need to present a single column or property. For more information, see [Create a Windows Forms user control that supports lookup data binding](../data-tools/create-a-windows-forms-user-control-that-supports-lookup-data-binding.md).|  
   
- 本演练创建显示表中多行数据的复杂控件。  本示例使用源自 Northwind 示例数据库的 `Customers` 表。  复杂用户控件将会在自定义控件中的 <xref:System.Windows.Forms.DataGridView> 中显示 Customers 表。  
+ This walkthrough creates a complex control that displays rows of data from a table. This example uses the `Customers` table from the Northwind sample database. The complex user control will display the customers table in a <xref:System.Windows.Forms.DataGridView> in the custom control.  
   
- 在本演练中，你将学会如何执行以下任务：  
+ During this walkthrough, you will learn how to:  
   
--   创建新的**“Windows 应用程序”**。  
+-   Create a new **Windows Application**.  
   
--   将新的**“用户控件”**添加到你的项目中。  
+-   Add a new **User Control** to your project.  
   
--   以可视方式设计用户控件。  
+-   Visually design the user control.  
   
--   实现 `ComplexBindingProperty` 特性。  
+-   Implement the `ComplexBindingProperty` attribute.  
   
--   使用[数据源配置向导](../data-tools/media/data-source-configuration-wizard.png)创建数据集。  
+-   Create a dataset with the [Data Source Configuration Wizard](../data-tools/media/data-source-configuration-wizard.png).  
   
--   在[“数据源”窗口](../Topic/Data%20Sources%20Window.md)中设置**“Customers”**表，以使用新的复杂控件。  
+-   Set the **Customers** table in the [Data Sources Window](add-new-data-sources.md) to use the new complex control.  
   
--   通过将新控件从**“数据源窗口”**拖到**“Form1”**上来添加新控件。  
+-   Add the new control by dragging it from the **Data Sources Window** onto **Form1**.  
   
-## 系统必备  
- 若要完成本演练，你将需要：  
+## <a name="prerequisites"></a>Prerequisites  
+ In order to complete this walkthrough, you will need:  
   
--   能够访问 Northwind 示例数据库。  有关详细信息，请参阅[如何：安装示例数据库](../data-tools/how-to-install-sample-databases.md)。  
+-   Access to the Northwind sample database. For more information, see [How to: Install Sample Databases](../data-tools/installing-database-systems-tools-and-samples.md).  
   
-## 创建 Windows 应用程序  
- 第一步是创建**“Windows 应用程序”**。  
+## <a name="create-a-windows-application"></a>Create a Windows Application  
+ The first step is to create a **Windows Application**.  
   
-#### 创建新的 Windows 项目  
+#### <a name="to-create-the-new-windows-project"></a>To create the new Windows project  
   
-1.  在 Visual Studio 中，从**“文件”**菜单创建一个新的**“项目”**。  
+1.  In Visual Studio, from the **File** menu, create a new **Project**.  
   
-2.  将项目命名为 ComplexControlWalkthrough。  
+2.  Name the project **ComplexControlWalkthrough**.  
   
-3.  选择**“Windows 应用程序”**，然后单击**“确定”**。  有关详细信息，请参阅[客户端应用程序](../Topic/Developing%20Client%20Applications%20with%20the%20.NET%20Framework.md)。  
+3.  Select **Windows Application**, and click **OK**. For more information, see [Client Applications](/dotnet/framework/develop-client-apps).  
   
-     **“ComplexControlWalkthrough”**项目即被创建并添加到**“解决方案资源管理器”**中。  
+     The **ComplexControlWalkthrough** project is created, and added to **Solution Explorer**.  
   
-## 将用户控件添加到项目中  
- 由于本演练是从**“用户控件”**创建复杂的可绑定数据控件，所以你必须将**“用户控件”**项添加到项目中。  
+## <a name="add-a-user-control-to-the-project"></a>Add a user control to the project  
+ Because this walkthrough creates a complex data-bindable control from a **User Control**, you must add a **User Control** item to the project.  
   
-#### 将用户控件添加到项目中  
+#### <a name="to-add-a-user-control-to-the-project"></a>To add a user control to the project  
   
-1.  从**“项目”**菜单中，选择**“添加用户控件”**。  
+1.  From the **Project** menu, choose **Add User Control**.  
   
-2.  在**“名称”**区域中键入“ComplexDataGridView”，然后单击**“添加”**。  
+2.  Type **ComplexDataGridView** in the **Name** area, and then click **Add**.  
   
-     **“ComplexDataGridView”**控件将会添加到**“解决方案资源管理器”**中，并在设计器中打开该控件。  
+     The **ComplexDataGridView** control is added to **Solution Explorer**, and opens in the designer.  
   
-## 设计 ComplexDataGridView 控件  
- 此步骤将 <xref:System.Windows.Forms.DataGridView> 添加到该用户控件。  
+## <a name="design-the-complexdatagridview-control"></a>Design the ComplexDataGridView control  
+ This step adds a <xref:System.Windows.Forms.DataGridView> to the user control.  
   
-#### 设计 ComplexDataGridView 控件  
+#### <a name="to-design-the-complexdatagridview-control"></a>To design the ComplexDataGridView control  
   
--   将 <xref:System.Windows.Forms.DataGridView> 从**“工具箱”**拖到该用户控件的设计图面上。  
+-   Drag a <xref:System.Windows.Forms.DataGridView> from the **Toolbox** onto the user control's design surface.  
   
-## 添加所需的数据绑定特性  
- 对于支持数据绑定的复杂控件，你可以实现 <xref:System.ComponentModel.ComplexBindingPropertiesAttribute>。  
+## <a name="add-the-required-data-binding-attribute"></a>Add the required data-binding attribute  
+ For complex controls that support data binding, you can implement the <xref:System.ComponentModel.ComplexBindingPropertiesAttribute>.  
   
-#### 实现 ComplexBindingProperties 特性  
+#### <a name="to-implement-the-complexbindingproperties-attribute"></a>To implement the ComplexBindingProperties attribute  
   
-1.  将**“ComplexDataGridView”**控件切换到代码视图。  （在**“视图”**菜单上，选择**“代码”**。）  
+1.  Switch the **ComplexDataGridView** control to code view. (On the **View** menu, select **Code**.)  
   
-2.  将 `ComplexDataGridView` 中的代码替换为以下内容：  
+2.  Replace the code in the `ComplexDataGridView` with the following:  
   
-     [!code-cs[VbRaddataDisplaying#4](../data-tools/codesnippet/CSharp/create-a-windows-forms-user-control-that-supports-complex-data-binding_1.cs)]
-     [!code-vb[VbRaddataDisplaying#4](../data-tools/codesnippet/VisualBasic/create-a-windows-forms-user-control-that-supports-complex-data-binding_1.vb)]  
+     [!code-cs[VbRaddataDisplaying#4](../data-tools/codesnippet/CSharp/create-a-windows-forms-user-control-that-supports-complex-data-binding_1.cs)]  [!code-vb[VbRaddataDisplaying#4](../data-tools/codesnippet/VisualBasic/create-a-windows-forms-user-control-that-supports-complex-data-binding_1.vb)]  
   
-3.  从**“生成”**菜单中选择**“生成解决方案”**。  
+3.  From the **Build** menu, choose **Build Solution**.  
   
-## 从数据库创建数据源  
- 此步骤根据 Northwind 示例数据库中的 `Customers` 表，使用**“数据源配置向导”**创建数据源。  你必须具有对 Northwind 示例数据库的访问权限，才能创建连接。  有关设置 Northwind 示例数据库的信息，请参阅[如何：安装示例数据库](../data-tools/how-to-install-sample-databases.md)。  
+## <a name="creating-a-data-source-from-your-database"></a>Creating a data source from your database  
+ This step uses the **Data Source Configuration** wizard to create a data source based on the `Customers` table in the Northwind sample database. You must have access to the Northwind sample database to create the connection. For information on setting up the Northwind sample database, see [Install SQL Server sample databases](../data-tools/install-sql-server-sample-databases.md).  
   
-#### 创建数据源  
+#### <a name="to-create-the-data-source"></a>To create the data source  
   
-1.  在**“数据”**菜单上，单击**“显示数据源”**。  
+1.  On the **Data** menu, click **Show Data Sources**.  
   
-2.  在**“数据源”**窗口中，选择**“添加新数据源”**以启动**“数据源配置向导”**。  
+2.  In the **Data Sources** window, select **Add New Data Source** to start the **Data Source Configuration** wizard.  
   
-3.  在**“选择数据源类型”**页上选择**“数据库”**，然后单击**“下一步”**。  
+3.  Select **Database** on the **Choose a Data Source Type** page, and then click **Next**.  
   
-4.  在**“选择你的数据连接”**页面上，执行以下操作之一：  
+4.  On the **Choose your Data Connection** page do one of the following:  
   
-    -   如果下拉列表中包含到 Northwind 示例数据库的数据连接，请选择该连接。  
+    -   If a data connection to the Northwind sample database is available in the drop-down list, select it.  
   
-         \- 或 \-  
+    -   Select **New Connection** to launch the **Add/Modify Connection** dialog box.  
   
-    -   选择**“新建连接”**，以启动**“添加\/修改连接”**对话框。  
+5.  If your database requires a password, select the option to include sensitive data, and then click **Next**.  
   
-5.  如果数据库需要密码，请选择该选项以包括敏感数据，再单击**“下一步”**。  
+6.  On the **Save connection string to the Application Configuration file** page, click **Next**.  
   
-6.  在**“将连接字符串保存到应用程序配置文件”**页面上单击**“下一步”**。  
+7.  On the **Choose your Database Objects** page, expand the **Tables** node.  
   
-7.  在**“选择数据库对象”**页面上展开**“表”**节点。  
+8.  Select the `Customers` table, and then click **Finish**.  
   
-8.  选择 `Customers` 表，然后单击**“完成”**。  
+     The **NorthwindDataSet** is added to your project, and the `Customers` table appears in the **Data Sources** window.  
   
-     **“NorthwindDataSet”**即被添加到你的项目中，并且**“数据源”**窗口中将显示 `Customers` 表。  
+## <a name="set-the-customers-table-to-use-the-complexdatagridview-control"></a>Set the Customers table to use the ComplexDataGridView control  
+ Within the **Data Sources** window, you can set the control to be created prior to dragging items onto your form.  
   
-## 设置 Customers 表以使用 ComplexDataGridView 控件  
- 在**“数据源”**窗口中，你可以先设置要创建的控件，然后再将项拖动到窗体上。  
+#### <a name="to-set-the-customers-table-to-bind-to-the-complexdatagridview-control"></a>To set the Customers table to bind to the ComplexDataGridView control  
   
-#### 设置 Customers 表以绑定到 ComplexDataGridView 控件  
+1.  Open **Form1** in the designer.  
   
-1.  在设计器中打开**“Form1”**。  
+2.  Expand the **Customers** node in the **Data Sources** window.  
   
-2.  在**“数据源”**窗口中展开**“Customers”**节点。  
+3.  Click the drop-down arrow on the **Customers** node, and choose **Customize**.  
   
-3.  单击**“Customers”**节点上的下拉箭头，然后选择**“自定义”**。  
+4.  Select the **ComplexDataGridView** from the list of **Associated Controls** in the **Data UI Customization Options** dialog box.  
   
-4.  在**“数据 UI 自定义选项”**对话框中，从**“关联的控件”**列表中选择**“ComplexDataGridView”**。  
+5.  Click the drop-down arrow on the `Customers` table, and choose **ComplexDataGridView** from the control list.  
   
-5.  单击 `Customers` 表上的下拉箭头，然后从控件列表中选择**“ComplexDataGridView”**。  
+## <a name="add-controls-to-the-form"></a>Add controls to the form  
+ You can create the data-bound controls by dragging items from the **Data Sources** window onto your form.  
   
-## 将控件添加到窗体  
- 通过将某些项从**“数据源”**窗口拖到你的窗体上，可创建数据绑定控件。  
+#### <a name="to-create-data-bound-controls-on-the-form"></a>To create data-bound controls on the form  
   
-#### 在窗体上创建数据绑定控件  
+-   Drag the main **Customers** node from the **Data Sources** window onto the form.Verify that the **ComplexDataGridView** control is used to display the table's data.  
   
--   将主**“Customers”**节点从**“数据源”**窗口中拖到窗体上，并验证**“ComplexDataGridView”**控件是否用于显示表中的数据。  
+## <a name="running-the-application"></a>Running the application  
   
-## 运行应用程序  
+#### <a name="to-run-the-application"></a>To run the application  
   
-#### 运行应用程序  
+-   Press F5 to run the application.  
   
--   按 F5 运行该应用程序。  
+## <a name="next-steps"></a>Next Steps  
+ Depending on your application requirements, there are several steps you may want to perform after creating a control that supports databinding. Some typical next steps include:  
   
-## 后续步骤  
- 根据应用程序的要求，在创建了支持数据绑定的控件后，还可能需要执行一些步骤。  接下来的一些常见步骤包括：  
+-   Placing your custom controls in a control library so you can reuse them in other applications.  
   
--   将你的自定义控件置于控件库中，以便在其他应用程序中重用它们。  
+-   Creating controls that support lookup scenarios. For more information, see [Create a Windows Forms user control that supports lookup data binding](../data-tools/create-a-windows-forms-user-control-that-supports-lookup-data-binding.md).  
   
--   创建支持查找方案的控件。  有关详细信息，请参阅[演练：创建支持查找数据绑定的 Windows 窗体用户控件](../data-tools/create-a-windows-forms-user-control-that-supports-lookup-data-binding.md)。  
-  
-## 请参阅  
- [设置从“数据源”窗口中拖动时要创建的控件](../data-tools/set-the-control-to-be-created-when-dragging-from-the-data-sources-window.md)   
- [Windows 窗体控件](../Topic/Windows%20Forms%20Controls.md)   
- [在 Visual Studio 中将 Windows 窗体控件绑定到数据](../data-tools/bind-windows-forms-controls-to-data-in-visual-studio.md)   
- [连接到 Visual Studio 中的数据](../data-tools/connecting-to-data-in-visual-studio.md)   
- [准备应用程序以接收数据](../Topic/Preparing%20Your%20Application%20to%20Receive%20Data.md)   
- [将数据获取到应用程序](../data-tools/fetching-data-into-your-application.md)   
- [在 Visual Studio 中将控件绑定到数据](../data-tools/bind-controls-to-data-in-visual-studio.md)   
- [在应用程序中编辑数据](../data-tools/editing-data-in-your-application.md)   
- [验证数据](../Topic/Validating%20Data.md)   
- [保存数据](../data-tools/saving-data.md)
+## <a name="see-also"></a>See Also  
+ [Bind Windows Forms controls to data in Visual Studio](../data-tools/bind-windows-forms-controls-to-data-in-visual-studio.md)   
+ [Set the control to be created when dragging from the Data Sources window](../data-tools/set-the-control-to-be-created-when-dragging-from-the-data-sources-window.md)   
+ [Windows Forms Controls](/dotnet/framework/winforms/controls/index)
+

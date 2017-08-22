@@ -1,65 +1,87 @@
 ---
-title: "在 Visual Studio 中调试线程和进程 | Microsoft Docs"
-ms.custom: ""
-ms.date: "12/15/2016"
-ms.prod: "visual-studio-dev14"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-debug"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-dev_langs: 
-  - "FSharp"
-  - "VB"
-  - "CSharp"
-  - "C++"
-helpviewer_keywords: 
-  - "调试 [Visual Studio], 线程"
-  - "调试线程"
-  - "多进程调试"
-  - "进程, 调试"
-  - "线程处理 [Visual Studio], 调试"
+title: Tools to debug threads and processes | Microsoft Docs
+ms.custom: 
+ms.date: 04/21/2017
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-debug
+ms.tgt_pltfrm: 
+ms.topic: article
+dev_langs:
+- CSharp
+- VB
+- FSharp
+- C++
+helpviewer_keywords:
+- multiprocess debugging
+- threading [Visual Studio], debugging
+- processes, debugging
+- debugging threads
+- debugging [Visual Studio], threads
 ms.assetid: 9f0c8505-b6b2-452b-adfd-076db14d8115
-caps.latest.revision: 15
-caps.handback.revision: 14
-author: "mikejo5000"
-ms.author: "mikejo"
-manager: "ghogen"
----
-# 在 Visual Studio 中调试线程和进程
-[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
+caps.latest.revision: 14
+author: mikejo5000
+ms.author: mikejo
+manager: ghogen
+translation.priority.ht:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+ms.translationtype: HT
+ms.sourcegitcommit: 9e6c28d42bec272c6fd6107b4baf0109ff29197e
+ms.openlocfilehash: 394fcc0339f4ce2bef4aca64efc5bc8bcf1e3e00
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/22/2017
 
-在计算机科学中，“线程”和“进程”是两个相关的概念。  二者都表示必须按特定顺序执行的指令序列。  但是不同线程或进程中的指令可以并行执行。  
+---
+# <a name="tools-to-debug-threads-and-processes-in-visual-studio"></a>Tools to debug threads and processes in Visual Studio
+*Threads* and *processes* are related concepts in computer science. Both represent sequences of instructions that must execute in a specific order. Instructions in separate threads or processes, however, can execute in parallel.  
   
- 进程存在于操作系统内，并对应于用户可看作为程序或应用程序的事物。  另一方面，线程存在于进程内。  因此，线程有时也称作“轻量进程”。  每个进程都由一个或多个线程组成。  
+ Processes exist in the operating system and correspond to what users see as programs or applications. A thread, on the other hand, exists within a process. For this reason, threads are sometimes referred to as *light-weight processes*. Each process consists of one or more threads.  
   
- 多个进程的存在使得计算机能够一次执行多个任务。  而多个线程的存在使得进程能够分解工作以便并行执行。  在多处理器计算机上，进程或线程可以在不同的处理器中运行。  这使得真正的并行处理成为可能。  
+ The existence of multiple processes enables a computer to perform more than one task at a time. The existence of multiple threads enables a process to separate work to be performed in parallel. On a computer with multiprocessors, processes or threads can run on different processors. This enables true parallel processing.  
   
- 并不总是能够完全并行处理。  有时候必须要同步线程。  一个线程可能必须等待另一个线程的结果，或者一个线程可能需要独占访问另一个线程正在使用的资源。  同步问题是多线程应用程序中出现 Bug 的一个常见原因。  有时候线程可能最终等待的是永远不会变得可用的资源。  这导致了一种称为“死锁”的状况。  
+ Perfect parallel processing is not always possible. Threads sometimes must be synchronized. One thread may have to wait for a result from another thread, or one thread may need exclusive access to a resource that another thread is using. Synchronization problems are a common cause of bugs in multithreaded applications. Sometimes threads may end up waiting for a resource that never becomes available. This results in a condition called *deadlock*.  
   
- [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] 调试器为调试线程和进程提供了功能强大但易于使用的工具。  
+ The [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] debugger provides powerful but easy-to-use tools for debugging threads and processes.  
   
-## Visual Studio 中用于调试线程和进程的工具  
- 在 [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] 中用于处理进程的主要工具有**“附加到进程”**对话框、**“进程”**窗口和**“调试位置”**工具栏。  用于调试线程的主要工具有**“线程”**窗口、源窗口中的线程标记和**“调试位置”**工具栏。  
+## <a name="tools-and-features"></a>Tools and features
+The tools you need to use in [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] depend on what type of code you are trying to debug:
+
+- For processes, the primary tools are the **Attach to Process** dialog box, the **Processes** window, and the **Debug Location** toolbar.
+
+- For threads, the primary tools for debugging threads are the **Threads** window, thread markers in source windows, **Parallel Stacks** window, **Parallel Watch** window, and the **Debug Location** toolbar.  
   
- 调试多线程应用程序的主要工具是**“并行堆栈”**、**“并行任务”**、**“并行监视”**和**“GPU 线程”**窗口。  
+- For code that uses the <xref:System.Threading.Tasks.Task> in the [Task Parallel Library (TPL)](/dotnet/standard/parallel-programming/task-parallel-library-tpl), the [Concurrency Runtime](/cpp/parallel/concrt/concurrency-runtime/) (native code), the primary tools for debugging multithreaded applications are the **Parallel Stacks** window, the **Parallel Watch** window, and the **Tasks** window (the **Tasks** window also supports the JavaScript promise object).
+
+- For debugging threads on the GPU, the primary tool is the **GPU Threads** windows.  
   
- 下表显示了可用信息以及可在以上每个位置执行的操作：  
+ The following table shows the information available and the actions you can perform in each of these places:  
   
-|用户界面|可用信息|可以执行的操作|  
-|----------|----------|-------------|  
-|**“附加到进程”**对话框|可以附加的可用进程：<br /><br /> -   进程名 \(.exe\)<br />-   进程 ID 号<br />-   菜单栏标题<br />-   类型（托管 v4.0；托管 v2.0、v1.1、v1.0；x86；x64；IA64）<br />-   用户名（帐户名）<br />-   会话号|选择要附加的进程<br /><br /> 选择远程计算机<br /><br /> 更改用于连接远程计算机的传输类型|  
-|**“进程”**窗口|附加的进程：<br /><br /> -   进程名<br />-   进程 ID 号<br />-   进程 .exe 的路径<br />-   菜单栏标题<br />-   状态（中断  运行）<br />-   调试（本机、托管等。）<br />-   传输类型（默认、无身份验证时仅限本机）<br />-   传输限定符（远程计算机）|工具：<br /><br /> -   附加<br />-   分离<br />-   终止<br /><br /> 快捷菜单：<br /><br /> -   附加<br />-   分离<br />-   调试停止时分离<br />-   终止|  
-|**“线程”**窗口|当前进程中的线程：<br /><br /> -   线程 ID<br />-   托管 ID<br />-   类别（主线程、接口线程、远程过程调用处理程序或辅助线程）<br />-   线程名<br />-   创建线程的位置<br />-   优先级<br />-   关联掩码<br />-   挂起项计数<br />-   进程名<br />-   标志指示器<br />-   挂起指示器|工具：<br /><br /> -   搜索<br />-   搜索调用堆栈<br />-   标记“仅我的代码”<br />-   标记自定义模块选择<br />-   分组依据<br />-   Columns<br />-   展开\/折叠调用堆栈<br />-   展开\/折叠组<br />-   冻结\/解冻线程<br /><br /> 快捷菜单：<br /><br /> -   在源中显示线程<br />-   切换到线程<br />-   冻结一个正在运行的线程<br />-   解冻冻结的线程<br />-   标记一个线程以便进一步研究<br />-   取消标记一个线程<br />-   重命名一个线程<br />-   显示和隐藏线程<br /><br /> 其他操作：<br /><br /> -   查看数据提示中一个线程的调用堆栈|  
-|源窗口|左侧滚动条槽中的线程指示符指示单线程或多线程（默认情况下处于关闭状态，可通过使用**“线程”**窗口中的快捷菜单打开）|快捷菜单：<br /><br /> -   切换到线程<br />-   标记一个线程以便进一步研究<br />-   取消标记一个线程|  
-|**“调试位置”**工具栏|-   当前进程<br />-   显示应用程序缩略图<br />-   挂起应用程序<br />-   继续应用程序<br />-   挂起并关闭应用程序<br />-   当前线程<br />-   切换当前线程标记状态<br />-   仅显示标记的线程<br />-   仅显示当前进程<br />-   当前堆栈帧|-   切换到另一个进程<br />-   挂起、继续或关闭应用程序<br />-   切换到当前进程中的另一个线程<br />-   切换到当前线程中的另一个堆栈帧<br />-   标记或取消标记当前线程<br />-   仅显示标记的线程<br />-   仅显示当前进程|  
-|**“并行堆栈”**窗口|-   一个窗口中多个线程的调用堆栈。<br />-   每个线程的活动堆栈帧。<br />-   任何方法的调用方和被调用方。|-   筛选出指定的线程<br />-   切换到“并行任务”视图<br />-   标记或取消标记线程<br />-   缩放|  
-|**“并行任务”**窗口|-   查看有关 <xref:System.Threading.Tasks.Task> 对象的信息，包括任务 ID、任务状态（已计划、正在运行、正在等待和已死锁）以及分配给任务的线程。<br />-   调用堆栈中的当前位置。<br />-   在创建时传递给任务的委托|-   切换到当前任务<br />-   标记或取消标记任务<br />-   冻结或解冻任务|  
-|**“并行监视”**窗口|-   标记列，可在其中标记要特别注意的线程。<br />-   帧列，其中箭头指示选定的帧。<br />-   可配置的列，可显示计算机、进程、平铺、任务和线程。|-   标记或取消标记线程<br />-   仅显示标记的线程<br />-   切换帧<br />-   对列排序<br />-   对线程分组<br />-   冻结或解冻线程<br />-   导出“并行监视”窗口中的数据|  
-|**GPU 线程**窗口|-   标记列，可在其中标记要特别注意的线程。<br />-   活动线程列，其中的黄色箭头指示活动线程。  箭头指示执行在调试器中分解的线程。<br />-   **“线程计数”**列，显示同一位置的线程数。<br />-   **“行”**列，显示每组线程所在的代码行。<br />-   **“地址”**列，显示每组线程所在的指令地址。<br />-   **“位置”**列，表示该地址的代码中的位置。<br />-   **“状态”**列，显示线程是活动的还是被阻止。<br />-   **“平铺”**列，显示行中的线程的平铺索引。|-   更改为不同的活动线程<br />-   显示特定平铺和线程<br />-   显示或隐藏列<br />-   按列排序<br />-   对线程分组<br />-   冻结或解冻线程<br />-   标记或取消标记线程<br />-   仅显示标记的线程|  
+|User Interface|Information Available|Actions You Can Perform|  
+|--------------------|---------------------------|-----------------------------|  
+|**Attach to Process** dialog box|Available Processes you can attach to:<br /><br /> -   Process name (.exe)<br />-   Process ID number<br />-   Menubar Title<br />-   Type (Managed v4.0; Managed v2.0, v1.1, v1.0; x86; x64; IA64)<br />-   User Name (account name)<br />-   Session number|Select a process to attach to<br /><br /> Select a remote computer<br /><br /> Change transport type for connecting to remote computers|  
+|**Processes** window|Attached Processes:<br /><br /> -   Process Name<br />-   Process ID number<br />-   Path to process .exe<br />-   Menubar Title<br />-   State (Break. Running)<br />-   Debugging (Native, Managed, and so on.)<br />-   Transport type (default, native with no authentication)<br />-   Transport Qualifier (remote computer)|Tools:<br /><br /> -   Attach<br />-   Detach<br />-   Terminate<br /><br /> Shortcut menu:<br /><br /> -   Attach<br />-   Detach<br />-   Detach when debugging stopped<br />-   Terminate|  
+|**Threads** window|Threads in current process:<br /><br /> -   Thread ID<br />-   Managed ID<br />-   Category (main thread, interface thread, remote procedure call handler, or worker thread)<br />-   Thread Name<br />-   Location where thread is created<br />-   Priority<br />-   Affinity Mask<br />-   Suspended Count<br />-   Process Name<br />-   Flag Indicator<br />-   Suspended indicator|Tools:<br /><br /> -   Search<br />-   Search Call Stack<br />-   Flag Just My Code<br />-   Flag Custom Module Selection<br />-   Group by<br />-   Columns<br />-   Expand/Collapse callstacks<br />-   Expand/Collapse groups<br />-   Freeze/Thaw Threads<br /><br /> Shortcut menu:<br /><br /> -   Show threads in source<br />-   Switch to a thread<br />-   Freeze a running thread<br />-   Thaw a frozen thread<br />-   Flag a thread for additional study<br />-   Unflag a thread<br />-   Rename a thread<br />-   Show and hide threads<br /><br /> Other actions:<br /><br /> -   View the call stack for a thread in a DataTip|  
+|Source window|Thread indicators in left gutter indicate single or multiple threads (off by default, turned on by using shortcut menu in **Threads** window)|Shortcut menu:<br /><br /> -   Switch to a thread<br />-   Flag a thread for additional study<br />-   Unflag a thread|  
+|**Debug Location** toolbar|-   Current process<br />-   Suspend the application<br />-   Resume the application<br />-   Suspend and shut down the application<br />-   Current thread<br />-   Toggle current thread flag state<br />-   Show only flagged threads<br />-   Show only current process<br />-   Current stack frame|-   Switch to another process<br />-   Suspend, resume, or shut down the application<br />-   Switch to another thread in current process<br />-   Switch to another stack frame in current thread<br />-   Flag or unflag current threads<br />-   Show only flagged threads<br />-   Show only the current process|  
+|**Parallel Stacks** window|-   Call stacks for multiple threads in one window.<br />-   Active stack frame for each thread.<br />-   Callers and callees for any method.|-   Filter out specified threads<br />-   Switch to Tasks view<br />-   Flag or unflag a thread<br />-   Zoom|   
+|**Parallel Watch** window|-   The flag column, in which you can mark a thread that you want to pay special attention to.<br />-   The frame column, in which an arrow indicates the selected frame.<br />-   A configurable column that can display the machine, process, tile, task, and thread.|-   Flag or unflag a thread<br />-   Display only flagged threads<br />-   Switch frames<br />-   Sort a column<br />-   Group threads<br />-   Freeze or thaw threads<br />-   export the data in the Parallel Watch window| 
+|**Tasks** window|-   View information about <xref:System.Threading.Tasks.Task> objects including task ID, task status (scheduled, running, waiting, deadlocked), and which thread is assigned to the task.<br />-   Current location in call stack.<br />-   Delegate passed to the task at creation time|-   Switch to current task<br />-   Flag or unflag a task<br />-   Freeze or thaw a task|  
+|**GPU Threads** window|-   The flag column, in which you can mark a thread that you want to pay special attention to.<br />-   The current thread column, in which a yellow arrow indicates the current thread.<br />-   The **Thread Count** column, which displays the number of threads at the same location.<br />-   The **Line** column, which displays the line of code where each group of threads is located.<br />-   The **Address** column, which displays the instruction address where each group of threads is located.<br />-   The **Location** column, which is the location in the code of the address.<br />-   The **Status** column, which shows whether the thread is active or blocked.<br />-   The **Tile** column, which shows the tile index for the threads in the row.|-   Change to a different thread<br />-   Display a particular tile and thread<br />-   Display or hide a column<br />-   Sort by a column<br />-   Group threads<br />-   Freeze or thaw threads<br />-   Flag or unflag a thread<br />-   Display only flagged threads|  
   
-## 请参阅  
- [附加到运行的进程](../debugger/attach-to-running-processes-with-the-visual-studio-debugger.md)   
- [调试多线程应用程序](../debugger/debug-multithreaded-applications-in-visual-studio.md)   
- [调试 GPU 代码](../debugger/debugging-gpu-code.md)
+## <a name="see-also"></a>See Also  
+ [Attach to Running Processes](../debugger/attach-to-running-processes-with-the-visual-studio-debugger.md)   
+ [Debug Multithreaded Applications](../debugger/debug-multithreaded-applications-in-visual-studio.md)   
+ [Debugging GPU Code](../debugger/debugging-gpu-code.md)

@@ -1,27 +1,46 @@
 ---
-title: "未能获取数据库对象 &lt;对象名称&gt; 的架构信息 | Microsoft Docs"
-ms.custom: ""
-ms.date: "12/14/2016"
-ms.prod: "visual-studio-dev14"
-ms.reviewer: ""
-ms.suite: ""
-ms.tgt_pltfrm: ""
-ms.topic: "article"
+title: Could not retrieve schema information for database object &lt;object name&gt; | Microsoft Docs
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.tgt_pltfrm: 
+ms.topic: article
 ms.assetid: a1c8f833-c918-4a86-9679-d2a791f938a9
 caps.latest.revision: 3
-caps.handback.revision: 1
-author: "mikeblome"
-ms.author: "mblome"
-manager: "ghogen"
+author: mikeblome
+ms.author: mblome
+manager: ghogen
+translation.priority.ht:
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- ru-ru
+- zh-cn
+- zh-tw
+translation.priority.mt:
+- cs-cz
+- pl-pl
+- pt-br
+- tr-tr
+ms.translationtype: HT
+ms.sourcegitcommit: 9e6c28d42bec272c6fd6107b4baf0109ff29197e
+ms.openlocfilehash: 78c409016c5526fc1fb1f9870a2da45c3a0aae93
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/22/2017
+
 ---
-# 未能获取数据库对象 &lt;对象名称&gt; 的架构信息
-将**“服务器资源管理器”\/“数据库资源管理器”**中的对象复制到剪贴板，从数据库中删除，然后再粘贴到设计器上时，通常会显示此消息。因为该数据库对象不再存在，所以显示此消息。  
+# <a name="could-not-retrieve-schema-information-for-database-object-object-name"></a>Could not retrieve schema information for database object \<object name>
+This message typically appears when an object in **Server Explorer/Database Explorer** is copied to the clipboard, deleted from the database, and then pasted onto the designer. Because the database object no longer exists, this message appears.  
   
-### 更正此错误  
+### <a name="to-correct-this-error"></a>To correct this error  
   
--   单击**“确定”**关闭对话框。  
+-   Click **OK** to dismiss the dialog box.  
   
-## 请参阅  
- [O\/R 设计器概述](../Topic/LINQ%20to%20SQL%20Tools%20in%20Visual%20Studio1.md)   
- [演练：创建 LINQ to SQL 类（O\/R 设计器）](../Topic/Walkthrough:%20Creating%20LINQ%20to%20SQL%20Classes%20\(O-R%20Designer\).md)   
- [LINQ to SQL](../Topic/LINQ%20to%20SQL.md)
+## <a name="see-also"></a>See Also  
+ [LINQ to SQL Tools in Visual Studio](../data-tools/linq-to-sql-tools-in-visual-studio2.md)   
+ [Walkthrough: Creating LINQ to SQL Classes (O-R Designer)](how-to-create-linq-to-sql-classes-mapped-to-tables-and-views-o-r-designer.md)   
+ [LINQ to SQL](/dotnet/framework/data/adonet/sql/linq/index)

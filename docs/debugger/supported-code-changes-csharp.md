@@ -1,89 +1,106 @@
 ---
-title: "受支持的代码更改 (C#) | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-debug"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-dev_langs: 
-  - "FSharp"
-  - "VB"
-  - "CSharp"
-  - "C++"
-helpviewer_keywords: 
-  - "编辑并继续 [C#], 受支持的代码更改"
+title: Supported Code Changes (C#) | Microsoft Docs
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-debug
+ms.tgt_pltfrm: 
+ms.topic: article
+dev_langs:
+- CSharp
+- VB
+- FSharp
+- C++
+helpviewer_keywords:
+- Edit and Continue [C#], supported code changes
 ms.assetid: c7a48ea9-5a7f-4328-a9d7-f0e76fac399d
 caps.latest.revision: 27
-author: "mikejo5000"
-ms.author: "mikejo"
-manager: "ghogen"
-caps.handback.revision: 27
----
-# 受支持的代码更改 (C#)
-[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
+author: mikejo5000
+ms.author: mikejo
+manager: ghogen
+translation.priority.ht:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+ms.translationtype: HT
+ms.sourcegitcommit: 9e6c28d42bec272c6fd6107b4baf0109ff29197e
+ms.openlocfilehash: 6c870acd2a1a2339e66ef8e960657a44036057aa
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/22/2017
 
-“编辑并继续”处理方法体内的大多数类型的代码更改。  但是，方法体外的大多数更改以及方法体内的小部分更改在调试期间不能应用。  若要应用这些不受支持的更改，您必须停止调试，重新开始新版本的代码。  
+---
+# <a name="supported-code-changes-c"></a>Supported Code Changes (C#)
+Edit and Continue handles most types of code changes within method bodies. Most changes outside method bodies, and a few changes within method bodies, cannot be applied during debugging, however. To apply those unsupported changes, you must stop debugging and restart with a fresh version of the code.  
   
- 在调试会话期间，不能对 C\# 代码应用下列更改：  
+ The following changes cannot be applied to C# code during a debugging session:  
   
--   对当前语句或任何其他活动语句的更改。  
+-   Changes to the current statement or any other active statement.  
   
-     活动语句包括为转至当前语句而调用过的任何语句（位于调用堆栈的函数中）。  
+     Active statements include any statements, in functions on the call stack, that were called to get to the current statement.  
   
-     当前语句在源窗口中以黄色背景标记。  其他活动语句以阴影背景标记，并且是只读的。  可在**“选项”**对话框中更改这些默认颜色。  
+     The current statement is marked by a yellow background in the source window. Other active statements are marked by a shaded background and are read-only. These default colors can be changed in the **Options** dialog box.  
   
--   更改类型的签名。  
+-   Changing the signature of a type.  
   
--   添加匿名方法，该方法捕获之前未被捕获的变量。  
+-   Adding an anonymous method that captures a variable that hasn't been captured before.  
   
--   添加、移除或更改特性。  
+-   Adding, removing, or changing attributes.  
   
--   添加、移除或更改 `using` 指令。  
+-   Adding, removing, or changing `using` directives.  
   
--   在活动语句前后添加 `foreach`、`using` 或 `lock`。  
+-   Adding a `foreach`, `using`, or `lock` around the active statement.  
   
-## 不安全代码  
- 对不安全代码的更改具有与对安全代码的更改相同的限制，但它还包含一条附加限制：“编辑并继续”不支持对包含 `stackalloc` 运算符的方法内退出的不安全代码所作的更改。  
+## <a name="unsafe-code"></a>Unsafe Code  
+ Changes to unsafe code have the same limitations as changes to safe code, with one additional restriction: Edit and Continue does not support changes to unsafe code that exits within a method that contains the `stackalloc` operator.  
   
-## 异常  
- “编辑并继续”支持对 `catch` 和 `finally` 块的更改，除了不允许在活动语句周围添加 `catch` 或`finally` 块以外。  
+## <a name="exceptions"></a>Exceptions  
+ Edit and Continue supports changes to `catch` and `finally` blocks, except that adding a `catch` or `finally` block around the active statement is not allowed.  
   
-## 不支持的方案  
- 在以下调试方案中，“编辑并继续”不可用：  
+## <a name="unsupported-scenarios"></a>Unsupported Scenarios  
+ Edit and Continue is not available in the following debugging scenarios:  
   
--   在某些情况下调试 LINQ 代码。  有关详细信息，请参阅[调试 LINQ](../debugger/debugging-linq.md)。  
+-   Debugging LINQ code in certain circumstances. For more information, see [Debugging LINQ](../debugger/debugging-linq.md).  
   
-    -   捕获之前尚未捕获的变量。  
+    -   Capturing a variable that hasn't been captured before.  
   
-    -   更改查询表达式的类型（例如，select a \=\> select new { A \= a };）  
+    -   Changing the type of query expression. (e.g., select a => select new { A = a };)  
   
-    -   删除包含活动语句的 `where`。  
+    -   Removing a `where` that contains an active statement.  
   
-    -   删除包含活动语句的 `let`。  
+    -   Removing a `let` that contains an active statement.  
   
-    -   删除包含活动语句的 `join`。  
+    -   Removing a `join` that contains an active statement.  
   
-    -   删除包含活动语句的 `orderby`。  
+    -   Removing an `orderby` that contains an active statement.  
   
--   混合模式（本机\/托管）调试。  
+-   Mixed-mode (native/managed) debugging.  
   
--   SQL 调试。  
+-   SQL debugging.  
   
--   调试 Dr.  Watson 转储。  
+-   Debugging a Dr. Watson dump.  
   
--   在未选择**“在未经处理的异常上展开调用堆栈”**选项的情况下，在发生未经处理的异常之后编辑代码。  
+-   Editing code after an unhandled exception, when the "**Unwind the call stack on unhandled exceptions**" option is not selected.  
   
--   调试嵌入式运行时应用程序。  
+-   Debugging an embedded runtime application.  
   
--   调试具有**“附加到”**的应用程序，而不是通过选择**“调试”**菜单上的**“启动”**来运行应用程序。  
+-   Debugging an application that has **Attach to** instead of running the application by choosing **Start** from the **Debug** menu.  
   
--   调试优化后的代码。  
+-   Debugging optimized code.  
   
--   如果由于生成错误无法生成新版本的代码，则对旧版本的代码进行调试。  
+-   Debugging an old version of your code after a new version failed to build because of build errors.  
   
-## 请参阅  
- [编辑并继续 \(Visual C\#\)](../debugger/edit-and-continue-visual-csharp.md)   
- [如何：使用“编辑并继续”\(C\#\)](../debugger/how-to-use-edit-and-continue-csharp.md)
+## <a name="see-also"></a>See Also  
+ [Edit and Continue (Visual C#)](../debugger/edit-and-continue-visual-csharp.md)   
+ [How to: Use Edit and Continue (C#)](../debugger/how-to-use-edit-and-continue-csharp.md)

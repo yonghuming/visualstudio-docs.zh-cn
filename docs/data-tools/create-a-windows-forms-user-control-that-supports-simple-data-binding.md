@@ -1,188 +1,197 @@
 ---
-title: "演练：创建支持简单数据绑定的 Windows 窗体用户控件 | Microsoft Docs"
-ms.custom: ""
-ms.date: "12/15/2016"
-ms.prod: "visual-studio-dev14"
-ms.reviewer: ""
-ms.suite: ""
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-dev_langs: 
-  - "VB"
-  - "CSharp"
-  - "C++"
-  - "aspx"
-helpviewer_keywords: 
-  - "自定义控件 [Visual Studio], “数据源”窗口"
-  - "“数据源”窗口, 控件"
+title: Create a user control that supports simple data binding | Microsoft Docs
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.tgt_pltfrm: 
+ms.topic: article
+dev_langs:
+- VB
+- CSharp
+- C++
+- aspx
+helpviewer_keywords:
+- custom controls [Visual Studio], Data Sources Window
+- Data Sources Window, controls
 ms.assetid: b1488366-6dfb-454e-9751-f42fd3f3ddfb
 caps.latest.revision: 14
-caps.handback.revision: 11
-author: "mikeblome"
-ms.author: "mblome"
-manager: "ghogen"
+author: mikeblome
+ms.author: mblome
+manager: ghogen
+translation.priority.ht:
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- ru-ru
+- zh-cn
+- zh-tw
+translation.priority.mt:
+- cs-cz
+- pl-pl
+- pt-br
+- tr-tr
+ms.translationtype: HT
+ms.sourcegitcommit: 9e6c28d42bec272c6fd6107b4baf0109ff29197e
+ms.openlocfilehash: 6c2f7a425bf816705142a4af81c44e824c401b34
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/22/2017
+
 ---
-# 演练：创建支持简单数据绑定的 Windows 窗体用户控件
-在 Windows 应用程序的窗体上显示数据时，你可以从**“工具箱”**中选择现有的控件，而当标准控件无法提供应用程序所要求的功能时，你还可以创作自定义控件。  本演练显示了如何创建实现 <xref:System.ComponentModel.DefaultBindingPropertyAttribute> 的控件。  用于实现 <xref:System.ComponentModel.DefaultBindingPropertyAttribute> 的控件可以包含一个可以绑定到数据的属性。  此类控件类似于 <xref:System.Windows.Forms.TextBox> 或 <xref:System.Windows.Forms.CheckBox>。  
+# <a name="create-a-windows-forms-user-control-that-supports-simple-data-binding"></a>Create a Windows Forms user control that supports simple data binding
+When displaying data on forms in Windows applications, you can choose existing controls from the **Toolbox**, or you can author custom controls if your application requires functionality that is not available in the standard controls. This walkthrough shows how to create a control that implements the <xref:System.ComponentModel.DefaultBindingPropertyAttribute>. Controls that implement the <xref:System.ComponentModel.DefaultBindingPropertyAttribute> can contain one property that can be bound to data. Such controls are similar to a <xref:System.Windows.Forms.TextBox> or <xref:System.Windows.Forms.CheckBox>.  
   
- 有关控件创作的详细信息，请参阅[设计时开发 Windows 窗体控件](../Topic/Developing%20Windows%20Forms%20Controls%20at%20Design%20Time.md)。  
+ For more information on control authoring, see [Developing Windows Forms Controls at Design Time](/dotnet/framework/winforms/controls/developing-windows-forms-controls-at-design-time).  
   
- 创作用于数据绑定方案中的控件时，你需要实现以下数据绑定特性之一：  
+ When authoring controls for use in data-binding scenarios, you should implement one of the following data-binding attributes:  
   
-|数据绑定特性的用法|  
-|---------------|  
-|在简单控件上实现 <xref:System.ComponentModel.DefaultBindingPropertyAttribute>（如 <xref:System.Windows.Forms.TextBox>），此类控件用于显示数据的单个列（或属性）。  （本演练页面描述了此过程）。|  
-|在控件上实现 <xref:System.ComponentModel.ComplexBindingPropertiesAttribute>（如 <xref:System.Windows.Forms.DataGridView>），此类控件用于显示数据列表（或表）。  有关详细信息，请参阅[演练：创建支持复杂数据绑定的 Windows 窗体用户控件](../data-tools/create-a-windows-forms-user-control-that-supports-complex-data-binding.md)。|  
-|在控件上实现 <xref:System.ComponentModel.LookupBindingPropertiesAttribute>（如 <xref:System.Windows.Forms.ComboBox>），此类控件用于显示数据列表（或表），也需要显示数据的单个列或属性。  有关详细信息，请参阅[演练：创建支持查找数据绑定的 Windows 窗体用户控件](../data-tools/create-a-windows-forms-user-control-that-supports-lookup-data-binding.md)。|  
+|Data-binding attribute usage|  
+|-----------------------------------|  
+|Implement the <xref:System.ComponentModel.DefaultBindingPropertyAttribute> on simple controls, like a <xref:System.Windows.Forms.TextBox>, that display a single column (or property) of data. (This process is described in this walkthrough page.)|  
+|Implement the <xref:System.ComponentModel.ComplexBindingPropertiesAttribute> on controls, like a <xref:System.Windows.Forms.DataGridView>, that display lists (or tables) of data. For more information, see [Create a Windows Forms user control that supports complex data binding](../data-tools/create-a-windows-forms-user-control-that-supports-complex-data-binding.md).|  
+|Implement the <xref:System.ComponentModel.LookupBindingPropertiesAttribute> on controls, like a <xref:System.Windows.Forms.ComboBox>, that display lists (or tables) of data but also need to present a single column or property. For more information, see [Create a Windows Forms user control that supports lookup data binding](../data-tools/create-a-windows-forms-user-control-that-supports-lookup-data-binding.md).|  
   
- 本演练创建了一个简单控件，用于显示表中单个列的数据。  此示例使用 Northwind 示例数据库的 `Customers` 表中的 `Phone` 列。  通过使用 <xref:System.Windows.Forms.MaskedTextBox> 并设置电话号码的掩码，该简单的用户控件可以标准的电话号码格式显示客户的电话号码。  
+ This walkthrough creates a simple control that displays data from a single column in a table. This example uses the `Phone` column of the `Customers` table from the Northwind sample database. The simple user control will display customers' phone numbers in a standard phone-number format, by using a <xref:System.Windows.Forms.MaskedTextBox> and setting the mask to a phone number.  
   
- 在本演练中，你将学会如何执行以下任务：  
+ During this walkthrough, you will learn how to:  
   
--   创建新的**“Windows 应用程序”**。  
+-   Create a new **Windows Application**.  
   
--   将新的**“用户控件”**添加到你的项目中。  
+-   Add a new **User Control** to your project.  
   
--   以可视方式设计用户控件。  
+-   Visually design the user control.  
   
--   实现 `DefaultBindingProperty` 特性。  
+-   Implement the `DefaultBindingProperty` attribute.  
   
--   使用[数据源配置向导](../data-tools/media/data-source-configuration-wizard.png)创建数据集。  
+-   Create a dataset with the **Data Source Configuration** wizard.  
   
--   在**“数据源”**窗口中，设置**“电话”**列，以使用新的控件。  
+-   Set the **Phone** column in the **Data Sources** window to use the new control.  
   
--   创建一个用于在新控件中显示数据的窗体。  
+-   Create a form to display data in the new control.  
   
-## 系统必备  
- 若要完成本演练，你将需要：  
+## <a name="prerequisites"></a>Prerequisites  
+ In order to complete this walkthrough, you will need:  
   
--   能够访问 Northwind 示例数据库。  有关详细信息，请参阅[如何：安装示例数据库](../data-tools/how-to-install-sample-databases.md)。  
+-   Access to the Northwind sample database. For more information, see [How to: Install Sample Databases](../data-tools/installing-database-systems-tools-and-samples.md).  
   
-## 创建 Windows 应用程序  
- 第一步是创建**“Windows 应用程序”**。  
+## <a name="create-a-windows-application"></a>Create a Windows Application  
+ The first step is to create a **Windows Application**.  
   
-#### 创建新的 Windows 项目  
+#### <a name="to-create-the-new-windows-project"></a>To create the new Windows project  
   
-1.  在 Visual Studio 中，从**“文件”**菜单创建一个新的**“项目”**。  
+1.  In Visual Studio, from the **File** menu, create a new **Project**.  
   
-2.  将项目命名为 **SimpleControlWalkthrough**。  
+2.  Name the project **SimpleControlWalkthrough**.  
   
-3.  选择**“Windows 应用程序”**，然后单击**“确定”**。  有关详细信息，请参阅[客户端应用程序](../Topic/Developing%20Client%20Applications%20with%20the%20.NET%20Framework.md)。  
+3.  Select **Windows Application** and click **OK**. For more information, see [Client Applications](/dotnet/framework/develop-client-apps).  
   
-     **“SimpleControlWalkthrough”**项目即被创建并添加到**“解决方案资源管理器”**中。  
+     The **SimpleControlWalkthrough** project is created, and added to **Solution Explorer**.  
   
-## 将用户控件添加到项目中  
- 本演练通过**“用户控件”**创建一个简单的可绑定数据控件，以便将**“用户控件”**项添加到**“SimpleControlWalkthrough”**项目中。  
+## <a name="add-a-user-control-to-the-project"></a>Add a user control to the project  
+ This walkthrough creates a simple data-bindable control from a **User Control**, so add a **User Control** item to the **SimpleControlWalkthrough** project.  
   
-#### 将用户控件添加到项目中  
+#### <a name="to-add-a-user-control-to-the-project"></a>To add a user control to the project  
   
-1.  从**“项目”**菜单中，选择**“添加用户控件”**。  
+1.  From the **Project** menu, choose **Add User Control**.  
   
-2.  在名称区域中键入 `PhoneNumberBox`，然后单击**“添加”**。  
+2.  Type `PhoneNumberBox` in the Name area, and click **Add**.  
   
-     **“PhoneNumberBox”**控件将会添加到**“解决方案资源管理器”**中，并在设计器中打开。  
+     The **PhoneNumberBox** control is added to **Solution Explorer**, and opens in the designer.  
   
-## 设计 PhoneNumberBox 控件  
- 本演练对现有 <xref:System.Windows.Forms.MaskedTextBox> 进行了扩展，以创建 `PhoneNumberBox` 控件。  
+## <a name="design-the-phonenumberbox-control"></a>Design the PhoneNumberBox control  
+ This walkthrough expands upon the existing <xref:System.Windows.Forms.MaskedTextBox> to create the `PhoneNumberBox` control.  
   
-#### 设计 PhoneNumberBox 控件  
+#### <a name="to-design-the-phonenumberbox-control"></a>To design the PhoneNumberBox control  
   
-1.  将 <xref:System.Windows.Forms.MaskedTextBox> 从**“工具箱”**拖到该用户控件的设计图面上。  
+1.  Drag a <xref:System.Windows.Forms.MaskedTextBox> from the **Toolbox** onto the user control's design surface.  
   
-2.  选择刚刚拖动的 <xref:System.Windows.Forms.MaskedTextBox> 上的智能标记，然后选择**“设置掩码”**。  
+2.  Select the smart tag on the <xref:System.Windows.Forms.MaskedTextBox> you just dragged, and choose **Set Mask**.  
   
-3.  在**“输入掩码”**对话框中选择**“电话号码”**，然后单击**“确定”**以设置掩码。  
+3.  Select **Phone number** in the **Input Mask** dialog box, and click **OK** to set the mask.  
   
-## 添加所需的数据绑定特性  
- 对于支持数据绑定的简单控件，应实现 <xref:System.ComponentModel.DefaultBindingPropertyAttribute>。  
+## <a name="add-the-required-data-binding-attribute"></a>Add the required data-binding attribute  
+ For simple controls that support databinding, implement the <xref:System.ComponentModel.DefaultBindingPropertyAttribute>.  
   
-#### 实现 DefaultBindingProperty 特性  
+#### <a name="to-implement-the-defaultbindingproperty-attribute"></a>To implement the DefaultBindingProperty attribute  
   
-1.  将 `PhoneNumberBox` 控件切换到代码视图。  （在**“视图”**菜单上，选择**“代码”**。）  
+1.  Switch the `PhoneNumberBox` control to code view. (On the **View** menu, choose **Code**.)  
   
-2.  将 `PhoneNumberBox` 中的代码替换为以下内容：  
+2.  Replace the code in the `PhoneNumberBox` with the following:  
   
-     [!code-cs[VbRaddataDisplaying#3](../data-tools/codesnippet/CSharp/create-a-windows-forms-user-control-that-supports-simple-data-binding_1.cs)]
-     [!code-vb[VbRaddataDisplaying#3](../data-tools/codesnippet/VisualBasic/create-a-windows-forms-user-control-that-supports-simple-data-binding_1.vb)]  
+     [!code-cs[VbRaddataDisplaying#3](../data-tools/codesnippet/CSharp/create-a-windows-forms-user-control-that-supports-simple-data-binding_1.cs)]  [!code-vb[VbRaddataDisplaying#3](../data-tools/codesnippet/VisualBasic/create-a-windows-forms-user-control-that-supports-simple-data-binding_1.vb)]  
   
-3.  从**“生成”**菜单中选择**“生成解决方案”**。  
+3.  From the **Build** menu, choose **Build Solution**.  
   
-## 从数据库创建数据源  
- 此步骤根据 Northwind 示例数据库中的 `Customers` 表，使用**“数据源配置向导”**创建数据源。  你必须具有对 Northwind 示例数据库的访问权限，才能创建连接。  有关设置 Northwind 示例数据库的信息，请参阅[如何：安装示例数据库](../data-tools/how-to-install-sample-databases.md)。  
+## <a name="create-a-data-source-from-your-database"></a>Create a data source from your database  
+ This step uses the **Data Source Configuration**wizard to create a data source based on the `Customers` table in the Northwind sample database. You must have access to the Northwind sample database to create the connection. For information on setting up the Northwind sample database, see [How to: Install Sample Databases](../data-tools/installing-database-systems-tools-and-samples.md).  
   
-#### 创建数据源  
+#### <a name="to-create-the-data-source"></a>To create the data source  
   
-1.  在**“数据”**菜单上，单击**“显示数据源”**。  
+1.  On the **Data** menu, click **Show Data Sources**.  
   
-2.  在**“数据源”**窗口中，选择**“添加新数据源”**以启动**“数据源配置向导”**。  
+2.  In the **Data Sources** window, select **Add New Data Source** to start the **Data Source Configuration** wizard.  
   
-3.  在**“选择数据源类型”**页上选择**“数据库”**，然后单击**“下一步”**。  
+3.  On the **Choose a Data Source Type** page, select **Database**, and then click **Next**.  
   
-4.  在**“选择你的数据连接”**页面上，执行以下操作之一：  
+4.  On the **Choose your Data Connection** page, do one of the following:  
   
-    -   如果下拉列表中包含到 Northwind 示例数据库的数据连接，请选择该连接。  
+    -   If a data connection to the Northwind sample database is available in the drop-down list, select it.  
   
-         Or  
+    -   Select **New Connection** to launch the **Add/Modify Connection** dialog box.  
   
-    -   选择**“新建连接”**，以启动**“添加\/修改连接”**对话框。  
+5.  If your database requires a password, select the option to include sensitive data, and then click **Next**.  
   
-5.  如果数据库需要密码，请选择该选项以包括敏感数据，再单击**“下一步”**。  
+6.  On the **Save connection string to the Application Configuration file** page, click **Next**.  
   
-6.  在**“将连接字符串保存到应用程序配置文件”**页面上单击**“下一步”**。  
+7.  On the **Choose your Database Objects** page, expand the **Tables** node.  
   
-7.  在**“选择数据库对象”**页面上展开**“表”**节点。  
+8.  Select the `Customers` table, and then click **Finish**.  
   
-8.  选择 `Customers` 表，然后单击**“完成”**。  
+     The **NorthwindDataSet** is added to your project, and the `Customers` table appears in the **Data Sources** window.  
   
-     **“NorthwindDataSet”**即被添加到你的项目中，并且**“数据源”**窗口中将显示 `Customers` 表。  
+## <a name="set-the-phone-column-to-use-the-phonenumberbox-control"></a>Set the phone column to use the PhoneNumberBox control  
+ Within the **Data Sources** window, you can set the control to be created prior to dragging items onto your form.  
   
-## 将“电话”列设置为使用“PhoneNumberBox”控件  
- 在**“数据源”**窗口中，你可以先设置要创建的控件，然后再将项拖动到窗体上。  
+#### <a name="to-set-the-phone-column-to-bind-to-the-phonenumberbox-control"></a>To set the phone column to bind to the PhoneNumberBox control  
   
-#### 将“电话”列设置为绑定到“PhoneNumberBox”控件  
+1.  Open **Form1** in the designer.  
   
-1.  在设计器中打开**“Form1”**。  
+2.  Expand the **Customers** node in the **Data Sources** window.  
   
-2.  在**“数据源”**窗口中展开**“Customers”**节点。  
+3.  Click the drop-down arrow on the **Customers** node, and choose **Details** from the control list.  
   
-3.  在**“Customers”**节点上单击下拉箭头，然后从控件列表中选择**“详细信息”**。  
+4.  Click the drop-down arrow on the **Phone** column, and choose **Customize**.  
   
-4.  单击**“电话”**列上的下拉箭头，然后选择**“自定义”**。  
+5.  Select the **PhoneNumberBox** from the list of **Associated Controls** in the **Data UI Customization Options** dialog box.  
   
-5.  从**“数据 UI 自定义选项”**对话框中的**“关联的控件”**列表中，选择**“PhoneNumberBox”**。  
+6.  Click the drop-down arrow on the **Phone** column, and choose **PhoneNumberBox**.  
   
-6.  单击**“电话”**列上的下拉箭头，然后选择**“PhoneNumberBox”**。  
+## <a name="add-controls-to-the-form"></a>Add controls to the form  
+ You can create the data-bound controls by dragging items from the **Data Sources** window onto the form.  
   
-## 将控件添加到窗体  
- 通过将**“数据源”**窗口中的项拖到窗体上，可创建数据绑定控件。  
+#### <a name="to-create-data-bound-controls-on-the-form"></a>To create data-bound controls on the form  
   
-#### 在窗体上创建数据绑定控件  
+-   Drag the main **Customers** node from the **Data Sources** window onto the form, and verify that the `PhoneNumberBox` control is used to display the data in the `Phone` column.  
   
--   将主**“Customers”**节点从**“数据源”**窗口拖到窗体上，然后验证是否将 `PhoneNumberBox` 控件用于显示 `Phone` 列中的数据。  
+     Data-bound controls with descriptive labels appear on the form, along with a tool strip (<xref:System.Windows.Forms.BindingNavigator>) for navigating records. A [NorthwindDataSet](../data-tools/dataset-tools-in-visual-studio.md), CustomersTableAdapter, <xref:System.Windows.Forms.BindingSource>, and <xref:System.Windows.Forms.BindingNavigator> appear in the component tray.  
   
-     带有描述性标签的数据绑定控件将显示在窗体上，同时还显示一个工具条 \(<xref:System.Windows.Forms.BindingNavigator>\)，用于在记录间进行导航。  组件栏中出现 [NorthwindDataSet](../data-tools/dataset-tools-in-visual-studio.md)、[CustomersTableAdapter](../data-tools/tableadapter-overview.md)、<xref:System.Windows.Forms.BindingSource> 和 <xref:System.Windows.Forms.BindingNavigator>。  
+## <a name="run-the-application"></a>Run the application  
   
-## 运行应用程序  
+#### <a name="to-run-the-application"></a>To run the application  
   
-#### 运行应用程序  
+-   Press F5 to run the application.  
   
--   按 F5 运行该应用程序。  
+## <a name="next-steps"></a>Next Steps  
+ Depending on your application requirements, there are several steps you may want to perform after creating a control that supports data binding. Some typical next steps include:  
   
-## 后续步骤  
- 根据应用程序的要求，在创建了支持数据绑定的控件后，可能还需要执行一些步骤。  接下来的一些常见步骤包括：  
+-   Placing your custom controls in a control library so you can reuse them in other applications.  
   
--   将你的自定义控件置于控件库中，以便在其他应用程序中重用它们。  
+-   Creating controls that support more complex data-binding scenarios. For more information, see [Create a Windows Forms user control that supports complex data binding](../data-tools/create-a-windows-forms-user-control-that-supports-complex-data-binding.md) and [Create a Windows Forms user control that supports lookup data binding](../data-tools/create-a-windows-forms-user-control-that-supports-lookup-data-binding.md).  
   
--   创建支持更复杂的数据绑定方案的控件。  有关详细信息，请参阅[演练：创建支持复杂数据绑定的 Windows 窗体用户控件](../data-tools/create-a-windows-forms-user-control-that-supports-complex-data-binding.md)和[演练：创建支持查找数据绑定的 Windows 窗体用户控件](../data-tools/create-a-windows-forms-user-control-that-supports-lookup-data-binding.md)。  
-  
-## 请参阅  
- [设置从“数据源”窗口中拖动时要创建的控件](../data-tools/set-the-control-to-be-created-when-dragging-from-the-data-sources-window.md)   
- [在 Visual Studio 中将 Windows 窗体控件绑定到数据](../data-tools/bind-windows-forms-controls-to-data-in-visual-studio.md)   
- [Visual Studio 的数据应用程序概述](../data-tools/overview-of-data-applications-in-visual-studio.md)   
- [连接到 Visual Studio 中的数据](../data-tools/connecting-to-data-in-visual-studio.md)   
- [准备应用程序以接收数据](../Topic/Preparing%20Your%20Application%20to%20Receive%20Data.md)   
- [将数据获取到应用程序](../data-tools/fetching-data-into-your-application.md)   
- [在 Visual Studio 中将控件绑定到数据](../data-tools/bind-controls-to-data-in-visual-studio.md)   
- [在应用程序中编辑数据](../data-tools/editing-data-in-your-application.md)   
- [验证数据](../Topic/Validating%20Data.md)   
- [保存数据](../data-tools/saving-data.md)
+## <a name="see-also"></a>See Also  
+ [Bind Windows Forms controls to data in Visual Studio](../data-tools/bind-windows-forms-controls-to-data-in-visual-studio.md)   
+ [Set the control to be created when dragging from the Data Sources window](../data-tools/set-the-control-to-be-created-when-dragging-from-the-data-sources-window.md)
+

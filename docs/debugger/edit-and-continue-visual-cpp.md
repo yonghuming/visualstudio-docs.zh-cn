@@ -1,83 +1,103 @@
 ---
-title: "编辑并继续 (Visual C++) | Microsoft Docs"
-ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-debug"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-dev_langs: 
-  - "FSharp"
-  - "VB"
-  - "CSharp"
-  - "C++"
-helpviewer_keywords: 
-  - "C/C++, 编辑并继续"
-  - "调试 [C++], 编辑并继续"
-  - "编辑并继续 [C++]"
+title: Edit and Continue (Visual C++) | Microsoft Docs
+ms.custom: 
+ms.date: 05/31/2017
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-debug
+ms.tgt_pltfrm: 
+ms.topic: article
+dev_langs:
+- CSharp
+- VB
+- FSharp
+- C++
+helpviewer_keywords:
+- Edit and Continue [C++]
+- debugging [C++], Edit and Continue
+- C/C++, Edit and Continue
 ms.assetid: 1815251e-a877-433e-9e5e-69bd9ba254c7
 caps.latest.revision: 25
-caps.handback.revision: 25
-author: "mikejo5000"
-ms.author: "mikejo"
-manager: "ghogen"
----
-# 编辑并继续 (Visual C++)
-[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
+author: mikejo5000
+ms.author: mikejo
+manager: ghogen
+translation.priority.ht:
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- ru-ru
+- zh-cn
+- zh-tw
+translation.priority.mt:
+- cs-cz
+- pl-pl
+- pt-br
+- tr-tr
+ms.translationtype: HT
+ms.sourcegitcommit: 9e6c28d42bec272c6fd6107b4baf0109ff29197e
+ms.openlocfilehash: d5d795da17e8446bc86417dc302e1df4935a92f4
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/22/2017
 
-可以使用 Visual C\+\+ 项目中的“编辑并继续”。  
+---
+# <a name="edit-and-continue-visual-c"></a>Edit and Continue (Visual C++)
+You can use Edit and Continue in Visual C++ projects. See [Supported Code Changes (C++)](../debugger/supported-code-changes-cpp.md) for information about the limitations of Edit and Continue.
   
-有关“编辑并继续”的限制信息，请参阅[受支持的代码更改和限制 \(C\+\+\)](../debugger/supported-code-changes-cpp.md)。  
+For more information about Visual Studio 2015 Update 3 improvements, see [C++ Edit and Continue in Visual Studio 2015 Update 3](https://blogs.msdn.microsoft.com/vcblog/2016/07/01/c-edit-and-continue-in-visual-studio-2015-update-3/).  
   
-从 Visual Studio 2015 Update 1 开始，目前可在 Windows 应用商店 C \+ \+ 应用和 DirectX 应用中使用“编辑并继续”，因为它现在使用 **\/bigobj** 开关支持 **\/ZI** 编译器开关。你还可以使用具有二进制文件（使用 **\/FASTLINK** 开关编译）的“编辑并继续”。  
+ The [/Zo (Enhance Optimized Debugging)](/cpp/build/reference/zo-enhance-optimized-debugging) compiler option that was introduced in Visual Studio 2013 Update 3 adds additional information to .pdb (symbol) files for binaries compiled without the [/Od (Disable (Debug))](http://msdn.microsoft.com/library/aafb762y.aspx) option.  
   
- Update 1 其他的改进功能包括一个新型可取消的等待对话框，以及文件不支持“编辑并继续”时发出的通知。有关 Update 1 改进功能的详细信息，请参阅 [Visual Studio 2015 Update 1 中的 C\+\+ 编辑并继续改进功能](http://blogs.msdn.com/b/vcblog/archive/2015/11/30/improvements-for-c-edit-and-continue-in-visual-studio-2015-update-1.aspx)。  
+ **/Zo** disables Edit and Continue. See [How to: Debug Optimized Code](../debugger/how-to-debug-optimized-code.md).  
   
-Visual Studio 2013 Update 3 中引入的 [\/Zo（增强优化调试）](/visual-cpp/build/reference/zo-enhance-optimized-debugging)编译器选项向未使用 [\/Od（禁用（调试））](http://msdn.microsoft.com/library/aafb762y.aspx)选项编译的二进制值文件的 .pdb（符号）添加其他信息。  
+##  <a name="BKMK_Enable_or_disable_automatic_invocation_of_Edit_and_Continue"></a> Enable or disable Edit and Continue  
+ You may want to  disable the automatic invocation of Edit and Continue if you are making edits to the code that you do not want applied during the current debugging session. You can also re-enable automatic Edit and Continue.
+
+> [!IMPORTANT]
+> For required build settings and other information about feature compatibility, see [C++ Edit and Continue in Visual Studio 2015 Update 3](https://blogs.msdn.microsoft.com/vcblog/2016/07/01/c-edit-and-continue-in-visual-studio-2015-update-3/.
   
-**\/Zo** 禁用“编辑并继续”。请参阅[如何：调试优化的代码](../debugger/how-to-debug-optimized-code.md)。  
+1.  If you are in a debugging session, stop debugging (**Shift + F5**).
+
+2. On the **Tools** menu, choose **Options**.
   
-## <a name="BKMK_Enable_or_disable_automatic_invocation_of_Edit_and_Continue"></a>启用或禁用“编辑并继续”  
-如果要对代码进行编辑而又不希望在当前调试会话过程中应用这些编辑，则可以禁用自动调用“编辑并继续”。 也可以重新启用“编辑并继续”的自动操作。  
+3.  In the **Options** dialog box, select **Debugging > General**.
+
+4.  To enable, select **Enable Edit and Continue**. To disable, clear the checkbox.
   
-1.  在**“工具”**菜单上，选择**“选项”**。  
+5.  In the **Edit and Continue** group, select or clear the **Enable Native Edit and Continue** check box.  
   
-2.  在“选项”对话框中，选择“调试”\/“常规”文件夹。  
+ Altering this setting affects all projects you work on. You do not need to rebuild your application after changing this setting. If you build your application from the command line or from a makefile, but you debug in the Visual Studio environment, you can still use Edit and Continue if you set the **/ZI** option.  
   
-3.  在“编辑并继续”组中，选中或取消选中“启用本机编辑并继续”复选框。  
+##  <a name="BKMK_How_to_apply_code_changes_explicitly"></a> How to apply code changes explicitly  
+ In Visual C++, Edit and Continue can apply code changes in two ways. Code changes can be applied implicitly, when you choose an execution command, or explicitly, using the **Apply Code Changes** command.  
   
-更改此设置将影响进行的所有项目。 更改此设置后，不必重新生成应用程序。 你甚至可以在调试时更改此设置。 如果从命令行或从生成文件生成应用程序但在 Visual Studio 环境中调试，则在设置了 **\/ZI** 选项的情况下，仍可以使用“编辑并继续”。  
+ When you apply code changes explicitly, your program remains in break mode - no execution occurs.  
   
-## <a name="BKMK_How_to_apply_code_changes_explicitly"></a>如何显式应用代码更改  
-在 Visual C\+\+ 中，“编辑并继续”可以以两种方法应用代码更改。 代码更改可在选择执行命令时隐式应用，也可使用**“应用代码更改”**命令显式应用。  
+-   To apply code changes explicitly, on the **Debug** menu, choose **Apply Code Changes**.  
   
-当显式应用代码更改时，程序保持在中断模式下，不会执行。  
+##  <a name="BKMK_How_to_stop_code_changes"></a> How to stop code changes  
+ While Edit and Continue is in the process of applying code changes, you can stop the operation.  
   
--   若要显式应用代码更改，在**调试**菜单上，选择**应用代码更改**。  
+ To stop applying code changes:  
   
-## <a name="BKMK_How_to_stop_code_changes"></a>如何停止代码更改  
-当“编辑并继续”处于应用代码更改的过程中时，您可以停止该操作。  
+-   On the **Debug** menu, choose **Stop Applying Code Changes**.  
   
-要停止应用代码更改：  
+ This menu item is visible only when code changes are being applied.  
   
--   在**调试**菜单中选择**停止应用代码更改**。  
+ If you choose this option, none of the code changes are committed.  
   
-该菜单项仅在应用代码更改时才可见。  
+##  <a name="BKMK_How_to_reset_the_point_of_execution"></a> How to reset the point of execution  
+ Some code changes can cause the point of execution to move to a new location when Edit and Continue applies the changes. Edit and Continue places the point of execution as accurately as possible, but the results may not be correct in all cases.  
   
-如果选择了改选项，就不会进行任何代码更改。  
+ In Visual C++, a dialog box informs you when the point of execution changes. You should verify that the location is correct before you continue debugging. If it is not correct, use the **Set Next Statement** command. For more information, see [Set the next statement to execute](http://msdn.microsoft.com/library/y740d9d3.aspx#BKMK_Set_the_next_statement_to_execute).  
   
-## <a name="BKMK_How_to_reset_the_point_of_execution"></a>如何重置执行点  
-在“编辑并继续”应用更改时，一些代码更改会使执行点移动到新的位置。 “编辑并继续”尽可能正确地放置执行点，但是并非所有情况下的结果都正确。  
+##  <a name="BKMK_How_to_work_with_stale_code"></a> How to work with stale code  
+ In some cases, Edit and Continue cannot apply code changes to the executable immediately, but might be able to apply the code changes later if you continue debugging. This happens if you edit a function that calls the current function or if you add more than 64 bytes of new variables to a function on the call stack  
   
-在 Visual C\+\+ 中，当执行点发生更改时，会显示一个对话框来告知您此情况。 在继续调试之前，应验证位置是否正确。 如果位置不正确，则使用**“设置下一语句”**命令。 有关详细信息，请参阅[设置下一个要执行的语句](http://msdn.microsoft.com/library/y740d9d3.aspx#BKMK_Set_the_next_statement_to_execute)。  
+ In such cases, the debugger continues executing the original code until the changes can be applied. The stale code appears as a temporary source file window in a separate source window, with a title such as `enc25.tmp`. The edited source continues to appear in the original source window. If you try to edit the stale code, a warning message appears.  
   
-## <a name="BKMK_How_to_work_with_stale_code"></a>如何使用陈旧代码  
-在某些情况下，“编辑并继续”无法将代码更改立即应用于可执行文件，但如果您继续调试，则可能会在稍后应用代码更改。 当编辑某个调用当前函数的函数，或将多于 64 个字节的新变量添加到调用堆栈上的函数时，就会发生这种情况。  
-  
-在这种情况下，调试器会继续执行原始代码，直至可以应用更改。 陈旧的代码在单独的源窗口中作为临时源文件窗口显示，并带有一个类似 `enc25.tmp` 的标题。 编辑过的源继续在原始源窗口中显示。 当您尝试编辑陈旧的代码时，会显示一条警告信息。  
-  
-## 请参阅  
-[受支持的代码更改和限制 \(C\+\+\)](../debugger/supported-code-changes-cpp.md)
+## <a name="see-also"></a>See Also  
+ [Supported Code Changes (C++)](../debugger/supported-code-changes-cpp.md)

@@ -1,226 +1,244 @@
 ---
-title: "在 Visual Studio 中调试一个或多个进程 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-debug"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "vs.debug.programs"
-  - "vs.debug.processes.attaching"
-  - "vs.debug.activeprogram"
-  - "vs.debug.attaching"
-  - "vs.debug.attachedprocesses"
-dev_langs: 
-  - "FSharp"
-  - "VB"
-  - "CSharp"
-  - "C++"
+title: Debug Multiple Processes | Microsoft Docs
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-debug
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords:
+- vs.debug.programs
+- vs.debug.processes.attaching
+- vs.debug.activeprogram
+- vs.debug.attaching
+- vs.debug.attachedprocesses
+dev_langs:
+- CSharp
+- VB
+- FSharp
+- C++
 ms.assetid: bde37134-66af-4273-b02e-05b3370c31ab
 caps.latest.revision: 16
-author: "mikejo5000"
-ms.author: "mikejo"
-manager: "ghogen"
-caps.handback.revision: 16
----
-# 在 Visual Studio 中调试一个或多个进程
-[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
+author: mikejo5000
+ms.author: mikejo
+manager: ghogen
+translation.priority.ht:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+ms.translationtype: HT
+ms.sourcegitcommit: 9e6c28d42bec272c6fd6107b4baf0109ff29197e
+ms.openlocfilehash: 0acc1dc2ec66758d827d7acbc9c04538dfcb3882
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/22/2017
 
-以下说明了如何启动调试进程、在进程之间切换、中断和继续执行、逐步执行源、停止调试以及终止进程或与进程分离。  
+---
+# <a name="debug-multiple-processes"></a>Debug Multiple Processes
+Here's how to start debugging processes, switch between processes, break and continue execution, step through source, stop debugging, and terminate or detach from processes.  
   
-##  <a name="BKMK_Contents"></a> 内容  
- [配置多个进程的执行行为](#BKMK_Configure_the_execution_behavior_of_multiple_processes)  
+##  <a name="BKMK_Configure_the_execution_behavior_of_multiple_processes"></a> Configure the execution behavior of multiple processes  
+ By default, when multiple processes are running in the debugger, the breaking, stepping, and stopping debugger commands usually affect all the processes. For example, when one process is suspended at a breakpoint, the execution of all other processes is also suspended. You can change this default behavior to gain more control over the targets of execution commands.  
   
- [查找源文件和符号 (.pdb) 文件](#BKMK_Find_the_source_and_symbol___pdb__files)  
+1.  Click **Debug > Options and Settings**.  
   
- [启动 VS 解决方案中的多个进程，附加到一个进程，然后自动启动调试器中的进程](#BKMK_Start_multiple_processes_in_a_VS_solution__attach_to_a_process__automatically_start_a_process_in_the_debugger)  
+2.  On the **Debugging**, **General** page, clear the **Break all processes when one process breaks** check box.  
   
- [切换进程，中断并继续执行，逐步执行源](#BKMK_Switch_processes__break_and_continue_execution__step_through_source)  
+ ![Back to top](../debugger/media/pcs_backtotop.png "PCS_BackToTop") [Contents](#BKMK_Contents)  
   
- [停止调试进程、终止进程或与进程分离](#BKMK_Stop_debugging__terminate_or_detach_from_processes)  
+##  <a name="BKMK_Find_the_source_and_symbol___pdb__files"></a> Find the source and symbol (.pdb) files  
+ To navigate the source code of a process, the debugger needs access to the source files and symbol files of the process. See [Specify Symbol (.pdb) and Source Files](../debugger/specify-symbol-dot-pdb-and-source-files-in-the-visual-studio-debugger.md).  
   
-##  <a name="BKMK_Configure_the_execution_behavior_of_multiple_processes"></a> 配置多个进程的执行行为  
- 默认情况下，当多个进程在调试器中运行时，中断、分步和停止调试器命令通常会影响所有进程。  例如，在断点处暂停一个进程时，所有其他进程的执行也会被暂停。  您可以更改此默认行为以获取对执行命令的目标的更多控制。  
+ If you can't access the files for a process, you can navigate by using the Disassembly window. See [How to: Use the Disassembly Window](../debugger/how-to-use-the-disassembly-window.md)  
   
-1.  在**“调试”**菜单上，选择**“选项和设置”**。  
+ ![Back to top](../debugger/media/pcs_backtotop.png "PCS_BackToTop") [Contents](#BKMK_Contents)  
   
-2.  在**“调试”**、**“常规”**页上，清除**“一个进程中断时则中断所有进程”**复选框。  
+##  <a name="BKMK_Start_multiple_processes_in_a_VS_solution__attach_to_a_process__automatically_start_a_process_in_the_debugger"></a> Start multiple processes in a VS solution, attach to a process, automatically start a process in the debugger  
   
- ![返回页首](~/debugger/media/pcs_backtotop.png "PCS\_BackToTop") [内容](#BKMK_Contents)  
+-   [Start debugging multiple processes in a Visual Studio solution](#BKMK_Start_debugging_multiple_processes_in_a_Visual_Studio_solution)  
   
-##  <a name="BKMK_Find_the_source_and_symbol___pdb__files"></a> 查找源文件和符号 \(.pdb\) 文件  
- 若要浏览进程的源代码，调试器需要访问进程的源文件和符号文件。  请参阅[指定符号 \(.pdb\) 和源文件](../debugger/specify-symbol-dot-pdb-and-source-files-in-the-visual-studio-debugger.md)。  
+-   [Change the startup project](#BKMK_Change_the_startup_project)  
   
- 如果您无法访问进程的文件，则可使用“反汇编”窗口进行导航。  请参阅[如何：使用“反汇编”窗口](../debugger/how-to-use-the-disassembly-window.md)  
+-   [Start a specific project in a solution](#BKMK_Start_a_specific_project_in_a_solution)  
   
- ![返回页首](~/debugger/media/pcs_backtotop.png "PCS\_BackToTop") [内容](#BKMK_Contents)  
+-   [Start multiple projects in a solution](#BKMK_Start_multiple_projects_in_a_solution)  
   
-##  <a name="BKMK_Start_multiple_processes_in_a_VS_solution__attach_to_a_process__automatically_start_a_process_in_the_debugger"></a> 启动 VS 解决方案中的多个进程，附加到一个进程，然后自动启动调试器中的进程  
+-   [Attach to a process](#BKMK_Attach_to_a_process)  
   
--   [开始调试 Visual Studio 解决方案中的多个进程](#BKMK_Start_debugging_multiple_processes_in_a_Visual_Studio_solution) • [更改启动项目](#BKMK_Change_the_startup_project) • [启动解决方案中的特定项目](#BKMK_Start_a_specific_project_in_a_solution) • [启动解决方案中的多个项目](#BKMK_Start_multiple_projects_in_a_solution) • [附加到进程](#BKMK_Attach_to_a_process) • [自动启动调试器中的进程](#BKMK_Automatically_start_an_process_in_the_debugger)  
-  
-> [!NOTE]
->  调试器不会自动附加到调试进程所启动的子进程中，即使子项目位于同一个解决方案中。  调试子进程：  
->   
->  -   在子进程启动后附加到该子进程。  
->   
->      \- 或 \-  
-> -   配置 Windows 以自动启动调试器的新实例中的子进程。  
-  
-###  <a name="BKMK_Start_debugging_multiple_processes_in_a_Visual_Studio_solution"></a> 开始调试 Visual Studio 解决方案中的多个进程  
- 如果您在 Visual Studio 解决方案中有多个可独立运行的项目（在独立进程中运行的项目），则可以选择调试器将启动的项目。  
-  
- ![正在为项目更改启动类型](../debugger/media/dbg_execution_startmultipleprojects.png "DBG\_Execution\_StartMultipleProjects")  
-  
-####  <a name="BKMK_Change_the_startup_project"></a> 更改启动项目  
- 若要更改解决方案的启动项目，则在解决方案资源管理器中选择项目，然后从上下文菜单中选择**“设置为启动项目”**。  
-  
-####  <a name="BKMK_Start_a_specific_project_in_a_solution"></a> 启动解决方案中的特定项目  
- 若要启动解决方案的项目而不更改默认启动项目，请在解决方案资源管理器中选择该项目，然后从上下文菜单中选择**“调试”**。  然后，您可以选择**“启动新实例”**或**“进入并单步执行新实例”**。  
-  
- ![返回页首](~/debugger/media/pcs_backtotop.png "PCS\_BackToTop") [启动 VS 解决方案中的多个进程，附加到一个进程，然后自动启动调试器中的进程](../debugger/debug-multiple-processes.md#BKMK_Start_multiple_processes_in_a_VS_solution__attach_to_a_process__automatically_start_a_process_in_the_debugger)  
-  
- ![返回页首](~/debugger/media/pcs_backtotop.png "PCS\_BackToTop") [内容](#BKMK_Contents)  
-  
-####  <a name="BKMK_Start_multiple_projects_in_a_solution"></a> 启动解决方案中的多个项目  
-  
-1.  在解决方案资源管理器中选择该解决方案，然后从上下文菜单中选择**“属性”**。  
-  
-2.  在**“属性”**对话框中，依次选择**“公共属性”**和**“启动项目”**。  
-  
-3.  对于要更改的每个项目，请选择**“启动”**、**“开始执行\(不调试\)”**或**“无”**。  
-  
- ![返回页首](~/debugger/media/pcs_backtotop.png "PCS\_BackToTop") [启动 VS 解决方案中的多个进程，附加到一个进程，然后自动启动调试器中的进程](../debugger/debug-multiple-processes.md#BKMK_Start_multiple_processes_in_a_VS_solution__attach_to_a_process__automatically_start_a_process_in_the_debugger)  
-  
- ![返回页首](~/debugger/media/pcs_backtotop.png "PCS\_BackToTop") [内容](#BKMK_Contents)  
-  
-###  <a name="BKMK_Attach_to_a_process"></a> 附加到进程  
- 调试器还可以附加到正在 Visual Studio 的外部运行的程序，包括在远程设备上运行的程序。  一旦附加到某个程序，就可以使用调试器执行命令、检查程序状态，等等。  检查程序的能力可能会受到某些限制，这取决于程序是否用调试信息生成，是否可以访问程序源代码，以及公共语言运行时 JIT 编译器是否在跟踪调试信息。  
-  
- 有关更多信息，请参见[附加到运行的进程](../debugger/attach-to-running-processes-with-the-visual-studio-debugger.md)。  
-  
- **附加到本地计算机上运行的进程**  
-  
- 选择**“调试”**，**“附加到进程”**。  在**“附加到进程”**对话框中，从**“可用进程”**列表中选择进程，然后选择**“附加”**。  
-  
- ![“附加到进程”对话框](../debugger/media/dbg_attachtoprocessdlg.png "DBG\_AttachToProcessDlg")  
-  
- ![返回页首](~/debugger/media/pcs_backtotop.png "PCS\_BackToTop") [内容](#BKMK_Contents)  
-  
-###  <a name="BKMK_Automatically_start_an_process_in_the_debugger"></a> 自动启动调试器中的进程  
- 有时，您可能需要调试由另一个进程启动的程序的启动代码。  这样的示例包括服务和自定义设置操作。  在这些情况下，可以让调试器在应用程序启动时启动并自动附加。  
-  
-1.  启动注册表编辑器 \(**regedit.exe**\)。  
-  
-2.  导航到**“HKEY\_LOCAL\_MACHINE\\Software\\Microsoft\\Windows NT\\CurrentVersion\\Image File Execution Options”**文件夹。  
-  
-3.  选择要在调试器中启动的应用程序的文件夹。  
-  
-     如果该应用程序的名称未作为子文件夹列出，请选择**“Image File Execution Options”**，然后在上下文菜单中选择**“新建”**和**“项”**。  选择新项，在快捷菜单中选择**“重命名”**，然后输入应用程序名称。  
-  
-4.  在应用程序文件夹的上下文菜单中，选择**“新建”**和**“字符串值”**。  
-  
-5.  将新值的名称从 **New Value** 更改为 `debugger`。  
-  
-6.  在调试器项的上下文菜单上，选择**“修改”**。  
-  
-7.  在“编辑字符串”对话框中，在**“值数据”**框中键入 `vsjitdebugger.exe`。  
-  
-     ![“编辑字符串”对话框](../debugger/media/dbg_execution_automaticstart_editstringdlg.png "DBG\_Execution\_AutomaticStart\_EditStringDlg")  
-  
- ![regedit.exe 中的自动调试器启动条目](~/debugger/media/dbg_execution_automaticstart_result.png "DBG\_Execution\_AutomaticStart\_Result")  
-  
- ![返回页首](~/debugger/media/pcs_backtotop.png "PCS\_BackToTop") [内容](#BKMK_Contents)  
-  
-##  <a name="BKMK_Switch_processes__break_and_continue_execution__step_through_source"></a> 切换进程，中断并继续执行，逐步执行源  
-  
--   [在进程间切换](#BKMK_Switch_between_processes) • [中断、单步执行和继续命令](#BKMK_Break__step__and_continue_commands)  
-  
-###  <a name="BKMK_Switch_between_processes"></a> 在进程间切换  
- 调试时可以附加到多个进程，但在任何给定时间，调试器中只有一个进程处于活动状态。  可以在调试位置工具栏或**“进程”**窗口中设置活动的或当前的进程。  若要在两个进程间切换，这两个进程必须处于中断模式。  
-  
- **设置当前进程**  
-  
--   在调试位置工具栏上，选择**“进程”**以查看**“进程”**列表框。  选择要指定为当前进程的进程。  
-  
-     ![在进程之间切换](../debugger/media/dbg_execution_switchbetweenmodules.png "DBG\_Execution\_SwitchBetweenModules")  
-  
-     如果**“调试位置”**工具栏不可见，则选择**“工具”**和**“自定义”**。  在**“工具栏”**选项卡上，选择**“调试位置”**。  
-  
--   打开**“进程”**窗口（快捷方式为 **Ctrl\+Alt\+Z**），找到要设置为当前进程的进程，然后双击该进程。  
-  
-     ![“进程”窗口](../debugger/media/dbg_processeswindow.png "DBG\_ProcessesWindow")  
-  
-     当前进程用黄色箭头标记。  
-  
- 切换到一个项目会将该项目设置为用于调试目的的当前进程。  您查看的所有调试器窗口将显示当前进程的状态，并且所有单步执行命令将仅影响当前进程。  
-  
- ![返回页首](~/debugger/media/pcs_backtotop.png "PCS\_BackToTop") [切换进程，中断并继续执行，逐步执行源](../debugger/debug-multiple-processes.md#BKMK_Switch_processes__break_and_continue_execution__step_through_source)  
-  
- ![返回页首](~/debugger/media/pcs_backtotop.png "PCS\_BackToTop") [内容](#BKMK_Contents)  
-  
-###  <a name="BKMK_Break__step__and_continue_commands"></a> 中断、单步执行和继续命令  
+-   [Automatically start a process in the debugger](#BKMK_Automatically_start_an_process_in_the_debugger)  
   
 > [!NOTE]
->  默认情况下，中断、继续和分步调试器命令会影响所有正在调试的进程。  若要更改此行为，请参阅[配置多个进程的执行行为](#BKMK_Configure_the_execution_behavior_of_multiple_processes)  
+>  The debugger does not automatically attach to a child process that is started by a debugged process, even if the child project is in the same solution. To debug a child process:  
+>   
+>  -   Attach to the child process after it has been started.  
+>   
+>      -or-  
+> -   Configure Windows to automatically start the child process in a new instance of the debugger.  
+  
+###  <a name="BKMK_Start_debugging_multiple_processes_in_a_Visual_Studio_solution"></a> Start debugging multiple processes in a Visual Studio solution  
+ When you have more than one project in a Visual Studio solution that can run independently (projects that run in separate processes), you can select which projects the debugger starts.  
+  
+ ![Changing the startup type for a project](../debugger/media/dbg_execution_startmultipleprojects.png "DBG_Execution_StartMultipleProjects")  
+  
+####  <a name="BKMK_Change_the_startup_project"></a> Change the startup project  
+ To change the startup project for a solution, select the project in Solution Explorer and then choose **Set as Startup Project** from the context menu.  
+  
+####  <a name="BKMK_Start_a_specific_project_in_a_solution"></a> Start a specific project in a solution  
+ To start a project for a solution without changing the default startup project, select the project in Solution Explorer and then choose **Debug** from the context menu. You can then choose **Start new instance** or **Step Into new instance**.  
+  
+ ![Back to top](../debugger/media/pcs_backtotop.png "PCS_BackToTop") [Start multiple processes in a VS solution, attach to a process, automatically start a process in the debugger](../debugger/debug-multiple-processes.md#BKMK_Start_multiple_processes_in_a_VS_solution__attach_to_a_process__automatically_start_a_process_in_the_debugger)  
+  
+ ![Back to top](../debugger/media/pcs_backtotop.png "PCS_BackToTop") [Contents](#BKMK_Contents)  
+  
+####  <a name="BKMK_Start_multiple_projects_in_a_solution"></a> Start multiple projects in a solution  
+  
+1.  Select the solution in Solution Explorer and then choose **Properties** on the context menu.  
+  
+2.  Select **Common Properties**, **Startup Project** on the **Properties** dialog box.  
+  
+3.  For each project that you want to change, choose either **Start**, **Start without debugging**, or **None**.  
+  
+ ![Back to top](../debugger/media/pcs_backtotop.png "PCS_BackToTop") [Start multiple processes in a VS solution, attach to a process, automatically start a process in the debugger](../debugger/debug-multiple-processes.md#BKMK_Start_multiple_processes_in_a_VS_solution__attach_to_a_process__automatically_start_a_process_in_the_debugger)  
+  
+ ![Back to top](../debugger/media/pcs_backtotop.png "PCS_BackToTop") [Contents](#BKMK_Contents)  
+  
+###  <a name="BKMK_Attach_to_a_process"></a> Attach to a process  
+ The debugger can also to *attach* to programs that are running in processes outside of Visual Studio, including programs that are running on a remote device. After you attach to a program, you can use debugger execution commands, inspect the program state, and so on. Your ability to inspect the program might be limited, depending on whether the program was built with debug information and whether you have access to the program's source code, and whether the common language runtime JIT compiler is tracking debug information.  
+  
+ See [Attach to Running Processes](../debugger/attach-to-running-processes-with-the-visual-studio-debugger.md) for more information.  
+  
+ **Attach to a process that is running on your local machine**  
+  
+ Click **Debug > Attach to Process**. On the **Attach to Process** dialog box, select the process from the **Available Processes** list, and then choose **Attach**.  
+  
+ ![Attach to Process dialog box](../debugger/media/dbg_attachtoprocessdlg.png "DBG_AttachToProcessDlg")  
+  
+ ![Back to top](../debugger/media/pcs_backtotop.png "PCS_BackToTop") [Contents](#BKMK_Contents)  
+  
+###  <a name="BKMK_Automatically_start_an_process_in_the_debugger"></a> Automatically start a process in the debugger  
+ Sometimes, you might need to debug the startup code for a program that is launched by another process. Examples include services and custom setup actions. In these scenarios, you can have the debugger launch and automatically attach when your application starts.  
+  
+1.  Start the Registry Editor (**regedit.exe**).  
+  
+2.  Navigate to the **HKEY_LOCAL_MACHINE\Software\Microsoft\Windows NT\CurrentVersion\Image File Execution Options** folder.  
+  
+3.  Select the folder of the app that you want to start in the debugger.  
+  
+     If the name of the app is not listed as a child folder, select **Image File Execution Options** and then choose **New**, **Key** on the context menu. Select the new key, choose **Rename** on the shortcut menu, and then enter the name of the app.  
+  
+4.  On the context menu of the app folder, choose **New**, **String Value**.  
+  
+5.  Change the name of the new value from **New Value** to `debugger`.  
+  
+6.  On the context menu of the debugger entry, choose **Modify**.  
+  
+7.  On the Edit String dialog box, type `vsjitdebugger.exe` in the **Value data** box.  
+  
+     ![Edit String dialog box](../debugger/media/dbg_execution_automaticstart_editstringdlg.png "DBG_Execution_AutomaticStart_EditStringDlg")  
+  
+ ![Automatic debugger start entry in regedit.exe](../debugger/media/dbg_execution_automaticstart_result.png "DBG_Execution_AutomaticStart_Result")  
+  
+ ![Back to top](../debugger/media/pcs_backtotop.png "PCS_BackToTop") [Contents](#BKMK_Contents)  
+  
+##  <a name="BKMK_Switch_processes__break_and_continue_execution__step_through_source"></a> Switch processes, break and continue execution, step through source  
+  
+-   [Switch between processes](#BKMK_Switch_between_processes)  
+  
+-   [Break, step, and continue commands](#BKMK_Break__step__and_continue_commands)  
+  
+###  <a name="BKMK_Switch_between_processes"></a> Switch between processes  
+ You can attach to multiple processes when you are debugging, but only one process is active in the debugger at any given time. You can set the active or *current* process in the Debug Location toolbar or in the **Processes** window. To switch between processes, both processes must be in break mode.  
+  
+ **To set the current process**  
+  
+-   On the Debug Location toolbar, choose **Process** to view the **Process** list box. Select the process that you want to designate as current process.  
+  
+     ![Switch between processes](../debugger/media/dbg_execution_switchbetweenmodules.png "DBG_Execution_SwitchBetweenModules")  
+  
+     If the **Debug Location** toolbar is not visible, choose **Tools**, **Customize**. On the **Toolbars** tab, choose **Debug Location**.  
+  
+-   Open the **Processes** window (shortcut **Ctrl+Alt+Z**), find the process that you want to set as the current process, and double-click it.  
+  
+     ![Processes window](../debugger/media/dbg_processeswindow.png "DBG_ProcessesWindow")  
+  
+     The current process is marked by a yellow arrow.  
+  
+ Switching to a project sets it the current process for debugging purposes. Any debugger window that you view will show the state for the current process, and all stepping commands affect only the current process.  
+  
+ ![Back to top](../debugger/media/pcs_backtotop.png "PCS_BackToTop") [Switch processes, break and continue execution, step through source](../debugger/debug-multiple-processes.md#BKMK_Switch_processes__break_and_continue_execution__step_through_source)  
+  
+ ![Back to top](../debugger/media/pcs_backtotop.png "PCS_BackToTop") [Contents](#BKMK_Contents)  
+  
+###  <a name="BKMK_Break__step__and_continue_commands"></a> Break, step, and continue commands  
+  
+> [!NOTE]
+>  By default, the break, continue and step debugger commands affect all processes that are being debugged. To change this behavior, see [Configure the execution behavior of multiple processes](#BKMK_Configure_the_execution_behavior_of_multiple_processes)  
   
 ||||  
 |-|-|-|  
-|**命令**|**一个进程中断时则中断所有进程**<br /><br /> 已选中（默认值）|**一个进程中断时则中断所有进程**<br /><br /> 清除|  
-|**“调试”**菜单：<br /><br /> -   **全部中断**|所有进程中断。|所有进程中断。|  
-|**“调试”**菜单：<br /><br /> -   **Continue**|所有进程继续。|所有挂起的进程继续。|  
-|**“调试”**菜单：<br /><br /> -   **逐语句**<br />-   **逐过程**<br />-   **跳出**|在当前进程单步执行时，所有进程将运行。<br /><br /> 然后，所有进程中断。|当前进程单步执行。<br /><br /> 已挂起的进程继续。<br /><br /> 正在运行的进程继续。|  
-|**“调试”**菜单：<br /><br /> -   **单步执行当前进程**<br />-   **逐过程当前进程**<br />-   **跳出当前进程**|不可用|当前进程单步执行。<br /><br /> 其他进程保持其现有状态（挂起或运行）。|  
-|源窗口<br /><br /> -   **断点**|所有进程中断。|仅源窗口进程中断。|  
-|源窗口上下文菜单：<br /><br /> -   **运行到光标处**<br /><br /> 源窗口必须在当前进程中。|当源窗口进程运行到光标处所有进程运行，然后中断。<br /><br /> 然后，所有其他进程中断。|源窗口进程运行到光标处。<br /><br /> 其他进程保持其现有状态（挂起或运行）。|  
-|**“进程”**窗口上下文菜单：<br /><br /> -   **中断进程**|不可用|已选进程中断。<br /><br /> 其他进程保持其现有状态（挂起或运行）。|  
-|**“进程”**窗口上下文菜单：<br /><br /> -   **继续进程**|不可用|已选进程继续。<br /><br /> 其他进程保持其现有状态（挂起或运行）。|  
+|**Command**|**Break all processes when one process breaks**<br /><br /> Checked (Default)|**Break all processes when one process breaks**<br /><br /> Cleared|  
+|**Debug** menu:<br /><br /> -   **Break All**|All processes break.|All processes break.|  
+|**Debug** menu:<br /><br /> -   **Continue**|All processes resume.|All suspended processes resume.|  
+|**Debug** menu:<br /><br /> -   **Step Into**<br />-   **Step Over**<br />-   **Step Out**|All processes run while current process steps.<br /><br /> Then all processes break.|Current process steps.<br /><br /> Suspended processes resume.<br /><br /> Running processes continue.|  
+|**Debug** menu:<br /><br /> -   **Step Into Current Process**<br />-   **Step Over Current Process**<br />-   **Step Out Current Process**|N/A|Current process steps.<br /><br /> Other processes maintain their existing state (suspended or running).|  
+|Source window<br /><br /> -   **Breakpoint**|All processes break.|Only source window process breaks.|  
+|Source window context menu:<br /><br /> -   **Run to cursor**<br /><br /> The source window must be in the current process.|All processes run while source window process runs to cursor and then breaks.<br /><br /> Then all other processes break.|Source window process runs to cursor.<br /><br /> Other processes maintain their existing state (suspended or running).|  
+|**Processes** window context menu:<br /><br /> -   **Break Process**|N/A|Selected process breaks.<br /><br /> Other processes maintain their existing state (suspended or running).|  
+|**Processes** window context menu:<br /><br /> -   **Continue  Process**|N/A|Selected process resumes.<br /><br /> Other processes maintain their existing state (suspended or running).|  
   
- ![返回页首](~/debugger/media/pcs_backtotop.png "PCS\_BackToTop") [切换进程，中断并继续执行，逐步执行源](../debugger/debug-multiple-processes.md#BKMK_Switch_processes__break_and_continue_execution__step_through_source)  
+ ![Back to top](../debugger/media/pcs_backtotop.png "PCS_BackToTop") [Switch processes, break and continue execution, step through source](../debugger/debug-multiple-processes.md#BKMK_Switch_processes__break_and_continue_execution__step_through_source)  
   
- ![返回页首](~/debugger/media/pcs_backtotop.png "PCS\_BackToTop") [内容](#BKMK_Contents)  
+ ![Back to top](../debugger/media/pcs_backtotop.png "PCS_BackToTop") [Contents](#BKMK_Contents)  
   
-##  <a name="BKMK_Stop_debugging__terminate_or_detach_from_processes"></a> 停止调试进程、终止进程或与进程分离  
+##  <a name="BKMK_Stop_debugging__terminate_or_detach_from_processes"></a> Stop debugging, terminate or detach from processes  
   
--   [停止、终止和分离命令](#BKMK_Stop__terminate__and_detach_commands)  
+-   [Stop, terminate, and detach commands](#BKMK_Stop__terminate__and_detach_commands)  
   
- 默认情况下，在调试器中打开多个进程并选择**“调试”**和**“停止调试”**时，调试器将终止所有进程或与所有进程分离，具体取决于进程在调试器中的打开方式：  
+ By default, when you choose **Debug**, **Stop Debugging** when multiple processes are open in the debugger, the debugger terminates or detaches from all processes depending on how the process was opened in the debugger:  
   
--   如果在调试器中启动了当前进程，则该进程将终止。  
+-   If the current process was launched in the debugger, that process is terminated.  
   
--   如果您已将调试器附加到当前进程，则调试器会与进程分离并使进程保持运行。  
+-   If you attached the debugger to the current process, the debugger detaches from the process and leaves the process running.  
   
- 例如，如果从 Visual Studio 解决方案中开始调试进程，将其附加到另一个已运行的进程，然后选择**“停止调试”**，则调试会话将结束，在 Visual Studio 中启动的进程也会终止，而您附加的进程将保持运行。  您可以使用以下过程控制停止调试的方法。  
+ For example, if you start debugging a process from a Visual Studio solution, attach to another process that is already running, and then choose **Stop Debugging**, the debugging session ends, the process that was started in Visual Studio is terminated, while the process that you attached is left running. You can use the following procedures to control the way that you stop debugging.  
   
 > [!NOTE]
->  **“一个进程中断时则中断所有进程”**选项不影响停止调试或终止进程以及与进程分离。  
+>  The **Break all processes when one process breaks** option does not affect stopping debugging or terminating and detaching from processes.  
   
- **更改停止调试影响单个进程的方式**  
+ **To change how Stop Debugging affects an individual process**  
   
--   打开**“进程”**窗口（快捷方式为 **Ctrl\+Alt\+Z**）。  选择一个进程，然后选中或清除**“调试停止时分离”**复选框。  
+-   Open the **Processes** window (shortcut **Ctrl+Alt+Z**). Select a process and then select or clear the **Detach when debugging stopped** check box.  
   
-###  <a name="BKMK_Stop__terminate__and_detach_commands"></a> 停止、终止和分离命令  
+###  <a name="BKMK_Stop__terminate__and_detach_commands"></a> Stop, terminate, and detach commands  
   
 |||  
 |-|-|  
-|**命令**|**说明**|  
-|**“调试”**菜单：<br /><br /> -   **停止调试**|除非行为被**“进程”**窗口中的**“在调试停止时分离”**选项更改，否则：<br /><br /> 1.  调试器启动的进程将被终止。<br />2.  附加的进程将从调试器分离。|  
-|**“调试”**菜单：<br /><br /> -   **全部终止**|所有进程将终止。|  
-|**“调试”**菜单：<br /><br /> -   **全部分离**|调试器与所有进程分离。|  
-|**“进程”**窗口上下文菜单：<br /><br /> -   **分离进程**|调试器与选定进程分离。<br /><br /> 其他进程保持其现有状态（挂起或运行）。|  
-|**“进程”**窗口上下文菜单：<br /><br /> -   **终止进程**|选定的进程将终止。<br /><br /> 其他进程保持其现有状态（挂起或运行）。|  
-|**“进程”**窗口上下文菜单：<br /><br /> -   **调试停止时分离**|切换所选进程的**“调试”**和**“停止调试”**行为：<br /><br /> -   已选中：调试器与进程分离。<br />-   清除：进程已终止。|  
+|**Command**|**Description**|  
+|**Debug** menu:<br /><br /> -   **Stop Debugging**|Unless the behavior is changed by **Processes** window **Detach when debugging stops** option:<br /><br /> 1.  Processes started by debugger are terminated.<br />2.  Attached processes are detached from the debugger.|  
+|**Debug** menu:<br /><br /> -   **Terminate All**|All processes are terminated.|  
+|**Debug** menu:<br /><br /> -   **Detach All**|The debugger detaches from all processes.|  
+|**Processes** window context menu:<br /><br /> -   **Detach Process**|The debugger detaches from the selected process.<br /><br /> Other processes maintain their existing state (suspended or running).|  
+|**Processes** window context menu:<br /><br /> -   **Terminate Process**|The selected process is terminated.<br /><br /> Other processes maintain their existing state (suspended or running).|  
+|**Processes** window context menu:<br /><br /> -   **Detach when debugging stops**|Toggles the behavior of **Debug**, **Stop Debugging** for the selected process:<br /><br /> -   Checked: The debugger detaches from the process.<br />-   Cleared: The process is terminated.|  
   
- ![返回页首](~/debugger/media/pcs_backtotop.png "PCS\_BackToTop") [停止调试进程、终止进程或与进程分离](../debugger/debug-multiple-processes.md#BKMK_Stop_debugging__terminate_or_detach_from_processes)  
+ ![Back to top](../debugger/media/pcs_backtotop.png "PCS_BackToTop") [Stop debugging, terminate or detach from processes](../debugger/debug-multiple-processes.md#BKMK_Stop_debugging__terminate_or_detach_from_processes)  
   
- ![返回页首](~/debugger/media/pcs_backtotop.png "PCS\_BackToTop") [内容](#BKMK_Contents)  
+ ![Back to top](../debugger/media/pcs_backtotop.png "PCS_BackToTop") [Contents](#BKMK_Contents)  
   
-## 请参阅  
- [指定符号 \(.pdb\) 和源文件](../debugger/specify-symbol-dot-pdb-and-source-files-in-the-visual-studio-debugger.md)   
- [附加到运行的进程](../debugger/attach-to-running-processes-with-the-visual-studio-debugger.md)   
- [使用调试器浏览代码](../debugger/navigating-through-code-with-the-debugger.md)   
- [实时调试](../debugger/just-in-time-debugging-in-visual-studio.md)   
- [调试多线程应用程序](../debugger/debug-multithreaded-applications-in-visual-studio.md)
+## <a name="see-also"></a>See Also  
+ [Specify Symbol (.pdb) and Source Files](../debugger/specify-symbol-dot-pdb-and-source-files-in-the-visual-studio-debugger.md)   
+ [Attach to Running Processes](../debugger/attach-to-running-processes-with-the-visual-studio-debugger.md)   
+ [Navigating through Code with the Debugger](../debugger/navigating-through-code-with-the-debugger.md)   
+ [Just-In-Time Debugging](../debugger/just-in-time-debugging-in-visual-studio.md)   
+ [Debug Multithreaded Applications](../debugger/debug-multithreaded-applications-in-visual-studio.md)

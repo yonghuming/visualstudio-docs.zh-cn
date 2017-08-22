@@ -1,142 +1,166 @@
 ---
-title: "演练：使用 ADO.NET 创建简单的数据应用程序 | Microsoft Docs"
-ms.custom: ""
-ms.date: "12/16/2016"
-ms.prod: "visual-studio-dev14"
-ms.reviewer: ""
-ms.suite: ""
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-dev_langs: 
-  - "VB"
-  - "CSharp"
-  - "C++"
-  - "aspx"
+title: Create a simple data application by using ADO.NET | Microsoft Docs
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.tgt_pltfrm: 
+ms.topic: article
+dev_langs:
+- VB
+- CSharp
+- C++
+- aspx
 ms.assetid: 2222841f-e443-4a3d-8c70-4506aa905193
 caps.latest.revision: 42
-caps.handback.revision: 30
-author: "mikeblome"
-ms.author: "mblome"
-manager: "ghogen"
+author: mikeblome
+ms.author: mblome
+manager: ghogen
+translation.priority.ht:
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- ru-ru
+- zh-cn
+- zh-tw
+translation.priority.mt:
+- cs-cz
+- pl-pl
+- pt-br
+- tr-tr
+ms.translationtype: HT
+ms.sourcegitcommit: 9e6c28d42bec272c6fd6107b4baf0109ff29197e
+ms.openlocfilehash: 5638a26829f0d8d0c6b24281d4c8ab57f180242c
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/22/2017
+
 ---
-# 演练：使用 ADO.NET 创建简单的数据应用程序
-当你创建操作数据库中的数据的应用程序时，就执行了定义连接字符串、插入数据以及运行存储过程等基本任务。  学习本主题后，你将了解如何使用 Visual C\# 或 Visual Basic 和 ADO.NET 从一个简单的 Windows 窗体应用程序内与数据库进行交互。  
+# <a name="create-a-simple-data-application-by-using-adonet"></a>Create a simple data application by using ADO.NET
+When you create an application that manipulates data in a database, you perform basic tasks such defining connection strings, inserting data, and running stored procedures. By following this topic, you can discover how to interact with a database from within a simple Windows Forms "forms over data" application by using Visual C# or Visual Basic and ADO.NET.  All .NET data technologies—including datasets, LINQ to SQL, and Entity Framework—ultimately perform steps that are very similar to those shown in this article.  
+  
+ This article demonstrates a simple way to get data out of a database in a very fast manner. If your application needs to modify data in non-trivial ways and update the database, you should consider using Entity Framework and using data binding to automatically sync user interface controls to changes in the underlying data.  
   
 > [!IMPORTANT]
->  要使代码保持简单，请不要包括生产就绪的异常处理。  
+>  To keep the code simple, it doesn't include production-ready exception handling.  
   
- **主题内容**  
+ **In this topic**  
   
--   [设置示例数据库](../data-tools/create-a-simple-data-application-by-using-adonet.md#BKMK_setupthesampledatabase)  
+-   [Set up the sample database](../data-tools/create-a-simple-data-application-by-using-adonet.md#BKMK_setupthesampledatabase)  
   
--   [创建窗体并添加控件](../data-tools/create-a-simple-data-application-by-using-adonet.md#BKMK_createtheformsandaddcontrols)  
+-   [Create the forms and add controls](../data-tools/create-a-simple-data-application-by-using-adonet.md#BKMK_createtheformsandaddcontrols)  
   
--   [存储连接字符串](../data-tools/create-a-simple-data-application-by-using-adonet.md#BKMK_storetheconnectionstring)  
+-   [Store the connection string](../data-tools/create-a-simple-data-application-by-using-adonet.md#BKMK_storetheconnectionstring)  
   
--   [检索连接字符串](../data-tools/create-a-simple-data-application-by-using-adonet.md#BKMK_retrievetheconnectionstring)  
+-   [Retrieve the connection string](../data-tools/create-a-simple-data-application-by-using-adonet.md#BKMK_retrievetheconnectionstring)  
   
--   [编写窗体代码](../data-tools/create-a-simple-data-application-by-using-adonet.md#BKMK_writethecodefortheforms)  
+-   [Write the code for the forms](../data-tools/create-a-simple-data-application-by-using-adonet.md#BKMK_writethecodefortheforms)  
   
--   [测试应用程序](../data-tools/create-a-simple-data-application-by-using-adonet.md#BKMK_testyourapplication)  
+-   [Test your application](../data-tools/create-a-simple-data-application-by-using-adonet.md#BKMK_testyourapplication)  
   
-## 系统必备  
- 要创建应用程序，你将需要：  
+## <a name="prerequisites"></a>Prerequisites  
+ To create the application, you'll need:  
   
--   Visual Studio 2012 with Update 1 或 [!INCLUDE[vs_dev12](../data-tools/includes/vs_dev12_md.md)]  
+-   Visual Studio Community Edition.  
   
--   SQL Server 2012 Express LocalDB  
+-   SQL Server Express LocalDB.  
   
--   根据[演练：创建小示例数据库](../data-tools/create-a-sql-database-by-using-a-script.md)中的步骤创建的小型示例数据库。  
+-   The small sample database that you create by following the steps in [Create a SQL database by using a script](../data-tools/create-a-sql-database-by-using-a-script.md).  
   
--   设置数据库后的数据库连接字符串。  你可以通过打开**“SQL Server 对象资源管理器”**、打开数据库的快捷菜单，选择**“属性”**并滚动到**“连接字符串”**属性来查找此值。  
+-   The connection string for the database after you set it up. You can find this value by opening **SQL Server Object Explorer**, opening the shortcut menu for the database, selecting **Properties**, and then scrolling to the **ConnectionString**  property.  
   
- 本主题假定你已经熟悉 Visual Studio IDE 的基本功能，并可以创建 Windows 窗体应用程序，将窗体添加到项目，将按钮和其他控件安装到这些窗体上，为这些控件设置属性，以及对简单事件进行编码。  如果你对这些任务感到为难，建议你在开始本主题前完成[Visual C\# 和 Visual Basic 入门](../ide/getting-started-with-visual-csharp-and-visual-basic.md)。  
+ This topic assumes that you're familiar with the basic functionality of the Visual Studio IDE and can create a Windows Forms application, add forms to that project, put buttons and other controls on those forms, set properties of those controls, and code simple events. If you aren't comfortable with these tasks, we suggest that you complete the [Getting Started with Visual C# and Visual Basic](../ide/getting-started-with-visual-csharp-and-visual-basic.md) before you start this topic.  
   
-##  <a name="BKMK_setupthesampledatabase"></a> 设置示例数据库  
- 本演练的示例数据库由客户和订单表组成。  表最初不包含数据，但你会在运行将创建的应用程序时添加数据。  该数据库中还有五个简单的存储过程。  [演练：创建小示例数据库](../data-tools/create-a-sql-database-by-using-a-script.md)包含可创建表、主键和外键、约束以及存储过程的 Transact\-SQL 脚本。  
+##  <a name="BKMK_setupthesampledatabase"></a> Set up the sample database  
+ The sample database for this walkthrough consists of the Customer and Orders tables. The tables contain no data initially, but you'll add data when you run the application that you'll create. The database also has five simple stored procedures. [Create a SQL database by using a script](../data-tools/create-a-sql-database-by-using-a-script.md) contains a Transact-SQL script that creates the tables, the primary and foreign keys, the constraints, and the stored procedures.  
   
-##  <a name="BKMK_createtheformsandaddcontrols"></a> 创建窗体并添加控件  
+##  <a name="BKMK_createtheformsandaddcontrols"></a> Create the forms and add controls  
   
-1.  创建 Windows 窗体应用程序项目，然后将其命名为 `SimpleDataApp`。  
+1.  Create a project for a Windows Forms application, and then name it SimpleDataApp.  
   
-     Visual Studio 将创建项目以及若干个文件，其中包括名为 Form1 的空 Windows 窗体。  
+     Visual Studio creates the project and several files, including an empty Windows form that's named Form1.  
   
-2.  添加两个 Windows 窗体到项目中，以使其具有三个窗体，然后给予它们下列名称。  
+2.  Add two Windows forms to your project so that it has three forms, and then give them the following names:  
   
-    -   导航  
+    -   Navigation  
   
     -   NewCustomer  
   
     -   FillOrCancel  
   
-3.  对于每个窗体，添加文本框、按钮和其他控件，如下图所示。  对于每个控件，设置表中描述的属性。  
+3.  For each form, add the text boxes, buttons, and other controls that appear in the following illustrations. For each control, set the properties that the tables describe.  
   
     > [!NOTE]
-    >  分组框和标签控件可提高清晰度，但不在代码中使用。  
+    >  The group box and the label controls add clarity but aren't used in the code.  
   
- **Navigation 窗体**  
+ **Navigation form**  
   
- ![“导航”对话框](../data-tools/media/simpleappnav.png "SimpleAppNav")  
+ ![Navigation dialog box](../data-tools/media/simpleappnav.png "SimpleAppNav")  
   
-|Navigation 窗体的控件|属性|  
-|----------------------|--------|  
-|Button|Name \= btnGoToAdd|  
-|Button|Name \= btnGoToFillOrCancel|  
-|Button|Name \= btnExit|  
+|Controls for the Navigation form|Properties|  
+|--------------------------------------|----------------|  
+|Button|Name = btnGoToAdd|  
+|Button|Name = btnGoToFillOrCancel|  
+|Button|Name = btnExit|  
   
- **NewCustomer 窗体**  
+ **NewCustomer form**  
   
- ![添加新客户或提交订单](../data-tools/media/simpleappnewcust.png "SimpleAppNewCust")  
+ ![Add  a new customer and place an order](../data-tools/media/simpleappnewcust.png "SimpleAppNewCust")  
   
-|NewCustomer 窗体的控件|属性|  
-|-----------------------|--------|  
-|文本框|Name \= txtCustomerName|  
-|文本框|Name \= txtCustomerID<br /><br /> Readonly \= True|  
-|Button|Name \= btnCreateAccount|  
-|NumericUpdown|DecimalPlaces \= 0<br /><br /> Maximum \= 5000<br /><br /> Name \= numOrderAmount|  
-|DateTimePicker|Format \= Short<br /><br /> Name \= dtpOrderDate|  
-|Button|Name \= btnPlaceOrder|  
-|Button|Name \= btnAddAnotherAccount|  
-|Button|Name \= btnAddFinish|  
+|Controls for the NewCustomer form|Properties|  
+|---------------------------------------|----------------|  
+|TextBox|Name = txtCustomerName|  
+|TextBox|Name = txtCustomerID<br /><br /> Readonly = True|  
+|Button|Name = btnCreateAccount|  
+|NumericUpdown|DecimalPlaces = 0<br /><br /> Maximum = 5000<br /><br /> Name = numOrderAmount|  
+|DateTimePicker|Format = Short<br /><br /> Name = dtpOrderDate|  
+|Button|Name = btnPlaceOrder|  
+|Button|Name = btnAddAnotherAccount|  
+|Button|Name = btnAddFinish|  
   
- **FillOrCancel 窗体**  
+ **FillOrCancel form**  
   
- ![填充或取消订单](../data-tools/media/simpleappcancelfill.png "SimpleAppCancelFill")  
+ ![fill or cancel orders](../data-tools/media/simpleappcancelfill.png "SimpleAppCancelFill")  
   
-|FillOrCancel 窗体的控件|属性|  
-|------------------------|--------|  
-|文本框|Name \= txtOrderID|  
-|Button|Name \= btnFindByOrderID|  
-|DateTimePicker|Format \= Short<br /><br /> Name \= dtpFillDate|  
-|DataGridView|Name \= dgvCustomerOrders<br /><br /> Readonly \= True<br /><br /> RowHeadersVisible \= False|  
-|Button|Name \= btnCancelOrder|  
-|Button|Name \= btnFillOrder|  
-|Button|Name \= btnFinishUpdates|  
+|Controls for the FillOrCancel form|Properties|  
+|----------------------------------------|----------------|  
+|TextBox|Name = txtOrderID|  
+|Button|Name = btnFindByOrderID|  
+|DateTimePicker|Format = Short<br /><br /> Name = dtpFillDate|  
+|DataGridView|Name = dgvCustomerOrders<br /><br /> Readonly = True<br /><br /> RowHeadersVisible = False|  
+|Button|Name = btnCancelOrder|  
+|Button|Name = btnFillOrder|  
+|Button|Name = btnFinishUpdates|  
   
-##  <a name="BKMK_storetheconnectionstring"></a> 存储连接字符串  
- 当应用程序尝试打开数据库的连接时，应用程序必须能够访问连接字符串。  要避免在每个窗体中手动输入该字符串，请将该字符串存储在项目的应用配置文件中，并创建在应用程序任意窗体中调用即可返回该字符串的方法。  
+##  <a name="BKMK_storetheconnectionstring"></a> Store the connection string  
+ When your application tries to open a connection to the database, your application must have access to the connection string. To avoid entering the string manually on each form, store the string in the App config file in your project, and create a method that returns the string when the method is called from any form in your application.  
   
-1.  打开项目的快捷菜单，然后选择**“属性”**。  
+ You can find the connection string in **SQL Server Object Explorer** by right-clicking the database, selecting **Properties**, and then finding the ConnectionString property. Use Ctrl+A to select the string.  
   
-2.  在**“属性”**窗口的左面板中，选择**“设置”**选项卡。  
+1.  In **Solution Explorer**, select the **Properties** node under the project, and then select **Settings.settings**.  
   
-3.  在**“名称”**列中，输入`“connString”`。  
+2.  In the **Name** column, enter `connString`.  
   
-4.  在**“类型”**列表中，选择**“\(Connection String\)”**。  
+3.  In the **Type** list, select **(Connection String)**.  
   
-5.  在**“范围”**列表中，选择**“应用程序”**。  
+4.  In the **Scope** list, select **Application**.  
   
-6.  在**“值”**列中，输入连接字符串，然后保存更改。  
+5.  In the **Value** column, enter your connection string (without any outside quotes), and then save your changes.  
   
-##  <a name="BKMK_retrievetheconnectionstring"></a> 检索连接字符串  
+> [!NOTE]
+>  In a real application, you should store the connection string securely, as described in [Connection Strings and Configuration Files](/dotnet/framework/data/adonet/connection-strings-and-configuration-files).  
   
-1.  在菜单栏上，依次选择**“项目”**、**“添加引用”**，然后向 System.Configuration.dll 添加引用。  
+##  <a name="BKMK_retrievetheconnectionstring"></a> Retrieve the connection string  
   
-2.  在菜单栏上，依次选择**“项目”**、**“添加类”**以向项目添加类文件，然后将文件命名为`“Utility”`。  
+1.  On the menu bar, select **Project** > **Add Reference**, and then add a reference to System.Configuration.dll.  
   
-     Visual Studio 会创建文件并在**“解决方案资源管理器”**中显示该文件。  
+2.  On the menu bar, select **Project** > **Add Class** to add a class file to your project, and then name the file `Utility`.  
   
-3.  在 Utility 文件中，使用下列代码替换占位符代码。  请注意标识代码段的编号注释（前缀为 Util\-）。  代码后的表明确了要点。  
+     Visual Studio creates the file and displays it in **Solution Explorer**.  
+  
+3.  In the Utility file, replace the placeholder code with the following code. Notice the numbered comments (prefixed with Util-) that identify sections of the code. The table that follows the code calls out key points.  
   
     ```c#  
     using System;  
@@ -204,28 +228,28 @@ manager: "ghogen"
     End Namespace  
     ```  
   
-    |注释|描述|  
-    |--------|--------|  
-    |Util\-1|添加 System.Configuration 命名空间。|  
-    |Util\-2|定义变量 `returnValue`，并将其初始化为 `null` \(C\#\) 或 `Nothing` \(Visual Basic\)。|  
-    |Util\-3|即使输入 `connString` 作为**“属性”**窗口中的连接字符串的名称，你仍必须在代码中指定 `"SimpleDataApp.Properties.Settings.connString"` \(C\#\) 或 `"SimpleDataApp.My.MySettings.connString"` \(Visual Basic\)。|  
+    |Comment|Description|  
+    |-------------|-----------------|  
+    |Util-1|Add the `System.Configuration` namespace.|  
+    |Util-2|Define a variable, `returnValue`, and initialize it to `null` (C#) or `Nothing` (Visual Basic).|  
+    |Util-3|Even though you entered `connString` as the name of the connection string in the **Properties** window, you must specify `"SimpleDataApp.Properties.Settings.connString"` (C#) or `"SimpleDataApp.My.MySettings.connString"` (Visual Basic) in the code.|  
   
-##  <a name="BKMK_writethecodefortheforms"></a> 编写窗体代码  
- 本节包含对每个窗体功能的简要概述，并显示创建窗体的代码。  标识代码段的编号注释。  
+##  <a name="BKMK_writethecodefortheforms"></a> Write the code for the forms  
+ This section contains brief overviews of what each form does and shows the code that creates the forms. Numbered comments identify sections of the code.  
   
-### Navigation 窗体  
- 运行应用程序时，Navigation 窗体将打开。  按**“添加账户”**按钮可以打开 NewCustomer 窗体。  按**“填写或取消订单”**按钮可以打开 FillOrCancel 窗体。  按**“退出”**按钮可以关闭应用程序。  
+### <a name="navigation-form"></a>Navigation form  
+ The Navigation form opens when you run the application. The **Add an account** button opens the NewCustomer form. The **Fill or cancel orders** button opens the FillOrCancel form. The **Exit** button closes the application.  
   
-#### 使 Navigation 窗体成为启动窗体  
- 如果使用 C\#，则在**“解决方案资源管理器”**中，打开 Program.cs，然后将 `Application.Run` 行更改为 `Application.Run(new Navigation());`  
+#### <a name="make-the-navigation-form-the-startup-form"></a>Make the Navigation form the startup form  
+ If you're using C#, in **Solution Explorer**, open Program.cs, and then change the `Application.Run` line to this: `Application.Run(new Navigation());`  
   
- 如果使用 Visual Basic，则在**“解决方案资源管理器”**中，打开**“属性”**窗口，选择**“应用程序”**选项卡，然后在**“启动窗体”**列表上选择 SimpleDataApp.Navigation。  
+ If you're using Visual Basic, in **Solution Explorer**, open the **Properties** window, select the **Application** tab, and then select **SimpleDataApp.Navigation** in the **Startup form** list.  
   
-#### 创建事件处理程序  
- 为窗体上的三个按钮创建空的 Click 事件处理程序。  请参阅[如何：在 Windows 窗体设计器上创建默认事件处理程序](http://msdn.microsoft.com/zh-cn/757bcc16-1dc2-4d68-b115-ac0f53f05c8d)。  
+#### <a name="create-event-handlers"></a>Create event handlers  
+ Double-click the three buttons on the form to create empty event-handler methods.  
   
-#### 为 Navigation 创建代码  
- 在 Navigation 窗体中，使用下列代码替换现有代码。  
+#### <a name="create-code-for-navigation"></a>Create code for Navigation  
+ In the Navigation form, replace the existing code with the following code.  
   
 ```c#  
 using System;  
@@ -309,14 +333,14 @@ End Namespace
   
 ```  
   
-### NewCustomer 窗体  
- 输入客户名称并选择**“创建帐户”**按钮时，NewCustomer 窗体会创建一个客户帐户，而 SQL Server 则会返回一个 IDENTITY 值作为新帐号。  然后通过指定数量和订单日期并选择**“下订单”**按钮来为新帐户下订单。  
+### <a name="newcustomer-form"></a>NewCustomer form  
+ When you enter a customer name and then select the **Create Account** button, the NewCustomer form creates a customer account, and SQL Server returns an IDENTITY value as the new account number. You then place an order for the new account by specifying an amount and an order date and selecting the **Place Order** button.  
   
-#### 创建事件处理程序  
- 为窗体上的每个按钮创建一个空的 Click 事件处理程序。  
+#### <a name="create-event-handlers"></a>Create event handlers  
+ Create an empty Click event handler for each button on the form.  
   
-#### 为 NewCustomer 创建代码  
- 将下列代码添加到 NewCustomer 窗体。  使用编号注释和代码后的表单步执行每个代码块。  
+#### <a name="create-code-for-newcustomer"></a>Create code for NewCustomer  
+ Add the following code to the NewCustomer form. Step through each code block by using the numbered comments and the table after the code.  
   
 ```c#  
 using System;  
@@ -437,15 +461,15 @@ namespace SimpleDataApp
                 cmdNewOrder.Parameters.Add(new SqlParameter("@Amount", SqlDbType.Int));  
                 cmdNewOrder.Parameters["@Amount"].Value = numOrderAmount.Value;  
   
-                //NC-23 @Status. For a new order, the status is always O (open)  
+                //NC-23 @Status. For a new order, the status is always O (open).  
                 cmdNewOrder.Parameters.Add(new SqlParameter("@Status", SqlDbType.Char, 1));  
                 cmdNewOrder.Parameters["@Status"].Value = "O";  
   
-                //NC-24 Add return value for stored procedure, which is the orderID.  
+                //NC-24 Add return value for stored procedure, which is orderID.  
                 cmdNewOrder.Parameters.Add(new SqlParameter("@RC", SqlDbType.Int));  
                 cmdNewOrder.Parameters["@RC"].Direction = ParameterDirection.ReturnValue;  
   
-                //try – catch - finally  
+                //try-catch-finally  
                 try  
                 {  
                     //Open connection.  
@@ -494,13 +518,13 @@ namespace SimpleDataApp
             }  
         }  
   
-        //NC-27 Reset the form for another new account  
+        //NC-27 Reset the form for another new account.  
         private void btnAddAnotherAccount_Click(object sender, EventArgs e)  
         {  
             this.ClearForm();  
         }  
   
-        //NC-28 Clear values from controls  
+        //NC-28 Clear values from controls.  
         private void ClearForm()  
         {  
             txtCustomerName.Clear();  
@@ -632,11 +656,11 @@ Namespace SimpleDataApp
                 cmdNewOrder.Parameters.Add(New SqlParameter("@Status", SqlDbType.[Char], 1))  
                 cmdNewOrder.Parameters("@Status").Value = "O"  
   
-                ' NC-24 add return value for stored procedure, which is the orderID  
+                ' NC-24 Add return value for stored procedure, which is orderID.  
                 cmdNewOrder.Parameters.Add(New SqlParameter("@RC", SqlDbType.Int))  
                 cmdNewOrder.Parameters("@RC").Direction = ParameterDirection.ReturnValue  
   
-                ' try – catch - finally  
+                ' try-catch-finally  
                 Try  
                     ' Open connection.  
                     conn.Open()  
@@ -650,7 +674,7 @@ Namespace SimpleDataApp
   
                 Catch  
                     ' A simple catch.  
-                    MessageBox.Show("Order could not not be placed.")  
+                    MessageBox.Show("Order could  not be placed.")  
   
                 Finally  
                     ' Close connection.  
@@ -667,7 +691,7 @@ Namespace SimpleDataApp
                 MessageBox.Show("Please create customer account before placing order.")  
                 Return False  
   
-                ' Verify that Amount isn't 0   
+                ' Verify that Amount isn't 0.   
             ElseIf (numOrderAmount.Value < 1) Then  
   
                 MessageBox.Show("Please specify an order amount.")  
@@ -701,40 +725,40 @@ Namespace SimpleDataApp
 End Namespace  
 ```  
   
-|注释|描述|  
-|--------|--------|  
-|NC\-1|将 System.Data.SqlClient 和 System.Configuration 添加到命名空间列表。|  
-|NC\-2|声明 `parsedCustomerID` 和 `orderID` 变量，以后将用到它们。|  
-|NC\-3|调用 `GetConnectionString` 方法以从应用配置文件中获取连接字符串，并将该值存储在 `connstr` 字符串变量中。|  
-|NC\-4|将代码添加到 `btnCreateAccount` 按钮的 Click 事件处理程序。|  
-|NC\-5|将对 `isCustomerName` 的调用包装在 Click 事件代码周围，以便让 `uspNewCustomer` 只在存在客户名称的情况下运行。|  
-|NC\-6|创建 `SqlConnection` 对象 \(`conn`\)，并在 `connstr` 的连接字符串中传递。|  
-|NC\-7|创建 `SqlCommand` 对象 `cmdNewCustomer`。<br /><br /> -   将 `Sales.uspNewCustomer` 指定为要运行的存储过程。<br />-   使用 `CommandType` 属性将命令指定为存储过程。|  
-|NC\-8|从存储过程添加 `@CustomerName` 输入参数。<br /><br /> -   将参数添加到 `Parameters` 集合。<br />-   使用 SqlDbType 枚举将参数类型指定为 nvarchar\(40\)。<br />-   将 `txtCustomerName.Text` 指定为源。|  
-|NC\-9|从存储过程添加输出参数。<br /><br /> -   将参数添加到 `Parameters` 集合。<br />-   使用 `ParameterDirection.Output` 将该参数标识为输出。|  
-|NC\-10|添加“Try – Catch – Finally”块以打开连接，运行存储过程，处理异常，然后关闭连接。|  
-|NC\-11|打开在 NC\-6 中创建的连接 \(`conn`\)。|  
-|NC\-12|使用 `cmdNewCustomer` 的 `ExecuteNonQuery` 方法运行 `Sales.uspNewCustomer` 存储过程，其中运行的是 `INSERT` 语句，而不是查询。|  
-|NC\-13|`@CustomerID` 值以 IDENTITY 值的形式从数据库返回。  由于它是整数，必须将其转换为字符串，以便在“客户 ID”文本框中显示。<br /><br /> -   在 NC\-2 中声明了 `parsedCustomerID`。<br />-   将 `@CustomerID` 值存储到 `parsedCustomerID` 中供以后使用。<br />-   将返回的客户 ID 转换为字符串，并将其插入到 `txtCustomerID.Text` 中。|  
-|NC\-14|对于此示例，添加简单而非可投入实际生产运行的 catch 子句。|  
-|NC\-15|请始终在使用完连接后将其关闭，以便可以将其释放到连接池。  请参阅 [SQL Server 连接池 \(ADO.NET\)](http://msdn.microsoft.com/library/8xx3tyca\(l=zh-cn,v=VS.110\).aspx)。|  
-|NC\-16|定义用于验证客户名称是否存在的方法。<br /><br /> -   如果文本框为空，则会显示一条消息并返回 `false`，这是因为创建帐户需要名称。<br />-   如果文本框不为空，则返回 `true`。|  
-|NC\-17|将代码添加到 `btnPlaceOrder` 按钮的 Click 事件处理程序。|  
-|NC\-18|将对 `isPlaceOrderReady` 的调用包装在 `btnPlaceOrder_Click` 事件代码周围，这样一来，如果不存在所需的输入，`uspPlaceNewOrder` 就不会运行。|  
-|NC\-19 到 NC\-25|代码中的这些段类似于为 `btnCreateAccount_Click` 事件处理程序添加的代码。<br /><br /> -   NC\-19。  创建 `SqlCommand` 对象 `cmdNewOrder`，并将 `Sales.uspPlaceOrder` 指定为存储过程。<br />-   NC\-20 到 NC\-23 是存储过程的输入参数。<br />-   NC\-24。  `@RC` 将包含一个返回值，该值是从数据库生成的订单 ID。  此参数的方向指定为 `ReturnValue`。<br />-   NC\-25。  将订单 ID 的值存储在 NC\-2 上声明的 `orderID` 变量中，并在消息框中显示该值。|  
-|NC\-26|定义用于验证客户 ID 是否存在，以及是否已经在 `numOrderAmount` 中指定了数量的方法。|  
-|NC\-27|调用 `btnAddAnotherAccount` Click 事件处理程序中的 `ClearForm` 方法。|  
-|NC\-28|如果想要添加另一个客户，请创建 `ClearForm` 方法以清除窗体中的值。|  
-|NC29|关闭 NewCustomer 窗体，并使焦点返回到 Navigation 窗体。|  
+|Comment|Description|  
+|-------------|-----------------|  
+|NC-1|Add `System.Data.SqlClient` and `System.Configuration` to the list of namespaces.|  
+|NC-2|Declare the `parsedCustomerID` and `orderID` variables, which you'll use later.|  
+|NC-3|Call the `GetConnectionString` method to get the connection string from the App config file, and store the value in the `connstr` string variable.|  
+|NC-4|Add code to the Click event handler for the `btnCreateAccount` button.|  
+|NC-5|Wrap the call to `isCustomerName` around the Click event code so that `uspNewCustomer` runs only if a customer name is present.|  
+|NC-6|Create a `SqlConnection` object (`conn`), and pass in the connection string in `connstr`.|  
+|NC-7|Create a `SqlCommand` object, `cmdNewCustomer`.<br /><br /> -   Specify `Sales.uspNewCustomer` as the stored procedure to run.<br />-   Use the `CommandType` property to specify that the command is a stored procedure.|  
+|NC-8|Add the `@CustomerName` input parameter from the stored procedure.<br /><br /> -   Add the parameter to the `Parameters` collection.<br />-   Use the `SqlDbType` enumeration to specify the parameter type as nvarchar(40).<br />-   Specify `txtCustomerName.Text` as the source.|  
+|NC-9|Add the output parameter from the stored procedure.<br /><br /> -   Add the parameter to the `Parameters` collection.<br />-   Use `ParameterDirection.Output` to identify the parameter as output.|  
+|NC-10|Add a Try-Catch-Finally block to open the connection, run the stored procedure, handle exceptions, and then close the connection.|  
+|NC-11|Open the connection (`conn`) that you created at NC-6.|  
+|NC-12|Use the `ExecuteNonQuery` method for  `cmdNewCustomer` to run the `Sales.uspNewCustomer` stored procedure. This stored procedure runs an `INSERT` statement, not a query.|  
+|NC-13|The `@CustomerID` value is returned as an IDENTITY value from the database. Because it's an integer, you'll have to convert it to a string to display it in the **Customer ID** text box.<br /><br /> -   You declared `parsedCustomerID` at NC-2.<br />-   Store the `@CustomerID` value in `parsedCustomerID` for later use.<br />-   Convert the returned customer ID to a string, and insert it into `txtCustomerID.Text`.|  
+|NC-14|For this sample, add a simple (not production-quality) catch clause.|  
+|NC-15|Always close a connection after you finish using it, so that it can be released to the connection pool. See [SQL Server Connection Pooling (ADO.NET)](http://msdn.microsoft.com/library/8xx3tyca\(l=en-us,v=VS.110\).aspx).|  
+|NC-16|Define a method to verify that a customer name is present.<br /><br /> -   If the text box is empty, display a message and return `false`, because a name is required to create the account.<br />-   If the text box isn't empty, return `true`.|  
+|NC-17|Add code to the Click event handler for the `btnPlaceOrder` button.|  
+|NC-18|Wrap the call to `isPlaceOrderReady` around the `btnPlaceOrder_Click` event code so that `uspPlaceNewOrder` doesn't run if required input isn't present.|  
+|NC-19 through NC-25|These sections of code resemble the code that you added for the `btnCreateAccount_Click` event handler.<br /><br /> -   NC-19. Create the `SqlCommand` object, `cmdNewOrder`, and specify `Sales.uspPlaceOrder` as the stored procedure.<br />-   NC-20 through NC-23 are the input parameters for the stored procedure.<br />-   NC-24. `@RC` will contain a return value that's the generated order ID from the database. This parameter's direction is specified as `ReturnValue`.<br />-   NC-25. Store the value of order ID in the `orderID` variable that you declared at NC-2, and display the value in a message box.|  
+|NC-26|Define a method to verify that a customer ID exists and that an amount has been specified in `numOrderAmount`.|  
+|NC-27|Call the `ClearForm` method in the `btnAddAnotherAccount` Click event handler.|  
+|NC-28|Create the `ClearForm` method to clear values from the form if you want to add another customer.|  
+|NC29|Close the NewCustomer form, and return focus to the Navigation form.|  
   
-### FillOrCancel 窗体  
- 当你输入订单 ID 并选择**“查找订单”**按钮时，FillorCancel 窗体将运行查询以返回订单。  返回的行在只读数据网格中显示。  如果选择**“取消订单”**按钮，则可以将订单标记为已取消 \(X\)；如果选择**“填写订单”**按钮，则可以将订单标记为已填写 \(F\)。  如果再次选择**“查找订单”**按钮，则会显示更新的行。  
+### <a name="fillorcancel-form"></a>FillOrCancel form  
+ The FillOrCancel form runs a query to return an order when you enter an order ID and select the **Find Order** button. The returned row appears in a read-only data grid. You can mark the order as canceled (X) if you select the **Cancel Order** button, or you can mark the order as filled (F) if you select the **Fill Order** button. If you select the **Find Order** button again, the updated row appears.  
   
-#### 创建事件处理程序  
- 为窗体上的四个按钮创建空的 Click 事件处理程序。  
+#### <a name="create-event-handlers"></a>Create event handlers  
+ Create empty Click event handlers for the four buttons on the form.  
   
-#### 为 FillOrCancel 创建代码  
- 将下列代码添加到 FillOrCancel 窗体。  使用编号注释和代码后的表单步执行代码块。  
+#### <a name="create-code-for-fillorcancel"></a>Create code for FillOrCancel  
+ Add the following code to the FillOrCancel form. Step through the code blocks by using the numbered comments and the table that follows the code.  
   
 ```c#  
 using System;  
@@ -769,7 +793,7 @@ namespace SimpleDataApp
         //FC-4 Find an order.  
         private void btnFindByOrderID_Click(object sender, EventArgs e)  
         {  
-            //FC-5 Prepare the connection and the command  
+            //FC-5 Prepare the connection and the command.  
             if (isOrderID())  
             {  
                 //Create the connection.  
@@ -785,7 +809,7 @@ namespace SimpleDataApp
                 cmdOrderID.Parameters.Add(new SqlParameter("@orderID", SqlDbType.Int));  
                 cmdOrderID.Parameters["@orderID"].Value = parsedOrderID;  
   
-                //try – catch - finally  
+                //try-catch-finally  
                 try  
                 {  
                     //FC-6 Run the command and display the results.  
@@ -801,7 +825,7 @@ namespace SimpleDataApp
                     //Load the data from SqlDataReader into the data table.  
                     dataTable.Load(rdr);  
   
-                    //Display the data from the datatable in the datagridview.  
+                    //Display the data from the data table in the data grid view.  
                     this.dgvCustomerOrders.DataSource = dataTable;  
   
                     //Close the SqlDataReader.  
@@ -879,7 +903,7 @@ namespace SimpleDataApp
                 cmdFillOrder.Parameters.Add(new SqlParameter("@FilledDate", SqlDbType.DateTime, 8));  
                 cmdFillOrder.Parameters["@FilledDate"].Value = dtpFillDate.Value;  
   
-                //try – catch - finally  
+                //try-catch-finally  
                 try  
                 {  
                     //Open the connection.  
@@ -955,10 +979,10 @@ Imports System.Configuration
 Namespace SimpleDataApp  
     Partial Public Class FillOrCancel  
         Inherits Form  
-        ' FC-2 Storage for OrderID  
+        ' FC-2 Storage for OrderID.  
         Private parsedOrderID As Integer  
   
-        ' FC-3 Specify a connection string  
+        ' FC-3 Specify a connection string.  
         Private connstr As String = SimpleDataApp.Utility.GetConnectionString()  
   
         Public Sub New()  
@@ -996,10 +1020,10 @@ Namespace SimpleDataApp
                     ' Create a data table to hold the retrieved data.  
                     Dim dataTable As New DataTable()  
   
-                    ' Load the data from the SqlDataReader into the data table.  
+                    ' Load the data from SqlDataReader into the data table.  
                     dataTable.Load(rdr)  
   
-                    ' Display the data from the data table in the datagridview.  
+                    ' Display the data from the data table in the data grid view.  
                     Me.dgvCustomerOrders.DataSource = dataTable  
   
                     ' Close the SqlDataReader.  
@@ -1118,17 +1142,17 @@ Namespace SimpleDataApp
 End Namespace  
 ```  
   
-|注释|描述|  
-|--------|--------|  
-|FC\-1|将 System.Data.SqlClient、System.Configuration 和 System.Text.RegularExpressions 添加到命名空间列表。|  
-|FC\-2|声明 `parsedOrderID` 变量。|  
-|FC\-3|调用 `GetConnectionString` 方法以从应用配置文件中获取连接字符串，并将该值存储在 `connstr` 字符串变量中。|  
-|FC\-4|将代码添加到 `btnFindOrderByID` 的 Click 事件处理程序。|  
-|FC\-5|看起来眼熟？  在尝试运行 SQL 语句或存储过程之前，这些任务都是必需的。<br /><br /> -   创建 SqlConnection 对象。<br />-   定义 SQL 语句或指定存储过程的名称。  （在这种情况下，将运行 `SELECT` 语句。）<br />-   创建 `SqlCommand` 对象。<br />-   定义 SQL 语句或存储过程的任意参数。|  
-|FC\-6|此代码使用 `SqlDataReader` 和 `DataTable` 检索并显示查询结果。<br /><br /> -   打开连接。<br />-   通过运行 `cmdOrderID` 的 `ExecuteReader` 方法创建 SqlDataReader `rdr`。<br />-   创建 `DataTable` 对象以保存检索的数据。<br />-   将数据从 `SqlDataReader` 加载到 `DataTable` 对象中。<br />-   通过指定 `DataTable` 作为 datagridview 的 `DataSource`，显示 datagridview 中的数据。<br />-   关闭 SqlDataReader。|  
-|FC\-7|将代码添加到 `btnCancelOrder` 的 Click 事件处理程序。  此代码运行 `Sales.uspCancelOrder` 存储过程。|  
-|FC\-8|将代码添加到 `btnFillOrder` 的 Click 事件处理程序。  此代码运行 `Sales.uspFillOrder` 存储过程。|  
-|FC\-9|创建用于验证 `OrderID` 是否准备好作为 `SqlCommand` 对象的参数进行提交的方法。<br /><br /> -   确保已在 `txtOrderID` 中输入 ID。<br />-   使用 `Regex.IsMatch` 定义非整数字符的简单检查。<br />-   在 FC\-2 声明了 `parsedOrderID` 变量。<br />-   如果输入有效，则将文本转换为整数，并将值存储在 `parsedOrderID` 变量中。<br />-   将 `isOrderID` 方法包装在 `btnFindByOrderID`、`btnCancelOrder` 和 `btnFillOrder` Click 事件处理程序周围。|  
+|Comment|Description|  
+|-------------|-----------------|  
+|FC-1|Add `System.Data.SqlClient`, `System.Configuration`, and `System.Text.RegularExpressions` to the list of namespaces.|  
+|FC-2|Declare the `parsedOrderID` variable.|  
+|FC-3|Call the `GetConnectionString` method to get the connection string from the App config file, and store the value in the `connstr` string variable.|  
+|FC-4|Add code to the Click event handler for `btnFindOrderByID`.|  
+|FC-5|These tasks are required before you try to run an SQL statement or a stored procedure.<br /><br /> -   Create a `SqlConnection` object.<br />-   Define the SQL statement or specify the name of the stored procedure. (In this case, you'll run a `SELECT` statement.)<br />-   Create a `SqlCommand` object.<br />-   Define any parameters for the SQL statement or stored procedure.|  
+|FC-6|This code uses `SqlDataReader` and `DataTable` to retrieve and display the query result.<br /><br /> -   Open the connection.<br />-   Create a `SqlDataReader` object, `rdr`, by running  the `ExecuteReader` method for `cmdOrderID`.<br />-   Create a `DataTable` object to hold the retrieved data.<br />-   Load the data from the `SqlDataReader` object into the `DataTable` object.<br />-   Display the data in the data grid view by specifying `DataTable` as `DataSource` for the data grid view.<br />-   Close `SqlDataReader`.|  
+|FC-7|Add code to the Click event handler for `btnCancelOrder`. This code runs the `Sales.uspCancelOrder` stored procedure.|  
+|FC-8|Add code to the Click event handler for `btnFillOrder`. This code runs the `Sales.uspFillOrder` stored procedure.|  
+|FC-9|Create a method to verify that `OrderID` is ready to submit as a parameter to the `SqlCommand` object.<br /><br /> -   Make sure that an ID has been entered in `txtOrderID`.<br />-   Use `Regex.IsMatch` to define a simple check for non-integer characters.<br />-   You declared the `parsedOrderID` variable at FC-2.<br />-   If the input is valid, convert the text to an integer, and store the value in the `parsedOrderID` variable.<br />-   Wrap the `isOrderID` method around the `btnFindByOrderID`, `btnCancelOrder`, and `btnFillOrder` Click event handlers.|  
   
-##  <a name="BKMK_testyourapplication"></a> 测试应用程序  
- 在对每个 Click 事件处理程序进行编码且完成编码后，请按 F5 键以生成并测试应用程序。
+##  <a name="BKMK_testyourapplication"></a> Test your application  
+ Select the F5 key to build and test your application after you code each Click event handler, and then after you finish coding.

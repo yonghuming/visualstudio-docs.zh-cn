@@ -1,125 +1,138 @@
 ---
-title: "“内存”窗口 | Microsoft Docs"
-ms.custom: ""
-ms.date: "12/15/2016"
-ms.prod: "visual-studio-dev14"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-debug"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "vs.debug.memory"
-dev_langs: 
-  - "FSharp"
-  - "VB"
-  - "CSharp"
-  - "C++"
-  - "JScript"
-  - "VB"
-  - "CSharp"
-  - "C++"
-helpviewer_keywords: 
-  - "“内存”窗口"
-  - "字符串 [Visual Studio]，查看"
-  - "调试器 [Visual Studio]，内存窗口"
-  - "内存 [Visual Studio]，调试"
-  - "调试 [Visual Studio]，内存窗口"
-  - "缓冲区，查看"
+title: View Memory for Variables in the Debugger | Microsoft Docs
+ms.custom: H1Hack27Feb2017
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-debug
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords:
+- vs.debug.memory
+dev_langs:
+- CSharp
+- VB
+- FSharp
+- C++
+- JScript
+helpviewer_keywords:
+- Memory window
+- strings [Visual Studio], viewing
+- debugger [Visual Studio], Memory window
+- memory [Visual Studio], debugging
+- debugging [Visual Studio], Memory window
+- buffers, viewing
 ms.assetid: 7f7a0439-10e4-4966-bb2d-51f04cda4fe2
 caps.latest.revision: 32
-caps.handback.revision: 32
-author: "mikejo5000"
-ms.author: "mikejo"
-manager: "ghogen"
----
-# “内存”窗口
-[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
+author: mikejo5000
+ms.author: mikejo
+manager: ghogen
+translation.priority.ht:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+ms.translationtype: HT
+ms.sourcegitcommit: 9e6c28d42bec272c6fd6107b4baf0109ff29197e
+ms.openlocfilehash: 2b271eaf132aea65c1217d8b4f3bfef7e1e1ac0e
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/22/2017
 
-利用**“内存”**窗口可以看到应用程序所占用内存空间的情况。  在**“监视”**窗口、**“快速监视”**对话框、**“自动”**窗口和**“局部变量”**窗口，可看到存储于内存中特定位置的变量的内容。  但在**“内存”**窗口中可看到尺寸较大的图片。  这对于检查大片的数据（如缓冲区和大的字符串）很方便，在其他窗口中显示就不太好。  然而，**“内存”**窗口不仅限于显示数据。  该窗口可以显示内存空间中的任何内容，不论这些内容是数据、代码还是未分配内存中的无用随机位。  
+---
+# <a name="use-the-memory-windows-in-the-visual-studio-debugger"></a>Use the Memory Windows in the Visual Studio Debugger
+The **Memory** window provides a view into the memory space that is used by your application. The **Watch** window, **QuickWatch** dialog box, **Autos** window, and **Locals** window show you the content of variables, which are stored at specific locations in memory. But the **Memory** window shows you the large-scale picture. This view can be convenient for examining large pieces of data (buffers or large strings, for example) that do not display well in the other windows. However, the **Memory** window is not limited to displaying data. It displays everything in the memory space, whether the content is data, code, or random bits of garbage in unassigned memory.  
   
- 只有在**“选项”**对话框的**“调试”**节点中启用了地址级调试后，**“内存”**窗口才可用。  **“内存”**窗口对于脚本或 SQL 不可用，原因是这些语言不能识别内存概念。  
+ The **Memory** window is available only if address-level debugging is enabled in the **Options** dialog box, **Debugging** node. The **Memory** window is not available for Script or SQL, which are languages that do not recognize the concept of memory.  
   
-## 打开“内存”窗口  
+## <a name="opening-a-memory-window"></a>Opening a Memory Window  
   
-#### 打开“内存”窗口  
+#### <a name="to-open-a-memory-window"></a>To open a Memory window  
   
-1.  如果尚未进入调试模式，请开始调试。  
+1.  Start debugging, if you are not already in debug mode.  
   
-2.  在**“调试”**菜单中，指向**“窗口”**。  然后，指向**“内存”**，然后单击**“内存 1”**、**“内存 2”**、**“内存 3”**或**“内存 4”**。（较低版本的 [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] 只有一个**“内存”**窗口。  如果使用的是某个较低版本，则只需单击**“内存”**。）  
+2.  In the **Debug** menu, point to **Windows**. Then, point to **Memory** and then click **Memory 1**, **Memory 2**, **Memory 3**, or **Memory 4**. (Lower-level editions of [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] have only a single **Memory** window. If you are using one of those editions, just click **Memory**.)  
   
-## 在“内存”窗口中分页  
- **“内存”**窗口拥有一个以非标准方式工作的垂直滚动条。  如今的计算机地址空间非常大，抓取滚动条滚动块并将其移动到任意位置，就容易找不到地址。  为此，滚动块就像“装了弹簧”，总是保持在滚动条的中心。  在本机代码应用程序中，可以向上或向下翻页，但不能随便滚动。  
+## <a name="paging-in-the-memory-window"></a>Paging in the Memory Window  
+ The **Memory** window has a vertical scrollbar that operates in a nonstandard manner. The address space of a modern computer is very large, and you could easily get lost by grabbing the scrollbar thumb and dragging it to a random location. For that reason, the thumb is "spring-loaded" and always remains in the center of the scrollbar. In native code applications, you can page up or down, but cannot scroll about freely.  
   
- 较高的内存地址显示在窗口的底部。  若要查看较高的地址，请向下滚动而不是向上滚动。  
+ Higher memory addresses appear at the bottom of the window. To view a higher address, scroll down, not up.  
   
-#### 在内存中向上或向下翻页  
+#### <a name="to-page-up-or-down-in-memory"></a>To page up or down in memory  
   
-1.  若要向下翻页（移动到较高的内存地址），请在垂直滚动条中单击滚动块以下的位置。  
+1.  To page down (move to a higher memory address), click under the thumb in the vertical scrollbar.  
   
-2.  若要向上翻页（移动到较低的内存地址），请在垂直滚动条中单击滚动块以上的位置。  
+2.  To page up (move to a lower memory address), click above the thumb the vertical scrollbar.  
   
-## 选择内存位置  
- 如果要立即转到内存中的选定位置，可以使用拖放操作或在**“地址”**框中编辑值的方法来这样做。  **“地址”**框不仅接受数值，而且接受计算结果为地址的表达式。  默认情况下，**“内存”**窗口将**“地址”**表达式视为活动表达式，即程序执行时将对该表达式进行重新计算。  活动表达式可有极大用处。  例如，可以使用它们查看指针所指向的内存。  
+## <a name="selecting-a-memory-location"></a>Selecting a Memory Location  
+ If you want to move instantly to a selected location in memory, you can do so by using a drag-and-drop operation or by editing the value in the **Address** box. The **Address** box accepts not only numeric values but also expressions that evaluate to addresses. By default, the **Memory** window treats an **Address** expression as a live expression, which is reevaluated as your program executes. Live expressions can be very useful. For example, you can use them to view the memory that is touched by a pointer.  
   
-#### 通过拖放操作选择内存位置  
+#### <a name="to-select-a-memory-location-by-dragging-and-dropping"></a>To select a memory location by dragging and dropping  
   
-1.  在任一窗口中选择内存地址或选择包含内存地址的指针变量。  
+1.  In any window, select a memory address or pointer variable that contains a memory address.  
   
-2.  将地址或指针拖到**“内存”**窗口。  
+2.  Drag the address or pointer to the **Memory** window.  
   
-#### 通过编辑选择内存位置  
+#### <a name="to-select-a-memory-location-by-editing"></a>To select a memory location by editing  
   
-1.  在**“内存”**窗口中选择**“地址”**框。  
+1.  In the **Memory** window, select the **Address** box.  
   
-2.  键入或粘贴您要查看的地址，然后按 **Enter**。  
+2.  Type or paste the address you want to see, and then press **ENTER**.  
   
-## 更改“内存”窗口显示信息的方式  
- 可以自定义**“内存”**窗口显示内存内容的方式。  默认情况下，内存内容以十六进制格式显示为一个字节的整数，列数由当前的窗口宽度自动确定。  
+## <a name="changing-the-way-the-memory-window-displays-information"></a>Changing the Way the Memory Window Displays Information  
+ You can customize the way the **Memory** window shows memory contents. By default, memory contents appear as one-byte integers in hexadecimal format, and the number of columns is determined automatically by the current width of the window.  
   
-#### 更改内存内容的格式  
+#### <a name="to-change-the-format-of-the-memory-contents"></a>To change the format of the memory contents  
   
-1.  右击**“内存”**窗口。  
+1.  Right-click the **Memory** window.  
   
-2.  选择所需的格式。  
+2.  Choose the format that you want.  
   
-#### 更改“内存”窗口中的列数  
+#### <a name="to-change-the-number-of-columns-in-the-memory-window"></a>To change the number of columns in the Memory window  
   
-1.  在**“内存”**窗口顶部的工具栏中定位**“列”**列表。  
+1.  In the toolbar at the top of the **Memory** window, locate the **Columns** list.  
   
-2.  在**“列”**列表中，选择您要显示的列数，或者选择**“自动”**以便根据窗口宽度自动调整。  
+2.  In the **Columns** list, select the number of columns that you want to display or select **Auto** for automatic adjustment to fit the width of the window.  
   
- 如果不想在程序执行时更改**“内存”**窗口中的内容，可以关闭活动表达式计算功能。  
+ If you do not want the contents of the **Memory** window to change as your program executes, you can turn off live expression evaluation.  
   
-#### 打开或关闭活动计算  
+#### <a name="to-toggle-live-evaluation"></a>To toggle live evaluation  
   
-1.  右击**“内存”**窗口。  
+1.  Right-click the **Memory** window.  
   
-2.  在快捷菜单上单击**“自动重新计算”**。  
+2.  On the shortcut menu, click **Reevaluate Automatically**.  
   
-     如果打开活动计算，则该选项处于选中状态，单击该选项将关闭活动计算。  如果关闭活动计算，则该选项未处于选中状态，单击该选项将打开活动计算。  
+     If live evaluation is on, the option will be selected, and clicking it turns off live evaluation. If live evaluation is off, the option is not selected, and clicking it turns on live evaluation.  
   
- 可以隐藏或显示**“内存”**窗口顶部的工具栏。  当工具栏隐藏时，无法访问“地址”框或其他工具。  
+ You can hide or display the toolbar at the top of the **Memory** window. You will not have access to Address box or other tools as long as the toolbar is hidden.  
   
-#### 切换工具栏  
+#### <a name="to-toggle-the-toolbar"></a>To toggle the toolbar  
   
-1.  右击**“内存”**窗口。  
+1.  Right-click a **Memory** window.  
   
-2.  在快捷菜单上，单击**“显示工具栏”**。  
+2.  On the shortcut menu, click **Show Toolbar**.  
   
-     工具栏将出现或不出现，具体取决于它先前的状态。  
+     The toolbar appears or disappears, depending on its previous state.  
   
-## 跟踪内存中的指针  
- 在本机代码应用程序中，可以将寄存器名称用作活动表达式。  例如，可以使用堆栈指针跟踪堆栈。  
+## <a name="following-a-pointer-through-memory"></a>Following a Pointer Through Memory  
+ In native code applications, you can use register names as live expressions. For example, you can use the stack pointer to follow the stack.  
   
-#### 跟踪内存中的指针  
+#### <a name="to-follow-a-pointer-through-memory"></a>To follow a pointer through memory  
   
-1.  在**“内存”**窗口中的**“地址”**框中键入一个指针表达式。  指针变量必须在当前范围内。  根据所使用的语言，可能必须取消引用指针。  
+1.  In the **Memory** window **Address** box, type a pointer expression. The pointer variable must be in the current scope. Depending on the language, you might have to dereference it.  
   
-2.  按 Enter。  
+2.  Press **ENTER**.  
   
-     现在，当使用执行命令（如**“单步执行”**）时，所显示的内存地址将随指针变化而自动变化。  
+     Now, when you use an execution command such as **Step**, the memory address that is displayed will automatically change as the pointer changes.  
   
-## 请参阅  
- [查看调试器中的数据](../debugger/viewing-data-in-the-debugger.md)
+## <a name="see-also"></a>See Also  
+ [Viewing Data in the Debugger](../debugger/viewing-data-in-the-debugger.md)

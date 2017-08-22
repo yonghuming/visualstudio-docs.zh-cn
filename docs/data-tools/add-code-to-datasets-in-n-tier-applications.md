@@ -1,52 +1,71 @@
 ---
-title: "如何：向 N 层应用程序的数据集添加代码 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/17/2016"
-ms.prod: "visual-studio-dev14"
-ms.reviewer: ""
-ms.suite: ""
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-dev_langs: 
-  - "VB"
-  - "CSharp"
-  - "C++"
-  - "aspx"
-helpviewer_keywords: 
-  - "n 层应用程序, 扩展数据集"
+title: Add code to datasets in n-tier applications | Microsoft Docs
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.tgt_pltfrm: 
+ms.topic: article
+dev_langs:
+- VB
+- CSharp
+- C++
+- aspx
+helpviewer_keywords:
+- n-tier applications, extending datasets
 ms.assetid: d43c2ccd-4902-43d8-b1a8-d10ca5d3210c
 caps.latest.revision: 20
-caps.handback.revision: 17
-author: "mikeblome"
-ms.author: "mblome"
-manager: "ghogen"
+author: mikeblome
+ms.author: mblome
+manager: ghogen
+translation.priority.ht:
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- ru-ru
+- zh-cn
+- zh-tw
+translation.priority.mt:
+- cs-cz
+- pl-pl
+- pt-br
+- tr-tr
+ms.translationtype: HT
+ms.sourcegitcommit: 9e6c28d42bec272c6fd6107b4baf0109ff29197e
+ms.openlocfilehash: ee1a0cf1b392fe6407fb66cf64a2372cc2208a69
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/22/2017
+
 ---
-# 如何：向 N 层应用程序的数据集添加代码
-通过为数据集创建分部类文件并向其中添加代码（而不是向 *数据集名称*.Dataset.Designer 文件中添加代码），可以扩展数据集的功能。  （分部类可帮助将特定类的代码划分到多个物理文件中。  有关更多信息，请参见 [分部](/dotnet/visual-basic/language-reference/modifiers/partial) 或 [分部类和方法](/dotnet/csharp/programming-guide/classes-and-structs/partial-classes-and-methods)。）  
+# <a name="add-code-to-datasets-in-n-tier-applications"></a>Add code to datasets in n-tier applications
+You can extend the functionality of a dataset by creating a partial class file for the dataset and adding code to it (instead of adding code to the *DatasetName*.Dataset.Designer file). Partial classes enable code for a specific class to be divided among multiple physical files. For more information, see [Partial](/dotnet/visual-basic/language-reference/modifiers/partial) or [Partial Classes and Methods](/dotnet/csharp/programming-guide/classes-and-structs/partial-classes-and-methods).  
   
- 每次对数据集定义进行更改（在[创建和编辑类型化数据集](../data-tools/creating-and-editing-typed-datasets.md)中）时，都会生成定义数据集的代码。  此外，在运行修改数据集的配置的任何向导期间，修改数据集定义也会生成此代码。  若要防止在重新生成数据集期间删除代码，请将代码添加到数据集的分部类文件中。  
+ The code that defines a dataset is generated every time changes are made to the dataset definition (in the typed dataset). This code is also generated when you make changes during the running of any wizard that modifies the configuration of a dataset. To prevent your code from being deleted during the regeneration of a dataset, add code to the dataset's partial class file.  
   
- 默认情况下，分离数据集和 `TableAdapter` 代码后，每个项目中将包含一个独立的类文件。  原始项目将包含一个名为 *数据集名称*.Designer.vb（或 *数据集名称*.Designer.cs）的文件，其中含有 `TableAdapter` 代码。  **“数据集项目”**属性中指定的项目将包含一个名为 *数据集名称*.DataSet.Designer.vb（或 *数据集名称*.DataSet.Designer.cs）的文件，其中含有数据集代码。  
-  
-> [!NOTE]
->  分离数据集与 `TableAdapter` 时（通过设置**“数据集项目”**属性），将不会自动移动项目中现有的数据集分部类。  您必须手动将它们移到数据集项目中。  
+ By default, after you separate the dataset and `TableAdapter` code, the result is a discrete class file in each project. The original project has a file named *DatasetName*.Designer.vb (or *DatasetName*.Designer.cs) that contains the `TableAdapter` code. The project that's designated in the **Dataset Project** property has a file that's named *DatasetName*.DataSet.Designer.vb (or *DatasetName*.DataSet.Designer.cs).This file contains the dataset code.  
   
 > [!NOTE]
->  [创建和编辑类型化数据集](../data-tools/creating-and-editing-typed-datasets.md)还可在应添加验证代码时生成 <xref:System.Data.DataTable.ColumnChanging> 和 <xref:System.Data.DataTable.RowChanging> 事件处理程序。  有关更多信息，请参见[如何：向 N 层数据集添加验证](../data-tools/add-validation-to-an-n-tier-dataset.md)。  
+>  When you separate datasets and `TableAdapter`s (by setting the **DataSet Project** property), existing partial dataset classes in the project won't be moved automatically. Existing dataset partial classes must be moved manually to the dataset project.  
   
-### 向 n 层应用程序的数据集添加代码  
+> [!NOTE]
+>  When validation code needs to be added, the typed dataset provides functionality for generating <xref:System.Data.DataTable.ColumnChanging> and <xref:System.Data.DataTable.RowChanging> event handlers. For more information, see [Add validation to an n-tier dataset](../data-tools/add-validation-to-an-n-tier-dataset.md).  
   
-1.  查找包含 .xsd 文件的项目（[创建和编辑类型化数据集](../data-tools/creating-and-editing-typed-datasets.md)）。  
+### <a name="to-add-code-to-datasets-in-n-tier-applications"></a>To add code to datasets in n-tier applications  
   
-2.  双击**“.xsd”**文件以打开[创建和编辑类型化数据集](../data-tools/creating-and-editing-typed-datasets.md)。  
+1.  Locate the project that contains the .xsd file. 
   
-3.  右击要向其添加代码的数据表（标题栏中的表名称），然后单击**“查看代码”**。  
+2.  Select the **.xsd** file to open the dataset.  
   
-     此时将创建一个分部类，并在代码编辑器中打开。  
+3.  Right-click the data table to which you want to add code (the table name in the title bar), and then select **View Code**.  
   
-4.  在分部类声明中添加代码。  
+     A partial class is created and opens in the Code Editor.  
   
-     下面的示例演示向 NorthwindDataSet 中的 CustomersDataTable 表添加代码的位置：  
+4.  Add code inside the partial class declaration.  
+  
+     The following example shows where to add code to the CustomersDataTable in the NorthwindDataSet:  
   
     ```vb#  
     Partial Public Class CustomersDataTable  
@@ -63,11 +82,10 @@ manager: "ghogen"
     }  
     ```  
   
-## 请参阅  
- [N 层数据应用程序概述](../data-tools/n-tier-data-applications-overview.md)   
- [如何：向 N 层应用程序中的 TableAdapter 添加代码](../data-tools/add-code-to-tableadapters-in-n-tier-applications.md)   
- [TableAdapter](../Topic/TableAdapters.md)   
- [TableAdapterManager 概述](../Topic/TableAdapterManager%20Overview.md)   
- [分层更新概述](../Topic/Hierarchical%20Update%20Overview.md)   
- [创建数据应用程序](../data-tools/creating-data-applications.md)   
- [在 Visual Studio 中使用数据集](../data-tools/dataset-tools-in-visual-studio.md)
+## <a name="see-also"></a>See Also  
+ [N-Tier Data Applications Overview](../data-tools/n-tier-data-applications-overview.md)   
+ [Add code to TableAdapters in n-tier applications](../data-tools/add-code-to-tableadapters-in-n-tier-applications.md)   
+ [Create and Configure TableAdapters](create-and-configure-tableadapters.md)   
+ [Create and Configure TableAdapters](create-and-configure-tableadapters.md)   
+ [Hierarchical Update Overview](hierarchical-update.md)     
+ [Dataset tools in Visual Studio](../data-tools/dataset-tools-in-visual-studio.md)

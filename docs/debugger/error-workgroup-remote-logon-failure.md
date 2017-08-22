@@ -1,86 +1,98 @@
 ---
-title: "错误：工作组远程登录失败 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-debug"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "vs.debug.error.workgroup_remote_logon_failure"
-dev_langs: 
-  - "FSharp"
-  - "VB"
-  - "CSharp"
-  - "C++"
-  - "JScript"
-  - "VB"
-  - "CSharp"
-  - "C++"
-helpviewer_keywords: 
-  - "登录失败, 远程调试"
-  - "远程调试, 登录失败"
+title: 'Error: Workgroup Remote Logon Failure | Microsoft Docs'
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-debug
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords:
+- vs.debug.error.workgroup_remote_logon_failure
+dev_langs:
+- CSharp
+- VB
+- FSharp
+- JScript
+- C++
+helpviewer_keywords:
+- logon failure, remote debugging
+- remote debugging, logon failure
 ms.assetid: 7be2c5bb-40fe-48d6-8cfc-c231fbd3d64e
 caps.latest.revision: 19
-author: "mikejo5000"
-ms.author: "mikejo"
-manager: "ghogen"
-caps.handback.revision: 19
----
-# 错误：工作组远程登录失败
-[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
+author: mikejo5000
+ms.author: mikejo
+manager: ghogen
+translation.priority.ht:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+ms.translationtype: HT
+ms.sourcegitcommit: 9e6c28d42bec272c6fd6107b4baf0109ff29197e
+ms.openlocfilehash: d0ebccfdb523661ba04a103bf6999e9c6546d1c7
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/22/2017
 
-此错误显示如下：  
+---
+# <a name="error-workgroup-remote-logon-failure"></a>Error: Workgroup Remote Logon Failure
+This error reads:  
   
- 登录失败: 未知的用户名或密码不正确  
+ Logon failure: unknown user name or bad password  
   
- **原因**  
+ **Cause**  
   
- 当从工作组上的计算机进行调试并尝试连接到远程计算机时可能发生此错误。  可能的原因包括：  
+ This error can occur when you are debugging from a machine on a workgroup and you try to connect to remote machine. Possible causes include:  
   
--   远程计算机上没有匹配用户名和密码的帐户。  
+-   There is no account with the matching name and password on the remote machine.  
   
--   如果 Visual Studio 计算机和远程计算机都在工作组上，则远程计算机上的默认**“本地安全策略”**设置可能会导致此错误。  **“本地安全策略”**的默认设置是**“仅来宾 \- 本地用户以来宾身份验证”**。  若要在此设置上调试，必须将远程计算机上的设置更改为**“经典 \- 本地用户以自己的身份验证”**。  
+-   If both the Visual Studio computer and the remote machine are on workgroups, this error may occur due to the default **Local Security Policy** setting on the remote machine. The default setting for the **Local Security Policy** setting is **Guest only - local users authenticate as Guest**. To debug on this setup, you must change the setting on the remote machine to **Classic - local users authenticate as themselves**.  
   
 > [!NOTE]
->  您必须是管理员才能执行以下任务。  
+>  You must be an administrator to carry out the following tasks.  
   
-### 打开“本地安全策略”窗口  
+### <a name="to-open-the-local-security-policy-window"></a>To open the Local Security Policy window  
   
-1.  启动 **secpol.msc** Microsoft 管理控制台管理单元。  在 Windows 搜索、Windows“运行”框中或命令提示符处键入 secpol.msc。  
+1.  Start the **secpol.msc** Microsoft Management Console snap-in. Type secpol.msc in Windows search, the Windows Run box, or at a command prompt.  
   
-### 添加用户权限分配  
+### <a name="to-add-user-rights-assignments"></a>To add user rights assignments  
   
-1.  打开 Loca  
+1.  Open the **Local Security Policy** window.  
   
-2.  打开**“本地安全策略”**窗口。  
+2.  Expand the **Local Policies** folder.  
   
-3.  展开**“本地策略”**文件夹。  
+3.  Click **User Rights Assignment**.  
   
-4.  单击**“用户权限分配”**。  
+4.  In the **Policy** column, double-click **Debug programs** to view current local group policy assignments in the **Local Security Policy Setting** dialog box.  
   
-5.  在**“策略”**列中双击**“调试程序”**，查看**“本地安全策略设置”**对话框中的当前本地组策略分配。  
+     ![Local Security Policy User Rights](../debugger/media/dbg_err_localsecuritypolicy_userrightsdebugprograms.png "DBG_ERR_LocalSecurityPolicy_UserRightsDebugPrograms")  
   
-     ![本地安全策略用户权限](../debugger/media/dbg_err_localsecuritypolicy_userrightsdebugprograms.png "DBG\_ERR\_LocalSecurityPolicy\_UserRightsDebugPrograms")  
+5.  To add new users, click the **Add User or Group** button.  
   
-6.  若要添加新用户，请单击**“添加用户或组”**按钮。  
+### <a name="to-change-the-sharing-and-security-model"></a>To change the Sharing and Security Model  
   
-### 更改“共享和安全模型”  
+1.  Open the **Local Security Policy** window.  
   
-1.  打开**“本地安全策略”**窗口。  
+2.  Expand the **Local Policies** folder.  
   
-2.  展开**“本地策略”**文件夹。  
+3.  Click **Security Options**.  
   
-3.  单击**“安全选项”**。  
+4.  In the **Policy** column, double-click **Network access: Sharing and security model for local accounts**.  
   
-4.  在**“策略”**列中，双击**“网络访问: 本地帐户的共享和安全模型”**。  
+5.  In the **Network access: Sharing and security model for local accounts** dialog box, change the value to **Classic - local users authenticate as themselves** and click the **Apply** button.  
   
-5.  在**“网络访问: 本地帐户的共享和安全模型”**对话框中，将相应的值更改为**“经典 \- 本地用户以自己的身份验证”**，然后单击**“应用”**按钮。  
+     ![Local Security Policy Security Options](../debugger/media/dbg_err_localsecuritypolicy_securityoptions_networkaccess.png "DBG_ERR_LocalSecurityPolicy_SecurityOptions_NetworkAccess")  
   
-     ![本地安全策略安全选项](../debugger/media/dbg_err_localsecuritypolicy_securityoptions_networkaccess.png "DBG\_ERR\_LocalSecurityPolicy\_SecurityOptions\_NetworkAccess")  
-  
-## 请参阅  
- [远程调试错误和疑难解答](../debugger/remote-debugging-errors-and-troubleshooting.md)   
- [远程调试](../debugger/remote-debugging.md)
+## <a name="see-also"></a>See Also  
+ [Remote Debugging Errors and Troubleshooting](../debugger/remote-debugging-errors-and-troubleshooting.md)   
+ [Remote Debugging](../debugger/remote-debugging.md)

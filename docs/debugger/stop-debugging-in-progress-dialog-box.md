@@ -1,44 +1,58 @@
 ---
-title: "“停止正在进行的调试”对话框 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-debug"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "vs.debug.stopnow"
-dev_langs: 
-  - "FSharp"
-  - "VB"
-  - "CSharp"
-  - "C++"
-  - "JScript"
-  - "SQL"
-  - "VB"
-  - "CSharp"
-  - "C++"
-helpviewer_keywords: 
-  - "“停止正在进行的调试”对话框"
+title: Stop Debugging In Progress Dialog Box | Microsoft Docs
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-debug
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords:
+- vs.debug.stopnow
+dev_langs:
+- CSharp
+- VB
+- FSharp
+- C++
+- JScript
+- SQL
+helpviewer_keywords:
+- Stop Debugging in Progress dialog box
 ms.assetid: ed7ef49d-e25f-4a4d-9396-9bc7b4143117
 caps.latest.revision: 7
-author: "mikejo5000"
-ms.author: "mikejo"
-manager: "ghogen"
-caps.handback.revision: 7
----
-# “停止正在进行的调试”对话框
-[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
+author: mikejo5000
+ms.author: mikejo
+manager: ghogen
+translation.priority.ht:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+ms.translationtype: HT
+ms.sourcegitcommit: 9e6c28d42bec272c6fd6107b4baf0109ff29197e
+ms.openlocfilehash: d07ab45ca55e164f5b5eaff3603293c862bd7c7a
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/22/2017
 
-当调试器尝试停止调试会话，但停止会话需要一段时间时，会出现此对话框。  停止调试会话通常很快，而此对话框并不出现。  但是，有时从正在调试的所有进程中分离需要额外的时间。  如果停止会话需要的时间超过几秒钟（或者发生分离错误），则会出现此对话框。  如果此对话框经常出现，则可能是由于内部问题，您可能需要与产品支持服务联系。  
+---
+# <a name="stop-debugging-in-progress-dialog-box"></a>Stop Debugging In Progress Dialog Box
+This dialog box appears when the debugger is trying to stop a debugging session, but stopping the session is going to take some time. Stopping a debugging session is normally very fast and this dialog box does not appear. Sometimes, however, it takes additional time to detach from all the processes being debugged. If stopping the session takes more than a few seconds (or if a detach error occurs), this dialog box appears. If this occurs frequently, it may be due to an internal problem and you may want to contact Product Support Services.  
   
- 您可以等待进程分离，直到此对话框消失，或者使用**“立即停止”**按钮强制立即终止。  
+ You can wait for the processes to detach and this dialog box to disappear, or use the **Stop Now** button to force immediate termination.  
   
- **立即停止**  
- 单击此按钮可立即结束调试会话。  使用**“立即停止”**将终止而不是分离正在调试的进程。  如果正在调试系统进程，使用**“立即停止”**终止这些进程可能产生不希望出现的意外结果。  
+ **Stop Now**  
+ Click this button to end the debugging session immediately. Using **Stop Now** will terminate rather than detaching the processes being debugged. If you are debugging system processes, terminating those processes with **Stop Now** can have unexpected and undesired effects.  
   
-## 请参阅  
- [调试器安全](../debugger/debugger-security.md)   
- [Detaching Programs](http://msdn.microsoft.com/zh-cn/f2c756c2-8079-474b-94c2-01c19a141a01)
+## <a name="see-also"></a>See Also  
+ [Debugger Security](../debugger/debugger-security.md)   
+ [Detaching Programs](http://msdn.microsoft.com/en-us/f2c756c2-8079-474b-94c2-01c19a141a01)

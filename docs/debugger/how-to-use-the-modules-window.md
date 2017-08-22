@@ -1,83 +1,97 @@
 ---
-title: "如何：使用“模块”窗口 | Microsoft Docs"
-ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-debug"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "vs.debug.modules"
-dev_langs: 
-  - "FSharp"
-  - "VB"
-  - "CSharp"
-  - "C++"
-  - "JScript"
-  - "VB"
-  - "CSharp"
-  - "C++"
-helpviewer_keywords: 
-  - "调试器，“模块”窗口"
-  - "“模块”窗口"
-  - "可执行文件，在调试时显示"
-  - "调试 [Visual Studio]，显示模块"
-  - "DLL，在调试时显示"
-  - "模块，显示"
+title: View DLLs and Executables in the Debugger | Microsoft Docs
+ms.custom: H1Hack27Feb2017
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-debug
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords:
+- vs.debug.modules
+dev_langs:
+- CSharp
+- VB
+- FSharp
+- C++
+- JScript
+helpviewer_keywords:
+- debugger, Modules window
+- Modules window
+- executable files, displaying while debugging
+- debugging [Visual Studio], displaying modules
+- DLLs, displaying while debugging
+- modules, displaying
 ms.assetid: d840fdca-b035-4452-b652-72580c831896
 caps.latest.revision: 36
-caps.handback.revision: 36
-author: "mikejo5000"
-ms.author: "mikejo"
-manager: "ghogen"
+author: mikejo5000
+ms.author: mikejo
+manager: ghogen
+translation.priority.ht:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+ms.translationtype: HT
+ms.sourcegitcommit: 9e6c28d42bec272c6fd6107b4baf0109ff29197e
+ms.openlocfilehash: e0e565507f2ae48992231a122d32971d90c461c7
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/22/2017
+
 ---
-# 如何：使用“模块”窗口
-[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
+# <a name="view-dlls-and-executables-using-the-modules-window-in-the-visual-studio-debugger"></a>View DLLs and Executables using the Modules Window in the Visual Studio Debugger
+ 
+The **Modules** window lists the DLLs and executables (EXE) that are used by your program and shows relevant information for each. 
 
 > [!NOTE]
->  此功能不可用于 SQL 或脚本调试。  
+>  This feature is not available for SQL or script debugging. 
   
- **“模块”**窗口列出程序所使用的 DLL 与 EXE，并显示各个模块的相关信息。  
+### <a name="to-display-the-modules-window"></a>To display the Modules window  
   
-### 在中断模式或运行模式下显示“模块”窗口  
+-   While you are debugging, select **Debug > Windows** and then click **Modules**.  
   
--   在**“调试”**菜单上选择**“窗口”**，然后单击**“模块”**。  
+     By default, the **Modules** window sorts modules by load order. However, you can choose to sort by any column.  
   
-     默认情况下，**“模块”**窗口按加载顺序对模块进行排序。  但是，可以选择按任意列来排序。  
+### <a name="to-sort-by-any-column"></a>To sort by any column  
   
-### 按任意列排序  
+-   Click the button at the top of the column.  
   
--   单击该列顶部的按钮。  
+     You can load symbols or specify a symbol path from the **Modules** window by using the shortcut menu.  
   
-     使用快捷菜单可以在**“模块”**窗口中加载符号或指定符号路径。  
+## <a name="loading-symbols"></a>Loading Symbols  
+ In the **Modules** window, you can see which modules have debugging symbols loaded. This information appears in the **Symbol Status** column. If the status says **Skipped loadingCannot find or open the PDB file**, or **Loading disabled by include/exclude setting**, you can direct the debugger to download symbols from the Microsoft public symbol servers or to load symbols from a symbol directory on your computer. For more information, see [Specify Symbol (.pdb) and Source Files](../debugger/specify-symbol-dot-pdb-and-source-files-in-the-visual-studio-debugger.md)  
   
-## 加载符号  
- 在**“模块”**窗口中，可以看到哪些模块加载了调试符号。  这些信息显示在**“符号状态”**列中。  如果该状态显示**“已跳过加载”**、**“无法查找或打开 PDB 文件”**或**“‘包括’\/‘排除’设置禁用了加载功能”**，则你可以指示调试器从 Microsoft 公共符号服务器下载符号，或者从你的计算机上的符号目录加载符号。  有关更多信息，请参阅[指定符号 \(.pdb\) 和源文件](../debugger/specify-symbol-dot-pdb-and-source-files-in-the-visual-studio-debugger.md)。  
+#### <a name="to-load-symbols-manually"></a>To load symbols manually  
   
-#### 手动加载符号  
+1.  In the **Modules** window, right-click a module for which symbols have not loaded.  
   
-1.  在**“模块”**窗口中，右击还未加载符号的模块。  
+2.  Point to **Load Symbols From** and then click **Microsoft Symbol Servers** or **Symbol Path**.  
   
-2.  指向**“加载符号”**，然后单击**“Microsoft 符号服务器”**或**“符号路径”**。  
+#### <a name="to-change-symbol-load-settings"></a>To change symbol load settings  
   
-#### 更改符号加载设置  
+1.  In the **Modules** window, right-click any module.  
   
-1.  在**“模块”**窗口中右击任一模块。  
+2.  Click **Symbol Settings**.  
   
-2.  单击**“符号设置”**。  
+     You can now change the symbol load settings, as described in [Specify symbol locations and loading behavior](../debugger/specify-symbol-dot-pdb-and-source-files-in-the-visual-studio-debugger.md#BKMK_Specify_symbol_locations_and_loading_behavior). Changes do not take effect until you restart the debugging session.  
   
-     你现在可以更改符号加载设置，如[指定符号位置和加载行为](../debugger/specify-symbol-dot-pdb-and-source-files-in-the-visual-studio-debugger.md#BKMK_Specify_symbol_locations_and_loading_behavior)中所述。  只有重新启动调试会话，更改才会生效。  
+#### <a name="to-change-symbol-load-behavior-for-a-specific-module"></a>To change symbol load behavior for a specific module  
   
-#### 为特定模块更改符号加载行为  
+1.  In the **Modules** window, right-click the module.  
   
-1.  在**“模块”**窗口中右击所需模块。  
+2.  Point to **Automatic Symbol Load Settings** and then click **Always Load Manually** or **Default**. Changes do not take effect until you restart the debugging session.  
   
-2.  指向**“自动符号加载设置”**，然后单击**“始终手动加载”**或**“默认”**。  只有重新启动调试会话，更改才会生效。  
-  
-## 请参阅  
- [Breaking Execution](http://msdn.microsoft.com/zh-cn/30fc4643-f337-4651-b1ff-f2de2c098d40)   
- [查看调试器中的数据](../debugger/viewing-data-in-the-debugger.md)   
- [指定符号 \(.pdb\) 和源文件](../debugger/specify-symbol-dot-pdb-and-source-files-in-the-visual-studio-debugger.md)
+## <a name="see-also"></a>See Also  
+ [Breaking Execution](http://msdn.microsoft.com/en-us/30fc4643-f337-4651-b1ff-f2de2c098d40)   
+ [Viewing Data in the Debugger](../debugger/viewing-data-in-the-debugger.md)   
+ [Specify Symbol (.pdb) and Source Files](../debugger/specify-symbol-dot-pdb-and-source-files-in-the-visual-studio-debugger.md)

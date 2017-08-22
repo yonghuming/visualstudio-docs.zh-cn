@@ -1,117 +1,158 @@
 ---
-title: "“自动”和“局部变量”窗口 | Microsoft Docs"
-ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-debug"
-ms.tgt_pltfrm: ""
-ms.topic: "hero-article"
-f1_keywords: 
-  - "vs.debug.autos"
-  - "vs.debug.locals"
-dev_langs: 
-  - "FSharp"
-  - "VB"
-  - "CSharp"
-  - "C++"
-  - "JScript"
-helpviewer_keywords: 
-  - "调试器, 变量窗口"
-  - "调试 [Visual Studio], 变量窗口"
+title: Inspect Variables in the Autos and Locals Windows | Microsoft Docs
+ms.custom: H1Hack27Feb2017
+ms.date: 04/17/2017
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-debug
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords:
+- vs.debug.autos
+- vs.debug.locals
+helpviewer_keywords:
+- debugger, variable windows
+- debugging [Visual Studio], variable windows
 ms.assetid: bb6291e1-596d-4af0-9f22-5fd713d6b84b
 caps.latest.revision: 24
-caps.handback.revision: 24
-author: "mikejo5000"
-ms.author: "mikejo"
-manager: "ghogen"
----
-# “自动”和“局部变量”窗口
-[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
+author: mikejo5000
+ms.author: mikejo
+manager: ghogen
+translation.priority.ht:
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- ru-ru
+- zh-cn
+- zh-tw
+translation.priority.mt:
+- cs-cz
+- pl-pl
+- pt-br
+- tr-tr
+ms.translationtype: HT
+ms.sourcegitcommit: 9e6c28d42bec272c6fd6107b4baf0109ff29197e
+ms.openlocfilehash: 8663c848e5a6988c20e2d1c020bf99a368e82b60
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/22/2017
 
-当你希望在进行调试的过程中查看变量的值时，**“自动”**窗口（在调试过程中，按 **Ctrl\+Alt\+V, A**，或者通过“调试\/窗口\/自动”）和**“局部变量”**窗口（在调试过程中，按 **Ctrl\+Alt\+V, L**，或者通过“调试\/窗口\/局部变量”）是非常有用的。 “局部变量”窗口显示在本地范围内定义的变量，它们通常为当前正在执行的函数或方法。**“自动”**窗口显示在当前行（调试器停止的位置）周围使用的变量。 具体显示哪些变量因不同的语言而异。 看到“自动”窗口中显示了哪些变量？ 下方。  
+---
+# <a name="inspect-variables-in-the-autos-and-locals-windows-in-visual-studio"></a>Inspect Variables in the Autos and Locals Windows in Visual Studio
+The **Autos** window (while debugging, **CTRL+ALT+V, A**, or **Debug > Windows > Autos**) and the **Locals** window (while debugging, **CTRL+ALT+V, L**, or **Debug > Windows > Locals**) are quite useful when you want to see variable values while you are debugging. The **Locals** window displays variables that are defined in the local  scope, which is generally the function or method that is currently being executed. The **Autos** window displays variables used around the current line (the place where the debugger is stopped). Exactly which variables display in this window is different in different languages. See [What variables appear in the Autos Window?](#bkmk_whatvariables) below.  
   
- 若需了解基本调试的详细信息，请参阅[调试器入门](../debugger/getting-started-with-the-debugger.md)。  
+If you need more information about basic debugging, see [Getting Started with the Debugger](../debugger/getting-started-with-the-debugger.md).  
   
-## 查看“自动”和“局部变量”窗口中的对象  
- 数组和对象在“自动”和“局部变量”窗口中显示为树控件。 单击变量名称左侧的箭头以展开显示字段和属性的视图。 以下是**“局部变量”**窗口中的 [FileStream](../Topic/FileStream%20Class.md) 对象的示例：  
+## <a name="looking-at-objects-in-the-autos-and-locals-windows"></a>Looking at objects in the Autos and Locals windows  
+Arrays and objects are displayed in the Autos and Locals windows as tree controls. Click on the arrow to the left of the variable name to expand the view to show fields and properties. Here is an example of a [FileStream](http://msdn.microsoft.com/Library/a8737776-e545-4867-91ed-51c7f031fa19) object in the **Locals** window:  
   
- ![Locals&#45;FileStream](../debugger/media/locals-filestream.png "Locals\-FileStream")  
+![Locals&#45;FileStream](../debugger/media/locals-filestream.png "Locals-FileStream")  
   
-## “自动”窗口中显示了哪些变量？  
- 你可以在 C\#、Visual Basic 和 C\+\+ 代码中使用**“自动”**窗口。**“自动”**窗口不支持 JavaScript 或 F\#。  
+## <a name="bkmk_whatvariables"></a> What variables appear in the Autos window?  
+ You can use the **Autos** window in C#, Visual Basic, and C++ code. The **Autos** window does not support JavaScript or F#.  
   
- 在 C\# 和 Visual Basic 中，“自动”窗口显示当前或前一行中使用的任何变量。 例如，如果声明四个变量并对它们进行如下设置：  
+ In C# and Visual Basic, the **Autos** window displays any  variable used on the current or preceding line. For example, if you declare four variables and set them as follows:
+
+```CSharp
+    public static void Main()
+    {
+       int a, b, c, d;
+       a = 1;
+       b = 2;
+       c = 3;
+       d = 4;
+    }
+```
+
+ If you set a breakpoint on the line `c = 3`; and run the debugger, when execution stops the **Autos** window will look like this:  
+
+ ![Autos&#45;CSharp](../debugger/media/autos-csharp.png "Autos-CSharp")  
+
+ Note that the value of `c` is 0, because the line `c = 3` has not yet been executed.  
+
+ In C++ the **Autos** window displays the variables used at least three lines before the current line (the line at which execution is stopped). If you declare six variables:
+
+```C++
+    void main() {
+        int a, b, c, d, e, f;
+        a = 1;
+        b = 2;
+        c = 3;
+        d = 4;
+        e = 5;
+        f = 6;
+    }
+```
+
+ If you set a breakpoint on the line `e = 5;` and run the debugger, when execution stops the **Autos** window will look like this:  
   
-```c#  
-public static void Main() { int a, b, c, d; a = 1; b = 2; c = 3; d = 4; }  
-```  
+ ![Autos&#45;Cplus](../debugger/media/autos-cplus.png "Autos-Cplus")  
   
- 如果在行 `c = 3` 上设置了断点并运行调试器，当执行停止时，“自动”窗口将如下所示：  
+ Note that the variable e is uninitialized because the code on the line `e = 5;` has not yet been executed.  
   
- ![Autos&#45;CSharp](../debugger/media/autos-csharp.png "Autos\-CSharp")  
+ You can also see the return values of functions and methods in certain circumstances. See [View return values of method calls](#bkmk_returnValue) below.  
   
- 注意，`c` 的值为 0，因为行 `c = 3` 尚未执行。  
+##  <a name="bkmk_returnValue"></a> View return values of method calls  
+ In .NET and C++ code you can examine return values when you step over or out of a method call. This functionality is useful when the result of a method call is not stored in a local variable, for example when a method is used as a parameter or as a return value of another    method.  
   
- 在 C\+\+ 中，“自动”窗口将显示当前行（执行停止的行）前面至少三行使用的变量。 如果声明了六个变量：  
+ The following C# code adds the return values of two functions:  
+
+```CSharp
+static void Main(string[] args)  
+{  
+    int a, b, c, d;  
+    a = 1;  
+    b = 2;  
+    c = 3;  
+    d = 4;  
+    int x = sumVars(a, b) + subtractVars(c, d);  
+}  
   
-```cpp  
-void main() { int a, b, c, d, e, f; a = 1; b = 2; c = 3; d = 4; e = 5; f = 6; }  
-```  
+private static int sumVars(int i, int j)  
+{  
+    return i + j;  
+}  
   
- 如果在行 `e = 5;` 上设置了断点并运行调试器，当执行停止时，“自动”窗口将如下所示：  
+private static int subtractVars(int i, int j)  
+{  
+    return j - i;  
+}  
+```
+
+ Set a breakpoint on the int `x = sumVars(a, b) + subtractVars(c, d);` line.  
   
- ![Autos&#45;Cplus](../debugger/media/autos-cplus.png "Autos\-Cplus")  
-  
- 请注意，此变量未初始化，因为行  `e = 5;`  上的代码尚未执行。  
-  
- 在某些情况下，你还可以看到函数和方法的返回值。 请参阅下面的[查看方法调用的返回值](#bkmk_returnValue)。  
-  
-##  <a name="bkmk_returnValue"></a> 查看方法调用的返回值  
- 在 .NET 和 C\+\+ 代码中，当你单步执行或单步跳出方法调用时，可以检查返回值。 当方法调用的结果未存储在局部变量中时（例如，当方法用作另一个方法的参数或返回值时），此功能很有用。  
-  
- 下面的 C\# 代码将添加两个函数的返回值：  
-  
-```c#  
-static void Main(string[] args) { int a, b, c, d; a = 1; b = 2; c = 3; d = 4; int x = sumVars(a, b) + subtractVars(c, d); } private static int sumVars(int i, int j) { return i + j; } private static int subtractVars(int i, int j) { return j - i; }  
-  
-```  
-  
- 在 int `x = sumVars(a, b) + subtractVars(c, d);`  行上设置断点。  
-  
- 开始调试，且当执行在第一个断点处中断时，按 **F10（跳过）**。 你应在**“自动”**窗口中看到如下内容：  
+ Start debugging, and when execution breaks at the first breakpoint, press **F10 (Step Over)**. You should see the following in the **Autos** window:  
   
  ![AutosReturnValueCSharp2](../debugger/media/autosreturnvaluecsharp2.png "AutosReturnValueCSharp2")  
   
-## 为什么在“局部变量”窗口和“自动”窗口中变量值有时是红色的？  
- 你可能注意到，在“局部变量”和“自动”窗口中一个变量的值有时是红色的。 这些是自上次评估以来更改过的变量值。 此更改可能是在上一次调试会话中进行的，或者是因为在窗口中更改了该值。  
+## <a name="why-are-variable-values-sometimes-red-in-locals-and-autos-windows"></a>Why are variable values sometimes red in Locals and Autos windows?  
+You may notice that the value of a variable is sometimes red in the **Locals** and **Autos** windows. These are variable values that have been changed since the last evaluation. The change could be from a previous debugging session, or because the value was changed in the window.  
   
-## 更改变量窗口中的数字格式  
- 默认数字格式为十进制，但你可以将其更改为十六进制。 在“局部变量”或“自动”窗口内右键单击，然后选择“十六进制显示”。 此更改将影响所有调试器窗口。  
+## <a name="changing-the-numeric-format-of-a-variable-window"></a>Changing the numeric format of a variable window  
+The default numeric format is decimal, but you can change it to hexadecimal. Right-click inside a **Locals** or **Autos** window and select **Hexadecimal Display**. The change affects all debugger windows.  
   
-## 在变量窗口中编辑值  
- 你可以编辑“自动”、“局部变量”、“监视”和“快速监视”窗口中出现的大多数变量的值。 有关“监视”和“快速监视”窗口的信息，请参阅[监视和快速监视窗口](../debugger/watch-and-quickwatch-windows.md)。 只需双击要更改并添加新值的值。  
+## <a name="editing-a-value-in-a-variable-window"></a>Editing a value in a Variable window  
+You can edit the values of most variables that appear in the **Autos**, **Locals**, **Watch**, and **QuickWatch** windows. For information about **Watch** and **QuickWatch** windows, see [Watch and QuickWatch Windows](../debugger/watch-and-quickwatch-windows.md). Just double-click the value you want to change and add the new the value.  
   
- 你可以输入表达式作为一个值，例如 `a + b`。 调试器接受大多数合法的语言表达式。  
+You can enter an expression for a value, for example `a + b`. The debugger accepts most valid language expressions.  
   
- 在本机 C\+\+ 代码中，你可能需要限定变量名的上下文。 有关详细信息，请参阅 [上下文运算符 \(C\+\+\)](../debugger/context-operator-cpp.md)。  
+In native C++ code, you might have to qualify the context of a variable name. For more information, see [Context Operator (C++)](../debugger/context-operator-cpp.md).  
+ 
+However, you should exercise caution when changing values. Here are some possible issues:  
   
- 但是，更改值时应多加小心。 可能存在的问题如下：  
+-   Evaluating some expressions can change the value of a variable or otherwise affect the state of your program. For example, evaluating `var1 = ++var2` changes the value of `var1` and `var2`.  
   
--   计算某些表达式可以更改变量的值，或会影响程序的状态。 例如，计算 `var1 = ++var2` 会更改 `var1` 和 `var2` 的值。  
+     Expressions that change data are said to have [side effects](https://en.wikipedia.org/wiki/Side_effect_\(computer_science\)), which can produce unexpected results if you are not aware of them. Make sure you understand the consequences of such a change before you make it.  
   
-     会更改数据的表达式被视为具有[副作用](https://en.wikipedia.org/wiki/Side_effect_\(computer_science\))，如果你不了解这些表达式，则会产生意外的结果。 因此，在进行更改前，请确保你了解此更改的后果。  
+-   Editing floating-point values can result in minor inaccuracies because of decimal-to-binary conversion of fractional components. Even a seemingly harmless edit can result in changes to some of the least significant bits in the floating-point variable.  
   
--   编辑浮点值时，由于要将小数部分从十进制转换为二进制，因此所得的结果可能存在微小误差。 即使看起来无关紧要的编辑都会导致浮点变量中某些最不重要的数据位发生变化。  
+## <a name="changing-the-window-context"></a>Changing the window context  
+You can use the **Debug Location** toolbar to select the desired function, thread, or process, which changes the context for the variable windows. Set a breakpoint and start debugging. (If you do not see this toolbar, you can enable it by clicking in an empty part of the toolbar area. You should see a list of toolbars; select **Debug Location**). When the breakpoint is hit, execution stops and you can see the Debug Location toolbar, which is the bottom row of the following illustration.
   
-## “调试位置”工具栏  
- 你可以使用“调试位置”工具栏来选择所需的函数、线程或进程。 设置断点并开始调试。 （如果看不到此工具栏，你可以通过单击工具栏区域的空白部分启用它。 你应当看到工具栏的列表；选择“调试位置”）。 当到达断点时，执行将停止，并且你可以看到“调试位置”工具栏，即下图的最后一行：  
+![DebugLocationToolbar](../debugger/media/debuglocationtoolbar.png "DebugLocationToolbar")   
   
- ![DebugLocationToolbar](~/debugger/media/debuglocationtoolbar.png "DebugLocationToolbar")  
-  
- 你还可以通过双击“调用堆栈”窗口、“线程”窗口或“进程”窗口中的元素，将上下文更改为其他函数调用、线程或进程。  
-  
-## 请参阅  
- [调试器窗口](../debugger/debugger-windows.md)
+## <a name="see-also"></a>See Also  
+ [Debugger Windows](../debugger/debugger-windows.md)
