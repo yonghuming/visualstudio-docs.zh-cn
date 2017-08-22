@@ -27,19 +27,38 @@ translation.priority.ht:
 - zh-cn
 - zh-tw
 ms.translationtype: HT
-ms.sourcegitcommit: 359e1eb5df8f19774d352ace631802367b6dd8c9
-ms.openlocfilehash: 2a58b84403189d824494af85bc732a1b8cf3d0b6
+ms.sourcegitcommit: fb6b4a06790dd1b63a182355a545c76c8dcb4dd7
+ms.openlocfilehash: c68217eb3b8917ba54b59d58f3230a5e45d7c4a4
 ms.contentlocale: zh-cn
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 08/15/2017
 
 ---
 # <a name="live-unit-testing-frequently-asked-questions"></a>Live Unit Testing 常见问题解答
+
+## <a name="whats-new-in-live-unit-testing-for-visual-studio-2017-version-153"></a>适用于 Visual Studio 2017 版本 15.3 的 Live Unit Testing 中有哪些新增功能？ 
+
+**答：**
+
+- 支持 .NET Core/.NET 标准和性能改进是两大杰出功能。 可以注意到，首次完整生成并在 Live Unit Testing 中运行测试后，性能方面有显著提升。 同时还将发现，对于同一解决方案，Live Unit Testing 的后续启动也获得了显著的性能提升。 现在我们可以持续使用 Live Unit Testing 生成的数据，并通过最新检查尽可能多地重复使用它们。 除这些主要新增功能外，下列功能亦已增强： 
+
+  - 当前使用了全新的烧杯图标来区分测试方法和常规方法。 空烧杯图表表示 Live Unit Testing 中未包含特定测试。 
+
+  - 从 Live Unit Testing 覆盖图标的弹出 UI 窗口单击测试方法时，可通过 UI 窗口中的上下文直接调试测试，而无需离开代码编辑器。 这种方法在查看失败的测试时尤为方便。  
+
+  - “工具/选项/Live Unit Testing/常规”中添加了多个可配置的选项。 可设置用于 Live Unit Testing 的内存上限。 还可以为打开的解决方案指定持久 Live Unit Testing 数据目录的文件路径。 
+
+  - “测试/Live Unit Testing”的菜单栏中添加了多个菜单项。 其中，“重置清除”用于删除持久数据，并再次生成它。另一个“选项”则用于跳转至“工具/选项/Live Unit Testing/常规”。
+  
+  - 如果希望在源代码中指定排除 Live Unit Testing 中的目标测试结果，我们添加了用于识别下列属性的机制。
+    - 对于 xUnit：[Trait("Category", "SkipWhenLiveUnitTesting")]
+    - 对于 NUnit：[Category("SkipWhenLiveUnitTesting")]
+    - 对于 MSTest：[TestCategory("SkipWhenLiveUnitTesting")]
 
 ## <a name="does-live-unit-testing-work-with-net-core"></a>Live Unit Testing 是否适用于 .NET Core？  
 
 **答：**
 
-可以。 Live Unit Testing 适用于 .NET Core 和 .NET Framework。 近期在 Visual Studio 2017 15.3 预览版中增加了对 .NET Core 的支持。 
+可以。 Live Unit Testing 适用于 .NET Core 和 .NET Framework。 近期在 Visual Studio 2017 版本 15.3 中增加了对 .NET Core 的支持。 若希望 Live Unit Testing 支持 .NET Core，请将 Visual Studio 升级至此版本。 
 
 ## <a name="why-doesnt-live-unit-testing-work-when-i-turn-it-on"></a>启用 Live Unit Testing 后，为什么它不工作？ 
 
@@ -177,7 +196,9 @@ public class Class1
 
 **答：**
 
-存在一个已知的 bug，它可能会导致 Live Unit Testing 无法嵌入以下 Win32 PE 标头数据： 
+此问题已在 Visual Studio 2017 版本 15.3 中修复，不复存在。 请升级至此版本的 Visual Studio。
+
+较旧版本的 Visual Studio 2017 中存在一个已知的 bug，它可能会导致 Live Unit Testing 无法嵌入以下 Win32 PE 标头数据： 
 
 - 文件版本（由代码中的 @System.Reflection.AssemblyFileVersionAttribute 指定）。 
 
@@ -199,19 +220,21 @@ Live Unit Testing 只要检测到源文件已更改，就会启动一个生成�
 
 **答：**
 
-如果解决方案中的所有项目都尚未加载，则 Live Unit Testing 当前无法有效地与轻型解决方案加载功能一起工作。 在这种情况下，可能会获取不正确的覆盖率信息。
+Live Unit Testing 目前不太适合与轻型解决方案加载功能一同使用。 仅当加载至少一个测试项目后，它才能正常工作。 在此之前它将不起作用，因为目前 Live Unit Testing 依赖于至少一个引用已加载测试适配器（MSTest、xUnit 或 NUnit）的测试项目。
  
 ## <a name="why-does-live-unit-testing-does-not-capture-coverage-from-a-new-process-created-by-a-test"></a>为什么 Live Unit Testing 不会从由测试创建的新进程中捕获覆盖率？
  
 **答：**
 
-这是一个已知的问题，我们无法在 Visual Studio 2017 版本中修复。 它应可在 Visual Studio 2017 的后续更新中得到修复。 
+这是一个已知问题，应可在 Visual Studio 2017 的后续更新中得到修复。 
 
 ## <a name="why-does-nothing-happen-after-i-include-or-exclude-tests-from-the-live-test-set"></a>从 Live Test 集中包含或排除测试后，为什么未执行任何操作？ 
 
 **答：**
 
-这是一个已知问题。 若要解决此问题，需要在包含或排除测试后，对任何文件进行编辑。  
+此问题已在 Visual Studio 2017 版本 15.3 中修复，不复存在。 请升级至此版本的 Visual Studio。 
+
+对于较旧版本的 Visual Studio 2017，这是一个已知问题。 若要解决此问题，需要在包含或排除测试后，对任何文件进行编辑。  
 
 ## <a name="live-unit-testing-and-editor-icons"></a>Live Unit Testing 和编辑器图标 
 
