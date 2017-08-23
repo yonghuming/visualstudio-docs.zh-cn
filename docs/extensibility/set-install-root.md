@@ -1,5 +1,5 @@
 ---
-title: "安装与 VSIX v3 扩展文件夹之外 |Microsoft 文档"
+title: Installing outside the extensions folder with VSIX v3 | Microsoft Docs
 ms.custom: 
 ms.date: 11/09/2016
 ms.reviewer: 
@@ -27,37 +27,38 @@ translation.priority.mt:
 - tr-tr
 - zh-cn
 - zh-tw
-translationtype: Machine Translation
-ms.sourcegitcommit: 8163a0e1230712734936b7548bef1753ee0c1d2a
-ms.openlocfilehash: 6d87c86d0a7793f661c6a3b28e95340f3a28c616
-ms.lasthandoff: 03/07/2017
+ms.translationtype: MT
+ms.sourcegitcommit: 3cd705d703b3d745c502290422e29b3c6da39ee5
+ms.openlocfilehash: 981deb91768c98ef935c57582c34b805d6ce8ed7
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/23/2017
 
 ---
-# <a name="installing-outside-the-extensions-folder"></a>安装扩展文件夹之外
+# <a name="installing-outside-the-extensions-folder"></a>Installing outside the extensions folder
 
-从 Visual Studio 2017 和 VSIX v3 （版本 3），现在支持用于安装外部 extensions 文件夹的扩展资产。 目前，作为有效的安装位置 （其中 [installdir] 映射到 Visual Studio 实例的安装目录），应启用下列位置︰
+Starting with Visual Studio 2017 and VSIX v3 (version 3), there is now support for installing extension assets outside of the extensions folder. Currently, the following locations are enabled as valid installation locations (where [INSTALLDIR] is mapped to the Visual Studio instance's installation directory):
 
-* [installdir] \Common7\IDE\PublicAssemblies
-* [installdir] \Common7\IDE\ReferenceAssemblies
-* [installdir] \MSBuild
-* [installdir] \Schemas
-* [installdir] \Licenses
-* [installdir] \RemoteDebugger
-* [installdir] \VSTargets
+* [INSTALLDIR]\Common7\IDE\PublicAssemblies
+* [INSTALLDIR]\Common7\IDE\ReferenceAssemblies
+* [INSTALLDIR]\MSBuild
+* [INSTALLDIR]\Schemas
+* [INSTALLDIR]\Licenses
+* [INSTALLDIR]\RemoteDebugger
+* [INSTALLDIR]\VSTargets
 
->**注意︰** VSIX 格式不允许您安装 VS 安装文件夹结构之外。
+>**Note:** The VSIX format does not allow you to install outside the VS install folder structure.
 
-为了支持将安装到这些目录，VSIX 必须安装"每个实例每台计算机"。 可以通过检查 extension.vsixmanifest 设计器中的"所有用户"复选框来启用该选项︰
+In order to support installing to these directories, the VSIX must be installed "per-instance per-machine". This can be enabled by checking the "all-users" checkbox in the extension.vsixmanifest designer:
 
-![检查所有用户](~/extensibility/media/check-all-users.png)
+![check all users](media/check-all-users.png)
 
-## <a name="how-to-set-the-installroot"></a>如何设置 InstallRoot
+## <a name="how-to-set-the-installroot"></a>How to set the InstallRoot
 
-若要设置的安装目录，可以使用**属性**Visual Studio 窗口中的。 例如，您可以设置`InstallRoot`属性的项目引用到上述位置之一︰
+To set the installation directories, you can use the **Properties** window in Visual Studio. For instance, you can set the `InstallRoot` property of a project reference to one of the above locations:
 
-![安装根属性](~/extensibility/media/install-root-properties.png)
+![install root properties](media/install-root-properties.png)
 
-这将一些元数据添加到相应的`ProjectReference`VSIX 项目的.csproj 文件内的属性︰
+This will add some metadata to the corresponding `ProjectReference` property inside of the VSIX project's .csproj file:
 
 ```xml
  <ProjectReference Include="..\ClassLibrary1\ClassLibrary1.csproj">
@@ -67,15 +68,15 @@ ms.lasthandoff: 03/07/2017
  </ProjectReference>
 ```
 
->**注意︰**如果您愿意，您可以直接编辑.csproj 文件。
+>**Note:** You can edit the .csproj file directly, if you prefer.
 
-## <a name="how-to-set-a-subpath-under-the-installroot"></a>如何设置 InstallRoot 下的子路径
+## <a name="how-to-set-a-subpath-under-the-installroot"></a>How to set a subpath under the InstallRoot
 
-如果您想要安装到下的子路径`InstallRoot`，可以执行操作来设置`VsixSubPath`属性一样`InstallRoot`属性。 例如，假设我们希望我们的项目引用的输出，以将安装到 [installdir]\MSBuild\MyCompany\MySDK\1.0。 我们可以轻松地与属性设计器执行此操作︰
+If you'd like to install to a subpath underneath the `InstallRoot`, you can do so by setting the `VsixSubPath` property just like the `InstallRoot` property. For instance, say we want our project reference's output to install to '[INSTALLDIR]\MSBuild\MyCompany\MySDK\1.0'. We can do this easily with the property designer:
 
-![设置子路径](~/extensibility/media/set-subpath.png)
+![set subpath](media/set-subpath.png)
 
-相应的.csproj 更改将如下所示︰
+The corresponding .csproj changes will look like this:
 
 ```xml
 <ProjectReference Include="..\ClassLibrary1\ClassLibrary1.csproj">
@@ -86,7 +87,7 @@ ms.lasthandoff: 03/07/2017
 </ProjectReference>
 ```
 
-## <a name="extra-information"></a>附加信息
+## <a name="extra-information"></a>Extra information
 
-属性设计器更改应用于以外的其他项目的引用;您可以设置`InstallRoot`以及您的项目内的项元数据 （使用上面所述的相同方法）。
+The property designer changes apply to more than just project references; you can set the `InstallRoot` metadata for items inside of your project as well (using the same methods described above).
 
