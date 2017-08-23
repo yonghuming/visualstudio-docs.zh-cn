@@ -14,10 +14,10 @@ author: kempb
 ms.author: kempb
 manager: ghogen
 ms.translationtype: HT
-ms.sourcegitcommit: 6d25db4639f2c8391c1e32542701ea359f560178
-ms.openlocfilehash: 1f384f593129c4a0e879762d6e2e7f5944171af6
+ms.sourcegitcommit: 0387b9a656f97d9354f95f121cad8422e93a69bc
+ms.openlocfilehash: b1d99a132c6e29239862e9bd7629eb47a679138f
 ms.contentlocale: zh-cn
-ms.lasthandoff: 07/18/2017
+ms.lasthandoff: 08/18/2017
 
 ---
 # <a name="getting-started-with-wpf"></a>WPF 入门
@@ -31,10 +31,11 @@ Windows Presentation Foundation (WPF) 是一个可创建桌面客户端应用程
 | 我想比较 XAML 设计工具... |[在 Visual Studio 和 Blend for Visual Studio 中设计 XAML](../designers/designing-xaml-in-visual-studio.md)|  
 |是否是初次使用 .NET？|[.NET Framework 概述](https://msdn.microsoft.com/en-us/library/zw4w595w\(v=vs.140\).aspx)<br /><br /> [应用程序要点](/dotnet/standard/application-essentials)<br /><br /> [Visual C# 和 Visual Basic 入门](../ide/getting-started-with-visual-csharp-and-visual-basic.md)|  
 |有关 WPF 的详细信息...|[WPF 介绍](../designers/introduction-to-wpf.md)<br /><br /> [XAML 概述 (WPF)](https://docs.microsoft.com/dotnet/framework/wpf/advanced/xaml-overview-wpf)<br /><br /> [控件](https://docs.microsoft.com/dotnet/framework/wpf/controls/)<br /><br /> [数据绑定概述](https://docs.microsoft.com/dotnet/framework/wpf/data/data-binding-overview)<br /><br /> [使用 LINQ to XML 进行 WPF 数据绑定](../designers/wpf-data-binding-with-linq-to-xml.md)|  
-|是否是 Windows 窗体开发人员？|[Windows 窗体控件和等效的 WPF 控件](https://docs.microsoft.com/dotnet/framework/wpf/advanced/windows-forms-controls-and-equivalent-wpf-controls).aspx)<br /><br /> [WPF 和 Windows 窗体互操作中受支持的方案](https://docs.microsoft.com/dotnet/framework/wpf/advanced/wpf-and-windows-forms-interoperation)|  
+|是否是 Windows 窗体开发人员？|[Windows 窗体控件和等效的 WPF 控件](https://docs.microsoft.com/dotnet/framework/wpf/advanced/windows-forms-controls-and-equivalent-wpf-controls)<br /><br /> [WPF 和 Windows 窗体互操作中受支持的方案](https://docs.microsoft.com/dotnet/framework/wpf/advanced/wpf-and-windows-forms-interoperation)|  
   
 ## <a name="see-also"></a>另请参阅  
  [类库 (WPF)](https://docs.microsoft.com/dotnet/framework/wpf/class-library-wpf)   
  [应用程序开发概述](https://docs.microsoft.com/dotnet/framework/wpf/app-development/index)   
  [.NET 文档主页](https://docs.microsoft.com/dotnet/index)   
  [使用 Windows Presentation Foundation 创建新式桌面应用程序](../designers/create-modern-desktop-applications-with-windows-presentation-foundation.md)
+
