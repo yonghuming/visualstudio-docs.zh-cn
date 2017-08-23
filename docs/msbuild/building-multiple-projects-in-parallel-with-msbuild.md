@@ -1,5 +1,5 @@
 ---
-title: "用 MSBuild 并行生成多个项目 | Microsoft Docs"
+title: Building Multiple Projects in Parallel with MSBuild | Microsoft Docs
 ms.custom: 
 ms.date: 11/04/2016
 ms.reviewer: 
@@ -31,40 +31,40 @@ translation.priority.ht:
 - tr-tr
 - zh-cn
 - zh-tw
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5db97d19b1b823388a465bba15d057b30ff0b3ce
-ms.openlocfilehash: aa5896619558a1534722fe4aa5bef3ec3b08dfe2
+ms.translationtype: HT
+ms.sourcegitcommit: 17defdd0b96ec1c3273fc6b845af844b031a4a17
+ms.openlocfilehash: 6aa02abdbfe8ea55b6e3434dbc859b5fa5d6a5e3
 ms.contentlocale: zh-cn
-ms.lasthandoff: 02/22/2017
+ms.lasthandoff: 08/23/2017
 
 ---
-# <a name="building-multiple-projects-in-parallel-with-msbuild"></a>用 MSBuild 并行生成多个项目
-通过 MSBuild，可通过并行运行多个项目来更快地生成它们。 若要并行运行生成，请在一台多核或多处理器计算机上采用以下设置：  
+# <a name="building-multiple-projects-in-parallel-with-msbuild"></a>Building Multiple Projects in Parallel with MSBuild
+You can use MSBuild to build multiple projects faster by running them in parallel. To run builds in parallel, you use the following settings on a multi-core or multiple processor computer:  
   
--   在命令提示符处使用 `/maxcpucount` 开关。  
+-   The `/maxcpucount` switch at a command prompt.  
   
--   MSBuild 任务上的 <xref:Microsoft.Build.Tasks.MSBuild.BuildInParallel%2A> 任务参数。  
+-   The <xref:Microsoft.Build.Tasks.MSBuild.BuildInParallel%2A> task parameter on an MSBuild task.  
   
 > [!NOTE]
->  命令行中的 **/verbosity** (**/v**) 开关也会影响生成性能。 如果将生成日志信息的详细级别设置为详细或诊断以用于疑难解答，生成性能可能会降低。 有关详细信息，请参阅[获取生成日志](../msbuild/obtaining-build-logs-with-msbuild.md)和[命令行引用](../msbuild/msbuild-command-line-reference.md)。  
+>  The **/verbosity** (**/v**) switch in a command line can also affect build performance. Your build performance might decrease if the verbosity of your build log information is set to detailed or diagnostic, which are used for troubleshooting. For more information, see [Obtaining Build Logs](../msbuild/obtaining-build-logs-with-msbuild.md) and [Command-Line Reference](../msbuild/msbuild-command-line-reference.md).  
   
-## <a name="maxcpucount-switch"></a>/maxcpucount 开关  
- 如果使用 `/maxcpucount` 开关（简写为 `/m`），MSBuild 将可以创建指定数量的能够并行运行的 MSBuild.exe 进程。 这些进程也称为“辅助进程”。 每个工作进程使用单独的核心或处理器（若有），以便在其他可用处理器可能生成其他项目的同时生成项目。 例如，如果将此开关的值设置为“4”，MSBuild 将创建 4 个辅助进程来生成项目。  
+## <a name="maxcpucount-switch"></a>/maxcpucount Switch  
+ If you use the `/maxcpucount` switch, or `/m` for short, MSBuild can create the specified number of MSBuild.exe processes that may be run in parallel. These processes are also known as "worker processes." Each worker process uses a separate core or processor, if any are available, to build a project at the same time as other available processors may be building other projects. For example, setting this switch to a value of "4" causes MSBuild to create four worker processes to build the project.  
   
- 如果包含 `/maxcpucount` 开关而没有指定值，MSBuild 将使用计算机上的处理器总数作为其值。  
+ If you include the `/maxcpucount` switch without specifying a value, MSBuild will use up to the number of processors on the computer.  
   
- 有关 MSBuild 3.5 中引入的此开关的详细信息，请参阅[命令行引用](../msbuild/msbuild-command-line-reference.md)。  
+ For more information about this switch, which was introduced in MSBuild 3.5, see [Command-Line Reference](../msbuild/msbuild-command-line-reference.md).  
   
- 下面的示例指示 MSBuild 使用 3 个辅助进程。 如果使用此配置，MSBuild 可以同时生成三个项目。  
+ The following example instructs MSBuild to use three worker processes. If you use this configuration, MSBuild can build three projects at the same time.  
   
 ```  
 msbuild.exe myproj.proj /maxcpucount:3  
 ```  
   
-## <a name="buildinparallel-task-parameter"></a>BuildInParallel 任务参数  
- `BuildInParallel` 是 [!INCLUDE[vstecmsbuild](../extensibility/internals/includes/vstecmsbuild_md.md)] 任务上的可选布尔参数。 当 `BuildInParallel` 设置为 `true`（默认值）时，会生成多个工作进程以尽可能同时生成多个项目。 为使此操作能够正常进行，`/maxcpucount` 开关必须设置为一个大于 1 的值，并且系统必须至少为双核或具有两个或多个处理器。  
+## <a name="buildinparallel-task-parameter"></a>BuildInParallel Task Parameter  
+ `BuildInParallel` is an optional boolean parameter on a [!INCLUDE[vstecmsbuild](../extensibility/internals/includes/vstecmsbuild_md.md)] task. When `BuildInParallel` is set to `true` (its default value is `false`), multiple worker processes are generated to build as many projects at the same time as possible. For this to work correctly, the `/maxcpucount` switch must be set to a value greater than 1, and the system must be at least dual-core or have two or more processors.  
   
- 以下是一个来自 microsoft.common.targets 的有关如何设置 `BuildInParallel` 参数的示例。  
+ The following is an example, taken from microsoft.common.targets, about how to set the `BuildInParallel` parameter.  
   
 ```  
 <PropertyGroup>  
@@ -88,7 +88,8 @@ msbuild.exe myproj.proj /maxcpucount:3
 </MSBuild>  
 ```  
   
-## <a name="see-also"></a>另请参阅  
- [使用多个处理器生成项目](../msbuild/using-multiple-processors-to-build-projects.md)   
- [编写可识别多处理器的记录器](../msbuild/writing-multi-processor-aware-loggers.md)   
- [“调整的 C++ 并行生成功能”博客](http://go.microsoft.com/fwlink/?LinkId=251457)
+## <a name="see-also"></a>See Also  
+ [Using Multiple Processors to Build Projects](../msbuild/using-multiple-processors-to-build-projects.md)   
+ [Writing Multi-Processor-Aware Loggers](../msbuild/writing-multi-processor-aware-loggers.md)   
+ [Tuning C++ Build Parallelism blog](http://go.microsoft.com/fwlink/?LinkId=251457)
+
