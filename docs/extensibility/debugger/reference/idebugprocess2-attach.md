@@ -1,75 +1,92 @@
 ---
-title: "IDebugProcess2::Attach | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "IDebugProcess2::Attach"
-helpviewer_keywords: 
-  - "IDebugProcess2::Attach"
+title: IDebugProcess2::Attach | Microsoft Docs
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords:
+- IDebugProcess2::Attach
+helpviewer_keywords:
+- IDebugProcess2::Attach
 ms.assetid: 40d78417-fde2-45c3-96c9-16e06bd9008d
 caps.latest.revision: 10
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 10
----
-# IDebugProcess2::Attach
-[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
+ms.author: gregvanl
+manager: ghogen
+translation.priority.mt:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+ms.translationtype: MT
+ms.sourcegitcommit: ff8ecec19f8cab04ac2190f9a4a995766f1750bf
+ms.openlocfilehash: d2324fce8a6dcc14e9fa9b2c20278781d0dbebfd
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/24/2017
 
-附加会议调试管理器 \(SDM\)到进程。  
+---
+# <a name="idebugprocess2attach"></a>IDebugProcess2::Attach
+Attaches the session debug manager (SDM) to the process.  
   
-## 语法  
+## <a name="syntax"></a>Syntax  
   
 ```cpp#  
-HRESULT Attach(   
-   IDebugEventCallback2* pCallback,  
-   GUID*                 rgguidSpecificEngines,  
-   DWORD                 celtSpecificEngines,  
-   HRESULT*              rghrEngineAttach  
+HRESULT Attach(   
+   IDebugEventCallback2* pCallback,  
+   GUID*                 rgguidSpecificEngines,  
+   DWORD                 celtSpecificEngines,  
+   HRESULT*              rghrEngineAttach  
 );  
 ```  
   
-```c#  
-int Attach(   
-   IDebugEventCallback2 pCallback,  
-   Guid[]               rgguidSpecificEngines,  
-   uint                 celtSpecificEngines,  
-   int[]                rghrEngineAttach  
+```cs  
+int Attach(   
+   IDebugEventCallback2 pCallback,  
+   Guid[]               rgguidSpecificEngines,  
+   uint                 celtSpecificEngines,  
+   int[]                rghrEngineAttach  
 );  
 ```  
   
-#### 参数  
+#### <a name="parameters"></a>Parameters  
  `pCallback`  
- \[in\] 使用的 [IDebugEventCallback2](../../../extensibility/debugger/reference/idebugeventcallback2.md) 对象的调试事件通知。  
+ [in] An [IDebugEventCallback2](../../../extensibility/debugger/reference/idebugeventcallback2.md) object that is used for debug event notification.  
   
  `rgguidSpecificEngines`  
- \[in\] 数组 GUID 调试要使用的引擎调试运行在处理过程。  此参数可以为空值。  请参见 " 备注 " 了解详细信息。  
+ [in] An array of GUIDs of debug engines to be used to debug programs running in the process. This parameter can be a null value. See Remarks for details.  
   
  `celtSpecificEngines`  
- \[in\] 数字调试在 `rgguidSpecificEngines` 和 `rghrEngineAttach` 数组大小的引擎。  
+ [in] The number of debug engines in the `rgguidSpecificEngines` array and the size of the `rghrEngineAttach` array.  
   
  `rghrEngineAttach`  
- \[in, out\] HRESULT 代码的调试引擎返回。  此数组的大小 `celtSpecificEngines` 参数指定。  每个代码通常是 `S_OK` 或 `S_ATTACH_DEFERRED`。  后者指示、当前附加到不程序。  
+ [in, out] An array of HRESULT codes returned by the debug engines. The size of this array is specified in the `celtSpecificEngines` parameter. Each code is typically either `S_OK` or `S_ATTACH_DEFERRED`. The latter indicates that the DE is currently attached to no programs.  
   
-## 返回值  
- 如果成功，则返回; `S_OK`否则，返回错误代码。  下表显示其他可能的值。  
+## <a name="return-value"></a>Return Value  
+ If successful, returns `S_OK`; otherwise, returns an error code. The following table shows other possible values.  
   
-|值|说明|  
-|-------|--------|  
-|`E_ATTACH_DEBUGGER_ALREADY_ATTACHED`|指定的进程已附加到调试器。|  
-|`E_ATTACH_DEBUGGEE_PROCESS_SECURITY_VIOLATION`|在附加过程中，安全违规发生。|  
-|`E_ATTACH_CANNOT_ATTACH_TO_DESKTOP`|桌面进程无法附加到调试器。|  
+|Value|Description|  
+|-----------|-----------------|  
+|`E_ATTACH_DEBUGGER_ALREADY_ATTACHED`|The specified process is already attached to the debugger.|  
+|`E_ATTACH_DEBUGGEE_PROCESS_SECURITY_VIOLATION`|A security violation occurred during the attach procedure.|  
+|`E_ATTACH_CANNOT_ATTACH_TO_DESKTOP`|A desktop process cannot be attached to the debugger.|  
   
-## 备注  
- 附加到进程附加 SDM 到运行由于可以由 `rgguidSpecificEngines` 数组指定的调试引擎 \(DE\)调试的所有程序的过程。  设置 `rgguidSpecificEngines` 参数设置为空值或包含 `GUID_NULL` 在数组附加到进程中的所有程序。  
+## <a name="remarks"></a>Remarks  
+ Attaching to a process attaches the SDM to all programs running in that process that can be debugged by the debug engines (DE) specified in the `rgguidSpecificEngines` array. Set the `rgguidSpecificEngines` parameter to a null value or include `GUID_NULL` in the array to attach to all programs in the process.  
   
- 所有调试在过程将发送到特定 [IDebugEventCallback2](../../../extensibility/debugger/reference/idebugeventcallback2.md) 对象的事件。  此 `IDebugEventCallback2` 对象，而 SDM 调用此方法时，提供。  
+ All debug events that occur in the process are sent to the given [IDebugEventCallback2](../../../extensibility/debugger/reference/idebugeventcallback2.md) object. This `IDebugEventCallback2` object is provided when the SDM calls this method.  
   
-## 请参阅  
+## <a name="see-also"></a>See Also  
  [IDebugProcess2](../../../extensibility/debugger/reference/idebugprocess2.md)   
  [IDebugEventCallback2](../../../extensibility/debugger/reference/idebugeventcallback2.md)

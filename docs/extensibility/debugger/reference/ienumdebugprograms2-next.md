@@ -1,5 +1,5 @@
 ---
-title: "IEnumDebugPrograms2::Next |Microsoft 文档"
+title: IEnumDebugPrograms2::Next | Microsoft Docs
 ms.custom: 
 ms.date: 11/04/2016
 ms.reviewer: 
@@ -30,16 +30,17 @@ translation.priority.mt:
 - tr-tr
 - zh-cn
 - zh-tw
-translationtype: Machine Translation
-ms.sourcegitcommit: 5db97d19b1b823388a465bba15d057b30ff0b3ce
-ms.openlocfilehash: ed30d990c4a203611a9052632176f19098507bcd
-ms.lasthandoff: 02/22/2017
+ms.translationtype: MT
+ms.sourcegitcommit: ff8ecec19f8cab04ac2190f9a4a995766f1750bf
+ms.openlocfilehash: 49ec7a7e4076d6d784d72f7cd89c1a49b898153c
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/24/2017
 
 ---
 # <a name="ienumdebugprograms2next"></a>IEnumDebugPrograms2::Next
-从枚举中返回下一组元素。  
+Returns the next set of elements from the enumeration.  
   
-## <a name="syntax"></a>语法  
+## <a name="syntax"></a>Syntax  
   
 ```cpp#  
 HRESULT Next(  
@@ -49,7 +50,7 @@ HRESULT Next(
 );  
 ```  
   
-```c#  
+```cs  
 int Next(  
    uint             celt,  
    IDebugProgram2[] rgelt,  
@@ -57,19 +58,19 @@ int Next(
 );  
 ```  
   
-#### <a name="parameters"></a>参数  
+#### <a name="parameters"></a>Parameters  
  `celt`  
- [in]要检索的元素数。 此外指定的最大大小`rgelt`数组。  
+ [in] The number of elements to retrieve. Also specifies the maximum size of the `rgelt` array.  
   
  `rgelt`  
- [in、 out]数组[IDebugProgram2](../../../extensibility/debugger/reference/idebugprogram2.md)元素填充的。  
+ [in, out] Array of [IDebugProgram2](../../../extensibility/debugger/reference/idebugprogram2.md) elements to be filled in.  
   
  `pceltFetched`  
- [out]返回中实际返回的元素数目`rgelt`。  
+ [out] Returns the number of elements actually returned in `rgelt`.  
   
-## <a name="return-value"></a>返回值  
- 如果成功，返回`S_OK`。 返回`S_FALSE`如果无法返回请求数目的元素少于; 否则，返回错误代码。  
+## <a name="return-value"></a>Return Value  
+ If successful, returns `S_OK`. Returns `S_FALSE` if fewer than the requested number of elements could be returned; otherwise, returns an error code.  
   
-## <a name="see-also"></a>另请参阅  
+## <a name="see-also"></a>See Also  
  [IEnumDebugPrograms2](../../../extensibility/debugger/reference/ienumdebugprograms2.md)   
  [IDebugProgram2](../../../extensibility/debugger/reference/idebugprogram2.md)

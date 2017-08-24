@@ -1,54 +1,71 @@
 ---
-title: "如何: 注册库与对象管理器 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-helpviewer_keywords: 
-  - "库中，向对象管理器注册"
-  - "IVsLibrary2 接口，与对象管理器注册库"
-  - "IVsSimpleLibrary2 接口，与对象管理器注册库"
-  - "IVsObjectManager2 接口，与对象管理器注册库"
-  - "库、 符号浏览工具"
+title: 'How to: Register a Library with the Object Manager | Microsoft Docs'
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+helpviewer_keywords:
+- libraries, registering with object manager
+- IVsLibrary2 interface, registering library with object manager
+- IVsSimpleLibrary2 interface, registering library with object manager
+- IVsObjectManager2 interface, registering library with object manager
+- libraries, symbol-browsing tools
 ms.assetid: f124dd05-cb0f-44ad-bb2a-7c0b34ef4038
 caps.latest.revision: 26
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 26
----
-# 如何: 注册库与对象管理器
-[!INCLUDE[vs2017banner](../../code-quality/includes/vs2017banner.md)]
+ms.author: gregvanl
+manager: ghogen
+translation.priority.mt:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+ms.translationtype: MT
+ms.sourcegitcommit: ff8ecec19f8cab04ac2190f9a4a995766f1750bf
+ms.openlocfilehash: d89f3d794fca61aec290f5ad2df28f5633e9e732
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/24/2017
 
-符号浏览工具，如 **类视图**， **对象浏览器**、 **调用浏览器** 和 **查找符号结果**，可以查看符号在项目或在外部组件。  符号包括命名空间、类、接口、方法和其他语言元素。  库跟踪这些符号并显示在并使用数据工具的 [!INCLUDE[vsprvs](../../code-quality/includes/vsprvs_md.md)] 对象管理器。  
+---
+# <a name="how-to-register-a-library-with-the-object-manager"></a>How to: Register a Library with the Object Manager
+Symbols-browsing tools, such as **Class View**, **Object Browser**, **Call Browser** and **Find Symbol Results**, enable you to view symbols in your project or in external components. The symbols include namespaces, classes, interfaces, methods, and other language elements. The libraries track these symbols and expose them to the [!INCLUDE[vsprvs](../../code-quality/includes/vsprvs_md.md)] object manager that populates the tools with the data.  
   
- 对象管理器记录所有可用的库。  每个库中提供符号前必须具有对象管理器注册为符号浏览工具。  
+ The object manager keeps track of all available libraries. Each library must register with the object manager before providing symbols for the symbol-browsing tools.  
   
- 通常，您注册库，在 VSPackage 加载。  但是，它可以在另一时间根据需要。  您注销库，在 VSPackage 关闭。  
+ Typically, you register a library when a VSPackage loads. However, it can be done at another time as needed. You unregister the library when the VSPackage shuts down.  
   
- 注册库，则使用 <xref:Microsoft.VisualStudio.Shell.Interop.IVsObjectManager2.RegisterLibrary%2A> 方法。  在托管代码库，请使用 <xref:Microsoft.VisualStudio.Shell.Interop.IVsObjectManager2.RegisterSimpleLibrary%2A> 方法。  
+ To register a library, use the <xref:Microsoft.VisualStudio.Shell.Interop.IVsObjectManager2.RegisterLibrary%2A> method. In the case of managed code library, use the <xref:Microsoft.VisualStudio.Shell.Interop.IVsObjectManager2.RegisterSimpleLibrary%2A> method.  
   
- 要注销库，则使用 <xref:Microsoft.VisualStudio.Shell.Interop.IVsObjectManager2.UnregisterLibrary%2A> 方法。  
+ To unregister a library, use the <xref:Microsoft.VisualStudio.Shell.Interop.IVsObjectManager2.UnregisterLibrary%2A> method.  
   
- 若要获取对对象管理器， <xref:Microsoft.VisualStudio.Shell.Interop.IVsObjectManager2>，通过 <xref:Microsoft.VisualStudio.Shell.Interop.SVsObjectManager> 服务标识符为 `GetService` 方法。  
+ To obtain a reference to the object manager, <xref:Microsoft.VisualStudio.Shell.Interop.IVsObjectManager2>, pass the <xref:Microsoft.VisualStudio.Shell.Interop.SVsObjectManager> service ID to `GetService` method.  
   
-## 注册和注销具有对象管理器的库  
+## <a name="registering-and-unregistering-a-library-with-the-object-manager"></a>Registering and unregistering a Library with the Object Manager  
   
-#### 注册具有对象管理器的库  
+#### <a name="to-register-a-library-with-the-object-manager"></a>To register a library with the object manager  
   
-1.  创建库。  
+1.  Create a library.  
   
-    ```vb#  
+    ```vb  
     Private m_CallBrowserLibrary As CallBrowser.Library = Nothing  
     Private m_nLibraryCookie As UInteger = 0  
     ' Create Library.  
     m_CallBrowserLibrary = New CallBrowser.Library()  
     ```  
   
-    ```c#  
+    ```cs  
     private CallBrowser.Library m_CallBrowserLibrary = null;  
     private uint m_nLibraryCookie = 0;  
     // Create Library.  
@@ -56,9 +73,9 @@ caps.handback.revision: 26
   
     ```  
   
-2.  获取对 <xref:Microsoft.VisualStudio.Shell.Interop.IVsObjectManager2> 类型的对象并调用 <xref:Microsoft.VisualStudio.Shell.Interop.IVsObjectManager2.RegisterSimpleLibrary%2A> 方法。  
+2.  Obtain a reference to an object of the <xref:Microsoft.VisualStudio.Shell.Interop.IVsObjectManager2> type and call the <xref:Microsoft.VisualStudio.Shell.Interop.IVsObjectManager2.RegisterSimpleLibrary%2A> method.  
   
-    ```vb#  
+    ```vb  
     Private Sub RegisterLibrary()  
         If m_nLibraryCookie <> 0 Then  
             Throw New Exception("Library already registered with Object Manager")  
@@ -81,7 +98,7 @@ caps.handback.revision: 26
     End Sub  
     ```  
   
-    ```c#  
+    ```cs  
     private void RegisterLibrary()  
     {  
         if (m_nLibraryCookie != 0)  
@@ -110,11 +127,11 @@ caps.handback.revision: 26
   
     ```  
   
-#### 注销程序具有对象管理器的库  
+#### <a name="to-unregister-a-library-with-the-object-manager"></a>To unregister a library with the object manager  
   
-1.  获取对 <xref:Microsoft.VisualStudio.Shell.Interop.IVsObjectManager2> 类型的对象并调用 <xref:Microsoft.VisualStudio.Shell.Interop.IVsObjectManager2.UnregisterLibrary%2A> 方法。  
+1.  Obtain a reference to an object of the <xref:Microsoft.VisualStudio.Shell.Interop.IVsObjectManager2> type and call the <xref:Microsoft.VisualStudio.Shell.Interop.IVsObjectManager2.UnregisterLibrary%2A> method.  
   
-    ```vb#  
+    ```vb  
     Private Sub UnregisterLibrary()  
         If m_nLibraryCookie <> 0 Then  
             ' Obtain a reference to IVsObjectManager2 type object.  
@@ -136,7 +153,7 @@ caps.handback.revision: 26
     End Sub  
     ```  
   
-    ```c#  
+    ```cs  
     private void UnregisterLibrary()  
     {  
         if (m_nLibraryCookie != 0)  
@@ -165,7 +182,7 @@ caps.handback.revision: 26
   
     ```  
   
-## 请参阅  
- [遗留语言服务可扩展性](../../extensibility/internals/legacy-language-service-extensibility.md)   
- [支持符号浏览工具](../../extensibility/internals/supporting-symbol-browsing-tools.md)   
- [如何: 公开库对对象管理器提供的符号列表](../../extensibility/internals/how-to-expose-lists-of-symbols-provided-by-the-library-to-the-object-manager.md)
+## <a name="see-also"></a>See Also  
+ [Legacy Language Service Extensibility](../../extensibility/internals/legacy-language-service-extensibility.md)   
+ [Supporting Symbol-Browsing Tools](../../extensibility/internals/supporting-symbol-browsing-tools.md)   
+ [How to: Expose Lists of Symbols Provided by the Library to the Object Manager](../../extensibility/internals/how-to-expose-lists-of-symbols-provided-by-the-library-to-the-object-manager.md)

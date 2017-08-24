@@ -1,5 +1,5 @@
 ---
-title: "IDebugThread2::GetProgram |Microsoft 文档"
+title: IDebugThread2::GetProgram | Microsoft Docs
 ms.custom: 
 ms.date: 11/04/2016
 ms.reviewer: 
@@ -30,16 +30,17 @@ translation.priority.mt:
 - tr-tr
 - zh-cn
 - zh-tw
-translationtype: Machine Translation
-ms.sourcegitcommit: 5db97d19b1b823388a465bba15d057b30ff0b3ce
-ms.openlocfilehash: 7183d1794ed499e967aabed1eba264cc70bfd16a
-ms.lasthandoff: 02/22/2017
+ms.translationtype: MT
+ms.sourcegitcommit: ff8ecec19f8cab04ac2190f9a4a995766f1750bf
+ms.openlocfilehash: 2539748f11fdd4cd8db675df79b6111588e9189f
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/24/2017
 
 ---
 # <a name="idebugthread2getprogram"></a>IDebugThread2::GetProgram
-获取线程正在运行的程序。  
+Gets the program in which a thread is running.  
   
-## <a name="syntax"></a>语法  
+## <a name="syntax"></a>Syntax  
   
 ```cpp#  
 HRESULT GetProgram (   
@@ -47,19 +48,19 @@ HRESULT GetProgram (
 );  
 ```  
   
-```c#  
+```cs  
 int GetProgram (   
    out IDebugProgram2 ppProgram  
 );  
 ```  
   
-#### <a name="parameters"></a>参数  
+#### <a name="parameters"></a>Parameters  
  `ppProgram`  
- [out]返回[IDebugProgram2](../../../extensibility/debugger/reference/idebugprogram2.md)对象，表示此线程运行中的程序。  
+ [out] Returns an [IDebugProgram2](../../../extensibility/debugger/reference/idebugprogram2.md) object that represents the program this thread is running in.  
   
-## <a name="return-value"></a>返回值  
- 如果成功，返回`S_OK`; 否则为返回错误代码。  
+## <a name="return-value"></a>Return Value  
+ If successful, returns `S_OK`; otherwise, returns an error code.  
   
-## <a name="see-also"></a>另请参阅  
+## <a name="see-also"></a>See Also  
  [IDebugThread2](../../../extensibility/debugger/reference/idebugthread2.md)   
  [IDebugProgram2](../../../extensibility/debugger/reference/idebugprogram2.md)

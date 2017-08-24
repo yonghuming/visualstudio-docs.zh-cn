@@ -1,91 +1,108 @@
 ---
-title: "如何：配置 ClickOnce 信任提示行为 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-deployment"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-dev_langs: 
-  - "VB"
-  - "CSharp"
-  - "C++"
-helpviewer_keywords: 
-  - "ClickOnce 应用程序, 无提示安装"
-  - "ClickOnce 应用程序, 信任提示"
-  - "ClickOnce 部署, 无提示安装"
-  - "ClickOnce 部署, 信任提示"
-  - "部署应用程序 [ClickOnce], 信任提示"
+title: 'How to: Configure the ClickOnce Trust Prompt Behavior | Microsoft Docs'
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-deployment
+ms.tgt_pltfrm: 
+ms.topic: article
+dev_langs:
+- VB
+- CSharp
+- C++
+helpviewer_keywords:
+- ClickOnce deployment, install without prompting
+- deploying applications [ClickOnce], trust prompt
+- ClickOnce applications, install without prompting
+- ClickOnce applications, trust prompt
+- ClickOnce deployment, trust prompt
 ms.assetid: cc04fa75-012b-47c9-9347-f4216be23cf2
 caps.latest.revision: 11
-author: "stevehoag"
-ms.author: "shoag"
-manager: "wpickett"
-caps.handback.revision: 11
----
-# 如何：配置 ClickOnce 信任提示行为
-[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
+author: stevehoag
+ms.author: shoag
+manager: wpickett
+translation.priority.ht:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+ms.translationtype: HT
+ms.sourcegitcommit: ff8ecec19f8cab04ac2190f9a4a995766f1750bf
+ms.openlocfilehash: 443546b91a6e0c878882d86111e9d1ad173d19f2
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/24/2017
 
-可以配置 ClickOnce 信任提示以控制是否允许最终用户选择安装 ClickOnce 应用程序，如 Windows Forms 应用程序、Windows Presentation Foundation 应用程序、控制台应用程序、WPF 浏览器应用程序和 Office 解决方案。  可以通过在每个最终用户的计算机上设置注册表项来配置信任提示。  
+---
+# <a name="how-to-configure-the-clickonce-trust-prompt-behavior"></a>How to: Configure the ClickOnce Trust Prompt Behavior
+You can configure the ClickOnce trust prompt to control whether end users are given the option of installing ClickOnce applications, such as Windows Forms applications, Windows Presentation Foundation applications, console applications, WPF browser applications, and Office solutions. You configure the trust prompt by setting registry keys on each end user's computer.  
   
- 下表显示了可应用于五个区域（即 Internet、UntrustedSites、MyComputer、LocalIntranet 和 TrustedSites）中的每个区域的配置选项。  
+ The following table shows the configuration options that can be applied to each of the five zones (Internet, UntrustedSites, MyComputer, LocalIntranet, and TrustedSites).  
   
-|选项|注册表设置值|说明|  
-|--------|------------|--------|  
-|启用信任提示。|`Enabled`|显示 ClickOnce 信任提示以便最终用户能够向 ClickOnce 应用程序授予信任。|  
-|限制信任提示。|`AuthenticodeRequired`|ClickOnce 信任提示仅在已用标识发行者的证书对 ClickOnce 应用程序进行签名的情况下显示。|  
-|禁用信任提示。|`禁用`|对于未用显式信任证书进行签名的任何 ClickOnce 应用程序，不显示 ClickOnce 信任提示。|  
+|Option|Registry setting value|Description|  
+|------------|----------------------------|-----------------|  
+|Enable the trust prompt.|`Enabled`|The ClickOnce trust prompt is display so that end users can grant trust to ClickOnce applications.|  
+|Restrict the trust prompt.|`AuthenticodeRequired`|The ClickOnce trust prompt is only displayed if ClickOnce applications are signed with a certificate that identifies the publisher.|  
+|Disable the trust prompt.|`Disabled`|The ClickOnce trust prompt is not displayed for any ClickOnce applications that are not signed with an explicitly trusted certificate.|  
   
- 下表显示了每个区域的默认行为。  “应用程序”列指的是 Windows Forms 应用程序、Windows Presentation Foundation 应用程序、WPF 浏览器应用程序和控制台应用程序。  
+ The following table shows the default behavior for each zone. The Applications column refers to Windows Forms applications, Windows Presentation Foundation applications, WPF browser applications, and console applications.  
   
-|区域|应用程序|Office 解决方案|  
-|--------|----------|-----------------|  
+|Zone|Applications|Office solutions|  
+|----------|------------------|----------------------|  
 |`MyComputer`|`Enabled`|`Enabled`|  
 |`LocalIntranet`|`Enabled`|`Enabled`|  
 |`TrustedSites`|`Enabled`|`Enabled`|  
 |`Internet`|`Enabled`|`AuthenticodeRequired`|  
-|`UntrustedSites`|`禁用`|`禁用`|  
+|`UntrustedSites`|`Disabled`|`Disabled`|  
   
- 通过启用、限制或禁用 ClickOnce 信任提示，可以重写这些设置。  
+ You can override these settings by enabling, restricting, or disabling the ClickOnce trust prompt.  
   
-## 启用 ClickOnce 信任提示  
- 如果想要向最终用户呈现选项，使他们可以选择安装和运行来自某个区域的任何 ClickOnce 应用程序，请为该区域启用信任提示。  
+## <a name="enabling-the-clickonce-trust-prompt"></a>Enabling the ClickOnce Trust Prompt  
+ Enable the trust prompt for a zone when you want end users to be presented with the option of installing and running any ClickOnce application that comes from that zone.  
   
-#### 使用注册表编辑器启用 ClickOnce 信任提示  
+#### <a name="to-enable-the-clickonce-trust-prompt-by-using-the-registry-editor"></a>To enable the ClickOnce trust prompt by using the registry editor  
   
-1.  打开注册表编辑器：  
+1.  Open the registry editor:  
   
-    1.  单击**“开始”**，然后单击**“运行”**。  
+    1.  Click **Start**, and then click **Run**.  
   
-    2.  在**“打开”**框中，键入 `regedit32`，然后单击**“确定”**。  
+    2.  In the **Open** box, type `regedit32`, and then click **OK**.  
   
-2.  查找以下注册表项：  
+2.  Find the following registry key:  
   
-     \\HKEY\_LOCAL\_MACHINE\\SOFTWARE\\MICROSOFT\\.NETFramework\\Security\\TrustManager\\PromptingLevel  
+     \HKEY_LOCAL_MACHINE\SOFTWARE\MICROSOFT\\.NETFramework\Security\TrustManager\PromptingLevel  
   
-     如果该项不存在，请创建它。  
+     If the key does not exist, create it.  
   
-3.  按下表所示，以**“字符串值”**的形式添加以下子项（如果这些子项尚不存在）及关联的值。  
+3.  Add the following subkeys as **String Value**, if they do not already exist, with the associated values shown in the following table.  
   
-    |字符串值子项|值|  
-    |------------|-------|  
+    |String Value subkey|Value|  
+    |-------------------------|-----------|  
     |`Internet`|`Enabled`|  
-    |`UntrustedSites`|`禁用`|  
+    |`UntrustedSites`|`Disabled`|  
     |`MyComputer`|`Enabled`|  
     |`LocalIntranet`|`Enabled`|  
     |`TrustedSites`|`Enabled`|  
   
-     对于 Office 解决方案，`Internet` 的默认值为 `AuthenticodeRequired`，而 `UntrustedSites` 的默认值为 `Disabled`。  对于所有其他应用程序，`Internet` 的默认值为 `Enabled`。  
+     For Office solutions, `Internet` has the default value `AuthenticodeRequired` and `UntrustedSites` has the value `Disabled`. For all others, `Internet` has the default value `Enabled`.  
   
-#### 以编程方式启用 ClickOnce 信任提示  
+#### <a name="to-enable-the-clickonce-trust-prompt-programmatically"></a>To enable the ClickOnce trust prompt programmatically  
   
-1.  在 Visual Studio 中创建一个 Visual Basic 或 Visual C\# 控制台应用程序。  
+1.  Create a Visual Basic or Visual C# console application in Visual Studio.  
   
-2.  打开 Program.vb 或 Program.cs 文件进行编辑，并添加以下代码。  
+2.  Open the Program.vb or Program.cs file for editing and add the following code.  
   
-    ```vb#  
+    ```vb  
     Dim key As Microsoft.Win32.RegistryKey  
     key = Microsoft.Win32.Registry.LocalMachine.CreateSubKey("SOFTWARE\MICROSOFT\.NETFramework\Security\TrustManager\PromptingLevel")  
     key.SetValue("MyComputer", "Enabled")  
@@ -96,7 +113,7 @@ caps.handback.revision: 11
     key.Close()  
     ```  
   
-    ```c#  
+    ```cs  
     Microsoft.Win32.RegistryKey key;  
     key = Microsoft.Win32.Registry.LocalMachine.CreateSubKey("SOFTWARE\\MICROSOFT\\.NETFramework\\Security\\TrustManager\\PromptingLevel");  
     key.SetValue("MyComputer", "Enabled");  
@@ -107,42 +124,42 @@ caps.handback.revision: 11
     key.Close();  
     ```  
   
-3.  生成并运行应用程序。  
+3.  Build and run the application.  
   
-## 限制 ClickOnce 信任提示  
- 对信任提示进行限制，这样，在提示用户做出信任决定之前，必须使用具有已知标识的 Authenticode 证书对解决方案进行签名。  
+## <a name="restricting-the-clickonce-trust-prompt"></a>Restricting the ClickOnce Trust Prompt  
+ Restrict the trust prompt so that solutions must be signed with Authenticode certificates that have known identity before users are prompted for a trust decision.  
   
-#### 使用注册表编辑器限制 ClickOnce 信任提示  
+#### <a name="to-restrict-the-clickonce-trust-prompt-by-using-the-registry-editor"></a>To restrict the ClickOnce trust prompt by using the registry editor  
   
-1.  打开注册表编辑器：  
+1.  Open the registry editor:  
   
-    1.  单击**“开始”**，然后单击**“运行”**。  
+    1.  Click **Start**, and then click **Run**.  
   
-    2.  在**“打开”**框中，键入 `regedit`，然后单击**“确定”**。  
+    2.  In the **Open** box, type `regedit`, and then click **OK**.  
   
-2.  查找以下注册表项：  
+2.  Find the following registry key:  
   
-     \\HKEY\_LOCAL\_MACHINE\\SOFTWARE\\MICROSOFT\\.NETFramework\\Security\\TrustManager\\PromptingLevel  
+     \HKEY_LOCAL_MACHINE\SOFTWARE\MICROSOFT\\.NETFramework\Security\TrustManager\PromptingLevel  
   
-     如果该项不存在，请创建它。  
+     If the key does not exist, create it.  
   
-3.  按下表所示，以**“字符串值”**的形式添加以下子项（如果这些子项尚不存在）及关联的值。  
+3.  Add the following subkeys as **String Value**, if they do not already exist, with the associated values shown in the following table.  
   
-    |字符串值子项|值|  
-    |------------|-------|  
-    |`UntrustedSites`|`禁用`|  
+    |String Value subkey|Value|  
+    |-------------------------|-----------|  
+    |`UntrustedSites`|`Disabled`|  
     |`Internet`|`AuthenticodeRequired`|  
     |`MyComputer`|`AuthenticodeRequired`|  
     |`LocalIntranet`|`AuthenticodeRequired`|  
     |`TrustedSites`|`AuthenticodeRequired`|  
   
-#### 以编程方式限制 ClickOnce 信任提示  
+#### <a name="to-restrict-the-clickonce-trust-prompt-programmatically"></a>To restrict the ClickOnce trust prompt programmatically  
   
-1.  在 Visual Studio 中创建一个 Visual Basic 或 Visual C\# 控制台应用程序。  
+1.  Create a Visual Basic or Visual C# console application in Visual Studio.  
   
-2.  打开 Program.vb 或 Program.cs 文件进行编辑，并添加以下代码。  
+2.  Open the Program.vb or Program.cs file for editing and add the following code.  
   
-    ```vb#  
+    ```vb  
     Dim key As Microsoft.Win32.RegistryKey  
     key = Microsoft.Win32.Registry.LocalMachine.CreateSubKey("SOFTWARE\MICROSOFT\.NETFramework\Security\TrustManager\PromptingLevel")  
     key.SetValue("MyComputer", "AuthenticodeRequired")  
@@ -153,7 +170,7 @@ caps.handback.revision: 11
     key.Close()  
     ```  
   
-    ```c#  
+    ```cs  
     Microsoft.Win32.RegistryKey key;  
     key = Microsoft.Win32.Registry.LocalMachine.CreateSubKey("SOFTWARE\\MICROSOFT\\.NETFramework\\Security\\TrustManager\\PromptingLevel");  
     key.SetValue("MyComputer", "AuthenticodeRequired");  
@@ -164,42 +181,42 @@ caps.handback.revision: 11
     key.Close();  
     ```  
   
-3.  生成并运行应用程序。  
+3.  Build and run the application.  
   
-## 禁用 ClickOnce 信任提示  
- 可以禁用信任提示，使最终用户无法选择安装其安全策略已不信任的解决方案。  
+## <a name="disabling-the-clickonce-trust-prompt"></a>Disabling the ClickOnce Trust Prompt  
+ You can disable the trust prompt so that end users are not given the option to install solutions that are not already trusted in their security policy.  
   
-#### 使用注册表编辑器禁用 ClickOnce 信任提示  
+#### <a name="to-disable-the-clickonce-trust-prompt-by-using-the-registry-editor"></a>To disable the ClickOnce trust prompt by using the registry editor  
   
-1.  打开注册表编辑器：  
+1.  Open the registry editor:  
   
-    1.  单击**“开始”**，然后单击**“运行”**。  
+    1.  Click **Start**, and then click **Run**.  
   
-    2.  在**“打开”**框中，键入 `regedit`，然后单击**“确定”**。  
+    2.  In the **Open** box, type `regedit`, and then click **OK**.  
   
-2.  查找以下注册表项：  
+2.  Find the following registry key:  
   
-     \\HKEY\_LOCAL\_MACHINE\\SOFTWARE\\MICROSOFT\\.NETFramework\\Security\\TrustManager\\PromptingLevel  
+     \HKEY_LOCAL_MACHINE\SOFTWARE\MICROSOFT\\.NETFramework\Security\TrustManager\PromptingLevel  
   
-     如果该项不存在，请创建它。  
+     If the key does not exist, create it.  
   
-3.  按下表所示，以**“字符串值”**的形式添加以下子项（如果这些子项尚不存在）及关联的值。  
+3.  Add the following subkeys as **String Value**, if they do not already exist, with the associated values shown in the following table.  
   
-    |字符串值子项|值|  
-    |------------|-------|  
-    |`UntrustedSites`|`禁用`|  
-    |`Internet`|`禁用`|  
-    |`MyComputer`|`禁用`|  
-    |`LocalIntranet`|`禁用`|  
-    |`TrustedSites`|`禁用`|  
+    |String Value subkey|Value|  
+    |-------------------------|-----------|  
+    |`UntrustedSites`|`Disabled`|  
+    |`Internet`|`Disabled`|  
+    |`MyComputer`|`Disabled`|  
+    |`LocalIntranet`|`Disabled`|  
+    |`TrustedSites`|`Disabled`|  
   
-#### 以编程方式禁用 ClickOnce 信任提示  
+#### <a name="to-disable-the-clickonce-trust-prompt-programmatically"></a>To disable the ClickOnce trust prompt programmatically  
   
-1.  在 Visual Studio 中创建一个 Visual Basic 或 Visual C\# 控制台应用程序。  
+1.  Create a Visual Basic or Visual C# console application in Visual Studio.  
   
-2.  打开 Program.vb 或 Program.cs 文件进行编辑，并添加以下代码。  
+2.  Open the Program.vb or Program.cs file for editing and add the following code.  
   
-    ```vb#  
+    ```vb  
     Dim key As Microsoft.Win32.RegistryKey  
     key = Microsoft.Win32.Registry.LocalMachine.CreateSubKey("SOFTWARE\MICROSOFT\.NETFramework\Security\TrustManager\PromptingLevel")  
     key.SetValue("MyComputer", "Disabled")  
@@ -210,7 +227,7 @@ caps.handback.revision: 11
     key.Close()  
     ```  
   
-    ```c#  
+    ```cs  
     Microsoft.Win32.RegistryKey key;  
     key = Microsoft.Win32.Registry.LocalMachine.CreateSubKey("SOFTWARE\\MICROSOFT\\.NETFramework\\Security\\TrustManager\\PromptingLevel");  
     key.SetValue("MyComputer", "Disabled");  
@@ -222,16 +239,16 @@ caps.handback.revision: 11
   
     ```  
   
-3.  生成并运行应用程序。  
+3.  Build and run the application.  
   
-## 请参阅  
- [保护 ClickOnce 应用程序](../deployment/securing-clickonce-applications.md)   
- [ClickOnce 应用程序的代码访问安全性](../deployment/code-access-security-for-clickonce-applications.md)   
- [ClickOnce 和 Authenticode](../deployment/clickonce-and-authenticode.md)   
- [受信任的应用程序部署概述](../deployment/trusted-application-deployment-overview.md)   
- [如何：启用 ClickOnce 安全设置](../deployment/how-to-enable-clickonce-security-settings.md)   
- [如何：为 ClickOnce 应用程序设置安全区域](../deployment/how-to-set-a-security-zone-for-a-clickonce-application.md)   
- [如何：设置 ClickOnce 应用程序的自定义权限](../deployment/how-to-set-custom-permissions-for-a-clickonce-application.md)   
- [如何：使用受限权限对 ClickOnce 应用程序进行调试](../deployment/how-to-debug-a-clickonce-application-with-restricted-permissions.md)   
- [如何：为 ClickOnce 应用程序向客户端计算机添加一个受信任的发行者](../deployment/how-to-add-a-trusted-publisher-to-a-client-computer-for-clickonce-applications.md)   
- [如何：为应用程序和部署清单重新签名](../deployment/how-to-re-sign-application-and-deployment-manifests.md)
+## <a name="see-also"></a>See Also  
+ [Securing ClickOnce Applications](../deployment/securing-clickonce-applications.md)   
+ [Code Access Security for ClickOnce Applications](../deployment/code-access-security-for-clickonce-applications.md)   
+ [ClickOnce and Authenticode](../deployment/clickonce-and-authenticode.md)   
+ [Trusted Application Deployment Overview](../deployment/trusted-application-deployment-overview.md)   
+ [How to: Enable ClickOnce Security Settings](../deployment/how-to-enable-clickonce-security-settings.md)   
+ [How to: Set a Security Zone for a ClickOnce Application](../deployment/how-to-set-a-security-zone-for-a-clickonce-application.md)   
+ [How to: Set Custom Permissions for a ClickOnce Application](../deployment/how-to-set-custom-permissions-for-a-clickonce-application.md)   
+ [How to: Debug a ClickOnce Application with Restricted Permissions](../deployment/how-to-debug-a-clickonce-application-with-restricted-permissions.md)   
+ [How to: Add a Trusted Publisher to a Client Computer for ClickOnce Applications](../deployment/how-to-add-a-trusted-publisher-to-a-client-computer-for-clickonce-applications.md)   
+ [How to: Re-sign Application and Deployment Manifests](../deployment/how-to-re-sign-application-and-deployment-manifests.md)

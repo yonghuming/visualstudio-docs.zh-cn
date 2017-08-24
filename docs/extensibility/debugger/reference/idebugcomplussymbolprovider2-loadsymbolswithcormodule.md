@@ -1,28 +1,45 @@
 ---
-title: "IDebugComPlusSymbolProvider2::LoadSymbolsWithCorModule | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-helpviewer_keywords: 
-  - "IDebugComPlusSymbolProvider2::LoadSymbolsWithCorModule"
-  - "LoadSymbolsWithCorModule"
+title: IDebugComPlusSymbolProvider2::LoadSymbolsWithCorModule | Microsoft Docs
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+helpviewer_keywords:
+- IDebugComPlusSymbolProvider2::LoadSymbolsWithCorModule
+- LoadSymbolsWithCorModule
 ms.assetid: b6abf3a4-ce60-4e66-9637-82ce911148de
 caps.latest.revision: 12
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 12
----
-# IDebugComPlusSymbolProvider2::LoadSymbolsWithCorModule
-[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
+ms.author: gregvanl
+manager: ghogen
+translation.priority.mt:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+ms.translationtype: MT
+ms.sourcegitcommit: ff8ecec19f8cab04ac2190f9a4a995766f1750bf
+ms.openlocfilehash: f05d0a5ef8aa1b8f6846ea7bac6283c9447a5fca
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/24/2017
 
-加载调试符号给定 **ICorDebugModule** 对象。  
+---
+# <a name="idebugcomplussymbolprovider2loadsymbolswithcormodule"></a>IDebugComPlusSymbolProvider2::LoadSymbolsWithCorModule
+Loads debug symbols given the **ICorDebugModule** object.  
   
-## <a name="syntax"></a>语法  
+## <a name="syntax"></a>Syntax  
   
 ```cpp#  
 HRESULT LoadSymbolsWithCorModule(  
@@ -36,7 +53,7 @@ HRESULT LoadSymbolsWithCorModule(
 );  
 ```  
   
-```c#  
+```cs  
 int LoadSymbolsWithCorModule(  
    uint   ulAppDomainID,  
    Guid   guidModule,  
@@ -48,33 +65,33 @@ int LoadSymbolsWithCorModule(
 );  
 ```  
   
-#### <a name="parameters"></a>参数  
+#### <a name="parameters"></a>Parameters  
  `ulAppDomainID`  
- [in]应用程序域的标识符。  
+ [in] Identifier of the application domain.  
   
  `guidModule`  
- [in]模块的唯一标识符。  
+ [in] Unique identifier of the module.  
   
  `baseAddress`  
- [in]基本内存地址。  
+ [in] Base memory address.  
   
  `pUnkMetadataImport`  
- [in]包含调试符号元数据的对象。  
+ [in] Object that contains the debug symbol metadata.  
   
  `pUnkCorDebugModule`  
- [in]实现对象 [ICorDebugModule 接口](ICorDebugModule%20Interface.xml)。  
+ [in] Object that implements the [ICorDebugModule Interface](/dotnet/framework/unmanaged-api/debugging/icordebugmodule-interface).  
   
  `bstrModuleName`  
- [in]模块的名称。  
+ [in] Name of the module.  
   
  `bstrSymSearchPath`  
- [in]用于搜索符号文件的路径。  
+ [in] Path to search for the symbol file.  
   
-## <a name="return-value"></a>返回值  
- 如果成功，返回 `S_OK`; 否则为返回错误代码。  
+## <a name="return-value"></a>Return Value  
+ If successful, returns `S_OK`; otherwise, returns an error code.  
   
-## <a name="example"></a>示例  
- 下面的示例演示如何实现此方法对于 **CDebugSymbolProvider** 公开的对象 [IDebugComPlusSymbolProvider2](../../../extensibility/debugger/reference/idebugcomplussymbolprovider2.md) 接口。  
+## <a name="example"></a>Example  
+ The following example shows how to implement this method for a **CDebugSymbolProvider** object that exposes the [IDebugComPlusSymbolProvider2](../../../extensibility/debugger/reference/idebugcomplussymbolprovider2.md) interface.  
   
 ```cpp#  
 HRESULT CDebugSymbolProvider::LoadSymbolsWithCorModule(  
@@ -168,5 +185,5 @@ Error:
 }  
 ```  
   
-## <a name="see-also"></a>请参阅  
+## <a name="see-also"></a>See Also  
  [IDebugComPlusSymbolProvider2](../../../extensibility/debugger/reference/idebugcomplussymbolprovider2.md)

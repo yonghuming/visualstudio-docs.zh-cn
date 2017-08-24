@@ -1,28 +1,45 @@
 ---
-title: "IDebugGenericFieldInstance::TypeArgumentCount | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-helpviewer_keywords: 
-  - "TypeArgumentCount"
-  - "IDebugGenericFieldInstance::TypeArgumentCount"
+title: IDebugGenericFieldInstance::TypeArgumentCount | Microsoft Docs
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+helpviewer_keywords:
+- TypeArgumentCount
+- IDebugGenericFieldInstance::TypeArgumentCount
 ms.assetid: e662c5ea-a5c1-478e-a268-5980dadffcd1
 caps.latest.revision: 8
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 8
----
-# IDebugGenericFieldInstance::TypeArgumentCount
-[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
+ms.author: gregvanl
+manager: ghogen
+translation.priority.mt:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+ms.translationtype: MT
+ms.sourcegitcommit: ff8ecec19f8cab04ac2190f9a4a995766f1750bf
+ms.openlocfilehash: 05a73eaa509f2d15d3c51cb1816e11f1cac52635
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/24/2017
 
-返回此实例的参数自变量类型的数目。  
+---
+# <a name="idebuggenericfieldinstancetypeargumentcount"></a>IDebugGenericFieldInstance::TypeArgumentCount
+Returns the number of type parameter arguments for this instance.  
   
-## <a name="syntax"></a>语法  
+## <a name="syntax"></a>Syntax  
   
 ```cpp#  
 HRESULT TypeArgumentCount(  
@@ -30,21 +47,21 @@ HRESULT TypeArgumentCount(
 );  
 ```  
   
-```c#  
+```cs  
 int TypeArgumentCount(  
    ref uint pcArgs  
 );  
 ```  
   
-#### <a name="parameters"></a>参数  
+#### <a name="parameters"></a>Parameters  
  `pcArgs`  
- [在中，out]此实例的类型参数自变量数量。  
+ [in, out] Number of type parameter arguments for this instance.  
   
-## <a name="return-value"></a>返回值  
- 如果成功，返回 `S_OK`; 否则为返回错误代码。  
+## <a name="return-value"></a>Return Value  
+ If successful, returns `S_OK`; otherwise, returns an error code.  
   
-## <a name="remarks"></a>备注  
- 例如，如果列表 \< int>, ，此方法返回 1，并且，如果列表 \< int、 float2 > 此方法返回 2。 如果不有任何类型参数，此方法将返回 0。  
+## <a name="remarks"></a>Remarks  
+ For example, if List\<int>, this method returns 1, and, if List\<int,float2> this method returns 2. This method returns 0 if there are no type arguments.  
   
-## <a name="see-also"></a>请参阅  
+## <a name="see-also"></a>See Also  
  [IDebugGenericFieldInstance](../../../extensibility/debugger/reference/idebuggenericfieldinstance.md)

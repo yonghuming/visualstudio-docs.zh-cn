@@ -1,51 +1,68 @@
 ---
-title: "IDebugProcess2::GetProcessId | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "IDebugProcess2::GetProcessId"
-helpviewer_keywords: 
-  - "IDebugProcess2::GetProcessId"
+title: IDebugProcess2::GetProcessId | Microsoft Docs
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords:
+- IDebugProcess2::GetProcessId
+helpviewer_keywords:
+- IDebugProcess2::GetProcessId
 ms.assetid: d5b6f03c-d49d-4b83-b072-016ac3124f5f
 caps.latest.revision: 10
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 10
----
-# IDebugProcess2::GetProcessId
-[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
+ms.author: gregvanl
+manager: ghogen
+translation.priority.mt:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+ms.translationtype: MT
+ms.sourcegitcommit: ff8ecec19f8cab04ac2190f9a4a995766f1750bf
+ms.openlocfilehash: a89cb13322019ef22af927974afab48f10626598
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/24/2017
 
-获取此的 GUID 处理。  
+---
+# <a name="idebugprocess2getprocessid"></a>IDebugProcess2::GetProcessId
+Gets the GUID for this process.  
   
-## 语法  
+## <a name="syntax"></a>Syntax  
   
 ```cpp#  
-HRESULT GetProcessId(  
-   GUID* pguidProcessId  
+HRESULT GetProcessId(  
+   GUID* pguidProcessId  
 );  
 ```  
   
-```c#  
-int GetProcessId(  
-   out Guid pguidProcessId  
+```cs  
+int GetProcessId(  
+   out Guid pguidProcessId  
 );  
 ```  
   
-#### 参数  
+#### <a name="parameters"></a>Parameters  
  `pguidProcessId`  
- \[out\] 返回此的 GUID 处理。  
+ [out] Returns the GUID for this process.  
   
-## 返回值  
- 如果成功，则返回; `S_OK`否则，返回错误代码。  
+## <a name="return-value"></a>Return Value  
+ If successful, returns `S_OK`; otherwise, returns an error code.  
   
-## 备注  
- 全局唯一标识符 \(GUID\)标识此从任何其他进程运行在系统。  
+## <a name="remarks"></a>Remarks  
+ The Globally Unique IDentifier (GUID) identifies this process from all other processes running in the system.  
   
-## 请参阅  
+## <a name="see-also"></a>See Also  
  [IDebugProcess2](../../../extensibility/debugger/reference/idebugprocess2.md)

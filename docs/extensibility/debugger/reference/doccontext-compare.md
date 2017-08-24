@@ -1,74 +1,91 @@
 ---
-title: "DOCCONTEXT_COMPARE | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "DOCCONTEXT_COMPARE"
-helpviewer_keywords: 
-  - "DOCCONTEXT_COMPARE 枚举"
+title: DOCCONTEXT_COMPARE | Microsoft Docs
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords:
+- DOCCONTEXT_COMPARE
+helpviewer_keywords:
+- DOCCONTEXT_COMPARE enumeration
 ms.assetid: ed947c34-b07e-4b69-8381-b6e7cb842862
 caps.latest.revision: 10
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 10
----
-# DOCCONTEXT_COMPARE
-[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
+ms.author: gregvanl
+manager: ghogen
+translation.priority.mt:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+ms.translationtype: MT
+ms.sourcegitcommit: ff8ecec19f8cab04ac2190f9a4a995766f1750bf
+ms.openlocfilehash: 0c5c751e392e8b34a7de598558b27360beab3352
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/24/2017
 
-用于比较两个指定标准文档上下文。  
+---
+# <a name="doccontextcompare"></a>DOCCONTEXT_COMPARE
+Specifies the criteria for comparing two document contexts.  
   
-## 语法  
+## <a name="syntax"></a>Syntax  
   
 ```cpp#  
-enum enum_DOCCONTEXT_COMPARE {   
-   DOCCONTEXT_EQUAL         = 0x0001,  
-   DOCCONTEXT_LESS_THAN     = 0x0002,  
-   DOCCONTEXT_GREATER_THAN  = 0x0003,  
-   DOCCONTEXT_SAME_DOCUMENT = 0x0004  
+enum enum_DOCCONTEXT_COMPARE {   
+   DOCCONTEXT_EQUAL         = 0x0001,  
+   DOCCONTEXT_LESS_THAN     = 0x0002,  
+   DOCCONTEXT_GREATER_THAN  = 0x0003,  
+   DOCCONTEXT_SAME_DOCUMENT = 0x0004  
 };  
 typedef DWORD DOCCONTEXT_COMPARE;  
 ```  
   
-```c#  
-enum enum_DOCCONTEXT_COMPARE {   
-   DOCCONTEXT_EQUAL         = 0x0001,  
-   DOCCONTEXT_LESS_THAN     = 0x0002,  
-   DOCCONTEXT_GREATER_THAN  = 0x0003,  
-   DOCCONTEXT_SAME_DOCUMENT = 0x0004  
+```cs  
+enum enum_DOCCONTEXT_COMPARE {   
+   DOCCONTEXT_EQUAL         = 0x0001,  
+   DOCCONTEXT_LESS_THAN     = 0x0002,  
+   DOCCONTEXT_GREATER_THAN  = 0x0003,  
+   DOCCONTEXT_SAME_DOCUMENT = 0x0004  
 };  
 ```  
   
-## 成员  
- DOCCONTEXT\_EQUAL  
- 查找第一个文档与其目标是相等的文档上下文的列表的上下文。  
+## <a name="members"></a>Members  
+ DOCCONTEXT_EQUAL  
+ Find the first document context in the list that is equal to the target document context.  
   
- DOCCONTEXT\_LESS\_THAN  
- 查找第一个文档与该目标小于的列表的上下文文档上下文。  
+ DOCCONTEXT_LESS_THAN  
+ Find the first document context in the list that is less than the target document context.  
   
- DOCCONTEXT\_GREATER\_THAN  
- 查找第一个文档与该目标大的列表的上下文文档上下文。  
+ DOCCONTEXT_GREATER_THAN  
+ Find the first document context in the list that is greater than the target document context.  
   
- DOCCONTEXT\_SAME\_DOCUMENT  
- 查找第一个文档上的列表的上下文同一文档，该文档目标上下文。  
+ DOCCONTEXT_SAME_DOCUMENT  
+ Find the first document context in the list that is in the same document as the target document context.  
   
-## 备注  
- 将作为参数传递 [比较](../../../extensibility/debugger/reference/idebugdocumentcontext2-compare.md) 方法。  
+## <a name="remarks"></a>Remarks  
+ Passed as an argument to the [Compare](../../../extensibility/debugger/reference/idebugdocumentcontext2-compare.md) method.  
   
- 这些值用于查找第一指定比较条件文档列表的上下文。  为文档上下文中的文档上下文传递 `IDebugDocumentContext2::Compare` 方法比较自身。  第一个文档比较运算符是 `true` 则返回的列表的上下文。  
+ These values are used to specify a comparison criteria for finding the first document context in a list. A document context is given a list of document contexts to compare itself against through the `IDebugDocumentContext2::Compare` method. The first document context in the list for which the comparison operator is `true` is then returned.  
   
-## 要求  
- 标题:msdbg.h  
+## <a name="requirements"></a>Requirements  
+ Header: msdbg.h  
   
- 命名空间:Microsoft.VisualStudio.Debugger.Interop  
+ Namespace: Microsoft.VisualStudio.Debugger.Interop  
   
- 程序集:Microsoft.VisualStudio.Debugger.Interop.dll  
+ Assembly: Microsoft.VisualStudio.Debugger.Interop.dll  
   
-## 请参阅  
- [枚举](../../../extensibility/debugger/reference/enumerations-visual-studio-debugging.md)   
- [比较](../../../extensibility/debugger/reference/idebugdocumentcontext2-compare.md)
+## <a name="see-also"></a>See Also  
+ [Enumerations](../../../extensibility/debugger/reference/enumerations-visual-studio-debugging.md)   
+ [Compare](../../../extensibility/debugger/reference/idebugdocumentcontext2-compare.md)

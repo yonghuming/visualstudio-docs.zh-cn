@@ -1,69 +1,86 @@
 ---
-title: "IDebugProperty3::SetValueAsStringWithError | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "IDebugProperty3::SetValueAsStringWithError"
-helpviewer_keywords: 
-  - "IDebugProperty3::SetValueAsStringWithError"
+title: IDebugProperty3::SetValueAsStringWithError | Microsoft Docs
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords:
+- IDebugProperty3::SetValueAsStringWithError
+helpviewer_keywords:
+- IDebugProperty3::SetValueAsStringWithError
 ms.assetid: b378368f-4a45-4b2f-8e3d-3bff7a18ab17
 caps.latest.revision: 11
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 11
----
-# IDebugProperty3::SetValueAsStringWithError
-[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
+ms.author: gregvanl
+manager: ghogen
+translation.priority.mt:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+ms.translationtype: MT
+ms.sourcegitcommit: ff8ecec19f8cab04ac2190f9a4a995766f1750bf
+ms.openlocfilehash: ea47050c28041ee660f971c8f0bafc2f57916724
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/24/2017
 
-设置此属性的值并返回错误消息，如果需要，。  
+---
+# <a name="idebugproperty3setvalueasstringwitherror"></a>IDebugProperty3::SetValueAsStringWithError
+Sets the value of this property and returns an error message, if necessary.  
   
-## 语法  
+## <a name="syntax"></a>Syntax  
   
 ```cpp  
-HRESULT SetValueAsStringWithError(  
-   LPCOLESTR pszValue,  
-   DWORD     dwRadix,  
-   DWORD     dwTimeout,  
-   BSTR*     errorString  
+HRESULT SetValueAsStringWithError(  
+   LPCOLESTR pszValue,  
+   DWORD     dwRadix,  
+   DWORD     dwTimeout,  
+   BSTR*     errorString  
 );  
 ```  
   
-```c#  
-int SetValueAsStringWithError(  
-   string     pszValue,  
-   uint       dwRadix,  
-   uint       dwTimeout,  
-   out string errorString  
+```cs  
+int SetValueAsStringWithError(  
+   string     pszValue,  
+   uint       dwRadix,  
+   uint       dwTimeout,  
+   out string errorString  
 );  
 ```  
   
-#### 参数  
+#### <a name="parameters"></a>Parameters  
  `pszValue`  
- \[in\] 设置的值。  
+ [in] Value to set.  
   
  `dwRadix`  
- \[in\] 设置的值基数。  
+ [in] The radix of the value being set.  
   
  `dwTimeout`  
- \[in\] 等待时间长度值设置为 \(`INFINITE` 表示始终等待\)。  
+ [in] The length of time to wait for the value to be set (`INFINITE` means wait forever).  
   
  `errorString`  
- \[out\] 如果存在设置值的错误，则包含该失败的原因。  
+ [out] If there was an error setting the value, this holds the reason for the failure.  
   
-## 返回值  
- 如果成功，则返回; `S_OK`否则，返回错误代码。  
+## <a name="return-value"></a>Return Value  
+ If successful, returns `S_OK`; otherwise, returns an error code.  
   
-## 备注  
- 传入值可以是要计算的表达式。  
+## <a name="remarks"></a>Remarks  
+ The incoming value could be an expression to be evaluated.  
   
-## 示例  
- 下面的示例演示如何执行显示 [IDebugProperty3](../../../extensibility/debugger/reference/idebugproperty3.md) 接口的 **CProperty** 对象的方法。  
+## <a name="example"></a>Example  
+ The following example shows how to implement this method for a **CProperty** object that exposes the [IDebugProperty3](../../../extensibility/debugger/reference/idebugproperty3.md) interface.  
   
 ```cpp#  
 HRESULT CProperty::SetValueAsStringWithError(   
@@ -167,5 +184,5 @@ HRESULT CProperty::SetValueAsStringWithError(
 }  
 ```  
   
-## 请参阅  
+## <a name="see-also"></a>See Also  
  [IDebugProperty3](../../../extensibility/debugger/reference/idebugproperty3.md)

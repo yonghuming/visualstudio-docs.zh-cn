@@ -1,56 +1,73 @@
 ---
-title: "IDebugCodeContext2::GetLanguageInfo | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "IDebugCodeContext2::GetLanguageInfo"
-helpviewer_keywords: 
-  - "IDebugCodeContext2::GetLanguageInfo"
+title: IDebugCodeContext2::GetLanguageInfo | Microsoft Docs
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords:
+- IDebugCodeContext2::GetLanguageInfo
+helpviewer_keywords:
+- IDebugCodeContext2::GetLanguageInfo
 ms.assetid: 03002ef1-9fe6-44b6-b23b-ef7b86b2b21b
 caps.latest.revision: 10
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 10
----
-# IDebugCodeContext2::GetLanguageInfo
-[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
+ms.author: gregvanl
+manager: ghogen
+translation.priority.mt:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+ms.translationtype: MT
+ms.sourcegitcommit: ff8ecec19f8cab04ac2190f9a4a995766f1750bf
+ms.openlocfilehash: 6d01413e5a7bc47b708bf04d89ff12748a96e170
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/24/2017
 
-获取此代码上下文的语言信息。  
+---
+# <a name="idebugcodecontext2getlanguageinfo"></a>IDebugCodeContext2::GetLanguageInfo
+Gets the language information for this code context.  
   
-## 语法  
+## <a name="syntax"></a>Syntax  
   
 ```cpp#  
-HRESULT GetLanguageInfo(   
-   BSTR* pbstrLanguage,  
-   GUID* pguidLanguage  
+HRESULT GetLanguageInfo(   
+   BSTR* pbstrLanguage,  
+   GUID* pguidLanguage  
 );  
 ```  
   
-```c#  
-int GetLanguageInfo(   
-   ref string pbstrLanguage,  
-   ref Guid pguidLanguage  
+```cs  
+int GetLanguageInfo(   
+   ref string pbstrLanguage,  
+   ref Guid pguidLanguage  
 );  
 ```  
   
-#### 参数  
+#### <a name="parameters"></a>Parameters  
  `pbstrLanguage`  
- \[in, out\] 返回包含该语言的名称的字符串，如 “C\+\+”。  
+ [in, out] Returns a string that contains the name of the language, such as "C++."  
   
  `pguidLanguage`  
- \[in, out\] 返回代码上下文的语言的 GUID，例如， `guidCPPLang`。  
+ [in, out] Returns the GUID for the language of the code context, for example, `guidCPPLang`.  
   
-## 返回值  
- 如果成功，则返回; `S_OK`否则，返回错误代码。  
+## <a name="return-value"></a>Return Value  
+ If successful, returns `S_OK`; otherwise, returns an error code.  
   
-## 备注  
- 至少有一个参数必须返回一个非 null 值。  
+## <a name="remarks"></a>Remarks  
+ At least one of the parameters must return a non-null value.  
   
-## 请参阅  
+## <a name="see-also"></a>See Also  
  [IDebugCodeContext2](../../../extensibility/debugger/reference/idebugcodecontext2.md)

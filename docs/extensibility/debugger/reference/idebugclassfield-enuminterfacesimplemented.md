@@ -1,5 +1,5 @@
 ---
-title: "IDebugClassField::EnumInterfacesImplemented |Microsoft 文档"
+title: IDebugClassField::EnumInterfacesImplemented | Microsoft Docs
 ms.custom: 
 ms.date: 11/04/2016
 ms.reviewer: 
@@ -30,16 +30,17 @@ translation.priority.mt:
 - tr-tr
 - zh-cn
 - zh-tw
-translationtype: Machine Translation
-ms.sourcegitcommit: 5db97d19b1b823388a465bba15d057b30ff0b3ce
-ms.openlocfilehash: e185c6ba5d51332396670798df963b3f2612e33a
-ms.lasthandoff: 02/22/2017
+ms.translationtype: MT
+ms.sourcegitcommit: ff8ecec19f8cab04ac2190f9a4a995766f1750bf
+ms.openlocfilehash: e1e234620f89bf397eb7ec8470c57ecead52d48a
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/24/2017
 
 ---
 # <a name="idebugclassfieldenuminterfacesimplemented"></a>IDebugClassField::EnumInterfacesImplemented
-创建此类实现的接口的枚举数。  
+Creates an enumerator for the interfaces implemented by this class.  
   
-## <a name="syntax"></a>语法  
+## <a name="syntax"></a>Syntax  
   
 ```cpp#  
 HRESULT EnumInterfacesImplemented(   
@@ -47,22 +48,22 @@ HRESULT EnumInterfacesImplemented(
 );  
 ```  
   
-```c#  
+```cs  
 int EnumInterfacesImplemented(  
    out IEnumDebugFields ppEnum  
 );  
 ```  
   
-#### <a name="parameters"></a>参数  
+#### <a name="parameters"></a>Parameters  
  `ppEnum`  
- [out]返回[IEnumDebugFields](../../../extensibility/debugger/reference/ienumdebugfields.md)对象，表示实现接口的列表。 如果不有任何接口，则返回 null 值。  
+ [out] Returns an [IEnumDebugFields](../../../extensibility/debugger/reference/ienumdebugfields.md) object representing the list of interfaces implemented. Returns a null value if there are no interfaces.  
   
-## <a name="return-value"></a>返回值  
- 如果成功，返回 S_OK，或如果没有在此类上实现接口，则返回 S_FALSE。 否则，返回错误代码。  
+## <a name="return-value"></a>Return Value  
+ If successful, returns S_OK or returns S_FALSE if there are no interfaces implemented on this class. Otherwise, returns an error code.  
   
-## <a name="remarks"></a>备注  
- 每个元素的枚举[IDebugClassField](../../../extensibility/debugger/reference/idebugclassfield.md)描述接口对象。 请注意，不受管理[!INCLUDE[vcprvc](../../../code-quality/includes/vcprvc_md.md)]以便此方法始终返回 null 值，对于非托管代码不作为离散实体使用接口[!INCLUDE[vcprvc](../../../code-quality/includes/vcprvc_md.md)]代码。  
+## <a name="remarks"></a>Remarks  
+ Each element of the enumeration is an [IDebugClassField](../../../extensibility/debugger/reference/idebugclassfield.md) object describing an interface. Note that unmanaged [!INCLUDE[vcprvc](../../../code-quality/includes/vcprvc_md.md)] code does not use interfaces as a discrete entity so this method always returns a null value for unmanaged [!INCLUDE[vcprvc](../../../code-quality/includes/vcprvc_md.md)] code.  
   
-## <a name="see-also"></a>另请参阅  
+## <a name="see-also"></a>See Also  
  [IDebugClassField](../../../extensibility/debugger/reference/idebugclassfield.md)   
  [IEnumDebugFields](../../../extensibility/debugger/reference/ienumdebugfields.md)

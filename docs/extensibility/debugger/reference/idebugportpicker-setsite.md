@@ -1,49 +1,66 @@
 ---
-title: "IDebugPortPicker::SetSite | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-helpviewer_keywords: 
-  - "IDebugPortPicker::SetSite"
+title: IDebugPortPicker::SetSite | Microsoft Docs
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+helpviewer_keywords:
+- IDebugPortPicker::SetSite
 ms.assetid: 7319e187-adfe-4b3f-aec9-521356fb5a8a
 caps.latest.revision: 6
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 6
----
-# IDebugPortPicker::SetSite
-[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
+ms.author: gregvanl
+manager: ghogen
+translation.priority.mt:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+ms.translationtype: MT
+ms.sourcegitcommit: ff8ecec19f8cab04ac2190f9a4a995766f1750bf
+ms.openlocfilehash: e9b83b5b507b266c860777007e79670d6beebfb9
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/24/2017
 
-设置服务提供程序。  
+---
+# <a name="idebugportpickersetsite"></a>IDebugPortPicker::SetSite
+Sets the service provider.  
   
-## 语法  
+## <a name="syntax"></a>Syntax  
   
 ```cpp#  
 HRESULT SetSite(  
-   IServiceProvider * pSP  
+   IServiceProvider * pSP  
 );  
 ```  
   
-```c#  
+```cs  
 public int SetSite(  
-   IServiceProvider pSP  
+   IServiceProvider pSP  
 );  
 ```  
   
-#### 参数  
+#### <a name="parameters"></a>Parameters  
  `pSP`  
- \[in\] 对服务提供程序的接口。  
+ [in] Reference to the interface of the service provider.  
   
-## 返回值  
- 如果成功，则返回; `S_OK`否则，返回错误代码。  
+## <a name="return-value"></a>Return Value  
+ If successful, returns `S_OK`; otherwise, returns an error code.  
   
-## 备注  
- ，在其他任何方法调用之前，此方法将调用。  
+## <a name="remarks"></a>Remarks  
+ This method will be called before any other methods are called.  
   
-## 请参阅  
+## <a name="see-also"></a>See Also  
  [IDebugPortPicker](../../../extensibility/debugger/reference/idebugportpicker.md)

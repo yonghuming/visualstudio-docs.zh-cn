@@ -1,5 +1,5 @@
 ---
-title: "演练：我的第一个 WPF 桌面应用程序2 | Microsoft Docs"
+title: 'Walkthrough: My First WPF Desktop Application2 | Microsoft Docs'
 ms.custom: 
 ms.date: 11/04/2016
 ms.reviewer: 
@@ -28,57 +28,57 @@ translation.priority.mt:
 - pl-pl
 - pt-br
 - tr-tr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 47057e9611b824c17077b9127f8d2f8b192d6eb8
-ms.openlocfilehash: 6045516b1be3ed5a603751e71a720090a5e0fe50
+ms.translationtype: HT
+ms.sourcegitcommit: ff8ecec19f8cab04ac2190f9a4a995766f1750bf
+ms.openlocfilehash: 1496b93aafc43793b2b0c97d24ba0dbb0666fa2f
 ms.contentlocale: zh-cn
-ms.lasthandoff: 05/13/2017
+ms.lasthandoff: 08/24/2017
 
 ---
-# <a name="walkthrough-my-first-wpf-desktop-application"></a>演练：我的第一个 WPF 桌面应用程序
-<a name="introduction"></a> 本演练提供了 Windows Presentation Foundation (WPF) 开发的简介。 你将创建一个基本应用程序，其中包括大多数 WPF 桌面应用程序中常见的元素：XAML 标记、代码隐藏、应用程序定义、控件、布局、数据绑定和样式。  
+# <a name="walkthrough-my-first-wpf-desktop-application"></a>Walkthrough: My First WPF Desktop Application
+<a name="introduction"></a> This walkthrough provides an introduction to Windows Presentation Foundation (WPF) development. You'll create a basic application that includes the elements that are common to most WPF desktop applications: XAML markup, code-behind, application definitions, controls, layout, data binding, and styles.  
   
-##  <a name="Create_The_Application_Code_Files"></a> 创建应用程序项目  
- 本部分将创建应用程序基础结构，其中包括项目和主窗口或窗体。  
+##  <a name="Create_The_Application_Code_Files"></a> Creating the Application Project  
+ In this section, you'll create the application infrastructure, which includes the project and a main window or form.  
   
-#### <a name="to-create-the-project"></a>创建项目  
+#### <a name="to-create-the-project"></a>To create the project  
   
-1.  在菜单栏上，依次选择“文件” 、“新建” 、“项目” 。  
+1.  On the menu bar, choose **File**, **New**, **Project**.  
   
-2.  在“新建项目”  对话框框中，展开“Visual C#”  或“Visual Basic”  节点，再选择“Windows”  节点，然后展开“Windows”  节点并选择“经典桌面”  节点。  
+2.  In the **New Project** dialog, expand either the **Visual C#** or **Visual Basic** node and choose the **Windows** node, and then expand the **Windows** node and choose the **Classic Desktop** node.  
   
-3.  在模板列表中，选择“WPF 应用程序”  模板。  
+3.  In the template list, choose the **WPF Application** template.  
   
-4.  在“新建项目”  文本框中，键入 `ExpenseIt`，然后选择“确定”  按钮。  
+4.  In the **Name** textbox enter `ExpenseIt`, and then choose the **OK** button.  
   
-     创建项目并且已将项目文件添加到“解决方案资源管理器” 后，将显示名为 **MainWindow.xaml** 的默认应用程序窗口的设计器。  
+     The project is created and the project files are added to **Solution Explorer**, and the designer for the default application window named **MainWindow.xaml** is displayed.  
   
-#### <a name="to-modify-the-main-window"></a>若要修改主窗口  
+#### <a name="to-modify-the-main-window"></a>To modify the main window  
   
-1.  在设计器中，选择“MainWindow.xaml” 选项卡（如果它还不是活动的设计器选项卡）。  
+1.  In the designer, choose the **MainWindow.xaml** tab if it isn't already the active designer tab.  
   
-2.  如果正在使用 C#，找到行 `<Window x:Class="ExpenseIt.MainWindow"` 并将其替换为 `<NavigationWindow x:Class="ExpenseIt.MainWindow"`。  
+2.  If you're using C#, find the line `<Window x:Class="ExpenseIt.MainWindow"` and replace it with `<NavigationWindow x:Class="ExpenseIt.MainWindow"`.  
   
-     如果正在使用 Visual Basic，找到行 `<Window x:Class=" MainWindow"` 并将其替换为 `<NavigationWindow x:Class="MainWindow"`。  
+     If you're using Visual Basic, find the line `<Window x:Class=" MainWindow"` and replace it with `<NavigationWindow x:Class="MainWindow"`.  
   
-     请注意，当你将 `<Window` 标记更改为 `<NavigationWindow`时，Intellisense 也会自动将结束标记更改为 `</NavigationWindow>` 。  
+     Notice that when you change the `<Window` tag to `<NavigationWindow`, Intellisense automatically changes the closing tag to `</NavigationWindow>` as well.  
   
     > [!NOTE]
-    >  如果更改标记后  “错误列表”窗口打开，那么你可能会看到几个错误。 别担心，在接下来的步骤中做出更改后，这些错误就会消失。  
+    >  After changing the tag, if the **Error List** window is open you may notice several errors. Don't worry, the changes you make in the next few steps will make these go away.  
   
-3.  选择 `<Grid>` 和 `</Grid>` 标记，并将其删除。  
+3.  Choose the `<Grid>` and `</Grid>` tags and delete them.  
   
-     NavigationWindow 无法包含“网格”等其他 UI 元素。  
+     A **NavigationWindow** can't contain other UI elements such as a **Grid**.  
   
-4.  在“新建项目”  窗口中，展开“常用” **Common** 类别节点，然后选择“标题”  属性，再输入 `ExpenseIt` 并按“”  键。  
+4.  In the **Properties** window, expand the **Common** category node and choose the **Title** property, and then enter `ExpenseIt` and press the **Enter** key.  
   
-     请注意，XAML 窗口中的“标题”  元素会更改以匹配新值。 可以修改 XAML 窗口或“属性”  窗口中的 XAML 属性且更改会同步。  
+     Notice that the **Title** element in the XAML window changes to match the new value. You can modify XAML properties in either the XAML window or the **Properties** window, and the changes are synchronized.  
   
-5.  在 XAML 窗口中，将“高度”元素的值设置为 `375`，并将“宽度”属性的值设置为 `500`。  
+5.  In the XAML window, set the value of the **Height** element to `375`, and set the value of the **Width** property to `500`.  
   
-     这些元素对应于“高度”和“宽度”属性，它们可在“属性”窗口的“布局”类别中找到。  
+     These elements correspond to the **Height** and **Width** properties, found in the **Layout** category in the **Properties** window.  
   
-     你的 **MainWindow.xaml** 文件在 C# 中现应如下所示：  
+     Your **MainWindow.xaml** file should now look like this in C#:  
   
     ```xaml  
     <NavigationWindow x:Class="ExpenseIt.MainWindow"  
@@ -93,7 +93,7 @@ ms.lasthandoff: 05/13/2017
     </NavigationWindow>  
     ```  
   
-     或在 Visual Basic 中应这样显示：  
+     Or like this in Visual Basic:  
   
     ```xaml  
     <NavigationWindow x:Class="MainWindow"  
@@ -108,30 +108,30 @@ ms.lasthandoff: 05/13/2017
     </NavigationWindow>  
     ```  
   
-#### <a name="to-modify-the-code-behind-file-c"></a>若要修改代码隐藏文件 (C#)  
+#### <a name="to-modify-the-code-behind-file-c"></a>To modify the code-behind file (C#)  
   
-1.  在“解决方案资源管理器” 中，展开“MainWindow.xaml”  节点并打开“MainWindow.xaml.cs”  文件。  
+1.  In **Solution Explorer**, expand the **MainWindow.xaml** node and open the **MainWindow.xaml.cs** file.  
   
-2.  找到行 `public partial class MainWindow : Window` 并将其替换为 `public partial class MainWindow : NavigationWindow`。  
+2.  Find the line `public partial class MainWindow : Window` and replace it with `public partial class MainWindow : NavigationWindow`.  
   
-     此操作会更改 `MainWindow` 类以派生自 `NavigationWindow`。 在 Visual Basic 中，当你更改 XAML 中的窗口时会自动发生这种情况，因此无需更改任何代码。  
+     This changes the `MainWindow` class to derive from `NavigationWindow`. In Visual Basic, this happens automatically when you change the window in XAML, so no code changes are necessary.  
   
-##  <a name="add_files_to_the_application"></a> 将文件添加到应用程序  
- 本部分将向应用程序添加两个页面和一个图像。  
+##  <a name="add_files_to_the_application"></a> Adding Files to the Application  
+ In this section, you'll add two pages and an image to the application.  
   
-#### <a name="to-add-a-home-screen"></a>若要添加主屏幕  
+#### <a name="to-add-a-home-screen"></a>To add a home screen  
   
-1.  在“解决方案资源管理器”中，打开“ExpenseIt”节点的快捷菜单，选择“添加”、“页”。  
+1.  In **Solution Explorer**, open the shortcut menu for the **ExpenseIt** node and choose **Add**, **Page**.  
   
-2.  在“新建项目”  “添加新项”对话框中，选择  “名称”文本框并输入 `ExpenseItHome`，然后选择“确定”  按钮。  
+2.  In the **Add New Item** dialog, choose the **Name** text box and enter `ExpenseItHome`, and then choose the **Add** button.  
   
-     此页是应用程序启动时显示的第一个窗口。  
+     This page is the first window that is displayed when the application is launched.  
   
-3.  在设计器中，选择“ExpenseItHome.xaml”选项卡（如果它还不是活动的设计器选项卡）。  
+3.  In the designer, choose the **ExpenseItHome.xaml** tab if it isn't already the active designer tab.  
   
-4.  选择 `<Title>` 元素并将标题更改为“ExpenseIt – Home”。  
+4.  Choose the `<Title>` element and change the title to **ExpenseIt - Home**.  
   
-     你的 **ExpenseItHome.xaml** 文件在 C# 中现应如下所示：  
+     Your **ExpenseItHome.xaml** file should now look like this in C#:  
   
     ```xaml  
     <Page x:Class="ExpenseIt.ExpenseItHome"  
@@ -150,7 +150,7 @@ ms.lasthandoff: 05/13/2017
     </Page>  
     ```  
   
-     或在 Visual Basic 中应这样显示：  
+     Or like this in Visual Basic:  
   
     ```xaml  
     <Page x:Class="ExpenseItHome"  
@@ -168,11 +168,11 @@ ms.lasthandoff: 05/13/2017
     </Page>  
     ```  
   
-5.  在设计器中，选择“MainWindow.xaml”  选项卡。  
+5.  In the designer, choose the **MainWindow.xaml** tab.  
   
-6.  查找行 `Title="ExpenseIt" Height="375" Width="500">` 元素并添加 `Source="ExpenseItHome.xaml"` 属性。  
+6.  Find the line `Title="ExpenseIt" Height="375" Width="500">` element and add a `Source="ExpenseItHome.xaml"` property.  
   
-     这将 **ExpenseItHome.xaml** 设置为应用程序启动时第一个打开的页。 你的 **MainWindow.xaml** 文件在 C# 中现应如下所示：  
+     This sets **ExpenseItHome.xaml** to be the first page opened when the application starts. Your **MainWindow.xaml** file should now look like this in C#:  
   
     ```xaml  
     <NavigationWindow x:Class="ExpenseIt.MainWindow"  
@@ -187,7 +187,7 @@ ms.lasthandoff: 05/13/2017
     </NavigationWindow>  
     ```  
   
-     或在 Visual Basic 中应这样显示：  
+     Or like this in Visual Basic:  
   
     ```xaml  
     NavigationWindow x:Class="MainWindow"  
@@ -202,21 +202,21 @@ ms.lasthandoff: 05/13/2017
     </NavigationWindow>  
     ```  
   
-     正如你先前设置的属性一样，你也可以设置“属性”窗口的“杂项”类别中的 `Source` 属性。  
+     As with the properties that you set earlier, you could have set the `Source` property in the **Miscellaneous** category of the **Properties** window.  
   
-#### <a name="to-add-a-details-window"></a>若要添加详细信息窗口  
+#### <a name="to-add-a-details-window"></a>To add a details window  
   
-1.  在“解决方案资源管理器”中，打开“ExpenseIt”节点的快捷菜单，选择“添加”、“页”。  
+1.  In **Solution Explorer**, open the shortcut menu for the **ExpenseIt** node and choose **Add**, **Page**.  
   
-2.  在“新建项目”  “添加新项”对话框中，选择  “名称”文本框并输入 `ExpenseReportPage`，然后选择“确定”  按钮。  
+2.  In the **Add New Item** dialog, choose the **Name** text box and enter `ExpenseReportPage`, and then choose the **Add** button.  
   
-     此窗口将显示单个费用报表。  
+     This window will display an individual expense report.  
   
-3.  在设计器中，选择“ExpenseReportPage.xaml”选项卡（如果还不是活动的设计器选项卡）。  
+3.  In the designer, choose the **ExpenseReportPage.xaml** tab if it isn't already the active designer tab.  
   
-4.  选择 `<Title>` 元素并将标题更改为“ExpenseIt – View Expense”。  
+4.  Choose the `<Title>` element and change the title to **ExpenseIt - View Expense**.  
   
-     你的 ExpenseReportPage.xaml 文件在 C# 中现应如下所示：  
+     Your ExpenseReportPage.xaml file should now look like this in C#:  
   
     ```xaml  
     Page x:Class="ExpenseIt.ExpenseReportPage"  
@@ -235,7 +235,7 @@ ms.lasthandoff: 05/13/2017
     </Page>  
     ```  
   
-     或在 Visual Basic 中应这样显示：  
+     Or like this in Visual Basic:  
   
     ```xaml  
     <Page x:Class="ExpenseReportPage"  
@@ -253,26 +253,26 @@ ms.lasthandoff: 05/13/2017
     </Page>  
     ```  
   
-5.  在菜单栏上，依次选择 “调试”和“启动调试”  （或按 F5）以运行应用程序。  
+5.  On the menu bar, choose **Debug**, **Start Debugging** (or press F5) to run the application.  
   
-     下面的插图显示带导航窗口按钮的应用程序。  
+     The following illustration shows the application with the navigation window buttons.  
   
-     ![ExpenseIt 示例屏幕快照](~/designers/media/gettingstartedfigure1.png "GettingStartedFigure1")  
+     ![ExpenseIt sample screen shot](../designers/media/gettingstartedfigure1.png "GettingStartedFigure1")  
   
-6.  关闭应用程序以返回到设计模式。  
+6.  Close the application to return to design mode.  
   
-##  <a name="Add_Layout"></a> 创建用户界面  
- 布局提供有序方式来放置元素，在调整窗体时还管理这些元素的大小和位置。 本部分将创建三行一列的网格。 你将向这两页添加控件、添加代码，并且最终定义控件的可重用样式。  
+##  <a name="Add_Layout"></a> Creating the User Interface  
+ Layout provides an ordered way to place elements, and also manages the size and position of those elements when a form is resized. In this section, you'll create a single-column grid with three rows. You'll add controls to the two pages, add some code, and finally define reusable styles for the controls.  
   
-#### <a name="to-create-the-layout"></a>若要创建布局  
+#### <a name="to-create-the-layout"></a>To create the layout  
   
-1.  打开“ExpenseItHome.xaml”  ，并选择 `<Grid>` 元素。  
+1.  Open **ExpenseItHome.xaml** and choose the `<Grid>` element.  
   
-2.  在“属性”窗口中，展开“布局”类别节点并将“边距”值设置为 `10`（左边距）、`10`（右边距）、`0`（上边距）和 `10`（下边距）。  
+2.  In the **Properties** window, expand the **Layout** category node and set the **Margin** values to `10`, `10`, `0`, and `10`, which corresponds to left, right, top and bottom margins.  
   
-     元素 `Margin="10,0,10,10"` 添加到 XAML 中的 `<Grid>` 元素。 再强调一下，你可以直接在 XAML 代码中输入这些值，而不用在“属性”窗口中输入  ，效果都相同。  
+     The element `Margin="10,0,10,10"` is added to the `<Grid>` element in the XAML. Once again, you could have entered these values directly in the XAML code instead of in the **Properties** window with the same result.  
   
-3.  将下面 XAML 代码添加到 `Grid` 元素以创建行和列定义：  
+3.  Add the following XAML code to the `Grid` element to create the row and column definitions:  
   
     ```xaml  
     <Grid.ColumnDefinitions>  
@@ -285,11 +285,11 @@ ms.lasthandoff: 05/13/2017
     </Grid.RowDefinitions>  
     ```  
   
-#### <a name="to-add-controls"></a>若要添加控件  
+#### <a name="to-add-controls"></a>To add controls  
   
-1.  打开 **ExpenseItHome.xaml**。  
+1.  Open **ExpenseItHome.xaml**.  
   
-2.  将以下 XAML 代码刚好添加到 `</Grid>` 标记上方以创建 `Border`、 `ListBox` 和 `Button` 控件。  
+2.  Add the following XAML code just above the `</Grid>` tag to create the `Border`, `ListBox` and `Button` controls.  
   
     ```xaml  
     <!-- People list -->  
@@ -309,31 +309,31 @@ ms.lasthandoff: 05/13/2017
   
     ```  
   
-     注意控件会出现在设计窗口中。 你也可以通过将控件从“工具箱”  窗口拖到设计窗口并在“属性”  窗口设置其属性来创建控件。  
+     Notice that the controls appear in the design window. You could also have created the controls by dragging them from the **Toolbox** window onto the design window and setting their properties in the **Properties** window.  
   
-3.  生成并运行应用程序。 下图显示了此过程中 XAML 创建的控件的运行时外观。  
+3.  Build and run the application. The following illustration shows the run time appearance of the controls that are created by the XAML in this procedure.  
   
-     ![ExpenseIt 示例屏幕快照](~/designers/media/gettingstartedfigure2.png "GettingStartedFigure2")  
+     ![ExpenseIt sample screen shot](../designers/media/gettingstartedfigure2.png "GettingStartedFigure2")  
   
-4.  关闭应用程序以返回到设计模式。  
+4.  Close the application to return to design mode.  
   
-#### <a name="to-add-a-background-image"></a>若要添加背景图像  
+#### <a name="to-add-a-background-image"></a>To add a background image  
   
-1.  选择以下图像，并将其保存为 `watermark.png`。  
+1.  Choose the following image and save it as `watermark.png`.  
   
-     ![演练的水印图像](../designers/media/wpf_watermark.png "WPF_watermark")  
-  
-    > [!NOTE]
-    >  或者可以创建自己的图像并将其保存为 `watermark.png`。  
-  
-2.  在“解决方案资源管理器”中，打开“ExpenseIt”节点的快捷菜单，选择“添加”、“现有项”。  
-  
-3.  在“添加现有项”  对话框中，找到刚添加的“watermark.png”  图像，并选中它，然后选择“添加”  按钮。  
+     ![Watermark image for walkthrough](../designers/media/wpf_watermark.png "WPF_watermark")  
   
     > [!NOTE]
-    >  你可能需要展开“文件类型”  列表并选择“图像文件” 。  
+    >  Alternatively you can create your own image and save it as `watermark.png`.  
   
-4.  打开“ExpenseItHome.xaml”  文件并将以下 XAML 代码刚好添加到 `</Grid>` 标记上方以创建背景图像：  
+2.  In **Solution Explorer**, open the shortcut menu for the **ExpenseIt** node and choose **Add**, **Existing Item**.  
+  
+3.  In the **Add Existing Item** dialog, find the **watermark.png** image that you just added, choose it and then choose the **Add** button.  
+  
+    > [!NOTE]
+    >  You may need to expand the **File Types** list and choose **Image Files**.  
+  
+4.  Open the **ExpenseItHome.xaml** file and add the following XAML code just above the `</Grid>` tag to create a background image:  
   
     ```xaml  
     <Grid.Background>  
@@ -342,37 +342,37 @@ ms.lasthandoff: 05/13/2017
   
     ```  
   
-#### <a name="to-add-a-title"></a>若要添加标题  
+#### <a name="to-add-a-title"></a>To add a title  
   
-1.  打开 **ExpenseItHome.xaml**。  
+1.  Open **ExpenseItHome.xaml**.  
   
-2.  查找行 `<Grid.ColumnDefinitions>` 并将以下内容添加到它的下方：  
+2.  Find the line `<Grid.ColumnDefinitions>` and add the following just below it:  
   
     ```xaml  
     <ColumnDefinition Width="230" />  
   
     ```  
   
-     这将在其他列的左侧另外创建一个列，宽度固定为 230 像素。  
+     This creates an additional column to the left of the other columns with a fixed width of 230 pixels.  
   
-3.  查找行 `<Grid.RowDefinitions>` 并将以下内容添加到它的下方：  
+3.  Find the line `<Grid.RowDefinitions>` and add the following just below it:  
   
     ```xaml  
     <RowDefinition />  
   
     ```  
   
-     这将在网格顶部添加一行。  
+     This adds a row to the top of the grid.  
   
-4.  将 `Grid.Column` 值设置为 1 以将控件移动到第二列。 将每个 `Grid.Row` 值加 1 以将每个控件下移一行。  
+4.  Move the controls to the second column by setting the `Grid.Column` value to 1. Move each control down a row, by increasing each `Grid.Row` value by 1.  
   
-    1.  查找行 `<Border Grid.Column="0" Grid.Row="0" Height="35" Padding="5" Background="#4E87D4">`。 将 `Grid.Column="0"` 更改为 `Grid.Column="1"` 并将 `Grid.Row="0"` 更改为 `Grid.Row="1"`。  
+    1.  Find the line `<Border Grid.Column="0" Grid.Row="0" Height="35" Padding="5" Background="#4E87D4">`. Change `Grid.Column="0"` to `Grid.Column="1"` and change `Grid.Row="0"` to `Grid.Row="1"`.  
   
-    2.  查找行 `<ListBox Name="peopleListBox" Grid.Column="0" Grid.Row="1"`。 将 `Grid.Column="0"` 更改为 `Grid.Column="1"` 并将 `Grid.Row="1"` 更改为 `Grid.Row="2"`。  
+    2.  Find the line `<ListBox Name="peopleListBox" Grid.Column="0" Grid.Row="1"`. Change `Grid.Column="0"` to `Grid.Column="1"` and change `Grid.Row="1"` to `Grid.Row="2"`.  
   
-    3.  查找行 `<Button Grid.Column="0" Grid.Row="2" Margin="0,10,0,0" Width="125"`。 将 `Grid.Column="0"` 更改为 `Grid.Column="1"` 并将 `Grid.Row="2"` 更改为 `Grid.Row="3"`。  
+    3.  Find the line `<Button Grid.Column="0" Grid.Row="2" Margin="0,10,0,0" Width="125"`. Change `Grid.Column="0"` to `Grid.Column="1"` and change `Grid.Row="2"` to `Grid.Row="3"`.  
   
-5.  在 `<Border` 元素之前添加以下 XAML 代码以显示标题：  
+5.  Just before the `<Border` element add the following XAML code to display the title:  
   
     ```xaml  
     <Label Grid.Column="1" VerticalAlignment="Center" FontFamily="Trebuchet MS"   
@@ -382,7 +382,7 @@ ms.lasthandoff: 05/13/2017
   
     ```  
   
-     **ExpenseItHome.xaml** 的内容在 C# 中现应如下所示：  
+     The contents of **ExpenseItHome.xaml** should now look like this in C#:  
   
     ```xaml  
     <Page x:Class="ExpenseIt.ExpenseItHome"  
@@ -430,7 +430,7 @@ ms.lasthandoff: 05/13/2017
     </Page>  
     ```  
   
-     或在 Visual Basic 中应这样显示：  
+     Or like this in Visual Basic:  
   
     ```xaml  
     <Page x:Class="ExpenseItHome"  
@@ -478,17 +478,17 @@ ms.lasthandoff: 05/13/2017
     </Page>  
     ```  
   
-6.  如果在此时生成并运行应用程序，其外观应类似于下图：  
+6.  If you build and run the application at this point, it should look like the following illustration:  
   
-     ![ExpenseIt 示例屏幕快照](~/designers/media/gettingstartedfigure3.png "GettingStartedFigure3")  
+     ![ExpenseIt sample screen shot](../designers/media/gettingstartedfigure3.png "GettingStartedFigure3")  
   
-#### <a name="to-add-code-to-the-button"></a>若要将代码添加到按钮  
+#### <a name="to-add-code-to-the-button"></a>To add code to the button  
   
-1.  打开 **ExpenseItHome.xaml**。  
+1.  Open **ExpenseItHome.xaml**.  
   
-2.  选择 `<Button` 元素并将以下 XAML 代码紧跟在 **HorizontalAlignment="Right"** 元素的后面： `Click="Button_Click"`。  
+2.  Chose the `<Button` element and add the following XAML code immediately after the **HorizontalAlignment="Right"** element: `Click="Button_Click"`.  
   
-     这将为按钮的 `Click` 事件添加一个事件处理程序。 “<按钮”元素代码现应如下所示：  
+     This adds an event handler for the button's `Click` event. The **<Button** element code should now look like this:  
   
     ```  
     <!-- View report button -->  
@@ -496,11 +496,11 @@ ms.lasthandoff: 05/13/2017
     Height="25" HorizontalAlignment="Right" Click="Button_Click">View</Button>  
     ```  
   
-3.  打开“ExpenseItHome.xaml.cs”  或  “ExpenseItHome.xaml.vb”文件。  
+3.  Open the **ExpenseItHome.xaml.cs** or **ExpenseItHome.xaml.vb** file.  
   
-4.  将下面的代码添加到 `ExpenseItHome` 类中:  
+4.  Add the following code to the `ExpenseItHome` class:  
   
-    ```c#  
+    ```cs  
     private void Button_Click(object sender, RoutedEventArgs e)  
     {  
         // View Expense Report  
@@ -518,15 +518,15 @@ ms.lasthandoff: 05/13/2017
     End Sub  
     ```  
   
-     单击该按钮时，此事件处理程序将打开“费用报表”页。  
+     This event handler opens the Expense Report Page when the button is clicked.  
   
-#### <a name="to-create-the-ui-for-the-report-page"></a>若要为报表页创建用户界面  
+#### <a name="to-create-the-ui-for-the-report-page"></a>To create the UI for the report page  
   
-1.  打开 **ExpenseReportPage.xaml**。  
+1.  Open **ExpenseReportPage.xaml**.  
   
-     此页面显示“主页”页面上所选人员的费用报表。  
+     This page will display the expense report for the person that is selected on the Home page.  
   
-2.  将以下 XAML 代码添加到 `<Grid>` 和 `</Grid>` 标记之间：  
+2.  Add the following XAML code between the `<Grid>` and `</Grid>` tags:  
   
     ```xaml  
     <Grid.Background>  
@@ -590,23 +590,23 @@ ms.lasthandoff: 05/13/2017
     </Grid>  
     ```  
   
-     此用户界面类似于为主页创建的用户界面，但报表数据在“DataGrid”  控件中显示。  
+     This UI is similar to the UI created for the home page, but the report data is displayed in a **DataGrid** control.  
   
-3.  生成并运行应用程序。  
+3.  Build and run the application.  
   
-4.  选择  “视图”按钮。  
+4.  Choose the **View** button.  
   
-     出现费用报告页。  
+     The expense report page appears.  
   
-     下图显示“费用报表”页。 注意向后导航按钮已启用。  
+     The following illustration shows the Expense Report Page. Notice that the back navigation button is enabled.  
   
-     ![ExpenseIt 示例屏幕快照](../designers/media/gettingstartedfigure4.png "GettingStartedFigure4")  
+     ![ExpenseIt sample screen shot](../designers/media/gettingstartedfigure4.png "GettingStartedFigure4")  
   
-#### <a name="to-style-controls"></a>若要设置控件样式  
+#### <a name="to-style-controls"></a>To style controls  
   
-1.  打开“App.xaml”  文件 (C#) 或  “Application.xaml”文件 (Visual Basic)。  
+1.  Open the **App.xaml** file (C#) or **Application.xaml** file (Visual Basic).  
   
-2.  将以下 XAML 添加到 `<Application.Resources>` 和 `</Application.Resources>` 标记之间：  
+2.  Add the following XAML between the `<Application.Resources>` and `</Application.Resources>` tags:  
   
     ```xaml  
     <!-- Header text style -->  
@@ -657,21 +657,21 @@ ms.lasthandoff: 05/13/2017
     </Style>  
     ```  
   
-     此 XAML 将添加以下样式：  
+     This XAML adds the following styles:  
   
-    -   `headerTextStyle`：可设置页标题 `Label`的格式。  
+    -   `headerTextStyle`: To format the page title `Label`.  
   
-    -   `labelStyle`：可设置 `Label` 控件的格式。  
+    -   `labelStyle`: To format the `Label` controls.  
   
-    -   `columnHeaderStyle`：可设置 `DataGridColumnHeader`的格式。  
+    -   `columnHeaderStyle`: To format the `DataGridColumnHeader`.  
   
-    -   `listHeaderStyle`：可设置列表标头 `Border` 控件的格式。  
+    -   `listHeaderStyle`: To format the list header `Border` controls.  
   
-    -   `listHeaderTextStyle`：可设置列表标头“标签” 的格式。  
+    -   `listHeaderTextStyle`: To format the list header **Label**.  
   
-    -   `buttonStyle`：可设置 `Button`**“ExpenseItHome.xaml”页面上** 的格式。  
+    -   `buttonStyle`: To format the `Button` on the **ExpenseItHome.xaml** pppage.  
   
-3.  打开 **ExpenseItHome.xaml** ，并使用以下 XAML替换 `<Grid>` 和 `</Grid>` 元素之间的所有内容  
+3.  Open **ExpenseItHome.xaml** and replace everything between the `<Grid>` and `</Grid>` elements with the following XAML  
   
     ```xaml  
     <Grid.ColumnDefinitions>  
@@ -706,9 +706,9 @@ ms.lasthandoff: 05/13/2017
             </Grid.Background>  
     ```  
   
-     应用样式会删除和替换定义每个控件外观的属性（如 `VerticalAlignment` 和 `FontFamily` 。  
+     The properties such as `VerticalAlignment` and `FontFamily` that define the look of each control are removed and replaced by applying the styles.  
   
-4.  打开 **ExpenseReportPage.xaml** ，并使用以下 XAML替换 `<Grid>` 和最后一个 `</Grid>` 元素之间的所有内容  
+4.  Open **ExpenseReportPage.xaml** and replace everything between the `<Grid>` and final `</Grid>` elements with the following XAML  
   
     ```xaml  
     <Grid.Background>  
@@ -764,16 +764,16 @@ ms.lasthandoff: 05/13/2017
   
     ```  
   
-     这会将样式添加到 `<Label>` 和 `<Border>` 元素。  
+     This adds styles to the `<Label>` and `<Border>` elements.  
   
-## <a name="connecting-to-data"></a>连接到数据  
- 此部分将创建数据提供程序和数据模板，然后连接控件以显示数据。  
+## <a name="connecting-to-data"></a>Connecting to Data  
+ In this section, you'll create a data provider and a data template, and then connect the controls to display the data.  
   
-#### <a name="to-bind-data-to-a-control"></a>若要将数据绑定到控件  
+#### <a name="to-bind-data-to-a-control"></a>To bind data to a control  
   
-1.  打开 **ExpenseItHome.xaml** ，并选择 `<Grid>` 元素。  
+1.  Open **ExpenseItHome.xaml** and choose the `<Grid>` element..  
   
-2.  添加以下 XAML 代码：  
+2.  Add the following XAML code:  
   
     ```xaml  
   
@@ -806,9 +806,9 @@ ms.lasthandoff: 05/13/2017
     </Grid.Resources>  
     ```  
   
-     此代码将创建包含每人数据的 `XmlDataProvider` 类。 这通常会作为文件加载，但为简单起见数据以内联方式添加。  
+     This code creates an `XmlDataProvider` class that contains the data for each person. Normally this would be loaded as a file, but for simplicity the data is added inline.  
   
-3.  在 `<Grid.Resources>` 元素内部，添加以下 XAML 代码：  
+3.  Inside the `<Grid.Resources>` element, add the following XAML code:  
   
     ```xaml  
     <!-- Name item template -->  
@@ -817,9 +817,9 @@ ms.lasthandoff: 05/13/2017
     </DataTemplate>  
     ```  
   
-     这将添加一个在“ListBox”中定义如何显示数据的 `Data Template`。  
+     This adds a `Data Template` which defines how to display the data in the **ListBox**.  
   
-4.  将现有 `<ListBox>` 元素替换为以下 XAML。  
+4.  Replace the existing `<ListBox>` element with the following XAML.  
   
     ```xaml  
     <ListBox Name="peopleListBox" Grid.Column="1" Grid.Row="2"   
@@ -828,15 +828,15 @@ ms.lasthandoff: 05/13/2017
     </ListBox>  
     ```  
   
-     此代码将 `ItemsSource` 的 `ListBox` 属性绑定到数据源并应用数据模板作为 `ItemTemplate`。  
+     This code binds the `ItemsSource` property of the `ListBox` to the data source and applies the data template as the `ItemTemplate`.  
   
-#### <a name="to-connect-data-to-controls"></a>若要将数据连接到控件  
+#### <a name="to-connect-data-to-controls"></a>To connect data to controls  
   
-1.  打开 **ExpenseReportPage.xaml.vb** 或 **ExpenseReportPage.xaml.cs**。  
+1.  Open **ExpenseReportPage.xaml.vb** or **ExpenseReportPage.xaml.cs**.  
   
-2.  在 C# 中，将以下构造函数添加到 **ExpenseReportPage** 类，或在 Visual Basic 中使用以下内容替换现有类：  
+2.  In C#, add the following constructor to the **ExpenseReportPage** class, or in Visual Basic replace the existing class with the following:  
   
-    ```c#  
+    ```cs  
     // Custom constructor to pass expense report data  
         public ExpenseReportPage(object data):this()  
         {  
@@ -862,13 +862,13 @@ ms.lasthandoff: 05/13/2017
     End Class  
     ```  
   
-     此构造函数将数据对象作为参数。 在这种情况下数据对象将包含所选人员的名字。  
+     This constructor takes a data object as a parameter. In this case the data object will contain the name of the selected person.  
   
-3.  打开 **ExpenseItHome.xaml.vb** 或 **ExpenseItHome.xaml.cs**。  
+3.  Open **ExpenseItHome.xaml.vb** or **ExpenseItHome.xaml.cs**.  
   
-4.  将 `Click` 事件处理程序代码替换为以下内容：  
+4.  Replace the `Click` event handler code with the following:  
   
-    ```c#  
+    ```cs  
     private void Button_Click(object sender, RoutedEventArgs e)  
     {  
         // View Expense Report  
@@ -886,13 +886,13 @@ ms.lasthandoff: 05/13/2017
     End Sub  
     ```  
   
-     此代码调用新的构造函数。  
+     This code calls the new constructor.  
   
-#### <a name="to-update-the-ui-with-data-templates"></a>若要使用数据模板更新用户界面  
+#### <a name="to-update-the-ui-with-data-templates"></a>To update the UI with data templates  
   
-1.  打开 **ExpenseReportPage.xaml**。  
+1.  Open **ExpenseReportPage.xaml**.  
   
-2.  使用以下内容替换“姓名”和“部门”`<StackPanel` 元素的 XAML 代码：  
+2.  Replace the XAML code for the **Name** and **Department**`<StackPanel` elements with the following:  
   
     ```xaml  
     <!-- Name -->  
@@ -909,9 +909,9 @@ ms.lasthandoff: 05/13/2017
   
     ```  
   
-     这会将“标签”  控件绑定到相应数据源属性。  
+     This binds the **Label** controls to the appropriate data source properties.  
   
-3.  在 `<Grid>` 元素内部添加以下 XAML 代码：  
+3.  Add the following XAML code inside the `<Grid>` element:  
   
     ```xaml  
     <!--Templates to display expense report data-->  
@@ -928,9 +928,9 @@ ms.lasthandoff: 05/13/2017
   
     ```  
   
-     这定义如何显示费用报表数据。  
+     This defines how to display the expense report data.  
   
-4.  将 `<DataGrid>` 元素替换为以下内容：  
+4.  Replace the `<DataGrid>` element with the following:  
   
     ```xaml  
     <!-- Expense type and Amount table -->  
@@ -944,54 +944,54 @@ ms.lasthandoff: 05/13/2017
     </DataGrid>  
     ```  
   
-     这将添加“ItemSource”  并为费用项目定义绑定。  
+     This adds an **ItemSource** and defines the bindings for the expense items.  
   
-5.  生成并运行应用程序。  
+5.  Build and run the application.  
   
-6.  选择某个人，然后选择“视图”  按钮。  
+6.  Choose a person and then choose the **View** button.  
   
-     下图显示具有所应用的控件、布局、样式、数据绑定和数据模板的 ExpenseIt 应用程序的两个页面。  
+     The following illustration shows both pages of the ExpenseIt application with controls, layout, styles, data binding, and data templates applied.  
   
-     ![ExpenseIt 示例屏幕快照](../designers/media/gettingstartedfigure5.png "GettingStartedFigure5")  
+     ![ExpenseIt sample screen shots](../designers/media/gettingstartedfigure5.png "GettingStartedFigure5")  
   
-##  <a name="Best_Practices"></a>最佳做法  
- 此示例演示了 WPF 的基础知识，因此不遵循应用程序开发的最佳做法。 有关 WPF 和.NET Framework 应用程序开发最佳做法的全面介绍，请参阅以下相应的主题：  
+##  <a name="Best_Practices"></a> Best Practices  
+ This sample demonstrates the basics of WPF and, consequently, does not follow application development best practices. For comprehensive coverage of WPF and .NET Framework application development best practices, see the following topics as appropriate:  
   
--   辅助功能 - [辅助功能最佳做法](https://msdn.microsoft.com/en-us/library/aa350483\(v=vs.100\).aspx)  
+-   Accessibility - [Accessibility Best Practices](https://msdn.microsoft.com/en-us/library/aa350483\(v=vs.100\).aspx)  
   
--   安全性 - [Windows Presentation Foundation 安全性](https://msdn.microsoft.com/en-us/library/aa970906\(v=vs.100\).aspx)  
+-   Security - [Windows Presentation Foundation Security](https://msdn.microsoft.com/en-us/library/aa970906\(v=vs.100\).aspx)  
   
--   本地化 - [WPF 全球化和本地化概述](https://msdn.microsoft.com/en-us/library/ms788718\(v=vs.100\).aspx)  
+-   Localization - [WPF Globalization and Localization Overview](https://msdn.microsoft.com/en-us/library/ms788718\(v=vs.100\).aspx)  
   
--   性能 - [优化 WPF 应用程序性能](https://msdn.microsoft.com/en-us/library/aa970683\(v=vs.100\).aspx)  
+-   Performance - [Optimizing WPF Application Performance](https://msdn.microsoft.com/en-us/library/aa970683\(v=vs.100\).aspx)  
   
-##  <a name="Whats_Next"></a> 下一步  
- 通过使用 WPF，你现在可以采用大量技术来创建桌面应用程序。 你现在应该基本了解数据绑定 WPF 应用程序的构建基块。 本主题并不详尽，但希望你现在也能够意识到你可以自己发现本主题尚未介绍的技术。  
+##  <a name="Whats_Next"></a> What's Next  
+ You now have a number of techniques at your disposal for creating a desktop application by using WPF. You should now have a basic understanding of the building blocks of a data-bound WPF application. This topic is by no means exhaustive, but hopefully you also now have a sense of some of the possibilities you might discover on your own beyond the techniques in this topic.  
   
- 有关 WPF 体系结构和编程模型的详细信息，请参阅以下主题：  
+ For more information about the WPF architecture and programming models, see the following topics:  
   
--   [WPF 体系结构](https://msdn.microsoft.com/en-us/library/ms750441\(v=vs.100\).aspx)  
+-   [WPF Architecture](https://msdn.microsoft.com/en-us/library/ms750441\(v=vs.100\).aspx)  
   
--   [XAML 概述](https://msdn.microsoft.com/en-us/library/ms752059\(v=vs.100\).aspx)  
+-   [XAML Overview](https://msdn.microsoft.com/en-us/library/ms752059\(v=vs.100\).aspx)  
   
--   [依赖项属性概述](https://msdn.microsoft.com/en-us/library/ms752914\(v=vs.100\).aspx)  
+-   [Dependency Properties Overview](https://msdn.microsoft.com/en-us/library/ms752914\(v=vs.100\).aspx)  
   
--   [布局系统](https://msdn.microsoft.com/en-us/library/ms745058\(v=vs.100\).aspx)  
+-   [Layout System](https://msdn.microsoft.com/en-us/library/ms745058\(v=vs.100\).aspx)  
   
--   [样式和模板](https://msdn.microsoft.com/en-us/library/bb613570\(v=vs.100\).aspx)  
+-   [Styles and Templates](https://msdn.microsoft.com/en-us/library/bb613570\(v=vs.100\).aspx)  
   
- 有关创建应用程序的详细信息，请参阅以下主题：  
+ For more information about creating applications, see the following topics:  
   
--   [应用程序开发概述](https://msdn.microsoft.com/en-us/library/bb613549\(v=vs.100\).aspx)  
+-   [Application Development Overview](https://msdn.microsoft.com/en-us/library/bb613549\(v=vs.100\).aspx)  
   
--   [控件概述](https://msdn.microsoft.com/en-us/library/bb613551\(v=vs.100\).aspx)  
+-   [Controls Overview](https://msdn.microsoft.com/en-us/library/bb613551\(v=vs.100\).aspx)  
   
--   [数据绑定概述](https://msdn.microsoft.com/en-us/library/ms752347\(v=vs.100\).aspx)  
+-   [Data Binding Overview](https://msdn.microsoft.com/en-us/library/ms752347\(v=vs.100\).aspx)  
   
--   [WPF 图形、动画和媒体概述](https://msdn.microsoft.com/en-us/library/ms742562\(v=vs.100\).aspx)  
+-   [WPF Graphics, Animation, and Media Overview](https://msdn.microsoft.com/en-us/library/ms742562\(v=vs.100\).aspx)  
   
--   [WPF 中的文档](https://msdn.microsoft.com/en-us/library/ms748388\(v=vs.100\).aspx)  
+-   [Documents in WPF](https://msdn.microsoft.com/en-us/library/ms748388\(v=vs.100\).aspx)  
   
-## <a name="see-also"></a>另请参阅  
- [演练：创建连接到 Azure 移动服务的 WPF 桌面应用程序](../designers/walkthrough-create-a-wpf-desktop-application-connected-to-an-azure-mobile-service.md)   
- [使用 Windows Presentation Foundation 创建新式桌面应用程序](../designers/create-modern-desktop-applications-with-windows-presentation-foundation.md)
+## <a name="see-also"></a>See Also  
+ [Walkthrough: Create a WPF Desktop Application connected to an Azure Mobile Service](../designers/walkthrough-create-a-wpf-desktop-application-connected-to-an-azure-mobile-service.md)   
+ [Create Modern Desktop Applications with Windows Presentation Foundation](../designers/create-modern-desktop-applications-with-windows-presentation-foundation.md)

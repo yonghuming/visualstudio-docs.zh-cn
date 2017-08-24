@@ -1,57 +1,74 @@
 ---
-title: "更改命令的外观 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-helpviewer_keywords: 
-  - "更改外观的命令"
-  - "菜单命令、 更改外观"
-  - "菜单、 更改命令外观"
+title: Changing the Appearance of a Command | Microsoft Docs
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+helpviewer_keywords:
+- commands, changing appearance
+- menu commands, changing appearance
+- menus, changing command appearance
 ms.assetid: da2474fa-f92d-4e9e-b8bf-67c61bf249c2
 caps.latest.revision: 23
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 23
----
-# 更改命令的外观
-[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
+ms.author: gregvanl
+manager: ghogen
+translation.priority.mt:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+ms.translationtype: MT
+ms.sourcegitcommit: ff8ecec19f8cab04ac2190f9a4a995766f1750bf
+ms.openlocfilehash: 64296cf80c8e3a66a3d15257db531c2ae0b90bf4
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/24/2017
 
-通过更改命令的外观，可以向用户提供反馈。 例如，您可能希望命令不可用时看起来不同。 您可以使命令可用或不可用、 隐藏或显示它们，或检查或取消选中那些在菜单上。  
+---
+# <a name="changing-the-appearance-of-a-command"></a>Changing the Appearance of a Command
+You can provide feedback to your user by changing the appearance of a command. For example, you may want a command to look different when it is unavailable. You can make commands available or unavailable, hide or show them, or check or uncheck them on the menu.  
   
- 若要更改命令的外观，请执行以下操作之一︰  
+ To change the appearance of a command, perform one of these actions:  
   
--   在命令文件中的表的命令定义中指定适当的标志。  
+-   Specify the appropriate flags in the command definition in the command table file.  
   
--   使用 <xref:Microsoft.VisualStudio.Shell.OleMenuCommandService> 服务。  
+-   Use the <xref:Microsoft.VisualStudio.Shell.OleMenuCommandService> service.  
   
--   实现 <xref:Microsoft.VisualStudio.OLE.Interop.IOleCommandTarget> 接口，并修改原始命令对象。  
+-   Implement the <xref:Microsoft.VisualStudio.OLE.Interop.IOleCommandTarget> interface and modify the raw command objects.  
   
- 下列步骤显示如何查找和使用管理包框架 \(MPF\) 更新命令的外观。  
+ The following steps show how to find and update the appearance of a command by using the Managed Package Framework (MPF).  
   
-### 若要更改菜单命令的外观  
+### <a name="to-change-the-appearance-of-a-menu-command"></a>To change the appearance of a menu command  
   
-1.  按照中的说明 [更改菜单命令的文本](../extensibility/changing-the-text-of-a-menu-command.md) 创建菜单项名为 `New Text`。  
+1.  Follow the instructions in [Changing the Text of a Menu Command](../extensibility/changing-the-text-of-a-menu-command.md) to create a menu item named `New Text`.  
   
-2.  在 ChangeMenuText.cs 文件中，添加以下 using 语句︰  
+2.  In the ChangeMenuText.cs file, add the following using statement:  
   
-    ```c#  
+    ```cs  
     using System.Security.Permissions;  
     ```  
   
-3.  在 ChangeMenuTextPackageGuids.cs 文件中，添加以下行︰  
+3.  In the ChangeMenuTextPackageGuids.cs file, add the following line:  
   
-    ```c#  
+    ```cs  
     public const string guidChangeMenuTextPackageCmdSet= "00000000-0000-0000-0000-00000000";  // get the GUID from the .vsct file  
     ```  
   
-4.  在 ChangeMenuText.cs 文件中，替换为以下替换 ShowMessageBox 方法中的代码︰  
+4.  In the ChangeMenuText.cs file, replace the code in the ShowMessageBox method with the following:  
   
-    ```c#  
+    ```cs  
     private void ShowMessageBox(object sender, EventArgs e)  
     {  
         var command = sender as OleMenuCommand;  
@@ -60,9 +77,9 @@ caps.handback.revision: 23
     }  
     ```  
   
-5.  获取你想要从更新的命令 <xref:Microsoft.VisualStudio.Shell.OleMenuCommandService> 对象，然后在 command 对象上设置适当的属性。 例如，下面的方法将指定的命令从 VSPackage 命令设置可用或不可用。 下面的代码使名为菜单项 `New Text` 后单击它不可用。  
+5.  Obtain the command that you want to update from the <xref:Microsoft.VisualStudio.Shell.OleMenuCommandService> object and then set the appropriate properties on the command object. For example, the following method makes the specified command from a VSPackage command set available or unavailable. The following code makes the menu item named `New Text` unavailable after it has been clicked.  
   
-    ```c#  
+    ```cs  
     public bool ChangeMyCommand(int cmdID, bool enableCmd)  
     {  
         bool cmdUpdated = false;  
@@ -79,14 +96,14 @@ caps.handback.revision: 23
     }  
     ```  
   
-6.  生成项目并启动调试。 Visual Studio 的实验实例应显示。  
+6.  Build the project and start debugging. The experimental instance of Visual Studio should appear.  
   
-7.  在 **工具** 菜单上，单击 **调用 ChangeMenuText** 命令。 此时该命令名是 **调用 ChangeMenuText**, ，因此命令处理程序不会调用 ChangeMyCommand\(\)。  
+7.  On the **Tools** menu, click the **Invoke ChangeMenuText** command. At this point the command name is **Invoke ChangeMenuText**, so the command handler doesn't call ChangeMyCommand().  
   
-8.  在 **工具** 菜单现在应该看到 **新文本**。 单击 **新文本**。 现在，该命令应灰显。  
+8.  On the **Tools** menu you should now see **New Text**. Click **New Text**. The command should now be grayed out.  
   
-## 请参阅  
- [命令、 菜单和工具栏](../extensibility/internals/commands-menus-and-toolbars.md)   
- [Vspackage 如何添加用户界面元素](../extensibility/internals/how-vspackages-add-user-interface-elements.md)   
- [扩展的菜单和命令](../extensibility/extending-menus-and-commands.md)   
- [Visual Studio 命令表 \(。Vsct\) 文件](../extensibility/internals/visual-studio-command-table-dot-vsct-files.md)
+## <a name="see-also"></a>See Also  
+ [Commands, Menus, and Toolbars](../extensibility/internals/commands-menus-and-toolbars.md)   
+ [How VSPackages Add User Interface Elements](../extensibility/internals/how-vspackages-add-user-interface-elements.md)   
+ [Extending Menus and Commands](../extensibility/extending-menus-and-commands.md)   
+ [Visual Studio Command Table (.Vsct) Files](../extensibility/internals/visual-studio-command-table-dot-vsct-files.md)

@@ -1,81 +1,99 @@
 ---
-title: "CA1901：P/Invoke 声明应为可移植声明 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-devops-test"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "CA1901"
-  - "PInvokeDeclarationsShouldBePortable"
-helpviewer_keywords: 
-  - "CA1901"
-  - "PInvokeDeclarationsShouldBePortable"
+title: 'CA1901: P-Invoke declarations should be portable | Microsoft Docs'
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-devops-test
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords:
+- CA1901
+- PInvokeDeclarationsShouldBePortable
+helpviewer_keywords:
+- CA1901
+- PInvokeDeclarationsShouldBePortable
 ms.assetid: 90361812-55ca-47f7-bce9-b8775d3b8803
 caps.latest.revision: 23
-author: "stevehoag"
-ms.author: "shoag"
-manager: "wpickett"
-caps.handback.revision: 23
----
-# CA1901：P/Invoke 声明应为可移植声明
-[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
+author: stevehoag
+ms.author: shoag
+manager: wpickett
+translation.priority.ht:
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- ru-ru
+- zh-cn
+- zh-tw
+translation.priority.mt:
+- cs-cz
+- pl-pl
+- pt-br
+- tr-tr
+ms.translationtype: HT
+ms.sourcegitcommit: ff8ecec19f8cab04ac2190f9a4a995766f1750bf
+ms.openlocfilehash: a004749aec8e4473a7a5d050114acdaa4b63651d
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/24/2017
 
+---
+# <a name="ca1901-pinvoke-declarations-should-be-portable"></a>CA1901: P/Invoke declarations should be portable
 |||  
 |-|-|  
-|类型名|PInvokeDeclarationsShouldBePortable|  
+|TypeName|PInvokeDeclarationsShouldBePortable|  
 |CheckId|CA1901|  
-|类别|Microsoft.Portability|  
-|是否重大更改|间断 \- 如果 P\/Invoke 在程序集外部可见。  无间断 \- 如果 P\/Invoke 在程序集外部不可见。|  
+|Category|Microsoft.Portability|  
+|Breaking Change|Breaking - If the P/Invoke is visible outside the assembly. Non Breaking - If the P/Invoke is not visible outside the assembly.|  
   
-## 原因  
- 此规则计算 P\/Invoke 的每个参数的大小和 P\/Invoke 的返回值，还验证它们在封送到 32 位和 64 位平台上的非托管代码时的大小是否正确。  与该规则最常见的冲突是，在需要与平台相关的指针大小的变量时，传递了固定大小的整数。  
+## <a name="cause"></a>Cause  
+ This rule evaluates the size of each parameter and the return value of a P/Invoke and verifies that their size, when marshaled to unmanaged code on 32-bit and 64-bit platforms, is correct. The most common violation of this rule is to pass a fixed-sized integer where a platform-dependent, pointer-sized variable is required.  
   
-## 规则说明  
- 在以下任一情况下都会违反此规则：  
+## <a name="rule-description"></a>Rule Description  
+ Either of the following scenarios violates this rule occurs:  
   
--   返回值或参数的类型为固定大小的整数，而实际类型应为 `IntPtr`。  
+-   The return value or parameter is typed as a fixed-size integer when it should be typed as an `IntPtr`.  
   
--   返回值或参数的类型为 `IntPtr`，而实际类型应为固定大小的整数。  
+-   The return value or parameter is typed as an `IntPtr` when it should be typed as a fixed-size integer.  
   
-## 如何解决冲突  
- 可通过使用 `IntPtr` 或 `UIntPtr`（而非 `Int32` 或 `UInt32`）表示句柄来修复此冲突。  
+## <a name="how-to-fix-violations"></a>How to Fix Violations  
+ You can fix this violation by using `IntPtr` or `UIntPtr` to represent handles instead of `Int32` or `UInt32`.  
   
-## 何时禁止显示警告  
- 不应禁止显示此警告。  
+## <a name="when-to-suppress-warnings"></a>When to Suppress Warnings  
+ You should not suppress this warning.  
   
-## 示例  
- 下面的示例演示与此规则的冲突。  
+## <a name="example"></a>Example  
+ The following example demonstrates a violation of this rule.  
   
-```c#  
+```cs  
 internal class NativeMethods  
 {  
-    [DllImport("shell32.dll", CharSet=CharSet.Auto)]  
-    internal static extern IntPtr ExtractIcon(IntPtr hInst,   
-        string lpszExeFileName, IntPtr nIconIndex);  
+    [DllImport("shell32.dll", CharSet=CharSet.Auto)]  
+    internal static extern IntPtr ExtractIcon(IntPtr hInst,   
+        string lpszExeFileName, IntPtr nIconIndex);  
 }  
 ```  
   
- 在本示例中，`nIconIndex` 参数声明为 `IntPtr`是 4 个字节宽，宽 32 位平台上为 8 字节在 64 位平台。  在后面的非管理的声明中，您能够看到 `nIconIndex` 是所有平台上都有 4 位无符号整数。  
+ In this example, the `nIconIndex` parameter is declared as an `IntPtr`, which is 4 bytes wide on a 32-bit platform and 8 bytes wide on a 64-bit platform. In the unmanaged declaration that follows, you can see that `nIconIndex` is a 4-byte unsigned integer on all platforms.  
   
-```c#  
+```cs  
 HICON ExtractIcon(HINSTANCE hInst, LPCTSTR lpszExeFileName,   
-    UINT nIconIndex);  
+    UINT nIconIndex);  
 ```  
   
-## 示例  
- 若要修复此冲突，请将声明更改为以下内容：  
+## <a name="example"></a>Example  
+ To fix the violation, change the declaration to the following:  
   
-```c#  
+```cs  
 internal class NativeMethods{  
-    [DllImport("shell32.dll", CharSet=CharSet.Auto)]   
-    internal static extern IntPtr ExtractIcon(IntPtr hInst,   
-        string lpszExeFileName, uint nIconIndex);  
+    [DllImport("shell32.dll", CharSet=CharSet.Auto)]   
+    internal static extern IntPtr ExtractIcon(IntPtr hInst,   
+        string lpszExeFileName, uint nIconIndex);  
 }  
 ```  
   
-## 请参阅  
- [可移植性警告](../code-quality/portability-warnings.md)
+## <a name="see-also"></a>See Also  
+ [Portability Warnings](../code-quality/portability-warnings.md)

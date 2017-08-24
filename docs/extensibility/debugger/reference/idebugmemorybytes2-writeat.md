@@ -1,5 +1,5 @@
 ---
-title: "IDebugMemoryBytes2::WriteAt |Microsoft 文档"
+title: IDebugMemoryBytes2::WriteAt | Microsoft Docs
 ms.custom: 
 ms.date: 11/04/2016
 ms.reviewer: 
@@ -31,16 +31,17 @@ translation.priority.mt:
 - tr-tr
 - zh-cn
 - zh-tw
-translationtype: Machine Translation
-ms.sourcegitcommit: 5db97d19b1b823388a465bba15d057b30ff0b3ce
-ms.openlocfilehash: 69258e01dbef8e2666da19d248b73e52399992d0
-ms.lasthandoff: 02/22/2017
+ms.translationtype: MT
+ms.sourcegitcommit: ff8ecec19f8cab04ac2190f9a4a995766f1750bf
+ms.openlocfilehash: 4b6066de1c205e7df469c2c4f016e533ae9fd01a
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/24/2017
 
 ---
 # <a name="idebugmemorybytes2writeat"></a>IDebugMemoryBytes2::WriteAt
-将写入指定的内存，在指定地址开始的字节数。  
+Writes the specified number of bytes of memory, starting at the specified address.  
   
-## <a name="syntax"></a>语法  
+## <a name="syntax"></a>Syntax  
   
 ```cpp#  
 HRESULT WriteAt(   
@@ -50,7 +51,7 @@ HRESULT WriteAt(
 );  
 ```  
   
-```c#  
+```cs  
 int WriteAt(  
    IDebugMemoryContext2 pStartContext,  
    uint                 dwCount,  
@@ -58,22 +59,22 @@ int WriteAt(
 );  
 ```  
   
-#### <a name="parameters"></a>参数  
+#### <a name="parameters"></a>Parameters  
  `pStartContext`  
- [in][IDebugMemoryContext2](../../../extensibility/debugger/reference/idebugmemorycontext2.md)对象，它指定从何处着手写入字节。  
+ [in] The [IDebugMemoryContext2](../../../extensibility/debugger/reference/idebugmemorycontext2.md) object that specifies where to start writing bytes.  
   
  `dwCount`  
- [in]要写入的字节数。  
+ [in] The number of bytes to write.  
   
  `rgbMemory`  
- [in]要写入的字节。 此数组被假定为至少`dwCount`中大小字节数。  
+ [in] The bytes to write. This array is assumed to be at least `dwCount` bytes in size.  
   
-## <a name="return-value"></a>返回值  
- 如果成功，返回`S_OK`; 否则为返回`S_FALSE`如果不是所有字节都可以编写，或返回错误代码 (通常`E_FAIL`)。  
+## <a name="return-value"></a>Return Value  
+ If successful, returns `S_OK`; otherwise, returns `S_FALSE` if not all bytes could be written or returns an error code (typically `E_FAIL`).  
   
-## <a name="remarks"></a>备注  
- 如果起始地址不是由此内存窗口内[IDebugMemoryBytes2](../../../extensibility/debugger/reference/idebugmemorybytes2.md)对象时，发生任何写操作，错误代码为`E_FAIL`返回 — 即使要写入的量跨过到内存空间。  
+## <a name="remarks"></a>Remarks  
+ If the starting address is not within the memory window represented by this [IDebugMemoryBytes2](../../../extensibility/debugger/reference/idebugmemorybytes2.md) object, no writing occurs and an error code of `E_FAIL` is returned — even if the amount to write overlaps into the memory space.  
   
-## <a name="see-also"></a>另请参阅  
+## <a name="see-also"></a>See Also  
  [IDebugMemoryBytes2](../../../extensibility/debugger/reference/idebugmemorybytes2.md)   
  [IDebugMemoryContext2](../../../extensibility/debugger/reference/idebugmemorycontext2.md)

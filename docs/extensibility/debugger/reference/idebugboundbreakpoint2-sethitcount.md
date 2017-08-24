@@ -1,5 +1,5 @@
 ---
-title: "IDebugBoundBreakpoint2::SetHitCount |Microsoft 文档"
+title: IDebugBoundBreakpoint2::SetHitCount | Microsoft Docs
 ms.custom: 
 ms.date: 11/04/2016
 ms.reviewer: 
@@ -31,16 +31,17 @@ translation.priority.mt:
 - tr-tr
 - zh-cn
 - zh-tw
-translationtype: Machine Translation
-ms.sourcegitcommit: 5db97d19b1b823388a465bba15d057b30ff0b3ce
-ms.openlocfilehash: 6547a6ef77827154b1457b419d9933071f13a0b1
-ms.lasthandoff: 02/22/2017
+ms.translationtype: MT
+ms.sourcegitcommit: ff8ecec19f8cab04ac2190f9a4a995766f1750bf
+ms.openlocfilehash: 8dc4e687079e368d0771f6b159caa660cd348b2c
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/24/2017
 
 ---
 # <a name="idebugboundbreakpoint2sethitcount"></a>IDebugBoundBreakpoint2::SetHitCount
-设置绑定断点的命中的数。  
+Sets the hit count for the bound breakpoint.  
   
-## <a name="syntax"></a>语法  
+## <a name="syntax"></a>Syntax  
   
 ```cpp#  
 HRESULT SetHitCount(   
@@ -48,24 +49,24 @@ HRESULT SetHitCount(
 );  
 ```  
   
-```c#  
+```cs  
 int SetHitCount(   
    uint dwHitCount  
 );  
 ```  
   
-#### <a name="parameters"></a>参数  
+#### <a name="parameters"></a>Parameters  
  `dwHitCount`  
- [in]要设置的命中的计数。  
+ [in] The hit count to set.  
   
-## <a name="return-value"></a>返回值  
- 如果成功，返回`S_OK`; 否则为返回错误代码。 返回`E_BP_DELETED`如果绑定的断点对象的状态设置为`BPS_DELETED`(属于[BP_STATE](../../../extensibility/debugger/reference/bp-state.md)枚举)。  
+## <a name="return-value"></a>Return Value  
+ If successful, returns `S_OK`; otherwise, returns an error code. Returns `E_BP_DELETED` if the state of the bound breakpoint object is set to `BPS_DELETED` (part of the [BP_STATE](../../../extensibility/debugger/reference/bp-state.md) enumeration).  
   
-## <a name="remarks"></a>备注  
- 命中的计数是会话的在当前运行期间已激发此断点的次数。  
+## <a name="remarks"></a>Remarks  
+ The hit count is the number of times this breakpoint has fired during the current run of the session.  
   
- 此方法通常由要更新此断点上的当前命中的计数的调试引擎调用。  
+ This method is typically called by the debug engine to update the current hit count on this breakpoint.  
   
-## <a name="see-also"></a>另请参阅  
+## <a name="see-also"></a>See Also  
  [IDebugBoundBreakpoint2](../../../extensibility/debugger/reference/idebugboundbreakpoint2.md)   
  [BP_STATE](../../../extensibility/debugger/reference/bp-state.md)

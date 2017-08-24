@@ -1,59 +1,76 @@
 ---
-title: "IDebugProgram2::Attach | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "IDebugProgram2::Attach"
-helpviewer_keywords: 
-  - "IDebugProgram2::Attach"
+title: IDebugProgram2::Attach | Microsoft Docs
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords:
+- IDebugProgram2::Attach
+helpviewer_keywords:
+- IDebugProgram2::Attach
 ms.assetid: de069fbf-a565-4905-b102-f5658c55aacd
 caps.latest.revision: 11
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 11
----
-# IDebugProgram2::Attach
-[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
+ms.author: gregvanl
+manager: ghogen
+translation.priority.mt:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+ms.translationtype: MT
+ms.sourcegitcommit: ff8ecec19f8cab04ac2190f9a4a995766f1750bf
+ms.openlocfilehash: 634eefce20c10c869b5d9241ba597d325ad1deb3
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/24/2017
 
-附加到程序。  
+---
+# <a name="idebugprogram2attach"></a>IDebugProgram2::Attach
+Attaches to the program.  
   
-## 语法  
+## <a name="syntax"></a>Syntax  
   
 ```cpp#  
-HRESULT Attach(   
-   IDebugEventCallback2* pCallback  
+HRESULT Attach(   
+   IDebugEventCallback2* pCallback  
 );  
 ```  
   
-```c#  
-int Attach(   
-   IDebugEventCallback2 pCallback  
+```cs  
+int Attach(   
+   IDebugEventCallback2 pCallback  
 );  
 ```  
   
-#### 参数  
+#### <a name="parameters"></a>Parameters  
  `pCallback`  
- \[in\] [IDebugEventCallback2](../../../extensibility/debugger/reference/idebugeventcallback2.md) 对象将用于调试事件通知。  
+ [in] An [IDebugEventCallback2](../../../extensibility/debugger/reference/idebugeventcallback2.md) object to be used for debug event notification.  
   
-## 返回值  
- 如果成功，则返回; `S_OK`否则，返回错误代码。  下表显示一些可能的错误代码。  
+## <a name="return-value"></a>Return Value  
+ If successful, returns `S_OK`; otherwise, returns an error code. The following table shows some possible error codes.  
   
-|值|说明|  
-|-------|--------|  
-|`E_ATTACH_DEBUGGER_ALREADY_ATTACHED`|指定的程序已附加到调试器。|  
-|`E_ATTACH_DEBUGGEE_PROCESS_SECURITY_VIOLATION`|在附加过程中，安全违规发生。|  
-|`E_ATTACH_CANNOT_ATTACH_TO_DESKTOP`|桌面程序无法附加到调试器。|  
+|Value|Description|  
+|-----------|-----------------|  
+|`E_ATTACH_DEBUGGER_ALREADY_ATTACHED`|The specified program is already attached to the debugger.|  
+|`E_ATTACH_DEBUGGEE_PROCESS_SECURITY_VIOLATION`|A security violation occurred during the attach procedure.|  
+|`E_ATTACH_CANNOT_ATTACH_TO_DESKTOP`|A desktop program cannot be attached to the debugger.|  
   
-## 备注  
- 调试引擎 \(DE\)从不调用此方法附加到程序。  如果 DE 在程序地址空间运行， [OnAttach](../../../extensibility/debugger/reference/idebugprogramnodeattach2-onattach.md) 方法调用。  如果 DE 在会话中运行调试管理器的地址空间 \(SDM\)， [Attach](../../../extensibility/debugger/reference/idebugengine2-attach.md) 方法调用。  
+## <a name="remarks"></a>Remarks  
+ A debug engine (DE) never calls this method to attach to a program. If the DE runs in the program's address space, the [OnAttach](../../../extensibility/debugger/reference/idebugprogramnodeattach2-onattach.md) method is called. If the DE runs in the session debug manager's (SDM) address space, the [Attach](../../../extensibility/debugger/reference/idebugengine2-attach.md) method is called.  
   
-## 请参阅  
+## <a name="see-also"></a>See Also  
  [IDebugProgram2](../../../extensibility/debugger/reference/idebugprogram2.md)   
  [IDebugEventCallback2](../../../extensibility/debugger/reference/idebugeventcallback2.md)   
  [OnAttach](../../../extensibility/debugger/reference/idebugprogramnodeattach2-onattach.md)   

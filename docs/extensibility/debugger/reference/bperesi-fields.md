@@ -1,87 +1,104 @@
 ---
-title: "BPERESI_FIELDS | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "BPERESI_FIELDS"
-helpviewer_keywords: 
-  - "BPERESI_FIELDS 枚举"
+title: BPERESI_FIELDS | Microsoft Docs
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords:
+- BPERESI_FIELDS
+helpviewer_keywords:
+- BPERESI_FIELDS enumeration
 ms.assetid: dd7dd89c-1043-46a1-a929-099cc039c344
 caps.latest.revision: 11
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 11
----
-# BPERESI_FIELDS
-[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
+ms.author: gregvanl
+manager: ghogen
+translation.priority.mt:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+ms.translationtype: MT
+ms.sourcegitcommit: ff8ecec19f8cab04ac2190f9a4a995766f1750bf
+ms.openlocfilehash: 8c692ada419043aeb9e374d997b90202d14a6d88
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/24/2017
 
-指定要检索的信息有关断点的一个失败的解决方法。  
+---
+# <a name="bperesifields"></a>BPERESI_FIELDS
+Specifies the information to be retrieved about a failed resolution of a breakpoint.  
   
-## 语法  
+## <a name="syntax"></a>Syntax  
   
 ```cpp#  
-enum enum_BPERESI_FIELDS {   
-   PERESI_BPRESLOCATION = 0x0001,  
-   BPERESI_PROGRAM      = 0x0002,  
-   BPERESI_THREAD       = 0x0004,  
-   BPERESI_MESSAGE      = 0x0008,  
-   BPERESI_TYPE         = 0x0010,  
-   BPERESI_ALLFIELDS    = 0xffffffff  
+enum enum_BPERESI_FIELDS {   
+   PERESI_BPRESLOCATION = 0x0001,  
+   BPERESI_PROGRAM      = 0x0002,  
+   BPERESI_THREAD       = 0x0004,  
+   BPERESI_MESSAGE      = 0x0008,  
+   BPERESI_TYPE         = 0x0010,  
+   BPERESI_ALLFIELDS    = 0xffffffff  
 };  
 typedef DWORD BPERESI_FIELDS;  
 ```  
   
-```c#  
-public enum enum_BPERESI_FIELDS {   
-   PERESI_BPRESLOCATION = 0x0001,  
-   BPERESI_PROGRAM      = 0x0002,  
-   BPERESI_THREAD       = 0x0004,  
-   BPERESI_MESSAGE      = 0x0008,  
-   BPERESI_TYPE         = 0x0010,  
-   BPERESI_ALLFIELDS    = 0xffffffff  
+```cs  
+public enum enum_BPERESI_FIELDS {   
+   PERESI_BPRESLOCATION = 0x0001,  
+   BPERESI_PROGRAM      = 0x0002,  
+   BPERESI_THREAD       = 0x0004,  
+   BPERESI_MESSAGE      = 0x0008,  
+   BPERESI_TYPE         = 0x0010,  
+   BPERESI_ALLFIELDS    = 0xffffffff  
 };  
 ```  
   
-## 成员  
- PERESI\_BPRESLOCATION  
- 初始化\/使用 [BP\_ERROR\_RESOLUTION\_INFO](../../../extensibility/debugger/reference/bp-error-resolution-info.md) 结构的 `bpResLocation` \(断点解析位置\) 字段。  
+## <a name="members"></a>Members  
+ PERESI_BPRESLOCATION  
+ Initialize/use the `bpResLocation` (breakpoint resolution location) field of the [BP_ERROR_RESOLUTION_INFO](../../../extensibility/debugger/reference/bp-error-resolution-info.md) structure.  
   
- BPERESI\_PROGRAM  
- 初始化\/使用 `BP_ERROR_RESOLUTION_INFO` 结构的 `pProgram` 字段。  
+ BPERESI_PROGRAM  
+ Initialize/use the `pProgram` field of the `BP_ERROR_RESOLUTION_INFO` structure.  
   
- BPERESI\_THREAD  
- 初始化\/使用 `BP_ERROR_RESOLUTION_INFO` 结构的 `pThread` 字段。  
+ BPERESI_THREAD  
+ Initialize/use the `pThread` field of the `BP_ERROR_RESOLUTION_INFO` structure.  
   
- BPERESI\_MESSAGE  
- 初始化\/使用 `BP_ERROR_RESOLUTION_INFO` 结构的 `bstrMessage` 字段。  
+ BPERESI_MESSAGE  
+ Initialize/use the `bstrMessage` field of the `BP_ERROR_RESOLUTION_INFO` structure.  
   
- BPERESI\_TYPE  
- 初始化\/使用 `BP_ERROR_RESOLUTION_INFO` 结构的 `dwType` \(断点类型\) 字段。  
+ BPERESI_TYPE  
+ Initialize/use the `dwType` (breakpoint type) field of the `BP_ERROR_RESOLUTION_INFO` structure.  
   
- BPERESI\_ALLFIELDS  
- 初始化\/使用 `BP_ERROR_RESOLUTION_INFO` 结构的所有字段。  
+ BPERESI_ALLFIELDS  
+ Initialize/use all fields of the `BP_ERROR_RESOLUTION_INFO` structure.  
   
-## 备注  
- 通过，参数传递给 [GetResolutionInfo](../../../extensibility/debugger/reference/idebugerrorbreakpointresolution2-getresolutioninfo.md) 方法指示 [BP\_ERROR\_RESOLUTION\_INFO](../../../extensibility/debugger/reference/bp-error-resolution-info.md) 结构的哪些字段进行初始化。  
+## <a name="remarks"></a>Remarks  
+ Passed as a parameter to the [GetResolutionInfo](../../../extensibility/debugger/reference/idebugerrorbreakpointresolution2-getresolutioninfo.md) method to indicate which fields of the [BP_ERROR_RESOLUTION_INFO](../../../extensibility/debugger/reference/bp-error-resolution-info.md) structure are to be initialized.  
   
- 这些值也用于指示在 `BP_ERROR_RESOLUTION_INFO` 结构的哪些字段是使用和有效，当该结构返回时。  
+ These values are also used to indicate which fields in the `BP_ERROR_RESOLUTION_INFO` structure are used and valid when that structure is returned.  
   
- 这些值可能按位组合使用 `OR`。  
+ These values may be combined with a bitwise `OR`.  
   
-## 要求  
- 标题:msdbg.h  
+## <a name="requirements"></a>Requirements  
+ Header: msdbg.h  
   
- 命名空间:Microsoft.VisualStudio.Debugger.Interop  
+ Namespace: Microsoft.VisualStudio.Debugger.Interop  
   
- 程序集:Microsoft.VisualStudio.Debugger.Interop.dll  
+ Assembly: Microsoft.VisualStudio.Debugger.Interop.dll  
   
-## 请参阅  
- [枚举](../../../extensibility/debugger/reference/enumerations-visual-studio-debugging.md)   
- [BP\_ERROR\_RESOLUTION\_INFO](../../../extensibility/debugger/reference/bp-error-resolution-info.md)   
+## <a name="see-also"></a>See Also  
+ [Enumerations](../../../extensibility/debugger/reference/enumerations-visual-studio-debugging.md)   
+ [BP_ERROR_RESOLUTION_INFO](../../../extensibility/debugger/reference/bp-error-resolution-info.md)   
  [GetResolutionInfo](../../../extensibility/debugger/reference/idebugerrorbreakpointresolution2-getresolutioninfo.md)

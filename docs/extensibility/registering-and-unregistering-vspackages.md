@@ -1,5 +1,5 @@
 ---
-title: "注册和撤消注册 Vspackage |Microsoft 文档"
+title: Registering and Unregistering VSPackages | Microsoft Docs
 ms.custom: 
 ms.date: 11/04/2016
 ms.reviewer: 
@@ -29,42 +29,113 @@ translation.priority.mt:
 - tr-tr
 - zh-cn
 - zh-tw
-ms.translationtype: Machine Translation
-ms.sourcegitcommit: 5db97d19b1b823388a465bba15d057b30ff0b3ce
-ms.openlocfilehash: 73039d6e9bf0db6b3deee00745e21660173f21c0
+ms.translationtype: MT
+ms.sourcegitcommit: ff8ecec19f8cab04ac2190f9a4a995766f1750bf
+ms.openlocfilehash: 61923b849e4d6f7a08b215e4593aa666c5dc94e8
 ms.contentlocale: zh-cn
-ms.lasthandoff: 02/22/2017
+ms.lasthandoff: 08/24/2017
 
 ---
-# <a name="registering-and-unregistering-vspackages"></a>注册和注销 Vspackage
-您使用属性来注册 VSPackage，但  
+# <a name="registering-and-unregistering-vspackages"></a>Registering and Unregistering VSPackages
+You use attributes to register a VSPackage, but  
   
-## <a name="registering-a-vspackage"></a>注册 VSPackage  
- 属性可用于控制托管的 VSPackages 的注册。 .Pkgdef 文件中包含的所有注册信息。 基于文件的注册的详细信息，请参阅[CreatePkgDef 实用程序](../extensibility/internals/createpkgdef-utility.md)。  
+## <a name="registering-a-vspackage"></a>Registering a VSPackage  
+ You can use attributes to control the registration of managed VSPackages. All registration information is contained in a .pkgdef file. For more information on file-based registration, see [CreatePkgDef Utility](../extensibility/internals/createpkgdef-utility.md).  
   
- 下面的代码演示如何使用标准的注册属性来注册你的 VSPackage。  
+ The following code shows how to use the standard registration attributes to register your VSPackage.  
   
-```c#  
+```cs  
 [PackageRegistration(UseManagedResourcesOnly = true)]  
 [Guid("0B81D86C-0A85-4f30-9B26-DD2616447F95")]  
 public sealed class BasicPackage : Package  
 {. . .}  
 ```  
   
-## <a name="unregistering-an-extension"></a>注销扩展  
- 如果已尝试过使用大量不同的 Vspackage，并且想要从实验实例中删除它们，你可以仅运行**重置**命令。 查找**重置 Visual Studio 实验实例**在您的计算机，开始页上或从命令行运行以下命令︰  
+## <a name="unregistering-an-extension"></a>Unregistering an Extension  
+ If you have been experimenting with a lot of different VSPackages and want to remove them from the experimental instance, you can just run the **Reset** command. Look for **Reset the Visual Studio Experimental Instance** on the start page of your computer, or run this command from the command line:  
   
 ```vb  
 <location of Visual Studio 2015 install>\"Microsoft Visual Studio 14.0\VSSDK\VisualStudioIntegration\Tools\Bin\CreateExpInstance.exe" /Reset /VSInstance=14.0 /RootSuffix=Exp  
 ```  
   
- 如果您想要卸载一个扩展，您已经在您的 Visual Studio 的开发实例安装，请转到**工具 / 扩展和更新**，找到扩展，然后单击**卸载**。  
+ If you want to uninstall an extension that you have installed on your development instance of Visual Studio, go to **Tools / Extensions and Updates**, find the extension, and click **Uninstall**.  
   
- 如果由于某种原因这些方法均未成功在卸载该扩展，可以将从命令行的 VSPackage 程序集取消注册，如下所示︰  
+ If for some reason neither of these methods succeeds at uninstalling the extension, you can unregister the VSPackage assembly from the command line as follows:  
   
 ```  
 <location of Visual Studio 2015 install>\"Microsoft Visual Studio 14.0\VSSDK\VisualStudioIntegration\Tools\Bin\regpkg" /unregister <pathToVSPackage assembly>  
 ```  
   
-## <a name="see-also"></a>另请参阅  
- [Vspackage](../extensibility/internals/vspackages.md)
+<a name="using-a-custom-registration-attribute-to-register-an-extension"></a>  
+  
+## <a name="use-a-custom-registration-attribute-to-register-an-extension"></a>Use a custom registration attribute to register an extension  
+  
+In certain cases you may need to create a new registration attribute for your extension. You can use registration attributes to add new registry keys or to add new values to existing keys. The new attribute must derive from <xref:Microsoft.VisualStudio.Shell.RegistrationAttribute>, and it must override the <xref:Microsoft.VisualStudio.Shell.RegistrationAttribute.Register%2A> and <xref:Microsoft.VisualStudio.Shell.RegistrationAttribute.Unregister%2A> methods.  
+  
+### <a name="creating-a-custom-attribute"></a>Creating a Custom Attribute  
+  
+The following code shows how to create a new registration attribute.  
+  
+```cs  
+[AttributeUsage(AttributeTargets.Class, Inherited = true, AllowMultiple = false)]  
+    public class CustomRegistrationAttribute : RegistrationAttribute  
+    {  
+    }  
+```  
+  
+ The <xref:System.AttributeUsageAttribute> is used on attribute classes to specify the program element (class, method, etc.) to which the attribute pertains, whether it can be used more than once, and whether it can be inherited.  
+  
+### <a name="creating-a-registry-key"></a>Creating a Registry Key  
+  
+In the following code, the custom attribute creates a **Custom** subkey under the key for the VSPackage that is being registered.  
+  
+```cs  
+public override void Register(RegistrationAttribute.RegistrationContext context)  
+{  
+    Key packageKey = null;  
+    try  
+    {   
+        packageKey = context.CreateKey(@"Packages\{" + context.ComponentType.GUID + @"}\Custom");  
+        packageKey.SetValue("NewCustom", 1);  
+    }  
+    finally  
+    {  
+        if (packageKey != null)  
+            packageKey.Close();  
+    }  
+}  
+  
+public override void Unregister(RegistrationContext context)  
+{  
+    context.RemoveKey(@"Packages\" + context.ComponentType.GUID + @"}\Custom");  
+}  
+```  
+  
+### <a name="creating-a-new-value-under-an-existing-registry-key"></a>Creating a New Value Under an Existing Registry Key  
+  
+You can add custom values to an existing key. The following code shows how to add a new value to a VSPackage registration key.  
+  
+```cs  
+public override void Register(RegistrationAttribute.RegistrationContext context)  
+{  
+    Key packageKey = null;  
+    try  
+    {   
+        packageKey = context.CreateKey(@"Packages\{" + context.ComponentType.GUID + "}");  
+        packageKey.SetValue("NewCustom", 1);  
+    }  
+    finally  
+    {  
+        if (packageKey != null)  
+            packageKey.Close();  
+                }  
+}  
+  
+public override void Unregister(RegistrationContext context)  
+{  
+    context.RemoveValue(@"Packages\" + context.ComponentType.GUID, "NewCustom");  
+}  
+```
+  
+## <a name="see-also"></a>See Also  
+ [VSPackages](../extensibility/internals/vspackages.md)

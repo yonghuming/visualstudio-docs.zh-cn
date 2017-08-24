@@ -1,5 +1,5 @@
 ---
-title: "IEnumDebugAddresses::Skip |Microsoft 文档"
+title: IEnumDebugAddresses::Skip | Microsoft Docs
 ms.custom: 
 ms.date: 11/04/2016
 ms.reviewer: 
@@ -30,16 +30,17 @@ translation.priority.mt:
 - tr-tr
 - zh-cn
 - zh-tw
-translationtype: Machine Translation
-ms.sourcegitcommit: 5db97d19b1b823388a465bba15d057b30ff0b3ce
-ms.openlocfilehash: f29b32f346fe4b85b74ff55976e68d5b82a5b740
-ms.lasthandoff: 02/22/2017
+ms.translationtype: MT
+ms.sourcegitcommit: ff8ecec19f8cab04ac2190f9a4a995766f1750bf
+ms.openlocfilehash: 245ea99d5ff529fd238bc627fffbb8c6f917ca52
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/24/2017
 
 ---
 # <a name="ienumdebugaddressesskip"></a>IEnumDebugAddresses::Skip
-此方法同时跳过指定数量的元素。  
+This method skips over the specified number of elements.  
   
-## <a name="syntax"></a>语法  
+## <a name="syntax"></a>Syntax  
   
 ```cpp#  
 HRESULT Skip(  
@@ -47,21 +48,21 @@ HRESULT Skip(
 );  
 ```  
   
-```c#  
+```cs  
 int Skip(  
    uint celt  
 );  
 ```  
   
-#### <a name="parameters"></a>参数  
+#### <a name="parameters"></a>Parameters  
  `celt`  
- [in]要跳过的元素数。  
+ [in] Number of elements to skip.  
   
-## <a name="return-value"></a>返回值  
- 如果成功，返回`S_OK`。 返回`S_FALSE`如果`celt`超过了剩余的元素数; 否则，返回错误代码。  
+## <a name="return-value"></a>Return Value  
+ If successful, returns `S_OK`. Returns `S_FALSE` if `celt` is greater than the number of remaining elements; otherwise, returns an error code.  
   
-## <a name="remarks"></a>备注  
- 如果`celt`指定的值超出指定数量的剩余元素的枚举设置为结束和`S_FALSE`返回。  
+## <a name="remarks"></a>Remarks  
+ If `celt` specifies a value greater than the number of remaining elements, the enumeration is set to the end and `S_FALSE` is returned.  
   
-## <a name="see-also"></a>另请参阅  
+## <a name="see-also"></a>See Also  
  [IEnumDebugAddresses](../../../extensibility/debugger/reference/ienumdebugaddresses.md)

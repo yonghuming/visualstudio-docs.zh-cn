@@ -1,5 +1,5 @@
 ---
-title: "IDebugThread2::GetLogicalThread |Microsoft 文档"
+title: IDebugThread2::GetLogicalThread | Microsoft Docs
 ms.custom: 
 ms.date: 11/04/2016
 ms.reviewer: 
@@ -30,16 +30,17 @@ translation.priority.mt:
 - tr-tr
 - zh-cn
 - zh-tw
-translationtype: Machine Translation
-ms.sourcegitcommit: 5db97d19b1b823388a465bba15d057b30ff0b3ce
-ms.openlocfilehash: d1591fab36316df8344d0602afaac0367b232c72
-ms.lasthandoff: 02/22/2017
+ms.translationtype: MT
+ms.sourcegitcommit: ff8ecec19f8cab04ac2190f9a4a995766f1750bf
+ms.openlocfilehash: 0f1e3209edb8df8a17c6c3e7417685e1ba8ca75a
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/24/2017
 
 ---
 # <a name="idebugthread2getlogicalthread"></a>IDebugThread2::GetLogicalThread
-调试引擎未实现此方法。  
+Debug engines do not implement this method.  
   
-## <a name="syntax"></a>语法  
+## <a name="syntax"></a>Syntax  
   
 ```cpp#  
 HRESULT GetLogicalThread(   
@@ -48,22 +49,22 @@ HRESULT GetLogicalThread(
 );  
 ```  
   
-```c#  
+```cs  
 int GetLogicalThread(   
    IDebugStackFrame2        pStackFrame,  
    out IDebugLogicalThread2 ppLogicalThread  
 );  
 ```  
   
-#### <a name="parameters"></a>参数  
+#### <a name="parameters"></a>Parameters  
  `pStackFrame`  
- [in][IDebugStackFrame2](../../../extensibility/debugger/reference/idebugstackframe2.md)对象，表示堆栈帧。  
+ [in] An [IDebugStackFrame2](../../../extensibility/debugger/reference/idebugstackframe2.md) object that represents the stack frame.  
   
  `ppLogicalThread`  
- [out]返回`IDebugLogicalThread2`表示相关联的逻辑线程的接口。 调试引擎实现应设置为 null 值。  
+ [out] Returns an `IDebugLogicalThread2` interface that represents the associated logical thread. A debug engine implementation should set this to a null value.  
   
-## <a name="return-value"></a>返回值  
- 调试引擎实现始终返回`E_NOTIMPL`。  
+## <a name="return-value"></a>Return Value  
+ Debug engine implementations always return `E_NOTIMPL`.  
   
-## <a name="see-also"></a>另请参阅  
+## <a name="see-also"></a>See Also  
  [IDebugThread2](../../../extensibility/debugger/reference/idebugthread2.md)

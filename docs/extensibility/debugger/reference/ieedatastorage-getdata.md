@@ -1,5 +1,5 @@
 ---
-title: "IEEDataStorage::GetData |Microsoft 文档"
+title: IEEDataStorage::GetData | Microsoft Docs
 ms.custom: 
 ms.date: 11/04/2016
 ms.reviewer: 
@@ -30,16 +30,17 @@ translation.priority.mt:
 - tr-tr
 - zh-cn
 - zh-tw
-translationtype: Machine Translation
-ms.sourcegitcommit: 5db97d19b1b823388a465bba15d057b30ff0b3ce
-ms.openlocfilehash: 2e2430a6b2e8ae1a39882611e55499ebdb9bf4d8
-ms.lasthandoff: 02/22/2017
+ms.translationtype: MT
+ms.sourcegitcommit: ff8ecec19f8cab04ac2190f9a4a995766f1750bf
+ms.openlocfilehash: 9c174e7b05638c232583077020e68a49020fa0be
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/24/2017
 
 ---
 # <a name="ieedatastoragegetdata"></a>IEEDataStorage::GetData
-检索此对象中指定的字节数。  
+Retrieves the specified number of bytes from the object.  
   
-## <a name="syntax"></a>语法  
+## <a name="syntax"></a>Syntax  
   
 ```cpp#  
 HRESULT GetData(  
@@ -49,7 +50,7 @@ HRESULT GetData(
 );  
 ```  
   
-```c#  
+```cs  
 int GetData(  
    uint     dataSize,  
    out uint sizeGotten,  
@@ -57,22 +58,22 @@ int GetData(
 );  
 ```  
   
-#### <a name="parameters"></a>参数  
+#### <a name="parameters"></a>Parameters  
  `dataSize`  
- [in]要检索的字节数 (`data`数组必须至少容纳此数目的字节数)。  
+ [in] The number of bytes to retrieve (the `data` array must hold at least this number of bytes).  
   
  `sizeGotten`  
- [out]返回实际检索的字节的数。  
+ [out] Returns the number of bytes actually retrieved.  
   
  `data`  
- [in、 out]要使用请求的数据来填充数组。  
+ [in, out] Array to be filled in with the requested data.  
   
-## <a name="return-value"></a>返回值  
- 如果成功，返回`S_OK`; 否则为返回错误代码。  
+## <a name="return-value"></a>Return Value  
+ If successful, returns `S_OK`; otherwise, returns an error code.  
   
-## <a name="remarks"></a>备注  
- 建议的使用此方法是将检索到的本地数组数据的所有字节，因为没有办法跳过在检索过程中的字节数。 在此情况下，该参数`dataSize`应会返回的值[GetSize](../../../extensibility/debugger/reference/ieedatastorage-getsize.md)方法。  
+## <a name="remarks"></a>Remarks  
+ The recommended use of this method is to retrieve all the data bytes into a local array, since there is no way to skip over bytes in the retrieval process. In this case, the parameter `dataSize` should be the value returned by the [GetSize](../../../extensibility/debugger/reference/ieedatastorage-getsize.md) method.  
   
-## <a name="see-also"></a>另请参阅  
+## <a name="see-also"></a>See Also  
  [IEEDataStorage](../../../extensibility/debugger/reference/ieedatastorage.md)   
  [GetSize](../../../extensibility/debugger/reference/ieedatastorage-getsize.md)

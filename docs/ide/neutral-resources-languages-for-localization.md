@@ -1,48 +1,65 @@
 ---
-title: "用于本地化的非特定资源语言 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-general"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-helpviewer_keywords: 
-  - "区域性, 查找资源"
-  - "全球化 [Visual Studio], 资源"
-  - "本地化 [Visual Studio], 资源"
-  - "非特定语言资源"
-  - "NeutralResourcesLanguageAttribute 类"
-  - "资源 [Visual Studio], 回调系统"
+title: Neutral Resources Languages for Localization | Microsoft Docs
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-general
+ms.tgt_pltfrm: 
+ms.topic: article
+helpviewer_keywords:
+- localization [Visual Studio], resources
+- NeutralResourcesLanguageAttribute class
+- globalization [Visual Studio], resources
+- resources [Visual Studio], fallback system
+- culture, locating resources
+- neutral resources
 ms.assetid: ef064995-3b84-4698-a708-9689b7723533
 caps.latest.revision: 8
-author: "kempb"
-ms.author: "kempb"
-manager: "ghogen"
-caps.handback.revision: 8
----
-# 用于本地化的非特定资源语言
-[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
+author: kempb
+ms.author: kempb
+manager: ghogen
+translation.priority.ht:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+ms.translationtype: HT
+ms.sourcegitcommit: ff8ecec19f8cab04ac2190f9a4a995766f1750bf
+ms.openlocfilehash: cc31ee5c559478e5c1faefc485e02f022f98caa5
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/24/2017
 
-<xref:System.Resources.NeutralResourcesLanguageAttribute> 类指定主程序集中包含的资源的区域性。  此特性用于性能增强，因此 <xref:System.Resources.ResourceManager> 对象不搜索包括主程序集中包含的资源。  
+---
+# <a name="neutral-resources-languages-for-localization"></a>Neutral Resources Languages for Localization
+The <xref:System.Resources.NeutralResourcesLanguageAttribute> class specifies the culture of the resources included in the main assembly. This attribute is used as a performance enhancement, so that the <xref:System.Resources.ResourceManager> object does not search for resources that are included in the main assembly.  
   
- 下面的代码说明如何设置非特定资源语言。  该代码可以放置在生成脚本中，或者 AssemblyInfo.vb 或 AssemblyInfo.cs 文件中。  
+ The following code shows how to set the neutral resources language. The code can be placed in either a build script or in the AssemblyInfo.vb or AssemblyInfo.cs file.  
   
-```vb#  
+```vb  
 ' Set neutral resources language for assembly.  
 <Assembly: NeutralResourcesLanguageAttribute("en")>  
   
 ```  
   
-```c#  
+```cs  
 // Set neutral resources language for assembly.  
 [assembly: NeutralResourcesLanguageAttribute("en")]  
 ```  
   
-## 请参阅  
+## <a name="see-also"></a>See Also  
  <xref:System.Resources.ResourceManager>   
- [介绍基于 .NET Framework 的国际应用程序](../ide/introduction-to-international-applications-based-on-the-dotnet-framework.md)   
- [用于本地化的资源的分层组织](../ide/hierarchical-organization-of-resources-for-localization.md)   
- [本地化应用程序](../ide/localizing-applications.md)   
- [对应用程序进行全球化和本地化](../ide/globalizing-and-localizing-applications.md)
+ [Introduction to International Applications Based on the .NET Framework](../ide/introduction-to-international-applications-based-on-the-dotnet-framework.md)   
+ [Hierarchical Organization of Resources for Localization](../ide/hierarchical-organization-of-resources-for-localization.md)   
+ [Localizing Applications](../ide/localizing-applications.md)   
+ [Globalizing and Localizing Applications](../ide/globalizing-and-localizing-applications.md)

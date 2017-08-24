@@ -1,34 +1,51 @@
 ---
-title: "CA2151：具有关键类型的字段应是安全关键的 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-devops-test"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
+title: 'CA2151: Fields with critical types should be security critical | Microsoft Docs'
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-devops-test
+ms.tgt_pltfrm: 
+ms.topic: article
 ms.assetid: 09db9d25-7d58-4725-a252-4a07baadf046
 caps.latest.revision: 4
-author: "stevehoag"
-ms.author: "shoag"
-manager: "wpickett"
-caps.handback.revision: 4
----
-# CA2151：具有关键类型的字段应是安全关键的
-[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
+author: stevehoag
+ms.author: shoag
+manager: wpickett
+translation.priority.ht:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+ms.translationtype: HT
+ms.sourcegitcommit: ff8ecec19f8cab04ac2190f9a4a995766f1750bf
+ms.openlocfilehash: b80c378d146629c553bd3f228b58c501f04d79fe
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/24/2017
 
+---
+# <a name="ca2151-fields-with-critical-types-should-be-security-critical"></a>CA2151: Fields with critical types should be security critical
 |||  
 |-|-|  
 |TypeName||  
 |CheckId|CA2151|  
-|类别|Microsoft.Security|  
-|是否重大更改|重大|  
+|Category|Microsoft.Security|  
+|Breaking Change|Breaking|  
   
-## 原因  
- 声明了安全透明字段或可靠关键字段。  其类型被指定为安全关键。  例如：  
+## <a name="cause"></a>Cause  
+ A security transparent field or a safe critical field is declared. Its type is specified as security critical. For example:  
   
-```c#  
+```cs  
 [assembly: AllowPartiallyTrustedCallers]  
   
    [SecurityCritical]  
@@ -41,15 +58,15 @@ caps.handback.revision: 4
   
 ```  
   
- 在此示例中，`m_field` 是一个安全关键类型的安全透明字段。  
+ In this example, `m_field` is a security transparent field of a type that is security critical.  
   
-## 规则说明  
- 若要使用安全关键类型，引用该类型的代码必须是安全关键或安全可靠关键。  即使引用是间接的，也需如此。  例如，当你引用具有关键类型的透明字段时，你的代码必须是安全关键的或安全可靠的。  因此，具有安全透明字段或安全可靠关键字段具有误导性，因为透明代码仍然无法访问该字段。  
+## <a name="rule-description"></a>Rule Description  
+ To use security critical types, the code that references the type must be either security critical or security safe critical. This is true even if the reference is indirect. For example, when you reference a transparent field that has a critical type, your code must be either security critical or security safe. Therefore, having a security transparent or security safe critical field is misleading because transparent code will still be unable to access the field.  
   
-## 如何解决冲突  
- 若要解决此规则的冲突，请使用 <xref:System.Security.SecurityCriticalAttribute> 特性标记该字段，或将该字段引用的类型设为安全透明或安全关键。  
+## <a name="how-to-fix-violations"></a>How to Fix Violations  
+ To fix a violation of this rule, mark the field with the <xref:System.Security.SecurityCriticalAttribute> attribute, or make the type that is referenced by the field eith security transparent or safe critical.  
   
-```c#  
+```cs  
 // Fix 1: Make the referencing field security critical  
 [assembly: AllowPartiallyTrustedCallers]  
   
@@ -75,10 +92,10 @@ caps.handback.revision: 4
   
 ```  
   
-## 何时禁止显示警告  
- 不禁止显示此规则发出的警告。  
+## <a name="when-to-suppress-warnings"></a>When to Suppress Warnings  
+ Do not suppress a warning from this rule.  
   
-### 代码  
+### <a name="code"></a>Code  
  [!code-cs[FxCop.Security.CA2145.TransparentMethodsShouldNotUseSuppressUnmanagedCodeSecurity#1](../code-quality/codesnippet/CSharp/ca2151-fields-with-critical-types-should-be-security-critical_1.cs)]  
   
-### 注释
+### <a name="comments"></a>Comments

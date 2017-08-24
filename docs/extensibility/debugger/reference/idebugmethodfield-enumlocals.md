@@ -1,60 +1,77 @@
 ---
-title: "IDebugMethodField::EnumLocals | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "IDebugMethodField::EnumLocals"
-helpviewer_keywords: 
-  - "IDebugMethodField::EnumLocals 方法"
+title: IDebugMethodField::EnumLocals | Microsoft Docs
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords:
+- IDebugMethodField::EnumLocals
+helpviewer_keywords:
+- IDebugMethodField::EnumLocals method
 ms.assetid: b0456a6d-2b96-49e2-a871-516571b4f6a5
 caps.latest.revision: 10
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 10
----
-# IDebugMethodField::EnumLocals
-[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
+ms.author: gregvanl
+manager: ghogen
+translation.priority.mt:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+ms.translationtype: MT
+ms.sourcegitcommit: ff8ecec19f8cab04ac2190f9a4a995766f1750bf
+ms.openlocfilehash: f7c9df9c7408d1fdfdb403e09c7515915d530909
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/24/2017
 
-创建方法的选定的局部变量的枚举数。  
+---
+# <a name="idebugmethodfieldenumlocals"></a>IDebugMethodField::EnumLocals
+Creates an enumerator for selected local variables of the method.  
   
-## 语法  
+## <a name="syntax"></a>Syntax  
   
 ```cpp#  
-HRESULT EnumLocals(   
-   IDebugAddress*     pAddress,  
-   IEnumDebugFields** ppLocals  
+HRESULT EnumLocals(   
+   IDebugAddress*     pAddress,  
+   IEnumDebugFields** ppLocals  
 );  
 ```  
   
-```c#  
+```cs  
 int EnumLocals(  
-   IDebugAddress        pAddress,   
-   out IEnumDebugFields ppLocals  
+   IDebugAddress        pAddress,   
+   out IEnumDebugFields ppLocals  
 );  
 ```  
   
-#### 参数  
+#### <a name="parameters"></a>Parameters  
  `pAddress`  
- \[in\] 表示选择上下文或范围访问本地的调试地址的 [IDebugAddress](../../../extensibility/debugger/reference/idebugaddress.md) 对象。  
+ [in] An [IDebugAddress](../../../extensibility/debugger/reference/idebugaddress.md) object representing the debug address that selects the context or scope from which to get the locals.  
   
  `ppLocals`  
- \[out\] 返回表示本地的列表 [IEnumDebugFields](../../../extensibility/debugger/reference/ienumdebugfields.md) 对象;否则，; 如果没有本地用户，则返回 null 值。  
+ [out] Returns an [IEnumDebugFields](../../../extensibility/debugger/reference/ienumdebugfields.md) object representing a list of the locals; otherwise, returns a null value if there are no locals.  
   
-## 返回值  
- 如果成功，则返回 S\_OK 或返回 S\_FALSE，如果没有本地。  否则，返回错误代码。  
+## <a name="return-value"></a>Return Value  
+ If successful, returns S_OK or returns S_FALSE if there are no locals. Otherwise, returns an error code.  
   
-## 备注  
- 在包含给定的块中定义的变量只调试地址枚举。  如果所有本地包括任何编译器生成的本地是必需的，请调用 [EnumAllLocals](../../../extensibility/debugger/reference/idebugmethodfield-enumalllocals.md) 方法。  
+## <a name="remarks"></a>Remarks  
+ Only the variables defined within the block that contains the given debug address are enumerated. If all locals including any compiler-generated locals are needed, call the [EnumAllLocals](../../../extensibility/debugger/reference/idebugmethodfield-enumalllocals.md) method.  
   
- 方案可包含多个范围上下文或阻止。  例如，下面的阴影的方法包含三个范围，两个内部块和方法体。  
+ A method can contain multiple scoping contexts or blocks. For example, the following contrived method contains three scopes, the two inner blocks and the method body itself.  
   
-```c#  
+```cs  
 public void func(int index)  
 {  
     // Method body scope  
@@ -72,9 +89,9 @@ public void func(int index)
 }  
 ```  
   
- [IDebugMethodField](../../../extensibility/debugger/reference/idebugmethodfield.md) 对象表示 `func` 方法。  例如调用与 [IDebugAddress](../../../extensibility/debugger/reference/idebugaddress.md) 的 `EnumLocals` 方法设置为 `Inner Scope 1` 地址返回包含 `temp1` 变量的枚举，。  
+ The [IDebugMethodField](../../../extensibility/debugger/reference/idebugmethodfield.md) object represents the `func` method itself. Calling the `EnumLocals` method with an [IDebugAddress](../../../extensibility/debugger/reference/idebugaddress.md) set to the `Inner Scope 1` address returns an enumeration containing the `temp1` variable, for example.  
   
-## 请参阅  
+## <a name="see-also"></a>See Also  
  [IDebugMethodField](../../../extensibility/debugger/reference/idebugmethodfield.md)   
  [IDebugAddress](../../../extensibility/debugger/reference/idebugaddress.md)   
  [IEnumDebugFields](../../../extensibility/debugger/reference/ienumdebugfields.md)   

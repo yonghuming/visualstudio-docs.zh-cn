@@ -1,61 +1,78 @@
 ---
-title: "IDebugClassField::EnumConstructors | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "IDebugClassField::EnumConstructors"
-helpviewer_keywords: 
-  - "IDebugClassField::EnumConstructors 方法"
+title: IDebugClassField::EnumConstructors | Microsoft Docs
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords:
+- IDebugClassField::EnumConstructors
+helpviewer_keywords:
+- IDebugClassField::EnumConstructors method
 ms.assetid: 66a250b2-75a0-45aa-8d58-40f91cc4bf7b
 caps.latest.revision: 9
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 9
----
-# IDebugClassField::EnumConstructors
-[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
+ms.author: gregvanl
+manager: ghogen
+translation.priority.mt:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+ms.translationtype: MT
+ms.sourcegitcommit: ff8ecec19f8cab04ac2190f9a4a995766f1750bf
+ms.openlocfilehash: 1d8d8e0750ec93a0d53774cc415cf5e17909fc2a
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/24/2017
 
-创建构造函数的枚举数此类的。  
+---
+# <a name="idebugclassfieldenumconstructors"></a>IDebugClassField::EnumConstructors
+Creates an enumerator for the constructors for this class.  
   
-## 语法  
+## <a name="syntax"></a>Syntax  
   
 ```cpp#  
-HRESULT EnumConstructors(   
-   CONSTRUCTOR_ENUM   cMatch,  
-   IEnumDebugFields** ppEnum  
+HRESULT EnumConstructors(   
+   CONSTRUCTOR_ENUM   cMatch,  
+   IEnumDebugFields** ppEnum  
 );  
 ```  
   
-```c#  
+```cs  
 int EnumConstructors(  
-   CONSTRUCTOR_ENUM     cMatch,   
-   out IEnumDebugFields ppEnum  
+   CONSTRUCTOR_ENUM     cMatch,   
+   out IEnumDebugFields ppEnum  
 );  
 ```  
   
-#### 参数  
+#### <a name="parameters"></a>Parameters  
  `cMatch`  
- \[in\] 从构造函数中指定的类型设置为枚举的 [CONSTRUCTOR\_ENUM](../../../extensibility/debugger/reference/constructor-enum.md) 枚举的值。  
+ [in] A value from the [CONSTRUCTOR_ENUM](../../../extensibility/debugger/reference/constructor-enum.md) enumeration that specifies the type of constructors to enumeration.  
   
  `ppEnum`  
- \[out\] 返回表示构造函数的列表 [IEnumDebugFields](../../../extensibility/debugger/reference/ienumdebugfields.md) 对象。  ; 如果没有构造函数，返回空值。  
+ [out] Returns an [IEnumDebugFields](../../../extensibility/debugger/reference/ienumdebugfields.md) object representing the list of constructors. Returns a null value if there are no constructors.  
   
-## 返回值  
- 如果成功，则返回 S\_OK 或返回 S\_FALSE，如果没有构造函数。  否则，返回错误代码。  
+## <a name="return-value"></a>Return Value  
+ If successful, returns S_OK or returns S_FALSE if there are no constructors. Otherwise, returns an error code.  
   
-## 备注  
- 枚举的每个元素都是描述构造函数方法的 [IDebugMethodField](../../../extensibility/debugger/reference/idebugmethodfield.md) 对象。  
+## <a name="remarks"></a>Remarks  
+ Each element of the enumeration is an [IDebugMethodField](../../../extensibility/debugger/reference/idebugmethodfield.md) object describing a constructor method.  
   
- 构造函数列表通常不包括编译器提供的默认构造函数。  
+ The list of constructors typically does not include the default constructors supplied by a compiler.  
   
-## 请参阅  
+## <a name="see-also"></a>See Also  
  [IDebugClassField](../../../extensibility/debugger/reference/idebugclassfield.md)   
  [IEnumDebugFields](../../../extensibility/debugger/reference/ienumdebugfields.md)   
  [IDebugMethodField](../../../extensibility/debugger/reference/idebugmethodfield.md)   
- [CONSTRUCTOR\_ENUM](../../../extensibility/debugger/reference/constructor-enum.md)
+ [CONSTRUCTOR_ENUM](../../../extensibility/debugger/reference/constructor-enum.md)

@@ -1,5 +1,5 @@
 ---
-title: "IDebugBinder3::GetTypeArgumentCount |Microsoft 文档"
+title: IDebugBinder3::GetTypeArgumentCount | Microsoft Docs
 ms.custom: 
 ms.date: 11/04/2016
 ms.reviewer: 
@@ -30,16 +30,17 @@ translation.priority.mt:
 - tr-tr
 - zh-cn
 - zh-tw
-translationtype: Machine Translation
-ms.sourcegitcommit: 5db97d19b1b823388a465bba15d057b30ff0b3ce
-ms.openlocfilehash: fcb2dec4b7ea626035af5b6db4205b70d8c2b7e3
-ms.lasthandoff: 02/22/2017
+ms.translationtype: MT
+ms.sourcegitcommit: ff8ecec19f8cab04ac2190f9a4a995766f1750bf
+ms.openlocfilehash: 1614c312c6aa307bd151cc76acbc843cd092a313
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/24/2017
 
 ---
 # <a name="idebugbinder3gettypeargumentcount"></a>IDebugBinder3::GetTypeArgumentCount
-此方法返回与此对象关联的参数类型的数目。  
+This method returns the number of argument types associated with this object.  
   
-## <a name="syntax"></a>语法  
+## <a name="syntax"></a>Syntax  
   
 ```cpp  
 HRESULT GetTypeArgumentCount(  
@@ -47,22 +48,22 @@ HRESULT GetTypeArgumentCount(
 );  
 ```  
   
-```c#  
+```cs  
 int GetTypeArgumentCount(  
    out uint uCount  
 );  
 ```  
   
-#### <a name="parameters"></a>参数  
+#### <a name="parameters"></a>Parameters  
  `uCount`  
- [out]与此对象关联的参数类型的数量。  
+ [out] Number of argument types associated with this object.  
   
-## <a name="return-value"></a>返回值  
- 如果成功，返回`S_OK`; 否则为返回错误代码。  
+## <a name="return-value"></a>Return Value  
+ If successful, returns `S_OK`; otherwise, returns an error code.  
   
-## <a name="remarks"></a>备注  
- 此方法返回的值可以用于以用于分配一个数组[GetTypeArguments](../../../extensibility/debugger/reference/idebugbinder3-gettypearguments.md)方法。  
+## <a name="remarks"></a>Remarks  
+ The value returned by this method can be used to allocate an array for use with the [GetTypeArguments](../../../extensibility/debugger/reference/idebugbinder3-gettypearguments.md) method.  
   
-## <a name="see-also"></a>另请参阅  
+## <a name="see-also"></a>See Also  
  [IDebugBinder3](../../../extensibility/debugger/reference/idebugbinder3.md)   
  [GetTypeArguments](../../../extensibility/debugger/reference/idebugbinder3-gettypearguments.md)

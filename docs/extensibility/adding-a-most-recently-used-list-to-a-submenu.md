@@ -1,57 +1,74 @@
 ---
-title: "添加大多数最近使用过的子菜单上的列表 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-helpviewer_keywords: 
-  - "MRU 列表"
-  - "菜单、 创建 MRU 列表"
-  - "最近使用的"
+title: Adding a Most Recently Used List to a Submenu | Microsoft Docs
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+helpviewer_keywords:
+- MRU lists
+- menus, creating MRU list
+- most recently used
 ms.assetid: 27d4bbcf-99b1-498f-8b66-40002e3db0f8
 caps.latest.revision: 46
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 46
----
-# 添加大多数最近使用过的子菜单上的列表
-[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
+ms.author: gregvanl
+manager: ghogen
+translation.priority.mt:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+ms.translationtype: MT
+ms.sourcegitcommit: ff8ecec19f8cab04ac2190f9a4a995766f1750bf
+ms.openlocfilehash: 7553609afc0fdc17f48634046dcb531db65b5f8b
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/24/2017
 
-本演练基于在演示 [将子菜单添加到菜单](../extensibility/adding-a-submenu-to-a-menu.md), ，并演示如何将动态列表添加到一个子菜单。 动态列表窗体创建最近使用过的 \(MRU\) 列表的基础。  
+---
+# <a name="adding-a-most-recently-used-list-to-a-submenu"></a>Adding a Most Recently Used List to a Submenu
+This walkthrough builds on the demonstrations in [Adding a Submenu to a Menu](../extensibility/adding-a-submenu-to-a-menu.md), and shows how to add a dynamic list to a submenu. The dynamic list forms the basis for creating a Most Recently Used (MRU) list.  
   
- 动态菜单列表从开始菜单上的占位符。 每次显示的菜单，Visual Studio 集成的开发环境 \(IDE\) 要求的所有命令都应显示在占位符 VSPackage。 动态列表会在菜单上的任意位置。 但是，动态列表将通常存储，并显示由其自己，位于子菜单或菜单的底部。 通过使用这些设计模式，可以使命令进行扩展和收缩而不会影响菜单上的其他命令的位置的动态列表。 在本演练中，动态 MRU 列表显示在现有子菜单，子菜单中的其余部分分开是一条线的底部。  
+ A dynamic menu list starts with a placeholder on a menu. Every time the menu is shown, the Visual Studio integrated development environment (IDE) asks the VSPackage for all commands that should be shown at the placeholder. A dynamic list can occur anywhere on a menu. However, dynamic lists are typically stored and displayed by themselves on submenus or at the bottoms of menus. By using these design patterns, you enable the dynamic list of commands to expand and contract without affecting the position of other commands on the menu. In this walkthrough, the dynamic MRU list is displayed at the bottom of an existing submenu, separated from the rest of the submenu by a line.  
   
- 从技术上讲，动态列表也应用到工具栏。 但是，我们不鼓励使用情况因为工具栏应保持不变，除非用户执行特定步骤来更改它。  
+ Technically, a dynamic list can also be applied to a toolbar. However, we discourage that usage because a toolbar should remain unchanged unless the user takes specific steps to change it.  
   
- 本演练中创建的每次选择其中一个更改其顺序的四个项目的 MRU 列表 （选定的项目移动到列表的顶部）。  
+ This walkthrough creates an MRU list of four items that change their order every time that one of them is selected (the selected item moves to the top of the list).  
   
- 有关菜单和.vsct 文件的详细信息，请参阅 [命令、 菜单和工具栏](../extensibility/internals/commands-menus-and-toolbars.md)。  
+ For more information about menus and .vsct files, see [Commands, Menus, and Toolbars](../extensibility/internals/commands-menus-and-toolbars.md).  
   
-## 系统必备  
- 要按照本演练的步骤操作，必须安装 Visual Studio SDK。 有关详细信息，请参阅[Visual Studio SDK](../extensibility/visual-studio-sdk.md)。  
+## <a name="prerequisites"></a>Prerequisites  
+ To follow this walkthrough, you must install the Visual Studio SDK. For more information, see [Visual Studio SDK](../extensibility/visual-studio-sdk.md).  
   
-## 创建扩展  
+## <a name="creating-an-extension"></a>Creating an Extension  
   
--   请按照中的过程 [将子菜单添加到菜单](../extensibility/adding-a-submenu-to-a-menu.md) 在下面的过程中创建修改的子菜单。  
+-   Follow the procedures in [Adding a Submenu to a Menu](../extensibility/adding-a-submenu-to-a-menu.md) to create the submenu that is modified in the following procedures.  
   
- 在本演练中的过程假定 VSPackage 的名称是 `TopLevelMenu`, ，这是在中使用的名称 [添加到 Visual Studio 菜单栏的菜单](../extensibility/adding-a-menu-to-the-visual-studio-menu-bar.md)。  
+ The procedures in this walkthrough assume that the name of the VSPackage is `TopLevelMenu`, which is the name that is used in [Adding a Menu to the Visual Studio Menu Bar](../extensibility/adding-a-menu-to-the-visual-studio-menu-bar.md).  
   
-## 创建动态项目列表命令  
+## <a name="creating-a-dynamic-item-list-command"></a>Creating a Dynamic Item List Command  
   
-1.  打开 TestCommandPackage.vsct。  
+1.  Open TestCommandPackage.vsct.  
   
-2.  在 `Symbols` 部分中，在 `GuidSymbol` 名为 guidTestCommandPackageCmdSet，节点将添加的符号 `MRUListGroup` 组和 `cmdidMRUList` 命令时，，如下所示。  
+2.  In the `Symbols` section, in the `GuidSymbol` node named guidTestCommandPackageCmdSet, add the symbol for the `MRUListGroup` group and the `cmdidMRUList` command, as follows.  
   
-    ```c#  
-    <IDSymbol name="MRUListGroup" value="0x1200"/>  
-    <IDSymbol name="cmdidMRUList" value="0x0200"/>  
+    ```cs  
+    <IDSymbol name="MRUListGroup" value="0x1200"/>  
+    <IDSymbol name="cmdidMRUList" value="0x0200"/>  
     ```  
   
-3.  在 `Groups` 部分中，在现有的组条目后添加声明的组。  
+3.  In the `Groups` section, add the declared group after the existing group entries.  
   
     ```cpp  
     <Group guid="guidTestCommandPackageCmdSet" id="MRUListGroup"   
@@ -61,9 +78,9 @@ caps.handback.revision: 46
   
     ```  
   
-4.  在 `Buttons` 部分中，添加一个节点之后的现有按钮项表示的新声明的命令。  
+4.  In the `Buttons` section, add a node to represent the newly declared command, after the existing button entries.  
   
-    ```c#  
+    ```cs  
     <Button guid="guidTestCommandPackageCmdSet" id="cmdidMRUList"  
         type="Button" priority="0x0100">  
         <Parent guid="guidTestCommandPackageCmdSet" id="MRUListGroup" />  
@@ -75,36 +92,36 @@ caps.handback.revision: 46
     </Button>  
     ```  
   
-     `DynamicItemStart` 标志，可以使动态生成的命令。  
+     The `DynamicItemStart` flag enables the command to be generated dynamically.  
   
-5.  生成项目并开始调试以测试的新建命令显示。  
+5.  Build the project and start debugging to test the display of the new command.  
   
-     在 **TestMenu** 菜单上，单击新子菜单， **子菜单**, ，以便显示新建命令， **MRU 占位符**。 在下一个过程中实现命令的动态 MRU 列表后，打开子菜单中的每次将替换此命令标签由该列表。  
+     On the **TestMenu** menu, click the new submenu, **Sub Menu**, to display the new command, **MRU Placeholder**. After a dynamic MRU list of commands is implemented in the next procedure, this command label will be replaced by that list every time that the submenu is opened.  
   
-## 填充 MRU 列表  
+## <a name="filling-the-mru-list"></a>Filling the MRU List  
   
-1.  在 TestCommandPackageGuids.cs，后面的现有命令 Id 中添加以下行 `TestCommandPackageGuids` 类定义。  
+1.  In TestCommandPackageGuids.cs, add the following lines after the existing command IDs in the `TestCommandPackageGuids` class definition.  
   
-    ```c#  
+    ```cs  
     public const string guidTestCommandPackageCmdSet = "00000000-0000-0000-0000-00000000"; // get the GUID from the .vsct file  
-    public const uint cmdidMRUList = 0x200;  
+    public const uint cmdidMRUList = 0x200;  
     ```  
   
-2.  在 TestCommand.cs 中添加以下 using 语句。  
+2.  In TestCommand.cs add the following using statement.  
   
-    ```c#  
+    ```cs  
     using System.Collections;  
     ```  
   
-3.  在最后一次 AddCommand 调用后 TestCommand 构造函数中添加以下代码。`InitMRUMenu` 将在以后定义  
+3.  Add the following code in the TestCommand constructor after the last AddCommand call. The `InitMRUMenu` will be defined later  
   
-    ```c#  
+    ```cs  
     this.InitMRUMenu(commandService);  
     ```  
   
-4.  TestCommand 类中添加以下代码。 此代码初始化的字符串表示要在 MRU 列表中显示的项的列表。  
+4.  Add the following code in the TestCommand class. This code initializes the list of strings that represent the items to be shown on the MRU list.  
   
-    ```c#  
+    ```cs  
     private int numMRUItems = 4;  
     private int baseMRUID = (int)TestCommandPackageGuids.cmdidMRUList;  
     private ArrayList mruList;  
@@ -126,9 +143,9 @@ caps.handback.revision: 46
     }  
     ```  
   
-5.  之后 `InitializeMRUList` 方法中，添加 `InitMRUMenu` 方法。 此代码初始化 MRU 列表菜单命令。  
+5.  After the `InitializeMRUList` method, add the `InitMRUMenu` method. This initializes the MRU list menu commands.  
   
-    ```c#  
+    ```cs  
     private void InitMRUMenu(OleMenuCommandService mcs)  
     {  
         InitializeMRUList();  
@@ -144,12 +161,12 @@ caps.handback.revision: 46
     }  
     ```  
   
-     MRU 列表中，必须创建每个可能的项的菜单命令对象。 IDE 调用 `OnMRUQueryStatus` MRU 列表，直到没有更多的项目中每个项的方法。 在托管代码中，IDE 知道没有更多的项的唯一方法是首先创建所有可能的项。 如果您希望，您可以通过使用第一次标记为在不可见的其他项 `mc.Visible = false;` 创建菜单命令之后。 这些项可以然后让用户看到更高版本使用 `mc.Visible = true;` 中 `OnMRUQueryStatus` 方法。  
+     You must create a menu command object for every possible item in the MRU list. The IDE calls the `OnMRUQueryStatus` method for each item in the MRU list until there are no more items. In managed code, the only way for the IDE to know that there are no more items is to create all possible items first. If you want, you can mark additional items as not visible at first by using `mc.Visible = false;` after the menu command is created. These items can then be made visible later by using `mc.Visible = true;` in the `OnMRUQueryStatus` method.  
   
-6.  之后 `InitMRUMenu` 方法中，添加以下 `OnMRUQueryStatus` 方法。 这是设置为每个 MRU 项文本的处理程序。  
+6.  After the `InitMRUMenu` method, add the following `OnMRUQueryStatus` method. This is the handler that sets the text for each MRU item.  
   
-    ```c#  
-    private void OnMRUQueryStatus(object sender, EventArgs e)  
+    ```cs  
+    private void OnMRUQueryStatus(object sender, EventArgs e)  
     {  
         OleMenuCommand menuCommand = sender as OleMenuCommand;  
         if (null != menuCommand)  
@@ -157,16 +174,16 @@ caps.handback.revision: 46
             int MRUItemIndex = menuCommand.CommandID.ID - this.baseMRUID;  
             if (MRUItemIndex >= 0 && MRUItemIndex < this.mruList.Count)  
             {  
-                menuCommand.Text = this.mruList[MRUItemIndex] as string;  
+                menuCommand.Text = this.mruList[MRUItemIndex] as string;  
             }  
         }  
     }  
     ```  
   
-7.  之后 `OnMRUQueryStatus` 方法中，添加以下 `OnMRUExec` 方法。 这是用于选择 MRU 项目的处理程序。 此方法将所选的项目移至列表的顶部，然后在消息框中显示所选的项目。  
+7.  After the `OnMRUQueryStatus` method, add the following `OnMRUExec` method. This is the handler for selecting an MRU item. This method moves the selected item to the top of the list and then displays the selected item in a message box.  
   
-    ```c#  
-    private void OnMRUExec(object sender, EventArgs e)  
+    ```cs  
+    private void OnMRUExec(object sender, EventArgs e)  
     {  
         var menuCommand = sender as OleMenuCommand;  
         if (null != menuCommand)  
@@ -174,7 +191,7 @@ caps.handback.revision: 46
             int MRUItemIndex = menuCommand.CommandID.ID - this.baseMRUID;  
             if (MRUItemIndex >= 0 && MRUItemIndex < this.mruList.Count)  
             {  
-                string selection = this.mruList[MRUItemIndex] as string;  
+                string selection = this.mruList[MRUItemIndex] as string;  
                 for (int i = MRUItemIndex; i > 0; i--)  
                 {  
                     this.mruList[i] = this.mruList[i - 1];  
@@ -189,20 +206,20 @@ caps.handback.revision: 46
   
     ```  
   
-## 测试 MRU 列表  
+## <a name="testing-the-mru-list"></a>Testing the MRU List  
   
-#### 若要测试 MRU 菜单列表  
+#### <a name="to-test-the-mru-menu-list"></a>To test the MRU menu list  
   
-1.  生成项目并开始调试  
+1.  Build the project and start debugging  
   
-2.  在 **TestMenu** 菜单上，单击 **调用 TestCommand**。 执行此操作将显示一个消息框，指示已选择该命令。  
+2.  On the **TestMenu** menu, click **Invoke TestCommand**. Doing this displays a message box that indicates that the command was selected.  
   
     > [!NOTE]
-    >  需要完成此步骤以强制 VSPackage 以加载并正确显示 MRU 列表。 如果您跳过此步骤中，将不显示 MRU 列表。  
+    >  This step is required to force the VSPackage to load and correctly display the MRU list. If you skip this step, the MRU list is not displayed.  
   
-3.  在 **测试菜单** 菜单上，单击 **子菜单**。 末尾的子菜单中，分隔符下面显示的四项列表。 当您单击 **项目 3**, ，一个消息框应该出现，并显示该文本，"所选的项目 3"。 （如果未显示的四个项的列表，确保你已按前面的步骤中的说明。）  
+3.  On the **Test Menu** menu, click **Sub Menu**. A list of four items is displayed at the end of the submenu, below a separator. When you click **Item 3**, a message box should appear and display the text, "Selected Item 3". (If the list of four items is not displayed, ensure that you have followed the instructions in the earlier step.)  
   
-4.  再次打开子菜单。 请注意， **项目 3** 现在位于列表的顶部和其他项已推送下移一个位置。 单击 **项目 3** 再次并请注意，该消息框仍显示"所选的项目 3"，指示文本已正确地移到新位置以及命令标签。  
+4.  Open the submenu again. Notice that **Item 3** is now at the top of the list and the other items have been pushed down one position. Click **Item 3** again and notice that the message box still displays "Selected Item 3", which indicates that the text has correctly moved to the new position together with the command label.  
   
-## 请参阅  
- [动态添加菜单项](../extensibility/dynamically-adding-menu-items.md)
+## <a name="see-also"></a>See Also  
+ [Dynamically Adding Menu Items](../extensibility/dynamically-adding-menu-items.md)

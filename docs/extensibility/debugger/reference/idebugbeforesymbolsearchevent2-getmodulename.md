@@ -1,70 +1,87 @@
 ---
-title: "IDebugBeforeSymbolSearchEvent2::GetModuleName | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-helpviewer_keywords: 
-  - "GetModuleName"
-  - "IDebugBeforeSymbolSearchEvent2::GetModuleName"
+title: IDebugBeforeSymbolSearchEvent2::GetModuleName | Microsoft Docs
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+helpviewer_keywords:
+- GetModuleName
+- IDebugBeforeSymbolSearchEvent2::GetModuleName
 ms.assetid: 0b4abeac-2eaf-4b2e-a2d5-c9ec303bc869
 caps.latest.revision: 9
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 9
----
-# IDebugBeforeSymbolSearchEvent2::GetModuleName
-[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
+ms.author: gregvanl
+manager: ghogen
+translation.priority.mt:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+ms.translationtype: MT
+ms.sourcegitcommit: ff8ecec19f8cab04ac2190f9a4a995766f1750bf
+ms.openlocfilehash: 4028bfa8ca95a4bc93aa21fb108b40cc4d091ac8
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/24/2017
 
-检索当前正在调试的模块的名称。  
+---
+# <a name="idebugbeforesymbolsearchevent2getmodulename"></a>IDebugBeforeSymbolSearchEvent2::GetModuleName
+Retrieves the name of the module currently being debugged.  
   
-## 语法  
+## <a name="syntax"></a>Syntax  
   
 ```cpp#  
 HRESULT GetModuleName(   
-   BSTR *pbstrModuleName  
+   BSTR *pbstrModuleName  
 );  
 ```  
   
-```c#  
+```cs  
 public int GetModuleName (  
-   string pbstrModuleName  
+   string pbstrModuleName  
 );  
 ```  
   
-#### 参数  
+#### <a name="parameters"></a>Parameters  
  `pbstrModuleName`  
- \[out\] 模块的名称。  
+ [out] Name of the module.  
   
-## 返回值  
- 如果成功，则返回; `S_OK`否则，返回错误代码。  
+## <a name="return-value"></a>Return Value  
+ If successful, returns `S_OK`; otherwise, returns an error code.  
   
-## 示例  
- 下面的示例演示如何执行显示 [IDebugBeforeSymbolSearchEvent2](../../../extensibility/debugger/reference/idebugbeforesymbolsearchevent2.md) 接口的 **CDebugBeforeSymbolSearchEventBase** 对象的方法。  
+## <a name="example"></a>Example  
+ The following example shows how to implement this method for a **CDebugBeforeSymbolSearchEventBase** object that exposes the [IDebugBeforeSymbolSearchEvent2](../../../extensibility/debugger/reference/idebugbeforesymbolsearchevent2.md) interface.  
   
 ```cpp#  
 STDMETHODIMP CDebugBeforeSymbolSearchEventBase::GetModuleName(BSTR *pbstrModuleName)  
 {  
-    HRESULT hRes = E_FAIL;  
+    HRESULT hRes = E_FAIL;  
   
-    if (m_bstrModuleName)  
-    {  
+    if (m_bstrModuleName)  
+    {  
   
-        *pbstrModuleName = SysAllocString( m_bstrModuleName);  
+        *pbstrModuleName = SysAllocString( m_bstrModuleName);  
   
-        if (*pbstrModuleName)  
-        {  
-            hRes = S_OK;  
-        }  
-    }  
+        if (*pbstrModuleName)  
+        {  
+            hRes = S_OK;  
+        }  
+    }  
   
-    return ( hRes );  
+    return ( hRes );  
 }  
 ```  
   
-## 请参阅  
+## <a name="see-also"></a>See Also  
  [IDebugBeforeSymbolSearchEvent2](../../../extensibility/debugger/reference/idebugbeforesymbolsearchevent2.md)

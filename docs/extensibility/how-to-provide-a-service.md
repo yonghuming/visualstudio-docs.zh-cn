@@ -1,50 +1,67 @@
 ---
-title: "如何: 提供的服务 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-helpviewer_keywords: 
-  - "服务，可为"
+title: 'How to: Provide a Service | Microsoft Docs'
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+helpviewer_keywords:
+- services, providing
 ms.assetid: 12bc1f12-47b1-44f6-b8db-862aa88d50d1
 caps.latest.revision: 22
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 22
----
-# 如何: 提供的服务
-[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
+ms.author: gregvanl
+manager: ghogen
+translation.priority.mt:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+ms.translationtype: MT
+ms.sourcegitcommit: ff8ecec19f8cab04ac2190f9a4a995766f1750bf
+ms.openlocfilehash: f786afc643a6f4ed3faf10bf53a10cb4f391a843
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/24/2017
 
-VSPackage 可以提供其他 VSPackages 迁移可以使用的服务。 若要提供一种服务，VSPackage 必须与 Visual Studio 中注册该服务并添加服务。  
+---
+# <a name="how-to-provide-a-service"></a>How to: Provide a Service
+A VSPackage can provide services that other VSPackages can use. To provide a service, a VSPackage must register the service with Visual Studio and add the service.  
   
- <xref:Microsoft.VisualStudio.Shell.Package> 类同时实现 <xref:Microsoft.VisualStudio.OLE.Interop.IServiceProvider> 和 <xref:System.ComponentModel.Design.IServiceContainer>。<xref:System.ComponentModel.Design.IServiceContainer> 包含按需提供服务的回调方法。  
+ The <xref:Microsoft.VisualStudio.Shell.Package> class implements both <xref:Microsoft.VisualStudio.OLE.Interop.IServiceProvider> and <xref:System.ComponentModel.Design.IServiceContainer>. <xref:System.ComponentModel.Design.IServiceContainer> contains callback methods that provide  services on demand.  
   
- 有关服务的详细信息，请参阅 [服务基础知识](../extensibility/internals/service-essentials.md) 。  
+ For more information about services, see [Service Essentials](../extensibility/internals/service-essentials.md) .  
   
 > [!NOTE]
->  当 VSPackage 将要被卸载时，Visual Studio 等待，直到已传递的 VSPackage 提供的服务的所有请求。 它不允许对这些服务的新请求。 不，应显式调用 <xref:Microsoft.VisualStudio.Shell.Interop.IProfferService.RevokeService%2A> 方法卸载时撤消一项服务。  
+>  When a VSPackage is about to be unloaded, Visual Studio waits until all requests for services that a VSPackage provides have been delivered. It does not allow new requests for these services. You should not explicitly call the <xref:Microsoft.VisualStudio.Shell.Interop.IProfferService.RevokeService%2A> method to revoke a service when unloading.  
   
-#### 实现服务  
+#### <a name="implementing-a-service"></a>Implementing a service  
   
-1.  创建一个 VSIX 项目 \(**文件 \/ 新建 \/ 项目 \/ Visual C\# \/ Extensiblity \/ VSIX 项目**\)。  
+1.  Create a VSIX project (**File / New / Project / Visual C# / Extensiblity / VSIX Project**).  
   
-2.  向项目中添加 VSPackage。 选择中的项目节点 **解决方案资源管理器** ，然后单击 **添加 \/ 新建项 \/ Visual C\# 项 \/ 扩展性 \/ Visual Studio Package**。  
+2.  Add a VSPackage to the project. Select the project node in the **Solution Explorer** and click **Add / New item / Visual C# Items / Extensibility / Visual Studio Package**.  
   
-3.  若要实现的服务，需要创建三种类型︰  
+3.  To implement a service, you need to create three types:  
   
-    -   一个描述该服务的接口。 许多这些接口是空的也就是说，它们有没有方法。  
+    -   An interface that describes the service. Many of these interfaces are empty, that is, they have no methods.  
   
-    -   一个描述服务接口的接口。 此接口包括要实现的方法。  
+    -   An interface that describes the service interface. This interface includes the methods to be implemented.  
   
-    -   实现服务和服务接口的类。  
+    -   A class that implements both the service and the service interface.  
   
-     下面的示例演示三种类型的非常基本的实现。 服务类的构造函数必须设置的服务提供程序。  
+     The following example shows a very basic implementation of the three types. The constructor of the service class must set the service provider.  
   
-    ```c#  
+    ```cs  
     public class MyService : SMyService, IMyService  
     {  
         private Microsoft.VisualStudio.OLE.Interop.IServiceProvider serviceProvider;  
@@ -75,11 +92,11 @@ VSPackage 可以提供其他 VSPackages 迁移可以使用的服务。 若要提
   
     ```  
   
-### 注册服务  
+### <a name="registering-a-service"></a>Registering a service  
   
-1.  若要注册了服务，将添加 <xref:Microsoft.VisualStudio.Shell.ProvideServiceAttribute> 到 VSPackage 提供服务。 下面是一个示例︰  
+1.  To register a service, add the <xref:Microsoft.VisualStudio.Shell.ProvideServiceAttribute> to the VSPackage that provides the service. Here is an example:  
   
-    ```c#  
+    ```cs  
     [ProvideService(typeof(SMyService))]  
     [PackageRegistration(UseManagedResourcesOnly = true)]  
     [Guid(VSPackage1.PackageGuidString)]  
@@ -87,16 +104,16 @@ VSPackage 可以提供其他 VSPackages 迁移可以使用的服务。 若要提
     {. . . }  
     ```  
   
-     此属性注册 `SMyService` 使用 Visual Studio。  
+     This attribute registers `SMyService` with Visual Studio.  
   
     > [!NOTE]
-    >  若要注册的服务，替换具有相同名称的另一个服务，请使用 <xref:Microsoft.VisualStudio.Shell.ProvideServiceOverrideAttribute>。 请注意允许的服务只能有一个重写。  
+    >  To register a service that replaces another service with the same name, use the <xref:Microsoft.VisualStudio.Shell.ProvideServiceOverrideAttribute>. Note that only one override of a service is allowed.  
   
-### 添加服务  
+### <a name="adding-a-service"></a>Adding a Service  
   
-1.  1.	在 VSPackage 初始值设定项、 添加服务并添加一个回调方法来创建服务。 下面是对进行更改 <xref:Microsoft.VisualStudio.Shell.Package.Initialize%2A> 方法︰  
+1.  In the VSPackage initializer, add the service and add a callback method to create the services. Here is the change to make to the <xref:Microsoft.VisualStudio.Shell.Package.Initialize%2A> method:  
   
-    ```c#  
+    ```cs  
     protected override void Initialize()  
     {  
         ServiceCreatorCallback callback =new ServiceCreatorCallback(CreateService);  
@@ -106,7 +123,7 @@ VSPackage 可以提供其他 VSPackages 迁移可以使用的服务。 若要提
     }  
     ```  
   
-2.  实现回调方法，它应创建并返回该服务，或者如果无法创建，则为 null。  
+2.  Implement the callback method, which should create and return the service, or null if it cannot be created.  
   
     ```  
     private object CreateService(IServiceContainer container, Type serviceType)  
@@ -118,11 +135,11 @@ VSPackage 可以提供其他 VSPackages 迁移可以使用的服务。 若要提
     ```  
   
     > [!NOTE]
-    >  Visual Studio 可以拒绝的请求提供服务。 那么如果另一个 VSPackage 已经提供了该服务。  
+    >  Visual Studio can reject a request to provide a service. It does so if another VSPackage already provides the service.  
   
-3.  现在，您可以获取该服务，使用其方法。 我们将介绍此初始值设定项，但您可以获取任意位置您想要的服务使用该服务。  
+3.  Now you can get the service and use its methods. We'll show this in the initializer, but you can get the service anywhere you want to use the service.  
   
-    ```c#  
+    ```cs  
     protected override void Initialize()  
     {  
         ServiceCreatorCallback callback =new ServiceCreatorCallback(CreateService);  
@@ -137,9 +154,9 @@ VSPackage 可以提供其他 VSPackages 迁移可以使用的服务。 若要提
     }  
     ```  
   
-     值 `helloString` 应为"Hello"。  
+     The value of `helloString` should be "Hello".  
   
-## 请参阅  
- [如何: 获取服务](../Topic/How%20to:%20Get%20a%20Service.md)   
- [使用并提供服务](../extensibility/using-and-providing-services.md)   
- [服务基础知识](../extensibility/internals/service-essentials.md)
+## <a name="see-also"></a>See Also  
+ [How to: Get a Service](../extensibility/how-to-get-a-service.md)   
+ [Using and Providing Services](../extensibility/using-and-providing-services.md)   
+ [Service Essentials](../extensibility/internals/service-essentials.md)

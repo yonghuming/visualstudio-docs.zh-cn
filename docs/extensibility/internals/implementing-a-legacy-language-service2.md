@@ -1,47 +1,64 @@
 ---
-title: "实现旧语言 Service2 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-helpviewer_keywords: 
-  - "实现语言服务 [托管的包框架]"
+title: Implementing a Legacy Language Service2 | Microsoft Docs
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+helpviewer_keywords:
+- language services [managed package framework], implementing
 ms.assetid: 5bcafdc5-f922-48f6-a12e-6c8507a79a05
 caps.latest.revision: 26
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 26
----
-# 实现传统语言服务
-[!INCLUDE[vs2017banner](../../code-quality/includes/vs2017banner.md)]
+ms.author: gregvanl
+manager: ghogen
+translation.priority.mt:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+ms.translationtype: MT
+ms.sourcegitcommit: ff8ecec19f8cab04ac2190f9a4a995766f1750bf
+ms.openlocfilehash: f8d3d90b9ccdd1e13dde34622e2d730b0ab376b3
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/24/2017
 
-使用托管包结构，若要实现语言服务 \(MPF\)，必须从 <xref:Microsoft.VisualStudio.Package.LanguageService> 类派生类并实现下列抽象方法和属性:  
+---
+# <a name="implementing-a-legacy-language-service"></a>Implementing a Legacy Language Service
+To implement a language service using the managed package framework (MPF), you must derive a class from the <xref:Microsoft.VisualStudio.Package.LanguageService> class and implement the following abstract methods and properties:  
   
--   <xref:Microsoft.VisualStudio.Package.LanguageService.GetLanguagePreferences%2A> 方法  
+-   The <xref:Microsoft.VisualStudio.Package.LanguageService.GetLanguagePreferences%2A> method  
   
--   <xref:Microsoft.VisualStudio.Package.LanguageService.GetScanner%2A> 方法  
+-   The <xref:Microsoft.VisualStudio.Package.LanguageService.GetScanner%2A> method  
   
--   <xref:Microsoft.VisualStudio.Package.LanguageService.ParseSource%2A> 方法  
+-   The <xref:Microsoft.VisualStudio.Package.LanguageService.ParseSource%2A> method  
   
--   <xref:Microsoft.VisualStudio.Package.LanguageService.Name%2A> 属性  
+-   The <xref:Microsoft.VisualStudio.Package.LanguageService.Name%2A> property  
   
- 请参见下面相应节有关实现这些方法和属性的详细信息。  
+ See the appropriate sections below for details on implementing these methods and properties.  
   
- 若要支持附加功能，语言服务可能必须从某个 MPF 语言服务类派生类;例如，支持其他的菜单命令，必须从 <xref:Microsoft.VisualStudio.Package.ViewFilter> 类派生类并重写处理方法的多个命令 \(请参见 <xref:Microsoft.VisualStudio.Package.ViewFilter> 有关详细信息\)。  <xref:Microsoft.VisualStudio.Package.LanguageService> 类提供调用创建各类的新实例的方法，并重写相应的创建方法提供类的实例。  例如，则需要重写在 <xref:Microsoft.VisualStudio.Package.LanguageService> 类的 <xref:Microsoft.VisualStudio.Package.LanguageService.CreateViewFilter%2A> 方法返回实例拥有 <xref:Microsoft.VisualStudio.Package.ViewFilter> 类。  有关更多详细信息参见 “实例化的自定义类”一节。  
+ To support additional features, your language service may have to derive a class from one of the MPF language service classes; for example, to support additional menu commands, you must derive a class from the <xref:Microsoft.VisualStudio.Package.ViewFilter> class and override several of the command handling methods (see <xref:Microsoft.VisualStudio.Package.ViewFilter> for details). The <xref:Microsoft.VisualStudio.Package.LanguageService> class provides a number of methods that are called to create new instances of various classes and you override the appropriate creation method to provide an instance of your class. For example, you need to override the <xref:Microsoft.VisualStudio.Package.LanguageService.CreateViewFilter%2A> method in the <xref:Microsoft.VisualStudio.Package.LanguageService> class to return an instance of your own <xref:Microsoft.VisualStudio.Package.ViewFilter> class. See the "Instantiating Custom Classes" section for more details.  
   
- 语言服务也可以提供自己的图标，用于多个地方。  例如，在中，当 IntelliSense 完成列表时显示列表中，每个项目中具有与其关联的图标，标记该项作为方法，类，命名空间，属性，或者操作的该语言是必需的。  这些图标用于所有 IntelliSense 列表， **导航栏**，然后在 **错误表** 任务。  请参见下面的 “语言服务 image”部分有关详细信息。  
+ Your language service can also supply its own icons, which are used in many places. For example, when an IntelliSense completion list is shown, each item in the list can have an icon associated with it, marking the item as a method, class, namespace, property, or whatever is necessary for your language. These icons are used in all IntelliSense lists, the **Navigation bar**, and in the **Error List** task window. See the "Language Service Images" section below for details.  
   
-## GetLanguagePreferences 方法  
- <xref:Microsoft.VisualStudio.Package.LanguageService.GetLanguagePreferences%2A> 方法始终返回 <xref:Microsoft.VisualStudio.Package.LanguagePreferences> 类的同一个实例。  ，如果不需要语言服务，的任何其他的喜好您可以使用基本 <xref:Microsoft.VisualStudio.Package.LanguagePreferences> 类。  MPF 语言服务类假定有基本 <xref:Microsoft.VisualStudio.Package.LanguagePreferences> 类出现。  
+## <a name="getlanguagepreferences-method"></a>GetLanguagePreferences Method  
+ The <xref:Microsoft.VisualStudio.Package.LanguageService.GetLanguagePreferences%2A> method always returns the same instance of a <xref:Microsoft.VisualStudio.Package.LanguagePreferences> class. You can use the base <xref:Microsoft.VisualStudio.Package.LanguagePreferences> class if you do not need any additional preferences for your language service. The MPF language service classes assume the presence of at least the base <xref:Microsoft.VisualStudio.Package.LanguagePreferences> class.  
   
-### 示例  
- 此示例演示 <xref:Microsoft.VisualStudio.Package.LanguageService.GetLanguagePreferences%2A> 方法的一个典型的实现。  此示例使用基本 <xref:Microsoft.VisualStudio.Package.LanguagePreferences> 类。  
+### <a name="example"></a>Example  
+ This example shows a typical implementation of the <xref:Microsoft.VisualStudio.Package.LanguageService.GetLanguagePreferences%2A> method. This example uses the base <xref:Microsoft.VisualStudio.Package.LanguagePreferences> class.  
   
-```c#  
+```cs  
 using Microsoft.VisualStudio.Package;  
 using Microsoft.VisualStudio.TextManager.Interop;  
   
@@ -66,13 +83,13 @@ namespace TestLanguagePackage
 }  
 ```  
   
-## GetScanner 方法  
- 此方法返回 <xref:Microsoft.VisualStudio.Package.IScanner> 对象的实例实现一个 \(可沿的分析器或扫描仪提供用于获取标记使用了及其类型和触发器。  此扫描仪用于 <xref:Microsoft.VisualStudio.Package.Colorizer> 类进行着色，虽然扫描仪能用于获取标记类型和触发器也用作对于更复杂的分析操作中的一个前奏。  必须提供实现 <xref:Microsoft.VisualStudio.Package.IScanner> 接口的类，并且您必须在 <xref:Microsoft.VisualStudio.Package.IScanner> 接口的所有方法。  
+## <a name="getscanner-method"></a>GetScanner Method  
+ This method returns an instance of an <xref:Microsoft.VisualStudio.Package.IScanner> object that implements a line-oriented parser or scanner used for obtaining tokens and their types and triggers. This scanner is used in the <xref:Microsoft.VisualStudio.Package.Colorizer> class for colorization although the scanner can also be used for getting token types and triggers as a prelude to a more complex parsing operation. You must supply the class that implements the <xref:Microsoft.VisualStudio.Package.IScanner> interface and you must implement all the methods on the <xref:Microsoft.VisualStudio.Package.IScanner> interface.  
   
-### 示例  
- 此示例演示 <xref:Microsoft.VisualStudio.Package.LanguageService.GetScanner%2A> 方法的一个典型的实现。  `TestScanner` 类实现 <xref:Microsoft.VisualStudio.Package.IScanner> 接口 \(未显示\)。  
+### <a name="example"></a>Example  
+ This example shows a typical implementation of the <xref:Microsoft.VisualStudio.Package.LanguageService.GetScanner%2A> method. The `TestScanner` class implements the <xref:Microsoft.VisualStudio.Package.IScanner> interface (not shown).  
   
-```c#  
+```cs  
 using Microsoft.VisualStudio.Package;  
 using Microsoft.VisualStudio.TextManager.Interop;  
   
@@ -117,13 +134,13 @@ namespace TestLanguagePackage
   
 ```  
   
-## ParseSource 方法  
- 分析基于多种不同的原因的源文件。  提供描述此方法的一 <xref:Microsoft.VisualStudio.Package.ParseRequest> 对象所需的特定分析操作。  <xref:Microsoft.VisualStudio.Package.LanguageService.ParseSource%2A> 调用方法确定标记功能和大小的更复杂的分析器。  <xref:Microsoft.VisualStudio.Package.LanguageService.ParseSource%2A> 方法以支持 IntelliSense 操作以及括号匹配使用。  即使不支持这些高级操作，您还必须返回了有效的 <xref:Microsoft.VisualStudio.Package.AuthoringScope> 对象，并要求您创建实现 <xref:Microsoft.VisualStudio.Package.AuthoringScope> 接口的类并执行该接口的所有方法。  可以返回来自任何方法的 null 值，但 <xref:Microsoft.VisualStudio.Package.AuthoringScope> 对象不能为 null 值。  
+## <a name="parsesource-method"></a>ParseSource Method  
+ Parses the source file based on a number of different reasons. This method is given a <xref:Microsoft.VisualStudio.Package.ParseRequest> object that describes what is expected from a particular parsing operation. The <xref:Microsoft.VisualStudio.Package.LanguageService.ParseSource%2A> method invokes a more complex parser that determines token functionality and scope. The <xref:Microsoft.VisualStudio.Package.LanguageService.ParseSource%2A> method is used in support for IntelliSense operations as well as brace matching. Even if you do not support such advanced operations, you still must return a valid <xref:Microsoft.VisualStudio.Package.AuthoringScope> object and that requires you to create a class that implements the <xref:Microsoft.VisualStudio.Package.AuthoringScope> interface and implement all methods on that interface. You can return null values from all methods but the <xref:Microsoft.VisualStudio.Package.AuthoringScope> object itself must not be a null value.  
   
-### 示例  
- 此示例演示 <xref:Microsoft.VisualStudio.Package.LanguageService.ParseSource%2A> 方法和 <xref:Microsoft.VisualStudio.Package.AuthoringScope> 类的一个最小实现，满足允许语言服务生成并运行，而不会实际支持任何高级功能。  
+### <a name="example"></a>Example  
+ This example shows a minimal implementation of the <xref:Microsoft.VisualStudio.Package.LanguageService.ParseSource%2A> method and the <xref:Microsoft.VisualStudio.Package.AuthoringScope> class, sufficient to allow the language service to compile and function without actually supporting any of the more advanced features.  
   
-```c#  
+```cs  
 using Microsoft.VisualStudio.Package;  
 using Microsoft.VisualStudio.TextManager.Interop;  
   
@@ -167,13 +184,13 @@ namespace TestLanguagePackage
 }  
 ```  
   
-## name 属性  
- 此属性返回语言服务的名称。  ，当语言服务注册，则必须是命名的相同的名称。  此名称用于许多的地方，最重要的是该名称用于访问注册表的 <xref:Microsoft.VisualStudio.Package.LanguagePreferences> 类。  此属性返回的名称，如果在注册表中的注册表项和名称，不能本地化。  
+## <a name="name-property"></a>Name Property  
+ This property returns the name of the language service. This must be the same name given when the language service was registered. This name is used in a number of places, the most prominent of which is the <xref:Microsoft.VisualStudio.Package.LanguagePreferences> class where the name is used to access the registry. The name returned by this property must not be localized as it is used in the registry for registry entry and key names.  
   
-### 示例  
- 此示例演示 <xref:Microsoft.VisualStudio.Package.LanguageService.Name%2A> 属性的一个可能的实现。  请注意此时该名称硬编码:应从资源文件中获取的实际名称，因此可用于注册语言服务 \(请参见 [注册语言服务](../../extensibility/internals/registering-a-legacy-language-service1.md)\)。  
+### <a name="example"></a>Example  
+ This example shows one possible implementation of the <xref:Microsoft.VisualStudio.Package.LanguageService.Name%2A> property. Note that the name here is hard-coded: the actual name should be obtained from a resource file so it can be used in registering a language service (see [Registering a Legacy Language Service](../../extensibility/internals/registering-a-legacy-language-service1.md)).  
   
-```c#  
+```cs  
 using Microsoft.VisualStudio.Package;  
 using Microsoft.VisualStudio.TextManager.Interop;  
   
@@ -189,56 +206,56 @@ namespace TestLanguagePackage
 }  
 ```  
   
-## 实例化的自定义类  
- 在指定的类的以下方法可以重写提供实例拥有每个类的版本。  
+## <a name="instantiating-custom-classes"></a>Instantiating Custom Classes  
+ The following methods in the specified classes can be overridden to provide instances of your own versions of each class.  
   
-### 在 LanguageService 类  
+### <a name="in-the-languageservice-class"></a>In the LanguageService Class  
   
-|方法|返回的类|说明|  
-|--------|----------|--------|  
-|<xref:Microsoft.VisualStudio.Package.LanguageService.CreateCodeWindowManager%2A>|<xref:Microsoft.VisualStudio.Package.CodeWindowManager>|支持自定义添加到文本视图。|  
-|<xref:Microsoft.VisualStudio.Package.LanguageService.CreateDocumentProperties%2A>|<xref:Microsoft.VisualStudio.Package.DocumentProperties>|若要支持自定义文档属性。|  
-|<xref:Microsoft.VisualStudio.Package.LanguageService.CreateDropDownHelper%2A>|<xref:Microsoft.VisualStudio.Package.TypeAndMemberDropdownBars>|支持 **导航栏**。|  
-|<xref:Microsoft.VisualStudio.Package.LanguageService.CreateExpansionFunction%2A>|<xref:Microsoft.VisualStudio.Package.ExpansionFunction>|支持在代码段模板中的功能。|  
-|<xref:Microsoft.VisualStudio.Package.LanguageService.CreateExpansionProvider%2A>|<xref:Microsoft.VisualStudio.Package.ExpansionProvider>|支持代码段 \(此方法通常不重写\)。|  
-|<xref:Microsoft.VisualStudio.Package.LanguageService.CreateParseRequest%2A>|<xref:Microsoft.VisualStudio.Package.ParseRequest>|支持 <xref:Microsoft.VisualStudio.Package.ParseRequest> 结构的自定义 \(此方法通常不重写\)。|  
-|<xref:Microsoft.VisualStudio.Package.LanguageService.CreateSource%2A>|<xref:Microsoft.VisualStudio.Package.Source>|支持格式化源代码，指定注释字符和自定义方法签名。|  
-|<xref:Microsoft.VisualStudio.Package.LanguageService.CreateViewFilter%2A>|<xref:Microsoft.VisualStudio.Package.ViewFilter>|支持其他的菜单命令。|  
-|<xref:Microsoft.VisualStudio.Package.Source.GetColorizer%2A>|<xref:Microsoft.VisualStudio.Package.Colorizer>|支持语法显示 \(此方法通常不重写\)。|  
-|<xref:Microsoft.VisualStudio.Package.LanguageService.GetLanguagePreferences%2A>|<xref:Microsoft.VisualStudio.Package.LanguagePreferences>|支持对语言首选项的访问。  必须执行此方法，但可能返回基类的实例。|  
-|<xref:Microsoft.VisualStudio.Package.LanguageService.GetScanner%2A>|<xref:Microsoft.VisualStudio.Package.IScanner>|提供用于标识标记的类型的分析器中的行。  必须执行此方法，并且必须派生自。 <xref:Microsoft.VisualStudio.Package.IScanner>|  
-|<xref:Microsoft.VisualStudio.Package.LanguageService.ParseSource%2A>|<xref:Microsoft.VisualStudio.Package.AuthoringScope>|提供用于标识功能和大小使用的分析器在整个源文件中。  必须执行此方法并且必须返回 <xref:Microsoft.VisualStudio.Package.AuthoringScope> 类版本的实例。  如果要支持的所有没有为显示的语法 \(需要从 <xref:Microsoft.VisualStudio.Package.LanguageService.GetScanner%2A> 方法返回的 <xref:Microsoft.VisualStudio.Package.IScanner> 分析器\)，您可以执行此方法不返回方法都返回空值 <xref:Microsoft.VisualStudio.Package.AuthoringScope> 类的版本。|  
+|Method|Class Returned|Description|  
+|------------|--------------------|-----------------|  
+|<xref:Microsoft.VisualStudio.Package.LanguageService.CreateCodeWindowManager%2A>|<xref:Microsoft.VisualStudio.Package.CodeWindowManager>|To support custom additions to the text view.|  
+|<xref:Microsoft.VisualStudio.Package.LanguageService.CreateDocumentProperties%2A>|<xref:Microsoft.VisualStudio.Package.DocumentProperties>|To support custom document properties.|  
+|<xref:Microsoft.VisualStudio.Package.LanguageService.CreateDropDownHelper%2A>|<xref:Microsoft.VisualStudio.Package.TypeAndMemberDropdownBars>|To support the **Navigation bar**.|  
+|<xref:Microsoft.VisualStudio.Package.LanguageService.CreateExpansionFunction%2A>|<xref:Microsoft.VisualStudio.Package.ExpansionFunction>|To support functions in code snippet templates.|  
+|<xref:Microsoft.VisualStudio.Package.LanguageService.CreateExpansionProvider%2A>|<xref:Microsoft.VisualStudio.Package.ExpansionProvider>|To support code snippets (this method is typically not overridden).|  
+|<xref:Microsoft.VisualStudio.Package.LanguageService.CreateParseRequest%2A>|<xref:Microsoft.VisualStudio.Package.ParseRequest>|To support customization of the <xref:Microsoft.VisualStudio.Package.ParseRequest> structure (this method is typically not overridden).|  
+|<xref:Microsoft.VisualStudio.Package.LanguageService.CreateSource%2A>|<xref:Microsoft.VisualStudio.Package.Source>|To support formatting source code, specifying comment characters, and customizing method signatures.|  
+|<xref:Microsoft.VisualStudio.Package.LanguageService.CreateViewFilter%2A>|<xref:Microsoft.VisualStudio.Package.ViewFilter>|To support additional menu commands.|  
+|<xref:Microsoft.VisualStudio.Package.Source.GetColorizer%2A>|<xref:Microsoft.VisualStudio.Package.Colorizer>|To support syntax highlighting (this method is typically not overridden).|  
+|<xref:Microsoft.VisualStudio.Package.LanguageService.GetLanguagePreferences%2A>|<xref:Microsoft.VisualStudio.Package.LanguagePreferences>|To support access to language preferences. This method must be implemented but can return an instance of the base class.|  
+|<xref:Microsoft.VisualStudio.Package.LanguageService.GetScanner%2A>|<xref:Microsoft.VisualStudio.Package.IScanner>|To provide a parser used for identifying types of tokens on a line. This method must be implemented and <xref:Microsoft.VisualStudio.Package.IScanner> must be derived from.|  
+|<xref:Microsoft.VisualStudio.Package.LanguageService.ParseSource%2A>|<xref:Microsoft.VisualStudio.Package.AuthoringScope>|To provide a parser used for identifying functionality and scope throughout an entire source file. This method must be implemented and must return an instance of your version of the <xref:Microsoft.VisualStudio.Package.AuthoringScope> class. If all you want to support is syntax highlighting (which requires the <xref:Microsoft.VisualStudio.Package.IScanner> parser returned from the <xref:Microsoft.VisualStudio.Package.LanguageService.GetScanner%2A> method), you can do nothing in this method other than return a version of the <xref:Microsoft.VisualStudio.Package.AuthoringScope> class whose methods all return null values.|  
   
-### 在源类  
+### <a name="in-the-source-class"></a>In the Source Class  
   
-|方法|返回的类|说明|  
-|--------|----------|--------|  
-|<xref:Microsoft.VisualStudio.Package.Source.CreateCompletionSet%2A>|<xref:Microsoft.VisualStudio.Package.CompletionSet>|为自定义 IntelliSense 显示完成列表 \(此方法通常不重写\)。|  
-|<xref:Microsoft.VisualStudio.Package.Source.CreateErrorTaskItem%2A>|<xref:Microsoft.VisualStudio.Package.DocumentTask>|对于支持中的标记错误表任务列表;具体而言，在打开文件并跳转的功能支持到导致此错误的行之外。|  
-|<xref:Microsoft.VisualStudio.Package.Source.CreateMethodData%2A>|<xref:Microsoft.VisualStudio.Package.MethodData>|为自定义 IntelliSense 参数信息显示工具提示。|  
-|<xref:Microsoft.VisualStudio.Package.Source.GetCommentFormat%2A>|<xref:Microsoft.VisualStudio.Package.CommentInfo>|为支持注释的代码。|  
-|<xref:Microsoft.VisualStudio.Package.Source.CreateAuthoringSink%2A>|<xref:Microsoft.VisualStudio.Package.AuthoringSink>|为收集信息在分析操作时。|  
+|Method|Class Returned|Description|  
+|------------|--------------------|-----------------|  
+|<xref:Microsoft.VisualStudio.Package.Source.CreateCompletionSet%2A>|<xref:Microsoft.VisualStudio.Package.CompletionSet>|For customizing the display of IntelliSense completion lists (this method is typically not overridden).|  
+|<xref:Microsoft.VisualStudio.Package.Source.CreateErrorTaskItem%2A>|<xref:Microsoft.VisualStudio.Package.DocumentTask>|For supporting markers in the Error List task list; specifically, support for features beyond opening the file and jumping to the line that caused the error.|  
+|<xref:Microsoft.VisualStudio.Package.Source.CreateMethodData%2A>|<xref:Microsoft.VisualStudio.Package.MethodData>|For customizing the display of IntelliSense Parameter Info ToolTips.|  
+|<xref:Microsoft.VisualStudio.Package.Source.GetCommentFormat%2A>|<xref:Microsoft.VisualStudio.Package.CommentInfo>|For supporting commenting code.|  
+|<xref:Microsoft.VisualStudio.Package.Source.CreateAuthoringSink%2A>|<xref:Microsoft.VisualStudio.Package.AuthoringSink>|For gathering information during the parse operation.|  
   
-### 在 AuthoringScope 类  
+### <a name="in-the-authoringscope-class"></a>In the AuthoringScope Class  
   
-|方法|返回的类|说明|  
-|--------|----------|--------|  
-|<xref:Microsoft.VisualStudio.Package.AuthoringScope.GetDeclarations%2A>|<xref:Microsoft.VisualStudio.Package.Declarations>|提供列表的说明 \(如成员或类型。  必须执行此方法，但可能返回空值。  如果此方法返回一个有效的对象，该对象必须是 <xref:Microsoft.VisualStudio.Package.Declarations> 类版本的实例。|  
-|<xref:Microsoft.VisualStudio.Package.AuthoringScope.GetMethods%2A>|<xref:Microsoft.VisualStudio.Package.Methods>|为给定上下文提供方法签名列表。  必须执行此方法，但可能返回空值。  如果此方法返回一个有效的对象，该对象必须是 <xref:Microsoft.VisualStudio.Package.Methods> 类版本的实例。|  
+|Method|Class Returned|Description|  
+|------------|--------------------|-----------------|  
+|<xref:Microsoft.VisualStudio.Package.AuthoringScope.GetDeclarations%2A>|<xref:Microsoft.VisualStudio.Package.Declarations>|Provides a list of declarations such as members or types. This method must be implemented but can return a null value. If this method returns a valid object, the object must be an instance of your version of the <xref:Microsoft.VisualStudio.Package.Declarations> class.|  
+|<xref:Microsoft.VisualStudio.Package.AuthoringScope.GetMethods%2A>|<xref:Microsoft.VisualStudio.Package.Methods>|Provides a list of method signatures for a given context. This method must be implemented but can return a null value. If this method returns a valid object, the object must be an instance of your version of the <xref:Microsoft.VisualStudio.Package.Methods> class.|  
   
-## 语言服务图像  
- 若要提供要使用的图标列表。语言服务，请重写在 <xref:Microsoft.VisualStudio.Package.LanguageService> 类的 <xref:Microsoft.VisualStudio.Package.LanguageService.GetImageList%2A> 方法并返回包含该图标的 <xref:System.Windows.Forms.ImageList> 。  默认设置图标的基本 <xref:Microsoft.VisualStudio.Package.LanguageService> 类加载。  因为在需要图标的那些具有指定确切的图像索引，您如何使请拥有图像列表完全由您决定。  
+## <a name="language-service-images"></a>Language Service Images  
+ To provide a list of icons to be used throughout the language service, override the <xref:Microsoft.VisualStudio.Package.LanguageService.GetImageList%2A> method in the <xref:Microsoft.VisualStudio.Package.LanguageService> class and return an <xref:System.Windows.Forms.ImageList> containing the icons. The base <xref:Microsoft.VisualStudio.Package.LanguageService> class loads a default set of icons. Since you specify the exact image index in those places that need icons, how you arrange your own image list is entirely up to you.  
   
-### 在 IntelliSense 完成的图像列表  
- 向 IntelliSense 完成列表，图像索引来指定每个项目在 <xref:Microsoft.VisualStudio.Package.Declarations> 类的 <xref:Microsoft.VisualStudio.Package.Declarations.GetGlyph%2A> 方法，则必须重写，如果您希望提供图像索引。  从 <xref:Microsoft.VisualStudio.Package.Declarations.GetGlyph%2A> 方法返回的值是索引到图像列表提供给 <xref:Microsoft.VisualStudio.Package.CompletionSet> 类构造函数，并且这是同一图像列表返回从在 <xref:Microsoft.VisualStudio.Package.LanguageService> 类 \(图像列表 <xref:Microsoft.VisualStudio.Package.CompletionSet> 使用的 <xref:Microsoft.VisualStudio.Package.LanguageService.GetImageList%2A> 方法可以更改，如果重写在 <xref:Microsoft.VisualStudio.Package.Source> 类的 <xref:Microsoft.VisualStudio.Package.Source.CreateCompletionSet%2A> 方法提供一个不同的图像列表\)。  
+### <a name="images-used-in-intellisense-completion-lists"></a>Images Used In IntelliSense Completion Lists  
+ For IntelliSense completion lists, the image index is specified for each item in the <xref:Microsoft.VisualStudio.Package.Declarations.GetGlyph%2A> method of the <xref:Microsoft.VisualStudio.Package.Declarations> class, which you must override if you want to supply an image index. The value returned from the <xref:Microsoft.VisualStudio.Package.Declarations.GetGlyph%2A> method is an index into the image list supplied to the <xref:Microsoft.VisualStudio.Package.CompletionSet> class constructor and that is the same image list returned from the <xref:Microsoft.VisualStudio.Package.LanguageService.GetImageList%2A> method in the <xref:Microsoft.VisualStudio.Package.LanguageService> class (you can change which image list to use for the <xref:Microsoft.VisualStudio.Package.CompletionSet> if you override the <xref:Microsoft.VisualStudio.Package.Source.CreateCompletionSet%2A> method in the <xref:Microsoft.VisualStudio.Package.Source> class to supply a different image list).  
   
-### 用于导航栏的图像  
- **导航栏** 显示列表类型和成员和进行快速导航使用可以显示图标。  这些图标从在 <xref:Microsoft.VisualStudio.Package.LanguageService> 类的 <xref:Microsoft.VisualStudio.Package.LanguageService.GetImageList%2A> 方法获取，并且不能用于 **导航栏**专门重写。  用于每一项的索引在组合框中指定，当列表表示组合框填充 <xref:Microsoft.VisualStudio.Package.TypeAndMemberDropdownBars> 类中的 <xref:Microsoft.VisualStudio.Package.TypeAndMemberDropdownBars.OnSynchronizeDropdowns%2A> 方法 \(请参见 [对旧语言服务中的导航栏的支持](../../extensibility/internals/support-for-the-navigation-bar-in-a-legacy-language-service.md)\)。  这些图像索引从分析器以某种方式获取，通常通过 <xref:Microsoft.VisualStudio.Package.Declarations> 类的版本。  索引如何获取完全由您决定。  
+### <a name="images-used-in-the-navigation-bar"></a>Images Used in the Navigation Bar  
+ The **Navigation bar** displays lists of types and members and is used for quick navigation can show icons. These icons are obtained from the <xref:Microsoft.VisualStudio.Package.LanguageService.GetImageList%2A> method in the <xref:Microsoft.VisualStudio.Package.LanguageService> class and cannot be overridden specifically for the **Navigation bar**. The indices used for each item in the combo-boxes are specified when the lists representing the combo-boxes are filled in the <xref:Microsoft.VisualStudio.Package.TypeAndMemberDropdownBars.OnSynchronizeDropdowns%2A> method in the <xref:Microsoft.VisualStudio.Package.TypeAndMemberDropdownBars> class (see [Support for the Navigation Bar in a Legacy Language Service](../../extensibility/internals/support-for-the-navigation-bar-in-a-legacy-language-service.md)). These image indices are obtained somehow from the parser, typically through your version of the <xref:Microsoft.VisualStudio.Package.Declarations> class. How the indices are obtained is entirely up to you.  
   
-### 使用的图像错误表任务 " 窗口  
- 每当 <xref:Microsoft.VisualStudio.Package.LanguageService.ParseSource%2A> 方法分析程序 \(请参见\) [旧的语言服务分析器和扫描程序](../../extensibility/internals/legacy-language-service-parser-and-scanner.md)遇到对 <xref:Microsoft.VisualStudio.Package.AuthoringSink.AddError%2A> 方法的错误。 <xref:Microsoft.VisualStudio.Package.AuthoringSink> 类，该错误。 **错误表** 任务 " 窗口报告的错误并将。  图标可以与显示在任务窗口和图标来自同一个图像列表返回从在 <xref:Microsoft.VisualStudio.Package.LanguageService> 类的 <xref:Microsoft.VisualStudio.Package.LanguageService.GetImageList%2A> 方案中的每个项目。  MPF 类的默认行为是不显示一条错误消息的图像。  但是，您可以通过派生类从 <xref:Microsoft.VisualStudio.Package.Source> 类并重写 <xref:Microsoft.VisualStudio.Package.Source.CreateErrorTaskItem%2A> 方法重写此行为。  该方法，请创建一个新的 <xref:Microsoft.VisualStudio.Package.DocumentTask> 对象。  在返回该对象之前，可以使用在 <xref:Microsoft.VisualStudio.Package.DocumentTask> 对象的 <xref:Microsoft.VisualStudio.Shell.Task.ImageIndex%2A> 属性设置图像索引。  这看起来类似于下面的示例。  请注意 `TestIconImageIndex` 是列出所有图标的枚举和特定于此示例。  在语言服务中具有标识图标不同的方式。  
+### <a name="images-used-in-the-error-list-task-window"></a>Images Used in the Error List Task Window  
+ Whenever the <xref:Microsoft.VisualStudio.Package.LanguageService.ParseSource%2A> method parser (see [Legacy Language Service Parser and Scanner](../../extensibility/internals/legacy-language-service-parser-and-scanner.md)) encounters an error and passes that error to the <xref:Microsoft.VisualStudio.Package.AuthoringSink.AddError%2A> method in the <xref:Microsoft.VisualStudio.Package.AuthoringSink> class, the error is reported in the **Error List** task window. An icon can be associated with each item that appears in the task window and that icon comes from the same image list returned from the <xref:Microsoft.VisualStudio.Package.LanguageService.GetImageList%2A> method in the <xref:Microsoft.VisualStudio.Package.LanguageService> class. The default behavior of the MPF classes is to not show an image with the error message. However, you can override this behavior by deriving a class from the <xref:Microsoft.VisualStudio.Package.Source> class and overriding the <xref:Microsoft.VisualStudio.Package.Source.CreateErrorTaskItem%2A> method. In that method, you create a new <xref:Microsoft.VisualStudio.Package.DocumentTask> object. Before returning that object, you can use the <xref:Microsoft.VisualStudio.Shell.Task.ImageIndex%2A> property on the <xref:Microsoft.VisualStudio.Package.DocumentTask> object to set the image index. This would look something like the following example. Note that `TestIconImageIndex` is an enumeration that lists all icons and is specific to this example. You may have a different way of identifying icons in your language service.  
   
-```c#  
+```cs  
 using Microsoft.VisualStudio.Package;  
 using Microsoft.VisualStudio.Shell;  
 using Microsoft.VisualStudio.TextManager.Interop;  
@@ -274,12 +291,12 @@ namespace TestLanguagePackage
 }  
 ```  
   
-## 默认图像。语言服务列表  
- 默认图像列表提供了类包含多种关联的图标与公共语言元素的基础 MPF 语言服务。  将大多数这些图标设置六个变体，使用公钥，内部， friends，保护，专用和快捷适当的访问概念。  例如，可以使用方法的不同图标基于它是否是公共的，从而保护或保密。  
+## <a name="the-default-image-list-for-a-language-service"></a>The Default Image List for a Language Service  
+ The default image list supplied with the base MPF language service classes contains a number of icons associated with the more common language elements. The bulk of these icons are arranged in sets of six variations, corresponding to the access concepts of public, internal, friend, protected, private, and shortcut. For example, you can have different icons for a method depending on whether it is public, protected or private.  
   
- 以下枚举提供设置的每个图标指定典型的名称并指定关联的索引。  例如，基于枚举，可以为一个受保护的方法指定图像索引用作 `(int)IconImageIndex.Method + (int)IconImageIndex.AccessProtected`。  可以更改此枚举的名称按照需要。  
+ The following enumeration specifies typical names for each icon set and specifies the associated index. For example, based on the enumeration, you can specify the image index for a protected method as `(int)IconImageIndex.Method + (int)IconImageIndex.AccessProtected`. You can change the names in this enumeration as desired.  
   
-```c#  
+```cs  
 public enum IconImageIndex  
         {  
             // access types  
@@ -359,8 +376,8 @@ public enum IconImageIndex
         }  
 ```  
   
-## 请参阅  
- [实现传统语言服务](../../extensibility/internals/implementing-a-legacy-language-service1.md)   
- [旧的语言服务概述](../../extensibility/internals/legacy-language-service-overview.md)   
- [注册语言服务](../../extensibility/internals/registering-a-legacy-language-service1.md)   
- [旧的语言服务分析器和扫描程序](../../extensibility/internals/legacy-language-service-parser-and-scanner.md)
+## <a name="see-also"></a>See Also  
+ [Implementing a Legacy Language Service](../../extensibility/internals/implementing-a-legacy-language-service1.md)   
+ [Legacy Language Service Overview](../../extensibility/internals/legacy-language-service-overview.md)   
+ [Registering a Legacy Language Service](../../extensibility/internals/registering-a-legacy-language-service1.md)   
+ [Legacy Language Service Parser and Scanner](../../extensibility/internals/legacy-language-service-parser-and-scanner.md)

@@ -1,56 +1,73 @@
 ---
-title: "UNMANAGED_ADDRESS_PHYSICAL | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "UNMANAGED_ADDRESS_PHYSICAL"
-helpviewer_keywords: 
-  - "UNMANAGED_ADDRESS_PHYSICAL 结构"
+title: UNMANAGED_ADDRESS_PHYSICAL | Microsoft Docs
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords:
+- UNMANAGED_ADDRESS_PHYSICAL
+helpviewer_keywords:
+- UNMANAGED_ADDRESS_PHYSICAL structure
 ms.assetid: fed09686-caa6-4efc-851e-a0432019e9d0
 caps.latest.revision: 6
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 6
----
-# UNMANAGED_ADDRESS_PHYSICAL
-[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
+ms.author: gregvanl
+manager: ghogen
+translation.priority.mt:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+ms.translationtype: MT
+ms.sourcegitcommit: ff8ecec19f8cab04ac2190f9a4a995766f1750bf
+ms.openlocfilehash: 151ae0e657d8bb3a29737c99404d6698c61a7114
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/24/2017
 
-此结构表示一个物理地址。  
+---
+# <a name="unmanagedaddressphysical"></a>UNMANAGED_ADDRESS_PHYSICAL
+This structure represents a physical address.  
   
-## 语法  
+## <a name="syntax"></a>Syntax  
   
 ```cpp  
 typedef struct _tagUNMANAGED_ADDRESS_PHYSICAL {  
-   ULONGLONG offset;  
+   ULONGLONG offset;  
 } UNMANAGED_ADDRESS_PHYSICAL;  
 ```  
   
-```c#  
+```cs  
 public struct UNMANAGED_ADDRESS_PHYSICAL {  
-   public ulong offset;  
+   public ulong offset;  
 }  
 ```  
   
-## 术语  
- 偏移量  
- 一个 64 位偏移量一个物理地址空间中。  
+## <a name="terms"></a>Terms  
+ offset  
+ A 64-bit offset into a physical address space.  
   
-## 备注  
- 此结构是联合的一部分。 [DEBUG\_ADDRESS\_UNION](../../../extensibility/debugger/reference/debug-address-union.md) 结构时， `DEBUG_ADDRESS_UNION` 结构的 `dwKind` 字段设置为 `ADDRESS_KIND_UNMANAGED_PHYSICAL` 时 \(从 [ADDRESS\_KIND](../../../extensibility/debugger/reference/address-kind.md) 枚举的值\)。  
+## <a name="remarks"></a>Remarks  
+ This structure is part of the union in the [DEBUG_ADDRESS_UNION](../../../extensibility/debugger/reference/debug-address-union.md) structure when the `dwKind` field of the `DEBUG_ADDRESS_UNION` structure is set to `ADDRESS_KIND_UNMANAGED_PHYSICAL` (a value from the [ADDRESS_KIND](../../../extensibility/debugger/reference/address-kind.md) enumeration).  
   
-## 要求  
- 标题:sh.h  
+## <a name="requirements"></a>Requirements  
+ Header: sh.h  
   
- 命名空间:Microsoft.VisualStudio.Debugger.Interop  
+ Namespace: Microsoft.VisualStudio.Debugger.Interop  
   
- 程序集:Microsoft.VisualStudio.Debugger.Interop.dll  
+ Assembly: Microsoft.VisualStudio.Debugger.Interop.dll  
   
-## 请参阅  
- [结构和联合](../../../extensibility/debugger/reference/structures-and-unions.md)   
- [DEBUG\_ADDRESS\_UNION](../../../extensibility/debugger/reference/debug-address-union.md)
+## <a name="see-also"></a>See Also  
+ [Structures and Unions](../../../extensibility/debugger/reference/structures-and-unions.md)   
+ [DEBUG_ADDRESS_UNION](../../../extensibility/debugger/reference/debug-address-union.md)

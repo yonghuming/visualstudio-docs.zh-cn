@@ -1,28 +1,45 @@
 ---
-title: "如何：使用转义序列从模板生成模板 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-helpviewer_keywords: 
-  - "文本模板, 根据模板生成模板"
+title: 'How to: Generate Templates from Templates By Using Escape Sequences | Microsoft Docs'
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.tgt_pltfrm: 
+ms.topic: article
+helpviewer_keywords:
+- text templates, generating templates from templates
 ms.assetid: 4126156a-7cea-48b8-925e-7790806cfe6c
 caps.latest.revision: 35
-author: "alancameronwills"
-ms.author: "awills"
-manager: "douge"
-caps.handback.revision: 35
----
-# 如何：使用转义序列从模板生成模板
-[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
+author: alancameronwills
+ms.author: awills
+manager: douge
+translation.priority.ht:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+ms.translationtype: MT
+ms.sourcegitcommit: ff8ecec19f8cab04ac2190f9a4a995766f1750bf
+ms.openlocfilehash: a61e9858f4efe9dd9d4d10f5873ed98ddcd0fd3c
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/24/2017
 
-创建的文本模板可以创建另一个文本模板作为其生成的文本输出。  为此，必须使用转义序列来描述文本模板标记。  如果不使用转义序列，则生成的文本模板会具有预定义含义。  有关在文本模板中使用转义序列的更多信息，请参见[在文本模板中使用转义序列](../modeling/using-escape-sequences-in-text-templates.md)。  
+---
+# <a name="how-to-generate-templates-from-templates-by-using-escape-sequences"></a>How to: Generate Templates from Templates By Using Escape Sequences
+You can create a text template that creates another text template as its generated text output. To do this, you must use escape sequences to delineate the text template tags. If you do not use escape sequences, your generated text template will have a pre-defined meaning. For more information about using escape sequences in text templates, see [Using Escape Sequences in Text Templates](../modeling/using-escape-sequences-in-text-templates.md).  
   
-### 从文本模板内生成文本模板  
+### <a name="to-generate-a-text-template-from-within-a-text-template"></a>To generate a text template from within a text template  
   
--   对于单独的文本模板文件中的指令、语句、表达式和类功能，使用反斜杠 \(\\\) 作为转义字符可在文本模板中生成必需的标记。  
+-   Use the backslash (\\) as an escape character to produce the necessary markup tags within the text template for directives, statements, expressions, and class features in a separate text template file.  
   
     ```  
     \<#@ directive \#>  
@@ -31,10 +48,10 @@ caps.handback.revision: 35
     \<#+ classfeature \#>  
     ```  
   
-## 示例  
- 下面的示例使用转义字符从文本模板生成文本模板。  `output` 指令将目标文件类型设置为文本模板文件类型（.tt）。  
+## <a name="example"></a>Example  
+ The following example uses escape characters to produce a text template from a text template. The `output` directive sets the destination file type to the text template file type (.tt).  
   
-```c#  
+```cs  
 \<#@ output extension=".tt" \#>  
 \<#@ assembly name="System.Xml.dll" \#>  
 \<#@ import namespace="System.Xml" \#>  
@@ -53,7 +70,7 @@ XmlDocument xDoc = new XmlDocument();
 \#>  
 ```  
   
- 生成的文本输出为文本模板。  
+ The generated text output is a text template.  
   
 ```  
 <#@ output extension=".tt" #>  

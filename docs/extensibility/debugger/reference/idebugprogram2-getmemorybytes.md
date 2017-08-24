@@ -1,52 +1,69 @@
 ---
-title: "IDebugProgram2::GetMemoryBytes | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "IDebugProgram2::GetMemoryBytes"
-helpviewer_keywords: 
-  - "IDebugProgram2::GetMemoryBytes"
+title: IDebugProgram2::GetMemoryBytes | Microsoft Docs
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords:
+- IDebugProgram2::GetMemoryBytes
+helpviewer_keywords:
+- IDebugProgram2::GetMemoryBytes
 ms.assetid: 1cdedb47-caf8-468e-aaf4-163f16afb403
 caps.latest.revision: 10
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 10
----
-# IDebugProgram2::GetMemoryBytes
-[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
+ms.author: gregvanl
+manager: ghogen
+translation.priority.mt:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+ms.translationtype: MT
+ms.sourcegitcommit: ff8ecec19f8cab04ac2190f9a4a995766f1750bf
+ms.openlocfilehash: c737898be52c57442df052f40905f3d1869d5db3
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/24/2017
 
-检索程序所占用的内存中字节数组。  
+---
+# <a name="idebugprogram2getmemorybytes"></a>IDebugProgram2::GetMemoryBytes
+Retrieves the memory bytes occupied by the program.  
   
-## 语法  
+## <a name="syntax"></a>Syntax  
   
 ```cpp#  
-HRESULT GetMemoryBytes(   
-   IDebugMemoryBytes2** ppMemoryBytes  
+HRESULT GetMemoryBytes(   
+   IDebugMemoryBytes2** ppMemoryBytes  
 );  
 ```  
   
-```c#  
-int GetMemoryBytes(   
-   out IDebugMemoryBytes2 ppMemoryBytes  
+```cs  
+int GetMemoryBytes(   
+   out IDebugMemoryBytes2 ppMemoryBytes  
 );  
 ```  
   
-#### 参数  
+#### <a name="parameters"></a>Parameters  
  `ppMemoryBytes`  
- \[out\] 返回表示程序的内存中字节数组的 [IDebugMemoryBytes2](../../../extensibility/debugger/reference/idebugmemorybytes2.md) 对象。  
+ [out] Returns an [IDebugMemoryBytes2](../../../extensibility/debugger/reference/idebugmemorybytes2.md) object that represents the memory bytes of the program.  
   
-## 返回值  
- 如果成功，则返回; `S_OK`否则，返回错误代码。  
+## <a name="return-value"></a>Return Value  
+ If successful, returns `S_OK`; otherwise, returns an error code.  
   
-## 备注  
- 内存中字节数组如由 [IDebugMemoryBytes2](../../../extensibility/debugger/reference/idebugmemorybytes2.md) 对象是为内存和未分配的任何内存的程序的图像，当程序已执行。  
+## <a name="remarks"></a>Remarks  
+ The memory bytes as represented by the [IDebugMemoryBytes2](../../../extensibility/debugger/reference/idebugmemorybytes2.md) object is for the program's image in memory and not any memory that was allocated when the program was executed.  
   
-## 请参阅  
+## <a name="see-also"></a>See Also  
  [IDebugProgram2](../../../extensibility/debugger/reference/idebugprogram2.md)   
  [IDebugMemoryBytes2](../../../extensibility/debugger/reference/idebugmemorybytes2.md)

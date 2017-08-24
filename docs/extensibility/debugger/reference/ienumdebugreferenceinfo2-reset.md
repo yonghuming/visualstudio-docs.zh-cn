@@ -1,45 +1,62 @@
 ---
-title: "IEnumDebugReferenceInfo2::Reset | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "IEnumDebugReferenceInfo2::Reset"
-helpviewer_keywords: 
-  - "IEnumDebugReferenceInfo2::Reset"
+title: IEnumDebugReferenceInfo2::Reset | Microsoft Docs
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords:
+- IEnumDebugReferenceInfo2::Reset
+helpviewer_keywords:
+- IEnumDebugReferenceInfo2::Reset
 ms.assetid: cf8ce649-5ce1-44a6-9d5a-89760021bde4
 caps.latest.revision: 9
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 9
----
-# IEnumDebugReferenceInfo2::Reset
-[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
+ms.author: gregvanl
+manager: ghogen
+translation.priority.mt:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+ms.translationtype: MT
+ms.sourcegitcommit: ff8ecec19f8cab04ac2190f9a4a995766f1750bf
+ms.openlocfilehash: cb690991959d8c7423395a7f7f80f5e585a8d203
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/24/2017
 
-重置枚举到第一个元素。  
+---
+# <a name="ienumdebugreferenceinfo2reset"></a>IEnumDebugReferenceInfo2::Reset
+Resets the enumeration to the first element.  
   
-## 语法  
+## <a name="syntax"></a>Syntax  
   
 ```cpp#  
 HRESULT Reset(  
-   void  
+   void  
 );  
 ```  
   
-```c#  
+```cs  
 int Reset();  
 ```  
   
-## 返回值  
- 如果成功，则返回; `S_OK`否则，返回错误代码。  
+## <a name="return-value"></a>Return Value  
+ If successful, returns `S_OK`; otherwise, returns an error code.  
   
-## 备注  
- 此方法调用之后，下调用 [下一步](../../../extensibility/debugger/reference/ienumdebugreferenceinfo2-next.md) 方法返回枚举中的第一个元素。  
+## <a name="remarks"></a>Remarks  
+ After this method is called, the next call to the [Next](../../../extensibility/debugger/reference/ienumdebugreferenceinfo2-next.md) method returns the first element of the enumeration.  
   
-## 请参阅  
+## <a name="see-also"></a>See Also  
  [IEnumDebugReferenceInfo2](../../../extensibility/debugger/reference/ienumdebugreferenceinfo2.md)

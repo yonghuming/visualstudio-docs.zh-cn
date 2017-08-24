@@ -1,88 +1,105 @@
 ---
-title: "EncUnavailableReason | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "EncUnavailableReason"
-helpviewer_keywords: 
-  - "EncUnavailableReason 枚举"
+title: EncUnavailableReason | Microsoft Docs
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords:
+- EncUnavailableReason
+helpviewer_keywords:
+- EncUnavailableReason enumeration
 ms.assetid: c10aa4c0-d7e0-4de1-b8ff-7e050985eb12
 caps.latest.revision: 8
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 8
----
-# EncUnavailableReason
-[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
+ms.author: gregvanl
+manager: ghogen
+translation.priority.mt:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+ms.translationtype: MT
+ms.sourcegitcommit: ff8ecec19f8cab04ac2190f9a4a995766f1750bf
+ms.openlocfilehash: 8c9f25370aefdf68a97fcb0ab4af6acf3fd6eafe
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/24/2017
 
-`This is for internal use only!` 表示原因 **" 编辑并继续 "** 不可用。  
+---
+# <a name="encunavailablereason"></a>EncUnavailableReason
+`This is for internal use only!` Represents the reasons that **Edit and Continue** is not available.  
   
-## 语法  
+## <a name="syntax"></a>Syntax  
   
 ```cpp#  
-enum tagEncUnavailableReason {  
-   ENCUN_NONE,  
-   ENCUN_INTEROP,  
-   ENCUN_SQLCLR,  
-   ENCUN_MINIDUMP,  
-   ENCUN_EMBEDDED,  
-   ENCUN_ATTACH,  
-   ENCUN_WIN64  
+enum tagEncUnavailableReason {  
+   ENCUN_NONE,  
+   ENCUN_INTEROP,  
+   ENCUN_SQLCLR,  
+   ENCUN_MINIDUMP,  
+   ENCUN_EMBEDDED,  
+   ENCUN_ATTACH,  
+   ENCUN_WIN64  
 };  
-typedef enum tagEncUnavailableReason EncUnavailableReason;  
+typedef enum tagEncUnavailableReason EncUnavailableReason;  
 ```  
   
-```c#  
-public enum EncUnavailableReason {  
-   ENCUN_NONE,  
-   ENCUN_INTEROP,  
-   ENCUN_SQLCLR,  
-   ENCUN_MINIDUMP,  
-   ENCUN_EMBEDDED,  
-   ENCUN_ATTACH,  
-   ENCUN_WIN64  
+```cs  
+public enum EncUnavailableReason {  
+   ENCUN_NONE,  
+   ENCUN_INTEROP,  
+   ENCUN_SQLCLR,  
+   ENCUN_MINIDUMP,  
+   ENCUN_EMBEDDED,  
+   ENCUN_ATTACH,  
+   ENCUN_WIN64  
 };  
 ```  
   
-#### 参数  
- ENCUN\_NONE  
- 特定原因 " 编辑并继续 " 不可用。  
+#### <a name="parameters"></a>Parameters  
+ ENCUN_NONE  
+ No specific reason why Edit and Continue is not available.  
   
- ENCUN\_INTEROP  
- 编辑并继续 "，在互操作期间不可用的调用。  
+ ENCUN_INTEROP  
+ Edit and Continue is not available during an InterOp call.  
   
- ENCUN\_SQLCLR  
- 编辑并继续 "，在使用公共语言运行时的 SQL 期间不可用的过程调用 \(CLR\)。  
+ ENCUN_SQLCLR  
+ Edit and Continue is not available during an SQL procedure call that uses the Common Language Runtime (CLR).  
   
- ENCUN\_MINIDUMP  
- ， " 编辑并继续 " 不可用，在处理和转储时。  
+ ENCUN_MINIDUMP  
+ Edit and Continue is not available while processing a mini-dump.  
   
- ENCUN\_EMBEDDED  
- ， " 编辑并继续 " 不可用，在处理嵌入式代码时。  
+ ENCUN_EMBEDDED  
+ Edit and Continue is not available when processing embedded code.  
   
- ENCUN\_ATTACH  
- ， " 编辑并继续 " 不可用，因为该会话附加到，不生成，调试器。  
+ ENCUN_ATTACH  
+ Edit and Continue is not available because the session was attached to, not launched by, the debugger.  
   
- ENCUN\_WIN64  
- ， " 编辑并继续 " 不可用，在处理 64 位 windows 代码时。  
+ ENCUN_WIN64  
+ Edit and Continue is not available while processing 64-bit Windows code.  
   
-## 备注  
- 此枚举仅供内部使用由 [!INCLUDE[vsprvs](../../../code-quality/includes/vsprvs_md.md)]。  [GetENCAvailableState](../../../extensibility/debugger/reference/idebugprocess3-getencavailablestate.md) 和 [DisableENC](../../../extensibility/debugger/reference/idebugprocess3-disableenc.md) 方法实现的由自定义端口提供程序应始终返回 `E_NOTIMPL`。  
+## <a name="remarks"></a>Remarks  
+ This enumeration is for internal use only by [!INCLUDE[vsprvs](../../../code-quality/includes/vsprvs_md.md)]. The [GetENCAvailableState](../../../extensibility/debugger/reference/idebugprocess3-getencavailablestate.md) and [DisableENC](../../../extensibility/debugger/reference/idebugprocess3-disableenc.md) methods as implemented by a custom port supplier should always return `E_NOTIMPL`.  
   
-## 要求  
- 标题:msdbg.idl  
+## <a name="requirements"></a>Requirements  
+ Header: msdbg.idl  
   
- 命名空间:Microsoft.VisualStudio.Debugger.Interop  
+ Namespace: Microsoft.VisualStudio.Debugger.Interop  
   
- 程序集:Microsoft.VisualStudio.Debugger.Interop.dll  
+ Assembly: Microsoft.VisualStudio.Debugger.Interop.dll  
   
-## 请参阅  
- [枚举](../../../extensibility/debugger/reference/enumerations-visual-studio-debugging.md)   
+## <a name="see-also"></a>See Also  
+ [Enumerations](../../../extensibility/debugger/reference/enumerations-visual-studio-debugging.md)   
  [DisableENC](../../../extensibility/debugger/reference/idebugprocess3-disableenc.md)   
  [GetENCAvailableState](../../../extensibility/debugger/reference/idebugprocess3-getencavailablestate.md)

@@ -1,5 +1,5 @@
 ---
-title: "TEXT_DOC_ATTR_2 |Microsoft 文档"
+title: TEXT_DOC_ATTR_2 | Microsoft Docs
 ms.custom: 
 ms.date: 11/04/2016
 ms.reviewer: 
@@ -30,44 +30,45 @@ translation.priority.mt:
 - tr-tr
 - zh-cn
 - zh-tw
-translationtype: Machine Translation
-ms.sourcegitcommit: 5db97d19b1b823388a465bba15d057b30ff0b3ce
-ms.openlocfilehash: 490f3d261cb7d23b4795103600522364ba02bc44
-ms.lasthandoff: 02/22/2017
+ms.translationtype: MT
+ms.sourcegitcommit: ff8ecec19f8cab04ac2190f9a4a995766f1750bf
+ms.openlocfilehash: 40be0787a3e63367bef8f0824380f788b7689b83
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/24/2017
 
 ---
 # <a name="textdocattr2"></a>TEXT_DOC_ATTR_2
-描述文档的属性。  
+Describes the attributes of a document.  
   
-## <a name="syntax"></a>语法  
+## <a name="syntax"></a>Syntax  
   
 ```cpp#  
 typedef DWORD TEXT_DOC_ATTR_2;  
 const TEXT_DOC_ATTR_2 TEXT_DOC_ATTR_READONLY_2 = 0x00000001;  
 ```  
   
-```c#  
+```cs  
 public const uint TEXT_DOC_ATTR_READONLY_2 = 0x00000001;  
 ```  
   
-## <a name="members"></a>成员  
+## <a name="members"></a>Members  
  TEXT_DOC_ATTR_READONLY_2  
- 指示文档是只读的。  
+ Indicates that the document is read-only.  
   
-## <a name="remarks"></a>备注  
+## <a name="remarks"></a>Remarks  
   
 > [!NOTE]
->  此值不在该程序集以 C# 中的实际定义。 相反，您必须定义复制到您的源文件。  
+>  This value is not actually defined in the assembly for C#. Instead, you must copy the definition to your source file.  
   
- 参数传递给[onUpdateDocumentAttributes](../../../extensibility/debugger/reference/idebugdocumenttextevents2-onupdatedocumentattributes.md)方法。  
+ Passed as an argument to the [onUpdateDocumentAttributes](../../../extensibility/debugger/reference/idebugdocumenttextevents2-onupdatedocumentattributes.md) method.  
   
-## <a name="requirements"></a>要求  
- 标头︰ msdbg.h  
+## <a name="requirements"></a>Requirements  
+ Header: msdbg.h  
   
  Namespace: Microsoft.VisualStudio.Debugger.Interop  
   
- 程序集︰ Microsoft.VisualStudio.Debugger.Interop.dll  
+ Assembly: Microsoft.VisualStudio.Debugger.Interop.dll  
   
-## <a name="see-also"></a>另请参阅  
- [枚举](../../../extensibility/debugger/reference/enumerations-visual-studio-debugging.md)   
+## <a name="see-also"></a>See Also  
+ [Enumerations](../../../extensibility/debugger/reference/enumerations-visual-studio-debugging.md)   
  [onUpdateDocumentAttributes](../../../extensibility/debugger/reference/idebugdocumenttextevents2-onupdatedocumentattributes.md)

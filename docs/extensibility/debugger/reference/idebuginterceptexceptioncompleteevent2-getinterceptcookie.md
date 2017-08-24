@@ -1,5 +1,5 @@
 ---
-title: "IDebugInterceptExceptionCompleteEvent2::GetInterceptCookie |Microsoft 文档"
+title: IDebugInterceptExceptionCompleteEvent2::GetInterceptCookie | Microsoft Docs
 ms.custom: 
 ms.date: 11/04/2016
 ms.reviewer: 
@@ -30,16 +30,17 @@ translation.priority.mt:
 - tr-tr
 - zh-cn
 - zh-tw
-translationtype: Machine Translation
-ms.sourcegitcommit: 5db97d19b1b823388a465bba15d057b30ff0b3ce
-ms.openlocfilehash: 70d167c511bbee7203e309ae702293a40aeefac0
-ms.lasthandoff: 02/22/2017
+ms.translationtype: MT
+ms.sourcegitcommit: ff8ecec19f8cab04ac2190f9a4a995766f1750bf
+ms.openlocfilehash: 04c6586dd35cb8a740b906679901c281e03fb21f
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/24/2017
 
 ---
 # <a name="idebuginterceptexceptioncompleteevent2getinterceptcookie"></a>IDebugInterceptExceptionCompleteEvent2::GetInterceptCookie
-当被拦截的异常处理完成时调用。  
+Called when the processing of an intercepted exception has completed.  
   
-## <a name="syntax"></a>语法  
+## <a name="syntax"></a>Syntax  
   
 ```cpp#  
 HRESULT GetInterceptCookie(  
@@ -47,22 +48,22 @@ HRESULT GetInterceptCookie(
 );  
 ```  
   
-```c#  
+```cs  
 int GetInterceptCookie(  
    out ulong pqwCookie  
 );  
 ```  
   
-#### <a name="parameters"></a>参数  
+#### <a name="parameters"></a>Parameters  
  `pqwCookie`  
- [out]与被截获异常相关联的唯一值。  
+ [out] Unique value that is associated with the exception that was intercepted.  
   
-## <a name="return-value"></a>返回值  
- 如果成功，返回`S_OK`; 否则返回错误代码。  
+## <a name="return-value"></a>Return Value  
+ If successful, returns `S_OK`; otherwise returns error code.  
   
-## <a name="remarks"></a>备注  
- 之后[InterceptCurrentException](../../../extensibility/debugger/reference/idebugstackframe3-interceptcurrentexception.md)方法完成后被拦截异常的处理，将发送[IDebugInterceptExceptionCompleteEvent2](../../../extensibility/debugger/reference/idebuginterceptexceptioncompleteevent2.md)事件。 处理程序可以使用`GetInterceptCookie`方法来检索与异常关联的唯一值 (相同的值传递给`InterceptCurrentException`方法)。  
+## <a name="remarks"></a>Remarks  
+ After the [InterceptCurrentException](../../../extensibility/debugger/reference/idebugstackframe3-interceptcurrentexception.md) method has completed handling of an intercepted exception, it sends the [IDebugInterceptExceptionCompleteEvent2](../../../extensibility/debugger/reference/idebuginterceptexceptioncompleteevent2.md) event. The handler can use the `GetInterceptCookie` method to retrieve the unique value associated with the exception (the same value passed to the `InterceptCurrentException` method).  
   
-## <a name="see-also"></a>另请参阅  
+## <a name="see-also"></a>See Also  
  [InterceptCurrentException](../../../extensibility/debugger/reference/idebugstackframe3-interceptcurrentexception.md)   
  [IDebugInterceptExceptionCompleteEvent2](../../../extensibility/debugger/reference/idebuginterceptexceptioncompleteevent2.md)

@@ -1,83 +1,98 @@
 ---
-title: "演练：为 ClickOnce 应用程序创建自定义安装程序 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-deployment"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-dev_langs: 
-  - "VB"
-  - "CSharp"
-  - "C++"
-helpviewer_keywords: 
-  - "ClickOnce 部署, 自定义安装程序"
-  - "自定义安装程序 [ClickOnce]"
-  - "部署应用程序 [ClickOnce], 自定义安装程序"
-  - "InPlaceHostingManager [ClickOnce], 自定义安装程序"
-  - "安装程序 [ClickOnce], 自定义"
+title: 'Walkthrough: Creating a Custom Installer for a ClickOnce Application | Microsoft Docs'
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-deployment
+ms.tgt_pltfrm: 
+ms.topic: article
+dev_langs:
+- VB
+- CSharp
+- C++
+helpviewer_keywords:
+- ClickOnce deployment, custom installer
+- installer [ClickOnce], custom
+- deploying applications [ClickOnce], custom installer
+- InPlaceHostingManager [ClickOnce], custom installer
+- custom installer [ClickOnce]
 ms.assetid: fb222cc5-8aeb-4b94-8c49-b93e342f5f69
 caps.latest.revision: 34
-author: "stevehoag"
-ms.author: "shoag"
-manager: "wpickett"
-caps.handback.revision: 34
----
-# 演练：为 ClickOnce 应用程序创建自定义安装程序
-[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
+author: stevehoag
+ms.author: shoag
+manager: wpickett
+translation.priority.ht:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+ms.translationtype: HT
+ms.sourcegitcommit: ff8ecec19f8cab04ac2190f9a4a995766f1750bf
+ms.openlocfilehash: 5ba80dbff23fb092df3da49674f6f7e987867250
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/24/2017
 
-基于 .exe 文件的任何 ClickOnce 应用程序均可通过一个自定义安装程序进行无提示安装和更新。  自定义安装程序可以实现安装期间的自定义用户体验，包括用于安全和维护操作的自定义对话框。  为了执行安装操作，自定义安装程序将使用 <xref:System.Deployment.Application.InPlaceHostingManager> 类。  本演练演示如何创建可进行 ClickOnce 应用程序的无提示安装的自定义安装程序。  
+---
+# <a name="walkthrough-creating-a-custom-installer-for-a-clickonce-application"></a>Walkthrough: Creating a Custom Installer for a ClickOnce Application
+Any ClickOnce application based on an .exe file can be silently installed and updated by a custom installer. A custom installer can implement custom user experience during installation, including custom dialog boxes for security and maintenance operations. To perform installation operations, the custom installer uses the <xref:System.Deployment.Application.InPlaceHostingManager> class. This walkthrough demonstrates how to create a custom installer that silently installs a ClickOnce application.  
   
-## 系统必备  
+## <a name="prerequisites"></a>Prerequisites  
   
-### 创建自定义的 ClickOnce 应用程序安装程序  
+### <a name="to-create-a-custom-clickonce-application-installer"></a>To create a custom ClickOnce application installer  
   
-1.  在 ClickOnce 应用程序中，添加对 System.Deployment 和 System.Windows.Forms 的引用。  
+1.  In your ClickOnce application, add references to System.Deployment and System.Windows.Forms.  
   
-2.  向应用程序中添加一个新类，并指定任何名称。  本演练使用名称 `MyInstaller`。  
+2.  Add a new class to your application and specify any name. This walkthrough uses the name `MyInstaller`.  
   
-3.  将以下 `Imports` 或 `using` 语句添加到新类的顶部。  
+3.  Add the following `Imports` or `using` statements to the top of your new class.  
   
-    ```vb#  
+    ```vb  
     Imports System.Deployment.Application  
     Imports System.Windows.Forms  
     ```  
   
-    ```c#  
+    ```cs  
     using System.Deployment.Application;  
     using System.Windows.Forms;  
     ```  
   
-4.  将以下方法添加到类中。  
+4.  Add the following methods to your class.  
   
-     这些方法调用 <xref:System.Deployment.Application.InPlaceHostingManager> 方法以便下载部署清单，断言适当的权限，要求用户提供安装权限，然后将应用程序下载并安装到 ClickOnce 缓存中。  自定义安装程序可以指定 ClickOnce 应用程序是预信任的，或者可以将信任决定推迟到调用 <xref:System.Deployment.Application.InPlaceHostingManager.AssertApplicationRequirements%2A> 方法时。  此代码预信任该应用程序。  
+     These methods call <xref:System.Deployment.Application.InPlaceHostingManager> methods to download the deployment manifest, assert appropriate permissions, ask the user for permission to install, and then download and install the application into the ClickOnce cache. A custom installer can specify that a ClickOnce application is pre-trusted, or can defer the trust decision to the <xref:System.Deployment.Application.InPlaceHostingManager.AssertApplicationRequirements%2A> method call. This code pre-trusts the application.  
   
     > [!NOTE]
-    >  预信任分配的权限不能超越自定义安装程序代码的权限。  
+    >  Permissions assigned by pre-trusting cannot exceed the permissions of the custom installer code.  
   
-     [!code-vb[System.Deployment.Application.InPlaceHostingManager#1](../deployment/codesnippet/VisualBasic/walkthrough-creating-a-custom-installer-for-a-clickonce-application_1.vb)]
-     [!code-cs[System.Deployment.Application.InPlaceHostingManager#1](../deployment/codesnippet/CSharp/walkthrough-creating-a-custom-installer-for-a-clickonce-application_1.cs)]  
+     [!code-vb[System.Deployment.Application.InPlaceHostingManager#1](../deployment/codesnippet/VisualBasic/walkthrough-creating-a-custom-installer-for-a-clickonce-application_1.vb)]  [!code-cs[System.Deployment.Application.InPlaceHostingManager#1](../deployment/codesnippet/CSharp/walkthrough-creating-a-custom-installer-for-a-clickonce-application_1.cs)]  
   
-5.  若要尝试利用代码进行安装，请调用 `InstallApplication` 方法。  例如，如果将类命名为 `MyInstaller`，则可以用下面的方法调用 `InstallApplication`。  
+5.  To attempt installation from your code, call the `InstallApplication` method. For example, if you named your class `MyInstaller`, you might call `InstallApplication` in the following way.  
   
-    ```vb#  
+    ```vb  
     Dim installer As New MyInstaller()  
     installer.InstallApplication("\\myServer\myShare\myApp.application")  
     MessageBox.Show("Installer object created.")  
     ```  
   
-    ```c#  
+    ```cs  
     MyInstaller installer = new MyInstaller();  
     installer.InstallApplication(@"\\myServer\myShare\myApp.application");  
     MessageBox.Show("Installer object created.");  
-  
     ```  
   
-## 后续步骤  
- ClickOnce 应用程序还可以添加自定义更新逻辑，包括在更新过程中要显示的自定义用户界面。  有关更多信息，请参见 <xref:System.Deployment.Application.UpdateCheckInfo>。  ClickOnce 应用程序还可以使用 `<customUX>` 元素来禁止显示标准的“开始”菜单项、快捷键和“添加或删除程序”项。  有关更多信息，请参见 [\<entryPoint\> 元素](../deployment/entrypoint-element-clickonce-application.md)和 <xref:System.Deployment.Application.DownloadApplicationCompletedEventArgs.ShortcutAppId%2A>。  
+## <a name="next-steps"></a>Next Steps  
+ A ClickOnce application can also add custom update logic, including a custom user interface to show during the update process. For more information, see <xref:System.Deployment.Application.UpdateCheckInfo>. A ClickOnce application can also suppress the standard Start menu entry, shortcut, and Add or Remove Programs entry by using a `<customUX>` element. For more information, see [\<entryPoint> Element](../deployment/entrypoint-element-clickonce-application.md) and <xref:System.Deployment.Application.DownloadApplicationCompletedEventArgs.ShortcutAppId%2A>.  
   
-## 请参阅  
- [ClickOnce 应用程序清单](../deployment/clickonce-application-manifest.md)   
- [\<entryPoint\> 元素](../deployment/entrypoint-element-clickonce-application.md)
+## <a name="see-also"></a>See Also  
+ [ClickOnce Application Manifest](../deployment/clickonce-application-manifest.md)   
+ [\<entryPoint> Element](../deployment/entrypoint-element-clickonce-application.md)

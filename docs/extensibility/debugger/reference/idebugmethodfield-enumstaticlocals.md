@@ -1,53 +1,70 @@
 ---
-title: "IDebugMethodField::EnumStaticLocals | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "IDebugMethodField::EnumStaticLocals"
-helpviewer_keywords: 
-  - "IDebugMethodField::EnumStaticLocals 方法"
+title: IDebugMethodField::EnumStaticLocals | Microsoft Docs
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords:
+- IDebugMethodField::EnumStaticLocals
+helpviewer_keywords:
+- IDebugMethodField::EnumStaticLocals method
 ms.assetid: e0c522c4-f759-4c32-ae87-7abcb573e77d
 caps.latest.revision: 9
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 9
----
-# IDebugMethodField::EnumStaticLocals
-[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
+ms.author: gregvanl
+manager: ghogen
+translation.priority.mt:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+ms.translationtype: MT
+ms.sourcegitcommit: ff8ecec19f8cab04ac2190f9a4a995766f1750bf
+ms.openlocfilehash: 44461345907a2858b49e894f4a537df20012f90d
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/24/2017
 
-创建方法的静态局部变量的枚举数。  
+---
+# <a name="idebugmethodfieldenumstaticlocals"></a>IDebugMethodField::EnumStaticLocals
+Creates an enumerator for static local variables of the method.  
   
-## 语法  
+## <a name="syntax"></a>Syntax  
   
 ```cpp#  
-HRESULT EnumStaticLocals(   
-   IEnumDebugFields** ppLocals  
+HRESULT EnumStaticLocals(   
+   IEnumDebugFields** ppLocals  
 );  
 ```  
   
-```c#  
+```cs  
 int EnumStaticLocals(  
-   out IEnumDebugFields ppLocals  
+   out IEnumDebugFields ppLocals  
 );  
 ```  
   
-#### 参数  
+#### <a name="parameters"></a>Parameters  
  `ppLocals`  
- \[out\] 返回表示静态局部的列表 [IEnumDebugFields](../../../extensibility/debugger/reference/ienumdebugfields.md) 对象。  ; 如果没有静态局部，返回空值。  
+ [out] Returns an [IEnumDebugFields](../../../extensibility/debugger/reference/ienumdebugfields.md) object representing the list of static locals. Returns a null value if there are no static locals.  
   
-## 返回值  
- 如果成功，则返回 S\_OK 或返回 S\_FALSE，如果没有静态局部。  否则，返回错误代码。  
+## <a name="return-value"></a>Return Value  
+ If successful, returns S_OK or returns S_FALSE if there are no static locals. Otherwise, returns an error code.  
   
-## 备注  
- 每个元素是表示静态局部不同类型的 [IDebugField](../../../extensibility/debugger/reference/idebugfield.md) 对象。  对每个对象的 [GetKind](../Topic/IDebugField::GetKind.md) 方法正确地确定哪种静态局部对象表示。  
+## <a name="remarks"></a>Remarks  
+ Each element is an [IDebugField](../../../extensibility/debugger/reference/idebugfield.md) object representing different types of static locals. Call the [GetKind](../../../extensibility/debugger/reference/idebugfield-getkind.md) method on each object to determine exactly what kind of static local the object represents.  
   
-## 请参阅  
+## <a name="see-also"></a>See Also  
  [IDebugMethodField](../../../extensibility/debugger/reference/idebugmethodfield.md)   
  [IEnumDebugFields](../../../extensibility/debugger/reference/ienumdebugfields.md)   
  [IDebugField](../../../extensibility/debugger/reference/idebugfield.md)

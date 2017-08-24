@@ -1,99 +1,116 @@
 ---
-title: "使用 T4 文本模板生成设计时代码 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-helpviewer_keywords: 
-  - "“文本模板”项目项"
-  - "文本模板, 数据源模型"
-  - "文本模板, 为应用程序生成代码"
-  - "文本模板, 入门"
-  - "文本模板, 代码生成的准则"
-  - "TextTemplatingFileGenerator 自定义工具"
-  - "转换所有模板"
+title: Design-Time Code Generation by using T4 Text Templates | Microsoft Docs
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.tgt_pltfrm: 
+ms.topic: article
+helpviewer_keywords:
+- text templates, guidelines for code generation
+- text templates, data source model
+- TextTemplatingFileGenerator custom tool
+- Transform All Templates
+- text templates, getting started
+- Text Template project item
+- text templates, generating code for your application
 ms.assetid: 2774b83d-1adb-4c66-a607-746e019b80c0
 caps.latest.revision: 38
-author: "alancameronwills"
-ms.author: "awills"
-manager: "douge"
-caps.handback.revision: 38
----
-# 使用 T4 文本模板生成设计时代码
-[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
+author: alancameronwills
+ms.author: awills
+manager: douge
+translation.priority.ht:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+ms.translationtype: MT
+ms.sourcegitcommit: ff8ecec19f8cab04ac2190f9a4a995766f1750bf
+ms.openlocfilehash: 71c2b33190cfaf39da2806008ccd4d9626475253
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/24/2017
 
-使用设计时 T4 文本模板，你可以在 [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] 项目中生成程序代码和其他文件。  通常，你编写一些模板，以便它们根据来自*模型*的数据来改变所生成的代码。  模型是包含有关应用程序要求的关键信息的文件或数据库。  
+---
+# <a name="design-time-code-generation-by-using-t4-text-templates"></a>Design-Time Code Generation by using T4 Text Templates
+Design-time T4 text templates let you generate program code and other files in your [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] project. Typically, you write the templates so that they vary the code that they generate according to data from a *model*. A model is a file or database that contains key information about your application's requirements.  
   
- 例如，你可能具有一个将工作流定义为表或关系图的模型。  可以从该模型生成执行工作流的软件。  当用户的要求变化时，可以很容易地与用户讨论新的工作流。  从工作流重新生成代码比手动更新代码更可靠。  
+ For example, you could have a model that defines a workflow, either as a table or a diagram. From the model, you can generate the software that executes the workflow. When your users' requirements change, it is easy to discuss the new workflow with the users. Regenerating the code from the workflow is more reliable than updating the code by hand.  
   
 > [!NOTE]
->  *模型*是描述应用程序特定方面的数据源。  它可以是任何形式、任何类型的文件或数据库。  它不必是任何特定形式，例如 UML 模型或域特定语言模型。  典型的模型是表或 XML 文件形式。  
+>  A *model* is a data source that describes a particular aspect of an application. It can be any form, in any kind of file or database. It does not have to be in any particular form, such as a UML model or Domain-Specific Language model. Typical models are in the form of tables or XML files.  
   
- 你可能已熟悉代码生成。  在 **.resx** 解决方案中的 [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] 文件内定义资源时，将自动生成一组类和方法。  通过资源文件编辑资源比必须编辑类和方法要更加容易和可靠。  通过文本模板，可以使用相同的方式从自己设计的源中生成代码。  
+ You are probably already familiar with code generation. When you define resources in a **.resx** file in your [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] solution, a set of classes and methods is generated automatically. The resources file makes it much easier and more reliable to edit the resources than it would be if you had to edit the classes and methods. With text templates, you can generate code in the same manner from a source of your own design.  
   
- 文本模板包含你要生成的文本以及用于生成文本的变量部分的程序代码。  程序代码允许你重复或有条件地省略部分已生成的文本。  生成的文本本身可以是将组成应用程序一部分的程序代码。  
+ A text template contains a mixture of the text that you want to generate, and program code that generates variable parts of the text. The program code and allows you to repeat or conditionally omit parts of the generated text. The generated text can itself be program code that will form part of your application.  
   
-## 创建设计时 T4 文本模板  
+## <a name="creating-a-design-time-t4-text-template"></a>Creating a Design-Time T4 Text Template  
   
-#### 在 Visual Studio 中创建设计时 T4 模板  
+#### <a name="to-create-a-design-time-t4-template-in-visual-studio"></a>To create a design-time T4 template in Visual Studio  
   
-1.  创建一个 [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] 项目或打开一个现有项目。  
+1.  Create a [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] project, or open an existing one.  
   
-     例如，在**“文件”**菜单上，选择**“新”**、**“项目”**。  
+     For example, on the **File** menu, choose **New**, **Project**.  
   
-2.  向你的项目添加文本模板文件，并给予其带有扩展名 .tt 的名称。  
+2.  Add a text template file to your project and give it a name that has the extension **.tt**.  
   
-     若要执行此操作，在**“解决方案资源管理器”**中，在你的项目的快捷菜单上，选择**“添加”**、**“新建项”**。  在**“添加新项”**对话框的中间窗格选择**“文本模板”**。  
+     To do this, in **Solution Explorer**, on the shortcut menu of your project, choose **Add**, **New Item**. In the **Add New Item** dialog box select **Text Template** from the middle pane.  
   
-     请注意，该文件的**“自定义工具”**属性为**“TextTemplatingFileGenerator”**。  
+     Notice that the **Custom Tool** property of the file is **TextTemplatingFileGenerator**.  
   
-3.  打开该文件。  该文件中已包含下列指令：  
+3.  Open the file. It will already contain the following directives:  
   
     ```  
     <#@ template hostspecific="false" language="C#" #>  
     <#@ output extension=".txt" #>  
     ```  
   
-     如果已将模板添加到 [!INCLUDE[vbprvb](../code-quality/includes/vbprvb_md.md)] 项目，则语言特性将为“`VB`”。  
+     If you added the template to a [!INCLUDE[vbprvb](../code-quality/includes/vbprvb_md.md)] project, the language attribute will be "`VB`".  
   
-4.  在文件末尾添加一些文本。  例如：  
+4.  Add some text at the end of the file. For example:  
   
     ```  
     Hello, world!  
     ```  
   
-5.  保存该文件。  
+5.  Save the file.  
   
-     你可能会看到一个**“安全警告”**消息框，要求确认要运行该模板。  单击“确定”。  
+     You might see a **Security Warning** message box that asks you to confirm that you want to run the template. Click **OK**.  
   
-6.  在**“解决方案资源管理器”**中，展开模板文件节点，你将找到带有扩展名 .txt 的文件。  该文件包含从该模板生成的文本。  
+6.  In **Solution Explorer**, expand the template file node and you will find a file that has the extension **.txt**. The file contains the text generated from the template.  
   
     > [!NOTE]
-    >  如果项目为 Visual Basic 项目，则必须单击**“显示所有文件”**才能看到输出文件。  
+    >  If your project is a Visual Basic project, you must click **Show All Files** in order to see the output file.  
   
-### 重新生成代码  
- 在下列任何一种情况下，将执行模板，同时生成附属文件：  
+### <a name="regenerating-the-code"></a>Regenerating the code  
+ A template will be executed, generating the subsidiary file, in any of the following cases:  
   
--   编辑该模板，然后将焦点更改到其他 [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] 窗口。  
+-   Edit the template and then change focus to a different [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] window.  
   
--   保存模板。  
+-   Save the template.  
   
--   单击**“生成”**菜单中的**“转换所有模板”**。  这将转换 [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] 解决方案中的所有模板。  
+-   Click **Transform All Templates** in the **Build** menu. This will transform all the templates in the [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] solution.  
   
--   在**“解决方案资源管理器”**中，在任何文件的快捷菜单上，选择**“运行自定义工具”**。  使用此方法可以转换选定的模板子集。  
+-   In **Solution Explorer**, on the shortcut menu of any file, choose **Run Custom Tool**. Use this method to transform a selected subset of templates.  
   
- 还可以设置 [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] 项目，以便在模板读取的数据文件更改时执行这些模板。  有关详细信息，请参阅[自动重新生成代码](#Regenerating)。  
+ You can also set up a [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] project so that the templates are executed when the data files that they read have changed. For more information, see [Regenerating the code automatically](#Regenerating).  
   
-## 生成可变文本  
- 通过文本模板，可以使用程序代码更改已生成文件的内容。  
+## <a name="generating-variable-text"></a>Generating Variable Text  
+ Text templates let you use program code to vary the content of the generated file.  
   
-#### 使用程序代码生成文本  
+#### <a name="to-generate-text-by-using-program-code"></a>To generate text by using program code  
   
-1.  更改 `.tt` 文件的内容：  
+1.  Change the content of the `.tt` file:  
   
-    ```c#  
+    ```cs  
     <#@ template hostspecific="false" language="C#" #>  
     <#@ output extension=".txt" #>  
     <#int top = 10;  
@@ -104,7 +121,7 @@ caps.handback.revision: 38
     <# } #>  
     ```  
   
-    ```vb#  
+    ```vb  
     <#@ template hostspecific="false" language="VB" #>  
     <#@ output extension=".txt" #>  
     <#Dim top As Integer = 10  
@@ -118,55 +135,55 @@ caps.handback.revision: 38
   
     ```  
   
-2.  保存 .tt 文件，然后重新检查已生成的 .txt 文件。  该文件列出数字 0 到 10 的平方。  
+2.  Save the .tt file, and inspect the generated .txt file again. It lists the squares of the numbers from 0 to 10.  
   
- 请注意，语句括在 `<#...#>` 内，单个表达式括在 `<#=...#>` 内。  有关详细信息，请参阅[编写 T4 文本模板](../modeling/writing-a-t4-text-template.md)。  
+ Notice that statements are enclosed within `<#...#>`, and single expressions within `<#=...#>`. For more information, see [Writing a T4 Text Template](../modeling/writing-a-t4-text-template.md).  
   
- 如果在 [!INCLUDE[vbprvb](../code-quality/includes/vbprvb_md.md)] 中编写生成代码，则 `template` 指令应包含 `language="VB"`。  默认为 `"C#"`。  
+ If you write the generating code in [!INCLUDE[vbprvb](../code-quality/includes/vbprvb_md.md)], the `template` directive should contain `language="VB"`. `"C#"` is the default.  
   
-## 调试设计时 T4 文本模板  
- 创建文本模板：  
+## <a name="debugging-a-design-time-t4-text-template"></a>Debugging a Design-Time T4 Text Template  
+ To debug a text template:  
   
--   将 `debug="true"` 插入 `template` 指令。  例如:  
+-   Insert `debug="true"` into the `template` directive. For example:  
   
      `<#@ template debug="true" hostspecific="false" language="C#" #>`  
   
--   在模板中使用为普通代码设置断点的相同方式设置断点。  
+-   Set breakpoints in the template, in the same way that you would for ordinary code.  
   
--   在“解决方案资源管理器”中，从文本模板文件的快捷菜单选择**“调试 T4 模板”**。  
+-   Choose **Debug T4 Template** from the shortcut menu of the text template file in Solution Explorer.  
   
- 该模板将运行并在断点处停止。  你可以以常用方式检查变量并逐步执行代码。  
+ The template will run and stop at the breakpoints. You can examine variables and step through the code in the usual way.  
   
 > [!TIP]
->  `debug="true"` 使生成的代码更精确地映射到文本模板，方法是在生成的代码中插入更多行号指令。  如果不使用它，断点可能在错误状态下停止运行。  
+>  `debug="true"` makes the generated code map more accurately to the text template, by inserting more line numbering directives into the generated code. If you leave it out, breakpoints might stop the run in the wrong state.  
 >   
->  但是，即使不在进行调试，你仍可将该子句留在模板指令中。  这仅会使性能下降一点点。  
+>  But you can leave the clause in the template directive even when you are not debugging. This causes only a very small drop in performance.  
   
-## 生成解决方案的代码或资源  
- 可以根据模型生成不同的程序文件。  模型是输入源，如数据库、配置文件、UML 模型、DSL 模型或其他源。  通常从同一模型生成多个程序文件。  为此，可为生成的每个程序文件创建一个模板文件，然后让所有模板读取同一模型。  
+## <a name="generating-code-or-resources-for-your-solution"></a>Generating Code or Resources for Your Solution  
+ You can generate program files that vary, depending on a model. A model is an input such as a database, configuration file, UML model, DSL model, or other source. You usually generate several program files are from the same model. To achieve this, you create a template file for each generated program file, and have all the templates read the same model.  
   
-#### 生成程序代码或资源  
+#### <a name="to-generate-program-code-or-resources"></a>To generate program code or resources  
   
-1.  更改输出指令以生成相应类型（如 .cs、.vb、.resx 或 .xml）的文件。  
+1.  Change the output directive to generate a file of the appropriate type, such as .cs, .vb, .resx, or .xml.  
   
-2.  插入将生成所需解决方案代码的代码。  例如，如果要在一个类中生成三个整数字段声明，则插入以下代码：  
+2.  Insert code that will generate the solution code that you require. For example, if you want to generate three integer field declarations in a class:  
   
-    ```c#  
+    ```cs  
   
-                      <#@ template debug="false" hostspecific="false" language="C#" #>  
+              <#@ template debug="false" hostspecific="false" language="C#" #>  
     <#@ output extension=".cs" #>  
     <# var properties = new string [] {"P1", "P2", "P3"}; #>  
     // This is generated code:  
     class MyGeneratedClass {  
     <# // This code runs in the text template:  
-      foreach (string propertyName in properties)   { #>  
+      foreach (string propertyName in properties)  { #>  
       // Generated code:  
       private int <#= propertyName #> = 0;  
     <# } #>  
     }  
     ```  
   
-    ```vb#  
+    ```vb  
     <#@ template debug="false" hostspecific="false" language="VB" #>  
     <#@ output extension=".cs" #>  
     <# Dim properties = {"P1", "P2", "P3"} #>  
@@ -182,7 +199,7 @@ caps.handback.revision: 38
   
     ```  
   
-3.  保存该文件并检查生成的文件，生成的文件现在包含以下代码：  
+3.  Save the file and inspect the generated file, which now contains the following code:  
   
     ```  
     class MyGeneratedClass {  
@@ -192,26 +209,26 @@ caps.handback.revision: 38
     }  
     ```  
   
-### 生成代码和生成的文本  
- 生成程序代码时，最重要的是避免混淆以下代码：在模板中执行的生成代码，以及随之生成的将成为解决方案一部分的代码。  这两种语言不必相同。  
+### <a name="generating-code-and-generated-text"></a>Generating Code and Generated Text  
+ When you generate program code, it is most important to avoid confusing the generating code that executes in your template, and the resulting generated code that becomes part of your solution. The two languages do not have to be the same.  
   
- 上一个示例具有两个版本。  在一个版本中，生成代码采用 C\#。  在另一个版本中，生成代码采用 Visual Basic。  但是这两个版本生成的文本是相同的，都是 C\# 类。  
+ The previous example has two versions. In one version, the generating code is in C#. In the other version, the generating code is Visual Basic. But the text generated by both of them is the same, and it is a C# class.  
   
- 通过相同方式，可以使用 [!INCLUDE[csprcs](../data-tools/includes/csprcs_md.md)] 模板生成任何语言的代码。  生成的文本不必采用任何特定语言，并且不必是程序代码。  
+ In the same way, you could use a [!INCLUDE[csprcs](../data-tools/includes/csprcs_md.md)] template to generate code in any language. The generated text does not have to be in any particular language, and it does not have to be program code.  
   
-### 结构化文本模板  
- 作为一种良好做法，我们往往将模板代码分成两部分：  
+### <a name="structuring-text-templates"></a>Structuring text templates  
+ As a matter of good practice, we tend to separate the template code into two parts:  
   
--   配置或数据收集部分，它在变量中设置值，但不包含文本块。  在上一个示例中，此部分是 `properties` 的初始化。  
+-   A configuration or data-gathering part, which sets values in variables, but does not contain text blocks. In the previous example, this part is the initialization of `properties`.  
   
-     此部分有时称为“模型”部分，因为它会构造一个存储内模型，并且通常读取模型文件。  
+     This is sometimes called the "model" section, because it constructs an in-store model, and typically reads a model file.  
   
--   文本生成部分（示例中的 `foreach(...){...}`），它使用变量的值。  
+-   The text-generation part (`foreach(...){...}` in the example), which uses the values of the variables.  
   
- 虽然这不是必要的分离，但是通过这种方式可以降低包括文本的部分的复杂性，从而更便于读取模板。  
+ This is not a necessary separation, but it is a style which makes it easier to read the template by reducing the complexity of the part that includes text.  
   
-## 读取文件或其他源  
- 若要访问模型文件或数据库，模板代码可以使用诸如 System.XML 之类的程序集。  若要获取对这些程序集的访问权限，必须插入如下指令：  
+## <a name="reading-files-or-other-sources"></a>Reading files or other sources  
+ To access a model file or database, your template code can use assemblies such as System.XML. To gain access to these assemblies, you must insert directives such as these:  
   
 ```  
 <#@ assembly name="System.Xml.dll" #>  
@@ -219,36 +236,36 @@ caps.handback.revision: 38
 <#@ import namespace="System.IO" #>  
 ```  
   
- `assembly` 指令使指定的程序集可供模板代码使用，方式与 [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] 项目中的“引用”部分相同。  你无需包括对 System.dll 的引用，它是自动引用的。  `import` 指令允许你使用类型而不使用其完全限定名，方式与普通程序文件中的 `using` 指令相同。  
+ The `assembly` directive makes the specified assembly available to your template code, in the same manner as the References section of a [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] project. You do not need to include a reference to System.dll, which is referenced automatically. The `import` directive lets you use types without using their fully qualified names, in the same manner as the `using` directive in an ordinary program file.  
   
- 例如，导入 **System.IO** 之后，可以编写：  
+ For example, after importing **System.IO**, you could write:  
   
-```c#  
+```cs  
   
-          <# var properties = File.ReadLines("C:\\propertyList.txt");#>  
+      <# var properties = File.ReadLines("C:\\propertyList.txt");#>  
 ...  
 <# foreach (string propertyName in properties) { #>  
 ...  
 ```  
   
-```vb#  
+```vb  
 <# For Each propertyName As String In   
              File.ReadLines("C:\\propertyList.txt")  
 #>  
   
 ```  
   
-### 通过相对路径名打开文件  
- 若要从相对于文本模板的位置加载文件，可以使用 `this.Host.ResolvePath()`。  若要使用 this.Host，你必须在 `hostspecific="true"` 中设置 `template`：  
+### <a name="opening-a-file-with-a-relative-pathname"></a>Opening a file with a relative pathname  
+ To load a file from a location relative to the text template, you can use `this.Host.ResolvePath()`. To use this.Host, you must set `hostspecific="true"` in the `template`:  
   
 ```  
 <#@ template debug="false" hostspecific="true" language="C#" #>  
   
 ```  
   
- 然后你可以进行编写，例如：  
+ Then you can write, for example:  
   
-```c#  
+```cs  
 <# string fileName = this.Host.ResolvePath("filename.txt");  
   string [] properties = File.ReadLines(filename);  
 #>  
@@ -258,7 +275,7 @@ caps.handback.revision: 38
   
 ```  
   
-```vb#  
+```vb  
 <# Dim fileName = Me.Host.ResolvePath("propertyList.txt")  
    Dim properties = File.ReadLines(filename)  
 #>  
@@ -269,12 +286,12 @@ caps.handback.revision: 38
   
 ```  
   
- 还可以使用 `this.Host.TemplateFile`，它标识当前模板文件的名称。  
+ You can also use `this.Host.TemplateFile`, which identifies the name of the current template file.  
   
- `this.Host` 的类型（在 VB 中是 `Me.Host`）是 `Microsoft.VisualStudio.TextTemplating.ITextTemplatingEngineHost`。  
+ The type of `this.Host` (in VB, `Me.Host`) is `Microsoft.VisualStudio.TextTemplating.ITextTemplatingEngineHost`.  
   
-### 从 [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] 获取数据  
- 若要使用 [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] 中提供的服务，请设置 `hostSpecific` 特性并加载 `EnvDTE` 程序集。  然后，你可以使用 IServiceProvider.GetCOMService\(\) 访问 DTE 和其他服务。  例如：  
+### <a name="getting-data-from-includevsprvscode-qualityincludesvsprvsmdmd"></a>Getting data from [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)]  
+ To use services provided in [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)], set the `hostSpecific` attribute and load the `EnvDTE` assembly. You can then use IServiceProvider.GetCOMService() to access DTE and other services. For example:  
   
 ```scr  
 <#@ template hostspecific="true" language="C#" #>  
@@ -290,14 +307,18 @@ Number of projects in this VS solution:  <#= dte.Solution.Projects.Count #>
 ```  
   
 > [!TIP]
->  文本模板在它自己的应用域中运行，并通过封送访问服务。  在此情况下，GetCOMService\(\) 比 GetService\(\) 更可靠。  
+>  A text template runs in its own app domain, and services are accessed by marshaling. In this circumstance, GetCOMService() is more reliable than GetService().  
   
-##  <a name="Regenerating"></a> 自动重新生成代码  
- 通常，[!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] 解决方案中的多个文件都使用一个输入模型生成。  每个文件从其自己的模板生成，但这些模板全都引用同一个模型。  
+##  <a name="Regenerating"></a> Regenerating the code automatically  
+ Typically, several files in a [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] solution are generated with one input model. Each file is generated from its own template, but the templates all refer to the same model.  
   
- 如果源模型发生更改，则应重新运行该解决方案中的所有模板。  若要手动执行此操作，请选择**“生成”**菜单上的**“转换所有模板”**。  
+ If the source model changes, you should re-run all the templates in the solution. To do this manually, choose **Transform All Templates** on the **Build** menu.  
   
- 如果已安装 [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] 可视化和建模 SDK，则可以在每次执行生成时自动转换所有模板。  为此，可在文本编辑器中编辑项目文件（.csproj 或 .vbproj），然后在文件末尾附近（其他任何 `<import>` 语句之后）添加以下行：  
+ If you have installed [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] Visualization and Modeling SDK, you can have all the templates transformed automatically whenever you perform a build. To do this, edit your project file (.csproj or .vbproj) in a text editor and add the following lines near the end of the file, after any other `<import>` statements:  
+
+
+[!INCLUDE[modeling_sdk_info](includes/modeling_sdk_info.md)]
+
   
 ```  
 <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v11.0\TextTemplating\Microsoft.TextTemplating.targets" />  
@@ -307,65 +328,66 @@ Number of projects in this VS solution:  <#= dte.Solution.Projects.Count #>
 </PropertyGroup>  
 ```  
   
- 有关详细信息，请参阅[生成过程中的代码生成](../modeling/code-generation-in-a-build-process.md)。  
+ For more information, see [Code Generation in a Build Process](../modeling/code-generation-in-a-build-process.md).  
   
-## 错误报告  
- 若要在 [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] 错误窗口中放置错误消息和警告消息，可以使用以下方法：  
+## <a name="error-reporting"></a>Error reporting  
+ To place error and warning messages in the [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] error window, you can use these methods:  
   
 ```  
 Error("An error message");  
 Warning("A warning message");  
 ```  
   
-##  <a name="Converting"></a> 将现有文件转换为模板  
- 模板的一个非常有用的特性是：它们看起来与其生成的文件（加上一些插入的程序代码）非常相似。  这暗示了创建模板的一种有用方法。  首先，创建一个普通的文件（如 [!INCLUDE[csprcs](../data-tools/includes/csprcs_md.md)] 文件）作为原型，然后逐步引入可更改所生成文件的生成代码。  
+##  <a name="Converting"></a> Converting an existing file to a template  
+ A useful feature of templates is that they look very much like the files that they generate, together with some inserted program code. This suggests a useful method of creating a template. First create an ordinary file as a prototype, such as a [!INCLUDE[csprcs](../data-tools/includes/csprcs_md.md)] file, and then gradually introduce generation code that varies the resulting file.  
   
-#### 将现有文件转换为设计时模板  
+#### <a name="to-convert-an-existing-file-to-a-design-time-template"></a>To convert an existing file to a design-time template  
   
-1.  对于你的 [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] 项目，添加要生成的类型的文件，例如 `.cs`、`.vb` 或 `.resx` 文件。  
+1.  To your [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] project, add a file of the type that you want to generate, such as a `.cs`, `.vb`, or `.resx` file.  
   
-2.  测试新文件以确保其工作。  
+2.  Test the new file to make sure that it works.  
   
-3.  在解决方案资源管理器中，将文件扩展名更改为 **.tt**。  
+3.  In Solution Explorer, change the file name extension to **.tt**.  
   
-4.  验证 **.tt** 文件的以下属性：  
+4.  Verify the following properties of the **.tt** file:  
   
     |||  
     |-|-|  
-    |**自定义工具 \=**|**TextTemplatingFileGenerator**|  
-    |**生成操作 \=**|**无**|  
+    |**Custom Tool =**|**TextTemplatingFileGenerator**|  
+    |**Build Action =**|**None**|  
   
-5.  在文件开头插入以下行：  
+5.  Insert the following lines at the beginning of the file:  
   
     ```  
     <#@ template debug="false" hostspecific="false" language="C#" #>  
     <#@ output extension=".cs" #>  
     ```  
   
-     如果要以 [!INCLUDE[vbprvb](../code-quality/includes/vbprvb_md.md)] 编写模板的生成代码，请将 `language` 特性设置为 `"VB"`，而不是 `"C#"`。  
+     If you want to write the generating code of your template in [!INCLUDE[vbprvb](../code-quality/includes/vbprvb_md.md)], set the `language` attribute to `"VB"` instead of `"C#"`.  
   
-     将 `extension` 特性设置为要生成的文件类型的文件扩展名，例如 `.cs`、`.resx` 或 `.xml`。  
+     Set the `extension` attribute to the file name extension for the type of file that you want to generate, for example `.cs`, `.resx`, or `.xml`.  
   
-6.  保存该文件。  
+6.  Save the file.  
   
-     将使用指定扩展名创建一个附属文件。  该文件对于相应文件类型具有正确的属性。  例如，.cs 文件的**“生成操作”**属性将为**“编译”**。  
+     A subsidiary file is created, with the specified extension. Its properties are correct for the type of file. For example, the **Build Action** property of a .cs file would be **Compile**.  
   
-     验证生成的文件是否包含与原始文件相同的内容。  
+     Verify that the generated file contains the same content as the original file.  
   
-7.  确定要更改的文件部分。  例如，一个仅在特定条件下显示的部分、一个重复的部分或特定值会有所变化的部分。  插入生成代码。  保存该文件，然后验证附属文件是否正确生成。  重复此步骤。  
+7.  Identify a part of the file that you want to vary. For example, a part that appears only under certain conditions, or a part that is repeated, or where the specific values vary. Insert generating code. Save the file and verify that the subsidiary file is correctly generated. Repeat this step.  
   
-## 代码生成的准则  
- 请参阅[T4 文本模板编写准则](../modeling/guidelines-for-writing-t4-text-templates.md)。  
+## <a name="guidelines-for-code-generation"></a>Guidelines for Code Generation  
+ Please see [Guidelines for Writing T4 Text Templates](../modeling/guidelines-for-writing-t4-text-templates.md).  
   
-## 后续步骤  
+## <a name="next-steps"></a>Next steps  
   
-|后续步骤|主题|  
-|----------|--------|  
-|编写并调试更高级的文本模板，其中的代码使用辅助函数、包含的文件和外部数据。|[编写 T4 文本模板](../modeling/writing-a-t4-text-template.md)|  
-|在运行时从模板生成文档。|[使用 T4 文本模板的运行时文本生成](../modeling/run-time-text-generation-with-t4-text-templates.md)|  
-|在 [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] 外运行文本生成。|[使用 TextTransform 实用工具生成文件](../modeling/generating-files-with-the-texttransform-utility.md)|  
-|以域特定语言的形式转换数据。|[从域特定语言生成代码](../modeling/generating-code-from-a-domain-specific-language.md)|  
-|编写指令处理器转换自己的数据源。|[自定义 T4 文本转换](../modeling/customizing-t4-text-transformation.md)|  
+|Next step|Topic|  
+|---------------|-----------|  
+|Write and debug a more advanced text template, with code that uses auxiliary functions, included files, and external data.|[Writing a T4 Text Template](../modeling/writing-a-t4-text-template.md)|  
+|Generate documents from templates at run time.|[Run-Time Text Generation with T4 Text Templates](../modeling/run-time-text-generation-with-t4-text-templates.md)|  
+|Run text generation outside [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)].|[Generating Files with the TextTransform Utility](../modeling/generating-files-with-the-texttransform-utility.md)|  
+|Transform your data in the form of a domain-specific language.|[Generating Code from a Domain-Specific Language](../modeling/generating-code-from-a-domain-specific-language.md)|  
+|Write directive processors to transform your own data sources.|[Customizing T4 Text Transformation](../modeling/customizing-t4-text-transformation.md)|  
   
-## 请参阅  
- [T4 文本模板编写准则](../modeling/guidelines-for-writing-t4-text-templates.md)
+## <a name="see-also"></a>See Also  
+ [Guidelines for Writing T4 Text Templates](../modeling/guidelines-for-writing-t4-text-templates.md)
+

@@ -1,53 +1,70 @@
 ---
-title: "IDebugPendingBreakpoint2::SetPassCount | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "IDebugPendingBreakpoint2::SetPassCount"
-helpviewer_keywords: 
-  - "SetPassCount 方法"
-  - "IDebugPendingBreakpoint2::SetPassCount 方法"
+title: IDebugPendingBreakpoint2::SetPassCount | Microsoft Docs
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords:
+- IDebugPendingBreakpoint2::SetPassCount
+helpviewer_keywords:
+- SetPassCount method
+- IDebugPendingBreakpoint2::SetPassCount method
 ms.assetid: 08ddd328-57eb-42e0-baa9-8424dcd1bf04
 caps.latest.revision: 10
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 10
----
-# IDebugPendingBreakpoint2::SetPassCount
-[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
+ms.author: gregvanl
+manager: ghogen
+translation.priority.mt:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+ms.translationtype: MT
+ms.sourcegitcommit: ff8ecec19f8cab04ac2190f9a4a995766f1750bf
+ms.openlocfilehash: 83f59df4ffc84474c757474298657985133395e6
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/24/2017
 
-设置或更改通过计数与挂起的断点。  
+---
+# <a name="idebugpendingbreakpoint2setpasscount"></a>IDebugPendingBreakpoint2::SetPassCount
+Sets or changes the pass count associated with the pending breakpoint.  
   
-## 语法  
+## <a name="syntax"></a>Syntax  
   
 ```cpp#  
-HRESULT SetPassCount(   
-   BP_PASSCOUNT bpPassCount  
+HRESULT SetPassCount(   
+   BP_PASSCOUNT bpPassCount  
 );  
 ```  
   
-```c#  
-int SetPassCount(   
-   BP_PASSCOUNT bpPassCount  
+```cs  
+int SetPassCount(   
+   BP_PASSCOUNT bpPassCount  
 );  
 ```  
   
-#### 参数  
+#### <a name="parameters"></a>Parameters  
  `bpPassCount`  
- \[in\] 包含通过计数的 [BP\_PASSCOUNT](../../../extensibility/debugger/reference/bp-passcount.md) 结构。  
+ [in] A [BP_PASSCOUNT](../../../extensibility/debugger/reference/bp-passcount.md) structure that contains the pass count.  
   
-## 返回值  
- 如果成功，则返回; `S_OK`否则，返回错误代码。  ，如果断点删除，返回 `E_BP_DELETED` 。  
+## <a name="return-value"></a>Return Value  
+ If successful, returns `S_OK`; otherwise, returns an error code. Returns `E_BP_DELETED` if the breakpoint has been deleted.  
   
-## 备注  
- 以前与挂起的断点的所有通过计数丢失。  从此挂起的断点绑定的所有调用设置断点设置其通过计数到 `bpPassCount` 参数。  
+## <a name="remarks"></a>Remarks  
+ Any pass count that was previously associated with the pending breakpoint is lost. All breakpoints bound from this pending breakpoint are called to set their pass count to the `bpPassCount` parameter.  
   
-## 请参阅  
+## <a name="see-also"></a>See Also  
  [IDebugPendingBreakpoint2](../../../extensibility/debugger/reference/idebugpendingbreakpoint2.md)   
- [BP\_PASSCOUNT](../../../extensibility/debugger/reference/bp-passcount.md)
+ [BP_PASSCOUNT](../../../extensibility/debugger/reference/bp-passcount.md)

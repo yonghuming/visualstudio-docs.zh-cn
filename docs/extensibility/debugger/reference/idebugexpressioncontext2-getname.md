@@ -1,5 +1,5 @@
 ---
-title: "IDebugExpressionContext2::GetName |Microsoft 文档"
+title: IDebugExpressionContext2::GetName | Microsoft Docs
 ms.custom: 
 ms.date: 11/04/2016
 ms.reviewer: 
@@ -30,16 +30,17 @@ translation.priority.mt:
 - tr-tr
 - zh-cn
 - zh-tw
-translationtype: Machine Translation
-ms.sourcegitcommit: 5db97d19b1b823388a465bba15d057b30ff0b3ce
-ms.openlocfilehash: 1ed5efcbc18dc7443bb0dff92ab5628ee81d9fbf
-ms.lasthandoff: 02/22/2017
+ms.translationtype: MT
+ms.sourcegitcommit: ff8ecec19f8cab04ac2190f9a4a995766f1750bf
+ms.openlocfilehash: 05b3289597a4ea0073ce4e2b3f734b1d5283faf2
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/24/2017
 
 ---
 # <a name="idebugexpressioncontext2getname"></a>IDebugExpressionContext2::GetName
-检索评估上下文的名称。  
+Retrieves the name of the evaluation context.  
   
-## <a name="syntax"></a>语法  
+## <a name="syntax"></a>Syntax  
   
 ```cpp#  
 HRESULT GetName(   
@@ -47,25 +48,25 @@ HRESULT GetName(
 );  
 ```  
   
-```c#  
+```cs  
 int GetName(   
    out string pbstrName  
 );  
 ```  
   
-#### <a name="parameters"></a>参数  
+#### <a name="parameters"></a>Parameters  
  `pbstrName`  
- [out]返回计算上下文的名称。  
+ [out] Returns the name of the evaluation context.  
   
-## <a name="return-value"></a>返回值  
- 如果成功，返回`S_OK`; 否则为返回错误代码。  
+## <a name="return-value"></a>Return Value  
+ If successful, returns `S_OK`; otherwise, returns an error code.  
   
-## <a name="remarks"></a>备注  
- 该名称是此评估上下文中的描述。 它通常是可以通过将引用该准确的求值上下文的表达式计算器分析的内容。 例如，在 c + + 名称就是，如下所示︰  
+## <a name="remarks"></a>Remarks  
+ The name is the description of this evaluation context. It is typically something that can be parsed by an expression evaluator that refers to this exact evaluation context. For example, in C++ the name is as follows:  
   
 ```  
 "{ function-name, source-file-name, module-file-name }"  
 ```  
   
-## <a name="see-also"></a>另请参阅  
+## <a name="see-also"></a>See Also  
  [IDebugExpressionContext2](../../../extensibility/debugger/reference/idebugexpressioncontext2.md)

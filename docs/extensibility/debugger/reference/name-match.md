@@ -1,5 +1,5 @@
 ---
-title: "NAME_MATCH |Microsoft 文档"
+title: NAME_MATCH | Microsoft Docs
 ms.custom: 
 ms.date: 11/04/2016
 ms.reviewer: 
@@ -30,16 +30,17 @@ translation.priority.mt:
 - tr-tr
 - zh-cn
 - zh-tw
-translationtype: Machine Translation
-ms.sourcegitcommit: 5db97d19b1b823388a465bba15d057b30ff0b3ce
-ms.openlocfilehash: cae44c561a72a94680f6a456cb9faa58ab914437
-ms.lasthandoff: 02/22/2017
+ms.translationtype: MT
+ms.sourcegitcommit: ff8ecec19f8cab04ac2190f9a4a995766f1750bf
+ms.openlocfilehash: dc38f8576101baf52a20890eed189461cf2e8f98
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/24/2017
 
 ---
 # <a name="namematch"></a>NAME_MATCH
-选择用于匹配名称的大小写选项。  
+Selects the case option for matching names.  
   
-## <a name="syntax"></a>语法  
+## <a name="syntax"></a>Syntax  
   
 ```cpp#  
 typedef enum {   
@@ -49,7 +50,7 @@ typedef enum {
 } NAME_MATCH;  
 ```  
   
-```c#  
+```cs  
 public enum NameMatchOptions {   
    nmNone            = 0,  
    nmCaseSensitive   = 1,  
@@ -57,18 +58,18 @@ public enum NameMatchOptions {
 }  
 ```  
   
-## <a name="members"></a>成员  
+## <a name="members"></a>Members  
  nmNone  
- 未指定任何选项。  
+ No options are specified.  
   
  nmCaseSensitive  
- 指示要匹配的名称是区分大小写。  
+ Indicates that names to be matched are case-sensitive.  
   
  nmCaseInsensitive  
- 指示要匹配的名称不区分大小写。  
+ Indicates that names to be matched are not case-sensitive.  
   
-## <a name="remarks"></a>备注  
- 作为参数传递给以下方法︰  
+## <a name="remarks"></a>Remarks  
+ Passed as an argument to the following methods:  
   
 -   [GetTypeByName](../../../extensibility/debugger/reference/idebugsymbolprovider-gettypebyname.md)  
   
@@ -78,15 +79,15 @@ public enum NameMatchOptions {
   
 -   [GetMethodFieldsByName](../../../extensibility/debugger/reference/idebugsymbolprovider-getmethodfieldsbyname.md)  
   
-## <a name="requirements"></a>要求  
- 标头︰ sh.h  
+## <a name="requirements"></a>Requirements  
+ Header: sh.h  
   
  Namespace: Microsoft.VisualStudio.Debugger.Interop  
   
- 程序集︰ Microsoft.VisualStudio.Debugger.Interop.dll  
+ Assembly: Microsoft.VisualStudio.Debugger.Interop.dll  
   
-## <a name="see-also"></a>另请参阅  
- [枚举](../../../extensibility/debugger/reference/enumerations-visual-studio-debugging.md)   
+## <a name="see-also"></a>See Also  
+ [Enumerations](../../../extensibility/debugger/reference/enumerations-visual-studio-debugging.md)   
  [GetTypeByName](../../../extensibility/debugger/reference/idebugsymbolprovider-gettypebyname.md)   
  [GetClassTypeByName](../../../extensibility/debugger/reference/idebugsymbolprovider-getclasstypebyname.md)   
  [EnumFields](../../../extensibility/debugger/reference/idebugcontainerfield-enumfields.md)   

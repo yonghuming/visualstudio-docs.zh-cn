@@ -1,5 +1,5 @@
 ---
-title: "IDebugSymbolProvider::GetAddressesFromPosition |Microsoft 文档"
+title: IDebugSymbolProvider::GetAddressesFromPosition | Microsoft Docs
 ms.custom: 
 ms.date: 11/04/2016
 ms.reviewer: 
@@ -30,16 +30,17 @@ translation.priority.mt:
 - tr-tr
 - zh-cn
 - zh-tw
-translationtype: Machine Translation
-ms.sourcegitcommit: 5db97d19b1b823388a465bba15d057b30ff0b3ce
-ms.openlocfilehash: 28c913ca924274c946b3ce52a964a3efbae6dc5c
-ms.lasthandoff: 02/22/2017
+ms.translationtype: MT
+ms.sourcegitcommit: ff8ecec19f8cab04ac2190f9a4a995766f1750bf
+ms.openlocfilehash: 623360290d98af0034d3ccb41bdb7b99f968f5be
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/24/2017
 
 ---
 # <a name="idebugsymbolprovidergetaddressesfromposition"></a>IDebugSymbolProvider::GetAddressesFromPosition
-此方法将映射到一个数组的调试地址的文档位置。  
+This method maps a document position into an array of debug addresses.  
   
-## <a name="syntax"></a>语法  
+## <a name="syntax"></a>Syntax  
   
 ```cpp#  
 HRESULT GetAddressesFromPosition(   
@@ -50,7 +51,7 @@ HRESULT GetAddressesFromPosition(
 );  
 ```  
   
-```c#  
+```cs  
 int GetAddressesFromPosition(   
    IDebugDocumentPosition2  pDocPos,  
    bool                     fStatmentOnly,  
@@ -59,28 +60,28 @@ int GetAddressesFromPosition(
 );  
 ```  
   
-#### <a name="parameters"></a>参数  
+#### <a name="parameters"></a>Parameters  
  `pDocPos`  
- [in]文档位置中。  
+ [in] The document position.  
   
  `fStatmentOnly`  
- [in]如果为 TRUE，将限制为单个语句的调试地址。  
+ [in] If TRUE, limits the debug addresses to a single statement.  
   
  `ppEnumBegAddresses`  
- [out]返回与此语句或行相关联的起始调试地址的枚举数。  
+ [out] Returns an enumerator for the starting debug addresses associated with this statement or line.  
   
  `ppEnumEndAddresses`  
- [out]返回[IEnumDebugAddresses](../../../extensibility/debugger/reference/ienumdebugaddresses.md)结束调试关联的地址与此语句或行的枚举器。  
+ [out] Returns an [IEnumDebugAddresses](../../../extensibility/debugger/reference/ienumdebugaddresses.md) enumerator for the ending debug addresses associated with this statement or line.  
   
-## <a name="return-value"></a>返回值  
- 如果成功，返回`S_OK`; 否则为返回错误代码。  
+## <a name="return-value"></a>Return Value  
+ If successful, returns `S_OK`; otherwise, returns an error code.  
   
-## <a name="remarks"></a>备注  
- 文档位置通常表示源行的范围。 此方法提供的起始和结束调试地址相关的替换为以下行。 某些语言允许跨多个行或包含多个语句的行的语句。 此方法提供了一个标志，用于限制到单个语句的调试地址。  
+## <a name="remarks"></a>Remarks  
+ A document position typically indicates a range of source lines. This method provides the starting and ending debug addresses associated with these lines. Some languages allow statements that span multiple lines, or lines that contains more than one statement. This method provides a flag to limit the debug addresses to a single statement.  
   
- 很可能具有多个调试地址，如下所示的模板的大小写的单个语句。  
+ It is possible for a single statement to have multiple debug addresses, as in the case of templates.  
   
-## <a name="see-also"></a>另请参阅  
+## <a name="see-also"></a>See Also  
  [IDebugSymbolProvider](../../../extensibility/debugger/reference/idebugsymbolprovider.md)   
  [GetAddressesFromContext](../../../extensibility/debugger/reference/idebugsymbolprovider-getaddressesfromcontext.md)   
  [IEnumDebugAddresses](../../../extensibility/debugger/reference/ienumdebugaddresses.md)

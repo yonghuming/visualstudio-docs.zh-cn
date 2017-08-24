@@ -1,5 +1,5 @@
 ---
-title: "获取列表的安装代码段 （传统） |Microsoft 文档"
+title: Getting a List of Installed Code Snippets (Legacy) | Microsoft Docs
 ms.custom: 
 ms.date: 11/04/2016
 ms.reviewer: 
@@ -30,24 +30,25 @@ translation.priority.mt:
 - tr-tr
 - zh-cn
 - zh-tw
-translationtype: Machine Translation
-ms.sourcegitcommit: d5bc147592bfc36247c35f23ac2885055d096af3
-ms.openlocfilehash: d49d5eb1a6a2e045d477dd03fba9372123cae83a
-ms.lasthandoff: 02/22/2017
+ms.translationtype: MT
+ms.sourcegitcommit: ff8ecec19f8cab04ac2190f9a4a995766f1750bf
+ms.openlocfilehash: 51bac52e28b37818b45fd63d3c30bebb7e8d8d35
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/24/2017
 
 ---
-# <a name="walkthrough-getting-a-list-of-installed-code-snippets-legacy-implementation"></a>演练︰ 获取安装的代码段 （旧实现） 的列表
-代码段是一种可以插入到使用菜单命令 （它允许安装的代码段的列表中进行选择） 或通过在源缓冲区的代码从 IntelliSense 完成列表中选择代码段快捷方式。  
+# <a name="walkthrough-getting-a-list-of-installed-code-snippets-legacy-implementation"></a>Walkthrough: Getting a List of Installed Code Snippets (Legacy Implementation)
+A code snippet is a piece of code that can be inserted into the source buffer either with a menu command (which allows choosing among a list of installed code snippets) or by selecting a snippet shortcut from an IntelliSense completion list.  
   
- <xref:Microsoft.VisualStudio.TextManager.Interop.IVsExpansionManager.EnumerateExpansions%2A>方法获取为特定语言 GUID 的所有代码段。</xref:Microsoft.VisualStudio.TextManager.Interop.IVsExpansionManager.EnumerateExpansions%2A> 这些代码段的快捷方式可以插入到 IntelliSense 完成列表。  
+ The <xref:Microsoft.VisualStudio.TextManager.Interop.IVsExpansionManager.EnumerateExpansions%2A> method gets all code snippets for a specific language GUID. The shortcuts for those snippets can be inserted into an IntelliSense completion list.  
   
- 请参阅[早期语言服务中的代码段支持](../../extensibility/internals/support-for-code-snippets-in-a-legacy-language-service.md)有关在托管的包框架 (MPF) 语言服务中实现的代码段的详细信息。  
+ See [Support for Code Snippets in a Legacy Language Service](../../extensibility/internals/support-for-code-snippets-in-a-legacy-language-service.md) for details about implementing code snippets in a managed package framework (MPF) language service.  
   
-### <a name="to-retrieve-a-list-of-code-snippets"></a>若要检索的代码段的列表  
+### <a name="to-retrieve-a-list-of-code-snippets"></a>To retrieve a list of code snippets  
   
-1.  下面的代码演示如何获取给定语言的代码段的列表。 结果存储在数组<xref:Microsoft.VisualStudio.TextManager.Interop.VsExpansion>结构。</xref:Microsoft.VisualStudio.TextManager.Interop.VsExpansion> 此方法使用静态<xref:Microsoft.VisualStudio.Shell.Package.GetGlobalService%2A>方法以获取<xref:Microsoft.VisualStudio.TextManager.Interop.IVsTextManager>接口从<xref:Microsoft.VisualStudio.TextManager.Interop.SVsTextManager>服务。</xref:Microsoft.VisualStudio.TextManager.Interop.SVsTextManager> </xref:Microsoft.VisualStudio.TextManager.Interop.IVsTextManager> </xref:Microsoft.VisualStudio.Shell.Package.GetGlobalService%2A> 但是，还可以使用服务提供商提供给你的 VSPackage 和调用<xref:Microsoft.VisualStudio.OLE.Interop.IServiceProvider.QueryService%2A>方法。</xref:Microsoft.VisualStudio.OLE.Interop.IServiceProvider.QueryService%2A>  
+1.  The following code shows how to get a list of code snippets for a given language. The results are stored in an array of <xref:Microsoft.VisualStudio.TextManager.Interop.VsExpansion> structures. This method uses the static <xref:Microsoft.VisualStudio.Shell.Package.GetGlobalService%2A> method to get the <xref:Microsoft.VisualStudio.TextManager.Interop.IVsTextManager> interface from the <xref:Microsoft.VisualStudio.TextManager.Interop.SVsTextManager> service. However, you can also use the service provider given to your VSPackage and call the <xref:Microsoft.VisualStudio.OLE.Interop.IServiceProvider.QueryService%2A> method.  
   
-    ```c#  
+    ```cs  
     using System;  
     using System.Collections;  
     using System.Runtime.InteropServices;  
@@ -118,14 +119,14 @@ ms.lasthandoff: 02/22/2017
     }  
     ```  
   
-### <a name="to-call-the-getsnippets-method"></a>若要调用 GetSnippets 方法  
+### <a name="to-call-the-getsnippets-method"></a>To call the GetSnippets method  
   
-1.  下面的方法演示如何调用`GetSnippets`方法在分析操作完成。 <xref:Microsoft.VisualStudio.Package.LanguageService.OnParseComplete%2A>在分析操作，原因是<xref:Microsoft.VisualStudio.Package.ParseReason>。</xref:Microsoft.VisualStudio.Package.ParseReason> ，它已开始后调用方法</xref:Microsoft.VisualStudio.Package.LanguageService.OnParseComplete%2A>  
+1.  The following method shows how to call the `GetSnippets` method at the completion of a parsing operation. The <xref:Microsoft.VisualStudio.Package.LanguageService.OnParseComplete%2A> method is called after a parsing operation that was started with the reason <xref:Microsoft.VisualStudio.Package.ParseReason>.  
   
 > [!NOTE]
->  `expansionsList`数组 listis 出于性能原因缓存。 之前停止并重新加载此语言服务是对这些代码段的更改不会反映在列表中 (例如，通过停止并重启[!INCLUDE[vsprvs](../../code-quality/includes/vsprvs_md.md)])。  
+>  The `expansionsList` array listis cached for performance reasons. Changes to the snippets are not reflected in the list until the language service is stopped and reloaded (for example, by stopping and restarting [!INCLUDE[vsprvs](../../code-quality/includes/vsprvs_md.md)]).  
   
-```c#  
+```cs  
 class TestLanguageService : LanguageService  
 {  
     private ArrayList expansionsList;  
@@ -142,15 +143,15 @@ class TestLanguageService : LanguageService
 }  
 ```  
   
-### <a name="to-use-the-snippet-information"></a>若要使用的代码段信息  
+### <a name="to-use-the-snippet-information"></a>To use the snippet information  
   
-1.  下面的代码演示如何使用返回的代码段信息`GetSnippets`方法。 `AddSnippets`从响应任何分析原因用于填充代码段的列表中的分析器调用方法。 第一次完成了完整的分析后，这应该会发生。  
+1.  The following code shows how to use the snippet information returned by the `GetSnippets` method. The `AddSnippets` method is called from the parser in response to any parse reason that is used to populate a list of code snippets. This should take place after the full parse has been done for the first time.  
   
-     `AddDeclaration`方法会构建更高版本显示在完成列表中声明的列表。  
+     The `AddDeclaration` method builds a list of declarations that is later displayed in a completion list.  
   
-     `TestDeclaration`类包含所有可以在完成列表以及声明的类型中显示的信息。  
+     The `TestDeclaration` class contains all the information that can be displayed in a completion list as well as the type of declaration.  
   
-    ```c#  
+    ```cs  
     class TestAuthoringScope : AuthoringScope  
     {  
         public void AddDeclarations(TestDeclaration declaration)  
@@ -193,5 +194,5 @@ class TestLanguageService : LanguageService
   
     ```  
   
-## <a name="see-also"></a>另请参阅  
- [对旧语言服务中的代码段的支持](../../extensibility/internals/support-for-code-snippets-in-a-legacy-language-service.md)
+## <a name="see-also"></a>See Also  
+ [Support for Code Snippets in a Legacy Language Service](../../extensibility/internals/support-for-code-snippets-in-a-legacy-language-service.md)

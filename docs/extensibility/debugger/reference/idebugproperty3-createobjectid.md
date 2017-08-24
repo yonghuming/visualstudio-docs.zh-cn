@@ -1,51 +1,68 @@
 ---
-title: "IDebugProperty3::CreateObjectID | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "IDebugProperty3::CreateObjectID"
-helpviewer_keywords: 
-  - "IDebugProperty3::CreateObjectID"
+title: IDebugProperty3::CreateObjectID | Microsoft Docs
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords:
+- IDebugProperty3::CreateObjectID
+helpviewer_keywords:
+- IDebugProperty3::CreateObjectID
 ms.assetid: f2fa81e7-822f-456e-8729-a96a18eea771
 caps.latest.revision: 10
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 10
----
-# IDebugProperty3::CreateObjectID
-[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
+ms.author: gregvanl
+manager: ghogen
+translation.priority.mt:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+ms.translationtype: MT
+ms.sourcegitcommit: ff8ecec19f8cab04ac2190f9a4a995766f1750bf
+ms.openlocfilehash: 25bbfa902c42570181039c9d545d9fb0779f7e40
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/24/2017
 
-创建此特性唯一 ID 以确保它在其他属性中是唯一的。  
+---
+# <a name="idebugproperty3createobjectid"></a>IDebugProperty3::CreateObjectID
+Creates a unique ID for this property to ensure that it is unique among all other properties.  
   
-## 语法  
+## <a name="syntax"></a>Syntax  
   
 ```cpp  
-HRESULT CreateObjectID(  
-   void  
+HRESULT CreateObjectID(  
+   void  
 );  
 ```  
   
-```c#  
-int CreateObjectID();  
+```cs  
+int CreateObjectID();  
 ```  
   
-## 返回值  
- 如果成功，则返回; `S_OK`否则，返回错误代码。  
+## <a name="return-value"></a>Return Value  
+ If successful, returns `S_OK`; otherwise, returns an error code.  
   
-## 备注  
- 此方法，则当会议调试管理器若要确保时，此属性在其他属性中唯一标识。  调试 \(DE\)引擎它处理的此方法，除非属性中唯一标识。  如果 DE 不支持此方法，它返回 `E_NOTIMPL`。  
+## <a name="remarks"></a>Remarks  
+ This method is called when the session debug manager wants to make sure that this property is uniquely identified among all other properties. The debug engine (DE) supports this method unless the properties it deals with are already uniquely identified. If the DE does not support this method, it returns `E_NOTIMPL`.  
   
- 在 `CreateObjectID` 创建的所有唯一 ID，当 [DestroyObjectID](../../../extensibility/debugger/reference/idebugproperty3-destroyobjectid.md) 调用方法时，销毁;此还需要信号的结尾为唯一标识此属性的。  
+ Any unique ID created with `CreateObjectID` is destroyed when the [DestroyObjectID](../../../extensibility/debugger/reference/idebugproperty3-destroyobjectid.md) method is called; this also signals the end of the need for uniquely identifying this property.  
   
 > [!NOTE]
->  不检索此唯一 ID 的方法，因此， DE 可以执行将为唯一 ID 需要，在 `CreateObjectID` 调用方法时。  
+>  There is no method to retrieve this unique ID, so the DE can do whatever it wants for unique IDs when the `CreateObjectID` method is called.  
   
-## 请参阅  
+## <a name="see-also"></a>See Also  
  [IDebugProperty3](../../../extensibility/debugger/reference/idebugproperty3.md)   
  [DestroyObjectID](../../../extensibility/debugger/reference/idebugproperty3-destroyobjectid.md)

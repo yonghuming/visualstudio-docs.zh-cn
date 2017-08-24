@@ -1,56 +1,73 @@
 ---
-title: "IDebugProperty3::GetStringCharLength | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "IDebugProperty3::GetStringCharLength"
-helpviewer_keywords: 
-  - "IDebugProperty3::GetStringCharLength"
+title: IDebugProperty3::GetStringCharLength | Microsoft Docs
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords:
+- IDebugProperty3::GetStringCharLength
+helpviewer_keywords:
+- IDebugProperty3::GetStringCharLength
 ms.assetid: 89a8676b-6da9-4358-91c2-039bf33f99e4
 caps.latest.revision: 9
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 9
----
-# IDebugProperty3::GetStringCharLength
-[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
+ms.author: gregvanl
+manager: ghogen
+translation.priority.mt:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+ms.translationtype: MT
+ms.sourcegitcommit: ff8ecec19f8cab04ac2190f9a4a995766f1750bf
+ms.openlocfilehash: 340622b80963e72fa5f7e3be14e03bf8569b3d78
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/24/2017
 
-返回字符数在关联的属性的字符串的。  
+---
+# <a name="idebugproperty3getstringcharlength"></a>IDebugProperty3::GetStringCharLength
+Returns the number of characters in the associated property's string.  
   
-## 语法  
+## <a name="syntax"></a>Syntax  
   
 ```cpp  
 HRESULT GetStringCharLength(  
-   ULONG *pLen  
+   ULONG *pLen  
 );  
 ```  
   
-```c#  
+```cs  
 int GetStringCharLength(  
-   out uint pLen  
+   out uint pLen  
 );  
 ```  
   
-#### 参数  
+#### <a name="parameters"></a>Parameters  
   
-|Parameter|说明|  
-|---------------|--------|  
-|`pLen`|\[out\] 返回字符数。属性的字符串的。|  
+|Parameter|Description|  
+|---------------|-----------------|  
+|`pLen`|[out] Returns the number of characters in the property's string.|  
   
-## 返回值  
- 如果成功，则返回; `S_OK`否则返回错误代码。  
+## <a name="return-value"></a>Return Value  
+ If successful, returns `S_OK`; otherwise returns error code.  
   
-## 备注  
- 通常，该方法对用于，对于分配缓冲区中的一个前奏 [GetStringChars](../Topic/IDebugProperty3::GetStringChars.md) 方法。  
+## <a name="remarks"></a>Remarks  
+ Typically, this method is used as a prelude to allocating a buffer for a call to the [GetStringChars](../../../extensibility/debugger/reference/idebugproperty3-getstringchars.md) method.  
   
-## 示例  
- 下面的示例演示如何执行显示 [IDebugProperty3](../../../extensibility/debugger/reference/idebugproperty3.md) 接口的 **CProperty** 对象的方法。  
+## <a name="example"></a>Example  
+ The following example shows how to implement this method for a **CProperty** object that exposes the [IDebugProperty3](../../../extensibility/debugger/reference/idebugproperty3.md) interface.  
   
 ```cpp#  
 STDMETHODIMP CProperty::GetStringCharLength(ULONG *pLen)  
@@ -92,6 +109,6 @@ STDMETHODIMP CProperty::GetStringCharLength(ULONG *pLen)
 }  
 ```  
   
-## 请参阅  
- [GetStringChars](../Topic/IDebugProperty3::GetStringChars.md)   
+## <a name="see-also"></a>See Also  
+ [GetStringChars](../../../extensibility/debugger/reference/idebugproperty3-getstringchars.md)   
  [IDebugProperty3](../../../extensibility/debugger/reference/idebugproperty3.md)

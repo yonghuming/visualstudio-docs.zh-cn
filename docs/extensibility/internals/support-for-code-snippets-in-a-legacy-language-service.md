@@ -1,65 +1,82 @@
 ---
-title: "对旧语言服务中的代码段的支持 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-helpviewer_keywords: 
-  - "支持的语言服务的代码段"
-  - "代码段，支持的语言服务 [托管的包框架]"
-  - "支持代码段的语言服务 [托管的包框架]"
+title: Support for Code Snippets in a Legacy Language Service | Microsoft Docs
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+helpviewer_keywords:
+- snippets, supporting in language services
+- code snippets, supporting in language services [managed package framework]
+- language services [managed package framework], supporting code snippets
 ms.assetid: 7490325b-acee-4c2d-ac56-1cd5db1a1083
 caps.latest.revision: 28
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 28
----
-# 对旧语言服务中的代码段的支持
-[!INCLUDE[vs2017banner](../../code-quality/includes/vs2017banner.md)]
+ms.author: gregvanl
+manager: ghogen
+translation.priority.mt:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+ms.translationtype: MT
+ms.sourcegitcommit: ff8ecec19f8cab04ac2190f9a4a995766f1750bf
+ms.openlocfilehash: 02de05a7f5ce18ccbe590e5e5e4ced13faf73cc1
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/24/2017
 
-代码段是一段代码将插入到源文件。 在代码段是一组字段的基于 XML 的模板。 插入代码段，并可以具有不同的值，具体取决于在该表中插入代码段的上下文后，将突出显示这些字段。 立即插入代码段后，该语言服务即可格式化代码段。  
+---
+# <a name="support-for-code-snippets-in-a-legacy-language-service"></a>Support for Code Snippets in a Legacy Language Service
+A code snippet is a piece of code that is inserted into the source file. The snippet itself is an XML-based template with a set of fields. These fields are highlighted after the snippet is inserted and can have different values depending on the context in which the snippet is inserted. Immediately after the snippet is inserted, the language service can format the snippet.  
   
- 允许代码段以通过使用 TAB 键导航的字段的特殊的编辑模式下插入代码段。 字段可以支持 IntelliSense 样式下拉列表菜单。 用户通过键入 ENTER 或 ESC 键提交到源文件的代码段。 若要了解有关代码段的详细信息，请参阅 [代码段](../../ide/code-snippets.md)。  
+ The snippet is inserted in a special edit mode that allows the fields of the snippet to be navigated by using the TAB key. The fields can support IntelliSense-style drop-down menus. The user commits the snippet to the source file by typing either the ENTER or the ESC key. To learn more about snippets, please see [Code Snippets](../../ide/code-snippets.md).  
   
- 旧的语言服务实现为作为 VSPackage 的一部分，但实现语言服务功能的较新方法是使用 MEF 扩展。 若要获得详细信息，请参阅 [演练: 实现代码段](../../extensibility/walkthrough-implementing-code-snippets.md)。  
+ Legacy language services are implemented as part of a VSPackage, but the newer way to implement language service features is to use MEF extensions. To find out more, see [Walkthrough: Implementing Code Snippets](../../extensibility/walkthrough-implementing-code-snippets.md).  
   
 > [!NOTE]
->  我们建议在开始尽可能快地使用新的编辑器 API。 这将提高您的语言服务的性能，并让您充分利用新的编辑器功能。  
+>  We recommend that you begin to use the new editor API as soon as possible. This will improve the performance of your language service and let you take advantage of new editor features.  
   
-## 管理包的代码段的框架支持  
- 托管的包框架 \(MPF\) 支持大多数代码段功能，从正在读取到中插入代码段模板和启用这两个特殊编辑模式。 通过管理支持 <xref:Microsoft.VisualStudio.Package.ExpansionProvider> 类。  
+## <a name="managed-package-framework-support-for-code-snippets"></a>Managed Package Framework Support for Code Snippets  
+ The managed package framework (MPF) supports most snippet functionality, from reading the template to inserting the snippet and enabling the special edit mode. Support is managed through the <xref:Microsoft.VisualStudio.Package.ExpansionProvider> class.  
   
- 当 <xref:Microsoft.VisualStudio.Package.Source> 实例化类时， <xref:Microsoft.VisualStudio.Package.LanguageService.CreateExpansionProvider%2A> 中的方法 <xref:Microsoft.VisualStudio.Package.LanguageService> 类调用以获得 <xref:Microsoft.VisualStudio.Package.ExpansionProvider> 对象 \(请注意，基 <xref:Microsoft.VisualStudio.Package.LanguageService> 类始终返回一个新 <xref:Microsoft.VisualStudio.Package.ExpansionProvider> 为每个对象 <xref:Microsoft.VisualStudio.Package.Source> 对象\)。  
+ When the <xref:Microsoft.VisualStudio.Package.Source> class is instantiated, the <xref:Microsoft.VisualStudio.Package.LanguageService.CreateExpansionProvider%2A> method in the <xref:Microsoft.VisualStudio.Package.LanguageService> class is called to obtain an <xref:Microsoft.VisualStudio.Package.ExpansionProvider> object (note that the base <xref:Microsoft.VisualStudio.Package.LanguageService> class always returns a new <xref:Microsoft.VisualStudio.Package.ExpansionProvider> object for each <xref:Microsoft.VisualStudio.Package.Source> object).  
   
- MPF 不支持扩展函数。 扩展函数是一个命名的函数嵌入到代码段模板中并返回一个或多个要放置在一个字段的值。 值将返回由语言服务本身通过 <xref:Microsoft.VisualStudio.Package.ExpansionFunction> 对象。<xref:Microsoft.VisualStudio.Package.ExpansionFunction> 对象必须由语言服务以支持扩展函数实现。  
+ The MPF does not support expansion functions. An expansion function is a named function that is embedded in a snippet template and returns one or more values to be placed in a field. The values are returned by the language service itself through an <xref:Microsoft.VisualStudio.Package.ExpansionFunction> object. The <xref:Microsoft.VisualStudio.Package.ExpansionFunction> object must be implemented by the language service to support expansion functions.  
   
-## 提供的代码段的支持  
- 若要启用的代码段支持，必须提供或安装代码片段，必须提供了一种方法供用户插入这些代码段。 有三个步骤使系统可以支持的代码段 ︰  
+## <a name="providing-support-for-code-snippets"></a>Providing Support for Code Snippets  
+ To enable support for code snippets, you must provide or install the snippets and you must provide the means for the user to insert those snippets. There are three steps to enabling support for code snippets:  
   
-1.  安装代码段文件。  
+1.  Installing the snippet files.  
   
-2.  启用语言服务的代码段。  
+2.  Enabling code snippets for your language service.  
   
-3.  调用 <xref:Microsoft.VisualStudio.Package.ExpansionProvider> 对象。  
+3.  Invoking the <xref:Microsoft.VisualStudio.Package.ExpansionProvider> object.  
   
-### 安装代码段文件  
- 为一种语言的所有代码段存储为 XML 文件中的模板通常代码段模板每个文件。 用于代码段模板的 XML 架构的详细信息，请参阅 [代码段架构参考](../../ide/code-snippets-schema-reference.md)。 每个代码段模板标识与语言 id。 这种语言 ID 在注册表中指定并放入 `Language` 模板中的 \< 代码 \> 标记特性。  
+### <a name="installing-the-snippet-files"></a>Installing the Snippet Files  
+ All snippets for a language are stored as templates in XML files, typically one snippet template per file. For details on the XML schema used for code snippet templates, see [Code Snippets Schema Reference](../../ide/code-snippets-schema-reference.md). Each snippet template is identified with a language ID. This language ID is specified in the registry and is put into the `Language` attribute of the \<Code> tag in the template.  
   
- 通常有两个代码段模板文件的存储位置的位置 ︰ 1） 的位置安装您的语言以及 2） 在用户的文件夹。 这些位置添加到注册表因此，Visual Studio **代码片段管理器** 可以找到这些代码段。 用户的文件夹是由用户创建的代码段的存储位置。  
+ There are typically two locations where snippet template files are stored: 1) where your language was installed and 2) in the user's folder. These locations are added to the registry so that the Visual Studio **Code Snippets Manager** can find the snippets. The user's folder is where snippets created by the user are stored.  
   
- 已安装的代码段模板文件的典型的文件夹布局外观如下所示 ︰ *\[InstallRoot\]*\\*\[TestLanguage\]*\\Snippets\\*\[LCID\]*\\Snippets。  
+ The typical folder layout for the installed snippet template files looks like this: *[InstallRoot]*\\*[TestLanguage]*\Snippets\\*[LCID]*\Snippets.  
   
- *\[InstallRoot\]* 是您的语言安装中的文件夹。  
+ *[InstallRoot]* is the folder your language is installed in.  
   
- *\[TestLanguage\]* 是您作为文件夹名称的语言的名称。  
+ *[TestLanguage]* is the name of your language as a folder name.  
   
- *\[LCID\]* 是区域设置 id。 这是您的代码段的方式本地化的版本存储。 例如，英语的区域设置 ID 为 1033，因此 *\[LCID\]* 都替换为 1033年。  
+ *[LCID]* is the locale ID. This is how localized versions of your snippets are stored. For example, the locale ID for English is 1033, so *[LCID]* is replaced by 1033.  
   
- 必须提供一个附加的文件，这是一个索引文件，通常称为 SnippetsIndex.xml 或 ExpansionsIndex.xml （您可以使用任何有效的文件名以.xml 结尾）。 此文件通常存储在 *\[InstallRoot\]*\\*\[TestLanguage\]* 文件夹，指定 snippets 文件夹，以及语言 ID 的确切位置，并使用这些代码段的语言服务的 GUID。 索引文件的准确路径放置在注册表中更高版本中"安装注册表项"所述。 下面是 SnippetsIndex.xml 文件的一个示例 ︰  
+ One additional file must be supplied and that is an index file, typically called SnippetsIndex.xml or ExpansionsIndex.xml (you can use any valid filename ending in .xml). This file is typically stored in the *[InstallRoot]*\\*[TestLanguage]* folder and specifies the exact location of the snippets folder as well as the language ID and GUID of the language service that uses the snippets. The exact path of the index file is put into the registry as described later in "Installing the Registry Entries". Here is an example of a SnippetsIndex.xml file:  
   
 ```  
 <?xml version="1.0" encoding="utf-8" ?>  
@@ -76,26 +93,26 @@ caps.handback.revision: 28
 </SnippetCollection>  
 ```  
   
- \< 语言 \> 标记指定的语言 ID \( `Lang` 属性\) 和语言服务的 GUID。  
+ The \<Language> tag specifies the language ID (the `Lang` attribute) and the language service GUID.  
   
- 此示例假定已经在 Visual Studio 安装文件夹中安装语言服务。 %LCID%将被替换为用户的当前区域设置 id。 多个 \< SnippetDir \> 标记可以添加，一个用于每个不同的目录和区域设置。 此外，代码段文件夹可以包含子文件夹，其中每个索引文件中用标识 \< SnippetDir \> 标记中嵌入的 \< SnippetSubDir \> 标记。  
+ This example assumes you have installed your language service in the Visual Studio installation folder. The %LCID% is replaced with the user's current locale ID. Multiple \<SnippetDir> tags can be added, one for each different directory and locale. In addition, a snippet folder can contain subfolders, each of which is identified in the index file with the \<SnippetSubDir> tag that is embedded in a \<SnippetDir> tag.  
   
- 用户还可以创建自己的代码段用于您的语言。 这些通常存储在用户的设置文件夹中，例如 *\[TestDocs\]*\\Code Snippets\\*\[TestLanguage\]*\\Test 代码段，其中 *\[TestDocs\]* 是 Visual Studio 的用户的设置文件夹的位置。  
+ Users can also create their own snippets for your language. These are typically stored in the user's settings folder, for example *[TestDocs]*\Code Snippets\\*[TestLanguage]*\Test Code Snippets, where *[TestDocs]* is the location of the user's settings folder for Visual Studio.  
   
- 下面的替换元素可将索引文件中的 \< DirPath \> 标记中存储的路径。  
+ The following substitution elements can be placed in the path stored in the \<DirPath> tag in the index file.  
   
-|元素|描述|  
-|--------|--------|  
-|%LCID%|区域设置 id。|  
-|%Installroot%|Visual Studio 中，例如，C:\\Program Files\\Microsoft Visual Studio 8 中的根安装文件夹。|  
-|%Projdir%|包含当前项目的文件夹。|  
-|%Projitem%|包含当前的项目项的文件夹。|  
-|%Testdocs%|文件夹中的用户的设置文件夹，例如，C:\\Documents and Settings\\*\[username\]*documents\\visual Studio\\8。|  
+|Element|Description|  
+|-------------|-----------------|  
+|%LCID%|Locale ID.|  
+|%InstallRoot%|Root installation folder for Visual Studio, for example, C:\Program Files\Microsoft Visual Studio 8.|  
+|%ProjDir%|Folder containing the current project.|  
+|%ProjItem%|Folder containing the current project item.|  
+|%TestDocs%|Folder in the user's settings folder, for example, C:\Documents and Settings\\*[username]*\My Documents\Visual Studio\8.|  
   
-### 语言服务上启用了代码段  
- 您可以为您的语言服务启用代码段，加上 <xref:Microsoft.VisualStudio.Shell.ProvideLanguageCodeExpansionAttribute> 属性设为你的 VSPackage \(请参阅 [注册语言服务](../../extensibility/internals/registering-a-legacy-language-service1.md) 有关的详细信息\)。<xref:Microsoft.VisualStudio.Shell.ProvideLanguageCodeExpansionAttribute.ShowRoots%2A> 和 <xref:Microsoft.VisualStudio.Shell.ProvideLanguageCodeExpansionAttribute.SearchPaths%2A> 参数是可选的但是应该包括 `SearchPaths` 命名参数，以便通知 **代码片段管理器** 您的代码段的位置。  
+### <a name="enabling-code-snippets-for-your-language-service"></a>Enabling Code Snippets for Your Language Service  
+ You can enable code snippets for your language service by adding the <xref:Microsoft.VisualStudio.Shell.ProvideLanguageCodeExpansionAttribute> attribute to your VSPackage (see [Registering a Legacy Language Service](../../extensibility/internals/registering-a-legacy-language-service1.md) for details). The <xref:Microsoft.VisualStudio.Shell.ProvideLanguageCodeExpansionAttribute.ShowRoots%2A> and <xref:Microsoft.VisualStudio.Shell.ProvideLanguageCodeExpansionAttribute.SearchPaths%2A> parameters are optional, but you should include the `SearchPaths` named parameter in order to inform the **Code Snippets Manager** of the location of your snippets.  
   
- 下面是如何使用此特性的示例 ︰  
+ The following is an example of how to use this attribute:  
   
 ```  
 [ProvideLanguageCodeExpansion(  
@@ -107,20 +124,20 @@ caps.handback.revision: 28
          SearchPaths = @"%InstallRoot%\Test Snippet Language\Snippets\%LCID%\")]    // Path to snippets  
 ```  
   
-### 调用扩展提供程序  
- 语言服务控制插入的任何代码段，以及插入调用的方法。  
+### <a name="calling-the-expansion-provider"></a>Calling the Expansion Provider  
+ The language service controls the insertion of any code snippet, as well as the way insertion is invoked.  
   
-## 调用代码段的扩展提供程序  
- 有两种方法可以调用扩展提供程序 ︰ 通过菜单命令或通过从完成列表的快捷方式。  
+## <a name="calling-the-expansion-provider-for-code-snippets"></a>Calling the Expansion Provider for Code Snippets  
+ There are two ways to invoke the expansion provider: by using a menu command or by using a shortcut from a completion list.  
   
-### 通过使用菜单命令插入代码段  
- 若要使用菜单命令显示代码段浏览器，添加一个菜单命令，然后调用 <xref:Microsoft.VisualStudio.Package.ExpansionProvider.DisplayExpansionBrowser%2A> 中的方法 <xref:Microsoft.VisualStudio.Package.ExpansionProvider> 对该菜单命令的响应的接口。  
+### <a name="inserting-a-code-snippet-by-using-a-menu-command"></a>Inserting a Code Snippet by using a Menu Command  
+ To use a menu command to display the snippet browser, you add a menu command and then call the <xref:Microsoft.VisualStudio.Package.ExpansionProvider.DisplayExpansionBrowser%2A> method in the <xref:Microsoft.VisualStudio.Package.ExpansionProvider> interface in response to that menu command.  
   
-1.  向.vsct 文件中添加命令和一个按钮。 您可以找到说明如何在取消阻止 [演练：使用 Visual Studio 包模板创建菜单命令](../Topic/Walkthrough:%20Creating%20a%20Menu%20Command%20By%20Using%20the%20Visual%20Studio%20Package%20Template.md)。  
+1.  Add a command and a button to your .vsct file. You can find instructions for doing so in [Creating an Extension with a Menu Command](../../extensibility/creating-an-extension-with-a-menu-command.md).  
   
-2.  从派生类 <xref:Microsoft.VisualStudio.Package.ViewFilter> 类并重写 <xref:Microsoft.VisualStudio.Package.ViewFilter.QueryCommandStatus%2A> 方法，以指示新的菜单命令的支持。 此示例将始终启用菜单命令。  
+2.  Derive a class from the <xref:Microsoft.VisualStudio.Package.ViewFilter> class and override the <xref:Microsoft.VisualStudio.Package.ViewFilter.QueryCommandStatus%2A> method to indicate support for the new menu command. This example always enables the menu command.  
   
-    ```c#  
+    ```cs  
     using Microsoft.VisualStudio.Package;  
   
     namespace TestLanguagePackage  
@@ -154,9 +171,9 @@ caps.handback.revision: 28
     }  
     ```  
   
-3.  重写 <xref:Microsoft.VisualStudio.Package.ViewFilter.HandlePreExec%2A> 中的方法 <xref:Microsoft.VisualStudio.Package.ViewFilter> 类来获取 <xref:Microsoft.VisualStudio.Package.ExpansionProvider> 对象，并调用 <xref:Microsoft.VisualStudio.Package.ExpansionProvider.DisplayExpansionBrowser%2A> 对该对象的方法。  
+3.  Override the <xref:Microsoft.VisualStudio.Package.ViewFilter.HandlePreExec%2A> method in the <xref:Microsoft.VisualStudio.Package.ViewFilter> class to obtain the <xref:Microsoft.VisualStudio.Package.ExpansionProvider> object and call the <xref:Microsoft.VisualStudio.Package.ExpansionProvider.DisplayExpansionBrowser%2A> method on that object.  
   
-    ```c#  
+    ```cs  
     using Microsoft.VisualStudio.Package;  
   
     namespace TestLanguagePackage  
@@ -204,7 +221,7 @@ caps.handback.revision: 28
   
     ```  
   
-     中的以下方法 <xref:Microsoft.VisualStudio.Package.ExpansionProvider> 类是由 Visual Studio 按给定顺序过程中调用时插入代码段 ︰  
+     The following methods in the <xref:Microsoft.VisualStudio.Package.ExpansionProvider> class are called by Visual Studio in the given order during the process of inserting the snippet:  
   
 4.  <xref:Microsoft.VisualStudio.Package.ExpansionProvider.OnItemChosen%2A>  
   
@@ -216,19 +233,18 @@ caps.handback.revision: 28
   
 8.  <xref:Microsoft.VisualStudio.Package.ExpansionProvider.OnAfterInsertion%2A>  
   
-     之后 <xref:Microsoft.VisualStudio.Package.ExpansionProvider.OnAfterInsertion%2A> 方法调用时，在插入代码段和 <xref:Microsoft.VisualStudio.Package.ExpansionProvider> 对象是在特殊的编辑模式下用于修改刚插入的代码段。  
+     After the <xref:Microsoft.VisualStudio.Package.ExpansionProvider.OnAfterInsertion%2A> method is called, the snippet has been inserted and the <xref:Microsoft.VisualStudio.Package.ExpansionProvider> object is in a special edit mode used for modifying a snippet that has just been inserted.  
   
-### 通过使用一种快捷方式插入代码段  
- 实现从完成列表的快捷方式是而不是实现菜单命令的复杂得多。 您首先必须将代码段快捷方式添加到智能感知单词完成列表。 然后，您必须检测由于完成而插入代码段快捷方式名称后。 最后，您必须获得的代码段标题和路径中使用的快捷方式名称并传递该信息提供给 <xref:Microsoft.VisualStudio.Package.ExpansionProvider.InsertNamedExpansion%2A> 方法 <xref:Microsoft.VisualStudio.Package.ExpansionProvider> 方法。  
+### <a name="inserting-a-code-snippet-by-using-a-shortcut"></a>Inserting a code snippet by using a shortcut  
+ Implementation of a shortcut from a completion list is much more involved than implementing a menu command. You must first add snippet shortcuts to the IntelliSense word completion list. Then you must detect when a snippet shortcut name has been inserted as a result of completion. Finally, you must obtain the snippet title and path using the shortcut name and pass that information to the <xref:Microsoft.VisualStudio.Package.ExpansionProvider.InsertNamedExpansion%2A> method on the <xref:Microsoft.VisualStudio.Package.ExpansionProvider> method.  
   
- 若要将代码段快捷方式添加到完成单词列表中，将它们添加到 <xref:Microsoft.VisualStudio.Package.Declarations> 对象在您 <xref:Microsoft.VisualStudio.Package.AuthoringScope> 类。 必须确保能够识别为代码段名称的快捷方式。 有关示例，请参见 [演练︰ 获取安装的代码段 （旧实现） 的列表](../../extensibility/internals/walkthrough-getting-a-list-of-installed-code-snippets-legacy-implementation.md)。  
+ To add snippet shortcuts to the word completion list, add them to the <xref:Microsoft.VisualStudio.Package.Declarations> object in your <xref:Microsoft.VisualStudio.Package.AuthoringScope> class. You must make sure you can identify the shortcut as a snippet name. For an example, see [Walkthrough: Getting a List of Installed Code Snippets (Legacy Implementation)](../../extensibility/internals/walkthrough-getting-a-list-of-installed-code-snippets-legacy-implementation.md).  
   
- 您可以检测到中的代码段快捷方式插入 <xref:Microsoft.VisualStudio.Package.Declarations.OnAutoComplete%2A> 方法 <xref:Microsoft.VisualStudio.Package.Declarations> 类。 原因是，已将代码段名称插入到源文件中，必须插入扩展时删除它。<xref:Microsoft.VisualStudio.Package.ExpansionProvider.InsertNamedExpansion%2A> 方法采用一个描述代码段插入点的范围; 如果在源文件中，范围包括整个代码段名称，该名称替换为代码段。  
+ You can detect the insertion of the code snippet shortcut in the <xref:Microsoft.VisualStudio.Package.Declarations.OnAutoComplete%2A> method of the <xref:Microsoft.VisualStudio.Package.Declarations> class. Because the snippet name has already been inserted into the source file, it must be removed when the expansion is inserted. The <xref:Microsoft.VisualStudio.Package.ExpansionProvider.InsertNamedExpansion%2A> method takes a span that describes the point of insertion for the snippet; if the span includes the entire snippet name in the source file, that name is replaced by the snippet.  
   
- 以下是版本 <xref:Microsoft.VisualStudio.Package.Declarations> 处理给定快捷名称插入代码段的类。 中的其他方法 <xref:Microsoft.VisualStudio.Package.Declarations> 为了清楚起见省略了类。 请注意，此类的构造函数采用 <xref:Microsoft.VisualStudio.Package.LanguageService> 对象。 这可以从自己版本的传入 <xref:Microsoft.VisualStudio.Package.AuthoringScope> 对象 \(例如，如果您实施的 <xref:Microsoft.VisualStudio.Package.AuthoringScope> 类可能需要 <xref:Microsoft.VisualStudio.Package.LanguageService> 对象在其构造函数并将传递到该对象您 `TestDeclarations` 类构造函数\)。  
+ Here is a version of a <xref:Microsoft.VisualStudio.Package.Declarations> class that handles snippet insertion given a shortcut name. Other methods in the <xref:Microsoft.VisualStudio.Package.Declarations> class have been omitted for clarity. Note that the constructor of this class takes a <xref:Microsoft.VisualStudio.Package.LanguageService> object. This can be passed in from your version of the <xref:Microsoft.VisualStudio.Package.AuthoringScope> object (for example, your implementation of the <xref:Microsoft.VisualStudio.Package.AuthoringScope> class might take the <xref:Microsoft.VisualStudio.Package.LanguageService> object in its constructor and pass that object on to your `TestDeclarations` class constructor).  
   
-```  
-[C#]  
+```cs  
 using Microsoft.VisualStudio.Package;  
 using Microsoft.VisualStudio.TextManager.Interop;  
   
@@ -327,7 +343,7 @@ namespace TestLanguagePackage
 }  
 ```  
   
- 当语言服务获取的快捷名称时，它将调用 <xref:Microsoft.VisualStudio.Package.ExpansionProvider.FindExpansionByShortcut%2A> 方法来获取文件名和代码段标题。 语言服务然后调用 <xref:Microsoft.VisualStudio.Package.ExpansionProvider.InsertNamedExpansion%2A> 中的方法 <xref:Microsoft.VisualStudio.Package.ExpansionProvider> 类插入代码段。 在给定的顺序调用下列方法通过 Visual Studio <xref:Microsoft.VisualStudio.Package.ExpansionProvider> 在过程中插入代码段的类 ︰  
+ When the language service gets the shortcut name, it calls the <xref:Microsoft.VisualStudio.Package.ExpansionProvider.FindExpansionByShortcut%2A> method to obtain the filename and code snippet title. The language service then calls the <xref:Microsoft.VisualStudio.Package.ExpansionProvider.InsertNamedExpansion%2A> method in the <xref:Microsoft.VisualStudio.Package.ExpansionProvider> class to insert the code snippet. The following methods are called by Visual Studio in the given order in the <xref:Microsoft.VisualStudio.Package.ExpansionProvider> class during the process of inserting the snippet:  
   
 1.  <xref:Microsoft.VisualStudio.Package.ExpansionProvider.IsValidKind%2A>  
   
@@ -337,17 +353,17 @@ namespace TestLanguagePackage
   
 4.  <xref:Microsoft.VisualStudio.Package.ExpansionProvider.OnAfterInsertion%2A>  
   
- 获取语言服务安装的代码段的列表的详细信息，请参阅 [演练︰ 获取安装的代码段 （旧实现） 的列表](../../extensibility/internals/walkthrough-getting-a-list-of-installed-code-snippets-legacy-implementation.md)。  
+ For more information on getting a list of installed code snippets for your language service, see [Walkthrough: Getting a List of Installed Code Snippets (Legacy Implementation)](../../extensibility/internals/walkthrough-getting-a-list-of-installed-code-snippets-legacy-implementation.md).  
   
-## 实现 ExpansionFunction 类  
- 扩展函数是一个命名的函数嵌入到代码段模板中并返回一个或多个要放置在一个字段的值。 若要在您的语言服务支持扩展函数，您必须从派生类 <xref:Microsoft.VisualStudio.Package.ExpansionFunction> 类，实现 <xref:Microsoft.VisualStudio.Package.ExpansionFunction.GetCurrentValue%2A> 方法。 然后，您必须重写 <xref:Microsoft.VisualStudio.Package.LanguageService.CreateExpansionFunction%2A> 中的方法 <xref:Microsoft.VisualStudio.Package.LanguageService> 类以返回您的版本的新实例化 <xref:Microsoft.VisualStudio.Package.ExpansionFunction> 您支持的每个扩展功能的类。 如果支持扩展函数中的可能值的列表，还必须重写 <xref:Microsoft.VisualStudio.Package.ExpansionFunction.GetIntellisenseList%2A> 中的方法 <xref:Microsoft.VisualStudio.Package.ExpansionFunction> 类以返回这些值的列表。  
+## <a name="implementing-the-expansionfunction-class"></a>Implementing the ExpansionFunction Class  
+ An expansion function is a named function that is embedded in a snippet template and returns one or more values to be placed in a field. In order to support expansion functions in your language service, you must derive a class from the <xref:Microsoft.VisualStudio.Package.ExpansionFunction> class and implement the <xref:Microsoft.VisualStudio.Package.ExpansionFunction.GetCurrentValue%2A> method. You must then override the <xref:Microsoft.VisualStudio.Package.LanguageService.CreateExpansionFunction%2A> method in the <xref:Microsoft.VisualStudio.Package.LanguageService> class to return a new instantiation of your version of the <xref:Microsoft.VisualStudio.Package.ExpansionFunction> class for each expansion function you support. If you support a list of possible values from an expansion function, you must also override the <xref:Microsoft.VisualStudio.Package.ExpansionFunction.GetIntellisenseList%2A> method in the <xref:Microsoft.VisualStudio.Package.ExpansionFunction> class to return a list of those values.  
   
- 为扩展提供程序可能未完全初始化扩展函数调用时，不采用参数，或需要访问其他字段的扩展函数不应与某个可编辑字段相关联。 因此，扩展函数不能获取它的参数或任何其他字段的值。  
+ An expansion function that takes arguments or needs to access other fields should not be associated with an editable field, as the expansion provider might not be fully initialized by the time the expansion function is called. As a result, the expansion function is not able to obtain the value of its arguments or any other field.  
   
-### 示例  
- 下面是一个示例的简单易用的扩展函数的调用方式 `GetName` 可能实现。 此扩展函数追加一个数字基类名称实例化扩展函数每次 （它对应于每个时间相关联的代码段插入）。  
+### <a name="example"></a>Example  
+ Here is an example of how a simple expansion function called `GetName` might be implemented. This expansion function appends a number to a base class name each time the expansion function is instantiated (which corresponds to each time the associated code snippet is inserted).  
   
-```c#  
+```cs  
 using Microsoft.VisualStudio.Package;  
   
 namespace TestLanguagePackage  
@@ -390,8 +406,8 @@ namespace TestLanguagePackage
 }  
 ```  
   
-## 请参阅  
- [遗留语言服务功能](../../extensibility/internals/legacy-language-service-features1.md)   
- [注册语言服务](../../extensibility/internals/registering-a-legacy-language-service1.md)   
- [代码段](../../ide/code-snippets.md)   
- [演练︰ 获取安装的代码段 （旧实现） 的列表](../../extensibility/internals/walkthrough-getting-a-list-of-installed-code-snippets-legacy-implementation.md)
+## <a name="see-also"></a>See Also  
+ [Legacy Language Service Features](../../extensibility/internals/legacy-language-service-features1.md)   
+ [Registering a Legacy Language Service](../../extensibility/internals/registering-a-legacy-language-service1.md)   
+ [Code Snippets](../../ide/code-snippets.md)   
+ [Walkthrough: Getting a List of Installed Code Snippets (Legacy Implementation)](../../extensibility/internals/walkthrough-getting-a-list-of-installed-code-snippets-legacy-implementation.md)

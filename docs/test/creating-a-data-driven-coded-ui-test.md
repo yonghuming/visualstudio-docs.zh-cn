@@ -1,5 +1,5 @@
 ---
-title: "创建数据驱动的编码的 UI 测试 | Microsoft Docs"
+title: Creating a Data-Driven Coded UI Test | Microsoft Docs
 ms.custom: 
 ms.date: 11/04/2016
 ms.reviewer: 
@@ -28,44 +28,44 @@ translation.priority.ht:
 - tr-tr
 - zh-cn
 - zh-tw
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 47057e9611b824c17077b9127f8d2f8b192d6eb8
-ms.openlocfilehash: 2c4cb515c4442b3c48c42f47f9116e9ff536a5f4
+ms.translationtype: HT
+ms.sourcegitcommit: ff8ecec19f8cab04ac2190f9a4a995766f1750bf
+ms.openlocfilehash: 388aa6ce843d1990273b0aac7a4148ffc5944d98
 ms.contentlocale: zh-cn
-ms.lasthandoff: 05/13/2017
+ms.lasthandoff: 08/24/2017
 
 ---
-# <a name="creating-a-data-driven-coded-ui-test"></a>创建数据驱动的编码的 UI 测试
-若要测试不同的情况，你可以使用不同的参数值多次运行测试。 数据驱动的编码的 UI 测试就是执行该操作的一个便捷方法。 对数据源中参数值进行定义后，数据源中的每一行都是编码的 UI 测试的一个迭代。 测试的总结果将取决于所有迭代的结果。 例如，如果一个测试迭代失败，则测试总结果是失败。  
+# <a name="creating-a-data-driven-coded-ui-test"></a>Creating a Data-Driven Coded UI Test
+To test different conditions, you can run your tests multiple times with different parameter values. Data-driven coded UI tests are a convenient way to do this. You define parameter values in a data source, and each row in the data source is an iteration of the coded UI test. The overall result of the test will be based on the outcome for all the iterations. For example, if one test iteration fails, the overall test result is failure.  
   
- **要求**  
+ **Requirements**  
   
 -   Visual Studio Enterprise  
   
-## <a name="create-a-data-driven-coded-ui-test"></a>创建数据驱动的编码的 UI 测试  
- 该示例创建了一个在 Windows 计算器应用程序上运行的编码的 UI 测试。 它将两个数字添加在一起并用断言来验证总和是正确的。 然后，这两个数的断言和参数值被编码变成了数据驱动的并且存储在逗号分隔值 (.csv) 文件中。  
+## <a name="create-a-data-driven-coded-ui-test"></a>Create a data-driven coded UI test  
+ This sample creates a coded UI test that runs on the Windows Calculator application. It adds two numbers together and uses an assertion to validate that the sum is correct. Next, the assertion and the parameter values for the two numbers are coded to become data-driven and stored in a comma-separated value (.csv) file.  
   
-#### <a name="step-1---create-a-coded-ui-test"></a>步骤 1 - 创建编码的 UI 测试  
+#### <a name="step-1---create-a-coded-ui-test"></a>Step 1 - Create a coded UI test  
   
-1.  创建项目。  
+1.  Create a project.  
   
-     ![创建编码的 UI 测试项目](../test/media/cuit_datadriven_.png "CUIT_dataDriven_")  
+     ![Create a coded UI test project](../test/media/cuit_datadriven_.png "CUIT_dataDriven_")  
   
-2.  选择记录操作。  
+2.  Choose to record the actions.  
   
-     ![选择记录操作](~/test/media/cuit_datadriven_generatecodedialog.png "CUIT_dataDriven_GenerateCodeDialog")  
+     ![Choose to record the actions](../test/media/cuit_datadriven_generatecodedialog.png "CUIT_dataDriven_GenerateCodeDialog")  
   
-3.  打开计算器应用程序并开始记录测试。  
+3.  Open the calculator app and start recording the test.  
   
-     ![记录操作](../test/media/cuit_datadriven_cuitbuilder.png "CUIT_dataDriven_CUITBuilder")  
+     ![Record actions](../test/media/cuit_datadriven_cuitbuilder.png "CUIT_dataDriven_CUITBuilder")  
   
-4.  添加 1 + 2，暂停记录器并生成测试方法。 以后我们将用数据文件中的值替换该用户输入的值。  
+4.  Add 1 plus 2, pause the recorder, and generate the test method. Later we'll replace the values of this user input with values from a data file.  
   
-     ![生成测试方法](~/test/media/cuit_datadriven_cuitbuildergencode.png "CUIT_dataDriven_CUITBuilderGenCode")  
+     ![Genetate test method](../test/media/cuit_datadriven_cuitbuildergencode.png "CUIT_dataDriven_CUITBuilderGenCode")  
   
-     关闭测试生成器。 方法已添加到测试中：  
+     Close the test builder. The method is added to the test:  
   
-    ```c#  
+    ```cs  
     [TestMethod]  
     public void CodedUITestMethod1()  
     {  
@@ -75,27 +75,27 @@ ms.lasthandoff: 05/13/2017
     }  
     ```  
   
-5.  使用 `AddNumbers()` 方法验证测试正常运行。 将游标放在上面所示的测试方法中，打开上下文菜单，然后选择“运行测试”。 （键盘快捷键：Ctrl + R、T)。  
+5.  Use the `AddNumbers()` method to verify that the test runs. Place the cursor in the test method shown above, open the context menu, and choose **Run Tests**. (Keyboard shortcut: Ctrl + R, T).  
   
-     表明测试通过还是失败的测试结果会显示在测试资源管理器窗口中。 若要打开测试资源管理器窗口，请从“测试”菜单中选择“窗口”，然后选择“测试资源管理器”。  
+     The test result that shows if the test passed or failed is displayed in the Test Explorer window. To open the Test Explorer window, from the **TEST** menu, choose **Windows** and then choose **Test Explorer**.  
   
-6.  因为数据源还可以用于断言参数值（供测试用于验证预期的值），所以通过添加断言来验证这两个数的总和是正确的。 将游标放在上面所示的测试方法中，打开上下文菜单，然后依次选择“为编码的 UI 测试生成代码”、“使用编码的 UI 测试生成器”。  
+6.  Because a data source can also be used for assertion parameter values—which are used by the test to verify expected values—let's add an assertion to validate that the sum of the two numbers is correct. Place the cursor in the test method shown above, open the context menu and choose **Generate Code for Coded UI Test**, and then **Use Coded UI Test Builder**.  
   
-     映射显示总和的计算器中的文本控件。  
+     Map the text control in the calculator that displays the sum.  
   
-     ![映射 UI 文本控件](../test/media/cuit_datadriven_addassertion.png "CUIT_dataDriven_AddAssertion")  
+     ![Map the UI text control](../test/media/cuit_datadriven_addassertion.png "CUIT_dataDriven_AddAssertion")  
   
-7.  添加验证总和数值正确的断言。 选择具有值“3”的“DisplayText”属性，然后选择“添加断言”。 使用“AreEqual”比较运算符并确认比较值为“3”。  
+7.  Add an assertion that validates that the value of the sum is correct. Choose the **DisplayText** property that has the value of **3** and then choose **Add Assertion**. Use the **AreEqual** comparator and verify that the comparison value is **3**.  
   
-     ![配置断言](../test/media/cuit_datadriven_builderaddassertion2.png "CUIT_dataDriven_BuilderAddAssertion2")  
+     ![Configure the assertion](../test/media/cuit_datadriven_builderaddassertion2.png "CUIT_dataDriven_BuilderAddAssertion2")  
   
-8.  配置断言之后，再次从生成器生成代码。 这就创建一个新的验证方法。  
+8.  After configuring the assertion, generate code from the builder again. This creates a new method for the validation.  
   
-     ![生成断言方法](~/test/media/cuit_datadriven_assertiongencode.png "CUIT_dataDriven_AssertionGenCode")  
+     ![Generate the assertion method](../test/media/cuit_datadriven_assertiongencode.png "CUIT_dataDriven_AssertionGenCode")  
   
-     因为 `ValidateSum` 方法验证了 `AddNumbers` 方法的结果，将其移至代码块的底部。  
+     Because the `ValidateSum` method validates the results of the `AddNumbers` method, move it to the bottom of the code block.  
   
-    ```c#  
+    ```cs  
     public void CodedUITestMethod1()  
     {  
   
@@ -106,17 +106,17 @@ ms.lasthandoff: 05/13/2017
     }  
     ```  
   
-9. 通过 `ValidateSum()` 方法验证测试正常运行。 将游标放在上面所示的测试方法中，打开上下文菜单，然后选择“运行测试”。 （键盘快捷键：Ctrl + R、T)。  
+9. Verify that the test runs by using the `ValidateSum()` method. Place the cursor in the test method shown above, open the context menu, and choose **Run Tests**. (Keyboard shortcut:Ctrl + R, T).  
   
-     在这一点上，所有参数值在方法中都定义为常量。 然后，创建数据集，让测试成为数据驱动的测试。  
+     At this point, all the parameter values are defined in their methods as constants. Next, let's create a data set to make our test data-driven.  
   
-#### <a name="step-2---create-a-data-set"></a>步骤 2 - 创建数据集  
+#### <a name="step-2---create-a-data-set"></a>Step 2 - Create a data set  
   
-1.  在名为 `data.csv` 的 dataDrivenSample 项目中添加文本文件。  
+1.  Add a text file to the dataDrivenSample project named `data.csv`.  
   
-     ![将逗号分隔值文件添加到项目](../test/media/cuit_datadriven_addcsvfile.png "CUIT_dataDriven_AddCSVFile")  
+     ![Add a comma seperated value file to the project](../test/media/cuit_datadriven_addcsvfile.png "CUIT_dataDriven_AddCSVFile")  
   
-2.  使用以下数据填充 .csv 文件:  
+2.  Populate the .csv file with the following data:  
   
     |Num1|Num2|Sum|  
     |----------|----------|---------|  
@@ -124,21 +124,21 @@ ms.lasthandoff: 05/13/2017
     |5|6|11|  
     |6|8|14|  
   
-     添加的数据之后，文件如下所示：  
+     After adding the data, the file should appear as the following:  
   
-     ![使用数据填充 .CSV 文件](../test/media/cuit_datadriven_adddatatocsvfile.png "CUIT_dataDriven_AddDataToCSVFile")  
+     ![Populate the .CSV file with data](../test/media/cuit_datadriven_adddatatocsvfile.png "CUIT_dataDriven_AddDataToCSVFile")  
   
-3.  务必使用正确的编码保存 .csv 文件。 在“文件”菜单上，选择“高级保存选项”，并选择“Unicode (无签名的 UTF-8) - 代码页 65001”作为编码。  
+3.  It is important to save the .csv file using the correct encoding. On the **FILE** menu, choose **Advanced Save Options** and choose **Unicode (UTF-8 without signature) - Codepage 65001** as the encoding.  
   
-4.  必须将 .csv 文件复制到输出目录，否则测试无法运行。 使用属性窗口进行复制。  
+4.  The .csv file, must be copied to the output directory, or the test can't run. Use the Properties window to copy it.  
   
-     ![部署 .CSV 文件](../test/media/cuit_datadriven_deploycsvfile.png "CUIT_dataDriven_DeployCSVFile")  
+     ![Deploy the .CSV file](../test/media/cuit_datadriven_deploycsvfile.png "CUIT_dataDriven_DeployCSVFile")  
   
-     数据集已经创建，接下来将数据绑定到测试。  
+     Now that we have the data set created, let's bind the data to the test.  
   
-#### <a name="step-3---add-data-source-binding"></a>步骤 3 - 添加数据源绑定  
+#### <a name="step-3---add-data-source-binding"></a>Step 3 - Add data source binding  
   
-1.  若要绑定数据源，请将 `DataSource` 属性添加在现有 `[TestMethod]` 属性（就在测试方法上面）中。  
+1.  To bind the data source, add a `DataSource` attribute within the existing `[TestMethod]` attribute that is immediately above the test method.  
   
     ```  
     [DataSource("Microsoft.VisualStudio.TestTools.DataSource.CSV", "|DataDirectory|\\data.csv", "data#csv", DataAccessMethod.Sequential), DeploymentItem("data.csv"), TestMethod]  
@@ -153,20 +153,20 @@ ms.lasthandoff: 05/13/2017
   
     ```  
   
-     现在你可以将该数据源用于测试方法中了。  
+     The data source is now available for you to use in this test method.  
   
     > [!TIP]
-    >  请参阅问答章节中的[数据源属性示例](#CreateDataDrivenCUIT_QA_DataSourceAttributes)，查找使用 XML、SQL Express 和 Excel 等其他数据源类型的示例。  
+    >  See [data source attribute samples](#CreateDataDrivenCUIT_QA_DataSourceAttributes) in the Q & A section for samples of using other data source types such as XML, SQL Express and Excel.  
   
-2.  运行测试。  
+2.  Run the test.  
   
-     注意，测试通过三种迭代运行。 这是因为绑定的数据源包含三行数据。 不过，你还要注意测试每次依然使用常数参数值并且添加 1 + 2，和为 3。  
+     Notice that the test runs through three iterations. This is because the data source that was bound contains three rows of data. However, you will also notice that the test is still using the constant parameter values and is adding 1 + 2 with a sum of 3 each time.  
   
-     接下来，将测试配置为使用数据源文件中的值。  
+     Next, we'll configure the test to use the values in the data source file.  
   
-#### <a name="step-4---use-the-data-in-the-coded-ui-test"></a>步骤 4 - 将数据用于编码的 UI 测试中  
+#### <a name="step-4---use-the-data-in-the-coded-ui-test"></a>Step 4 - Use the data in the coded UI test  
   
-1.  将 `using Microsoft.VisualStudio.TestTools.UITesting.WinControls` 添加至 CodedUITest.cs 文件的顶部：  
+1.  Add `using Microsoft.VisualStudio.TestTools.UITesting.WinControls` to the top of the CodedUITest.cs file:  
   
     ```  
     using System;  
@@ -182,7 +182,7 @@ ms.lasthandoff: 05/13/2017
     using Microsoft.VisualStudio.TestTools.UITesting.WinControls;  
     ```  
   
-2.  将 `TestContext.DataRow[]` 添加至 `CodedUITestMethod1()` 方法（将使用数据源中的值）。 通过使用控件 `SearchProperties`，数据源值覆盖了分配给 UIMap 控件的常量：  
+2.  Add `TestContext.DataRow[]` in the `CodedUITestMethod1()` method which will apply values from the data source. The data source values override the constants assigned to UIMap controls by using the controls `SearchProperties`:  
   
     ```  
     public void CodedUITestMethod1()  
@@ -197,38 +197,38 @@ ms.lasthandoff: 05/13/2017
     }  
     ```  
   
-     使用编码的 UI 测试编辑器来区分将数据编码为何种搜索属性。  
+     To figure out which search properties to code the data to, use the Coded UI Test Editor.  
   
-    -   打开 UIMap.uitest 文件。  
+    -   Open the UIMap.uitest file.  
   
-         ![打开编码的 UI 测试编辑器](../test/media/cuit_datadriven_opentesteditor.png "CUIT_dataDriven_OpenTestEditor")  
+         ![Open the Coded UI Test Editor](../test/media/cuit_datadriven_opentesteditor.png "CUIT_dataDriven_OpenTestEditor")  
   
-    -   选择 UI 操作并观察相应的 UI 控件映射。 注意映射是如何响应代码的，例如，`this.UIMap.UICalculatorWindow.UIItemWindow.UIItem1Button`。  
+    -   Choose the UI action and observe the corresponding UI control mapping. Notice how the mapping corresponds to the code, for example, `this.UIMap.UICalculatorWindow.UIItemWindow.UIItem1Button`.  
   
-         ![使用编码的 UI 测试编辑器以辅助代码](../test/media/cuit_datadriven_testeditor.png "CUIT_dataDriven_TestEditor")  
+         ![Use the Coded UI Test Editor to assist with code](../test/media/cuit_datadriven_testeditor.png "CUIT_dataDriven_TestEditor")  
   
-    -   在属性窗口中，打开“搜索属性”。 搜索属性“名称”值为使用数据源在代码中对其进行操作的值。 例如，`SearchProperties` 被分配给每个数据行第一列中的值：`UIItem1Button.SearchProperties[WinButton.PropertyNames.Name] = TestContext.DataRow["Num1"].ToString();`。 对于这三个迭代，测试会将搜索属性的“名称”值依次更改为 3、5、6。  
+    -   In the Properties Window, open **Search Properties**. The search properties **Name** value is what is being manipulated in the code using the data source. For example, the `SearchProperties` is being assigned the values in the first column of each data row: `UIItem1Button.SearchProperties[WinButton.PropertyNames.Name] = TestContext.DataRow["Num1"].ToString();`. For the three iterations, this test will change the **Name** value for the search property to 3, then 5, and finally 6.  
   
-         ![使用搜索属性辅助编码](../test/media/cuit_datadriven_searchproperties.png "CUIT_dataDriven_SearchProperties")  
+         ![Use the search properties to assist in coding](../test/media/cuit_datadriven_searchproperties.png "CUIT_dataDriven_SearchProperties")  
   
-3.  保存解决方案。  
+3.  Save the solution.  
   
-#### <a name="step-5---run-the-data-driven-test"></a>步骤 5 - 运行数据驱动的测试  
+#### <a name="step-5---run-the-data-driven-test"></a>Step 5 - Run the data-driven test  
   
-1.  通过再次运行测试来验证现在测试是数据驱动的。  
+1.  Verify that the test is now data-driven by running the test again.  
   
-     使用 .csv 文件中的值你可以看到测试通过这三个迭代运行。 验证工作仍可进行，并且测试资源管理器中的测试应显示为通过。  
+     You should see the test run through the three iterations using the values in the .csv file. The validation should work as well and the test should display as passed in the Test Explorer.  
   
- **指南**  
+ **Guidance**  
   
- 有关其他信息，请参阅[使用 Visual Studio 2012 测试连续交付 - 第 2 章：单元测试：测试内部](http://go.microsoft.com/fwlink/?LinkID=255188)和[使用 Visual Studio 2012 测试连续交付 - 第 5 章：自动化系统测试](http://go.microsoft.com/fwlink/?LinkID=255196)  
+ For additional information, see [Testing for Continuous Delivery with Visual Studio 2012 - Chapter 2: Unit Testing: Testing the Inside](http://go.microsoft.com/fwlink/?LinkID=255188) and [Testing for Continuous Delivery with Visual Studio 2012 - Chapter 5: Automating System Tests](http://go.microsoft.com/fwlink/?LinkID=255196)  
   
-## <a name="q--a"></a>问题解答  
+## <a name="q--a"></a>Q & A  
   
-###  <a name="CreateDataDrivenCUIT_QA_DataSourceAttributes"></a>其他数据源类型（如 SQL Express 或 XML）具有哪些数据源属性？  
- 你可以将下表中的示例数据源字符串复制到你的代码中并进行必要的自定义，然后就可以使用了。  
+###  <a name="CreateDataDrivenCUIT_QA_DataSourceAttributes"></a> What are the data source attributes for other data source types, such as SQL Express or XML?  
+ You can use the sample data source strings in the table below by copying them to your code and making the necessary customizations.  
   
- **数据源类型和属性**  
+ **Data Source Types and Attributes**  
   
 -   CSV  
   
@@ -238,7 +238,7 @@ ms.lasthandoff: 05/13/2017
   
      `DataSource("System.Data.Odbc", "Dsn=ExcelFiles;Driver={Microsoft Excel Driver (*.xls)};dbq=|DataDirectory|\\Data.xls;defaultdir=.;driverid=790;maxbuffersize=2048;pagetimeout=5;readonly=true", "Sheet1$", DataAccessMethod.Sequential), DeploymentItem("Sheet1.xls"), TestMethod]`  
   
--   Team Foundation Server 中的测试用例  
+-   Test case in Team Foundation Server  
   
      `[DataSource("Microsoft.VisualStudio.TestTools.DataSource.TestCase", "http://vlm13261329:8080/tfs/DefaultCollection;Agile", "30", DataAccessMethod.Sequential), TestMethod]`  
   
@@ -250,8 +250,8 @@ ms.lasthandoff: 05/13/2017
   
      `[DataSource("System.Data.SqlClient", "Data Source=.\\sqlexpress;Initial Catalog=tempdb;Integrated Security=True", "Data", DataAccessMethod.Sequential), TestMethod]`  
   
-### <a name="q-can-i-use-data-driven-tests-on-my-windows-phone-app"></a>问：我可以在 Windows Phone 应用上使用数据驱动的测试吗？  
- **答：** 可以。 适用于 Windows Phone 的数据驱动的编码 UI 测试使用测试方法中的 DataRow 特性定义。 在以下示例中，x 和 y 为测试的第一次迭代使用值 1 和 2，为第二次迭代使用值 -1 和 -2。  
+### <a name="q-can-i-use-data-driven-tests-on-my-windows-phone-app"></a>Q: Can I use data-driven tests on my Windows Phone app?  
+ **A:** Yes. Data-driven Coded UI tests for Windows Phone are defined using the DataRow attribute on a test method. In the following example, x and y use the values of 1 and 2 for the first iteration and -1 and -2 for the second iteration of the test.  
   
 ```  
 [DataRow(1, 2, DisplayName = "Add positive numbers")]  
@@ -261,18 +261,18 @@ public void DataDrivingDemo_MyTestMethod(int x, int y)
   
 ```  
   
- 有关详细信息，请参阅[对 Windows Phone 应用使用数据驱动的编码的 UI 测试](../test/test-windows-phone-8-1-apps-with-coded-ui-tests.md#TestingPhoneAppsCodedUI_DataDriven)。  
+ For more information, see [Use Data-driven coded UI tests on Windows Phone apps](../test/test-windows-phone-8-1-apps-with-coded-ui-tests.md#TestingPhoneAppsCodedUI_DataDriven).  
   
-### <a name="q-why-cant-i-modify-the-code-in-the-uimapdesigner-file"></a>问：为什么无法修改 UIMap.Designer 文件中的代码？  
- **答：**每次使用“UIMap - 编码的 UI 测试生成器”生成代码时，都将覆盖在 UIMapDesigner.cs 文件中所做的任何代码更改。 在该示例中以及大多数情况下，为了让测试可以使用某项数据而需要更改代码，这时可以对该测试的源代码文件（即 CodedUITest1.cs）进行更改。  
+### <a name="q-why-cant-i-modify-the-code-in-the-uimapdesigner-file"></a>Q: Why can't I modify the code in the UIMap.Designer file?  
+ **A:** Any code changes you make in the UIMapDesigner.cs file will be overwritten every time you generate code using the UIMap - Coded UI Test Builder. In this sample, and in most cases, the code changes needed to enable a test to use a data source can be made to the test's source code file (that is, CodedUITest1.cs).  
   
- 如果必须修改录制的方法，则必须将其复制到 UIMap.cs 文件并对其重命名。  UIMap.cs 文件可用于重写 UIMapDesigner.cs 文件中的方法和属性。 必须在 Coded UITest.cs 文件中删除对原始方法的引用，并将其替换为重命名的方法名称。  
+ If you have to modify a recorded method, you must copy it to UIMap.cs file and rename it. The UIMap.cs file can be used to override methods and properties in the UIMapDesigner.cs file. You must remove the reference to the original method in the Coded UITest.cs file and replace it with the renamed method name.  
   
-## <a name="see-also"></a>另请参阅  
+## <a name="see-also"></a>See Also  
  <xref:Microsoft.VisualStudio.TestTools.UITest.Common.UIMap.UIMap>   
  <xref:Microsoft.VisualStudio.TestTools.UnitTesting.Assert>   
- [使用 UI 自动化来测试代码](../test/use-ui-automation-to-test-your-code.md)   
- [创建编码的 UI 测试](../test/use-ui-automation-to-test-your-code.md#VerifyingCodeUsingCUITCreate)   
- [编码的 UI 测试的最佳做法](../test/best-practices-for-coded-ui-tests.md)   
- [支持编码的 UI 测试和操作录制的配置和平台](../test/supported-configurations-and-platforms-for-coded-ui-tests-and-action-recordings.md)
+ [Use UI Automation To Test Your Code](../test/use-ui-automation-to-test-your-code.md)   
+ [Creating Coded UI Tests](../test/use-ui-automation-to-test-your-code.md#VerifyingCodeUsingCUITCreate)   
+ [Best Practices for Coded UI Tests](../test/best-practices-for-coded-ui-tests.md)   
+ [Supported Configurations and Platforms for Coded UI Tests and Action Recordings](../test/supported-configurations-and-platforms-for-coded-ui-tests-and-action-recordings.md)
 

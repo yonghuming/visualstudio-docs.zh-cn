@@ -1,42 +1,57 @@
 ---
-title: "提取接口重构 (C#) | Microsoft Docs"
-ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "devlang-csharp"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "vs.csharp.refactoring.extractinterface"
-dev_langs: 
-  - "CSharp"
-helpviewer_keywords: 
-  - "“提取接口”重构操作 [C#]"
-  - "重构 [C#], 提取接口"
+redirect_url: /visualstudio/csharp-ide/refactoring/extract-interface
+title: Extract Interface Refactoring (C#) | Microsoft Docs
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- devlang-csharp
+ms.tgt_pltfrm: 
+ms.topic: article
+dev_langs:
+- CSharp
+helpviewer_keywords:
+- refactoring [C#], Extract Interface
+- Extract Interface refactoring operation [C#]
 ms.assetid: 7d0aa225-3b33-4331-9652-5a67cac6f3d0
 caps.latest.revision: 25
-caps.handback.revision: 25
-author: "BillWagner"
-ms.author: "wiwagn"
-manager: "wpickett"
----
-# 提取接口重构 (C#)
-[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
+author: BillWagner
+ms.author: wiwagn
+manager: wpickett
+translation.priority.ht:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+ms.translationtype: HT
+ms.sourcegitcommit: ff8ecec19f8cab04ac2190f9a4a995766f1750bf
+ms.openlocfilehash: da62fb0666914563d36c7f5feb568d23b0d104ca
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/24/2017
 
-“提取接口”是一项重构操作，提供了一种使用来自现有类、结构或接口的成员创建新接口的简单方法。  
+---
+# <a name="extract-interface-refactoring-c"></a>Extract Interface Refactoring (C#)
+Extract Interface is a refactoring operation that provides an easy way to create a new interface with members that originate from an existing class, struct, or interface.  
   
- 当几个客户端使用类、结构或接口中成员的同一子集时，或者当多个类、结构或接口具有通用的成员子集时，在接口中嵌入成员子集将很有用。  有关使用接口的更多信息，请参见 [接口](/dotnet/csharp/programming-guide/interfaces/index)。  
+ When several clients use the same subset of members from a class, struct, or interface, or when multiple classes, structs, or interfaces have a subset of members in common, it can be useful to embody the subset of members in an interface. For more information about using interfaces, see [Interfaces](/dotnet/csharp/programming-guide/interfaces/index).  
   
- “提取接口”在新文件中生成接口，并将光标定位于新文件的开头。  使用**“提取接口”**对话框，可以指定要提取到新接口中的成员、新接口的名称以及所生成的文件的名称。  
+ Extract Interface generates an interface in a new file and positions the cursor at the beginning of the new file. You can specify which members to extract into the new interface, the name of the new interface, and the name of the generated file using the **Extract Interface** dialog box.  
   
-### 使用“提取接口”  
+### <a name="to-use-extract-interface"></a>To use Extract Interface  
   
-1.  创建名为 `ExtractInterface` 的控制台应用程序，然后使用以下代码替换 `Program`  
+1.  Create a console application named `ExtractInterface`, and then replace `Program` with the following code  
   
-    ```c#  
+    ```cs  
     // Invoke Extract Interface on ProtoA.  
     // Note:  the extracted interface will be created in a new file.  
     class ProtoA  
@@ -45,21 +60,21 @@ manager: "wpickett"
     }  
     ```  
   
-2.  将光标置于 `MethodB` 中后，单击**“重构”**菜单中的**“提取接口”**。  
+2.  With the cursor positioned in `MethodB`, and click **Extract Interface** on the **Refactor** menu.  
   
-     出现**“提取接口”**对话框。  
+     The **Extract Interface** dialog box appears.  
   
-     您还可以键入键盘快捷键 Ctrl\+R、Ctrl\+I 来显示**“提取接口”**对话框。  
+     You can also type the keyboard shortcut CTRL+R, I to display the **Extract Interface** dialog box.  
   
-     还可以右击鼠标，指向**“重构”**，然后单击**“提取接口”**来显示**“提取接口”**对话框。  
+     You can also right-click the mouse, point to **Refactor**, and then click **Extract Interface** to display the **Extract Interface** dialog box.  
   
-3.  单击**“全选”**。  
+3.  Click **Select All**.  
   
-4.  单击**“确定”**。  
+4.  Click **OK**.  
   
-     您将看到新文件 IProtoA.cs 和下面的代码：  
+     You see the new file, IProtoA.cs, and the following code:  
   
-    ```c#  
+    ```cs  
     using System;  
     namespace TopThreeRefactorings  
     {  
@@ -70,10 +85,10 @@ manager: "wpickett"
     }  
     ```  
   
-## 备注  
- 仅当将光标定位于包含要提取成员的类、结构或接口中时，才可以访问此功能。  当光标处于此位置时，调用“提取接口”重构操作。  
+## <a name="remarks"></a>Remarks  
+ This feature is only accessible when the cursor is positioned in the class, struct, or interface that contains the members that you would like to extract. When the cursor is in this position, invoke the Extract Interface refactoring operation.  
   
- 在类或结构中调用“提取接口”时，将修改基和接口列表，以包括新接口名称。  而在接口中调用“提取接口”时，将不修改基和接口列表。  
+ When you invoke extract interface on a class or on a struct, the bases and interfaces list is modified to include the new interface name. When you invoke extract interface on an interface, the bases and interfaces list is not modified.  
   
-## 请参阅  
- [重构 \(C\#\)](../csharp-ide/refactoring-csharp.md)
+## <a name="see-also"></a>See Also  
+ [Refactoring (C#)](refactoring-csharp.md)

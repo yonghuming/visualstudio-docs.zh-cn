@@ -1,36 +1,18 @@
-# [欢迎使用 Visual Studio 2017！](welcome-to-visual-studio.md)
-
-# [新增功能](ide/whats-new-in-visual-studio.md)
-
-# [安装](install/TOC.md)
-
+# [Welcome to Visual Studio 2017!](welcome-to-visual-studio.md)
+# [What's New](ide/whats-new-in-visual-studio.md)
+# [Installation](install/TOC.md)
 # [Visual Studio IDE](ide/visual-studio-ide.md)
-
 # [Visual Basic](/dotnet/visual-basic)
-
 # [Visual C#](/dotnet/csharp)
-
 # [Visual C++](/cpp/top/visual-cpp-in-visual-studio)
-
 # [JavaScript](/scripting/javascript)
-
 # [Python](python/getting-started-with-python.md)
-
 # [R](rtvs/index.md)
-
 # [Visual F#](/dotnet/fsharp/)
-
-# [数据访问](data-tools/TOC.md)
-
-# [跨平台移动开发](cross-platform/cross-platform-mobile-development-in-visual-studio.md)
-
-# [Office 和 SharePoint 开发](vsto/office-and-sharepoint-development-in-visual-studio.md)
-
-# [移植、迁移和升级代码](porting\port-migrate-and-upgrade-visual-studio-projects.md)
-
-# [扩展性](extensibility/extensibility-in-visual-studio.md)
-
-# [与我们交流](ide/talk-to-us.md)
-
-## [如何报告 Visual Studio 2017 的问题](ide/how-to-report-a-problem-with-visual-studio-2017.md)
-
+# [Data Access](data-tools/TOC.md)
+# [Cross-Platform Mobile Development](cross-platform/cross-platform-mobile-development-in-visual-studio.md)
+# [Office and Sharepoint Development](vsto/office-and-sharepoint-development-in-visual-studio.md)
+# [Port, Migrate, and Upgrade Your Code](porting\port-migrate-and-upgrade-visual-studio-projects.md)
+# [Extensibility](extensibility/)
+# [Talk to Us](ide/talk-to-us.md)
+## [How to Report a Problem with Visual Studio 2017](ide/how-to-report-a-problem-with-visual-studio-2017.md)

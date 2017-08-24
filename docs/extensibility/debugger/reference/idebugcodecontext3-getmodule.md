@@ -1,5 +1,5 @@
 ---
-title: "IDebugCodeContext3::GetModule |Microsoft 文档"
+title: IDebugCodeContext3::GetModule | Microsoft Docs
 ms.custom: 
 ms.date: 11/04/2016
 ms.reviewer: 
@@ -28,16 +28,17 @@ translation.priority.mt:
 - tr-tr
 - zh-cn
 - zh-tw
-translationtype: Machine Translation
-ms.sourcegitcommit: 5db97d19b1b823388a465bba15d057b30ff0b3ce
-ms.openlocfilehash: c45688d1238e961a68166e199d696cfa98f6b536
-ms.lasthandoff: 02/22/2017
+ms.translationtype: MT
+ms.sourcegitcommit: ff8ecec19f8cab04ac2190f9a4a995766f1750bf
+ms.openlocfilehash: b271707d24a394d2f619ee21a40a42c8b8a13e82
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/24/2017
 
 ---
 # <a name="idebugcodecontext3getmodule"></a>IDebugCodeContext3::GetModule
-检索到的调试模块接口的引用。  
+Retrieves a reference to the interface of the debug module.  
   
-## <a name="syntax"></a>语法  
+## <a name="syntax"></a>Syntax  
   
 ```cpp#  
 HRESULT GetModule(   
@@ -45,21 +46,21 @@ HRESULT GetModule(
 );  
 ```  
   
-```c#  
+```cs  
 public int GetModule(   
    out IDebugModule2 ppModule  
 );  
 ```  
   
-#### <a name="parameters"></a>参数  
+#### <a name="parameters"></a>Parameters  
  `ppModule`  
- [out]调试接口的接口模块的引用。  
+ [out] Reference to the debug module interface.  
   
-## <a name="return-value"></a>返回值  
- 如果成功，返回`S_OK`; 否则为返回错误代码。  
+## <a name="return-value"></a>Return Value  
+ If successful, returns `S_OK`; otherwise, returns an error code.  
   
-## <a name="example"></a>示例  
- 下面的示例演示如何实现此方法对于**CDebugCodeContext**公开对象[IDebugBeforeSymbolSearchEvent2](../../../extensibility/debugger/reference/idebugbeforesymbolsearchevent2.md)接口。  
+## <a name="example"></a>Example  
+ The following example shows how to implement this method for a **CDebugCodeContext** object that exposes the [IDebugBeforeSymbolSearchEvent2](../../../extensibility/debugger/reference/idebugbeforesymbolsearchevent2.md) interface.  
   
 ```cpp#  
 HRESULT CDebugCodeContext::GetModule(IDebugModule2** ppModule)  
@@ -79,5 +80,5 @@ Error:
 }  
 ```  
   
-## <a name="see-also"></a>另请参阅  
+## <a name="see-also"></a>See Also  
  [IDebugCodeContext3](../../../extensibility/debugger/reference/idebugcodecontext3.md)

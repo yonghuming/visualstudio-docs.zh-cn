@@ -1,47 +1,64 @@
 ---
-title: "IEnumDebugFields::Reset | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "IEnumDebugFields::Reset"
-helpviewer_keywords: 
-  - "IEnumDebugFields::Reset 方法"
+title: IEnumDebugFields::Reset | Microsoft Docs
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords:
+- IEnumDebugFields::Reset
+helpviewer_keywords:
+- IEnumDebugFields::Reset method
 ms.assetid: 38ff61e4-0120-42e8-971a-16be6050b425
 caps.latest.revision: 6
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 6
----
-# IEnumDebugFields::Reset
-[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
+ms.author: gregvanl
+manager: ghogen
+translation.priority.mt:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+ms.translationtype: MT
+ms.sourcegitcommit: ff8ecec19f8cab04ac2190f9a4a995766f1750bf
+ms.openlocfilehash: 5b418a699ee2ad5449541482f6c3e1d346f8f191
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/24/2017
 
-此方法重置枚举到第一个元素。  
+---
+# <a name="ienumdebugfieldsreset"></a>IEnumDebugFields::Reset
+This method resets the enumeration to the first element.  
   
-## 语法  
+## <a name="syntax"></a>Syntax  
   
 ```cpp#  
 HRESULT Reset(void);  
 ```  
   
-```c#  
+```cs  
 int Reset();  
 ```  
   
-#### 参数  
- 无  
+#### <a name="parameters"></a>Parameters  
+ None  
   
-## 返回值  
- 如果成功，则返回; `S_OK`否则，返回错误代码。  
+## <a name="return-value"></a>Return Value  
+ If successful, returns `S_OK`; otherwise, returns an error code.  
   
-## 备注  
- 此方法调用之后，下调用 [下一步](../../../extensibility/debugger/reference/ienumdebugfields-next.md) 返回枚举中的第一个元素。  
+## <a name="remarks"></a>Remarks  
+ After this method is called, the next call to [Next](../../../extensibility/debugger/reference/ienumdebugfields-next.md) returns the first element of the enumeration.  
   
-## 请参阅  
+## <a name="see-also"></a>See Also  
  [IEnumDebugFields](../../../extensibility/debugger/reference/ienumdebugfields.md)   
- [下一步](../../../extensibility/debugger/reference/ienumdebugfields-next.md)
+ [Next](../../../extensibility/debugger/reference/ienumdebugfields-next.md)

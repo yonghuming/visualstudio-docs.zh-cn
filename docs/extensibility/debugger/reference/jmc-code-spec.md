@@ -1,61 +1,78 @@
 ---
-title: "JMC_CODE_SPEC | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "JMC_CODE_SPEC"
-helpviewer_keywords: 
-  - "JMC_CODE_SPEC 结构"
+title: JMC_CODE_SPEC | Microsoft Docs
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords:
+- JMC_CODE_SPEC
+helpviewer_keywords:
+- JMC_CODE_SPEC structure
 ms.assetid: d89498f1-4234-46d9-b4e2-abbcbca5068a
 caps.latest.revision: 6
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 6
----
-# JMC_CODE_SPEC
-[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
+ms.author: gregvanl
+manager: ghogen
+translation.priority.mt:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+ms.translationtype: MT
+ms.sourcegitcommit: ff8ecec19f8cab04ac2190f9a4a995766f1750bf
+ms.openlocfilehash: 378d21c576d9fb59a9ee3bdd4003a94a5924144b
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/24/2017
 
-此机制用于设置模块的 JustMyCode 信息。  
+---
+# <a name="jmccodespec"></a>JMC_CODE_SPEC
+This structure is used to set the JustMyCode information for a module.  
   
-## 语法  
+## <a name="syntax"></a>Syntax  
   
 ```cpp#  
-typedef struct _JMC_CODE_SPEC {  
-   BOOL fIsUserCode;  
-   BSTR bstrModuleName;  
-} JMC_CODE_SPEC;  
+typedef struct _JMC_CODE_SPEC {  
+   BOOL fIsUserCode;  
+   BSTR bstrModuleName;  
+} JMC_CODE_SPEC;  
 ```  
   
-```c#  
-public struct JMC_CODE_SPEC {  
-   public int    fIsUserCode;  
-   public string bstrModuleName;  
+```cs  
+public struct JMC_CODE_SPEC {  
+   public int    fIsUserCode;  
+   public string bstrModuleName;  
 };  
 ```  
   
-## 成员  
+## <a name="members"></a>Members  
  fIsUserCode  
- 非零 \(`TRUE`\)，如果模块将被视为用户代码;否则，零 \(0\)`FALSE`\)，如果模块会将外部代码和不进行调试。  
+ Non-zero (`TRUE`) if the module is to be considered user code; otherwise, zero (`FALSE`) if the module is to be treated as external code and not to be debugged.  
   
  bstrModuleName  
- 相关的模块的名称。  
+ Name of the module in question.  
   
-## 备注  
- 此结构将作为列表这样的结构。 [SetJustMyCodeState](../../../extensibility/debugger/reference/idebugengine3-setjustmycodestate.md) 方法。  
+## <a name="remarks"></a>Remarks  
+ This structure is passed as a list of such structures to the [SetJustMyCodeState](../../../extensibility/debugger/reference/idebugengine3-setjustmycodestate.md) method.  
   
-## 要求  
- 标题:msdbg.h  
+## <a name="requirements"></a>Requirements  
+ Header: msdbg.h  
   
- 命名空间:Microsoft.VisualStudio.Debugger.Interop  
+ Namespace: Microsoft.VisualStudio.Debugger.Interop  
   
- 程序集:Microsoft.VisualStudio.Debugger.Interop.dll  
+ Assembly: Microsoft.VisualStudio.Debugger.Interop.dll  
   
-## 请参阅  
- [结构和联合](../../../extensibility/debugger/reference/structures-and-unions.md)   
+## <a name="see-also"></a>See Also  
+ [Structures and Unions](../../../extensibility/debugger/reference/structures-and-unions.md)   
  [SetJustMyCodeState](../../../extensibility/debugger/reference/idebugengine3-setjustmycodestate.md)

@@ -1,5 +1,5 @@
 ---
-title: "BP_ERROR_TYPE |Microsoft 文档"
+title: BP_ERROR_TYPE | Microsoft Docs
 ms.custom: 
 ms.date: 11/04/2016
 ms.reviewer: 
@@ -30,16 +30,17 @@ translation.priority.mt:
 - tr-tr
 - zh-cn
 - zh-tw
-translationtype: Machine Translation
-ms.sourcegitcommit: 5db97d19b1b823388a465bba15d057b30ff0b3ce
-ms.openlocfilehash: 07248d28d34373176f9897472c39c0756012da59
-ms.lasthandoff: 02/22/2017
+ms.translationtype: MT
+ms.sourcegitcommit: ff8ecec19f8cab04ac2190f9a4a995766f1750bf
+ms.openlocfilehash: 1afc6abcccaf8226b83858121eac4e98136abdb5
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/24/2017
 
 ---
 # <a name="bperrortype"></a>BP_ERROR_TYPE
-指定断点的错误类型。  
+Specifies the error type of a breakpoint.  
   
-## <a name="syntax"></a>语法  
+## <a name="syntax"></a>Syntax  
   
 ```cpp#  
 enum enum_BP_ERROR_TYPE {   
@@ -58,7 +59,7 @@ enum enum_BP_ERROR_TYPE {
 typedef DWORD BP_ERROR_TYPE;  
 ```  
   
-```c#  
+```cs  
 public enum enum_BP_ERROR_TYPE {   
    BPET_NONE            = 0x00000000,  
    BPET_TYPE_WARNING    = 0x00000001,  
@@ -74,53 +75,53 @@ public enum enum_BP_ERROR_TYPE {
 };  
 ```  
   
-## <a name="members"></a>成员  
+## <a name="members"></a>Members  
  BPET_NONE  
- 不指定任何断点错误。  
+ Specifies no breakpoint error.  
   
  BPET_TYPE_WARNING  
- 指定警告样式断点错误。  
+ Specifies a warning-style breakpoint error.  
   
  BPET_TYPE_ERROR  
- 指定错误样式断点错误。  
+ Specifies an error-style breakpoint error.  
   
  BPET_SEV_HIGH  
- 指定的高严重性断点错误。  
+ Specifies a high-severity breakpoint error.  
   
  BPET_SEV_GENERAL  
- 指定的中等严重性断点错误。  
+ Specifies a medium-severity breakpoint error.  
   
  BPET_SEV_LOW  
- 指定的低严重性断点错误。  
+ Specifies a low-severity breakpoint error.  
   
  BPET_TYPE_MASK  
- 指定掩码样式断点错误。  
+ Specifies a mask-style breakpoint error.  
   
  BPET_SEV_MASK  
- 指定严重级别掩码样式断点错误。  
+ Specifies a severity-mask-style breakpoint error.  
   
  BPET_GENERAL_WARNING  
- 指定常规警告样式断点错误。  
+ Specifies a general-warning-style breakpoint error.  
   
  BPET_GENERAL_ERROR  
- 指定常规错误样式断点错误。  
+ Specifies a general-error-style breakpoint error.  
   
  BPET_ALL  
- 指定所有断点错误类型。  
+ Specifies all breakpoint error types.  
   
-## <a name="remarks"></a>备注  
- 这些值可能与按位结合起来`OR`和用于`dwType`的成员[BP_ERROR_RESOLUTION_INFO](../../../extensibility/debugger/reference/bp-error-resolution-info.md)结构。 作为参数传递给[EnumErrorBreakpoints](../../../extensibility/debugger/reference/idebugpendingbreakpoint2-enumerrorbreakpoints.md)方法。  
+## <a name="remarks"></a>Remarks  
+ These values may be combined with a bitwise `OR` and used for the `dwType` member of the [BP_ERROR_RESOLUTION_INFO](../../../extensibility/debugger/reference/bp-error-resolution-info.md) structure. Passed as a parameter to the [EnumErrorBreakpoints](../../../extensibility/debugger/reference/idebugpendingbreakpoint2-enumerrorbreakpoints.md) method.  
   
- 断点错误类型组成的类型和严重性。 这意味着，断点错误类型值始终不只是一个类型 (例如， `BPET_TYPE_ERROR`，) 或严重级别 (例如， `BPET_SEV_GENERAL`) 本身。 `BPET_GENERAL_WARNING`和`BPET_GENERAL_ERROR`为常规的警告和错误断点提供预定义的值。  
+ A breakpoint error type is composed of a type and a severity. This means that a breakpoint error type is never just a type (for example, `BPET_TYPE_ERROR`,) or a severity (for example, `BPET_SEV_GENERAL`) by itself. `BPET_GENERAL_WARNING` and `BPET_GENERAL_ERROR` provide predefined values for general warning and error breakpoints.  
   
-## <a name="requirements"></a>要求  
- 标头︰ msdbg.h  
+## <a name="requirements"></a>Requirements  
+ Header: msdbg.h  
   
  Namespace: Microsoft.VisualStudio.Debugger.Interop  
   
- 程序集︰ Microsoft.VisualStudio.Debugger.Interop.dll  
+ Assembly: Microsoft.VisualStudio.Debugger.Interop.dll  
   
-## <a name="see-also"></a>另请参阅  
- [枚举](../../../extensibility/debugger/reference/enumerations-visual-studio-debugging.md)   
+## <a name="see-also"></a>See Also  
+ [Enumerations](../../../extensibility/debugger/reference/enumerations-visual-studio-debugging.md)   
  [BP_ERROR_RESOLUTION_INFO](../../../extensibility/debugger/reference/bp-error-resolution-info.md)   
  [EnumErrorBreakpoints](../../../extensibility/debugger/reference/idebugpendingbreakpoint2-enumerrorbreakpoints.md)

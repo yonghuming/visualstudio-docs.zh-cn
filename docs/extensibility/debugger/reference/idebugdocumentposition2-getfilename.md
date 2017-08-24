@@ -1,51 +1,68 @@
 ---
-title: "IDebugDocumentPosition2::GetFileName | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "IDebugDocumentPosition2::GetFileName"
-helpviewer_keywords: 
-  - "IDebugDocumentPosition2::GetFileName"
+title: IDebugDocumentPosition2::GetFileName | Microsoft Docs
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords:
+- IDebugDocumentPosition2::GetFileName
+helpviewer_keywords:
+- IDebugDocumentPosition2::GetFileName
 ms.assetid: d713635e-088f-465b-b26d-00ac971c9e86
 caps.latest.revision: 10
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 10
----
-# IDebugDocumentPosition2::GetFileName
-[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
+ms.author: gregvanl
+manager: ghogen
+translation.priority.mt:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+ms.translationtype: MT
+ms.sourcegitcommit: ff8ecec19f8cab04ac2190f9a4a995766f1750bf
+ms.openlocfilehash: 273ef2b9f394c4c216e4fa7483c0c63c035aa46f
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/24/2017
 
-获取包含文档的位置源文件的文件名。  
+---
+# <a name="idebugdocumentposition2getfilename"></a>IDebugDocumentPosition2::GetFileName
+Gets the file name of the source file that contains the document position.  
   
-## 语法  
+## <a name="syntax"></a>Syntax  
   
 ```cpp#  
-HRESULT GetFileName(   
-   BSTR* pbstrFileName  
+HRESULT GetFileName(   
+   BSTR* pbstrFileName  
 );  
 ```  
   
-```c#  
-int GetFileName(   
-   out string pbstrFileName  
+```cs  
+int GetFileName(   
+   out string pbstrFileName  
 );  
 ```  
   
-#### 参数  
+#### <a name="parameters"></a>Parameters  
  `pbstrFileName`  
- \[out\] 返回源文件的文件名。  
+ [out] Returns the file name of the source file.  
   
-## 返回值  
- 如果成功，则返回; `S_OK`否则，返回错误代码。  
+## <a name="return-value"></a>Return Value  
+ If successful, returns `S_OK`; otherwise, returns an error code.  
   
-## 备注  
- 源文件可能不总是具有文件名 \(例如源文件在磁盘上可能不存在，\)。  
+## <a name="remarks"></a>Remarks  
+ A source file may not always have a file name (the source file may not exist on disk, for example).  
   
-## 请参阅  
+## <a name="see-also"></a>See Also  
  [IDebugDocumentPosition2](../../../extensibility/debugger/reference/idebugdocumentposition2.md)

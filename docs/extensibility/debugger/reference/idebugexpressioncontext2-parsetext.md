@@ -1,81 +1,98 @@
 ---
-title: "IDebugExpressionContext2::ParseText | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "IDebugExpressionContext2::ParseText"
-helpviewer_keywords: 
-  - "IDebugExpressionContext2::ParseText"
+title: IDebugExpressionContext2::ParseText | Microsoft Docs
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords:
+- IDebugExpressionContext2::ParseText
+helpviewer_keywords:
+- IDebugExpressionContext2::ParseText
 ms.assetid: f58575db-f926-4ac8-83ff-7b3b86ab61e2
 caps.latest.revision: 11
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 11
----
-# IDebugExpressionContext2::ParseText
-[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
+ms.author: gregvanl
+manager: ghogen
+translation.priority.mt:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+ms.translationtype: MT
+ms.sourcegitcommit: ff8ecec19f8cab04ac2190f9a4a995766f1750bf
+ms.openlocfilehash: 18715b31bef140b713406bc0636e73c4d779dd52
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/24/2017
 
-分析一个表达式来以后计算的文本形式。  
+---
+# <a name="idebugexpressioncontext2parsetext"></a>IDebugExpressionContext2::ParseText
+Parses an expression in text form for later evaluation.  
   
-## 语法  
+## <a name="syntax"></a>Syntax  
   
 ```cpp#  
-HRESULT ParseText(   
-   LPCOLESTR           pszCode,  
-   PARSEFLAGS          dwFlags,  
-   UINT                nRadix,  
-   IDebugExpression2** ppExpr,  
-   BSTR*               pbstrError,  
-   UINT*               pichError  
+HRESULT ParseText(   
+   LPCOLESTR           pszCode,  
+   PARSEFLAGS          dwFlags,  
+   UINT                nRadix,  
+   IDebugExpression2** ppExpr,  
+   BSTR*               pbstrError,  
+   UINT*               pichError  
 );  
 ```  
   
-```c#  
-int ParseText(   
-   string                pszCode,  
-   enum_PARSEFLAGS       dwFlags,  
-   uint                  nRadix,  
-   out IDebugExpression2 ppExpr,  
-   out string            pbstrError,  
-   out uint              pichError  
+```cs  
+int ParseText(   
+   string                pszCode,  
+   enum_PARSEFLAGS       dwFlags,  
+   uint                  nRadix,  
+   out IDebugExpression2 ppExpr,  
+   out string            pbstrError,  
+   out uint              pichError  
 );  
 ```  
   
-#### 参数  
+#### <a name="parameters"></a>Parameters  
  `pszCode`  
- \[in\] 要分析的表达式。  
+ [in] The expression to be parsed.  
   
  `dwFlags`  
- \[in\] 标志的组合。该 [PARSEFLAGS](../../../extensibility/debugger/reference/parseflags.md) 的枚举的控件分析。  
+ [in] A combination of flags from the [PARSEFLAGS](../../../extensibility/debugger/reference/parseflags.md) enumeration that controls parsing.  
   
  `nRadix`  
- \[in\] 用于分析在 `pszCode`的任意数字信息基数。  
+ [in] The radix to be used in parsing any numerical information in `pszCode`.  
   
  `ppExpr`  
- \[out\] 返回表示分析的表达式，准备好绑定和计算的 [IDebugExpression2](../../../extensibility/debugger/reference/idebugexpression2.md) 对象。  
+ [out] Returns the [IDebugExpression2](../../../extensibility/debugger/reference/idebugexpression2.md) object that represents the parsed expression, which is ready for binding and evaluation.  
   
  `pbstrError`  
- \[out\] ，如果表达式包含错误，返回错误消息。  
+ [out] Returns the error message if the expression contains an error.  
   
  `pichError`  
- \[out\] ，如果表达式包含错误，返回错误的字符索引。 `pszCode` 的。  
+ [out] Returns the character index of the error in `pszCode` if the expression contains an error.  
   
-## 返回值  
- 如果成功，则返回; `S_OK`否则，返回错误代码。  
+## <a name="return-value"></a>Return Value  
+ If successful, returns `S_OK`; otherwise, returns an error code.  
   
-## 备注  
- 当调用此方法时，调试引擎 \(DE\)应分析表达式并验证它的有效性。  ，如果表达式无效， `pbstrError` 和 `pichError` 参数可以填充。  
+## <a name="remarks"></a>Remarks  
+ When this method is called, a debug engine (DE) should parse the expression and validate it for correctness. The `pbstrError` and `pichError` parameters may be filled in if the expression is invalid.  
   
- 注意该表达式不会计算，因此，只有分析。  稍后对 [EvaluateSync](../../../extensibility/debugger/reference/idebugexpression2-evaluatesync.md) 或 [EvaluateAsync](../../../extensibility/debugger/reference/idebugexpression2-evaluateasync.md) 方法计算已分析的表达式。  
+ Note that the expression is not evaluated, only parsed. A later call to the [EvaluateSync](../../../extensibility/debugger/reference/idebugexpression2-evaluatesync.md) or [EvaluateAsync](../../../extensibility/debugger/reference/idebugexpression2-evaluateasync.md) methods evaluates the parsed expression.  
   
-## 示例  
- 下面的示例演示如何执行显示 [IDebugExpressionContext2](../../../extensibility/debugger/reference/idebugexpressioncontext2.md) 接口的简单 `CEnvBlock` 对象的方法。  此示例考虑表达式分析为环境变量的名称并从该变量检索值。  
+## <a name="example"></a>Example  
+ The following example shows how to implement this method for a simple `CEnvBlock` object that exposes the [IDebugExpressionContext2](../../../extensibility/debugger/reference/idebugexpressioncontext2.md) interface. This example considers the expression to be parsed as the name of an environment variable and retrieves the value from that variable.  
   
 ```cpp#  
 HRESULT CEnvBlock::ParseText(  
@@ -123,7 +140,7 @@ HRESULT CEnvBlock::ParseText(
 }    
 ```  
   
-## 请参阅  
+## <a name="see-also"></a>See Also  
  [IDebugExpressionContext2](../../../extensibility/debugger/reference/idebugexpressioncontext2.md)   
  [PARSEFLAGS](../../../extensibility/debugger/reference/parseflags.md)   
  [IDebugExpression2](../../../extensibility/debugger/reference/idebugexpression2.md)   

@@ -1,57 +1,74 @@
 ---
-title: "IDebugDocument2::GetName | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "IDebugDocument2::GetName"
-helpviewer_keywords: 
-  - "IDebugDocument2::GetName"
+title: IDebugDocument2::GetName | Microsoft Docs
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords:
+- IDebugDocument2::GetName
+helpviewer_keywords:
+- IDebugDocument2::GetName
 ms.assetid: 6f09ff09-b0cf-4472-8fc8-143991f0ceb1
 caps.latest.revision: 10
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 10
----
-# IDebugDocument2::GetName
-[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
+ms.author: gregvanl
+manager: ghogen
+translation.priority.mt:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+ms.translationtype: MT
+ms.sourcegitcommit: ff8ecec19f8cab04ac2190f9a4a995766f1750bf
+ms.openlocfilehash: 00ebb899b1f5905afc4a4f180430ad53dcdd6abc
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/24/2017
 
-在多种形式之一获取文档的名称。  
+---
+# <a name="idebugdocument2getname"></a>IDebugDocument2::GetName
+Gets the name of the document in one of several forms.  
   
-## 语法  
+## <a name="syntax"></a>Syntax  
   
 ```cpp#  
-HRESULT GetName(   
-   GETNAME_TYPE gnType,  
-   BSTR*        pbstrFileName  
+HRESULT GetName(   
+   GETNAME_TYPE gnType,  
+   BSTR*        pbstrFileName  
 );  
 ```  
   
-```c#  
-int GetName(   
-   enum_GETNAME_TYPE gnType,  
-   out string        pbstrFileName  
+```cs  
+int GetName(   
+   enum_GETNAME_TYPE gnType,  
+   out string        pbstrFileName  
 );  
 ```  
   
-#### 参数  
+#### <a name="parameters"></a>Parameters  
  `gnType`  
- \[in\] 从确定名称的类型返回的 [GETNAME\_TYPE](../../../extensibility/debugger/reference/getname-type.md) 枚举的值。  
+ [in] A value from the [GETNAME_TYPE](../../../extensibility/debugger/reference/getname-type.md) enumeration that determines the type of name to return.  
   
  `pbstrFileName`  
- \[out\] 返回包含文档名称的字符串。  
+ [out] Returns a string containing the document name.  
   
-## 返回值  
- 如果成功，则返回; `S_OK`否则，返回错误代码。  
+## <a name="return-value"></a>Return Value  
+ If successful, returns `S_OK`; otherwise, returns an error code.  
   
-## 备注  
- 此方法可能，例如，返回文档的名称作为前缀或文件名的文件名甚至部分。  
+## <a name="remarks"></a>Remarks  
+ This method can, for example, return the name of the document as a title or as a file name or even part of a file name.  
   
-## 请参阅  
+## <a name="see-also"></a>See Also  
  [IDebugDocument2](../../../extensibility/debugger/reference/idebugdocument2.md)   
- [GETNAME\_TYPE](../../../extensibility/debugger/reference/getname-type.md)
+ [GETNAME_TYPE](../../../extensibility/debugger/reference/getname-type.md)

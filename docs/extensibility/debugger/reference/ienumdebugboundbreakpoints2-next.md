@@ -1,59 +1,76 @@
 ---
-title: "IEnumDebugBoundBreakpoints2::Next | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "IEnumDebugBoundBreakpoints2::Next"
-helpviewer_keywords: 
-  - "IEnumDebugBoundBreakpoints2::Next"
+title: IEnumDebugBoundBreakpoints2::Next | Microsoft Docs
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords:
+- IEnumDebugBoundBreakpoints2::Next
+helpviewer_keywords:
+- IEnumDebugBoundBreakpoints2::Next
 ms.assetid: cb3a249f-2282-4bdc-b6d8-a4ee4bfb8365
 caps.latest.revision: 13
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 13
----
-# IEnumDebugBoundBreakpoints2::Next
-[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
+ms.author: gregvanl
+manager: ghogen
+translation.priority.mt:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+ms.translationtype: MT
+ms.sourcegitcommit: ff8ecec19f8cab04ac2190f9a4a995766f1750bf
+ms.openlocfilehash: 38cdbe26d229c925f831b9e22a133627e1db9ae1
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/24/2017
 
-返回下一组枚举中的元素。  
+---
+# <a name="ienumdebugboundbreakpoints2next"></a>IEnumDebugBoundBreakpoints2::Next
+Returns the next set of elements from the enumeration.  
   
-## 语法  
+## <a name="syntax"></a>Syntax  
   
 ```cpp#  
 HRESULT Next(  
-   ULONG                    celt,  
-   IDebugBoundBreakpoint2** rgelt,  
-   ULONG*                   pceltFetched  
+   ULONG                    celt,  
+   IDebugBoundBreakpoint2** rgelt,  
+   ULONG*                   pceltFetched  
 );  
 ```  
   
-```c#  
+```cs  
 int Next(  
-   uint                     celt,  
-   IDebugBoundBreakpoint2[] rgelt,  
-   ref uint                 pceltFetched  
+   uint                     celt,  
+   IDebugBoundBreakpoint2[] rgelt,  
+   ref uint                 pceltFetched  
 );  
 ```  
   
-#### 参数  
+#### <a name="parameters"></a>Parameters  
  `celt`  
- \[in\] 检索的元素的数目。  并指定 `rgelt` 数组的最大大小。  
+ [in] The number of elements to retrieve. Also specifies the maximum size of the `rgelt` array.  
   
  `rgelt`  
- \[in, out\] 数组将填充的 [IDebugBoundBreakpoint2](../../../extensibility/debugger/reference/idebugboundbreakpoint2.md) 元素。  
+ [in, out] Array of [IDebugBoundBreakpoint2](../../../extensibility/debugger/reference/idebugboundbreakpoint2.md) elements to be filled in.  
   
  `pceltFetched`  
- \[out\] 返回在 `rgelt`实际上返回的元素的数目。  
+ [out] Returns the number of elements actually returned in `rgelt`.  
   
-## 返回值  
- 如果成功，则返回 `S_OK`。  ，如果小于元素的请求的数目可能返回，则返回; `S_FALSE` 否则，返回错误代码。  
+## <a name="return-value"></a>Return Value  
+ If successful, returns `S_OK`. Returns `S_FALSE` if fewer than the requested number of elements could be returned; otherwise, returns an error code.  
   
-## 请参阅  
+## <a name="see-also"></a>See Also  
  [IEnumDebugBoundBreakpoints2](../../../extensibility/debugger/reference/ienumdebugboundbreakpoints2.md)   
  [IDebugBoundBreakpoint2](../../../extensibility/debugger/reference/idebugboundbreakpoint2.md)

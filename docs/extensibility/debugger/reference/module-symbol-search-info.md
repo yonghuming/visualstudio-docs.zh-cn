@@ -1,29 +1,46 @@
 ---
-title: "MODULE_SYMBOL_SEARCH_INFO | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "MODULE_SYMBOL_SEARCH_INFO"
-helpviewer_keywords: 
-  - "MODULE_SYMBOL_SEARCH_INFO 结构"
+title: MODULE_SYMBOL_SEARCH_INFO | Microsoft Docs
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords:
+- MODULE_SYMBOL_SEARCH_INFO
+helpviewer_keywords:
+- MODULE_SYMBOL_SEARCH_INFO structure
 ms.assetid: 432aff03-08a5-4c5a-b2d5-e212090fc70a
 caps.latest.revision: 10
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 10
----
-# MODULE_SYMBOL_SEARCH_INFO
-[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
+ms.author: gregvanl
+manager: ghogen
+translation.priority.mt:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+ms.translationtype: MT
+ms.sourcegitcommit: ff8ecec19f8cab04ac2190f9a4a995766f1750bf
+ms.openlocfilehash: 8efd900a6be10ed627595053ca4e0a1a5732a0aa
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/24/2017
 
-包含有关已搜索的符号搜索路径的状态信息。  
+---
+# <a name="modulesymbolsearchinfo"></a>MODULE_SYMBOL_SEARCH_INFO
+Contains status information about symbol search paths that have been searched.  
   
-## <a name="syntax"></a>语法  
+## <a name="syntax"></a>Syntax  
   
 ```cpp#  
 typedef struct _tagSYMBOL_SEARCH_INFO  
@@ -33,30 +50,30 @@ typedef struct _tagSYMBOL_SEARCH_INFO
 } MODULE_SYMBOL_SEARCH_INFO;  
 ```  
   
-```c#  
+```cs  
 public struct MODULE_SYMBOL_SEARCH_INFO {  
    public uint   dwValidFields;  
    public string bstrVerboseSearchInfo;  
 }  
 ```  
   
-#### <a name="parameters"></a>参数  
+#### <a name="parameters"></a>Parameters  
  `dwValidFields`  
- 中的标志的组合 [SYMBOL_SEARCH_INFO_FIELDS](../../../extensibility/debugger/reference/symbol-search-info-fields.md) 枚举指定此结构中所述的搜索信息的类型。  
+ A combination of flags from the [SYMBOL_SEARCH_INFO_FIELDS](../../../extensibility/debugger/reference/symbol-search-info-fields.md) enumeration specifying the kind of search information described in this structure.  
   
  `bstrVerboseSearchInfo`  
- 搜索路径和串联成一个单一字符串的结果。  
+ Search path and results concatenated into a single string.  
   
-## <a name="remarks"></a>备注  
- 此结构返回到调用 [GetSymbolInfo](../../../extensibility/debugger/reference/idebugmodule3-getsymbolinfo.md) 方法。  
+## <a name="remarks"></a>Remarks  
+ This structure is returned from a call to the [GetSymbolInfo](../../../extensibility/debugger/reference/idebugmodule3-getsymbolinfo.md) method.  
   
- 如果 `bstrVerboseSearchInfo` 字段不为空，则它包含搜索路径和该搜索的结果的列表。 列表设置路径后, 跟省略号 （"…"） 后, 跟结果的格式。 如果有多个路径结果对，可通过"\r\n"（回车-/ 换行） 对分隔每一对。 该模式如下所示︰  
+ If the `bstrVerboseSearchInfo` field is not empty, then it contains a list of paths searched and the results of that search. The list is formatted with a path, followed by ellipses ("..."), followed by the result. If there is more than one path result pair, then each pair is separated by a "\r\n" (carriage-return/linefeed) pair. The pattern looks like this:  
   
- \< 路径>...\< 结果>\r\n \< 路径>...\< 结果>\r\n \< 路径>...\< 结果>  
+ \<path>...\<result>\r\n\<path>...\<result>\r\n\<path>...\<result>  
   
- 请注意的最后一项不具有一个 \r\n 序列。  
+ Note that the last entry does not have a \r\n sequence.  
   
- 下面是可能发生的 `bstrVerboseSearchInfo` 已发送到标准输出的字符串。  
+ Here is a possible `bstrVerboseSearchInfo` string that has been sent to standard out.  
   
  `c:\symbols\user32.pdb... File not found.`  
   
@@ -64,13 +81,13 @@ public struct MODULE_SYMBOL_SEARCH_INFO {
   
  `\\symbols\symbols\user32.dll\0a8sd0ad8ad\user32.pdb... Symbols loaded.`  
   
-## <a name="requirements"></a>要求  
- 标头︰ msdbg.h  
+## <a name="requirements"></a>Requirements  
+ Header: msdbg.h  
   
- 命名空间 ︰ Microsoft.VisualStudio.Debugger.Interop  
+ Namespace: Microsoft.VisualStudio.Debugger.Interop  
   
- 程序集 ︰ Microsoft.VisualStudio.Debugger.Interop.dll  
+ Assembly: Microsoft.VisualStudio.Debugger.Interop.dll  
   
-## <a name="see-also"></a>请参阅  
- [结构和联合](../../../extensibility/debugger/reference/structures-and-unions.md)   
+## <a name="see-also"></a>See Also  
+ [Structures and Unions](../../../extensibility/debugger/reference/structures-and-unions.md)   
  [GetSymbolInfo](../../../extensibility/debugger/reference/idebugmodule3-getsymbolinfo.md)

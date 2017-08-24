@@ -1,51 +1,68 @@
 ---
-title: "IDebugExpressionEvaluator::SetRegistryRoot | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "IDebugExpressionEvaluator::SetRegistryRoot"
-helpviewer_keywords: 
-  - "IDebugExpressionEvaluator::SetRegistryRoot 方法"
+title: IDebugExpressionEvaluator::SetRegistryRoot | Microsoft Docs
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords:
+- IDebugExpressionEvaluator::SetRegistryRoot
+helpviewer_keywords:
+- IDebugExpressionEvaluator::SetRegistryRoot method
 ms.assetid: 790886d8-1975-4d3c-9a75-cd86c1faf4ca
 caps.latest.revision: 11
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 11
----
-# IDebugExpressionEvaluator::SetRegistryRoot
-[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
+ms.author: gregvanl
+manager: ghogen
+translation.priority.mt:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+ms.translationtype: MT
+ms.sourcegitcommit: ff8ecec19f8cab04ac2190f9a4a995766f1750bf
+ms.openlocfilehash: fa53f80196102f29fdc42be927abef5cc53e6593
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/24/2017
 
-此方法可设置注册表根。  用于并行调试。  
+---
+# <a name="idebugexpressionevaluatorsetregistryroot"></a>IDebugExpressionEvaluator::SetRegistryRoot
+This method sets the registry root. Used for side-by-side debugging.  
   
-## 语法  
+## <a name="syntax"></a>Syntax  
   
 ```cpp#  
-HRESULT SetRegistryRoot (   
-   LPCOLESTR ustrRegistryRoot  
+HRESULT SetRegistryRoot (   
+   LPCOLESTR ustrRegistryRoot  
 );  
 ```  
   
-```c#  
+```cs  
 int SetRegistryRoot(  
-   string ustrRegistryRoot  
+   string ustrRegistryRoot  
 );  
 ```  
   
-#### 参数  
+#### <a name="parameters"></a>Parameters  
  `ustrRegistryRoot`  
- \[in\] 新的注册表根。  
+ [in] The new registry root.  
   
-## 返回值  
- 如果成功，则返回; `S_OK`否则，返回错误代码。  
+## <a name="return-value"></a>Return Value  
+ If successful, returns `S_OK`; otherwise, returns an error code.  
   
-## 备注  
- 指定的注册表根通常设置，在表达式计算器首先实例化并指向 Visual Studio 时 \(\\SOFTWARE\\Microsoft\\VisualStudio HKEY\_LOCAL\_MACHINE \\*X.Y*的特定版本的注册表项，其中 *X.Y* 是版本号\)。  
+## <a name="remarks"></a>Remarks  
+ The specified registry root is typically set when the expression evaluator is first instantiated and points to the registry key for a specific version of Visual Studio (HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\VisualStudio\\*X.Y*, where *X.Y* is a version number).  
   
-## 请参阅  
+## <a name="see-also"></a>See Also  
  [IDebugExpressionEvaluator](../../../extensibility/debugger/reference/idebugexpressionevaluator.md)

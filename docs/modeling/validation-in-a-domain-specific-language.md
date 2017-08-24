@@ -1,91 +1,108 @@
 ---
-title: "域特定语言中的验证 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-helpviewer_keywords: 
-  - "域特定语言中约束"
-  - "域特定语言，验证"
+title: Validation in a Domain-Specific Language | Microsoft Docs
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.tgt_pltfrm: 
+ms.topic: article
+helpviewer_keywords:
+- Domain-Specific Language, constraints
+- Domain-Specific Language, validation
 ms.assetid: 65b93df8-af3c-462b-904c-60292f8ed381
 caps.latest.revision: 33
-author: "alancameronwills"
-ms.author: "awills"
-manager: "douge"
-caps.handback.revision: 33
----
-# 域特定语言中的验证
-[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
+author: alancameronwills
+ms.author: awills
+manager: douge
+translation.priority.mt:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+ms.translationtype: MT
+ms.sourcegitcommit: ff8ecec19f8cab04ac2190f9a4a995766f1750bf
+ms.openlocfilehash: f9b849775a53996a262edf84da29e829bc492f03
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/24/2017
 
-作为域特定语言 (DSL) 的作者，你可以定义验证约束，以验证由用户创建的模型是否有意义。 例如，如果你的 DSL 允许用户绘制人员及其祖先的家族树，你可以编写一个约束，用于确保孩子的出生日期在其父母之后。  
+---
+# <a name="validation-in-a-domain-specific-language"></a>Validation in a Domain-Specific Language
+As the author of a domain-specific language (DSL), you can define validation constraints to verify that the model created by the user is meaningful. For example, if your DSL allows users to draw a family tree of people and their ancestors, you could write a constraint that ensures that children have birth dates after their parents.  
   
- 你可以保存模型时，在打开它时，并且在用户显式运行时执行验证约束 **验证** 菜单命令。 还可以在程序控制下执行验证。 例如，你可以执行验证以响应属性值或关系中的某个更改。  
+ You can have the validation constraints execute when the model is saved, when it is opened, and when the user explicitly runs the **Validate** menu command. You can also execute validation under program control. For example, you could execute validation in response to a change in a property value or relationship.  
   
- 如果你要编写可处理用户的模型的文本模板或其他工具，则验证尤其重要。 验证可确保模型满足由这些工具假定的前提条件。  
+ Validation is particularly important if you are writing text templates or other tools that process your users' models. Validation ensures that the models fulfill the preconditions assumed by those tools.  
   
 > [!WARNING]
->  还可以允许验证约束以及扩展菜单命令和笔势处理程序一起定义在对 DSL 的单独扩展中。 除了 DSL，用户还可以选择安装这些扩展。 有关详细信息，请参阅 [通过使用 MEF 扩展 DSL](../modeling/extend-your-dsl-by-using-mef.md)。  
+>  You can also allow validation constraints to be defined in separate extensions to your DSL, along with extension menu commands and gesture handlers. Users can choose to install these extensions in addition to your DSL. For more information, see [Extend your DSL by using MEF](../modeling/extend-your-dsl-by-using-mef.md).  
   
-## <a name="running-validation"></a>运行验证  
- 当用户编辑模型时（即域特定语言的实例），以下操作可运行验证：  
+## <a name="running-validation"></a>Running Validation  
+ When a user is editing a model, that is, an instance of your domain-specific language, the following actions can run validation:  
   
--   右键单击关系图并选择 **全部验证**。  
+-   Right-click the diagram and select **Validate All**.  
   
--   用鼠标右键单击 DSL 和选择的资源管理器中的顶级节点 **全部验证**  
+-   Right-click the top node in the Explorer of your DSL and select **Validate All**  
   
--   保存模型。  
+-   Save the model.  
   
--   打开模型。  
+-   Open the model.  
   
--   此外，还可编写运行验证的程序代码，例如，作为菜单命令的一部分或响应更改。  
+-   In addition, you can write program code that runs validation, for example, as part of a menu command or in response to a change.  
   
- 任何验证错误将出现在 **错误列表** 窗口。 用户可以双击错误消息，以选中引起错误的模型元素。  
+ Any validation errors will appear in the **Error List** window. The user can double-click an error message to select the model elements that are the cause of the error.  
   
-## <a name="defining-validation-constraints"></a>定义验证约束  
- 通过将验证方法添加到 DSL 的域类或关系中定义验证约束。 当验证运行时，可由用户或在程序控制下执行一些或所有验证方法。 每个方法都将应用到其类的每个实例，并且在每个类中可以有多个验证方法。  
+## <a name="defining-validation-constraints"></a>Defining Validation Constraints  
+ You define validation constraints by adding validation methods to the domain classes or relationships of your DSL. When validation is run, either by the user or under program control, some or all of the validation methods are executed. Each method is applied to each instance of its class, and there can be several validation methods in each class.  
   
- 每个验证方法都将报告它找到的所有错误。  
+ Each validation method reports any errors that it finds.  
   
 > [!NOTE]
->  验证方法报告错误，但不更改模型。 如果您想要调整或阻止某些更改，请参阅 [验证的替代方法](#alternatives)。  
+>  Validation methods report errors, but do not change the model. If you want to adjust or prevent certain changes, see [Alternatives to Validation](#alternatives).  
   
-#### <a name="to-define-a-validation-constraint"></a>定义验证约束  
+#### <a name="to-define-a-validation-constraint"></a>To define a validation constraint  
   
-1.  中启用验证 **编辑器 \ 验证** 节点︰  
+1.  Enable validation in the **Editor\Validation** node:  
   
-    1.  打开 **Dsl\DslDefinition.dsl**。  
+    1.  Open **Dsl\DslDefinition.dsl**.  
   
-    2.  在 DSL 资源管理器中，展开 **编辑器** 节点，然后选择 **验证**。  
+    2.  In DSL Explorer, expand the **Editor** node and select **Validation**.  
   
-    3.  在属性窗口中设置 **使用**  属性设置为 `true`。 设置所有这些属性非常方便。  
+    3.  In the Properties window, set the **Uses**  properties to `true`. It is most convenient to set all these properties.  
   
-    4.  单击 **转换所有模板** 解决方案资源管理器工具栏中。  
+    4.  Click **Transform All Templates** in the Solution Explorer toolbar.  
   
-2.  为一个或多个域类或域关系编写分部类定义。 中的新代码文件中编写这些定义 **Dsl** 项目。  
+2.  Write partial class definitions for one or more of your domain classes or domain relationships. Write these definitions in a new code file in the **Dsl** project.  
   
-3.  为每个类添加带有此特性的前缀：  
+3.  Prefix each class with this attribute:  
   
-    ```c#  
+    ```cs  
     [ValidationState(ValidationState.Enabled)]  
     ```  
   
-    -   默认情况下，此特性还将针对派生类启用验证。 如果想要针对特定派生类禁用验证，则可以使用 `ValidationState.Disabled`。  
+    -   By default, this attribute will also enable validation for derived classes. If you want to disable validation for a specific derived class, you can use `ValidationState.Disabled`.  
   
-4.  将验证方法添加到类。 每个验证方法可以使用任何名称，但有一个类型的参数 <xref:Microsoft.VisualStudio.Modeling.Validation.ValidationContext>。  
+4.  Add validation methods to the classes. Each validation method can have any name, but have one parameter of type <xref:Microsoft.VisualStudio.Modeling.Validation.ValidationContext>.  
   
-     必须为它添加带有一个或多个 `ValidationMethod` 特性的前缀：  
+     It must be prefixed with one or more `ValidationMethod` attributes:  
   
-    ```c#  
+    ```cs  
     [ValidationMethod (ValidationCategories.Open | ValidationCategories.Save | ValidationCategories.Menu ) ]  
     ```  
   
-     ValidationCategories 指定何时执行该方法。  
+     The ValidationCategories specify when the method is executed.  
   
- 例如：  
+ For example:  
   
-```c#  
+```cs  
 using Microsoft.VisualStudio.Modeling;  
 using Microsoft.VisualStudio.Modeling.Validation;  
   
@@ -124,37 +141,37 @@ public partial class ParentsHaveChildren
   }  
 ```  
   
- 请注意有关此代码的以下几点：  
+ Notice the following points about this code:  
   
--   可以将验证方法添加到域类或域关系。 这些类型的代码都位于 **Dsl\Generated Code\Domain\*.cs**。  
+-   You can add validation methods to domain classes or domain relationships. The code for these types is in **Dsl\Generated Code\Domain\*.cs**.  
   
--   每个验证方法都将应用到它的类和子类的每个实例。 对于域关系，每个实例都是两个模型元素之间的链接。  
+-   Each validation method is applied to every instance of its class and its subclasses. In the case of a domain relationship, each instance is a link between two model elements.  
   
--   验证方法不按任何指定的顺序进行应用，并且每个方法都不按任何可预知的顺序应用到它的类的实例。  
+-   Validation methods are not applied in any specified order, and each method is not applied to the instances of its class in any predictable order.  
   
--   通常情况下，验证方法最好不要更新存储内容，因为这会导致不一致的结果。 相反，该方法应通过调用 `context.LogError`、`LogWarning` 或 `LogInfo` 报告任何错误。  
+-   It is usually bad practice for a validation method to update the store content, because this would lead to inconsistent results. Instead, the method should report any error by calling `context.LogError`, `LogWarning` or `LogInfo`.  
   
--   在 LogError 调用中，可以提供将在用户双击错误消息时选中的模型元素或关系链接的列表。  
+-   In the LogError call, you can provide a list of model elements or relationship links that will be selected when the user double-clicks the error message.  
   
--   有关如何读取程序代码中的模型的信息，请参阅 [导航和更新程序代码中的模型](../modeling/navigating-and-updating-a-model-in-program-code.md)。  
+-   For information about how to read the model in program code, see [Navigating and Updating a Model in Program Code](../modeling/navigating-and-updating-a-model-in-program-code.md).  
   
- 该示例将应用到以下域模型。 ParentsHaveChildren 关系具有称为 Child 和 Parent 的角色。  
+ The example applies to the following domain model. The ParentsHaveChildren relationship has roles that are named Child and Parent.  
   
- ![DSL 定义关系图和 #45;王朝家谱模型](~/modeling/media/familyt_person.png "FamilyT_Person")  
+ ![DSL Definition diagram &#45; family tree model](../modeling/media/familyt_person.png "FamilyT_Person")  
   
-## <a name="validation-categories"></a>验证类别  
- 在 <xref:Microsoft.VisualStudio.Modeling.Validation.ValidationMethodAttribute> 属性中，指定应执行验证方法时。  
+## <a name="validation-categories"></a>Validation Categories  
+ In the <xref:Microsoft.VisualStudio.Modeling.Validation.ValidationMethodAttribute> attribute, you specify when the validation method should be executed.  
   
-|类别|执行|  
+|Category|Execution|  
 |--------------|---------------|  
-|<xref:Microsoft.VisualStudio.Modeling.Validation.ValidationCategories>|当用户调用验证菜单命令时。|  
-|<xref:Microsoft.VisualStudio.Modeling.Validation.ValidationCategories>|当打开模型文件时。|  
-|<xref:Microsoft.VisualStudio.Modeling.Validation.ValidationCategories>|当保存该文件时。 如果存在验证错误，则将向用户提供取消保存操作的选项。|  
-|<xref:Microsoft.VisualStudio.Modeling.Validation.ValidationCategories>|当保存该文件时。 如果存在来自此类别中的方法的错误，则警告用户可能无法重新打开该文件。<br /><br /> 将此类别用于测试重复名称或 ID 的验证方法，或者可能引起加载错误的其他条件。|  
-|<xref:Microsoft.VisualStudio.Modeling.Validation.ValidationCategories>|当调用 ValidateCustom 方法时。 只能从程序代码中调用此类别中的验证。<br /><br /> 有关详细信息，请参阅 [自定义验证类别](#custom)。|  
+|<xref:Microsoft.VisualStudio.Modeling.Validation.ValidationCategories>|When the user invokes the Validate menu command.|  
+|<xref:Microsoft.VisualStudio.Modeling.Validation.ValidationCategories>|When the model file is opened.|  
+|<xref:Microsoft.VisualStudio.Modeling.Validation.ValidationCategories>|When the file is saved. If there are validation errors, the user will be given the option of canceling the save operation.|  
+|<xref:Microsoft.VisualStudio.Modeling.Validation.ValidationCategories>|When the file is saved. If there are errors from methods in this category, the user is warned that it might not be possible to re-open the file.<br /><br /> Use this category for validation methods that test for duplicated names or IDs, or other conditions that might cause loading errors.|  
+|<xref:Microsoft.VisualStudio.Modeling.Validation.ValidationCategories>|When the ValidateCustom method is called. Validations in this category can be invoked only from program code.<br /><br /> For more information, see [Custom Validation Categories](#custom).|  
   
-## <a name="where-to-place-validation-methods"></a>放置验证方法的位置  
- 通过将验证方法放置在不同的类型上，通常可达到同样的效果。 例如，可以将方法添加到“Person”类，而不是“ParentsHaveChildren”关系，并使它循环访问链接：  
+## <a name="where-to-place-validation-methods"></a>Where to Place Validation Methods  
+ You can often achieve the same effect by placing a validation method on a different type. For example, you could add a method to the Person class instead of the ParentsHaveChildren relationship, and have it iterate through the links:  
   
 ```  
 [ValidationState(ValidationState.Enabled)]  
@@ -175,13 +192,13 @@ public partial class Person
   
 ```  
   
- **聚合验证约束。** 若要将应用可预知的顺序中的验证，所有者类，您的模型的此类的根元素上定义单个验证方法。 此技术还允许你将多个错误报告聚合到单个消息中。  
+ **Aggregating validation constraints.** To apply validation in a predictable order, define a single validation method on an owner class, such the root element of your model. This technique also lets you aggregate multiple error reports into a single message.  
   
- 缺点是组合的方法不易于管理，并且约束必须都具有相同的 `ValidationCategories`。 因此，建议你将每个约束保留在单独的方法中（如果可能）。  
+ Drawbacks are that the combined method is less easy to manage, and that the constraints must all have the same `ValidationCategories`. We therefore recommend that you keep each constraint in a separate method if possible.  
   
- **将值传递上下文缓存中。** 上下文参数有一个可以在其中放置任意值的字典。 该字典将在验证运行的生存期内持续存在。 例如，特定验证方法可以将错误计数保留在上下文中，并使用它来避免错误窗口被重复的消息所淹没。 例如：  
+ **Passing values in the context cache.** The context parameter has a dictionary into which you can place arbitrary values. The dictionary persists for the life of the validation run. A particular validation method could, for example, keep an error count in the context, and use it to avoid flooding the error window with repeated messages. For example:  
   
-```c#  
+```cs  
 List<ParentsHaveChildren> erroneousLinks;  
 if (!context.TryGetCacheValue("erroneousLinks", out erroneousLinks))  
 erroneousLinks = new List<ParentsHaveChildren>();  
@@ -191,17 +208,17 @@ if (erroneousLinks.Count < 5) { context.LogError( ... ); }
   
 ```  
   
-## <a name="validation-of-multiplicities"></a>重数的验证  
- 将为你的 DSL 自动生成用于检查最小重数的验证方法。 代码将写入 **Dsl\Generated Code\MultiplicityValidation.cs**。 当启用中的验证时，这些方法将立即生效 **编辑器 \ 验证** 在 DSL 资源管理器中的节点。  
+## <a name="validation-of-multiplicities"></a>Validation of Multiplicities  
+ Validation methods for checking minimum multiplicity are automatically generated for your DSL. The code is written to **Dsl\Generated Code\MultiplicityValidation.cs**. These methods take effect when you enable validation in the **Editor\Validation** node in DSL Explorer.  
   
- 如果你将域关系的角色的重数设置为 1..* 或 1..1，但用户未创建此关系的链接，则将显示验证错误消息。  
+ If you set the multiplicity of a role of a domain relationship to be 1..* or 1..1, but the user does not create a link of this relationship, a validation error message will appear.  
   
- 例如，如果 DSL 具有类人和城镇和关系 PersonLivesInTown 与关系 **1...\*** 在 Town 角色中，然后对于每个人都没有城镇一条错误消息将显示。  
+ For example, if your DSL has classes Person and Town, and a relationship PersonLivesInTown with a relationship **1..\*** at the Town role, then for each Person that has no Town, an error message will appear.  
   
-## <a name="running-validation-from-program-code"></a>从程序代码运行验证  
- 通过访问或创建 ValidationController，可运行验证。 如果想要在错误窗口中向用户显示错误，则使用附加到关系图的 DocData 的 ValidationController。 例如，如果你要编写菜单命令，则命令集类中提供了 `CurrentDocData.ValidationController`：  
+## <a name="running-validation-from-program-code"></a>Running Validation from Program Code  
+ You can run validation by accessing or creating a ValidationController. If you want the errors to be displayed to the user in the error window, use the ValidationController that is attached to your diagram's DocData. For example, if you are writing a menu command, `CurrentDocData.ValidationController` is available in the command set class:  
   
-```c#  
+```cs  
 using Microsoft.VisualStudio.Modeling;  
 using Microsoft.VisualStudio.Modeling.Validation;  
 using Microsoft.VisualStudio.Modeling.Shell;  
@@ -215,11 +232,11 @@ partial class MyLanguageCommandSet
   
 ```  
   
- 有关详细信息，请参阅 [如何︰ 向快捷菜单添加命令](../Topic/How%20to:%20Add%20a%20Command%20to%20the%20Shortcut%20Menu.md)。  
+ For more information, see [How to: Add a Command to the Shortcut Menu](../modeling/how-to-add-a-command-to-the-shortcut-menu.md).  
   
- 还可以创建单独的验证控制器，并自行管理错误。 例如：  
+ You can also create a separate validation controller, and manage the errors yourself. For example:  
   
-```c#  
+```cs  
 using Microsoft.VisualStudio.Modeling;  
 using Microsoft.VisualStudio.Modeling.Validation;  
 using Microsoft.VisualStudio.Modeling.Shell;  
@@ -235,12 +252,12 @@ if (!validator.Validate(store, ValidationCategories.Save))
   
 ```  
   
-## <a name="running-validation-when-a-change-occurs"></a>当发生更改时运行验证  
- 如果你想要确保用户在该模型变为无效时立即收到警告，可以定义运行验证的存储事件。 有关存储事件的详细信息，请参阅 [事件处理程序传播更改外部模型](../modeling/event-handlers-propagate-changes-outside-the-model.md)。  
+## <a name="running-validation-when-a-change-occurs"></a>Running validation when a change occurs  
+ If you want to make sure that the user is warned immediately if the model becomes invalid, you can define a store event that runs validation. For more information about store events, see [Event Handlers Propagate Changes Outside the Model](../modeling/event-handlers-propagate-changes-outside-the-model.md).  
   
- 除了验证代码中，自定义代码将文件添加到您 **DslPackage** 项目，但是有内容类似于下面的示例。 此代码使用附加到文档的 `ValidationController`。 此控制器将在 [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] 错误列表中显示验证错误。  
+ In addition to the validation code, add a custom code file to your **DslPackage** project, with content similar to the following example. This code uses the `ValidationController` that is attached to the document. This controller displays the validation errors in the [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] error list.  
   
-```c#  
+```cs  
 using System;  
 using System.Linq;  
 using Microsoft.VisualStudio.Modeling;  
@@ -299,16 +316,16 @@ namespace Company.FamilyTree
   
 ```  
   
- 在影响链接或元素的“撤消”或“重做”操作后，还将调用处理程序。  
+ The handlers are also called after Undo or Redo operations that affect the links or elements.  
   
-##  <a name="a-namecustoma-custom-validation-categories"></a><a name="custom"></a> 自定义验证类别  
- 除了标准验证类别（如“菜单”和“打开”），还可以定义自己的类别。 可以从程序代码调用这些类别。 用户无法直接调用它们。  
+##  <a name="custom"></a> Custom Validation Categories  
+ In addition to the standard validation categories, such as Menu and Open, you can define your own categories. You can invoke these categories from program code. The user cannot invoke them directly.  
   
- 自定义类别通常用于定义测试模型是否满足特定工具的前提条件的类别。  
+ A typical use for custom categories is to define a category that tests whether the model satisfies the preconditions of a particular tool.  
   
- 若要将验证方法添加到特定类别，请为它添加带有如下特性的前缀：  
+ To add a validation method to a particular category, prefix it with an attribute like this:  
   
-```c#  
+```cs  
 [ValidationMethod(CustomCategory = "PreconditionsForGeneratePartsList")]  
 [ValidationMethod(ValidationCategory.Menu)]   
 private void TestForCircularLinks(ValidationContext context)   
@@ -317,11 +334,11 @@ private void TestForCircularLinks(ValidationContext context)
 ```  
   
 > [!NOTE]
->  你可以为方法添加带有任意数目的 `[ValidationMethod()]` 特性的前缀。 可以将方法同时添加到自定义类别和标准类别。  
+>  You can prefix a method with as many `[ValidationMethod()]` attributes as you want. You can add a method to both custom and standard categories.  
   
- 若要调用自定义验证，请执行以下操作：  
+ To invoke a custom validation:  
   
-```c#  
+```cs  
   
 // Invoke all validation methods in a custom category:   
 validationController.ValidateCustom  
@@ -329,18 +346,18 @@ validationController.ValidateCustom
    "PreconditionsForGeneratePartsList");  
 ```  
   
-##  <a name="a-namealternativesa-alternatives-to-validation"></a><a name="alternatives"></a> 验证的替代方法  
- 验证约束报告错误，但不更改模型。 相反，如果你想要防止模型变为无效，则可以使用其他技术。  
+##  <a name="alternatives"></a> Alternatives to Validation  
+ Validation constraints report errors, but do not change the model. If, instead, you want to prevent the model becoming invalid, you can use other techniques.  
   
- 但是，不建议使用这些技术。 通常，最好让用户决定如何更正无效的模型。  
+ However, these techniques are not recommended. It is usually better to let the user decide how to correct an invalid model.  
   
- **调整更改以还原模型有效性。** 例如，如果用户设置允许的最上面的属性，您无法属性重置为最大值。 若要实现此目的，请定义一个规则。 有关详细信息，请参阅 [规则传播的更改中的模式](../modeling/rules-propagate-changes-within-the-model.md)。  
+ **Adjust the change to restore the model to validity.** For example, if the user sets a property above the allowed maximum, you could reset the property to the maximum value. To do this, define a rule. For more information, see [Rules Propagate Changes Within the Model](../modeling/rules-propagate-changes-within-the-model.md).  
   
- **如果尝试无效的更改，则，回滚该事务。** 您还可能出于此目的，定义一个规则，但在某些情况下则可以重写属性处理程序 **onvaluechanging （)**, ，或重写方法如 `OnDeleted().` 若要回滚的事务，使用 `this.Store.TransactionManager.CurrentTransaction.Rollback().` 的详细信息，请参阅 [域属性值更改处理程序](../modeling/domain-property-value-change-handlers.md)。  
+ **Roll back the transaction if an invalid change is attempted.** You could also define a rule for this purpose, but in some cases it is possible to override a property handler **OnValueChanging()**, or to override a method such as `OnDeleted().` To roll back a transaction, use `this.Store.TransactionManager.CurrentTransaction.Rollback().` For more information, see [Domain Property Value Change Handlers](../modeling/domain-property-value-change-handlers.md).  
   
 > [!WARNING]
->  请确保用户知道更改已调整或已回滚。 例如，使用 `System.Windows.Forms.MessageBox.Show("message").`  
+>  Make sure that the user knows that the change has been adjusted or rolled back. For example, use `System.Windows.Forms.MessageBox.Show("message").`  
   
-## <a name="see-also"></a>另请参阅  
- [导航和更新程序代码中的模型](../modeling/navigating-and-updating-a-model-in-program-code.md)   
- [事件处理程序传播模型外部的更改](../modeling/event-handlers-propagate-changes-outside-the-model.md)
+## <a name="see-also"></a>See Also  
+ [Navigating and Updating a Model in Program Code](../modeling/navigating-and-updating-a-model-in-program-code.md)   
+ [Event Handlers Propagate Changes Outside the Model](../modeling/event-handlers-propagate-changes-outside-the-model.md)

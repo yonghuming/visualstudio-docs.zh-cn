@@ -1,55 +1,72 @@
 ---
-title: "IDebugExpressionEvaluator2::GetService | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-helpviewer_keywords: 
-  - "IDebugExpressionEvaluator2::GetService"
-  - "GetService"
+title: IDebugExpressionEvaluator2::GetService | Microsoft Docs
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+helpviewer_keywords:
+- IDebugExpressionEvaluator2::GetService
+- GetService
 ms.assetid: f8988a9e-9d18-42af-84a7-55f41e9adf63
 caps.latest.revision: 8
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 8
----
-# IDebugExpressionEvaluator2::GetService
-[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
+ms.author: gregvanl
+manager: ghogen
+translation.priority.mt:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+ms.translationtype: MT
+ms.sourcegitcommit: ff8ecec19f8cab04ac2190f9a4a995766f1750bf
+ms.openlocfilehash: 00e201b6ccdd3a0277c4a26deb0b25970fc19d82
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/24/2017
 
-检索给定的服务对象的唯一标识符。  
+---
+# <a name="idebugexpressionevaluator2getservice"></a>IDebugExpressionEvaluator2::GetService
+Retrieves a service object given its unique identifier.  
   
-## 语法  
+## <a name="syntax"></a>Syntax  
   
 ```cpp#  
 HRESULT GetService (  
-   GUID        uid,  
-   IUnknown ** ppService  
+   GUID        uid,  
+   IUnknown ** ppService  
 );  
 ```  
   
-```c#  
+```cs  
 int GetService (  
-   Guid       uid,  
-   out object ppService  
+   Guid       uid,  
+   out object ppService  
 );  
 ```  
   
-#### 参数  
+#### <a name="parameters"></a>Parameters  
  `uid`  
- \[in\] 检索的服务的唯一标识符。  
+ [in] Unique identifier of the service to retrieve.  
   
  `ppService`  
- \[out\] 返回表示一个服务的对象。  
+ [out] Returns an object that represents the service.  
   
-## 返回值  
- 如果成功，则返回; `S_OK`否则，返回错误代码。  
+## <a name="return-value"></a>Return Value  
+ If successful, returns `S_OK`; otherwise, returns an error code.  
   
-## 备注  
- 这可能是一个第三方表达式计算器使用从另一个表达式计算器的服务。  例如，此方法可用于获取可视化工具服务的接口从默认表达式计算器。  第三方表达式计算器不大可能需要实现此接口。  
+## <a name="remarks"></a>Remarks  
+ This can be consumed by a third-party expression evaluator to obtain services from another expression evaluator. For example, this method could be used to obtain the interface for the visualizer service from the default expression evaluator. Third-party expression evaluators are unlikely to need to implement this interface.  
   
-## 请参阅  
+## <a name="see-also"></a>See Also  
  [IDebugExpressionEvaluator2](../../../extensibility/debugger/reference/idebugexpressionevaluator2.md)

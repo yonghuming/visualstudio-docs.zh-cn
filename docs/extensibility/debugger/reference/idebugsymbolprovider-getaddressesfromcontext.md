@@ -1,70 +1,87 @@
 ---
-title: "IDebugSymbolProvider::GetAddressesFromContext | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "IDebugSymbolProvider::GetAddressesFromContext"
-helpviewer_keywords: 
-  - "IDebugSymbolProvider::GetAddressesFromContext 方法"
+title: IDebugSymbolProvider::GetAddressesFromContext | Microsoft Docs
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords:
+- IDebugSymbolProvider::GetAddressesFromContext
+helpviewer_keywords:
+- IDebugSymbolProvider::GetAddressesFromContext method
 ms.assetid: a3124883-a255-4543-a5ec-e1c7a97beb69
 caps.latest.revision: 11
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 11
----
-# IDebugSymbolProvider::GetAddressesFromContext
-[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
+ms.author: gregvanl
+manager: ghogen
+translation.priority.mt:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+ms.translationtype: MT
+ms.sourcegitcommit: ff8ecec19f8cab04ac2190f9a4a995766f1750bf
+ms.openlocfilehash: cb8b0c2178e9b4ab274db07c48263862b6229a21
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/24/2017
 
-此方法映射到文档上下文设置为数组调试地址。  
+---
+# <a name="idebugsymbolprovidergetaddressesfromcontext"></a>IDebugSymbolProvider::GetAddressesFromContext
+This method maps a document context into an array of debug addresses.  
   
-## 语法  
+## <a name="syntax"></a>Syntax  
   
 ```cpp#  
-HRESULT GetAddressesFromContext(   
-   IDebugDocumentContext2* pDocContext,  
-   BOOL                    fStatmentOnly,  
-   IEnumDebugAddresses**   ppEnumBegAddresses,  
-   IEnumDebugAddresses**   ppEnumEndAddresses  
+HRESULT GetAddressesFromContext(   
+   IDebugDocumentContext2* pDocContext,  
+   BOOL                    fStatmentOnly,  
+   IEnumDebugAddresses**   ppEnumBegAddresses,  
+   IEnumDebugAddresses**   ppEnumEndAddresses  
 );  
 ```  
   
-```c#  
+```cs  
 int GetAddressesFromContext(  
-   IDebugDocumentContext2  pDocContext,  
-   bool                    fStatmentOnly,  
-   out IEnumDebugAddresses ppEnumBegAddresses,  
-   out IEnumDebugAddresses ppEnumEndAddresses  
+   IDebugDocumentContext2  pDocContext,  
+   bool                    fStatmentOnly,  
+   out IEnumDebugAddresses ppEnumBegAddresses,  
+   out IEnumDebugAddresses ppEnumEndAddresses  
 );  
 ```  
   
-#### 参数  
+#### <a name="parameters"></a>Parameters  
  `pDocContext`  
- \[in\] 文档上下文。  
+ [in] The document context.  
   
  `fStatmentOnly`  
- \[in\] 如果为 true，调试到单个语句解决的限制。  
+ [in] If TRUE, limits the debug addresses to a single statement.  
   
  `ppEnumBegAddresses`  
- \[out\] 返回启动的枚举数调试地址与此语句或行。  
+ [out] Returns an enumerator for the starting debug addresses associated with this statement or line.  
   
  `ppEnumEndAddresses`  
- \[out\] 返回一个结束的一个 [IEnumDebugAddresses](../../../extensibility/debugger/reference/ienumdebugaddresses.md) 枚举数调试地址与此语句或行。  
+ [out] Returns an [IEnumDebugAddresses](../../../extensibility/debugger/reference/ienumdebugaddresses.md) enumerator for the ending debug addresses associated with this statement or line.  
   
-## 返回值  
- 如果成功，则返回; `S_OK`否则，返回错误代码。  
+## <a name="return-value"></a>Return Value  
+ If successful, returns `S_OK`; otherwise, returns an error code.  
   
-## 备注  
- 文档上下文通常指示源行的大小。  此方法提供启动，然后关闭调试地址与这些行。  某些语言允许语句包含多个语句的跨多个行或行。  此方法提供一个标志限制调试地址到一个语句。  
+## <a name="remarks"></a>Remarks  
+ A document context typically indicates a range of source lines. This method provides the starting and ending debug addresses associated with these lines. Some languages allow statements that span multiple lines, or lines that contains more than one statement. This method provides a flag to limit the debug addresses to a single statement.  
   
- 具有多个调试地址，在模板单个语句是可能的。  
+ It is possible for a single statement to have multiple debug addresses, as in the case of templates.  
   
-## 请参阅  
+## <a name="see-also"></a>See Also  
  [IDebugSymbolProvider](../../../extensibility/debugger/reference/idebugsymbolprovider.md)   
- [GetAddressesFromPosition](../Topic/IDebugSymbolProvider::GetAddressesFromPosition.md)   
+ [GetAddressesFromPosition](../../../extensibility/debugger/reference/idebugsymbolprovider-getaddressesfromposition.md)   
  [IEnumDebugAddresses](../../../extensibility/debugger/reference/ienumdebugaddresses.md)

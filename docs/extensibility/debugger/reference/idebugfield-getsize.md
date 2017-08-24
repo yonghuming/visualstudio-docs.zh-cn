@@ -1,5 +1,5 @@
 ---
-title: "IDebugField::GetSize |Microsoft 文档"
+title: IDebugField::GetSize | Microsoft Docs
 ms.custom: 
 ms.date: 11/04/2016
 ms.reviewer: 
@@ -30,16 +30,17 @@ translation.priority.mt:
 - tr-tr
 - zh-cn
 - zh-tw
-translationtype: Machine Translation
-ms.sourcegitcommit: 5db97d19b1b823388a465bba15d057b30ff0b3ce
-ms.openlocfilehash: ef74d7e7ff50691aace25108facf60ef17d6c8cf
-ms.lasthandoff: 02/22/2017
+ms.translationtype: MT
+ms.sourcegitcommit: ff8ecec19f8cab04ac2190f9a4a995766f1750bf
+ms.openlocfilehash: 53ae9005d8e20253956e23d978e4472467d4ba36
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/24/2017
 
 ---
 # <a name="idebugfieldgetsize"></a>IDebugField::GetSize
-此方法获取字段中，以字节为单位的大小。  
+This method gets the size of a field, in bytes.  
   
-## <a name="syntax"></a>语法  
+## <a name="syntax"></a>Syntax  
   
 ```cpp#  
 HRESULT GetSize(   
@@ -47,21 +48,21 @@ HRESULT GetSize(
 );  
 ```  
   
-```c#  
+```cs  
 int GetSize(  
    out uint pdwSize  
 );  
 ```  
   
-#### <a name="parameters"></a>参数  
+#### <a name="parameters"></a>Parameters  
  `pdwSize`  
- [out]返回的大小。  
+ [out] Returns the size.  
   
-## <a name="return-value"></a>返回值  
- 如果成功，返回`S_OK`; 否则为返回错误代码。  
+## <a name="return-value"></a>Return Value  
+ If successful, returns `S_OK`; otherwise, returns an error code.  
   
-## <a name="remarks"></a>备注  
- 所有字段都具有一种类型和所有类型都有一个大小。 例如，具有一种类型的字节的域具有 1 个字节的大小。  
+## <a name="remarks"></a>Remarks  
+ All fields have a type and all types have a size. For example, a field with a type of byte has a size of 1 byte.  
   
-## <a name="see-also"></a>另请参阅  
+## <a name="see-also"></a>See Also  
  [IDebugField](../../../extensibility/debugger/reference/idebugfield.md)

@@ -1,5 +1,5 @@
 ---
-title: "DEBUGPROP_INFO_FLAGS |Microsoft 文档"
+title: DEBUGPROP_INFO_FLAGS | Microsoft Docs
 ms.custom: 
 ms.date: 11/04/2016
 ms.reviewer: 
@@ -30,16 +30,17 @@ translation.priority.mt:
 - tr-tr
 - zh-cn
 - zh-tw
-translationtype: Machine Translation
-ms.sourcegitcommit: 5db97d19b1b823388a465bba15d057b30ff0b3ce
-ms.openlocfilehash: c5b749cffbc05fcc3fa6c533dc4bb3bdcd1ad1c0
-ms.lasthandoff: 02/22/2017
+ms.translationtype: MT
+ms.sourcegitcommit: ff8ecec19f8cab04ac2190f9a4a995766f1750bf
+ms.openlocfilehash: 63940f2d100da6bc2559e41eb35315fa94158721
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/24/2017
 
 ---
 # <a name="debugpropinfoflags"></a>DEBUGPROP_INFO_FLAGS
-指定要检索的调试属性对象有关的信息。  
+Specifies what information to retrieve about a debug property object.  
   
-## <a name="syntax"></a>语法  
+## <a name="syntax"></a>Syntax  
   
 ```cpp#  
 enum enum_DEBUGPROP_INFO_FLAGS {   
@@ -63,7 +64,7 @@ enum enum_DEBUGPROP_INFO_FLAGS {
 typedef DWORD DEBUGPROP_INFO_FLAGS;  
 ```  
   
-```c#  
+```cs  
 public enum enum_DEBUGPROP_INFO_FLAGS {   
    DEBUGPROP_INFO_FULLNAME          = 0x00000001,  
    DEBUGPROP_INFO_NAME              = 0x00000002,  
@@ -84,62 +85,62 @@ public enum enum_DEBUGPROP_INFO_FLAGS {
 };  
 ```  
   
-## <a name="members"></a>成员  
+## <a name="members"></a>Members  
  DEBUGPROP_INFO_FULLNAME  
- 初始化或使用`bstrFullName`字段。  
+ Initialize/use the `bstrFullName` field.  
   
  DEBUGPROP_INFO_NAME  
- 初始化或使用`bstrName`字段。  
+ Initialize/use the `bstrName` field.  
   
  DEBUGPROP_INFO_TYPE  
- 初始化或使用`bstrType`字段。  
+ Initialize/use the `bstrType` field.  
   
  DEBUGPROP_INFO_VALUE  
- 初始化或使用`bstrValue`字段。  
+ Initialize/use the `bstrValue` field.  
   
  DEBUGPROP_INFO_ATTRIB  
- 初始化或使用`dwAttrib`字段。  
+ Initialize/use the `dwAttrib` field.  
   
- DEBUGPROP_INFO_PROP，  
- 初始化或使用`pProperty`包含字段[IDebugProperty2](../../../extensibility/debugger/reference/idebugproperty2.md)接口。  
+ DEBUGPROP_INFO_PROP,  
+ Initialize/use the `pProperty` field that contains an [IDebugProperty2](../../../extensibility/debugger/reference/idebugproperty2.md) interface.  
   
  DEBUGPROP_INFO_VALUE_AUTOEXPAND  
- 指定值字段应包含自动扩展的值，是否可用，此类型的对象。  
+ Specifies that the value field should contain the auto-expanded value, if available, for this type of object.  
   
  DEBUGPROP_INFO_VALUE_NOFUNCEVAL  
- 已否决。  
+ Deprecated.  
   
  DEBUGPROP_INFO_VALUE_RAW  
- 不返回任何美化值或成员 （即，不进行格式化值）。  
+ Do not return any beautified values or members (that is, do not format the values).  
   
  DEBUGPROP_INFO_VALUE_NO_TOSTRING  
- 不返回任何特殊的合成的值 (例如，不要调用`ToString()`某个对象以生成值)。  
+ Do not return any special synthesized values (for example, do not call `ToString()` on an object to produce a value).  
   
  DEBUGPROP_INFO_NONE  
- 指定不设置任何标志。  
+ Specifies that no flags are set.  
   
  DEBUGPROP_INFO_STANDARD  
- 初始化或使用`dwAttrib`， `bstrName`， `bstrType`，和`bstrValue`字段。  
+ Initialize/use the `dwAttrib`, `bstrName`, `bstrType`, and `bstrValue` fields.  
   
  DEBUGPROP_INFO_All  
- 指示所有标志的掩码。  
+ Indicates a mask of all flags.  
   
-## <a name="remarks"></a>备注  
- 这些值传递给[GetPropertyInfo](../../../extensibility/debugger/reference/idebugproperty2-getpropertyinfo.md)， [EnumChildren](../../../extensibility/debugger/reference/idebugproperty2-enumchildren.md)，和[EnumProperties](../../../extensibility/debugger/reference/idebugstackframe2-enumproperties.md)方法，以指示哪些字段是要初始化[DEBUG_PROPERTY_INFO](../../../extensibility/debugger/reference/debug-property-info.md)结构。  
+## <a name="remarks"></a>Remarks  
+ These values are passed to the [GetPropertyInfo](../../../extensibility/debugger/reference/idebugproperty2-getpropertyinfo.md), [EnumChildren](../../../extensibility/debugger/reference/idebugproperty2-enumchildren.md), and [EnumProperties](../../../extensibility/debugger/reference/idebugstackframe2-enumproperties.md) methods to indicate which fields are to be initialized the [DEBUG_PROPERTY_INFO](../../../extensibility/debugger/reference/debug-property-info.md) structure.  
   
- 这些值还用于`dwFields`的成员`DEBUG_PROPERTY_INFO`以表明该结构的哪些字段是用和有效时返回结构的结构。  
+ These values are also used for the `dwFields` member of the `DEBUG_PROPERTY_INFO` structure to indicate which fields of the structure are used and valid when the structure is returned.  
   
- 这些值可能与按位结合起来`OR`。  
+ These values may be combined with a bitwise `OR`.  
   
-## <a name="requirements"></a>要求  
- 标头︰ msdbg.h  
+## <a name="requirements"></a>Requirements  
+ Header: msdbg.h  
   
  Namespace: Microsoft.VisualStudio.Debugger.Interop  
   
- 程序集︰ Microsoft.VisualStudio.Debugger.Interop.dll  
+ Assembly: Microsoft.VisualStudio.Debugger.Interop.dll  
   
-## <a name="see-also"></a>另请参阅  
- [枚举](../../../extensibility/debugger/reference/enumerations-visual-studio-debugging.md)   
+## <a name="see-also"></a>See Also  
+ [Enumerations](../../../extensibility/debugger/reference/enumerations-visual-studio-debugging.md)   
  [IDebugProperty2](../../../extensibility/debugger/reference/idebugproperty2.md)   
  [GetPropertyInfo](../../../extensibility/debugger/reference/idebugproperty2-getpropertyinfo.md)   
  [EnumChildren](../../../extensibility/debugger/reference/idebugproperty2-enumchildren.md)   

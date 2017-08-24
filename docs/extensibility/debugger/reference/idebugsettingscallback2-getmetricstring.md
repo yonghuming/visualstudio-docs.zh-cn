@@ -1,5 +1,5 @@
 ---
-title: "IDebugSettingsCallback2::GetMetricString |Microsoft 文档"
+title: IDebugSettingsCallback2::GetMetricString | Microsoft Docs
 ms.custom: 
 ms.date: 11/04/2016
 ms.reviewer: 
@@ -29,16 +29,17 @@ translation.priority.mt:
 - tr-tr
 - zh-cn
 - zh-tw
-translationtype: Machine Translation
-ms.sourcegitcommit: 5db97d19b1b823388a465bba15d057b30ff0b3ce
-ms.openlocfilehash: 0bdf7e64da1e49bd965f0ca91acb4ae66e9936ff
-ms.lasthandoff: 02/22/2017
+ms.translationtype: MT
+ms.sourcegitcommit: ff8ecec19f8cab04ac2190f9a4a995766f1750bf
+ms.openlocfilehash: d37082925fdef5bd52af91acecec1ce8d58a0b2d
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/24/2017
 
 ---
 # <a name="idebugsettingscallback2getmetricstring"></a>IDebugSettingsCallback2::GetMetricString
-检索在给定其名称的跃点数的值字符串。  
+Retrieves the value string of the metric given its name.  
   
-## <a name="syntax"></a>语法  
+## <a name="syntax"></a>Syntax  
   
 ```cpp#  
 HRESULT GetMetricString(  
@@ -49,7 +50,7 @@ HRESULT GetMetricString(
 );  
 ```  
   
-```c#  
+```cs  
 private int GetMetricString(  
     string     pszType,  
     ref Guid   guidSection,  
@@ -58,21 +59,21 @@ private int GetMetricString(
 );  
 ```  
   
-#### <a name="parameters"></a>参数  
+#### <a name="parameters"></a>Parameters  
  `pszType`  
- [in]该度量值的类型。  
+ [in] Type of the metric.  
   
  `guidSection`  
- [in]部分中的唯一标识符。  
+ [in] Unique identifier of the section.  
   
  `pszMetric`  
- [in]度量值名称。  
+ [in] Name of the metric.  
   
  `pbstrValue`  
- [out]返回度量值的值字符串。  
+ [out] Returns the value string of the metric.  
   
-## <a name="return-value"></a>返回值  
- 如果成功，返回`S_OK`; 否则为返回错误代码。  
+## <a name="return-value"></a>Return Value  
+ If successful, returns `S_OK`; otherwise, returns an error code.  
   
-## <a name="see-also"></a>另请参阅  
+## <a name="see-also"></a>See Also  
  [IDebugSettingsCallback2](../../../extensibility/debugger/reference/idebugsettingscallback2.md)

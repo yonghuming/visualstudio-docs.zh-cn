@@ -1,47 +1,64 @@
 ---
-title: "IEnumDebugAddresses::Reset | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "IEnumDebugAddresses::Reset"
-helpviewer_keywords: 
-  - "IEnumDebugAddresses::Reset 方法"
+title: IEnumDebugAddresses::Reset | Microsoft Docs
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords:
+- IEnumDebugAddresses::Reset
+helpviewer_keywords:
+- IEnumDebugAddresses::Reset method
 ms.assetid: 3a9d7f20-5bc6-4e13-8e91-5af4092e092f
 caps.latest.revision: 5
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 5
----
-# IEnumDebugAddresses::Reset
-[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
+ms.author: gregvanl
+manager: ghogen
+translation.priority.mt:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+ms.translationtype: MT
+ms.sourcegitcommit: ff8ecec19f8cab04ac2190f9a4a995766f1750bf
+ms.openlocfilehash: 2390ca1e6db27158a72924c62170662a20d758db
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/24/2017
 
-此方法重置枚举到第一个元素。  
+---
+# <a name="ienumdebugaddressesreset"></a>IEnumDebugAddresses::Reset
+This method resets the enumeration to the first element.  
   
-## 语法  
+## <a name="syntax"></a>Syntax  
   
 ```cpp#  
 HRESULT Reset(void);  
 ```  
   
-```c#  
+```cs  
 int Reset();  
 ```  
   
-#### 参数  
- 无  
+#### <a name="parameters"></a>Parameters  
+ None  
   
-## 返回值  
- 如果成功，则返回; `S_OK`否则，返回错误代码。  
+## <a name="return-value"></a>Return Value  
+ If successful, returns `S_OK`; otherwise, returns an error code.  
   
-## 备注  
- 此方法调用之后，下调用 [下一步](../Topic/IEnumDebugAddresses::Next.md) 返回枚举中的第一个元素。  
+## <a name="remarks"></a>Remarks  
+ After this method is called, the next call to [Next](../../../extensibility/debugger/reference/ienumdebugaddresses-next.md) returns the first element of the enumeration.  
   
-## 请参阅  
+## <a name="see-also"></a>See Also  
  [IEnumDebugAddresses](../../../extensibility/debugger/reference/ienumdebugaddresses.md)   
- [下一步](../Topic/IEnumDebugAddresses::Next.md)
+ [Next](../../../extensibility/debugger/reference/ienumdebugaddresses-next.md)

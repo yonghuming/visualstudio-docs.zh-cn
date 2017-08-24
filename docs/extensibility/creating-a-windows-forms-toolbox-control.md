@@ -1,5 +1,5 @@
 ---
-title: "创建 Windows 窗体工具箱控件 |Microsoft 文档"
+title: Creating a Windows Forms Toolbox Control | Microsoft Docs
 ms.custom: 
 ms.date: 11/04/2016
 ms.reviewer: 
@@ -30,67 +30,68 @@ translation.priority.mt:
 - tr-tr
 - zh-cn
 - zh-tw
-translationtype: Machine Translation
-ms.sourcegitcommit: 5658ecf52637a38bc3c2a5ad9e85b2edebf7d445
-ms.openlocfilehash: 770963e06655c0d4da2946fa7981fd1e4496b7f0
-ms.lasthandoff: 02/22/2017
+ms.translationtype: MT
+ms.sourcegitcommit: ff8ecec19f8cab04ac2190f9a4a995766f1750bf
+ms.openlocfilehash: 797ca4c11f9eae2da8890ff3ab1e908b1c45e381
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/24/2017
 
 ---
-# <a name="creating-a-windows-forms-toolbox-control"></a>创建 Windows 窗体工具箱控件
-Visual Studio 扩展性工具 (VS SDK) 中包含的 Windows 窗体工具箱控件项模板允许您创建的控件，将自动添加到**工具箱**安装扩展的安装。 本主题演示如何使用模板来创建一个简单的计数器控件，可以将它们分发给其他用户。  
+# <a name="creating-a-windows-forms-toolbox-control"></a>Creating a Windows Forms Toolbox Control
+The Windows Forms Toolbox Control item template that is included in the Visual Studio Extensibility Tools (VS SDK) lets you create a control that is automatically added to the **Toolbox** when the extension is installed. This topic shows how to use the template to create a simple counter control that you can distribute to other users.  
   
-## <a name="prerequisites"></a>先决条件  
- 启动 Visual Studio 2015 中，您并不安装 Visual Studio SDK 从下载中心获得。 它将包括作为 Visual Studio 安装程序中的可选功能。 您还可以在以后安装 VS SDK。 有关详细信息，请参阅[安装 Visual Studio SDK](../extensibility/installing-the-visual-studio-sdk.md)。  
+## <a name="prerequisites"></a>Prerequisites  
+ Starting in Visual Studio 2015, you do not install the Visual Studio SDK from the download center. It is included as an optional feature in Visual Studio setup. You can also install the VS SDK later on. For more information, see [Installing the Visual Studio SDK](../extensibility/installing-the-visual-studio-sdk.md).  
   
-## <a name="creating-a-windows-forms-toolbox-control"></a>创建 Windows 窗体工具箱控件  
- Windows 窗体工具箱控件模板创建的未定义的用户控件，并提供了将控件添加到所需的功能的所有**工具箱**。  
+## <a name="creating-a-windows-forms-toolbox-control"></a>Creating a Windows Forms Toolbox Control  
+ The Windows Forms Toolbox Control template creates an undefined user control and provides all of the functionality that is required to add the control to the **Toolbox**.  
   
-#### <a name="create-an-extension-with-a-windows-forms-toolbox-control"></a>使用 Windows 窗体工具箱控件创建扩展  
+#### <a name="create-an-extension-with-a-windows-forms-toolbox-control"></a>Create an extension with a Windows Forms Toolbox Control  
   
-1.  创建一个名为的 VSIX 项目`MyWinFormsControl`。 您可以找到中的 VSIX 项目模板**新项目**下的对话框**Visual C# / 可扩展性**。  
+1.  Create a VSIX project named `MyWinFormsControl`. You can find the VSIX project template in the **New Project** dialog under **Visual C# / Extensibility**.  
   
-2.  在打开该项目，添加**Windows 窗体工具箱控件**项模板名为`Counter`。 在**解决方案资源管理器**，用鼠标右键单击项目节点并选择**添加 / 新项**。 在**添加新项**对话框中，转到**Visual C# / 可扩展性**，然后选择**工具箱的 Windows 窗体控件**  
+2.  When the project opens, add a **Windows Forms Toolbox Control** item template named `Counter`. In the **Solution Explorer**, right-click the project node and select **Add / New Item**. In the **Add New Item** dialog, go to **Visual C# / Extensibility** and select **Windows Forms Toolbox Control**  
   
-3.  这会将添加一个用户控件， `ProvideToolboxControlAttribute` <xref:Microsoft.VisualStudio.Shell.RegistrationAttribute>放置在控件**工具箱**，和一个**Microsoft.VisualStudio.ToolboxControl**资产部署的 VSIX 清单中的条目。</xref:Microsoft.VisualStudio.Shell.RegistrationAttribute>  
+3.  This adds a user control, a `ProvideToolboxControlAttribute`<xref:Microsoft.VisualStudio.Shell.RegistrationAttribute> to place the control in the **Toolbox**, and a **Microsoft.VisualStudio.ToolboxControl** Asset entry in the VSIX manifest for deployment.  
   
-### <a name="building-a-user-interface-for-the-control"></a>构建控件的用户界面  
- `Counter`控件需要两个子控件︰<xref:System.Windows.Forms.Label>若要显示的当前计数和<xref:System.Windows.Forms.Button>的计数重置为 0。</xref:System.Windows.Forms.Button> </xref:System.Windows.Forms.Label> 需要其他任何子控件不，因为调用方将以编程方式递增计数器。  
+### <a name="building-a-user-interface-for-the-control"></a>Building a User Interface for the Control  
+ The `Counter` control requires two child controls: a <xref:System.Windows.Forms.Label> to display the current count, and a <xref:System.Windows.Forms.Button> to reset the count to 0. No other child controls are required because callers will increment the counter programmatically.  
   
-##### <a name="to-build-the-user-interface"></a>构建用户界面  
+##### <a name="to-build-the-user-interface"></a>To build the user interface  
   
-1.  在**解决方案资源管理器**，双击 Counter.cs 在设计器中打开它。  
+1.  In **Solution Explorer**, double-click Counter.cs to open it in the designer.  
   
-2.  删除"单击此处 ！" **按钮**的是默认情况下添加时，包含 Windows 窗体工具箱控件项模板。  
+2.  Remove the "Click Here !" **Button** that is included by default when you add the Windows Forms Toolbox Control item template.  
   
-3.  从**工具箱**，拖动`Label`控件，然后`Button`它下面到设计图面上的控件。  
+3.  From the **Toolbox**, drag a `Label` control and then a `Button` control below it to the design surface.  
   
-4.  调整为 150 总体的用户控件的大小、 50 像素，并且调整大小按钮控制为 50，20 个像素。  
+4.  Resize the overall user control to 150, 50 pixels, and resize the button control to 50, 20 pixels.  
   
-5.  在**属性**窗口中，设置以下值在设计图面上的控件。  
+5.  In the **Properties** window, set the following values for the controls on the design surface.  
   
-    |控件|属性|值|  
+    |Control|Property|Value|  
     |-------------|--------------|-----------|  
-    |`Label1`|**文本**|""|  
+    |`Label1`|**Text**|""|  
     |`Button1`|**Name**|btnReset|  
-    |`Button1`|**文本**|重置|  
+    |`Button1`|**Text**|Reset|  
   
-### <a name="coding-the-user-control"></a>编码用户控件  
- `Counter` 控件将公开一个用于递增计数器的方法、一个计数器每次递增时均会引发的事件、一个 `Reset` 按钮，以及&3; 个存储当前计数、显示文本及是显示还是隐藏 `Reset` 按钮的属性。 `ProvideToolboxControl`属性确定在何处**工具箱**`Counter`控件将出现。  
+### <a name="coding-the-user-control"></a>Coding the User Control  
+ The `Counter` control will expose a method to increment the counter, an event to be raised whenever the counter is incremented, a `Reset` button, and three properties to store the current count, the display text, and whether to show or hide the `Reset` button. The `ProvideToolboxControl` attribute determines where in the **Toolbox** the `Counter` control will appear.  
   
-##### <a name="to-code-the-user-control"></a>编写用户控件的代码  
+##### <a name="to-code-the-user-control"></a>To code the user control  
   
-1.  双击要在代码窗口中打开其 load 事件处理程序的窗体。  
+1.  Double-click the form to open its load event handler in the code window.  
   
-2.  事件处理程序方法中，上面控件类中创建一个整数来存储该计数器值和一个字符串，用于存储显示文本，如下面的示例中所示。  
+2.  Above the event handler method, in the control class create an integer to store the counter value and a string to store the display text as shown in the following example.  
   
-    ```c#  
+    ```cs  
     int currentValue;  
     string displayText;  
     ```  
   
-3.  创建以下公共属性声明。  
+3.  Create the following public property declarations.  
   
-    ```c#  
+    ```cs  
     public int Value {  
         get { return currentValue; }   
     }  
@@ -107,11 +108,11 @@ Visual Studio 扩展性工具 (VS SDK) 中包含的 Windows 窗体工具箱控�
   
     ```  
   
-     调用方可以访问这些属性来获取和设置的显示文本的计数器来显示或隐藏`Reset`按钮。 调用方可以获取的当前值的只读的`Value`属性，但它们不能直接设置的值。  
+     Callers can access these properties to get and set the display text of the counter and to show or hide the `Reset` button. Callers can obtain the current value of the read-only `Value` property, but they cannot set the value directly.  
   
-4.  将以下代码放入`Load`控件的事件。  
+4.  Put the following code in the `Load` event for the control.  
   
-    ```c#  
+    ```cs  
     private void Counter_Load(object sender, EventArgs e)  
     {  
         currentValue = 0;  
@@ -120,11 +121,11 @@ Visual Studio 扩展性工具 (VS SDK) 中包含的 Windows 窗体工具箱控�
   
     ```  
   
-     设置**标签**中文<xref:System.Windows.Forms.UserControl.Load>事件使要加载之前应用它们的值的目标属性。</xref:System.Windows.Forms.UserControl.Load> 设置**标签**构造函数中的文本将产生一个空**标签**。  
+     Setting the **Label** text in the <xref:System.Windows.Forms.UserControl.Load> event enables the target properties to load before their values are applied. Setting the **Label** text in the constructor would result in an empty **Label**.  
   
-5.  创建要递增计数器的下列公共方法。  
+5.  Create the following public method to increment the counter.  
   
-    ```c#  
+    ```cs  
     public void Increment()  
     {  
         currentValue++;  
@@ -134,17 +135,17 @@ Visual Studio 扩展性工具 (VS SDK) 中包含的 Windows 窗体工具箱控�
   
     ```  
   
-6.  添加一个声明`Incremented`到控件类的事件。  
+6.  Add a declaration for the `Incremented` event to the control class.  
   
-    ```c#  
+    ```cs  
     public event EventHandler Incremented;  
     ```  
   
-     调用方可以添加到此事件，以对此计数器的值变化作出响应的处理程序。  
+     Callers can add handlers to this event to respond to changes in the value of the counter.  
   
-7.  返回设计视图，然后双击`Reset`按钮以生成`btnReset_Click`事件处理程序，然后在下面的示例中所示填充。  
+7.  Return to design view and double-click the `Reset` button to generate the `btnReset_Click` event handler, and then fill it in as shown in the following example.  
   
-    ```c#  
+    ```cs  
     private void btnReset_Click(object sender, EventArgs e)  
     {  
         currentValue = 0;  
@@ -153,80 +154,80 @@ Visual Studio 扩展性工具 (VS SDK) 中包含的 Windows 窗体工具箱控�
   
     ```  
   
-8.  类定义上方紧挨在`ProvideToolboxControl`特性声明，将从第一个参数的值更改`"MyWinFormsControl.Counter"`到`"General"`。 这会设置将在“工具箱” 中托管控件的项组名称。  
+8.  Immediately above the class definition, in the `ProvideToolboxControl` attribute declaration, change the value of the first parameter from `"MyWinFormsControl.Counter"` to `"General"`. This sets the name of the item group that will host the control in the **Toolbox**.  
   
-     以下示例演示了 `ProvideToolboxControl` 特性和调整后的类定义。  
+     The following example shows the `ProvideToolboxControl` attribute and the adjusted class definition.  
   
-    ```c#  
+    ```cs  
     [ProvideToolboxControl("General", false)]  
     public partial class Counter : UserControl  
     ```  
   
-### <a name="testing-the-control"></a>测试控件  
- 若要测试**工具箱**控制、 首次在开发环境中对它进行测试和已编译的应用程序中对其进行测试。  
+### <a name="testing-the-control"></a>Testing the Control  
+ To test a **Toolbox** control, first test it in the development environment and then test it in a compiled application.  
   
-##### <a name="to-test-the-control"></a>测试控件  
+##### <a name="to-test-the-control"></a>To test the control  
   
-1.  按 F5。  
+1.  Press F5.  
   
-     这将生成项目并打开已安装该控件的 Visual Studio 的第二个实验实例。  
+     This builds the project and opens a second Experimental instance of Visual Studio that has the control installed.  
   
-2.  在 Visual Studio 的实验实例中，创建**Windows 窗体应用程序**项目。  
+2.  In the Experimental instance of Visual Studio, create a **Windows Forms Application** project.  
   
-3.  在**解决方案资源管理器**，双击 Form1.cs 如果尚未打开在设计器中打开。  
+3.  In **Solution Explorer**, double-click Form1.cs to open it in the designer if it is not already open.  
   
-4.  在**工具箱**、`Counter`控件应显示在**常规**部分。  
+4.  In the **Toolbox**, the `Counter` control should be displayed in the **General** section.  
   
-5.  拖动`Counter`控制转移到您的窗体，然后选择它。 `Value`， `Message`，和`ShowReset`属性将显示在**属性**窗口中，以及从<xref:System.Windows.Forms.UserControl>。</xref:System.Windows.Forms.UserControl>继承的属性  
+5.  Drag a `Counter` control to your form, and then select it. The `Value`, `Message`, and `ShowReset` properties will be displayed in the **Properties** window, together with the properties that are inherited from <xref:System.Windows.Forms.UserControl>.  
   
-6.  将 `Message` 属性设置为 `Count:`。  
+6.  Set the `Message` property to `Count:`.  
   
-7.  拖动<xref:System.Windows.Forms.Button>控制转移到该窗体，并将该按钮的名称和文本属性`Test`。</xref:System.Windows.Forms.Button>  
+7.  Drag a <xref:System.Windows.Forms.Button> control to the form, and then set the name and text properties of the button to `Test`.  
   
-8.  双击按钮以在代码视图中打开 Form1.cs，并创建一个 click 处理程序。  
+8.  Double-click the button to open Form1.cs in code view and create a click handler.  
   
-9. 在单击处理程序中，调用`counter1.Increment()`。  
+9. In the click handler, call `counter1.Increment()`.  
   
-10. 在构造函数，在调用后`InitializeComponent`，类型`counter1``.``Incremented +=`然后按 tab 键两次。  
+10. In the constructor function, after the call to `InitializeComponent`, type `counter1``.``Incremented +=` and then press TAB twice.  
   
-     Visual Studio 将生成窗体级别处理程序`counter1.Incremented`事件。  
+     Visual Studio generates a form-level handler for the `counter1.Incremented` event.  
   
-11. 突出显示`Throw`事件处理程序类型中的语句`mbox`，然后按 tab 键两次，以与 mbox 代码段中生成一个消息框。  
+11. Highlight the `Throw` statement in the event handler, type `mbox`, and then press TAB twice to generate a message box from the mbox code snippet.  
   
-12. 在下一行中，将以下代码添加`if` / `else`块来设置可见性`Reset`按钮。  
+12. On the next line, add the following `if`/`else` block to set the visibility of the `Reset` button.  
   
-    ```c#  
+    ```cs  
     if (counter1.Value < 5) counter1.ShowReset = false;  
     else counter1.ShowReset = true;  
     ```  
   
-13. 按 F5。  
+13. Press F5.  
   
-     打开窗体。 `Counter`控件将显示以下文本。  
+     The form opens. The `Counter` control displays the following text.  
   
-     **计数︰ 0**  
+     **Count: 0**  
   
-14. 单击“测试” 。  
+14. Click **Test**.  
   
-     计数器递增和 Visual Studio 显示一个消息框。  
+     The counter increments and Visual Studio displays a message box.  
   
-15. 关闭消息框。  
+15. Close the message box.  
   
-     **重置**按钮就会消失。  
+     The **Reset** button disappears.  
   
-16. 单击**测试**直到该计数器达到**5**关闭消息框每次。  
+16. Click **Test** until the counter reaches **5** closing the message boxes each time.  
   
-     **重置**按钮再次出现。  
+     The **Reset** button re-appears.  
   
-17. 单击“重置” 。  
+17. Click **Reset**.  
   
-     该计数器将重置为**0**。  
+     The counter resets to **0**.  
   
-## <a name="next-steps"></a>后续步骤  
- 生成“工具箱”  控件时，Visual Studio 将在项目的 \bin\debug\ 文件夹中创建一个名为 *项目名称*.vsix 的文件。 你可以通过将 .vsix 文件上载到网络或网站来部署此控件。 当用户打开.vsix 文件时，该控件被安装，并添加到 Visual Studio**工具箱**在用户计算机上。 或者，可以将上载到的.vsix 文件[Visual Studio 库](http://go.microsoft.com/fwlink/?LinkID=123847)Web 站点，以便用户能够找到它通过在浏览**工具 / 扩展和更新**对话框。  
+## <a name="next-steps"></a>Next Steps  
+ When you build a **Toolbox** control, Visual Studio creates a file named *ProjectName*.vsix in the \bin\debug\ folder of your project. You can deploy the control by uploading the .vsix file to a network or to a Web site. When a user opens the .vsix file, the control is installed and added to the Visual Studio **Toolbox** on the user's computer. Alternatively, you can upload the .vsix file to the [Visual Studio Gallery](http://go.microsoft.com/fwlink/?LinkID=123847) Web site so that users can find it by browsing in the **Tools / Extension and Updates** dialog.  
   
-## <a name="see-also"></a>另请参阅  
- [扩展工具箱](../misc/extending-the-toolbox.md)   
- [创建 WPF 工具箱控件](../extensibility/creating-a-wpf-toolbox-control.md)   
- [扩展 Visual Studio 的其他部分](../extensibility/extending-other-parts-of-visual-studio.md)   
- [Windows 窗体控件开发基础知识](http://msdn.microsoft.com/Library/6277bb81-90f7-4c5b-9f4b-b02bb42dd316)
+## <a name="see-also"></a>See Also  
+ [Extending other parts of Visual Studio](../extensibility/extending-other-parts-of-visual-studio.md)   
+ [Creating a WPF Toolbox Control](../extensibility/creating-a-wpf-toolbox-control.md)   
+ [Extending Other Parts of Visual Studio](../extensibility/extending-other-parts-of-visual-studio.md)   
+ [Windows Forms Control Development Basics](/dotnet/framework/winforms/controls/windows-forms-control-development-basics)

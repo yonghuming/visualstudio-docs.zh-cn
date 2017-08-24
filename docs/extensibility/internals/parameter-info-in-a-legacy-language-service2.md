@@ -1,52 +1,69 @@
 ---
-title: "旧语言 Service2 中的参数信息 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-helpviewer_keywords: 
-  - "IntelliSense、 参数信息工具提示"
-  - "语言服务 [托管的包框架] 参数的 IntelliSense 信息"
-  - "参数信息 (IntelliSense) 支持的语言服务 [托管的包框架]"
+title: Parameter Info in a Legacy Language Service2 | Microsoft Docs
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+helpviewer_keywords:
+- IntelliSense, Parameter Info tool tip
+- language services [managed package framework], IntelliSense Parameter Info
+- Parameter Info (IntelliSense), supporting in language services [managed package framework]
 ms.assetid: a117365d-320d-4bb5-b61d-3e6457b8f6bc
 caps.latest.revision: 23
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 23
----
-# 传统语言服务中的参数信息
-[!INCLUDE[vs2017banner](../../code-quality/includes/vs2017banner.md)]
+ms.author: gregvanl
+manager: ghogen
+translation.priority.mt:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+ms.translationtype: MT
+ms.sourcegitcommit: ff8ecec19f8cab04ac2190f9a4a995766f1750bf
+ms.openlocfilehash: c4e2a27dd32a0a6b840b0edc29ef375928cf0989
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/24/2017
 
-参数的 IntelliSense 信息是在用户键入的参数列表时显示的方法的签名的工具提示启动为方法参数列表的字符 （通常左括号）。 在输入每个参数和类型化参数分隔符 （通常为逗号） 时，工具提示将更新以显示下一个参数以粗体显示。  
+---
+# <a name="parameter-info-in-a-legacy-language-service"></a>Parameter Info in a Legacy Language Service
+IntelliSense Parameter Info is a tooltip that displays the signature of a method when the user types the parameter list start character (typically an open parenthesis) for the method parameter list. As each parameter is entered and the parameter separator (typically a comma) is typed, the tooltip is updated to show the next parameter in bold.  
   
- 托管的包框架 \(MPF\) 类提供用于管理参数信息工具提示支持。 分析器必须检测参数启动，则参数接下来，并且参数结束字符，并且它必须提供的方法签名和及其相关的参数的列表。  
+ The managed package framework (MPF) classes provide support for managing the Parameter Info tooltip. The parser must detect parameter start, parameter next, and parameter end characters, and it must supply a list of the method signatures and their associated parameters.  
   
- 旧的语言服务实现为作为 VSPackage 的一部分，但实现语言服务功能的较新方法是使用 MEF 扩展。 若要获得详细信息，请参阅 [扩展编辑器和语言服务](../../extensibility/extending-the-editor-and-language-services.md)。  
-  
-> [!NOTE]
->  我们建议在开始尽可能快地使用新的编辑器 API。 这将提高您的语言服务的性能，并让您充分利用新的编辑器功能。  
-  
-## 实现  
- 分析器应设置触发器值 <xref:Microsoft.VisualStudio.Package.TokenTriggers> 当它找到参数列表的开始字符 （通常左括号） 设置。 它应设置 <xref:Microsoft.VisualStudio.Package.TokenTriggers> 触发当它找到的参数分隔符 （通常逗号）。 这会导致参数信息工具提示将更新，以显示下一个参数以粗体显示。 分析器应设置触发器值 <xref:Microsoft.VisualStudio.Package.TokenTriggers> 时如果查找的参数列表结束字符 （通常右括号）。  
-  
- <xref:Microsoft.VisualStudio.Package.TokenTriggers> 触发器值开始调用 <xref:Microsoft.VisualStudio.Package.Source.MethodTip%2A> 方法，后者又调用 <xref:Microsoft.VisualStudio.Package.LanguageService.ParseSource%2A> 方法分析器分析描述为 <xref:Microsoft.VisualStudio.Package.ParseReason>。 如果分析器确定参数列表的开始字符之前的标识符是一个可识别的方法名称，它将返回的匹配方法签名中的列表 <xref:Microsoft.VisualStudio.Package.AuthoringScope> 对象。 如果未找到任何方法签名，则会显示在列表中的第一个签名的参数信息工具提示。 按照多个签名键入，然后将更新该工具提示。 当键入的参数列表结束字符时，将从视图中删除参数信息工具提示。  
+ Legacy language services are implemented as part of a VSPackage, but the newer way to implement language service features is to use MEF extensions. To find out more, see [Extending the Editor and Language Services](../../extensibility/extending-the-editor-and-language-services.md).  
   
 > [!NOTE]
->  若要确保参数信息工具提示的格式是否正确，必须在重写的属性 <xref:Microsoft.VisualStudio.Package.Methods> 类，以提供适当的字符。 基 <xref:Microsoft.VisualStudio.Package.Methods> 类假定 C\# 的样式方法签名。 请参阅 <xref:Microsoft.VisualStudio.Package.Methods> 有关如何执行此操作的详细信息的类。  
+>  We recommend that you begin to use the new editor API as soon as possible. This will improve the performance of your language service and let you take advantage of new editor features.  
   
-## 启用对参数信息的支持  
- 若要支持参数信息工具提示，必须设置 `ShowCompletion` 命名参数的 <xref:Microsoft.VisualStudio.Shell.ProvideLanguageServiceAttribute> 到 `true`。 语言服务读取来自此注册表项的值 <xref:Microsoft.VisualStudio.Package.LanguagePreferences.EnableCodeSense%2A> 属性。  
+## <a name="implementation"></a>Implementation  
+ The parser should set the trigger value <xref:Microsoft.VisualStudio.Package.TokenTriggers> is set when it finds a parameter list start character (often an open parenthesis). It should set a <xref:Microsoft.VisualStudio.Package.TokenTriggers> trigger when it finds a parameter separator (often a comma). This causes a Parameter Info tooltip to be updated and show the next parameter in bold. The parser should set the trigger value <xref:Microsoft.VisualStudio.Package.TokenTriggers> when if finds the parameter list end character (often a close parenthesis).  
   
- 此外， <xref:Microsoft.VisualStudio.Package.LanguagePreferences.ParameterInformation%2A> 属性必须设置为 `true` 的参数信息工具提示显示。  
+ The <xref:Microsoft.VisualStudio.Package.TokenTriggers> trigger value initiates a call to the <xref:Microsoft.VisualStudio.Package.Source.MethodTip%2A> method, which in turn calls the <xref:Microsoft.VisualStudio.Package.LanguageService.ParseSource%2A> method parser with a parse reason of <xref:Microsoft.VisualStudio.Package.ParseReason>. If the parser determines that the identifier before the parameter list start character is a recognized method name, it returns a list of matching method signatures in the <xref:Microsoft.VisualStudio.Package.AuthoringScope> object. If any method signatures were found, the Parameter Info tooltip is displayed with the first signature in the list. This tooltip is then updated as more of the signature is typed. When the parameter list end character is typed, the Parameter Info tooltip is removed from view.  
   
-### 示例  
- 下面是一个简化的示例检测参数列表字符并设置相应的触发器。 此示例是仅供说明用途。 它假定您的扫描仪，包含一种方法 `GetNextToken` ，标识并返回从文本行的令牌。 示例代码只需设置触发器，只要它发现正确类型的字符。  
+> [!NOTE]
+>  To ensure that the Parameter Info tooltip is properly formatted, you must override the properties on the <xref:Microsoft.VisualStudio.Package.Methods> class to supply the appropriate characters. The base <xref:Microsoft.VisualStudio.Package.Methods> class assumes a C#-style method signature. See the <xref:Microsoft.VisualStudio.Package.Methods> class for details on how this can be done.  
   
-```c#  
+## <a name="enabling-support-for-the-parameter-info"></a>Enabling Support for the Parameter Info  
+ To support Parameter Info tooltips, you must set the `ShowCompletion` named parameter of the <xref:Microsoft.VisualStudio.Shell.ProvideLanguageServiceAttribute> to `true`. The language service reads the value of this registry entry from the <xref:Microsoft.VisualStudio.Package.LanguagePreferences.EnableCodeSense%2A> property.  
+  
+ In addition, the <xref:Microsoft.VisualStudio.Package.LanguagePreferences.ParameterInformation%2A> property must be set to `true` for the Parameter Info tooltip to be shown.  
+  
+### <a name="example"></a>Example  
+ Here is a simplified example of detecting the parameter list characters and setting the appropriate triggers. This example is for illustrative purposes only. It assumes that your scanner contains a method `GetNextToken` that identifies and returns tokens from a line of text. The example code simply sets the triggers whenever it sees the right kind of character.  
+  
+```cs  
 using Microsoft.VisualStudio.Package;  
 using Microsoft.VisualStudio.TextManager.Interop;  
   
@@ -92,17 +109,17 @@ namespace TestLanguagePackage
 }  
 ```  
   
-## 在分析器中支持的参数信息工具提示  
- <xref:Microsoft.VisualStudio.Package.Source> 类会进行某些假设的内容 <xref:Microsoft.VisualStudio.Package.AuthoringScope> 和 <xref:Microsoft.VisualStudio.Package.AuthoringSink> 类显示和更新的参数信息工具提示时。  
+## <a name="supporting-the-parameter-info-tooltip-in-the-parser"></a>Supporting the Parameter Info ToolTip in the Parser  
+ The <xref:Microsoft.VisualStudio.Package.Source> class makes some assumptions about the contents of the <xref:Microsoft.VisualStudio.Package.AuthoringScope> and <xref:Microsoft.VisualStudio.Package.AuthoringSink> classes when the Parameter Info tooltip is displayed and updated.  
   
--   分析器被授权者提供 <xref:Microsoft.VisualStudio.Package.ParseReason> 时键入参数列表的开始字符。  
+-   The parser is given <xref:Microsoft.VisualStudio.Package.ParseReason> when the parameter list start character is typed.  
   
--   指定的位置 <xref:Microsoft.VisualStudio.Package.ParseRequest> 对象是参数列表的开始字符后立即。 分析器必须收集的签名的所有可在方法声明的位置并将其存储在您的版本的列表中 <xref:Microsoft.VisualStudio.Package.AuthoringScope> 对象。 此列表包括方法名称、 方法类型 （或返回类型），以及可能具有参数的列表。 此列表更高版本中搜索的方法签名或签名的参数信息工具提示中显示。  
+-   The location given in the <xref:Microsoft.VisualStudio.Package.ParseRequest> object is immediately after the parameter list start character. The parser must collect the signatures of all method declarations available at that position and store them in a list in your version of the <xref:Microsoft.VisualStudio.Package.AuthoringScope> object. This list includes the method name, method type (or return type), and a list of possible parameters. This list is later searched for the method signature or signatures to display in the Parameter Info tooltip.  
   
- 分析器必须再分析由指定的行 <xref:Microsoft.VisualStudio.Package.ParseRequest> 键入参数处于对象来收集输入的方法以及多久完成用户的名称。 这通过将传递到方法的名称来实现 <xref:Microsoft.VisualStudio.Package.AuthoringSink.StartName%2A> 方法 <xref:Microsoft.VisualStudio.Package.AuthoringSink> 对象，然后再调用 <xref:Microsoft.VisualStudio.Package.AuthoringSink.StartParameters%2A> 分析方法时参数列表的开始字符时，调用 <xref:Microsoft.VisualStudio.Package.AuthoringSink.NextParameter%2A> 方法分析的参数列表中下一个字符时，并最后调用 <xref:Microsoft.VisualStudio.Package.AuthoringSink.EndParameters%2A> 方法分析的参数列表结束字符时。 将使用这些方法调用的结果 <xref:Microsoft.VisualStudio.Package.Source> 类相应地更新参数信息工具提示。  
+ The parser must then parse the line specified by the <xref:Microsoft.VisualStudio.Package.ParseRequest> object to gather the name of the method being entered as well as how far along the user is in typing parameters. This is accomplished by passing the name of the method to the <xref:Microsoft.VisualStudio.Package.AuthoringSink.StartName%2A> method on the <xref:Microsoft.VisualStudio.Package.AuthoringSink> object and then calling the <xref:Microsoft.VisualStudio.Package.AuthoringSink.StartParameters%2A> method when the parameter list start character is parsed, calling the <xref:Microsoft.VisualStudio.Package.AuthoringSink.NextParameter%2A> method when the parameter list next character is parsed, and finally calling the <xref:Microsoft.VisualStudio.Package.AuthoringSink.EndParameters%2A> method when the parameter list end character is parsed. The results of these method calls are used by the <xref:Microsoft.VisualStudio.Package.Source> class to update the Parameter Info tooltip appropriately.  
   
-### 示例  
- 下面是文本的用户可输入行。 行下方数字表示哪些步骤均由分析器中的行 （假设分析移动从左到右） 中的该位置。 这里的前提是，在行之前的所有内容已分析的方法签名，包括"testfunc"方法签名。  
+### <a name="example"></a>Example  
+ Here is a line of text the user might enter. The numbers below the line indicate which step is taken by the parser at that position in the line (assuming parsing moves left to right). The assumption here is that everything before the line has already been parsed for method signatures, including the "testfunc" method signature.  
   
 ```  
 testfunc("a string",3);  
@@ -110,12 +127,12 @@ testfunc("a string",3);
      12          3 4  
 ```  
   
- 分析器采用的步骤如下所示︰  
+ The steps that the parser takes are outlined below:  
   
-1.  分析器调用 <xref:Microsoft.VisualStudio.Package.AuthoringSink.StartName%2A> 带有文本"testfunc"。  
+1.  The parser calls <xref:Microsoft.VisualStudio.Package.AuthoringSink.StartName%2A> with the text "testfunc".  
   
-2.  分析器调用 <xref:Microsoft.VisualStudio.Package.AuthoringSink.StartParameters%2A>。  
+2.  The parser calls <xref:Microsoft.VisualStudio.Package.AuthoringSink.StartParameters%2A>.  
   
-3.  分析器调用 <xref:Microsoft.VisualStudio.Package.AuthoringSink.NextParameter%2A>。  
+3.  The parser calls <xref:Microsoft.VisualStudio.Package.AuthoringSink.NextParameter%2A>.  
   
-4.  分析器调用 <xref:Microsoft.VisualStudio.Package.AuthoringSink.EndParameters%2A>。
+4.  The parser calls <xref:Microsoft.VisualStudio.Package.AuthoringSink.EndParameters%2A>.

@@ -1,78 +1,95 @@
 ---
-title: "SEEK_START | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "SEEK_START"
-helpviewer_keywords: 
-  - "SEEK_START 枚举"
+title: SEEK_START | Microsoft Docs
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords:
+- SEEK_START
+helpviewer_keywords:
+- SEEK_START enumeration
 ms.assetid: 55bd8901-626e-428b-a263-23b14417f4c6
 caps.latest.revision: 9
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 9
----
-# SEEK_START
-[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
+ms.author: gregvanl
+manager: ghogen
+translation.priority.mt:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+ms.translationtype: MT
+ms.sourcegitcommit: ff8ecec19f8cab04ac2190f9a4a995766f1750bf
+ms.openlocfilehash: 55d89e084bfc63258e6eca4200b7cc83f2e2014f
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/24/2017
 
-指定开始查找 " 反汇编流中的位置。  
+---
+# <a name="seekstart"></a>SEEK_START
+Specifies the position from which to start seeking in a disassembly stream.  
   
-## 语法  
+## <a name="syntax"></a>Syntax  
   
 ```cpp#  
-enum enum_SEEK_START {   
-   SEEK_START_BEGIN       = 0x0001,  
-   SEEK_START_END         = 0x0002,  
-   SEEK_START_CURRENT     = 0x0003,  
-   SEEK_START_CODECONTEXT = 0x0004,  
-   SEEK_START_CODELOCID   = 0x0005  
+enum enum_SEEK_START {   
+   SEEK_START_BEGIN       = 0x0001,  
+   SEEK_START_END         = 0x0002,  
+   SEEK_START_CURRENT     = 0x0003,  
+   SEEK_START_CODECONTEXT = 0x0004,  
+   SEEK_START_CODELOCID   = 0x0005  
 };  
 typedef DWORD SEEK_START;  
 ```  
   
-```c#  
-public enum enum_SEEK_START {   
-   SEEK_START_BEGIN       = 0x0001,  
-   SEEK_START_END         = 0x0002,  
-   SEEK_START_CURRENT     = 0x0003,  
-   SEEK_START_CODECONTEXT = 0x0004,  
-   SEEK_START_CODELOCID   = 0x0005  
+```cs  
+public enum enum_SEEK_START {   
+   SEEK_START_BEGIN       = 0x0001,  
+   SEEK_START_END         = 0x0002,  
+   SEEK_START_CURRENT     = 0x0003,  
+   SEEK_START_CODECONTEXT = 0x0004,  
+   SEEK_START_CODELOCID   = 0x0005  
 };  
 ```  
   
-## 成员  
- SEEK\_START\_BEGIN  
- 寻求在本的开头当前文件。  
+## <a name="members"></a>Members  
+ SEEK_START_BEGIN  
+ Starts seeking at the beginning of the current document.  
   
- SEEK\_START\_END  
- 寻求到的末尾的开头当前文件。  
+ SEEK_START_END  
+ Starts seeking at the end of the current document.  
   
- SEEK\_START\_CURRENT  
- 寻求在当前位置开始当前文件。  
+ SEEK_START_CURRENT  
+ Starts seeking at the current position of the current document.  
   
- SEEK\_START\_CODECONTEXT  
- 查找特定代码上下文的开头当前文件。  
+ SEEK_START_CODECONTEXT  
+ Starts seeking at the given code context of the current document.  
   
- SEEK\_START\_CODELOCID  
- 查找特定代码位置标识符的开头。  代码位置标识符通过调用 [GetCurrentLocation](../Topic/IDebugDisassemblyStream2::GetCurrentLocation.md)获取。  
+ SEEK_START_CODELOCID  
+ Starts seeking at the given code location identifier. Code location identifiers are obtained by calling [GetCurrentLocation](../../../extensibility/debugger/reference/idebugdisassemblystream2-getcurrentlocation.md).  
   
-## 备注  
- 将作为参数传递 [查找](../../../extensibility/debugger/reference/idebugdisassemblystream2-seek.md) 方法。  
+## <a name="remarks"></a>Remarks  
+ Passed as an argument to the [Seek](../../../extensibility/debugger/reference/idebugdisassemblystream2-seek.md) method.  
   
-## 要求  
- 标题:msdbg.h  
+## <a name="requirements"></a>Requirements  
+ Header: msdbg.h  
   
- 命名空间:Microsoft.VisualStudio.Debugger.Interop  
+ Namespace: Microsoft.VisualStudio.Debugger.Interop  
   
- 程序集:Microsoft.VisualStudio.Debugger.Interop.dll  
+ Assembly: Microsoft.VisualStudio.Debugger.Interop.dll  
   
-## 请参阅  
- [枚举](../../../extensibility/debugger/reference/enumerations-visual-studio-debugging.md)   
- [查找](../../../extensibility/debugger/reference/idebugdisassemblystream2-seek.md)   
- [GetCurrentLocation](../Topic/IDebugDisassemblyStream2::GetCurrentLocation.md)
+## <a name="see-also"></a>See Also  
+ [Enumerations](../../../extensibility/debugger/reference/enumerations-visual-studio-debugging.md)   
+ [Seek](../../../extensibility/debugger/reference/idebugdisassemblystream2-seek.md)   
+ [GetCurrentLocation](../../../extensibility/debugger/reference/idebugdisassemblystream2-getcurrentlocation.md)

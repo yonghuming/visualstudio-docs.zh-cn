@@ -1,59 +1,76 @@
 ---
-title: "IEnumDebugModules2::Next | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "IEnumDebugModules2::Next"
-helpviewer_keywords: 
-  - "IEnumDebugModules2::Next"
+title: IEnumDebugModules2::Next | Microsoft Docs
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords:
+- IEnumDebugModules2::Next
+helpviewer_keywords:
+- IEnumDebugModules2::Next
 ms.assetid: 46b7ccad-b07b-4ec0-b3ce-13981ffab7e8
 caps.latest.revision: 12
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 12
----
-# IEnumDebugModules2::Next
-[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
+ms.author: gregvanl
+manager: ghogen
+translation.priority.mt:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+ms.translationtype: MT
+ms.sourcegitcommit: ff8ecec19f8cab04ac2190f9a4a995766f1750bf
+ms.openlocfilehash: 2ae5fee3ed8c1392cecb07a5c18e50e7a3eae4c3
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/24/2017
 
-返回下一组枚举中的元素。  
+---
+# <a name="ienumdebugmodules2next"></a>IEnumDebugModules2::Next
+Returns the next set of elements from the enumeration.  
   
-## 语法  
+## <a name="syntax"></a>Syntax  
   
 ```cpp#  
 HRESULT Next(  
-   ULONG           celt,  
-   IDebugModule2** rgelt,  
-   ULONG*          pceltFetched  
+   ULONG           celt,  
+   IDebugModule2** rgelt,  
+   ULONG*          pceltFetched  
 );  
 ```  
   
-```c#  
+```cs  
 int Next(  
-   uint            celt,  
-   IDebugModule2[] rgelt,  
-   ref uint        pceltFetched  
+   uint            celt,  
+   IDebugModule2[] rgelt,  
+   ref uint        pceltFetched  
 );  
 ```  
   
-#### 参数  
+#### <a name="parameters"></a>Parameters  
  `celt`  
- \[in\] 检索的元素的数目。  并指定 `rgelt` 数组的最大大小。  
+ [in] The number of elements to retrieve. Also specifies the maximum size of the `rgelt` array.  
   
  `rgelt`  
- \[in, out\] 数组将填充的 [IDebugModule2](../../../extensibility/debugger/reference/idebugmodule2.md) 元素。  
+ [in, out] Array of [IDebugModule2](../../../extensibility/debugger/reference/idebugmodule2.md) elements to be filled in.  
   
  `pceltFetched`  
- \[out\] 返回在 `rgelt`实际上返回的元素的数目。  
+ [out] Returns the number of elements actually returned in `rgelt`.  
   
-## 返回值  
- 如果成功，则返回 `S_OK`。  ，如果小于元素的请求的数目可能返回，则返回; `S_FALSE` 否则，返回错误代码。  
+## <a name="return-value"></a>Return Value  
+ If successful, returns `S_OK`. Returns `S_FALSE` if fewer than the requested number of elements could be returned; otherwise, returns an error code.  
   
-## 请参阅  
+## <a name="see-also"></a>See Also  
  [IEnumDebugModules2](../../../extensibility/debugger/reference/ienumdebugmodules2.md)   
  [IDebugModule2](../../../extensibility/debugger/reference/idebugmodule2.md)

@@ -1,77 +1,94 @@
 ---
-title: "BPRESI_FIELDS | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "BPRESI_FIELDS"
-helpviewer_keywords: 
-  - "BPRESI_FIELDS 枚举"
+title: BPRESI_FIELDS | Microsoft Docs
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords:
+- BPRESI_FIELDS
+helpviewer_keywords:
+- BPRESI_FIELDS enumeration
 ms.assetid: 99f17b1e-3e67-4f85-89d6-5c6cf45c8008
 caps.latest.revision: 11
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 11
----
-# BPRESI_FIELDS
-[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
+ms.author: gregvanl
+manager: ghogen
+translation.priority.mt:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+ms.translationtype: MT
+ms.sourcegitcommit: ff8ecec19f8cab04ac2190f9a4a995766f1750bf
+ms.openlocfilehash: 8c53eb507f73ee3a6ed63c5e9a04193090a141a7
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/24/2017
 
-指定要检索的信息有关断点的成功解决。  
+---
+# <a name="bpresifields"></a>BPRESI_FIELDS
+Specifies the information  to be retrieved about the successful resolution of a breakpoint.  
   
-## 语法  
+## <a name="syntax"></a>Syntax  
   
 ```cpp#  
-enum enum_BPRESI_FIELDS {   
-   BPRESI_BPRESLOCATION = 0x0001,  
-   BPRESI_PROGRAM       = 0x0002,  
-   BPRESI_THREAD        = 0x0004,  
-   BPRESI_ALLFIELDS     = 0xffffffff  
+enum enum_BPRESI_FIELDS {   
+   BPRESI_BPRESLOCATION = 0x0001,  
+   BPRESI_PROGRAM       = 0x0002,  
+   BPRESI_THREAD        = 0x0004,  
+   BPRESI_ALLFIELDS     = 0xffffffff  
 };  
 typedef DWORD BPRESI_FIELDS;  
 ```  
   
-```c#  
-public enum enum_BPRESI_FIELDS {   
-   BPRESI_BPRESLOCATION = 0x0001,  
-   BPRESI_PROGRAM       = 0x0002,  
-   BPRESI_THREAD        = 0x0004,  
-   BPRESI_ALLFIELDS     = 0xffffffff  
+```cs  
+public enum enum_BPRESI_FIELDS {   
+   BPRESI_BPRESLOCATION = 0x0001,  
+   BPRESI_PROGRAM       = 0x0002,  
+   BPRESI_THREAD        = 0x0004,  
+   BPRESI_ALLFIELDS     = 0xffffffff  
 };  
 ```  
   
-## 成员  
- BPRESI\_BPRESLOCATION  
- 初始化\/使用 [BP\_RESOLUTION\_INFO](../../../extensibility/debugger/reference/bp-resolution-info.md) 结构的 `bpResLocation` \(断点解析位置\) 字段。  
+## <a name="members"></a>Members  
+ BPRESI_BPRESLOCATION  
+ Initialize/use the `bpResLocation` (breakpoint resolution location) field of the [BP_RESOLUTION_INFO](../../../extensibility/debugger/reference/bp-resolution-info.md) structure.  
   
- BPRESI\_PROGRAM  
- 初始化\/使用 `BP_RESOLUTION_INFO` 结构的 `pProgram` 字段。  
+ BPRESI_PROGRAM  
+ Initialize/use the `pProgram` field of the `BP_RESOLUTION_INFO` structure.  
   
- BPRESI\_THREAD  
- 初始化\/使用 `BP_RESOLUTION_INFO` 结构的 `pThread` 字段。  
+ BPRESI_THREAD  
+ Initialize/use the `pThread` field of the `BP_RESOLUTION_INFO` structure.  
   
- BPRESI\_ALLFIELDS  
- 指定所有字段。  
+ BPRESI_ALLFIELDS  
+ Specifies all fields.  
   
-## 备注  
- 传递给 [GetResolutionInfo](../../../extensibility/debugger/reference/idebugbreakpointresolution2-getresolutioninfo.md) 方法指示 [BP\_RESOLUTION\_INFO](../../../extensibility/debugger/reference/bp-resolution-info.md) 结构的哪些字段进行初始化。  
+## <a name="remarks"></a>Remarks  
+ Passed to the [GetResolutionInfo](../../../extensibility/debugger/reference/idebugbreakpointresolution2-getresolutioninfo.md) method to indicate which fields of the [BP_RESOLUTION_INFO](../../../extensibility/debugger/reference/bp-resolution-info.md) structure are to be initialized.  
   
- 这些标志也用于指示 `BP_RESOLUTION_INFO` 结构的哪些字段是使用和有效，当该结构返回时。  
+ These flags are also used to indicate which fields of the `BP_RESOLUTION_INFO` structure are used and valid when that structure is returned.  
   
- 这些值可能按位组合使用 `OR`。  
+ These values may be combined with a bitwise `OR`.  
   
-## 要求  
- 标题:msdbg.h  
+## <a name="requirements"></a>Requirements  
+ Header: msdbg.h  
   
- 命名空间:Microsoft.VisualStudio.Debugger.Interop  
+ Namespace: Microsoft.VisualStudio.Debugger.Interop  
   
- 程序集:Microsoft.VisualStudio.Debugger.Interop.dll  
+ Assembly: Microsoft.VisualStudio.Debugger.Interop.dll  
   
-## 请参阅  
- [枚举](../../../extensibility/debugger/reference/enumerations-visual-studio-debugging.md)   
- [BP\_RESOLUTION\_INFO](../../../extensibility/debugger/reference/bp-resolution-info.md)   
+## <a name="see-also"></a>See Also  
+ [Enumerations](../../../extensibility/debugger/reference/enumerations-visual-studio-debugging.md)   
+ [BP_RESOLUTION_INFO](../../../extensibility/debugger/reference/bp-resolution-info.md)   
  [GetResolutionInfo](../../../extensibility/debugger/reference/idebugbreakpointresolution2-getresolutioninfo.md)

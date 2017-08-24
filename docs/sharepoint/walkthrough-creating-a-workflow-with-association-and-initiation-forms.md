@@ -1,132 +1,137 @@
 ---
-title: "演练：创建带有关联窗体和启动窗体的工作流"
-ms.custom: ""
-ms.date: "02/02/2017"
-ms.prod: "visual-studio-dev14"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "office-development"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-dev_langs: 
-  - "VB"
-  - "CSharp"
-  - "VB"
-  - "CSharp"
-helpviewer_keywords: 
-  - "关联窗体 [Visual Studio 中的 SharePoint 开发]"
-  - "启动窗体 [Visual Studio 中的 SharePoint 开发]"
-  - "Visual Studio 中的 SharePoint 开发, 工作流关联窗体"
-  - "Visual Studio 中的 SharePoint 开发, 工作流启动窗体"
-  - "Visual Studio 中的 SharePoint 开发, 工作流"
-  - "工作流 [Visual Studio 中的 SharePoint 开发]"
+title: 'Walkthrough: Creating a Workflow with Association and Initiation Forms | Microsoft Docs'
+ms.custom: 
+ms.date: 02/02/2017
+ms.prod: visual-studio-dev14
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- office-development
+ms.tgt_pltfrm: 
+ms.topic: article
+dev_langs:
+- VB
+- CSharp
+- VB
+- CSharp
+helpviewer_keywords:
+- SharePoint development in Visual Studio, workflows
+- SharePoint development in Visual Studio, workflow association forms
+- workflows [SharePoint development in Visual Studio]
+- association forms [SharePoint development in Visual Studio]
+- initiation forms [SharePoint development in Visual Studio]
+- SharePoint development in Visual Studio, workflow initiation forms
 ms.assetid: c8666d8c-b173-4245-8014-9c1cd6acb071
 caps.latest.revision: 38
-author: "kempb"
-ms.author: "kempb"
-manager: "ghogen"
-caps.handback.revision: 37
+author: kempb
+ms.author: kempb
+manager: ghogen
+ms.translationtype: HT
+ms.sourcegitcommit: ff8ecec19f8cab04ac2190f9a4a995766f1750bf
+ms.openlocfilehash: 7ee04fda23bf03f6101731557d08e07befe66ecd
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/24/2017
+
 ---
-# 演练：创建带有关联窗体和启动窗体的工作流
-  本演练演示如何创建结合使用关联窗体和启动窗体的基本顺序工作流。  关联窗体和启动窗体都是 ASPX 窗体，在 SharePoint 管理员首次关联工作流（关联窗体）时以及在用户启动工作流（启动窗体）时，可利用这些窗体将参数添加到工作流中。  
+# <a name="walkthrough-creating-a-workflow-with-association-and-initiation-forms"></a>Walkthrough: Creating a Workflow with Association and Initiation Forms
+  This walkthrough demonstrates how to create a basic sequential workflow that incorporates the use of association and initiation forms. These are ASPX forms that enable parameters to be added to a workflow when it is first associated by the SharePoint administrator (the association form), and when the workflow is started by the user (the initiation form).  
   
- 本演练概述了一个应用场景，即用户希望为零用金报销单创建一个具有下列要求的审批工作流：  
+ This walkthrough outlines a scenario where a user wants to create an approval workflow for expense reports that has the following requirements:  
   
--   当工作流与一个列表关联时，将为管理员显示一个关联窗体以让其输入零用金报销单的金额限制。  
+-   When the workflow is associated with a list, the administrator is prompted with an association form where they enter a dollar limit for expense reports.  
   
--   雇员将零用金报销单上载到“共享文档”列表，启动工作流，然后在工作流启动窗体中输入费用总额。  
+-   Employees upload their expense reports to the Shared Documents list, start the workflow, and then enter the expense total in the workflow initiation form.  
   
--   如果某个雇员的零用金报销单的费用总额超出了管理员预定义的限额，则为雇员的经理创建一个任务来审批零用金报销单。  但是，如果雇员的零用金报销单的费用总额小于或等于费用限额，则将自动批准的消息写入到工作流的历史记录列表中。  
+-   If an employee expense report total exceeds the administrator's predefined limit, a task is created for the employee's manager to approve the expense report. However, if an employee's expense report total is less than or equal to the expense limit, an auto-approved message is written to the workflow's history list.  
   
- 本演练阐释了以下任务：  
+ This walkthrough illustrates the following tasks:  
   
--   在 [!INCLUDE[vsprvs](../sharepoint/includes/vsprvs-md.md)] 中创建 SharePoint 列表定义顺序工作流项目。  
+-   Creating a SharePoint list definition sequential workflow project in [!INCLUDE[vsprvs](../sharepoint/includes/vsprvs-md.md)].  
   
--   创建工作流时间表。  
+-   Creating a workflow schedule.  
   
--   处理工作流活动事件。  
+-   Handling workflow activity events.  
   
--   创建工作流关联窗体和工作流启动窗体。  
+-   Creating workflow association and initiation forms.  
   
--   关联工作流。  
+-   Associating the workflow.  
   
--   手动启动工作流。  
+-   Manually starting the workflow.  
   
 > [!NOTE]  
->  虽然本演练使用的是顺序工作流项目，但过程与状态机工作流的过程相同。  
+>  Although this walkthrough uses a sequential workflow project, the process is the same for state machine workflows.  
 >   
->  此外，以下说明中的某些 [!INCLUDE[vsprvs](../sharepoint/includes/vsprvs-md.md)] 用户界面元素与在您的计算机上显示的名称或位置不同。  您安装的 [!INCLUDE[vsprvs](../sharepoint/includes/vsprvs-md.md)] 版本以及使用的设置决定了这些元素。  有关详细信息，请参阅 [Customizing Development Settings in Visual Studio](http://msdn.microsoft.com/zh-cn/22c4debb-4e31-47a8-8f19-16f328d7dcd3)。  
+>  Also, your computer might show different names or locations for some of the [!INCLUDE[vsprvs](../sharepoint/includes/vsprvs-md.md)] user interface elements in the following instructions. The [!INCLUDE[vsprvs](../sharepoint/includes/vsprvs-md.md)] edition that you have and the settings that you use determine these elements. For more information, see [Personalize the Visual Studio IDE](../ide/personalizing-the-visual-studio-ide.md).  
   
-## 系统必备  
- 你需要以下组件来完成本演练：  
+## <a name="prerequisites"></a>Prerequisites  
+ You need the following components to complete this walkthrough:  
   
--   支持的 [!INCLUDE[TLA#tla_win](../sharepoint/includes/tlasharptla-win-md.md)] 和 SharePoint 版本。  有关详细信息，请参阅[开发 SharePoint 解决方案的要求](../sharepoint/requirements-for-developing-sharepoint-solutions.md)。  
+-   Supported editions of [!INCLUDE[TLA#tla_win](../sharepoint/includes/tlasharptla-win-md.md)] and SharePoint. For more information, see [Requirements for Developing SharePoint Solutions](../sharepoint/requirements-for-developing-sharepoint-solutions.md).  
   
--   Visual Studio。  
+-   Visual Studio.  
   
-## 创建 SharePoint 顺序工作流项目  
- 首先，在 [!INCLUDE[vsprvs](../sharepoint/includes/vsprvs-md.md)] 中创建一个顺序工作流项目。  顺序工作流是一系列步骤，这些步骤按顺序执行，直到最后一项活动完成。  在此过程中，您将创建一个应用于 SharePoint 中的“共享文档”列表的顺序工作流。  利用此工作流的向导，您可以将此工作流与网站或列表定义关联，并可以确定工作流的启动时间。  
+## <a name="creating-a-sharepoint-sequential-workflow-project"></a>Creating a SharePoint Sequential Workflow Project  
+ First, create a sequential workflow project in [!INCLUDE[vsprvs](../sharepoint/includes/vsprvs-md.md)]. A sequential workflow is a series of steps that executes in order until the last activity finishes. In this procedure, you will create a sequential workflow that applies to the Shared Documents list in SharePoint. The workflow's wizard lets you associate the workflow with either the site or the list definition and lets you determine when the workflow will start.  
   
-#### 创建 SharePoint 顺序工作流项目  
+#### <a name="to-create-a-sharepoint-sequential-workflow-project"></a>To create a SharePoint sequential workflow project  
   
-1.  在菜单栏上，依次选择**“文件”**、**“新建”**、**“项目”**，以显示**“新建项目”**对话框。  
+1.  On the menu bar, choose **File**, **New**, **Project** to display the **New Project** dialog box.  
   
-2.  展开**“Visual C\#”**或**“Visual Basic”**下的**“SharePoint”**节点，然后选择**“2010”**节点。  
+2.  Expand the **SharePoint** node under either **Visual C#** or **Visual Basic**, and then choose the **2010** node.  
   
-3.  在 **模板** 窗格中，选择 **SharePoint 2010 项目** 项目模板。  
+3.  In the **Templates** pane, choose the **SharePoint 2010 Project** project template.  
   
-4.  在**“名称”**框中，输入ExpenseReport ，然后选择**“确定”**按钮。  
+4.  In the **Name** box, enter **ExpenseReport** and then choose the **OK** button.  
   
-     这将显示**“SharePoint 自定义向导”**。  
+     The **SharePoint Customization Wizard** appears.  
   
-5.  在 **指定用于调试的网站和安全级别** 页中，选择 **部署为场解决方案** 选项按钮，然后选择 **完成** 按钮以接受默认站点和信任级别。  
+5.  In the **Specify the site and security level for debugging** page, choose the **Deploy as a farm solution** option button, and then choose the **Finish** button to accept the trust level and default site.  
   
-     此步骤还会将解决方案的信任级别设置为场解决方案（工作流项目的唯一可用选项）。  
+     This step also sets the trust level for the solution as farm solution, which is the only available option for workflow projects.  
   
-6.  在**“解决方案资源管理器”**中，选择项目节点。  
+6.  In **Solution Explorer**, choose the project node.  
   
-7.  在菜单栏上，依次选择**“项目”**、**“添加新项”**。  
+7.  On the menu bar, choose **Project**, **Add New Item**.  
   
-8.  展开**“Visual C\#”**或**“Visual Basic”**下的**“SharePoint”**节点，然后选择**“2010”**节点。  
+8.  Under either **Visual C#** or **Visual Basic**, expand the **SharePoint** node, and then choose the **2010** node.  
   
-9. 在 **模板** 窗格中，选择 **顺序工作流 \(仅场解决方案\)** 模板，然后选择 **添加** 按钮。  
+9. In the **Templates** pane, choose **Sequential Workflow (Farm Solution only)** template, and then choose the **Add** button.  
   
-     这将显示**“SharePoint 自定义向导”**。  
+     The **SharePoint Customization Wizard** appears.  
   
-10. 在**“指定用于调试的工作流名称”**页上，接受默认名称（**“ExpenseReport \- Workflow1”**）。  保留默认工作流模板类型值（**“列表工作流”**）。  选择**“下一步”**按钮。  
+10. In the **Specify the workflow name for debugging** page, accept the default name (**ExpenseReport - Workflow1**). Keep the default workflow template type value (**List Workflow)**. Choose the **Next** button.  
   
-11. 在**“是否希望 Visual Studio 在调试会话中自动关联工作流?”**页中，清除用于自动关联工作流模板的框（如果该框处于选中状态）。  
+11. In the **Would you like Visual Studio to automatically associate the workflow in a debug session?** page, clear the box that automatically associates your workflow template if it is checked.  
   
-     利用此步骤，您可以稍后手动将工作流与显示关联窗体的“共享文档”列表关联。  
+     This step lets you manually associate the workflow with the Shared Documents list later on, which displays the association form.  
   
-12. 选择**“完成”**按钮。  
+12. Choose the **Finish** button.  
   
-## 将关联窗体添加到工作流  
- 接下来，创建一个 .ASPX 关联窗体，当 SharePoint 管理员首次将工作流与零用金报销单文档相关联时，将显示此窗体。  
+## <a name="adding-an-association-form-to-the-workflow"></a>Adding an Association Form to the Workflow  
+ Next, create an .ASPX association form that appears when the SharePoint administrator first associates the workflow with an expense report document.  
   
-#### 将关联窗体添加到工作流  
+#### <a name="to-add-an-association-form-to-the-workflow"></a>To add an association form to the workflow  
   
-1.  在 **“解决方案资源管理器”**中，选择**Workflow1**节点。  
+1.  Choose the **Workflow1** node in **Solution Explorer**.  
   
-2.  在菜单栏上选择**“项目”“添加新项”**以显示**“添加新项”**对话框。  
+2.  On the menu bar, choose **Project**, **Add New Item** to display the **Add New Item** dialog box.  
   
-3.  在该对话框树视图中，展开**“Visual C\#”**或**“Visual Basic”**（取决于项目语言），再展开**“SharePoint”**节点，然后选择**“2010”**节点。  
+3.  In the dialog box tree view, expand either **Visual C#** or **Visual Basic** (depending on your project language), expand the **SharePoint** node, and then choose the **2010** node.  
   
-4.  在模板列表中，选择 **工作流关联窗体** 模板。  
+4.  In the list of templates, choose the **Workflow Association Form** template.  
   
-5.  在**“名称”**文本框中，键入 ExpenseReportAssocForm.aspx。  
+5.  In the **Name** text box, enter **ExpenseReportAssocForm.aspx**.  
   
-6.  选择**“添加”**按钮，将该窗体添加到项目中。  
+6.  Choose the **Add** button to add the form to the project.  
   
-## 设计关联窗体并对其进行编码  
- 在此过程中，通过在关联窗体中添加控件和代码来引入功能。  
+## <a name="designing-and-coding-the-association-form"></a>Designing and Coding the Association Form  
+ In this procedure, you introduce functionality to the association form by adding controls and code to it.  
   
-#### 设计关联窗体并对其进行编码  
+#### <a name="to-design-and-code-the-association-form"></a>To design and code the association form  
   
-1.  在关联窗体 \(ExpenseReportAssocForm.aspx\) 中，找到具有 `ID="Main"` 的 `asp:Content` 元素。  
+1.  In the association form (ExpenseReportAssocForm.aspx), locate the `asp:Content` element that has `ID="Main"`.  
   
-2.  紧接在此内容元素中的第一行后面添加以下代码，以创建一个用于提示输入费用审批限额 \(*AutoApproveLimit*\) 的标签和文本框：  
+2.  Directly after the first line in this content element, add the following code to create a label and textbox that prompts for the expense approval limit (*AutoApproveLimit*):  
   
     ```  
     <asp:Label ID="lblAutoApproveLimit" Text="Auto Approval Limit:" runat="server" />  
@@ -135,14 +140,14 @@ caps.handback.revision: 37
     <br /><br />  
     ```  
   
-3.  展开**“解决方案资源管理器”**中的**“ExpenseReportAssocForm.aspx”**文件以显示其从属文件。  
+3.  Expand the **ExpenseReportAssocForm.aspx** file in **Solution Explorer** to display its dependent files.  
   
     > [!NOTE]  
-    >  如果项目位于 [!INCLUDE[vbprvb](../sharepoint/includes/vbprvb-md.md)] 中，您必须选择**“查看所有文件”**按钮才能执行此步骤。  
+    >  If your project is in [!INCLUDE[vbprvb](../sharepoint/includes/vbprvb-md.md)], you must choose the **View All Files** button to perform this step.  
   
-4.  打开 ExpenseReportAssocForm.aspx 文件的快捷菜单，选择 **查看代码**。  
+4.  Open the shortcut menu for the ExpenseReportAssocForm.aspx file and choose **View Code**.  
   
-5.  将 `GetAssociationData` 方法替换为：  
+5.  Replace the `GetAssociationData` method with:  
   
     ```vb  
     Private Function GetAssociationData() As String  
@@ -153,7 +158,7 @@ caps.handback.revision: 37
     End Function  
     ```  
   
-    ```csharp  
+    ```cs  
     private string GetAssociationData()  
     {  
         // TODO: Return a string that contains the association data that   
@@ -163,31 +168,31 @@ caps.handback.revision: 37
     }  
     ```  
   
-## 将启动窗体添加到工作流  
- 接下来，创建在用户针对其零用金报销单运行工作流时显示的启动窗体。  
+## <a name="adding-an-initiation-form-to-the-workflow"></a>Adding an Initiation Form to the Workflow  
+ Next, create the initiation form that appears when users run the workflow against their expense reports.  
   
-#### 创建启动窗体  
+#### <a name="to-create-an-initiation-form"></a>To create an initiation form  
   
-1.  在 **“解决方案资源管理器”**中，选择**Workflow1**节点。  
+1.  Choose the **Workflow1** node in **Solution Explorer**.  
   
-2.  在菜单栏上，选择**“项目”**，**“添加新项”**以显示**“添加新项”**对话框。  
+2.  On the menu bar, choose **Project**, **Add New Item** display the **Add New Item** dialog box.  
   
-3.  在该对话框树视图中，展开**“Visual C\#”**或**“Visual Basic”** （取决于项目语言），再展开**“SharePoint”**节点，然后选择**“2010”**节点。  
+3.  In the dialog box tree view, expand either **Visual C#** or **Visual Basic**  (depending on your project language), expand the **SharePoint** node, and then choose the **2010** node.  
   
-4.  在模板列表中，选择 **工作流初始窗体** 模板。  
+4.  In the list of templates, choose the **Workflow Initiation Form** template.  
   
-5.  在**“名称”**文本框中，键入 ExpenseReportInitForm.aspx。  
+5.  In the **Name** text box, enter **ExpenseReportInitForm.aspx**.  
   
-6.  选择**“添加”**按钮，将该窗体添加到项目中。  
+6.  Choose the **Add** button to add the form to the project.  
   
-## 设计启动窗体并对其进行编码  
- 接下来，通过在启动窗体中添加控件和代码来引入功能。  
+## <a name="designing-and-coding-the-initiation-form"></a>Designing and Coding the Initiation Form  
+ Next, introduce functionality to the initiation form by adding controls and code to it.  
   
-#### 对启动窗体进行编码  
+#### <a name="to-code-the-initiation-form"></a>To code the initiation form  
   
-1.  在启动窗体 \(ExpenseReportInitForm.aspx\) 中，找到具有 `ID="Main"` 的 `asp:Content` 元素。  
+1.  In the initiation form (ExpenseReportInitForm.aspx), locate the `asp:Content` element that contains `ID="Main"`.  
   
-2.  紧接在此内容元素中的第一行后面添加以下代码，以创建一个显示已在关联窗体中输入的费用审批限额 \(*AutoApproveLimit*\) 的标签和文本框，以及另一个提示输入费用总额 \(*ExpenseTotal*\) 的标签和文本框：  
+2.  Directly after the first line in this content element, add the following code to create a label and textbox that displays the expense approval limit (*AutoApproveLimit*) that was entered in the association form, and another label and textbox to prompt for the expense total (*ExpenseTotal*):  
   
     ```  
     <asp:Label ID="lblAutoApproveLimit" Text="Auto Approval Limit:" runat="server" />  
@@ -200,11 +205,11 @@ caps.handback.revision: 37
     <br /><br />  
     ```  
   
-3.  展开**“解决方案资源管理器”**中的**“ExpenseReportInitForm.aspx”**文件以显示其从属文件。  
+3.  Expand the **ExpenseReportInitForm.aspx** file in **Solution Explorer** to display its dependent files.  
   
-4.  打开 ExpenseReportInitForm.aspx 文件的快捷菜单，选择 **查看代码**。  
+4.  Open the shortcut menu for the ExpenseReportInitForm.aspx file and choose **View Code**.  
   
-5.  将 `Page_Load` 方法替换为以下示例：  
+5.  Replace the `Page_Load` method with the following example:  
   
     ```vb  
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As   
@@ -216,7 +221,7 @@ caps.handback.revision: 37
     End Sub  
     ```  
   
-    ```csharp  
+    ```cs  
     protected void Page_Load(object sender, EventArgs e)  
     {  
         InitializeParams();  
@@ -226,7 +231,7 @@ caps.handback.revision: 37
     }  
     ```  
   
-6.  将 `GetInitiationData` 方法替换为以下示例：  
+6.  Replace the `GetInitiationData` method with the following example:  
   
     ```vb  
     ' This method is called when the user clicks the button to start the workflow.  
@@ -239,7 +244,7 @@ caps.handback.revision: 37
     End Function  
     ```  
   
-    ```csharp  
+    ```cs  
     // This method is called when the user clicks the button to start the workflow.          
     private string GetInitiationData()  
     {  
@@ -250,59 +255,59 @@ caps.handback.revision: 37
     }  
     ```  
   
-## 自定义工作流  
- 接下来，自定义工作流。  然后，将两个窗体关联到工作流。  
+## <a name="customizing-the-workflow"></a>Customizing the Workflow  
+ Next, customize the workflow. Later, you will associate two forms to the workflow.  
   
-#### 自定义工作流  
+#### <a name="to-customize-the-workflow"></a>To customize the workflow  
   
-1.  通过打开项目中的 Workflow1，在工作流设计器中显示工作流。  
+1.  Display the workflow in the workflow designer by opening Workflow1 in the project.  
   
-2.  在**工具箱**中，展开**Windows Workflow v3.0**节点，并找到**IfElse**活动。  
+2.  In the **Toolbox**, expand the **Windows Workflow v3.0** node and locate the **IfElse** activity.  
   
-3.  通过执行以下任一步骤，将此活动添加到工作流：  
+3.  Add this activity to the workflow by performing one of the following steps:  
   
-    -   打开**IfElse**活动的快捷菜单，选择“复制”，然后打开工作流设计器中的**onWorkflowActivated1**活动下行的快捷菜单，然后选择“粘贴”。  
+    -   Open the shortcut menu for the **IfElse** activity, choose **Copy**, open the shortcut menu for the line under the **onWorkflowActivated1** activity in the workflow designer, and then choose **Paste**.  
   
-    -   在工作流设计器中，从**工具箱**拖拽**IfElse**活动，并将该活动与**onWorkflowActiviated1**活动下的行连接。  
+    -   Drag the **IfElse** activity from the **Toolbox**, and connect it to the line under the **onWorkflowActiviated1** activity in the workflow designer.  
   
-4.  在工具箱中，展开**“SharePoint 工作流”**节点并找到**“CreateTask”**活动。  
+4.  In the Toolbox, expand the **SharePoint Workflow** node and locate the **CreateTask** activity.  
   
-5.  通过执行以下任一步骤，将此活动添加到工作流：  
+5.  Add this activity to the workflow by performing one of the following steps:  
   
-    -   打开 **CreateTask** 活动的快捷菜单，选择 **复制**，在工作流设计器，打开 IfElseActivity1 中的两个 **将 Activity 拖放至此** 区域之一的快捷菜单，然后选择 **粘贴**。  
+    -   Open the shortcut menu for the **CreateTask** activity, choose **Copy**, open the shortcut menu for one of the two **Drop Activities Here** areas within **IfElseActivity1** in the workflow designer, and then choose **Paste**.  
   
-    -   将 **工具箱** 的 **CreateTask** 活动拖到 IfElseActivity1 中的两个 **将 Activity 拖放至此** 区域之一上面。  
+    -   Drag the **CreateTask** activity from the **Toolbox** onto one of the two **Drop Activities Here** areas within **IfElseActivity1**.  
   
-6.  在**“属性”**窗口中，为 **CorrelationToken** 属性输入属性值 *taskToken*。  
+6.  In the **Properties** window, enter a property value of *taskToken* for the **CorrelationToken** property.  
   
-7.  通过选择 **CorrelationToken** 属性旁边的加号 \(![TreeView 加号](~/sharepoint/media/plus.gif "TreeView 加号")\) 来展开此属性。  
+7.  Expand the **CorrelationToken** property by choosing the plus sign (![TreeView plus](../sharepoint/media/plus.gif "TreeView plus")) next to it.  
   
-8.  选择 **OwnerActivityName** 子属性上的下拉箭头，然后设置 *Workflow1* 值。  
+8.  Choose the drop-down arrow on the **OwnerActivityName** sub property, and set the *Workflow1* value.  
   
-9. 选择 **TaskId** 属性，然后选择省略号 \(![ASP.NET 移动设计器中的省略号](~/sharepoint/media/mwellipsis.gif "ASP.NET 移动设计器中的省略号")\) 按钮以显示**“绑定属性”**对话框。  
+9. Choose the **TaskId** property, and then choose the ellipsis (![ASP.NET Mobile Designer ellipse](../sharepoint/media/mwellipsis.gif "ASP.NET Mobile Designer ellipse")) button to display the **Bind Property** dialog box.  
   
-10. 选择 **绑定到新成员** 选项卡，选择 **创建字段** 选项按钮，然后选择 **确定** 按钮。  
+10. Choose the **Bind to a new member** tab, choose the **Create Field** option button, and then choose the **OK** button.  
   
-11. 选择 **TaskProperties** 属性，然后选择省略号 \(![ASP.NET 移动设计器中的省略号](~/sharepoint/media/mwellipsis.gif "ASP.NET 移动设计器中的省略号")\) 按钮以显示**“绑定属性”**对话框。  
+11. choose the **TaskProperties** property, and then choose the ellipsis (![ASP.NET Mobile Designer ellipse](../sharepoint/media/mwellipsis.gif "ASP.NET Mobile Designer ellipse")) button to display the **Bind Property** dialog box.  
   
-12. 选择 **绑定到新成员** 选项卡，选择 **创建字段** 选项按钮，然后选择 **确定** 按钮。  
+12. Choose the **Bind to a new member** tab, choose the **Create Field** option button, and then choose the **OK** button.  
   
-13. 在**工具箱**中，展开**SharePoint 工作流**节点,并找到**LogToHistoryListActivity**活动。  
+13. In the **Toolbox**, expand the **SharePoint Workflow** node, and locate the **LogToHistoryListActivity** activity.  
   
-14. 通过执行以下任一步骤，将此活动添加到工作流：  
+14. Add this activity to the workflow by performing one of the following steps:  
   
-    -   打开 **LogToHistoryListActivity** 活动的快捷菜单，选择 **复制**，在工作流设计器，打开 IfElseActivity1 中的两个 **将 Activity 拖放至此** 区域之一的快捷菜单，然后选择 **粘贴**。  
+    -   Open the shortcut menu for the **LogToHistoryListActivity** activity, choose **Copy**, open the shortcut menu for the other **Drop Activities Here** area within **IfElseActivity1** in the workflow designer, and then choose **Paste**.  
   
-    -   将 **工具箱**的 **LogToHistoryListActivity** 活动，拖到其他区域 **将 Activity 拖放至此** IfElseActivity1 中。  
+    -   Drag the **LogToHistoryListActivity** activity from the **Toolbox**, and drop it onto the other **Drop Activities Here** area within **IfElseActivity1**.  
   
-## 在工作流中添加代码  
- 接下来，在工作流中添加代码以引入功能。  
+## <a name="adding-code-to-the-workflow"></a>Adding Code to the Workflow  
+ Next, add code to the workflow to give it functionality.  
   
-#### 在工作流中添加代码  
+#### <a name="to-add-code-to-the-workflow"></a>To add code to the workflow  
   
-1.  在工作流设计器，打开 **createTask1** 活动的快捷菜单，然后选择 **查看代码**。  
+1.  Open the shortcut menu for the **createTask1** activity in the workflow designer, and then choose **View Code**.  
   
-2.  添加下面的方法：  
+2.  Add the following method:  
   
     ```vb  
     Private Sub createTask1_MethodInvoking(ByVal sender As   
@@ -316,7 +321,7 @@ caps.handback.revision: 37
     End Sub   
     ```  
   
-    ```csharp  
+    ```cs  
     private void createTask1_MethodInvoking(object sender, EventArgs e)  
     {  
         createTask1_TaskId1 = Guid.NewGuid();  
@@ -329,9 +334,9 @@ caps.handback.revision: 37
     ```  
   
     > [!NOTE]  
-    >  在代码中，将 `somedomain\\someuser` 替换为将为其创建任务的域和用户名，如“`Office\\JoeSch`”。  使用开发时所用的帐户进行测试最为轻松。  
+    >  In the code, replace `somedomain\\someuser` with a domain and user name for which a task will be created, such as, "`Office\\JoeSch`". For testing it is easiest to use the account you are developing with.  
   
-3.  在 `MethodInvoking` 方法下添加以下示例：  
+3.  Below the `MethodInvoking` method, add the following example:  
   
     ```vb  
     Private Sub checkApprovalNeeded(ByVal sender As Object, ByVal e As   
@@ -345,7 +350,7 @@ caps.handback.revision: 37
     End Sub   
     ```  
   
-    ```csharp  
+    ```cs  
     private void checkApprovalNeeded(object sender, ConditionalEventArgs   
       e)  
     {  
@@ -359,15 +364,15 @@ caps.handback.revision: 37
     }   
     ```  
   
-4.  在工作流设计器中，选择**“ifElseBranchActivity1”**活动。  
+4.  In the workflow designer, choose the **ifElseBranchActivity1** activity.  
   
-5.  在**“属性”**窗口中，选择**“Condition”**属性的下拉箭头，然后设置 *Code Condition*的值。  
+5.  In the **Properties** window, choose the drop-down arrow of the **Condition** property, and then set the *Code Condition* value.  
   
-6.  通过选择**“Condition”**属性旁边的加号 \(![TreeView 加号](~/sharepoint/media/plus.gif "TreeView 加号")\) 来展开此属性，然后将其值设置为 *checkApprovalNeeded*。  
+6.  Expand the **Condition** property by choosing the plus sign (![TreeView plus](../sharepoint/media/plus.gif "TreeView plus")) next to it, and then set its value to *checkApprovalNeeded*.  
   
-7.  在工作流设计器中，打开**“logToHistoryListActivity1”**活动的快捷菜单，然后选择**“生成处理程序”**，以便为 `MethodInvoking` 事件生成空方法。  
+7.  In the workflow designer, open the shortcut menu for the **logToHistoryListActivity1** activity, and then choose **Generate Handlers** to generate an empty method for the `MethodInvoking` event.  
   
-8.  将 `MethodInvoking` 代码替换为下面的内容：  
+8.  Replace the `MethodInvoking` code with the following:  
   
     ```vb  
     Private Sub logToHistoryListActivity1_MethodInvoking(ByVal sender As   
@@ -377,7 +382,7 @@ caps.handback.revision: 37
     End Sub   
     ```  
   
-    ```csharp  
+    ```cs  
     private void logToHistoryListActivity1_MethodInvoking(object sender,   
       EventArgs e)  
     {  
@@ -386,71 +391,71 @@ caps.handback.revision: 37
     }   
     ```  
   
-9. 选择键 F5 调试程序。  
+9. Choose the F5 key to debug the program.  
   
-     这将编译应用程序，对其进行打包和部署，激活其功能，回收 [!INCLUDE[TLA2#tla_iis5](../sharepoint/includes/tla2sharptla-iis5-md.md)] 应用程序池，然后启动位于**“Site Url”**属性中指定的位置的浏览器。  
+     This compiles the application, packages it, deploys it, activates its features, recycles the [!INCLUDE[TLA2#tla_iis5](../sharepoint/includes/tla2sharptla-iis5-md.md)] application pool, and then starts the browser at the location specified in the **Site Url** property.  
   
-## 将工作流关联到文档列表  
- 接下来，通过将工作流与 SharePoint 网站上的**“共享文档”**列表相关联来显示工作流关联窗体。  
+## <a name="associating-the-workflow-to-the-documents-list"></a>Associating the Workflow to the Documents List  
+ Next, display the workflow association form by associating the workflow with the **SharedDocuments** list on the SharePoint site.  
   
-#### 关联工作流  
+#### <a name="to-associate-the-workflow"></a>To associate the workflow  
   
-1.  选择快速启动栏上的**“共享文档”**链接。  
+1.  Choose the **Shared Documents** link on the QuickLaunch bar.  
   
-2.  在**库工具**选项卡上，选择**库**链接，然后选择**“库设置”**功能区按钮。  
+2.  Choose the **Library** link on the **Library Tools** tab and then choose the **Library Settings** ribbon button.  
   
-3.  在**“权限和管理”**部分中，选择**“工作流设置”**链接，然后选择**“工作流”**页上的**“添加工作流”**链接。  
+3.  In the **Permissions and Management** section, choose the **Workflow Settings** link and then choose the **Add a workflow** link on the **Workflows** page.  
   
-4.  在工作流设置页的顶部列表中，选择**“ExpenseReport \- Workflow1”**模板。  
+4.  In the top list in the workflow settings page, choose the **ExpenseReport - Workflow1** template.  
   
-5.  在下一个字段中，键入 ExpenseReportWorkflow，然后选择**“下一步”**按钮。  
+5.  In the next field, enter **ExpenseReportWorkflow** and then choose the **Next** button.  
   
-     这会将工作流与**“共享文档”**列表相关联并显示工作流关联窗体。  
+     This associates the workflow with the **Shared Documents** list and displays the workflow association form.  
   
-6.  在**“Auto Approval Limit”（自动审批限额）**文本框中，键入 1200，然后选择**“关联工作流”**按钮。  
+6.  In the **Auto Approval Limit** text box, enter **1200** and then choose the **Associate Workflow** button.  
   
-## 启动工作流  
- 然后将工作流关联到**“共享文档”**列表中的某个文档以显示工作流启动窗体。  
+## <a name="starting-the-workflow"></a>Starting the Workflow  
+ Next, associate the workflow to one of the documents in the **Shared Documents** list to display the workflow initiation form.  
   
-#### 启动工作流  
+#### <a name="to-start-the-workflow"></a>To start the workflow  
   
-1.  在 SharePoint 页上，选择**“主页”**按钮。  
+1.  On the SharePoint page, choose the **Home** button.  
   
-2.  在快速启动栏上，选择 **共享文档** 链接，显示 **共享文档** 列表。  
+2.  Choose the **Shared Documents** link on the QuickLaunch bar to display the **Shared Documents** list.  
   
-3.  选择页顶部的**“库工具”**选项卡上的**“文档”**链接，然后选择功能区上的**“上载文档”**按钮，将新文档上载到**“共享文档”**列表中。  
+3.  Choose the **Documents** link on the **Library Tools** tab at the top of the page, and then choose the **Upload Document** button on the ribbon to upload a new document into the **Shared Documents** list.  
   
-4.  在 **上载文档** 对话框中，选择 **浏览** 按钮，选择任何文档文件，选择 **打开** 按钮，然后选择 **确定** 按钮。  
+4.  In the **Upload Document** dialog box, choose the **Browse** button, choose any document file, choose the **Open** button, and then choose the **OK** button.  
   
-     虽然您可以在对话框更改文档的设置，但此时请选择**“保存”**按钮，以保留这些文档设置的默认值。  
+     You can change the settings for the document in this dialog box, but leave them at the default values by choosing the **Save** button.  
   
-5.  选择已上载文档，选择出现的下拉箭头，然后选择 **工作流** 项。  
+5.  Choose the uploaded document, choose the drop-down arrow that appears, and then choose the **Workflows** item.  
   
-6.  选择 ExpenseReportWorkflow 旁边的图像。  
+6.  Choose the image next to ExpenseReportWorkflow.  
   
-     这将显示工作流启动窗体。（请注意，**“Auto Approval Limit”（自动审批限额）**框中显示的值是只读的，因为此值是先前在关联窗体中输入的。）  
+     This displays the workflow initiation form. (Note that the value displayed in the **Auto Approval Limit** box is read-only because it was entered in the association form.)  
   
-7.  在 **零用金总计** 文本框中，键入 1600，然后选择 **启动工作流** 按钮。  
+7.  In the **Expense Total** text box, enter **1600**, and then choose the **Start Workflow** button.  
   
-     这将再次显示**“共享文档”**列表。  将带有**“Completed”**值的名为**“ExpenseReportWorkflow”**的新列添加到工作流刚启动的项中。  
+     This displays the **Shared Documents** list again. A new column named **ExpenseReportWorkflow** with the value **Completed** is added to the item the workflow just started.  
   
-8.  选择已上载文档旁边的下拉箭头，然后选择**“工作流”**项以显示工作流状态页。  选择**“已完成工作流”**下的**“已完成”**的值。  这将在**“任务”**部分下方列出任务。  
+8.  Choose the drop-down arrow next to the uploaded document and then choose the **Workflows** item to display the workflow status page. Choose the **Completed** value under **Completed Workflows**. The task is listed under the **Tasks** section.  
   
-9. 选择任务的标题以显示其任务的详细信息。  
+9. Choose the title of the task to display its task details.  
   
-10. 返回到**“共享文档”**列表并使用同一文档或其他文档重新启动工作流。  
+10. Go back to the **SharedDocuments** list and restart the workflow, using either the same document or a different one.  
   
-11. 在启动页上输入一个小于或等于关联页上输入的金额 \(1200\)。  
+11. Enter an amount on the initiation page that is less than or equal to the amount entered on the association page (**1200**).  
   
-     在执行此操作时，会在历史记录列表中创建一个项而不是任务。  该项显示在工作流状态页的**“工作流历史记录”**部分中。  请注意历史记录事件的**“结果”**列中的消息。  它包含 `logToHistoryListActivity1.MethodInvoking` 事件中输入的文本，该文本包括已自动审批的金额。  
+     When this occurs, an entry in the history list is created instead of a task. The entry displays in the **Workflow History** section of the workflow status page. Note the message in the **Outcome** column of the history event. It contains the text entered in the `logToHistoryListActivity1.MethodInvoking` event that includes the amount which was auto-approved.  
   
-## 后续步骤  
- 可从以下主题中了解有关如何创建工作流模板的更多信息：  
+## <a name="next-steps"></a>Next Steps  
+ You can learn more about how to create workflow templates from these topics:  
   
--   若要了解有关 SharePoint 工作流，请参见 [在 Windows SharePoint Services 中的工作流](http://go.microsoft.com/fwlink/?LinkID=166275)。  
+-   To learn more about SharePoint workflows, see [Workflows in Windows SharePoint Services](http://go.microsoft.com/fwlink/?LinkID=166275).  
   
-## 请参阅  
- [创建 SharePoint 工作流解决方案](../sharepoint/creating-sharepoint-workflow-solutions.md)   
- [演练：向工作流中添加应用程序页](../sharepoint/walkthrough-add-an-application-page-to-a-workflow.md)  
+## <a name="see-also"></a>See Also  
+ [Creating SharePoint Workflow Solutions](../sharepoint/creating-sharepoint-workflow-solutions.md)   
+ [Walkthrough: Add an Application Page to a Workflow](../sharepoint/walkthrough-add-an-application-page-to-a-workflow.md)  
   
   

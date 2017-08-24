@@ -1,202 +1,219 @@
 ---
-title: "Walkthrough: Creating and Accessing a WCF Data Service in Visual Studio | Microsoft Docs"
-ms.custom: ""
-ms.date: "12/15/2016"
-ms.prod: "visual-studio-dev14"
-ms.reviewer: ""
-ms.suite: ""
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-helpviewer_keywords: 
-  - "data services in Visual Studio"
-  - "WCF Data Services, Visual Studio"
-  - "ADO.NET Data Services, Visual Studio"
-  - "WCF data services in Visual Studio"
+title: 'Walkthrough: Creating a WCF Data Service with WPF and Entity Framework | Microsoft Docs'
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.tgt_pltfrm: 
+ms.topic: article
+helpviewer_keywords:
+- data services in Visual Studio
+- WCF Data Services, Visual Studio
+- ADO.NET Data Services, Visual Studio
+- WCF data services in Visual Studio
 ms.assetid: da66ad1b-a25d-485c-af13-2d18f0422e3d
 caps.latest.revision: 24
-caps.handback.revision: 21
-author: "mikeblome"
-ms.author: "mblome"
-manager: "ghogen"
+author: mikeblome
+ms.author: mblome
+manager: ghogen
+translation.priority.ht:
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- ru-ru
+- zh-cn
+- zh-tw
+translation.priority.mt:
+- cs-cz
+- pl-pl
+- pt-br
+- tr-tr
+ms.translationtype: HT
+ms.sourcegitcommit: ff8ecec19f8cab04ac2190f9a4a995766f1750bf
+ms.openlocfilehash: d2ae80673afdceb5cc5f816d92ab9b9cbf084801
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/24/2017
+
 ---
-# Walkthrough: Creating and Accessing a WCF Data Service in Visual Studio
-本演练演示如何创建一个承载于 [!INCLUDE[ss_data_service](../data-tools/includes/ss_data_service_md.md)] Web 应用程序中的简单 [!INCLUDE[vstecasp](../code-quality/includes/vstecasp_md.md)]，然后从 Windows 窗体应用程序中访问它。  
+# <a name="walkthrough-creating-a-wcf-data-service-with-wpf-and-entity-framework"></a>Walkthrough: Creating a WCF Data Service with WPF and Entity Framework
+This walkthrough demonstrates how to create a simple [!INCLUDE[ss_data_service](../data-tools/includes/ss_data_service_md.md)] that is hosted in an [!INCLUDE[vstecasp](../code-quality/includes/vstecasp_md.md)] Web application and then access it from a Windows Forms application.  
   
- 在此演练中，将：  
+ In this walkthrough you will:  
   
--   创建 Web 应用程序以承载 [!INCLUDE[ss_data_service](../data-tools/includes/ss_data_service_md.md)]。  
+-   Create a Web application to host a [!INCLUDE[ss_data_service](../data-tools/includes/ss_data_service_md.md)].  
   
--   创建一个表示 Northwind 数据库中 Customers 表的 [!INCLUDE[adonet_edm](../data-tools/includes/adonet_edm_md.md)]。  
+-   Create an [!INCLUDE[adonet_edm](../data-tools/includes/adonet_edm_md.md)] that represents the Customers table in the Northwind database.  
   
--   创建 [!INCLUDE[ss_data_service](../data-tools/includes/ss_data_service_md.md)]。  
+-   Create a [!INCLUDE[ss_data_service](../data-tools/includes/ss_data_service_md.md)].  
   
--   创建一个客户端应用程序，并添加对 [!INCLUDE[ss_data_service](../data-tools/includes/ss_data_service_md.md)]的引用。  
+-   Create a client application and add a reference to the [!INCLUDE[ss_data_service](../data-tools/includes/ss_data_service_md.md)].  
   
--   启用对该服务的数据绑定并生成用户界面。  
+-   Enable data binding to the service and generate the user interface.  
   
--   可以选择向应用程序添加筛选功能。  
+-   Optionally add filtering capabilities to the application.  
   
-## 系统必备  
- 你需要以下组件来完成本演练：  
+## <a name="prerequisites"></a>Prerequisites  
+ You need the following components to complete this walkthrough:  
   
--   Northwind 示例数据库。  
+-   The Northwind sample database.  
   
-     如果没有在开发计算机中安装此数据库，可以从 [Microsoft 下载中心](http://go.microsoft.com/fwlink/?LinkID=98088)进行下载。  有关说明，请参阅[下载示例数据库](../Topic/Downloading%20Sample%20Databases.md)。  
+     If you do not have this database on your development computer, you can download it from the [Microsoft Download Center](/dotnet/framework/data/adonet/sql/linq/downloading-sample-databases).  
   
-## 创建服务  
- 若要创建 [!INCLUDE[ss_data_service](../data-tools/includes/ss_data_service_md.md)]，你将添加一个 Web 项目，创建一个[!INCLUDE[adonet_edm](../data-tools/includes/adonet_edm_md.md)]，然后通过此模型创建服务。  
+## <a name="creating-the-service"></a>Creating the Service  
+ To create a [!INCLUDE[ss_data_service](../data-tools/includes/ss_data_service_md.md)], you will add a Web project, create an [!INCLUDE[adonet_edm](../data-tools/includes/adonet_edm_md.md)], and then create the service from the model.  
   
- 首先，将添加一个 Web 项目以承载服务。  
+ In the first step, you will add a Web project to host the service.  
   
  [!INCLUDE[note_settings_general](../data-tools/includes/note_settings_general_md.md)]  
   
-#### 创建 Web 项目  
+#### <a name="to-create-the-web-project"></a>To create the Web project  
   
-1.  在菜单栏上，依次选择**“文件”**、**“新建”**、**“项目”**。  
+1.  On the menu bar, choose **File**, **New**,  **Project**.  
   
-2.  在**“新建项目”**对话框中，展开**“Visual Basic”**或**“Visual C\#”**和**“Web”**节点，然后选择**“ASP.NET Web 应用程序”**模板。  
+2.  In the **New Project** dialog box, expand the **Visual Basic** or **Visual C#** and **Web** nodes, and then choose the **ASP.NET Web Application** template.  
   
-3.  在**“名称”**文本框中，输入 NorthwindWeb，然后选择**“确定”**按钮。  
+3.  In the **Name** text box, enter **NorthwindWeb**, and then choose the **OK** button.  
   
-4.  在**“新建 ASP.NET 项目”**对话框的**“选择模板”**列表中，选择**“空”**，然后选择**“确定”**按钮。  
+4.  In the **New ASP.NET Project** dialog box, in the **Select a template** list, choose **Empty**, and then choose the **OK** button.  
   
- 在此步骤中，你将创建一个表示 Northwind 数据库中 Customers 表的 [!INCLUDE[adonet_edm](../data-tools/includes/adonet_edm_md.md)]。  
+ In this step, you will create an [!INCLUDE[adonet_edm](../data-tools/includes/adonet_edm_md.md)] that represents the Customers table in the Northwind database.  
   
-#### 创建实体数据模型  
+#### <a name="to-create-the-entity-data-model"></a>To create the Entity Data Model  
   
-1.  在菜单栏上，依次选择**“项目”**、**“添加新项”**。  
+1.  On the menu bar, choose **Project**, **Add New Item**.  
   
-2.  在**“添加新项”**对话框中，选择**“数据”**节点，然后选择**“ADO.NET 实体数据模型”**项。  
+2.  In the **Add New Item** dialog box, choose the **Data** node, and then choose the **ADO.NET Entity Data Model** item.  
   
-3.  在**“名称”**文本框中，输入 `NorthwindModel`，然后选择**“添加”**按钮。  
+3.  In the **Name** text box, enter `NorthwindModel`, and then choose the **Add** button.  
   
-     此时将显示实体数据模型向导。  
+     The Entity Data Model Wizard appears.  
   
-4.  在实体数据模型向导中，在**选择模型内容**页上，选择**数据库项的 EF 设计器**，然后再选择**下一步**按钮。  
+4.  In the Entity Data Model Wizard, on the **Choose Model Contents** page, choose the **EF Designer from database** item, and then choose the **Next** button.  
   
-5.  在**“选择你的数据连接”**页上执行下列步骤之一：  
+5.  On the **Choose Your Data Connection** page, perform one of the following steps:  
   
-    -   如果下拉列表中包含到 Northwind 示例数据库的数据连接，请选择该连接。  
+    -   If a data connection to the Northwind sample database is available in the drop-down list, choose it.  
   
-         \- 或 \-  
+         -or-  
   
-    -   选择**“新建连接”**按钮来配置新数据连接。  有关详细信息，请参阅[如何：创建到 SQL Server 数据库的连接](http://msdn.microsoft.com/zh-cn/360c340d-e5a6-4a7e-a569-e95d500be43d)。  
+    -   Choose the **New Connection** button to configure a new data connection. For more information, see [Add new connections](../data-tools/add-new-connections.md).  
   
-6.  如果数据库需要密码，请选择**“是，在连接字符串中包含敏感数据”**选项按钮，然后选择**“下一步”**按钮。  
-  
-    > [!NOTE]
-    >  如果显示一个对话框，请选择**“是”**将该文件保存到你的项目中。  
-  
-7.  在**“选择你的版本”**页上，选择**“Entity Framework 5.0”**选项按钮，然后选择**“下一步”**按钮。  
+6.  If the database requires a password, choose the **Yes, include sensitive data in the connection string** option button, and then choose the **Next** button.  
   
     > [!NOTE]
-    >  为了使用具有 WCF 服务的 Entity Framework 6 的最新版本，你需要安装 WCF Data Services Entity Framework Provider NuGet 程序包。  请参阅[使用 WCF Data Services 5.6.0 与 Entity Framework 6\+](http://blogs.msdn.com/b/odatateam/archive/2013/10/02/using-wcf-data-services-5-6-0-with-entity-framework-6.aspx)。  
+    >  If a dialog box appears, choose **Yes** to save the file to your project.  
   
-8.  在**“选择数据库对象”**页上，展开**“表”**节点、选中**“客户”**复选框，然后选择**“完成”**按钮。  
-  
-     随即显示实体模型关系图，NorthwindModel.edmx 文件也将添加到项目中。  
-  
- 在此步骤中，你将创建并测试数据服务。  
-  
-#### 创建数据服务  
-  
-1.  在菜单栏上，依次选择**“项目”**、**“添加新项”**。  
-  
-2.  在**“添加新项”**对话框中，选择**“Web”**节点，然后选择**“WCF 数据服务 5.6”**项。  
-  
-3.  在**“名称”**文本框中，输入 `NorthwindCustomers`，然后选择**“添加”**按钮。  
-  
-     NorthwindCustomers.svc 文件将显示在**代码编辑器**中。  
-  
-4.  在**“代码编辑器”**中，定位到第一个 `TODO:` 注释并使用以下内容替换该代码：  
-  
-     [!code-vb[WCFDataServiceWalkthrough#1](../data-tools/codesnippet/VisualBasic/walkthrough-creating-a-wcf-data-service-with-wpf-and-entity-framework_1.vb)]
-     [!code-cs[WCFDataServiceWalkthrough#1](../data-tools/codesnippet/CSharp/walkthrough-creating-a-wcf-data-service-with-wpf-and-entity-framework_1.cs)]  
-  
-5.  使用下面的代码替换 `InitializeService` 事件处理程序中的注释：  
-  
-     [!code-vb[WCFDataServiceWalkthrough#2](../data-tools/codesnippet/VisualBasic/walkthrough-creating-a-wcf-data-service-with-wpf-and-entity-framework_2.vb)]
-     [!code-cs[WCFDataServiceWalkthrough#2](../data-tools/codesnippet/CSharp/walkthrough-creating-a-wcf-data-service-with-wpf-and-entity-framework_2.cs)]  
-  
-6.  在菜单栏上，依次选择**“调试”**、**“开始执行\(不调试\)”**以运行服务。  此时将打开一个浏览窗口，并显示该服务的 XML 架构。  
-  
-7.  在**地址**栏中，在 NorthwindCustomers.svc 的 URL 末尾处输入 `Customers`，然后按 Enter 键。  
-  
-     Customers 表中的数据将以 XML 表示形式显示。  
+7.  On the **Choose your version** page, choose the **Entity Framework 5.0** option button, and then choose the **Next** button.  
   
     > [!NOTE]
-    >  某些情况下，Internet Explorer 会将数据错误解释为 RSS 源。  必须确保禁用显示 RSS 源的选项。  有关详细信息，请参阅[Troubleshooting Service References](../data-tools/troubleshooting-service-references.md)。  
+    >  In order to use the latest version of the Entity Framework 6 with WCF Services, you'll need to install the WCF Data Services Entity Framework Provider NuGet package. See [Using WCF Data Services 5.6.0 with Entity Framework 6+](http://blogs.msdn.com/b/odatateam/archive/2013/10/02/using-wcf-data-services-5-6-0-with-entity-framework-6.aspx).  
   
-8.  关闭浏览器窗口。  
+8.  On the **Choose Your Database Objects** page, expand the **Tables** node, select the **Customers** check box, and then choose the **Finish** button.  
   
- 在接下来的步骤中，将创建一个 Windows 窗体客户端应用程序以使用该服务。  
+     The entity model diagram will be displayed, and a NorthwindModel.edmx file will be added to your project.  
   
-## 创建客户端应用程序  
- 若要创建客户端应用程序，你将另外添加一个项目，添加对该项目的服务引用，配置数据源，并创建一个用户界面以显示服务中的数据。  
+ In this step, you will create and test the data service.  
   
- 在第一个步骤中，你将 Windows 窗体项目添加到解决方案中，并将其设置为启动项目。  
+#### <a name="to-create-the-data-service"></a>To create the data service  
   
-#### 创建客户端应用程序  
+1.  On the menu bar, choose **Project**, **Add New Item**.  
   
-1.  在菜单栏上，依次选择“文件”、**“添加”**、**“新建项目”**。  
+2.  In the **Add New Item** dialog box, choose the **Web** node, and then choose the **WCF Data Service 5.6** item.  
   
-2.  在**“新建项目”**对话框中，展开**“Visual Basic”**或**“Visual C\#”**节点，选择**“Windows”**节点，然后选择**“Windows 窗体应用程序”**。  
+3.  In the **Name** text box, enter `NorthwindCustomers`, and then choose the **Add** button.  
   
-3.  在**“名称”**文本框中，输入 `NorthwindClient`，然后选择**“确定”**按钮。  
+     The NorthwindCustomers.svc file appears in the **Code Editor**.  
   
-4.  在**解决方案资源管理器**中，选择 **NorthwindClient** 项目节点。  
+4.  In the **Code Editor**, locate the first `TODO:` comment and replace the code with the following:  
   
-5.  在菜单栏上，选择**“项目”**、**“设为启动项目”**。  
+     [!code-vb[WCFDataServiceWalkthrough#1](../data-tools/codesnippet/VisualBasic/walkthrough-creating-a-wcf-data-service-with-wpf-and-entity-framework_1.vb)]  [!code-cs[WCFDataServiceWalkthrough#1](../data-tools/codesnippet/CSharp/walkthrough-creating-a-wcf-data-service-with-wpf-and-entity-framework_1.cs)]  
   
- 在此步骤中，将添加对 Web 项目中的 [!INCLUDE[ss_data_service](../data-tools/includes/ss_data_service_md.md)]的服务引用。  
+5.  Replace the comments in the `InitializeService` event handler with the following code:  
   
-#### 添加服务引用  
+     [!code-vb[WCFDataServiceWalkthrough#2](../data-tools/codesnippet/VisualBasic/walkthrough-creating-a-wcf-data-service-with-wpf-and-entity-framework_2.vb)]  [!code-cs[WCFDataServiceWalkthrough#2](../data-tools/codesnippet/CSharp/walkthrough-creating-a-wcf-data-service-with-wpf-and-entity-framework_2.cs)]  
   
-1.  在菜单栏上，依次选择**“项目”**、**“添加服务引用”**。  
+6.  On the menu bar, choose **Debug**, **Start Without Debugging** to run the service. A browser window opens and the XML schema for the service is displayed.  
   
-2.  在**“添加服务引用”**对话框中，选择**“发现”**按钮。  
+7.  In the **Address** bar, enter `Customers` at the end of the URL for NorthwindCustomers.svc, and then choose the **ENTER** key.  
   
-     NorthwindCustomers 服务的 URL 将显示在**“地址”**字段中。  
+     An XML representation of the data in the Customers table is displayed.  
   
-3.  选择**“确定”**按钮以添加服务引用。  
+    > [!NOTE]
+    >  In some cases, Internet Explorer will misinterpret the data as an RSS feed. You must make sure that the option to display RSS feeds is disabled. For more information, see [Troubleshooting Service References](../data-tools/troubleshooting-service-references.md).  
   
- 在此步骤中，将配置数据源以启用对服务的数据绑定。  
+8.  Close the browser window.  
   
-#### 启用对服务的数据绑定  
+ In the next steps, you will create a Windows Forms client application to consume the service.  
   
-1.  在菜单栏上，依次选择**“视图”**、**“其他窗口”**、**“数据源”**。  
+## <a name="creating-the-client-application"></a>Creating the Client Application  
+ To create the client application, you will add a second project, add a service reference to the project, configure a data source, and create a user interface to display the data from the service.  
   
-2.  在**“数据源”**窗口中，选择**“添加新数据源”**按钮。  
+ In the first step, you will add a Windows Forms project to the solution and set it as the startup project.  
   
-3.  在**数据源配置向导**的**“选择数据源类型”**页上，选择**“对象”**，然后选择**“下一步”**按钮。  
+#### <a name="to-create-the-client-application"></a>To create the client application  
   
-4.  在**“选择数据对象”**页上，展开**“NorthwindClient”**节点，然后展开**“NorthwindClient.ServiceReference1”**节点。  
+1.  On the menu bar, choose File, **Add**, **New Project**.  
   
-5.  选中**“Customer”**复选框，然后选择**“完成”**按钮。  
+2.  In the **New Project** dialog box, expand the **Visual Basic** or **Visual C#** node and choose the **Windows** node, and then choose **Windows Forms Application**.  
   
- 在此步骤中，你将创建用于显示服务中的数据的用户界面。  
+3.  In the **Name** text box, enter `NorthwindClient`, and then choose the **OK** button.  
   
-#### 创建用户界面  
+4.  In **Solution Explorer**, choose the **NorthwindClient** project node.  
   
-1.  在**“数据源”**窗口中，打开**“Customers”**节点的快捷菜单，然后选择**“复制”**。  
+5.  On the menu bar, choose **Project**, **Set as StartUp Project**.  
   
-2.  在**“Form1.vb”**或**“Form1.cs”**窗体设计器中，打开快捷菜单并选择**“粘贴”**。  
+ In this step, you will add a service reference to the [!INCLUDE[ss_data_service](../data-tools/includes/ss_data_service_md.md)] in the Web project.  
   
-     一个 <xref:System.Windows.Forms.DataGridView> 控件、一个 <xref:System.Windows.Forms.BindingSource> 组件以及一个 <xref:System.Windows.Forms.BindingNavigator> 组件将添加到窗体中。  
+#### <a name="to-add-a-service-reference"></a>To add a service reference  
   
-3.  选择 **CustomersDataGridView** 控件，然后在**属性**窗口设置**停靠**属性进行**填充**。  
+1.  On the menu bar, choose **Project**, **Add Service Reference**.  
   
-4.  在**解决方案资源管理器**中，打开 **Form1** 节点的快捷菜单，然后选择**查看代码**以打开代码编辑器，并在文件顶部添加以下 Imports 或 Using 语句：  
+2.  In the **Add Service Reference** dialog box, choose the **Discover** button.  
+  
+     The URL for the NorthwindCustomers service appears in the **Address** field.  
+  
+3.  Choose the **OK** button to add the service reference.  
+  
+ In this step, you will configure a data source to enable data binding to the service.  
+  
+#### <a name="to-enable-data-binding-to-the-service"></a>To enable data binding to the service  
+  
+1.  On the menu bar, choose **View**, **Other Windows**, **Data Sources**.  
+  
+2.  In the **Data Sources** window, choose the **Add New Data Source** button.  
+  
+3.  On the **Choose a Data Source Type** page of the **Data Source Configuration Wizard**, choose **Object**, and then choose the **Next** button.  
+  
+4.  On the **Select the Data Objects** page, expand the **NorthwindClient** node, and then expand the **NorthwindClient.ServiceReference1** node.  
+  
+5.  Select **Customer** check box, and then choose the **Finish** button.  
+  
+ In this step, you will create the user interface that will display the data from the service.  
+  
+#### <a name="to-create-the-user-interface"></a>To create the user interface  
+  
+1.  In the **Data Sources** window, open the shortcut menu for the **Customers** node and choose **Copy**.  
+  
+2.  In the **Form1.vb** or **Form1.cs** form designer, open the shortcut menu and choose **Paste**.  
+  
+     A <xref:System.Windows.Forms.DataGridView> control, a <xref:System.Windows.Forms.BindingSource> component, and a <xref:System.Windows.Forms.BindingNavigator> component are added to the form.  
+  
+3.  Choose the **CustomersDataGridView** control, and then in the **Properties** window set the **Dock** property to **Fill**.  
+  
+4.  In **Solution Explorer**, open the shortcut menu for the **Form1** node and choose **View Code** to open the Code Editor, and add the following Imports or Using statement at the top of the file:  
   
     ```vb  
     Imports NorthwindClient.ServiceReference1  
     ```  
   
-    ```c#  
+    ```cs  
     using NorthwindClient.ServiceReference1;  
     ```  
   
-5.  将以下代码添加到 `Form1_Load` 事件处理程序中：  
+5.  Add the following code to the `Form1_Load` event handler:  
   
     ```vb  
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load  
@@ -206,7 +223,7 @@ manager: "ghogen"
         End Sub  
     ```  
   
-    ```c#  
+    ```cs  
     private void Form1_Load(object sender, EventArgs e)  
     {  
     NorthwindEntities proxy = new NorthwindEntities(new Uri("http://localhost:53161/NorthwindCustomers.svc/"));  
@@ -215,28 +232,28 @@ manager: "ghogen"
   
     ```  
   
-6.  在**解决方案资源管理器**中，打开 NorthwindCustomers.svc 文件的快捷菜单，然后选择**“在浏览器中查看”**。  此时将打开 Internet Explorer，并显示该服务的 XML 架构。  
+6.  In **Solution Explorer**, open the shortcut menu for the NorthwindCustomers.svc file and choose **View in Browser**. Internet Explorer opens and the XML schema for the service is displayed.  
   
-7.  从 Internet Explorer 地址栏中复制 URL。  
+7.  Copy the URL from the Internet Explorer address bar.  
   
-8.  在步骤 4 中添加的代码中，选择 `http://localhost:53161/NorthwindCustomers.svc/` 并使用刚刚复制的 URL 替换它。  
+8.  In the code that you added in step 4, select `http://localhost:53161/NorthwindCustomers.svc/` and replace it with the URL that you just copied.  
   
-9. 在菜单栏上，依次选择**“调试”**和**“启动调试”**以运行应用程序。  此时将显示客户信息。  
+9. On the menu bar, choose **Debug**, **Start Debugging** to run the application. The customer information is displayed.  
   
- 现在，你有了一个可以使用的应用程序，该应用程序将显示 NorthwindCustomers 服务中的客户的列表。  如果希望通过该服务公开其他数据，则可以修改[!INCLUDE[adonet_edm](../data-tools/includes/adonet_edm_md.md)]以包括 Northwind 数据库中的其他表。  
+ You now have a working application that displays a list of customers from the NorthwindCustomers service. If you want to expose additional data through the service, you can modify the [!INCLUDE[adonet_edm](../data-tools/includes/adonet_edm_md.md)] to include additional tables from the Northwind database.  
   
- 在下一个可选步骤中，将学习如何筛选服务返回的数据。  
+ In the next optional step, you will learn how to filter the data that is returned by the service.  
   
-## 添加筛选功能  
- 在此步骤中，将自定义应用程序以根据客户的城市筛选数据。  
+## <a name="adding-filtering-capabilities"></a>Adding Filtering Capabilities  
+ In this step, you will customize the application to filter the data by the customer's city.  
   
-#### 添加根据城市进行筛选的功能  
+#### <a name="to-add-filtering-by-city"></a>To add filtering by city  
   
-1.  在**解决方案资源管理器**中，打开**“Form1.vb”**或**“Form1.cs”**节点的快捷菜单，然后选择**“打开”**。  
+1.  In **Solution Explorer**, open the shortcut menu for the **Form1.vb** or **Form1.cs** node and choose **Open**.  
   
-2.  将<xref:System.Windows.Forms.TextBox>工具箱中的 <xref:System.Windows.Forms.Button> 控件和  **控件添加到窗体。**  
+2.  Add a <xref:System.Windows.Forms.TextBox> control and a <xref:System.Windows.Forms.Button> control from the **Toolbox** to the form.  
   
-3.  打开 <xref:System.Windows.Forms.Button> 控件的快捷菜单，选择**“查看代码”**，然后在 `Button1_Click` 事件处理程序中添加以下代码：  
+3.  Open the shortcut menu for the <xref:System.Windows.Forms.Button> control, and choose **View Code**, and then add the following code in the `Button1_Click` event handler:  
   
     ```vb  
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click  
@@ -252,7 +269,7 @@ manager: "ghogen"
         End Sub  
     ```  
   
-    ```c#  
+    ```cs  
     private void Button1_Click(object sender, EventArgs e)  
     {  
     ServiceReference1.northwindModel.northwindEntities proxy = new northwindEntities(new Uri("http://localhost:53161/NorthwindCustomers.svc"));  
@@ -265,11 +282,12 @@ manager: "ghogen"
     }  
     ```  
   
-4.  在以上代码中，使用 `http://localhost:53161/NorthwindCustomers.svc` 事件处理程序中的 URL 替换 `Form1_Load`。  
+4.  In the previous code, replace `http://localhost:53161/NorthwindCustomers.svc` with the URL from the `Form1_Load` event handler.  
   
-5.  在菜单栏上，依次选择**“调试”**和**“启动调试”**以运行应用程序。  
+5.  On the menu bar, choose **Debug**, **Start Debugging** to run the application.  
   
-6.  在文本框中，输入 London，然后选择相应的按钮。  将仅显示来自 London 的客户。  
+6.  In the text box, enter **London**, and then choose the button. Only the customers from London are displayed.  
   
-## 请参阅  
+## <a name="see-also"></a>See Also  
+ [Windows Communication Foundation Services and WCF Data Services in Visual Studio](../data-tools/windows-communication-foundation-services-and-wcf-data-services-in-visual-studio.md)   
  [How to: Add, Update, or Remove a WCF Data Service Reference](../data-tools/how-to-add-update-or-remove-a-wcf-data-service-reference.md)

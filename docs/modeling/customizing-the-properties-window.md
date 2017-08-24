@@ -1,135 +1,143 @@
 ---
-title: "自定义“属性”窗口 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-helpviewer_keywords: 
-  - "域特定语言, “属性”窗口"
+title: Customizing the Properties Window | Microsoft Docs
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.tgt_pltfrm: 
+ms.topic: article
+helpviewer_keywords:
+- Domain-Specific Language, Properties window
 ms.assetid: b6658de5-4e85-4628-93b2-5cc12f63d25b
 caps.latest.revision: 20
-author: "alancameronwills"
-ms.author: "awills"
-manager: "douge"
-caps.handback.revision: 20
----
-# 自定义“属性”窗口
-[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
+author: alancameronwills
+ms.author: awills
+manager: douge
+translation.priority.mt:
+- cs-cz
+- pl-pl
+- pt-br
+- tr-tr
+ms.translationtype: MT
+ms.sourcegitcommit: ff8ecec19f8cab04ac2190f9a4a995766f1750bf
+ms.openlocfilehash: a9f2aba4e5c4eaa89a284662d4f22665b7c0b1a1
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/24/2017
 
-您可以自定义属性窗口的外观和行为在域特定语言 \(DSL\)中 [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)]。  在 DSL 定义，则定义在每个域类的字段的特性。  默认情况下，那么，当您选择类的实例，请在关系图或模型资源管理器中，每个字段属性窗口列表。  由此可以查看和编辑字段的特性的值，因此，即使您尚未映射它们在建模图的字段。  
+---
+# <a name="customizing-the-properties-window"></a>Customizing the Properties Window
+You can customize the appearance and behavior of the properties window in your domain-specific language (DSL) in [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)]. In your DSL Definition, you define domain properties on each domain class. By default, when you select an instance of the class, either on a diagram or in Model Explorer, every domain property is listed in the properties window. This lets you see and edit the values of domain properties, even if you have not mapped them to shape fields on the diagram.  
   
-## 名称、说明和类别  
- **名称和显示名称**。  在字段的特性的定义，属性的显示名称是显示在 " 属性 " 窗口中的运行时的名称。  相反，名称用于，当您编写程序代码更新属性。  名称必须是一个正确的 CLR 字母数字名称，但是，显示名称能包含空格。  
+## <a name="names-descriptions-and-categories"></a>Names, Descriptions, and Categories  
+ **Name and Display Name**. In your definition of a domain property, the Display Name of the property is the name that appears at runtime in the properties window. By contrast, the Name is used when you write program code to update the property. The Name must be a correct CLR alphanumeric name, but the Display Name can contain spaces.  
   
- 当您设置属性的名称在 DSL 定义时，其显示名称自动设置为名称的副本。  如果编写 Pascal 大小写的名称 \(例如 “FuelGauge”，显示名称将自动包含空格:“汽油表”。  但是，可以显式地设置显示名称为其他值。  
+ When you set the Name of a property in the DSL Definition, its Display Name is automatically set to a copy of the Name. If you write a Pascal cased name such as "FuelGauge", the Display Name will automatically contain a space: "Fuel Gauge". However, you can set the Display Name explicitly to another value.  
   
- **说明**。  字段的特性的声明在两个位置都显示:  
+ **Description**. The Description of a domain property appears in two places:  
   
--   在 " 属性 " 窗口底部，当用户选择属性。  您可以将其解释为用户可能该属性表示。  
+-   In the bottom of the properties window when the user selects the property. You can use it to explain to the user what the property represents.  
   
--   在生成的程序代码。  如果使用文档结构提取 API 文档，它将显示为该属性的说明。 API 的。  
+-   In the generated program code. If you use the documentation facilities to extract API documentation, it will appear as the description of this property in the API.  
   
- **类别**。  类别是在 " 属性 " 窗口的一个标题。  
+ **Category**. A category is a heading in the Properties window.  
   
-## 显示样式函数  
- 某些图形元素动态功能可以表示或 *显示* 为字段的特性。  此类公开的功能由用户更新，并可通过程序代码更加轻松地更新。  
+## <a name="exposing-style-features"></a>Exposing Style Features  
+ Some of the dynamic features of graphical elements can be represented or *exposed* as domain properties. A feature that has been exposed in this manner can be updated by the user and can more easily be updated by program code.  
   
- 右击 " DSL 定义的形状类，指向 **将显示**，然后选择功能。  
+ Right-click a shape class in DSL Definition, point to **Add Exposed**, and then choose a feature.  
   
- 在形状可以显示 **FillColor**、 **OutlineColor**、 **TextColor**、 **OutlineDashStyle**、 **OutlineThickness** 和 **FillGradientMode** 属性。  在连接上可以显示 **颜色**`,`**TextColor**， **DashStyle**和 **粗细** 属性。  在关系图可以显示 **FillColor** 和 **TextColor** 属性。  
+ On shapes you can expose the **FillColor**, **OutlineColor**, **TextColor**, **OutlineDashStyle**, **OutlineThickness** and **FillGradientMode** properties. On connectors you can expose the **Color**`,`**TextColor**, **DashStyle**, and **Thickness** properties. On diagrams you can expose the **FillColor** and **TextColor** properties.  
   
-## 向前:显示相关元素属性  
- 在 DSL 的用户在设计时的元素，该元素的属性显示在 " 属性 " 窗口中。  但是，您也可以显示指定的相关元素的属性。  这是有用，如果定义一组元素。  例如，可以定义一个主要组件和一个选项插件元素。  如果主要元素映射到形状，另一个则不是，查看其所有的属性很有用，就好像它们在一个元素。  
+## <a name="forwarding-displaying-properties-of-related-elements"></a>Forwarding: Displaying Properties of Related Elements  
+ When the user of your DSL selects an element in a model, that element's properties are displayed in the properties window. However, you can also display the properties of specified related elements. This is useful if you have defined a group of elements that works together. For example, you might define a main element and an optional plug-in element. If the main element is mapped to a shape and the other is not, it is useful to see all their properties as if they were on one element.  
   
- 这种影响名为 *转发的属性*，并且，它在某些情况下会自动发生。  在某些情况下，您可实现向前通过定义的特性字段类型描述符。  
+ This effect is named *property forwarding*, and it happens automatically in several cases. In other cases, you can achieve property forwarding by defining a domain type descriptor.  
   
-### 向前用例的默认属性  
- 当用户选择形状或连接或一个元素在资源管理器时，下面的属性在 " 属性 " 窗口中显示:  
+### <a name="default-property-forwarding-cases"></a>Default Property Forwarding Cases  
+ When the user selects a shape or connector, or an element in the Explorer, the following properties are displayed in the Properties window:  
   
--   在模型元素的域类中定义的字段的特性，包括在基类中定义的控件。  异常是将 **可浏览的** 到 `False`的字段的特性。  
+-   The domain properties that are defined on the domain class of the model element, including those that are defined in base classes. An exception is domain properties for which you have set **Is Browsable** to `False`.  
   
--   通过关系链接具有重数 0..1 元素的名称。  这会看到选择性地链接元素的一种简便方法，因此，即使未定义连接映射为您的关系。  
+-   The names of elements that are linked through relationships that have a multiplicity of 0..1. This provides a convenient method of seeing optionally linked elements, even if you have not defined a connector mapping for the relationship.  
   
--   目标元素嵌入关系的字段的特性。  由于嵌入关系没有显式通常显示，这使用户能够看到它们的属性。  
+-   Domain properties of the embedding relationship that targets the element. Because embedding relationships are usually not displayed explicitly, this lets the user see their properties.  
   
--   在选定的形状或连接中定义的字段的特性。  
+-   Domain properties that are defined on the selected shape or connector.  
   
-### 添加特性转发  
- 若要向前属性，则定义字段类型描述符。  如果有两个字段类之间的域关系，可使用字段类型描述符将质数的字段的属性设置为一个字段的特性的值在第二个域类的。  例如，因此，如果您有书籍域类并创作域类之间的关系，可以使用字段类型描述符进行 name 属性书籍的作者显示在 " 属性 " 窗口中，当用户选择书时。  
+### <a name="adding-property-forwarding"></a>Adding Property Forwarding  
+ To forward a property, you define a domain type descriptor. If you have a domain relationship between two domain classes, you can use a domain type descriptor to set a domain property in the first class to the value of a domain property in the second domain class. For example, if you have a relationship between a **Book** domain class and an **Author** domain class, you can use a domain type descriptor to make the **Name** property of a Book's **Author** appear in the Properties window when the user selects the Book.  
   
 > [!NOTE]
->  向前只影响属性 " 窗口中的属性，当用户编辑模型。  它不定义在接收类中的一个字段的特性。  如果要访问转发的字段的特性在 DSL 定义的其他部分或在过程代码中，您必须访问转发元素。  
+>  Property forwarding affects only the Properties window when the user is editing a model. It does not define a domain property on the receiving class. If you want to access the forwarded domain property in other parts of the DSL Definition or in program code, you must access the forwarding element.  
   
- 以下过程假定，您将创建一个 DSL。  前几步骤摘要系统必备组件。  
+ The following procedure assumes that you have created a DSL. The first few steps summarize the prerequisites.  
   
-##### 向前从另一个组件的属性  
+##### <a name="to-forward-a-property-from-another-element"></a>To forward a property from another element  
   
-1.  创建至少包含两类，在此示例中调用 Book 并创作的一个 [!INCLUDE[dsl](../modeling/includes/dsl_md.md)] 解决方案。  应具有为的关系类型的书籍中并创作之间。  
+1.  Create a [!INCLUDE[dsl](../modeling/includes/dsl_md.md)] solution that contains at least two classes, which in this example are called **Book** and **Author**. There should be a relationship of either kind between **Book** and **Author**.  
   
-     源角色 \(角色的重数书籍端\) 应为 0..1 或 1..1，因此，每本书都有一个作者。  
+     The multiplicity of the source role (the role at the **Book** side) should be 0..1 or 1..1, so that each **Book** has one **Author**.  
   
-2.  在 **DSL 资源管理器**，右击书籍域类，然后单击 **添加新 DomainTypeDescriptor**。  
+2.  In **DSL Explorer**, right-click the **Book** domain class, and then click **Add New DomainTypeDescriptor**.  
   
-     名为 **自定义属性说明符路径** 的节点显示在 **自定义类型说明符** 节点下。  
+     A node named **Paths of Custom Property Descriptors** appears under the **Custom Type Descriptor** node.  
   
-3.  右击 **自定义类型说明符** 节点，然后单击 **添加新 PropertyPath**。  
+3.  Right-click the **Custom Type Descriptor** node, and then click **Add New PropertyPath**.  
   
-     新的属性路径显示在 **自定义属性说明符路径** 节点下。  
+     A new property path appears under the **Paths Of Custom Property Descriptors** node.  
   
-4.  选择新属性路径，并 **属性** 窗口中，设置 **属性中的路径** 为适当的模型元素的路径。  
+4.  Select the new property path, and in the **Properties** window, set **Path to Property** to the path of the appropriate model element.  
   
-     可以通过单击下箭头编辑树视图的路径此属性右侧的。  有关字段路径的更多信息，请参见 [域路径语法](../modeling/domain-path-syntax.md)。  在编辑时，路径应类似于 **BookReferencesAuthor.Author\/\! 作者**。  
+     You can edit the path in a tree view by clicking the down arrow to the right of this property. For more information about domain paths, see [Domain Path Syntax](../modeling/domain-path-syntax.md). When you have edited it, the path should resemble **BookReferencesAuthor.Author/!Author**.  
   
-5.  设置 **属性** 到作者 **Name** 字段的特性。  
+5.  Set **Property** to the **Name** domain property of **Author**.  
   
-6.  设置 **显示名称** 创作名称。  
+6.  Set **Display Name** to **Author Name**.  
   
-7.  转换所有模板，生成并运行 DSL。  
+7.  Transform All Templates, build and run the DSL.  
   
-8.  使用引用关系，在模型关系图，创建一个书籍，作者，并将它们。  选择书元素，则本书的属性外，因此，在 " 属性 " 窗口应看到作者名称。  将链接的作者的名称或使用不同的作者链接的书籍，可观察到该书的作者名称更改。  
+8.  In a model diagram, create a book, an author, and link them using the reference relationship. Select the book element, and in the Properties window you should see Author Name in addition to the properties of the book. Change the name of the linked author, or link the book to a different author, and observe that the Author Name of the book changes.  
   
-## 自定义属性编辑器  
- " 属性 " 窗口为每个字段属性的类型提供编辑体验的适当默认值。  例如，为枚举的类型，将会看到下拉列表，并且，对于一个数字特性，用户可以输入数值。  这仅适用内置类型。  如果指定外部类型，用户查看属性值，但是，不进行编辑。  
+## <a name="custom-property-editors"></a>Custom Property Editors  
+ The property window provides an appropriate default editing experience for the type of each domain property. For example, for an enumerated type, the user sees a drop-down list, and for a numeric property, the user can enter digits. This is only true for the built-in types. If you specify an external type, the user will be able to see the property's values, but not edit it.  
   
- 但是，可以指定以下版本和类型:  
+ However, you can specify the following editors and types:  
   
-1.  使用标准类型的其他编辑器。  例如，您可以为字符串特性指定文件路径编辑。  
+1.  Another editor that is used with a standard type. For example, you could specify a file path editor for a string property.  
   
-2.  字段的特性的外部类型和它的一个编辑器。  
+2.  An external type for the domain property, and an editor for it.  
   
-3.  一个 .NET 版本 \(如文件路径编辑也可以创建具有自定义属性编辑器。  
+3.  A .NET editor such as the file path editor, or you can create your own custom property editor.  
   
-     在外部类型和类型之间进行转换，如字符串有一个默认编辑器。  
+     A conversion between an external type and an type such as String, which has a default editor.  
   
- 在 DSL， *外部类型* 不是一个简单的类型的任何类型 \(例如布尔或 Int32\) 或字符串。  
+ In a DSL, an *external type* is any type that is not one of the simple types (such as Boolean or Int32) or String.  
   
-#### 定义具有外部类型的字段特性  
+#### <a name="to-define-a-domain-property-that-has-an-external-type"></a>To define a domain property that has an external type  
   
-1.  在 **解决方案资源管理器**，添加一个对包含外部类型的程序集 \(dll\)，在 **Dsl** 项目。  
+1.  In **Solution Explorer**, add a reference to the assembly (DLL) that contains the external type, in the **Dsl** project.  
   
-     程序集可以是 .NET 程序集或您提供的程序集。  
+     The assembly can be a .NET assembly, or an assembly supplied by you.  
   
-2.  ，除非这样做，已执行将该类型到 **字段类型** 列表。  
+2.  Add the type to the **Domain Types** list, unless you have already done so.  
   
-    1.  打开 DslDefinition.dsl，然后在 **DSL 资源管理器**，右击根节点，然后单击 **添加新的外部类型**。  
+    1.  Open DslDefinition.dsl, and in **DSL Explorer**, right-click the root node, and then click **Add New External Type**.  
   
-         新的项显示在 **字段类型** 节点下。  
+         A new entry appears under the **Domain Types** node.  
   
         > [!WARNING]
-        >  菜单项在 DSL 根节点，而不是 **字段类型** 节点。  
+        >  The menu item is on the DSL root node, not the **Domain Types** node.  
   
-    2.  设置名称，命名空间新类型 " 属性 " 窗口。  
+    2.  Set the name and the namespace of the new type in the Properties window.  
   
-3.  添加字段特性添加到域类以常规方式。  
+3.  Add a domain property to a domain class in the usual manner.  
   
-     在 " 属性 " 窗口中，选择该外部类型从下拉列表中 **类型** 字段。  
+     In the Properties window, select the external type from the drop-down list in the **Type** field.  
   
- 在此阶段，用户可以查看属性的值，但是，无法编辑它。  显示的值从 `ToString()` 函数获取。  您可以编写设置属性值，如命令或规则的程序代码。  
+ At this stage, users can view the values of the property, but they cannot edit it. The displayed values are obtained from the `ToString()` function. You could write program code that sets the value of the property, for example in a command or rule.  
   
-### 设置属性编辑器  
- 添加一个 CLR 特性添加到字段的特性，为以下形式:  
+### <a name="setting-a-property-editor"></a>Setting a Property Editor  
+ Add a CLR attribute to the domain property, in the following form:  
   
 ```  
 [System.ComponentModel.Editor (  
@@ -138,17 +146,17 @@ caps.handback.revision: 20
   
 ```  
   
- 通过在 " 属性 " 窗口中，的 **自定义特性** 项可以在属性的属性。  
+ You can set the attribute on a property by using the **Custom Attribute** entry in the Properties window.  
   
- 必须从第二个参数指定的类型派生 `AnEditor` 的类型。  第二个参数应为 <xref:System.Drawing.Design.UITypeEditor> 或 <xref:System.ComponentModel.ComponentEditor>。  有关更多信息，请参见 <xref:System.ComponentModel.EditorAttribute>。  
+ The type of `AnEditor` must be derived from the type specified in the second parameter. The second parameter should be either <xref:System.Drawing.Design.UITypeEditor> or <xref:System.ComponentModel.ComponentEditor>. For more information, see <xref:System.ComponentModel.EditorAttribute>.  
   
- 在 [!INCLUDE[dnprdnshort](../code-quality/includes/dnprdnshort_md.md)]可以指定拥有编辑或所提供的编辑器，如 <xref:System.Windows.Forms.Design.FileNameEditor> 或 <xref:System.Drawing.Design.ImageEditor>。  例如，请使用以下过程具有用户可以输入文件名的属性。  
+ You can specify either your own editor, or an editor supplied in the [!INCLUDE[dnprdnshort](../code-quality/includes/dnprdnshort_md.md)], such as <xref:System.Windows.Forms.Design.FileNameEditor> or <xref:System.Drawing.Design.ImageEditor>. For example, use the following procedure to have a property in which the user can enter a file name.  
   
-##### 定义文件名字段的特性  
+##### <a name="to-define-a-file-name-domain-property"></a>To define a file name domain property  
   
-1.  添加字段特性添加到 DSL 定义的字段类。  
+1.  Add a domain property to a domain class in your DSL Definition.  
   
-2.  选择新属性。  在 " 属性 " 窗口中 **自定义特性** 字段中，键入以下属性。  若要输入此属性，请单击省略号 **\[...\]** 单独然后输入属性名称和参数:  
+2.  Select the new property. In the **Custom Attribute** field in the Properties window, enter the following attribute. To enter this attribute, click the ellipsis **[...]** and then enter the attribute name and the parameters separately:  
   
     ```  
     [System.ComponentModel.Editor (  
@@ -157,31 +165,31 @@ caps.handback.revision: 20
   
     ```  
   
-3.  将该字段保留属性的类型在其默认设置 **字符串**。  
+3.  Leave the Type of the domain property at its default setting of **String**.  
   
-4.  若要测试编辑器中，验证用户可以打开文件名编辑器来编辑字段的特性。  
+4.  To test the editor, verify that users can open the file name editor to edit your domain property.  
   
-    1.  按 CTRL\+F5 或 F5。  在调试解决方案，请打开测试文件。  创建域类的元素并将其选中。  
+    1.  Press CTRL+F5 or F5. In the debugging solution, open a test file. Create an element of the domain class and select it.  
   
-    2.  在 " 属性 " 窗口中，选择字段的特性。  值字段显示一个省略号 **\[...\]**。  
+    2.  In the Properties window, select the domain property. The value field shows an ellipsis **[...]**.  
   
-    3.  单击该省略号。  文件将出现对话框。  选择文件并关闭对话框。  文件路径现在是字段的特性的值。  
+    3.  Click the ellipsis. A file dialog box appears. Select a file and close the dialog box. The file path is now the value of the domain property.  
   
-### 定义拥有属性编辑器  
- 可以定义拥有编辑。  您了解如何实现向用户可编辑您定义的类型，或编辑一个标准类型以特定方式。  例如，您可以允许用户输入表示公式的字符串。  
+### <a name="defining-your-own-property-editor"></a>Defining your own property editor  
+ You can define your own editor. You would do this to  allow the user either to edit a type that you have defined, or to edit a standard type in a special way. For example, you could allow the user to input a string that represents a formula.  
   
- 通过编写从 <xref:System.Drawing.Design.UITypeEditor>派生类定义的编辑器。  类必须重写:  
+ You define an editor by writing a class that is derived from <xref:System.Drawing.Design.UITypeEditor>. Your class must override:  
   
--   <xref:System.Drawing.Design.UITypeEditor.EditValue%2A>，与用户交互和更新属性值。  
+-   <xref:System.Drawing.Design.UITypeEditor.EditValue%2A>, to interact with the user and update the property value.  
   
--   <xref:System.Drawing.Design.UITypeEditor.GetEditStyle%2A>，指定编辑器是否将打开对话框或提供一个下拉菜单。  
+-   <xref:System.Drawing.Design.UITypeEditor.GetEditStyle%2A>, to specify whether your editor will open a dialog or provide a drop-down menu.  
   
- 您还可以提供在属性网格将显示属性值的图形化表示形式。  为此，请重写 `GetPaintValueSupported`和 `PaintValue`。  有关更多信息，请参见 <xref:System.Drawing.Design.UITypeEditor>。  
+ You can also provide a graphical representation of the property's value that will be displayed in the property grid. To do this, override `GetPaintValueSupported`, and `PaintValue`.  For more information, see <xref:System.Drawing.Design.UITypeEditor>.  
   
 > [!NOTE]
->  添加在单独的代码文件的代码隐藏 **Dsl** 项目。  
+>  Add the code in a separate code file in the **Dsl** project.  
   
- 例如：  
+ For example:  
   
 ```  
 internal class TextFileNameEditor : System.Windows.Forms.Design.FileNameEditor  
@@ -196,7 +204,7 @@ internal class TextFileNameEditor : System.Windows.Forms.Design.FileNameEditor
   
 ```  
   
- 若要使用此编辑器中，定位到字段的特性的 **自定义特性** :  
+ To use this editor, set the **Custom Attribute** of a domain property to:  
   
 ```  
 [System.ComponentModel.Editor (  
@@ -205,15 +213,15 @@ internal class TextFileNameEditor : System.Windows.Forms.Design.FileNameEditor
   
 ```  
   
- 有关更多信息，请参见 <xref:System.Drawing.Design.UITypeEditor>。  
+ For more information, see <xref:System.Drawing.Design.UITypeEditor>.  
   
-## 提供值的下拉列表  
- 您可以为用户提供值从列表中选择。  
+## <a name="providing-a-drop-down-list-of-values"></a>Providing a drop-down list of values  
+ You can provide a list of values for a user to choose from.  
   
 > [!NOTE]
->  此方法提供可在运行时更改的值列表。  如果要提供不更改的列表，请考虑使用枚举类型作为字段的特性的类型。  
+>  This technique provides a list of values that can change at runtime. If you want to provide a list that does not change, consider instead using an enumerated type as the type of your domain property.  
   
- 若要定义标准值列表，添加到字段的特性具有以下形式的 CLR 特性:  
+ To define a list of standard values, you add to your domain property a CLR attribute that has the following form:  
   
 ```  
 [System.ComponentModel.TypeConverter   
@@ -221,9 +229,9 @@ internal class TextFileNameEditor : System.Windows.Forms.Design.FileNameEditor
   
 ```  
   
- 定义一个从 <xref:System.ComponentModel.TypeConverter> 派生的类。  添加在单独的文件中的代码。 **Dsl** 项目。  例如：  
+ Define a class that derives from <xref:System.ComponentModel.TypeConverter>. Add the code in a separate file in the **Dsl** project. For example:  
   
-```c#  
+```cs  
 /// <summary>  
 /// Type converter that provides a list of values   
 /// to be displayed in the property grid.  
@@ -315,5 +323,5 @@ public class MyTypeConverter : System.ComponentModel.TypeConverter
   
 ```  
   
-## 请参阅  
- [在程序代码中导航和更新模型](../modeling/navigating-and-updating-a-model-in-program-code.md)
+## <a name="see-also"></a>See Also  
+ [Navigating and Updating a Model in Program Code](../modeling/navigating-and-updating-a-model-in-program-code.md)

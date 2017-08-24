@@ -1,56 +1,73 @@
 ---
-title: "NATIVE_ADDRESS | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "NATIVE_ADDRESS"
-helpviewer_keywords: 
-  - "NATIVE_ADDRESS 结构"
+title: NATIVE_ADDRESS | Microsoft Docs
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords:
+- NATIVE_ADDRESS
+helpviewer_keywords:
+- NATIVE_ADDRESS structure
 ms.assetid: 7a0cd085-bfc8-45cc-a3d4-4459070e207a
 caps.latest.revision: 6
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 6
----
-# NATIVE_ADDRESS
-[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
+ms.author: gregvanl
+manager: ghogen
+translation.priority.mt:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+ms.translationtype: MT
+ms.sourcegitcommit: ff8ecec19f8cab04ac2190f9a4a995766f1750bf
+ms.openlocfilehash: d70d144d071935438d1aa4572adc4e766f99b9a5
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/24/2017
 
-此结构表示本机地址。  
+---
+# <a name="nativeaddress"></a>NATIVE_ADDRESS
+This structure represents a native address.  
   
-## 语法  
+## <a name="syntax"></a>Syntax  
   
 ```cpp  
 typedef struct _tagNATIVE_ADDRESS {  
-   DWORD unknown;  
+   DWORD unknown;  
 } NATIVE_ADDRESS;  
 ```  
   
-```c#  
+```cs  
 public struct NATIVE_ADDRESS {  
-   public uint unknown;  
+   public uint unknown;  
 }  
 ```  
   
-## 术语  
- 未知  
- native address \(此的含义取决于运行时和操作系统\)。  
+## <a name="terms"></a>Terms  
+ unknown  
+ The native address (the meaning of this depends on the runtime and operating system).  
   
-## 备注  
- 此结构是联合的一部分。 [DEBUG\_ADDRESS\_UNION](../../../extensibility/debugger/reference/debug-address-union.md) 结构时， `DEBUG_ADDRESS_UNION` 结构的 `dwKind` 字段设置为 `ADDRESS_KIND_NATIVE` 时 \(从 [ADDRESS\_KIND](../../../extensibility/debugger/reference/address-kind.md) 枚举的值\)。  
+## <a name="remarks"></a>Remarks  
+ This structure is part of the union in the [DEBUG_ADDRESS_UNION](../../../extensibility/debugger/reference/debug-address-union.md) structure when the `dwKind` field of the `DEBUG_ADDRESS_UNION` structure is set to `ADDRESS_KIND_NATIVE` (a value from the [ADDRESS_KIND](../../../extensibility/debugger/reference/address-kind.md) enumeration).  
   
-## 要求  
- 标题:sh.h  
+## <a name="requirements"></a>Requirements  
+ Header: sh.h  
   
- 命名空间:Microsoft.VisualStudio.Debugger.Interop  
+ Namespace: Microsoft.VisualStudio.Debugger.Interop  
   
- 程序集:Microsoft.VisualStudio.Debugger.Interop.dll  
+ Assembly: Microsoft.VisualStudio.Debugger.Interop.dll  
   
-## 请参阅  
- [结构和联合](../../../extensibility/debugger/reference/structures-and-unions.md)   
- [DEBUG\_ADDRESS\_UNION](../../../extensibility/debugger/reference/debug-address-union.md)
+## <a name="see-also"></a>See Also  
+ [Structures and Unions](../../../extensibility/debugger/reference/structures-and-unions.md)   
+ [DEBUG_ADDRESS_UNION](../../../extensibility/debugger/reference/debug-address-union.md)

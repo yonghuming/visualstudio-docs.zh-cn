@@ -1,79 +1,96 @@
 ---
-title: "IDebugExpression2::EvaluateAsync | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "IDebugExpression2::EvaluateAsync"
-helpviewer_keywords: 
-  - "IDebugExpression2::EvaluateAsync"
+title: IDebugExpression2::EvaluateAsync | Microsoft Docs
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords:
+- IDebugExpression2::EvaluateAsync
+helpviewer_keywords:
+- IDebugExpression2::EvaluateAsync
 ms.assetid: 848fe6cb-0759-42f2-890b-d2b551c527d6
 caps.latest.revision: 15
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 15
----
-# IDebugExpression2::EvaluateAsync
-[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
+ms.author: gregvanl
+manager: ghogen
+translation.priority.mt:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+ms.translationtype: MT
+ms.sourcegitcommit: ff8ecec19f8cab04ac2190f9a4a995766f1750bf
+ms.openlocfilehash: c32acab02826882bea12c36bd37bd42b52ed34e8
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/24/2017
 
-此方法计算表达式异步。  
+---
+# <a name="idebugexpression2evaluateasync"></a>IDebugExpression2::EvaluateAsync
+This method evaluates the expression asynchronously.  
   
-## 语法  
+## <a name="syntax"></a>Syntax  
   
 ```cpp#  
-HRESULT EvaluateAsync (   
-   EVALFLAGS             dwFlags,  
-   IDebugEventCallback2* pExprCallback  
+HRESULT EvaluateAsync (   
+   EVALFLAGS             dwFlags,  
+   IDebugEventCallback2* pExprCallback  
 );  
 ```  
   
-```c#  
+```cs  
 int EvaluateAsync(  
-   enum_EVALFLAGS       dwFlags,   
-   IDebugEventCallback2 pExprCallback  
+   enum_EVALFLAGS       dwFlags,   
+   IDebugEventCallback2 pExprCallback  
 );  
 ```  
   
-#### 参数  
+#### <a name="parameters"></a>Parameters  
  `dwFlags`  
- \[in\] 标志的组合。 [EVALFLAGS](../../../extensibility/debugger/reference/evalflags.md) 枚举的该控件表达式计算。  
+ [in] A combination of flags from the [EVALFLAGS](../../../extensibility/debugger/reference/evalflags.md) enumeration that control expression evaluation.  
   
  `pExprCallback`  
- \[in\] 此参数始终是 null 值。  
+ [in] This parameter is always a null value.  
   
-## 返回值  
- 如果成功，则返回; `S_OK`否则返回错误代码。  典型的错误代码为:  
+## <a name="return-value"></a>Return Value  
+ If successful, returns `S_OK`; otherwise returns an error code. A typical error code is:  
   
-|错误|说明|  
-|--------|--------|  
-|E\_EVALUATE\_BUSY\_WITH\_EVALUATION|另一个表达式当前，都计算，并同时表达式计算不受支持。|  
+|Error|Description|  
+|-----------|-----------------|  
+|E_EVALUATE_BUSY_WITH_EVALUATION|Another expression is currently being evaluated, and simultaneous expression evaluation is not supported.|  
   
-## 备注  
- ，了在启动表达式计算之后，此方法应返回。  在表达式成功计算时，必须发送 [IDebugExpressionEvaluationCompleteEvent2](../../../extensibility/debugger/reference/idebugexpressionevaluationcompleteevent2.md) 到 [IDebugEventCallback2](../../../extensibility/debugger/reference/idebugeventcallback2.md) 事件回调由提供通过 [Attach](../../../extensibility/debugger/reference/idebugprogram2-attach.md) 或 [Attach](../../../extensibility/debugger/reference/idebugengine2-attach.md)。  
+## <a name="remarks"></a>Remarks  
+ This method should return immediately after it has started the expression evaluation. When the expression is successfully evaluated, an [IDebugExpressionEvaluationCompleteEvent2](../../../extensibility/debugger/reference/idebugexpressionevaluationcompleteevent2.md) must be sent to the [IDebugEventCallback2](../../../extensibility/debugger/reference/idebugeventcallback2.md) event callback as supplied through [Attach](../../../extensibility/debugger/reference/idebugprogram2-attach.md) or [Attach](../../../extensibility/debugger/reference/idebugengine2-attach.md).  
   
-## 示例  
- 下面的示例演示如何执行简单的 `CExpression` 对象的方法实现 [IDebugExpression2](../../../extensibility/debugger/reference/idebugexpression2.md) 接口。  
+## <a name="example"></a>Example  
+ The following example shows how to implement this method for a simple `CExpression` object that implements the [IDebugExpression2](../../../extensibility/debugger/reference/idebugexpression2.md) interface.  
   
 ```cpp#  
 HRESULT CExpression::EvaluateAsync(EVALFLAGS dwFlags,  
-                                   IDebugEventCallback2* pExprCallback)  
+                                   IDebugEventCallback2* pExprCallback)  
 {  
-    // Set the aborted state to FALSE  
-    // in case the user tries to redo the evaluation after aborting.  
-    m_bAborted = FALSE;  
-    // Post the WM_EVAL_EXPR message in the message queue of the current thread.  
-    // This starts the expression evaluation on a background thread.  
-    PostThreadMessage(GetCurrentThreadId(), WM_EVAL_EXPR, 0, (LPARAM) this);  
-    return S_OK;  
+    // Set the aborted state to FALSE  
+    // in case the user tries to redo the evaluation after aborting.  
+    m_bAborted = FALSE;  
+    // Post the WM_EVAL_EXPR message in the message queue of the current thread.  
+    // This starts the expression evaluation on a background thread.  
+    PostThreadMessage(GetCurrentThreadId(), WM_EVAL_EXPR, 0, (LPARAM) this);  
+    return S_OK;  
 }  
 ```  
   
-## 请参阅  
+## <a name="see-also"></a>See Also  
  [IDebugExpression2](../../../extensibility/debugger/reference/idebugexpression2.md)   
  [IDebugExpressionEvaluationCompleteEvent2](../../../extensibility/debugger/reference/idebugexpressionevaluationcompleteevent2.md)   
  [EVALFLAGS](../../../extensibility/debugger/reference/evalflags.md)   

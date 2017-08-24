@@ -1,5 +1,5 @@
 ---
-title: "IDebugDisassemblyStream2::GetCodeLocationId |Microsoft 文档"
+title: IDebugDisassemblyStream2::GetCodeLocationId | Microsoft Docs
 ms.custom: 
 ms.date: 11/04/2016
 ms.reviewer: 
@@ -30,16 +30,17 @@ translation.priority.mt:
 - tr-tr
 - zh-cn
 - zh-tw
-translationtype: Machine Translation
-ms.sourcegitcommit: 5db97d19b1b823388a465bba15d057b30ff0b3ce
-ms.openlocfilehash: b64ad6cc146c2e2457cf9c39d5ce2c5d8f78cf65
-ms.lasthandoff: 02/22/2017
+ms.translationtype: MT
+ms.sourcegitcommit: ff8ecec19f8cab04ac2190f9a4a995766f1750bf
+ms.openlocfilehash: c3a56ef0058742c52f6f182c1854719d30aaf9b2
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/24/2017
 
 ---
 # <a name="idebugdisassemblystream2getcodelocationid"></a>IDebugDisassemblyStream2::GetCodeLocationId
-返回特定代码上下文的代码位置标识符。  
+Returns a code location identifier for a particular code context.  
   
-## <a name="syntax"></a>语法  
+## <a name="syntax"></a>Syntax  
   
 ```cpp#  
 HRESULT GetCodeLocationId(   
@@ -48,29 +49,29 @@ HRESULT GetCodeLocationId(
 );  
 ```  
   
-```c#  
+```cs  
 int GetCodeLocationId(   
    IDebugCodeContext2 pCodeContext,  
    out ulong          puCodeLocationId  
 );  
 ```  
   
-#### <a name="parameters"></a>参数  
+#### <a name="parameters"></a>Parameters  
  `pCodeContext`  
- [in][IDebugCodeContext2](../../../extensibility/debugger/reference/idebugcodecontext2.md)对象转换为标识符。  
+ [in] An [IDebugCodeContext2](../../../extensibility/debugger/reference/idebugcodecontext2.md) object to be converted to an identifier.  
   
  `puCodeLocationId`  
- [out]返回的代码位置标识符。 请参阅“备注”。  
+ [out] Returns the code location identifier. See Remarks.  
   
-## <a name="return-value"></a>返回值  
- 如果成功，返回`S_OK`; 否则为返回错误代码。 返回`E_CODE_CONTEXT_OUT_OF_SCOPE`代码上下文是否有效，但范围之外。  
+## <a name="return-value"></a>Return Value  
+ If successful, returns `S_OK`; otherwise, returns an error code. Returns `E_CODE_CONTEXT_OUT_OF_SCOPE` if the code context is valid but outside the scope.  
   
-## <a name="remarks"></a>备注  
- 代码位置标识符是特定于支持反汇编的调试引擎 (DE)。 此位置标识符由内部 DE 来跟踪在代码中的位置，通常是一个地址或某种类型的偏移量。 唯一的要求是，如果一个位置的代码上下文小于另一个位置的代码上下文则相应的代码位置标识符的第一个代码上下文还必须小于第二个代码上下文的代码位置标识符。  
+## <a name="remarks"></a>Remarks  
+ The code location identifier is specific to the debug engine (DE) supporting the disassembly. This location identifier is used internally by the DE to track positions in the code and is typically an address or offset of some kind. The only requirement is that if the code context of one location is less than the code context of another location, then the corresponding code location identifier of the first code context must also be less than the code location identifier of the second code context.  
   
- 若要检索的代码位置标识符代码上下文，调用[GetCodeContext](../../../extensibility/debugger/reference/idebugdisassemblystream2-getcodecontext.md)方法。  
+ To retrieve the code context of a code location identifier, call the [GetCodeContext](../../../extensibility/debugger/reference/idebugdisassemblystream2-getcodecontext.md) method.  
   
-## <a name="see-also"></a>另请参阅  
+## <a name="see-also"></a>See Also  
  [IDebugDocumentContext2](../../../extensibility/debugger/reference/idebugdocumentcontext2.md)   
  [IDebugCodeContext2](../../../extensibility/debugger/reference/idebugcodecontext2.md)   
  [GetCodeContext](../../../extensibility/debugger/reference/idebugdisassemblystream2-getcodecontext.md)

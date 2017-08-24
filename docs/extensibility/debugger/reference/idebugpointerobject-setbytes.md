@@ -1,67 +1,84 @@
 ---
-title: "IDebugPointerObject::SetBytes | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "IDebugPointerObject::SetBytes"
-helpviewer_keywords: 
-  - "IDebugPointerObject::SetBytes 方法"
+title: IDebugPointerObject::SetBytes | Microsoft Docs
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords:
+- IDebugPointerObject::SetBytes
+helpviewer_keywords:
+- IDebugPointerObject::SetBytes method
 ms.assetid: 8c578b38-38d7-46f3-bb2e-8a730fccd334
 caps.latest.revision: 10
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 10
----
-# IDebugPointerObject::SetBytes
-[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
+ms.author: gregvanl
+manager: ghogen
+translation.priority.mt:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+ms.translationtype: MT
+ms.sourcegitcommit: ff8ecec19f8cab04ac2190f9a4a995766f1750bf
+ms.openlocfilehash: d382e54143b186eda14597052418f76ede22eb1a
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/24/2017
 
-将值设置为指向自一系列连续的字节。  
+---
+# <a name="idebugpointerobjectsetbytes"></a>IDebugPointerObject::SetBytes
+Sets the value pointed to from a series of consecutive bytes.  
   
-## 语法  
+## <a name="syntax"></a>Syntax  
   
 ```cpp#  
-HRESULT SetBytes(   
-   DWORD  dwStart,  
-   DWORD  dwCount,  
-   BYTE*  pBytes,  
-   DWORD* pdwBytes  
+HRESULT SetBytes(   
+   DWORD  dwStart,  
+   DWORD  dwCount,  
+   BYTE*  pBytes,  
+   DWORD* pdwBytes  
 );  
 ```  
   
-```c#  
+```cs  
 int SetBytes(  
-   uint     dwStart,   
-   uint     dwCount,   
-   byte[]   pBytes,   
-   out uint pdwBytes  
+   uint     dwStart,   
+   uint     dwCount,   
+   byte[]   pBytes,   
+   out uint pdwBytes  
 );  
 ```  
   
-#### 参数  
+#### <a name="parameters"></a>Parameters  
  `dwStart`  
- \[in\] 偏移量，在字节，对象从开始点。  
+ [in] An offset, in bytes, from the start of the object pointed to.  
   
  `dwCount`  
- \[in\] 设置的字节数。  
+ [in] The number of bytes to set.  
   
  `pBytes`  
- \[in\] 表示新值的字节。  此值存储到对象，开始在给定的偏移量。  
+ [in] An array of bytes representing the new value. This value is stored into the object, starting at the given offset.  
   
  `pdwBytes`  
- \[out\] 返回实际设置的字节数。  
+ [out] Returns the number of bytes actually set.  
   
-## 返回值  
- 如果成功，则返回 S\_OK;否则，返回错误代码。  
+## <a name="return-value"></a>Return Value  
+ If successful, returns S_OK; otherwise, returns an error code.  
   
-## 备注  
- 使用此方法，如果指针如由以下 [IDebugPointerObject](../../../extensibility/debugger/reference/idebugpointerobject.md) 指向基元类型或简单的某些基元类型 \(即可由字节一个简单的序列表示\) 的数组。  此 `IDebugPointerObject` 对象不能为 null 引用 \(它必须指向内存中的地址\)。  
+## <a name="remarks"></a>Remarks  
+ This method is used if the pointer as represented by this [IDebugPointerObject](../../../extensibility/debugger/reference/idebugpointerobject.md) points to a primitive type or a simple array of primitive types (that is, an array that can be represented by a simple sequence of bytes). This `IDebugPointerObject` object cannot be a null reference (it must point to an address in memory).  
   
-## 请参阅  
+## <a name="see-also"></a>See Also  
  [GetBytes](../../../extensibility/debugger/reference/idebugpointerobject-getbytes.md)   
  [IDebugPointerObject](../../../extensibility/debugger/reference/idebugpointerobject.md)

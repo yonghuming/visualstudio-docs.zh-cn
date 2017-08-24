@@ -1,5 +1,5 @@
 ---
-title: "主程序集和已本地化的附属程序集的版本号 | Microsoft Docs"
+title: Version Numbers for Main and Localized Satellite Assemblies | Microsoft Docs
 ms.custom: 
 ms.date: 11/04/2016
 ms.reviewer: 
@@ -33,35 +33,35 @@ translation.priority.ht:
 - tr-tr
 - zh-cn
 - zh-tw
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3d32d11a430227800cb3ed53831a9565eb6adeb3
-ms.openlocfilehash: 555205ade620de3ad46f0fab34d50b85cbed5e40
+ms.translationtype: HT
+ms.sourcegitcommit: ff8ecec19f8cab04ac2190f9a4a995766f1750bf
+ms.openlocfilehash: 190d3fc41e06eebb01790317b0ba2834239ebf3a
 ms.contentlocale: zh-cn
-ms.lasthandoff: 05/30/2017
+ms.lasthandoff: 08/24/2017
 
 ---
-# <a name="version-numbers-for-main-and-localized-satellite-assemblies"></a>用于主程序集和已本地化的附属程序集的版本号
-<xref:System.Resources.SatelliteContractVersionAttribute> 类为通过资源管理器使用本地化资源的主程序集提供版本控制支持。 通过将 <xref:System.Resources.SatelliteContractVersionAttribute> 应用于应用程序的主程序集，可在不更新其附属程序集的情况下，更新和重新部署该程序集。 例如，可以将 <xref:System.Resources.SatelliteContractVersionAttribute> 类与不会引入新资源的服务包配合使用，而无需重新生成和重新部署附属程序集。 若要使本地化资源可用，主程序集的附属协定版本必须与附属程序集的 <xref:System.Reflection.AssemblyVersionAttribute> 类匹配。 必须在 <xref:System.Resources.SatelliteContractVersionAttribute> 中指定确切的版本号；不允许使用通配符，如“*”。 有关详细信息，请参阅 [检索资源](/dotnet/framework/resources/retrieving-resources-in-desktop-apps)。  
+# <a name="version-numbers-for-main-and-localized-satellite-assemblies"></a>Version Numbers for Main and Localized Satellite Assemblies
+The <xref:System.Resources.SatelliteContractVersionAttribute> class provides versioning support for a main assembly that uses localized resources by means of the resource manager. Applying the <xref:System.Resources.SatelliteContractVersionAttribute> to an application's main assembly allows you to update and re-deploy the assembly without updating its satellite assemblies. For example, you can use the <xref:System.Resources.SatelliteContractVersionAttribute> class with a service pack that doesn't introduce new resources without rebuilding and redeploying your satellite assemblies. For your localized resources to be available, the satellite contract version of your main assembly must match the <xref:System.Reflection.AssemblyVersionAttribute> class of your satellite assemblies. You must specify an exact version number in the <xref:System.Resources.SatelliteContractVersionAttribute>; wildcard characters such as "*" are not allowed. For more information, see [Retrieving Resources](/dotnet/framework/resources/retrieving-resources-in-desktop-apps).  
   
-## <a name="updating-assemblies"></a>更新程序集  
- <xref:System.Resources.SatelliteContractVersionAttribute> 类允许在不更新附属程序集的情况下更新主程序集，反之亦然。 主程序集更新后，其程序集版本号也随之更新。 如果要继续使用现有附属程序集，请更改主程序集的版本号，但保持原有附属协定版本号。 例如，首次发布时，主程序集版本可能是 1.0.0.0。 附属程序集的附属协定版本和程序集版本也会是 1.0.0.0。 如果需要更新服务包的主程序集，可以将程序集版本更改为 1.0.0.1，同时将附属协定版本和附属程序集版本保持为 1.0.0.0。  
+## <a name="updating-assemblies"></a>Updating Assemblies  
+ The <xref:System.Resources.SatelliteContractVersionAttribute> class allows you to update a main assembly without having to update your satellite assembly, or vice versa. When the main assembly is updated, its assembly version number is changed. If you want to continue using the existing satellite assemblies, change the main assembly's version number but leave the satellite contract version number the same. For example, in your first release your main assembly version may be 1.0.0.0. The satellite contract version and the assembly version of the satellite assembly will also be 1.0.0.0. If you need to update your main assembly for a service pack, you can change the assembly version to 1.0.0.1, while keeping the satellite contract version and the satellite's assembly version as 1.0.0.0.  
   
- 如果需要更新附属程序集而不是主程序集，请更改附属程序集的 <xref:System.Reflection.AssemblyVersionAttribute>。 随附属程序集一起交付的还有策略程序集，该程序集说明新的附属程序集可与旧版附属程序集兼容。 有关策略的详细信息，请参阅[运行时如何定位程序集](/dotnet/framework/deployment/how-the-runtime-locates-assemblies)。  
+ If you need to update a satellite assembly but not your main assembly, you change the <xref:System.Reflection.AssemblyVersionAttribute> of the satellite assembly. Along with your satellite assembly, you will have to ship a policy assembly that states that your new satellite assembly is compatible with your old satellite assembly. For more information on policies, see [How the Runtime Locates Assemblies](/dotnet/framework/deployment/how-the-runtime-locates-assemblies).  
   
- 下面的代码演示如何设置附属协定版本。 可以将代码放置在生成脚本或 AssemblyInfo.vb 或 AssemblyInfo.cs 文件中。  
+ The following code shows how to set the satellite contract version. The code can be placed in either a build script or in the AssemblyInfo.vb or AssemblyInfo.cs file.  
   
-```vb#  
+```vb  
 <Assembly: SatelliteContractVersionAttribute("4.3.2.1")>  
   
 ```  
   
-```c#  
+```cs  
 [assembly: SatelliteContractVersionAttribute("4.3.2.1")]  
 ```  
   
-## <a name="see-also"></a>另请参阅  
- [运行时如何定位程序集](/dotnet/framework/deployment/how-the-runtime-locates-assemblies)   
- [设置程序集属性](/dotnet/framework/app-domains/set-assembly-attributes)   
- [安全性和已本地化的附属程序集](../ide/security-and-localized-satellite-assemblies.md)   
- [本地化应用程序](../ide/localizing-applications.md)   
- [对应用程序进行全球化和本地化](../ide/globalizing-and-localizing-applications.md)
+## <a name="see-also"></a>See Also  
+ [How the Runtime Locates Assemblies](/dotnet/framework/deployment/how-the-runtime-locates-assemblies)   
+ [Setting Assembly Attributes](/dotnet/framework/app-domains/set-assembly-attributes)   
+ [Security and Localized Satellite Assemblies](../ide/security-and-localized-satellite-assemblies.md)   
+ [Localizing Applications](../ide/localizing-applications.md)   
+ [Globalizing and Localizing Applications](../ide/globalizing-and-localizing-applications.md)

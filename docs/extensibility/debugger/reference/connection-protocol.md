@@ -1,5 +1,5 @@
 ---
-title: "CONNECTION_PROTOCOL |Microsoft 文档"
+title: CONNECTION_PROTOCOL | Microsoft Docs
 ms.custom: 
 ms.date: 11/04/2016
 ms.reviewer: 
@@ -30,16 +30,17 @@ translation.priority.mt:
 - tr-tr
 - zh-cn
 - zh-tw
-translationtype: Machine Translation
-ms.sourcegitcommit: 5db97d19b1b823388a465bba15d057b30ff0b3ce
-ms.openlocfilehash: ed80d3caee3a0e407e42670adcabb0e2710bd59d
-ms.lasthandoff: 02/22/2017
+ms.translationtype: MT
+ms.sourcegitcommit: ff8ecec19f8cab04ac2190f9a4a995766f1750bf
+ms.openlocfilehash: 56b90ac83640e839b2cdccd74c63090b5c17c913
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/24/2017
 
 ---
-# <a name="connectionprotocol"></a>CONNECTION_PROTOCOL
-指示正在使用调试服务器和调试程序包 (DE) 之间进行通信的协议。  
+# CONNECTION_PROTOCOL
+Indicates the protocol being used to communicate between a debug server and the debug package (DE).  
   
-## <a name="syntax"></a>语法  
+## Syntax  
   
 ```cpp  
 typedef enum tagCONNECTION_PROTOCOL {  
@@ -53,7 +54,7 @@ typedef enum tagCONNECTION_PROTOCOL {
 } CONNECTION_PROTOCOL;  
 ```  
   
-```c#  
+```cs  
 public enum CONNECTION_PROTOCOL {  
    CONNECTION_NONE    = 0,  
    CONNECTION_UNKNOWN = 1,  
@@ -65,38 +66,38 @@ public enum CONNECTION_PROTOCOL {
 };  
 ```  
   
-#### <a name="parameters"></a>参数  
+#### Parameters  
  CONNECTION_NONE  
- 对服务器不进行了任何连接。  
+ No connection has been made to a server.  
   
  CONNECTION_UNKNOWN  
- 已建立连接，但它属于未知类型。  
+ A connection has been made, but it is of an unknown type.  
   
  CONNECTION_LOCAL  
- 连接是连接到本地服务器。  
+ Connection is to a local server.  
   
  CONNECTION_PIPE  
- 连接是通过命名管道。  
+ Connection is through a named pipe.  
   
  CONNECTION_TCPIP  
- 连接使用 TCP/IP。  
+ Connection uses TCP/IP.  
   
  CONNECTION_HTTP  
- 将使用 HTTP 连接 （通过 Web 服务器上）。  
+ Connection uses HTTP (through a Web server).  
   
  CONNECTION_OTHER  
- 其他类型的连接建立 （此值当前未使用）。  
+ Some other type of connection has been established (this value is not currently used).  
   
-## <a name="remarks"></a>备注  
- 这些值从返回[GetConnectionProtocol](../../../extensibility/debugger/reference/idebugcoreserver3-getconnectionprotocol.md)方法。  
+## Remarks  
+ These values are returned from the [GetConnectionProtocol](../../../extensibility/debugger/reference/idebugcoreserver3-getconnectionprotocol.md) method.  
   
-## <a name="requirements"></a>要求  
- 标头︰ msdbg.h  
+## Requirements  
+ Header: msdbg.h  
   
  Namespace: Microsoft.VisualStudio.Debugger.Interop  
   
- 程序集︰ Microsoft.VisualStudio.Debugger.Interop.dll  
+ Assembly: Microsoft.VisualStudio.Debugger.Interop.dll  
   
-## <a name="see-also"></a>另请参阅  
- [枚举](../../../extensibility/debugger/reference/enumerations-visual-studio-debugging.md)   
+## See Also  
+ [Enumerations](../../../extensibility/debugger/reference/enumerations-visual-studio-debugging.md)   
  [GetConnectionProtocol](../../../extensibility/debugger/reference/idebugcoreserver3-getconnectionprotocol.md)

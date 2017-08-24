@@ -1,54 +1,71 @@
 ---
-title: "IDebugSourceServerModule::GetSourceServerData | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-helpviewer_keywords: 
-  - "IDebugSourceServerModule::GetSourceServerData"
+title: IDebugSourceServerModule::GetSourceServerData | Microsoft Docs
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+helpviewer_keywords:
+- IDebugSourceServerModule::GetSourceServerData
 ms.assetid: f15d86aa-1bd9-4b16-a64a-21b01c27db2e
 caps.latest.revision: 9
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 9
----
-# IDebugSourceServerModule::GetSourceServerData
-[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
+ms.author: gregvanl
+manager: ghogen
+translation.priority.mt:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+ms.translationtype: MT
+ms.sourcegitcommit: ff8ecec19f8cab04ac2190f9a4a995766f1750bf
+ms.openlocfilehash: 636b0b9810985ce753867edb2175d47ff1c65f73
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/24/2017
 
-检索源服务器信息。  
+---
+# <a name="idebugsourceservermodulegetsourceserverdata"></a>IDebugSourceServerModule::GetSourceServerData
+Retrieves an array of source server information.  
   
-## 语法  
+## <a name="syntax"></a>Syntax  
   
 ```cpp#  
 HRESULT GetSourceServerData(  
-   ULONG* pDataByteCount,   
-   BYTE** ppData  
+   ULONG* pDataByteCount,   
+   BYTE** ppData  
 );  
 ```  
   
-```c#  
+```cs  
 public int GetSourceServerData(  
-   out uint  pDataByteCount,   
-   out int[] ppData  
+   out uint  pDataByteCount,   
+   out int[] ppData  
 );  
 ```  
   
-#### 参数  
+#### <a name="parameters"></a>Parameters  
  `pDataByteCount`  
- \[out\] 中的字节数数据组的。  
+ [out] Number of bytes in the data array.  
   
  `ppData`  
- \[out\] 对数据组。  
+ [out] Reference to the data array.  
   
-## 返回值  
- 如果成功，则返回; `S_OK`否则，返回错误代码。  
+## <a name="return-value"></a>Return Value  
+ If successful, returns `S_OK`; otherwise, returns an error code.  
   
-## 示例  
- 下面的示例演示如何执行显示 [IDebugSourceServerModule](../../../extensibility/debugger/reference/idebugsourceservermodule.md) 接口的 **CModule** 对象的方法。  
+## <a name="example"></a>Example  
+ The following example shows how to implement this method for a **CModule** object that exposes the [IDebugSourceServerModule](../../../extensibility/debugger/reference/idebugsourceservermodule.md) interface.  
   
 ```cpp#  
 HRESULT CModule::GetSourceServerData(ULONG* pDataByteCount, BYTE** ppData)  
@@ -72,5 +89,5 @@ Error:
 }  
 ```  
   
-## 请参阅  
+## <a name="see-also"></a>See Also  
  [IDebugSourceServerModule](../../../extensibility/debugger/reference/idebugsourceservermodule.md)

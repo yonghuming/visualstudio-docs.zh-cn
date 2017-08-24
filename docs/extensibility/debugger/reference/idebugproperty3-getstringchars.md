@@ -1,5 +1,5 @@
 ---
-title: "IDebugProperty3::GetStringChars |Microsoft 文档"
+title: IDebugProperty3::GetStringChars | Microsoft Docs
 ms.custom: 
 ms.date: 11/04/2016
 ms.reviewer: 
@@ -30,16 +30,17 @@ translation.priority.mt:
 - tr-tr
 - zh-cn
 - zh-tw
-translationtype: Machine Translation
-ms.sourcegitcommit: b743df25d0d17465de411211f5b0b6893bf67f9b
-ms.openlocfilehash: a9433d9914f647c43d8190fb15fb35a99bf77a7b
-ms.lasthandoff: 02/22/2017
+ms.translationtype: MT
+ms.sourcegitcommit: ff8ecec19f8cab04ac2190f9a4a995766f1750bf
+ms.openlocfilehash: d7c706c5f9b7b3e21bae4e5af1d2314f6db95734
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/24/2017
 
 ---
 # <a name="idebugproperty3getstringchars"></a>IDebugProperty3::GetStringChars
-检索此属性与关联的字符串，并将其存储在用户提供的缓冲区。  
+Retrieves the string associated with this property and stores it in a user-supplied buffer.  
   
-## <a name="syntax"></a>语法  
+## <a name="syntax"></a>Syntax  
   
 ```cpp  
 HRESULT GetStringChars(  
@@ -49,7 +50,7 @@ HRESULT GetStringChars(
 );  
 ```  
   
-```c#  
+```cs  
 int GetStringChars(  
    uint       buflen,   
    out string rgString,   
@@ -57,28 +58,28 @@ int GetStringChars(
 );  
 ```  
   
-#### <a name="parameters"></a>参数  
+#### <a name="parameters"></a>Parameters  
  `buflen`  
- [in]用户提供缓冲区可以容纳最大字符数。  
+ [in] Maximum number of characters the user-supplied buffer can hold.  
   
  `rgString`  
- [out]返回的字符串。  
+ [out] Returns the string.  
   
- [C + + 只]，`rgString`是指向该缓冲区用于接收字符串的 Unicode 字符的指针。 此缓冲区必须至少为`buflen`值中的字符 （非字节）。  
+ [C++ only], `rgString` is a pointer to a buffer that receives the Unicode characters of the string. This buffer must be at least `buflen` characters (not bytes) in size.  
   
  `pceltFetched`  
- [out]返回的实际存储在缓冲区中的字符数的位置。 (可以是`NULL`c + + 中。)  
+ [out] Where the number of characters actually stored in the buffer is returned. (Can be `NULL` in C++.)  
   
-## <a name="return-value"></a>返回值  
- 如果成功，返回`S_OK`; 否则返回错误代码。  
+## <a name="return-value"></a>Return Value  
+ If successful, returns `S_OK`; otherwise returns an error code.  
   
-## <a name="remarks"></a>备注  
- 在 c + +，必须格外小心以确保缓冲区已至少`buflen`Unicode 字符。 请注意，Unicode 字符 2 个字节长。  
+## <a name="remarks"></a>Remarks  
+ In C++, care must be taken to insure that the buffer is at least `buflen` Unicode characters long. Note that a Unicode character is 2 bytes long.  
   
 > [!NOTE]
->  在 c + +，则返回的字符串不包括终止 null 字符。 如果给出，`pceltFetched`将在字符串中指定的字符数。  
+>  In C++, the returned string does not include a terminating null character. If given, `pceltFetched` will specify the number of characters in the string.  
   
-## <a name="example"></a>示例  
+## <a name="example"></a>Example  
  
 ```cpp  
 CStringW RetrievePropertyString(IDebugProperty2 *pPropInfo)  
@@ -101,7 +102,7 @@ CStringW RetrievePropertyString(IDebugProperty2 *pPropInfo)
 }
 ```    
   
-## <a name="see-also"></a>另请参阅  
+## <a name="see-also"></a>See Also  
  [GetStringCharLength](../../../extensibility/debugger/reference/idebugproperty3-getstringcharlength.md)   
  [IDebugProperty3](../../../extensibility/debugger/reference/idebugproperty3.md)   
  [IDebugProperty2](../../../extensibility/debugger/reference/idebugproperty2.md)

@@ -1,5 +1,5 @@
 ---
-title: "编码的 UI 测试剖析 | Microsoft Docs"
+title: Anatomy of a Coded UI Test | Microsoft Docs
 ms.custom: 
 ms.date: 11/04/2016
 ms.reviewer: 
@@ -28,36 +28,37 @@ translation.priority.ht:
 - tr-tr
 - zh-cn
 - zh-tw
-translationtype: Human Translation
-ms.sourcegitcommit: 5ab78b6b8eaa8156ed2c8a807b1d8a80e75afa84
-ms.openlocfilehash: bf50213627703ac18257e3f0ec44c20cc7bb2cc9
-ms.lasthandoff: 04/04/2017
+ms.translationtype: HT
+ms.sourcegitcommit: ff8ecec19f8cab04ac2190f9a4a995766f1750bf
+ms.openlocfilehash: 53aa395278b4711d53c62723f25e8b9e1159722b
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/24/2017
 
 ---
-# <a name="anatomy-of-a-coded-ui-test"></a>编码的 UI 测试剖析
-在代码 UI 测试项目中创建编码的 UI 测试时，将向解决方案添加多个文件。 在本主题中，我们将使用示例“编码的 UI 测试”来浏览这些文件。  
+# <a name="anatomy-of-a-coded-ui-test"></a>Anatomy of a Coded UI Test
+When you create a Coded UI Test in a coded UI test project, several files are added to your solution. In this topic, we will use an example Coded UI Test to explore these files.  
   
- **要求**  
+ **Requirements**  
   
 -   Visual Studio Enterprise  
   
-## <a name="contents-of-a-coded-ui-test"></a>编码的 UI 测试的内容  
- 创建编码的 UI 测试时，**编码的 UI 测试生成器**会创建受测用户界面的映射，以及所有测试的测试方法、参数和断言。 此外，它还会为每个测试创建一个类文件。  
+## <a name="contents-of-a-coded-ui-test"></a>Contents of a Coded UI Test  
+ When you create a Coded UI Test, the **Coded UI Test Builder** creates a map of the user interface under test, and also the test methods, parameters, and assertions for all tests. It also creates a class file for each test.  
   
-|文件|内容|可编辑？|  
+|File|Contents|Editable?|  
 |----------|--------------|---------------|  
-|[UIMap.Designer.cs](#UIMapDesignerFile)|[声明部分](#UIMapDesignerFile)<br /><br /> [UIMap 类](#UIMapClass)（自动生成的分部类）<br /><br /> [方法](#UIMapMethods)<br /><br /> [属性](#UIMapProperties)|No|  
-|[UIMap.cs](#UIMapCS)|[UIMap 类](#UIMapCS)（分部类）|是|  
-|[CodedUITest1.cs](#CodedUITestCS)|[CodedUITest1 类](#CodedUITestCS)<br /><br /> [方法](#CodedUITestMethods)<br /><br /> [属性](#CodedUITestProperties)|是|  
-|[UIMap.uitest](#UIMapuitest)|用于测试的 UI 的 XML 映射。|No|  
+|[UIMap.Designer.cs](#UIMapDesignerFile)|[Declarations section](#UIMapDesignerFile)<br /><br /> [UIMap class](#UIMapClass) (partial, auto-generated)<br /><br /> [Methods](#UIMapMethods)<br /><br /> [Properties](#UIMapProperties)|No|  
+|[UIMap.cs](#UIMapCS)|[UIMap class](#UIMapCS) (partial)|Yes|  
+|[CodedUITest1.cs](#CodedUITestCS)|[CodedUITest1 class](#CodedUITestCS)<br /><br /> [Methods](#CodedUITestMethods)<br /><br /> [Properties](#CodedUITestProperties)|Yes|  
+|[UIMap.uitest](#UIMapuitest)|The XML map of the UI for the test.|No|  
   
-###  <a name="UIMapDesignerFile"></a>UIMap.Designer.cs  
- 此文件包含在测试创建后由**编码的 UI 测试生成器**自动创建的代码。 此文件会在每次更改测试时重新创建，因此，你不可以在其中添加或修改代码。  
+###  <a name="UIMapDesignerFile"></a> UIMap.Designer.cs  
+ This file contains code that is automatically created by the **Coded UI Test Builder** when a test is created. This file is re-created every time that a test changes, so that it is not a file in which you can add or modify code.  
   
-#### <a name="declarations-section"></a>声明部分  
- 本部分包含 Windows UI 的以下声明。  
+#### <a name="declarations-section"></a>Declarations section  
+ This section includes the following declarations for a Windows UI.  
   
-```c#  
+```cs  
 using System;  
 using System.CodeDom.Compiler;  
 using System.Collections.Generic;  
@@ -73,19 +74,19 @@ using Mouse = Microsoft.VisualStudio.TestTools.UITesting.Mouse;
 using MouseButtons = System.Windows.Forms.MouseButtons;  
 ```  
   
- 对于 Windows 用户界面 (UI)，<xref:Microsoft.VisualStudio.TestTools.UITesting.WinControls> 命名空间包含在内。 对于网页 UI，命名空间为 <xref:Microsoft.VisualStudio.TestTools.UITesting.HtmlControls>；对于 Windows Presentation Foundation UI，命名空间为 <xref:Microsoft.VisualStudio.TestTools.UITesting.WpfControls>。  
+ The <xref:Microsoft.VisualStudio.TestTools.UITesting.WinControls> namespace is included for a Windows user interface (UI). For a Web page UI, the namespace would be <xref:Microsoft.VisualStudio.TestTools.UITesting.HtmlControls>; for a Windows Presentation Foundation UI, the namespace would be <xref:Microsoft.VisualStudio.TestTools.UITesting.WpfControls>.  
   
-####  <a name="UIMapClass"></a>UIMap 类  
- 此文件的下一部分是 <xref:Microsoft.VisualStudio.TestTools.UITest.Common.UIMap.UIMap> 类。  
+####  <a name="UIMapClass"></a> UIMap class  
+ The next section of the file is the <xref:Microsoft.VisualStudio.TestTools.UITest.Common.UIMap.UIMap> class.  
   
 ```  
 [GeneratedCode("Coded UITest Builder", "10.0.21221.0")]  
 public partial class UIMap  
 ```  
   
- 类代码以应用于类（作为分部类声明）的 <xref:System.CodeDom.Compiler.GeneratedCodeAttribute> 开头。 你将注意到，该属性也适用于此文件中的每个类。 另一个可以包含此类的更多代码的文件是 `UIMap.cs`，稍后将作介绍。  
+ The class code starts with a <xref:System.CodeDom.Compiler.GeneratedCodeAttribute> that is applied to the class, which is declared as a partial class. You will notice that the attribute is also applied to every class in this file. The other file that can contain more code for this class is `UIMap.cs`, which is discussed later.  
   
- 生成的 `UIMap` 类包括记录测试时指定的每一种方法的代码。  
+ The generated `UIMap` class includes code for each method that was specified when the test was recorded.  
   
 ```  
 public void LaunchCalculator()  
@@ -94,7 +95,7 @@ public void VerifyTotal()
 public void CleanUp()  
 ```  
   
- 此部分的 <xref:Microsoft.VisualStudio.TestTools.UITest.Common.UIMap.UIMap> 类还包括为方法所需的每种属性生成的代码。  
+ This part of the <xref:Microsoft.VisualStudio.TestTools.UITest.Common.UIMap.UIMap> class also includes the generated code for each property that is required by the methods.  
   
 ```  
 public virtual LaunchCalculatorParams LaunchCalculatorParams  
@@ -110,8 +111,8 @@ public UIStartWindow UIStartWindow
 public UIMathApplicationWindow UIMathApplicationWindow  
 ```  
   
-#####  <a name="UIMapMethods"></a>UIMap 方法  
- 每种方法都具有类似于 `AddItems()` 方法的结构。 这将在代码中详细介绍，为清楚起见，代码中添加了换行符。  
+#####  <a name="UIMapMethods"></a> UIMap methods  
+ Each method has a structure that resembles the `AddItems()` method. This is explained in more detail under the code, which is presented together with line breaks to add clarity.  
   
 ```  
 /// <summary>  
@@ -138,15 +139,15 @@ public void AddItems()
 }  
 ```  
   
- 每种方法定义的总结评论介绍了哪些类可用于该方法的参数值。 在此示例中，为 `AddItemsParams` 类，该类在后面的 `UIMap.cs` 文件中定义，并且也是由 `AddItemsParams` 属性返回的值类型。  
+ The summary comment for each method definition tells which class to use for parameter values for that method. In this case, it is the `AddItemsParams` class, which is defined later in the `UIMap.cs` file, and which is also the value type that is returned by the `AddItemsParams` property.  
   
- 方法代码的顶部是 `Variable Declarations` 区域，该区域用于定义将被该方法使用的 UI 对象的局部变量。  
+ At the top of the method code is a `Variable Declarations` region that defines local variables for the UI objects that will be used by the method.  
   
- 在此方法中，`UIItemWindow` 和 `UIItemEdit` 属性都可以通过使用 `UICalculatorWindow` 类进行访问，该类在后面的 `UIMap.cs` 文件中定义。  
+ In this method, both `UIItemWindow` and `UIItemEdit` are properties that are accessed by using the `UICalculatorWindow` class, which is defined later in the `UIMap.cs` file.  
   
- 接下来是可通过使用 `AddItemsParams` 对象的属性将文本从键盘发送到计算器应用程序的行。  
+ Next are lines that send text from the keyboard to the Calculator application by using properties of the `AddItemsParams` object.  
   
- `VerifyTotal()` 方法具有非常相似的结构，并包括以下声明代码。  
+ The `VerifyTotal()` method has a very similar structure, and includes the following assertion code.  
   
 ```  
 // Verify that 'Unknown Name' text box's property 'Text' equals '9. '  
@@ -155,10 +156,10 @@ Assert.AreEqual(
     uIItemEdit.Text);  
 ```  
   
- 由于 Windows 计算器应用程序的开发人员的未提供该控件公开可用的名称，因此文本框的名称被列为未知。 如果实际值不等于预期值，<xref:Microsoft.VisualStudio.TestTools.UnitTesting.Assert.AreEqual%2A?displayProperty=fullName> 方法失败，进而导致测试不通过。 另请注意，预期值的小数点后面有一个空格。 如果你永远都不会修改此特定测试的功能，则必须允许该小数点和空格。  
+ The text box name is listed as unknown because the developer of the Windows Calculator application did not provide a publicly available name for the control. The <xref:Microsoft.VisualStudio.TestTools.UnitTesting.Assert.AreEqual%2A?displayProperty=fullName> method fails when the actual value is not equal to the expected value, which would cause the test to fail. Also notice that the expected value includes a decimal point that is followed by a space. If you ever have to modify the functionality of this particular test, you must allow for that decimal point and the space.  
   
-#####  <a name="UIMapProperties"></a>UIMap 属性  
- 每个属性的代码在整个类中都是非常标准的。 下面的 `AddItemsParams` 属性的代码用于 `AddItems()` 方法。  
+#####  <a name="UIMapProperties"></a> UIMap properties  
+ The code for each property is also very standard throughout the class. The following code for the `AddItemsParams` property is used in the `AddItems()` method.  
   
 ```  
 public virtual AddItemsParams AddItemsParams  
@@ -174,9 +175,9 @@ public virtual AddItemsParams AddItemsParams
 }  
 ```  
   
- 请注意，该属性使用名为 `mAddItemsParams` 的专用本地变量在返回之前保留该值。 属性名称和它所返回的对象的类名称是相同的。 此类稍后将在 `UIMap.cs` 文件中介绍。  
+ Notice that the property uses a private local variable that is named `mAddItemsParams` to hold the value before it returns it. The property name and the class name for the object it returns are the same. The class is defined later in the `UIMap.cs` file.  
   
- 每个由属性返回的类结构上都相似。 以下为 `AddItemsParams` 类。  
+ Each class that is returned by a property is structured similarly. The following is the `AddItemsParams` class.  
   
 ```  
 /// <summary>  
@@ -199,31 +200,31 @@ public class AddItemsParams
 }  
 ```  
   
- 与 `UIMap.cs` 文件中的所有类一样，此类也是以 <xref:System.CodeDom.Compiler.GeneratedCodeAttribute> 开头。 在这个小型类中，`Fields` 区域定义了用作 <xref:Microsoft.VisualStudio.TestTools.UITesting.Keyboard.SendKeys%2A?displayProperty=fullName> 方法参数的字符串，此方法用于我们之前介绍的 `UIMap.AddItems()` 方法。 你可以在调用在其中使用这些参数的方法之前，编写代码以替换这些字符串字段中的值。  
+ As with all classes in the `UIMap.cs` file, this class starts with the <xref:System.CodeDom.Compiler.GeneratedCodeAttribute>. In this small class is a `Fields` region that defines the strings to use as parameters for the <xref:Microsoft.VisualStudio.TestTools.UITesting.Keyboard.SendKeys%2A?displayProperty=fullName> method that is used in the `UIMap.AddItems()` method that was discussed earlier. You can write code to replace the values in these string fields before the method in which these parameters are used is called.  
   
-###  <a name="UIMapCS"></a>UIMap.cs  
- 默认情况下，此文件包括没有方法或属性的分部 `UIMap` 类。  
+###  <a name="UIMapCS"></a> UIMap.cs  
+ By default, this file contains a partial `UIMap` class that has no methods or properties.  
   
-#### <a name="uimap-class"></a>UIMap 类  
- 在此文件中可以创建自定义代码来扩展 <xref:Microsoft.VisualStudio.TestTools.UITest.Common.UIMap.UIMap> 类的功能。 **编码的 UI 测试生成器**不会在每次测试有修改时重新生成你在此文件中创建的代码。  
+#### <a name="uimap-class"></a>UIMap class  
+ This is where you can create custom code to extend the functionality of the <xref:Microsoft.VisualStudio.TestTools.UITest.Common.UIMap.UIMap> class. The code that you create in this file will not be regenerated by the **Coded UI Test Builder** every time that a test is modified.  
   
- <xref:Microsoft.VisualStudio.TestTools.UITest.Common.UIMap.UIMap> 的所有部分都可以使用 <xref:Microsoft.VisualStudio.TestTools.UITest.Common.UIMap.UIMap> 类的其他任何部分的方法和属性。  
+ All parts of the <xref:Microsoft.VisualStudio.TestTools.UITest.Common.UIMap.UIMap> can use the methods and properties from any other part of the <xref:Microsoft.VisualStudio.TestTools.UITest.Common.UIMap.UIMap> class.  
   
-###  <a name="CodedUITestCS"></a>CodedUITest1.cs  
- 此文件由**编码的 UI 测试生成器**生成，但不会在每次测试有修改时重新创建，因此可以在此文件中修改代码。 文件的名称由你创建测试时为该测试指定的名称生成。  
+###  <a name="CodedUITestCS"></a> CodedUITest1.cs  
+ This file is generated by the **Coded UI Test Builder**, but is not re-created every time that the test is modified, so that you can modify the code in this file. The name of the file is generated from the name that you specified for the test when you created it.  
   
-#### <a name="codeduitest1-class"></a>CodedUITest1 类  
- 默认情况下，此文件只包含一个类的定义。  
+#### <a name="codeduitest1-class"></a>CodedUITest1 class  
+ By default, this file contains the definition for only one class.  
   
 ```  
 [CodedUITest]  
 public class CodedUITest1  
 ```  
   
- T:Microsoft.VisualStudio.TestTools.UITesting.CodedUITestAttribute 自动应用于类，该类允许测试框架将其识别为测试扩展。 另请注意，这不是一个分部类。 此文件中包含所有类代码。  
+ The T:Microsoft.VisualStudio.TestTools.UITesting.CodedUITestAttribute is automatically applied to the class, which allows the testing framework to recognize it as a testing extension. Also notice that this is not a partial class. All class code is contained in this file.  
   
-#####  <a name="CodedUITestProperties"></a>CodedUITest1 属性  
- 此类包含两个位于文件底部的默认属性。 它们不能修改。  
+#####  <a name="CodedUITestProperties"></a> CodedUITest1 properties  
+ The class contains two default properties that are located at the bottom of the file. They must not be modified.  
   
 ```  
 /// <summary>  
@@ -234,16 +235,16 @@ public TestContext TestContext
 public UIMap UIMap  
 ```  
   
-#####  <a name="CodedUITestMethods"></a>CodedUITest1 方法  
- 默认情况下，此类只包含一种方法。  
+#####  <a name="CodedUITestMethods"></a> CodedUITest1 methods  
+ By default, the class contains only one method.  
   
 ```  
 public void CodedUITestMethod1()  
 ```  
   
- 此方法调用你在录制测试时指定的所有 `UIMap` 方法，[UIMap 类](#UIMapClass)部分中对此进行了介绍。  
+ This method calls each `UIMap` method that you specified when you recorded your test, which is described in the section on the [UIMap Class](#UIMapClass).  
   
- 标题为 `Additional test attributes` 的区域（如果取消注释）包含两种可选方法。  
+ A region that is titled `Additional test attributes`, if uncommented, contains two optional methods.  
   
 ```  
 // Use TestInitialize to run code before running each test   
@@ -273,16 +274,16 @@ public void MyTestCleanup()
 }  
 ```  
   
- `MyTestInitialize()` 方法应用了 <xref:Microsoft.VisualStudio.TestTools.UnitTesting.TestInitializeAttribute>，指示测试框架先调用此方法，然后再调用其他任何测试方法。 同样，`MyTestCleanup()` 方法也应用了 <xref:Microsoft.VisualStudio.TestTools.UnitTesting.TestCleanupAttribute>，指示测试框架在调用完其他所有测试方法后再调用此方法。 可以选择使用这些方法。 对于此测试，可以从 `MyTestInitialize()` 调用 `UIMap.LaunchCalculator()` 方法，从 `MyTestCleanup()` 而不是从 `CodedUITest1Method1()` 调用 `UIMap.CloseCalculator()` 方法。  
+ The `MyTestInitialize()` method has the <xref:Microsoft.VisualStudio.TestTools.UnitTesting.TestInitializeAttribute> applied to it, which tells the testing framework to call this method before any other test methods. Similarly, the `MyTestCleanup()` method has the <xref:Microsoft.VisualStudio.TestTools.UnitTesting.TestCleanupAttribute> applied to it, which tells the testing framework to call this method after all other test methods have been called. Use of these methods is optional. For this test, the `UIMap.LaunchCalculator()` method could be called from `MyTestInitialize()` and the `UIMap.CloseCalculator()` method could be called from `MyTestCleanup()` instead of from `CodedUITest1Method1()`.  
   
- 如果使用 <xref:Microsoft.VisualStudio.TestTools.UITesting.CodedUITestAttribute> 向此类添加更多方法，那么测试框架将在测试期间调用所有方法。  
+ If you add more methods to this class by using the <xref:Microsoft.VisualStudio.TestTools.UITesting.CodedUITestAttribute>, the testing framework will call each method as part of the test.  
   
-###  <a name="UIMapuitest"></a>UIMap.uitest  
- 这是一个 XML 文件，表示编码的 UI 测试录制及其所有部分的结构。 除类的方法和属性之外，其中还包括操作以及这些类。 [UIMap.Designer.cs](#UIMapDesignerFile) 文件包含编码的 UI 测试生成器为了重现测试结构而生成的代码，并建立与测试框架的连接。  
+###  <a name="UIMapuitest"></a> UIMap.uitest  
+ This is an XML file that represents the structure of the coded UI test recording and all its parts. These include the actions and the classes in addition to the methods and properties of those classes. The [UIMap.Designer.cs](#UIMapDesignerFile) file contains the code that is generated by the Coded UI Builder to reproduce the structure of the test and provides the connection to the testing framework.  
   
- `UIMap.uitest` 文件不是可直接编辑的文件。 不过，可以使用编码的 UI 测试生成器来修改测试，从而自动修改 `UIMap.uitest` 文件和 [UIMap.Designer.cs](#UIMapDesignerFile) 文件。  
+ The `UIMap.uitest` file is not directly editable. However, you can use the Coded UI Builder to modify the test, which automatically modifies the `UIMap.uitest` file and the [UIMap.Designer.cs](#UIMapDesignerFile) file.  
   
-## <a name="see-also"></a>另请参阅  
+## <a name="see-also"></a>See Also  
  <xref:Microsoft.VisualStudio.TestTools.UITest.Common.UIMap.UIMap>   
  <xref:Microsoft.VisualStudio.TestTools.UITesting.WinControls>   
  <xref:Microsoft.VisualStudio.TestTools.UITesting.HtmlControls>   
@@ -293,9 +294,9 @@ public void MyTestCleanup()
  <xref:Microsoft.VisualStudio.TestTools.UITesting.CodedUITestAttribute>   
  <xref:Microsoft.VisualStudio.TestTools.UnitTesting.TestInitializeAttribute>   
  <xref:Microsoft.VisualStudio.TestTools.UnitTesting.TestCleanupAttribute>   
- [使用 UI 自动化来测试代码](../test/use-ui-automation-to-test-your-code.md)   
- [创建编码的 UI 测试](../test/use-ui-automation-to-test-your-code.md#VerifyingCodeUsingCUITCreate)   
- [编码的 UI 测试的最佳做法](../test/best-practices-for-coded-ui-tests.md)   
- [使用多个 UI 映射测试大型应用程序](../test/testing-a-large-application-with-multiple-ui-maps.md)   
- [支持编码的 UI 测试和操作录制的配置和平台](../test/supported-configurations-and-platforms-for-coded-ui-tests-and-action-recordings.md)
+ [Use UI Automation To Test Your Code](../test/use-ui-automation-to-test-your-code.md)   
+ [Creating Coded UI Tests](../test/use-ui-automation-to-test-your-code.md#VerifyingCodeUsingCUITCreate)   
+ [Best Practices for Coded UI Tests](../test/best-practices-for-coded-ui-tests.md)   
+ [Testing a Large Application with Multiple UI Maps](../test/testing-a-large-application-with-multiple-ui-maps.md)   
+ [Supported Configurations and Platforms for Coded UI Tests and Action Recordings](../test/supported-configurations-and-platforms-for-coded-ui-tests-and-action-recordings.md)
 

@@ -1,56 +1,73 @@
 ---
-title: "IDebugPointerObject::Dereference | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "IDebugPointerObject::Dereference"
-helpviewer_keywords: 
-  - "IDebugPointerObject::Dereference 方法"
+title: IDebugPointerObject::Dereference | Microsoft Docs
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords:
+- IDebugPointerObject::Dereference
+helpviewer_keywords:
+- IDebugPointerObject::Dereference method
 ms.assetid: 196ec2cc-8569-4780-b217-23b24e7f50ca
 caps.latest.revision: 9
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 9
----
-# IDebugPointerObject::Dereference
-[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
+ms.author: gregvanl
+manager: ghogen
+translation.priority.mt:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+ms.translationtype: MT
+ms.sourcegitcommit: ff8ecec19f8cab04ac2190f9a4a995766f1750bf
+ms.openlocfilehash: d86b9e1f8352ff827bf6cc6919c048c60f17e890
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/24/2017
 
-获取对象点。  
+---
+# <a name="idebugpointerobjectdereference"></a>IDebugPointerObject::Dereference
+Gets the object pointed to.  
   
-## 语法  
+## <a name="syntax"></a>Syntax  
   
 ```cpp#  
-HRESULT DeReference(   
-   DWORD          dwIndex,  
-   IDebugObject** ppObject  
+HRESULT DeReference(   
+   DWORD          dwIndex,  
+   IDebugObject** ppObject  
 );  
 ```  
   
-```c#  
+```cs  
 int Dereference(  
-   uint             dwIndex,   
-   out IDebugObject ppObject  
+   uint             dwIndex,   
+   out IDebugObject ppObject  
 );  
 ```  
   
-#### 参数  
+#### <a name="parameters"></a>Parameters  
  `dwIndex`  
- \[in\] 从初始对象的简单字节偏移量点。  
+ [in] A simple byte offset from the beginning of the object pointed to.  
   
  `ppObject`  
- \[out\] 返回一个指向的 [IDebugObject](../../../extensibility/debugger/reference/idebugobject.md) 对象，以及偏移量，因此，如果有的话\)。  
+ [out] Returns an [IDebugObject](../../../extensibility/debugger/reference/idebugobject.md) object representing the object pointed to, plus offset, if any.  
   
-## 返回值  
- 如果成功，则返回 S\_OK;否则，返回错误代码。  ，如果该对象不指向另一个对象，返回 E\_FAIL。  
+## <a name="return-value"></a>Return Value  
+ If successful, returns S_OK; otherwise, returns an error code. Returns E_FAIL if this object does not point to another object.  
   
-## 备注  
- 点的对象可以是基元或复杂类型 \(如类或结构。  
+## <a name="remarks"></a>Remarks  
+ The object pointed to can be a primitive or a more complex type such as a class or structure.  
   
-## 请参阅  
+## <a name="see-also"></a>See Also  
  [IDebugPointerObject](../../../extensibility/debugger/reference/idebugpointerobject.md)

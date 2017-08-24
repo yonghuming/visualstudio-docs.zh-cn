@@ -1,53 +1,70 @@
 ---
-title: "IDebugClassField::GetDefaultIndexer | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "IDebugClassField::GetDefaultIndexer"
-helpviewer_keywords: 
-  - "IDebugClassField::GetDefaultIndexer 方法"
+title: IDebugClassField::GetDefaultIndexer | Microsoft Docs
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords:
+- IDebugClassField::GetDefaultIndexer
+helpviewer_keywords:
+- IDebugClassField::GetDefaultIndexer method
 ms.assetid: 47ce4f45-3816-4b40-909c-5032d0692d75
 caps.latest.revision: 10
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 10
----
-# IDebugClassField::GetDefaultIndexer
-[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
+ms.author: gregvanl
+manager: ghogen
+translation.priority.mt:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+ms.translationtype: MT
+ms.sourcegitcommit: ff8ecec19f8cab04ac2190f9a4a995766f1750bf
+ms.openlocfilehash: a8d3b414ef3f6bb8b52ddd9519901a7202b707f7
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/24/2017
 
-获取默认索引器的名称。  
+---
+# <a name="idebugclassfieldgetdefaultindexer"></a>IDebugClassField::GetDefaultIndexer
+Gets the name of the default indexer.  
   
-## 语法  
+## <a name="syntax"></a>Syntax  
   
 ```cpp#  
-HRESULT GetDefaultIndexer(   
-   BSTR* pbstrIndexer  
+HRESULT GetDefaultIndexer(   
+   BSTR* pbstrIndexer  
 );  
 ```  
   
-```c#  
+```cs  
 int GetDefaultIndexer(  
-   out string pbstrIndexer  
+   out string pbstrIndexer  
 );  
 ```  
   
-#### 参数  
+#### <a name="parameters"></a>Parameters  
  `pbstrIndexer`  
- \[out\] 返回包含默认索引器的名称的字符串。  
+ [out] Returns a string containing the name of the default indexer.  
   
-## 返回值  
- 如果成功，则返回 S\_OK 或返回 S\_FALSE，如果没有默认的索引器。  否则，返回错误代码。  
+## <a name="return-value"></a>Return Value  
+ If successful, returns S_OK or returns S_FALSE if there is no default indexer. Otherwise, returns an error code.  
   
-## 备注  
- 类的默认索引器被标记为数组访问的 `Default` 属性的属性。  这是特定于 [!INCLUDE[vbprvb](../../../code-quality/includes/vbprvb_md.md)]。  这是在 [!INCLUDE[vbprvb](../../../code-quality/includes/vbprvb_md.md)] 声明的默认索引器的示例，以及如何使用它。  
+## <a name="remarks"></a>Remarks  
+ The default indexer of a class is the property that is marked as the `Default` property for array accesses. This is specific to [!INCLUDE[vbprvb](../../../code-quality/includes/vbprvb_md.md)]. Here is an example of a default indexer declared in [!INCLUDE[vbprvb](../../../code-quality/includes/vbprvb_md.md)] and how it is used.  
   
-```vb#  
+```vb  
 Imports System.Collections;  
   
 Public Class Class1  
@@ -77,5 +94,5 @@ Function GetItem(Index as Integer) as Integer
 End Function  
 ```  
   
-## 请参阅  
+## <a name="see-also"></a>See Also  
  [IDebugClassField](../../../extensibility/debugger/reference/idebugclassfield.md)

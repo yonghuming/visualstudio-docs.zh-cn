@@ -1,92 +1,109 @@
 ---
-title: "THREADPROPERTY_FIELDS | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "THREADPROPERTY_FIELDS"
-helpviewer_keywords: 
-  - "THREADPROPERTY_FIELDS 枚举"
+title: THREADPROPERTY_FIELDS | Microsoft Docs
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords:
+- THREADPROPERTY_FIELDS
+helpviewer_keywords:
+- THREADPROPERTY_FIELDS enumeration
 ms.assetid: 5b88acb9-03ea-4c29-a788-f0087dccbe23
 caps.latest.revision: 11
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 11
----
-# THREADPROPERTY_FIELDS
-[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
+ms.author: gregvanl
+manager: ghogen
+translation.priority.mt:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+ms.translationtype: MT
+ms.sourcegitcommit: ff8ecec19f8cab04ac2190f9a4a995766f1750bf
+ms.openlocfilehash: 15d85142eec3e5c2691c8d9c6e55cb8a901e5273
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/24/2017
 
-指定有关线程的信息进行检索。  
+---
+# <a name="threadpropertyfields"></a>THREADPROPERTY_FIELDS
+Specifies what information about a thread is to be retrieved.  
   
-## 语法  
+## <a name="syntax"></a>Syntax  
   
 ```cpp#  
-enum enum_THREADPROPERTY_FIELDS {   
-   TPF_ID           = 0x0001,  
-   TPF_SUSPENDCOUNT = 0x0002,  
-   TPF_STATE        = 0x0004,  
-   TPF_PRIORITY     = 0x0008,  
-   TPF_NAME         = 0x0010,  
-   TPF_LOCATION     = 0x0020,  
-   TPF_ALLFIELDS    = 0xffffffff  
+enum enum_THREADPROPERTY_FIELDS {   
+   TPF_ID           = 0x0001,  
+   TPF_SUSPENDCOUNT = 0x0002,  
+   TPF_STATE        = 0x0004,  
+   TPF_PRIORITY     = 0x0008,  
+   TPF_NAME         = 0x0010,  
+   TPF_LOCATION     = 0x0020,  
+   TPF_ALLFIELDS    = 0xffffffff  
 };  
 typedef DWORD THREADPROPERTY_FIELDS;  
 ```  
   
-```c#  
-public enum enum_THREADPROPERTY_FIELDS {   
-   TPF_ID           = 0x0001,  
-   TPF_SUSPENDCOUNT = 0x0002,  
-   TPF_STATE        = 0x0004,  
-   TPF_PRIORITY     = 0x0008,  
-   TPF_NAME         = 0x0010,  
-   TPF_LOCATION     = 0x0020,  
-   TPF_ALLFIELDS    = 0xffffffff  
+```cs  
+public enum enum_THREADPROPERTY_FIELDS {   
+   TPF_ID           = 0x0001,  
+   TPF_SUSPENDCOUNT = 0x0002,  
+   TPF_STATE        = 0x0004,  
+   TPF_PRIORITY     = 0x0008,  
+   TPF_NAME         = 0x0010,  
+   TPF_LOCATION     = 0x0020,  
+   TPF_ALLFIELDS    = 0xffffffff  
 };  
 ```  
   
-## 成员  
- TPF\_ID  
- 初始化\/使用 [THREADPROPERTIES](../../../extensibility/debugger/reference/threadproperties.md) 结构的 `dwThreadId` 字段。  
+## <a name="members"></a>Members  
+ TPF_ID  
+ Initialize/use the `dwThreadId` field of the [THREADPROPERTIES](../../../extensibility/debugger/reference/threadproperties.md) structure.  
   
- TPF\_SUSPENDCOUNT  
- 初始化\/使用 `THREADPROPERTIE`的结构的 `dwSuspendCount` 字段。  
+ TPF_SUSPENDCOUNT  
+ Initialize/use the `dwSuspendCount` field of the `THREADPROPERTIE`S structure.  
   
- TPF\_STATE  
- 初始化\/使用 `THREADPROPERTIE`的结构的 `dwThreadState` 字段。  
+ TPF_STATE  
+ Initialize/use the `dwThreadState` field of the `THREADPROPERTIE`S structure.  
   
- TPF\_PRIORITY  
- 初始化\/使用 `THREADPROPERTIE`的结构的 `bstrPriority` 字段。  
+ TPF_PRIORITY  
+ Initialize/use the `bstrPriority` field of the `THREADPROPERTIE`S structure.  
   
- TPF\_NAME  
- 初始化\/使用 `THREADPROPERTIE`的结构的 `bstrName` 字段。  
+ TPF_NAME  
+ Initialize/use the `bstrName` field of the `THREADPROPERTIE`S structure.  
   
- TPF\_LOCATION  
- 初始化\/使用 `THREADPROPERTIE`的结构的 `bstrLocation` 字段。  
+ TPF_LOCATION  
+ Initialize/use the `bstrLocation` field of the `THREADPROPERTIE`S structure.  
   
- TPF\_ALLFIELDS  
- 指定所有字段。  
+ TPF_ALLFIELDS  
+ Specifies all fields.  
   
-## 备注  
- 这些值传递，因为参数。 [GetThreadProperties](../../../extensibility/debugger/reference/idebugthread2-getthreadproperties.md) 方法指示 [THREADPROPERTIES](../../../extensibility/debugger/reference/threadproperties.md) 结构的哪些字段进行初始化。  
+## <a name="remarks"></a>Remarks  
+ These values are passed as an argument to the [GetThreadProperties](../../../extensibility/debugger/reference/idebugthread2-getthreadproperties.md) method to indicate which fields of the [THREADPROPERTIES](../../../extensibility/debugger/reference/threadproperties.md) structure are to be initialized.  
   
- 这些值也用于 `THREADPROPERTIES` 结构的 `dwFields` 成员指示哪些字段是使用和有效。  
+ These values are also used in `dwFields` member of the `THREADPROPERTIES` structure to indicate which fields are used and valid.  
   
- 这些标志可以按位组合使用 `OR`。  
+ These flags may be combined with a bitwise `OR`.  
   
-## 要求  
- 标题:msdbg.h  
+## <a name="requirements"></a>Requirements  
+ Header: msdbg.h  
   
- 命名空间:Microsoft.VisualStudio.Debugger.Interop  
+ Namespace: Microsoft.VisualStudio.Debugger.Interop  
   
- 程序集:Microsoft.VisualStudio.Debugger.Interop.dll  
+ Assembly: Microsoft.VisualStudio.Debugger.Interop.dll  
   
-## 请参阅  
- [枚举](../../../extensibility/debugger/reference/enumerations-visual-studio-debugging.md)   
+## <a name="see-also"></a>See Also  
+ [Enumerations](../../../extensibility/debugger/reference/enumerations-visual-studio-debugging.md)   
  [THREADPROPERTIES](../../../extensibility/debugger/reference/threadproperties.md)   
  [GetThreadProperties](../../../extensibility/debugger/reference/idebugthread2-getthreadproperties.md)

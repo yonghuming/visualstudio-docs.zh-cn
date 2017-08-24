@@ -1,5 +1,5 @@
 ---
-title: "Visual Studio 中的 Live Unit Testing | Microsoft Docs"
+title: Live Unit Testing in Visual Studio | Microsoft Docs
 ms.date: 2017-03-07
 ms.suite: 
 ms.technology:
@@ -26,39 +26,41 @@ translation.priority.ht:
 - tr-tr
 - zh-cn
 - zh-tw
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c559290c8e88c8b4e37feabc7014188fad15434d
-ms.openlocfilehash: 0a939044b9806236cf55333c30bce24ae0fdb28a
+ms.translationtype: HT
+ms.sourcegitcommit: ff8ecec19f8cab04ac2190f9a4a995766f1750bf
+ms.openlocfilehash: b6955ac571e809a71812b631224fe83d84bff362
 ms.contentlocale: zh-cn
-ms.lasthandoff: 06/08/2017
+ms.lasthandoff: 08/24/2017
 
 ---
 
-# <a name="live-unit-testing-with-visual-studio-2017"></a>使用 Visual Studio 2017 进行实施单元测试
+# <a name="live-unit-testing-with-visual-studio-2017"></a>Live Unit Testing with Visual Studio 2017
 
-在你开发应用程序时，Live Unit Testing 将在后台自动运行任何受影响的单元测试并在 Visual Studio IDE 中实时显示结果和代码覆盖率。 在你修改代码时，Live Unit Testing 可提供关于更改如何影响现有测试和新增代码是否会被一个或多个现存测试覆盖的反馈。 这可在你进行 bug 修复或添加新功能时，温馨地提示你编写单元测试。
+As you are developing an application, Live Unit Testing automatically runs any impacted unit tests in the background and presents the results and code coverage live in the Visual Studio IDE in real-time. As you modify your code, Live Unit Testing provides feedback on how your changes impacted existing tests and whether the new code you've added is covered by one or more existing tests. This will gently remind you to write unit tests as you are making bug fixes or adding new features.
 
 > [!NOTE]
-> Live Unit Testing 适用于面向企业版 Visual Studio 2017 中的 .NET Core 或 .NET Framework 的 C# 和 Visual Basic 项目。
+> Live Unit Testing is available for C# and Visual Basic projects that target the .NET Core or .NET Framework in the Enterprise Edition of Visual Studio 2017.
 
-## <a name="supported-test-frameworks"></a>受支持的测试框架
-Live Unit Testing 适用于下表中列出的三个常用的单元测试框架。 表中还列出了其适配器和框架支持的最低版本。 单元测试框架都可从 NuGet.org 获得。
+When you use Live Unit Testing for your tests, Live Unit Testing persists data about the status of your tests. Its ability to use persisted data allows Live Unit Testing to offer superior performance while running your tests dynamically in response to code changes.
+ 
+## <a name="supported-test-frameworks"></a>Supported test frameworks
+Live Unit Testing works with the three popular unit testing frameworks listed in the following table. The minimum supported version of their adapters and frameworks is also listed in the table. The unit testing frameworks are all available from NuGet.org.
  
 <table> 
 <tr>
-   <th>测试框架</th>
-   <th>Visual Studio 适配器最低版本</th>
-   <th>Framework 最低版本</th>
+   <th>Test Framework</th>
+   <th>Visual Studio Adapter minimum version</th>
+   <th>Framework minimum version</th>
 </tr>
 <tr>
    <td>xUnit.net</td>
-   <td> xunit.runner.visualstudio 版本 2.2.0-beta3-build1187</td>
+   <td> xunit.runner.visualstudio version 2.2.0-beta3-build1187</td>
    <td>xunit 2.0</td> 
 </tr>
 <tr>
    <td>NUnit</td>
-   <td>NUnit3TestAdapter 版本 3.5.1</td>  
-   <td>NUnit 版本 3.5.0</td>
+   <td>NUnit3TestAdapter version 3.5.1</td>  
+   <td>NUnit version 3.5.0</td>
 </tr>
 <tr>
    <td>MSTest</td>
@@ -67,94 +69,139 @@ Live Unit Testing 适用于下表中列出的三个常用的单元测试框架�
 </tr>
 </table>
 
-如果你具有来自现有项目的旧适配器和测试框架引用，请务必将其删除。 （如果使用 MSTest，请确保删除对 `Microsoft.VisualStudio.QualityTools.UnitTestFramework` 的引用。）如果 Live Unit Testing 无法正常运行，请添加新的。 
+If you have older adapter and test framework references from your existing projects, be sure to remove them. (Make sure you remove the reference to `Microsoft.VisualStudio.QualityTools.UnitTestFramework`, if you are using MSTest.) Add the new ones if Live Unit Testing is not working for you. 
 
-在某些情况下，可能需要显式还原解决方案中项目引用的 NuGet 包，以便 Live Unit Testing 可正常运行。 你可以先通过显式生成解决方案（从顶级 Visual Studio 菜单中选择“生成”>“重新生成解决方案”）或通过还原解决方案中的包（右键单击解决方案并选择“还原 NuGet 包”）实现此操作，然后再启用 Living Unit Testing。 
+In some cases, you may need to explicitly restore the NuGet packages referenced by the projects in the solution in order for Live Unit Testing to work. You can do this either by doing an explicit build of the solution (select **Build**, **Rebuild Solution** from the top-level Visual Studio menu) or by restoring packages in the solution (right-click on the solution and select **Restore NuGet Packages**) before enabling Living Unit Testing. 
 
-#   <a name="configuring-live-unit-testing"></a>配置 Live Unit Testing
+#   <a name="configuring-live-unit-testing"></a>Configuring Live Unit Testing
 
-可以通过从顶级 Visual Studio 菜单中选择“工具”>“选项”，然后在“选项”对话框左窗格中选择“Live Unit Testing”来配置 Live Unit Testing。 下图显示对话框中可用的 Live Unit Testing 配置选项。
+You can configure Live Unit Testing by selecting **Tools**, **Options** from the top-level Visual Studio menu, and then selecting **Live Unit Testing** in the left pane of the **Options** dialog. The following figure shows the Live Unit Testing configuration options available in the dialog.
 
   ![Image](./media/lut-options.png)
 
-可配置选项包括：
+The configurable options include:
 
-- 打开解决方案时 Live Unit Testing 是否自动运行。
-- 生成或调试解决方案或系统电量低于指定阈值时是否暂停 Live Unit Testing。
-- 测试用例超时之前的时间间隔；隔默认值为 30 秒。 
-- Live Unit Testing 创建的测试进程数。 
-- 写入 Live Unit Testing“输出”窗口的信息级别。 选项包括无日志记录（无）、仅限错误消息（错误）、错误和信息性消息（默认值为信息）或所有详细信息（详细）。
+- Whether Live Unit Testing pauses when a solution is built and debugged
+ 
+- Whether Live Unit Testing pauses when a system's battery power falls below a specified threshold.
+- Whether Live Unit Testing runs automatically when a solution is opened.
+- The directory in which to store persisted data.   
+   The **Delete Persisted Data** button allows you to delete all persisted data. This is useful when Live Unit Testing is behaving in unpredictable or unexpected ways, which suggests that the persisted data has become corrupted.   
+- The interval after which a test case times out; the default is 30 seconds. 
+- The maximum number of test processes that Live Unit Testing creates. 
+- The maximum amount of memory that Live Unit Testing processes can consume.
+- The level of information written to the Live Unit Testing **Output** window.   
+   Options include no logging (**None**), error messages only (**Error**), error and informational messages (**Info**, the default), or all detail (**Verbose**).
 
-还可以通过向名为 `VS_UTE_DIAGNOSTICS` 的用户级环境变量分配值“1”并重启 Visual Studio 在 Live Unit Testing“输出”窗口显示详细输出。 
+You can also display verbose output in the Live Unit Testing **Output** window by assigning a value of "1" to a user-level environment variable named `VS_UTE_DIAGNOSTICS` and restarting Visual Studio. 
 
-若要捕获从 Live Unit Testing 到文件的详细 MSBuild 日志消息，请将 `LiveUnitTesting_BuildLog` 用户级环境变量设为该文件的名称以包含日志。
+To capture detailed MSBuild log messages from Live Unit Testing to a file, set the `LiveUnitTesting_BuildLog` user-level environment variable to the name of the file to contain the log.
 
-## <a name="starting-pausing-and-stopping-live-unit-testing"></a>启动、暂停和停止 Live Unit Testing
+Once Live Unit Testing is enabled (see the next section, [Starting, pausing, and stopping Live Unit Testing](#starting-pausing-and-stopping-live-unit-testing), you can also open the **Options** dialog by selecting **Test**, **Live Unit Testing**, **Options**.
 
-通过从顶级 Visual Studio 菜单中依次选择“测试”、“Live Unit Testing”和“启动”来启用 Live Unit Testing。 启用 Live Unit Testing 后，“Live Unit Testing”菜单上的可用选项从单项的“开始”变为“暂停”、“停止”和“重启”。
+## <a name="starting-pausing-and-stopping-live-unit-testing"></a>Starting, pausing, and stopping Live Unit Testing
 
-在任何时候，都可以临时暂停或完全停止 Live Unit Testing。 例如，当你正在重构且知道测试将停止一段时间时，你可能想要执行此操作。 三个菜单选项为：
+You enable Live Unit Testing by selecting **Test**, **Live Unit Testing**, **Start** from the top-level Visual Studio menu. When Live Unit Testing is enabled, the options available on the **Live Unit Testing** menu change from a single item, **Start**, to **Pause**, **Stop**, and **Reset Clean**.
 
-- **暂停**，用于临时挂起 Live Unit Testing。 
-    暂停 Live Unit Testing 后，覆盖率可视化效果不会出现在编辑器中，但会保留所有已收集的数据。 若要恢复 Live Unit Testing，请从 Live Unit Testing 菜单中选择“继续”。 Live Unit Testing 将执行必要工作，以便与其暂停时所做的所有编辑保持同步，并相应地更新字形。 
-- **停止**，用于完全停止 Live Unit Testing。 Live Unit Testing 将放弃所有已收集的数据
-- **重启**，相当于从“Live Unit Testing”菜单中选择“停止”，然后选择“开始”。
+At any time, you can temporarily pause or completely stop Live Unit Testing. You may want to do this, for example, if you are in the middle of a refactoring and know that your tests will be broken for a while. The three menu options are:
 
-##  <a name="viewing-coverage-visualization-in-the-editor-as-you-type"></a>在编辑器中查看键入时的覆盖率可视化效果
+- **Pause**, which temporarily suspends Live Unit Testing. 
+ 
+    When Live Unit Testing is paused, your coverage visualization does not appear in the editor, but all the data that was collected is preserved. To resume Live Unit Testing, select **Continue** from the Live Unit Testing menu. Live Unit Testing does the necessary work to catch up with all the edits that have been made while it was paused, and updates the glyphs appropriately. 
 
-一旦启用，Live Unit Testing 将在 Visual Studio 编辑器中更新每行代码，以显示正在编写的代码是否由单元测试覆盖以及覆盖这些代码的测试是否通过。  下图显示测试通过和失败的代码行，以及测试未覆盖的代码行。 绿色“✓”修饰的行只表示通过测试，红色“🞩”修饰的行表示未通过一项或多项测试，蓝色“”修饰的行表示未经过任何测试。
+- **Stop**, to completely stop Live Unit Testing. Live Unit Testing discards all data that it has collected.
+
+- **Reset Clean**, which stops Live Unit Testing, deletes persisted data, and restarts Live Unit Testing.
+
+- **Options**, which opens the **Options** dialog described in the [Configuring Live Unit Testing](#configuring-live-unit-testing) section.
+ 
+##  <a name="viewing-coverage-visualization-in-the-editor-as-you-type"></a>Viewing coverage visualization in the editor as you type
+
+Once enabled, Live Unit Testing updates each line of code in the Visual Studio editor to show you whether the code you're writing is covered by unit tests and whether the tests that cover it are passing.  The following figure shows lines of code with both passing and failing tests, as well as lines of code that are not covered by tests. Lines decorated with a green "✓" are covered only by passing tests, lines decorated with a red  "🞩" are covered by one or more failing tests, and lines decorated by a blue  "➖" are not covered by any test.
 
   ![Image](./media/lut-codewindow.png)
 
-当你在代码编辑器中修改代码后，将立即更新 Live Unit Testing 覆盖率可视化效果。 处理编辑时，可视化效果将变化，通过在通过、失败和未覆盖符号下方添加圆形计时器图像来指示数据非最新，如下图所示。
+Live Unit Testing coverage visualization is updated immediately as you modify code in the code editor. While processing the edits, visualization changes to indicate that the data is not up-to-date by adding a round timer image below the passing, failing, and not covered symbols, as the following figure shows.
 
   ![Image](./media/lut-codeupdating.png)
  
-## <a name="getting-information-on-successful-or-failed-tests"></a>获取关于成功或失败测试的信息
+## <a name="getting-information-on-successful-or-failed-tests"></a>Getting information on successful or failed tests
 
-将鼠标悬停在代码窗口中的成功或失败符号上，可以看到符合此条件的测试数目。 如果单击该符号，可以查看各个测试的状态，如下图所示。
+By hovering over the succeeded or failed symbol in the code window, you can see how many tests are hitting that line. If you click on the symbol, you can see the status of the individual tests, as the following figure shows:
  
   ![Image](./media/lut-failedinfo.png) 
 
-当鼠标悬停于工具提示中的失败测试时，它将展开以提供关于失败的详细信息，如下图所示。 如果单击工具提示中的未通过测试，你可以直接导航到它。
+In addition to providing the names and result of tests, the tooltip lets you re-run the set of tests, as well as run the set of tests using the debugger. If you select one or more of the tests in the tooltip, you can also run or debug just those tests. This allows you to debug your tests without having to leave the code window. When debugging, in addition to observing any breakpoints you may have already set, program execution pauses when the debugger executes an [`Assert`](https://docs.microsoft.com/dotnet/api/microsoft.visualstudio.testtools.unittesting.assert) method that returns an unexpected result. 
+
+When you hover over a failed test in the tooltip, it expands to provide additional info about the failure, as shown in the following image. If you double-click on the failed test in the tooltip, you can navigate directly to it.
 
   ![Image](./media/lut-failedmsg.png) 
 
-## <a name="diagnosing-and-correcting-test-failures"></a>诊断和更正测试失败
-
-根据失败测试，你可以轻松对产品代码进行调试、进行编辑，并继续开发应用程序。 由于 Live Unit Testing 在后台运行，无需在调试、编辑和继续循环期间停止和重启 Live Unit Testing。
-
-例如，上图所示测试失败是由于在测试方法中错误地认为非字母字符在传递到 [Char.IsLower](xref:System.Char.IsLower(System.Char)) 方法时返回 `true`。 一旦更正测试方法，我们将发现所有测试均通过。 我们执行此操作时，不需要暂停或停止 Live Unit Testing。
-
-## <a name="live-unit-testing-and-test-explorer"></a>Live Unit Testing 和测试资源管理器
-
-通常，**测试资源管理器**具有可供运行、调试和分析测试结果的界面。 Live Unit Testing 与**测试资源管理器**集成。 当 Live Unit Testing 未启用或已停止时，**测试资源管理器**将显示上次运行测试时的单元测试状态。 源代码更改需要重新运行测试。 与此相反，启用 Live Unit Testing 后，**测试资源管理器**中的单元测试状态将立即更新。 不再需要显式运行单元测试。 
-
-但是，Live Unit Testing 自动运行和更新测试结果以及从**测试资源管理器**显式运行测试之间存在一些差异。 其中包括:
-
-- 从测试资源管理器窗口运行或调试测试将运行常规二进制文件，而 Live Unit Testing 运行已检测二进制文件。 
-- Live Unit Testing 不会创建新的应用程序域来运行测试，而是从默认域运行测试。 从**测试资源管理器**窗口运行的测试确实会创建新的应用程序域。
-- Live Unit Testing 按顺序运行每个测试程序集中的测试。 如果从“测试资源管理器”窗口运行多个测试，且已选择“并行运行测试”按钮，则测试将并行运行。
-
-## <a name="including-and-excluding-test-projects-and-test-methods"></a>包括和排除测试项目和测试方法
-
-对于含多个测试项目的解决方案，可以控制参与 Live Unit Testing 的项目和项目中的单个方法。 
-
-例如，如果你的解决方法含数百个测试项目，你可以选择一组目标测试项目来参与 Live Unit Testing。 若要在单元测试中选择单个项目，请在启动 Live Unit Testing 后执行以下操作：
-
-1.  在解决方案资源管理器中单击解决方案并依次选择“实时测试”、“排除”以排除整个解决方案。
-2.  右键单击想要包括在测试中的每个测试项目，然后依次选择“实时测试”“包括”。
+When you navigate to the failed test, Live Unit Testing also visually indicates in the method signature the tests that have passed (indicated by a half-full beaker along with a green "✓"), failed (a half-full beaker along with a red  "🞩"), or are not involved in Live Unit Testing (a half-full beaker along with a blue  "➖"). Non-test methods are not decorated with a symbol. The following figure illustrates all four types of methods.
  
-使用代码编辑器窗口包含或排除单个测试方法。 在代码编辑器窗口中单击测试方法的签名，然后依次选择“实时测试”、“包括”或“实时测试”“排除”。 
+  ![Image](media/lut-testsource.png)
+ 
+## <a name="diagnosing-and-correcting-test-failures"></a>Diagnosing and correcting test failures
 
-或者，还可以应用 [<ExcludeFromCodeCoverage>](https://msdn.microsoft.com/library/system.diagnostics.codeanalysis.excludefromcodecoverageattribute.aspx) 属性以编程方式排除方法、类或结构报告其在 Live Unit Testing 中的覆盖率。
+From the failed test, you can easily debug to the product code, make edits, and continue developing your application. Because Live Unit Testing runs in the background, you do not have to stop and restart Live Unit Testing during the debug, edit, and continue cycle.
 
-关闭或重新打开解决方案时，Live Unit Testing 将包括/排除状态另存为用户设置并将其记住。 
+For example, the test failure shown in the previous figure was caused by an incorrect assumption in the test method that non-alphabetic characters return `true` when passed to the <xref:System.Char.IsLower%2A?displayProperty=fullName> method. Once we correct the test method, we find that all tests pass. While we are doing this, we do not have to pause or stop Live Unit Testing.
 
-## <a name="see-also"></a>另请参阅
+## <a name="live-unit-testing-and-test-explorer"></a>Live Unit Testing and Test Explorer
 
-[Live Unit Testing 博客](https://go.microsoft.com/fwlink/?linkid=842514)   
-[Live Unit Testing 常见问题解答](live-unit-testing-faq.md)    
-[第 9 频道视频：Visual Studio 2017 中的实时单元测试](https://channel9.msdn.com/Events/Visual-Studio/Visual-Studio-2017-Launch/T105)
+Ordinarily, **Test Explorer** provides the interface that lets you run, debug, and analyze your test results. Live Unit Testing integrates with **Test Explorer**. When Live Unit Testing is not enabled or is stopped, **Test Explorer** displays the status of unit tests the last time a test was run. Source code changes require that you rerun the tests. In contrast, when Live Unit Testing is enabled, the status of unit tests in **Test Explorer** is updated immediately. You no longer need to explicitly run your unit tests. 
+
+> [!NOTE]
+> You can open **Test Explorer** by selecting **Test**, **Windows**, **Test Explorer** from the top-level Visual Studio menu.  
+
+You may notice in the **Test Explorer** window that some tests are faded out. For example, when you enable Live Unit Testing after opening a previously saved project, the **Test Explorer** window had faded out all but the failed test, as the following figure shows. In this case, Live Unit Testing has rerun the failed test, but it has not rerun the successful tests, since Live Unit Testing's persisted data indicates that there were no changes since the tests were last run successfully.
+
+  ![Image](media/lut-test-explorer.png)
+
+You can rerun any tests that appear faded by selecting the **Run All** or **Run** options from the **Test Explorer** menu, or by selecting one or more tests in the  **Test Explorer** menu, right-clicking, and selecting **Run Selected Tests** or **Debug Selected Tests** from the popup menu. As tests are run, they bubble up the top.
+
+There are some differences between Live Unit Testing automatically running and updating test results and explicitly running tests from **Test Explorer**. These differences include:
+
+- Running or debugging tests from the Test Explorer window runs regular binaries, whereas Live Unit Testing runs instrumented binaries. 
+- Live Unit Testing does not create a new application domain to run tests, but rather runs tests from the default domain. Tests run from the **Test Explorer** window do create a new application domain.
+- Live Unit Testing runs tests in each test assembly sequentially. If you run multiple tests from the **Test Explorer** window and the **Run Tests in Parallel** button is selected, tests run in parallel.
+
+## <a name="live-unit-testing-and-large-solutions"></a>Live Unit Testing and large solutions
+
+If your solution has 10 or more projects, when you start Live Unit Testing and there is no persisted data, or when you select the **Test**, **Live Unit Testing**, **Reset Clean** option from the top-level Visual Studio menu, Visual Studio displays the following dialog to warn you that dynamic execution of large numbers of tests in large projects can severely impact performance. If you select **OK**, Live Unit Testing executes all texts in the solution. If you select **Cancel**, you can select the tests to execute. For information on how to do this, see the following section, [Including and excluding test projects and test methods](#including-and-excluding-test-projects-and-test-methods).  
+
+ ![Live Unit Testing dialog for large projects](media/lut-large-project.png)
+
+## <a name="including-and-excluding-test-projects-and-test-methods"></a>Including and excluding test projects and test methods
+
+For solutions with many test projects, you can control what projects and what individual methods in a project participate in Live Unit Testing. For example, if you have a solution with hundreds of test projects, you can select a targeted set of test projects to participate in Live Unit Testing. There are a number of ways to do this, depending on whether you want to exclude all the tests in the project or solution, whether you want to include or exclude most tests, or whether you want to exclude tests individually. Live Unit Testing saves include/exclude state as a user setting and remembers it when a solution is closed and reopened. 
+
+**Excluding all tests in a project or solution**
+
+To select the individual projects in unit tests, do the following after Live Unit Testing is started:
+
+1.  Right click the solution in Solution Explorer and choose **Live Tests**, **Exclude** to exclude the entire solution.
+1.  Right click each test project that you'd like to include in the tests and choose **Live Tests**, **Include**.
+
+**Excluding individual tests from the code editor window**
+
+You can use the code editor window to include or exclude individual test methods. Right-click on the signature of the test method in the code editor window, and select **Live Tests**, **Include [the selected method]**, **Live Tests**, **Exclude [the selected method]**, or **Live Tests**, **Exclude All But [the selected method]**, where "the selected method" is the name of the method you've selected in the code window. 
+
+**Excluding tests programmatically** 
+
+You can apply the <xref:System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverageAttribute> attribute to programmatically exclude methods, classes, or structures from reporting their coverage in Live Unit Testing.
+
+You can also use the following attributes to exclude individual methods from Live Unit Testing:
+
+- For xUnit: `[Trait("Category", "SkipWhenLiveUnitTesting")]`
+- For NUnit: `[Category("SkipWhenLiveUnitTesting")]`
+- For MSTest: `[TestCategory("SkipWhenLiveUnitTesting")]` 
+ 
+## <a name="see-also"></a>See also
+
+[Code Testing Tools](https://www.visualstudio.com/vs/testing-tools/)   
+[Live Unit Testing Blog](https://go.microsoft.com/fwlink/?linkid=842514)   
+[Live Unit Testing FAQ](live-unit-testing-faq.md)    
+[Channel 9 Video: Live Unit Testing in Visual Studio 2017](https://channel9.msdn.com/Events/Visual-Studio/Visual-Studio-2017-Launch/T105)
 
 

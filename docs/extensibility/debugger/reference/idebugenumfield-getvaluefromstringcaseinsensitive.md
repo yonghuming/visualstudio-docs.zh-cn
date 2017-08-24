@@ -1,5 +1,5 @@
 ---
-title: "IDebugEnumField::GetValueFromStringCaseInsensitive |Microsoft 文档"
+title: IDebugEnumField::GetValueFromStringCaseInsensitive | Microsoft Docs
 ms.custom: 
 ms.date: 11/04/2016
 ms.reviewer: 
@@ -30,16 +30,17 @@ translation.priority.mt:
 - tr-tr
 - zh-cn
 - zh-tw
-translationtype: Machine Translation
-ms.sourcegitcommit: 5db97d19b1b823388a465bba15d057b30ff0b3ce
-ms.openlocfilehash: cac471a6a3ea7cdbdeee90abfee42375d09859a3
-ms.lasthandoff: 02/22/2017
+ms.translationtype: MT
+ms.sourcegitcommit: ff8ecec19f8cab04ac2190f9a4a995766f1750bf
+ms.openlocfilehash: ac5396dfa27e3a015fcf57f5ccd1c326902a146d
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/24/2017
 
 ---
 # <a name="idebugenumfieldgetvaluefromstringcaseinsensitive"></a>IDebugEnumField::GetValueFromStringCaseInsensitive
-此方法使用不区分大小写的搜索返回的枚举常量的名称与关联的值。  
+This method uses a case-insensitive search to return the value associated with the name of an enumeration constant.  
   
-## <a name="syntax"></a>语法  
+## <a name="syntax"></a>Syntax  
   
 ```cpp#  
 HRESULT GetValueFromStringCaseInsensitive(  
@@ -48,26 +49,26 @@ HRESULT GetValueFromStringCaseInsensitive(
 );  
 ```  
   
-```c#  
+```cs  
 int GetValueFromStringCaseInsensitive(  
    string    pszValue,   
    out ulong pValue  
 );  
 ```  
   
-#### <a name="parameters"></a>参数  
+#### <a name="parameters"></a>Parameters  
  `pszValue`  
- [in]指定要为其获取值的名称的字符串。 请注意，对于 c + +，这是宽字符字符串。  
+ [in] A string specifying the name for which to get the value. Note that for C++, this is a wide character string.  
   
  `pValue`  
- [out]返回关联的数字值。  
+ [out] Returns the associated numerical value.  
   
-## <a name="return-value"></a>返回值  
- 如果成功，返回`S_OK`; 否则为返回`S_FALSE`，如果名称不是枚举，则返回错误代码的一部分。  
+## <a name="return-value"></a>Return Value  
+ If successful, returns `S_OK`; otherwise, returns `S_FALSE`, if the name is not part of the enumeration, or an error code.  
   
-## <a name="remarks"></a>备注  
- 此方法是不区分大小写。 如果区分大小写的搜索需要 （例如，在此时名称是区分大小写的 c + + 等语言） 中，使用[GetValueFromString](../../../extensibility/debugger/reference/idebugenumfield-getvaluefromstring.md)。  
+## <a name="remarks"></a>Remarks  
+ This method is case-insensitive. If a case-sensitive search is needed (for example, in a language such as C++ where names are case-sensitive), use [GetValueFromString](../../../extensibility/debugger/reference/idebugenumfield-getvaluefromstring.md).  
   
-## <a name="see-also"></a>另请参阅  
+## <a name="see-also"></a>See Also  
  [IDebugEnumField](../../../extensibility/debugger/reference/idebugenumfield.md)   
  [GetValueFromString](../../../extensibility/debugger/reference/idebugenumfield-getvaluefromstring.md)

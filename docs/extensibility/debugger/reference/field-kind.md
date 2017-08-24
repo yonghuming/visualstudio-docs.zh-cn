@@ -1,5 +1,5 @@
 ---
-title: "FIELD_KIND |Microsoft 文档"
+title: FIELD_KIND | Microsoft Docs
 ms.custom: 
 ms.date: 11/04/2016
 ms.reviewer: 
@@ -30,17 +30,17 @@ translation.priority.mt:
 - tr-tr
 - zh-cn
 - zh-tw
-ms.translationtype: Machine Translation
-ms.sourcegitcommit: ca7c86466fa23fb21a932f26dc24e37c71cf29b4
-ms.openlocfilehash: f92dc8a17024e9189255156e1e23dabb1ab5ba62
+ms.translationtype: MT
+ms.sourcegitcommit: ff8ecec19f8cab04ac2190f9a4a995766f1750bf
+ms.openlocfilehash: 404334708e3f3b36b779724b90a35b72111a16a7
 ms.contentlocale: zh-cn
-ms.lasthandoff: 04/05/2017
+ms.lasthandoff: 08/24/2017
 
 ---
 # <a name="fieldkind"></a>FIELD_KIND
-指定字段中包含的类型[IDebugField](../../../extensibility/debugger/reference/idebugfield.md)对象。  
+Specifies the kind of field contained in an [IDebugField](../../../extensibility/debugger/reference/idebugfield.md) object.  
   
-## <a name="syntax"></a>语法  
+## <a name="syntax"></a>Syntax  
   
 ```cpp#  
 enum enum_FIELD_KIND {   
@@ -91,7 +91,7 @@ enum enum_FIELD_KIND {
 typedef DWORD FIELD_KIND;  
 ```  
   
-```c#  
+```cs  
 public enum enum_FIELD_KIND {  
    FIELD_KIND_NONE       = 0x00000000,  
   
@@ -139,120 +139,120 @@ public enum enum_FIELD_KIND {
 };  
 ```  
   
-## <a name="members"></a>成员  
+## <a name="members"></a>Members  
  FIELD_KIND_TYPE  
- 指示字段只是类型。  
+ Indicates that the field is a type only.  
   
  FIELD_KIND_SYMBOL  
- 指示字段具有类型、 名称和其他信息的符号。  
+ Indicates that the field is a symbol, with type, name, and other information.  
   
  FIELD_TYPE_PRIMITIVE  
- 指示该字段是基元数据类型。  
+ Indicates that the field is a primitive data type.  
   
  FIELD_TYPE_STRUCT  
- 指示该字段是一种结构。  
+ Indicates that the field is a structure.  
   
  FIELD_TYPE_CLASS  
- 指示该字段是一个类。  
+ Indicates that the field is a class.  
   
  FIELD_TYPE_INTERFACE  
- 指示该字段是一个接口。  
+ Indicates that the field is an interface.  
   
  FIELD_TYPE_UNION  
- 指示该字段是联合。  
+ Indicates that the field is a union.  
   
  FIELD_TYPE_ARRAY  
- 指示该字段是一个数组。  
+ Indicates that the field is an array.  
   
  FIELD_TYPE_METHOD  
- 指示该字段是一种方法。  
+ Indicates that the field is a method.  
   
  FIELD_TYPE_BLOCK  
- 指示该字段是一个块。  
+ Indicates that the field is a block.  
   
  FIELD_TYPE_POINTER  
- 指示该字段是一个指针。  
+ Indicates that the field is a pointer.  
   
  FIELD_TYPE_ENUM  
- 指示该字段是枚举的数据类型。  
+ Indicates that the field is an enumerated data type.  
   
  FIELD_TYPE_LABEL  
- 指示该字段是标签。  
+ Indicates that the field is a label.  
   
  FIELD_TYPE_TYPEDEF  
- 指示该字段是的 typedef。  
+ Indicates that the field is a typedef.  
   
  FIELD_TYPE_BITFIELD  
- 指示该字段是一组标志。  
+ Indicates that the field is a bitfield.  
   
  FIELD_TYPE_NAMESPACE  
- 指示该字段是一个命名空间。  
+ Indicates that the field is a namespace.  
   
  FIELD_TYPE_MODULE  
- 指示该字段是一个模块。  
+ Indicates that the field is a module.  
   
  FIELD_TYPE_DYNAMIC  
- 指示该字段是动态的。  
+ Indicates that the field is dynamic.  
   
  FIELD_TYPE_PROP  
- 指示该字段是一个属性。  
+ Indicates that the field is a property.  
   
  FIELD_TYPE_INNERCLASS  
- 指示该字段是一个内部的类。  
+ Indicates that the field is an inner class.  
   
  FIELD_TYPE_REFERENCE  
- 指示该字段是的引用。  
+ Indicates that the field is a reference.  
   
  FIELD_TYPE_EXTENDED  
- 留待将来使用。  
+ Reserved for future use.  
   
  FIELD_SYM_MEMBER  
- 指示该字段是成员。  
+ Indicates that the field is a member.  
   
  FIELD_SYM_LOCAL  
- 指示该字段是本地。  
+ Indicates that the field is local.  
   
  FIELD_SYM_PARAMETER  
- 指示该字段是一个参数。  
+ Indicates that the field is a parameter.  
   
  FIELD_SYM_THIS  
- 指示该字段是"this"指针。  
+ Indicates that the field is the "this" pointer.  
   
  FIELD_SYM_GLOBAL  
- 指示该字段是全局。  
+ Indicates that the field is global.  
   
  FIELD_SYM_PROP_GETTER  
- 指示字段检索属性。  
+ Indicates that the field retrieves properties.  
   
  FIELD_SYM_PROP_SETTER  
- 指示该字段设置属性。  
+ Indicates that the field sets properties.  
   
  FIELD_SYM_EXTENDED  
- 留待将来使用。  
+ Reserved for future use.  
   
  FIELD_KIND_MASK  
- 指示字段类型的掩码。  
+ Indicates a mask for field kinds.  
   
  FIELD_TYPE_MASK  
- 指示字段类型的掩码。  
+ Indicates a mask for field types.  
   
  FIELD_SYM_MASK  
- 指示符号信息的掩码。  
+ Indicates a mask for symbol information.  
   
-## <a name="remarks"></a>备注  
- 返回到调用[GetKind](../../../extensibility/debugger/reference/idebugfield-getkind.md)方法。  
+## <a name="remarks"></a>Remarks  
+ Returned from a call to the [GetKind](../../../extensibility/debugger/reference/idebugfield-getkind.md) method.  
   
- 具体取决于类型的字段， [QueryInterface](/cpp/atl/queryinterface)可以上调用[IDebugField](../../../extensibility/debugger/reference/idebugfield.md)更特定形式的接口的接口。 例如，如果[GetKind](../../../extensibility/debugger/reference/idebugfield-getkind.md)返回`FIELD_TYPE_METHOD`，然后，你可以调用`QueryInterface`上我`DebugField`获取[IDebugMethodField](../../../extensibility/debugger/reference/idebugmethodfield.md)接口。  
+ Depending on the kind of field, [QueryInterface](/cpp/atl/queryinterface) can be called on the [IDebugField](../../../extensibility/debugger/reference/idebugfield.md) interface for a more specific form of interface. For example, if [GetKind](../../../extensibility/debugger/reference/idebugfield-getkind.md) returns `FIELD_TYPE_METHOD`, you can then call `QueryInterface` on I`DebugField` to obtain the [IDebugMethodField](../../../extensibility/debugger/reference/idebugmethodfield.md) interface.  
   
-## <a name="requirements"></a>要求  
- 标头︰ sh.h  
+## <a name="requirements"></a>Requirements  
+ Header: sh.h  
   
  Namespace: Microsoft.VisualStudio.Debugger.Interop  
   
- 程序集︰ Microsoft.VisualStudio.Debugger.Interop.dll  
+ Assembly: Microsoft.VisualStudio.Debugger.Interop.dll  
   
-## <a name="see-also"></a>另请参阅  
- [枚举](../../../extensibility/debugger/reference/enumerations-visual-studio-debugging.md)   
+## <a name="see-also"></a>See Also  
+ [Enumerations](../../../extensibility/debugger/reference/enumerations-visual-studio-debugging.md)   
  [FIELD_MODIFIERS](../../../extensibility/debugger/reference/field-modifiers.md)   
  [GetKind](../../../extensibility/debugger/reference/idebugfield-getkind.md)   
  [IDebugField](../../../extensibility/debugger/reference/idebugfield.md)

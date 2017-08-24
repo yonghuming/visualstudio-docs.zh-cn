@@ -1,47 +1,52 @@
 ---
-title: "更新迁移到 .NET Framework 4 或 .NET Framework 4.5 的 Office 项目中的功能区自定义项 | Microsoft Docs"
-ms.custom: ""
-ms.date: "02/02/2017"
-ms.prod: "visual-studio-dev14"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "office-development"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-dev_langs: 
-  - "VB"
-  - "CSharp"
-helpviewer_keywords: 
-  - "Office 项目 [Visual Studio 中的 Office 开发], 迁移到 .NET Framework 4"
+title: Updating Ribbon Customizations in Office Projects that You Migrate to the .NET Framework 4 or the .NET Framework 4.5 | Microsoft Docs
+ms.custom: 
+ms.date: 02/02/2017
+ms.prod: visual-studio-dev14
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- office-development
+ms.tgt_pltfrm: 
+ms.topic: article
+dev_langs:
+- VB
+- CSharp
+helpviewer_keywords:
+- Office projects [Office development in Visual Studio], migrating to .NET Framework 4
 ms.assetid: 3b7c8ad4-a616-4b42-9d62-9658fdefe6a3
 caps.latest.revision: 18
-author: "kempb"
-ms.author: "kempb"
-manager: "ghogen"
-caps.handback.revision: 17
+author: kempb
+ms.author: kempb
+manager: ghogen
+ms.translationtype: HT
+ms.sourcegitcommit: ff8ecec19f8cab04ac2190f9a4a995766f1750bf
+ms.openlocfilehash: 4b01e37aecbad238d6a66af907d3a87cba3e210d
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/24/2017
+
 ---
-# 更新迁移到 .NET Framework 4 或 .NET Framework 4.5 的 Office 项目中的功能区自定义项
-  如果项目包含通过使用**“功能区 \(Visual Designer\)”**项目项创建的功能区自定义项，并且如果已将目标框架更改为 [!INCLUDE[net_v40_short](../sharepoint/includes/net-v40-short-md.md)] 或更高版本，则必须对项目代码进行以下更改。  
+# <a name="updating-ribbon-customizations-in-office-projects-that-you-migrate-to-the-net-framework-4-or-the-net-framework-45"></a>Updating Ribbon Customizations in Office Projects that You Migrate to the .NET Framework 4 or the .NET Framework 4.5
+  If your project contains a Ribbon customization that was created by using the **Ribbon (Visual Designer)** project item, you must make the following changes to your project code if the target framework is changed to the [!INCLUDE[net_v40_short](../sharepoint/includes/net-v40-short-md.md)] or later.  
   
--   修改生成的功能区代码。  
+-   Modify the generated Ribbon code.  
   
--   修改在运行时实例化功能区控件、处理功能区事件或以编程方式设置功能区组件位置的任何代码。  
+-   Modify any code that instantiates Ribbon controls at runtime, handles Ribbon events, or sets the position of a Ribbon component programmatically.  
   
-## 更新生成的功能区代码  
- 如果已将项目的目标框架更改为 [!INCLUDE[net_v40_short](../sharepoint/includes/net-v40-short-md.md)] 或更高版本，则必须通过执行以下步骤更改功能区项的生成代码。  你需要更新的代码文件取决于编程语言和你创建项目的方式：  
+## <a name="updating-the-generated-ribbon-code"></a>Updating the Generated Ribbon Code  
+ If the target framework of your project is changed to the [!INCLUDE[net_v40_short](../sharepoint/includes/net-v40-short-md.md)] or later, you must change the generated code for the Ribbon item by performing the following steps. The code files you need to update depend on the programming language and how you created the project:  
   
--   在你在 [!INCLUDE[vs_dev11_long](../sharepoint/includes/vs-dev11-long-md.md)] 或 [!INCLUDE[vs_dev10_long](../sharepoint/includes/vs-dev10-long-md.md)] 中创建的 Visual Basic 或 Visual C\# 项目中，执行功能区代码隐藏文件 \(*YourRibbonItem*.Designer.cs or *YourRibbonItem*.Designer.vb\) 中的所有步骤。  要查看 Visual Basic 项目中的代码隐藏文件，可单击**“解决方案资源管理器”**中的**“显示全部文件”**。  
+-   In Visual Basic projects, or in Visual C# projects that you created in either [!INCLUDE[vs_dev11_long](../sharepoint/includes/vs-dev11-long-md.md)] or [!INCLUDE[vs_dev10_long](../sharepoint/includes/vs-dev10-long-md.md)] perform all of the steps in the Ribbon code-behind file (*YourRibbonItem*.Designer.cs or *YourRibbonItem*.Designer.vb). To see the code-behind file in Visual Basic projects, click the **Show All Files** button in **Solution Explorer**.  
   
--   在你在 Visual Studio 2008 中创建随后升级到 [!INCLUDE[vs_dev12](../vsto/includes/vs-dev12-md.md)] 的 Visual C\# 项目中，执行功能区代码文件（*YourRibbonItem*.cs 或 *YourRibbonItem*.vb\)）的前两步，然后执行功能区代码隐藏文件中的其余步骤。  
+-   In Visual C# projects that you created in Visual Studio 2008 and then upgraded to [!INCLUDE[vs_dev12](../vsto/includes/vs-dev12-md.md)], perform the first two steps in the Ribbon code file (*YourRibbonItem*.cs or *YourRibbonItem*.vb), and perform the remaining steps in the Ribbon code-behind file.  
   
-#### 若要更改生成的功能区代码  
+#### <a name="to-change-the-generated-ribbon-code"></a>To change the generated Ribbon code  
   
-1.  修改 Ribbon 类的声明，使它可以从 <xref:Microsoft.Office.Tools.Ribbon.RibbonBase> 而不是从 Microsoft.Office.Tools.Ribbon.OfficeRibbon 派生。  
+1.  Modify the declaration of the Ribbon class so that it derives from <xref:Microsoft.Office.Tools.Ribbon.RibbonBase> instead of Microsoft.Office.Tools.Ribbon.OfficeRibbon.  
   
-2.  修改 Ribbon 类的构造函数，如下所示。  如果你已向构造函数添加了自己的所有代码，则不要更改你的代码。  在 Visual Basic 项目中，仅修改无参数构造函数。  忽略另一个构造函数。  
+2.  Modify the constructor of the Ribbon class as shown below. If you have added any of your own code to the constructor, do not change your code. In Visual Basic projects, modify only the parameterless constructor. Ignore the other constructor.  
   
-     下面的代码示例介绍了面向 .NET Framework 3.5 的项目中的 Ribbon 类的默认构造函数。  
+     The following code example shows the default constructor of a Ribbon class in a project that targets the .NET Framework 3.5.  
   
     ```vb  
     Public Sub New()  
@@ -50,14 +55,14 @@ caps.handback.revision: 17
     End Sub  
     ```  
   
-    ```csharp  
+    ```cs  
     public Ribbon1()  
     {  
         InitializeComponent();  
     }  
     ```  
   
-     下面的代码示例介绍了面向 [!INCLUDE[net_v40_short](../sharepoint/includes/net-v40-short-md.md)] 或更高版本的项目中的 Ribbon 类的默认构造函数。  
+     The following code example shows the default constructor of a Ribbon class in a project that targets the [!INCLUDE[net_v40_short](../sharepoint/includes/net-v40-short-md.md)] or later.  
   
     ```vb  
     Public Sub New()  
@@ -66,7 +71,7 @@ caps.handback.revision: 17
     End Sub  
     ```  
   
-    ```csharp  
+    ```cs  
     public Ribbon1()  
         : base(Globals.Factory.GetRibbonFactory())  
     {  
@@ -74,84 +79,68 @@ caps.handback.revision: 17
     }  
     ```  
   
-3.  在 `InitializeComponent` 方法中，修改构造功能区控件的任何代码，使代码能够改用 <xref:Microsoft.Office.Tools.Ribbon.RibbonFactory> 对象的一种帮助器方法。  
+3.  In the `InitializeComponent` method, modify any code that constructs a Ribbon control so that the code instead uses one of the helper methods of the <xref:Microsoft.Office.Tools.Ribbon.RibbonFactory> object.  
   
     > [!NOTE]  
-    >  在 Visual C\# 项目中，必须展开名为 `Component Designer generated code` 的区域才能查看 `InitializeComponent` 方法。  
+    >  In Visual C# projects, you must expand the region that is named `Component Designer generated code` to see the `InitializeComponent` method.  
   
-     例如，假设文件包含以下代码行，该代码行可实例化面向 .NET Framework 3.5 的项目中名为 `button1` 的 <xref:Microsoft.Office.Tools.Ribbon.RibbonButton>。  
+     For example, assume that your file contains the following line of code that instantiates a <xref:Microsoft.Office.Tools.Ribbon.RibbonButton> named `button1` in a project that targets the .NET Framework 3.5.  
   
     ```vb  
     Me.button1 = New Microsoft.Office.Tools.Ribbon.RibbonButton()  
     ```  
   
-    ```csharp  
+    ```cs  
     this.button1 = new Microsoft.Office.Tools.Ribbon.RibbonButton();  
     ```  
   
-     在面向 [!INCLUDE[net_v40_short](../sharepoint/includes/net-v40-short-md.md)] 或更高版本的项目中，必须改用以下代码。  
+     In a project that targets the [!INCLUDE[net_v40_short](../sharepoint/includes/net-v40-short-md.md)] or later, you must use the following code instead.  
   
     ```vb  
     Me.button1 = Me.Factory.CreateRibbonButton()  
     ```  
   
-    ```csharp  
+    ```cs  
     this.button1 = this.Factory.CreateRibbonButton();  
     ```  
   
-     有关功能区控件的帮助器方法的完整列表，请参阅[实例化功能区控件](#ribboncontrols)。  
+     For a full list of the helper methods for the Ribbon controls, see [Instantiating Ribbon Controls](#ribboncontrols).  
   
-4.  在 Visual C\# 项目中，修改 `InitializeComponent` 方法中的任何代码行，该方法使用 <xref:System.EventHandler%601> 委托来改用特定功能区委托。  
+4.  In Visual C# projects, modify any line of code in the `InitializeComponent` method that uses an <xref:System.EventHandler%601> delegate to use a specific Ribbon delegate instead.  
   
-     例如，假设文件包含以下代码行，该代码行可处理面向 .NET Framework 3.5 的项目中的 <xref:Microsoft.Office.Tools.Ribbon.RibbonButton.Click> 事件。  
+     For example, assume that your file contains the following line of code that handles the <xref:Microsoft.Office.Tools.Ribbon.RibbonButton.Click> event in a project that targets the .NET Framework 3.5.  
   
-    ```csharp  
-    this.button1.Click += new System.EventHandler<Microsoft.Office.Tools.Ribbon.RibbonControlEventArgs>(  
-        this.button1_Click);  
-    ```  
+<CodeContentPlaceHolder>8</CodeContentPlaceHolder>  
+     In a project that targets the [!INCLUDE[net_v40_short](../sharepoint/includes/net-v40-short-md.md)] or later, you must use the following code instead.  
   
-     在面向 [!INCLUDE[net_v40_short](../sharepoint/includes/net-v40-short-md.md)] 或更高版本的项目中，必须改用以下代码。  
+<CodeContentPlaceHolder>9</CodeContentPlaceHolder>  
+     For a full list of the Ribbon delegates, see [Handling Ribbon Events](#ribbonevents).  
   
-    ```csharp  
-    this.button1.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(  
-        this.button1_Click);  
-    ```  
+5.  In Visual Basic projects, locate the `ThisRibbonCollection` class at the end of the file. Modify the declaration of this class so that it no longer inherits from Microsoft.Office.Tools.Ribbon.RibbonReadOnlyCollection.  
   
-     有关功能区委托的完整列表，请参阅[处理功能区事件](#ribbonevents)。  
+##  <a name="ribboncontrols"></a> Instantiating Ribbon Controls  
+ You must modify any code that dynamically instantiates Ribbon controls. In projects that target the .NET Framework 3.5, Ribbon controls are classes that you can instantiate directly in certain scenarios. In projects that target the [!INCLUDE[net_v40_short](../sharepoint/includes/net-v40-short-md.md)] or later, these controls are interfaces that you cannot instantiate directly. You must create the controls by using methods that are provided by the <xref:Microsoft.Office.Tools.Ribbon.RibbonFactory> object.  
   
-5.  在 Visual Basic 项目中，找到文件末尾的 `ThisRibbonCollection` 类。  修改此类的声明，以便它不再继承自 Microsoft.Office.Tools.Ribbon.RibbonReadOnlyCollection。  
+ There are two ways to access the <xref:Microsoft.Office.Tools.Ribbon.RibbonFactory> object:  
   
-##  <a name="ribboncontrols"></a> 实例化功能区控件  
- 必须修改可动态实例化功能区控件的任何代码。  在面向.NET Framework 3.5 的项目中，功能区控件是你可以直接在某些方案中进行实例化的类。  在面向 [!INCLUDE[net_v40_short](../sharepoint/includes/net-v40-short-md.md)] 或更高版本的项目中，这些控件是你无法直接实例化的接口。  你必须通过使用由 <xref:Microsoft.Office.Tools.Ribbon.RibbonFactory> 对象提供的方法创建控件。  
+-   By using the Factory property of the Ribbon class. Use this approach from code in your Ribbon class.  
   
- 可通过两种方法来访问 <xref:Microsoft.Office.Tools.Ribbon.RibbonFactory> 对象：  
+-   By using the Globals.Factory.GetRibbonFactory method. Use this approach from code outside your Ribbon class. For more information about the Globals class, see [Global Access to Objects in Office Projects](../vsto/global-access-to-objects-in-office-projects.md).  
   
--   通过使用 Ribbon 类的 Factory 属性。  可从 Ribbon 类中的代码使用此方法。  
+ The following code example demonstrates how to create a <xref:Microsoft.Office.Tools.Ribbon.RibbonButton> in a Ribbon class in a project that targets the [!INCLUDE[net_v40_short](../sharepoint/includes/net-v40-short-md.md)] or later.  
   
--   通过使用 Globals.Factory.GetRibbonFactory 方法。  可从 Ribbon 类外的代码使用此方法。  有关 Globals 类的详细信息，请参阅[对 Office 项目中对象的全局访问](../vsto/global-access-to-objects-in-office-projects.md)。  
+<CodeContentPlaceHolder>10</CodeContentPlaceHolder>  
+<CodeContentPlaceHolder>11</CodeContentPlaceHolder>  
+ The following table lists the controls you can create programmatically and the method to use to create the controls in projects that target the [!INCLUDE[net_v40_short](../sharepoint/includes/net-v40-short-md.md)] or later.  
   
- 下面的代码示例演示了如何在面向 [!INCLUDE[net_v40_short](../sharepoint/includes/net-v40-short-md.md)] 或更高版本的项目中的 Ribbon 类中创建 <xref:Microsoft.Office.Tools.Ribbon.RibbonButton>。  
-  
-```vb  
-Dim button As Microsoft.Office.Tools.Ribbon.RibbonButton =  
-    Me.Factory.CreateRibbonButton()  
-```  
-  
-```csharp  
-Microsoft.Office.Tools.Ribbon.RibbonButton button =  
-    this.Factory.CreateRibbonButton();  
-```  
-  
- 下表列出了你可以以编程方式创建的控件和用于创建面向 [!INCLUDE[net_v40_short](../sharepoint/includes/net-v40-short-md.md)] 或更高版本的项目中的控件的方法。  
-  
-|控件|在 [!INCLUDE[net_v40_short](../sharepoint/includes/net-v40-short-md.md)] 和更高版本的项目中使用的 RibbonFactory 方法|  
-|--------|---------------------------------------------------------------------------------------------|  
+|Control|RibbonFactory method to use in [!INCLUDE[net_v40_short](../sharepoint/includes/net-v40-short-md.md)] and later projects|  
+|-------------|---------------------------------------------------------------------------------------------------------------|  
 |<xref:Microsoft.Office.Tools.Ribbon.RibbonButton>|<xref:Microsoft.Office.Tools.Ribbon.RibbonFactory.CreateRibbonButton%2A>|  
 |<xref:Microsoft.Office.Tools.Ribbon.RibbonButtonGroup>|<xref:Microsoft.Office.Tools.Ribbon.RibbonFactory.CreateRibbonButtonGroup%2A>|  
 |<xref:Microsoft.Office.Tools.Ribbon.RibbonCheckBox>|<xref:Microsoft.Office.Tools.Ribbon.RibbonFactory.CreateRibbonCheckBox%2A>|  
 |<xref:Microsoft.Office.Tools.Ribbon.RibbonComboBox>|<xref:Microsoft.Office.Tools.Ribbon.RibbonFactory.CreateRibbonComboBox%2A>|  
 |<xref:Microsoft.Office.Tools.Ribbon.RibbonDialogLauncher>|<xref:Microsoft.Office.Tools.Ribbon.RibbonFactory.CreateRibbonDialogLauncher%2A>|  
-|<xref:Microsoft.Office.Tools.Ribbon.RibbonDropDown>：|<xref:Microsoft.Office.Tools.Ribbon.RibbonFactory.CreateRibbonDropDown%2A>|  
+|<xref:Microsoft.Office.Tools.Ribbon.RibbonDropDown>:|<xref:Microsoft.Office.Tools.Ribbon.RibbonFactory.CreateRibbonDropDown%2A>|  
 |<xref:Microsoft.Office.Tools.Ribbon.RibbonDropDownItem>|<xref:Microsoft.Office.Tools.Ribbon.RibbonFactory.CreateRibbonDropDownItem%2A>|  
 |<xref:Microsoft.Office.Tools.Ribbon.RibbonEditBox>|<xref:Microsoft.Office.Tools.Ribbon.RibbonFactory.CreateRibbonEditBox%2A>|  
 |<xref:Microsoft.Office.Tools.Ribbon.RibbonGallery>|<xref:Microsoft.Office.Tools.Ribbon.RibbonFactory.CreateRibbonGallery%2A>|  
@@ -164,48 +153,48 @@ Microsoft.Office.Tools.Ribbon.RibbonButton button =
 |<xref:Microsoft.Office.Tools.Ribbon.RibbonTab>|<xref:Microsoft.Office.Tools.Ribbon.RibbonFactory.CreateRibbonTab%2A>|  
 |<xref:Microsoft.Office.Tools.Ribbon.RibbonToggleButton>|<xref:Microsoft.Office.Tools.Ribbon.RibbonFactory.CreateRibbonToggleButton%2A>|  
   
-##  <a name="ribbonevents"></a> 处理功能区事件  
- 必须修改可以处理功能区控件的事件的任何代码。  在面向 .NET Framework 3.5 的项目中，这些事件由泛型 <xref:System.EventHandler%601> 委托处理。  在面向 [!INCLUDE[net_v40_short](../sharepoint/includes/net-v40-short-md.md)] 或更高版本的项目中，这些事件现在由其他委托处理。  
+##  <a name="ribbonevents"></a> Handling Ribbon Events  
+ You must modify any code that handles events of Ribbon controls. In projects that target the .NET Framework 3.5, these events are handled by the generic <xref:System.EventHandler%601> delegate. In projects that target the [!INCLUDE[net_v40_short](../sharepoint/includes/net-v40-short-md.md)] or later, these events are now handled by other delegates.  
   
- 下表列出了功能区事件以及在面向 [!INCLUDE[net_v40_short](../sharepoint/includes/net-v40-short-md.md)] 或更高版本的项目中与它们关联的委托。  
+ The following table lists the Ribbon events and the delegates that are associated with them in projects that target the [!INCLUDE[net_v40_short](../sharepoint/includes/net-v40-short-md.md)] or later.  
   
-|事件|委托在 [!INCLUDE[net_v40_short](../sharepoint/includes/net-v40-short-md.md)] 和更高版本的项目中使用|  
-|--------|-----------------------------------------------------------------------------|  
-|生成的 Ribbon 类中的 <xref:Microsoft.Office.Tools.Ribbon.OfficeRibbon.LoadImage> 事件|<xref:Microsoft.Office.Tools.Ribbon.RibbonLoadImageEventHandler>|  
+|Event|Delegate to use in [!INCLUDE[net_v40_short](../sharepoint/includes/net-v40-short-md.md)] and later projects|  
+|-----------|---------------------------------------------------------------------------------------------------|  
+|<xref:Microsoft.Office.Tools.Ribbon.OfficeRibbon.LoadImage> event in a generated Ribbon class|<xref:Microsoft.Office.Tools.Ribbon.RibbonLoadImageEventHandler>|  
 |<xref:Microsoft.Office.Tools.Ribbon.OfficeRibbon.Load>|<xref:Microsoft.Office.Tools.Ribbon.RibbonUIEventHandler>|  
 |<xref:Microsoft.Office.Tools.Ribbon.RibbonButton.Click><br /><br /> <xref:Microsoft.Office.Tools.Ribbon.RibbonCheckBox.Click><br /><br /> <xref:Microsoft.Office.Tools.Ribbon.RibbonComboBox.ItemsLoading><br /><br /> <xref:Microsoft.Office.Tools.Ribbon.RibbonComboBox.TextChanged><br /><br /> <xref:Microsoft.Office.Tools.Ribbon.RibbonDropDown.ButtonClick><br /><br /> <xref:Microsoft.Office.Tools.Ribbon.RibbonDropDown.ItemsLoading><br /><br /> <xref:Microsoft.Office.Tools.Ribbon.RibbonDropDown.SelectionChanged><br /><br /> <xref:Microsoft.Office.Tools.Ribbon.RibbonEditBox.TextChanged><br /><br /> <xref:Microsoft.Office.Tools.Ribbon.RibbonGallery.ButtonClick><br /><br /> <xref:Microsoft.Office.Tools.Ribbon.RibbonGallery.Click><br /><br /> <xref:Microsoft.Office.Tools.Ribbon.RibbonGallery.ItemsLoading><br /><br /> <xref:Microsoft.Office.Tools.Ribbon.RibbonGroup.DialogLauncherClick><br /><br /> <xref:Microsoft.Office.Tools.Ribbon.RibbonMenu.ItemsLoading><br /><br /> <xref:Microsoft.Office.Tools.Ribbon.RibbonSplitButton.Click><br /><br /> <xref:Microsoft.Office.Tools.Ribbon.RibbonToggleButton.Click>|<xref:Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler>|  
   
-## 以编程方式设置功能区组件的位置  
- 必须修改可设置功能区组、选项卡或控件位置的任何代码。  在面向.NET Framework 3.5 的项目中，你可以使用静态 Microsoft.Office.Tools.Ribbon.RibbonPosition 类的 AfterOfficeId 和 BeforeOfficeId 方法来分配组、选项卡或控件的 Position 属性。  在面向 [!INCLUDE[net_v40_short](../sharepoint/includes/net-v40-short-md.md)] 或更高版本的项目中，你必须通过使用由 <xref:Microsoft.Office.Tools.Ribbon.RibbonFactory> 对象提供的 <xref:Microsoft.Office.Tools.Ribbon.RibbonFactory.RibbonPosition%2A> 属性来访问这些方法。  
+## <a name="setting-the-position-of-a-ribbon-component-programmatically"></a>Setting the Position of a Ribbon Component Programmatically  
+ You must modify any code that sets the position of Ribbon groups, tabs, or controls. In projects that target the .NET Framework 3.5, you can use the AfterOfficeId and BeforeOfficeId methods of the static Microsoft.Office.Tools.Ribbon.RibbonPosition class to assign the Position property of a group, tab, or control. In projects that target the [!INCLUDE[net_v40_short](../sharepoint/includes/net-v40-short-md.md)] or later, you must access these methods by using the <xref:Microsoft.Office.Tools.Ribbon.RibbonFactory.RibbonPosition%2A> property provided by the <xref:Microsoft.Office.Tools.Ribbon.RibbonFactory> object.  
   
- 可通过两种方法来访问 <xref:Microsoft.Office.Tools.Ribbon.RibbonFactory> 对象：  
+ There are two ways to access the <xref:Microsoft.Office.Tools.Ribbon.RibbonFactory> object:  
   
--   通过使用 Ribbon 类的 Factory 属性。  可从 Ribbon 类中的代码使用此方法。  
+-   By using the Factory property of the Ribbon class. Use this approach from code in your Ribbon class.  
   
--   通过使用 Globals.Factory.GetRibbonFactory 方法。  可从 Ribbon 类外的代码使用此方法。  有关 Globals 类的详细信息，请参阅[对 Office 项目中对象的全局访问](../vsto/global-access-to-objects-in-office-projects.md)。  
+-   By using the Globals.Factory.GetRibbonFactory method. Use this approach from code outside your Ribbon class. For more information about the Globals class, see [Global Access to Objects in Office Projects](../vsto/global-access-to-objects-in-office-projects.md).  
   
- 下面的代码示例演示了面向 .NET Framework 3.5 的项目中 Ribbon 类的选项卡的 Position 属性。  
+ The following code example demonstrates how to set the Position property of a tab in a Ribbon class in a project that targets the .NET Framework 3.5.  
   
 ```vb  
 Me.tab1.Position = RibbonPosition.AfterOfficeId("TabHome")  
 ```  
   
-```csharp  
+```cs  
 this.tab1.Position = RibbonPosition.AfterOfficeId("TabHome");  
 ```  
   
- 下面的代码示例演示了面向 [!INCLUDE[net_v40_short](../sharepoint/includes/net-v40-short-md.md)] 的项目中的相同任务。  
+ The following code example demonstrates the same task in a project that targets the [!INCLUDE[net_v40_short](../sharepoint/includes/net-v40-short-md.md)].  
   
 ```vb  
 Me.tab1.Position = Me.Factory.RibbonPosition.AfterOfficeId("TabHome")  
 ```  
   
-```csharp  
+```cs  
 this.tab1.Position = this.Factory.RibbonPosition.AfterOfficeId("TabHome");  
 ```  
   
-## 请参阅  
- [将 Office 解决方案迁移到 .NET Framework 4 或更高版本](../vsto/migrating-office-solutions-to-the-dotnet-framework-4-or-later.md)   
- [功能区设计器](../vsto/ribbon-designer.md)  
+## <a name="see-also"></a>See Also  
+ [Migrating Office Solutions to the .NET Framework 4 or later](../vsto/migrating-office-solutions-to-the-dotnet-framework-4-or-later.md)   
+ [Ribbon Designer](../vsto/ribbon-designer.md)  
   
   

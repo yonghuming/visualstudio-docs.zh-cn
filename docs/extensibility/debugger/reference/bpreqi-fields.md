@@ -1,128 +1,145 @@
 ---
-title: "BPREQI_FIELDS | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "BPREQI_FIELDS"
-helpviewer_keywords: 
-  - "BPREQI_FIELDS 枚举"
+title: BPREQI_FIELDS | Microsoft Docs
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords:
+- BPREQI_FIELDS
+helpviewer_keywords:
+- BPREQI_FIELDS enumeration
 ms.assetid: 679e771e-4a79-484e-af37-f962ef4aa245
 caps.latest.revision: 14
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 14
----
-# BPREQI_FIELDS
-[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
+ms.author: gregvanl
+manager: ghogen
+translation.priority.mt:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+ms.translationtype: MT
+ms.sourcegitcommit: ff8ecec19f8cab04ac2190f9a4a995766f1750bf
+ms.openlocfilehash: 95207f7d5abf65725436859971d83221e46e5344
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/24/2017
 
-指定要检索的信息有关断点请求。  
+---
+# <a name="bpreqifields"></a>BPREQI_FIELDS
+Specifies the information to be retrieved about a breakpoint request.  
   
-## 语法  
+## <a name="syntax"></a>Syntax  
   
 ```cpp  
-enum enum_BPREQI_FIELDS {   
-   BPREQI_BPLOCATION   = 0x0001,  
-   BPREQI_LANGUAGE     = 0x0002,  
-   BPREQI_PROGRAM      = 0x0004,  
-   BPREQI_PROGRAMNAME  = 0x0008,  
-   BPREQI_THREAD       = 0x0010,  
-   BPREQI_THREADNAME   = 0x0020,  
-   BPREQI_PASSCOUNT    = 0x0040,  
-   BPREQI_CONDITION    = 0x0080,  
-   BPREQI_FLAGS        = 0x0100,  
-   BPREQI_ALLOLDFIELDS = 0x01ff  
-   BPREQI_VENDOR       = 0x0200,   // BP_REQUEST_INFO2 only  
-   BPREQI_CONSTRAINT   = 0x0400,   // BP_REQUEST_INFO2 only  
-   BPREQI_TRACEPOINT   = 0x0800,   // BP_REQUEST_INFO2 only  
-   BPREQI_ALLFIELDS    = 0x0fff    // BP_REQUEST_INFO2 only  
+enum enum_BPREQI_FIELDS {   
+   BPREQI_BPLOCATION   = 0x0001,  
+   BPREQI_LANGUAGE     = 0x0002,  
+   BPREQI_PROGRAM      = 0x0004,  
+   BPREQI_PROGRAMNAME  = 0x0008,  
+   BPREQI_THREAD       = 0x0010,  
+   BPREQI_THREADNAME   = 0x0020,  
+   BPREQI_PASSCOUNT    = 0x0040,  
+   BPREQI_CONDITION    = 0x0080,  
+   BPREQI_FLAGS        = 0x0100,  
+   BPREQI_ALLOLDFIELDS = 0x01ff  
+   BPREQI_VENDOR       = 0x0200,   // BP_REQUEST_INFO2 only  
+   BPREQI_CONSTRAINT   = 0x0400,   // BP_REQUEST_INFO2 only  
+   BPREQI_TRACEPOINT   = 0x0800,   // BP_REQUEST_INFO2 only  
+   BPREQI_ALLFIELDS    = 0x0fff    // BP_REQUEST_INFO2 only  
 };  
 typedef DWORD BPREQI_FIELDS;  
 ```  
   
-```c#  
-public enum enum_BPREQI_FIELDS {   
-   BPREQI_BPLOCATION   = 0x0001,  
-   BPREQI_LANGUAGE     = 0x0002,  
-   BPREQI_PROGRAM      = 0x0004,  
-   BPREQI_PROGRAMNAME  = 0x0008,  
-   BPREQI_THREAD       = 0x0010,  
-   BPREQI_THREADNAME   = 0x0020,  
-   BPREQI_PASSCOUNT    = 0x0040,  
-   BPREQI_CONDITION    = 0x0080,  
-   BPREQI_FLAGS        = 0x0100,  
-   BPREQI_ALLOLDFIELDS = 0x01ff  
-   BPREQI_VENDOR       = 0x0200,   // BP_REQUEST_INFO2 only  
-   BPREQI_CONSTRAINT   = 0x0400,   // BP_REQUEST_INFO2 only  
-   BPREQI_TRACEPOINT   = 0x0800,   // BP_REQUEST_INFO2 only  
-   BPREQI_ALLFIELDS    = 0x0fff    // BP_REQUEST_INFO2 only  
+```cs  
+public enum enum_BPREQI_FIELDS {   
+   BPREQI_BPLOCATION   = 0x0001,  
+   BPREQI_LANGUAGE     = 0x0002,  
+   BPREQI_PROGRAM      = 0x0004,  
+   BPREQI_PROGRAMNAME  = 0x0008,  
+   BPREQI_THREAD       = 0x0010,  
+   BPREQI_THREADNAME   = 0x0020,  
+   BPREQI_PASSCOUNT    = 0x0040,  
+   BPREQI_CONDITION    = 0x0080,  
+   BPREQI_FLAGS        = 0x0100,  
+   BPREQI_ALLOLDFIELDS = 0x01ff  
+   BPREQI_VENDOR       = 0x0200,   // BP_REQUEST_INFO2 only  
+   BPREQI_CONSTRAINT   = 0x0400,   // BP_REQUEST_INFO2 only  
+   BPREQI_TRACEPOINT   = 0x0800,   // BP_REQUEST_INFO2 only  
+   BPREQI_ALLFIELDS    = 0x0fff    // BP_REQUEST_INFO2 only  
 };  
 ```  
   
-## 成员  
- BPREQI\_BPLOCATION  
- 初始化\/使用 [BP\_REQUEST\_INFO](../../../extensibility/debugger/reference/bp-request-info.md) 或 [BP\_REQUEST\_INFO2](../../../extensibility/debugger/reference/bp-request-info2.md) 结构的 `bpLocation` \(断点位置\) 字段。  
+## <a name="members"></a>Members  
+ BPREQI_BPLOCATION  
+ Initialize/use the `bpLocation` (breakpoint location) field of the [BP_REQUEST_INFO](../../../extensibility/debugger/reference/bp-request-info.md) or [BP_REQUEST_INFO2](../../../extensibility/debugger/reference/bp-request-info2.md) structure.  
   
- BPREQI\_LANGUAGE  
- 初始化\/使用 `BP_REQUEST_INFO` 或 `BP_REQUEST_INFO2` 结构的 `guidLanguage` 字段。  
+ BPREQI_LANGUAGE  
+ Initialize/use the `guidLanguage` field of the `BP_REQUEST_INFO` or `BP_REQUEST_INFO2` structure.  
   
- BPREQI\_PROGRAM  
- 初始化\/使用 `BP_REQUEST_INFO` 或 `BP_REQUEST_INFO2` 结构的 `pProgram` 字段。  
+ BPREQI_PROGRAM  
+ Initialize/use the `pProgram` field of the `BP_REQUEST_INFO` or `BP_REQUEST_INFO2` structure.  
   
- BPREQI\_PROGRAMNAME  
- 初始化\/使用 `BP_REQUEST_INFO` 或 `BP_REQUEST_INFO2` 结构的 `bstrProgramName` 字段。  
+ BPREQI_PROGRAMNAME  
+ Initialize/use the `bstrProgramName` field of the `BP_REQUEST_INFO` or `BP_REQUEST_INFO2` structure.  
   
- BPREQI\_THREAD  
- 初始化\/使用 `BP_REQUEST_INFO` 或 `BP_REQUEST_INFO2` 结构的 `pThread` 字段。  
+ BPREQI_THREAD  
+ Initialize/use the `pThread` field of the `BP_REQUEST_INFO` or `BP_REQUEST_INFO2` structure.  
   
- BPREQI\_THREADNAME  
- 初始化\/使用 `BP_REQUEST_INFO` 或 `BP_REQUEST_INFO2` 结构的 `bstrThreadName` 字段。  
+ BPREQI_THREADNAME  
+ Initialize/use the `bstrThreadName` field of the `BP_REQUEST_INFO` or `BP_REQUEST_INFO2` structure.  
   
- BPREQI\_PASSCOUNT  
- 初始化\/使用 `BP_REQUEST_INFO` 或 `BP_REQUEST_INFO2` 结构的 `bpPassCount` 字段。  
+ BPREQI_PASSCOUNT  
+ Initialize/use the `bpPassCount` field of the `BP_REQUEST_INFO` or `BP_REQUEST_INFO2` structure.  
   
- BPREQI\_CONDITION  
- 初始化\/使用 `BP_REQUEST_INFO` 或 `BP_REQUEST_INFO2` 结构的 `bpCondition` \(断点条件\) 字段。  
+ BPREQI_CONDITION  
+ Initialize/use the `bpCondition` (breakpoint condition) field of the `BP_REQUEST_INFO` or `BP_REQUEST_INFO2` structure.  
   
- BPREQI\_FLAGS  
- 初始化\/使用 `BP_REQUEST_INFO` 或 `BP_REQUEST_INFO2` 结构的 `dwFlags` 字段。  
+ BPREQI_FLAGS  
+ Initialize/use the `dwFlags` field of the `BP_REQUEST_INFO` or `BP_REQUEST_INFO2` structure.  
   
- BPREQI\_ALLOLDFIELDS  
- 初始化\/使用的所有字段 `BP_REQUEST_INFO` 结构。  
+ BPREQI_ALLOLDFIELDS  
+ Initialize/use all fields for the of the `BP_REQUEST_INFO` structure.  
   
- BPREQI\_VENDOR  
- 初始化\/使用 `BP_REQUEST_INFO2` 结构的 `guidVendor` 字段。  
+ BPREQI_VENDOR  
+ Initialize/use the `guidVendor` field of `BP_REQUEST_INFO2` structure.  
   
- BPREQI\_CONSTRAINT  
- 初始化\/使用 `BP_REQUEST_INFO2` 结构的 `bstrConstraint` 字段。  
+ BPREQI_CONSTRAINT  
+ Initialize/use the `bstrConstraint` field of `BP_REQUEST_INFO2` structure.  
   
- BPREQI\_TRACEPOINT  
- 初始化\/使用 `BP_REQUEST_INFO2` 结构的 `bstrTracepoint` 字段。  
+ BPREQI_TRACEPOINT  
+ Initialize/use the `bstrTracepoint` field of `BP_REQUEST_INFO2` structure.  
   
- BPREQI\_ALLFIELDS  
- 为 `BP_REQUEST_INFO2` 结构指定所有字段。  
+ BPREQI_ALLFIELDS  
+ Specifies all fields for the `BP_REQUEST_INFO2` structure.  
   
-## 备注  
- 将作为参数传递 [GetRequestInfo](../../../extensibility/debugger/reference/idebugbreakpointrequest2-getrequestinfo.md) 和 [BP\_REQUEST\_INFO](../../../extensibility/debugger/reference/bp-request-info.md) 方法指定 [BP\_REQUEST\_INFO](../../../extensibility/debugger/reference/bp-request-info.md) 和 [BP\_REQUEST\_INFO2](../../../extensibility/debugger/reference/bp-request-info2.md) 结构的哪些字段进行初始化。  
+## <a name="remarks"></a>Remarks  
+ Passed as an argument to the [GetRequestInfo](../../../extensibility/debugger/reference/idebugbreakpointrequest2-getrequestinfo.md) and [BP_REQUEST_INFO](../../../extensibility/debugger/reference/bp-request-info.md) methods to specify which fields of the [BP_REQUEST_INFO](../../../extensibility/debugger/reference/bp-request-info.md) and [BP_REQUEST_INFO2](../../../extensibility/debugger/reference/bp-request-info2.md) structures are to be initialized.  
   
- 这些标志也用于指示 `BP_REQUEST_INFO` 和 `BP_REQUEST_INFO2` 结构的哪些字段是使用和有效，在每个结构都返回时。  
+ These flags are also used to indicate which fields of the `BP_REQUEST_INFO` and `BP_REQUEST_INFO2` structures are used and valid when each structure is returned.  
   
- 这些值可能按位组合使用 `OR`。  
+ These values may be combined with a bitwise `OR`.  
   
-## 要求  
- 标题:msdbg.h  
+## <a name="requirements"></a>Requirements  
+ Header: msdbg.h  
   
- 命名空间:Microsoft.VisualStudio.Debugger.Interop  
+ Namespace: Microsoft.VisualStudio.Debugger.Interop  
   
- 程序集:Microsoft.VisualStudio.Debugger.Interop.dll  
+ Assembly: Microsoft.VisualStudio.Debugger.Interop.dll  
   
-## 请参阅  
- [枚举](../../../extensibility/debugger/reference/enumerations-visual-studio-debugging.md)   
+## <a name="see-also"></a>See Also  
+ [Enumerations](../../../extensibility/debugger/reference/enumerations-visual-studio-debugging.md)   
  [GetRequestInfo](../../../extensibility/debugger/reference/idebugbreakpointrequest2-getrequestinfo.md)   
- [BP\_REQUEST\_INFO](../../../extensibility/debugger/reference/bp-request-info.md)   
- [BP\_REQUEST\_INFO2](../../../extensibility/debugger/reference/bp-request-info2.md)
+ [BP_REQUEST_INFO](../../../extensibility/debugger/reference/bp-request-info.md)   
+ [BP_REQUEST_INFO2](../../../extensibility/debugger/reference/bp-request-info2.md)
