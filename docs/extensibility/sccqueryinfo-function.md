@@ -1,5 +1,5 @@
 ---
-title: "SccQueryInfo 函数 |Microsoft 文档"
+title: SccQueryInfo Function | Microsoft Docs
 ms.custom: 
 ms.date: 11/04/2016
 ms.reviewer: 
@@ -30,18 +30,19 @@ translation.priority.mt:
 - tr-tr
 - zh-cn
 - zh-tw
-translationtype: Machine Translation
-ms.sourcegitcommit: 5db97d19b1b823388a465bba15d057b30ff0b3ce
-ms.openlocfilehash: a178aada6303ed21f51a6be66ba02b2145dcd694
-ms.lasthandoff: 02/22/2017
+ms.translationtype: MT
+ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
+ms.openlocfilehash: 4efd9b29a89bc490255c35558e5862ebc14b7fec
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/28/2017
 
 ---
-# <a name="sccqueryinfo-function"></a>SccQueryInfo 函数
-此函数可获取一组在源代码管理下的所选文件的状态信息。  
+# <a name="sccqueryinfo-function"></a>SccQueryInfo Function
+This function obtains status information for a set of selected files under source control.  
   
-## <a name="syntax"></a>语法  
+## <a name="syntax"></a>Syntax  
   
-```cpp#  
+```cpp  
 SCCRTN SccQueryInfo(  
    LPVOID  pvContext,  
    LONG    nFiles,  
@@ -50,44 +51,44 @@ SCCRTN SccQueryInfo(
 );  
 ```  
   
-#### <a name="parameters"></a>参数  
+#### <a name="parameters"></a>Parameters  
  pvContext  
- [in]源控制插件上下文结构。  
+ [in] The source control plug-in context structure.  
   
  nFiles  
- [in]中指定的文件数`lpFileNames`数组和长度`lpStatus`数组。  
+ [in] Number of files specified in the `lpFileNames` array and the length of the `lpStatus` array.  
   
  lpFileNames  
- [in]要查询的文件的名称的数组。  
+ [in] An array of names of files to be queried.  
   
  lpStatus  
- [in、 out]数组中的源代码管理插件返回的每个文件的状态标志。 有关详细信息，请参阅[文件状态代码](../extensibility/file-status-code-enumerator.md)。  
+ [in, out] An array in which the source control plug-in returns the status flags for each file. For more information, see [File Status Code](../extensibility/file-status-code-enumerator.md).  
   
-## <a name="return-value"></a>返回值  
- 此函数的源代码控制插件实现应返回下列值之一︰  
+## <a name="return-value"></a>Return Value  
+ The source control plug-in implementation of this function is expected to return one of the following values:  
   
-|值|说明|  
+|Value|Description|  
 |-----------|-----------------|  
-|SCC_OK|查询已成功。|  
-|SCC_E_ACCESSFAILURE|没有与访问源代码管理系统，可能引起的网络和资源争用问题的问题。 建议重试。|  
-|SCC_E_PROJNOTOPEN|未受源代码管理打开项目。|  
-|SCC_E_NONSPECIFICERROR|非特定故障。|  
+|SCC_OK|Query was successful.|  
+|SCC_E_ACCESSFAILURE|There was a problem with accessing the source control system, probably caused by network or contention issues. A retry is recommended.|  
+|SCC_E_PROJNOTOPEN|The project is not open under source control.|  
+|SCC_E_NONSPECIFICERROR|Nonspecific failure.|  
   
-## <a name="remarks"></a>备注  
- 如果`lpFileName`为空字符串，当前没有要更新的状态信息。 否则，很可能已更改的状态信息的文件的完整路径名称。  
+## <a name="remarks"></a>Remarks  
+ If `lpFileName` is an empty string, there is currently no status information to update. Otherwise, it is the full path name of the file for which the status information may have changed.  
   
- 返回的数组可以是一个位屏蔽的`SCC_STATUS_xxxx`bits。 有关详细信息，请参阅[文件状态代码](../extensibility/file-status-code-enumerator.md)。 源代码管理系统可能不支持所有的位类型。 例如，如果`SCC_STATUS_OUTOFDATE`未提供，不只是设置了位。  
+ The return array can be a bitmask of `SCC_STATUS_xxxx` bits. For more information, see [File Status Code](../extensibility/file-status-code-enumerator.md). A source control system may not support all bit types. For example, if `SCC_STATUS_OUTOFDATE` is not offered, the bit is just not set.  
   
- 使用此函数时签出文件，请注意以下`MSSCCI`状态要求︰  
+ When using this function to check out files, note the following `MSSCCI` status requirements:  
   
--   `SCC_STATUS_OUTBYUSER`在当前用户已签出文件时设置。  
+-   `SCC_STATUS_OUTBYUSER` is set when the current user has checked out the file.  
   
--   `SCC_STATUS_CHECKEDOUT`不能设置，除非`SCC_STATUS_OUTBYUSER`设置。  
+-   `SCC_STATUS_CHECKEDOUT` cannot be set unless `SCC_STATUS_OUTBYUSER` is set.  
   
--   `SCC_STATUS_CHECKEDOUT`时，才设置该文件已签出到指定的工作目录。  
+-   `SCC_STATUS_CHECKEDOUT` is only set when the file is checked-out into the designated working directory.  
   
--   如果该文件已签出由当前用户之外的工作目录的目录到`SCC_STATUS_OUTBYUSER`设置但`SCC_STATUS_CHECKEDOUT`不是。  
+-   If the file is checked-out by the current user into a directory other than the working directory, `SCC_STATUS_OUTBYUSER` is set but `SCC_STATUS_CHECKEDOUT` is not.  
   
-## <a name="see-also"></a>另请参阅  
- [源代码管理插件 API 功能](../extensibility/source-control-plug-in-api-functions.md)   
- [文件状态代码](../extensibility/file-status-code-enumerator.md)
+## <a name="see-also"></a>See Also  
+ [Source Control Plug-in API Functions](../extensibility/source-control-plug-in-api-functions.md)   
+ [File Status Code](../extensibility/file-status-code-enumerator.md)

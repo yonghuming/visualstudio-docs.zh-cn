@@ -1,55 +1,72 @@
 ---
-title: "多处理器环境下的日志记录 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-helpviewer_keywords: 
-  - "MSBuild, 日志记录"
-  - "MSBuild, 多处理器日志记录"
+title: Logging in a Multi-Processor Environment | Microsoft Docs
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+helpviewer_keywords:
+- MSBuild, multi-processor logging
+- MSBuild, logging
 ms.assetid: dd4dae65-ed04-4883-b48d-59bcb891c4dc
 caps.latest.revision: 9
-author: "kempb"
-ms.author: "kempb"
-manager: "ghogen"
-caps.handback.revision: 9
----
-# 多处理器环境下的日志记录
-[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
+author: kempb
+ms.author: kempb
+manager: ghogen
+translation.priority.ht:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+ms.translationtype: HT
+ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
+ms.openlocfilehash: e78d6c35fa294d2f1a39c91af5e278e9e4519d2d
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/28/2017
 
-MSBuild使用多个处理器的能力可以显著缩短项目生成时间，但同时会增加日志记录的复杂性。  在单处理器环境下，记录器通过可预测的顺序方式来处理传入的事件、消息、警告和错误。  但在多处理器环境下，来自多个源的事件可能同时或不按顺序到达。  MSBuild提供了可以识别多处理器的新记录器，并允许创建自定义“转发记录器”。  
+---
+# <a name="logging-in-a-multi-processor-environment"></a>Logging in a Multi-Processor Environment
+The ability of MSBuild to use multiple processors can greatly decrease project building time, but it also adds complexity to logging. In a single-processor environment, the logger can handle incoming events, messages, warnings, and errors in a predictable, sequential manner. However, in a multi-processor environment, events from several sources can arrive simultaneously or out of sequence. MSBuild provides a new multi-processor-aware logger and enables the creation of custom "forwarding loggers."  
   
-## 记录多处理器生成  
- 在多处理器或多核系统中生成一个或多个项目时，MSBuild将同步生成所有项目的生成事件。  大量事件数据可能会同时或不按顺序到达记录器。  这会严重影响记录器以及导致生成时间延长、记录器输出错误，甚至会导致生成中断。  为了解决这些问题，MSBuild记录器可以处理顺序错误的事件并使事件与其源关联。  
+## <a name="logging-multiple-processor-builds"></a>Logging Multiple-Processor Builds  
+ When you build one or more projects in a multi-processor or multi-core system, MSBuild build events for all the projects are generated simultaneously. An avalanche of event data may arrive at the logger at the same time or out of sequence. This can overwhelm the logger and cause increased build times, incorrect logger output, or even a broken build. To address these issues, the MSBuild logger can process out-of-sequence events and correlate events and their sources.  
   
- 通过创建自定义转发记录器，可以更大程度地提高记录效率。  自定义转发记录器充当一个筛选器，允许您在生成前选择要监视的事件。  使用自定义转发记录器时，不必要的事件不会严重影响记录器、造成日志混乱或降低生成速度。  
+ You can improve logging efficiency even more by creating a custom forwarding logger. A custom-forwarding logger acts as a filter by letting you choose, before you build, the events you want to monitor. When you use a custom forwarding logger, unwanted events do not overwhelm the logger, clutter your logs, or slow build times.  
   
-### 集中式日志记录模型  
- 对于多处理器生成，MSBuild 使用“集中式日志记录模型”。在集中式日志记录模型中，MSBuild.exe 的实例用作主生成进程或“中心节点”。MSBuild.exe 的辅助实例或“辅助节点”连接至中心节点。  连接到中心节点的任何基于 ILogger 的记录器都称为“中心记录器”，连接到辅助节点的记录器则称为“辅助记录器”。  
+### <a name="central-logging-model"></a>Central Logging Model  
+ For multi-processor builds, MSBuild uses a "central logging model." In the central logging model, an instance of MSBuild.exe acts as the primary build process, or "central node." Secondary instances of MSBuild.exe, or "secondary nodes," are attached to the central node. Any ILogger-based loggers attached to the central node are known as "central loggers" and loggers attached to secondary nodes are known as "secondary loggers."  
   
- 进行生成时，辅助记录器会将其事件通信路由至中心记录器。  由于事件源自多个辅助节点，因此数据同时但交错到达中心节点。  为了解决事件到项目和事件到目标引用，事件参数包含其他生成事件上下文信息。  
+ When a build occurs, the secondary loggers route their event traffic to the central loggers. Because events originate at several secondary nodes, the data arrives at the central node simultaneously but interleaved. To resolve event-to-project and event-to-target references, the event arguments include additional build event context information.  
   
- 尽管只要求中心记录器实现 <xref:Microsoft.Build.Framework.ILogger>，但如果希望中心记录器用参与生成的节点数进行初始化，则建议您同时也要实现 <xref:Microsoft.Build.Framework.INodeLogger>。  引擎初始化记录器时，将调用 <xref:Microsoft.Build.Framework.ILogger.Initialize%2A> 方法的以下重载：  
+ Although only <xref:Microsoft.Build.Framework.ILogger> is required to be implemented by the central logger, we recommend that you also implement <xref:Microsoft.Build.Framework.INodeLogger> if you want the central logger to initialize with the number of nodes that are participating in the build. The following overload of the <xref:Microsoft.Build.Framework.ILogger.Initialize%2A> method is invoked when the engine initializes the logger:  
   
-```  
+```csharp
 public interface INodeLogger: ILogger  
 {  
     public void Initialize(IEventSource eventSource, int nodeCount);  
 }  
 ```  
   
-### 分布式日志记录模型  
- 在集中式日志记录模型中，过多的传入消息通信量（例如在一次生成许多项目时）会严重影响中心节点，从而对系统造成过大压力，并降低生成性能。  
+### <a name="distributed-logging-model"></a>Distributed Logging Model  
+ In the central logging model, too much incoming message traffic, such as when many projects build at once, can overwhelm the central node, which stresses the system and lowers build performance.  
   
- 为了减少此问题，MSBuild 还启用了“分布式日志记录模型”，该模型通过允许用户创建转发记录器来扩展集中式日志记录模型。  转发记录器连接至辅助节点，并从该节点接收传入的生成事件。  转发记录器与常规记录器基本相同，只是转发记录器可以筛选事件，然后只将所需事件转发至中心节点。  这便减少了中心节点处的消息通信量，因此可以改善性能。  
+ To reduce this problem, MSBuild also enables a "distributed logging model" that extends the central logging model by letting you create forwarding loggers. A forwarding logger is attached to a secondary node and receives incoming build events from that node. The forwarding logger is just like a regular logger except that it can filter the events and then forward only the desired ones to the central node. This reduces the message traffic at the central node and therefore enables better performance.  
   
- 通过实现派生自 <xref:Microsoft.Build.Framework.ILogger> 的 <xref:Microsoft.Build.Framework.IForwardingLogger> 接口可以创建转发记录器。  该接口定义为：  
+ You can create a forwarding logger by implementing the <xref:Microsoft.Build.Framework.IForwardingLogger> interface, which derives from <xref:Microsoft.Build.Framework.ILogger>. The interface is defined as:  
   
-```  
+```csharp
 public interface IForwardingLogger: INodeLogger  
 {  
     public IEventRedirector EventRedirector { get; set; }  
@@ -57,12 +74,12 @@ public interface IForwardingLogger: INodeLogger
 }  
 ```  
   
- 若要在转发记录器中转发事件，请调用 <xref:Microsoft.Build.Framework.IEventRedirector> 接口的 <xref:Microsoft.Build.Framework.IEventRedirector.ForwardEvent%2A> 方法。  将相应的 <xref:Microsoft.Build.Framework.BuildEventArgs> 或派生作为参数传递。  
+ To forward events in a forwarding logger, call the <xref:Microsoft.Build.Framework.IEventRedirector.ForwardEvent%2A> method of the <xref:Microsoft.Build.Framework.IEventRedirector> interface. Pass the appropriate <xref:Microsoft.Build.Framework.BuildEventArgs>, or a derivative, as the parameter.  
   
- 有关详细信息，请参阅[创建转发记录器](../msbuild/creating-forwarding-loggers.md)。  
+ For more information, see [Creating Forwarding Loggers](../msbuild/creating-forwarding-loggers.md).  
   
-### 连接分布式记录器  
- 若要在命令行生成中连接分布式记录器，请使用 `/distributedlogger`（或缩写形式 `/dl`）开关。  用于指定记录器类型名称和类的格式与 `/logger` 开关对应的格式相同，只是分布式记录器由两个日志记录类构成：一个转发记录器和一个中心记录器。  下面是连接分布式记录器的一个示例：  
+### <a name="attaching-a-distributed-logger"></a>Attaching a Distributed Logger  
+ To attaching a distributed logger on a command line build, use the `/distributedlogger` (or, `/dl` for short) switch. The format for specifying the names of the logger types and classes are the same as those for the `/logger` switch, except that a distributed logger is comprised of two logging classes: a forwarding logger and a central logger. Following is an example of attaching a distributed logger:  
   
 ```  
 msbuild.exe *.proj /distributedlogger:XMLCentralLogger,MyLogger,Version=1.0.2,  
@@ -70,8 +87,8 @@ Culture=neutral*XMLForwardingLogger,MyLogger,Version=1.0.2,
 Culture=neutral  
 ```  
   
- 星号 \(\*\) 用于分隔 `/dl` 开关中的两个记录器名称。  
+ An asterisk (*) separates the two logger names in the `/dl` switch.  
   
-## 请参阅  
- [生成记录器](../msbuild/build-loggers.md)   
- [创建转发记录器](../msbuild/creating-forwarding-loggers.md)
+## <a name="see-also"></a>See Also  
+ [Build Loggers](../msbuild/build-loggers.md)   
+ [Creating Forwarding Loggers](../msbuild/creating-forwarding-loggers.md)

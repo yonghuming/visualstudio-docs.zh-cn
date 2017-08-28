@@ -1,98 +1,115 @@
 ---
-title: "SccCreateSubProject 函数 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "SccCreateSubProject"
-helpviewer_keywords: 
-  - "SccCreateSubProject 函数"
+title: SccCreateSubProject Function | Microsoft Docs
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords:
+- SccCreateSubProject
+helpviewer_keywords:
+- SccCreateSubProject function
 ms.assetid: 08154aed-ae5c-463c-8694-745d0e332965
 caps.latest.revision: 19
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 19
----
-# SccCreateSubProject 函数
-[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
+ms.author: gregvanl
+manager: ghogen
+translation.priority.mt:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+ms.translationtype: MT
+ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
+ms.openlocfilehash: cf9a5adb915820b9b098ee9006e67b82c45a25e5
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/28/2017
 
-此函数创建具有给定名称在指定的现有父项目下的子项目 `lpParentProjPath` 参数。  
+---
+# <a name="scccreatesubproject-function"></a>SccCreateSubProject Function
+This function creates a subproject with the given name under an existing parent project specified by the `lpParentProjPath` argument.  
   
-## 语法  
+## <a name="syntax"></a>Syntax  
   
-```cpp#  
+```cpp  
 SCCRTN SccCreateSubProject(  
-   LPVOID pContext,  
-   HWND   hWnd,  
-   LPSTR  lpUser,  
-   LPCSTR lpParentProjPath,  
-   LPCSTR lpSubProjName,  
-   LPSTR  lpAuxProjPath,  
-   LPSTR  lpSubProjPath  
+   LPVOID pContext,  
+   HWND   hWnd,  
+   LPSTR  lpUser,  
+   LPCSTR lpParentProjPath,  
+   LPCSTR lpSubProjName,  
+   LPSTR  lpAuxProjPath,  
+   LPSTR  lpSubProjPath  
 );  
 ```  
   
-#### 参数  
+#### <a name="parameters"></a>Parameters  
  pContext  
- \[\] in源控制插件上下文指针。  
+ [in] The source control plug-in context pointer.  
   
  hWnd  
- \[\] in源代码管理插件可以用作所有对话框，它提供了一个父 IDE 窗口的句柄。  
+ [in] A handle to the IDE window that the source control plug-in can use as a parent for any dialog boxes that it provides.  
   
  lpUser  
- \[in、 out\]\(最多 SCC\_USER\_SIZE，包括 NULL 结束符\) 用户名。  
+ [in, out] The username (up to SCC_USER_SIZE, including the NULL terminator).  
   
  lpParentProjPath  
- \[\] in标识父项目 \(最多 SCC\_PRJPATH\_SIZE，包括 NULL 结束符\) 的路径的字符串。  
+ [in] A string identifying the path of the parent project (up to SCC_PRJPATH_SIZE, including the NULL terminator).  
   
  lpSubProjName  
- \[\] in建议的子项目名称 \(最多 SCC\_PRJPATH\_SIZE，包括 NULL 结束符\)。  
+ [in] The suggested subproject name (up to SCC_PRJPATH_SIZE, including the NULL terminator).  
   
  lpAuxProjPath  
- \[in、 out\]标识 \(最多 SCC\_PRJPATH\_SIZE，包括 NULL 结束符\) 项目的辅助字符串。  
+ [in, out] Auxiliary string identifying the project (up to SCC_PRJPATH_SIZE, including the NULL terminator).  
   
  lpSubProjPath  
- \[in、 out\]输出用于标识子项目 \(最多 SCC\_PRJPATH\_SIZE，包括 NULL 结束符\) 的路径字符串。  
+ [in, out] Output string identifying the path for the subproject (up to SCC_PRJPATH_SIZE, including the NULL terminator).  
   
-## 返回值  
- 此函数的源代码控制插件实现应返回下列值之一:  
+## <a name="return-value"></a>Return Value  
+ The source control plug-in implementation of this function is expected to return one of the following values:  
   
-|值|说明|  
-|-------|--------|  
-|SCC\_OK|已成功创建子项目。|  
-|SCC\_E\_INITIALIZEFAILED|无法初始化父项目。|  
-|SCC\_E\_INVALIDUSER|用户不可以登录到源代码管理系统。|  
-|SCC\_E\_COULDNOTCREATEPROJECT|无法创建子项目。|  
-|SCC\_E\_PROJSYNTAXERR|无效的项目的语法。|  
-|SCC\_E\_UNKNOWNPROJECT|父项目是未知的源代码管理插件。|  
-|SCC\_E\_INVALIDFILEPATH|无效或不可用的文件路径。|  
-|SCC\_E\_NOTAUTHORIZED|不允许用户执行此操作。|  
-|SCC\_E\_ACCESSFAILURE|没有访问源代码管理系统，很可能是由于网络或争用问题时出现问题。 建议重试。|  
-|SCC\_E\_CONNECTIONFAILURE|没有源控制插件的连接问题。|  
-|SCC\_E\_NONSPECIFICERROR<br /><br /> SCC\_E\_UNKNOWNERROR|非特定故障。|  
+|Value|Description|  
+|-----------|-----------------|  
+|SCC_OK|Subproject was successfully created.|  
+|SCC_E_INITIALIZEFAILED|Parent project could not be initialized.|  
+|SCC_E_INVALIDUSER|The user could not log in to the source control system.|  
+|SCC_E_COULDNOTCREATEPROJECT|Subproject cannot be created.|  
+|SCC_E_PROJSYNTAXERR|Invalid project syntax.|  
+|SCC_E_UNKNOWNPROJECT|The parent project is unknown to the source control plug-in.|  
+|SCC_E_INVALIDFILEPATH|Invalid or unusable file path.|  
+|SCC_E_NOTAUTHORIZED|The user is not allowed to perform this operation.|  
+|SCC_E_ACCESSFAILURE|There was a problem accessing the source control system, probably due to network or contention issues. A retry is recommended.|  
+|SCC_E_CONNECTIONFAILURE|There was a source control plug-in connection problem.|  
+|SCC_E_NONSPECIFICERROR<br /><br /> SCC_E_UNKNOWNERROR|Nonspecific failure.|  
   
-## 备注  
- 如果已存在同名的子项目，该函数可以更改默认名称，以创建一个唯一的活动，例如通过添加"\_ \< 编号 \>"。 调用方必须准备好接受对更改 `lpUser`, ，`lpSubProjPath`, ，和 `lpAuxProjPath`。`lpSubProjPath` 和`lpAuxProjPath` 然后对的调用中使用参数 [SccOpenProject](../extensibility/sccopenproject-function.md)。 它们不应由调用方返回时修改。 这些字符串提供一种方法的源代码管理插件来跟踪它需要与项目关联的信息。 调用方 IDE 不会显示返回时，这两个参数，因为该插件可以使用可能不适合进行查看的格式化的字符串。 该函数将返回成功或失败的代码，并且如果成功，填充该变量 `lpSubProjPath` 替换为新项目的完整项目路径。  
+## <a name="remarks"></a>Remarks  
+ If a subproject with the name already exists, the function can change the default name to create a unique one, for example by adding "_\<number>" to it. The caller must be prepared to accept changes to `lpUser`, `lpSubProjPath`, and `lpAuxProjPath`. The `lpSubProjPath` and`lpAuxProjPath` arguments are then used in a call to the [SccOpenProject](../extensibility/sccopenproject-function.md). They should not be modified by the caller upon return. These strings provide a way for the source control plug-in to track information that it needs to associate with a project. The caller IDE will not display these two parameters upon return, because the plug-in can use a formatted string that might not be suitable for viewing. The function returns a success or failure code and, if successful, fills the variable `lpSubProjPath` with the full project path to the new project.  
   
- 此函数是类似于 [SccGetProjPath](../extensibility/sccgetprojpath-function.md), ，只不过它以静默方式创建一个项目，而不是提示用户选择其中一个。 当 `SccCreateSubProject` 调用函数时， `lpParentProjName` 和 `lpAuxProjPath` 不能为空，并将对应于有效的项目。 这些字符串通常收到的以前调用从 ide `SccGetProjPath` 函数或 [SccGetParentProjectPath](../extensibility/sccgetparentprojectpath-function.md)。  
+ This function is similar to the [SccGetProjPath](../extensibility/sccgetprojpath-function.md), except that it silently creates a project rather than prompting the user to select one. When the `SccCreateSubProject` function is called, `lpParentProjName` and `lpAuxProjPath` will not be empty and will correspond to a valid project. These strings are usually received by the IDE from a previous call to the `SccGetProjPath` function or the [SccGetParentProjectPath](../extensibility/sccgetparentprojectpath-function.md).  
   
- `lpUser` 参数是用户名称。 IDE 将相同的用户名称，它必须从以前接收传入 `SccGetProjPath`, ，和源代码管理插件应该使用的名称作为默认值。 如果用户已打开的连接使用该插件，然后该插件应尝试清除任何提示，以确保函数以静默方式工作。 但是，如果登录失败，该插件应提示用户的登录名中，并在收到有效登录名，传递回名称时 `lpUser`。 因为该插件可能会更改此字符串，IDE 会始终分配的缓冲区大小 \(SCC\_USER\_LEN \+ 1 或 SCC\_USER\_SIZE，包括 null 终止符的空间\)。 如果此字符串已更改，新的字符串必须是有效的登录名 \(至少一样有效旧的字符串\)。  
+ The `lpUser` argument is the user name. The IDE will pass in the same user name that it had previously received from `SccGetProjPath`, and the source control plug-in should use the name as a default. If the user already has an open connection with the plug-in, then the plug-in should try to eliminate any prompts to make sure the function works silently. However, if the login fails, the plug-in should prompt the user for a login and, when it receives a valid login, pass the name back in `lpUser`. Because the plug-in may change this string, the IDE will always allocate a buffer of size (SCC_USER_LEN+1 or SCC_USER_SIZE, which includes space for the null terminator). If the string is changed, the new string must be a valid login name (at least as valid as the old string).  
   
-## 适用于 SccCreateSubProject 和 SccGetParentProjectPath 技术说明  
- 将解决方案和项目添加到源代码管理进行了简化在 Visual Studio 中尽量减少的系统会提示用户选择在源代码管理系统中的位置的次数。 如果源代码管理插件支持这两个新的功能，这些更改由 Visual Studio 激活 `SccCreateSubProject` 和 `SccGetParentProjectPath`。 但是，可以使用以下注册表项来禁用这些更改并还原到以前的 Visual Studio \(源控制插件 API 版本 1.1\) 行为:  
+## <a name="technical-notes-for-scccreatesubproject-and-sccgetparentprojectpath"></a>Technical Notes for SccCreateSubProject and SccGetParentProjectPath  
+ Adding solutions and projects to source control has been simplified in Visual Studio to minimize the number of times a user is prompted to select locations in the source control system. These changes are activated by Visual Studio if a source control plug-in supports both of the new functions, `SccCreateSubProject` and `SccGetParentProjectPath`. However, the following registry entry can be used to disable these changes and revert to previous Visual Studio (Source Control Plug-in API Version 1.1) behavior:  
   
- \[\] HKEY\_CURRENT\_USER\\Software\\Microsoft\\VisualStudio\\8.0\\SourceControl"DoNotCreateSolutionRootFolderInSourceControl"\= dword: 00000001  
+ [HKEY_CURRENT_USER\Software\Microsoft\VisualStudio\8.0\SourceControl] "DoNotCreateSolutionRootFolderInSourceControl"=dword:00000001  
   
- 如果此注册表项不存在，或设为 00000000 时表示，尝试使用新的功能，Visual Studio `SccCreateSubProject` 和 `SccGetParentProjectPath`。  
+ If this registry entry does not exist or is set to dword:00000000, Visual Studio attempts to use the new functions, `SccCreateSubProject` and `SccGetParentProjectPath`.  
   
- 如果注册表项设置为 dword: 00000001，Visual Studio 不会尝试使用这些新函数，并操作添加到源代码管理的工作方式与在先前版本的 Visual Studio。  
+ If the registry entry is set to dword:00000001, Visual Studio does not attempt to use these new functions, and the operations of adding to source control work as they did in prior versions of Visual Studio.  
   
-## 请参阅  
- [源代码管理插件 API 功能](../extensibility/source-control-plug-in-api-functions.md)   
+## <a name="see-also"></a>See Also  
+ [Source Control Plug-in API Functions](../extensibility/source-control-plug-in-api-functions.md)   
  [SccGetParentProjectPath](../extensibility/sccgetparentprojectpath-function.md)   
  [SccGetProjPath](../extensibility/sccgetprojpath-function.md)

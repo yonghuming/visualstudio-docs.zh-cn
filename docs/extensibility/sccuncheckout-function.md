@@ -1,76 +1,93 @@
 ---
-title: "SccUncheckout 函数 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "SccUncheckout"
-helpviewer_keywords: 
-  - "SccUncheckout 函数"
+title: SccUncheckout Function | Microsoft Docs
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords:
+- SccUncheckout
+helpviewer_keywords:
+- SccUncheckout function
 ms.assetid: 6d498b70-29c7-44b7-ae1c-7e99e488bb09
 caps.latest.revision: 12
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 12
----
-# SccUncheckout 函数
-[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
+ms.author: gregvanl
+manager: ghogen
+translation.priority.mt:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+ms.translationtype: MT
+ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
+ms.openlocfilehash: 5db90c033a03605369c19bf358b0642f9f80163b
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/28/2017
 
-此函数会撤消以前的签出操作，从而将所选的文件或文件的内容还原到前签出状态。 签出后对文件所做的所有更改都都将丢失。  
+---
+# <a name="sccuncheckout-function"></a>SccUncheckout Function
+This function undoes a previous checkout operation, thereby restoring the contents of the selected file or files to the state prior to the checkout. All changes made to the file since the checkout are lost.  
   
-## 语法  
+## <a name="syntax"></a>Syntax  
   
-```cpp#  
+```cpp  
 SCCRTN SccUncheckout (  
-   LPVOID    pvContext,  
-   HWND      hWnd,  
-   LONG      nFiles,  
-   LPCSTR*   lpFileNames,  
-   LONG      fOptions,  
-   LPCMDOPTS pvOptions  
+   LPVOID    pvContext,  
+   HWND      hWnd,  
+   LONG      nFiles,  
+   LPCSTR*   lpFileNames,  
+   LONG      fOptions,  
+   LPCMDOPTS pvOptions  
 );  
 ```  
   
-#### 参数  
+#### <a name="parameters"></a>Parameters  
  pvContext  
- \[\] in源控制插件上下文结构。  
+ [in] The source control plug-in context structure.  
   
  hWnd  
- \[\] in源代码管理插件可以用作所有对话框，它提供了一个父 IDE 窗口的句柄。  
+ [in] A handle to the IDE window that the source control plug-in can use as a parent for any dialog boxes that it provides.  
   
  nFiles  
- \[\] in中指定的文件数 `lpFileNames` 数组。  
+ [in] Number of files specified in the `lpFileNames` array.  
   
  lpFileNames  
- \[\] in要撤消签出文件的完全限定的本地路径名称的数组。  
+ [in] Array of fully qualified local path names of files for which to undo a checkout.  
   
- 选项  
- \[\] in\(未使用\) 的命令标志。  
+ fOptions  
+ [in] Command flags (not used).  
   
  pvOptions  
- \[\] in源代码管理插件特定选项。  
+ [in] Source control plug-in-specific options.  
   
-## 返回值  
- 此函数的源代码控制插件实现应返回下列值之一:  
+## <a name="return-value"></a>Return Value  
+ The source control plug-in implementation of this function is expected to return one of the following values:  
   
-|值|说明|  
-|-------|--------|  
-|SCC\_OK|撤消签出成功。|  
-|SCC\_E\_FILENOTCONTROLLED|所选的文件不是源代码管理下。|  
-|SCC\_E\_ACCESSFAILURE|没有访问源代码管理系统，很可能是由于网络或争用问题时出现问题。 建议重试。|  
-|SCC\_E\_NONSPECIFICERROR|非特定故障。 撤消签出未成功。|  
-|SCC\_E\_NOTCHECKEDOUT|用户没有签出该文件。|  
-|SCC\_E\_NOTAUTHORIZED|不允许用户执行此操作。|  
-|SCC\_E\_PROJNOTOPEN|尚未从源代码管理打开项目。|  
-|SCC\_I\_OPERATIONCANCELED|在完成之前取消了操作。|  
+|Value|Description|  
+|-----------|-----------------|  
+|SCC_OK|Undo checkout was successful.|  
+|SCC_E_FILENOTCONTROLLED|The selected file is not under source code control.|  
+|SCC_E_ACCESSFAILURE|There was a problem accessing the source control system, probably due to network or contention issues. A retry is recommended.|  
+|SCC_E_NONSPECIFICERROR|Nonspecific failure. Undo checkout did not succeed.|  
+|SCC_E_NOTCHECKEDOUT|The user does not have the file checked out.|  
+|SCC_E_NOTAUTHORIZED|The user is not allowed to perform this operation.|  
+|SCC_E_PROJNOTOPEN|The project has not been opened from source control.|  
+|SCC_I_OPERATIONCANCELED|The operation was cancelled before completion.|  
   
-## 备注  
- 执行此操作后 `SCC_STATUS_CHECKEDOUT` 和 `SCC_STATUS_MODIFIED` 标志会同时为清除对其执行撤消签出的文件。  
+## <a name="remarks"></a>Remarks  
+ After this operation, the `SCC_STATUS_CHECKEDOUT` and `SCC_STATUS_MODIFIED` flags will both be cleared for the files on which the undo checkout was performed.  
   
-## 请参阅  
- [源代码管理插件 API 功能](../extensibility/source-control-plug-in-api-functions.md)
+## <a name="see-also"></a>See Also  
+ [Source Control Plug-in API Functions](../extensibility/source-control-plug-in-api-functions.md)

@@ -1,31 +1,48 @@
 ---
-title: "SccDirQueryInfo 函数 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "SccDirQueryInfo"
-helpviewer_keywords: 
-  - "SccDirQueryInfo 函数"
+title: SccDirQueryInfo Function | Microsoft Docs
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords:
+- SccDirQueryInfo
+helpviewer_keywords:
+- SccDirQueryInfo function
 ms.assetid: 459e2d99-573d-47c4-b834-6d82c5e14162
 caps.latest.revision: 14
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 14
----
-# SccDirQueryInfo 函数
-[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
+ms.author: gregvanl
+manager: ghogen
+translation.priority.mt:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+ms.translationtype: MT
+ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
+ms.openlocfilehash: e8e155075ebf6e619c6504b24381bd3349b1c48b
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/28/2017
 
-此函数将检查以了解其当前状态的完全限定目录的列表。  
+---
+# <a name="sccdirqueryinfo-function"></a>SccDirQueryInfo Function
+This function examines a list of fully qualified directories for their current status.  
   
-## 语法  
+## <a name="syntax"></a>Syntax  
   
-```cpp#  
+```cpp  
 SCCRTN SccDirQueryInfo(  
 LPVOID  pContext,  
 LONG    nDirs,  
@@ -34,37 +51,37 @@ LPLONG  lpStatus
 );  
 ```  
   
-#### 参数  
+#### <a name="parameters"></a>Parameters  
  pContext  
- \[\] in源控制插件上下文结构。  
+ [in] The source control plug-in context structure.  
   
  nDirs  
- \[\] in选择要查询的目录数。  
+ [in] The number of directories selected to be queried.  
   
  lpDirNames  
- \[\] in若要查询目录的完全限定路径的数组。  
+ [in] An array of fully qualified paths of the directories to be queried.  
   
  lpStatus  
- \[in、 out\]源代码管理插件返回的状态标志的数组结构 \(请参阅 [目录状态代码](../extensibility/directory-status-code-enumerator.md) 有关的详细信息\)。  
+ [in, out] An array structure for the source control plug-in to return the status flags (see [Directory Status Code](../extensibility/directory-status-code-enumerator.md) for details).  
   
-## 返回值  
- 此函数的源代码控制插件实现应返回下列值之一:  
+## <a name="return-value"></a>Return Value  
+ The source control plug-in implementation of this function is expected to return one of the following values:  
   
-|值|描述|  
-|-------|--------|  
-|SCC\_OK|查询已成功。|  
-|SCC\_E\_OPNOTSUPPORTED|源代码控制系统不支持此操作。|  
-|SCC\_E\_ACCESSFAILURE|没有访问源代码管理系统，很可能是由于网络或争用问题时出现问题。 建议重试。|  
-|SCC\_E\_NONSPECIFICERROR<br /><br /> SCC\_E\_UNKNOWNERROR|非特定故障。|  
+|Value|Description|  
+|-----------|-----------------|  
+|SCC_OK|The query was successful.|  
+|SCC_E_OPNOTSUPPORTED|The source code control system does not support this operation.|  
+|SCC_E_ACCESSFAILURE|There was a problem accessing the source control system, probably due to network or contention issues. A retry is recommended.|  
+|SCC_E_NONSPECIFICERROR<br /><br /> SCC_E_UNKNOWNERROR|Nonspecific failure.|  
   
-## 备注  
- 函数填充返回数组中的位的位掩码与 `SCC_DIRSTATUS` 系列 \(请参阅 [目录状态代码](../extensibility/directory-status-code-enumerator.md)\)，为给定每个目录中的一个条目。 由调用方分配状态数组。  
+## <a name="remarks"></a>Remarks  
+ The function fills the return array with a bitmask of bits from the `SCC_DIRSTATUS` family (see [Directory Status Code](../extensibility/directory-status-code-enumerator.md)), one entry for each directory given. The status array is allocated by the caller.  
   
- IDE 将使用此函数之前重命名目录检查目录是否在源代码管理下通过查询其是否具有相应的项目。 如果目录不是源代码管理下，IDE 可以向用户提供正确的警告。  
+ The IDE uses this function before a directory is renamed to check whether the directory is under source control by querying whether it has a corresponding project. If the directory is not under source control, the IDE can provide the proper warning to the user.  
   
 > [!NOTE]
->  如果源代码管理插件选择不实现一个或多个状态的值，则未实现的位应设置为零。  
+>  If a source control plug-in chooses to not implement one or more of the status values, unimplemented bits should be set to zero.  
   
-## 请参阅  
- [源代码管理插件 API 功能](../extensibility/source-control-plug-in-api-functions.md)   
- [目录状态代码](../extensibility/directory-status-code-enumerator.md)
+## <a name="see-also"></a>See Also  
+ [Source Control Plug-in API Functions](../extensibility/source-control-plug-in-api-functions.md)   
+ [Directory Status Code](../extensibility/directory-status-code-enumerator.md)

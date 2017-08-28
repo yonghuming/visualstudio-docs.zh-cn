@@ -1,116 +1,133 @@
 ---
-title: "SccOpenProject 函数 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "SccOpenProject"
-helpviewer_keywords: 
-  - "SccOpenProject 函数"
+title: SccOpenProject Function | Microsoft Docs
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords:
+- SccOpenProject
+helpviewer_keywords:
+- SccOpenProject function
 ms.assetid: d609510b-660a-46d7-b93d-2406df20434d
 caps.latest.revision: 16
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 16
----
-# SccOpenProject 函数
-[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
+ms.author: gregvanl
+manager: ghogen
+translation.priority.mt:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+ms.translationtype: MT
+ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
+ms.openlocfilehash: b3db4576b2c8a2f925ac19e1024d271843f6895d
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/28/2017
 
-此函数将打开现有的源代码管理项目或创建新的证书。  
+---
+# <a name="sccopenproject-function"></a>SccOpenProject Function
+This function opens an existing source control project or creates a new one.  
   
-## 语法  
+## <a name="syntax"></a>Syntax  
   
-```cpp#  
+```cpp  
 SCCRTN SccOpenProject (  
-   LPVOID        pvContext,  
-   HWND          hWnd,  
-   LPSTR         lpUser,  
-   LPCSTR        lpProjName,  
-   LPCSTR        lpLocalProjPath,  
-   LPSTR         lpAuxProjPath,  
-   LPCSTR        lpComment,  
-   LPTEXTOUTPROC lpTextOutProc,  
-   LONG          dwFlags  
+   LPVOID        pvContext,  
+   HWND          hWnd,  
+   LPSTR         lpUser,  
+   LPCSTR        lpProjName,  
+   LPCSTR        lpLocalProjPath,  
+   LPSTR         lpAuxProjPath,  
+   LPCSTR        lpComment,  
+   LPTEXTOUTPROC lpTextOutProc,  
+   LONG          dwFlags  
 );  
 ```  
   
-#### 参数  
+#### <a name="parameters"></a>Parameters  
  pvContext  
- \[\] in源控制插件上下文结构。  
+ [in] The source control plug-in context structure.  
   
  hWnd  
- \[\] in源代码管理插件可以用作所有对话框，它提供了一个父 IDE 窗口的句柄。  
+ [in] A handle to the IDE window that the source control plug-in can use as a parent for any dialog boxes that it provides.  
   
  lpUser  
- \[in、 out\]用户 \(不超过 SCC\_USER\_SIZE，包括 NULL 结束符\) 的名称。  
+ [in, out] The name of the user (not to exceed SCC_USER_SIZE, including the NULL terminator).  
   
  lpProjName  
- \[\] in标识项目的名称的字符串。  
+ [in] The string identifying the name of the project.  
   
  lpLocalProjPath  
- \[\] in该项目的工作文件夹路径。  
+ [in] The path to the working folder for the project.  
   
  lpAuxProjPath  
- \[in、 out\]辅助一个可选字符串，标识项目 \(不超过 SCC\_AUXPATH\_SIZE，包括 NULL 结束符\)。  
+ [in, out]An optional auxiliary string identifying the project (not to exceed SCC_AUXPATH_SIZE, including the NULL terminator).  
   
  lpComment  
- \[\] in正在创建一个新项目的注释。  
+ [in] Comment to a new project that is being created.  
   
  lpTextOutProc  
- \[\] in要显示文本输出从源代码管理插件的可选的回调函数。  
+ [in] An optional callback function to display text output from the source control plug-in.  
   
  dwFlags  
- \[\] in信号是否需要如果项目是未知的源创建一个新项目控制插件。 值可以是组合的 `SCC_OP_CREATEIFNEW` 和 `SCC_OP_SILENTOPEN.`  
+ [in] Signals whether a new project needs to be created if the project is unknown to the source control plug-in. Value can be a combination of `SCC_OP_CREATEIFNEW` and `SCC_OP_SILENTOPEN.`  
   
-## 返回值  
- 此函数的源代码控制插件实现应返回下列值之一:  
+## <a name="return-value"></a>Return Value  
+ The source control plug-in implementation of this function is expected to return one of the following values:  
   
-|值|描述|  
-|-------|--------|  
-|SCC\_OK|打开项目的成功。|  
-|SCC\_E\_INITIALIZEFAILED|无法初始化项目。|  
-|SCC\_E\_INVALIDUSER|用户不可以登录到源代码管理系统。|  
-|SCC\_E\_COULDNOTCREATEPROJECT|项目不存在之前调用; `SCC_OPT_CREATEIFNEW` 标志已设置，但无法创建该项目。|  
-|SCC\_E\_PROJSYNTAXERR|无效的项目的语法。|  
-|SCC\_E\_UNKNOWNPROJECT|该项目是未知的源代码管理插件，和 `SCC_OPT_CREATEIFNEW` 未设置标志。|  
-|SCC\_E\_INVALIDFILEPATH|无效或不可用的文件路径。|  
-|SCC\_E\_NOTAUTHORIZED|不允许用户执行此操作。|  
-|SCC\_E\_ACCESSFAILURE|没有访问源代码管理系统，很可能是由于网络或争用问题时出现问题。 建议重试。|  
-|SCC\_E\_NONSPECFICERROR|非特定的失败;未初始化的源控制系统。|  
+|Value|Description|  
+|-----------|-----------------|  
+|SCC_OK|Success in opening the project.|  
+|SCC_E_INITIALIZEFAILED|Project could not be initialized.|  
+|SCC_E_INVALIDUSER|The user could not log in to the source control system.|  
+|SCC_E_COULDNOTCREATEPROJECT|The project did not exist prior to the call;  the `SCC_OPT_CREATEIFNEW` flag was set, but the project could not be created.|  
+|SCC_E_PROJSYNTAXERR|Invalid project syntax.|  
+|SCC_E_UNKNOWNPROJECT|The project is unknown to the source control plug-in, and the `SCC_OPT_CREATEIFNEW` flag was not set.|  
+|SCC_E_INVALIDFILEPATH|Invalid or unusable file path.|  
+|SCC_E_NOTAUTHORIZED|The user is not allowed to perform this operation.|  
+|SCC_E_ACCESSFAILURE|There was a problem accessing the source control system, probably due to network or contention issues. A retry is recommended.|  
+|SCC_E_NONSPECFICERROR|A nonspecific failure; the source control system was not initialized.|  
   
-## 备注  
- 用户名称，请传入 IDE \(`lpUser`\)，或它可能只是一个指针传递到一个空字符串。 如果没有用户名，源代码管理插件应使用它作为默认值。 但是，如果未将名称传递，或者如果具有给定名称的登录失败，该插件应提示用户以用户身份登录并将返回中的有效名称 `lpUser` 当接收有效的登录名`.` 因为插件可能会更改用户名称字符串，IDE 会始终分配大小的缓冲区 \(`SCC_USER_LEN`\+ 1 或 SCC\_USER\_SIZE，包括 null 终止符的空间\)。  
-  
-> [!NOTE]
->  IDE 可能还需要执行的第一个操作可能是对的调用 `SccOpenProject` 函数或 [SccGetProjPath](../extensibility/sccgetprojpath-function.md)。 出于此原因，它们都具有相同 `lpUser` 参数。  
-  
- `lpAuxProjPath` 和`lpProjName` 读取该解决方案文件，或它们返回到调用 `SccGetProjPath` 函数。 这些参数包含源代码管理插件将与项目相关联的字符串，并且只对该插件有意义。 如果没有此类字符串位于解决方案文件，并且用户不提示浏览 \(它将返回一个字符串通过 `SccGetProjPath` 函数\)，IDE 将空字符串传递两个 `lpAuxProjPath` 和 `lpProjName`, ，而且我们预期要更新该插件，该函数返回时这些值。  
-  
- `lpTextOutProc` 是指向由源代码管理插件用于显示命令结果输出到 IDE 提供一个回调函数的指针。 中详细描述此回调函数 [LPTEXTOUTPROC](../extensibility/lptextoutproc.md)。  
+## <a name="remarks"></a>Remarks  
+ The IDE may pass in a user name (`lpUser`), or it may simply pass in a pointer to an empty string. If there is a user name, the source control plug-in should use it as a default. However, if no name was passed, or if the login failed with the given name, the plug-in should prompt the user to log in and will return the valid name in `lpUser` when it receives a valid login`.` Because the plug-in may change the user name string, the IDE will always allocate a buffer of size (`SCC_USER_LEN`+1 or SCC_USER_SIZE, which includes space for the null terminator).  
   
 > [!NOTE]
->  如果打算利用此源代码管理插件，它必须为其设置 `SCC_CAP_TEXTOUT` 中标记出来 [SccInitialize](../extensibility/sccinitialize-function.md)。 如果未设置该标志，或者如果 IDE 不支持此功能， `lpTextOutProc` 将 `NULL`。  
+>  The first action the IDE may be required to perform may be a call to the `SccOpenProject` function or the [SccGetProjPath](../extensibility/sccgetprojpath-function.md). For this reason, both of them have an identical `lpUser` parameter.  
   
- `dwFlags` 参数控制结果的事件中打开该项目当前不存在。 它包含两个 bitflags `SCC_OP_CREATEIFNEW` 和 `SCC_OP_SILENTOPEN`。 如果存在已打开的项目，该函数只需将打开项目并返回 `SCC_OK`。 如果项目不存在并且 `SCC_OP_CREATEIFNEW` 标志为 on，源代码管理插件可以在源代码管理系统中创建项目，打开它，并返回 `SCC_OK`。 如果项目不存在，并且 `SCC_OP_CREATEIFNEW` 标志处于关闭状态，该插件应该再检查 `SCC_OP_SILENTOPEN` 标志。 如果不在该标志，该插件可能会提示用户输入项目名称。 如果该标志上，则该插件只应返回 `SCC_E_UNKNOWNPROJECT`。  
+ `lpAuxProjPath` and`lpProjName` are read from the solution file, or they are returned from a call to the `SccGetProjPath` function. These parameters contain the strings that the source control plug-in associates with the project and are meaningful only to the plug-in. If no such strings are in the solution file and the user has not been prompted to browse (which would return a string through the `SccGetProjPath` function), the IDE passes empty strings for both `lpAuxProjPath` and `lpProjName`, and expects these values to be updated by the plug-in when this function returns.  
   
-## 调用顺序  
- 在正常的事件，过程 [SccInitialize](../extensibility/sccinitialize-function.md) 将第一次调用，以打开源控制会话。 会话可能包含对的调用 `SccOpenProject`, 、 其他源控制插件 API 函数调用后, 跟，将通过调用终止 [SccCloseProject](../extensibility/scccloseproject-function.md)。 此类会话可能会重复几次之前 [SccUninitialize](../extensibility/sccuninitialize-function.md) 调用。  
-  
- 如果源代码管理插件集 `SCC_CAP_REENTRANT` 中位 `SccInitialize`, ，则上面的会话顺序可能会在并行中重复多次。 不同 `pvContext` 结构跟踪不同的会话，其中的每个 `pvContext` 一次是与一个打开的项目相关联。 基于`pvContext` 参数，该插件可以确定在任何特定的调用中引用的项目。 如果的功能位 `SCC_CAP_REENTRANT` 未设置，则 nonreentrant 源代码管理插件以使用多个项目的能力受到的限制。  
+ `lpTextOutProc` is a pointer to a callback function provided by the IDE to the source control plug-in for the purpose of displaying command result output. This callback function is described in detail in [LPTEXTOUTPROC](../extensibility/lptextoutproc.md).  
   
 > [!NOTE]
->  `SCC_CAP_REENTRANT` 源控制插件 API 的 1.1 版中引入了位。 未设置，或者在 1.0 版中，将被忽略和所有版本 1.0 源代码管理插件都被都认为是 nonreentrant。  
+>  If the source control plug-in intends to take advantage of this, it must have set the `SCC_CAP_TEXTOUT` flag in the [SccInitialize](../extensibility/sccinitialize-function.md). If that flag was not set, or if the IDE does not support this feature, `lpTextOutProc` will be `NULL`.  
   
-## 请参阅  
- [源代码管理插件 API 功能](../extensibility/source-control-plug-in-api-functions.md)   
+ The `dwFlags` parameter controls the outcome in the event that the project being opened does not currently exist. It consists of two bitflags, `SCC_OP_CREATEIFNEW` and `SCC_OP_SILENTOPEN`. If the project being opened already exists, the function simply opens the project and returns `SCC_OK`. If the project does not exist and if the `SCC_OP_CREATEIFNEW` flag is on, the source control plug-in can create the project in the source control system, open it, and return `SCC_OK`. If the project does not exist, and if the `SCC_OP_CREATEIFNEW` flag is off, the plug-in should then check for the `SCC_OP_SILENTOPEN` flag. If that flag is not on, the plug-in may prompt the user for a project name. If that flag is on, the plug-in should simply return `SCC_E_UNKNOWNPROJECT`.  
+  
+## <a name="calling-order"></a>Calling Order  
+ In the normal course of events, the [SccInitialize](../extensibility/sccinitialize-function.md) would be called first to open a source control session. A session may consist of a call to `SccOpenProject`, followed by other Source Control Plug-in API function calls, and will terminate with a call to the [SccCloseProject](../extensibility/scccloseproject-function.md). Such sessions may be repeated several times before the [SccUninitialize](../extensibility/sccuninitialize-function.md) is called.  
+  
+ If the source control plug-in sets the `SCC_CAP_REENTRANT` bit in `SccInitialize`, then the above session sequence may be repeated many times in parallel. Different `pvContext` structures track the different sessions, in which each `pvContext` is associated with one open project at a time. Based on the`pvContext` parameter, the plug-in can determine which project is referenced in any particular call. If the capability bit `SCC_CAP_REENTRANT` is not set, nonreentrant source control plug-ins are limited in their ability to work with multiple projects.  
+  
+> [!NOTE]
+>  The `SCC_CAP_REENTRANT` bit was introduced in version 1.1 of the Source Control Plug-in API. It is not set or is ignored in version 1.0, and all version 1.0 source control plug-ins are assumed to be nonreentrant.  
+  
+## <a name="see-also"></a>See Also  
+ [Source Control Plug-in API Functions](../extensibility/source-control-plug-in-api-functions.md)   
  [SccCloseProject](../extensibility/scccloseproject-function.md)   
  [SccGetProjPath](../extensibility/sccgetprojpath-function.md)   
  [SccInitialize](../extensibility/sccinitialize-function.md)   
  [SccUninitialize](../extensibility/sccuninitialize-function.md)   
- [字符串长度限制](../extensibility/restrictions-on-string-lengths.md)   
+ [Restrictions on String Lengths](../extensibility/restrictions-on-string-lengths.md)   
  [LPTEXTOUTPROC](../extensibility/lptextoutproc.md)

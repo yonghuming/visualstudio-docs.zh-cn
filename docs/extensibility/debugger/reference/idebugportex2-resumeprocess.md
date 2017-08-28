@@ -1,49 +1,66 @@
 ---
-title: "IDebugPortEx2::ResumeProcess | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "IDebugPortEx2::ResumeProcess"
-helpviewer_keywords: 
-  - "IDebugPortEx2::ResumeProcess"
+title: IDebugPortEx2::ResumeProcess | Microsoft Docs
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords:
+- IDebugPortEx2::ResumeProcess
+helpviewer_keywords:
+- IDebugPortEx2::ResumeProcess
 ms.assetid: e80a6960-9456-4764-9320-e7b1bd57fe5d
 caps.latest.revision: 10
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 10
----
-# IDebugPortEx2::ResumeProcess
-[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
+ms.author: gregvanl
+manager: ghogen
+translation.priority.mt:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+ms.translationtype: MT
+ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
+ms.openlocfilehash: 15ab890ec86361026719b440e59d9fc6f5a656e8
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/28/2017
 
-回收进程的执行。  
+---
+# <a name="idebugportex2resumeprocess"></a>IDebugPortEx2::ResumeProcess
+Resumes execution of a process.  
   
-## 语法  
+## <a name="syntax"></a>Syntax  
   
-```cpp#  
-HRESULT ResumeProcess(   
-   IDebugProcess2* pPortProcess  
+```cpp  
+HRESULT ResumeProcess(   
+   IDebugProcess2* pPortProcess  
 );  
 ```  
   
-```cpp#  
-int ResumeProcess(   
-   IDebugProcess2 pPortProcess  
+```cpp  
+int ResumeProcess(   
+   IDebugProcess2 pPortProcess  
 );  
 ```  
   
-#### 参数  
+#### <a name="parameters"></a>Parameters  
  `pPortProcess`  
- \[in\] 表示处理的 [IDebugProcess2](../../../extensibility/debugger/reference/idebugprocess2.md) 对象将还原。  
+ [in] An [IDebugProcess2](../../../extensibility/debugger/reference/idebugprocess2.md) object representing the process to be resumed.  
   
-## 返回值  
- 如果成功，则返回; `S_OK`否则，返回错误代码。  
+## <a name="return-value"></a>Return Value  
+ If successful, returns `S_OK`; otherwise, returns an error code.  
   
-## 请参阅  
+## <a name="see-also"></a>See Also  
  [IDebugPortEx2](../../../extensibility/debugger/reference/idebugportex2.md)   
  [IDebugProcess2](../../../extensibility/debugger/reference/idebugprocess2.md)
