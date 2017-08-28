@@ -1,7 +1,7 @@
 ---
-title: "安装问题疑难解答 | Microsoft Docs"
-description: "有时也会遇到问题。 如果 Visual Studio 安装或升级失败，可在此页寻求帮助。"
-ms.date: 04/14/2017
+title: Troubleshooting installation issues | Microsoft Docs
+description: Sometimes, things can go wrong. If your Visual Studio installation or upgrade fails, this page can help.
+ms.date: 08/24/2017
 ms.reviewer: 
 ms.suite: 
 ms.technology:
@@ -16,66 +16,81 @@ author: timsneath
 ms.author: tims
 manager: ghogen
 ms.translationtype: HT
-ms.sourcegitcommit: 89f86a5935ad283ef5c0e29ea2db0ae22cf603a8
-ms.openlocfilehash: 0fd361edd5bc5056f09c64aa4499a10a50656546
+ms.sourcegitcommit: 7adecc638a0ea4b198501752930a5c92c9db282c
+ms.openlocfilehash: 566d3f0a9f38dd8fca763439ab714cf551a551ef
 ms.contentlocale: zh-cn
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 08/28/2017
 
 ---
-# <a name="troubleshooting-visual-studio-2017-installation-and-upgrade-issues"></a>Visual Studio 2017 安装和升级问题疑难解答
+# <a name="troubleshooting-visual-studio-2017-installation-and-upgrade-issues"></a>Troubleshooting Visual Studio 2017 installation and upgrade issues
 
-## <a name="symptoms"></a>症状
-尝试安装或更新 Visual Studio 2017 时，操作失败。
+## <a name="symptoms"></a>Symptoms
+When you try to install or update Visual Studio 2017, the operation fails.
 
-## <a name="workaround"></a>解决方法
-若要解决此问题，请按照以下步骤操作。
+## <a name="workaround"></a>Workaround
+To work around this issue, follow these steps.
 
-### <a name="step-1---check-whether-this-problem-is-a-known-issue"></a>第 1 步 - 检查此问题是否是已知问题
-Visual Studio 安装程序存在一些已知问题，Microsoft 正在努力修复中。 请参阅[发行说明的“已知问题”部分](https://www.visualstudio.com/news/releasenotes/vs2017-knownissues)，确定你遇到的问题是否有解决办法。
+### <a name="step-1---check-whether-this-problem-is-a-known-issue"></a>Step 1 - Check whether this problem is a known issue
+There are some known issues with the Visual Studio Installer that Microsoft is working on fixing. Check the [Known Issues section of our release notes](https://www.visualstudio.com/news/releasenotes/vs2017-knownissues) to see if there's a workaround for your problem.
 
-### <a name="step-2---check-with-the-developer-community"></a>第 2 步 - 通过开发者社区获取帮助
-在 [Visual Studio 开发人员社区](https://developercommunity.visualstudio.com/spaces/8/index.html)中搜索错误消息。 社区的其他成员可能已记录下你遇到的问题的解决方案。
+### <a name="step-2---check-with-the-developer-community"></a>Step 2 - Check with the developer community
+Search on your error message with the [Visual Studio Developer Community](https://developercommunity.visualstudio.com/spaces/8/index.html). Other members of the community may have documented a solution to your problem.
 
-### <a name="step-3---delete-the-visual-studio-installer-directory-to-fix-upgrade-problems"></a>第 3 步 - 删除 Visual Studio 安装程序目录以修复升级问题
-Visual Studio 安装程序引导程序是最轻型的可执行文件，用于安装 Visual Studio 安装程序的剩余部分。 删除 Visual Studio 安装程序文件，然后重新运行引导程序，可能会修复一些更新故障。
+### <a name="step-3---delete-the-visual-studio-installer-directory-to-fix-upgrade-problems"></a>Step 3 - Delete the Visual Studio Installer directory to fix upgrade problems
+The Visual Studio Installer bootstrapper is a minimal light-weight executable that installs the rest of the Visual Studio Installer. Deleting Visual Studio Installer files and then rerunning the bootstrapper might solve some update failures.
 
-**注意：**执行以下操作将重新安装 Visual Studio 安装程序文件并重置安装元数据。
+**Note:** Performing the following actions reinstalls the Visual Studio Installer files and resets the installation metadata.
 
-1. 关闭 Visual Studio 安装程序。
-2. 删除 Visual Studio 安装程序目录。 此目录通常位于 C:\Program Files (x86)\Microsoft Visual Studio\Installer。
-3. 运行 Visual Studio 安装程序引导程序。 引导程序位于“下载”文件夹中，文件名格式为 ```vs_[Visual Studio edition]__*.exe```。 如果找不到此应用程序，可以转到 [Visual Studio 下载](https://www.visualstudio.com/downloads/)页，然后单击你的 Visual Studio 版本所对应的“下载”，便可下载引导程序。 运行此可执行文件，重置安装元数据。
-4. 尝试重新安装或更新 Visual Studio。 如果安装程序仍无法安装，请转到下一步。
+1. Close the Visual Studio Installer.
+2. Delete the Visual Studio Installer directory. Typically, the directory is C:\Program Files (x86)\Microsoft Visual Studio\Installer.
+3. Run the Visual Studio Installer bootstrapper. You may find the bootstrapper in your Downloads folder with a file name that follows a ```vs_[Visual Studio edition]__*.exe``` pattern. If you don't find that application, you can download the bootstrapper by going to the [Visual Studio downloads](https://www.visualstudio.com/downloads/) page and clicking **Download** for your edition of Visual Studio. Run the executable to reset your installation metadata.
+4. Try to install or update Visual Studio again. If the Installer continues to fail, go to the next step.
 
-### <a name="step-4---report-a-problem"></a>第 4 步 - 报告问题
-在某些情况下（如出现与文件损坏相关的问题时），可能需要逐个调查每个问题：
+### <a name="step-4---report-a-problem"></a>Step 4 - Report a problem
+In some situations, such as those related to corrupted files, the problems may have to be looked at on a case-by-case basis:
 
-1. 下载并运行 [Microsoft Visual Studio 和 .NET Framework 日志收集工具](https://aka.ms/vscollect)。 此工具可收集并编译 Visual Studio、.NET Framework 和 SQL Server 安装的安装程序日志。
-2. 打开 Visual Studio 安装程序，然后单击“报告问题”，打开 Visual Studio 反馈工具。
-![可以使用 Tab 键定位到“提供反馈”按钮，从而打开反馈工具](media/report-a-problem.png)
-3. 为问题报告命名一个标题，然后输入相关详细信息。 单击“下一步”，转到“附件”部分，然后附加生成的日志文件（此文件通常位于 %TEMP%\vslogs.zip）。
-![使用 Tab 键定位到“报告新问题”按钮，然后完成所有相关步骤](media/problem-report-details.png)
-4. 单击“下一步”，检查问题报告，然后单击“提交”。
+1. Collect your setup logs. See [How to get the Visual Studio installation logs](#how-to-get-the-visual-studio-installation-logs) below for details.
+2. Open the Visual Studio Installer, and then click **Report a problem** to open the Visual Studio Feedback tool.
+![You can tab to the Provide Feedback button to open the feedback tool](media/report-a-problem.png)
+3. Give your problem report a title, and provide relevant details. Click **Next** to go to the **Attachments** section, and then attach the generated log file (typically, the file is at %TEMP%\vslogs.zip).
+![Tab to the Report New Problem button, then follow through the steps](media/problem-report-details.png)
+4. Click **Next** to review your problem report, and then click **Submit**.
 
-### <a name="step-5---run-installcleanupexe-to-clean-up-installation-files"></a>第 5 步 - 运行 InstallCleanup.exe 清理安装文件
-万不得已，可以运行 InstallCleanup.exe。 InstallCleanup.exe 是与 Visual Studio 安装程序一起打包的实用工具，可用于清理安装文件。 这并不是完全意义上的重新安装。 此实用工具删除的是 Visual Studio 2017 的缓存和实例数据。
+### <a name="step-5---run-installcleanupexe-to-clean-up-installation-files"></a>Step 5 - Run InstallCleanup.exe to clean up installation files
+As a last resort, you can run InstallCleanup.exe. InstallCleanup.exe is a tool that's packaged with the Visual Studio Installer, and it cleans up installation files. This tool doesn't perform a full reinstall. This tool deletes cache and instance data for Visual Studio 2017.
 
-1. 关闭 Visual Studio 安装程序。
-2. 打开管理员命令提示符。 为此，请执行以下步骤：
-   * 在“开始”菜单上，单击“运行”（“开始”键 + R）。
-   * 键入“cmd”。
-   * 右键单击“命令提示符”，然后选择“以管理员身份运行”。
-3. 键入 InstallCleanup.exe 实用工具的完整路径，然后传递以下命令行开关：-f。 默认情况下，此实用工具的路径如下所示：
+1. Close the Visual Studio Installer.
+2. Open an administrator command prompt. To do this, follow these steps:
+   * On the **Start** menu, click **Run** (Start + R).
+   * Type **cmd**.
+   * Right-click **Command Prompt**, and then choose **Run as administrator**.
+3. Type the full path of the InstallCleanup.exe utility, and pass the following command-line switch: -f. By default, the path of the utility is as follows:
    ```
    C:\Program Files (x86)\Microsoft Visual Studio\Installer\resources\app\layout\InstallCleanup.exe
    ```
-4. 重新运行第 3 步中所述的引导程序。
-5. 尝试重新安装或更新 Visual Studio。
+4. Rerun the bootstrapper that's described in [Step 3 - Delete the Visual Studio Installer directory to fix upgrade problems](#step-3--delete-the-visual-studio-installer-directory-to-fix-upgrade-problems).
+5. Try to install or update Visual Studio again.
 
-## <a name="how-to-troubleshoot-an-offline-installer"></a>如何解决脱机安装程序问题
-下面的表格列出了通过本地布局进行安装时的已知问题和解决办法，可能会对你有所帮助。
+## <a name="how-to-troubleshoot-an-offline-installer"></a>How to troubleshoot an offline installer
+Here is a table of known issues and some workarounds when installing from a local layout that might help.
 
-| 问题       | 项                   | 解决方案 |
+| Issue       | Item                   | Solution |
 | ----------- | ---------------------- | -------- |
-| 用户没有访问文件的权限。 | 权限 (ACL) | 请确保调整权限 (ACL)，以便他们在共享脱机安装前先向其他用户授予“读取”权限。 |
-| 无法安装新的工作负载、组件或语言。  | `--layout`  | 如果要从部分布局进行安装，并且选择之前布局中不可用的工作负载、组件或语言，请确保可连接到 Internet。 |
+| Users do not have access to files. | permissions (ACLs) | Make sure that you adjust the permissions (ACLs) so that they grant Read access to other users  *before* you share the offline install. |
+| New workloads, components, or languages fail to install.  | `--layout`  | Make sure that you have internet access if you install from a partial layout and select workloads, components, or languages that were not downloaded previously in that partial layout. |
+
+## <a name="how-to-get-the-visual-studio-installation-logs"></a>How to get the Visual Studio installation logs
+Setup logs are needed to troubleshoot most installation issues. When you submit an issue by using [Report A Problem](../ide/how-to-report-a-problem-with-visual-studio-2017) in the Visual Studio Installer, these logs are automatically included in your report. 
+
+If you contact Microsoft Support, you may need to provide these setup logs by using the [Microsoft Visual Studio and .NET Framework Log Collection Tool](https://aka.ms/vscollect). The log collection tool collects setup logs from all components installed by Visual Studio 2017, including .NET Framework, Windows SDK, and SQL Server. It also collects computer information, a Windows Installer inventory, and Windows event log information for Visual Studio Installer, Windows Installer, and System Restore. 
+
+To collect the logs
+
+1. [Download the tool](https://aka.ms/vscollect).
+2. Open an administrative command prompt.
+3. Run Collect.exe from the directory where you saved the tool.
+4. Find the resulting Vslogs.zip file in your %TEMP% directory, for example, C:\Users\YourName\AppData\Local\Temp\vslogs.zip.
+
+> [!NOTE]
+> The tool must be run under the same user account that the failed installation was run under. If you are running the tool from a different user account, set the –user:\<name\> option to specify the user account under which the failed installation was run. Run `Collect.exe -?` from an administrator command prompt for additional options and usage information.
 
