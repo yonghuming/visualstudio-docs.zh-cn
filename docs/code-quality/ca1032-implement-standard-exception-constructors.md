@@ -1,59 +1,77 @@
 ---
-title: "CA1032：实现标准异常构造函数 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-devops-test"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "CA1032"
-  - "ImplementStandardExceptionConstructors"
-helpviewer_keywords: 
-  - "CA1032"
-  - "ImplementStandardExceptionConstructors"
+title: 'CA1032: Implement standard exception constructors | Microsoft Docs'
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-devops-test
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords:
+- CA1032
+- ImplementStandardExceptionConstructors
+helpviewer_keywords:
+- CA1032
+- ImplementStandardExceptionConstructors
 ms.assetid: a8623c56-273a-4c95-8d83-95911a042be7
 caps.latest.revision: 16
-author: "stevehoag"
-ms.author: "shoag"
-manager: "wpickett"
-caps.handback.revision: 16
----
-# CA1032：实现标准异常构造函数
-[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
+author: stevehoag
+ms.author: shoag
+manager: wpickett
+translation.priority.ht:
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- ru-ru
+- zh-cn
+- zh-tw
+translation.priority.mt:
+- cs-cz
+- pl-pl
+- pt-br
+- tr-tr
+ms.translationtype: HT
+ms.sourcegitcommit: eb5c9550fd29b0e98bf63a7240737da4f13f3249
+ms.openlocfilehash: 42fd1ecaab987ba35fe180c99a6f54f48a30067c
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/30/2017
 
+---
+# <a name="ca1032-implement-standard-exception-constructors"></a>CA1032: Implement standard exception constructors
 |||  
 |-|-|  
-|类型名|ImplementStandardExceptionConstructors|  
+|TypeName|ImplementStandardExceptionConstructors|  
 |CheckId|CA1032|  
-|类别|Microsoft.Design|  
-|是否重大更改|非重大更改|  
+|Category|Microsoft.Design|  
+|Breaking Change|Non-breaking|  
   
-## 原因  
- 某类型扩展了 <xref:System.Exception?displayProperty=fullName>，但没有声明所有需要的构造函数。  
+## <a name="cause"></a>Cause  
+ A type extends <xref:System.Exception?displayProperty=fullName> and does not declare all the required constructors.  
   
-## 规则说明  
- 异常类型必须实现下列构造函数：  
+## <a name="rule-description"></a>Rule Description  
+ Exception types must implement the following constructors:  
   
--   公共 NewException\(\)  
+-   public NewException()  
   
--   公共 NewException\(string\)  
+-   public NewException(string)  
   
--   公共 NewException\(string, Exception\)  
+-   public NewException(string, Exception)  
   
--   受保护或私有的 NewException\(SerializationInfo, StreamingContext\)  
+-   protected or private NewException(SerializationInfo, StreamingContext)  
   
- 如果不能提供完整的构造函数集，要正确处理异常将变得比较困难。  例如，带有签名 `NewException(string, Exception)` 的构造函数用于创建由其他异常导致的异常。  如果没有此构造函数，则无法创建和引发包含内部（嵌套）异常的自定义异常的实例，而在此类情况下托管代码应执行此操作。  按照约定，前三个异常构造函数是公共的。  第四个构造函数在未密封类中是受保护的，而在密封类中是私有的。  有关更多信息，请参见[CA2229：实现序列化构造函数](../code-quality/ca2229-implement-serialization-constructors.md)  
+ Failure to provide the full set of constructors can make it difficult to correctly handle exceptions. For example, the constructor that has the signature `NewException(string, Exception)` is used to create exceptions that are caused by other exceptions. Without this constructor you cannot create and throw an instance of your custom exception that contains an inner (nested) exception, which is what managed code should do in such a situation. The first three exception constructors are public by convention. The fourth constructor is protected in unsealed classes, and private in sealed classes. For more information, see [CA2229: Implement serialization constructors](../code-quality/ca2229-implement-serialization-constructors.md)  
   
-## 如何解决冲突  
- 要修复与该规则的冲突，请将缺少的构造函数添加到异常，并确保这些构造函数具有正确的可访问性。  
+## <a name="how-to-fix-violations"></a>How to Fix Violations  
+ To fix a violation of this rule, add the missing constructors to the exception, and make sure that they have the correct accessibility.  
   
-## 何时禁止显示警告  
- 在冲突由使用公共构造函数的其他访问级别所导致时，可以安全地禁止显示此规则发出的警告。  
+## <a name="when-to-suppress-warnings"></a>When to Suppress Warnings  
+ It is safe to suppress a warning from this rule when the violation is caused by using a different access level for the public constructors.  
   
-## 示例  
- 下面的示例包含一个与该规则冲突的异常类型和一个正确实现的异常类型。  
+## <a name="example"></a>Example  
+ The following example contains an exception type that violates this rule and an exception type that is correctly implemented.  
   
- [!code-cs[FxCop.Design.ExceptionMultipleCtors#1](../code-quality/codesnippet/CSharp/ca1032-implement-standard-exception-constructors_1.cs)]
+ [!code-csharp[FxCop.Design.ExceptionMultipleCtors#1](../code-quality/codesnippet/CSharp/ca1032-implement-standard-exception-constructors_1.cs)]

@@ -1,108 +1,124 @@
 ---
-title: "CA2218：重写 Equals 时重写 GetHashCode | Microsoft Docs"
-ms.custom: ""
-ms.date: "12/14/2016"
-ms.prod: "visual-studio-dev14"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-devops-test"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "CA2218"
-  - "OverrideGetHashCodeOnOverridingEquals"
-helpviewer_keywords: 
-  - "CA2218"
-  - "OverrideGetHashCodeOnOverridingEquals"
+title: 'CA2218: Override GetHashCode on overriding Equals | Microsoft Docs'
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-devops-test
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords:
+- CA2218
+- OverrideGetHashCodeOnOverridingEquals
+helpviewer_keywords:
+- OverrideGetHashCodeOnOverridingEquals
+- CA2218
 ms.assetid: 69b020cd-29e8-45a6-952e-32cf3ce2e21d
 caps.latest.revision: 20
-caps.handback.revision: 20
-author: "stevehoag"
-ms.author: "shoag"
-manager: "wpickett"
----
-# CA2218：重写 Equals 时重写 GetHashCode
-[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
+author: stevehoag
+ms.author: shoag
+manager: wpickett
+translation.priority.ht:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+ms.translationtype: HT
+ms.sourcegitcommit: eb5c9550fd29b0e98bf63a7240737da4f13f3249
+ms.openlocfilehash: 9ad25f33c609d2bbb99aeb90f2fb844744a69013
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/30/2017
 
+---
+# <a name="ca2218-override-gethashcode-on-overriding-equals"></a>CA2218: Override GetHashCode on overriding Equals
 |||  
 |-|-|  
-|类型名|OverrideGetHashCodeOnOverridingEquals|  
+|TypeName|OverrideGetHashCodeOnOverridingEquals|  
 |CheckId|CA2218|  
-|类别|Microsoft.Usage|  
-|是否重大更改|否|  
+|Category|Microsoft.Usage|  
+|Breaking Change|Non Breaking|  
   
-## 原因  
- 某公共类型重写 <xref:System.Object.Equals%2A?displayProperty=fullName> 但是不重写 <xref:System.Object.GetHashCode%2A?displayProperty=fullName>。  
+## <a name="cause"></a>Cause  
+ A public type overrides <xref:System.Object.Equals%2A?displayProperty=fullName> but does not override <xref:System.Object.GetHashCode%2A?displayProperty=fullName>.  
   
-## 规则说明  
- <xref:System.Object.GetHashCode%2A> 基于适合哈希算法和诸如哈希表的数据结构的当前实例返回一个值。  两个相等的同类型对象必须返回相同的哈希代码，才能确保以下类型的实例正确运行：  
+## <a name="rule-description"></a>Rule Description  
+ <xref:System.Object.GetHashCode%2A> returns a value, based on the current instance, that is suited for hashing algorithms and data structures such as a hash table. Two objects that are the same type and are equal must return the same hash code to ensure that instances of the following types work correctly:  
   
--   <xref:System.Collections.HashTable?displayProperty=fullName>  
+-   <xref:System.Collections.Hashtable?displayProperty=fullName>  
   
 -   <xref:System.Collections.SortedList?displayProperty=fullName>  
   
--   <xref:System.Collections.Generic.Dictionary?displayProperty=fullName>  
+-   <xref:System.Collections.Generic.Dictionary%602?displayProperty=fullName>  
   
--   <xref:System.Collections.Generic.SortDictionary?displayProperty=fullName>  
+-   <xref:System.Collections.Generic.SortedDictionary%602?displayProperty=fullName>  
   
--   <xref:System.Collections.Generic.SortList?displayProperty=fullName>  
+-   <xref:System.Collections.Generic.SortedList%602?displayProperty=fullName>  
   
--   <xref:System.Collections.Specialized.HybredDictionary?displayProperty=fullName>  
+-   <xref:System.Collections.Specialized.HybridDictionary?displayProperty=fullName>  
   
 -   <xref:System.Collections.Specialized.ListDictionary?displayProperty=fullName>  
   
 -   <xref:System.Collections.Specialized.OrderedDictionary?displayProperty=fullName>  
   
--   实现 <xref:System.Collections.Generic.IEqualityComparer?displayProperty=fullName> 的类型  
+-   Types that implement <xref:System.Collections.Generic.IEqualityComparer%601?displayProperty=fullName>  
   
-## 如何解决冲突  
- 要修复与该规则的冲突，请提供 <xref:System.Object.GetHashCode%2A> 的实现。  对于一对相同类型的对象，如果 <xref:System.Object.Equals%2A> 的实现为该对对象返回 `true`，则必须确保该实现返回相同的值。  
+## <a name="how-to-fix-violations"></a>How to Fix Violations  
+ To fix a violation of this rule, provide an implementation of <xref:System.Object.GetHashCode%2A>. For a pair of objects of the same type, you must ensure that the implementation returns the same value if your implementation of <xref:System.Object.Equals%2A> returns `true` for the pair.  
   
-## 何时禁止显示警告  
- 不要禁止显示此规则发出的警告。  
+## <a name="when-to-suppress-warnings"></a>When to Suppress Warnings  
+ Do not suppress a warning from this rule.  
   
-## 类示例  
+## <a name="class-example"></a>Class Example  
   
-### 说明  
- 下面的示例演示一个与此规则冲突的类（引用类型）。  
+### <a name="description"></a>Description  
+ The following example shows a class (reference type) that violates this rule.  
   
-### 代码  
- [!code-cs[FxCop.Usage.GetHashCodeErrorClass#1](../code-quality/codesnippet/CSharp/ca2218-override-gethashcode-on-overriding-equals_1.cs)]  
+### <a name="code"></a>Code  
+ [!code-csharp[FxCop.Usage.GetHashCodeErrorClass#1](../code-quality/codesnippet/CSharp/ca2218-override-gethashcode-on-overriding-equals_1.cs)]  
   
-### 注释  
- 下面的示例通过重写 <xref:System.Object.GetHashCode> 修复冲突。  
+### <a name="comments"></a>Comments  
+ The following example fixes the violation by overriding <xref:System.Object.GetHashCode>.  
   
-### 代码  
- [!CODE [FxCop.Usage.GetHashCodeFixedClass#1](../CodeSnippet/VS_Snippets_CodeAnalysis/FxCop.Usage.GetHashCodeFixedClass#1)]  
+### <a name="code"></a>Code  
+ [!code-csharp[FxCop.Usage.GetHashCodeFixedClass#1](../code-quality/codesnippet/CSharp/ca2218-override-gethashcode-on-overriding-equals_2.cs)]  
   
-## 结构示例  
+## <a name="structure-example"></a>Structure Example  
   
-### 说明  
- 下面的示例演示一个与此规则冲突的结构（值类型）。  
+### <a name="description"></a>Description  
+ The following example shows a structure (value type) that violates this rule.  
   
-### 代码  
- [!code-cs[FxCop.Usage.GetHashCodeErrorStruct#1](../code-quality/codesnippet/CSharp/ca2218-override-gethashcode-on-overriding-equals_2.cs)]  
+### <a name="code"></a>Code  
+ [!code-csharp[FxCop.Usage.GetHashCodeErrorStruct#1](../code-quality/codesnippet/CSharp/ca2218-override-gethashcode-on-overriding-equals_3.cs)]  
   
-### 注释  
- 下面的示例通过重写 <xref:System.Object.GetHashCode> 修复冲突。  
+### <a name="comments"></a>Comments  
+ The following example fixes the violation by overriding <xref:System.Object.GetHashCode>.  
   
-### 代码  
- [!code-cs[FxCop.Usage.GetHashCodeFixedStruct#1](../code-quality/codesnippet/CSharp/ca2218-override-gethashcode-on-overriding-equals_3.cs)]  
+### <a name="code"></a>Code  
+ [!code-csharp[FxCop.Usage.GetHashCodeFixedStruct#1](../code-quality/codesnippet/CSharp/ca2218-override-gethashcode-on-overriding-equals_4.cs)]  
   
-## 相关规则  
- [CA1046：不要对引用类型重载相等运算符](../code-quality/ca1046-do-not-overload-operator-equals-on-reference-types.md)  
+## <a name="related-rules"></a>Related Rules  
+ [CA1046: Do not overload operator equals on reference types](../code-quality/ca1046-do-not-overload-operator-equals-on-reference-types.md)  
   
- [CA2225：运算符重载具有命名的备用项](../Topic/CA2225:%20Operator%20overloads%20have%20named%20alternates.md)  
+ [CA2225: Operator overloads have named alternates](../code-quality/ca2225-operator-overloads-have-named-alternates.md)  
   
- [CA2226：运算符应有对称重载](../code-quality/ca2226-operators-should-have-symmetrical-overloads.md)  
+ [CA2226: Operators should have symmetrical overloads](../code-quality/ca2226-operators-should-have-symmetrical-overloads.md)  
   
- [CA2224：重载相等运算符时重写 Equals 方法](../code-quality/ca2224-override-equals-on-overloading-operator-equals.md)  
+ [CA2224: Override equals on overloading operator equals](../code-quality/ca2224-override-equals-on-overloading-operator-equals.md)  
   
- [CA2231：重写 ValueType.Equals 时应重载相等运算符](../code-quality/ca2231-overload-operator-equals-on-overriding-valuetype-equals.md)  
+ [CA2231: Overload operator equals on overriding ValueType.Equals](../code-quality/ca2231-overload-operator-equals-on-overriding-valuetype-equals.md)  
   
-## 请参阅  
+## <a name="see-also"></a>See Also  
  <xref:System.Object.Equals%2A?displayProperty=fullName>   
  <xref:System.Object.GetHashCode%2A?displayProperty=fullName>   
- <xref:System.Collections.HashTable?displayProperty=fullName>   
- [相等运算符](../Topic/Equality%20Operators.md)
+ <xref:System.Collections.Hashtable?displayProperty=fullName>   
+ [Equality Operators](/dotnet/standard/design-guidelines/equality-operators)

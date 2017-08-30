@@ -1,51 +1,67 @@
 ---
-title: "CA2132：默认构造函数必须至少与基类型默认构造函数具有同样的关键性 | Microsoft Docs"
-ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-devops-test"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "CA2132"
+title: 'CA2132: Default constructors must be at least as critical as base type default constructors | Microsoft Docs'
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-devops-test
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords:
+- CA2132
 ms.assetid: e758afa1-8bde-442a-8a0a-bd1ea7b0ce4d
 caps.latest.revision: 11
-caps.handback.revision: 11
-author: "stevehoag"
-ms.author: "shoag"
-manager: "wpickett"
----
-# CA2132：默认构造函数必须至少与基类型默认构造函数具有同样的关键性
-[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
+author: stevehoag
+ms.author: shoag
+manager: wpickett
+translation.priority.ht:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+ms.translationtype: HT
+ms.sourcegitcommit: eb5c9550fd29b0e98bf63a7240737da4f13f3249
+ms.openlocfilehash: e8ef93606186f838a7ecda65928eca78e804c959
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/30/2017
 
+---
+# <a name="ca2132-default-constructors-must-be-at-least-as-critical-as-base-type-default-constructors"></a>CA2132: Default constructors must be at least as critical as base type default constructors
 |||  
 |-|-|  
-|类型名|DefaultConstructorsMustHaveConsistentTransparency|  
+|TypeName|DefaultConstructorsMustHaveConsistentTransparency|  
 |CheckId|CA2132|  
-|类别|Microsoft.Security|  
-|是否重大更改|是|  
+|Category|Microsoft.Security|  
+|Breaking Change|Breaking|  
   
 > [!NOTE]
->  此警告仅应用于运行 CoreCLR（特定于 Silverlight Web 应用程序的 CLR 版本）的代码。  
+>  This warning is only applied to code that is running the CoreCLR (the version of the CLR that is specific to Silverlight Web applications).  
   
-## 原因  
- 派生类的默认构造函数的透明特性不是和基类的透明度一样关键的。  
+## <a name="cause"></a>Cause  
+ The transparency attribute of the default constructor of a derived class is not as critical as the transparency of the base class.  
   
-## 规则说明  
- 具有 <xref:System.Security.SecurityCriticalAttribute> 的类型和成员无法供 Silverlight 应用程序代码使用。  安全关键类型和成员只能供 .NET Framework for Silverlight 类库中的受信任代码使用。  因为派生类中的某个公共或受保护构造必须有与其基类相同或更大的透明度，所以不能从标记为 SecurityCritical 的类派生应用程序中的类。  
+## <a name="rule-description"></a>Rule Description  
+ Types and members that have the <xref:System.Security.SecurityCriticalAttribute> cannot be used by Silverlight application code. Security-critical types and members can be used only by trusted code in the .NET Framework for Silverlight class library. Because a public or protected construction in a derived class must have the same or greater transparency than its base class, a class in an application cannot be derived from a class marked SecurityCritical.  
   
- 对于 CoreCLR 平台代码，如果基类型有公共或受保护的非透明默认构造函数，那么派生的类型必须遵循默认构造函数继承规则。  派生的类型还必须具有默认构造函数，该构造函数必须至少为基类型的关键默认构造函数。  
+ For CoreCLR platform code, if a base type has a public or protected non-transparent default constructor then the derived type must obey the default constructor inheritance rules. The derived type must also have a default constructor and that constructor must be at least as critical default constructor of the base type.  
   
-## 如何解决冲突  
- 若要修复此冲突，删除类型或不从安全非透明类型派生。  
+## <a name="how-to-fix-violations"></a>How to Fix Violations  
+ To fix the violation, remove the type or do not derive from security non-transparent type.  
   
-## 何时禁止显示警告  
- 不要禁止显示与此规则有关的警告。  应用程序违反该规则将导致 CoreCLR 拒绝加载具有 <xref:System.TypeLoadException> 的类型。  
+## <a name="when-to-suppress-warnings"></a>When to Suppress Warnings  
+ Do not suppress warnings from this rule. Violations of this rule by application code will result in the CoreCLR refusing to load the type with a <xref:System.TypeLoadException>.  
   
-### 代码  
- [!CODE [FxCop.Security.CA2132.DefaultConstructorsMustHaveConsistentTransparency#1](../CodeSnippet/VS_Snippets_CodeAnalysis/fxcop.security.ca2132.defaultconstructorsmusthaveconsistenttransparency#1)]  
+### <a name="code"></a>Code  
+ [!code-csharp[FxCop.Security.CA2132.DefaultConstructorsMustHaveConsistentTransparency#1](../code-quality/codesnippet/CSharp/ca2132-default-constructors-must-be-at-least-as-critical-as-base-type-default-constructors_1.cs)]  
   
-### 注释
+### <a name="comments"></a>Comments

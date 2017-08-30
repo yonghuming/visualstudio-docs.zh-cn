@@ -1,157 +1,165 @@
 ---
-title: "演练：从 VBA 调用 VSTO 外接程序中的代码"
-ms.custom: ""
-ms.date: "02/02/2017"
-ms.prod: "visual-studio-dev14"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "office-development"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-dev_langs: 
-  - "VB"
-  - "CSharp"
-helpviewer_keywords: 
-  - "VBA [Visual Studio 中的 Office 开发]，调用应用程序级外接程序中的代码"
-  - "应用程序级外接程序 [Visual Studio 中的 Office 开发]，从其他解决方案中调用代码"
-  - "视频操作说明，Visual Studio 中的 Office 开发"
-  - "调用外接程序代码"
-  - "外接程序 [Visual Studio 中的 Office 开发]，从其他解决方案中调用代码"
-  - "互操作性 [Visual Studio 中的 Office 开发]"
-  - "从 VBA 中调用代码"
+title: 'Walkthrough: Calling Code in a VSTO Add-in from VBA | Microsoft Docs'
+ms.custom: 
+ms.date: 02/02/2017
+ms.prod: visual-studio-dev14
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- office-development
+ms.tgt_pltfrm: 
+ms.topic: article
+dev_langs:
+- VB
+- CSharp
+helpviewer_keywords:
+- VBA [Office development in Visual Studio], calling code in application-level add-ins
+- application-level add-ins [Office development in Visual Studio], calling code from other solutions
+- Video How tos, Office development in Visual Studio
+- calling add-in code
+- add-ins [Office development in Visual Studio], calling code from other solutions
+- interoperability [Office development in Visual Studio]
+- calling code from VBA
 ms.assetid: 9c04d1df-0d93-473c-85fd-02dc2e956c9e
 caps.latest.revision: 48
-author: "kempb"
-ms.author: "kempb"
-manager: "ghogen"
-caps.handback.revision: 44
+author: kempb
+ms.author: kempb
+manager: ghogen
+ms.translationtype: HT
+ms.sourcegitcommit: eb5c9550fd29b0e98bf63a7240737da4f13f3249
+ms.openlocfilehash: e13b8ecdbe733de93eff5fb2967f85fcd390bba0
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/30/2017
+
 ---
-# 演练：从 VBA 调用 VSTO 外接程序中的代码
-  本演练演示如何向其他 Microsoft Office 解决方案（包括 Visual Basic for Applications \(VBA\) 和 COM VSTO 外接程序）公开 VSTO 外接程序中的对象。  
+# <a name="walkthrough-calling-code-in-a-vsto-add-in-from-vba"></a>Walkthrough: Calling Code in a VSTO Add-in from VBA
+  This walkthrough demonstrates how to expose an object in a VSTO Add-in to other Microsoft Office solutions, including Visual Basic for Applications (VBA) and COM VSTO Add-ins.  
   
  [!INCLUDE[appliesto_allapp](../vsto/includes/appliesto-allapp-md.md)]  
   
- 尽管本演练中特别使用了 Excel，但本演练演示的概念适用于 Visual Studio 提供的任何 VSTO 外接程序项目模板。  
+ Although this walkthrough uses Excel specifically, the concepts demonstrated by the walkthrough are applicable to any VSTO Add-in project template provided by Visual Studio.  
   
- 本演练阐释了以下任务：  
+ This walkthrough illustrates the following tasks:  
   
--   定义可向其他 Office 解决方案公开的类。  
+-   Defining a class that can be exposed to other Office solutions.  
   
--   向其他 Office 解决方案公开类。  
+-   Exposing the class to other Office solutions.  
   
--   从 VBA 代码调用类的方法。  
+-   Calling a method of the class from VBA code.  
   
  [!INCLUDE[note_settings_general](../sharepoint/includes/note-settings-general-md.md)]  
   
-## 系统必备  
- 你需要以下组件来完成本演练：  
+## <a name="prerequisites"></a>Prerequisites  
+ You need the following components to complete this walkthrough:  
   
 -   [!INCLUDE[vsto_vsprereq](../vsto/includes/vsto-vsprereq-md.md)]  
   
 -   Microsoft Excel  
   
-## 创建 VSTO 外接程序项目  
- 第一步是针对 Excel 创建一个 VSTO 外接程序项目。  
+## <a name="creating-the-vsto-add-in-project"></a>Creating the VSTO Add-in Project  
+ The first step is to create a VSTO Add-in project for Excel.  
   
-#### 创建新项目  
+#### <a name="to-create-a-new-project"></a>To create a new project  
   
-1.  使用 Excel VSTO 外接程序项目模板，创建一个名为 **ExcelImportData** 的 Excel VSTO 外接程序项目。 有关详细信息，请参阅[如何：在 Visual Studio 中创建 Office 项目](../vsto/how-to-create-office-projects-in-visual-studio.md)。  
+1.  Create an Excel VSTO Add-in project with the name **ExcelImportData**, using the Excel VSTO Add-in project template. For more information, see [How to: Create Office Projects in Visual Studio](../vsto/how-to-create-office-projects-in-visual-studio.md).  
   
-     [!INCLUDE[vsprvs](../sharepoint/includes/vsprvs-md.md)] 此时将打开 **ThisAddIn.cs** 或 **ThisAddIn.vb** 代码文件，并将**“ExcelImportData”**项目添加到**“解决方案资源管理器”**。  
+     [!INCLUDE[vsprvs](../sharepoint/includes/vsprvs-md.md)] opens the **ThisAddIn.cs** or **ThisAddIn.vb** code file and adds the **ExcelImportData** project to **Solution Explorer**.  
   
-## 定义可向其他 Office 解决方案公开的类  
- 本演练的目的是从 VBA 代码中调入 VSTO 外接程序中名为 `AddInUtilities` 的类的 `ImportData` 方法。 此方法将字符串写入活动工作表中的 A1 单元格。  
+## <a name="defining-a-class-that-you-can-expose-to-other-office-solutions"></a>Defining a Class That You Can Expose to Other Office Solutions  
+ The purpose of this walkthrough is to call into the `ImportData` method of a class named `AddInUtilities` in your VSTO Add-in from VBA code. This method writes a string into cell A1 of the active worksheet.  
   
- 若要向其他 Office 解决方案公开 `AddInUtilities` 类，必须使该类成为公共类并对 COM 可见。 还必须在类中公开 [IDispatch](http://msdn.microsoft.com/zh-cn/ebbff4bc-36b2-4861-9efa-ffa45e013eb5) 接口。 以下过程中的代码演示了一种可满足这些要求的方式。 有关更多信息，请参见[从其他 Office 解决方案调用 VSTO 外接程序中的代码](../vsto/calling-code-in-vsto-add-ins-from-other-office-solutions.md)。  
+ To expose the `AddInUtilities` class to other Office solutions, you must make the class public and visible to COM. You must also expose the [IDispatch](https://msdn.microsoft.com/library/windows/desktop/ms221608.aspx) interface in the class. The code in the following procedure demonstrates one way to meet these requirements. For more information, see [Calling Code in VSTO Add-ins from Other Office Solutions](../vsto/calling-code-in-vsto-add-ins-from-other-office-solutions.md).  
   
-#### 定义可向其他 Office 解决方案公开的类  
+#### <a name="to-define-a-class-that-you-can-expose-to-other-office-solutions"></a>To define a class that you can expose to other Office solutions  
   
-1.  在**“项目”**菜单上，单击**“添加类”**。  
+1.  On the **Project** menu, click **Add Class**.  
   
-2.  在**“添加新项”**对话框中，将新类的名称更改为 **AddInUtilities**，然后单击**“添加”**。  
+2.  In the **Add New Item** dialog box, change the name of the new class to **AddInUtilities**, and click **Add**.  
   
-     **AddInUtilities.cs** 或 **AddInUtilities.vb** 文件将在代码编辑器中打开。  
+     The **AddInUtilities.cs** or **AddInUtilities.vb** file opens in the Code Editor.  
   
-3.  将下面的语句添加到文件的顶部。  
+3.  Add the following statements to the top of the file.  
   
-     [!code-csharp[Trin_AddInInteropWalkthrough#2](../snippets/csharp/VS_Snippets_OfficeSP/Trin_AddInInteropWalkthrough/CS/AddInUtilities.cs#2)]
-     [!code-vb[Trin_AddInInteropWalkthrough#2](../snippets/visualbasic/VS_Snippets_OfficeSP/Trin_AddInInteropWalkthrough/VB/AddInUtilities.vb#2)]  
+     [!code-csharp[Trin_AddInInteropWalkthrough#2](../vsto/codesnippet/CSharp/Trin_AddInInteropWalkthrough/AddInUtilities.cs#2)]  [!code-vb[Trin_AddInInteropWalkthrough#2](../vsto/codesnippet/VisualBasic/Trin_AddInInteropWalkthrough/AddInUtilities.vb#2)]  
   
-4.  将 `AddInUtilities` 类替换为以下代码。  
+4.  Replace the `AddInUtilities` class with the following code.  
   
-     [!code-csharp[Trin_AddInInteropWalkthrough#3](../snippets/csharp/VS_Snippets_OfficeSP/Trin_AddInInteropWalkthrough/CS/AddInUtilities.cs#3)]
-     [!code-vb[Trin_AddInInteropWalkthrough#3](../snippets/visualbasic/VS_Snippets_OfficeSP/Trin_AddInInteropWalkthrough/VB/AddInUtilities.vb#3)]  
+     [!code-csharp[Trin_AddInInteropWalkthrough#3](../vsto/codesnippet/CSharp/Trin_AddInInteropWalkthrough/AddInUtilities.cs#3)]  [!code-vb[Trin_AddInInteropWalkthrough#3](../vsto/codesnippet/VisualBasic/Trin_AddInInteropWalkthrough/AddInUtilities.vb#3)]  
   
-     此代码使 `AddInUtilities` 类对于 COM 可见，并向该类中添加 `ImportData` 方法。 为了公开 [IDispatch](http://msdn.microsoft.com/zh-cn/ebbff4bc-36b2-4861-9efa-ffa45e013eb5) 接口，`AddInUtilities` 类还具有 <xref:System.Runtime.InteropServices.ClassInterfaceAttribute> 特性，并且该类实现对 COM 可见的接口。  
+     This code makes the `AddInUtilities` class visible to COM, and it adds the `ImportData` method to the class. To expose the [IDispatch](https://msdn.microsoft.com/library/windows/desktop/ms221608.aspx) interface, the `AddInUtilities` class also has the <xref:System.Runtime.InteropServices.ClassInterfaceAttribute> attribute, and it implements an interface that is visible to COM.  
   
-## 向其他 Office 解决方案公开类  
- 若要向其他 Office 解决方案公开 `AddInUtilities` 类，请替代 `ThisAddIn` 类中的 <xref:Microsoft.Office.Tools.AddInBase.RequestComAddInAutomationService%2A> 方法。 在替代中，返回 `AddInUtilities` 类的一个实例。  
+## <a name="exposing-the-class-to-other-office-solutions"></a>Exposing the Class to Other Office Solutions  
+ To expose the `AddInUtilities` class to other Office solutions, override the <xref:Microsoft.Office.Tools.AddInBase.RequestComAddInAutomationService%2A> method in the `ThisAddIn` class. In your override, return an instance of the `AddInUtilities` class.  
   
-#### 向其他 Office 解决方案公开 AddInUtilities 类  
+#### <a name="to-expose-the-addinutilities-class-to-other-office-solutions"></a>To expose the AddInUtilities class to other Office Solutions  
   
-1.  在**“解决方案资源管理器”**中，展开**“Excel”**。  
+1.  In **Solution Explorer**, expand **Excel**.  
   
-2.  右键单击**“ThisAddIn.cs”**或**“ThisAddIn.vb”**，然后单击**“查看代码”**。  
+2.  Right-click **ThisAddIn.cs** or **ThisAddIn.vb**, and then click **View Code**.  
   
-3.  向 `ThisAddIn` 类添加下面的代码。  
+3.  Add the following code to the `ThisAddIn` class.  
   
-     [!code-csharp[Trin_AddInInteropWalkthrough#1](../snippets/csharp/VS_Snippets_OfficeSP/Trin_AddInInteropWalkthrough/CS/ThisAddIn.cs#1)]
-     [!code-vb[Trin_AddInInteropWalkthrough#1](../snippets/visualbasic/VS_Snippets_OfficeSP/Trin_AddInInteropWalkthrough/VB/ThisAddIn.vb#1)]  
+     [!code-csharp[Trin_AddInInteropWalkthrough#1](../vsto/codesnippet/CSharp/Trin_AddInInteropWalkthrough/ThisAddIn.cs#1)]  [!code-vb[Trin_AddInInteropWalkthrough#1](../vsto/codesnippet/VisualBasic/Trin_AddInInteropWalkthrough/ThisAddIn.vb#1)]  
   
-4.  在**“生成”**菜单上，单击**“生成解决方案”**。  
+4.  On the **Build** menu, click **Build Solution**.  
   
-     验证解决方案已生成且未发生错误。  
+     Verify that the solution builds without errors.  
   
-## 测试 VSTO 外接程序  
- 可以从多种不同类型的 Office 解决方案中调入 `AddInUtilities` 类。 在本演练中，你将在 Excel 工作簿中使用 VBA 代码。 有关同样可以使用的其他类型的 Office 解决方案的详细信息，请参阅[从其他 Office 解决方案调用 VSTO 外接程序中的代码](../vsto/calling-code-in-vsto-add-ins-from-other-office-solutions.md)。  
+## <a name="testing-the-vsto-add-in"></a>Testing the VSTO Add-in  
+ You can call into the `AddInUtilities` class from several different types of Office solutions. In this walkthrough, you will use VBA code in an Excel workbook. For more information about the other types of Office solutions you can also use, see [Calling Code in VSTO Add-ins from Other Office Solutions](../vsto/calling-code-in-vsto-add-ins-from-other-office-solutions.md).  
   
-#### 测试 VSTO 外接程序  
+#### <a name="to-test-your-vsto-add-in"></a>To test your VSTO Add-in  
   
-1.  按 F5 运行项目。  
+1.  Press F5 to run your project.  
   
-2.  在 Excel 中，将活动工作簿另存为启用宏的 Excel 工作簿 \(\*.xlsm\)。 将它保存在一个方便的位置，例如桌面。  
+2.  In Excel, save the active workbook as an Excel Macro-Enabled Workbook (*.xlsm). Save it in a convenient location, such as the desktop.  
   
-3.  在功能区上，单击**“开发人员”**选项卡。  
+3.  On the Ribbon, click the **Developer** tab.  
   
     > [!NOTE]  
-    >  如果看不到**“开发人员”**选项卡，则必须首先显示它。 有关详细信息，请参阅[如何：在功能区上显示“开发人员”选项卡](../vsto/how-to-show-the-developer-tab-on-the-ribbon.md)。  
+    >  If the **Developer** tab is not visible, you must first show it. For more information, see [How to: Show the Developer Tab on the Ribbon](../vsto/how-to-show-the-developer-tab-on-the-ribbon.md).  
   
-4.  在**“代码”**组中，单击**“Visual Basic”**。  
+4.  In the **Code** group, click **Visual Basic**.  
   
-     将打开 Visual Basic 编辑器。  
+     The Visual Basic Editor opens.  
   
-5.  在**“项目”**窗口中，双击**“ThisWorkbook”**。  
+5.  In the **Project** window, double-click **ThisWorkbook**.  
   
-     将打开 `ThisWorkbook` 对象的代码文件。  
+     The code file for the `ThisWorkbook` object opens.  
   
-6.  将下面的 VBA 代码添加到代码文件。 此代码首先获取一个 COMAddIn 对象，该对象表示 **ExcelImportData** VSTO 外接程序。 然后，该代码使用 COMAddIn 对象的 Object 属性来调用 `ImportData` 方法。  
+6.  Add the following VBA code to the code file. This code first gets a COMAddIn object that represents the **ExcelImportData** VSTO Add-in. Then, the code uses the Object property of the COMAddIn object to call the `ImportData` method.  
   
     ```  
-    Sub CallVSTOMethod() Dim addIn As COMAddIn Dim automationObject As Object Set addIn = Application.COMAddIns("ExcelImportData") Set automationObject = addIn.Object automationObject.ImportData End Sub  
+    Sub CallVSTOMethod()  
+        Dim addIn As COMAddIn  
+        Dim automationObject As Object  
+        Set addIn = Application.COMAddIns("ExcelImportData")  
+        Set automationObject = addIn.Object  
+        automationObject.ImportData  
+    End Sub  
     ```  
   
-7.  按 F5。  
+7.  Press F5.  
   
-8.  验证是否已将新的 **Imported Data** 表添加到工作簿。 此外，请验证 A1 单元格是否包含字符串 **This is my data**。  
+8.  Verify that a new **Imported Data** sheet has been added to the workbook. Also verify that cell A1 contains the string **This is my data**.  
   
-9. 退出 Excel。  
+9. Exit Excel.  
   
-## 后续步骤  
- 可以从以下主题了解有关 VSTO 外接程序编程的详细信息：  
+## <a name="next-steps"></a>Next Steps  
+ You can learn more about programming VSTO Add-ins from these topics:  
   
--   使用 `ThisAddIn` 类实现主机应用程序自动化并在 VSTO 外接程序项目中执行其他任务。 有关更多信息，请参见[VSTO 外接程序编程](../vsto/programming-vsto-add-ins.md)。  
+-   Use the `ThisAddIn` class to automate the host application and perform other tasks in VSTO Add-in projects. For more information, see [Programming VSTO Add-Ins](../vsto/programming-vsto-add-ins.md).  
   
--   在 VSTO 外接程序中创建自定义任务窗格。 有关详细信息，请参阅[自定义任务窗格](../vsto/custom-task-panes.md)和[如何：向应用程序中添加自定义任务窗格](../vsto/how-to-add-a-custom-task-pane-to-an-application.md)。  
+-   Create a custom task pane in a VSTO Add-in. For more information, see [Custom Task Panes](../vsto/custom-task-panes.md) and [How to: Add a Custom Task Pane to an Application](../vsto/how-to-add-a-custom-task-pane-to-an-application.md).  
   
--   在 VSTO 外接程序中自定义功能区。 有关详细信息，请参阅 [功能区概述](../vsto/ribbon-overview.md) 和 [如何：开始自定义功能区](../vsto/how-to-get-started-customizing-the-ribbon.md)。  
+-   Customize the Ribbon in a VSTO Add-in. For more information, see [Ribbon Overview](../vsto/ribbon-overview.md) and [How to: Get Started Customizing the Ribbon](../vsto/how-to-get-started-customizing-the-ribbon.md).  
   
-## 请参阅  
- [VSTO 外接程序编程](../vsto/programming-vsto-add-ins.md)   
- [从其他 Office 解决方案调用 VSTO 外接程序中的代码](../vsto/calling-code-in-vsto-add-ins-from-other-office-solutions.md)   
- [开发 Office 解决方案](../vsto/developing-office-solutions.md)   
- [如何：在 Visual Studio 中创建 Office 项目](../vsto/how-to-create-office-projects-in-visual-studio.md)   
- [VSTO 外接程序的体系结构](../vsto/architecture-of-vsto-add-ins.md)   
- [使用扩展性接口自定义 UI 功能](../vsto/customizing-ui-features-by-using-extensibility-interfaces.md)  
+## <a name="see-also"></a>See Also  
+ [Programming VSTO Add-Ins](../vsto/programming-vsto-add-ins.md)   
+ [Calling Code in VSTO Add-ins from Other Office Solutions](../vsto/calling-code-in-vsto-add-ins-from-other-office-solutions.md)   
+ [Developing Office Solutions](../vsto/developing-office-solutions.md)   
+ [How to: Create Office Projects in Visual Studio](../vsto/how-to-create-office-projects-in-visual-studio.md)   
+ [Architecture of VSTO Add-ins](../vsto/architecture-of-vsto-add-ins.md)   
+ [Customizing UI Features By Using Extensibility Interfaces](../vsto/customizing-ui-features-by-using-extensibility-interfaces.md)  
   
   

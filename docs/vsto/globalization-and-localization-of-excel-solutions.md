@@ -1,104 +1,108 @@
 ---
-title: "Excel 解决方案的全球化和本地化"
-ms.custom: ""
-ms.date: "02/02/2017"
-ms.prod: "visual-studio-dev14"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "office-development"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-dev_langs: 
-  - "VB"
-  - "CSharp"
-helpviewer_keywords: 
-  - "全球化 [Visual Studio 中的 Office 开发]，配置"
+title: Globalization and Localization of Excel Solutions | Microsoft Docs
+ms.custom: 
+ms.date: 02/02/2017
+ms.prod: visual-studio-dev14
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- office-development
+ms.tgt_pltfrm: 
+ms.topic: article
+dev_langs:
+- VB
+- CSharp
+helpviewer_keywords:
+- globalization [Office development in Visual Studio], configuring
 ms.assetid: c5fccd45-cb3a-441c-89bf-257e9faf4587
 caps.latest.revision: 24
-author: "kempb"
-ms.author: "kempb"
-manager: "ghogen"
-caps.handback.revision: 23
+author: kempb
+ms.author: kempb
+manager: ghogen
+ms.translationtype: HT
+ms.sourcegitcommit: eb5c9550fd29b0e98bf63a7240737da4f13f3249
+ms.openlocfilehash: 644848e67c3d948e994702cbf50bc56c5c08b145
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/30/2017
+
 ---
-# Excel 解决方案的全球化和本地化
-  本节包含有关 Microsoft Office Excel 解决方案的特殊注意事项的信息，这些解决方案将在具有 Windows 非英语设置的计算机上运行。 全球化和本地化 Microsoft Office 解决方案过程中所遇到的大多数问题与使用 Visual Studio 创建其他各种解决方案时遇到的问题相同。 有关一般信息，请参阅[对应用程序进行全球化和本地化](../ide/globalizing-and-localizing-applications.md)。 在 MSDN 网页[使用 Microsoft Visual Studio Tools for the Microsoft Office System 创建的解决方案的全球化和本地化问题](VSTO_globalization)上也提供了全球化和本地化信息。  
+# <a name="globalization-and-localization-of-excel-solutions"></a>Globalization and Localization of Excel Solutions
+  This section contains information about special considerations for Microsoft Office Excel solutions that will be run on computers that have non-English settings for Windows. Most aspects of globalizing and localizing Microsoft Office solutions are the same as you encounter when you create other kinds of solutions using Visual Studio. For general information, see [Globalizing and Localizing Applications](/visualstudio/ide/globalizing-and-localizing-applications).  
   
- 默认情况下，只要使用托管代码传递或操作的所有数据的格式都是使用“英语（美国）”格式设置进行设置的，Microsoft Office Excel 的宿主控件在任何 Windows 区域设置中均可正确工作。 在面向 [!INCLUDE[net_v40_short](../sharepoint/includes/net-v40-short-md.md)] 或 [!INCLUDE[net_v45](../vsto/includes/net-v45-md.md)] 的项目中，此行为由公共语言运行时 \(CLR\) 控制。  
+ By default, host controls in Microsoft Office Excel work correctly in any Windows regional setting, as long as all data that is passed or manipulated using managed code is formatted using English (United States) formatting. In projects that target the [!INCLUDE[net_v40_short](../sharepoint/includes/net-v40-short-md.md)] or the [!INCLUDE[net_v45](../vsto/includes/net-v45-md.md)], this behavior is controlled by the common language runtime (CLR).  
   
  [!INCLUDE[appliesto_xlalldocapp](../vsto/includes/appliesto-xlalldocapp-md.md)]  
   
-## 使用不同区域设置对 Excel 中的数据进行格式设置  
- 在将数据传递到 Microsoft Office Excel 或从 Office 项目中的代码读取数据之前，必须使用英语（美国）数据格式（区域设置 ID 1033）对具有区分区域设置格式的所有数据（例如日期和货币）进行格式设置。  
+## <a name="formatting-data-in-excel-with-various-regional-settings"></a>Formatting Data in Excel with Various Regional Settings  
+ You must format all data that has locale-sensitive formatting, such as dates and currency, using the English (United States) data format (locale ID 1033) before you pass it to Microsoft Office Excel or read the data from code in your Office project.  
   
- 默认情况下，在 Visual Studio 中开发 Office 解决方案时，Excel 对象模型应为区域设置 ID 1033 数据格式（这也称为将对象模型锁定为区域设置 ID 1033）。 此行为与 Visual Basic for Applications 的运行方式相匹配。 但是，你可以在 Office 解决方案中修改此行为。  
+ By default, when you develop an Office solution in Visual Studio, the Excel object model expects locale ID 1033 data formatting (this is also called locking the object model to locale ID 1033). This behavior matches the way that Visual Basic for Applications works. However, you can modify this behavior in your Office solutions.  
   
-### 了解 Excel 对象模型如何始终要求区域设置 ID 1033  
- 默认情况下，使用 Visual Studio 创建的 Office 解决方案不会受到最终用户区域设置的影响，并且其行为始终如同区域设置为英语（美国）一样。 例如，如果在 Excel 中获取或设置 <xref:Microsoft.Office.Interop.Excel.Range.Value2%2A> 属性，则必须按照区域设置 ID 1033 所要求的方式来设置数据格式。 如果使用不同的数据格式，可能会产生意外结果。  
+### <a name="understanding-how-the-excel-object-model-always-expects-locale-id-1033"></a>Understanding How the Excel Object Model Always Expects Locale ID 1033  
+ By default, Office solutions that you create by using Visual Studio are not affected by the end user's locale settings, and always behave as though the locale is English (United States). For example, if you get or set the <xref:Microsoft.Office.Interop.Excel.Range.Value2%2A> property in Excel, the data must be formatted the way that locale ID 1033 expects. If you use a different data format, you might get unexpected results.  
   
- 即使你对由托管代码传递或操作的数据使用英语（美国）格式，Excel 仍然会根据最终用户的区域设置来正确解释并显示数据。 Excel 可以正确设置数据格式，因为托管代码将区域设置 ID 1033 与数据一起传递，这表示数据为英语（美国）格式，因此必须重新设置格式，使其与用户的区域设置相匹配。  
+ Even though you use the English (United States) format for data that is passed or manipulated by managed code, Excel interprets and displays the data correctly according to the end user's locale setting. Excel can format the data correctly because the managed code passes locale ID 1033 along with the data, which indicates that the data is in English (United States) format and therefore must be reformatted to match the user's locale setting.  
   
- 例如，如果最终用户将其区域选项设置为德语（德国）区域设置，则他们期望采用以下方式设置日期 2005 年 6 月 29 日的格式：29.06.2005。 但是，如果解决方案以字符串形式将该日期传递到 Excel，则必须依据英语（美国）格式 6\/29\/2005 设置该日期的格式。 如果将单元格格式化为日期单元格，则 Excel 将采用德语（德国）格式显示日期。  
+ For example, if end users have their regional options set to the German (Germany) locale, they expect the date June 29, 2005, to be formatted this way: 29.06.2005. However, if your solution passes the date to Excel as a string, you must format the date according to English (United States) format: 6/29/2005. If the cell is formatted as a Date cell, Excel will display the date in German (Germany) format.  
   
-### 将其他区域设置 ID 传递到 Excel 对象模型  
- 公共语言运行时 \(CLR\) 会自动将区域设置 ID 1033 传递到接受区分区域设置的数据的 Excel 对象模型中的所有方法和属性。 无法为调入对象模型的所有调用自动更改此行为。 但是，通过使用 <xref:System.Type.InvokeMember%2A> 来调用方法以及将区域设置 ID 传递到方法的 *culture* 参数，可以将不同的区域设置 ID 传递到特定的方法。  
+### <a name="passing-other-locale-ids-to-the-excel-object-model"></a>Passing Other Locale IDs to the Excel Object Model  
+ The common language runtime (CLR) automatically passes locale ID 1033 to all methods and properties in the Excel object model that accept locale-sensitive data. There is no way to change this behavior automatically for all calls into the object model. However, you can pass a different locale ID to a specific method by using <xref:System.Type.InvokeMember%2A> to call the method and by passing the locale ID to the *culture* parameter of the method.  
   
-## 本地化文档文本  
- 项目中的文档、模板或工作簿中可能包含静态文本，静态文本必须与程序集和其他托管资源分开进行本地化。 完成此任务的一个直接的方法是，创建文档的副本，然后使用 Microsoft Office Word 或 Microsoft Office Excel 对文本进行翻译。 即使不对代码进行任何更改，此过程仍然有效，因为可将任意数量的文档链接到同一程序集。  
+## <a name="localizing-document-text"></a>Localizing Document Text  
+ The document, template, or workbook in your project probably includes static text, which must be localized separately from the assembly and other managed resources. A straightforward way to do this is to make a copy of the document and translate the text using Microsoft Office Word or Microsoft Office Excel. This process works even if you make no changes to the code, because any number of documents can be linked to the same assembly.  
   
- 还必须确保与文档文本交互的任何代码部分都与文本的语言保持匹配，并确保书签、命名范围以及其他显示字段能够适应 Office 文档的重新格式化，针对不同语法和文本长度进行调整时需要该 Office 文档。 对于包含相对较少文本的文档模板，可以考虑在资源文件中存储文本，然后在运行时加载该文本。  
+ You must still make sure that any part of your code that interacts with the document text continues to match the language of the text, and that bookmarks, named ranges, and other display fields accommodate any reformatting of the Office document that was necessary to adjust for different grammar and text length. For document templates that contain relatively little text, you might want to consider storing the text in resource files, and then loading the text at run time.  
   
-### 文字方向  
- 在 Excel 中，可以将工作表的属性设置为从右向左呈现文本。 放在设计器上的宿主控件或任何具有 `RightToLeft` 属性的控件将在运行时自动匹配这些设置。 Word 没有针对双向文本的文档设置（只能更改文本的对齐方式），因此这些控件不能映射到此设置。 相反，必须为每个控件设置文本对齐方式。 可以编写代码来遍历所有控件，并强制这些控件从右向左呈现文本。  
+### <a name="text-direction"></a>Text Direction  
+ In Excel, you can set a property of the worksheet to render text right to left. Host controls, or any control that has a `RightToLeft` property, that are placed on the designer automatically match these settings at run time. Word does not have a document setting for bi-directional text (you just change your alignment of text), so the controls cannot be mapped to this setting. Instead, you must set the text alignment for each control. It is possible to write code to walk through all of the controls and force them to render text from right to left.  
   
-### 更改区域性  
- 文档级自定义项代码通常将共享 Excel 的主 UI 线程，因此，对线程区域性的任何更改都将影响在该线程上运行的所有其他内容；更改不会限制为针对自定义项。  
+### <a name="changing-culture"></a>Changing Culture  
+ Your document-level customization code typically shares the main UI thread of Excel, so any changes you make to the thread culture affects everything else that is running on that thread; the change is not restricted to your customization.  
   
- Windows 窗体控件在主机应用程序启动应用程序级 VSTO 外接程序之前进行初始化。 在这些情况下，应在设置 UI 控件之前更改区域性。  
+ Windows Forms controls are initialized before application-level VSTO Add-ins are started by the host application. In these situations, the culture should be changed before setting the UI controls.  
   
-## 安装语言包  
- 如果 Windows 具有非英语设置，则可安装 [!INCLUDE[vsto_runtime](../vsto/includes/vsto-runtime-md.md)] 来以 Windows 使用的语言查看 [!INCLUDE[vsto_runtime](../vsto/includes/vsto-runtime-md.md)] 消息。 如果最终用户使用 Windows 的非英语设置来运行你的解决方案，则他们必须具有相应的语言包来以 Windows 使用的语言查看运行时消息。 可以从 [Microsoft 下载中心](http://www.microsoft.com/downloads)获得 [!INCLUDE[vsto_runtime](../vsto/includes/vsto-runtime-md.md)] 语言包。  
+## <a name="installing-the-language-packs"></a>Installing the Language Packs  
+ If you have non-English settings for Windows, you can install the [!INCLUDE[vsto_runtime](../vsto/includes/vsto-runtime-md.md)] Language Packs to see [!INCLUDE[vsto_runtime](../vsto/includes/vsto-runtime-md.md)] messages in the same language as Windows. If any end users run your solutions with non-English settings for Windows, they must have the correct language pack to see runtime messages in the same language as Windows. The [!INCLUDE[vsto_runtime](../vsto/includes/vsto-runtime-md.md)] Language Packs are available from the [Microsoft Download Center](http://www.microsoft.com/downloads).  
   
- 此外，可再发行的.NET Framework 语言包是 ClickOnce 消息所必需的。 可以从 [Microsoft 下载中心](http://www.microsoft.com/downloads)获得 .NET Framework 语言包。  
+ In addition, the redistributable .NET Framework Language Packs are necessary for ClickOnce messages. The .NET Framework Language Packs are available from the [Microsoft Download Center](http://www.microsoft.com/downloads).  
   
-## 区域设置和 Excel COM 调用  
- 每当托管客户端对 COM 对象调用一个方法并且需要传入特定于区域性的信息时，它都使用与当前线程区域设置匹配的 <xref:System.Globalization.CultureInfo.CurrentCulture%2A>（区域设置）来执行这些操作。 默认情况下，当前线程区域设置是从用户的区域设置继承而来的。 但是，当你从使用 Visual Studio 中的 Office 开发工具创建的 Excel 解决方案中调用 Excel 对象模型时，会自动将英语（美国）数据格式（区域设置 ID 1033）传递到 Excel 对象模型。 在将数据传递到 Microsoft Office Excel 或从项目代码中读取数据之前，必须使用英语（美国）数据格式对具有区分区域设置格式的所有数据（如日期和货币）进行格式设置。  
+## <a name="regional-settings-and-excel-com-calls"></a>Regional Settings and Excel COM Calls  
+ Whenever a managed client calls a method on a COM object and it needs to pass in culture-specific information, it does so using the <xref:System.Globalization.CultureInfo.CurrentCulture%2A> (locale) that matches the current thread locale. The current thread locale is inherited from the user's regional settings by default. However, when you make a call into the Excel object model from an Excel solution created by using the Office development tools in Visual Studio, the English (United States) data format (locale ID 1033) is passed to the Excel object model automatically. You must format all data that has locale-sensitive formatting, such as dates and currency, using the English (United States) data format before you pass it to Microsoft Office Excel or read the data from your project code.  
   
-## 存储数据的注意事项  
- 若要确保正确解释和显示数据，还应考虑应用程序在字符串文本（硬编码）而不是在强类型对象中存储数据（例如 Excel 工作表公式）时可能发生的问题。 应使用采用区域性固定的样式或英语（美国）（LCID 值为 1033）样式进行格式设置的数据。  
+## <a name="considerations-for-storing-data"></a>Considerations for Storing Data  
+ To ensure that your data is correctly interpreted and displayed, you should also consider that problems can occur when an application is storing data, such as Excel worksheet formulas, in string literals (hard-coded) instead of in strongly-typed objects. You should use data that is formatted assuming a culture-invariant or English (United States) (the LCID value 1033) style.  
   
-### 使用字符串文本的应用程序  
- 可硬编码的值包括用英语（美国）格式编写的日期文本，以及包含本地化函数名的 Excel 工作表公式。 还可能是包含数字（如“1,000”）的硬编码字符串；在某些区域性中，“1,000”被解释为一千，而在另一些区域性中它表示一点零。 根据错误的格式执行计算和比较会导致不正确的数据。  
+### <a name="applications-that-use-string-literals"></a>Applications That Use String Literals  
+ Possible values that might be hard-coded include date literals that are written in English (United States) format, and Excel worksheet formulas that contain localized function names. Another possibility might be a hard-coded string that contains a number such as "1,000"; in some cultures, this is interpreted as one thousand, but in other cultures, it represents one point zero. Calculations and comparisons performed on the wrong format might result in incorrect data.  
   
- Excel 根据随字符串传递的 LCID 解释所有字符串。 如果字符串的格式与传递的 LCID 不对应，则会出现问题。 使用 Visual Studio 中的 Office 开发工具创建的 Excel 解决方案在传递所有数据时都使用 LCID 1033 \(en\-US\)。 Excel 根据区域设置和 Excel 用户界面语言显示数据。 Visual Basic for Applications \(VBA\) 也采用这种工作方式；字符串被设置为 en\-US 格式，而 VBA 通常传递 0（非特定语言）作为 LCID。 例如，下面的 VBA 代码根据当前的用户区域设置显示 2004 年 5 月 12 日的正确格式值：  
+ Excel interprets any strings in accordance with the LCID that is passed with the string. This can be a problem if the format of the string does not correspond to the LCID that is passed. Excel solutions created by using the Office development tools in Visual Studio use the LCID 1033 (en-US) when passing all data. Excel displays the data according to the regional settings and Excel user interface language. Visual Basic for Applications (VBA) also works this way; strings are formatted as en-US and VBA almost always passes 0 (language neutral) as the LCID. For example, the following VBA code displays a correctly-formatted value for May 12, 2004, in accordance with the current user locale setting:  
   
 ```  
-'VBA Application.ActiveCell.Value2 = "05/12/04"  
+'VBA  
+Application.ActiveCell.Value2 = "05/12/04"  
 ```  
   
- 当在通过 Visual Studio 中的 Office 开发工具创建的解决方案中使用，并通过 COM 互操作传递到 Excel 时，相同的代码在日期格式为 en\-US 样式时会产生相同的结果。  
+ The same code, when used in a solution created by using the Office development tools in Visual Studio and passed to Excel through COM interop, produces the same results when the date is formatted in en-US style.  
   
- 例如:  
+ For example:  
   
- [!code-csharp[Trin_VstcoreCreatingExcel#6](../snippets/csharp/VS_Snippets_OfficeSP/Trin_VstcoreCreatingExcel/CS/Sheet1.cs#6)]
- [!code-vb[Trin_VstcoreCreatingExcel#6](../snippets/visualbasic/VS_Snippets_OfficeSP/Trin_VstcoreCreatingExcel/VB/Sheet1.vb#6)]  
+ [!code-vb[Trin_VstcoreCreatingExcel#6](../vsto/codesnippet/VisualBasic/Trin_VstcoreCreatingExcelVB/Sheet1.vb#6)] [!code-csharp[Trin_VstcoreCreatingExcel#6](../vsto/codesnippet/CSharp/Trin_VstcoreCreatingExcelCS/Sheet1.cs#6)]  
   
- 应尽可能使用强类型数据而不要使用字符串文本。 例如，不将日期存储为字符串格式，而是存储为 <xref:System.Double>，然后将其转换为 <xref:System.DateTime> 对象进行操作。  
+ You should work with strongly-typed data instead of string literals whenever possible. For example, instead of storing a date in a string literal, store it as a <xref:System.Double>, then convert it to a <xref:System.DateTime> object for manipulation.  
   
- 下面的代码示例获取用户在单元格 A5 中输入的日期，将其存储为 <xref:System.Double>然后将其转换为 <xref:System.DateTime> 对象以在单元格 A7 中显示。 必须设置单元格 A7 的格式以显示日期。  
+ The following code example takes a date that a user enters into cell A5, stores it as a <xref:System.Double>, then converts it to a <xref:System.DateTime> object for display in cell A7. Cell A7 must be formatted to display a date.  
   
- [!code-csharp[Trin_VstcoreCreatingExcel#7](../snippets/csharp/VS_Snippets_OfficeSP/Trin_VstcoreCreatingExcel/CS/Sheet1.cs#7)]
- [!code-vb[Trin_VstcoreCreatingExcel#7](../snippets/visualbasic/VS_Snippets_OfficeSP/Trin_VstcoreCreatingExcel/VB/Sheet1.vb#7)]  
+ [!code-vb[Trin_VstcoreCreatingExcel#7](../vsto/codesnippet/VisualBasic/Trin_VstcoreCreatingExcelVB/Sheet1.vb#7)] [!code-csharp[Trin_VstcoreCreatingExcel#7](../vsto/codesnippet/CSharp/Trin_VstcoreCreatingExcelCS/Sheet1.cs#7)]  
   
-### Excel 工作表函数  
- Excel 的大多数语言版本都在内部转换了工作表函数名。 但是，因为潜在的语言和 COM 互操作问题，强烈建议你在代码中仅使用英语函数名。  
+### <a name="excel-worksheet-functions"></a>Excel Worksheet Functions  
+ Worksheet function names are translated internally for most language versions of Excel. However, due to potential language and COM interop issues it is strongly recommended that you use only English function names in your code.  
   
-### 使用外部数据的应用程序  
- 对于打开或以其他方式使用外部数据（如包含从旧系统中导出的逗号分隔值的文件（CSV 文件））的任何代码，如果这些文件是使用除 en\-US 格式之外的任何格式导出的，则这些代码也会受到影响。 由于数据库中的所有值都应为二进制格式，因此只要数据库不将日期作为字符串存储且不执行不使用二进制格式的操作，数据库访问就不会受到影响。 另外，如果使用 Excel 中的数据构造 SQL 查询，则可能需要根据使用的函数来确保数据为 en\-US 格式。  
+### <a name="applications-that-use-external-data"></a>Applications That Use External Data  
+ Any code that opens or otherwise uses external data, such as files that include comma-separated values (CSV files) exported from a legacy system, might also be affected if such files are exported using any format besides en-US. Database access might not be affected because all values should be in binary format, unless the database stores dates as strings or performs operations that do not use binary format. Also, if you construct SQL queries using data from Excel, you might need to ensure they are in en-US format, depending on the function you use.  
   
-## 请参阅  
- [如何：面向 Office 多语言用户界面](../vsto/how-to-target-the-office-multilingual-user-interface.md)   
- [设计和创建 Office 解决方案](../vsto/designing-and-creating-office-solutions.md)   
- [Office 解决方案中的可选参数](../vsto/optional-parameters-in-office-solutions.md)  
+## <a name="see-also"></a>See Also  
+ [How to: Target the Office Multilingual User Interface](../vsto/how-to-target-the-office-multilingual-user-interface.md)   
+ [Designing and Creating Office Solutions](../vsto/designing-and-creating-office-solutions.md)   
+ [Optional Parameters in Office Solutions](../vsto/optional-parameters-in-office-solutions.md)  
   
   

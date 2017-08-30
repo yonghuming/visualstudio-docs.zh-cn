@@ -1,60 +1,63 @@
 ---
-title: "如何：以编程方式打印 Visio 文档"
-ms.custom: ""
-ms.date: "02/02/2017"
-ms.prod: "visual-studio-dev14"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "office-development"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-dev_langs: 
-  - "VB"
-  - "CSharp"
-helpviewer_keywords: 
-  - "Visio [Visual Studio 中的 Office 开发]，打印 Visio 文档"
-  - "文档 [Visual Studio 中的 Office 开发]，打印 Visio 文档"
+title: 'How to: Programmatically Print Visio Documents | Microsoft Docs'
+ms.custom: 
+ms.date: 02/02/2017
+ms.prod: visual-studio-dev14
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- office-development
+ms.tgt_pltfrm: 
+ms.topic: article
+dev_langs:
+- VB
+- CSharp
+helpviewer_keywords:
+- Visio [Office development in Visual Studio], printing Visio documents
+- documents [Office development in Visual Studio], printing Visio documents
 ms.assetid: 606a2678-5eb8-40b2-a50a-305cecb1b3d4
 caps.latest.revision: 17
-author: "kempb"
-ms.author: "kempb"
-manager: "ghogen"
-caps.handback.revision: 17
+author: kempb
+ms.author: kempb
+manager: ghogen
+ms.translationtype: HT
+ms.sourcegitcommit: eb5c9550fd29b0e98bf63a7240737da4f13f3249
+ms.openlocfilehash: a4bea4d1de77755044087bbcc6eca1ab6aee2dbc
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/30/2017
+
 ---
-# 如何：以编程方式打印 Visio 文档
-  你可以打印完整的 Microsoft Office Visio 文档或仅打印某一特定页。  
+# <a name="how-to-programmatically-print-visio-documents"></a>How to: Programmatically Print Visio Documents
+  You can print a complete Microsoft Office Visio document or only a specific page.  
   
- 有关打印方法的详细信息，请参阅 [Microsoft.Office.Interop.Visio.Document.Print](HV10070345) 方法和 [Microsoft.Office.Interop.Visio.Page.Print](HV10070404) 方法的 VBA 参考文档。  
+ For details about the print methods, see the VBA reference documentation for the [Microsoft.Office.Interop.Visio.Document.Print](https://msdn.microsoft.com/library/office/ff767996.aspx) method and [Microsoft.Office.Interop.Visio.Page.Print](https://msdn.microsoft.com/library/office/ff765064.aspx) method.  
   
-## 打印 Visio 文档  
+## <a name="printing-a-visio-document"></a>Printing a Visio Document  
   
-#### 打印完整的文档  
+#### <a name="to-print-a-complete-document"></a>To print a complete document  
   
--   调用要打印的 Microsoft.Office.Interop.Visio.Document 对象的 Microsoft.Office.Interop.Visio.Document.Print 方法。  
+-   Call the Microsoft.Office.Interop.Visio.Document.Print method of the Microsoft.Office.Interop.Visio.Document object that you want to print.  
   
-     下面的代码示例将打印活动文档。 若要使用此示例，请从项目的 `ThisAddIn` 类中运行代码。  
+     The following code example prints the active document. To use this example, run the code from the `ThisAddIn` class in your project.  
   
-     [!code-csharp[Trin_VstcoreVisioAutomationAddIn#8](../snippets/csharp/VS_Snippets_OfficeSP/Trin_VstcoreVisioAutomationAddIn/CS/ThisAddIn.cs#8)]
-     [!code-vb[Trin_VstcoreVisioAutomationAddIn#8](../snippets/visualbasic/VS_Snippets_OfficeSP/Trin_VstcoreVisioAutomationAddIn/VB/ThisAddIn.vb#8)]  
+     [!code-csharp[Trin_VstcoreVisioAutomationAddIn#8](../vsto/codesnippet/CSharp/trin_vstcorevisioautomationaddin/ThisAddIn.cs#8)]  [!code-vb[Trin_VstcoreVisioAutomationAddIn#8](../vsto/codesnippet/VisualBasic/trin_vstcorevisioautomationaddin/ThisAddIn.vb#8)]  
   
-## 打印 Visio 文档的某一页  
+## <a name="printing-a-page-of-a-visio-document"></a>Printing a Page of a Visio Document  
   
-#### 打印文档的某一页  
+#### <a name="to-print-a-page-of-a-document"></a>To print a page of a document  
   
--   调用要打印的 Microsoft.Office.Interop.Visio.Pages 对象的 Microsoft.Office.Interop.Visio.Pages.Print 方法。  
+-   Call the Microsoft.Office.Interop.Visio.Pages.Print method of the Microsoft.Office.Interop.Visio.Pages object that you want to print.  
   
-     下面的代码示例打印活动文档的第一页。 若要使用此示例，请从项目的 `ThisAddIn` 类中运行代码。  
+     The following code example prints the first page of the active document. To use this example, run the code from the `ThisAddIn` class in your project.  
   
-     [!code-csharp[Trin_VstcoreVisioAutomationAddIn#9](../snippets/csharp/VS_Snippets_OfficeSP/Trin_VstcoreVisioAutomationAddIn/CS/ThisAddIn.cs#9)]
-     [!code-vb[Trin_VstcoreVisioAutomationAddIn#9](../snippets/visualbasic/VS_Snippets_OfficeSP/Trin_VstcoreVisioAutomationAddIn/VB/ThisAddIn.vb#9)]  
+     [!code-csharp[Trin_VstcoreVisioAutomationAddIn#9](../vsto/codesnippet/CSharp/trin_vstcorevisioautomationaddin/ThisAddIn.cs#9)]  [!code-vb[Trin_VstcoreVisioAutomationAddIn#9](../vsto/codesnippet/VisualBasic/trin_vstcorevisioautomationaddin/ThisAddIn.vb#9)]  
   
-## 请参阅  
- [Visio 解决方案](../vsto/visio-solutions.md)   
- [Visio 对象模型概述](../vsto/visio-object-model-overview.md)   
- [如何：以编程方式创建新的 Visio 文档](../vsto/how-to-programmatically-create-new-visio-documents.md)   
- [如何：以编程方式打开 Visio 文档](../vsto/how-to-programmatically-open-visio-documents.md)   
- [如何：以编程方式关闭 Visio 文档](../vsto/how-to-programmatically-close-visio-documents.md)   
- [如何：以编程方式保存 Visio 文档](../vsto/how-to-programmatically-save-visio-documents.md)  
+## <a name="see-also"></a>See Also  
+ [Visio Solutions](../vsto/visio-solutions.md)   
+ [Visio Object Model Overview](../vsto/visio-object-model-overview.md)   
+ [How to: Programmatically Create New Visio Documents](../vsto/how-to-programmatically-create-new-visio-documents.md)   
+ [How to: Programmatically Open Visio Documents](../vsto/how-to-programmatically-open-visio-documents.md)   
+ [How to: Programmatically Close Visio Documents](../vsto/how-to-programmatically-close-visio-documents.md)   
+ [How to: Programmatically Save Visio Documents](../vsto/how-to-programmatically-save-visio-documents.md)  
   
   

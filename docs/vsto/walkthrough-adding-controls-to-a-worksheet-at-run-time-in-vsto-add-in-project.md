@@ -1,198 +1,198 @@
 ---
-title: "演练：在运行时在 VSTO 外接程序项目中向工作表中添加控件"
-ms.custom: ""
-ms.date: "02/02/2017"
-ms.prod: "visual-studio-dev14"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "office-development"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-dev_langs: 
-  - "VB"
-  - "CSharp"
-helpviewer_keywords: 
-  - "外接程序 [Visual Studio 中的 Office 开发], 添加控件"
-  - "应用程序级外接程序 [Visual Studio 中的 Office 开发], 添加控件"
-  - "控件 [Visual Studio 中的 Office 开发], 在运行时添加到工作表中"
-  - "工作表, 在运行时添加控件"
+title: 'Walkthrough: Adding Controls to a Worksheet at Run Time in VSTO add-in Project | Microsoft Docs'
+ms.custom: 
+ms.date: 02/02/2017
+ms.prod: visual-studio-dev14
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- office-development
+ms.tgt_pltfrm: 
+ms.topic: article
+dev_langs:
+- VB
+- CSharp
+helpviewer_keywords:
+- add-ins [Office development in Visual Studio], adding controls
+- controls [Office development in Visual Studio], adding to worksheets at run time
+- application-level add-ins [Office development in Visual Studio], adding controls
+- worksheets, adding controls at run time
 ms.assetid: 4f68677a-4789-4564-b229-02e2d4031a5f
 caps.latest.revision: 38
-author: "kempb"
-ms.author: "kempb"
-manager: "ghogen"
-caps.handback.revision: 37
+author: kempb
+ms.author: kempb
+manager: ghogen
+ms.translationtype: HT
+ms.sourcegitcommit: eb5c9550fd29b0e98bf63a7240737da4f13f3249
+ms.openlocfilehash: 05ef7ad5662fd9009f082abb01a111e152be4ab4
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/30/2017
+
 ---
-# 演练：在运行时在 VSTO 外接程序项目中向工作表中添加控件
-  可通过使用 Excel VSTO 外接程序向任何打开的工作表添加控件。  本演练演示如何利用功能区使用户能够向工作表添加 <xref:Microsoft.Office.Tools.Excel.Controls.Button>、<xref:Microsoft.Office.Tools.Excel.NamedRange> 和 <xref:Microsoft.Office.Tools.Excel.ListObject>。  有关信息，请参阅[在运行时向 Office 文档添加控件](../vsto/adding-controls-to-office-documents-at-run-time.md)。  
+# <a name="walkthrough-adding-controls-to-a-worksheet-at-run-time-in-vsto-add-in-project"></a>Walkthrough: Adding Controls to a Worksheet at Run Time in VSTO add-in Project
+  You can add controls to any open worksheet by using an Excel VSTO Add-in. This walkthrough demonstrates how to use the Ribbon to enable users to add a <xref:Microsoft.Office.Tools.Excel.Controls.Button>, a <xref:Microsoft.Office.Tools.Excel.NamedRange>, and a <xref:Microsoft.Office.Tools.Excel.ListObject> to a worksheet. For information, see [Adding Controls to Office Documents at Run Time](../vsto/adding-controls-to-office-documents-at-run-time.md).  
   
- **适用于：**本主题中的信息适用于 Excel 的 VSTO 外接程序项目。  有关详细信息，请参阅[按 Office 应用程序和项目类型提供的功能](../vsto/features-available-by-office-application-and-project-type.md)。  
+ **Applies to:** The information in this topic applies to VSTO Add-in projects for Excel. For more information, see [Features Available by Office Application and Project Type](../vsto/features-available-by-office-application-and-project-type.md).  
   
- 本演练阐释了以下任务：  
+ This walkthrough illustrates the following tasks:  
   
--   提供用于将控件添加到工作表的用户界面 \(UI\)。  
+-   Providing a user interface (UI) to add controls to the worksheet.  
   
--   将控件添加到工作表。  
+-   Adding controls to the worksheet.  
   
--   从工作表中移除控件。  
+-   Removing controls from the worksheet.  
   
  [!INCLUDE[note_settings_general](../sharepoint/includes/note-settings-general-md.md)]  
   
-## 系统必备  
- 你需要以下组件来完成本演练：  
+## <a name="prerequisites"></a>Prerequisites  
+ You need the following components to complete this walkthrough:  
   
 -   [!INCLUDE[vsto_vsprereq](../vsto/includes/vsto-vsprereq-md.md)]  
   
 -   Excel  
   
-## 新建 Excel VSTO 外接程序项目  
- 首先创建 Excel VSTO 外接程序项目。  
+## <a name="creating-a-new-excel-vsto-add-in-project"></a>Creating a New Excel VSTO Add-in Project  
+ Start by creating an Excel VSTO Add-in project.  
   
-#### 若要新建 Excel VSTO 外接程序项目  
+#### <a name="to-create-a-new-excel-vsto-add-in-project"></a>To create a new Excel VSTO Add-in project  
   
-1.  在 [!INCLUDE[vsprvs](../sharepoint/includes/vsprvs-md.md)] 中，创建一个 Excel VSTO 外接程序项目，并命名为 ExcelDynamicControls。  有关详细信息，请参阅[如何：在 Visual Studio 中创建 Office 项目](../vsto/how-to-create-office-projects-in-visual-studio.md)。  
+1.  In [!INCLUDE[vsprvs](../sharepoint/includes/vsprvs-md.md)], create an Excel VSTO Add-in project with the name **ExcelDynamicControls**. For more information, see [How to: Create Office Projects in Visual Studio](../vsto/how-to-create-office-projects-in-visual-studio.md).  
   
-2.  添加对 **Microsoft.Office.Tools.Excel.v4.0.Utilities.dll** 程序集的引用。  在本演练稍后内容中，需要此引用以编程方式将 Windows 窗体控件添加到工作表。  
+2.  Add a reference to the **Microsoft.Office.Tools.Excel.v4.0.Utilities.dll** assembly. This reference is required to programmatically add a Windows Forms control to a worksheet later in this walkthrough.  
   
-## 提供用于将控件添加到工作表的 UI  
- 添加自定义选项卡到 Excel 功能区。  用户可以选中选项卡上的复选框，以向工作表添加控件。  
+## <a name="providing-a-ui-to-add-controls-to-a-worksheet"></a>Providing a UI to Add Controls to a Worksheet  
+ Add a custom tab to the Excel Ribbon. Users can select check boxes on the tab to add controls to a worksheet.  
   
-#### 若要提供用于将控件添加到工作表的 UI  
+#### <a name="to-provide-a-ui-to-add-controls-to-a-worksheet"></a>To provide a UI to add controls to a worksheet  
   
-1.  在**“项目”**菜单上，单击**“添加新项”**。  
+1.  On the **Project** menu, click **Add New Item**.  
   
-2.  在**“添加新项”**对话框中，选择**“功能区（可视化设计器）”**，然后单击**“添加”**。  
+2.  In the **Add New Item** dialog box, select **Ribbon (Visual Designer)**, and then click **Add**.  
   
-     名称为 **Ribbon1.cs** 或 **Ribbon1.vb** 的文件将在功能区设计器中打开，并显示一个默认选项卡和组。  
+     A file named **Ribbon1.cs** or **Ribbon1.vb** opens in the Ribbon Designer and displays a default tab and group.  
   
-3.  从**“工具箱”**的**“Office 功能区控件”**选项卡中，将 CheckBox 控件拖到 **group1**。  
+3.  From the **Office Ribbon Controls** tab of the **Toolbox**, drag a CheckBox control onto **group1**.  
   
-4.  单击 **CheckBox1** 以将其选中。  
+4.  Click **CheckBox1** to select it.  
   
-5.  在**“属性”**窗口中，更改下列属性。  
+5.  In the **Properties** window, change the following properties.  
   
-    |属性|值|  
-    |--------|-------|  
-    |**名称**|按钮|  
-    |**标签**|按钮|  
+    |Property|Value|  
+    |--------------|-----------|  
+    |**Name**|**Button**|  
+    |**Label**|**Button**|  
   
-6.  将第二个复选框添加到 **group1**，然后更改下列属性。  
+6.  Add a second check box to **group1**, and then change the following properties.  
   
-    |属性|值|  
-    |--------|-------|  
-    |**名称**|NamedRange|  
-    |**标签**|NamedRange|  
+    |Property|Value|  
+    |--------------|-----------|  
+    |**Name**|**NamedRange**|  
+    |**Label**|**NamedRange**|  
   
-7.  将第三个复选框添加到 **group1**，然后更改下列属性。  
+7.  Add a third check box to **group1**, and then change the following properties.  
   
-    |属性|值|  
-    |--------|-------|  
-    |**名称**|ListObject|  
-    |**标签**|ListObject|  
+    |Property|Value|  
+    |--------------|-----------|  
+    |**Name**|**ListObject**|  
+    |**Label**|**ListObject**|  
   
-## 向工作表添加控件  
- 托管的控件只能添加到主机项，充当容器。  因为 VSTO 外接程序项目使用任何打开的工作簿，所以 VSTO 外接程序会将工作表转换为主机项，或获取现有的主机项，然后才添加控件。  将代码添加到每个控件的单击事件处理程序中以生成基于打开的工作表的 <xref:Microsoft.Office.Tools.Excel.Worksheet> 主机项。  然后，在工作表当前所选内容中添加 <xref:Microsoft.Office.Tools.Excel.Controls.Button>、<xref:Microsoft.Office.Tools.Excel.NamedRange> 和 <xref:Microsoft.Office.Tools.Excel.ListObject>。  
+## <a name="adding-controls-to-the-worksheet"></a>Adding Controls to the Worksheet  
+ Managed controls can only be added to host items, which act as containers. Because VSTO Add-in projects work with any open workbook, the VSTO Add-in converts the worksheet into a host item, or gets an existing host item, before adding the control. Add code to the click event handlers of each control to generate a <xref:Microsoft.Office.Tools.Excel.Worksheet> host item that is based on the open worksheet. Then, add a <xref:Microsoft.Office.Tools.Excel.Controls.Button>, a <xref:Microsoft.Office.Tools.Excel.NamedRange>, and a <xref:Microsoft.Office.Tools.Excel.ListObject> at the current selection in the worksheet.  
   
-#### 若要向工作表添加控件  
+#### <a name="to-add-controls-to-a-worksheet"></a>To add controls to a worksheet  
   
-1.  在功能区设计器中，双击**“按钮”**。  
+1.  In the Ribbon Designer, double-click **Button**.  
   
-     **“按钮”**复选框的 <xref:Microsoft.Office.Tools.Ribbon.RibbonCheckBox.Click> 事件处理程序将在代码编辑器中打开。  
+     The <xref:Microsoft.Office.Tools.Ribbon.RibbonCheckBox.Click> event handler of the **Button** check box opens in the Code Editor.  
   
-2.  将 `Button_Click` 事件处理程序替换为以下代码。  
+2.  Replace the `Button_Click` event handler with the following code.  
   
-     此代码使用 `GetVstoObject` 方法获取表示工作薄中第一个工作表的主机项，然后将 <xref:Microsoft.Office.Tools.Excel.Controls.Button> 控件添加到当前选定的单元格。  
+     This code uses the `GetVstoObject` method to get a host item that represents the first worksheet in the workbook, and then adds a <xref:Microsoft.Office.Tools.Excel.Controls.Button> control to the currently selected cell.  
   
-     [!code-csharp[Trin_Excel_Dynamic_Controls#2](../snippets/csharp/VS_Snippets_OfficeSP/Trin_Excel_Dynamic_Controls/CS/Ribbon1.cs#2)]
-     [!code-vb[Trin_Excel_Dynamic_Controls#2](../snippets/visualbasic/VS_Snippets_OfficeSP/Trin_Excel_Dynamic_Controls/VB/Ribbon1.vb#2)]  
+     [!code-csharp[Trin_Excel_Dynamic_Controls#2](../vsto/codesnippet/CSharp/Trin_Excel_Dynamic_Controls/Ribbon1.cs#2)]  [!code-vb[Trin_Excel_Dynamic_Controls#2](../vsto/codesnippet/VisualBasic/Trin_Excel_Dynamic_Controls/Ribbon1.vb#2)]  
   
-3.  在**“解决方案资源管理器”**中，选择 Ribbon1.cs 或 Ribbon1.vb。  
+3.  In **Solution Explorer**, select Ribbon1.cs or Ribbon1.vb.  
   
-4.  在**“视图”**菜单中，单击**“设计器”**。  
+4.  On the **View** menu, click **Designer**.  
   
-5.  在功能区设计器中，双击 **NamedRange**。  
+5.  In the Ribbon Designer, double-click **NamedRange**.  
   
-6.  将 `NamedRange_Click` 事件处理程序替换为以下代码。  
+6.  Replace the `NamedRange_Click` event handler with the following code.  
   
-     此代码使用 `GetVstoObject` 方法获取表示工作簿中第一个工作表的主机项，然后为当前选定的单元格定义 <xref:Microsoft.Office.Tools.Excel.NamedRange> 控件。  
+     This code uses the `GetVstoObject` method to get a host item that represents the first worksheet in the workbook, and then defines a <xref:Microsoft.Office.Tools.Excel.NamedRange> control for the currently selected cell or cells.  
   
-     [!code-csharp[Trin_Excel_Dynamic_Controls#3](../snippets/csharp/VS_Snippets_OfficeSP/Trin_Excel_Dynamic_Controls/CS/Ribbon1.cs#3)]
-     [!code-vb[Trin_Excel_Dynamic_Controls#3](../snippets/visualbasic/VS_Snippets_OfficeSP/Trin_Excel_Dynamic_Controls/VB/Ribbon1.vb#3)]  
+     [!code-csharp[Trin_Excel_Dynamic_Controls#3](../vsto/codesnippet/CSharp/Trin_Excel_Dynamic_Controls/Ribbon1.cs#3)]  [!code-vb[Trin_Excel_Dynamic_Controls#3](../vsto/codesnippet/VisualBasic/Trin_Excel_Dynamic_Controls/Ribbon1.vb#3)]  
   
-7.  在功能区设计器中，双击 **ListObject**。  
+7.  In the Ribbon Designer, double-click **ListObject**.  
   
-8.  将 `ListObject_Click` 事件处理程序替换为以下代码。  
+8.  Replace the `ListObject_Click` event handler with the following code.  
   
-     此代码使用 `GetVstoObject` 方法获取表示工作薄中第一个工作表的主机项，然后为当前选定的单元格定义 <xref:Microsoft.Office.Tools.Excel.ListObject>。  
+     This code uses the `GetVstoObject` method to get a host item that represents the first worksheet in the workbook, and then defines a <xref:Microsoft.Office.Tools.Excel.ListObject> for the currently selected cell or cells.  
   
-     [!code-csharp[Trin_Excel_Dynamic_Controls#4](../snippets/csharp/VS_Snippets_OfficeSP/Trin_Excel_Dynamic_Controls/CS/Ribbon1.cs#4)]
-     [!code-vb[Trin_Excel_Dynamic_Controls#4](../snippets/visualbasic/VS_Snippets_OfficeSP/Trin_Excel_Dynamic_Controls/VB/Ribbon1.vb#4)]  
+     [!code-csharp[Trin_Excel_Dynamic_Controls#4](../vsto/codesnippet/CSharp/Trin_Excel_Dynamic_Controls/Ribbon1.cs#4)]  [!code-vb[Trin_Excel_Dynamic_Controls#4](../vsto/codesnippet/VisualBasic/Trin_Excel_Dynamic_Controls/Ribbon1.vb#4)]  
   
-9. 将下面的语句添加到功能区代码文件的顶部。  
+9. Add the following statements to the top of the Ribbon code file.  
   
-     [!code-csharp[Trin_Excel_Dynamic_Controls#1](../snippets/csharp/VS_Snippets_OfficeSP/Trin_Excel_Dynamic_Controls/CS/Ribbon1.cs#1)]
-     [!code-vb[Trin_Excel_Dynamic_Controls#1](../snippets/visualbasic/VS_Snippets_OfficeSP/Trin_Excel_Dynamic_Controls/VB/Ribbon1.vb#1)]  
+     [!code-csharp[Trin_Excel_Dynamic_Controls#1](../vsto/codesnippet/CSharp/Trin_Excel_Dynamic_Controls/Ribbon1.cs#1)]   [!code-vb[Trin_Excel_Dynamic_Controls#1](../vsto/codesnippet/VisualBasic/Trin_Excel_Dynamic_Controls/Ribbon1.vb#1)]  
   
-## 从工作表中移除控件  
- 保存并关闭工作表时，不会保留控件。  保存工作表之前应以编程方式移除所有生成的 Windows 窗体控件，否则再次打开工作薄时，将仅出现控件的边框。  将代码添加到用于从生成的主机项的控件集合中移除 Windows 窗体控件的 <xref:Microsoft.Office.Interop.Excel.AppEvents_Event.WorkbookBeforeSave> 事件中。  有关详细信息，请参阅[在 Office 文档中保存动态控件](../vsto/persisting-dynamic-controls-in-office-documents.md)。  
+## <a name="removing-controls-from-the-worksheet"></a>Removing Controls from the Worksheet  
+ Controls are not persisted when the worksheet is saved and closed. You should programmatically remove all generated Windows Forms controls before the worksheet is saved, or only an outline of the control will appear when the workbook is opened again. Add code to the <xref:Microsoft.Office.Interop.Excel.AppEvents_Event.WorkbookBeforeSave> event that removes Windows Forms controls from the controls collection of the generated host item. For more information, see [Persisting Dynamic Controls in Office Documents](../vsto/persisting-dynamic-controls-in-office-documents.md).  
   
-#### 若要从工作表中移除控件  
+#### <a name="to-remove-controls-from-the-worksheet"></a>To remove controls from the worksheet  
   
-1.  在**“解决方案资源管理器”**中，选择 ThisAddIn.cs 或 ThisAddIn.vb。  
+1.  In **Solution Explorer**, select ThisAddIn.cs or ThisAddIn.vb.  
   
-2.  在**“视图”**菜单中，单击**“代码”**。  
+2.  On the **View** menu, click **Code**.  
   
-3.  将下面的方法添加到 ThisAddIn 类中。  此代码会获取工作簿中的第一个工作表，然后使用 `HasVstoObject` 方法检查该工作表是否含有生成的工作表项目。  如果生成的工作表对象中含有控件，则该代码会获取工作表项目并循环访问控件集合，从而移除控件。  
+3.  Add the following method to the ThisAddIn class. This code gets the first worksheet in the workbook and then uses the `HasVstoObject` method to check whether the worksheet has a generated worksheet object. If the generated worksheet object has controls, the code gets that worksheet object and iterates through the control collection, removing the controls.  
   
-     [!code-csharp[Trin_Excel_Dynamic_Controls#6](../snippets/csharp/VS_Snippets_OfficeSP/Trin_Excel_Dynamic_Controls/CS/ThisAddIn.cs#6)]
-     [!code-vb[Trin_Excel_Dynamic_Controls#6](../snippets/visualbasic/VS_Snippets_OfficeSP/Trin_Excel_Dynamic_Controls/VB/ThisAddIn.vb#6)]  
+     [!code-csharp[Trin_Excel_Dynamic_Controls#6](../vsto/codesnippet/CSharp/Trin_Excel_Dynamic_Controls/ThisAddIn.cs#6)]  [!code-vb[Trin_Excel_Dynamic_Controls#6](../vsto/codesnippet/VisualBasic/Trin_Excel_Dynamic_Controls/ThisAddIn.vb#6)]  
   
-4.  在 C\# 中，必须为 <xref:Microsoft.Office.Interop.Excel.AppEvents_Event.WorkbookBeforeSave> 事件创建一个事件处理程序。  你可以将此代码放置在 `ThisAddIn_Startup` 方法中。  有关创建事件处理程序的详细信息，请参阅[如何：在 Office 项目中创建事件处理程序](../vsto/how-to-create-event-handlers-in-office-projects.md)。  将 `ThisAddIn_Startup` 方法替换为以下代码。  
+4.  In C#, you must create an event handler for the <xref:Microsoft.Office.Interop.Excel.AppEvents_Event.WorkbookBeforeSave> event. You can place this code in the `ThisAddIn_Startup` method. For more information about creating event handlers, see [How to: Create Event Handlers in Office Projects](../vsto/how-to-create-event-handlers-in-office-projects.md). Replace the `ThisAddIn_Startup` method with the following code.  
   
-     [!code-csharp[Trin_Excel_Dynamic_Controls#5](../snippets/csharp/VS_Snippets_OfficeSP/Trin_Excel_Dynamic_Controls/CS/ThisAddIn.cs#5)]  
+     [!code-csharp[Trin_Excel_Dynamic_Controls#5](../vsto/codesnippet/CSharp/Trin_Excel_Dynamic_Controls/ThisAddIn.cs#5)]  
   
-## 测试解决方案  
- 从功能区的自定义选项卡中选择要添加的控件，将其添加到工作表中。  保存该工作表时，这些控件也随之移除。  
+## <a name="testing-the-solution"></a>Testing the Solution  
+ Add controls to a worksheet by selecting them from a custom tab on the Ribbon. When you save the worksheet, these controls are removed.  
   
-#### 若要测试解决方案。  
+#### <a name="to-test-the-solution"></a>To test the solution.  
   
-1.  按 F5 运行项目。  
+1.  Press F5 to run your project.  
   
-2.  在 Sheet1 中选择任意单元格。  
+2.  Select any cell in Sheet1.  
   
-3.  单击**“外接程序”**选项卡。  
+3.  Click the **Add-Ins** tab.  
   
-4.  在 **group1** 组中，单击**“按钮”**。  
+4.  In the **group1** group, click **Button**.  
   
-     选定的单元格中会出现一个按钮。  
+     A button appears in the selected cell.  
   
-5.  在 Sheet1 中选择不同的单元格。  
+5.  Select a different cell in Sheet1.  
   
-6.  在 **group1** 组中，单击 **NamedRange**。  
+6.  In the **group1** group, click **NamedRange**.  
   
-     则会为选定的单元格定义命名范围。  
+     A named range is defined for the selected cell.  
   
-7.  在 Sheet1 中选择一系列单元格。  
+7.  Select a series of cells in Sheet1.  
   
-8.  在 **group1** 组中，单击 **ListObject**。  
+8.  In the **group1** group, click **ListObject**.  
   
-     则会为选定的单元格添加列表对象。  
+     A list object is added for the selected cells.  
   
-9. 保存该工作表。  
+9. Save the worksheet.  
   
-     添加到 Sheet1 的控件将不再出现。  
+     The controls that you added to Sheet1 no longer appear.  
   
-## 后续步骤  
- 你可以从此主题中了解关于 Excel VSTO 外接程序项目中控件的详细信息：  
+## <a name="next-steps"></a>Next Steps  
+ You can learn more about controls in Excel VSTO Add-in projects from this topic:  
   
--   若要了解关于如何将控件保存到工作表，请参阅 [Office 开发示例和演练](../vsto/office-development-samples-and-walkthroughs.md)中的 Excel VSTO 外接程序动态控件。  
+-   To learn about how to save controls to a worksheet, see the Excel VSTO Add-in Dynamic Controls Sample at [Office Development Samples and Walkthroughs](../vsto/office-development-samples-and-walkthroughs.md).  
   
-## 请参阅  
- [Excel 解决方案](../vsto/excel-solutions.md)   
- [Office 文档上的 Windows 窗体控件概述](../vsto/windows-forms-controls-on-office-documents-overview.md)   
- [Office 文档上的控件](../vsto/controls-on-office-documents.md)   
- [NamedRange 控件](../vsto/namedrange-control.md)   
- [ListObject 控件](../vsto/listobject-control.md)  
+## <a name="see-also"></a>See Also  
+ [Excel Solutions](../vsto/excel-solutions.md)   
+ [Windows Forms Controls on Office Documents Overview](../vsto/windows-forms-controls-on-office-documents-overview.md)   
+ [Controls on Office Documents](../vsto/controls-on-office-documents.md)   
+ [NamedRange Control](../vsto/namedrange-control.md)   
+ [ListObject Control](../vsto/listobject-control.md)  
   
   

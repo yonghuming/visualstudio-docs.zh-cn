@@ -1,66 +1,69 @@
 ---
-title: "如何：向文档级自定义项中添加自定义 XML 部件"
-ms.custom: ""
-ms.date: "02/02/2017"
-ms.prod: "visual-studio-dev14"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "office-development"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-dev_langs: 
-  - "VB"
-  - "CSharp"
-helpviewer_keywords: 
-  - "文档级自定义项 [Visual Studio 中的 Office 开发]，自定义 XML 部件"
-  - "Office 文档 [Visual Studio 中的 Office 开发，自定义 XML 部件"
-  - "Word [Visual Studio 中的 Office 开发]，自定义 XML 部件"
-  - "Excel [Visual Studio 中的 Office 开发]，自定义 XML 部件"
-  - "自定义 XML 部件 [Visual Studio 中的 Office 开发]，添加"
-  - "文档 [Visual Studio 中的 Office 开发]，自定义 XML 部件"
+title: 'How to: Add Custom XML Parts to Document-Level Customizations | Microsoft Docs'
+ms.custom: 
+ms.date: 02/02/2017
+ms.prod: visual-studio-dev14
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- office-development
+ms.tgt_pltfrm: 
+ms.topic: article
+dev_langs:
+- VB
+- CSharp
+helpviewer_keywords:
+- document-level customizations [Office development in Visual Studio], custom XML parts
+- Office documents [Office development in Visual Studio, custom XML parts
+- Word [Office development in Visual Studio], custom XML parts
+- Excel [Office development in Visual Studio], custom XML parts
+- custom XML parts [Office development in Visual Studio], adding
+- documents [Office development in Visual Studio], custom XML parts
 ms.assetid: e305a3d6-3a0e-4e72-ab8c-6a87a3590068
 caps.latest.revision: 27
-author: "kempb"
-ms.author: "kempb"
-manager: "ghogen"
-caps.handback.revision: 26
+author: kempb
+ms.author: kempb
+manager: ghogen
+ms.translationtype: HT
+ms.sourcegitcommit: eb5c9550fd29b0e98bf63a7240737da4f13f3249
+ms.openlocfilehash: 2c0cb987581cb0aee354a46719bae36b968bbc8d
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/30/2017
+
 ---
-# 如何：向文档级自定义项中添加自定义 XML 部件
-  你可以通过在文档级自定义中创建自定义 XML 部件将 XML 数据存储在 Microsoft Office Excel 工作表或 Microsoft Office Word 文档中。 有关详细信息，请参阅[自定义 XML 部件概述](../vsto/custom-xml-parts-overview.md)。  
+# <a name="how-to-add-custom-xml-parts-to-document-level-customizations"></a>How to: Add Custom XML Parts to Document-Level Customizations
+  You can store XML data in a Microsoft Office Excel workbook or Microsoft Office Word document by creating a custom XML part in a document-level customization. For more information, see [Custom XML Parts Overview](../vsto/custom-xml-parts-overview.md).  
   
  [!INCLUDE[appliesto_alldoc](../vsto/includes/appliesto-alldoc-md.md)]  
   
 > [!NOTE]  
->  Visual Studio 不提供 Microsoft Office PowerPoint 的文档级项目。 关于使用 VSTO 外接程序向 PowerPoint 演示文稿添加自定义 XML 部件的信息，请参阅 [如何：使用 VSTO 外接程序将自定义 XML 部件添加到文档](../vsto/how-to-add-custom-xml-parts-to-documents-by-using-vsto-add-ins.md)。  
+>  Visual Studio does not provide document-level projects for Microsoft Office PowerPoint. For information about adding a custom XML part to a PowerPoint presentation by using an VSTO Add-in, see [How to: Add Custom XML Parts to Documents by Using VSTO Add-Ins](../vsto/how-to-add-custom-xml-parts-to-documents-by-using-vsto-add-ins.md).  
   
-### 向 Excel 工作簿添加自定义 XML 部件  
+### <a name="to-add-a-custom-xml-part-to-an-excel-workbook"></a>To add a custom XML part to an Excel workbook  
   
-1.  向工作簿中的 <xref:Microsoft.Office.Core.CustomXMLParts> 集合添加新 <xref:Microsoft.Office.Core.CustomXMLPart> 对象。<xref:Microsoft.Office.Core.CustomXMLPart> 包含你希望存储在工作簿中的 XML 字符串。  
+1.  Add a new <xref:Microsoft.Office.Core.CustomXMLPart> object to the <xref:Microsoft.Office.Core.CustomXMLParts> collection in the workbook. The <xref:Microsoft.Office.Core.CustomXMLPart> contains the XML string that you want to store in the workbook.  
   
-     [!code-csharp[Trin_AddCustomXmlPartExcelDocLevel#1](../snippets/csharp/VS_Snippets_OfficeSP/Trin_AddCustomXmlPartExcelDocLevel/CS/ThisWorkbook.cs#1)]
-     [!code-vb[Trin_AddCustomXmlPartExcelDocLevel#1](../snippets/visualbasic/VS_Snippets_OfficeSP/Trin_AddCustomXmlPartExcelDocLevel/VB/ThisWorkbook.vb#1)]  
+     [!code-csharp[Trin_AddCustomXmlPartExcelDocLevel#1](../vsto/codesnippet/CSharp/Trin_AddCustomXmlPartExcelDocLevel/ThisWorkbook.cs#1)]  [!code-vb[Trin_AddCustomXmlPartExcelDocLevel#1](../vsto/codesnippet/VisualBasic/Trin_AddCustomXmlPartExcelDocLevel/ThisWorkbook.vb#1)]  
   
-2.  将 `AddCustomXmlPartToWorkbook` 方法添加到 Excel 文档级项目中的 `ThisWorkbook` 类。  
+2.  Add the `AddCustomXmlPartToWorkbook` method to the `ThisWorkbook` class in a document-level project for Excel.  
   
-3.  从项目中的其他代码调用该方法。 例如，若要在用户打开工作簿时创建自定义 XML 部件，则从 `ThisWorkbook_Startup` 事件处理程序调用该方法。  
+3.  Call the method from other code in your project. For example, to create the custom XML part when the user opens the workbook, call the method from the `ThisWorkbook_Startup` event handler.  
   
-### 向 Word 文档添加自定义 XML 部件  
+### <a name="to-add-a-custom-xml-part-to-a-word-document"></a>To add a custom XML part to a Word document  
   
-1.  向文档中的 <xref:Microsoft.Office.Core.CustomXMLParts> 集合添加新的 <xref:Microsoft.Office.Core.CustomXMLPart> 对象。<xref:Microsoft.Office.Core.CustomXMLPart> 包含你希望存储在文档中的 XML 字符串。  
+1.  Add a new <xref:Microsoft.Office.Core.CustomXMLPart> object to the <xref:Microsoft.Office.Core.CustomXMLParts> collection in the document. The <xref:Microsoft.Office.Core.CustomXMLPart> contains the XML string that you want to store in the document.  
   
-     [!code-csharp[Trin_AddCustomXmlPartWordDocLevel#1](../snippets/csharp/VS_Snippets_OfficeSP/Trin_AddCustomXmlPartWordDocLevel/CS/ThisDocument.cs#1)]
-     [!code-vb[Trin_AddCustomXmlPartWordDocLevel#1](../snippets/visualbasic/VS_Snippets_OfficeSP/Trin_AddCustomXmlPartWordDocLevel/VB/ThisDocument.vb#1)]  
+     [!code-vb[Trin_AddCustomXmlPartWordDocLevel#1](../vsto/codesnippet/VisualBasic/Trin_AddCustomXmlPartWordDocLevel/ThisDocument.vb#1)]  [!code-csharp[Trin_AddCustomXmlPartWordDocLevel#1](../vsto/codesnippet/CSharp/Trin_AddCustomXmlPartWordDocLevel/ThisDocument.cs#1)]  
   
-2.  将 `AddCustomXmlPartToDocument` 方法添加到 Word 文档级项目中的 `ThisDocument` 类。  
+2.  Add the `AddCustomXmlPartToDocument` method to the `ThisDocument` class in a document-level project for Word.  
   
-3.  从项目中的其他代码调用该方法。 例如，若要在用户打开文档时创建自定义 XML 部件，则从 `ThisDocument_Startup` 事件处理程序调用该方法。  
+3.  Call the method from other code in your project. For example, to create the custom XML part when the user opens the document, call the method from the `ThisDocument_Startup` event handler.  
   
-## 可靠编程  
- 为简单起见，此示例使用在方法中定义为局部变量的 XML 字符串。 通常，应从外部源（如文件或数据库）获取 XML。  
+## <a name="robust-programming"></a>Robust Programming  
+ For simplicity, this example uses an XML string that is defined as a local variable in the method. Typically, you should obtain the XML from an external source, such as a file or a database.  
   
-## 请参阅  
- [自定义 XML 部件概述](../vsto/custom-xml-parts-overview.md)   
- [如何：使用 VSTO 外接程序将自定义 XML 部件添加到文档](../vsto/how-to-add-custom-xml-parts-to-documents-by-using-vsto-add-ins.md)  
+## <a name="see-also"></a>See Also  
+ [Custom XML Parts Overview](../vsto/custom-xml-parts-overview.md)   
+ [How to: Add Custom XML Parts to Documents by Using VSTO Add-Ins](../vsto/how-to-add-custom-xml-parts-to-documents-by-using-vsto-add-ins.md)  
   
   

@@ -1,83 +1,86 @@
 ---
-title: "如何：在受密码保护的文档中缓存数据"
-ms.custom: ""
-ms.date: "02/02/2017"
-ms.prod: "visual-studio-dev14"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "office-development"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-dev_langs: 
-  - "VB"
-  - "CSharp"
-helpviewer_keywords: 
-  - "数据 [Visual Studio 中的 Office 开发], 缓存"
-  - "数据缓存 [Visual Studio 中的 Office 开发], 受保护的文档"
-  - "数据集 [Visual Studio 中的 Office 开发], 缓存"
+title: 'How to: Cache Data in a Password-Protected Document | Microsoft Docs'
+ms.custom: 
+ms.date: 02/02/2017
+ms.prod: visual-studio-dev14
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- office-development
+ms.tgt_pltfrm: 
+ms.topic: article
+dev_langs:
+- VB
+- CSharp
+helpviewer_keywords:
+- data caching [Office development in Visual Studio], protected documents
+- datasets [Office development in Visual Studio], caching
+- data [Office development in Visual Studio], caching
 ms.assetid: 91b865fc-bd01-438f-ac63-2fe3175bc2e8
 caps.latest.revision: 23
-author: "kempb"
-ms.author: "kempb"
-manager: "ghogen"
-caps.handback.revision: 23
+author: kempb
+ms.author: kempb
+manager: ghogen
+ms.translationtype: HT
+ms.sourcegitcommit: eb5c9550fd29b0e98bf63a7240737da4f13f3249
+ms.openlocfilehash: 84bab2d070a05e05a72c412097e20e78732abefb
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/30/2017
+
 ---
-# 如何：在受密码保护的文档中缓存数据
-  如果向受密码保护的文档或工作簿中的数据缓存添加数据，则不自动保存对缓存数据所做的更改。  您可以通过在项目中重写两个相应的方法来保存对缓存数据所做的更改。  
+# <a name="how-to-cache-data-in-a-password-protected-document"></a>How to: Cache Data in a Password-Protected Document
+  If you add data to the data cache in a document or workbook that is protected with a password, changes to the cached data are not saved automatically. You can save changes to the cached data by overriding two methods in your project.  
   
  [!INCLUDE[appliesto_alldoc](../vsto/includes/appliesto-alldoc-md.md)]  
   
-## 在 Word 文档中执行缓存  
+## <a name="caching-in-word-documents"></a>Caching in Word Documents  
   
-#### 在受密码保护的 Word 文档中缓存数据  
+#### <a name="to-cache-data-in-a-word-document-that-is-protected-with-a-password"></a>To cache data in a Word document that is protected with a password  
   
-1.  在 `ThisDocument` 类中，标记要缓存的公共字段或属性。  有关更多信息，请参见[缓存数据](../vsto/caching-data.md)。  
+1.  In the `ThisDocument` class, mark a public field or property to be cached. For more information, see [Caching Data](../vsto/caching-data.md).  
   
-2.  在 `ThisDocument` 类中重写 <xref:Microsoft.Office.Tools.Word.DocumentBase.UnprotectDocument%2A> 方法，取消对文档的保护。  
+2.  Override the <xref:Microsoft.Office.Tools.Word.DocumentBase.UnprotectDocument%2A> method in the `ThisDocument` class and remove protection from the document.  
   
-     保存文档时，[!INCLUDE[vsto_runtime](../vsto/includes/vsto-runtime-md.md)]会调用此方法，以便为您提供取消文档保护的机会。  这使您可以保存对缓存数据所做的更改。  
+     When the document is saved, the [!INCLUDE[vsto_runtime](../vsto/includes/vsto-runtime-md.md)] calls this method to give you an opportunity to unprotect the document. This enables changes to the cached data to be saved.  
   
-3.  重写 `ThisDocument` 类中的 <xref:Microsoft.Office.Tools.Word.DocumentBase.ProtectDocument%2A> 方法，并对文档重新应用保护。  
+3.  Override the <xref:Microsoft.Office.Tools.Word.DocumentBase.ProtectDocument%2A> method in the `ThisDocument` class and reapply protection to the document.  
   
-     保存文档后，[!INCLUDE[vsto_runtime](../vsto/includes/vsto-runtime-md.md)]会调用此方法，以便为您提供对文档重新应用保护的机会。  
+     After the document is saved, the [!INCLUDE[vsto_runtime](../vsto/includes/vsto-runtime-md.md)] calls this method to give you an opportunity to reapply protection to the document.  
   
-### 示例  
- 下面的代码示例演示如何在受密码保护的 Word 文档中缓存数据。  代码在 <xref:Microsoft.Office.Tools.Word.DocumentBase.UnprotectDocument%2A> 方法中取消保护之前，将保存当前的 <xref:Microsoft.Office.Tools.Word.Document.ProtectionType%2A> 值，以便可以在 <xref:Microsoft.Office.Tools.Word.DocumentBase.ProtectDocument%2A> 方法中重新应用相同类型的保护。  
+### <a name="example"></a>Example  
+ The following code example demonstrates how to cache data in a Word document that is protected with a password. Before the code removes the protection in the <xref:Microsoft.Office.Tools.Word.DocumentBase.UnprotectDocument%2A> method, it saves the current <xref:Microsoft.Office.Tools.Word.Document.ProtectionType%2A> value, so that the same type of protection can be reapplied in the <xref:Microsoft.Office.Tools.Word.DocumentBase.ProtectDocument%2A> method.  
   
- [!code-csharp[Trin_CachedDataProtectedDocument#1](../snippets/csharp/VS_Snippets_OfficeSP/Trin_CachedDataProtectedDocument/CS/ThisDocument.cs#1)]
- [!code-vb[Trin_CachedDataProtectedDocument#1](../snippets/visualbasic/VS_Snippets_OfficeSP/Trin_CachedDataProtectedDocument/VB/ThisDocument.vb#1)]  
+ [!code-csharp[Trin_CachedDataProtectedDocument#1](../vsto/codesnippet/CSharp/Trin_CachedDataProtectedDocument/ThisDocument.cs#1)] [!code-vb[Trin_CachedDataProtectedDocument#1](../vsto/codesnippet/VisualBasic/Trin_CachedDataProtectedDocument/ThisDocument.vb#1)]  
   
-### 编译代码  
- 将此代码添加到项目的 `ThisDocument` 类中。  此代码假定密码存储在一个名为 `securelyStoredPassword` 的字段中。  
+### <a name="compiling-the-code"></a>Compiling the Code  
+ Add this code to the `ThisDocument` class in your project. This code assumes that the password is stored in a field named `securelyStoredPassword`.  
   
-## 在 Excel 工作簿中执行缓存  
- 在 Excel 项目中，仅当通过 <xref:Microsoft.Office.Tools.Excel.Workbook.Protect%2A> 方法使用密码保护整个工作簿后，才需要执行此过程。  如果通过 <xref:Microsoft.Office.Tools.Excel.Worksheet.Protect%2A> 方法使用密码来保护某个特定的工作簿，则不需要执行此过程。  
+## <a name="caching-in-excel-workbooks"></a>Caching in Excel Workbooks  
+ In Excel projects, this procedure is necessary only when you protect the entire workbook with a password by using the <xref:Microsoft.Office.Tools.Excel.Workbook.Protect%2A> method. This procedure is not necessary if you protect only a specific worksheet with a password by using the <xref:Microsoft.Office.Tools.Excel.Worksheet.Protect%2A> method.  
   
-#### 在受密码保护的 Excel 工作簿中缓存数据  
+#### <a name="to-cache-data-in-an-excel-workbook-that-is-protected-with-a-password"></a>To cache data in an Excel workbook that is protected with a password  
   
-1.  在 `ThisWorkbook` 类或某个 `Sheet`*n* 类中，标记要缓存的公共字段或属性。  有关更多信息，请参见[缓存数据](../vsto/caching-data.md)。  
+1.  In the `ThisWorkbook` class or one of the `Sheet`*n* classes, mark a public field or property to be cached. For more information, see [Caching Data](../vsto/caching-data.md).  
   
-2.  在 `ThisWorkbook` 类中重写 <xref:Microsoft.Office.Tools.Excel.WorkbookBase.UnprotectDocument%2A> 方法，取消对工作簿的保护。  
+2.  Override the <xref:Microsoft.Office.Tools.Excel.WorkbookBase.UnprotectDocument%2A> method in the `ThisWorkbook` class and remove protection from the workbook.  
   
-     保存工作簿时，[!INCLUDE[vsto_runtime](../vsto/includes/vsto-runtime-md.md)]会调用此方法，以便为您提供取消工作簿保护的机会。  这使您可以保存对缓存数据所做的更改。  
+     When the workbook is saved, the [!INCLUDE[vsto_runtime](../vsto/includes/vsto-runtime-md.md)] calls this method to give you an opportunity to unprotect the workbook. This enables changes to the cached data to be saved.  
   
-3.  重写 `ThisWorkbook` 类中的 <xref:Microsoft.Office.Tools.Excel.WorkbookBase.ProtectDocument%2A> 方法，并对文档重新应用保护。  
+3.  Override the <xref:Microsoft.Office.Tools.Excel.WorkbookBase.ProtectDocument%2A> method in the `ThisWorkbook` class and reapply protection to the document.  
   
-     保存工作簿后，[!INCLUDE[vsto_runtime](../vsto/includes/vsto-runtime-md.md)]会调用此方法，以便为您提供对工作簿重新应用保护的机会。  
+     After the workbook is saved, the [!INCLUDE[vsto_runtime](../vsto/includes/vsto-runtime-md.md)] calls this method to give you an opportunity to reapply protection to the workbook.  
   
-### 示例  
- 下面的代码示例演示如何在受密码保护的 Excel 工作簿中缓存数据。  代码在 <xref:Microsoft.Office.Tools.Excel.WorkbookBase.UnprotectDocument%2A> 方法中取消保护之前，将保存当前的 <xref:Microsoft.Office.Tools.Excel.Workbook.ProtectStructure%2A> 和 <xref:Microsoft.Office.Tools.Excel.Workbook.ProtectWindows%2A> 值，以便可以在 <xref:Microsoft.Office.Tools.Excel.WorkbookBase.ProtectDocument%2A> 方法中重新应用相同类型的保护。  
+### <a name="example"></a>Example  
+ The following code example demonstrates how to cache data in an Excel workbook that is protected with a password. Before the code removes the protection in the <xref:Microsoft.Office.Tools.Excel.WorkbookBase.UnprotectDocument%2A> method, it saves the current <xref:Microsoft.Office.Tools.Excel.Workbook.ProtectStructure%2A> and <xref:Microsoft.Office.Tools.Excel.Workbook.ProtectWindows%2A> values, so that the same type of protection can be reapplied in the <xref:Microsoft.Office.Tools.Excel.WorkbookBase.ProtectDocument%2A> method.  
   
- [!code-csharp[Trin_CachedDataProtectedWorkbook#1](../snippets/csharp/VS_Snippets_OfficeSP/Trin_CachedDataProtectedWorkbook/CS/ThisWorkbook.cs#1)]
- [!code-vb[Trin_CachedDataProtectedWorkbook#1](../snippets/visualbasic/VS_Snippets_OfficeSP/Trin_CachedDataProtectedWorkbook/VB/ThisWorkbook.vb#1)]  
+ [!code-vb[Trin_CachedDataProtectedWorkbook#1](../vsto/codesnippet/VisualBasic/Trin_CachedDataProtectedWorkbook/ThisWorkbook.vb#1)] [!code-csharp[Trin_CachedDataProtectedWorkbook#1](../vsto/codesnippet/CSharp/Trin_CachedDataProtectedWorkbook/ThisWorkbook.cs#1)]  
   
-### 编译代码  
- 将此代码添加到项目的 `ThisWorkbook` 类中。  此代码假定密码存储在一个名为 `securelyStoredPassword` 的字段中。  
+### <a name="compiling-the-code"></a>Compiling the Code  
+ Add this code to the `ThisWorkbook` class in your project. This code assumes that the password is stored in a field named `securelyStoredPassword`.  
   
-## 请参阅  
- [缓存数据](../vsto/caching-data.md)   
- [如何：缓存数据以便脱机使用或在服务器上使用](../vsto/how-to-cache-data-for-use-offline-or-on-a-server.md)   
- [如何：以编程方式在 Office 文档中缓存数据源](../vsto/how-to-programmatically-cache-a-data-source-in-an-office-document.md)  
+## <a name="see-also"></a>See Also  
+ [Caching Data](../vsto/caching-data.md)   
+ [How to: Cache Data for Use Offline or on a Server](../vsto/how-to-cache-data-for-use-offline-or-on-a-server.md)   
+ [How to: Programmatically Cache a Data Source in an Office Document](../vsto/how-to-programmatically-cache-a-data-source-in-an-office-document.md)  
   
   

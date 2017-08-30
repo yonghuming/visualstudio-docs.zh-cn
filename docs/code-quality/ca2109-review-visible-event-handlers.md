@@ -1,68 +1,85 @@
 ---
-title: "CA2109：检查可见的事件处理程序 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-devops-test"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "CA2109"
-  - "ReviewVisibleEventHandlers"
-helpviewer_keywords: 
-  - "CA2109"
-  - "ReviewVisibleEventHandlers"
+title: 'CA2109: Review visible event handlers | Microsoft Docs'
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-devops-test
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords:
+- CA2109
+- ReviewVisibleEventHandlers
+helpviewer_keywords:
+- ReviewVisibleEventHandlers
+- CA2109
 ms.assetid: 8f8fa0ee-e94e-400e-b516-24d8727725d7
 caps.latest.revision: 18
-author: "stevehoag"
-ms.author: "shoag"
-manager: "wpickett"
-caps.handback.revision: 18
----
-# CA2109：检查可见的事件处理程序
-[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
+author: stevehoag
+ms.author: shoag
+manager: wpickett
+translation.priority.ht:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+ms.translationtype: HT
+ms.sourcegitcommit: eb5c9550fd29b0e98bf63a7240737da4f13f3249
+ms.openlocfilehash: 930c98a6b91eee69c3e145479694a58050dd3d22
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/30/2017
 
+---
+# <a name="ca2109-review-visible-event-handlers"></a>CA2109: Review visible event handlers
 |||  
 |-|-|  
-|类型名|ReviewVisibleEventHandlers|  
+|TypeName|ReviewVisibleEventHandlers|  
 |CheckId|CA2109|  
-|类别|Microsoft.Security|  
-|是否重大更改|是|  
+|Category|Microsoft.Security|  
+|Breaking Change|Breaking|  
   
-## 原因  
- 检测到公共事件处理方法或受保护事件处理方法。  
+## <a name="cause"></a>Cause  
+ A public or protected event-handling method was detected.  
   
-## 规则说明  
- 某外部可见的事件处理方法带来了需要检查的安全问题。  
+## <a name="rule-description"></a>Rule Description  
+ An externally visible event-handling method presents a security issue that requires review.  
   
- 除非绝对必要，否则不应公开事件处理方法。  只要事件处理程序和事件签名匹配，就可以将调用已公开方法的该事件处理程序（委托类型）添加到任何事件。  事件可能会由任何代码引发，并经常为响应单击按钮等用户操作由高度信任的系统代码不断引发。  将安全检查添加到事件处理方法并不影响代码注册调用该方法的事件处理程序。  
+ Event-handling methods should not be exposed unless absolutely necessary. An event handler, a delegate type, that invokes the exposed method can be added to any event as long as the handler and event signatures match. Events can potentially be raised by any code, and are frequently raised by highly trusted system code in response to user actions such as clicking a button. Adding a security check to an event-handling method does not prevent code from registering an event handler that invokes the method.  
   
- 某请求无法可靠地保护由事件处理程序调用的方法。  通过检查调用堆栈上的调用方，安全请求有助于保护来自不受信任调用方的代码。  在事件处理程序的方法运行时，调用堆栈上不需要有将事件处理程序添加到事件的代码。  因此，在调用事件处理程序方法时调用堆栈可能只有高度受信任的调用方。  这导致事件处理程序方法发出的请求成功。  另外，在调用该方法时可能断言了所要求的权限。  由于上述原因，只能在检查事件处理方法后评估不修复与该规则的冲突的风险。  在检查代码时，请考虑下列问题：  
+ A demand cannot reliably protect a method invoked by an event handler. Security demands help protect code from untrusted callers by examining the callers on the call stack. Code that adds an event handler to an event is not necessarily present on the call stack when the event handler's methods run. Therefore, the call stack might have only highly trusted callers when the event handler method is invoked. This causes demands made by the event handler method to succeed. Also, the demanded permission might be asserted when the method is invoked. For these reasons, the risk of not fixing a violation of this rule can only be assessed after reviewing the event-handling method. When you review your code, consider the following issues:  
   
--   事件处理程序是否执行危险或可利用的任何操作，例如断言权限或取消非托管代码权限？  
+-   Does your event handler perform any operations that are dangerous or exploitable, such as asserting permissions or suppressing unmanaged code permission?  
   
--   如果代码只能由堆栈上高度受信任调用方随时运行，则对代码的安全威胁和来自代码的安全威胁有哪些？  
+-   What are the security threats to and from your code because it can run at any time with only highly trusted callers on the stack?  
   
-## 如何解决冲突  
- 要修复与该规则的冲突，请检查该方法并评估以下条件：  
+## <a name="how-to-fix-violations"></a>How to Fix Violations  
+ To fix a violation of this rule, review the method and evaluate the following:  
   
--   是否可以使事件处理方法成为非公共的？  
+-   Can you make the event-handling method non-public?  
   
--   是否可以将所有危险的功能移出事件处理程序？  
+-   Can you move all dangerous functionality out of the event handler?  
   
--   如果设定了安全请求，是否可以通过一些其他方式完成此请求？  
+-   If a security demand is imposed, can this be accomplished in some other manner?  
   
-## 何时禁止显示警告  
- 仅在经过仔细安全检查以确保代码不构成安全威胁后，才禁止显示此规则发出的警告。  
+## <a name="when-to-suppress-warnings"></a>When to Suppress Warnings  
+ Suppress a warning from this rule only after a careful security review to make sure that your code does not pose a security threat.  
   
-## 示例  
- 下面的代码演示可以被恶意代码误用的事件处理方法。  
+## <a name="example"></a>Example  
+ The following code shows an event-handling method that can be misused by malicious code.  
   
- [!code-cs[FxCop.Security.EventSecLib#1](../code-quality/codesnippet/CSharp/ca2109-review-visible-event-handlers_1.cs)]  
+ [!code-csharp[FxCop.Security.EventSecLib#1](../code-quality/codesnippet/CSharp/ca2109-review-visible-event-handlers_1.cs)]  
   
-## 请参阅  
+## <a name="see-also"></a>See Also  
  <xref:System.Security.CodeAccessPermission.Demand%2A?displayProperty=fullName>   
  <xref:System.EventArgs?displayProperty=fullName>   
- [Security Demands](http://msdn.microsoft.com/zh-cn/324c14f8-54ff-494d-9fd1-bfd20962c8ba)
+ [Security Demands](http://msdn.microsoft.com/en-us/324c14f8-54ff-494d-9fd1-bfd20962c8ba)

@@ -1,35 +1,40 @@
 ---
-title: "Excel 对象模型概述"
-ms.custom: ""
-ms.date: "02/02/2017"
-ms.prod: "visual-studio-dev14"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "office-development"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-dev_langs: 
-  - "VB"
-  - "CSharp"
-helpviewer_keywords: 
-  - "Excel 对象模型"
-  - "对象模型 [Visual Studio 中的 Office 开发], Excel"
-  - "对象模型 [Visual Studio 中的 Office 开发], Office"
-  - "对象 [Visual Studio 中的 Office 开发], Office 对象模型"
-  - "Office 对象模型"
-  - "Range 对象"
-  - "Workbook 类"
-  - "Worksheet 对象"
+title: Excel Object Model Overview | Microsoft Docs
+ms.custom: 
+ms.date: 02/02/2017
+ms.prod: visual-studio-dev14
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- office-development
+ms.tgt_pltfrm: 
+ms.topic: article
+dev_langs:
+- VB
+- CSharp
+helpviewer_keywords:
+- Worksheet object
+- Range object
+- object models [Office development in Visual Studio], Excel
+- object models [Office development in Visual Studio], Office
+- Workbook class
+- objects [Office development in Visual Studio], Office object models
+- Excel object model
+- Office object models
 ms.assetid: e4b2e46b-ea6c-4a88-a416-a7d4f495fc33
 caps.latest.revision: 66
-author: "kempb"
-ms.author: "kempb"
-manager: "ghogen"
-caps.handback.revision: 65
+author: kempb
+ms.author: kempb
+manager: ghogen
+ms.translationtype: HT
+ms.sourcegitcommit: eb5c9550fd29b0e98bf63a7240737da4f13f3249
+ms.openlocfilehash: fc96fe66349ca54082a2d75c81d176294b2528d9
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/30/2017
+
 ---
-# Excel 对象模型概述
-  若要开发使用 Microsoft Office Excel 的解决方案，可与由 Excel 对象模型提供的对象进行交互。  本主题介绍最重要的对象：  
+# <a name="excel-object-model-overview"></a>Excel Object Model Overview
+  To develop solutions that use Microsoft Office Excel, you can interact with the objects provided by the Excel object model. This topic introduces the most important objects:  
   
 -   <xref:Microsoft.Office.Interop.Excel.Application>  
   
@@ -41,86 +46,85 @@ caps.handback.revision: 65
   
  [!INCLUDE[appliesto_xlalldocapp](../vsto/includes/appliesto-xlalldocapp-md.md)]  
   
- 对象模型紧跟用户界面。  <xref:Microsoft.Office.Interop.Excel.Application> 对象表示整个应用程序，并且每个 <xref:Microsoft.Office.Interop.Excel.Workbook> 对象都包含 `Worksheet` 对象的集合。  在这里，表示单元格的主要抽象是 <xref:Microsoft.Office.Interop.Excel.Range> 对象，它使你能够使用单独的单元格或单元格组。  
+ The object model closely follows the user interface. The <xref:Microsoft.Office.Interop.Excel.Application> object represents the entire application, and each <xref:Microsoft.Office.Interop.Excel.Workbook> object contains a collection of `Worksheet` objects. From there, the major abstraction that represents cells is the <xref:Microsoft.Office.Interop.Excel.Range> object, which enables you to work with individual cells or groups of cells.  
   
- 除 Excel 对象模型以外，Visual Studio 中的 Office 项目还提供*主机项*和可扩展 Excel 对象模型中的一些对象的*主机控件*。  主机项和主机控件的行为类似于它们扩展的 Excel 对象，但它们还具有其他功能（如数据绑定功能）和其他事件。  有关详细信息，请参阅[使用扩展对象实现 Excel 自动化](../vsto/automating-excel-by-using-extended-objects.md)和[宿主项和宿主控件概述](../vsto/host-items-and-host-controls-overview.md)。  
+ In addition to the Excel object model, Office projects in Visual Studio provide *host items* and *host controls* that extend some objects in the Excel object model. Host items and host controls behave like the Excel objects they extend, but they also have additional functionality such as data-binding capabilities and extra events. For more information, see [Automating Excel by Using Extended Objects](../vsto/automating-excel-by-using-extended-objects.md) and [Host Items and Host Controls Overview](../vsto/host-items-and-host-controls-overview.md).  
   
- 本主题概要介绍 Excel 对象模型。  有关可从中了解关于整个 Excel 对象模型的详细信息的资源，请参阅[使用 Excel 对象模型文档](#ExcelOMDocumentation)。  
+ This topic provides a brief overview of the Excel object model. For resources where you can learn more about the entire Excel object model, see [Using the Excel Object Model Documentation](#ExcelOMDocumentation).  
   
- ![链接到视频](~/data-tools/media/playvideo.gif "链接到视频") 相关视频演示，请参阅[如何：在 Excel 2007 外接程序中使用事件处理程序？](http://go.microsoft.com/fwlink/?LinkID=130291)和[如何：使用形状在 Excel 中创建气泡图？](http://go.microsoft.com/fwlink/?LinkID=130313)。  
+ ![link to video](../vsto/media/playvideo.gif "link to video") For a related video demonstration, see [How Do I: Use Event Handlers in an Excel 2007 Add-in?](http://go.microsoft.com/fwlink/?LinkID=130291), and [How Do I: Use Shapes to Create a Bubble Chart in Excel?](http://go.microsoft.com/fwlink/?LinkID=130313).  
   
-## 访问 Excel 项目中的对象  
- 为 Excel 创建新的 VSTO 外接程序项目时，Visual Studio 将自动创建 ThisAddIn.vb 或 ThisAddIn.cs 代码文件。  可以通过使用 `Me.Application` 或 `this.Application` 访问应用程序对象。  
+## <a name="accessing-objects-in-an-excel-project"></a>Accessing Objects in an Excel Project  
+ When you create a new VSTO Add-in project for Excel, Visual Studio automatically creates a ThisAddIn.vb or ThisAddIn.cs code file. You can access the Application object by using `Me.Application` or `this.Application`.  
   
- 为 Excel 创建新的文档级项目时，可选择创建新的 Excel 工作簿或 Excel 模板项目。  Visual Studio 在新的 Excel 项目中为工作簿和模板项目自动创建以下代码文件。  
+ When you create a new document-level project for Excel, you have the option of creating a new Excel Workbook or Excel Template project. Visual Studio automatically creates the following code files in your new Excel project for both workbook and template projects.  
   
-|Visual Basic|C\#|  
+|Visual Basic|C#|  
 |------------------|---------|  
 |ThisWorkbook.vb|ThisWorkbook.cs|  
 |Sheet1.vb|Sheet1.cs|  
 |Sheet2.vb|Sheet2.cs|  
 |Sheet3.vb|Sheet3.cs|  
   
- 可以在项目中使用 `Globals` 类来从各个类的外部访问 `ThisWorkbook`、`Sheet1`、`Sheet2` 或 `Sheet3`。  有关详细信息，请参阅[对 Office 项目中对象的全局访问](../vsto/global-access-to-objects-in-office-projects.md)。  下面的示例调用 `Sheet1` 的 <xref:Microsoft.Office.Interop.Excel._Worksheet.PrintPreview%2A> 方法，无论代码是放置在任一个 `Sheet`*n* 类中还是放置在 `ThisWorkbook` 类中。  
+ You can use the `Globals` class in your project to access `ThisWorkbook`, `Sheet1`, `Sheet2`, or `Sheet3` from outside of the respective class. For more information, see [Global Access to Objects in Office Projects](../vsto/global-access-to-objects-in-office-projects.md). The following example calls the <xref:Microsoft.Office.Interop.Excel._Worksheet.PrintPreview%2A> method of `Sheet1` regardless of whether the code is placed in one of the `Sheet`*n* classes or the `ThisWorkbook` class.  
   
- [!code-csharp[Trin_VstcoreExcelAutomation#82](../snippets/csharp/VS_Snippets_OfficeSP/Trin_VstcoreExcelAutomation/CS/Sheet1.cs#82)]
- [!code-vb[Trin_VstcoreExcelAutomation#82](../snippets/visualbasic/VS_Snippets_OfficeSP/Trin_VstcoreExcelAutomation/VB/Sheet1.vb#82)]  
+ [!code-csharp[Trin_VstcoreExcelAutomation#82](../vsto/codesnippet/CSharp/Trin_VstcoreExcelAutomationCS/Sheet1.cs#82)] [!code-vb[Trin_VstcoreExcelAutomation#82](../vsto/codesnippet/VisualBasic/Trin_VstcoreExcelAutomation/Sheet1.vb#82)]  
   
- 由于 Excel 文档中的数据已高度结构化，因此该对象模型是分层模型且非常简单。  Excel 提供数百个你可能需与之进行交互的对象，但你可以通过将重点放在非常小的一部分可用对象上来很好的开始了解对象模型。  这些对象包括以下四种：  
+ Because the data in an Excel document is highly structured, the object model is hierarchical and straightforward. Excel provides hundreds of objects with which you might want to interact, but you can get a good start on the object model by focusing on a very small subset of the available objects. These objects include the following four:  
   
--   应用程序  
+-   Application  
   
 -   Workbook  
   
 -   Worksheet  
   
--   范围  
+-   Range  
   
- 许多使用 Excel 完成的工作都是围绕这四种对象及其成员进行的。  
+ Much of the work done with Excel centers around these four objects and their members.  
   
-### 应用程序对象  
- Excel <xref:Microsoft.Office.Interop.Excel.Application> 对象表示 Excel 应用程序本身。  <xref:Microsoft.Office.Interop.Excel.Application> 对象公开了大量有关正在运行的应用程序、应用于该实例的选项以及在该实例内部开启的当前用户对象的信息。  
+### <a name="application-object"></a>Application Object  
+ The Excel <xref:Microsoft.Office.Interop.Excel.Application> object represents the Excel application itself. The <xref:Microsoft.Office.Interop.Excel.Application> object exposes a great deal of information about the running application, the options applied to that instance, and the current user objects open within the instance.  
   
 > [!NOTE]  
->  不应将 Excel 中 <xref:Microsoft.Office.Interop.Excel.Application> 对象的 <xref:Microsoft.Office.Interop.Excel.ApplicationClass.EnableEvents%2A> 属性设置为 **false**。  将此属性设置为 false 可防止 Excel 引发任何事件，包括主机控件的事件。  
+>  You should not set the <xref:Microsoft.Office.Interop.Excel.ApplicationClass.EnableEvents%2A> property of the <xref:Microsoft.Office.Interop.Excel.Application> object in Excel to **false**. Setting this property to false prevents Excel from raising any events, including the events of host controls.  
   
-### 工作簿对象  
- <xref:Microsoft.Office.Interop.Excel.Workbook> 对象表示 Excel 应用程序中的单个工作簿。  
+### <a name="workbook-object"></a>Workbook Object  
+ The <xref:Microsoft.Office.Interop.Excel.Workbook> object represents a single workbook within the Excel application.  
   
- Visual Studio 中的 Office 开发工具通过提供 <xref:Microsoft.Office.Tools.Excel.Workbook> 类型来扩展 <xref:Microsoft.Office.Interop.Excel.Workbook> 对象。  此类型使你可以访问 <xref:Microsoft.Office.Interop.Excel.Workbook> 对象的所有功能。  有关详细信息，请参阅[工作簿宿主项](../vsto/workbook-host-item.md)。  
+ The Office development tools in Visual Studio extends the <xref:Microsoft.Office.Interop.Excel.Workbook> object by providing the <xref:Microsoft.Office.Tools.Excel.Workbook> type. This type gives you access to all features of a <xref:Microsoft.Office.Interop.Excel.Workbook> object. For more information, see [Workbook Host Item](../vsto/workbook-host-item.md).  
   
-### 工作表对象  
- <xref:Microsoft.Office.Interop.Excel.Worksheet> 对象是 <xref:Microsoft.Office.Interop.Excel.Worksheets> 集合的成员。  <xref:Microsoft.Office.Interop.Excel.Worksheet> 的许多属性、方法和事件与由 <xref:Microsoft.Office.Interop.Excel.Application> 或 <xref:Microsoft.Office.Interop.Excel.Workbook> 对象提供的成员相同或类似。  
+### <a name="worksheet-object"></a>Worksheet Object  
+ The <xref:Microsoft.Office.Interop.Excel.Worksheet> object is a member of the <xref:Microsoft.Office.Interop.Excel.Worksheets> collection. Many of the properties, methods, and events of the <xref:Microsoft.Office.Interop.Excel.Worksheet> are identical or similar to members provided by the <xref:Microsoft.Office.Interop.Excel.Application> or <xref:Microsoft.Office.Interop.Excel.Workbook> objects.  
   
- Excel 提供一个 <xref:Microsoft.Office.Interop.Excel.Sheets> 集合作为 <xref:Microsoft.Office.Interop.Excel.Workbook> 对象的属性。  <xref:Microsoft.Office.Interop.Excel.Sheets> 集合的每个成员都是 <xref:Microsoft.Office.Interop.Excel.Worksheet> 或 <xref:Microsoft.Office.Interop.Excel.Chart> 对象。  
+ Excel provides a <xref:Microsoft.Office.Interop.Excel.Sheets> collection as a property of a <xref:Microsoft.Office.Interop.Excel.Workbook> object. Each member of the <xref:Microsoft.Office.Interop.Excel.Sheets> collection is either a <xref:Microsoft.Office.Interop.Excel.Worksheet> or a <xref:Microsoft.Office.Interop.Excel.Chart> object.  
   
- Visual Studio 中的 Office 开发工具通过提供 <xref:Microsoft.Office.Tools.Excel.Worksheet> 类型来扩展 <xref:Microsoft.Office.Interop.Excel.Worksheet> 对象。  此类型使你可以访问 <xref:Microsoft.Office.Interop.Excel.Worksheet> 对象的所有功能以及承载托管控件和处理新事件等新功能。  有关详细信息，请参阅 [工作表宿主项](../vsto/worksheet-host-item.md)。  
+ The Office development tools in Visual Studio extend the <xref:Microsoft.Office.Interop.Excel.Worksheet> object by providing the <xref:Microsoft.Office.Tools.Excel.Worksheet> type. This type gives you access to all features of a <xref:Microsoft.Office.Interop.Excel.Worksheet> object, as well as new features such as the ability to host managed controls and handle new events. For more information, see [Worksheet Host Item](../vsto/worksheet-host-item.md).  
   
-### Range 对象  
- <xref:Microsoft.Office.Interop.Excel.Range> 对象是你将在 Excel 应用程序中使用最多的对象。  在可以操作 Excel 内的任何区域之前，必须将其表达为 <xref:Microsoft.Office.Interop.Excel.Range> 对象，并使用该范围的方法和属性。  一个 <xref:Microsoft.Office.Interop.Excel.Range> 对象，表示一个单元格、行、列、包含一个或多个单元格块的单元格选定区域（选定区域可能是连续的，也可能不是连续的）或甚至多个工作表上的一组单元格）。  
+### <a name="range-object"></a>Range Object  
+ The <xref:Microsoft.Office.Interop.Excel.Range> object is the object you will use most within your Excel applications. Before you can manipulate any region within Excel, you must express it as a <xref:Microsoft.Office.Interop.Excel.Range> object and work with methods and properties of that range. A <xref:Microsoft.Office.Interop.Excel.Range> object represents a cell, a row, a column, a selection of cells that contains one or more blocks of cells, which might or might not be contiguous, or even a group of cells on multiple sheets.  
   
- Visual Studio 通过提供 <xref:Microsoft.Office.Tools.Excel.NamedRange> 和 <xref:Microsoft.Office.Tools.Excel.XmlMappedRange> 类型来扩展 <xref:Microsoft.Office.Interop.Excel.Range> 对象。  这些类型具有与 <xref:Microsoft.Office.Interop.Excel.Range> 对象相同的大部分功能以及数据绑定功能等新功能和新事件。  有关详细信息，请参阅 [NamedRange 控件](../vsto/namedrange-control.md)和 [XmlMappedRange 控件](../vsto/xmlmappedrange-control.md)。  
+ Visual Studio extends the <xref:Microsoft.Office.Interop.Excel.Range> object by providing the <xref:Microsoft.Office.Tools.Excel.NamedRange> and <xref:Microsoft.Office.Tools.Excel.XmlMappedRange> types. These types have most of the same features as a <xref:Microsoft.Office.Interop.Excel.Range> object, as well as new features such as the data binding capability and new events. For more information, see [NamedRange Control](../vsto/namedrange-control.md) and [XmlMappedRange Control](../vsto/xmlmappedrange-control.md).  
   
-##  <a name="ExcelOMDocumentation"></a> 使用 Excel 对象模型文档  
- 有关 Excel 对象模型的完整信息，可以参考 Excel 主互操作程序集 \(PIA\) 引用和 VBA 对象模型引用。  
+##  <a name="ExcelOMDocumentation"></a> Using the Excel Object Model Documentation  
+ For complete information about the Excel object model, you can refer to the Excel primary interop assembly (PIA) reference and the VBA object model reference.  
   
-### 主互操作程序集引用  
- Excel PIA 参考文档介绍 Excel 的主互操作程序集中的类型。  本文档可从以下位置获得：[Excel 2010 主互操作程序集引用](http://go.microsoft.com/fwlink/?LinkId=189585)。  
+### <a name="primary-interop-assembly-reference"></a>Primary Interop Assembly Reference  
+ The Excel PIA reference documentation describes the types in the primary interop assembly for Excel. This documentation is available from the following location: [Excel 2010 Primary Interop Assembly Reference](http://go.microsoft.com/fwlink/?LinkId=189585).  
   
- 有关 Excel PIA 的设计的详细信息（例如 PIA 中类和接口之间的差别以及实现 PIA 中的事件的方式），请参阅 [Office 主互操作程序集中的类和接口概述](http://go.microsoft.com/fwlink/?LinkId=189592)。  
+ For more information about the design of the Excel PIA, such as the differences between classes and interfaces in the PIA and how events in the PIA are implemented, see [Overview of Classes and Interfaces in the Office Primary Interop Assemblies](http://go.microsoft.com/fwlink/?LinkId=189592).  
   
-### VBA 对象模型引用  
- VBA 对象模型引用在 Excel 对象模型被公开到 Visual Basic for Applications \(VBA\) 代码时记录该对象模型。  有关详细信息，请参阅 [Excel 2010 对象模型引用](http://go.microsoft.com/fwlink/?LinkId=199768)。  
+### <a name="vba-object-model-reference"></a>VBA Object Model Reference  
+ The VBA object model reference documents the Excel object model as it is exposed to Visual Basic for Applications (VBA) code. For more information, see [Excel 2010 Object Model Reference](http://go.microsoft.com/fwlink/?LinkId=199768).  
   
- VBA 对象模型引用中的所有对象和成员都对应于 Excel PIA 中的类型和成员。  例如，VBA 对象模型引用中的 Worksheet 对象对应于 Excel PIA 中的 <xref:Microsoft.Office.Interop.Excel.Worksheet> 对象。  虽然 VBA 对象模型引用提供大多数属性、方法和事件的代码示例，但如果要在使用 Visual Studio 创建的 Excel 项目中使用本引用中的 VBA 代码，则必须将其转换为 Visual Basic 或 Visual C\# 代码。  
+ All of the objects and members in the VBA object model reference correspond to types and members in the Excel PIA. For example, the Worksheet object in the VBA object model reference corresponds to the <xref:Microsoft.Office.Interop.Excel.Worksheet> object in the Excel PIA. Although the VBA object model reference provides code examples for most properties, methods, and events, you must translate the VBA code in this reference to Visual Basic or Visual C# if you want to use them in an Excel project that you create by using Visual Studio.  
   
-### 相关主题  
+### <a name="related-topics"></a>Related Topics  
   
-|标题|说明|  
-|--------|--------|  
-|[Excel 解决方案](../vsto/excel-solutions.md)|说明可以如何创建 Microsoft Office excel 的文档级自定义项和 VSTO 外接程序。|  
-|[使用范围](../vsto/working-with-ranges.md)|提供演示如何使用范围执行常见任务的示例。|  
-|[使用工作表](../vsto/working-with-worksheets.md)|提供演示如何使用工作表执行常见任务的示例。|  
-|[使用工作簿](../vsto/working-with-workbooks.md)|提供演示如何使用工作簿执行常见任务的示例。|  
+|Title|Description|  
+|-----------|-----------------|  
+|[Excel Solutions](../vsto/excel-solutions.md)|Explains how you can create document-level customizations and VSTO Add-ins for Microsoft Office Excel.|  
+|[Working with Ranges](../vsto/working-with-ranges.md)|Provides examples that show how to perform common tasks with ranges.|  
+|[Working with Worksheets](../vsto/working-with-worksheets.md)|Provides examples that show how to perform common tasks with worksheets.|  
+|[Working with Workbooks](../vsto/working-with-workbooks.md)|Provides examples that show how to perform common tasks with workbooks.|  
   
   

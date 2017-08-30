@@ -1,90 +1,105 @@
 ---
-title: "CA2100：检查 SQL 查询中是否有安全漏洞 | Microsoft Docs"
-ms.custom: ""
-ms.date: "12/15/2016"
-ms.prod: "visual-studio-dev14"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-devops-test"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "Review SQL queries for security vulnerabilities"
-  - "ReviewSqlQueriesForSecurityVulnerabilities"
-  - "CA2100"
-helpviewer_keywords: 
-  - "CA2100"
-  - "ReviewSqlQueriesForSecurityVulnerabilities"
+title: 'CA2100: Review SQL queries for security vulnerabilities | Microsoft Docs'
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-devops-test
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords:
+- Review SQL queries for security vulnerabilities
+- ReviewSqlQueriesForSecurityVulnerabilities
+- CA2100
+helpviewer_keywords:
+- CA2100
+- ReviewSqlQueriesForSecurityVulnerabilities
 ms.assetid: 79670604-c02a-448d-9c0e-7ea0120bc5fe
 caps.latest.revision: 24
-caps.handback.revision: 24
-author: "stevehoag"
-ms.author: "shoag"
-manager: "wpickett"
----
-# CA2100：检查 SQL 查询中是否有安全漏洞
-[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
+author: stevehoag
+ms.author: shoag
+manager: wpickett
+translation.priority.ht:
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- ru-ru
+- zh-cn
+- zh-tw
+translation.priority.mt:
+- cs-cz
+- pl-pl
+- pt-br
+- tr-tr
+ms.translationtype: HT
+ms.sourcegitcommit: eb5c9550fd29b0e98bf63a7240737da4f13f3249
+ms.openlocfilehash: 931e2dae6c7b773ca2b8236917146ab9410d3565
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/30/2017
 
+---
+# <a name="ca2100-review-sql-queries-for-security-vulnerabilities"></a>CA2100: Review SQL queries for security vulnerabilities
 |||  
 |-|-|  
-|类型名|ReviewSqlQueriesForSecurityVulnerabilities|  
+|TypeName|ReviewSqlQueriesForSecurityVulnerabilities|  
 |CheckId|CA2100|  
-|类别|Microsoft.Security|  
-|是否重大更改|非重大更改|  
+|Category|Microsoft.Security|  
+|Breaking Change|Non-breaking|  
   
-## 原因  
- 方法通过使用基于它的字符串参数生成的字符串来设置 <xref:System.Data.IDbCommand.CommandText%2A?displayProperty=fullName> 属性。  
+## <a name="cause"></a>Cause  
+ A method sets the <xref:System.Data.IDbCommand.CommandText%2A?displayProperty=fullName> property by using a string that is built from a string argument to the method.  
   
-## 规则说明  
- 此规则假定字符串参数中包含用户输入。  基于用户输入生成的 SQL 命令字符串易于受到 SQL 注入式攻击。  在 SQL 注入式攻击中，恶意用户提供将更改查询设计的输入，以尝试破坏基础数据库或获取对基础数据库的未经授权的访问权限。  典型的方法包括注入单引号或省略号（它们都是 SQL 文本字符串分隔符）、两个短划线（表示 SQL 注释）和一个分号（指示后面有新命令）。  如果用户输入必须是查询的一部分，请使用下面按有效性顺序列出的方法之一来降低攻击风险。  
+## <a name="rule-description"></a>Rule Description  
+ This rule assumes that the string argument contains user input. A SQL command string that is built from user input is vulnerable to SQL injection attacks. In a SQL injection attack, a malicious user supplies input that alters the design of a query in an attempt to damage or gain unauthorized access to the underlying database. Typical techniques include injection of a single quotation mark or apostrophe, which is the SQL literal string delimiter; two dashes, which signifies a SQL comment; and a semicolon, which indicates that a new command follows. If user input must be part of the query, use one of the following, listed in order of effectiveness, to reduce the risk of attack.  
   
--   使用存储过程。  
+-   Use a stored procedure.  
   
--   使用参数化命令字符串。  
+-   Use a parameterized command string.  
   
--   在生成命令字符串之前针对类型和内容验证用户输入。  
+-   Validate the user input for both type and content before you build the command string.  
   
- 下面的 [!INCLUDE[dnprdnshort](../code-quality/includes/dnprdnshort_md.md)] 类型实现 <xref:System.Data.IDbCommand.CommandText%2A> 属性，或提供可通过使用字符串参数来设置该属性的构造函数。  
+ The following [!INCLUDE[dnprdnshort](../code-quality/includes/dnprdnshort_md.md)] types implement the <xref:System.Data.IDbCommand.CommandText%2A> property or provide constructors that set the property by using a string argument.  
   
--   <xref:System.Data.Odbc.OdbcCommand?displayProperty=fullName> 和 <xref:System.Data.Odbc.OdbcDataAdapter?displayProperty=fullName>  
+-   <xref:System.Data.Odbc.OdbcCommand?displayProperty=fullName> and <xref:System.Data.Odbc.OdbcDataAdapter?displayProperty=fullName>  
   
--   <xref:System.Data.OleDb.OleDbCommand?displayProperty=fullName> 和 <xref:System.Data.OleDb.OleDbDataAdapter?displayProperty=fullName>  
+-   <xref:System.Data.OleDb.OleDbCommand?displayProperty=fullName> and <xref:System.Data.OleDb.OleDbDataAdapter?displayProperty=fullName>  
   
--   <xref:System.Data.OracleClient.OracleCommand?displayProperty=fullName> 和 <xref:System.Data.OracleClient.OracleDataAdapter?displayProperty=fullName>  
+-   <xref:System.Data.OracleClient.OracleCommand?displayProperty=fullName> and <xref:System.Data.OracleClient.OracleDataAdapter?displayProperty=fullName>  
   
--   [System.Data.SqlServerCe.SqlCeCommand](assetId:///System.Data.SqlServerCe.SqlCeCommand?qualifyHint=False&autoUpgrade=True) 和 [System.Data.SqlServerCe.SqlCeDataAdapter](assetId:///System.Data.SqlServerCe.SqlCeDataAdapter?qualifyHint=False&autoUpgrade=True)  
+-   [System.Data.SqlServerCe.SqlCeCommand](https://msdn.microsoft.com/library/system.data.sqlserverce.sqlcecommand.aspx) and  [System.Data.SqlServerCe.SqlCeDataAdapter](https://msdn.microsoft.com/library/system.data.sqlserverce.sqlcedataadapter.aspx)  
   
--   <xref:System.Data.SqlClient.SqlCommand?displayProperty=fullName> 和 <xref:System.Data.SqlClient.SqlDataAdapter?displayProperty=fullName>  
+-   <xref:System.Data.SqlClient.SqlCommand?displayProperty=fullName> and <xref:System.Data.SqlClient.SqlDataAdapter?displayProperty=fullName>  
   
- 请注意，一个类型的 ToString 方法被用来显式或隐式构造查询字符串时，会违反此规则。  下面是一个示例。  
+ Notice that this rule is violated when the ToString method of a type is used explicitly or implicitly to construct the query string. The following is an example.  
   
 ```  
 int x = 10;  
 string query = "SELECT TOP " + x.ToString() + " FROM Table";  
 ```  
   
- 因为恶意用户可以重写 ToString \(\) 方法，会违反此规则。  
+ The rule is violated because a malicious user can override the ToString() method.  
   
- 隐式使用 ToString 时也会违反此规则。  
+ The rule also is violated when ToString is used implicitly.  
   
 ```  
 int x = 10;  
 string query = String.Format("SELECT TOP {0} FROM Table", x);  
 ```  
   
-## 如何解决冲突  
- 若要修复与该规则的冲突，请使用参数化查询。  
+## <a name="how-to-fix-violations"></a>How to Fix Violations  
+ To fix a violation of this rule, use a parameterized query.  
   
-## 何时禁止显示警告  
- 如果命令文本中不包含任何用户输入，则可以安全地禁止显示此规则发出的警告。  
+## <a name="when-to-suppress-warnings"></a>When to Suppress Warnings  
+ It is safe to suppress a warning from this rule if the command text does not contain any user input.  
   
-## 示例  
- 下面的示例演示与该规则冲突的方法 `UnsafeQuery` 以及通过使用参数化命令字符串来满足该规则的方法 `SaferQuery`。  
+## <a name="example"></a>Example  
+ The following example shows a method, `UnsafeQuery`, that violates the rule and a method, `SaferQuery`, that satisfies the rule by using a parameterized command string.  
   
- [!code-vb[FxCop.Security.ReviewSqlQueries#1](../code-quality/codesnippet/VisualBasic/ca2100-review-sql-queries-for-security-vulnerabilities_1.vb)]
- [!code-cs[FxCop.Security.ReviewSqlQueries#1](../code-quality/codesnippet/CSharp/ca2100-review-sql-queries-for-security-vulnerabilities_1.cs)]
- [!code-cpp[FxCop.Security.ReviewSqlQueries#1](../code-quality/codesnippet/CPP/ca2100-review-sql-queries-for-security-vulnerabilities_1.cpp)]  
+ [!code-vb[FxCop.Security.ReviewSqlQueries#1](../code-quality/codesnippet/VisualBasic/ca2100-review-sql-queries-for-security-vulnerabilities_1.vb)] [!code-csharp[FxCop.Security.ReviewSqlQueries#1](../code-quality/codesnippet/CSharp/ca2100-review-sql-queries-for-security-vulnerabilities_1.cs)] [!code-cpp[FxCop.Security.ReviewSqlQueries#1](../code-quality/codesnippet/CPP/ca2100-review-sql-queries-for-security-vulnerabilities_1.cpp)]  
   
-## 请参阅  
- [安全性概述](../Topic/Security%20Overview2.md)
+## <a name="see-also"></a>See Also  
+ [Security Overview](/dotnet/framework/data/adonet/security-overview)

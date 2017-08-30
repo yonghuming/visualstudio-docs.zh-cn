@@ -1,48 +1,66 @@
 ---
-title: "CA1821：移除空的终结器 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-devops-test"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "RemoveEmptyFinalizers"
-  - "CA1821"
-helpviewer_keywords: 
-  - "CA1821"
+title: 'CA1821: Remove empty finalizers | Microsoft Docs'
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-devops-test
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords:
+- RemoveEmptyFinalizers
+- CA1821
+helpviewer_keywords:
+- CA1821
 ms.assetid: 3f4855a0-e4a0-46e6-923c-4c3b7074048d
 caps.latest.revision: 13
-author: "stevehoag"
-ms.author: "shoag"
-manager: "wpickett"
-caps.handback.revision: 13
----
-# CA1821：移除空的终结器
-[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
+author: stevehoag
+ms.author: shoag
+manager: wpickett
+translation.priority.ht:
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- ru-ru
+- zh-cn
+- zh-tw
+translation.priority.mt:
+- cs-cz
+- pl-pl
+- pt-br
+- tr-tr
+ms.translationtype: HT
+ms.sourcegitcommit: eb5c9550fd29b0e98bf63a7240737da4f13f3249
+ms.openlocfilehash: 4ef95f8961e156cdfbe6858b5424296ee1ba4667
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/30/2017
 
+---
+# <a name="ca1821-remove-empty-finalizers"></a>CA1821: Remove empty finalizers
 |||  
 |-|-|  
-|类型名|RemoveEmptyFinalizers|  
+|TypeName|RemoveEmptyFinalizers|  
 |CheckId|CA1821|  
-|类别|Microsoft.Performance|  
-|是否重大更改|非重大更改|  
+|Category|Microsoft.Performance|  
+|Breaking Change|Non-breaking|  
   
-## 原因  
- 类型实现空终结器、只调用基类型终结器，或者只调用按条件发出的方法。  
+## <a name="cause"></a>Cause  
+ A type implements a finalizer that is empty, calls only the base type finalizer, or calls only conditionally emitted methods.  
   
-## 规则说明  
- 应尽可能避免终结器，因为跟踪对象生存期会产生额外的性能系统开销。  垃圾收集器将在收集该对象之前运行终结器。  这意味着收集该对象需要两个集合。  空的终结器只会徒增这种系统开销，而没有一点好处。  
+## <a name="rule-description"></a>Rule Description  
+ Whenever you can, avoid finalizers because of the additional performance overhead that is involved in tracking object lifetime. The garbage collector will run the finalizer before it collects the object. This means that two collections will be required to collect the object. An empty finalizer incurs this added overhead without any benefit.  
   
-## 如何解决冲突  
- 移除空的终结器。  如果进行调试时需要一个终结器，请将整个终结器括在 `#if DEBUG / #endif` 指令中。  
+## <a name="how-to-fix-violations"></a>How to Fix Violations  
+ Remove the empty finalizer. If a finalizer is required for debugging, enclose the whole finalizer in `#if DEBUG / #endif` directives.  
   
-## 何时禁止显示警告  
- 不要禁止显示此规则发出的消息。  如果取消终止失败，会使性能下降且不会有任何好处。  
+## <a name="when-to-suppress-warnings"></a>When to Suppress Warnings  
+ Do not suppress a message from this rule. Failure to suppress finalization decreases performance and provides no benefits.  
   
-## 示例  
- 下面的示例演示应移除的空终结器、应括在 `#if DEBUG / #endif` 指令中的终结器和一个正确使用 `#if DEBUG / #endif` 指令的终结器。  
+## <a name="example"></a>Example  
+ The following example shows an empty finalizer that should be removed, a finalizer that should be enclosed in `#if DEBUG / #endif` directives, and a finalizer that uses the `#if DEBUG / #endif` directives correctly.  
   
- [!code-cs[FxCop.Performance.RemoveEmptyFinalizers#1](../code-quality/codesnippet/CSharp/ca1821-remove-empty-finalizers_1.cs)]
+ [!code-csharp[FxCop.Performance.RemoveEmptyFinalizers#1](../code-quality/codesnippet/CSharp/ca1821-remove-empty-finalizers_1.cs)]

@@ -1,89 +1,91 @@
 ---
-title: "在运行时访问窗体区域"
-ms.custom: ""
-ms.date: "02/02/2017"
-ms.prod: "visual-studio-dev14"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "office-development"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-dev_langs: 
-  - "VB"
-  - "CSharp"
-helpviewer_keywords: 
-  - "检查器 [Visual Studio 中的 Office 开发]"
-  - "资源管理器 [Visual Studio 中的 Office 开发]"
-  - "窗体区域 [Visual Studio 中的 Office 开发]，在运行时访问"
+title: Accessing a Form Region at Run Time | Microsoft Docs
+ms.custom: 
+ms.date: 02/02/2017
+ms.prod: visual-studio-dev14
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- office-development
+ms.tgt_pltfrm: 
+ms.topic: article
+dev_langs:
+- VB
+- CSharp
+helpviewer_keywords:
+- Inspectors [Office development in Visual Studio]
+- Explorers [Office development in Visual Studio]
+- form regions [Office development in Visual Studio], accessing at run time
 ms.assetid: 58eaa9e0-acba-4a13-a6dd-b7e37a38156e
 caps.latest.revision: 23
-author: "kempb"
-ms.author: "kempb"
-manager: "ghogen"
-caps.handback.revision: 22
+author: kempb
+ms.author: kempb
+manager: ghogen
+ms.translationtype: HT
+ms.sourcegitcommit: eb5c9550fd29b0e98bf63a7240737da4f13f3249
+ms.openlocfilehash: 6a250045c350587b2e6ebaed5bba842aba0d357d
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/30/2017
+
 ---
-# 在运行时访问窗体区域
+# <a name="accessing-a-form-region-at-run-time"></a>Accessing a Form Region at Run Time
   
   
-|适用对象|  
-|----------|  
-|本主题中的信息仅适用于以下项目类型和 Microsoft Office 版本。 有关详细信息，请参阅[按 Office 应用程序和项目类型提供的功能](../vsto/features-available-by-office-application-and-project-type.md)。<br /><br /> **项目类型**<br /><br /> -   VSTO 外接程序项目<br /><br /> **Microsoft Office 版本**<br /><br /> -   [!INCLUDE[Outlook_14_short](../vsto/includes/outlook-14-short-md.md)]|  
+|Applies to|  
+|----------------|  
+|The information in this topic applies only to the following project types and versions of Microsoft Office. For more information, see [Features Available by Office Application and Project Type](../vsto/features-available-by-office-application-and-project-type.md).<br /><br /> **Project type**<br /><br /> -   VSTO Add-in projects<br /><br /> **Microsoft Office version**<br /><br /> -   [!INCLUDE[Outlook_14_short](../vsto/includes/outlook-14-short-md.md)]|  
   
- 使用 `Globals` 类可以从 Outlook 项目中的任何位置访问窗体区域。 有关 `Globals` 类的更多信息，请参见[对 Office 项目中对象的全局访问](../vsto/global-access-to-objects-in-office-projects.md)。  
+ Use the `Globals` class to access form regions from anywhere within your Outlook project. For more information about the `Globals` class, see [Global Access to Objects in Office Projects](../vsto/global-access-to-objects-in-office-projects.md).  
   
  [!INCLUDE[appliesto_olkallapp](../vsto/includes/appliesto-olkallapp-md.md)]  
   
-## 访问在特定 Outlook 检查器窗口中显示的窗体区域  
- 若要访问在特定 Outlook 检查器中显示的所有窗体区域，请调用 `Globals` 类的 `FormRegions` 属性，并传入一个表示该检查器的 <xref:Microsoft.Office.Interop.Outlook.Inspector> 对象。  
+## <a name="accessing-form-regions-that-appear-in-a-specific-outlook-inspector-window"></a>Accessing Form Regions That Appear in a Specific Outlook Inspector Window  
+ To access all form regions that appear in a specific Outlook Inspector, call the `FormRegions` property of the `Globals` class and pass in an <xref:Microsoft.Office.Interop.Outlook.Inspector> object that represents the Inspector.  
   
- 下面的示例获取在当前获得焦点的检查器中显示的窗体区域的集合。 然后，此示例访问名为 `formRegion1` 的集合中的窗体区域，并将文本框中显示的文本设置为 `Hello World`。  
+ The following example gets the collection of form regions that appear in the Inspector that currently has focus. This example then accesses a form region in the collection named `formRegion1` and sets the text that appears in a text box to `Hello World`.  
   
- [!code-csharp[Trin_Outlook_FR_Access#2](../snippets/csharp/VS_Snippets_OfficeSP/Trin_Outlook_FR_Access/CS/ThisAddIn.cs#2)]
- [!code-vb[Trin_Outlook_FR_Access#2](../snippets/visualbasic/VS_Snippets_OfficeSP/Trin_Outlook_FR_Access/VB/ThisAddIn.vb#2)]  
+ [!code-vb[Trin_Outlook_FR_Access#2](../vsto/codesnippet/VisualBasic/Trin_Outlook_FR_Access_O12/ThisAddIn.vb#2)] [!code-csharp[Trin_Outlook_FR_Access#2](../vsto/codesnippet/CSharp/Trin_Outlook_FR_Access_O12/ThisAddIn.cs#2)]  
   
-## 访问在特定 Outlook 资源管理器窗口中显示的窗体区域  
- 若要访问在特定 Outlook 资源管理器中显示的所有窗体区域，请调用 `Globals` 类的 `FormRegions` 属性，并传入一个表示该资源管理器的 <xref:Microsoft.Office.Interop.Outlook.Explorer> 对象。  
+## <a name="accessing-form-regions-that-appear-in-a-specific-outlook-explorer-window"></a>Accessing Form Regions That Appear in a Specific Outlook Explorer Window  
+ To access all form regions that appear in a specific Outlook Explorer, call the `FormRegions` property of the `Globals` class and pass in an <xref:Microsoft.Office.Interop.Outlook.Explorer> object that represents the Explorer.  
   
- 下面的示例获取在当前获得焦点的资源管理器中显示的窗体区域的集合。 然后，此示例访问名为 `formRegion1` 的集合中的窗体区域，并将文本框中显示的文本设置为 `Hello World`。  
+ The following example gets the collection of form regions that appear in the Explorer that currently has focus. This example then accesses a form region in the collection named `formRegion1` and sets the text that appears in a text box to `Hello World`.  
   
- [!code-csharp[Trin_Outlook_FR_Access#3](../snippets/csharp/VS_Snippets_OfficeSP/Trin_Outlook_FR_Access/CS/ThisAddIn.cs#3)]
- [!code-vb[Trin_Outlook_FR_Access#3](../snippets/visualbasic/VS_Snippets_OfficeSP/Trin_Outlook_FR_Access/VB/ThisAddIn.vb#3)]  
+ [!code-vb[Trin_Outlook_FR_Access#3](../vsto/codesnippet/VisualBasic/Trin_Outlook_FR_Access_O12/ThisAddIn.vb#3)] [!code-csharp[Trin_Outlook_FR_Access#3](../vsto/codesnippet/CSharp/Trin_Outlook_FR_Access_O12/ThisAddIn.cs#3)]  
   
-## 访问所有窗体区域  
- 若要访问在所有资源管理器和所有检查器中显示的所有窗体区域，请调用 `Globals` 类的 `FormRegions` 属性。  
+## <a name="accessing-all-form-regions"></a>Accessing All Form Regions  
+ To access all form regions that appear in all Explorers and all Inspectors, call the `FormRegions` property of the `Globals` class.  
   
- 下面的示例获取在所有资源管理器和所有检查器中显示的窗体区域的集合。 然后，此示例访问名为 `formRegion1` 的窗体区域，并将文本框中显示的文本设置为 `Hello World`。  
+ The following example gets the collection of form regions that appear in all Explorers and all Inspectors. This example then accesses a form region named `formRegion1` and sets the text that appears in a text box to `Hello World`.  
   
- [!code-csharp[Trin_Outlook_FR_Access#1](../snippets/csharp/VS_Snippets_OfficeSP/Trin_Outlook_FR_Access/CS/ThisAddIn.cs#1)]
- [!code-vb[Trin_Outlook_FR_Access#1](../snippets/visualbasic/VS_Snippets_OfficeSP/Trin_Outlook_FR_Access/VB/ThisAddIn.vb#1)]  
+ [!code-vb[Trin_Outlook_FR_Access#1](../vsto/codesnippet/VisualBasic/Trin_Outlook_FR_Access_O12/ThisAddIn.vb#1)] [!code-csharp[Trin_Outlook_FR_Access#1](../vsto/codesnippet/CSharp/Trin_Outlook_FR_Access_O12/ThisAddIn.cs#1)]  
   
-## 访问窗体区域中的控件  
- 若要使用 `Globals` 类来访问窗体区域中的控件，必须使窗体区域代码文件外部的代码可以访问控件。  
+## <a name="accessing-controls-on-a-form-region"></a>Accessing Controls on a Form Region  
+ To access controls on a form region by using the `Globals` class, you must make the controls accessible to code outside of the form region code file.  
   
-### 在窗体区域设计器中设计的窗体区域  
- 对于 C\#，更改要访问的每个控件的修饰符。 若要执行此操作，请在窗体区域设计器中选择每个控件，然后在“属性”窗口中将“Modifiers”属性更改为“Internal”或“public”。 例如，如果将 `textBox1` 的“Modifier”属性更改为“Internal”，则可以通过键入 `Globals.FormRegions.FormRegion1.textBox1` 来访问 `textBox1`。  
+### <a name="form-regions-designed-in-the-form-region-designer"></a>Form Regions Designed in the Form Region Designer  
+ For C#, change the modifier of each control that you want to access. To do this, select each control in the form region designer and change the **Modifiers** property to **Internal** or **public** in the **Properties** window. For example, if you change the **Modifier** property of `textBox1` to **Internal**, you can access `textBox1` by typing `Globals.FormRegions.FormRegion1.textBox1`.  
   
- 对于 Visual Basic，不需要更改修饰符。  
+ For Visual Basic, you do not need to change the modifier.  
   
-### 导入的窗体区域  
- 如果导入在 Outlook 中设计的窗体区域，则窗体区域中每个控件的访问修饰符变为专用。 因为无法使用窗体区域设计器来修改导入的窗体区域，所以无法在“属性”窗口更改控件的修饰符。  
+### <a name="imported-form-regions"></a>Imported Form Regions  
+ When you import a form region that was designed in Outlook, the access modifier of each control on the form region becomes private. Because you cannot use the form region designer to modify an imported form region, there is no way to change the modifier of a control in the **Properties** window.  
   
- 若要能够从窗体区域代码文件外部访问控件，请在窗体区域代码文件中创建属性来返回该控件。  
+ To enable access to a control from outside the form region code file, create a property in the form region code file to return that control.  
   
- 有关如何在 C\# 中创建属性的详细信息，请参阅[如何：声明和使用读&#47;写属性（C&#35; 编程指南）](http://msdn.microsoft.com/library/a4962fef-af7e-4c4b-a929-4ae4d646ab8a)。  
+ For more information about how to create properties in C#, see [How to: Declare and Use Read Write Properties &#40;C&#35; Programming Guide&#41;](/dotnet/csharp/programming-guide/classes-and-structs/how-to-declare-and-use-read-write-properties).  
   
- 有关如何在 Visual Basic 中创建属性的详细信息，请参阅[不在生成中：如何：将字段和属性添加到类](http://msdn.microsoft.com/zh-cn/ae53f61b-3abc-413e-8931-703c5f5e8fc2)。  
+ For more information about how to create properties in Visual Basic, see [How to: Create a Property (Visual Basic)](/dotnet/visual-basic/programming-guide/language-features/procedures/how-to-create-a-property).  
   
-## 请参阅  
- [Outlook 窗体区域创建准则](../vsto/guidelines-for-creating-outlook-form-regions.md)   
- [演练：设计 Outlook 窗体区域](../vsto/walkthrough-designing-an-outlook-form-region.md)   
- [如何：向 Outlook 外接程序项目中添加窗体区域](../vsto/how-to-add-a-form-region-to-an-outlook-add-in-project.md)   
- [Outlook 窗体区域中的自定义操作](../vsto/custom-actions-in-outlook-form-regions.md)   
- [将窗体区域与 Outlook 邮件类关联](../vsto/associating-a-form-region-with-an-outlook-message-class.md)   
- [演练：导入在 Outlook 中设计的窗体区域](../vsto/walkthrough-importing-a-form-region-that-is-designed-in-outlook.md)   
- [如何：防止 Outlook 显示窗体区域](../vsto/how-to-prevent-outlook-from-displaying-a-form-region.md)   
- [创建 Outlook 窗体区域](../vsto/creating-outlook-form-regions.md)   
- [在运行时访问功能区](../vsto/accessing-the-ribbon-at-run-time.md)  
+## <a name="see-also"></a>See Also  
+ [Guidelines for Creating Outlook Form Regions](../vsto/guidelines-for-creating-outlook-form-regions.md)   
+ [Walkthrough: Designing an Outlook Form Region](../vsto/walkthrough-designing-an-outlook-form-region.md)   
+ [How to: Add a Form Region to an Outlook Add-in Project](../vsto/how-to-add-a-form-region-to-an-outlook-add-in-project.md)   
+ [Custom Actions in Outlook Form Regions](../vsto/custom-actions-in-outlook-form-regions.md)   
+ [Associating a Form Region with an Outlook Message Class](../vsto/associating-a-form-region-with-an-outlook-message-class.md)   
+ [Walkthrough: Importing a Form Region That Is Designed in Outlook](../vsto/walkthrough-importing-a-form-region-that-is-designed-in-outlook.md)   
+ [How to: Prevent Outlook from Displaying a Form Region](../vsto/how-to-prevent-outlook-from-displaying-a-form-region.md)   
+ [Creating Outlook Form Regions](../vsto/creating-outlook-form-regions.md)   
+ [Accessing the Ribbon at Run Time](../vsto/accessing-the-ribbon-at-run-time.md)  
   
   

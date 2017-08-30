@@ -1,202 +1,252 @@
 ---
-title: "演练: 实现代码段 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
+title: 'Walkthrough: Implementing Code Snippets | Microsoft Docs'
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
 ms.assetid: adbc5382-d170-441c-9fd0-80faa1816478
 caps.latest.revision: 17
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 17
----
-# 演练: 实现代码段
-[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
+ms.author: gregvanl
+manager: ghogen
+translation.priority.mt:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+ms.translationtype: MT
+ms.sourcegitcommit: eb5c9550fd29b0e98bf63a7240737da4f13f3249
+ms.openlocfilehash: 4395037ac50262895474d188375150f47155c344
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/30/2017
 
-您可以创建代码段，并将它们包括在编辑器扩展，以便该扩展的用户可以将它们添加到其自己的代码。  
+---
+# <a name="walkthrough-implementing-code-snippets"></a>Walkthrough: Implementing Code Snippets
+You can create code snippets and include them in an editor extension so that users of the extension can add them to their own code.  
   
- 代码段是一段代码或其他可以合并在一个文件中的文本。 若要查看已在为特定的编程语言中注册的所有代码段 **工具** 菜单上，单击 **代码片段管理器**。 若要插入代码段，在文件中，右键单击要代码片段中，请单击 **插入代码段** 或 **外侧代码**, 、 找到所需的代码段，然后双击它。 按 TAB 或 SHIFT \+ TAB 修改代码段的相关部分，然后按 ENTER 或 esc 键来接受它。 有关详细信息，请参阅[代码段](../ide/code-snippets.md)。  
+ A code snippet is a fragment of code or other text that can be incorporated in a file. To view all snippets that have been registered for particular programming languages, on the **Tools** menu, click **Code Snippet Manager**. To insert a snippet in a file, right-click where you want the snippet, click **Insert Snippet** or **Surround With**, locate the snippet you want, and then double-click it. Press TAB or SHIFT+TAB to modify the relevant parts of the snippet and then press ENTER or ESC to accept it. For more information, see [Code Snippets](../ide/code-snippets.md).  
   
- 代码段包含在具有.snippet 文件扩展名的 XML 文件中。 代码段可以包含，以便用户可以查找和更改其插入代码段后将突出显示的字段。 代码段文件还提供信息 **代码片段管理器** ，以便它可以在正确的类别中显示代码段名称。 有关代码段架构信息，请参阅 [代码段架构参考](../ide/code-snippets-schema-reference.md)。  
+ A code snippet is contained in an XML file that has the .snippet file name extension. A snippet can contain fields that are highlighted after the snippet is inserted so that the user can find and change them. A snippet file also provides information for the **Code Snippet Manager** so that it can display the snippet name in the correct category. For information about the snippet schema, see [Code Snippets Schema Reference](../ide/code-snippets-schema-reference.md).  
   
- 本演练介绍如何完成这些任务:  
+ This walkthrough teaches how to accomplish these tasks:  
   
-1.  创建并注册为特定语言的代码段。  
+1.  Create and register code snippets for a specific language.  
   
-2.  添加 **插入代码段** 命令的快捷菜单。  
+2.  Add the **Insert Snippet** command to a shortcut menu.  
   
-3.  实现代码段扩展。  
+3.  Implement snippet expansion.  
   
- 本演练基于 [演练: 显示语句完成](../extensibility/walkthrough-displaying-statement-completion.md)。  
+ This walkthrough is based on [Walkthrough: Displaying Statement Completion](../extensibility/walkthrough-displaying-statement-completion.md).  
   
-## 系统必备  
- 若要执行本演练中，必须安装 Visual Studio SDK。 有关更多信息，请参见[Visual Studio SDK](../extensibility/visual-studio-sdk.md)。  
+## <a name="prerequisites"></a>Prerequisites  
+ Starting in Visual Studio 2015, you do not install the Visual Studio SDK from the download center. It is included as an optional feature in Visual Studio setup. You can also install the VS SDK later on. For more information, see [Installing the Visual Studio SDK](../extensibility/installing-the-visual-studio-sdk.md).  
   
-## 创建和注册代码段  
- 通常情况下，代码段是与已注册的语言服务相关联。 但是，不需要实现 <xref:Microsoft.VisualStudio.Package.LanguageService> 注册代码段。 相反，只需在代码段索引文件中指定一个 GUID，然后使用相同 GUID 的计算机中 <xref:Microsoft.VisualStudio.Shell.ProvideLanguageCodeExpansionAttribute> 添加到您的项目。  
+## <a name="creating-and-registering-code-snippets"></a>Creating and Registering Code Snippets  
+ Typically, code snippets are associated with a registered language service. However, you do not have to implement a <xref:Microsoft.VisualStudio.Package.LanguageService> to register code snippets. Instead, just specify a GUID in the snippet index file and then use the same GUID in the <xref:Microsoft.VisualStudio.Shell.ProvideLanguageCodeExpansionAttribute> that you add to your project.  
   
- 以下步骤演示如何创建代码段，并将其与特定 GUID 关联。  
+ The following steps demonstrate how to create code snippets and associate them with a specific GUID.  
   
-1.  创建以下目录结构:  
+1.  Create the following directory structure:  
   
-     **%InstallDir%\\TestSnippets\\Snippets\\1033\\**  
+     **%InstallDir%\TestSnippets\Snippets\1033\\**  
   
-     其中 *%installdir%* 是 Visual Studio 安装文件夹。 \(虽然此路径通常用来安装代码段，您可以指定任何路径\)。  
+     where *%InstallDir%* is the Visual Studio installation folder. (Although this path is typically used to install code snippets, you can specify any path.)  
   
-2.  \\1033\\ 文件夹中创建的.xml 文件，并将其命名 **TestSnippets.xml**。 \(尽管此名称通常用于代码段索引文件，您可以指定任何名称，只要具有文件扩展名为.xml。\) 添加以下文本，然后删除占位符 GUID 并添加您自己。  
-  
-    ```xml  
-    <?xml version="1.0" encoding="utf-8" ?> <SnippetCollection> <Language Lang="TestSnippets" Guid="{00000000-0000-0000-0000-000000000000}"> <SnippetDir> <OnOff>On</OnOff> <Installed>true</Installed> <Locale>1033</Locale> <DirPath>%InstallRoot%\TestSnippets\Snippets\%LCID%\</DirPath> <LocalizedName>Snippets</LocalizedName> </SnippetDir> </Language> </SnippetCollection>  
-    ```  
-  
-3.  在代码段文件夹中创建一个文件，将其 **测试**`.snippet`, ，然后添加以下文本:  
+2.  In the \1033\ folder, create an .xml file and name it **TestSnippets.xml**. (Although this name is typically used for a snippet index file, you can specify any name as long as it has an .xml file name extension.) Add the following text, and then delete the placeholder GUID and add your own.  
   
     ```xml  
-    <?xml version="1.0" encoding="utf-8" ?> <CodeSnippets  xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet"> <CodeSnippet Format="1.0.0"> <Header> <Title>Test replacement fields</Title> <Shortcut>test</Shortcut> <Description>Code snippet for testing replacement fields</Description> <Author>MSIT</Author> <SnippetTypes> <SnippetType>Expansion</SnippetType> </SnippetTypes> </Header> <Snippet> <Declarations> <Literal> <ID>param1</ID> <ToolTip>First field</ToolTip> <Default>first</Default> </Literal> <Literal> <ID>param2</ID> <ToolTip>Second field</ToolTip> <Default>second</Default> </Literal> </Declarations> <References> <Reference> <Assembly>System.Windows.Forms.dll</Assembly> </Reference> </References> <Code Language="TestSnippets"> <![CDATA[MessageBox.Show("$param1$"); MessageBox.Show("$param2$");]]> </Code> </Snippet> </CodeSnippet> </CodeSnippets>  
+    <?xml version="1.0" encoding="utf-8" ?>  
+    <SnippetCollection>  
+        <Language Lang="TestSnippets" Guid="{00000000-0000-0000-0000-000000000000}">  
+            <SnippetDir>  
+                <OnOff>On</OnOff>  
+                <Installed>true</Installed>  
+                <Locale>1033</Locale>  
+                <DirPath>%InstallRoot%\TestSnippets\Snippets\%LCID%\</DirPath>  
+                <LocalizedName>Snippets</LocalizedName>  
+            </SnippetDir>  
+        </Language>  
+    </SnippetCollection>  
     ```  
   
- 下列步骤显示如何注册的代码段。  
+3.  Create a file in the snippet folder, name it **test**`.snippet`, and then add the following text:  
   
-#### 若要为特定 GUID 注册代码段  
+    ```xml  
+    <?xml version="1.0" encoding="utf-8" ?>  
+    <CodeSnippets  xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">  
+        <CodeSnippet Format="1.0.0">  
+            <Header>  
+                <Title>Test replacement fields</Title>  
+                <Shortcut>test</Shortcut>  
+                <Description>Code snippet for testing replacement fields</Description>  
+                <Author>MSIT</Author>  
+                <SnippetTypes>  
+                    <SnippetType>Expansion</SnippetType>  
+                </SnippetTypes>  
+            </Header>  
+            <Snippet>  
+                <Declarations>  
+                    <Literal>  
+                      <ID>param1</ID>  
+                        <ToolTip>First field</ToolTip>  
+                        <Default>first</Default>  
+                    </Literal>  
+                    <Literal>  
+                        <ID>param2</ID>  
+                        <ToolTip>Second field</ToolTip>  
+                        <Default>second</Default>  
+                    </Literal>  
+                </Declarations>  
+                <References>  
+                   <Reference>  
+                       <Assembly>System.Windows.Forms.dll</Assembly>  
+                   </Reference>  
+                </References>  
+                <Code Language="TestSnippets">  
+                    <![CDATA[MessageBox.Show("$param1$");  
+         MessageBox.Show("$param2$");]]>  
+                </Code>    
+            </Snippet>  
+        </CodeSnippet>  
+    </CodeSnippets>  
+    ```  
   
-1.  打开 **CompletionTest** 项目。 有关如何创建此项目的信息，请参阅 [演练: 显示语句完成](../extensibility/walkthrough-displaying-statement-completion.md)。  
+ The following steps show how to register the code snippets.  
   
-2.  在项目中，添加对下列程序集的引用:  
+#### <a name="to-register-code-snippets-for-a-specific-guid"></a>To register code snippets for a specific GUID  
+  
+1.  Open the **CompletionTest** project. For information about how to create this project, see [Walkthrough: Displaying Statement Completion](../extensibility/walkthrough-displaying-statement-completion.md).  
+  
+2.  In the project, add references to the following assemblies:  
   
     -   Microsoft.VisualStudio.TextManager.Interop  
   
     -   Microsoft.VisualStudio.TextManager.Interop.8.0  
   
-    -   microsoft.msxml 进行比较  
+    -   microsoft.msxml  
   
-3.  在项目中，打开 source.extension.vsixmanifest 文件。  
+3.  In the project, open the source.extension.vsixmanifest file.  
   
-4.  请确保 **资产** 选项卡包含 **VsPackage** 内容类型，且 **项目** 设置为项目的名称。  
+4.  Make sure that the **Assets** tab contains a **VsPackage** content type and that **Project** is set to the name of the project.  
   
-5.  选择 CompletionTest 项目，然后在属性窗口中设置 **生成 Pkgdef 文件** 到 **true**。 保存项目。  
+5.  Select the CompletionTest project and in the Properties window set **Generate Pkgdef File** to **true**. Save the project.  
   
-6.  添加静态 `SnippetUtilities` 类传递给该项目。  
+6.  Add a static `SnippetUtilities` class to the project.  
   
-     [!code-cs[VSSDKCompletionTest#22](../extensibility/codesnippet/CSharp/walkthrough-implementing-code-snippets_1.cs)]
-     [!code-vb[VSSDKCompletionTest#22](../extensibility/codesnippet/VisualBasic/walkthrough-implementing-code-snippets_1.vb)]  
+     [!code-csharp[VSSDKCompletionTest#22](../extensibility/codesnippet/CSharp/walkthrough-implementing-code-snippets_1.cs)]  [!code-vb[VSSDKCompletionTest#22](../extensibility/codesnippet/VisualBasic/walkthrough-implementing-code-snippets_1.vb)]  
   
-7.  在 SnippetUtilities 类中，将 GUID 定义，并为其提供 SnippetsIndex.xml 文件中使用的值。  
+7.  In the SnippetUtilities class, define a GUID and give it the value that you used in the SnippetsIndex.xml file.  
   
-     [!code-cs[VSSDKCompletionTest#23](../extensibility/codesnippet/CSharp/walkthrough-implementing-code-snippets_2.cs)]
-     [!code-vb[VSSDKCompletionTest#23](../extensibility/codesnippet/VisualBasic/walkthrough-implementing-code-snippets_2.vb)]  
+     [!code-csharp[VSSDKCompletionTest#23](../extensibility/codesnippet/CSharp/walkthrough-implementing-code-snippets_2.cs)]  [!code-vb[VSSDKCompletionTest#23](../extensibility/codesnippet/VisualBasic/walkthrough-implementing-code-snippets_2.vb)]  
   
-8.  添加 <xref:Microsoft.VisualStudio.Shell.ProvideLanguageCodeExpansionAttribute> 到 `TestCompletionHandler` 类。 此属性可以添加到项目中的任何公共或内部 \(非静态\) 类。 \(你可能需要添加 `using` Microsoft.VisualStudio.Shell 命名空间的语句。\)  
+8.  Add the <xref:Microsoft.VisualStudio.Shell.ProvideLanguageCodeExpansionAttribute> to the `TestCompletionHandler` class. This attribute can be added to any public or internal (non-static) class in the project. (You may have to add a `using` statement for the Microsoft.VisualStudio.Shell namespace.)  
   
-     [!code-cs[VSSDKCompletionTest#24](../extensibility/codesnippet/CSharp/walkthrough-implementing-code-snippets_3.cs)]
-     [!code-vb[VSSDKCompletionTest#24](../extensibility/codesnippet/VisualBasic/walkthrough-implementing-code-snippets_3.vb)]  
+     [!code-csharp[VSSDKCompletionTest#24](../extensibility/codesnippet/CSharp/walkthrough-implementing-code-snippets_3.cs)]  [!code-vb[VSSDKCompletionTest#24](../extensibility/codesnippet/VisualBasic/walkthrough-implementing-code-snippets_3.vb)]  
   
-9. 生成并运行该项目。 在启动时运行该项目的 Visual Studio 的实验实例中，您只需注册的代码段应显示在 **代码片段管理器** 下 **TestSnippets** 语言。  
+9. Build and run the project. In the experimental instance of Visual Studio that starts when the project is run, the snippet you just registered should be displayed in the **Code Snippets Manager** under the **TestSnippets** language.  
   
-## 添加到快捷菜单插入代码段命令  
- **插入代码段** 命令中未包括的文本文件的快捷菜单。 因此，您必须启用该命令。  
+## <a name="adding-the-insert-snippet-command-to-the-shortcut-menu"></a>Adding the Insert Snippet Command to the Shortcut Menu  
+ The **Insert Snippet** command is not included on the shortcut menu for a text file. Therefore, you must enable the command.  
   
-#### 若要添加到快捷菜单插入代码段命令  
+#### <a name="to-add-the-insert-snippet-command-to-the-shortcut-menu"></a>To add the Insert Snippet command to the shortcut menu  
   
-1.  打开 `TestCompletionCommandHandler` 类文件。  
+1.  Open the `TestCompletionCommandHandler` class file.  
   
-     因为此类实现 <xref:Microsoft.VisualStudio.OLE.Interop.IOleCommandTarget>, ，您可以激活 **插入代码段** 命令 <xref:Microsoft.VisualStudio.OLE.Interop.IOleCommandTarget.QueryStatus%2A> 方法。 启用命令之前，请检查，这种方法不被称为自动化函数内部因为时 **插入代码段** 单击命令，则会显示代码段选择器用户界面 \(UI\)。  
+     Because this class implements <xref:Microsoft.VisualStudio.OLE.Interop.IOleCommandTarget>, you can activate the **Insert Snippet** command in the <xref:Microsoft.VisualStudio.OLE.Interop.IOleCommandTarget.QueryStatus%2A> method. Before you enable the command, check that this method is not being called inside an automation function because when the **Insert Snippet** command is clicked, it will display the snippet picker user interface (UI).  
   
-     [!code-cs[VSSDKCompletionTest#25](../extensibility/codesnippet/CSharp/walkthrough-implementing-code-snippets_4.cs)]
-     [!code-vb[VSSDKCompletionTest#25](../extensibility/codesnippet/VisualBasic/walkthrough-implementing-code-snippets_4.vb)]  
+     [!code-csharp[VSSDKCompletionTest#25](../extensibility/codesnippet/CSharp/walkthrough-implementing-code-snippets_4.cs)]  [!code-vb[VSSDKCompletionTest#25](../extensibility/codesnippet/VisualBasic/walkthrough-implementing-code-snippets_4.vb)]  
   
-2.  生成并运行该项目。 在实验实例中，打开具有.zzz 文件扩展名的文件，然后右键单击任意位置中。**插入代码段** 命令应出现在快捷菜单。  
+2.  Build and run the project. In the experimental instance, open a file that has the .zzz file name extension and then right-click anywhere in it. The **Insert Snippet** command should appear on the shortcut menu.  
   
-## 在代码段选择器 UI 中实现的代码段扩展  
- 本部分演示如何实现代码段扩展，以使代码段选择器用户界面时，所显示 **插入代码段** 快捷方式菜单中单击。 当用户类型的代码段快捷方式，然后按选项卡上，也会扩展代码段。  
+## <a name="implementing-snippet-expansion-in-the-snippet-picker-ui"></a>Implementing Snippet Expansion in the Snippet Picker UI  
+ This section shows how to implement code snippet expansion so that the snippet picker UI is displayed when **Insert Snippet** is clicked on the shortcut menu. A code snippet is also expanded when a user types the code-snippet shortcut and then presses TAB.  
   
- 若要显示代码段选择器用户界面并进行导航和后插入代码片段接受，请使用 <xref:Microsoft.VisualStudio.OLE.Interop.IOleCommandTarget.Exec%2A> 方法。 插入操作本身由 <xref:Microsoft.VisualStudio.TextManager.Interop.IVsExpansionClient.OnItemChosen%2A> 方法。  
+ To display the snippet picker UI and to enable navigation and post-insertion snippet acceptance, use the <xref:Microsoft.VisualStudio.OLE.Interop.IOleCommandTarget.Exec%2A> method. The insertion itself is handled by the <xref:Microsoft.VisualStudio.TextManager.Interop.IVsExpansionClient.OnItemChosen%2A> method.  
   
- 代码段扩展该实现使用旧 <xref:Microsoft.VisualStudio.TextManager.Interop> 接口。 当从当前的编辑器类转换为旧代码时，请记住，旧式界面使用行号和列号的组合可以在文本缓冲区中，指定位置但当前类使用一个索引。 因此，如果缓冲区中具有每个都有 10 个字符的三行 \(加上一个换行符，计为 1 个字符\)，第三个行的第四个字符位于位置 27 在当前实现中，但它位于第 2 行，则位置 3 中以前的实现。  
+ The implementation of code snippet expansion uses legacy <xref:Microsoft.VisualStudio.TextManager.Interop> interfaces. When you translate from the current editor classes to the legacy code, remember that the legacy interfaces use a combination of line numbers and column numbers to specify locations in a text buffer, but the current classes use one index. Therefore, if a buffer has three lines each of which has ten characters (plus a newline, which counts as 1 character), the fourth character on the third line is at position 27 in the current implementation, but it is at line 2, position 3 in the old implementation.  
   
-#### 若要实现的代码段扩展  
+#### <a name="to-implement-snippet-expansion"></a>To implement snippet expansion  
   
-1.  对包含文件 `TestCompletionCommandHandler` 类中，添加以下 `using` 语句。  
+1.  To the file that contains the `TestCompletionCommandHandler` class, add the following `using` statements.  
   
-     [!code-cs[VSSDKCompletionTest#26](../extensibility/codesnippet/CSharp/walkthrough-implementing-code-snippets_5.cs)]
-     [!code-vb[VSSDKCompletionTest#26](../extensibility/codesnippet/VisualBasic/walkthrough-implementing-code-snippets_5.vb)]  
+     [!code-csharp[VSSDKCompletionTest#26](../extensibility/codesnippet/CSharp/walkthrough-implementing-code-snippets_5.cs)]  [!code-vb[VSSDKCompletionTest#26](../extensibility/codesnippet/VisualBasic/walkthrough-implementing-code-snippets_5.vb)]  
   
-2.  使 `TestCompletionCommandHandler` 类实现 <xref:Microsoft.VisualStudio.TextManager.Interop.IVsExpansionClient> 接口。  
+2.  Make the `TestCompletionCommandHandler` class implement the <xref:Microsoft.VisualStudio.TextManager.Interop.IVsExpansionClient> interface.  
   
-     [!code-cs[VSSDKCompletionTest#27](../extensibility/codesnippet/CSharp/walkthrough-implementing-code-snippets_6.cs)]
-     [!code-vb[VSSDKCompletionTest#27](../extensibility/codesnippet/VisualBasic/walkthrough-implementing-code-snippets_6.vb)]  
+     [!code-csharp[VSSDKCompletionTest#27](../extensibility/codesnippet/CSharp/walkthrough-implementing-code-snippets_6.cs)]  [!code-vb[VSSDKCompletionTest#27](../extensibility/codesnippet/VisualBasic/walkthrough-implementing-code-snippets_6.vb)]  
   
-3.  在 `TestCompletionCommandHandlerProvider` 类中，导入 <xref:Microsoft.VisualStudio.Text.Operations.ITextStructureNavigatorSelectorService>。  
+3.  In the `TestCompletionCommandHandlerProvider` class, import the <xref:Microsoft.VisualStudio.Text.Operations.ITextStructureNavigatorSelectorService>.  
   
-     [!code-cs[VSSDKCompletionTest#28](../extensibility/codesnippet/CSharp/walkthrough-implementing-code-snippets_7.cs)]
-     [!code-vb[VSSDKCompletionTest#28](../extensibility/codesnippet/VisualBasic/walkthrough-implementing-code-snippets_7.vb)]  
+     [!code-csharp[VSSDKCompletionTest#28](../extensibility/codesnippet/CSharp/walkthrough-implementing-code-snippets_7.cs)]  [!code-vb[VSSDKCompletionTest#28](../extensibility/codesnippet/VisualBasic/walkthrough-implementing-code-snippets_7.vb)]  
   
-4.  添加代码扩展接口一些私有字段和 <xref:Microsoft.VisualStudio.TextManager.Interop.IVsTextView>。  
+4.  Add some private fields for the code expansion interfaces and the <xref:Microsoft.VisualStudio.TextManager.Interop.IVsTextView>.  
   
-     [!code-cs[VSSDKCompletionTest#29](../extensibility/codesnippet/CSharp/walkthrough-implementing-code-snippets_8.cs)]
-     [!code-vb[VSSDKCompletionTest#29](../extensibility/codesnippet/VisualBasic/walkthrough-implementing-code-snippets_8.vb)]  
+     [!code-csharp[VSSDKCompletionTest#29](../extensibility/codesnippet/CSharp/walkthrough-implementing-code-snippets_8.cs)]  [!code-vb[VSSDKCompletionTest#29](../extensibility/codesnippet/VisualBasic/walkthrough-implementing-code-snippets_8.vb)]  
   
-5.  构造函数中 `TestCompletionCommandHandler` 类中，设置以下字段。  
+5.  In the constructor of the `TestCompletionCommandHandler` class, set the following fields.  
   
-     [!code-cs[VSSDKCompletionTest#30](../extensibility/codesnippet/CSharp/walkthrough-implementing-code-snippets_9.cs)]
-     [!code-vb[VSSDKCompletionTest#30](../extensibility/codesnippet/VisualBasic/walkthrough-implementing-code-snippets_9.vb)]  
+     [!code-csharp[VSSDKCompletionTest#30](../extensibility/codesnippet/CSharp/walkthrough-implementing-code-snippets_9.cs)]  [!code-vb[VSSDKCompletionTest#30](../extensibility/codesnippet/VisualBasic/walkthrough-implementing-code-snippets_9.vb)]  
   
-6.  若要显示代码段选择器，当用户单击 **插入代码段** 命令，添加以下代码到 <xref:Microsoft.VisualStudio.OLE.Interop.IOleCommandTarget.Exec%2A> 方法。 \(若要使此说明更具可读性，exec \(\) 用于语句完成不显示代码; 相反，将代码块添加到现有的方法。\) 检查存在的字符的代码后面添加下面的代码块。  
+6.  To display the snippet picker when the user clicks the **Insert Snippet** command, add the following code to the <xref:Microsoft.VisualStudio.OLE.Interop.IOleCommandTarget.Exec%2A> method. (To make this explanation more readable, the Exec() code that is used for statement completion is not shown; instead, blocks of code are added to the existing method.) Add the following block of code after the code that checks for a character.  
   
-     [!code-cs[VSSDKCompletionTest#31](../extensibility/codesnippet/CSharp/walkthrough-implementing-code-snippets_10.cs)]
-     [!code-vb[VSSDKCompletionTest#31](../extensibility/codesnippet/VisualBasic/walkthrough-implementing-code-snippets_10.vb)]  
+     [!code-csharp[VSSDKCompletionTest#31](../extensibility/codesnippet/CSharp/walkthrough-implementing-code-snippets_10.cs)]  [!code-vb[VSSDKCompletionTest#31](../extensibility/codesnippet/VisualBasic/walkthrough-implementing-code-snippets_10.vb)]  
   
-7.  如果一个代码段具有可定位的字段，扩展会话将保持打开状态，直到显式接受扩展;如果该代码段不具有任何字段，该会话已关闭，并且作为返回 `null` 通过 <xref:Microsoft.VisualStudio.TextManager.Interop.IVsExpansionManager.InvokeInsertionUI%2A> 方法。 在 <xref:Microsoft.VisualStudio.OLE.Interop.IOleCommandTarget.Exec%2A> 方法，代码段选择器在上一步中添加的用户界面代码之后添加以下代码以处理段导航 \(当用户在插入代码段后按 TAB 或 SHIFT \+ TAB\)。  
+7.  If a snippet has fields that can be navigated, the expansion session is kept open until the expansion is explicitly accepted; if the snippet has no fields, the session is closed and is returned as `null` by the <xref:Microsoft.VisualStudio.TextManager.Interop.IVsExpansionManager.InvokeInsertionUI%2A> method. In the <xref:Microsoft.VisualStudio.OLE.Interop.IOleCommandTarget.Exec%2A> method, after the snippet picker UI code that you added in the previous step, add the following code to handle snippet navigation (when the user presses TAB or SHIFT+TAB after snippet insertion).  
   
-     [!code-cs[VSSDKCompletionTest#32](../extensibility/codesnippet/CSharp/walkthrough-implementing-code-snippets_11.cs)]
-     [!code-vb[VSSDKCompletionTest#32](../extensibility/codesnippet/VisualBasic/walkthrough-implementing-code-snippets_11.vb)]  
+     [!code-csharp[VSSDKCompletionTest#32](../extensibility/codesnippet/CSharp/walkthrough-implementing-code-snippets_11.cs)]  [!code-vb[VSSDKCompletionTest#32](../extensibility/codesnippet/VisualBasic/walkthrough-implementing-code-snippets_11.vb)]  
   
-8.  若要插入代码段，当用户类型对应的快捷方式，然后按选项卡上，将代码添加到 <xref:Microsoft.VisualStudio.OLE.Interop.IOleCommandTarget.Exec%2A> 方法。 插入代码段的私有方法将在后面的步骤所示。 在上一步中添加的导航代码后面添加下面的代码。  
+8.  To insert the code snippet when the user types the corresponding shortcut and then presses TAB, add code to the <xref:Microsoft.VisualStudio.OLE.Interop.IOleCommandTarget.Exec%2A> method. The private method that inserts the snippet will be shown in a later step. Add the following code after the navigation code that you added in the previous step.  
   
-     [!code-cs[VSSDKCompletionTest#33](../extensibility/codesnippet/CSharp/walkthrough-implementing-code-snippets_12.cs)]
-     [!code-vb[VSSDKCompletionTest#33](../extensibility/codesnippet/VisualBasic/walkthrough-implementing-code-snippets_12.vb)]  
+     [!code-csharp[VSSDKCompletionTest#33](../extensibility/codesnippet/CSharp/walkthrough-implementing-code-snippets_12.cs)]  [!code-vb[VSSDKCompletionTest#33](../extensibility/codesnippet/VisualBasic/walkthrough-implementing-code-snippets_12.vb)]  
   
-9. 实现的方法 <xref:Microsoft.VisualStudio.TextManager.Interop.IVsExpansionClient> 接口。 在此实现中，感兴趣的唯一方法是 <xref:Microsoft.VisualStudio.TextManager.Interop.IVsExpansionClient.EndExpansion%2A> 和 <xref:Microsoft.VisualStudio.TextManager.Interop.IVsExpansionClient.OnItemChosen%2A>。 其他方法应只返回 <xref:Microsoft.VisualStudio.VSConstants.S_OK>。  
+9. Implement the methods of the <xref:Microsoft.VisualStudio.TextManager.Interop.IVsExpansionClient> interface. In this implementation, the only methods of interest are <xref:Microsoft.VisualStudio.TextManager.Interop.IVsExpansionClient.EndExpansion%2A> and <xref:Microsoft.VisualStudio.TextManager.Interop.IVsExpansionClient.OnItemChosen%2A>. The other methods should just return <xref:Microsoft.VisualStudio.VSConstants.S_OK>.  
   
-     [!code-cs[VSSDKCompletionTest#34](../extensibility/codesnippet/CSharp/walkthrough-implementing-code-snippets_13.cs)]
-     [!code-vb[VSSDKCompletionTest#34](../extensibility/codesnippet/VisualBasic/walkthrough-implementing-code-snippets_13.vb)]  
+     [!code-csharp[VSSDKCompletionTest#34](../extensibility/codesnippet/CSharp/walkthrough-implementing-code-snippets_13.cs)]   [!code-vb[VSSDKCompletionTest#34](../extensibility/codesnippet/VisualBasic/walkthrough-implementing-code-snippets_13.vb)]  
   
-10. 实现 <xref:Microsoft.VisualStudio.TextManager.Interop.IVsExpansionClient.OnItemChosen%2A> 方法。 将在稍后的步骤中介绍用于实际将扩展的帮助器方法。<xref:Microsoft.VisualStudio.TextManager.Interop.TextSpan> 提供行和列信息，你可以从获取 <xref:Microsoft.VisualStudio.TextManager.Interop.IVsTextView>。  
+10. Implement the <xref:Microsoft.VisualStudio.TextManager.Interop.IVsExpansionClient.OnItemChosen%2A> method. The helper method that actually inserts the expansions will be covered in a later step. The <xref:Microsoft.VisualStudio.TextManager.Interop.TextSpan> provides line and column information, which you can get from the <xref:Microsoft.VisualStudio.TextManager.Interop.IVsTextView>.  
   
-     [!code-cs[VSSDKCompletionTest#35](../extensibility/codesnippet/CSharp/walkthrough-implementing-code-snippets_14.cs)]
-     [!code-vb[VSSDKCompletionTest#35](../extensibility/codesnippet/VisualBasic/walkthrough-implementing-code-snippets_14.vb)]  
+     [!code-csharp[VSSDKCompletionTest#35](../extensibility/codesnippet/CSharp/walkthrough-implementing-code-snippets_14.cs)]  [!code-vb[VSSDKCompletionTest#35](../extensibility/codesnippet/VisualBasic/walkthrough-implementing-code-snippets_14.vb)]  
   
-11. 以下 private 方法插入代码段中，根据该快捷方式或根据标题和路径。 然后，它调用 <xref:Microsoft.VisualStudio.TextManager.Interop.IVsExpansion.InsertNamedExpansion%2A> 与该代码段的方法。  
+11. The following private method inserts a code snippet, based either on the shortcut or on the title and path. It then calls the <xref:Microsoft.VisualStudio.TextManager.Interop.IVsExpansion.InsertNamedExpansion%2A> method with the snippet.  
   
-     [!code-cs[VSSDKCompletionTest#36](../extensibility/codesnippet/CSharp/walkthrough-implementing-code-snippets_15.cs)]
-     [!code-vb[VSSDKCompletionTest#36](../extensibility/codesnippet/VisualBasic/walkthrough-implementing-code-snippets_15.vb)]  
+     [!code-csharp[VSSDKCompletionTest#36](../extensibility/codesnippet/CSharp/walkthrough-implementing-code-snippets_15.cs)]  [!code-vb[VSSDKCompletionTest#36](../extensibility/codesnippet/VisualBasic/walkthrough-implementing-code-snippets_15.vb)]  
   
-## 构建和测试代码段扩展  
- 您可以测试是否段扩展适用于您的项目。  
+## <a name="building-and-testing-code-snippet-expansion"></a>Building and Testing Code Snippet Expansion  
+ You can test whether snippet expansion works in your project.  
   
-1.  生成解决方案。 在调试器中运行此项目时，Visual Studio 的第二个实例进行实例化。  
+1.  Build the solution. When you run this project in the debugger, a second instance of Visual Studio is instantiated.  
   
-2.  打开一个文本文件，并键入一些文本。  
+2.  Open a text file and type some text.  
   
-3.  在文本中的任意位置右键单击，然后单击 **插入代码段**。  
+3.  Right-click somewhere in the text and then click **Insert Snippet**.  
   
-4.  代码段选取器的 UI 应显示带有弹出式窗口，指出 **测试替换字段**。 双击弹出的窗口中。  
+4.  The snippet picker UI should appear with a pop-up that says **Test replacement fields**. Double-click the pop-up.  
   
-     应插入以下代码段。  
+     The following snippet should be inserted.  
   
     ```  
-    MessageBox.Show("first"); MessageBox.Show("second");  
+    MessageBox.Show("first");  
+    MessageBox.Show("second");  
     ```  
   
-     不要按 ENTER 或 esc 键。  
+     Do not press ENTER or ESC.  
   
-5.  按 tab 键和 SHIFT \+ TAB 切换"第一个"和"第二个"之间。  
+5.  Press TAB and SHIFT+TAB to toggle between "first" and "second".  
   
-6.  按 ENTER 或 esc 键以接受插入。  
+6.  Accept the insertion by pressing either ENTER or ESC.  
   
-7.  在文本的不同部件中，键入"测试"，然后按 tab 键。 由于"test"的代码段快捷方式，应再次插入代码段。  
+7.  In a different part of the text, type "test" and then press TAB. Because "test" is the code-snippet shortcut, the snippet should be inserted again.  
   
-## 后续步骤
+## <a name="next-steps"></a>Next Steps

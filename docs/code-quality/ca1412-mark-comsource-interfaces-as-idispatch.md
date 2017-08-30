@@ -1,58 +1,74 @@
 ---
-title: "CA1412：将 ComSource 接口标记为 IDispatch | Microsoft Docs"
-ms.custom: ""
-ms.date: "12/15/2016"
-ms.prod: "visual-studio-dev14"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-devops-test"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "MarkComSourceInterfacesAsIDispatch"
-  - "CA1412"
-helpviewer_keywords: 
-  - "CA1412"
-  - "MarkComSourceInterfacesAsIDispatch"
+title: 'CA1412: Mark ComSource Interfaces as IDispatch | Microsoft Docs'
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-devops-test
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords:
+- MarkComSourceInterfacesAsIDispatch
+- CA1412
+helpviewer_keywords:
+- CA1412
+- MarkComSourceInterfacesAsIDispatch
 ms.assetid: 131a7563-0410-443c-a8f5-52104250cfb4
 caps.latest.revision: 16
-caps.handback.revision: 16
-author: "stevehoag"
-ms.author: "shoag"
-manager: "wpickett"
----
-# CA1412：将 ComSource 接口标记为 IDispatch
-[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
+author: stevehoag
+ms.author: shoag
+manager: wpickett
+translation.priority.ht:
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- ru-ru
+- zh-cn
+- zh-tw
+translation.priority.mt:
+- cs-cz
+- pl-pl
+- pt-br
+- tr-tr
+ms.translationtype: HT
+ms.sourcegitcommit: eb5c9550fd29b0e98bf63a7240737da4f13f3249
+ms.openlocfilehash: 0a12e8ed8b7ef2d64c53837eca32f3823fc421d3
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/30/2017
 
+---
+# <a name="ca1412-mark-comsource-interfaces-as-idispatch"></a>CA1412: Mark ComSource Interfaces as IDispatch
 |||  
 |-|-|  
-|类型名|MarkComSourceInterfacesAsIDispatch|  
+|TypeName|MarkComSourceInterfacesAsIDispatch|  
 |CheckId|CA1412|  
-|类别|Microsoft.Interoperability|  
-|是否重大更改|是|  
+|Category|Microsoft.Interoperability|  
+|Breaking Change|Breaking|  
   
-## 原因  
- 有一个类型用 <xref:System.Runtime.InteropServices.ComSourceInterfacesAttribute> 特性进行了标记，并且至少有一个指定的接口未用设置为 `InterfaceIsDispatch` 值的 <xref:System.Runtime.InteropServices.InterfaceTypeAttribute> 特性进行标记。  
+## <a name="cause"></a>Cause  
+ A type is marked with the <xref:System.Runtime.InteropServices.ComSourceInterfacesAttribute> attribute and at least one specified interface is not marked with the <xref:System.Runtime.InteropServices.InterfaceTypeAttribute> attribute set to the `InterfaceIsDispatch` value.  
   
-## 规则说明  
- <xref:System.Runtime.InteropServices.ComSourceInterfacesAttribute> 用于标识类向组件对象模型 \(COM\) 客户端公开的事件接口。  这些接口必须公开为 `InterfaceIsIDispatch`，以便允许 Visual Basic 6 COM 客户端接收事件通知。  默认情况下，如果接口未用 <xref:System.Runtime.InteropServices.InterfaceTypeAttribute> 特性进行标记，则它将公开为双重接口。  
+## <a name="rule-description"></a>Rule Description  
+ <xref:System.Runtime.InteropServices.ComSourceInterfacesAttribute> is used to identify the event interfaces that a class exposes to Component Object Model (COM) clients. These interfaces must be exposed as `InterfaceIsIDispatch` to enable Visual Basic 6 COM clients to receive event notifications. By default, if an interface is not marked with the <xref:System.Runtime.InteropServices.InterfaceTypeAttribute> attribute, it is exposed as a dual interface.  
   
-## 如何解决冲突  
- 若要修复与该规则的冲突，请针对指定了 <xref:System.Runtime.InteropServices.ComSourceInterfacesAttribute> 特性的所有接口，添加或修改 <xref:System.Runtime.InteropServices.InterfaceTypeAttribute> 特性，以便将它的值设置为 InterfaceIsIDispatch。  
+## <a name="how-to-fix-violations"></a>How to Fix Violations  
+ To fix a violation of this rule, add or modify the <xref:System.Runtime.InteropServices.InterfaceTypeAttribute> attribute so that its value is set to InterfaceIsIDispatch for all interfaces that are specified with the <xref:System.Runtime.InteropServices.ComSourceInterfacesAttribute> attribute.  
   
-## 何时禁止显示警告  
- 不要禁止显示此规则发出的警告。  
+## <a name="when-to-suppress-warnings"></a>When to Suppress Warnings  
+ Do not suppress a warning from this rule.  
   
-## 示例  
- 下面的示例演示一个类，该类的某个接口与此规则冲突。  
+## <a name="example"></a>Example  
+ The following example shows a class where one of the interfaces violates the rule.  
   
- [!code-cs[FxCop.Interoperability.MarkIDispatch#1](../code-quality/codesnippet/CSharp/ca1412-mark-comsource-interfaces-as-idispatch_1.cs)]
- [!code-vb[FxCop.Interoperability.MarkIDispatch#1](../code-quality/codesnippet/VisualBasic/ca1412-mark-comsource-interfaces-as-idispatch_1.vb)]  
+ [!code-csharp[FxCop.Interoperability.MarkIDispatch#1](../code-quality/codesnippet/CSharp/ca1412-mark-comsource-interfaces-as-idispatch_1.cs)] [!code-vb[FxCop.Interoperability.MarkIDispatch#1](../code-quality/codesnippet/VisualBasic/ca1412-mark-comsource-interfaces-as-idispatch_1.vb)]  
   
-## 相关规则  
- [CA1408：请不要使用 AutoDual ClassInterfaceType](../code-quality/ca1408-do-not-use-autodual-classinterfacetype.md)  
+## <a name="related-rules"></a>Related Rules  
+ [CA1408: Do not use AutoDual ClassInterfaceType](../code-quality/ca1408-do-not-use-autodual-classinterfacetype.md)  
   
-## 请参阅  
- [How to: Raise Events Handled by a COM Sink](http://msdn.microsoft.com/zh-cn/7c9944b2-e951-4c3e-a0a1-59b2ae37d7fd)   
- [与非托管代码交互操作](../Topic/Interoperating%20with%20Unmanaged%20Code.md)
+## <a name="see-also"></a>See Also  
+ [How to: Raise Events Handled by a COM Sink](http://msdn.microsoft.com/en-us/7c9944b2-e951-4c3e-a0a1-59b2ae37d7fd)   
+ [Interoperating with Unmanaged Code](/dotnet/framework/interop/index)

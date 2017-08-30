@@ -1,60 +1,62 @@
 ---
-title: "如何：将托管代码扩展附加到文档"
-ms.custom: ""
-ms.date: "02/02/2017"
-ms.prod: "visual-studio-dev14"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "office-development"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-dev_langs: 
-  - "VB"
-  - "CSharp"
-helpviewer_keywords: 
-  - "文档 [Visual Studio 中的 Office 开发], 托管代码扩展"
-  - "托管代码扩展 [Visual Studio 中的 Office 开发], 附加"
+title: 'How to: Attach Managed Code Extensions to Documents | Microsoft Docs'
+ms.custom: 
+ms.date: 02/02/2017
+ms.prod: visual-studio-dev14
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- office-development
+ms.tgt_pltfrm: 
+ms.topic: article
+dev_langs:
+- VB
+- CSharp
+helpviewer_keywords:
+- managed code extensions [Office development in Visual Studio], attaching
+- documents [Office development in Visual Studio], managed code extensions
 ms.assetid: b38c3a35-8b4a-4e86-8475-88fa8a873a5d
 caps.latest.revision: 33
-author: "kempb"
-ms.author: "kempb"
-manager: "ghogen"
-caps.handback.revision: 32
+author: kempb
+ms.author: kempb
+manager: ghogen
+ms.translationtype: HT
+ms.sourcegitcommit: eb5c9550fd29b0e98bf63a7240737da4f13f3249
+ms.openlocfilehash: 826004fdbcd73e109db008773a4bc8988f8e18b1
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/30/2017
+
 ---
-# 如何：将托管代码扩展附加到文档
-  您可以将自定义项程序集附加到现有的 Microsoft Office Word 文档或 Microsoft Office Excel 工作簿中。  该文档或工作簿可以在 Microsoft Office 项目和开发工具支持在 Visual Studio 的所有文件格式。  有关更多信息，请参见[文档级自定义项的体系结构](../vsto/architecture-of-document-level-customizations.md)。  
+# <a name="how-to-attach-managed-code-extensions-to-documents"></a>How to: Attach Managed Code Extensions to Documents
+  You can attach a customization assembly to an existing Microsoft Office Word document or Microsoft Office Excel workbook. The document or workbook can be in any file format that is supported by the Microsoft Office projects and development tools in Visual Studio. For more information, see [Architecture of Document-Level Customizations](../vsto/architecture-of-document-level-customizations.md).  
   
  [!INCLUDE[appliesto_alldoc](../vsto/includes/appliesto-alldoc-md.md)]  
   
- 若要将自定义项附加到 Word 或 Excel 文档，请使用 <xref:Microsoft.VisualStudio.Tools.Applications.ServerDocument> 类的 <xref:Microsoft.VisualStudio.Tools.Applications.ServerDocument.AddCustomization%2A> 方法。  由于将 <xref:Microsoft.VisualStudio.Tools.Applications.ServerDocument> 类设计为在未安装 Microsoft Office 的计算机上运行，因此，您可以在与 Microsoft Office 开发工具（如控制台或 Windows 窗体应用程序）无直接关系的解决方案中使用此方法。  
+ To attach a customization to a Word or Excel document, use the <xref:Microsoft.VisualStudio.Tools.Applications.ServerDocument.AddCustomization%2A> method of the <xref:Microsoft.VisualStudio.Tools.Applications.ServerDocument> class. Because the <xref:Microsoft.VisualStudio.Tools.Applications.ServerDocument> class is designed to be run on a computer that does not have Microsoft Office installed, you can use this method in solutions that are not directly related to Microsoft Office development (such as a console or Windows Forms application).  
   
 > [!NOTE]  
->  如果代码需要指定文档所没有的控件，自定义项将加载失败。  
+>  The customization will fail to load if the code expects controls that the specified document does not have.  
   
- ![链接到视频](~/data-tools/media/playvideo.gif "链接到视频") 如需相关视频演示，请参见 [How Do I: Attach or Detach a VSTO Assembly from a Word Document?](http://go.microsoft.com/fwlink/?LinkId=136782)（如何实现：在 Word 文档中附加或分离 VSTO 程序集）。  
+ ![link to video](../vsto/media/playvideo.gif "link to video") For a related video demonstration, see [How Do I: Attach or Detach a VSTO Assembly from a Word Document?](http://go.microsoft.com/fwlink/?LinkId=136782).  
   
-### 将托管代码扩展附加到文档  
+### <a name="to-attach-managed-code-extensions-to-a-document"></a>To attach managed code extensions to a document  
   
-1.  在不需要 Microsoft Office，如控制台应用程序或 Windows 窗体项目的项目中，添加对 Microsoft.VisualStudio.Tools.Applications.ServerDocument.dll 和 Microsoft.VisualStudio.Tools.Applications.Runtime.dll 程序集。  
+1.  In a project that does not require Microsoft Office, such as a console application or Windows Forms project, add a reference to the Microsoft.VisualStudio.Tools.Applications.ServerDocument.dll and Microsoft.VisualStudio.Tools.Applications.Runtime.dll assemblies.  
   
-2.  将以下 **Imports** 或 **using** 语句添加到代码文件顶部。  
+2.  Add the following **Imports** or **using** statements to the top of your code file.  
   
-     [!code-csharp[Trin_VstcoreDeployment#4](../snippets/csharp/VS_Snippets_OfficeSP/Trin_VstcoreDeployment/CS/Program.cs#4)]
-     [!code-vb[Trin_VstcoreDeployment#4](../snippets/visualbasic/VS_Snippets_OfficeSP/Trin_VstcoreDeployment/VB/Program.vb#4)]  
+     [!code-csharp[Trin_VstcoreDeployment#4](../vsto/codesnippet/CSharp/Trin_VstcoreDeploymentCS/Program.cs#4)]  [!code-vb[Trin_VstcoreDeployment#4](../vsto/codesnippet/VisualBasic/Trin_VstcoreDeploymentVB/Program.vb#4)]  
   
-3.  调用静态 <xref:Microsoft.VisualStudio.Tools.Applications.ServerDocument.AddCustomization%2A> 方法。  
+3.  Call the static <xref:Microsoft.VisualStudio.Tools.Applications.ServerDocument.AddCustomization%2A> method.  
   
-     下面的代码示例使用 <xref:Microsoft.VisualStudio.Tools.Applications.ServerDocument.AddCustomization%2A> 重载。  此重载采用文档的完整路径和一个 <xref:System.Uri>，后者指定要附加到文档的自定义项的部署清单的位置。  此示例假定名为 **WordDocument1.docx** 的 Word 文档位于桌面上，并且部署清单位于一个名为 **Publish** 的文件夹中，该文件夹也位于桌面上。  
+     The following code example uses the <xref:Microsoft.VisualStudio.Tools.Applications.ServerDocument.AddCustomization%2A> overload. This overload takes the full path of the document and a <xref:System.Uri> that specifies the location of the deployment manifest for the customization you want to attach to the document. This example assumes that a Word document named **WordDocument1.docx** is on the desktop, and that the deployment manifest is located in a folder that is named **Publish** that is also on the desktop.  
   
-     [!code-csharp[Trin_VstcoreDeployment#3](../snippets/csharp/VS_Snippets_OfficeSP/Trin_VstcoreDeployment/CS/Program.cs#3)]
-     [!code-vb[Trin_VstcoreDeployment#3](../snippets/visualbasic/VS_Snippets_OfficeSP/Trin_VstcoreDeployment/VB/Program.vb#3)]  
+     [!code-csharp[Trin_VstcoreDeployment#3](../vsto/codesnippet/CSharp/Trin_VstcoreDeploymentCS/Program.cs#3)]  [!code-vb[Trin_VstcoreDeployment#3](../vsto/codesnippet/VisualBasic/Trin_VstcoreDeploymentVB/Program.vb#3)]  
   
-4.  生成项目并在要附加自定义项的计算机上运行该应用程序。  计算机必须具有 for Office runtime 的 Visual Studio 2010 工具安装的。  
+4.  Build the project and run the application on the computer where you want to attach the customization. The computer must have the Visual Studio 2010 Tools for Office Runtime installed.  
   
-## 请参阅  
- [使用 ServerDocument 类管理服务器上的文档](../vsto/managing-documents-on-a-server-by-using-the-serverdocument-class.md)   
- [如何：移除文档中的托管代码扩展](../vsto/how-to-remove-managed-code-extensions-from-documents.md)   
- [Office 解决方案中的应用程序和部署清单](../vsto/application-and-deployment-manifests-in-office-solutions.md)  
-  
+## <a name="see-also"></a>See Also  
+ [Managing Documents on a Server by Using the ServerDocument Class](../vsto/managing-documents-on-a-server-by-using-the-serverdocument-class.md)   
+ [How to: Remove Managed Code Extensions from Documents](../vsto/how-to-remove-managed-code-extensions-from-documents.md)   
+ [Application and Deployment Manifests in Office Solutions](../vsto/application-and-deployment-manifests-in-office-solutions.md)  
   

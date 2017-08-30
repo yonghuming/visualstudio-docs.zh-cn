@@ -1,68 +1,84 @@
 ---
-title: "CA1004：泛型方法应提供类型参数 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-devops-test"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "CA1004"
-  - "GenericMethodsShouldProvideTypeParameter"
-helpviewer_keywords: 
-  - "CA1004"
-  - "GenericMethodsShouldProvideTypeParameter"
+title: 'CA1004: Generic methods should provide type parameter | Microsoft Docs'
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-devops-test
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords:
+- CA1004
+- GenericMethodsShouldProvideTypeParameter
+helpviewer_keywords:
+- GenericMethodsShouldProvideTypeParameter
+- CA1004
 ms.assetid: 38755f6a-fb45-4bf2-932e-0354ad826499
 caps.latest.revision: 17
-author: "stevehoag"
-ms.author: "shoag"
-manager: "wpickett"
-caps.handback.revision: 17
----
-# CA1004：泛型方法应提供类型参数
-[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
+author: stevehoag
+ms.author: shoag
+manager: wpickett
+translation.priority.ht:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+ms.translationtype: HT
+ms.sourcegitcommit: eb5c9550fd29b0e98bf63a7240737da4f13f3249
+ms.openlocfilehash: 2b613bdd3f98b142f2e8f9fd4fe2a99560dee4bb
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/30/2017
 
+---
+# <a name="ca1004-generic-methods-should-provide-type-parameter"></a>CA1004: Generic methods should provide type parameter
 |||  
 |-|-|  
-|类型名|GenericMethodsShouldProvideTypeParameter|  
+|TypeName|GenericMethodsShouldProvideTypeParameter|  
 |CheckId|CA1004|  
-|类别|Microsoft.Design|  
-|是否重大更改|是|  
+|Category|Microsoft.Design|  
+|Breaking Change|Breaking|  
   
-## 原因  
- 外部可见的泛型方法的参数签名不包含与该方法的所有类型参数对应的类型。  
+## <a name="cause"></a>Cause  
+ The parameter signature of an externally visible generic method does not contain types that correspond to all the type parameters of the method.  
   
-## 规则说明  
- 推理是指由传递给泛型方法的参数的类型来确定该方法的类型参数，而不是显式指定类型参数。  若要启用推理，泛型方法的参数签名必须包含与该方法的类型参数属于相同类型的参数。  在这种情况下，不必指定类型参数。  对所有类型参数都使用推理时，调用泛型实例方法和非泛型实例方法的语法完全相同。  这样可简化泛型方法的使用。  
+## <a name="rule-description"></a>Rule Description  
+ Inference is how the type argument of a generic method is determined by the type of argument that is passed to the method, instead of by the explicit specification of the type argument. To enable inference, the parameter signature of a generic method must include a parameter that is of the same type as the type parameter for the method. In this case, the type argument does not have to be specified. When you use inference for all type parameters, the syntax for calling generic and nongeneric instance methods is identical. This simplifies the usability of generic methods.  
   
-## 如何解决冲突  
- 若要修复与该规则的冲突，请更改设计以使参数签名包含对于该方法的每个类型参数而言都完全相同的类型。  
+## <a name="how-to-fix-violations"></a>How to Fix Violations  
+ To fix a violation of this rule, change the design so that the parameter signature contains the same type for each type parameter of the method.  
   
-## 何时禁止显示警告  
- 不要禁止显示此规则发出的警告。  按照容易理解和使用的语法提供泛型，不仅可以缩短学习新库所需的时间，而且还可以提高新库的使用率。  
+## <a name="when-to-suppress-warnings"></a>When to Suppress Warnings  
+ Do not suppress a warning from this rule. Providing generics in a syntax that is easy to understand and use reduces the time that is required to learn and increases the adoption rate of new libraries.  
   
-## 示例  
- 下面的示例演示了调用两个泛型方法的语法。  `InferredTypeArgument` 的类型参数是推断出来的，而 `NotInferredTypeArgument` 的类型参数则必须是显式指定的。  
+## <a name="example"></a>Example  
+ The following example shows the syntax for calling two generic methods. The type argument for `InferredTypeArgument` is inferred, and the type argument for `NotInferredTypeArgument` must be explicitly specified.  
   
- [!code-vb[FxCop.Design.Inference#1](../code-quality/codesnippet/VisualBasic/ca1004-generic-methods-should-provide-type-parameter_1.vb)]
- [!code-cs[FxCop.Design.Inference#1](../code-quality/codesnippet/CSharp/ca1004-generic-methods-should-provide-type-parameter_1.cs)]  
+ [!code-vb[FxCop.Design.Inference#1](../code-quality/codesnippet/VisualBasic/ca1004-generic-methods-should-provide-type-parameter_1.vb)] [!code-csharp[FxCop.Design.Inference#1](../code-quality/codesnippet/CSharp/ca1004-generic-methods-should-provide-type-parameter_1.cs)]  
   
-## 相关规则  
- [CA1005：避免泛型类型的参数过多](../code-quality/ca1005-avoid-excessive-parameters-on-generic-types.md)  
+## <a name="related-rules"></a>Related Rules  
+ [CA1005: Avoid excessive parameters on generic types](../code-quality/ca1005-avoid-excessive-parameters-on-generic-types.md)  
   
- [CA1010：集合应实现泛型接口](../code-quality/ca1010-collections-should-implement-generic-interface.md)  
+ [CA1010: Collections should implement generic interface](../code-quality/ca1010-collections-should-implement-generic-interface.md)  
   
- [CA1000：不要在泛型类型中声明静态成员](../code-quality/ca1000-do-not-declare-static-members-on-generic-types.md)  
+ [CA1000: Do not declare static members on generic types](../code-quality/ca1000-do-not-declare-static-members-on-generic-types.md)  
   
- [CA1002：不要公开泛型列表](../Topic/CA1002:%20Do%20not%20expose%20generic%20lists.md)  
+ [CA1002: Do not expose generic lists](../code-quality/ca1002-do-not-expose-generic-lists.md)  
   
- [CA1006：不要将泛型类型嵌套在成员签名中](../code-quality/ca1006-do-not-nest-generic-types-in-member-signatures.md)  
+ [CA1006: Do not nest generic types in member signatures](../code-quality/ca1006-do-not-nest-generic-types-in-member-signatures.md)  
   
- [CA1003：使用泛型事件处理程序实例](../Topic/CA1003:%20Use%20generic%20event%20handler%20instances.md)  
+ [CA1003: Use generic event handler instances](../code-quality/ca1003-use-generic-event-handler-instances.md)  
   
- [CA1007：在适用处使用泛型](../code-quality/ca1007-use-generics-where-appropriate.md)  
+ [CA1007: Use generics where appropriate](../code-quality/ca1007-use-generics-where-appropriate.md)  
   
-## 请参阅  
- [泛型](/dotnet/csharp/programming-guide/generics/index)
+## <a name="see-also"></a>See Also  
+ [Generics](/dotnet/csharp/programming-guide/generics/index)

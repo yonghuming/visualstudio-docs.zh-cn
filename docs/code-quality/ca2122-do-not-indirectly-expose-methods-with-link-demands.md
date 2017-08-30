@@ -1,63 +1,79 @@
 ---
-title: "CA2122：不要使用链接请求间接公开方法 | Microsoft Docs"
-ms.custom: ""
-ms.date: "12/14/2016"
-ms.prod: "visual-studio-dev14"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-devops-test"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "CA2122"
-  - "DoNotIndirectlyExposeMethodsWithLinkDemands"
-helpviewer_keywords: 
-  - "CA2122"
-  - "DoNotIndirectlyExposeMethodsWithLinkDemands"
+title: 'CA2122: Do not indirectly expose methods with link demands | Microsoft Docs'
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-devops-test
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords:
+- CA2122
+- DoNotIndirectlyExposeMethodsWithLinkDemands
+helpviewer_keywords:
+- DoNotIndirectlyExposeMethodsWithLinkDemands
+- CA2122
 ms.assetid: 3eda58e7-c6ec-41c3-8112-ae0841109c6a
 caps.latest.revision: 17
-caps.handback.revision: 17
-author: "stevehoag"
-ms.author: "shoag"
-manager: "wpickett"
----
-# CA2122：不要使用链接请求间接公开方法
-[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
+author: stevehoag
+ms.author: shoag
+manager: wpickett
+translation.priority.ht:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+ms.translationtype: HT
+ms.sourcegitcommit: eb5c9550fd29b0e98bf63a7240737da4f13f3249
+ms.openlocfilehash: 9996d217691c9a21701c1f6f36e7ced8f605efe0
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/30/2017
 
+---
+# <a name="ca2122-do-not-indirectly-expose-methods-with-link-demands"></a>CA2122: Do not indirectly expose methods with link demands
 |||  
 |-|-|  
-|类型名|DoNotIndirectlyExposeMethodsWithLinkDemands|  
+|TypeName|DoNotIndirectlyExposeMethodsWithLinkDemands|  
 |CheckId|CA2122|  
-|类别|Microsoft.Security|  
-|是否重大更改|否|  
+|Category|Microsoft.Security|  
+|Breaking Change|Non Breaking|  
   
-## 原因  
- 公共或受保护成员具有 [链接需求](../Topic/Link%20Demands.md)，且是由不执行任何安全检查的成员调用的。  
+## <a name="cause"></a>Cause  
+ A public or protected member has a [Link Demands](/dotnet/framework/misc/link-demands) and is called by a member that does not perform any security checks.  
   
-## 规则说明  
- 链接请求仅检查直接调用方的权限。  如果成员 `X` 不发出其调用方的安全请求，并调用受链接请求保护的代码，则没有必需权限的调用方可使用 `X` 访问受保护成员。  
+## <a name="rule-description"></a>Rule Description  
+ A link demand checks the permissions of the immediate caller only. If a member `X` makes no security demands of its callers, and calls code protected by a link demand, a caller without the necessary permission can use `X` to access the protected member.  
   
-## 如何解决冲突  
- 向成员添加安全 [数据和建模](../Topic/Data%20and%20Modeling%20in%20the%20.NET%20Framework.md) 或链接请求，使其不再提供对受链接请求保护的成员的不安全访问。  
+## <a name="how-to-fix-violations"></a>How to Fix Violations  
+ Add a security [Data and Modeling](/dotnet/framework/data/index) or link demand to the member so that it no longer provides unsecured access to the link demand-protected member.  
   
-## 何时禁止显示警告  
- 若要安全禁止显示此规则发出的警告，必须确保您的代码不会授予其调用方对可通过破坏性方式使用的操作或资源的访问权限。  
+## <a name="when-to-suppress-warnings"></a>When to Suppress Warnings  
+ To safely suppress a warning from this rule, you must make sure that your code does not grant its callers access to operations or resources that can be used in a destructive manner.  
   
-## 示例  
- 下面的示例显示一个与该规则冲突的库以及一个演示该库漏洞的应用程序。  示例库提供一起与该规则冲突的两个方法。  `EnvironmentSetting` 方法受链接请求保护，可无限制地访问环境变量。  `DomainInformation` 方法在调用 `EnvironmentSetting` 之前，不会对其调用方提出任何安全请求。  
+## <a name="example"></a>Example  
+ The following examples show a library that violates the rule, and an application that demonstrates the library's weakness. The sample library provides two methods that together violate the rule. The `EnvironmentSetting` method is secured by a link demand for unrestricted access to environment variables. The `DomainInformation` method makes no security demands of its callers before it calls `EnvironmentSetting`.  
   
- [!code-cs[FxCop.Security.UnsecuredDoNotCall#1](../code-quality/codesnippet/CSharp/ca2122-do-not-indirectly-expose-methods-with-link-demands_1.cs)]  
+ [!code-csharp[FxCop.Security.UnsecuredDoNotCall#1](../code-quality/codesnippet/CSharp/ca2122-do-not-indirectly-expose-methods-with-link-demands_1.cs)]  
   
-## 示例  
- 下面的应用程序调用不安全的库成员。  
+## <a name="example"></a>Example  
+ The following application calls the unsecured library member.  
   
- [!code-cs[FxCop.Security.TestUnsecuredDoNot1#1](../code-quality/codesnippet/CSharp/ca2122-do-not-indirectly-expose-methods-with-link-demands_2.cs)]  
+ [!code-csharp[FxCop.Security.TestUnsecuredDoNot1#1](../code-quality/codesnippet/CSharp/ca2122-do-not-indirectly-expose-methods-with-link-demands_2.cs)]  
   
- 该示例产生下面的输出。  
+ This example produces the following output.  
   
-  **Value from unsecured member: seattle.corp.contoso.com**   
-## 请参阅  
- [代码安全维护指南](../Topic/Secure%20Coding%20Guidelines.md)   
- [链接需求](../Topic/Link%20Demands.md)   
- [数据和建模](../Topic/Data%20and%20Modeling%20in%20the%20.NET%20Framework.md)
+ **Value from unsecured member: seattle.corp.contoso.com**   
+## <a name="see-also"></a>See Also  
+ [Secure Coding Guidelines](/dotnet/standard/security/secure-coding-guidelines)   
+ [Link Demands](/dotnet/framework/misc/link-demands)   
+ [Data and Modeling](/dotnet/framework/data/index)

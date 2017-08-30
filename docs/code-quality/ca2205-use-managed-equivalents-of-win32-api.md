@@ -1,61 +1,77 @@
 ---
-title: "CA2205：使用 Win32 API 的托管等效项 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-devops-test"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "UseManagedEquivalentsOfWin32Api"
-  - "CA2205"
-helpviewer_keywords: 
-  - "CA2205"
-  - "UseManagedEquivalentsOfWin32Api"
+title: 'CA2205: Use managed equivalents of Win32 API | Microsoft Docs'
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-devops-test
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords:
+- UseManagedEquivalentsOfWin32Api
+- CA2205
+helpviewer_keywords:
+- UseManagedEquivalentsOfWin32Api
+- CA2205
 ms.assetid: 1c65ab59-3e50-4488-a727-3969c7f6cbe4
 caps.latest.revision: 13
-author: "stevehoag"
-ms.author: "shoag"
-manager: "wpickett"
-caps.handback.revision: 13
----
-# CA2205：使用 Win32 API 的托管等效项
-[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
+author: stevehoag
+ms.author: shoag
+manager: wpickett
+translation.priority.ht:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+ms.translationtype: HT
+ms.sourcegitcommit: eb5c9550fd29b0e98bf63a7240737da4f13f3249
+ms.openlocfilehash: 16fdf2a733c4c41af35aae5c69a9e2e715501ab9
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/30/2017
 
+---
+# <a name="ca2205-use-managed-equivalents-of-win32-api"></a>CA2205: Use managed equivalents of Win32 API
 |||  
 |-|-|  
-|类型名|UseManagedEquivalentsOfWin32Api|  
+|TypeName|UseManagedEquivalentsOfWin32Api|  
 |CheckId|CA2205|  
-|类别|Microsoft.Usage|  
-|是否重大更改|否|  
+|Category|Microsoft.Usage|  
+|Breaking Change|Non Breaking|  
   
-## 原因  
- 定义了平台调用方法，但在 [!INCLUDE[dnprdnshort](../code-quality/includes/dnprdnshort_md.md)] 类库中存在具有等效功能的方法。  
+## <a name="cause"></a>Cause  
+ A platform invoke method is defined and a method with the equivalent functionality exists in the [!INCLUDE[dnprdnshort](../code-quality/includes/dnprdnshort_md.md)] class library.  
   
-## 规则说明  
- 平台调用方法用于调用非托管 DLL 函数，该方法使用 <xref:System.Runtime.InteropServices.DllImportAttribute?displayProperty=fullName> 特性（在 Visual Basic 中使用 `Declare` 关键字）进行定义。  如果平台调用方法定义不正确，则可能会因错误命名的函数、错误的参数映射和返回值类型、错误的字段说明（如调用约定和字符集）等问题导致运行时异常。  如果存在等效托管方法，则调用等效托管方法通常要比直接定义和调用非托管方法简单的多，并且也不容易发生错误。  调用平台调用方法还会导致其他需要解决的安全问题。  
+## <a name="rule-description"></a>Rule Description  
+ A platform invoke method is used to call an unmanaged DLL function and is defined using the <xref:System.Runtime.InteropServices.DllImportAttribute?displayProperty=fullName> attribute, or the `Declare` keyword in Visual Basic. An incorrectly defined platform invoke method can lead to runtime exceptions because of issues such as a misnamed function, faulty mapping of parameter and return value data types, and incorrect field specifications, such as the calling convention and character set. If available, it is generally simpler and less error prone to call the equivalent managed method than to define and call the unmanaged method directly. Calling a platform invoke method can also lead to additional security issues that need to be addressed.  
   
-## 如何解决冲突  
- 要修复与该规则的冲突，请使用对非托管函数的托管等效项的调用来代替对非托管函数的调用。  
+## <a name="how-to-fix-violations"></a>How to Fix Violations  
+ To fix a violation of this rule, replace the call to the unmanaged function with a call to its managed equivalent.  
   
-## 何时禁止显示警告  
- 如果建议的替代方法无法提供所需的功能，则可以禁止显示此规则发出的警告。  
+## <a name="when-to-suppress-warnings"></a>When to Suppress Warnings  
+ Suppress a warning from this rule if the suggested replacement method does not provide the needed functionality.  
   
-## 示例  
- 下面的示例演示一个与该规则冲突的平台调用方法定义。  此外，还演示了对该平台调用方法及等效托管方法的调用。  
+## <a name="example"></a>Example  
+ The following example shows a platform invoke method definition that violates the rule. In addition, the calls to the platform invoke method and the equivalent managed method are shown.  
   
- [!code-cs[FxCop.Usage.ManagedEquivalents#1](../code-quality/codesnippet/CSharp/ca2205-use-managed-equivalents-of-win32-api_1.cs)]
- [!code-vb[FxCop.Usage.ManagedEquivalents#1](../code-quality/codesnippet/VisualBasic/ca2205-use-managed-equivalents-of-win32-api_1.vb)]  
+ [!code-csharp[FxCop.Usage.ManagedEquivalents#1](../code-quality/codesnippet/CSharp/ca2205-use-managed-equivalents-of-win32-api_1.cs)] [!code-vb[FxCop.Usage.ManagedEquivalents#1](../code-quality/codesnippet/VisualBasic/ca2205-use-managed-equivalents-of-win32-api_1.vb)]  
   
-## 相关规则  
- [CA1404：紧接在 P\/Invoke 之后调用 GetLastError](../code-quality/ca1404-call-getlasterror-immediately-after-p-invoke.md)  
+## <a name="related-rules"></a>Related Rules  
+ [CA1404: Call GetLastError immediately after P/Invoke](../code-quality/ca1404-call-getlasterror-immediately-after-p-invoke.md)  
   
- [CA1060：将 P\/Invoke 移动到 NativeMethods 类](../code-quality/ca1060-move-p-invokes-to-nativemethods-class.md)  
+ [CA1060: Move P/Invokes to NativeMethods class](../code-quality/ca1060-move-p-invokes-to-nativemethods-class.md)  
   
- [CA1400：P\/Invoke 入口点应该存在](../Topic/CA1400:%20P-Invoke%20entry%20points%20should%20exist.md)  
+ [CA1400: P/Invoke entry points should exist](../code-quality/ca1400-p-invoke-entry-points-should-exist.md)  
   
- [CA1401：P\/Invokes 应该是不可见的](../Topic/CA1401:%20P-Invokes%20should%20not%20be%20visible.md)  
+ [CA1401: P/Invokes should not be visible](../code-quality/ca1401-p-invokes-should-not-be-visible.md)  
   
- [CA2101：指定对 P\/Invoke 字符串参数进行封送处理](../code-quality/ca2101-specify-marshaling-for-p-invoke-string-arguments.md)
+ [CA2101: Specify marshaling for P/Invoke string arguments](../code-quality/ca2101-specify-marshaling-for-p-invoke-string-arguments.md)

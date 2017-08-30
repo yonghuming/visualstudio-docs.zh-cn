@@ -1,64 +1,81 @@
 ---
-title: "CA2243：应正确分析特性字符串文本 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-devops-test"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "CA2243"
-  - "AttributeStringLiteralsShouldParseCorrectly"
-helpviewer_keywords: 
-  - "AttributeStringLiteralsShouldParseCorrectly"
-  - "CA2243"
+title: 'CA2243: Attribute string literals should parse correctly | Microsoft Docs'
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-devops-test
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords:
+- CA2243
+- AttributeStringLiteralsShouldParseCorrectly
+helpviewer_keywords:
+- AttributeStringLiteralsShouldParseCorrectly
+- CA2243
 ms.assetid: bfadb366-379d-4ee4-b17b-c4a09bf1106b
 caps.latest.revision: 10
-author: "stevehoag"
-ms.author: "shoag"
-manager: "wpickett"
-caps.handback.revision: 10
----
-# CA2243：应正确分析特性字符串文本
-[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
+author: stevehoag
+ms.author: shoag
+manager: wpickett
+translation.priority.ht:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+ms.translationtype: HT
+ms.sourcegitcommit: eb5c9550fd29b0e98bf63a7240737da4f13f3249
+ms.openlocfilehash: e79579bec2c181775f6c6dc91a66e12793ac0319
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/30/2017
 
+---
+# <a name="ca2243-attribute-string-literals-should-parse-correctly"></a>CA2243: Attribute string literals should parse correctly
 |||  
 |-|-|  
-|类型名|AttributeStringLiteralsShouldParseCorrectly|  
+|TypeName|AttributeStringLiteralsShouldParseCorrectly|  
 |CheckId|CA2243|  
-|类别|Microsoft.Usage|  
-|是否重大更改|否|  
+|Category|Microsoft.Usage|  
+|Breaking Change|Non Breaking|  
   
-## 原因  
- 特性的字符串文本参数不能正确解析为 URL、GUID 或版本。  
+## <a name="cause"></a>Cause  
+ An attribute's string literal parameter does not parse correctly for a URL, GUID, or Version.  
   
-## 规则说明  
- 因为特性是从 <xref:System.Attribute?displayProperty=fullName> 派生的，并且在编译时使用特性，所以只能向它们的构造函数传递常量值。  必须表示 URL、GUID 和版本的特性参数不能类型化为 <xref:System.Uri?displayProperty=fullName>、<xref:System.Guid?displayProperty=fullName> 和 <xref:System.Version?displayProperty=fullName>，因为这些类型不能表示为常量。  相反，它们必须用字符串表示。  
+## <a name="rule-description"></a>Rule Description  
+ Since attributes are derived from <xref:System.Attribute?displayProperty=fullName>, and attributes are used at compile time, only constant values can be passed to their constructors. Attribute parameters that must represent URLs, GUIDs and Versions cannot be typed as <xref:System.Uri?displayProperty=fullName>, <xref:System.Guid?displayProperty=fullName>, and <xref:System.Version?displayProperty=fullName>, because these types cannot be represented as constants. Instead, they must be represented by strings.  
   
- 因为参数的类型为字符串，所以可能会在编译时传递格式不正确的参数。  
+ Because the parameter is typed as a string, it is possible that an incorrectly formatted parameter could be passed at compile time.  
   
- 此规则使用命名试探查找表示统一资源标识符 \(URI\)、全局唯一标识符 \(GUID\) 或版本的参数，并验证传递的值是否正确。  
+ This rule uses a naming heuristic to find parameters that represent a uniform resource identifier (URI), a Globally Unique Identifier (GUID) or a Version and verifies that the passed value is correct.  
   
-## 如何解决冲突  
- 将参数字符串更改为格式正确的 URL、GUID 或版本。  
+## <a name="how-to-fix-violations"></a>How to Fix Violations  
+ Change the parameter string to a correctly formed URL, GUID, or Version.  
   
-## 何时禁止显示警告  
- 如果参数不表示 URI、GUID 或版本，则可以安全地禁止显示此规则发出的警告。  
+## <a name="when-to-suppress-warnings"></a>When to Suppress Warnings  
+ It is safe to suppress a warning from this rule if the parameter does not represent a URL, GUID, or Version.  
   
-## 示例  
- 下面的示例演示与此规则冲突的 AssemblyFileVersionAttribute 的代码。  
+## <a name="example"></a>Example  
+ The following example shows code for the AssemblyFileVersionAttribute that violates this rule.  
   
- [!code-cs[FxCop.Usage.AttributeStringLiteralsShouldParseCorrectly#1](../code-quality/codesnippet/CSharp/ca2243-attribute-string-literals-should-parse-correctly_1.cs)]  
+ [!code-csharp[FxCop.Usage.AttributeStringLiteralsShouldParseCorrectly#1](../code-quality/codesnippet/CSharp/ca2243-attribute-string-literals-should-parse-correctly_1.cs)]  
   
- 此规则由下列对象触发：  
+ The rule is triggered by the following:  
   
--   包含“version”但不能解析为 System.Version 的参数。  
+-   Parameters that contain 'version' and cannot be parsed to System.Version.  
   
--   包含“guid”但不能解析为 System.Guid 的参数。  
+-   Parameters that contain 'guid' and cannot be parsed to System.Guid.  
   
--   包含“uri”、“urn”或“url”但不能解析为 System.Uri 的参数。  
+-   Parameters that contain 'uri', 'urn', or 'url' and cannot be parsed to System.Uri.  
   
-## 请参阅  
- [CA1054：URI 参数不应为字符串](../code-quality/ca1054-uri-parameters-should-not-be-strings.md)
+## <a name="see-also"></a>See Also  
+ [CA1054: URI parameters should not be strings](../code-quality/ca1054-uri-parameters-should-not-be-strings.md)

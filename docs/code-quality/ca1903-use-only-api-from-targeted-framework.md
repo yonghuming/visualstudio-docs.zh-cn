@@ -1,70 +1,87 @@
 ---
-title: "CA1903：仅使用目标框架中的 API | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-devops-test"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "UseOnlyAPIFromTargetedFramework"
-  - "CA1903"
-helpviewer_keywords: 
-  - "CA1903"
-  - "UseOnlyApiFromTargetedFramework"
+title: 'CA1903: Use only API from targeted framework | Microsoft Docs'
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-devops-test
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords:
+- UseOnlyAPIFromTargetedFramework
+- CA1903
+helpviewer_keywords:
+- UseOnlyApiFromTargetedFramework
+- CA1903
 ms.assetid: efdb5cc7-bbd8-4fa7-9fff-02b91e59350e
 caps.latest.revision: 8
-author: "stevehoag"
-ms.author: "shoag"
-manager: "wpickett"
-caps.handback.revision: 8
----
-# CA1903：仅使用目标框架中的 API
-[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
+author: stevehoag
+ms.author: shoag
+manager: wpickett
+translation.priority.ht:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+ms.translationtype: HT
+ms.sourcegitcommit: eb5c9550fd29b0e98bf63a7240737da4f13f3249
+ms.openlocfilehash: ec60623b651e990d77895d3c4eeef90cd69222a1
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/30/2017
 
+---
+# <a name="ca1903-use-only-api-from-targeted-framework"></a>CA1903: Use only API from targeted framework
 |||  
 |-|-|  
-|类型名|UseOnlyApiFromTargetedFramework|  
+|TypeName|UseOnlyApiFromTargetedFramework|  
 |CheckId|CA1903|  
-|类别|Microsoft.Portability|  
-|是否重大更改|重大更改 \- 当针对外部可见成员或类型的签名激发时。<br /><br /> 非重大更改 \- 当在方法体中激发时。|  
+|Category|Microsoft.Portability|  
+|Breaking Change|Breaking - when fired against the signature of an externally visible member or type.<br /><br /> Non breaking - when fired in the body of a method.|  
   
-## 原因  
- 成员或类型将使用 Service Pack 中引入的成员或类型，项目目标框架中未及包括它们。  
+## <a name="cause"></a>Cause  
+ A member or type is using a member or type that was introduced in a service pack that was not included with the project's targeted framework.  
   
-## 规则说明  
- .NET Framework 2.0 Service Pack 1 和 2、.NET Framework 3.0 Service Pack 1 和 2，以及 .NET Framework 3.5 Service Pack 1 中包括了新的成员和类型。  以 .NET Framework 的主要版本为目标的项目可能会在无意中依赖这些新的 API。  为避免这种依赖性，使用默认情况下没有包括在项目目标框架中的任何新成员和类型时，将激发此规则。  
+## <a name="rule-description"></a>Rule Description  
+ New members and types were included in .NET Framework 2.0 Service Pack 1 and 2, .NET Framework 3.0 Service Pack 1 and 2, and .NET Framework 3.5 Service Pack 1. Projects that target the major versions of the .NET Framework can unintentionally take dependencies on these new APIs. To prevent this dependency, this rule fires on usages of any new members and types that were not included by default with the project's target framework.  
   
- **目标框架和 Service Pack 的依赖关系**  
+ **Target Framework and Service Pack Dependencies**  
   
 |||  
 |-|-|  
-|对于以下目标框架|使用以下框架中引入的成员时将激发规则|  
-|.NET Framework 2.0|.NET Framework 2.0 SP1 和 .NET Framework 2.0 SP2|  
-|.NET Framework 3.0|.NET Framework 2.0 SP1、.NET Framework 2.0 SP2、.NET Framework 3.0 SP1 和 .NET Framework 3.0 SP2|  
+|When target framework is|Fires on usages of members introduced in|  
+|.NET Framework 2.0|.NET Framework 2.0 SP1, .NET Framework 2.0 SP2|  
+|.NET Framework 3.0|.NET Framework 2.0 SP1, .NET Framework 2.0 SP2, .NET Framework 3.0 SP1, .NET Framework 3.0 SP2|  
 |.NET Framework 3.5|.NET Framework 3.5 SP1|  
-|.NET Framework 4|不可用|  
+|.NET Framework 4|N/A|  
   
- 若要更改项目的目标框架，请参见[面向特定的 .NET Framework 版本](../ide/targeting-a-specific-dotnet-framework-version.md)。  
+ To change a project's target framework, see [Targeting a Specific .NET Framework Version](../ide/targeting-a-specific-dotnet-framework-version.md).  
   
-## 如何解决冲突  
- 若要移除对 Service Pack 的依赖，请避免使用所有新成员或类型。  如果此依赖是有意为之，请禁止显示警告或者关闭此规则。  
+## <a name="how-to-fix-violations"></a>How to Fix Violations  
+ To remove the dependency on the service pack, remove all usages of the new member or type. If this is a deliberate dependency, either suppress the warning or turn this rule off.  
   
-## 何时禁止显示警告  
- 如果针对所指定 Service Pack 的依赖不是有意为之，请不要禁止显示此规则发出的警告。  在这种情况下，应用程序可能无法在没有安装此 Service Pack 的系统上运行。  如果此依赖是有意为之，请禁止显示警告或者关闭此规则。  
+## <a name="when-to-suppress-warnings"></a>When to Suppress Warnings  
+ Do not suppress a warning from this rule if this was not a deliberate dependency on the specified service pack. In this situation, your application might fail to run on systems without this service pack installed. Suppress the warning or turn this rule off if this was a deliberate dependency.  
   
-## 示例  
- 下面的示例演示使用只在 .NET 2.0 Service Pack 1 中可用的类型 DateTimeOffset 的类。  此示例要求已在项目属性中“目标框架”下拉列表中选择 .NET Framework 2.0。  
+## <a name="example"></a>Example  
+ The following example shows a class that uses the type DateTimeOffset that is only available in .NET 2.0 Service Pack 1. This example requires that .NET Framework 2.0 has been selected in the Target Framework drop-down list in the Project properties.  
   
- [!code-cs[FxCop.Portability.UseOnlyApiFromTargetedFramework#1](../code-quality/codesnippet/CSharp/ca1903-use-only-api-from-targeted-framework_1.cs)]  
+ [!code-csharp[FxCop.Portability.UseOnlyApiFromTargetedFramework#1](../code-quality/codesnippet/CSharp/ca1903-use-only-api-from-targeted-framework_1.cs)]  
   
-## 示例  
- 下面的示例将使用的 DateTimeOffset 类型替换为 DateTime 类型，从而解决上面描述的冲突。  
+## <a name="example"></a>Example  
+ The following example fixes the previously described violation by replacing usages of the DateTimeOffset type with the DateTime type.  
   
- [!code-cs[FxCop.Portability.UseOnlyApiFromTargetedFramework2#1](../code-quality/codesnippet/CSharp/ca1903-use-only-api-from-targeted-framework_2.cs)]  
+ [!code-csharp[FxCop.Portability.UseOnlyApiFromTargetedFramework2#1](../code-quality/codesnippet/CSharp/ca1903-use-only-api-from-targeted-framework_2.cs)]  
   
-## 请参阅  
- [可移植性警告](../code-quality/portability-warnings.md)   
- [面向特定的 .NET Framework 版本](../ide/targeting-a-specific-dotnet-framework-version.md)
+## <a name="see-also"></a>See Also  
+ [Portability Warnings](../code-quality/portability-warnings.md)   
+ [Targeting a Specific .NET Framework Version](../ide/targeting-a-specific-dotnet-framework-version.md)

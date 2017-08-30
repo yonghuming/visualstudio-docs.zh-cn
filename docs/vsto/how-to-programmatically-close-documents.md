@@ -1,73 +1,74 @@
 ---
-title: "如何：以编程方式关闭文档"
-ms.custom: ""
-ms.date: "02/02/2017"
-ms.prod: "visual-studio-dev14"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "office-development"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-dev_langs: 
-  - "VB"
-  - "CSharp"
-helpviewer_keywords: 
-  - "文档 [Visual Studio 中的 Office 开发]，关闭"
-  - "Word [Visual Studio 中的 Office 开发]，关闭文档"
+title: 'How to: Programmatically Close Documents | Microsoft Docs'
+ms.custom: 
+ms.date: 02/02/2017
+ms.prod: visual-studio-dev14
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- office-development
+ms.tgt_pltfrm: 
+ms.topic: article
+dev_langs:
+- VB
+- CSharp
+helpviewer_keywords:
+- documents [Office development in Visual Studio], closing
+- Word [Office development in Visual Studio], closing documents
 ms.assetid: d5bee1dc-63d1-4307-828f-b7b077e20fb9
 caps.latest.revision: 55
-author: "kempb"
-ms.author: "kempb"
-manager: "ghogen"
-caps.handback.revision: 54
+author: kempb
+ms.author: kempb
+manager: ghogen
+ms.translationtype: HT
+ms.sourcegitcommit: eb5c9550fd29b0e98bf63a7240737da4f13f3249
+ms.openlocfilehash: 0435e4cf7e8291fb893e8d1233e18e8fe7cd1c60
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/30/2017
+
 ---
-# 如何：以编程方式关闭文档
-  可以关闭活动文档，也可以指定关闭某个文档。  
+# <a name="how-to-programmatically-close-documents"></a>How to: Programmatically Close Documents
+  You can close the active document or you can specify a document to close.  
   
  [!INCLUDE[appliesto_wdalldocapp](../vsto/includes/appliesto-wdalldocapp-md.md)]  
   
-## 关闭活动文档  
- 关闭活动文档有两个过程：一个用于文档级自定义项；另一个用于 VSTO 外接程序。  
+## <a name="closing-the-active-document"></a>Closing the Active Document  
+ There are two procedures for closing the active document: one for document-level customizations and one for VSTO Add-ins.  
   
-#### 关闭文档级自定义项中的活动文档  
+#### <a name="to-close-the-active-document-in-a-document-level-customization"></a>To close the active document in a document-level customization  
   
-1.  调用项目中 `ThisDocument` 类的 <xref:Microsoft.Office.Tools.Word.Document.Close%2A> 方法，以关闭与自定义关联的文档。 若要使用以下代码示例，请从 `ThisDocument` 类中运行它。  
-  
-    > [!NOTE]  
-    >  此示例将 <xref:Microsoft.Office.Interop.Word.WdSaveOptions.wdDoNotSaveChanges> 值传递给要关闭的 *SaveChanges* 参数，而无需保存更改或提示用户。  
-  
-     [!code-csharp[Trin_VstcoreWordAutomation#3](../snippets/csharp/VS_Snippets_OfficeSP/Trin_VstcoreWordAutomation/CS/ThisDocument.cs#3)]
-     [!code-vb[Trin_VstcoreWordAutomation#3](../snippets/visualbasic/VS_Snippets_OfficeSP/Trin_VstcoreWordAutomation/VB/ThisDocument.vb#3)]  
-  
-#### 关闭 VSTO 外接程序中的活动文档  
-  
-1.  调用 <xref:Microsoft.Office.Interop.Word._Application.ActiveDocument%2A> 属性的 <xref:Microsoft.Office.Interop.Word._Document.Close%2A> 方法，以关闭活动文档。 若要使用下面的代码示例，请从项目的 `ThisAddIn` 类中运行它。  
+1.  Call the <xref:Microsoft.Office.Tools.Word.Document.Close%2A> method of the `ThisDocument` class in your project to close the document associated with the customization. To use the following code example, run it from the `ThisDocument` class.  
   
     > [!NOTE]  
-    >  此示例将 <xref:Microsoft.Office.Interop.Word.WdSaveOptions.wdDoNotSaveChanges> 值传递给要关闭的 *SaveChanges* 参数，而无需保存更改或提示用户。  
+    >  This example passes the <xref:Microsoft.Office.Interop.Word.WdSaveOptions.wdDoNotSaveChanges> value to the *SaveChanges* parameter to close without saving changes or prompting the user.  
   
-     [!code-csharp[Trin_VstcoreWordAutomationAddIn#3](../snippets/csharp/VS_Snippets_OfficeSP/Trin_VstcoreWordAutomationAddIn/CS/ThisAddIn.cs#3)]
-     [!code-vb[Trin_VstcoreWordAutomationAddIn#3](../snippets/visualbasic/VS_Snippets_OfficeSP/Trin_VstcoreWordAutomationAddIn/VB/ThisAddIn.vb#3)]  
+     [!code-vb[Trin_VstcoreWordAutomation#3](../vsto/codesnippet/VisualBasic/Trin_VstcoreWordAutomationVB/ThisDocument.vb#3)]  [!code-csharp[Trin_VstcoreWordAutomation#3](../vsto/codesnippet/CSharp/Trin_VstcoreWordAutomationCS/ThisDocument.cs#3)]  
   
-## 关闭按名称指定的文档  
- 对于 VSTO 外接程序和文档级自定义项来说，按名称指定的文档的关闭方式是相同的。  
+#### <a name="to-close-the-active-document-in-a-vsto-add-in"></a>To close the active document in a VSTO Add-in  
   
-#### 关闭按名称指定的文档  
-  
-1.  将文档名称指定为 <xref:Microsoft.Office.Interop.Word._Application.Documents%2A> 集合的参数，然后调用 <xref:Microsoft.Office.Interop.Word._Document.Close%2A> 方法。 以下代码示例假设在 Word 中打开了名为 **NewDocument** 的文档。  
+1.  Call the <xref:Microsoft.Office.Interop.Word._Document.Close%2A> method of the <xref:Microsoft.Office.Interop.Word._Application.ActiveDocument%2A> property to close the active document. To use the following code example, run it from the `ThisAddIn` class in your project.  
   
     > [!NOTE]  
-    >  此示例将 <xref:Microsoft.Office.Interop.Word.WdSaveOptions.wdDoNotSaveChanges> 值传递给要关闭的 *SaveChanges* 参数，而无需保存更改或提示用户。  
+    >  This example passes the <xref:Microsoft.Office.Interop.Word.WdSaveOptions.wdDoNotSaveChanges> value to the *SaveChanges* parameter to close without saving changes or prompting the user.  
   
-     [!code-csharp[Trin_VstcoreWordAutomation#4](../snippets/csharp/VS_Snippets_OfficeSP/Trin_VstcoreWordAutomation/CS/ThisDocument.cs#4)]
-     [!code-vb[Trin_VstcoreWordAutomation#4](../snippets/visualbasic/VS_Snippets_OfficeSP/Trin_VstcoreWordAutomation/VB/ThisDocument.vb#4)]  
+     [!code-vb[Trin_VstcoreWordAutomationAddIn#3](../vsto/codesnippet/VisualBasic/Trin_VstcoreWordAutomationAddIn/ThisAddIn.vb#3)]  [!code-csharp[Trin_VstcoreWordAutomationAddIn#3](../vsto/codesnippet/CSharp/Trin_VstcoreWordAutomationAddIn/ThisAddIn.cs#3)]  
   
-## 请参阅  
- [如何：以编程方式打开现有文档](../vsto/how-to-programmatically-open-existing-documents.md)   
- [如何：以编程方式保存文档](../vsto/how-to-programmatically-save-documents.md)   
- [宿主项和宿主控件概述](../vsto/host-items-and-host-controls-overview.md)   
- [宿主项和宿主控件的编程限制](../vsto/programmatic-limitations-of-host-items-and-host-controls.md)   
- [Office 解决方案中的可选参数](../vsto/optional-parameters-in-office-solutions.md)  
+## <a name="closing-a-document-that-you-specify-by-name"></a>Closing a Document That You Specify By Name  
+ The way that you close a document that you specify by name is the same for VSTO Add-ins and document-level customizations.  
   
+#### <a name="to-close-a-document-that-you-specify-by-name"></a>To close a document that you specify by name  
+  
+1.  Specify the document name as an argument to the <xref:Microsoft.Office.Interop.Word._Application.Documents%2A> collection, and then call the <xref:Microsoft.Office.Interop.Word._Document.Close%2A> method. The following code example assumes that a document named **NewDocument** is open in Word.  
+  
+    > [!NOTE]  
+    >  This example passes the <xref:Microsoft.Office.Interop.Word.WdSaveOptions.wdDoNotSaveChanges> value to the *SaveChanges* parameter to close without saving changes or prompting the user.  
+  
+     [!code-vb[Trin_VstcoreWordAutomation#4](../vsto/codesnippet/VisualBasic/Trin_VstcoreWordAutomationVB/ThisDocument.vb#4)]  [!code-csharp[Trin_VstcoreWordAutomation#4](../vsto/codesnippet/CSharp/Trin_VstcoreWordAutomationCS/ThisDocument.cs#4)]  
+  
+## <a name="see-also"></a>See Also  
+ [How to: Programmatically Open Existing Documents](../vsto/how-to-programmatically-open-existing-documents.md)   
+ [How to: Programmatically Save Documents](../vsto/how-to-programmatically-save-documents.md)   
+ [Host Items and Host Controls Overview](../vsto/host-items-and-host-controls-overview.md)   
+ [Programmatic Limitations of Host Items and Host Controls](../vsto/programmatic-limitations-of-host-items-and-host-controls.md)   
+ [Optional Parameters in Office Solutions](../vsto/optional-parameters-in-office-solutions.md)  
   

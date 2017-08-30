@@ -1,50 +1,54 @@
 ---
-title: "如何：以编程方式及工作簿形式打开文本文件"
-ms.custom: ""
-ms.date: "02/02/2017"
-ms.prod: "visual-studio-dev14"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "office-development"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-dev_langs: 
-  - "VB"
-  - "CSharp"
-helpviewer_keywords: 
-  - "文本 [Visual Studio 中的 Office 开发], 文本文件"
-  - "文本文件, 以工作簿形式打开"
-  - "工作簿, 将文本文件打开为"
+title: 'How to: Programmatically Open Text Files as Workbooks | Microsoft Docs'
+ms.custom: 
+ms.date: 02/02/2017
+ms.prod: visual-studio-dev14
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- office-development
+ms.tgt_pltfrm: 
+ms.topic: article
+dev_langs:
+- VB
+- CSharp
+helpviewer_keywords:
+- workbooks, opening text files as
+- text [Office development in Visual Studio], text files
+- text files, opening as workbooks
 ms.assetid: 056ae3d0-7fe7-4c28-a2a5-5a948baee0e6
 caps.latest.revision: 47
-author: "kempb"
-ms.author: "kempb"
-manager: "ghogen"
-caps.handback.revision: 46
+author: kempb
+ms.author: kempb
+manager: ghogen
+ms.translationtype: HT
+ms.sourcegitcommit: eb5c9550fd29b0e98bf63a7240737da4f13f3249
+ms.openlocfilehash: 9966164165f768f438516ba9df993c09a6197b5b
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/30/2017
+
 ---
-# 如何：以编程方式及工作簿形式打开文本文件
-  可以将文本文件作为工作簿打开。  必须传入要打开的文本文件的名称。  可以指定一些可选参数，例如，要从哪一行开始分析以及文件中数据的列格式。  
+# <a name="how-to-programmatically-open-text-files-as-workbooks"></a>How to: Programmatically Open Text Files as Workbooks
+  You can open a text file as a workbook. You must pass in the name of the text file you want to open. You can specify several optional parameters, such as which row number to start parsing on and the column format of the data in the file.  
   
  [!INCLUDE[appliesto_xlalldocapp](../vsto/includes/appliesto-xlalldocapp-md.md)]  
   
-## 示例  
- [!code-csharp[Trin_VstcoreExcelAutomation#80](../snippets/csharp/VS_Snippets_OfficeSP/Trin_VstcoreExcelAutomation/CS/Sheet1.cs#80)]
- [!code-vb[Trin_VstcoreExcelAutomation#80](../snippets/visualbasic/VS_Snippets_OfficeSP/Trin_VstcoreExcelAutomation/VB/Sheet1.vb#80)]  
+## <a name="example"></a>Example  
+ [!code-csharp[Trin_VstcoreExcelAutomation#80](../vsto/codesnippet/CSharp/Trin_VstcoreExcelAutomationCS/Sheet1.cs#80)] [!code-vb[Trin_VstcoreExcelAutomation#80](../vsto/codesnippet/VisualBasic/Trin_VstcoreExcelAutomation/Sheet1.vb#80)]  
   
-## 编译代码  
- 此示例需要以下组件：  
+## <a name="compiling-the-code"></a>Compiling the Code  
+ This example requires the following components:  
   
--   一个名为 `Test.txt` 的逗号分隔的文本文件，其中至少包含三行文本。  
+-   A comma-delimited text file named `Test.txt` that contains at least three lines of text.  
   
--   要存储在驱动器 C 上的文本文件 `Test.txt`。  
+-   The text file `Test.txt` to be stored on drive C.  
   
-## 请参阅  
- [使用工作簿](../vsto/working-with-workbooks.md)   
- [如何：以编程方式打开工作簿](../vsto/how-to-programmatically-open-workbooks.md)   
- [如何：以编程方式新建工作簿](../vsto/how-to-programmatically-create-new-workbooks.md)   
- [如何：以编程方式保存工作簿](../vsto/how-to-programmatically-save-workbooks.md)   
- [如何：以编程方式关闭工作簿](../vsto/how-to-programmatically-close-workbooks.md)   
- [Office 解决方案中的可选参数](../vsto/optional-parameters-in-office-solutions.md)  
+## <a name="see-also"></a>See Also  
+ [Working with Workbooks](../vsto/working-with-workbooks.md)   
+ [How to: Programmatically Open Workbooks](../vsto/how-to-programmatically-open-workbooks.md)   
+ [How to: Programmatically Create New Workbooks](../vsto/how-to-programmatically-create-new-workbooks.md)   
+ [How to: Programmatically Save Workbooks](../vsto/how-to-programmatically-save-workbooks.md)   
+ [How to: Programmatically Close Workbooks](../vsto/how-to-programmatically-close-workbooks.md)   
+ [Optional Parameters in Office Solutions](../vsto/optional-parameters-in-office-solutions.md)  
   
   

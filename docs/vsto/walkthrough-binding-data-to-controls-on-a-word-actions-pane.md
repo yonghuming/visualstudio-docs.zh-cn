@@ -1,245 +1,244 @@
 ---
-title: "演练：将数据绑定到“Word 操作”窗格上的控件"
-ms.custom: ""
-ms.date: "02/02/2017"
-ms.prod: "visual-studio-dev14"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "office-development"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-dev_langs: 
-  - "VB"
-  - "CSharp"
-helpviewer_keywords: 
-  - "操作窗格 [Visual Studio 中的 Office 开发], 绑定控件"
-  - "操作窗格 [Visual Studio 中的 Office 开发], 数据绑定"
-  - "控件 [Visual Studio 中的 Office 开发], 数据绑定"
-  - "数据绑定 [Visual Studio 中的 Office 开发], 操作窗格"
-  - "数据绑定 [Visual Studio 中的 Office 开发], 智能文档"
-  - "智能文档 [Visual Studio 中的 Office 开发], 数据绑定"
+title: 'Walkthrough: Binding Data to Controls on a Word Actions Pane | Microsoft Docs'
+ms.custom: 
+ms.date: 02/02/2017
+ms.prod: visual-studio-dev14
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- office-development
+ms.tgt_pltfrm: 
+ms.topic: article
+dev_langs:
+- VB
+- CSharp
+helpviewer_keywords:
+- controls [Office development in Visual Studio], data binding
+- actions panes [Office development in Visual Studio], data binding
+- data binding [Office development in Visual Studio], smart documents
+- data binding [Office development in Visual Studio], actions panes
+- actions panes [Office development in Visual Studio], binding controls
+- smart documents [Office development in Visual Studio], data binding
 ms.assetid: 5ef72fc7-412b-4454-9890-4479a13ee7f9
 caps.latest.revision: 64
-author: "kempb"
-ms.author: "kempb"
-manager: "ghogen"
-caps.handback.revision: 63
+author: kempb
+ms.author: kempb
+manager: ghogen
+ms.translationtype: HT
+ms.sourcegitcommit: eb5c9550fd29b0e98bf63a7240737da4f13f3249
+ms.openlocfilehash: 2c2504808ee3442e531d359059796b8117ab64a1
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/30/2017
+
 ---
-# 演练：将数据绑定到“Word 操作”窗格上的控件
-  此演练演示如何在一个绑定到操作窗格上的控件的数据在 Word。  这些控件演示 SQL Server 数据库中的表之间的主\/从关系。  
+# <a name="walkthrough-binding-data-to-controls-on-a-word-actions-pane"></a>Walkthrough: Binding Data to Controls on a Word Actions Pane
+  This walkthrough demonstrates data binding to controls on an actions pane in Word. The controls demonstrate a master/detail relation between tables in a SQL Server database.  
   
  [!INCLUDE[appliesto_wdalldoc](../vsto/includes/appliesto-wdalldoc-md.md)]  
   
- 本演练阐释了以下任务：  
+ This walkthrough illustrates the following tasks:  
   
--   使用绑定到数据的 Windows 窗体控件来创建操作窗格。  
+-   Creating an actions pane with Windows Forms controls that are bound to data.  
   
--   使用主\/从关系在控件中显示数据。  
+-   Using a master/detail relationship to display data in the controls.  
   
--   在打开应用程序时显示操作窗格。  
+-   Show the actions pane when the application opens.  
   
 > [!NOTE]  
->  以下说明中的某些 Visual Studio 用户界面元素在计算机上出现的名称或位置可能会不同。  您安装的 Visual Studio 版本以及使用的设置决定了这些元素。  有关更多信息，请参见[Customizing Development Settings in Visual Studio](http://msdn.microsoft.com/zh-cn/22c4debb-4e31-47a8-8f19-16f328d7dcd3)。  
+>  Your computer might show different names or locations for some of the Visual Studio user interface elements in the following instructions. The Visual Studio edition that you have and the settings that you use determine these elements. For more information, see [Personalize the Visual Studio IDE](../ide/personalizing-the-visual-studio-ide.md).  
   
-## 系统必备  
- 您需要以下组件来完成本演练：  
+## <a name="prerequisites"></a>Prerequisites  
+ You need the following components to complete this walkthrough:  
   
 -   [!INCLUDE[vsto_vsprereq](../vsto/includes/vsto-vsprereq-md.md)]  
   
--   [!INCLUDE[Word_15_short](../vsto/includes/word-15-short-md.md)] 或 [!INCLUDE[Word_14_short](../vsto/includes/word-14-short-md.md)]。  
+-   [!INCLUDE[Word_15_short](../vsto/includes/word-15-short-md.md)] or [!INCLUDE[Word_14_short](../vsto/includes/word-14-short-md.md)].  
   
--   访问带有 Northwind SQL Server 示例数据库的服务器。  
+-   Access to a server with the Northwind SQL Server sample database.  
   
--   从 SQL Server 数据库中读取数据和向其中写入数据的权限。  
+-   Permissions to read from and write to the SQL Server database.  
   
-## 创建项目  
- 第一步是创建 Word 文档项目。  
+## <a name="creating-the-project"></a>Creating the Project  
+ The first step is to create a Word Document project.  
   
-#### 创建新项目  
+#### <a name="to-create-a-new-project"></a>To create a new project  
   
-1.  创建一个名为“我的 Word 操作窗格”的 Word 文档项目。  在向导中，选择**“创建新文档”**。  
+1.  Create a Word Document project with the name **My Word Actions Pane**. In the wizard, select **Create a new document**.  
   
-     有关更多信息，请参见[如何：在 Visual Studio 中创建 Office 项目](../vsto/how-to-create-office-projects-in-visual-studio.md)。  
+     For more information, see [How to: Create Office Projects in Visual Studio](../vsto/how-to-create-office-projects-in-visual-studio.md).  
   
-     Visual Studio 会在设计器中打开新的 Word 文档，并将**“我的 Word 操作窗格”**项目添加到**“解决方案资源管理器”**中。  
+     Visual Studio opens the new Word document in the designer and adds the **My Word Actions Pane** project to **Solution Explorer**.  
   
-## 向操作窗格中添加控件  
- 在此演练中，需要一个包含数据绑定 Windows 窗体控件的操作窗格控件。  向项目中添加一个数据源，然后将控件从**“数据源”**窗口拖动到操作窗格控件中。  
+## <a name="adding-controls-to-the-actions-pane"></a>Adding Controls to the Actions Pane  
+ For this walkthrough, you need an actions pane control that contains data-bound Windows Forms controls. Add a data source to the project, and then drag controls from the **Data Sources** window to the actions pane control.  
   
-#### 添加操作窗格控件  
+#### <a name="to-add-an-actions-pane-control"></a>To add an actions pane control  
   
-1.  在**“解决方案资源管理器”**中选择**“我的 Word 操作窗格”**项目。  
+1.  Select the **My Word Actions Pane** project in **Solution Explorer**.  
   
-2.  在**“项目”**菜单上，单击**“添加新项”**。  
+2.  On the **Project** menu, click **Add New Item**.  
   
-3.  在**“添加新项”**对话框中选择**“操作窗格控件”**，将它命名为**“ActionsControl”**，然后单击**“添加”**。  
+3.  In the **Add New Item** dialog box, select **Actions Pane Control**, name it **ActionsControl**, and then click **Add**.  
   
-#### 向项目添加数据源  
+#### <a name="to-add-a-data-source-to-the-project"></a>To add a data source to the project  
   
-1.  如果 **数据源** 窗口不可见，则显示那么，在菜单栏上，选择 **查看**，**其他窗口**，**数据源**。  
-  
-    > [!NOTE]  
-    >  如果**“显示数据源”**不可用，请单击 Word 文档，然后再次进行检查。  
-  
-2.  单击**“添加新数据源”**以启动**“数据源配置向导”**。  
-  
-3.  选择**“数据库”**，然后单击**“下一步”**。  
-  
-4.  选择到 Northwind 示例 SQL Server 数据库的数据连接，或者使用**“新建连接”**按钮添加新连接。  
-  
-5.  单击**“下一步”**。  
-  
-6.  如果选择了该选项，请将其清除以保存连接，然后单击**“下一步”**。  
-  
-7.  展开**“数据库对象”**窗口中的**“表”**节点。  
-  
-8.  选择**“Suppliers”**表和**“Products”**表旁边的复选框。  
-  
-9. 单击“完成”。  
-  
- 向导将**“Suppliers”**表和**“Products”**表添加到**“数据源”**窗口中。  还将一个类型化数据集添加到在**“解决方案资源管理器”**中可见的项目中。  
-  
-#### 将数据绑定 Windows 窗体控件添加到操作窗格控件  
-  
-1.  在**“数据源”**窗口中展开**“Suppliers”**表。  
-  
-2.  单击**“Company Name”**节点上的下拉箭头并选择**“ComboBox”**。  
-  
-3.  将**“CompanyName”**从**“数据源”**窗口拖动到操作窗格控件中。  
-  
-     操作窗格控件中便会创建一个 <xref:System.Windows.Forms.ComboBox> 控件。  同时，会将一个名为 `SuppliersBindingSource` 的 <xref:System.Windows.Forms.BindingSource>、一个表适配器和一个 <xref:System.Data.DataSet> 添加到组件栏的项目中。  
-  
-4.  选择**“组件”**栏中的 `SuppliersBindingNavigator` 并按 Delete。  在此演练中您将不会使用 `SuppliersBindingNavigator`。  
+1.  If the **Data Sources** window is not visible, display it by, on the menu bar, choosing **View**, **Other Windows**, **Data Sources**.  
   
     > [!NOTE]  
-    >  删除 `SuppliersBindingNavigator` 并不会移除为其生成的所有代码。  您可以移除此代码。  
+    >  If **Show Data Sources** is not available, click the Word document and then check again.  
   
-5.  移动组合框，使其位于标签之下，并将**“Size”**属性更改为“171, 21”。  
+2.  Click **Add New Data Source** to start the **Data Source Configuration Wizard**.  
   
-6.  在**“数据源”**窗口中，展开**“Suppliers”**表的子表**“Products”**。  
+3.  Select **Database** and then click **Next**.  
   
-7.  单击**“ProductName”**节点上的下拉箭头，然后选择**“ListBox”**。  
+4.  Select a data connection to the Northwind sample SQL Server database, or add a new connection by using the **New Connection** button.  
   
-8.  将**“ProductName”**拖动到操作窗格控件中。  
+5.  Click **Next**.  
   
-     操作窗格控件中便会创建一个 <xref:System.Windows.Forms.ListBox> 控件。  同时，会将一个名为 `ProductBindingSource` 的 <xref:System.Windows.Forms.BindingSource> 和一个表适配器添加到组件栏的项目中。  
+6.  Clear the option to save the connection if it is selected, and then click **Next**.  
   
-9. 移动列表框，使其位于标签之下，并将**“Size”**属性更改为“171,95”。  
+7.  Expand the **Tables** node in the **Database objects** window.  
   
-10. 将 <xref:System.Windows.Forms.Button> 从**“工具箱”**拖动到操作窗格控件上，并将其置于列表框下面。  
+8.  Select the check box next to the **Suppliers** and **Products** tables.  
   
-11. 右击 <xref:System.Windows.Forms.Button>，单击快捷菜单上的**“属性”**并更改以下属性。  
+9. Click **Finish**.  
   
-    |属性|值|  
-    |--------|-------|  
-    |**名称**|**插入**|  
-    |**文本**|**插入**|  
+ The wizard adds the **Suppliers** table and **Products** table to the **Data Sources** window. It also adds a typed dataset to your project that is visible in **Solution Explorer**.  
   
-12. 调整用户控件的大小，使其适合这些控件。  
+#### <a name="to-add-data-bound-windows-forms-controls-to-an-actions-pane-control"></a>To add data-bound Windows Forms controls to an actions pane control  
   
-## 设置数据源  
- 若要设置数据源，请将代码添加到操作窗格控件的 <xref:System.Windows.Forms.UserControl.Load> 事件以使用 <xref:System.Data.DataTable> 中的数据填充控件，并为每个控件设置 <xref:System.Windows.Forms.Binding.DataSource%2A> 和 <xref:System.Windows.Forms.BindingSource.DataMember%2A> 属性。  
+1.  In the **Data Sources** window, expand the **Suppliers** table.  
   
-#### 使用数据加载控件  
+2.  Click the drop-down arrow on the **Company Name** node, and select **ComboBox**.  
   
-1.  在 `ActionsControl` 类的 <xref:System.Windows.Forms.UserControl.Load> 事件处理程序中，添加以下代码。  
+3.  Drag **CompanyName** from the **Data Sources** window to the actions pane control.  
   
-     [!code-csharp[Trin_VstcoreActionsPaneWord#1](../snippets/csharp/VS_Snippets_OfficeSP/Trin_VstcoreActionsPaneWord/CS/ActionsControl.cs#1)]
-     [!code-vb[Trin_VstcoreActionsPaneWord#1](../snippets/visualbasic/VS_Snippets_OfficeSP/Trin_VstcoreActionsPaneWord/VB/ActionsControl.vb#1)]  
+     A <xref:System.Windows.Forms.ComboBox> control is created on the actions pane control. At the same time, a <xref:System.Windows.Forms.BindingSource> named `SuppliersBindingSource`, a table adapter, and a <xref:System.Data.DataSet> are added to the project in the component tray.  
   
-2.  在 C\# 中，必须将事件处理程序附加到 <xref:System.Windows.Forms.UserControl.Load> 事件。  可以将这些代码放在 `ActionsControl` 构造函数中 `InitializeComponent` 调用的后面。  有关如何创建事件处理程序的更多信息，请参见[如何：在 Office 项目中创建事件处理程序](../vsto/how-to-create-event-handlers-in-office-projects.md)。  
+4.  Select `SuppliersBindingNavigator` in the **Component** tray and press DELETE. You will not use the `SuppliersBindingNavigator` in this walkthrough.  
   
-     [!code-csharp[Trin_VstcoreActionsPaneWord#33](../snippets/csharp/VS_Snippets_OfficeSP/Trin_VstcoreActionsPaneWord/CS/ActionsControl.cs#33)]  
+    > [!NOTE]  
+    >  Deleting the `SuppliersBindingNavigator` does not remove all of the code that was generated for it. You can remove this code.  
   
-#### 设置控件的数据绑定属性  
+5.  Move the combo box so that it is under the label and change the **Size** property to **171, 21**.  
   
-1.  选择 `CompanyNameComboBox` 控件。  
+6.  In the **Data Sources** window, expand the **Products** table that is a child of the **Suppliers** table.  
   
-2.  在**“属性”**窗口中单击**“DataSource”**属性右侧的按钮，然后选择**“SuppliersBindingSource”**。  
+7.  Click the drop-down arrow on the **ProductName** node, and select **ListBox**.  
   
-3.  单击**“DisplayMember”**属性右侧的按钮，然后选择**“CompanyName”**。  
+8.  Drag **ProductName** to the actions pane control.  
   
-4.  展开**“DataBindings”**属性，单击**“Text”**属性右侧的按钮，然后选择**“None”**。  
+     A <xref:System.Windows.Forms.ListBox> control is created on the actions pane control. At the same time, a <xref:System.Windows.Forms.BindingSource> named `ProductBindingSource` and a table adapter are added to the project in the component tray.  
   
-5.  选择 `ProductNameListBox` 控件。  
+9. Move the list box so that it is under the label and change the **Size** property to **171,95**.  
   
-6.  在**“属性”**窗口中单击**“DataSource”**属性右侧的按钮，然后选择**“productsBindingSource”**。  
+10. Drag a <xref:System.Windows.Forms.Button> from the **Toolbox** onto the actions pane control and place it below the list box.  
   
-7.  单击**“DisplayMember”**属性右侧的按钮，然后选择**“ProductName”**。  
+11. Right-click the <xref:System.Windows.Forms.Button>, click **Properties** on the shortcut menu, and change the following properties.  
   
-8.  展开**“DataBindings”**属性，单击**“SelectedValue”**属性右侧的按钮，然后选择**“None”**。  
+    |Property|Value|  
+    |--------------|-----------|  
+    |**Name**|**Insert**|  
+    |**Text**|**Insert**|  
   
-## 添加方法以将数据插入表中  
- 下一个任务是从绑定控件中读取数据并填充 Word 文档中的表。  首先，创建一个用于设置表格标题格式的过程，然后添加 `AddData` 方法以创建一个 Word 表并设置其格式。  
+12. Resize the user control to fit the controls.  
   
-#### 设置表格标题的格式  
+## <a name="setting-up-the-data-source"></a>Setting Up the Data Source  
+ To set up the data source, add code to the <xref:System.Windows.Forms.UserControl.Load> event of the actions pane control to fill the control with data from the <xref:System.Data.DataTable>, and set the <xref:System.Windows.Forms.Binding.DataSource%2A> and <xref:System.Windows.Forms.BindingSource.DataMember%2A> properties for each control.  
   
-1.  在 `ActionsControl` 类中创建一个方法，用以设置表格标题的格式。  
+#### <a name="to-load-the-control-with-data"></a>To load the control with data  
   
-     [!code-csharp[Trin_VstcoreActionsPaneWord#2](../snippets/csharp/VS_Snippets_OfficeSP/Trin_VstcoreActionsPaneWord/CS/ActionsControl.cs#2)]
-     [!code-vb[Trin_VstcoreActionsPaneWord#2](../snippets/visualbasic/VS_Snippets_OfficeSP/Trin_VstcoreActionsPaneWord/VB/ActionsControl.vb#2)]  
+1.  In the <xref:System.Windows.Forms.UserControl.Load> event handler of the `ActionsControl` class, add the following code.  
   
-#### 创建表  
+     [!code-vb[Trin_VstcoreActionsPaneWord#1](../vsto/codesnippet/VisualBasic/Trin_VstcoreActionsPaneWordVB/ActionsControl.vb#1)]  [!code-csharp[Trin_VstcoreActionsPaneWord#1](../vsto/codesnippet/CSharp/Trin_VstcoreActionsPaneWordCS/ActionsControl.cs#1)]  
   
-1.  在 `ActionsControl` 类中编写一个方法，此方法将在不存在表的情况下创建一个表，并将操作窗格中的数据添加到此表中。  
+2.  In C#, you must attach the event handler to the <xref:System.Windows.Forms.UserControl.Load> event. You can place this code in the `ActionsControl` constructor, after the call to `InitializeComponent`. For more information about how to create event handlers, see [How to: Create Event Handlers in Office Projects](../vsto/how-to-create-event-handlers-in-office-projects.md).  
   
-     [!code-csharp[Trin_VstcoreActionsPaneWord#3](../snippets/csharp/VS_Snippets_OfficeSP/Trin_VstcoreActionsPaneWord/CS/ActionsControl.cs#3)]
-     [!code-vb[Trin_VstcoreActionsPaneWord#3](../snippets/visualbasic/VS_Snippets_OfficeSP/Trin_VstcoreActionsPaneWord/VB/ActionsControl.vb#3)]  
+     [!code-csharp[Trin_VstcoreActionsPaneWord#33](../vsto/codesnippet/CSharp/Trin_VstcoreActionsPaneWordCS/ActionsControl.cs#33)]  
   
-#### 在 Word 表中插入文本  
+#### <a name="to-set-data-binding-properties-of-the-controls"></a>To set data binding properties of the controls  
   
-1.  将以下代码添加到**“插入”**按钮的 <xref:System.Windows.Forms.Control.Click> 事件处理程序中。  
+1.  Select the `CompanyNameComboBox` control.  
   
-     [!code-csharp[Trin_VstcoreActionsPaneWord#4](../snippets/csharp/VS_Snippets_OfficeSP/Trin_VstcoreActionsPaneWord/CS/ActionsControl.cs#4)]
-     [!code-vb[Trin_VstcoreActionsPaneWord#4](../snippets/visualbasic/VS_Snippets_OfficeSP/Trin_VstcoreActionsPaneWord/VB/ActionsControl.vb#4)]  
+2.  In the **Properties** window, click the button to the right of the **DataSource** property, and select **suppliersBindingSource**.  
   
-2.  在 C\# 中，必须为按钮的 <xref:System.Windows.Forms.Control.Click> 事件创建事件处理程序。  可以将此代码放置在 `ActionsControl` 类的 <xref:System.Windows.Forms.UserControl.Load> 事件处理程序中。  
+3.  Click the button to the right of the **DisplayMember** property, and select **CompanyName**.  
   
-     [!code-csharp[Trin_VstcoreActionsPaneWord#5](../snippets/csharp/VS_Snippets_OfficeSP/Trin_VstcoreActionsPaneWord/CS/ActionsControl.cs#5)]  
+4.  Expand the **DataBindings** property, click the button to the right of the **Text** property, and select **None**.  
   
-## 显示操作窗格  
- 将控件添加到操作窗格之后，操作窗格即变为可见。  
+5.  Select the `ProductNameListBox` control.  
   
-#### 显示操作窗格  
+6.  In the **Properties** window, click the button to the right of the **DataSource** property, and select **productsBindingSource**.  
   
-1.  在**“解决方案资源管理器”**中右击**“ThisDocument.vb”**或**“ThisDocument.cs”**，再单击快捷菜单上的**“查看代码”**。  
+7.  Click the button to the right of the **DisplayMember** property, and select **ProductName**.  
   
-2.  在 `ThisDocument` 类的顶部创建一个新的控件实例，使其看上去与下面的示例类似。  
+8.  Expand the **DataBindings** property, click the button to the right of the **SelectedValue** property, and select **None**.  
   
-     [!code-csharp[Trin_VstcoreActionsPaneWord#6](../snippets/csharp/VS_Snippets_OfficeSP/Trin_VstcoreActionsPaneWord/CS/ThisDocument.cs#6)]
-     [!code-vb[Trin_VstcoreActionsPaneWord#6](../snippets/visualbasic/VS_Snippets_OfficeSP/Trin_VstcoreActionsPaneWord/VB/ThisDocument.vb#6)]  
+## <a name="adding-a-method-to-insert-data-into-a-table"></a>Adding a Method to Insert Data into a Table  
+ The next task is to read the data from the bound controls and populate a table in your Word document. First, create a procedure for formatting the headings in the table, and then add the `AddData` method to create and format a Word table.  
   
-3.  向 `ThisDocument` 的 <xref:Microsoft.Office.Tools.Word.Document.Startup> 事件处理程序中添加代码，使其看上去与下面的示例类似。  
+#### <a name="to-format-the-table-headings"></a>To format the table headings  
   
-     [!code-csharp[Trin_VstcoreActionsPaneWord#7](../snippets/csharp/VS_Snippets_OfficeSP/Trin_VstcoreActionsPaneWord/CS/ThisDocument.cs#7)]
-     [!code-vb[Trin_VstcoreActionsPaneWord#7](../snippets/visualbasic/VS_Snippets_OfficeSP/Trin_VstcoreActionsPaneWord/VB/ThisDocument.vb#7)]  
+1.  In the `ActionsControl` class, create a method to format the headings of the table.  
   
-## 测试应用程序  
- 现在可以对文档进行测试，以验证当文档打开时是否出现操作窗格。  测试操作窗格上控件之间的主\/从关系，并确保单击**“插入”**按钮时数据会填充到 Word 表中。  
+     [!code-vb[Trin_VstcoreActionsPaneWord#2](../vsto/codesnippet/VisualBasic/Trin_VstcoreActionsPaneWordVB/ActionsControl.vb#2)]  [!code-csharp[Trin_VstcoreActionsPaneWord#2](../vsto/codesnippet/CSharp/Trin_VstcoreActionsPaneWordCS/ActionsControl.cs#2)]  
   
-#### 测试文档  
+#### <a name="to-create-the-table"></a>To create the table  
   
-1.  按 F5 运行项目。  
+1.  In the `ActionsControl` class, write a method that will create a table if one does not already exist, and add data from the actions pane to the table.  
   
-2.  确认操作窗格可见。  
+     [!code-vb[Trin_VstcoreActionsPaneWord#3](../vsto/codesnippet/VisualBasic/Trin_VstcoreActionsPaneWordVB/ActionsControl.vb#3)]  [!code-csharp[Trin_VstcoreActionsPaneWord#3](../vsto/codesnippet/CSharp/Trin_VstcoreActionsPaneWordCS/ActionsControl.cs#3)]  
   
-3.  从组合框中选择一个公司，并确认**“Products”**列表框中的项随之发生变化。  
+#### <a name="to-insert-text-into-a-word-table"></a>To insert text into a Word table  
   
-4.  选择一个产品，单击操作窗格上的**“插入”**，并确认产品详细信息会随之添加到 Word 表中。  
+1.  Add the following code to the <xref:System.Windows.Forms.Control.Click> event handler of the **Insert** button.  
   
-5.  插入来自不同公司的其他产品。  
+     [!code-vb[Trin_VstcoreActionsPaneWord#4](../vsto/codesnippet/VisualBasic/Trin_VstcoreActionsPaneWordVB/ActionsControl.vb#4)]  [!code-csharp[Trin_VstcoreActionsPaneWord#4](../vsto/codesnippet/CSharp/Trin_VstcoreActionsPaneWordCS/ActionsControl.cs#4)]  
   
-## 后续步骤  
- 此演练演示将数据绑定到 Word 操作窗格中的控件的基本操作。  以下是接下来可能要执行的一些任务：  
+2.  In C#, you must create an event handler for the <xref:System.Windows.Forms.Control.Click> event of the button.  You can place this code in the <xref:System.Windows.Forms.UserControl.Load> event handler of the `ActionsControl` class.  
   
--   将数据绑定到 Excel 中的控件。  有关更多信息，请参见[演练：将数据绑定到 Excel 操作窗格上的控件](../vsto/walkthrough-binding-data-to-controls-on-an-excel-actions-pane.md)。  
+     [!code-csharp[Trin_VstcoreActionsPaneWord#5](../vsto/codesnippet/CSharp/Trin_VstcoreActionsPaneWordCS/ActionsControl.cs#5)]  
   
--   部署项目。  有关更多信息，请参见[使用 ClickOnce 部署 Office 解决方案](../vsto/deploying-an-office-solution-by-using-clickonce.md)。  
+## <a name="showing-the-actions-pane"></a>Showing the Actions Pane  
+ The actions pane becomes visible after controls are added to it.  
   
-## 请参阅  
- [操作窗格概述](../vsto/actions-pane-overview.md)   
- [如何：向 Word 文档或 Excel 工作簿添加操作窗格](../vsto/how-to-add-an-actions-pane-to-word-documents-or-excel-workbooks.md)   
- [将数据绑定到 Office 解决方案中的控件](../vsto/binding-data-to-controls-in-office-solutions.md)  
+#### <a name="to-show-the-actions-pane"></a>To show the actions pane  
+  
+1.  In **Solution Explorer**, right-click **ThisDocument.vb** or **ThisDocument.cs**, and then click **View Code** on the shortcut menu.  
+  
+2.  Create a new instance of the control at the top of the `ThisDocument` class so that it looks like the following example.  
+  
+     [!code-csharp[Trin_VstcoreActionsPaneWord#6](../vsto/codesnippet/CSharp/Trin_VstcoreActionsPaneWordCS/ThisDocument.cs#6)]  [!code-vb[Trin_VstcoreActionsPaneWord#6](../vsto/codesnippet/VisualBasic/Trin_VstcoreActionsPaneWordVB/ThisDocument.vb#6)]  
+  
+3.  Add code to the <xref:Microsoft.Office.Tools.Word.Document.Startup> event handler of `ThisDocument` so that it looks like the following example.  
+  
+     [!code-csharp[Trin_VstcoreActionsPaneWord#7](../vsto/codesnippet/CSharp/Trin_VstcoreActionsPaneWordCS/ThisDocument.cs#7)]  [!code-vb[Trin_VstcoreActionsPaneWord#7](../vsto/codesnippet/VisualBasic/Trin_VstcoreActionsPaneWordVB/ThisDocument.vb#7)]  
+  
+## <a name="testing-the-application"></a>Testing the Application  
+ Now you can test your document to verify that the actions pane appears when the document is opened. Test for the master/detail relationship in the controls on the actions pane, and make sure that data is populated in a Word table when the **Insert** button is clicked.  
+  
+#### <a name="to-test-your-document"></a>To test your document  
+  
+1.  Press F5 to run your project.  
+  
+2.  Confirm that the actions pane is visible.  
+  
+3.  Select a company in the combo box and verify that the items in the **Products** list box change.  
+  
+4.  Select a product, click **Insert** on the actions pane, and verify that the product details are added to the table in Word.  
+  
+5.  Insert additional products from various companies.  
+  
+## <a name="next-steps"></a>Next Steps  
+ This walkthrough shows the basics of binding data to controls on an actions pane in Word. Here are some tasks that might come next:  
+  
+-   Binding data to controls in Excel. For more information, see [Walkthrough: Binding Data to Controls on an Excel Actions Pane](../vsto/walkthrough-binding-data-to-controls-on-an-excel-actions-pane.md).  
+  
+-   Deploying the project. For more information, see [Deploying an Office Solution by Using ClickOnce](../vsto/deploying-an-office-solution-by-using-clickonce.md).  
+  
+## <a name="see-also"></a>See Also  
+ [Actions Pane Overview](../vsto/actions-pane-overview.md)   
+ [How to: Add an Actions Pane to Word Documents or Excel Workbooks](../vsto/how-to-add-an-actions-pane-to-word-documents-or-excel-workbooks.md)   
+ [Binding Data to Controls in Office Solutions](../vsto/binding-data-to-controls-in-office-solutions.md)  
   
   

@@ -1,59 +1,75 @@
 ---
-title: "CA1410：应对 COM 注册方法进行匹配 | Microsoft Docs"
-ms.custom: ""
-ms.date: "12/15/2016"
-ms.prod: "visual-studio-dev14"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-devops-test"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "CA1410"
-  - "ComRegistrationMethodsShouldBeMatched"
-helpviewer_keywords: 
-  - "CA1410"
-  - "ComRegistrationMethodsShouldBeMatched"
+title: 'CA1410: COM registration methods should be matched | Microsoft Docs'
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-devops-test
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords:
+- CA1410
+- ComRegistrationMethodsShouldBeMatched
+helpviewer_keywords:
+- CA1410
+- ComRegistrationMethodsShouldBeMatched
 ms.assetid: f3b2e62d-fd66-4093-9f0c-dba01ad995fd
 caps.latest.revision: 16
-caps.handback.revision: 16
-author: "stevehoag"
-ms.author: "shoag"
-manager: "wpickett"
----
-# CA1410：应对 COM 注册方法进行匹配
-[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
+author: stevehoag
+ms.author: shoag
+manager: wpickett
+translation.priority.ht:
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- ru-ru
+- zh-cn
+- zh-tw
+translation.priority.mt:
+- cs-cz
+- pl-pl
+- pt-br
+- tr-tr
+ms.translationtype: HT
+ms.sourcegitcommit: eb5c9550fd29b0e98bf63a7240737da4f13f3249
+ms.openlocfilehash: 7f38792d72d431a35b797ec73c0abdadfc2dd4f1
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/30/2017
 
+---
+# <a name="ca1410-com-registration-methods-should-be-matched"></a>CA1410: COM registration methods should be matched
 |||  
 |-|-|  
-|类型名|ComRegistrationMethodsShouldBeMatched|  
+|TypeName|ComRegistrationMethodsShouldBeMatched|  
 |CheckId|CA1410|  
-|类别|Microsoft.Interoperability|  
-|是否重大更改|非重大更改|  
+|Category|Microsoft.Interoperability|  
+|Breaking Change|Non-breaking|  
   
-## 原因  
- 某个类型声明了标记有 <xref:System.Runtime.InteropServices.ComRegisterFunctionAttribute?displayProperty=fullName> 特性的方法，但未声明标记有 <xref:System.Runtime.InteropServices.ComUnregisterFunctionAttribute?displayProperty=fullName> 特性的方法，或者反过来。  
+## <a name="cause"></a>Cause  
+ A type declares a method that is marked with the <xref:System.Runtime.InteropServices.ComRegisterFunctionAttribute?displayProperty=fullName> attribute but does not declare a method that is marked with the <xref:System.Runtime.InteropServices.ComUnregisterFunctionAttribute?displayProperty=fullName> attribute, or vice versa.  
   
-## 规则说明  
- 为了让组件对象模型 \(COM\) 客户端能够创建 [!INCLUDE[dnprdnshort](../code-quality/includes/dnprdnshort_md.md)] 类型，首先必须注册该类型。  在注册过程中将调用标记有 <xref:System.Runtime.InteropServices.ComRegisterFunctionAttribute> 特性的方法（如果有的话），以运行用户指定的代码。  注销过程中将调用标记有 <xref:System.Runtime.InteropServices.ComUnregisterFunctionAttribute> 特性的对应方法，以执行与注册方法的操作相反的操作。  
+## <a name="rule-description"></a>Rule Description  
+ For Component Object Model (COM) clients to create a [!INCLUDE[dnprdnshort](../code-quality/includes/dnprdnshort_md.md)] type, the type must first be registered. If it is available, a method that is marked with the <xref:System.Runtime.InteropServices.ComRegisterFunctionAttribute> attribute is called during the registration process to run user-specified code. A corresponding method that is marked with the <xref:System.Runtime.InteropServices.ComUnregisterFunctionAttribute> attribute is called during the unregistration process to reverse the operations of the registration method.  
   
-## 如何解决冲突  
- 若要修复与该规则的冲突，请添加对应的注册或注销方法。  
+## <a name="how-to-fix-violations"></a>How to Fix Violations  
+ To fix a violation of this rule, add the corresponding registration or unregistration method.  
   
-## 何时禁止显示警告  
- 不要禁止显示此规则发出的警告。  
+## <a name="when-to-suppress-warnings"></a>When to Suppress Warnings  
+ Do not suppress a warning from this rule.  
   
-## 示例  
- 下面的示例演示一个与该规则冲突的类型。  带注释的代码演示对该冲突的修复。  
+## <a name="example"></a>Example  
+ The following example shows a type that violates the rule. The commented code shows the fix for the violation.  
   
- [!code-cs[FxCop.Interoperability.ComRegistration#1](../code-quality/codesnippet/CSharp/ca1410-com-registration-methods-should-be-matched_1.cs)]
- [!code-vb[FxCop.Interoperability.ComRegistration#1](../code-quality/codesnippet/VisualBasic/ca1410-com-registration-methods-should-be-matched_1.vb)]  
+ [!code-csharp[FxCop.Interoperability.ComRegistration#1](../code-quality/codesnippet/CSharp/ca1410-com-registration-methods-should-be-matched_1.cs)] [!code-vb[FxCop.Interoperability.ComRegistration#1](../code-quality/codesnippet/VisualBasic/ca1410-com-registration-methods-should-be-matched_1.vb)]  
   
-## 相关规则  
- [CA1411：COM 注册方法应该是不可见的](../code-quality/ca1411-com-registration-methods-should-not-be-visible.md)  
+## <a name="related-rules"></a>Related Rules  
+ [CA1411: COM registration methods should not be visible](../code-quality/ca1411-com-registration-methods-should-not-be-visible.md)  
   
-## 请参阅  
+## <a name="see-also"></a>See Also  
  <xref:System.Runtime.InteropServices.RegistrationServices?displayProperty=fullName>   
- [向 COM 注册程序集](../Topic/Registering%20Assemblies%20with%20COM.md)   
- [Regasm.exe（程序集注册工具）](../Topic/Regasm.exe%20\(Assembly%20Registration%20Tool\).md)
+ [Registering Assemblies with COM](/dotnet/framework/interop/registering-assemblies-with-com)   
+ [Regasm.exe (Assembly Registration Tool)](/dotnet/framework/tools/regasm-exe-assembly-registration-tool)

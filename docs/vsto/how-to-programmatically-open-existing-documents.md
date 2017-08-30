@@ -1,54 +1,57 @@
 ---
-title: "如何：以编程方式打开现有文档"
-ms.custom: ""
-ms.date: "02/02/2017"
-ms.prod: "visual-studio-dev14"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "office-development"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-dev_langs: 
-  - "VB"
-  - "CSharp"
-helpviewer_keywords: 
-  - "文档 [Visual Studio 中的 Office 开发], 打开"
-  - "Word [Visual Studio 中的 Office 开发], 打开文档"
+title: 'How to: Programmatically Open Existing Documents | Microsoft Docs'
+ms.custom: 
+ms.date: 02/02/2017
+ms.prod: visual-studio-dev14
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- office-development
+ms.tgt_pltfrm: 
+ms.topic: article
+dev_langs:
+- VB
+- CSharp
+helpviewer_keywords:
+- documents [Office development in Visual Studio], opening
+- Word [Office development in Visual Studio], opening documents
 ms.assetid: 08f7fe4b-d96d-4a0c-b32a-aa7fd7992316
 caps.latest.revision: 44
-author: "kempb"
-ms.author: "kempb"
-manager: "ghogen"
-caps.handback.revision: 43
+author: kempb
+ms.author: kempb
+manager: ghogen
+ms.translationtype: HT
+ms.sourcegitcommit: eb5c9550fd29b0e98bf63a7240737da4f13f3249
+ms.openlocfilehash: a0078a0bde72abc94d586d22bdf4ef36c8b69801
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/30/2017
+
 ---
-# 如何：以编程方式打开现有文档
-  <xref:Microsoft.Office.Interop.Word.Documents.Open%2A> 方法打开完全限定路径和文件名所指定的现有 Microsoft Office Word 文档。  此方法返回 <xref:Microsoft.Office.Interop.Word.Document>，它表示打开的文档。  
+# <a name="how-to-programmatically-open-existing-documents"></a>How to: Programmatically Open Existing Documents
+  The <xref:Microsoft.Office.Interop.Word.Documents.Open%2A> method opens the existing Microsoft Office Word document specified by a fully qualified path and file name. This method returns a <xref:Microsoft.Office.Interop.Word.Document> that represents the opened document.  
   
  [!INCLUDE[appliesto_wdalldocapp](../vsto/includes/appliesto-wdalldocapp-md.md)]  
   
-### 打开文档  
+### <a name="to-open-a-document"></a>To open a document  
   
--   调用 <xref:Microsoft.Office.Interop.Word.Documents> 集合的 <xref:Microsoft.Office.Interop.Word.Documents.Open%2A> 方法，并提供文档的路径。  
+-   Call the <xref:Microsoft.Office.Interop.Word.Documents.Open%2A> method of the <xref:Microsoft.Office.Interop.Word.Documents> collection and supply a path to the document.  
   
-     [!code-csharp[Trin_VstcoreWordAutomation#5](../snippets/csharp/VS_Snippets_OfficeSP/Trin_VstcoreWordAutomation/CS/ThisDocument.cs#5)]
-     [!code-vb[Trin_VstcoreWordAutomation#5](../snippets/visualbasic/VS_Snippets_OfficeSP/Trin_VstcoreWordAutomation/VB/ThisDocument.vb#5)]  
+     [!code-vb[Trin_VstcoreWordAutomation#5](../vsto/codesnippet/VisualBasic/Trin_VstcoreWordAutomationVB/ThisDocument.vb#5)]  [!code-csharp[Trin_VstcoreWordAutomation#5](../vsto/codesnippet/CSharp/Trin_VstcoreWordAutomationCS/ThisDocument.cs#5)]  
   
-### 以只读方式打开文档  
+### <a name="to-open-a-document-as-read-only"></a>To open a document as read-only  
   
--   调用 <xref:Microsoft.Office.Interop.Word.Documents.Open%2A> 方法，提供文档的路径，并在方法调用中将 *ReadOnly* 参数设置为 **True**。  
+-   Call the <xref:Microsoft.Office.Interop.Word.Documents.Open%2A> method, supply a path to the document, and set the *ReadOnly* argument to **True** in the method call.  
   
-     [!code-csharp[Trin_VstcoreWordAutomation#6](../snippets/csharp/VS_Snippets_OfficeSP/Trin_VstcoreWordAutomation/CS/ThisDocument.cs#6)]
-     [!code-vb[Trin_VstcoreWordAutomation#6](../snippets/visualbasic/VS_Snippets_OfficeSP/Trin_VstcoreWordAutomation/VB/ThisDocument.vb#6)]  
+     [!code-vb[Trin_VstcoreWordAutomation#6](../vsto/codesnippet/VisualBasic/Trin_VstcoreWordAutomationVB/ThisDocument.vb#6)]  [!code-csharp[Trin_VstcoreWordAutomation#6](../vsto/codesnippet/CSharp/Trin_VstcoreWordAutomationCS/ThisDocument.cs#6)]  
   
-## 编译代码  
- 此代码示例要求满足以下条件：  
+## <a name="compiling-the-code"></a>Compiling the Code  
+ This code example requires the following:  
   
--   驱动器 C 上名为 Test 的目录中必须存在一个名为 NewDocument.doc 的文档。  
+-   A document named NewDocument.doc must exist in a directory named Test on drive C.  
   
-## 请参阅  
- [如何：以编程方式新建文档](../vsto/how-to-programmatically-create-new-documents.md)   
- [如何：以编程方式关闭文档](../vsto/how-to-programmatically-close-documents.md)   
- [Office 解决方案中的可选参数](../vsto/optional-parameters-in-office-solutions.md)  
+## <a name="see-also"></a>See Also  
+ [How to: Programmatically Create New Documents](../vsto/how-to-programmatically-create-new-documents.md)   
+ [How to: Programmatically Close Documents](../vsto/how-to-programmatically-close-documents.md)   
+ [Optional Parameters in Office Solutions](../vsto/optional-parameters-in-office-solutions.md)  
   
   

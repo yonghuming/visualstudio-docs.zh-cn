@@ -1,88 +1,92 @@
 ---
-title: "文档级自定义项中的 XML 架构和数据"
-ms.custom: ""
-ms.date: "02/02/2017"
-ms.prod: "visual-studio-dev14"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "office-development"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-dev_langs: 
-  - "VB"
-  - "CSharp"
-helpviewer_keywords: 
-  - "Visual Studio 中的 Office 开发, XML"
-  - "架构 [Visual Studio 中的 Office 开发]"
-  - "XML [Visual Studio 中的 Office 开发], XML 架构"
-  - "XML 架构 [Visual Studio 中的 Office 开发]"
-  - "XML 架构 [Visual Studio 中的 Office 开发], 关于 XML 架构和数据"
+title: XML Schemas and Data in Document-Level Customizations | Microsoft Docs
+ms.custom: 
+ms.date: 02/02/2017
+ms.prod: visual-studio-dev14
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- office-development
+ms.tgt_pltfrm: 
+ms.topic: article
+dev_langs:
+- VB
+- CSharp
+helpviewer_keywords:
+- XML schemas [Office development in Visual Studio]
+- schemas [Office development in Visual Studio]
+- XML [Office development in Visual Studio], XML schemas
+- XML schemas [Office development in Visual Studio], about XML schemas and data
+- Office development in Visual Studio, XML
 ms.assetid: 74bd5773-6cb0-44fb-9738-75e2f2c6e48d
 caps.latest.revision: 28
-author: "kempb"
-ms.author: "kempb"
-manager: "ghogen"
-caps.handback.revision: 27
+author: kempb
+ms.author: kempb
+manager: ghogen
+ms.translationtype: HT
+ms.sourcegitcommit: eb5c9550fd29b0e98bf63a7240737da4f13f3249
+ms.openlocfilehash: 3ad424ab226121850e473b8e13ffee305fad88eb
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/30/2017
+
 ---
-# 文档级自定义项中的 XML 架构和数据
-  **重要事项** 有关 Microsoft Word 的本主题开头的信息对于位于美国境外及其领土或使用对单个的优点和使用完全呈现和组织，或者运行的开发的程序，即在 2010 年一月之前的 Microsoft 许可证的 Microsoft Word 产品，那么，当 Microsoft 从 Microsoft Word 移除了特殊功能的实现与自定义 XML 相关。  凡位于美国及其各州内的个体或组织，在使用或开发用于在由 Microsoft 于 2010 年 1 月 10 日之后授予许可的 Microsoft Word 产品上运行的程序时，请勿参考或使用此与 Microsoft Word 相关的信息；这些产品与此许可日期之前的产品，或在美国以外的国家\/地区销售和授予使用许可的产品的行为不同。  
+# <a name="xml-schemas-and-data-in-document-level-customizations"></a>XML Schemas and Data in Document-Level Customizations
+  **Important** The information set out in this topic regarding Microsoft Word is presented exclusively for the benefit and use of individuals and organizations who are located outside the United States and its territories or who are using, or developing programs that run on, Microsoft Word products that were licensed by Microsoft before January 2010, when Microsoft removed an implementation of particular functionality related to custom XML from Microsoft Word. This information regarding Microsoft Word may not be read or used by individuals or organizations in the United States or its territories who are using, or developing programs that run on, Microsoft Word products that were licensed by Microsoft after January 10, 2010; those products will not behave the same as products licensed before that date or purchased and licensed for use outside the United States.  
   
  [!INCLUDE[appliesto_alldoc](../vsto/includes/appliesto-alldoc-md.md)]  
   
- Microsoft Office Excel 和 Microsoft Office Word 提供了用于将架构映射到文档的功能。  此功能可以简化在文档中导入和导出 XML 数据的操作。  
+ Microsoft Office Excel and Microsoft Office Word provide the capability to map schemas to your documents. This feature can simplify importing and exporting XML data in and out of the document.  
   
- Visual Studio 以编程模型中的控件的形式在文档级自定义项中公开映射的架构元素。  对于 Excel，Visual Studio 增加了将控件绑定到数据库、Web 服务及对象中的数据的支持。  Visual Studio 还为 Word 和 Excel 增加了对操作窗格的支持，可以将操作窗格与架构映射文档一起使用，为解决方案的最终用户带来更佳的体验。  有关更多信息，请参见[操作窗格概述](../vsto/actions-pane-overview.md)。  
+ Visual Studio exposes mapped schema elements in document-level customizations as controls in the programming model. For Excel, Visual Studio adds support for binding the controls to data in databases, Web services, and objects. For Word and Excel, Visual Studio adds support for actions panes, which can be used with a schema-mapped document to create an enhanced end user experience for your solutions. For more information, see [Actions Pane Overview](../vsto/actions-pane-overview.md).  
   
 > [!NOTE]  
->  不能在 Excel 解决方案中使用多部分 XML 架构。  
+>  You cannot use multipart XML schemas in Excel solutions.  
   
-## 架构附加到 Excel 工作簿时创建的对象  
- 将架构附加到在工作簿时，Visual Studio 将自动创建若干对象，并将它们添加到项目中。  由于这些对象由 Excel 进行管理，因此不应使用 Visual Studio 工具删除这些对象。  若要删除这些对象，请使用 Excel 工具将映射元素从工作表中移除或分离架构。  
+## <a name="objects-created-when-schemas-are-attached-to-excel-workbooks"></a>Objects Created when Schemas are Attached to Excel Workbooks  
+ When you attach a schema to a workbook, Visual Studio automatically creates several objects and adds them to your project. These objects should not be deleted using Visual Studio tools, because they are managed by Excel. To delete them, remove the mapped elements from the worksheet or detach the schema by using Excel tools.  
   
- 有两个主要对象：  
+ There are two main objects:  
   
--   XML 架构（XSD 文件）。  对于工作簿中的每个架构，Visual Studio 都会向项目中添加一个架构。  该架构在**“解决方案资源管理器”**中显示为一个带 XSD 扩展名的项目项。  
+-   XML schema (XSD file). For every schema in the workbook, Visual Studio adds a schema to the project. This appears as a project item with an XSD extension in **Solution Explorer**.  
   
--   类型化 <xref:System.Data.DataSet> 类。  此类是基于架构创建的。  此数据集类在**“类视图”**中可见。  
+-   A typed <xref:System.Data.DataSet> class. This class is created based on the schema. This dataset class is visible in **Class View**.  
   
-## 当架构元素映射到 Excel 工作表时创建的对象  
- 将来自**“XML 源”**任务窗格的架构元素映射到工作表时，Visual Studio 会自动创建几个对象并将它们添加到项目中：  
+## <a name="objects-created-when-schema-elements-are-mapped-to-excel-worksheets"></a>Objects Created when Schema Elements are Mapped to Excel Worksheets  
+ When you map a schema element from the **XML Source** task pane to a worksheet, Visual Studio automatically creates several objects and adds them to your project:  
   
--   控件。  对于工作簿中的每个映射对象，都会在编程模型中创建一个 <xref:Microsoft.Office.Tools.Excel.XmlMappedRange> 控件（用于非重复架构元素）或 <xref:Microsoft.Office.Tools.Excel.ListObject> 控件（用于重复架构元素）。  只有通过从工作簿中删除映射和映射对象，才能将 <xref:Microsoft.Office.Tools.Excel.ListObject> 控件删除。  有关控件的更多信息，请参见 [宿主项和宿主控件概述](../vsto/host-items-and-host-controls-overview.md)。  
+-   Controls. For every mapped object in the workbook, an <xref:Microsoft.Office.Tools.Excel.XmlMappedRange> control (for non-repeating schema elements) or a <xref:Microsoft.Office.Tools.Excel.ListObject> control (for repeating schema elements) is created in the programming model. The <xref:Microsoft.Office.Tools.Excel.ListObject> control can be deleted only by deleting the mappings and the mapped objects from the workbook. For more information about controls, see [Host Items and Host Controls Overview](../vsto/host-items-and-host-controls-overview.md).  
   
--   BindingSource。  通过将非重复架构元素映射到工作表创建 <xref:Microsoft.Office.Tools.Excel.XmlMappedRange> 时，会创建一个 <xref:System.Windows.Forms.BindingSource> 并将 <xref:Microsoft.Office.Tools.Excel.XmlMappedRange> 控件绑定到 <xref:System.Windows.Forms.BindingSource>。  必须将 <xref:System.Windows.Forms.BindingSource> 绑定到与映射到文档的架构匹配的数据源的实例，如创建的类型化 <xref:System.Data.DataSet> 类的实例。  通过设置**“属性”**窗口中公开的 <xref:System.Windows.Forms.BindingSource.DataSource%2A> 和 <xref:System.Windows.Forms.BindingSource.DataMember%2A> 属性创建绑定。  
+-   BindingSource. When you create an <xref:Microsoft.Office.Tools.Excel.XmlMappedRange> by mapping a non-repeating schema element to the worksheet, a <xref:System.Windows.Forms.BindingSource> is created and the <xref:Microsoft.Office.Tools.Excel.XmlMappedRange> control is bound to the <xref:System.Windows.Forms.BindingSource>. You must bind the <xref:System.Windows.Forms.BindingSource> to an instance of the data source that matches the schema mapped to the document, such as an instance of the typed <xref:System.Data.DataSet> class that was created. Create the binding by setting the <xref:System.Windows.Forms.BindingSource.DataSource%2A> and <xref:System.Windows.Forms.BindingSource.DataMember%2A> properties, which are exposed in the **Properties** window.  
   
     > [!NOTE]  
-    >  <xref:System.Windows.Forms.BindingSource> 不是为 <xref:Microsoft.Office.Tools.Excel.ListObject> 对象创建的。  必须通过设置**“属性”**窗口中的 <xref:System.Windows.Forms.BindingSource.DataSource%2A> 和 <xref:System.Windows.Forms.BindingSource.DataMember%2A> 属性将 <xref:Microsoft.Office.Tools.Excel.ListObject> 手动绑定到数据源。  
+    >  The <xref:System.Windows.Forms.BindingSource> is not created for <xref:Microsoft.Office.Tools.Excel.ListObject> objects. You must manually bind the <xref:Microsoft.Office.Tools.Excel.ListObject> to the data source by setting the <xref:System.Windows.Forms.BindingSource.DataSource%2A> and <xref:System.Windows.Forms.BindingSource.DataMember%2A> properties in the **Properties** window.  
   
-### Office 映射架构与 Visual Studio 数据源窗口  
- Office 的映射架构功能和 Visual Studio**“数据源”**窗口可以帮助您在 Excel 工作表上呈现数据，以用于报告或编辑。  在这两种情况下，都可以将数据元素拖到 Excel 工作表上。  这两种方法都会创建通过 <xref:System.Windows.Forms.BindingSource> 绑定到数据源（如 <xref:System.Data.DataSet> 或 Web 服务）的控件。  
+### <a name="office-mapped-schemas-and-the-visual-studio-data-sources-window"></a>Office Mapped Schemas and the Visual Studio Data Sources Window  
+ Both the mapped schema functionality of Office and the Visual Studio **Data Sources** window can help you present data on an Excel worksheet for reporting or editing. In both cases you can drag data elements onto the Excel worksheet. Both methods create controls that are data bound through a <xref:System.Windows.Forms.BindingSource> to a data source such as a <xref:System.Data.DataSet> or a Web service.  
   
 > [!NOTE]  
->  当您将重复的架构元素映射到工作表时，Visual Studio 会创建一个 <xref:Microsoft.Office.Tools.Excel.ListObject>。  <xref:Microsoft.Office.Tools.Excel.ListObject> 不是通过 <xref:System.Windows.Forms.BindingSource> 自动绑定到数据的。  必须通过设置**“属性”**窗口中的 <xref:System.Windows.Forms.BindingSource.DataSource%2A> 和 <xref:System.Windows.Forms.BindingSource.DataMember%2A> 属性将 <xref:Microsoft.Office.Tools.Excel.ListObject> 手动绑定到数据源。  
+>  When you map a repeating schema element to a worksheet, Visual Studio creates a <xref:Microsoft.Office.Tools.Excel.ListObject>. The <xref:Microsoft.Office.Tools.Excel.ListObject> is not automatically bound to data through the <xref:System.Windows.Forms.BindingSource>. You must manually bind the <xref:Microsoft.Office.Tools.Excel.ListObject> to the data source by setting the <xref:System.Windows.Forms.BindingSource.DataSource%2A> and <xref:System.Windows.Forms.BindingSource.DataMember%2A> properties in the **Properties** window.  
   
- 下表显示了这两种方法之间的一些差异。  
+ The following table shows some of the differences between the two methods.  
   
-|XML 架构|“数据源”窗口|  
-|------------|-------------|  
-|使用 Office 界面。|使用 Visual Studio 中的**“数据源”**窗口。|  
-|启用内置 Office 功能，以便在 XML 文件中导入和导出数据。|必须以编程方式提供导入和导出功能。|  
-|必须编写代码以使用数据填充生成的控件。|从**“数据源”**窗口添加的控件具有自动生成的填充控件的代码，使用数据库服务器时还会有必要的连接字符串。|  
+|XML schema|Data Sources window|  
+|----------------|-------------------------|  
+|Uses Office interface.|Uses **Data Sources** window in Visual Studio.|  
+|Enables the built-in Office features for importing and exporting data from XML files.|You must provide import and export functionality programmatically.|  
+|You must write code to fill the generated controls with data.|Controls added from the **Data Sources** window have code generated automatically to fill them, along with the necessary connection strings when you use database servers.|  
   
-## 架构附加到 Word 文档时的行为  
- 将架构附加到在文档级 Office 项目中使用的 Word 文档时，并不会创建数据对象。  但是，将架构元素映射到文档时会创建控件。  控件的类型取决于所映射的元素的类型；重复元素生成 <xref:Microsoft.Office.Tools.Word.XMLNodes> 控件，非重复元素生成 <xref:Microsoft.Office.Tools.Word.XMLNode> 控件。  有关更多信息，请参见[XMLNodes 控件](../vsto/xmlnodes-control.md)和[XMLNode 控件](../vsto/xmlnode-control.md)。  
+## <a name="behavior-when-schemas-are-attached-to-word-documents"></a>Behavior when Schemas are Attached to Word Documents  
+ Data objects are not created when you attach a schema to a Word document that is used in a document-level Office project. However, when you map a schema element to your document, controls are created. The type of control depends on what type of element you map; repeating elements generate <xref:Microsoft.Office.Tools.Word.XMLNodes> controls, and non-repeating elements generate <xref:Microsoft.Office.Tools.Word.XMLNode> controls. For more information, see [XMLNodes Control](../vsto/xmlnodes-control.md) and [XMLNode Control](../vsto/xmlnode-control.md).  
   
-## 部署包含 XML 架构的解决方案  
- 应该创建一个安装程序，以部署使用映射到文档的 XML 架构的解决方案。  该安装程序应该在用户计算机上的架构库中注册此架构。  如果没有注册此架构，解决方案也仍然能工作，因为 Word 会在用户打开文档时根据文档中的元素创建一个临时架构。  但是，用户将不能根据用于创建项目的架构进行验证或将此架构保存。  有关安装程序的更多信息，请参见 [部署应用程序、服务器和组件](../deployment/deploying-applications-services-and-components.md)。  
+## <a name="deployment-of-solutions-that-include-xml-schemas"></a>Deployment of Solutions That Include XML Schemas  
+ You should create an installer to deploy a solution that uses an XML schema that is mapped to a document. The installer should register the schema in the schema library on the user's computer. If you do not register the schema, the solution will still work because Word generates a temporary schema based on the elements that are in the document when the user opens it. However, the user will not be able to perform validation against or save the schema that was used to create the project. For more information about installers, see [Deploying Applications, Services, and Components](/visualstudio/deployment/deploying-applications-services-and-components).  
   
- 也可以向项目添加代码，以检查架构是否位于库中，以及是否已经注册。  如果未在库中或未注册，可以向用户发出警告。  
+ You can also add code to your project to check whether the schema is in the library and registered. If it is not, you can warn the user.  
   
- [!code-csharp[Trin_VstcoreDataWord#1](../snippets/csharp/VS_Snippets_OfficeSP/Trin_VstcoreDataWord/CS/ThisDocument.cs#1)]
- [!code-vb[Trin_VstcoreDataWord#1](../snippets/visualbasic/VS_Snippets_OfficeSP/Trin_VstcoreDataWord/VB/ThisDocument.vb#1)]  
+ [!code-vb[Trin_VstcoreDataWord#1](../vsto/codesnippet/VisualBasic/Trin_VstcoreDataWordVB/ThisDocument.vb#1)] [!code-csharp[Trin_VstcoreDataWord#1](../vsto/codesnippet/CSharp/Trin_VstcoreDataWordCS/ThisDocument.cs#1)]  
   
-## 请参阅  
- [如何：将架构映射到 Visual Studio 内部的 Word 文档](../vsto/how-to-map-schemas-to-word-documents-inside-visual-studio.md)   
- [如何：将架构映射到 Visual Studio 内部的工作表](../vsto/how-to-map-schemas-to-worksheets-inside-visual-studio.md)  
+## <a name="see-also"></a>See Also  
+ [How to: Map Schemas to Word Documents Inside Visual Studio](../vsto/how-to-map-schemas-to-word-documents-inside-visual-studio.md)   
+ [How to: Map Schemas to Worksheets Inside Visual Studio](../vsto/how-to-map-schemas-to-worksheets-inside-visual-studio.md)  
   
   

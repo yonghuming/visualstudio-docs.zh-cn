@@ -1,145 +1,149 @@
 ---
-title: "演练：创建你的第一个 Excel VSTO 外接程序"
-ms.custom: ""
-ms.date: "02/02/2017"
-ms.prod: "visual-studio-dev14"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "office-development"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-dev_langs: 
-  - "VB"
-  - "CSharp"
-helpviewer_keywords: 
-  - "应用程序级外接程序 [Visual Studio 中的 Office 开发]，创建你的第一个项目"
-  - "Visual Studio 中的 Office 开发，创建你的第一个项目"
-  - "外接程序 [Visual Studio 中的 Office 开发]，创建你的第一个项目"
-  - "Excel [Visual Studio 中的 Office 开发]，创建你的第一个项目"
+title: 'Walkthrough: Creating Your First VSTO Add-in for Excel | Microsoft Docs'
+ms.custom: 
+ms.date: 02/02/2017
+ms.prod: visual-studio-dev14
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- office-development
+ms.tgt_pltfrm: 
+ms.topic: article
+dev_langs:
+- VB
+- CSharp
+helpviewer_keywords:
+- application-level add-ins [Office development in Visual Studio], creating your first project
+- Office development in Visual Studio, creating your first project
+- add-ins [Office development in Visual Studio], creating your first project
+- Excel [Office development in Visual Studio], creating your first project
 ms.assetid: a855e2be-3ecf-4112-a7f5-ec0f7fad3b5f
 caps.latest.revision: 33
-author: "kempb"
-ms.author: "kempb"
-manager: "ghogen"
-caps.handback.revision: 32
+author: kempb
+ms.author: kempb
+manager: ghogen
+ms.translationtype: HT
+ms.sourcegitcommit: eb5c9550fd29b0e98bf63a7240737da4f13f3249
+ms.openlocfilehash: 298cc2730bd6656df7628454600710fd21fa4ecd
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/30/2017
+
 ---
-# 演练：创建你的第一个 Excel VSTO 外接程序
-  本介绍性演练演示如何创建 Microsoft Office Excel 的应用程序级外接程序。 你在此类解决方案中创建的功能可用于应用程序本身，而与所打开的工作簿无关。  
+# <a name="walkthrough-creating-your-first-vsto-add-in-for-excel"></a>Walkthrough: Creating Your First VSTO Add-in for Excel
+  This introductory walkthrough shows you how to create an application-level Add-in for Microsoft Office Excel. The features that you create in this kind of solution are available to the application itself, regardless of which workbooks are open.  
   
  [!INCLUDE[appliesto_xlallapp](../vsto/includes/appliesto-xlallapp-md.md)]  
   
- 本演练阐释了以下任务：  
+ This walkthrough illustrates the following tasks:  
   
--   为 Excel 创建 Excel VSTO 外接程序项目。  
+-   Creating an Excel VSTO Add-in project for Excel.  
   
--   编写代码，使用 Excel 对象模型在保存工作簿时向工作簿中添加文本。  
+-   Writing code that uses the object model of Excel to add text to a workbook when it is saved.  
   
--   生成并运行项目，以对其进行测试。  
+-   Building and running the project to test it.  
   
--   清理已完成的项目，使 VSTO 外接程序在开发计算机上不再自动运行。  
+-   Cleaning up the completed project so that the VSTO Add-in no longer runs automatically on your development computer.  
   
  [!INCLUDE[note_settings_general](../sharepoint/includes/note-settings-general-md.md)]  
   
-## 系统必备  
- 你需要以下组件来完成本演练：  
+## <a name="prerequisites"></a>Prerequisites  
+ You need the following components to complete this walkthrough:  
   
 -   [!INCLUDE[vsto_vsprereq](../vsto/includes/vsto-vsprereq-md.md)]  
   
--   [!INCLUDE[Excel_15_short](../vsto/includes/excel-15-short-md.md)] 或 [!INCLUDE[Excel_14_short](../vsto/includes/excel-14-short-md.md)]。  
+-   [!INCLUDE[Excel_15_short](../vsto/includes/excel-15-short-md.md)] or [!INCLUDE[Excel_14_short](../vsto/includes/excel-14-short-md.md)].  
   
-## 创建项目  
+## <a name="creating-the-project"></a>Creating the Project  
   
-#### 在 Visual Studio 中创建新的 Excel VSTO 外接程序项目  
+#### <a name="to-create-a-new-excel-vsto-add-in-project-in-visual-studio"></a>To create a new Excel VSTO Add-in project in Visual Studio  
   
-1.  启动 [!INCLUDE[vsprvs](../sharepoint/includes/vsprvs-md.md)]。  
+1.  Start [!INCLUDE[vsprvs](../sharepoint/includes/vsprvs-md.md)].  
   
-2.  在**“文件”**菜单上，指向**“新建”**，然后单击**“项目”**。  
+2.  On the **File** menu, point to **New**, and then click **Project**.  
   
-3.  在模板窗格中，展开**“Visual C\#”**或**“Visual Basic”**，然后展开**“Office\/SharePoint”**。  
+3.  In the templates pane, expand **Visual C#** or **Visual Basic**, and then expand **Office/SharePoint**.  
   
-4.  在展开的**“Office\/SharePoint”**节点下方，选择**“Office 外接程序”**节点。  
+4.  Under the expanded **Office/SharePoint** node, select the **Office Add-ins** node.  
   
-5.  在项目模板列表中，选择**“Excel 2010 外接程序”**或**“Excel 2013 外接程序”**。  
+5.  In the list of project templates, select **Excel 2010 Add-in** or **Excel 2013 Add-in**.  
   
-6.  在**“名称”**框中，键入 **FirstExcelAddIn**。  
+6.  In the **Name** box, type **FirstExcelAddIn**.  
   
-7.  单击“确定”。  
+7.  Click **OK**.  
   
-     [!INCLUDE[vsprvs](../sharepoint/includes/vsprvs-md.md)] 即会创建 **FirstExcelAddIn** 项目，并在编辑器中打开 ThisAddIn 代码文件。  
+     [!INCLUDE[vsprvs](../sharepoint/includes/vsprvs-md.md)] creates the **FirstExcelAddIn** project and opens the ThisAddIn code file in the editor.  
   
-## 编写用于向保存的工作簿中添加文本的代码  
- 接下来，将代码添加到 ThisAddIn 代码文件。 新的代码使用 Excel 的对象模型将样本文本插入到活动工作表的第一行。 活动工作表是用户保存工作簿时处于打开状态的工作表。 默认情况下，ThisAddIn 代码文件包含以下生成的代码：  
+## <a name="writing-code-to-add-text-to-the-saved-workbook"></a>Writing Code to Add Text to the Saved Workbook  
+ Next, add code to the ThisAddIn code file. The new code uses the object model of Excel to insert boilerplate text in the first row of the active worksheet. The active worksheet is the worksheet that is open when the user saves the workbook. By default, the ThisAddIn code file contains the following generated code:  
   
--   `ThisAddIn` 类的部分定义。 此类提供代码的入口点，并提供对 Excel 对象模型的访问权限。 有关更多信息，请参见[VSTO 外接程序编程](../vsto/programming-vsto-add-ins.md)。`ThisAddIn` 类的其余部分是在隐藏代码文件中定义的，不应修改该代码文件。  
+-   A partial definition of the `ThisAddIn` class. This class provides an entry point for your code and provides access to the object model of Excel. For more information, see [Programming VSTO Add-Ins](../vsto/programming-vsto-add-ins.md). The remainder of the `ThisAddIn` class is defined in a hidden code file that you should not modify.  
   
--   `ThisAddIn_Startup` 和 `ThisAddIn_Shutdown` 事件处理程序。 Excel 加载和卸载 VSTO 外接程序时会调用这些事件处理程序。 使用这些事件处理程序，可在加载 VSTO 外接程序对其进行初始化，并在卸载时清理外接程序所使用的资源。 有关详细信息，请参阅[Office 项目中的事件](../vsto/events-in-office-projects.md)。  
+-   The `ThisAddIn_Startup` and `ThisAddIn_Shutdown` event handlers. These event handlers are called when Excel loads and unloads your VSTO Add-in. Use these event handlers to initialize your VSTO Add-in when it is loaded, and to clean up resources used by your Add-in when it is unloaded. For more information, see [Events in Office Projects](../vsto/events-in-office-projects.md).  
   
-#### 向保存的工作簿中添加一行文本  
+#### <a name="to-add-a-line-of-text-to-the-saved-workbook"></a>To add a line of text to the saved workbook  
   
-1.  在 ThisAddIn 代码文件中，将下面的代码添加到 `ThisAddIn` 类中。 新的代码定义 <xref:Microsoft.Office.Interop.Excel.AppEvents_Event.WorkbookBeforeSave> 事件的事件处理程序，该事件在保存工作簿时引发。  
+1.  In the ThisAddIn code file, add the following code to the `ThisAddIn` class. The new code defines an event handler for the <xref:Microsoft.Office.Interop.Excel.AppEvents_Event.WorkbookBeforeSave> event, which is raised when a workbook is saved.  
   
-     用户保存工作簿时，该事件处理程序会将新文本添加到活动工作簿的开头。  
+     When the user saves a workbook, the event handler adds new text at the start of the active worksheet.  
   
-     [!code-csharp[Trin_ExcelAddInTutorial#1](../snippets/csharp/VS_Snippets_OfficeSP/Trin_ExcelAddInTutorial/CS/ThisAddIn.cs#1)]
-     [!code-vb[Trin_ExcelAddInTutorial#1](../snippets/visualbasic/VS_Snippets_OfficeSP/Trin_ExcelAddInTutorial/VB/ThisAddIn.vb#1)]  
+     [!code-vb[Trin_ExcelAddInTutorial#1](../vsto/codesnippet/VisualBasic/Trin_ExcelAddInTutorial/ThisAddIn.vb#1)]  [!code-csharp[Trin_ExcelAddInTutorial#1](../vsto/codesnippet/CSharp/Trin_ExcelAddInTutorial/ThisAddIn.cs#1)]  
   
-2.  如果你使用的是 C\#，请将以下必需代码添加到 `ThisAddIn_Startup` 事件处理程序中。 此代码用于将 `Application_WorkbookBeforeSave` 事件处理程序与 <xref:Microsoft.Office.Interop.Excel.AppEvents_Event.WorkbookBeforeSave> 事件连接在一起。  
+2.  If you are using C#, add the following required code to the `ThisAddIn_Startup` event handler. This code is used to connect the `Application_WorkbookBeforeSave` event handler with the <xref:Microsoft.Office.Interop.Excel.AppEvents_Event.WorkbookBeforeSave> event.  
   
-     [!code-csharp[Trin_ExcelAddInTutorial#2](../snippets/csharp/VS_Snippets_OfficeSP/Trin_ExcelAddInTutorial/CS/ThisAddIn.cs#2)]  
+     [!code-csharp[Trin_ExcelAddInTutorial#2](../vsto/codesnippet/CSharp/Trin_ExcelAddInTutorial/ThisAddIn.cs#2)]  
   
- 为了在保存工作簿后对其进行修改，前面的代码示例使用了以下对象：  
+ To modify the workbook when it is saved, the previous code examples use the following objects:  
   
--   `ThisAddIn` 类的 `Application` 字段。`Application` 字段返回一个 <xref:Microsoft.Office.Interop.Excel.Application> 对象，该对象表示 Excel 的当前实例。  
+-   The `Application` field of the `ThisAddIn` class. The `Application` field returns a <xref:Microsoft.Office.Interop.Excel.Application> object, which represents the current instance of Excel.  
   
--   <xref:Microsoft.Office.Interop.Excel.AppEvents_Event.WorkbookBeforeSave> 事件的事件处理程序的 `Wb` 参数。`Wb` 参数是一个 <xref:Microsoft.Office.Interop.Excel.Workbook> 对象，用于表示已保存的工作簿。 有关详细信息，请参阅[Excel 对象模型概述](../vsto/excel-object-model-overview.md)。  
+-   The `Wb` parameter of the event handler for the <xref:Microsoft.Office.Interop.Excel.AppEvents_Event.WorkbookBeforeSave> event. The `Wb` parameter is a <xref:Microsoft.Office.Interop.Excel.Workbook> object, which represents the saved workbook. For more information, see [Excel Object Model Overview](../vsto/excel-object-model-overview.md).  
   
-## 测试项目  
+## <a name="testing-the-project"></a>Testing the Project  
   
-#### 测试项目  
+#### <a name="to-test-the-project"></a>To test the project  
   
-1.  按 **F5** 生成并运行项目。  
+1.  Press **F5** to build and run your project.  
   
-     生成项目时，代码会编译成一个程序集，此程序集包含在项目的生成输出文件夹中。 Visual Studio 还会创建一组注册表项，通过这些注册表项，Excel 能够发现和加载 VSTO 外接程序，Visual Studio 还将开发计算机上的安全设置配置为允许 VSTO 外接程序运行。 有关详细信息，请参阅[生成 Office 解决方案](../vsto/building-office-solutions.md)。  
+     When you build the project, the code is compiled into an assembly that is included in the build output folder for the project. Visual Studio also creates a set of registry entries that enable Excel to discover and load the VSTO Add-in, and it configures the security settings on the development computer to enable the VSTO Add-in to run. For more information, see [Building Office Solutions](../vsto/building-office-solutions.md).  
   
-2.  在 Excel 中，保存工作簿。  
+2.  In Excel, save the workbook.  
   
-3.  验证下面的文本是否已添加到工作簿中。  
+3.  Verify that the following text is added to the workbook.  
   
      **This text was added by using code.**  
   
-4.  关闭 Excel。  
+4.  Close Excel.  
   
-## 清理项目  
- 完成项目开发后，请从开发计算机上删除 VSTO 外接程序程序集、注册表项和安全设置。 否则，每次在开发计算机上打开 Excel 时，VSTO 外接程序都将继续运行。  
+## <a name="cleaning-up-the-project"></a>Cleaning up the Project  
+ When you finish developing a project, remove the VSTO Add-in assembly, registry entries, and security settings from your development computer. Otherwise, the VSTO Add-in will continue to run every time that you open Excel on your development computer.  
   
-#### 在开发计算机上清理已完成的项目  
+#### <a name="to-clean-up-the-completed-project-on-your-development-computer"></a>To clean up the completed project on your development computer  
   
-1.  在 Visual Studio 中，在**“生成”**菜单上，单击**“清理解决方案”**。  
+1.  In Visual Studio, on the **Build** menu, click **Clean Solution**.  
   
-## 后续步骤  
- 既然你已经创建了一个基本的 Excel VSTO 外接程序，就可以从下面这些主题中了解有关如何开发外 VSTO 加载项的详细信息：  
+## <a name="next-steps"></a>Next Steps  
+ Now that you have created a basic VSTO Add-in for Excel, you can learn more about how to develop VSTO Add-ins from these topics:  
   
--   可在 VSTO 外接程序中执行的常规编程任务：[VSTO 外接程序编程](../vsto/programming-vsto-add-ins.md)。  
+-   General programming tasks that you can perform in VSTO Add-ins: [Programming VSTO Add-Ins](../vsto/programming-vsto-add-ins.md).  
   
--   特定于 Excel VSTO 外接程序的编程任务：[Excel 解决方案](../vsto/excel-solutions.md)。  
+-   Programming tasks that are specific to Excel VSTO Add-ins: [Excel Solutions](../vsto/excel-solutions.md).  
   
--   使用 Excel 对象模型：[Excel 对象模型概述](../vsto/excel-object-model-overview.md)。  
+-   Using the object model of Excel: [Excel Object Model Overview](../vsto/excel-object-model-overview.md).  
   
--   自定义 Excel 的用户界面 \(UI\)，例如通过向功能区添加自定义选项卡或创建自己的自定义任务窗格：[Office UI 自定义](../vsto/office-ui-customization.md)。  
+-   Customizing the user interface (UI) of Excel, for example, by adding a custom tab to the Ribbon or creating your own custom task pane: [Office UI Customization](../vsto/office-ui-customization.md).  
   
--   生成和调试 Excel VSTO 外接程序：[生成 Office 解决方案](../vsto/building-office-solutions.md)。  
+-   Building and debugging VSTO Add-ins for Excel: [Building Office Solutions](../vsto/building-office-solutions.md).  
   
--   部署 Excel VSTO 外接程序：[部署 Office 解决方案](../vsto/deploying-an-office-solution.md)。  
+-   Deploying VSTO Add-ins for Excel: [Deploying an Office Solution](../vsto/deploying-an-office-solution.md).  
   
-## 请参阅  
- [Office 解决方案开发概述 &#40;VSTO&#41;](../vsto/office-solutions-development-overview-vsto.md)   
- [Excel 解决方案](../vsto/excel-solutions.md)   
- [VSTO 外接程序编程](../vsto/programming-vsto-add-ins.md)   
- [Excel 对象模型概述](../vsto/excel-object-model-overview.md)   
- [Office UI 自定义](../vsto/office-ui-customization.md)   
- [生成 Office 解决方案](../vsto/building-office-solutions.md)   
- [部署 Office 解决方案](../vsto/deploying-an-office-solution.md)   
- [Office 项目模板概述](../vsto/office-project-templates-overview.md)  
+## <a name="see-also"></a>See Also  
+ [Office Solutions Development Overview &#40;VSTO&#41;](../vsto/office-solutions-development-overview-vsto.md)   
+ [Excel Solutions](../vsto/excel-solutions.md)   
+ [Programming VSTO Add-Ins](../vsto/programming-vsto-add-ins.md)   
+ [Excel Object Model Overview](../vsto/excel-object-model-overview.md)   
+ [Office UI Customization](../vsto/office-ui-customization.md)   
+ [Building Office Solutions](../vsto/building-office-solutions.md)   
+ [Deploying an Office Solution](../vsto/deploying-an-office-solution.md)   
+ [Office Project Templates Overview](../vsto/office-project-templates-overview.md)  
   
   

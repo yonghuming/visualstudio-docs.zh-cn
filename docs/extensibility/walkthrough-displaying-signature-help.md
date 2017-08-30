@@ -1,44 +1,61 @@
 ---
-title: "演练︰ 显示签名帮助 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-helpviewer_keywords: 
-  - "编辑器 [Visual Studio SDK]，新的签名帮助/参数信息"
+title: 'Walkthrough: Displaying Signature Help | Microsoft Docs'
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+helpviewer_keywords:
+- editors [Visual Studio SDK], new - signature help/parameter info
 ms.assetid: 4a6a884b-5730-4b54-9264-99684f5b523c
 caps.latest.revision: 28
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 28
----
-# 演练︰ 显示签名帮助
-[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
+ms.author: gregvanl
+manager: ghogen
+translation.priority.mt:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+ms.translationtype: MT
+ms.sourcegitcommit: eb5c9550fd29b0e98bf63a7240737da4f13f3249
+ms.openlocfilehash: e3db1bec71ec34f35824c5a6f33e76fb3a9d522e
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/30/2017
 
-签名帮助 \(也称为 *参数信息*\) 用户键入的参数列表开始字符 （通常是一个左括号） 时，工具提示中显示的方法的签名。 键入的参数和参数分隔符 （通常为逗号），工具提示将更新以显示下一个参数以粗体显示。 可以在语言服务的上下文中定义签名帮助或可以定义你自己的文件名称扩展和内容类型和显示签名帮助只是该类型，也可以为现有内容类型 \(例如，"text"\) 显示签名帮助。 本演练演示如何显示为"text"内容类型的签名帮助。  
+---
+# <a name="walkthrough-displaying-signature-help"></a>Walkthrough: Displaying Signature Help
+Signature Help (also known as *Parameter Info*) displays the signature of a method in a tooltip when a user types the parameter list start character (typically an opening parenthesis). As a parameter and parameter separator (typically a comma) are typed, the tooltip is updated to show the next parameter in bold. You can define Signature Help in the context of a language service, or you can define your own file name extension and content type and display Signature Help for just that type, or you can display Signature Help for an existing content type (for example, "text"). This walkthrough shows how to display Signature Help for the "text" content type.  
   
- 通过键入特定字符通常触发签名帮助"\("（左括号），并通过键入另一个字符，例如，关闭"\)"（右括号）。 可通过击键命令处理程序实现触发通过输入字符的智能感知功能 \( <xref:Microsoft.VisualStudio.OLE.Interop.IOleCommandTarget> 接口\) 和处理程序实现的提供程序 <xref:Microsoft.VisualStudio.Editor.IVsTextViewCreationListener> 接口。 若要创建签名帮助源，是签名的签名帮助参与的列表，实现 <xref:Microsoft.VisualStudio.Language.Intellisense.ISignatureHelpSource> 接口和源提供程序实现 <xref:Microsoft.VisualStudio.Language.Intellisense.ISignatureHelpSourceProvider> 接口。 提供程序是部件的 Managed Extensibility Framework \(MEF\) 组件，并负责导出的源和控制器类和服务和分销商，例如，导入 <xref:Microsoft.VisualStudio.Text.Operations.ITextStructureNavigatorSelectorService>, ，这样文本缓冲区中导航和 <xref:Microsoft.VisualStudio.Language.Intellisense.ISignatureHelpBroker>, ，这样触发签名帮助会话。  
+ Signature Help is typically triggered by typing a specific character, for example, "(" (opening parenthesis), and dismissed by typing another character, for example, ")" (closing parenthesis). IntelliSense features that are triggered by typing a character can be implemented by using a command handler for the keystrokes (the <xref:Microsoft.VisualStudio.OLE.Interop.IOleCommandTarget> interface) and a handler provider that implements the <xref:Microsoft.VisualStudio.Editor.IVsTextViewCreationListener> interface. To create the Signature Help source, which is the list of signatures that participate in Signature Help, implement the <xref:Microsoft.VisualStudio.Language.Intellisense.ISignatureHelpSource> interface and a source provider that implements the <xref:Microsoft.VisualStudio.Language.Intellisense.ISignatureHelpSourceProvider> interface. The providers are Managed Extensibility Framework (MEF) component parts, and are responsible for exporting the source and controller classes and importing services and brokers, for example, the <xref:Microsoft.VisualStudio.Text.Operations.ITextStructureNavigatorSelectorService>, which lets you navigate in the text buffer, and the <xref:Microsoft.VisualStudio.Language.Intellisense.ISignatureHelpBroker>, which triggers the Signature Help session.  
   
- 本演练演示如何为硬编码的一组标识符实现签名帮助。 在完整的实现，该语言是负责提供该内容。  
+ This walkthrough shows how to implement Signature Help for a hard-coded set of identifiers. In full implementations, the language is responsible for providing that content.  
   
-## 系统必备  
- 启动 Visual Studio 2015 中，您并不安装 Visual Studio SDK 从下载中心获得。 它将包括作为 Visual Studio 安装程序中的可选功能。 您还可以在以后安装 VS SDK。 有关详细信息，请参阅[安装 Visual Studio SDK](../extensibility/installing-the-visual-studio-sdk.md)。  
+## <a name="prerequisites"></a>Prerequisites  
+ Starting in Visual Studio 2015, you do not install the Visual Studio SDK from the download center. It is included as an optional feature in Visual Studio setup. You can also install the VS SDK later on. For more information, see [Installing the Visual Studio SDK](../extensibility/installing-the-visual-studio-sdk.md).  
   
-## 创建 MEF 项目  
+## <a name="creating-a-mef-project"></a>Creating a MEF Project  
   
-#### 创建 MEF 项目  
+#### <a name="to-create-a-mef-project"></a>To create a MEF project  
   
-1.  创建 C\# VSIX 项目。 \(在 **新项目** 对话框中，选择 **Visual C\# \/ 可扩展性**, ，然后 **VSIX 项目**。\) 将解决方案命名 `SignatureHelpTest`。  
+1.  Create a C# VSIX project. (In the **New Project** dialog, select **Visual C# / Extensibility**, then **VSIX Project**.) Name the solution `SignatureHelpTest`.  
   
-2.  向项目添加编辑器分类器项模板。 有关详细信息，请参阅[在编辑器中的项模板创建扩展](../extensibility/creating-an-extension-with-an-editor-item-template.md)。  
+2.  Add an Editor Classifier item template to the project. For more information, see [Creating an Extension with an Editor Item Template](../extensibility/creating-an-extension-with-an-editor-item-template.md).  
   
-3.  删除现有的类文件。  
+3.  Delete the existing class files.  
   
-4.  添加以下引用到项目中，并确保 **CopyLocal** 设置为 `false`:  
+4.  Add the following references to the project, and make sure **CopyLocal** is set to `false`:  
   
      Microsoft.VisualStudio.Editor  
   
@@ -50,169 +67,169 @@ caps.handback.revision: 28
   
      Microsoft.VisualStudio.TextManager.Interop  
   
-## 实现签名帮助签名和参数  
- 签名帮助源取决于实现的签名 <xref:Microsoft.VisualStudio.Language.Intellisense.ISignature>, ，其中每个包含实现的参数 <xref:Microsoft.VisualStudio.Language.Intellisense.IParameter>。 在完整的实现中，将从相应语言文档，获取此信息，但在此示例中，签名是硬编码。  
+## <a name="implementing-signature-help-signatures-and-parameters"></a>Implementing Signature Help Signatures and Parameters  
+ The Signature Help source is based on signatures that implement <xref:Microsoft.VisualStudio.Language.Intellisense.ISignature>, each of which contains parameters that implement <xref:Microsoft.VisualStudio.Language.Intellisense.IParameter>. In a full implementation, this information would be obtained from the language documentation, but in this example, the signatures are hard-coded.  
   
-#### 若要实现的签名帮助签名和参数  
+#### <a name="to-implement-the-signature-help-signatures-and-parameters"></a>To implement the Signature Help signatures and parameters  
   
-1.  添加一个类文件并将其命名 `SignatureHelpSource`。  
+1.  Add a class file and name it `SignatureHelpSource`.  
   
-2.  添加以下导入。  
+2.  Add the following imports.  
   
-     [!CODE [VSSDKSignatureHelpTest#1](../CodeSnippet/VS_Snippets_VSSDK/vssdksignaturehelptest#1)]  
+     [!code-vb[VSSDKSignatureHelpTest#1](../extensibility/codesnippet/VisualBasic/walkthrough-displaying-signature-help_1.vb)]  [!code-csharp[VSSDKSignatureHelpTest#1](../extensibility/codesnippet/CSharp/walkthrough-displaying-signature-help_1.cs)]  
   
-3.  添加一个名为类 `TestParameter` 实现 <xref:Microsoft.VisualStudio.Language.Intellisense.IParameter>。  
+3.  Add a class named `TestParameter` that implements <xref:Microsoft.VisualStudio.Language.Intellisense.IParameter>.  
   
-     [!CODE [VSSDKSignatureHelpTest#2](../CodeSnippet/VS_Snippets_VSSDK/vssdksignaturehelptest#2)]  
+     [!code-vb[VSSDKSignatureHelpTest#2](../extensibility/codesnippet/VisualBasic/walkthrough-displaying-signature-help_2.vb)]  [!code-csharp[VSSDKSignatureHelpTest#2](../extensibility/codesnippet/CSharp/walkthrough-displaying-signature-help_2.cs)]  
   
-4.  添加设置的属性的构造函数。  
+4.  Add a constructor that sets all the properties.  
   
-     [!CODE [VSSDKSignatureHelpTest#3](../CodeSnippet/VS_Snippets_VSSDK/vssdksignaturehelptest#3)]  
+     [!code-vb[VSSDKSignatureHelpTest#3](../extensibility/codesnippet/VisualBasic/walkthrough-displaying-signature-help_3.vb)]  [!code-csharp[VSSDKSignatureHelpTest#3](../extensibility/codesnippet/CSharp/walkthrough-displaying-signature-help_3.cs)]  
   
-5.  属性添加 <xref:Microsoft.VisualStudio.Language.Intellisense.IParameter>。  
+5.  Add the properties of <xref:Microsoft.VisualStudio.Language.Intellisense.IParameter>.  
   
-     [!CODE [VSSDKSignatureHelpTest#4](../CodeSnippet/VS_Snippets_VSSDK/vssdksignaturehelptest#4)]  
+     [!code-vb[VSSDKSignatureHelpTest#4](../extensibility/codesnippet/VisualBasic/walkthrough-displaying-signature-help_4.vb)]  [!code-csharp[VSSDKSignatureHelpTest#4](../extensibility/codesnippet/CSharp/walkthrough-displaying-signature-help_4.cs)]  
   
-6.  添加一个名为类 `TestSignature` 实现 <xref:Microsoft.VisualStudio.Language.Intellisense.ISignature>。  
+6.  Add a class named `TestSignature` that implements <xref:Microsoft.VisualStudio.Language.Intellisense.ISignature>.  
   
-     [!CODE [VSSDKSignatureHelpTest#5](../CodeSnippet/VS_Snippets_VSSDK/vssdksignaturehelptest#5)]  
+     [!code-vb[VSSDKSignatureHelpTest#5](../extensibility/codesnippet/VisualBasic/walkthrough-displaying-signature-help_5.vb)]  [!code-csharp[VSSDKSignatureHelpTest#5](../extensibility/codesnippet/CSharp/walkthrough-displaying-signature-help_5.cs)]  
   
-7.  添加一些私有字段。  
+7.  Add some private fields.  
   
-     [!CODE [VSSDKSignatureHelpTest#6](../CodeSnippet/VS_Snippets_VSSDK/vssdksignaturehelptest#6)]  
+     [!code-vb[VSSDKSignatureHelpTest#6](../extensibility/codesnippet/VisualBasic/walkthrough-displaying-signature-help_6.vb)]  [!code-csharp[VSSDKSignatureHelpTest#6](../extensibility/codesnippet/CSharp/walkthrough-displaying-signature-help_6.cs)]  
   
-8.  添加一个构造函数，将字段设置和订阅到 <xref:Microsoft.VisualStudio.Text.ITextBuffer.Changed> 事件。  
+8.  Add a constructor that sets the fields and subscribes to the <xref:Microsoft.VisualStudio.Text.ITextBuffer.Changed> event.  
   
-     [!CODE [VSSDKSignatureHelpTest#7](../CodeSnippet/VS_Snippets_VSSDK/vssdksignaturehelptest#7)]  
+     [!code-vb[VSSDKSignatureHelpTest#7](../extensibility/codesnippet/VisualBasic/walkthrough-displaying-signature-help_7.vb)]  [!code-csharp[VSSDKSignatureHelpTest#7](../extensibility/codesnippet/CSharp/walkthrough-displaying-signature-help_7.cs)]  
   
-9. 声明 `CurrentParameterChanged` 事件。 在签名中的参数之一的用户填写时，引发此事件。  
+9. Declare a `CurrentParameterChanged` event. This event is raised when the user fills in one of the parameters in the signature.  
   
-     [!CODE [VSSDKSignatureHelpTest#8](../CodeSnippet/VS_Snippets_VSSDK/vssdksignaturehelptest#8)]  
+     [!code-vb[VSSDKSignatureHelpTest#8](../extensibility/codesnippet/VisualBasic/walkthrough-displaying-signature-help_8.vb)]   [!code-csharp[VSSDKSignatureHelpTest#8](../extensibility/codesnippet/CSharp/walkthrough-displaying-signature-help_8.cs)]  
   
-10. 实现 <xref:Microsoft.VisualStudio.Language.Intellisense.ISignature.CurrentParameter%2A> 属性，以便它引发 `CurrentParameterChanged` 事件的属性值发生更改时。  
+10. Implement the <xref:Microsoft.VisualStudio.Language.Intellisense.ISignature.CurrentParameter%2A> property so that it raises the `CurrentParameterChanged` event when the property value is changed.  
   
-     [!CODE [VSSDKSignatureHelpTest#9](../CodeSnippet/VS_Snippets_VSSDK/vssdksignaturehelptest#9)]  
+     [!code-vb[VSSDKSignatureHelpTest#9](../extensibility/codesnippet/VisualBasic/walkthrough-displaying-signature-help_9.vb)]  [!code-csharp[VSSDKSignatureHelpTest#9](../extensibility/codesnippet/CSharp/walkthrough-displaying-signature-help_9.cs)]  
   
-11. 添加一个方法来引发 `CurrentParameterChanged` 事件。  
+11. Add a method that raises the `CurrentParameterChanged` event.  
   
-     [!CODE [VSSDKSignatureHelpTest#10](../CodeSnippet/VS_Snippets_VSSDK/vssdksignaturehelptest#10)]  
+     [!code-vb[VSSDKSignatureHelpTest#10](../extensibility/codesnippet/VisualBasic/walkthrough-displaying-signature-help_10.vb)]  [!code-csharp[VSSDKSignatureHelpTest#10](../extensibility/codesnippet/CSharp/walkthrough-displaying-signature-help_10.cs)]  
   
-12. 添加一个方法来通过比较中的逗号数来计算当前参数 <xref:Microsoft.VisualStudio.Language.Intellisense.ISignature.ApplicableToSpan%2A> 签名中的逗号分隔的数字。  
+12. Add a method that computes the current parameter by comparing the number of commas in the <xref:Microsoft.VisualStudio.Language.Intellisense.ISignature.ApplicableToSpan%2A> to the number of commas in the signature.  
   
-     [!CODE [VSSDKSignatureHelpTest#11](../CodeSnippet/VS_Snippets_VSSDK/vssdksignaturehelptest#11)]  
+     [!code-vb[VSSDKSignatureHelpTest#11](../extensibility/codesnippet/VisualBasic/walkthrough-displaying-signature-help_11.vb)]  [!code-csharp[VSSDKSignatureHelpTest#11](../extensibility/codesnippet/CSharp/walkthrough-displaying-signature-help_11.cs)]  
   
-13. 添加事件处理程序 <xref:Microsoft.VisualStudio.Text.ITextBuffer.Changed> 调用的事件 `ComputeCurrentParameter()` 方法。  
+13. Add an event handler for the <xref:Microsoft.VisualStudio.Text.ITextBuffer.Changed> event that calls the `ComputeCurrentParameter()` method.  
   
-     [!CODE [VSSDKSignatureHelpTest#12](../CodeSnippet/VS_Snippets_VSSDK/vssdksignaturehelptest#12)]  
+     [!code-vb[VSSDKSignatureHelpTest#12](../extensibility/codesnippet/VisualBasic/walkthrough-displaying-signature-help_12.vb)]  [!code-csharp[VSSDKSignatureHelpTest#12](../extensibility/codesnippet/CSharp/walkthrough-displaying-signature-help_12.cs)]  
   
-14. 实现 <xref:Microsoft.VisualStudio.Language.Intellisense.ISignature.ApplicableToSpan%2A> 属性。 此属性保存 <xref:Microsoft.VisualStudio.Text.ITrackingSpan> ，它对应于该签名所应用到的缓冲区中的文本范围。  
+14. Implement the <xref:Microsoft.VisualStudio.Language.Intellisense.ISignature.ApplicableToSpan%2A> property. This property holds an <xref:Microsoft.VisualStudio.Text.ITrackingSpan> that corresponds to the span of text in the buffer to which the signature applies.  
   
-     [!CODE [VSSDKSignatureHelpTest#13](../CodeSnippet/VS_Snippets_VSSDK/vssdksignaturehelptest#13)]  
+     [!code-vb[VSSDKSignatureHelpTest#13](../extensibility/codesnippet/VisualBasic/walkthrough-displaying-signature-help_13.vb)]  [!code-csharp[VSSDKSignatureHelpTest#13](../extensibility/codesnippet/CSharp/walkthrough-displaying-signature-help_13.cs)]  
   
-15. 实现其他参数。  
+15. Implement the other parameters.  
   
-     [!CODE [VSSDKSignatureHelpTest#14](../CodeSnippet/VS_Snippets_VSSDK/vssdksignaturehelptest#14)]  
+     [!code-vb[VSSDKSignatureHelpTest#14](../extensibility/codesnippet/VisualBasic/walkthrough-displaying-signature-help_14.vb)]  [!code-csharp[VSSDKSignatureHelpTest#14](../extensibility/codesnippet/CSharp/walkthrough-displaying-signature-help_14.cs)]  
   
-## 实现签名帮助源  
- 签名帮助源是的签名为其提供信息的集合。  
+## <a name="implementing-the-signature-help-source"></a>Implementing the Signature Help Source  
+ The Signature Help source is the set of signatures for which you provide information.  
   
-#### 若要实现签名帮助源  
+#### <a name="to-implement-the-signature-help-source"></a>To implement the Signature Help source  
   
-1.  添加一个名为类 `TestSignatureHelpSource` 实现 <xref:Microsoft.VisualStudio.Language.Intellisense.ISignatureHelpSource>。  
+1.  Add a class named `TestSignatureHelpSource` that implements <xref:Microsoft.VisualStudio.Language.Intellisense.ISignatureHelpSource>.  
   
-     [!CODE [VSSDKSignatureHelpTest#15](../CodeSnippet/VS_Snippets_VSSDK/vssdksignaturehelptest#15)]  
+     [!code-vb[VSSDKSignatureHelpTest#15](../extensibility/codesnippet/VisualBasic/walkthrough-displaying-signature-help_15.vb)]  [!code-csharp[VSSDKSignatureHelpTest#15](../extensibility/codesnippet/CSharp/walkthrough-displaying-signature-help_15.cs)]  
   
-2.  添加到文本缓冲区的引用。  
+2.  Add a reference to the text buffer.  
   
-     [!CODE [VSSDKSignatureHelpTest#16](../CodeSnippet/VS_Snippets_VSSDK/vssdksignaturehelptest#16)]  
+     [!code-vb[VSSDKSignatureHelpTest#16](../extensibility/codesnippet/VisualBasic/walkthrough-displaying-signature-help_16.vb)]  [!code-csharp[VSSDKSignatureHelpTest#16](../extensibility/codesnippet/CSharp/walkthrough-displaying-signature-help_16.cs)]  
   
-3.  添加设置文本缓冲区和签名帮助源提供程序的构造函数。  
+3.  Add a constructor that sets the text buffer and the Signature Help source provider.  
   
-     [!CODE [VSSDKSignatureHelpTest#17](../CodeSnippet/VS_Snippets_VSSDK/vssdksignaturehelptest#17)]  
+     [!code-vb[VSSDKSignatureHelpTest#17](../extensibility/codesnippet/VisualBasic/walkthrough-displaying-signature-help_17.vb)]  [!code-csharp[VSSDKSignatureHelpTest#17](../extensibility/codesnippet/CSharp/walkthrough-displaying-signature-help_17.cs)]  
   
-4.  实现 <xref:Microsoft.VisualStudio.Language.Intellisense.ISignatureHelpSource.AugmentSignatureHelpSession%2A> 方法。 在此示例中，签名是硬编码的但在完整的实现将从相应语言文档获取此信息。  
+4.  Implement the <xref:Microsoft.VisualStudio.Language.Intellisense.ISignatureHelpSource.AugmentSignatureHelpSession%2A> method. In this example, the signatures are hard-coded, but in a full implementation you would get this information from the language documentation.  
   
-     [!CODE [VSSDKSignatureHelpTest#18](../CodeSnippet/VS_Snippets_VSSDK/vssdksignaturehelptest#18)]  
+     [!code-vb[VSSDKSignatureHelpTest#18](../extensibility/codesnippet/VisualBasic/walkthrough-displaying-signature-help_18.vb)]  [!code-csharp[VSSDKSignatureHelpTest#18](../extensibility/codesnippet/CSharp/walkthrough-displaying-signature-help_18.cs)]  
   
-5.  帮助器方法 `CreateSignature()` 提供仅供阐释。  
+5.  The helper method `CreateSignature()` is provided just for illustration.  
   
-     [!CODE [VSSDKSignatureHelpTest#19](../CodeSnippet/VS_Snippets_VSSDK/vssdksignaturehelptest#19)]  
+     [!code-vb[VSSDKSignatureHelpTest#19](../extensibility/codesnippet/VisualBasic/walkthrough-displaying-signature-help_19.vb)]  [!code-csharp[VSSDKSignatureHelpTest#19](../extensibility/codesnippet/CSharp/walkthrough-displaying-signature-help_19.cs)]  
   
-6.  实现 <xref:Microsoft.VisualStudio.Language.Intellisense.ISignatureHelpSource.GetBestMatch%2A> 方法。 在此示例中，有两个签名，其中每个具有两个参数。 因此，此方法不是必需的。 在更完整的实现中，在其中多个签名帮助源不可用，此方法用于确定优先级最高的签名帮助源是否会提供匹配的签名。 如果无法实现，该方法返回 null，并且下一步最高优先级源需要提供一个匹配项。  
+6.  Implement the <xref:Microsoft.VisualStudio.Language.Intellisense.ISignatureHelpSource.GetBestMatch%2A> method. In this example, there are just two signatures, each of which has two parameters. Therefore, this method is not required. In a fuller implementation, in which more than one Signature Help source is available, this method is used to decide whether the highest-priority Signature Help source can supply a matching signature. If it cannot, the method returns null and the next-highest-priority source is asked to supply a match.  
   
-     [!CODE [VSSDKSignatureHelpTest#20](../CodeSnippet/VS_Snippets_VSSDK/vssdksignaturehelptest#20)]  
+     [!code-vb[VSSDKSignatureHelpTest#20](../extensibility/codesnippet/VisualBasic/walkthrough-displaying-signature-help_20.vb)]  [!code-csharp[VSSDKSignatureHelpTest#20](../extensibility/codesnippet/CSharp/walkthrough-displaying-signature-help_20.cs)]  
   
-7.  实现 dispose （） 方法︰  
+7.  Implement the Dispose() method:  
   
-     [!CODE [VSSDKSignatureHelpTest#21](../CodeSnippet/VS_Snippets_VSSDK/vssdksignaturehelptest#21)]  
+     [!code-vb[VSSDKSignatureHelpTest#21](../extensibility/codesnippet/VisualBasic/walkthrough-displaying-signature-help_21.vb)]  [!code-csharp[VSSDKSignatureHelpTest#21](../extensibility/codesnippet/CSharp/walkthrough-displaying-signature-help_21.cs)]  
   
-## 实现签名帮助源提供程序  
- 签名帮助源提供程序是负责导出 Managed Extensibility Framework \(MEF\) 组件部件，并实例化签名帮助源。  
+## <a name="implementing-the-signature-help-source-provider"></a>Implementing the Signature Help Source Provider  
+ The Signature Help source provider is responsible for exporting the Managed Extensibility Framework (MEF) component part and for instantiating the Signature Help source.  
   
-#### 若要实施此签名帮助源提供程序  
+#### <a name="to-implement-the-signature-help-source-provider"></a>To implement the Signature Help source provider  
   
-1.  添加一个名为类 `TestSignatureHelpSourceProvider` 实现 <xref:Microsoft.VisualStudio.Language.Intellisense.ISignatureHelpSourceProvider>, ，并将其与导出 <xref:Microsoft.VisualStudio.Utilities.NameAttribute>, 、 <xref:Microsoft.VisualStudio.Utilities.ContentTypeAttribute> 的"text"和 <xref:Microsoft.VisualStudio.Utilities.OrderAttribute> 的之前 \="default"。  
+1.  Add a class named `TestSignatureHelpSourceProvider` that implements <xref:Microsoft.VisualStudio.Language.Intellisense.ISignatureHelpSourceProvider>, and export it with a <xref:Microsoft.VisualStudio.Utilities.NameAttribute>, a <xref:Microsoft.VisualStudio.Utilities.ContentTypeAttribute> of "text", and an <xref:Microsoft.VisualStudio.Utilities.OrderAttribute> of Before="default".  
   
-     [!CODE [VSSDKSignatureHelpTest#22](../CodeSnippet/VS_Snippets_VSSDK/vssdksignaturehelptest#22)]  
+     [!code-vb[VSSDKSignatureHelpTest#22](../extensibility/codesnippet/VisualBasic/walkthrough-displaying-signature-help_22.vb)]  [!code-csharp[VSSDKSignatureHelpTest#22](../extensibility/codesnippet/CSharp/walkthrough-displaying-signature-help_22.cs)]  
   
-2.  实现 <xref:Microsoft.VisualStudio.Language.Intellisense.ISignatureHelpSourceProvider.TryCreateSignatureHelpSource%2A> 通过实例化 `TestSignatureHelpSource`。  
+2.  Implement <xref:Microsoft.VisualStudio.Language.Intellisense.ISignatureHelpSourceProvider.TryCreateSignatureHelpSource%2A> by instantiating the `TestSignatureHelpSource`.  
   
-     [!CODE [VSSDKSignatureHelpTest#23](../CodeSnippet/VS_Snippets_VSSDK/vssdksignaturehelptest#23)]  
+     [!code-vb[VSSDKSignatureHelpTest#23](../extensibility/codesnippet/VisualBasic/walkthrough-displaying-signature-help_23.vb)]  [!code-csharp[VSSDKSignatureHelpTest#23](../extensibility/codesnippet/CSharp/walkthrough-displaying-signature-help_23.cs)]  
   
-## 实现命令处理程序  
- 通常由触发签名帮助 \(字符和通过已忽略\) 字符。 您可以通过实现来处理这些击键 <xref:Microsoft.VisualStudio.OLE.Interop.IOleCommandTarget> ，以便触发时收到一个签名帮助的会话 \(字符前面有一个已知的方法名称，并解除当接收该会话\) 字符。  
+## <a name="implementing-the-command-handler"></a>Implementing the Command Handler  
+ Signature Help is typically triggered by a ( character and dismissed by a ) character. You can handle these keystrokes by implementing a <xref:Microsoft.VisualStudio.OLE.Interop.IOleCommandTarget> so that it triggers a Signature Help session when it receives a ( character preceded by a known method name, and dismisses the session when it receives a ) character.  
   
-#### 若要实现的命令处理程序  
+#### <a name="to-implement-the-command-handler"></a>To implement the command handler  
   
-1.  添加一个名为类 `TestSignatureHelpCommand` 实现 <xref:Microsoft.VisualStudio.OLE.Interop.IOleCommandTarget>。  
+1.  Add a class named `TestSignatureHelpCommand` that implements <xref:Microsoft.VisualStudio.OLE.Interop.IOleCommandTarget>.  
   
-     [!CODE [VSSDKSignatureHelpTest#24](../CodeSnippet/VS_Snippets_VSSDK/vssdksignaturehelptest#24)]  
+     [!code-vb[VSSDKSignatureHelpTest#24](../extensibility/codesnippet/VisualBasic/walkthrough-displaying-signature-help_24.vb)]  [!code-csharp[VSSDKSignatureHelpTest#24](../extensibility/codesnippet/CSharp/walkthrough-displaying-signature-help_24.cs)]  
   
-2.  添加私有字段的 <xref:Microsoft.VisualStudio.TextManager.Interop.IVsTextView> 适配器 （这可以让您可以将命令处理程序添加到命令链处理程序）、 文本视图、 签名帮助 broker 和会话， <xref:Microsoft.VisualStudio.Text.Operations.ITextStructureNavigator>, ，以及接下来的 <xref:Microsoft.VisualStudio.OLE.Interop.IOleCommandTarget>。  
+2.  Add private fields for the <xref:Microsoft.VisualStudio.TextManager.Interop.IVsTextView> adapter (which lets you add the command handler to the chain of command handlers), the text view, the Signature Help broker and session, a <xref:Microsoft.VisualStudio.Text.Operations.ITextStructureNavigator>, and the next <xref:Microsoft.VisualStudio.OLE.Interop.IOleCommandTarget>.  
   
-     [!CODE [VSSDKSignatureHelpTest#25](../CodeSnippet/VS_Snippets_VSSDK/vssdksignaturehelptest#25)]  
+     [!code-vb[VSSDKSignatureHelpTest#25](../extensibility/codesnippet/VisualBasic/walkthrough-displaying-signature-help_25.vb)]  [!code-csharp[VSSDKSignatureHelpTest#25](../extensibility/codesnippet/CSharp/walkthrough-displaying-signature-help_25.cs)]  
   
-3.  添加一个构造函数来初始化这些字段并将命令筛选器添加到命令链筛选器。  
+3.  Add a constructor to initialize these fields and to add the command filter to the chain of command filters.  
   
-     [!CODE [VSSDKSignatureHelpTest#26](../CodeSnippet/VS_Snippets_VSSDK/vssdksignaturehelptest#26)]  
+     [!code-vb[VSSDKSignatureHelpTest#26](../extensibility/codesnippet/VisualBasic/walkthrough-displaying-signature-help_26.vb)]  [!code-csharp[VSSDKSignatureHelpTest#26](../extensibility/codesnippet/CSharp/walkthrough-displaying-signature-help_26.cs)]  
   
-4.  实现 <xref:Microsoft.VisualStudio.OLE.Interop.IOleCommandTarget.Exec%2A> 方法可用于触发命令筛选器时收到的签名帮助的会话 \(字符之一的已知的方法名称，并消除当接收该会话后\) 字符会话时仍处于活动状态。 在所有情况下，转发该命令。  
+4.  Implement the <xref:Microsoft.VisualStudio.OLE.Interop.IOleCommandTarget.Exec%2A> method to trigger the Signature Help session when the command filter receives a ( character after one of the known method names, and to dismiss the session when it receives a ) character while the session is still active. In every case, the command is forwarded.  
   
-     [!CODE [VSSDKSignatureHelpTest#27](../CodeSnippet/VS_Snippets_VSSDK/vssdksignaturehelptest#27)]  
+     [!code-vb[VSSDKSignatureHelpTest#27](../extensibility/codesnippet/VisualBasic/walkthrough-displaying-signature-help_27.vb)]  [!code-csharp[VSSDKSignatureHelpTest#27](../extensibility/codesnippet/CSharp/walkthrough-displaying-signature-help_27.cs)]  
   
-5.  实现 <xref:Microsoft.VisualStudio.OLE.Interop.IOleCommandTarget.QueryStatus%2A> 方法，以便它始终将命令转发。  
+5.  Implement the <xref:Microsoft.VisualStudio.OLE.Interop.IOleCommandTarget.QueryStatus%2A> method so that it always forwards the command.  
   
-     [!CODE [VSSDKSignatureHelpTest#28](../CodeSnippet/VS_Snippets_VSSDK/vssdksignaturehelptest#28)]  
+     [!code-vb[VSSDKSignatureHelpTest#28](../extensibility/codesnippet/VisualBasic/walkthrough-displaying-signature-help_28.vb)]  [!code-csharp[VSSDKSignatureHelpTest#28](../extensibility/codesnippet/CSharp/walkthrough-displaying-signature-help_28.cs)]  
   
-## 实现签名帮助命令提供程序  
- 通过实现可以提供签名帮助命令 <xref:Microsoft.VisualStudio.Editor.IVsTextViewCreationListener> 时要实例化的命令处理程序创建的文本视图。  
+## <a name="implementing-the-signature-help-command-provider"></a>Implementing the Signature Help Command Provider  
+ You can provide the Signature Help command by implementing the <xref:Microsoft.VisualStudio.Editor.IVsTextViewCreationListener> to instantiate the command handler when the text view is created.  
   
-#### 若要实施此签名帮助命令提供程序  
+#### <a name="to-implement-the-signature-help-command-provider"></a>To implement the Signature Help command provider  
   
-1.  添加一个名为类 `TestSignatureHelpController` 实现 <xref:Microsoft.VisualStudio.Editor.IVsTextViewCreationListener> 并将其与导出 <xref:Microsoft.VisualStudio.Utilities.NameAttribute>, ，<xref:Microsoft.VisualStudio.Utilities.ContentTypeAttribute>, ，和 <xref:Microsoft.VisualStudio.Text.Editor.TextViewRoleAttribute>。  
+1.  Add a class named `TestSignatureHelpController` that implements <xref:Microsoft.VisualStudio.Editor.IVsTextViewCreationListener> and export it with the <xref:Microsoft.VisualStudio.Utilities.NameAttribute>, <xref:Microsoft.VisualStudio.Utilities.ContentTypeAttribute>, and <xref:Microsoft.VisualStudio.Text.Editor.TextViewRoleAttribute>.  
   
-     [!CODE [VSSDKSignatureHelpTest#29](../CodeSnippet/VS_Snippets_VSSDK/vssdksignaturehelptest#29)]  
+     [!code-vb[VSSDKSignatureHelpTest#29](../extensibility/codesnippet/VisualBasic/walkthrough-displaying-signature-help_29.vb)]  [!code-csharp[VSSDKSignatureHelpTest#29](../extensibility/codesnippet/CSharp/walkthrough-displaying-signature-help_29.cs)]  
   
-2.  导入 <xref:Microsoft.VisualStudio.Editor.IVsEditorAdaptersFactoryService> \(用于获取 <xref:Microsoft.VisualStudio.Text.Editor.ITextView>, ，给定 <xref:Microsoft.VisualStudio.TextManager.Interop.IVsTextView> 对象\)，则 <xref:Microsoft.VisualStudio.Text.Operations.ITextStructureNavigatorSelectorService> （用来查找当前的单词），与 <xref:Microsoft.VisualStudio.Language.Intellisense.ISignatureHelpBroker> （来触发签名帮助会话）。  
+2.  Import the <xref:Microsoft.VisualStudio.Editor.IVsEditorAdaptersFactoryService> (used to get the <xref:Microsoft.VisualStudio.Text.Editor.ITextView>, given the <xref:Microsoft.VisualStudio.TextManager.Interop.IVsTextView> object), the <xref:Microsoft.VisualStudio.Text.Operations.ITextStructureNavigatorSelectorService> (used to find the current word), and the <xref:Microsoft.VisualStudio.Language.Intellisense.ISignatureHelpBroker> (to trigger the Signature Help session).  
   
-     [!CODE [VSSDKSignatureHelpTest#30](../CodeSnippet/VS_Snippets_VSSDK/vssdksignaturehelptest#30)]  
+     [!code-vb[VSSDKSignatureHelpTest#30](../extensibility/codesnippet/VisualBasic/walkthrough-displaying-signature-help_30.vb)]  [!code-csharp[VSSDKSignatureHelpTest#30](../extensibility/codesnippet/CSharp/walkthrough-displaying-signature-help_30.cs)]  
   
-3.  实现 <xref:Microsoft.VisualStudio.Editor.IVsTextViewCreationListener.VsTextViewCreated%2A> 方法通过实例化 `TestSignatureCommandHandler`。  
+3.  Implement the <xref:Microsoft.VisualStudio.Editor.IVsTextViewCreationListener.VsTextViewCreated%2A> method by instantiating the `TestSignatureCommandHandler`.  
   
-     [!CODE [VSSDKSignatureHelpTest#31](../CodeSnippet/VS_Snippets_VSSDK/vssdksignaturehelptest#31)]  
+     [!code-vb[VSSDKSignatureHelpTest#31](../extensibility/codesnippet/VisualBasic/walkthrough-displaying-signature-help_31.vb)]  [!code-csharp[VSSDKSignatureHelpTest#31](../extensibility/codesnippet/CSharp/walkthrough-displaying-signature-help_31.cs)]  
   
-## 生成和测试代码  
- 若要测试此代码，生成 SignatureHelpTest 解决方案并在实验实例中运行它。  
+## <a name="building-and-testing-the-code"></a>Building and Testing the Code  
+ To test this code, build the SignatureHelpTest solution and run it in the experimental instance.  
   
-#### 若要生成并测试 SignatureHelpTest 解决方案  
+#### <a name="to-build-and-test-the-signaturehelptest-solution"></a>To build and test the SignatureHelpTest solution  
   
-1.  生成解决方案。  
+1.  Build the solution.  
   
-2.  在调试器中运行此项目时，Visual Studio 的第二个实例将进行实例化。  
+2.  When you run this project in the debugger, a second instance of Visual Studio is instantiated.  
   
-3.  创建一个文本文件和某些文本，其中包括单词"添加"的类型以及一个左括号。  
+3.  Create a text file and type some text that includes the word "add" plus an opening parenthesis.  
   
-4.  键入左括号后，您应看到显示的两个签名的列表的工具提示 `add()` 方法。  
+4.  After you type the opening parenthesis, you should see a tooltip that displays a list of the two signatures for the `add()` method.  
   
-## 请参阅  
- [演练: 将内容类型链接到的文件扩展名](../extensibility/walkthrough-linking-a-content-type-to-a-file-name-extension.md)
+## <a name="see-also"></a>See Also  
+ [Walkthrough: Linking a Content Type to a File Name Extension](../extensibility/walkthrough-linking-a-content-type-to-a-file-name-extension.md)

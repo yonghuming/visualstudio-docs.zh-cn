@@ -1,59 +1,75 @@
 ---
-title: "CA2213：应释放可释放的字段 | Microsoft Docs"
-ms.custom: ""
-ms.date: "12/14/2016"
-ms.prod: "visual-studio-dev14"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-devops-test"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "DisposableFieldsShouldBeDisposed"
-  - "CA2213"
-helpviewer_keywords: 
-  - "CA2213"
-  - "DisposableFieldsShouldBeDisposed"
+title: 'CA2213: Disposable fields should be disposed | Microsoft Docs'
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-devops-test
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords:
+- DisposableFieldsShouldBeDisposed
+- CA2213
+helpviewer_keywords:
+- CA2213
+- DisposableFieldsShouldBeDisposed
 ms.assetid: e99442c9-70e2-47f3-b61a-d8ac003bc6e5
 caps.latest.revision: 15
-caps.handback.revision: 15
-author: "stevehoag"
-ms.author: "shoag"
-manager: "wpickett"
----
-# CA2213：应释放可释放的字段
-[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
+author: stevehoag
+ms.author: shoag
+manager: wpickett
+translation.priority.ht:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+ms.translationtype: HT
+ms.sourcegitcommit: eb5c9550fd29b0e98bf63a7240737da4f13f3249
+ms.openlocfilehash: 538f013849b8e3391fdc3cdad7fee707e9cbb072
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/30/2017
 
+---
+# <a name="ca2213-disposable-fields-should-be-disposed"></a>CA2213: Disposable fields should be disposed
 |||  
 |-|-|  
-|类型名|DisposableFieldsShouldBeDisposed|  
+|TypeName|DisposableFieldsShouldBeDisposed|  
 |CheckId|CA2213|  
-|类别|Microsoft.Usage|  
-|是否重大更改|否|  
+|Category|Microsoft.Usage|  
+|Breaking Change|Non Breaking|  
   
-## 原因  
- 实现 <xref:System.IDisposable?displayProperty=fullName> 的类型声明同样实现 <xref:System.IDisposable> 的类型的字段。  字段的 <xref:System.IDisposable.Dispose%2A> 方法不是由声明类型的 <xref:System.IDisposable.Dispose%2A> 方法调用。  
+## <a name="cause"></a>Cause  
+ A type that implements <xref:System.IDisposable?displayProperty=fullName> declares fields that are of types that also implement <xref:System.IDisposable>. The <xref:System.IDisposable.Dispose%2A> method of the field is not called by the <xref:System.IDisposable.Dispose%2A> method of the declaring type.  
   
-## 规则说明  
- 类型负责释放其全部非托管资源，这是通过实现 <xref:System.IDisposable> 完成的。  该规则进行检查，以确定可释放类型 `T` 是否声明字段 `F`，该字段为可释放类型 `FT` 的实例。  对于每个字段 `F`，该规则尝试定位对 `FT.Dispose` 的调用。  该规则搜索 `T.Dispose` 调用的方法及下一级方法（由 `FT.Dispose` 调用的方法所调用的方法）。  
+## <a name="rule-description"></a>Rule Description  
+ A type is responsible for disposing of all its unmanaged resources; this is accomplished by implementing <xref:System.IDisposable>. This rule checks to see whether a disposable type `T` declares a field `F` that is an instance of a disposable type `FT`. For each field `F`, the rule attempts to locate a call to `FT.Dispose`. The rule searches the methods called by `T.Dispose`, and one level lower (the methods called by the methods called by `FT.Dispose`).  
   
-## 如何解决冲突  
- 要修复与该规则的冲突，如果您负责分配和释放字段中包含的非托管资源，请在实现 <xref:System.IDisposable> 的类型的字段上调用 <xref:System.IDisposable.Dispose%2A>。  
+## <a name="how-to-fix-violations"></a>How to Fix Violations  
+ To fix a violation of this rule, call <xref:System.IDisposable.Dispose%2A> on fields that are of types that implement <xref:System.IDisposable> if you are responsible for allocating and releasing the unmanaged resources held by the field.  
   
-## 何时禁止显示警告  
- 如果您不负责释放字段包含的资源，或者对 <xref:System.IDisposable.Dispose%2A> 的调用发生在该规则所检查的调用级别以下的级别中，则可以安全地禁止显示此规则发出的警告。  
+## <a name="when-to-suppress-warnings"></a>When to Suppress Warnings  
+ It is safe to suppress a warning from this rule if you are not responsible for releasing the resource held by the field, or if the call to <xref:System.IDisposable.Dispose%2A> occurs at a deeper calling level than the rule checks.  
   
-## 示例  
- 下面的示例演示实现 <xref:System.IDisposable>（上文中讨论的 `FT`）的类型 `TypeA`。  
+## <a name="example"></a>Example  
+ The following example shows a type `TypeA` that implements <xref:System.IDisposable> (`FT` in the previosu discussion).  
   
- [!CODE [FxCop.Usage.IDisposablePattern#1](../CodeSnippet/VS_Snippets_CodeAnalysis/FxCop.Usage.IDisposablePattern#1)]  
+ [!code-csharp[FxCop.Usage.IDisposablePattern#1](../code-quality/codesnippet/CSharp/ca2213-disposable-fields-should-be-disposed_1.cs)]  
   
-## 示例  
- 以下示例示出了违背该规则的类型 `TypeB`，方法是将字段 `aFieldOfADisposableType`（前面讨论的 `F`）声明为可释放类型 \(`TypeA`\)，并且不调用字段上的 <xref:System.IDisposable.Dispose%2A>。  `TypeB` 对应于前面讨论中的 `T`。  
+## <a name="example"></a>Example  
+ The following example shows a type `TypeB` that violates this rule by declaring a field `aFieldOfADisposableType` (`F` in the previous discussion) as a disposable type (`TypeA`) and not calling <xref:System.IDisposable.Dispose%2A> on the field. `TypeB` corresponds to `T` in the previous discussion.  
   
- [!code-cs[FxCop.Usage.IDisposableFields#1](../code-quality/codesnippet/CSharp/ca2213-disposable-fields-should-be-disposed_1.cs)]  
+ [!code-csharp[FxCop.Usage.IDisposableFields#1](../code-quality/codesnippet/CSharp/ca2213-disposable-fields-should-be-disposed_2.cs)]  
   
-## 请参阅  
+## <a name="see-also"></a>See Also  
  <xref:System.IDisposable?displayProperty=fullName>   
- [释放模式](../Topic/Dispose%20Pattern.md)
+ [Dispose Pattern](/dotnet/standard/design-guidelines/dispose-pattern)

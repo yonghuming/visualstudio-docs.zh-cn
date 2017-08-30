@@ -1,55 +1,71 @@
 ---
-title: "CA1300：指定 MessageBoxOptions | Microsoft Docs"
-ms.custom: ""
-ms.date: "12/14/2016"
-ms.prod: "visual-studio-dev14"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-devops-test"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "SpecifyMessageBoxOptions"
-  - "CA1300"
-helpviewer_keywords: 
-  - "SpecifyMessageBoxOptions"
-  - "CA1300"
+title: 'CA1300: Specify MessageBoxOptions | Microsoft Docs'
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-devops-test
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords:
+- SpecifyMessageBoxOptions
+- CA1300
+helpviewer_keywords:
+- SpecifyMessageBoxOptions
+- CA1300
 ms.assetid: 9357a724-026e-4a3d-a03a-f14635064ec6
 caps.latest.revision: 19
-caps.handback.revision: 19
-author: "stevehoag"
-ms.author: "shoag"
-manager: "wpickett"
----
-# CA1300：指定 MessageBoxOptions
-[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
+author: stevehoag
+ms.author: shoag
+manager: wpickett
+translation.priority.ht:
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- ru-ru
+- zh-cn
+- zh-tw
+translation.priority.mt:
+- cs-cz
+- pl-pl
+- pt-br
+- tr-tr
+ms.translationtype: HT
+ms.sourcegitcommit: eb5c9550fd29b0e98bf63a7240737da4f13f3249
+ms.openlocfilehash: 7d4799fa48ea21c98603ce9aee5de1353618960c
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/30/2017
 
+---
+# <a name="ca1300-specify-messageboxoptions"></a>CA1300: Specify MessageBoxOptions
 |||  
 |-|-|  
-|类型名|SpecifyMessageBoxOptions|  
+|TypeName|SpecifyMessageBoxOptions|  
 |CheckId|CA1300|  
-|类别|Microsoft.Globalization|  
-|是否重大更改|非重大更改|  
+|Category|Microsoft.Globalization|  
+|Breaking Change|Non-breaking|  
   
-## 原因  
- 某方法调用了未采用 <xref:System.Windows.Forms.MessageBoxOptions?displayProperty=fullName> 参数的 <xref:System.Windows.Forms.MessageBox.Show%2A?displayProperty=fullName> 方法的重载。  
+## <a name="cause"></a>Cause  
+ A method calls an overload of the <xref:System.Windows.Forms.MessageBox.Show%2A?displayProperty=fullName> method that does not take a <xref:System.Windows.Forms.MessageBoxOptions?displayProperty=fullName> argument.  
   
-## 规则说明  
- 要为使用从右向左阅读顺序的区域性正确显示消息框，必须将 <xref:System.Windows.Forms.MessageBoxOptions> 枚举的 <xref:System.Windows.Forms.MessageBoxOptions> 和 <xref:System.Windows.Forms.MessageBoxOptions> 成员传递给 <xref:System.Windows.Forms.MessageBox.Show%2A> 方法。  检查包含控件的 <xref:System.Windows.Forms.Control.RightToLeft%2A?displayProperty=fullName> 属性以确定是否使用从右向左的阅读顺序。  
+## <a name="rule-description"></a>Rule Description  
+ To display a message box correctly for cultures that use a right-to-left reading order, the <xref:System.Windows.Forms.MessageBoxOptions> and <xref:System.Windows.Forms.MessageBoxOptions> members of the <xref:System.Windows.Forms.MessageBoxOptions> enumeration must be passed to the <xref:System.Windows.Forms.MessageBox.Show%2A> method. Examine the <xref:System.Windows.Forms.Control.RightToLeft%2A?displayProperty=fullName> property of the containing control to determine whether to use a right-to-left reading order.  
   
-## 如何解决冲突  
- 要修复与该规则的冲突，请调用采用 <xref:System.Windows.Forms.MessageBoxOptions> 参数的 <xref:System.Windows.Forms.MessageBox.Show%2A> 方法的重载。  
+## <a name="how-to-fix-violations"></a>How to Fix Violations  
+ To fix a violation of this rule, call an overload of the <xref:System.Windows.Forms.MessageBox.Show%2A> method that takes a <xref:System.Windows.Forms.MessageBoxOptions> argument.  
   
-## 何时禁止显示警告  
- 如果不是针对使用从右向左阅读顺序的区域性来本地化代码库，则可以安全地禁止显示此规则发出的警告。  
+## <a name="when-to-suppress-warnings"></a>When to Suppress Warnings  
+ It is safe to suppress a warning from this rule when the code library will not be localized for a culture that uses a right-to-left reading order.  
   
-## 示例  
- 下面的示例演示消息框的显示方法，该消息框带有适用于从右向左阅读顺序的区域性的选项。  需要资源文件（未显示）才能生成此示例。  按照示例中的注释进行操作，可以不使用资源文件生成示例并测试从右向左功能。  
+## <a name="example"></a>Example  
+ The following example shows a method that displays a message box that has options that are appropriate for the reading order of the culture. A resource file, which is not shown, is required to build the example. Follow the comments in the example to build the example without a resource file and to test the right-to-left feature.  
   
- [!code-vb[FxCop.Globalization.SpecifyMBOptions#1](../code-quality/codesnippet/VisualBasic/ca1300-specify-messageboxoptions_1.vb)]
- [!code-cs[FxCop.Globalization.SpecifyMBOptions#1](../code-quality/codesnippet/CSharp/ca1300-specify-messageboxoptions_1.cs)]  
+ [!code-vb[FxCop.Globalization.SpecifyMBOptions#1](../code-quality/codesnippet/VisualBasic/ca1300-specify-messageboxoptions_1.vb)] [!code-csharp[FxCop.Globalization.SpecifyMBOptions#1](../code-quality/codesnippet/CSharp/ca1300-specify-messageboxoptions_1.cs)]  
   
-## 请参阅  
+## <a name="see-also"></a>See Also  
  <xref:System.Resources.ResourceManager?displayProperty=fullName>   
- [桌面应用程序中的资源](../Topic/Resources%20in%20Desktop%20Apps.md)
+ [Resources in Desktop Apps](/dotnet/framework/resources/index)

@@ -1,107 +1,109 @@
 ---
-title: "在 Office 文档中保存动态控件"
-ms.custom: ""
-ms.date: "02/02/2017"
-ms.prod: "visual-studio-dev14"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "office-development"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-dev_langs: 
-  - "VB"
-  - "CSharp"
-helpviewer_keywords: 
-  - "Office 文档 [Visual Studio 中的 Office 开发]，Windows 窗体控件"
-  - "Office 文档 [Visual Studio 中的 Office 开发]，宿主控件"
-  - "控件 [Visual Studio 中的 Office 开发]，保留在文档中"
-  - "Windows 窗体控件 [Visual Studio 中的 Office 开发]，保留在文档中"
-  - "文档 [Visual Studio 中的 Office 开发]，Windows 窗体控件"
-  - "文档 [Visual Studio 中的 Office 开发]，宿主控件"
-  - "宿主控件 [Visual Studio 中的 Office 开发]，保留在文档中"
+title: Persisting Dynamic Controls in Office Documents | Microsoft Docs
+ms.custom: 
+ms.date: 02/02/2017
+ms.prod: visual-studio-dev14
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- office-development
+ms.tgt_pltfrm: 
+ms.topic: article
+dev_langs:
+- VB
+- CSharp
+helpviewer_keywords:
+- Office documents [Office development in Visual Studio, Windows Forms controls
+- Office documents [Office development in Visual Studio, host controls
+- controls [Office development in Visual Studio], persisting in the document
+- Windows Forms controls [Office development in Visual Studio], persisting in the document
+- documents [Office development in Visual Studio], Windows Forms controls
+- documents [Office development in Visual Studio], host controls
+- host controls [Office development in Visual Studio], persisting in the document
 ms.assetid: 200352d1-66aa-4156-9ecd-6fd8792974cd
 caps.latest.revision: 38
-author: "kempb"
-ms.author: "kempb"
-manager: "ghogen"
-caps.handback.revision: 37
+author: kempb
+ms.author: kempb
+manager: ghogen
+ms.translationtype: HT
+ms.sourcegitcommit: eb5c9550fd29b0e98bf63a7240737da4f13f3249
+ms.openlocfilehash: e33183f43b6ac1df1f2ae9b4fd4de9ceefeedf88
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/30/2017
+
 ---
-# 在 Office 文档中保存动态控件
-  保存并关闭文档或工作薄后，运行时添加的控件不会保留。 具体的行为与宿主控件和 Windows 窗体控件不同。 在这两种情况下，都可以为解决方案添加代码，在用户重新打开该文档时重新创建这些控件。  
+# <a name="persisting-dynamic-controls-in-office-documents"></a>Persisting Dynamic Controls in Office Documents
+  Controls that are added at run time are not persisted when the document or workbook is saved and closed. The exact behavior is different for host controls and Windows Forms controls. In both cases, you can add code to your solution to re-create the controls when the user reopens the document.  
   
- 在运行时添加到文档中的控件称为*动态控件*。 有关动态控件的详细信息，请参阅 [在运行时向 Office 文档添加控件](../vsto/adding-controls-to-office-documents-at-run-time.md)。  
+ Controls that you add to documents at run time are called *dynamic controls*. For more information about dynamic controls, see [Adding Controls to Office Documents at Run Time](../vsto/adding-controls-to-office-documents-at-run-time.md).  
   
  [!INCLUDE[appliesto_controls](../vsto/includes/appliesto-controls-md.md)]  
   
-## 宿主控件保留在文档中  
- 保存并关闭文档后，所有动态宿主控件会从文档中删除。 只会留下基础本机 Office 对象。 例如，<xref:Microsoft.Office.Tools.Excel.ListObject> 宿主控件将变成 <xref:Microsoft.Office.Interop.Excel.ListObject>。 本机 Office 对象未连接到宿主控件事件，并且不具备宿主控件的数据绑定功能。  
+## <a name="persisting-host-controls-in-the-document"></a>Persisting Host Controls in the Document  
+ When a document is saved and then closed, all dynamic host controls are removed from the document. Only the underlying native Office objects remain behind. For example, a <xref:Microsoft.Office.Tools.Excel.ListObject> host control becomes a <xref:Microsoft.Office.Interop.Excel.ListObject>. The native Office objects are not connected to the host control events, and they do not have the data binding functionality of the host control.  
   
- 下表列出了文档中保留的每种宿主控件的本机 Office 对象。  
+ The following table lists the native Office object that is left behind in a document for each type of host control.  
   
-|宿主控件类型|本机 Office 对象类型|  
-|------------|--------------------|  
+|Host control type|Native Office object type|  
+|-----------------------|-------------------------------|  
 |<xref:Microsoft.Office.Tools.Excel.Chart>|<xref:Microsoft.Office.Interop.Excel.Chart>|  
 |<xref:Microsoft.Office.Tools.Excel.ListObject>|<xref:Microsoft.Office.Interop.Excel.ListObject>|  
 |<xref:Microsoft.Office.Tools.Excel.NamedRange>|<xref:Microsoft.Office.Interop.Excel.Range>|  
 |<xref:Microsoft.Office.Tools.Word.Bookmark>|<xref:Microsoft.Office.Interop.Word.Bookmark>|  
 |<xref:Microsoft.Office.Tools.Word.BuildingBlockGalleryContentControl><br /><br /> <xref:Microsoft.Office.Tools.Word.ComboBoxContentControl><br /><br /> <xref:Microsoft.Office.Tools.Word.ContentControl><br /><br /> <xref:Microsoft.Office.Tools.Word.DatePickerContentControl><br /><br /> <xref:Microsoft.Office.Tools.Word.DropDownListContentControl><br /><br /> <xref:Microsoft.Office.Tools.Word.GroupContentControl><br /><br /> <xref:Microsoft.Office.Tools.Word.PictureContentControl><br /><br /> <xref:Microsoft.Office.Tools.Word.PlainTextContentControl><br /><br /> <xref:Microsoft.Office.Tools.Word.RichTextContentControl>|<xref:Microsoft.Office.Interop.Word.ContentControl>|  
   
-### 打开文档时重新创建动态宿主控件  
- 用户每次打开文档时，可以重新创建动态宿主控件来代替现有的本机控件。 打开文档时，用这种方式创建宿主控件可模拟用户可能经历的体验。  
+### <a name="re-creating-dynamic-host-controls-when-documents-are-opened"></a>Re-Creating Dynamic Host Controls When Documents Are Opened  
+ You can re-create dynamic host controls in place of existing native controls every time a user opens the document. Creating host controls in this manner when a document is opened simulates the experience that users might expect.  
   
- 若要为 Word 重新创建宿主控件，或为 Excel 重新创建 <xref:Microsoft.Office.Tools.Excel.NamedRange> 或 <xref:Microsoft.Office.Tools.Excel.ListObject> 宿主控件，应使用 <xref:Microsoft.Office.Tools.Excel.ControlCollection> 或 <xref:Microsoft.Office.Tools.Word.ControlCollection> 对象的 `Add`\<*control class*\> 方法。 使用包含本机 Office 对象参数的方法。  
+ To re-create a host control for Word, or a <xref:Microsoft.Office.Tools.Excel.NamedRange> or <xref:Microsoft.Office.Tools.Excel.ListObject> host control for Excel, use an `Add`\<*control class*> method of an <xref:Microsoft.Office.Tools.Excel.ControlCollection> or <xref:Microsoft.Office.Tools.Word.ControlCollection> object. Use a method that has a parameter for the native Office object.  
   
- 例如，如果想要在打开文档时从现有的本机 <xref:Microsoft.Office.Interop.Excel.ListObject> 中创建 <xref:Microsoft.Office.Tools.Excel.ListObject> 宿主控件，应使用 <xref:Microsoft.Office.Tools.Excel.ControlCollection.AddListObject%2A> 方法并传入现有的 <xref:Microsoft.Office.Interop.Excel.ListObject>。 下面的代码示例演示了如何在 Excel 的文档级项目中进行此操作。 该代码会重新创建动态 <xref:Microsoft.Office.Tools.Excel.ListObject>，它基于 `Sheet1` 类中名为 `MyListObject` 的现有 <xref:Microsoft.Office.Interop.Excel.ListObject> 创建。  
+ For example, if you want to create a <xref:Microsoft.Office.Tools.Excel.ListObject> host control from an existing native <xref:Microsoft.Office.Interop.Excel.ListObject> when the document is opened, use the <xref:Microsoft.Office.Tools.Excel.ControlCollection.AddListObject%2A> method and pass in the existing <xref:Microsoft.Office.Interop.Excel.ListObject>. The following code example demonstrates this in a document-level project for Excel. The code re-creates a dynamic <xref:Microsoft.Office.Tools.Excel.ListObject> that is based on an existing <xref:Microsoft.Office.Interop.Excel.ListObject> named `MyListObject` in the `Sheet1` class.  
   
- [!code-csharp[Trin_ExcelWorkbookDynamicControls#6](../snippets/csharp/VS_Snippets_OfficeSP/Trin_ExcelWorkbookDynamicControls/CS/Sheet1.cs#6)]
- [!code-vb[Trin_ExcelWorkbookDynamicControls#6](../snippets/visualbasic/VS_Snippets_OfficeSP/Trin_ExcelWorkbookDynamicControls/VB/Sheet1.vb#6)]  
+ [!code-csharp[Trin_ExcelWorkbookDynamicControls#6](../vsto/codesnippet/CSharp/trin_excelworkbookdynamiccontrols4/Sheet1.cs#6)] [!code-vb[Trin_ExcelWorkbookDynamicControls#6](../vsto/codesnippet/VisualBasic/trin_excelworkbookdynamiccontrols4/Sheet1.vb#6)]  
   
-### 重新创建图表  
- 若要重新创建 <xref:Microsoft.Office.Tools.Excel.Chart> 宿主控件，必须首先删除本机 <xref:Microsoft.Office.Interop.Excel.Chart>，然后使用 <xref:Microsoft.Office.Tools.Excel.ControlCollection.AddChart%2A> 或 <xref:Microsoft.Office.Tools.Excel.ControlCollection.AddChart%2A> 方法重新创建 <xref:Microsoft.Office.Tools.Excel.Chart>。 没有可基于现有 <xref:Microsoft.Office.Interop.Excel.Chart> 来创建新 <xref:Microsoft.Office.Tools.Excel.Chart> 的 `Add`\<*control class*\> 方法。  
+### <a name="re-creating-charts"></a>Re-Creating Charts  
+ To re-create a <xref:Microsoft.Office.Tools.Excel.Chart> host control, you must first delete the native <xref:Microsoft.Office.Interop.Excel.Chart>, and then re-create the <xref:Microsoft.Office.Tools.Excel.Chart> by using the <xref:Microsoft.Office.Tools.Excel.ControlCollection.AddChart%2A> or <xref:Microsoft.Office.Tools.Excel.ControlCollection.AddChart%2A> method. There is no `Add`\<*control class*> method that enables you to create a new <xref:Microsoft.Office.Tools.Excel.Chart> based on an existing <xref:Microsoft.Office.Interop.Excel.Chart>.  
   
- 如果未首先删除本机 <xref:Microsoft.Office.Interop.Excel.Chart>，那么当重新创建 <xref:Microsoft.Office.Tools.Excel.Chart> 时，将创建第二个重复的图表。  
+ If you do not first delete the native <xref:Microsoft.Office.Interop.Excel.Chart>, then you will create a second, duplicate chart when you re-create the <xref:Microsoft.Office.Tools.Excel.Chart>.  
   
-## 在文档中保留 Windows 窗体控件  
- 保存并关闭文档后，[!INCLUDE[vsto_runtime](../vsto/includes/vsto-runtime-md.md)] 会自动从文档中删除所有动态创建的 Windows 窗体控件。 但是，对于文档级和 VSTO 外接程序项目，此行为有所不同。  
+## <a name="persisting-windows-forms-controls-in-documents"></a>Persisting Windows Forms Controls in Documents  
+ When a document is saved and then closed, the [!INCLUDE[vsto_runtime](../vsto/includes/vsto-runtime-md.md)] automatically removes all dynamically created Windows Forms controls from the document. However, the behavior is different for document-level and VSTO Add-in projects.  
   
- 在文档级自定义项中，控件及其基础 ActiveX 包装（用于在文档上承载控件）会在下次打开该文档时被删除。 没有迹象表明这里曾经存在控件。  
+ In document-level customizations, the controls and their underlying ActiveX wrappers (which are used to host the controls on the document) are removed the next time the document is opened. There is no indication that the controls were ever there.  
   
- 在 VSTO 外接程序中，控件会被删除，但 ActiveX 包装仍保留在文档中。 用户下次打开文档时，还可以看到 ActiveX 包装。 在 Excel 中，ActiveX 包装会显示上次保存文档时显示的控件图像。 在 Word 中，不会显示 ActiveX 包装，除非用户单击它们，在这种情况下，会在控件边框上显示一圈虚线。 有几种方法可以删除 ActiveX 包装。 有关详细信息，请参阅[在外接程序中删除 ActiveX 包装](#removingActiveX)。  
+ In VSTO Add-ins, the controls are removed, but the ActiveX wrappers remain in the document. The next time the user opens the document, the ActiveX wrappers are visible. In Excel, the ActiveX wrappers display images of the controls as they appeared the last time the document was saved. In Word, the ActiveX wrappers are invisible unless the user clicks on them, in which case they display a dotted line that represents the border of the controls. There are several ways you can remove the ActiveX wrappers. For more information, see [Removing ActiveX Wrappers in an Add-in](#removingActiveX).  
   
-### 打开文档时重新创建 Windows 窗体控件  
- 当用户重新打开文档时，可以重新创建已删除的 Windows 窗体控件。 为此，必须执行下列任务：  
+### <a name="re-creating-windows-forms-controls-when-documents-are-opened"></a>Re-Creating Windows Forms Controls When Documents Are Opened  
+ You can re-create deleted Windows Forms controls when the user reopens the document. To do this, your solution must perform the following tasks:  
   
-1.  保存或关闭文档时，存储关于大小、位置和控件状态的信息。 在文档级自定义项中，可以将此数据保存到文档的数据缓存中。 在 VSTO 外接程序中，可以将此数据保存到文档的自定义 XML 部件中。  
+1.  Store information about the size, location, and state of the controls when the document is saved or closed. In a document-level customization, you can save this data to the data cache in the document. In an VSTO Add-in, you can save this data to a custom XML part in the document.  
   
-2.  打开文档时，在引发的事件中重新创建控件。 在文档级项目中，可以在 `Sheet`*n*`_Startup` 或 `ThisDocument_Startup` 事件处理程序中执行此操作。 在 VSTO 外接程序项目中，可以在 <xref:Microsoft.Office.Interop.Excel.AppEvents_Event.WorkbookOpen> 或 <xref:Microsoft.Office.Interop.Word.ApplicationEvents4_Event.DocumentOpen> 事件的事件处理程序中执行此操作。  
+2.  Re-create the controls in an event that is raised when the document is opened. In document-level projects, you can do this in the `Sheet`*n*`_Startup` or `ThisDocument_Startup` event handlers. In VSTO Add-in projects, you can do this in the event handlers for the <xref:Microsoft.Office.Interop.Excel.AppEvents_Event.WorkbookOpen> or <xref:Microsoft.Office.Interop.Word.ApplicationEvents4_Event.DocumentOpen> events.  
   
-###  <a name="removingActiveX"></a> 在外接程序中删除 ActiveX 包装  
- 当使用 VSTO 外接程序向文档中添加动态 Windows 窗体控件时，可以通过以下方式禁止下次打开文档时控件的 ActiveX 包装出现在该文档中。  
+###  <a name="removingActiveX"></a> Removing ActiveX Wrappers in an Add-in  
+ When you add dynamic Windows Forms controls to documents by using an VSTO Add-in, you can prevent the ActiveX wrappers for the controls from appearing in the document the next time it is opened in the following ways.  
   
-#### 打开文档时删除 ActiveX 包装  
- 若要删除所有 ActiveX 包装，请调用 GetVstoObject 方法为表示新打开文档的 <xref:Microsoft.Office.Interop.Word.Document> 或 <xref:Microsoft.Office.Interop.Excel.Workbook> 生成宿主项。 例如，若要从 Word 文档中删除所有 ActiveX 包装，可以调用 GetVstoObject 方法来为 <xref:Microsoft.Office.Interop.Word.Document> 对象生成宿主项，该对象会传递给 <xref:Microsoft.Office.Interop.Word.ApplicationEvents4_Event.DocumentOpen> 事件的事件处理程序。  
+#### <a name="removing-activex-wrappers-when-the-document-is-opened"></a>Removing ActiveX Wrappers When the Document Is Opened  
+ To remove all ActiveX wrappers, call the GetVstoObject method to generate a host item for the <xref:Microsoft.Office.Interop.Word.Document> or <xref:Microsoft.Office.Interop.Excel.Workbook> that represents the newly opened document. For example, to remove all ActiveX wrappers from a Word document, you can call the GetVstoObject method to generate a host item for the <xref:Microsoft.Office.Interop.Word.Document> object that is passed to the event handler for the <xref:Microsoft.Office.Interop.Word.ApplicationEvents4_Event.DocumentOpen> event.  
   
- 知道只能在安装 VSTO 外接程序的计算机上打开文档时，此过程非常有用。 如果该文档可能会传递给其他未安装 VSTO 外接程序的用户，请考虑在关闭文档之前删除控件。  
+ This procedure is useful when you know that the document will be opened only on computers that have the VSTO Add-in installed. If the document might be passed to other users who do not have the VSTO Add-in installed, consider removing the controls before closing the document instead.  
   
- 下面的代码示例演示如何在打开文档时调用 GetVstoObject 方法。  
+ The following code example demonstrates how to call the GetVstoObject method when the document is opened.  
   
- [!code-csharp[Trin_WordAddInDynamicControls#11](../snippets/csharp/VS_Snippets_OfficeSP/Trin_WordAddInDynamicControls/CS/ThisAddIn.cs#11)]
- [!code-vb[Trin_WordAddInDynamicControls#11](../snippets/visualbasic/VS_Snippets_OfficeSP/Trin_WordAddInDynamicControls/VB/ThisAddIn.vb#11)]  
+ [!code-vb[Trin_WordAddInDynamicControls#11](../vsto/codesnippet/VisualBasic/trin_wordaddindynamiccontrols/ThisAddIn.vb#11)] [!code-csharp[Trin_WordAddInDynamicControls#11](../vsto/codesnippet/CSharp/Trin_WordAddInDynamicControls/ThisAddIn.cs#11)]  
   
- 虽然 GetVstoObject 方法主要用于在运行时生成新的宿主项，但它还可在第一次调用文档时从中清除所有 ActiveX 包装。 有关如何使用 GetVstoObject 方法的更多信息，请参阅 [在运行时在 VSTO 外接程序中扩展 Word 文档和 Excel 工作簿](../vsto/extending-word-documents-and-excel-workbooks-in-vsto-add-ins-at-run-time.md)。  
+ Although the GetVstoObject method is used primarily to generate a new host item at run time, this method also clears all ActiveX wrappers from the document the first time it is called for a specific document. For more information about how to use the GetVstoObject method, see [Extending Word Documents and Excel Workbooks in VSTO Add-ins at Run Time](../vsto/extending-word-documents-and-excel-workbooks-in-vsto-add-ins-at-run-time.md).  
   
- 请注意，如果 VSTO 外接程序在打开文档时创建动态控件，那么作为创建控件的其中一步，VSTO 外接程序将调用 GetVstoObject 方法。 此方案中，不需要添加对 GetVstoObject 方法的单独调用来删除 ActiveX 包装。  
+ Note that if your VSTO Add-in creates dynamic controls when the document is opened, your VSTO Add-in will already call the GetVstoObject method as part of the process to create the controls. You do not need to add a separate call to the GetVstoObject method to remove the ActiveX wrappers in this scenario.  
   
-#### 关闭文档前删除动态控件  
- 在关闭文档之前，VSTO 外接程序可以从文档中显式删除每个动态控件。 对于可能传递给其他未安装 VSTO 外接程序的用户的文档而言，此过程非常有用。  
+#### <a name="removing-the-dynamic-controls-before-the-document-is-closed"></a>Removing the Dynamic Controls Before the Document Is Closed  
+ Your VSTO Add-in can explicitly remove each dynamic control from the document before the document is closed. This procedure is useful for documents that might be passed to other users who do not have the VSTO Add-in installed.  
   
- 以下代码示例演示了如何在文档关闭时，从 Word 文档中删除所有 Windows 窗体控件。  
+ The following code example demonstrates how to remove all of the Windows Forms controls from a Word document when the document is closed.  
   
- [!code-csharp[Trin_WordAddInDynamicControls#10](../snippets/csharp/VS_Snippets_OfficeSP/Trin_WordAddInDynamicControls/CS/ThisAddIn.cs#10)]
- [!code-vb[Trin_WordAddInDynamicControls#10](../snippets/visualbasic/VS_Snippets_OfficeSP/Trin_WordAddInDynamicControls/VB/ThisAddIn.vb#10)]  
+ [!code-vb[Trin_WordAddInDynamicControls#10](../vsto/codesnippet/VisualBasic/trin_wordaddindynamiccontrols/ThisAddIn.vb#10)] [!code-csharp[Trin_WordAddInDynamicControls#10](../vsto/codesnippet/CSharp/Trin_WordAddInDynamicControls/ThisAddIn.cs#10)]  
   
-## 请参阅  
- [在运行时向 Office 文档添加控件](../vsto/adding-controls-to-office-documents-at-run-time.md)  
+## <a name="see-also"></a>See Also  
+ [Adding Controls to Office Documents at Run Time](../vsto/adding-controls-to-office-documents-at-run-time.md)  
   
   

@@ -1,50 +1,67 @@
 ---
-title: "CA2241：为格式化方法提供正确的参数 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-devops-test"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "CA2241"
-  - "Provide correct arguments to formatting methods"
-  - "ProvideCorrectArgumentsToFormattingMethods"
-helpviewer_keywords: 
-  - "CA2241"
-  - "ProvideCorrectArgumentsToFormattingMethods"
+title: 'CA2241: Provide correct arguments to formatting methods | Microsoft Docs'
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-devops-test
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords:
+- CA2241
+- Provide correct arguments to formatting methods
+- ProvideCorrectArgumentsToFormattingMethods
+helpviewer_keywords:
+- ProvideCorrectArgumentsToFormattingMethods
+- CA2241
 ms.assetid: 83639bc4-4c91-4a07-a40e-dc5e49a84494
 caps.latest.revision: 12
-author: "stevehoag"
-ms.author: "shoag"
-manager: "wpickett"
-caps.handback.revision: 12
----
-# CA2241：为格式化方法提供正确的参数
-[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
+author: stevehoag
+ms.author: shoag
+manager: wpickett
+translation.priority.ht:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+ms.translationtype: HT
+ms.sourcegitcommit: eb5c9550fd29b0e98bf63a7240737da4f13f3249
+ms.openlocfilehash: 4ed5e5210683f073abcc65943fc7ae01677bf775
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/30/2017
 
+---
+# <a name="ca2241-provide-correct-arguments-to-formatting-methods"></a>CA2241: Provide correct arguments to formatting methods
 |||  
 |-|-|  
-|类型名|ProvideCorrectArgumentsToFormattingMethods|  
+|TypeName|ProvideCorrectArgumentsToFormattingMethods|  
 |CheckId|CA2241|  
-|类别|Microsoft.Usage|  
-|是否重大更改|否|  
+|Category|Microsoft.Usage|  
+|Breaking Change|Non Breaking|  
   
-## 原因  
- 传递到方法的 `format` 字符串参数，例如 <xref:System.Console.WriteLine%2A>、<xref:System.Console.Write%2A> 或 <xref:System.String.Format%2A?displayProperty=fullName>，不包含对应于每个对象参数的格式项，反之亦然。  
+## <a name="cause"></a>Cause  
+ The `format` string argument passed to a method such as <xref:System.Console.WriteLine%2A>,  <xref:System.Console.Write%2A>, or  <xref:System.String.Format%2A?displayProperty=fullName> does not contain a format item that corresponds to each object argument, or vice versa.  
   
-## 规则说明  
- 方法的参数，例如 <xref:System.Console.WriteLine%2A>、<xref:System.Console.Write%2A> 和 <xref:System.String.Format%2A> 由一个格式字符串后接几个 <xref:System.Object?displayProperty=fullName> 实例组成。  格式字符串由文本和 {index\[,alignment\]\[:formatString\]} 形式的嵌入格式项组成。'index'是一个从零开始的整数，它指示要格式化的对象。  如果某对象在格式字符串中没有相应索引，该对象将被忽略。  如果“index”指定的对象不存在，将在运行时引发 <xref:System.FormatException?displayProperty=fullName>。  
+## <a name="rule-description"></a>Rule Description  
+ The arguments to methods such as <xref:System.Console.WriteLine%2A>, <xref:System.Console.Write%2A>, and <xref:System.String.Format%2A> consist of a format string followed by several <xref:System.Object?displayProperty=fullName> instances. The format string consists of text and embedded format items of the form, {index[,alignment][:formatString]}. 'index' is a zero-based integer that indicates which of the objects to format. If an object does not have a corresponding index in the format string, the object is ignored. If the object specified by 'index' does not exist, a <xref:System.FormatException?displayProperty=fullName> is thrown at runtime.  
   
-## 如何解决冲突  
- 要修复与该规则的冲突，请为每个对象参数提供一个格式项，同时为每个格式项提供一个对象参数。  
+## <a name="how-to-fix-violations"></a>How to Fix Violations  
+ To fix a violation of this rule, provide a format item for each object argument and provide an object argument for each format item.  
   
-## 何时禁止显示警告  
- 不要禁止显示此规则发出的警告。  
+## <a name="when-to-suppress-warnings"></a>When to Suppress Warnings  
+ Do not suppress a warning from this rule.  
   
-## 示例  
- 下面的示例演示与该规则冲突的两种情况。  
+## <a name="example"></a>Example  
+ The following example shows two violations of the rule.  
   
- [!CODE [FxCop.Usage.FormattingArguments#1](../CodeSnippet/VS_Snippets_CodeAnalysis/FxCop.Usage.FormattingArguments#1)]
+ [!code-vb[FxCop.Usage.FormattingArguments#1](../code-quality/codesnippet/VisualBasic/ca2241-provide-correct-arguments-to-formatting-methods_1.vb)] [!code-csharp[FxCop.Usage.FormattingArguments#1](../code-quality/codesnippet/CSharp/ca2241-provide-correct-arguments-to-formatting-methods_1.cs)]

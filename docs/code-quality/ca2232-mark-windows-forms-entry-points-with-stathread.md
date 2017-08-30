@@ -1,53 +1,69 @@
 ---
-title: "CA2232：使用 STAThread 标记 Windows 窗体的入口点 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-devops-test"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "MarkWindowsFormsEntryPointsWithStaThread"
-  - "CA2232"
-helpviewer_keywords: 
-  - "CA2232"
-  - "MarkWindowsFormsEntryPointsWithStaThread"
+title: 'CA2232: Mark Windows Forms entry points with STAThread | Microsoft Docs'
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-devops-test
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords:
+- MarkWindowsFormsEntryPointsWithStaThread
+- CA2232
+helpviewer_keywords:
+- CA2232
+- MarkWindowsFormsEntryPointsWithStaThread
 ms.assetid: a3c95130-8e7f-4419-9fcd-b67d077e8efb
 caps.latest.revision: 16
-author: "stevehoag"
-ms.author: "shoag"
-manager: "wpickett"
-caps.handback.revision: 16
----
-# CA2232：使用 STAThread 标记 Windows 窗体的入口点
-[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
+author: stevehoag
+ms.author: shoag
+manager: wpickett
+translation.priority.ht:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+ms.translationtype: HT
+ms.sourcegitcommit: eb5c9550fd29b0e98bf63a7240737da4f13f3249
+ms.openlocfilehash: cd1be8452f4729ed17ae6fd87f835c50137c1806
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/30/2017
 
+---
+# <a name="ca2232-mark-windows-forms-entry-points-with-stathread"></a>CA2232: Mark Windows Forms entry points with STAThread
 |||  
 |-|-|  
-|类型名|MarkWindowsFormsEntryPointsWithStaThread|  
+|TypeName|MarkWindowsFormsEntryPointsWithStaThread|  
 |CheckId|CA2232|  
-|类别|Microsoft.Usage|  
-|是否重大更改|否|  
+|Category|Microsoft.Usage|  
+|Breaking Change|Non Breaking|  
   
-## 原因  
- 某程序集引用了 <xref:System.Windows.Forms> 命名空间，但没有使用 <xref:System.STAThreadAttribute?displayProperty=fullName> 特性标记该程序集的入口点。  
+## <a name="cause"></a>Cause  
+ An assembly references the <xref:System.Windows.Forms> namespace, and its entry point is not marked with the <xref:System.STAThreadAttribute?displayProperty=fullName> attribute.  
   
-## 规则说明  
- <xref:System.STAThreadAttribute> 指示应用程序的 COM 线程模型是单线程单元。  使用 Windows 窗体的任何应用程序的入口点上必须存在此特性；如果没有此特性，则 Windows 组件可能无法正常工作。  如果不存在此特性，则应用程序使用 Windows 窗体不支持的多线程单元模型。  
+## <a name="rule-description"></a>Rule Description  
+ <xref:System.STAThreadAttribute> indicates that the COM threading model for the application is single-threaded apartment. This attribute must be present on the entry point of any application that uses Windows Forms; if it is omitted, the Windows components might not work correctly. If the attribute is not present, the application uses the multithreaded apartment model, which is not supported for Windows Forms.  
   
 > [!NOTE]
->  使用应用程序框架的 [!INCLUDE[vbprvb](../code-quality/includes/vbprvb_md.md)] 项目不必使用 STAThread 标记 **Main** 方法。  [!INCLUDE[vbprvb](../code-quality/includes/vbprvb_md.md)] 编译器会自动进行标记。  
+>  [!INCLUDE[vbprvb](../code-quality/includes/vbprvb_md.md)] projects that use the Application Framework do not have to mark the **Main** method with STAThread. The [!INCLUDE[vbprvb](../code-quality/includes/vbprvb_md.md)] compiler does it automatically.  
   
-## 如何解决冲突  
- 要修复与该规则的冲突，请将 <xref:System.STAThreadAttribute> 特性添加到入口点。  如果存在 <xref:System.MTAThreadAttribute?displayProperty=fullName> 特性，请移除该特性。  
+## <a name="how-to-fix-violations"></a>How to Fix Violations  
+ To fix a violation of this rule, add the <xref:System.STAThreadAttribute> attribute to the entry point. If the <xref:System.MTAThreadAttribute?displayProperty=fullName> attribute is present, remove it.  
   
-## 何时禁止显示警告  
- 如果为不需要并且不支持 <xref:System.STAThreadAttribute> 特性的 .NET Compact Framework 进行开发，则可以安全地禁止显示与该规则有关的警告。  
+## <a name="when-to-suppress-warnings"></a>When to Suppress Warnings  
+ It is safe to suppress a warning from this rule if you are developing for the .NET Compact Framework, for which the <xref:System.STAThreadAttribute> attribute is unnecessary and not supported.  
   
-## 示例  
- 下面的示例演示 <xref:System.STAThreadAttribute> 的正确用法。  
+## <a name="example"></a>Example  
+ The following examples demonstrate the correct usage of <xref:System.STAThreadAttribute>.  
   
- [!code-cs[FxCop.Usage.StaThread#1](../code-quality/codesnippet/CSharp/ca2232-mark-windows-forms-entry-points-with-stathread_1.cs)]
- [!code-vb[FxCop.Usage.StaThread#1](../code-quality/codesnippet/VisualBasic/ca2232-mark-windows-forms-entry-points-with-stathread_1.vb)]
+ [!code-csharp[FxCop.Usage.StaThread#1](../code-quality/codesnippet/CSharp/ca2232-mark-windows-forms-entry-points-with-stathread_1.cs)] [!code-vb[FxCop.Usage.StaThread#1](../code-quality/codesnippet/VisualBasic/ca2232-mark-windows-forms-entry-points-with-stathread_1.vb)]

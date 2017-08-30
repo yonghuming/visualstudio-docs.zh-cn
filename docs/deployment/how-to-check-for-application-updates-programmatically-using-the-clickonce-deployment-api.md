@@ -1,66 +1,82 @@
 ---
-title: "如何：使用 ClickOnce 部署 API 以编程方式检查应用程序更新 | Microsoft Docs"
-ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-deployment"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-dev_langs: 
-  - "VB"
-  - "CSharp"
-  - "C++"
-helpviewer_keywords: 
-  - "应用程序更新"
-  - "ClickOnce 部署, 更新"
+title: 'How to: Check for Application Updates Programmatically Using the ClickOnce Deployment API | Microsoft Docs'
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-deployment
+ms.tgt_pltfrm: 
+ms.topic: article
+dev_langs:
+- VB
+- CSharp
+- C++
+helpviewer_keywords:
+- ClickOnce deployment, updates
+- application updates
 ms.assetid: 1a886310-67c8-44e5-a382-c2f0454f887d
 caps.latest.revision: 9
-caps.handback.revision: 9
-author: "stevehoag"
-ms.author: "shoag"
-manager: "wpickett"
----
-# 如何：使用 ClickOnce 部署 API 以编程方式检查应用程序更新
-[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
+author: stevehoag
+ms.author: shoag
+manager: wpickett
+translation.priority.ht:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+ms.translationtype: HT
+ms.sourcegitcommit: eb5c9550fd29b0e98bf63a7240737da4f13f3249
+ms.openlocfilehash: 84ac0f4f6fee7867272e752b59b1e3130aa25348
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/30/2017
 
-ClickOnce 提供了两种在部署后更新应用程序的方法。  在第一种方法中，可以将 ClickOnce 部署配置为以特定间隔时间自动检查是否有更新。  在第二种方法中，可以编写使用 <xref:System.Deployment.Application.ApplicationDeployment> 类根据事件（如用户请求）检查是否有更新的代码。  
+---
+# <a name="how-to-check-for-application-updates-programmatically-using-the-clickonce-deployment-api"></a>How to: Check for Application Updates Programmatically Using the ClickOnce Deployment API
+ClickOnce provides two ways to update an application once it is deployed. In the first method, you can configure the ClickOnce deployment to check automatically for updates at certain intervals. In the second method, you can write code that uses the <xref:System.Deployment.Application.ApplicationDeployment> class to check for updates based on an event, such as a user request.  
   
- 下面的过程演示一些执行编程更新的代码，同时描述如何配置 ClickOnce 部署，以启用编程更新检查。  
+ The following procedures show some code for performing a programmatic update and also describe how to configure your ClickOnce deployment to enable programmatic update checks.  
   
- 为了以编程方式更新 ClickOnce 应用程序，必须为更新指定一个位置。  这有时称为部署提供程序。  有关设置此属性的更多信息，请参见[选择 ClickOnce 更新策略](../deployment/choosing-a-clickonce-update-strategy.md)。  
+ In order to update a ClickOnce application programmatically, you must specify a location for updates. This is sometimes referred to as a deployment provider. For more information on setting this property, see [Choosing a ClickOnce Update Strategy](../deployment/choosing-a-clickonce-update-strategy.md).  
   
 > [!NOTE]
->  也可以使用下面所描述的技术在一个位置部署应用程序，而从其他位置更新该应用程序。  有关更多信息，请参见[如何：指定部署更新的其他位置](../deployment/how-to-specify-an-alternate-location-for-deployment-updates.md)。  
+>  You can also use the technique described below to deploy your application from one location but update it from another. For more information, see [How to: Specify an Alternate Location for Deployment Updates](../deployment/how-to-specify-an-alternate-location-for-deployment-updates.md).  
   
-### 以编程方式检查更新  
+### <a name="to-check-for-updates-programmatically"></a>To check for updates programmatically  
   
-1.  使用您喜爱的命令行或可视化工具创建一个新的 Windows 窗体应用程序。  
+1.  Create a new Windows Forms application using your preferred command-line or visual tools.  
   
-2.  创建希望让用户选择以检查是否有更新的任何按钮、菜单项或其他用户界面项。  从该项的事件处理程序调用下列方法以检查是否有更新并安装更新。  
+2.  Create whatever button, menu item, or other user interface item you want your users to select to check for updates. From that item's event handler, call the following method to check for and install updates.  
   
-     [!CODE [ClickOnceAPI#6](../CodeSnippet/VS_Snippets_Winforms/ClickOnceAPI#6)]  
+     [!code-csharp[ClickOnceAPI#6](../deployment/codesnippet/CSharp/how-to-check-for-application-updates-programmatically-using-the-clickonce-deployment-api_1.cs)]  [!code-cpp[ClickOnceAPI#6](../deployment/codesnippet/CPP/how-to-check-for-application-updates-programmatically-using-the-clickonce-deployment-api_1.cpp)]  [!code-vb[ClickOnceAPI#6](../deployment/codesnippet/VisualBasic/how-to-check-for-application-updates-programmatically-using-the-clickonce-deployment-api_1.vb)]  
   
-3.  编译应用程序。  
+3.  Compile your application.  
   
-### 使用 Mage.exe 部署以编程方式检查是否有更新的应用程序  
+### <a name="using-mageexe-to-deploy-an-application-that-checks-for-updates-programmatically"></a>Using Mage.exe to deploy an application that checks for updates programmatically  
   
--   按照 [演练：手动部署 ClickOnce 应用程序](../deployment/walkthrough-manually-deploying-a-clickonce-application.md) 中描述的使用 Mage.exe 部署应用程序的说明进行操作。  在调用 Mage.exe 生成部署清单时，确保使用命令行开关 `providerUrl` 及指定 ClickOnce 应检查是否有更新的 URL。  例如，如果应用程序将从 [http:\/\/www.adatum.com\/MyApp](http://www.adatum.com/MyApp) 进行更新，则生成部署清单的调用可能如下所示：  
+-   Follow the instructions for deploying your application using Mage.exe as explained in [Walkthrough: Manually Deploying a ClickOnce Application](../deployment/walkthrough-manually-deploying-a-clickonce-application.md). When calling Mage.exe to generate the deployment manifest, make sure to use the command-line switch `providerUrl`, and to specify the URL where ClickOnce should check for updates. If your application will update from [http://www.adatum.com/MyApp](http://www.adatum.com/MyApp), for example, your call to generate the deployment manifest might look like this:  
   
     ```  
     mage -New Deployment -ToFile WindowsFormsApp1.application -Name "My App 1.0" -Version 1.0.0.0 -AppManifest 1.0.0.0\MyApp.manifest -providerUrl http://www.adatum.com/MyApp/MyApp.application  
     ```  
   
-### 使用 MageUI.exe 部署以编程方式检查是否有更新的应用程序  
+### <a name="using-mageuiexe-to-deploy-an-application-that-checks-for-updates-programmatically"></a>Using MageUI.exe to deploy an application that checks for updates programmatically  
   
--   按照 [演练：手动部署 ClickOnce 应用程序](../deployment/walkthrough-manually-deploying-a-clickonce-application.md) 中描述的使用 Mage.exe 部署应用程序的说明进行操作。  在**“部署选项”**选项卡上，将**“启动位置”**字段设置为 ClickOnce 应检查是否有更新的应用程序清单。  在**“更新选项”**选项卡上，清除**“此应用程序应该检查更新”**复选框。  
+-   Follow the instructions for deploying your application using Mage.exe as explained in [Walkthrough: Manually Deploying a ClickOnce Application](../deployment/walkthrough-manually-deploying-a-clickonce-application.md). On the **Deployment Options** tab, set the **Start Location** field to the application manifest ClickOnce should check for updates. On the **Update Options** tab, clear the **This application should check for updates** check box.  
   
-## .NET Framework 安全性  
- 若要使用编程更新，则您的应用程序必须具有完全信任权限。  
+## <a name="net-framework-security"></a>.NET Framework Security  
+ Your application must have full-trust permissions to use programmatic updating.  
   
-## 请参阅  
- [如何：指定部署更新的其他位置](../deployment/how-to-specify-an-alternate-location-for-deployment-updates.md)   
- [选择 ClickOnce 更新策略](../deployment/choosing-a-clickonce-update-strategy.md)   
- [发布 ClickOnce 应用程序](../deployment/publishing-clickonce-applications.md)
+## <a name="see-also"></a>See Also  
+ [How to: Specify an Alternate Location for Deployment Updates](../deployment/how-to-specify-an-alternate-location-for-deployment-updates.md)   
+ [Choosing a ClickOnce Update Strategy](../deployment/choosing-a-clickonce-update-strategy.md)   
+ [Publishing ClickOnce Applications](../deployment/publishing-clickonce-applications.md)

@@ -1,72 +1,85 @@
 ---
-title: "CA2119：密封满足私有接口的方法 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-devops-test"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "SealMethodsThatSatisfyPrivateInterfaces"
-  - "CA2119"
-helpviewer_keywords: 
-  - "CA2119"
-  - "SealMethodsThatSatisfyPrivateInterfaces"
+title: 'CA2119: Seal methods that satisfy private interfaces | Microsoft Docs'
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-devops-test
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords:
+- SealMethodsThatSatisfyPrivateInterfaces
+- CA2119
+helpviewer_keywords:
+- CA2119
+- SealMethodsThatSatisfyPrivateInterfaces
 ms.assetid: 483d02e1-cfaf-4754-a98f-4116df0f3509
 caps.latest.revision: 18
-author: "stevehoag"
-ms.author: "shoag"
-manager: "wpickett"
-caps.handback.revision: 18
----
-# CA2119：密封满足私有接口的方法
-[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
+author: stevehoag
+ms.author: shoag
+manager: wpickett
+translation.priority.ht:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+ms.translationtype: HT
+ms.sourcegitcommit: eb5c9550fd29b0e98bf63a7240737da4f13f3249
+ms.openlocfilehash: ee3f0b88ddfec47d21288d8d8176d166553d4c21
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/30/2017
 
+---
+# <a name="ca2119-seal-methods-that-satisfy-private-interfaces"></a>CA2119: Seal methods that satisfy private interfaces
 |||  
 |-|-|  
-|类型名|SealMethodsThatSatisfyPrivateInterfaces|  
+|TypeName|SealMethodsThatSatisfyPrivateInterfaces|  
 |CheckId|CA2119|  
-|类别|Microsoft.Security|  
-|是否重大更改|是|  
+|Category|Microsoft.Security|  
+|Breaking Change|Breaking|  
   
-## 原因  
- 可继承的公共类型为 `internal`（在 Visual Basic 中为 `Friend`）接口提供可重写的方法实现。  
+## <a name="cause"></a>Cause  
+ An inheritable public type provides an overridable method implementation of an `internal` (`Friend` in Visual Basic) interface.  
   
-## 规则说明  
- 接口方法具有公共可访问性，不能通过该实现类型来更改。  内部接口会创建一个不应在定义该接口的程序集外部实现的协定。  使用 `virtual`（在 Visual Basic 中为 `Overridable`）修饰符实现内部接口的方法的公共类型允许程序集外部的派生类型重写该方法。  如果定义程序集中的第二个类型调用该方法，并期望创建一个纯内部协定，则当执行在外部程序集中重写的方法时，可能会对行为的安全性造成威胁。  这会产生安全漏洞。  
+## <a name="rule-description"></a>Rule Description  
+ Interface methods have public accessibility, which cannot be changed by the implementing type. An internal interface creates a contract that is not intended to be implemented outside the assembly that defines the interface. A public type that implements a method of an internal interface using the `virtual` (`Overridable` in Visual Basic) modifier allows the method to be overridden by a derived type that is outside the assembly. If a second type in the defining assembly calls the method and expects an internal-only contract, behavior might be compromised when, instead, the overridden method in the outside assembly is executed. This creates a security vulnerability.  
   
-## 如何解决冲突  
- 若要修复与该规则的冲突，请使用下面的方法之一防止该方法在程序集外部被重写：  
+## <a name="how-to-fix-violations"></a>How to Fix Violations  
+ To fix a violation of this rule, prevent the method from being overridden outside the assembly by using one of the following:  
   
--   使该声明类型成为 `sealed`（在 Visual Basic 中为 `NotInheritable`）。  
+-   Make the declaring type `sealed` (`NotInheritable` in Visual Basic).  
   
--   将声明类型的可访问性更改为 `internal`（在 Visual Basic 中为 `Friend`）。  
+-   Change the accessibility of the declaring type to `internal` (`Friend` in Visual Basic).  
   
--   从该声明类型中移除所有公共构造函数。  
+-   Remove all public constructors from the declaring type.  
   
--   在不使用 `virtual` 修饰符的情况下实现该方法。  
+-   Implement the method without using the `virtual` modifier.  
   
--   显式实现该方法。  
+-   Implement the method explicitly.  
   
-## 何时禁止显示警告  
- 经认真检查后，认定如果该方法在程序集外部被重写，并不存在可能被利用的安全问题，则可以安全地禁止显示此规则发出的警告。  
+## <a name="when-to-suppress-warnings"></a>When to Suppress Warnings  
+ It is safe to suppress a warning from this rule if, after careful review, no security issues exist that might be exploitable if the method is overridden outside the assembly.  
   
-## 示例  
- 下面的示例演示了一个违反该规则的类型 `BaseImplementation`。  
+## <a name="example"></a>Example  
+ The following example shows a type, `BaseImplementation`, that violates this rule.  
   
- [!code-cpp[FxCop.Security.SealMethods1#1](../code-quality/codesnippet/CPP/ca2119-seal-methods-that-satisfy-private-interfaces_1.cpp)]
- [!code-cs[FxCop.Security.SealMethods1#1](../code-quality/codesnippet/CSharp/ca2119-seal-methods-that-satisfy-private-interfaces_1.cs)]
- [!code-vb[FxCop.Security.SealMethods1#1](../code-quality/codesnippet/VisualBasic/ca2119-seal-methods-that-satisfy-private-interfaces_1.vb)]  
+ [!code-cpp[FxCop.Security.SealMethods1#1](../code-quality/codesnippet/CPP/ca2119-seal-methods-that-satisfy-private-interfaces_1.cpp)] [!code-csharp[FxCop.Security.SealMethods1#1](../code-quality/codesnippet/CSharp/ca2119-seal-methods-that-satisfy-private-interfaces_1.cs)] [!code-vb[FxCop.Security.SealMethods1#1](../code-quality/codesnippet/VisualBasic/ca2119-seal-methods-that-satisfy-private-interfaces_1.vb)]  
   
-## 示例  
- 下面的示例利用上面示例的虚方法实现。  
+## <a name="example"></a>Example  
+ The following example exploits the virtual method implementation of the previous example.  
   
- [!code-cpp[FxCop.Security.SealMethods2#1](../code-quality/codesnippet/CPP/ca2119-seal-methods-that-satisfy-private-interfaces_2.cpp)]
- [!code-cs[FxCop.Security.SealMethods2#1](../code-quality/codesnippet/CSharp/ca2119-seal-methods-that-satisfy-private-interfaces_2.cs)]
- [!code-vb[FxCop.Security.SealMethods2#1](../code-quality/codesnippet/VisualBasic/ca2119-seal-methods-that-satisfy-private-interfaces_2.vb)]  
+ [!code-cpp[FxCop.Security.SealMethods2#1](../code-quality/codesnippet/CPP/ca2119-seal-methods-that-satisfy-private-interfaces_2.cpp)] [!code-csharp[FxCop.Security.SealMethods2#1](../code-quality/codesnippet/CSharp/ca2119-seal-methods-that-satisfy-private-interfaces_2.cs)] [!code-vb[FxCop.Security.SealMethods2#1](../code-quality/codesnippet/VisualBasic/ca2119-seal-methods-that-satisfy-private-interfaces_2.vb)]  
   
-## 请参阅  
- [接口](/dotnet/csharp/programming-guide/interfaces/index)   
- [接口](/dotnet/visual-basic/programming-guide/language-features/interfaces/index)
+## <a name="see-also"></a>See Also  
+ [Interfaces](/dotnet/csharp/programming-guide/interfaces/index)   
+ [Interfaces](/dotnet/visual-basic/programming-guide/language-features/interfaces/index)

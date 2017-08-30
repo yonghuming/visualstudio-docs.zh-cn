@@ -1,48 +1,64 @@
 ---
-title: "CA2118：检查 SuppressUnmanagedCodeSecurityAttribute 用法 | Microsoft Docs"
-ms.custom: ""
-ms.date: "12/15/2016"
-ms.prod: "visual-studio-dev14"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-devops-test"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "CA2118"
-  - "ReviewSuppressUnmanagedCodeSecurityUsage"
-helpviewer_keywords: 
-  - "CA2118"
-  - "ReviewSuppressUnmanagedCodeSecurityUsage"
+title: 'CA2118: Review SuppressUnmanagedCodeSecurityAttribute usage | Microsoft Docs'
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-devops-test
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords:
+- CA2118
+- ReviewSuppressUnmanagedCodeSecurityUsage
+helpviewer_keywords:
+- ReviewSuppressUnmanagedCodeSecurityUsage
+- CA2118
 ms.assetid: 4cb8d2fc-4e44-4dc3-9b74-7f5838827d41
 caps.latest.revision: 20
-caps.handback.revision: 20
-author: "stevehoag"
-ms.author: "shoag"
-manager: "wpickett"
----
-# CA2118：检查 SuppressUnmanagedCodeSecurityAttribute 用法
-[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
+author: stevehoag
+ms.author: shoag
+manager: wpickett
+translation.priority.ht:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+ms.translationtype: HT
+ms.sourcegitcommit: eb5c9550fd29b0e98bf63a7240737da4f13f3249
+ms.openlocfilehash: cdec0f1446b87f23be8f9da9014cd4fd3d3d05e2
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/30/2017
 
+---
+# <a name="ca2118-review-suppressunmanagedcodesecurityattribute-usage"></a>CA2118: Review SuppressUnmanagedCodeSecurityAttribute usage
 |||  
 |-|-|  
-|类型名|ReviewSuppressUnmanagedCodeSecurityUsage|  
+|TypeName|ReviewSuppressUnmanagedCodeSecurityUsage|  
 |CheckId|CA2118|  
-|类别|Microsoft.Security|  
-|是否重大更改|是|  
+|Category|Microsoft.Security|  
+|Breaking Change|Breaking|  
   
-## 原因  
- 公共或受保护的类型或成员具有 <xref:System.Security.SuppressUnmanagedCodeSecurityAttribute?displayProperty=fullName> 特性。  
+## <a name="cause"></a>Cause  
+ A public or protected type or member has the <xref:System.Security.SuppressUnmanagedCodeSecurityAttribute?displayProperty=fullName> attribute.  
   
-## 规则说明  
- <xref:System.Security.SuppressUnmanagedCodeSecurityAttribute> 为使用 COM 互操作或平台调用执行非托管代码的成员更改默认的安全性系统行为。  一般，系统为非托管代码权限进行 [数据和建模](../Topic/Data%20and%20Modeling%20in%20the%20.NET%20Framework.md)。  在运行阶段对成员的每次调用都会提出此要求，此要求将检查调用堆栈中每个调用方的权限。  如果该特性存在，系统会对为该权限提出 [链接需求](../Topic/Link%20Demands.md)：对调用方进行 JIT 编译时，会检查直接调用方的权限。  
+## <a name="rule-description"></a>Rule Description  
+ <xref:System.Security.SuppressUnmanagedCodeSecurityAttribute> changes the default security system behavior for members that execute unmanaged code using COM interop or platform invocation. Generally, the system makes a [Data and Modeling](/dotnet/framework/data/index) for unmanaged code permission. This demand occurs at run time for every invocation of the member, and checks every caller in the call stack for permission. When the attribute is present, the system makes a [Link Demands](/dotnet/framework/misc/link-demands) for the permission: the permissions of the immediate caller are checked when the caller is JIT-compiled.  
   
- 该特性主要用于提高性能；不过，提高性能的同时会显著增加安全风险。  如果将特性放入调用本机方法的公共成员中，则调用堆栈中的调用方（非直接调用方）不需要非托管代码权限即可执行非托管代码。  根据公共成员的操作和输入处理，它可能会允许不可信的调用方访问通常仅限由可信代码访问的功能。  
+ This attribute is primarily used to increase performance; however, the performance gains come with significant security risks. If you place the attribute on public members that call native methods, the callers in the call stack (other than the immediate caller) do not need unmanaged code permission to execute unmanaged code. Depending on the public member's actions and input handling, it might allow untrustworthy callers to access functionality normally restricted to trustworthy code.  
   
- [!INCLUDE[dnprdnshort](../code-quality/includes/dnprdnshort_md.md)] 依赖安全检查来防止调用方获得对当前进程的地址空间的直接访问权限。  由于该特性跳过常规安全性，因此如果可使用它读取或写入进程的内存，那么您的代码可能面临严重威胁。  请注意，风险不仅限于有意提供对进程内存的访问权限的方法；只要恶意代码可通过提供意外、格式不正确或无效输入等任何方式获得访问权限，就存在风险。  
+ The [!INCLUDE[dnprdnshort](../code-quality/includes/dnprdnshort_md.md)] relies on security checks to prevent callers from gaining direct access to the current process's address space. Because this attribute bypasses normal security, your code poses a serious threat if it can be used to read or write to the process's memory. Note that the risk is not limited to methods that intentionally provide access to process memory; it is also present in any scenario where malicious code can achieve access by any means, for example, by providing surprising, malformed, or invalid input.  
   
- 默认安全策略不会将非托管代码权限授予程序集，除非该程序集在本地计算机上或由下列组之一的成员执行：  
+ The default security policy does not grant unmanaged code permission to an assembly unless it is executing from the local computer or is a member of one of the following groups:  
   
 -   My Computer Zone Code Group  
   
@@ -50,30 +66,31 @@ manager: "wpickett"
   
 -   ECMA Strong Name Code Group  
   
-## 如何解决冲突  
- 请认真检查代码，确保绝对需要该特性。  如果您不熟悉托管代码安全性，或不了解使用该特性会产生的问题，请将其从您的代码中移除。  如果需要该特性，必须确保调用方不能出于恶意使用您的代码。  如果您的代码不具有执行非托管代码的权限，则该特性将没有作用，应将其移除。  
+## <a name="how-to-fix-violations"></a>How to Fix Violations  
+ Carefully review your code to ensure that this attribute is absolutely necessary. If you are unfamiliar with managed code security, or do not understand the security implications of using this attribute, remove it from your code. If the attribute is required, you must ensure that callers cannot use your code maliciously. If your code does not have permission to execute unmanaged code, this attribute has no effect and should be removed.  
   
-## 何时禁止显示警告  
- 若要安全地禁止显示此规则发出的警告，必须确保您的代码不会为调用方提供对可以破坏性的方式加以使用的本机操作或资源的访问权限。  
+## <a name="when-to-suppress-warnings"></a>When to Suppress Warnings  
+ To safely suppress a warning from this rule, you must ensure that your code does not provide callers access to native operations or resources that can be used in a destructive manner.  
   
-## 示例  
- 下面的示例与该规则冲突。  
+## <a name="example"></a>Example  
+ The following example violates the rule.  
   
- [!code-cs[FxCop.Security.TypesDoNotSuppress#1](../code-quality/codesnippet/CSharp/ca2118-review-suppressunmanagedcodesecurityattribute-usage_1.cs)]  
+ [!code-csharp[FxCop.Security.TypesDoNotSuppress#1](../code-quality/codesnippet/CSharp/ca2118-review-suppressunmanagedcodesecurityattribute-usage_1.cs)]  
   
-## 示例  
- 在下面的示例中，`DoWork` 方法提供指向平台调用方法 `FormatHardDisk` 的可公开访问的代码路径。  
+## <a name="example"></a>Example  
+ In the following example, the `DoWork` method provides a publicly accessible code path to the platform invocation method `FormatHardDisk`.  
   
- [!code-cs[FxCop.Security.PInvokeAndSuppress#1](../code-quality/codesnippet/CSharp/ca2118-review-suppressunmanagedcodesecurityattribute-usage_2.cs)]  
+ [!code-csharp[FxCop.Security.PInvokeAndSuppress#1](../code-quality/codesnippet/CSharp/ca2118-review-suppressunmanagedcodesecurityattribute-usage_2.cs)]  
   
-## 示例  
- 在下面的示例中，公共方法 `DoDangerousThing` 导致冲突。  要解决该冲突，应将 `DoDangerousThing` 设置为私有，并应该通过由安全请求保护的公共方法访问它，如 `DoWork` 方法所示。  
+## <a name="example"></a>Example  
+ In the following example, the public method `DoDangerousThing` causes a violation. To resolve the violation, `DoDangerousThing` should be made private, and access to it should be through a public method secured by a security demand, as illustrated by the `DoWork` method.  
   
- [!CODE [FxCop.Security.TypeInvokeAndSuppress#1](../CodeSnippet/VS_Snippets_CodeAnalysis/FxCop.Security.TypeInvokeAndSuppress#1)]  
+ [!code-csharp[FxCop.Security.TypeInvokeAndSuppress#1](../code-quality/codesnippet/CSharp/ca2118-review-suppressunmanagedcodesecurityattribute-usage_3.cs)]  
   
-## 请参阅  
+## <a name="see-also"></a>See Also  
  <xref:System.Security.SuppressUnmanagedCodeSecurityAttribute?displayProperty=fullName>   
- [代码安全维护指南](../Topic/Secure%20Coding%20Guidelines.md)   
- [Security Optimizations](http://msdn.microsoft.com/zh-cn/cf255069-d85d-4de3-914a-e4625215a7c0)   
- [数据和建模](../Topic/Data%20and%20Modeling%20in%20the%20.NET%20Framework.md)   
- [链接需求](../Topic/Link%20Demands.md)
+ [Secure Coding Guidelines](/dotnet/standard/security/secure-coding-guidelines)   
+ [Security Optimizations](http://msdn.microsoft.com/en-us/cf255069-d85d-4de3-914a-e4625215a7c0)   
+ [Data and Modeling](/dotnet/framework/data/index)  
+ [Link Demands](/dotnet/framework/misc/link-demands)  
+  
