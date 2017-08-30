@@ -1,136 +1,132 @@
 ---
-title: "演练：在数据集设计器中创建数据表 | Microsoft Docs"
-ms.custom: ""
-ms.date: "12/14/2016"
-ms.prod: "visual-studio-dev14"
-ms.reviewer: ""
-ms.suite: ""
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-dev_langs: 
-  - "VB"
-  - "CSharp"
-  - "C++"
-  - "aspx"
-helpviewer_keywords: 
-  - "数据 [Visual Studio], 数据集设计器"
-  - "数据集设计器, 创建数据表"
-  - "DataTable 对象, 创建"
-  - "表 [Visual Studio], 创建"
+title: 'Walkthrough: Creating a DataTable in the Dataset Designer | Microsoft Docs'
+ms.custom: 
+ms.date: 10/19/2016
+ms.reviewer: 
+ms.suite: 
+ms.tgt_pltfrm: 
+ms.topic: article
+helpviewer_keywords:
+- DataTable objects, creating
+- Dataset Designer, creating data tables
+- tables [Visual Studio], creating
+- data [Visual Studio], Dataset Designer
 ms.assetid: abf0a2b5-e4e5-422e-97ef-55a0e35a82df
 caps.latest.revision: 10
-caps.handback.revision: 10
-author: "mikeblome"
-ms.author: "mblome"
-manager: "ghogen"
+author: mikeblome
+ms.author: mblome
+manager: ghogen
 robots: noindex,nofollow
+translation.priority.ht:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+ms.translationtype: HT
+ms.sourcegitcommit: 21a413a3e2d17d77fd83d5109587a96f323a0511
+ms.openlocfilehash: 8f8962f122aaa83fc7a3978e896c5e8fd7a85105
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/30/2017
+
 ---
-# 演练：在数据集设计器中创建数据表
-此演练解释如何使用**“数据集设计器”**创建 <xref:System.Data.DataTable>（没有 TableAdapter）。  有关创建包含 TableAdapter 的数据表的信息，请参见[如何：创建 TableAdapter](../data-tools/create-and-configure-tableadapters.md)。  
+# <a name="walkthrough-creating-a-datatable-in-the-dataset-designer"></a>Walkthrough: Creating a DataTable in the Dataset Designer
+This walkthrough explains how to create a <xref:System.Data.DataTable> (without a TableAdapter) using the **Dataset Designer**. For information on creating data tables that include TableAdapters, see [Create and configure TableAdapters](../data-tools/create-and-configure-tableadapters.md).  
   
- 本演练涉及以下任务：  
+ Tasks illustrated in this walkthrough include:  
   
--   创建新的“Windows 应用程序”项目  
+-   Creating a new Windows Application project  
   
--   将新的数据集添加到应用程序中  
+-   Adding a new dataset to the application  
   
--   向数据集添加新的数据表  
+-   Adding a new data table to the dataset  
   
--   向数据表添加列  
+-   Adding columns to the data table  
   
--   为表设置主键  
+-   Setting the primary key for the table  
   
-## 创建新的 Windows 应用程序  
+## <a name="creating-a-new-windows-application"></a>Creating a New Windows Application  
   
-#### 创建新的 Windows 应用程序项目  
+#### <a name="to-create-a-new-windows-application-project"></a>To create a new Windows Application project  
   
-1.  从**“文件”**菜单创建一个新的项目。  
+1.  From the **File** menu, create a new project.  
   
-2.  在**“项目类型”**窗格中选择一种编程语言。  
+2.  Choose a programming language in the **Project Types** pane.  
   
-3.  在**“模板”**窗格中单击**“Windows 应用程序”**。  
+3.  Click **Windows Application** in the **Templates** pane.  
   
-4.  将项目命名为`“DataTableWalkthrough”`，然后单击**“确定”**。  
+4.  Name the project `DataTableWalkthrough`, and then click **OK**.  
   
-     Visual Studio 会将该项目添加到**“解决方案资源管理器”**并在设计器中显示**“Form1”**。  
+     Visual Studio adds the project to **Solution Explorer** and displays **Form1** in the designer.  
   
-## 将新的数据集添加到应用程序中  
+## <a name="adding-a-new-dataset-to-the-application"></a>Adding a New Dataset to the Application  
   
-#### 向项目添加新的数据集项  
+#### <a name="to-add-a-new-dataset-item-to-the-project"></a>To add a new dataset item to the project  
   
-1.  在**“项目”**菜单上，单击**“添加新项”**。  
+1.  On the **Project** menu, click **Add New Item**.  
   
-     随即出现“添加新项”对话框。  
+     The Add New Item Dialog Box appears.  
   
-2.  在**“模板”**框中选择**“数据集”**。  
+2.  In the **Templates** box, select **DataSet**.  
   
-3.  单击**“添加”**。  
+3.  Click **Add**.  
   
-     Visual Studio 将向项目中添加一个名为**“Dataset1.xsd”**的文件，并在**“数据集设计器”**中将其打开。  
+     Visual Studio will add a file called **DataSet1.xsd** to the project and open it in the **Dataset Designer**.  
   
-## 将新的数据表添加到数据集中  
+## <a name="adding-a-new-datatable-to-the-dataset"></a>Adding a New DataTable to the Dataset  
   
-#### 向数据集添加新的数据表  
+#### <a name="to-add-a-new-data-table-to-the-dataset"></a>To add a new data table to the dataset  
   
-1.  将一个**“DataTable”**从**“工具箱”**的**“数据集”**选项卡拖动到**“数据集设计器”**。  
+1.  Drag a **DataTable** from the **DataSet** tab of the **Toolbox** onto the **Dataset Designer**.  
   
-     将一个名为**“DataTable1”**的表添加到了该数据集中。  
+     A table named **DataTable1** is added to the dataset.  
+   
+2.  Click the title bar of **DataTable1** and rename it `Music`.  
   
-    > [!NOTE]
-    >  若要创建包含 TableAdapter 的数据表，请参见[演练：创建带有多个查询的 TableAdapter](../data-tools/walkthrough-creating-a-tableadapter-with-multiple-queries.md)。  
+## <a name="adding-columns-to-the-data-table"></a>Adding Columns to the Data Table  
   
-2.  单击**“DataTable1”**的标题栏并将其重命名为`“Music”`。  
+#### <a name="to-add-columns-to-the-data-table"></a>To add columns to the data table  
   
-## 向数据表添加列  
+1.  Right-click the **Music** table. Point to **Add**, and then click **Column**.  
   
-#### 向数据表添加列  
+2.  Name the column `SongID`.  
   
-1.  右击**“Music”**表。  指向**“添加”**，然后单击**“列”**。  
+3.  In the **Properties** window, set the <xref:System.Data.DataColumn.DataType%2A> property to <xref:System.Int16?displayProperty=fullName>.  
   
-2.  将此列命名为`“SongID”`命名。  
+4.  Repeat this process and add the following columns:  
   
-3.  在**“属性”**窗口中，将 <xref:System.Data.DataColumn.DataType%2A> 属性设置为 <xref:System.Int16?displayProperty=fullName>。  
+     `SongTitle`: <xref:System.String?displayProperty=fullName>  
   
-4.  重复此过程添加下面的列：  
+     `Artist`: <xref:System.String?displayProperty=fullName>  
   
-     `SongTitle`：<xref:System.String?displayProperty=fullName>  
+     `Genre`: <xref:System.String?displayProperty=fullName>  
   
-     `Artist`：<xref:System.String?displayProperty=fullName>  
+## <a name="setting-the-primary-key-for-the-table"></a>Setting the Primary Key for the Table  
+All data tables should have a primary key. A primary key uniquely identifies a specific record in a data table.  
   
-     `Genre`：<xref:System.String?displayProperty=fullName>  
+#### <a name="to-set-the-primary-key-of-the-data-table"></a>To set the primary key of the data table  
   
-## 为表设置主键  
- 所有的数据表都应有一个主键。  主键唯一地标识数据表中的记录。  
+-   Right-click the **SongID** column, and then click **Set Primary Key**.  
   
-#### 设置数据表的主键  
+     A key icon appears next to the **SongID** column.  
   
--   右击**“SongID”**列，然后单击**“设置主键”**。  
+## <a name="saving-your-project"></a>Saving Your Project  
   
-     在**“SongID”**列的旁边将显示钥匙图标。  
+#### <a name="to-save-the-datatablewalkthrough-project"></a>To save the DataTableWalkthrough project  
   
-## 保存项目  
+-   On the **File** menu, click **Save All**.  
   
-#### 保存 DataTableWalkthrough 项目  
-  
--   在**“文件”**菜单上，单击**“全部保存”**。  
-  
-## 后续步骤  
- 既然已经创建了表，您可能希望执行下列操作之一：  
-  
-|若要|请参见|  
-|--------|---------|  
-|创建窗体以输入数据|[演练：在 Windows 窗体上显示数据](../data-tools/walkthrough-displaying-data-on-a-windows-form.md).|  
-|向表中添加数据|[向数据表中添加数据](../Topic/Adding%20Data%20to%20a%20DataTable.md).|  
-|查看表中的数据|[查看数据表中的数据](../Topic/Viewing%20Data%20in%20a%20DataTable.md).|  
-|编辑数据|[DataTable 编辑](../Topic/DataTable%20Edits.md)|  
-|删除表中的行|[DataRow 删除](../Topic/DataRow%20Deletion.md)|  
-  
-## 请参阅  
- [连接到 Visual Studio 中的数据](../data-tools/connecting-to-data-in-visual-studio.md)   
- [准备应用程序以接收数据](../Topic/Preparing%20Your%20Application%20to%20Receive%20Data.md)   
- [将数据获取到应用程序](../data-tools/fetching-data-into-your-application.md)   
- [在 Visual Studio 中将控件绑定到数据](../data-tools/bind-controls-to-data-in-visual-studio.md)   
- [在应用程序中编辑数据](../data-tools/editing-data-in-your-application.md)   
- [验证数据](../Topic/Validating%20Data.md)   
- [保存数据](../data-tools/saving-data.md)   
- [数据演练](../Topic/Data%20Walkthroughs.md)
+## <a name="see-also"></a>See Also  
+    
+ [Bind controls to data in Visual Studio](../data-tools/bind-controls-to-data-in-visual-studio.md)   
+ [Validating Data](validate-data-in-datasets.md)   
+ [Saving Data](../data-tools/saving-data.md)   
+

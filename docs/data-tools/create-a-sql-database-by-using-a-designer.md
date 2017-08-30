@@ -1,206 +1,203 @@
 ---
-title: "演练：在 Visual Studio 中创建本地数据库文件 | Microsoft Docs"
-ms.custom: ""
-ms.date: "12/16/2016"
-ms.prod: "visual-studio-dev14"
-ms.reviewer: ""
-ms.suite: ""
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-dev_langs: 
-  - "VB"
-  - "CSharp"
-  - "C++"
-  - "aspx"
-helpviewer_keywords: 
-  - "数据 [Visual Studio], 本地数据"
-  - "数据 [Visual Studio], 演练"
-  - "数据库文件, 创建"
-  - "数据库, 创建"
-  - "本地数据"
-  - "LocalDB"
-  - "SQL Express"
-  - "SQL Server Express"
-  - "SQLEXPRESS"
+title: Create a SQL database by using a designer | Microsoft Docs
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.tgt_pltfrm: 
+ms.topic: article
+helpviewer_keywords:
+- SQL Server Express
+- local data
+- LocalDB
+- SQLEXPRESS
+- data [Visual Studio], Local data
+- SQL Express
+- data [Visual Studio], walkthroughs
+- databases, creating
+- database files, creating
 ms.assetid: 99c2b06f-47aa-414e-8057-a3453712fd23
 caps.latest.revision: 49
-caps.handback.revision: 44
-author: "mikeblome"
-ms.author: "mblome"
-manager: "ghogen"
+author: mikeblome
+ms.author: mblome
+manager: ghogen
 robots: noindex,nofollow
+translation.priority.ht:
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- ru-ru
+- zh-cn
+- zh-tw
+translation.priority.mt:
+- cs-cz
+- pl-pl
+- pt-br
+- tr-tr
+ms.translationtype: HT
+ms.sourcegitcommit: 21a413a3e2d17d77fd83d5109587a96f323a0511
+ms.openlocfilehash: f83a5530eccf7c24e351dd29c7d083c5593a7878
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/30/2017
+
 ---
-# 演练：在 Visual Studio 中创建本地数据库文件
-可以通过使用 Visual Studio 在[本地数据概述](../data-tools/local-data-overview.md)所描述的 SQL Server Express LocalDB 中创建并更新本地数据库来探索基本任务，例如添加表和定义列。  在完成本演练后，以本地数据库为起点进行其他演练，你会发现更高级的功能。  
+# <a name="create-a-sql-database-by-using-a-designer"></a>Create a SQL database by using a designer
+You can explore basic tasks, such as adding tables and defining columns, by using Visual Studio to create and update a local database file in SQL Server Express LocalDB. After you finish this walkthrough, you can discover more advanced capabilities by using your local database as a starting point for other walkthroughs that require it.  
   
- 有关如何使用 SQL Server Management Studio 或 Transact\-SQL 创建数据库的信息，请参见[Create a Database](http://msdn.microsoft.com/zh-cn/4c4beea2-6cbc-4352-9db6-49ea8130bb64)。  
+ You can also create a database by using SQL Server Management Studio (a separate download) or Transact-SQL statements in the **SQL Server Object Explorer** tool window in Visual Studio.  
   
- 在本演练中，你将探索以下任务：  
+ During this walkthrough, you'll explore the following tasks:  
   
--   [创建一个项目及本地数据库文件](../data-tools/create-a-sql-database-by-using-a-designer.md#BKMK_CreateNewSQLDB)。  
+-   [Create a project and a local database file](../data-tools/create-a-sql-database-by-using-a-designer.md#BKMK_CreateNewSQLDB)  
   
--   [创建表、列、主键和外键](../data-tools/create-a-sql-database-by-using-a-designer.md#BKMK_CreateNewTbls)。  
+-   [Create tables, columns, primary keys, and foreign keys](../data-tools/create-a-sql-database-by-using-a-designer.md#BKMK_CreateNewTbls)  
   
--   [将数据填入表中](../data-tools/create-a-sql-database-by-using-a-designer.md#BKMK_Populating)。  
+-   [Populate the tables with data](../data-tools/create-a-sql-database-by-using-a-designer.md#BKMK_Populating)  
   
-## 系统必备  
- 若要完成本演练，请安装 [!INCLUDE[vs_dev12_expwin](../data-tools/includes/vs_dev12_expwin_md.md)]、Visual Studio Professional 2013、Visual Studio Premium 2013 或 Visual Studio Ultimate 2013。  这些 Visual Studio 版本包括 SQL Server Data Tools。  
+## <a name="prerequisites"></a>Prerequisites  
+ To complete this walkthrough, ensure that you have SQL Server Data Tools installed. On the **View** menu, you should see **SQL Server Object Explorer**. If it's not there, go to **Add or Remove Programs**, click **Visual Studio 2015**, select **Change**, and select the box next to **SQL Server Data Tools**.  
   
-##  <a name="BKMK_CreateNewSQLDB"></a> 创建一个项目及本地数据库文件  
+##  <a name="BKMK_CreateNewSQLDB"></a> Create a project and a local database file  
   
-#### 创建项目和数据库文件  
+#### <a name="to-create-a-project-and-a-database-file"></a>To create a project and a database file  
   
-1.  创建名为 `SampleDatabaseWalkthrough` 的 Windows 窗体项目。  
+1.  Create a Windows Forms project that's named `SampleDatabaseWalkthrough`.  
   
-     请参见[创建解决方案和项目](../ide/creating-solutions-and-projects.md)。  
+2.  On the menu bar, select **Project** > **Add New Item**.  
   
-2.  在菜单栏上，依次选择**“项目”**、**“添加新项”**。  
+3.  In the list of item templates, scroll down and select **Service-based Database**.  
   
-     此时将显示**“添加新项”**对话框，你可以添加适用于 Windows 窗体项目的项。  
+     ![Item Templates dialog box](../data-tools/media/raddata-vsitemtemplates.png "raddata VSItemTemplates")  
   
-3.  在项模板列表中，向下滚动直至显示**“基于服务的数据库”**，然后选择此项。  
+4.  Name the database **SampleDatabase**, and then select the **Add** button.  
   
-     ![“项模板”对话框](../data-tools/media/raddata-vsitemtemplates.png "raddata VSItemTemplates")  
+5.  If the **Data Sources** window isn't open, open it by selecting the Shift+Alt+D keys or, on the menu bar, selecting **View** > **Other Windows** > **Data Sources**.  
   
-4.  将数据库命名为“SampleDatabase”，然后选择**“添加”**按钮。  
+6.  In the **Data Sources** window, select the **Add New Data Source** link.  
   
-5.  如果“数据源”窗口未打开，可通过选择 Shift\-Alt\-D 键或在菜单栏上选择**“视图”**、**“其他窗口”**、**“数据源”**将其打开。  
+7.  In the **Data Source Configuration Wizard**, select the **Next** button four times to accept the default settings, and then select the **Finish** button.  
   
-6.  在“数据源”窗口中，选择**“添加新数据源”**链接。  
+ By opening the properties window for the database, you can view its connection string and the location of the primary .mdf file. You will see that the database file is in the project folder.  
   
-7.  在**“数据源配置向导”**中，选择**“下一步”**按钮四次以接受默认设置，然后选择**“完成”**按钮。  
+-   In Visual Studio, select **View** > **SQL Server Object Explorer** if that window isn't already open. Open the properties window by expanding the **Data Connections** node, opening the shortcut menu for SampleDatabase.mdf, and then selecting **Properties**.  
   
- 通过打开数据库的属性窗口，可查看其连接字串符和主 .mdf 文件的位置。  
+-   Alternatively, you can select **View** > **Server Explorer**, if that window isn't already open. Open the properties window by expanding the **Data Connections** node. Open the shortcut menu for SampleDatabase.mdf, and then select **Properties**.  
   
--   在 Visual Studio Express 中，如果该窗口尚未打开，请选择**“视图”**、**“其他窗口”**、**“数据库资源管理器”**。  通过展开**“数据连接”**节点，打开 SampleDatabase.mdf 的快捷菜单，然后选择**“属性”**来打开属性窗口。  
+##  <a name="BKMK_CreateNewTbls"></a> Create tables, columns, primary keys, and foreign keys  
+ In this section, you'll create a couple of tables, a primary key in each table, and a few rows of sample data. In the next walkthrough, you'll get an idea of how that information might appear in an application. You'll also create a foreign key to specify how records in one table might correspond to records in the other table.  
   
--   在其他版本的 Visual Studio 中，如果该窗口尚未打开，请选择**“视图”**、**“服务器资源管理器”**。  通过展开**“数据连接”**节点，打开 SampleDatabase.mdf 的快捷菜单，然后选择**“属性”**来打开属性窗口。  
+#### <a name="to-create-the-customers-table"></a>To create the Customers table  
   
-##  <a name="BKMK_CreateNewTbls"></a> 创建表、列、主键和外键  
- 在本节中，你将创建几个表，每个表中有一个主键和几行示例数据。  在下一个演练中，你将了解该信息如何显示在应用程序中。  你还将创建外键以指定一个表中的记录如何对应于另一个表中的记录。  
+1.  In **Server Explorer** or **SQL Server Object Explorer**, expand the **Data Connections** node, and then expand the **SampleDatabase.mdf** node.  
   
-#### 创建 Customers 表  
+2.  Open the shortcut menu for **Tables**, and then select **Add New Table**.  
   
-1.  在**“服务器资源管理器”**或**“数据库资源管理器”**中，依次展开**“数据连接”**节点和**“SampleDatabase.mdf”**节点。  
+     The **Table Designer** opens and shows a grid with one default row, which represents a single column in the table that you're creating. By adding rows to the grid, you'll add columns in the table.  
   
-     如果你的 Visual Studio 版本的资源管理器未打开，请在菜单上选择**“视图”**、**“服务器资源管理器”**，或选择**“视图”**、**“其他窗口”**、**“数据库资源管理器”**。  
+3.  In the grid, add a row for each of the following entries:  
   
-2.  打开**“表”**的快捷菜单，然后选择**“添加新表”**。  
+    |Column name|Data type|Allow nulls|  
+    |-----------------|---------------|-----------------|  
+    |`CustomerID`|`nchar(5)`|False (cleared)|  
+    |`CompanyName`|`nvarchar(50)`|False (cleared)|  
+    |`ContactName`|`nvarchar (50)`|True (selected)|  
+    |`Phone`|`nvarchar (24)`|True (selected)|  
   
-     **“表设计器”**将打开并显示一个网格，其中有一个默认行，表示所创建表中的一列。  通过向网格中添加行，即可在表中添加列。  
+4.  Open the shortcut menu for the `CustomerID` row, and then select **Set Primary Key**.  
   
-3.  在网格中，为下列各个条目添加行：  
+5.  Open the shortcut menu for the default row, and then select **Delete**.  
   
-    |列名称|数据类型|允许空|  
-    |---------|----------|---------|  
-    |`CustomerID`|`nchar(5)`|False（清除）|  
-    |`CompanyName`|`nvarchar(40)`|False（清除）|  
-    |`ContactName`|`nvarchar (30)`|True（已选定）|  
-    |`Phone`|`nvarchar (24)`|True（已选定）|  
-  
-4.  打开 `CustomerID` 行的快捷菜单，然后选择**“设置主键”**。  
-  
-5.  打开默认行的快捷菜单，然后选择**“删除”**。  
-  
-6.  通过更新脚本窗格的第一行来命名 Customers 表，与以下示例相匹配：  
+6.  Name the Customers table by updating the first line in the script pane to match the following sample:  
   
     ```  
     CREATE TABLE [dbo].[Customers]  
     ```  
   
-7.  在“表设计器”的左上角，选择**“更新”**按钮，如下图所示。  
+     You should see something like this:  
   
-     ![表设计器的“更新”按钮](../data-tools/media/updatelocaldb.png "UpdateLocalDB")  
+     ![Table Designer](../data-tools/media/raddata-table-designer.png "raddata Table Designer")  
   
-8.  在**“预览数据库更新”**对话框中，选择**“更新数据库”**按钮。  
+7.  In the upper-left corner of the **Table Designer**, select the **Update** button.  
   
-     你所做的更改将保存到本地数据库文件中。  
+8.  In the **Preview Database Updates** dialog box, select the **Update Database** button.  
   
-#### 创建 Orders 表  
+     Your changes are saved to the local database file.  
   
-1.  添加另一个表，然后在下表中为每个条目添加行：  
+#### <a name="to-create-the-orders-table"></a>To create the Orders table  
   
-    |列名称|数据类型|允许空|  
-    |---------|----------|---------|  
-    |`OrderID`|`int`|False（清除）|  
-    |`CustomerID`|`nchar(5)`|False（清除）|  
-    |`OrderDate`|`datetime`|True（已选定）|  
-    |`OrderQuantity`|`int`|True（已选定）|  
+1.  Add another table, and then add a row for each entry in the following table:  
   
-2.  将**“OrderID”**设置为主键，然后删除默认行。  
+    |Column name|Data type|Allow nulls|  
+    |-----------------|---------------|-----------------|  
+    |`OrderID`|`int`|False (cleared)|  
+    |`CustomerID`|`nchar(5)`|False (cleared)|  
+    |`OrderDate`|`datetime`|True (selected)|  
+    |`OrderQuantity`|`int`|True (selected)|  
   
-3.  通过更新脚本窗格的第一行来命名 Orders 表，与以下示例相匹配：  
+2.  Set **OrderID** as the primary key, and then delete the default row.  
+  
+3.  Name the Orders table by updating the first line in the script pane to match the following sample:  
   
     ```  
     CREATE TABLE [dbo].[Orders]  
     ```  
   
-4.  在“表设计器”的左上角，选择**“更新”**按钮。  
+4.  In the upper-left corner of the **Table Designer**, select the **Update** button.  
   
-5.  在**“预览数据库更新”**对话框中，选择**“更新数据库”**按钮。  
+5.  In the **Preview Database Updates** dialog box, select the **Update Database** button.  
   
-     你所做的更改将保存到本地数据库文件中。  
+     Your changes are saved to the local database file.  
   
-#### 创建外键  
+#### <a name="to-create-a-foreign-key"></a>To create a foreign key  
   
-1.  在网格右侧的上下文窗格中，打开**“外键”**的快捷菜单，然后选择**“添加新外键”**，如下图所示。  
+1.  In the context pane on the right side of the grid, open the shortcut menu for **Foreign Keys**, and then select **Add New Foreign Key**, as the following illustration shows.  
   
-     ![在表设计器中添加外键](../data-tools/media/foreignkey.png "ForeignKey")  
+     ![Adding a foreign key in Table Designer](../data-tools/media/foreignkey.png "ForeignKey")  
   
-2.  在显示的文本框中，将**“ToTable”**替换为 `Customers`。  
+2.  In the text box that appears, replace **ToTable** with `Customers`.  
   
-3.  在脚本窗格中，更新最后一行以与以下示例相匹配：  
+3.  In the T-SQL pane, update the last line to match the following sample:  
   
     ```  
     CONSTRAINT [FK_Orders_Customers] FOREIGN KEY ([CustomerID]) REFERENCES [Customers]([CustomerID])  
     ```  
   
-4.  在“表设计器”的左上角，选择**“更新”**按钮。  
+4.  In the upper-left corner of the **Table Designer**, select the **Update** button.  
   
-5.  在**“预览数据库更新”**对话框中，选择**“更新数据库”**按钮。  
+5.  In the **Preview Database Updates** dialog box, select the **Update Database** button.  
   
-     你所做的更改将保存到本地数据库文件中。  
+     Your changes are saved to the local database file.  
   
-##  <a name="BKMK_Populating"></a> 将数据填入表中  
+##  <a name="BKMK_Populating"></a> Populate the tables with data  
   
-#### 将数据填入表中  
+#### <a name="to-populate-the-tables-with-data"></a>To populate the tables with data  
   
-1.  在**“服务器资源管理器”**或**“数据库资源管理器”**中，展开示例数据库的节点。  
+1.  In **Server Explorer** or **SQL Server Object Explorer**, expand the node for the sample database.  
   
-2.  打开“表”节点的快捷菜单，选择**“刷新”**，然后展开“表”节点。  
+2.  Open the shortcut menu for the **Tables** node, select **Refresh**, and then expand the **Tables** node.  
   
-3.  打开 Customers 表的快捷菜单，然后选择**“显示表数据”**。  
+3.  Open the shortcut menu for the Customers table, and then select **Show Table Data**.  
   
-4.  为至少三个客户添加所需数据。  
+4.  Add whatever data you want for at least three customers.  
   
-     你可以指定任意五个字符作为客户 ID，但至少选择一个能记住的以便稍后在此过程中使用。  
+     You can specify any five characters you want as the customer IDs, but choose at least one that you can remember for use later in this procedure.  
   
-5.  打开 Orders 表的快捷菜单，然后选择**“显示表数据”**。  
+5.  Open the shortcut menu for the Orders table, and then select **Show Table Data**.  
   
-6.  为至少三个订单添加数据。  
+6.  Add data for at least three orders.  
   
     > [!IMPORTANT]
-    >  请确保所有订单 ID 和订单数量是整数，并且每个客户 ID 与 Customers 表中的 CustomerID 列中指定的值相匹配。  
+    >  Make sure that all order IDs and order quantities are integers and that each customer ID  matches a value that you specified in the CustomerID column of the Customers table.  
   
-7.  在菜单栏上，依次选择**“文件”**、**“全部保存”**。  
+7.  On the menu bar, select **File** > **Save All**.  
   
-8.  在菜单栏上，依次选择**“文件”**、**“关闭解决方案”**。  
+8.  On the menu bar, select **File** > **Close Solution**.  
   
     > [!NOTE]
-    >  最好备份刚创建的数据库文件，你可以复制并粘贴到其他位置，或以不同名称另存一份。  
+    >  As a best practice, you can back up the database file that you just created by copying it and then either pasting the copy in another location or giving the copy a different name.  
   
-## 后续步骤  
- 现在你拥有了包含示例数据的本地数据库文件，除演示数据库任务的其他演练外，还可完成[演练：连接到本地数据库文件中的数据（Windows 窗体）](../Topic/Walkthrough:%20Connecting%20to%20Data%20in%20a%20Local%20Database%20File%20\(Windows%20Forms\).md)。  
-  
-## 请参阅  
- [如何：管理项目中的本地数据文件](../data-tools/how-to-manage-local-data-files-in-your-project.md)   
- [本地数据概述](../data-tools/local-data-overview.md)   
- [在 Visual Studio 中将 Windows 窗体控件绑定到数据](../data-tools/bind-windows-forms-controls-to-data-in-visual-studio.md)   
- [Visual Studio 的数据应用程序概述](../data-tools/overview-of-data-applications-in-visual-studio.md)   
- [连接到 Visual Studio 中的数据](../data-tools/connecting-to-data-in-visual-studio.md)   
- [准备应用程序以接收数据](../Topic/Preparing%20Your%20Application%20to%20Receive%20Data.md)   
- [将数据获取到应用程序](../data-tools/fetching-data-into-your-application.md)   
- [在 Visual Studio 中将控件绑定到数据](../data-tools/bind-controls-to-data-in-visual-studio.md)   
- [在应用程序中编辑数据](../data-tools/editing-data-in-your-application.md)   
- [验证数据](../Topic/Validating%20Data.md)   
- [保存数据](../data-tools/saving-data.md)
+## <a name="next-steps"></a>Next Steps  
+ Now that you have a local database file with some sample data, you can complete any of the walkthroughs that demonstrate database tasks.
