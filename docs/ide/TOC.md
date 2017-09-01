@@ -13,6 +13,7 @@
 ## [管理外部工具](managing-external-tools.md)
 ## [Visual Studio 中的同步设置](synchronized-settings-in-visual-studio.md)
 # [优化 Visual Studio 启动时间](optimize-visual-studio-startup-time.md)
+# [Visual Studio 性能提示和技巧](visual-studio-performance-tips-and-tricks.md)
 # [如何：在 Visual Studio IDE 中移动](how-to-move-around-in-the-visual-studio-ide.md)
 # [Visual Studio 开发入门](get-started-developing-with-visual-studio.md)
 ## [Visual C# 和 Visual Basic 入门](getting-started-with-visual-csharp-and-visual-basic.md)
@@ -96,7 +97,7 @@
 #### [代码样式和快速操作](code-styles-and-quick-actions.md)
 #### [EditorConfig 的 .NET 代码样式设置](editorconfig-code-style-settings-reference.md)
 ### [预览更改](preview-changes.md)
-## [Productivity Tips for Visual Studio](productivity-tips-for-visual-studio.md)（Visual Studio 的工作效率提示）
+## [Visual Studio 的工作效率提示](productivity-tips-for-visual-studio.md)
 ### [Visual Studio 的提示和技巧](tips-and-tricks-for-visual-studio.md)
 ### [在 Visual Studio 中标识并自定义键盘快捷键](identifying-and-customizing-keyboard-shortcuts-in-visual-studio.md)
 #### [Visual Studio 中的常用命令的默认键盘快捷键](default-keyboard-shortcuts-for-frequently-used-commands-in-visual-studio.md)

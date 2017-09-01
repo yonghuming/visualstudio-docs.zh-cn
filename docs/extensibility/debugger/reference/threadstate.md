@@ -1,77 +1,94 @@
 ---
-title: "THREADSTATE | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "THREADSTATE"
-helpviewer_keywords: 
-  - "THREADSTATE 枚举"
+title: THREADSTATE | Microsoft Docs
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords:
+- THREADSTATE
+helpviewer_keywords:
+- THREADSTATE enumeration
 ms.assetid: 62efdd7c-25b1-4fd3-9d06-ac1830a418a9
 caps.latest.revision: 9
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 9
----
-# THREADSTATE
-[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
+ms.author: gregvanl
+manager: ghogen
+translation.priority.mt:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+ms.translationtype: MT
+ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
+ms.openlocfilehash: 32e6781b57a60ac39fa932ac5df5aea9e36b07b2
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/28/2017
 
-指定线程的状态。  
+---
+# <a name="threadstate"></a>THREADSTATE
+Specifies the state of the thread.  
   
-## 语法  
+## <a name="syntax"></a>Syntax  
   
-```cpp#  
-enum enum_THREADSTATE {   
-   THREADSTATE_RUNNING = 0x0001,  
-   THREADSTATE_STOPPED = 0x0002,  
-   THREADSTATE_FRESH   = 0x0003,  
-   THREADSTATE_DEAD    = 0x0004,  
-   THREADSTATE_FROZEN  = 0x0005  
+```cpp  
+enum enum_THREADSTATE {   
+   THREADSTATE_RUNNING = 0x0001,  
+   THREADSTATE_STOPPED = 0x0002,  
+   THREADSTATE_FRESH   = 0x0003,  
+   THREADSTATE_DEAD    = 0x0004,  
+   THREADSTATE_FROZEN  = 0x0005  
 };  
 typedef DWORD THREADSTATE;  
 ```  
   
-```c#  
-public enum enum_THREADSTATE {   
-   THREADSTATE_RUNNING = 0x0001,  
-   THREADSTATE_STOPPED = 0x0002,  
-   THREADSTATE_FRESH   = 0x0003,  
-   THREADSTATE_DEAD    = 0x0004,  
-   THREADSTATE_FROZEN  = 0x0005  
+```csharp  
+public enum enum_THREADSTATE {   
+   THREADSTATE_RUNNING = 0x0001,  
+   THREADSTATE_STOPPED = 0x0002,  
+   THREADSTATE_FRESH   = 0x0003,  
+   THREADSTATE_DEAD    = 0x0004,  
+   THREADSTATE_FROZEN  = 0x0005  
 };  
 ```  
   
-## 成员  
- THREADSTATE\_RUNNING  
- 指示线程上运行。  
+## <a name="members"></a>Members  
+ THREADSTATE_RUNNING  
+ Indicates that the thread is running.  
   
- THREADSTATE\_STOPPED  
- 指示由于断点，线程终止。  
+ THREADSTATE_STOPPED  
+ Indicates that the thread is stopped because of a breakpoint.  
   
- THREADSTATE\_FRESH  
- 指示线程创建的，则，但不运行代码。  
+ THREADSTATE_FRESH  
+ Indicates that the thread has been created, but is not yet running code.  
   
- THREADSTATE\_DEAD  
- 指示线程处于不活动状态。  
+ THREADSTATE_DEAD  
+ Indicates that the thread is dead.  
   
- THREADSTATE\_FROZEN  
- 指示线程已冻结 \(执行不能执行\)。  
+ THREADSTATE_FROZEN  
+ Indicates that the thread is frozen (no execution can be performed).  
   
-## 备注  
- 用于 [THREADPROPERTIES](../../../extensibility/debugger/reference/threadproperties.md) 结构的 `dwThreadState` 字段。  
+## <a name="remarks"></a>Remarks  
+ Used for the `dwThreadState` field of the [THREADPROPERTIES](../../../extensibility/debugger/reference/threadproperties.md) structure.  
   
-## 要求  
- 标题:msdbg.h  
+## <a name="requirements"></a>Requirements  
+ Header: msdbg.h  
   
- 命名空间:Microsoft.VisualStudio.Debugger.Interop  
+ Namespace: Microsoft.VisualStudio.Debugger.Interop  
   
- 程序集:Microsoft.VisualStudio.Debugger.Interop.dll  
+ Assembly: Microsoft.VisualStudio.Debugger.Interop.dll  
   
-## 请参阅  
- [枚举](../../../extensibility/debugger/reference/enumerations-visual-studio-debugging.md)   
+## <a name="see-also"></a>See Also  
+ [Enumerations](../../../extensibility/debugger/reference/enumerations-visual-studio-debugging.md)   
  [THREADPROPERTIES](../../../extensibility/debugger/reference/threadproperties.md)

@@ -1,51 +1,68 @@
 ---
-title: "IEnumDebugProcesses2::GetCount | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "IEnumDebugProcesses2::GetCount"
-helpviewer_keywords: 
-  - "IEnumDebugProcesses2::GetCount"
+title: IEnumDebugProcesses2::GetCount | Microsoft Docs
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords:
+- IEnumDebugProcesses2::GetCount
+helpviewer_keywords:
+- IEnumDebugProcesses2::GetCount
 ms.assetid: 5dc3e36c-46e5-4556-bf41-1870aa67d2a0
 caps.latest.revision: 10
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 10
----
-# IEnumDebugProcesses2::GetCount
-[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
+ms.author: gregvanl
+manager: ghogen
+translation.priority.mt:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+ms.translationtype: MT
+ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
+ms.openlocfilehash: 8ea6a82a6c6408f6dea4d020312c864f03e4f178
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/28/2017
 
-返回元素数在枚举的。  
+---
+# <a name="ienumdebugprocesses2getcount"></a>IEnumDebugProcesses2::GetCount
+Returns the number of elements in the enumeration.  
   
-## 语法  
+## <a name="syntax"></a>Syntax  
   
-```cpp#  
+```cpp  
 HRESULT GetCount(  
-   ULONG* pcelt  
+   ULONG* pcelt  
 );  
 ```  
   
-```c#  
+```csharp  
 int GetCount(  
-   out uint pcelt  
+   out uint pcelt  
 );  
 ```  
   
-#### 参数  
+#### <a name="parameters"></a>Parameters  
  `pcelt`  
- \[out\] 返回元素数在枚举的。  
+ [out] Returns the number of elements in the enumeration.  
   
-## 返回值  
- 如果成功，则返回; `S_OK`否则，返回错误代码。  
+## <a name="return-value"></a>Return Value  
+ If successful, returns `S_OK`; otherwise, returns an error code.  
   
-## 备注  
- 此方法不属于指定习惯的 COM 枚举接口的一部分 `Next`、 `Clone`、 `Skip`并仅 `Reset` 方法需要执行。  
+## <a name="remarks"></a>Remarks  
+ This method is not part of the customary COM enumeration interface which specifies that only the `Next`, `Clone`, `Skip`, and `Reset` methods need to be implemented.  
   
-## 请参阅  
+## <a name="see-also"></a>See Also  
  [IEnumDebugProcesses2](../../../extensibility/debugger/reference/ienumdebugprocesses2.md)

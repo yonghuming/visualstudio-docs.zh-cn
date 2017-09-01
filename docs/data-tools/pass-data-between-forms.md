@@ -1,137 +1,152 @@
 ---
-title: "演练：在 Windows 窗体间传递数据 | Microsoft Docs"
-ms.custom: ""
-ms.date: "12/15/2016"
-ms.prod: "visual-studio-dev14"
-ms.reviewer: ""
-ms.suite: ""
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-dev_langs: 
-  - "VB"
-  - "CSharp"
-  - "C++"
-  - "aspx"
-helpviewer_keywords: 
-  - "数据 [Visual Studio], 在窗体之间传递"
-  - "窗体, 传递数据于"
-  - "演练 [Visual Studio], 数据"
-  - "演练 [Windows 窗体], 数据"
-  - "Windows 窗体, 演练"
+title: Pass data between forms | Microsoft Docs
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.tgt_pltfrm: 
+ms.topic: article
+dev_langs:
+- VB
+- CSharp
+helpviewer_keywords:
+- walkthroughs [Windows Forms], data
+- walkthroughs [Visual Studio], data
+- data [Visual Studio], passing between forms
+- forms, passing data between
+- Windows Forms, walkthroughs
 ms.assetid: 78bf038b-9296-4fbf-b0e8-d881d1aff0df
 caps.latest.revision: 14
-caps.handback.revision: 11
-author: "mikeblome"
-ms.author: "mblome"
-manager: "ghogen"
+author: mikeblome
+ms.author: mblome
+manager: ghogen
+translation.priority.ht:
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- ru-ru
+- zh-cn
+- zh-tw
+translation.priority.mt:
+- cs-cz
+- pl-pl
+- pt-br
+- tr-tr
+ms.translationtype: HT
+ms.sourcegitcommit: eb5c9550fd29b0e98bf63a7240737da4f13f3249
+ms.openlocfilehash: c8aec778fc3ef4d6269886b2d652e5a1595f9d6b
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/30/2017
+
 ---
-# 演练：在 Windows 窗体间传递数据
-本演练提供了有关将数据从一个窗体传递到另一个窗体的分步说明。  通过使用来自 Northwind 的客户和订单表，一个窗体将允许用户选择客户，而另一个窗体将显示所选择客户的订单。  本演练演示如何在窗体上创建从第一个窗体接收数据的方法。  
+# <a name="pass-data-between-forms"></a>Pass data between forms
+This walkthrough provides step-by-step instructions for passing data from one form to another. Using the customers and orders tables from Northwind, one form allows users to select a customer, and a second form displays the selected customer's orders. This walkthrough shows how to create a method on the second form that receives data from the first form.  
   
 > [!NOTE]
->  本演练仅演示在窗体之间传递数据的一种方法。  向窗体传递数据还可以有其他选择，包括以下方法：创建另一个构造函数来接收数据，或者创建一个可用第一个窗体的数据进行设置的公共属性。  
+>  This walkthrough demonstrates only one way to pass data between forms. There are other options for passing data to a form, including creating a second constructor to receive data, or creating a public property that can be set with data from the first form.  
   
- 本演练涉及以下任务：  
+ Tasks illustrated in this walkthrough include:  
   
--   创建新的**“Windows 应用程序”**项目。  
+-   Creating a new **Windows Application** project.  
   
--   使用[数据源配置向导](../data-tools/media/data-source-configuration-wizard.png)创建并配置数据集。  
+-   Creating and configuring a dataset with the [Data Source Configuration Wizard](../data-tools/media/data-source-configuration-wizard.png).  
   
--   选择从**“数据源”**窗口拖动某些项时要在窗体上创建的控件。  有关详细信息，请参阅[设置从“数据源”窗口中拖动时要创建的控件](../data-tools/set-the-control-to-be-created-when-dragging-from-the-data-sources-window.md)。  
+-   Selecting the control to be created on the form when dragging items from the **Data Sources** window. For more information, see [Set the control to be created when dragging from the Data Sources window](../data-tools/set-the-control-to-be-created-when-dragging-from-the-data-sources-window.md).  
   
--   通过将某些项从**“数据源”**窗口拖到窗体上来创建数据绑定控件。  
+-   Creating a data-bound control by dragging items from the **Data Sources** window onto a form.  
   
--   创建具有网格的第二个窗体来显示数据。  
+-   Creating a second form with a grid to display data.  
   
--   创建一个 TableAdapter 查询来获取特定客户的订单。  
+-   Creating a TableAdapter query to fetch orders for a specific customer.  
   
--   在窗体间传递数据。  
+-   Passing data between forms.  
   
-## 系统必备  
- 若要完成本演练，你需要：  
+## <a name="prerequisites"></a>Prerequisites  
+ In order to complete this walkthrough, you need:  
   
--   能够访问 Northwind 示例数据库。  有关详细信息，请参阅[如何：安装示例数据库](../data-tools/how-to-install-sample-databases.md)。  
+-   Access to the Northwind sample database. For more information, see [How to: Install Sample Databases](../data-tools/installing-database-systems-tools-and-samples.md).  
   
-## 创建 Windows 应用程序  
+## <a name="create-the-windows-application"></a>Create the Windows Application  
   
-#### 创建新的 Windows 项目  
+#### <a name="to-create-the-new-windows-project"></a>To create the new Windows project  
   
-1.  从**“文件”**菜单创建一个新的项目。  
+1.  From the **File** menu, create a new project.  
   
-2.  将项目命名为 `PassingDataBetweenForms`。  
+2.  Name the project `PassingDataBetweenForms`.  
   
-3.  选择**“Windows 窗体应用程序”**，然后单击**“确定”**。  有关详细信息，请参阅[客户端应用程序](../Topic/Developing%20Client%20Applications%20with%20the%20.NET%20Framework.md)。  
+3.  Select **Windows Forms Application**, and click **OK**. For more information, see [Client Applications](/dotnet/framework/develop-client-apps).  
   
-     **“PassingDataBetweenForms”**项目即被创建并添加到**“解决方案资源管理器”**中。  
+     The **PassingDataBetweenForms** project is created, and added to **Solution Explorer**.  
   
-## 创建数据源  
+## <a name="create-the-data-source"></a>Create the data source  
   
-#### 创建数据源  
+#### <a name="to-create-the-data-source"></a>To create the data source  
   
-1.  在**“数据”**菜单上，单击**“显示数据源”**。  
+1.  On the **Data** menu, click **Show Data Sources**.  
   
-2.  在**“数据源”**窗口中，选择**“添加新数据源”**以启动**“数据源配置向导”**。  
+2.  In the **Data Sources** window, select **Add New Data Source** to start the **Data Source Configuration** wizard.  
   
-3.  在**“选择数据源类型”**页上选择**“数据库”**，然后单击**“下一步”**。  
+3.  Select **Database** on the **Choose a Data Source Type** page, and then click **Next**.  
   
-4.  在**“选择数据库模型”**页面上，确认已指定**“数据集”**，然后单击**“下一步”**。  
+4.  On the **Choose a database model** page, verify that **Dataset** is specified, and then click **Next**.  
   
-5.  在**“选择数据连接”**页面上，执行以下操作之一：  
+5.  On the **Choose your Data Connection** page, do one of the following:  
   
-    -   如果下拉列表中包含到 Northwind 示例数据库的数据连接，请选择该连接。  
+    -   If a data connection to the Northwind sample database is available in the drop-down list, select it.  
   
-         \- 或 \-  
+    -   Select **New Connection** to launch the **Add/Modify Connection** dialog box.  
   
-    -   选择**“新建连接”**，以启动**“添加\/修改连接”**对话框。  
+6.  If your database requires a password and if the option to include sensitive data is enabled, select the option and then click **Next**.  
   
-6.  如果数据库需要密码并且已启用用于包括敏感数据的选项，请选择该选项，然后单击**“下一步”**。  
+7.  On the **Save connection string to the Application Configuration file** page, click **Next**.  
   
-7.  在**“将连接字符串保存到应用程序配置文件”**页面上单击**“下一步”**。  
+8.  On the **Choose your Database Objects** page, expand the **Tables** node.  
   
-8.  在**“选择数据库对象”**页面上展开**“表”**节点。  
+9. Select the **Customers** and **Orders** tables, and then click **Finish**.  
   
-9. 选择**“Customers”**和**“Orders”**表，然后单击**“完成”**。  
+     The **NorthwindDataSet** is added to your project, and the **Customers** and **Orders** tables appear in the **Data Sources** window.  
   
-     **“NorthwindDataSet”**将会添加到你的项目中，并且在**“数据源”**窗口中将显示**“Customers”**和“Orders”表。  
+## <a name="create-the-first-form-form1"></a>Create the first form (Form1)  
+ You can create a data-bound grid (a <xref:System.Windows.Forms.DataGridView> control), by dragging the **Customers** node from the **Data Sources** window onto the form.  
   
-## 创建第一个窗体 \(Form1\)  
- 通过将**“Customers”**节点从**“数据源”**窗口拖到窗体上，可以创建数据绑定网格（<xref:System.Windows.Forms.DataGridView> 控件）。  
+#### <a name="to-create-a-data-bound-grid-on-the-form"></a>To create a data-bound grid on the form  
   
-#### 在窗体上创建数据绑定网格  
+-   Drag the main **Customers** node from the **Data Sources** window onto **Form1**.  
   
--   将主**“Customers”**节点从**“数据源”**窗口拖到**“Form1”**上。  
+     A <xref:System.Windows.Forms.DataGridView> and a tool strip (<xref:System.Windows.Forms.BindingNavigator>) for navigating records appear on **Form1**. A [NorthwindDataSet](../data-tools/dataset-tools-in-visual-studio.md), CustomersTableAdapter, <xref:System.Windows.Forms.BindingSource>, and <xref:System.Windows.Forms.BindingNavigator> appear in the component tray.  
   
-     在**“Form1”**上出现用于导航记录的 <xref:System.Windows.Forms.DataGridView> 和工具栏 \(<xref:System.Windows.Forms.BindingNavigator>\)。  组件栏中出现 [NorthwindDataSet](../data-tools/dataset-tools-in-visual-studio.md)、[CustomersTableAdapter](../data-tools/tableadapter-overview.md)、<xref:System.Windows.Forms.BindingSource> 和 <xref:System.Windows.Forms.BindingNavigator>。  
+## <a name="create-the-second-form-form2"></a>Create the second form (Form2)  
   
-## 创建第二个窗体 \(Form2\)  
+#### <a name="to-create-a-second-form-to-pass-the-data-to"></a>To create a second form to pass the data to  
   
-#### 创建要传入数据的第二个窗体  
+1.  From the **Project** menu, choose **Add Windows Form**.  
   
-1.  从**“项目”**菜单中，选择**“添加 Windows 窗体”**。  
+2.  Leave the default name of **Form2**, and click **Add**.  
   
-2.  保留**“Form2”**的默认名称，然后单击**“添加”**。  
+3.  Drag the main **Orders** node from the **Data Sources** window onto **Form2**.  
   
-3.  将主**“Orders”**节点从**“数据源”**窗口拖到**“Form2”**上。  
+     A <xref:System.Windows.Forms.DataGridView> and a tool strip (<xref:System.Windows.Forms.BindingNavigator>) for navigating records appear on **Form2**. A [NorthwindDataSet](../data-tools/dataset-tools-in-visual-studio.md), CustomersTableAdapter, <xref:System.Windows.Forms.BindingSource>, and <xref:System.Windows.Forms.BindingNavigator> appear in the component tray.  
   
-     在**“Form2”**上出现用于导航记录的 <xref:System.Windows.Forms.DataGridView> 和工具栏 \(<xref:System.Windows.Forms.BindingNavigator>\)。  组件栏中出现 [NorthwindDataSet](../data-tools/dataset-tools-in-visual-studio.md)、[CustomersTableAdapter](../data-tools/tableadapter-overview.md)、<xref:System.Windows.Forms.BindingSource> 和 <xref:System.Windows.Forms.BindingNavigator>。  
+4.  Delete the **OrdersBindingNavigator** from the component tray.  
   
-4.  从组件栏中删除**“OrdersBindingNavigator”**。  
+     The **OrdersBindingNavigator** disappears from **Form2**.  
   
-     **“OrdersBindingNavigator”**从**“Form2”**中消失。  
+## <a name="add-a-tableadapter-query-to-form2-to-load-orders-for-the-selected-customer-on-form1"></a>Add a TableAdapter query to Form2 to load orders for the selected customer on Form1  
   
-## 向 Form2 添加 TableAdapter 查询来为 Form1 上所选择的客户加载订单  
+#### <a name="to-create-a-tableadapter-query"></a>To create a TableAdapter query  
   
-#### 创建 TableAdapter 查询  
+1.  Double-click the **NorthwindDataSet.xsd** file in **Solution Explorer**.  
   
-1.  在**“解决方案资源管理器”**中双击**“NorthwindDataSet.xsd”**文件。  
+2.  Right-click the **OrdersTableAdapter**, and select **Add Query**.  
   
-2.  右键单击**“OrdersTableAdapter”**，然后选择**“添加查询”**。  
+3.  Leave the default option of **Use SQL statements**, and then click **Next**.  
   
-3.  保留**“使用 SQL 语句”**的默认选项，然后单击**“下一步”**。  
+4.  Leave the default option of **SELECT which returns rows**, and then click **Next**.  
   
-4.  保留**“选择\(返回行\)”**的默认选项，然后单击**“下一步”**。  
-  
-5.  向查询添加 WHERE 子句来根据 `CustomerID` 返回 `Orders`。  查询应当类似于：  
+5.  Add a WHERE clause to the query, to return `Orders` based on the `CustomerID`. The query should be similar to the following:  
   
     ```  
     SELECT OrderID, CustomerID, EmployeeID, OrderDate, RequiredDate, ShippedDate, ShipVia, Freight, ShipName, ShipAddress, ShipCity, ShipRegion, ShipPostalCode, ShipCountry  
@@ -140,68 +155,56 @@ manager: "ghogen"
     ```  
   
     > [!NOTE]
-    >  验证数据库的参数语法是否正确。  例如，在 Microsoft Access 中，WHERE 子句应当如下：`WHERE CustomerID = ?`。  
+    >  Verify the correct parameter syntax for your database. For example, in Microsoft Access, the WHERE clause would look like: `WHERE CustomerID = ?`.  
   
-6.  单击**“下一步”**。  
+6.  Click **Next**.  
   
-7.  对于**“填充 DataTable”**\-\>**“方法名称”**，键入`“FillByCustomerID”`。  
+7.  For the **Fill a DataTableMethod Name**, type `FillByCustomerID`.  
   
-8.  清除**“返回 DataTable”**选项，然后单击**“下一步”**。  
+8.  Clear the **Return a DataTable** option, and then click **Next**.  
   
-9. 单击**“完成”**。  
+9. Click **Finish**.  
   
-## 在 Form2 上创建要传入数据的方法  
+## <a name="create-a-method-on-form2-to-pass-data-to"></a>Create a method on Form2 to pass data to  
   
-#### 创建要传入数据的方法  
+#### <a name="to-create-a-method-to-pass-data-to"></a>To create a method to pass data to  
   
-1.  右键单击**“Form2”**，然后选择**“查看代码”**，以在**“代码编辑器”**中打开**“Form2”**。  
+1.  Right-click **Form2**, and select **View Code** to open **Form2** in the **Code Editor**.  
   
-2.  将以下代码添加到 `Form2_Load` 方法后面的**“Form2”**：  
+2.  Add the following code to **Form2** after the `Form2_Load` method:  
   
-     [!code-vb[VbRaddataDisplaying#1](../data-tools/codesnippet/VisualBasic/pass-data-between-forms_1.vb)]
-     [!code-cs[VbRaddataDisplaying#1](../data-tools/codesnippet/CSharp/pass-data-between-forms_1.cs)]  
+     [!code-vb[VbRaddataDisplaying#1](../data-tools/codesnippet/VisualBasic/pass-data-between-forms_1.vb)]  [!code-csharp[VbRaddataDisplaying#1](../data-tools/codesnippet/CSharp/pass-data-between-forms_1.cs)]  
   
-## 在 Form1 上创建用于传递数据并显示 Form2 的方法  
+## <a name="create-a-method-on-form1-to-pass-data-and-display-form2"></a>Create a method on Form1 to pass data and display Form2  
   
-#### 创建向 Form2 传递数据的方法  
+#### <a name="to-create-a-method-to-pass-data-to-form2"></a>To create a method to pass data to Form2  
   
-1.  在**“Form1”**中，右键单击“Customer”数据网格，然后单击**“属性”**。  
+1.  In **Form1**, right-click the Customer data grid, and then click **Properties**.  
   
-2.  在**“属性”**窗口中，单击**“事件”**。  
+2.  In the **Properties** window, click **Events**.  
   
-3.  双击**“CellDoubleClick”**事件。  
+3.  Double-click the **CellDoubleClick** event.  
   
-     将显示代码编辑器。  
+     The code editor appears.  
   
-4.  更新方法定义以匹配以下示例：  
+4.  Update the method definition to match the following sample:  
   
-     [!code-cs[VbRaddataDisplaying#2](../data-tools/codesnippet/CSharp/pass-data-between-forms_2.cs)]
-     [!code-vb[VbRaddataDisplaying#2](../data-tools/codesnippet/VisualBasic/pass-data-between-forms_2.vb)]  
+     [!code-csharp[VbRaddataDisplaying#2](../data-tools/codesnippet/CSharp/pass-data-between-forms_2.cs)]  [!code-vb[VbRaddataDisplaying#2](../data-tools/codesnippet/VisualBasic/pass-data-between-forms_2.vb)]  
   
-## 运行应用程序  
+## <a name="run-the-application"></a>Run the Application  
   
-#### 运行应用程序  
+#### <a name="to-run-the-application"></a>To run the application  
   
--   按 F5 运行该应用程序。  
+-   Press F5 to run the application.  
   
--   在**“Form1”**中双击一个客户记录以打开包含该客户的订单的**“Form2”**。  
+-   Double-click a customer record in **Form1** to open **Form2** with that customer's orders.  
   
-## 后续步骤  
- 根据应用程序的要求，在窗体间传递数据之后可能还需要执行一些步骤。  你可以通过以下操作来增强此演练的效果：  
+## <a name="next-steps"></a>Next Steps  
+ Depending on your application requirements, there are several steps you may want to perform after passing data between forms. Some enhancements you could make to this walkthrough include:  
   
--   编辑数据集，以添加或移除数据库对象。  有关详细信息，请参阅[如何：编辑数据集](../Topic/How%20to:%20Edit%20a%20Dataset.md)。  
+-   Editing the dataset, to add or remove database objects. For more information, see [Create and configure datasets](../data-tools/create-and-configure-datasets-in-visual-studio.md).  
   
--   添加将数据保存回数据库的功能。  有关详细信息，请参阅[如何：将数据集更改保存到数据库中](../Topic/How%20to:%20Save%20Dataset%20Changes%20to%20a%20Database.md)。  
+-   Adding functionality to save data back to the database. For more information, see [Save data back to the database](../data-tools/save-data-back-to-the-database.md).  
   
-## 请参阅  
- [数据演练](../Topic/Data%20Walkthroughs.md)   
- [在 Visual Studio 中将 Windows 窗体控件绑定到数据](../data-tools/bind-windows-forms-controls-to-data-in-visual-studio.md)   
- [数据源概述](../data-tools/add-new-data-sources.md)   
- [TableAdapter 概述](../data-tools/tableadapter-overview.md)   
- [连接到 Visual Studio 中的数据](../data-tools/connecting-to-data-in-visual-studio.md)   
- [准备应用程序以接收数据](../Topic/Preparing%20Your%20Application%20to%20Receive%20Data.md)   
- [将数据获取到应用程序](../data-tools/fetching-data-into-your-application.md)   
- [在 Visual Studio 中将控件绑定到数据](../data-tools/bind-controls-to-data-in-visual-studio.md)   
- [在应用程序中编辑数据](../data-tools/editing-data-in-your-application.md)   
- [验证数据](../Topic/Validating%20Data.md)   
- [保存数据](../data-tools/saving-data.md)
+## <a name="see-also"></a>See Also  
+ [Bind Windows Forms controls to data in Visual Studio](../data-tools/bind-windows-forms-controls-to-data-in-visual-studio.md)

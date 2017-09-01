@@ -1,7 +1,7 @@
 ---
 title: "Visual Studio 中的 Python 环境| Microsoft Docs"
 ms.custom: 
-ms.date: 7/13/2017
+ms.date: 7/25/2017
 ms.prod: visual-studio-dev15
 ms.reviewer: 
 ms.suite: 
@@ -16,10 +16,10 @@ author: kraigb
 ms.author: kraigb
 manager: ghogen
 ms.translationtype: HT
-ms.sourcegitcommit: 6d25db4639f2c8391c1e32542701ea359f560178
-ms.openlocfilehash: f73c0c7c40d1edd18cccb1ba69424c4e34472c33
+ms.sourcegitcommit: e48ebcafaca37505dbcc92bce682d0c6169004e1
+ms.openlocfilehash: fa8a7616fe88f024ab299e5d115b66f8656e7cb3
 ms.contentlocale: zh-cn
-ms.lasthandoff: 07/18/2017
+ms.lasthandoff: 07/26/2017
 
 ---
 
@@ -52,7 +52,7 @@ Visual Studio 中的 Python 使管理多个 Python 环境更加简单，并且�
 
 ## <a name="selecting-and-installing-python-interpreters"></a>选择并安装 Python 解释程序
 
-Python 支持除了随 Visual Studio 2017 提供外，并未随 Python 解释器提供，因此需要安装以下解释器之一才能运行代码。 一般情况下，Visual Studio 会自动检测新安装的解释器，并为其设置环境。 如果它并未执行这些操作，请参阅下面的[为现有解释器创建环境](#creating-an-environment-for-an-existing-interpreter)。
+Python 支持除了随 Visual Studio 2017 提供外，并未随 Python 解释器提供，因此需要安装以下解释器之一才能运行代码。 一般情况下，Visual Studio 会自动检测新安装的解释器，并为每个解释器设置环境。 如果它并未检测到安装的环境，请参阅[为现有解释器创建环境](#creating-an-environment-for-an-existing-interpreter)。
 
 | 解释器 | 说明 | 
 | --- | --- | 
@@ -89,7 +89,7 @@ Python 支持除了随 Visual Studio 2017 提供外，并未随 Python 解释器
 
 ### <a name="creating-an-environment-for-an-existing-interpreter"></a>为现有解释器创建环境
 
-Visual Studio 通常通过检查注册表查找已安装的 Python 解释器，但如果解释器以非标准的方式安装，就可能找不到它。 在这种情况下，可以如下所示，将 Visual Studio 直接指向解释器：
+Visual Studio 通常通过检查注册表（下面的 [Windows 注册表中的 PEP 514 - Python 注册](https://www.python.org/dev/peps/pep-0514/)）来查找已安装的 Python 解释器。 但是，如果解释器是以非标准方式安装的，则 Visual Studio 可能无法找到它。 在这种情况下，可以如下所示，将 Visual Studio 直接指向解释器：
 
 1. 在环境窗口中选择“+ 自定义...”，这将创建一个新环境，然后打开[“配置”选项卡](#configure-tab)（如下所示）。
 
@@ -99,7 +99,15 @@ Visual Studio 通常通过检查注册表查找已安装的 Python 解释器，�
 1. 在“前缀路径”字段输入或浏览到解释器的路径。
 1. 选择“自动检测”让 Visual Studio 完成余下的字段，或手动完成它们。
 1. 选择“应用”保存环境。
-1. 如果需要删除环境，请在“配置”选项卡上选择“删除”命令。
+1. 如果需要删除环境，请在“配置”选项卡上选择“删除”命令。 自动检测环境不提供此选项。 有关详细信息，请参阅下一节。
+
+### <a name="moving-an-existing-interpreter"></a>移动现有的解释器
+
+如果将现有解释器移到文件系统上的新位置，则 Visual Studio 不会自动检测更改。 更新环境窗口中的列表需要执行手动步骤：
+
+- 如果最初为该解释器创建了一个环境，则编辑该环境以指向新位置。
+
+- 如果环境是最初自动检测到的，它将使用创建了 Visual Studio 检查的注册表项的独特安装程序在计算机上进行安装。 在这种情况下，首先将 Python 解释器还原到其原始位置。 然后使用安装程序将其卸载，这会清除注册表项。 然后在所需位置重新安装解释器。 重启 Visual Studio 后它应该能够自动检测到新位置。 此过程可确保适当地应用安装程序的任何其他副作用。
 
 ### <a name="overview-tab"></a>概述选项卡
 

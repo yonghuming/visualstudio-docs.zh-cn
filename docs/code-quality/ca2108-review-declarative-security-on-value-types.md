@@ -1,64 +1,80 @@
 ---
-title: "CA2108：检查有关值类型的声明性安全 | Microsoft Docs"
-ms.custom: ""
-ms.date: "12/14/2016"
-ms.prod: "visual-studio-dev14"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-devops-test"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "ReviewDeclarativeSecurityOnValueTypes"
-  - "CA2108"
-helpviewer_keywords: 
-  - "CA2108"
-  - "ReviewDeclarativeSecurityOnValueTypes"
+title: 'CA2108: Review declarative security on value types | Microsoft Docs'
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-devops-test
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords:
+- ReviewDeclarativeSecurityOnValueTypes
+- CA2108
+helpviewer_keywords:
+- ReviewDeclarativeSecurityOnValueTypes
+- CA2108
 ms.assetid: d62bffdd-3826-4d52-a708-1c646c5d48c2
 caps.latest.revision: 16
-caps.handback.revision: 16
-author: "stevehoag"
-ms.author: "shoag"
-manager: "wpickett"
----
-# CA2108：检查有关值类型的声明性安全
-[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
+author: stevehoag
+ms.author: shoag
+manager: wpickett
+translation.priority.ht:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+ms.translationtype: HT
+ms.sourcegitcommit: eb5c9550fd29b0e98bf63a7240737da4f13f3249
+ms.openlocfilehash: a4aa6fa02329c6d82800f3a45f8002bf8a4f10e7
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/30/2017
 
+---
+# <a name="ca2108-review-declarative-security-on-value-types"></a>CA2108: Review declarative security on value types
 |||  
 |-|-|  
-|类型名|ReviewDeclarativeSecurityOnValueTypes|  
+|TypeName|ReviewDeclarativeSecurityOnValueTypes|  
 |CheckId|CA2108|  
-|类别|Microsoft.Security|  
-|是否重大更改|否|  
+|Category|Microsoft.Security|  
+|Breaking Change|Non Breaking|  
   
-## 原因  
- 公共或受保护值类型受 [数据和建模](../Topic/Data%20and%20Modeling%20in%20the%20.NET%20Framework.md) 或 [链接需求](../Topic/Link%20Demands.md) 保护。  
+## <a name="cause"></a>Cause  
+ A public or protected value type is secured by a [Data and Modeling](/dotnet/framework/data/index) or [Link Demands](/dotnet/framework/misc/link-demands).  
   
-## 规则说明  
- 在其他构造函数执行之前，值类型的默认构造函数会分配并初始化值类型。  如果值类型受到 Demand 或 LinkDemand 的保护，并且调用方不具有能够通过安全检查的权限，则默认构造函数以外的任何构造函数将失败，并且将引发安全异常。  值类型不会被释放；它保持由其默认构造函数设置的状态。  不要假定传递值类型的实例的调用方具有创建或访问该实例的权限。  
+## <a name="rule-description"></a>Rule Description  
+ Value types are allocated and initialized by their default constructors before other constructors execute. If a value type is secured by a Demand or LinkDemand, and the caller does not have permissions that satisfy the security check, any constructor other than the default will fail, and a security exception will be thrown. The value type is not deallocated; it is left in the state set by its default constructor. Do not assume that a caller that passes an instance of the value type has permission to create or access the instance.  
   
-## 如何解决冲突  
- 除非从类型中移除安全检查，并且使用方法级别的安全检查作为替代，否则无法修复与该规则有关的冲突。  注意，以这种方式修复冲突并不会阻止权限不足的调用方获取值类型的实例。  必须确保默认状态下的值类型的实例不会公开敏感信息，并且不能以有害方式使用该实例。  
+## <a name="how-to-fix-violations"></a>How to Fix Violations  
+ You cannot fix a violation of this rule unless you remove the security check from the type, and use method level security checks in its place. Note that fixing the violation in this manner will not prevent callers with inadequate permissions from obtaining instances of the value type. You must ensure that an instance of the value type, in its default state, does not expose sensitive information, and cannot be used in a harmful manner.  
   
-## 何时禁止显示警告  
- 如果任何调用方可以获取默认状态下的值类型的实例，而不会造成安全风险，则可以禁止显示此规则发出的警告。  
+## <a name="when-to-suppress-warnings"></a>When to Suppress Warnings  
+ You can suppress a warning from this rule if any caller can obtain instances of the value type in its default state without posing a threat to security.  
   
-## 示例  
- 下面的示例演示一个与该规则冲突的包含值类型的库。  注意，`StructureManager` 类型假定传递值类型的实例的调用方具有创建或访问该实例的权限。  
+## <a name="example"></a>Example  
+ The following example shows a library containing a value type that violates this rule. Note that the `StructureManager` type assumes that a caller that passes an instance of the value type has permission to create or access the instance.  
   
- [!code-cs[FxCop.Security.DemandOnValueType#1](../code-quality/codesnippet/CSharp/ca2108-review-declarative-security-on-value-types_1.cs)]  
+ [!code-csharp[FxCop.Security.DemandOnValueType#1](../code-quality/codesnippet/CSharp/ca2108-review-declarative-security-on-value-types_1.cs)]  
   
-## 示例  
- 下面的应用程序演示库的漏洞。  
+## <a name="example"></a>Example  
+ The following application demonstrates the library's weakness.  
   
- [!code-cs[FxCop.Security.TestDemandOnValueType#1](../code-quality/codesnippet/CSharp/ca2108-review-declarative-security-on-value-types_2.cs)]  
+ [!code-csharp[FxCop.Security.TestDemandOnValueType#1](../code-quality/codesnippet/CSharp/ca2108-review-declarative-security-on-value-types_2.cs)]  
   
- 该示例产生下面的输出。  
+ This example produces the following output.  
   
-  **Structure custom constructor: Request failed.**  
+ **Structure custom constructor: Request failed.**  
 **New values SecuredTypeStructure 100 100**  
 **New values SecuredTypeStructure 200 200**   
-## 请参阅  
- [链接需求](../Topic/Link%20Demands.md)   
- [数据和建模](../Topic/Data%20and%20Modeling%20in%20the%20.NET%20Framework.md)
+## <a name="see-also"></a>See Also  
+ [Link Demands](/dotnet/framework/misc/link-demands)   
+ [Data and Modeling](/dotnet/framework/data/index)

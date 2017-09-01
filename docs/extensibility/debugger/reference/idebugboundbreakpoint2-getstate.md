@@ -1,52 +1,69 @@
 ---
-title: "IDebugBoundBreakpoint2::GetState | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "IDebugBoundBreakpoint2::GetState"
-helpviewer_keywords: 
-  - "GetState 方法"
-  - "IDebugBoundBreakpoint2::GetState 方法"
+title: IDebugBoundBreakpoint2::GetState | Microsoft Docs
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords:
+- IDebugBoundBreakpoint2::GetState
+helpviewer_keywords:
+- GetState method
+- IDebugBoundBreakpoint2::GetState method
 ms.assetid: a40a8382-295e-4916-aae6-ffe3a9cd3f2d
 caps.latest.revision: 11
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 11
----
-# IDebugBoundBreakpoint2::GetState
-[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
+ms.author: gregvanl
+manager: ghogen
+translation.priority.mt:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+ms.translationtype: MT
+ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
+ms.openlocfilehash: 4b4a8dc0af9e6e0c2855f9163518d5e9032368ff
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/28/2017
 
-获取此绑定断点状态。  
+---
+# <a name="idebugboundbreakpoint2getstate"></a>IDebugBoundBreakpoint2::GetState
+Gets the state of this bound breakpoint.  
   
-## 语法  
+## <a name="syntax"></a>Syntax  
   
-```cpp#  
-HRESULT GetState(   
-   BP_STATE* pState  
+```cpp  
+HRESULT GetState(   
+   BP_STATE* pState  
 );  
 ```  
   
-```c#  
-int GetState(   
-   out enum_BP_STATE pState  
+```csharp  
+int GetState(   
+   out enum_BP_STATE pState  
 );  
 ```  
   
-#### 参数  
+#### <a name="parameters"></a>Parameters  
  `pState`  
- \[out\] 返回从描述断点状态的 [BP\_STATE](../../../extensibility/debugger/reference/bp-state.md) 枚举的值。  
+ [out] Returns a value from the [BP_STATE](../../../extensibility/debugger/reference/bp-state.md) enumeration that describes the state of the breakpoint.  
   
-## 返回值  
- 如果成功，则返回; `S_OK`否则，返回错误代码。  
+## <a name="return-value"></a>Return Value  
+ If successful, returns `S_OK`; otherwise, returns an error code.  
   
-## 示例  
- 下面的示例演示如何执行显示 [IDebugBoundBreakpoint2](../../../extensibility/debugger/reference/idebugboundbreakpoint2.md) 接口的简单 `CBoundBreakpoint` 对象的方法。  
+## <a name="example"></a>Example  
+ The following example shows how to implement this method for a simple `CBoundBreakpoint` object that exposes the [IDebugBoundBreakpoint2](../../../extensibility/debugger/reference/idebugboundbreakpoint2.md) interface.  
   
 ```  
 HRESULT CBoundBreakpoint::GetState(BP_STATE* pState)    
@@ -68,6 +85,6 @@ HRESULT CBoundBreakpoint::GetState(BP_STATE* pState)
 }    
 ```  
   
-## 请参阅  
+## <a name="see-also"></a>See Also  
  [IDebugBoundBreakpoint2](../../../extensibility/debugger/reference/idebugboundbreakpoint2.md)   
- [BP\_STATE](../../../extensibility/debugger/reference/bp-state.md)
+ [BP_STATE](../../../extensibility/debugger/reference/bp-state.md)

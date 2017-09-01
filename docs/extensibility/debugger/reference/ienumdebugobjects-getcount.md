@@ -1,51 +1,68 @@
 ---
-title: "IEnumDebugObjects::GetCount | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "IEnumDebugObjects::GetCount"
-helpviewer_keywords: 
-  - "IEnumDebugObjects::GetCount 方法"
+title: IEnumDebugObjects::GetCount | Microsoft Docs
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords:
+- IEnumDebugObjects::GetCount
+helpviewer_keywords:
+- IEnumDebugObjects::GetCount method
 ms.assetid: 9cbc5db4-03ae-479f-a664-13cad66ad210
 caps.latest.revision: 5
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 5
----
-# IEnumDebugObjects::GetCount
-[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
+ms.author: gregvanl
+manager: ghogen
+translation.priority.mt:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+ms.translationtype: MT
+ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
+ms.openlocfilehash: 8dcdce2a48f5146f306513975a6a8accc7686b0d
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/28/2017
 
-此方法返回元素数在枚举的。  
+---
+# <a name="ienumdebugobjectsgetcount"></a>IEnumDebugObjects::GetCount
+This method returns the number of elements in the enumeration.  
   
-## 语法  
+## <a name="syntax"></a>Syntax  
   
-```cpp#  
+```cpp  
 HRESULT GetCount(  
-   [out] ULONG* pcelt  
+   [out] ULONG* pcelt  
 );  
 ```  
   
-```c#  
+```csharp  
 int GetCount(  
-   out uint pcelt  
+   out uint pcelt  
 );  
 ```  
   
-#### 参数  
+#### <a name="parameters"></a>Parameters  
  `pcelt`  
- \[out\] 返回元素数在枚举的。  
+ [out] Returns the number of elements in the enumeration.  
   
-## 返回值  
- 如果成功，则返回; `S_OK`否则，返回错误代码。  
+## <a name="return-value"></a>Return Value  
+ If successful, returns `S_OK`; otherwise, returns an error code.  
   
-## 备注  
- 此方法不是仅指定接下来，克隆、跳过并重置需要实现习惯的 COM 枚举接口的一部分。  
+## <a name="remarks"></a>Remarks  
+ This method is not part of the customary COM enumeration interface which specifies that only Next, Clone, Skip, and Reset need to be implemented.  
   
-## 请参阅  
+## <a name="see-also"></a>See Also  
  [IEnumDebugObjects](../../../extensibility/debugger/reference/ienumdebugobjects.md)

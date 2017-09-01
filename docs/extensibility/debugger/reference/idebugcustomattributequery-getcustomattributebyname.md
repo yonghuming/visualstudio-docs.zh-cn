@@ -1,62 +1,79 @@
 ---
-title: "IDebugCustomAttributeQuery::GetCustomAttributeByName | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-helpviewer_keywords: 
-  - "IDebugCustomAttributeQuery::GetCustomAttributeByName"
-  - "GetCustomAttributeByName"
+title: IDebugCustomAttributeQuery::GetCustomAttributeByName | Microsoft Docs
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+helpviewer_keywords:
+- IDebugCustomAttributeQuery::GetCustomAttributeByName
+- GetCustomAttributeByName
 ms.assetid: 6779727c-d10a-4abe-9acd-d0a1eb0737e7
 caps.latest.revision: 10
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 10
----
-# IDebugCustomAttributeQuery::GetCustomAttributeByName
-[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
+ms.author: gregvanl
+manager: ghogen
+translation.priority.mt:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+ms.translationtype: MT
+ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
+ms.openlocfilehash: 18791a4ff27a6704a9f40bf2b0995bc916b0d1b6
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/28/2017
 
-检索命名的自定义特性其名称。  
+---
+# <a name="idebugcustomattributequerygetcustomattributebyname"></a>IDebugCustomAttributeQuery::GetCustomAttributeByName
+Retrieves a custom attribute given its name.  
   
-## 语法  
+## <a name="syntax"></a>Syntax  
   
-```cpp#  
+```cpp  
 HRESULT GetCustomAttributeByName(  
-   LPCOLESTR pszCustomAttributeName,  
-   BYTE*     ppBlob,  
-   DWORD*    pdwLen  
+   LPCOLESTR pszCustomAttributeName,  
+   BYTE*     ppBlob,  
+   DWORD*    pdwLen  
 );  
 ```  
   
-```c#  
+```csharp  
 int GetCustomAttributeByName(  
-   string    pszCustomAttributeName,  
-   ref int[] ppBlob,  
-   out uint  pdwLen  
+   string    pszCustomAttributeName,  
+   ref int[] ppBlob,  
+   out uint  pdwLen  
 );  
 ```  
   
-#### 参数  
+#### <a name="parameters"></a>Parameters  
  `pszCustomAttributeName`  
- \[in\] 自定义属性的名称。  
+ [in] Name of the custom attribute.  
   
  `ppBlob`  
- \[in， out\] 包含自定义属性数据的字节。  
+ [in,out] Array of bytes that contain the custom attribute data.  
   
  `pdwLen`  
- \[out\] 长度。 `ppBlob` 参数的字节。  
+ [out] Length in bytes of the `ppBlob` parameter.  
   
-## 返回值  
- 如果成功，则返回 `S_OK`。  如果自定义特性不存在，则返回 `S_FALSE`。  否则，返回错误代码。  
+## <a name="return-value"></a>Return Value  
+ If successful, returns `S_OK`. If custom attribute does not exist, returns `S_FALSE`. Otherwise, returns an error code.  
   
-## 示例  
- 下面的示例演示如何执行显示 [IDebugCustomAttributeQuery](../../../extensibility/debugger/reference/idebugcustomattributequery.md) 接口的 **CDebugClassFieldSymbol** 对象的方法。  
+## <a name="example"></a>Example  
+ The following example shows how to implement this method for a **CDebugClassFieldSymbol** object that exposes the [IDebugCustomAttributeQuery](../../../extensibility/debugger/reference/idebugcustomattributequery.md) interface.  
   
-```cpp#  
+```cpp  
 HRESULT CDebugClassFieldSymbol::GetCustomAttributeByName(  
     LPCOLESTR pszCustomAttributeName,  
     BYTE *pBlob,  
@@ -91,5 +108,5 @@ Error:
 }  
 ```  
   
-## 请参阅  
+## <a name="see-also"></a>See Also  
  [IDebugCustomAttributeQuery](../../../extensibility/debugger/reference/idebugcustomattributequery.md)

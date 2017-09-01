@@ -1,248 +1,275 @@
 ---
-title: "在 Visual Studio 调试器中指定符号 (.pdb) 和源文件 | Microsoft Docs"
-ms.custom: ""
-ms.date: "12/15/2016"
-ms.prod: "visual-studio-dev14"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-debug"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "VS.ToolsOptionsPages.Debugger.Native"
-  - "VS.ToolsOptionsPages.Debugger.Symbols"
-  - "vs.debug.options.Native"
-dev_langs: 
-  - "FSharp"
-  - "VB"
-  - "CSharp"
-  - "C++"
-helpviewer_keywords: 
-  - "源代码"
-  - ".dbg 文件"
-  - "源代码, 管理"
-  - "符号, 管理"
-  - ".pdb 文件"
-  - "dbg 文件"
-  - "pdb 文件"
-  - "调试器"
+title: Specify symbol (.pdb) and source files in the debugger | Microsoft Docs
+ms.custom: H1Hack27Feb2017
+ms.date: 04/05/2017
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-debug
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords:
+- VS.ToolsOptionsPages.Debugger.Native
+- VS.ToolsOptionsPages.Debugger.Symbols
+- vs.debug.options.Native
+- vs.debug.nosymbols
+dev_langs:
+- CSharp
+- VB
+- FSharp
+- C++
+helpviewer_keywords:
+- source code
+- .dbg files
+- source code, managing
+- symbols, managing
+- .pdb files
+- dbg files
+- pdb files
+- debugger
 ms.assetid: 1105e169-5272-4e7c-b3e7-cda1b7798a6b
 caps.latest.revision: 31
-caps.handback.revision: 31
-author: "mikejo5000"
-ms.author: "mikejo"
-manager: "ghogen"
----
-# 在 Visual Studio 调试器中指定符号 (.pdb) 和源文件
-[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
+author: mikejo5000
+ms.author: mikejo
+manager: ghogen
+translation.priority.ht:
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- ru-ru
+- zh-cn
+- zh-tw
+translation.priority.mt:
+- cs-cz
+- pl-pl
+- pt-br
+- tr-tr
+ms.translationtype: HT
+ms.sourcegitcommit: 9e6c28d42bec272c6fd6107b4baf0109ff29197e
+ms.openlocfilehash: 8355e43e6c8e6142aedbe5dfb325196b01a7a681
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/22/2017
 
-程序数据库 \(.pdb\) 文件（也称为符号文件）将你在类、方法和其他代码的源文件中创建的标识符映射到在项目的已编译可执行文件中使用的标识符。 .pdb 文件还可以将源代码中的语句映射到可执行文件中的执行指令。 调试器使用此信息确定两个关键信息：显示在 Visual Studio IDE 中的源文件和行号，以及可执行文件中在设置断点时要停止的位置。 符号文件还包含源文件的原始位置以及（可选）源服务器的位置（可从中检索源文件）。  
+---
+# <a name="specify-symbol-pdb-and-source-files-in-the-visual-studio-debugger"></a>Specify symbol (.pdb) and source files in the Visual Studio debugger
+A program database (.pdb) file, also called a symbol file, maps the identifiers that you create in source code for classes, methods, and other code to the identifiers that are used in the compiled executables of your project. The .pdb file also maps the statements in the source code to the execution instructions in the executables. The debugger uses this information to determine two key pieces of information:
+
+* Name of the source file and line number to be displayed in the Visual Studio IDE
+* Location in the executable to stop at when you set a breakpoint
+
+A symbol file also contains the original location of the source files, and optionally, the location of a source server where the source files can be retrieved from.
   
- 在 Visual Studio IDE 中调试项目时，调试器知道查找代码的 .pdb 和源文件的默认位置。 如果要在项目源代码之外调试代码（如项目调用的 Windows 或第三方代码），则你必须指定 .pdb（也可以是外部代码的源文件）的位置，这些文件需要与可执行文件完全匹配。  
+> [!TIP]
+> If you want to debug code outside your project source code, such as Windows code or third-party code your project calls, you have to specify the location of the .pdb (and optionally, the source files of the external code) and those files need to exactly match the build of the executables.  
+ 
+##  <a name="BKMK_Find_symbol___pdb__files"></a> Where does the debugger search for symbol files? 
   
- 在 Visual Studio 2012 之前，在远程设备上调试托管的代码时，需要将符号文件放置在远程计算机上。 现在，这已经不成问题了。 所有符号文件必须位于本地计算机上或“工具”\/“选项”\/“调试”\/“符号”页中指定的位置。  
+1.  The location that is specified inside the DLL or the executable file.  
   
-##  <a name="BKMK_Find_symbol___pdb__files"></a> 调试器搜索 .pdb 文件的位置  
+     (By default, if you have built a DLL or an executable file on your computer, the linker places the full path and file name of the associated .pdb file inside the DLL or the executable file. The debugger first checks to see if the symbol file exists in the location that is specified inside the DLL or the executable file. This is helpful, because you always have symbols available for code that you have compiled on your computer.)  
   
-1.  在 DLL 或可执行文件中指定的位置。  
+2.  .pdb files that are present in the same folder as the DLL or executable file.
+
+3. Any locations [specified in the debugger options](#BKMK_Specify_symbol_locations_and_loading_behavior) for symbol files. 
   
-     （默认情况下，如果你在计算机上已生成 DLL 或可执行文件，则链接器会将关联的 .pdb 文件的完整路径和文件名放入 DLL 或可执行文件中。 调试器首先会检查在 DLL 或可执行文件内指定的位置中是否存在符号文件。 这很有帮助，因为你的计算机上始终有可供已编译代码使用的符号。）  
+    * Any local symbol cache folders.  
   
-2.  可存在于与 DLL 或可执行文件相同文件夹中的 .pdb 文件。  
+    * Any network, internet, or local symbol servers and locations that are specified, such as the Microsoft symbol server (if enabled). 
+
+> [!NOTE]
+> Before Visual Studio 2012, when you debugged managed code on a remote device you needed to put the symbol files on the remote machine. Starting with Visual Studio 2012, all symbol files must be located on the local machine or in a location [specified in the debugger options](#BKMK_Specify_symbol_locations_and_loading_behavior).  
   
-3.  所有本地符号缓存文件夹。  
+##  <a name="BKMK_Why_do_symbol_files_need_to_exactly_match_the_executable_files_"></a> Why do symbol files need to exactly match the executable files?  
+The debugger will load only a .pdb file for an executable file that exactly matches the .pdb file that was created when the executable was built (that is, the .pdb must be the original or a copy of the original .pdb file). Because the compiler is optimized for compilation speed in addition to its main task of creating correct and efficient code, the actual layout of an executable can change even if the code itself has not changed. For more information see [Why does Visual Studio require debugger symbol files to exactly match the binary files that they were built with?](https://blogs.msdn.microsoft.com/jimgries/2007/07/06/why-does-visual-studio-require-debugger-symbol-files-to-exactly-match-the-binary-files-that-they-were-built-with/)
   
-4.  在 Microsoft 符号服务器（如果启用）等上指定的任何网络、Internet 或本地符号服务器和位置。  
+##  <a name="BKMK_Specify_symbol_locations_and_loading_behavior"></a> Configure where the debugger looks for symbol files and symbol loading behavior
+ When you debug a project in the Visual Studio IDE, the debugger automatically loads symbol files that are located in the project directory. You can specify alternative search paths and symbol servers for Microsoft, Windows, or third-party components in **Tools > Options > Debugging > Symbols**. You can also specify specific modules that you want the debugger to automatically load symbols for. And you can then change these settings manually while you are actively debugging.  
   
-###  <a name="BKMK_Why_do_symbol_files_need_to_exactly_match_the_executable_files_"></a> 为什么符号文件需要与可执行文件完全匹配？  
- 调试器只会为可执行文件加载与该可执行文件生成之时所创建的 .pdb 文件完全匹配的 .pdb 文件（即该 .pdb 文件必须是原始 .pdb 文件或其副本）。 由于除了创建正确且高效的代码的主要任务之外，编译器的编译速度也得到了优化，因此可执行文件的实际布局可更改，即使代码本身未更改也是如此。 有关详细信息，请参阅[为什么 Visual Studio 要求调试器符号文件必须与同时生成的二进制文件完全匹配？](https://blogs.msdn.microsoft.com/jimgries/2007/07/06/why-does-visual-studio-require-debugger-symbol-files-to-exactly-match-the-binary-files-that-they-were-built-with/)。  
+1.  In Visual Studio, open the **Tools > Options > Debugging > Symbols** page.  
   
-###  <a name="BKMK_Specify_symbol_locations_and_loading_behavior"></a> 指定符号位置和加载行为  
- 在 VS IDE 中调试项目时，调试器将自动加载位于项目目录中的符号文件。 可以在“工具”\/“选项”\/“调试”\/“符号”中为 Microsoft、Windows 或第三方组件指定备选搜索路径和符号服务器。还可以指定希望调试器自动为其加载符号的模板。 之后，你可以在主动进行调试时手动更改这些设置。  
+     ![Tools &#45; Options &#45; Debugging &#45; Symbols page](../debugger/media/dbg_tools_options_symbols.gif "DBG_Tools_Options_Symbols")  
   
-1.  在 Visual Studio 中，打开“工具”\/“选项”\/“调试”\/“符号”页。  
+2.  Choose the folder ![Tools&#47; Options&#47; Debugging&#47;Symbols  folder icon](../debugger/media/dbg_tools_options_foldersicon.png "DBG_Tools_Options_FoldersIcon") icon. Editable text appears in the **Symbol file (.pdb) locations** box.  
   
-     ![工具 &#45; 选项 &#45; 调试 &#45; 符号页](../debugger/media/dbg_tools_options_symbols.png "DBG\_Tools\_Options\_Symbols")  
+3.  Type the URL or directory path of the symbol server or symbol location. Statement completion helps you find the correct format.
+
+    You can use **Ctrl + Up** and **Ctrl + Down** to change the loading order for symbol locations. Press **F2** to edit a URL or directory path.
   
-2.  选择文件夹 ![工具&#47; 选项&#47; 调试&#47;符号文件夹图标](~/debugger/media/dbg_tools_options_foldersicon.png "DBG\_Tools\_Options\_FoldersIcon") 图标。**“符号文件\(.pdb\)位置”**框中将显示可编辑的文本。  
-  
-3.  键入符号服务器或符号位置的 URL 或目录路径。 语句结束有助于找到正确的格式。  
-  
-4.  若要改进符号加载性能，请在路径中键入符号可由**“在此目录下缓存符号”**框中的符号服务器复制的本地目录，或可将符号复制到其中的本地目录。  
+4.  To improve symbol loading performance type the path a local directory where symbols can be copied by symbol servers in the **Cache symbols in this directory** box a local directory that symbols can be copied to.  
   
     > [!NOTE]
-    >  不要将符号缓存放入受保护文件夹（例如，C:\\Windows 文件夹或其子文件夹之一）。 而应使用可读写的文件夹。  
+    >  Do not place your symbol cache in a protected folder (such as the C:\Windows folder or one of its subfolders). Use a read-write folder instead.  
   
- **指定符号加载行为**  
+### <a name="specify-symbol-loading-behavior"></a>Specify symbol loading behavior 
   
- 你可指定开始调试时要从**“符号文件\(.pdb\)位置”**框位置自动加载的文件。 始终加载项目目录中的符号文件。  
+You can specify the files that you want to be loaded automatically from **Symbol file (.pdb) locations** box locations when you start debugging. Symbol files in the project directory are always loaded.  
   
-1.  选择**“除排除模块之外的所有模块”**来为所有模块（除了你在选择**“指定排除的模块”**链接时指定的模块之外）加载所有符号。  
+1.  Choose **All modules, unless excluded** to load all the symbols for all modules except those that you specify when you choose the **Specify excluded modules** link.  
   
-2.  选择**“仅指定的模块”**选项，然后选择**“指定模块”**来列出要自动加载其符号文件的模块。 其他模块的符号文件被忽略。  
+2.  Choose the **Only specified modules** option and then choose **Specify modules** to list the modules that you symbol files that you want loaded automatically. The symbol files for other modules are ignored.  
   
- **指定其他符号选项**  
+### <a name="specify-additional-symbol-options"></a>Specify additional symbol options 
   
- 还可以在“工具”\/“选项”\/“调试”\/“符号”页设置以下选项：  
+You can also set the following options on the **Tools > Options > Debugging > General** page:  
   
- **启动时若无符号则发出警告\(仅限本机\)**  
+**Load DLL exports (native only)**  
   
- 选定后，如果尝试调试在调试器中没有对应符号信息的程序，系统将显示警告对话框。  
+When selected, loads DLL export tables. Symbolic information from DLL export tables can be useful if you are working with Windows messages, Windows procedures (WindowProcs), COM objects, or marshaling, or any DLL for which you do not have symbols. Reading DLL export information involves some overhead. Therefore, this capability is turned off by default.  
   
- **加载 DLL 导出**  
+To see what symbols are available in the export table of a DLL, use `dumpbin /exports`. Symbols are available for any 32-bit system DLL. By reading the `dumpbin /exports` output, you can see the exact function name, including non-alphanumeric characters. This is useful for setting a breakpoint on a function. Function names from DLL export tables might appear truncated elsewhere in the debugger. The calls are listed in the calling order, with the current function (the most deeply nested) at the top. For more information, see [dumpbin /exports](/cpp/build/reference/dash-exports).  
   
- 选定后，加载 DLL 导出表。 处理 Windows 消息、Windows 过程 \(WindowProc\)、COM 对象、封送或不具有其符号的任何 DLL 时，DLL 导出表中的符号信息将很有用。 读取 DLL 导出信息会占用一些系统开销。 因此，默认情况下此功能被禁用。  
+###  <a name="BKMK_Use_symbol_servers_to_find_symbol_files_not_on_your_local_machine"></a> Use symbol servers to find symbol files not on your local machine  
+ [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] can download debugging symbol files from symbol servers that implement the symsrv protocol. [Visual Studio Team Foundation Server](http://msdn.microsoft.com/Library/bd6977ca-e30a-491a-a153-671d81222ce6) and the [Debugging Tools for Windows](http://msdn.microsoft.com/library/windows/hardware/ff551063\(v=VS.85\).aspx) are two tools that can implement symbol servers. You specify the symbol servers to use in the VS **Options** dialog box.  
   
- 若要查看 DLL 导出表中的可用符号，请使用 `dumpbin /exports`。 符号可用于任何 32 位系统 DLL。 从 `dumpbin /exports` 输出中，可以查看到精确的函数名，包括非字母数字字符。 这对于在函数上设置断点很有用。 DLL 导出表中的函数名在调试器的其他位置似乎被截断了。 调用将按调用顺序列出，当前函数（嵌套最深的函数）位于顶端。 有关详细信息，请参阅 [dumpbin \/exports](/visual-cpp/build/reference/dash-exports)。  
+ Symbol servers that you might use include:  
   
-###  <a name="BKMK_Use_symbol_servers_to_find_symbol_files_not_on_your_local_machine"></a> 使用符号服务器查找不在你的本地计算机上的符号文件  
- [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] 可从实现 symsrv 协议的符号服务器下载调试符号文件。[Visual Studio Team Foundation Server](../Topic/Index%20and%20publish%20symbol%20data.md) 和 [Windows 调试工具](http://msdn.microsoft.com/library/windows/hardware/ff551063\(v=VS.85\).aspx)是可实现符号服务器的两个工具。 在 VS**“选项”**对话框中指定要使用的符号服务器。  
+ **Microsoft public symbol servers**  
   
- 可供使用的符号服务器包括：  
+ To debug a crash that occurs during a call to a system DLL or to a third-party library, you will often need system .pdb files, which contain symbols for Windows DLLs, EXEs, and device drivers. You can obtain these symbols from the Microsoft public sysmbol servers. The Microsoft public symbol servers provide symbols for Windows operating systems, in addition to MDAC, IIS, ISA, and the [!INCLUDE[dnprdnshort](../code-quality/includes/dnprdnshort_md.md)].  
   
- **Microsoft 公共符号服务器**  
+ To use the Microsoft symbol servers, choose **Options and Settings** on the **Debug** menu and then choose **Symbols**. Select **Microsoft Symbol Servers**.  
   
- 若要调试在调用系统 DLL 或第三方库时出现的故障，通常需要使用系统 .pdb 文件，这些文件包含表示 Windows DLL、EXE 以及设备驱动程序的符号。 你可从 Microsoft 公共符号服务器获取这些符号。 除了 MDAC、IIS、ISA 和 [!INCLUDE[dnprdnshort](../code-quality/includes/dnprdnshort_md.md)] 之外，Microsoft 公共符号服务器为 Windows 操作系统提供符号。  
+ **Symbol servers on an internal network or on your local machine**  
   
- 若要使用 Microsoft 符号服务器，请选择**“调试”**菜单上的**“选项和设置”**，然后选择**“符号”**。 选择**“Microsoft 符号服务器”**。  
+ Your team or company can create symbol servers for your own products and as a cache for symbols from external sources. You might have a symbol server on your own machine. You can enter the location of the symbol servers as a URL or as a path on the **Debugging**/**Symbols** page of the VS **Option Dialog**.  
   
- **内部网络或本地计算机上的符号服务器**  
+ **Third-party symbol servers**  
   
- 你的团队或公司可为你自己的产品创建符号服务器，并作为外部源符号的缓存。 你自己的计算机上可能具有符号服务器。 你可在 VS**“选项”**对话框的**“调试”**\/**“符号”**页上输入符号服务器的位置作为 URL 或路径。  
-  
- **第三方符号服务器**  
-  
- Windows 应用程序和库的第三方提供程序可提供对 Internet 上的符号服务器的访问。 你还可在**“调试”**\/**“符号”**页上输入这些符号服务器的 URL。  
+ Third-party providers of Windows applications and libraries can provide access to symbol server on the internet. You also enter the URL of these symbol servers on the **Debugging**/**Symbols** page,  
   
 > [!NOTE]
->  如果使用 Microsoft 公共符号服务器以外的符号服务器，请确保该符号服务器及其路径是可信任的。 由于符号文件可以包含任意可执行代码，因此你可能面临安全威胁。  
+>  If you use a symbol server other than the Microsoft public symbol servers, make sure that the symbol server and its path are trustworthy. Because symbol files can contain arbitrary executable code, you can become exposed to security threats.  
   
-###  <a name="BKMK_Find_and_load_symbols_while_debugging"></a> 调试时查找并加载符号  
- 只要调试器处于中断模式，你就可以为之前被调试器选项排除的或编译器无法找到的模块加载符号。 可以从调用堆栈窗口、模块窗口、局部变量窗口、自动窗口和所有监视窗口的快捷菜单中加载符号。 如果调试器在没有可用符号或源文件的代码中中断，则将显示一个文档窗口。 在此可以找到所缺文件的相关信息，并采取相应措施来查找并加载它们。  
+###  <a name="BKMK_Find_and_load_symbols_while_debugging"></a> Find and load symbols while debugging  
+ At any time that the debugger is in break mode, you can load symbols for a module that was previously excluded by debugger options or that the compiler could not find. You can load symbols from the shortcut menus of the Call Stack, Modules, Locals, Autos, and all Watch windows. If the debugger breaks in code that does not have symbol or source files available, a document window appears. Here you can find information about the missing files and take actions to locate and load them.
   
- **使用未加载任何符号的文档页查找符号**  
+ **Find symbols with the No Symbols Loaded document pages**  
   
- 调试器可通过多种方式中断没有可用符号的代码：  
+ There are a number of ways for the debugger to break into code that does not have symbols available:  
   
-1.  单步执行代码。  
+1.  Stepping into code.  
   
-2.  通过断点或异常中断代码。  
+2.  Breaking into code from a breakpoint or exception.  
   
-3.  切换到其他线程。  
+3.  Switching to a different thread.  
   
-4.  通过在“调用堆栈”窗口中双击帧来更改堆栈帧。  
+4.  Changing the stack frame by double-clicking a frame in the Call Stack window.  
   
- 出现上述事件之一时，调试器将显示**“未加载任何符号”**页来帮助你查找和加载必需的符号。  
+ When one of these events occurs, the debugger displays the **No Symbols Loaded** page to help you find and load the necessary symbols.  
   
- ![“未加载任何符号”页](../debugger/media/dbg_nosymbolsloaded.png "DBG\_NoSymbolsLoaded")  
+ ![No Symbols Loaded page](../debugger/media/dbg_nosymbolsloaded.png "DBG_NoSymbolsLoaded")  
   
--   若要更改搜索路径，请选择未选定的路径或选择**“新建”**，然后输入新路径。 选择**“加载”**以再次搜索路径，并在找到符号文件时加载符号文件。  
+-   To change the search paths, choose an unselected path or choose **New** and enter a new path. Choose **Load** to search the paths again and load the symbol file if it is found.  
   
--   选择“浏览并查找 *executable\-name***...**”重写任何符号选项并重试搜索路径。 如果找到符号文件，或显示了文件资源管理器供你手动选择符号文件，则加载符号文件。  
+-   Choose **Browse and find***executable-name***...** to override any symbol options and retry the search paths. The symbol file is loaded if it is found, or a File Explorer is displayed for you to manually select the symbol file.  
   
--   选择**“更改符号设置...”**可显示 VS“选项”对话框的**“调试”**\/**“符号”**页。  
+-   Choose **Change Symbol Settings ...** to display the **Debugging** > **Symbols** page of the VS Options dialog.  
   
--   选择**“查看反汇编”**可在新窗口中显示一次反汇编。  
+-   Choose **view disassembly** to show the disassembly in a new window one time.  
   
--   若要在未找到源文件或符号文件的情况下始终显示反汇编，请选择**“选项”**对话框链接，然后选择**“启用地址级调试”**和**“源代码不可用时显示反汇编”**。  
+-   To always show the disassembly when the source or symbol files are not found, choose the **Options dialog** link, and select both **Enable address level debugging** and **Show disassembly if source not available**.  
   
-     ![“选项”&#47;“调试”&#47;“常规反汇编”选项](~/debugger/media/dbg_options_general_disassembly_checkbox.png "DBG\_Options\_General\_disassembly\_checkbox")  
+     ![Options &#47; Debugging  &#47; General disassembly options](../debugger/media/dbg_options_general_disassembly_checkbox.png "DBG_Options_General_disassembly_checkbox")  
   
- **从快捷菜单更改符号选项**  
+ **Change symbol options from the shortcut menu**  
   
- 当你处于中断模式时，可查找并加载调用堆栈窗口、模块窗口、局部变量窗口、自动窗口和所有监视窗口中显示的项的符号。 在窗口中选择一个项，打开快捷菜单，然后选择下列选项之一：  
+ While you are in break mode, you can find and load symbols for items that are displayed in the Call Stack, Modules, Locals, Autos, and all Watch windows. Select an item in the window, open the shortcut menu, and choose one of the following options:  
   
-|选项|描述|  
-|--------|--------|  
-|**加载符号**|尝试从**“选项”**对话框的**“调试”**\/**“符号”**页上指定的位置加载符号。 如果无法找到符号文件，则将启动文件资源管理器，以便你能够指定要搜索的新位置。|  
-|**符号加载信息**|显示已加载符号文件的位置或调试器无法查找文件时已搜索位置的信息。|  
-|**符号设置...**|打开 VS**“选项”**对话框的**“调试”**\/**“符号”**页。|  
-|**始终自动加载**|将符号文件添加到由调试器自动加载的文件列表中。|  
+|Option|Description|  
+|------------|-----------------|  
+|**Load Symbols**|Attempts to load symbols from locations specified on the **Debugging**/**Symbols** page of the **Options** dialog box. If the symbol file cannot be found, File Explorer is launched so that you can specify a new location to search.|  
+|**Symbol Load Information**|Presents information showing the location of a loaded symbol file, or the locations that were searched if the debugger cannot find the file.|  
+|**Symbol Settings...**|Opens the **Debugging**/**Symbols** page of the VS **Options** dialog box.|  
+|**Always Load Automatically**|Adds the symbol file to the list of files that are automatically loaded by the debugger.|  
   
-###  <a name="BKMK_Set_compiler_options_for_symbol_files"></a> 为符号文件设置编译器选项  
- 当你从 VS IDE 生成项目并使用标准**“调试”**生成配置时，C\+\+ 和托管编译器将为你的代码创建相应的符号文件。 也可在命令行上设置编译器选项以创建符号文件。  
+###  <a name="BKMK_Set_compiler_options_for_symbol_files"></a> Set compiler options for symbol files  
+ When you build your project from the VS IDE and use the standard **Debug** build configuration, the C++ and managed compilers create the appropriate symbols files for your code. You can also set compiler options on the command line to create the symbol files.  
   
- **C\+\+ 选项**  
+ **C++ options**  
   
- 程序数据库 \(.pdb\) 文件保存调试和项目状态信息，使用这些信息可以对程序的调试配置进行增量链接。 使用 [\/ZI 或 \/Zi](/visual-cpp/build/reference/z7-zi-zi-debug-information-format)（适用于 C\/C\+\+）生成时，将创建 .pdb 文件。  
+ A program database (.pdb) file holds debugging and project state information that allows incremental linking of a Debug configuration of your program. A .pdb file is created when you build with [/ZI or /Zi](/cpp/build/reference/z7-zi-zi-debug-information-format) (for C/C++).  
   
- 在 [!INCLUDE[vcprvc](../debugger/includes/vcprvc_md.md)] 中，[\/Fd](/visual-cpp/build/reference/fd-program-database-file-name) 选项命名由编译器创建的 .pdb 文件。 使用向导在 [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] 中创建项目时，**\/Fd** 选项将设置为创建一个名为 *project*.pdb 的 文件 .pdb 文件。  
+ In [!INCLUDE[vcprvc](../code-quality/includes/vcprvc_md.md)], the [/Fd](/cpp/build/reference/fd-program-database-file-name) option names the .pdb file created by the compiler. When you create a project in [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] using wizards, the **/Fd** option is set to create a .pdb file named *project*.pdb.  
   
- 如果使用生成文件生成 C\/C\+\+ 应用程序，并指定 **\/ZI** 或 **\/Zi** 而不指定 **\/Fd**，则最终将生成两个 .pdb 文件：  
+ If you build your C/C++ application using a makefile, and you specify **/ZI** or **/Zi** without **/Fd**, you end up with two .pdb files:  
   
--   VC*x*.pdb，其中 *x* 表示 Visual C\+\+ 的版本，例如 VC11.pdb。 该文件存储各个 OBJ 文件的所有调试信息并与项目生成文件驻留在同一个目录中。  
+-   VC*x*.pdb, where *x* represents the version of Visual C++, for example VC11.pdb. This file stores all debugging information for the individual OBJ files and resides in the same directory as the project makefile.  
   
--   project.pdb   该文件存储 .exe 文件的所有调试信息。 对于 C\/C\+\+，它驻留在 \\debug 子目录中。  
+-   project.pdb   This file stores all debug information for the.exe file. For C/C++, it resides in the \debug subdirectory.  
   
- 每当创建 OBJ 文件时，C\/C\+\+ 编译器都会将调试信息合并到 VC*x*.pdb 中。 插入的信息包括类型信息，但不包括函数定义等符号信息。 因此，即使每个源文件都包含公共头文件（如 \<windows.h\>），这些头中的 typedef 也仅存储一次，而不是存储在每个 OBJ 文件中。  
+ Each time it creates an OBJ file, the C/C++ compiler merges debug information into VC*x*.pdb. The inserted information includes type information but does not include symbol information such as function definitions. So even if every source file includes common header files such as \<windows.h>, the typedefs from those headers are stored only once, rather than being in every OBJ file.  
   
- 链接器将创建 project.pdb，它包含项目的 EXE 文件的调试信息。 project.pdb 文件包含完整的调试信息（包括函数原型），而不仅仅是在 VC*x*.pdb 中找到的类型信息。 这两个 .pdb 文件都允许增量更新。 链接器还在其创建的 .exe 或 .dll 文件中嵌入 .pdb 文件的路径。  
+ The linker creates project.pdb, which contains debug information for the project's EXE file. The project.pdb file contains full debug information, including function prototypes, not just the type information found in VC*x*.pdb. Both .pdb files allow incremental updates. The linker also embeds the path to the .pdb file in the .exe or .dll file that it creates.  
   
- [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] 调试器使用 EXE 或 DLL 文件中的 .pdb 文件的路径查找 project.pdb 文件。 如果调试器在该位置无法找到 .pdb 文件或者路径无效（例如，如果项目已移至另一台计算机），则调试器将搜索包含 EXE 的路径以及在**“选项”**对话框（**“调试”**文件夹，**“符号”**节点）中指定的符号路径。 调试器将不会加载与所调试的可执行文件不匹配的 .pdb 文件。 如果调试器无法找到 .pdb 文件，则将显示**“查找符号”**对话框，这将允许你搜索符号或向搜索路径添加其他位置。  
+ The [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] debugger uses the path to the .pdb file in the EXE or DLL file to find the project.pdb file. If the debugger cannot find the .pdb file at that location or if the path is invalid (for example, if the project was moved to another computer), the debugger searches the path containing the EXE, the symbol paths specified in the **Options** dialog box (**Debugging** folder, **Symbols** node). The debugger will not load a .pdb file that does not match the executable being debugged. If the debugger cannot find a .pdb file, a **Find Symbols** dialog box appears, which allows you to search for symbols or to add additional locations to the search path.  
   
- **.NET Framework 选项**  
+ **.NET Framework options**  
   
- 程序数据库 \(.pdb\) 文件保存调试和项目状态信息，使用这些信息可以对程序的调试配置进行增量链接。 使用 **\/debug** 进行生成时，将创建一个 .pdb 文件。 可以使用 **\/debug:full** 或 **\/debug:pdbonly** 生成应用程序。 使用 **\/debug:full** 进行生成可以生成可调试的代码。 使用 **\/debug:pdbonly** 进行生成可以生成 .pdb 文件，但是不会生成通知 JIT 编译器调试信息可用的 `DebuggableAttribute`。 如果想为不希望其成为可调试的发布版本生成 .pdb 文件，请使用 **\/debug:pdbonly**。 有关详细信息，请参阅[\/debug \(Emit Debugging Information\)](/dotnet/csharp/language-reference/compiler-options/debug-compiler-option)或[\/debug](/dotnet/visual-basic/reference/command-line-compiler/debug)。  
+ A program database (.pdb) file holds debugging and project state information that allows incremental linking of a debug configuration of your program. A .pdb file is created when you build with **/debug**. You can build applications with **/debug:full** or **/debug:pdbonly**. Building with **/debug:full** generates debuggable code. Building with **/debug:pdbonly** generates .pdb files but does not generate the `DebuggableAttribute` that tells the JIT compiler that debug information is available. Use **/debug:pdbonly** if you want to generate .pdb files for a release build that you do not want to be debuggable. For more information, see [/debug (C# Compiler Options)](/dotnet/csharp/language-reference/compiler-options/debug-compiler-option) or [/debug (Visual Basic)](/dotnet/visual-basic/reference/command-line-compiler/debug).  
   
- [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] 调试器使用 EXE 或 DLL 文件中的 .pdb 文件的路径查找 project.pdb 文件。 如果调试器无法在该位置找到.pdb 文件，或者该路径无效，调试器将先搜索包含 EXE 的路径，然后搜索**“选项”**对话框中指定的符号路径。 该路径通常是**“符号”**节点中的**“调试”**文件夹。 调试器将不会加载与所调试的可执行文件不匹配的 .pdb 文件。 如果调试器无法找到 .pdb 文件，则将显示**“查找符号”**对话框，这将允许你搜索符号或向搜索路径添加其他位置。  
+ The [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] debugger uses the path to the .pdb file in the EXE or DLL file to find the project.pdb file. If the debugger cannot find the .pdb file at that location, or if the path is invalid, the debugger searches the path containing the EXE, and then the symbol paths specified in the **Options** dialog box. This path is generally the **Debugging** folder in the **Symbols** node. The debugger will not load a .pdb file that does not match the executable file being debugged. If the debugger cannot find a .pdb file, a **Find Symbols** dialog box appears, which allows you to search for symbols or to add additional locations to the search path.  
   
- **Web 应用程序**  
+ **Web applications**  
   
- 一定要把你的应用程序配置文件 \(Web.config\) 设为调试模式。 调试模式将导致 ASP.NET 为动态生成的文件生成符号，并允许调试器附加到 ASP.NET 应用程序。 如果项目是通过 Web 项目模板创建的，则 VS 会在你开始调试时自动完成此设置。  
+ The configuration file of your application (Web.config) must be set to debug mode. Debug mode causes ASP.NET to generate symbols for dynamically generated files and enables the debugger to attach to the ASP.NET application. Visual Studio sets this automatically when you start to debug, if you created your project from the Web projects template.  
   
-##  <a name="BKMK_Find_source_files"></a> 查找源文件  
+##  <a name="BKMK_Find_source_files"></a> Find source files  
   
-###  <a name="BKMK_Where_the_debugger_searches_for_source_files"></a> 调试器搜索源文件的位置  
- 调试器在下列位置查找源文件：  
+###  <a name="BKMK_Where_the_debugger_searches_for_source_files"></a> Where the debugger searches for source files  
+ The debugger looks for source files in the following locations:  
   
-1.  在启动调试器的 Visual Studio 实例的 IDE 中打开的文件。  
+1.  Files that are open in the IDE of the Visual Studio instance that launched the debugger.  
   
-2.  在 Visual Studio 实例中打开的解决方案中的文件。  
+2.  Files in the solution that is open in the Visual Studio instance.  
   
-3.  在解决方案的属性中的**“公共属性”**\/**“调试源文件”**页中指定的目录。 （在“解决方案资源管理器”中，选择该解决方案节点，右键单击，然后选择“属性”。 \)  
+3.  Directories that are specified in the **Common Properties**/**Debug Source Files** page in the properties of the solution. (In the **Solution Explorer**, select the solution node, right-click, and select **Properties**. )  
   
-4.  模块的 .pdb 的源信息。 这可能是生成模块时源文件的位置，也可能是源服务器的命令。  
+4.  The source information of the .pdb of the module. This can be the location of the source file when the module was built, or it can be a command to a source server.  
   
-###  <a name="BKMK_Find_and_load_source_files_with_the_No_Source___No_Symbols_Loaded_pages"></a> 使用“无源”\/“未加载任何符号”页查找并加载源文件  
- 当调试器在源文件不可用的位置中断执行时，它将显示**“未加载任何源”**或**“未加载任何符号”**页，这些页可帮助你查找源文件。 当调试器无法找到可执行文件的符号 \(.pdb\) 文件来完成搜索时，将显示**“未加载任何符号”**。 “无符号”页将提供用于搜索文件的选项。 如果在执行选项之一后找到 .pdb，并且调试器可以使用符号文件中的信息检索源文件，则将显示源。 否则，将显示描述问题的**“未加载任何源”**页。 此页将显示选项链接，这些链接可执行可以解决问题的操作。  
+###  <a name="BKMK_Find_and_load_source_files_with_the_No_Source___No_Symbols_Loaded_pages"></a> Find and load source files with the No Source/No Symbols Loaded pages  
+ When the debugger breaks execution at a location where the source file is not available, it will display the **No Source Loaded** or **No Symbols Loaded** pages that can help you find the source file. The **No Symbols Loaded** appears when the debugger cannot find a symbol (.pdb) file for the executable file to complete its search. The No Symbols page provides options to search for the file. If the .pdb is found of after you execute one of the options and the debugger can retrieve the source file using the information in the symbols file, the source is displayed. Otherwise, a **No Source Loaded** page appears that describes the issue. The page displays option links that can perform actions that might resolve the issue.  
   
-###  <a name="BKMK_Add_source_file_search_paths_to_a_solution"></a> 将源文件搜索路径添加到解决方案  
- 你可指定网络或本地目录来搜索源文件。  
+###  <a name="BKMK_Add_source_file_search_paths_to_a_solution"></a> Add source file search paths to a solution  
+ You can specify a network or local directories to search for source files.  
   
-1.  在解决方案资源管理器中选择解决方案，然后从快捷菜单中选择**“属性”**。  
+1.  Select the solution in Solution Explorer and then choose **Properties** from the shortcut menu.  
   
-2.  在**“公共属性”**节点下，选择**“调试源文件”**。  
+2.  Under the **Common Properties** node, choose **Debug Source Files**.  
   
-3.  单击文件夹 ![工具&#47; 选项&#47; 调试&#47;符号文件夹图标](~/debugger/media/dbg_tools_options_foldersicon.png "DBG\_Tools\_Options\_FoldersIcon") 图标。 可编辑文本将显示在**“包含源代码的目录”**列表中。  
+3.  Click the folder ![Tools&#47; Options&#47; Debugging&#47;Symbols  folder icon](../debugger/media/dbg_tools_options_foldersicon.png "DBG_Tools_Options_FoldersIcon") icon. Editable text appears in the **Directories containing source code** list.  
   
-4.  添加要搜索的路径。  
+4.  Add the path that you want to search.  
   
- 请注意，只搜索指定的目录。 你必须为要搜索的任何子目录添加项。  
+ Note that only the specified directory is searched. You must add entries for any subdirectories that you want to search.  
   
-###  <a name="BKMK_Use_source_servers"></a> 使用源服务器  
- 如果本地计算机上没有源代码，或者 .pdb 文件与源代码不匹配，则可使用源服务器来帮助调试应用程序。 源服务器接受文件请求并返回实际的文件。 源服务器通过名为 srcsrv.dll 的 DLL 文件运行。 源服务器读取应用程序的 .pdb 文件，该文件包含指向源代码存储库的指针，以及用于从该存储库检索源代码的命令。 你可以限制允许从应用程序的 .pdb 文件执行的命令，方法是在名为 srcsrv.ini 的文件内列出允许的命令，该文件必须与 srcsrv.dll 和 devenv.exe 位于同一个目录中。  
+###  <a name="BKMK_Use_source_servers"></a> Use source servers  
+ When there is no source code on the local machine or the .pdb file does not match the source code, you can use Source Server to help debug an application. Source Server takes requests for files and returns the actual files. Source Server runs by means of a DLL file named srcsrv.dll. Source Server reads the application's .pdb file, which contains pointers to the source code repository, as well as commands used to retrieve source code from the repository. You can limit what commands are allowed to be executed from the application's .pdb file by listing the allowed commands inside a file named srcsrv.ini, which must be placed in the same directory as srcsrv.dll and devenv.exe.  
   
 > [!IMPORTANT]
->  任意命令都可嵌入应用程序的 .pdb 文件中，因此请确保在 srcsrv.ini 文件中仅放入要执行的命令。 任何尝试执行不在 srcsvr.ini 文件中的命令都将导致出现一个确认对话框。 有关更多信息，请参见[安全警告：调试器必须执行不受信任的命令](../debugger/security-warning-debugger-must-execute-untrusted-command.md)。 未对命令参数执行任何验证，因此请慎用受信任的命令。 例如，如果你信任 cmd.exe，恶意用户则可能会指定使该命令变得危险的参数。  
+>  Arbitrary commands can be embedded in the application's .pdb file, so make sure you put only the ones you want to execute in the srcsrv.ini file. Any attempt to execute a command not in the srcsvr.ini file will cause a confirmation dialog box to appear. For more information, see [Security Warning: Debugger Must Execute Untrusted Command](../debugger/security-warning-debugger-must-execute-untrusted-command.md). No validation is done on command parameters, so be careful with trusted commands. For example, if you trusted cmd.exe, a malicious user might specify parameters that would make the command dangerous.  
   
- **启用源服务器的使用**  
+ **To enable the use of a Source Server**  
   
-1.  确保你在编译时采用了上一节中介绍的安全措施。  
+1.  Ensure that you have complied with the security measures described in the previous section.  
   
-2.  在**“工具”**菜单上，选择**“选项”**。  
+2.  On the **Tools** menu, choose **Options**.  
   
-     这将显示**“选项”**对话框。  
+     The **Options** dialog box appears.  
   
-3.  在**“调试”**节点下，选择**“常规”**。  
+3.  In the **Debugging** node, choose **General**.  
   
-4.  选择**“启用源服务器支持”**复选框。  
+4.  Select the **Enable source server support** check box.  
   
-     ![启用源服务器选项](~/debugger/media/dbg_options_general_enablesrcsrvr_checkbox.png "DBG\_Options\_General\_EnableSrcSrvr\_checkbox")  
+     ![Enable source server options](../debugger/media/dbg_options_general_enablesrcsrvr_checkbox.png "DBG_Options_General_EnableSrcSrvr_checkbox")  
   
-5.  （可选）选择所需的子选项。  
+5.  (Optional) Choose the child options that you want.  
   
-     请注意，**“允许源服务器中的部分信任程序集\(仅限托管\)”**和**“始终运行不受信任的源服务器命令并且不再提示”**都会增大上述安全风险。  
+     Note that both **Allow source server for partial trust assemblies (Managed only)** and **Always run untrusted source server commands without prompting** can increase the security risks discussed above.  
   
-## 请参阅  
- [Visual Studio 2012 和 2013 中的 .NET 远程符号加载更改](http://blogs.msdn.com/b/visualstudioalm/archive/2013/10/16/net-remote-symbol-loading-changes-in-visual-studio-2012-and-2013.aspx)
+## <a name="see-also"></a>See Also  
+[Understanding Symbol Files and Visual Studio Symbol Settings](https://blogs.msdn.microsoft.com/visualstudioalm/2015/01/05/understanding-symbol-files-and-visual-studios-symbol-settings/)
+
+[.NET Remote Symbol Loading Changes in Visual Studio 2012 and 2013](http://blogs.msdn.com/b/visualstudioalm/archive/2013/10/16/net-remote-symbol-loading-changes-in-visual-studio-2012-and-2013.aspx)

@@ -1,52 +1,69 @@
 ---
-title: "IDebugPointerField::GetDereferencedField | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "IDebugPointerField::GetDereferencedField"
-helpviewer_keywords: 
-  - "IDebugPointerField::GetDereferencedField 方法"
+title: IDebugPointerField::GetDereferencedField | Microsoft Docs
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords:
+- IDebugPointerField::GetDereferencedField
+helpviewer_keywords:
+- IDebugPointerField::GetDereferencedField method
 ms.assetid: 8de988ab-cd79-4287-be72-3c900f2fe407
 caps.latest.revision: 7
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 7
----
-# IDebugPointerField::GetDereferencedField
-[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
+ms.author: gregvanl
+manager: ghogen
+translation.priority.mt:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+ms.translationtype: MT
+ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
+ms.openlocfilehash: 3c431a56f1a678dc79bdfefeedf4bb65d1d93d36
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/28/2017
 
-此方法返回该指针指向目标对象的类型。  
+---
+# <a name="idebugpointerfieldgetdereferencedfield"></a>IDebugPointerField::GetDereferencedField
+This method returns the type of object to which this pointer object points.  
   
-## 语法  
+## <a name="syntax"></a>Syntax  
   
-```cpp#  
+```cpp  
 HRESULT GetDereferencedField(  
-   IDebugField** ppField  
+   IDebugField** ppField  
 );  
 ```  
   
-```c#  
+```csharp  
 int GetDereferencedField(  
-   out IDebugField ppField  
+   out IDebugField ppField  
 );  
 ```  
   
-#### 参数  
+#### <a name="parameters"></a>Parameters  
  `ppField`  
- \[out\] 返回描述目标对象的类型 [IDebugField](../../../extensibility/debugger/reference/idebugfield.md) 。  
+ [out] Returns an [IDebugField](../../../extensibility/debugger/reference/idebugfield.md) describing the type of target object.  
   
-## 返回值  
- 如果成功，则返回; `S_OK`否则，返回错误代码。  
+## <a name="return-value"></a>Return Value  
+ If successful, returns `S_OK`; otherwise, returns an error code.  
   
-## 备注  
- 如果，例如， [IDebugPointerField](../../../extensibility/debugger/reference/idebugpointerfield.md) 对象指向整数，此方法返回的 [IDebugField](../../../extensibility/debugger/reference/idebugfield.md) 类型描述该整数类型。  
+## <a name="remarks"></a>Remarks  
+ If, for example, the [IDebugPointerField](../../../extensibility/debugger/reference/idebugpointerfield.md) object points to an integer, the [IDebugField](../../../extensibility/debugger/reference/idebugfield.md) type returned by this method describes that integer type.  
   
-## 请参阅  
+## <a name="see-also"></a>See Also  
  [IDebugPointerField](../../../extensibility/debugger/reference/idebugpointerfield.md)   
  [IDebugField](../../../extensibility/debugger/reference/idebugfield.md)

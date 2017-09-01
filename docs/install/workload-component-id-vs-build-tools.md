@@ -1,11 +1,11 @@
 ---
-title: "Visual Studio Build Tools 2017 工作负载和组件 ID | Microsoft Docs"
-description: "使用 Visual Studio 工作负载和组件 ID 来构建基于 Windows 的经典应用程序"
+title: Visual Studio Build Tools 2017 workload and component IDs | Microsoft Docs
+description: Use Visual Studio workload and component IDs to build classic Windows-based applications
 keywords: 
 author: TerryGLee
 ms.author: tglee
 manager: ghogen
-ms.date: 05/10/2017
+ms.date: 08/30/2017
 ms.topic: article
 helpviewer_keywords:
 - workload ID, Visual Studio
@@ -31,98 +31,133 @@ translation.priority.mt:
 - pl-pl
 - pt-br
 - tr-tr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 47057e9611b824c17077b9127f8d2f8b192d6eb8
-ms.openlocfilehash: c8a3b886d32a2860a3b8acdd1cbb7d2830009dd4
+ms.translationtype: HT
+ms.sourcegitcommit: 96018963278cd1d53b226473baade41da1e98111
+ms.openlocfilehash: 86ac70e66b581a2e70dc8efa185b1e61d7d0204c
 ms.contentlocale: zh-cn
-ms.lasthandoff: 05/13/2017
+ms.lasthandoff: 08/30/2017
 
 ---
 
-# <a name="visual-studio-build-tools-2017-component-directory"></a>Visual Studio 生成工具 2017 组件目录
+# <a name="visual-studio-build-tools-2017-component-directory"></a>Visual Studio Build Tools 2017 component directory
 
-本页中的表中列出了可用于通过命令行安装 Visual Studio 的 ID。 请注意，我们将在发布 Visual Studio 更新时添加其他组件。
+The tables on this page list the IDs that you can use to install Visual Studio by using the command line. Note that we will add additional components as we release updates to Visual Studio.
 
-另请注意以下有关本页的注意事项：
+Also note the following about this page:
 
-* 每个工作负载均有其自己的部分，后跟工作负载 ID 和适用于工作负载的组件表格。
-* 默认情况下，安装工作负载时将安装**必需**组件。 如果愿意，还可以安装**推荐**和**可选**组件。
-* 我们还添加了一个部分，此部分列出了不属于任何工作负载的其他组件。
+* Each workload has its own section, followed by the workload ID and a table of the components that are available for the workload.
+* By default, the **Required** components will be installed when you install the workload. If you choose to, you can also install the **Recommended** and **Optional** components.
+* We've also added a section that lists the additional components that are not affiliated with any workload.
 
-有关如何使用这些 ID 的详细信息，请参阅[使用命令行参数安装 Visual Studio 2017](use-command-line-parameters-to-install-visual-studio.md) 页。 另外，有关其他产品的工作负载和组件 ID 的列表，请参阅 [Visual Studio 2017 工作负载和组件 ID](workload-and-component-ids.md) 页。
+For more information about how to use these IDs, see [Use Command-Line Parameters to Install Visual Studio 2017](use-command-line-parameters-to-install-visual-studio.md) page. And, for a list of workload and component IDs for other products, see [Visual Studio 2017 Workload and Component IDs](workload-and-component-ids.md) page.
 
-## <a name="msbuild-tools"></a>MSBuild 工具
+## <a name="msbuild-tools"></a>MSBuild Tools
 
-**ID：**Microsoft.VisualStudio.Workload.MSBuildTools
+**ID:** Microsoft.VisualStudio.Workload.MSBuildTools
 
-**说明：**提供构建基于 MSBuild 的应用程序所需的工具。
+**Description:** Provides the tools required to build MSBuild-based applications.
 
-### <a name="components-included-by-this-workload"></a>此工作负载所包含的组件
+### <a name="components-included-by-this-workload"></a>Components included by this workload
 
-组件 ID | 名称 | 版本 | 依赖项类型
+Component ID | Name | Version | Dependency type
 --- | --- | --- | ---
-Microsoft.Component.MSBuild | MSBuild | 15.0.26208.0 | 必需
-Microsoft.VisualStudio.Component.CoreBuildTools | Visual Studio 生成工具核心 | 15.0.26228.0 | 必需
-Microsoft.VisualStudio.Component.Roslyn.Compiler | C# 和 Visual Basic Roslyn 编译器 | 15.0.26208.0 | 必需
+Microsoft.Component.MSBuild | MSBuild | 15.0.26208.0 | Required
+Microsoft.VisualStudio.Component.CoreBuildTools | Visual Studio Build Tools Core | 15.0.26711.1 | Required
+Microsoft.VisualStudio.Component.Roslyn.Compiler | C# and Visual Basic Roslyn compilers | 15.0.26208.0 | Required
+Microsoft.VisualStudio.Component.FSharp.MSBuild | F# compiler | 15.0.26606.0 | Optional
 
+## <a name="net-core-build-tools"></a>.NET Core build tools
 
-## <a name="visual-c-build-tools"></a>Visual C++ 生成工具
+**ID:** Microsoft.VisualStudio.Workload.NetCoreBuildTools
 
-**ID：**Microsoft.VisualStudio.Workload.VCTools
+**Description:** Tools for building .NET Core applications.
 
-**说明：**使用功能强大的 Visual C++ 工具集、ATL 以及 MFC 和 C++/CLI 等可选功能生成基于 Windows 的经典应用程序。
+### <a name="components-included-by-this-workload"></a>Components included by this workload
 
-### <a name="components-included-by-this-workload"></a>此工作负载所包含的组件
-
-组件 ID | 名称 | 版本 | 依赖项类型
+Component ID | Name | Version | Dependency type
 --- | --- | --- | ---
-Microsoft.VisualStudio.Component.VC.CoreBuildTools | Visual C++ 生成工具的核心功能 | 15.0.26208.0 | 必需
-Microsoft.VisualStudio.Component.Windows10SDK | Windows 通用 C 运行时 | 15.0.26208.0 | 必需
-Microsoft.VisualStudio.Component.VC.CMake.Project | 适用于 CMake 的 Visual C++ 工具 | 15.0.26208.0 | 建议
-Microsoft.VisualStudio.Component.Windows10SDK.15063.Desktop | 适用于桌面 C++ x86 和 x64 的 Windows 10 SDK (10.0.15063.0) | 15.0.26403.0 | 建议
-Microsoft.Component.VC.Runtime.UCRTSDK | Windows 通用 CRT SDK | 15.0.26208.0 | Optional
-Microsoft.Net.Component.4.6.1.SDK | .NET Framework 4.6.1 SDK | 15.0.26208.0 | Optional
-Microsoft.Net.Component.4.6.1.TargetingPack | .NET Framework 4.6.1 目标包 | 15.0.26208.0 | Optional
-Microsoft.VisualStudio.Component.Static.Analysis.Tools | 静态分析工具 | 15.0.26208.0 | Optional
-Microsoft.VisualStudio.Component.VC.ATL | Visual C++ ATL 支持 | 15.0.26208.0 | Optional
-Microsoft.VisualStudio.Component.VC.ATLMFC | MFC 和 ATL 支持（x86 和 x64） | 15.0.26208.0 | Optional
-Microsoft.VisualStudio.Component.VC.ClangC2 | Clang/C2（实验） | 15.0.26208.0 | Optional
-Microsoft.VisualStudio.Component.VC.CLI.Support | C++/CLI 支持 | 15.0.26208.0 | Optional
-Microsoft.VisualStudio.Component.VC.CoreIde | Visual Studio C++ 核心功能 | 15.0.26208.0 | Optional
-Microsoft.VisualStudio.Component.VC.Modules.x86.x64 | 标准库模块 | 15.0.26208.0 | Optional
-Microsoft.VisualStudio.Component.VC.Tools.x86.x64 | VC++ 2017 v141 工具集（x86、x64） | 15.0.26208.0 | Optional
+Microsoft.Net.Core.Component.SDK | .NET Core 1.0 - 1.1 development tools | 15.0.26606.0 | Required
+
+## <a name="visual-c-build-tools"></a>Visual C++ build tools
+
+**ID:** Microsoft.VisualStudio.Workload.VCTools
+
+**Description:** Build classic Windows-based applications using the power of the Visual C++ toolset, ATL, and optional features like MFC and C++/CLI.
+
+### <a name="components-included-by-this-workload"></a>Components included by this workload
+
+Component ID | Name | Version | Dependency type
+--- | --- | --- | ---
+Microsoft.VisualStudio.Component.VC.CoreBuildTools | Visual C++ Build Tools core features | 15.0.26208.0 | Required
+Microsoft.VisualStudio.Component.VC.Redist.14.Latest | Visual C++ 2017 Redistributable Update | 15.0.26606.0 | Required
+Microsoft.VisualStudio.Component.Windows10SDK | Windows Universal C Runtime | 15.0.26621.2 | Required
+Component.Microsoft.VisualStudio.RazorExtension | Razor Language Services | 15.0.26720.2 | Recommended
+Microsoft.VisualStudio.Component.Roslyn.Compiler | C# and Visual Basic Roslyn compilers | 15.0.26208.0 | Recommended
+Microsoft.VisualStudio.Component.Roslyn.LanguageServices | C# and Visual Basic | 15.0.26711.1 | Recommended
+Microsoft.VisualStudio.Component.Static.Analysis.Tools | Static analysis tools | 15.0.26208.0 | Recommended
+Microsoft.VisualStudio.Component.VC.CMake.Project | Visual C++ tools for CMake | 15.0.26621.2 | Recommended
+Microsoft.VisualStudio.Component.VC.Tools.x86.x64 | VC++ 2017 v141 toolset (x86,x64) | 15.0.26621.2 | Recommended
+Microsoft.VisualStudio.Component.Windows10SDK.15063.Desktop | Windows 10 SDK (10.0.15063.0) for Desktop C++ x86 and x64 | 15.0.26621.2 | Recommended
+Microsoft.VisualStudio.Component.Windows10SDK.15063.UWP | Windows 10 SDK (10.0.15063.0) for UWP: C#, VB, JS | 15.0.26621.2 | Recommended
+Microsoft.VisualStudio.Component.Windows10SDK.15063.UWP.Native | Windows 10 SDK (10.0.15063.0) for UWP: C++ | 15.0.26621.2 | Recommended
+Microsoft.VisualStudio.ComponentGroup.WebToolsExtensions | ASP.NET and web development | 15.0.26606.0 | Recommended
+Microsoft.Component.VC.Runtime.UCRTSDK | Windows Universal CRT SDK | 15.0.26208.0 | Optional
+Microsoft.Net.Component.4.6.1.SDK | .NET Framework 4.6.1 SDK | 15.0.26621.2 | Optional
+Microsoft.Net.Component.4.6.1.TargetingPack | .NET Framework 4.6.1 targeting pack | 15.0.26621.2 | Optional
+Microsoft.VisualStudio.Component.VC.140 | VC++ 2015.3 v140 toolset for desktop (x86,x64) | 15.0.26720.2 | Optional
+Microsoft.VisualStudio.Component.VC.ATL | Visual C++ ATL support | 15.0.26621.2 | Optional
+Microsoft.VisualStudio.Component.VC.ATLMFC | MFC and ATL support (x86 and x64) | 15.0.26621.2 | Optional
+Microsoft.VisualStudio.Component.VC.ClangC2 | Clang/C2 (experimental) | 15.0.26724.1 | Optional
+Microsoft.VisualStudio.Component.VC.CLI.Support | C++/CLI support | 15.0.26621.2 | Optional
+Microsoft.VisualStudio.Component.VC.Modules.x86.x64 | Modules for Standard Library (experimental) | 15.0.26720.2 | Optional
 Microsoft.VisualStudio.Component.Windows10SDK.10240 | Windows 10 SDK (10.0.10240.0) | 15.0.26208.0 | Optional
 Microsoft.VisualStudio.Component.Windows10SDK.10586 | Windows 10 SDK (10.0.10586.0) | 15.0.26208.0 | Optional
 Microsoft.VisualStudio.Component.Windows10SDK.14393 | Windows 10 SDK (10.0.14393.0) | 15.0.26208.0 | Optional
 Microsoft.VisualStudio.Component.Windows81SDK | Windows 8.1 SDK | 15.0.26208.0 | Optional
-Microsoft.VisualStudio.ComponentGroup.NativeDesktop.Win81 | Windows 8.1 SDK 和 UCRT SDK | 15.0.26208.0 | Optional
+Microsoft.VisualStudio.ComponentGroup.NativeDesktop.Win81 | Windows 8.1 SDK and UCRT SDK | 15.0.26208.0 | Optional
 
+## <a name="web-development-build-tools"></a>Web development build tools
 
-## <a name="web-development-build-tools"></a>Web 开发生成工具
+**ID:** Microsoft.VisualStudio.Workload.WebBuildTools
 
-**ID：**Microsoft.VisualStudio.Workload.WebBuildTools
+**Description:** MSBuild tasks and targets for building web applications.
 
-**说明：**用于构建 Web 应用程序的 MSBuild 任务和目标。
+### <a name="components-included-by-this-workload"></a>Components included by this workload
 
-### <a name="components-included-by-this-workload"></a>此工作负载所包含的组件
-
-组件 ID | 名称 | 版本 | 依赖项类型
+Component ID | Name | Version | Dependency type
 --- | --- | --- | ---
-Microsoft.VisualStudio.Web.BuildTools.ComponentGroup | Web 开发生成工具 | 15.0.26323.1 | 必需
-## <a name="unaffiliated-components"></a>独立组件
+Microsoft.Net.Component.4.6.1.SDK | .NET Framework 4.6.1 SDK | 15.0.26621.2 | Required
+Microsoft.Net.Component.4.6.1.TargetingPack | .NET Framework 4.6.1 targeting pack | 15.0.26621.2 | Required
+Microsoft.Net.ComponentGroup.DevelopmentPrerequisites | .NET Framework 4.6.1 development tools | 15.0.26606.0 | Required
+Microsoft.VisualStudio.Web.BuildTools.ComponentGroup | Web development build tools | 15.0.26323.1 | Required
+Microsoft.Net.Component.4.5.1.TargetingPack | .NET Framework 4.5.1 targeting pack | 15.0.26621.2 | Recommended
+Microsoft.Net.Component.4.5.2.TargetingPack | .NET Framework 4.5.2 targeting pack | 15.0.26621.2 | Recommended
+Microsoft.Net.Component.4.5.TargetingPack | .NET Framework 4.5 targeting pack | 15.0.26621.2 | Recommended
+Microsoft.Net.Component.4.6.TargetingPack | .NET Framework 4.6 targeting pack | 15.0.26621.2 | Recommended
+Microsoft.Net.Component.4.TargetingPack | .NET Framework 4 targeting pack | 15.0.26621.2 | Recommended
+Microsoft.Net.ComponentGroup.TargetingPacks.Common | .NET Framework 4 – 4.6 development tools | 15.0.26606.0 | Recommended
+Microsoft.Net.Core.Component.SDK | .NET Core 1.0 - 1.1 development tools | 15.0.26606.0 | Recommended
+Microsoft.Net.Component.3.5.DeveloperTools | .NET Framework 3.5 development tools | 15.0.26621.2 | Optional
+Microsoft.Net.Component.4.6.2.SDK | .NET Framework 4.6.2 SDK | 15.0.26208.0 | Optional
+Microsoft.Net.Component.4.6.2.TargetingPack | .NET Framework 4.6.2 targeting pack | 15.0.26208.0 | Optional
+Microsoft.Net.Component.4.7.SDK | .NET Framework 4.7 SDK | 15.0.26419.1 | Optional
+Microsoft.Net.Component.4.7.TargetingPack | .NET Framework 4.7 targeting pack | 15.0.26621.2 | Optional
+Microsoft.Net.ComponentGroup.4.6.2.DeveloperTools | .NET Framework 4.6.2 development tools | 15.0.26621.2 | Optional
+Microsoft.Net.ComponentGroup.4.7.DeveloperTools | .NET Framework 4.7 development tools | 15.0.26606.0 | Optional
 
-这些组件不随附于任何工作负载，但可选择作为单个组件。
+## <a name="unaffiliated-components"></a>Unaffiliated components
 
-组件 ID | 名称 | 版本
+These are components that are not included with any workload, but may be selected as an individual component.
+
+Component ID | Name | Version
 --- | --- | ---
-无 | 不可用 | 无
+n/a | n/a | n/a
 
+## <a name="see-also"></a>See also
 
-## <a name="see-also"></a>另请参阅
-
-* [Visual Studio 工作负荷和组件 ID](workload-and-component-ids.md)
-* [Visual Studio 管理员指南](visual-studio-administrator-guide.md)
-* [使用命令行参数安装 Visual Studio](use-command-line-parameters-to-install-visual-studio.md)
-  * [命令行参数示例](command-line-parameter-examples.md)
-* [创建 Visual Studio 的脱机安装](create-an-offline-installation-of-visual-studio.md)
+* [Visual Studio workload and component IDs](workload-and-component-ids.md)
+* [Visual Studio administrator guide](visual-studio-administrator-guide.md)
+* [Use command-line parameters to install Visual Studio](use-command-line-parameters-to-install-visual-studio.md)
+  * [Command-line parameter examples](command-line-parameter-examples.md)
+* [Create an offline installation of Visual Studio](create-an-offline-installation-of-visual-studio.md)
 

@@ -1,90 +1,107 @@
 ---
-title: "EVALFLAGS | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "EVALFLAGS"
-helpviewer_keywords: 
-  - "EVALFLAGS 枚举"
+title: EVALFLAGS | Microsoft Docs
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords:
+- EVALFLAGS
+helpviewer_keywords:
+- EVALFLAGS enumeration
 ms.assetid: 7b2cb14a-511a-4fef-9e4f-308139719fba
 caps.latest.revision: 12
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 12
----
-# EVALFLAGS
-[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
+ms.author: gregvanl
+manager: ghogen
+translation.priority.mt:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+ms.translationtype: MT
+ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
+ms.openlocfilehash: c9b711eb4ac8eea64c797c533528069807a1d18a
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/28/2017
 
-指定控制表达式计算的标志。  
+---
+# <a name="evalflags"></a>EVALFLAGS
+Specifies flags that control expression evaluation.  
   
-## 语法  
+## <a name="syntax"></a>Syntax  
   
-```cpp#  
-enum enum_EVALFLAGS {  
-   EVAL_RETURNVALUE = 0x0002,  
-   EVAL_NOSIDEEFFECTS = 0x0004,  
-   EVAL_ALLOWBPS = 0x0008,  
-   EVAL_ALLOWERRORREPORT = 0x0010,  
-   EVAL_FUNCTION_AS_ADDRESS = 0x0040,  
-   EVAL_NOFUNCEVAL = 0x0080,  
-   EVAL_NOEVENTS = 0x1000  
+```cpp  
+enum enum_EVALFLAGS {  
+   EVAL_RETURNVALUE = 0x0002,  
+   EVAL_NOSIDEEFFECTS = 0x0004,  
+   EVAL_ALLOWBPS = 0x0008,  
+   EVAL_ALLOWERRORREPORT = 0x0010,  
+   EVAL_FUNCTION_AS_ADDRESS = 0x0040,  
+   EVAL_NOFUNCEVAL = 0x0080,  
+   EVAL_NOEVENTS = 0x1000  
 };  
 typedef DWORD EVALFLAGS;  
 ```  
   
-```c#  
-public enum enum_EVALFLAGS {  
-   EVAL_RETURNVALUE = 0x0002,  
-   EVAL_NOSIDEEFFECTS = 0x0004,  
-   EVAL_ALLOWBPS = 0x0008,  
-   EVAL_ALLOWERRORREPORT = 0x0010,  
-   EVAL_FUNCTION_AS_ADDRESS = 0x0040,  
-   EVAL_NOFUNCEVAL = 0x0080,  
-   EVAL_NOEVENTS = 0x1000  
+```csharp  
+public enum enum_EVALFLAGS {  
+   EVAL_RETURNVALUE = 0x0002,  
+   EVAL_NOSIDEEFFECTS = 0x0004,  
+   EVAL_ALLOWBPS = 0x0008,  
+   EVAL_ALLOWERRORREPORT = 0x0010,  
+   EVAL_FUNCTION_AS_ADDRESS = 0x0040,  
+   EVAL_NOFUNCEVAL = 0x0080,  
+   EVAL_NOEVENTS = 0x1000  
 }  
 ```  
   
-## 成员  
- EVAL\_RETURNVALUE  
- 指定返回值，如果有，则计算。  
+## <a name="members"></a>Members  
+ EVAL_RETURNVALUE  
+ Specifies that the return value, if any, be evaluated.  
   
- EVAL\_NOSIDEEFFECTS  
- 指定副作用不允许。  
+ EVAL_NOSIDEEFFECTS  
+ Specifies that side effects not be allowed.  
   
- EVAL\_ALLOWBPS  
- 停止的标识在断点。  
+ EVAL_ALLOWBPS  
+ Specifies stopping on breakpoints.  
   
- EVAL\_ALLOWERRORREPORT  
- 指定错误报告给将允许的。  主要用于表达式计算在脚本在 Internet Explorer。  
+ EVAL_ALLOWERRORREPORT  
+ Specifies error reporting to the host to be allowed. Primarily used for expression evaluation in script in Internet Explorer.  
   
- EVAL\_FUNCTION\_AS\_ADDRESS  
- 军队的优点函数会计算为地址，而不是调用该函数。  
+ EVAL_FUNCTION_AS_ADDRESS  
+ Forces functions to be evaluated as addresses, instead of invoking the function.  
   
- EVAL\_NOFUNCEVAL  
- 防止函数进行求值。  例如，请考虑在表达式 `myExpression(int) + 10`的 `int` 标记。  此功能能被正确计算为地址，但是，不是值。  
+ EVAL_NOFUNCEVAL  
+ Prevents function from being evaluated. For example, consider the `int` token in the expression `myExpression(int) + 10`. This function can be correctly evaluated as an address, but not as a value.  
   
- EVAL\_NOEVENTS  
- 指示标志。表达式计算期间发生的事件不应发送到该会话调试管理器 \(SDM\)或对 IDE。  
+ EVAL_NOEVENTS  
+ Flag to indicate that events that occur during the expression evaluation should not be sent to the session debug manager (SDM) or to the IDE.  
   
-## 备注  
- 这些标志将作为参数传递 [EvaluateAsync](../../../extensibility/debugger/reference/idebugexpression2-evaluateasync.md) 和 [EvaluateSync](../../../extensibility/debugger/reference/idebugexpression2-evaluatesync.md) 方法。  
+## <a name="remarks"></a>Remarks  
+ These flags are passed as an argument to the [EvaluateAsync](../../../extensibility/debugger/reference/idebugexpression2-evaluateasync.md) and [EvaluateSync](../../../extensibility/debugger/reference/idebugexpression2-evaluatesync.md) methods.  
   
- 这些标志可以按位组合使用或。  
+ These flags may be combined with a bitwise OR.  
   
-## 要求  
- 标题:msdbg.h  
+## <a name="requirements"></a>Requirements  
+ Header: msdbg.h  
   
- 命名空间:Microsoft.VisualStudio.Debugger.Interop  
+ Namespace: Microsoft.VisualStudio.Debugger.Interop  
   
- 程序集:Microsoft.VisualStudio.Debugger.Interop.dll  
+ Assembly: Microsoft.VisualStudio.Debugger.Interop.dll  
   
-## 请参阅  
- [枚举](../../../extensibility/debugger/reference/enumerations-visual-studio-debugging.md)   
+## <a name="see-also"></a>See Also  
+ [Enumerations](../../../extensibility/debugger/reference/enumerations-visual-studio-debugging.md)   
  [EvaluateAsync](../../../extensibility/debugger/reference/idebugexpression2-evaluateasync.md)   
  [EvaluateSync](../../../extensibility/debugger/reference/idebugexpression2-evaluatesync.md)

@@ -1,93 +1,97 @@
 ---
-title: "演练：使用功能区 XML 创建自定义选项卡"
-ms.custom: ""
-ms.date: "02/02/2017"
-ms.prod: "visual-studio-dev14"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "office-development"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-dev_langs: 
-  - "VB"
-  - "CSharp"
-helpviewer_keywords: 
-  - "“自定义”选项卡 [Visual Studio 中的 Office 开发]"
-  - "自定义功能区, tabscustom 功能区, 选项卡"
-  - "功能区 [Visual Studio 中的 Office 开发], 自定义"
-  - "功能区 [Visual Studio 中的 Office 开发], 选项卡"
-  - "功能区 [Visual Studio 中的 Office 开发], XML"
-  - "XML [Visual Studio 中的 Office 开发], 功能区"
+title: 'Walkthrough: Creating a Custom Tab by Using Ribbon XML | Microsoft Docs'
+ms.custom: 
+ms.date: 02/02/2017
+ms.prod: visual-studio-dev14
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- office-development
+ms.tgt_pltfrm: 
+ms.topic: article
+dev_langs:
+- VB
+- CSharp
+helpviewer_keywords:
+- Ribbon [Office development in Visual Studio], tabs
+- customizing the Ribbon, tabscustom Ribbon, tabs
+- Ribbon [Office development in Visual Studio], XML
+- XML [Office development in Visual Studio], Ribbon
+- Ribbon [Office development in Visual Studio], customizing
+- Custom tab [Office development in Visual Studio]
 ms.assetid: f6391a01-df1a-4a0f-bfbb-a9526c73b2b3
 caps.latest.revision: 35
-author: "kempb"
-ms.author: "kempb"
-manager: "ghogen"
-caps.handback.revision: 34
+author: kempb
+ms.author: kempb
+manager: ghogen
+ms.translationtype: HT
+ms.sourcegitcommit: eb5c9550fd29b0e98bf63a7240737da4f13f3249
+ms.openlocfilehash: c244548c3c890e449d785473fed9b55935163a9e
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/30/2017
+
 ---
-# 演练：使用功能区 XML 创建自定义选项卡
-  本演练演示了如何使用**“功能区\(XML\)”**项创建自定义功能区选项卡。  
+# <a name="walkthrough-creating-a-custom-tab-by-using-ribbon-xml"></a>Walkthrough: Creating a Custom Tab by Using Ribbon XML
+  This walkthrough demonstrates how to create a custom Ribbon tab by using the **Ribbon (XML)** item.  
   
  [!INCLUDE[appliesto_ribbon](../vsto/includes/appliesto-ribbon-md.md)]  
   
- 本演练阐释了以下任务：  
+ This walkthrough illustrates the following tasks:  
   
--   将按钮添加到**“外接程序”**选项卡。  **“外接程序”**选项卡是功能区 XML 文件中定义的默认选项卡。  
+-   Adding buttons to the **Add-Ins** tab. The **Add-Ins** tab is the default tab that is defined in the Ribbon XML file.  
   
--   使用**“外接程序”**选项卡上的按钮实现 Microsoft Office Word 自动化。  
+-   Automating Microsoft Office Word by using the buttons on the **Add-Ins** tab.  
   
 > [!NOTE]  
->  以下说明中的某些 Visual Studio 用户界面元素在计算机上出现的名称或位置可能会不同。  这些元素取决于你所使用的 Visual Studio 版本和你所使用的设置。  有关详细信息，请参阅 [Customizing Development Settings in Visual Studio](http://msdn.microsoft.com/zh-cn/22c4debb-4e31-47a8-8f19-16f328d7dcd3)。  
+>  Your computer might show different names or locations for some of the Visual Studio user interface elements in the following instructions. The Visual Studio edition that you have and the settings that you use determine these elements. For more information, see [Personalize the Visual Studio IDE](../ide/personalizing-the-visual-studio-ide.md).  
   
-## 系统必备  
- 你需要以下组件来完成本演练：  
+## <a name="prerequisites"></a>Prerequisites  
+ You need the following components to complete this walkthrough:  
   
 -   [!INCLUDE[vsto_vsprereq](../vsto/includes/vsto-vsprereq-md.md)]  
   
--   Microsoft Word。  
+-   Microsoft Word.  
   
-## 创建项目  
- 第一步是创建 Word VSTO 外接程序项目。  稍后将自定义本文档的**“外接程序”**选项卡。  
+## <a name="creating-the-project"></a>Creating the Project  
+ The first step is to create a Word VSTO Add-in project. You will later customize the **Add-Ins** tab of this document.  
   
-#### 创建新项目  
+#### <a name="to-create-a-new-project"></a>To create a new project  
   
-1.  创建名为 MyRibbonAddIn 的**“Word 外接程序”**项目。  
+1.  Create a **Word Add-in** project with the name **MyRibbonAddIn**.  
   
-     有关详细信息，请参阅[如何：在 Visual Studio 中创建 Office 项目](../vsto/how-to-create-office-projects-in-visual-studio.md)。  
+     For more information, see [How to: Create Office Projects in Visual Studio](../vsto/how-to-create-office-projects-in-visual-studio.md).  
   
-     [!INCLUDE[vsprvs](../sharepoint/includes/vsprvs-md.md)] 打开 **ThisAddIn.cs** 或 **ThisAddIn.vb** 代码文件，并将 **ExcelImportData** 项目添加到**“解决方案资源管理器”**。  
+     [!INCLUDE[vsprvs](../sharepoint/includes/vsprvs-md.md)] opens the **ThisAddIn.cs** or **ThisAddIn.vb** code file and adds the **MyRibbonAddIn** project to **Solution Explorer**.  
   
-## 创建 VSTO 外接程序选项卡  
- 若要创建**“外接程序”**选项卡，请将**“功能区\(XML\)”**项添加到项目中。  在本演练的稍后部分中，将向此选项卡添加一些按钮。  
+## <a name="creating-the-vsto-add-ins-tab"></a>Creating the VSTO Add-ins Tab  
+ To create the **Add-Ins** tab, add a **Ribbon (XML)** item to your project. Later in this walkthrough, you will add some buttons to this tab.  
   
-#### 创建“外接程序”选项卡  
+#### <a name="to-create-the-add-ins-tab"></a>To create the Add-Ins tab  
   
-1.  在**“项目”**菜单上，单击**“添加新项”**。  
+1.  On the **Project** menu, click **Add New Item**.  
   
-2.  在**“添加新项”**对话框中，选择**“功能区\(XML\)”**。  
+2.  In the **Add New Item** dialog box, select **Ribbon (XML)**.  
   
-3.  将新功能区更名为**“MyRibbon”**，然后单击**“添加”**。  
+3.  Change the name of the new Ribbon to **MyRibbon**, and click **Add**.  
   
-     **MyRibbon.cs** 或 **MyRibbon.vb** 文件将在设计器中打开。  还会将名为 **MyRibbon.xml** 的 XML 文件添加到项目中。  
+     The **MyRibbon.cs** or **MyRibbon.vb** file opens in the designer. An XML file that is named **MyRibbon.xml** is also added to your project.  
   
-4.  在**“解决方案资源管理器”**中，右键单击 **ThisAddin.cs** 或 **ThisAddin.vb**，然后单击**“查看代码”**。  
+4.  In **Solution Explorer**, right-click **ThisAddin.cs** or **ThisAddin.vb**, and then click **View Code**.  
   
-5.  将下面的代码添加到 **ThisAddin** 类中。  此代码可替代 CreateRibbonExtensibilityObject 方法，并将功能区 XML 类返回到 Office 应用程序。  
+5.  Add the following code to the **ThisAddin** class. This code overrides the CreateRibbonExtensibilityObject method and returns the Ribbon XML class to the Office application.  
   
-     [!code-csharp[Trin_Ribbon_Custom_Tab_XML#1](../snippets/csharp/VS_Snippets_OfficeSP/Trin_Ribbon_Custom_Tab_XML/CS/ThisAddIn.cs#1)]
-     [!code-vb[Trin_Ribbon_Custom_Tab_XML#1](../snippets/visualbasic/VS_Snippets_OfficeSP/Trin_Ribbon_Custom_Tab_XML/VB/ThisAddIn.vb#1)]  
+     [!code-csharp[Trin_Ribbon_Custom_Tab_XML#1](../vsto/codesnippet/CSharp/Trin_Ribbon_Custom_Tab_XML_O12/ThisAddIn.cs#1)]  [!code-vb[Trin_Ribbon_Custom_Tab_XML#1](../vsto/codesnippet/VisualBasic/Trin_Ribbon_Custom_Tab_XML_O12/ThisAddIn.vb#1)]  
   
-6.  在**“解决方案资源管理器”**中，右键单击 **MyRibbonAddIn** 项目，然后单击**“生成”**。  验证此项目是否已生成且未发生错误。  
+6.  In **Solution Explorer**, right-click the **MyRibbonAddIn** project and then click **Build**. Verify that the project builds without errors.  
   
-## 将按钮添加到“外接程序”选项卡  
- 此 VSTO 外接程序旨在为用户提供一种将样板文本和特定表格添加到活动文档的方法。  若要提供用户界面，请通过修改功能区 XML 文件来将两个按钮添加到**“外接程序”**选项卡中。  在本演练的稍后部分中，将定义这些按钮的回叫方法。  有关功能区 XML 文件的详细信息，请参阅[功能区 XML](../vsto/ribbon-xml.md)。  
+## <a name="adding-buttons-to-the-add-ins-tab"></a>Adding Buttons to the Add-Ins Tab  
+ The goal for this VSTO Add-in is to give users a way to add boilerplate text and a specific table to the active document. To provide the user interface, add two buttons to the **Add-Ins** tab by modifying the Ribbon XML file. Later in this walkthrough, you will define callback methods for the buttons. For more information about the Ribbon XML file, see [Ribbon XML](../vsto/ribbon-xml.md).  
   
-#### 将按钮添加到“外接程序”选项卡  
+#### <a name="to-add-buttons-to-the-add-ins-tab"></a>To add buttons to the Add-Ins tab  
   
-1.  在**“解决方案资源管理器”**中，右键单击 **MyRibbon.xml**，然后单击**“打开”**。  
+1.  In **Solution Explorer**, right-click **MyRibbon.xml** and then click **Open**.  
   
-2.  将 **tab** 元素的内容替换为以下 XML。  此 XML 将默认控件组的标签更改为**“内容”**，并添加两个分别带标签**“插入文本”**和**“插入表格”**的新按钮。  
+2.  Replace the contents of the **tab** element with the following XML. This XML changes the label of the default control group to **Content**, and it adds two new buttons with the labels **Insert Text** and **Insert Table**.  
   
     ```  
     <tab idMso="TabAddIns">  
@@ -102,63 +106,60 @@ caps.handback.revision: 34
     </tab>  
     ```  
   
-## 使用按钮实现文档自动化  
- 必须添加**“插入文本”**和**“插入表格”**按钮的 `onAction` 回叫方法，以便在用户单击时执行操作。  有关功能区控件的回叫方法的详细信息，请参阅[功能区 XML](../vsto/ribbon-xml.md)。  
+## <a name="automating-the-document-by-using-the-buttons"></a>Automating the Document by Using the Buttons  
+ You must add `onAction` callback methods for the **Insert Text** and **Insert Table** buttons to perform actions when the user clicks them. For more information about callback methods for Ribbon controls, see [Ribbon XML](../vsto/ribbon-xml.md).  
   
-#### 添加按钮的回叫方法  
+#### <a name="to-add-callback-methods-for-the-buttons"></a>To add callback methods for the buttons  
   
-1.  在**“解决方案资源管理器”**中，右键单击 **MyRibbon.cs** 或 **MyRibbon.vb**，然后单击**“打开”**。  
+1.  In **Solution Explorer**, right-click **MyRibbon.cs** or **MyRibbon.vb**, and then click **Open**.  
   
-2.  将以下代码添加到 **MyRibbon.cs** 或 **MyRibbon.vb** 文件的顶部。  此代码将为 <xref:Microsoft.Office.Interop.Word> 命名空间创建别名。  
+2.  Add the following code to the top of the **MyRibbon.cs** or **MyRibbon.vb** file. This code creates an alias for the <xref:Microsoft.Office.Interop.Word> namespace.  
   
-     [!code-csharp[Trin_RibbonButtons#1](../snippets/csharp/VS_Snippets_OfficeSP/Trin_RibbonButtons/CS/MyRibbon.cs#1)]
-     [!code-vb[Trin_RibbonButtons#1](../snippets/visualbasic/VS_Snippets_OfficeSP/Trin_RibbonButtons/VB/MyRibbon.vb#1)]  
+     [!code-csharp[Trin_RibbonButtons#1](../vsto/codesnippet/CSharp/Trin_RibbonButtons/MyRibbon.cs#1)]  [!code-vb[Trin_RibbonButtons#1](../vsto/codesnippet/VisualBasic/Trin_RibbonButtons/MyRibbon.vb#1)]  
   
-3.  将以下方法添加到 `MyRibbon` 类。  这是**“插入文本”**按钮的回叫方法，用于在光标的当前位置向活动文档添加字符串。  
+3.  Add the following method to the `MyRibbon` class. This is a callback method for the **Insert Text** button that adds a string to the active document at the current location of the cursor.  
   
-     [!code-csharp[Trin_Ribbon_Custom_Tab_XML#2](../snippets/csharp/VS_Snippets_OfficeSP/Trin_Ribbon_Custom_Tab_XML/CS/MyRibbon.cs#2)]
-     [!code-vb[Trin_Ribbon_Custom_Tab_XML#2](../snippets/visualbasic/VS_Snippets_OfficeSP/Trin_Ribbon_Custom_Tab_XML/VB/MyRibbon.vb#2)]  
+     [!code-csharp[Trin_Ribbon_Custom_Tab_XML#2](../vsto/codesnippet/CSharp/Trin_Ribbon_Custom_Tab_XML_O12/MyRibbon.cs#2)]  [!code-vb[Trin_Ribbon_Custom_Tab_XML#2](../vsto/codesnippet/VisualBasic/Trin_Ribbon_Custom_Tab_XML_O12/MyRibbon.vb#2)]  
   
-4.  将以下方法添加到 `MyRibbon` 类。  这是**“插入表格”**按钮的回叫方法，用于在光标的当前位置向活动文档添加表格。  
+4.  Add the following method to the `MyRibbon` class. This is a callback method for the **Insert Table** button that adds a table to the active document at the current location of the cursor.  
   
-     [!code-csharp[Trin_Ribbon_Custom_Tab_XML#3](../snippets/csharp/VS_Snippets_OfficeSP/Trin_Ribbon_Custom_Tab_XML/CS/MyRibbon.cs#3)]
-     [!code-vb[Trin_Ribbon_Custom_Tab_XML#3](../snippets/visualbasic/VS_Snippets_OfficeSP/Trin_Ribbon_Custom_Tab_XML/VB/MyRibbon.vb#3)]  
+     [!code-csharp[Trin_Ribbon_Custom_Tab_XML#3](../vsto/codesnippet/CSharp/Trin_Ribbon_Custom_Tab_XML_O12/MyRibbon.cs#3)]  [!code-vb[Trin_Ribbon_Custom_Tab_XML#3](../vsto/codesnippet/VisualBasic/Trin_Ribbon_Custom_Tab_XML_O12/MyRibbon.vb#3)]  
   
-## 测试 VSTO 外接程序  
- 运行项目时，将打开 Word，并且将在功能区上显示名为**“外接程序”**的选项卡。  单击**“外接程序”**选项卡上的**“插入文本”**和**“插入表格”**按钮以测试代码。  
+## <a name="testing-the-vsto-add-in"></a>Testing the VSTO Add-In  
+ When you run the project, Word opens and the tab named **Add-Ins** appears on the Ribbon. Click the **Insert Text** and **Insert Table** buttons on the **Add-Ins** tab to test the code.  
   
-#### 测试 VSTO 外接程序  
+#### <a name="to-test-your-vsto-add-in"></a>To test your VSTO Add-in  
   
-1.  按 F5 运行项目。  
+1.  Press F5 to run your project.  
   
-2.  确认**“外接程序”**选项卡在功能区上可见。  
+2.  Confirm that the **Add-Ins** tab is visible on the Ribbon.  
   
-3.  单击**“外接程序”**选项卡。  
+3.  Click the **Add-Ins** tab.  
   
-4.  确认**“内容”**组在功能区上可见。  
+4.  Confirm that the **Content** group is visible on the Ribbon.  
   
-5.  单击**“内容”**组中的**“插入文本”**按钮。  
+5.  Click the **Insert Text** button in the **Content** group.  
   
-     在光标当前位置向文档添加一个字符串。  
+     A string is added to the document at the current location of the cursor.  
   
-6.  单击**“内容”**组中的**“插入表格”**按钮。  
+6.  Click the **Insert Table** button in the **Content** group.  
   
-     在光标当前位置向文档添加一个表格。  
+     A table is added to the document at the current location of the cursor.  
   
-## 后续步骤  
- 可从以下主题了解有关如何自定义 Office 用户界面的更多信息：  
+## <a name="next-steps"></a>Next Steps  
+ You can learn more about how to customize the Office UI from these topics:  
   
--   自定义其他 Office 应用程序的功能区。  有关支持自定义功能区的应用程序的详细信息，请参阅[功能区概述](../vsto/ribbon-overview.md)。  
+-   Customize the Ribbon of a different Office application. For more information about the applications that support customizing the Ribbon, see [Ribbon Overview](../vsto/ribbon-overview.md).  
   
--   使用功能区设计器自定义 Office 应用程序的功能区。  有关详细信息，请参阅[功能区设计器](../vsto/ribbon-designer.md)。  
+-   Customize the Ribbon of an Office application by using the Ribbon Designer. For more information, see [Ribbon Designer](../vsto/ribbon-designer.md).  
   
--   创建自定义操作窗格。  有关详细信息，请参阅[操作窗格概述](../vsto/actions-pane-overview.md)。  
+-   Create a custom actions pane. For more information, see [Actions Pane Overview](../vsto/actions-pane-overview.md).  
   
--   使用 Outlook 窗体区域自定义 Microsoft Office Outlook 的 UI。  有关详细信息，请参阅[演练：设计 Outlook 窗体区域](../vsto/walkthrough-designing-an-outlook-form-region.md)。  
+-   Customize the UI of Microsoft Office Outlook by using Outlook Form Regions. For more information, see [Walkthrough: Designing an Outlook Form Region](../vsto/walkthrough-designing-an-outlook-form-region.md).  
   
-## 请参阅  
- [功能区概述](../vsto/ribbon-overview.md)   
- [功能区 XML](../vsto/ribbon-xml.md)   
- [演练：使用功能区设计器创建自定义选项卡](../vsto/walkthrough-creating-a-custom-tab-by-using-the-ribbon-designer.md)  
+## <a name="see-also"></a>See Also  
+ [Ribbon Overview](../vsto/ribbon-overview.md)   
+ [Ribbon XML](../vsto/ribbon-xml.md)   
+ [Walkthrough: Creating a Custom Tab by Using the Ribbon Designer](../vsto/walkthrough-creating-a-custom-tab-by-using-the-ribbon-designer.md)  
   
   

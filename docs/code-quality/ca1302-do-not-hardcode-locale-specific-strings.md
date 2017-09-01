@@ -1,55 +1,72 @@
 ---
-title: "CA1302：请不要对区域设置特定的字符串进行硬编码 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-devops-test"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "DoNotHardcodeLocaleSpecificStrings"
-  - "CA1302"
-helpviewer_keywords: 
-  - "DoNotHardcodeLocaleSpecificStrings"
-  - "CA1302"
+title: 'CA1302: Do not hardcode locale specific strings | Microsoft Docs'
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-devops-test
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords:
+- DoNotHardcodeLocaleSpecificStrings
+- CA1302
+helpviewer_keywords:
+- DoNotHardcodeLocaleSpecificStrings
+- CA1302
 ms.assetid: 05ed134a-837d-43d7-bf97-906edeac44ce
 caps.latest.revision: 17
-author: "stevehoag"
-ms.author: "shoag"
-manager: "wpickett"
-caps.handback.revision: 17
----
-# CA1302：请不要对区域设置特定的字符串进行硬编码
-[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
+author: stevehoag
+ms.author: shoag
+manager: wpickett
+translation.priority.ht:
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- ru-ru
+- zh-cn
+- zh-tw
+translation.priority.mt:
+- cs-cz
+- pl-pl
+- pt-br
+- tr-tr
+ms.translationtype: HT
+ms.sourcegitcommit: eb5c9550fd29b0e98bf63a7240737da4f13f3249
+ms.openlocfilehash: b723eade12eac5be6959710afc667452d05ac81a
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/30/2017
 
+---
+# <a name="ca1302-do-not-hardcode-locale-specific-strings"></a>CA1302: Do not hardcode locale specific strings
 |||  
 |-|-|  
-|类型名|DoNotHardcodeLocaleSpecificStrings|  
+|TypeName|DoNotHardcodeLocaleSpecificStrings|  
 |CheckId|CA1302|  
-|类别|Microsoft.Globalization|  
-|是否重大更改|非重大更改|  
+|Category|Microsoft.Globalization|  
+|Breaking Change|Non-breaking|  
   
-## 原因  
- 方法使用字符串表示特定系统文件夹路径的一部分。  
+## <a name="cause"></a>Cause  
+ A method uses a string literal that represents part of the path of certain system folders.  
   
-## 规则说明  
- <xref:System.Environment.SpecialFolder?displayProperty=fullName> 枚举包含表示特殊系统文件夹的成员。  对于不同的操作系统，这些文件夹的位置可能具有不同的值，用户也可能会更改某些位置，或者这些位置已经进行了本地化。  例如，System 文件夹就是一个特殊文件夹，该文件夹在 [!INCLUDE[winxp](../code-quality/includes/winxp_md.md)] 中为“C:\\WINDOWS\\system32”，而在 [!INCLUDE[win2kfamily](../code-quality/includes/win2kfamily_md.md)] 中为“C:\\WINNT\\system32”。  <xref:System.Environment.GetFolderPath%2A?displayProperty=fullName> 方法返回与 <xref:System.Environment.SpecialFolder> 枚举关联的位置。  <xref:System.Environment.GetFolderPath%2A> 返回的位置已进行了本地化，以便与目前运行的计算机相适应。  
+## <a name="rule-description"></a>Rule Description  
+ The <xref:System.Environment.SpecialFolder?displayProperty=fullName> enumeration contains members that refer to special system folders. The locations of these folders can have different values on different operating systems, the user can change some of the locations, and the locations are localized. An example of a special folder is the System folder, which is "C:\WINDOWS\system32" on [!INCLUDE[winxp](../code-quality/includes/winxp_md.md)] but "C:\WINNT\system32" on [!INCLUDE[win2kfamily](../code-quality/includes/win2kfamily_md.md)]. The <xref:System.Environment.GetFolderPath%2A?displayProperty=fullName> method returns the locations that are associated with the <xref:System.Environment.SpecialFolder> enumeration. The locations that are returned by <xref:System.Environment.GetFolderPath%2A> are localized and appropriate for the currently running computer.  
   
- 该规则将使用 <xref:System.Environment.GetFolderPath%2A> 方法检索的文件夹路径标记到不同的目录级别。  每个字符串都会与这些标记进行比较。  如果找到匹配项，则假定该方法正在生成一个与该标记关联的表示系统位置的字符串。  为了确保可移植性和可本地化性，请使用 <xref:System.Environment.GetFolderPath%2A> 方法来检索特殊文件夹的位置，而不要使用字符串。  
+ This rule tokenizes the folder paths that are retrieved by using the <xref:System.Environment.GetFolderPath%2A> method into separate directory levels. Each string literal is compared to the tokens. If a match is found, it is assumed that the method is building a string that refers to the system location that is associated with the token. For portability and localizability, use the <xref:System.Environment.GetFolderPath%2A> method to retrieve the locations of the special system folders instead of using string literals.  
   
-## 如何解决冲突  
- 要修复与该规则的冲突，请使用 <xref:System.Environment.GetFolderPath%2A> 方法检索位置。  
+## <a name="how-to-fix-violations"></a>How to Fix Violations  
+ To fix a violation of this rule, retrieve the location by using the <xref:System.Environment.GetFolderPath%2A> method.  
   
-## 何时禁止显示警告  
- 如果字符串不用于表示与 <xref:System.Environment.SpecialFolder> 枚举关联的某个系统位置，则可以安全地禁止显示此规则发出的警告。  
+## <a name="when-to-suppress-warnings"></a>When to Suppress Warnings  
+ It is safe to suppress a warning from this rule if the string literal is not used to refer to one of the system locations that is associated with the <xref:System.Environment.SpecialFolder> enumeration.  
   
-## 示例  
- 下面的示例生成一个指向常规应用程序数据文件夹的路径，它将根据此规则产生三个警告。  然后，该示例使用 <xref:System.Environment.GetFolderPath%2A> 方法检索该路径。  
+## <a name="example"></a>Example  
+ The following example builds the path of the common application data folder, which generates three warnings from this rule. Next, the example retrieves the path by using the <xref:System.Environment.GetFolderPath%2A> method.  
   
- [!code-cs[FxCop.Globalization.HardcodedLocaleStrings#1](../code-quality/codesnippet/CSharp/ca1302-do-not-hardcode-locale-specific-strings_1.cs)]
- [!code-vb[FxCop.Globalization.HardcodedLocaleStrings#1](../code-quality/codesnippet/VisualBasic/ca1302-do-not-hardcode-locale-specific-strings_1.vb)]  
+ [!code-csharp[FxCop.Globalization.HardcodedLocaleStrings#1](../code-quality/codesnippet/CSharp/ca1302-do-not-hardcode-locale-specific-strings_1.cs)] [!code-vb[FxCop.Globalization.HardcodedLocaleStrings#1](../code-quality/codesnippet/VisualBasic/ca1302-do-not-hardcode-locale-specific-strings_1.vb)]  
   
-## 相关规则  
- [CA1303：不要将文本作为本地化参数传递](../code-quality/ca1303-do-not-pass-literals-as-localized-parameters.md)
+## <a name="related-rules"></a>Related Rules  
+ [CA1303: Do not pass literals as localized parameters](../code-quality/ca1303-do-not-pass-literals-as-localized-parameters.md)

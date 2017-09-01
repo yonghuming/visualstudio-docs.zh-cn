@@ -18,30 +18,15 @@ ms.assetid: 3399ea7b-a291-4a9e-80a1-b861a21afa1d
 author: TerryGLee
 ms.author: tglee
 manager: ghogen
-translation.priority.ht:
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- ru-ru
-- zh-cn
-- zh-tw
-translation.priority.mt:
-- cs-cz
-- pl-pl
-- pt-br
-- tr-tr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 47057e9611b824c17077b9127f8d2f8b192d6eb8
-ms.openlocfilehash: f8d907587deb8e14e777d9c69f07da6d819143e5
+ms.translationtype: HT
+ms.sourcegitcommit: 89f86a5935ad283ef5c0e29ea2db0ae22cf603a8
+ms.openlocfilehash: 3899b139066dddf0b39acaabe2874e0a7d9ad3d3
 ms.contentlocale: zh-cn
-ms.lasthandoff: 05/13/2017
+ms.lasthandoff: 08/07/2017
 
 ---
 # <a name="modify-visual-studio-2017-by-adding-or-removing-workloads-and-components"></a>通过添加或删除工作负载和组件修改 Visual Studio 2017
-我们不但简化了 Visual Studio 的个性化设置，让用户能够轻松匹配所需完成的任务，还简化了 Visual Studio 的自定义操作。 不必再通过控制面板进行修改；只需启动新的 Visual Studio 安装程序，即可进行所需更改。  
+我们不但简化了 Visual Studio 的个性化设置，让用户能够轻松匹配所需完成的任务，还简化了 Visual Studio 的自定义操作。 不必再通过控制面板进行修改；而是启动新的 Visual Studio 安装程序，即可进行所需更改。
 
 操作方法如下。  
 
@@ -50,20 +35,20 @@ ms.lasthandoff: 05/13/2017
 
 1.  在计算机上找到 Visual Studio 安装程序。  
 
-     例如，在运行 Windows 10 周年更新的计算机上，选择“启动”，然后滚动到字母“V”，在此处可以看到其作为“Visual Studio 安装程序”列出。  
+     例如，在运行 Windows 10 周年更新的计算机上，选择“开始”，然后滚动到字母“V”，其中它作为“Visual Studio 安装程序”列出。  
 
-     ![Visual Studio 安装程序](~/install/media/vs2017-locate-the-visual-studio-installer.PNG "查找 Microsoft Visual Studio 安装程序")
+     ![Visual Studio 安装程序](media/vs2017-locate-the-visual-studio-installer.PNG "查找 Microsoft Visual Studio 安装程序")
 
      >[!NOTE]
-     对于某些计算机，Visual Studio 安装程序可能列在字母**“M”**下，即 **Microsoft Visual Studio 安装程序**。
+     对于某些计算机，Visual Studio 安装程序可能列在字母**“M”**下，即 **Microsoft Visual Studio 安装程序**。<br/><br/> 或者，可以在以下位置找到 Visual Studio 安装程序：`C:\Program Files (x86)\Microsoft Visual Studio\Installer\vs_installer.exe`
 
 2.  单击或点击以启动安装程序，然后选择“修改”。  
 
-     ![启动或修改 Visual Studio](~/install/media/vs2017-modify.PNG "修改 Visual Studio 2017")  
+     ![启动或修改 Visual Studio](media/vs2017-modify.PNG "修改 Visual Studio 2017")  
 
 3.  从“工作负载”屏幕中，选择或取消选择要安装或卸载的工作负载。  
 
-    ![Visual Studio 2017 设置对话框](~/install/media/vs2017-modify-workloads.PNG "选择 Visual Studio 2017 中的工作负载")
+    ![Visual Studio 2017 设置对话框](media/vs2017-modify-workloads.PNG "选择 Visual Studio 2017 中的工作负载")
 
 4. 再次单击或点击“修改”**修改**。  
 
@@ -74,7 +59,7 @@ ms.lasthandoff: 05/13/2017
 如果不想使用现成的工作负载功能来自定义 Visual Studio 安装，请从 Visual Studio 安装程序中选择“各个组件”选项，选择所需组件，然后按提示操作。  
 
 ## <a name="get-support"></a>获取支持
-有时也会遇到问题。 如果 Visual Studio 安装失败，请参阅 [Visual Studio 2017 安装和升级失败疑难解答](https://support.microsoft.com/help/4015967/troubleshooting-visual-studio-2017-installation-and-upgrade-failures)知识库文章，查看疑难解答提示。
+有时也会遇到问题。 如果 Visual Studio 安装失败，请参阅 [Visual Studio 2017 安装和升级失败疑难解答](troubleshooting-installation-issues.md)页面，查看疑难解答提示。
 
 ## <a name="see-also"></a>请参阅  
 * [安装 Visual Studio 2017](https://go.microsoft.com/fwlink/?linkid=833223)

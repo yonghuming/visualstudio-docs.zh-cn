@@ -1,58 +1,75 @@
 ---
-title: "IDebugStackFrame2::GetPhysicalStackRange | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "IDebugStackFrame2::GetPhysicalStackRange"
-helpviewer_keywords: 
-  - "IDebugStackFrame2::GetPhysicalStackRange"
+title: IDebugStackFrame2::GetPhysicalStackRange | Microsoft Docs
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords:
+- IDebugStackFrame2::GetPhysicalStackRange
+helpviewer_keywords:
+- IDebugStackFrame2::GetPhysicalStackRange
 ms.assetid: 2f6992e2-ac1c-433f-83b7-a7f83a4ce63d
 caps.latest.revision: 10
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 10
----
-# IDebugStackFrame2::GetPhysicalStackRange
-[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
+ms.author: gregvanl
+manager: ghogen
+translation.priority.mt:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+ms.translationtype: MT
+ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
+ms.openlocfilehash: 920b3fb75a7bcc71fa9d52d049e5099291464414
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/28/2017
 
-获取物理地址范围的计算机相关的表示形式与堆栈帧。  
+---
+# <a name="idebugstackframe2getphysicalstackrange"></a>IDebugStackFrame2::GetPhysicalStackRange
+Gets a machine-dependent representation of the range of physical addresses associated with a stack frame.  
   
-## 语法  
+## <a name="syntax"></a>Syntax  
   
-```cpp#  
-HRESULT GetPhysicalStackRange (   
-   UINT64* paddrMin,  
-   UINT64* paddrMax  
+```cpp  
+HRESULT GetPhysicalStackRange (   
+   UINT64* paddrMin,  
+   UINT64* paddrMax  
 );  
 ```  
   
-```c#  
-int GetPhysicalStackRange (   
-   out ulong paddrMin,  
-   out ulong paddrMax  
+```csharp  
+int GetPhysicalStackRange (   
+   out ulong paddrMin,  
+   out ulong paddrMax  
 );  
 ```  
   
-#### 参数  
+#### <a name="parameters"></a>Parameters  
  `paddrMin`  
- \[out\] 返回最低的物理地址与此堆栈帧。  
+ [out] Returns the lowest physical address associated with this stack frame.  
   
  `paddrMax`  
- \[out\] 返回最高的物理地址与此堆栈帧。  
+ [out] Returns the highest physical address associated with this stack frame.  
   
-## 返回值  
- 如果成功，则返回; `S_OK`否则，返回错误代码。  
+## <a name="return-value"></a>Return Value  
+ If successful, returns `S_OK`; otherwise, returns an error code.  
   
-## 备注  
- 会议使用此方法返回调试的信息管理器 \(SDM\)排序堆栈帧。  
+## <a name="remarks"></a>Remarks  
+ The information returned by this method is used by the session debug manager (SDM) to sort stack frames.  
   
- 假定，也就是说，调用堆栈，增大下新堆栈帧添加多对内存不足地址。  一个运行时体系结构必须提供与此假设的实际堆栈大小。  
+ It is assumed that the call stack grows down, that is, that new stack frames are added at increasingly lower memory addresses. A run-time architecture must provide physical stack ranges that match this assumption.  
   
-## 请参阅  
+## <a name="see-also"></a>See Also  
  [IDebugStackFrame2](../../../extensibility/debugger/reference/idebugstackframe2.md)

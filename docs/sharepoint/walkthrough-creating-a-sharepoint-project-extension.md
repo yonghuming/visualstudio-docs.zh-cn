@@ -1,211 +1,215 @@
 ---
-title: "Walkthrough: Creating a SharePoint Project Extension"
-ms.custom: ""
-ms.date: "02/02/2017"
-ms.prod: "visual-studio-dev14"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "office-development"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-dev_langs: 
-  - "VB"
-  - "CSharp"
-helpviewer_keywords: 
-  - "projects [SharePoint development in Visual Studio], extending"
-  - "SharePoint development in Visual Studio, extending projects"
-  - "SharePoint projects, extending"
+title: 'Walkthrough: Creating a SharePoint Project Extension | Microsoft Docs'
+ms.custom: 
+ms.date: 02/02/2017
+ms.prod: visual-studio-dev14
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- office-development
+ms.tgt_pltfrm: 
+ms.topic: article
+dev_langs:
+- VB
+- CSharp
+helpviewer_keywords:
+- projects [SharePoint development in Visual Studio], extending
+- SharePoint development in Visual Studio, extending projects
+- SharePoint projects, extending
 ms.assetid: 5547e2ed-47a3-48f1-9619-42149c03df76
 caps.latest.revision: 26
-author: "kempb"
-ms.author: "kempb"
-manager: "ghogen"
-caps.handback.revision: 25
+author: kempb
+ms.author: kempb
+manager: ghogen
+ms.translationtype: HT
+ms.sourcegitcommit: eb5c9550fd29b0e98bf63a7240737da4f13f3249
+ms.openlocfilehash: 3be335ac7ae3a1e24f1806b9e6b002500b2ac824
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/30/2017
+
 ---
-# Walkthrough: Creating a SharePoint Project Extension
-  本演练阐释如何创建 SharePoint 项目的扩展。  向项目中添加，删除或重命名时，可以使用项目扩展响应项目级别事件 \(例如\)。  还可以添加自定义属性或在某个属性值更改时做出响应。  与项目项扩展不同，无法将项目扩展与特定的 SharePoint 项目类型相关联。  创建项目扩展后，当在 [!INCLUDE[vsprvs](../sharepoint/includes/vsprvs-md.md)] 中打开任何类型的 SharePoint 项目时，此扩展都会加载。  
+# <a name="walkthrough-creating-a-sharepoint-project-extension"></a>Walkthrough: Creating a SharePoint Project Extension
+  This walkthrough illustrates how to create an extension for SharePoint projects. You can use a project extension to respond to project-level events such as when a project is added, deleted, or renamed. You can also add custom properties or respond when a property value changes. Unlike project item extensions, project extensions cannot be associated with a particular SharePoint project type. When you create a project extension, the extension loads when any kind of SharePoint project is opened in [!INCLUDE[vsprvs](../sharepoint/includes/vsprvs-md.md)].  
   
- 在本演练中，您将创建一个将添加到 [!INCLUDE[vsprvs](../sharepoint/includes/vsprvs-md.md)] 中创建的任何 SharePoint 项目中的自定义布尔属性。  如果设置为 **True**，则新属性会将 Images 资源文件夹添加或映射到您的项目。  如果设置为 **False**，则将删除 Images 文件夹（如果存在）。  有关更多信息，请参见[如何：添加和移除映射文件夹](../sharepoint/how-to-add-and-remove-mapped-folders.md)。  
+ In this walkthrough, you will create a custom Boolean property that is added to any SharePoint project created in [!INCLUDE[vsprvs](../sharepoint/includes/vsprvs-md.md)]. When set to **True**, the new property adds, or maps, an Images resource folder to your project. When set to **False**, the Images folder is removed, if it exists. For more information, see [How to: Add and Remove Mapped Folders](../sharepoint/how-to-add-and-remove-mapped-folders.md).  
   
- 本演练将演示以下任务：  
+ This walkthrough demonstrates the following tasks:  
   
--   为 SharePoint 项目创建可执行以下操作的 [!INCLUDE[vsprvs](../sharepoint/includes/vsprvs-md.md)] 扩展：  
+-   Creating a [!INCLUDE[vsprvs](../sharepoint/includes/vsprvs-md.md)] extension for SharePoint projects that does the following:  
   
-    -   将自定义项目属性添加到“属性”窗口。  该属性将应用于任何 SharePoint 项目。  
+    -   Adds a custom project property to the Properties window. The property applies to any SharePoint project.  
   
-    -   使用 SharePoint 项目对象模型将映射文件夹添加到项目中。  
+    -   Uses the SharePoint project object model to add a mapped folder to a project.  
   
-    -   使用 [!INCLUDE[vsprvs](../sharepoint/includes/vsprvs-md.md)] 自动化对象模型 \(DTE\) 从项目中删除映射文件夹。  
+    -   Uses the [!INCLUDE[vsprvs](../sharepoint/includes/vsprvs-md.md)] automation object model (DTE) to delete a mapped folder from the project.  
   
--   生成 [!INCLUDE[vsprvs](../sharepoint/includes/vsprvs-md.md)] 扩展 \(VSIX\) 包以部署项目属性的扩展程序集。  
+-   Building a [!INCLUDE[vsprvs](../sharepoint/includes/vsprvs-md.md)] Extension (VSIX) package to deploy the project property's extension assembly.  
   
--   调试并测试项目属性。  
+-   Debugging and testing the project property.  
   
-## 系统必备  
- 您需要在开发计算机上安装以下组件才能完成本演练：  
+## <a name="prerequisites"></a>Prerequisites  
+ You need the following components on the development computer to complete this walkthrough:  
   
--   支持的 [!INCLUDE[TLA#tla_win](../sharepoint/includes/tlasharptla-win-md.md)]、SharePoint 和 [!INCLUDE[vsprvs](../sharepoint/includes/vsprvs-md.md)] 版本。  有关更多信息，请参见[开发 SharePoint 解决方案的要求](../sharepoint/requirements-for-developing-sharepoint-solutions.md)。  
+-   Supported editions of [!INCLUDE[TLA#tla_win](../sharepoint/includes/tlasharptla-win-md.md)], SharePoint and [!INCLUDE[vsprvs](../sharepoint/includes/vsprvs-md.md)]. For more information, see [Requirements for Developing SharePoint Solutions](../sharepoint/requirements-for-developing-sharepoint-solutions.md).  
   
--   [!INCLUDE[vssdk_current_long](../sharepoint/includes/vssdk-current-long-md.md)]。  本演练使用 [!INCLUDE[TLA2#tla_sdk](../sharepoint/includes/tla2sharptla-sdk-md.md)] 中的**“VSIX 项目”**模板来创建 VSIX 包以部署项目属性扩展。  有关更多信息，请参见[Extending the SharePoint Tools in Visual Studio](../sharepoint/extending-the-sharepoint-tools-in-visual-studio.md)。  
+-   The [!INCLUDE[vssdk_current_long](../sharepoint/includes/vssdk-current-long-md.md)]. This walkthrough uses the **VSIX Project** template in the [!INCLUDE[TLA2#tla_sdk](../sharepoint/includes/tla2sharptla-sdk-md.md)] to create a VSIX package to deploy the project property extension. For more information, see [Extending the SharePoint Tools in Visual Studio](../sharepoint/extending-the-sharepoint-tools-in-visual-studio.md).  
   
-## 创建项目  
- 若要完成本演练，您必须创建以下两个项目：  
+## <a name="creating-the-projects"></a>Creating the Projects  
+ To complete this walkthrough, you must create two projects:  
   
--   一个用于创建 VSIX 包以部署项目扩展的 VSIX 项目。  
+-   A VSIX project to create the VSIX package to deploy the project extension.  
   
--   一个用于实现项目扩展的类库项目。  
+-   A class library project that implements the project extension.  
   
- 从创建项目开始本演练。  
+ Start the walkthrough by creating the projects.  
   
-#### 创建 VSIX 项目  
+#### <a name="to-create-the-vsix-project"></a>To create the VSIX project  
   
-1.  启动 [!INCLUDE[vsprvs](../sharepoint/includes/vsprvs-md.md)]。  
+1.  Start [!INCLUDE[vsprvs](../sharepoint/includes/vsprvs-md.md)].  
   
-2.  在菜单栏上，选择**“文件”**，**“新建**、**“项目”**。  
+2.  On the menu bar, choose **File**, **New**, **Project**.  
   
-3.  在 **新建项目** 对话框中，展开 **visual C\#** 或 **Visual Basic** 节点，然后选择 **扩展性** 节点。  
-  
-    > [!NOTE]  
-    >  只有在安装 Visual Studio SDK，此节点可用。  有关更多信息，请参见本主题前面的系统必备部分。  
-  
-4.  在对话框顶部，选择在 .NET Framework 的版本列表的 **.NET Framework 4.5**，然后选择 **VSIX 项目** 模板。  
-  
-5.  在 **名称** 框中，输入 **ProjectExtensionPackage**，然后选择 **确定** 按钮。  
-  
-     **ProjectExtensionPackage** 项显示在 **解决方案资源管理器**。  
-  
-#### 创建扩展项目  
-  
-1.  在 **解决方案资源管理器**，请打开解决方案节点的快捷菜单上，选择 **添加**，然后选择 **新建项目**。  
+3.  In the **New Project** dialog box, expand the **Visual C#** or **Visual Basic** nodes, and then choose the **Extensibility** node.  
   
     > [!NOTE]  
-    >  在 [!INCLUDE[vbprvb](../sharepoint/includes/vbprvb-md.md)] 项目，因此，只有当 **总是显示解决方案** 复选框。[“选项”对话框 \-\>“项目和解决方案”\-\>“常规”](http://msdn.microsoft.com/zh-cn/8f8e37e8-b28d-4b13-bfeb-ea4d3312aeca)，已选择解决方案节点显示在 **解决方案资源管理器**。  
+    >  This node is available only if you install the Visual Studio SDK. For more information, see the prerequisites section earlier in this topic.  
   
-2.  在 **新建项目** 对话框中，展开 **visual C\#** 或 **Visual Basic** 节点，然后选择 **Windows**。  
+4.  At the top of the dialog box, choose **.NET Framework 4.5** in the list of versions of the .NET Framework, and then choose the **VSIX Project** template.  
   
-3.  在对话框顶部，选择在 .NET Framework 的版本列表的 **.NET Framework 4.5**，然后选择 **类库** 项目模板。  
+5.  In the **Name** box, enter **ProjectExtensionPackage**, and then choose the **OK** button.  
   
-4.  在 **名称** 框中，输入 **ProjectExtension**，然后选择 **确定** 按钮。  
+     The **ProjectExtensionPackage** project appears in **Solution Explorer**.  
   
-     [!INCLUDE[vsprvs](../sharepoint/includes/vsprvs-md.md)] 将**“ProjectExtension”**项目添加到解决方案中，并打开默认的 Class1 代码文件。  
+#### <a name="to-create-the-extension-project"></a>To create the extension project  
   
-5.  从项目中删除 Class1 代码文件。  
-  
-## 配置项目  
- 在编写代码以创建项目扩展之前，请将代码文件和程序集引用添加到扩展项目中。  
-  
-#### 配置项目  
-  
-1.  添加一个名为" ProjectExtension 项目的 **CustomProperty** 的代码文件。  
-  
-2.  打开 **ProjectExtension** 项目的快捷菜单，然后选择 **添加引用**。  
-  
-3.  在 **引用管理器– CustomProperty** 对话框中，选择 **框架** 节点，请在 System.ComponentModel.Composition 和 System.Windows.Forms 程序集例旁边的复选框。  
-  
-4.  选择 **扩展** 节点，请在 Microsoft.VisualStudio.SharePoint 和 EnvDTE 程序集旁边的复选框，然后选择 **确定** 按钮。  
-  
-5.  在 **解决方案资源管理器**，在 **ProjectExtension** 项目的 **引用** 文件夹下，选择 **EnvDTE**。  
-  
-6.  在**“属性”**窗口中，将**“嵌入互操作类型”**属性更改为**“False”**。  
-  
-## 定义新的 SharePoint 项目属性  
- 创建一个定义项目扩展和新项目属性的行为的类。  若要定义新的项目扩展，此类应实现 <xref:Microsoft.VisualStudio.SharePoint.ISharePointProjectExtension> 接口。  每当需要定义 SharePoint 项目扩展时，就要实现此接口。  另外，将 <xref:System.ComponentModel.Composition.ExportAttribute> 添加到此类中。  此特性使 [!INCLUDE[vsprvs](../sharepoint/includes/vsprvs-md.md)] 能够发现和加载您的 <xref:Microsoft.VisualStudio.SharePoint.ISharePointProjectExtension> 实现。  将 <xref:Microsoft.VisualStudio.SharePoint.ISharePointProjectExtension> 类型传递给特性的构造函数。  
-  
-#### 定义新的 SharePoint 项目属性  
-  
-1.  将下面的代码粘贴到 CustomProperty 代码文件。  
-  
-     [!code-csharp[SPExt_ProjectExtension#1](../snippets/csharp/VS_Snippets_OfficeSP/spext_projectextension/cs/projectextension/customproperty.cs#1)]
-     [!code-vb[SPExt_ProjectExtension#1](../snippets/visualbasic/VS_Snippets_OfficeSP/spext_projectextension/vb/projectextension/customproperty.vb#1)]  
-  
-## 生成解决方案  
- 接下来，生成解决方案以确保编译时不会出错。  
-  
-#### 生成解决方案  
-  
-1.  在菜单栏上，依次选择 **Build**，**生成解决方案**。  
-  
-## 创建 VSIX 包以部署项目属性扩展  
- 若要部署项目扩展，请使用解决方案中的 VSIX 项目来创建 VSIX 包。  首先，通过修改 VSIX 项目中包含的 source.extension.vsixmanifest 文件来配置 VSIX 包。  然后，通过生成解决方案来创建 VSIX 包。  
-  
-#### 配置并创建 VSIX 包  
-  
-1.  在 **解决方案资源管理器**，打开 source.extension.vsixmanifest 文件的快捷菜单，然后选择 **打开** 按钮。  
-  
-     [!INCLUDE[vsprvs](../sharepoint/includes/vsprvs-md.md)] 打开在清单设计器中的文件。  也会出现在 **元数据** 选项的信息显示在 **扩展和更新**。所有 VSIX 包必需的 extension.vsixmanifest 文件。  有关此文件的更多信息，请参见[VSIX 扩展架构参考](http://msdn.microsoft.com/zh-cn/76e410ec-b1fb-4652-ac98-4a4c52e09a2b)。  
-  
-2.  在 **产品名称** 框中，输入 **自定义项目属性**。  
-  
-3.  在 **作者** 框中，输入 **Contoso**。  
-  
-4.  在 **说明** 框中，输入 **切换映射 images 资源文件夹添加到项目中的自定义 SharePoint 项目属性**。  
-  
-5.  选择 **资产** 选项卡，然后选择 **新建** 按钮。  
-  
-     **添加新资产** 出现对话框。  
-  
-6.  在 **类型** 列表中，选择 **Microsoft.VisualStudio.MefComponent**。  
+1.  In **Solution Explorer**, open the shortcut menu for the solution node, choose **Add**, and then choose **New Project**.  
   
     > [!NOTE]  
-    >  此值对应于 extension.vsixmanifest 文件中的 `MEFComponent` 元素。  此元素指定 VSIX 包中的扩展程序集的名称。  有关更多信息，请参见[NIB: MEFComponent Element \(VSX Schema\)](http://msdn.microsoft.com/zh-cn/8a813141-8b73-44c9-b80b-ca85bbac9551)。  
+    >  In [!INCLUDE[vbprvb](../sharepoint/includes/vbprvb-md.md)] projects, the solution node appears in **Solution Explorer** only if the **Always show solution** check box is selected in the [NIB: General, Projects and Solutions, Options Dialog Box](http://msdn.microsoft.com/en-us/8f8e37e8-b28d-4b13-bfeb-ea4d3312aeca).  
   
-7.  在 **源** 列表中，选择 **当前解决方案中的项目** 选项按钮。  
+2.  In the **New Project** dialog box, expand the **Visual C#** or **Visual Basic** nodes, and then choose **Windows**.  
   
-8.  在 **项目** 列表中，选择 **ProjectExtension**。  
+3.  At the top of the dialog box, choose **.NET Framework 4.5** in the list of versions of the .NET Framework, and then choose the **Class Library** project template.  
   
-     此值标识程序集的名称在项目中生成。  
+4.  In the **Name** box, enter **ProjectExtension**, and then choose the **OK** button.  
   
-9. 选择 **确定** 关闭 **添加新资产** 对话框。  
+     [!INCLUDE[vsprvs](../sharepoint/includes/vsprvs-md.md)] adds the **ProjectExtension** project to the solution and opens the default Class1 code file.  
   
-10. 在菜单栏上，依次选择 **文件**，**全部保存**，完成后，然后关闭清单设计器。  
+5.  Delete the Class1 code file from the project.  
   
-11. 在菜单栏上，依次选择 **Build**，**生成解决方案**，然后确保项目在编译时不会出错。  
+## <a name="configuring-the-project"></a>Configuring the Project  
+ Before you write code to create the project extension, add code files and assembly references to the extension project.  
   
-12. 在 **解决方案资源管理器**，打开 **ProjectExtensionPackage** 项目的快捷菜单，并选择 **在文件资源管理器中打开文件夹** 按钮。  
+#### <a name="to-configure-the-project"></a>To configure the project  
   
-13. 在 **文件资源管理器**，请打开 ProjectExtensionPackage 项目的生成输出文件夹，然后验证该文件夹包含名为 ProjectExtensionPackage.vsix 的文件。  
+1.  Add a code file that's named **CustomProperty** to the ProjectExtension project.  
   
-     默认情况下，生成输出文件夹为  包含项目文件的文件夹下的 ..\\bin\\Debug 文件夹。  
+2.  Open the shortcut menu for the **ProjectExtension** project,  and then choose **Add Reference**.  
   
-## 测试项目属性  
- 现在已准备好测试自定义项目属性。  调试和测试在 [!INCLUDE[vsprvs](../sharepoint/includes/vsprvs-md.md)]的实验实例的新项目属性扩展最为简单。  当您运行 VSIX 或其他扩展性项目时，[!INCLUDE[vsprvs](../sharepoint/includes/vsprvs-md.md)] 此创建实例。  在调试项目后，您的系统上安装该扩展然后继续调试和测试它在 [!INCLUDE[vsprvs](../sharepoint/includes/vsprvs-md.md)]常规实例。  
+3.  In the **Reference Manager - CustomProperty** dialog box, choose the **Framework** node, and then select the check box next to the System.ComponentModel.Composition and System.Windows.Forms assemblies.  
   
-#### 在 Visual Studio 的实验实例中调试和测试扩展  
+4.  Choose the **Extensions** node, select the check box next to the Microsoft.VisualStudio.SharePoint and EnvDTE assemblies, and then choose the **OK** button.  
   
-1.  重新启动使用管理凭据的 [!INCLUDE[vsprvs](../sharepoint/includes/vsprvs-md.md)]，然后打开 ProjectExtensionPackage 解决方案。  
+5.  In **Solution Explorer**, under the **References** folder for the **ProjectExtension** project, choose **EnvDTE**.  
   
-2.  通过选择 **F5** 键启动项目的调试版本或，在菜单栏上，选择 **调试**，**启动调试**。  
+6.  In the **Properties** window, change the **Embed Interop Types** property to **False**.  
   
-     [!INCLUDE[vsprvs](../sharepoint/includes/vsprvs-md.md)] 将扩展安装到 %UserProfile% \\ AppData \\ local \\ Microsoft \\ VisualStudio \\ 11.0Exp \\ extensions \\ Contoso \\ custom project property \\ 1.0 中启动 [!INCLUDE[vsprvs](../sharepoint/includes/vsprvs-md.md)]的实验实例。  
+## <a name="defining-the-new-sharepoint-project-property"></a>Defining the New SharePoint Project Property  
+ Create a class that defines the project extension and the behavior of the new project property. To define the new project extension, the class implements the <xref:Microsoft.VisualStudio.SharePoint.ISharePointProjectExtension> interface. Implement this interface whenever you want to define an extension for a SharePoint project. Also, add the <xref:System.ComponentModel.Composition.ExportAttribute> to the class. This attribute enables [!INCLUDE[vsprvs](../sharepoint/includes/vsprvs-md.md)] to discover and load your <xref:Microsoft.VisualStudio.SharePoint.ISharePointProjectExtension> implementation. Pass the <xref:Microsoft.VisualStudio.SharePoint.ISharePointProjectExtension> type to the attribute's constructor.  
   
-3.  在 [!INCLUDE[vsprvs](../sharepoint/includes/vsprvs-md.md)]的实验实例中，创建场解决方案的 SharePoint 项目，并为其他值使用默认值在向导。  
+#### <a name="to-define-the-new-sharepoint-project-property"></a>To define the new SharePoint project property  
   
-    1.  在菜单栏上，选择**“文件”**，**“新建**、**“项目”**。  
+1.  Paste the following code into the CustomProperty code file.  
   
-    2.  在 **新建项目** 对话框的顶部，选择在 .NET Framework 的版本列表的 **.NET Framework 3.5**。  
+     [!code-vb[SPExt_ProjectExtension#1](../sharepoint/codesnippet/VisualBasic/projectextension/customproperty.vb#1)]  [!code-csharp[SPExt_ProjectExtension#1](../sharepoint/codesnippet/CSharp/projectextension/customproperty.cs#1)]  
   
-         SharePoint 工具扩展需要在 [!INCLUDE[dnprdnshort](../sharepoint/includes/dnprdnshort-md.md)]的这一版本的功能。  
+## <a name="building-the-solution"></a>Building the Solution  
+ Next, build the solution to make sure that it compiles without errors.  
   
-    3.  在 **模板** 节点下，展开 **visual C\#** 或 **Visual Basic** 节点，选择 **SharePoint** 节点，然后选择 **2010** 节点。  
+#### <a name="to-build-the-solution"></a>To build the solution  
   
-    4.  选择 **SharePoint 2010 项目** 模板，然后转到 **ModuleTest** 是项目的名称。  
+1.  On the menu bar, choose **Build**, **Build Solution**.  
   
-4.  在 **解决方案资源管理器**，选择 **ModuleTest** 项目节点。  
+## <a name="creating-a-vsix-package-to-deploy-the-project-property-extension"></a>Creating a VSIX Package to Deploy the Project Property Extension  
+ To deploy the project extension, use the VSIX project in your solution to create a VSIX package. First, configure the VSIX package by modifying the source.extension.vsixmanifest file that is included in the VSIX project. Then, create the VSIX package by building the solution.  
   
-     **“属性”**窗口中将显示新的自定义属性**“映射 Images 文件夹”**，其默认值为 **False**。  
+#### <a name="to-configure-and-create-the-vsix-package"></a>To configure and create the VSIX package  
   
-5.  更改该属性的值更改为 **True**。  
+1.  In **Solution Explorer**, open the shortcut menu for the source.extension.vsixmanifest file, and then choose the **Open** button.  
   
-     Images 资源文件夹将添加到 SharePoint 项目中。  
+     [!INCLUDE[vsprvs](../sharepoint/includes/vsprvs-md.md)] opens the file in the manifest designer. The information that appears in the **Metadata** tab also appears in the **Extensions and Updates**. All VSIX packages require the extension.vsixmanifest file. For more information about this file, see [VSIX Extension Schema 1.0 Reference](http://msdn.microsoft.com/en-us/76e410ec-b1fb-4652-ac98-4a4c52e09a2b).  
   
-6.  更改该属性的值重 **False**。  
+2.  In the **Product Name** box, enter **Custom Project Property**.  
   
-     如果选择在 **删除 images 文件夹？** 对话框的 **是** 按钮，images 资源文件夹从 SharePoint 项目中删除。  
+3.  In the **Author** box, enter **Contoso**.  
   
-7.  关闭 [!INCLUDE[vsprvs](../sharepoint/includes/vsprvs-md.md)] 的实验实例。  
+4.  In the **Description** box, enter **A custom SharePoint project property that toggles the mapping of the Images resource folder to the project**.  
   
-## 请参阅  
+5.  Choose the **Assets** tab, and then choose the **New** button.  
+  
+     The **Add New Asset** dialog box appears.  
+  
+6.  In the **Type** list, choose **Microsoft.VisualStudio.MefComponent**.  
+  
+    > [!NOTE]  
+    >  This value corresponds to the `MEFComponent` element in the extension.vsixmanifest file. This element specifies the name of an extension assembly in the VSIX package. For more information, see [NIB: MEFComponent Element (VSX Schema)](http://msdn.microsoft.com/en-us/8a813141-8b73-44c9-b80b-ca85bbac9551).  
+  
+7.  In the **Source** list, choose the **A project in current solution** option button.  
+  
+8.  In the **Project** list, choose **ProjectExtension**.  
+  
+     This value identifies the name of the assembly that you're building in the project.  
+  
+9. Choose **OK** to close the **Add New Asset** dialog box.  
+  
+10. On the menu bar, choose **File**, **Save All** when you finish, and then close the manifest designer.  
+  
+11. On the menu bar, choose **Build**, **Build Solution**, and then make sure that the project compiles without errors.  
+  
+12. In **Solution Explorer**, open the shortcut menu for the **ProjectExtensionPackage** project, and choose the **Open Folder in File Explorer** button.  
+  
+13. In **File Explorer**, open the build output folder for the ProjectExtensionPackage project, and then verify that the folder contains a file that's named ProjectExtensionPackage.vsix.  
+  
+     By default, the build output folder is the ..\bin\Debug folder under the folder that contains your project file.  
+  
+## <a name="testing-the-project-property"></a>Testing the Project Property  
+ You're now ready to test the custom project property. It's easiest to debug and test the new project property extension in an experimental instance of [!INCLUDE[vsprvs](../sharepoint/includes/vsprvs-md.md)]. This instance of [!INCLUDE[vsprvs](../sharepoint/includes/vsprvs-md.md)] is created when you run a VSIX or other extensibility project. After you debug the project, you can install the extension on your system and then continue to debug and test it in a regular instance of [!INCLUDE[vsprvs](../sharepoint/includes/vsprvs-md.md)].  
+  
+#### <a name="to-debug-and-test-the-extension-in-an-experimental-instance-of-visual-studio"></a>To debug and test the extension in an experimental instance of Visual Studio  
+  
+1.  Restart [!INCLUDE[vsprvs](../sharepoint/includes/vsprvs-md.md)] with administrative credentials, and then open the ProjectExtensionPackage solution.  
+  
+2.  Start a debug build of your project either by choosing the **F5** key or, on the menu bar, choosing **Debug**, **Start Debugging**.  
+  
+     [!INCLUDE[vsprvs](../sharepoint/includes/vsprvs-md.md)] installs the extension to %UserProfile%\AppData\Local\Microsoft\VisualStudio\11.0Exp\Extensions\Contoso\Custom Project Property\1.0 and starts an experimental instance of [!INCLUDE[vsprvs](../sharepoint/includes/vsprvs-md.md)].  
+  
+3.  In the experimental instance of [!INCLUDE[vsprvs](../sharepoint/includes/vsprvs-md.md)], create a SharePoint project for a farm solution, and use the default values for the other values in the wizard.  
+  
+    1.  On the menu bar, choose **File**, **New**, **Project**.  
+  
+    2.  At the top of the **New Project** dialog box, choose **.NET Framework 3.5** in the list of versions of the .NET Framework.  
+  
+         SharePoint tool extensions require features in this version of the [!INCLUDE[dnprdnshort](../sharepoint/includes/dnprdnshort-md.md)].  
+  
+    3.  Under the **Templates** node, expand the **Visual C#** or **Visual Basic** node, choose the **SharePoint** node, and then choose the **2010** node.  
+  
+    4.  Choose the **SharePoint 2010 Project** template, and then enter **ModuleTest** as the name of your project.  
+  
+4.  In **Solution Explorer**, choose the **ModuleTest** project node.  
+  
+     A new custom property **Map Images Folder** appears in the **Properties** window with a default value of **False**.  
+  
+5.  Change the value of that property to **True**.  
+  
+     An Images resource folder is added to the SharePoint project.  
+  
+6.  Change the value of that property back to **False**.  
+  
+     If you choose the **Yes** button in the **Delete the Images folder?** dialog box, the Images resource folder is deleted from the SharePoint project.  
+  
+7.  Close the experimental instance of [!INCLUDE[vsprvs](../sharepoint/includes/vsprvs-md.md)].  
+  
+## <a name="see-also"></a>See Also  
  [Extending SharePoint Projects](../sharepoint/extending-sharepoint-projects.md)   
  [How to: Add a Property to SharePoint Projects](../sharepoint/how-to-add-a-property-to-sharepoint-projects.md)   
  [Converting Between SharePoint Project System Types and Other Visual Studio Project Types](../sharepoint/converting-between-sharepoint-project-system-types-and-other-visual-studio-project-types.md)   

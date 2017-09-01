@@ -1,52 +1,69 @@
 ---
-title: "IDebugPendingBreakpoint2::Bind | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "IDebugPendingBreakpoint2::Bind"
-helpviewer_keywords: 
-  - "Bind 方法"
-  - "IDebugPendingBreakpoint2::Bind 方法"
+title: IDebugPendingBreakpoint2::Bind | Microsoft Docs
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords:
+- IDebugPendingBreakpoint2::Bind
+helpviewer_keywords:
+- Bind method
+- IDebugPendingBreakpoint2::Bind method
 ms.assetid: 46e3f307-219d-40cd-a929-d41399c60ecf
 caps.latest.revision: 8
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 8
----
-# IDebugPendingBreakpoint2::Bind
-[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
+ms.author: gregvanl
+manager: ghogen
+translation.priority.mt:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+ms.translationtype: MT
+ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
+ms.openlocfilehash: 3c907717e1675e5adcaeb23bda273ef2c4daf2cb
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/28/2017
 
-将此挂起的断点到一个或多个代码位置。  
+---
+# <a name="idebugpendingbreakpoint2bind"></a>IDebugPendingBreakpoint2::Bind
+Binds this pending breakpoint to one or more code locations.  
   
-## 语法  
+## <a name="syntax"></a>Syntax  
   
-```cpp#  
-HRESULT Bind(   
-   void   
+```cpp  
+HRESULT Bind(   
+   void   
 );  
 ```  
   
-```c#  
+```csharp  
 int Bind();  
 ```  
   
-## 返回值  
- 如果成功，则返回; `S_OK`否则，返回错误代码。  ，如果断点删除，返回 `E_BP_DELETED` 。  
+## <a name="return-value"></a>Return Value  
+ If successful, returns `S_OK`; otherwise, returns an error code. Returns `E_BP_DELETED` if the breakpoint has been deleted.  
   
-## 备注  
- 当调用此方法时，调试引擎 \(DE\)应尝试将此挂起的断点到匹配的所有代码位置。  
+## <a name="remarks"></a>Remarks  
+ When this method is called, a debug engine (DE) should attempt to bind this pending breakpoint to all code locations that match.  
   
- 此方法返回后，调用方需要等待分别指示的事件挂起的断点绑定或错误。假定之前调用 [EnumBoundBreakpoints](../../../extensibility/debugger/reference/idebugpendingbreakpoint2-enumboundbreakpoints.md) 或 [EnumErrorBreakpoints](../Topic/IDebugPendingBreakpoint2::EnumErrorBreakpoints.md).methods 将枚举所有区域或错误，断点。  
+ After this method returns, the caller needs to wait for events indicating that the pending breakpoint has bound or is in error before assuming that calls to the [EnumBoundBreakpoints](../../../extensibility/debugger/reference/idebugpendingbreakpoint2-enumboundbreakpoints.md) or [EnumErrorBreakpoints](../../../extensibility/debugger/reference/idebugpendingbreakpoint2-enumerrorbreakpoints.md).methods will enumerate all bound or error breakpoints, respectively.  
   
-## 请参阅  
+## <a name="see-also"></a>See Also  
  [IDebugPendingBreakpoint2](../../../extensibility/debugger/reference/idebugpendingbreakpoint2.md)   
  [IDebugBreakpointBoundEvent2](../../../extensibility/debugger/reference/idebugbreakpointboundevent2.md)   
  [IDebugBreakpointErrorEvent2](../../../extensibility/debugger/reference/idebugbreakpointerrorevent2.md)   
  [EnumBoundBreakpoints](../../../extensibility/debugger/reference/idebugpendingbreakpoint2-enumboundbreakpoints.md)   
- [EnumErrorBreakpoints](../Topic/IDebugPendingBreakpoint2::EnumErrorBreakpoints.md)
+ [EnumErrorBreakpoints](../../../extensibility/debugger/reference/idebugpendingbreakpoint2-enumerrorbreakpoints.md)

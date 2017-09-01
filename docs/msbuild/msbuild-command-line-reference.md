@@ -36,11 +36,11 @@ translation.priority.ht:
 - tr-tr
 - zh-cn
 - zh-tw
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9713f09b7379b14b9362e3853a910948935c501e
-ms.openlocfilehash: e55b81428aa7d54d8383955c67e206df919bb1d1
+ms.translationtype: HT
+ms.sourcegitcommit: 1c2afd23f9f6a7444b723a0f7d93ababad2624e7
+ms.openlocfilehash: 24103f33bb7d2157560801f70dbe7c1b8f0a9989
 ms.contentlocale: zh-cn
-ms.lasthandoff: 05/31/2017
+ms.lasthandoff: 08/15/2017
 
 ---
 # <a name="msbuild-command-line-reference"></a>MSBuild 命令行参考
@@ -87,6 +87,7 @@ MSBuild.exe [Switches] [ProjectFile]
 |/distributedlogger:<br /><br /> `central logger`*<br /><br /> `forwarding logger`|/dl:`central logger`*`forwarding logger`|记录 MSBuild 中的事件，将不同记录器实例附加到每个节点。 若要指定多个记录器，请分别指定每个记录器。<br /><br /> 使用记录器语法指定记录器。 有关记录器语法，请参阅下面的 **/logger** 开关。<br /><br /> 下面的示例演示如何使用此开关：<br /><br /> `/dl:XMLLogger,MyLogger,Version=1.0.2,Culture=neutral`<br /><br /> `/dl:MyLogger,C:\My.dll*ForwardingLogger,C:\Logger.dll`|  
 |/fileLogger<br /><br /> *[number]*|/fl[`number`]|将生成输出记录到当前目录中的单个文件。 如果没有指定 `number`，输出文件名为 msbuild.log。 如果指定 `number`，输出文件名为 msbuild`n`.log，其中 n 是 `number`。 `Number` 可以是 1 到 9 的数字。<br /><br /> 可以使用 **/fileLoggerParameters** 开关指定文件位置和 fileLogger 的其他参数。|  
 |/fileloggerparameters:[number]<br /><br /> `parameters`|/flp:[ `number`] `parameters`|为文件记录器和分布式文件记录器指定任何额外参数。 此开关的存在意味着存在对应的 /**filelogger[**`number`**]** 开关。 `Number` 可以是 1 到 9 的数字。<br /><br /> 可以使用为 **/consoleloggerparameters** 列出的所有参数。 还可以使用以下一个或多个参数：<br /><br /> -   **LogFile**。 写入生成日志的日志文件的路径。 分布式文件记录器将此路径用作其日志文件的名称的前缀。<br />-   **Append**。 确定是将生成日志追加到日志文件还是覆盖它。 设置该开关时，生成日志将追加到日志文件。 此开关不存在时，将覆盖现有日志文件的内容。<br />     如果包含追加开关，则无论它是设置为 true 还是 false，都会追加日志。 如果不包含追加开关，则会覆盖日志。<br />     在此例中会覆盖文件：`msbuild myfile.proj /l:FileLogger,Microsoft.Build.Engine;logfile=MyLog.log`<br />     在此例中会追加文件：`msbuild myfile.proj /l:FileLogger,Microsoft.Build.Engine;logfile=MyLog.log;append=true`<br />     在此例中会追加文件：`msbuild myfile.proj /l:FileLogger,Microsoft.Build.Engine;logfile=MyLog.log;append=false`<br />-   **Encoding**。 指定文件的编码（例如，UTF-8、Unicode 或 ASCII）。<br /><br /> 下面的示例为警告和错误生成单独的日志文件：<br /><br /> `/flp1:logfile=errors.txt;errorsonly /flp2:logfile=warnings.txt;warningsonly`<br /><br /> 下面的示例演示其他可能性：<br /><br /> `/fileLoggerParameters:LogFile=MyLog.log;Append; Verbosity=diagnostic;Encoding=UTF-8`<br /><br /> `/flp:Summary;Verbosity=minimal;LogFile=msbuild.sum`<br /><br /> `/flp1:warningsonly;logfile=msbuild.wrn`<br /><br /> `/flp2:errorsonly;logfile=msbuild.err`|  
+|/binaryLogger[:[LogFile=]`output.binlog`[;ProjectImports=[None,Embed,ZipFile]]]|/bl|将所有生成事件串行化为压缩的二进制文件。 默认情况下，该文件位于当前目录中，名称为 `msbuild.binlog`。 二进制日志是对生成过程的详细描述，可在将来用于重建文本日志，或由其它分析工具使用。 二进制日志的大小通常只有最详细文本诊断级日志的 1/10 到 1/20，但却能包含更多信息。<br /><br />二进制记录器默认收集项目文件的源文本，包括所有导入的项目，以及在生成期间所遇到的目标文件。 可选的 `ProjectImports` 开关控制此行为：<br /><br /> -   ProjectImports=None。 不收集项目导入。<br /> -   ProjectImports=Embed。 在日志文件中嵌入项目导入（默认）。<br /> -   ProjectImports=ZipFile。 将项目文件保存至 `output.projectimports.zip`，其中 `output` 的名称与二进制日志文件的名称相同。<br /><br />ProjectImports 的默认设置为“嵌入”。<br />请注意：记录器不收集 `.cs``.cpp` 等非 MSBuild 源文件。<br />将 `.binlog` 文件作为参数而非项目/解决方案传递给 `msbuild.exe` 可“播放”该文件。 其他记录器将接收日志文件中包含的信息，就像原始生成发生时那样。 要了解关于二进制日志及其用法的详细信息，请前往：https://github.com/Microsoft/msbuild/wiki/Binary-Log <br /><br />示例：<br /> -   `/bl`<br /> -    `/bl:output.binlog`<br /> -   `/bl:output.binlog;ProjectImports=None`<br /> -   `/bl:output.binlog;ProjectImports=ZipFile`<br /> -   `/bl:..\..\custom.binlog`<br /> -   `/binaryLogger`|
 |/logger:<br /><br /> `logger`|/l:`logger`|指定要用于记录 MSBuild 中的事件的记录器。 若要指定多个记录器，请分别指定每个记录器。<br /><br /> 将以下语法用于 `logger`: `[``LoggerClass``,]``LoggerAssembly``[;``LoggerParameters``]`<br /><br /> 将以下语法用于 `LoggerClass`: `[``PartialOrFullNamespace``.]``LoggerClassName`<br /><br /> 如果程序集恰好包含一个记录器，则不必指定记录器类。<br /><br /> 将以下语法用于 `LoggerAssembly`: `{``AssemblyName``[,``StrongName``] &#124;` `AssemblyFile``}`<br /><br /> 记录器参数是可选的，传递给记录器时与输入时完全一致。<br /><br /> 下面的示例使用 **/logger** 开关。<br /><br /> `/logger:XMLLogger,MyLogger,Version=1.0.2,Culture=neutral`<br /><br /> `/logger:XMLLogger,C:\Loggers\MyLogger.dll;OutputAsHTML`|  
 |/noconsolelogger|/noconlog|禁用默认控制台记录器，不将事件记录到控制台。|  
   

@@ -1,39 +1,56 @@
 ---
-title: "扩展的解决方案资源管理器中筛选器 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-helpviewer_keywords: 
-  - "解决方案资源管理器扩展"
-  - "扩展性 [Visual Studio]、 项目和解决方案"
+title: Extending the Solution Explorer Filter | Microsoft Docs
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+helpviewer_keywords:
+- Solution Explorer, extending
+- extensibility [Visual Studio], projects and solutions
 ms.assetid: df976c76-27ec-4f00-ab6d-a26a745dc6c7
 caps.latest.revision: 25
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 25
----
-# 扩展的解决方案资源管理器中筛选器
-[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
+ms.author: gregvanl
+manager: ghogen
+translation.priority.mt:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+ms.translationtype: MT
+ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
+ms.openlocfilehash: 0bbfc6c783a44a6f9aa3254e613781b186e24839
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/28/2017
 
-您可以扩展 **解决方案资源管理器** 筛选功能，以显示或隐藏不同的文件。 例如，您可以创建显示只有 C\# 类工厂中的文件的筛选器 **解决方案资源管理器**, ，如本演练中所示。  
+---
+# <a name="extending-the-solution-explorer-filter"></a>Extending the Solution Explorer Filter
+You can extend **Solution Explorer** filter functionality to show or hide different files. For example, you can create a filter that shows only C# class factory files in the **Solution Explorer**, as this walkthrough demonstrates.  
   
-## 系统必备  
- 启动 Visual Studio 2015 中，您并不安装 Visual Studio SDK 从下载中心获得。 它将包括作为 Visual Studio 安装程序中的可选功能。 您还可以在以后安装 VS SDK。 有关更多信息，请参见[安装 Visual Studio SDK](../extensibility/installing-the-visual-studio-sdk.md)。  
+## <a name="prerequisites"></a>Prerequisites  
+ Starting in Visual Studio 2015, you do not install the Visual Studio SDK from the download center. It is included as an optional feature in Visual Studio setup. You can also install the VS SDK later on. For more information, see [Installing the Visual Studio SDK](../extensibility/installing-the-visual-studio-sdk.md).  
   
-### 创建 Visual Studio 程序包项目  
+### <a name="create-a-visual-studio-package-project"></a>Create a Visual Studio Package Project  
   
-1.  创建一个名为的 VSIX 项目 `FileFilter`。 添加一个名为的自定义命令项模板 **FileFilter**。 有关详细信息，请参阅[使用菜单命令创建扩展](../extensibility/creating-an-extension-with-a-menu-command.md)。  
+1.  Create a VSIX project named `FileFilter`. Add a custom command item template named **FileFilter**. For more information, see [Creating an Extension with a Menu Command](../extensibility/creating-an-extension-with-a-menu-command.md).  
   
-2.  添加对引用 `System.ComponentModel.Composition` 和 `Microsoft.VisualStudio.Utilities`。  
+2.  Add a reference to `System.ComponentModel.Composition` and `Microsoft.VisualStudio.Utilities`.  
   
-3.  使显示在该菜单命令 **解决方案资源管理器** 工具栏。 打开 FileFilterPackage.vsct 文件。  
+3.  Make the menu command appear on the **Solution Explorer** toolbar. Open the FileFilterPackage.vsct file.  
   
-4.  更改 `<Button>` 块，以下列︰  
+4.  Change the `<Button>` block to the following:  
   
     ```xml  
     <Button guid="guidFileFilterPackageCmdSet" id="FileFilterId" priority="0x0400" type="Button">  
@@ -45,36 +62,36 @@ caps.handback.revision: 25
     </Button>  
     ```  
   
-### 更新清单文件  
+### <a name="update-the-manifest-file"></a>Update the Manifest File  
   
-1.  在 source.extension.vsixmanifest 文件中，添加为 MEF 组件的资产。  
+1.  In the source.extension.vsixmanifest file, add an asset that is a MEF component.  
   
-2.  在 **资产** 选项卡上，选择 **新建** 按钮。  
+2.  On the **Assets** tab, choose the **New** button.  
   
-3.  在 **类型** 字段中，选择 **Microsoft.VisualStudio.MefComponent**。  
+3.  In the **Type** field, choose **Microsoft.VisualStudio.MefComponent**.  
   
-4.  在 **源** 字段中，选择 **当前解决方案中的项目**。  
+4.  In the **Source** field, choose **A project in current solution**.  
   
-5.  在 **项目** 字段中，选择 **FileFilter**, ，然后选择 **确定** 按钮。  
+5.  In the **Project** field, choose **FileFilter**, and then choose the **OK** button.  
   
-### 添加筛选器代码  
+### <a name="add-the-filter-code"></a>Add the Filter Code  
   
-1.  将某些 Guid 添加到 FileFilterPackageGuids.cs 文件︰  
+1.  Add some GUIDs to the FileFilterPackageGuids.cs file:  
   
-    ```c#  
+    ```csharp  
     public const string guidFileFilterPackageCmdSetString = "00000000-0000-0000-0000-00000000"; // get your GUID from the .vsct file  
     public const int FileFilterId = 0x100;  
     ```  
   
-2.  将类文件添加到名为 FileNameFilter.cs 的过滤项目。  
+2.  Add a class file to the FileFilter project named FileNameFilter.cs.  
   
-3.  使用下面的代码替换空命名空间和空类。  
+3.  Replace the empty namespace and the empty class with the code below.  
   
-     `Task<IReadOnlyObservableSet> GetIncludedItemsAsync(IEnumerable<IVsHierarchyItem rootItems)` 方法采用集合，其中包含的解决方案根目录 \(`rootItems`\)，并返回要在筛选器中包含的项集合。  
+     The `Task<IReadOnlyObservableSet> GetIncludedItemsAsync(IEnumerable<IVsHierarchyItem rootItems)` method takes the collection that contains the root of the solution (`rootItems`) and returns the collection of items to be included in the filter.  
   
-     `ShouldIncludeInFilter` 方法筛选器中的项 **解决方案资源管理器** 基于前提是您指定层次结构。  
+     The `ShouldIncludeInFilter` method filters the items in the **Solution Explorer** hierarchy based on the condition that you specify.  
   
-    ```c#  
+    ```csharp  
     using System;  
     using System.Collections.Generic;  
     using System.ComponentModel.Composition;  
@@ -159,9 +176,9 @@ caps.handback.revision: 25
   
     ```  
   
-4.  在 FileFilter.cs，从 FileFilter 构造函数中删除命令放置和处理代码。 结果应如下所示︰  
+4.  In FileFilter.cs, remove the command placement and handling code from the FileFilter constructor. The result should look like this:  
   
-    ```c#  
+    ```csharp  
     private FileFilter(Package package)  
     {  
         if (package == null)  
@@ -173,11 +190,11 @@ caps.handback.revision: 25
     }  
     ```  
   
-     删除的 ShowMessageBox\(\) 方法。  
+     Remove the ShowMessageBox() method as well.  
   
-5.  在 FileFilterPackage，cs，替换为以下替换 initialize （） 方法中的代码︰  
+5.  In FileFilterPackage,cs, replace the code in the Initialize() method with the following:  
   
-    ```c#  
+    ```csharp  
     protected override void Initialize()  
     {  
         Debug.WriteLine (string.Format(CultureInfo.CurrentCulture, "Entering Initialize() of: {0}", this.ToString()));  
@@ -185,12 +202,12 @@ caps.handback.revision: 25
     }  
     ```  
   
-### 测试您的代码  
+### <a name="test-your-code"></a>Test Your Code  
   
-1.  生成并运行该项目。 将显示 Visual Studio 的第二个实例。 这称为实验实例。  
+1.  Build and run the project. A second instance of Visual Studio appears. This is called the experimental instance.  
   
-2.  在 Visual Studio 的实验实例中，打开一个 C\# 项目。  
+2.  In the experimental instance of Visual Studio, open a C# project.  
   
-3.  查找添加到解决方案资源管理器工具栏的按钮。 它应该是左侧起的第四个按钮。  
+3.  Look for the button you added on the Solution Explorer toolbar. It should be the fourth button from the left.  
   
-4.  当单击按钮时，应出，筛选出所有文件，你应该看到"所有项目都已被都都过滤视图中。" 在解决方案资源管理器。
+4.  When you click the button, all the files should be filtered out, and you should see "All items have been filtered from view." in the Solution Explorer.

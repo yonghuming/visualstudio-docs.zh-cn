@@ -1,53 +1,71 @@
 ---
-title: "CA1802：在合适的位置使用文本 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-devops-test"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "UseLiteralsWhereAppropriate"
-  - "CA1802"
-helpviewer_keywords: 
-  - "UseLiteralsWhereAppropriate"
-  - "CA1802"
+title: 'CA1802: Use Literals Where Appropriate | Microsoft Docs'
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-devops-test
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords:
+- UseLiteralsWhereAppropriate
+- CA1802
+helpviewer_keywords:
+- UseLiteralsWhereAppropriate
+- CA1802
 ms.assetid: 2515e4cd-9e61-486d-b067-58ba1a743ce4
 caps.latest.revision: 17
-author: "stevehoag"
-ms.author: "shoag"
-manager: "wpickett"
-caps.handback.revision: 17
----
-# CA1802：在合适的位置使用文本
-[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
+author: stevehoag
+ms.author: shoag
+manager: wpickett
+translation.priority.ht:
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- ru-ru
+- zh-cn
+- zh-tw
+translation.priority.mt:
+- cs-cz
+- pl-pl
+- pt-br
+- tr-tr
+ms.translationtype: HT
+ms.sourcegitcommit: eb5c9550fd29b0e98bf63a7240737da4f13f3249
+ms.openlocfilehash: 542d38ffef6008d3bd9605466f23f0cc35014c3e
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/30/2017
 
+---
+# <a name="ca1802-use-literals-where-appropriate"></a>CA1802: Use Literals Where Appropriate
 |||  
 |-|-|  
-|类型名|UseLiteralsWhereAppropriate|  
+|TypeName|UseLiteralsWhereAppropriate|  
 |CheckId|CA1802|  
-|类别|Microsoft.Performance|  
-|是否重大更改|非重大更改|  
+|Category|Microsoft.Performance|  
+|Breaking Change|Non-breaking|  
   
-## 原因  
- 某个字段被声明为 `static` 和 `readonly`（在 [!INCLUDE[vbprvb](../code-quality/includes/vbprvb_md.md)] 中为 `Shared` 和 `ReadOnly`），并使用可在编译时计算的值初始化。  
+## <a name="cause"></a>Cause  
+ A field is declared `static` and `readonly` (`Shared` and `ReadOnly` in [!INCLUDE[vbprvb](../code-quality/includes/vbprvb_md.md)]), and is initialized with a value that is computable at compile time.  
   
-## 规则说明  
- 在调用声明类型的静态构造函数时，会在运行时计算 `static` `readonly` 字段的值。  如果在声明 `static` `readonly` 字段时未对其进行初始化，而且未显式声明静态构造函数，则编译器会发出一个静态构造函数来初始化该字段。  
+## <a name="rule-description"></a>Rule Description  
+ The value of a `static``readonly` field is computed at runtime when the static constructor for the declaring type is called. If the `static``readonly` field is initialized when it is declared and a static constructor is not declared explicitly, the compiler emits a static constructor to initialize the field.  
   
- `const` 字段的值在编译时计算并将存储在元数据库中，与 `static` `readonly` 字段相比，这有助于提高运行时性能。  
+ The value of a `const` field is computed at compile time and stored in the metadata, which increases runtime performance when it is compared to a `static``readonly` field.  
   
- 因为赋给目标字段的值可在编译时计算，所以，请将声明更改为 `const` 字段，以便该值在编译时（而非运行时）计算。  
+ Because the value assigned to the targeted field is computable at compile time, change the declaration to a `const` field so that the value is computed at compile time instead of at runtime.  
   
-## 如何解决冲突  
- 若要修复与该规则的冲突，请将 `static` 和 `readonly` 修饰符替换为 `const` 修饰符。  
+## <a name="how-to-fix-violations"></a>How to Fix Violations  
+ To fix a violation of this rule, replace the `static` and `readonly` modifiers with the `const` modifier.  
   
-## 何时禁止显示警告  
- 如果无需顾虑性能，可以安全地禁止显示此规则发出的警告，或者禁用此规则。  
+## <a name="when-to-suppress-warnings"></a>When to Suppress Warnings  
+ It is safe to suppress a warning from this rule, or disable the rule, if performance is not of concern.  
   
-## 示例  
- 下面的示例演示一个与该规则冲突的类型 \(`UseReadOnly`\) 和一个满足该规则的类型 \(`UseConstant`\)。  
+## <a name="example"></a>Example  
+ The following example shows a type, `UseReadOnly`, that violates the rule and a type, `UseConstant`, that satisfies the rule.  
   
- [!CODE [FxCop.Performance.UseLiterals#1](../CodeSnippet/VS_Snippets_CodeAnalysis/FxCop.Performance.UseLiterals#1)]
+ [!code-vb[FxCop.Performance.UseLiterals#1](../code-quality/codesnippet/VisualBasic/ca1802-use-literals-where-appropriate_1.vb)] [!code-csharp[FxCop.Performance.UseLiterals#1](../code-quality/codesnippet/CSharp/ca1802-use-literals-where-appropriate_1.cs)]

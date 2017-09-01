@@ -1,5 +1,5 @@
 ---
-title: "BP_RESOLUTION_CODE |Microsoft 文档"
+title: BP_RESOLUTION_CODE | Microsoft Docs
 ms.custom: 
 ms.date: 11/04/2016
 ms.reviewer: 
@@ -30,45 +30,46 @@ translation.priority.mt:
 - tr-tr
 - zh-cn
 - zh-tw
-translationtype: Machine Translation
-ms.sourcegitcommit: 5db97d19b1b823388a465bba15d057b30ff0b3ce
-ms.openlocfilehash: 89bf6120460f75c630ac80f3ab5911f504fa3111
-ms.lasthandoff: 02/22/2017
+ms.translationtype: MT
+ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
+ms.openlocfilehash: 889f350fed8dfaf3c052b3f9fc22f4480ea23737
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="bpresolutioncode"></a>BP_RESOLUTION_CODE
-描述一个代码断点的位置。  
+Describes the location of a code breakpoint.  
   
-## <a name="syntax"></a>语法  
+## <a name="syntax"></a>Syntax  
   
-```cpp#  
+```cpp  
 typedef struct _BP_RESOLUTION_CODE {   
    IDebugCodeContext2* pCodeContext;  
 } BP_RESOLUTION_CODE;  
 ```  
   
-```c#  
+```csharp  
 public struct BP_RESOLUTION_CODE {   
    public IDebugCodeContext2 pCodeContext;  
 };  
 ```  
   
-## <a name="members"></a>成员  
+## <a name="members"></a>Members  
  `pCodeContext`  
- [IDebugCodeContext2](../../../extensibility/debugger/reference/idebugcodecontext2.md)对象，它标识在代码中的断点位置。  
+ The [IDebugCodeContext2](../../../extensibility/debugger/reference/idebugcodecontext2.md) object that identifies the position of the breakpoint in the code.  
   
-## <a name="remarks"></a>备注  
- 此结构是属于[BP_RESOLUTION_LOCATION](../../../extensibility/debugger/reference/bp-resolution-location.md)结构，它是在打开的成员[BP_RESOLUTION_INFO](../../../extensibility/debugger/reference/bp-resolution-info.md)由返回结构[GetResolutionInfo](../../../extensibility/debugger/reference/idebugbreakpointresolution2-getresolutioninfo.md)方法。  
+## <a name="remarks"></a>Remarks  
+ This structure is a member of the [BP_RESOLUTION_LOCATION](../../../extensibility/debugger/reference/bp-resolution-location.md) structure, which is in turn a member of the [BP_RESOLUTION_INFO](../../../extensibility/debugger/reference/bp-resolution-info.md) structure returned by the [GetResolutionInfo](../../../extensibility/debugger/reference/idebugbreakpointresolution2-getresolutioninfo.md) method.  
   
-## <a name="requirements"></a>要求  
- 标头︰ msdbg.h  
+## <a name="requirements"></a>Requirements  
+ Header: msdbg.h  
   
  Namespace: Microsoft.VisualStudio.Debugger.Interop  
   
- 程序集︰ Microsoft.VisualStudio.Debugger.Interop.dll  
+ Assembly: Microsoft.VisualStudio.Debugger.Interop.dll  
   
-## <a name="see-also"></a>另请参阅  
- [结构和联合](../../../extensibility/debugger/reference/structures-and-unions.md)   
+## <a name="see-also"></a>See Also  
+ [Structures and Unions](../../../extensibility/debugger/reference/structures-and-unions.md)   
  [BP_RESOLUTION_LOCATION](../../../extensibility/debugger/reference/bp-resolution-location.md)   
  [BP_RESOLUTION_INFO](../../../extensibility/debugger/reference/bp-resolution-info.md)   
  [GetResolutionInfo](../../../extensibility/debugger/reference/idebugbreakpointresolution2-getresolutioninfo.md)   

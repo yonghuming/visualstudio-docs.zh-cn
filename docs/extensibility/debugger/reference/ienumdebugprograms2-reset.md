@@ -1,45 +1,62 @@
 ---
-title: "IEnumDebugPrograms2::Reset | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "IEnumDebugPrograms2::Reset"
-helpviewer_keywords: 
-  - "IEnumDebugPrograms2::Reset"
+title: IEnumDebugPrograms2::Reset | Microsoft Docs
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords:
+- IEnumDebugPrograms2::Reset
+helpviewer_keywords:
+- IEnumDebugPrograms2::Reset
 ms.assetid: b289242b-24ea-4df3-a811-20b0c8a903d6
 caps.latest.revision: 9
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 9
----
-# IEnumDebugPrograms2::Reset
-[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
+ms.author: gregvanl
+manager: ghogen
+translation.priority.mt:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+ms.translationtype: MT
+ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
+ms.openlocfilehash: 6d6b2c797d3290ca2a39443303dd53b026922d8b
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/28/2017
 
-重置枚举到第一个元素。  
+---
+# <a name="ienumdebugprograms2reset"></a>IEnumDebugPrograms2::Reset
+Resets the enumeration to the first element.  
   
-## 语法  
+## <a name="syntax"></a>Syntax  
   
-```cpp#  
+```cpp  
 HRESULT Reset(  
-   void  
+   void  
 );  
 ```  
   
-```c#  
+```csharp  
 int Reset();  
 ```  
   
-## 返回值  
- 如果成功，则返回; `S_OK`否则，返回错误代码。  
+## <a name="return-value"></a>Return Value  
+ If successful, returns `S_OK`; otherwise, returns an error code.  
   
-## 备注  
- 此方法调用之后，下调用 [下一步](../Topic/IEnumDebugPrograms2::Next.md) 方法返回枚举中的第一个元素。  
+## <a name="remarks"></a>Remarks  
+ After this method is called, the next call to the [Next](../../../extensibility/debugger/reference/ienumdebugprograms2-next.md) method returns the first element of the enumeration.  
   
-## 请参阅  
+## <a name="see-also"></a>See Also  
  [IEnumDebugPrograms2](../../../extensibility/debugger/reference/ienumdebugprograms2.md)

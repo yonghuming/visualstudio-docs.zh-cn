@@ -1,5 +1,5 @@
 ---
-title: "如何：将类拆分为分部类（类设计器）| Microsoft Docs"
+title: 'How to: Split a Class into Partial Classes (Class Designer) | Microsoft Docs'
 ms.custom: 
 ms.date: 11/04/2016
 ms.reviewer: 
@@ -31,32 +31,32 @@ translation.priority.ht:
 - zh-cn
 - zh-tw
 ms.translationtype: HT
-ms.sourcegitcommit: 63aad78bdc7df685ca3a73ec16a9cbc87b78151f
-ms.openlocfilehash: 9d74565f8e7e5b89e1716e9e2d88e2e18e077124
+ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
+ms.openlocfilehash: a92d03bca26e1e3eceacb3b611d81e344b656393
 ms.contentlocale: zh-cn
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 08/28/2017
 
 ---
-# <a name="how-to-split-a-class-into-partial-classes-class-designer"></a>如何：将类拆分为分部类（类设计器）
-可以通过使用 Visual Basic 中的 `Partial` 关键字或 Visual C# 中的 `partial` 关键字来划分类声明或多个声明中的结构。 可以根据需要在任意数量的不同源文件中或一个源文件中使用任意数量的分部声明。 但是，所有声明都必须在相同的程序集和相同的命名空间中。  
+# <a name="how-to-split-a-class-into-partial-classes-class-designer"></a>How to: Split a Class into Partial Classes (Class Designer)
+You can divide the declaration of a class or structure among several declarations by using the `Partial` keyword in Visual Basic or the `partial` keyword in Visual C#. You can use as many partial declarations as you want, in as many different source files as you want, or in one source file. However, all the declarations must be in the same assembly and the same namespace.  
   
- 分部类在以下几种情况下有用。 例如，在使用大型项目时，将类分隔到多个文件可以使多个程序员同时对其进行处理。 在使用 Visual Studio 生成的代码时，可以更改类，而无需重新创建源文件。 （Visual Studio 生成的代码的示例包括 Windows 窗体和 Web 服务包装器代码。）因此，无需修改 Visual Studio 创建的文件，就可以创建使用自动生成的类的代码。  
+ Partial classes are useful in several situations. For example, when you are working on large projects, separating a class into more than one file enables more than one programmer to work on it at the same time. When you are working with code that Visual Studio generates, you can change the class without having to re-create the source file. (Examples of code that Visual Studio generates include Windows Forms and Web Service wrapper code.) You can thus create code that uses auto-generated classes without having to modify the file that Visual Studio creates.  
   
- 有两种分部方法。 在 Visual C# 中，它们被称为 declaring 和 implementing；而在 Visual Basic 中，它们被称为 declaration 和 implementation。  
+ There are two kinds of partial methods. In Visual C#, they are called declaring and implementing; in Visual Basic, they are called declaration and implementation.  
   
- 类设计器支持分部类和方法。 类图中的类型形状是指分部类的单个声明位置。 如果分部类在多个文件中定义，则可以通过在“属性”窗口中设置“New Member Location”属性来指定将要使用的声明位置类设计器。 也就是说，双击类形状时，类设计器就会转到包含由“New Member Location”属性标识的类声明的源文件。 双击类形状中的分部方法时，类设计器会转到分部方法声明。 此外，在“属性”窗口中，“File Name”属性是指声明位置。 对于分部类，“File Name”列出包含该类的声明和实现代码的所有文件。 但是，对于分部方法，“File Name”仅列出包含分部方法声明的文件。  
+ Class Designer supports partial classes and methods. The type shape in the class diagram refers to a single declaration location for the partial class. If the partial class is defined in multiple files, you can specify which declaration location Class Designer will use by setting the **New Member Location** property in the **Properties** window. That is, when you double-click a class shape, Class Designer goes to the source file that contains the class declaration identified by the **New Member Location** property. When you double-click a partial method in a class shape, Class Designer goes to the partial method declaration. Also, in the **Properties** window, the **File Name** property refers to the declaration location. For partial classes, **File Name** lists all of the files that contain declaration and implementation code for that class. However, for partial methods, **File Name** lists only the file that contains the partial method declaration.  
   
- 下面的示例将类 `Employee` 的定义拆分到两个声明中，其中每一个均定义一个不同的过程。 示例中的两个分部定义可能在一个源文件中或在两个不同的源文件中。  
+ The following examples split the definition of class `Employee` into two declarations, each of which defines a different procedure. The two partial definitions in the examples could be in one source file or in two different source files.  
   
 > [!NOTE]
->  Visual Basic 使用分部类定义将 Visual Studio 生成的代码与用户编写的代码分开。 代码被分成单独的源文件。 例如，“Windows 窗体设计器”定义了控件的分部类，如 `Form`。 不应修改这些控件中生成的代码。  
+>  Visual Basic uses partial-class definitions to separate Visual Studio—generated code from user-authored code. The code is separated into discrete source files. For example, the **Windows Form Designer** defines partial classes for controls such as `Form`. You should not modify the generated code in these controls.  
   
- 有关 Visual Basic 中分部类型的详细信息，请参阅[分部](/dotnet/visual-basic/language-reference/modifiers/partial)。  
+ For more information about partial types in Visual Basic, see [Partial](/dotnet/visual-basic/language-reference/modifiers/partial).  
   
-## <a name="example"></a>示例  
- 若要拆分 Visual Basic 中的类定义，请使用 `Partial` 关键字，如以下示例所示。  
+## <a name="example"></a>Example  
+ To split a class definition in Visual Basic, use the `Partial` keyword, as shown in the following example.  
   
-```vb#  
+```vb  
 ' First part of class definition.  
 Partial Public Class Employee  
     Public Sub CalculateWorkHours()  
@@ -70,10 +70,10 @@ Partial Public Class Employee
 End Class  
 ```  
   
-## <a name="example"></a>示例  
- 若要拆分 Visual C# 中的类定义，请使用 `partial` 关键字，如以下示例所示。  
+## <a name="example"></a>Example  
+ To split a class definition in Visual C#, use the `partial` keyword, as shown in the following example.  
   
-```c#  
+```csharp  
 // First part of class definition.  
 public partial class Employee  
 {  
@@ -91,8 +91,8 @@ public partial class Employee
 }  
 ```  
   
-## <a name="see-also"></a>另请参阅  
- [分部类和方法](/dotnet/csharp/programming-guide/classes-and-structs/partial-classes-and-methods)   
- [分部（类型）](/dotnet/csharp/language-reference/keywords/partial-type)   
- [分部（方法）（C# 参考）](/dotnet/csharp/language-reference/keywords/partial-method)   
+## <a name="see-also"></a>See Also  
+ [Partial Classes and Methods](/dotnet/csharp/programming-guide/classes-and-structs/partial-classes-and-methods)   
+ [partial (Type)](/dotnet/csharp/language-reference/keywords/partial-type)   
+ [partial (Method) (C# Reference)](/dotnet/csharp/language-reference/keywords/partial-method)   
  [Partial](/dotnet/visual-basic/language-reference/modifiers/partial)

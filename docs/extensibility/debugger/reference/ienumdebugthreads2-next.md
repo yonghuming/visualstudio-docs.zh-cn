@@ -1,5 +1,5 @@
 ---
-title: "IEnumDebugThreads2::Next |Microsoft 文档"
+title: IEnumDebugThreads2::Next | Microsoft Docs
 ms.custom: 
 ms.date: 11/04/2016
 ms.reviewer: 
@@ -30,18 +30,19 @@ translation.priority.mt:
 - tr-tr
 - zh-cn
 - zh-tw
-translationtype: Machine Translation
-ms.sourcegitcommit: 5db97d19b1b823388a465bba15d057b30ff0b3ce
-ms.openlocfilehash: 0fcf16640a8c1684f2d00a2878e59d0a211bbcee
-ms.lasthandoff: 02/22/2017
+ms.translationtype: MT
+ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
+ms.openlocfilehash: 446f57d098ff5f8f85e7c061715eaae9ea3eb17a
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="ienumdebugthreads2next"></a>IEnumDebugThreads2::Next
-从枚举中返回下一组元素。  
+Returns the next set of elements from the enumeration.  
   
-## <a name="syntax"></a>语法  
+## <a name="syntax"></a>Syntax  
   
-```cpp#  
+```cpp  
 HRESULT Next(  
    ULONG           celt,  
    IDebugThread2** rgelt,  
@@ -49,7 +50,7 @@ HRESULT Next(
 );  
 ```  
   
-```c#  
+```csharp  
 int Next(  
    uint            celt,  
    IDebugThread2[] rgelt,  
@@ -57,19 +58,19 @@ int Next(
 );  
 ```  
   
-#### <a name="parameters"></a>参数  
+#### <a name="parameters"></a>Parameters  
  `celt`  
- [in]要检索的元素数。 此外指定的最大大小`rgelt`数组。  
+ [in] The number of elements to retrieve. Also specifies the maximum size of the `rgelt` array.  
   
  `rgelt`  
- [in、 out]数组[IDebugThread2](../../../extensibility/debugger/reference/idebugthread2.md)元素填充的。  
+ [in, out] Array of [IDebugThread2](../../../extensibility/debugger/reference/idebugthread2.md) elements to be filled in.  
   
  `pceltFetched`  
- [out]返回中实际返回的元素数目`rgelt`。  
+ [out] Returns the number of elements actually returned in `rgelt`.  
   
-## <a name="return-value"></a>返回值  
- 如果成功，返回`S_OK`。 返回`S_FALSE`如果无法返回请求数目的元素少于; 否则，返回错误代码。  
+## <a name="return-value"></a>Return Value  
+ If successful, returns `S_OK`. Returns `S_FALSE` if fewer than the requested number of elements could be returned; otherwise, returns an error code.  
   
-## <a name="see-also"></a>另请参阅  
+## <a name="see-also"></a>See Also  
  [IEnumDebugThreads2](../../../extensibility/debugger/reference/ienumdebugthreads2.md)   
  [IDebugThread2](../../../extensibility/debugger/reference/idebugthread2.md)

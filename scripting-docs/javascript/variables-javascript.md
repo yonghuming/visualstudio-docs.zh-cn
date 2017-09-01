@@ -1,37 +1,42 @@
 ---
 title: "变量 (JavaScript) | Microsoft Docs"
-ms.custom: ""
-ms.date: "01/18/2017"
-ms.prod: "windows-client-threshold"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "devlang-javascript"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-dev_langs: 
-  - "JavaScript"
-  - "TypeScript"
-  - "DHTML"
-helpviewer_keywords: 
-  - "区分大小写, JavaScript 变量名"
-  - "强迫"
+ms.custom: 
+ms.date: 01/18/2017
+ms.prod: windows-client-threshold
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- devlang-javascript
+ms.tgt_pltfrm: 
+ms.topic: article
+dev_langs:
+- JavaScript
+- TypeScript
+- DHTML
+helpviewer_keywords:
+- coercion
+- case sensitivity, JavaScript variable name
 ms.assetid: 12a450e5-4818-4a09-9878-cd7c6cd2a248
 caps.latest.revision: 20
-author: "mikejo5000"
-ms.author: "mikejo"
-manager: "ghogen"
-caps.handback.revision: 20
+author: mikejo5000
+ms.author: mikejo
+manager: ghogen
+ms.translationtype: HT
+ms.sourcegitcommit: 47057e9611b824c17077b9127f8d2f8b192d6eb8
+ms.openlocfilehash: f30946899ad35286dfb1e786cf903d58f5c98cb6
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/11/2017
+
 ---
-# 变量 (JavaScript)
-在 [!INCLUDE[javascript](../javascript/includes/javascript-md.md)] 中，变量包含一个值，如“hello”或 5。  在使用该变量时，您会引用该变量表示的数据，例如 `NumberOfDaysLeft = EndDate – TodaysDate`。  
+# <a name="variables-javascript"></a>变量 (JavaScript)
+在 [!INCLUDE[javascript](../javascript/includes/javascript-md.md)] 中，变量包含一个值，如“hello”或 5。 使用变量时，会引用其所代表的数据，例如 `NumberOfDaysLeft = EndDate - TodaysDate`。  
   
- 您使用变量存储、检索和操作代码中出现的值。  尝试为您的变量提供有意义的名称以便其他人轻松了解您的代码的行为。  
+ 可以使用变量来存储、检索和操作代码中显示的值。 尝试为变量赋予有意义的名称，方便其他人理解代码的功能。  
   
-## 声明变量  
- 变量在脚本中的首次亮相是在其声明中。  在变量首次出现时将会在内存中设置它，因此您稍后可在脚本中引用它。  应在使用变量之前先声明变量。  可以使用 `var` 关键字实现此目的。  
+## <a name="declaring-variables"></a>声明变量  
+ 变量首次在脚本中出现就是对其进行声明。 首次涉及变量时会在内存中对其进行设置，以便稍后在脚本中引用它。 使用变量之前应先声明它们。 可使用 `var` 关键字进行声明。  
   
-```javascript  
+```JavaScript  
 // A single declaration.  
 var count;    
 // Multiple declarations with a single var keyword.  
@@ -40,18 +45,18 @@ var count, amount, level;
 var count = 0, amount = 100;   
 ```  
   
- 如果未在 `var` 语句中初始化您的变量，它将自动采用 `undefined` 值。  
+ 如果不在 `var` 语句中初始化变量，它将自动应用值 `undefined`。  
   
-## 命名变量  
- [!INCLUDE[javascript](../javascript/includes/javascript-md.md)] 是一种区分大小写的语言。  这意味着，变量名 myCounter 与变量名 MYCounter 不同。  变量名可以是任意长度。  创建合法变量名的规则如下：  
+## <a name="naming-variables"></a>命名变量  
+ [!INCLUDE[javascript](../javascript/includes/javascript-md.md)] 是区分大小写的语言。 这表示诸如 myCounter 的变量名称与变量名称 MYCounter 不同。 变量名称可以是任何长度。 创建合法变量名称的规则如下所示：  
   
--   第一个字符必须是 ASCII 字母（大写或小写）或下划线 \(\_\) 字符。  注意，数字不能用作第一个字符。  
+-   第一个字符必须是 ASCII 字母（大写或小写），或下划线 (_) 字符。 请注意，不能将数字用作第一个字符。  
   
--   随后的字符必须是字母、数字或下划线 \(\_\)。  
+-   后续字符必须是字母、数字或下划线 (_)。  
   
--   变量名不得为[保留字](../javascript/reference/javascript-reserved-words.md)。  
+-   变量名不能是[保留字](../javascript/reference/javascript-reserved-words.md)。  
   
- 下面是有效变量名的一些示例：  
+ 以下是有效变量名称的一些示例：  
   
 ```  
 _pagecount   
@@ -59,60 +64,60 @@ Part9
 Number_Items   
 ```  
   
- 下面是无效变量名的一些示例：  
+ 以下是无效变量名称的一些示例：  
   
-```javascript  
+```JavaScript  
 // Cannot begin with a number.   
 99Balloons     
 // The ampersand (&) character is not a valid character for variable names.   
 Alpha&Beta   
 ```  
   
- 当您需要声明并初始化变量，但不需要为变量指定任何特定值时，请为变量分配 `null` 值。  这是一个示例。  
+ 在想声明一个变量并初始化它，但是不想赋予它任何特定值时，可为其赋值 `null`。 这是一个示例。  
   
-```javascript  
+```JavaScript  
 var bestAge = null;  
 var muchTooOld = 3 * bestAge; // muchTooOld has the value 0.  
 ```  
   
- 如果声明一个变量而不为其赋值，则该变量具有 `undefined` 值。  这是一个示例。  
+ 如果声明一个变量而不给它赋值，则它的值为 `undefined`。 这是一个示例。  
   
-```javascript  
+```JavaScript  
 var currentCount;  
 // finalCount has the value NaN because currentCount is undefined.  
 var finalCount = 1 * currentCount;   
 ```  
   
- `null` 值的行为与数字 0 类似，而 `undefined` 的行为与特定值 `NaN`（非数字）类似。  如果您比较一个 `null` 值和一个 `undefined` 值，则它们将相等。  
+ `null` 值的行为类似于数字 0，而 `undefined` 的行为类似于特殊值 `NaN`（不是数字）。 如果比较 `null` 值和 `undefined` 值，则会发现它们是相等的。  
   
- 可以在不使用 `var` 关键字的情况下在声明中声明一个变量，并为该变量分配一个值。  这是一个隐式声明。  
+ 可以在声明中不使用 `var` 关键字声明一个变量，并为其赋值。 这是一个隐式声明。  
   
-```javascript  
+```JavaScript  
 // The variable noStringAtAll is declared implicitly.  
 noStringAtAll = "";   
 ```  
   
- 不能使用从未声明过的变量。  
+ 无法使用从未声明过的变量。  
   
-```javascript  
+```JavaScript  
 // Error. Length and width do not yet exist.  
 var area = length * width;   
 ```  
   
-## 强制转换  
- [!INCLUDE[javascript](../javascript/includes/javascript-md.md)] 是松散类型化语言，与强类型语言（如 C\+\+）相反。  这意味着，JavaScript 变量没有预先确定的类型。  相反，变量的类型是其值的类型。  此行为允许您将值当作另外一种类型进行处理。  
+## <a name="coercion"></a>强制转换  
+ [!INCLUDE[javascript](../javascript/includes/javascript-md.md)] 是一种松散类型的语言，而不是类似于 C++ 这样的强类型语言。 这意味着 JavaScript 变量不具有任何预先确定的类型。 相反，变量类型是其值的类型。 此行为允许用户将值视为不同类型的值。  
   
- 在 [!INCLUDE[javascript](../javascript/includes/javascript-md.md)] 中，可以对不同类型的值执行运算，而不会导致异常。  [!INCLUDE[javascript](../javascript/includes/javascript-md.md)] 解释器会将某个数据类型隐式转换或*强制转换* 为其他数据类型，然后执行操作。  以下是适用于字符串、数字和布尔值的强制转换规则：  
+ 在 [!INCLUDE[javascript](../javascript/includes/javascript-md.md)] 中，可以在不引发异常的情况下对不同类型的值执行操作。 [!INCLUDE[javascript](../javascript/includes/javascript-md.md)] 解释器将其中一个数据类型隐式转换或强制转换为另一种数据类型，然后执行该操作。 字符串、数字和布尔值的强制转换规则如下所示：  
   
--   如果添加一个数字和字符串，则该数字会强制转换为字符串。  
+-   如果添加一个数字和一个字符串，则会将数字强制转换为字符串。  
   
--   如果添加一个布尔值和字符串，则该布尔值会强制转换为字符串。  
+-   如果添加一个布尔值和一个字符串，则会将布尔值强制转换为字符串。  
   
--   如果添加一个数字和布尔值，则该布尔值会强制转换为数字。  
+-   如果添加一个数字和一个布尔值，则会将布尔值强制转换为数字。  
   
- 在下面的示例中，会将数字添加到字符串中生成的字符串。  
+ 在下面的示例中，添加到字符串的数字会转换为字符串。  
   
-```javascript  
+```JavaScript  
 var x = 2000;  
 var y = "Hello";  
 // The number is coerced to a string.  
@@ -123,4 +128,4 @@ document.write(x);
 // 2000Hello  
 ```  
   
- 为了进行比较，字符串将自动转换为等效数字。  若要将字符串显式转换为整数，可以使用 [parseInt 函数](../javascript/reference/parseint-function-javascript.md)。  若要将字符串显式转换为数字，可以使用 [parseFloat 函数](../javascript/reference/parsefloat-function-javascript.md)。
+ 字符串将自动转换为等效数字以便进行比较。 若要显式地将字符串转换为整数，则使用 [parseInt 函数](../javascript/reference/parseint-function-javascript.md)。 若要显式地将字符串转换为数字，则使用 [parseFloat 函数](../javascript/reference/parsefloat-function-javascript.md)。

@@ -1,5 +1,5 @@
 ---
-title: "IDebugQueryEngine2::GetEngineInterface |Microsoft 文档"
+title: IDebugQueryEngine2::GetEngineInterface | Microsoft Docs
 ms.custom: 
 ms.date: 11/04/2016
 ms.reviewer: 
@@ -30,40 +30,41 @@ translation.priority.mt:
 - tr-tr
 - zh-cn
 - zh-tw
-translationtype: Machine Translation
-ms.sourcegitcommit: 5db97d19b1b823388a465bba15d057b30ff0b3ce
-ms.openlocfilehash: 63f2edfe3ebd787b067c12213d783edc06e4d46c
-ms.lasthandoff: 02/22/2017
+ms.translationtype: MT
+ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
+ms.openlocfilehash: 598606c6360993e664eda19e30b1a8b017a59e3a
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="idebugqueryengine2getengineinterface"></a>IDebugQueryEngine2::GetEngineInterface
-获取自定义调试引擎 (DE) 接口。  
+Gets a custom debug engine (DE) interface.  
   
-## <a name="syntax"></a>语法  
+## <a name="syntax"></a>Syntax  
   
-```cpp#  
+```cpp  
 HRESULT GetEngineInterface(   
    IUnknown** ppUnk  
 );  
 ```  
   
-```c#  
+```csharp  
 int GetEngineInterface(   
    out object ppUnk  
 );  
 ```  
   
-#### <a name="parameters"></a>参数  
+#### <a name="parameters"></a>Parameters  
  `ppUnk`  
- [out]返回`IUnknown`对象，表示调试引擎 (DE) 以及其可以查询获得与 DE 相关联的任何其他有效的接口 (例如[IDebugEngine2](../../../extensibility/debugger/reference/idebugengine2.md)或[IDebugEngineLaunch2](../../../extensibility/debugger/reference/idebugenginelaunch2.md))。  
+ [out] Returns an `IUnknown` object represents the debug engine (DE), and which can be queried for any other valid interface associated with a DE (for example [IDebugEngine2](../../../extensibility/debugger/reference/idebugengine2.md) or [IDebugEngineLaunch2](../../../extensibility/debugger/reference/idebugenginelaunch2.md)).  
   
-## <a name="return-value"></a>返回值  
- 如果成功，返回`S_OK`; 否则为返回错误代码。  
+## <a name="return-value"></a>Return Value  
+ If successful, returns `S_OK`; otherwise, returns an error code.  
   
-## <a name="remarks"></a>备注  
- 应谨慎使用生成的接口，因为通过此方法从检索到的接口的调用来避开会话调试管理器的处理，并且可能会导致 SDM 进入错误的状态，或在调试时生成错误。  
+## <a name="remarks"></a>Remarks  
+ The resulting interface should be used with care because calling through interfaces retrieved from this method circumvents the session debug manager's processing and may result in the SDM getting into a bad state or generating errors while debugging.  
   
-## <a name="see-also"></a>另请参阅  
+## <a name="see-also"></a>See Also  
  [IDebugQueryEngine2](../../../extensibility/debugger/reference/idebugqueryengine2.md)   
  [IDebugEngine2](../../../extensibility/debugger/reference/idebugengine2.md)   
  [IDebugEngineLaunch2](../../../extensibility/debugger/reference/idebugenginelaunch2.md)

@@ -1,90 +1,107 @@
 ---
-title: "SccPopulateList 函数 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "SccPopulateList"
-helpviewer_keywords: 
-  - "SccPopulateList 函数"
+title: SccPopulateList Function | Microsoft Docs
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords:
+- SccPopulateList
+helpviewer_keywords:
+- SccPopulateList function
 ms.assetid: 7416e781-c571-4a7f-8af3-a089ce8be662
 caps.latest.revision: 13
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 13
----
-# SccPopulateList 函数
-[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
+ms.author: gregvanl
+manager: ghogen
+translation.priority.mt:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+ms.translationtype: MT
+ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
+ms.openlocfilehash: 8d335f9853531f25bd5c7d137248e3b03297a3d5
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/28/2017
 
-此函数可更新特定的源控制命令的文件的列表，并提供所有给定文件的源代码管理状态。  
+---
+# <a name="sccpopulatelist-function"></a>SccPopulateList Function
+This function updates a list of files for a particular source control command and supplies source control status on all given files.  
   
-## 语法  
+## <a name="syntax"></a>Syntax  
   
-```cpp#  
+```cpp  
 SCCRTN SccPopulateList (  
-   LPVOID          pvContext,  
-   enum SCCCOMMAND nCommand,  
-   LONG            nFiles,  
-   LPCSTR*         lpFileNames,  
-   POPLISTFUNC     pfnPopulate,  
-   LPVOID          pvCallerData,  
-   LPLONG          lpStatus,  
-   LONG            fOptions  
+   LPVOID          pvContext,  
+   enum SCCCOMMAND nCommand,  
+   LONG            nFiles,  
+   LPCSTR*         lpFileNames,  
+   POPLISTFUNC     pfnPopulate,  
+   LPVOID          pvCallerData,  
+   LPLONG          lpStatus,  
+   LONG            fOptions  
 );  
 ```  
   
-#### 参数  
+#### <a name="parameters"></a>Parameters  
  pvContext  
- \[\] in源控制插件上下文结构。  
+ [in] The source control plug-in context structure.  
   
  nCommand  
- \[\] in将应用于所有文件的源代码管理命令 `lpFileNames` 数组 \(请参阅 [命令代码](../extensibility/command-code-enumerator.md) 有关可用命令的列表\)。  
+ [in] The source control command that will be applied to all files in the `lpFileNames` array (see [Command Code](../extensibility/command-code-enumerator.md) for a list of possible commands).  
   
  nFiles  
- \[\] in中的文件数 `lpFileNames` 数组。  
+ [in] Number of files in the `lpFileNames` array.  
   
  lpFileNames  
- \[\] in已知的 IDE 的文件名称的数组。  
+ [in] An array of file names known to the IDE.  
   
  pfnPopulate  
- \[\] in要调用来添加和删除文件的 IDE 回调函数 \(请参阅 [POPLISTFUNC](../extensibility/poplistfunc.md) 有关的详细信息\)。  
+ [in] The IDE callback function to call to add and remove files (see [POPLISTFUNC](../extensibility/poplistfunc.md) for details).  
   
  pvCallerData  
- \[\] in要传递的值未更改的回调函数。  
+ [in] Value that is to be passed unchanged to the callback function.  
   
  lpStatus  
- \[in、 out\]用于源代码管理插件以返回每个文件的状态标志的数组。  
+ [in, out] An array for the source control plug-in to return the status flags for each file.  
   
- 选项  
- \[\] in命令标志 \(请参阅的"PopulateList 标志"部分 [Bitflags 由特定的命令使用](../extensibility/bitflags-used-by-specific-commands.md) 有关的详细信息\)。  
+ fOptions  
+ [in] Command flags (see the "PopulateList flag" section of [Bitflags Used by Specific Commands](../extensibility/bitflags-used-by-specific-commands.md) for details).  
   
-## 返回值  
- 此函数的源代码控制插件实现应返回下列值之一:  
+## <a name="return-value"></a>Return Value  
+ The source control plug-in implementation of this function is expected to return one of the following values:  
   
-|值|描述|  
-|-------|--------|  
-|SCC\_OK|成功。|  
-|SCC\_E\_NONSPECIFICERROR|非特定故障。|  
+|Value|Description|  
+|-----------|-----------------|  
+|SCC_OK|Success.|  
+|SCC_E_NONSPECIFICERROR|Nonspecific failure.|  
   
-## 备注  
- 此函数将检查其当前状态的文件的列表。 它使用 `pfnPopulate` 回调函数以告知给调用方，当文件不匹配的条件时 `nCommand`。 例如，如果该命令是 `SCC_COMMAND_CHECKIN` 并在列表中的文件未签出，然后使用回调来通知调用方。 有时，源代码管理插件可能会发现的其他文件，可以将命令的一部分并添加它们。 这样，例如，Visual Basic 用户签出一个.bmp 文件，他或她的项目所使用的但不是显示在 Visual Basic 项目文件中。 用户选择 **获取** 命令在 IDE 中。 IDE 将显示它认为用户可以获得的所有文件的列表，但在该列表显示之前, `SccPopulateList` 调用函数，以确保要显示的列表是最新。  
+## <a name="remarks"></a>Remarks  
+ This function examines the list of files for its current status. It uses the `pfnPopulate` callback function to notify the caller when a file does not match the criteria for the `nCommand`. For example, if the command is `SCC_COMMAND_CHECKIN` and a file in the list is not checked out, then the callback is used to inform the caller. Occasionally, the source control plug-in may find other files that could be part of the command and add them. This allows, for example, a Visual Basic user to check out a .bmp file that is used by his or her project but does not appear in the Visual Basic project file. A user chooses the **Get** command in the IDE. The IDE will display a list of all files that it thinks the user can get, but before the list is shown, the `SccPopulateList` function is called to make sure the list to be displayed is up to date.  
   
-## 示例  
- IDE 来生成它认为该用户可以得到的文件的列表。 它显示了此列表之前，它将调用 `SccPopulateList` 函数中，为源代码管理插件提供有机会添加并从列表中删除文件。 插件通过调用给定的回调函数修改的列表 \(请参阅 [POPLISTFUNC](../extensibility/poplistfunc.md) 的更多详细信息\)。  
+## <a name="example"></a>Example  
+ The IDE builds a list of files that it thinks the user can get. Before it displays this list, it calls the `SccPopulateList` function, giving the source control plug-in the opportunity to add and delete files from the list. The plug-in modifies the list by calling the given callback function (see [POPLISTFUNC](../extensibility/poplistfunc.md) for more details).  
   
- 该插件将继续调用 `pfnPopulate` 函数，它添加和删除文件，直到其完成，然后通过返回 `SccPopulateList` 函数。 IDE 可显示它的列表。`lpStatus` 数组表示通过 IDE 中传递的原始列表中的所有文件。 所有这些文件要让另外的状态插件填写使用回调函数。  
+ The plug-in continues to call the `pfnPopulate` function, which adds and deletes files, until it is finished and then returns from the `SccPopulateList` function. The IDE can then display its list. The `lpStatus` array represents all files in the original list passed in by the IDE. The plug-in fills in the status of all these files in addition to making use of the callback function.  
   
 > [!NOTE]
->  源代码管理插件始终可以选择只需从该函数，按原样保留列表立即返回。 如果插件实现此函数，它可以指示这一点通过设置 `SCC_CAP_POPULATELIST` 功能在首次调用中的位标志 [SccInitialize](../extensibility/sccinitialize-function.md)。 默认情况下，该插件应始终认为要传入的所有项都是文件。 但是，如果 IDE 设置 `SCC_PL_DIR` 中标记出来 `fOptions` 参数，正在传递的所有项目都都被视为目录。 该插件应将添加所属的所有文件的目录中。 IDE 将永远不会将文件和目录的混合传递。  
+>  A source control plug-in always has the option to simply return immediately from this function, leaving the list as it is. If a plug-in implements this function, it can indicate this by setting the `SCC_CAP_POPULATELIST` capability bitflag in the first call to the [SccInitialize](../extensibility/sccinitialize-function.md). By default, the plug-in should always assume that all items being passed in are files. However, if the IDE sets the `SCC_PL_DIR` flag in the `fOptions` parameter, all the items being passed in are to be considered directories. The plug-in should add all the files that belong in the directories. The IDE will never pass in a mixture of files and directories.  
   
-## 请参阅  
- [源代码管理插件 API 功能](../extensibility/source-control-plug-in-api-functions.md)   
+## <a name="see-also"></a>See Also  
+ [Source Control Plug-in API Functions](../extensibility/source-control-plug-in-api-functions.md)   
  [SccInitialize](../extensibility/sccinitialize-function.md)   
  [POPLISTFUNC](../extensibility/poplistfunc.md)   
- [Bitflags 由特定的命令使用](../extensibility/bitflags-used-by-specific-commands.md)   
- [命令代码](../extensibility/command-code-enumerator.md)
+ [Bitflags Used by Specific Commands](../extensibility/bitflags-used-by-specific-commands.md)   
+ [Command Code](../extensibility/command-code-enumerator.md)

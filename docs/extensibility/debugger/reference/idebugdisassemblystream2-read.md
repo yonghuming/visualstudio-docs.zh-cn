@@ -1,74 +1,91 @@
 ---
-title: "IDebugDisassemblyStream2::Read | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "IDebugDisassemblyStream2::Read"
-helpviewer_keywords: 
-  - "IDebugDisassemblyStream2::Read"
+title: IDebugDisassemblyStream2::Read | Microsoft Docs
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords:
+- IDebugDisassemblyStream2::Read
+helpviewer_keywords:
+- IDebugDisassemblyStream2::Read
 ms.assetid: 7db5f6bb-73ee-45bc-b187-c1b6aa2dfdd5
 caps.latest.revision: 10
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 10
----
-# IDebugDisassemblyStream2::Read
-[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
+ms.author: gregvanl
+manager: ghogen
+translation.priority.mt:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+ms.translationtype: MT
+ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
+ms.openlocfilehash: ac6ab04becff0850453d5fb02a67c765264caf49
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/28/2017
 
-从 " 反汇编流的当前位置开始阅读说明。  
+---
+# <a name="idebugdisassemblystream2read"></a>IDebugDisassemblyStream2::Read
+Reads instructions starting from the current position in the disassembly stream.  
   
-## 语法  
+## <a name="syntax"></a>Syntax  
   
-```cpp#  
-HRESULT Read(   
-   DWORD                     dwInstructions,  
-   DISASSEMBLY_STREAM_FIELDS dwFields,  
-   DWORD*                    pdwInstructionsRead,  
-   DisassemblyData*          prgDisassembly  
+```cpp  
+HRESULT Read(   
+   DWORD                     dwInstructions,  
+   DISASSEMBLY_STREAM_FIELDS dwFields,  
+   DWORD*                    pdwInstructionsRead,  
+   DisassemblyData*          prgDisassembly  
 );  
 ```  
   
-```c#  
-int Read(   
-   uint                           dwInstructions,  
-   enum_DISASSEMBLY_STREAM_FIELDS dwFields,  
-   out uint                       pdwInstructionsRead,  
-   DisassemblyData[]              prgDisassembly  
+```csharp  
+int Read(   
+   uint                           dwInstructions,  
+   enum_DISASSEMBLY_STREAM_FIELDS dwFields,  
+   out uint                       pdwInstructionsRead,  
+   DisassemblyData[]              prgDisassembly  
 );  
 ```  
   
-#### 参数  
+#### <a name="parameters"></a>Parameters  
  `dwInstructions`  
- \[in\] 命令数拆分。  此值也是 `prgDisassembly` 数组的最大长度。  
+ [in] The number of instructions to disassemble. This value is also the maximum length of the `prgDisassembly` array.  
   
  `dwFields`  
- \[in\] 指示标志的组合。 [DISASSEMBLY\_STREAM\_FIELDS](../../../extensibility/debugger/reference/disassembly-stream-fields.md) 枚举的 `prgDisassembly` 的哪些字段将完成。  
+ [in] A combination of flags from the [DISASSEMBLY_STREAM_FIELDS](../../../extensibility/debugger/reference/disassembly-stream-fields.md) enumeration that indicate which fields of `prgDisassembly` are to be filled out.  
   
  `pdwInstructionsRead`  
- \[out\] 返回实际上是反汇编的命令数。  
+ [out] Returns the number of instructions actually disassembled.  
   
  `prgDisassembly`  
- \[out\] 用反汇编的代码以填充的数组 [DisassemblyData](../../../extensibility/debugger/reference/disassemblydata.md) 结构，每个拆分的命令的结构。  此数组的长度由 `dwInstructions` 参数指定。  
+ [out] An array of [DisassemblyData](../../../extensibility/debugger/reference/disassemblydata.md) structures that is filled in with the disassembled code, one structure per disassembled instruction. The length of this array is dictated by the `dwInstructions` parameter.  
   
-## 返回值  
- 如果成功，则返回; `S_OK`否则，返回错误代码。  
+## <a name="return-value"></a>Return Value  
+ If successful, returns `S_OK`; otherwise, returns an error code.  
   
-## 备注  
- 可在当前范围命令的最大数量可通过调用 [GetSize](../../../extensibility/debugger/reference/idebugdisassemblystream2-getsize.md) 方法获取。  
+## <a name="remarks"></a>Remarks  
+ The maximum number of instructions that are available in the current scope can be obtained by calling the [GetSize](../../../extensibility/debugger/reference/idebugdisassemblystream2-getsize.md) method.  
   
- 下一条指令中的当前位置中调用 [查找](../../../extensibility/debugger/reference/idebugdisassemblystream2-seek.md) 方法更改读取。  
+ The current position where the next instruction is read from can be changed by calling the [Seek](../../../extensibility/debugger/reference/idebugdisassemblystream2-seek.md) method.  
   
- `DSF_OPERANDS_SYMBOLS` 标志可以添加到 `dwFields` 参数的 `DSF_OPERANDS` 标志指示应使用符号名，在反汇编命令时。  
+ The `DSF_OPERANDS_SYMBOLS` flag can be added to the `DSF_OPERANDS` flag in the `dwFields` parameter to indicate that symbol names should be used when disassembling instructions.  
   
-## 请参阅  
+## <a name="see-also"></a>See Also  
  [IDebugDisassemblyStream2](../../../extensibility/debugger/reference/idebugdisassemblystream2.md)   
- [DISASSEMBLY\_STREAM\_FIELDS](../../../extensibility/debugger/reference/disassembly-stream-fields.md)   
+ [DISASSEMBLY_STREAM_FIELDS](../../../extensibility/debugger/reference/disassembly-stream-fields.md)   
  [DisassemblyData](../../../extensibility/debugger/reference/disassemblydata.md)   
  [GetSize](../../../extensibility/debugger/reference/idebugdisassemblystream2-getsize.md)   
- [查找](../../../extensibility/debugger/reference/idebugdisassemblystream2-seek.md)
+ [Seek](../../../extensibility/debugger/reference/idebugdisassemblystream2-seek.md)

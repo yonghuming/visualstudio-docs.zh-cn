@@ -1,77 +1,92 @@
 ---
-title: "CA1816：正确调用 GC.SuppressFinalize | Microsoft Docs"
-ms.custom: ""
-ms.date: "12/14/2016"
-ms.prod: "visual-studio-dev14"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-devops-test"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "CA1816"
-  - "DisposeMethodsShouldCallSuppressFinalize"
-helpviewer_keywords: 
-  - "CA1816"
-  - "DisposeMethodsShouldCallSuppressFinalize"
+title: 'CA1816: Call GC.SuppressFinalize correctly | Microsoft Docs'
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-devops-test
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords:
+- CA1816
+- DisposeMethodsShouldCallSuppressFinalize
+helpviewer_keywords:
+- DisposeMethodsShouldCallSuppressFinalize
+- CA1816
 ms.assetid: 47915fbb-103f-4333-b157-1da16bf49660
 caps.latest.revision: 19
-caps.handback.revision: 19
-author: "stevehoag"
-ms.author: "shoag"
-manager: "wpickett"
----
-# CA1816：正确调用 GC.SuppressFinalize
-[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
+author: stevehoag
+ms.author: shoag
+manager: wpickett
+translation.priority.ht:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+ms.translationtype: HT
+ms.sourcegitcommit: eb5c9550fd29b0e98bf63a7240737da4f13f3249
+ms.openlocfilehash: 43f0cf6749b6ad7a329f814aa9fbb19658912af9
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/30/2017
 
+---
+# <a name="ca1816-call-gcsuppressfinalize-correctly"></a>CA1816: Call GC.SuppressFinalize correctly
 |||  
 |-|-|  
-|类型名|CallGCSuppressFinalizeCorrectly|  
+|TypeName|CallGCSuppressFinalizeCorrectly|  
 |CheckId|CA1816|  
-|类别|Microsoft.  用法|  
-|是否重大更改|否|  
+|Category|Microsoft. Usage|  
+|Breaking Change|Non Breaking|  
   
-## 原因  
+## <a name="cause"></a>Cause  
   
--   作为 <xref:System.IDisposable.Dispose%2A?displayProperty=fullName> 的实现的方法没有调用 <xref:System.GC.SuppressFinalize%2A?displayProperty=fullName>。  
+-   A method that is an implementation of <xref:System.IDisposable.Dispose%2A?displayProperty=fullName> does not call <xref:System.GC.SuppressFinalize%2A?displayProperty=fullName>.  
   
--   不是 <xref:System.IDisposable.Dispose%2A?displayProperty=fullName> 的实现的方法调用了 <xref:System.GC.SuppressFinalize%2A?displayProperty=fullName>。  
+-   A method that is not an implementation of <xref:System.IDisposable.Dispose%2A?displayProperty=fullName> calls <xref:System.GC.SuppressFinalize%2A?displayProperty=fullName>.  
   
--   方法调用了 <xref:System.GC.SuppressFinalize%2A?displayProperty=fullName> 并传递 this（在 Visual Basic 中是 Me）以外的某个值。  
+-   A method calls <xref:System.GC.SuppressFinalize%2A?displayProperty=fullName> and passes something other than this (Me in Visual Basic).  
   
-## 规则说明  
- 使用 <xref:System.IDisposable.Dispose%2A?displayProperty=fullName> 方法，用户可以在可将对象作为垃圾回收之前随时释放资源。  如果调用了 <xref:System.IDisposable.Dispose%2A?displayProperty=fullName> 方法，此方法会释放对象的资源。  这使得无需终止。  <xref:System.IDisposable.Dispose%2A?displayProperty=fullName> 应调用 <xref:System.GC.SuppressFinalize%2A?displayProperty=fullName> 以使垃圾回收器不调用对象的终结器。  
+## <a name="rule-description"></a>Rule Description  
+ The <xref:System.IDisposable.Dispose%2A?displayProperty=fullName> method lets users release resources at any time before the object becoming available for garbage collection. If the <xref:System.IDisposable.Dispose%2A?displayProperty=fullName> method is called, it frees resources of the object. This makes finalization unnecessary. <xref:System.IDisposable.Dispose%2A?displayProperty=fullName> should call <xref:System.GC.SuppressFinalize%2A?displayProperty=fullName> so the garbage collector does not call the finalizer of the object.  
   
- 若要使带有终结器的派生类型无需重新实现 [System.IDisposable](assetId:///System.IDisposable?qualifyHint=True&autoUpgrade=False) 和调用它，不带终结器的非密封类型仍然应调用 <xref:System.GC.SuppressFinalize%2A?displayProperty=fullName>。  
+ To prevent derived types with finalizers from having to re-implement <xref:System.IDisposable> and to call it, unsealed types without finalizers should still call <xref:System.GC.SuppressFinalize%2A?displayProperty=fullName>.  
   
-## 如何解决冲突  
- 若要修复与该规则的冲突，请执行以下操作：  
+## <a name="how-to-fix-violations"></a>How to Fix Violations  
+ To fix a violation of this rule:  
   
- 如果相应方法是 <xref:System.IDisposable.Dispose%2A> 的实现，请添加对 <xref:System.GC.SuppressFinalize%2A?displayProperty=fullName> 的调用。  
+ If the method is an implementation of <xref:System.IDisposable.Dispose%2A>, add a call to <xref:System.GC.SuppressFinalize%2A?displayProperty=fullName>.  
   
- 如果相应方法不是 <xref:System.IDisposable.Dispose%2A> 的实现，请移除对 <xref:System.GC.SuppressFinalize%2A?displayProperty=fullName> 的调用或将其移到相应类型的 <xref:System.IDisposable.Dispose%2A> 实现中。  
+ If the method is not an implementation of <xref:System.IDisposable.Dispose%2A>, either remove the call to <xref:System.GC.SuppressFinalize%2A?displayProperty=fullName> or move it to the type's <xref:System.IDisposable.Dispose%2A> implementation.  
   
- 将对 <xref:System.GC.SuppressFinalize%2A?displayProperty=fullName> 的所有调用更改为传递 this（在 Visual Basic 中是 Me）。  
+ Change all calls to <xref:System.GC.SuppressFinalize%2A?displayProperty=fullName> to pass this (Me in Visual Basic).  
   
-## 何时禁止显示警告  
- 只有在您考虑使用 <xref:System.GC.SuppressFinalize%2A?displayProperty=fullName> 来控制其他对象的生存期时，才应禁止显示此规则发出的警告。  如果 <xref:System.IDisposable.Dispose%2A> 的实现没有调用 <xref:System.GC.SuppressFinalize%2A?displayProperty=fullName>，请勿禁止显示此规则发出的警告。  在这种情况下，如果取消终止失败，则会使性能下降且不会有任何好处。  
+## <a name="when-to-suppress-warnings"></a>When to Suppress Warnings  
+ Only suppress a warning from this rule if you are deliberating using <xref:System.GC.SuppressFinalize%2A?displayProperty=fullName> to control the lifetime of other objects. Do not suppress a warning from this rule if an implementation of <xref:System.IDisposable.Dispose%2A> does not call <xref:System.GC.SuppressFinalize%2A?displayProperty=fullName>. In this situation, failing to suppress finalization degrades performance and provide no benefits.  
   
-## 示例  
- 下面的示例显示了一个未正确调用 <xref:System.GC.SuppressFinalize%2A?displayProperty=fullName> 的方法。  
+## <a name="example"></a>Example  
+ The following example shows a method that incorrectly calls <xref:System.GC.SuppressFinalize%2A?displayProperty=fullName>.  
   
- [!code-vb[FxCop.Usage.CallGCSuppressFinalizeCorrectly#1](../code-quality/codesnippet/VisualBasic/ca1816-call-gc-suppressfinalize-correctly_1.vb)]
- [!code-cs[FxCop.Usage.CallGCSuppressFinalizeCorrectly#1](../code-quality/codesnippet/CSharp/ca1816-call-gc-suppressfinalize-correctly_1.cs)]  
+ [!code-vb[FxCop.Usage.CallGCSuppressFinalizeCorrectly#1](../code-quality/codesnippet/VisualBasic/ca1816-call-gc-suppressfinalize-correctly_1.vb)] [!code-csharp[FxCop.Usage.CallGCSuppressFinalizeCorrectly#1](../code-quality/codesnippet/CSharp/ca1816-call-gc-suppressfinalize-correctly_1.cs)]  
   
-## 示例  
- 下面的示例显示了一个正确调用 <xref:System.GC.SuppressFinalize%2A?displayProperty=fullName> 的方法。  
+## <a name="example"></a>Example  
+ The following example shows a method that correctly calls <xref:System.GC.SuppressFinalize%2A?displayProperty=fullName>.  
   
- [!CODE [FxCop.Usage.CallGCSuppressFinalizeCorrectly2#1](../CodeSnippet/VS_Snippets_CodeAnalysis/FxCop.Usage.CallGCSuppressFinalizeCorrectly2#1)]  
+ [!code-vb[FxCop.Usage.CallGCSuppressFinalizeCorrectly2#1](../code-quality/codesnippet/VisualBasic/ca1816-call-gc-suppressfinalize-correctly_2.vb)] [!code-csharp[FxCop.Usage.CallGCSuppressFinalizeCorrectly2#1](../code-quality/codesnippet/CSharp/ca1816-call-gc-suppressfinalize-correctly_2.cs)]  
   
-## 相关规则  
- [CA2215：Dispose 方法应调用基类的 Dispose](../code-quality/ca2215-dispose-methods-should-call-base-class-dispose.md)  
+## <a name="related-rules"></a>Related Rules  
+ [CA2215: Dispose methods should call base class dispose](../code-quality/ca2215-dispose-methods-should-call-base-class-dispose.md)  
   
- [CA2216：可释放类型应声明终结器](../code-quality/ca2216-disposable-types-should-declare-finalizer.md)  
+ [CA2216: Disposable types should declare finalizer](../code-quality/ca2216-disposable-types-should-declare-finalizer.md)  
   
-## 请参阅  
- [释放模式](../Topic/Dispose%20Pattern.md)
+## <a name="see-also"></a>See Also  
+ [Dispose Pattern](/dotnet/standard/design-guidelines/dispose-pattern)

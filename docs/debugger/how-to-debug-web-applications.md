@@ -1,58 +1,53 @@
----
-title: "如何：调试 Web 应用程序 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-debug"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-dev_langs: 
-  - "FSharp"
-  - "VB"
+-- title: "How to: Debug Web Applications | Microsoft Docs" ms.custom: "" ms.date: "11/04/2016" ms.reviewer: "" ms.suite: "" ms.technology: 
+  - "vs-ide-debug" ms.tgt_pltfrm: "" ms.topic: "article" dev_langs: 
   - "CSharp"
-  - "C++"
-helpviewer_keywords: 
-  - "ASP.NET Web 窗体, 调试"
-  - "ASP.NET, 调试 Web 应用程序"
-  - "调试 ASP.NET Web 应用程序, 在开发过程中"
-  - "Web 服务, 调试"
-ms.assetid: 6440d12e-6b29-42c5-a958-99aeaaff480f
-caps.latest.revision: 37
-author: "mikejo5000"
-ms.author: "mikejo"
-manager: "ghogen"
-caps.handback.revision: 37
+  - "VB"
+  - "FSharp"
+  - "C++" helpviewer_keywords: 
+  - "Web services, debugging"
+  - "ASP.NET Web Forms, debugging"
+  - "ASP.NET, debugging Web applications"
+  - "debugging ASP.NET Web applications, during development" ms.assetid: 6440d12e-6b29-42c5-a958-99aeaaff480f caps.latest.revision: 37 author: "mikejo5000" ms.author: "mikejo" manager: "ghogen" translation.priority.ht: 
+  - "cs-cz"
+  - "de-de"
+  - "es-es"
+  - "fr-fr"
+  - "it-it"
+  - "ja-jp"
+  - "ko-kr"
+  - "pl-pl"
+  - "pt-br"
+  - "ru-ru"
+  - "tr-tr"
+  - "zh-cn"
+  - "zh-tw"
 ---
-# 如何：调试 Web 应用程序
-[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
-
-[!INCLUDE[vstecasp](../code-quality/includes/vstecasp_md.md)] 是在 [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] 中开发 Web 应用程序的主要技术。  [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] 调试器为在本地或远程服务器上调试 [!INCLUDE[vstecasp](../code-quality/includes/vstecasp_md.md)] Web 应用程序提供了强大的工具。  本主题描述如何在开发期间调试 [!INCLUDE[vstecasp](../code-quality/includes/vstecasp_md.md)] 项目。  有关如何调试已部署在生产服务器上的 [!INCLUDE[vstecasp](../code-quality/includes/vstecasp_md.md)] Web 应用程序的信息，请参见[调试已部署的 Web 应用程序](../debugger/debugging-deployed-web-applications.md)。  
+# <a name="how-to-debug-web-applications"></a>How to: Debug Web Applications
+[!INCLUDE[vstecasp](../code-quality/includes/vstecasp_md.md)] is the primary technology for developing Web applications in [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)]. The [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] debugger provides powerful tools for debugging [!INCLUDE[vstecasp](../code-quality/includes/vstecasp_md.md)] Web applications locally or on a remote server. This topic describes how to debug a [!INCLUDE[vstecasp](../code-quality/includes/vstecasp_md.md)] project during development. For information about how to debug a [!INCLUDE[vstecasp](../code-quality/includes/vstecasp_md.md)] Web application already deployed on a production server, see [Debugging Deployed Web Applications](../debugger/debugging-deployed-web-applications.md).  
   
- 若要调试 [!INCLUDE[vstecasp](../code-quality/includes/vstecasp_md.md)] 应用程序，必须满足以下条件：  
+ To debug a [!INCLUDE[vstecasp](../code-quality/includes/vstecasp_md.md)] application:  
   
--   您必须拥有必需的权限。  有关详细信息，请参阅 [系统要求](../debugger/aspnet-debugging-system-requirements.md)。  
+-   You must have required permissions. For more information, see [System Requirements](../debugger/aspnet-debugging-system-requirements.md).  
   
--   必须在**“项目属性”**中启用 [!INCLUDE[vstecasp](../code-quality/includes/vstecasp_md.md)] 调试。  
+-   [!INCLUDE[vstecasp](../code-quality/includes/vstecasp_md.md)] debugging must be enabled in **Project Properties**.  
   
--   一定要把您的应用程序配置文件 \(Web.config\) 设为调试模式。  调试模式会导致 [!INCLUDE[vstecasp](../code-quality/includes/vstecasp_md.md)] 为动态生成的文件生成符号，并允许将调试器附加到 [!INCLUDE[vstecasp](../code-quality/includes/vstecasp_md.md)] 应用程序。  如果项目是基于 Web 项目模板创建的，[!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] 会在调试开始时自动完成这一设置。  
+-   The configuration file of your application (Web.config) must be set to debug mode. Debug mode causes [!INCLUDE[vstecasp](../code-quality/includes/vstecasp_md.md)] to generate symbols for dynamically generated files and enables the debugger to attach to the [!INCLUDE[vstecasp](../code-quality/includes/vstecasp_md.md)] application. [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] sets this automatically when you start to debug, if you created your project from the Web projects template.  
   
--   有关详细信息，请参阅[如何：为 ASP.NET 应用程序启用调试](../debugger/how-to-enable-debugging-for-aspnet-applications.md)。  
+-   For more information, see [How to: Enable Debugging for ASP.NET Applications](../debugger/how-to-enable-debugging-for-aspnet-applications.md).  
   
-### 在开发过程中调试 Web 应用程序  
+### <a name="to-debug-a-web-application-during-development"></a>To debug a Web application during development  
   
-1.  在**“调试”**菜单上，单击**“启动”**以开始调试 Web 应用程序。  
+1.  On the **Debug** menu, click **Start** to begin debugging the Web application.  
   
-     [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] 将生成 Web 应用程序项目，根据需要部署应用程序，启动 ASP.NET Development Server（如果正在进行本地调试），并附加到 [!INCLUDE[vstecasp](../code-quality/includes/vstecasp_md.md)] 辅助进程。  
+     [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] builds the Web application project, deploys the application if necessary, starts the ASP.NET Development Server if you are debugging locally, and attaches to the [!INCLUDE[vstecasp](../code-quality/includes/vstecasp_md.md)] worker process.  
   
-2.  使用调试器设置和清除断点，单步执行，并执行其他调试操作（就像调试任何应用程序那样）。  
+2.  Use the Debugger to set and clear breakpoints, step, and perform other debugging operations, as you would for any application.  
   
-     有关详细信息，请参阅[调试器基础知识](../debugger/debugger-basics.md)。  
+     For more information, see [Debugger Basics](../debugger/debugger-basics.md).  
   
-3.  在**“调试”**菜单上，单击**“停止调试”**，以结束调试会话，或者在 Internet Explorer 的**“文件”**菜单中，单击**“关闭”**。  
+3.  On the **Debug** menu, click **Stop Debugging** to end the debugging session or on the **File** menu in Internet Explorer, click **Close**.  
   
-## 请参阅  
- [调试 Web 应用程序和脚本](../debugger/debugging-web-applications-and-script.md)   
- [调试 ASP.NET 和 AJAX 应用程序](../debugger/debugging-aspnet-and-ajax-applications.md)   
- [如何：为 ASP.NET 应用程序启用调试](../debugger/how-to-enable-debugging-for-aspnet-applications.md)
+## <a name="see-also"></a>See Also  
+ [Debugging Web Applications and Script](../debugger/debugging-web-applications-and-script.md)   
+ [Debugging ASP.NET and AJAX Applications](../debugger/debugging-aspnet-and-ajax-applications.md)   
+ [How to: Enable Debugging for ASP.NET Applications](../debugger/how-to-enable-debugging-for-aspnet-applications.md)

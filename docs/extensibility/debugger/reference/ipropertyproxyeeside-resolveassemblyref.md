@@ -1,5 +1,5 @@
 ---
-title: "IPropertyProxyEESide::ResolveAssemblyRef |Microsoft 文档"
+title: IPropertyProxyEESide::ResolveAssemblyRef | Microsoft Docs
 ms.custom: 
 ms.date: 11/04/2016
 ms.reviewer: 
@@ -30,18 +30,19 @@ translation.priority.mt:
 - tr-tr
 - zh-cn
 - zh-tw
-translationtype: Machine Translation
-ms.sourcegitcommit: 5db97d19b1b823388a465bba15d057b30ff0b3ce
-ms.openlocfilehash: b9e0b4cb6294b0437366282fd0d5f82feea14f5a
-ms.lasthandoff: 02/22/2017
+ms.translationtype: MT
+ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
+ms.openlocfilehash: e71bb5aa2954c609cff4a3afbfba981bade3122c
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="ipropertyproxyeesideresolveassemblyref"></a>IPropertyProxyEESide::ResolveAssemblyRef
-确定指定的托管程序集引用的位置。  
+Determines the location of the specified managed assembly reference.  
   
-## <a name="syntax"></a>语法  
+## <a name="syntax"></a>Syntax  
   
-```cpp#  
+```cpp  
 HRESULT ResolveAssemblyRef(  
    BSTR*                  assemName,  
    IEEDataStorage**       assemBytes,  
@@ -51,7 +52,7 @@ HRESULT ResolveAssemblyRef(
 );  
 ```  
   
-```c#  
+```csharp  
 int ResolveAssemblyRef(  
    ref string                     assemName,  
    out IEEDataStorage             assemBytes,  
@@ -61,29 +62,29 @@ int ResolveAssemblyRef(
 );  
 ```  
   
-#### <a name="parameters"></a>参数  
+#### <a name="parameters"></a>Parameters  
  `assemName`  
- [in]若要解决的程序集的名称。  
+ [in] Name of the assembly to resolve.  
   
  `assemBytes`  
- [out]返回[IEEDataStorage](../../../extensibility/debugger/reference/ieedatastorage.md)对象，它包含与引用关联的程序集字节。  
+ [out] Returns an [IEEDataStorage](../../../extensibility/debugger/reference/ieedatastorage.md) object containing the assembly bytes associated with the reference.  
   
  `assemPdb`  
- [out]返回`IEEDataStorage`对象，其中包含该符号将存储与此引用关联的数据。  
+ [out] Returns an `IEEDataStorage` object containing the symbol store data associated with this reference.  
   
  `assemLocation`  
- [out]返回此引用的路径位置。  
+ [out] Returns the path location of this reference.  
   
  `alr`  
- [out]返回一个介于[ASSEMBLYLOCRESOLUTION](../../../extensibility/debugger/reference/assemblylocresolution.md)枚举，指示此引用的程序集的位置。  
+ [out] Returns a value from the [ASSEMBLYLOCRESOLUTION](../../../extensibility/debugger/reference/assemblylocresolution.md) enumeration indicating the location of this reference's assembly.  
   
-## <a name="return-value"></a>返回值  
- 如果成功，返回`S_OK`; 否则为返回错误代码。  
+## <a name="return-value"></a>Return Value  
+ If successful, returns `S_OK`; otherwise, returns an error code.  
   
-## <a name="remarks"></a>备注  
- 此方法通常不由自定义表达式计算器实现。  
+## <a name="remarks"></a>Remarks  
+ This method is not typically implemented by a custom expression evaluator.  
   
-## <a name="see-also"></a>另请参阅  
+## <a name="see-also"></a>See Also  
  [IPropertyProxyEESide](../../../extensibility/debugger/reference/ipropertyproxyeeside.md)   
  [IEEDataStorage](../../../extensibility/debugger/reference/ieedatastorage.md)   
  [ASSEMBLYLOCRESOLUTION](../../../extensibility/debugger/reference/assemblylocresolution.md)

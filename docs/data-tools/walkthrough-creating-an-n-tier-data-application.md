@@ -1,230 +1,246 @@
 ---
-title: "演练：创建 N 层数据应用程序 | Microsoft Docs"
-ms.custom: ""
-ms.date: "12/15/2016"
-ms.prod: "visual-studio-dev14"
-ms.reviewer: ""
-ms.suite: ""
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-dev_langs: 
-  - "VB"
-  - "CSharp"
-  - "C++"
-  - "aspx"
-helpviewer_keywords: 
-  - "n 层应用程序, 创建"
-  - "n 层应用程序, 演练"
+title: 'Walkthrough: Creating an N-Tier Data Application | Microsoft Docs'
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.tgt_pltfrm: 
+ms.topic: article
+dev_langs:
+- VB
+- CSharp
+helpviewer_keywords:
+- n-tier applications, creating
+- n-tier applications, walkthroughs
 ms.assetid: d15e4d31-2839-48d9-9e0e-2e73404d82a2
 caps.latest.revision: 48
-caps.handback.revision: 48
-author: "mikeblome"
-ms.author: "mblome"
-manager: "ghogen"
+author: mikeblome
+ms.author: mblome
+manager: ghogen
+translation.priority.ht:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+ms.translationtype: HT
+ms.sourcegitcommit: 21a413a3e2d17d77fd83d5109587a96f323a0511
+ms.openlocfilehash: c3148acaacbd77d10c2729384130267a55d5231a
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/30/2017
+
 ---
-# 演练：创建 N 层数据应用程序
-*“N 层”*数据应用程序是指用于访问数据且分为多个逻辑层（或*“多层”*）的应用程序。  通过将应用程序组件分离到相对独立的层中，可以提高应用程序的可维护性和可伸缩性。  该结构之所以具有这种优点，是因为它有利于采用可应用于单个层而无需重新设计整个解决方案的新技术。  N 层体系结构包括一个表示层、一个中间层和一个数据层。  中间层通常包括数据访问层、业务逻辑层和共享组件（例如身份验证和验证）。  数据层则包括关系数据库。  N 层应用程序通常将敏感信息存储在中间层的数据访问层中，目的是将它们与访问表示层的最终用户隔离。  有关详细信息，请参阅[N 层数据应用程序概述](../data-tools/n-tier-data-applications-overview.md)。  
+# <a name="walkthrough-creating-an-n-tier-data-application"></a>Walkthrough: Creating an N-Tier Data Application
+*N-tier* data applications are applications that access data and are separated into multiple logical layers, or *tiers*. Separating application components into discrete tiers increases the maintainability and scalability of the application. It does this by enabling easier adoption of new technologies that can be applied to a single tier without requiring you to redesign the whole solution. N-tier architecture includes a presentation tier, a middle-tier, and a data tier. The middle tier typically includes a data access layer, a business logic layer, and shared components such as authentication and validation. The data tier includes a relational database. N-tier applications usually store sensitive information in the data access layer of the middle-tier to maintain isolation from end users who access the presentation tier. For more information, see [N-Tier Data Applications Overview](../data-tools/n-tier-data-applications-overview.md).  
   
- 在 N 层应用程序中，分离各层的一种方法是为要包括在应用程序中的每一层创建相互独立的项目。  类型化数据集包含一个 `DataSet Project` 属性，该属性决定了生成的数据集和 `TableAdapter` 代码应归属到哪些项目中。  
+ One way to separate the various tiers in an n-tier application is to create discrete projects for each tier that you want to include in your application. Typed datasets contain a `DataSet Project` property that determines which projects the generated dataset and `TableAdapter` code should go into.  
   
- 本演练演示如何使用**“数据集设计器”**将数据集和 `TableAdapter` 代码分离到相互独立的类库项目中。  分离数据集和 TableAdapter 代码后，你将创建 [Windows Communication Foundation Services and WCF Data Services in Visual Studio](../data-tools/windows-communication-foundation-services-and-wcf-data-services-in-visual-studio.md)服务以调入数据访问层。  最后，你要创建一个 Windows 窗体应用程序并将其用作表示层。  该层将访问数据服务中的数据。  
+ This walkthrough demonstrates how to separate dataset and `TableAdapter` code into discrete class library projects by using the **Dataset Designer**. After you separate the dataset and TableAdapter code, you will create a [Windows Communication Foundation Services and WCF Data Services in Visual Studio](../data-tools/windows-communication-foundation-services-and-wcf-data-services-in-visual-studio.md) service to call into the data access tier. Finally, you will create a Windows Forms application as the presentation tier. This tier accesses data from the data service.  
   
- 在本演练中，你将执行以下步骤：  
+ During this walkthrough, you will perform the following steps:  
   
--   新建将包含多个项目的 N 层解决方案。  
+-   Create a new n-tier solution that will contain multiple projects.  
   
--   将两个类库项目添加到 N 层解决方案中。  
+-   Add two class library projects to the n-tier solution.  
   
--   使用**“数据源配置向导”**创建类型化数据集。  
+-   Create a typed dataset by using the **Data Source Configuration Wizard**.  
   
--   将生成的 [TableAdapter](../Topic/TableAdapters.md) 和数据集代码分离到相互独立的项目中。  
+-   Separate the generated [TableAdapters](create-and-configure-tableadapters.md) and dataset code into discrete projects.  
   
--   创建 Windows Communication Foundation \(WCF\) 服务以调入数据访问层。  
+-   Create a Windows Communication Foundation (WCF) service to call into the data access tier.  
   
--   在服务中创建函数以从数据访问层检索数据。  
+-   Create functions in the service to retrieve data from the data access tier.  
   
--   创建 Windows 窗体应用程序来充当表示层。  
+-   Create a Windows Forms application to serve as the presentation tier.  
   
--   创建绑定到数据源的 Windows 窗体控件。  
+-   Create Windows Forms controls that are bound to the data source.  
   
--   编写代码以填充数据表。  
+-   Write code to populate the data tables.  
   
- ![链接到视频](~/data-tools/media/playvideo.gif "PlayVideo") 有关本主题的视频版本，请参阅[视频帮助：创建 N 层数据应用程序](http://go.microsoft.com/fwlink/?LinkId=115188)。  
+ ![link to video](../data-tools/media/playvideo.gif "PlayVideo") For a video version of this topic, see [Video How to: Creating an N-Tier Data Application](http://go.microsoft.com/fwlink/?LinkId=115188).  
   
-## 系统必备  
- 若要完成本演练，你需要：  
+## <a name="prerequisites"></a>Prerequisites  
+ To complete this walkthrough, you need:  
   
--   能够访问 Northwind 示例数据库。  有关详细信息，请参阅[如何：安装示例数据库](../data-tools/how-to-install-sample-databases.md)。  
+-   Access to the Northwind sample database. For more information, see [How to: Install Sample Databases](../data-tools/installing-database-systems-tools-and-samples.md).  
   
-## 创建 N 层解决方案和用于保存数据集的类库 \(DataEntityTier\)  
- 本演练的第一步是创建一个解决方案和两个类库项目。  第一个类库将保存数据集（生成的类型化 DataSet 类以及将保存应用程序数据的数据表）。  此项目将用作应用程序的数据实体层，它通常位于中间层内。  [创建和编辑类型化数据集](../data-tools/creating-and-editing-typed-datasets.md)用于创建初始数据集，并自动将代码分离到两个类库中。  
+## <a name="creating-the-n-tier-solution-and-class-library-to-hold-the-dataset-dataentitytier"></a>Creating the N-Tier Solution and Class Library to Hold the Dataset (DataEntityTier)  
+ The first step of this walkthrough is to create a solution and two class library projects. The first class library will hold the dataset (the generated typed DataSet class and DataTables that will hold the application's data). This project is used as the data entity layer of the application and is typically located in the middle tier. The datasetis used to create the initial dataset and automatically separate the code into the two class libraries.  
   
 > [!NOTE]
->  请确保已正确命名项目和解决方案，然后再单击**“确定”**。  这样做可使你更轻松地完成本演练。  
+>  Be sure to name the project and solution correctly before you click **OK**. Doing so will make it easier for you to complete this walkthrough.  
   
-#### 创建 N 层解决方案和 DataEntityTier 类库  
+#### <a name="to-create-the-n-tier-solution-and-dataentitytier-class-library"></a>To create the n-tier solution and DataEntityTier class library  
   
-1.  从**“文件”**菜单创建一个新的项目。  
+1.  From the **File** menu, create a new project.  
   
     > [!NOTE]
-    >  **“数据集设计器”**在 [!INCLUDE[vbprvb](../code-quality/includes/vbprvb_md.md)] 和 C\# 项目中受支持。  请使用这些语言之一创建新项目。  
+    >  The **Dataset Designer** is supported in [!INCLUDE[vbprvb](../code-quality/includes/vbprvb_md.md)] and C# projects. Create the new project in one of these languages.  
   
-2.  在**“新建项目”**对话框的**“项目类型”**窗格中，单击**“Windows”**。  
+2.  In the **New Project** dialog box, in the **Project types** pane, click **Windows**.  
   
-3.  单击**“类库”**模板。  
+3.  Click the **Class Library** template.  
   
-4.  将项目命名为“DataEntityTier”。  
+4.  Name the project **DataEntityTier**.  
   
-5.  将解决方案命名为“NTierWalkthrough”。  
+5.  Name the solution **NTierWalkthrough**.  
   
-6.  单击“确定”。  
+6.  Click **OK**.  
   
-     包含 DataEntityTier 项目的 NTierWalkthrough 解决方案即被创建并添加到**“解决方案资源管理器”**中。  
+     An NTierWalkthrough solution that contains the DataEntityTier project is created and added to **Solution Explorer**.  
   
-## 创建用于保存 TableAdapter 的类库 \(DataAccessTier\)  
- 创建 DataEntityTier 项目后，下一步是创建另一个类库项目。  此项目将保存生成的 `TableAdapter`，它称为应用程序的*“数据访问层”*。  数据访问层包含连接到数据库所需的信息，通常位于中间层内。  
+## <a name="creating-the-class-library-to-hold-the-tableadapters-dataaccesstier"></a>Creating the Class Library to Hold the TableAdapters (DataAccessTier)  
+ The next step after you create the DataEntityTier project is to create another class library project. This project will hold the generated `TableAdapter`s and is called the *data access tier* of the application. The data access tier contains the information that is required to connect to the database and is typically located in the middle tier.  
   
-#### 创建用于 TableAdapter 的新类库  
+#### <a name="to-create-the-new-class-library-for-the-tableadapters"></a>To create the new class library for the TableAdapters  
   
-1.  从**“文件”**菜单中，将新项目添加到 NTierWalkthrough 解决方案。  
+1.  From the **File** menu, add a new project to the NTierWalkthrough solution.  
   
-2.  在**“新建项目”**对话框的**“模板”**窗格中，单击**“类库”**。  
+2.  In the **New Project** dialog box, in the **Templates** pane, click **Class Library**.  
   
-3.  将该项目命名为 DataAccessTier，然后单击**“确定”**。  
+3.  Name the project **DataAccessTier** and click **OK**.  
   
-     DataAccessTier 项目即被创建并添加到 NTierWalkthrough 解决方案中。  
+     The DataAccessTier project is created and added to the NTierWalkthrough solution.  
   
-## 创建数据集  
- 下一步是创建类型化数据集。  通过单个项目中的数据集类（包括 DataTable 类）和 `TableAdapter` 类创建类型化数据集。  （所有类都将生成到单个文件中。）在将数据集和 `TableAdapter` 分离到不同的项目中时，移到另一个项目中的是数据集类，`TableAdapter` 类则留在原始项目中。  因此，应在最终包含 `TableAdapter` 的项目（DataAccessTier 项目）中创建数据集。  你将使用**“数据源配置向导”**创建数据集。  
+## <a name="creating-the-dataset"></a>Creating the Dataset  
+ The next step is to create a typed dataset. Typed datasets are created with both the dataset class (including DataTables classes) and the `TableAdapter` classes in a single project. (All classes are generated into a single file.) When you separate the dataset and `TableAdapter`s into different projects, it is the dataset class that is moved to the other project, leaving the `TableAdapter` classes in the original project. Therefore, create the dataset in the project that will ultimately contain the `TableAdapter`s (the DataAccessTier project). You will create the dataset by using the **Data Source Configuration Wizard**.  
   
 > [!NOTE]
->  你必须具有对 Northwind 示例数据库的访问权限，才能创建连接。  有关如何设置 Northwind 示例数据库的信息，请参阅[如何：安装示例数据库](../data-tools/how-to-install-sample-databases.md)。  
+>  You must have access to the Northwind sample database to create the connection. For information about how to set up the Northwind sample database, see [How to: Install Sample Databases](../data-tools/installing-database-systems-tools-and-samples.md).  
   
-#### 创建数据集  
+#### <a name="to-create-the-dataset"></a>To create the dataset  
   
-1.  在**“解决方案资源管理器”**中单击 DataAccessTier。  
+1.  Click DataAccessTier in **Solution Explorer**.  
   
-2.  在**“数据”**菜单上，单击**“显示数据源”**。  
+2.  On the **Data** menu, click **Show Data Sources**.  
   
-3.  在**“数据源”**窗口中，单击**“添加新数据源”**以启动**“数据源配置向导”**。  
+3.  In the **Data Sources** window, click **Add New Data Source** to start the **Data Source Configuration Wizard**.  
   
-4.  在**“选择数据源类型”**页面上，单击**“数据库”**，然后单击**“下一步”**。  
+4.  On the **Choose a Data Source Type** page, click **Database** and then click **Next**.  
   
-5.  在**“选择你的数据连接”**页面上，执行以下操作之一：  
+5.  On the **Choose Your Data Connection** page, perform one of the following actions:  
   
-     如果下拉列表中包含到 Northwind 示例数据库的数据连接，请单击该连接。  
+     If a data connection to the Northwind sample database is available in the drop-down list, click it.  
   
-     \- 或 \-  
+     -or-  
   
-     单击**“新建连接”**以打开**“添加连接”**对话框。  
+     Click **New Connection** to open the **Add Connection** dialog box.  
   
-6.  如果数据库需要密码，请选择该选项以包括敏感数据，然后单击**“下一步”**。  
+6.  If the database requires a password, select the option to include sensitive data, and then click **Next**.  
   
     > [!NOTE]
-    >  如果选择了本地数据库文件（而不是连接至 SQL Server），系统可能会询问你是否将该文件添加到项目中。  请单击**“是”**，以便将该数据库文件添加到项目中。  
+    >  If you selected a local database file (instead of connecting to SQL Server) you might be asked if you want to add the file to the project. Click **Yes** to add the database file to the project.  
   
-7.  在**“将连接字符串保存到应用程序配置文件中”**页上单击**“下一步”**。  
+7.  Click **Next** on the **Save the Connection String to the Application Configuration File** page.  
   
-8.  在**“选择数据库对象”**页面上展开**“表”**节点。  
+8.  Expand the **Tables** node on the **Choose Your Database Objects** page.  
   
-9. 单击**“Customers”**和**“Orders”**表的复选框，然后单击**“完成”**。  
+9. Click the check boxes for the **Customers** and **Orders** tables, and then click **Finish**.  
   
-     NorthwindDataSet 将会添加到 DataAccessTier 项目中并显示在**“数据源”**窗口内。  
+     NorthwindDataSet is added to the DataAccessTier project and appears in the **Data Sources** window.  
   
-## 将 TableAdapter 与数据集分离  
- 创建数据集后，接着是要将生成的数据集类与 TableAdapter 分离。  通过将**“数据集项目”**属性设置为要用于存储分离出的数据集类的项目的名称，可以达到此目的。  
+## <a name="separating-the-tableadapters-from-the-dataset"></a>Separating the TableAdapters from the Dataset  
+ After you create the dataset, separate the generated dataset class from the TableAdapters. You do this by setting the **DataSet Project** property to the name of the project in which to store the separated out dataset class.  
   
-#### 将 TableAdapter 与数据集分离  
+#### <a name="to-separate-the-tableadapters-from-the-dataset"></a>To separate the TableAdapters from the Dataset  
   
-1.  在**“解决方案资源管理器”**中双击**“NorthwindDataSet.xsd”**，以在**“数据集设计器”**中打开该数据集。  
+1.  Double-click **NorthwindDataSet.xsd** in **Solution Explorer** to open the dataset in the **Dataset Designer**.  
   
-2.  单击设计器上的空白区域。  
+2.  Click an empty area on the designer.  
   
-3.  在**“属性”**窗口中查找**“数据集项目”**节点。  
+3.  Locate the **DataSet Project** node in the **Properties** window.  
   
-4.  在**“数据集项目”**列表中，单击**“DataEntityTier”**。  
+4.  In the **DataSet Project** list, click **DataEntityTier**.  
   
-5.  在**“生成”**菜单上，单击**“生成解决方案”**。  
+5.  On the **Build** menu, click **Build Solution**.  
   
- 将数据集和 TableAdapter 分离到两个类库项目中。  最初包含整个数据集的项目 \(DataAccessTier\) 现在只包含 TableAdapter。  **“数据集项目”**属性中指定的项目 \(DataEntityTier\) 则包含类型化数据集：NorthwindDataSet.Dataset.Designer.vb（或 NorthwindDataSet.Dataset.Designer.cs）。  
-  
-> [!NOTE]
->  分离数据集与 TableAdapter（通过设置**“数据集项目”**属性）时，将不会自动移动项目中现有的数据集分部类。  你必须手动将它们移到数据集项目中。  
-  
-## 创建新的服务应用程序  
- 由于本演练演示如何使用 WCF 服务访问数据访问层，因此需要创建一个新的 WCF 服务应用程序。  
-  
-#### 创建新的 WCF 服务应用程序  
-  
-1.  从**“文件”**菜单中，将新项目添加到 NTierWalkthrough 解决方案。  
-  
-2.  在**“新建项目”**对话框的**“项目类型”**窗格中，单击**“WCF”**。  在**“模板”**窗格中，单击**“WCF 服务库”**。  
-  
-3.  将该项目命名为 DataService，然后单击**“确定”**。  
-  
-     DataService 项目即被创建并添加到 NTierWalkthrough 解决方案中。  
-  
-## 在数据访问层中创建用于返回客户和订单数据的方法  
- 数据服务需要调用数据访问层中的两个方法：GetCustomers 和 GetOrders。  这些方法将返回 Northwind 的 Customers 表和 Orders 表。  请在 DataAccessTier 项目中创建 GetCustomers 和 GetOrders 方法。  
-  
-#### 在数据访问层中创建返回 Customers 表的方法  
-  
-1.  在**“解决方案资源管理器”**中，双击 NorthwindDataset.xsd 以在[创建和编辑类型化数据集](../data-tools/creating-and-editing-typed-datasets.md)中打开该数据集。  
-  
-2.  右键单击 CustomersTableAdapter，然后单击**“添加查询”**以打开 [TableAdapter 查询配置向导](../data-tools/editing-tableadapters.md)。  
-  
-3.  在**“选择命令类型”**页面上，保留**“使用 SQL 语句”**的默认值，然后单击**“下一步”**。  
-  
-4.  在**“选择查询类型”**页面上，保留**“SELECT \(返回行\)”**的默认值，然后单击**“下一步”**。  
-  
-5.  在**“指定 SQL SELECT 语句”**页面上，保留默认查询，然后单击**“下一步”**。  
-  
-6.  在**“选择要生成的方法”**页面上，为**“返回 DataTable”**部分的**“方法名称”**键入 GetCustomers。  
-  
-7.  单击**“完成”**。  
-  
-#### 在数据访问层中创建返回 Orders 表的方法  
-  
-1.  右键单击 OrdersTableAdapter，然后单击**“添加查询”**。  
-  
-2.  在**“选择命令类型”**页面上，保留**“使用 SQL 语句”**的默认值，然后单击**“下一步”**。  
-  
-3.  在**“选择查询类型”**页面上，保留**“SELECT \(返回行\)”**的默认值，然后单击**“下一步”**。  
-  
-4.  在**“指定 SQL SELECT 语句”**页面上，保留默认查询，然后单击**“下一步”**。  
-  
-5.  在**“选择要生成的方法”**页面上，为**“返回 DataTable”**部分的**“方法名称”**键入 GetOrders。  
-  
-6.  单击**“完成”**。  
-  
-7.  在**“生成”**菜单上，单击**“生成解决方案”**。  
-  
-## 向数据服务中添加对数据实体和数据访问层的引用  
- 由于数据服务需要数据集和 TableAdapter 中的信息，因此需要添加对 DataEntityTier 和 DataAccessTier 项目的引用。  
-  
-#### 添加对数据服务的引用  
-  
-1.  在**“解决方案资源管理器”**中右键单击 DataService，然后单击**“添加引用”**。  
-  
-2.  在**“添加引用”**对话框中单击**“项目”**选项卡。  
-  
-3.  同时选择**“DataAccessTier”**和**“DataEntityTier”**项目。  
-  
-4.  单击“确定”。  
-  
-## 向服务中添加函数以调用数据访问层中的 GetCustomers 和 GetOrders 方法  
- 现在数据访问层包含返回数据的方法，接下来要在数据服务中创建调用这些方法的方法。  
+ The dataset and TableAdapters are separated into the two class library projects. The project that originally contained the whole dataset (DataAccessTier) now contains only the TableAdapters. The project designated in the **DataSet Project** property (DataEntityTier) contains the typed dataset: NorthwindDataSet.Dataset.Designer.vb (or NorthwindDataSet.Dataset.Designer.cs).  
   
 > [!NOTE]
->  对于 C\# 项目，必须添加对 `System.Data.DataSetExtensions` 程序集的引用，才能编译下面的代码。  
+>  When you separate datasets and TableAdapters (by setting the **DataSet Project** property), existing partial dataset classes in the project will not be moved automatically. Existing dataset partial classes must be manually moved to the dataset project.  
   
-#### 在数据服务中创建 GetCustomers 和 GetOrders 函数  
+## <a name="creating-a-new-service-application"></a>Creating a New Service Application  
+ Because this walkthrough demonstrates how to access the data access tier by using a WCF service, create a new WCF service application.  
   
-1.  在**“DataService”**项目中，双击 IService1.vb 或 IService1.cs。  
+#### <a name="to-create-a-new-wcf-service-application"></a>To create a new WCF Service application  
   
-2.  在**“在此处添加服务操作”**注释下方添加以下代码：  
+1.  From the **File** menu, add a new project to the NTierWalkthrough solution.  
   
-    ```vb#  
+2.  In the **New Project** dialog box, in the **Project types** pane, click **WCF**. In the **Templates** pane, click **WCF Service Library**.  
+  
+3.  Name the project **DataService** and click **OK**.  
+  
+     The DataService project is created and added to the NTierWalkthrough solution.  
+  
+## <a name="creating-methods-in-the-data-access-tier-to-return-the-customers-and-orders-data"></a>Creating Methods in the Data Access Tier to Return the Customers and Orders Data  
+ The data service has to call two methods in the data access tier: GetCustomers and GetOrders. These methods will return the Northwind Customers and Orders tables. Create the GetCustomers and GetOrders methods in the DataAccessTier project.  
+  
+#### <a name="to-create-a-method-in-the-data-access-tier-that-returns-the-customers-table"></a>To create a method in the data access tier that returns the Customers table  
+  
+1.  In **Solution Explorer**, double-click NorthwindDataset.xsd to open the dataset.
+  
+2.  Right-click CustomersTableAdapter and click **Add Query**.  
+  
+3.  On the **Choose a Command Type** page, leave the default value of **Use SQL statements** and click **Next**.  
+  
+4.  On the **Choose a Query Type** page, leave the default value of **SELECT which returns rows** and click **Next**.  
+  
+5.  On the **Specify a SQL SELECT statement** page, leave the default query and click **Next**.  
+  
+6.  On the **Choose Methods to Generate** page, type **GetCustomers** for the **Method name** in the **Return a DataTable** section.  
+  
+7.  Click **Finish**.  
+  
+#### <a name="to-create-a-method-in-the-data-access-tier-that-returns-the-orders-table"></a>To create a method in the data access tier that returns the Orders table  
+  
+1.  Right-click OrdersTableAdapter and click **Add Query**.  
+  
+2.  On the **Choose a Command Type** page, leave the default value of **Use SQL statements** and click **Next**.  
+  
+3.  On the **Choose a Query Type** page, leave the default value of **SELECT which returns rows** and click **Next**.  
+  
+4.  On the **Specify a SQL SELECT statement** page, leave the default query and click **Next**.  
+  
+5.  On the **Choose Methods to Generate** page, type **GetOrders** for the **Method name** in the **Return a DataTable** section.  
+  
+6.  Click **Finish**.  
+  
+7.  On the **Build** menu, click **Build Solution**.  
+  
+## <a name="adding-a-reference-to-the-data-entity-and-data-access-tiers-to-the-data-service"></a>Adding a Reference to the Data Entity and Data Access Tiers to the Data Service  
+ Because the data service requires information from the dataset and TableAdapters, add references to the DataEntityTier and DataAccessTier projects.  
+  
+#### <a name="to-add-references-to-the-data-service"></a>To add references to the data service  
+  
+1.  Right-click DataService in **Solution Explorer** and click **Add Reference**.  
+  
+2.  Click the **Projects** tab in the **Add Reference** dialog box.  
+  
+3.  Select both the **DataAccessTier** and **DataEntityTier** projects.  
+  
+4.  Click **OK**.  
+  
+## <a name="adding-functions-to-the-service-to-call-the-getcustomers-and-getorders-methods-in-the-data-access-tier"></a>Adding Functions to the Service to Call the GetCustomers and GetOrders Methods in the Data Access Tier  
+ Now that the data access tier contains the methods to return data, create methods in the data service to call the methods in the data access tier.  
+  
+> [!NOTE]
+>  For C# projects, you must add a reference to the `System.Data.DataSetExtensions` assembly for the following code to compile.  
+  
+#### <a name="to-create-the-getcustomers-and-getorders-functions-in-the-data-service"></a>To create the GetCustomers and GetOrders functions in the data service  
+  
+1.  In the **DataService** project, double-click IService1.vb or IService1.cs.  
+  
+2.  Add the following code under the **Add your service operations here** comment:  
+  
+    ```vb  
     <OperationContract()> _  
     Function GetCustomers() As DataEntityTier.NorthwindDataSet.CustomersDataTable  
   
@@ -232,20 +248,19 @@ manager: "ghogen"
     Function GetOrders() As DataEntityTier.NorthwindDataSet.OrdersDataTable  
     ```  
   
-    ```c#  
+    ```csharp  
     [OperationContract]  
     DataEntityTier.NorthwindDataSet.CustomersDataTable GetCustomers();  
   
     [OperationContract]  
     DataEntityTier.NorthwindDataSet.OrdersDataTable GetOrders();  
-  
     ```  
   
-3.  在 DataService 项目中，双击 Service1.vb（或 Service1.cs）。  
+3.  In the DataService project, double-click Service1.vb (or Service1.cs).  
   
-4.  将以下代码添加到 Service1 类中：  
+4.  Add the following code to the Service1 class:  
   
-    ```vb#  
+    ```vb  
     Public Function GetCustomers() As DataEntityTier.NorthwindDataSet.CustomersDataTable Implements IService1.GetCustomers  
         Dim CustomersTableAdapter1 As New DataAccessTier.NorthwindDataSetTableAdapters.CustomersTableAdapter  
         Return CustomersTableAdapter1.GetCustomers()  
@@ -257,14 +272,13 @@ manager: "ghogen"
     End Function  
     ```  
   
-    ```c#  
+    ```csharp  
     public DataEntityTier.NorthwindDataSet.CustomersDataTable GetCustomers()  
     {  
         DataAccessTier.NorthwindDataSetTableAdapters.CustomersTableAdapter  
              CustomersTableAdapter1  
             = new DataAccessTier.NorthwindDataSetTableAdapters.CustomersTableAdapter();  
         return CustomersTableAdapter1.GetCustomers();  
-  
     }  
     public DataEntityTier.NorthwindDataSet.OrdersDataTable GetOrders()  
     {  
@@ -272,116 +286,114 @@ manager: "ghogen"
              OrdersTableAdapter1  
             = new DataAccessTier.NorthwindDataSetTableAdapters.OrdersTableAdapter();  
         return OrdersTableAdapter1.GetOrders();  
-  
     }  
     ```  
   
-5.  在**“生成”**菜单上，单击**“生成解决方案”**。  
+5.  On the **Build** menu, click **Build Solution**.  
   
-## 创建表示层以显示数据服务中的数据  
- 现在，解决方案中的数据服务已具有调入数据访问层的方法，接下来要创建另一个项目，以调入数据服务并将数据显示给用户。  对于本演练，创建一个 Windows 窗体应用程序；它将充当 N 层应用程序的表示层。  
+## <a name="creating-a-presentation-tier-to-display-data-from-the-data-service"></a>Creating a Presentation Tier to Display Data from the Data Service  
+ Now that the solution contains the data service that has methods that call into the data access tier, create another project that will call into the data service and present the data to users. For this walkthrough, create a Windows Forms application; this is the presentation tier of the n-tier application.  
   
-#### 创建表示层项目  
+#### <a name="to-create-the-presentation-tier-project"></a>To create the presentation tier project  
   
-1.  从**“文件”**菜单中，将新项目添加到 NTierWalkthrough 解决方案。  
+1.  From the **File** menu, add a new project to the NTierWalkthrough solution.  
   
-2.  在**“新建项目”**对话框的**“项目类型”**窗格中，单击**“Windows”**。  在**“模板”**窗格中，单击**“Windows 窗体应用程序”**。  
+2.  In the **New Project** dialog box, in the **Project types** pane, click **Windows**. In the **Templates** pane, click **Windows Forms Application**.  
   
-3.  将该项目命名为 PresentationTier，然后单击**“确定”**。  
+3.  Name the project **PresentationTier** and click **OK**.  
   
-4.  PresentationTier 项目即被创建并添加到 NTierWalkthrough 解决方案中。  
+4.  The PresentationTier project is created and added to the NTierWalkthrough solution.  
   
-## 将 PresentationTier 项目设置为启动项目  
- 由于表示层是用于显示数据和进行数据交互的实际客户端应用程序，因此必须将 PresentationTier 项目设置为启动项目。  
+## <a name="setting-the-presentationtier-project-as-the-startup-project"></a>Setting the PresentationTier Project as the Startup Project  
+ Because the presentation tier is the actual client application that is used to present and interact with the data, you must set the PresentationTier project to be the Startup project.  
   
-#### 将新的表示层项目设置为启动项目  
+#### <a name="to-set-the-new-presentation-tier-project-as-the-startup-project"></a>To set the new presentation tier project as the Startup project  
   
--   在**“解决方案资源管理器”**中，右键单击**“PresentationTier”**，然后单击**“设为启动项目”**。  
+-   In **Solution Explorer**, right-click **PresentationTier** and click **Set as StartUp Project**.  
   
-## 添加对表示层的引用  
- 客户端应用程序 PresentationTier 需要具有对数据服务的服务引用，才能访问服务中的方法。  另外，WCF 服务又需要具有对数据集的引用，才能启用类型共享。  而只有通过数据服务启用类型共享，表示层才能使用添加到数据集分部类中的代码。  由于数据表的行和列更改事件中通常添加有类似于验证的代码，因此可能需要从客户端访问此代码。  
+## <a name="adding-references-to-the-presentation-tier"></a>Adding References to the Presentation Tier  
+ The client application PresentationTier requires a service reference to the data service in order to access the methods in the service. In addition, a reference to the dataset is required to enable type sharing by the WCF service. Until you enable type sharing through the data service, code added to the partial dataset class will not be available to the presentation tier. Because you typically add code such as validation to the row and column changing events of a data table, it is likely that you will want to access this code from the client.  
   
-#### 添加定义表示层的引用  
+#### <a name="to-add-a-reference-to-the-presentation-tier"></a>To add a reference to the presentation tier  
   
-1.  在**“解决方案资源管理器”**中，右键单击 PresentationTier，然后单击**“添加引用”**。  
+1.  In **Solution Explorer**, right-click PresentationTier and click **Add Reference**.  
   
-2.  在**“添加引用”**对话框中，单击**“项目”**选项卡。  
+2.  In the **Add Reference** dialog box, click the **Projects** tab.  
   
-3.  选择**“DataEntityTier”**，然后单击**“确定”**。  
+3.  Select **DataEntityTier** and click **OK**.  
   
-#### 添加对表示层的服务引用  
+#### <a name="to-add-a-service-reference-to-the-presentation-tier"></a>To add a service reference to the presentation tier  
   
-1.  在**“解决方案资源管理器”**中，右键单击 PresentationTier，然后单击**“添加服务引用”**。  
+1.  In **Solution Explorer**, right-click PresentationTier and click **Add Service Reference**.  
   
-2.  在**“添加服务引用”**对话框中，单击**“发现”**。  
+2.  In the **Add Service Reference** dialog box, click **Discover**.  
   
-3.  选择**“Service1”**，然后单击**“确定”**。  
+3.  Select **Service1** and click **OK**.  
   
     > [!NOTE]
-    >  如果当前计算机上存在多项服务，请选择你在本演练的前面部分中创建的服务（即包含 GetCustomers 和 GetOrders 方法的服务）。  
+    >  If you have multiple services on the current computer, select the service that you created previously in this walkthrough (the service that contains the GetCustomers and GetOrders methods).  
   
-## 将 DataGridView 添加到窗体，以显示数据服务返回的数据  
- 在添加对数据服务的服务引用后，将自动使用该服务返回的数据填充**“数据源”**窗口。  
+## <a name="adding-datagridviews-to-the-form-to-display-the-data-returned-by-the-data-service"></a>Adding DataGridViews to the Form to Display the Data Returned by the Data Service  
+ After you add the service reference to the data service, the **Data Sources** window is automatically populated with the data that is returned by the service.  
   
-#### 将两个数据绑定 DataGridView 添加到窗体中  
+#### <a name="to-add-two-data-bound-datagridviews-to-the-form"></a>To add two data bound DataGridViews to the form  
   
-1.  在**“解决方案资源管理器”**中，选择 PresentationTier 项目。  
+1.  In **Solution Explorer**, select the PresentationTier project.  
   
-2.  在**“数据源”**窗口中，展开**“NorthwindDataSet”**，然后查找**“Customers”**节点。  
+2.  In the **Data Sources** window, expand **NorthwindDataSet** and locate the **Customers** node.  
   
-3.  将**“Customers”**节点拖到 Form1 上。  
+3.  Drag the **Customers** node onto Form1.  
   
-4.  在**“数据源”**窗口中，展开**“Customers”**节点，然后查找相关的**“Orders”**节点（**“Orders”**节点嵌套在**“Customers”**节点中）。  
+4.  In the **Data Sources** window, expand the **Customers** node and locate the related **Orders** node (the **Orders** node nested in the **Customers** node).  
   
-5.  将相关的**“Orders”**节点拖到 Form1 上。  
+5.  Drag the related **Orders** node onto Form1.  
   
-6.  通过双击窗体的空白区域，创建一个 `Form1_Load` 事件处理程序。  
+6.  Create a `Form1_Load` event handler by double-clicking an empty area of the form.  
   
-7.  将以下代码添加到 `Form1_Load` 事件处理程序中。  
+7.  Add the following code to the `Form1_Load` event handler.  
   
-    ```vb#  
+    ```vb  
     Dim DataSvc As New ServiceReference1.Service1Client  
     NorthwindDataSet.Customers.Merge(DataSvc.GetCustomers)  
     NorthwindDataSet.Orders.Merge(DataSvc.GetOrders)  
     ```  
   
-    ```c#  
+    ```csharp  
     ServiceReference1.Service1Client DataSvc =   
         new ServiceReference1.Service1Client();  
     northwindDataSet.Customers.Merge(DataSvc.GetCustomers());  
     northwindDataSet.Orders.Merge(DataSvc.GetOrders());  
-  
     ```  
   
-## 增加服务所允许的最大消息大小  
- 由于服务会返回 Customers 和 Orders 表中的数据，而 maxReceivedMessageSize 的默认值还不够大，无法容纳这些数据，因此必须予以增加。  对于本演练，将值更改为 6553600。  将在客户端上更改该值，此操作将自动更新服务引用。  
+## <a name="increasing-the-maximum-message-size-allowed-by-the-service"></a>Increasing the Maximum Message Size Allowed by the Service  
+ Because the service returns data from the Customers and Orders tables, the default value for maxReceivedMessageSize is not large enough to hold the data and must be increased. For this walkthrough, you will change the value to 6553600. You will change the value on the client, and this will automatically update the service reference.  
   
 > [!NOTE]
->  较小的默认大小旨在降低遭受拒绝服务 \(DoS\) 攻击的可能性。  有关详细信息，请参阅<xref:System.ServiceModel.WSHttpBindingBase.MaxReceivedMessageSize%2A>。  
+>  The lower default size is intended to limit exposure to denial of service (DoS) attacks. For more information, see <xref:System.ServiceModel.WSHttpBindingBase.MaxReceivedMessageSize%2A>.  
   
-#### 增加 maxReceivedMessageSize 值  
+#### <a name="to-increase-the-maxreceivedmessagesize-value"></a>To increase the maxReceivedMessageSize value  
   
-1.  在**“解决方案资源管理器”**的 PresentationTier 项目中，双击 app.config 文件。  
+1.  In **Solution Explorer**, double-click the app.config file in the PresentationTier project.  
   
-2.  查找**“maxReceivedMessage”**大小特性，然后将该值更改为 `6553600`。  
+2.  Locate the **maxReceivedMessage** size attribute and change the value to `6553600`.  
   
-## 测试应用程序  
- 运行该应用程序。  它会从数据服务中检索数据，并将检索到的数据显示在窗体上。  
+## <a name="testing-the-application"></a>Testing the Application  
+ Run the application. The data is retrieved from the data service and displayed on the form.  
   
-#### 测试应用程序  
+#### <a name="to-test-the-application"></a>To test the application  
   
-1.  按 F5。  
+1.  Press F5.  
   
-2.  应用程序会从数据服务中检索 Customers 和 Orders 表的数据，并将检索到的数据显示在窗体上。  
+2.  The data from the Customers and Orders tables is retrieved from the data service and displayed on the form.  
   
-## 后续步骤  
- 根据应用程序的要求，在基于 Windows 的应用程序中保存相关数据后，可能还要执行一些步骤。  例如，你可以对此应用程序进行以下增强：  
+## <a name="next-steps"></a>Next Steps  
+ Depending on your application requirements, there are several steps that you may want to perform after you save related data in the Windows-based application. For example, you could make the following enhancements to this application:  
   
--   将验证添加到数据集。  有关信息，请参阅[演练：向 N 层数据应用程序添加验证](../Topic/Walkthrough:%20Adding%20Validation%20to%20an%20N-Tier%20Data%20Application.md)。  
+-   Add validation to the dataset. 
   
--   将其他方法添加到服务，以将数据更新回数据库。  
+-   Add additional methods to the service for updating data back to the database.  
   
-## 请参阅  
- [在 N 层应用程序中使用数据集](../data-tools/work-with-datasets-in-n-tier-applications.md)   
- [分层更新](../data-tools/hierarchical-update.md)   
- [在 Visual Studio 中访问数据](../data-tools/accessing-data-in-visual-studio.md)
+## <a name="see-also"></a>See Also  
+ [Work with datasets in n-tier applications](../data-tools/work-with-datasets-in-n-tier-applications.md)   
+ [Hierarchical update](../data-tools/hierarchical-update.md)   
+ [Accessing data in Visual Studio](../data-tools/accessing-data-in-visual-studio.md)

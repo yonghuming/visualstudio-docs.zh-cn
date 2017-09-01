@@ -1,41 +1,58 @@
 ---
-title: "将子菜单添加到菜单 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-helpviewer_keywords: 
-  - "上下文菜单"
-  - "级联的子菜单"
-  - "级联的子菜单"
-  - "创建级联的子菜单的菜单"
+title: Adding a Submenu to a Menu | Microsoft Docs
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+helpviewer_keywords:
+- context menus
+- submenus, cascading
+- cascading submenus
+- menus, creating cascading submenus
 ms.assetid: 692600cb-d052-40e2-bdae-4354ae7c6c84
 caps.latest.revision: 43
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 43
----
-# 将子菜单添加到菜单
-[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
+ms.author: gregvanl
+manager: ghogen
+translation.priority.mt:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+ms.translationtype: MT
+ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
+ms.openlocfilehash: 6492dd6f989337b55225a14dd7da4508a8de068b
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/28/2017
 
-本演练基于中的演示 [添加到 Visual Studio 菜单栏的菜单](../extensibility/adding-a-menu-to-the-visual-studio-menu-bar.md) 通过演示如何添加子 **TestMenu** 菜单。  
+---
+# <a name="adding-a-submenu-to-a-menu"></a>Adding a Submenu to a Menu
+This walkthrough builds on the demonstration in [Adding a Menu to the Visual Studio Menu Bar](../extensibility/adding-a-menu-to-the-visual-studio-menu-bar.md) by showing how to add a submenu to the **TestMenu** menu.  
   
- 子菜单是出现在另一个菜单中的第二级菜单。 可以通过遵循其名称的箭头标识子菜单。 单击其名称后，子菜单中，要显示其命令。  
+ A submenu is a secondary menu that appears in another menu. A submenu can be identified by the arrow that follows its name. Clicking the name causes the submenu and its commands to be displayed.  
   
- 本演练将在 Visual Studio 菜单栏上的菜单中创建一个子菜单，并将新的命令放在子菜单。 本演练还实现了新建命令。  
+ This walkthrough creates a submenu in a menu on the Visual Studio menu bar and puts a new command on the submenu. The walkthrough also implements the new command.  
   
-## 系统必备  
- 启动 Visual Studio 2015 中，您并不安装 Visual Studio SDK 从下载中心获得。 它将包括作为 Visual Studio 安装程序中的可选功能。 您还可以在以后安装 VS SDK。 有关更多信息，请参见[安装 Visual Studio SDK](../extensibility/installing-the-visual-studio-sdk.md)。  
+## <a name="prerequisites"></a>Prerequisites  
+ Starting in Visual Studio 2015, you do not install the Visual Studio SDK from the download center. It is included as an optional feature in Visual Studio setup. You can also install the VS SDK later on. For more information, see [Installing the Visual Studio SDK](../extensibility/installing-the-visual-studio-sdk.md).  
   
-## 将子菜单添加到菜单  
+## <a name="adding-a-submenu-to-a-menu"></a>Adding a Submenu to a Menu  
   
-1.  请按照本文 [添加到 Visual Studio 菜单栏的菜单](../extensibility/adding-a-menu-to-the-visual-studio-menu-bar.md) 以创建的项目和菜单项。 在本演练步骤都假定 VSIX 项目的名称是 `TopLevelMenu`。  
+1.  Follow the steps in [Adding a Menu to the Visual Studio Menu Bar](../extensibility/adding-a-menu-to-the-visual-studio-menu-bar.md) to create the project and menu item. The steps in this walkthrough assume that the name of the VSIX project is `TopLevelMenu`.  
   
-2.  打开 TestCommandPackage.vsct。 在 `<Symbols>` 部分中，添加 `<IDSymbol>` 子菜单、 子菜单中组中，和命令中的所有元素 `<GuidSymbol>` 节点名为"guidTopLevelMenuCmdSet。" 这是包含的相同节点 `<IDSymbol>` 顶级菜单的元素。  
+2.  Open TestCommandPackage.vsct. In the `<Symbols>` section, add an `<IDSymbol>` element for the submenu, one for the submenu group, and one for the command, all in the `<GuidSymbol>` node named "guidTopLevelMenuCmdSet." This is the same node that contains the `<IDSymbol>` element for the top-level menu.  
   
     ```xml  
     <IDSymbol name="SubMenu" value="0x1100"/>  
@@ -43,7 +60,7 @@ caps.handback.revision: 43
     <IDSymbol name="cmdidTestSubCommand" value="0x0105"/>  
     ```  
   
-3.  添加到新创建的子菜单 `<Menus>` 部分。  
+3.  Add the newly created submenu to the `<Menus>` section.  
   
     ```xml  
     <Menu guid="guidTestCommandPackageCmdSet" id="SubMenu" priority="0x0100" type="Menu">  
@@ -55,9 +72,9 @@ caps.handback.revision: 43
     </Menu>  
     ```  
   
-     父级的 GUID\/ID 对指定生成中的菜单组 [添加到 Visual Studio 菜单栏的菜单](../extensibility/adding-a-menu-to-the-visual-studio-menu-bar.md), ，并且是顶级菜单的子级。  
+     The GUID/ID pair of the parent specifies the menu group that was generated in [Adding a Menu to the Visual Studio Menu Bar](../extensibility/adding-a-menu-to-the-visual-studio-menu-bar.md), and is a child of the top-level menu.  
   
-4.  添加到第 2 步中所定义的菜单组 `<Groups>` 部分，然后将它作为子菜单中的子项。  
+4.  Add the menu group defined in step 2 to the `<Groups>` section and make it a child of the submenu.  
   
     ```xml  
     <Group guid="guidTestCommandPackageCmdSet" id="SubMenuGroup" priority="0x0000">  
@@ -65,7 +82,7 @@ caps.handback.revision: 43
     </Group>  
     ```  
   
-5.  添加一个新 `<Button>` 元素 `<Buttons>` 部分，以定义在第 2 步中创建作为子菜单上的项的命令。  
+5.  Add a new `<Button>` element to the `<Buttons>` section to define the command created in step 2 as an item on the submenu.  
   
     ```xml  
     <Button guid="guidTestCommandPackageCmdSet" id="cmdidTestSubCommand" priority="0x0000" type="Button">  
@@ -78,21 +95,21 @@ caps.handback.revision: 43
     </Button>  
     ```  
   
-6.  生成解决方案并启动调试。 您应该看到的实验实例。  
+6.  Build the solution and start debugging. You should see the experimental instance.  
   
-7.  单击 **TestMenu** 若要查看名为的新子菜单 **子菜单**。 单击 **子菜单** 若要打开子菜单中，以查看新的命令， **测试子命令**。 请注意，单击 **测试子命令** 不执行任何操作。  
+7.  Click **TestMenu** to see a new submenu named **Sub Menu**. Click **Sub Menu** to open the submenu and see a new command, **Test Sub Command**. Notice that clicking **Test Sub Command** does nothing.  
   
-## 添加命令  
+## <a name="adding-a-command"></a>Adding a Command  
   
-1.  打开 TestCommand.cs 并将下面的命令 ID 添加后现有命令 id。  
+1.  Open TestCommand.cs and add the following command ID after the existing command ID.  
   
-    ```c#  
-    public const int cmdidTestSubCmd = 0x105;  
+    ```csharp  
+    public const int cmdidTestSubCmd = 0x105;  
     ```  
   
-2.  添加子命令。 找到命令构造函数。 只需调用后添加以下行 `AddCommand` 方法。  
+2.  Add the sub-command. Find the command constructor. Add the following lines just after the call to the `AddCommand` method.  
   
-    ```c#  
+    ```csharp  
     CommandID subCommandID = new CommandID(CommandSet, (int)TestCommandPackageGuids.cmdidTestSubCmd);  
     MenuCommand subItem = new MenuCommand(  
         new EventHandler(SubItemCallback), subCommandID);  
@@ -100,9 +117,9 @@ caps.handback.revision: 43
   
     ```  
   
-     `SubItemCallback` 命令处理程序将在以后定义。 构造函数现在应如下所示︰  
+     The `SubItemCallback` command handler will be defined later. The constructor should now look like this:  
   
-    ```c#  
+    ```csharp  
     private TestCommand(Package package)  
             {  
                 if (package == null)  
@@ -125,9 +142,9 @@ caps.handback.revision: 43
                 }  
     ```  
   
-3.  添加 SubItemCallback\(\)。 这是在新建命令的子菜单中单击时调用的方法。  
+3.  Add SubItemCallback(). This is the method that is called when the new command in the submenu is clicked.  
   
-    ```c#  
+    ```csharp  
     private void SubItemCallback(object sender, EventArgs e)  
     {  
         IVsUIShell uiShell = (IVsUIShell)this.ServiceProvider.GetService(  
@@ -151,10 +168,10 @@ caps.handback.revision: 43
     }  
     ```  
   
-4.  生成项目并启动调试。 应显示的实验实例。  
+4.  Build the project and start debugging. The experimental instance should appear.  
   
-5.  在 **TestMenu** 菜单上，单击 **子菜单** ，然后单击 **测试子命令**。 一个消息框应显示，并且显示文本"第命令内 TestCommand.SubItemCallback\(\) 测试"。  
+5.  On the **TestMenu** menu, click **Sub Menu** and then click **Test Sub Command**. A message box should appear and display the text, "Test Command Inside TestCommand.SubItemCallback()".  
   
-## 请参阅  
- [添加到 Visual Studio 菜单栏的菜单](../extensibility/adding-a-menu-to-the-visual-studio-menu-bar.md)   
- [命令、 菜单和工具栏](../extensibility/internals/commands-menus-and-toolbars.md)
+## <a name="see-also"></a>See Also  
+ [Adding a Menu to the Visual Studio Menu Bar](../extensibility/adding-a-menu-to-the-visual-studio-menu-bar.md)   
+ [Commands, Menus, and Toolbars](../extensibility/internals/commands-menus-and-toolbars.md)

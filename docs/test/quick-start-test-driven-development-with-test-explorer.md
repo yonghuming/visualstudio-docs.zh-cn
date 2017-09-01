@@ -1,5 +1,5 @@
 ---
-title: "快速入门：通过测试资源管理器进行测试驱动开发 | Microsoft Docs"
+title: 'Quick Start: Test Driven Development with Test Explorer | Microsoft Docs'
 ms.custom: 
 ms.date: 11/04/2016
 ms.reviewer: 
@@ -27,79 +27,79 @@ translation.priority.mt:
 - pl-pl
 - pt-br
 - tr-tr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 47057e9611b824c17077b9127f8d2f8b192d6eb8
-ms.openlocfilehash: 2efe98a5b421fbffbe2a39cc69a5e0acf06af7db
+ms.translationtype: HT
+ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
+ms.openlocfilehash: af65c4f502cd36d00b031784dcda275abec3630a
 ms.contentlocale: zh-cn
-ms.lasthandoff: 05/13/2017
+ms.lasthandoff: 08/28/2017
 
 ---
-# <a name="quick-start-test-driven-development-with-test-explorer"></a>快速入门：通过测试资源管理器进行测试驱动开发
-我们建议你创建单元测试来帮助保持你的代码在众多递进式开发步骤中正确运行。 你可以使用几个框架来编写单元测试，包括第三方开发的一些框架。 某些测试框架专用于不同语言或平台中的测试。 “测试资源管理器”为其中任意框架中的单元测试提供了一个接口。 大多数常用框架都有适配器，你可以为其他框架编写自己的适配器。  
+# <a name="quick-start-test-driven-development-with-test-explorer"></a>Quick Start: Test Driven Development with Test Explorer
+We recommend that you create unit tests to help keep your code working correctly through many incremental steps of development. There are several frameworks that you can use to write unit tests, including some developed by third parties. Some test frameworks are   specialized to testing in different languages or platforms. Test Explorer provides a single interface for unit tests in any of these frameworks. Adapters are available for the most commonly-used frameworks, and you can write your own adapters for other frameworks.  
   
- “测试资源管理器”将取代 Visual Studio 早期版本中的单元测试窗口。 其优点包括：  
+ Test Explorer supersedes the unit test windows found in earlier editions of Visual Studio. Its benefits include:  
   
--   使用一个接口运行 .NET 未托管的数据库和其他类型的测试。  
+-   Run .NET, unmanaged, database and other kinds of tests using a single interface.  
   
--   使用选定的单元测试框架，如 NUnit 或 MSTest 框架。  
+-   Use the unit test framework of your choice, such as NUnit or MSTest frameworks.  
   
--   在一个窗口中查看你需要的所有信息。  
+-   See in one window all the information that you need.  
   
-## <a name="using-test-explorer"></a>使用“测试资源管理器”  
- ![显示“全部运行”按钮的单元测试资源管理器](~/test/media/unittestexplorer-beta-.png "UnitTestExplorer(beta)")  
+## <a name="using-test-explorer"></a>Using Test Explorer  
+ ![Unit Test Explorer showing Run All button](../test/media/unittestexplorer-beta-.png "UnitTestExplorer(beta)")  
   
-#### <a name="to-run-unit-tests-by-using-test-explorer"></a>使用“测试资源管理器”运行单元测试  
+#### <a name="to-run-unit-tests-by-using-test-explorer"></a>To Run Unit Tests by using Test Explorer  
   
-1.  使用你选择的测试框架创建单元测试。  
+1.  Create unit tests that use the test frameworks of your choice.  
   
-     例如，创建使用 MSTest 框架的测试：  
+     For example, to create a test that uses the MSTest Framework:  
   
-    1.  创建测试项目。  
+    1.  Create a test project.  
   
-         在 **“新建项目”** 对话框中，展开 **“Visual Basic”**、 **“Visual C#”**或 **“Visual C++”**，然后选择 **“测试”**。  
+         In the **New Project** dialog box, expand **Visual Basic**, **Visual C#**, or **Visual C++**, and then choose **Test**.  
   
-         选择 **“单元测试项目”**。  
+         Select **Unit Test Project**.  
   
-    2.  将每个单元测试编写为一个方法。 为每个测试方法添加 `[TestMethod]` 特性为前缀。  
+    2.  Write each unit test as a method. Prefix each test method with the `[TestMethod]` attribute.  
   
-2.  如果各个测试没有依赖项会阻止其以任意顺序运行，请使用工具栏上的 ![UTE&#95;parallelicon&#45;small](../test/media/ute_parallelicon-small.png "UTE_parallelicon-small") 切换按钮来启用执行并行测试。 这可以显著降低运行所有测试所需的时间。  
+2.  If individual tests have no dependencies that prevent them from being run in any order, turn on parallel test execution with the ![UTE&#95;parallelicon&#45;small](../test/media/ute_parallelicon-small.png "UTE_parallelicon-small") toggle button on the toolbar. This can noticeably reduce the time taken to run all the tests.  
   
-3.  在菜单栏上，依次选择 **“测试”**、 **“运行单元测试”**、 **“所有测试”**。  
+3.  On the menu bar, choose **Test**, **Run Unit Tests**, **All Tests**.  
   
-     解决方案生成，测试运行。  
+     The solution builds and the tests run.  
   
-     “测试资源管理器”将打开并显示结果摘要。  
+     Test Explorer opens and displays a summary of the results.  
   
- **若要查看完整测试列表：** 请在任意类别中选择 **“全部显示”** 。  
+ **To see a full list of tests:** Choose **Show All** in any category.  
   
- **若要查看测试结果的详细信息：** 请在“测试资源管理器”中选择该测试以查看详细信息，例如详细信息窗格中的异常消息。  
+ **To see the details of a test result:** Select the test in Test Explorer to view details such as exception messages in the details pane.  
   
- **若要导航到测试的代码：** 请在“测试资源管理器”中双击该测试或从快捷菜单上选择 **“打开测试”** 。  
+ **To navigate to the code of a test:** Double-click the test in Test Explorer, or choose **Open Test** on the shortcut menu.  
   
- **若要调试测试：** 请打开一个或多个测试的快捷菜单，然后选择 **“调试选定的测试”**。  
+ **To debug a test:** Open the shortcut menu for one or more tests, and then choose **Debug Selected Tests**.  
   
 > [!IMPORTANT]
->  显示的结果是最近运行的测试结果。 彩色的结果栏仅显示曾经运行的测试的结果。 例如，你运行过多个测试，其中部分失败，然后仅运行了成功的测试，则结果栏将完全显示绿色。  
+>  The results that are displayed are for the most recent run. The colored results bar shows only the results for the tests that ran. For example, if you run several tests and some of them fail, and then run only the successful tests, then the results bar will show all green.  
   
 > [!NOTE]
->  如果未显示任何测试，请确保已安装适配器，将“测试资源管理器”与你使用的测试框架连接起来。 有关更多信息，请参见 [将不同测试框架与“测试资源管理器”配合使用](#frameworks)。  
+>  If no test appears, make sure that you have installed an adapter to connect Test Explorer to the test framework that you are using. For more information, see [Using Different Test Frameworks with Test Explorer](#frameworks).  
   
-##  <a name="walkthrough"></a> 演练：使用单元测试开发方法  
- 本演练演示如何使用 Microsoft 单元测试框架开发 C# 语言的受测试方法。 你可以将其轻松改写为其他语言，也可加以调整以使用其他测试框架，例如 NUnit。 有关更多信息，请参见 [使用不同的测试框架](#frameworks)。  
+##  <a name="walkthrough"></a> Walkthrough: Using Unit Tests to Develop a Method  
+ This walkthrough demonstrates how to develop a tested method in C# using the Microsoft Unit Test framework. You can easily adapt it for other languages, and to use other test frameworks such as NUnit. For more information, see [Using Different Test Frameworks](#frameworks).  
   
-#### <a name="creating-the-test-and-method"></a>创建测试和方法  
+#### <a name="creating-the-test-and-method"></a>Creating the Test and Method  
   
-1.  创建 Visual C# 类库项目。 此项目将包含我们希望提供的代码。 在此示例中，该类名为 `MyMath`。  
+1.  Create a Visual C# Class Library project. This project will contain the code that we want to deliver. In this example, it is named `MyMath`.  
   
-2.  创建测试项目。  
+2.  Create a Test project.  
   
-    -   在 **“新建项目”** 对话框中，依次选择 **“Visual C#”**、 **“测试”** ，然后选择 **“单元测试项目”**。  
+    -   In the **New Project** dialog, choose **Visual C#**, **Test** and then choose **Unit Test Project**.  
   
-         ![新建代码和测试项目](../test/media/unittestexplorerwalk1.png "UnitTestExplorerWalk1")  
+         ![New code and test projects](../test/media/unittestexplorerwalk1.png "UnitTestExplorerWalk1")  
   
-3.  编写基本测试方法。 根据特定输入验证获取的结果：  
+3.  Write a basic test method. Verify the result obtained for a specific input:  
   
-    ```c#  
+    ```csharp  
   
     [TestMethod]  
     public void BasicRooterTest()  
@@ -117,63 +117,63 @@ ms.lasthandoff: 05/13/2017
     }  
     ```  
   
-4.  从测试中生成方法。  
+4.  Generate the method from the test.  
   
-    1.  将光标放在 `Rooter`上，然后在快捷菜单中依次选择 **“生成”**、 **“新类型”**。  
+    1.  Place the cursor on `Rooter`, and then on the shortcut menu choose **Generate**, **New Type**.  
   
-    2.  在 **“生成新类型”** 对话框中，将 **“项目”** 设置为类库项目。 在此示例中，设为 `MyMath`。  
+    2.  In the **Generate New Type** dialog box, set **Project** to the class library project. In this example, it is `MyMath`.  
   
-    3.  将光标放在 `SquareRoot`上，然后在快捷菜单中依次选择 **“生成”**、 **“方法存根”**。  
+    3.  Place the cursor on `SquareRoot`, and then on the shortcut menu choose **Generate**, **Method Stub**.  
   
-5.  运行单元测试。  
+5.  Run the unit test.  
   
-    1.  在 **“测试”** 菜单上，依次选择 **“运行单元测试”**、 **“所有测试”**。  
+    1.  On the **Test** menu, choose **Run Unit Tests**, **All Tests**.  
   
-         解决方案将生成并运行。  
+         The solution builds and runs.  
   
-         “测试资源管理器”将打开并显示结果。  
+         Test Explorer opens and displays the results.  
   
-         测试显示在 **“失败的测试”**下。  
+         The test appears under **Failed Tests**.  
   
-6.  选择测试名称。  
+6.  Select the name of the test.  
   
-     “测试资源管理器”的下半部分将显示测试的详细信息。  
+     The details of the test appear in the lower part of Test Explorer.  
   
-7.  选择 **“堆栈跟踪”** 下的项以查看测试失败位置。  
+7.  Select the items under **Stack Trace** to see where the test failed.  
   
- ![显示未通过的测试的单元测试资源管理器。](../test/media/unittestexplorerwalkthrough2.png "UnitTestExplorerWalkthrough2")  
+ ![Unit Test Explorer showing failed test.](../test/media/unittestexplorerwalkthrough2.png "UnitTestExplorerWalkthrough2")  
   
- 此时，你已创建了测试和存根，在此基础上进行修改以使测试通过。  
+ At this point, you have created a test and a stub that you will modify so that the test passes.  
   
-#### <a name="after-every-change-make-all-the-tests-pass"></a>在每次更改之后，都要使所有测试通过  
+#### <a name="after-every-change-make-all-the-tests-pass"></a>After every change, make all the tests pass  
   
-1.  在 `MyMath\Rooter.cs`中，改进 `SquareRoot`的代码：  
+1.  In `MyMath\Rooter.cs`, improve the code of `SquareRoot`:  
   
-    ```c#  
+    ```csharp  
     public double SquareRoot(double input)  
      {  
        return input / 2;  
      }  
     ```  
   
-2.  在“测试资源管理器”中，选择 **“全部运行”**。  
+2.  In Test Explorer, choose **Run All**.  
   
-     代码将生成，测试运行。  
+     The code builds and the test runs.  
   
-     测试通过。  
+     The test passes.  
   
-     ![显示通过的测试的单元测试资源管理器。](../test/media/unittestexplorerwalkthrough3.png "UnitTestExplorerWalkthrough3")  
+     ![Unit Test Explorer showing a passing test.](../test/media/unittestexplorerwalkthrough3.png "UnitTestExplorerWalkthrough3")  
   
-#### <a name="add-tests-to-extend-the-range-of-inputs"></a>添加测试以扩展输入的范围  
+#### <a name="add-tests-to-extend-the-range-of-inputs"></a>Add tests to extend the range of inputs  
   
-1.  若要提高代码在所有情况下均正常运行的概率，请添加扩大输入值范围的测试。  
+1.  To improve your confidence that your code works in all cases, add tests that try a broader range of input values.  
   
     > [!TIP]
-    >  避免修改已通过的现有测试。 相反，请添加新测试。 仅当用户需求变化时更改现有测试。 此策略有助于确保在扩展代码时不丢失现有功能。  
+    >  Avoid altering existing tests that pass. Instead, add new tests. Change existing tests only when the user requirements change. This policy helps ensure that you don't lose existing functionality as you work to extend the code.  
   
-     在测试类中，添加以下测试，其中涉及到一系列输入值：  
+     In your test class, add the following test, which tries a range of input values:  
   
-    ```c#  
+    ```csharp  
     [TestMethod]  
     public void RooterValueRange()  
     {  
@@ -197,13 +197,13 @@ ms.lasthandoff: 05/13/2017
     }  
     ```  
   
-2.  在“测试资源管理器”中，选择 **“全部运行”**。  
+2.  In Test Explorer, choose **Run All**.  
   
-     新测试失败，但第一个测试仍然通过。  
+     The new test fails, although the first test still passes.  
   
-     若要查找失败位置，请选择失败的测试，然后在“测试资源管理器”的下半部分，选择 **“堆栈跟踪”**顶部的项。  
+     To find the point of failure, select the failing test and then in the lower part of Test Explorer, select the top item of the **Stack Trace**.  
   
-3.  检查所测试的方法，以查明可能出错的地方。 在 `MyMath.Rooter` 类中，重写代码：  
+3.  Inspect the method under test to see what might be wrong. In the `MyMath.Rooter` class, rewrite the code:  
   
     ```  
     public double SquareRoot(double input)  
@@ -219,15 +219,15 @@ ms.lasthandoff: 05/13/2017
     }  
     ```  
   
-4.  在“测试资源管理器”中，选择 **“全部运行”**。  
+4.  In Test Explorer, choose **Run All**.  
   
-     现在两个测试均通过。  
+     Both tests now pass.  
   
-#### <a name="add-tests-for-exceptional-cases"></a>为异常用例添加测试  
+#### <a name="add-tests-for-exceptional-cases"></a>Add tests for exceptional cases  
   
-1.  为负输入添加测试：  
+1.  Add a test for negative inputs:  
   
-    ```c#  
+    ```csharp  
     [TestMethod]  
      public void RooterTestNegativeInputx()  
      {  
@@ -244,17 +244,17 @@ ms.lasthandoff: 05/13/2017
      }  
     ```  
   
-2.  在“测试资源管理器”中，选择 **“全部运行”**。  
+2.  In Test Explorer, choose **Run All**.  
   
-     所测试的方法形成循环，必须手动取消。  
+     The method under test loops, and must be canceled manually.  
   
-3.  选择 **“取消”**。  
+3.  Choose **Cancel**.  
   
-     测试在 10 秒后停止。  
+     The test stops after 10 seconds.  
   
-4.  修正方法代码：  
+4.  Fix the method code:  
   
-    ```c#  
+    ```csharp  
   
     public double SquareRoot(double input)  
     {  
@@ -265,20 +265,20 @@ ms.lasthandoff: 05/13/2017
     ...  
     ```  
   
-5.  在“测试资源管理器”中，选择 **“全部运行”**。  
+5.  In Test Explorer, choose **Run All**.  
   
-     所有测试均通过。  
+     All the tests pass.  
   
-#### <a name="refactor-without-changing-tests"></a>在不更改测试的情况下重构代码  
+#### <a name="refactor-without-changing-tests"></a>Refactor without changing tests  
   
-1.  简化代码，但不要更改测试。  
+1.  Simplify the code, but do not change the tests.  
   
     > [!TIP]
-    >   重构是旨在提高代码性能或易理解性的更改。 其目的不在于更改代码的行为，因此不更改测试。  
+    >  A *refactoring* is a change that is intended to make the code perform better or to make the code easier to understand. It is not intended to alter the behavior of the code, and therefore the tests are not changed.  
     >   
-    >  我们建议你分开进行功能扩展和重构步骤。 保持测试不变，就能有信心在重构时不意外引入 bug。  
+    >  We recommend that you perform refactoring steps separately from steps that extend functionality. Keeping the tests unchanged gives you confidence that you have not accidentally introduced bugs while refactoring.  
   
-    ```c#  
+    ```csharp  
     public class Rooter  
     {  
       public double SquareRoot(double input)  
@@ -300,9 +300,9 @@ ms.lasthandoff: 05/13/2017
     }  
     ```  
   
-2.  选择 **“全部运行”**。  
+2.  Choose **Run All**.  
   
-     所有测试仍然通过。  
+     All the tests still pass.  
   
-     ![显示 3 个通过的测试的单元测试资源管理器。](../test/media/unittestexplorerwalkthrough4.png "UnitTestExplorerWalkthrough4")
+     ![Unit Test Explorer showing 3 passed tests.](../test/media/unittestexplorerwalkthrough4.png "UnitTestExplorerWalkthrough4")
 

@@ -1,264 +1,282 @@
 ---
-title: "在 Visual Studio 中为应用商店应用启动调试会话 (JavaScript) | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-debug"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "vs.debug.installedapppackagelauncher"
-  - "vs.debug.error.wwahost_scriptdebuggingdisabled"
-dev_langs: 
-  - "FSharp"
-  - "VB"
-  - "CSharp"
-  - "C++"
+title: Start a debugging session for Store Apps in Visual Studio (JavaScript) | Microsoft Docs
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-debug
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords:
+- vs.debug.installedapppackagelauncher
+- vs.debug.error.wwahost_scriptdebuggingdisabled
+dev_langs:
+- CSharp
+- VB
+- FSharp
+- C++
 ms.assetid: fb91203f-2cf4-44d3-8ed9-93bc5aaa50b8
 caps.latest.revision: 24
-author: "mikejo5000"
-ms.author: "mikejo"
-manager: "ghogen"
-caps.handback.revision: 24
----
-# 在 Visual Studio 中为应用商店应用启动调试会话 (JavaScript)
-[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
+author: mikejo5000
+ms.author: mikejo
+manager: ghogen
+translation.priority.ht:
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pt-br
+- ru-ru
+- zh-cn
+- zh-tw
+translation.priority.mt:
+- cs-cz
+- pl-pl
+- tr-tr
+ms.translationtype: HT
+ms.sourcegitcommit: 9e6c28d42bec272c6fd6107b4baf0109ff29197e
+ms.openlocfilehash: 5a1e75fb305a98ee46f76c0403774535278b53e2
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/22/2017
 
-![适用于 Windows 和 Windows Phone](~/debugger/media/windows_and_phone_content.png "windows\_and\_phone\_content")  
+---
+# <a name="start-a-debugging-session-for-store-apps-in-visual-studio-javascript"></a>Start a debugging session for Store Apps in Visual Studio (JavaScript)
+![Applies to Windows and Windows Phone](../debugger/media/windows_and_phone_content.png "windows_and_phone_content")  
   
- 本主题介绍如何针对用 JavaScript 和 HTML5 编写的 Windows 应用商店应用启动调试会话。你可以使用单个按键启动调试，或者你可以为特定的场景配置调试会话，然后选择启动应用的方式。  
+ This topic describes how to start a debugging session for Windows Store apps written in JavaScript and HTML5. You can start debugging with a single keystroke, or you can configure the debugging session for specific scenarios and then choose the way to start the app.  
   
 > [!NOTE]
->  对于用 XAML 和 Visual C\#、Visual C\+\+ 或 Visual Basic 编写的应用，请参见 [启动调试会话（VB、C\#、C\+\+ 和 XAML）](../debugger/start-a-debugging-session-for-a-store-app-in-visual-studio-vb-csharp-cpp-and-xaml.md)  
+>  For apps written in XAML and Visual C#, Visual C++, or Visual Basic, see [Start a debug session (VB, C#, C++ and XAML)](../debugger/start-a-debugging-session-for-a-store-app-in-visual-studio-vb-csharp-cpp-and-xaml.md)  
   
-##  <a name="BKMK_In_this_topic"></a> 在本主题中  
- [在本主题中](#BKMK_In_this_topic)  
+##  <a name="BKMK_In_this_topic"></a> In this topic  
+ [In this topic](#BKMK_In_this_topic)  
   
- [启动调试的简单方法](#BKMK_The_easy_way_to_start_debugging)  
+ [The easy way to start debugging](#BKMK_The_easy_way_to_start_debugging)  
   
- [配置调试会话](#BKMK_Configure_the_debugging_session)  
+ [Configure the debugging session](#BKMK_Configure_the_debugging_session)  
   
--   [打开项目的调试属性页](#BKMK_Open_the_debugging_property_page_for_the_project)  
+-   [Open the debugging property page for the project](#BKMK_Open_the_debugging_property_page_for_the_project)  
   
--   [选择生成配置选项](#BKMK_Choose_the_build_configuration_options)  
+-   [Choose the build configuration options](#BKMK_Choose_the_build_configuration_options)  
   
--   [选择部署目标](#BKMK_Choose_the_deployment_target)  
+-   [Choose the deployment target](#BKMK_Choose_the_deployment_target)  
   
--   [选择要使用的调试器](#BKMK_Choose_the_debugger_to_use)  
+-   [Choose the debugger to use](#BKMK_Choose_the_debugger_to_use)  
   
--   [（可选）推迟启动调试会话中的应用](#BKMK__Optional__Delay_starting_app_in_the_debug_session)  
+-   [(Optional) Delay starting the app in the debug session](#BKMK__Optional__Delay_starting_app_in_the_debug_session)  
   
--   [（可选）禁用网络环回](#BKMK__Optional__Disable_network_loopbacks)  
+-   [(Optional) Disable network loopbacks](#BKMK__Optional__Disable_network_loopbacks)  
   
- [启动调试会话](#BKMK_Start_the_debugging_session)  
+ [Start the debugging session](#BKMK_Start_the_debugging_session)  
   
--   [启动调试 (F5)](#BKMK_Start_debugging__F5_)  
+-   [Start debugging (F5)](#BKMK_Start_debugging__F5_)  
   
--   [启动调试 (F5)，但推迟启动应用程序](#BKMK_Start_debugging__F5__but_delay_the_app_start)  
+-   [Start debugging (F5) but delay the app start](#BKMK_Start_debugging__F5__but_delay_the_app_start)  
   
- [在调试器中启动已安装的应用程序](#BKMK_Start_an_installed_app_in_the_debugger)  
+ [Start an installed app in the debugger](#BKMK_Start_an_installed_app_in_the_debugger)  
   
- [将调试器附加到正在运行的应用程序](#BKMK_Attach_the_debugger_to_a_running_app_)  
+ [Attach the debugger to a running app](#BKMK_Attach_the_debugger_to_a_running_app_)  
   
--   [将应用程序设置为以调试模式运行](#BKMK_Set_the_app_to_run_in_debug_mode)  
+-   [Set the app to run in debug mode](#BKMK_Set_the_app_to_run_in_debug_mode)  
   
--   [附加调试器](#BKMK_Attach_the_debugger)  
+-   [Attach the debugger](#BKMK_Attach_the_debugger)  
   
-##  <a name="BKMK_The_easy_way_to_start_debugging"></a> 启动调试的简单方法  
- ![仅适用于 Windows](~/debugger/media/windows_only_content.png "windows\_only\_content")  
+##  <a name="BKMK_The_easy_way_to_start_debugging"></a> The easy way to start debugging  
+ ![Applies to Windows only](../debugger/media/windows_only_content.png "windows_only_content")  
   
-1.  在 Visual Studio 中打开应用解决方案。  
+1.  Open the app solution in Visual Studio.  
   
-2.  如果解决方案同时包含 Windows 应用商店和 Windows Phone 应用商店应用的项目，请确保要调试的项目是启动项目。在解决方案资源管理器中，选择该项目，然后从上下文菜单中选择**“设为启动项目”**。  
+2.  If the solution contains projects for both Windows Store and Windows Store Phone apps, make sure that the project you want to debug is the start-up project. In Solution Explore, select the project and then choose **Set as StartUp Project** from the context menu.  
   
-3.  按 F5。  
+3.  Press F5.  
   
- ![仅适用于 Windows Phone](~/debugger/media/phone_only_content.png "phone\_only\_content")  
+ ![Applies to Windows Phone only](../debugger/media/phone_only_content.png "phone_only_content")  
   
- Visual Studio 生成并启动附有调试器的应用。持续执行至抵达某个断点、手动暂停执行、发生无法处理的异常或应用程序结束为止。有关详细信息，请参阅[快速入门：调试 HTML 和 CSS](../debugger/quickstart-debug-html-and-css.md)。  
+ Visual Studio builds and starts the app with the debugger attached. Execution continues until a breakpoint is reached, you manually suspend execution, an unhandled exception occurs, or the app ends. For more information, see [Quickstart: Debug HTML and CSS](../debugger/quickstart-debug-html-and-css.md).  
   
-##  <a name="BKMK_Configure_the_debugging_session"></a> 配置调试会话  
- 由于脚本未编译，不会应用生成配置和平台设置。如果你正在调试 C\+\+ 或托管组件，请将**“配置”**设置为**“调试”**，然后从**“配置”**对话框选择目标平台。  
+##  <a name="BKMK_Configure_the_debugging_session"></a> Configure the debugging session  
+ Because script is not compiled, the build configuration and platform settings don't apply. If you are debugging a C++ or managed component, set the **Configuration** to **Debug** and choose your target platform from the **Configuration** dialog.  
   
-###  <a name="BKMK_Open_the_debugging_property_page_for_the_project"></a> 打开项目的调试属性页  
+###  <a name="BKMK_Open_the_debugging_property_page_for_the_project"></a> Open the debugging property page for the project  
   
-1.  在解决方案资源管理器中，选择该项目。在快捷菜单中，选择**“属性”**。  
+1.  In Solution Explorer, select the project. On the shortcut menu, choose **Properties**.  
   
-2.  展开**“配置属性”**节点，然后选择**“调试”**  
+2.  Expand the **Configuration Properties**  node and then choose **Debugging**.  
   
-###  <a name="BKMK_Choose_the_build_configuration_options"></a> 选择生成配置选项  
+###  <a name="BKMK_Choose_the_build_configuration_options"></a> Choose the build configuration options  
   
-1.  从**“配置”**列表中选择**“调试”**或**“\(活动\)调试”**。  
+1.  From the **Configuration** list, choose **Debug** or **(Active) Debug**.  
   
-2.  从**“平台”**列表中选择要生成的目标平台。在大多数情况下，**“任意 CPU”**是最佳选择。  
+2.  From the **Platform** list choose the target platform to build for. In most cases, **Any CPU** is the best choice.  
   
-###  <a name="BKMK_Choose_the_deployment_target"></a> 选择部署目标  
- 可在 Visual Studio 计算机上、本地计算机上的 Visual Studio 模拟器中或远程计算机上部署和调试应用。对于项目，从**“调试”**属性页上的**“要启动的调试器”**列表中选择目标。  
+###  <a name="BKMK_Choose_the_deployment_target"></a> Choose the deployment target  
+ You can deploy and debug an app on the Visual Studio machine, in the Visual Studio simulator on the local machine, or on a remote machine. You choose the target from the **Debugger to launch** list on the **Debugging** property page for the project.  
   
- ![仅适用于 Windows](~/debugger/media/windows_only_content.png "windows\_only\_content")  
+ ![Applies to Windows only](../debugger/media/windows_only_content.png "windows_only_content")  
   
- 对于 Windows 应用商店应用，从**“目标设备”**列表选择以下任一选项：  
+ For a Windows Store app, choose one of these options from the **Target device** list:  
   
 |||  
 |-|-|  
-|**本地计算机**|在本地计算机上的当前会话中调试应用。请参阅[在本地计算机上运行 Windows 应用商店应用程序](../debugger/run-windows-store-apps-on-the-local-machine.md)。|  
-|**模拟器**|在 Visual Studio 的 [!INCLUDE[win8_appname_long](../debugger/includes/win8_appname_long_md.md)] 应用模拟器中调试应用。模拟器是一个桌面窗口，在该窗口中可调试本地计算机上未提供的设备功能，如触摸手势和设备旋转。请参阅[在模拟器中运行 Windows 应用商店应用程序](../debugger/run-windows-store-apps-in-the-simulator.md)。|  
-|**远程计算机**|在通过 Intranet 连接到本地计算机或使用以太网电缆直接连接到本地计算机的设备上调试应用。若要进行远程调试，必须安装 Visual Studio 远程工具，并且远程设备上必须正在运行这些工具。请参阅[在远程计算机上运行 Windows 应用商店应用](../debugger/run-windows-store-apps-on-a-remote-machine.md)。|  
+|**Local Machine**|Debug the app in the current session on your local machine. See [Run Windows Store apps on the local machine](../debugger/run-windows-store-apps-on-the-local-machine.md).|  
+|**Simulator**|Debug the app in the Visual Studio simulator for [!INCLUDE[win8_appname_long](../debugger/includes/win8_appname_long_md.md)] apps. The simulator is a Desktop window that enables you to debug device functionality—such as touch gestures and device rotation—that are not available on the local machine. See [Run Windows Store apps in the simulator](../debugger/run-windows-store-apps-in-the-simulator.md).|  
+|**Remote Machine**|Debug the app on a device that is connected to the local machine over an intranet or directly connected by using an Ethernet cable. To debug remotely, the Visual Studio Remote Tools must be installed and running on the remote device. See [Run Windows Store apps on a remote machine](../debugger/run-windows-store-apps-on-a-remote-machine.md).|  
   
- 如果选择**“远程计算机”**，则按以下某种方式指定远程计算机的名称或 IP 地址：  
+ If you choose **Remote Machine**, specify the name or IP address of the remote machine in one of these ways:  
   
--   在**“计算机名称”**框中输入远程计算机的名称或 IP 地址。  
+-   Enter the name or IP address of the remote machine in the **Machine Name** box.  
   
--   选择**“计算机名称”**框中的向下箭头，然后选择**“\<定位...\>”**。然后，从**“选择远程调试器连接”**对话框中选择远程计算机。  
+-   Choose the down arrow in the **Machine Name** box and choose **\<Locate...>**. Then choose the remote machine from **Select Remote Debugger Connection** dialog box.  
   
-     ![选择远程调试器连接](~/debugger/media/vsrun_pro_selectremotedebuggerdlg.png "VSRUN\_PRO\_SelectRemoteDebuggerDlg")  
+     ![Select Remote Debugger Connection](../debugger/media/vsrun_pro_selectremotedebuggerdlg.png "VSRUN_PRO_SelectRemoteDebuggerDlg")  
   
     > [!NOTE]
-    >  “选择远程调试器连接”对话框显示本地子网上的计算机以及通过以太网电缆直接连接到 Visual Studio 计算机的计算机。若要指定其他计算机，请在**“计算机名称”**框中输入名称。  
+    >  The Select Remote Debugger Connection dialog box displays machines that are on the local sub-net and machines that are directly connected to the Visual Studio machine by an Ethernet cable. To specify another machine, enter the name in the **Machine Name** box.  
   
- ![仅适用于 Windows Phone](~/debugger/media/phone_only_content.png "phone\_only\_content")  
+ ![Applies to Windows Phone only](../debugger/media/phone_only_content.png "phone_only_content")  
   
- 对于 Windows Phone 应用商店应用，从**“目标设备”**列表中选择**“设备”**或一个仿真程序。  
+ For a Windows Store Phone app, choose **Device** or one of the emulators from the **Target device** list.  
   
-###  <a name="BKMK_Choose_the_debugger_to_use"></a> 选择要使用的调试器  
- 默认情况下，调试器附加到你应用中的 JavaScript 代码。你可以选择调试应用组件的本机 C\+\+ 和托管代码，而不是 JavaScript 代码。指定要在应用项目的**“调试”**属性页上的**“调试器类型”**列表中进行调试的代码。  
+###  <a name="BKMK_Choose_the_debugger_to_use"></a> Choose the debugger to use  
+ By default, the debugger attaches to the JavaScript code in your app. You can choose to debug the native C++ and managed code of components of your app instead of the JavaScript code. You specify the code to debug in the **Debugger Type** list on the **Debugging** property page of the app project.  
   
- 从**“调试器类型”**列表中选择以下这些调试器之一：  
+ Choose one of these debuggers from the **Debugger Type** list:  
   
 |||  
 |-|-|  
-|**仅限脚本**|调试应用中的 JavaScript 代码。忽略托管代码和本机代码。|  
-|**仅限本机**|调试应用中的本机 C\/C\+\+ 代码。忽略托管代码和 JavaScript 代码。|  
-|**带脚本的本机代码**|调试应用中的本机 C\+\+ 代码和 JavaScript 代码。|  
-|**仅限托管**|调试应用中的托管代码。忽略 JavaScript 代码和本机 C\/C\+\+ 代码。|  
-|**混合\(托管和本机\)**|调试应用中的本机 C\/C\+\+ 代码和托管代码。忽略 JavaScript 代码。|  
+|**Script Only**|Debug JavaScript code in your app. Managed code and native code are ignored.|  
+|**Native Only**|Debug native C/C++ code in your app. Managed code and JavaScript code are ignored.|  
+|**Native with Script**|Debug native C++ code and JavaScript code in your app.|  
+|**Managed Only**|Debug managed code in your app. JavaScript code and native C/C++ code are ignored.|  
+|**Mixed (Managed and Native)**|Debug native C/C++ code and managed code in your app. JavaScript code is ignored.|  
   
-###  <a name="BKMK__Optional__Delay_starting_app_in_the_debug_session"></a> （可选）推迟启动调试会话中的应用  
- 默认情况下，启动调试后，Visual Studio 将立即启动应用。也可启动调试会话但推迟启动应用程序。从“开始”菜单或由激活协定启动应用时或者由其他进程或方法启动应用时，将在调试器中启动应用。你也可以使用延迟的启动在应用未运行时，在应用中调试你希望执行的后台事件。  
+###  <a name="BKMK__Optional__Delay_starting_app_in_the_debug_session"></a> (Optional) Delay starting the app in the debug session  
+ By default, Visual Studio immediately starts the app when you start debugging. You can also start a debug session but delay the start of your app. The app is launched in the debugger when it is launched from the Start menu or by an activation contract, or when it is started by another process or method. You can also use delayed start to debug background events in your app that you want to occur when the app is not running.  
   
- 在应用项目的**“调试”**属性页上的**“启动应用程序”**列表中，指定是否要延迟应用的启动。选择以下某个选项：  
+ You specify whether to delay the launch of your app in the **Launch Application** list on the **Debugging** property page of the app project. Choose one of these options:  
   
--   选择**“否”**以延迟启动应用。  
+-   Choose **No** to delay the launch of your app.  
   
--   选择**“是”**以立即启动应用。  
+-   Choose **Yes** to launch the app immediately.  
   
-###  <a name="BKMK__Optional__Disable_network_loopbacks"></a> （可选）禁用网络环回  
- ![仅适用于 Windows](~/debugger/media/windows_only_content.png "windows\_only\_content")  
+###  <a name="BKMK__Optional__Disable_network_loopbacks"></a> (Optional) Disable network loopbacks  
+ ![Applies to Windows only](../debugger/media/windows_only_content.png "windows_only_content")  
   
- 为安全起见，不允许以标准方式安装的 Windows 应用商店应用对装有它的设备进行网络调用。默认情况下，Visual Studio 部署功能为所部署的应用程序创建此规则的例外。通过此例外，在一台计算机上即可测试通信过程。向 Window 应用商店提交应用之前，应在没有例外的情况下测试应用。  
+ For security reasons, a Windows Store app that is installed in the standard manner is not allowed to make network calls to the device it is installed on. By default, Visual Studio deployment creates an exemption from this rule for the deployed app. This exemption allows you to test communication procedures on a single machine. Before you submit your app to the Windows Store, you should test your app without the exemption.  
   
- 要移除网络环回例外，请从**“调试”**属性页上的**“允许网络环回”**列表中选择**“否”**。  
+ To remove the network loopback exemption, choose **No** from the **Allow Network Loopback** list on the **Debugging** property page.  
   
-##  <a name="BKMK_Start_the_debugging_session"></a> 启动调试会话  
+##  <a name="BKMK_Start_the_debugging_session"></a> Start the debugging session  
   
-###  <a name="BKMK_Start_debugging__F5_"></a> 启动调试 \(F5\)  
- 在**“调试”**菜单上选择**“启动调试”**（键盘：F5）时，Visual Studio 启动附带调试器的应用。持续执行至抵达某个断点、手动暂停执行、发生无法处理的异常或应用结束为止。  
+###  <a name="BKMK_Start_debugging__F5_"></a> Start debugging (F5)  
+ When you choose **Start Debugging** on the **Debug** menu (Keyboard: F5), Visual Studio launches the app with the debugger attached. Execution continues until a breakpoint is reached, you manually suspend execution, an unhandled exception occurs, or the app ends.  
   
-###  <a name="BKMK_Start_debugging__F5__but_delay_the_app_start"></a> 启动调试 \(F5\)，但推迟启动应用程序  
- 你可以将应用设置为在调试模式中运行，但通过调试器之外的方法启动应用。例如，你可能需要调试从“开始”菜单进行的应用启动，或在不启动应用的情况下调试应用中的后台进程。若要延迟应用启动，请执行下列操作：  
+###  <a name="BKMK_Start_debugging__F5__but_delay_the_app_start"></a> Start debugging (F5) but delay the app start  
+ You can set the app to run in debug mode, but let it be started by a method other than the debugger. For example, you might want to debug the launch of your app from the Start menu, or to debug a background process in the app without starting the app.To delay the app start, do this:  
   
-1.  在应用项目属性的**“调试”**页上，从**“启动应用程序”**列表选择**“否”**。  
+1.  On the **Debug** page of the app project properties, choose **No** from the **Launch Application** list.  
   
-2.  在**“调试”**菜单上，选择**“启动调试”**（键盘：F5）。  
+2.  Choose **Start Debugging** on the **Debug** menu (Keyboard: F5).  
   
-3.  从“开始”菜单、执行协定或由其他过程启动应用。  
+3.  Start your app from the Start menu, an execution contract, or by another procedure.  
   
- 随后应用在调试模式下启动。持续执行至抵达某个断点、手动暂停执行、发生无法处理的异常或应用结束为止。  
+ The app starts in debug mode. Execution continues until a breakpoint is reached, you manually suspend execution, an unhandled exception occurs, or the app ends.  
   
- 有关调试后台任务的详细信息，请参阅[触发 Windows 应用商店的挂起、继续和后台事件](../debugger/how-to-trigger-suspend-resume-and-background-events-for-windows-store-apps-in-visual-studio.md)。  
+ . For more information about debugging background tasks, see [Trigger suspend, resume, and background events for Windows Store)](../debugger/how-to-trigger-suspend-resume-and-background-events-for-windows-store-apps-in-visual-studio.md).  
   
-##  <a name="BKMK_Start_an_installed_app_in_the_debugger"></a> 在调试器中启动已安装的应用程序  
- 在使用 F5 启动调试时，Visual Studio 会生成并部署应用，将应用设置为在调试模式中运行，然后启动应用。若要启动设备上已安装的应用程序，请使用“调试安装的应用程序包”对话框。在需要调试已从 Windows 应用商店安装的应用程序时，或在具有应用程序的源文件但没有针对应用程序的 Visual Studio 项目时，此过程非常有用。例如，你的自定义生成系统可能不使用 Visual Studio 项目或解决方案。  
+##  <a name="BKMK_Start_an_installed_app_in_the_debugger"></a> Start an installed app in the debugger  
+ When you start debugging by using F5, Visual Studio builds and deploys the app, sets the app to run in debug mode, and then starts it. To start an app that is already installed on a device, use the Debug Installed App Package dialog box. This procedure is useful when you need to debug an app that was installed from the Windows store, or when you have the source files for the app, but you do not have a Visual Studio project for the app. For example, you might have a custom build system that does not use Visual Studio projects or solutions.  
   
- 应用可安装在本地设备上，也可安装在远程设备上。你可以立即启动应用程序，或将应用程序设置为当其通过其他进程或方法（如从“开始”菜单或通过激活协定）启动时在调试器中运行，也可以将应用程序设置为当需要在未启动应用程序的情况下调试后台进程时在调试模式中运行。有关详细信息，请参阅[触发 Windows 应用商店的挂起、继续和后台事件](../debugger/how-to-trigger-suspend-resume-and-background-events-for-windows-store-apps-in-visual-studio.md)。  
+ The app can be installed on the local device, or it can be on a remote device.  You can start the app immediately, or you can set it to run in the debugger when it is started by another process or method, such as from the Start menu or by an activation contract, You can also set the app to run in debug mode when you want to debug a background process without starting the app. For more information, see [Trigger suspend, resume, and background events for Windows Store)](../debugger/how-to-trigger-suspend-resume-and-background-events-for-windows-store-apps-in-visual-studio.md).  
   
- 若要将已安装的应用设置为在调试模式中运行，请执行下列操作：  
+ To set an installed app to run in debug mode, do this:  
   
 > [!NOTE]
->  在你启动此过程时，应用不得运行。  
+>  The app must not be running when you start this procedure.  
   
-1.  在**“调试”**菜单上，选择**“调试安装的应用程序包”**  
+1.  On the **Debug** menu, choose **Debug Installed App Package**.  
   
-2.  请从列表中选择下列选项之一：  
+2.  Choose one of the following options from the list:  
   
     |||  
     |-|-|  
-    |**本地计算机**|在本地计算机上的当前会话中调试应用。请参阅[在本地计算机上运行 Windows 应用商店应用程序](../debugger/run-windows-store-apps-on-the-local-machine.md)。|  
-    |**模拟器**|在 Visual Studio 的 [!INCLUDE[win8_appname_long](../debugger/includes/win8_appname_long_md.md)] 应用模拟器中调试应用。模拟器是一个桌面窗口，在该窗口中可调试本地计算机上未提供的设备功能，如触摸手势和设备旋转。请参阅[在模拟器中运行 Windows 应用商店应用程序](../debugger/run-windows-store-apps-in-the-simulator.md)。|  
-    |**远程计算机**|在通过 Intranet 连接到本地计算机或使用以太网电缆直接连接到本地计算机的设备上调试应用。若要进行远程调试，必须安装 Visual Studio 远程工具，并且远程设备上必须正在运行这些工具。请参阅[在远程计算机上运行 Windows 应用商店应用](../debugger/run-windows-store-apps-on-a-remote-machine.md)。|  
+    |**Local Machine**|Debug the app in the current session on your local machine. See [Run Windows Store apps on the local machine](../debugger/run-windows-store-apps-on-the-local-machine.md).|  
+    |**Simulator**|Debug the app in the Visual Studio simulator for [!INCLUDE[win8_appname_long](../debugger/includes/win8_appname_long_md.md)] apps. The simulator is a Desktop window that enables you to debug device functionality—such as touch gestures and device rotation—that are not available on the local machine. See [Run Windows Store apps in the simulator](../debugger/run-windows-store-apps-in-the-simulator.md).|  
+    |**Remote Machine**|Debug the app on a device that is connected to the local machine over an intranet or directly connected by using an Ethernet cable. To debug remotely, the Visual Studio Remote Tools must be installed and running on the remote device. See [Run Windows Store apps on a remote machine](../debugger/run-windows-store-apps-on-a-remote-machine.md).|  
   
-3.  **从“安装的应用程序包”**列表中选择应用。  
+3.  Choose the app from the **Installed App Packages** list.  
   
-4.  从**“调试此代码类型”**列表中选择要使用的调试引擎。  
+4.  Choose the debug engine to use from the **Debug this code type** list.  
   
-5.  （可选）。选择**“不启动，但在启动时调试代码”**以在通过其他某种方法启动应用时调试应用或调试后台进程。  
+5.  (Optional). Choose **Do not launch, but debug my code when it starts** to debug the app when it is started by some other method, or to debug a background process.  
   
- 在单击**“启动”**时，应用将启动或设置为在调试模式中运行。  
+ When you click **Start**, the app is launched or is set to run in debug mode.  
   
-##  <a name="BKMK_Attach_the_debugger_to_a_running_app_"></a> 将调试器附加到正在运行的应用程序  
- 若要将调试器附加到 [!INCLUDE[win8_appname_long](../debugger/includes/win8_appname_long_md.md)] 应用，必须使用可调式包管理器将应用设置为以调试模式运行。可调式包管理器与 Visual Studio 远程工具一并安装。  
+##  <a name="BKMK_Attach_the_debugger_to_a_running_app_"></a> Attach the debugger to a running app  
+ To attach the debugger to a [!INCLUDE[win8_appname_long](../debugger/includes/win8_appname_long_md.md)] app, you must use the Debuggable Package Manager to set the app to run in debug mode. The Debuggable Package Manager is installed with the Visual Studio Remote Tools.  
   
- 当需要调试已安装的应用（如从 Windows 应用商店安装的应用）时，将调试器附加到应用很有用。在拥有应用程序的源文件，但没有应用程序的 Visual Studio 项目时，必须进行附加。例如，你的自定义生成系统可能不使用 Visual Studio 项目或解决方案。  
+ Attaching the debugger to an app is useful when you need to debug an already-installed app, such as an app that was installed from the Windows store. Attaching is required when you have the source files for the app, but you do not have a Visual Studio project for the app. For example, you might have a custom build system that does not use Visual Studio projects or solutions.  
   
- 附加到应用：  
+ To attach to an app:  
   
-1.  将应用设置为以调试模式运行。必须在应用未运行时执行此操作。  
+1.  Set the app to run in debug mode. This must be done when the app is not running.  
   
-2.  启动该应用。可从“开始”菜单、执行协定或通过某些其他方法启动该应用。  
+2.  Start the app. You can start the app from the Start menu, an execution contract, or some other method.  
   
-3.  将调试器附加到正在运行的应用。  
+3.  Attach the debugger to the running app.  
   
-###  <a name="BKMK_Set_the_app_to_run_in_debug_mode"></a> 将应用程序设置为以调试模式运行  
+###  <a name="BKMK_Set_the_app_to_run_in_debug_mode"></a> Set the app to run in debug mode  
   
-1.  在装有该应用的设备上安装 Visual Studio 远程工具。请参阅[安装远程工具](http://msdn.microsoft.com/library/windows/apps/hh441469.aspx#BKMK_Installing_the_Remote_Tools)。  
+1.  Install the Visual Studio Remote Tools on the device where the app is installed. See [Installing the remote tools](http://msdn.microsoft.com/library/windows/apps/hh441469.aspx#BKMK_Installing_the_Remote_Tools).  
   
-2.  在“开始”菜单上，搜索 `Debuggable Package Manager`，然后启动它。  
+2.  On the Start menu, search for `Debuggable Package Manager` and then start it.  
   
-     随后显示 PowerShell 窗口，该窗口针对 AppxDebug cmdlet 进行了正确的配置。  
+     A PowerShell window properly configured for the AppxDebug cmdlet appears.  
   
-3.  若要能够调试应用，必须指定该应用的 PackageFullName 标识符。若要查看包含 PackageFullName 的所有应用的列表，请在 PowerShell 提示符下键入 `Get-AppxPackage`。  
+3.  To enable debugging of an app, you must specify the PackageFullName identifier of the app. To view a list all apps that includes the PackageFullName, type `Get-AppxPackage` at the PowerShell prompt.  
   
-4.  在 PowerShell 提示符下，输入 `Enable-AppxDebug` *PackageFullName*，其中 *PackageFullName* 是应用的 PackageFullName 标识符。  
+4.  At the PowerShell prompt, enter `Enable-AppxDebug` *PackageFullName* where *PackageFullName* is the PackageFullName identifier of the app.  
   
-###  <a name="BKMK_Attach_the_debugger"></a> 附加调试器  
+###  <a name="BKMK_Attach_the_debugger"></a> Attach the debugger  
   
 > [!TIP]
->  JavaScript 应用使用 wwahost.exe 进程的实例运行。附加到应用时，如果其他 JavaScript 应用正在运行，你将需要了解应用正在运行的 wwahost.exe 的数字进程 ID \(PID\)。  
+>  JavaScript apps run in an instance of the wwahost.exe process. If other JavaScript apps are running when you attach to the app, you will need to know the numeric process id (PID) of the wwahost.exe that the app is running in.  
 >   
->  处理此情形的最简单方法是关闭所有其他 JavaScript 应用。否则，你可以在启动应用之前打开 Windows 任务管理器并记下 wwahost.exe 进程的 ID。当你在**“可用进程”**对话框中指定要附加到的进程时，应用的 wwahost.exe 所具有的 ID 将不同于你记录的 ID。  
+>  The easiest way to deal with this situation is to close all of the other JavaScript apps. Otherwise, you can open Windows Task Manager before you start the app and note the ids of the wwahost.exe processes. When you specify the process to attach to in the **Available Processes**  dialog box, the wwahost.exe of the app will have an id that is different than the ones that you have noted.  
   
- 若要附加调试器，请执行以下操作：  
+ To attach the debugger:  
   
-1.  在**“调试”**菜单上，选择**“附加到进程”**。  
+1.  On the **Debug** menu, choose **Attach to Process**.  
   
-     **“附加到进程”**对话框随即显示。  
+     The **Attach to Process** dialog box appears.  
   
-2.  若要附加到远程设备上的应用，请在**“限定符”**框中指定该远程设备。你可以：  
+2.  To attach to an app on a remote device, specify the remote device in the **Qualifier** box. You can:  
   
-    -   在**“限定符”**框中输入名称。  
+    -   Enter the name in the **Qualifier** box.  
   
-    -   选择**“限定符”**框中的下拉箭头，然后从以前已附加到的设备的列表中选择该设备。  
+    -   Choose the down-arrow in the **Qualifier** box and choose the device from a list of devices that you have attached to before.  
   
-    -   选择**“查找”**，从本地子网上设备的列表中选择该设备。  
+    -   Choose **Find** to choose the device from a list of devices on your local subnet.  
   
-3.  指定想要在**“附加到”**框中调试的代码类型。  
+3.  Specify the type of code that you want to debug in the **Attach to** box.  
   
-     选择**“选择”**，然后执行以下某项操作：  
+     Choose **Select** and then do one of the following:  
   
-    -   选中**“自动确定要调试的代码类型”**  
+    -   Choose **Automatically determine the type of code to debug**.  
   
-    -   选中**“调试以下代码类型”**，然后从列表中选择一个或多个类型。  
+    -   Choose **Debug these code types** and then choose one or more types from the list.  
   
-4.  在**“可用进程”**列表中，选择适当的 **wwahost.exe** 进程。使用**“标题”**列来标识你的应用。  
+4.  In the **Available Processes**  list, choose the appropriate **wwahost.exe** process. Use the **Title** column to identify your app.  
   
-5.  选择**“附加”**。  
+5.  Choose **Attach**.  
   
- Visual Studio 将调试器附加到该进程。持续执行至抵达某个断点、手动暂停执行、发生无法处理的异常或应用结束为止。  
+ Visual Studio attaches the debugger to the process. Execution continues until a breakpoint is reached, you manually suspend execution, an unhandled exception occurs, or the app ends.  
   
-## 请参阅  
- [在调试会话中控制执行 \(JavaScript\)](../debugger/control-execution-of-a-store-app-in-a-visual-studio-debug-session-for-windows-store-apps-javascript.md)   
- [快速入门：调试 HTML 和 CSS](../debugger/quickstart-debug-html-and-css.md)   
- [触发 Windows 应用商店的挂起、继续和后台事件](../debugger/how-to-trigger-suspend-resume-and-background-events-for-windows-store-apps-in-visual-studio.md)   
- [在 Visual Studio 中调试应用程序](../debugger/debug-store-apps-in-visual-studio.md)
+## <a name="see-also"></a>See Also  
+ [Control execution in a debug session (JavaScript)](../debugger/control-execution-of-a-store-app-in-a-visual-studio-debug-session-for-windows-store-apps-javascript.md)   
+ [Quickstart: Debug HTML and CSS](../debugger/quickstart-debug-html-and-css.md)   
+ [Trigger suspend, resume, and background events for Windows Store)](../debugger/how-to-trigger-suspend-resume-and-background-events-for-windows-store-apps-in-visual-studio.md)   
+ [Debug apps in Visual Studio](../debugger/debug-store-apps-in-visual-studio.md)

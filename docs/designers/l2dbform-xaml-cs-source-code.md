@@ -1,5 +1,5 @@
 ---
-title: "L2DBForm.xaml.cs 源代码 | Microsoft Docs"
+title: L2DBForm.xaml.cs Source Code | Microsoft Docs
 ms.custom: 
 ms.date: 11/04/2016
 ms.reviewer: 
@@ -27,61 +27,62 @@ translation.priority.ht:
 - tr-tr
 - zh-cn
 - zh-tw
-translationtype: Human Translation
-ms.sourcegitcommit: 5db97d19b1b823388a465bba15d057b30ff0b3ce
-ms.openlocfilehash: 753635060d71edf9d71e5919d00c9b566e16320d
-ms.lasthandoff: 02/22/2017
+ms.translationtype: HT
+ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
+ms.openlocfilehash: c54155a382aa9fce95ecaab212632d80dfa61d9f
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="l2dbformxamlcs-source-code"></a>L2DBForm.xaml.cs Source Code
-本主题包含文件 L2DBForm.xaml.cs 中 C# 源代码的内容和说明。 本文件中包含的 L2XDBForm 分部类可分为三个逻辑区域：数据成员、`OnRemove` 和 `OnAddBook` 按钮单击事件处理程序。  
+This topic contains the contents and description of the C# source code in the file L2DBForm.xaml.cs. The L2XDBForm partial class contained in this file can be divided into three logical sections: data members and the `OnRemove` and `OnAddBook` button click event handlers.  
   
-## <a name="data-members"></a>数据成员  
- 使用两个私有数据成员将此类与 L2DBForm.xaml 中使用的窗口资源相关联。  
+## <a name="data-members"></a>Data Members  
+ Two private data members are used to associate this class to the window resources used in L2DBForm.xaml.  
   
--   命名空间变量 `myBooks` 初始化为 `"http://www.mybooks.com"`。  
+-   The namespace variable `myBooks` is initialized to `"http://www.mybooks.com"`.  
   
--   用下面的行将构造函数中的成员 `bookList` 初始化为 L2DBForm.xaml 中的 CDATA 字符串：  
+-   The member `bookList` is initialized in the constructor to the CDATA string in L2DBForm.xaml with the following line:  
   
     ```  
     bookList = (XElement)((ObjectDataProvider)Resources["LoadedBooks"]).Data;  
     ```  
   
-## <a name="onaddbook-event-handler"></a>OnAddBook 事件处理程序  
- 此方法包含下面三个语句：  
+## <a name="onaddbook-event-handler"></a>OnAddBook Event Handler  
+ This method contains the following three statements:  
   
--   第一个条件语句用于输入验证。  
+-   The first conditional statement is used for input validation.  
   
--   第二个语句从用户在“Add New Book”（添加新书籍）用户界面 (UI) 区域中输入的字符串值创建新的 <xref:System.Xml.Linq.XElement>。  
+-   The second statement creates a new <xref:System.Xml.Linq.XElement> from the string values the user entered in the **Add New Book** user interface (UI) section.  
   
--   最后一个语句将此新书籍元素添加到 L2DBForm.xaml 中的数据提供程序。 因此，动态数据绑定将用此新项自动更新 UI；不需要用户提供额外的代码。  
+-   The last statement adds this new book element to the data provider in L2DBForm.xaml. Consequently, dynamic data binding will automatically update the UI with this new item; no extra user-supplied code is required.  
   
-## <a name="onremove-event-handler"></a>OnRemove 事件处理程序  
- 由于两个原因，`OnRemove` 处理程序比 `OnAddBook` 处理程序更复杂。 首先，由于原始 XML 包含保留的空白，因此还必须与书籍条目一起移除匹配的换行符。 其次，出于方便，对所选项进行的选择会重置为列表中以前的选择。  
+## <a name="onremove-event-handler"></a>OnRemove Event Handler  
+ The `OnRemove` handler is more complicated than the `OnAddBook` handler for two reasons. First, because the raw XML contains preserved white space, matching newlines must also be removed with the book entry. Second, as a convenience, the selection, which was on the deleted item, is reset to the previous one in the list.  
   
- 但是，移除所选书籍项的核心工作仅通过两个语句完成：  
+ However the core work of removing the selected book item is accomplished by only two statements:  
   
--   首先，检索与列表框中当前所选项相关联的书籍元素：  
+-   First, the book element associated with the currently selected item in the list box is retrieved:  
   
     ```  
     XElement selBook = (XElement)lbBooks.SelectedItem;   
     ```  
   
--   然后，从数据提供程序中删除此元素：  
+-   Then, this element is deleted from the data provider:  
   
     ```  
     selBook.Remove();  
     ```  
   
- 此外，动态数据绑定将确保自动更新程序的 UI。  
+ Again, dynamic data binding assures that the program's UI is automatically updated.  
   
-## <a name="example"></a>示例  
+## <a name="example"></a>Example  
   
-### <a name="description"></a>描述  
+### <a name="description"></a>Description  
   
-### <a name="code"></a>代码  
+### <a name="code"></a>Code  
   
-```c#  
+```csharp  
 using System;  
 using System.Linq;  
 using System.Collections;  
@@ -149,9 +150,9 @@ namespace LinqToXmlDataBinding {
   
 ```  
   
-### <a name="comments"></a>注释  
- 有关这些处理程序的关联 XAML 源，请参阅 [L2DBForm.xaml 源代码](../designers/l2dbform-xaml-source-code.md)。  
+### <a name="comments"></a>Comments  
+ For the associated XAML source for these handlers, see [L2DBForm.xaml Source Code](../designers/l2dbform-xaml-source-code.md).  
   
-## <a name="see-also"></a>另请参阅  
- [演练：LinqToXmlDataBinding 示例](../designers/walkthrough-linqtoxmldatabinding-example.md)   
- [L2DBForm.xaml 源代码](../designers/l2dbform-xaml-source-code.md)
+## <a name="see-also"></a>See Also  
+ [Walkthrough: LinqToXmlDataBinding Example](../designers/walkthrough-linqtoxmldatabinding-example.md)   
+ [L2DBForm.xaml Source Code](../designers/l2dbform-xaml-source-code.md)

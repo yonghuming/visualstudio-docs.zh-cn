@@ -1,300 +1,302 @@
 ---
-title: "演练：将数据插入到服务器上的工作簿中"
-ms.custom: ""
-ms.date: "02/02/2017"
-ms.prod: "visual-studio-dev14"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "office-development"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-dev_langs: 
-  - "VB"
-  - "CSharp"
-helpviewer_keywords: 
-  - "数据 [Visual Studio 中的 Office 开发], 在服务器上进行访问"
-  - "数据集 [Visual Studio 中的 Office 开发], 在服务器上进行访问"
-  - "文档 [Visual Studio 中的 Office 开发], 服务器端数据访问"
-  - "服务器端数据访问 [Visual Studio 中的 Office 开发]"
-  - "工作簿 [Visual Studio 中的 Office 开发], 插入数据"
+title: 'Walkthrough: Inserting Data into a Workbook on a Server | Microsoft Docs'
+ms.custom: 
+ms.date: 02/02/2017
+ms.prod: visual-studio-dev14
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- office-development
+ms.tgt_pltfrm: 
+ms.topic: article
+dev_langs:
+- VB
+- CSharp
+helpviewer_keywords:
+- datasets [Office development in Visual Studio], accessing on server
+- server-side data access [Office development in Visual Studio]
+- data [Office development in Visual Studio], accessing on server
+- documents [Office development in Visual Studio], server-side data access
+- workbooks [Office development in Visual Studio], inserting data
 ms.assetid: e6481902-781c-4666-bc18-4d69368c9bb3
 caps.latest.revision: 38
-author: "kempb"
-ms.author: "kempb"
-manager: "ghogen"
-caps.handback.revision: 37
+author: kempb
+ms.author: kempb
+manager: ghogen
+ms.translationtype: HT
+ms.sourcegitcommit: eb5c9550fd29b0e98bf63a7240737da4f13f3249
+ms.openlocfilehash: ff726647274f83e6edc4f680915015c2645d9e97
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/30/2017
+
 ---
-# 演练：将数据插入到服务器上的工作簿中
-  此演练演示如何通过使用 <xref:Microsoft.VisualStudio.Tools.Applications.ServerDocument> 类在不启动 Excel 的情况下将数据插入到 Microsoft Office Excel 工作簿中缓存的数据集中。  
+# <a name="walkthrough-inserting-data-into-a-workbook-on-a-server"></a>Walkthrough: Inserting Data into a Workbook on a Server
+  This walkthrough demonstrates how to insert data into a dataset that is cached in a Microsoft Office Excel workbook without starting Excel by using the <xref:Microsoft.VisualStudio.Tools.Applications.ServerDocument> class.  
   
  [!INCLUDE[appliesto_xlalldoc](../vsto/includes/appliesto-xlalldoc-md.md)]  
   
- 本演练阐释了以下任务：  
+ This walkthrough illustrates the following tasks:  
   
--   定义一个数据集，其中包含 AdventureWorksLT 数据库中的数据。  
+-   Defining a dataset that contains data from the AdventureWorksLT database.  
   
--   在 Excel 工作簿项目和控制台应用程序项目中创建此数据集的实例。  
+-   Creating instances of the dataset in an Excel workbook project and a console application project.  
   
--   创建一个绑定到工作簿中的此数据集的 <xref:Microsoft.Office.Tools.Excel.ListObject>。  
+-   Creating a <xref:Microsoft.Office.Tools.Excel.ListObject> that is bound to the dataset in the workbook.  
   
--   将工作簿中的此数据集添加到数据缓存中。  
+-   Adding the dataset in the workbook to the data cache.  
   
--   在不启动 Excel 的情况下，通过在控制台应用程序中运行代码将数据插入到此缓存的数据集中。  
+-   Inserting data into the cached dataset by running code in the console application, without starting Excel.  
   
- 尽管此演练假设您是在开发计算机上运行代码，但此演练演示的代码可以在未安装 Excel 的服务器上使用。  
+ Although this walkthrough assumes that you are running the code on your development computer, the code demonstrated by this walkthrough can be used on a server that does not have Excel installed.  
   
 > [!NOTE]  
->  以下说明中的某些 Visual Studio 用户界面元素在计算机上出现的名称或位置可能会不同。  您安装的 Visual Studio 版本以及使用的设置决定了这些元素。  有关更多信息，请参见[Customizing Development Settings in Visual Studio](http://msdn.microsoft.com/zh-cn/22c4debb-4e31-47a8-8f19-16f328d7dcd3)。  
+>  Your computer might show different names or locations for some of the Visual Studio user interface elements in the following instructions. The Visual Studio edition that you have and the settings that you use determine these elements. For more information, see [Personalize the Visual Studio IDE](../ide/personalizing-the-visual-studio-ide.md).  
   
-## 系统必备  
- 您需要以下组件来完成本演练：  
+## <a name="prerequisites"></a>Prerequisites  
+ You need the following components to complete this walkthrough:  
   
 -   [!INCLUDE[vsto_vsprereq](../vsto/includes/vsto-vsprereq-md.md)]  
   
--   [!INCLUDE[Excel_15_short](../vsto/includes/excel-15-short-md.md)] 或 [!INCLUDE[Excel_14_short](../vsto/includes/excel-14-short-md.md)]。  
+-   [!INCLUDE[Excel_15_short](../vsto/includes/excel-15-short-md.md)] or [!INCLUDE[Excel_14_short](../vsto/includes/excel-14-short-md.md)].  
   
--   访问附有 AdventureWorksLT 示例数据库的 Microsoft SQL Server 或 Microsoft SQL Server Express 的运行中实例。  您可以从 [CodePlex 网站](http://go.microsoft.com/fwlink/?linkid=87843)下载 AdventureWorksLT 数据库。  有关附加数据库的更多信息，请参见下列主题：  
+-   Access to a running instance of Microsoft SQL Server or Microsoft SQL Server Express that has the AdventureWorksLT sample database attached to it. You can download the AdventureWorksLT database from the [CodePlex Web site](http://go.microsoft.com/fwlink/?linkid=87843). For more information about attaching a database, see the following topics:  
   
-    -   若要使用 SQL Server Management Studio 或 SQL Server Management Studio Express 来附加数据库，请参见[如何：附加数据库 \(SQL Server Management Studio\)](http://msdn.microsoft.com/zh-cn/b4efb0ae-cfe6-4d81-a4b4-6e4916885caa)。  
+    -   To attach a database by using SQL Server Management Studio or SQL Server Management Studio Express, see [How to: Attach a Database (SQL Server Management Studio)](http://msdn.microsoft.com/en-us/b4efb0ae-cfe6-4d81-a4b4-6e4916885caa).  
   
-    -   若要使用命令行来附加数据库，请参见[如何：将数据库文件附加到 SQL Server Express](http://msdn.microsoft.com/zh-cn/0f8e42b5-7a8c-4c30-8c98-7d2bdc8dcc68)。  
+    -   To attach a database by using the command line, see [How to: Attach a Database File to SQL Server Express](http://msdn.microsoft.com/en-us/0f8e42b5-7a8c-4c30-8c98-7d2bdc8dcc68).  
   
-## 创建定义数据集的类库项目  
- 若要在 Excel 工作簿项目和控制台应用程序中使用同一数据集，您必须在这两个项目都引用的一个单独程序集中定义此数据集。  对于此演练，请在类库项目中定义数据集。  
+## <a name="creating-a-class-library-project-that-defines-a-dataset"></a>Creating a Class Library Project That Defines a Dataset  
+ To use the same dataset in an Excel workbook project and a console application, you must define the dataset in a separate assembly that is referenced by both of these projects. For this walkthrough, define the dataset in a class library project.  
   
-#### 创建类库项目  
+#### <a name="to-create-the-class-library-project"></a>To create the class library project  
   
-1.  启动 [!INCLUDE[vsprvs](../sharepoint/includes/vsprvs-md.md)]。  
+1.  Start [!INCLUDE[vsprvs](../sharepoint/includes/vsprvs-md.md)].  
   
-2.  在**“文件”**菜单上指向**“新建”**，再单击**“项目”**。  
+2.  On the **File** menu, point to **New**, and then click **Project**.  
   
-3.  在“模板”窗格中，展开**“Visual C\#”**或**“Visual Basic”**，然后单击**“窗口”**。  
+3.  In the templates pane, expand **Visual C#** or **Visual Basic**, and then click **Windows**.  
   
-4.  在项目模板列表中，选择**“类库”**。  
+4.  In the list of project templates, select **Class Library**.  
   
-5.  在**“名称”**框中键入 **AdventureWorksDataSet**。  
+5.  In the **Name** box, type **AdventureWorksDataSet**.  
   
-6.  单击**“浏览”**，导航至 %UserProfile%\\My Documents（对于 Windows XP 及更低版本）或 %UserProfile%\\Documents（对于 Windows Vista）文件夹，然后单击**“选择文件夹”**。  
+6.  Click **Browse**, navigate to your %UserProfile%\My Documents (for Windows XP and earlier) or %UserProfile%\Documents (for Windows Vista) folder, and then click **Select Folder**.  
   
-7.  在**“新建项目”**对话框中，确保**“创建解决方案的目录”**复选框未选中。  
+7.  In the **New Project** dialog box, ensure that the **Create directory for solution** check box is not selected.  
   
-8.  单击**“确定”**。  
+8.  Click **OK**.  
   
-     [!INCLUDE[vsprvs](../sharepoint/includes/vsprvs-md.md)] 会将**“AdventureWorksDataSet”**项目添加到**“解决方案资源管理器”**中，并打开**“Class1.cs”**或**“Class1.vb”**代码文件。  
+     [!INCLUDE[vsprvs](../sharepoint/includes/vsprvs-md.md)] adds the **AdventureWorksDataSet** project to **Solution Explorer** and opens the **Class1.cs** or **Class1.vb** code file.  
   
-9. 在**“解决方案资源管理器”**中，右击**“Class1.cs”**或**“Class1.vb”**，然后单击**“删除”**。  此演练不需要此文件。  
+9. In **Solution Explorer**, right-click **Class1.cs** or **Class1.vb**, and then click **Delete**. You do not need this file for this walkthrough.  
   
-## 在类库项目中定义数据集  
- 定义一个类型化数据集，其中包含 SQL Server 2005 附带的 AdventureWorksLT 数据库中的数据。  在此演练后面的部分中，您将从一个 Excel 工作簿项目和一个控制台应用程序项目中引用此数据集。  
+## <a name="defining-a-dataset-in-the-class-library-project"></a>Defining a Dataset in the Class Library Project  
+ Define a typed dataset that contains data from the AdventureWorksLT database for SQL Server 2005. Later in this walkthrough, you will reference this dataset from an Excel workbook project and a console application project.  
   
- 此数据集是一个类型化数据集，表示 AdventureWorksLT 数据库的 Product 表中的数据。  有关类型化的数据集的更多信息，请参见 [在 Visual Studio 中使用数据集](../data-tools/dataset-tools-in-visual-studio.md)。  
+ The dataset is a *typed dataset* that represents the data in the Product table of the AdventureWorksLT database. For more information about typed datasets, see [Dataset tools in Visual Studio](/visualstudio/data-tools/dataset-tools-in-visual-studio).  
   
-#### 在类库项目中定义类型化数据集  
+#### <a name="to-define-a-typed-dataset-in-the-class-library-project"></a>To define a typed dataset in the class library project  
   
-1.  在**“解决方案资源管理器”**中，单击**“AdventureWorksDataSet”**项目。  
+1.  In **Solution Explorer**, click the **AdventureWorksDataSet** project.  
   
-2.  如果 **数据源** 窗口不可见，则显示那么，在菜单栏上，选择 **查看**，**其他窗口**，**数据源**。  
+2.  If the **Data Sources** window is not visible, display it by, on the menu bar, choosing **View**, **Other Windows**, **Data Sources**.  
   
-3.  选择 **添加新数据源** 开始 **数据源配置向导**。  
+3.  Choose **Add New Data Source** to start the **Data Source Configuration Wizard**.  
   
-4.  单击**“数据库”**，然后单击**“下一步”**。  
+4.  Click **Database**, and then click **Next**.  
   
-5.  如果已与 AdventureWorksLT 数据库建立连接，请选择此连接，然后单击**“下一步”**。  
+5.  If you have an existing connection to the AdventureWorksLT database, choose this connection and click **Next**.  
   
-     否则，单击**“新建连接”**，然后使用**“添加连接”**对话框创建新连接。  有关更多信息，请参见[How to: Connect to Data in a Database](../vsto/walkthrough-inserting-data-into-a-workbook-on-a-server.md)。  
+     Otherwise, click **New Connection**, and use the **Add Connection** dialog box to create the new connection. For more information, see [How to: Connect to Data in a Database](../vsto/walkthrough-inserting-data-into-a-workbook-on-a-server.md).  
   
-6.  在**“                  ”**页中，单击**“   ”**。  
+6.  In the **Save the Connection String to the Application Configuration File** page, click **Next**.  
   
-7.  在**“选择数据库对象”**页中，展开**“表”**，然后选择**“Product \(SalesLT\)”**。  
+7.  In the **Choose Your Database Objects** page, expand **Tables** and select **Product (SalesLT)**.  
   
-8.  单击“完成”。  
+8.  Click **Finish**.  
   
-     AdventureWorksLTDataSet.xsd 文件即会添加到 **AdventureWorksDataSet** 项目中。  此文件定义以下各项：  
+     The AdventureWorksLTDataSet.xsd file is added to the **AdventureWorksDataSet** project. This file defines the following items:  
   
-    -   一个名为 `AdventureWorksLTDataSet` 的类型化数据集。  此数据集表示 AdventureWorksLT 数据库中的 Product 表的内容。  
+    -   A typed dataset named `AdventureWorksLTDataSet`. This dataset represents the contents of the Product table in the AdventureWorksLT database.  
   
-    -   一个名为 `ProductTableAdapter` 的 TableAdapter。  此 TableAdapter 可用来在 `AdventureWorksLTDataSet` 中读取和写入数据。  有关更多信息，请参见[TableAdapter 概述](/visual-studio/data-tools/tableadapter-overview)。  
+    -   A TableAdapter named `ProductTableAdapter`. This TableAdapter can be used to read and write data in the `AdventureWorksLTDataSet`. For more information, see [TableAdapter Overview](../data-tools/fill-datasets-by-using-tableadapters.md#tableadapter-overview).  
   
-     在本演练后面的部分中，您将使用这两个对象。  
+     You will use both of these objects later in this walkthrough.  
   
-9. 在**“解决方案资源管理器”**中右击**“AdventureWorksDataSet”**，再单击**“生成”**。  
+9. In **Solution Explorer**, right-click **AdventureWorksDataSet** and click **Build**.  
   
-     验证项目已生成且未发生错误。  
+     Verify that the project builds without errors.  
   
-## 创建 Excel 工作簿项目  
- 为数据的接口创建一个 Excel 工作簿项目。  在此演练后面的部分中，您将创建一个显示这些数据的 <xref:Microsoft.Office.Tools.Excel.ListObject>，并且您将向此工作簿中的数据缓存添加此数据集的实例。  
+## <a name="creating-an-excel-workbook-project"></a>Creating an Excel Workbook Project  
+ Create an Excel workbook project for the interface to the data. Later in this walkthrough, you will create a <xref:Microsoft.Office.Tools.Excel.ListObject> that displays the data, and you will add an instance of the dataset to the data cache in the workbook.  
   
-#### 创建 Excel 工作簿项目  
+#### <a name="to-create-the-excel-workbook-project"></a>To create the Excel workbook project  
   
-1.  在**“解决方案资源管理器”**中右击**“AdventureWorksDataSet”**解决方案，指向**“添加”**，再单击**“新建项目”**。  
+1.  In **Solution Explorer**, right-click the **AdventureWorksDataSet** solution, point to **Add**, and then click **New Project**.  
   
-2.  在模板窗格中，展开 **Visual C\#** 或  **Visual Basic**，然后展开 **Office\/SharePoint**。  
+2.  In the templates pane, expand **Visual C#** or **Visual Basic**, and then expand **Office/SharePoint**.  
   
-3.  在展开的 **Office\/SharePoint** 节点下，选择 **Office 外接程序** 节点。  
+3.  Under the expanded **Office/SharePoint** node, select the **Office Add-ins** node.  
   
-4.  在项目模板列表中，选择 **Excel 2010 工作簿** 或 **Excel 2013 工作簿** 项目。  
+4.  In the list of project templates, select the **Excel 2010 Workbook** or **Excel 2013 Workbook** project.  
   
-5.  在**“名称”**框中键入 **AdventureWorksReport**。  请勿修改位置。  
+5.  In the **Name** box, type **AdventureWorksReport**. Do not modify the location.  
   
-6.  单击**“确定”**。  
+6.  Click **OK**.  
   
-     会打开**“Visual Studio Tools for Office 项目向导”**。  
+     The **Visual Studio Tools for Office Project Wizard** opens.  
   
-7.  确保已选择**“创建新文档”**，然后单击**“确定”**。  
+7.  Ensure that **Create a new document** is selected, and click **OK**.  
   
-     [!INCLUDE[vsprvs](../sharepoint/includes/vsprvs-md.md)] 将在设计器中打开 **AdventureWorksReport** 工作簿，并将**“AdventureWorksReport”**项目添加到**“解决方案资源管理器”**。  
+     [!INCLUDE[vsprvs](../sharepoint/includes/vsprvs-md.md)] opens the **AdventureWorksReport** workbook in the designer and adds the **AdventureWorksReport** project to **Solution Explorer**.  
   
-## 在 Excel 工作簿项目中将此数据集添加到数据源  
- 必须先在 Excel 工作簿项目中将此数据集添加到数据源，然后才能在 Excel 工作簿中显示此数据集。  
+## <a name="adding-the-dataset-to-data-sources-in-the-excel-workbook-project"></a>Adding the Dataset to Data Sources in the Excel Workbook Project  
+ Before you can display the dataset in the Excel workbook, you must first add the dataset to data sources in the Excel workbook project.  
   
-#### 在 Excel 工作簿项目中将此数据集添加到数据源  
+#### <a name="to-add-the-dataset-to-the-data-sources-in-the-excel-workbook-project"></a>To add the dataset to the data sources in the Excel workbook project  
   
-1.  在**“解决方案资源管理器”**中，双击**“AdventureWorksReport”**项目下的**“Sheet1.cs”**或**“Sheet1.vb”**。  
+1.  In **Solution Explorer**, double-click **Sheet1.cs** or **Sheet1.vb** under the **AdventureWorksReport** project.  
   
-     工作簿即会在设计器中打开。  
+     The workbook opens in the designer.  
   
-2.  在**“数据”**菜单上，单击**“添加新数据源”**。  
+2.  On the **Data** menu, click **Add New Data Source**.  
   
-     **“数据源配置向导”**打开。  
+     The **Data Source Configuration Wizard** opens.  
   
-3.  单击**“对象”**，然后单击**“下一步”**。  
+3.  Click **Object**, and then click **Next**.  
   
-4.  在**“选择希望绑定到的对象”**页中，单击**“添加引用”**。  
+4.  In the **Select the Object You Wish to Bind** to page, click **Add Reference**.  
   
-5.  在**“项目”**选项卡上，单击**“AdventureWorksDataSet”**，再单击**“确定”**。  
+5.  On the **Projects** tab, click **AdventureWorksDataSet** and then click **OK**.  
   
-6.  在**“AdventureWorksDataSet”**程序集的**“AdventureWorksDataSet”**命名空间下，单击**“AdventureWorksLTDataSet”**，然后单击**“完成”**。  
+6.  Under the **AdventureWorksDataSet** namespace of the **AdventureWorksDataSet** assembly, click **AdventureWorksLTDataSet** and then click **Finish**.  
   
-     **“数据源”**窗口即会打开，并且**“AdventureWorksLTDataSet”**会添加到数据源列表中。  
+     The **Data Sources** window opens, and **AdventureWorksLTDataSet** is added to the list of data sources.  
   
-## 创建绑定到此数据集的实例的 ListObject  
- 若要在工作簿中显示此数据集，请创建一个绑定到此数据集的实例的 <xref:Microsoft.Office.Tools.Excel.ListObject>。  有关将控件绑定到数据的更多信息，请参见[将数据绑定到 Office 解决方案中的控件](../vsto/binding-data-to-controls-in-office-solutions.md)。  
+## <a name="creating-a-listobject-that-is-bound-to-an-instance-of-the-dataset"></a>Creating a ListObject That Is Bound to an Instance of the Dataset  
+ To display the dataset in the workbook, create a <xref:Microsoft.Office.Tools.Excel.ListObject> that is bound to an instance of the dataset. For more information about binding controls to data, see [Binding Data to Controls in Office Solutions](../vsto/binding-data-to-controls-in-office-solutions.md).  
   
-#### 创建绑定到此数据集的实例的 ListObject  
+#### <a name="to-create-a-listobject-that-is-bound-to-an-instance-of-the-dataset"></a>To create a ListObject that is bound to an instance of the dataset  
   
-1.  在**“数据源”**窗口中，展开**“AdventureWorksDataSet”**下的**“AdventureWorksLTDataSet”**节点。  
+1.  In the **Data Sources** window, expand the **AdventureWorksLTDataSet** node under **AdventureWorksDataSet**.  
   
-2.  选择**“Product”**节点，单击出现的下拉箭头，然后在下拉列表中选择**“ListObject”**。  
+2.  Select the **Product** node, click the drop-down arrow that appears, and select **ListObject** in the drop-down list.  
   
-     如果未出现下拉箭头，请确认是否在设计器中打开了工作簿。  
+     If the drop-down arrow does not appear, confirm that the workbook is open in the designer.  
   
-3.  将**“Product”**表拖到 A1 单元格中。  
+3.  Drag the **Product** table to cell A1.  
   
-     这样就在工作簿中创建了一个名为 `productListObject` 的 <xref:Microsoft.Office.Tools.Excel.ListObject> 控件，此控件的起始单元格为 A1。  同时，会将一个名为 `adventureWorksLTDataSet` 的数据集对象和一个名为 `productBindingSource` 的 <xref:System.Windows.Forms.BindingSource> 添加到项目中。  此 <xref:Microsoft.Office.Tools.Excel.ListObject> 绑定到 <xref:System.Windows.Forms.BindingSource>，而后者又绑定到此数据集对象。  
+     A <xref:Microsoft.Office.Tools.Excel.ListObject> control named `productListObject` is created on the worksheet, starting in cell A1. At the same time, a dataset object named `adventureWorksLTDataSet` and a <xref:System.Windows.Forms.BindingSource> named `productBindingSource` are added to the project. The <xref:Microsoft.Office.Tools.Excel.ListObject> is bound to the <xref:System.Windows.Forms.BindingSource>, which in turn is bound to the dataset object.  
   
-## 将此数据集添加到数据缓存中  
- 若要使 Excel 工作簿项目外部的代码能够访问工作簿中的此数据集，必须将此数据集添加到数据缓存中。  有关数据缓存的更多信息，请参见[文档级自定义项中的缓存数据](../vsto/cached-data-in-document-level-customizations.md)和[缓存数据](../vsto/caching-data.md)。  
+## <a name="adding-the-dataset-to-the-data-cache"></a>Adding the Dataset to the Data Cache  
+ To enable code outside the Excel workbook project to access the dataset in the workbook, you must add the dataset to the data cache. For more information about the data cache, see [Cached Data in Document-Level Customizations](../vsto/cached-data-in-document-level-customizations.md) and [Caching Data](../vsto/caching-data.md).  
   
-#### 将此数据集添加到数据缓存中  
+#### <a name="to-add-the-dataset-to-the-data-cache"></a>To add the dataset to the data cache  
   
-1.  在设计器中，单击**“adventureWorksLTDataSet”**。  
+1.  In the designer, click **adventureWorksLTDataSet**.  
   
-2.  在**“属性”**窗口中，将**“Modifiers”**属性设置为**“Public”**。  
+2.  In the **Properties** window, set the **Modifiers** property to **Public**.  
   
-3.  将**“CacheInDocument”**属性设置为**“True”**。  
+3.  Set the **CacheInDocument** property to **True**.  
   
-## 检查点  
- 生成并运行此 Excel 工作簿项目，确保它在编译和运行时不出错。  
+## <a name="checkpoint"></a>Checkpoint  
+ Build and run the Excel workbook project to ensure that it compiles and runs without errors.  
   
-#### 生成并运行此项目  
+#### <a name="to-build-and-run-the-project"></a>To build and run the project  
   
-1.  在**“解决方案资源管理器”**中右击**“AdventureWorksReport”**项目，选择**“调试”**，然后单击**“启动新实例”**。  
+1.  In **Solution Explorer**, right-click the **AdventureWorksReport** project, choose **Debug**, and then click **Start new instance**.  
   
-     即会生成此项目，并在 Excel 中打开此工作簿。  Sheet1 中的 <xref:Microsoft.Office.Tools.Excel.ListObject> 为空，原因是数据缓存中的 `adventureWorksLTDataSet` 对象还没有数据。  在下一节中，将使用控制台应用程序在 `adventureWorksLTDataSet` 对象中填充数据。  
+     The project is built, and the workbook opens in Excel. The <xref:Microsoft.Office.Tools.Excel.ListObject> in **Sheet1** is empty, because the `adventureWorksLTDataSet` object in the data cache has no data yet. In the next section, you will use a console application to populate the `adventureWorksLTDataSet` object with data.  
   
-2.  关闭 Excel。  请勿保存更改。  
+2.  Close Excel. Do not save changes.  
   
-## 创建控制台应用程序项目  
- 创建一个控制台应用程序项目，用以在工作簿中缓存的数据集中插入数据。  
+## <a name="creating-a-console-application-project"></a>Creating a Console Application Project  
+ Create a console application project to use to insert data in the cached dataset in workbook.  
   
-#### 创建控制台应用程序项目  
+#### <a name="to-create-the-console-application-project"></a>To create the console application project  
   
-1.  在**“解决方案资源管理器”**中右击**“AdventureWorksDataSet”**解决方案，指向**“添加”**，再单击**“新建项目”**。  
+1.  In **Solution Explorer**, right-click the **AdventureWorksDataSet** solution, point to **Add**, and then click **New Project**.  
   
-2.  在**“项目类型”**窗格中，展开**“Visual C\#”**或**“Visual Basic”**，然后单击**“Windows”**。  
+2.  In the **Project Types** pane, expand **Visual C#** or **Visual Basic**, and then click **Windows**.  
   
-3.  在**“模板”**窗格中选择**“控制台应用程序”**。  
+3.  In the **Templates** pane, select **Console Application**.  
   
-4.  在**“名称”**框中键入 **DataWriter**。  请勿修改位置。  
+4.  In the **Name** box, type **DataWriter**. Do not modify the location.  
   
-5.  单击**“确定”**。  
+5.  Click **OK**.  
   
-     [!INCLUDE[vsprvs](../sharepoint/includes/vsprvs-md.md)] 即会将**“DataWriter”**项目添加到**“解决方案资源管理器”**中，并打开**“Program.cs”**或**“Module1.vb”**代码文件。  
+     [!INCLUDE[vsprvs](../sharepoint/includes/vsprvs-md.md)] adds the **DataWriter** project to **Solution Explorer** and opens the **Program.cs** or **Module1.vb** code file.  
   
-## 通过使用控制台应用程序向缓存的数据集中添加数据  
- 在控制台应用程序中使用 <xref:Microsoft.VisualStudio.Tools.Applications.ServerDocument> 类在工作簿中缓存的数据集中填充数据。  
+## <a name="adding-data-to-the-cached-dataset-by-using-the-console-application"></a>Adding Data to the Cached Dataset by Using the Console Application  
+ Use the <xref:Microsoft.VisualStudio.Tools.Applications.ServerDocument> class in the console application to populate the cached dataset in the workbook with data.  
   
-#### 向缓存的数据集中添加数据  
+#### <a name="to-add-data-to-the-cached-dataset"></a>To add data to the cached dataset  
   
-1.  在**“解决方案资源管理器”**中右击**“DataWriter”**项目，然后单击**“添加引用”**。  
+1.  In **Solution Explorer**, right-click the **DataWriter** project and click **Add Reference**.  
   
-2.  在 **.NET** 选项卡中，选择 **Microsoft.VisualStudio.Tools.Applications.ServerDocument**。  
+2.  On the **.NET** tab, select **Microsoft.VisualStudio.Tools.Applications.ServerDocument**.  
   
-3.  单击**“确定”**。  
+3.  Click **OK**.  
   
-4.  在**“解决方案资源管理器”**中右击**“DataWriter”**项目，然后单击**“添加引用”**。  
+4.  In **Solution Explorer**, right-click the **DataWriter** project and click **Add Reference**.  
   
-5.  在**“项目”**选项卡上，选择**“AdventureWorksDataSet”**，然后单击**“确定”**。  
+5.  On the **Projects** tab, select **AdventureWorksDataSet**, and click **OK**.  
   
-6.  在代码编辑器中打开 Program.cs 或 Module1.vb 文件。  
+6.  Open the Program.cs or Module1.vb file in the Code Editor.  
   
-7.  将下面的 **using**（对于 C\#）或 **Imports**（对于 Visual Basic）语句添加到相应代码文件的顶部。  
+7.  Add the following **using** (for C#) or **Imports** (for Visual Basic) statement to the top of the code file.  
   
-     [!code-csharp[Trin_CachedDataWalkthroughs#1](../snippets/csharp/VS_Snippets_OfficeSP/Trin_CachedDataWalkthroughs/CS/DataWriter/Program.cs#1)]
-     [!code-vb[Trin_CachedDataWalkthroughs#1](../snippets/visualbasic/VS_Snippets_OfficeSP/Trin_CachedDataWalkthroughs/VB/DataWriter/Module1.vb#1)]  
+     [!code-csharp[Trin_CachedDataWalkthroughs#1](../vsto/codesnippet/CSharp/AdventureWorksDataSet/DataWriter/Program.cs#1)]  [!code-vb[Trin_CachedDataWalkthroughs#1](../vsto/codesnippet/VisualBasic/AdventureWorksDataSet/DataWriter/Module1.vb#1)]  
   
-8.  将以下代码添加到 `Main` 方法中。  此代码声明了以下对象：  
+8.  Add the following code to the `Main` method. This code declares the following objects:  
   
-    -   在 **AdventureWorksDataSet** 项目中定义的 `AdventureWorksLTDataSet` 和 `ProductTableAdapter` 类型的实例。  
+    -   Instances of the `AdventureWorksLTDataSet` and `ProductTableAdapter` types that are defined in the **AdventureWorksDataSet** project.  
   
-    -   **AdventureWorksReport** 项目的生成文件夹中 AdventureWorksReport 工作簿的路径。  
+    -   The path to the AdventureWorksReport workbook in the build folder of the **AdventureWorksReport** project.  
   
-    -   一个用于访问工作簿中数据缓存的 <xref:Microsoft.VisualStudio.Tools.Applications.ServerDocument> 对象。  
+    -   A <xref:Microsoft.VisualStudio.Tools.Applications.ServerDocument> object to use to access the data cache in the workbook.  
   
         > [!NOTE]  
-        >  下面的代码假定您使用的是文件扩展名为 .xlsx 的工作簿。  如果您项目中的工作簿具有不同的文件扩展名，请在必要时修改路径。  
+        >  The following code assumes that you are using a workbook that has the .xlsx file extension. If the workbook in your project has a different file extension, modify the path as necessary.  
   
-     [!code-csharp[Trin_CachedDataWalkthroughs#3](../snippets/csharp/VS_Snippets_OfficeSP/Trin_CachedDataWalkthroughs/CS/DataWriter/Program.cs#3)]
-     [!code-vb[Trin_CachedDataWalkthroughs#3](../snippets/visualbasic/VS_Snippets_OfficeSP/Trin_CachedDataWalkthroughs/VB/DataWriter/Module1.vb#3)]  
+     [!code-csharp[Trin_CachedDataWalkthroughs#3](../vsto/codesnippet/CSharp/AdventureWorksDataSet/DataWriter/Program.cs#3)] [!code-vb[Trin_CachedDataWalkthroughs#3](../vsto/codesnippet/VisualBasic/AdventureWorksDataSet/DataWriter/Module1.vb#3)]  
   
-9. 将下面的代码添加到 `Main` 方法中，接在上一步添加的代码后面。  这段代码执行下列任务：  
+9. Add the following code to the `Main` method, after the code you added in the previous step. This code performs the following tasks:  
   
-    -   通过使用表适配器填充类型化数据集对象。  
+    -   It fills the typed dataset object by using the table adapter.  
   
-    -   使用 <xref:Microsoft.VisualStudio.Tools.Applications.ServerDocument> 类的 <xref:Microsoft.VisualStudio.Tools.Applications.ServerDocument.CachedData%2A> 属性访问工作簿中缓存的数据集。  
+    -   It uses the <xref:Microsoft.VisualStudio.Tools.Applications.ServerDocument.CachedData%2A> property of the <xref:Microsoft.VisualStudio.Tools.Applications.ServerDocument> class to access the cached dataset in the workbook.  
   
-    -   使用 <xref:Microsoft.VisualStudio.Tools.Applications.CachedDataItem.SerializeDataInstance%2A> 方法在缓存的数据集中填充来自本地类型化数据集的数据。  
+    -   It uses the <xref:Microsoft.VisualStudio.Tools.Applications.CachedDataItem.SerializeDataInstance%2A> method to populate the cached dataset with data from the local typed dataset.  
   
-     [!code-csharp[Trin_CachedDataWalkthroughs#4](../snippets/csharp/VS_Snippets_OfficeSP/Trin_CachedDataWalkthroughs/CS/DataWriter/Program.cs#4)]
-     [!code-vb[Trin_CachedDataWalkthroughs#4](../snippets/visualbasic/VS_Snippets_OfficeSP/Trin_CachedDataWalkthroughs/VB/DataWriter/Module1.vb#4)]  
+     [!code-csharp[Trin_CachedDataWalkthroughs#4](../vsto/codesnippet/CSharp/AdventureWorksDataSet/DataWriter/Program.cs#4)] [!code-vb[Trin_CachedDataWalkthroughs#4](../vsto/codesnippet/VisualBasic/AdventureWorksDataSet/DataWriter/Module1.vb#4)]  
   
-10. 在**“解决方案资源管理器”**中右击**“DataWriter”**项目，指向**“调试”**，然后单击**“启动新实例”**。  
+10. In **Solution Explorer**, right-click the **DataWriter** project, point to **Debug**, and then click **Start new instance**.  
   
-     随即会生成此项目，并且控制台应用程序会在填充本地数据集时以及在应用程序将数据保存到工作簿中缓存的数据集时显示若干状态消息。  按 Enter 可关闭应用程序。  
+     The project is built, and the console application displays several status messages when the local dataset is filled and when the application saves the data to the cached dataset in the workbook. Press ENTER to close the application.  
   
-## 测试此工作簿  
- 打开此工作簿时，<xref:Microsoft.Office.Tools.Excel.ListObject> 现在会显示通过使用控制台应用程序添加到缓存的数据集中的数据。  
+## <a name="testing-the-workbook"></a>Testing the Workbook  
+ When you open the workbook, the <xref:Microsoft.Office.Tools.Excel.ListObject> now displays data that was added to the cached dataset by using the console application.  
   
-#### 测试此工作簿  
+#### <a name="to-test-the-workbook"></a>To test the workbook  
   
-1.  如果 AdventureWorksReport 工作簿在 Visual Studio 设计器中仍处于打开状态，请关闭它。  
+1.  Close the AdventureWorksReport workbook in the Visual Studio designer, if it is still open.  
   
-2.  在文件资源管理器中，打开在 **AdventureWorksReport** 项目的生成文件夹中的 AdventureWorksReport 工作簿。  默认情况下，生成文件夹位于以下位置之一：  
+2.  In File Explorer, open the AdventureWorksReport workbook that is in the build folder of the **AdventureWorksReport** project. By default, the build folder is in one of the following locations:  
   
-    -   %UserProfile%\\My Documents\\AdventureWorksReport\\bin\\Debug（对于 Windows XP 及更低版本）  
+    -   %UserProfile%\My Documents\AdventureWorksReport\bin\Debug (for Windows XP and earlier)  
   
-    -   %UserProfile%\\Documents\\AdventureWorksReport\\bin\\Debug（对于 Windows Vista）  
+    -   %UserProfile%\Documents\AdventureWorksReport\bin\Debug (for Windows Vista)  
   
-3.  验证在您打开此工作簿后 <xref:Microsoft.Office.Tools.Excel.ListObject> 中是否填充了数据。  
+3.  Verify that the <xref:Microsoft.Office.Tools.Excel.ListObject> is populated with data after you open the workbook.  
   
-## 后续步骤  
- 您可以从以下主题中了解到有关使用缓存的数据的更多内容：  
+## <a name="next-steps"></a>Next Steps  
+ You can learn more about working with cached data from these topics:  
   
--   在不启动 Excel 的情况下更改缓存的数据集中的数据。  有关更多信息，请参见[演练：更改服务器上的工作簿中的缓存数据](../vsto/walkthrough-changing-cached-data-in-a-workbook-on-a-server.md)。  
+-   Changing the data in a cached dataset without starting Excel. For more information, see [Walkthrough: Changing Cached Data in a Workbook on a Server](../vsto/walkthrough-changing-cached-data-in-a-workbook-on-a-server.md).  
   
-## 请参阅  
- [演练：更改服务器上的工作簿中的缓存数据](../vsto/walkthrough-changing-cached-data-in-a-workbook-on-a-server.md)   
- [连接到 Windows 窗体应用程序中的数据](/visual-studio/data-tools/connecting-to-data-in-windows-forms-applications)  
+## <a name="see-also"></a>See Also  
+ [Walkthrough: Changing Cached Data in a Workbook on a Server](../vsto/walkthrough-changing-cached-data-in-a-workbook-on-a-server.md)   
+ [Connecting to Data in Windows Forms Applications](/visualstudio/data-tools/connecting-to-data-in-windows-forms-applications)  
   
   

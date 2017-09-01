@@ -1,114 +1,143 @@
 ---
-title: "配置 Windows 防火墙以便进行远程调试 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-debug"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
+title: Configure the Windows Firewall for Remote Debugging | Microsoft Docs
+ms.custom: 
+ms.date: 05/18/2017
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-debug
+ms.tgt_pltfrm: 
+ms.topic: article
 ms.assetid: 66e3230a-d195-4473-bbce-8ca198516014
 caps.latest.revision: 3
-author: "mikejo5000"
-ms.author: "mikejo"
-manager: "ghogen"
-caps.handback.revision: 3
----
-# 配置 Windows 防火墙以便进行远程调试
-[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
+author: mikejo5000
+ms.author: mikejo
+manager: ghogen
+translation.priority.ht:
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- ru-ru
+- zh-cn
+- zh-tw
+translation.priority.mt:
+- cs-cz
+- pl-pl
+- pt-br
+- tr-tr
+ms.translationtype: HT
+ms.sourcegitcommit: 9e6c28d42bec272c6fd6107b4baf0109ff29197e
+ms.openlocfilehash: cd4596e063bc6fb66a259d34109eb1eb74d1780c
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/22/2017
 
-本主题介绍如何配置防火墙以在运行以下操作系统的计算机上启用远程调试：  
-  
--   Windows 7  
-  
--   Windows 8\/8.1  
+---
+# <a name="configure-the-windows-firewall-for-remote-debugging"></a>Configure the Windows Firewall for Remote Debugging
+This topic describes how to configure the firewall to enable remote debugging on computers that run the following operating systems:  
   
 -   Windows 10  
   
--   Windows Server 2008 \(R2\)  
+-   Windows 8/8.1  
   
--   Windows Server 2012  
+-   Windows 7   
   
 -   Windows Server 2012 R2  
+
+-   Windows Server 2012
   
- 如果正在调试的网络不受防火墙保护，则此配置是不必要的。 否则，承载 Visual Studio 的计算机和要调试的远程计算机均需要对防火墙配置的更改。  
+-   Windows Server 2008 R2 
   
- “IPSec” 如果你的网络需要使用 IPSec 执行通信，则必须打开 Visual Studio 主机计算机和该远程计算机上的其他端口。  
+ If the network on which you are debugging is not protected by a firewall, this configuration is unnecessary. Otherwise, both the computer that hosts Visual Studio and the remote computer that is to be debugged require changes to the firewall configuration.  
   
- “Web 服务器” 如果你正在调试远程 Web 服务器，则必须打开远程计算机上的其他端口。  
+ **IPSec** If your network requires that communication be performed using IPSec, you must open additional ports on both the Visual Studio host computer and the remote computer.  
   
- 请注意，这两台计算机不需要运行相同的操作系统。 例如，Visual Studio 计算机可以运行 Windows 10，而远程计算机可以运行 Windows Server 2012 R2。  
+ **Web Server** If you are debugging a remote Web server, you must open an additional port on the remote computer. (For IIS, port 80 must be open.)  
   
-## 若要在 Visual Studio 计算机上配置 Windows 防火墙  
- 有关配置 Windows 防火墙的说明在不同操作系统上略有不同。 在 Windows 7 或 Windows Server 2008 中，使用**程序**一词；而在 Windows 8\/8.1、Windows 10 和 Windows Server 2012 中，使用**应用**一词。  在以下步骤中，我们将使用**应用**一词。  
+ Note that both computers do not have to run the same operating system. For example, the Visual Studio computer can run Windows 10 and the remote computer can run Windows Server 2012 R2.      
   
-1.  打开 Windows 防火墙页。 （在“启动”菜单搜索框中，键入“Windows 防火墙”。）  
-  
-2.  单击“允许应用或功能通过 Windows 防火墙”。  
-  
-3.  在“允许的应用和功能”列表中，查找“Visual Studio 远程调试器发现”。 如果已列出，请确保该选项被选中，并且同时选中一个或多个网络类型。  
-  
-4.  如果未列出“Visual Studio 远程调试器发现”，请单击“允许其他应用”。 如果在“添加应用”窗口中仍看不到该项，请单击“浏览”，并导航到“\<Visual Studio installation directory\>\\Common7\\IDE\\Remote Debugger”。 为应用程序 \(x86, x64, Appx\) 查找适当的文件夹，然后选择“msvsmon.exe”。 然后单击**“添加”**。  
-  
-5.  在“允许的应用和功能”列表中，选择“Visual Studio 远程调试监视器”。 检查你希望远程调试监视器与之进行通信的一个或多个网络类型（“域”、“家庭\/工作”（专用）、“公用”）。 类型必须包括 Visual Studio 计算机连接到的网络。  
-  
-## 若要打开 Visual Studio 计算机上的端口以启用发现  
- 你必须允许 UDP 端口 3702 传入，以允许运行远程调试器的计算机的发现。 若要将其添加，请参阅如何在防火墙中配置端口。  
-  
-## 若要配置远程计算机的 Windows 防火墙以进行远程调试  
- 远程调试组件可在远程计算机上安装或从共享目录中运行。 在这两种情况下都必须配置远程计算机的防火墙。 远程调试组件位于：  
-  
- **\<Visual Studio installation directory\>\\Common7\\IDE\\Remote Debugger**  
-  
- 有关配置 Windows 防火墙的说明在不同操作系统上略有不同。 在 Windows 7 或 Windows Server 2008 中，使用**程序**一词；而在 Windows 8\/8.1、Windows 10 和 Windows Server 2012 中，使用**应用**一词。  在以下步骤中，我们将使用**应用**一词。  
-  
-1.  打开 Windows 防火墙页。 （在“启动”菜单搜索框中，键入“Windows 防火墙”。）  
-  
-2.  单击“允许应用或功能通过 Windows 防火墙”。  
-  
-3.  在“允许的应用和功能”列表中，查找“Visual Studio 远程调试监视器”。 如果已列出，请确保该选项被选中，并且同时选中一个或多个网络类型。  
-  
-4.  如果未列出“Visual Studio 远程调试监视器”，请单击“允许另一个应用”。 如果在“添加应用窗口”中仍看不到它，请单击“浏览”，并导航到“\<Visual Studio installation directory\>\\Common7\\IDE\\Remote Debugger”。 为应用程序 \(x86, x64, Appx\) 查找适当的文件夹，然后选择“msvsmon.exe”。 然后单击**“添加”**。  
-  
-5.  在“允许的应用”列表中，选择“Visual Studio 远程调试监视器”。 检查你希望远程调试监视器与之进行通信的一个或多个网络类型（“域”、“家庭\/工作”（专用）、“公用”）。 类型必须包括 Visual Studio 计算机连接到的网络。  
-  
-## 启用远程调试的远程计算机上的端口  
+## <a name="ports-on-the-remote-computer-that-enable-remote-debugging"></a>Ports on the remote computer that enable remote debugging  
   
 |||||  
 |-|-|-|-|  
-|**端口**|**传入\/传出**|**协议**|**说明**|  
-|3702|传出|UDP|远程调试器发现所必需的。|  
-|4020||TCP|用于 VS 2015。 端口号针对每个 Visual Studio 版本递增 2。 有关详细信息，请参阅“Visual Studio 远程调试器端口分配”。|  
-|4021||TCP|用于 VS 2015。 端口号针对每个 Visual Studio 版本递增 2。 有关详细信息，请参阅“Visual Studio 远程调试器端口分配”。|  
+|**Ports**|**Incoming/Outgoing**|**Protocol**|**Description**|   
+|4022|Incoming|TCP|For VS 2017. The port number is incremented by 2 for each Visual Studio version. For more information, see [Visual Studio Remote Debugger Port Assignments](../debugger/remote-debugger-port-assignments.md).|  
+|4023|Incoming|TCP|For VS 2017. The port number is incremented by 2 for each Visual Studio version. (Only used to remote debug a 32-bit process from the 64-bit version of the remote debugger.) For more information, see  [Visual Studio Remote Debugger Port Assignments](../debugger/remote-debugger-port-assignments.md).| 
+|3702|Outgoing|UDP|(Optional) Required for remote debugger discovery.|    
   
-## 远程计算机上的端口，这些端口启用托管或本机兼容性模式的远程调试  
+## <a name="how-to-configure-ports-in-windows-firewall"></a>How to Configure Ports in Windows Firewall  
+
+When you install Visual Studio or the remote debugger, the software will try to open the correct ports. However, in some scenarios (such as using a third party firewall), you may need to open a port manually. If you need to verify that ports are open, see [Troubleshooting](#troubleshooting). Some instructions for opening a port may be different on older versions of Windows.
+
+To open a port:
+  
+1. Open the **Start** menu, search for **Windows Firewall with Advanced Security**.
+
+2. Then choose **Inbound Rules > New Rule > Port**, and then click **Next**. (For Outgoing rules, choose **Outbound Rules** instead.)
+
+3. Choose either **TCP** or **UDP**, depending on the port number.
+
+4. Under **Specific local ports**, enter the port number, click **Next**.
+
+5. Click **Allow the Connection** and then click **Next**.
+
+6. Select one or more network types to enable for the port and click **Next**.
+
+    The type you select must include the network to which the remote computer is connected.
+7. Add the name (for example, **msvsmon**, **IIS**, or **Web Deploy**) for the rule and click **Finish**.
+
+    You should see your new rule in the Inbound Rules or Outbound Rules list.
+
+## <a name="troubleshooting"></a>Troubleshooting
+
+If you are having trouble attaching to your app with the remote debugger, you may need to verify that the correct ports are open.
+
+### <a name="verify-that-ports-are-open-in-the-windows-firewall-on-the-visual-studio-computer"></a>Verify that ports are open in the Windows Firewall on the Visual Studio Computer  
+ The instructions for configuring the Windows firewall differ slightly on different operating systems. On Windows 8/8.1, Windows 10, and Windows Server 2012, the word **app** is used; on Windows 7 or Windows Server 2008, the word **program** is used;  In the following steps we will use the word **app**.  
+  
+1.  Open the Windows Firewall page. (In the **Start** menu search box, type **Windows Firewall**).  
+  
+2.  Click **Allow an app or feature through Windows Firewall**.  
+  
+3.  In the **Allowed apps and features** list, look for **Visual Studio Remote Debugger Discovery**. If it is listed, make sure that it is selected, and that one or more network types are also selected.  
+  
+4.  If **Visual Studio Remote Debugger Discovery** is not listed, click **Allow another app**. If you still don't see it in the **Add an app** window, click **Browse** and navigate to **\<Visual Studio installation directory>\Common7\IDE\Remote Debugger**. Find the appropriate folder for the application (x86, x64, Appx) and then select **msvsmon.exe**. Then click **Add**.  
+  
+5.  In the **Allowed apps and features** list, select **Visual Studio Remote Debugger**. Check one or more network types (**Domain, Home/Work (Private), Public**) that you want the remote debugging monitor to communicate with. The types must include the network to which the Visual Studio computer is connected. 
+
+### <a name="verify-that-ports-are-open-in-the-windows-firewall-on-the-remote-computer"></a>Verify that ports are open in the Windows Firewall on the remote computer  
+ The remote debugging components can be installed on the remote computer or run from a shared directory. The firewall of the remote computer must be configured in both cases. The remote debugging components are located in:  
+  
+ **\<Visual Studio installation directory>\Common7\IDE\Remote Debugger**  
+  
+ The instructions for configuring the Windows firewall differ slightly on different operating systems. On Windows 8/8.1, Windows 10, and Windows Server 2012, the word **app** is used; on Windows 7 or Windows Server 2008, the word **program** is used;  In the following steps we will use the word **app**.  
+  
+1.  Open the Windows Firewall page. (On the **Start** menu search box, type **Windows Firewall**.)  
+  
+2.  Click **Allow an app or feature through Windows Firewall**.  
+  
+3.  In the **Allowed apps and features** list, look for **Visual Studio Remote Debugger**. If it is listed, make sure that it is selected, and that one or more network types are also selected.  
+  
+4.  If **Visual Studio Remote Debugger** is not listed, click **Allow another app**. If you still don't see it in the **Add an app window**, click **Browse** and navigate to **\<Visual Studio installation directory>\Common7\IDE\Remote Debugger**. Find the appropriate folder for the application (x86, x64, Appx) and then select **msvsmon.exe**. Then click **Add**.  
+  
+5.  In the **Allowed apps** list, select **Visual Studio Remote Debugger**. Check one or more network types (**Domain, Home/Work (Private), Public**) that you want the remote debugging monitor to communicate with. The types must include the network to which the Visual Studio computer is connected. 
+
+### <a name="managed-or-native-compatibility-mode-open-additional-ports-on-the-remote-computer"></a>(Managed or native compatibility mode) Open additional ports on the remote computer
+
+If you are using compatibility mode for the debugger (**Tools > Options > Debugging**), additional ports will need to be opened. Compatibility mode enables a legacy version of the debugger and different ports are required.
+
+> [!NOTE]
+> The legacy version of the debugger is the Visual Studio 2010 debugger.
   
 |||||  
 |-|-|-|-|  
-|**端口**|**传入\/传出**|**协议**|**说明**|  
-|135, 139, 445|传出|TCP|必需。|  
-|137, 138|传出|UDP|必需。|  
-|500, 4500|传出|UDP|如果你的域策略需要通过 IPSec 进行网络通信，则需要。|  
-|80|传出|TCP|Web 服务器调试所必需。|  
+|**Ports**|**Incoming/Outgoing**|**Protocol**|**Description**|  
+|135, 139, 445|Outgoing|TCP|Required.|  
+|137, 138|Outgoing|UDP|Required.|  
+|500, 4500|Outgoing|UDP|Required if your domain policy requires network communication to be performed through IPSec.|  
+|80|Outgoing|TCP|Required for Web Server debugging.|
   
-## 如何在 Windows 防火墙中配置端口  
-  
-1.  在“启动”菜单中，搜索“高级安全 Windows 防火墙”。  
-  
-2.  单击“入站规则”或“出站规则”，然后单击“操作”列表中的“新规则”。  
-  
-3.  在“规则类型”页上，选择“端口”，然后单击“下一步”。  
-  
-4.  在“协议和端口”页上，选择端口协议（TCP 或 UDP）。 选择“特定本地端口”，并输入你想要为协议启用的一个或多个端口号。 使用逗号分隔数字。 然后，单击**“下一步”**。  
-  
-5.  在“操作”页上，选择“允许连接”，然后单击“下一步”。  
-  
-6.  在“配置文件”页上，选择要为端口启用的一个或多个网络类型。 你选择的类型必须包括远程计算机连接到的网络。 然后，单击**“下一步”**。  
-  
-7.  在“名称”页上，键入规则的名称，然后单击“完成”。  
-  
-8.  你应该会在“入站规则”或“出站规则”列表中看到你的新规则。  
-  
-## 请参阅  
- [远程调试](../debugger/remote-debugging.md)
+## <a name="see-also"></a>See Also  
+ [Remote Debugging](../debugger/remote-debugging.md)

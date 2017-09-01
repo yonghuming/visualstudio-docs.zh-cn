@@ -1,72 +1,89 @@
 ---
-title: "CA1024：在适用处使用属性 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-devops-test"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "UsePropertiesWhereAppropriate"
-  - "CA1024"
-helpviewer_keywords: 
-  - "CA1024"
-  - "UsePropertiesWhereAppropriate"
+title: 'CA1024: Use properties where appropriate | Microsoft Docs'
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-devops-test
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords:
+- UsePropertiesWhereAppropriate
+- CA1024
+helpviewer_keywords:
+- CA1024
+- UsePropertiesWhereAppropriate
 ms.assetid: 3a04f765-af7c-4872-87ad-9cc29e8e657f
 caps.latest.revision: 21
-author: "stevehoag"
-ms.author: "shoag"
-manager: "wpickett"
-caps.handback.revision: 21
----
-# CA1024：在适用处使用属性
-[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
+author: stevehoag
+ms.author: shoag
+manager: wpickett
+translation.priority.ht:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+ms.translationtype: HT
+ms.sourcegitcommit: eb5c9550fd29b0e98bf63a7240737da4f13f3249
+ms.openlocfilehash: 1a7ce15f3b5fbdb759733250467a928715f6fedf
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/30/2017
 
+---
+# <a name="ca1024-use-properties-where-appropriate"></a>CA1024: Use properties where appropriate
 |||  
 |-|-|  
-|类型名|UsePropertiesWhereAppropriate|  
+|TypeName|UsePropertiesWhereAppropriate|  
 |CheckId|CA1024|  
-|类别|Microsoft.Design|  
-|是否重大更改|是|  
+|Category|Microsoft.Design|  
+|Breaking Change|Breaking|  
   
-## 原因  
- 公共或受保护方法的名称以 `Get` 开头，没有采用任何参数或返回的值不是数组。  
+## <a name="cause"></a>Cause  
+ A public or protected method has a name that starts with `Get`, takes no parameters, and returns a value that is not an array.  
   
-## 规则说明  
- 在大多数情况下，属性代表数据，而方法执行操作。  访问属性的方式与访问字段的方式相似，因此使用它们更容易。  如果存在下列条件之一，方法就很适于成为属性：  
+## <a name="rule-description"></a>Rule Description  
+ In most cases, properties represent data and methods perform actions. Properties are accessed like fields, which makes them easier to use. A method is a good candidate to become a property if one of these conditions is present:  
   
--   不采用任何参数并返回对象的状态信息。  
+-   Takes no arguments and returns the state information of an object.  
   
--   接受单个参数来设置对象的部分状态。  
+-   Accepts a single argument to set some part of the state of an object.  
   
- 属性的表现应当与字段一样；如果该方法不是这样，则不应将其更改为属性。  在下列情况下，方法比属性更好：  
+ Properties should behave as if they are fields; if the method cannot, it should not be changed to a property. Methods are better than properties in the following situations:  
   
--   方法执行耗时的操作。  与设置或获取字段值所需的时间相比，此方法的速度明显较慢。  
+-   The method performs a time-consuming operation. The method is perceivably slower than the time that is required to set or get the value of a field.  
   
--   方法执行转换。  访问字段不会返回它所存储的数据的转换版本。  
+-   The method performs a conversion. Accessing a field does not return a converted version of the data that it stores.  
   
--   Get 方法会产生明显副作用。  检索字段的值不会产生任何副作用。  
+-   The Get method has an observable side effect. Retrieving the value of a field does not produce any side effects.  
   
--   执行的顺序很重要。  设置字段的值并不依赖于其他操作的发生。  
+-   The order of execution is important. Setting the value of a field does not rely on the occurrence of other operations.  
   
--   连续调用两次方法会产生不同的结果。  
+-   Calling the method two times in succession creates different results.  
   
--   方法是静态的，但返回了调用方可更改的对象。  调用方不能通过检索某字段的值来更改该字段存储的数据。  
+-   The method is static but returns an object that can be changed by the caller. Retrieving the value of a field does not allow the caller to change the data that is stored by the field.  
   
--   方法返回数组。  
+-   The method returns an array.  
   
-## 如何解决冲突  
- 要修复与该规则的冲突，请将方法更改为属性。  
+## <a name="how-to-fix-violations"></a>How to Fix Violations  
+ To fix a violation of this rule, change the method to a property.  
   
-## 何时禁止显示警告  
- 如果方法至少满足上文中列出的一个条件，则禁止显示与该规则有关的警告。  
+## <a name="when-to-suppress-warnings"></a>When to Suppress Warnings  
+ Suppress a warning from this rule if the method meets at least one of the previously listed criteria.  
   
-## 在调试器中控制属性扩展  
- 程序员避免使用属性的一个原因，是他们不希望调试器自动展开属性。  例如，属性可能涉及分配一个大型对象或调用 P\/Invoke，但它实际上可能不具有任何明显的副作用。  
+## <a name="controlling-property-expansion-in-the-debugger"></a>Controlling Property Expansion in the Debugger  
+ One reason programmers avoid using a property is because they do not want the debugger to auto-expand it. For example, the property might involve allocating a large object or calling a P/Invoke, but it might not actually have any observable side effects.  
   
- 通过应用 <xref:System.Diagnostics.DebuggerBrowsableAttribute?displayProperty=fullName> 可以阻止调试器自动展开属性。  下面的示例演示如何将此特性应用到实例属性。  
+ You can prevent the debugger from auto-expanding properties by applying <xref:System.Diagnostics.DebuggerBrowsableAttribute?displayProperty=fullName>. The following example shows this attribute being applied to an instance property.  
   
 ```vb  
 Imports System   
@@ -74,48 +91,48 @@ Imports System.Diagnostics
   
 Namespace Microsoft.Samples   
   
-    Public Class TestClass   
+    Public Class TestClass   
   
-        ' [...]   
+        ' [...]   
   
-        <DebuggerBrowsable(DebuggerBrowsableState.Never)> _   
-        Public ReadOnly Property LargeObject() As LargeObject   
-            Get   
-                ' Allocate large object   
-                ' [...]   
-            End Get   
-        End Property   
+        <DebuggerBrowsable(DebuggerBrowsableState.Never)> _   
+        Public ReadOnly Property LargeObject() As LargeObject   
+            Get   
+                ' Allocate large object   
+                ' [...]   
+            End Get   
+        End Property   
   
-    End Class   
+    End Class   
   
 End Namespace  
 ```  
   
-```c#  
+```csharp  
   
-        using System;   
+      using System;   
 using System.Diagnostics;   
   
 namespace Microsoft.Samples   
 {   
-    public class TestClass   
-    {   
-        // [...]   
+    publicclass TestClass   
+    {   
+        // [...]   
   
-        [DebuggerBrowsable(DebuggerBrowsableState.Never)]   
-        public LargeObject LargeObject   
-        {   
-            get   
-            {   
-                // Allocate large object   
-                // [...]   
+        [DebuggerBrowsable(DebuggerBrowsableState.Never)]   
+        public LargeObject LargeObject   
+        {   
+            get   
+            {   
+                // Allocate large object   
+                // [...]   
   
-        }  
-    }  
+        }  
+    }  
 }  
 ```  
   
-## 示例  
- 下面的示例包含多个应转换为属性的方法，还包含多个由于表现与字段不同而不应转换的方法。  
+## <a name="example"></a>Example  
+ The following example contains several methods that should be converted to properties, and several that should not because they do not behave like fields.  
   
- [!code-cs[FxCop.Design.MethodsProperties#1](../code-quality/codesnippet/CSharp/ca1024-use-properties-where-appropriate_1.cs)]
+ [!code-csharp[FxCop.Design.MethodsProperties#1](../code-quality/codesnippet/CSharp/ca1024-use-properties-where-appropriate_1.cs)]

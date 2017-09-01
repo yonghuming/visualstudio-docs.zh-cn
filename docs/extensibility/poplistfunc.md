@@ -1,65 +1,87 @@
 ---
-title: "POPLISTFUNC | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "POPDIRLISTFUNC"
-helpviewer_keywords: 
-  - "POPLISTFUNC 回调函数"
+title: POPLISTFUNC | Microsoft Docs
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords:
+- POPDIRLISTFUNC
+helpviewer_keywords:
+- POPLISTFUNC callback function
 ms.assetid: b2199fd5-d707-4628-92dd-e2a01e2f507a
 caps.latest.revision: 16
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 16
----
-# POPLISTFUNC
-[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
+ms.author: gregvanl
+manager: ghogen
+translation.priority.mt:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+ms.translationtype: MT
+ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
+ms.openlocfilehash: 034bf39f44d8e3684e553ea5e60c68c041cefafe
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/28/2017
 
-此回调提供给 [SccPopulateList](../extensibility/sccpopulatelist-function.md) ide 和源代码管理插件用于更新的文件或目录的列表 \(还提供给 `SccPopulateList` 函数\)。  
+---
+# <a name="poplistfunc"></a>POPLISTFUNC
+This callback is supplied to the [SccPopulateList](../extensibility/sccpopulatelist-function.md) by the IDE and is used by the source control plug-in to update a list of files or directories (also supplied to the `SccPopulateList` function).  
   
- 当用户选择 **获取** 命令在 IDE 中，则 IDE 将显示用户可以获得的所有文件的列表框。 遗憾的是，IDE 不知道该用户可能会得到; 的所有文件的确切列表只有插件都有此列表。 如果其他用户将文件添加到源代码管理项目，这些文件应出现在列表中，但 IDE 并不了解它们。 IDE 来生成它认为用户可以获得文件的列表。 它向用户显示此列表之前，它将调用 [SccPopulateList](../extensibility/sccpopulatelist-function.md)`,` 为源代码管理插件提供一个机会来添加并从列表中删除文件。  
+ When a user chooses the **Get** command in the IDE, the IDE displays a list box of all files that the user can get. Unfortunately, the IDE does not know the exact list of all the files that the user might get; only the plug-in has this list. If other users have added files to the source code control project, these files should appear in the list, but the IDE does not know about them. The IDE builds a list of the files that it thinks the user can get. Before it displays this list to the user, it calls the [SccPopulateList](../extensibility/sccpopulatelist-function.md)`,` giving the source control plug-in a chance to add and delete files from the list.  
   
-## 签名  
- 源代码管理插件修改通过调用以下原型使用 IDE 实现的函数的列表:  
+## <a name="signature"></a>Signature  
+ The source control plug-in modifies the list by calling an IDE-implemented function with the following prototype:  
   
-```cpp#  
-typedef BOOL (*POPLISTFUNC) ( LPVOID pvCallerData, BOOL fAddRemove, LONG nStatus, LPSTR lpFileName );  
+```cpp  
+typedef BOOL (*POPLISTFUNC) (  
+   LPVOID pvCallerData,  
+   BOOL fAddRemove,  
+   LONG nStatus,  
+   LPSTR lpFileName  
+);  
 ```  
   
-## 参数  
+## <a name="parameters"></a>Parameters  
  pvCallerData  
- `pvCallerData` 参数由呼叫方 \(IDE\) 传递给 [SccPopulateList](../extensibility/sccpopulatelist-function.md)。 源代码管理插件应假定此参数的内容执行任何操作。  
+ The `pvCallerData` parameter passed by the caller (the IDE) to the [SccPopulateList](../extensibility/sccpopulatelist-function.md). The source control plug-in should assume nothing about the contents of this parameter.  
   
  fAddRemove  
- 如果 `TRUE`, ，`lpFileName` 是应添加到文件列表的文件。 如果 `FALSE`, ，`lpFileName` 是应从文件列表中删除一个文件。  
+ If `TRUE`, `lpFileName` is a file that should be added to the file list. If `FALSE`, `lpFileName` is a file that should be deleted from the file list.  
   
  nStatus  
- 状态 `lpFileName` \(的组合 `SCC_STATUS` 位; 请参阅 [文件状态代码](../extensibility/file-status-code-enumerator.md) 有关的详细信息\)。  
+ Status of `lpFileName` (a combination of the `SCC_STATUS` bits; see [File Status Code](../extensibility/file-status-code-enumerator.md) for details).  
   
  lpFileName  
- 要添加或从列表中删除的文件名称的完整目录路径。  
+ Full directory path of the file name to add or delete from the list.  
   
-## 返回值  
+## <a name="return-value"></a>Return Value  
   
-|值|描述|  
-|-------|--------|  
-|`TRUE`|该插件可以继续调用此函数。|  
-|`FALSE`|在 IDE 端 \(如内存的情况下扩展\) 已有问题。 该插件应停止操作。|  
+|Value|Description|  
+|-----------|-----------------|  
+|`TRUE`|The plug-in can continue calling this function.|  
+|`FALSE`|There has been a problem on the IDE side (such as an out of memory situation). The plug-in should stop operation.|  
   
-## 备注  
- 对于每个源代码管理插件想要将添加到或从文件列表中删除的文件，它将调用此函数，并传入 `lpFileName`。`fAddRemove` 标志指示要向列表中添加的新文件或要删除的旧文件。`nStatus` 参数指定了文件的状态。 当插件 SCC 完成添加和删除文件时，它将返回从 [SccPopulateList](../extensibility/sccpopulatelist-function.md) 调用。  
+## <a name="remarks"></a>Remarks  
+ For each file that the source control plug-in wants to add to or delete from the file list, it calls this function, passing in the `lpFileName`. The `fAddRemove` flag indicates a new file to add to the list or an old file to delete. The `nStatus` parameter gives the status of the file. When the SCC plug-in has finished adding and deleting files, it returns from the [SccPopulateList](../extensibility/sccpopulatelist-function.md) call.  
   
 > [!NOTE]
->  `SCC_CAP_POPULATELIST` 功能位是必需的 Visual Studio。  
+>  The `SCC_CAP_POPULATELIST` capability bit is required for Visual Studio.  
   
-## 请参阅  
- [由 IDE 实现的回调函数](../extensibility/callback-functions-implemented-by-the-ide.md)   
- [源代码管理插件](../extensibility/source-control-plug-ins.md)   
+## <a name="see-also"></a>See Also  
+ [Callback Functions Implemented by the IDE](../extensibility/callback-functions-implemented-by-the-ide.md)   
+ [Source Control Plug-ins](../extensibility/source-control-plug-ins.md)   
  [SccPopulateList](../extensibility/sccpopulatelist-function.md)   
- [文件状态代码](../extensibility/file-status-code-enumerator.md)
+ [File Status Code](../extensibility/file-status-code-enumerator.md)

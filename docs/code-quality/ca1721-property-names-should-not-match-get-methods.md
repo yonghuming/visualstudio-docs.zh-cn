@@ -1,57 +1,75 @@
 ---
-title: "CA1721：属性名不应与 get 方法冲突 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-devops-test"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "CA1721"
-  - "PropertyNamesShouldNotMatchGetMethods"
-helpviewer_keywords: 
-  - "CA1721"
-  - "PropertyNamesShouldNotMatchGetMethods"
+title: 'CA1721: Property names should not match get methods | Microsoft Docs'
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-devops-test
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords:
+- CA1721
+- PropertyNamesShouldNotMatchGetMethods
+helpviewer_keywords:
+- CA1721
+- PropertyNamesShouldNotMatchGetMethods
 ms.assetid: 45a0e853-1f06-4688-af1b-cc634409e295
 caps.latest.revision: 17
-author: "stevehoag"
-ms.author: "shoag"
-manager: "wpickett"
-caps.handback.revision: 17
----
-# CA1721：属性名不应与 get 方法冲突
-[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
+author: stevehoag
+ms.author: shoag
+manager: wpickett
+translation.priority.ht:
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- ru-ru
+- zh-cn
+- zh-tw
+translation.priority.mt:
+- cs-cz
+- pl-pl
+- pt-br
+- tr-tr
+ms.translationtype: HT
+ms.sourcegitcommit: eb5c9550fd29b0e98bf63a7240737da4f13f3249
+ms.openlocfilehash: 7020896493b641f1b2aa4c77912636554441b3fe
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/30/2017
 
+---
+# <a name="ca1721-property-names-should-not-match-get-methods"></a>CA1721: Property names should not match get methods
 |||  
 |-|-|  
-|类型名|PropertyNamesShouldNotMatchGetMethods|  
+|TypeName|PropertyNamesShouldNotMatchGetMethods|  
 |CheckId|CA1721|  
-|类别|Microsoft.Naming|  
-|是否重大更改|是|  
+|Category|Microsoft.Naming|  
+|Breaking Change|Breaking|  
   
-## 原因  
- 公共或受保护成员的名称以“Get”开头，且其余部分与公共或受保护属性的名称匹配。  例如，包含名为“GetColor”的方法和名为“Color”的属性的类型与该规则冲突。  
+## <a name="cause"></a>Cause  
+ The name of a public or protected member starts with 'Get' and otherwise matches the name of a public or protected property. For example, a type that contains a method that is named 'GetColor' and a property that is named 'Color' violates this rule.  
   
-## 规则说明  
- Get 方法和属性的名称应当能够明确表示其功能。  
+## <a name="rule-description"></a>Rule Description  
+ Get methods and properties should have names that clearly distinguish their function.  
   
- 命名约定为所有针对公共语言运行时的库提供了通用的外观。  这缩短了学习新软件库所需的时间，并使客户进一步认为该软件库是由某位具有开发托管代码专门技术的人员所开发。  
+ Naming conventions provide a common look for libraries that target the common language runtime. This reduces the time that is required to learn a new software library, and increases customer confidence that the library was developed by someone who has expertise in developing managed code.  
   
-## 如何解决冲突  
- 更改该名称，使其不与前缀为“Get”的方法名称匹配。  
+## <a name="how-to-fix-violations"></a>How to Fix Violations  
+ Change the name so that it does not match the name of a method that is prefixed with 'Get'.  
   
-## 何时禁止显示警告  
- 不要禁止显示此规则发出的警告。  
+## <a name="when-to-suppress-warnings"></a>When to Suppress Warnings  
+ Do not suppress a warning from this rule.  
   
 > [!NOTE]
->  如果 Get 方法是由实现 IExtenderProvider 接口引起的，则可以排除此警告。  
+>  This warning may be excluded if the Get method is caused by implementing IExtenderProvider interface.  
   
-## 示例  
- 下面的示例包含与该规则冲突的方法和属性。  
+## <a name="example"></a>Example  
+ The following example contains a method and property that violate this rule.  
   
- [!CODE [FxCop.Naming.GetMethod#1](../CodeSnippet/VS_Snippets_CodeAnalysis/FxCop.Naming.GetMethod#1)]  
+ [!code-csharp[FxCop.Naming.GetMethod#1](../code-quality/codesnippet/CSharp/ca1721-property-names-should-not-match-get-methods_1.cs)] [!code-vb[FxCop.Naming.GetMethod#1](../code-quality/codesnippet/VisualBasic/ca1721-property-names-should-not-match-get-methods_1.vb)]  
   
-## 相关规则  
- [CA1024：在适用处使用属性](../code-quality/ca1024-use-properties-where-appropriate.md)
+## <a name="related-rules"></a>Related Rules  
+ [CA1024: Use properties where appropriate](../code-quality/ca1024-use-properties-where-appropriate.md)

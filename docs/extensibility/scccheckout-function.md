@@ -1,79 +1,96 @@
 ---
-title: "SccCheckout 函数 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "SccCheckout"
-helpviewer_keywords: 
-  - "SccCheckout 函数"
+title: SccCheckout Function | Microsoft Docs
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords:
+- SccCheckout
+helpviewer_keywords:
+- SccCheckout function
 ms.assetid: 06e9ecd7-fc09-40c1-9dd1-2b56c622c80b
 caps.latest.revision: 15
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 15
----
-# SccCheckout 函数
-[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
+ms.author: gregvanl
+manager: ghogen
+translation.priority.mt:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+ms.translationtype: MT
+ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
+ms.openlocfilehash: 32349017e005654d269f9dca7bd7d29c0985bc78
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/28/2017
 
-给定的完全限定的文件名列表，此函数将它们签出到的本地驱动器。 注释适用于被签出的所有文件。 注释参数可以是 `null` 字符串。  
+---
+# <a name="scccheckout-function"></a>SccCheckout Function
+Given a list of fully qualified file names, this function checks them out to the local drive. The comment applies to all files being checked out. The comment argument can be a `null` string.  
   
-## 语法  
+## <a name="syntax"></a>Syntax  
   
-```cpp#  
+```cpp  
 SCCRTN SccCheckout (  
-   LPVOID    pvContext,  
-   HWND      hWnd,  
-   LONG      nFiles,  
-   LPCSTR*   lpFileNames,  
-   LPCSTR    lpComment,  
-   LONG      fOptions,  
-   LPCMDOPTS pvOptions  
+   LPVOID    pvContext,  
+   HWND      hWnd,  
+   LONG      nFiles,  
+   LPCSTR*   lpFileNames,  
+   LPCSTR    lpComment,  
+   LONG      fOptions,  
+   LPCMDOPTS pvOptions  
 );  
 ```  
   
-#### 参数  
+#### <a name="parameters"></a>Parameters  
  pvContext  
- \[\] in源控制插件上下文结构。  
+ [in] The source control plug-in context structure.  
   
  hWnd  
- \[\] in源代码管理插件可以用作所有对话框，它提供了一个父 IDE 窗口的句柄。  
+ [in] A handle to the IDE window that the source control plug-in can use as a parent for any dialog boxes that it provides.  
   
  nFiles  
- \[\] in选择要签出文件的数量。  
+ [in] Number of files selected to be checked out.  
   
  lpFileNames  
- \[\] in签出文件的完全限定的本地路径名称的数组。  
+ [in] Array of fully qualified local path names of files to be checked out.  
   
  lpComment  
- \[\] in若要应用于每个被签出所选文件的注释。  
+ [in] Comment to be applied to each of the selected files being checked out.  
   
- 选项  
- \[\] in命令标志 \(请参阅 [Bitflags 由特定的命令使用](../extensibility/bitflags-used-by-specific-commands.md)\)。  
+ fOptions  
+ [in] Command flags (see [Bitflags Used by Specific Commands](../extensibility/bitflags-used-by-specific-commands.md)).  
   
  pvOptions  
- \[\] in源代码管理插件特定选项。  
+ [in] Source control plug-in-specific options.  
   
-## 返回值  
- 此函数的源代码控制插件实现应返回下列值之一:  
+## <a name="return-value"></a>Return Value  
+ The source control plug-in implementation of this function is expected to return one of the following values:  
   
-|值|说明|  
-|-------|--------|  
-|SCC\_OK|签出成功。|  
-|SCC\_E\_FILENOTCONTROLLED|所选的文件不是源代码管理下。|  
-|SCC\_E\_ACCESSFAILURE|没有访问源代码管理系统，很可能是由于网络或争用问题时出现问题。 建议重试。|  
-|SCC\_E\_NOTAUTHORIZED|不允许用户执行此操作。|  
-|SCC\_E\_NONSPECIFICERROR|非特定故障。 不签出该文件。|  
-|SCC\_E\_ALREADYCHECKEDOUT|用户已签出该文件。|  
-|SCC\_E\_FILEISLOCKED|文件被锁定，因此禁止创建的新版本。|  
-|SCC\_E\_FILEOUTEXCLUSIVE|另一个用户对此文件已经以独占签出。|  
-|SCC\_I\_OPERATIONCANCELED|在完成之前取消了操作。|  
+|Value|Description|  
+|-----------|-----------------|  
+|SCC_OK|Check out was successful.|  
+|SCC_E_FILENOTCONTROLLED|The selected file is not under source code control.|  
+|SCC_E_ACCESSFAILURE|There was a problem accessing the source control system, probably due to network or contention issues. A retry is recommended.|  
+|SCC_E_NOTAUTHORIZED|The user is not allowed to perform this operation.|  
+|SCC_E_NONSPECIFICERROR|Nonspecific failure. The file was not checked out.|  
+|SCC_E_ALREADYCHECKEDOUT|The user already has the file checked out.|  
+|SCC_E_FILEISLOCKED|The file is locked, prohibiting the creation of new versions.|  
+|SCC_E_FILEOUTEXCLUSIVE|Another user has done an exclusive checkout on this file.|  
+|SCC_I_OPERATIONCANCELED|The operation was cancelled before completion.|  
   
-## 请参阅  
- [源代码管理插件 API 功能](../extensibility/source-control-plug-in-api-functions.md)   
- [Bitflags 由特定的命令使用](../extensibility/bitflags-used-by-specific-commands.md)
+## <a name="see-also"></a>See Also  
+ [Source Control Plug-in API Functions](../extensibility/source-control-plug-in-api-functions.md)   
+ [Bitflags Used by Specific Commands](../extensibility/bitflags-used-by-specific-commands.md)

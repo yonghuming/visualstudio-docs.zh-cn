@@ -1,5 +1,5 @@
 ---
-title: "IDebugDocumentPositionOffset2::GetRange |Microsoft 文档"
+title: IDebugDocumentPositionOffset2::GetRange | Microsoft Docs
 ms.custom: 
 ms.date: 11/04/2016
 ms.reviewer: 
@@ -28,51 +28,52 @@ translation.priority.mt:
 - tr-tr
 - zh-cn
 - zh-tw
-translationtype: Machine Translation
-ms.sourcegitcommit: 5db97d19b1b823388a465bba15d057b30ff0b3ce
-ms.openlocfilehash: d14c212a3cb4499996ba6cf4d73d0b2fca73f7bc
-ms.lasthandoff: 02/22/2017
+ms.translationtype: MT
+ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
+ms.openlocfilehash: 501acf49bec28092c7a41fee83f6dfd9fe9d11c9
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="idebugdocumentpositionoffset2getrange"></a>IDebugDocumentPositionOffset2::GetRange
-检索当前的文档位置的范围。  
+Retrieves the range for the current document position.  
   
-## <a name="syntax"></a>语法  
+## <a name="syntax"></a>Syntax  
   
-```cpp#  
+```cpp  
 HRESULT GetRange(  
    DWORD* pdwBegOffset,  
    DWORD* pdwEndOffset  
 );  
 ```  
   
-```c#  
+```csharp  
 public int GetRange(  
    ref uint pdwBegOffset,  
    ref uint pdwEndOffset  
 );  
 ```  
   
-#### <a name="parameters"></a>参数  
+#### <a name="parameters"></a>Parameters  
  `pdwBegOffset`  
- [in、 out]为范围的起始位置的偏移量。 如果不需要此信息，请将此参数设置为 null 值。  
+ [in, out] Offset for the start position of the range. Set this parameter to a null value if this information is not needed.  
   
  `pdwEndOffset`  
- [in、 out]为范围的结束位置的偏移量。 如果不需要此信息，请将此参数设置为 null 值。  
+ [in, out] Offset for the end position of the range. Set this parameter to a null value if this information is not needed.  
   
-## <a name="return-value"></a>返回值  
- 如果成功，返回`S_OK`; 否则为返回错误代码。  
+## <a name="return-value"></a>Return Value  
+ If successful, returns `S_OK`; otherwise, returns an error code.  
   
-## <a name="remarks"></a>备注  
- 在一个位置断点的文档位置中指定的范围内通过调试引擎 (DE) 用于继续搜索实际贡献代码的语句。 例如，考虑以下代码：  
+## <a name="remarks"></a>Remarks  
+ The range specified in a document position for a location breakpoint is used by the debug engine (DE) to search ahead for a statement that actually contributes code. For example, consider the following code:  
   
 ```  
 Line 5: // comment  
 Line 6: x = 1;  
 ```  
   
- 第 5 行分配给正在调试的程序的任何代码。 如果将在第 5 行设置断点调试器想 DE 向前搜索一定量的贡献代码的第一行，调试器将指定包含其他候选行断点可能会正确放一个范围。 DE 将然后向前搜索这些行直到找到可以接受断点的行。  
+ Line 5 contributes no code to the program being debugged. If the debugger that sets the breakpoint on line 5 wants the DE to search forward a certain amount for the first line that contributes code, the debugger would specify a range that includes additional candidate lines where a breakpoint might be correctly placed. The DE would then search forward through those lines until it found a line that could accept a breakpoint.  
   
-## <a name="see-also"></a>另请参阅  
+## <a name="see-also"></a>See Also  
  [IDebugDocumentPositionOffset2](../../../extensibility/debugger/reference/idebugdocumentpositionoffset2.md)   
  [GetRange](../../../extensibility/debugger/reference/idebugdocumentposition2-getrange.md)

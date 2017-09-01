@@ -1,51 +1,68 @@
 ---
-title: "IDebugAlias::GetICorDebugValue | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "IDebugAlias::GetICorDebugValue"
-helpviewer_keywords: 
-  - "IDebugAlias::GetICorDebugValue 方法"
+title: IDebugAlias::GetICorDebugValue | Microsoft Docs
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords:
+- IDebugAlias::GetICorDebugValue
+helpviewer_keywords:
+- IDebugAlias::GetICorDebugValue method
 ms.assetid: b9eb39ee-84af-4ace-9cfe-236b3d48aff5
 caps.latest.revision: 12
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 12
----
-# IDebugAlias::GetICorDebugValue
-[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
+ms.author: gregvanl
+manager: ghogen
+translation.priority.mt:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+ms.translationtype: MT
+ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
+ms.openlocfilehash: 4102336616511239bbf3249fc3dc5552a4e9de40
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/28/2017
 
-检索一个托管的代码界面，表示与此别名相关联的值。  
+---
+# <a name="idebugaliasgeticordebugvalue"></a>IDebugAlias::GetICorDebugValue
+Retrieves a managed code interface that represents the value associated with this alias.  
   
-## 语法  
+## <a name="syntax"></a>Syntax  
   
 ```cpp  
-HRESULT GetICorDebugValue(  
-   IUnknown** ppUnk  
+HRESULT GetICorDebugValue(  
+   IUnknown** ppUnk  
 );  
 ```  
   
-```c#  
+```csharp  
 int GetICorDebugValue(  
-   out object ppUnk  
+   out object ppUnk  
 );  
 ```  
   
-#### 参数  
+#### <a name="parameters"></a>Parameters  
  `ppUnk`  
- \[out 一个\] `IUnknown` 表示与此别名相关联的值的接口。 此接口可查询 `ICorDebugValue` 接口。  
+ [out] `IUnknown` interface that represents the value associated with this alias. This interface can be queried for the `ICorDebugValue` interface.  
   
-## 返回值  
- 如果成功，返回，则为 S\_OK;否则，返回错误代码。  
+## <a name="return-value"></a>Return Value  
+ If successful, returns S_OK; otherwise, returns an error code.  
   
-## 备注  
- 此方法仅适用于托管的值 \( `ICorDebugValue` 是一个接口位于 [!INCLUDE[dnprdnshort](../../../code-quality/includes/dnprdnshort_md.md)] 中定义和 [!INCLUDE[dnprdnshort](../../../code-quality/includes/dnprdnshort_md.md)] cordebug.idl 文件中的 SDK\)。  
+## <a name="remarks"></a>Remarks  
+ This method applies only to managed values (the `ICorDebugValue` is an interface available in the [!INCLUDE[dnprdnshort](../../../code-quality/includes/dnprdnshort_md.md)] and is defined in the [!INCLUDE[dnprdnshort](../../../code-quality/includes/dnprdnshort_md.md)] SDK in the cordebug.idl file).  
   
-## 请参阅  
+## <a name="see-also"></a>See Also  
  [IDebugAlias](../../../extensibility/debugger/reference/idebugalias.md)

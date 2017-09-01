@@ -1,53 +1,67 @@
 ---
-title: "演练：创建小示例数据库 | Microsoft Docs"
-ms.custom: ""
-ms.date: "12/16/2016"
-ms.prod: "visual-studio-dev14"
-ms.reviewer: ""
-ms.suite: ""
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-dev_langs: 
-  - "VB"
-  - "CSharp"
-  - "C++"
-  - "aspx"
+title: Create a SQL database by using a script | Microsoft Docs
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.tgt_pltfrm: 
+ms.topic: article
 ms.assetid: 36f913c0-f5a7-4831-83a0-baba721ac95c
 caps.latest.revision: 14
-caps.handback.revision: 10
-author: "mikeblome"
-ms.author: "mblome"
-manager: "ghogen"
+author: mikeblome
+ms.author: mblome
+manager: ghogen
+translation.priority.ht:
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- ru-ru
+- zh-cn
+- zh-tw
+translation.priority.mt:
+- cs-cz
+- pl-pl
+- pt-br
+- tr-tr
+ms.translationtype: HT
+ms.sourcegitcommit: 21a413a3e2d17d77fd83d5109587a96f323a0511
+ms.openlocfilehash: bb7d40a3acba967b725676607dd852c0c3bb978d
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/30/2017
+
 ---
-# 演练：创建小示例数据库
-在本演练中，使用 Visual Studio 创建一个小型数据库，该数据库包含[演练：使用 ADO.NET 创建简单的数据应用程序](../data-tools/create-a-simple-data-application-by-using-adonet.md)的示例代码。  
+# <a name="create-a-sql-database-by-using-a-script"></a>Create a SQL database by using a script
+In this walkthrough, you use Visual Studio to create a small database that contains the sample code for [Create a simple data application by using ADO.NET](../data-tools/create-a-simple-data-application-by-using-adonet.md).  
   
- **主题内容**  
+ **In this topic**  
   
--   [创建包含数据库架构的脚本](../data-tools/create-a-sql-database-by-using-a-script.md#CreateScript)  
+-   [Create a script that contains a database schema](../data-tools/create-a-sql-database-by-using-a-script.md#CreateScript)  
   
--   [创建数据库项目并导入架构](../data-tools/create-a-sql-database-by-using-a-script.md#CreateProject)  
+-   [Create a database project and import a schema](../data-tools/create-a-sql-database-by-using-a-script.md#CreateProject)  
   
--   [部署数据库](../data-tools/create-a-sql-database-by-using-a-script.md#DeployDatabase)  
+-   [Deploy the database](../data-tools/create-a-sql-database-by-using-a-script.md#DeployDatabase)  
   
-## 系统必备  
- 为了完成本演练，计算机上必须装有 [!INCLUDE[vs_dev11_long](../data-tools/includes/vs_dev11_long_md.md)]。  还必须能够连接到您在其上有权创建和部署数据库的数据库服务器或 LocalDB 数据库。  
+## <a name="prerequisites"></a>Prerequisites  
+ To complete this walkthrough, you must have SQL Server Express LocalDB, or another SQL database, installed.  
   
-##  <a name="CreateScript"></a> 创建包含数据库架构的脚本  
+##  <a name="CreateScript"></a> Create a script that contains a database schema  
   
-#### 创建可从中导入架构的脚本  
+#### <a name="to-create-a-script-from-which-you-can-import-a-schema"></a>To create a script from which you can import a schema  
   
-1.  在 [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] 的菜单栏上，选择**“文件”**、**“新建”**、**“文件”**。  
+1.  In [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)], on the menu bar, select **File** > **New** > **File**.  
   
-     此时出现**“新建文件”**对话框。  
+     The **New File** dialog box appears.  
   
-2.  在“类别”列表中，选择“常规”。  
+2.  In the **Categories** list, select **General**.  
   
-3.  在“模板”列表中，选择“Sql 文件”，然后选择“打开”按钮。  
+3.  In the **Templates** list, select **Sql File**, and then select the **Open** button.  
   
-     将打开 Transact\-SQL 编辑器。  
+     The Transact-SQL editor opens.  
   
-4.  复制下面的 Transact\-SQL 代码并将其粘贴到 Transact\-SQL 编辑器中。  
+4.  Copy the following Transact-SQL code, and then paste it into the Transact-SQL editor.  
   
     ```  
     PRINT N'Creating Sales...';  
@@ -209,62 +223,62 @@ manager: "ghogen"
     GO  
     ```  
   
-5.  在菜单栏上，依次选择“文件”、“将 SqlQuery\_1.sql 另存为”。  
+5.  On the menu bar, select **File** > **Save SqlQuery_1.sql As...**.  
   
-     将出现**“另存文件为”**对话框。  
+     The **Save File As** dialog box appears.  
   
-6.  在“文件名”框中，输入 `SampleImportScript.sql`，请注意文件的保存位置，然后选择“保存”按钮。  
+6.  In the **File Name** box, enter `SampleImportScript.sql`, note the location where you'll save the file, and then select the **Save** button.  
   
-7.  在菜单栏上，依次选择“文件”、“关闭解决方案”。  
+7.  On the menu bar, select **File** > **Close Solution**.  
   
-     接下来，创建一个数据库项目，并从已创建的脚本导入架构。  
+     Next, create a database project, and then import the schema from the script that you've created.  
   
-##  <a name="CreateProject"></a> 创建数据库项目并导入架构  
+##  <a name="CreateProject"></a> Create a database project and import a schema  
   
-#### 创建数据库项目  
+#### <a name="to-create-a-database-project"></a>To create a database project  
   
-1.  在菜单栏上，选择**“文件”**，**“新建**、**“项目”**。  
+1.  On the menu bar, select **File** > **New** > **Project**.  
   
-     此时将出现“新建项目”对话框。  
+     The **New Project** dialog box appears.  
   
-2.  在“已安装”下，展开“模板”节点，展开“其他语言”节点，选择“SQL Server”类别，然后选择“SQL Server 数据库项目”模板。  
+2.  Under **Installed**, expand the **Templates** node, expand the **Other Languages** node, select the **SQL Server** category, and then select the **SQL Server Database Project** template.  
   
     > [!NOTE]
-    >  “其他语言”节点不在 Visual Studio 的所有安装中显示。  
+    >  The **Other Languages** node doesn't appear in all installations of Visual Studio.  
   
-3.  在“名称”框中，输入`“Small Database”`。  
+3.  In the **Name** box, enter `Small Database`.  
   
-4.  如果“创建解决方案的目录”复选框尚未选中，则选择该复选框。  
+4.  Select the **Create directory for solution** check box if it isn't already selected.  
   
-5.  如果“添加到源代码管理”复选框尚未清除，则清除该复选框，并选择“确定”按钮。  
+5.  Clear the **Add to source control** check box if it isn't already cleared, and then select the **OK** button.  
   
-     数据库项目会创建并出现在**“解决方案资源管理器”**中。  
+     The database project is created and appears in **Solution Explorer**.  
   
-     接下来，从脚本中导入数据库架构。  
+     Next, import the database schema from the script.  
   
-#### 从脚本中导入数据库  
+#### <a name="to-import-a-database-schema-from-a-script"></a>To import a database schema from a script  
   
-1.  在菜单栏上，依次选择“项目”、“导入”、“脚本”。  
+1.  On the menu bar, select **Project** > **Import** > **Script**.  
   
-2.  在“欢迎”页上，查看文本，然后选择“下一个”按钮。  
+2.  On the **Welcome** page, review the text, and then select the **Next** button.  
   
-3.  选择“单个文件”选项按钮，然后选择“浏览”按钮。  
+3.  Select the **Single File** option button, and then select the **Browse** button.  
   
-     将出现“导入SQL 脚本”对话框。  
+     The **Import SQL Script** dialog box appears.  
   
-4.  打开保存 SampleImportScript.sql 文件的文件夹，选择该文件，然后选择“打开”按钮。  
+4.  Open the folder where you saved the SampleImportScript.sql file, select the file, and then select the **Open** button.  
   
-5.  选择“完成”按钮关闭“导入 SQL 脚本”对话框。  
+5.  Select the **Finish** button to close the **Import SQL Script** dialog box.  
   
-     将导入脚本，在该脚本中定义的对象添加到数据库项目中。  
+     The script is imported, and the objects that the script defines are added to your database project.  
   
-6.  查看摘要，然后选择“完成”按钮关闭“导入 SQL 脚本文件”对话框。  
+6.  Review the summary, and then click the **Finish** button to close the **Import SQL Script File** dialog box.  
   
-7.  在“解决方案资源管理器”中，展开项目的“销售”、“脚本”和“安全性”文件夹，并验证其是否包含 .sql 文件。  
+7.  In **Solution Explorer**, expand the Sales, Scripts, and Security folders of your project, and verify that they contain .sql files.  
   
-8.  在“SQL Server 对象资源管理器”中，验证数据库显示在“项目”节点下。  
+8.  In **SQL Server Object Explorer**, verify that the database appears under the **Projects** node.  
   
-     此时，数据库只包含系统对象，如表和存储过程。  在部署数据库后，它将包含脚本定义的用户表和存储过程。  
+     At this point, the database contains only system objects, such as tables and stored procedures. After you deploy the database, it will contain the user tables and stored procedures that the scripts define.  
   
-##  <a name="DeployDatabase"></a> 部署数据库  
- 当您按 F5 键时，将默认向 LocalDB 数据库部署（或发布）该数据库。  可以通过打开项目的属性页，选择“调试”选项卡，然后更改连接字符串将数据库部署到其他位置。
+##  <a name="DeployDatabase"></a> Deploy the database  
+ When you press the **F5** key, you deploy (or publish) the database to a LocalDB database by default. You can deploy the database to a different location by opening the properties page for the project, selecting the **Debug** tab, and then changing the connection string.

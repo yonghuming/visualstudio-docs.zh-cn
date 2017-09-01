@@ -1,5 +1,5 @@
 ---
-title: "AD_PROCESS_ID |Microsoft 文档"
+title: AD_PROCESS_ID | Microsoft Docs
 ms.custom: 
 ms.date: 11/04/2016
 ms.reviewer: 
@@ -30,18 +30,19 @@ translation.priority.mt:
 - tr-tr
 - zh-cn
 - zh-tw
-translationtype: Machine Translation
-ms.sourcegitcommit: 5db97d19b1b823388a465bba15d057b30ff0b3ce
-ms.openlocfilehash: 7453d0d8eb9e9081be4a8f18cfb87d1cd3f9f8bb
-ms.lasthandoff: 02/22/2017
+ms.translationtype: MT
+ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
+ms.openlocfilehash: fa7b4f24cf215b3cab1bee47ed665d62336fb519
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="adprocessid"></a>AD_PROCESS_ID
-指定的进程 ID，这可能是系统 ID 或 GUID。  
+Specifies the process ID, which may be either a system ID or a GUID.  
   
-## <a name="syntax"></a>语法  
+## <a name="syntax"></a>Syntax  
   
-```cpp#  
+```cpp  
 typedef struct _AD_PROCESS_ID {  
    AD_PROCESS_ID_TYPE ProcessIdType;  
    union {  
@@ -52,7 +53,7 @@ typedef struct _AD_PROCESS_ID {
 } AD_PROCESS_ID;  
 ```  
   
-```c#  
+```csharp  
 public struct AD_PROCESS_ID {  
    AD_PROCESS_ID_TYPE ProcessIdType;  
    DWORD              dwProcessId;   
@@ -61,21 +62,21 @@ public struct AD_PROCESS_ID {
 };  
 ```  
   
-## <a name="members"></a>成员  
+## <a name="members"></a>Members  
  `ProcessIdType`  
- 取值范围为[AD_PROCESS_ID_TYPE](../../../extensibility/debugger/reference/ad-process-id-type.md)枚举指定如何解释`ProcessId`联合 （或者，为托管代码中，结构中的哪些成员访问）。  
+ A value from the [AD_PROCESS_ID_TYPE](../../../extensibility/debugger/reference/ad-process-id-type.md) enumeration specifying how to interpret the `ProcessId` union (or, for managed code, which member of the structure to access).  
   
  dwProcessId  
- 从系统值形式的进程 ID。  
+ The process ID as a value from the system.  
   
  guidProcessId  
- 以 GUID 形式表示的进程 ID。  
+ The process ID as a GUID.  
   
  dwUnused  
- 空白值。  
+ Padding.  
   
-## <a name="remarks"></a>备注  
- 此结构传递给以下方法︰  
+## <a name="remarks"></a>Remarks  
+ This structure is passed to the following methods:  
   
 -   [GetProviderProgramNode](../../../extensibility/debugger/reference/idebugprogramprovider2-getproviderprogramnode.md)  
   
@@ -85,21 +86,21 @@ public struct AD_PROCESS_ID {
   
 -   [GetProcess](../../../extensibility/debugger/reference/idebugport2-getprocess.md)  
   
- 下面的方法及返回的︰  
+ And is returned from the following methods:  
   
 -   [GetPhysicalProcessId](../../../extensibility/debugger/reference/idebugprocess2-getphysicalprocessid.md)  
   
 -   [GetHostId](../../../extensibility/debugger/reference/idebugprogramhost2-gethostid.md)  
   
-## <a name="requirements"></a>要求  
- 标头︰ msdbg.h  
+## <a name="requirements"></a>Requirements  
+ Header: msdbg.h  
   
  Namespace: Microsoft.VisualStudio.Debugger.Interop  
   
- 程序集︰ Microsoft.VisualStudio.Debugger.Interop.dll  
+ Assembly: Microsoft.VisualStudio.Debugger.Interop.dll  
   
-## <a name="see-also"></a>另请参阅  
- [结构和联合](../../../extensibility/debugger/reference/structures-and-unions.md)   
+## <a name="see-also"></a>See Also  
+ [Structures and Unions](../../../extensibility/debugger/reference/structures-and-unions.md)   
  [GetProcess](../../../extensibility/debugger/reference/idebugport2-getprocess.md)   
  [PROCESS_INFO](../../../extensibility/debugger/reference/process-info.md)   
  [AD_PROCESS_ID_TYPE](../../../extensibility/debugger/reference/ad-process-id-type.md)   

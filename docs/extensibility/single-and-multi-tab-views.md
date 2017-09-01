@@ -1,64 +1,81 @@
 ---
-title: "单个和多选项卡上的视图 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-helpviewer_keywords: 
-  - "编辑器 [Visual Studio SDK]，自定义的单个和多选项卡上的视图"
+title: Single and Multi-tab Views | Microsoft Docs
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+helpviewer_keywords:
+- editors [Visual Studio SDK], custom - single and multi-tab views
 ms.assetid: e3611704-349f-4323-b03c-f2b0a445d781
 caps.latest.revision: 22
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 22
----
-# 单个和多选项卡上的视图
-[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
+ms.author: gregvanl
+manager: ghogen
+translation.priority.mt:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+ms.translationtype: MT
+ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
+ms.openlocfilehash: 94b10507be59b2ead785e8b03f12c71e33874407
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/28/2017
 
-可编辑视图创建具有不同的类型。  一个示例是代码编辑器窗口，还有窗体设计器。  
+---
+# <a name="single-and-multi-tab-views"></a>Single and Multi-tab Views
+An editor can create different types of views. One example is a code editor window, another is a forms designer.  
   
- 一个多个选项卡式视图是有多个选项卡的视图。  例如， HTML 编辑器有两个选项在底部: **设计** 和 **源**，每个逻辑视图。  设计 " 视图中显示一个呈现的网页，，而其他显示包含该网页的 HTML。  
+ A multi-tabbed view is a view that has multiple tabs. For example, the HTML editor has two tabs at the bottom: **Design** and **Source**, each a logical view. The design view displays a rendered web page, while the other displays the HTML that comprises the web page.  
   
-## 访问的物理视图  
- 物理视图宿主文档视图对象，该对象表示数据检查缓冲区的每一，如代码或窗体。  因此，每个文档视图对象都有一个物理视图 \(由称为的物理视图字符串内容\) 以及通常一个逻辑视图。  
+## <a name="accessing-physical-views"></a>Accessing Physical Views  
+ Physical views host document view objects, each representing a view of data in the buffer, such as code or a form. Accordingly, each document view object has a physical view (identified by something known as a physical view string), and generally a single logical view.  
   
- 有时，不过，，一个物理视图可以具有两个或多个逻辑视图。  某些示例是具有拆分窗口有并行视图的编辑，或者有一个 GUI\/design 视图和一个代码在其后的窗体视图的窗体设计器。  
+ In some cases, though, a physical view can have two or more logical views. Some examples are an editor that has a split window with side-by-side views, or a forms designer that has a GUI/design view and a code-behind-the-form view.  
   
- 若要启用编辑器为可用物理视图的访问，都必须为每种类型创建单个物理视图字符串文档编辑器工厂可以创建的视图对象。  例如， [!INCLUDE[vbprvb](../code-quality/includes/vbprvb_md.md)] 编辑工厂可以创建文档代码和 windows 窗体设计器窗口的视图对象。  
+ To enable your editor to access all of the available physical views, you must create a unique physical view string for each type of document view object that your editor factory can create. For example, the [!INCLUDE[vbprvb](../code-quality/includes/vbprvb_md.md)] editor factory can create document view objects for a code window and a forms designer window.  
   
-## 创建多个选项卡式视图  
- 尽管必须与文档视图对象的一个物理视图通过单个物理视图字符串时，可以放置在一个物理视图中的多个选项启用数据检查以不同的方式。  此多选项卡式配置，所有选项与同一物理视图字符串，但是，为每个选项不同的逻辑视图 GUID。  
+## <a name="creating-multi-tabbed-views"></a>Creating Multi-Tabbed Views  
+ Though a document view object must be associated with a physical view through a unique physical view string, you can place multiple tabs within the physical view to enable the viewing of data in different ways. In this multi-tabbed configuration, all tabs are associated with the same physical view string, but each tab is given a different logical view GUID.  
   
- 若要创建编辑器创建一个多选项卡式视图，请实现接口 <xref:Microsoft.VisualStudio.Shell.Interop.IVsMultiViewDocumentView> 然后将不同的逻辑视图、 GUID \(<xref:Microsoft.VisualStudio.Shell.Interop.LogicalViewID>\) 与您创建的每个选项。  
+ To create a multi-tabbed view for an editor, implement the <xref:Microsoft.VisualStudio.Shell.Interop.IVsMultiViewDocumentView> interface and then associate a different logical view GUID (<xref:Microsoft.VisualStudio.Shell.Interop.LogicalViewID>) with each tab you create.  
   
- Visual Studio HTML 编辑器是一个编辑器的示例有多选项视图。  它具有 **设计** 和 **源** 选项。  若要实现此功能，一个不同的逻辑视图与每个选项卡、 `LOGICALVIEWID_TextView`**设计** 可选的和 `LOGICALVIEWID_Code`**源** 可选的。  
+ The Visual Studio HTML editor is an example of an editor with a multi-tab view. It has **Design** and **Source** tabs. To enable this, a different logical view is associated with each tab, `LOGICALVIEWID_TextView` for the **Design** tab and `LOGICALVIEWID_Code` for the **Source** tab.  
   
- 通过指定一个相应的逻辑视图， VSPackage 可以访问与特殊的目的，例如设计窗体，编辑代码或调试代码的视图。  但是，必须用空字符串确定其中一个窗口，则必须对应于主逻辑视图 \(`LOGVIEWID_Primary`\)。  
+ By specifying the appropriate logical view, a VSPackage can access the view that corresponds to a particular purpose, such as designing a form, editing code, or debugging code. However, one of the windows must be identified by the NULL string and this must correspond to the primary logical view (`LOGVIEWID_Primary`).  
   
- 下表列出了可用的逻辑视图值及其用途。  
+ The following table lists the available logical view values and their use.  
   
-|LOGVIEWID GUID|推荐的使用|  
-|--------------------|-----------|  
-|`LOGVIEWID_Primary`|默认\/编辑器工厂的主视图。<br /><br /> 所有编辑器工厂都必须支持此值。  此视图必须使用空字符串作为其物理视图字符串。  必须至少设置逻辑视图。此值。|  
-|`LOGVIEWID_Debugging`|调试视图。  通常， `LOGVIEWID_Debugging` 映射到视图和 `LOGVIEWID_Code`相同。|  
-|`LOGVIEWID_Code`|**查看代码** 命令生成的视图。|  
-|`LOGVIEWID_Designer`|**视图窗体** 命令生成的视图。|  
-|`LOGVIEWID_TextView`|文本编辑器视图。  这是返回 <xref:Microsoft.VisualStudio.TextManager.Interop.IVsCodeWindow>，可以访问 <xref:Microsoft.VisualStudio.TextManager.Interop.IVsTextView>的视图。|  
-|`LOGVIEWID_UserChooseView`|提示用户选择使用哪个视图。|  
-|`LOGVIEWID_ProjectSpecificEditor`|通过 **打开。** 对话框<br /><br /> <xref:Microsoft.VisualStudio.Shell.Interop.IVsProject.OpenItem%2A><br /><br /> 当用户选择 “\(项目的默认编辑器\)”项。|  
+|LOGVIEWID GUID|Recommended Use|  
+|--------------------|---------------------|  
+|`LOGVIEWID_Primary`|Default/primary view of the editor factory.<br /><br /> All editor factories must support this value. This view must use the NULL string as its physical view string. At least one logical view must be set to this value.|  
+|`LOGVIEWID_Debugging`|Debugging view. Typically, `LOGVIEWID_Debugging` maps to the same view as `LOGVIEWID_Code`.|  
+|`LOGVIEWID_Code`|View launched by the **View Code** command.|  
+|`LOGVIEWID_Designer`|View launched by the **View Form** command.|  
+|`LOGVIEWID_TextView`|Text editor view. This is the view that returns <xref:Microsoft.VisualStudio.TextManager.Interop.IVsCodeWindow>, from which you can access <xref:Microsoft.VisualStudio.TextManager.Interop.IVsTextView>.|  
+|`LOGVIEWID_UserChooseView`|Prompts the user to choose which view to use.|  
+|`LOGVIEWID_ProjectSpecificEditor`|Passed by the **Open With** dialog box to<br /><br /> <xref:Microsoft.VisualStudio.Shell.Interop.IVsProject.OpenItem%2A><br /><br /> when the user chooses the "(Project default editor)" entry.|  
   
- 虽然逻辑视图 GUID 是可扩展的，则在 VSPackage 只能使用逻辑视图中定义的 GUID。  
+ Although logical view GUIDs are extensible, you can use only the logical view GUIDs defined in your VSPackage.  
   
- 在关闭， Visual Studio 保留编辑工厂的 GUID，并且实际视图字符串与文档窗口，使其可用于重新打开文档窗口，在重新打开解决方案时。  已打开的窗口，如果解决方案关闭时在解决方案 \(.suo\) 文件仍然存在。  这些值对应于在 <xref:Microsoft.VisualStudio.Shell.Interop.IVsWindowFrame.GetProperty%2A> 方法的 `propid` 参数传递的 `VSFPROPID_guidEditorType` 和 `VSFPROPID_pszPhysicalView` 值。  
+ On shutdown, Visual Studio retains the GUID of the editor factory and the physical view strings associated with the document window so that it can be used to re-open document windows when the solution is re-opened. Only windows that are open when a solution is closed are persisted in the solution (.suo) file. These values correspond to the `VSFPROPID_guidEditorType` and `VSFPROPID_pszPhysicalView` values passed in the `propid` parameter in the <xref:Microsoft.VisualStudio.Shell.Interop.IVsWindowFrame.GetProperty%2A> method.  
   
-## 示例  
- 此代码段阐释如何使用 <xref:Microsoft.VisualStudio.Shell.Interop.LogicalViewID.TextView> 对象对该视图的实现 `IVsCodeWindow`的访问。  在这种情况下， <xref:Microsoft.VisualStudio.Shell.Interop.SVsUIShellOpenDocument> 服务用来调用 <xref:Microsoft.VisualStudio.Shell.Interop.IVsUIShellOpenDocument.OpenDocumentViaProject%2A> 和请求 `LOGVIEWID_TextView`，获取一个指针到窗架。  对文档视图对象的指针通过调用 <xref:Microsoft.VisualStudio.Shell.Interop.IVsWindowFrame.GetProperty%2A> 并指定 `VSFPROPID_DocView`的值获取。  从文档视图对象， `QueryInterface` 为 `IVsCodeWindow`调用。  预期在本例中是文本编辑器返回，并且，因此在 <xref:Microsoft.VisualStudio.Shell.Interop.IVsWindowFrame.GetProperty%2A> 方法返回的文档视图对象是代码窗口。  
+## <a name="example"></a>Example  
+ This snippet illustrates how the <xref:Microsoft.VisualStudio.Shell.Interop.LogicalViewID.TextView> object is used to access a view that implements `IVsCodeWindow`. In this case, the <xref:Microsoft.VisualStudio.Shell.Interop.SVsUIShellOpenDocument> service is used to call <xref:Microsoft.VisualStudio.Shell.Interop.IVsUIShellOpenDocument.OpenDocumentViaProject%2A> and request `LOGVIEWID_TextView`, which obtains a pointer to a window frame. A pointer to the document view object is obtained by calling <xref:Microsoft.VisualStudio.Shell.Interop.IVsWindowFrame.GetProperty%2A> and specifying a value of `VSFPROPID_DocView`. From the document view object, `QueryInterface` is called for `IVsCodeWindow`. The expectation in this case is that a text editor is returned, and so the document view object returned in the <xref:Microsoft.VisualStudio.Shell.Interop.IVsWindowFrame.GetProperty%2A> method is a code window.  
   
-```cpp#  
+```cpp  
 HRESULT CFindTool::GotoFileLocation(const WCHAR * szFile, long iLine, long iStart, long iLen)  
 {  
   HRESULT hr;  
@@ -113,7 +130,7 @@ Error:
 }  
 ```  
   
-## 请参阅  
- [支持多个文档视图](../extensibility/supporting-multiple-document-views.md)   
- [如何︰ 附加视图文档数据](../extensibility/how-to-attach-views-to-document-data.md)   
- [创建自定义编辑器和设计器](../extensibility/creating-custom-editors-and-designers.md)
+## <a name="see-also"></a>See Also  
+ [Supporting Multiple Document Views](../extensibility/supporting-multiple-document-views.md)   
+ [How to: Attach Views to Document Data](../extensibility/how-to-attach-views-to-document-data.md)   
+ [Creating Custom Editors and Designers](../extensibility/creating-custom-editors-and-designers.md)

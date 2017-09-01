@@ -1,52 +1,69 @@
 ---
-title: "IEEVisualizerDataProvider::GetNewObjectForVisualizer | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "IEEVisualizerDataProvider::GetNewObjectForVisualizer"
-helpviewer_keywords: 
-  - "IEEVisualizerDataProvider::GetNewObjectForVisualizer 方法"
+title: IEEVisualizerDataProvider::GetNewObjectForVisualizer | Microsoft Docs
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords:
+- IEEVisualizerDataProvider::GetNewObjectForVisualizer
+helpviewer_keywords:
+- IEEVisualizerDataProvider::GetNewObjectForVisualizer method
 ms.assetid: a898d549-4898-4fde-aad1-e8bb89129652
 caps.latest.revision: 11
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 11
----
-# IEEVisualizerDataProvider::GetNewObjectForVisualizer
-[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
+ms.author: gregvanl
+manager: ghogen
+translation.priority.mt:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+ms.translationtype: MT
+ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
+ms.openlocfilehash: 61b7c52f7c4fbaac5037ebcb3b8b3130b0a3be91
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/28/2017
 
-此方法获取可视化工具的新对象。  该方法总是创建从现有对象的新对象。  
+---
+# <a name="ieevisualizerdataprovidergetnewobjectforvisualizer"></a>IEEVisualizerDataProvider::GetNewObjectForVisualizer
+This method gets a new object for the visualizer. This method will always create a new object from the existing object.  
   
-## 语法  
+## <a name="syntax"></a>Syntax  
   
 ```cpp  
-HRESULT GetNewObjectForVisualizer(  
-   IDebugObject** ppObject  
+HRESULT GetNewObjectForVisualizer(  
+   IDebugObject** ppObject  
 );  
 ```  
   
-```c#  
-int GetNewObjectForVisualizer(  
-   out IDebugObject ppObject  
+```csharp  
+int GetNewObjectForVisualizer(  
+   out IDebugObject ppObject  
 );  
 ```  
   
-#### 参数  
+#### <a name="parameters"></a>Parameters  
  `ppObject`  
- \[out\] 新的对象。  
+ [out] The new object.  
   
-## 返回值  
- 如果成功，则返回; `S_OK`否则，返回错误代码。  
+## <a name="return-value"></a>Return Value  
+ If successful, returns `S_OK`; otherwise, returns an error code.  
   
-## 备注  
- 它 表示当前的`This method` 计算对象并返回结果作为新对象。  现有对象作为计算得到更新。  
+## <a name="remarks"></a>Remarks  
+ `This method` re-evaluates the object it currently represents and returns the result as a new object. The existing object will be updated as a result of the evaluation.  
   
-## 请参阅  
+## <a name="see-also"></a>See Also  
  [IEEVisualizerDataProvider](../../../extensibility/debugger/reference/ieevisualizerdataprovider.md)   
  [IDebugObject](../../../extensibility/debugger/reference/idebugobject.md)

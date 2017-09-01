@@ -1,56 +1,74 @@
 ---
-title: "使用采样收集性能统计信息 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-debug"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-helpviewer_keywords: 
-  - "分析工具, 采样"
-  - "采样分析方法"
+title: Collecting Performance Statistics by Using Sampling | Microsoft Docs
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-debug
+ms.tgt_pltfrm: 
+ms.topic: article
+helpviewer_keywords:
+- Profiling Tools,sampling
+- sampling profiling method
 ms.assetid: 8e36361b-bb3d-40c6-b286-0e68c0ecb915
 caps.latest.revision: 21
-author: "mikejo5000"
-ms.author: "mikejo"
-manager: "ghogen"
-caps.handback.revision: 21
----
-# 使用采样收集性能统计信息
-[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
+author: mikejo5000
+ms.author: mikejo
+manager: ghogen
+translation.priority.ht:
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- ru-ru
+- zh-cn
+- zh-tw
+translation.priority.mt:
+- cs-cz
+- pl-pl
+- pt-br
+- tr-tr
+ms.translationtype: HT
+ms.sourcegitcommit: 7c87490f8e4ad01df8761ebb2afee0b2d3744fe2
+ms.openlocfilehash: b70e791d001cee1ae49cf9561b914c0a72c862ae
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/31/2017
 
-默认情况下，[!INCLUDE[vsPreShort](../code-quality/includes/vspreshort_md.md)]分析工具采样方法每 10,000,000 个处理器周期（在频率为 1 GHz 的计算机上这一时间大约为每百分之一秒）收集一次分析信息。  采样方法对于查找处理器利用率问题很有用，并且大多数性能调查都建议以此方法开始。  
+---
+# <a name="collecting-performance-statistics-by-using-sampling"></a>Collecting Performance Statistics by Using Sampling
+By default, the [!INCLUDE[vsPreShort](../code-quality/includes/vspreshort_md.md)] Profiling Tools sampling method collects profiling information every 10,000,000 processor cycles (approximately every one-hundredth of a second on a 1 GHz computer). The sampling method is useful for finding processor utilization issues and is the suggested method for starting most performance investigations.  
   
- **要求**  
+ **Requirements**  
   
 -   [!INCLUDE[vsUltLong](../code-quality/includes/vsultlong_md.md)], [!INCLUDE[vsPreLong](../code-quality/includes/vsprelong_md.md)], [!INCLUDE[vsPro](../code-quality/includes/vspro_md.md)]  
   
 > [!NOTE]
->  Windows 8 和 Windows Server 2012 中的增强安全功能需要在 Visual Studio 探查器收集这些平台上的数据的方式上的重大更改。  Windows 应用商店应用程序还需要新的集合技术。  请参见[分析 Windows 8 和 Windows Server 2012 应用程序](../profiling/performance-tools-on-windows-8-and-windows-server-2012-applications.md)。  
+>  Enhanced security features in Windows 8 and Windows Server 2012 required significant changes in the way the Visual Studio profiler collects data on these platforms. Windows Store apps also require new collection techniques. See [Performance Tools on Windows 8 and Windows Server 2012 applications](../profiling/performance-tools-on-windows-8-and-windows-server-2012-applications.md).  
   
- 可以使用以下过程之一指定采样方法：  
+ You can specify the sampling method by using one of the following procedures:  
   
--   在分析向导的第一页上，单击**“CPU 采样\(建议\)”**。  
+-   On the first page of the Profiling Wizard, click **CPU Sampling (recommended)**.  
   
--   在**“性能资源管理器”**工具栏上的**“方法”**列表中，单击**“采样”**。  
+-   On the **Performance Explorer** toolbar, in the **Method** list, click **Sampling**.  
   
--   在性能会话的属性对话框的**“常规”**页上，单击**“采样”**。  
+-   On the **General** page of the properties dialog box for the performance session, click **Sampling**.  
   
-## 常规任务  
- 您可以在性能部分的*Performance Session* **属性页面**对话框中指定附加选项。  打开此对话框：  
+## <a name="common-tasks"></a>Common Tasks  
+ You can specify additional options in the *Performance Session***Property Pages** dialog box of the performance session. To open this dialog box:  
   
--   在**“性能资源管理器”**中，右击性能会话名称，然后单击**“属性”**。  
+-   In **Performance Explorer**, right-click the performance session name, and then click **Properties**.  
   
- 下表中的任务介绍在使用采样方法进行分析时，可以在*Performance Session* 属性页 对话框中指定的各个选项。  
+ The tasks in the following table describe options that you can specify in the *Performance Session***Property Pages** dialog box when you profile by using the sampling method.  
   
-|任务|相关内容|  
-|--------|----------|  
-|在**“常规”**页上，添加 .NET 内存分配和生存期数据收集，并为生成的分析数据 \(.vsp\) 文件指定命名详细信息。|-   [收集 .NET 内存分配数据和生存期数据](../profiling/collecting-dotnet-memory-allocation-and-lifetime-data.md)<br />-   [如何：设置分析数据文件名选项](../profiling/how-to-set-performance-data-file-name-options.md)|  
-|在**“采样”**页上，更改采样率和\/或将采样事件从处理器时钟周期更改为另一个处理器性能计数器。|-   [如何：选择采样事件](../Topic/How%20to:%20Choose%20Sampling%20Events.md)|  
-|在**“启动”**页上，如果代码解决方案中有多个 .exe 项目，则指定要启动的应用程序及启动顺序。|-   [收集层交互数据](../profiling/collecting-tier-interaction-data.md)|  
-|在**“层交互”**页上，将 ADO.NET 调用信息添加到分析运行期间收集的数据。|-   [收集层交互数据](../profiling/collecting-tier-interaction-data.md)|  
-|在**“Windows 事件”**页上，指定要随采样数据收集的一个或多个 Windows 事件跟踪 \(ETW\) 事件。|-   [如何：收集 Windows 事件跟踪 \(ETW\) 数据](../Topic/How%20to:%20Collect%20Event%20Tracing%20for%20Windows%20\(ETW\)%20Data.md)|  
-|在**“Windows 计数器”**页上，指定要作为标记添加到分析数据的一个或多个操作系统性能计数器。|-   [如何：收集 Windows 计数器数据](../profiling/how-to-collect-windows-counter-data.md)|  
-|在**“高级”**页上，指定在应用程序模块使用多个 .NET Framework 运行时版本时，要分析的运行时版本。  默认情况下分析加载的第一个版本。|-   [如何：在并行方案中指定要分析的 .NET Framework 运行时](../Topic/How%20to:%20Specify%20the%20.NET%20Framework%20Runtime.md)|
+|Task|Related Content|  
+|----------|---------------------|  
+|On the **General** page, add .NET memory allocation and lifetime data collection, and specify naming details for the generated profiling data (.vsp) file.|-   [Collecting .NET Memory Allocation and Lifetime Data](../profiling/collecting-dotnet-memory-allocation-and-lifetime-data.md)<br />-   [How to: Set Performance Data File Name Options](../profiling/how-to-set-performance-data-file-name-options.md)|  
+|On the **Sampling** page, change the sampling rate, change the sampling event from processor clock cycles to another processor performance counter, or change both..|-   [How to: Choose Sampling Events](../profiling/how-to-choose-sampling-events.md)|  
+|On the **Launch** page, specify the application to start and the start order if you have multiple .exe projects in your code solution.|-   [Collecting tier interaction data](../profiling/collecting-tier-interaction-data.md)|  
+|On the **Tier Interaction** page, add ADO.NET call information to the data collected in theprofiling run.|-   [Collecting tier interaction data](../profiling/collecting-tier-interaction-data.md)|  
+|On the **Windows Events** page, specify one or more Event Tracing for Windows (ETW) events to collect with the sampling data.|-   [How to: Collect Event Tracing for Windows (ETW) Data](../profiling/how-to-collect-event-tracing-for-windows-etw-data.md)|  
+|On the **Windows Counters** page, specify one or more operating system performance counters to add to the profiling data as marks.|-   [How to: Collect Windows Counter Data](../profiling/how-to-collect-windows-counter-data.md)|  
+|On the **Advanced** page, specify the version of the .NET Framework runtime to profile if your application modules use multiple versions. By default, the first version loaded is profiled.|-   [How to: Specify the .NET Framework Runtime](../profiling/how-to-specify-the-dotnet-framework-runtime.md)|

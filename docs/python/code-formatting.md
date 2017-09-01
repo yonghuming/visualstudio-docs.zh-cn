@@ -32,7 +32,7 @@ ms.lasthandoff: 07/18/2017
 
 通过“工具”>“选项”>“文本编辑器”>“Python”>“格式”及其嵌套选项卡设置选项，并且默认情况下设置为匹配 [PEP 8 样式指南](http://www.python.org/dev/peps/pep-0008/)的超集。 “常规”选项卡确定何时应用格式；本主题中介绍了设置其他三个选项卡。
 
-借助 [Visual Studio 中的 Python 支持](installation.md)，还可在“编辑”>“高级”菜单中添加有用的“填充注释段落”[](#fill-comment-paragraph-command)命令，如下所述。
+借助 [Visual Studio 中的 Python 支持](installation.md)，还可在“编辑”>“高级”菜单中添加有用的[“填充注释段落”](#fill-comment-paragraph-command)命令，如下所述。
 
 ## <a name="spacing"></a>间距
 

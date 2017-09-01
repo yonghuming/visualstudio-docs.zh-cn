@@ -1,59 +1,62 @@
 ---
-title: "如何：以编程方式向工作簿添加新工作表"
-ms.custom: ""
-ms.date: "02/02/2017"
-ms.prod: "visual-studio-dev14"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "office-development"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-dev_langs: 
-  - "VB"
-  - "CSharp"
-helpviewer_keywords: 
-  - "工作簿，添加工作表"
-  - "工作簿，创建工作表"
-  - "工作表，创建"
-  - "工作表，向工作簿添加"
+title: 'How to: Programmatically Add New Worksheets to Workbooks | Microsoft Docs'
+ms.custom: 
+ms.date: 02/02/2017
+ms.prod: visual-studio-dev14
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- office-development
+ms.tgt_pltfrm: 
+ms.topic: article
+dev_langs:
+- VB
+- CSharp
+helpviewer_keywords:
+- workbooks, adding worksheets
+- workbooks, creating worksheets
+- worksheets, creating
+- worksheets, adding to workbooks
 ms.assetid: 19f0d815-51b2-406c-9f36-34aa0ec16b4a
 caps.latest.revision: 52
-author: "kempb"
-ms.author: "kempb"
-manager: "ghogen"
-caps.handback.revision: 51
+author: kempb
+ms.author: kempb
+manager: ghogen
+ms.translationtype: HT
+ms.sourcegitcommit: eb5c9550fd29b0e98bf63a7240737da4f13f3249
+ms.openlocfilehash: 00ed626d325e3e5d3bb22d0bb3c4da39924456be
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/30/2017
+
 ---
-# 如何：以编程方式向工作簿添加新工作表
-  可以通过编程方式创建一个工作表，然后将它添加到工作簿中工作表的集合。  
+# <a name="how-to-programmatically-add-new-worksheets-to-workbooks"></a>How to: Programmatically Add New Worksheets to Workbooks
+  You can programmatically create a worksheet and then add the worksheet to the collection of worksheets in the workbook.  
   
  [!INCLUDE[appliesto_xlalldocapp](../vsto/includes/appliesto-xlalldocapp-md.md)]  
   
-### 将新工作表添加到文档级自定义项中的工作簿  
+### <a name="to-add-a-new-worksheet-to-a-workbook-in-a-document-level-customization"></a>To add a new worksheet to a workbook in a document-level customization  
   
-1.  使用 <xref:Microsoft.Office.Interop.Excel.Sheets> 集合的 <xref:Microsoft.Office.Interop.Excel.Worksheets.Add%2A> 方法。  
+1.  Use the <xref:Microsoft.Office.Interop.Excel.Worksheets.Add%2A> method of the <xref:Microsoft.Office.Interop.Excel.Sheets> collection.  
   
-     [!code-csharp[Trin_VstcoreExcelAutomation#15](../snippets/csharp/VS_Snippets_OfficeSP/Trin_VstcoreExcelAutomation/CS/Sheet1.cs#15)]
-     [!code-vb[Trin_VstcoreExcelAutomation#15](../snippets/visualbasic/VS_Snippets_OfficeSP/Trin_VstcoreExcelAutomation/VB/Sheet1.vb#15)]  
+     [!code-csharp[Trin_VstcoreExcelAutomation#15](../vsto/codesnippet/CSharp/Trin_VstcoreExcelAutomationCS/Sheet1.cs#15)]  [!code-vb[Trin_VstcoreExcelAutomation#15](../vsto/codesnippet/VisualBasic/Trin_VstcoreExcelAutomation/Sheet1.vb#15)]  
   
-     新工作表是一个本机 <xref:Microsoft.Office.Interop.Excel.Worksheet> 对象，不是主机项。 如果想要添加 <xref:Microsoft.Office.Tools.Excel.Worksheet> 主机项，则应在设计时添加工作表。  
+     The new worksheet is a native <xref:Microsoft.Office.Interop.Excel.Worksheet> object and not a host item. If you want to add a <xref:Microsoft.Office.Tools.Excel.Worksheet> host item, you should add the worksheet at design time.  
   
-### 将新工作表添加到 VSTO 外接程序中的工作簿  
+### <a name="to-add-a-new-worksheet-to-a-workbook-in-a-vsto-add-in"></a>To add a new worksheet to a workbook in a VSTO Add-in  
   
-1.  使用 <xref:Microsoft.Office.Interop.Excel.Sheets> 集合的 <xref:Microsoft.Office.Interop.Excel.Worksheets.Add%2A> 方法。  
+1.  Use the <xref:Microsoft.Office.Interop.Excel.Worksheets.Add%2A> method of the <xref:Microsoft.Office.Interop.Excel.Sheets> collection.  
   
-     [!code-csharp[Trin_VstcoreExcelAutomationAddIn#11](../snippets/csharp/VS_Snippets_OfficeSP/Trin_VstcoreExcelAutomationAddIn/CS/ThisAddIn.cs#11)]
-     [!code-vb[Trin_VstcoreExcelAutomationAddIn#11](../snippets/visualbasic/VS_Snippets_OfficeSP/Trin_VstcoreExcelAutomationAddIn/VB/ThisAddIn.vb#11)]  
+     [!code-csharp[Trin_VstcoreExcelAutomationAddIn#11](../vsto/codesnippet/CSharp/trin_vstcoreexcelautomationaddin/ThisAddIn.cs#11)]  [!code-vb[Trin_VstcoreExcelAutomationAddIn#11](../vsto/codesnippet/VisualBasic/trin_vstcoreexcelautomationaddin/ThisAddIn.vb#11)]  
   
-     新工作表是一个本机 <xref:Microsoft.Office.Interop.Excel.Worksheet> 对象，不是主机项。 你还可以从本机 <xref:Microsoft.Office.Interop.Excel.Worksheet> 对象生成 <xref:Microsoft.Office.Tools.Excel.Worksheet> 主机项。 有关详细信息，请参阅[在运行时在 VSTO 外接程序中扩展 Word 文档和 Excel 工作簿](../vsto/extending-word-documents-and-excel-workbooks-in-vsto-add-ins-at-run-time.md)。  
+     The new worksheet is a native <xref:Microsoft.Office.Interop.Excel.Worksheet> object and not a host item. You can also generate a <xref:Microsoft.Office.Tools.Excel.Worksheet> host item from the native <xref:Microsoft.Office.Interop.Excel.Worksheet> object. For more information, see [Extending Word Documents and Excel Workbooks in VSTO Add-ins at Run Time](../vsto/extending-word-documents-and-excel-workbooks-in-vsto-add-ins-at-run-time.md).  
   
-## 请参阅  
- [使用工作表](../vsto/working-with-worksheets.md)   
- [宿主项和宿主控件概述](../vsto/host-items-and-host-controls-overview.md)   
- [如何：以编程方式从工作簿中删除工作表](../vsto/how-to-programmatically-delete-worksheets-from-workbooks.md)   
- [如何：以编程方式选择工作表](../vsto/how-to-programmatically-select-worksheets.md)   
- [使用扩展对象实现 Excel 自动化](../vsto/automating-excel-by-using-extended-objects.md)   
- [对 Office 项目中对象的全局访问](../vsto/global-access-to-objects-in-office-projects.md)   
- [Office 解决方案中的可选参数](../vsto/optional-parameters-in-office-solutions.md)  
+## <a name="see-also"></a>See Also  
+ [Working with Worksheets](../vsto/working-with-worksheets.md)   
+ [Host Items and Host Controls Overview](../vsto/host-items-and-host-controls-overview.md)   
+ [How to: Programmatically Delete Worksheets from Workbooks](../vsto/how-to-programmatically-delete-worksheets-from-workbooks.md)   
+ [How to: Programmatically Select Worksheets](../vsto/how-to-programmatically-select-worksheets.md)   
+ [Automating Excel by Using Extended Objects](../vsto/automating-excel-by-using-extended-objects.md)   
+ [Global Access to Objects in Office Projects](../vsto/global-access-to-objects-in-office-projects.md)   
+ [Optional Parameters in Office Solutions](../vsto/optional-parameters-in-office-solutions.md)  
   
   

@@ -1,111 +1,127 @@
 ---
-title: "如何：使用命令行将探查器附加到本机服务，以收集应用程序统计信息 | Microsoft Docs"
-ms.custom: ""
-ms.date: "12/15/2016"
-ms.prod: "visual-studio-dev14"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-debug"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
+title: 'How to: Attach the Profiler to a Native Service to Collect Application Statistics by Using the Command Line | Microsoft Docs'
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-debug
+ms.tgt_pltfrm: 
+ms.topic: article
 ms.assetid: f783817f-77a0-4eb8-985b-ec3b77eadc42
 caps.latest.revision: 25
-caps.handback.revision: 25
-author: "mikejo5000"
-ms.author: "mikejo"
-manager: "ghogen"
----
-# 如何：使用命令行将探查器附加到本机服务，以收集应用程序统计信息
-[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
+author: mikejo5000
+ms.author: mikejo
+manager: ghogen
+translation.priority.ht:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+ms.translationtype: HT
+ms.sourcegitcommit: 7c87490f8e4ad01df8761ebb2afee0b2d3744fe2
+ms.openlocfilehash: e2e07d92de6f9fa3f15a2ebe1b87b495c3f85515
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/31/2017
 
-本主题介绍如何使用 [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] 分析工具命令行工具将探查器附加到本机服务，以及如何使用采样方法收集性能统计信息。  
+---
+# <a name="how-to-attach-the-profiler-to-a-native-service-to-collect-application-statistics-by-using-the-command-line"></a>How to: Attach the Profiler to a Native Service to Collect Application Statistics by Using the Command Line
+This topic describes how to use the [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] Profiling Tools command-line tools to attach the profiler to a native service and collect performance statistics by using the sampling method.  
   
 > [!NOTE]
->  Windows 8 和 Windows Server 2012 中的增强安全功能需要在 Visual Studio 探查器收集这些平台上的数据的方式上的重大更改。  Windows 应用商店应用程序还需要新的集合技术。  请参见 [分析 Windows 8 和 Windows Server 2012 应用程序](../profiling/performance-tools-on-windows-8-and-windows-server-2012-applications.md)。  
+>  Enhanced security features in Windows 8 and Windows Server 2012 required significant changes in the way the Visual Studio profiler collects data on these platforms. Windows Store apps also require new collection techniques. See [Performance Tools on Windows 8 and Windows Server 2012 applications](../profiling/performance-tools-on-windows-8-and-windows-server-2012-applications.md).  
   
 > [!NOTE]
->  分析工具的命令行工具位于 [!INCLUDE[vs_current_short](../code-quality/includes/vs_current_short_md.md)] 安装目录的 \\Team Tools\\Performance Tools 子目录中。  在 64 位计算机上，同时提供这些工具的 64 位和 32 位版本。  若要使用探查器命令行工具，必须将该工具路径添加到命令提示符窗口的 PATH 环境变量中，或添加到命令本身。  有关详细信息，请参阅[指定命令行工具的路径](../profiling/specifying-the-path-to-profiling-tools-command-line-tools.md)。  
+>  Command-line tools of the Profiling Tools are located in the \Team Tools\Performance Tools subdirectory of the [!INCLUDE[vs_current_short](../code-quality/includes/vs_current_short_md.md)] installation directory. On 64 bit computers, both 64 bit and 32 bit versions of the tools are available. To use the profiler command-line tools, you must add the tools path to the PATH environment variable of the command prompt window or add it to the command itself. For more information, see [Specifying the Path to Command Line Tools](../profiling/specifying-the-path-to-profiling-tools-command-line-tools.md).  
   
- 在将探查器附加到服务时，可以暂停和继续数据收集。  
+ While the profiler is attached to the service, you can pause and resume data collection.  
   
- 若要结束分析会话，必须将探查器与服务断开，且显式关闭探查器。  
+ To end a profiling session, the profiler must be detached from the service and the profiler must be explicitly shut down.  
   
-## 将应用程序与探查器一起启动  
- 若要将探查器附加到本机服务，可以使用 **VSPerfCmd.exe** [\/start](../profiling/start.md) 和 [\/attach](../profiling/attach.md) 选项初始化探查器并将其附加到目标应用程序。  可以在单个命令行上指定 **\/start** 和 **\/attach** 及其各自的选项。  还可以添加 [\/globaloff](../profiling/globalon-and-globaloff.md) 选项，以在目标应用程序启动时暂停数据收集。  然后，可以使用 [\/globalon](../profiling/globalon-and-globaloff.md) 开始收集数据。  
+## <a name="starting-the-application-with-the-profiler"></a>Starting the Application with the Profiler  
+ To attach the profiler to a native service, you use the **VSPerfCmd.exe**[/start](../profiling/start.md) and [/attach](../profiling/attach.md) options to initialize the profiler and attach it to the target application. You can specify **/start** and **/attach** and their respective options on a single command line. You can also add the [/globaloff](../profiling/globalon-and-globaloff.md) option to pause data collection at the start of the target application. You can then use [/globalon](../profiling/globalon-and-globaloff.md) to begin collecting data.  
   
-#### 将探查器附加到本机服务  
+#### <a name="to-attach-the-profiler-to-a-native-service"></a>To attach the Profiler to a native service  
   
-1.  如有必要，请启动相应服务。  
+1.  If necessary, start the service.  
   
-2.  打开命令提示符窗口。  
+2.  Open a command prompt window.  
   
-3.  启动探查器。  键入：  
+3.  Start the profiler. Type:  
   
-     **VSPerfCmd \/start:sample**  [\/output](../profiling/output.md) **:** `OutputFile` \[`Options`\]  
+     **VSPerfCmd /start:sample**  [/output](../profiling/output.md) **:** `OutputFile` [`Options`]  
   
-    -   **\/start:sample** 选项初始化探查器。  
+    -   The **/start:sample** option initializes the profiler.  
   
-    -   **\/output:** `OutputFile` 选项对于 **\/start** 是必需的。  `OutputFile` 指定分析数据 \(.vsp\) 文件的名称和位置。  
+    -   The **/output:**`OutputFile` option is required with **/start**. `OutputFile` specifies the name and location of the profiling data (.vsp) file.  
   
-     可以将下列任意选项与 **\/start:sample** 选项一起使用。  
+     You can use any of the following options with the **/start:sample** option.  
   
     > [!NOTE]
-    >  服务通常需要 **\/user** 和 **\/crosssession** 选项。  
+    >  The **/user** and **/crosssession** options are usually required for services.  
   
-    |选项|描述|  
-    |--------|--------|  
-    |[\/user](../profiling/user-vsperfcmd.md) **:**\[`Domain`**\\**\]`UserName`|指定拥有所分析进程的帐户的域名和用户名。  仅当运行进程的用户不是已登录用户时，才需要此选项。  进程所有者列在 Windows 任务管理器的“进程”选项卡上的“用户名”列中。|  
-    |[\/crosssession](../profiling/crosssession.md)|启用其他会话中的进程分析。  如果应用程序在其他会话中运行，则需要此选项。  会话 ID 列在 Windows 任务管理器的“进程”选项卡上的“会话 ID”列中。  **\/CS** 可指定为 **\/crosssession** 的缩略词。|  
-    |[\/wincounter](../profiling/wincounter.md) **:** `WinCounterPath`|指定要在分析过程中收集的 Windows 性能计数器。|  
-    |[\/automark](../profiling/automark.md) **:** `Interval`|仅与 **\/wincounter** 一起使用。  指定 Windows 性能计数器收集事件之间间隔的毫秒数。  默认值为 500 毫秒。|  
-    |[\/events](../profiling/events-vsperfcmd.md) **:** `Config`|指定要在分析过程中收集的 Windows 事件跟踪 \(ETW\) 事件。  将在单独的 \(.etl\) 文件中收集 ETW 事件。|  
+    |Option|Description|  
+    |------------|-----------------|  
+    |[/user](../profiling/user-vsperfcmd.md) **:**[`Domain`**\\**]`UserName`|Specifies the domain and user name of the account that owns the profiled process. This option is required only if the process is running as a user other than the logged on user. The process owner is listed in the User Name column on the Processes tab of Windows Task Manager.|  
+    |[/crosssession](../profiling/crosssession.md)|Enables profiling of processes in other sessions. This option is required if the application is running in a different session. The session id is listed in the Session ID column on the Processes tab of Windows Task Manager. **/CS** can be specified as an abbreviation for **/crosssession**.|  
+    |[/wincounter](../profiling/wincounter.md) **:** `WinCounterPath`|Specifies a Windows performance counter to be collected during profiling.|  
+    |[/automark](../profiling/automark.md) **:** `Interval`|Use with **/wincounter** only. Specifies the number of milliseconds between Windows performance counter collection events. Default is 500 ms.|  
+    |[/events](../profiling/events-vsperfcmd.md) **:** `Config`|Specifies an Event Tracing for Windows (ETW) event to be collected during profiling. ETW events are collected in a separate (.etl) file.|  
   
-4.  将探查器附加到服务。  键入：  
+4.  Attach the profiler to the service. Type:  
   
-     **VSPerfCmd \/attach:** `PID` \[`Sample Event`\]  
+     **VSPerfCmd /attach:** `PID` [`Sample Event`]  
   
-     `PID` 指定目标应用程序的进程 ID。  可以在 Windows 任务管理器中查看所有正在运行的进程的进程 ID。  
+     `PID` specifies the process ID of the target application. You can view the process IDs of all running processes in Windows Task Manager.  
   
-     默认情况下，每经过 10,000,000 个非暂停处理器时钟周期，就对性能数据进行一次采样。  这近似于在 1GH 处理器上每隔 10 秒采样一次。  通过指定下列选项之一，可以更改时钟周期间隔或指定其他采样事件。  
+     By default, performance data is sampled every 10,000,000 non-halted processor clock cycles. This is approximately once every 10 seconds on a 1GH processor. You can specify one of the following options to change the clock cycle interval or to specify a different sampling event.  
   
-    |采样事件|描述|  
-    |----------|--------|  
-    |[\/timer](../profiling/timer.md) **:** `Interval`|将采样间隔更改为 `Interval` 所指定的非暂停时钟周期数。|  
-    |[\/pf](../profiling/pf.md)\[**:**`Interval`\]|将采样事件更改为页面错误。  如果指定了 `Interval`，则设置两次样本之间的页面错误数。  默认值为 10。|  
-    |[\/sys](../profiling/sys-vsperfcmd.md) \[**:**`Interval`\]|将采样事件更改为进程对操作系统内核的系统调用 \(syscall\)。  如果指定了 `Interval`，则设置两次样本之间的调用数。  默认值为 10。|  
-    |[\/counter](../profiling/counter.md) **:** `Config`|将采样事件更改为处理器性能计数器，并将间隔更改为 `Config` 中指定的间隔。|  
+    |Sample Event|Description|  
+    |------------------|-----------------|  
+    |[/timer](../profiling/timer.md) **:** `Interval`|Changes the sampling interval to the number of non-halted clock cycles specified by `Interval`.|  
+    |[/pf](../profiling/pf.md)[**:**`Interval`]|Changes the sampling event to page faults. If `Interval` is specified, sets the number of page faults between samples. Default is 10.|  
+    |[/sys](../profiling/sys-vsperfcmd.md) [**:**`Interval`]|Changes the sampling event to system calls from the process to the operating system kernel (syscalls). If `Interval` is specified, sets the number of calls between samples. Default is 10.|  
+    |[/counter](../profiling/counter.md) **:** `Config`|Changes the sampling event and interval to the processor performance counter and interval specified in `Config`.|  
   
-## 控制数据收集  
- 在目标应用程序运行时，可以使用 **VSPerfCmd.exe** 选项启动和停止向探查器数据文件写入数据。  通过控制数据收集，可以收集程序执行的特定阶段（如启动或关闭应用程序）的数据。  
+## <a name="controlling-data-collection"></a>Controlling Data Collection  
+ While the target application is running, you can use **VSPerfCmd.exe** options to start and stop the writing of data to the profiler data file. Controlling data collection enables you to collect data for a specific part of program execution, such as starting or shutting down the application.  
   
-#### 开始和停止数据收集  
+#### <a name="to-start-and-stop-data-collection"></a>To start and stop data collection  
   
--   以下 **VSPerfCmd** 选项对可开始和停止数据收集。  在单独的命令行上指定每个选项。  您可以多次打开和关闭数据收集。  
+-   The following pairs of **VSPerfCmd** options start and stop data collection. Specify each option on a separate command line. You can turn data collection on and off multiple times.  
   
-    |选项|描述|  
-    |--------|--------|  
-    |[\/globalon \/globaloff](../profiling/globalon-and-globaloff.md)|开始 \(**\/globalon**\) 或停止 \(**\/globaloff**\) 所有进程的数据收集。|  
-    |[\/processon](../profiling/processon-and-processoff.md) **:** `PID` [\/processoff](../profiling/processon-and-processoff.md)**:**`PID`|开始 \(**\/processon**\) 或停止 \(**\/processoff**\) 进程 ID \(`PID`\) 所指定的进程的数据收集。|  
-    |**\/attach:** {`PID`&#124;`ProcName`} [\/detach](../profiling/detach.md)\[:{`PID`&#124;`ProcName`}\]|**\/attach** 开始对由进程 ID 或进程名称指定的进程收集数据。  **\/detach** 停止对指定进程的数据收集，如果未指定某一进程，则停止对所有进程的数据收集。|  
+    |Option|Description|  
+    |------------|-----------------|  
+    |[/globalon /globaloff](../profiling/globalon-and-globaloff.md)|Starts (**/globalon**) or stops (**/globaloff**) data collection for all processes.|  
+    |[/processon](../profiling/processon-and-processoff.md) **:** `PID` [/processoff](../profiling/processon-and-processoff.md) **:** `PID`|Starts (**/processon**) or stops (**/processoff**) data collection for the process specified by the process ID (`PID`).|  
+    |**/attach:** {`PID`&#124;`ProcName`} [/detach](../profiling/detach.md)[:{`PID`&#124;`ProcName`}]|**/attach** starts to collect data for the process specified by the process ID or process name. **/detach** stops data collection for the specified process, or for all processes if a process is not specified.|  
   
-## 结束分析会话  
- 若要结束分析会话，必须将探查器与服务断开然后显式关闭探查器。  通过停止本机服务或调用 **VSPerfCmd \/detach** 选项，可以断开正在使用采样方法分析的本机服务。  然后，可以调用 **VSPerfCmd** [\/shutdown](../profiling/shutdown.md) 选项，关闭探查器和分析数据文件。  
+## <a name="ending-the-profiling-session"></a>Ending the Profiling Session  
+ To end a profiling session, the profiler must be detached from the service and then explicitly shut down. You can detach native service that is being profiled with the sampling method by stopping the service or by calling the **VSPerfCmd /detach** option. You then call the **VSPerfCmd** [/shutdown](../profiling/shutdown.md) option to turn the profiler off and close the profiling data file.  
   
-#### 结束分析会话  
+#### <a name="to-end-a-profiling-session"></a>To end a profiling session  
   
-1.  执行以下操作之一从目标应用程序分离探查器：  
+1.  Do one of the following to detach the profiler from the target application:  
   
-    -   停止服务。  
+    -   Stop the service.  
   
-         \- 或 \-  
+         -or-  
   
-    -   键入 **VSPerfCmd \/detach**  
+    -   Type **VSPerfCmd /detach**  
   
-2.  关闭探查器。  键入：  
+2.  Shut down the profiler. Type:  
   
-     **VSPerfCmd \/shutdown**  
+     **VSPerfCmd /shutdown**  
   
-## 请参阅  
- [分析服务](../profiling/command-line-profiling-of-services.md)   
- [采样方法数据视图](../profiling/profiler-sampling-method-data-views.md)
+## <a name="see-also"></a>See Also  
+ [Profiling Services](../profiling/command-line-profiling-of-services.md)   
+ [Sampling Method Data Views](../profiling/profiler-sampling-method-data-views.md)

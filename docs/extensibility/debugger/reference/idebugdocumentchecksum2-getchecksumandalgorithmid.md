@@ -1,67 +1,84 @@
 ---
-title: "IDebugDocumentChecksum2::GetChecksumAndAlgorithmId | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-helpviewer_keywords: 
-  - "IDebugDocumentChecksum2::GetChecksumAndAlgorithmI"
-  - "GetChecksumAndAlgorithmI"
+title: IDebugDocumentChecksum2::GetChecksumAndAlgorithmId | Microsoft Docs
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+helpviewer_keywords:
+- IDebugDocumentChecksum2::GetChecksumAndAlgorithmI
+- GetChecksumAndAlgorithmI
 ms.assetid: 25efef99-0ef3-4332-a752-607605fc6e67
 caps.latest.revision: 8
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 8
----
-# IDebugDocumentChecksum2::GetChecksumAndAlgorithmId
-[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
+ms.author: gregvanl
+manager: ghogen
+translation.priority.mt:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+ms.translationtype: MT
+ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
+ms.openlocfilehash: d291bcb2b15d0ebe6447e016a728ce8a0f377c15
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/28/2017
 
-检索文档检查和和算法标识符为最大字节数使用。  
+---
+# <a name="idebugdocumentchecksum2getchecksumandalgorithmid"></a>IDebugDocumentChecksum2::GetChecksumAndAlgorithmId
+Retrieves the document checksum and algorithm identifier given the maximum number of bytes to use.  
   
-## 语法  
+## <a name="syntax"></a>Syntax  
   
-```cpp#  
+```cpp  
 HRESULT GetChecksumAndAlgorithmId(   
-   GUID  *pRetVal,  
-   ULONG cMaxBytes,  
-   BYTE  *pChecksum,  
-   ULONG *pcNumBytes  
+   GUID  *pRetVal,  
+   ULONG cMaxBytes,  
+   BYTE  *pChecksum,  
+   ULONG *pcNumBytes  
 );  
 ```  
   
-```c#  
+```csharp  
 public int GetChecksumAndAlgorithmId(   
-   out Guid pRetVal,  
-   uint     cMaxBytes,  
-   out byte pChecksum,  
-   out uint pcNumBytes  
+   out Guid pRetVal,  
+   uint     cMaxBytes,  
+   out byte pChecksum,  
+   out uint pcNumBytes  
 );  
 ```  
   
-#### 参数  
+#### <a name="parameters"></a>Parameters  
  `pRetVal`  
- \[out\] 检查和算法的唯一标识符。  
+ [out] Unique identifier for the checksum algorithm.  
   
  `cMaxBytes`  
- \[in\] 用于检查和将使用最大字节数。  
+ [in] Maximum number of bytes to be used for the checksum.  
   
  `pChecksum`  
- \[out\] 检查和的值。  
+ [out] Value of the checksum.  
   
  `pcNumBytes`  
- \[out\] 用于检查和实际字节数。  
+ [out] Actual number of bytes used for the checksum.  
   
-## 返回值  
- 如果成功，则返回; `S_OK`否则，返回错误代码。  
+## <a name="return-value"></a>Return Value  
+ If successful, returns `S_OK`; otherwise, returns an error code.  
   
-## 示例  
- 下面的示例使用此方法获取检查和和算法文档。  
+## <a name="example"></a>Example  
+ The following example uses this method to get the checksum and algorithm for a document.  
   
-```cpp#  
+```cpp  
 HRESULT CDebugCodeContext::GetDocumentChecksumAndAlgorithmId(GUID *pguidAlgorithm, BYTE **ppChecksum, ULONG *pcNumBytes)  
 {  
     HRESULT hRes = E_FAIL;  
@@ -124,5 +141,5 @@ HRESULT CDebugCodeContext::GetDocumentChecksumAndAlgorithmId(GUID *pguidAlgorith
 }  
 ```  
   
-## 请参阅  
+## <a name="see-also"></a>See Also  
  [IDebugDocumentChecksum2](../../../extensibility/debugger/reference/idebugdocumentchecksum2.md)

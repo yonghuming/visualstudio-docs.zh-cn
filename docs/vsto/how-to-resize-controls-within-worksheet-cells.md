@@ -1,66 +1,70 @@
 ---
-title: "如何：调整工作表单元格中的控件的大小"
-ms.custom: ""
-ms.date: "02/02/2017"
-ms.prod: "visual-studio-dev14"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "office-development"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-dev_langs: 
-  - "VB"
-  - "CSharp"
-helpviewer_keywords: 
-  - "控件 [Visual Studio 中的 Office 开发], 调整大小"
-  - "托管控件, 调整大小"
-  - "Windows 窗体控件 [Visual Studio 中的 Office 开发], 调整大小"
-  - "工作表, 调整大小"
+title: 'How to: Resize Controls Within Worksheet Cells | Microsoft Docs'
+ms.custom: 
+ms.date: 02/02/2017
+ms.prod: visual-studio-dev14
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- office-development
+ms.tgt_pltfrm: 
+ms.topic: article
+dev_langs:
+- VB
+- CSharp
+helpviewer_keywords:
+- controls [Office development in Visual Studio], resizing
+- managed controls, resizing
+- worksheets, resizing
+- Windows Forms controls [Office development in Visual Studio], resizing
 ms.assetid: 1439db4a-e64b-4381-a6e6-605ba94db3de
 caps.latest.revision: 33
-author: "kempb"
-ms.author: "kempb"
-manager: "ghogen"
-caps.handback.revision: 32
+author: kempb
+ms.author: kempb
+manager: ghogen
+ms.translationtype: HT
+ms.sourcegitcommit: eb5c9550fd29b0e98bf63a7240737da4f13f3249
+ms.openlocfilehash: 03a56a89259bd1f50be85ea244c97667bad906e1
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/30/2017
+
 ---
-# 如何：调整工作表单元格中的控件的大小
-  调整工作表的列和行的大小时，单元格中所包含的任何宿主控件都将自动调整到该单元格调整后的高度或宽度。  默认情况下，Windows 窗体控件不会自动调整大小。  
+# <a name="how-to-resize-controls-within-worksheet-cells"></a>How to: Resize Controls Within Worksheet Cells
+  When you resize columns or rows on a worksheet, any host controls contained in the cells automatically resize to the height or width of the cell that was resized. Windows Forms controls do not resize automatically by default.  
   
  [!INCLUDE[appliesto_xlalldoc](../vsto/includes/appliesto-xlalldoc-md.md)]  
   
- 如果在设计时添加了这些控件，则必须为每个控件设置定位选项。  
+ If you add the controls at design time, you must set positioning options for each control.  
   
- 如果以编程方式添加 Windows 窗体控件并提供了范围参数，则当调整范围内的单元格的大小时，也将自动调整该控件的大小。  有关更多信息，请参见[在运行时向 Office 文档添加控件](../vsto/adding-controls-to-office-documents-at-run-time.md)。  
+ If you add a Windows Forms control programmatically and supply a range argument, the control automatically resizes when a cell within the range is resized. For more information, see [Adding Controls to Office Documents at Run Time](../vsto/adding-controls-to-office-documents-at-run-time.md).  
   
-## 在设计时调整控件大小  
+## <a name="resizing-controls-at-design-time"></a>Resizing Controls at Design Time  
   
-#### 使控件在设计时随单元格调整大小  
+#### <a name="to-make-controls-resize-with-cells-at-design-time"></a>To make controls resize with cells at design time  
   
-1.  将一个 Windows 窗体控件从**“工具箱”**拖动到工作表。  
+1.  From the **Toolbox**, drag a Windows Forms control to a worksheet.  
   
-2.  右击该控件，然后单击**“设置控件格式”**。  
+2.  Right-click the control, and then click **Format Control**.  
   
-3.  在**“设置控件格式”**对话框中，单击**“属性”**选项卡。  
+3.  In the **Format Control** dialog box, click the **Properties** tab.  
   
-4.  在**“对象位置”**下选择**“大小、位置随单元格而变”**选项，然后单击**“确定”**。  
+4.  Under **Object Positioning**, select the **Move and size with cells** option, and then click **OK**.  
   
-     当调整包含该控件的单元格的大小时，也将调整该控件的大小，以使其适合单元格的大小。  
+     When you resize the cell that contains the control, the control resizes to fit the cell.  
   
-## 在运行时调整控件大小  
- 如果在运行时添加一个 Windows 窗体控件并将 <xref:Microsoft.Office.Interop.Excel.Range> 作为该控件位置传入，则当调整包含该范围的工作表单元格的大小时，该控件将自动调整自身的大小。  
+## <a name="resizing-controls-at-run-time"></a>Resizing Controls at Run Time  
+ If you add a Windows Forms control at run time and pass in a <xref:Microsoft.Office.Interop.Excel.Range> as the location for the control, the control will automatically resize when the worksheet cell that contains the range is resized.  
   
-#### 使控件在运行时随单元格调整大小  
+#### <a name="to-make-controls-resize-with-cells-at-run-time"></a>To make controls resize with cells at run time  
   
-1.  将一个控件添加到 A1 范围。  
+1.  Add a control to range A1.  
   
-     [!code-csharp[Trin_VstcoreProgrammingControlsExcel#5](../snippets/csharp/VS_Snippets_OfficeSP/Trin_VstcoreProgrammingControlsExcel/CS/Sheet1.cs#5)]
-     [!code-vb[Trin_VstcoreProgrammingControlsExcel#5](../snippets/visualbasic/VS_Snippets_OfficeSP/Trin_VstcoreProgrammingControlsExcel/VB/Sheet1.vb#5)]  
+     [!code-vb[Trin_VstcoreProgrammingControlsExcel#5](../vsto/codesnippet/VisualBasic/my excel chart/Sheet1.vb#5)]  [!code-csharp[Trin_VstcoreProgrammingControlsExcel#5](../vsto/codesnippet/CSharp/Trin_VstcoreProgrammingControlsExcelCS/Sheet1.cs#5)]  
   
-     当调整包含该控件的单元格的大小时，也将调整该控件的大小，以使其适合单元格的大小。  
+     When you resize the cell that contains the control, the control resizes to fit the cell.  
   
-## 重置控件位置  
- 通过将 `Placement` 属性设置为以下 <xref:Microsoft.Office.Interop.Excel.XlPlacement> 值之一，可以重置控件的位置并调整它的大小：  
+## <a name="resetting-control-placement"></a>Resetting Control Placement  
+ You can reset the placement and resizing of the control by setting the `Placement` property to one of the following <xref:Microsoft.Office.Interop.Excel.XlPlacement> values:  
   
 -   <xref:Microsoft.Office.Interop.Excel.XlPlacement.xlFreeFloating>  
   
@@ -68,18 +72,16 @@ caps.handback.revision: 32
   
 -   <xref:Microsoft.Office.Interop.Excel.XlPlacement.xlMoveAndSize>  
   
-#### 更改控件的行为使其位置和大小不随单元格而变  
+#### <a name="to-change-the-behavior-of-a-control-so-that-it-does-not-resize-or-move-with-the-cell"></a>To change the behavior of a control so that it does not resize or move with the cell  
   
-1.  调用控件的 placement 属性并将该值设置为 <xref:Microsoft.Office.Interop.Excel.XlPlacement.xlFreeFloating>。  
+1.  Call the placement property of the control and set the value to <xref:Microsoft.Office.Interop.Excel.XlPlacement.xlFreeFloating>.  
   
-     [!code-csharp[Trin_VstcoreProgrammingControlsExcel#6](../snippets/csharp/VS_Snippets_OfficeSP/Trin_VstcoreProgrammingControlsExcel/CS/Sheet1.cs#6)]
-     [!code-vb[Trin_VstcoreProgrammingControlsExcel#6](../snippets/visualbasic/VS_Snippets_OfficeSP/Trin_VstcoreProgrammingControlsExcel/VB/Sheet1.vb#6)]  
+     [!code-vb[Trin_VstcoreProgrammingControlsExcel#6](../vsto/codesnippet/VisualBasic/my excel chart/Sheet1.vb#6)]  [!code-csharp[Trin_VstcoreProgrammingControlsExcel#6](../vsto/codesnippet/CSharp/Trin_VstcoreProgrammingControlsExcelCS/Sheet1.cs#6)]  
   
-## 请参阅  
- [Office 文档上的控件](../vsto/controls-on-office-documents.md)   
- [如何：为 Office 文档添加 Windows 窗体控件](../vsto/how-to-add-windows-forms-controls-to-office-documents.md)   
- [如何：在打印时隐藏工作表的控件](../vsto/how-to-hide-controls-on-worksheets-when-printing.md)   
- [在运行时向 Office 文档添加控件](../vsto/adding-controls-to-office-documents-at-run-time.md)   
- [Office 文档上的 Windows 窗体控件的限制](../vsto/limitations-of-windows-forms-controls-on-office-documents.md)  
-  
+## <a name="see-also"></a>See Also  
+ [Controls on Office Documents](../vsto/controls-on-office-documents.md)   
+ [How to: Add Windows Forms Controls to Office Documents](../vsto/how-to-add-windows-forms-controls-to-office-documents.md)   
+ [How to: Hide Controls on Worksheets when Printing](../vsto/how-to-hide-controls-on-worksheets-when-printing.md)   
+ [Adding Controls to Office Documents at Run Time](../vsto/adding-controls-to-office-documents-at-run-time.md)   
+ [Limitations of Windows Forms Controls on Office Documents](../vsto/limitations-of-windows-forms-controls-on-office-documents.md)  
   

@@ -1,5 +1,5 @@
 ---
-title: "IDebugClassField::EnumBaseClasses |Microsoft 文档"
+title: IDebugClassField::EnumBaseClasses | Microsoft Docs
 ms.custom: 
 ms.date: 11/04/2016
 ms.reviewer: 
@@ -30,38 +30,39 @@ translation.priority.mt:
 - tr-tr
 - zh-cn
 - zh-tw
-translationtype: Machine Translation
-ms.sourcegitcommit: 5db97d19b1b823388a465bba15d057b30ff0b3ce
-ms.openlocfilehash: af9232375a7f46ce21cdef68f24e8cb721f404e1
-ms.lasthandoff: 02/22/2017
+ms.translationtype: MT
+ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
+ms.openlocfilehash: 21e2de0ff49be7b1ef25d2b9d5be81ef0aafc6dd
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="idebugclassfieldenumbaseclasses"></a>IDebugClassField::EnumBaseClasses
-创建此类的基类的枚举数。  
+Creates an enumerator for the base classes of this class.  
   
-## <a name="syntax"></a>语法  
+## <a name="syntax"></a>Syntax  
   
-```cpp#  
+```cpp  
 HRESULT EnumBaseClasses(   
    IEnumDebugFields** ppEnum  
 );  
 ```  
   
-```c#  
+```csharp  
 int EnumBaseClasses(  
    out IEnumDebugFields ppEnum  
 );  
 ```  
   
-#### <a name="parameters"></a>参数  
+#### <a name="parameters"></a>Parameters  
  `ppEnum`  
- [out]返回[IEnumDebugFields](../../../extensibility/debugger/reference/ienumdebugfields.md)对象表示的基类，这些类的列表。 如果不有任何基类，则返回 null 值。  
+ [out] Returns an [IEnumDebugFields](../../../extensibility/debugger/reference/ienumdebugfields.md) object representing the list of base classes. Returns a null value if there are no base classes.  
   
-## <a name="return-value"></a>返回值  
- 如果成功，返回 S_OK，则返回 S_SH_NO_BASE_CLASSES，如果不有任何基类 (与`ppEnum`参数设置为 null 值); 否则为返回错误代码。  
+## <a name="return-value"></a>Return Value  
+ If successful, returns S_OK, returns S_SH_NO_BASE_CLASSES if there are no base classes (and the `ppEnum` parameter is set to a null value); otherwise, returns an error code.  
   
-## <a name="remarks"></a>备注  
- 对大多数远程基类的最直接的 （或派生程度最高的） 基类的顺序指定枚举器对象中的基类。 例如，对于 c + + 类︰  
+## <a name="remarks"></a>Remarks  
+ The base classes in the enumerator object are specified in order of the most immediate (or most derived) base class to the most remote base class. For example, given the C++ classes:  
   
 ```  
 class Root { }  
@@ -70,8 +71,8 @@ class Level2 : Level1 { }
 class MyClass : Level2 { }  
 ```  
   
- 枚举都将返回基类的顺序`Level2`， `Level1`， `Root`。  
+ The enumeration would return the base classes in the order `Level2`, `Level1`, `Root`.  
   
-## <a name="see-also"></a>另请参阅  
+## <a name="see-also"></a>See Also  
  [IDebugClassField](../../../extensibility/debugger/reference/idebugclassfield.md)   
  [IEnumDebugFields](../../../extensibility/debugger/reference/ienumdebugfields.md)

@@ -1,52 +1,73 @@
 ---
-title: "OPTNAMECHANGEPFN | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "OPTNAMECHANGEPFN"
-helpviewer_keywords: 
-  - "OPTNAMECHANGEPFN 回调函数"
+title: OPTNAMECHANGEPFN | Microsoft Docs
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords:
+- OPTNAMECHANGEPFN
+helpviewer_keywords:
+- OPTNAMECHANGEPFN callback function
 ms.assetid: 147303f3-c7f1-438a-81b7-db891ea3d076
 caps.latest.revision: 11
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 11
----
-# OPTNAMECHANGEPFN
-[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
+ms.author: gregvanl
+manager: ghogen
+translation.priority.mt:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+ms.translationtype: MT
+ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
+ms.openlocfilehash: 9bdd0dfb945e35580a04630cbb0f47830959e5a7
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/28/2017
 
-这是对调用中指定一个回调函数 [SccSetOption](../extensibility/sccsetoption-function.md) \(使用选项 `SCC_OPT_NAMECHANGEPFN`\)，用于告知名称所做的更改源代码管理插件回 IDE。  
+---
+# <a name="optnamechangepfn"></a>OPTNAMECHANGEPFN
+This is a callback function specified in a call to the [SccSetOption](../extensibility/sccsetoption-function.md) (using option `SCC_OPT_NAMECHANGEPFN`) and is used to communicate name changes made by the source control plug-in back to the IDE.  
   
-## 签名  
+## <a name="signature"></a>Signature  
   
-```cpp#  
-typedef void (*OPTNAMECHANGEPFN)( LPVOID pvCallerData, LPCSTR pszOldName, LPCSTR pszNewName );  
+```cpp  
+typedef void (*OPTNAMECHANGEPFN)(  
+   LPVOID pvCallerData,  
+   LPCSTR pszOldName,  
+   LPCSTR pszNewName  
+);  
 ```  
   
-## 参数  
+## <a name="parameters"></a>Parameters  
  pvCallerData  
- \[\] in对上一个调用中指定的用户值 [SccSetOption](../extensibility/sccsetoption-function.md) \(使用选项 `SCC_OPT_USERDATA`\)。  
+ [in] User value specified in a previous call to the [SccSetOption](../extensibility/sccsetoption-function.md) (using option `SCC_OPT_USERDATA`).  
   
  pszOldName  
- \[\] in原始文件的名称。  
+ [in] The original name of the file.  
   
  pszNewName  
- \[\] in文件的名称已重命名为。  
+ [in] The name the file was renamed to.  
   
-## 返回值  
- 无。  
+## <a name="return-value"></a>Return Value  
+ None.  
   
-## 备注  
- 在源代码管理操作期间将重命名文件，如果源代码管理插件可以通知通过该回调的名称更改的相关 IDE。  
+## <a name="remarks"></a>Remarks  
+ If a file is renamed during a source control operation, the source control plug-in can notify the IDE about the name change through this callback.  
   
- 如果 IDE 不支持此回调，它将不会调用 [SccSetOption](../extensibility/sccsetoption-function.md) 指定它。 如果该插件不支持此回调，它将返回 `SCC_E_OPNOTSUPPORTED` 从 `SccSetOption` IDE 来尝试设置该回调时的功能。  
+ If the IDE does not support this callback, it will not call the [SccSetOption](../extensibility/sccsetoption-function.md) to specify it. If the plug-in does not support this callback, it will return `SCC_E_OPNOTSUPPORTED` from the `SccSetOption` function when the IDE attempts to set the callback.  
   
-## 请参阅  
- [由 IDE 实现的回调函数](../extensibility/callback-functions-implemented-by-the-ide.md)   
+## <a name="see-also"></a>See Also  
+ [Callback Functions Implemented by the IDE](../extensibility/callback-functions-implemented-by-the-ide.md)   
  [SccSetOption](../extensibility/sccsetoption-function.md)

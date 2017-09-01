@@ -1,145 +1,163 @@
 ---
-title: "常用的 MSBuild 项目项 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-dev_langs: 
-  - "VB"
-  - "CSharp"
-  - "C++"
-  - "jsharp"
-helpviewer_keywords: 
-  - "MSBuild, 公用项目项"
+title: Common MSBuild Project Items | Microsoft Docs
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+dev_langs:
+- VB
+- CSharp
+- C++
+- jsharp
+helpviewer_keywords:
+- MSBuild, common project items
 ms.assetid: 1eba3721-cc12-4b80-9987-84923ede5e2e
 caps.latest.revision: 17
-author: "kempb"
-ms.author: "kempb"
-manager: "ghogen"
-caps.handback.revision: 17
----
-# 常用的 MSBuild 项目项
-[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
+author: kempb
+ms.author: kempb
+manager: ghogen
+translation.priority.ht:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+ms.translationtype: HT
+ms.sourcegitcommit: 17defdd0b96ec1c3273fc6b845af844b031a4a17
+ms.openlocfilehash: 95cc68dfeb1005913198f9eb4564b2237818a5da
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/23/2017
 
-在 [!INCLUDE[vstecmsbuild](../extensibility/internals/includes/vstecmsbuild_md.md)] 中，项是对一个或多个文件的命名引用。  项包含元数据（如文件名、路径和版本号）。  [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] 中的所有项目类型具有几个通用项。  在文件 microsoft.build.commontypes.xsd 中定义了这些项。  
+---
+# <a name="common-msbuild-project-items"></a>Common MSBuild Project Items
+In [!INCLUDE[vstecmsbuild](../extensibility/internals/includes/vstecmsbuild_md.md)], an item is a named reference to one or more files. Items contain metadata such as file names, paths, and version numbers. All project types in [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] have several items in common. These items are defined in the file microsoft.build.commontypes.xsd.  
   
-## 通用项  
- 以下是所有通用项目项的列表。  
+## <a name="common-items"></a>Common Items  
+ The following is a list of all the common project items.  
   
-### 参考  
- 表示项目中的程序集（托管）引用。  
+### <a name="reference"></a>Reference  
+ Represents an assembly (managed) reference in the project.  
   
-|项名称|描述|  
-|---------|--------|  
-|HintPath|可选的字符串。  程序集的相对或绝对路径。|  
-|名称|可选的字符串。  程序集的显示名称，例如“System.Windows.Forms”。|  
-|FusionName|可选的字符串。  指定项的简单或强合成名称。<br /><br /> 此特性存在时，可以节省时间，因为程序集文件不必打开即可获取合成名称。|  
-|SpecificVersion|可选的布尔值。  指定是否应仅引用合成名称中的版本。|  
-|别名|可选的字符串。  引用的任何别名。|  
-|Private|可选的布尔值。  指定是否应将引用复制到输出文件夹。  此特性与 Visual Studio IDE 中的引用的“复制本地”属性相匹配。|  
+|Item Name|Description|  
+|---------------|-----------------|  
+|HintPath|Optional string. Relative or absolute path of the assembly.|  
+|Name|Optional string. The display name of the assembly, for example, "System.Windows.Forms."|  
+|FusionName|Optional string. Specifies the simple or strong fusion name for the item.<br /><br /> When this attribute is present, it can save time because the assembly file does not have to be opened to obtain the fusion name.|  
+|SpecificVersion|Optional boolean. Specifies whether only the version in the fusion name should be referenced.|  
+|Aliases|Optional string. Any aliases for the reference.|  
+|Private|Optional boolean. Specifies whether the reference should be copied to the output folder. This attribute matches the **Copy Local** property of the reference that's in the Visual Studio IDE.|  
   
-### COMReference  
- 表示项目中的 COM（非托管）组件引用。  
+### <a name="comreference"></a>COMReference  
+ Represents a COM (unmanaged) component reference in the project.  
   
-|项名称|描述|  
-|---------|--------|  
-|名称|可选的字符串。  组件的显示名称。|  
-|Guid|可选的字符串。  组件的 GUID，形式为 {12345678\-1234\-1234\-1234\-1234567891234}。|  
-|VersionMajor|可选的字符串。  组件版本号的主要部分。  例如，如果完整版本号是“5.46”，则显示“5”。|  
-|VersionMinor|可选的字符串。  组件版本号的次要部分。  例如，如果完整版本号是“5.46”，则显示“46”。|  
-|LCID|可选的字符串。  组件的 LocaleID。|  
-|WrapperTool|可选的字符串。  对组件使用的包装工具的名称，例如“tlbimp”。|  
-|Isolated|可选的布尔值。  指定组件是否为免注册组件。|  
+|Item Name|Description|  
+|---------------|-----------------|  
+|Name|Optional string. The display name of the component.|  
+|Guid|Optional string. A GUID for the component, in the form {12345678-1234-1234-1234-1234567891234}.|  
+|VersionMajor|Optional string. The major part of the version number of the component. For example, "5" if the full version number is "5.46."|  
+|VersionMinor|Optional string. The minor part of the version number of the component. For example, "46" if the full version number is "5.46."|  
+|LCID|Optional string. The LocaleID for the component.|  
+|WrapperTool|Optional string. The name of the wrapper tool that is used on the component, for example, "tlbimp."|  
+|Isolated|Optional boolean. Specifies whether the component is a reg-free component.|  
   
-### COMFileReference  
- 表示馈送到 ResolvedComreference 目标中的类型库的列表。  
+### <a name="comfilereference"></a>COMFileReference  
+ Represents a list of type libraries that feed into the ResolvedComreference target.  
   
-|项名称|描述|  
-|---------|--------|  
-|WrapperTool|可选的字符串。  对组件使用的包装工具的名称，例如“tlbimp”。|  
+|Item Name|Description|  
+|---------------|-----------------|  
+|WrapperTool|Optional string. The name of the wrapper tool that is used on the component, for example, "tlbimp."|  
   
-### NativeReference  
- 表示本机清单文件或对此类文件的引用。  
+### <a name="nativereference"></a>NativeReference  
+ Represents a native manifest file or a reference to such a file.  
   
-|项名称|描述|  
-|---------|--------|  
-|名称|必选字符串。  清单文件基名称。|  
-|HintPath|必选字符串。  清单文件的相对路径。|  
+|Item Name|Description|  
+|---------------|-----------------|  
+|Name|Required string. The base name of the manifest file.|  
+|HintPath|Required string. The relative path of the manifest file.|  
   
-### ProjectReference  
- 表示对另一个项目的引用。  
+### <a name="projectreference"></a>ProjectReference  
+ Represents a reference to another project.  
   
-|项名称|描述|  
-|---------|--------|  
-|名称|可选的字符串。  引用的显示名称。|  
-|Project|可选的字符串。  引用的 GUID，形式为 {12345678\-1234\-1234\-1234\-1234567891234}。|  
-|Package|可选的字符串。  所引用的项目文件的路径。|  
+|Item Name|Description|  
+|---------------|-----------------|  
+|Name|Optional string. The display name of the reference.|  
+|Project|Optional string. A GUID for the reference, in the form {12345678-1234-1234-1234-1234567891234}.|  
+|Package|Optional string. The path of the project file that is being referenced.|  
   
-### Compile  
- 表示编译器的源文件。  
+### <a name="compile"></a>Compile  
+ Represents the source files for the compiler.  
   
-|项名称|描述|  
-|---------|--------|  
-|DependentUpon|可选的字符串。  指定该文件正确编译所依赖的文件。|  
-|AutoGen|可选的布尔值。  指示是否已由 [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] 集成开发环境 \(IDE\) 为项目生成了文件。|  
-|Link|可选的字符串。  文件在物理上处于项目文件的影响范围之外时要显示的符号路径。|  
-|可见|可选的布尔值。  指示是否要在  **中的[!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)]“解决方案资源管理器”**中显示文件。|  
-|CopyToOutputDirectory|可选的字符串。  确定是否将文件复制到输出目录。  值为：<br /><br /> 1.  Never<br />2.  Always<br />3.  PreserveNewest|  
+|Item Name|Description|  
+|---------------|-----------------|  
+|DependentUpon|Optional string. Specifies the file this file depends on to compile correctly.|  
+|AutoGen|Optional boolean. Indicates whether the file was generated for the project by the [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] integrated development environment (IDE).|  
+|Link|Optional string. The notational path to be displayed when the file is physically located outside the influence of the project file.|  
+|Visible|Optional boolean. Indicates whether to display the file in **Solution Explorer** in [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)].|  
+|CopyToOutputDirectory|Optional string. Determines whether to copy the file to the output directory. Values are:<br /><br /> 1.  Never<br />2.  Always<br />3.  PreserveNewest|  
   
-### EmbeddedResource  
- 表示要在生成的程序集中嵌入的资源。  
+### <a name="embeddedresource"></a>EmbeddedResource  
+ Represents resources to be embedded in the generated assembly.  
   
-|项名称|描述|  
-|---------|--------|  
-|DependentUpon|可选的字符串。  指定该文件正确编译所依赖的文件|  
-|Generator|必选字符串。  在此项上运行的任何文件生成器的名称。|  
-|LastGenOutput|必选字符串。  在此项上运行的任何文件生成器创建的文件的名称。|  
-|CustomToolNamespace|必选字符串。  在此项上运行的任何文件生成器应在其中创建代码的命名空间。|  
-|Link|可选的字符串。  如果文件在物理上处于项目的影响范围之外，则显示符号路径。|  
-|可见|可选的布尔值。  指示是否要在  **中的[!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)]“解决方案资源管理器”**中显示文件。|  
-|CopyToOutputDirectory|可选的字符串。  确定是否将文件复制到输出目录。  值为：<br /><br /> 1.  Never<br />2.  Always<br />3.  PreserveNewest|  
-|LogicalName|必选字符串。  嵌入资源的逻辑名称。|  
+|Item Name|Description|  
+|---------------|-----------------|  
+|DependentUpon|Optional string. Specifies the file this file depends on to compile correctly|  
+|Generator|Required string. The name of any file generator that is run on this item.|  
+|LastGenOutput|Required string. The name of the file that was created by any file generator that ran on this item.|  
+|CustomToolNamespace|Required string. The namespace in which any file generator that runs on this item should create code.|  
+|Link|Optional string. The notational path is displayed if the file is physically located outside the influence of the project.|  
+|Visible|Optional boolean. Indicates whether to display the file in **Solution Explorer** in [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)].|  
+|CopyToOutputDirectory|Optional string. Determines whether to copy the file to the output directory. Values are:<br /><br /> 1.  Never<br />2.  Always<br />3.  PreserveNewest|  
+|LogicalName|Required string. The logical name of the embedded resource.|  
   
-### 内容  
- 表示不会编译到项目中，但可能会嵌入到其中或随其一起发布的文件。  
+### <a name="content"></a>Content  
+ Represents files that are not compiled into the project, but may be embedded or published together with it.  
   
-|项名称|描述|  
-|---------|--------|  
-|DependentUpon|可选的字符串。  指定该文件正确编译所依赖的文件。|  
-|Generator|必选字符串。  在此项上运行的任何文件生成器的名称。|  
-|LastGenOutput|必选字符串。  在此项上运行的任何文件生成器创建的文件的名称。|  
-|CustomToolNamespace|必选字符串。  在此项上运行的任何文件生成器应在其中创建代码的命名空间。|  
-|Link|可选的布尔值。  指示是否要在  **中的[!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)]“解决方案资源管理器”**中显示文件。|  
-|PublishState|必选字符串。  内容的发布状态，为以下任一项：<br /><br /> -   默认<br />-   Included<br />-   Excluded<br />-   DataFile<br />-   必备组件|  
-|IsAssembly|可选的布尔值。  指定文件是否为程序集。|  
-|可见|可选的布尔值。  指示是否要在  **中的[!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)]“解决方案资源管理器”**中显示文件。|  
-|CopyToOutputDirectory|可选的字符串。  确定是否将文件复制到输出目录。  值为：<br /><br /> 1.  Never<br />2.  Always<br />3.  PreserveNewest|  
+|Item Name|Description|  
+|---------------|-----------------|  
+|DependentUpon|Optional string. Specifies the file this file depends on to compile correctly.|  
+|Generator|Required string. The name of any file generator that runs on this item.|  
+|LastGenOutput|Required string. The name of the file that was created by any file generator that was run on this item.|  
+|CustomToolNamespace|Required string. The namespace in which any file generator that runs on this item should create code.|  
+|Link|Optional string. The notational path to be displayed if the file is physically located outside the influence of the project.|  
+|PublishState|Required string. The publish state of the content, either:<br /><br /> -   Default<br />-   Included<br />-   Excluded<br />-   DataFile<br />-   Prerequisite|  
+|IsAssembly|Optional boolean. Specifies whether the file is an assembly.|  
+|Visible|Optional boolean. Indicates whether to display the file in **Solution Explorer** in [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)].|  
+|CopyToOutputDirectory|Optional string. Determines whether to copy the file to the output directory. Values are:<br /><br /> 1.  Never<br />2.  Always<br />3.  PreserveNewest|  
   
-### 无  
- 表示不应在生成过程中具有角色的文件。  
+### <a name="none"></a>None  
+ Represents files that should have no role in the build process.  
   
-|项名称|描述|  
-|---------|--------|  
-|DependentUpon|可选的字符串。  指定该文件正确编译所依赖的文件。|  
-|Generator|必选字符串。  在此项上运行的任何文件生成器的名称。|  
-|LastGenOutput|必选字符串。  在此项上运行的任何文件生成器创建的文件的名称。|  
-|CustomToolNamespace|必选字符串。  在此项上运行的任何文件生成器应在其中创建代码的命名空间。|  
-|Link|可选的字符串。  文件在物理上处于项目的影响范围之外时要显示的符号路径。|  
-|可见|可选的布尔值。  指示是否要在  **中的[!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)]“解决方案资源管理器”**中显示文件。|  
-|CopyToOutputDirectory|可选的字符串。  确定是否将文件复制到输出目录。  值为：<br /><br /> 1.  Never<br />2.  Always<br />3.  PreserveNewest|  
+|Item Name|Description|  
+|---------------|-----------------|  
+|DependentUpon|Optional string. Specifies the file this file depends on to compile correctly.|  
+|Generator|Required string. The name of any file generator that is run on this item.|  
+|LastGenOutput|Required string. The name of the file that was created by any file generator that ran on this item.|  
+|CustomToolNamespace|Required string. The namespace in which any file generator that runs on this item should create code.|  
+|Link|Optional string. The notational path to be displayed if the file is physically located outside the influence of the project.|  
+|Visible|Optional boolean. Indicates whether to display the file in **Solution Explorer** in [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)].|  
+|CopyToOutputDirectory|Optional string. Determines whether to copy the file to the output directory. Values are:<br /><br /> 1.  Never<br />2.  Always<br />3.  PreserveNewest|  
   
-### BaseApplicationManifest  
- 表示用于生成的基本应用程序清单，包含 [!INCLUDE[ndptecclick](../deployment/includes/ndptecclick_md.md)] 部署安全信息。  
+### <a name="baseapplicationmanifest"></a>BaseApplicationManifest  
+ Represents the base application manifest for the build, and contains [!INCLUDE[ndptecclick](../deployment/includes/ndptecclick_md.md)] deployment security information.  
   
-### CodeAnalysisImport  
- 表示要导入的 FxCop 项目。  
+### <a name="codeanalysisimport"></a>CodeAnalysisImport  
+ Represents the FxCop project to import.  
   
-### 导入  
- 表示应由 [!INCLUDE[vbprvb](../code-quality/includes/vbprvb_md.md)] 编译器导入其命名空间的程序集。  
+### <a name="import"></a>Import  
+ Represents assemblies whose namespaces should be imported by the [!INCLUDE[vbprvb](../code-quality/includes/vbprvb_md.md)] compiler.  
   
-## 请参阅  
- [常用的 MSBuild 项目属性](../msbuild/common-msbuild-project-properties.md)
+## <a name="see-also"></a>See Also  
+ [Common MSBuild Project Properties](../msbuild/common-msbuild-project-properties.md)
+

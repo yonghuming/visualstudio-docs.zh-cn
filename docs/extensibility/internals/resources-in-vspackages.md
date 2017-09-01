@@ -1,5 +1,5 @@
 ---
-title: "VSPackages 迁移中的资源 |Microsoft 文档"
+title: Resources in VSPackages | Microsoft Docs
 ms.custom: 
 ms.date: 11/04/2016
 ms.reviewer: 
@@ -30,42 +30,42 @@ translation.priority.mt:
 - tr-tr
 - zh-cn
 - zh-tw
-translationtype: Machine Translation
-ms.sourcegitcommit: 5658ecf52637a38bc3c2a5ad9e85b2edebf7d445
-ms.openlocfilehash: 184642501b9452566a15e1aba30312e17500f7bb
-ms.lasthandoff: 02/22/2017
+ms.translationtype: MT
+ms.sourcegitcommit: eb5c9550fd29b0e98bf63a7240737da4f13f3249
+ms.openlocfilehash: 8a49aa40daaa1bd0fc0543d2f6198212185c8490
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/30/2017
 
 ---
-# <a name="resources-in-vspackages"></a>在 Vspackage 中的资源
-本机附属 UI Dll 托管的附属 Dll 中或在托管 VSPackage 本身中，您可以嵌入的本地化的资源。  
+# <a name="resources-in-vspackages"></a>Resources in VSPackages
+You can embed localized resources in native satellite UI DLLs, managed satellite DLLs, or in a managed VSPackage itself.  
   
- 无法在 Vspackage 中嵌入一些资源。 可嵌入以下托管的类型︰  
+ Some resources cannot be embedded in VSPackages. The following managed types can be embedded:  
   
--   字符串  
+-   Strings  
   
--   包加载密钥 （这也是字符串）  
+-   Package load keys (which are also strings)  
   
--   工具窗口图标  
+-   Tool window icons  
   
--   已编译的命令表输出 （首席技术官） 文件  
+-   Compiled Command Table Output (CTO) files  
   
--   首席技术官位图  
+-   CTO bitmaps  
   
--   命令行帮助  
+-   Command-line Help  
   
--   关于对话框数据  
+-   About dialog box data  
   
- 管理包中的资源选择的资源 id。 异常是首席技术官文件，必须命名为 CTMENU。 首席技术官文件必须出现在资源表作为`byte[]`。 所有其他资源项类型进行标识。  
+ Resources in a managed package are selected by resource ID. An exception is the CTO file, which must be named CTMENU. The CTO file must appear in the resource table as a `byte[]`. All other resource items are identified by type.  
   
- 您可以使用<xref:Microsoft.VisualStudio.Shell.PackageRegistrationAttribute>属性以指示[!INCLUDE[vsprvs](../../code-quality/includes/vsprvs_md.md)]托管的资源都可用。</xref:Microsoft.VisualStudio.Shell.PackageRegistrationAttribute>  
+ You can use the <xref:Microsoft.VisualStudio.Shell.PackageRegistrationAttribute> attribute to indicate to [!INCLUDE[vsprvs](../../code-quality/includes/vsprvs_md.md)] that managed resources are available.  
   
- [!code-cs[VSSDKResources&#1;](../../extensibility/internals/codesnippet/CSharp/resources-in-vspackages_1.cs)]
- [!code-vb[VSSDKResources&#1;](../../extensibility/internals/codesnippet/VisualBasic/resources-in-vspackages_1.vb)]  
+ [!code-csharp[VSSDKResources#1](../../extensibility/internals/codesnippet/CSharp/resources-in-vspackages_1.cs)] [!code-vb[VSSDKResources#1](../../extensibility/internals/codesnippet/VisualBasic/resources-in-vspackages_1.vb)]  
   
- 设置<xref:Microsoft.VisualStudio.Shell.PackageRegistrationAttribute>以这种方式指示[!INCLUDE[vsprvs](../../code-quality/includes/vsprvs_md.md)]在它搜索资源，例如，通过使用<xref:Microsoft.VisualStudio.Shell.Interop.IVsShell.LoadPackageString%2A>。</xref:Microsoft.VisualStudio.Shell.Interop.IVsShell.LoadPackageString%2A>时应忽略非托管的附属 Dll</xref:Microsoft.VisualStudio.Shell.PackageRegistrationAttribute> 如果[!INCLUDE[vsprvs](../../code-quality/includes/vsprvs_md.md)]遇到两个或多个资源具有相同的资源 ID，它使用它找到的第一个资源。  
+ Setting <xref:Microsoft.VisualStudio.Shell.PackageRegistrationAttribute> in this manner indicates that [!INCLUDE[vsprvs](../../code-quality/includes/vsprvs_md.md)] should ignore unmanaged satellite DLLs when it searches for resources, for example, by using <xref:Microsoft.VisualStudio.Shell.Interop.IVsShell.LoadPackageString%2A>. If [!INCLUDE[vsprvs](../../code-quality/includes/vsprvs_md.md)] encounters two or more resources that have the same resource ID, it uses the first resource it finds.  
   
-## <a name="example"></a>示例  
- 下面的示例是一个工具窗口图标托管表示形式。  
+## <a name="example"></a>Example  
+ The following example is a managed representation of a tool window icon.  
   
 ```  
 <data name="1001"  
@@ -81,7 +81,7 @@ type="System.Resources.ResXFileRef,System.Windows.Forms">
 </data>  
 ```  
   
- 下面的示例演示如何将嵌入的首席技术官字节数组，必须将命名为 CTMENU。  
+ The following example demonstrates how to embed the CTO byte array, which must be named CTMENU.  
   
 ```  
 <data name="CTMENU"  
@@ -97,13 +97,12 @@ type="System.Resources.ResXFileRef,System.Windows.Forms">
 </data>  
 ```  
   
-## <a name="implementation-notes"></a>实现说明  
- [!INCLUDE[vsprvs](../../code-quality/includes/vsprvs_md.md)]VSPackages 迁移尽可能延迟加载。 首席技术官文件嵌入在 VSPackage 中后果是，[!INCLUDE[vsprvs](../../code-quality/includes/vsprvs_md.md)]必须在安装期间，这是合并的命令表进行生成时加载所有此类 VSPackages 迁移在内存中的。 通过检查元数据不在 VSPackage 中运行代码的情况下，可以从 VSPackage 中提取资源。 最小的性能损失是这次 VSPackage 未初始化。  
+## <a name="implementation-notes"></a>Implementation Notes  
+ [!INCLUDE[vsprvs](../../code-quality/includes/vsprvs_md.md)] delays loading of VSPackages whenever possible. A consequence of embedding a CTO file in a VSPackage is that [!INCLUDE[vsprvs](../../code-quality/includes/vsprvs_md.md)] must load all such VSPackages in memory during Setup, which is when it builds a merged command table. Resources can be extracted from a VSPackage by examining the metadata without running code in the VSPackage. The VSPackage is not initialized at this time, so the performance loss is minimal.  
   
- 当[!INCLUDE[vsprvs](../../code-quality/includes/vsprvs_md.md)]请求资源从 VSPackage 安装完成后，该包是有可能已加载并初始化，因此性能损失是最小。  
+ When [!INCLUDE[vsprvs](../../code-quality/includes/vsprvs_md.md)] requests a resource from a VSPackage after Setup, that package is likely to be already loaded and initialized, so the performance loss is minimal.  
   
-## <a name="see-also"></a>另请参阅  
- [托管的 VSPackages](../../misc/managed-vspackages.md)   
- [管理 Vspackage](../../extensibility/managing-vspackages.md)   
- [已本地化的 MFC 应用程序中的资源︰ 附属 Dll](http://msdn.microsoft.com/Library/3a1100ae-a9c8-47b5-adbd-cbedef5992ef)   
- [托管的 VSPackage](../../misc/managed-vspackages.md)
+## <a name="see-also"></a>See Also  
+ [Managing VSPackages](../../extensibility/managing-vspackages.md)   
+ [Localized Resources in MFC Applications: Satellite DLLs](/cpp/build/localized-resources-in-mfc-applications-satellite-dlls)   
+

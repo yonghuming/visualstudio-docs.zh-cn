@@ -1,5 +1,5 @@
 ---
-title: "IDebugThread2::CanSetNextStatement |Microsoft 文档"
+title: IDebugThread2::CanSetNextStatement | Microsoft Docs
 ms.custom: 
 ms.date: 11/04/2016
 ms.reviewer: 
@@ -30,45 +30,46 @@ translation.priority.mt:
 - tr-tr
 - zh-cn
 - zh-tw
-translationtype: Machine Translation
-ms.sourcegitcommit: 5db97d19b1b823388a465bba15d057b30ff0b3ce
-ms.openlocfilehash: 0b7ff8319bd1c8fddf53c3a58eed604bc8e4cc0f
-ms.lasthandoff: 02/22/2017
+ms.translationtype: MT
+ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
+ms.openlocfilehash: 8ffa88255d8f61e8908a6ec33e04e56a03ab6405
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="idebugthread2cansetnextstatement"></a>IDebugThread2::CanSetNextStatement
-确定当前指令指针是否可以设置为给定的堆栈帧。  
+Determines whether the current instruction pointer can be set to the given stack frame.  
   
-## <a name="syntax"></a>语法  
+## <a name="syntax"></a>Syntax  
   
-```cpp#  
+```cpp  
 HRESULT CanSetNextStatement (   
    IDebugStackFrame2*  pStackFrame,  
    IDebugCodeContext2* pCodeContext  
 );  
 ```  
   
-```c#  
+```csharp  
 int CanSetNextStatement (   
    IDebugStackFrame2  pStackFrame,  
    IDebugCodeContext2 pCodeContext  
 );  
 ```  
   
-#### <a name="parameters"></a>参数  
+#### <a name="parameters"></a>Parameters  
  `pStackFrame`  
- 保留供将来使用;设置为 null 值。 如果这是一个 null 值，则使用当前的堆栈帧。  
+ Reserved for future use; set to a null value. If this is a null value, use the current stack frame.  
   
  `pCodeContext`  
- [in][IDebugCodeContext2](../../../extensibility/debugger/reference/idebugcodecontext2.md)对象，描述要执行的代码位置和它的上下文。  
+ [in] An [IDebugCodeContext2](../../../extensibility/debugger/reference/idebugcodecontext2.md) object that describes the code location about to be executed and its context.  
   
-## <a name="return-value"></a>返回值  
- 如果成功，返回`S_OK`; 否则为返回错误代码。  
+## <a name="return-value"></a>Return Value  
+ If successful, returns `S_OK`; otherwise, returns an error code.  
   
-## <a name="remarks"></a>备注  
- 如果此方法返回`S_OK`，然后调用[SetNextStatement](../../../extensibility/debugger/reference/idebugthread2-setnextstatement.md)方法来实际设置下一条语句。  
+## <a name="remarks"></a>Remarks  
+ If this method returns `S_OK`, then call the [SetNextStatement](../../../extensibility/debugger/reference/idebugthread2-setnextstatement.md) method to actually set the next statement.  
   
-## <a name="see-also"></a>另请参阅  
+## <a name="see-also"></a>See Also  
  [IDebugThread2](../../../extensibility/debugger/reference/idebugthread2.md)   
  [IDebugStackFrame2](../../../extensibility/debugger/reference/idebugstackframe2.md)   
  [IDebugCodeContext2](../../../extensibility/debugger/reference/idebugcodecontext2.md)   

@@ -1,62 +1,79 @@
 ---
-title: "IDebugGenericParamField::GetConstraints | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-helpviewer_keywords: 
-  - "IDebugGenericParamField::GetConstraints"
-  - "GetConstraints"
+title: IDebugGenericParamField::GetConstraints | Microsoft Docs
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+helpviewer_keywords:
+- IDebugGenericParamField::GetConstraints
+- GetConstraints
 ms.assetid: 86a78b5a-ee0f-4999-a0ba-919d3dc7d969
 caps.latest.revision: 10
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 10
----
-# IDebugGenericParamField::GetConstraints
-[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
+ms.author: gregvanl
+manager: ghogen
+translation.priority.mt:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+ms.translationtype: MT
+ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
+ms.openlocfilehash: 583787bbff6b397a04fcd66a6a0fc24244f6baba
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/28/2017
 
-检索与此泛型形参的约束。  
+---
+# <a name="idebuggenericparamfieldgetconstraints"></a>IDebugGenericParamField::GetConstraints
+Retrieves the constraints that are associated with this generic parameter.  
   
-## 语法  
+## <a name="syntax"></a>Syntax  
   
-```cpp#  
+```cpp  
 HRESULT GetConstraints(  
-   ULONG32       cConstraints,  
-   IDebugField** ppConstraints,  
-   ULONG32*      pcConstraints  
+   ULONG32       cConstraints,  
+   IDebugField** ppConstraints,  
+   ULONG32*      pcConstraints  
 );  
 ```  
   
-```c#  
+```csharp  
 int GetConstraints(  
-   uint              cConstraints,  
-   out IDebugField[] ppConstraints,  
-   ref uint          pcConstraints  
+   uint              cConstraints,  
+   out IDebugField[] ppConstraints,  
+   ref uint          pcConstraints  
 );  
 ```  
   
-#### 参数  
+#### <a name="parameters"></a>Parameters  
  `cConstraints`  
- \[in\] 约束的数字。  
+ [in] Number of constraints.  
   
  `ppConstraints`  
- \[out\] 返回包含该约束与此字段的数组。  
+ [out] Returns an array that contains the constraints associated with this field.  
   
  `pcConstraints`  
- \[in, out\] 约束数。 `ppConstraints` 数组。  
+ [in, out] Number of constraints in the `ppConstraints` array.  
   
-## 返回值  
- 如果成功，则返回; `S_OK`否则，返回错误代码。  
+## <a name="return-value"></a>Return Value  
+ If successful, returns `S_OK`; otherwise, returns an error code.  
   
-## 示例  
- 下面的示例演示如何执行显示 [IDebugGenericParamField](../../../extensibility/debugger/reference/idebuggenericparamfield.md) 接口的 **CDebugGenericParamFieldType** 对象的方法。  
+## <a name="example"></a>Example  
+ The following example shows how to implement this method for a **CDebugGenericParamFieldType** object that exposes the [IDebugGenericParamField](../../../extensibility/debugger/reference/idebuggenericparamfield.md) interface.  
   
-```cpp#  
+```cpp  
 HRESULT CDebugGenericParamFieldType::GetConstraints(  
     ULONG32 cConstraints,  
     IDebugField** ppConstraints,  
@@ -149,5 +166,5 @@ Error:
 }  
 ```  
   
-## 请参阅  
+## <a name="see-also"></a>See Also  
  [IDebugGenericParamField](../../../extensibility/debugger/reference/idebuggenericparamfield.md)

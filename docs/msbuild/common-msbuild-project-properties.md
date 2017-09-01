@@ -37,11 +37,11 @@ translation.priority.ht:
 - tr-tr
 - zh-cn
 - zh-tw
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 47057e9611b824c17077b9127f8d2f8b192d6eb8
-ms.openlocfilehash: 7ec5dd2249f67a2aa23dc42b1f4065bc5d9a318c
+ms.translationtype: HT
+ms.sourcegitcommit: 1c2afd23f9f6a7444b723a0f7d93ababad2624e7
+ms.openlocfilehash: 15e453ace87993aae4ecf80e37cf97e4afce2f28
 ms.contentlocale: zh-cn
-ms.lasthandoff: 05/13/2017
+ms.lasthandoff: 08/15/2017
 
 ---
 # <a name="common-msbuild-project-properties"></a>常用的 MSBuild 项目属性
@@ -78,6 +78,7 @@ ms.lasthandoff: 05/13/2017
 |DefineTrace|一个布尔值，指示是否定义 TRACE 常量。|  
 |DebugType|定义要生成的调试信息的级别。 有效值为“full”、“pdbonly”和“none”。|  
 |DelaySign|一个布尔值，指示是否对程序集进行延迟签名，而不对其进行完整签名。|  
+|是确定的|一个布尔值，指示编译器是否为相同的输入生成相同的程序集。 此参数对应于 `vbc.exe` 和 `csc.exe` 编译器的 `/deterministic` 开关。|
 |DisabledWarnings|禁止显示指定的警告。 只有警告标识符的数值部分是必须指定的。 多个警告之间用分号分隔。 此参数对应于 vbc.exe 编译器的 `/nowarn` 开关。|  
 |DisableFastUpToDateCheck|一个只适用于 [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] 的布尔值。 [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] 生成管理器使用名为 FastUpToDateCheck 的进程来确定项目是否必须重新生成才能保持最新。 此进程比使用 [!INCLUDE[vstecmsbuild](../extensibility/internals/includes/vstecmsbuild_md.md)] 来确定这一点更快。 通过将 DisableFastUpToDateCheck 属性设置为 `true`，可以跳过 [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] 生成管理器，并强制生成管理器使用 [!INCLUDE[vstecmsbuild](../extensibility/internals/includes/vstecmsbuild_md.md)] 来确定项目是否为最新版本。|  
 |DocumentationFile|作为 XML 文档文件生成的文件的名称。 此名称只包含文件名，不包含路径信息。|  
@@ -85,7 +86,7 @@ ms.lasthandoff: 05/13/2017
 |ExcludeDeploymentUrl|[GenerateDeploymentManifest 任务](../msbuild/generatedeploymentmanifest-task.md)会在项目文件包含下列任何元素时向部署清单中添加 deploymentProvider 标记：<br /><br /> -   UpdateUrl<br />-   InstallUrl<br />-   PublishUrl<br /><br /> 不过，使用 ExcludeDeploymentUrl，可以防止 deploymentProvider 标记添加到部署清单，即使指定了任何上述 URL。 为此，请将以下属性添加到项目文件：<br /><br /> `<ExcludeDeploymentUrl>true</ExcludeDeploymentUrl>`注意：ExcludeDeploymentUrl 在 [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] IDE 中未显示，并且仅可通过手动编辑项目文件进行设置。 设置此属性不影响在 [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] 中发布；即 deploymentProvider 标记仍将添加到 PublishUrl 指定的 URL。|  
 |FileAlignment|指定输出文件各部分的对齐位置，以字节为单位。 有效值为 512、1024、2048、4096、8192。 此属性等效于 `/filealignment` 编译器开关。|  
 |FrameworkPathOverride|指定 mscorlib.dll 和 microsoft.visualbasic.dll 的位置。 此参数等效于 vbc.exe 编译器的 `/sdkpath` 开关。|  
-|GenerateDocumentation|一个布尔型参数，指示是否由生成来生成文档。 如果设置为 `true`，生成过程将生成文档信息，并将此信息与生成任务所创建的可执行文件或库的名称一同放置在 .xml 文件中。|  
+|GenerateDocumentation|（仅限 Visual Basic .NET）一个布尔型参数，指示是否由生成来生成文档。 如果设置为 `true`，生成过程将生成文档信息，并将此信息与生成任务所创建的可执行文件或库的名称一同放置在 .xml 文件中。|
 |IntermediateOutputPath|如果未指定路径，则为从 `BaseIntermediateOutputPath` 派生的完整中间输出路径。 例如 \obj\debug\\。 如果此属性被重写，则设置 `BaseIntermediateOutputPath` 不起任何作用。|  
 |KeyContainerName|强名称密钥容器的名称。|  
 |KeyOriginatorFile|强名称密钥文件的名称。|  
@@ -105,6 +106,7 @@ ms.lasthandoff: 05/13/2017
 |OverwriteReadOnlyFiles|一个布尔值，指示要让生成覆盖只读文件还是触发错误。|  
 |PdbFile|正在发出的 .pdb 文件的文件名。 此属性等效于 csc.exe 编译器的 `/pdb` 开关。|  
 |平台|生成所面向的操作系统。 有效值是“Any CPU”、“x86”和“x64”。|  
+|ProduceReferenceAssembly|一个布尔值，设置为 `true` 时，可为当前程序集生成[引用程序集](https://github.com/dotnet/roslyn/blob/master/docs/features/refout.md)。 使用此功能时，`Deterministic` 应为 `true`。 此属性对应于 `vbc.exe` 和 `csc.exe` 编译器的 `/refout` 开关。|
 |RemoveIntegerChecks|一个布尔值，指示是否禁用整数溢出错误检查。 默认值为 `false`。 此属性等效于 vbc.exe 编译器的 `/removeintchecks` 开关。|  
 |SGenUseProxyTypes|一个布尔值，指示是否应由 SGen.exe 生成代理类型。<br /><br /> SGen 目标使用此属性来设置 UseProxyTypes 标志。 此属性默认为 true，并且没有更高属性的 UI。 若要生成非 webservice 类型的序列化程序集，请在导入 Microsoft.Common.Targets 或 C#/VB.targets 之前将此属性添加到项目文件并将其设为 false。|  
 |SGenToolPath|一个可选的工具路径，指示在当前版本的 SGen.exe 被重写时可以获得 SGen.exe 的位置。|  

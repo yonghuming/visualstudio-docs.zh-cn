@@ -1,117 +1,138 @@
 ---
-title: "IntelliTrace 功能 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-debug"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-helpviewer_keywords: 
-  - "调试 [Visual Studio ALM], IntelliTrace"
-  - "调试 [Visual Studio ALM], recording execution history"
-  - "IntelliTrace, 使用事件进行调试"
-  - "IntelliTrace, 使用事件和调用信息进行调试"
-  - "IntelliTrace, 禁用"
-  - "IntelliTrace, 启用"
-  - "IntelliTrace, 导航事件和调用历史记录"
-  - "IntelliTrace, recording execution history"
-  - "IntelliTrace, 保存会话"
-  - "IntelliTrace, 开始调试"
-  - "IntelliTrace, 关闭"
-  - "IntelliTrace, 打开"
+title: IntelliTrace Features | Microsoft Docs
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-debug
+ms.tgt_pltfrm: 
+ms.topic: article
+helpviewer_keywords:
+- IntelliTrace, debugging with events
+- IntelliTrace, recording execution history
+- debugging [Visual Studio ALM], recording execution history
+- IntelliTrace, turn off
+- IntelliTrace, navigating event and call history
+- IntelliTrace, saving your session
+- IntelliTrace, enabling
+- IntelliTrace, start debugging
+- IntelliTrace, debugging with events and call information
+- IntelliTrace, disabling
+- IntelliTrace, turn on
+- debugging [Visual Studio ALM], IntelliTrace
 ms.assetid: 5ccc059c-6097-46b4-9d4b-34236c02d549
 caps.latest.revision: 67
-author: "mikejo5000"
-ms.author: "mikejo"
-manager: "ghogen"
-caps.handback.revision: 67
----
-# IntelliTrace 功能
-[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
+author: mikejo5000
+ms.author: mikejo
+manager: ghogen
+translation.priority.ht:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+ms.translationtype: HT
+ms.sourcegitcommit: 21a413a3e2d17d77fd83d5109587a96f323a0511
+ms.openlocfilehash: d54015ef6c1d73b4cefed55aa9577a23d4b24f04
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/30/2017
 
-可以使用 IntelliTrace 记录事件和调用应用程序的方法，它让你能够在执行中的不同位置检查其状态（调用堆栈和局部变量值）。  正常启动调试即可，默认启用 IntelliTrace，并且可以在**“事件”**选项卡下的新**“诊断工具”**窗口中看到 IntelliTrace 正在记录的信息。  选择一个事件，然后单击**“激活历史调试”**以查看为此事件记录的调用堆栈和局部变量。  
+---
+# <a name="intellitrace-features"></a>IntelliTrace Features
+You can use IntelliTrace to record events and method calls your application, which allows you to examine its state (call stack and local variable values) at different points in the execution. Just start debugging as usual - IntelliTrace is turned on by default, and you can see the information IntelliTrace is recording in the new **Diagnostic Tools** window under the **Events** tab. Select an event and click **Activate Historical Debugging** to see the call stack and locals recorded for this event.  
   
- 有关分步说明，请参阅[演练：使用 IntelliTrace](../debugger/walkthrough-using-intellitrace.md)。  
+ For a step-by-step description, see [Walkthrough: Using IntelliTrace](../debugger/walkthrough-using-intellitrace.md).  
   
- Visual Studio Enterprise 版中提供 IntelliTrace，但 Visual Studio Professional 或 Community 版中不提供。  
+ IntelliTrace is available in Visual Studio Enterprise edition, but not in the Visual Studio Professional or Community editions.  
   
- 要确认 IntelliTrace 已启用，请打开**“工具”\/“选项”\/“IntelliTrace”**选项页。  默认情况下应选中**“启用 IntelliTrace”**。  
+ To confirm that IntelliTrace is turned on, open the **Tools > Options > IntelliTrace** options page. **Enable IntelliTrace** should be checked by default.  
   
 > [!NOTE]
->  **“IntelliTrace”**选项页上的所有设置都针对 Visual Studio 这个整体，而不针对单个项目或解决方案。  这些设置中的更改适用于 Visual Studio 的所有实例、所有调试会话和所有项目或解决方案。  
+>  The scope of all settings on the **IntelliTrace** options page is Visual Studio as a whole, not individual projects or solutions. A change in these settings applies to all instances of Visual Studio, all debugging sessions and all projects or solutions.  
   
-##  <a name="ChooseEvents"></a> 选择 IntelliTrace 记录的事件  
- 可以启用或禁用针对特定 IntelliTrace 事件的记录。  
+##  <a name="ChooseEvents"></a> Choose the events that IntelliTrace records  
+ You can turn on or off recording for specific IntelliTrace events.  
   
- 如果在进行调试，请停止调试。  转到**“工具”\/“选项”\/“IntelliTrace”\/“IntelliTrace 事件”**。  选择想要 IntelliTrace 记录的事件。  
+ If you're debugging, stop debugging. Go to **Tools > Options > IntelliTrace > IntelliTrace Events**. Choose the events you want IntelliTrace to record.  
   
-##  <a name="GoingFurther"></a> 收集 IntelliTrace 事件和调用信息  
- 默认情况下不启用此选项，但 IntelliTrace 可以随事件一起记录方法调用。  要启用方法调用的收集，请转到**“工具”\/“选项”\/“IntelliTrace”\/“常规”**，然后选择**“IntelliTrace 事件和调用信息”**。  
+##  <a name="GoingFurther"></a> Collect IntelliTrace events and call information  
+ This isn't enabled by default, but IntelliTrace can record method calls along with events. To enable collection of method calls go to **Tools > Options > IntelliTrace > General**, and select **IntelliTrace events and call information**.
+
+> [!NOTE]
+> Call information is not currently available for .NET Core apps. 
   
- 这使你可以查看调用堆栈历史记录以及在代码中的调用间后退和前进。  IntelliTrace 记录的数据包括方法名、方法进入和退出点，以及部分参数值和返回值。  
+ This lets you see the call stack history and step backward and forward through calls in your code. IntelliTrace records data such as method names, method entry and exit points, and certain parameter values and return values.  
   
 > [!TIP]
->  默认情况下不启用此选项，因为它会增加大量开销。  IntelliTrace 不仅需要截获应用程序生成的每个方法调用，当需要在屏幕上显示数据或将数据保留到磁盘时，它还需要处理一组更大的数据。  
+>  This option is not enabled by default because it adds considerable overhead. Not only does IntelliTrace have to intercept every method call your application makes, but it also has to deal with a much larger set of data when it comes to showing it on the screen or persisting it to disk.  
 >   
->  可以通过限制 IntelliTrace 记录的事件列表以及将收集的模块数保持为最小值来减少性能开销。  有关详细信息，请参阅[控制 IntelliTrace 记录的调用信息量](../debugger/intellitrace-features.md#ControlCallData)。  
+>  You can reduce the performance overhead by restricting the list of events that IntelliTrace records and by keeping the number of modules you are collecting to a minimum. For more information, see [Control how much call information IntelliTrace records](../debugger/intellitrace-features.md#ControlCallData).  
   
-### 使用导航线  
- 可以使用代码窗口左侧显示的导航线。  如果没有看到导航线，则转到**“工具”\/“选项”\/“IntelliTrace”\/“高级”**，然后选择**“处于调试模式时显示导航线”**。  
+### <a name="using-the-navigation-gutter"></a>Using the navigation gutter  
+ You can use the navigation gutter that appears to the left of the code window. If you don't see the navigation gutter, go to **Tools > Options > IntelliTrace > Advanced**, and select **Display the navigation gutter while in debug mode**.  
   
- 导航线让你能够在历史调试模式下向前和向后移动方法调用和事件。  有关历史调试的详细信息，请参阅[历史调试](../debugger/historical-debugging.md)。  它拥有多个命令：  
+ The navigation gutter allows you to move forwards and backwards through method calls and events in historical debugging mode. For more information about historical debugging, see [Historical Debugging](../debugger/historical-debugging.md). It has a number of commands:  
   
 |||  
 |-|-|  
-|**在此设置调试器上下文**|将调试上下文设置为调用出现的调用时间范围。<br /><br /> 此图标仅在当前调用堆栈上显示。|  
-|**返回调用站点**|将指针和调试上下文移回调用当前函数的位置。<br /><br /> 如果处于实时调试模式下，则此命令会启用历史调试。  如果向后定位到原始执行中断，则会禁用历史调试并启用实时调试。|  
-|**转到上一个调用或 IntelliTrace 事件**|将指针和调试上下文移回上一个调用或事件。<br /><br /> 如果处于实时调试模式下，则此命令会启用历史调试。|  
-|**单步执行**|单步执行当前选择的函数。<br /><br /> 只有处于历史调试模式下时才能使用此命令。|  
-|**转到下一个调用或 IntelliTrace 事件**|将指针和调试上下文移到存在 IntelliTrace 数据的下一个调用或事件。<br /><br /> 只有处于历史调试模式下时才能使用此命令。|  
-|**转到实时模式**|返回实时调试模式。|  
+|**Set Debugger Context Here**|Set the debugging context to the call timeframe where it appears.<br /><br /> This icon appears only on the current call stack.|  
+|**Return to Call Site**|Move the pointer and debugging context back to where the current function was called.<br /><br /> If you are in Live Debugging mode, this command turns Historical Debugging on. If you navigate back to the original execution break, Historical Debugging is turned off and Live Debugging is turned on.|  
+|**Go to Previous Call or IntelliTrace Event**|Move the pointer and debugging context back to the previous call or event.<br /><br /> If you are in Live Debugging mode, this command turns on Historical Debugging.|  
+|**Step In**|Step into the currently selected function.<br /><br /> This command is available only when you are in Historical Debugging mode.|  
+|**Go to Next Call or IntelliTrace Event**|Move the pointer and debugging context to the next call or event for which IntelliTrace data exists.<br /><br /> This command is available only when you are in Historical Debugging mode.|  
+|**Go to Live Mode**|Return to Live Debugging mode.|  
   
-### 在 IntelliTrace 中搜索某行或某个方法  
- 仅当已启用方法调用信息时才可以搜索方法。  可以搜索 IntelliTrace 历史记录以查找特定行或方法。  暂停调试程序执行时，在函数体内右键单击以查看上下文菜单，然后单击**“在 IntelliTrace 中搜索此行”**或**“在 IntelliTrace 中搜索此方法”**。  
+### <a name="search-for-a-line-or-method-in-intellitrace"></a>Search for a line or method in IntelliTrace  
+ You can search methods only when method call information has been enabled. You can search IntelliTrace history for a specific line or method. While debugger execution is halted, right-click inside the body of the function to see the context menu, and click either **Search For This LIne In IntelliTrace** or **Search For This Method In IntelliTrace**.  
   
-###  <a name="ControlCallData"></a> 控制 IntelliTrace 记录的调用信息量  
- 默认情况下，IntelliTrace 记录解决方案使用的所有模块的信息。  可以将 IntelliTrace 设置为仅记录你感兴趣的模块的调用信息。  在**“工具”\/”选项”\/“IntelliTrace”\/“模块”**中，可以指定 IntelliTrace 要包括或排除的模块。  IntelliTrace 将仅收集你指定的模块中生成的事件，以及你感兴趣的模块内发生的方法调用。  
+###  <a name="ControlCallData"></a> Control how much call information IntelliTrace records  
+ By default IntelliTrace records information for all the modules used by your solution. You can set IntelliTrace to record call information only for the modules that interest you. In **Tools > Options > IntelliTrace > Modules**, You can specify the modules to include or the modules to exclude from IntelliTrace. IntelliTrace will collect only the events that originated from the modules you have specified, and the method calls that happened within the modules you are interested in.  
   
- 若要添加多个模块，请在字符串的开头或结尾使用通配符 \*。  对于模块名称，请使用文件名，而不是程序集名称。  不接受文件路径。  
+ To add multiple modules, use the wildcard character * at the start or the end of the string. For module names, use file names, not assembly names. File paths are not accepted.  
   
- 尝试将模块数保持为最小值。  因为要收集的数据变少，所以可以获得更好的性能。  UI 中的噪音也会减少，因为要浏览的数据变少。  
+ Try to keep the number of modules to a minimum. You get better performance because there is less data to be collected. You also get less noise in the UI because there is less data to go through.  
   
-##  <a name="SaveSession"></a> 将 IntelliTrace 数据保存到文件  
- 当你正在进行调试且应用程序处于中断状态时，通过转到**“调试”\/“IntelliTrace”\/“保存 IntelliTrace 会话”**，可以保存 IntelliTrace 收集的数据。  如果应用程序仍在运行或如果你已经停止调试，则菜单项会被禁用，且你将无法保存 IntelliTrace 收集的数据。  
+##  <a name="SaveSession"></a> Saving IntelliTrace data to file  
+ You can save the data that IntelliTrace has collected going to **Debug > IntelliTrace > Save IntelliTrace Session** while you are debugging and the application is in a break state. The menu item is disabled and you will not be able to save the data IntelliTrace has collected if the application is still running or if you have stopped debugging.  
   
- 通过转到**“工具”\/“选项”\/“IntelliTrace”\/“高级”**并选择**“在此目录中存储 IntelliTrace 记录”**，可以将 IntelliTrace 配置为自动保存到文件。  还可以为生成的文件配置固定大小，这会让 IntelliTrace 在空间不足时覆盖旧数据。  自动保存文件并启用 Visual Studio 承载进程 \(vshost.exe\) 时，Visual Studio 会为每个 IntelliTrace 会话创建两个文件。  
+ You can configure IntelliTrace to automatically save to a file by going to **Tools > Options > IntelliTrace > Advanced** and selecting **Store IntelliTrace recordings in this directory**. You can also configure a set size for the generated file, which causes IntelliTrace to write over older data when it runs out of space. Visual Studio creates two files for each IntelliTrace session when they are saved automatically and the Visual Studio hosting process (vshost.exe) is turned on.  
   
 > [!TIP]
->  要节省磁盘空间，请在不再需要时禁用自动保存文件。  不会删除任何现有文件。  可以随时从上下文菜单按需保存到文件。  
+>  To save disk space, turn off saving files automatically when you don't need them anymore. Any existing files will not be deleted. You can always save to file on demand from the context menu.  
   
- 将 IntelliTrace 数据保存到文件中时，每个 IntelliTrace 从中进行收集的进程都将获得一个 .itrace 文件。  然后，通过转到**“文件”\/“打开”\/“文件”**并从“打开文件”对话框中选择 .itrace 文件，你可以在 Visual Studio 中打开 .itrace 文件。  有关详细信息，请参阅[使用保存的 IntelliTrace 数据调试应用](../debugger/using-saved-intellitrace-data.md)。  
+ When you save IntelliTrace data to file, you get one .itrace file for each process that IntelliTrace collected from. You can then open the .itrace file in Visual Studio by going to **File > Open > File** and selecting the .itrace file from the Open File dialog. For more information, see [Using saved IntelliTrace data](../debugger/using-saved-intellitrace-data.md).  
   
-## 博客  
- [Visual Studio Enterprise 2015 中的 IntelliTrace](http://blogs.msdn.com/b/visualstudioalm/archive/2015/01/16/intellitrace-in-visual-studio-ultimate-2015.aspx)  
+## <a name="blogs"></a>Blogs  
+ [IntelliTrace in Visual Studio Enterprise 2015](http://blogs.msdn.com/b/visualstudioalm/archive/2015/01/16/intellitrace-in-visual-studio-ultimate-2015.aspx)  
   
- [在 Visual Studio 2015 使用 IntelliTrace 进行实时调试的演练（文本编辑器）](http://blogs.msdn.com/b/visualstudioalm/archive/2015/01/16/walkthrough-of-live-debugging-using-intellitrace-in-visual-studio-2015-text-editor.aspx)  
+ [Walkthrough of Live Debugging using IntelliTrace in Visual Studio 2015 (Text Editor)](http://blogs.msdn.com/b/visualstudioalm/archive/2015/01/16/walkthrough-of-live-debugging-using-intellitrace-in-visual-studio-2015-text-editor.aspx)  
   
- [使用 Visual Studio 2015 中的 IntelliTrace 进行实时调试的演练（社交俱乐部）](http://blogs.msdn.com/b/visualstudioalm/archive/2000/1/1/walkthrough-of-live-debugging-using-intellitrace-in-visual-studio-2015-social-club.aspx)  
+ [Walkthrough of Live Debugging using IntelliTrace in Visual Studio 2015 (Social Club)](http://blogs.msdn.com/b/visualstudioalm/archive/2000/1/1/walkthrough-of-live-debugging-using-intellitrace-in-visual-studio-2015-social-club.aspx)  
   
- [Visual Studio Enterprise 2015 中的 IntelliTrace 现在支持附加！](http://blogs.msdn.com/b/visualstudioalm/archive/2015/05/14/intellitrace-in-visual-studio-enterprise-2015-now-supports-attach.aspx)  
+ [IntelliTrace in Visual Studio Enterprise 2015 now supports attach!](http://blogs.msdn.com/b/visualstudioalm/archive/2015/05/14/intellitrace-in-visual-studio-enterprise-2015-now-supports-attach.aspx)  
   
- [使用 IntelliTrace 独立收集器从 windows 服务中收集数据](http://blogs.msdn.com/b/visualstudioalm/archive/2015/05/14/collect-data-from-a-windows-service-using-the-intellitrace-standalone-collector.aspx)  
+ [Collect data from a windows service using the IntelliTrace Standalone Collector](http://blogs.msdn.com/b/visualstudioalm/archive/2015/05/14/collect-data-from-a-windows-service-using-the-intellitrace-standalone-collector.aspx)  
   
- [编辑 IntelliTrace 收集计划](http://blogs.msdn.com/b/visualstudioalm/archive/2015/03/09/editing-the-intellitrace-collection-plan.aspx)  
+ [Editing the IntelliTrace collection plan](http://blogs.msdn.com/b/visualstudioalm/archive/2015/03/09/editing-the-intellitrace-collection-plan.aspx)  
   
- [使用 IntelliTrace 自定义 TraceSource 和调试](http://blogs.msdn.com/b/visualstudioalm/archive/2014/12/17/custom-tracesource-and-debugging-using-intellitrace.aspx)  
+ [Custom TraceSource and debugging using IntelliTrace](http://blogs.msdn.com/b/visualstudioalm/archive/2014/12/17/custom-tracesource-and-debugging-using-intellitrace.aspx)  
   
- [使用 Active Directory 帐户运行的 IntelliTrace 独立收集器和应用程序池](http://blogs.msdn.com/b/visualstudioalm/archive/2014/12/22/intellitrace-standalone-collector-and-application-pools-running-under-active-directory-accounts.aspx)  
+ [IntelliTrace Standalone Collector and Application Pools running under Active Directory accounts](http://blogs.msdn.com/b/visualstudioalm/archive/2014/12/22/intellitrace-standalone-collector-and-application-pools-running-under-active-directory-accounts.aspx)  
   
-## 论坛  
- [Visual Studio 调试程序](http://go.microsoft.com/fwlink/?LinkId=262263)  
+## <a name="forums"></a>Forums  
+ [Visual Studio Debugger](http://go.microsoft.com/fwlink/?LinkId=262263)  
   
-## 视频  
- [IntelliTrace 体验](https://channel9.msdn.com/Series/Visual-Studio-2015-Enterprise-Videos/IntelliTrace-Experience)  
+## <a name="videos"></a>Videos  
+ [IntelliTrace Experience](https://channel9.msdn.com/Series/Visual-Studio-2015-Enterprise-Videos/IntelliTrace-Experience)  
   
- [使用 Microsoft Visual Studio Ultimate 2015 中的 IntelliTrace 进行历史调试](https://channel9.msdn.com/events/Ignite/2015/BRK3716)
+ [Historical Debugging with IntelliTrace in Microsoft Visual Studio Ultimate 2015](https://channel9.msdn.com/events/Ignite/2015/BRK3716)
+

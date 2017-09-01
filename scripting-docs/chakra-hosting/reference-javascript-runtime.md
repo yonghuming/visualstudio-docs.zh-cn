@@ -1,23 +1,30 @@
 ---
-title: "参考（JavaScript 运行时） | Microsoft Docs"
-ms.custom: ""
-ms.date: "01/18/2017"
-ms.prod: "windows-client-threshold"
-ms.reviewer: ""
-ms.suite: ""
-ms.tgt_pltfrm: ""
-ms.topic: "reference"
+title: "参考（JavaScript 运行时）| Microsoft Docs"
+ms.custom: 
+ms.date: 01/18/2017
+ms.prod: windows-client-threshold
+ms.reviewer: 
+ms.suite: 
+ms.tgt_pltfrm: 
+ms.topic: reference
 ms.assetid: 0bfe50da-fd79-4e00-9458-bc667769b415
 caps.latest.revision: 9
-author: "mikejo5000"
-ms.author: "mikejo"
-manager: "ghogen"
-caps.handback.revision: 7
+author: mikejo5000
+ms.author: mikejo
+manager: ghogen
+ms.translationtype: HT
+ms.sourcegitcommit: 29eb97427c2c5a29ee9a66e8e2a85953fd797efd
+ms.openlocfilehash: 90b22d51a79bbf6252781a49e2ac6b1749d3674f
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/11/2017
+
 ---
-# 参考（JavaScript 运行时）
-通过 JavaScript 运行时 \(JsRT\) API 可向运行在 Windows 上的桌面和服务器端应用程序添加脚本能力。  
+# <a name="reference-javascript-runtime"></a>参考（JavaScript 运行时）
+通过 JavaScript 运行时 (JsRT) API 可向运行在 Windows 上的桌面和服务器端应用程序添加脚本能力。  
   
-## 本节内容  
+ 如果想要将 [ChakraCore](https://github.com/Microsoft/ChakraCore) 嵌入到应用程序，请改为参阅 [ChakraCore Wiki](http://aka.ms/corejsrtref) 了解 JSRT 参考。  
+  
+## <a name="in-this-section"></a>本节内容  
  下面介绍支持 JsRT 托管的 Typedef、常量和枚举：  
   
 -   [JavaScript 运行时 Typedef、常量和枚举](../chakra-hosting/javascript-runtime-typedefs-constants-and-enumerations.md)  
@@ -254,6 +261,6 @@ caps.handback.revision: 7
   
 -   [JsVariantToValue 函数](../chakra-hosting/jsvarianttovalue-function.md)  
   
-## 请参阅  
- [承载 JavaScript 运行时](../chakra-hosting/hosting-the-javascript-runtime.md)   
+## <a name="see-also"></a>另请参阅  
+ [托管 JavaScript 运行时](../chakra-hosting/hosting-the-javascript-runtime.md)   
  [JavaScript 运行时承载](../chakra-hosting/javascript-runtime-hosting.md)

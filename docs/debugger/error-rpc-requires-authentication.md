@@ -1,38 +1,55 @@
 ---
-title: "错误：RPC 要求身份验证 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-debug"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "vs.debug.error.rpc_requires_authentication"
-dev_langs: 
-  - "FSharp"
-  - "VB"
-  - "CSharp"
-  - "C++"
+title: 'Error: RPC Requires Authentication | Microsoft Docs'
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-debug
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords:
+- vs.debug.error.rpc_requires_authentication
+dev_langs:
+- CSharp
+- VB
+- FSharp
+- C++
 ms.assetid: 88362b3b-8fbe-431f-96a4-80e2d822bbc7
 caps.latest.revision: 11
-author: "mikejo5000"
-ms.author: "mikejo"
-manager: "ghogen"
-caps.handback.revision: 11
----
-# 错误：RPC 要求身份验证
-[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
+author: mikejo5000
+ms.author: mikejo
+manager: ghogen
+translation.priority.ht:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+ms.translationtype: HT
+ms.sourcegitcommit: 9e6c28d42bec272c6fd6107b4baf0109ff29197e
+ms.openlocfilehash: 862fd47d67bc46bc727954739c8dd24218c69377
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/22/2017
 
-Visual Studio 调试器无法连接到远程计算机。  本地计算机上启用了阻止远程调试的 RPC 策略。  
+---
+# <a name="error-rpc-requires-authentication"></a>Error: RPC Requires Authentication
+The Visual Studio debugger cannot connect to the remote computer. An RPC policy is enabled on the local computer which prevents remote debugging.  
   
-### 更正此错误  
+### <a name="to-correct-this-error"></a>To correct this error  
   
-1.  运行 `\`*windir*`\system32\regedt32.exe`  
+1.  Run `\`*windir*`\system32\regedt32.exe`  
   
-2.  找到并删除 `HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Windows NT\RPC\RestrictRemoteClients`。  
+2.  Locate and delete `HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Windows NT\RPC\RestrictRemoteClients`.  
   
-3.  重新启动计算机以使注册表更改生效。  
+3.  Restart your computer so the registry change will take effect.  
   
-4.  如果问题仍然存在，请联系您的域管理员，咨询“计算机配置”\-\>“管理模板”\-\>“系统”\-\>“远程过程调用”\-\>“用于未验证的 RPC 客户端的限制”组策略设置方面的问题。
+4.  If the problem persists, contact your domain administrator about the **Computer Configuration > Administrative Templates > System > Remote Procedure Call > Restrictions for Unauthenticated RPC clients** group policy setting.

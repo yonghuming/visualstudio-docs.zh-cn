@@ -16,10 +16,10 @@ author: kraigb
 ms.author: kraigb
 manager: ghogen
 ms.translationtype: HT
-ms.sourcegitcommit: 6d25db4639f2c8391c1e32542701ea359f560178
-ms.openlocfilehash: cd841938f160420934941a5166184f79aca82be7
+ms.sourcegitcommit: 8a544bd1e1242bb6fabe00f7842ac33ed9d9d444
+ms.openlocfilehash: 4b22d434b99bdd2648408b9191c5f050589883ae
 ms.contentlocale: zh-cn
-ms.lasthandoff: 07/18/2017
+ms.lasthandoff: 08/14/2017
 
 ---
 
@@ -40,7 +40,7 @@ PyLint 警告和错误显示在“错误列表”窗口：
 双击错误可直接转到出现问题的源代码。
 
 > [!Tip]
-> 有关所有 PyLint 输出消息的详细列表，请参阅[PyLint 功能参考](https://pylint.readthedocs.io/en/latest/reference_guide/features.html)。
+> 有关所有 PyLint 输出消息的详细列表，请参阅[PyLint 功能参考](https://pylint.readthedocs.io/en/latest/technical_reference/features.html)。
 
 ## <a name="setting-pylint-command-line-options"></a>设置 PyLint 命令行选项
 
@@ -59,3 +59,4 @@ PyLint 文档中的[命令行选项](https://pylint.readthedocs.io/en/latest/use
 1. 打开要编辑的文件，该文件中包含可以使用的各种设置。 若要禁用警告，请找到 `[MESSAGES CONTROL]` 部分，然后在该部分中找到 `disable` 设置。 将出现特定消息的一条长字符串，可以向其追加所需的任何警告。 在此例中，追加 `,missing-docstring`（包括界定逗号）。
 
 1. 保存 `.pylintrc` 文件，然后再次运行 PyLint 以查看现在禁止显示的警告。
+

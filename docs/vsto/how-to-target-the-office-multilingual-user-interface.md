@@ -1,47 +1,51 @@
 ---
-title: "如何：面向 Office 多语言用户界面"
-ms.custom: ""
-ms.date: "02/02/2017"
-ms.prod: "visual-studio-dev14"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "office-development"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-dev_langs: 
-  - "VB"
-  - "CSharp"
-helpviewer_keywords: 
-  - "全球化 [Visual Studio 中的 Office 开发], 用户界面目标"
-  - "本地化 [Visual Studio 中的 Office 开发], 用户界面目标"
-  - "MUI [Visual Studio 中的 Office 开发]"
-  - "多语言用户界面 [Visual Studio 中的 Office 开发]"
-  - "Office 应用程序 [Visual Studio 中的 Office 开发], 全球化"
-  - "Office 应用程序 [Visual Studio 中的 Office 开发], 本地化"
+title: 'How to: Target the Office Multilingual User Interface | Microsoft Docs'
+ms.custom: 
+ms.date: 02/02/2017
+ms.prod: visual-studio-dev14
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- office-development
+ms.tgt_pltfrm: 
+ms.topic: article
+dev_langs:
+- VB
+- CSharp
+helpviewer_keywords:
+- globalization [Office development in Visual Studio], user interface targeting
+- MUI [Office development in Visual Studio]
+- Office applications [Office development in Visual Studio], localization
+- Multilingual User Interface [Office development in Visual Studio]
+- localization [Office development in Visual Studio], user interface targeting
+- Office applications [Office development in Visual Studio], globalization
 ms.assetid: b1f03164-f0cf-42e3-942b-8cf90c242ffb
 caps.latest.revision: 30
-author: "kempb"
-ms.author: "kempb"
-manager: "ghogen"
-caps.handback.revision: 29
+author: kempb
+ms.author: kempb
+manager: ghogen
+ms.translationtype: HT
+ms.sourcegitcommit: eb5c9550fd29b0e98bf63a7240737da4f13f3249
+ms.openlocfilehash: 424211704500cb93b37a78a799ddbe06872559b5
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/30/2017
+
 ---
-# 如何：面向 Office 多语言用户界面
-  多语言用户界面 \(MUI\) 是 Microsoft Office 的一项功能，它使最终用户可以更改用户界面 \(UI\) 的语言。  例如，一位使用英文 UI 的最终用户可以将 UI 的语言更改为西班牙文。  
+# <a name="how-to-target-the-office-multilingual-user-interface"></a>How to: Target the Office Multilingual User Interface
+  The Multilingual User Interface (MUI) is a Microsoft Office feature that gives the end user the ability to change the language of the user interface (UI). For example, an end user working with an English UI can change the language of the UI to Spanish.  
   
  [!INCLUDE[appliesto_all](../vsto/includes/appliesto-all-md.md)]  
   
- 如果使用多语言 Office 的用户将使用您的应用程序，您可以添加代码以自动更改 UI 字符串的语言，使之与用户计算机上的 Office 所使用的语言相匹配（如果该用户已安装了正确的资源）。  
+ If your application will be used by people who use multiple languages of Office, you can add code to automatically change the language of your UI strings to match the language being used by Office on the user's computer (if the user has the correct resources installed).  
   
-### 检查当前 Office 用户界面设置  
+### <a name="to-check-the-current-office-ui-setting"></a>To check the current Office UI setting  
   
-1.  使用当前线程的 <xref:System.Threading.Thread.CurrentUICulture%2A> 属性。  设置 UI 字符串的语言，以与用户计算机上当前所运行 Office 版本使用的语言相匹配。  
+1.  Use the <xref:System.Threading.Thread.CurrentUICulture%2A> property of the current thread. Set the language of your UI strings to match the language being used by the version of Office currently running on the user's computer.  
   
-     [!code-csharp[Trin_VstcoreCreatingExcel#10](../snippets/csharp/VS_Snippets_OfficeSP/Trin_VstcoreCreatingExcel/CS/Sheet1.cs#10)]
-     [!code-vb[Trin_VstcoreCreatingExcel#10](../snippets/visualbasic/VS_Snippets_OfficeSP/Trin_VstcoreCreatingExcel/VB/Sheet1.vb#10)]  
+     [!code-vb[Trin_VstcoreCreatingExcel#10](../vsto/codesnippet/VisualBasic/Trin_VstcoreCreatingExcelVB/Sheet1.vb#10)]  [!code-csharp[Trin_VstcoreCreatingExcel#10](../vsto/codesnippet/CSharp/Trin_VstcoreCreatingExcelCS/Sheet1.cs#10)]  
   
-## 请参阅  
- [如何：通过主互操作程序集面向 Office 应用程序](../vsto/how-to-target-office-applications-through-primary-interop-assemblies.md)   
- [Office 解决方案中的后期绑定](../vsto/late-binding-in-office-solutions.md)  
+## <a name="see-also"></a>See Also  
+ [How to: Target Office Applications Through Primary Interop Assemblies](../vsto/how-to-target-office-applications-through-primary-interop-assemblies.md)   
+ [Late Binding in Office Solutions](../vsto/late-binding-in-office-solutions.md)  
   
   

@@ -1,5 +1,5 @@
 ---
-title: "演练：从头开始创建 MSBuild 项目文件 | Microsoft Docs"
+title: 'Walkthrough: Creating an MSBuild Project File from Scratch | Microsoft Docs'
 ms.custom: 
 ms.date: 11/04/2016
 ms.reviewer: 
@@ -29,55 +29,56 @@ translation.priority.ht:
 - tr-tr
 - zh-cn
 - zh-tw
-translationtype: Human Translation
-ms.sourcegitcommit: ca7c86466fa23fb21a932f26dc24e37c71cf29b4
-ms.openlocfilehash: 8cc8cb349901c7a2b0c94875d29e602c33baa5bf
-ms.lasthandoff: 04/05/2017
+ms.translationtype: HT
+ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
+ms.openlocfilehash: 346c00891913ea2050f3e6790d738cccc5136c0a
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/28/2017
 
 ---
-# <a name="walkthrough-creating-an-msbuild-project-file-from-scratch"></a>演练：从头开始创建 MSBuild 项目文件
-面向 .NET Framework 的编程语言将使用 MSBuild 项目文件来介绍并控制应用程序生成过程。 使用 Visual Studio 创建 MSBuild 项目文件时，会自动将适当的 XML 添加到该文件。 但是，你可能会发现，了解 XML 的组织方式以及如何能够更改 XML 来控制生成将非常有用。  
+# <a name="walkthrough-creating-an-msbuild-project-file-from-scratch"></a>Walkthrough: Creating an MSBuild Project File from Scratch
+Programming languages that target the .NET Framework use MSBuild project files to describe and control the application build process. When you use Visual Studio to create an MSBuild project file, the appropriate XML is added to the file automatically. However, you may find it helpful to understand how the XML is organized and how you can change it to control a build.  
   
- 有关为 C++ 项目创建项目文件的信息，请参阅 [MSBuild (Visual C++)](/cpp/build/msbuild-visual-cpp)。  
+ For information about creating a project file for a C++ project, see [MSBuild (Visual C++)](/cpp/build/msbuild-visual-cpp).  
   
- 此演练演示如何只使用文本编辑器以增量方式创建基本项目文件。 演练采用以下步骤：  
+ This walkthrough shows how to create a basic project file incrementally, by using only a text editor. The walkthrough follows these steps:  
   
--   创建最小的应用程序源文件。  
+-   Create a minimal application source file.  
   
--   创建最小的 MSBuild 项目文件。  
+-   Create a minimal MSBuild project file.  
   
--   扩展 PATH 环境变量以包括 MSBuild。  
+-   Extend the PATH environment variable to include MSBuild.  
   
--   使用项目文件生成应用程序。  
+-   Build the application by using the project file.  
   
--   添加属性以控制生成。  
+-   Add properties to control the build.  
   
--   通过更改属性值来控制生成。  
+-   Control the build by changing property values.  
   
--   将目标添加到生成。  
+-   Add targets to the build.  
   
--   通过指定目标来控制生成。  
+-   Control the build by specifying targets.  
   
--   以增量方式生成。  
+-   Build incrementally.  
   
- 此演练演示如何在命令提示符下生成项目并检查结果。 有关 MSBuild 以及如何在命令提示符下运行 MSBuild 的详细信息，请参阅[演练：使用 MSBuild](../msbuild/walkthrough-using-msbuild.md)。  
+ This walkthrough shows how to build the project at the command prompt and examine the results. For more information about MSBuild and how to run MSBuild at the command prompt, see [Walkthrough: Using MSBuild](../msbuild/walkthrough-using-msbuild.md).  
   
- 若要完成演练，你必须安装 .NET Framework（版本 2.0、3.5、4.0 或 4.5），因为其中包括演练所需的 MSBuild 和 Visual C# 编译器。  
+ To complete the walkthrough, you must have the .NET Framework (version 2.0, 3.5, 4.0, or 4.5) installed because it includes MSBuild and the Visual C# compiler, which are required for the walkthrough.  
   
-## <a name="creating-a-minimal-application"></a>创建最小的应用程序  
- 本节演示如何使用文本编辑器创建最小的 Visual C# 应用程序源文件。  
+## <a name="creating-a-minimal-application"></a>Creating a Minimal Application  
+ This section shows how to create a minimal Visual C# application source file by using a text editor.  
   
-#### <a name="to-create-the-minimal-application"></a>创建最小的应用程序  
+#### <a name="to-create-the-minimal-application"></a>To create the minimal application  
   
-1.  在命令提示符下，浏览到要在其中创建应用程序的文件夹，例如，\My Documents\ 或 \Desktop\\。  
+1.  At the command prompt, browse to the folder where you want to create the application, for example, \My Documents\ or \Desktop\\.  
   
-2.  键入 **md HelloWorld** 创建名为 \HelloWorld\\ 的子文件夹。  
+2.  Type **md HelloWorld** to create a subfolder named \HelloWorld\\.  
   
-3.  键入 **cd HelloWorld** 切换到该新文件夹。  
+3.  Type **cd HelloWorld** to change to the new folder.  
   
-4.  启动记事本或其他文本编辑器，然后键入以下代码。  
+4.  Start Notepad or another text editor, and then type the following code.  
   
-    ```cs
+    ```csharp
     using System;  
   
     class HelloWorld  
@@ -93,39 +94,39 @@ ms.lasthandoff: 04/05/2017
     }  
     ```  
   
-5.  保存此源代码文件，并将其命名为 Helloworld.cs。  
+5.  Save this source code file and name it Helloworld.cs.  
   
-6.  在命令提示符下，键入 **csc helloworld.cs** 来生成应用程序。  
+6.  Build the application by typing **csc helloworld.cs** at the command prompt.  
   
-7.  在命令提示符下，键入 **helloworld** 测试应用程序。  
+7.  Test the application by typing **helloworld** at the command prompt.  
   
-     显示的消息应为 **Hello, world!** 。  
+     The **Hello, world!** message should be displayed.  
   
-8.  在命令提示符下，键入 **del helloworld.exe** 删除应用程序。  
+8.  Delete the application by typing **del helloworld.exe** at the command prompt.  
   
-## <a name="creating-a-minimal-msbuild-project-file"></a>创建最小的 MSBuild 项目文件  
- 既然有了最小的应用程序源文件，你就可以创建最小的项目文件来生成应用程序。 此项目文件包含以下元素：  
+## <a name="creating-a-minimal-msbuild-project-file"></a>Creating a Minimal MSBuild Project File  
+ Now that you have a minimal application source file, you can create a minimal project file to build the application. This project file contains the following elements:  
   
--   必需的根 `Project` 节点。  
+-   The required root `Project` node.  
   
--   用于包含项元素的 `ItemGroup` 节点。  
+-   An `ItemGroup` node to contain item elements.  
   
--   引用应用程序源文件的项元素。  
+-   An item element that refers to the application source file.  
   
--   一个 `Target` 节点，用于包含生成应用程序所需的任务。  
+-   A `Target` node to contain tasks that are required to build the application.  
   
--   一个 `Task` 元素，用于启动 Visual C# 编译器以生成应用程序。  
+-   A `Task` element to start the Visual C# compiler to build the application.  
   
-#### <a name="to-create-a-minimal-msbuild-project-file"></a>创建最小的 MSBuild 项目文件  
+#### <a name="to-create-a-minimal-msbuild-project-file"></a>To create a minimal MSBuild project file  
   
-1.  在文本编辑器中，用以下两行替换现有文本：  
+1.  In the text editor, replace the existing text by using these two lines:  
   
     ```xml  
     <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">  
     </Project>  
     ```  
   
-2.  插入此 `ItemGroup` 节点，作为 `Project` 节点的子元素：  
+2.  Insert this `ItemGroup` node as a child element of the `Project` node:  
   
     ```xml  
     <ItemGroup>  
@@ -133,24 +134,24 @@ ms.lasthandoff: 04/05/2017
     </ItemGroup>  
     ```  
   
-     请注意，此 `ItemGroup` 已包含一个项元素。  
+     Notice that this `ItemGroup` already contains an item element.  
   
-3.  添加一个 `Target` 节点，作为 `Project` 节点的子元素。 将该节点命名为 `Build`。  
+3.  Add a `Target` node as a child element of the `Project` node. Name the node `Build`.  
   
     ```xml  
     <Target Name="Build">  
     </Target>  
     ```  
   
-4.  插入此 task 元素，作为 `Target` 节点的子元素：  
+4.  Insert this task element as a child element of the `Target` node:  
   
     ```xml  
     <Csc Sources="@(Compile)"/>  
     ```  
   
-5.  保存此项目文件，并将其命名为 Helloworld.csproj。  
+5.  Save this project file and name it Helloworld.csproj.  
   
- 你的最小项目文件应类似于以下代码：  
+ Your minimal project file should resemble the following code:  
   
 ```xml  
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">  
@@ -163,56 +164,56 @@ ms.lasthandoff: 04/05/2017
 </Project>  
 ```  
   
- Build 目标中的任务按顺序执行。 在本例中，Visual C# 编译器 `Csc` 任务是唯一的任务。 它需要编译一系列源文件，这一系列文件由 `Compile` 项的值指定。 `Compile` 项只引用一个源文件，即 Helloworld.cs。  
+ Tasks in the Build target are executed sequentially. In this case, the Visual C# compiler `Csc` task is the only task. It expects a list of source files to compile, and this is given by the value of the `Compile` item. The `Compile` item references just one source file, Helloworld.cs.  
   
 > [!NOTE]
->  在项元素中，可以使用星号通配符 (*) 来引用文件扩展名为 .cs 的所有文件，如下所示：  
+>  In the item element, you can use the asterisk wildcard character (*) to reference all files that have the .cs file name extension, as follows:  
 >   
 >  `<Compile Include="*.cs" />`  
 >   
->  但是，建议不要使用通配符，因为在添加或删除了源文件的情况下，这样会使调试和选择性目标设定更为困难。  
+>  However, we do not recommend the use of wildcard characters because it makes debugging and selective targeting more difficult if source files are added or deleted.  
   
-## <a name="extending-the-path-to-include-msbuild"></a>扩展路径以包括 MSBuild  
- 必须先扩展 PATH 环境变量以包括 .NET Framework 文件夹，然后才能访问 MSBuild。  
+## <a name="extending-the-path-to-include-msbuild"></a>Extending the Path to Include MSBuild  
+ Before you can access MSBuild, you must extend the PATH environment variable to include the .NET Framework folder.  
   
-#### <a name="to-add-msbuild-to-your-path"></a>向你的路径添加 MSBuild  
+#### <a name="to-add-msbuild-to-your-path"></a>To add MSBuild to your path  
   
--   从 Visual Studio 2013 开始，你可以在 MSBuild 文件夹中查找 MSBuild.exe（32 位操作系统上的 `%ProgramFiles%\MSBuild`，或者 64 位操作系统上的 `%ProgramFiles(x86)%\MSBuild`）。  
+-   Starting in Visual Studio 2013, you can find MSBuild.exe in the MSBuild folder (`%ProgramFiles%\MSBuild` on a 32-bit operating system, or `%ProgramFiles(x86)%\MSBuild` on a 64-bit operating system).  
   
-     在命令提示符处，键入 **set PATH=%PATH%;%ProgramFiles%\MSBuild** 或 **set PATH=%PATH%;%ProgramFiles(x86)%\MSBuild**。  
+     At the command prompt, type **set PATH=%PATH%;%ProgramFiles%\MSBuild** or **set PATH=%PATH%;%ProgramFiles(x86)%\MSBuild**.  
   
-     或者，如果安装了 Visual Studio，则可以使用 **Visual Studio 命令提示符**，其中有包括 MSBuild 文件夹的路径。  
+     Alternatively, if you have Visual Studio installed, you can use the **Visual Studio Command Prompt**, which has a path that includes the MSBuild folder.  
   
-## <a name="using-the-project-file-to-build-the-application"></a>使用项目文件生成应用程序  
- 现在，为了生成应用程序，请使用刚刚创建的项目文件。  
+## <a name="using-the-project-file-to-build-the-application"></a>Using the Project File to Build the Application  
+ Now, to build the application, use the project file that you just created.  
   
-#### <a name="to-build-the-application"></a>生成应用程序  
+#### <a name="to-build-the-application"></a>To build the application  
   
-1.  在命令提示符处，键入 **msbuild helloworld.csproj /t:Build**。  
+1.  At the command prompt, type **msbuild helloworld.csproj /t:Build**.  
   
-     此操作将调用 Visual C# 编译器来创建 Helloworld 应用程序，从而生成 Helloworld 项目文件的 Build 目标。  
+     This builds the Build target of the Helloworld project file by invoking the Visual C# compiler to create the Helloworld application.  
   
-2.  键入 **helloworld** 测试应用程序。  
+2.  Test the application by typing **helloworld**.  
   
-     显示的消息应为 **Hello, world!** 。  
+     The **Hello, world!** message should be displayed.  
   
 > [!NOTE]
->  可以通过提高详细信息级别来查看有关生成的更多详细级别。 要将详细级别设置为“详细”，请在命令提示符下键入以下任一命令：  
+>  You can see more details about the build by increasing the verbosity level. To set the verbosity level to "detailed", type either of these commands at the command prompt:  
 >   
 >  **msbuild helloworld.csproj /t:Build /verbosity:detailed**  
   
-## <a name="adding-build-properties"></a>添加生成属性  
- 可以将生成属性添加到项目文件中，从而进一步控制生成。 现在添加以下属性：  
+## <a name="adding-build-properties"></a>Adding Build Properties  
+ You can add build properties to the project file to further control the build. Now add these properties:  
   
--   一个 `AssemblyName` 属性，用于指定应用程序的名称。  
+-   An `AssemblyName` property to specify the name of the application.  
   
--   一个 `OutputPath` 属性，用于指定要包含应用程序的文件夹。  
+-   An `OutputPath` property to specify a folder to contain the application.  
   
-#### <a name="to-add-build-properties"></a>添加生成属性  
+#### <a name="to-add-build-properties"></a>To add build properties  
   
-1.  在命令提示符下，键入 **del helloworld.exe** 删除现有应用程序。  
+1.  Delete the existing application by typing **del helloworld.exe** at the command prompt.  
   
-2.  在项目文件中，插入此 `PropertyGroup` 元素，置于起始 `Project` 元素的后面：  
+2.  In the project file, insert this `PropertyGroup` element just after the opening `Project` element:  
   
     ```xml  
     <PropertyGroup>  
@@ -221,25 +222,25 @@ ms.lasthandoff: 04/05/2017
     </PropertyGroup>  
     ```  
   
-3.  将此任务添加到 Build 目标，置于 `Csc` 任务的前面：  
+3.  Add this task to the Build target, just before the `Csc` task:  
   
     ```xml  
     <MakeDir Directories="$(OutputPath)"      Condition="!Exists('$(OutputPath)')" />  
     ```  
   
-     `MakeDir` 任务将创建一个由 `OutputPath` 属性命名的文件夹，前提是当前不存在具有该名称的文件夹。  
+     The `MakeDir` task creates a folder that is named by the `OutputPath` property, provided that no folder by that name currently exists.  
   
-4.  将此 `OutputAssembly` 特性添加到 `Csc` 任务：  
+4.  Add this `OutputAssembly` attribute to the `Csc` task:  
   
     ```xml  
     <Csc Sources="@(Compile)" OutputAssembly="$(OutputPath)$(AssemblyName).exe" />  
     ```  
   
-     这将指示 Visual C# 编译器生成由 `AssemblyName` 属性命名的程序集，并将其放在由 `OutputPath` 属性命名的文件夹中。  
+     This instructs the Visual C# compiler to produce an assembly that is named by the `AssemblyName` property and to put it in the folder that is named by the `OutputPath` property.  
   
-5.  保存更改。  
+5.  Save your changes.  
   
- 你的项目文件现在应类似于以下代码：  
+ Your project file should now resemble the following code:  
   
 ```xml  
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">  
@@ -258,45 +259,45 @@ ms.lasthandoff: 04/05/2017
 ```  
   
 > [!NOTE]
->  在 `OutputPath` 元素中指定文件夹名称时，建议在文件夹名称的末尾添加反斜杠 (\\) 路径分隔符，而不是将其添加到 `Csc` 任务的 `OutputAssembly` 属性中。 因此，  
+>  We recommend that you add the backslash (\\) path delimiter at the end of the folder name when you specify it in the `OutputPath` element, instead of adding it in the `OutputAssembly` attribute of the `Csc` task. Therefore,  
 >   
 >  `<OutputPath>Bin\</OutputPath>`  
 >   
 >  `OutputAssembly=="$(OutputPath)$(AssemblyName).exe" />`  
 >   
->  优于  
+>  is better than  
 >   
 >  `<OutputPath>Bin</OutputPath>`  
 >   
 >  `OutputAssembly=="$(OutputPath)\$(AssemblyName).exe" />`  
   
-## <a name="testing-the-build-properties"></a>测试生成属性  
- 现在即可使用项目文件来生成应用程序，在该项目文件中，你使用了生成属性来指定输出文件夹和应用程序名称。  
+## <a name="testing-the-build-properties"></a>Testing the Build Properties  
+ Now you can build the application by using the project file in which you used build properties to specify the output folder and application name.  
   
-#### <a name="to-test-the-build-properties"></a>测试生成属性  
+#### <a name="to-test-the-build-properties"></a>To test the build properties  
   
-1.  在命令提示符处，键入 **msbuild helloworld.csproj /t:Build**。  
+1.  At the command prompt, type **msbuild helloworld.csproj /t:Build**.  
   
-     这将创建 \Bin\ 文件夹，然后调用 Visual C# 编译器创建 MSBuildSample 应用程序，并将其放在 \Bin\ 文件夹中。  
+     This creates the \Bin\ folder and then invokes the Visual C# compiler to create the MSBuildSample application and puts it in the \Bin\ folder.  
   
-2.  要验证是否已创建 \Bin\ 文件夹，以及该文件夹是否包含 MSBuildSample 应用程序，请键入 **dir Bin**。  
+2.  To verify that the \Bin\ folder has been created, and that it contains the MSBuildSample application, type **dir Bin**.  
   
-3.  键入 **Bin\MSBuildSample** 测试应用程序。  
+3.  Test the application by typing **Bin\MSBuildSample**.  
   
-     显示的消息应为 **Hello, world!** 。  
+     The **Hello, world!** message should be displayed.  
   
-## <a name="adding-build-targets"></a>添加生成目标  
- 接下来，向项目文件中另外添加两个目标，如下所示：  
+## <a name="adding-build-targets"></a>Adding Build Targets  
+ Next, add two more targets to the project file, as follows:  
   
--   一个用于删除旧文件的 Clean 目标。  
+-   A Clean target that deletes old files.  
   
--   一个 Rebuild 目标，该目标使用 `DependsOnTargets` 特性，强制使 Clean 任务在 Build 任务之前运行。  
+-   A Rebuild target that uses the `DependsOnTargets` attribute to force the Clean task to run before the Build task.  
   
- 既然有多个目标，就可以将 Build 目标设置为默认目标。  
+ Now that you have multiple targets, you can set the Build target as the default target.  
   
-#### <a name="to-add-build-targets"></a>添加生成目标  
+#### <a name="to-add-build-targets"></a>To add build targets  
   
-1.  在项目文件中添加以下两个目标，置于 Build 目标的后面：  
+1.  In the project file, add these two targets just after the Build target:  
   
     ```xml  
     <Target Name="Clean" >  
@@ -305,17 +306,17 @@ ms.lasthandoff: 04/05/2017
     <Target Name="Rebuild" DependsOnTargets="Clean;Build" />  
     ```  
   
-     Clean 目标调用 Delete 任务来删除应用程序。 在 Clean 目标和 Build 目标均已运行之前，Rebuild 目标不会运行。 尽管 Rebuild 目标没有任务，但它可使 Clean 目标在 Build 目标之前运行。  
+     The Clean target invokes the Delete task to delete the application. The Rebuild target does not run until both the Clean target and the Build target have run. Although the Rebuild target has no tasks, it causes the Clean target to run before the Build target.  
   
-2.  将此 `DefaultTargets` 特性添加到起始 `Project` 元素：  
+2.  Add this `DefaultTargets` attribute to the opening `Project` element:  
   
     ```xml  
     <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">  
     ```  
   
-     这会将 Build 目标设置为默认目标。  
+     This sets the Build target as the default target.  
   
- 你的项目文件现在应类似于以下代码：  
+ Your project file should now resemble the following code:  
   
 ```xml  
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">  
@@ -337,59 +338,59 @@ ms.lasthandoff: 04/05/2017
 </Project>  
 ```  
   
-## <a name="testing-the-build-targets"></a>测试生成目标  
- 可以执行新的生成目标来测试项目文件的以下功能：  
+## <a name="testing-the-build-targets"></a>Testing the Build Targets  
+ You can exercise the new build targets to test these features of the project file:  
   
--   生成默认生成。  
+-   Building the default build.  
   
--   在命令提示符下设置应用程序名称。  
+-   Setting the application name at the command prompt.  
   
--   在生成其他应用程序之前删除应用程序。  
+-   Deleting the application before another application is built.  
   
--   删除应用程序，而不生成其他应用程序。  
+-   Deleting the application without building another application.  
   
-#### <a name="to-test-the-build-targets"></a>测试生成目标  
+#### <a name="to-test-the-build-targets"></a>To test the build targets  
   
-1.  在命令提示符处，键入 **msbuild helloworld.csproj /p:AssemblyName=Greetings**。  
+1.  At the command prompt, type **msbuild helloworld.csproj /p:AssemblyName=Greetings**.  
   
-     由于未使用 **/t** 开关显式设置目标，因此 MSBuild 将运行默认的 Build 目标。 **/p** 开关将替代 `AssemblyName` 属性，并为其指定新值 `Greetings`。 这将导致在 \Bin\ 文件夹中创建一个新应用程序 Greetings.exe。  
+     Because you did not use the **/t** switch to explicitly set the target, MSBuild runs the default Build target. The **/p** switch overrides the `AssemblyName` property and gives it the new value, `Greetings`. This causes a new application, Greetings.exe, to be created in the \Bin\ folder.  
   
-2.  要验证 \Bin\ 文件夹是否同时包含 MSBuildSample 应用程序和新的 Greetings 应用程序，请键入 **dir Bin**。  
+2.  To verify that the \Bin\ folder contains both the MSBuildSample application and the new Greetings application, type **dir Bin**.  
   
-3.  键入 **Bin\Greetings** 测试 Greetings 应用程序。  
+3.  Test the Greetings application by typing **Bin\Greetings**.  
   
-     显示的消息应为 **Hello, world!** 。  
+     The **Hello, world!** message should be displayed.  
   
-4.  键入 **msbuild helloworld.csproj /t:clean** 删除 MSBuildSample 应用程序。  
+4.  Delete the MSBuildSample application by typing **msbuild helloworld.csproj /t:clean**.  
   
-     这将运行 Clean 任务，以删除具有默认 `AssemblyName` 属性值 `MSBuildSample` 的应用程序。  
+     This runs the Clean task to remove the application that has the default `AssemblyName` property value, `MSBuildSample`.  
   
-5.  键入 **msbuild helloworld.csproj /t:clean /p:AssemblyName=Greetings** 删除 Greetings 应用程序。  
+5.  Delete the Greetings application by typing **msbuild helloworld.csproj /t:clean /p:AssemblyName=Greetings**.  
   
-     这将运行 Clean 任务，以删除具有指定 **AssemblyName** 属性值 `Greetings` 的应用程序。  
+     This runs the Clean task to remove the application that has the given **AssemblyName** property value, `Greetings`.  
   
-6.  要验证 \Bin\ 文件夹现在是否为空，请键入 **dir Bin**。  
+6.  To verify that the \Bin\ folder is now empty, type **dir Bin**.  
   
-7.  键入 **msbuild**。  
+7.  Type **msbuild**.  
   
-     尽管未指定项目文件，但 MSBuild 会生成 helloworld.csproj 文件，因为当前文件夹中只有一个项目文件。 这将导致在 \Bin\ 文件夹中创建 MSBuildSample 应用程序。  
+     Although a project file is not specified, MSBuild builds the helloworld.csproj file because there is only one project file in the current folder. This causes the MSBuildSample application to be created in the \Bin\ folder.  
   
-     要验证 \Bin\ 文件夹是否包含 MSBuildSample 应用程序，请键入 **dir Bin**。  
+     To verify that the \Bin\ folder contains the MSBuildSample application, type **dir Bin**.  
   
-## <a name="building-incrementally"></a>以增量方式生成  
- 可以指示 MSBuild 仅在目标所依赖的源文件或目标文件发生更改时才生成目标。 MSBuild 使用文件的时间戳来确定文件是否已更改。  
+## <a name="building-incrementally"></a>Building Incrementally  
+ You can tell MSBuild to build a target only if the source files or target files that the target depends on have changed. MSBuild uses the time stamp of a file to determine whether it has changed.  
   
-#### <a name="to-build-incrementally"></a>以增量方式生成  
+#### <a name="to-build-incrementally"></a>To build incrementally  
   
-1.  在项目文件中，将以下特性添加到起始 Build 目标：  
+1.  In the project file, add these attributes to the opening Build target:  
   
     ```  
     Inputs="@(Compile)" Outputs="$(OutputPath)$(AssemblyName).exe"  
     ```  
   
-     它指定 Build 目标依赖于 `Compile` 项组中指定的输入文件，并且输出目标为应用程序文件。  
+     This specifies that the Build target depends on the input files that are specified in the `Compile` item group, and that the output target is the application file.  
   
-     生成的 Build 目标应类似于以下代码：  
+     The resulting Build target should resemble the following code:  
   
     ```xml  
     <Target Name="Build" Inputs="@(Compile)" Outputs="$(OutputPath)$(AssemblyName).exe">  
@@ -398,28 +399,28 @@ ms.lasthandoff: 04/05/2017
     </Target>  
     ```  
   
-2.  在命令提示符下，键入 **msbuild /v:d** 测试 Build 目标。  
+2.  Test the Build target by typing **msbuild /v:d** at the command prompt.  
   
-     请记住，helloworld.csproj 是默认项目文件，并且 Build 为默认目标。  
+     Remember that helloworld.csproj is the default project file, and that Build is the default target.  
   
-     **/v:d** 开关指定生成过程的详细说明。  
+     The **/v:d** switch specifies a verbose description for the build process.  
   
-     此时应显示以下各行：  
+     These lines should be displayed:  
   
-     **正在跳过目标“Build”，因为所有输出文件相对于输入文件而言都是最新的**  
+     **Skipping target "Build" because all output files are up-to-date with respect to the input files.**  
   
-     **输入文件：HelloWorld.cs**  
+     **Input files: HelloWorld.cs**  
   
-     **输出文件：BinMSBuildSample.exe**  
+     **Output files: BinMSBuildSample.exe**  
   
-     MSBuild 将跳过 Build 目标，原因是自上次生成应用程序以来没有任何源文件发生更改。  
+     MSBuild skips the Build target because none of the source files have changed since the application was last built.  
   
-## <a name="example"></a>示例  
+## <a name="example"></a>Example  
   
-### <a name="description"></a>描述  
- 下面的示例演示一个项目文件，该项目文件编译 [!INCLUDE[csprcs](../data-tools/includes/csprcs_md.md)] 应用程序，并记录一条包含输出文件名的消息。  
+### <a name="description"></a>Description  
+ The following example shows a project file that compiles a [!INCLUDE[csprcs](../data-tools/includes/csprcs_md.md)] application and logs a message that contains the output file name.  
   
-### <a name="code"></a>代码  
+### <a name="code"></a>Code  
   
 ```xml
 <Project DefaultTargets = "Compile"  
@@ -452,14 +453,14 @@ ms.lasthandoff: 04/05/2017
 </Project>  
 ```  
   
-### <a name="comments"></a>注释  
+### <a name="comments"></a>Comments  
   
-## <a name="example"></a>示例  
+## <a name="example"></a>Example  
   
-### <a name="description"></a>描述  
- 下面的示例演示一个项目文件，该项目文件编译 [!INCLUDE[vbprvb](../code-quality/includes/vbprvb_md.md)] 应用程序，并记录一条包含输出文件名的消息。  
+### <a name="description"></a>Description  
+ The following example shows a project file that compiles a [!INCLUDE[vbprvb](../code-quality/includes/vbprvb_md.md)] application and logs a message that contains the output file name.  
   
-### <a name="code"></a>代码  
+### <a name="code"></a>Code  
   
 ```xml  
 <Project DefaultTargets = "Compile"  
@@ -492,9 +493,9 @@ ms.lasthandoff: 04/05/2017
 </Project>  
 ```  
   
-## <a name="whats-next"></a>接下来的内容  
- Visual Studio 能够自动执行本演练中演示的大部分工作。 若要了解如何使用 Visual Studio 来创建、编辑、生成和测试 MSBuild 项目文件，请参阅[演练：使用 MSBuild](../msbuild/walkthrough-using-msbuild.md)。  
+## <a name="whats-next"></a>What's Next?  
+ Visual Studio can automatically do much of the work that is shown in this walkthrough. To learn how to use Visual Studio to create, edit, build, and test MSBuild project files, see [Walkthrough: Using MSBuild](../msbuild/walkthrough-using-msbuild.md).  
   
-## <a name="see-also"></a>另请参阅  
-[MSBuild 概述](../msbuild/msbuild.md)  
- [MSBuild 参考](../msbuild/msbuild-reference.md)
+## <a name="see-also"></a>See Also  
+[MSBuild Overview](../msbuild/msbuild.md)  
+ [MSBuild Reference](../msbuild/msbuild-reference.md)

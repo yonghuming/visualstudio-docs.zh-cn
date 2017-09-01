@@ -1,5 +1,5 @@
 ---
-title: "IDebugCoreServer2::GetMachineInfo |Microsoft 文档"
+title: IDebugCoreServer2::GetMachineInfo | Microsoft Docs
 ms.custom: 
 ms.date: 11/04/2016
 ms.reviewer: 
@@ -30,42 +30,43 @@ translation.priority.mt:
 - tr-tr
 - zh-cn
 - zh-tw
-translationtype: Machine Translation
-ms.sourcegitcommit: 5db97d19b1b823388a465bba15d057b30ff0b3ce
-ms.openlocfilehash: d4800115fa63f386109bf4bb5714d61fc9689aba
-ms.lasthandoff: 02/22/2017
+ms.translationtype: MT
+ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
+ms.openlocfilehash: cabb1f6ccd241e905b032d79e9cdcb74d11bd77b
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="idebugcoreserver2getmachineinfo"></a>IDebugCoreServer2::GetMachineInfo
-检索核心服务器运行的计算机的说明。  
+Retrieves a description of the machine the core server is running on.  
   
-## <a name="syntax"></a>语法  
+## <a name="syntax"></a>Syntax  
   
-```cpp#  
+```cpp  
 HRESULT GetInfo(   
    MACHINE_INFO_FIELDS Fields,  
    MACHINE_INFO*       pMachineInfo  
 );  
 ```  
   
-```c#  
+```csharp  
 int GetInfo(   
    enum_ MACHINE_INFO_FIELDS  Fields,  
    MACHINE_INFO[]             pMachineInfo  
 );  
 ```  
   
-#### <a name="parameters"></a>参数  
+#### <a name="parameters"></a>Parameters  
  `Fields`  
- [in]中的标志组合[MACHINE_INFO_FIELDS](../../../extensibility/debugger/reference/machine-info-fields.md)枚举，用于指定哪些字段`pMachineInfo`要填满。  
+ [in] A combination of flags from the [MACHINE_INFO_FIELDS](../../../extensibility/debugger/reference/machine-info-fields.md) enumeration that specify which fields of `pMachineInfo` are to be filled out.  
   
  `pMachineInfo`  
- [in、 out]一个[MACHINE_INFO](../../../extensibility/debugger/reference/machine-info.md)填充机的描述的结构。  
+ [in, out] A [MACHINE_INFO](../../../extensibility/debugger/reference/machine-info.md) structure that is filled in with a description of the machine.  
   
-## <a name="return-value"></a>返回值  
- 如果成功，返回`S_OK`; 否则为返回错误代码。  
+## <a name="return-value"></a>Return Value  
+ If successful, returns `S_OK`; otherwise, returns an error code.  
   
-## <a name="see-also"></a>另请参阅  
+## <a name="see-also"></a>See Also  
  [IDebugCoreServer2](../../../extensibility/debugger/reference/idebugcoreserver2.md)   
  [MACHINE_INFO_FIELDS](../../../extensibility/debugger/reference/machine-info-fields.md)   
  [MACHINE_INFO](../../../extensibility/debugger/reference/machine-info.md)

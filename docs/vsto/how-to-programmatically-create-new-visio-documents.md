@@ -1,84 +1,85 @@
 ---
-title: "如何：以编程方式创建新的 Visio 文档"
-ms.custom: ""
-ms.date: "02/02/2017"
-ms.prod: "visual-studio-dev14"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "office-development"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-dev_langs: 
-  - "VB"
-  - "CSharp"
-helpviewer_keywords: 
-  - "Visio [Visual Studio 中的 Office 开发]，创建 Visio 文档"
-  - "文档 [Visual Studio 中的 Office 开发]，创建 Visio 文档"
+title: 'How to: Programmatically Create New Visio Documents | Microsoft Docs'
+ms.custom: 
+ms.date: 02/02/2017
+ms.prod: visual-studio-dev14
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- office-development
+ms.tgt_pltfrm: 
+ms.topic: article
+dev_langs:
+- VB
+- CSharp
+helpviewer_keywords:
+- Visio [Office development in Visual Studio], creating Visio documents
+- documents [Office development in Visual Studio], creating Visio documents
 ms.assetid: a0294d4c-be49-4cd0-b22e-3ec7568f3ec7
 caps.latest.revision: 22
-author: "kempb"
-ms.author: "kempb"
-manager: "ghogen"
-caps.handback.revision: 21
+author: kempb
+ms.author: kempb
+manager: ghogen
+ms.translationtype: HT
+ms.sourcegitcommit: eb5c9550fd29b0e98bf63a7240737da4f13f3249
+ms.openlocfilehash: 65d5c2c857f8c859976e9964b866fa31fb2c912e
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/30/2017
+
 ---
-# 如何：以编程方式创建新的 Visio 文档
-  创建新的 Microsoft Office Visio 绘图文档时，会将其添加到所打开 Visio 文档的 Microsoft.Office.Interop.Visio.Documents 集合中。 随后，Microsoft.Office.Interop.Visio.Documents.Add 方法会创建一个新的 Visio 绘图文档。 有关详细信息，请参阅 [Microsoft.Office.Interop.Visio.Documents.Add](HV10069241) 方法的 VBA 参考文档。  
+# <a name="how-to-programmatically-create-new-visio-documents"></a>How to: Programmatically Create New Visio Documents
+  When you create a new Microsoft Office Visio drawing document, you add it to the Microsoft.Office.Interop.Visio.Documents collection of open Visio documents. Consequently, the Microsoft.Office.Interop.Visio.Documents.Add method creates a new Visio drawing document. For more information, see the VBA reference documentation for the [Microsoft.Office.Interop.Visio.Documents.Add](http://msdn.microsoft.com/library/office/ff766868.aspx) method.  
   
-## 创建新的空白文档  
+## <a name="creating-new-blank-documents"></a>Creating New Blank Documents  
   
-#### 创建新文档  
+#### <a name="to-create-a-new-document"></a>To create a new document  
   
--   使用 Microsoft.Office.Interop.Visio.Documents.Add 方法创建一个不基于模板的新空白文档。  
+-   Use the Microsoft.Office.Interop.Visio.Documents.Add method to create a new blank document that is not based on a template.  
   
-     [!code-csharp[Trin_VstcoreVisioAutomationAddIn#1](../snippets/csharp/VS_Snippets_OfficeSP/Trin_VstcoreVisioAutomationAddIn/CS/ThisAddIn.cs#1)]
-     [!code-vb[Trin_VstcoreVisioAutomationAddIn#1](../snippets/visualbasic/VS_Snippets_OfficeSP/Trin_VstcoreVisioAutomationAddIn/VB/ThisAddIn.vb#1)]  
+     [!code-csharp[Trin_VstcoreVisioAutomationAddIn#1](../vsto/codesnippet/CSharp/trin_vstcorevisioautomationaddin/ThisAddIn.cs#1)]  [!code-vb[Trin_VstcoreVisioAutomationAddIn#1](../vsto/codesnippet/VisualBasic/trin_vstcorevisioautomationaddin/ThisAddIn.vb#1)]  
   
-## 创建从现有文档复制而来的文档  
- Microsoft.Office.Interop.Visio.Documents.Add 方法可创建从现有 Visio 文档复制而来的新文档。 你必须提供相应关系图的文件名和完全限定路径。  
+## <a name="creating-documents-copied-from-existing-documents"></a>Creating Documents Copied From Existing Documents  
+ The Microsoft.Office.Interop.Visio.Documents.Add method can create a new document that is a copy of an existing Visio document. You must supply the file name and fully qualified path of the diagram.  
   
-#### 创建从现有文档复制而来的新文档  
+#### <a name="to-create-a-new-document-that-is-copied-from-an-existing-document"></a>To create a new document that is copied from an existing document  
   
--   调用 Microsoft.Office.Interop.Visio.Documents.Add 方法并指定 Visio 关系图的路径。  
+-   Call the Microsoft.Office.Interop.Visio.Documents.Add method and specify the path of the Visio diagram.  
   
-     [!code-csharp[Trin_VstcoreVisioAutomationAddIn#2](../snippets/csharp/VS_Snippets_OfficeSP/Trin_VstcoreVisioAutomationAddIn/CS/ThisAddIn.cs#2)]
-     [!code-vb[Trin_VstcoreVisioAutomationAddIn#2](../snippets/visualbasic/VS_Snippets_OfficeSP/Trin_VstcoreVisioAutomationAddIn/VB/ThisAddIn.vb#2)]  
+     [!code-csharp[Trin_VstcoreVisioAutomationAddIn#2](../vsto/codesnippet/CSharp/trin_vstcorevisioautomationaddin/ThisAddIn.cs#2)]  [!code-vb[Trin_VstcoreVisioAutomationAddIn#2](../vsto/codesnippet/VisualBasic/trin_vstcorevisioautomationaddin/ThisAddIn.vb#2)]  
   
-## 创建从现有模具复制而来的模具  
- [Microsoft.Office.Interop.Visio.Documents.Add](HV10069241) 方法可创建从现有 Visio 模具复制而来的新模具。 你必须提供相应模具的文件名和完全限定路径。  
+## <a name="creating-stencils-copied-from-existing-stencils"></a>Creating Stencils Copied From Existing Stencils  
+ The [Microsoft.Office.Interop.Visio.Documents.Add](http://msdn.microsoft.com/library/office/ff766868.aspx) method can create a new stencil that is a copy of an existing Visio stencil. You must supply the file name and fully qualified path of the stencil.  
   
-#### 创建从现有模具复制而来的新模具  
+#### <a name="to-create-a-new-stencil-that-is-copied-from-an-existing-stencil"></a>To create a new stencil that is copied from an existing stencil  
   
--   调用 Microsoft.Office.Interop.Visio.Documents.Add 方法并指定相应模具的路径。  
+-   Call the Microsoft.Office.Interop.Visio.Documents.Add method and specify the path of the stencil.  
   
-     [!code-csharp[Trin_VstcoreVisioAutomationAddIn#3](../snippets/csharp/VS_Snippets_OfficeSP/Trin_VstcoreVisioAutomationAddIn/CS/ThisAddIn.cs#3)]
-     [!code-vb[Trin_VstcoreVisioAutomationAddIn#3](../snippets/visualbasic/VS_Snippets_OfficeSP/Trin_VstcoreVisioAutomationAddIn/VB/ThisAddIn.vb#3)]  
+     [!code-csharp[Trin_VstcoreVisioAutomationAddIn#3](../vsto/codesnippet/CSharp/trin_vstcorevisioautomationaddin/ThisAddIn.cs#3)]  [!code-vb[Trin_VstcoreVisioAutomationAddIn#3](../vsto/codesnippet/VisualBasic/trin_vstcorevisioautomationaddin/ThisAddIn.vb#3)]  
   
-## 创建基于现有模板的文档  
- Microsoft.Office.Interop.Visio.Documents.Add 方法可创建基于现有 Visio 模板（.vst 文件）的新文档（.vsd 文件）。 此方法会复制作为模板工作区一部分的模具、样式和设置。 你必须提供模板的文件名称和完全限定路径。  
+## <a name="creating-documents-based-on-existing-templates"></a>Creating Documents Based on Existing Templates  
+ The Microsoft.Office.Interop.Visio.Documents.Add method can create a new document (a .vsd file) that is based on an existing Visio template (a .vst file). This method copies the stencils, styles, and settings that are part of the template workspace. You must supply the file name and fully qualified path of the template.  
   
-#### 创建基于现有模板的新文档  
+#### <a name="to-create-a-new-document-that-is-based-on-an-existing-template"></a>To create a new document that is based on an existing template  
   
--   调用 Microsoft.Office.Interop.Visio.Documents.Add 方法并指定相应模板的路径。  
+-   Call the Microsoft.Office.Interop.Visio.Documents.Add method and specify the path of the template.  
   
-     [!code-csharp[Trin_VstcoreVisioAutomationAddIn#4](../snippets/csharp/VS_Snippets_OfficeSP/Trin_VstcoreVisioAutomationAddIn/CS/ThisAddIn.cs#4)]
-     [!code-vb[Trin_VstcoreVisioAutomationAddIn#4](../snippets/visualbasic/VS_Snippets_OfficeSP/Trin_VstcoreVisioAutomationAddIn/VB/ThisAddIn.vb#4)]  
+     [!code-csharp[Trin_VstcoreVisioAutomationAddIn#4](../vsto/codesnippet/CSharp/trin_vstcorevisioautomationaddin/ThisAddIn.cs#4)]  [!code-vb[Trin_VstcoreVisioAutomationAddIn#4](../vsto/codesnippet/VisualBasic/trin_vstcorevisioautomationaddin/ThisAddIn.vb#4)]  
   
-## 编译代码  
- 此代码示例要求满足以下条件：  
+## <a name="compiling-the-code"></a>Compiling the Code  
+ This code example requires the following:  
   
--   必须有一个名为 `myDrawing.vsd` 的 Visio 文档位于 My Documents 文件夹（对于 Windows XP 及更低版本）或 Documents 文件夹（对于 Windows Vista）中名为 `Test` 的目录中。  
+-   A Visio document named `myDrawing.vsd` must be located in a directory named `Test` in the My Documents folder (for Windows XP and earlier) or the Documents folder (for Windows Vista).  
   
--   必须有一个名为 `myStencil.vss` 的 Visio 文档位于 My Documents 文件夹（对于 Windows XP 及更低版本）或 Documents 文件夹（对于 Windows Vista）中名为 `Test` 的目录中。  
+-   A Visio document named `myStencil.vss` must be located in a directory named `Test` in the My Documents folder (for Windows XP and earlier) or the Documents folder (for Windows Vista).  
   
--   必须有一个名为 `myTemplate.vst` 的 Visio 文档位于 My Documents 文件夹（对于 Windows XP 及更低版本）或 Documents 文件夹（对于 Windows Vista）中名为 `Test` 的目录中。  
+-   A Visio document named `myTemplate.vst` must be located in a directory named `Test` in the My Documents folder (for Windows XP and earlier) or the Documents folder (for Windows Vista).  
   
-## 请参阅  
- [Visio 解决方案](../vsto/visio-solutions.md)   
- [Visio 对象模型概述](../vsto/visio-object-model-overview.md)   
- [如何：以编程方式打开 Visio 文档](../vsto/how-to-programmatically-open-visio-documents.md)   
- [如何：以编程方式关闭 Visio 文档](../vsto/how-to-programmatically-close-visio-documents.md)   
- [如何：以编程方式保存 Visio 文档](../vsto/how-to-programmatically-save-visio-documents.md)   
- [如何：以编程方式打印 Visio 文档](../vsto/how-to-programmatically-print-visio-documents.md)  
+## <a name="see-also"></a>See Also  
+ [Visio Solutions](../vsto/visio-solutions.md)   
+ [Visio Object Model Overview](../vsto/visio-object-model-overview.md)   
+ [How to: Programmatically Open Visio Documents](../vsto/how-to-programmatically-open-visio-documents.md)   
+ [How to: Programmatically Close Visio Documents](../vsto/how-to-programmatically-close-visio-documents.md)   
+ [How to: Programmatically Save Visio Documents](../vsto/how-to-programmatically-save-visio-documents.md)   
+ [How to: Programmatically Print Visio Documents](../vsto/how-to-programmatically-print-visio-documents.md)  
   
   

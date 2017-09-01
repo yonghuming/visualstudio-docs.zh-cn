@@ -16,10 +16,10 @@ author: kraigb
 ms.author: kraigb
 manager: ghogen
 ms.translationtype: HT
-ms.sourcegitcommit: 6d25db4639f2c8391c1e32542701ea359f560178
-ms.openlocfilehash: 5b509a46dd3dbee3a45ab2eac57242636beee17b
+ms.sourcegitcommit: c00adbbabf0d3b82acb17f4a269dfc693246bc69
+ms.openlocfilehash: 56fccdd5e103cf29c8ea4a93ab80de7187275642
 ms.contentlocale: zh-cn
-ms.lasthandoff: 07/18/2017
+ms.lasthandoff: 08/01/2017
 
 ---
 
@@ -176,7 +176,7 @@ HttpPlatform 模块将套接字连接直接传递到独立的 Python 进程。 �
 }
 ```
 
-有关命令和身份验证的信息，请参阅 [Kudu 文档](https://github.com/projectkudu/kudu/wiki/REST-API)。 还可以使用 Azure CLI 中的 [`az webapp deployment list-publishing-profiles command`](https://docs.microsoft.com/cli/azure/webapp/deployment#list-publishing-profiles) 查看凭据。 此外，[GitHub 上](https://github.com/lmazuel/azure-webapp-publish/blob/master/azure_webapp_publish/kudu.py#L42) 还提供用于发布 Kudu 命令的帮助程序库。
+有关命令和身份验证的信息，请参阅 [Kudu 文档](https://github.com/projectkudu/kudu/wiki/REST-API)。 还可以使用 Azure CLI 中的 [`az webapp deployment list-publishing-profiles command`](https://docs.microsoft.com/cli/azure/webapp/deployment#list-publishing-profiles) 查看凭据。 [GitHub 上还提供](https://github.com/lmazuel/azure-webapp-publish/blob/master/azure_webapp_publish/kudu.py#L42)发布 Kudu 命令的帮助程序库。
 
 
 ### <a name="copying-libraries-into-app-source-code"></a>将库复制到应用源代码
@@ -188,3 +188,4 @@ HttpPlatform 模块将套接字连接直接传递到独立的 Python 进程。 �
 ### <a name="avoiding-virtual-environments"></a>避免使用虚拟环境
 
 虽然在本地虚拟环境中进行操作有助于全面了解站点所需的依赖项，但不建议在应用服务上使用虚拟环境。 相反，只需将库安装到主 Python 文件夹，然后使用应用部署库即可避免存在冲突依赖项。
+

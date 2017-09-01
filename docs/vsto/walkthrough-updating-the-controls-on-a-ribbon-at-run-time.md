@@ -1,149 +1,154 @@
 ---
-title: "演练：在运行时更新功能区上的控件"
-ms.custom: ""
-ms.date: "02/02/2017"
-ms.prod: "visual-studio-dev14"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "office-development"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-dev_langs: 
-  - "VB"
-  - "CSharp"
-helpviewer_keywords: 
-  - "控件 [Visual Studio 中的 Office 开发], 功能区"
-  - "动态菜单 [Visual Studio 中的 Office 开发]"
-  - "功能区 [Visual Studio 中的 Office 开发], 控件"
-  - "功能区 [Visual Studio 中的 Office 开发], 动态菜单"
-  - "功能区 [Visual Studio 中的 Office 开发], 更新"
-  - "更新功能区控件"
+title: 'Walkthrough: Updating the Controls on a Ribbon at Run Time | Microsoft Docs'
+ms.custom: 
+ms.date: 02/02/2017
+ms.prod: visual-studio-dev14
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- office-development
+ms.tgt_pltfrm: 
+ms.topic: article
+dev_langs:
+- VB
+- CSharp
+helpviewer_keywords:
+- controls [Office development in Visual Studio], Ribbon
+- Ribbon [Office development in Visual Studio], controls
+- updating Ribbon controls
+- Ribbon [Office development in Visual Studio], dynamic menu
+- dynamic menus [Office development in Visual Studio]
+- Ribbon [Office development in Visual Studio], updating
 ms.assetid: ed80790f-3f95-47e4-8a41-872588a8ca07
 caps.latest.revision: 51
-author: "kempb"
-ms.author: "kempb"
-manager: "ghogen"
-caps.handback.revision: 50
+author: kempb
+ms.author: kempb
+manager: ghogen
+ms.translationtype: HT
+ms.sourcegitcommit: eb5c9550fd29b0e98bf63a7240737da4f13f3249
+ms.openlocfilehash: cc34acd219401610dcb936f9dbca59620aab7d71
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/30/2017
+
 ---
-# 演练：在运行时更新功能区上的控件
-  本演练演示了如何使用功能区对象模型在功能区加载到 Office 应用程序之后，更新该功能区上的控件。  
+# <a name="walkthrough-updating-the-controls-on-a-ribbon-at-run-time"></a>Walkthrough: Updating the Controls on a Ribbon at Run Time
+  This walkthrough demonstrates how to use the Ribbon object model to update the controls on a Ribbon after the Ribbon is loaded into the Office application.  
   
  [!INCLUDE[appliesto_ribbon](../vsto/includes/appliesto-ribbon-md.md)]  
   
- 此示例提取来自 Northwind 示例数据库的数据，以填充 Microsoft Office Outlook 中的组合框和菜单。  你在这些控件中选择的项将自动填充字段，例如电子邮件中的**“收件人”**和**“主题”**。  
+ The example pulls data from the Northwind sample database to populate a combo box and menu in Microsoft Office Outlook. Items that you select in these controls automatically populate fields such as **To** and **Subject** in an e-mail message.  
   
- 本演练阐释了以下任务：  
+ This walkthrough illustrates the following tasks:  
   
--   创建新的 Outlook VSTO 外接程序项目。  
+-   Creating a new Outlook VSTO Add-in project.  
   
--   设计自定义功能区组。  
+-   Designing a custom Ribbon group.  
   
--   将自定义组添加到内置选项卡。  
+-   Adding the custom group to a built-in tab.  
   
--   在运行时更新功能区上的控件。  
+-   Updating controls on the Ribbon at run time.  
   
 > [!NOTE]  
->  以下说明中的某些 Visual Studio 用户界面元素在计算机上出现的名称或位置可能会不同。  这些元素取决于你所使用的 Visual Studio 版本和你所使用的设置。  有关详细信息，请参阅 [Customizing Development Settings in Visual Studio](http://msdn.microsoft.com/zh-cn/22c4debb-4e31-47a8-8f19-16f328d7dcd3)。  
+>  Your computer might show different names or locations for some of the Visual Studio user interface elements in the following instructions. The Visual Studio edition that you have and the settings that you use determine these elements. For more information, see [Personalize the Visual Studio IDE](../ide/personalizing-the-visual-studio-ide.md).  
   
-## 系统必备  
- 你需要以下组件来完成本演练：  
+## <a name="prerequisites"></a>Prerequisites  
+ You need the following components to complete this walkthrough:  
   
 -   [!INCLUDE[vsto_vsprereq](../vsto/includes/vsto-vsprereq-md.md)]  
   
 -   Microsoft Outlook  
   
-## 创建新的 Outlook VSTO 外接程序项目  
- 首先，创建 Outlook VSTO 外接程序项目。  
+## <a name="creating-a-new-outlook-vsto-add-in-project"></a>Creating a New Outlook VSTO Add-in Project  
+ First, create an Outlook VSTO Add-in project.  
   
-#### 创建新的 Outlook VSTO 外接程序项目  
+#### <a name="to-create-a-new-outlook-vsto-add-in-project"></a>To create a new Outlook VSTO Add-in project  
   
-1.  在 [!INCLUDE[vsprvs](../sharepoint/includes/vsprvs-md.md)] 中，创建名为 Ribbon\_Update\_At\_Runtime 的 Outlook VSTO 外接程序项目。  
+1.  In [!INCLUDE[vsprvs](../sharepoint/includes/vsprvs-md.md)], create an Outlook VSTO Add-in project with the name **Ribbon_Update_At_Runtime**.  
   
-2.  在**“新建项目”**对话框中，选择**“创建解决方案的目录”**。  
+2.  In the **New Project** dialog box, select **Create directory for solution**.  
   
-3.  将项目保存到默认项目目录中。  
+3.  Save the project to the default project directory.  
   
-     有关详细信息，请参阅[如何：在 Visual Studio 中创建 Office 项目](../vsto/how-to-create-office-projects-in-visual-studio.md)。  
+     For more information, see [How to: Create Office Projects in Visual Studio](../vsto/how-to-create-office-projects-in-visual-studio.md).  
   
-## 设计自定义功能区组  
- 当用户撰写一封新邮件消息时，将显示此示例中的功能区。  若要为功能区创建自定义组，请首先向项目中添加一个功能区项，然后在功能区设计器中设计组。  通过此自定义组，可从数据库中拉取名称和订单历史记录，从而生成要发送给客户的后续电子邮件消息。  
+## <a name="designing-a-custom-ribbon-group"></a>Designing a Custom Ribbon Group  
+ The Ribbon for this example will appear when a user composes a new mail message. To create a custom group for the Ribbon, first add a Ribbon item to your project, and then design the group in the Ribbon Designer. This custom group will help you generate follow-up e-mail messages to customers by pulling names and order histories from a database.  
   
-#### 设计自定义组  
+#### <a name="to-design-a-custom-group"></a>To design a custom group  
   
-1.  在**“项目”**菜单上，单击**“添加新项”**。  
+1.  On the **Project** menu, click **Add New Item**.  
   
-2.  在**“添加新项”**对话框中，选择**“功能区\(可视化设计器\)”**。  
+2.  In the **Add New Item** dialog box, select **Ribbon (Visual Designer)**.  
   
-3.  将新功能区更名为 **CustomerRibbon**，然后单击**“添加”**。  
+3.  Change the name of the new Ribbon to **CustomerRibbon**, and then click **Add**.  
   
-     **CustomerRibbon.cs** 或 **CustomerRibbon.vb** 文件将在功能区设计器中打开，并显示一个默认选项卡和组。  
+     The **CustomerRibbon.cs** or **CustomerRibbon.vb** file opens in the Ribbon Designer and displays a default tab and group.  
   
-4.  单击功能区设计器以将其选定。  
+4.  Click the Ribbon Designer to select it.  
   
-5.  在**“属性”**窗口中，单击**“RibbonType”**属性旁边的下拉箭头，然后单击**“Microsoft.Outlook.Mail.Compose”**。  
+5.  In the **Properties** window, click the drop-down arrow next to the **RibbonType** property, and then click **Microsoft.Outlook.Mail.Compose**.  
   
-     这样，当用户在 Outlook 中撰写新的邮件消息时，将显示该功能区。  
+     This enables the Ribbon to appear when the user composes a new mail message in Outlook.  
   
-6.  在功能区设计器中，单击**“Group1”**以将其选中。  
+6.  In the Ribbon Designer, click **Group1** to select it.  
   
-7.  在**“属性”**窗口中，将**“标签”**设置为“客户采购”。  
+7.  In the **Properties** window, set **Label** to **Customer Purchases**.  
   
-8.  从**“工具箱”**的**“Office 功能区控件”**选项卡中，将**“组合框”**拖到**“客户采购”**组上。  
+8.  From the **Office Ribbon Controls** tab of the **Toolbox**, drag a **ComboBox** onto the **Customer Purchases** group.  
   
-9. 单击**“ComboBox1”**以将其选中。  
+9. Click **ComboBox1** to select it.  
   
-10. 在**“属性”**窗口中，将**“标签”**设置为“客户”。  
+10. In the **Properties** window, set **Label** to **Customers**.  
   
-11. 从**“工具箱”**的**“Office 功能区控件”**选项卡中，将**“菜单”**拖到**“客户采购”**组上。  
+11. From the **Office Ribbon Controls** tab of the **Toolbox**, drag a **Menu** onto the **Customer Purchases** group.  
   
-12. 在**“属性”**窗口中，将**“标签”**设置为“已采购产品”。  
+12. In the **Properties** window, set **Label** to **Product Purchased**.  
   
-13. 将**“动态”**设置为 **true**。  
+13. Set **Dynamic** to **true**.  
   
-     这样，在功能区加载到 Office 应用程序中之后，就可以在运行时添加和删除菜单上的控件。  
+     This enables you to add and remove controls on the menu at run time after the Ribbon is loaded into the Office application.  
   
-## 将自定义组添加到内置选项卡  
- 内置选项卡是指 Outlook 浏览器或检查器的功能区上已经存在的选项卡。  在此过程中，将自定义组添加到内置选项卡，然后指定自定义组在选项卡上的位置。  
+## <a name="adding-the-custom-group-to-a-built-in-tab"></a>Adding the Custom Group to a Built-in Tab  
+ A built-in tab is a tab that is already on the Ribbon of an Outlook Explorer or Inspector. In this procedure, you will add the custom group to a built-in tab, and then specify the position of the custom group on the tab.  
   
-#### 将自定义组添加到内置选项卡  
+#### <a name="to-add-the-custom-group-to-a-built-in-tab"></a>To add the custom group to a built-in tab  
   
-1.  单击**“TabAddins \(内置\)”**选项卡以将其选中。  
+1.  Click the **TabAddins (Built-In)** tab to select it.  
   
-2.  在**“属性”**窗口中，展开**“ControlId”**属性，然后将**“OfficeId”**设置为“TabNewMailMessage”。  
+2.  In the **Properties** window, expand the **ControlId** property, and then set **OfficeId** to **TabNewMailMessage**.  
   
-     这会将**“客户采购”**组添加到新邮件消息中出现的功能区上的**“消息”**选项卡中。  
+     This adds the **Customer Purchases** group to the **Messages** tab of the Ribbon that appears in a new mail message.  
   
-3.  单击**“客户采购”**组以将其选中。  
+3.  Click the **Customer Purchases** group to select it.  
   
-4.  在**“属性”**窗口中，展开**“Position”**属性，单击**“PositionType”**属性旁边的下拉箭头，然后单击**“BeforeOfficeId”**。  
+4.  In the **Properties** window, expand the **Position** property, click the drop-down arrow next to the **PositionType** property, and then click **BeforeOfficeId**.  
   
-5.  将**“OfficeId”**属性设置为“GroupClipboard”。  
+5.  Set the **OfficeId** property to **GroupClipboard**.  
   
-     这会将**“客户采购”**组放置在**“消息”**选项卡上**“剪贴板”**组的前面。  
+     This positions the **Customer Purchases** group before the **Clipboard** group of the **Messages** tab.  
   
-## 创建数据源  
- 使用**“数据源”**窗口将类型化数据集添加到项目中。  
+## <a name="creating-the-data-source"></a>Creating the Data Source  
+ Use the **Data Sources** window to add a typed dataset to your project.  
   
-#### 创建数据源  
+#### <a name="to-create-the-data-source"></a>To create the data source  
   
-1.  在**“数据”**菜单上，单击**“添加新数据源”**。  
+1.  On the **Data** menu, click **Add New Data Source**.  
   
-     这将启动**“数据源配置向导”**。  
+     This starts the **Data Source Configuration Wizard**.  
   
-2.  选择**“数据库”**，然后单击**“下一步”**。  
+2.  Select **Database**, and then click **Next**.  
   
-3.  选择**“数据集”**，然后单击**“下一步”**。  
+3.  Select **Dataset**, and then click **Next**.  
   
-4.  选择与 Northwind 示例 Microsoft SQL Server Compact 4.0 数据库的数据连接，或使用**“新建连接”**按钮添加新的连接。  
+4.  Select a data connection to the Northwind sample Microsoft SQL Server Compact 4.0 database, or add a new connection by using the **New Connection** button.  
   
-5.  选择或创建连接后，单击**“下一步”**。  
+5.  After a connection has been selected or created, click **Next**.  
   
-6.  单击**“下一步”**以保存连接字符串。  
+6.  Click **Next** to save the connection string.  
   
-7.  在**“选择数据库对象”**页上，展开**“表格”**。  
+7.  On the **Choose Your Database Objects** page, expand **Tables**.  
   
-8.  选中以下每个表格旁的复选框：  
+8.  Select the check box next to each of the following tables:  
   
     1.  **Customers**  
   
@@ -151,156 +156,148 @@ caps.handback.revision: 50
   
     3.  **Orders**  
   
-    4.  **产品**  
+    4.  **Products**  
   
-9. 单击**“完成”**。  
+9. Click **Finish**.  
   
-## 在运行时更新自定义组中的控件  
- 使用功能区对象模型执行以下任务：  
+## <a name="updating-controls-in-the-custom-group-at-run-time"></a>Updating Controls in the Custom Group at Run Time  
+ Use the Ribbon object model to perform the following tasks:  
   
--   将客户名称添加到**“客户”**组合框中。  
+-   Add customer names to the **Customers** combo box.  
   
--   将菜单和按钮控件添加到表示销售订单和已售产品的**“已采购产品”**菜单中。  
+-   Add menu and button controls to the **Products Purchased** menu that represent sales orders and products sold.  
   
--   使用**“客户”**组合框和**“已采购产品”**菜单中的数据填充新邮件消息的 To、Subject 和 Body 字段。  
+-   Populate the To, Subject, and Body fields of new mail messages by using data from the **Customers** combo box and **Products Purchased** menu.  
   
-#### 使用功能区对象模型更新自定义组中的控件  
+#### <a name="to-update-controls-in-the-custom-group-by-using-the-ribbon-object-model"></a>To update controls in the custom group by using the Ribbon object model  
   
-1.  在**“项目”**菜单上，单击**“添加引用”**。  
+1.  On the **Project** menu, click **Add Reference**.  
   
-2.  在**“添加引用”**对话框中，单击**“.NET”**选项卡，选择**“System.Data.Linq”**程序集，然后单击**“确定”**。  
+2.  In the **Add Reference** dialog box, click the **.NET** tab, select the **System.Data.Linq** assembly, and then click **OK**.  
   
-     此程序集包含有关使用语言集成查询 \(LINQ\) 的类。  你将通过 LINQ 使用 Northwind 数据库中的数据填充自定义组中的控件。  
+     This assembly contains classes for using Language-Integrated Queries (LINQ). You will use LINQ to populate controls in the custom group with data from the Northwind database.  
   
-3.  在**“解决方案资源管理器”**中，单击**“CustomerRibbon.cs”**或**“CustomerRibbon.vb”**以将其选中。  
+3.  In **Solution Explorer**, click **CustomerRibbon.cs** or **CustomerRibbon.vb** to select it.  
   
-4.  在**“视图”**菜单中，单击**“代码”**。  
+4.  On the **View** menu, click **Code**.  
   
-     功能区代码文件将在代码编辑器中打开。  
+     The Ribbon code file opens in the Code Editor.  
   
-5.  将下面的语句添加到功能区代码文件的顶部。  通过执行这些语句，可轻松访问 LINQ 命名空间和 Outlook 主互操作程序集 \(PIA\) 的命名空间。  
+5.  Add the following statements to the top of the Ribbon code file. These statements provide easy access to LINQ namespaces and to the namespace of the Outlook primary interop assembly (PIA).  
   
-     [!code-csharp[Trin_Ribbon_Update_At_Runtime#1](../snippets/csharp/VS_Snippets_OfficeSP/Trin_Ribbon_Update_At_Runtime/CS/CustomerRibbon.cs#1)]
-     [!code-vb[Trin_Ribbon_Update_At_Runtime#1](../snippets/visualbasic/VS_Snippets_OfficeSP/Trin_Ribbon_Update_At_Runtime/VB/CustomerRibbon.vb#1)]  
+     [!code-csharp[Trin_Ribbon_Update_At_Runtime#1](../vsto/codesnippet/CSharp/Ribbon_Update_At_Runtime/CustomerRibbon.cs#1)]  [!code-vb[Trin_Ribbon_Update_At_Runtime#1](../vsto/codesnippet/VisualBasic/Ribbon_Update_At_Runtime/CustomerRibbon.vb#1)]  
   
-6.  将以下代码添加到 CustomerRibbon 类中。  此代码声明了将用于存储 Northwind 数据库的“客户”、“订单”、“订单明细”和“产品”表中信息的数据表和表适配器。  
+6.  Add the following code inside the CustomerRibbon class. This code declares the data table and table adapters that you will use to store information from the Customer, Orders, Order Details, and Product tables of the Northwind database.  
   
-     [!code-csharp[Trin_Ribbon_Update_At_Runtime#2](../snippets/csharp/VS_Snippets_OfficeSP/Trin_Ribbon_Update_At_Runtime/CS/CustomerRibbon.cs#2)]
-     [!code-vb[Trin_Ribbon_Update_At_Runtime#2](../snippets/visualbasic/VS_Snippets_OfficeSP/Trin_Ribbon_Update_At_Runtime/VB/CustomerRibbon.vb#2)]  
+     [!code-csharp[Trin_Ribbon_Update_At_Runtime#2](../vsto/codesnippet/CSharp/Ribbon_Update_At_Runtime/CustomerRibbon.cs#2)]  [!code-vb[Trin_Ribbon_Update_At_Runtime#2](../vsto/codesnippet/VisualBasic/Ribbon_Update_At_Runtime/CustomerRibbon.vb#2)]  
   
-7.  将以下代码块添加到 `CustomerRibbon` 类中。  此代码添加 3 个可在运行时为功能区创建控件的帮助程序方法。  
+7.  Add the following block of code to the `CustomerRibbon` class. This code adds three helper methods that create controls for the Ribbon at runtime.  
   
-     [!code-csharp[Trin_Ribbon_Update_At_Runtime#3](../snippets/csharp/VS_Snippets_OfficeSP/Trin_Ribbon_Update_At_Runtime/CS/CustomerRibbon.cs#3)]
-     [!code-vb[Trin_Ribbon_Update_At_Runtime#3](../snippets/visualbasic/VS_Snippets_OfficeSP/Trin_Ribbon_Update_At_Runtime/VB/CustomerRibbon.vb#3)]  
+     [!code-csharp[Trin_Ribbon_Update_At_Runtime#3](../vsto/codesnippet/CSharp/Ribbon_Update_At_Runtime/CustomerRibbon.cs#3)]  [!code-vb[Trin_Ribbon_Update_At_Runtime#3](../vsto/codesnippet/VisualBasic/Ribbon_Update_At_Runtime/CustomerRibbon.vb#3)]  
   
-8.  将 `CustomerRibbon_Load` 事件处理程序方法替换为以下代码。  此代码使用 LINQ 查询执行以下任务：  
+8.  Replace the `CustomerRibbon_Load` event handler method with the following code. This code uses a LINQ query to perform the following tasks:  
   
-    -   通过使用 Northwind 数据库中 20 位客户的 ID 和名称，填充**“客户”**组合框。  
+    -   Populate the **Customers** combo box by using the ID and name of 20 customers in the Northwind database.  
   
-    -   调用 `PopulateSalesOrderInfo` 帮助程序方法。  此方法使用与当前所选客户相关的销售订单号更新**“ProductsPurchased”**菜单。  
+    -   Calls the `PopulateSalesOrderInfo` helper method. This method updates the **ProductsPurchased** menu with sales order numbers that pertain to the currently selected customer.  
   
-     [!code-csharp[Trin_Ribbon_Update_At_Runtime#4](../snippets/csharp/VS_Snippets_OfficeSP/Trin_Ribbon_Update_At_Runtime/CS/CustomerRibbon.cs#4)]
-     [!code-vb[Trin_Ribbon_Update_At_Runtime#4](../snippets/visualbasic/VS_Snippets_OfficeSP/Trin_Ribbon_Update_At_Runtime/VB/CustomerRibbon.vb#4)]  
+     [!code-csharp[Trin_Ribbon_Update_At_Runtime#4](../vsto/codesnippet/CSharp/Ribbon_Update_At_Runtime/CustomerRibbon.cs#4)] [!code-vb[Trin_Ribbon_Update_At_Runtime#4](../vsto/codesnippet/VisualBasic/Ribbon_Update_At_Runtime/CustomerRibbon.vb#4)]  
   
-9. 向 `CustomerRibbon` 类添加下面的代码。  此代码使用 LINQ 查询执行以下任务：  
+9. Add the following code to the `CustomerRibbon` class. This code uses LINQ queries to perform the following tasks:  
   
-    -   将子菜单添加到与所选客户相关的每个销售订单的**“ProductsPurchased”**菜单。  
+    -   Adds a submenu to the **ProductsPurchased** menu for each sales order related to the selected customer.  
   
-    -   将按钮添加到与销售订单相关的产品的每个子菜单中。  
+    -   Adds buttons to each submenu for the products related to the sales order.  
   
-    -   将事件处理程序添加到每个按钮。  
+    -   Adds event handlers to each button.  
   
-     [!code-csharp[Trin_Ribbon_Update_At_Runtime#6](../snippets/csharp/VS_Snippets_OfficeSP/Trin_Ribbon_Update_At_Runtime/CS/CustomerRibbon.cs#6)]
-     [!code-vb[Trin_Ribbon_Update_At_Runtime#6](../snippets/visualbasic/VS_Snippets_OfficeSP/Trin_Ribbon_Update_At_Runtime/VB/CustomerRibbon.vb#6)]  
+     [!code-csharp[Trin_Ribbon_Update_At_Runtime#6](../vsto/codesnippet/CSharp/Ribbon_Update_At_Runtime/CustomerRibbon.cs#6)] [!code-vb[Trin_Ribbon_Update_At_Runtime#6](../vsto/codesnippet/VisualBasic/Ribbon_Update_At_Runtime/CustomerRibbon.vb#6)]  
   
-10. 在**“解决方案资源管理器”**中，双击功能区代码文件。  
+10. In **Solution Explorer**, double-click the Ribbon code file.  
   
-     功能区设计器随即打开。  
+     The Ribbon Designer opens.  
   
-11. 在功能区设计器中，双击**“客户”**组合框。  
+11. In the Ribbon Designer, double-click the **Customers** combo box.  
   
-     功能区代码文件将在代码编辑器中打开，并且将显示 `ComboBox1_TextChanged` 事件处理程序。  
+     The Ribbon code file opens in the Code Editor, and the `ComboBox1_TextChanged` event handler appears.  
   
-12. 将 `ComboBox1_TextChanged` 事件处理程序替换为以下代码。  这段代码执行下列任务：  
+12. Replace the `ComboBox1_TextChanged` event handler with the following code. This code performs the following tasks:  
   
-    -   调用 `PopulateSalesOrderInfo` 帮助程序方法。  此方法使用与所选客户相关的销售订单更新**“已采购产品”**菜单。  
+    -   Calls the `PopulateSalesOrderInfo` helper method. This method updates the **Products Purchased** menu with sales orders that relate to the selected customer.  
   
-    -   调用 `PopulateMailItem` 帮助程序方法并传入当前文本，该文本是所选客户名称。  此方法填充新邮件消息的 To、Subject 和 Body 字段。  
+    -   Calls the `PopulateMailItem` helper method and passes in the current text, which is the selected customer name. This method populates the To, Subject, and Body fields of new mail messages.  
   
-     [!code-csharp[Trin_Ribbon_Update_At_Runtime#5](../snippets/csharp/VS_Snippets_OfficeSP/Trin_Ribbon_Update_At_Runtime/CS/CustomerRibbon.cs#5)]
-     [!code-vb[Trin_Ribbon_Update_At_Runtime#5](../snippets/visualbasic/VS_Snippets_OfficeSP/Trin_Ribbon_Update_At_Runtime/VB/CustomerRibbon.vb#5)]  
+     [!code-csharp[Trin_Ribbon_Update_At_Runtime#5](../vsto/codesnippet/CSharp/Ribbon_Update_At_Runtime/CustomerRibbon.cs#5)] [!code-vb[Trin_Ribbon_Update_At_Runtime#5](../vsto/codesnippet/VisualBasic/Ribbon_Update_At_Runtime/CustomerRibbon.vb#5)]  
   
-13. 将以下单击事件处理程序添加到 `CustomerRibbon` 类。  此代码将所选产品的名称添加到新邮件消息的 Body 字段。  
+13. Add the following Click event handler to the `CustomerRibbon` class. This code adds the name of selected products to the Body field of new mail messages.  
   
-     [!code-csharp[Trin_Ribbon_Update_At_Runtime#8](../snippets/csharp/VS_Snippets_OfficeSP/Trin_Ribbon_Update_At_Runtime/CS/CustomerRibbon.cs#8)]
-     [!code-vb[Trin_Ribbon_Update_At_Runtime#8](../snippets/visualbasic/VS_Snippets_OfficeSP/Trin_Ribbon_Update_At_Runtime/VB/CustomerRibbon.vb#8)]  
+     [!code-csharp[Trin_Ribbon_Update_At_Runtime#8](../vsto/codesnippet/CSharp/Ribbon_Update_At_Runtime/CustomerRibbon.cs#8)]  [!code-vb[Trin_Ribbon_Update_At_Runtime#8](../vsto/codesnippet/VisualBasic/Ribbon_Update_At_Runtime/CustomerRibbon.vb#8)]  
   
-14. 向 `CustomerRibbon` 类添加下面的代码。  这段代码执行下列任务：  
+14. Add the following code to the `CustomerRibbon` class. This code performs the following tasks:  
   
-    -   通过使用当前所选客户的电子邮件地址，填充新邮件消息的 To 行。  
+    -   Populates the To line of new mail messages by using the e-mail address of the currently selected customer.  
   
-    -   将文本添加到新邮件消息的 Subject 和 Body 字段。  
+    -   Adds text to the Subject and Body fields of new mail messages.  
   
-     [!code-csharp[Trin_Ribbon_Update_At_Runtime#7](../snippets/csharp/VS_Snippets_OfficeSP/Trin_Ribbon_Update_At_Runtime/CS/CustomerRibbon.cs#7)]
-     [!code-vb[Trin_Ribbon_Update_At_Runtime#7](../snippets/visualbasic/VS_Snippets_OfficeSP/Trin_Ribbon_Update_At_Runtime/VB/CustomerRibbon.vb#7)]  
+     [!code-csharp[Trin_Ribbon_Update_At_Runtime#7](../vsto/codesnippet/CSharp/Ribbon_Update_At_Runtime/CustomerRibbon.cs#7)] [!code-vb[Trin_Ribbon_Update_At_Runtime#7](../vsto/codesnippet/VisualBasic/Ribbon_Update_At_Runtime/CustomerRibbon.vb#7)]  
   
-## 测试自定义组中的控件  
- 从 Outlook 中打开新邮件时，将在功能区的**“消息”**选项卡上显示名为**“客户采购”**的自定义组。  
+## <a name="testing-the-controls-in-the-custom-group"></a>Testing the Controls in the Custom Group  
+ When you open a new mail form in Outlook, a custom group named **Customer Purchases** appears on the **Messages** tab of the Ribbon.  
   
- 若要创建客户的后续电子邮件消息，请选择一位客户，然后选择该客户采购的产品。  在运行时，**“客户采购”**组中的控件使用 Northwind 数据库中的数据进行更新。  
+ To create a customer follow-up e-mail message, select a customer, and then select products purchased by the customer. The controls in the **Customer Purchases** group are updated at run time with data from the Northwind database.  
   
-#### 测试自定义组中的控件  
+#### <a name="to-test-the-controls-in-the-custom-group"></a>To test the controls in the custom group  
   
-1.  按 F5 运行项目。  
+1.  Press F5 to run your project.  
   
-     Outlook 启动。  
+     Outlook starts.  
   
-2.  在 Outlook 中的**“文件”**菜单上，指向**“新建”**，然后单击**“邮件消息”**。  
+2.  In Outlook, on the **File** menu, point to **New**, and then click **Mail Message**.  
   
-     将出现以下操作：  
+     The following actions occur:  
   
-    -   出现新的邮件消息检查器窗口。  
+    -   A new mail message Inspector window appears.  
   
-    -   在功能区的**“消息”**选项卡上，**“客户采购”**组位于**“剪贴板”**组的前面。  
+    -   On the **Message** tab of the Ribbon, the **Customer Purchases** group appears before the **Clipboard** group.  
   
-    -   组中的**“客户”**组合框使用 Northwind 数据库中的客户名称进行更新。  
+    -   The **Customers** combo box in the group is updated with the names of customers in the Northwind database.  
   
-3.  在功能区**“消息”**选项卡上的**“客户采购”**组中，从**“客户”**组合框中选择客户。  
+3.  On the **Message** tab of the Ribbon, in the **Customer Purchases** group, select a customer from the **Customers** combo box.  
   
-     将出现以下操作：  
+     The following actions occur:  
   
-    -   **“已采购产品”**菜单进行更新，以显示所选客户的每笔销售订单。  
+    -   The **Products Purchased** menu is updated to show each sales order for the selected customer.  
   
-    -   每笔销售订单子菜单进行更新，以显示该笔订单中购买的产品。  
+    -   Each sales order submenu is updated to show the products purchased in that order.  
   
-    -   所选客户的电子邮件地址将添加到电子邮件消息的**“收件人”**行，并且邮件消息的主题和正文使用文本进行填充。  
+    -   The selected customer's e-mail address is added to the **To** line of the mail message, and the subject and body of the mail message are populated with text.  
   
-4.  单击**“产品采购”**菜单，指向任一销售订单，然后单击该订单中的产品。  
+4.  Click the **Products Purchases** menu, point to any sales order, and then click a product from the sales order.  
   
-     该产品名称将添加到邮件消息的正文中。  
+     The product name is added to the body of the mail message.  
   
-## 后续步骤  
- 可从以下主题了解有关如何自定义 Office 用户界面的更多信息：  
+## <a name="next-steps"></a>Next Steps  
+ You can learn more about how to customize the Office UI from these topics:  
   
--   将基于上下文的 UI 添加到任何文档级自定义项。  有关详细信息，请参阅[操作窗格概述](../vsto/actions-pane-overview.md)。  
+-   Add context-based UI to any document-level customization. For more information, see [Actions Pane Overview](../vsto/actions-pane-overview.md).  
   
--   扩展标准的或自定义的 Microsoft Office Outlook 窗体。  有关详细信息，请参阅[演练：设计 Outlook 窗体区域](../vsto/walkthrough-designing-an-outlook-form-region.md)。  
+-   Extend a standard or custom Microsoft Office Outlook form. For more information, see [Walkthrough: Designing an Outlook Form Region](../vsto/walkthrough-designing-an-outlook-form-region.md).  
   
--   将自定义任务窗格添加到 Outlook。  有关详细信息，请参阅[自定义任务窗格](../vsto/custom-task-panes.md)。  
+-   Add a custom task pane to Outlook. For more information, see [Custom Task Panes](../vsto/custom-task-panes.md).  
   
-## 请参阅  
- [在运行时访问功能区](../vsto/accessing-the-ribbon-at-run-time.md)   
- [功能区概述](../vsto/ribbon-overview.md)   
- [语言集成查询 \(LINQ\)](http://msdn.microsoft.com/library/a73c4aec-5d15-4e98-b962-1274021ea93d)   
- [如何：开始自定义功能区](../vsto/how-to-get-started-customizing-the-ribbon.md)   
- [功能区设计器](../vsto/ribbon-designer.md)   
- [演练：使用功能区设计器创建自定义选项卡](../vsto/walkthrough-creating-a-custom-tab-by-using-the-ribbon-designer.md)   
- [功能区对象模型概述](../vsto/ribbon-object-model-overview.md)   
- [自定义 Outlook 功能区](../vsto/customizing-a-ribbon-for-outlook.md)   
- [如何：更改功能区上选项卡的位置](../vsto/how-to-change-the-position-of-a-tab-on-the-ribbon.md)   
- [如何：自定义内置选项卡](../vsto/how-to-customize-a-built-in-tab.md)   
- [如何：向 Backstage 视图添加控件](../vsto/how-to-add-controls-to-the-backstage-view.md)   
- [如何：将功能区从功能区设计器导出为功能区 XML](../vsto/how-to-export-a-ribbon-from-the-ribbon-designer-to-ribbon-xml.md)   
- [如何：显示外接程序用户界面错误](../vsto/how-to-show-add-in-user-interface-errors.md)  
+## <a name="see-also"></a>See Also  
+ [Accessing the Ribbon at Run Time](../vsto/accessing-the-ribbon-at-run-time.md)   
+ [Ribbon Overview](../vsto/ribbon-overview.md)   
+ [Language-Integrated Query (LINQ)](/dotnet/csharp/linq/index)   
+ [How to: Get Started Customizing the Ribbon](../vsto/how-to-get-started-customizing-the-ribbon.md)   
+ [Ribbon Designer](../vsto/ribbon-designer.md)   
+ [Walkthrough: Creating a Custom Tab by Using the Ribbon Designer](../vsto/walkthrough-creating-a-custom-tab-by-using-the-ribbon-designer.md)   
+ [Ribbon Object Model Overview](../vsto/ribbon-object-model-overview.md)   
+ [Customizing a Ribbon for Outlook](../vsto/customizing-a-ribbon-for-outlook.md)   
+ [How to: Change the Position of a Tab on the Ribbon](../vsto/how-to-change-the-position-of-a-tab-on-the-ribbon.md)   
+ [How to: Customize a Built-in Tab](../vsto/how-to-customize-a-built-in-tab.md)   
+ [How to: Add Controls to the Backstage View](../vsto/how-to-add-controls-to-the-backstage-view.md)   
+ [How to: Export a Ribbon from the Ribbon Designer to Ribbon XML](../vsto/how-to-export-a-ribbon-from-the-ribbon-designer-to-ribbon-xml.md)   
+ [How to: Show Add-in User Interface Errors](../vsto/how-to-show-add-in-user-interface-errors.md)  
   
   

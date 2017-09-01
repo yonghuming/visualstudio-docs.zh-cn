@@ -1,5 +1,5 @@
 ---
-title: "使用自动化模型 |Microsoft 文档"
+title: Using the Automation Model | Microsoft Docs
 ms.custom: 
 ms.date: 11/04/2016
 ms.reviewer: 
@@ -28,26 +28,27 @@ translation.priority.mt:
 - tr-tr
 - zh-cn
 - zh-tw
-translationtype: Machine Translation
-ms.sourcegitcommit: 5658ecf52637a38bc3c2a5ad9e85b2edebf7d445
-ms.openlocfilehash: 5655168e868e34befe83521a17b124c58be816b7
-ms.lasthandoff: 02/22/2017
+ms.translationtype: MT
+ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
+ms.openlocfilehash: 82a9c2068bdd3e234bcc53ffa870ca289289d690
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/28/2017
 
 ---
-# <a name="using-the-automation-model"></a>使用自动化模型
-你的 VSPackage 连接到自动化后，您可以通过调用获取的属性和方法<xref:EnvDTE.DTEClass.GetObject%2A>方法<xref:EnvDTE._DTE>对象，并传递一个字符串，表示要检索的对象。</xref:EnvDTE._DTE> </xref:EnvDTE.DTEClass.GetObject%2A>  
+# <a name="using-the-automation-model"></a>Using the Automation Model
+After you have connected your VSPackage to automation, you can obtain the properties and methods by calling the <xref:EnvDTE.DTEClass.GetObject%2A> method on the <xref:EnvDTE._DTE> object, passing a string representing the object you wish to retrieve.  
   
-## <a name="obtaining-project-objects"></a>获取项目对象  
- 以下是两个代码示例演示如何自动化使用者获取项目的自动化对象。 有关如何获取 DTE 对象的信息，请参阅[如何︰ 获取对 DTE 和 DTE2 对象的引用](http://msdn.microsoft.com/Library/c92e3c8e-82e6-4a67-85da-e43c50ffd8e4)。  
+## <a name="obtaining-project-objects"></a>Obtaining Project Objects  
+ The following are two code examples that show how an automation consumer obtains the project automation objects. For information about how to get the DTE object, see [How to: Get References to the DTE and DTE2 Objects](http://msdn.microsoft.com/Library/c92e3c8e-82e6-4a67-85da-e43c50ffd8e4).  
   
-```vb#  
+```vb  
 Sub DoAutomation()  
     Dim MyProjects As Projects  
     MyProjects = DTE.GetObject("AcmeProject")  
 End Sub  
 ```  
   
-```cpp#  
+```cpp  
 void DoAutomation(void)  
 {  
   CComQIPtr<Projects> pMyPkg; // Use an IDispatch-derived object type.  
@@ -60,11 +61,11 @@ void DoAutomation(void)
   
 ```  
   
- 此时，您可以使用特定 VSPackage 下移层次结构模型中的标准项目对象。  
+ At this point, you can use the standard project objects that are part of a specific VSPackage to move down the hierarchy model.  
   
- 下面的代码示例演示如何获取自定义项目类型的属性的自定义对象。:  
+ The following code example shows how to get a custom object that is a property of a custom project type.:  
   
-```vb#  
+```vb  
 Dim MyPrj As Project  
 Dim MyPrjItem As ProjectItem  
 Dim objMyObject as MyExtendedObject  
@@ -75,9 +76,9 @@ objMyObject = MyPrj.Object 'You call .Object to get to special Project
 objMyObject.MySpecialMethodOrProperty  
 ```  
   
- 下面的代码列出所有中的属性的名称[!INCLUDE[vsprvs](../../code-quality/includes/vsprvs_md.md)]环境**常规**选项**工具**菜单︰  
+ The following code lists the names of all of the properties in the [!INCLUDE[vsprvs](../../code-quality/includes/vsprvs_md.md)] environment **General** option on the **Tools** menu:  
   
-```vb#  
+```vb  
 dim objDTE  
 dim objEnv  
 set objDTE = CreateObject("VisualStudio.DTE")  
@@ -88,5 +89,5 @@ Next
   
 ```  
   
-## <a name="see-also"></a>另请参阅  
- <xref:EnvDTE.DTEClass.GetObject%2A></xref:EnvDTE.DTEClass.GetObject%2A>
+## <a name="see-also"></a>See Also  
+ <xref:EnvDTE.DTEClass.GetObject%2A>

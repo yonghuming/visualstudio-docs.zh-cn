@@ -1,51 +1,68 @@
 ---
-title: "如何：发布具有特定区域设置的项目 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-deployment"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-dev_langs: 
-  - "VB"
-  - "CSharp"
-  - "C++"
-helpviewer_keywords: 
-  - "部署应用程序 [ClickOnce], 已本地化的项目"
-  - "区域设置, 部署"
-  - "区域设置, 发布"
-  - "宏, 部署方式"
-  - "宏, 发布方式"
-  - "发布已本地化的项目"
-  - "发布, 已本地化的项目"
+title: 'How to: Publish a Project That Has a Specific Locale | Microsoft Docs'
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-deployment
+ms.tgt_pltfrm: 
+ms.topic: article
+dev_langs:
+- VB
+- CSharp
+- C++
+helpviewer_keywords:
+- publishing, localized projects
+- locales, publishing for
+- deploying applications [ClickOnce], localized projects
+- locales, deploying for
+- publishing localized projects
+- macros, deploying with
+- macros, publishing with
 ms.assetid: 7c4cd83a-f985-4c85-9022-fadb5dbd2b39
 caps.latest.revision: 11
-author: "stevehoag"
-ms.author: "shoag"
-manager: "wpickett"
-caps.handback.revision: 11
----
-# 如何：发布具有特定区域设置的项目
-[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
+author: stevehoag
+ms.author: shoag
+manager: wpickett
+translation.priority.ht:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+ms.translationtype: HT
+ms.sourcegitcommit: ff8ecec19f8cab04ac2190f9a4a995766f1750bf
+ms.openlocfilehash: cd6d798da4699116a75a486e2aaeac5ff17e577b
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/24/2017
 
-一个应用程序包含多个具有不同区域设置的组件的现象并不少见。  在本方案中，你将创建一个包含若干个项目的解决方案，然后为每个区域设置发布不同的项目。  本过程演示如何使用宏，用“en”区域设置发布解决方案中第一个项目。  如果希望使用“en”之外的其他区域设置来尝试此过程，请务必将宏中的 `localeString` 设置为与所用区域设置（例如，“de”或“de\-DE”）相匹配的值。  
+---
+# <a name="how-to-publish-a-project-that-has-a-specific-locale"></a>How to: Publish a Project That Has a Specific Locale
+It is not uncommon for an application to contain components that have different locales. In this scenario, you would create a solution that has several projects, and then publish separate projects for each locale. This procedure shows how to use a macro to publish the first project in a solution by using the 'en' locale. If you want to try this procedure with a locale other than 'en', make sure to set `localeString` in the macro to match the locale that you are using (for example, 'de' or 'de-DE').  
   
 > [!NOTE]
->  在使用此宏时，“发布位置”应当是一个有效的 URL 或通用命名约定 \(UNC\) 共享。  此外，还必须在你的计算机上安装 Internet 信息服务 \(IIS\)。  若要安装 IIS，请在**“开始”**菜单上单击**“控制面板”**。  双击**“添加或删除程序”**。  在**“添加或删除程序”**中单击**“添加\/删除 Windows 组件”**。  在**“Windows 组件向导”**中，从**“组件”**列表中选中**“Internet 信息服务\(IIS\)”**复选框。  然后单击**“完成”**以关闭向导。  
+>  When you use this macro, the Publish Location should be a valid URL or Universal Naming Convention (UNC) share. Also, Internet Information Services (IIS) has to be installed on your computer. To install IIS, on the **Start** menu, click **Control Panel**. Double-click **Add or Remove Programs**. In **Add or Remove Programs**, click **Add/Remove Windows Components**. In the **Windows Components Wizard**, select the **Internet Information Services (IIS)** check box in the **Components** list. Then click **Finish** to close the wizard.  
   
-### 创建发布宏  
+### <a name="to-create-the-publishing-macro"></a>To create the publishing macro  
   
-1.  若要打开 Macro 资源管理器，请在**“工具”**菜单上指向**“宏”**，然后单击**“Macro 资源管理器”**。  
+1.  To open the Macro Explorer, on the **Tools** menu, point to **Macros**, and then click **Macro Explorer**.  
   
-2.  创建一个新的宏模块。  在 Macro 资源管理器中选择**“MyMacros”**。  在**“工具”**菜单上指向**“宏”**，然后单击**“新建宏模块”**。  将该模块命名为 PublishSpecificCulture。  
+2.  Create a new macro module. In the Macro Explorer, select **MyMacros**. On the **Tools** menu, point to **Macros**, and then click **New Macro Module**. Name the module **PublishSpecificCulture**.  
   
-3.  在 Macro 资源管理器中展开**“MyMacros”**节点，然后通过双击**“PublishAllProjects”**模块打开该模块（或从**“工具”**菜单中指向**“宏”**，然后单击**“宏 IDE”**）。  
+3.  In the Macro Explorer, expand the **MyMacros** node, and then open the **PublishAllProjects** module by double-clicking it (or, from the **Tools** menu, point to **Macros**, and then click **Macros IDE**).  
   
-4.  在“宏 IDE”中，将以下代码添加到该模块中 `Import` 语句的后面：  
+4.  In the Macros IDE, add the following code to the module, after the `Import` statements:  
   
-    ```vb#  
+    ```vb  
     Module PublishSpecificCulture  
         Sub PublishProjectFirstProjectWithEnLocale()  
             ' Note: You should publish projects by using the IDE at least once  
@@ -137,34 +154,34 @@ caps.handback.revision: 11
     End Module  
     ```  
   
-5.  关闭“宏 IDE”。  焦点将返回到 Visual Studio。  
+5.  Close the Macros IDE. The focus will return to Visual Studio.  
   
-### 发布针对特定区域设置的项目  
+### <a name="to-publish-a-project-for-a-specific-locale"></a>To publish a project for a specific locale  
   
-1.  若要创建 Visual Basic Windows 应用程序项目，请在**“文件”**菜单上指向**“新建”**，然后单击**“项目”**。  
+1.  To create a Visual Basic Windows Application project, on the **File** menu, point to **New**, and then click **Project**.  
   
-2.  在**“新建项目”**对话框中，从**“Visual Basic”**节点选择**“Windows 应用程序”**。  将该项目命名为 PublishLocales。  
+2.  In the **New Project** dialog box, select **Windows Application** from the **Visual Basic** node. Name the project **PublishLocales**.  
   
-3.  单击 Form1。  在**“Design”**下的**“属性”**窗口中，将**“Language”**属性从**“\(Default\)”**更改为**“English”**。  将窗体的**“Text”**属性更改为“MyForm”。  
+3.  Click Form1. In the **Properties** window, under **Design**, change the **Language** property from **(Default)** to **English**. Change the **Text** property of the form to **MyForm**.  
   
-     请注意，只在需要时才会创建本地化的资源 DLL。  例如，在指定了新的区域设置后，如果更改窗体的文本或它的某个控件，便会创建本地化的资源 DLL。  
+     Note that the localized resource DLLs are not created until they are needed. For example, they are created when you change the text of the form or one of its controls after you have specified the new locale.  
   
-4.  使用 Visual Studio IDE 发布 PublishLocales。  
+4.  Publish PublishLocales by using the Visual Studio IDE.  
   
-     在**“解决方案资源管理器”**中选择 PublishLocales。  在**“项目”**菜单上选择**“属性”**。  在“项目设计器”中的**“发布”**页上指定发布位置 http:\/\/localhost\/PublishLocales，然后单击**“立即发布”**。  
+     In **Solution Explorer**, select PublishLocales. On the **Project** menu, select **Properties**. In the Project Designer, on the **Publish** page, specify a publishing location of **http://localhost/PublishLocales**, and then click **Publish Now**.  
   
-     当出现发布网页时，关闭它。  （对于此步骤，你只需发布该项目，而不必安装它。）  
+     When the publish Web page appears, close it. (For this step, you only have to publish the project; you do not have to install it.)  
   
-5.  通过在 Visual Studio 命令提示符窗口中调用宏，再次发布 PublishLocales。  若要查看命令提示符窗口，请从**“视图”**菜单上指向**“其他窗口”**，然后单击**“命令窗口”**，或按 Ctrl\+Alt\+A。  在命令提示符窗口中键入 `macros`；自动完成功能将提供可用宏的列表。  选择以下宏并按 Enter：  
+5.  Publish PublishLocales again by invoking the macro in the Visual Studio Command Prompt window. To view the Command Prompt window, on the **View** menu, point to **Other Windows** and then click **Command Window**, or press CTRL+ALT+A. In the Command Prompt window, type `macros`; auto-complete will provide a list of available macros. Select the following macro and press ENTER:  
   
      `Macros.MyMacros.PublishSpecificCulture.PublishProjectFirstProjectWithEnLocale`  
   
-6.  当发布过程成功后，它将生成一则消息指出“PublishLocales\\PublishLocales.vbproj 发布成功。  发布语言为‘en’”。在消息框中单击**“确定”**。  当发布网页出现时，单击**“安装”**。  
+6.  When the publish process succeeds, it will generate a message that says "Publish succeeded for PublishLocales\PublishLocales.vbproj. Publish language was 'en'." Click **OK** in the message box. When the publish Web page appears, click **Install**.  
   
-7.  查看 C:\\Inetpub\\wwwroot\\PublishLocales\\en。  除了已本地化的资源 DLL 外，你还应该看到已安装的文件，例如，清单、setup.exe 和发布网页文件。  （默认情况下，ClickOnce 会为 EXE 和 DLL 追加 .deploy 扩展名；完成部署后，可以移除此扩展名。）  
+7.  Look in C:\Inetpub\wwwroot\PublishLocales\en. You should see the installed files such as the manifests, setup.exe, and the publish Web page file, in addition to the localized resource DLL. (By default ClickOnce appends a .deploy extension on EXEs and DLLs; you can remove this extension after deployment.)  
   
-## 请参阅  
- [发布 ClickOnce 应用程序](../deployment/publishing-clickonce-applications.md)   
- [Macros Development Environment](http://msdn.microsoft.com/zh-cn/d23105d8-34fe-4ad9-8278-fae2c660aeac)   
- [Macro Explorer Window](http://msdn.microsoft.com/zh-cn/762169e6-f83f-44b4-bffa-d0f107cae9a3)   
- [How to: Edit and Programmatically Create Macros](http://msdn.microsoft.com/zh-cn/6716f820-1feb-48ad-a718-27eb6b473c5a)
+## <a name="see-also"></a>See Also  
+ [Publishing ClickOnce Applications](../deployment/publishing-clickonce-applications.md)   
+ [Macros Development Environment](http://msdn.microsoft.com/en-us/d23105d8-34fe-4ad9-8278-fae2c660aeac)   
+ [Macro Explorer Window](http://msdn.microsoft.com/en-us/762169e6-f83f-44b4-bffa-d0f107cae9a3)   
+ [How to: Edit and Programmatically Create Macros](http://msdn.microsoft.com/en-us/6716f820-1feb-48ad-a718-27eb6b473c5a)

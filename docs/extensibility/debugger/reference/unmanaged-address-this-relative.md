@@ -1,5 +1,5 @@
 ---
-title: "UNMANAGED_ADDRESS_THIS_RELATIVE |Microsoft 文档"
+title: UNMANAGED_ADDRESS_THIS_RELATIVE | Microsoft Docs
 ms.custom: 
 ms.date: 11/04/2016
 ms.reviewer: 
@@ -30,16 +30,17 @@ translation.priority.mt:
 - tr-tr
 - zh-cn
 - zh-tw
-translationtype: Machine Translation
-ms.sourcegitcommit: 5db97d19b1b823388a465bba15d057b30ff0b3ce
-ms.openlocfilehash: b5b889a5901883e6dfe2f27723d5fd7a0085d1d5
-ms.lasthandoff: 02/22/2017
+ms.translationtype: MT
+ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
+ms.openlocfilehash: 2412503a57f42b879a7e4226acf81397c4a9a56a
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="unmanagedaddressthisrelative"></a>UNMANAGED_ADDRESS_THIS_RELATIVE
-此结构表示的地址是相对于`this`指针 (`Me`在 Visual Basic 中)。  
+This structure represents an address that is relative to a `this` pointer (`Me` in Visual Basic).  
   
-## <a name="syntax"></a>语法  
+## <a name="syntax"></a>Syntax  
   
 ```cpp  
 typedef struct _tagUNMANAGED_THIS_RELATIVE {  
@@ -49,7 +50,7 @@ typedef struct _tagUNMANAGED_THIS_RELATIVE {
 } UNMANAGED_ADDRESS_THIS_RELATIVE;  
 ```  
   
-```c#  
+```csharp  
 public struct UNMANAGED_THIS_RELATIVE {  
    public uint dwOffset;  
    public uint dwBitOffset;  
@@ -57,26 +58,26 @@ public struct UNMANAGED_THIS_RELATIVE {
 }  
 ```  
   
-## <a name="terms"></a>术语  
+## <a name="terms"></a>Terms  
  dwOffset  
- 字节偏移量从基本位置 （例如类 vtable 开始）。  
+ Byte offset from a base position (for example, start of a class vtable).  
   
  dwBitOffset  
- 基位置中的位偏移量 (始终为 0 除非引用是位域)。  
+ Offset in bits from a base position (always 0 unless referring to a bit field).  
   
  dwBitLength  
- 表示的地址的比特数 (始终为 0 除非引用是位域)。  
+ Number of bits representing the address (always 0 unless referring to a bit field).  
   
-## <a name="remarks"></a>备注  
- 此结构是中的联合的一部分[DEBUG_ADDRESS_UNION](../../../extensibility/debugger/reference/debug-address-union.md)结构时`dwKind`字段`DEBUG_ADDRESS_UNION`结构设置为`ADDRESS_KIND_UNMANAGED_THIS_RELATIVE`(取值范围为[ADDRESS_KIND](../../../extensibility/debugger/reference/address-kind.md)枚举)。  
+## <a name="remarks"></a>Remarks  
+ This structure is part of the union in the [DEBUG_ADDRESS_UNION](../../../extensibility/debugger/reference/debug-address-union.md) structure when the `dwKind` field of the `DEBUG_ADDRESS_UNION` structure is set to `ADDRESS_KIND_UNMANAGED_THIS_RELATIVE` (a value from the [ADDRESS_KIND](../../../extensibility/debugger/reference/address-kind.md) enumeration).  
   
-## <a name="requirements"></a>要求  
- 标头︰ sh.h  
+## <a name="requirements"></a>Requirements  
+ Header: sh.h  
   
  Namespace: Microsoft.VisualStudio.Debugger.Interop  
   
- 程序集︰ Microsoft.VisualStudio.Debugger.Interop.dll  
+ Assembly: Microsoft.VisualStudio.Debugger.Interop.dll  
   
-## <a name="see-also"></a>另请参阅  
- [结构和联合](../../../extensibility/debugger/reference/structures-and-unions.md)   
+## <a name="see-also"></a>See Also  
+ [Structures and Unions](../../../extensibility/debugger/reference/structures-and-unions.md)   
  [DEBUG_ADDRESS_UNION](../../../extensibility/debugger/reference/debug-address-union.md)

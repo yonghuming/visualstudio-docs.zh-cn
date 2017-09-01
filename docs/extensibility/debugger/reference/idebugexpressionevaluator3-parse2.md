@@ -1,89 +1,106 @@
 ---
-title: "IDebugExpressionEvaluator3::Parse2 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-helpviewer_keywords: 
-  - "IDebugExpressionEvaluator3::Parse2"
+title: IDebugExpressionEvaluator3::Parse2 | Microsoft Docs
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+helpviewer_keywords:
+- IDebugExpressionEvaluator3::Parse2
 ms.assetid: 78099628-d600-4f76-b7c8-ee07c864af1e
 caps.latest.revision: 11
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 11
----
-# IDebugExpressionEvaluator3::Parse2
-[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
+ms.author: gregvanl
+manager: ghogen
+translation.priority.mt:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+ms.translationtype: MT
+ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
+ms.openlocfilehash: 5dec9c5ee5e58a7e9c4d4264a93597794c5beedc
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/28/2017
 
-将表达式字符串转换为给定的一个分析的表达式符号提供程序和计算的帧的地址。  
+---
+# <a name="idebugexpressionevaluator3parse2"></a>IDebugExpressionEvaluator3::Parse2
+Converts an expression string to a parsed expression given the symbol provider and the address of the evaluating frame.  
   
-## 语法  
+## <a name="syntax"></a>Syntax  
   
-```cpp#  
+```cpp  
 HRESULT Parse2 (  
-   LPCOLESTR                upstrExpression,  
-   PARSEFLAGS               dwFlags,  
-   UINT                     nRadix,  
-   IDebugSymbolProvider*    pSymbolProvider,  
-   IDebugAddress*           pAddress,  
-   BSTR*                    pbstrError,  
-   UINT*                    pichError,  
-   IDebugParsedExpression** ppParsedExpression  
+   LPCOLESTR                upstrExpression,  
+   PARSEFLAGS               dwFlags,  
+   UINT                     nRadix,  
+   IDebugSymbolProvider*    pSymbolProvider,  
+   IDebugAddress*           pAddress,  
+   BSTR*                    pbstrError,  
+   UINT*                    pichError,  
+   IDebugParsedExpression** ppParsedExpression  
 );  
 ```  
   
-```c#  
+```csharp  
 HRESULT Parse2 (  
-   string                     upstrExpression,  
-   enum_PARSEFLAGS            dwFlags,  
-   uint                       nRadix,  
-   IDebugSymbolProvider       pSymbolProvider,  
-   IDebugAddress              pAddress,  
-   out string                 pbstrError,  
-   out uint                   pichError,  
-   out IDebugParsedExpression ppParsedExpression  
+   string                     upstrExpression,  
+   enum_PARSEFLAGS            dwFlags,  
+   uint                       nRadix,  
+   IDebugSymbolProvider       pSymbolProvider,  
+   IDebugAddress              pAddress,  
+   out string                 pbstrError,  
+   out uint                   pichError,  
+   out IDebugParsedExpression ppParsedExpression  
 );  
 ```  
   
-#### 参数  
+#### <a name="parameters"></a>Parameters  
  `upstrExpression`  
- \[in\] 要分析的字符串表达式。  
+ [in] The expression string to be parsed.  
   
  `dwFlags`  
- \[in\] 的 [PARSEFLAGS](../../../extensibility/debugger/reference/parseflags.md) 常数的集合确定表达式如何分析。  
+ [in] A collection of [PARSEFLAGS](../../../extensibility/debugger/reference/parseflags.md) constants that determine how the expression is to be parsed.  
   
  `nRadix`  
- \[in\] 要使用的基数解释任何数字信息。  
+ [in] Radix to be used to interpret any numerical information.  
   
  `pSymbolProvider`  
- \[in\] 符号提供程序的接口。  
+ [in] Interface of the symbol provider.  
   
  `pAddress`  
- \[in\] 计算帧的地址。  
+ [in] Address of the evaluating frame.  
   
  `pbstrError`  
- \[out\] 返回错误作为可读的文本。  
+ [out] Returns the error as human-readable text.  
   
  `pichError`  
- \[out\] 返回错误的字符位置在表达式字符串。  
+ [out] Returns the character position of the start of the error in the expression string.  
   
  `ppParsedExpression`  
- \[out\] 返回在 [IDebugParsedExpression](../../../extensibility/debugger/reference/idebugparsedexpression.md) 对象进行分析的表达式。  
+ [out] Returns the parsed expression in an [IDebugParsedExpression](../../../extensibility/debugger/reference/idebugparsedexpression.md) object.  
   
-## 返回值  
- 如果成功，则返回; `S_OK`否则，返回错误代码。  
+## <a name="return-value"></a>Return Value  
+ If successful, returns `S_OK`; otherwise, returns an error code.  
   
-## 备注  
- 此方法生成的分析的表达式，而不是实际值。  一个分析的表达式准备进行计算，也就是说，转换为值。  
+## <a name="remarks"></a>Remarks  
+ This method produces a parsed expression, not an actual value. A parsed expression is ready to be evaluated, that is, converted to a value.  
   
-## 示例  
- 下面的示例演示如何执行显示 [IDebugExpressionEvaluator3](../../../extensibility/debugger/reference/idebugexpressionevaluator3.md) 接口的 **CEE** 对象的方法。  
+## <a name="example"></a>Example  
+ The following example shows how to implement this method for a **CEE** object that exposes the [IDebugExpressionEvaluator3](../../../extensibility/debugger/reference/idebugexpressionevaluator3.md) interface.  
   
-```cpp#  
+```cpp  
 HRESULT CEE::Parse2 ( LPCOLESTR in_szExprText,  
   PARSEFLAGS in_FLAGS,  
   UINT in_RADIX,  
@@ -135,5 +152,5 @@ HRESULT CEE::Parse2 ( LPCOLESTR in_szExprText,
 }  
 ```  
   
-## 请参阅  
+## <a name="see-also"></a>See Also  
  [IDebugExpressionEvaluator3](../../../extensibility/debugger/reference/idebugexpressionevaluator3.md)

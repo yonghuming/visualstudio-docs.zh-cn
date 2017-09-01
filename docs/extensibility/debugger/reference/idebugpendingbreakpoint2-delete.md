@@ -1,48 +1,65 @@
 ---
-title: "IDebugPendingBreakpoint2::Delete | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "IDebugPendingBreakpoint2::Delete"
-helpviewer_keywords: 
-  - "IDebugPendingBreakpoint2::Delete 方法"
-  - "Delete 方法"
+title: IDebugPendingBreakpoint2::Delete | Microsoft Docs
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords:
+- IDebugPendingBreakpoint2::Delete
+helpviewer_keywords:
+- IDebugPendingBreakpoint2::Delete method
+- Delete method
 ms.assetid: 4cb5ed81-6f0c-41ce-a770-5adb6b4bf5d9
 caps.latest.revision: 9
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 9
----
-# IDebugPendingBreakpoint2::Delete
-[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
+ms.author: gregvanl
+manager: ghogen
+translation.priority.mt:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+ms.translationtype: MT
+ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
+ms.openlocfilehash: 14f767b209a84dfe730b9738794706d4186fabb6
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/28/2017
 
-从中删除绑定的此挂起的断点和所有断点。  
+---
+# <a name="idebugpendingbreakpoint2delete"></a>IDebugPendingBreakpoint2::Delete
+Deletes this pending breakpoint and all breakpoints bound from it.  
   
-## 语法  
+## <a name="syntax"></a>Syntax  
   
-```cpp#  
-HRESULT Delete(   
-   void   
+```cpp  
+HRESULT Delete(   
+   void   
 );  
 ```  
   
-```c#  
+```csharp  
 int Delete();  
 ```  
   
-## 返回值  
- 如果成功，则返回; `S_OK`否则，返回错误代码。  ，如果断点删除，返回 `E_BP_DELETED` 。  
+## <a name="return-value"></a>Return Value  
+ If successful, returns `S_OK`; otherwise, returns an error code. Returns `E_BP_DELETED` if the breakpoint has been deleted.  
   
-## 示例  
- 下面的示例演示如何执行简单的 `CPendingBreakpoint` 对象的方法实现 [IDebugPendingBreakpoint2](../../../extensibility/debugger/reference/idebugpendingbreakpoint2.md) 接口。  
+## <a name="example"></a>Example  
+ The following example shows how to implement this method for a simple `CPendingBreakpoint` object that implements the [IDebugPendingBreakpoint2](../../../extensibility/debugger/reference/idebugpendingbreakpoint2.md) interface.  
   
-```cpp#  
+```cpp  
 HRESULT CPendingBreakpoint::Delete(void)    
 {    
    HRESULT hr;    
@@ -82,5 +99,5 @@ HRESULT CPendingBreakpoint::Delete(void)
 }    
 ```  
   
-## 请参阅  
+## <a name="see-also"></a>See Also  
  [IDebugPendingBreakpoint2](../../../extensibility/debugger/reference/idebugpendingbreakpoint2.md)

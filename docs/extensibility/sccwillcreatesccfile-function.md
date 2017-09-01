@@ -1,64 +1,81 @@
 ---
-title: "SccWillCreateSccFile 函数 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "SccWillCreateSccFile"
-helpviewer_keywords: 
-  - "SccWillCreateSccFile 函数"
+title: SccWillCreateSccFile Function | Microsoft Docs
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords:
+- SccWillCreateSccFile
+helpviewer_keywords:
+- SccWillCreateSccFile function
 ms.assetid: 0d7542f0-4351-41b3-b24c-960ab99c05a1
 caps.latest.revision: 12
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 12
----
-# SccWillCreateSccFile 函数
-[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
+ms.author: gregvanl
+manager: ghogen
+translation.priority.mt:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+ms.translationtype: MT
+ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
+ms.openlocfilehash: d4b84f25d02710584913e7ade1fb673d1118fc4f
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/28/2017
 
-此函数将确定源代码管理插件是否支持 MSSCCPRJ 的创建。每个给定的文件的源代码管理文件。  
+---
+# <a name="sccwillcreatesccfile-function"></a>SccWillCreateSccFile Function
+This function determines whether the source control plug-in supports the creation of the MSSCCPRJ.SCC file for each of the given files.  
   
-## 语法  
+## <a name="syntax"></a>Syntax  
   
-```cpp#  
+```cpp  
 SCCRTN SccWillCreateSccFile(  
-   LPVOID  pContext,  
-   LONG    nFiles,  
-   LPCSTR* lpFileNames,  
-   LPBOOL  pbSccFiles  
+   LPVOID  pContext,  
+   LONG    nFiles,  
+   LPCSTR* lpFileNames,  
+   LPBOOL  pbSccFiles  
 );  
 ```  
   
-#### 参数  
+#### <a name="parameters"></a>Parameters  
  pContext  
- \[\] in源控制插件上下文指针。  
+ [in] The source control plug-in context pointer.  
   
  nFiles  
- \[\] in文件名称中包含数目 `lpFileNames` 数组的长度以及 `pbSccFiles` 数组。  
+ [in] The number of file names included in the `lpFileNames` array as well as the length of the `pbSccFiles` array.  
   
  lpFileNames  
- \[\] in若要检查的完全限定的文件名称的数组 \(数组必须由调用方已分配\)。  
+ [in] An array of fully qualified file names to check (array must be allocated by caller).  
   
  pbSccFiles  
- \[in、 out\]要在其中存储结果的数组。  
+ [in, out] Array in which to store the results.  
   
-## 返回值  
- 此函数的源代码控制插件实现应返回下列值之一:  
+## <a name="return-value"></a>Return Value  
+ The source control plug-in implementation of this function is expected to return one of the following values:  
   
-|值|描述|  
-|-------|--------|  
-|SCC\_OK|成功。|  
-|SCC\_E\_INVALIDFILEPATH|一个数组中的路径无效。|  
-|SCC\_E\_NONSPECIFICERROR|非特定故障。|  
+|Value|Description|  
+|-----------|-----------------|  
+|SCC_OK|Success.|  
+|SCC_E_INVALIDFILEPATH|One of the paths in the array is invalid.|  
+|SCC_E_NONSPECIFICERROR|Nonspecific failure.|  
   
-## 备注  
- 此函数调用的文件，以确定是否 MSSCCPRJ 中支持的源代码管理插件的列表。源代码管理文件为每个给定文件 \(用于 MSSCCPRJ 的详细信息。源代码管理文件，请参阅 [MSSCCPRJ。源代码管理文件](../extensibility/mssccprj-scc-file.md)\)。 源代码管理插件可以声明它们是否具有创建 MSSCCPRJ 的功能。通过声明的 SCC 文件 `SCC_CAP_SCCFILE` 在初始化过程中。 该插件返回 `TRUE` 或 `FALSE` 每个文件中 `pbSccFiles` 数组指示的给定文件具有 MSSCCPRJ。SCC 的支持。 如果该插件从函数返回成功代码，将遵循返回数组中的值。 在失败时，该数组将被忽略。  
+## <a name="remarks"></a>Remarks  
+ This function is called with a list of files to determine if the source control plug-in provides support in the MSSCCPRJ.SCC file for each of the given files (for more information on the MSSCCPRJ.SCC file, see [MSSCCPRJ.SCC File](../extensibility/mssccprj-scc-file.md)). Source control plug-ins can declare whether they have the capability of creating MSSCCPRJ.SCC files by declaring `SCC_CAP_SCCFILE` during initialization. The plug-in returns `TRUE` or `FALSE` per file in the `pbSccFiles` array to indicate which of the given files have MSSCCPRJ.SCC support. If the plug-in returns a success code from the function, the values in the return array are honored. On failure, the array is ignored.  
   
-## 请参阅  
- [源代码管理插件 API 功能](../extensibility/source-control-plug-in-api-functions.md)   
- [MSSCCPRJ。源代码管理文件](../extensibility/mssccprj-scc-file.md)
+## <a name="see-also"></a>See Also  
+ [Source Control Plug-in API Functions](../extensibility/source-control-plug-in-api-functions.md)   
+ [MSSCCPRJ.SCC File](../extensibility/mssccprj-scc-file.md)

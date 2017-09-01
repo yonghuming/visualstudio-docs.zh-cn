@@ -1,152 +1,148 @@
 ---
-title: "调试 DLL 项目 | Microsoft Docs"
-ms.custom: ""
-ms.date: "12/15/2016"
-ms.prod: "visual-studio-dev14"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-debug"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-dev_langs: 
-  - "FSharp"
-  - "VB"
-  - "CSharp"
-  - "C++"
-helpviewer_keywords: 
-  - "调试 DLL"
-  - "模板，调试 DLL"
-  - "DLL，调试"
-  - "调试 [Visual Studio]，DLL"
+title: Debugging DLL projects | Microsoft Docs
+ms.custom: 
+ms.date: 05/23/2017
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-debug
+ms.tgt_pltfrm: 
+ms.topic: article
+dev_langs:
+- CSharp
+- VB
+- FSharp
+- C++
+helpviewer_keywords:
+- debugging DLLs
+- templates, debugging DLLs
+- DLLs, debugging
+- debugging [Visual Studio], DLLs
 ms.assetid: 433cab30-d191-460b-96f7-90d2530ca243
 caps.latest.revision: 38
-caps.handback.revision: 38
-author: "mikejo5000"
-ms.author: "mikejo"
-manager: "ghogen"
----
-# 调试 DLL 项目
-[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
+author: mikejo5000
+ms.author: mikejo
+manager: ghogen
+translation.priority.ht:
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- ru-ru
+- zh-cn
+- zh-tw
+translation.priority.mt:
+- cs-cz
+- pl-pl
+- pt-br
+- tr-tr
+ms.translationtype: HT
+ms.sourcegitcommit: 9e6c28d42bec272c6fd6107b4baf0109ff29197e
+ms.openlocfilehash: cee800302a1018b7d364f301bf5756e23d4c39e2
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/22/2017
 
-以下模板可创建 DLL：  
+---
+# <a name="debugging-dll-projects-from-visual-studio"></a>Debugging DLL projects from Visual Studio
+The following Visual Studio templates create DLLs:  
   
--   （C\+\+、C\# 和 Visual Basic）：类库  
+-   (C++, C#, and Visual Basic) Class Library   
+
+-   (C++): Win32 Console DLL project
   
--   （C\+\+、C\# 和 Visual Basic）：Windows 窗体控件库  
+     For more information, see [MFC Debugging Techniques](../debugger/mfc-debugging-techniques.md).
+
+-   (C++, C#, and Visual Basic): Windows Forms Control Library
   
-     调试 Windows 控件库类似于调试类库项目。 大多数情况下将从另一个项目中调用 Windows 控件。 调试调用项目时，可单步执行 Windows 控件的代码，并设置断点，然后执行其他调试操作。 有关详细信息，请参阅 [Windows 窗体控件](../Topic/Windows%20Forms%20Controls.md)。  
+     Debugging a Windows Forms Control Library is similar to debugging a Class Library project. In most cases, you will call the Windows control from another project. When you debug the calling project, you can step into the code of your Windows control, set breakpoints, and perform other debugging operations. For more information, see [Windows Forms Controls](/dotnet/framework/winforms/controls/index).  
+
   
--   （C\# 和 Visual Basic）：Web 控件库  
+##  <a name="vxtskdebuggingdllprojectsbuildingadebugversion"></a> Building a debug version  
+ No matter how you start debugging, make sure that you build the Debug version of the DLL first and make sure that the Debug version is in the location where the application expects to find it. This may seem obvious, but if you forget this step, the application might find a different version of the DLL and load it. The program will then continue to run, while you wonder why your breakpoint was never hit. When you are debugging, you can verify which DLLs your program has loaded by opening the debugger's **Modules** window. The **Modules** window lists each DLL or EXE loaded in the process you are debugging. For more information, see [How to: Use the Modules Window](../debugger/how-to-use-the-modules-window.md).  
+ For the debugger to attach to code written in C++, the code must emit `DebuggableAttribute`. You can add this to your code automatically by linking with the [/ASSEMBLYDEBUG](/cpp/build/reference/assemblydebug-add-debuggableattribute) linker option.  
   
-     有关更多信息，请参见[Web 控件库（托管代码）](../debugger/web-control-library-managed-code.md)。  
+##  <a name="vxtskdebuggingdllprojectsmixedmodedebugging"></a> Mixed-Mode debugging  
+ The calling application that calls your DLL can be written in managed code or native code. If your managed DLL is called by native code and you want to debug both, managed and native debuggers must both be enabled. You can select this in the **\<Project> Property Pages** dialog box or window. How you do this depends on whether you start debugging from the DLL project or the calling application project. For more information, see [How to: Debug in Mixed Mode](../debugger/how-to-debug-in-mixed-mode.md).  
   
--   \(C\+\+\)：MFC ActiveX 控件和 MFC 智能设备 ActiveX 控件  
+##  <a name="vxtskdebuggingdllprojectschangingdefaultconfigurations"></a> Changing default configurations  
+ When you create a console application project with the project template, [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] automatically creates required settings for the Debug and Release configurations. If necessary, you can change those settings. For more information, see [Project Settings for a C++ Debug Configuration](../debugger/project-settings-for-a-cpp-debug-configuration.md), [Project Settings for  C# Debug Configurations](../debugger/project-settings-for-csharp-debug-configurations.md), [Project Settings for a Visual Basic Debug Configuration](../debugger/project-settings-for-a-visual-basic-debug-configuration.md), and [How to: Set Debug and Release Configurations](../debugger/how-to-set-debug-and-release-configurations.md).  
   
-     ActiveX 控件是可以通过 Internet 下载到客户端计算机，并在网页上显示和激活的控件。  
+##  <a name="vxtskdebuggingdllprojectswaystodebugthedll"></a> Ways to debug the DLL  
+ Each of the projects in this section creates a DLL. You cannot run a DLL directly; it must be called by an application, usually an EXE. For more information, see [Creating and Managing Visual C++ Projects](/cpp/ide/creating-and-managing-visual-cpp-projects). The calling application might fit any one of the following criteria:  
   
-     ActiveX 控件的调试与其他类型的控件的调试类似，因为这些控件都无法独立运行，而且必须嵌入 HTML 网页中。 有关更多信息，请参见[如何：调试 ActiveX 控件](../debugger/how-to-debug-an-activex-control.md)。  
+-   An application built in another project in the same [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] solution that contains the class library.  
   
--   \(C\+\+\)：MFC 智能设备 DLL  
+-   An existing application already deployed on a test or production computer.  
   
-     有关更多信息，请参见[MFC 调试方法](../debugger/mfc-debugging-techniques.md)。  
+-   Located on the Web and accessed through a URL.  
   
- 本节还包含有关以下主题的信息：  
+-   A Web application that contains a Web page which embeds the DLL.  
   
--   [如何：从 DLL 项目进行调试](../debugger/how-to-debug-from-a-dll-project.md)  
+###  <a name="vxtskdebuggingdllprojectsthecallingapplication"></a> Debugging the calling application  
+To debug a DLL, start by debugging the calling application, typically either an EXE or a Web application. There are several ways to debug it.  
   
--   [如何：在混合模式下调试](../debugger/how-to-debug-in-mixed-mode.md)  
+-   If you have a project for the calling application, you can open that project and start execution from the **Debug** menu. For more information, see [Getting started with the debugger](../debugger/getting-started-with-the-debugger.md).  
   
- 此主题包含以下几节，这几节提供了有关如何准备调试类库的注意事项：  
+-   If the calling application is an existing program already deployed on a test or production computer and is already running you can attach to it. Use this method if the DLL is a control hosted by Internet Explorer, or a control on a Web page. For more information, see [How to: Attach to a Running Process](../debugger/attach-to-running-processes-with-the-visual-studio-debugger.md).  
   
--   [生成调试版本](#vxtskdebuggingdllprojectsbuildingadebugversion)  
+-   You can debug it from the DLL project. For more information, see [How to: Debug from a DLL Project](../debugger/how-to-debug-from-a-dll-project.md).  
   
--   [混合模式调试](#vxtskdebuggingdllprojectsmixedmodedebugging)  
+-   You can debug it from the [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] [Immediate window](#vxtskdebuggingdllprojectstheimmediatewindow). In this case, the **Immediate** window plays the role of the application.  
   
--   [更改默认配置](#vxtskdebuggingdllprojectschangingdefaultconfigurations)  
+Before you start debugging the calling application, you will usually want to set a breakpoint in the class library. For more information, see [Using Breakpoints](../debugger/using-breakpoints.md). When the breakpoint is hit, you can step through the code, observing the action at each line, until you isolate the problem. For more information, see [Navigate code in the debugger](../debugger/navigating-through-code-with-the-debugger.md).
   
--   [调试 DLL 的方法](#vxtskdebuggingdllprojectswaystodebugthedll)  
+###  <a name="vxtskdebuggingdllprojectstheimmediatewindow"></a> The Immediate Window  
+ You can evaluate functions or methods in the DLL without having a calling application. You do design-time debugging and you use the **Immediate** window. To debug in this manner, do the follow these steps while the DLL project is open:  
   
--   [调用应用程序](#vxtskdebuggingdllprojectsthecallingapplication)  
+1.  Open the Debugger **Immediate** window.  
   
--   [网页上的控件](#vxtskdebuggingdllprojectscontrolsonawebpage)  
-  
--   [“即时”窗口](#vxtskdebuggingdllprojectstheimmediatewindow)  
-  
-##  <a name="vxtskdebuggingdllprojectsbuildingadebugversion"></a> 生成调试版本  
- 无论如何启动调试，都请首先确保生成 DLL 的调试版本，并确保该调试版本位于应用程序应该能够找到它的位置。 这似乎很明显，但如果忘记这一步骤，应用程序可能会找到并加载 DLL 的其他版本。 然后程序将继续运行，尽管您会奇怪为什么断点从未被命中。 调试时，可以通过打开调试器的**“模块”**窗口来检查程序已加载的 DLL。**“模块”**窗口列出了所调试进程中加载的每个 DLL 或 EXE。 有关详细信息，请参阅[如何：使用“模块”窗口](../debugger/how-to-use-the-modules-window.md)。  
-  
- 为了使调试器附加到用 C\+\+ 编写的代码，该代码必须发出 `DebuggableAttribute`。 可通过链接 [\/ASSEMBLYDEBUG](/visual-cpp/build/reference/assemblydebug-add-debuggableattribute) 链接器选项将它自动添加到代码中。  
-  
-##  <a name="vxtskdebuggingdllprojectsmixedmodedebugging"></a> 混合模式调试  
- 调用 DLL 的调用应用程序可以用托管代码编写，也可以用本机代码编写。 如果托管 DLL 由本机代码调用，并且您需要调试两者，则必须同时启用托管调试器和本机调试器。 你可以在**“\<项目\>属性页”**对话框或窗口中选择此设置。 具体如何检查取决于是从 DLL 项目中启动调试，还是从调用应用程序项目中启动调试。 有关更多信息，请参见[如何：在混合模式下调试](../debugger/how-to-debug-in-mixed-mode.md)。  
-  
-##  <a name="vxtskdebuggingdllprojectschangingdefaultconfigurations"></a> 更改默认配置  
- 用项目模板创建控制台应用程序项目时，[!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] 将自动为调试和发布配置创建所需的设置。 必要时，可更改这些设置。 有关详细信息，请参阅[C\+\+ 调试配置的项目设置](../debugger/project-settings-for-a-cpp-debug-configuration.md), [C\# 调试配置的项目设置](../debugger/project-settings-for-csharp-debug-configurations.md), [Visual Basic 调试配置的项目设置](../debugger/project-settings-for-a-visual-basic-debug-configuration.md)和[如何：设置调试和发布配置](../debugger/how-to-set-debug-and-release-configurations.md).  
-  
-##  <a name="vxtskdebuggingdllprojectswaystodebugthedll"></a> 调试 DLL 的方法  
- 本节的每个项目都创建一个 DLL。 您无法直接运行 DLL，它必须由应用程序（通常为 EXE）调用。 有关详细信息，请参阅[创建和管理 Visual C\+\+ 项目](/visual-cpp/ide/creating-and-managing-visual-cpp-projects)。 调用应用程序可能满足下列任一条件：  
-  
--   内置在同一 [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] 解决方案中包含类库的另一个项目中的应用程序。  
-  
--   已经部署到测试或生产计算机上的现有应用程序。  
-  
--   位于 Web 上并通过 URL 访问。  
-  
--   包含嵌入了 DLL 的网页的 Web 应用程序。  
-  
-###  <a name="vxtskdebuggingdllprojectsthecallingapplication"></a> 调试调用应用程序  
- 若要调试 DLL，请从调试调用应用程序开始，通常是 EXE 或者 Web 应用程序。 调试方式有许多种。  
-  
--   如果有调用应用程序的项目，则可以打开该项目并从**“调试”**菜单开始执行。 有关详细信息，请参阅[How to: Start Execution](http://msdn.microsoft.com/zh-cn/b0fe0ce5-900e-421f-a4c6-aa44ddae453c)。  
-  
--   如果调用应用程序是已经部署到测试或生产计算机上并已经运行的现有程序，则可以附加到该应用程序上。 如果 DLL 是由 Internet Explorer 承载的控件或网页上的控件，请使用此方法。 有关详细信息，请参阅[How to: Attach to a Running Process](http://msdn.microsoft.com/zh-cn/636d0a52-4bfd-48d2-89ad-d7b9ca4dc4f4)。  
-  
--   您可以从 DLL 项目中调试。 有关详细信息，请参阅[如何：从 DLL 项目进行调试](../debugger/how-to-debug-from-a-dll-project.md)。  
-  
--   可以从 [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)]**“即时”**窗口中进行调试。 在这种情况下，**“即时”**窗口充当应用程序的角色。  
-  
- 在开始调试调用应用程序之前，通常希望在类库中设置一个断点。 有关详细信息，请参阅[Breakpoints and Tracepoints](http://msdn.microsoft.com/zh-cn/fe4eedc1-71aa-4928-962f-0912c334d583)。 命中断点时，可以逐句通过代码，同时观察每行的操作，直到将问题隔离出来。 有关详细信息，请参阅[Code Stepping Overview](http://msdn.microsoft.com/zh-cn/8791dac9-64d1-4bb9-b59e-8d59af1833f9)。  
-  
-###  <a name="vxtskdebuggingdllprojectscontrolsonawebpage"></a> 网页上的控件  
- 若要调试网页控件，请创建嵌入此控件的 [!INCLUDE[vstecasp](../code-quality/includes/vstecasp_md.md)] 页（如果尚不存在这样的页）。 然后在网页代码和控件代码中设置断点。 然后从 [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] 中调用网页。  
-  
- 在开始调试调用应用程序之前，通常需要在 DLL 中设置一个断点。 命中断点时，可以逐句通过代码，同时观察每行的操作，直到将问题隔离出来。 有关详细信息，请参阅[Breakpoints and Tracepoints](http://msdn.microsoft.com/zh-cn/fe4eedc1-71aa-4928-962f-0912c334d583)。  
-  
-###  <a name="vxtskdebuggingdllprojectstheimmediatewindow"></a> “即时”窗口  
- 可以在没有调用应用程序的情况下计算 DLL 中的函数或方法。 可以进行设计时调试并使用**“即时”**窗口。 若要以这种方式进行调试，请在 DLL 项目打开时按照以下步骤操作：  
-  
-1.  打开调试器**“即时”**窗口。  
-  
-2.  若要测试类 `Test` 中名为 `Class1` 的方法，请通过在“即时”窗口中键入以下 C\# 代码来实例化类型为 `Class1` 的对象。 对语法进行以下适当更改后，此托管代码对 Visual Basic 和 C\+\+ 有效：  
+2.  To test a method named `Test` in class `Class1`, instantiate an object of type `Class1` by typing the following C# code in the Immediate window. This managed code works for Visual Basic and C++, with appropriate syntax changes:  
   
     ```  
     Class1 obj = new Class1();  
     ```  
   
-     在 C\# 中，所有名称必须是全限定名称。 而且，任何方法或变量都必须处在调试会话的当前范围和上下文中。  
+     In C#, all names must be fully qualified. In addition, any methods or variables must be in the current scope and context of the debugging session.  
   
-3.  假设 `Test` 带有一个 `int` 参数，使用**“即时”**窗口计算 `Test`：  
+3.  Assuming that `Test` takes one `int` parameter, evaluate `Test` using the **Immediate** window:  
   
     ```  
     ?obj.Test(10)  
     ```  
   
-     结果将打印在**“即时”**窗口中。  
+     The result will be printed in the **Immediate** window.  
   
-4.  您可以继续调试 `Test`，方法为在其中设置断点然后再次计算函数：  
+4.  You can continue to debug `Test` by placing a breakpoint inside it and then evaluating the function again:  
   
     ```  
     ?obj.Test(10);  
     ```  
   
-     断点将被命中，然后您将可以逐步调试 `Test`。 当执行离开 `Test` 后，调试器将返回设计模式。  
+     The breakpoint will be hit and you will be able to step through `Test`. After execution has left `Test`, the Debugger will be back in Design mode.
+
+## <a name="vxtskdebuggingdllprojectsexternal"></a> Debug an external DLL from a C++ project
+
+If you are debugging a DLL external to your project, the debugging features available (such as stepping through code) will depend on the [debug configuration of the DLL](#vxtskdebuggingdllprojectsbuildingadebugversion) when it was built and whether the [.pdb file](../debugger/specify-symbol-dot-pdb-and-source-files-in-the-visual-studio-debugger.md) and other required files for the DLL are available.
+
+Your project needs to be able to find the DLL and the .pdb file used for debugging. You can create a custom build task to copy these files to the **\<project folder>\Debug** output folder, or you can copy the files into the output folder manually.
+
+You can easily set locations of header files and *.lib files in the Property Pages (right-click the C++ project and choose **View Properties**, and then choose **All Configurations**) without the need to copy them into your output folder:
+
+- C/C++ folder (General category) - Specify the folder containing header files in the **Additional Include Directories** field.
+- Linker folder (General category) - Specify the folder containing the .lib file in the **Additional Libraries Directories** field. 
+- Linker folder (Input category) - Specify the full path and filename for the .lib file in the **Additional Dependencies** field.
+
+When the configuration is correct, you can debug by starting execution from the **Debug** menu.
+
+For more information on project settings, see [Property Pages (Visual C++)](/cpp/ide/property-pages-visual-cpp).
   
-## 请参阅  
- [调试托管代码](../debugger/debugging-managed-code.md)   
- [Visual C\+\+ 项目类型](../debugger/debugging-preparation-visual-cpp-project-types.md)   
- [C\#、F\# 和 Visual Basic 项目类型](../debugger/debugging-preparation-csharp-f-hash-and-visual-basic-project-types.md)   
- [C\+\+ 调试配置的项目设置](../debugger/project-settings-for-a-cpp-debug-configuration.md)   
- [C\# 调试配置的项目设置](../debugger/project-settings-for-csharp-debug-configurations.md)   
- [Visual Basic 调试配置的项目设置](../debugger/project-settings-for-a-visual-basic-debug-configuration.md)   
- [调试器安全](../debugger/debugger-security.md)
+## <a name="see-also"></a>See Also  
+ [Debugging Managed Code](../debugger/debugging-managed-code.md)   
+ [Visual C++ Project Types](../debugger/debugging-preparation-visual-cpp-project-types.md)   
+ [C#, F#, and Visual Basic Project Types](../debugger/debugging-preparation-csharp-f-hash-and-visual-basic-project-types.md)   
+ [Project Settings for a C++ Debug Configuration](../debugger/project-settings-for-a-cpp-debug-configuration.md)   
+ [Project Settings for  C# Debug Configurations](../debugger/project-settings-for-csharp-debug-configurations.md)   
+ [Project Settings for a Visual Basic Debug Configuration](../debugger/project-settings-for-a-visual-basic-debug-configuration.md)   
+ [Debugger Security](../debugger/debugger-security.md)

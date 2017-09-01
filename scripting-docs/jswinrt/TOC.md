@@ -5,3 +5,4 @@
 # [在 JavaScript 中处理 Windows 运行时事件](handling-windows-runtime-events-in-javascript.md)
 # [Windows 运行时类型的 JavaScript 表示形式](javascript-representation-of-windows-runtime-types.md)
 # [Windows 运行时 DateTime 和 TimeSpan 表示形式](windows-runtime-datetime-and-timespan-representations.md)
+# [Windows 运行时应用使用 JavaScript 的错误代码](error-codes-for-windows-runtime-apps-using-javascript.md)

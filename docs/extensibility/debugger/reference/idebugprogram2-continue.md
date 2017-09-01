@@ -1,58 +1,75 @@
 ---
-title: "IDebugProgram2::Continue | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "IDebugProgram2::Continue"
-helpviewer_keywords: 
-  - "IDebugProgram2::Continue"
+title: IDebugProgram2::Continue | Microsoft Docs
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords:
+- IDebugProgram2::Continue
+helpviewer_keywords:
+- IDebugProgram2::Continue
 ms.assetid: e5a6e02a-d21b-4a03-a034-e8de1f71ce2e
 caps.latest.revision: 12
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 12
----
-# IDebugProgram2::Continue
-[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
+ms.author: gregvanl
+manager: ghogen
+translation.priority.mt:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+ms.translationtype: MT
+ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
+ms.openlocfilehash: 6bc347ef3b8362b90765f6eefdb6551aed78d4a5
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/28/2017
 
-继续运行从一种停止状态的此过程。  所有以前执行状态 \(例如步骤\) 保留和程序再次开始执行。  
+---
+# <a name="idebugprogram2continue"></a>IDebugProgram2::Continue
+Continues running this program from a stopped state. Any previous execution state (such as a step) is preserved, and the program starts executing again.  
   
 > [!NOTE]
->  此方法已被否决。  请改用 [继续](../../../extensibility/debugger/reference/idebugprocess3-continue.md) 方法。  
+>  This method is deprecated. Use the [Continue](../../../extensibility/debugger/reference/idebugprocess3-continue.md) method instead.  
   
-## 语法  
+## <a name="syntax"></a>Syntax  
   
-```cpp#  
-HRESULT Continue(   
-   IDebugThread2* pThread  
+```cpp  
+HRESULT Continue(   
+   IDebugThread2* pThread  
 );  
 ```  
   
-```c#  
-int Continue(   
-   IDebugThread2 pThread  
+```csharp  
+int Continue(   
+   IDebugThread2 pThread  
 );  
 ```  
   
-#### 参数  
+#### <a name="parameters"></a>Parameters  
  `pThread`  
- \[in\] 表示线程的 [IDebugThread2](../../../extensibility/debugger/reference/idebugthread2.md) 对象。  
+ [in] An [IDebugThread2](../../../extensibility/debugger/reference/idebugthread2.md) object that represents the thread.  
   
-## 返回值  
- 如果成功，则返回; `S_OK`否则，返回错误代码。  
+## <a name="return-value"></a>Return Value  
+ If successful, returns `S_OK`; otherwise, returns an error code.  
   
-## 备注  
- 此方法调用此过程无论多少程序进行调试，或者要程序生成已停止的事件。  实现必须保留以前执行状态 \(例如步骤\) 和继续执行，就象在完成其前面执行之前从未停止。  也就是说，如果在此过程中的线程执行中的步骤操作并已停止运行，因为某些其他程序终止的，则此方法调用，程序必须完成步骤操作的初始。  
+## <a name="remarks"></a>Remarks  
+ This method is called on this program regardless of how many programs are being debugged, or which program generated the stopping event. The implementation must retain the previous execution state (such as a step) and continue execution as though it had never stopped before completing its prior execution. That is, if a thread in this program was doing a step-over operation and was stopped because some other program stopped, and then this method was called, the program must complete the original step-over operation.  
   
 > [!WARNING]
->  不要将一个终止的事件或一个即时 \(\) 同步事件。 [事件](../../../extensibility/debugger/reference/idebugeventcallback2-event.md) ，当处理此时调用，否则调试器会停止。  
+>  Do not send a stopping event or an immediate (synchronous) event to [Event](../../../extensibility/debugger/reference/idebugeventcallback2-event.md) while handling this call; otherwise the debugger may hang.  
   
-## 请参阅  
+## <a name="see-also"></a>See Also  
  [IDebugEngineProgram2](../../../extensibility/debugger/reference/idebugengineprogram2.md)   
- [事件](../../../extensibility/debugger/reference/idebugeventcallback2-event.md)
+ [Event](../../../extensibility/debugger/reference/idebugeventcallback2-event.md)

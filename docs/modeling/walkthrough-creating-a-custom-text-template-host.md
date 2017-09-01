@@ -1,60 +1,77 @@
 ---
-title: "演练：创建自定义文本模板宿主 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-helpviewer_keywords: 
-  - "文本模板, 自定义宿主演练"
-  - "演练 [文本模板], 自定义宿主"
+title: 'Walkthrough: Creating a Custom Text Template Host | Microsoft Docs'
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.tgt_pltfrm: 
+ms.topic: article
+helpviewer_keywords:
+- walkthroughs [text templates], custom host
+- text templates, custom host walkthrough
 ms.assetid: d00bc366-65ed-4229-885a-196ef9625f05
 caps.latest.revision: 51
-author: "alancameronwills"
-ms.author: "awills"
-manager: "douge"
-caps.handback.revision: 51
----
-# 演练：创建自定义文本模板宿主
-[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
+author: alancameronwills
+ms.author: awills
+manager: douge
+translation.priority.ht:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+ms.translationtype: MT
+ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
+ms.openlocfilehash: 6a14023a35884ed742535872a649927770e93072
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/28/2017
 
-文本模板宿主为文本模板转换引擎提供运行环境。  宿主负责管理引擎与文件系统的交互。  需要文件或程序集的引擎或指令处理器可向宿主请求资源。  然后，宿主可以搜索目录和全局程序集缓存，以查找请求的资源。  有关更多信息，请参见[文本模板转换过程](../modeling/the-text-template-transformation-process.md)。  
+---
+# <a name="walkthrough-creating-a-custom-text-template-host"></a>Walkthrough: Creating a Custom Text Template Host
+A *text template**host* provides an environment that enables the *text template transformation engine* to run. The host is responsible for managing the engine's interaction with the file system. The engine or *directive processor* that needs a file or an assembly can request a resource from the host. The host can then search directories and the global assembly cache to locate the requested resource. For more information, see [The Text Template Transformation Process](../modeling/the-text-template-transformation-process.md).  
   
- 如果你想要使用 [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] 外部的*文本模板转换* 功能，或者你想要将该功能集成到自定义工具中，则可编写自定义主机。  若要创建自定义主机，你必须创建继承自 <xref:Microsoft.VisualStudio.TextTemplating.ITextTemplatingEngineHost> 的类。  有关各方法的文档，请参见 <xref:Microsoft.VisualStudio.TextTemplating.ITextTemplatingEngineHost>。  
+ You can write a custom host if you want to use the *text template transformation* functionality from outside [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] or if you want to integrate that functionality into custom tools. To create a custom host, you must create a class that inherits from <xref:Microsoft.VisualStudio.TextTemplating.ITextTemplatingEngineHost>. For the documentation of the individual methods, see <xref:Microsoft.VisualStudio.TextTemplating.ITextTemplatingEngineHost>.  
   
 > [!WARNING]
->  如果要编写 [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] 扩展或包，请考虑使用文本模板化服务而不是创建您自己的主机。  有关更多信息，请参见[在 VS 扩展中调用文本转换](../modeling/invoking-text-transformation-in-a-vs-extension.md)。  
+>  If you are writing a [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] extension or package, consider using the text templating service instead of creating your own host. For more information, see [Invoking Text Transformation in a VS Extension](../modeling/invoking-text-transformation-in-a-vs-extension.md).  
   
- 本演练演示以下任务：  
+ Tasks illustrated in this walkthrough include the following:  
   
--   创建自定义文本模板宿主。  
+-   Creating a custom text template host.  
   
--   测试自定义宿主。  
+-   Testing the custom host.  
   
-## 系统必备  
- 若要完成本演练，您必须具有：  
+## <a name="prerequisites"></a>Prerequisites  
+ To complete this walkthrough, you must have the following:  
   
--   Visual Studio 2010 或更高版本  
+-   Visual Studio 2010 or later  
   
 -   Visual Studio SDK  
   
-## 创建自定义文本模板宿主  
- 在本演练中，您将在可从命令行调用的可执行应用程序中创建自定义宿主。  该应用程序接受文本模板文件作为参数，读取该模板，调用引擎转换模板，并在命令提示符窗口中显示发生的所有错误。  
+## <a name="creating-a-custom-text-template-host"></a>Creating a Custom Text Template Host  
+ In this walkthrough, you create a custom host in an executable application that can be called from the command line. The application accepts a text template file as an argument, reads the template, calls the engine to transform the template, and displays any errors that occur in the command prompt window.  
   
-#### 创建自定义宿主  
+#### <a name="to-create-a-custom-host"></a>To create a custom host  
   
-1.  在 Visual Studio 中，新建一个名为 CustomHost 的 Visual Basic 或 C\# 控制台应用程序。  
+1.  In Visual Studio, create a new Visual Basic or a C# console application named CustomHost.  
   
-2.  添加对下列程序集的引用：  
+2.  Add references to the following assemblies:  
   
     -   **Microsoft.VisualStudio.TextTemplating.\*.0**  
   
-    -   **Microsoft.VisualStudio.TextTemplating.Interfaces.10.0 和更高版本**  
+    -   **Microsoft.VisualStudio.TextTemplating.Interfaces.10.0 and later versions**  
   
-3.  用下面的代码替换 Program.cs 或 Module1.vb 文件中的代码：  
+3.  Replace the code in the Program.cs or Module1.vb file with the following code:  
   
-    ```c#  
+    ```csharp  
     using System;  
     using System.IO;  
     using System.CodeDom.Compiler;  
@@ -404,7 +421,7 @@ caps.handback.revision: 51
     }  
     ```  
   
-    ```vb#  
+    ```vb  
     Imports System  
     Imports System.IO  
     Imports System.CodeDom.Compiler  
@@ -711,27 +728,27 @@ caps.handback.revision: 51
     End Namespace  
     ```  
   
-4.  仅对于 [!INCLUDE[vbprvb](../code-quality/includes/vbprvb_md.md)]，打开**“项目”**菜单，单击**“CustomHost 属性”**。  在**“启动对象”**列表中单击**“CustomHost.Program”**。  
+4.  For [!INCLUDE[vbprvb](../code-quality/includes/vbprvb_md.md)] only, open the **Project** menu, and click **CustomHost Properties**. In the **Startup object** list, click **CustomHost.Program**.  
   
-5.  在**“文件”**菜单上，单击**“全部保存”**。  
+5.  On the **File** menu, click **Save All**.  
   
-6.  在**“生成”**菜单上，单击**“生成解决方案”**。  
+6.  On the **Build** menu, click **Build Solution**.  
   
-## 测试自定义宿主  
- 若要测试自定义宿主，您需要编写一个文本模板，然后运行自定义宿主，将文本模板的名称传递给它并验证模板转换。  
+## <a name="testing-the-custom-host"></a>Testing the Custom Host  
+ To test the custom host, you write a text template, then you run the custom host, pass it the name of the text template, and verify that the template is transformed.  
   
-#### 创建文本模板测试自定义宿主  
+#### <a name="to-create-a-text-template-to-test-the-custom-host"></a>To create a text template to test the custom host  
   
-1.  创建一个文本文件，将其命名为 `TestTemplate.tt`。  
+1.  Create a text file, and name it `TestTemplate.tt`.  
   
-     可以使用任何文本编辑器（例如记事本）来创建文件。  
+     You can use any text editor (for example, Notepad) to create the file.  
   
-2.  将以下内容添加到文件中：  
+2.  Add the following to the file:  
   
     > [!NOTE]
-    >  文本模板的编程语言不必与自定义宿主的编程语言一致。  
+    >  The programming language of the text template does not have to match that of the custom host.  
   
-    ```c#  
+    ```csharp  
     Text Template Host Test  
   
     <#@ template debug="true" #>  
@@ -749,7 +766,7 @@ caps.handback.revision: 51
     #>  
     ```  
   
-    ```vb#  
+    ```vb  
     Text Template Host Test  
   
     <#@ template debug="true" language="VB"#>  
@@ -769,41 +786,41 @@ caps.handback.revision: 51
   
     ```  
   
-3.  保存并关闭文件。  
+3.  Save and close the file.  
   
-#### 测试自定义宿主  
+#### <a name="to-test-the-custom-host"></a>To test the custom host  
   
-1.  打开“命令提示符”窗口。  
+1.  Open the Command Prompt window.  
   
-2.  为自定义宿主键入可执行文件的路径，但暂不要按 Enter。  
+2.  Type the path of the executable file for the custom host, but do not press ENTER yet.  
   
-     例如，键入：  
+     For example, type:  
   
      `<YOUR PATH>CustomHost\bin\Debug\CustomHost.exe`  
   
     > [!NOTE]
-    >  而不键入地址，可以在**“Windows 资源管理器”**中浏览到文件 CustomHost.exe，然后将该文件拖入命令提示符窗口。  
+    >  Instead of typing the address, you can browse to the file CustomHost.exe in **Windows Explorer** and then drag the file into the Command Prompt window.  
   
-3.  键入一个空格。  
+3.  Type a space.  
   
-4.  键入文本模板文件的路径，然后按 Enter。  
+4.  Type the path of the text template file, and then press ENTER.  
   
-     例如，键入：  
+     For example, type:  
   
      `C:\<YOUR PATH>TestTemplate.tt`  
   
     > [!NOTE]
-    >  而不键入地址，可以在**“Windows 资源管理器”**中浏览到文件 TestTemplate.tt，然后将该文件拖入命令提示符窗口。  
+    >  Instead of typing the address, you can browse to the file TestTemplate.tt in **Windows Explorer** and then drag the file into the Command Prompt window.  
   
-     自定义宿主应用程序运行并完成文本模板转换过程。  
+     The custom host application runs and completes the text template transformation process.  
   
-5.  在**“Windows 资源管理器”**中浏览到包含文件 TestTemplate.tt 的文件夹。  
+5.  In **Windows Explorer**, browse to the folder that contains the file TestTemplate.tt.  
   
-     该文件夹还包含文件 TestTemplate1.txt。  
+     That folder also contains the file TestTemplate1.txt.  
   
-6.  打开此文件可以查看文本模板转换的结果。  
+6.  Open this file to see the results of the text template transformation.  
   
-     此时将显示生成的文本输出，如下所示：  
+     The generated text output appears and looks like this:  
   
     ```  
     Text Template Host Test  
@@ -813,8 +830,8 @@ caps.handback.revision: 51
     This is a test  
     ```  
   
-## 后续步骤  
- 在本演练中，您创建了一个支持基本转换功能的文本模板转换宿主。  您可以对该宿主进行扩展，以支持可调用自定义或生成的指令处理器的文本模板。  有关更多信息，请参见[演练：将主机连接至生成的指令处理器](../modeling/walkthrough-connecting-a-host-to-a-generated-directive-processor.md)。  
+## <a name="next-steps"></a>Next Steps  
+ In this walkthrough, you created a text template transformation host that supports the basic transformation functionality. You can expand your host to support text templates that call custom or generated directive processors. For more information, see [Walkthrough: Connecting a Host to a Generated Directive Processor](../modeling/walkthrough-connecting-a-host-to-a-generated-directive-processor.md).  
   
-## 请参阅  
+## <a name="see-also"></a>See Also  
  <xref:Microsoft.VisualStudio.TextTemplating.ITextTemplatingEngineHost>

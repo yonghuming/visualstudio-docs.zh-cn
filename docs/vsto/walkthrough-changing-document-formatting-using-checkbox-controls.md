@@ -1,167 +1,171 @@
 ---
-title: "演练：使用 CheckBox 控件更改文档格式设置"
-ms.custom: ""
-ms.date: "02/02/2017"
-ms.prod: "visual-studio-dev14"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "office-development"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-dev_langs: 
-  - "VB"
-  - "CSharp"
-helpviewer_keywords: 
-  - "复选框, Word 文档"
-  - "控件 [Visual Studio 中的 Office 开发], 添加到文档"
-  - "文档 [Visual Studio 中的 Office 开发], 复选框控件"
-  - "文档 [Visual Studio 中的 Office 开发], 格式化"
-  - "Word 文档, 使用控件更改格式"
+title: 'Walkthrough: Changing Document Formatting Using CheckBox Controls | Microsoft Docs'
+ms.custom: 
+ms.date: 02/02/2017
+ms.prod: visual-studio-dev14
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- office-development
+ms.tgt_pltfrm: 
+ms.topic: article
+dev_langs:
+- VB
+- CSharp
+helpviewer_keywords:
+- Word documents, changing formatting using controls
+- documents [Office development in Visual Studio], formatting
+- check boxes, Word documents
+- documents [Office development in Visual Studio], check box controls
+- controls [Office development in Visual Studio], adding to documents
 ms.assetid: 3740e41d-a57e-43bb-87e7-6e5481ef290b
 caps.latest.revision: 70
-author: "kempb"
-ms.author: "kempb"
-manager: "ghogen"
-caps.handback.revision: 69
+author: kempb
+ms.author: kempb
+manager: ghogen
+ms.translationtype: HT
+ms.sourcegitcommit: eb5c9550fd29b0e98bf63a7240737da4f13f3249
+ms.openlocfilehash: 69edcb6d683c910d02e4224ec44590c288fefefa
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/30/2017
+
 ---
-# 演练：使用 CheckBox 控件更改文档格式设置
-  本演练演示在 Microsoft Office Word 的文档级自定义项中，如何使用 Windows 窗体控件来更改文本格式。  
+# <a name="walkthrough-changing-document-formatting-using-checkbox-controls"></a>Walkthrough: Changing Document Formatting Using CheckBox Controls
+  This walkthrough demonstrates how to use Windows Forms controls in a document-level customization for Microsoft Office Word to change text formatting.  
   
  [!INCLUDE[appliesto_wdalldoc](../vsto/includes/appliesto-wdalldoc-md.md)]  
   
- 本演练阐释了以下任务：  
+ This walkthrough illustrates the following tasks:  
   
--   设计时在文档级项目中向文档添加文本和控件。  
+-   Adding text and a control to the document in a document-level project at design time.  
   
--   选中选项时设置文本的格式。  
+-   Formatting the text when an option is selected.  
   
- 若要查看完整示例，请参见 [Office 开发示例和演练](../vsto/office-development-samples-and-walkthroughs.md)中的 Word 控件示例。  
+ To see the result as a completed sample, see the Word Controls Sample at [Office Development Samples and Walkthroughs](../vsto/office-development-samples-and-walkthroughs.md).  
   
  [!INCLUDE[note_settings_general](../sharepoint/includes/note-settings-general-md.md)]  
   
-## 系统必备  
- 您需要以下组件来完成本演练：  
+## <a name="prerequisites"></a>Prerequisites  
+ You need the following components to complete this walkthrough:  
   
 -   [!INCLUDE[vsto_vsprereq](../vsto/includes/vsto-vsprereq-md.md)]  
   
--   [!INCLUDE[Word_15_short](../vsto/includes/word-15-short-md.md)] 或 [!INCLUDE[Word_14_short](../vsto/includes/word-14-short-md.md)]。  
+-   [!INCLUDE[Word_15_short](../vsto/includes/word-15-short-md.md)] or [!INCLUDE[Word_14_short](../vsto/includes/word-14-short-md.md)].  
   
-## 创建项目  
- 第一步是创建 Word 文档项目。  
+## <a name="creating-the-project"></a>Creating the Project  
+ The first step is to create a Word Document project.  
   
-#### 创建新项目  
+#### <a name="to-create-a-new-project"></a>To create a new project  
   
-1.  创建一个 Word 文档项目，并将其命名为“我的 Word 格式设置”。  在向导中，选择**“创建新文档”**。  
+1.  Create a Word Document project with the name **My Word Formatting**. In the wizard, select **Create a new document**.  
   
-     有关更多信息，请参见[如何：在 Visual Studio 中创建 Office 项目](../vsto/how-to-create-office-projects-in-visual-studio.md)。  
+     For more information, see [How to: Create Office Projects in Visual Studio](../vsto/how-to-create-office-projects-in-visual-studio.md).  
   
-     Visual Studio 将在设计器中打开新的 Word 文档，并将**“我的 Word 格式设置”**项目添加到**“解决方案资源管理器”**中。  
+     Visual Studio opens the new Word document in the designer and adds the **My Word Formatting** project to **Solution Explorer**.  
   
-## 将文本和控件添加到 Word 文档中  
- 对于此演练，要在 Word 文档中添加三个复选框，并在 <xref:Microsoft.Office.Tools.Word.Bookmark> 控件中添加一些文本。  这些复选框将向用户呈现用于设置文本格式的选项。  
+## <a name="adding-text-and-controls-to-the-word-document"></a>Adding Text and Controls to the Word Document  
+ For this walkthrough, add three check boxes and some text in a <xref:Microsoft.Office.Tools.Word.Bookmark> control to the Word document. The check boxes will present options to the user for formatting the text.  
   
-#### 添加三个复选框  
+#### <a name="to-add-three-check-boxes"></a>To add three check boxes  
   
-1.  验证文档是否已在 Visual Studio 设计器中打开。  
+1.  Verify that the document is open in the Visual Studio designer.  
   
-2.  从**“工具箱”**的**“公共控件”**选项卡中，将第一个 <xref:Microsoft.Office.Tools.Word.Controls.CheckBox> 控件拖到文档中。  
+2.  From the **Common Controls** tab of the **Toolbox**, drag the first <xref:Microsoft.Office.Tools.Word.Controls.CheckBox> control to the document.  
   
-3.  在**“属性”**窗口中，更改下列属性。  
+3.  In the **Properties** window, change the following properties.  
   
-    |属性|值|  
-    |--------|-------|  
-    |**名称**|**applyBoldFont**|  
-    |**文本**|Bold|  
+    |Property|Value|  
+    |--------------|-----------|  
+    |**Name**|**applyBoldFont**|  
+    |**Text**|**Bold**|  
   
-4.  按**“Enter”**将插入点移至第一个复选框下方。  
+4.  Press **Enter** to move the insertion point below the first check box.  
   
-5.  将第二个复选框添加到文档中 `ApplyBoldFont` 复选框的下方，并更改以下属性。  
+5.  Add a second check box to the document below the `ApplyBoldFont` check box and change the following properties.  
   
-    |属性|值|  
-    |--------|-------|  
-    |**名称**|**applyItalicFont**|  
-    |**文本**|Italic|  
+    |Property|Value|  
+    |--------------|-----------|  
+    |**Name**|**applyItalicFont**|  
+    |**Text**|**Italic**|  
   
-6.  按**“Enter”**将插入点移至第二个复选框的下方。  
+6.  Press **Enter** to move the insertion point below the second check box.  
   
-7.  将第三个复选框添加到文档中 `ApplyItalicFont` 复选框的下方，并更改以下属性。  
+7.  Add a third check box to the document below the `ApplyItalicFont` check box and change the following properties.  
   
-    |属性|值|  
-    |--------|-------|  
-    |**名称**|**applyUnderlineFont**|  
-    |**文本**|Underline|  
+    |Property|Value|  
+    |--------------|-----------|  
+    |**Name**|**applyUnderlineFont**|  
+    |**Text**|**Underline**|  
   
-#### 添加文本和书签控件  
+#### <a name="to-add-text-and-a-bookmark-control"></a>To add text and a Bookmark control  
   
-1.  将插入点移至复选框控件的下方，并键入以下文本：  
+1.  Move the insertion point below the check box controls and type the following text:  
   
-     单击一个复选框以更改此文本的格式设置。  
+     **Click a check box to change the formatting of this text.**  
   
-2.  从**“工具箱”**的**“Word 控件”**选项卡中，将 <xref:Microsoft.Office.Tools.Word.Bookmark> 控件拖动到文档中。  
+2.  From the **Word Controls** tab of the **Toolbox**, drag a <xref:Microsoft.Office.Tools.Word.Bookmark> control to the document.  
   
-     将出现**“添加书签控件”**对话框。  
+     The **Add Bookmark Control** dialog box appears.  
   
-3.  选择已添加到文档中的文本，然后单击**“确定”**。  
+3.  Select the text you added to the document and click **OK**.  
   
-     <xref:Microsoft.Office.Tools.Word.Bookmark> 控件**“Bookmark1”**被添加到文档中的选定文本中。  
+     A <xref:Microsoft.Office.Tools.Word.Bookmark> control named **Bookmark1** is added to the selected text in the document.  
   
-4.  在**“属性”**窗口中，将**“\(Name\)”**属性更改为 **fontText**。  
+4.  In the **Properties** window, change the value of the **(Name)** property to **fontText.**  
   
- 接下来，编写在选中或清除复选框时用于设置文本格式的代码。  
+ Next, write the code to format the text when a check box is checked or cleared.  
   
-## 选中或清除复选框时设置文本的格式  
- 当用户选择格式设置选项时，将更改文档中文本的格式。  
+## <a name="formatting-the-text-when-a-check-box-is-checked-or-cleared"></a>Formatting the Text When a Check box is Checked or Cleared  
+ When the user selects a formatting option, change the format of the text in the document.  
   
-#### 选中复选框时更改格式设置  
+#### <a name="to-change-formatting-when-a-check-box-is-selected"></a>To change formatting when a check box is selected  
   
-1.  右击**“解决方案资源管理器”**中的 `ThisDocument`，再单击快捷菜单上的**“查看代码”**。  
+1.  Right-click `ThisDocument` in **Solution Explorer**, and then click **View Code** on the shortcut menu.  
   
-2.  （仅适用于 C\#）将下列常量添加到 **ThisDocument** 类。  
+2.  For C# only, add the following constants to the **ThisDocument** class.  
   
-     [!code-csharp[Trin_VstcoreProgrammingControlsWord#2](../snippets/csharp/VS_Snippets_OfficeSP/Trin_VstcoreProgrammingControlsWord/CS/ThisDocument.cs#2)]  
+     [!code-csharp[Trin_VstcoreProgrammingControlsWord#2](../vsto/codesnippet/CSharp/Trin_VstcoreProgrammingControlsWordCS/ThisDocument.cs#2)]  
   
-3.  将以下代码添加到 `applyBoldFont` 复选框的 <xref:System.Windows.Forms.Control.Click> 事件处理程序中。  
+3.  Add the following code to the <xref:System.Windows.Forms.Control.Click> event handler of the `applyBoldFont` check box.  
   
-     [!code-csharp[Trin_VstcoreProgrammingControlsWord#3](../snippets/csharp/VS_Snippets_OfficeSP/Trin_VstcoreProgrammingControlsWord/CS/ThisDocument.cs#3)]
-     [!code-vb[Trin_VstcoreProgrammingControlsWord#3](../snippets/visualbasic/VS_Snippets_OfficeSP/Trin_VstcoreProgrammingControlsWord/VB/ThisDocument.vb#3)]  
+     [!code-vb[Trin_VstcoreProgrammingControlsWord#3](../vsto/codesnippet/VisualBasic/my chart options/ThisDocument.vb#3)]  [!code-csharp[Trin_VstcoreProgrammingControlsWord#3](../vsto/codesnippet/CSharp/Trin_VstcoreProgrammingControlsWordCS/ThisDocument.cs#3)]  
   
-4.  将以下代码添加到 `applyItalicFont` 复选框的 <xref:System.Windows.Forms.Control.Click> 事件处理程序中。  
+4.  Add the following code to the <xref:System.Windows.Forms.Control.Click> event handler of the `applyItalicFont` check box.  
   
-     [!code-csharp[Trin_VstcoreProgrammingControlsWord#4](../snippets/csharp/VS_Snippets_OfficeSP/Trin_VstcoreProgrammingControlsWord/CS/ThisDocument.cs#4)]
-     [!code-vb[Trin_VstcoreProgrammingControlsWord#4](../snippets/visualbasic/VS_Snippets_OfficeSP/Trin_VstcoreProgrammingControlsWord/VB/ThisDocument.vb#4)]  
+     [!code-vb[Trin_VstcoreProgrammingControlsWord#4](../vsto/codesnippet/VisualBasic/my chart options/ThisDocument.vb#4)]  [!code-csharp[Trin_VstcoreProgrammingControlsWord#4](../vsto/codesnippet/CSharp/Trin_VstcoreProgrammingControlsWordCS/ThisDocument.cs#4)]  
   
-5.  将以下代码添加到 `applyUnderlineFont` 复选框的 <xref:System.Windows.Forms.Control.Click> 事件处理程序中。  
+5.  Add the following code to the <xref:System.Windows.Forms.Control.Click> event handler of the `applyUnderlineFont` check box.  
   
-     [!code-csharp[Trin_VstcoreProgrammingControlsWord#5](../snippets/csharp/VS_Snippets_OfficeSP/Trin_VstcoreProgrammingControlsWord/CS/ThisDocument.cs#5)]
-     [!code-vb[Trin_VstcoreProgrammingControlsWord#5](../snippets/visualbasic/VS_Snippets_OfficeSP/Trin_VstcoreProgrammingControlsWord/VB/ThisDocument.vb#5)]  
+     [!code-vb[Trin_VstcoreProgrammingControlsWord#5](../vsto/codesnippet/VisualBasic/my chart options/ThisDocument.vb#5)]  [!code-csharp[Trin_VstcoreProgrammingControlsWord#5](../vsto/codesnippet/CSharp/Trin_VstcoreProgrammingControlsWordCS/ThisDocument.cs#5)]  
   
-6.  在 C\# 中，必须将文本框的事件处理程序添加到 <xref:Microsoft.Office.Tools.Word.Document.Startup> 事件。  有关如何创建事件处理程序的信息，请参见[如何：在 Office 项目中创建事件处理程序](../vsto/how-to-create-event-handlers-in-office-projects.md)。  
+6.  In C#, you must add event handlers for the text boxes to the <xref:Microsoft.Office.Tools.Word.Document.Startup> event. For information about how to create event handlers, see [How to: Create Event Handlers in Office Projects](../vsto/how-to-create-event-handlers-in-office-projects.md).  
   
-     [!code-csharp[Trin_VstcoreProgrammingControlsWord#6](../snippets/csharp/VS_Snippets_OfficeSP/Trin_VstcoreProgrammingControlsWord/CS/ThisDocument.cs#6)]  
+     [!code-csharp[Trin_VstcoreProgrammingControlsWord#6](../vsto/codesnippet/CSharp/Trin_VstcoreProgrammingControlsWordCS/ThisDocument.cs#6)]  
   
-## 测试应用程序  
- 现在，可以对文档进行测试，以验证选择或清除复选框时文本的格式设置是否正确。  
+## <a name="testing-the-application"></a>Testing the Application  
+ You can now test your document to verify that the text is formatted correctly when you select or clear a check box.  
   
-#### 测试文档  
+#### <a name="to-test-your-document"></a>To test your document  
   
-1.  按 F5 运行项目。  
+1.  Press F5 to run your project.  
   
-2.  选择或清除复选框。  
+2.  Select or clear a check box.  
   
-3.  确认文本的格式设置正确。  
+3.  Confirm that the text is formatted correctly.  
   
-## 后续步骤  
- 本演练演示在 Word 文档中使用复选框以及以编程方式更改文本格式设置的基本操作。  下一步可能要执行以下几项任务：  
+## <a name="next-steps"></a>Next Steps  
+ This walkthrough shows the basics of using check boxes and programmatically changing text formatting on Word documents. Here are some tasks that might come next:  
   
--   使用按钮填充文本框。  有关更多信息，请参见[演练：使用按钮在文档的文本框中显示文本](../vsto/walkthrough-displaying-text-in-a-text-box-in-a-document-using-a-button.md)。  
+-   Use a button to populate a text box. For more information, see [Walkthrough: Displaying Text in a Text Box in a Document Using a Button](../vsto/walkthrough-displaying-text-in-a-text-box-in-a-document-using-a-button.md).  
   
--   使用单选按钮选择图表样式。  有关更多信息，请参见[演练：使用单选按钮更新文档中的图表](../vsto/walkthrough-updating-a-chart-in-a-document-using-radio-buttons.md)。  
+-   Using radio buttons to select chart styles. For more information, see [Walkthrough: Updating a Chart in a Document Using Radio Buttons](../vsto/walkthrough-updating-a-chart-in-a-document-using-radio-buttons.md).  
   
-## 请参阅  
- [使用 Word 的演练](../vsto/walkthroughs-using-word.md)   
- [Office 开发示例和演练](../vsto/office-development-samples-and-walkthroughs.md)   
- [NamedRange 控件](../vsto/namedrange-control.md)   
- [Office 文档上的 Windows 窗体控件的限制](../vsto/limitations-of-windows-forms-controls-on-office-documents.md)  
+-  
+  
+## <a name="see-also"></a>See Also  
+ [Walkthroughs Using Word](../vsto/walkthroughs-using-word.md)   
+ [Office Development Samples and Walkthroughs](../vsto/office-development-samples-and-walkthroughs.md)   
+ [NamedRange Control](../vsto/namedrange-control.md)   
+ [Limitations of Windows Forms Controls on Office Documents](../vsto/limitations-of-windows-forms-controls-on-office-documents.md)  
   
   

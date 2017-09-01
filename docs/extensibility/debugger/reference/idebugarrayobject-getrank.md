@@ -1,51 +1,68 @@
 ---
-title: "IDebugArrayObject::GetRank | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "IDebugArrayObject::GetRank"
-helpviewer_keywords: 
-  - "IDebugArrayObject::GetRank 方法"
+title: IDebugArrayObject::GetRank | Microsoft Docs
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords:
+- IDebugArrayObject::GetRank
+helpviewer_keywords:
+- IDebugArrayObject::GetRank method
 ms.assetid: 9948551a-e334-4ff6-979c-08dab633b9b6
 caps.latest.revision: 10
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 10
----
-# IDebugArrayObject::GetRank
-[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
+ms.author: gregvanl
+manager: ghogen
+translation.priority.mt:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+ms.translationtype: MT
+ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
+ms.openlocfilehash: b352b34a45d58f456ce8be41e4691086f71f4600
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/28/2017
 
-获取数组，也就是说，维度数的级别。  
+---
+# <a name="idebugarrayobjectgetrank"></a>IDebugArrayObject::GetRank
+Gets the rank of the array, that is, the number of dimensions.  
   
-## 语法  
+## <a name="syntax"></a>Syntax  
   
-```cpp#  
-HRESULT GetRank(   
-   DWORD* pdwRank  
+```cpp  
+HRESULT GetRank(   
+   DWORD* pdwRank  
 );  
 ```  
   
-```c#  
+```csharp  
 int GetRank(  
-   out uint pdwRank  
+   out uint pdwRank  
 );  
 ```  
   
-#### 参数  
+#### <a name="parameters"></a>Parameters  
  `pdwRank`  
- \[out\] 返回一个级别。  
+ [out] Returns the rank.  
   
-## 返回值  
- 如果成功，则返回 S\_OK;否则，返回错误代码。  
+## <a name="return-value"></a>Return Value  
+ If successful, returns S_OK; otherwise, returns an error code.  
   
-## 备注  
- 使用 [GetDimensions](../../../extensibility/debugger/reference/idebugarrayobject-getdimensions.md) 方法检索对象的数组每一维的大小。  
+## <a name="remarks"></a>Remarks  
+ Use the [GetDimensions](../../../extensibility/debugger/reference/idebugarrayobject-getdimensions.md) method to retrieve the size of each dimension of the array object.  
   
-## 请参阅  
+## <a name="see-also"></a>See Also  
  [IDebugArrayObject](../../../extensibility/debugger/reference/idebugarrayobject.md)

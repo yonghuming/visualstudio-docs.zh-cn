@@ -1,53 +1,75 @@
 ---
-title: "如何：在实体类中添加验证 | Microsoft Docs"
-ms.custom: ""
-ms.date: "12/15/2016"
-ms.prod: "visual-studio-dev14"
-ms.reviewer: ""
-ms.suite: ""
-ms.tgt_pltfrm: ""
-ms.topic: "article"
+title: 'How to: Add validation to entity classes | Microsoft Docs'
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.tgt_pltfrm: 
+ms.topic: article
+dev_langs:
+- VB
+- CSharp
 ms.assetid: 61107da9-7fa3-4dba-b101-ae46536f52c4
 caps.latest.revision: 3
-caps.handback.revision: 1
-author: "mikeblome"
-ms.author: "mblome"
-manager: "ghogen"
+author: mikeblome
+ms.author: mblome
+manager: ghogen
+translation.priority.ht:
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- ru-ru
+- zh-cn
+- zh-tw
+translation.priority.mt:
+- cs-cz
+- pl-pl
+- pt-br
+- tr-tr
+ms.translationtype: HT
+ms.sourcegitcommit: 21a413a3e2d17d77fd83d5109587a96f323a0511
+ms.openlocfilehash: 3c6e5bb7d948aa33750161f19e435120cebc30d0
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/30/2017
+
 ---
-# 如何：在实体类中添加验证
-验证实体类是指确认输入到数据对象中的值是否符合对象架构内的约束，以及是否符合为应用程序所建立的规则的过程。在将更新发送到基础数据库之前对数据进行验证是一种很好的做法，这样可以减少错误。还可以减少应用程序和数据库之间的潜在往返行程次数。  
+# <a name="how-to-add-validation-to-entity-classes"></a>How to: Add validation to entity classes
+*Validating* entity classes is the process of confirming that the values entered into data objects comply with the constraints in an object's schema, and also to the rules established for the application. Validating data before you send updates to the underlying database is a good practice that reduces errors. It also reduces the potential number of round trips between an application and the database.  
   
- [对象关系设计器（O\/R 设计器）](../data-tools/linq-to-sql-tools-in-visual-studio2.md)提供了分部方法，使用户可以扩展设计器生成的代码，这些代码在插入、更新和删除完整实体期间以及在更改单个列期间及之后运行。  
+ The [LINQ to SQL Tools in Visual Studio](../data-tools/linq-to-sql-tools-in-visual-studio2.md) provides partial methods that enable users to extend the designer-generated code that runs during Inserts, Updates, and Deletes of complete entities, and also during and after individual column changes.  
   
 > [!NOTE]
->  本主题提供了使用 [!INCLUDE[vs_ordesigner_short](../data-tools/includes/vs_ordesigner_short_md.md)]将验证添加到实体类的基本步骤。由于不参考特定实体类将难以执行这些通用步骤，因此我们提供了一个使用实际数据的演练。有关使用 [!INCLUDE[vs_ordesigner_short](../data-tools/includes/vs_ordesigner_short_md.md)]配置验证的详细分步指导，请参见[演练：向实体类添加验证](../Topic/Walkthrough:%20Adding%20Validation%20to%20Entity%20Classes.md)。  
+>  This topic provides the basic steps for adding validation to entity classes by using the [!INCLUDE[vs_ordesigner_short](../data-tools/includes/vs_ordesigner_short_md.md)]. Because it might be difficult to follow these generic steps without referring to a specific entity class, a walkthrough that uses actual data has been provided.  
   
-## 添加对特定列值更改的验证  
- 此过程演示当列中的值更改时如何验证数据。由于验证在类定义（而不是用户界面）中执行，因此如果值导致验证失败将引发异常。请为应用程序中试图更改列值的代码实现错误处理。  
+## <a name="adding-validation-for-changes-to-the-value-in-a-specific-column"></a>Adding Validation for Changes to the Value in a Specific Column  
+ This procedure shows how to validate data when the value in a column changes. Because the validation is performed inside the class definition (instead of in the user interface) an exception is thrown if the value causes validation to fail. Implement error handling for the code in your application that attempts to change the column values.  
   
- [!INCLUDE[note_settings_general](../data-tools/includes/note_settings_general_md.md)]  
+[!INCLUDE[note_settings_general](../data-tools/includes/note_settings_general_md.md)]  
   
-#### 在列值更改过程中验证数据  
+#### <a name="to-validate-data-during-a-columns-value-change"></a>To validate data during a column's value change  
   
-1.  在 [!INCLUDE[vs_ordesigner_short](../data-tools/includes/vs_ordesigner_short_md.md)]中打开或创建一个新的 LINQ to SQL 类文件（**“.dbml”**文件）。（在**“解决方案资源管理器”**中双击该**“.dbml”**文件。）  
+1.  Open or create a new LINQ to SQL Classes file (**.dbml** file) in the [!INCLUDE[vs_ordesigner_short](../data-tools/includes/vs_ordesigner_short_md.md)]. (Double-click the **.dbml** file in **Solution Explorer**.)  
   
-2.  在 O\/R 设计器中右击要为其添加验证的类，然后单击**“查看代码”**。  
+2.  In the O/R Designer, right-click the class for which you want to add validation and then click **View Code**.  
   
-     将打开代码编辑器，其中显示所选实体类的分部类。  
+     The Code Editor opens with a partial class for the selected entity class.  
   
-3.  将光标放在该分部类中。  
+3.  Place the cursor in the partial class.  
   
-4.  对于 Visual Basic 项目：  
+4.  For Visual Basic projects:  
   
-    1.  展开**“方法名称”**列表。  
+    1.  Expand the **Method Name** list.  
   
-    2.  为您要将验证添加到的列定位 **On***COLUMNNAME***更改** 方法。  
+    2.  Locate the **OnCOLUMNNAMEChanging** method for the column you want to add validation to.  
   
-    3.  `On` *COLUMNNAME* `Changing` 方法将添加到部分类中。  
+    3.  An `OnCOLUMNNAMEChanging` method is added to the partial class.  
   
-    4.  添加下列代码，以首先确认是否已输入了值，然后确保为该列输入的值可被您的应用程序接受。`value` 参数包含建议的值，因此添加逻辑以确认它是否为有效值：  
+    4.  Add the following code to first verify that a value has been entered and then to ensure that the value entered for the column is acceptable for your application. The `value` argument contains the proposed value, so add logic to confirm that it is a valid value:  
   
-        ```vb#  
+        ```vb  
         If value.HasValue Then  
             ' Add code to ensure that the value is acceptable.  
             ' If value < 1 Then  
@@ -56,71 +78,66 @@ manager: "ghogen"
         End If  
         ```  
   
-     对于 C\# 项目：  
+    For C# projects:  
   
-    1.  由于 C\# 项目不会自动生成事件处理程序，因此您可以使用 IntelliSense 创建列更改分部方法。  
+    Because C# projects do not automatically generate event handlers, you can use IntelliSense to create the column-changing partial methods. Type `partial` and then a space to access the list of available partial methods. Click the column-changing method for the column you want to add validation for. The following code resembles the code that is generated when you select a column-changing partial method:  
   
-         键入 `partial` 和空格以访问可用分部方法的列表。单击要为其添加验证的列的列更改方法。您选择列更改分部方法时生成的代码与下面的代码类似：  
+    ```csharp  
+    partial void OnCOLUMNNAMEChanging(COLUMNDATATYPE value)  
+        {  
+           throw new System.NotImplementedException();  
+        }  
+    ```  
   
-        ```c#  
-        partial void OnCOLUMNNAMEChanging(COLUMNDATATYPE value)  
-            {  
-               throw new System.NotImplementedException();  
-            }  
-  
-        ```  
-  
-## 添加对实体类更新的验证  
- 除了可以在更改过程中检查值之外，还可以在尝试更新完整实体类时验证数据。在尝试进行更新操作的过程中进行的验证可以比较多个列中的值（如果业务规则要求这样做）。下面的过程演示在尝试更新完整实体类时如何进行验证。  
+## <a name="adding-validation-for-updates-to-an-entity-class"></a>Adding Validation for Updates to an Entity Class  
+ In addition to checking values during changes, you can also validate data when an attempt is made to update a complete entity class. Validation during an attempted update enables you to compare values in multiple columns if business rules require this. The following procedure shows how to validate when an attempt is made to update a complete entity class.  
   
 > [!NOTE]
->  更新完整实体类的验证代码是在分部 <xref:System.Data.Linq.DataContext> 类（而不是在特定实体类的分部类）中执行的。  
+>  Validation code for updates to complete entity classes is executed in the partial <xref:System.Data.Linq.DataContext> class (instead of in the partial class of a specific entity class).  
   
-#### 在实体类更新过程中验证数据  
+#### <a name="to-validate-data-during-an-update-to-an-entity-class"></a>To validate data during an update to an entity class  
   
-1.  在 [!INCLUDE[vs_ordesigner_short](../data-tools/includes/vs_ordesigner_short_md.md)]中打开或创建一个新的 LINQ to SQL 类文件（**“.dbml”**文件）。（在**“解决方案资源管理器”**中双击该**“.dbml”**文件。）  
+1.  Open or create a new LINQ to SQL Classes file (**.dbml** file) in the [!INCLUDE[vs_ordesigner_short](../data-tools/includes/vs_ordesigner_short_md.md)]. (Double-click the **.dbml** file in **Solution Explorer**.)  
   
-2.  右击 O\/R 设计器上的空白区域，然后单击**“查看代码”**。  
+2.  Right-click an empty area on the O/R Designer and click **View Code**.  
   
-     将打开代码编辑器，其中显示 `DataContext` 的一个分部类。  
+     The Code Editor opens with a partial class for the `DataContext`.  
   
-3.  将光标放在 `DataContext` 的分部类上。  
+3.  Place the cursor in the partial class for the `DataContext`.  
   
-4.  对于 Visual Basic 项目：  
+4.  For Visual Basic projects:  
   
-    1.  展开**“方法名称”**列表。  
+    1.  Expand the **Method Name** list.  
   
-    2.  单击**“更新”***ENTITYCLASSNAME*。  
+    2.  Click **UpdateENTITYCLASSNAME**.  
   
-    3.  `Update` *ENTITYCLASSNAME* 方法将添加到部分类中。  
+    3.  An `UpdateENTITYCLASSNAME` method is added to the partial class.  
   
-    4.  使用 `instance` 参数访问各个列值，如下面的代码所示：  
+    4.  Access individual column values by using the `instance` argument, as shown in the following code:  
   
-        ```vb#  
+        ```vb  
         If (instance.COLUMNNAME = x) And (instance.COLUMNNAME = y) Then  
             Dim ErrorMessage As String = "Invalid data!"  
             Throw New Exception(ErrorMessage)  
         End If  
         ```  
   
-     对于 C\# 项目：  
+    For C# projects:  
   
-    1.  由于 C\# 项目不会自动生成事件处理程序，因此您可以使用 IntelliSense 创建部分 `Update`*CLASSNAME* 方法。  
+    Because C# projects do not automatically generate event handlers, you can use IntelliSense to create the partial `UpdateCLASSNAME` method. Type `partial` and then a space to access the list of available partial methods. Click the update method for the class you want to add validation for. The following code resembles the code that is generated when you select an `UpdateCLASSNAME` partial method:  
   
-    2.  键入 `partial` 和空格以访问可用分部方法的列表。单击要为其添加验证的类的更新方法。您选择 `Update`*CLASSNAME* 部分方法时以下代码与生成的代码类似：  
-  
-        ```c#  
-        partial void UpdateCLASSNAME(CLASSNAME instance)  
+    ```csharp  
+    partial void UpdateCLASSNAME(CLASSNAME instance)  
+    {  
+        if ((instance.COLUMNNAME == x) && (instance.COLUMNNAME = y))  
         {  
-            if ((instance.COLUMNNAME == x) && (instance.COLUMNNAME = y))  
-            {  
-                string ErrorMessage = "Invalid data!";  
-                throw new System.Exception(ErrorMessage);  
-            }  
+            string ErrorMessage = "Invalid data!";  
+            throw new System.Exception(ErrorMessage);  
         }  
-        ```  
+    }  
+    ```  
   
-## 请参阅  
- [对象关系设计器（O\/R 设计器）](../data-tools/linq-to-sql-tools-in-visual-studio2.md)   
- [LINQ to SQL](../Topic/LINQ%20to%20SQL.md)   
- [验证数据](../Topic/Validating%20Data.md)
+## <a name="see-also"></a>See Also  
+ [LINQ to SQL Tools in Visual Studio](../data-tools/linq-to-sql-tools-in-visual-studio2.md)   
+ [LINQ to SQL](/dotnet/framework/data/adonet/sql/linq/index)   
+ [Validating Data](validate-data-in-datasets.md)

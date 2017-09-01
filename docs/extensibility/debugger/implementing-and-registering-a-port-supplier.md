@@ -1,33 +1,50 @@
 ---
-title: "实现和注册端口提供程序 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-helpviewer_keywords: 
-  - "调试 [调试 SDK]、 注册端口的供应商"
-  - "注册的端口供应商"
+title: Implementing and Registering a Port Supplier | Microsoft Docs
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+helpviewer_keywords:
+- debugging [Debugging SDK], registering port suppliers
+- port suppliers, registering
 ms.assetid: fb057052-ee16-4272-8e16-a4da5dda0ad4
 caps.latest.revision: 17
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 17
----
-# 实现和注册端口提供程序
-[!INCLUDE[vs2017banner](../../code-quality/includes/vs2017banner.md)]
+ms.author: gregvanl
+manager: ghogen
+translation.priority.mt:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+ms.translationtype: MT
+ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
+ms.openlocfilehash: 32ffd30ed461e8dfaed9d47ecc54e3ef7acd59ce
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/28/2017
 
-端口提供程序的角色是跟踪，并提供端口，或托管进程。  在端口需要创建时，端口提供实例化使用端口提供程序 GUID 的共同创建 \(会议调试管理器 SDM \[\] 将使用端口提供用户选定或端口提供程序由项目系统指定的\)。  SDM 将调用 [CanAddPort](../../extensibility/debugger/reference/idebugportsupplier2-canaddport.md) 发现任何端口是否可以添加。  如果端口可以添加，新端口通过调用 [添加端口](../../extensibility/debugger/reference/idebugportsupplier2-addport.md) 并将描述端口的该 [IDebugPortRequest2](../../extensibility/debugger/reference/idebugportrequest2.md) 请求。  `AddPort` 将返回 [IDebugPort2](../../extensibility/debugger/reference/idebugport2.md) 接口表示的新端口。  
+---
+# <a name="implementing-and-registering-a-port-supplier"></a>Implementing and Registering a Port Supplier
+The role of a port supplier is to track and supply ports, which in turn manage processes. At the time a port needs to be created, the port supplier is instantiated using CoCreate with the port supplier's GUID (the session debug manager [SDM] will use the port supplier the user selected or the port supplier specified by the project system). The SDM will then call [CanAddPort](../../extensibility/debugger/reference/idebugportsupplier2-canaddport.md) to see if any ports can be added. If a port can be added, a new port is requested by calling [AddPort](../../extensibility/debugger/reference/idebugportsupplier2-addport.md) and passing it an [IDebugPortRequest2](../../extensibility/debugger/reference/idebugportrequest2.md) that describes the port. `AddPort` will return a new port represented by an [IDebugPort2](../../extensibility/debugger/reference/idebugport2.md) interface.  
   
-## 讨论  
- 端口由端口提供程序创建的，这与设备或调试服务器。  服务器可以通过[EnumPortSuppliers](../../extensibility/debugger/reference/idebugcoreserver2-enumportsuppliers.md) 方法枚举其端口提供程序，并且，端口提供程序可以通过 [EnumPorts](../../extensibility/debugger/reference/idebugportsupplier2-enumports.md) 方法枚举其端口。  
+## <a name="discussion"></a>Discussion  
+ A port is created by a port supplier, which is in turn associated with a machine or debug server. A server can enumerate its port suppliers through the[EnumPortSuppliers](../../extensibility/debugger/reference/idebugcoreserver2-enumportsuppliers.md) method, and a port supplier can enumerate its ports through the [EnumPorts](../../extensibility/debugger/reference/idebugportsupplier2-enumports.md) method.  
   
- 除了典型的 COM 注册，端口提供程序之外通过将其 CLSID 和名称必须与 Visual Studio 注册在特定注册表位置。  debugging SDK 帮助器函数调用 `SetMetric` 处理此差事:因此它一次调用以便注册每个项，例如:  
+ In addition to the typical COM registration, a port supplier must register itself with Visual Studio by placing its CLSID and name in specific registry locations. A Debugging SDK helper function called `SetMetric` handles this chore: it is called once for each item to be registered, thus:  
   
-```cpp#  
+```cpp  
 SetMetric(metrictypePortSupplier,  
           <GUID of your port supplier>,  
           metricCLSID,  
@@ -42,9 +59,9 @@ SetMetric(metrictypePortSupplier,
           NULL);  
 ```  
   
- 端口提供注销通过调用 `RemoveMetric` \(另一个 debugging SDK 帮助器函数\) 因此注册的每个项，例如:  
+ A port supplier unregisters itself by calling `RemoveMetric` (another Debugging SDK helper function) once for each item that was registered, thus:  
   
-```cpp#  
+```cpp  
 RemoveMetric(metrictypePortSupplier,  
              <GUID of your port supplier>,  
              metricCLSID,  
@@ -56,11 +73,11 @@ RemoveMetric(metrictypePortSupplier,
 ```  
   
 > [!NOTE]
->  [SDK 帮助器调试](../../extensibility/debugger/reference/sdk-helpers-for-debugging.md) `SetMetric` 和 `RemoveMetric` 是静态函数定义在 dbgmetric.h 并编译成 ad2de.lib。  `metrictypePortSupplier`、 `metricCLSID`和`metricName` 帮助器在 dbgmetric.h 还定义。  
+>  The [SDK Helpers for Debugging](../../extensibility/debugger/reference/sdk-helpers-for-debugging.md)`SetMetric` and `RemoveMetric` are static functions defined in dbgmetric.h and compiled into ad2de.lib. The `metrictypePortSupplier`, `metricCLSID`, and `metricName` helpers are also defined in dbgmetric.h.  
   
- 端口提供程序可以通过方法 [GetPortSupplierName](../../extensibility/debugger/reference/idebugportsupplier2-getportsuppliername.md) 和 [GetPortSupplierId](../Topic/IDebugPortSupplier2::GetPortSupplierId.md)提供其名称和 GUID，分别。  
+ A port supplier can supply its name and GUID through the methods [GetPortSupplierName](../../extensibility/debugger/reference/idebugportsupplier2-getportsuppliername.md) and [GetPortSupplierId](../../extensibility/debugger/reference/idebugportsupplier2-getportsupplierid.md), respectively.  
   
-## 请参阅  
- [实现端口提供程序](../../extensibility/debugger/implementing-a-port-supplier.md)   
- [SDK 帮助器调试](../../extensibility/debugger/reference/sdk-helpers-for-debugging.md)   
- [端口供应商](../../extensibility/debugger/port-suppliers.md)
+## <a name="see-also"></a>See Also  
+ [Implementing a Port Supplier](../../extensibility/debugger/implementing-a-port-supplier.md)   
+ [SDK Helpers for Debugging](../../extensibility/debugger/reference/sdk-helpers-for-debugging.md)   
+ [Port Suppliers](../../extensibility/debugger/port-suppliers.md)

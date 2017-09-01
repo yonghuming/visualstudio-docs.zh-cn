@@ -1,132 +1,147 @@
 ---
-title: "演练：使用 ClickOnce 部署 API 按需下载程序集 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-deployment"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-dev_langs: 
-  - "VB"
-  - "CSharp"
-  - "C++"
-helpviewer_keywords: 
-  - "程序集, 下载 [ClickOnce]"
-  - "ClickOnce 部署, 按需下载"
-  - "按需程序集, ClickOnce"
+title: 'Walkthrough: Downloading Assemblies on Demand with the ClickOnce Deployment API | Microsoft Docs'
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-deployment
+ms.tgt_pltfrm: 
+ms.topic: article
+dev_langs:
+- VB
+- CSharp
+- C++
+helpviewer_keywords:
+- assemblies, downloading [ClickOnce]
+- ClickOnce deployment, on-demand download
+- on-demand assemblies, ClickOnce
 ms.assetid: d20e2789-8621-4806-b5b7-841122da1456
 caps.latest.revision: 16
-author: "stevehoag"
-ms.author: "shoag"
-manager: "wpickett"
-caps.handback.revision: 16
----
-# 演练：使用 ClickOnce 部署 API 按需下载程序集
-[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
+author: stevehoag
+ms.author: shoag
+manager: wpickett
+translation.priority.ht:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+ms.translationtype: HT
+ms.sourcegitcommit: eb5c9550fd29b0e98bf63a7240737da4f13f3249
+ms.openlocfilehash: 4981aa3515d131f8a75fa0c76849c02ef27dd75c
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/30/2017
 
-默认情况下，首次运行 [!INCLUDE[ndptecclick](../deployment/includes/ndptecclick_md.md)] 应用程序时，会下载该应用程序中包含的所有程序集。  但是，少数用户可能仅使用应用程序的某些部分。  在这种情况下，您可能希望只有在创建某一类型的程序集时，才下载一个该类型的程序集。  下面的演练演示如何将应用程序中的某些程序集标记为“可选”，以及如何在公共语言运行时 \(CLR\) 需要这些程序集时，通过使用 <xref:System.Deployment.Application> 命名空间中的类来下载这些程序集。  
+---
+# <a name="walkthrough-downloading-assemblies-on-demand-with-the-clickonce-deployment-api"></a>Walkthrough: Downloading Assemblies on Demand with the ClickOnce Deployment API
+By default, all of the assemblies included in a [!INCLUDE[ndptecclick](../deployment/includes/ndptecclick_md.md)] application are downloaded when the application is first run. However, you may have parts of your application that are used by a small set of your users. In this case, you want to download an assembly only when you create one of its types. The following walkthrough demonstrates how to mark certain assemblies in your application as "optional", and how to download them by using classes in the <xref:System.Deployment.Application> namespace when the common language runtime (CLR) demands them.  
   
 > [!NOTE]
->  要使用此过程，应用程序必须以完全信任的方式运行。  
+>  Your application will have to run in full trust to use this procedure.  
   
-## 系统必备  
- 若要完成本演练，您将需要下列组件之一：  
+## <a name="prerequisites"></a>Prerequisites  
+ You will need one of the following components to complete this walkthrough:  
   
--   Windows SDK。  可以从 Microsoft 下载中心下载 Windows SDK。  
+-   The Windows SDK. The Windows SDK can be downloaded from the Microsoft Download Center.  
   
--   Visual Studio。  
+-   Visual Studio.  
   
-## 创建项目  
+## <a name="creating-the-projects"></a>Creating the Projects  
   
-#### 创建使用按需程序集的项目  
+#### <a name="to-create-a-project-that-uses-an-on-demand-assembly"></a>To create a project that uses an on-demand assembly  
   
-1.  创建一个名为 ClickOnceOnDemand 的目录。  
+1.  Create a directory named ClickOnceOnDemand.  
   
-2.  打开 Windows SDK 命令提示符或 [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] 命令提示符。  
+2.  Open the Windows SDK Command Prompt or the [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] Command Prompt.  
   
-3.  转到目录 ClickOnceOnDemand。  
+3.  Change to the ClickOnceOnDemand directory.  
   
-4.  使用以下命令生成一个公钥\/私钥对：  
+4.  Generate a public/private key pair using the following command:  
   
     ```  
     sn -k TestKey.snk  
     ```  
   
-5.  使用记事本或其他文本编辑器，定义一个名为 `DynamicClass`、且仅有一个 `Message` 属性的类。  
+5.  Using Notepad or another text editor, define a class named `DynamicClass` with a single property named `Message`.  
   
-     [!code-vb[ClickOnceLibrary#1](../deployment/codesnippet/VisualBasic/walkthrough-downloading-assemblies-on-demand-with-the-clickonce-deployment-api_1.vb)]
-     [!code-cs[ClickOnceLibrary#1](../deployment/codesnippet/CSharp/walkthrough-downloading-assemblies-on-demand-with-the-clickonce-deployment-api_1.cs)]  
+     [!code-vb[ClickOnceLibrary#1](../deployment/codesnippet/VisualBasic/walkthrough-downloading-assemblies-on-demand-with-the-clickonce-deployment-api_1.vb)]  [!code-csharp[ClickOnceLibrary#1](../deployment/codesnippet/CSharp/walkthrough-downloading-assemblies-on-demand-with-the-clickonce-deployment-api_1.cs)]  
   
-6.  将文本另存为名为 `ClickOnceLibrary.cs` 或 `ClickOnceLibrary.vb` 的文件，具体文件名取决于您所使用的语言，并将其保存到 ClickOnceOnDemand 目录。  
+6.  Save the text as a file named `ClickOnceLibrary.cs` or `ClickOnceLibrary.vb`, depending on the language you use, to the ClickOnceOnDemand directory.  
   
-7.  将该文件编译为一个程序集。  
+7.  Compile the file into an assembly.  
   
-    ```c#  
+    ```csharp  
     csc /target:library /keyfile:TestKey.snk ClickOnceLibrary.cs  
     ```  
   
-    ```vb#  
+    ```vb  
     vbc /target:library /keyfile:TestKey.snk ClickOnceLibrary.vb  
     ```  
   
-8.  若要获取该程序集的公钥标记，请使用以下命令：  
+8.  To get the public key token for the assembly, use the following command:  
   
     ```  
     sn -T ClickOnceLibrary.dll  
     ```  
   
-9. 使用文本编辑器创建一个新文件，然后输入下面的代码。  此代码创建一个 Windows 窗体应用程序，在需要 ClickOnceLibrary 程序集时该应用程序会下载它。  
+9. Create a new file using your text editor and enter the following code. This code creates a Windows Forms application that downloads the ClickOnceLibrary assembly when it is required.  
   
-     [!code-cs[ClickOnceOnDemandCmdLine#1](../deployment/codesnippet/CSharp/walkthrough-downloading-assemblies-on-demand-with-the-clickonce-deployment-api_2.cs)]
-     [!code-vb[ClickOnceOnDemandCmdLine#1](../deployment/codesnippet/VisualBasic/walkthrough-downloading-assemblies-on-demand-with-the-clickonce-deployment-api_2.vb)]  
+     [!code-csharp[ClickOnceOnDemandCmdLine#1](../deployment/codesnippet/CSharp/walkthrough-downloading-assemblies-on-demand-with-the-clickonce-deployment-api_2.cs)]   [!code-vb[ClickOnceOnDemandCmdLine#1](../deployment/codesnippet/VisualBasic/walkthrough-downloading-assemblies-on-demand-with-the-clickonce-deployment-api_2.vb)]  
   
-10. 在代码中，找到对 <xref:System.Reflection.Assembly.LoadFile%2A> 的调用。  
+10. In the code, locate the call to <xref:System.Reflection.Assembly.LoadFile%2A>.  
   
-11. 将 `PublicKeyToken` 设置为您在前面检索的值。  
+11. Set`PublicKeyToken` to the value that you retrieved earlier.  
   
-12. 将该文件另存为 `Form1.cs` 或 `Form1.vb`。  
+12. Save the file as either `Form1.cs` or `Form1.vb`.  
   
-13. 使用以下命令将该文件编译为一个可执行文件。  
+13. Compile it into an executable using the following command.  
   
-    ```c#  
+    ```csharp  
     csc /target:exe /reference:ClickOnceLibrary.dll Form1.cs  
     ```  
   
-    ```vb#  
+    ```vb  
     vbc /target:exe /reference:ClickOnceLibrary.dll Form1.vb  
     ```  
   
-## 将程序集标记为可选  
+## <a name="marking-assemblies-as-optional"></a>Marking Assemblies as Optional  
   
-#### 使用 MageUI.exe 在 ClickOnce 应用程序中将程序集标记为可选  
+#### <a name="to-mark-assemblies-as-optional-in-your-clickonce-application-by-using-mageuiexe"></a>To mark assemblies as optional in your ClickOnce application by using MageUI.exe  
   
-1.  按照[演练：手动部署 ClickOnce 应用程序](../deployment/walkthrough-manually-deploying-a-clickonce-application.md)中的描述，使用 MageUI.exe 创建一个应用程序清单。  请对该应用程序清单使用下列设置：  
+1.  Using MageUI.exe, create an application manifest as described in [Walkthrough: Manually Deploying a ClickOnce Application](../deployment/walkthrough-manually-deploying-a-clickonce-application.md). Use the following settings for the application manifest:  
   
-    -   将该应用程序清单命名为 `ClickOnceOnDemand`。  
+    -   Name the application manifest `ClickOnceOnDemand`.  
   
-    -   在**“文件”**页上的 ClickOnceLibrary.dll 行中，将**“文件类型”**列设置为**“无”**。  
+    -   On the **Files** page, in the ClickOnceLibrary.dll row, set the **File Type** column to **None**.  
   
-    -   在**“文件”**页上的 ClickOnceLibrary.dll 行中，在**“组”**列中键入 `ClickOnceLibrary.dll`。  
+    -   On the **Files** page, in the ClickOnceLibrary.dll row, type `ClickOnceLibrary.dll` in the **Group** column.  
   
-2.  按照[演练：手动部署 ClickOnce 应用程序](../deployment/walkthrough-manually-deploying-a-clickonce-application.md)中的描述，使用 MageUI.exe 创建一个部署清单。  请对该部署清单使用下列设置：  
+2.  Using MageUI.exe, create a deployment manifest as described in [Walkthrough: Manually Deploying a ClickOnce Application](../deployment/walkthrough-manually-deploying-a-clickonce-application.md). Use the following settings for the deployment manifest:  
   
-    -   将该部署清单命名为 `ClickOnceOnDemand`。  
+    -   Name the deployment manifest `ClickOnceOnDemand`.  
   
-## 测试新的程序集  
+## <a name="testing-the-new-assembly"></a>Testing the New Assembly  
   
-#### 测试按需程序集  
+#### <a name="to-test-your-on-demand-assembly"></a>To test your on-demand assembly  
   
-1.  将 [!INCLUDE[ndptecclick](../deployment/includes/ndptecclick_md.md)] 部署上载到 Web 服务器。  
+1.  Upload your [!INCLUDE[ndptecclick](../deployment/includes/ndptecclick_md.md)] deployment to a Web server.  
   
-2.  通过在 Web 浏览器中输入部署清单的 URL 来启动使用 [!INCLUDE[ndptecclick](../deployment/includes/ndptecclick_md.md)] 部署的应用程序。  如果调用 [!INCLUDE[ndptecclick](../deployment/includes/ndptecclick_md.md)] 应用程序 `ClickOnceOnDemand`，并将其上载到 adatum.com 的根目录下，则该 URL 可能如下所示：  
+2.  Start your application deployed with [!INCLUDE[ndptecclick](../deployment/includes/ndptecclick_md.md)] from a Web browser by entering the URL to the deployment manifest. If you call your [!INCLUDE[ndptecclick](../deployment/includes/ndptecclick_md.md)] application `ClickOnceOnDemand`, and you upload it to the root directory of adatum.com, your URL would look like this:  
   
     ```  
     http://www.adatum.com/ClickOnceOnDemand/ClickOnceOnDemand.application  
     ```  
   
-3.  显示主窗体时，按 <xref:System.Windows.Forms.Button>。  此时，消息框窗口中应该显示“Hello, World\!”这样的字符串。  
+3.  When your main form appears, press the <xref:System.Windows.Forms.Button>. You should see a string in a message box window that reads "Hello, World!".  
   
-## 请参阅  
+## <a name="see-also"></a>See Also  
  <xref:System.Deployment.Application.ApplicationDeployment>

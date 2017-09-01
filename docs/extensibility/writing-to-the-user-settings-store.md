@@ -1,5 +1,5 @@
 ---
-title: "写入用户设置存储 |Microsoft 文档"
+title: Writing to the User Settings Store | Microsoft Docs
 ms.custom: 
 ms.date: 11/04/2016
 ms.reviewer: 
@@ -26,51 +26,52 @@ translation.priority.mt:
 - tr-tr
 - zh-cn
 - zh-tw
-translationtype: Machine Translation
-ms.sourcegitcommit: 5db97d19b1b823388a465bba15d057b30ff0b3ce
-ms.openlocfilehash: 35ca397d57906a6316543325a08b118613fc2035
-ms.lasthandoff: 02/22/2017
+ms.translationtype: MT
+ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
+ms.openlocfilehash: 8be43438312773b2e02915f963b1c68fff61e889
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/28/2017
 
 ---
-# <a name="writing-to-the-user-settings-store"></a>写入用户设置存储
-用户设置是可写中一样**工具 / 选项**对话框、 属性窗口和某些其他对话框。 Visual Studio 扩展可能会使用它们来存储少量数据。 本演练演示如何将记事本到 Visual Studio 添加为外部工具，通过读取和写入用户设置存储。  
+# <a name="writing-to-the-user-settings-store"></a>Writing to the User Settings Store
+User settings are writeable settings like the ones in the **Tools / Options** dialog, properties windows, and certain other dialog boxes. Visual Studio extensions may use these to store small amounts of data. This walkthrough shows how to add Notepad to Visual Studio as an external tool by reading from and writing to the user settings store.  
   
-### <a name="backing-up-your-user-settings"></a>备份你的用户设置  
+### <a name="backing-up-your-user-settings"></a>Backing up Your User Settings  
   
-1.  您必须能重置外部工具设置，以便您可以调试并重复此过程。 若要执行此操作，必须保存原始设置，以便您可以根据需要恢复它们。  
+1.  You must be able to reset the External Tools settings so that you can debug and repeat the procedure. To do this, you must save the original settings so that you can restore them as required.  
   
-2.  打开 Regedit.exe。  
+2.  Open Regedit.exe.  
   
-3.  导航到 HKEY_CURRENT_USER\Software\Microsoft\VisualStudio\14.0Exp\External 工具\\。  
+3.  Navigate to HKEY_CURRENT_USER\Software\Microsoft\VisualStudio\14.0Exp\External Tools\\.  
   
     > [!NOTE]
-    >  请确保您要查找键，其中包含 \14.0Exp\ 和不 \14.0 处\\。 当您运行 Visual Studio 的实验实例时，您的用户设置将在注册表配置单元"14.0Exp"。  
+    >  Make sure that you are looking at the key that contains \14.0Exp\ and not \14.0\\. When you run the experimental instance of Visual Studio, your user settings are in the registry hive "14.0Exp".  
   
-4.  右键单击 \External Tools\ 子项，然后单击**导出**。 请确保**所选分支**处于选中状态。  
+4.  Right-click the \External Tools\ subkey, and then click **Export**. Make sure that **Selected branch** is selected.  
   
-5.  保存生成的外部 Tools.reg 文件。  
+5.  Save the resulting External Tools.reg file.  
   
-6.  更高版本，当您想要重置外部工具设置，选择 HKEY_CURRENT_USER\Software\Microsoft\VisualStudio\14.0Exp\External 工具注册表项，然后单击**删除**上下文菜单上。  
+6.  Later, when you want to reset the External Tools settings, select the HKEY_CURRENT_USER\Software\Microsoft\VisualStudio\14.0Exp\External Tools\ registry key and click **Delete** on the context menu.  
   
-7.  当**确认项删除**出现对话框，请单击**是**。  
+7.  When the **Confirm Key Delete** dialog box appears, click **Yes**.  
   
-8.  右键单击以前保存的外部 Tools.reg 文件，请单击**使用打开**，然后单击**注册表编辑器**。  
+8.  Right-click the External Tools.reg file that you saved earlier, click **Open with**, and then click **Registry Editor**.  
   
-## <a name="writing-to-the-user-settings-store"></a>写入用户设置存储  
+## <a name="writing-to-the-user-settings-store"></a>Writing to the User Settings Store  
   
-1.  创建一个名为 UserSettingsStoreExtension 的 VSIX 项目，然后添加名为 UserSettingsStoreCommand 的自定义命令。 有关如何创建自定义命令的详细信息，请参阅[使用菜单命令创建扩展](../extensibility/creating-an-extension-with-a-menu-command.md)  
+1.  Create a VSIX project named UserSettingsStoreExtension and then add a custom command named UserSettingsStoreCommand. For more information about how to create a custom command, see [Creating an Extension with a Menu Command](../extensibility/creating-an-extension-with-a-menu-command.md)  
   
-2.  在 UserSettingsStoreCommand.cs，添加以下 using 语句︰  
+2.  In UserSettingsStoreCommand.cs, add the following using statements:  
   
-    ```c#  
+    ```csharp  
     using System.Collections.Generic;  
     using Microsoft.VisualStudio.Settings;  
     using Microsoft.VisualStudio.Shell.Settings;  
     ```  
   
-3.  在 MenuItemCallback，删除方法的主体，并获取的用户设置存储，，如下所示︰  
+3.  In MenuItemCallback, delete the body of the method and get the user settings store, as follows:  
   
-    ```c#  
+    ```csharp  
     private void MenuItemCallback(object sender, EventArgs e)  
     {  
         SettingsManager settingsManager = new ShellSettingsManager(ServiceProvider);  
@@ -78,9 +79,9 @@ ms.lasthandoff: 02/22/2017
     }  
     ```  
   
-4.  现在，了解是否记事本已设置为外部工具。 您需要循环访问所有外部工具，以确定是否 ToolCmd 设置为"记事本"，如下所示︰  
+4.  Now find out whether Notepad is already set as an external tool. You need to iterate through all the external tools to determine whether the ToolCmd setting is "Notepad", as follows:  
   
-    ```c#  
+    ```csharp  
     private void MenuItemCallback(object sender, EventArgs e)  
     {  
         SettingsManager settingsManager = new ShellSettingsManager(ServiceProvider);  
@@ -102,7 +103,7 @@ ms.lasthandoff: 02/22/2017
   
     ```  
   
-5.  如果未作为外部工具设置记事本，请按以下方式进行设置︰  
+5.  If Notepad hasn't been set as an external tool, set it as follows:  
   
     ```vb  
     private void MenuItemCallback(object sender, EventArgs e)  
@@ -138,10 +139,10 @@ ms.lasthandoff: 02/22/2017
     }  
     ```  
   
-6.  测试代码。 请记住，它添加了记事本作为外部工具，所以您必须回滚注册表然后再运行第二次。  
+6.  Test the code. Remember that it adds Notepad as an External Tool, so you must roll back the registry before running it a second time.  
   
-7.  生成代码后，开始调试。  
+7.  Build the code and start debugging.  
   
-8.  在**工具**菜单上，单击**调用 UserSettingsStoreCommand**。 这将添加到记事本**工具**菜单。  
+8.  On the **Tools** menu, click **Invoke UserSettingsStoreCommand**. This will add Notepad to the **Tools** menu.  
   
-9. 现在，您应看到记事本工具 / 选项菜单，并单击**记事本**应打开一个记事本实例。
+9. Now you should see Notepad on the Tools / Options menu, and clicking **Notepad** should bring up an instance of Notepad.

@@ -1,5 +1,5 @@
 ---
-title: "IDebugCoreServer3::DiagnoseWebDebuggingError |Microsoft 文档"
+title: IDebugCoreServer3::DiagnoseWebDebuggingError | Microsoft Docs
 ms.custom: 
 ms.date: 11/04/2016
 ms.reviewer: 
@@ -30,41 +30,42 @@ translation.priority.mt:
 - tr-tr
 - zh-cn
 - zh-tw
-translationtype: Machine Translation
-ms.sourcegitcommit: 5db97d19b1b823388a465bba15d057b30ff0b3ce
-ms.openlocfilehash: 04a8ecbb1bfdc7f14f6b493df7f1dc9e16b53cd6
-ms.lasthandoff: 02/22/2017
+ms.translationtype: MT
+ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
+ms.openlocfilehash: 2c9ed64c1db1472e334333f3c2cb6d1bfb017c25
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="idebugcoreserver3diagnosewebdebuggingerror"></a>IDebugCoreServer3::DiagnoseWebDebuggingError
-尝试确定为什么 auto-attach 失败。  
+Attempts to determine why an auto-attach failed.  
   
-## <a name="syntax"></a>语法  
+## <a name="syntax"></a>Syntax  
   
-```cpp#  
+```cpp  
 HRESULT DiagnoseWebDebuggingError(  
    LPCWSTR pszUrl  
 );  
 ```  
   
-```c#  
+```csharp  
 int DiagnoseWebDebuggingError(  
    string pszUrl  
 );  
 ```  
   
-#### <a name="parameters"></a>参数  
+#### <a name="parameters"></a>Parameters  
  `pszUrl`  
- [in]当前未使用;应始终设置为 null 值。  
+ [in] Not currently used; should always be set to a null value.  
   
-## <a name="return-value"></a>返回值  
- 如果成功，返回`S_OK`; 否则为返回错误代码。 以下是其他典型的返回代码︰  
+## <a name="return-value"></a>Return Value  
+ If successful, returns `S_OK`; otherwise, returns an error code. The following are other typical return codes:  
   
-|代码|说明|  
+|Code|Description|  
 |----------|-----------------|  
-|`S_WEBDBG_UNABLE_TO_DIAGNOSE`|无法确定远程服务器开始调试失败的原因。|  
-|`S_WEBDBG_DEBUG_VERB_BLOCKED`|在远程服务器上，可能是由于权限不足而无法调试或因为没有启用 DEBUG 谓词。|  
-|`E_WEBDBG_DEBUG_VERB_BLOCKED`|Web 服务器已被锁定，并正在阻塞 DEBUG 谓词，它需要启用调试。|  
+|`S_WEBDBG_UNABLE_TO_DIAGNOSE`|Cannot determine why the remote server failed to start debugging.|  
+|`S_WEBDBG_DEBUG_VERB_BLOCKED`|Cannot debug on remote server, possibly due to insufficient permissions or because the DEBUG verb is not enabled.|  
+|`E_WEBDBG_DEBUG_VERB_BLOCKED`|The web server has been locked down and is blocking the DEBUG verb, which is required to enable debugging.|  
   
-## <a name="see-also"></a>另请参阅  
+## <a name="see-also"></a>See Also  
  [IDebugCoreServer3](../../../extensibility/debugger/reference/idebugcoreserver3.md)

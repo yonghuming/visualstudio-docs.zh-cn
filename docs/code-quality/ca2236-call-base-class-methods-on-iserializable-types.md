@@ -1,69 +1,85 @@
 ---
-title: "CA2236：对 ISerializable 类型调用基类方法 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-devops-test"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "CA2236"
-  - "CallBaseClassMethodsOnISerializableTypes"
-helpviewer_keywords: 
-  - "CA2236"
-  - "CallBaseClassMethodsOnISerializableTypes"
+title: 'CA2236: Call base class methods on ISerializable types | Microsoft Docs'
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-devops-test
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords:
+- CA2236
+- CallBaseClassMethodsOnISerializableTypes
+helpviewer_keywords:
+- CA2236
+- CallBaseClassMethodsOnISerializableTypes
 ms.assetid: 5a15b20d-769c-4640-b31a-36e07077daae
 caps.latest.revision: 15
-author: "stevehoag"
-ms.author: "shoag"
-manager: "wpickett"
-caps.handback.revision: 15
----
-# CA2236：对 ISerializable 类型调用基类方法
-[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
+author: stevehoag
+ms.author: shoag
+manager: wpickett
+translation.priority.ht:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+ms.translationtype: HT
+ms.sourcegitcommit: eb5c9550fd29b0e98bf63a7240737da4f13f3249
+ms.openlocfilehash: ae87df4ff5efceee22fc76f6449ac8c3c9993e8b
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/30/2017
 
+---
+# <a name="ca2236-call-base-class-methods-on-iserializable-types"></a>CA2236: Call base class methods on ISerializable types
 |||  
 |-|-|  
-|类型名|CallBaseClassMethodsOnISerializableTypes|  
+|TypeName|CallBaseClassMethodsOnISerializableTypes|  
 |CheckId|CA2236|  
-|类别|Microsoft.Usage|  
-|是否重大更改|否|  
+|Category|Microsoft.Usage|  
+|Breaking Change|Non Breaking|  
   
-## 原因  
- 从另一个类型派生的类型实现 <xref:System.Runtime.Serialization.ISerializable?displayProperty=fullName> 接口，并且满足下列条件之一：  
+## <a name="cause"></a>Cause  
+ A type derives from a type that implements the <xref:System.Runtime.Serialization.ISerializable?displayProperty=fullName> interface, and one of the following conditions is true:  
   
--   该类型实现序列化构造函数（即带 <xref:System.Runtime.Serialization.SerializationInfo?displayProperty=fullName>、<xref:System.Runtime.Serialization.StreamingContext?displayProperty=fullName> 参数签名的构造函数），但是不调用基类型的序列化构造函数。  
+-   The type implements the serialization constructor, that is, a constructor with the <xref:System.Runtime.Serialization.SerializationInfo?displayProperty=fullName>, <xref:System.Runtime.Serialization.StreamingContext?displayProperty=fullName> parameter signature, but does not call the serialization constructor of the base type.  
   
--   该类型实现 <xref:System.Runtime.Serialization.ISerializable.GetObjectData%2A?displayProperty=fullName> 方法，但是不调用基类型的 <xref:System.Runtime.Serialization.ISerializable.GetObjectData%2A> 方法。  
+-   The type implements the <xref:System.Runtime.Serialization.ISerializable.GetObjectData%2A?displayProperty=fullName> method but does not call the <xref:System.Runtime.Serialization.ISerializable.GetObjectData%2A> method of the base type.  
   
-## 规则说明  
- 在自定义序列化过程中，某类型实现 <xref:System.Runtime.Serialization.ISerializable.GetObjectData%2A> 方法以将其字段序列化，实现序列化构造函数以将字段反序列化。  如果该类型从实现 <xref:System.Runtime.Serialization.ISerializable> 接口的类型派生，则应当调用基类型 <xref:System.Runtime.Serialization.ISerializable.GetObjectData%2A> 方法和序列化构造函数，以便对基类型的字段进行序列化和反序列化。  否则，该类型将不能正确地序列化和反序列化。  请注意，如果派生类型不添加任何新字段，则该类型不需要实现 <xref:System.Runtime.Serialization.ISerializable.GetObjectData%2A> 方法或序列化构造函数，也不需要调用基类型等效项。  
+## <a name="rule-description"></a>Rule Description  
+ In a custom serialization process, a type implements the <xref:System.Runtime.Serialization.ISerializable.GetObjectData%2A> method to serialize its fields and the serialization constructor to de-serialize the fields. If the type derives from a type that implements the <xref:System.Runtime.Serialization.ISerializable> interface, the base type <xref:System.Runtime.Serialization.ISerializable.GetObjectData%2A> method and serialization constructor should be called to serialize/de-serialize the fields of the base type. Otherwise, the type will not be serialized and de-serialized correctly. Note that if the derived type does not add any new fields, the type does not need to implement the <xref:System.Runtime.Serialization.ISerializable.GetObjectData%2A> method nor the serialization constructor or call the base type equivalents.  
   
-## 如何解决冲突  
- 要修复与该规则的冲突，请从相应的派生类方法或构造函数调用基类型 <xref:System.Runtime.Serialization.ISerializable.GetObjectData%2A> 方法或序列化构造函数。  
+## <a name="how-to-fix-violations"></a>How to Fix Violations  
+ To fix a violation of this rule, call the base type <xref:System.Runtime.Serialization.ISerializable.GetObjectData%2A> method or serialization constructor from the corresponding derived type method or constructor.  
   
-## 何时禁止显示警告  
- 不要禁止显示此规则发出的警告。  
+## <a name="when-to-suppress-warnings"></a>When to Suppress Warnings  
+ Do not suppress a warning from this rule.  
   
-## 示例  
- 下面的示例演示通过调用基类型的序列化构造函数和 <xref:System.Runtime.Serialization.ISerializable.GetObjectData%2A> 方法来满足该规则的派生类型。  
+## <a name="example"></a>Example  
+ The following example shows a derived type that satisfies the rule by calling the serialization constructor and <xref:System.Runtime.Serialization.ISerializable.GetObjectData%2A> method of the base class.  
   
- [!code-vb[FxCop.Usage.CallBaseISerializable#1](../code-quality/codesnippet/VisualBasic/ca2236-call-base-class-methods-on-iserializable-types_1.vb)]
- [!code-cs[FxCop.Usage.CallBaseISerializable#1](../code-quality/codesnippet/CSharp/ca2236-call-base-class-methods-on-iserializable-types_1.cs)]  
+ [!code-vb[FxCop.Usage.CallBaseISerializable#1](../code-quality/codesnippet/VisualBasic/ca2236-call-base-class-methods-on-iserializable-types_1.vb)] [!code-csharp[FxCop.Usage.CallBaseISerializable#1](../code-quality/codesnippet/CSharp/ca2236-call-base-class-methods-on-iserializable-types_1.cs)]  
   
-## 相关规则  
- [CA2240：正确实现 ISerializable](../Topic/CA2240:%20Implement%20ISerializable%20correctly.md)  
+## <a name="related-rules"></a>Related Rules  
+ [CA2240: Implement ISerializable correctly](../code-quality/ca2240-implement-iserializable-correctly.md)  
   
- [CA2229：实现序列化构造函数](../code-quality/ca2229-implement-serialization-constructors.md)  
+ [CA2229: Implement serialization constructors](../code-quality/ca2229-implement-serialization-constructors.md)  
   
- [CA2238：正确实现序列化方法](../code-quality/ca2238-implement-serialization-methods-correctly.md)  
+ [CA2238: Implement serialization methods correctly](../code-quality/ca2238-implement-serialization-methods-correctly.md)  
   
- [CA2235：标记所有不可序列化的字段](../code-quality/ca2235-mark-all-non-serializable-fields.md)  
+ [CA2235: Mark all non-serializable fields](../code-quality/ca2235-mark-all-non-serializable-fields.md)  
   
- [CA2237：以 SerializableAttribute 标记 ISerializable 类型](../code-quality/ca2237-mark-iserializable-types-with-serializableattribute.md)  
+ [CA2237: Mark ISerializable types with SerializableAttribute](../code-quality/ca2237-mark-iserializable-types-with-serializableattribute.md)  
   
- [CA2239：为可选字段提供反序列化方法](../code-quality/ca2239-provide-deserialization-methods-for-optional-fields.md)  
+ [CA2239: Provide deserialization methods for optional fields](../code-quality/ca2239-provide-deserialization-methods-for-optional-fields.md)  
   
- [CA2120：保护序列化构造函数](../Topic/CA2120:%20Secure%20serialization%20constructors.md)
+ [CA2120: Secure serialization constructors](../code-quality/ca2120-secure-serialization-constructors.md)

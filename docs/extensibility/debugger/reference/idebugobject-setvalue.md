@@ -1,5 +1,5 @@
 ---
-title: "IDebugObject::SetValue |Microsoft 文档"
+title: IDebugObject::SetValue | Microsoft Docs
 ms.custom: 
 ms.date: 11/04/2016
 ms.reviewer: 
@@ -30,44 +30,45 @@ translation.priority.mt:
 - tr-tr
 - zh-cn
 - zh-tw
-translationtype: Machine Translation
-ms.sourcegitcommit: 5db97d19b1b823388a465bba15d057b30ff0b3ce
-ms.openlocfilehash: 41d233966012eec9d7be81736b00413f8f1404a7
-ms.lasthandoff: 02/22/2017
+ms.translationtype: MT
+ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
+ms.openlocfilehash: 7249c2bc64afea2ca1037cc7fa1cf617357341d7
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="idebugobjectsetvalue"></a>IDebugObject::SetValue
-从一系列连续的字节设置的对象的值。  
+Sets the value of the object from a consecutive series of bytes.  
   
-## <a name="syntax"></a>语法  
+## <a name="syntax"></a>Syntax  
   
-```cpp#  
+```cpp  
 HRESULT SetValue(   
    BYTE* pValue,  
    UINT  nSize  
 );  
 ```  
   
-```c#  
+```csharp  
 int SetValue(  
    byte[] pValue,   
    uint   nSize  
 );  
 ```  
   
-#### <a name="parameters"></a>参数  
+#### <a name="parameters"></a>Parameters  
  `pValue`  
- [in]表示新值的字节数组。  
+ [in] An array of bytes representing the new value.  
   
  `nSize`  
- [in]以字节为单位的值的大小。  
+ [in] The size of the value in bytes.  
   
-## <a name="return-value"></a>返回值  
- 如果成功，返回，则为 S_OK;否则，返回错误代码。  
+## <a name="return-value"></a>Return Value  
+ If successful, returns S_OK; otherwise, returns an error code.  
   
-## <a name="remarks"></a>备注  
- 数组中的值复制到此[IDebugObject](../../../extensibility/debugger/reference/idebugobject.md)对象，将替换任何现有值。 新值的大小可能会大于或小于现有值。 这`IDebugObject`不能为 null 引用。  
+## <a name="remarks"></a>Remarks  
+ The values in the array are copied into this [IDebugObject](../../../extensibility/debugger/reference/idebugobject.md) object, replacing any existing value. The size of the new value can be larger or smaller than the existing value. This `IDebugObject` cannot be a null reference.  
   
-## <a name="see-also"></a>另请参阅  
+## <a name="see-also"></a>See Also  
  [IDebugObject](../../../extensibility/debugger/reference/idebugobject.md)   
  [GetValue](../../../extensibility/debugger/reference/idebugobject-getvalue.md)

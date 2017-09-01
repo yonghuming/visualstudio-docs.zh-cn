@@ -1,5 +1,5 @@
 ---
-title: "将搜索添加到工具窗口 |Microsoft 文档"
+title: Adding Search to a Tool Window | Microsoft Docs
 ms.custom: 
 ms.date: 11/04/2016
 ms.reviewer: 
@@ -28,50 +28,51 @@ translation.priority.mt:
 - tr-tr
 - zh-cn
 - zh-tw
-translationtype: Machine Translation
-ms.sourcegitcommit: bca8c87d4f7d89d491fab13e1a511febce81d3d8
-ms.openlocfilehash: 845bbc5c34280f7ceafcaa3d763065f6d73388fe
-ms.lasthandoff: 02/22/2017
+ms.translationtype: MT
+ms.sourcegitcommit: eb5c9550fd29b0e98bf63a7240737da4f13f3249
+ms.openlocfilehash: ecaa03757b5b40e92d343fa9328f9d3f9e584ba3
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/30/2017
 
 ---
-# <a name="adding-search-to-a-tool-window"></a>添加到工具窗口搜索
-当创建或更新您的扩展中的一个工具窗口时，可以在 Visual Studio 中添加相同的搜索功能在其他位置出现。 此功能包括以下功能︰  
+# <a name="adding-search-to-a-tool-window"></a>Adding Search to a Tool Window
+When you create or update a tool window in your extension, you can add the same search functionality that appears elsewhere in Visual Studio. This functionality includes the following features:  
   
--   在工具栏上的自定义区域始终位于一个搜索框。  
+-   A search box that's always located in a custom area of the toolbar.  
   
--   在搜索框本身叠加一个进度指示器。  
+-   A progress indicator that's overlaid on the search box itself.  
   
--   只要输入每个字符 （即时搜索），或者只有在选择 Enter 键 （按需搜索） 后，才显示结果的功能。  
+-   The ability to show results as soon as you enter each character (instant search) or only after you choose the Enter key (search on demand).  
   
--   显示为其已搜索到的最新的术语列表。  
+-   A list that shows terms for which you've searched most recently.  
   
--   筛选搜索的特定字段或搜索目标的各个方面的能力。  
+-   The ability to filter searches by specific fields or aspects of the search targets.  
   
- 通过遵循本演练，您将学习如何执行以下任务︰  
+ By following this walkthrough, you'll learn how to perform the following tasks:  
   
-1.  创建 VSPackage 项目。  
+1.  Create a VSPackage project.  
   
-2.  创建一个包含与只读文本框 UserControl 的工具窗口。  
+2.  Create a tool window that contains a UserControl with a read-only TextBox.  
   
-3.  将搜索框添加到工具窗口中。  
+3.  Add a search box to the tool window.  
   
-4.  添加搜索实现。  
+4.  Add the search implementation.  
   
-5.  启用即时搜索和显示一个进度栏。  
+5.  Enable instant search and display of a progress bar.  
   
-6.  添加**区分大小写**选项。  
+6.  Add a **Match case** option.  
   
-7.  添加**搜索偶数行仅**筛选器。  
+7.  Add a **Search even lines only** filter.  
   
-## <a name="to-create-a-vsix-project"></a>创建 VSIX 项目  
+## <a name="to-create-a-vsix-project"></a>To create a VSIX project  
   
-1.  创建一个名为的 VSIX 项目`TestToolWindowSearch`与名为工具窗口**TestSearch**。 如果您需要执行此操作的帮助，请参阅[使用一个工具窗口创建扩展](../extensibility/creating-an-extension-with-a-tool-window.md)。  
+1.  Create a VSIX project named `TestToolWindowSearch` with a tool window named **TestSearch**. If you need help doing this, see [Creating an Extension with a Tool Window](../extensibility/creating-an-extension-with-a-tool-window.md).  
   
-## <a name="to-create-a-tool-window"></a>若要创建一个工具窗口  
+## <a name="to-create-a-tool-window"></a>To create a tool window  
   
-1.  在`TestToolWindowSearch`项目中，打开 TestSearchControl.xaml 文件。  
+1.  In the `TestToolWindowSearch` project, open the TestSearchControl.xaml file.  
   
-2.  替换现有`<StackPanel>`块以与下面的块，也就是添加一个只读的<xref:System.Windows.Controls.TextBox>到<xref:System.Windows.Controls.UserControl>工具窗口中。</xref:System.Windows.Controls.UserControl> </xref:System.Windows.Controls.TextBox>  
+2.  Replace the existing `<StackPanel>` block with the following block, which adds a read-only <xref:System.Windows.Controls.TextBox> to the <xref:System.Windows.Controls.UserControl> in the tool window.  
   
     ```xaml  
     <StackPanel Orientation="Vertical">  
@@ -82,19 +83,19 @@ ms.lasthandoff: 02/22/2017
     </StackPanel>  
     ```  
   
-3.  在 TestSearchControl.xaml.cs 文件中，添加以下 using 语句︰  
+3.  In the TestSearchControl.xaml.cs file, add the following using statement:  
   
-    ```c#  
+    ```csharp  
     using System.Text;  
     ```  
   
-4.  删除`button1_Click()`方法。  
+4.  Remove the `button1_Click()` method.  
   
-     在**TestSearchControl**类中，添加下面的代码。  
+     In the **TestSearchControl** class, add the following code.  
   
-     此代码将添加一个公共<xref:System.Windows.Controls.TextBox>属性名为**SearchResultsTextBox**和一个名为的公共字符串属性**SearchContent**。</xref:System.Windows.Controls.TextBox> 在构造函数中，SearchResultsTextBox 设置为文本框中，同时 SearchContent 初始化到一组换行分隔的字符串。 文本框中的内容也将初始化为字符串集。  
+     This code adds a public <xref:System.Windows.Controls.TextBox> property  named **SearchResultsTextBox** and a public string property named **SearchContent**. In the constructor, SearchResultsTextBox is set to the text box, and SearchContent is initialized to a newline-delimited set of strings. The content of the text box is also initialized to the set of strings.  
   
-    ```c#  
+    ```csharp  
     public partial class TestSearchControl : UserControl  
     {  
         public TextBox SearchResultsTextBox { get; set; }  
@@ -125,40 +126,39 @@ ms.lasthandoff: 02/22/2017
     }  
     ```  
   
-     [!code-cs[ToolWindowSearch&#1;](../extensibility/codesnippet/CSharp/adding-search-to-a-tool-window_1.cs) ] 
-     [!code-vb [ToolWindowSearch&#1;](../extensibility/codesnippet/VisualBasic/adding-search-to-a-tool-window_1.vb)]  
+     [!code-csharp[ToolWindowSearch#1](../extensibility/codesnippet/CSharp/adding-search-to-a-tool-window_1.cs)]  [!code-vb[ToolWindowSearch#1](../extensibility/codesnippet/VisualBasic/adding-search-to-a-tool-window_1.vb)]  
   
-5.  生成项目并启动调试。 将显示 Visual Studio 的实验实例。  
+5.  Build the project and start debugging. The experimental instance of Visual Studio appears.  
   
-6.  在菜单栏上依次选择**视图**，**其他窗口**， **TestSearch**。  
+6.  On the menu bar, choose **View**, **Other Windows**, **TestSearch**.  
   
-     工具窗口中显示，但搜索控件不显示。  
+     The tool window appears, but the search control doesn't yet appear.  
   
-## <a name="to-add-a-search-box-to-the-tool-window"></a>若要将搜索框添加到工具窗口  
+## <a name="to-add-a-search-box-to-the-tool-window"></a>To add a search box to the tool window  
   
-1.  在 TestSearch.cs 文件中，添加以下代码到`TestSearch`类。 该代码重写<xref:Microsoft.VisualStudio.Shell.Interop.IVsWindowSearch.SearchEnabled%2A>属性，以便 get 访问器返回`true`。</xref:Microsoft.VisualStudio.Shell.Interop.IVsWindowSearch.SearchEnabled%2A>  
+1.  In the TestSearch.cs file, add the following code to the `TestSearch` class. The code overrides the <xref:Microsoft.VisualStudio.Shell.Interop.IVsWindowSearch.SearchEnabled%2A> property so that the get accessor returns `true`.  
   
-     若要启用搜索，必须重写<xref:Microsoft.VisualStudio.Shell.Interop.IVsWindowSearch.SearchEnabled%2A>属性。</xref:Microsoft.VisualStudio.Shell.Interop.IVsWindowSearch.SearchEnabled%2A> <xref:Microsoft.VisualStudio.Shell.ToolWindowPane>类实现<xref:Microsoft.VisualStudio.Shell.Interop.IVsWindowSearch>，并提供一个默认实现，不能通过搜索。</xref:Microsoft.VisualStudio.Shell.Interop.IVsWindowSearch> </xref:Microsoft.VisualStudio.Shell.ToolWindowPane>  
+     To enable search, you must override the <xref:Microsoft.VisualStudio.Shell.Interop.IVsWindowSearch.SearchEnabled%2A> property. The <xref:Microsoft.VisualStudio.Shell.ToolWindowPane> class implements <xref:Microsoft.VisualStudio.Shell.Interop.IVsWindowSearch> and provides a default implementation that doesn't enable search.  
   
-    ```c#  
+    ```csharp  
     public override bool SearchEnabled  
     {  
         get { return true; }  
     }  
     ```  
   
-2.  生成项目并启动调试。 将显示的实验实例。  
+2.  Build the project and start debugging. The experimental instance appears.  
   
-3.  在 Visual Studio 的实验实例中，打开**TestSearch**。  
+3.  In the experimental instance of Visual Studio, open **TestSearch**.  
   
-     在工具窗口的顶部，将出现与的搜索控件**搜索**水印和放大玻璃图标。 但是，搜索不工作，还因为尚未实现对搜索过程。  
+     At the top of the tool window, a search control appears with a **Search** watermark and a magnifying-glass icon. However, search doesn't work yet because the search process hasn't been implemented.  
   
-## <a name="to-add-the-search-implementation"></a>若要添加的搜索实现  
- 如果在启用搜索<xref:Microsoft.VisualStudio.Shell.ToolWindowPane>，如在上一过程中，工具窗口创建搜索主机。</xref:Microsoft.VisualStudio.Shell.ToolWindowPane> 该主机将设置和管理搜索过程，始终在后台线程发生。 因为<xref:Microsoft.VisualStudio.Shell.ToolWindowPane>类管理搜索主机和设置创建向上搜索的只需要创建搜索任务，然后提供搜索方法。</xref:Microsoft.VisualStudio.Shell.ToolWindowPane> 搜索过程发生在后台线程，并在 UI 线程上发生了对工具窗口控件调用。 因此，必须使用<xref:Microsoft.VisualStudio.Shell.ThreadHelper.Invoke%2A>方法来管理在该控件处理中所做的任何调用。</xref:Microsoft.VisualStudio.Shell.ThreadHelper.Invoke%2A>  
+## <a name="to-add-the-search-implementation"></a>To add the search implementation  
+ When you enable search on a <xref:Microsoft.VisualStudio.Shell.ToolWindowPane>, as in the previous procedure, the tool window creates a search host. This host sets up and manages search processes, which always occur on a background thread. Because the <xref:Microsoft.VisualStudio.Shell.ToolWindowPane> class manages the creation of the search host and the setting up of the search, you need only create a search task and provide the search method. The search process occurs on a background thread, and calls to the tool window control occur on the UI thread. Therefore, you must use the <xref:Microsoft.VisualStudio.Shell.ThreadHelper.Invoke%2A> method to manage any calls that you make in dealing with the control.  
   
-1.  在 TestSearch.cs 文件中，添加以下`using`语句︰  
+1.  In the TestSearch.cs file, add the following `using` statements:  
   
-    ```c#  
+    ```csharp  
     using System;  
     using System.Collections.Generic;  
     using System.Runtime.InteropServices;  
@@ -171,17 +171,17 @@ ms.lasthandoff: 02/22/2017
     using Microsoft.VisualStudio.Shell.Interop;  
     ```  
   
-2.  在`TestSearch`类中，添加下面的代码执行下列操作︰  
+2.  In the `TestSearch` class, add the following code, which performs the following actions:  
   
-    -   重写<xref:Microsoft.VisualStudio.Shell.Interop.IVsWindowSearch.CreateSearch>方法来创建搜索任务。</xref:Microsoft.VisualStudio.Shell.Interop.IVsWindowSearch.CreateSearch>  
+    -   Overrides the <xref:Microsoft.VisualStudio.Shell.Interop.IVsWindowSearch.CreateSearch%2A> method to create a search task.  
   
-    -   重写<xref:Microsoft.VisualStudio.Shell.Interop.IVsWindowSearch.ClearSearch%2A>方法，以还原文本框中的状态。</xref:Microsoft.VisualStudio.Shell.Interop.IVsWindowSearch.ClearSearch%2A> 当用户取消搜索任务和用户设置或取消设置选项或筛选器时，调用此方法。 同时<xref:Microsoft.VisualStudio.Shell.Interop.IVsWindowSearch.CreateSearch%2A>和<xref:Microsoft.VisualStudio.Shell.Interop.IVsWindowSearch.ClearSearch%2A>在 UI 线程上调用。</xref:Microsoft.VisualStudio.Shell.Interop.IVsWindowSearch.ClearSearch%2A> </xref:Microsoft.VisualStudio.Shell.Interop.IVsWindowSearch.CreateSearch%2A> 因此，您不需要访问通过文本框<xref:Microsoft.VisualStudio.Shell.ThreadHelper.Invoke%2A>方法。</xref:Microsoft.VisualStudio.Shell.ThreadHelper.Invoke%2A>  
+    -   Overrides the <xref:Microsoft.VisualStudio.Shell.Interop.IVsWindowSearch.ClearSearch%2A> method to restore the state of the text box. This method is called when a user cancels a search task and when a user sets or unsets options or filters. Both <xref:Microsoft.VisualStudio.Shell.Interop.IVsWindowSearch.CreateSearch%2A> and <xref:Microsoft.VisualStudio.Shell.Interop.IVsWindowSearch.ClearSearch%2A> are called on the UI thread. Therefore, you don't need to access the text box by means of the <xref:Microsoft.VisualStudio.Shell.ThreadHelper.Invoke%2A> method.  
   
-    -   创建一个类的名为`TestSearchTask`继承自<xref:Microsoft.VisualStudio.Shell.VsSearchTask>该属性提供<xref:Microsoft.VisualStudio.Shell.Interop.IVsSearchTask>。</xref:Microsoft.VisualStudio.Shell.Interop.IVsSearchTask>的默认实现，</xref:Microsoft.VisualStudio.Shell.VsSearchTask>  
+    -   Creates a class that's named `TestSearchTask` that inherits from <xref:Microsoft.VisualStudio.Shell.VsSearchTask>, which provides a default implementation of <xref:Microsoft.VisualStudio.Shell.Interop.IVsSearchTask>.  
   
-         在`TestSearchTask`，该构造函数设置引用工具窗口中的私有字段。 若要提供的搜索方法，重写<xref:Microsoft.VisualStudio.Shell.VsSearchTask.OnStartSearch%2A>和<xref:Microsoft.VisualStudio.Shell.VsSearchTask.OnStopSearch%2A>方法。</xref:Microsoft.VisualStudio.Shell.VsSearchTask.OnStopSearch%2A> </xref:Microsoft.VisualStudio.Shell.VsSearchTask.OnStartSearch%2A> <xref:Microsoft.VisualStudio.Shell.VsSearchTask.OnStartSearch%2A>方法就是其中实现了搜索进程。</xref:Microsoft.VisualStudio.Shell.VsSearchTask.OnStartSearch%2A> 此过程包括执行搜索，在文本框中显示搜索结果以及调用此方法以报告完成搜索后的基类实现。  
+         In `TestSearchTask`, the constructor sets a private field that references the tool window. To provide the search method, you override the <xref:Microsoft.VisualStudio.Shell.VsSearchTask.OnStartSearch%2A> and <xref:Microsoft.VisualStudio.Shell.VsSearchTask.OnStopSearch%2A> methods. The <xref:Microsoft.VisualStudio.Shell.VsSearchTask.OnStartSearch%2A> method is where you implement the search process. This process includes performing the search, displaying the search results in the text box, and calling the base class implementation of this method to report that the search is complete.  
   
-    ```c#  
+    ```csharp  
     public override IVsSearchTask CreateSearch(uint dwCookie, IVsSearchQuery pSearchQuery, IVsSearchCallback pSearchCallback)  
     {  
         if (pSearchQuery == null || pSearchCallback == null)  
@@ -276,20 +276,20 @@ ms.lasthandoff: 02/22/2017
     }  
     ```  
   
-3.  通过执行以下步骤来测试您搜索的实现︰  
+3.  Test your search implementation by performing the following steps:  
   
-    1.  重新生成项目并启动调试。  
+    1.  Rebuild the project and start debugging.  
   
-    2.  在 Visual Studio 的实验实例中，再次打开工具窗口、 搜索窗口中输入一些搜索文本和单击 ENTER。  
+    2.  In the experimental instance of Visual Studio, open the tool window again, enter some search text in the search window, and click ENTER.  
   
-         应显示正确的结果。  
+         The correct results should appear.  
   
-## <a name="to-customize-the-search-behavior"></a>若要自定义搜索行为  
- 通过更改搜索设置，可以在搜索控件的显示方式和搜索执行方式进行各种更改。 例如，可以更改水印 （在搜索框中显示的默认文本）、 所需的最低和最大宽度的搜索控件，以及是否显示一个进度栏。 此外可以更改的点开始 （按需或即时搜索中） 显示的搜索结果以及是否显示为其最近搜索到的术语列表。 可以在<xref:Microsoft.VisualStudio.PlatformUI.SearchSettingsDataSource>类</xref:Microsoft.VisualStudio.PlatformUI.SearchSettingsDataSource>中找到设置的完整的列表  
+## <a name="to-customize-the-search-behavior"></a>To customize the search behavior  
+ By changing the search settings, you can make a variety of changes in how the search control appears and how the search is carried out. For example, you can change the watermark (the default text that appears in the search box), the minimum and maximum width of the search control, and whether to show a progress bar. You can also change the point at which search results start to appear (on demand or instant search) and whether to show a list of terms for which you recently searched. You can find the complete list of settings in the <xref:Microsoft.VisualStudio.PlatformUI.SearchSettingsDataSource> class.  
   
-1.  在 TestSearch.cs 文件中，添加以下代码到`TestSearch`类。 此代码启用即时搜索而不是按需搜索 （用户无需单击输入的含义）。 该代码重写`ProvideSearchSettings`中的方法`TestSearch`类，该类是需要更改默认设置。  
+1.  In the TestSearch.cs file, add the following code to the `TestSearch` class. This code enables instant search instead of on-demand search (meaning that the user doesn't have to click ENTER). The code overrides the `ProvideSearchSettings` method in the `TestSearch` class, which is necessary to change the default settings.  
   
-    ```c#  
+    ```csharp  
     public override void ProvideSearchSettings(IVsUIDataSource pSearchSettings)  
     {  
         Utilities.SetValue(pSearchSettings,   
@@ -297,13 +297,13 @@ ms.lasthandoff: 02/22/2017
             (uint)VSSEARCHSTARTTYPE.SST_INSTANT);}  
     ```  
   
-2.  测试新设置重新生成解决方案并重新启动调试器。  
+2.  Test the new setting by rebuilding the solution and restarting the debugger.  
   
-     搜索结果将显示每次您在搜索框中输入一个字符。  
+     Search results appear every time that you enter a character in the search box.  
   
-3.  在`ProvideSearchSettings`方法中，添加以下行，可以显示一个进度栏。  
+3.  In the `ProvideSearchSettings` method, add the following line, which enables the display of a progress bar.  
   
-    ```c#  
+    ```csharp  
     public override void ProvideSearchSettings(IVsUIDataSource pSearchSettings)  
     {  
         Utilities.SetValue(pSearchSettings,   
@@ -315,28 +315,28 @@ ms.lasthandoff: 02/22/2017
     }  
     ```  
   
-     若要显示的进度条，必须报告进度。 若要报告进度，请取消注释下面的代码`OnStartSearch`方法`TestSearchTask`类︰  
+     For the progress bar to appear, the progress must be reported. To report the progress, uncomment the following code in the `OnStartSearch` method of the `TestSearchTask` class:  
   
-    ```c#  
+    ```csharp  
     SearchCallback.ReportProgress(this, progress++, (uint)contentArr.GetLength(0));  
     ```  
   
-4.  缓慢足够的处理进度条是否可见，请取消注释中的以下行将`OnStartSearch`方法`TestSearchTask`类︰  
+4.  To slow processing enough that the progress bar is visible, uncomment the following line in the `OnStartSearch` method of the `TestSearchTask` class:  
   
-    ```c#  
+    ```csharp  
     System.Threading.Thread.Sleep(100);  
     ```  
   
-5.  通过重新生成解决方案并启动到 debugb 测试新的设置。  
+5.  Test the new settings by rebuilding the solution and starting to debugb.  
   
-     进度栏出现在搜索窗口 （作为一条蓝线下方的搜索文本框） 每次执行搜索。  
+     The progress bar appears in the search window (as a blue line below the search text box) every time that you perform a search.  
   
-## <a name="to-enable-users-to-refine-their-searches"></a>若要使用户能够改进其搜索  
- 您可以允许用户以如通过选项来优化其搜索**区分大小写**或**全字匹配**。 选项可以是布尔值，它显示为复选框或显示为按钮的命令。 对于本演练，你将创建一个布尔值的选项。  
+## <a name="to-enable-users-to-refine-their-searches"></a>To enable users to refine their searches  
+ You can allow users to refine their searches by means of options such as **Match case** or **Match whole word**. Options can be boolean, which appear as check boxes, or commands, which appear as buttons. For this walkthrough, you'll create a boolean option.  
   
-1.  在 TestSearch.cs 文件中，添加以下代码到`TestSearch`类。 该代码重写`SearchOptionsEnum`方法，它允许搜索实现来检测到给定的选项是开还是关。 中的代码`SearchOptionsEnum`中添加一个选项以匹配用例与<xref:Microsoft.VisualStudio.Shell.Interop.IVsEnumWindowSearchOptions>枚举器。</xref:Microsoft.VisualStudio.Shell.Interop.IVsEnumWindowSearchOptions> 区分大小写的选项都还可作为`MatchCaseOption`属性。  
+1.  In the TestSearch.cs file, add the following code to the `TestSearch` class. The code overrides the `SearchOptionsEnum` method, which allows the search implementation to detect whether a given option is on or off. The code in `SearchOptionsEnum` adds an option to match case to an <xref:Microsoft.VisualStudio.Shell.Interop.IVsEnumWindowSearchOptions> enumerator. The option to match case is also made available as the `MatchCaseOption` property.  
   
-    ```c#  
+    ```csharp  
     private IVsEnumWindowSearchOptions m_optionsEnum;  
     public override IVsEnumWindowSearchOptions SearchOptionsEnum  
     {  
@@ -368,9 +368,9 @@ ms.lasthandoff: 02/22/2017
     }  
     ```  
   
-2.  在`TestSearchTask`类中，取消注释中的 matchCase 行`OnStartSearch`方法︰  
+2.  In the `TestSearchTask` class, uncomment matchCase line in the `OnStartSearch` method:  
   
-    ```c#  
+    ```csharp  
     private IVsEnumWindowSearchOptions m_optionsEnum;  
     public override IVsEnumWindowSearchOptions SearchOptionsEnum  
     {  
@@ -402,22 +402,22 @@ ms.lasthandoff: 02/22/2017
     }  
     ```  
   
-3.  测试选项︰  
+3.  Test the option:  
   
-    1.  生成项目并启动调试。 将显示的实验实例。  
+    1.  Build the project and start debugging. The experimental instance appears.  
   
-    2.  在工具窗口中，选择文本框右侧的向下箭头。  
+    2.  In the tool window, choose the Down arrow on the right side of the text box.  
   
-         **区分大小写**显示复选框。  
+         The **Match case** check box appears.  
   
-    3.  选择**区分大小写**复选框，然后再执行某些搜索。  
+    3.  Select the **Match case** check box, and then perform some searches.  
   
-## <a name="to-add-a-search-filter"></a>若要添加的搜索筛选器  
- 您可以添加允许用户优化的搜索目标组的搜索筛选器。 例如，您可以按依据其进行了修改最新的日期和各个文件扩展名筛选文件资源管理器中的文件。 在本演练中，您将添加甚至只为行筛选器。 当用户选择该筛选器时，搜索主机会将您指定的字符串添加到搜索查询。 然后可以识别这些字符串内搜索方法，并相应地进行筛选的搜索目标。  
+## <a name="to-add-a-search-filter"></a>To add a search filter  
+ You can add search filters that allow users to refine the set of search targets. For example, you can filter files in File Explorer by the dates on which they were modified most recently and their file name extensions. In this walkthrough, you'll add a filter for even lines only. When the user chooses that filter, the search host adds the strings that you specify to the search query. You can then identify these strings inside your search method and filter the search targets accordingly.  
   
-1.  在 TestSearch.cs 文件中，添加以下代码到`TestSearch`类。 该代码会实施`SearchFiltersEnum`通过添加<xref:Microsoft.VisualStudio.PlatformUI.WindowSearchSimpleFilter>，指定要筛选搜索结果，以便只偶数行显示。</xref:Microsoft.VisualStudio.PlatformUI.WindowSearchSimpleFilter>  
+1.  In the TestSearch.cs file, add the following code to the `TestSearch` class. The code implements `SearchFiltersEnum` by adding a <xref:Microsoft.VisualStudio.PlatformUI.WindowSearchSimpleFilter> that specifies to filter the search results so that only even lines appear.  
   
-    ```c#  
+    ```csharp  
     public override IVsEnumWindowSearchFilters SearchFiltersEnum  
     {  
         get  
@@ -430,11 +430,11 @@ ms.lasthandoff: 02/22/2017
   
     ```  
   
-     现在，搜索控件显示的搜索筛选器`Search even lines only`。 当用户选择的筛选器，该字符串`lines:"even"`出现在搜索框。 其他搜索条件可以出现在同一时间作为筛选器。 搜索字符串后和 / 或筛选器中，情况下可能出现在筛选器中之前,。  
+     Now the search control displays the search filter `Search even lines only`. When the user chooses the filter, the string `lines:"even"` appears in the search box. Other search criteria can appear at the same time as the filter. Search strings may appear before the filter, after the filter, or both.  
   
-2.  在 TestSearch.cs 文件中，添加以下方法向`TestSearchTask`类，该类是在`TestSearch`类。 这些方法还支持`OnStartSearch`方法，您将在下一步，修改。  
+2.  In the TestSearch.cs file, add the following methods to the `TestSearchTask` class, which is in the `TestSearch` class. These methods support the `OnStartSearch` method, which you'll modify in the next step.  
   
-    ```c#  
+    ```csharp  
     private string RemoveFromString(string origString, string stringToRemove)  
     {  
         int index = origString.IndexOf(stringToRemove);  
@@ -460,9 +460,9 @@ ms.lasthandoff: 02/22/2017
     }  
     ```  
   
-3.  在`TestSearchTask`类中，更新`OnStartSearch`方法替换为以下代码。 这一更改更新代码以支持该筛选器。  
+3.  In the `TestSearchTask` class, update the `OnStartSearch` method with the following code. This change updates the code to support the filter.  
   
-    ```c#  
+    ```csharp  
     protected override void OnStartSearch()  
     {  
         // Use the original content of the text box as the target of the search.   
@@ -539,32 +539,32 @@ ms.lasthandoff: 02/22/2017
     }  
     ```  
   
-4.  测试您的代码。  
+4.  Test your code.  
   
-5.  生成项目并启动调试。 在 Visual Studio 的实验实例中，打开工具窗口，然后选择搜索控件上的向下箭头。  
+5.  Build the project and start debugging. In the experimental instance of Visual Studio, open the tool window, and then choose the Down arrow on the search control.  
   
-     **区分大小写**复选框和**搜索偶数行仅**筛选器应显示。  
+     The **Match case** check box and the **Search even lines only** filter appear.  
   
-6.  选择筛选器。  
+6.  Choose the filter.  
   
-     搜索框包含**行:"偶数"**，并且显示以下结果︰  
+     The search box contains **lines:"even"**, and the following results appear:  
   
-     2 工作正常  
+     2 good  
   
-     4 良好  
+     4 Good  
   
-     6 再见  
+     6 Goodbye  
   
-7.  删除`lines:"even"`从搜索框中，选择**区分大小写**复选框，然后再输入`g`搜索框中。  
+7.  Delete `lines:"even"` from the search box, select the **Match case** check box, and then enter `g` in the search box.  
   
-     显示以下结果︰  
+     The following results appear:  
   
-     1 转到  
+     1 go  
   
-     2 工作正常  
+     2 good  
   
-     5 再见  
+     5 goodbye  
   
-8.  选择搜索框右侧的 X。  
+8.  Choose the X on the right side of the search box.  
   
-     清除搜索，并显示原始内容。 但是，**区分大小写**复选框仍处于选中状态。
+     The search is cleared, and the original contents appear. However, the **Match case** check box is still selected.

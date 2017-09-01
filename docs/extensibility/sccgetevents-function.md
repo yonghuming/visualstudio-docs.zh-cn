@@ -1,66 +1,83 @@
 ---
-title: "SccGetEvents 函数 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "SccGetEvents"
-helpviewer_keywords: 
-  - "SccGetEvents 函数"
+title: SccGetEvents Function | Microsoft Docs
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords:
+- SccGetEvents
+helpviewer_keywords:
+- SccGetEvents function
 ms.assetid: 32f8147d-6dcc-465e-b07b-42da5824f9b0
 caps.latest.revision: 13
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 13
----
-# SccGetEvents 函数
-[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
+ms.author: gregvanl
+manager: ghogen
+translation.priority.mt:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+ms.translationtype: MT
+ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
+ms.openlocfilehash: 8db1e74d8529192408be12c9f87ca4f3ea086516
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/28/2017
 
-此函数可检索已排队的状态事件。  
+---
+# <a name="sccgetevents-function"></a>SccGetEvents Function
+This function retrieves a queued status event.  
   
-## 语法  
+## <a name="syntax"></a>Syntax  
   
-```cpp#  
+```cpp  
 SCCRTN SccGetEvents (  
-   LPVOID pvContext,  
-   LPSTR  lpFileName,  
-   LPLONG lpStatus,  
-   LPLONG pnEventsRemaining  
+   LPVOID pvContext,  
+   LPSTR  lpFileName,  
+   LPLONG lpStatus,  
+   LPLONG pnEventsRemaining  
 );  
 ```  
   
-#### 参数  
+#### <a name="parameters"></a>Parameters  
  pvContext  
- \[\] in源控制插件上下文结构。  
+ [in] The source control plug-in context structure.  
   
  lpFileName  
- \[in、 out\]源代码管理插件放置 \(最多 \_MAX\_PATH 字符为单位\) 返回的文件名的位置的缓冲区。  
+ [in, out] Buffer where the source control plug-in puts the returned file name (up to _MAX_PATH characters).  
   
  lpStatus  
- \[in、 out\]将返回状态代码 \(请参阅 [文件状态代码](../extensibility/file-status-code-enumerator.md) 有关可能的值\)。  
+ [in, out] Returns status code (see [File Status Code](../extensibility/file-status-code-enumerator.md) for possible values).  
   
  pnEventsRemaining  
- \[in、 out\]返回保留在队列中进行此调用后的条目数。 如果此数量很大，可能会决定调用方调用 [SccQueryInfo](../extensibility/sccqueryinfo-function.md) 以获取所有相关信息一次。  
+ [in, out] Returns number of entries left in the queue after this call. If this number is large, the caller may decide to call the [SccQueryInfo](../extensibility/sccqueryinfo-function.md) to get all the information at once.  
   
-## 返回值  
- 此函数的源代码控制插件实现应返回下列值之一:  
+## <a name="return-value"></a>Return Value  
+ The source control plug-in implementation of this function is expected to return one of the following values:  
   
-|值|描述|  
-|-------|--------|  
-|SCC\_OK|获取成功的事件。|  
-|SCC\_E\_OPNOTSUPPORTED|不支持此功能。|  
-|SCC\_E\_NONSPECIFICERROR|非特定故障。|  
+|Value|Description|  
+|-----------|-----------------|  
+|SCC_OK|Get events succeeded.|  
+|SCC_E_OPNOTSUPPORTED|This function is not supported.|  
+|SCC_E_NONSPECIFICERROR|Nonspecific failure.|  
   
-## 备注  
- 空闲处理，以查看是否已在源代码管理下的文件的任何状态更新过程中调用此函数。 源代码管理插件维护它知道的所有文件的状态，并每次更改状态进行了说明该插件的状态和关联的文件存储在队列中。 当 `SccGetEvents` 调用时，顶部检索队列中的元素并将其返回。 此函数被约束为返回唯一以前缓存的信息，并且必须具有非常快速的周转 \(也就是说，任何读取磁盘的或询问源代码管理系统状态\);否则，IDE 的性能可能开始下降。  
+## <a name="remarks"></a>Remarks  
+ This function is called during idle processing to see if there have been any status updates for files under source control. The source control plug-in maintains status of all the files it knows about, and whenever a change of status is noted by the plug-in, the status and the associated file are stored in a queue. When `SccGetEvents` is called, the top element of the queue is retrieved and returned. This function is constrained to return only previously cached information and must have a very quick turnaround (that is, no reading of the disk or asking the source control system for status); otherwise the performance of the IDE may start to degrade.  
   
- 如果不没有报告任何状态更新，源代码管理插件会将空字符串存储在所指向的缓冲区 `lpFileName`。 否则，该插件将存储该文件的完整路径名称为该状态信息已更改，并返回相应的状态代码 \(中详述的值之一 [文件状态代码](../extensibility/file-status-code-enumerator.md)\)。  
+ If there is no status update to report, the source control plug-in stores an empty string in the buffer pointed to by `lpFileName`. Otherwise, the plug-in stores the full path name of the file for which the status information has changed and returns the appropriate status code (one of the values detailed in [File Status Code](../extensibility/file-status-code-enumerator.md)).  
   
-## 请参阅  
- [源代码管理插件 API 功能](../extensibility/source-control-plug-in-api-functions.md)   
- [文件状态代码](../extensibility/file-status-code-enumerator.md)
+## <a name="see-also"></a>See Also  
+ [Source Control Plug-in API Functions](../extensibility/source-control-plug-in-api-functions.md)   
+ [File Status Code](../extensibility/file-status-code-enumerator.md)

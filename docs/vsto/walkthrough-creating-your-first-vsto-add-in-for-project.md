@@ -1,141 +1,145 @@
 ---
-title: "演练：创建你的第一个 Project VSTO 外接程序"
-ms.custom: ""
-ms.date: "02/02/2017"
-ms.prod: "visual-studio-dev14"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "office-development"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-dev_langs: 
-  - "VB"
-  - "CSharp"
-helpviewer_keywords: 
-  - "应用程序级外接程序 [Visual Studio 中的 Office 开发]，创建你的第一个项目"
-  - "Visual Studio 中的 Office 开发，创建你的第一个项目"
-  - "项目 [Visual Studio 中的 Office 开发]，创建你的第一个项目"
-  - "外接程序 [Visual Studio 中的 Office 开发]，创建你的第一个项目"
+title: 'Walkthrough: Creating Your First VSTO Add-in for Project | Microsoft Docs'
+ms.custom: 
+ms.date: 02/02/2017
+ms.prod: visual-studio-dev14
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- office-development
+ms.tgt_pltfrm: 
+ms.topic: article
+dev_langs:
+- VB
+- CSharp
+helpviewer_keywords:
+- application-level add-ins [Office development in Visual Studio], creating your first project
+- Office development in Visual Studio, creating your first project
+- Project [Office development in Visual Studio], creating your first project
+- add-ins [Office development in Visual Studio], creating your first project
 ms.assetid: da2b727e-6db8-4853-bf00-7afe0ef13213
 caps.latest.revision: 28
-author: "kempb"
-ms.author: "kempb"
-manager: "ghogen"
-caps.handback.revision: 27
+author: kempb
+ms.author: kempb
+manager: ghogen
+ms.translationtype: HT
+ms.sourcegitcommit: eb5c9550fd29b0e98bf63a7240737da4f13f3249
+ms.openlocfilehash: 466f63c2c93b9ada7218469df3a0abe586becd94
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/30/2017
+
 ---
-# 演练：创建你的第一个 Project VSTO 外接程序
-  本演练显示如何为 Microsoft Office Project 创建 VSTO 外接程序。 你在此类解决方案中创建的功能可用于应用程序本身，而与所打开的项目无关。 有关更多信息，请参见[Office 解决方案开发概述 &#40;VSTO&#41;](../vsto/office-solutions-development-overview-vsto.md)。  
+# <a name="walkthrough-creating-your-first-vsto-add-in-for-project"></a>Walkthrough: Creating Your First VSTO Add-in for Project
+  This walkthrough shows you how to create an VSTO Add-in for Microsoft Office Project. The features that you create in this kind of solution are available to the application itself, regardless of which projects are open. For more information, see [Office Solutions Development Overview &#40;VSTO&#41;](../vsto/office-solutions-development-overview-vsto.md).  
   
  [!INCLUDE[appliesto_projallapp](../vsto/includes/appliesto-projallapp-md.md)]  
   
- 本演练阐释了以下任务：  
+ This walkthrough illustrates the following tasks:  
   
--   创建 Project VSTO 外接程序项目。  
+-   Creating a Project VSTO Add-in project.  
   
--   编写使用 Project 的对象模型以向新项目添加任务的代码。  
+-   Writing code that uses the object model of Project to add a task to a new project.  
   
--   生成并运行项目，以对其进行测试。  
+-   Building and running the project to test it.  
   
--   清理已完成的项目，使 VSTO 外接程序在开发计算机上不再自动运行。  
+-   Cleaning up the completed project so that the VSTO Add-in no longer runs automatically on your development computer.  
   
  [!INCLUDE[note_settings_general](../sharepoint/includes/note-settings-general-md.md)]  
   
-## 系统必备  
- 你需要以下组件来完成本演练：  
+## <a name="prerequisites"></a>Prerequisites  
+ You need the following components to complete this walkthrough:  
   
 -   [!INCLUDE[vsto_vsprereq](../vsto/includes/vsto-vsprereq-md.md)]  
   
--   [!INCLUDE[Project_15_short](../vsto/includes/project-15-short-md.md)] 或 [!INCLUDE[Project_14_short](../vsto/includes/project-14-short-md.md)]。  
+-   [!INCLUDE[Project_15_short](../vsto/includes/project-15-short-md.md)] or [!INCLUDE[Project_14_short](../vsto/includes/project-14-short-md.md)].  
   
-## 创建项目  
+## <a name="creating-the-project"></a>Creating the Project  
   
-#### 若要在 Visual Studio 中创建新项目  
+#### <a name="to-create-a-new-project-in-visual-studio"></a>To create a new project in Visual Studio  
   
-1.  启动 [!INCLUDE[vsprvs](../sharepoint/includes/vsprvs-md.md)]。  
+1.  Start [!INCLUDE[vsprvs](../sharepoint/includes/vsprvs-md.md)].  
   
-2.  在**“文件”**菜单上，指向**“新建”**，然后单击**“项目”**。  
+2.  On the **File** menu, point to **New**, and then click **Project**.  
   
-3.  在模板窗格中，展开**“Visual C\#”**或**“Visual Basic”**，然后展开**“Office\/SharePoint”**。  
+3.  In the templates pane, expand **Visual C#** or **Visual Basic**, and then expand **Office/SharePoint**.  
   
-4.  在展开的**“Office\/SharePoint”**节点下方，选择**“Office 外接程序”**节点。  
+4.  Under the expanded **Office/SharePoint** node, select the **Office Add-ins** node.  
   
-5.  在项目模板列表中，选择**“Project 2010 外接程序”**或**“Project 2013 外接程序”**。  
+5.  In the list of project templates, select **Project 2010 Add-in** or **Project 2013 Add-in**.  
   
-6.  在**“名称”**框中，键入 **FirstProjectAddIn**。  
+6.  In the **Name** box, type **FirstProjectAddIn**.  
   
-7.  单击“确定”。  
+7.  Click **OK**.  
   
-     [!INCLUDE[vsprvs](../sharepoint/includes/vsprvs-md.md)] 即会创建 **FirstProjectAddIn** 项目，并在编辑器中打开 **ThisAddIn** 代码文件。  
+     [!INCLUDE[vsprvs](../sharepoint/includes/vsprvs-md.md)] creates the **FirstProjectAddIn** project and opens the **ThisAddIn** code file in the editor.  
   
-## 编写向项目添加新任务的代码  
- 接下来，将代码添加到 ThisAddIn 代码文件。 新代码使用 Project 的对象模型向项目添加新任务。 默认情况下，ThisAddIn 代码文件包含以下生成的代码：  
+## <a name="writing-code-that-adds-a-new-task-to-a-project"></a>Writing Code that Adds a New Task to a Project  
+ Next, add code to the ThisAddIn code file. The new code uses the object model of Project to add a new task to a project. By default, the ThisAddIn code file contains the following generated code:  
   
--   `ThisAddIn` 类的部分定义。 此类提供代码的入口点，并提供对 Project 对象模型的访问权限。 有关详细信息，请参阅[VSTO 外接程序编程](../vsto/programming-vsto-add-ins.md)。`ThisAddIn` 类的其余部分是在隐藏代码文件中定义的，不应修改该代码文件。  
+-   A partial definition of the `ThisAddIn` class. This class provides an entry point for your code and provides access to the object model of Project. For more information, see [Programming VSTO Add-Ins](../vsto/programming-vsto-add-ins.md). The remainder of the `ThisAddIn` class is defined in a hidden code file that you should not modify.  
   
--   `ThisAddIn_Startup` 和 `ThisAddIn_Shutdown` 事件处理程序。 Project 加载和卸载 VSTO 外接程序时会调用这些事件处理程序。 使用这些事件处理程序，可在加载 VSTO 外接程序对其进行初始化，并在卸载 VSTO 外接程序时清理其使用的资源。 有关详细信息，请参阅[Office 项目中的事件](../vsto/events-in-office-projects.md)。  
+-   The `ThisAddIn_Startup` and `ThisAddIn_Shutdown` event handlers. These event handlers are called when Project loads and unloads your VSTO Add-in. Use these event handlers to initialize your VSTO Add-in when it is loaded, and to clean up resources used by your VSTO Add-in when it is unloaded. For more information, see [Events in Office Projects](../vsto/events-in-office-projects.md).  
   
-#### 若要向新的项目中添加任务  
+#### <a name="to-add-a-task-to-a-new-project"></a>To add a task to a new project  
   
-1.  在 ThisAddIn 代码文件中，将下面的代码添加到 `ThisAddIn` 类中。 此代码定义了 Microsoft.Office.Interop.MSProject.Application 类的 NewProject 事件的一个事件处理程序。  
+1.  In the ThisAddIn code file, add the following code to the `ThisAddIn` class. This code defines an event handler for the NewProject event of the Microsoft.Office.Interop.MSProject.Application class.  
   
-     当用户创建一个新项目时，此事件处理程序会向项目添加任务。  
+     When the user creates a new project, this event handler adds a task to the project.  
   
-     [!code-csharp[Trin_ProjectAddInTutorial#1](../snippets/csharp/VS_Snippets_OfficeSP/Trin_ProjectAddInTutorial/CS/ThisAddIn.cs#1)]
-     [!code-vb[Trin_ProjectAddInTutorial#1](../snippets/visualbasic/VS_Snippets_OfficeSP/Trin_ProjectAddInTutorial/VB/ThisAddIn.vb#1)]  
+     [!code-vb[Trin_ProjectAddInTutorial#1](../vsto/codesnippet/VisualBasic/Trin_ProjectAddInTutorial/ThisAddIn.vb#1)]  [!code-csharp[Trin_ProjectAddInTutorial#1](../vsto/codesnippet/CSharp/Trin_ProjectAddInTutorial/ThisAddIn.cs#1)]  
   
- 若要修改该项目，此代码示例使用以下对象：  
+ To modify the project, this code example use the following objects:  
   
--   `ThisAddIn` 类的 `Application` 字段。`Application` 字段返回一个 Microsoft.Office.Interop.MSProject.Application 对象，该对象表示 Project 的当前实例。  
+-   The `Application` field of the `ThisAddIn` class. The `Application` field returns an Microsoft.Office.Interop.MSProject.Application object, which represents the current instance of Project.  
   
--   NewProject 事件的事件处理程序的 `pj` 参数。`pj` 参数是一个 Microsoft.Office.Interop.MSProject.Project 对象，用于表示该项目。 有关更多信息，请参见[项目解决方案](../vsto/project-solutions.md)。  
+-   The `pj` parameter of the event handler for the NewProject event. The `pj` parameter is a Microsoft.Office.Interop.MSProject.Project object, which represents the project. For more information, see [Project Solutions](../vsto/project-solutions.md).  
   
-1.  如果你使用的是 C\#，请将以下代码添加到 `ThisAddIn_Startup` 事件处理程序中。 此代码将 `Application_Newproject` 事件处理程序与 NewProject 事件连接在一起。  
+1.  If you are using C#, add the following code to the `ThisAddIn_Startup` event handler. This code connects the `Application_Newproject` event handler with the NewProject event.  
   
-     [!code-csharp[Trin_ProjectAddInTutorial#2](../snippets/csharp/VS_Snippets_OfficeSP/Trin_ProjectAddInTutorial/CS/ThisAddIn.cs#2)]  
+     [!code-csharp[Trin_ProjectAddInTutorial#2](../vsto/codesnippet/CSharp/Trin_ProjectAddInTutorial/ThisAddIn.cs#2)]  
   
 -  
   
-## 测试项目  
- 生成和运行项目时，应验证新任务是否会显示在所得的新项目中。  
+## <a name="testing-the-project"></a>Testing the Project  
+ When you build and run the project, verify that the new task appears in the resulting new project.  
   
-#### 测试项目  
+#### <a name="to-test-the-project"></a>To test the project  
   
-1.  按 **F5** 生成并运行项目。 Microsoft Project 启动并自动打开新的空白项目。  
+1.  Press **F5** to build and run your project. Microsoft Project starts and automatically opens a new blank project.  
   
-     生成项目时，代码会编译成一个程序集，此程序集包含在项目的生成输出文件夹中。 Visual Studio 还会创建一组注册表项，通过这些注册表项，Project 能够发现和加载 VSTO 外接程序，Visual Studio 还将开发计算机上的安全设置配置为允许 VSTO 外接程序运行。 有关详细信息，请参阅 [Office 解决方案生成过程概述](http://msdn.microsoft.com/zh-cn/a9d12e4f-c9ea-4a62-a841-c42b91f831ee)。  
+     When you build the project, the code is compiled into an assembly that is included in the build output folder for the project. Visual Studio also creates a set of registry entries that enable Project to discover and load the VSTO Add-in, and it configures the security settings on the development computer to enable the VSTO Add-in to run. For more information, see [Office Solution Build Process Overview](http://msdn.microsoft.com/en-us/a9d12e4f-c9ea-4a62-a841-c42b91f831ee).  
   
-2.  验证新任务已添加到空白项目。  
+2.  Verify that a new task is added to the blank project.  
   
-3.  验证以下文本是否出现在任务的**“任务名称”**字段中。  
+3.  Verify that the following text appears in the **Task Name** field of the task.  
   
      **This text was added by using code.**  
   
-4.  关闭 Microsoft Project。  
+4.  Close Microsoft Project.  
   
-## 清理项目  
- 完成项目开发后，请从开发计算机上删除 VSTO 外接程序程序集、注册表项和安全设置。 否则，每次在开发计算机上打开 Microsoft Project 时 VSTO 外接程序都会运行。  
+## <a name="cleaning-up-the-project"></a>Cleaning up the Project  
+ When you finish developing a project, remove the VSTO Add-in assembly, registry entries, and security settings from your development computer. Otherwise, the VSTO Add-in will run every time you open Microsoft Project on the development computer.  
   
-#### 清理项目  
+#### <a name="to-clean-up-your-project"></a>To clean up your project  
   
-1.  在 Visual Studio 中，在**“生成”**菜单上，单击**“清理解决方案”**。  
+1.  In Visual Studio, on the **Build** menu, click **Clean Solution**.  
   
-## 后续步骤  
- 既然你已经创建了一个基本的 Project VSTO 外接程序，就可以从下面这些主题中了解有关如何开发外 VSTO 外接程序的详细信息：  
+## <a name="next-steps"></a>Next Steps  
+ Now that you have created a basic VSTO Add-in for Project, you can learn more about how to develop VSTO Add-ins from these topics:  
   
--   可在 Project 的 VSTO 外接程序中执行的常规编程任务：[VSTO 外接程序编程](../vsto/programming-vsto-add-ins.md)。  
+-   General programming tasks that you can perform in VSTO Add-ins for Project: [Programming VSTO Add-Ins](../vsto/programming-vsto-add-ins.md).  
   
--   使用 Project 对象模型：[项目解决方案](../vsto/project-solutions.md)。  
+-   Using the object model of Project: [Project Solutions](../vsto/project-solutions.md).  
   
--   生成和调试项目 [生成 Office 解决方案](../vsto/building-office-solutions.md) 的 VSTO 外接程序。  
+-   Building and debugging VSTO Add-ins for Project: [Building Office Solutions](../vsto/building-office-solutions.md).  
   
--   部署 Project VSTO 外接程序：[部署 Office 解决方案](../vsto/deploying-an-office-solution.md)。  
+-   Deploying VSTO Add-ins for Project: [Deploying an Office Solution](../vsto/deploying-an-office-solution.md).  
   
-## 请参阅  
- [VSTO 外接程序编程](../vsto/programming-vsto-add-ins.md)   
- [项目解决方案](../vsto/project-solutions.md)   
- [生成 Office 解决方案](../vsto/building-office-solutions.md)   
- [部署 Office 解决方案](../vsto/deploying-an-office-solution.md)   
- [Office 项目模板概述](../vsto/office-project-templates-overview.md)  
+## <a name="see-also"></a>See Also  
+ [Programming VSTO Add-Ins](../vsto/programming-vsto-add-ins.md)   
+ [Project Solutions](../vsto/project-solutions.md)   
+ [Building Office Solutions](../vsto/building-office-solutions.md)   
+ [Deploying an Office Solution](../vsto/deploying-an-office-solution.md)   
+ [Office Project Templates Overview](../vsto/office-project-templates-overview.md)  
   
   

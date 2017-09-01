@@ -1,116 +1,134 @@
 ---
-title: "LINQ to SQL 工具 Visual Studio2 中 | Microsoft Docs"
-ms.custom: ""
-ms.date: "12/15/2016"
-ms.prod: "visual-studio-dev14"
-ms.reviewer: ""
-ms.suite: ""
-ms.tgt_pltfrm: ""
-ms.topic: "article"
+title: LINQ to SQL Tools in Visual Studio2 | Microsoft Docs
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.tgt_pltfrm: 
+ms.topic: article
 ms.assetid: 45e477c0-5c6b-41f9-b2d0-2808fb4f6537
 caps.latest.revision: 10
-caps.handback.revision: 10
-author: "mikeblome"
-ms.author: "mblome"
-manager: "ghogen"
+author: mikeblome
+ms.author: mblome
+manager: ghogen
+translation.priority.ht:
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- ru-ru
+- zh-cn
+- zh-tw
+translation.priority.mt:
+- cs-cz
+- pl-pl
+- pt-br
+- tr-tr
+ms.translationtype: HT
+ms.sourcegitcommit: 9e6c28d42bec272c6fd6107b4baf0109ff29197e
+ms.openlocfilehash: 38892e37b048f93ed9382a470ea7834d6a105cf0
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/22/2017
+
 ---
-# LINQ to SQL 工具在 Visual Studio 中
-LINQ to SQL 是由 Microsoft 发布的第一个对象关系映射技术。 它适用于基本方案，并继续在 Visual Studio 中受到支持，但它不再处于活动状态的开发。 使用 LINQ to SQL 时维护旧版应用程序已在使用它，或使用 SQL Server 并不需要多表映射的简单应用程序。 一般情况下，新的应用程序应使用实体框架时是必需的对象关系映射器图层。  
+# <a name="linq-to-sql-tools-in-visual-studio"></a>LINQ to SQL Tools in Visual Studio
+LINQ to SQL was the first object-relational mapping technology released by Microsoft. It works well in basic scenarios and continues to be supported in Visual Studio, but it is no longer under active development. Use LINQ to SQL when maintaining a legacy application that is already using it, or in simple applications that use SQL Server and do not require multi-table mapping. In general, new applications should use the Entity Framework when an object-relational mapper layer is required.  
   
- 在 Visual Studio 中创建 LINQ to SQL 类表示使用的 SQL 表 [!INCLUDE[vs_ordesigner_short](../data-tools/includes/vs_ordesigner_short_md.md)]。  
+ In Visual Studio, you create LINQ to SQL classes that represent SQL tables by using the [!INCLUDE[vs_ordesigner_short](../data-tools/includes/vs_ordesigner_short_md.md)].  
   
-  [!INCLUDE[vs_ordesigner_short](../data-tools/includes/vs_ordesigner_short_md.md)] 有其设计图面上两个不同的区域︰ 左侧的实体窗格和右侧的方法窗格。 实体窗格是主设计图面，其中显示实体类、关联和继承层次结构。 方法窗格是显示设计图面 <xref:System.Data.Linq.DataContext> 映射到存储的过程和函数的方法。  
+ The [!INCLUDE[vs_ordesigner_short](../data-tools/includes/vs_ordesigner_short_md.md)] has two distinct areas on its design surface: the entities pane on the left, and the methods pane on the right. The entities pane is the main design surface that displays the entity classes, associations, and inheritance hierarchies. The methods pane is the design surface that displays the <xref:System.Data.Linq.DataContext> methods that are mapped to stored procedures and functions.  
   
-  [!INCLUDE[vs_ordesigner_long](../data-tools/includes/vs_ordesigner_long_md.md)] ([!INCLUDE[vs_ordesigner_short](../data-tools/includes/vs_ordesigner_short_md.md)]) 提供了可视化设计图面创建 [LINQ to SQL](../Topic/LINQ%20to%20SQL.md) 实体类和关联 （关系），基于数据库中的对象。 换句话说，[!INCLUDE[vs_ordesigner_short](../data-tools/includes/vs_ordesigner_short_md.md)]用于在应用程序中创建映射到数据库中的对象的对象模型。 它还生成一个强类型 <xref:System.Data.Linq.DataContext> 用于发送和接收的实体类与数据库之间的数据。  [!INCLUDE[vs_ordesigner_short](../data-tools/includes/vs_ordesigner_short_md.md)] 还提供了功能来映射存储的过程和函数 <xref:System.Data.Linq.DataContext> 方法以便返回数据和填充实体类。 最后，[!INCLUDE[vs_ordesigner_short](../data-tools/includes/vs_ordesigner_short_md.md)]提供了对实体类之间的继承关系进行设计的能力。  
+ The [!INCLUDE[vs_ordesigner_long](../data-tools/includes/vs_ordesigner_long_md.md)] ([!INCLUDE[vs_ordesigner_short](../data-tools/includes/vs_ordesigner_short_md.md)]) provides a visual design surface for creating [LINQ to SQL](/dotnet/framework/data/adonet/sql/linq/index) entity classes and associations (relationships) that are based on objects in a database. In other words, the [!INCLUDE[vs_ordesigner_short](../data-tools/includes/vs_ordesigner_short_md.md)] is used to create an object model in an application that maps to objects in a database. It also generates a strongly-typed <xref:System.Data.Linq.DataContext> that is used to send and receive data between the entity classes and the database. The [!INCLUDE[vs_ordesigner_short](../data-tools/includes/vs_ordesigner_short_md.md)] also provides functionality to map stored procedures and functions to <xref:System.Data.Linq.DataContext> methods for returning data and populating entity classes. Finally, the [!INCLUDE[vs_ordesigner_short](../data-tools/includes/vs_ordesigner_short_md.md)] provides the ability to design inheritance relationships between entity classes.  
   
-## <a name="opening-the-or-designer"></a>打开 O/R 设计器  
- 若要添加一个 LINQ to SQL 实体模型到你的项目，选择 **项目 &#124;添加新项** ，然后选择  **LINQ to SQL 类** 从项目项的列表︰  
+## <a name="opening-the-or-designer"></a>Opening the O/R Designer  
+ To add a LINQ to SQL entity model to your project, choose **Project > Add New Item** and then choose  **LINQ to SQL Classes** from the list of project items:  
   
- ![LINQ to SQL 类](../data-tools/media/raddata-linq-to-sql-classes.png "raddata LINQ to SQL Classes")  
+ ![LINQ to SQL Classes](../data-tools/media/raddata-linq-to-sql-classes.png "raddata LINQ to SQL Classes")  
   
- Visual Studio 创建一个.dbml 文件，并将其添加到您的解决方案。 这是 XML 映射文件和其相关的代码文件。  
+ Visual Studio creates a .dbml file and adds it to your solution. This is the XML mapping file and its related code files.  
   
- ![LINQ to SQL 类在解决方案资源管理器](../data-tools/media/raddata-linq-to-sql-classes-in-solution-explorer.png "raddata LINQ to SQL classes in Solution Explorer")  
+ ![LINQ to SQL classes in Solution Explorer](../data-tools/media/raddata-linq-to-sql-classes-in-solution-explorer.png "raddata LINQ to SQL classes in Solution Explorer")  
   
- 当选中此.dbml 文件时，Visual Studio 将显示该对话框可直观地创建模型 O/R 设计器图面。 下图显示的设计器后从服务器资源管理器中拖动到 Northwind Customers 和 Orders 表。 请注意在表之间的关系。  
+ When you select the .dbml file, Visual Studio shows the O/R designer surface that enables you to visually create the model. The following illustration shows the designer after the Northwind Customers and Orders tables have been dragged from Server Explorer. Note the relationship between the tables.  
   
- ![LINQ to SQL 设计器](../data-tools/media/raddata-linq-to-sql-designer.png "raddata LINQ to SQL Designer")  
+ ![LINQ to SQL Designer](../data-tools/media/raddata-linq-to-sql-designer.png "raddata LINQ to SQL Designer")  
   
 > [!IMPORTANT]
->  
-          [!INCLUDE[vs_ordesigner_short](../data-tools/includes/vs_ordesigner_short_md.md)]是一个简单的对象关系映射器，因为它仅支持 1:1 映射关系。 换句话说，实体类与数据库表或视图之间只能具有 1:1 映射关系。 不支持复杂映射，如将实体类映射到联接表;使用实体框架进行复杂的映射。 此外，该设计器还是一个单向代码生成器。 这表示代码文件中只反映对设计器图面所做的更改。 [!INCLUDE[vs_ordesigner_short](../data-tools/includes/vs_ordesigner_short_md.md)]中不会反映对代码文件的手动更改。 在保存设计器并重新生成代码时，将覆盖在代码文件中手动进行的所有更改。 有关如何添加用户代码和扩展生成的类信息 [!INCLUDE[vs_ordesigner_short](../data-tools/includes/vs_ordesigner_short_md.md)], ，请参阅 [如何︰ 扩展 O/R 设计器生成代码](../Topic/How%20to:%20Extend%20Code%20Generated%20by%20the%20O-R%20Designer.md)。  
+>  The [!INCLUDE[vs_ordesigner_short](../data-tools/includes/vs_ordesigner_short_md.md)] is a simple object relational mapper because it supports only 1:1 mapping relationships. In other words, an entity class can have only a 1:1 mapping relationship with a database table or view. Complex mapping, such as mapping an entity class to a joined table, is not supported; use the Entity Framework for complex mapping. Additionally, the designer is a one-way code generator. This means that only changes that you make to the designer surface are reflected in the code file. Manual changes to the code file are not reflected in the [!INCLUDE[vs_ordesigner_short](../data-tools/includes/vs_ordesigner_short_md.md)]. Any changes that you make manually in the code file are overwritten when the designer is saved and code is regenerated. For information about how to add user code and extend the classes generated by the [!INCLUDE[vs_ordesigner_short](../data-tools/includes/vs_ordesigner_short_md.md)], see [How to: Extend Code Generated by the O/R Designer](../data-tools/how-to-extend-code-generated-by-the-o-r-designer.md).  
   
-## <a name="creating-and-configuring-the-datacontext"></a>创建和配置 DataContext  
- 在添加后 **LINQ to SQL 类** 项目到项目，然后打开 [!INCLUDE[vs_ordesigner_short](../data-tools/includes/vs_ordesigner_short_md.md)], ，空设计图面表示一个空 <xref:System.Data.Linq.DataContext> 可对其进行配置。  <xref:System.Data.Linq.DataContext> 使用拖动到设计图面上的第一项提供的连接信息进行配置... 因此， <xref:System.Data.Linq.DataContext> 通过拖放到设计图面上面的第一个项中的连接信息进行配置。 有关详细信息 <xref:System.Data.Linq.DataContext> 类，请参阅 [DataContext 方法 （O/R 设计器）](../data-tools/datacontext-methods-o-r-designer.md)。  
+## <a name="creating-and-configuring-the-datacontext"></a>Creating and Configuring the DataContext  
+ After you add a **LINQ to SQL Classes** item to a project and open the [!INCLUDE[vs_ordesigner_short](../data-tools/includes/vs_ordesigner_short_md.md)], the empty design surface represents an empty <xref:System.Data.Linq.DataContext> ready to be configured. the <xref:System.Data.Linq.DataContext> is configured with connection information provided by the first item that is dragged onto the design surface.. Therefore, the <xref:System.Data.Linq.DataContext> is configured by using connection information from the first item dropped onto the design surface. For more information about the <xref:System.Data.Linq.DataContext> class see, [DataContext Methods (O/R Designer)](../data-tools/datacontext-methods-o-r-designer.md).  
   
-## <a name="creating-entity-classes-that-map-to-database-tables-and-views"></a>创建映射到数据库表和视图的实体类  
- 您可以创建实体类映射到表和视图通过将数据库表和视图从 **服务器资源管理器**/**数据库资源管理器** 拖到 [!INCLUDE[vs_ordesigner_short](../data-tools/includes/vs_ordesigner_short_md.md)]。 上一节中所示 <xref:System.Data.Linq.DataContext> 使用拖动到设计图面上的第一项提供的连接信息进行配置。 如果使用不同的连接的后续项添加到 [!INCLUDE[vs_ordesigner_short](../data-tools/includes/vs_ordesigner_short_md.md)], ，可以更改用于连接 <xref:System.Data.Linq.DataContext>。 有关详细信息，请参阅 [如何︰ 创建 LINQ to SQL 类映射到表和视图 （O/R 设计器）](../Topic/How%20to:%20Create%20LINQ%20to%20SQL%20classes%20mapped%20to%20tables%20and%20views%20\(O-R%20Designer\).md)。  
+## <a name="creating-entity-classes-that-map-to-database-tables-and-views"></a>Creating Entity Classes That Map to Database Tables and Views  
+ You can create entity classes mapped to tables and views by dragging database tables and views from **Server Explorer**/**Database Explorer** onto the [!INCLUDE[vs_ordesigner_short](../data-tools/includes/vs_ordesigner_short_md.md)]. As indicated in the previous section the <xref:System.Data.Linq.DataContext> is configured with connection information provided by the first item that is dragged onto the design surface. If a subsequent item that uses a different connection is added to the [!INCLUDE[vs_ordesigner_short](../data-tools/includes/vs_ordesigner_short_md.md)], you can change the connection for the <xref:System.Data.Linq.DataContext>. For more information, see [How to: Create LINQ to SQL classes mapped to tables and views (O/R Designer)](../data-tools/how-to-create-linq-to-sql-classes-mapped-to-tables-and-views-o-r-designer.md).  
   
-## <a name="creating-datacontext-methods-that-call-stored-procedures-and-functions"></a>创建调用存储过程和函数的 DataContext 方法  
- 您可以创建 <xref:System.Data.Linq.DataContext> 调用的方法 （映射到中） 存储过程和函数，通过将其从拖动 **服务器资源管理器**/**数据库资源管理器** 拖到 [!INCLUDE[vs_ordesigner_short](../data-tools/includes/vs_ordesigner_short_md.md)]。 存储的过程和函数添加到 [!INCLUDE[vs_ordesigner_short](../data-tools/includes/vs_ordesigner_short_md.md)] 作为方法的 <xref:System.Data.Linq.DataContext>。  
+## <a name="creating-datacontext-methods-that-call-stored-procedures-and-functions"></a>Creating DataContext Methods That Call Stored Procedures and Functions  
+ You can create <xref:System.Data.Linq.DataContext> methods that call (are mapped to) stored procedures and functions by dragging them from **Server Explorer**/**Database Explorer** onto the [!INCLUDE[vs_ordesigner_short](../data-tools/includes/vs_ordesigner_short_md.md)]. Stored procedures and functions are added to the [!INCLUDE[vs_ordesigner_short](../data-tools/includes/vs_ordesigner_short_md.md)] as methods of the <xref:System.Data.Linq.DataContext>.  
   
 > [!NOTE]
->  当您将存储的过程和函数从 **服务器资源管理器**/**数据库资源管理器** 拖到 [!INCLUDE[vs_ordesigner_short](../data-tools/includes/vs_ordesigner_short_md.md)], ，生成的返回类型 <xref:System.Data.Linq.DataContext> 方法不同，具体取决于放置项的位置。 有关详细信息，请参阅 [DataContext 方法 （O/R 设计器）](../data-tools/datacontext-methods-o-r-designer.md)。  
+>  When you drag stored procedures and functions from **Server Explorer**/**Database Explorer** onto the [!INCLUDE[vs_ordesigner_short](../data-tools/includes/vs_ordesigner_short_md.md)], the return type of the generated <xref:System.Data.Linq.DataContext> method differs depending on where you drop the item. For more information, see [DataContext Methods (O/R Designer)](../data-tools/datacontext-methods-o-r-designer.md).  
   
-## <a name="configuring-a-datacontext-to-use-stored-procedures-to-save-data-between-entity-classes-and-a-database"></a>配置 DataContext 以使用存储过程来保存实体类和数据库之间的数据  
- 正如前文所述，您可以创建 <xref:System.Data.Linq.DataContext> 调用存储的过程和函数的方法。 此外，您还可以分配执行插入、更新和删除操作的默认 [!INCLUDE[vbtecdlinq](../data-tools/includes/vbtecdlinq_md.md)] 运行时行为可以使用的存储过程。 有关详细信息，请参阅 [如何︰ 分配存储的过程以便执行更新、 插入和删除操作 （O/R 设计器）](../data-tools/how-to-assign-stored-procedures-to-perform-updates-inserts-and-deletes-o-r-designer.md)。  
+## <a name="configuring-a-datacontext-to-use-stored-procedures-to-save-data-between-entity-classes-and-a-database"></a>Configuring a DataContext to Use Stored Procedures to Save Data Between Entity Classes and a Database  
+ As stated earlier, you can create <xref:System.Data.Linq.DataContext> methods that call stored procedures and functions. Additionally, you can also assign stored procedures that can be used for the default [!INCLUDE[vbtecdlinq](../data-tools/includes/vbtecdlinq_md.md)] runtime behavior that performs Inserts, Updates, and Deletes. For more information, see [How to: Assign stored procedures to perform updates, inserts, and deletes (O/R Designer)](../data-tools/how-to-assign-stored-procedures-to-perform-updates-inserts-and-deletes-o-r-designer.md).  
   
-## <a name="inheritance-and-the-or-designer"></a>继承和 O/R 设计器  
- 像其他对象一样，[!INCLUDE[vbtecdlinq](../data-tools/includes/vbtecdlinq_md.md)] 类可以使用继承，并可从其他类派生。 在数据库中，可通过多种方式创建继承关系。 [!INCLUDE[vs_ordesigner_short](../data-tools/includes/vs_ordesigner_short_md.md)]支持通常在关系系统中实现的单表继承概念。 有关详细信息，请参阅 [如何︰ 通过使用 O/R 设计器配置继承](../data-tools/how-to-configure-inheritance-by-using-the-o-r-designer.md)。  
+## <a name="inheritance-and-the-or-designer"></a>Inheritance and the O/R Designer  
+ Like other objects, [!INCLUDE[vbtecdlinq](../data-tools/includes/vbtecdlinq_md.md)] classes can use inheritance and be derived from other classes. In a database, inheritance relationships are created in several ways. The [!INCLUDE[vs_ordesigner_short](../data-tools/includes/vs_ordesigner_short_md.md)] supports the concept of single-table inheritance as it is often implemented in relational systems. For more information, see [How to: Configure inheritance by using the O/R Designer](../data-tools/how-to-configure-inheritance-by-using-the-o-r-designer.md).  
   
-## <a name="linq-to-sql-queries"></a>LINQ to SQL 查询  
- 创建的实体类 [!INCLUDE[vs_ordesigner_short](../data-tools/includes/vs_ordesigner_short_md.md)] 专用于 [LINQ （语言集成查询）](../Topic/LINQ%20\(Language-Integrated%20Query\).md)。 有关详细信息，请参阅 [如何︰ 查询有关的信息](../Topic/How%20to:%20Query%20for%20Information.md)。  
+## <a name="linq-to-sql-queries"></a>LINQ to SQL Queries  
+ The entity classes created by the [!INCLUDE[vs_ordesigner_short](../data-tools/includes/vs_ordesigner_short_md.md)] are designed for use with [LINQ (Language-Integrated Query)](http://msdn.microsoft.com/Library/a73c4aec-5d15-4e98-b962-1274021ea93d). For more information, see [How to: Query for Information](/dotnet/framework/data/adonet/sql/linq/how-to-query-for-information).  
   
-## <a name="separating-the-generated-datacontext-and-entity-class-code-into-different-namespaces"></a>将生成的 DataContext 和实体类代码分离到不同的命名空间  
-  [!INCLUDE[vs_ordesigner_short](../data-tools/includes/vs_ordesigner_short_md.md)] 提供 **上下文 Namespace** 和 **实体 Namespace** 属性 <xref:System.Data.Linq.DataContext>。 这些属性确定哪个命名空间 <xref:System.Data.Linq.DataContext> 和实体类代码生成到。 默认情况下，这些属性为空并且 <xref:System.Data.Linq.DataContext> 和实体类生成到应用程序的命名空间。 若要生成应用程序的命名空间之外的命名空间中的代码，请输入一个值 **上下文 Namespace** 和/或 **实体 Namespace** 属性。  
+## <a name="separating-the-generated-datacontext-and-entity-class-code-into-different-namespaces"></a>Separating the Generated DataContext and Entity Class Code into Different Namespaces  
+ The [!INCLUDE[vs_ordesigner_short](../data-tools/includes/vs_ordesigner_short_md.md)] provides the **Context Namespace** and **Entity Namespace** properties on the <xref:System.Data.Linq.DataContext>. These properties determine what namespace the <xref:System.Data.Linq.DataContext> and entity class code is generated into. By default, these properties are empty and the <xref:System.Data.Linq.DataContext> and entity classes are generated into the application's namespace. To generate the code into a namespace other than the application's namespace, enter a value into the **Context Namespace** and/or **Entity Namespace** properties.  
   
-## <a name="in-this-section"></a>本节内容  
- [DataContext 方法 （O/R 设计器）](../data-tools/datacontext-methods-o-r-designer.md)  
- 解释什么是 <xref:System.Data.Linq.DataContext> 方法，以及如何创建它们。  
+## <a name="in-this-section"></a>In this section  
+ [DataContext Methods (O/R Designer)](../data-tools/datacontext-methods-o-r-designer.md)  
+ Explains what <xref:System.Data.Linq.DataContext> methods are and how to create them.  
   
- [数据类继承 （O/R 设计器）](../data-tools/data-class-inheritance-o-r-designer.md)  
- 描述单表继承的概念以及如何在 [!INCLUDE[vs_ordesigner_short](../data-tools/includes/vs_ordesigner_short_md.md)]中实现这种继承。  
+ [Data class inheritance (O/R Designer)](../data-tools/data-class-inheritance-o-r-designer.md)  
+ Describes the concept of single-table inheritance and how it is implemented in the [!INCLUDE[vs_ordesigner_short](../data-tools/includes/vs_ordesigner_short_md.md)].  
   
- [如何︰ 创建 LINQ to SQL 类映射到表和视图 （O/R 设计器）](../Topic/How%20to:%20Create%20LINQ%20to%20SQL%20classes%20mapped%20to%20tables%20and%20views%20\(O-R%20Designer\).md)  
- 描述如何创建映射到数据库中表和视图的实体类。  
+ [How to: Create LINQ to SQL classes mapped to tables and views (O/R Designer)](../data-tools/how-to-create-linq-to-sql-classes-mapped-to-tables-and-views-o-r-designer.md)  
+ Describes how to create entity classes that are mapped to tables and views in a database.  
   
- [如何︰ 创建 LINQ to SQL 类 （O/R 设计器） 之间的关联 （关系）](../data-tools/how-to-create-an-association-relationship-between-linq-to-sql-classes-o-r-designer.md)  
- 描述如何创建 [!INCLUDE[vbtecdlinq](../data-tools/includes/vbtecdlinq_md.md)] 实体类之间的关系。  
+ [How to: Create an association (relationship) between LINQ to SQL classes (O/R Designer)](../data-tools/how-to-create-an-association-relationship-between-linq-to-sql-classes-o-r-designer.md)  
+ Describes how to create a relationship between [!INCLUDE[vbtecdlinq](../data-tools/includes/vbtecdlinq_md.md)] entity classes.  
   
- [如何︰ 创建映射到存储的过程和函数 （O/R 设计器） 的 DataContext 方法](../data-tools/how-to-create-datacontext-methods-mapped-to-stored-procedures-and-functions-o-r-designer.md)  
- 描述如何创建 <xref:System.Data.Linq.DataContext> 在被调用时运行存储的过程或函数的方法。  
+ [How to: Create DataContext methods mapped to stored procedures and functions (O/R Designer)](../data-tools/how-to-create-datacontext-methods-mapped-to-stored-procedures-and-functions-o-r-designer.md)  
+ Describes how to create <xref:System.Data.Linq.DataContext> methods that run stored procedures or functions when they are called.  
   
- [如何︰ 分配存储的过程以便执行更新、 插入和删除操作 （O/R 设计器）](../data-tools/how-to-assign-stored-procedures-to-perform-updates-inserts-and-deletes-o-r-designer.md)  
- 描述如何配置 <xref:System.Data.Linq.DataContext> 时要使用存储的过程将数据保存从实体类回数据库。  
+ [How to: Assign stored procedures to perform updates, inserts, and deletes (O/R Designer)](../data-tools/how-to-assign-stored-procedures-to-perform-updates-inserts-and-deletes-o-r-designer.md)  
+ Describes how to configure a <xref:System.Data.Linq.DataContext> to use stored procedures when saving data from entity classes back to a database.  
   
- [如何︰ 更改 DataContext 方法 （O/R 设计器） 的返回类型](../data-tools/how-to-change-the-return-type-of-a-datacontext-method-o-r-designer.md)  
- 描述如何设置的返回类型 <xref:System.Data.Linq.DataContext> 方法视为一个实体类的类型或由 O/R 设计器创建的自动生成类型。  
+ [How to: Change the return type of a DataContext method (O/R Designer)](../data-tools/how-to-change-the-return-type-of-a-datacontext-method-o-r-designer.md)  
+ Describes how to set the return type of a <xref:System.Data.Linq.DataContext> method to be the type of an entity class or an auto-generated type created by the O/R Designer.  
   
- [如何︰ 向实体类添加验证](../data-tools/how-to-add-validation-to-entity-classes.md)  
- 描述如何生成分部方法，以便能够在属性更改或实体类更新过程中添加代码。  
+ [How to: Add validation to entity classes](../data-tools/how-to-add-validation-to-entity-classes.md)  
+ Describes how to generate partial methods that enable the addition of code during property changes and entity class updates.  
   
- [如何︰ 将复数形式打开和关闭 （O/R 设计器）](../data-tools/how-to-turn-pluralization-on-and-off-o-r-designer.md)  
- 描述如何打开和关闭添加到 [!INCLUDE[vs_ordesigner_short](../data-tools/includes/vs_ordesigner_short_md.md)]中的类的自动重命名功能。  
+ [How to: Turn pluralization on and off (O/R Designer)](../data-tools/how-to-turn-pluralization-on-and-off-o-r-designer.md)  
+ Describes how to turn on and off the automatic renaming of classes that are added to the [!INCLUDE[vs_ordesigner_short](../data-tools/includes/vs_ordesigner_short_md.md)].  
   
- [如何︰ 通过使用 O/R 设计器配置继承](../data-tools/how-to-configure-inheritance-by-using-the-o-r-designer.md)  
- 描述如何通过 [!INCLUDE[vs_ordesigner_short](../data-tools/includes/vs_ordesigner_short_md.md)]使用单表继承配置实体类。  
+ [How to: Configure inheritance by using the O/R Designer](../data-tools/how-to-configure-inheritance-by-using-the-o-r-designer.md)  
+ Describes how to configure entity classes using single-table inheritance with the [!INCLUDE[vs_ordesigner_short](../data-tools/includes/vs_ordesigner_short_md.md)].  
   
- [如何︰ 扩展 O/R 设计器生成的代码](../Topic/How%20to:%20Extend%20Code%20Generated%20by%20the%20O-R%20Designer.md)  
- 描述如何添加以及在何处添加在对 O/R 设计器中的对象所做的更改重新生成代码时不会被覆盖的代码。  
+ [How to: Extend Code Generated by the O/R Designer](../data-tools/how-to-extend-code-generated-by-the-o-r-designer.md)  
+ Describes how and where to add code that will not be overwritten when changes to objects on the O/R Designer regenerate code.  
   
- [演练︰ 创建 LINQ to SQL 类通过使用单表继承 （O/R 设计器）](../data-tools/walkthrough-creating-linq-to-sql-classes-by-using-single-table-inheritance-o-r-designer.md)  
- 提供有关通过 [!INCLUDE[vs_ordesigner_short](../data-tools/includes/vs_ordesigner_short_md.md)]使用单表继承配置实体类的分步说明。  
+ [Walkthrough: Creating LINQ to SQL Classes by Using Single-Table Inheritance (O/R Designer)](../data-tools/walkthrough-creating-linq-to-sql-classes-by-using-single-table-inheritance-o-r-designer.md)  
+ Provides step-by-step instructions for configuring entity classes using single-table inheritance with the [!INCLUDE[vs_ordesigner_short](../data-tools/includes/vs_ordesigner_short_md.md)].  
   
- [演练︰ 自定义插入、 更新和删除的实体类的行为](../data-tools/walkthrough-customizing-the-insert-update-and-delete-behavior-of-entity-classes.md)  
- 提供有关配置的分步说明 <xref:System.Data.Linq.DataContext> 时要使用存储的过程将数据保存从实体类回数据库。  
+ [Walkthrough: Customizing the insert, update, and delete behavior of entity classes](../data-tools/walkthrough-customizing-the-insert-update-and-delete-behavior-of-entity-classes.md)  
+ Provides step-by-step instructions for configuring a <xref:System.Data.Linq.DataContext> to use stored procedures when saving data from entity classes back to a database.  
   
-## <a name="reference-content"></a>参考内容  
+## <a name="reference-content"></a>Reference content  
  <xref:System.Linq>  
   
  <xref:System.Data.Linq>  
   
-## <a name="see-also"></a>另请参阅  
- [适用于.NET 的 visual Studio data tools](../data-tools/visual-studio-data-tools-for-dotnet.md)   
- [常见问题](../Topic/Frequently%20Asked%20Questions.md)   
- [LINQ to SQL](../Topic/LINQ%20to%20SQL.md)   
- [在 Visual Studio 中访问数据](../data-tools/accessing-data-in-visual-studio.md)
+## <a name="see-also"></a>See Also  
+ [Visual Studio data tools for .NET](../data-tools/visual-studio-data-tools-for-dotnet.md)   
+ [Frequently Asked Questions](/dotnet/framework/data/adonet/sql/linq/frequently-asked-questions)   
+ [LINQ to SQL](/dotnet/framework/data/adonet/sql/linq/index)   
+ [Accessing data in Visual Studio](../data-tools/accessing-data-in-visual-studio.md)

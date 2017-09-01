@@ -1,5 +1,5 @@
 ---
-title: "使用 Visual Studio 互操作程序集 |Microsoft 文档"
+title: Using Visual Studio Interop Assemblies | Microsoft Docs
 ms.custom: 
 ms.date: 11/04/2016
 ms.reviewer: 
@@ -30,52 +30,51 @@ translation.priority.mt:
 - tr-tr
 - zh-cn
 - zh-tw
-translationtype: Machine Translation
-ms.sourcegitcommit: 5658ecf52637a38bc3c2a5ad9e85b2edebf7d445
-ms.openlocfilehash: 9762ba0404e739c167cadc3e9d3106c7f3ee14e8
-ms.lasthandoff: 02/22/2017
+ms.translationtype: MT
+ms.sourcegitcommit: eb5c9550fd29b0e98bf63a7240737da4f13f3249
+ms.openlocfilehash: 5d4b825b33339367ee331eb74aa2eb210c85206c
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/30/2017
 
 ---
-# <a name="using-visual-studio-interop-assemblies"></a>使用 Visual Studio 互操作程序集
-Visual Studio 互操作程序集使托管应用程序以访问提供 Visual Studio 可扩展性的 COM 接口。 有直接的 COM 接口与它们互操作的版本之间有些区别。 例如，Hresult 通常表示为一个整数值和需要为异常，相同的方式处理和 (尤其是 out 参数） 的参数的处理方式不同。  
+# <a name="using-visual-studio-interop-assemblies"></a>Using Visual Studio Interop Assemblies
+Visual Studio interop assemblies allow managed applications to access the COM interfaces that provide Visual Studio extensibility. There are some differences between straight COM interfaces and their interop versions. For example, HRESULTs are generally represented as int values and need to be handled in the same way as exceptions, and parameters (especially out parameters) are treated differently.  
   
-## <a name="handling-hresults-returned-to-managed-code-from-com"></a>处理从 COM 返回到托管代码的 HRESULT  
- 当从托管代码调用 COM 接口时，请检查 HRESULT 值并根据需要引发异常。 <xref:Microsoft.VisualStudio.ErrorHandler>类包含的<xref:Microsoft.VisualStudio.ErrorHandler.ThrowOnFailure%2A>方法，它会引发 COM 异常，具体取决于传递给它的 HRESULT 值</xref:Microsoft.VisualStudio.ErrorHandler.ThrowOnFailure%2A></xref:Microsoft.VisualStudio.ErrorHandler>  
+## <a name="handling-hresults-returned-to-managed-code-from-com"></a>Handling HRESULTs Returned to Managed Code from COM  
+ When you call a COM interface from managed code, examine the HRESULT value and throw an exception if required. The <xref:Microsoft.VisualStudio.ErrorHandler> class contains the <xref:Microsoft.VisualStudio.ErrorHandler.ThrowOnFailure%2A> method, which throws a COM exception, depending on the value of the HRESULT passed to it.  
   
- 默认情况下，<xref:Microsoft.VisualStudio.ErrorHandler.ThrowOnFailure%2A>每当它传递的值小于零的 HRESULT 时引发异常。</xref:Microsoft.VisualStudio.ErrorHandler.ThrowOnFailure%2A> 在这种 Hresult 是可接受的值、 何地应引发任何异常的情况下，其他 HRESULT 的值应传递给<xref:Microsoft.VisualStudio.ErrorHandler.ThrowOnFailure%2A>测试值之后。</xref:Microsoft.VisualStudio.ErrorHandler.ThrowOnFailure%2A> 如果所测试的 HRESULT 匹配显式传递到的任何 HRESULT 值<xref:Microsoft.VisualStudio.ErrorHandler.ThrowOnFailure%2A>，不会引发异常。</xref:Microsoft.VisualStudio.ErrorHandler.ThrowOnFailure%2A>  
-  
-> [!NOTE]
->  <xref:Microsoft.VisualStudio.VSConstants>类包含常量用于常见的 HRESULT，例如，<xref:Microsoft.VisualStudio.VSConstants.S_OK>和<xref:Microsoft.VisualStudio.VSConstants.E_NOTIMPL>，和[!INCLUDE[vsprvs](../../code-quality/includes/vsprvs_md.md)]HRESULT，例如，<xref:Microsoft.VisualStudio.VSConstants.VS_E_INCOMPATIBLEDOCDATA>和<xref:Microsoft.VisualStudio.VSConstants.VS_E_UNSUPPORTEDFORMAT>。</xref:Microsoft.VisualStudio.VSConstants.VS_E_UNSUPPORTEDFORMAT> </xref:Microsoft.VisualStudio.VSConstants.VS_E_INCOMPATIBLEDOCDATA> </xref:Microsoft.VisualStudio.VSConstants.E_NOTIMPL> </xref:Microsoft.VisualStudio.VSConstants.S_OK> </xref:Microsoft.VisualStudio.VSConstants> <xref:Microsoft.VisualStudio.VSConstants>此外提供了<xref:Microsoft.VisualStudio.ErrorHandler.Succeeded%2A>和<xref:Microsoft.VisualStudio.ErrorHandler.Failed%2A>方法，这对应于 COM 中的成功和失败宏</xref:Microsoft.VisualStudio.ErrorHandler.Failed%2A></xref:Microsoft.VisualStudio.ErrorHandler.Succeeded%2A></xref:Microsoft.VisualStudio.VSConstants>  
-  
- 例如，考虑以下函数调用，在其中<xref:Microsoft.VisualStudio.VSConstants.E_NOTIMPL>是可接受的返回值，但其他 HRESULT 小于零表示一个错误。</xref:Microsoft.VisualStudio.VSConstants.E_NOTIMPL>  
-  
- [!code-vb[VSSDKHRESULTInformation&#1;](../../extensibility/internals/codesnippet/VisualBasic/using-visual-studio-interop-assemblies_1.vb) ] 
- [!code-cs [VSSDKHRESULTInformation&#1;](../../extensibility/internals/codesnippet/CSharp/using-visual-studio-interop-assemblies_1.cs)]  
-  
- 如果有多个可接受的返回值，只是可以将其他 HRESULT 值追加到<xref:Microsoft.VisualStudio.ErrorHandler.ThrowOnFailure%2A>。</xref:Microsoft.VisualStudio.ErrorHandler.ThrowOnFailure%2A>对的调用中的列表  
-  
- [!code-vb[VSSDKHRESULTInformation&#2;](../../extensibility/internals/codesnippet/VisualBasic/using-visual-studio-interop-assemblies_2.vb) ] 
- [!code-cs [VSSDKHRESULTInformation&#2;](../../extensibility/internals/codesnippet/CSharp/using-visual-studio-interop-assemblies_2.cs)]  
-  
-## <a name="returning-hresults-to-com-from-managed-code"></a>从托管代码将 HRESULT 返回到 COM  
- 如果没有发生异常，托管的代码返回<xref:Microsoft.VisualStudio.VSConstants.S_OK>到 COM 函数调用它。</xref:Microsoft.VisualStudio.VSConstants.S_OK> COM 互操作支持托管代码中强类型化的常见异常。 例如，接收不可接受的方法`null`参数将引发<xref:System.ArgumentNullException>。</xref:System.ArgumentNullException>  
-  
- 如果您不能确定哪个异常引发，但您知道相应的 HRESULT 您想要返回到 COM，您可以使用<xref:System.Runtime.InteropServices.Marshal.ThrowExceptionForHR%2A>方法会引发相应的异常。</xref:System.Runtime.InteropServices.Marshal.ThrowExceptionForHR%2A> 这适用于即使使用了非标准的错误，例如， <xref:Microsoft.VisualStudio.VSConstants.VS_E_INCOMPATIBLEDOCDATA>。</xref:Microsoft.VisualStudio.VSConstants.VS_E_INCOMPATIBLEDOCDATA> <xref:System.Runtime.InteropServices.Marshal.ThrowExceptionForHR%2A>尝试将映射 HRESULT 传递给它为强类型化的异常。</xref:System.Runtime.InteropServices.Marshal.ThrowExceptionForHR%2A> 如果无法映射，它会改为引发一般的 COM 异常。 最终结果是，HRESULT 将传递给<xref:System.Runtime.InteropServices.Marshal.ThrowExceptionForHR%2A>从托管代码中会返回到 COM 函数调用它。</xref:System.Runtime.InteropServices.Marshal.ThrowExceptionForHR%2A>  
+ By default, <xref:Microsoft.VisualStudio.ErrorHandler.ThrowOnFailure%2A> throws an exception whenever it is passed an HRESULT that has a value less than zero. In cases where such HRESULTs are acceptable values and no exception should be thrown, the values of additional HRESULTS should be passed to <xref:Microsoft.VisualStudio.ErrorHandler.ThrowOnFailure%2A> after the values are tested. If the HRESULT being tested matches any HRESULT values explicitly passed to <xref:Microsoft.VisualStudio.ErrorHandler.ThrowOnFailure%2A>, no exception is thrown.  
   
 > [!NOTE]
->  异常会降低性能，它用于指示程序的异常状况。 对于所发生的状况，通常应以内联方式处理，而不是引发异常。  
+>  The <xref:Microsoft.VisualStudio.VSConstants> class contains constants for common HRESULTS, for example, <xref:Microsoft.VisualStudio.VSConstants.S_OK> and <xref:Microsoft.VisualStudio.VSConstants.E_NOTIMPL>, and [!INCLUDE[vsprvs](../../code-quality/includes/vsprvs_md.md)] HRESULTS, for example, <xref:Microsoft.VisualStudio.VSConstants.VS_E_INCOMPATIBLEDOCDATA> and <xref:Microsoft.VisualStudio.VSConstants.VS_E_UNSUPPORTEDFORMAT>. <xref:Microsoft.VisualStudio.VSConstants> also provides the <xref:Microsoft.VisualStudio.ErrorHandler.Succeeded%2A> and <xref:Microsoft.VisualStudio.ErrorHandler.Failed%2A> methods, which correspond to the SUCCEEDED and FAILED macros in COM.  
   
-## <a name="iunknown-parameters-passed-as-type-void"></a>IUnknown 参数作为类型 void * * 传递  
- [Out] 已定义为类型的参数查找`void **`com 接口，但被定义为`[``iid_is``]`中[!INCLUDE[vsprvs](../../code-quality/includes/vsprvs_md.md)]互操作程序集方法原型。  
+ For example, consider the following function call, in which <xref:Microsoft.VisualStudio.VSConstants.E_NOTIMPL> is an acceptable return value but any other HRESULT less than zero represents an error.  
   
- 有时，将生成一个 COM 接口`IUnknown`对象和 COM 接口然后将其作为传递类型`void **`。 这些接口是特别重要因为如果该变量被定义为 [out] 在 IDL，则`IUnknown`对象是使用引用计数`AddRef`方法。 如果该对象不能正确处理，则会发生内存泄漏。  
+ [!code-vb[VSSDKHRESULTInformation#1](../../extensibility/internals/codesnippet/VisualBasic/using-visual-studio-interop-assemblies_1.vb)] [!code-csharp[VSSDKHRESULTInformation#1](../../extensibility/internals/codesnippet/CSharp/using-visual-studio-interop-assemblies_1.cs)]  
+  
+ If there are more than one acceptable return values, additional HRESULT values can just be appended to the list in the call to <xref:Microsoft.VisualStudio.ErrorHandler.ThrowOnFailure%2A>.  
+  
+ [!code-vb[VSSDKHRESULTInformation#2](../../extensibility/internals/codesnippet/VisualBasic/using-visual-studio-interop-assemblies_2.vb)] [!code-csharp[VSSDKHRESULTInformation#2](../../extensibility/internals/codesnippet/CSharp/using-visual-studio-interop-assemblies_2.cs)]  
+  
+## <a name="returning-hresults-to-com-from-managed-code"></a>Returning HRESULTS to COM from Managed Code  
+ If no exception occurs, managed code returns <xref:Microsoft.VisualStudio.VSConstants.S_OK> to the COM function that called it. COM interop supports common exceptions that are strongly typed in managed code. For example, a method that receives an unacceptable `null` argument throws an <xref:System.ArgumentNullException>.  
+  
+ If you are not certain which exception to throw, but you know the HRESULT you want to return to COM, you can use the <xref:System.Runtime.InteropServices.Marshal.ThrowExceptionForHR%2A> method to throw an appropriate exception. This works even with a nonstandard error, for example, <xref:Microsoft.VisualStudio.VSConstants.VS_E_INCOMPATIBLEDOCDATA>. <xref:System.Runtime.InteropServices.Marshal.ThrowExceptionForHR%2A> attempts to map the HRESULT passed to it to a strongly typed exception. If it cannot, it throws a generic COM exception instead. The ultimate result is that the HRESULT you pass to <xref:System.Runtime.InteropServices.Marshal.ThrowExceptionForHR%2A> from managed code is returned to the COM function that called it.  
   
 > [!NOTE]
->  `IUnknown`对象创建的 COM 接口并在一个 [out] 变量中返回导致出现内存泄漏，如果未显式释放。  
+>  Exceptions compromise performance and are intended to indicate abnormal program conditions. Conditions that occur often should be handled inline, instead of a thrown exception.  
   
- 处理此类对象的托管的方法应该将<xref:System.IntPtr>作为指针来`IUnknown`对象，并调用<xref:System.Runtime.InteropServices.Marshal.GetObjectForIUnknown%2A>方法来获取该对象。</xref:System.Runtime.InteropServices.Marshal.GetObjectForIUnknown%2A> </xref:System.IntPtr> 然后，调用方应转换到适当的任何类型的返回值。 当不再需要该对象时，调用<xref:System.Runtime.InteropServices.Marshal.Release%2A>释放它。</xref:System.Runtime.InteropServices.Marshal.Release%2A>  
+## <a name="iunknown-parameters-passed-as-type-void"></a>IUnknown parameters passed as Type void**  
+ Look for [out] parameters that are defined as type `void **` in the COM interface, but that are defined as `[``iid_is``]` in the [!INCLUDE[vsprvs](../../code-quality/includes/vsprvs_md.md)] interop assembly method prototype.  
   
- 下面是一个示例说明如何调用<xref:Microsoft.VisualStudio.Shell.Interop.IVsWindowFrame.QueryViewInterface%2A>方法和处理`IUnknown`正确对象︰</xref:Microsoft.VisualStudio.Shell.Interop.IVsWindowFrame.QueryViewInterface%2A>  
+ Sometimes, a COM interface generates an `IUnknown` object, and the COM interface then passes it as type `void **`. These interfaces are especially important because if the variable is defined as [out] in the IDL, then the `IUnknown` object is reference-counted with the `AddRef` method. A memory leak occurs if the object is not handled correctly.  
+  
+> [!NOTE]
+>  An `IUnknown` object created by the COM interface and returned in an [out] variable causes a memory leak if it is not explicitly released.  
+  
+ Managed methods that handle such objects should treat <xref:System.IntPtr> as a pointer to an `IUnknown` object, and call the <xref:System.Runtime.InteropServices.Marshal.GetObjectForIUnknown%2A> method to obtain the object. The caller should then cast the return value to whatever type is appropriate. When the object is no longer needed, call <xref:System.Runtime.InteropServices.Marshal.Release%2A> to release it.  
+  
+ Following is an example of calling the <xref:Microsoft.VisualStudio.Shell.Interop.IVsWindowFrame.QueryViewInterface%2A> method and handling the `IUnknown` object correctly:  
   
 ```  
 MyClass myclass;  
@@ -102,50 +101,50 @@ else
 ```  
   
 > [!NOTE]
->  已知下列方法将传递`IUnknown`作为类型<xref:System.IntPtr>。</xref:System.IntPtr>对象的指针 本部分中所述，则处理它们。  
+>  The following methods are known to pass `IUnknown` object pointers as type <xref:System.IntPtr>. Handle them as described in this section.  
   
--   <xref:Microsoft.VisualStudio.Shell.Interop.IVsProjectFactory.CreateProject%2A></xref:Microsoft.VisualStudio.Shell.Interop.IVsProjectFactory.CreateProject%2A>  
+-   <xref:Microsoft.VisualStudio.Shell.Interop.IVsProjectFactory.CreateProject%2A>  
   
--   <xref:Microsoft.VisualStudio.Shell.Interop.IVsOwnedProjectFactory.InitializeForOwner%2A></xref:Microsoft.VisualStudio.Shell.Interop.IVsOwnedProjectFactory.InitializeForOwner%2A>  
+-   <xref:Microsoft.VisualStudio.Shell.Interop.IVsOwnedProjectFactory.InitializeForOwner%2A>  
   
--   <xref:Microsoft.VisualStudio.Shell.Interop.IVsHierarchy.GetNestedHierarchy%2A></xref:Microsoft.VisualStudio.Shell.Interop.IVsHierarchy.GetNestedHierarchy%2A>  
+-   <xref:Microsoft.VisualStudio.Shell.Interop.IVsHierarchy.GetNestedHierarchy%2A>  
   
--   <xref:Microsoft.VisualStudio.Shell.Interop.IVsSolution.CreateProject%2A></xref:Microsoft.VisualStudio.Shell.Interop.IVsSolution.CreateProject%2A>  
+-   <xref:Microsoft.VisualStudio.Shell.Interop.IVsSolution.CreateProject%2A>  
   
--   <xref:Microsoft.VisualStudio.Shell.Interop.IVsWindowFrame.QueryViewInterface%2A></xref:Microsoft.VisualStudio.Shell.Interop.IVsWindowFrame.QueryViewInterface%2A>  
+-   <xref:Microsoft.VisualStudio.Shell.Interop.IVsWindowFrame.QueryViewInterface%2A>  
   
--   <xref:Microsoft.VisualStudio.Shell.Interop.IVsProjectCfg2.get_CfgType%2A></xref:Microsoft.VisualStudio.Shell.Interop.IVsProjectCfg2.get_CfgType%2A>  
+-   <xref:Microsoft.VisualStudio.Shell.Interop.IVsProjectCfg2.get_CfgType%2A>  
   
-## <a name="optional-out-parameters"></a>[Out 一个] 可选参数  
- 查找定义作为 [out] 参数的数据类型 (`int`， `object`，依此类推) 在 COM 接口，但被定义为在相同的数据类型的数组[!INCLUDE[vsprvs](../../code-quality/includes/vsprvs_md.md)]互操作程序集方法原型。  
+## <a name="optional-out-parameters"></a>Optional [out] Parameters  
+ Look for parameters that are defined as an [out] data type (`int`, `object`, and so on) in the COM interface, but that are defined as arrays of the same data type in the [!INCLUDE[vsprvs](../../code-quality/includes/vsprvs_md.md)] interop assembly method prototype.  
   
- 有些 COM 接口，如<xref:Microsoft.VisualStudio.Shell.Interop.IVsCfgProvider2.GetCfgs%2A>，将 [out] 参数为可选。</xref:Microsoft.VisualStudio.Shell.Interop.IVsCfgProvider2.GetCfgs%2A> 如果对象不是必需的这些 COM 接口返回`null`指针作为该参数而不是创建 [out] 对象的值。 这是设计使然。 对于这些接口，`null`指针被假定为 VSPackage，正确行为的一部分，且不会返回错误。  
+ Some COM interfaces, such as <xref:Microsoft.VisualStudio.Shell.Interop.IVsCfgProvider2.GetCfgs%2A>, treat [out] parameters as optional. If an object is not required, these COM interfaces return a `null` pointer as the value of that parameter instead of creating the [out] object. This is by design. For these interfaces, `null` pointers are assumed as part of the correct behavior of the VSPackage, and no error is returned.  
   
- 因为 CLR 不允许为一个 [out] 参数的值`null`，这些接口的设计行为的部件不是托管代码中直接使用。 [!INCLUDE[vsprvs](../../code-quality/includes/vsprvs_md.md)]受影响的接口的互操作程序集方法要解决此问题，通过将相关参数定义为数组，因为 CLR 允许将传递`null`数组。  
+ Because the CLR does not allow the value of an [out] parameter to be `null`, part of the designed behavior of these interfaces is not directly available within managed code. The [!INCLUDE[vsprvs](../../code-quality/includes/vsprvs_md.md)] interop assembly methods for affected interfaces work around the issue by defining the relevant parameters as arrays because the CLR allows the passing of `null` arrays.  
   
- 这些方法中的托管的实现应放置`null`到参数时没有任何要返回的数组。 否则为创建正确类型的单一元素数组并放置在数组中返回的值。  
+ Managed implementations of these methods should put a `null` array into the parameter when there is nothing to be returned. Otherwise, create a one-element array of the correct type and put the return value in the array.  
   
- 托管的可选 [out] 一个接口从其中接收信息的方法参数将参数接收为数组。 只需查看该数组的第一个元素的值。 如果不是`null`，它是原始参数一样处理的第一个元素。  
+ Managed methods that receive information from interfaces with optional [out] parameters receive the parameter as an array. Just examine the value of the first element of the array. If it is not `null`, treat the first element as if it were the original parameter.  
   
-## <a name="passing-constants-in-pointer-parameters"></a>指针参数中传递常量  
- 查找的参数定义为 [in] COM 接口中的指针，但定义为<xref:System.IntPtr>键入[!INCLUDE[vsprvs](../../code-quality/includes/vsprvs_md.md)]互操作程序集方法原型。</xref:System.IntPtr>  
+## <a name="passing-constants-in-pointer-parameters"></a>Passing Constants in Pointer Parameters  
+ Look for parameters that are defined as [in] pointers in the COM interface, but that are defined as a <xref:System.IntPtr> type in the [!INCLUDE[vsprvs](../../code-quality/includes/vsprvs_md.md)] interop assembly method prototype.  
   
- COM 接口传递特殊值，例如 0、-1 或 – 2，而不是一个对象指针时，会出现类似问题。 与不同[!INCLUDE[vcprvc](../../code-quality/includes/vcprvc_md.md)]，CLR 不允许常量可强制转换为对象。 相反，[!INCLUDE[vsprvs](../../code-quality/includes/vsprvs_md.md)]互操作程序集定义为参数<xref:System.IntPtr>类型。</xref:System.IntPtr>  
+ A similar issue occurs when a COM interface passes a special value, such as 0, -1, or -2, instead of an object pointer. Unlike [!INCLUDE[vcprvc](../../code-quality/includes/vcprvc_md.md)], the CLR does not allow constants to be cast as objects. Instead, the [!INCLUDE[vsprvs](../../code-quality/includes/vsprvs_md.md)] interop assembly defines the parameter as a <xref:System.IntPtr> type.  
   
- 这些方法中的托管的实现应利用这一事实，<xref:System.IntPtr>类同时具有`int`和`void *`构造函数可创建<xref:System.IntPtr>从一个对象或整数常量，为相应。</xref:System.IntPtr> </xref:System.IntPtr>  
+ Managed implementations of these methods should take advantage of the fact that the <xref:System.IntPtr> class has both `int` and `void *` constructors to create an <xref:System.IntPtr> from either an object or an integer constant, as appropriate.  
   
- 托管方法接收<xref:System.IntPtr>此类型的参数应该使用<xref:System.IntPtr>类型转换运算符来处理结果。</xref:System.IntPtr> </xref:System.IntPtr> 第一次转换<xref:System.IntPtr>到`int`和测试针对相关的整数常量。</xref:System.IntPtr> 如果任何值不匹配，将其转换为所需类型的对象，并继续。  
+ Managed methods that receive <xref:System.IntPtr> parameters of this type should use the <xref:System.IntPtr> type conversion operators to handle the results. First convert the <xref:System.IntPtr> to `int` and test it against relevant integer constants. If no values match, convert it to an object of the required type and continue.  
   
- 有关此操作的示例，请参阅<xref:Microsoft.VisualStudio.Shell.Interop.IVsUIShellOpenDocument.OpenStandardEditor%2A>和<xref:Microsoft.VisualStudio.Shell.Interop.IVsUIShellOpenDocument.OpenSpecificEditor%2A>。</xref:Microsoft.VisualStudio.Shell.Interop.IVsUIShellOpenDocument.OpenSpecificEditor%2A> </xref:Microsoft.VisualStudio.Shell.Interop.IVsUIShellOpenDocument.OpenStandardEditor%2A>  
+ For examples of this, see <xref:Microsoft.VisualStudio.Shell.Interop.IVsUIShellOpenDocument.OpenStandardEditor%2A> and <xref:Microsoft.VisualStudio.Shell.Interop.IVsUIShellOpenDocument.OpenSpecificEditor%2A>.  
   
-## <a name="ole-return-values-passed-as-out-parameters"></a>OLE 返回的值作为传递 [out] 参数  
- 查找具有的方法的`retval`中 COM 接口，但返回值具有`int`返回值和附加 [out] 中的数组参数[!INCLUDE[vsprvs](../../code-quality/includes/vsprvs_md.md)]互操作程序集方法原型。 现在应该很清楚这些方法需要特殊处理，因为[!INCLUDE[vsprvs](../../code-quality/includes/vsprvs_md.md)]互操作程序集方法原型有一个比 COM 接口方法的多个参数。  
+## <a name="ole-return-values-passed-as-out-parameters"></a>OLE Return Values Passed as [out] Parameters  
+ Look for methods that have a `retval` return value in the COM interface, but that have an `int` return value and an additional [out] array parameter in the [!INCLUDE[vsprvs](../../code-quality/includes/vsprvs_md.md)] interop assembly method prototype. It should be clear that these methods require special handling because the [!INCLUDE[vsprvs](../../code-quality/includes/vsprvs_md.md)] interop assembly method prototypes have one more parameter than the COM interface methods.  
   
- 许多 OLE 活动处理的 COM 接口将 OLE 状态的信息发送回调用程序存储在`retval`返回值的接口。 而不是使用相对应的返回值[!INCLUDE[vsprvs](../../code-quality/includes/vsprvs_md.md)]互操作程序集的方法将信息发送回调用程序存储在 [out] 一个数组参数。  
+ Many COM interfaces that deal with OLE activity send information about OLE status back to the calling program stored in the `retval` return value of the interface. Instead of using a return value, the corresponding [!INCLUDE[vsprvs](../../code-quality/includes/vsprvs_md.md)] interop assembly methods send the information back to the calling program stored in an [out] array parameter.  
   
- 这些方法中的托管的实现应创建作为 [out] 参数的相同类型的单元素数组，并将其放在参数中。 数组元素的值应为与相应 COM 相同`retval`。  
+ Managed implementations of these methods should create a single-element array of the same type as the [out] parameter and put it in the parameter. The value of the array element should be the same as the appropriate COM `retval`.  
   
- 调用此类型的接口的托管的方法应请求从 [out] 的数组的第一个元素。 可以将此元素处理，就好像`retval`从相应的 COM 接口返回值。  
+ Managed methods that call interfaces of this type should pull the first element out of the [out] array. This element can be treated as if it were a `retval` return value from the corresponding COM interface.  
   
-## <a name="see-also"></a>另请参阅  
- [与非托管代码交互操作](http://msdn.microsoft.com/Library/ccb68ce7-b0e9-4ffb-839d-03b1cd2c1258)
+## <a name="see-also"></a>See Also  
+ [Interoperating with Unmanaged Code](/dotnet/framework/interop/index)

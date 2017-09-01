@@ -1,53 +1,70 @@
 ---
-title: "IDebugField::GetTypeInfo | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "IDebugField::GetTypeInfo"
-helpviewer_keywords: 
-  - "IDebugField::GetTypeInfo 方法"
+title: IDebugField::GetTypeInfo | Microsoft Docs
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords:
+- IDebugField::GetTypeInfo
+helpviewer_keywords:
+- IDebugField::GetTypeInfo method
 ms.assetid: bb5acfa3-04c3-4088-be84-9ff8926cd16f
 caps.latest.revision: 11
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 11
----
-# IDebugField::GetTypeInfo
-[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
+ms.author: gregvanl
+manager: ghogen
+translation.priority.mt:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+ms.translationtype: MT
+ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
+ms.openlocfilehash: 2baaecd28bfee7534624b77a053efe0a91f10eb1
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/28/2017
 
-此方法获取有关该符号或类型的独立于类型信息。  
+---
+# <a name="idebugfieldgettypeinfo"></a>IDebugField::GetTypeInfo
+This method gets type-independent information about the symbol or type.  
   
-## 语法  
+## <a name="syntax"></a>Syntax  
   
-```cpp#  
-HRESULT GetTypeInfo(   
-   TYPE_INFO* pTypeInfo  
+```cpp  
+HRESULT GetTypeInfo(   
+   TYPE_INFO* pTypeInfo  
 );  
 ```  
   
-```c#  
+```csharp  
 int GetTypeInfo(  
-   TYPE_INFO[] pTypeInfo  
+   TYPE_INFO[] pTypeInfo  
 );  
 ```  
   
-#### 参数  
+#### <a name="parameters"></a>Parameters  
  `pTypeInfo`  
- \[out\] 返回在提供的 [TYPE\_INFO](../../../extensibility/debugger/reference/type-info.md) 结构中的类型信息。  
+ [out] Returns type information in the supplied [TYPE_INFO](../../../extensibility/debugger/reference/type-info.md) structure.  
   
-## 返回值  
- 如果成功，则返回; `S_OK`否则，返回错误代码。  
+## <a name="return-value"></a>Return Value  
+ If successful, returns `S_OK`; otherwise, returns an error code.  
   
-## 备注  
- 独立于类型信息将包括，例如， AppDomain、模块和包含符号的类。  
+## <a name="remarks"></a>Remarks  
+ Type-independent information would include, for example, the AppDomain, the module, and the class that contains the symbol.  
   
-## 请参阅  
+## <a name="see-also"></a>See Also  
  [GetType](../../../extensibility/debugger/reference/idebugfield-gettype.md)   
  [IDebugField](../../../extensibility/debugger/reference/idebugfield.md)   
- [TYPE\_INFO](../../../extensibility/debugger/reference/type-info.md)
+ [TYPE_INFO](../../../extensibility/debugger/reference/type-info.md)

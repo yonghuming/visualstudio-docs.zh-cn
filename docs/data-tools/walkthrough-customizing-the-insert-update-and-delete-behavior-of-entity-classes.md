@@ -1,262 +1,281 @@
 ---
-title: "演练：自定义实体类的插入、更新和删除行为 | Microsoft Docs"
-ms.custom: ""
-ms.date: "12/15/2016"
-ms.prod: "visual-studio-dev14"
-ms.reviewer: ""
-ms.suite: ""
-ms.tgt_pltfrm: ""
-ms.topic: "article"
+title: 'Walkthrough: Customizing the insert, update, and delete behavior of entity classes | Microsoft Docs'
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.tgt_pltfrm: 
+ms.topic: article
+dev_langs:
+- VB
+- CSharp
 ms.assetid: 03ff1146-706e-4780-91cb-56a83df63eea
 caps.latest.revision: 3
-caps.handback.revision: 3
-author: "mikeblome"
-ms.author: "mblome"
-manager: "ghogen"
+author: mikeblome
+ms.author: mblome
+manager: ghogen
+translation.priority.ht:
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- ru-ru
+- zh-cn
+- zh-tw
+translation.priority.mt:
+- cs-cz
+- pl-pl
+- pt-br
+- tr-tr
+ms.translationtype: HT
+ms.sourcegitcommit: 21a413a3e2d17d77fd83d5109587a96f323a0511
+ms.openlocfilehash: 461f11a6bb124b99d15047f69bf60a4ea01125a2
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/30/2017
+
 ---
-# 演练：自定义实体类的插入、更新和删除行为
-[对象关系设计器（O\/R 设计器）](../data-tools/linq-to-sql-tools-in-visual-studio2.md)提供了一个可视化设计图面，用于创建和编辑基于数据库中对象的 [!INCLUDE[vbtecdlinq](../data-tools/includes/vbtecdlinq_md.md)] 类（实体类）。通过使用 [LINQ to SQL](../Topic/LINQ%20to%20SQL.md)，可以使用 LINQ 技术访问 SQL 数据库。有关更多信息，请参见[LINQ \(Language\-Integrated Query\)](../Topic/LINQ%20\(Language-Integrated%20Query\).md)。  
+# <a name="walkthrough-customizing-the-insert-update-and-delete-behavior-of-entity-classes"></a>Walkthrough: Customizing the insert, update, and delete behavior of entity classes
+The [LINQ to SQL Tools in Visual Studio](../data-tools/linq-to-sql-tools-in-visual-studio2.md) provides a visual design surface for creating and editing [!INCLUDE[vbtecdlinq](../data-tools/includes/vbtecdlinq_md.md)] classes (entity classes) that are based on objects in a database. By using [LINQ to SQL](/dotnet/framework/data/adonet/sql/linq/index), you can use LINQ technology to access SQL databases. For more information, see [LINQ (Language-Integrated Query)](http://msdn.microsoft.com/Library/a73c4aec-5d15-4e98-b962-1274021ea93d).  
   
- 默认情况下，由 [!INCLUDE[vbtecdlinq](../data-tools/includes/vbtecdlinq_md.md)] 运行时提供用于执行更新的逻辑。该运行时基于表的架构（列定义和主键信息）创建默认的 Insert、Update 和 Delete 语句。当不希望使用默认行为时，可以配置更新行为并指定特定的存储过程，来执行处理数据库中数据所必需的插入、更新和删除。在不生成默认行为时（例如，实体类映射到视图时），也可以这样做。另外，在数据库要求通过存储过程访问表时，您可以重写默认的更新行为。有关更多信息，请参见 [使用存储过程自定义操作](../Topic/Customizing%20Operations%20By%20Using%20Stored%20Procedures.md)。  
+By default, the logic to perform updates is provided by the [!INCLUDE[vbtecdlinq](../data-tools/includes/vbtecdlinq_md.md)] runtime. The runtime creates default Insert, Update, and Delete statements based on the schema of the table (the column definitions and primary key information). When you do not want to use the default behavior, you can configure the update behavior and designate specific stored procedures for performing the necessary Inserts, Updates, and Deletes required to work with the data in the database. You can also do this when the default behavior is not generated, for example, when your entity classes map to views. Additionally, you can override the default update behavior when the database requires table access through stored procedures. For more information, see [Customizing Operations By Using Stored Procedures](/dotnet/framework/data/adonet/sql/linq/customizing-operations-by-using-stored-procedures).  
   
 > [!NOTE]
->  本演练要求可以使用 Northwind 数据库的**“InsertCustomer”**、**“UpdateCustomer”**和**“DeleteCustomer”**存储过程。有关如何创建这些存储过程的详细信息，请参见[演练：为 Northwind Customers 表创建更新存储过程](../data-tools/walkthrough-creating-update-stored-procedures-for-the-northwind-customers-table.md)。  
+>  This walkthrough requires the availability of the **InsertCustomer**, **UpdateCustomer**, and **DeleteCustomer** stored procedures for the Northwind database.  
   
- 本演练提供了一些步骤，您必须执行这些步骤来重写默认的 LINQ to SQL 运行时行为，以便使用存储过程将数据保存回数据库。  
+This walkthrough provides the steps that you must follow to override the default LINQ to SQL runtime behavior for saving data back to a database by using stored procedures.  
   
- 在本演练中，您将学习如何执行以下任务：  
+During this walkthrough, you will learn how to perform the following tasks:  
   
--   创建一个新的 Windows 窗体应用程序，并将一个 [!INCLUDE[vbtecdlinq](../data-tools/includes/vbtecdlinq_md.md)] 文件添加到该应用程序。  
+-   Create a new Windows Forms application and add a [!INCLUDE[vbtecdlinq](../data-tools/includes/vbtecdlinq_md.md)] file to it.  
   
--   创建一个映射到 Northwind Customers 表的实体类。  
+-   Create an entity class that is mapped to the Northwind Customers table.  
   
--   创建一个引用 LINQ to SQL Customer 类的对象数据源。  
+-   Create an object data source that references the LINQ to SQL Customer class.  
   
--   创建一个包含绑定到 Customer 类的 <xref:System.Windows.Forms.DataGridView> 的 Windows 窗体。  
+-   Create a Windows Form that contains a <xref:System.Windows.Forms.DataGridView> that is bound to the Customer class.  
   
--   实现该窗体的保存功能。  
+-   Implement save functionality for the form.  
   
--   通过将存储过程添加到 [!INCLUDE[vs_ordesigner_short](../data-tools/includes/vs_ordesigner_short_md.md)]来创建 <xref:System.Data.Linq.DataContext> 方法。  
+-   Create <xref:System.Data.Linq.DataContext> methods by adding stored procedures to the [!INCLUDE[vs_ordesigner_short](../data-tools/includes/vs_ordesigner_short_md.md)].  
   
--   配置 Customer 类以使用存储过程执行插入、更新和删除。  
+-   Configure the Customer class to use stored procedures to perform Inserts, Updates, and Deletes.  
   
-## 系统必备  
- 若要完成此演练，需要以下组件：  
+## <a name="prerequisites"></a>Prerequisites  
+To complete this walkthrough, you need the following:  
   
--   访问 Northwind 示例数据库的 SQL Server 版本。有关更多信息，请参见[如何：安装示例数据库](../data-tools/how-to-install-sample-databases.md)。  
+-   Access to the SQL Server version of the Northwind sample database. For more information, see [How to: Install Sample Databases](../data-tools/installing-database-systems-tools-and-samples.md).  
   
--   Northwind 数据库的**“InsertCustomer”**、**“UpdateCustomer”**和**“DeleteCustomer”**存储过程。有关更多信息，请参见[演练：为 Northwind Customers 表创建更新存储过程](../data-tools/walkthrough-creating-update-stored-procedures-for-the-northwind-customers-table.md)。  
+-   The **InsertCustomer**, **UpdateCustomer**, and **DeleteCustomer** stored procedures for the Northwind database.   
   
-## 创建一个应用程序并添加 LINQ to SQL 类  
- 因为您将要使用 [!INCLUDE[vbtecdlinq](../data-tools/includes/vbtecdlinq_md.md)] 类并在 Windows 窗体中显示数据，所以需要创建一个新的 Windows 窗体应用程序并添加一个 LINQ to SQL 类文件。  
+## <a name="creating-an-application-and-adding-linq-to-sql-classes"></a>Creating an Application and Adding LINQ to SQL Classes  
+Because you will be working with [!INCLUDE[vbtecdlinq](../data-tools/includes/vbtecdlinq_md.md)] classes and displaying the data on a Windows Form, create a new Windows Forms application and add a LINQ to SQL Classes file.  
   
- [!INCLUDE[note_settings_general](../data-tools/includes/note_settings_general_md.md)]  
+[!INCLUDE[note_settings_general](../data-tools/includes/note_settings_general_md.md)]  
   
-#### 新建一个包含 LINQ to SQL 类的 Windows 应用程序项目  
+#### <a name="to-create-a-new-windows-application-project-that-contains-linq-to-sql-classes"></a>To create a new Windows Application project that contains LINQ to SQL classes  
   
-1.  从**“文件”**菜单创建一个新的项目。  
+1.  From the **File** menu, create a new project.  
   
-2.  将该项目命名为“UpdatingwithSProcsWalkthrough”。  
-  
-    > [!NOTE]
-    >  [!INCLUDE[vbprvb](../code-quality/includes/vbprvb_md.md)] 和 C\# 项目都支持 [!INCLUDE[vs_ordesigner_short](../data-tools/includes/vs_ordesigner_short_md.md)]。因此，请使用这两种语言之一创建新项目。  
-  
-3.  单击**“Windows 窗体应用程序”**模板，然后单击**“确定”**。有关更多信息，请参见 [客户端应用程序](../Topic/Developing%20Client%20Applications%20with%20the%20.NET%20Framework.md)。  
-  
-     将创建 UpdatingwithSProcsWalkthrough 项目并将其添加到**“解决方案资源管理器”**中。  
-  
-4.  在**“项目”**菜单上单击**“添加新项”**。  
-  
-5.  单击**“LINQ to SQL 类”**模板，然后在**“名称”**框中键入 Northwind.dbml。  
-  
-6.  单击**“添加”**。  
-  
-     这会将一个空的 LINQ to SQL 类文件 \(Northwind.dbml\) 添加到该项目中，并且会打开 [!INCLUDE[vs_ordesigner_short](../data-tools/includes/vs_ordesigner_short_md.md)]。  
-  
-## 创建 Customer 实体类和对象数据源  
- 通过将数据库表从**“服务器资源管理器”**\/**“数据库资源管理器”**拖动到 [!INCLUDE[vs_ordesigner_short](../data-tools/includes/vs_ordesigner_short_md.md)]上，创建映射到这些表的 [!INCLUDE[vbtecdlinq](../data-tools/includes/vbtecdlinq_md.md)] 类。结果将生成映射到数据库中的表的 LINQ to SQL 实体类。在创建实体类后，可以将这些类像具有公共属性的其他类一样用作对象数据源。  
-  
-#### 创建 Customer 实体类并使用该类配置数据源  
-  
-1.  在**“服务器资源管理器”**\/**“数据库资源管理器”**中，查找 Northwind 示例数据库的 SQL Server 版本中的 Customer 表。有关更多信息，请参见[如何：连接到 Northwind 数据库](../data-tools/how-to-connect-to-the-northwind-database.md)。  
-  
-2.  将**“Customers”**节点从**“服务器资源管理器”**\/**“数据库资源管理器”**拖动到 [!INCLUDE[vs_ordesigner_short](../data-tools/includes/vs_ordesigner_short_md.md)]图面上。  
-  
-     将创建一个名为**“Customer”**的实体类。该类具有与 Customers 表中的列相对应的属性。由于该实体类表示 Customers 表中的单个客户，因此将该类命名为**“Customer”**（而不是**“Customers”**）。  
+2.  Name the project **UpdatingwithSProcsWalkthrough**.  
   
     > [!NOTE]
-    >  这种重命名行为称为“复数化”。可以在[“选项”对话框](../ide/reference/options-dialog-box-visual-studio.md) 中打开或关闭此行为。有关更多信息，请参见[如何：打开和关闭复数形式（O\/R 设计器）](../data-tools/how-to-turn-pluralization-on-and-off-o-r-designer.md)。  
+    >  The [!INCLUDE[vs_ordesigner_short](../data-tools/includes/vs_ordesigner_short_md.md)] is supported in [!INCLUDE[vbprvb](../code-quality/includes/vbprvb_md.md)] and C# projects. Therefore, create the new project in one of these languages.  
   
-3.  在**“生成”**菜单上单击**“生成 UpdatingwithSProcsWalkthrough”**以生成该项目。  
+3.  Click the **Windows Forms Application** template and click **OK**. For more information, see [Client Applications](/dotnet/framework/develop-client-apps).  
   
-4.  在**“数据”**菜单上单击**“显示数据源”**。  
+     The UpdatingwithSProcsWalkthrough project is created and added to **Solution Explorer**.  
   
-5.  在**“数据源”**窗口中，单击**“添加新数据源”**。  
+4.  On the **Project** menu, click **Add New Item**.  
   
-6.  单击**“选择数据源类型”**页上的**“对象”**，然后单击**“下一步”**。  
+5.  Click the **LINQ to SQL Classes** template and type **Northwind.dbml** in the **Name** box.  
   
-7.  展开**“UpdatingwithSProcsWalkthrough”**节点，然后找到并选择**“Customer”**类。  
+6.  Click **Add**.  
+  
+     An empty LINQ to SQL Classes file (Northwind.dbml) is added to the project, and the [!INCLUDE[vs_ordesigner_short](../data-tools/includes/vs_ordesigner_short_md.md)] opens.  
+  
+## <a name="creating-the-customer-entity-class-and-object-data-source"></a>Creating the Customer Entity Class and Object Data Source  
+ Create [!INCLUDE[vbtecdlinq](../data-tools/includes/vbtecdlinq_md.md)] classes that are mapped to database tables by dragging tables from **Server Explorer**/**Database Explorer** onto the [!INCLUDE[vs_ordesigner_short](../data-tools/includes/vs_ordesigner_short_md.md)]. The result is LINQ to SQL entity classes that map to the tables in the database. After you create entity classes, they can be used as object data sources just like other classes that have public properties.  
+  
+#### <a name="to-create-a-customer-entity-class-and-configure-a-data-source-with-it"></a>To create a Customer entity class and configure a data source with it  
+  
+1.  In **Server Explorer**/**Database Explorer**, locate the Customer table in the SQL Server version of the Northwind sample database. 
+  
+2.  Drag the **Customers** node from **Server Explorer**/**Database Explorer** onto the [!INCLUDE[vs_ordesigner_short](../data-tools/includes/vs_ordesigner_short_md.md)] surface.  
+  
+     An entity class named **Customer** is created. It has properties that correspond to the columns in the Customers table. The entity class is named **Customer** (not **Customers**) because it represents a single customer from the Customers table.  
   
     > [!NOTE]
-    >  如果**“Customer”**类不可用，则退出向导，生成项目，然后重新运行向导。  
+    >  This renaming behavior is called *pluralization*. It can be turned on or off in the [Options Dialog Box](../ide/reference/options-dialog-box-visual-studio.md). For more information, see [How to: Turn pluralization on and off (O/R Designer)](../data-tools/how-to-turn-pluralization-on-and-off-o-r-designer.md).  
   
-8.  单击**“完成”**以创建数据源并将**“Customer”**实体类添加到**“数据源”**窗口。  
+3.  On the **Build** menu, click **Build UpdatingwithSProcsWalkthrough** to build the project.  
   
-## 创建一个 DataGridView 以在 Windows 窗体中显示 Customer 数据  
- 通过将 [!INCLUDE[vbtecdlinq](../data-tools/includes/vbtecdlinq_md.md)] 数据源项从**“数据源”**窗口拖动到 Windows 窗体上来创建绑定到实体类的控件。  
+4.  On the **Data** menu, click **Show Data Sources**.  
   
-#### 添加绑定到实体类的控件  
+5.  In the **Data Sources** window, click **Add New Data Source**.  
   
-1.  在“设计”视图中打开“Form1”。  
+6.  Click **Object** on the **Choose a Data Source Type** page and then click **Next**.  
   
-2.  将**“Customer”**节点从**“数据源”**窗口拖动到 Form1 上。  
+7.  Expand the **UpdatingwithSProcsWalkthrough** node and locate and select the **Customer** class.  
   
     > [!NOTE]
-    >  若要显示**“数据源”**窗口，请单击**“数据”**菜单上的**“显示数据源”**。  
+    >  If the **Customer** class is not available, cancel out of the wizard, build the project, and run the wizard again.  
+8.  Click **Finish** to create the data source and add the **Customer** entity class to the **Data Sources** window.  
   
-3.  在代码编辑器中打开 Form1。  
+## <a name="creating-a-datagridview-to-display-the-customer-data-on-a-windows-form"></a>Creating a DataGridView to Display the Customer Data on a Windows Form  
+ Create controls that are bound to entity classes by dragging [!INCLUDE[vbtecdlinq](../data-tools/includes/vbtecdlinq_md.md)] data source items from the **Data Sources** window onto a Windows Form.  
   
-4.  将下面的代码添加到该窗体中。这些代码对于该窗体是全局性的，位于任何特定方法之外，但位于 Form1 类内部：  
+#### <a name="to-add-controls-that-are-bound-to-the-entity-classes"></a>To add controls that are bound to the entity classes  
   
-    ```vb#  
+1.  Open Form1 in Design view.  
+  
+2.  From the **Data Sources** window, drag the **Customer** node onto Form1.  
+  
+    > [!NOTE]
+    >  To display the **Data Sources** window, click **Show Data Sources** on the **Data** menu.  
+  
+3.  Open Form1 in the Code Editor.  
+  
+4.  Add the following code to the form, global to the form, outside any specific method, but inside the Form1 class:  
+  
+    ```vb  
     Private NorthwindDataContext1 As New NorthwindDataContext  
     ```  
   
-    ```c#  
+    ```csharp  
     private NorthwindDataContext northwindDataContext1  
-        = new NorthwindDataContext();  
-  
+        = new NorthwindDataContext();    
     ```  
   
-5.  为 `Form_Load` 事件创建一个事件处理程序，并将下面的代码添加到该处理程序中：  
+5.  Create an event handler for the `Form_Load` event and add the following code to the handler:  
   
-    ```vb#  
+    ```vb  
     CustomerBindingSource.DataSource = NorthwindDataContext1.Customers  
     ```  
   
-    ```c#  
+    ```csharp  
     customerBindingSource.DataSource  
-        = northwindDataContext1.Customers;  
-  
+        = northwindDataContext1.Customers;    
     ```  
   
-## 实现保存功能  
- 默认情况下，没有启用保存按钮，也没有实现保存功能。此外，在为对象数据源创建数据绑定控件时，不会自动添加用于将更改后的数据保存到数据库的代码。本节说明如何为 [!INCLUDE[vbtecdlinq](../data-tools/includes/vbtecdlinq_md.md)] 对象启用保存按钮并实现保存功能。  
+## <a name="implementing-save-functionality"></a>Implementing Save Functionality  
+ By default, the save button is not enabled and save functionality is not implemented. Also, code is not automatically added to save changed data to the database when data-bound controls are created for object data sources. This section explains how to enable the save button and implement save functionality for [!INCLUDE[vbtecdlinq](../data-tools/includes/vbtecdlinq_md.md)] objects.  
   
-#### 实现保存功能  
+#### <a name="to-implement-save-functionality"></a>To implement save functionality  
   
-1.  在“设计”视图中打开“Form1”。  
+1.  Open Form1 in Design view.  
   
-2.  在**“CustomerBindingNavigator”**上选择保存按钮（带有软盘图标的按钮）。  
+2.  Select the save button on the **CustomerBindingNavigator** (the button with the floppy disk icon).  
   
-3.  在**“属性”**窗口中，将**“Enabled”**属性设置为**“True”**。  
+3.  In the **Properties** window, set the **Enabled** property to **True**.  
   
-4.  双击保存按钮以创建一个事件处理程序并切换到代码编辑器。  
+4.  Double-click the save button to create an event handler and switch to the Code Editor.  
   
-5.  将下面的代码添加到保存按钮事件处理程序中：  
+5.  Add the following code into the save button event handler:  
   
-    ```vb#  
+    ```vb  
     NorthwindDataContext1.SubmitChanges()  
     ```  
   
-    ```c#  
+    ```csharp  
     northwindDataContext1.SubmitChanges();  
     ```  
   
-## 重写用于执行更新（插入、更新和删除）的默认行为  
+## <a name="overriding-the-default-behavior-for-performing-updates-inserts-updates-and-deletes"></a>Overriding the Default Behavior for Performing Updates (Inserts, Updates, and Deletes)  
   
-#### 重写默认更新行为  
+#### <a name="to-override-the-default-update-behavior"></a>To override the default update behavior  
   
-1.  在 [!INCLUDE[vs_ordesigner_short](../data-tools/includes/vs_ordesigner_short_md.md)]中打开“LINQ to SQL”文件。（在**“解决方案资源管理器”**中双击**“Northwind.dbml”**文件。）  
+1.  Open the LINQ to SQL file in the [!INCLUDE[vs_ordesigner_short](../data-tools/includes/vs_ordesigner_short_md.md)]. (Double-click the **Northwind.dbml** file in **Solution Explorer**.)  
   
-2.  在**“服务器资源管理器”**\/**“数据库资源管理器”**中，展开 Northwind 数据库的**“存储过程”**节点并找到**“InsertCustomers”**、**“UpdateCustomers”**和**“DeleteCustomers”**存储过程。  
+2.  In **Server Explorer**/**Database Explorer**, expand the Northwind databases **Stored Procedures** node and locate the **InsertCustomers**, **UpdateCustomers**, and **DeleteCustomers** stored procedures.  
   
-3.  将所有这三个存储过程都拖动到 [!INCLUDE[vs_ordesigner_short](../data-tools/includes/vs_ordesigner_short_md.md)]上。  
+3.  Drag all three stored procedures onto the [!INCLUDE[vs_ordesigner_short](../data-tools/includes/vs_ordesigner_short_md.md)].  
   
-     这些存储过程将作为 <xref:System.Data.Linq.DataContext> 方法添加到方法窗格中。有关更多信息，请参见 [DataContext 方法（O\/R 设计器）](../data-tools/datacontext-methods-o-r-designer.md)。  
+     The stored procedures are added to the methods pane as <xref:System.Data.Linq.DataContext> methods. For more information, see [DataContext Methods (O/R Designer)](../data-tools/datacontext-methods-o-r-designer.md).  
   
-4.  在 [!INCLUDE[vs_ordesigner_short](../data-tools/includes/vs_ordesigner_short_md.md)]中选择**“Customer”**实体类。  
+4.  Select the **Customer** entity class in the [!INCLUDE[vs_ordesigner_short](../data-tools/includes/vs_ordesigner_short_md.md)].  
   
-5.  在**“属性”**窗口中选择**“Insert”**属性。  
+5.  In the **Properties** window, select the **Insert** property.  
   
-6.  单击**“使用运行时”**旁的省略号 \(...\) 以打开**“配置行为”**对话框。  
+6.  Click the ellipsis (...) next to **Use Runtime** to open the **Configure Behavior** dialog box.  
   
-7.  选择**“自定义”**。  
+7.  Select **Customize**.  
   
-8.  在**“自定义”**列表中选择**“InsertCustomers”**方法。  
+8.  Select the **InsertCustomers** method in the **Customize** list.  
   
-9. 单击**“应用”**保存所选择的类和行为的配置。  
-  
-    > [!NOTE]
-    >  只要在每次更改后单击**“应用”**，就可以继续为每个类\/行为组合配置行为。如果在单击**“应用”**之前更改类或行为，则会出现一个警告对话框，以提供一个应用任何更改的机会。  
-  
-10. 在**“行为”**列表中选择**“更新”**。  
-  
-11. 选择**“自定义”**。  
-  
-12. 在**“自定义”**列表中选择**“UpdateCustomers”**方法。  
-  
-     检查**“方法参数”**和**“类属性”**列表，您会注意到，对于表中的某些列，有两个**“方法参数”**和两个**“类属性”**。这样可以更加轻松地跟踪更改和创建检查并发冲突的语句。  
-  
-13. 将**“Original\_CustomerID”**方法参数映射到**“CustomerID \(原始\)”\[CustomerID \(Original\)\]**类属性。  
+9. Click **Apply** to save the configuration for the selected Class and Behavior.  
   
     > [!NOTE]
-    >  默认情况下，当名称匹配时，方法参数会映射到类属性。如果属性名称发生更改并且在表与实体类之间不再匹配，则在 O\/R 设计器无法确定正确的映射时，您可能必须选择等效的类属性进行映射。此外，如果方法参数没有用于进行映射的有效类属性，则可以将**“类属性”**值设置为**“\(无\)”**。  
+    >  You can continue to configure the behavior for each class/behavior combination as long as you click **Apply** after you make each change. If you change the class or behavior before you click **Apply**, a warning dialog box providing an opportunity to apply any changes will appear.  
   
-14. 单击**“应用”**保存所选择的类和行为的配置。  
+10. Select **Update** in the **Behavior** list.  
   
-15. 在**“行为”**列表中选择**“删除”**。  
+11. Select **Customize**.  
   
-16. 选择**“自定义”**。  
+12. Select the **UpdateCustomers** method in the **Customize** list.  
   
-17. 在**“自定义”**列表中选择**“DeleteCustomers”**方法。  
+     Inspect the list of **Method Arguments** and **Class Properties** and notice that there are two **Method Arguments** and two **Class Properties** for some columns in the table. This makes it easier to track changes and create statements that check for concurrency violations.  
   
-18. 将**“Original\_CustomerID”**方法参数映射到**“CustomerID \(原始\)”\[CustomerID \(Original\)\]**类属性。  
+13. Map the **Original_CustomerID** method argument to the **CustomerID (Original)** class property.  
   
-19. 单击**“确定”**。  
+    > [!NOTE]
+    >  By default, method arguments will map to class properties when the names match. If property names are changed and no longer match between the table and the entity class, you might have to select the equivalent class property to map to if the O/R Designer cannot determine the correct mapping. Additionally, if method arguments do not have valid class properties to map to, you can set the **Class Properties** value to **(None)**.  
+  
+14. Click **Apply** to save the configuration for the selected Class and Behavior.  
+  
+15. Select **Delete** in the **Behavior** list.  
+  
+16. Select **Customize**.  
+  
+17. Select the **DeleteCustomers** method in the **Customize** list.  
+  
+18. Map the **Original_CustomerID** method argument to the **CustomerID (Original)** class property.  
+  
+19. Click **OK**.  
   
 > [!NOTE]
->  在本演练中，虽然以下事实并不会产生问题，但仍然需要注意：[!INCLUDE[vbtecdlinq](../data-tools/includes/vbtecdlinq_md.md)] 会在插入和更新操作期间自动为标识（自动递增）列、rowguidcol（数据库生成的 GUID）列以及时间戳列处理数据库生成的值。在其他列类型中，数据库生成的值将意外导致 Null 值。若要返回数据库生成的值，应手动将 <xref:System.Data.Linq.Mapping.ColumnAttribute.IsDbGenerated%2A> 设置为 `true` 并将 <xref:System.Data.Linq.Mapping.ColumnAttribute.AutoSync%2A> 设置为下列值之一：<xref:System.Data.Linq.Mapping.AutoSync>、<xref:System.Data.Linq.Mapping.AutoSync> 或 <xref:System.Data.Linq.Mapping.AutoSync>。  
+>  Although it is not an issue for this particular walkthrough, it is worth noting that [!INCLUDE[vbtecdlinq](../data-tools/includes/vbtecdlinq_md.md)] handles database-generated values automatically for identity (auto-increment), rowguidcol (database-generated GUID), and timestamp columns during Inserts and Updates. Database-generated values in other column types will unexpectedly result in a null value. To return the database-generated values, you should manually set <xref:System.Data.Linq.Mapping.ColumnAttribute.IsDbGenerated%2A> to `true` and <xref:System.Data.Linq.Mapping.ColumnAttribute.AutoSync%2A> to one of the following: <xref:System.Data.Linq.Mapping.AutoSync>, <xref:System.Data.Linq.Mapping.AutoSync>, or <xref:System.Data.Linq.Mapping.AutoSync>.  
   
-## 测试应用程序  
- 再次运行应用程序以验证**“UpdateCustomers”**存储过程是否能够正确更新数据库中的客户记录。  
+## <a name="testing-the-application"></a>Testing the Application  
+ Run the application again to verify that the **UpdateCustomers** stored procedure correctly updates the customer record in the database.  
   
-#### 测试应用程序  
+#### <a name="to-test-the-application"></a>To test the application  
   
-1.  按 F5。  
+1.  Press F5.  
   
-2.  修改网格中的一条记录以测试更新行为。  
+2.  Modify a record in the grid to test the Update behavior.  
   
-3.  添加一条新记录以测试插入行为。  
+3.  Add a new record to test the Insert behavior.  
   
-4.  单击保存按钮将更改保存回数据库。  
+4.  Click the save button to save changes back to the database.  
   
-5.  关闭窗体。  
+5.  Close the form.  
   
-6.  按 F5 并验证是否保存了更新的记录和新插入的记录。  
+6.  Press F5 and verify that the updated record and the newly inserted record persisted.  
   
-7.  删除在步骤 3 中创建的新记录以测试删除行为。  
+7.  Delete the new record you created in step 3 to test the Delete behavior.  
   
-8.  单击保存按钮以提交更改并从数据库中移除已删除的记录  
+8.  Click the save button to submit the changes and remove the deleted record from the database  
   
-9. 关闭窗体。  
+9. Close the form.  
   
-10. 按 F5 并验证是否从数据库中移除了已删除的记录。  
+10. Press F5 and verify that the deleted record was removed from the database.  
   
     > [!NOTE]
-    >  如果您的应用程序使用 SQL Server Express Edition，则根据数据库文件的**“复制到输出目录”**属性值的不同，在步骤 10 中按 F5 时可能不会显示更改。有关更多信息，请参见[如何：管理项目中的本地数据文件](../data-tools/how-to-manage-local-data-files-in-your-project.md)。  
+    >  If your application uses SQL Server Express Edition, depending on the value of the **Copy to Output Directory** property of the database file, the changes may not appear when you press F5 in step 10. 
   
-## 后续步骤  
- 根据应用程序要求的不同，您可能需要在创建 [!INCLUDE[vbtecdlinq](../data-tools/includes/vbtecdlinq_md.md)] 实体类后执行几个步骤。您可以对此应用程序进行的增强包括：  
+## <a name="next-steps"></a>Next Steps  
+ Depending on your application requirements, there are several steps that you may want to perform after you create [!INCLUDE[vbtecdlinq](../data-tools/includes/vbtecdlinq_md.md)] entity classes. Some enhancements you could make to this application include the following:  
   
--   在更新过程中实现并发检查。有关信息，请参见[开放式并发：概述](../Topic/Optimistic%20Concurrency:%20Overview.md)。  
+-   Implement concurrency checking during updates. For information, see [Optimistic Concurrency: Overview](/dotnet/framework/data/adonet/sql/linq/optimistic-concurrency-overview).  
   
--   添加 LINQ 查询以筛选数据。有关信息，请参见 [Introduction to LINQ Queries \(C\#\)](/dotnet/csharp/programming-guide/concepts/linq/introduction-to-linq-queries)。  
+-   Add LINQ queries to filter data. For information, see [Introduction to LINQ Queries (C#)](/dotnet/csharp/programming-guide/concepts/linq/introduction-to-linq-queries.md).  
   
-## 请参阅  
- [对象关系设计器（O\/R 设计器）](../data-tools/linq-to-sql-tools-in-visual-studio2.md)   
- [LINQ to SQL](../Topic/LINQ%20to%20SQL.md)   
- [LINQ to SQL 查询](../Topic/LINQ%20to%20SQL%20Queries.md)   
- [DataContext 方法（O\/R 设计器）](../data-tools/datacontext-methods-o-r-designer.md)   
- [如何：分配存储过程以执行更新、插入和删除（O\/R 设计器）](../data-tools/how-to-assign-stored-procedures-to-perform-updates-inserts-and-deletes-o-r-designer.md)   
- [PAVE What's New for Data Application Development in Visual Studio 2012](http://msdn.microsoft.com/zh-cn/3d50d68f-5f44-4915-842f-6d42fce793f1)
+## <a name="see-also"></a>See Also  
+ [LINQ to SQL Tools in Visual Studio](../data-tools/linq-to-sql-tools-in-visual-studio2.md)   
+ [LINQ to SQL](/dotnet/framework/data/adonet/sql/linq/index)   
+ [LINQ to SQL Queries](/dotnet/framework/data/adonet/sql/linq/linq-to-sql-queries)   
+ [DataContext Methods (O/R Designer)](../data-tools/datacontext-methods-o-r-designer.md)   
+ [How to: Assign stored procedures to perform updates, inserts, and deletes (O/R Designer)](../data-tools/how-to-assign-stored-procedures-to-perform-updates-inserts-and-deletes-o-r-designer.md)   
+ 

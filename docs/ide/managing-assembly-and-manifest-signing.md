@@ -32,11 +32,11 @@ translation.priority.ht:
 - tr-tr
 - zh-cn
 - zh-tw
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3d32d11a430227800cb3ed53831a9565eb6adeb3
-ms.openlocfilehash: b42679476f9e1da034011eb7e9b81250c0c81a1e
+ms.translationtype: HT
+ms.sourcegitcommit: a3c0f4d3bde8bb03d3766383eba01665e58458be
+ms.openlocfilehash: 6a28915840af1b22dffe704ac931a57f25ca6879
 ms.contentlocale: zh-cn
-ms.lasthandoff: 05/30/2017
+ms.lasthandoff: 08/01/2017
 
 ---
 # <a name="managing-assembly-and-manifest-signing"></a>管理程序集签名和清单签名
@@ -80,12 +80,12 @@ ms.lasthandoff: 05/30/2017
 > [!WARNING]
 >  应始终使用密码保护密钥文件，以防他人使用。 还可以使用提供程序或证书存储来保护密钥。  
   
- 也可以指向已创建的密钥。 有关创建密钥的详细信息，请参阅[如何：创建公钥/私钥对](http://msdn.microsoft.com/Library/05026813-f3bd-4d7c-9e0b-fc588eb3d114)。  
+ 也可以指向已创建的密钥。 有关创建密钥的详细信息，请参阅[如何：创建公钥/私钥对](/dotnet/framework/app-domains/how-to-create-a-public-private-key-pair)。  
   
  如果仅对公钥具有访问权限，可以使用延迟签名来推迟分配密钥。 可通过选择“仅延迟签名”复选框来启用延迟签名。 延迟签名的项目将不会运行，因此无法调试。 但是，可以使用 [Sn.exe（强名称工具）](/dotnet/framework/tools/sn-exe-strong-name-tool)及 `-Vr` 选项，在开发过程中跳过验证。  
   
  有关对清单进行签名的详细信息，请参阅[如何：对应用程序和部署清单进行签名](../ide/how-to-sign-application-and-deployment-manifests.md)。  
   
 ## <a name="see-also"></a>另请参阅  
- [具有强名称的程序集](http://msdn.microsoft.com/Library/d4a80263-f3e0-4d81-9b61-f0cbeae3797b)   
+ [具有强名称的程序集](/dotnet/framework/app-domains/strong-named-assemblies)   
  [强名称程序集（程序集签名）(C++/CLI)](/cpp/dotnet/strong-name-assemblies-assembly-signing-cpp-cli)

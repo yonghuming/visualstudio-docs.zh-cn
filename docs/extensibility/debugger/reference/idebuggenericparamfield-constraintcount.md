@@ -1,52 +1,69 @@
 ---
-title: "IDebugGenericParamField::ConstraintCount | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-helpviewer_keywords: 
-  - "ConstraintCount"
-  - "IDebugGenericParamField::ConstraintCount"
+title: IDebugGenericParamField::ConstraintCount | Microsoft Docs
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+helpviewer_keywords:
+- ConstraintCount
+- IDebugGenericParamField::ConstraintCount
 ms.assetid: 76bef0cb-8a3c-4ce5-87cc-1809de229f33
 caps.latest.revision: 10
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 10
----
-# IDebugGenericParamField::ConstraintCount
-[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
+ms.author: gregvanl
+manager: ghogen
+translation.priority.mt:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+ms.translationtype: MT
+ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
+ms.openlocfilehash: 69acd84ab08288fe4f0b2e2e781ed966dcfe84ca
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/28/2017
 
-返回与此泛型形参约束的数目。  
+---
+# <a name="idebuggenericparamfieldconstraintcount"></a>IDebugGenericParamField::ConstraintCount
+Returns the number of constraints that are associated with this generic parameter.  
   
-## 语法  
+## <a name="syntax"></a>Syntax  
   
-```cpp#  
+```cpp  
 HRESULT ConstraintCount(  
-   ULONG32* pcConst  
+   ULONG32* pcConst  
 );  
 ```  
   
-```c#  
+```csharp  
 int ConstraintCount(  
-   ref uint pcConst  
+   ref uint pcConst  
 );  
 ```  
   
-#### 参数  
+#### <a name="parameters"></a>Parameters  
  `pcConst`  
- \[in, out\] 与此域限制的数字。  
+ [in, out] Number of constraints that are associated with this field.  
   
-## 返回值  
- 如果成功，则返回; `S_OK`否则，返回错误代码。  
+## <a name="return-value"></a>Return Value  
+ If successful, returns `S_OK`; otherwise, returns an error code.  
   
-## 示例  
- 下面的示例演示如何执行显示 [IDebugGenericParamField](../../../extensibility/debugger/reference/idebuggenericparamfield.md) 接口的 **CDebugGenericParamFieldType** 对象的方法。  
+## <a name="example"></a>Example  
+ The following example shows how to implement this method for a **CDebugGenericParamFieldType** object that exposes the [IDebugGenericParamField](../../../extensibility/debugger/reference/idebuggenericparamfield.md) interface.  
   
-```cpp#  
+```cpp  
 HRESULT CDebugGenericParamFieldType::ConstraintCount(ULONG32* pcConst)  
 {  
     HRESULT hr = S_OK;  
@@ -79,5 +96,5 @@ Error:
 }  
 ```  
   
-## 请参阅  
+## <a name="see-also"></a>See Also  
  [IDebugGenericParamField](../../../extensibility/debugger/reference/idebuggenericparamfield.md)

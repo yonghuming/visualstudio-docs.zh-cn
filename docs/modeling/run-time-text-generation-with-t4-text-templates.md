@@ -1,31 +1,48 @@
 ---
-title: "使用 T4 文本模板的运行时文本生成 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-helpviewer_keywords: 
-  - "“预处理文本模板”项目项"
-  - "文本模板, 在运行时生成文件"
-  - "文本模板, TransformText() 方法"
-  - "TextTemplatingFilePreprocessor 自定义工具"
+title: Run-Time Text Generation with T4 Text Templates | Microsoft Docs
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.tgt_pltfrm: 
+ms.topic: article
+helpviewer_keywords:
+- Preprocessed Text Template project item
+- TextTemplatingFilePreprocessor custom tool
+- text templates, TransformText() method
+- text templates, generating files at run time
 ms.assetid: 79b4b3c6-a9a7-4446-b6fd-e2388fc6b05f
 caps.latest.revision: 22
-author: "alancameronwills"
-ms.author: "awills"
-manager: "douge"
-caps.handback.revision: 22
----
-# 使用 T4 文本模板的运行时文本生成
-[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
+author: alancameronwills
+ms.author: awills
+manager: douge
+translation.priority.ht:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+ms.translationtype: MT
+ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
+ms.openlocfilehash: c40747ca3422bbb229c73f3a01a5f760a05f4fd0
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/28/2017
 
-您可以通过在您的应用程序在运行时生成文本字符串[!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)]运行时文本模板。  执行应用程序的计算机不必具有 [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)]。  运行库模板有时称为"预处理文本模板"由于在编译时，该模板会生成运行时执行的代码。  
+---
+# <a name="run-time-text-generation-with-t4-text-templates"></a>Run-Time Text Generation with T4 Text Templates
+You can generate text strings in your application at run time by using [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] runtime text templates. The computer where the application executes does not have to have [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)]. Runtime templates are sometimes called "preprocessed text templates" because at compile time, the template generates code that is executed at run time.  
   
- 每个模板都包含将显示在生成的字符串中的文本和程序代码的片段。  程序片段为字符串的可变部分提供值，还控制条件部分和重复部分。  
+ Each template is a mixture of the text as it will appear in the generated string, and fragments of program code. The program fragments supply values for the variable parts of the string, and also control conditional and repeated parts.  
   
- 例如，以下模板可用于创建 HTML 报告的应用程序。  
+ For example, the following template could be used in an application that creates an HTML report.  
   
 ```  
 <#@ template language="C#" #>  
@@ -42,26 +59,26 @@ This report is Company Confidential.
 </body></html>  
 ```  
   
- 请注意，该模板是 HTML 页，其中可变部分已经替换为程序代码。  设计此类页面时可以先编写 HTML 页的静态原型。  然后，可以用程序代码替换表和其他可变部分，以便生成各个时刻有所变化的内容。  
+ Notice that the template is an HTML page in which the variable parts have been replaced with program code. You could begin the design of such a page by writing a static prototype of the HTML page. You could then replace the table and other variable parts with program code that generates the content that varies from one occasion to the next.  
   
- 通过在应用程序中使用模板，可以查看输出的最终形式，比在一长串写入语句中查看更为方便。  更改输出的形式更方便且更可靠。  
+ Using a template in your application makes it is easier to see the final form of the output than you could in, for example, a long series of write statements. Making changes to the form of the output is easier and more reliable.  
   
-## 可在任何应用程序中创建运行时文本模板  
+## <a name="creating-a-run-time-text-template-in-any-application"></a>Creating a Run-Time Text Template in any Application  
   
-#### 创建运行时文本模板  
+#### <a name="to-create-a-run-time-text-template"></a>To create a run-time text template  
   
-1.  在解决方案资源管理器中，您的项目的快捷菜单上选择**添加**， **新项**。  
+1.  In Solution Explorer, on the shortcut menu of your project, choose **Add**, **New Item**.  
   
-2.  在**添加新项** 对话框中，选择 **运行时文本模板**。  （在 [!INCLUDE[vbprvb](../code-quality/includes/vbprvb_md.md)] 中的**“常用项\\常规”**下查看。）  
+2.  In the **Add New Item** dialog box, select **Runtime Text Template**. (In [!INCLUDE[vbprvb](../code-quality/includes/vbprvb_md.md)] look under **Common Items\General**.)  
   
-3.  键入模板文件的名称。  
+3.  Type a name for your template file.  
   
     > [!NOTE]
-    >  模板文件名将在生成的代码中用作类名。  因此，该名称不应包含空格或标点。  
+    >  The template file name will be used as a class name in the generated code. Therefore, it should not have spaces or punctuation.  
   
-4.  选择**添加**。  
+4.  Choose **Add**.  
   
-     将创建一个扩展名为 **.tt** 的新文件。  该文件的**“自定义工具”**属性设置为 **TextTemplatingFilePreprocessor**。  它包含以下行：  
+     A new file is created that has extension **.tt**. Its **Custom Tool** property is set to **TextTemplatingFilePreprocessor**. It contains the following lines:  
   
     ```  
     <#@ template language="C#" #>  
@@ -71,37 +88,37 @@ This report is Company Confidential.
     <#@ import namespace="System.Collections.Generic" #>  
     ```  
   
-## 将现有文件转换为运行时模板  
- 转换输出的现有示例是一种很好的模板创建方式。  例如，如果应用程序将生成 HTML 文件，则可以从创建纯 HTML 文件开始。  请确保该文件能正常运行，并且外观正确。  然后，将该文件包含在 [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] 项目中，并将它转换为模板。  
+## <a name="converting-an-existing-file-to-a-run-time-template"></a>Converting an Existing File to a Run-Time Template  
+ A good way to create a template is to convert an existing example of the output. For example, if your application will generate HTML files, you can start by creating a plain HTML file. Make sure that it works correctly and that its appearance is correct. Then include it into your [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] project and convert it to a template.  
   
-#### 将现有文本文件转换为运行时模板  
+#### <a name="to-convert-an-existing-text-file-to-a-run-time-template"></a>To convert an existing text file to a run-time template  
   
-1.  将该文件包含在 [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] 项目中。  在解决方案资源管理器中的项目，在快捷菜单上选择**添加**， **现有项**。  
+1.  Include the file into your [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] project. In Solution Explorer, on the shortcut menu of the project, choose **Add**, **Existing Item**.  
   
-2.  将该文件的**“自定义工具”**属性设置为 **TextTemplatingFilePreprocessor**。  在解决方案资源管理器中的文件，请在快捷菜单上选择**属性**。  
+2.  Set the file's **Custom Tools** property to **TextTemplatingFilePreprocessor**. In Solution Explorer, on the shortcut menu of the file, choose **Properties**.  
   
     > [!NOTE]
-    >  如果已经设置该属性，请确保该属性为 **TextTemplatingFilePreprocessor** 而不是 **TextTemplatingFileGenerator**。  如果将扩展名为 **.tt** 的文件包含在项目中，则可能出现上述情况。  
+    >  If the property is already set, make sure that it is **TextTemplatingFilePreprocessor** and not **TextTemplatingFileGenerator**. This can happen if you include a file that already has the extension **.tt**.  
   
-3.  将文件扩展名更改为 **.tt**。  虽然此步骤是可选的，但它有助于避免在不适当的编辑器中打开该文件。  
+3.  Change the file name extension to **.tt**. Although this step is optional, it helps you avoid opening the file in an incorrect editor.  
   
-4.  从文件名的主要部分中删除所有空格或标点。  例如，“My Web Page.tt”是错误的，但“MyWebPage.tt”是正确的。  文件名将在生成的代码中用作类名。  
+4.  Remove any spaces or punctuation from the main part of the file name. For example "My Web Page.tt" would be incorrect, but "MyWebPage.tt" is correct. The file name will be used as a class name in the generated code.  
   
-5.  在文件开头插入下面的行。  如果使用的是 Visual Basic 项目，请将“C\#”替换为“VB”。  
+5.  Insert the following line at the beginning of the file. If you are working in a Visual Basic project, replace "C#" with "VB".  
   
      `<#@ template language="C#" #>`  
   
-## 运行时模板的内容  
+## <a name="the-content-of-the-run-time-template"></a>The Content of the Run-Time Template  
   
-### 模板指令  
- 将模板第一行保留为您创建该文件时的样子：  
+### <a name="template-directive"></a>Template directive  
+ Keep the first line of the template as it was when you created the file:  
   
  `<#@ template language="C#" #>`  
   
- 语言参数取决于项目的语言。  
+ The language parameter will depend on the language of your project.  
   
-### 纯文本内容  
- 编辑 **.tt** 文件，使之包含应用程序要生成的文本。  例如：  
+### <a name="plain-content"></a>Plain content  
+ Edit the **.tt** file to contain the text that you want your application to generate. For example:  
   
 ```  
 <html><body>  
@@ -111,10 +128,10 @@ This report is Company Confidential.
 </body></html>  
 ```  
   
-### 嵌入式程序代码  
- 在 `<#` 和 `#>` 之间，可以插入程序代码。  例如：  
+### <a name="embedded-program-code"></a>Embedded program code  
+ You can insert program code between `<#` and `#>`. For example:  
   
-```c#  
+```csharp  
 <table>  
     <# for (int i = 1; i <= 10; i++)  
        { #>  
@@ -124,7 +141,7 @@ This report is Company Confidential.
  </table>  
 ```  
   
-```vb#  
+```vb  
 <table>  
 <#  
     For i As Integer = 1 To 10  
@@ -138,54 +155,54 @@ This report is Company Confidential.
   
 ```  
   
- 请注意，应在 `<# ... #>` 之间插入语句，应在 `<#= ... #>` 之间插入表达式。  有关更多信息，请参见[编写 T4 文本模板](../modeling/writing-a-t4-text-template.md)。  
+ Notice that statements are inserted between `<# ... #>` and expressions are inserted between `<#= ... #>`. For more information, see [Writing a T4 Text Template](../modeling/writing-a-t4-text-template.md).  
   
-## 使用模板  
+## <a name="using-the-template"></a>Using the Template  
   
-### 从模板生成的代码  
- 保存 **.tt** 文件时，将生成附属的 **.cs** 或 **.vb** 文件。  若要在解决方案资源管理器查看此文件，请展开 **.tt** 文件节点。  在 Visual Basic 项目中，单击解决方案资源管理器工具栏中的**“显示所有文件”**之后，可以展开该节点。  
+### <a name="the-code-built-from-the-template"></a>The code built from the template  
+ Whenever you save the **.tt** file, a subsidiary **.cs** or **.vb** file will be generated. To see this file in Solution Explorer, expand the **.tt** file node. In a Visual Basic project, you will be able to expand the node after you click **Show All Files** in the Solution Explorer toolbar.  
   
- 请注意，此附属文件包含一个分部类，该类包含一个名为 `TransformText()` 的方法。  此方法可以从应用程序中调用。  
+ Notice that this subsidiary file contains a partial class that contains a method called `TransformText()`. You can call this method from your application.  
   
-### 在运行时生成文本  
- 在应用程序代码中，可以通过调用生成模板内容，如下所示：  
+### <a name="generating-text-at-run-time"></a>Generating text at run time  
+ In your application code, you can generate the content of your template using a call like this:  
   
-```c#  
+```csharp  
 MyWebPage page = new MyWebPage();  
 String pageContent = page.TransformText();  
 System.IO.File.WriteAllText("outputPage.html", pageContent);  
   
 ```  
   
-```vb#  
+```vb  
 Dim page = New My.Templates.MyWebPage  
 Dim pageContent = page.TransformText()  
 System.IO.File.WriteAllText("outputPage.html", pageContent)  
   
 ```  
   
- 若要在特定命名空间中放置已生成的类，请设置文本模板文件的**“自定义工具命名空间”**属性。  
+ To place the generated class in a particular namespace, set the **Custom Tool Namespace** property of the text template file.  
   
-### 调试运行时文本模板  
- 调试和测试运行时文本模板普通代码的方式相同。  
+### <a name="debugging-runtime-text-templates"></a>Debugging Runtime Text Templates  
+ Debug and test runtime text templates in the same way as ordinary code.  
   
- 您可以在文本模板中设置断点。  如果在 Visual Studio 中的调试模式下启动应用程序，可以逐句通过代码，并按常规方式评估监视表达式。  
+ You can set a breakpoint in a text template. If you start the application in debugging mode from Visual Studio, you can step through the code and evaluate watch expressions in the usual way.  
   
-### 在构造函数中传递参数  
- 通常，模板必须从应用程序的其他部分导入一些数据。  为便于实现此过程，由模板生成的代码以分部类的形式编写。  可以在项目的另一个文件中创建同一个类的其他部分。  该文件可以包含一个带参数的构造函数、若干属性和函数，这些内容可由模板中嵌入的代码和应用程序的其余部分访问。  
+### <a name="passing-parameters-in-the-constructor"></a>Passing parameters in the constructor  
+ Usually a template must import some data from other parts of the application. To make this easy, the code built by the template is a partial class. You can create another part of the same class in another file in your project. That file can include a constructor with parameters, properties and functions that can accessed both by the code that is embedded in the template, and by the rest of the application.  
   
- 例如，可以创建一个单独的文件 **MyWebPageCode.cs**：  
+ For example, you could create a separate file **MyWebPageCode.cs**:  
   
-```c#  
+```csharp  
 partial class MyWebPage  
 {  
     private MyData m_data;  
     public MyWebPage(MyData data) { this.m_data = data; }}  
 ```  
   
- 在模板文件 **MyWebPage.tt** 中，可以编写：  
+ In your template file **MyWebPage.tt**, you could write:  
   
-```c#  
+```csharp  
 <h2>Sales figures</h2>  
 <table>  
 <# foreach (MyDataItem item in m_data.Items)   
@@ -198,19 +215,19 @@ partial class MyWebPage
 </table>  
 ```  
   
- 在应用程序中使用此模板：  
+ To use this template in the application:  
   
-```c#  
+```csharp  
 MyData data = ...;  
 MyWebPage page = new MyWebPage(data);  
 String pageContent = page.TransformText();  
 System.IO.File.WriteAllText("outputPage.html", pageContent);  
 ```  
   
-#### Visual Basic 中的构造函数参数  
- 在 [!INCLUDE[vbprvb](../code-quality/includes/vbprvb_md.md)] 中，单独的文件 **MyWebPageCode.vb** 包含：  
+#### <a name="constructor-parameters-in-visual-basic"></a>Constructor parameters in Visual Basic  
+ In [!INCLUDE[vbprvb](../code-quality/includes/vbprvb_md.md)], the separate file **MyWebPageCode.vb** contains:  
   
-```vb#  
+```vb  
 Namespace My.Templates  
   Partial Public Class MyWebPage  
     Private m_data As MyData  
@@ -221,9 +238,9 @@ Namespace My.Templates
 End Namespace  
 ```  
   
- 模板文件可能包含：  
+ The template file could contain:  
   
-```vb#  
+```vb  
 <#@ template language="VB" #>  
 <html><body>  
 <h1>Sales for January</h2>  
@@ -242,9 +259,9 @@ This report is Company Confidential.
   
 ```  
   
- 将通过在构造函数中传递参数来调用模板：  
+ And the template would be invoked by passing the parameter in the constructor:  
   
-```vb#  
+```vb  
 Dim data = New My.Templates.MyData  
     ' Add data values here ....  
 Dim page = New My.Templates.MyWebPage(data)  
@@ -253,55 +270,55 @@ System.IO.File.WriteAllText("outputPage.html", pageContent)
   
 ```  
   
-#### 在模板属性中传递数据  
- 将数据传递到模板的另一种方法是向分部类定义中的模板类添加公共属性。  应用程序可以在调用 `TransformText()` 之前设置这些属性。  
+#### <a name="passing-data-in-template-properties"></a>Passing data in template properties  
+ An alternative method of passing data to the template is to add public properties to the template class in a partial class definition. Your application can set the properties before invoking `TransformText()`.  
   
- 还可以在分部定义中向模板类添加字段。  这将使您能够在模板的连续执行之间传递数据。  
+ You can also add fields to your template class in a partial definition. This would enable you to pass data between successive executions of the template.  
   
-### 使用分部类编写代码  
- 许多开发人员希望避免在模板内编写较大的代码体。  而应在与模板文件具有相同名称的分部类中定义方法。  然后从模板调用这些方法。  通过这种方式，模板可以更清晰地显示目标输出字符串的外观。  有关结果外观的讨论可以与创建结果所显示的数据的逻辑分开。  
+### <a name="use-partial-classes-for-code"></a>Use partial classes for code  
+ Many developers prefer to avoid writing large bodies of code in templates. Instead, define methods in a partial class that has the same name as the template file. Call those methods from the template. In this way, the template shows you more clearly what the target output string will look like. Discussions about the appearance of the result can be separated from the logic of creating the data that it displays.  
   
-### 程序集和引用  
- 如果希望模板代码引用 .NET 或其他程序集（如 **System.Xml.dll**），应以常规方式将其添加到项目的**“引用”**中。  
+### <a name="assemblies-and-references"></a>Assemblies and references  
+ If you want your template code to reference a .NET or other assembly such as **System.Xml.dll**, you should add it to your project's **References** in the usual manner.  
   
- 如果要以与 `using` 语句相同的方式导入命名空间，可以使用 `import` 指令：  
+ If you want to import a namespace in the same way as a `using` statement, you can do this with the `import` directive:  
   
 ```  
 <#@ import namespace="System.Xml" #>  
 ```  
   
- 这些指令必须紧随 `<#@template` 指令，置于文件开头。  
+ These directives must be placed at the beginning of the file, immediately after the `<#@template` directive.  
   
-### 共享内容  
- 如果要在几个模板间共享文本，可以将文本放置在一个单独的文件中，然后在需要这些文本的每个文件中包含这些文本：  
+### <a name="shared-content"></a>Shared content  
+ If you have text that is shared between several templates, you can place it in a separate file and include it in each file in which it should appear:  
   
 ```  
 <#@include file="CommonHeader.txt" #>  
 ```  
   
- 包含的内容可以是程序代码和纯文本的任意组合，也可以是其他包含指令和其他指令。  
+ The included content can contain any mixture of program code and plain text, and it can contain other include directives and other directives.  
   
- 在模板文件或已包含文件的文本中的任何位置，都可以使用包含指令。  
+ The include directive can be used anywhere within the text of a template file or an included file.  
   
-### 运行时文本模板之间的继承  
- 可以通过编写基类模板（可以是抽象模板）在运行时模板之间共享内容。  使用`inherits`参数的`<@#template#>`指令以引用另一个运行库的模板类。  
+### <a name="inheritance-between-run-time-text-templates"></a>Inheritance between Run-Time Text Templates  
+ You can share content between run-time templates by writing a base class template, which can be abstract. Use the `inherits` parameter of the `<@#template#>` directive to reference another runtime template class.  
   
-#### 继承模式：基方法中的片段  
- 在用于后面示例的模式中，请注意以下几点：  
+#### <a name="inheritance-pattern-fragments-in-base-methods"></a>Inheritance pattern: Fragments in Base Methods  
+ In the pattern used in the example that follows, notice the following points:  
   
--   基类 `SharedFragments` 在类功能块 `<#+ ... #>` 中定义方法。  
+-   The base class `SharedFragments` defines methods within class feature blocks `<#+ ... #>`.  
   
--   该基类不包含任何自由文本，  相反，其所有文本块都出现在类功能方法内。  
+-   The base class contains no free text. Instead, all its text blocks occur inside the class feature methods.  
   
--   派生类可调用 `SharedFragments` 中定义的方法。  
+-   The derived class invokes the methods defined in `SharedFragments`.  
   
--   应用程序调用派生类的 `TextTransform()` 方法，但不转换基类 `SharedFragments`。  
+-   The application calls the `TextTransform()` method of the derived class, but does not transform the base class `SharedFragments`.  
   
--   基类和派生类的运行时文本模板： 即， **自定义工具** 属性设置为  **TextTemplatingFilePreprocessor**。  
+-   Both the base and derived classes are runtime text templates: that is, the **Custom Tool** property is set to **TextTemplatingFilePreprocessor**.  
   
- **SharedFragments.tt：**  
+ **SharedFragments.tt:**  
   
-```c#  
+```csharp  
 <#@ template language="C#" #>  
 <#+  
 protected void SharedText(int n)  
@@ -315,9 +332,9 @@ protected void SharedText(int n)
   
 ```  
   
- **MyTextTemplate1.tt：**  
+ **MyTextTemplate1.tt:**  
   
-```c#  
+```csharp  
 <#@ template language="C#" inherits="SharedFragments" #>  
 begin 1  
    <# SharedText(2); #>  
@@ -325,16 +342,16 @@ end 1
   
 ```  
   
- **MyProgram.cs：**  
+ **MyProgram.cs:**  
   
-```c#  
+```csharp  
 ...   
 MyTextTemplate1 t1  = new MyTextTemplate1();  
 string result = t1.TransformText();  
 Console.WriteLine(result);  
 ```  
   
- **结果输出：**  
+ **The resulting output:**  
   
 ```  
 begin 1  
@@ -342,12 +359,12 @@ begin 1
 end 1  
 ```  
   
-#### 继承模式：基体中的文本  
- 在用来使用模板继承的此替代方法中，在基模板中定义大部分文本。  派生模板提供适合基内容的数据和文本片段。  
+#### <a name="inheritance-pattern-text-in-base-body"></a>Inheritance Pattern: Text in Base Body  
+ In this alternative approach to using template inheritance, the bulk of the text is defined in the base template. The derived templates provide data and text fragments that fit into the base content.  
   
- **AbstractBaseTemplate1.tt：**  
+ **AbstractBaseTemplate1.tt:**  
   
-```c#  
+```csharp  
 <#@ template language="C#" #>  
   
 Here is the description for this derived template:  
@@ -369,9 +386,9 @@ End of common template.
   
 ```  
   
- **DerivedTemplate1.tt：**  
+ **DerivedTemplate1.tt:**  
   
-```c#  
+```csharp  
 <#@ template language="C#" inherits="AbstractBaseTemplate1" #>  
 <#   
   // Set the base template properties:  
@@ -396,16 +413,16 @@ protected override void SpecificFragment(int n)
   
 ```  
   
- **应用程序代码：**  
+ **Application code:**  
   
-```c#  
+```csharp  
 ...   
 DerivedTemplate1 t1 = new DerivedTemplate1();  
 string result = t1.TransformText();  
 Console.WriteLine(result);  
 ```  
   
- **结果输出：**  
+ **Resulting output:**  
   
 ```  
 Here is the description for this derived template:  
@@ -417,12 +434,12 @@ End of common template.
 End material for DerivedTemplate1.  
 ```  
   
-## 相关主题  
- 设计时模板：如果要使用模板生成将成为应用程序一部分的代码，请参见[使用 T4 文本模板生成设计时代码](../modeling/design-time-code-generation-by-using-t4-text-templates.md)。  
+## <a name="related-topics"></a>Related Topics  
+ Design Time Templates: If you want to use a template to generate code that becomes part of your application, see [Design-Time Code Generation by using T4 Text Templates](../modeling/design-time-code-generation-by-using-t4-text-templates.md).  
   
- 运行时可以使用模板中的任何应用程序已确定的模板和它们的内容，在编译时。  但是，如果要编写 [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] 扩展，以便从在运行时更改的模板生成文本，请参见[在 VS 扩展中调用文本转换](../modeling/invoking-text-transformation-in-a-vs-extension.md)。  
+ Runtime templates can be used in any application where the templates and their content are determined at compile time. But if you want to write a [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] extension that generates text from templates that change at run time, see [Invoking Text Transformation in a VS Extension](../modeling/invoking-text-transformation-in-a-vs-extension.md).  
   
-## 请参阅  
- [代码生成和 T4 文本模板](../modeling/code-generation-and-t4-text-templates.md)   
- [编写 T4 文本模板](../modeling/writing-a-t4-text-template.md)   
- [了解 T4： 预处理文本模板由 Oleg Sych](http://www.olegsych.com/2009/09/t4-preprocessed-text-templates/)
+## <a name="see-also"></a>See Also  
+ [Code Generation and T4 Text Templates](../modeling/code-generation-and-t4-text-templates.md)   
+ [Writing a T4 Text Template](../modeling/writing-a-t4-text-template.md)   
+ [Understanding T4: Preprocessed Text Templates by Oleg Sych](http://www.olegsych.com/2009/09/t4-preprocessed-text-templates/)

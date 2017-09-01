@@ -1,106 +1,123 @@
 ---
-title: "SccGet 函数 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "SccGet"
-helpviewer_keywords: 
-  - "SccGet 函数"
+title: SccGet Function | Microsoft Docs
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords:
+- SccGet
+helpviewer_keywords:
+- SccGet function
 ms.assetid: 09a18bd2-b788-411a-9da6-067d806e46f6
 caps.latest.revision: 14
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 14
----
-# SccGet 函数
-[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
+ms.author: gregvanl
+manager: ghogen
+translation.priority.mt:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+ms.translationtype: MT
+ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
+ms.openlocfilehash: 2c761f90eaf4882407122336827e2d95f3edf2ac
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/28/2017
 
-此函数可检索一个或多个文件用于查看和编译但不能用于编辑的副本。 在大多数系统中，则文件被标记为只读。  
+---
+# <a name="sccget-function"></a>SccGet Function
+This function retrieves a copy of one or more files for viewing and compiling but not for editing. In most systems, the files are tagged as read-only.  
   
-## 语法  
+## <a name="syntax"></a>Syntax  
   
-```cpp#  
+```cpp  
 SCCRTN SccGet(  
-   LPVOID    pvContext,  
-   HWND      hWnd,  
-   LONG      nFiles,  
-   LPCSTR*   lpFileNames,  
-   LONG      fOptions,  
-   LPCMDOPTS pvOptions  
+   LPVOID    pvContext,  
+   HWND      hWnd,  
+   LONG      nFiles,  
+   LPCSTR*   lpFileNames,  
+   LONG      fOptions,  
+   LPCMDOPTS pvOptions  
 );  
 ```  
   
-#### 参数  
+#### <a name="parameters"></a>Parameters  
  pvContext  
- \[\] in源代码管理插件上下文结构中。  
+ [in] The context structure of the source control plug-in.  
   
  hWnd  
- \[\] in源代码管理插件可以用作所有对话框，它提供了一个父 IDE 窗口的句柄。  
+ [in] A handle to the IDE window that the source control plug-in can use as a parent for any dialog boxes that it provides.  
   
  nFiles  
- \[\] in中指定的文件数 `lpFileNames` 数组。  
+ [in] Number of files specified in the `lpFileNames` array.  
   
  lpFileNames  
- \[\] in要检索的文件的完全限定名称的数组。  
+ [in] Array of fully qualified names of files to be retrieved.  
   
- 选项  
- \[\] in命令标志 \(`SCC_GET_ALL`, ，`SCC_GET_RECURSIVE`\)。  
+ fOptions  
+ [in] Command flags (`SCC_GET_ALL`, `SCC_GET_RECURSIVE`).  
   
  pvOptions  
- \[\] in源代码管理插件特定选项。  
+ [in] Source control plug-in-specific options.  
   
-## 返回值  
- 此函数的源代码控制插件实现应返回下列值之一:  
+## <a name="return-value"></a>Return Value  
+ The source control plug-in implementation of this function is expected to return one of the following values:  
   
-|值|描述|  
-|-------|--------|  
-|SCC\_OK|获取操作的成功。|  
-|SCC\_E\_FILENOTCONTROLLED|文件不是源代码管理下。|  
-|SCC\_E\_OPNOTSUPPORTED|源代码管理系统不支持此操作。|  
-|SCC\_E\_FILEISCHECKEDOUT|无法获取当前用户已签出文件。|  
-|SCC\_E\_ACCESSFAILURE|没有访问源代码管理系统，很可能是由于网络或争用问题时出现问题。 建议重试。|  
-|SCC\_E\_NOSPECIFIEDVERSION|指定了一个无效的版本或日期\/时间。|  
-|SCC\_E\_NONSPECIFICERROR|模糊失败;不同步文件。|  
-|SCC\_I\_OPERATIONCANCELED|在完成之前取消操作。|  
-|SCC\_E\_NOTAUTHORIZED|用户无权执行此操作。|  
+|Value|Description|  
+|-----------|-----------------|  
+|SCC_OK|Success of get operation.|  
+|SCC_E_FILENOTCONTROLLED|The file is not under source control.|  
+|SCC_E_OPNOTSUPPORTED|The source control system does not support this operation.|  
+|SCC_E_FILEISCHECKEDOUT|Cannot get the file that the user currently has checked out.|  
+|SCC_E_ACCESSFAILURE|There was a problem accessing the source control system, probably due to network or contention issues. A retry is recommended.|  
+|SCC_E_NOSPECIFIEDVERSION|Specified an invalid version or date/time.|  
+|SCC_E_NONSPECIFICERROR|Nonspecific failure; file was not synchronized.|  
+|SCC_I_OPERATIONCANCELED|Operation cancelled before completion.|  
+|SCC_E_NOTAUTHORIZED|The user is not authorized to perform this operation.|  
   
-## 备注  
- 此函数调用计数、 要检索的文件的名称的数组。 如果 IDE 传递了标志 `SCC_GET_ALL`, ，这意味着，中的项 `lpFileNames` 不是文件而是目录，并在给定目录中的源代码管理下的所有文件都都要从中检索。  
+## <a name="remarks"></a>Remarks  
+ This function is called with a count and an array of names of the files to be retrieved. If the IDE passes the flag `SCC_GET_ALL`, this means that the items in `lpFileNames` are not files but directories, and that all files under source control in the given directories are to be retrieved.  
   
- `SCC_GET_ALL` 可以与组合标志 `SCC_GET_RECURSIVE` 标志来检索给定目录中的所有文件和以及所有子目录。  
+ The `SCC_GET_ALL` flag can be combined with the `SCC_GET_RECURSIVE` flag to retrieve all files in the given directories and all subdirectories as well.  
   
 > [!NOTE]
->  `SCC_GET_RECURSIVE` 永远不会传递而比不 `SCC_GET_ALL`。 另请注意，是否目录 C:\\A 和 C:\\A\\B，同时传递递归获得 C:\\A\\B 及其所有的子目录将实际检索两次。 IDE 的责任 — 并不是源控制即插即用中的\-\-若要确保使从数组保持这样的重复项。  
+>  `SCC_GET_RECURSIVE` should never be passed without `SCC_GET_ALL`. Also, note that if directories C:\A and C:\A\B are both passed on a recursive get, C:\A\B and all its subdirectories will actually be retrieved twice. It is the IDE's responsibility—and not the source control plug-in's—to make sure that duplicates such as this are kept out of the array.  
   
- 最后，即使源代码管理插件指定 `SCC_CAP_GET_NOUI` 上初始化，表示它没有 Get 命令的用户界面，仍可以通过 IDE 以检索文件调用此函数的标志。 该标志只是意味着 IDE 不显示 Get 菜单项，并且，该插件不需要提供任何用户界面。  
+ Finally, even if a source control plug-in specified the `SCC_CAP_GET_NOUI` flag on initialization, indicating that it does not have a user interface for a Get command, this function may still be called by the IDE to retrieve files. The flag simply means that the IDE does not display a Get menu item and that the plug-in is not expected to provide any UI.  
   
-## 重命名和 SccGet  
- 情况: 用户签出文件，例如，a.txt，并对其进行修改。 A.txt 才能签入之前，第二个用户将将 a.txt 重命名为 b.txt 在源代码管理数据库中、 检出 b.txt，然后使某些修改文件，并在此签入该文件。 第一个用户想要使第一个用户将其本地版本的 a.txt 文件重命名为 b.txt 并获取对该文件，第二个用户所做的更改。 但是，本地缓存，用于跟踪的版本号仍认为 a.txt 的第一个版本存储在本地并因此源代码管理不能解决的差异。  
+## <a name="renaming-and-sccget"></a>Renaming and SccGet  
+ Situation: a user checks out a file, for example, a.txt, and modifies it. Before a.txt can be checked in, a second user renames a.txt to b.txt in the source control database, checks out b.txt, makes some modifications to the file, and checks the file in. The first user wants the changes made by the second user so the first user renames their local version of a.txt file to b.txt and does a get on the file. However, the local cache that keeps track of version numbers still thinks the first version of a.txt is stored locally and so source control cannot resolve the differences.  
   
- 有两种方法可以解决这种情况下，源控件版本的本地缓存变得与源代码管理数据库不同步:  
+ There are two ways to resolve this situation where the local cache of source control versions becomes out of sync with the source control database:  
   
-1.  不允许重命名当前已签出源代码管理数据库中的文件。  
+1.  Do not allow renaming a file in the source control database that is currently checked out.  
   
-2.  执行操作"删除旧"后跟"添加新项"的等效项。 下面的算法是一种方法实现此目的。  
+2.  Do the equivalent of "delete old" followed by "add new". The following algorithm is one way to accomplish this.  
   
-    1.  调用 [SccQueryChanges](../extensibility/sccquerychanges-function.md) 函数可了解如何重命名为 b.txt 在源代码管理数据库中的 a.txt。  
+    1.  Call the [SccQueryChanges](../extensibility/sccquerychanges-function.md) function to learn about the renaming of a.txt to b.txt in the source control database.  
   
-    2.  将本地 a.txt 重命名为 b.txt。  
+    2.  Rename the local a.txt to b.txt.  
   
-    3.  调用 `SccGet` a.txt 和 b.txt 函数。  
+    3.  Call the `SccGet` function for both a.txt and b.txt.  
   
-    4.  因为 a.txt 源代码管理数据库中不存在，本地版本缓存缺失 a.txt 版本信息的清除。  
+    4.  Because a.txt does not exist in the source control database, the local version cache is purged of the missing a.txt version information.  
   
-    5.  签出该 b.txt 文件合并在一起本地 b.txt 文件的内容。  
+    5.  The b.txt file being checked out is merged with the contents of the local b.txt file.  
   
-    6.  更新的 b.txt 文件现在可以签入。  
+    6.  The updated b.txt file can now be checked in.  
   
-## 请参阅  
- [源代码管理插件 API 功能](../extensibility/source-control-plug-in-api-functions.md)   
- [Bitflags 由特定的命令使用](../extensibility/bitflags-used-by-specific-commands.md)
+## <a name="see-also"></a>See Also  
+ [Source Control Plug-in API Functions](../extensibility/source-control-plug-in-api-functions.md)   
+ [Bitflags Used by Specific Commands](../extensibility/bitflags-used-by-specific-commands.md)

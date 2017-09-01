@@ -1,61 +1,76 @@
 ---
-title: "CA1009：正确声明事件处理程序 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-devops-test"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "CA1009"
-  - "DeclareEventHandlersCorrectly"
-helpviewer_keywords: 
-  - "CA1009"
-  - "DeclareEventHandlersCorrectly"
+title: 'CA1009: Declare event handlers correctly | Microsoft Docs'
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-devops-test
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords:
+- CA1009
+- DeclareEventHandlersCorrectly
+helpviewer_keywords:
+- CA1009
+- DeclareEventHandlersCorrectly
 ms.assetid: ab65c471-1449-49d2-9896-7b9af74284b4
 caps.latest.revision: 19
-author: "stevehoag"
-ms.author: "shoag"
-manager: "wpickett"
-caps.handback.revision: 19
----
-# CA1009：正确声明事件处理程序
-[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
+author: stevehoag
+ms.author: shoag
+manager: wpickett
+translation.priority.ht:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+ms.translationtype: HT
+ms.sourcegitcommit: eb5c9550fd29b0e98bf63a7240737da4f13f3249
+ms.openlocfilehash: b0f63af127c6e9b11c1d9e468705bbcca14f39bd
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/30/2017
 
+---
+# <a name="ca1009-declare-event-handlers-correctly"></a>CA1009: Declare event handlers correctly
 |||  
 |-|-|  
-|类型名|DeclareEventHandlersCorrectly|  
+|TypeName|DeclareEventHandlersCorrectly|  
 |CheckId|CA1009|  
-|类别|Microsoft.Design|  
-|是否重大更改|是|  
+|Category|Microsoft.Design|  
+|Breaking Change|Breaking|  
   
-## 原因  
- 处理公共事件或受保护事件的某委托没有正确的签名、返回类型或参数名称。  
+## <a name="cause"></a>Cause  
+ A delegate that handles a public or protected event does not have the correct signature, return type, or parameter names.  
   
-## 规则说明  
- 事件处理程序方法采用两个参数。  第一个参数是 <xref:System.Object?displayProperty=fullName> 类型，名为“sender”。  它是引发事件的对象。  第二个参数是 <xref:System.EventArgs?displayProperty=fullName> 类型，名为“e”。  这是与该事件关联的数据。  例如，如果在每次打开文件时都引发事件，则事件数据通常包含文件名称。  
+## <a name="rule-description"></a>Rule Description  
+ Event handler methods take two parameters. The first is of type <xref:System.Object?displayProperty=fullName> and is named 'sender'. This is the object that raised the event. The second parameter is of type <xref:System.EventArgs?displayProperty=fullName> and is named 'e'. This is the data that is associated with the event. For example, if the event is raised whenever a file is opened, the event data typically contains the name of the file.  
   
- 事件处理程序方法不应返回值。  在 C\# 编程语言中，这是由 `void` 返回类型指示的。  一个事件处理程序可以调用多个对象中的多个方法。  如果允许这些方法返回值，则每个事件都将发生多个返回值，并且只有调用的最后一个方法的值可用。  
+ Event handler methods should not return a value. In the C# programming language, this is indicated by the return type `void`. An event handler can invoke multiple methods in multiple objects. If the methods were allowed to return a value, multiple return values would occur for each event, and only the value of the last method that was invoked would be available.  
   
-## 如何解决冲突  
- 要修复与该规则的冲突，请更正该委托的签名、返回类型或参数名称。  有关详细信息，请参见下面的示例。  
+## <a name="how-to-fix-violations"></a>How to Fix Violations  
+ To fix a violation of this rule, correct the signature, return type, or parameter names of the delegate. For details, see the following example.  
   
-## 何时禁止显示警告  
- 不要禁止显示此规则发出的警告。  
+## <a name="when-to-suppress-warnings"></a>When to Suppress Warnings  
+ Do not suppress a warning from this rule.  
   
-## 示例  
- 下面的示例演示适合处理事件的委托。  可通过此事件处理程序调用的方法符合设计指南中指定的签名。  `AlarmEventHandler` 是委托的类型名称。  `AlarmEventArgs` 派生自事件数据的基类 <xref:System.EventArgs>，它包含警报事件数据。  
+## <a name="example"></a>Example  
+ The following example shows a delegate that is suited to handling events. The methods that can be invoked by this event handler comply with the signature that is specified in the Design Guidelines. `AlarmEventHandler` is the type name of the delegate. `AlarmEventArgs` derives from the base class for event data, <xref:System.EventArgs>, and holds alarm event data.  
   
- [!code-cpp[FxCop.Design.EventsTwoParams#1](../code-quality/codesnippet/CPP/ca1009-declare-event-handlers-correctly_1.cpp)]
- [!code-cs[FxCop.Design.EventsTwoParams#1](../code-quality/codesnippet/CSharp/ca1009-declare-event-handlers-correctly_1.cs)]
- [!code-vb[FxCop.Design.EventsTwoParams#1](../code-quality/codesnippet/VisualBasic/ca1009-declare-event-handlers-correctly_1.vb)]  
+ [!code-cpp[FxCop.Design.EventsTwoParams#1](../code-quality/codesnippet/CPP/ca1009-declare-event-handlers-correctly_1.cpp)] [!code-csharp[FxCop.Design.EventsTwoParams#1](../code-quality/codesnippet/CSharp/ca1009-declare-event-handlers-correctly_1.cs)] [!code-vb[FxCop.Design.EventsTwoParams#1](../code-quality/codesnippet/VisualBasic/ca1009-declare-event-handlers-correctly_1.vb)]  
   
-## 相关规则  
- [CA2109：检查可见的事件处理程序](../code-quality/ca2109-review-visible-event-handlers.md)  
+## <a name="related-rules"></a>Related Rules  
+ [CA2109: Review visible event handlers](../code-quality/ca2109-review-visible-event-handlers.md)  
   
-## 请参阅  
+## <a name="see-also"></a>See Also  
  <xref:System.EventArgs?displayProperty=fullName>   
  <xref:System.Object?displayProperty=fullName>   
- [事件和委托](http://msdn.microsoft.com/zh-cn/d98fd58b-fa4f-4598-8378-addf4355a115)
+ [NIB: Events and Delegates](http://msdn.microsoft.com/en-us/d98fd58b-fa4f-4598-8378-addf4355a115)

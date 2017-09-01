@@ -1,55 +1,72 @@
 ---
-title: "IDebugExpressionEvaluator2::PreloadModules | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-helpviewer_keywords: 
-  - "IDebugExpressionEvaluator2::PreloadModules"
-  - "PreloadModules"
+title: IDebugExpressionEvaluator2::PreloadModules | Microsoft Docs
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+helpviewer_keywords:
+- IDebugExpressionEvaluator2::PreloadModules
+- PreloadModules
 ms.assetid: bcf9b968-ee14-4a92-88ad-926268a44e03
 caps.latest.revision: 9
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 9
----
-# IDebugExpressionEvaluator2::PreloadModules
-[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
+ms.author: gregvanl
+manager: ghogen
+translation.priority.mt:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+ms.translationtype: MT
+ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
+ms.openlocfilehash: 1a827160e5c211bb7b87d7ea3620a72d53f48986
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/28/2017
 
-预加载指定的符号提供程序指定的模块。  
+---
+# <a name="idebugexpressionevaluator2preloadmodules"></a>IDebugExpressionEvaluator2::PreloadModules
+Preloads the modules designated by the specified symbol provider.  
   
-## 语法  
+## <a name="syntax"></a>Syntax  
   
-```cpp#  
+```cpp  
 HRESULT PreloadModules (  
-   IDebugSymbolProvider* pSym  
+   IDebugSymbolProvider* pSym  
 );  
 ```  
   
-```c#  
+```csharp  
 int PreloadModules (  
-   IDebugSymbolProvider pSym  
+   IDebugSymbolProvider pSym  
 );  
 ```  
   
-#### 参数  
+#### <a name="parameters"></a>Parameters  
  `pSym`  
- \[in\] 模块将预加载符号提供程序。  
+ [in] Symbol provider for which the modules will be preloaded.  
   
-## 返回值  
- 如果成功，则返回; `S_OK`否则，返回错误代码。  
+## <a name="return-value"></a>Return Value  
+ If successful, returns `S_OK`; otherwise, returns an error code.  
   
-## 备注  
- 此选项方法，则在执行宿主进程附加时，请使用。  它说明 EE 机会 “作为附加的一部分 warm up。  
+## <a name="remarks"></a>Remarks  
+ This optional method is used when you do a hosting-process attach. It gives the EE a chance to 'warm up' as part of the attach.  
   
-## 示例  
- 下面的示例演示如何执行显示 [IDebugExpressionEvaluator2](../../../extensibility/debugger/reference/idebugexpressionevaluator2.md) 接口的 **ExpressionEvaluatorPackage** 对象的方法。  
+## <a name="example"></a>Example  
+ The following example shows how to implement this method for a **ExpressionEvaluatorPackage** object that exposes the [IDebugExpressionEvaluator2](../../../extensibility/debugger/reference/idebugexpressionevaluator2.md) interface.  
   
-```cpp#  
+```cpp  
 STDMETHODIMP ExpressionEvaluatorPackage::PreloadModules  
 (  
     IDebugSymbolProvider *pSym  
@@ -75,5 +92,5 @@ Error:
 }  
 ```  
   
-## 请参阅  
+## <a name="see-also"></a>See Also  
  [IDebugExpressionEvaluator2](../../../extensibility/debugger/reference/idebugexpressionevaluator2.md)

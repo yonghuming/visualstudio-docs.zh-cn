@@ -1,50 +1,67 @@
 ---
-title: "SccBeginBatch 函数 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "SccBeginBatch"
-helpviewer_keywords: 
-  - "SccBeginBatch 函数"
+title: SccBeginBatch Function | Microsoft Docs
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords:
+- SccBeginBatch
+helpviewer_keywords:
+- SccBeginBatch function
 ms.assetid: 33968183-2e15-4e0d-955b-ca12212d1c25
 caps.latest.revision: 14
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 14
----
-# SccBeginBatch 函数
-[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
+ms.author: gregvanl
+manager: ghogen
+translation.priority.mt:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+ms.translationtype: MT
+ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
+ms.openlocfilehash: f4b6b0f30b639ff660534511563b78aa1dc14f8e
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/28/2017
 
-此函数将启动批处理序列的源代码管理操作。[SccEndBatch](../extensibility/sccendbatch-function.md) 将调用以结束该批处理。 这些批次不能嵌套。  
+---
+# <a name="sccbeginbatch-function"></a>SccBeginBatch Function
+This function starts a batch sequence of source control operations. The [SccEndBatch](../extensibility/sccendbatch-function.md) will be called to end the batch. These batches may not be nested.  
   
-## 语法  
+## <a name="syntax"></a>Syntax  
   
-```cpp#  
+```cpp  
 SCCRTN SccBeginBatch(void);  
 ```  
   
-#### 参数  
- 无。  
+#### <a name="parameters"></a>Parameters  
+ None.  
   
-## 返回值  
- 此函数的源代码控制插件实现应返回下列值之一:  
+## <a name="return-value"></a>Return Value  
+ The source control plug-in implementation of this function is expected to return one of the following values:  
   
-|值|说明|  
-|-------|--------|  
-|SCC\_OK|批操作已成功开始。|  
-|SCC\_E\_UNKNOWNERROR|非特定故障。|  
+|Value|Description|  
+|-----------|-----------------|  
+|SCC_OK|Batch of operations successfully began.|  
+|SCC_E_UNKNOWNERROR|Nonspecific failure.|  
   
-## 备注  
- 源控制批处理用于跨多个项目或多个上下文中执行相同的操作。 批处理可以用于批处理操作期间消除冗余的每个项目对话框中，从用户体验。`SccBeginBatch` 函数和 [SccEndBatch](../extensibility/sccendbatch-function.md) 作为函数对用来指示开始和结束位置的操作。 不能嵌套。`SccBeginBatch` 设置一个标志，指示批处理操作正在进行。  
+## <a name="remarks"></a>Remarks  
+ Source control batches are used to execute the same operations across multiple projects or multiple contexts. Batches can be used to eliminate redundant per-project dialog boxes from the user experience during a batched operation. The `SccBeginBatch` function and the [SccEndBatch](../extensibility/sccendbatch-function.md) are used as a function pair to indicate the beginning and end of an operation. They cannot be nested. `SccBeginBatch` sets a flag indicating that a batch operation is in progress.  
   
- 批处理操作生效时，源代码管理插件应为用户提供最多一个对话框中的任何问题，并在所有后续操作应用来自该对话框中的响应。  
+ While a batch operation is in effect, the source control plug-in should present at most one dialog box for any question to the user and apply the response from that dialog box on all subsequent operations.  
   
-## 请参阅  
- [源代码管理插件 API 功能](../extensibility/source-control-plug-in-api-functions.md)   
+## <a name="see-also"></a>See Also  
+ [Source Control Plug-in API Functions](../extensibility/source-control-plug-in-api-functions.md)   
  [SccEndBatch](../extensibility/sccendbatch-function.md)

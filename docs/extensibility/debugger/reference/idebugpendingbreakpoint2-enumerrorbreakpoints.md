@@ -1,5 +1,5 @@
 ---
-title: "IDebugPendingBreakpoint2::EnumErrorBreakpoints |Microsoft 文档"
+title: IDebugPendingBreakpoint2::EnumErrorBreakpoints | Microsoft Docs
 ms.custom: 
 ms.date: 11/04/2016
 ms.reviewer: 
@@ -31,45 +31,46 @@ translation.priority.mt:
 - tr-tr
 - zh-cn
 - zh-tw
-translationtype: Machine Translation
-ms.sourcegitcommit: 5db97d19b1b823388a465bba15d057b30ff0b3ce
-ms.openlocfilehash: f819625accf3982675524b2a6049cccbb36199c5
-ms.lasthandoff: 02/22/2017
+ms.translationtype: MT
+ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
+ms.openlocfilehash: 0d6601d9c6bd6e3ad269bd3f6d902033b1682385
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="idebugpendingbreakpoint2enumerrorbreakpoints"></a>IDebugPendingBreakpoint2::EnumErrorBreakpoints
-获取此挂起断点而导致的所有错误断点的列表。  
+Gets a list of all error breakpoints that resulted from this pending breakpoint.  
   
-## <a name="syntax"></a>语法  
+## <a name="syntax"></a>Syntax  
   
-```cpp#  
+```cpp  
 HRESULT EnumErrorBreakpoints(   
    BP_ERROR_TYPE                 bpErrorType,  
    IEnumDebugErrorBreakpoints2** ppEnum  
 );  
 ```  
   
-```c#  
+```csharp  
 int EnumErrorBreakpoints(   
    enum_BP_ERROR_TYPE              bpErrorType,  
    out IEnumDebugErrorBreakpoints2 ppEnum  
 );  
 ```  
   
-#### <a name="parameters"></a>参数  
+#### <a name="parameters"></a>Parameters  
  `bpErrorType`  
- [in]值的组合[BP_ERROR_TYPE](../../../extensibility/debugger/reference/bp-error-type.md)选择要枚举的错误的类型的枚举。  
+ [in] A combination of values from the [BP_ERROR_TYPE](../../../extensibility/debugger/reference/bp-error-type.md) enumeration that selects the type of errors to enumerate.  
   
  `ppEnum`  
- [out]返回[IEnumDebugErrorBreakpoints2](../../../extensibility/debugger/reference/ienumdebugerrorbreakpoints2.md)对象，其中包含一份[IDebugErrorBreakpoint2](../../../extensibility/debugger/reference/idebugerrorbreakpoint2.md)对象。  
+ [out] Returns an [IEnumDebugErrorBreakpoints2](../../../extensibility/debugger/reference/ienumdebugerrorbreakpoints2.md) object that contains a list of [IDebugErrorBreakpoint2](../../../extensibility/debugger/reference/idebugerrorbreakpoint2.md) objects.  
   
-## <a name="return-value"></a>返回值  
- 如果成功，返回`S_OK`; 否则为返回错误代码。 返回`E_BP_DELETED`如果断点已被删除。  
+## <a name="return-value"></a>Return Value  
+ If successful, returns `S_OK`; otherwise, returns an error code. Returns `E_BP_DELETED` if the breakpoint has been deleted.  
   
-## <a name="example"></a>示例  
- 下面的示例演示如何实现此方法对于简单`CPendingBreakpoint`公开对象[IDebugPendingBreakpoint2](../../../extensibility/debugger/reference/idebugpendingbreakpoint2.md)接口。  
+## <a name="example"></a>Example  
+ The following example shows how to implement this method for a simple `CPendingBreakpoint` object that exposes the [IDebugPendingBreakpoint2](../../../extensibility/debugger/reference/idebugpendingbreakpoint2.md) interface.  
   
-```cpp#  
+```cpp  
 HRESULT CPendingBreakpoint::EnumErrorBreakpoints(  
    BP_ERROR_TYPE bpErrorType,  
    IEnumDebugErrorBreakpoints2** ppEnum)    
@@ -141,7 +142,7 @@ HRESULT CPendingBreakpoint::EnumErrorBreakpoints(
 }    
 ```  
   
-## <a name="see-also"></a>另请参阅  
+## <a name="see-also"></a>See Also  
  [IDebugPendingBreakpoint2](../../../extensibility/debugger/reference/idebugpendingbreakpoint2.md)   
  [BP_ERROR_TYPE](../../../extensibility/debugger/reference/bp-error-type.md)   
  [IEnumDebugErrorBreakpoints2](../../../extensibility/debugger/reference/ienumdebugerrorbreakpoints2.md)   

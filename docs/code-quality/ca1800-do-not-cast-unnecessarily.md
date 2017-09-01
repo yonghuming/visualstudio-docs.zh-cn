@@ -1,61 +1,78 @@
 ---
-title: "CA1800：避免进行不必要的强制转换 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-devops-test"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "CA1800"
-  - "DoNotCastUnnecessarily"
-helpviewer_keywords: 
-  - "DoNotCastUnnecessarily"
-  - "CA1800"
+title: 'CA1800: Do not cast unnecessarily | Microsoft Docs'
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-devops-test
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords:
+- CA1800
+- DoNotCastUnnecessarily
+helpviewer_keywords:
+- DoNotCastUnnecessarily
+- CA1800
 ms.assetid: b79a010a-6627-421e-8955-6007e32fa808
 caps.latest.revision: 17
-author: "stevehoag"
-ms.author: "shoag"
-manager: "wpickett"
-caps.handback.revision: 17
----
-# CA1800：避免进行不必要的强制转换
-[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
+author: stevehoag
+ms.author: shoag
+manager: wpickett
+translation.priority.ht:
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- ru-ru
+- zh-cn
+- zh-tw
+translation.priority.mt:
+- cs-cz
+- pl-pl
+- pt-br
+- tr-tr
+ms.translationtype: HT
+ms.sourcegitcommit: eb5c9550fd29b0e98bf63a7240737da4f13f3249
+ms.openlocfilehash: e2c0d1e5c21661d1a6cc61f7ba7307812bb6a98b
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/30/2017
 
+---
+# <a name="ca1800-do-not-cast-unnecessarily"></a>CA1800: Do not cast unnecessarily
 |||  
 |-|-|  
-|类型名|DoNotCastUnnecessarily|  
+|TypeName|DoNotCastUnnecessarily|  
 |CheckId|CA1800|  
-|类别|Microsoft.Performance|  
-|是否重大更改|非重大更改|  
+|Category|Microsoft.Performance|  
+|Breaking Change|Non-breaking|  
   
-## 原因  
- 某方法对其参数或局部变量之一执行重复的强制转换。  要通过该规则进行全面分析，必须使用调试信息生成被测试的程序集，并且关联的程序数据库 \(.pdb\) 文件必须可用。  
+## <a name="cause"></a>Cause  
+ A method performs duplicate casts on one of its arguments or local variables. For complete analysis by this rule, the tested assembly must be built by using debugging information and the associated program database (.pdb) file must be available.  
   
-## 规则说明  
- 重复强制转换会降低性能，特别是在精简的迭代语句中执行强制转换时。  对于显式重复强制转换操作，将强制转换的结果存储在局部变量中，并使用局部变量来替代重复强制转换操作。  
+## <a name="rule-description"></a>Rule Description  
+ Duplicate casts decrease performance, especially when the casts are performed in compact iteration statements. For explicit duplicate cast operations, store the result of the cast in a local variable and use the local variable instead of the duplicate cast operations.  
   
- 如果在执行实际的强制转换之前，使用 C\# `is` 运算符来测试强制转换是否将成功，请考虑转为测试 `as` 运算符的结果。  后者可以提供相同的功能，但不需要由 `is` 运算符执行的隐式强制转换操作。  
+ If the C# `is` operator is used to test whether the cast will succeed before the actual cast is performed, consider testing the result of the `as` operator instead. This provides the same functionality without the implicit cast operation that is performed by the `is` operator.  
   
-## 如何解决冲突  
- 要修复与该规则的冲突，请修改方法实现，以最大限度地减少强制转换操作的次数。  
+## <a name="how-to-fix-violations"></a>How to Fix Violations  
+ To fix a violation of this rule, modify the method implementation to minimize the number of cast operations.  
   
-## 何时禁止显示警告  
- 如果无需顾虑性能，则可以安全地禁止显示此规则发出的警告，或者完全忽略此规则。  
+## <a name="when-to-suppress-warnings"></a>When to Suppress Warnings  
+ It is safe to suppress a warning from this rule, or to ignore the rule completely, if performance is not a concern.  
   
-## 示例  
- 下面的示例演示一个使用 C\# `is` 运算符的与规则冲突的方法。  第二个方法将 `is` 运算符替换为针对 `as` 运算符的结果进行的测试（该测试将每个迭代的强制转换操作的次数从两次减少为一次），从而满足该规则。  
+## <a name="example"></a>Example  
+ The following example shows a method that violates the rule by using the C# `is` operator. A second method satisfies the rule by replacing the `is` operator with a test against the result of the `as` operator, which decreases the number of cast operations per iteration from two to one.  
   
- [!code-cs[FxCop.Performance.UnnecessaryCastsAsIs#1](../code-quality/codesnippet/CSharp/ca1800-do-not-cast-unnecessarily_1.cs)]  
+ [!code-csharp[FxCop.Performance.UnnecessaryCastsAsIs#1](../code-quality/codesnippet/CSharp/ca1800-do-not-cast-unnecessarily_1.cs)]  
   
-## 示例  
- 下面的示例演示一个与规则冲突的方法 `start_Click`（多次重复执行显式强制转换）和一个满足规则的方法 `reset_Click`（将强制转换存储在局部变量中）。  
+## <a name="example"></a>Example  
+ The following example shows a method, `start_Click`, that has multiple duplicate explicit casts, which violates the rule, and a method, `reset_Click`, which satisfies the rule by storing the cast in a local variable.  
   
- [!code-vb[FxCop.Performance.UnnecessaryCasts#1](../code-quality/codesnippet/VisualBasic/ca1800-do-not-cast-unnecessarily_2.vb)]
- [!code-cs[FxCop.Performance.UnnecessaryCasts#1](../code-quality/codesnippet/CSharp/ca1800-do-not-cast-unnecessarily_2.cs)]  
+ [!code-vb[FxCop.Performance.UnnecessaryCasts#1](../code-quality/codesnippet/VisualBasic/ca1800-do-not-cast-unnecessarily_2.vb)] [!code-csharp[FxCop.Performance.UnnecessaryCasts#1](../code-quality/codesnippet/CSharp/ca1800-do-not-cast-unnecessarily_2.cs)]  
   
-## 请参阅  
+## <a name="see-also"></a>See Also  
  [as](/dotnet/csharp/language-reference/keywords/as)   
  [is](/dotnet/csharp/language-reference/keywords/is)

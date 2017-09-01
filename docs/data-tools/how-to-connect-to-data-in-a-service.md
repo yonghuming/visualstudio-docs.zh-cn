@@ -1,68 +1,81 @@
 ---
-title: "如何：连接到服务中的数据 | Microsoft Docs"
-ms.custom: ""
-ms.date: "12/15/2016"
-ms.prod: "visual-studio-dev14"
-ms.reviewer: ""
-ms.suite: ""
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-dev_langs: 
-  - "VB"
-  - "CSharp"
-  - "C++"
-  - "aspx"
-helpviewer_keywords: 
-  - "数据 [Visual Studio], 连接到 Web 服务"
-  - "数据 [Visual Studio], 从 Web 服务读取"
-  - "数据源, 从 Web 服务创建"
-  - "读取数据, 从 Web 服务"
-  - "Web 服务, 作为数据源"
-  - "Web 服务, 连接"
-  - "Web 服务, 读取数据"
+title: 'How to: Connect to Data in a Service | Microsoft Docs'
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.tgt_pltfrm: 
+ms.topic: article
+helpviewer_keywords:
+- data [Visual Studio], connecting to Web services
+- data sources, creating from Web services
+- data [Visual Studio], reading from Web services
+- reading data, from Web services
+- Web services, reading data
+- Web services, as data sources
+- Web services, connecting
 ms.assetid: a6b54353-05fe-4e5c-8631-90231fc95504
 caps.latest.revision: 32
-caps.handback.revision: 30
-author: "mikeblome"
-ms.author: "mblome"
-manager: "ghogen"
+author: mikeblome
+ms.author: mblome
+manager: ghogen
+translation.priority.ht:
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- ru-ru
+- zh-cn
+- zh-tw
+translation.priority.mt:
+- cs-cz
+- pl-pl
+- pt-br
+- tr-tr
+ms.translationtype: HT
+ms.sourcegitcommit: 21a413a3e2d17d77fd83d5109587a96f323a0511
+ms.openlocfilehash: 1d5ac117c835addd202e30a8ad4e1b9692202558
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/30/2017
+
 ---
-# 如何：连接到服务中的数据
-通过运行[数据源配置向导](../data-tools/media/data-source-configuration-wizard.png)并在**“选择数据源类型”**页上选择**“服务”**，可将应用程序连接到服务所返回的数据。  
+# <a name="how-to-connect-to-data-in-a-service"></a>How to: Connect to Data in a Service
+You connect your application to the data returned from a service by running the [Data Source Configuration Wizard](../data-tools/media/data-source-configuration-wizard.png) and selecting **Service** on the **Choose a Data Source Type** page.  
   
- 该向导完成后，将会向项目中添加一个服务引用，且此引用在[“数据源”窗口](../Topic/Data%20Sources%20Window.md)中立即可用。  
+ Upon completion of the wizard, a service reference is added to your project and is immediately available in the [Data Sources Window](add-new-data-sources.md).  
   
 > [!NOTE]
->  **“数据源”**窗口中显示的项取决于服务返回的信息。  某些服务可能没有为**“数据源配置向导”**创建可绑定的对象提供足够的信息。  例如，如果服务返回一个非类型化数据集，则向导完成时**“数据源”**窗口中将不会出现任何项。  这是因为非类型化数据集不提供架构，所以该向导没有足够的信息来创建数据源。  
+>  The items that appear in the **Data Sources** window are dependent on the information that the service returns. Some services might not provide enough information for the **Data Source Configuration Wizard** to create bindable objects. For example, if the service returns an untyped dataset, then no items appear in the **Data Sources Window** upon completing the wizard. This is because untyped datasets do not provide schema, so the wizard does not have enough information to create the data source.  
   
- [!INCLUDE[note_settings_general](../data-tools/includes/note_settings_general_md.md)]  
+[!INCLUDE[note_settings_general](../data-tools/includes/note_settings_general_md.md)]  
   
-### 将应用程序连接到服务  
+### <a name="to-connect-your-application-to-a-service"></a>To connect your application to a service  
   
-1.  在**“数据”**菜单上，单击**“添加新数据源”**。  
+1.  On the **Data** menu, click **Add New Data Source**.  
   
-2.  在**“选择数据源类型”**页上选择**“服务”**，然后单击**“下一步”**。  
+2.  Select **Service** on the **Choose a Data Source Type** page, and then click **Next**.  
   
-3.  输入要使用的服务的地址，或单击**“发现”**找到当前解决方案中的服务，然后单击**“前往”**。  
+3.  Enter the address of the service you want to use, or click **Discover** to locate services in the current solution, and then click **Go**.  
   
-4.  （可选）可以键入一个新的**“命名空间”**来替代默认值。  
+4.  Optionally, a new **Namespace** can be typed in place of the default value.  
   
     > [!NOTE]
-    >  单击**“高级”**打开[“配置服务引用”对话框](../data-tools/configure-service-reference-dialog-box.md)。  
+    >  Click **Advanced** to open the [Configure Service Reference Dialog Box](../data-tools/configure-service-reference-dialog-box.md).  
   
-5.  单击**“确定”**以将服务引用添加到项目。  
+5.  Click **OK** to add a service reference to your project.  
   
-6.  单击**“完成”**。  
+6.  Click **Finish**.  
   
-     该数据源将被添加到**“数据源”**窗口中。  
+     The data source is added to the **Data Sources** window.  
   
-## 后续步骤  
+## <a name="next-steps"></a>Next Steps  
   
-#### 在应用程序中添加功能  
+#### <a name="to-add-functionality-to-your-application"></a>To add functionality to your application  
   
--   在**“数据源”**窗口中选择一个项并将其拖动到一个窗体上，从而创建绑定控件。  有关更多信息，请参见[在 Visual Studio 中将控件绑定到数据](../data-tools/bind-controls-to-data-in-visual-studio.md)。  
+-   Select an item in the **Data Sources** window and drag it onto a form to create bound controls. For more information, see [Bind controls to data in Visual Studio](../data-tools/bind-controls-to-data-in-visual-studio.md).  
   
-## 请参阅  
- [演练：将 WPF 控件绑定到 WCF 数据服务](../data-tools/bind-wpf-controls-to-a-wcf-data-service.md)   
- [演练：将 Silverlight 控件绑定到 WCF 数据服务](../Topic/Walkthrough:%20Binding%20Silverlight%20Controls%20to%20a%20WCF%20Data%20Service.md)   
+## <a name="see-also"></a>See Also  
+ [Bind WPF controls to a WCF data service](../data-tools/bind-wpf-controls-to-a-wcf-data-service.md)   
  [Windows Communication Foundation Services and WCF Data Services in Visual Studio](../data-tools/windows-communication-foundation-services-and-wcf-data-services-in-visual-studio.md)

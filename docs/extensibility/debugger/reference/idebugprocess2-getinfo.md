@@ -1,55 +1,72 @@
 ---
-title: "IDebugProcess2::GetInfo | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "IDebugProcess2::GetInfo"
-helpviewer_keywords: 
-  - "IDebugProcess2::GetInfo"
+title: IDebugProcess2::GetInfo | Microsoft Docs
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords:
+- IDebugProcess2::GetInfo
+helpviewer_keywords:
+- IDebugProcess2::GetInfo
 ms.assetid: 46021dce-bb97-46c3-b0cc-e5b3b68acc35
 caps.latest.revision: 11
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 11
----
-# IDebugProcess2::GetInfo
-[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
+ms.author: gregvanl
+manager: ghogen
+translation.priority.mt:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+ms.translationtype: MT
+ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
+ms.openlocfilehash: d9c598fcb146eee29adf8f766909378a3a0c05f2
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/28/2017
 
-获取处理的说明。  
+---
+# <a name="idebugprocess2getinfo"></a>IDebugProcess2::GetInfo
+Gets a description of the process.  
   
-## 语法  
+## <a name="syntax"></a>Syntax  
   
-```cpp#  
-HRESULT GetInfo(  
-   PROCESS_INFO_FIELDS  Fields,  
-   PROCESS_INFO*        pProcessInfo  
+```cpp  
+HRESULT GetInfo(  
+   PROCESS_INFO_FIELDS  Fields,  
+   PROCESS_INFO*        pProcessInfo  
 );  
 ```  
   
-```c#  
-int GetInfo(  
-   enum_PROCESS_INFO_FIELDS  Fields,  
-   PROCESS_INFO[]            pProcessInfo  
+```csharp  
+int GetInfo(  
+   enum_PROCESS_INFO_FIELDS  Fields,  
+   PROCESS_INFO[]            pProcessInfo  
 );  
 ```  
   
-#### 参数  
+#### <a name="parameters"></a>Parameters  
  `Fields`  
- \[in\] 值的组合从指定的 [PROCESS\_INFO\_FIELDS](../../../extensibility/debugger/reference/process-info-fields.md) 枚举的 `pProcessInfo` 参数的哪些字段将填充。  
+ [in] A combination of values from the [PROCESS_INFO_FIELDS](../../../extensibility/debugger/reference/process-info-fields.md) enumeration that specifies which fields of the `pProcessInfo` parameter are to be filled in.  
   
  `pProcessInfo`  
- \[out\] 使用该过程的声明填充的 [PROCESS\_INFO](../../../extensibility/debugger/reference/process-info.md) 结构。  
+ [out] A [PROCESS_INFO](../../../extensibility/debugger/reference/process-info.md) structure that is filled in with a description of the process.  
   
-## 返回值  
- 如果成功，则返回; `S_OK`否则，返回错误代码。  
+## <a name="return-value"></a>Return Value  
+ If successful, returns `S_OK`; otherwise, returns an error code.  
   
-## 请参阅  
+## <a name="see-also"></a>See Also  
  [IDebugProcess2](../../../extensibility/debugger/reference/idebugprocess2.md)   
- [PROCESS\_INFO\_FIELDS](../../../extensibility/debugger/reference/process-info-fields.md)   
- [PROCESS\_INFO](../../../extensibility/debugger/reference/process-info.md)
+ [PROCESS_INFO_FIELDS](../../../extensibility/debugger/reference/process-info-fields.md)   
+ [PROCESS_INFO](../../../extensibility/debugger/reference/process-info.md)

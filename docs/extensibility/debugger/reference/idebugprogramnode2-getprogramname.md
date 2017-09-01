@@ -1,56 +1,73 @@
 ---
-title: "IDebugProgramNode2::GetProgramName | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "IDebugProgramNode2::GetProgramName"
-helpviewer_keywords: 
-  - "IDebugProgramNode2::GetProgramName"
+title: IDebugProgramNode2::GetProgramName | Microsoft Docs
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords:
+- IDebugProgramNode2::GetProgramName
+helpviewer_keywords:
+- IDebugProgramNode2::GetProgramName
 ms.assetid: 510c7f5d-48ff-4d9f-ad79-fbad9f15239d
 caps.latest.revision: 10
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 10
----
-# IDebugProgramNode2::GetProgramName
-[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
+ms.author: gregvanl
+manager: ghogen
+translation.priority.mt:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+ms.translationtype: MT
+ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
+ms.openlocfilehash: 31598f3e18afdfd7d5842ce192b817dbdb8d3747
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/28/2017
 
-获取程序的名称。  
+---
+# <a name="idebugprogramnode2getprogramname"></a>IDebugProgramNode2::GetProgramName
+Gets the name of the program.  
   
-## 语法  
+## <a name="syntax"></a>Syntax  
   
-```cpp#  
-HRESULT GetProgramName (   
-   BSTR* pbstrProgramName  
+```cpp  
+HRESULT GetProgramName (   
+   BSTR* pbstrProgramName  
 );  
 ```  
   
-```c#  
-int GetProgramName (   
-   out string pbstrProgramName  
+```csharp  
+int GetProgramName (   
+   out string pbstrProgramName  
 );  
 ```  
   
-#### 参数  
+#### <a name="parameters"></a>Parameters  
  `pbstrProgramName`  
- \[out\] 返回程序的名称。  
+ [out] Returns the name of the program.  
   
-## 返回值  
- 如果成功，则返回; `S_OK`否则，返回错误代码。  
+## <a name="return-value"></a>Return Value  
+ If successful, returns `S_OK`; otherwise, returns an error code.  
   
-## 备注  
- 程序的名称不是内容和路径与对程序，不过，程序的名称可以是此路径的一部分。  
+## <a name="remarks"></a>Remarks  
+ The name of a program is not the same thing as the path to the program, although the name of the program may be part of such a path.  
   
-## 示例  
- 下面的示例演示如何执行简单的 `CProgram` 对象的方法实现 [IDebugProgramNode2](../../../extensibility/debugger/reference/idebugprogramnode2.md) 接口。  `MakeBstr` 函数将指定字符串的副本作为 BSTR。  
+## <a name="example"></a>Example  
+ The following example shows how to implement this method for a simple `CProgram` object that implements the [IDebugProgramNode2](../../../extensibility/debugger/reference/idebugprogramnode2.md) interface. The `MakeBstr` function allocates a copy of the specified string as a BSTR.  
   
-```cpp#  
+```cpp  
 HRESULT CProgram::GetProgramName(BSTR* pbstrProgramName) {    
    if (!pbstrProgramName)    
       return E_INVALIDARG;    
@@ -61,5 +78,5 @@ HRESULT CProgram::GetProgramName(BSTR* pbstrProgramName) {
 }    
 ```  
   
-## 请参阅  
+## <a name="see-also"></a>See Also  
  [IDebugProgramNode2](../../../extensibility/debugger/reference/idebugprogramnode2.md)

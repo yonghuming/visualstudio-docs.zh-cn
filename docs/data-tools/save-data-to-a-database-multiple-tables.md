@@ -1,165 +1,166 @@
 ---
-title: "演练：将数据保存到数据库（多个表） | Microsoft Docs"
-ms.custom: ""
-ms.date: "12/15/2016"
-ms.prod: "visual-studio-dev14"
-ms.reviewer: ""
-ms.suite: ""
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-dev_langs: 
-  - "VB"
-  - "CSharp"
-  - "C++"
-  - "aspx"
-helpviewer_keywords: 
-  - "数据 [Visual Studio], 保存"
-  - "数据 [Visual Studio], 更新"
-  - "保存数据, 演练"
-  - "更新数据集, 演练"
+title: Save data to a database (multiple tables) | Microsoft Docs
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.tgt_pltfrm: 
+ms.topic: article
+dev_langs:
+- VB
+- CSharp
+helpviewer_keywords:
+- updating datasets, walkthroughs
+- data [Visual Studio], saving
+- saving data, walkthroughs
+- data [Visual Studio], updating
 ms.assetid: 7ebe03da-ce8c-4cbc-bac0-a2fde4ae4d07
 caps.latest.revision: 24
-caps.handback.revision: 20
-author: "mikeblome"
-ms.author: "mblome"
-manager: "ghogen"
+author: mikeblome
+ms.author: mblome
+manager: ghogen
+translation.priority.ht:
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- ru-ru
+- zh-cn
+- zh-tw
+translation.priority.mt:
+- cs-cz
+- pl-pl
+- pt-br
+- tr-tr
+ms.translationtype: HT
+ms.sourcegitcommit: eb5c9550fd29b0e98bf63a7240737da4f13f3249
+ms.openlocfilehash: 828a7800aec528dd90de946de0243b5fb0198225
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/30/2017
+
 ---
-# 演练：将数据保存到数据库（多个表）
-应用程序开发中最常用方案之一是在 Windows 应用程序窗体上显示数据、编辑数据并将更新后的数据发回数据库。  本演练创建可显示两个相关表的数据的窗体，并显示如何编辑记录和将更改保存回数据库。  此示例使用源自 Northwind 示例数据库的 `Customers` 和 `Orders` 表。  
+# <a name="save-data-to-a-database-multiple-tables"></a>Save data to a database (multiple tables)
+One of the most common scenarios in application development is to display data on a form in a Windows application, edit the data, and send the updated data back to the database. This walkthrough creates a form that displays data from two related tables and shows how to edit records and save changes back to the database. This example uses the `Customers` and `Orders` tables from the Northwind sample database.  
   
- 通过调用 TableAdapter 的 `Update` 方法，可以将应用程序中的数据保存回数据库。  当从**“数据源”**窗口拖动项时，为拖放到窗体上的第一个表自动添加保存数据的代码。  添加到窗体的任何其他表都要求手动添加保存数据所需的所有代码。  本演练显示了如何添加从多个表保存更新的代码。  
+ You can save data in your application back to the database by calling the `Update` method of a TableAdapter. When you drag tables from the **Data Sources** window onto a form, the code that's required to save data is automatically added.Any additional tables that are added to a form require the manual addition of this code. This walkthrough shows how to add code to save updates from more than one table.  
   
 > [!NOTE]
->  显示的对话框和菜单命令可能会与“帮助”中的描述不同，具体取决于你现用的设置或版本。  若要更改设置，请在**“工具”**菜单上选择**“导入和导出设置”**。  有关详细信息，请参阅[Customizing Development Settings in Visual Studio](http://msdn.microsoft.com/zh-cn/22c4debb-4e31-47a8-8f19-16f328d7dcd3)。  
+>  The dialog boxes and menu commands you see might differ from those described in Help depending on your active settings or the edition that you're using. To change your settings, choose **Import and Export Settings** on the **Tools** menu. For more information, see [Personalize the Visual Studio IDE](../ide/personalizing-the-visual-studio-ide.md).  
   
- 本演练涉及以下任务：  
+ Tasks illustrated in this walkthrough include:  
   
--   创建新的**“Windows 应用程序”**项目。  
+-   Creating a new **Windows Application** project.  
   
--   使用[数据源配置向导](../data-tools/media/data-source-configuration-wizard.png)在应用程序中创建和配置数据源。  
+-   Creating and configuring a data source in your application with the [Data Source Configuration Wizard](../data-tools/media/data-source-configuration-wizard.png).  
   
--   在[“数据源”窗口](../Topic/Data%20Sources%20Window.md)中设置项的控件。  有关详细信息，请参阅[设置从“数据源”窗口中拖动时要创建的控件](../data-tools/set-the-control-to-be-created-when-dragging-from-the-data-sources-window.md)。  
+-   Setting the controls of the items in the [Data Sources Window](add-new-data-sources.md). For more information, see [Set the control to be created when dragging from the Data Sources window](../data-tools/set-the-control-to-be-created-when-dragging-from-the-data-sources-window.md).  
   
--   通过将某些项从**“数据源”**窗口拖到你的窗体上来创建数据绑定控件。  
+-   Creating data-bound controls by dragging items from the **Data Sources** window onto your form.  
   
--   修改数据集的每个表中的若干条记录。  
+-   Modifying a few records in each table in the dataset.  
   
--   修改用于将数据集中的更新后的数据发回数据库的代码。  
+-   Modifying the code to send the updated data in the dataset back to the database.  
   
-## 系统必备  
- 若要完成本演练，你将需要：  
+## <a name="prerequisites"></a>Prerequisites  
+ In order to complete this walkthrough, you will need:  
   
--   能够访问 Northwind 示例数据库。  有关详细信息，请参阅[如何：安装示例数据库](../data-tools/how-to-install-sample-databases.md)。  
+-   Access to the Northwind sample database.  For more information, see [How to: Install Sample Databases](../data-tools/installing-database-systems-tools-and-samples.md).  
   
-## 创建 Windows 应用程序  
- 第一步是创建**“Windows 应用程序”**。  在此步骤中为项目指定名称是可选的，但由于我们打算稍后保存该项目，因此为它指定了一个名称。  
+## <a name="create-the-windows-application"></a>Create the Windows application  
+ The first step is to create a **Windows Application**. Assigning a name to the project is optional during this step, but we'll give it a name because we're planning on saving it later.  
   
-#### 创建新的 Windows 应用程序项目  
+#### <a name="to-create-the-new-windows-application-project"></a>To create the new Windows application project  
   
-1.  从**“文件”**菜单创建一个新的项目。  
+1.  On the **File** menu, create a new project.  
   
-2.  将项目命名为 `UpdateMultipleTablesWalkthrough`。  
+2.  Name the project `UpdateMultipleTablesWalkthrough`.  
   
-3.  选择**“Windows 应用程序”**，然后单击**“确定”**。  有关详细信息，请参阅[客户端应用程序](../Topic/Developing%20Client%20Applications%20with%20the%20.NET%20Framework.md)。  
+3.  Select **Windows Application**, and then select **OK**. For more information, see [Client Applications](/dotnet/framework/develop-client-apps).  
   
-     **“UpdateMultipleTablesWalkthrough”**项目即被创建并添加到**“解决方案资源管理器”**中。  
+     The **UpdateMultipleTablesWalkthrough** project is created and added to **Solution Explorer**.  
   
-## 创建数据源  
- 此步骤使用**“数据源配置向导”**从 Northwind 数据库创建一个数据源。  你必须具有对 Northwind 示例数据库的访问权限，才能创建连接。  有关设置 Northwind 示例数据库的信息，请参阅[如何：安装示例数据库](../data-tools/how-to-install-sample-databases.md)。  
+## <a name="create-the-data-source"></a>Create the data source  
+ This step creates a data source from the Northwind database using the **Data Source Configuration Wizard**. You must have access to the Northwind sample database to create the connection. For information about setting up the Northwind sample database, see [How to: Install Sample Databases](../data-tools/installing-database-systems-tools-and-samples.md).  
   
-#### 创建数据源  
+#### <a name="to-create-the-data-source"></a>To create the data source  
   
-1.  在**“数据”**菜单上，单击**“显示数据源”**。  
+1.  On the **Data** menu, select **Show Data Sources**.  
   
-2.  在**“数据源”**窗口中，单击**“添加新数据源”**以启动**“数据源配置向导”**。  
+2.  In the **Data Sources** window, select**Add New Data Source** to start the **Data Source Configuration Wizard**.  
   
-3.  在**“选择数据源类型”**页上选择**“数据库”**，然后单击**“下一步”**。  
+3.  On the **Choose a Data Source Type** screen, select **Database**, and then select **Next**.  
   
-4.  在**“选择你的数据连接”**页面上，执行以下操作之一：  
+4.  On the **Choose your Data Connection** screen do one of the following:  
   
-    -   如果下拉列表中包含到 Northwind 示例数据库的数据连接，请选择该连接。  
+    -   If a data connection to the Northwind sample database is available in the drop-down list, select it.  
   
-         \- 或 \-  
+         -or-  
   
-    -   选择**“新建连接”**以打开**“添加\/修改连接”**对话框。  
+    -   Select **New Connection** to open the **Add/Modify Connection** dialog box.  
   
-5.  如果数据库需要密码，请选择该选项以包括敏感数据，再单击**“下一步”**。  
+5.  If your database requires a password, select the option to include sensitive data, and then select **Next**.  
   
-6.  在**“将连接字符串保存到应用程序配置文件”**页面上单击**“下一步”**。  
+6.  On the **Save connection string to the Application Configuration file**, select **Next**.  
   
-7.  在**“选择数据库对象”**页面上展开**“表”**节点。  
+7.  On the **Choose your Database Objects**screen, expand the **Tables** node .  
   
-8.  选择**“Customers”**和**“Orders”**表，然后单击**“完成”**。  
+8.  Select the **Customers** and **Orders** tables, and then select **Finish**.  
   
-     **“NorthwindDataSet”**将添加到你的项目，这些表将显示在**“数据源”**窗口中。  
+     The **NorthwindDataSet** is added to your project, and the tables appear in the **Data Sources** window.  
   
-## 设置要创建的控件  
- 对于本演练，`Customers` 表中的数据将位于**“详细信息”**布局（数据在单独控件中显示）中。  来自 `Orders` 表的数据将位于**“网格”**布局（在 <xref:System.Windows.Forms.DataGridView> 控件中显示）中。  
+## <a name="set-the-controls-to-be-created"></a>Set the controls to be created  
+ For this walkthrough, the data in the `Customers` table is in a **Details** layout where data is displayed in individual controls. The data from the `Orders` table is in a **Grid** layout that's displayed in a <xref:System.Windows.Forms.DataGridView> control.  
   
-#### 设置“数据源”窗口中项的拖放类型  
+#### <a name="to-set-the-drop-type-for-the-items-in-the-data-sources-window"></a>To set the drop type for the items in the Data Sources window  
   
-1.  在**“数据源”**窗口中展开**“Customers”**节点。  
+1.  In the **Data Sources** window, expand the **Customers** node.  
   
-2.  通过从**“Customers”**节点上的控件列表中选择**“详细信息”**，将**“Customers”**表中的控件更改为单个控件。  有关详细信息，请参阅[设置从“数据源”窗口中拖动时要创建的控件](../data-tools/set-the-control-to-be-created-when-dragging-from-the-data-sources-window.md)。  
+2.  On the **Customers** node, select **Details** from the control list to change the control of the **Customers** table to individual controls. For more information, see [Set the control to be created when dragging from the Data Sources window](../data-tools/set-the-control-to-be-created-when-dragging-from-the-data-sources-window.md).  
   
-## 创建数据绑定窗体  
- 通过将某些项从**“数据源”**窗口拖到你的窗体上，可创建数据绑定控件。  
+## <a name="create-the-data-bound-form"></a>Create the data-bound form  
+ You can create the data-bound controls by dragging items from the **Data Sources** window onto your form.  
   
-#### 在窗体上创建数据绑定控件  
+#### <a name="to-create-data-bound-controls-on-the-form"></a>To create data-bound controls on the form  
   
-1.  将主**“Customers”**节点从**“数据源”**窗口拖到**“Form1”**上。  
+1.  Drag the main **Customers** node from the **Data Sources** window onto **Form1**.  
   
-     带有描述性标签的数据绑定控件将显示在窗体上，同时还显示一个工具条 \(<xref:System.Windows.Forms.BindingNavigator>\)，用于在记录间进行导航。  组件栏中出现 [NorthwindDataSet](../data-tools/dataset-tools-in-visual-studio.md)、[CustomersTableAdapter](../data-tools/tableadapter-overview.md)、<xref:System.Windows.Forms.BindingSource> 和 <xref:System.Windows.Forms.BindingNavigator>。  
+     Data-bound controls with descriptive labels appear on the form, along with a tool strip (<xref:System.Windows.Forms.BindingNavigator>) for navigating records. A [NorthwindDataSet](../data-tools/dataset-tools-in-visual-studio.md), `CustomersTableAdapter`, <xref:System.Windows.Forms.BindingSource>, and <xref:System.Windows.Forms.BindingNavigator> appear in the component tray.  
   
-2.  将相关的**“Orders”**节点从**“数据源”**窗口拖到**“Form1”**上。  
+2.  Drag the related **Orders** node from the **Data Sources** window onto **Form1**.  
   
     > [!NOTE]
-    >  相关的**“Orders”**节点位于**“Fax”**列下，该节点是**“Customers”**节点的子节点。  
+    >  The related **Orders** node is located below the **Fax** column and is a child node of the **Customers** node.  
   
-     用于导航记录的 <xref:System.Windows.Forms.DataGridView> 控件和工具栏（<xref:System.Windows.Forms.BindingNavigator>）将显示在窗体上。  [OrdersTableAdapter](../data-tools/tableadapter-overview.md) 和 <xref:System.Windows.Forms.BindingSource> 将显示在组件栏中。  
+     A <xref:System.Windows.Forms.DataGridView> control and a tool strip (<xref:System.Windows.Forms.BindingNavigator>) for navigating records appear on the form. An `OrdersTableAdapter` and <xref:System.Windows.Forms.BindingSource> appear in the component tray.  
   
-## 添加用于更新数据库的代码  
- 通过调用**“Customers”**和**“Orders”**TableAdapter 的 `Update` 方法，可更新数据库。  默认情况下，<xref:System.Windows.Forms.BindingNavigator> 的**“保存”**按钮的事件处理程序将添加到窗体代码中，以将更新内容发送到数据库。  本过程将修改该代码以按正确的顺序发送更新内容，从而消除产生引用完整性错误的可能性。  该代码还将通过在 try\-catch 块中包装更新调用来实现错误处理。  可以根据应用程序的需要修改代码。  
+## <a name="addcode-to-update-the-database"></a>Addcode to update the database  
+ You can update the database by calling the `Update` methods of the **Customers** and **Orders** TableAdapters. By default, an event handler for the **Save** button of the<xref:System.Windows.Forms.BindingNavigator> is added to the form's code to send updates to the database. This procedure modifies the code to send updates in the correct order.This eliminates the possibility of raising referential integrity errors. The code also implements error handling by wrapping the update call in a try-catch block. You can modify the code to suit the needs of your application.  
   
 > [!NOTE]
->  为了清楚起见，本演练未使用事务，但是如果你要更新两个或多个相关表，则应在一个事务中包含所有更新逻辑。  事务是指一个过程，它首先确保对数据库的所有相关更改均可成功完成，然后再提交更改。  有关详细信息，请参阅[事务和并发](../Topic/Transactions%20and%20Concurrency.md)。  
+>  For clarity, this walkthrough does not use a transaction.However, if you're updating two or more related tables, include all the update logic within a transaction. A transaction is a process that assures that all related changes to a database are successful before any changes are committed. For more information, see [Transactions and Concurrency](/dotnet/framework/data/adonet/transactions-and-concurrency).  
   
-#### 将更新逻辑添加到应用程序  
+#### <a name="to-add-update-logic-to-the-application"></a>To add update logic to the application  
   
-1.  在 <xref:System.Windows.Forms.BindingNavigator> 上双击**“保存”**按钮，以打开代码编辑器并转到 `bindingNavigatorSaveItem_Click` 事件处理程序。  
+1.  Select the **Save** button on the <xref:System.Windows.Forms.BindingNavigator>.This opens the Code Editor to the `bindingNavigatorSaveItem_Click` event handler.  
   
-2.  替换事件处理程序中的代码以调用相关 TableAdapter 的 `Update` 方法。  下面的代码首先创建三个临时数据表以保存每个 <xref:System.Data.DataRowState> 的更新信息（<xref:System.Data.DataRowState>、<xref:System.Data.DataRowState> 和 <xref:System.Data.DataRowState>）。  然后，按正确的顺序执行更新。  代码应类似于：  
+2.  Replace the code in the event handler to call the `Update` methods of the related TableAdapters. The following code first creates three temporary data tables to hold the updated information for each <xref:System.Data.DataRowState> (<xref:System.Data.DataRowState>, <xref:System.Data.DataRowState>, and <xref:System.Data.DataRowState>). Then updates are run in the correct order. The code should look like the following:  
   
-     [!code-vb[VbRaddataSaving#10](../data-tools/codesnippet/VisualBasic/save-data-to-a-database-multiple-tables_1.vb)]
-     [!code-cs[VbRaddataSaving#10](../data-tools/codesnippet/CSharp/save-data-to-a-database-multiple-tables_1.cs)]  
+     [!code-vb[VbRaddataSaving#10](../data-tools/codesnippet/VisualBasic/save-data-to-a-database-multiple-tables_1.vb)]  [!code-csharp[VbRaddataSaving#10](../data-tools/codesnippet/CSharp/save-data-to-a-database-multiple-tables_1.cs)]  
   
-## 测试应用程序  
+## <a name="test-the-application"></a>Test the application  
   
-#### 测试应用程序  
+#### <a name="to-test-the-application"></a>To test the application  
   
-1.  按 F5。  
+1.  Select **F5**.  
   
-2.  对每个表中的一条或多条记录的数据执行一些更改。  
+2.  Make some changes to the data of one or more records in each table.  
   
-3.  按**“保存”**按钮。  
+3.  Select the **Save** button.  
   
-4.  检查数据库中的值以验证更改是否已保存。  
+4.  Check the values in the database to verify that the changes were saved.  
   
-## 后续步骤  
- 根据应用程序的要求，在 Windows 应用程序中创建了绑定数据窗体后，还需要执行一些步骤。  你可以通过以下操作来增强此演练的效果：  
   
--   将搜索功能添加到该窗体。  有关详细信息，请参阅[如何：向 Windows 窗体应用程序中添加参数化查询](../Topic/How%20to:%20Add%20a%20Parameterized%20Query%20to%20a%20Windows%20Forms%20Application.md)。  
-  
--   编辑数据源以添加或移除数据库对象。  有关详细信息，请参阅[如何：编辑数据集](../Topic/How%20to:%20Edit%20a%20Dataset.md)。  
-  
-## 请参阅  
- [数据演练](../Topic/Data%20Walkthroughs.md)   
- [在 Visual Studio 中将 Windows 窗体控件绑定到数据](../data-tools/bind-windows-forms-controls-to-data-in-visual-studio.md)   
- [Visual Studio 的数据应用程序概述](../data-tools/overview-of-data-applications-in-visual-studio.md)   
- [连接到 Visual Studio 中的数据](../data-tools/connecting-to-data-in-visual-studio.md)   
- [准备应用程序以接收数据](../Topic/Preparing%20Your%20Application%20to%20Receive%20Data.md)   
- [将数据获取到应用程序](../data-tools/fetching-data-into-your-application.md)   
- [在 Visual Studio 中将控件绑定到数据](../data-tools/bind-controls-to-data-in-visual-studio.md)   
- [在应用程序中编辑数据](../data-tools/editing-data-in-your-application.md)   
- [验证数据](../Topic/Validating%20Data.md)   
- [保存数据](../data-tools/saving-data.md)
+## <a name="see-also"></a>See Also  
+ [Save data back to the database](../data-tools/save-data-back-to-the-database.md)

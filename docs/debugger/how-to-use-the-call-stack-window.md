@@ -1,145 +1,161 @@
 ---
-title: "如何：使用“调用堆栈”窗口 | Microsoft Docs"
-ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-debug"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "vs.debug.callstack"
-dev_langs: 
-  - "FSharp"
-  - "VB"
-  - "CSharp"
-  - "C++"
-  - "JScript"
-  - "SQL"
-  - "aspx"
-helpviewer_keywords: 
-  - "线程处理 [Visual Studio]，显示双向调用"
-  - "函数 [调试器]，查看调用堆栈上的代码"
-  - "反汇编代码"
-  - "断点，“调用堆栈”窗口"
-  - "调试 [Visual Studio]，切换到另一个堆栈帧"
-  - "调试 [Visual Studio]，“调用堆栈”窗口"
-  - "“调用堆栈”窗口，查看调用堆栈上的函数的源代码"
-  - "堆栈，切换堆栈帧"
-  - "“调用堆栈”窗口，查看调用堆栈上的函数的反汇编代码"
+title: View the call stack in the Visual Studio debugger | Microsoft Docs
+ms.custom: H1Hack27Feb2017
+ms.date: 04/06/2017
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-debug
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords:
+- vs.debug.callstack
+dev_langs:
+- CSharp
+- VB
+- FSharp
+- C++
+- JScript
+- SQL
+- aspx
+helpviewer_keywords:
+- threading [Visual Studio], displaying calls to or from
+- functions [debugger], viewing code on call stack
+- disassembly code
+- breakpoints, Call Stack window
+- debugging [Visual Studio], switching to another stack frame
+- debugging [Visual Studio], Call Stack window
+- Call Stack window, viewing source code for functions on the call stack
+- stack, switching stack frames
+- Call Stack window, viewing disassembly code for functions on the call stack
 ms.assetid: 5154a2a1-4729-4dbb-b675-db611a72a731
 caps.latest.revision: 40
-caps.handback.revision: 38
-author: "mikejo5000"
-ms.author: "mikejo"
-manager: "ghogen"
----
-# 如何：使用“调用堆栈”窗口
-[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
+author: mikejo5000
+ms.author: mikejo
+manager: ghogen
+translation.priority.ht:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+ms.translationtype: HT
+ms.sourcegitcommit: 9e6c28d42bec272c6fd6107b4baf0109ff29197e
+ms.openlocfilehash: 83977d96d8e8503565f811608089279cfbef5d05
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/22/2017
 
-使用**“调用堆栈”**窗口可以查看当前堆栈上的函数或过程调用。  
+---
+# <a name="view-the-call-stack-and-use-the-call-stack-window-in-the-visual-studio-debugger"></a>View the call stack and use the Call Stack Window in the Visual Studio debugger
+
+By using the **Call Stack** window, you can view the function or procedure calls that are currently on the stack. The **Call Stack** window shows the order in which methods and functions are getting called. The call stack is a good way to examine and understand the execution flow of an app.
   
- **“调用堆栈”**窗口显示每个函数的名称以及编写它所用的编程语言。  函数或过程名称可能包含可选信息，如模块名称、行号、参数名称、类型和值。  可以打开或关闭这些可选信息的显示。  
+When [debugging symbols](#bkmk_symbols) are not available for part of a call stack, the **Call Stack** window might not be able to display correct information for that part of the call stack. If that occurs, the following notation appears:  
   
- 一个黄色箭头标识执行指针当前所位于的堆栈帧。  默认情况下，该帧的信息显示在源、**“反汇编”**、**“局部变量”**、**“监视”**和**“自动”**窗口中。  如果想将上下文更改为堆栈上的另一个帧，可以在**“调用堆栈”**窗口中执行相应的操作。  
-  
- 当调试符号对部分调用堆栈不可用时，**“调用堆栈”**窗口也许就不能显示那部分调用堆栈的正确信息。  将出现以下表示法：  
-  
- \[下面的帧可能不正确和\/或缺失，没有为 name.dll 加载符号\]  
-  
- 在托管代码中，默认情况下，**“调用堆栈”**窗口将隐藏非用户代码的信息。  在隐藏信息处出现以下表示法：  
-  
- **\[\<External Code\>\]**  
-  
- 非用户代码是任何代码，这些代码不是可通过快捷菜单选择以显示非用户代码的调用堆栈信息的我的代码。  
-  
- 可以使用快捷菜单选择查看线程之间的调用。  
-  
+`[Frames below may be incorrect and/or missing, no symbols loaded for name.dll]`
+
+>  [!NOTE]
+> The **Call Stack** window is similar to the Debug perspective in some IDEs like Eclipse. 
+
 > [!NOTE]
->  显示的对话框和菜单命令可能会与“帮助”中的描述不同，具体取决于您的当前设置或版本。  若要更改设置，请在**“工具”**菜单上选择**“导入和导出设置”**。  有关详细信息，请参阅 [Customizing Development Settings in Visual Studio](http://msdn.microsoft.com/zh-cn/22c4debb-4e31-47a8-8f19-16f328d7dcd3)。  
+>  The dialog boxes and menu commands you see might differ from those described here, depending on your active settings or edition. To change your settings, select **Import and Export Settings** on the **Tools** menu.  See [Personalizing the IDE](../ide/personalizing-the-visual-studio-ide.md)
   
-### 以中断模式或运行模式显示“调用堆栈”窗口  
+## <a name="view-the-call-stack-while-in-the-debugger"></a>View the call stack while in the debugger 
   
--   在**“调试”**菜单中选择**“窗口”**，然后单击**“调用堆栈”**。  
+-   While debugging, in the **Debug** menu, select **Windows > Call Stack**.
+
+ ![Call Stack Window](../debugger/media/dbg_basics_callstack_window.png "CallStackWindow")
+
+A yellow arrow identifies the stack frame where the execution pointer is currently located. By default, this is the stack frame whose information appears in the source, **Locals**, **Autos**, **Watch**, and **Disassembly** windows. If you want to change the debugger context to another frame on the stack, you can do that by [switching to another stack frame](#bkmk_switch).   
   
-### 更改显示的可选信息  
+## <a name="display-non-user-code-in-the-call-stack-window"></a>Display non-user code in the Call Stack window  
   
--   右键单击**“调用堆栈”**窗口，然后设置或清除**“显示 \<***the information that you want***\>”**。  
+-   Right-click the **Call Stack** window and select **Show External Code**.
+
+Non-user code is any code that is not shown when [Just My Code](../debugger/just-my-code.md) is enabled. In managed code, non-user code frames are hidden by default. The following notation appears instead of the non-user code frames:  
   
-### 在“调用堆栈”窗口中显示非用户代码帧  
+**[\<External Code>]**  
   
--   右击**“调用堆栈”**窗口，然后选择**“显示外部代码”**。  
+## <a name="bkmk_switch"></a> Switch to another stack frame (change the debugger context)
   
-### 切换到另一个堆栈帧  
+1.  In the **Call Stack** window, right-click the stack frame whose code and data that you want to view.
+
+    Or, you can double-click a frame in the **Call Stack** window to switch to the selected frame. 
   
-1.  在**“调用堆栈”**窗口中，右击要查看其代码和数据的帧。  
+2.  Select **Switch to Frame**.  
   
-2.  选择**“切换到帧”**。  
+     A green arrow with a curly tail appears next to the stack frame you selected. The execution pointer remains in the original frame, which is still marked with the yellow arrow. If you select **Step** or **Continue** from the **Debug** menu, execution will continue in the original frame, not the frame you selected.  
   
-     一个带有卷尾的绿色箭头显示在所选帧旁。  执行指针保留在原始帧中，仍然用黄色箭头标记。  如果从**“调试”**菜单中选择**“单步执行”**或**“继续”**，执行将继续在原始帧中进行，而不是在选定的帧中进行。  
+## <a name="view-the-source-code-for-a-function-on-the-call-stack"></a>View the source code for a function on the call stack  
   
-### 显示与其他线程之间的来回调用  
+-   In the **Call Stack** window, right-click the function whose source code you want to see and select **Go To Source Code**.
+
+## <a name="run-to-a-specific-function-from-the-call-stack-window"></a>Run to a specific function from the Call Stack window  
   
--   右击**“调用堆栈”**窗口，然后选择**“包括对其他线程和来自其他线程的调用”**。  
+-  In the **Call Stack** window, select the function, right-click and  choose **Run to Cursor**.  
   
-### 查看调用堆栈上的函数的源代码  
+## <a name="set-a-breakpoint-on-the-exit-point-of-a-function-call"></a>Set a breakpoint on the exit point of a function call  
   
--   在**“调用堆栈”**窗口中，右击要查看其源代码的函数，然后选择**“转到源代码”**。  
+-   See [Set a breakpoint at a call stack function](../debugger/using-breakpoints.md#BKMK_Set_a_breakpoint_in_the_call_stack_window).
+
+## <a name="display-calls-to-or-from-another-thread"></a>Display calls to or from another thread  
   
-### 直观地跟踪调用堆栈  
+-   Right-click the **Call Stack** window and select **Include Calls To/From Other Threads**.   
   
-1.  在**“调用堆栈”**窗口中，打开快捷菜单。  选择**“在代码图上显示调用堆栈”**。（键盘：**Ctrl** \+ **Shift** \+ **\`**）  
+## <a name="visually-trace-the-call-stack"></a>Visually trace the call stack  
+
+If you are using Visual Studio Enterprise (only), you can view code maps for the call stack while debugging.
+
+- In the **Call Stack** window, open the shortcut menu. Choose **Show Call Stack on Code Map**. (Keyboard: **CTRL** + **SHIFT** + **`**)  
   
-     请参阅[调试时映射调用堆栈上的方法](../debugger/map-methods-on-the-call-stack-while-debugging-in-visual-studio.md)。  
+    For detailed information, see [Map methods on the call stack while debugging](../debugger/map-methods-on-the-call-stack-while-debugging-in-visual-studio.md).
+
+![Show Call Stack on Code Map](../debugger/media/dbg_basics_show_call_stack_on_code_map.gif "ShowCallStackOnCodeMap")
   
-### 查看调用堆栈上的函数的反汇编代码  
+## <a name="view-the-disassembly-code-for-a-function-on-the-call-stack"></a>View the disassembly code for a function on the call stack  
   
--   在**“调用堆栈”**窗口中，右击要查看其反汇编代码的函数，然后选择**“转到反汇编”**。  
+-   In the **Call Stack** window, right-click the function whose disassembly code you want to see and select **Go To Disassembly**.    
+
+## <a name="change-the-optional-information-displayed"></a>Change the optional information displayed  
   
-### 从“调用堆栈”窗口运行到特定函数  
+-   Right-click the **Call Stack** window and set or clear **Show \<***the information that you want***>**.  
   
--   请参阅[运行至指定位置或函数](../debugger/navigating-through-code-with-the-debugger.md#BKMK_Run_to_a_specified_location_or_function)。  
+## <a name="bkmk_symbols"></a> Load Symbols for a module
+In the **Call Stack** window, you can load debugging symbols for code that does not currently have symbols loaded. These symbols can be .NET Framework or system symbols downloaded from the Microsoft public symbol servers or symbols in a symbol path on the computer that you are debugging.  
   
-### 在函数调用的退出点上设置断点  
+See [Specify Symbol (.pdb) and Source Files](../debugger/specify-symbol-dot-pdb-and-source-files-in-the-visual-studio-debugger.md)  
   
--   请参阅[在源行、程序集指令或调用堆栈函数处设置断点](../debugger/using-breakpoints.md#BKMK_Set_a_breakpoint_at_a_source_line__assembly_instruction__or_call_stack_function_)。  
+### <a name="to-load-symbols"></a>To load symbols  
   
-### 加载模块符号  
+1.  In the **Call Stack** window, right-click the stack frame for which symbols are not loaded. The frame will be dimmed.  
   
--   如果要重新加载模块的符号，请在**“调用堆栈”**窗口中右击显示该模块的帧，然后选择**“加载符号”**。  
+2.  Point to **Load Symbols** and then click **Microsoft Symbol Servers** (if available) or browse to the symbol path.  
   
-## 加载符号  
- 在**“调用堆栈”**窗口中，可以为当前还未加载符号的代码加载调试符号。  这些符号可以是从 Microsoft 公共符号服务器下载的 .NET Framework 符号或系统符号，也可以是正在调试的计算机上的某个符号路径中的符号。  
+### <a name="to-set-the-symbol-path"></a>To set the symbol path  
   
- 请参阅[指定符号 \(.pdb\) 和源文件](../debugger/specify-symbol-dot-pdb-and-source-files-in-the-visual-studio-debugger.md)  
+1.  In the **Call Stack** window, choose **Symbol Settings** from the shortcut menu.  
   
-#### 加载符号  
+     The **Options** dialog box opens and the **Symbols** page is displayed.  
   
-1.  在**“调用堆栈”**窗口中，右击尚未为其加载符号的帧。  此帧将显示为灰色。  
+2.  Click **Symbol Settings**.  
   
-2.  指向**“加载符号”**，然后单击**“Microsoft 符号服务器”**或**“符号路径”**。  
+3.  In the **Options** dialog box, click the Folder icon.  
   
-#### 设置符号路径  
+     In the **Symbol file (.pdb) locations** box, a cursor appears.  
   
-1.  在**“调用堆栈”**窗口中，从快捷菜单中选择**“符号设置”**。  
+4.  Type a directory pathname to the symbol location on the computer that you are debugging. For local and remote debugging, this is a path on your local computer.
   
-     将打开**“选项”**对话框并显示**“符号”**页。  
+5.  Click **OK** to close the **Options** dialog box.  
   
-2.  单击**“符号设置”**。  
-  
-3.  在**“选项”**对话框中单击“文件夹”图标。  
-  
-     在**“符号文件\(.pdb\)位置”**框中将出现一个光标。  
-  
-4.  键入所调试的计算机上的符号位置的目录路径名。  对于本地调试，此计算机指您的本地计算机。  对于远程调试，此计算机指远程计算机。  
-  
-5.  单击**“确定”**关闭**“选项”**对话框。  
-  
-## 请参阅  
- [“调用堆栈”窗口中的混合代码与丢失信息](../debugger/mixed-code-and-missing-information-in-the-call-stack-window.md)   
- [如何：更改调试器窗口的数字格式](../Topic/How%20to:%20Change%20the%20Numeric%20Format%20of%20Debugger%20Windows.md)   
- [查看调试器中的数据](../debugger/viewing-data-in-the-debugger.md)   
- [指定符号 \(.pdb\) 和源文件](../debugger/specify-symbol-dot-pdb-and-source-files-in-the-visual-studio-debugger.md)   
- [使用断点](../debugger/using-breakpoints.md)
+## <a name="see-also"></a>See Also  
+ [Mixed Code and Missing Information in the Call Stack Window](../debugger/mixed-code-and-missing-information-in-the-call-stack-window.md) [Viewing Data in the Debugger](../debugger/viewing-data-in-the-debugger.md)   
+ [Specify Symbol (.pdb) and Source Files](../debugger/specify-symbol-dot-pdb-and-source-files-in-the-visual-studio-debugger.md)   
+ [Using Breakpoints](../debugger/using-breakpoints.md)

@@ -1,5 +1,5 @@
 ---
-title: "IEEVisualizerDataProvider::CanSetObjectForVisualizer |Microsoft 文档"
+title: IEEVisualizerDataProvider::CanSetObjectForVisualizer | Microsoft Docs
 ms.custom: 
 ms.date: 11/04/2016
 ms.reviewer: 
@@ -30,16 +30,17 @@ translation.priority.mt:
 - tr-tr
 - zh-cn
 - zh-tw
-translationtype: Machine Translation
-ms.sourcegitcommit: 5db97d19b1b823388a465bba15d057b30ff0b3ce
-ms.openlocfilehash: b9b1009880abd9bce361606ee9d68e8a986aab54
-ms.lasthandoff: 02/22/2017
+ms.translationtype: MT
+ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
+ms.openlocfilehash: 424cdb45f91c59a3a72474fc6c7a0e41a4dc9e17
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="ieevisualizerdataprovidercansetobjectforvisualizer"></a>IEEVisualizerDataProvider::CanSetObjectForVisualizer
-此方法确定是否将可视化工具可以具有它表示更新的数据对象。  
+This method determines whether the visualizer can have the data object it represents updated.  
   
-## <a name="syntax"></a>语法  
+## <a name="syntax"></a>Syntax  
   
 ```cpp  
 HRESULT CanSetObjectForVisualizer(  
@@ -47,21 +48,21 @@ HRESULT CanSetObjectForVisualizer(
 );  
 ```  
   
-```c#  
+```csharp  
 int CanSetObjectForVisualizer(  
    out int b  
 );  
 ```  
   
-#### <a name="parameters"></a>参数  
+#### <a name="parameters"></a>Parameters  
  `b`  
- [out]非零 (`TRUE`) 如果可以更新该可视化工具上的对象，零 (`FALSE`) 如果不能。  
+ [out] Nonzero (`TRUE`) if the object on the visualizer can be updated, zero (`FALSE`) if it cannot.  
   
-## <a name="return-value"></a>返回值  
- 如果成功，返回`S_OK`; 否则为返回错误代码。  
+## <a name="return-value"></a>Return Value  
+ If successful, returns `S_OK`; otherwise, returns an error code.  
   
-## <a name="remarks"></a>备注  
- 对象可能不是如果例如绑定到只读的内存，则可以更改。  
+## <a name="remarks"></a>Remarks  
+ An object might not be changeable if it is bound to read-only memory, for example.  
   
-## <a name="see-also"></a>另请参阅  
+## <a name="see-also"></a>See Also  
  [IEEVisualizerDataProvider](../../../extensibility/debugger/reference/ieevisualizerdataprovider.md)

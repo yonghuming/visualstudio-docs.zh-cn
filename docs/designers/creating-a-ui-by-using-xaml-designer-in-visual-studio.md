@@ -57,7 +57,7 @@ Visual Studio 中的 XAML 设计器提供可视化界面，有助于设计基于
  重设句柄大小显示在所选控件上，使你能够调整控件的大小。 当调整控件大小时，通常会出现宽度和高度值，帮助设置控件的大小。 有关在“设计”视图中操纵控件的详细信息，请参见 [Working with elements in XAML Designer](../designers/working-with-elements-in-xaml-designer.md)。  
   
  **边距**  
- 边距表示控件边缘与其容器边缘之间的固定空间量。 可使用“属性”窗口中“布局” [](http://msdn.microsoft.com/library/windows/apps/windows.ui.xaml.frameworkelement.margin.aspx) 下的 **Margin** 属性来设置控件的边距。  
+ 边距表示控件边缘与其容器边缘之间的固定空间量。 可使用“属性”窗口中 **“布局”** 下的 [Margin](http://msdn.microsoft.com/library/windows/apps/windows.ui.xaml.frameworkelement.margin.aspx) 属性来设置控件的边距。  
   
  **边距装饰器**  
  可使用边距装饰器更改元素相对于其布局容器的边距。 打开边距装饰器，未设置边距时，边距装饰器将显示断开的锁链。 未设置边距时，元素将在运行时调整布局容器的大小时保留在原处。 边距装饰器关闭时，边距装饰器将显示完好的锁链，且在运行时调整布局容器的大小时，元素将随边距一起移动（边距保持固定）。  

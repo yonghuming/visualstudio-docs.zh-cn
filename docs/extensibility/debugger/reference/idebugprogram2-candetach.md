@@ -1,5 +1,5 @@
 ---
-title: "IDebugProgram2::CanDetach |Microsoft 文档"
+title: IDebugProgram2::CanDetach | Microsoft Docs
 ms.custom: 
 ms.date: 11/04/2016
 ms.reviewer: 
@@ -30,29 +30,30 @@ translation.priority.mt:
 - tr-tr
 - zh-cn
 - zh-tw
-translationtype: Machine Translation
-ms.sourcegitcommit: 5db97d19b1b823388a465bba15d057b30ff0b3ce
-ms.openlocfilehash: fba40d6cb4d2e9fc3a26b6df34f5d18cdb0401b6
-ms.lasthandoff: 02/22/2017
+ms.translationtype: MT
+ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
+ms.openlocfilehash: 6508286e277eb72dd9f0cb0810146dccd8ec59ee
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="idebugprogram2candetach"></a>IDebugProgram2::CanDetach
-确定调试引擎 (DE) 可以分离该程序。  
+Determines if a debug engine (DE) can detach from the program.  
   
-## <a name="syntax"></a>语法  
+## <a name="syntax"></a>Syntax  
   
-```cpp#  
+```cpp  
 HRESULT CanDetach(  
    void  
 );  
 ```  
   
-```c#  
+```csharp  
 int CanDetach();  
 ```  
   
-## <a name="return-value"></a>返回值  
- 如果分离返回`S_OK`; 否则为返回错误代码。 返回`S_FALSE`如果 DE 无法从程序分离。  
+## <a name="return-value"></a>Return Value  
+ If can detach, returns `S_OK`; otherwise, returns an error code. Returns `S_FALSE` if the DE cannot detach from the program.  
   
-## <a name="see-also"></a>另请参阅  
+## <a name="see-also"></a>See Also  
  [IDebugProgram2](../../../extensibility/debugger/reference/idebugprogram2.md)

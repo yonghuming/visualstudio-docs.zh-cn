@@ -1,52 +1,57 @@
 ---
 title: "使用 Windows 运行时 API 时的注意事项 | Microsoft Docs"
-ms.custom: ""
-ms.date: "01/18/2017"
-ms.prod: "windows-client-threshold"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "javascript"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-helpviewer_keywords: 
-  - "JavaScript, Windows 运行时 API"
+ms.custom: 
+ms.date: 01/18/2017
+ms.prod: windows-client-threshold
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- javascript
+ms.tgt_pltfrm: 
+ms.topic: article
+helpviewer_keywords:
+- JavaScript, Windows Runtime API
 ms.assetid: 2f56d70c-c80d-4876-8e6a-8ae031d31c22
 caps.latest.revision: 8
-author: "mikejo5000"
-ms.author: "mikejo"
-manager: "ghogen"
-caps.handback.revision: 8
+author: mikejo5000
+ms.author: mikejo
+manager: ghogen
+ms.translationtype: HT
+ms.sourcegitcommit: 6fbf89668d47d55d1d77a1d7f11765567fc73405
+ms.openlocfilehash: 693b3dac9def5533417638c3ec1c0de8db1d5fe3
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/11/2017
+
 ---
-# 使用 Windows 运行时 API 时的注意事项
-在 JavaScript 可以使用 Windows 运行时 API 的几乎每一个元素。  但是，有的 Windows 运行时元素的 JavaScript 表示形式的某些方面您应谨记。  
+# <a name="considerations-when-using-the-windows-runtime-api"></a>使用 Windows 运行时 API 时的注意事项
+可以在 JavaScript 中使用 Windows 运行时 API 的几乎所有元素。 但是，应谨记 Windows 运行时元素的 JavaScript 表示形式的某些方面。  
   
 > [!IMPORTANT]
->  有关在 C\+\+、C\# 或 Visual Basic 中创建 Windows 运行时组件的信息以及在 JavaScript 中简化它们，请参见 [创建 Windows 运行时组件](http://msdn.microsoft.com/library/9a6b8f0a-7d5e-40a0-a9c5-a59b4908e133)。  
+>  有关使用 C++、C# 或 Visual Basic 创建 Windows 运行时组件并在 JavaScript 中使用这些组件的信息，请参阅[使用 C++ 创建 Windows 运行时组件](/windows/uwp/winrt-components/creating-windows-runtime-components-in-cpp)和[使用 C# 和 Visual Basic 创建 Windows 运行时组件](/windows/uwp/winrt-components/creating-windows-runtime-components-in-csharp-and-visual-basic)。  
   
-## 在 Windows 运行时类型的 JavaScript 表示形式的特殊情况  
+## <a name="special-cases-in-the-javascript-representation-of-windows-runtime-types"></a>Windows 运行时类型的 JavaScript 表示形式中的特殊情况  
   
--   字符串：一个未初始化的字符串将传递给 Windows 运行时方法作为字符串“undefined”，并且，字符串设置为 `null` 将作为该字符串“null”传递。（无论 `null` 或 `undefined` 值将其强制为字符串。）在将字符串传递到 Windows 运行时方法之前，应将其初始化为空字符串\(""\)。  
+-   字符串：未初始化的字符串作为“未定义”字符串传递到 Windows 运行时方法，并将设置为 `null` 的字符串作为“null”字符串传递。 （这在将 `null` 或 `undefined` 值强制转换为字符串时为 true。）在将字符串传递给 Windows 运行时方法之前，应将其初始化为空字符串 ("")。  
   
--   接口：您无法在 JavaScript 中实现 Windows 运行时接口。  
+-   接口：无法在 JavaScript 中实现 Windows 运行时接口。  
   
--   数组：Windows 运行时数组大小不可调，因此在 JavaScript 不会在 Windows 运行时数组上运行时调整数组大小的方法。  
+-   数组：Windows 运行时数组不能调整大小，因此可在 JavaScript 中调整数组大小的方法在 Windows 运行时数组中不起作用。  
   
--   数组：如果将 JavaScript 数组值传递给 Windows 运行方法，则将复制该数组。  Windows 运行时方法不可修改该数组或其成员并将其返回您的 JavaScript 应用程序。  但是，您可以使用不会复制的类型化数组（例如，[Int32Array 对象](../javascript/reference/int32array-object.md)）。  
+-   数组：如果将 JavaScript 数组值传递给 Windows 运行时方法，则会复制该数组。 Windows 运行时方法无法修改数组或其成员，并将其返回到 JavaScript 应用。 但是，可以使用不会进行复制的类型化数组（例如 [Int32Array 对象](../javascript/reference/int32array-object.md)）。  
   
--   结构：在 JavaScript 中 Windows 运行时结构是对象。  如果希望将 Windows 运行时结构传递给 Windows 运行时方法，则不要实例化 `new` 关键字的结构。  相反，创建一个对象并添加相关成员以及它们的值。  成员的名称应在大小写格式中：`SomeStruct.firstMember`。  
+-   结构：Windows 运行时结构是 JavaScript 中的对象。 如果要将 Windows 运行时结构传递给 Windows 运行时方法，请不要使用 `new` 关键字实例化该结构。 而应创建一个对象并添加相关成员及其值。 成员的名称应采用 camel 形式：`SomeStruct.firstMember`。  
   
--   对象：JavaScript 对象与管理代码对象\(`System.Object`\)不相同。  不能将 JavaScript 对象传递给需要 `System.Object` 的 Windows 运行时方法。  
+-   对象：JavaScript 对象与托管代码对象 (`System.Object`) 不同。 不能将 JavaScript 对象传递到需要 `System.Object` 的 Windows 运行时方法。  
   
--   对象标识：在许多情况下，对象来回通过 Windows 运行时与 JavaScript 之间不更改。  JavaScript 引擎维护已知对象的映射。  当对象从 Windows 运行时返回其与映射匹配时，并且，如果它不存在，创建一个新对象。  表示通过 Windows 运行时方法返回的接口的对象遵循相同的过程。  共有两种异常：  
+-   对象标识：在大多数情况下，在 Windows 运行时和 JavaScript 之间来回传递的对象不会更改。 JavaScript 引擎会保留已知对象的映射。 当从 Windows 运行时返回对象时，它与映射匹配，如果该对象不存在，则会创建一个新对象。 表示 Windows 运行时方法返回的接口的对象要遵循相同的过程。 存在两种例外情况：  
   
-    -   在传递回 Windows 运行时，从 Windows 运行时调用返回的对象，然后向其中添加了新的 \(expando\) 属性，而不保留其新属性。  但是，当它们返回 JavaScript 应用程序时，因为它们都与现有对象匹配，则返回的对象具有 expando 属性。  
+    -   从 Windows 运行时调用返回、然后添加了新 (expando) 属性的对象在传递回 Windows 运行时时不保留其新属性。 但是，当它们返回到 JavaScript 应用时，由于它们与现有对象相匹配，返回的对象会具有 expando 属性。  
   
-    -   在 Windows 运行时中结构和委托不能标识为与前面使用的结构或委托相同。  每次返回结构或委托时，它将获取一个新引用。  
+    -   Windows 运行时中的结构和委托不能视为与以前使用的结构或委托相同。 每次返回结构或委托时，它都会获取一个新引用。  
   
--   名称冲突：多个 Windows 运行时接口可以具有相同名称的成员。  如果是在单个 JavaScript 对象中合并（运行时选件类或接口的表示形式\)，成员使用完全限定名来表示。  可使用以下语法调用这些成员：`Class["MemberName"](parameter)`。  
+-   名称冲突：多个 Windows 运行时接口可能具有名称相同的成员。 如果它们在单个 JavaScript 对象（可以是运行时类或接口的表示形式）中进行组合，那么成员将以完全限定的名称来表示。 可以使用以下语法来调用这些成员：`Class["MemberName"](parameter)`。  
   
-     在以下代码中，两个接口有绘图方法，因此，运行时选件类实现这两种接口。  
+     在下面的代码中，两个接口都具有 Draw 方法，并且一个运行时类实现了两个接口。  
   
     ```cpp#  
     namespace CollisionExample {  
@@ -65,15 +70,15 @@ caps.handback.revision: 8
     }  
     ```  
   
-     这是对 JavaScript 中的上代码调用的方式。  
+     以下介绍了如何在 JavaScript 中调用上述代码。  
   
-    ```javascript  
+    ```JavaScript  
     var example = new ExampleObject();  
     example["CollisionExample.InterfaceA.draw"](12);  
     example["CollisionExample.InterfaceB.draw"]("hello");  
     ```  
   
--   `Out` 参数：如果 Windows 运行时方法具有多个 `out` 参数，则在 JavaScript 方法中具有一个 JavaScript 对象作为其返回值，因此，对象具有对应于 `out` 参数的属性。  例如，在 C\+\+ 中请考虑以下 Windows 运行时签名。  
+-   `Out` 参数：如果 Windows 运行时方法具有多个 `out` 参数，则在 JavaScript 中，该方法将 JavaScript 对象作为其返回值，且该对象具有与 `out` 参数对应的属性。 例如，请考虑以下使用 C++ 的 Windows 运行时签名。  
   
     ```cpp#  
     void ExampleMethod(  
@@ -82,22 +87,22 @@ caps.handback.revision: 8
     )  
     ```  
   
-     此签名的 JavaScript 版本是：  
+     此签名的 JavaScript 版本为：  
   
-    ```javascript  
+    ```JavaScript  
     var returnValue = exampleMethod();  
   
     ```  
   
-     在此示例中，`returnValue` 是具有两个字段的 JavaScript 对象：`first` 和 `second`。  
+     在此例中，`returnValue` 是 JavaScript 对象，它有两个字段：`first` 和 `second`。  
   
--   静态成员：Windows 运行时定义静态成员和实例成员。  在 JavaScript 中，静态成员将添加到与 Windows 运行时选件类或接口相关联的对象。  
+-   静态成员：Windows 运行时定义静态成员和实例成员。 在 JavaScript 中，将静态成员添加到与 Windows 运行时类或接口关联的对象中。  
   
-    ```javascript  
+    ```JavaScript  
     // Static method.   
     var accel = Windows.Devices.Sensors.Accelerometer.getDefault();   
     // Instance method.   
     var reading = accel.getCurrentReading();            
     ```  
   
- 有关 Windows 运行时基类型的 JavaScript 表示形式的更多信息，请参见 [Windows 运行时类型的 JavaScript 表示形式](../jswinrt/javascript-representation-of-windows-runtime-types.md)。
+ 有关 Windows 运行时基本类型的 JavaScript 表示形式的详细信息，请参阅 [Windows 运行时类型的 JavaScript 表示形式](../jswinrt/javascript-representation-of-windows-runtime-types.md)。

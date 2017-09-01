@@ -1,66 +1,83 @@
 ---
-title: "IDebugFunctionObject2::Evaluate | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-helpviewer_keywords: 
-  - "IDebugFunctionObject2::Evaluate"
+title: IDebugFunctionObject2::Evaluate | Microsoft Docs
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+helpviewer_keywords:
+- IDebugFunctionObject2::Evaluate
 ms.assetid: bc54c652-904b-4297-a6db-faa329684881
 caps.latest.revision: 8
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 8
----
-# IDebugFunctionObject2::Evaluate
-[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
+ms.author: gregvanl
+manager: ghogen
+translation.priority.mt:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+ms.translationtype: MT
+ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
+ms.openlocfilehash: 0e32d65e57e49cb4f7d76f7f44630f092c4c0cbb
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/28/2017
 
-调用函数并返回得到的值为对象。  
+---
+# <a name="idebugfunctionobject2evaluate"></a>IDebugFunctionObject2::Evaluate
+Calls the function and returns the resulting value as an object.  
   
-## 语法  
+## <a name="syntax"></a>Syntax  
   
-```cpp#  
+```cpp  
 HRESULT Evaluate (  
-   IDebugObject** ppParams,  
-   DWORD          dwParams,  
-   DWORD          dwEvalFlags,  
-   DWORD          dwTimeout,  
-   IDebugObject** ppResult  
+   IDebugObject** ppParams,  
+   DWORD          dwParams,  
+   DWORD          dwEvalFlags,  
+   DWORD          dwTimeout,  
+   IDebugObject** ppResult  
 );  
 ```  
   
-```c#  
+```csharp  
 int Evaluate (  
-   IDebugObject     ppParams,  
-   uint             dwParams,  
-   uint             dwEvalFlags,  
-   uint             dwTimeout,  
-   out IDebugObject ppResult  
+   IDebugObject     ppParams,  
+   uint             dwParams,  
+   uint             dwEvalFlags,  
+   uint             dwTimeout,  
+   out IDebugObject ppResult  
 );  
 ```  
   
-#### 参数  
+#### <a name="parameters"></a>Parameters  
  `ppParams`  
- \[in\] 表示输入参数的数组 [IDebugObject](../../../extensibility/debugger/reference/idebugobject.md) 对象。  这些参数的每一个是使用其中一个方法创建此接口。  
+ [in] An array of [IDebugObject](../../../extensibility/debugger/reference/idebugobject.md) objects that represents the input parameters. Each of these parameters was created by using one of the Create methods in this interface.  
   
  `dwParams`  
- \[in\] 的参数数量。 `ppParams` 数组。  
+ [in] The number of parameters in the `ppParams` array.  
   
  `dwEvalFlags`  
- \[in\] 指定标志的组合。 [EVALFLAGS](../../../extensibility/debugger/reference/evalflags.md) 枚举的计算方式执行。  
+ [in] A combination of flags from the [EVALFLAGS](../../../extensibility/debugger/reference/evalflags.md) enumeration that specify how the evaluation is to be performed.  
   
  `dwTimeout`  
- \[in\] 以毫秒为单位指定最长时间，因此，在返回等待来自此方法。  使用 **无限** 会无限期地等待。  
+ [in] Specifies the maximum time, in milliseconds, to wait before returning from this method. Use **INFINITE** to wait indefinitely.  
   
  `ppResult`  
- \[out\] 返回表示函数的值作为对象的 **IDebugObject** 。  
+ [out] Returns an **IDebugObject** that represents the value of the function as an object.  
   
-## 返回值  
- 如果成功，则返回; `S_OK`否则，返回错误代码。  
+## <a name="return-value"></a>Return Value  
+ If successful, returns `S_OK`; otherwise, returns an error code.  
   
-## 请参阅  
+## <a name="see-also"></a>See Also  
  [IDebugFunctionObject2](../../../extensibility/debugger/reference/idebugfunctionobject2.md)

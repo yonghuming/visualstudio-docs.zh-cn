@@ -1,63 +1,80 @@
 ---
-title: "BP_LOCATION_DATA_STRING | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "BP_LOCATION_DATA_STRING"
-helpviewer_keywords: 
-  - "BP_LOCATION_DATA_STRING 结构"
+title: BP_LOCATION_DATA_STRING | Microsoft Docs
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords:
+- BP_LOCATION_DATA_STRING
+helpviewer_keywords:
+- BP_LOCATION_DATA_STRING structure
 ms.assetid: 445d6f3f-95b0-47ac-85e2-51b778240687
 caps.latest.revision: 10
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 10
----
-# BP_LOCATION_DATA_STRING
-[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
+ms.author: gregvanl
+manager: ghogen
+translation.priority.mt:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+ms.translationtype: MT
+ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
+ms.openlocfilehash: 639ba9c6a51b1d6803f2ab83336d1ce098e70440
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/28/2017
 
-用于设置基于字符串用户可以从集成开发环境 \(ide\) 中输入的数据断点 \(IDE\)。  
+---
+# <a name="bplocationdatastring"></a>BP_LOCATION_DATA_STRING
+Used for setting data breakpoints that are based on a string that the user can enter from the integrated development environment (IDE).  
   
-## 语法  
+## <a name="syntax"></a>Syntax  
   
-```cpp#  
-typedef struct _BP_LOCATION_DATA_STRING {   
-   IDebugThread2* pThread;  
-   BSTR           bstrContext;  
-   BSTR           bstrDataExpr;  
-   DWORD          dwNumElements;  
+```cpp  
+typedef struct _BP_LOCATION_DATA_STRING {   
+   IDebugThread2* pThread;  
+   BSTR           bstrContext;  
+   BSTR           bstrDataExpr;  
+   DWORD          dwNumElements;  
 } BP_LOCATION_DATA_STRING;  
 ```  
   
-## 成员  
+## <a name="members"></a>Members  
  `pThread`  
- 表示线程断点发生的 [IDebugThread2](../../../extensibility/debugger/reference/idebugthread2.md) 对象。  
+ The [IDebugThread2](../../../extensibility/debugger/reference/idebugthread2.md) object that represents the thread on which the breakpoint occurs.  
   
  `bstrContext`  
- 断点的上下文在代码中，通常一个方法或函数名如下所示调用堆栈。  
+ The context of the breakpoint within the code, typically a method or function name as seen on a call stack.  
   
  `bstrDataExpr`  
- 数据字符串用户输入设置断点。  
+ The data string the user enters to set the breakpoint.  
   
  `dwNumElements`  
- 元素数在断点处得到的数据的字符串。  
+ The number of elements in the data string in which the breakpoint occurs.  
   
-## 备注  
- 作为一个联合的一部分，此结构是 [BP\_LOCATION](../../../extensibility/debugger/reference/bp-location.md) 结构的成员。  
+## <a name="remarks"></a>Remarks  
+ This structure is a member of the [BP_LOCATION](../../../extensibility/debugger/reference/bp-location.md) structure as part of a union.  
   
-## 要求  
- 标题:msdbg.h  
+## <a name="requirements"></a>Requirements  
+ Header: msdbg.h  
   
- 命名空间:Microsoft.VisualStudio.Debugger.Interop  
+ Namespace: Microsoft.VisualStudio.Debugger.Interop  
   
- 程序集:Microsoft.VisualStudio.Debugger.Interop.dll  
+ Assembly: Microsoft.VisualStudio.Debugger.Interop.dll  
   
-## 请参阅  
- [结构和联合](../../../extensibility/debugger/reference/structures-and-unions.md)   
- [BP\_LOCATION](../../../extensibility/debugger/reference/bp-location.md)   
+## <a name="see-also"></a>See Also  
+ [Structures and Unions](../../../extensibility/debugger/reference/structures-and-unions.md)   
+ [BP_LOCATION](../../../extensibility/debugger/reference/bp-location.md)   
  [IDebugThread2](../../../extensibility/debugger/reference/idebugthread2.md)

@@ -1,64 +1,80 @@
 ---
-title: "CA1303：不要将文本作为本地化参数传递 | Microsoft Docs"
-ms.custom: ""
-ms.date: "12/15/2016"
-ms.prod: "visual-studio-dev14"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-devops-test"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "Do not pass literals as localized parameters"
-  - "DoNotPassLiteralsAsLocalizedParameters"
-  - "CA1303"
-helpviewer_keywords: 
-  - "CA1303"
-  - "DoNotPassLiteralsAsLocalizedParameters"
+title: 'CA1303: Do not pass literals as localized parameters | Microsoft Docs'
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-devops-test
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords:
+- Do not pass literals as localized parameters
+- DoNotPassLiteralsAsLocalizedParameters
+- CA1303
+helpviewer_keywords:
+- DoNotPassLiteralsAsLocalizedParameters
+- CA1303
 ms.assetid: 904d284e-76d0-4b8f-a4df-0094de8d7aac
 caps.latest.revision: 22
-caps.handback.revision: 22
-author: "stevehoag"
-ms.author: "shoag"
-manager: "wpickett"
----
-# CA1303：不要将文本作为本地化参数传递
-[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
+author: stevehoag
+ms.author: shoag
+manager: wpickett
+translation.priority.ht:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+ms.translationtype: HT
+ms.sourcegitcommit: eb5c9550fd29b0e98bf63a7240737da4f13f3249
+ms.openlocfilehash: 98989e398166e8fc5a5fc0c765b10a11a12d5083
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/30/2017
 
+---
+# <a name="ca1303-do-not-pass-literals-as-localized-parameters"></a>CA1303: Do not pass literals as localized parameters
 |||  
 |-|-|  
-|类型名|DoNotPassLiteralsAsLocalizedParameters|  
+|TypeName|DoNotPassLiteralsAsLocalizedParameters|  
 |CheckId|CA1303|  
-|类别|Microsoft.Globalization|  
-|是否重大更改|否|  
+|Category|Microsoft.Globalization|  
+|Breaking Change|Non Breaking|  
   
-## 原因  
- 某方法将一个字符串作为参数传递给 [!INCLUDE[dnprdnshort](../code-quality/includes/dnprdnshort_md.md)] 类库中的构造函数或方法，该字符串应该是可本地化的。  
+## <a name="cause"></a>Cause  
+ A method passes a string literal as a parameter to a constructor or method in the [!INCLUDE[dnprdnshort](../code-quality/includes/dnprdnshort_md.md)] class library and that string should be localizable.  
   
- 此警告的触发条件为，原义字符串在一个或多个以下的情况下为 true 时，其作为值传递给参数或属性：  
+ This warning is raised when a literal string is passed as a value to a parameter or property and one or more of the following cases is true:  
   
--   参数或属性的 <xref:System.ComponentModel.LocalizableAttribute> 特性设置为 true。  
+-   The <xref:System.ComponentModel.LocalizableAttribute> attribute of the parameter or property is set to true.  
   
--   参数或属性名称包含“文本”、“消息”或“标题”。  
+-   The parameter or property name contains "Text", "Message", or "Caption".  
   
--   对 Console.Write 或 Console.WriteLine 方法传递的字符串参数的名称是“值”或者“格式”。  
+-   The name of the string parameter that is passed to a Console.Write or Console.WriteLine method is either "value" or "format".  
   
-## 规则说明  
- 嵌入在源代码中的字符串难以进行本地化。  
+## <a name="rule-description"></a>Rule Description  
+ String literals that are embedded in source code are difficult to localize.  
   
-## 如何解决冲突  
- 要修复与该规则的冲突，请使用通过 <xref:System.Resources.ResourceManager> 类的实例检索的字符串替换该字符串。  
+## <a name="how-to-fix-violations"></a>How to Fix Violations  
+ To fix a violation of this rule, replace the string literal with a string retrieved through an instance of the <xref:System.Resources.ResourceManager> class.  
   
-## 何时禁止显示警告  
- 如果将不会本地化代码库，或者如果字符串未公开给使用该代码库的最终用户或开发人员，则可以安全地禁止显示此规则发出的警告。  
+## <a name="when-to-suppress-warnings"></a>When to Suppress Warnings  
+ It is safe to suppress a warning from this rule if the code library will not be localized, or if the string is not exposed to the end user or a developer using the code library.  
   
- 通过重命名已命名的参数或属性或者通过将这些项设置为条件项，用户可以消除不应传递本地化字符串的方法的影响。  
+ Users can eliminate noise against methods which should not be passed localized strings by either renaming the parameter or property named, or by marking these items as conditional.  
   
-## 示例  
- 下面的示例演示在两个参数之一超出范围时引发异常的方法。  对于第一个参数，向异常构造函数传递了字符串，此操作与该规则冲突。  对于第二个参数，向构造函数正确地传递了通过 <xref:System.Resources.ResourceManager> 检索到的字符串。  
+## <a name="example"></a>Example  
+ The following example shows a method that throws an exception when either of its two arguments are out of range. For the first argument, the exception constructor is passed a literal string, which violates this rule. For the second argument, the constructor is correctly passed a string retrieved through a <xref:System.Resources.ResourceManager>.  
   
- [!CODE [FxCop.Globalization.DoNotPassLiterals#1](../CodeSnippet/VS_Snippets_CodeAnalysis/FxCop.Globalization.DoNotPassLiterals#1)]  
+ [!code-cpp[FxCop.Globalization.DoNotPassLiterals#1](../code-quality/codesnippet/CPP/ca1303-do-not-pass-literals-as-localized-parameters_1.cpp)] [!code-vb[FxCop.Globalization.DoNotPassLiterals#1](../code-quality/codesnippet/VisualBasic/ca1303-do-not-pass-literals-as-localized-parameters_1.vb)] [!code-csharp[FxCop.Globalization.DoNotPassLiterals#1](../code-quality/codesnippet/CSharp/ca1303-do-not-pass-literals-as-localized-parameters_1.cs)]  
   
-## 请参阅  
- [桌面应用程序中的资源](../Topic/Resources%20in%20Desktop%20Apps.md)
+## <a name="see-also"></a>See Also  
+ [Resources in Desktop Apps](/dotnet/framework/resources/index)

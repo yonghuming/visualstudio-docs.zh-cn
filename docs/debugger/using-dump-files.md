@@ -1,144 +1,134 @@
 ---
-title: "使用转储文件在 Visual Studio 中调试应用程序崩溃和挂起 | Microsoft Docs"
-ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-debug"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "vs.debug.crashdump"
-dev_langs: 
-  - "FSharp"
-  - "VB"
-  - "CSharp"
-  - "C++"
-  - "JScript"
-  - "VB"
-  - "CSharp"
-  - "C++"
-helpviewer_keywords: 
-  - "故障转储"
-  - "转储文件"
-  - "转储"
-  - "转储, 关于转储"
+title: Use Dump Files | Microsoft Docs
+ms.custom: H1HackMay2017
+ms.date: 03/08/2017
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-debug
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords:
+- vs.debug.crashdump
+dev_langs:
+- CSharp
+- VB
+- FSharp
+- C++
+- JScript
+helpviewer_keywords:
+- dumps, about dumps
+- crash dumps
+- dump files
+- dumps
 ms.assetid: b71be6dc-57e0-4730-99d2-b540a0863e49
 caps.latest.revision: 53
-caps.handback.revision: 53
-author: "mikejo5000"
-ms.author: "mikejo"
-manager: "ghogen"
----
-# 使用转储文件在 Visual Studio 中调试应用程序崩溃和挂起
-[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
+author: mikejo5000
+ms.author: mikejo
+manager: ghogen
+translation.priority.ht:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+ms.translationtype: HT
+ms.sourcegitcommit: 9e6c28d42bec272c6fd6107b4baf0109ff29197e
+ms.openlocfilehash: 16bde940901ea4e807b0975412082449c0df96f0
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/22/2017
 
-带有或不带堆的转储文件；创建转储文件；打开转储文件；查找二进制文件、pdb 和转储文件的源文件。  
+---
+# <a name="use-dump-files-with-visual-studio"></a>Use Dump Files with Visual Studio
+Dump files with or without heaps; create a dump file; open a dump file; find the binaries, pdb's, and source file for a dump file.
   
-##  <a name="BKMK_Contents"></a> 内容  
- [什么是转储文件？](#BKMK_What_is_a_dump_file_)  
+##  <a name="BKMK_What_is_a_dump_file_"></a> What is a dump file?  
+ A *dump file* is a snapshot of an app at the point in time the dump is taken. It shows what process was executing and what modules were loaded. If the dump was saved with heap information, the dump file contains a snapshot of what was in the app's memory at that point in time. Opening a dump file with a heap in Visual Studio is like stopping at a breakpoint in a debug session. Although you cannot continue execution, you can examine the stacks, threads, and variable values of the app at the time the dump occurred.  
   
- [带有或不带堆的转储文件](#BKMK_Dump_files__with_or_without_heaps)  
+ Dumps are primarily used for debugging issues that occur on machines that the developer doesn't have access to. For example, you can use a dump file from a customer's machine when you can't reproduce the customer's crash or hang on your machine. Dumps are also created by testers to save crash or hang data so that the test machine can be used for more testing. The Visual Studio debugger can save dump files for managed or native code. The debugger can load dump files that were created by Visual Studio or by other programs that save files in the *minidump* format.  
   
- [要求和限制](#BKMK_Requirements_and_limitations)  
+##  <a name="BKMK_Dump_files__with_or_without_heaps"></a> Dump files, with or without heaps  
+ You can create dump files with or without heap information.  
   
- [创建转储文件](#BKMK_Create_a_dump_file)  
+-   **Dump files with heaps** contain a snapshot of the app's memory. This includes the values of variables at the time the dump was created. If you load a dump file that was saved with a heap, Visual Studio can load the symbols even if the application binary is not found. Visual Studio also saves the binaries of loaded native modules in the dump file, which can make debugging much easier.  
   
- [打开转储文件](#BKMK_Open_a_dump_file)  
+-   **Dump files without heaps** are much smaller than dumps with heap information. However, the debugger has to load the app binaries to find the symbol information. The binaries must be an exact match of the binaries that were used when the dump was created. Only the values of stack variables are saved in dump files without heap data.  
   
- [查找二进制文件、符号 (.pdb) 文件和源文件](#BKMK_Find_binaries__symbol___pdb__files__and_source_files)  
+##  <a name="BKMK_Requirements_and_limitations"></a> Requirements and limitations  
   
-##  <a name="BKMK_What_is_a_dump_file_"></a> 什么是转储文件？  
- 转储文件是应用程序在采用转储的时间点的快照。  它显示了执行的进程和加载的模块。  如果转储与堆信息一起保存，转储文件将包含该时间点在应用程序的内存中储存的内容的快照。  在 Visual Studio 中打开带堆的转储文件类似于在调试会话中在断点处停止。  尽管你无法继续执行，但在转储发生时可以检查应用程序的堆栈、线程和变量值。  
+-   Debugging dump files of optimized code can be confusing. For example, compiler inlining of functions can result in unexpected call stacks and other optimizations might change the lifetime of variables.  
   
- 转储文件主要用于调试发生在开发人员无权访问的计算机上的问题。  例如，当无法在你的计算机上重现客户的故障或挂起时，可以从客户的计算机使用转储文件。  测试人员还会创建转储文件来保存故障或挂起数据，以便让测试计算机可用于更多测试。  Visual Studio 调试器可为托管或本机代码保存转储文件。  该调试器可加载由 Visual Studio 创建或由以小型转储格式保存文件的其他程序创建的转储文件。  
+-   Dump files from 64-bit machines must be debugged on an instance of Visual Studio that is running on a 64-bit computer.  
   
- ![返回页首](~/debugger/media/pcs_backtotop.png "PCS\_BackToTop") [内容](#BKMK_Contents)  
+-   In versions of Visual Studio before VS 2013, dumps of 32-bit apps that were run on 64-bit machines that were collected by some tools (such as Task Manager and 64-bit WinDbg) could not be opened in Visual Studio. This limitation has been removed in VS 2013.  
   
-##  <a name="BKMK_Dump_files__with_or_without_heaps"></a> 带有或不带堆的转储文件  
- 你可以创建带有或不带堆信息的转储文件。  
+-   Visual Studio can debug dump files of native apps from ARM devices. Visual Studio can also debug apps dump files of managed apps from ARM devices, but only in the native debugger.  
   
--   **带有堆的转储文件**包含应用程序的内存的快照。  这包括创建转储时的变量的值。  如果加载与堆一起保存的转储文件，即使未找到应用程序二进制文件，Visual Studio 也可以加载符号。  Visual Studio 还会在转储文件中保存加载的本机模块的二进制文件，这可让调试更加容易。  
+-   To debug [kernel-mode](http://msdn.microsoft.com/library/windows/hardware/ff551880.aspx) dump files in Visual Studio 2013, download the [Windows 8.1 Version of Debugging Tools for Windows](http://msdn.microsoft.com/windows/hardware/gg463009). See [Kernel Debugging in Visual Studio](http://msdn.microsoft.com/library/windows/hardware/jj149675.aspx).  
   
--   **不带堆的转储文件**比带有堆信息的转储文件小得多。  但是，调试器必须加载应用程序二进制文件才能查找符号信息。  该二进制文件必须与创建转储时使用的二进制文件完全匹配。  仅在不带堆数据的转储文件中存储堆栈变量的值。  
+-   Visual Studio can't debug dump files saved in the older dump format known as a [full user-mode dump](http://msdn.microsoft.com/library/windows/hardware/ff545506.aspx). Note that a full user-mode dump is not the same a dump with heap.  
   
- ![返回页首](~/debugger/media/pcs_backtotop.png "PCS\_BackToTop") [内容](#BKMK_Contents)  
+-   To debug with the [SOS.dll (SOS Debugging Extension)](/dotnet/framework/tools/sos-dll-sos-debugging-extension) in Visual Studio, you must install the Debugging Tools for Windows that is part of the Windows Driver Kit (WDK). See [Windows 8.1 Preview: Download kits, bits, and tools](http://msdn.microsoft.com/library/windows/hardware/bg127147.aspx).  
   
-##  <a name="BKMK_Requirements_and_limitations"></a> 要求和限制  
+##  <a name="BKMK_Create_a_dump_file"></a> Create a dump file  
+ To create a dump file with Visual Studio:  
   
--   调试优化过代码的转储文件可能让人困惑。  例如，函数的编译器内联可能产生意外的调用堆栈，而其他优化可能更改变量的生存期。  
+-   While you are debugging a process in Visual Studio, you can save a dump file when the debugger has stopped at an exception or at a breakpoint. Choose **Debug**, then **Save Dump As**, then **Debug**. In the **Save Dump As** dialog box, in the **Save as type** list, you can select **Minidump** or **Minidump with Heap** (the default).  
   
--   64 位计算机中的转储文件必须在运行于 64 位计算机中的 Visual Studio 的实例上进行调试。  
+-   With [Just-In-Time Debugging](../debugger/just-in-time-debugging-in-visual-studio.md) enabled, you can attach the debugger to a crashed process that is running outside the debugger, and then save a dump file. See [Attach to Running Processes](../debugger/attach-to-running-processes-with-the-visual-studio-debugger.md)  
   
--   在 VS 2013 之前的 Visual Studio 版本中，对于在 64 位计算机上运行的 32 位应用，通过某些工具（例如，任务管理器和 64 位 WinDbg）收集的转储无法在 Visual Studio 中打开。  VS 2013 中已经取消了此限制。  
+ You can also create dump files with any program that supports the Windows minidump format. For example, the **Procdump** command-line utility from [Windows Sysinternals](http://technet.microsoft.com/sysinternals/default) can create process crash dump files based on triggers or on-demand. See [Requirements and limitations](../debugger/using-dump-files.md#BKMK_Requirements_and_limitations) in this topic for additional information about using other tools to create dump files. 
   
--   Visual Studio 可以调试 ARM 设备中的本机应用程序的转储文件。  Visual Studio 还可以调试 ARM 设备中的托管应用的应用转储文件，但仅限于本机调试器中。  
+##  <a name="BKMK_Open_a_dump_file"></a> Open a dump file  
   
--   若要调试 Visual Studio 2013 中的[内核模式](http://msdn.microsoft.com/library/windows/hardware/ff551880.aspx)转储文件，请下载 [Windows 8.1 版的 Windows 调试工具](http://msdn.microsoft.com/windows/hardware/gg463009)。  请参阅 [Visual Studio 中的内核调试](http://msdn.microsoft.com/library/windows/hardware/jj149675.aspx)。  
+1.  In Visual Studio, choose **File**, **Open**, **File**.  
   
--   Visual Studio 无法调试以较旧转储格式（称为[完全用户模式转储](http://msdn.microsoft.com/library/windows/hardware/ff545506.aspx)）保存的转储文件。  请注意，完全用户模式转储与带有堆的转储不同。  
+2.  In the **Open File** dialog box, locate and select the dump file. It will usually have a .dmp extension. Then choose **OK**.  
   
--   若要用 Visual Studio 中的 [SOS.dll（SOS 调试扩展）](../Topic/SOS.dll%20\(SOS%20Debugging%20Extension\).md)进行调试，则必须安装适用于 Windows 的调试工具（作为 Windows 驱动程序工具包 \(WDK\) 的一部分）。  请参阅 [Windows 8.1 预览版：下载工具包、组件和工具](http://msdn.microsoft.com/library/windows/hardware/bg127147.aspx)。  
+3.  The **Dump File Summary** window appears. In this window, you can view debugging summary information for the dump file, set the symbol path, start debugging, and copy the summary information to the clipboard.  
   
- ![返回页首](~/debugger/media/pcs_backtotop.png "PCS\_BackToTop") [内容](#BKMK_Contents)  
+     ![Minidump summary page](../debugger/media/dbg_dump_summarypage.png "DBG_DUMP_SummaryPage")  
   
-##  <a name="BKMK_Create_a_dump_file"></a> 创建转储文件  
- 使用 Visual Studio 创建转储文件：  
+4.  To start debugging, go to the **Actions** section, and choose either **Debug with Managed Only**, **Debug with Native Only** or **Debug with Mixed**.  
   
--   在 Visual Studio 中调试进程时，你可以在调试器已在异常或断点处停止时保存转储文件。  选择，**“将转储另存为”**，再选择**“调试”**。  在**“将转储另存为”**对话框的**“保存类型”**列表中，你可以选择**“小型转储”**或**“附带堆信息的小型转储”**（默认）。  
+##  <a name="BKMK_Find_binaries__symbol___pdb__files__and_source_files"></a> Find binaries, symbol (.pdb) files, and source files  
+ To use the full features of Visual Studio to debug a dump file, you need access to:  
   
--   启用[实时调试](../debugger/just-in-time-debugging-in-visual-studio.md)后，可以将调试器附加到在调试器外部运行的故障进程，然后保存转储文件。  请参阅[附加到运行的进程](../debugger/attach-to-running-processes-with-the-visual-studio-debugger.md)。  
+-   The .exe file for which the dump was taken and other binaries (DLLs, etc.) that were used in the dump process.  
   
- 你还可以使用支持 Windows 小型转储格式的任意程序创建转储文件。  例如，[Windows Sysinternals](http://technet.microsoft.com/sysinternals/default) 中的 **Procdump** 命令行实用工具可以基于触发器或按需创建进程故障转储文件。  有关使用其他工具创建转储文件的其他信息，请参阅本主题中的[要求和限制](../debugger/using-dump-files.md#BKMK_Requirements_and_limitations)。  
+     If you are debugging a dump with heap data, Visual Studio can cope with missing binaries for some modules, but it must have binaries for enough modules to generate valid call stacks. Visual Studio includes the native modules in a dump file with heap.  
   
- ![返回页首](~/debugger/media/pcs_backtotop.png "PCS\_BackToTop") [内容](#BKMK_Contents)  
+-   Symbol (.pdb) files for the .exe and other binaries.  
   
-##  <a name="BKMK_Open_a_dump_file"></a> 打开转储文件  
+-   Source files for the modules that you are interested in.  
   
-1.  在 Visual Studio 中，依次选择**“文件”**、**“打开”**和**“文件”**。  
+     The executable and the .pdb files must match exactly the version and build of the files used when the dump was created.  
   
-2.  在**“打开文件”**对话框中定位并选择转储文件。  它通常具有 .dmp 扩展名。  然后选择**“确定”**。  
+     You can debug using the disassembly of the modules if you can't find the source files,  
   
-3.  将显示**“转储文件摘要”**窗口。  在该窗口中，你可以查看转储文件的调试摘要信息、设置符号路径、启动调试以及将摘要信息复制到剪贴板中。  
+ **Default search paths for executable files**  
   
-     ![小型转储摘要页](../debugger/media/dbg_dump_summarypage.png "DBG\_DUMP\_SummaryPage")  
+ Visual Studio automatically searches these locations for executable files that aren't included in the dump file:  
   
-4.  若要开始调试，请转到**“操作”**部分，然后选择**“使用‘仅限本机’进行调试”**或**“使用‘混合模式’进行调试”**。  
+1.  The directory that contains the dump file.  
   
-##  <a name="BKMK_Find_binaries__symbol___pdb__files__and_source_files"></a> 查找二进制文件、符号 \(.pdb\) 文件和源文件  
- 若要使用 Visual Studio 的完整功能来调试转储文件，则需要访问以下文件：  
+2.  The path of the module that is specified in the dump file. This is the module path on the machine where the dump was collected.  
   
--   为其执行转储的 .exe 文件和转储过程中使用的其他二进制文件（DLL 等）。  
+3.  The symbol paths specified in the **Debugging**, **Options**, **Symbols** page of the Visual Studio **Tools**, **Options** dialog box. You can add more locations to search on this page.  
   
-     如果要调试带有堆数据的转储，则 Visual Studio 可以处理某些模块缺少二进制文件的情况，但是它必须具有足够多的模块的二进制文件才能生成有效的调用堆栈。  Visual Studio 将本机模块包含在带有堆的转储文件中。  
+ **Using the No Binary > Symbol > Source pages**  
   
--   .exe 的符号 \(.pdb\) 文件以及其他二进制文件。  
+ If Visual Studio can't find the files needed to debug a module in the dump, it displays an appropriate page (**No Binary Found**, **No Symbols Found**, or **No Source Found**). These pages provide detailed information about the cause of the issue and provide action links that can help you identify the correct location of the files. See [Specify Symbol (.pdb) and Source Files](../debugger/specify-symbol-dot-pdb-and-source-files-in-the-visual-studio-debugger.md).  
   
--   与你相关的模块的源文件。  
-  
-     可执行文件和 .pdb 文件必须与创建转储时使用的文件的版本和内部版本完全匹配。  
-  
-     如果你找不到源文件，则可以使用模块的反汇编进行调试。  
-  
- **可执行文件的默认搜索路径**  
-  
- Visual Studio 会自动搜索未包含在转储文件中的可执行文件的位置：  
-  
-1.  包含转储文件的目录。  
-  
-2.  转储文件中指定的模块的路径。  这是收集转储的计算机上的模块路径。  
-  
-3.  Visual Studio 的**“工具”**\>**“选项”**对话框的**“调试”**\>**“选项”**\>**“符号”**页中指定的符号路径。  你可以在此页上添加更多要搜索的位置。  
-  
- **使用“无二进制”\/“无符号”\/“无源”页**  
-  
- 如果 Visual Studio 找不到调试转储中的模块所需要的文件，则会显示相应的页（**“未找到二进制文件”**、**“未找到符号”**或**“未找到源”**）。  这些页面提供了有关问题原因的详细信息，并提供了可帮助你识别文件的正确位置的操作链接。  请参阅[指定符号 \(.pdb\) 和源文件](../debugger/specify-symbol-dot-pdb-and-source-files-in-the-visual-studio-debugger.md)。  
-  
- ![返回页首](~/debugger/media/pcs_backtotop.png "PCS\_BackToTop") [内容](#BKMK_Contents)  
-  
-## 请参阅  
- [实时调试](../debugger/just-in-time-debugging-in-visual-studio.md)   
- [指定符号 \(.pdb\) 和源文件](../debugger/specify-symbol-dot-pdb-and-source-files-in-the-visual-studio-debugger.md)   
- [使用 IntelliTrace](../debugger/intellitrace.md)
+## <a name="see-also"></a>See Also  
+ [Just-In-Time Debugging](../debugger/just-in-time-debugging-in-visual-studio.md)   
+ [Specify Symbol (.pdb) and Source Files](../debugger/specify-symbol-dot-pdb-and-source-files-in-the-visual-studio-debugger.md)   
+ [IntelliTrace](../debugger/intellitrace.md)

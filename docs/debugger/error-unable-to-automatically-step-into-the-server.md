@@ -1,48 +1,63 @@
 ---
-title: "错误：无法自动单步执行服务器 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-debug"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "vs.debug.error.causality_no_server_response"
-dev_langs: 
-  - "FSharp"
-  - "VB"
-  - "CSharp"
-  - "C++"
-  - "JScript"
-  - "VB"
-  - "CSharp"
-  - "C++"
-helpviewer_keywords: 
-  - "远程调试, 通知错误"
+title: 'Error: Unable to Automatically Step Into the Server | Microsoft Docs'
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-debug
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords:
+- vs.debug.error.causality_no_server_response
+dev_langs:
+- CSharp
+- VB
+- FSharp
+- C++
+- JScript
+helpviewer_keywords:
+- remote debugging, notification error
 ms.assetid: 9a370ccc-d358-429c-b285-9b6c0649bc68
 caps.latest.revision: 13
-author: "mikejo5000"
-ms.author: "mikejo"
-manager: "ghogen"
-caps.handback.revision: 13
----
-# 错误：无法自动单步执行服务器
-[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
+author: mikejo5000
+ms.author: mikejo
+manager: ghogen
+translation.priority.ht:
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- ru-ru
+- zh-cn
+- zh-tw
+translation.priority.mt:
+- cs-cz
+- pl-pl
+- pt-br
+- tr-tr
+ms.translationtype: HT
+ms.sourcegitcommit: 9e6c28d42bec272c6fd6107b4baf0109ff29197e
+ms.openlocfilehash: db04d4c3c25f5ac0d51f41a44cb78f32f1778ef5
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/22/2017
 
-此错误显示如下：  
+---
+# <a name="error-unable-to-automatically-step-into-the-server"></a>Error: Unable to Automatically Step Into the Server
+The error reads:  
   
- 无法自动单步执行服务器。 在远程过程执行前调试器未得到通知  
+ Unable to Automatically Step Into the Server. The debugger was not notified before the remote procedure was executed  
   
- 当你尝试单步执行 Web 服务时，可能发生此错误（请参阅[单步执行 XML Web services](http://msdn.microsoft.com/zh-cn/8e67de38-bf5f-41cc-a457-1b88ce63d764)）。 只要 [!INCLUDE[vstecasp](../code-quality/includes/vstecasp_md.md)] 未正确设置，就会发生此错误。  
+ This error can occur when you are trying to step into a web service (see [Stepping Into an XML Web Service](http://msdn.microsoft.com/en-us/8e67de38-bf5f-41cc-a457-1b88ce63d764)). It can occur whenever [!INCLUDE[vstecasp](../code-quality/includes/vstecasp_md.md)] is not set up properly.  
   
- 可能的原因有：  
+ Possible causes are:  
   
--   [!INCLUDE[vstecasp](../code-quality/includes/vstecasp_md.md)] 应用程序的 web.config 文件未将调试设置为“true”（请参见 [ASP.NET 应用程序中的调试模式](../debugger/how-to-enable-debugging-for-aspnet-applications.md)）。  
+-   The web.config file for your [!INCLUDE[vstecasp](../code-quality/includes/vstecasp_md.md)] application does not set debug to "true" in (see [Debug Mode in ASP.NET Applications](../debugger/how-to-enable-debugging-for-aspnet-applications.md)).  
   
--   在安装 Visual Studio 后安装了某个版本的 [!INCLUDE[vstecasp](../code-quality/includes/vstecasp_md.md)]。[!INCLUDE[vstecasp](../code-quality/includes/vstecasp_md.md)] 应在安装 Visual Studio 之前安装。 若要修复此问题，请使用 Window“控制面板”和“程序和功能”来修复 Visual Studio 安装。  
+-   A version of [!INCLUDE[vstecasp](../code-quality/includes/vstecasp_md.md)] was installed after Visual Studio was installed. [!INCLUDE[vstecasp](../code-quality/includes/vstecasp_md.md)] should be installed before Visual Studio. To fix this problem, use the Windows **Control Panel > Programs and Features** to repair your Visual Studio installation.  
   
-## 请参阅  
- [远程调试错误和疑难解答](../debugger/remote-debugging-errors-and-troubleshooting.md)   
- [远程调试](../debugger/remote-debugging.md)
+## <a name="see-also"></a>See Also  
+ [Remote Debugging Errors and Troubleshooting](../debugger/remote-debugging-errors-and-troubleshooting.md)   
+ [Remote Debugging](../debugger/remote-debugging.md)

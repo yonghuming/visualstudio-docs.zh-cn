@@ -1,80 +1,84 @@
 ---
-title: "如何：添加 Creator 方法"
-ms.custom: ""
-ms.date: "02/02/2017"
-ms.prod: "visual-studio-dev14"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "office-development"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-dev_langs: 
-  - "VB"
-  - "CSharp"
-  - "VB"
-  - "CSharp"
-helpviewer_keywords: 
-  - "BDC [Visual Studio 中的 SharePoint 开发], 添加实体"
-  - "BDC [Visual Studio 中的 SharePoint 开发], 添加实体实例"
-  - "BDC [Visual Studio 中的 SharePoint 开发], 创建者"
-  - "业务数据连接服务 [Visual Studio 中的 SharePoint 开发], 添加实体"
-  - "业务数据连接服务 [Visual Studio 中的 SharePoint 开发], 添加实体实例"
-  - "业务数据连接服务 [Visual Studio 中的 SharePoint 开发], 创建者"
+title: 'How to: Add a Creator Method | Microsoft Docs'
+ms.custom: 
+ms.date: 02/02/2017
+ms.prod: visual-studio-dev14
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- office-development
+ms.tgt_pltfrm: 
+ms.topic: article
+dev_langs:
+- VB
+- CSharp
+- VB
+- CSharp
+helpviewer_keywords:
+- BDC [SharePoint development in Visual Studio], Creator
+- BDC [SharePoint development in Visual Studio], adding entity instances
+- Business Data Connectivity service [SharePoint development in Visual Studio], adding entities
+- Business Data Connectivity service [SharePoint development in Visual Studio], adding entity instances
+- BDC [SharePoint development in Visual Studio], adding entities
+- Business Data Connectivity service [SharePoint development in Visual Studio], Creator
 ms.assetid: 52f0382f-10a0-4a51-83fe-6f22f4647df8
 caps.latest.revision: 30
-author: "kempb"
-ms.author: "kempb"
-manager: "ghogen"
-caps.handback.revision: 29
+author: kempb
+ms.author: kempb
+manager: ghogen
+ms.translationtype: HT
+ms.sourcegitcommit: eb5c9550fd29b0e98bf63a7240737da4f13f3249
+ms.openlocfilehash: c73fc212baa6284b8915a5866cb4d13232231149
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/30/2017
+
 ---
-# 如何：添加 Creator 方法
-  Creator 方法向实体的数据源添加新数据。  当用户选择基于模型的列表功能区上的**“新建项”**按钮时，业务数据连接 \(BDC\) 服务将调用此方法。  有关详细信息，请参阅[设计业务数据连接模型](../sharepoint/designing-a-business-data-connectivity-model.md)。  
+# <a name="how-to-add-a-creator-method"></a>How to: Add a Creator Method
+  A Creator method adds new data to the data source of an entity. The Business Data Connectivity (BDC) service calls this method when users choose the **New Item** button on the Ribbon of a list that is based on the model. For more information, see [Designing a Business Data Connectivity Model](../sharepoint/designing-a-business-data-connectivity-model.md).  
   
-### 添加 Creator 方法  
+### <a name="to-add-a-creator-method"></a>To add a Creator method  
   
-1.  在 BDC 设计器中选择一个实体。  
+1.  On the BDC designer, choose an entity.  
   
-2.  在菜单栏上，依次选择 **视图**，**其他窗口**，**BDC 方法详细信息**。  
+2.  On the menu bar, choose **View**, **Other Windows**, **BDC Method Details**.  
   
-     将打开**“BDC 方法详细信息”**窗口。  有关此窗口的更多信息，请参见 [BDC 模型设计工具概述](../sharepoint/bdc-model-design-tools-overview.md)。  
+     The **BDC Method Details** window opens. For more information about that window, see [BDC Model Design Tools Overview](../sharepoint/bdc-model-design-tools-overview.md).  
   
-3.  在 **添加方法** 列表中，选择 **创建 Creator 方法**。  
+3.  In the **Add a Method** list, choose **Create Creator Method**.  
   
-     Visual Studio 将以下元素添加到模型，因此，这些元素将显示在 **BDC 方法详细信息** 窗口。  
+     Visual Studio adds the following elements to the model, and these elements appear in the **BDC Method Details** window.  
   
-    -   一个名为**“Create”**的方法。  
+    -   A method named **Create**.  
   
-    -   该方法的输入参数。  
+    -   An input parameter for the method.  
   
-    -   该方法的返回参数。  
+    -   A return parameter for the method.  
   
-    -   参数的类型描述符。  
+    -   Type descriptors for the parameters.  
   
-    -   该方法的一个方法实例。  
+    -   A method instance for the method.  
   
-     有关详细信息，请参阅[设计业务数据连接模型](../sharepoint/designing-a-business-data-connectivity-model.md)。  
+     For more information, see [Designing a Business Data Connectivity Model](../sharepoint/designing-a-business-data-connectivity-model.md).  
   
-4.  在**“解决方案资源管理器”**中，打开实体生成的服务代码文件的快捷方式，然后选择**“查看代码”**。  
+4.  In **Solution Explorer**, open the shortcut menu of the service code file that was generated for the entity, and then choose **View Code**.  
   
-     在代码编辑器中打开实体服务代码文件。  有关实体服务代码文件的更多信息，请参见[创建业务数据连接模型](../sharepoint/creating-a-business-data-connectivity-model.md)。  
+     The entity service code file opens in the Code Editor. For more information about the entity service code file, see [Creating a Business Data Connectivity Model](../sharepoint/creating-a-business-data-connectivity-model.md).  
   
-5.  在 Creator 方法中添加用于向数据源添加数据的代码。  下面的示例向 SQL Server 的 AdventureWorks 示例数据库添加联系人。  
+5.  Add code to the Creator method that adds data to the data source. The following example adds a contact to the AdventureWorks sample database for SQL Server.  
   
     > [!NOTE]  
-    >  用您的服务器名称替换 `ServerName` 字段的值。  
+    >  Replace the value of the `ServerName` field with the name of your server.  
   
-     [!code-csharp[SP_BDC#4](../snippets/csharp/VS_Snippets_OfficeSP/sp_bdc/CS/bdcmodel1/contactservice.cs#4)]
-     [!code-vb[SP_BDC#4](../snippets/visualbasic/VS_Snippets_OfficeSP/sp_bdc/VB/bdcmodel1/contactservice.vb#4)]  
+     [!code-csharp[SP_BDC#4](../sharepoint/codesnippet/CSharp/SP_BDC/bdcmodel1/contactservice.cs#4)]  [!code-vb[SP_BDC#4](../sharepoint/codesnippet/VisualBasic/sp_bdc/bdcmodel1/contactservice.vb#4)]  
   
-## 请参阅  
- [设计业务数据连接模型](../sharepoint/designing-a-business-data-connectivity-model.md)   
- [如何：添加 Finder 方法](../sharepoint/how-to-add-a-finder-method.md)   
- [如何：添加特定的 Finder 方法](../sharepoint/how-to-add-a-specific-finder-method.md)   
- [如何：添加 Deleter 方法](../sharepoint/how-to-add-a-deleter-method.md)   
- [如何：添加 Updater 方法](../sharepoint/how-to-add-an-updater-method.md)   
- [BDC 模型设计工具概述](../sharepoint/bdc-model-design-tools-overview.md)   
- [如何：向方法添加参数](../sharepoint/how-to-add-a-parameter-to-a-method.md)   
- [如何：定义方法实例](../sharepoint/how-to-define-a-method-instance.md)  
+## <a name="see-also"></a>See Also  
+ [Designing a Business Data Connectivity Model](../sharepoint/designing-a-business-data-connectivity-model.md)   
+ [How to: Add a Finder Method](../sharepoint/how-to-add-a-finder-method.md)   
+ [How to: Add a Specific Finder Method](../sharepoint/how-to-add-a-specific-finder-method.md)   
+ [How to: Add a Deleter Method](../sharepoint/how-to-add-a-deleter-method.md)   
+ [How to: Add an Updater Method](../sharepoint/how-to-add-an-updater-method.md)   
+ [BDC Model Design Tools Overview](../sharepoint/bdc-model-design-tools-overview.md)   
+ [How to: Add a Parameter to a Method](../sharepoint/how-to-add-a-parameter-to-a-method.md)   
+ [How to: Define a Method Instance](../sharepoint/how-to-define-a-method-instance.md)  
   
   

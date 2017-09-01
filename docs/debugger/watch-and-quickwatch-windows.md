@@ -1,187 +1,270 @@
 ---
-title: "监视和快速监视窗口 | Microsoft Docs"
-ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-debug"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "vs.debug.watch"
-dev_langs: 
-  - "FSharp"
-  - "VB"
-  - "CSharp"
-  - "C++"
-  - "JScript"
-helpviewer_keywords: 
-  - "调试 [Visual Studio]，监视窗口"
-  - "表达式 [调试器]，计算"
-  - "变量 [调试器]，计算"
-  - "表达式计算"
-  - "寄存器，计算"
-  - "调试 [Visual Studio]、表达式计算"
+title: Set a Watch on Variables in Visual Studio | Microsoft Docs
+ms.custom: H1Hack27Feb2017
+ms.date: 04/04/2017
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-debug
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords:
+- vs.debug.watch
+helpviewer_keywords:
+- debugging [Visual Studio], Watch window
+- expressions [debugger], evaluating
+- variables [debugger], evaluating
+- expression evaluation
+- registers, evaluating
+- debugging [Visual Studio], expression evaluation
 ms.assetid: d5c18377-2a0e-4819-a645-407e24ccc58c
 caps.latest.revision: 45
-caps.handback.revision: 44
-author: "mikejo5000"
-ms.author: "mikejo"
-manager: "ghogen"
----
-# 监视和快速监视窗口
-[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
+author: mikejo5000
+ms.author: mikejo
+manager: ghogen
+translation.priority.ht:
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- ru-ru
+- zh-cn
+- zh-tw
+translation.priority.mt:
+- cs-cz
+- pl-pl
+- pt-br
+- tr-tr
+ms.translationtype: HT
+ms.sourcegitcommit: 3cd705d703b3d745c502290422e29b3c6da39ee5
+ms.openlocfilehash: f3f89adacaa42fe708027bd8576ee2b8522eee1a
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/23/2017
 
-在调试会话期间，你可以使用“监视”（**“调试”\/“窗口”\/“监视”\/“监视”\(1, 2, 3, 4\)**）和“快速监视”（**“调试”\/“快速监视”**）监视变量和表达式 区别是“监视”窗口可以显示多个变量，而“快速监视”窗口一次仅显示单个变量。  
+---
+# <a name="set-a-watch-on-variables-using-the-watch-and-quickwatch-windows-in-visual-studio"></a>Set a Watch on Variables using the Watch and QuickWatch Windows in Visual Studio
+While you are debugging, you can use the **Watch** (**Debug > Windows > Watch > Watch (1, 2, 3, 4)**) and **QuickWatch** (right-click on variable / **Debug > QuickWatch**) windows to watch variables and expressions.  The difference is that the **Watch** window can display several variables, while the **QuickWatch** window displays a single variable at a time.
+
+The windows are only available during a debugging session. 
   
-## 使用“快速监视”观察单个变量  
- 你可以使用“快速监视”窗口观察单个变量。 例如，如果你有以下代码：  
+## <a name="observing-a-single-variable-with-quickwatch"></a>Observing a single variable with QuickWatch  
+ You can use the **QuickWatch** window to observe a single variable. For example, if you have the following code:  
   
-```c#  
-static void Main(string[] args) { int a, b; a = 1; b = 2; for (int i = 0; i < 10; i++) { a = a + b; } }  
+```CSharp
+static void Main(string[] args)  
+{  
+    int a, b;  
+    a = 1;  
+    b = 2;  
+    for (int i = 0; i < 10; i++)  
+    {  
+        a = a + b;  
+    }   
+}  
 ```  
   
- 你可以在如下所示的“快速监视”窗口中观察变量：  
+ You can observe the a variable in the QuickWatch window as follows:  
   
-1.  在 `a = a + b;` 行上设置断点。  
+1.  Set a breakpoint on the `a = a + b;` line.  
   
-2.  开始调试。 执行在断点处停止。  
+2.  Start debugging. Execution stops at the breakpoint.  
   
-3.  打开“快速监视”窗口（右键单击，然后选择“调试”\/“快速监视”，或者按 **SHIFT\+F9**）。你可以打开窗口，然后向“表达式”窗口中添加变量，然后单击“重新计算”。 你应该会在“值”窗口中看到一个变量，其值为 2。  
+3.  Open the **QuickWatch** window (right-click on a, then choose **QuickWatch**, or **SHIFT+F9**).
+
+    You should see the a variable in the **Values** window, with a value of 1.
+
+    ![QuickWatch Expression](../debugger/media/watchexpression.png "QuickWatchExpression")  
+
+    If you want to evaluate an expression using the variable, add an expression such as `a + b` to the **Expression** window and click **Reevaluate**. 
   
-4.  “快速监视”窗口是一个模式对话框窗口，因此只要该窗口处于打开状态，就无法继续进行调试。 你可以通过单击“添加监视”向“监视”窗口添加变量。  
+4.  Add the variable to the **Watch** window from **QuickWatch** by clicking **Add Watch**. 
+
+    > [!NOTE]
+    > The **QuickWatch** window is a modal dialog window, so you can't continue debugging as long as it is open.  
   
-5.  关闭“快速监视”窗口。 现在你可以继续进行调试，同时观察“监视”窗口中的值  
+5.  Close the **QuickWatch** window. Now you can continue debugging while you observe the value in the **Watch** window.  
   
-## 使用“监视”窗口观察变量  
- 可以通过“监视”窗口观察多个变量。 例如，如果你有以下代码：  
+## <a name="observing-variables-with-the-watch-window"></a>Observing variables with the Watch window  
+ You can observe multiple variables with the **Watch** window. For example, if you have the following code:  
   
-```c#  
-static void Main(string[] args) { int a, b, c; a = 1; b = 2; c = 0; for (int i = 0; i < 10; i++) { a++; b *= 2; c = a + b; } }  
-  
-```  
-  
- 如下所示，向“监视”窗口添加三个变量的值：  
-  
-1.  在 `c = a + b;` 行上设置断点。  
-  
-2.  启动调试 \(**F5**\)。 执行在断点处停止。  
-  
-3.  打开“监视”窗口（**“调试”\/“窗口”\/“监视”\/“监视 1”**，或按 **CTRL\+ALT\+W, 1**）。  
-  
-4.  向第一行添加 `a` 变量，向第二行添加 `b` 变量，向第三行添加 `c` 变量。  
-  
-5.  继续调试。  
-  
- 在循环访问 `for` 循环时，应该会看到变量值在改变。  
-  
- 如果正在用本机代码编程，有时可能需要限定变量名或包含变量名的表达式的上下文。 上下文指变量所处的函数、源文件和模块。 如果需要限定上下文，你可以使用上下文运算符语法。 有关详细信息，请参阅 C\+\+ 中的表达式。  
-  
-## 使用“监视”窗口观察表达式  
- 现在让我们来试试使用表达式。 你可以添加调试器所能识别的任何有效表达式。  
-  
- 例如，如果你在前一部分中列出了代码，你可以获得三个值的平均值，如下所示：  
-  
- ![WatchExpression](~/debugger/media/watchexpression.png "WatchExpression")  
-  
- 一般而言，“监视”窗口中的表达式计算规则与编码语言中表达式的计算规则相同。 如果你的表达式具有语法错误，则在代码编辑器中将会出现相同的编译器错误。 以下是一个示例：  
-  
- ![WatchExpressionError](~/debugger/media/watchexpressionerror.png "WatchExpressionError")  
-  
-##  <a name="bkmk_refreshWatch"></a> 刷新过期的“监视”值  
- 在特定环境中，当在计算“监视”窗口中的表达式时，你可能会看到一个刷新图标（一个带有两个箭头的圆圈，或带有两个波浪条纹的圆圈）。  例如，如果你关闭了属性计算（**“工具”\/“选项”\/“调试”\/“启用”属性计算和其他隐式函数调用**），那么你具有以下代码：  
-  
-```c#  
-static void Main(string[] args) { List<string> list = new List<string>(); list.Add("hello"); list.Add("goodbye"); }  
+```C++  
+int main()
+{
+    int a, b, c;
+    a = 1;
+    b = 2;
+    c = 0;
+
+    for (int i = 0; i < 10; i++)
+    {
+        a++;
+        b *= 2;
+        c = a + b;
+    }
+
+    return 0;
+}
   
 ```  
   
- 如果你在列表的 `Count` 属性上设置监视，应该会看到类似于以下的东西：  
+ Add the values of the three variables to the Watch window as follows:  
+  
+1.  Set a breakpoint on the `c = a + b;` line.  
+  
+2.  Start debugging (**F5**). Execution stops at the breakpoint.  
+  
+3.  Open the Watch window (**Debug > Windows > Watch > Watch 1**, or **CTRL+ALT+W, 1**).  
+  
+4.  Add the `a` variable to the first row, the `b` variable to the second row, and the `c` variable to the third row.
+
+    You can add variables by clicking an empty row and typing the variable name.
+  
+5.  Continue debugging (press **F11** to advance the debugger).  
+  
+ You should see the variable values changing as you iterate through the `for` loop.  
+  
+ If you are programming in native code, you may sometimes need to qualify the context of a variable name or an expression containing a variable name. The context is the function, source file, and module where a variable is located. If you have to do this, you can use the context operator syntax. For more information, see [Context Operator (C++)](../debugger/context-operator-cpp.md).  
+  
+## <a name="observing-expressions-with-the-watch-window"></a>Observing expressions with the Watch window  
+ Now let's try using an expression instead. You can add any valid expression recognized by the debugger.  
+  
+ For example, if you have the code listed in the preceding section, you can get the average of the three values like this:  
+  
+ ![Watch Expression](../debugger/media/watchexpression.png "WatchExpression")  
+  
+ In general, the rules for evaluating expressions in the **Watch** window are the same as the rules for evaluating expressions in your coding language. If your expression has a syntax error, you can expect the same compiler error that you would see in the code editor. Here's an example:  
+  
+ ![Watch Expression Error](../debugger/media/watchexpressionerror.png "WatchExpressionError")  
+  
+##  <a name="bkmk_refreshWatch"></a> Refreshing Watch values that are out of date  
+ In certain circumstances you might see a refresh icon (a circular arrow) when an expression is evaluated in the **Watch** window.  For example, if you have property evaluation turned off (**Tools > Options > Debugging > Enable property evaluation and other implicit function calls**), and you have the following code:  
+  
+```CSharp  
+static void Main(string[] args)  
+{  
+    List<string> list = new List<string>();  
+    list.Add("hello");  
+    list.Add("goodbye");  
+}  
+  
+```  
+  
+ If you set a watch on the `Count` property of the list, you should see something like the following:  
   
  ![RefreshWatch](../debugger/media/refreshwatch.png "RefreshWatch")  
   
- 它指示一个错误，或是一个已过期的值。 一般可以通过单击图标来刷新这一值，但在某些情况下你可能更倾向于不刷新这一值。 首先应该知道为什么不计算这个值。  
+ This indicates an error or a value that is out of date. You can generally refresh the value by clicking on the icon, but in some cases you might prefer not to refresh it. First you need to know why the value was not evaluated.  
   
- 如果你指向图标，将显示一个工具提示，提供有关未计算表达式的原因的信息。 如果显示旋转箭头，则是由于下列原因之一而未计算表达式：  
+ If you point to the icon, a tooltip provides information about why the expression was not evaluated.  If the circling arrows appear, the expression was not evaluated for one of the following reasons:  
   
--   •	在计算表达式时发生错误。 例如，计算可能超时或者变量可能超出范围。  
+-   An error occurred as the expression was being evaluated. For example, a time-out might have occurred, or a variable might have been out of scope.  
   
--   •	该表达式包含一个函数调用，可在应用程序中激发副作用（见 [副作用与表达式](#bkmk_sideEffects)）。  
+-   The expression contains a function call which could trigger a side effect in the application (see [Side Effects and Expressions](#bkmk_sideEffects)).  
   
--   关闭由调试器执行的属性和隐式函数调用的自动计算（**“工具”\/“选项”\/“调试”\/“启用”属性计算和其他隐式函数调用**），则无法自动计算表达式。  
+-   Automatic evaluation of properties and implicit functions calls by the debugger is turned off (**Tools > Options > Debugging > Enable property evaluation and other implicit function calls**), and then the expression cannot be automatically evaluated.  
   
- 要刷新值，单击刷新图标或按空格键。 调试器将尝试重新计算该表达式。 如果因为属性和隐式副作用的自动计算关闭而出现刷新图标，则可以计算表达式。  
+ To refresh the value, click the refresh icon or press the spacebar. The debugger will try to reevaluate the expression. If the refresh icon appeared because automatic evaluation of properties and other implicit function calls was turned off, the expression can be evaluated.  
   
- 如果看到的图标是一个带有像线程一样的波浪条纹的圆圈，则由于一个潜在的跨线程的依赖项而未计算表达式。 换言之，计算代码需要暂时运行应用程序中的其他线程。 处于中断模式时，应用程序中的所有线程通常停止。 允许其他线程暂时运行可能会对程序状态产生意外影响，并会导致调试器忽略断点和在这些线程上引发的异常等事件。  
+ If you see an icon that is a circle with two wavy lines that resemble threads, the expression was not evaluated because of a potential cross-thread dependency. In other words, evaluating the code requires other threads in your application to run temporarily. When you are in break mode, all threads in your application are typically stopped. Allowing other threads to run temporarily can have unexpected effects on the state of your program and causes the debugger to ignore events such as breakpoints and exceptions thrown on those threads.  
   
-##  <a name="bkmk_sideEffects"></a> 副作用与表达式  
- 计算某些表达式可以更改变量的值，或会影响程序的状态。 例如，计算下列表达式会更改 `var1` 的值：  
+##  <a name="bkmk_sideEffects"></a> Side Effects and Expressions  
+ Evaluating some expressions can change the value of a variable or otherwise affect the state of your program. For example, evaluating the following expression changes the value of `var1`:  
   
 ```  
 var1 = var2  
 ```  
   
- 这称为[“副作用”](https://en.wikipedia.org/wiki/Side_effect_\(computer_science\))。 通过改变程序运行的方式，副作用可使调试变得更加困难。  
+ This is called  a [side effect](https://en.wikipedia.org/wiki/Side_effect_\(computer_science\)). Side effects can make debugging more difficult by changing the way your program operates.  
   
- 对于已知具有副作用的表达式，只会在首次输入表达式时进行一次计算。 随后的计算将被禁用。 通过单击出现在值旁边的更新图标，可以手动重写此行为。  
+ An expression that is known to have side effects is  evaluated only once, when you first enter it. Subsequent evaluations are disabled. You can manually override this behavior by clicking the update icon that appears next to the value.  
   
- 规避所有副作用的一个方法是关闭自动函数计算（**“工具”\/“选项”\/“调试”\/“启用”属性计算和其他隐式函数调用**）。  
+ One way to avoid all side effects is to turn off automatic function evaluation (**Tools > Options > Debugging > Enable property evaluation and other implicit function calls**).  
   
- 当关闭属性计算或隐式函数调用时，可以使用 **ac** 格式修饰符（仅适用于 C\#）强制计算。 请参阅 [C\# 中的格式说明符](../debugger/format-specifiers-in-csharp.md)。  
+ When evaluation of properties or implicit function calls is turned off, you can force evaluation by using the **ac** format modifier (for C# only). See [Format Specifiers in C#](../debugger/format-specifiers-in-csharp.md).  
   
-## 使用“监视”窗口中的“对象 ID”（C\# 和 Visual Basic）  
- 存在你想要观察特定对象的行为的情况；例如，你可能想要在一个局部变量超出范围时跟踪一个由该变量引用的对象。 在 C\# 和 Visual Basic 中，你可以创建引用类型的特定实例的对象 ID，并在“监视”窗口中和断点条件下使用它们。 对象 ID 由公共语言运行时 \(CLR\) 调试服务生成并与该对象关联。  
+## <a name="bkmk_objectIds"></a> Using Object IDs in the Watch window (C# and Visual Basic)  
+ There are times when you want to observe the behavior of a specific object; for example, you might want to track an object referred to by a local variable after that variable has gone out of scope. In C# and Visual Basic, you can create object IDs for specific instances of reference types and use them in the Watch window and in breakpoint conditions. The object ID is generated by the common language runtime (CLR) debugging services and associated with the object.  
   
 > [!NOTE]
->  对象 ID 创建弱引用，且不会阻止对象被垃圾回收。 它们仅对当前调试会话有效。  
+>  Object IDs create weak references, and do not prevent the object from being garbage collected. They are valid only for the current debugging session.  
   
- 在以下代码中，一个方法使用局部变量创建 `Person`，但你想要找出另一个不同方法中 `Person` 的名称是什么：  
+ In the following code one method creates a `Person` using a local variable, but you want to find out what the `Person`'s name is in a different method:  
   
-```c#  
-class Person { public Person(string name) { Name = name; } public string Name { get; set; } } public class Program { List<Person> _people = new List<Person>(); public static void Main(string[] args) { MakePerson(); DoSomething(); } private static void MakePerson() { var p = new Person("Bob"); _people.Add(p); } private static void DoSomething() { // more processing Console.WriteLine("done"); } }  
+```CSharp  
+class Person  
+{  
+    public Person(string name)  
+    {  
+        Name = name;  
+    }  
+    public string Name { get; set; }  
+}  
+  
+public class Program  
+{  
+    List<Person> _people = new List<Person>();  
+    public static void Main(string[] args)  
+    {  
+        MakePerson();  
+        DoSomething();  
+    }  
+  
+    private static void MakePerson()  
+    {  
+        var p = new Person("Bob");  
+        _people.Add(p);  
+    }  
+  
+    private static void DoSomething()  
+    {  
+        // more processing  
+         Console.WriteLine("done");  
+    }  
+}  
   
 ```  
   
- 你可以在“监视”窗口中向该 `Person` 对象添加引用，如下所示：  
+ You can add a reference to that `Person` object in the **Watch** window as follows:  
   
-1.  在对象已被创建后的某个时间在代码中设置断点。  
+1.  Set a breakpoint in the code some time after the object has been created.  
   
-2.  启动调试，当执行在断点处停止时，在“局部变量”窗口中找到该变量，右键单击该变量，然后选择“创建对象 ID”。  
+2.  Start debugging, and when execution stops in the breakpoint, find the variable in the **Locals** window, right-click it, and select **Make Object ID**.  
   
-3.  应该会在“局部变量”窗口中看到 **$** 外加一个数字。 这就是对象 ID。  
+3.  You should see a **$** plus a number in the **Locals** window. This is the object ID.  
   
-4.  将对象 ID 添加到“监视”窗口中。  
+4.  Add the object ID to the Watch window.  
   
-5.  在想要观察对象行为的地方设置断点。  在以上代码中，这个位置是在 `DoSomething()` 方法中。  
+5.  Set a breakpoint where you want to observe the object's behavior.  In the code above, that would be in the `DoSomething()` method.  
   
-6.  继续调试，当执行在 `DoSomething()` 方法处停止时，“监视”窗口会显示 `Person` 对象。  
+6.  Continue debugging, and when execution stops in the `DoSomething()` method, the **Watch** window displays the `Person` object.  
   
 > [!NOTE]
->  如果想要查看对象属性，如以上示例中的 `Person.Name`，必须启用属性计算。  
+>  If you want to see the object's properties, such as `Person.Name` in the example above, you must have enabled property evaluation .  
   
-## 在“监视”窗口（仅 C\+\+）中使用寄存器  
- 如果要调试本机代码，可以使用  **$\<register name\>** 或 **@\<register name\>** 添加寄存器名以及变量名。  有关详细信息，请参阅 [伪变量](../debugger/pseudovariables.md)。  
+## <a name="using-registers-in-the-watch-window-c-only"></a>Using registers in the Watch window (C++ only)  
+ If you are debugging native code, you can add register names as well as variable names using **$\<register name>** or **@\<register name>**.  For more information, see [Pseudovariables](../debugger/pseudovariables.md).  
   
-## DynamicView 和“监视”窗口  
- 某些脚本语言（例如 JavaScript 或 Python）使用动态类型化或[鸭子类型化](https://en.wikipedia.org/wiki/Duck_typing)，而 .NET 语言（在版本 4.0 以及更高版本中）支持使用一般调试窗口难以观察的对象，因为这些对象可能具有无法显示的运行时属性和方法。  
+## <a name="dynamic-view-and-the-watch-window"></a>Dynamic View and the Watch window  
+ Some scripting languages (e.g. JavaScript or Python) use dynamic or [duck typing](https://en.wikipedia.org/wiki/Duck_typing), and .NET languages (in version 4.0 and later) support objects that are difficult to observe using the normal debugging windows, because they may have runtime properties and methods that cannot be displayed.  
   
- 当“监视”窗口显示一个从类型（实现 [IDynamicMetaObjectProvider 接口](../Topic/IDynamicMetaObjectProvider%20Interface.md) 的类型）创建的对象时，调试器会在“自动窗口”显示中添加一个特殊的“动态视图”节点。 此节点显示动态对象的动态成员，但不允许编辑成员值。  
+ When the Watch window displays a or an object created from a type that implements the [IDynamicMetaObjectProvider Interface](https://docs.microsoft.com/en-us/dotnet/api/system.dynamic.idynamicmetaobjectprovider?view=netframework-4.7), the debugger adds a special **Dynamic View**  node to the **Autos** display. This node shows the dynamic members of the dynamic object but does not allow editing of the member values.  
   
- 如果你右键单击任何一个“动态视图”的子级，并选择“添加监视”，调试器会插入一个将对象强制转换为一个动态对象的新监视变量。 换言之，“object Name”变为“\(\(dynamic\)object\).Name”。  
+ If you right-click any child of a **Dynamic View** and choose **Add Watch**, the debugger inserts a new watch variable that casts an object to a dynamic object. In other words, **object Name** becomes (**(dynamic)object).Name**.  
   
- 计算“动态视图”的成员可能会有副作用。 有关副作用的定义的解释，请参阅 [副作用与表达式](#bkmk_sideEffects)。 对于 C\#，当进入新的一行代码时，调试器不会自动重新计算显示在“动态视图”中的值。 对于 Visual Basic，将自动刷新通过“动态视图”添加的表达式。  
+ Evaluating the members of a **Dynamic View** can have side effects. For an explanation of what side effects are, see [Side Effects and Expressions](#bkmk_sideEffects). For C#, the debugger does not automatically reevaluate the values shown in the **Dynamic View** when you step to a new line of code. For Visual Basic, expressions added through the **Dynamic View** are automatically refreshed.  
   
- 有关如何刷新“动态视图”值的说明，请参阅 [刷新过期的“监视”值](#bkmk_refreshWatch)。  
+ For instructions about how to refresh the Dynamic View values, see [Refreshing Watch values that are out of date](#bkmk_refreshWatch).  
   
- 如果想要针对一个对象仅显示“动态视图”，可以使用“动态”格式说明符：  
+ If you want to display only the **Dynamic View** for an object, you can use the **dynamic** format specifier:  
   
--   C\#: **ObjectName, dynamic**  
+-   C#: **ObjectName, dynamic**  
   
 -   Visual Basic:: **$dynamic, ObjectName**  
   
- “动态视图”还可以提升 COM 对象的调试体验。 当调试器遇到包装在 **System.\_\_ComObject** 中的 COM 对象时，会为该对象添加一个“动态视图”节点。  
+ The **Dynamic View** also enhances the debugging experience for COM objects. When the debugger encounters a COM object wrapped in **System.__ComObject**, it adds a **Dynamic View** node for the object.  
   
-## 请参阅  
- [调试器窗口](../debugger/debugger-windows.md)
+## <a name="see-also"></a>See Also  
+ [Debugger Windows](../debugger/debugger-windows.md)
+

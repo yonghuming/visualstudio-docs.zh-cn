@@ -1,185 +1,221 @@
 ---
-title: "“选项”对话框 -&gt;“调试”-&gt;“常规” | Microsoft Docs"
-ms.custom: ""
-ms.date: "12/13/2016"
-ms.prod: "visual-studio-dev14"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-debug"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "vs.debug.options.General"
-  - "VS.ToolsOptionsPages.Debugger.General"
-  - "VS.ToolsOptionsPages.Debugger.ENC"
-  - "vs.debug.options.ENC"
-dev_langs: 
-  - "FSharp"
-  - "VB"
-  - "CSharp"
-  - "C++"
-  - "JScript"
-helpviewer_keywords: 
-  - "“选项”对话框，调试"
+title: General, Debugging, Options Dialog Box | Microsoft Docs
+ms.custom: 
+ms.date: 05/23/2017
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-debug
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords:
+- vs.debug.options.General
+- VS.ToolsOptionsPages.Debugger.General
+- VS.ToolsOptionsPages.Debugger.ENC
+- vs.debug.options.ENC
+dev_langs:
+- CSharp
+- VB
+- FSharp
+- C++
+- JScript
+helpviewer_keywords:
+- Options dialog box, debugging
 ms.assetid: b33aee0b-43c3-4c26-8ed4-bc673f491503
 caps.latest.revision: 46
-caps.handback.revision: 43
-author: "mikejo5000"
-ms.author: "mikejo"
-manager: "ghogen"
----
-# “选项”对话框 -&gt;“调试”-&gt;“常规”
-[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
+author: mikejo5000
+ms.author: mikejo
+manager: ghogen
+translation.priority.ht:
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- ru-ru
+- zh-cn
+- zh-tw
+translation.priority.mt:
+- cs-cz
+- pl-pl
+- pt-br
+- tr-tr
+ms.translationtype: HT
+ms.sourcegitcommit: 9e6c28d42bec272c6fd6107b4baf0109ff29197e
+ms.openlocfilehash: 643d1892815822b6616d379d07909731c6100ba4
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/22/2017
 
-“工具”\/“选项”\/“调试”\/“常规”页允许你设置以下选项：  
+---
+# <a name="general-debugging-options-dialog-box"></a>General, Debugging, Options Dialog Box
+The **Tools > Options > Debugging > General** page lets you set the following options:  
   
- **在删除所有断点之前询问**  
- 在完成**“删除所有断点”**命令前需要进行确认。  
+**Ask before deleting all breakpoints**  
+Requires confirmation before completing the **Delete All Breakpoints** command.  
   
- **一个进程中断时则中断所有进程**  
- 发生一个中断时，同时中断调试器连接到的所有进程。  
+**Break all processes when one process breaks**  
+Simultaneously breaks all processes to which the debugger is attached, when a break occurs.  
   
- **当异常跨越应用域或托管\/本机边界时中断**  
- 在托管或混合模式调试中，如果满足以下条件，公共语言运行时可能会捕获跨越应用程序域边界或托管\/本机边界的异常：  
+**Break when exceptions cross AppDomain or managed/native boundaries**  
+In managed or mixed-mode debugging, the common language runtime can catch exceptions that cross application domain boundaries or managed/native boundaries when the following conditions are true:  
   
- 1\) 当本机代码使用 COM 互操作调用托管代码而托管代码却引发异常时。 请参阅 [COM 互操作介绍](/dotnet/visual-basic/programming-guide/com-interop/introduction-to-com-interop)。  
+1\) When native code calls managed code by using COM Interop and the managed code throws an exception. See [Introduction to COM Interop](/dotnet/articles/visual-basic/programming-guide/com-interop/introduction-to-com-interop).  
   
- 2\) 当在应用程序域 1 中运行的托管代码调用应用程序域 2 中的托管代码，而应用程序域 2 中的代码却引发异常时。 请参阅[使用应用程序域编程](http://msdn.microsoft.com/zh-cn/bd36055b-56bd-43eb-b4d8-820c37172131)。  
+2\) When managed code running in application domain 1 calls managed code in application domain 2, and the code in application domain 2 throws an exception. See [Programming with Application Domains](/dotnet/articles/framework/app-domains/index).  
+
+3\) When code calls a function by using reflection, and the function throws an exception. See [Reflection](/dotnet/framework/reflection-and-codedom/reflection).  
   
- 3\) 当代码使用反射调用一个函数而该函数却引发异常时。 请参阅 [反射](../Topic/Reflection%20in%20the%20.NET%20Framework.md)。  
+In condition 2 and 3, the exception is sometimes caught by managed code in `mscorlib` instead of the common language runtime. This option does not affect breaking on exceptions caught by `mscorlib`.  
   
- 在第 2\) 和 3\) 条中，异常有时由 `mscorlib` 中的托管代码而不是公共语言运行时捕获。 此选项不影响在 `mscorlib` 捕获到异常时中断。  
+**Enable address-level debugging**  
+ Enables advanced features for debugging at the address level (the **Disassembly** window, the **Registers** window, and address breakpoints).  
   
- **启用地址级调试**  
- 启用在地址级上进行调试的高级功能（**“反汇编”**窗口、**“寄存器”**窗口和地址断点）。  
+- **Show disassembly if source is not available**  
+    Automatically shows the **Disassembly** window when you try to debug code for which source is unavailable.  
   
- **源代码不可用时显示反汇编**  
- 在你尝试调试源不可用的代码时自动显示**“反汇编”**窗口。  
+**Enable breakpoint filters**  
+Enables you to set filters on breakpoints so that they will affect only specific processes, threads, or computers.  
+ 
+**Use the new Exception Helper**  
+Enables the Exception Helper (Visual Studio 2017) that replaces the exception assistant.
   
- **启用断点筛选器**  
- 允许你在断点上设置筛选器，使其仅影响特定的进程、线程或计算机。  
+> [!NOTE]
+> For managed code, this option was previously called **Enable the exception assistant** . 
   
- **启用异常助手**  
- 仅用于托管代码。 托管异常打开“异常助手”对话框。  请参阅 [Exception Assistant](../Topic/Exception%20Assistant.md)。  
+**Enable Just My Code**  
+The debugger displays and steps into user code ("My Code") only, ignoring system code and other code that is optimized or that does not have debugging symbols.
+
+- **Warn if no user code on launch (Managed only)**  
+    When debugging starts with Just My Code enabled, this option warns you if there is no user code ("My Code"). 
+
+**Enable .NET Framework source stepping**  
+Allows the debugger to step into .NET Framework source. Enabling this option automatically disables Just My Code .NET Framework symbols will be downloaded to a cache location. You can change the cache location in the **Options** dialog box, **Debugging** category, **Symbols** page.  
   
- **在未经处理的异常上展开调用堆栈**  
- 导致**“调用堆栈”**窗口将调用堆栈回滚到未经处理的异常发生之前的时间点。  
+**Step over properties and operators (Managed only)**  
+Prevents the debugger from stepping into properties and operators in managed code.  
   
- **启用“仅我的代码”**  
- 调试器仅显示和单步执行用户代码（“我的代码”），而忽略系统代码和其他经过优化或没有调试符号的代码。  
+**Enable property evaluation and other implicit function calls**  
+Turns on automatic evaluation of properties and implicit function calls in variables windows and the **QuickWatch** dialog box.  
   
- **在变量窗口中显示非用户对象的所有成员\(仅限 Visual Basic\)**  
- 启用非用户代码（不是“我的代码”）中对象内的非公共成员的显示。  
+- **Call string conversion function on objects in variables windows (C# and JavaScript only)**  
+    Executes an implicit string conversion call when evaluating objects in variables windows. Therefore, that result is displayed as a string instead of the type name. Only applies while debugging in C# code. This setting may be overridden by the DebuggerDisplay attribute (see [Using the DebuggerDisplay Attribute](../debugger/using-the-debuggerdisplay-attribute.md)).  
   
- **启动时若没有用户代码则发出警告**  
- 如果在调试时启用“仅我的代码”，此选项会在没有用户代码（“我的代码”）的情况下发出警告。  
-  
- **启用 .NET Framework 源代码单步执行**  
- 允许调试器单步执行 .NET Framework 源代码。 自动启用此选项会禁用“仅我的代码”，.NET Framework 符号将下载到缓存位置。 可以在**“选项”**对话框**“调试”**类别下的**“符号”**页中更改缓存位置。  
-  
- **逐过程执行属性和运算符\(仅限托管\)**  
- 使调试器无法单步执行托管代码中的属性和运算符。  
-  
- **启用属性求值和其他隐式函数调用**  
- 在变量窗口和**“快速监视”**对话框中打开属性的自动求值和隐式函数调用。  
-  
- **在变量窗口中对对象调用字符串转换函数\(仅限 C\# 和 JavaScript\)**  
- 在变量窗口中计算对象时，执行隐式字符串转换调用。 因此，结果将显示为字符串而不是类型名。 仅在 C\# 代码中进行调试时适用。 此设置可以由 DebuggerDisplay 特性重写（请参阅[使用 DebuggerDisplay 特性](../debugger/using-the-debuggerdisplay-attribute.md)）。  
-  
- **启用源服务器支持**  
- 指示 Visual Studio 调试器从实现 SrcSrv \(`srcsrv.dll`\) 协议的源服务器中获取源文件。 Team Foundation Server 和 Windows 的调试工具是实现协议的两个源服务器。 有关 SrcSrv 设置的更多信息，请参阅“Windows 的调试工具”文档。 此外，请参阅[指定符号 \(.pdb\) 和源文件](../debugger/specify-symbol-dot-pdb-and-source-files-in-the-visual-studio-debugger.md)。  
+**Enable source server support**  
+Tells the Visual Studio debugger to get source files from source servers that implement the SrcSrv (`srcsrv.dll`) protocol. Team Foundation Server and the Debugging Tools for Windows are two source servers that implement the protocol. For more information about SrcSrv setup, see the [SrcSrv](hhttps://msdn.microsoft.com/en-us/library/windows/hardware/ff558791(v=vs.85).aspx) documentation. In addition, see [Specify Symbol (.pdb) and Source Files](../debugger/specify-symbol-dot-pdb-and-source-files-in-the-visual-studio-debugger.md).  
   
 > [!IMPORTANT]
->  由于读取 .pdb 文件会执行文件中的任意代码，因此请确保你信任此服务器。  
+>  Because reading .pdb files can execute arbitrary code in the files, make sure that you trust the server.  
   
- **将源服务器诊断消息打印到输出窗口**  
- 如果启用源服务器支持，此设置会打开诊断显示。  
+- **Print source server diagnostic messages to the Output window**  
+    When source server support is enabled, this setting turns on diagnostic display.  
   
- **允许源服务器中的部分信任程序集\(仅限托管\)**  
- 如果启用源服务器支持，此设置会重写不为部分信任的程序集检索源的默认行为。  
+- **Allow source server for partial trust assemblies (Managed only)**  
+    When source server support is enabled, this setting overrides the default behavior of not retrieving sources for partial trust assemblies.  
+
+- **Enable source link support**  
+    Tells the Visual Studio debugger to download source files for .pdb files that contain Source Link information. For more information about Source Link, see the [Source Link Specification](https://github.com/dotnet/core/blob/master/Documentation/diagnostics/source_link.md).
+
+    > [!IMPORTANT]
+    >  Because Source Link will download files using http or https, make sure you trust the .pdb file.  
   
- **为断点和当前语句突出显示整个行**  
- 调试器突出显示断点或当前语句时，会突出显示整个行。  
+**Highlight entire line for breakpoints and current statement (C++ only)**  
+When the debugger highlights a breakpoint or current statement, it highlights the entire line.  
   
- **要求源文件与原始版本完全匹配**  
- 指示调试器验证源文件是否与用于生成正在调试的可执行文件的源代码版本匹配。 如果版本不匹配，则会提示你查找匹配源。 如果未找到匹配源，则在调试过程中不会显示源代码。  
+**Require source files to exactly match the original version**  
+Tells the debugger to verify that a source file matches the version of the source code used to build the executable you are debugging. If the version does not match, you'll be prompted to find a matching source. If a matching source is not found, the source code will not be displayed during debugging. 
   
- **将所有输出窗口文本重定向到即时窗口**  
- 将通常显示在**“输出”**窗口中的所有调试器消息改为发送到**“即时”**窗口。  
+**Redirect all Output window text to the Immediate window**  
+Sends all debugger messages that would ordinarily appear in the **Output** window to the **Immediate** window instead.  
   
- **在变量窗口中显示对象的原始结构**  
- 关闭所有对象结构视图自定义。 有关视图自定义的更多信息，请参阅[显示自定义数据类型](../debugger/create-custom-views-of-dot-managed-objects.md)。  
+**Show raw structure of objects in variables windows**  
+Turns off all object structure view customizations. For more information about view customizations, see [Create custom views of .managed objects](../debugger/create-custom-views-of-dot-managed-objects.md).  
   
- **在模块加载时取消 JIT 优化\(仅限托管\)**  
- 如果附加调试器，则在加载模块并编译 JIT 后，禁用托管代码的 JIT 优化。 禁用优化可能更易于调试某些问题，尽管这会降低性能。 如果正在使用“仅我的代码”，则禁用 JIT 优化会导致非用户代码显示为用户代码（“我的代码”）。  
+**Suppress JIT optimization on module load (Managed only)**  
+Disables the JIT optimization of managed code when a module is loaded and JIT is compiled while the debugger is attached. Disabling optimization may make it easier to debug some problems, although at the expense of performance. If you are using Just My Code, suppressing JIT optimization can cause non-user code to appear as user code ("My Code").
+
+**Enable JavaScript debugging for ASP.NET (Chrome and IE)** Enables the script debugger for ASP.NET apps. On first use in Chrome, you may need to sign into the browser on first use to enable Chrome extensions that you have installed. Disable this option to revert to legacy behavior.    
+
+**Load dll exports**  
+Loads dll export tables. Symbol information from dll export tables can be useful if you are working with Windows messages, Windows procedures (WindowProcs), COM objects, or marshaling, or any dll for which you do not have symbols. Reading dll export information involves some overhead. Therefore, this capability is turned off by default.  
   
- **启动时若无符号则发出警告\(仅限本机\)**  
- 如果尝试调试在调试器中没有对应符号信息的程序，则会显示警告对话框。  
+To see what symbols are available in the export table of a dll, use `dumpbin /exports`. Symbols are available for any 32-bit system dll. By reading the `dumpbin /exports` output, you can see the exact function name, including non-alphanumeric characters. This is useful for setting a breakpoint on a function. Function names from dll export tables might appear truncated elsewhere in the debugger. The calls are listed in the calling order, with the current function (the most deeply nested) at the top. For more information, see [dumpbin /exports](/cpp/build/reference/dash-exports).  
   
- **如果启动时禁用了脚本调试，发出警告**  
- 如果在启动调试器时禁用了脚本调试，则会显示警告对话框。  
+**Show parallel stacks diagram bottom-up**  
+Controls the direction in which stacks are displayed in the **Parallel Stacks** window.  
   
- **加载 DLL 导出**  
- 加载 DLL 导出表。 处理 Windows 消息、Windows 过程 \(WindowProc\)、COM 对象、封送或不具有其符号的任何 DLL 时，DLL 导出表中的符号信息将很有用。 读取 DLL 导出信息会占用一些系统开销。 因此，默认情况下此功能被禁用。  
+**Ignore GPU memory access exceptions if the data written didn't change the value**  
+Ignores race conditions that were detected during debugging if the data didn't change. For more information, see [Debugging GPU Code](../debugger/debugging-gpu-code.md).  
   
- 若要查看 DLL 导出表中的可用符号，请使用 `dumpbin /exports`。 符号可用于任何 32 位系统 DLL。 从 `dumpbin /exports` 输出中，可以查看到精确的函数名，包括非字母数字字符。 这对于在函数上设置断点很有用。 DLL 导出表中的函数名在调试器的其他位置似乎被截断了。 调用将按调用顺序列出，当前函数（嵌套最深的函数）位于顶端。 有关详细信息，请参阅 [dumpbin \/exports](/visual-cpp/build/reference/dash-exports)。  
+**Use Managed Compatibility Mode**  
+Replaces the default debugging engine with a legacy version to enable these scenarios:  
   
- **自下而上显示并行堆栈关系图**  
- 控制**“并行堆栈”**窗口中堆栈的显示方向。  
+- You are using a .NET Framework language other than C#, VB, or F# that provides its own Expression Evaluator (this includes C++/CLI).  
   
- **如果写入的数据未更改值，则忽略 GPU 内存访问异常**  
- 如果数据未改变，则忽略在调试期间检测的争用条件。 有关详细信息，请参阅[调试 GPU 代码](../debugger/debugging-gpu-code.md)。  
+- You want to enable Edit and Continue for C++ projects while mixed mode debugging.  
   
- **使用托管兼容模式**  
- 将默认调试引擎替换为旧版本，以支持以下方案：  
+Note that choosing Managed Compatibility mode disables some features that are implemented only in the default debugging engine. 
+
+**Use the legacy C# and VB expression evaluators**  
+The debugger will use the Visual Studio 2013 C#/VB expression evaluators instead of the Visual Studio 2015 Roslyn-based expression evaluators.    
   
--   使用除 C\#、VB 或 F\# 之外，拥有自己的表达式计算器（包括 C\+\+\/CLI）的其他 .NET Framework 语言。  
+**Warn when using custom debugger visualizers against potentially unsafe processes (Managed only)**  
+Visual Studio warns you when you are using a custom debugger visualizer that is running code in the debuggee process, because it could be running unsafe code.  
   
--   在执行混合模式调试时，你想要为 C\+\+ 项目启用“编辑并继续”。  
+**Enable Windows debug heap allocator (Native only)**  
+Enables the windows debug heap to improve heap diagnostics. Enabling this option will impact debugging performance.  
   
- 注意，选择托管兼容模式会禁用仅可在默认调试引擎中实现的一些功能。  
+**Enable UI Debugging Tools for XAML**  
+The Live Visual Tree and the Live Property Explore windows will appear when you start debugging (F5) a supported project type. For more information, see [Inspect XAML properties while debugging](../debugger/inspect-xaml-properties-while-debugging.md).  
   
- **使用本机兼容性模式**  
- 选中此选项后，调试器使用 Visual Studio 2010 本机调试器而不是新的本机调试器。  
+- **Preview selected elements in Live Visual Tree**  
+    The XAML element whose context is selected is also selected in the **Live Visual Tree** window.  
   
- 因为新的调试引擎不支持计算 .NET C\+\+ 表达式，因此应在调试 .NET C\+\+ 代码时使用此选项。 但是，启用本机兼容模式会禁用依赖于当前调试器实现来操作的许多功能。 例如，旧引擎缺少内置类型的很多可视化工具，比如 Visual Studio 2015 项目中的 `std::string`。   请在这些情况下使用 Visual Studio 2013 项目以便获得最佳的调试体验。  
+- **Show runtime tools in application**  
+    Shows the **Live Visual Tree** commands in a toolbar on the main window of the XAML application that is being debugged. This option was introduced in Visual Studio 2015 Update 2. 
+
+- **Enable XAML Edit and Continue** Allows you to use Edit and Continue feature for XAML code. 
   
- **使用旧版 C\# 和 VB 表达式计算器**  
- 调试器将使用 Visual Studio 2013 C\# \/VB 表达式计算器，而不是基于 Visual Studio 2015 Roslyn 的表达式计算器。  
+**Enable Diagnostic Tools while debugging**  
+The **Diagnostic Tools** window appears while you are debugging.
   
- **当对潜在的不安全代码使用自定义调试器可视化工具时会发出警告**  
- 当你使用在调试对象进程中运行代码的自定义调试器可视化工具时，Visual Studio 会对你发出警告，因为它可能在运行不安全代码。  
+**Show elapsed time PerfTip while debugging**  
+The code window displays the elapsed time of a given method call when you are debugging.  
   
- **启用 Windows 调试堆分配器\(仅限本地\)**  
- 启用 Windows 调试堆以改进堆诊断。 启用此选项会影响调试性能。  
+**Enable Edit and Continue**  
+You can use the Edit and Continue functionality while debugging .  
   
- **启用 XAML 的 UI 调试工具**  
- 在开始调试 \(F5\) 支持的项目类型时，将显示“实时可视化树”和“实时属性资源管理器”窗口。 有关详细信息，请参阅[在调试时检查 XAML 属性](../debugger/inspect-xaml-properties-while-debugging.md)。  
+- **Enable Native Edit and Continue**  
+    You can use the Edit and Continue functionality while debugging native C++ code. For more information, see [Edit and Continue (Visual C++)](../debugger/edit-and-continue-visual-cpp.md).  
   
- **预览实时可视化树中的所选元素**  
- 选定了其上下文的 XAML 元素在“实时可视化树”窗口中也会被选中。  
+- **Apply changes on continue (Native only)**  
+    Visual Studio automatically compiles and applies any outstanding code changes you have made when continuing the process from a break state. If not selected, you can choose to apply changes using the "Apply Code Changes" item under the Debug menu.  
   
- **调试时启用诊断工具**  
- 在进行调试时，将显示“诊断工具”窗口。 有关详细信息，请参阅[集成了调试器的诊断](../Topic/Debugger-integrated%20profiling.md)。  
+- **Warn about stale code (Native only)**  
+    Get warnings about stale code.    
+
+**Show run to click button in editor while debugging** When this option is selected, the [Run to Click](debugger-feature-tour.md#run-to-a-point-in-your-code-quickly-using-the-mouse) button will be shown while debugging.
+
+## <a name="options-supported-in-older-versions-of-visual-studio"></a>Options supported in older versions of Visual Studio
+
+If you are using an older version of Visual Studio, some additional options might be present.
+
+**Enable the exception assistant**  
+For managed code, enabled the exception assistant. In Visual Studio 2017, the Exception Helper replaced the exception assistant.
+
+**Unwind the call stack on unhandled exceptions**  
+Causes the **Call Stack** window to roll back the call stack to the point before the unhandled exception occurred. 
+
+**Warn if no symbols on launch (native only)**  
+Displays a warning dialog box when you try to debug a program for which the debugger has no symbol information. 
+
+**Warn if script debugging is disabled on launch**  
+Displays a warning dialog box when the debugger is launched with script debugging disabled.
+
+**Use Native Compatibility Mode**  
+When this option is selected, the debugger uses the Visual Studio 2010 native debugger instead of the new native debugger.  
   
- **在调试过程中显示运行时间PerfTips**  
- 在进行调试时，代码窗口会显示给定方法调用的运行时间。  
+You should use this option when you are debugging .NET C++ code, because the new debugging engine does not support evaluating .NET C++ expressions. However, enabling Native Compatibility Mode disables many features that depend on the current debugger implementation to operate. For example, the legacy engine lacks many visualizers for built-in types like `std::string` in Visual Studio 2015 projects.   Please use Visual Studio 2013 projects for the optimal debugging experience in these cases.
   
- **启用“编辑并继续”**  
- 在进行调试时，你可以使用“编辑并继续”功能。  
-  
- **启用本机“编辑并继续”**  
- 在调试本机 C\+\+ 代码时，你可以使用“编辑并继续”功能。 有关详细信息，请参阅[编辑并继续 \(Visual C\+\+\)](../debugger/edit-and-continue-visual-cpp.md)。  
-  
- **在继续时应用更改\(仅限本机\)**  
- 在从中断状态继续该过程时，Visual Studio 会自动编译并应用你所做的任何未完成的代码更改。 如果未选中，你可以选择使用调试菜单下的“应用代码更改”项来应用更改。  
-  
- **就陈旧的代码发出警告\(仅限本机\)**  
- 收到关于陈旧代码的警告。  
-  
- **允许预编译\(仅限本机\)**  
- 允许预编译。  
-  
-## 请参阅  
- [使用 Visual Studio 进行调试](../debugger/debugging-in-visual-studio.md)
+## <a name="see-also"></a>See Also  
+ [Debugging in Visual Studio](../debugger/index.md) [Debugger Feature Tour](../debugger/debugger-feature-tour.md)

@@ -1,83 +1,100 @@
 ---
-title: "BP_CONDITION | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "BP_CONDITION"
-helpviewer_keywords: 
-  - "BP_CONDITION 结构"
+title: BP_CONDITION | Microsoft Docs
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords:
+- BP_CONDITION
+helpviewer_keywords:
+- BP_CONDITION structure
 ms.assetid: 407f87a3-2878-429b-8c65-b68feb36622a
 caps.latest.revision: 10
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 10
----
-# BP_CONDITION
-[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
+ms.author: gregvanl
+manager: ghogen
+translation.priority.mt:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+ms.translationtype: MT
+ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
+ms.openlocfilehash: 7913b12a72ac269f543fcaa3ac7a8ca355b969ce
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/28/2017
 
-描述断点激发的条件。  
+---
+# <a name="bpcondition"></a>BP_CONDITION
+Describes the conditions under which a breakpoint fires.  
   
-## 语法  
+## <a name="syntax"></a>Syntax  
   
-```cpp#  
-typedef struct _BP_CONDITION {   
-   IDebugThread2* pThread;  
-   BP_COND_STYLE  styleCondition;  
-   BSTR           bstrContext;  
-   BSTR           bstrCondition;  
-   UINT           nRadix;  
+```cpp  
+typedef struct _BP_CONDITION {   
+   IDebugThread2* pThread;  
+   BP_COND_STYLE  styleCondition;  
+   BSTR           bstrContext;  
+   BSTR           bstrCondition;  
+   UINT           nRadix;  
 } BP_CONDITION;  
 ```  
   
-```c#  
-public struct BP_CONDITION {   
-   public IDebugThread2 pThread;  
-   public uint          styleCondition;  
-   public string        bstrContext;  
-   public string        bstrCondition;  
-   public uint          nRadix;  
+```csharp  
+public struct BP_CONDITION {   
+   public IDebugThread2 pThread;  
+   public uint          styleCondition;  
+   public string        bstrContext;  
+   public string        bstrCondition;  
+   public uint          nRadix;  
 };  
 ```  
   
-## 成员  
+## <a name="members"></a>Members  
  `pThread`  
- 表示应用程序的活动线程包含断点的 [IDebugThread2](../../../extensibility/debugger/reference/idebugthread2.md) 对象。  
+ The [IDebugThread2](../../../extensibility/debugger/reference/idebugthread2.md) object that represents the active thread for the application that contains the breakpoint.  
   
  `styleCondition`  
- 从描述该断点条件的样式 [BP\_COND\_STYLE](../../../extensibility/debugger/reference/bp-cond-style.md) 枚举的值。  
+ A value from the [BP_COND_STYLE](../../../extensibility/debugger/reference/bp-cond-style.md) enumeration describing the style of this breakpoint condition.  
   
  `bstrContext`  
- 断点的位置。  
+ The location of the breakpoint.  
   
  `bstrCondition`  
- 断点的激发条件。  
+ The firing condition of the breakpoint.  
   
  `nRadix`  
- 用于计算任何数值信息基数。  
+ Radix to be used in evaluating any numerical information.  
   
-## 备注  
- 此结构是 [BP\_REQUEST\_INFO](../../../extensibility/debugger/reference/bp-request-info.md) 和 [BP\_REQUEST\_INFO2](../../../extensibility/debugger/reference/bp-request-info2.md) 结构的成员。  
+## <a name="remarks"></a>Remarks  
+ This structure is a member of the [BP_REQUEST_INFO](../../../extensibility/debugger/reference/bp-request-info.md) and [BP_REQUEST_INFO2](../../../extensibility/debugger/reference/bp-request-info2.md) structures.  
   
- 此结构参数形式传递给 [SetCondition](../../../extensibility/debugger/reference/idebugboundbreakpoint2-setcondition.md) 和 [SetCondition](../../../extensibility/debugger/reference/idebugpendingbreakpoint2-setcondition.md) 方法。  
+ This structure is also passed as a parameter to the [SetCondition](../../../extensibility/debugger/reference/idebugboundbreakpoint2-setcondition.md) and [SetCondition](../../../extensibility/debugger/reference/idebugpendingbreakpoint2-setcondition.md) methods.  
   
-## 要求  
- 标题:msdbg.h  
+## <a name="requirements"></a>Requirements  
+ Header: msdbg.h  
   
- 命名空间:Microsoft.VisualStudio.Debugger.Interop  
+ Namespace: Microsoft.VisualStudio.Debugger.Interop  
   
- 程序集:Microsoft.VisualStudio.Debugger.Interop.dll  
+ Assembly: Microsoft.VisualStudio.Debugger.Interop.dll  
   
-## 请参阅  
- [结构和联合](../../../extensibility/debugger/reference/structures-and-unions.md)   
- [BP\_REQUEST\_INFO](../../../extensibility/debugger/reference/bp-request-info.md)   
- [BP\_REQUEST\_INFO2](../../../extensibility/debugger/reference/bp-request-info2.md)   
+## <a name="see-also"></a>See Also  
+ [Structures and Unions](../../../extensibility/debugger/reference/structures-and-unions.md)   
+ [BP_REQUEST_INFO](../../../extensibility/debugger/reference/bp-request-info.md)   
+ [BP_REQUEST_INFO2](../../../extensibility/debugger/reference/bp-request-info2.md)   
  [SetCondition](../../../extensibility/debugger/reference/idebugboundbreakpoint2-setcondition.md)   
  [SetCondition](../../../extensibility/debugger/reference/idebugpendingbreakpoint2-setcondition.md)   
  [IDebugThread2](../../../extensibility/debugger/reference/idebugthread2.md)   
- [BP\_COND\_STYLE](../../../extensibility/debugger/reference/bp-cond-style.md)
+ [BP_COND_STYLE](../../../extensibility/debugger/reference/bp-cond-style.md)

@@ -1,51 +1,81 @@
 ---
-title: "如何：在混合模式下调试 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-debug"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-dev_langs: 
-  - "FSharp"
-  - "VB"
-  - "CSharp"
-  - "C++"
-  - "C++"
-helpviewer_keywords: 
-  - "调试 [Visual Studio], 混合模式"
-  - "调试 DLL"
-  - "混合模式调试"
+title: 'How to: Debug in Mixed Mode | Microsoft Docs'
+ms.custom: 
+ms.date: 06/19/2017
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-debug
+ms.tgt_pltfrm: 
+ms.topic: article
+dev_langs:
+- CSharp
+- VB
+- FSharp
+- C++
+helpviewer_keywords:
+- debugging DLLs
+- debugging [Visual Studio], mixed-mode
+- mixed-mode debugging
 ms.assetid: 2859067d-7fcc-46b0-a4df-8c2101500977
 caps.latest.revision: 29
-author: "mikejo5000"
-ms.author: "mikejo"
-manager: "ghogen"
-caps.handback.revision: 29
----
-# 如何：在混合模式下调试
-[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
+author: mikejo5000
+ms.author: mikejo
+manager: ghogen
+translation.priority.ht:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+ms.translationtype: HT
+ms.sourcegitcommit: 9e6c28d42bec272c6fd6107b4baf0109ff29197e
+ms.openlocfilehash: 7c034f8ab86789a16289a33279c253a5d862f1aa
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/22/2017
 
-以下过程描述如何调试托管代码和本机代码，这一过程也称作混合模式调试。  根据 DLL 或应用程序是否用本机代码编写，有两种方案可以用来进行调试：  
+---
+# <a name="how-to-debug-in-mixed-mode"></a>How to: Debug in Mixed Mode
+The following procedures describe how to debug both managed and native code, also known as mixed-mode debugging. There are two scenarios for doing so, depending on whether the DLL or the application is written in native code:  
   
--   调用 DLL 的调用应用程序是用本机代码编写的。  在这种情况下 DLL 是托管的，托管调试器和本机调试器都必须启用，以调试托管代码和本机代码。  可以在**“\<Project\> 属性页”**对话框中选中此选项。  具体如何检查取决于是从 DLL 项目中启动调试，还是从调用应用程序项目中启动调试。  
+-   The calling application that calls your DLL is written in native code. In this case your DLL is managed, and both managed and native debuggers must be enabled to debug both. You can check this in the **\<Project> Property Pages** dialog box. How you do this depends on whether you start debugging from the DLL project or the calling application project.  
   
--   调用 DLL 的调用应用程序是用托管代码编写的，而 DLL 是用本机代码编写的。  
+-   The calling application that calls your DLL is written in managed code and your DLL is written in native code.  
   
 > [!NOTE]
->  显示的对话框和菜单命令可能会与“帮助”中的描述不同，具体取决于您现用的设置或版本。  若要更改设置，请在**“工具”**菜单上选择**“导入和导出设置”**。  有关详细信息，请参阅 [Customizing Development Settings in Visual Studio](http://msdn.microsoft.com/zh-cn/22c4debb-4e31-47a8-8f19-16f328d7dcd3)。  
+>  The dialog boxes and menu commands you see might differ from those described in Help depending on your active settings or edition. To change your settings, choose **Import and Export Settings** on the **Tools** menu. For more information, see [Personalize the Visual Studio IDE](../ide/personalizing-the-visual-studio-ide.md).
+
+If you don't have access to the project for the calling app, you can debug a DLL from the DLL project. For more information, see [How to: Debug from a DLL Project](../debugger/how-to-debug-from-a-dll-project.md). You don't need to use mixed to debug just the DLL project.
   
-### 启用混合模式调试  
+### <a name="to-enable-mixed-mode-debugging-c-calling-app"></a>To enable mixed-mode debugging (C++ calling app)  
   
-1.  在**“解决方案资源管理器”**中，选择项目。  
+1.  In **Solution Explorer**, select the native project.
   
-2.  在**“视图”**菜单上，单击**“属性页”**。  
+2.  On the **View** menu, click **Property Pages**.
   
-3.  在**“\<Project\> 属性页”**对话框中，展开**“配置属性”**节点，然后选择**“调试”**。  
+3.  In the **\<Project> Property Pages** dialog box, expand the **Configuration Properties** node, and then select **Debugging**.  
   
-4.  将**“调试器类型”**设置为**“混合”**或**“自动”**。  
+4.  Set **Debugger Type** to **Mixed** or **Auto**.
+
+    ![Enable mixed mode debugging](../debugger/media/dbg-mixed-mode-from-native.png "Enable mixed mode debugging")
+
+### <a name="to-enable-mixed-mode-debugging-c-or-vb-calling-app"></a>To enable mixed-mode debugging (C# or VB calling app)  
   
-## 请参阅  
- [如何：从 DLL 项目进行调试](../debugger/how-to-debug-from-a-dll-project.md)
+1.  In **Solution Explorer**, select the managed project.  
+  
+2.  On the **View** menu, click **Property Pages**.  
+  
+3.  In the **\<Project> Property Pages** dialog box, select the **Debug** tab, and then select **Enable native code debugging**
+
+    ![Enable native code debugging](../debugger/media/dbg-mixed-mode-from-csharp.png "Enable native code debugging")
+  
+## <a name="see-also"></a>See Also  
+ [How to: Debug from a DLL Project](../debugger/how-to-debug-from-a-dll-project.md)

@@ -1,51 +1,68 @@
 ---
-title: "IDebugObject2::IsUserData | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "IDebugObject2::IsUserData"
-helpviewer_keywords: 
-  - "IDebugObject2::IsUserData 方法"
+title: IDebugObject2::IsUserData | Microsoft Docs
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords:
+- IDebugObject2::IsUserData
+helpviewer_keywords:
+- IDebugObject2::IsUserData method
 ms.assetid: 6ffa0d0e-f742-496d-acc7-db74c248bc45
 caps.latest.revision: 7
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 7
----
-# IDebugObject2::IsUserData
-[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
+ms.author: gregvanl
+manager: ghogen
+translation.priority.mt:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+ms.translationtype: MT
+ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
+ms.openlocfilehash: d11a71b08910425f1b3c399dfc665ae629f7316d
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/28/2017
 
-确定对象是否表示用户数据。  
+---
+# <a name="idebugobject2isuserdata"></a>IDebugObject2::IsUserData
+Determines whether the object represents user data.  
   
-## 语法  
+## <a name="syntax"></a>Syntax  
   
 ```cpp  
-HRESULT IsUserData(  
-   BOOL* pfUser  
+HRESULT IsUserData(  
+   BOOL* pfUser  
 );  
 ```  
   
-```c#  
-int IsUserData(  
-   out int pfUser  
+```csharp  
+int IsUserData(  
+   out int pfUser  
 );  
 ```  
   
-#### 参数  
+#### <a name="parameters"></a>Parameters  
  `pfUser`  
- \[out\] 返回非零 \(`TRUE`\)，如果对象表示用户数据;零 \(0\)`FALSE`\); 如果未。  
+ [out] Returns nonzero (`TRUE`) if the object represents user data; zero (`FALSE`) if it does not.  
   
-## 返回值  
- 如果成功，则返回 S\_OK;否则，返回错误代码。  
+## <a name="return-value"></a>Return Value  
+ If successful, returns S_OK; otherwise, returns an error code.  
   
-## 备注  
- 用户数据是作为 JustMyCode 中指定的模块中的所有对象 \(指示一个模块作为用户代码并显示在堆栈跟踪\) 的用户可配置选项。  
+## <a name="remarks"></a>Remarks  
+ User data is any object that is part of a module designated as JustMyCode (a user-configurable option that marks a module as user code and therefore visible in a stack trace).  
   
-## 请参阅  
+## <a name="see-also"></a>See Also  
  [IDebugObject2](../../../extensibility/debugger/reference/idebugobject2.md)

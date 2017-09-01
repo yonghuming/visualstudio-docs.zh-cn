@@ -1,60 +1,77 @@
 ---
-title: "IDebugGenericFieldDefinition::ConstructInstantiation | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-helpviewer_keywords: 
-  - "ConstructInstantiation"
-  - "IDebugGenericFieldDefinition::ConstructInstantiation"
+title: IDebugGenericFieldDefinition::ConstructInstantiation | Microsoft Docs
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+helpviewer_keywords:
+- ConstructInstantiation
+- IDebugGenericFieldDefinition::ConstructInstantiation
 ms.assetid: ef8ae261-a98b-4dc2-93b3-7c5191818ba2
 caps.latest.revision: 8
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 8
----
-# IDebugGenericFieldDefinition::ConstructInstantiation
-[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
+ms.author: gregvanl
+manager: ghogen
+translation.priority.mt:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+ms.translationtype: MT
+ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
+ms.openlocfilehash: 0c8f633b4556d2ebf2ef7c14ae1ce24807dbb8c6
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/28/2017
 
-构造给定的域实例一组类型参数。  
+---
+# <a name="idebuggenericfielddefinitionconstructinstantiation"></a>IDebugGenericFieldDefinition::ConstructInstantiation
+Constructs a field instance given an array of type arguments.  
   
-## 语法  
+## <a name="syntax"></a>Syntax  
   
-```cpp#  
+```cpp  
 HRESULT ConstructInstantiation(  
-   ULONG32       cArgs,  
-   IDebugField** ppArgs,  
-   IDebugField** ppConstructedField  
+   ULONG32       cArgs,  
+   IDebugField** ppArgs,  
+   IDebugField** ppConstructedField  
 );  
 ```  
   
-```c#  
+```csharp  
 int ConstructInstantiation(  
-   uint            cArgs,  
-   IDebugField[]   ppArgs,  
-   out IDebugField ppConstructedField  
+   uint            cArgs,  
+   IDebugField[]   ppArgs,  
+   out IDebugField ppConstructedField  
 );  
 ```  
   
-#### 参数  
+#### <a name="parameters"></a>Parameters  
  `cArgs`  
- \[in\] 参数的数量。 `ppArgs` 数组。  
+ [in] Number of arguments in the `ppArgs` array.  
   
  `ppArgs`  
- \[in\] 对包含类型参数。  该类型参数必须是封闭类型 \(非泛型或完全实例化的泛型\)。  
+ [in] Array that contains the type arguments. The type arguments must be closed types (non-generic or fully instantiated generics).  
   
  `ppConstructedField`  
- \[out\] 返回表示新字段的 [IDebugField](../../../extensibility/debugger/reference/idebugfield.md) 接口。  
+ [out] Returns the [IDebugField](../../../extensibility/debugger/reference/idebugfield.md) interface that represents the new field.  
   
-## 返回值  
- 如果成功，则返回; `S_OK`否则，返回错误代码。  
+## <a name="return-value"></a>Return Value  
+ If successful, returns `S_OK`; otherwise, returns an error code.  
   
-## 备注  
- 约束不会检查。  
+## <a name="remarks"></a>Remarks  
+ Constraints are not checked.  
   
-## 请参阅  
+## <a name="see-also"></a>See Also  
  [IDebugGenericFieldDefinition](../../../extensibility/debugger/reference/idebuggenericfielddefinition.md)

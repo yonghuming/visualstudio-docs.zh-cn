@@ -1,132 +1,137 @@
 ---
-title: "Office 解决方案中错误的疑难解答"
-ms.custom: ""
-ms.date: "02/02/2017"
-ms.prod: "visual-studio-dev14"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "office-development"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "VST.Project.DesignerDisabled"
-  - "VST.Designer.CannotActivate"
-  - "VST.Project.ExcelBusy"
-  - "VST.SelectDocWizard.AlreadyCustomized"
-  - "VST.SelectDocWizard.DocPath"
-  - "VST.Project.CannotOpen"
-  - "VST.Designer.ErrorsOccurred"
-dev_langs: 
-  - "VB"
-  - "CSharp"
-helpviewer_keywords: 
-  - "疑难解答 [Visual Studio 中的 Office 开发]"
+title: Troubleshooting Errors in Office Solutions | Microsoft Docs
+ms.custom: 
+ms.date: 02/02/2017
+ms.prod: visual-studio-dev14
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- office-development
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords:
+- VST.Project.DesignerDisabled
+- VST.Designer.CannotActivate
+- VST.Project.ExcelBusy
+- VST.SelectDocWizard.AlreadyCustomized
+- VST.SelectDocWizard.DocPath
+- VST.Project.CannotOpen
+- VST.Designer.ErrorsOccurred
+dev_langs:
+- VB
+- CSharp
+helpviewer_keywords:
+- troubleshooting [Office development in Visual Studio]
 ms.assetid: 8bbf5433-1992-4ecf-ae1b-19117b8ebe43
 caps.latest.revision: 69
-author: "kempb"
-ms.author: "kempb"
-manager: "ghogen"
-caps.handback.revision: 68
+author: kempb
+ms.author: kempb
+manager: ghogen
+ms.translationtype: HT
+ms.sourcegitcommit: eb5c9550fd29b0e98bf63a7240737da4f13f3249
+ms.openlocfilehash: 3528e7ece045e4f9ed8765f97a2b67fabdb3f1b8
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/30/2017
+
 ---
-# Office 解决方案中错误的疑难解答
-  在 Visual Studio 中开发 Office 解决方案时，如果执行下面的任务，可能会遇到问题：  
+# <a name="troubleshooting-errors-in-office-solutions"></a>Troubleshooting Errors in Office Solutions
+  You might encounter issues when you perform the following tasks while you develop Office solutions in Visual Studio:  
   
--   [创建、升级和打开项目](#creating)  
+-   [Creating, upgrading, and opening projects](#creating)  
   
--   [使用设计器](#designers)  
+-   [Using the designers](#designers)  
   
--   [编写代码](#code)  
+-   [Writing code](#code)  
   
--   [生成项目](#building)  
+-   [Building projects](#building)  
   
--   [调试项目](#debugging)  
+-   [Debugging projects](#debugging)  
   
-##  <a name="creating"></a> 创建、升级和打开项目  
- 创建或打开 Office 项目时，可能会遇到以下错误。  
+##  <a name="creating"></a> Creating, Upgrading, and Opening Projects  
+ You might encounter the following errors when you create or open Office projects.  
   
-### 无法创建项目  
- 尝试创建或打开 Office 项目时出现错误，而 Visual Studio 没有足够的信息确定导致错误的原因。  请尝试关闭项目，退出 Visual Studio，然后重新启动。  
+### <a name="the-project-cannot-be-created"></a>The Project Cannot Be Created  
+ An error occurred when you tried to create or open an Office project, but Visual Studio did not have enough information to determine the cause. Try closing your project, exiting Visual Studio, and starting again.  
   
- 如果你正在尝试创建文档级项目，则可能已在 Excel 或 Word 中打开与新项目中的文档同名的另一个文档。  请确保 Excel 或 Word 的所有其他实例均已关闭。  
+ If you are trying to create a document-level project, it is possible that another document with the same name as the document in the new project is already open in Excel or Word. Make sure that all other instances of Excel or Word are closed.  
   
-### 基于现有项目中的文档创建新项目时丢失控件属性  
- 如果基于现有项目中的文档创建新 Office 项目，则不会将该文档中任何控件的属性复制到新项目中。  必须为任何先前存在的控件手动重置其属性。  或者，可以通过以下方法保留控件属性：创建现有项目的副本（而不是创建新项目）；或者将现有项目加载到新解决方案（在设计器中），然后将控件从现有文档复制并粘贴到新文档中。  
+### <a name="control-properties-are-lost-when-you-create-a-new-project-based-on-a-document-from-an-existing-project"></a>Control Properties are Lost When You Create a New Project Based on a Document from an Existing Project  
+ If you create a new Office project based on a document from an existing project, the properties for any controls that are on the document are not copied into the new project. You must reset the properties for any preexisting controls manually. Alternatively, you can preserve the control properties by creating a copy of the existing project instead of creating a new project, or by loading the existing project into the new solution (in the designer) and copying and pasting the controls from the existing document to the new document.  
   
-### 基于现有工作薄创建 Excel 工作薄项目时出错  
- 如果基于现有工作薄创建新 Excel 工作薄项目，则可能会出现以下错误。  
+### <a name="errors-when-you-create-an-excel-workbook-project-based-on-an-existing-workbook"></a>Errors When You Create an Excel Workbook Project Based on an Existing Workbook  
+ If you create a new Excel Workbook project based on an existing workbook, you might see a combination of the following errors.  
   
- 来自 Excel：“隐私问题警告: 此文档中包含宏、ActiveX 控件、XML 扩展包信息或 Web 组件。  其中可能包含个人信息，并且这些信息不能通过“文档检查器”删除。”  
+ From Excel: "Privacy warning: This document contains macros, ActiveX controls, XML expansion pack information, or Web components. These may include personal information that cannot be removed by the Document Inspector."  
   
- 来自 Visual Studio：“设计器未能正确加载。”  
+ From Visual Studio: "Designer failed to load correctly."  
   
- 如果尝试创建的项目基于其个人信息已使用文档检查器删除的工作簿，则可能会发生这些错误。  若要避免此错误，请在创建项目之前执行以下步骤：  
+ These errors can occur you try to create a project that is based on a workbook that had its personal information removed by using the Document Inspector. To avoid this error, perform the following steps before creating the project.  
   
-1.  在 Excel 中打开工作簿。  
+1.  Open the workbook in Excel.  
   
-2.  在 Excel 中打开“信任中心”。  
+2.  In Excel, open the Trust Center.  
   
-3.  在**“隐私选项”**选项卡中，取消勾选**“保存时从文件属性中删除个人信息”**复选框。  
+3.  On the **Privacy Options** tab clear the **Remove personal information from file properties on save** check box.  
   
-4.  保存工作簿并关闭 Excel。  
+4.  Save the workbook and close Excel.  
   
-### 迁移后无法打开项目  
- 在将 Office 解决方案迁移到 Microsoft Office 2010 之后，无法在仅安装了 2007 Microsoft Office system 的开发计算机中打开项目。  可以会出现下列错误。  
+### <a name="cannot-open-a-project-after-migration"></a>Cannot Open a Project after Migration  
+ After an Office solution is migrated to Microsoft Office 2010, the project cannot be opened on a development computer with only the 2007 Microsoft Office system installed. You may see the following errors.  
   
- “解决方案中的一个或多个项目未能正确加载。  请参阅输出窗口获取有关的详细信息。”  
+ "One or more projects in the solution were not loaded correctly. Please see the Output Window for details."  
   
- “无法创建项目，因为此计算机上未安装与此项目类型关联的应用程序。  必须安装与此项目类型关联的 Microsoft Office 应用程序。”  
+ "Cannot create the project because the application associated with this project type is not installed on this computer. You must install the Microsoft Office application that is associated with this project type."  
   
- 若要解决此问题，请编辑 .vbproj 或 .csproj 文件。  对于 Word 项目，将 HostPackage\="{763FDC83\-64E5\-4651\-AC9B\-28C4FEB985A1}" 替换为 HostPackage\="{6CE98B71\-D55A\-4305\-87A8\-0D6E368D9600}"。  对于 Excel 项目，将 HostPackage\="{B284B16A\-C42C\-4438\-BDCD\-B72F4AC43CFB}" 替换为 HostPackage\="{825100CF\-0BA7\-47EA\-A084\-DCF3308DAF74}"。  对于 Outlook 项目，将 HostPackage\="{D2B20FF5\-A6E5\-47E1\-90E8\-463C6860CB05}" 替换为 HostPackage\="{20A848B8\-E01F\-4801\-962E\-25DB0FF57389}"。  
+ To resolve this issue, edit the .vbproj or .csproj file. For a Word project, replace HostPackage="{763FDC83-64E5-4651-AC9B-28C4FEB985A1}" with HostPackage="{6CE98B71-D55A-4305-87A8-0D6E368D9600}". For an Excel project, replace HostPackage="{B284B16A-C42C-4438-BDCD-B72F4AC43CFB}" with HostPackage="{825100CF-0BA7-47EA-A084-DCF3308DAF74}". For an Outlook project, replace HostPackage="{D2B20FF5-A6E5-47E1-90E8-463C6860CB05}" with HostPackage="{20A848B8-E01F-4801-962E-25DB0FF57389}".  
   
- 或者，确保仅在安装了 Microsoft Office 2010 的开发计算机上打开迁移的项目。  
+ Alternatively, ensure that migrated projects are only opened on development computers with Microsoft Office 2010 already installed.  
   
-### 包含 Windows 窗体控件的已升级 Office 2003 文档级项目中出现错误  
- 如果升级 Microsoft Office 2003 文档级项目，且该文档包含 Windows 窗体控件，则升级后的项目可能会发生编译或运行时错误。  若要避免此问题，请在升级项目之前在开发计算机上安装 Visual Studio 2005 Tools for Office Second Edition Runtime。  可以从 Microsoft 下载中心（网址为：[Microsoft Visual Studio 2005 Tools for Office Second Edition Runtime \(VSTO 2005 SE\) \(x86\)](http://go.microsoft.com/fwlink/?linkid=49612)）下载此版本的运行时作为可再发行组件包。  
+### <a name="errors-in-upgraded-office-2003-document-level-projects-that-contain-windows-forms-controls"></a>Errors in Upgraded Office 2003 Document-Level Projects that Contain Windows Forms Controls  
+ If you upgrade a Microsoft Office 2003 document-level project, and the document contains Windows Forms controls, the upgraded project might have compile or run time errors. To avoid this issue, install the Visual Studio 2005 Tools for Office Second Edition Runtime on the development computer before you upgrade the project. This version of the runtime is available as a redistributable package from the Microsoft Download Center at [Microsoft Visual Studio 2005 Tools for Office Second Edition Runtime (VSTO 2005 SE) (x86)](http://go.microsoft.com/fwlink/?linkid=49612).  
   
- 完成项目升级后，如果它未被任何其他 Office 解决方案使用，你可以将 Visual Studio 2005 Tools for Office Second Edition Runtime 从开发计算机上卸载。  
+ After you finish upgrading the project, you can uninstall the Visual Studio 2005 Tools for Office Second Edition Runtime from the development computer if it is not being used by any other Office solutions.  
   
-##  <a name="designers"></a> 使用设计器  
- 在文档级项目中使用文档、工作簿或工作表设计器时，可能会遇到以下错误。  
+##  <a name="designers"></a> Using the Designers  
+ You might encounter the following errors when you work with the document, workbook, or worksheet designer in document-level projects.  
   
-### 设计器未能正确加载  
- 在以下情况下，Visual Studio 无法打开设计器：  
+### <a name="designer-failed-to-load-correctly"></a>Designer Failed to Load Correctly  
+ Visual Studio cannot open the designer in the following cases:  
   
--   Excel 或 Word 已打开且显示模式对话框。  若要打开设计器，请查看 Excel 或 Word 是否有已打开的模式对话框，然后关闭所有打开的模式对话框。  如果没有打开的模式对话框，则可能需要先执行一些其他操作 Excel 或 Word 才可做出响应。  
+-   Excel or Word is already open and is displaying a modal dialog box. To open the designer, check to see if Excel or Word has a modal dialog box open, and close any open modal dialog boxes. If there are no modal dialog boxes open, there might be some other action required before Excel or Word responds.  
   
--   当前正在调试项目。  若要打开设计器，请停止或完成调试。  
+-   The project is currently being debugged. To open the designer, stop or finish debugging.  
   
--   Excel 启动时，开发计算机上安装的某个 Excel VSTO 外接程序正在显示一个对话框。  若要创建 Excel 文档级项目，则必须首先禁用该 VSTO 外接程序。  
+-   An Excel VSTO Add-in that is installed on the development computer is displaying a dialog box when Excel starts. To create an Excel document-level project, you must first disable the VSTO Add-in.  
   
-### 控件在文档或工作表中显示为黑色矩形  
- 如果对文档或工作表中的控件进行分组，则 Visual Studio 不再识别这些控件。  分组后的控件无法在**“属性”**窗口中访问，并且它们在文档或工作表中显示为黑色矩形。  若要还原控件的功能，必须取消对控件进行分组。  
+### <a name="controls-appear-as-black-rectangles-on-the-document-or-worksheet"></a>Controls Appear as Black Rectangles on the Document or Worksheet  
+ If you group controls on a document or worksheet, Visual Studio no longer recognizes the controls. Grouped controls cannot be accessed in the **Properties** window and they appear as black rectangles on the document or worksheet. You must ungroup the controls in order to restore their functionality.  
   
-### Word 模板中的控件在 Visual Studio 中不可见  
- 如果在 Visual Studio 设计器中打开 Word 模板，则该模板中未嵌入文本中的控件可能不可见。  这是因为 Visual Studio 以**“正常”**视图打开了 Word 模板。  若要查看这些控件，请单击**“视图”**菜单，指向**“Microsoft Office Word 视图”**，然后单击**“打印布局”**。  
+### <a name="controls-on-a-word-template-are-not-visible-in-visual-studio"></a>Controls on a Word Template are Not Visible in Visual Studio  
+ If you open a Word template in the Visual Studio designer, controls on the template that are not in line with text might not be visible. This is because Visual Studio opens Word templates in **Normal** view. To view the controls, click the **View** menu, point to **Microsoft Office Word View** and then click **Print Layout**.  
   
-### 插入剪贴画命令在 Visual Studio 设计器中不起作用  
- 当在 Visual Studio 设计器中打开 Excel 或 Word 后，单击功能区中**“插图”**选项卡上的**“剪贴画”**按钮不会打开**“剪贴画”**任务窗格。  若要添加剪贴画，则必须在 Visual Studio 的外部打开位于主项目文件夹中的工作簿或文档的副本（而不是位于 \\bin 文件夹中的副本），再添加剪贴画，然后保存工作簿或文档。  
+### <a name="insert-clip-art-command-does-nothing-in-the-visual-studio-designer"></a>Insert Clip Art Command Does Nothing in the Visual Studio Designer  
+ When Excel or Word is open in the Visual Studio designer, clicking the **Clip Art** button on the **Illustrations** tab in the Ribbon does not open the **Clip Art** task pane. To add clip art, you must open the copy of the workbook or document that is in the main project folder (not the copy that is in the \bin folder) outside of Visual Studio, add the clip art, and then save the workbook or document.  
   
-##  <a name="code"></a> 编写代码  
- 在 Office 项目中编写代码时，可能会遇到以下错误。  
+##  <a name="code"></a> Writing Code  
+ You might encounter the following errors when you write code in Office projects.  
   
-### 使用 C\# 时 Office 对象的某些事件不可访问  
- 在某些情况下，当你尝试在 Visual C\# 项目中访问 Office 主互操作程序集 \(PIA\) 类型的实例的特定事件时，可能会看到类似于以下形式的编译器错误。  
+### <a name="some-events-of-office-objects-are-not-accessible-when-using-c"></a>Some Events of Office Objects Are Not Accessible When Using C#  
+ In some cases, you might see a compiler error like the following when you try to access a particular event of an instance of an Office primary interop assembly (PIA) type in a Visual C# project.  
   
- “‘Microsoft.Office.Interop.Excel.\_Application.NewWorkbook’与‘Microsoft.Office.Interop.Excel.AppEvents\_Event.NewWorkbook’之间存在二义性”  
+ "Ambiguity between 'Microsoft.Office.Interop.Excel._Application.NewWorkbook' and 'Microsoft.Office.Interop.Excel.AppEvents_Event.NewWorkbook'"  
   
- 此错误意味着你正尝试访问的事件与对象的其他属性或方法同名。  若要访问该事件，必须将对象强制转换为其*事件接口*。  
+ This error means that you are trying to access an event that has the same name as another property or method of the object. To access the event, you must cast the object to its *event interface*.  
   
- 具有事件的 Office PIA 类型实现两种接口：核心接口和事件接口；前者包含所有属性和方法，后者则包含由对象公开的事件。  这些事件接口使用命名约定*对象名*Events*n*\_Event，例如 <xref:Microsoft.Office.Interop.Excel.AppEvents_Event> 和 <xref:Microsoft.Office.Interop.Word.ApplicationEvents2_Event>。  如果无法访问应在某一对象中找到的事件，请将该对象强制转换为其事件接口。  
+ Office PIA types that have events implement two interfaces: a core interface with all the properties and methods, and an event interface that contains the events that are exposed by the object. These event interfaces use the naming convention *objectname*Events*n*_Event, such as <xref:Microsoft.Office.Interop.Excel.AppEvents_Event> and <xref:Microsoft.Office.Interop.Word.ApplicationEvents2_Event>. If you cannot access an event that you expect to find on an object, cast the object to its event interface.  
   
- 例如，<xref:Microsoft.Office.Interop.Excel.Application> 对象具有一个<xref:Microsoft.Office.Interop.Excel.AppEvents_Event.NewWorkbook> 事件和一个 <xref:Microsoft.Office.Interop.Excel._Application.NewWorkbook%2A> 属性。  若要处理 <xref:Microsoft.Office.Interop.Excel.AppEvents_Event.NewWorkbook> 事件，请将 <xref:Microsoft.Office.Interop.Excel.Application> 强制转换为 <xref:Microsoft.Office.Interop.Excel.AppEvents_Event> 接口。  下面的代码示例演示了如何在 Excel 的文档级项目中进行此操作。  
+ For example, <xref:Microsoft.Office.Interop.Excel.Application> objects have a <xref:Microsoft.Office.Interop.Excel.AppEvents_Event.NewWorkbook> event and a <xref:Microsoft.Office.Interop.Excel._Application.NewWorkbook%2A> property. To handle the <xref:Microsoft.Office.Interop.Excel.AppEvents_Event.NewWorkbook> event, cast the <xref:Microsoft.Office.Interop.Excel.Application> to the <xref:Microsoft.Office.Interop.Excel.AppEvents_Event> interface. The following code example demonstrates how to do this in a document-level project for Excel.  
   
- [!code-csharp[Trin_VstcoreTroubleshootingExcel#1](../snippets/csharp/VS_Snippets_OfficeSP/Trin_VstcoreTroubleshootingExcel/CS/ThisWorkbook.cs#1)]  
+ [!code-csharp[Trin_VstcoreTroubleshootingExcel#1](../vsto/codesnippet/CSharp/Trin_VstcoreTroubleshootingExcelCS/ThisWorkbook.cs#1)]  
   
- 有关 Office PIA 中的事件接口的详细信息，请参阅 [Office 主互操作程序集中的类和接口概述](http://msdn.microsoft.com/zh-cn/da92dc3c-8209-44de-8095-a843659368d5)。  
+ For more information about event interfaces in the Office PIAs, see [Overview of Classes and Interfaces in the Office Primary Interop Assemblies](http://msdn.microsoft.com/en-us/da92dc3c-8209-44de-8095-a843659368d5).  
   
-### 无法在面向 [!INCLUDE[net_v40_short](../sharepoint/includes/net-v40-short-md.md)] 或 [!INCLUDE[net_v45](../vsto/includes/net-v45-md.md)] 的项目中引用 Office PIA 类  
- 在面向 [!INCLUDE[net_v40_short](../sharepoint/includes/net-v40-short-md.md)] 或 [!INCLUDE[net_v45](../vsto/includes/net-v45-md.md)] 的项目中，默认情况下 Office PIA 中定义的类的代码不进行编译。  PIA 中的类使用命名约定*对象名*Class，例如 <xref:Microsoft.Office.Interop.Word.DocumentClass> 和 <xref:Microsoft.Office.Interop.Excel.WorkbookClass>。  例如，Word VSTO 外接程序项目中的以下代码将不进行编译。  
+### <a name="cannot-reference-office-pia-classes-in-projects-that-target-the-includenetv40shortsharepointincludesnet-v40-short-mdmd-or-the-includenetv45vstoincludesnet-v45-mdmd"></a>Cannot Reference Office PIA Classes in Projects that Target the [!INCLUDE[net_v40_short](../sharepoint/includes/net-v40-short-md.md)] or the [!INCLUDE[net_v45](../vsto/includes/net-v45-md.md)]  
+ In projects that target the [!INCLUDE[net_v40_short](../sharepoint/includes/net-v40-short-md.md)] or the [!INCLUDE[net_v45](../vsto/includes/net-v45-md.md)], code that references a class that is defined in an Office PIA will not compile by default. Classes in the PIAs use the naming convention *objectname*Class, such as <xref:Microsoft.Office.Interop.Word.DocumentClass> and <xref:Microsoft.Office.Interop.Excel.WorkbookClass>. For example, the following code from a Word VSTO Add-in project will not compile.  
   
 ```vb  
 Dim document As Word.DocumentClass = Globals.ThisAddIn.Application.ActiveDocument  
@@ -136,13 +141,13 @@ Dim document As Word.DocumentClass = Globals.ThisAddIn.Application.ActiveDocumen
 Word.DocumentClass document = (Word.DocumentClass) Globals.ThisAddIn.Application.ActiveDocument;  
 ```  
   
- 此代码将导致以下编译错误：  
+ This code results in the following compile errors:  
   
--   Visual Basic：“如果使用 No\-PIA 模式链接了类‘DocumentClass’的程序集，则不允许引用该类。”  
+-   Visual Basic: "Reference to class 'DocumentClass' is not allowed when its assembly is linked using No-PIA mode."  
   
--   Visual C\#：“无法嵌入互操作类型‘Microsoft.Office.Interop.Word.DocumentClass’。  请改用适用的接口。”  
+-   Visual C#: "Interop type 'Microsoft.Office.Interop.Word.DocumentClass' cannot be embedded. Use the applicable interface instead."  
   
- 若要解决此错误，请修改代码以改为引用相应的接口。  例如，应引用 <xref:Microsoft.Office.Interop.Word.Document> 接口的实例，而不是引用 <xref:Microsoft.Office.Interop.Word.DocumentClass> 对象。  
+ To resolve this error, modify the code to reference the corresponding interface instead. For example, rather than reference a <xref:Microsoft.Office.Interop.Word.DocumentClass> object, reference an instance of the <xref:Microsoft.Office.Interop.Word.Document> interface instead.  
   
 ```vb  
 Dim document As Word.Document = Globals.ThisAddIn.Application.ActiveDocument  
@@ -152,72 +157,69 @@ Dim document As Word.Document = Globals.ThisAddIn.Application.ActiveDocument
 Word.Document document = Globals.ThisAddIn.Application.ActiveDocument;  
 ```  
   
- 默认情况下，面向 [!INCLUDE[net_v40_short](../sharepoint/includes/net-v40-short-md.md)] 或 [!INCLUDE[net_v45](../vsto/includes/net-v45-md.md)] 的项目会自动嵌入 Office PIA 中的所有互操作类型。  发生此编译错误的原因是嵌入互操作类型功能仅适用于接口，而不适用于类。  有关 Office PIA 中接口和类的详细信息，请参阅 [Office 主互操作程序集中的类和接口概述](http://go.microsoft.com/fwlink/?LinkId=189592)。  有关 Office 项目中嵌入的互操作类型功能的详细信息，请参阅[设计和创建 Office 解决方案](../vsto/designing-and-creating-office-solutions.md)。  
+ Projects that target the [!INCLUDE[net_v40_short](../sharepoint/includes/net-v40-short-md.md)] or the [!INCLUDE[net_v45](../vsto/includes/net-v45-md.md)], automatically embed all interop types from the Office PIAs by default. This compile error occurs because the embedded interop types feature only works with interfaces, not classes. For more information about interfaces and classes in the Office PIAs, see [Overview of Classes and Interfaces in the Office Primary Interop Assemblies](http://go.microsoft.com/fwlink/?LinkId=189592). For more information about the embedded interop types feature in Office projects, see [Designing and Creating Office Solutions](../vsto/designing-and-creating-office-solutions.md).  
   
-### 无法识别对 Office 类的引用  
- 一些类名（例如 Application）位于多个命名空间中，例如 <xref:Microsoft.Office.Interop.Word> 和 <xref:System.Windows.Forms>。  因此，位于项目模板的顶部的 **Imports**\/**using** 语句中包含简写的限定常数，例如：  
+### <a name="references-to-office-classes-are-not-recognized"></a>References to Office Classes Are Not Recognized  
+ Some class names, for example Application, are in multiple namespaces such as <xref:Microsoft.Office.Interop.Word> and <xref:System.Windows.Forms>. For this reason, the **Imports**/**using** statement at the top of the project templates includes a shorthand qualifying constant, for example:  
   
- [!code-csharp[Trin_VstcoreTroubleshootingWord#2](../snippets/csharp/VS_Snippets_OfficeSP/Trin_VstcoreTroubleshootingWord/CS/ThisDocument.cs#2)]
- [!code-vb[Trin_VstcoreTroubleshootingWord#2](../snippets/visualbasic/VS_Snippets_OfficeSP/Trin_VstcoreTroubleshootingWord/VB/ThisDocument.vb#2)]  
+ [!code-csharp[Trin_VstcoreTroubleshootingWord#2](../vsto/codesnippet/CSharp/Trin_VstcoreTroubleshootingWordCS/ThisDocument.cs#2)] [!code-vb[Trin_VstcoreTroubleshootingWord#2](../vsto/codesnippet/VisualBasic/Trin_VstcoreTroubleshootingWordVB/ThisDocument.vb#2)]  
   
- **Imports**\/**using** 语句的这种用法需要使用 Word 或 Excel 限定符区分对 Office 类的引用，例如：  
+ This usage of the **Imports**/**using** statement requires that you differentiate references to Office classes with the Word or Excel qualifier, for example:  
   
- [!code-csharp[Trin_VstcoreTroubleshootingWord#3](../snippets/csharp/VS_Snippets_OfficeSP/Trin_VstcoreTroubleshootingWord/CS/ThisDocument.cs#3)]
- [!code-vb[Trin_VstcoreTroubleshootingWord#3](../snippets/visualbasic/VS_Snippets_OfficeSP/Trin_VstcoreTroubleshootingWord/VB/ThisDocument.vb#3)]  
+ [!code-csharp[Trin_VstcoreTroubleshootingWord#3](../vsto/codesnippet/CSharp/Trin_VstcoreTroubleshootingWordCS/ThisDocument.cs#3)] [!code-vb[Trin_VstcoreTroubleshootingWord#3](../vsto/codesnippet/VisualBasic/Trin_VstcoreTroubleshootingWordVB/ThisDocument.vb#3)]  
   
- 如果使用非限定性声明，将出现错误，例如：  
+ You will get errors if you use an unqualified declaration, for example:  
   
- [!code-csharp[Trin_VstcoreTroubleshootingWord#4](../snippets/csharp/VS_Snippets_OfficeSP/Trin_VstcoreTroubleshootingWord/CS/ThisDocument.cs#4)]
- [!code-vb[Trin_VstcoreTroubleshootingWord#4](../snippets/visualbasic/VS_Snippets_OfficeSP/Trin_VstcoreTroubleshootingWord/VB/ThisDocument.vb#4)]  
+ [!code-csharp[Trin_VstcoreTroubleshootingWord#4](../vsto/codesnippet/CSharp/Trin_VstcoreTroubleshootingWordCS/ThisDocument.cs#4)] [!code-vb[Trin_VstcoreTroubleshootingWord#4](../vsto/codesnippet/VisualBasic/Trin_VstcoreTroubleshootingWordVB/ThisDocument.vb#4)]  
   
- 即使已导入 Word 或 Excel 命名空间并有权访问其中的所有类，也必须使用 Word 或 Excel 完全限定所有类型，以便消除命名空间的多义性。  
+ Even though you have imported the Word or Excel namespace and have access to all the classes inside it, you must fully qualify all the types with Word or Excel to remove namespace ambiguity.  
   
-##  <a name="building"></a> 生成项目  
- 生成 Office 项目时，可能会遇到以下错误。  
+##  <a name="building"></a> Building Projects  
+ You might encounter the following errors when you build Office projects.  
   
-### 无法生成基于具有受限权限的文档的文档级项目  
- 如果文档具有受限权限，则 Visual Studio 无法生成文档级项目。  如果项目中包含具有受限权限的文档，则无法编译该项目，并且将在**“错误列表”**窗口中收到以下消息。  
+### <a name="cannot-build-a-document-level-project-that-is-based-on-a-document-with-restricted-permissions"></a>Cannot Build a Document-Level Project That Is Based on a Document With Restricted Permissions  
+ Visual Studio cannot build document-level projects if the document has restricted permissions. If your project contains a document that has restricted permissions, the project will not compile, and you will receive the following message in the **Error List** window.  
   
- “未能添加自定义项。”  
+ "Failed to add the customization."  
   
- 如果要包括具有受限权限的文档，请在开发和生成解决方案时使用无限制的文档。  然后，在发布解决方案之后对发布位置中的文档应用受限权限。  
+ If you want to include a document that has restricted permissions, use an unrestricted document while you develop and build the solution. Then, apply the restricted permissions to the document in the publish location, after you publish the solution.  
   
-### 删除 NamedRange 控件后发生编译器错误  
- 如果从设计器中的非活动工作表的工作表中删除 <xref:Microsoft.Office.Tools.Excel.NamedRange> 控件，则可能不会从项目中移除自动生成的代码，并可能发生编译器错误。  为了确保删除这些代码，应在删除 <xref:Microsoft.Office.Tools.Excel.NamedRange> 控件前总是选中包含该控件的工作表，使其成为活动工作表。  如果在删除该控件时没有删除自动生成的代码，可激活该工作表并进行更改以将该工作表标记为已修改，从而令设计器删除这些代码。  重新生成项目时，将删除这些代码。  
+### <a name="compiler-errors-occur-after-a-namedrange-control-is-deleted"></a>Compiler Errors Occur After a NamedRange Control Is Deleted  
+ If you delete a <xref:Microsoft.Office.Tools.Excel.NamedRange> control from a worksheet that is not the active worksheet in the designer, the auto-generated code might not be removed from your project and compiler errors might occur. To make sure the code is removed, you should always select the worksheet that contains the <xref:Microsoft.Office.Tools.Excel.NamedRange> control to make it the active worksheet before deleting the control. If auto-generated code is not deleted when you delete the control, you can cause the designer to delete the code by activating the worksheet and making a change so that the worksheet becomes marked as modified. When you rebuild the project, the code is removed.  
   
-##  <a name="debugging"></a> 调试项目  
- 调试 Office 项目时，可能会遇到以下错误。  
+##  <a name="debugging"></a> Debugging Projects  
+ You might encounter the following errors when you debug Office projects.  
   
-### 在开发计算机上发布和安装解决方案时显示卸载提示  
- 调试 Office 解决方案时，可能会出现以下错误。  
+### <a name="prompt-to-uninstall-appears-when-you-publish-and-install-a-solution-on-the-development-computer"></a>Prompt to Uninstall Appears When You Publish and Install a Solution on the Development Computer  
+ When you debug an Office solution, you might see the following error.  
   
- “由于当前已安装另一个版本的自定义项且无法从该位置升级，无法安装该自定义项。”  
+ "The customization cannot be installed because another version is currently installed and cannot be upgraded from this location."  
   
- 此错误指示以前在开发计算机上发布和安装了 Office 解决方案。  若要避免出现此消息，请在调试解决方案之前从计算机上的已安装程序列表中卸载该解决方案。  或者，可以在开发计算机上创建另一个用户帐户以测试已发布解决方案的安装。  
+ This error indicates that you have previously published and installed the Office solution on your development computer. To prevent the message from appearing, uninstall the solution from the list of installed programs on the computer before you debug the solution. Alternatively, you can create another user account on your development computer to test the installation of the published solution.  
   
-### 在 UNC 网络位置创建的文档级项目无法从 Visual Studio 运行  
- 如果在 UNC 网络位置为 Excel 或 Word 创建文档级项目，则必须将文档的位置添加到 Excel 或 Word 中的受信任位置列表中。  否则，尝试在 Visual Studio 中运行或调试该项目时，将不会加载自定义项。  有关受信任位置的详细信息，请参阅[向文档授予信任](../vsto/granting-trust-to-documents.md)。  
+### <a name="document-level-projects-created-at-unc-network-locations-do-not-run-from-visual-studio"></a>Document-level Projects Created at UNC Network Locations Do Not Run From Visual Studio  
+ If you create a document-level project for Excel or Word at a UNC network location, you must add the location of the document to the trusted locations list in Excel or Word. Otherwise, the customization will not be loaded when you try to run or debug the project in Visual Studio. For more information about trusted locations, see [Granting Trust to Documents](../vsto/granting-trust-to-documents.md).  
   
-### 调试后线程未正确停止  
- Visual Studio 中的 Office 项目遵循能够使调试器正确关闭程序的线程命名约定。  如果在解决方案中创建线程，则应使用前缀 VSTA\_ 为每个线程命名，以确保在停止调试时会正确处理这些线程。  例如，可以将某个等待网络事件的线程的 `Name` 属性设置为 VSTA\_NetworkListener。  
+### <a name="threads-are-not-stopped-correctly-after-debugging"></a>Threads Are Not Stopped Correctly After Debugging  
+ Office projects in Visual Studio follow a thread naming convention that enables the debugger to close the program correctly. If you create threads in your solution, you should name each thread with the prefix VSTA_ to ensure that these threads are handled correctly when you stop debugging. For example, you might set the `Name` property of a thread that waits for a network event to **VSTA_NetworkListener**.  
   
-### 无法在开发计算机上运行或调试任何 Office 解决方案  
- 如果无法在开发计算机上运行或开发 Office 项目，则可能会出现下面的错误消息。  
+### <a name="cannot-run-or-debug-any-office-solution-on-the-development-computer"></a>Cannot Run or Debug any Office Solution on the Development Computer  
+ If you cannot run or develop an Office project on your development computer, you may see the following error message.  
   
- “无法加载自定义项，原因是无法创建应用程序域。”  
+ "Customization could not be loaded because the application domain could not be created."  
   
- 在加载 Office 解决方案之前，Visual Studio 使用 Fusion（.NET Framework 程序集加载程序）来缓存程序集。  请确保 Visual Studio 可以写入 Fusion 缓存，然后重试。  有关详细信息，请参阅[影像复制程序集](http://msdn.microsoft.com/library/de8b8759-fca7-4260-896b-5a4973157672)。  
+ Visual Studio uses Fusion, the .NET Framework assembly loader, to cache the assemblies before loading Office solutions. Ensure that Visual Studio can write to the Fusion cache, and try again. For more information, see [Shadow Copying Assemblies](/dotnet/framework/app-domains/shadow-copy-assemblies).  
   
-### 使用“编辑并继续”后在文档级项目中停止调试器时出错  
- 如果在项目处于中断模式时使用“编辑并继续”对 Excel 或 Word 的文档级项目中的代码进行更改，随后停止调试器，则可能会看到一个对话框，其中包含下面的错误消息。  
+### <a name="error-when-stopping-the-debugger-in-a-document-level-project-after-using-edit-and-continue"></a>Error When Stopping the Debugger in a Document-Level Project After Using Edit and Continue  
+ If you use Edit and Continue to make changes to code in a document-level project for Excel or Word while the project is in break mode, you might see a dialog box with the following error message if you subsequently stop the debugger.  
   
- “在当前状态下终止进程可能导致意外结果，包括数据丢失和系统不稳定。”  
+ "Terminating the process in its current state can cause undesired results including the loss of data and system instability."  
   
- 无论在该对话框中单击**“是”**还是**“否”**，Visual Studio 都会终止 Excel 或 Word 进程并停止调试器。  若要停止调试项目而不显示此对话框，请直接退出 Excel 或 Word，而不是在 Visual Studio 中停止调试器。  
+ Whether you click **Yes** or **No** in the dialog box, Visual Studio terminates the Excel or Word process and stops the debugger. To stop debugging the project without displaying this dialog box, exit Excel or Word directly rather than stopping the debugger in Visual Studio.  
   
-## 请参阅  
- [Office 解决方案的疑难解答](../vsto/troubleshooting-office-solutions.md)   
- [Office 解决方案安全性疑难解答](../vsto/troubleshooting-office-solution-security.md)   
- [Office 解决方案部署疑难解答](../vsto/troubleshooting-office-solution-deployment.md)  
+## <a name="see-also"></a>See Also  
+ [Troubleshooting Office Solutions](../vsto/troubleshooting-office-solutions.md)   
+ [Troubleshooting Office Solution Security](../vsto/troubleshooting-office-solution-security.md)   
+ [Troubleshooting Office Solution Deployment](../vsto/troubleshooting-office-solution-deployment.md)  
   
   

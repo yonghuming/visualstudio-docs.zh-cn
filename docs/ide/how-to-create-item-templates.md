@@ -32,11 +32,11 @@ translation.priority.ht:
 - tr-tr
 - zh-cn
 - zh-tw
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9713f09b7379b14b9362e3853a910948935c501e
-ms.openlocfilehash: 3524c21503d0432d509c607ea157f3fe675b443d
+ms.translationtype: HT
+ms.sourcegitcommit: c00adbbabf0d3b82acb17f4a269dfc693246bc69
+ms.openlocfilehash: 60732a1fbe7379b43d2856a62d5cd459165dd9a3
 ms.contentlocale: zh-cn
-ms.lasthandoff: 05/31/2017
+ms.lasthandoff: 08/01/2017
 
 ---
 # <a name="how-to-create-item-templates"></a>如何：创建项模板
@@ -58,7 +58,7 @@ ms.lasthandoff: 05/31/2017
 
 3.  修改代码文件，以指示应进行参数替换的位置。 有关详细信息，请参阅[如何：替换模板中的参数](../ide/how-to-substitute-parameters-in-a-template.md)。  
 
-4.  在“文件”菜单上，单击“导出模板”。  
+4.  在“项目”菜单上，单击“导出模板”。  
 
 5.  单击“项模板”，选择包含该项的项目，然后单击“下一步”。  
 
@@ -166,7 +166,7 @@ ms.lasthandoff: 05/31/2017
 
 2.  修改项目项，直到可以将它另存为一个模板。  
 
-3.  根据需要，修改代码文件以指示应进行参数替换的位置。 有关参数替换的详细信息，请参阅“如何：替换模板中的参数”。  
+3.  根据需要，修改代码文件以指示应进行参数替换的位置。 有关参数替换的详细信息，请参阅[如何：替换模板中的参数](../ide/how-to-substitute-parameters-in-a-template.md)。
 
 4.  创建一个 XML 文件，并使用 .vstemplate 文件扩展名将其保存到与新项模板相同的目录中。  
 

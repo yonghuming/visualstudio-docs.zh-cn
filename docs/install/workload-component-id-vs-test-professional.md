@@ -1,11 +1,11 @@
 ---
-title: "Visual Studio Test Professional 2017 工作负载和组件 ID | Microsoft Docs"
-description: "使用 Visual Studio 工作负载和组件 ID 为技术全面的测试人员提供集成的测试工具"
+title: Visual Studio Test Professional 2017 workload and component IDs | Microsoft Docs
+description: Use Visual Studio workload and component IDs to provide integrated testing tools for generalist testers
 keywords: 
 author: TerryGLee
 ms.author: tglee
 manager: ghogen
-ms.date: 05/10/2017
+ms.date: 08/30/2017
 ms.topic: article
 helpviewer_keywords:
 - workload ID, Visual Studio
@@ -31,52 +31,53 @@ translation.priority.mt:
 - pl-pl
 - pt-br
 - tr-tr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 47057e9611b824c17077b9127f8d2f8b192d6eb8
-ms.openlocfilehash: 173139a2bdf2d387a16a91ae04262ed06a8d4141
+ms.translationtype: HT
+ms.sourcegitcommit: 96018963278cd1d53b226473baade41da1e98111
+ms.openlocfilehash: 1c9caeb8caf334a29ae3bdb2375301da2e93b4a1
 ms.contentlocale: zh-cn
-ms.lasthandoff: 05/13/2017
+ms.lasthandoff: 08/30/2017
 
 ---
 
-# <a name="visual-studio-test-professional-2017-component-directory"></a>Visual Studio Test Professional 2017 组件目录
+# <a name="visual-studio-test-professional-2017-component-directory"></a>Visual Studio Test Professional 2017 component directory
 
-本页中的表中列出了可用于通过命令行安装 Visual Studio 的 ID。 请注意，我们将在发布 Visual Studio 更新时添加其他组件。
+The tables on this page list the IDs that you can use to install Visual Studio by using the command line. Note that we will add additional components as we release updates to Visual Studio.
 
-另请注意以下有关本页的注意事项：
+Also note the following about this page:
 
-* 每个工作负载均有其自己的部分，后跟工作负载 ID 和适用于工作负载的组件表格。
-* 默认情况下，安装工作负载时将安装**必需**组件。 如果愿意，还可以安装**推荐**和**可选**组件。
-* 我们还添加了一个部分，此部分列出了不属于任何工作负载的其他组件。
+* Each workload has its own section, followed by the workload ID and a table of the components that are available for the workload.
+* By default, the **Required** components will be installed when you install the workload. If you choose to, you can also install the **Recommended** and **Optional** components.
+* We've also added a section that lists the additional components that are not affiliated with any workload.
 
-有关如何使用这些 ID 的详细信息，请参阅[使用命令行参数安装 Visual Studio 2017](use-command-line-parameters-to-install-visual-studio.md) 页。 另外，有关其他产品的工作负载和组件 ID 的列表，请参阅 [Visual Studio 2017 工作负载和组件 ID](workload-and-component-ids.md) 页。
+For more information about how to use these IDs, see [Use Command-Line Parameters to Install Visual Studio 2017](use-command-line-parameters-to-install-visual-studio.md) page. And, for a list of workload and component IDs for other products, see [Visual Studio 2017 Workload and Component IDs](workload-and-component-ids.md) page.
 
 ## <a name="test-professional"></a>Test Professional
 
-**ID：**Microsoft.VisualStudio.Workload.TestProfessional
+**ID:** Microsoft.VisualStudio.Workload.TestProfessional
 
-**说明：**Test Professional 面向技术全面的测试人员提供集成的测试工具，这可帮助他们促进整个测试生存期的测试需求。
+**Description:** Test Professional provides integrated testing tools targeted at generalist testers, which help them drive their testing needs across the entire testing lifecycle.
 
-### <a name="components-included-by-this-workload"></a>此工作负载所包含的组件
+### <a name="components-included-by-this-workload"></a>Components included by this workload
 
-组件 ID | 名称 | 版本 | 依赖项类型
+Component ID | Name | Version | Dependency type
 --- | --- | --- | ---
-Microsoft.VisualStudio.Component.TestTools.FeedbackClient | Microsoft Feedback Client | 15.0.26208.0 | 必需
-Microsoft.VisualStudio.Component.TestTools.MicrosoftTestManager | Microsoft 测试管理器 | 15.0.26228.0 | 必需
-## <a name="unaffiliated-components"></a>独立组件
+Microsoft.VisualStudio.Component.TestTools.FeedbackClient | Microsoft Feedback Client | 15.0.26711.1 | Required
+Microsoft.VisualStudio.Component.TestTools.MicrosoftTestManager | Microsoft Test Manager | 15.0.26606.0 | Required
 
-这些组件不随附于任何工作负载，但可选择作为单个组件。
+## <a name="unaffiliated-components"></a>Unaffiliated components
 
-组件 ID | 名称 | 版本
+These are components that are not included with any workload, but may be selected as an individual component.
+
+Component ID | Name | Version
 --- | --- | ---
-无 | 不可用 | 无
+n/a | n/a | n/a
 
 
-## <a name="see-also"></a>另请参阅
+## <a name="see-also"></a>See also
 
-* [Visual Studio 工作负荷和组件 ID](workload-and-component-ids.md)
-* [Visual Studio 管理员指南](visual-studio-administrator-guide.md)
-* [使用命令行参数安装 Visual Studio](use-command-line-parameters-to-install-visual-studio.md)
-  * [命令行参数示例](command-line-parameter-examples.md)
-* [创建 Visual Studio 的脱机安装](create-an-offline-installation-of-visual-studio.md)
+* [Visual Studio workload and component IDs](workload-and-component-ids.md)
+* [Visual Studio administrator guide](visual-studio-administrator-guide.md)
+* [Use command-line parameters to install Visual Studio](use-command-line-parameters-to-install-visual-studio.md)
+  * [Command-line parameter examples](command-line-parameter-examples.md)
+* [Create an offline installation of Visual Studio](create-an-offline-installation-of-visual-studio.md)
 

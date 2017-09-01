@@ -1,170 +1,174 @@
 ---
-title: "演练：创建您的第一个 Word 文档级自定义项"
-ms.custom: ""
-ms.date: "02/02/2017"
-ms.prod: "visual-studio-dev14"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "office-development"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-dev_langs: 
-  - "VB"
-  - "CSharp"
-helpviewer_keywords: 
-  - "文档级自定义项 [Visual Studio 中的 Office 开发], 创建您的第一个项目"
-  - "Visual Studio 中的 Office 开发, 创建您的第一个项目"
-  - "Word [Visual Studio 中的 Office 开发], 创建您的第一个项目"
+title: 'Walkthrough: Creating Your First Document-Level Customization For Word | Microsoft Docs'
+ms.custom: 
+ms.date: 02/02/2017
+ms.prod: visual-studio-dev14
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- office-development
+ms.tgt_pltfrm: 
+ms.topic: article
+dev_langs:
+- VB
+- CSharp
+helpviewer_keywords:
+- Office development in Visual Studio, creating your first project
+- Word [Office development in Visual Studio], creating your first project
+- document-level customizations [Office development in Visual Studio], creating your first project
 ms.assetid: ec9f5173-0923-4aee-985a-e760e80eaae3
 caps.latest.revision: 45
-author: "kempb"
-ms.author: "kempb"
-manager: "ghogen"
-caps.handback.revision: 44
+author: kempb
+ms.author: kempb
+manager: ghogen
+ms.translationtype: HT
+ms.sourcegitcommit: eb5c9550fd29b0e98bf63a7240737da4f13f3249
+ms.openlocfilehash: 5d18e432f348950ce973baf92b8e9afd3146b63d
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/30/2017
+
 ---
-# 演练：创建您的第一个 Word 文档级自定义项
-  本介绍性演练演示了如何创建 Microsoft Office Word 的文档级自定义项。  仅在特定文档处于打开状态时，才可提供你在这种解决方案中创建的功能。  不能使用文档级自定义项进行应用程序范围的更改，例如在任何文档处于打开状态时显示新“功能区”选项卡。  
+# <a name="walkthrough-creating-your-first-document-level-customization-for-word"></a>Walkthrough: Creating Your First Document-Level Customization For Word
+  This introductory walkthrough shows you how to create a document-level customization for Microsoft Office Word. The features that you create in this kind of solution are available only when a specific document is open. You cannot use a document-level customization to make application-wide changes, for example, displaying a new Ribbon tab when any document is open.  
   
  [!INCLUDE[appliesto_wdalldoc](../vsto/includes/appliesto-wdalldoc-md.md)]  
   
- 本演练阐释了以下任务：  
+ This walkthrough illustrates the following tasks:  
   
--   创建 Word 文档项目。  
+-   Creating a Word document project.  
   
--   将文本添加到 Visual Studio 设计器中托管的文档。  
+-   Adding text to the document that is hosted in the Visual Studio designer.  
   
--   编写代码，使用 Word 对象模型在自定义文档时打开时向其中添加文本。  
+-   Writing code that uses the object model of Word to add text to the customized document when it is opened.  
   
--   生成并运行项目，以对其进行测试。  
+-   Building and running the project to test it.  
   
--   清理项目，以便从开发计算机删除不必要的生成文件和安全设置。  
+-   Cleaning up the project to remove unnecessary build files and security settings from your development computer.  
   
  [!INCLUDE[note_settings_general](../sharepoint/includes/note-settings-general-md.md)]  
   
-## 系统必备  
- 你需要以下组件来完成本演练：  
+## <a name="prerequisites"></a>Prerequisites  
+ You need the following components to complete this walkthrough:  
   
 -   [!INCLUDE[vsto_vsprereq](../vsto/includes/vsto-vsprereq-md.md)]  
   
 -   Microsoft Word  
   
-## 创建项目  
+## <a name="creating-the-project"></a>Creating the Project  
   
-#### 在 Visual Studio 中创建新的 Word 文档项目  
+#### <a name="to-create-a-new-word-document-project-in-visual-studio"></a>To create a new Word document project in Visual Studio  
   
-1.  启动 [!INCLUDE[vsprvs](../sharepoint/includes/vsprvs-md.md)]。  
+1.  Start [!INCLUDE[vsprvs](../sharepoint/includes/vsprvs-md.md)].  
   
-2.  在**“文件”**菜单上，指向**“新建”**，然后单击**“项目”**。  
+2.  On the **File** menu, point to **New**, and then click **Project**.  
   
-3.  在模板窗格中，展开**“Visual C\#”**或**“Visual Basic”**，然后展开**“Office\/SharePoint”**。  
+3.  In the templates pane, expand **Visual C#** or **Visual Basic**, and then expand **Office/SharePoint**.  
   
-4.  在展开的**“Office\/SharePoint”**节点下方，选择**“Office 外接程序”**节点。  
+4.  Under the expanded **Office/SharePoint** node, select the **Office Add-ins** node.  
   
-5.  在项目模板列表中，选择 Word VSTO 文档项目。  
+5.  In the list of project templates, select a Word VSTO document project .  
   
-6.  在**“名称”**框中，键入 **FirstDocumentCustomization**。  
+6.  In the **Name** box, type **FirstDocumentCustomization**.  
   
-7.  单击“确定”。  
+7.  Click **OK**.  
   
-     将打开“Visual Studio Tools for Office 项目向导”。  
+     The **Visual Studio Tools for Office Project Wizard** opens.  
   
-8.  选择**“创建新文档”**，然后单击**“确定”**。  
+8.  Select **Create a new document**, and click **OK**.  
   
-     [!INCLUDE[vsprvs](../sharepoint/includes/vsprvs-md.md)] 创建 **FirstDocumentCustomization** 项目，并将 **FirstDocumentCustomization** 文档和 ThisDocument 添加到项目的代码文件。  **FirstDocumentCustomization** 文档将在设计器中自动打开。  
+     [!INCLUDE[vsprvs](../sharepoint/includes/vsprvs-md.md)] creates the **FirstDocumentCustomization** project, and adds the **FirstDocumentCustomization** document and ThisDocument code file to the project. The **FirstDocumentCustomization** document is opened automatically in the designer.  
   
-## 关闭并重新打开设计器中的文档  
- 如果开发项目时有意或无意关闭了设计器中的文档，则可以重新打开它。  
+## <a name="closing-and-reopening-the-document-in-the-designer"></a>Closing and Reopening the Document in the Designer  
+ If you deliberately or accidentally close the document in the designer while you are developing your project, you can reopen it.  
   
-#### 若要关闭并重新打开设计器中的文档  
+#### <a name="to-close-and-reopen-the-document-in-the-designer"></a>To close and reopen the document in the designer  
   
-1.  通过单击设计器窗口的**“关闭”**\(X\) 按钮关闭文档。  
+1.  Close the document by clicking the **Close** button (X) for the designer window.  
   
-2.  在**“解决方案资源管理器”**中，右键单击**“ThisDocument”**代码文件，然后单击**“查看设计器”**。  
+2.  In **Solution Explorer**, right-click the **ThisDocument** code file, and click **View Designer**.  
   
-     \- 或 \-  
+     \- or -  
   
-     在**“解决方案资源管理器”**中，双击**“ThisDocument.vb”**代码文件。  
+     In **Solution Explorer**, double-click the **ThisDocument** code file.  
   
-## 向设计器中的文档添加文本  
- 可以通过修改在设计器中打开的文档来设计自定义的用户界面 \(UI\)。  例如，可以添加文本、表格或 Word 控件。  有关如何使用设计器的详细信息，请参阅 [Visual Studio 环境中的 Office 项目](../vsto/office-projects-in-the-visual-studio-environment.md)。  
+## <a name="adding-text-to-the-document-in-the-designer"></a>Adding Text to the Document in the Designer  
+ You can design the user interface (UI) of your customization by modifying the document that is open in the designer. For example, you can add text, tables, or Word controls. For more information about how to use the designer, see [Office Projects in the Visual Studio Environment](../vsto/office-projects-in-the-visual-studio-environment.md).  
   
-#### 使用设计器将文本添加到文档  
+#### <a name="to-add-text-to-your-document-by-using-the-designer"></a>To add text to your document by using the designer  
   
-1.  在已在设计器中打开的文档中键入以下文本。  
+1.  In the document that is open in the designer, type the following text.  
   
      **This text was added by using the designer.**  
   
-## 以编程方式向文档添加文本  
- 接下来，将代码添加到 ThisDocument 代码文件。  新代码使用 Word 对象模型向文档添加文本的第二个段落。  默认情况下，ThisDocument 代码文件包含以下生成的代码：  
+## <a name="adding-text-to-the-document-programmatically"></a>Adding Text to the Document Programmatically  
+ Next, add code to the ThisDocument code file. The new code uses the object model of Word to add a second paragraph of text to the document. By default, the ThisDocument code file contains the following generated code:  
   
--   `ThisDocument` 类的部分定义，用于表示文档的编程模型，并提供对 Word 对象模型的访问权限。  有关详细信息，请参阅[文档宿主项](../vsto/document-host-item.md)和 [Word 对象模型概述](../vsto/word-object-model-overview.md)。  `ThisDocument` 类的其余部分是在隐藏代码文件中定义的，不应修改该代码文件。  
+-   A partial definition of the `ThisDocument` class, which represents the programming model of the document and provides access to the object model of Word. For more information, see [Document Host Item](../vsto/document-host-item.md) and [Word Object Model Overview](../vsto/word-object-model-overview.md). The remainder of the `ThisDocument` class is defined in a hidden code file that you should not modify.  
   
--   `ThisDocument_Startup` 和 `ThisDocument_Shutdown` 事件处理程序。  将在打开或关闭文档时调用这些事件处理程序。  使用这些事件处理程序，可在打开文档时对其进行初始化，并在关闭文档时清理自定义项所使用的资源。  有关详细信息，请参阅 [Office 项目中的事件](../vsto/events-in-office-projects.md)。  
+-   The `ThisDocument_Startup` and `ThisDocument_Shutdown` event handlers. These event handlers are called when the document is opened and closed. Use these event handlers to initialize your customization when the document is opened, and to clean up resources used by your customization when the document is closed. For more information, see [Events in Office Projects](../vsto/events-in-office-projects.md).  
   
-#### 若要使用代码向文档添加文本的第二个段落  
+#### <a name="to-add-a-second-paragraph-of-text-to-the-document-by-using-code"></a>To add a second paragraph of text to the document by using code  
   
-1.  在**“解决方案资源管理器”**中右键单击**“ThisDocument”**，然后单击**“查看代码”**。  
+1.  In **Solution Explorer**, right-click **ThisDocument**, and then click **View Code**.  
   
-     将在 Visual Studio 中打开代码文件。  
+     The code file opens in Visual Studio.  
   
-2.  将 `ThisDocument_Startup` 事件处理程序替换为以下代码。  当打开文档时，此代码会将文本第二个段落添加到文档中。  
+2.  Replace the `ThisDocument_Startup` event handler with the following code. When the document is opened, this code adds a second paragraph of text to the document.  
   
-     [!code-csharp[Trin_WordDocumentTutorial#1](../snippets/csharp/VS_Snippets_OfficeSP/Trin_WordDocumentTutorial/CS/ThisDocument.cs#1)]
-     [!code-vb[Trin_WordDocumentTutorial#1](../snippets/visualbasic/VS_Snippets_OfficeSP/Trin_WordDocumentTutorial/VB/ThisDocument.vb#1)]  
+     [!code-vb[Trin_WordDocumentTutorial#1](../vsto/codesnippet/VisualBasic/FirstDocumentCustomization/ThisDocument.vb#1)]  [!code-csharp[Trin_WordDocumentTutorial#1](../vsto/codesnippet/CSharp/FirstDocumentCustomization/ThisDocument.cs#1)]  
   
     > [!NOTE]  
-    >  此代码使用索引值 1 来访问 <xref:Microsoft.Office.Tools.Word.Document.Paragraphs%2A> 属性的第一个段落。  尽管 Visual Basic 和 Visual C\# 使用从 0 开始的数组，但 Word 对象模型中大多数集合的数组下限都是 1。  有关详细信息，请参阅[在 Office 解决方案中编写代码](../vsto/writing-code-in-office-solutions.md)。  
+    >  This code uses the index value 1 to access the first paragraph in the <xref:Microsoft.Office.Tools.Word.Document.Paragraphs%2A> property. Although Visual Basic and Visual C# use 0-based arrays, the lower array bounds of most collections in the Word object model is 1. For more information, see [Writing Code in Office Solutions](../vsto/writing-code-in-office-solutions.md).  
   
-## 测试项目  
+## <a name="testing-the-project"></a>Testing the Project  
   
-#### 测试文档  
+#### <a name="to-test-your-document"></a>To test your document  
   
-1.  按 **F5** 生成并运行项目。  
+1.  Press **F5** to build and run your project.  
   
-     生成项目时，会将代码编译到与该文档相关联的程序集中。  Visual Studio 将该文档和程序集的副本放入项目的生成输出文件夹中，并将开发计算机上的安全设置配置为允许自定义项运行。  有关详细信息，请参阅 [生成 Office 解决方案](../vsto/building-office-solutions.md)。  
+     When you build the project, the code is compiled into an assembly that is associated with the document. Visual Studio puts a copy of the document and the assembly in the build output folder for the project, and it configures the security settings on the development computer to enable the customization to run. For more information, see [Building Office Solutions](../vsto/building-office-solutions.md).  
   
-2.  验证文档中具有以下文本。  
+2.  In the document, verify that you see the following text.  
   
      **This text was added by using the designer.**  
   
      **This text was added by using code.**  
   
-3.  关闭文档。  
+3.  Close the document.  
   
-## 清理项目  
- 完成项目开发后，应删除生成输出文件夹中的文件和由生成过程创建的安全设置。  
+## <a name="cleaning-up-the-project"></a>Cleaning up the Project  
+ When you finish developing a project, you should remove the files in the build output folder and the security settings created by the build process.  
   
-#### 在开发计算机上清理已完成的项目  
+#### <a name="to-clean-up-the-completed-project-on-your-development-computer"></a>To clean up the completed project on your development computer  
   
-1.  在 Visual Studio 中，在**“生成”**菜单上，单击**“清理解决方案”**。  
+1.  In Visual Studio, on the **Build** menu, click **Clean Solution**.  
   
-## 后续步骤  
- 既然你已经创建了一个基本的 Word 文档级自定义项，你就可以从下面这些主题中了解有关如何开发自定义项的详细信息：  
+## <a name="next-steps"></a>Next Steps  
+ Now that you have created a basic document-level customization for Word, you can learn more about how to develop customizations from these topics:  
   
--   可以在文档级自定义项中执行的常规编程任务：[对文档级自定义项进行编程](../vsto/programming-document-level-customizations.md)。  
+-   General programming tasks that you can perform in document-level customizations: [Programming Document-Level Customizations](../vsto/programming-document-level-customizations.md).  
   
--   特定于 Word 文档级自定义项的编程任务：[Word 解决方案](../vsto/word-solutions.md)。  
+-   Programming tasks that are specific to document-level customizations for Word: [Word Solutions](../vsto/word-solutions.md).  
   
--   使用 Word 的对象模型：[Word 对象模型概述](../vsto/word-object-model-overview.md)。  
+-   Using the object model of Word: [Word Object Model Overview](../vsto/word-object-model-overview.md).  
   
--   自定义 Word 的 UI，例如通过向功能区添加自定义选项卡或创建自己的操作窗格：[Office UI 自定义](../vsto/office-ui-customization.md)。  
+-   Customizing the UI of Word, for example, by adding a custom tab to the Ribbon or creating your own actions pane: [Office UI Customization](../vsto/office-ui-customization.md).  
   
--   使用由 Visual Studio 中的 Office 解决方案提供的扩展 Word 对象，执行无法通过使用 Word 对象模型执行的任务（例如，在文档上承载托管的控件以及使用 Windows 窗体数据绑定模型将 Word 控件绑定到数据）：[使用扩展对象实现 Word 自动化](../vsto/automating-word-by-using-extended-objects.md)。  
+-   Using extended Word objects provided by Office solutions in Visual Studio to perform tasks that are not possible by using the Word object model (for example, hosting managed controls on documents and binding Word controls to data by using the Windows Forms data binding model): [Automating Word by Using Extended Objects](../vsto/automating-word-by-using-extended-objects.md).  
   
--   生成和调试 Word 文档级自定义项：[生成 Office 解决方案](../vsto/building-office-solutions.md)。  
+-   Building and debugging document-level customizations for Word: [Building Office Solutions](../vsto/building-office-solutions.md).  
   
--   部署 Word 文档级自定义项：[部署 Office 解决方案](../vsto/deploying-an-office-solution.md)。  
+-   Deploying document-level customizations for Word: [Deploying an Office Solution](../vsto/deploying-an-office-solution.md).  
   
-## 请参阅  
- [Office 解决方案开发概述 &#40;VSTO&#41;](../vsto/office-solutions-development-overview-vsto.md)   
- [Word 解决方案](../vsto/word-solutions.md)   
- [对文档级自定义项进行编程](../vsto/programming-document-level-customizations.md)   
- [Word 对象模型概述](../vsto/word-object-model-overview.md)   
- [使用扩展对象实现 Word 自动化](../vsto/automating-word-by-using-extended-objects.md)   
- [Office UI 自定义](../vsto/office-ui-customization.md)   
- [生成 Office 解决方案](../vsto/building-office-solutions.md)   
- [部署 Office 解决方案](../vsto/deploying-an-office-solution.md)   
- [Office 项目模板概述](../vsto/office-project-templates-overview.md)  
+## <a name="see-also"></a>See Also  
+ [Office Solutions Development Overview &#40;VSTO&#41;](../vsto/office-solutions-development-overview-vsto.md)   
+ [Word Solutions](../vsto/word-solutions.md)   
+ [Programming Document-Level Customizations](../vsto/programming-document-level-customizations.md)   
+ [Word Object Model Overview](../vsto/word-object-model-overview.md)   
+ [Automating Word by Using Extended Objects](../vsto/automating-word-by-using-extended-objects.md)   
+ [Office UI Customization](../vsto/office-ui-customization.md)   
+ [Building Office Solutions](../vsto/building-office-solutions.md)   
+ [Deploying an Office Solution](../vsto/deploying-an-office-solution.md)   
+ [Office Project Templates Overview](../vsto/office-project-templates-overview.md)  
   
   

@@ -1,165 +1,282 @@
 ---
-title: "如何：使用“线程”窗口 | Microsoft Docs"
-ms.custom: ""
-ms.date: "12/16/2016"
-ms.prod: "visual-studio-dev14"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-debug"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "vs.debug.threads"
-dev_langs: 
-  - "FSharp"
-  - "VB"
-  - "CSharp"
-  - "C++"
-helpviewer_keywords: 
-  - "线程处理 [Visual Studio]，调试"
-  - "Thread.Name 属性"
-  - "调试器，“线程”窗口"
-  - "SetThreadName 函数"
-  - "“线程”窗口"
-  - "@TIB"
-  - "调试 [Visual Studio]，线程"
+title: Debug a multithreaded application using the Threads window | Microsoft Docs
+ms.custom: H1HackMay2017
+ms.date: 05/18/2017
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-debug
+ms.tgt_pltfrm: 
+ms.topic: article
+dev_langs:
+- CSharp
+- VB
+- FSharp
+- C++
+helpviewer_keywords:
+- multithreaded debugging, tutorial
+- tutorials, multithreaded debugging
 ms.assetid: adfbe002-3d7b-42a9-b42a-5ac0903dfc25
-caps.latest.revision: 44
-caps.handback.revision: 44
-author: "mikejo5000"
-ms.author: "mikejo"
-manager: "ghogen"
----
-# 如何：使用“线程”窗口
-[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
+caps.latest.revision: 38
+author: mikejo5000
+ms.author: mikejo
+manager: ghogen
+translation.priority.ht:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+ms.translationtype: HT
+ms.sourcegitcommit: 9e6c28d42bec272c6fd6107b4baf0109ff29197e
+ms.openlocfilehash: e22ae316526950e5b2e8db931f76538158c90af9
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/22/2017
 
-在**“线程”**窗口中，可以检查和使用正在调试的应用程序中的线程。  
+---
+# <a name="walkthrough-debug-a-multithreaded-application-in-visual-studio-using-the-threads-window"></a>Walkthrough: Debug a multithreaded application in Visual Studio using the Threads window
+Visual Studio provides a **Threads** window and other user interface elements to help you debug multithreaded applications. This tutorial shows how to use the **Threads** window and the **Debug Location** toolbar. For information on the other tools, see  [Get started debugging multithreaded applications](../debugger/get-started-debugging-multithreaded-apps.md). This tutorial takes only a few minutes, but completing it will familiarize you with the features for debugging multithreaded applications.   
   
- **“线程”**窗口包含每行表示应用程序中一个线程的表。  默认情况下，该表列出应用程序中的所有线程，但您可以筛选列表以仅显示您感兴趣的线程。  每列都包含不同类型的信息。  您还可以隐藏某些列。  如果显示所有列，将从左到右显示以下信息：  
+To begin this tutorial, you need a multithreaded application project. Follow the steps listed here to create that project.  
   
--   标志列，您可以在此处标记要格外关注的线程。  有关如何标记线程的信息，请参见[如何：标记线程和取消标记线程](../Topic/How%20to:%20Flag%20and%20Unflag%20Threads.md)。  
+#### <a name="to-create-the-multithreaded-app-project"></a>To create the multithreaded app project  
   
--   活动线程列，此处黄色箭头指示一个活动线程。  箭头的轮廓指示执行在调试器中分解的线程。  
+1.  On the **File** menu, choose **New** and then click **Project**.  
   
--   **“ID”**列，包含每个线程的标识号。  
+     The **New Project** dialog box appears.  
   
--   **“托管 ID”**列，包含托管线程的托管标识号。  
+2.  In the **Project Type**s box, click the language of your choice: **Visual Basic**, **Visual C#**, or **Visual C++**.  
   
--   **“类别”**列，将线程划分为用户界面线程、远程过程调用处理程序或辅助线程。  一个特殊类别标识应用程序的主线程。  
+3.  In the **Templates** box, choose **Console App**.  
   
--   **“名称”**列，如果有线程，则按名称标识每个线程，否则标识为“\<无名称\>”。  
+4.  In the **Name** box, type the name MyThreadWalkthroughApp.  
   
--   **“位置”**列，显示线程运行的位置。  可以展开此位置以显示线程的完整调用堆栈。  
+5.  Click **OK**.  
   
--   **“优先级别”**列，包含系统已向每个线程分配的优先级。  
+     A new console project appears. When the project has been created, a source file appears. Depending on the language you have chosen, the source file might be called Module1.vb, Program.cs, or MyThreadWalkthroughApp.cpp  
   
--   **“关联掩码”**列，高级列，通常隐藏。  此列显示每个线程的处理器关联掩码。  在多处理器系统中，关联掩码确定线程可以在哪些处理器上运行。  
+6.  Delete the code that appears in the source file and replace it with the example code that appears in the section "Creating a Thread" of the topic [Creating Threads and Passing Data at Start Time](/dotnet/standard/threading/creating-threads-and-passing-data-at-start-time).  
   
--   **“挂起项计数”**列，包含挂起项计数。  此计数确定线程是否可以运行。  有关挂起项计数的解释，请参见本主题后面的“冻结和解冻线程”。  
+7.  On the **File** menu, click **Save All**.  
   
--   **“进程名称”**列，包含每个线程所属的进程。  在调试多个进程时，此列会很有用，但此列通常隐藏。  
+#### <a name="to-begin-the-tutorial"></a>To begin the tutorial  
   
-### 以中断模式或运行模式显示“线程”窗口  
+-   In the source code editor, look for the following code:  
   
--   在**“调试”**菜单上指向**“窗口”**，再单击**“线程”**。  
+    ```VB  
+    Thread.Sleep(3000)   
+    Console.WriteLine(  
+    ```  
   
-### 显示或隐藏列  
+    ```CSharp  
+    Thread.Sleep(3000);  
+    Console.WriteLine();  
+    ```  
   
--   在**“线程”**窗口顶部的工具栏中，单击**“列”**，然后选中或清除要显示或隐藏的列的名称。  
+    ```C++  
+    Thread::Sleep(3000);  
+    Console.WriteLine();  
+    ```  
   
-### 切换活动线程  
+#### <a name="to-start-debugging"></a>To start debugging  
   
--   任意执行以下步骤之一：  
+1.  Click in the left gutter of the `Console.WriteLine` statement to insert a new breakpoint.  
   
-    -   双击任一线程。  
+     In the gutter on the left side of the source code editor, a red circle appears. This indicates that a breakpoint is now set at this location.  
   
-    -   右击一个线程，再单击**“切换到线程”**。  
+2.  On the **Debug** menu, click **Start Debugging** (**F5**).  
   
-         黄色箭头会出现在新活动线程的旁边。  箭头的灰色轮廓标识执行在调试器中分解的线程。  
+     Debugging starts, your console application starts to run, and then stops at the breakpoint.  
   
-## 分组和排序线程  
- 分组线程时，表中将显示每组的标题。  标题包含组的说明（如“辅助线程”或“未标记的线程”）和树控件。  每组的成员线程显示在组标题下。  如果要隐藏组的成员线程，可以使用树控件折叠组。  
+3.  If the console application window has focus at this point, click in the [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] window to return focus to [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)].  
   
- 因为分组优先于排序，所以您可以先按类别（以此为例）分组线程，再按每个类别中的 ID 对其进行排序。  
+4.  In the source code editor, locate the line that contains the following code:  
   
-#### 排序线程  
+    ```VB  
+    Thread.Sleep(5000)   
+    ```  
   
-1.  在**“线程”**窗口顶部的工具栏中，单击任意列顶部的按钮。  
+    ```CSharp  
+    Thread.Sleep(3000);  
+    ```  
   
-     线程现在按该列中的值进行排序。  
+    ```C++  
+    Thread::Sleep(3000);  
+    ```
   
-2.  如果希望颠倒排序顺序，请再次单击相同按钮。  
+#### <a name="to-discover-the-thread-marker"></a>To discover the thread marker  
+
+1.  In the Debug Toolbar, click the **Show Threads in Source** button ![Show Threads in Source](../debugger/media/dbg-multithreaded-show-threads.png "ThreadMarker"). 
   
-     在列表顶部显示的线程现在显示在底部。  
+2.  Look at the gutter on the left side of the window. On this line, you will see a *thread marker* icon  ![Thread Marker](../debugger/media/dbg-thread-marker.png "ThreadMarker") that resembles two cloth threads. The thread marker indicates that a thread is stopped at this location.  
   
-#### 分组线程  
+3.  Hover the pointer over the thread marker. A DataTip appears. The DataTip tells you the name and thread ID number for each stopped thread. In this case, there is only one thread, whose name is probably `<noname>`.  
+
+    > [!TIP]
+    > You may find it helpful to identify nameless threads by renaming them. In the Threads window, choose **Rename** after right-clicking on the **Name** column in the thread row.
   
--   在**“线程”**窗口工具栏中，单击**“分组依据”**列表，然后单击您要分组线程所依据的条件。  
+4.  Right-click the thread marker to see the available options on the shortcut menu. 
+    
   
-#### 对组内线程排序  
+## <a name="flagging-and-unflagging-threads"></a>Flagging and Unflagging Threads  
+You can flag threads that you want to give special attention. Flagging threads is a good way to keep track of important threads and to ignore threads that you do not care about.  
   
-1.  在**“线程”**窗口顶部的工具栏中，单击**“分组依据”**列表，然后单击您要分组线程所依据的条件。  
+#### <a name="to-flag-threads"></a>To flag threads   
+
+1.  On **View** menu, point to **Toolbars**.  
   
-2.  在**“线程”**窗口中单击任意列顶部的按钮。  
+    Make sure that the **Debug Location** toolbar is selected.
+
+2.  Go to the **Debug Location** toolbar and click the **Thread** list.  
   
-     线程现在按该列中的值进行排序。  
+    > [!NOTE]
+    >  You can recognize this toolbar by three prominent lists: **Process**, **Thread**, and **Stack Frame**.  
   
-#### 展开或折叠所有组  
+3.  Notice how many threads appear in the list.  
   
--   在**“线程”**窗口顶部的工具栏中，单击**“展开组”**或**“折叠组”**。  
+4.  Go back to the source code editor and right-click the thread marker ![Thread Marker](../debugger/media/dbg-thread-marker.png "ThreadMarker") again.  
   
-## 搜索特定线程  
- 在 [!INCLUDE[vs_dev11_long](../data-tools/includes/vs_dev11_long_md.md)] 中，可以搜索与指定字符串匹配的线程。  在**“线程”**窗口中搜索线程时，窗口显示与任意列中的搜索字符串匹配的所有线程。  信息包括在**“位置”**列中调用堆栈顶部显示的线程位置。  但是，默认情况下不搜索整个调用堆栈。  
+5.  On the shortcut menu, point to **Flag**, and then click the thread name and ID number.  
   
-#### 搜索特定线程  
+6.  Go back to **Debugging Location** toolbar and find the **Show Only Flagged Threads** icon ![Show Flagged Threads](../debugger/media/dbg-threads-show-flagged.png "ThreadMarker") to the right of the **Thread** list.  
   
--   在**“线程”**窗口顶部的工具栏中，转到**“搜索”**框，执行下列操作之一：  
+    The flags icon on the button was dimmed before. Now, it is an active button.  
   
-    -   键入搜索字符串然后按 Enter。  
+7.  Click the **Show Only Flagged Threads** icon.  
   
-         \- 或 \-  
+    Only the flagged thread appears in the list now. (You can click the single flag button to toggle back to **Show All Threads** mode.)
+
+8. Open the Threads window by choosing **Debug > Windows > Threads**.
+
+    ![Threads Window](../debugger/media/dbg-threads-window.png "ThreadsWindow")  
   
-    -   单击**“搜索”**框旁边的下拉列表，从前一个搜索中选择搜索字符串。  
+    In the **Threads** window, the flagged thread has a prominent red flag icon attached to it.
+
+    > [!TIP]
+    > When you have flagged some threads, you can right-click a line of code in the code editor and choose **Run Flagged Threads to Cursor** (make sure that you choose code that all flagged threads will reach). This will pause threads on the selected line of code, making it easier control the order of execution by [freezing and thawing threads](#bkmk_freeze).
   
--   （可选）若要在搜索中包括整个调用堆栈，请选中**“搜索调用堆栈”**。  
+11. In the source code editor, right-click the thread marker again.  
   
-## 冻结和解冻线程  
- 当冻结线程时，即便资源可用，系统也不会开始执行该线程。  
+     Notice what choices are now available on the shortcut menu. Instead of **Flag**, you now see **Unflag**. Do not click **Unflag**.  
+
+     To find out how to unflag threads, go to the next procedure.  
   
- 在本机代码中，可以通过调用 Windows 函数 `SuspendThread` 和 `ResumeThread` 或者 MFC 函数 [CWinThread::SuspendThread](../Topic/CWinThread::SuspendThread.md) 和 [CWinThread::ResumeThread](../Topic/CWinThread::ResumeThread.md) 来挂起或继续线程。  如果调用 `SuspendThread` 或 `ResumeThread`，则可以更改在**“线程”**窗口中显示的挂起项计数。  但是，如果冻结或解冻本机线程，则不会更改挂起项计数。  在本机代码中线程将无法执行，除非该线程解冻并且其挂起项计数为零。  
+#### <a name="to-unflag-threads"></a>To unflag threads  
   
- 在托管代码中，冻结或解冻线程不会更改挂起项计数。  在托管代码中，冻结线程的挂起项计数为 1。  在本机代码中，冻结线程的挂起项计数为 0，除非该线程由 `SuspendThread` 调用挂起。  
+1.  On the **Threads** window, right-click the line corresponding to the flagged thread.  
   
-> [!NOTE]
->  在调试本机代码对托管代码的调用时，托管代码与调用它的本机代码在同一个物理线程中运行。  挂起或冻结本机线程也会冻结托管代码。  
+     A shortcut menu is displayed. It has options to **Unflag** and **Unflag All Threads**.  
   
-#### 冻结或解冻线程的执行  
+2.  To unflag the thread, click **Unflag**.  
+
+    Look at the **Debugging Location** toolbar again. The **Show Only Flagged Threads** button is dimmed again. You unflagged the only flagged thread. Because there are no flagged threads, the toolbar has gone back to **Show All Threads** mode. Click the **Thread** list and verify that you can see all threads.  
   
--   在**“线程”**窗口顶部的工具栏中，单击**“冻结线程”**或**“解冻线程”**。  
+5.  Go back to the **Threads** window and examine the information columns.  
   
-     此操作将仅影响在**“线程”**窗口中选中的线程。  
+    In the first column, you will notice a flag outline icon in each row of the thread list. (The outline means that the thread is unflagged.)  
   
-## 显示标记的线程  
- 在**“线程”**窗口中，可以用图标标记来标记要格外关注的线程。  有关详细信息，请参阅[如何：标记线程和取消标记线程](../Topic/How%20to:%20Flag%20and%20Unflag%20Threads.md)。  在“线程”窗口中，您可以选择显示所有线程或仅显示标记的线程。  
+6.  Click the flag outline icons for two threads, the second and third from the bottom of the list. 
+
+    The flag icons become solid red, instead of hollow outlines.  
   
-#### 仅显示标记的线程  
+7.  Click the button at the top of the flag column.  
   
--   选择**“线程”**窗口左上角的标记按钮。  
+    The order of the thread list changed when you clicked the button. The thread list is now sorted with the flagged threads on top.  
   
-## 显示线程调用堆栈并在帧之间切换  
- 在多线程程序中，每个线程都有自己的调用堆栈。  **“线程”**窗口提供了一种查看这些堆栈的简便方法。  
+8.  Again, click the button at the top of the flag column.  
   
-#### 查看线程的调用堆栈  
+    The sort order changed again.  
   
--   在**“位置”**列中，单击线程位置旁边的倒三角形。  
+## <a name="more-about-the-threads-window"></a>More about the Threads window  
   
-     此位置将展开以显示线程的调用堆栈。  
+#### <a name="to-learn-more-about-the-threads-window"></a>To learn more about the Threads window  
   
-#### 查看或折叠所有线程的调用堆栈  
+1.  In the **Threads** window, examine the third column from the left. The button at the top of this column says **ID**.  
   
--   在**“线程”**窗口顶部的工具栏中，单击**“展开调用堆栈”**或**“折叠调用堆栈”**。  
+2.  Click **ID**.  
   
-## 请参阅  
- [调试多线程应用程序](../debugger/debug-multithreaded-applications-in-visual-studio.md)   
- [演练：调试多线程应用程序](../debugger/walkthrough-debugging-a-multithreaded-application.md)
+     The thread list is now sorted by thread ID number.  
+  
+3.  Right-click any thread in the list. On the shortcut menu, click **Hexadecimal display**.  
+  
+     The format of the thread ID numbers is changed.  
+  
+4.  Hover the mouse pointer over the **Location** column for any thread in the list.  
+  
+     After a momentary delay, a DataTip appears. It shows a partial call stack for the thread.
+
+     > [!TIP]
+     > For a graphical view of the call stacks for threads, open the [Parallel Stacks](../debugger/using-the-parallel-stacks-window.md) window (while debugging, choose **Debug / Windows / Parallel Stacks**). You will see call stacks like this illustration.
+
+    ![Parallel Stacks Window](../debugger/media/dbg-threads-parallel-stacks.png "ParallelStacksWindow")    
+  
+5.  Look at the fourth column from the left, which is labeled **Category**. The threads are classified into categories.  
+  
+     The first thread created in a process is referred to as the main thread. Locate it in the thread list.  
+  
+6.  Right-click the main thread and then click **Switch to Thread**.  
+  
+     A **Break Mode** window appears. It tells you that the debugger is not currently executing any code that it can display (because it is the main thread).   
+  
+7.  Look at the **Call Stack** window and the **Debug Location** toolbar.  
+  
+     The contents of the **Call Stack** window have changed. 
+
+## <a name="bkmk_freeze"></a> Freezing and thawing thread execution 
+
+You can freeze and thaw (suspend and resume) threads to control the order in which threads perform work. This can help you resolve concurrency issues such as deadlocks and race conditions.
+
+> [!TIP]
+> If you want to follow a single thread without freezing other threads (also a common debugging scenario), see [Get started debugging multithreaded applications](../debugger/get-started-debugging-multithreaded-apps.md#bkmk_follow_a_thread).
+  
+#### <a name="to-freeze-and-unfreeze-threads"></a>To freeze and unfreeze threads  
+  
+1.  In the **Threads** window, right-click any thread and then click **Freeze**.  
+  
+2.  Look at the second column (the current thread column). The pause icon now appears there. Those pause icon indicates that the thread is frozen.  
+  
+3.  Show the **Suspended Count** column by selecting it in the **Columns** list.
+
+    The suspend count for the thread is now 1.  
+  
+4.  Right-click the frozen thread and then click **Thaw**.  
+  
+     The current thread column and the **Suspended Count** column change. 
+  
+## <a name="switching-the-to-another-thread"></a>Switching the to another thread 
+  
+#### <a name="to-switch-threads"></a>To switch threads  
+  
+1.  In the **Threads** window, examine the second column from the left (the current thread column). The button at the top of this column has no text or icon.
+  
+2.  Look at the current thread column and notice that one thread has a yellow arrow. The yellow arrow indicates that this thread is the current thread (this is the current location of the execution pointer).
+  
+    Make a note of the thread ID number where you see the current thread icon. You will move the current thread icon to another thread, but you will have to put it back when you have finished. 
+  
+3.  Right-click another thread and then click **Switch to Thread**.  
+  
+4.  Look at the **Call Stack** window in the source code editor. The contents have changed.  
+  
+5.  Look at the **Debug Location** toolbar. The current thread icon has changed there, too.  
+  
+6.  Go to the **Debug Location** toolbar. Select a different thread from the **Thread** list.  
+  
+7.  Look at the **Threads** window. The current thread icon has changed.  
+  
+8. In the source code editor, right-click a thread marker. On the shortcut menu, point to **Switch to Thread** and click a thread name/ID number.  
+  
+     You have now seen three ways of changing the current thread icon to another thread: using the **Threads** window, the **Thread** list in the **Debug Location** toolbar, and the thread marker in the source code editor.  
+  
+     With the thread marker, you can switch only to threads that are stopped at that particular location. By using the **Threads** window and **Debug Location** toolbar, you can switch to any thread.   
+  
+## <a name="see-also"></a>See Also  
+ [Debug Multithreaded Applications](../debugger/debug-multithreaded-applications-in-visual-studio.md)   
+ [How to: Switch to Another Thread While Debugging](../debugger/how-to-switch-to-another-thread-while-debugging.md)

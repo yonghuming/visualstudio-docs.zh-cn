@@ -1,5 +1,5 @@
 ---
-title: "IDebugObject::IsEqual |Microsoft 文档"
+title: IDebugObject::IsEqual | Microsoft Docs
 ms.custom: 
 ms.date: 11/04/2016
 ms.reviewer: 
@@ -30,43 +30,44 @@ translation.priority.mt:
 - tr-tr
 - zh-cn
 - zh-tw
-translationtype: Machine Translation
-ms.sourcegitcommit: 5db97d19b1b823388a465bba15d057b30ff0b3ce
-ms.openlocfilehash: 35d65729a75d06cb8aefc330441cefb09c95bb04
-ms.lasthandoff: 02/22/2017
+ms.translationtype: MT
+ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
+ms.openlocfilehash: 9780a18ff72058a90739c421061fabd9ce8520e1
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="idebugobjectisequal"></a>IDebugObject::IsEqual
-将具有此对象的对象进行比较。  
+Compares an object with this object.  
   
-## <a name="syntax"></a>语法  
+## <a name="syntax"></a>Syntax  
   
-```cpp#  
+```cpp  
 HRESULT IsEqual(   
    IDebugObject* pObject,  
    BOOL*         pfIsEqual  
 );  
 ```  
   
-```c#  
+```csharp  
 int IsEqual(  
    IDebugObject pObject,  
    out int      pfIsEqual  
 );  
 ```  
   
-#### <a name="parameters"></a>参数  
+#### <a name="parameters"></a>Parameters  
  `pObject`  
- [in][IDebugObject](../../../extensibility/debugger/reference/idebugobject.md)对象，表示要比较的对象。  
+ [in] An [IDebugObject](../../../extensibility/debugger/reference/idebugobject.md) object representing the object to compare to.  
   
  `pfIsEqual`  
- [out]返回非零值 (`TRUE`) 如果对象的值相等; 否则为将返回零 (`FALSE`)。  
+ [out] Returns non-zero (`TRUE`) if the values of the objects are equal; otherwise, returns zero (`FALSE`).  
   
-## <a name="return-value"></a>返回值  
- 如果成功，返回，则为 S_OK;否则，返回错误代码。  
+## <a name="return-value"></a>Return Value  
+ If successful, returns S_OK; otherwise, returns an error code.  
   
-## <a name="remarks"></a>备注  
- 通常情况下，此方法就可以比较表示的值的地址`pObject`参数，这[IDebugObject](../../../extensibility/debugger/reference/idebugobject.md)对象; 如果地址是否相等，则这些对象可以被视为相等。  
+## <a name="remarks"></a>Remarks  
+ Typically, this method can compare the addresses of the values represented by the `pObject` parameter and this [IDebugObject](../../../extensibility/debugger/reference/idebugobject.md) object; if the addresses are equal, then the objects can be considered equal.  
   
-## <a name="see-also"></a>另请参阅  
+## <a name="see-also"></a>See Also  
  [IDebugObject](../../../extensibility/debugger/reference/idebugobject.md)

@@ -1,5 +1,5 @@
 ---
-title: "枚举局部变量 |Microsoft 文档"
+title: Enumerating Locals | Microsoft Docs
 ms.custom: 
 ms.date: 11/04/2016
 ms.reviewer: 
@@ -29,38 +29,39 @@ translation.priority.mt:
 - tr-tr
 - zh-cn
 - zh-tw
-translationtype: Machine Translation
-ms.sourcegitcommit: 5db97d19b1b823388a465bba15d057b30ff0b3ce
-ms.openlocfilehash: 72b61b195c58a62b212fd9bcca3c7c8de201b18b
-ms.lasthandoff: 02/22/2017
+ms.translationtype: MT
+ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
+ms.openlocfilehash: 6221af5116f27cd64b644d06c2a21acb51d16923
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/28/2017
 
 ---
-# <a name="enumerating-locals"></a>枚举局部变量
+# <a name="enumerating-locals"></a>Enumerating Locals
 > [!IMPORTANT]
->  在 Visual Studio 2015 中，这种实现表达式计算器不推荐使用。 有关实现 CLR 表达式计算器的信息，请参阅[CLR 表达式计算器](https://github.com/Microsoft/ConcordExtensibilitySamples/wiki/CLR-Expression-Evaluators)和[托管表达式计算器示例](https://github.com/Microsoft/ConcordExtensibilitySamples/wiki/Managed-Expression-Evaluator-Sample)。  
+>  In Visual Studio 2015, this way of implementing expression evaluators is deprecated. For information about implementing CLR expression evaluators, please see [CLR Expression Evaluators](https://github.com/Microsoft/ConcordExtensibilitySamples/wiki/CLR-Expression-Evaluators) and [Managed Expression Evaluator Sample](https://github.com/Microsoft/ConcordExtensibilitySamples/wiki/Managed-Expression-Evaluator-Sample).  
   
- 如果 Visual Studio 可供填充**局部变量**窗口中，它将调用[EnumChildren](../../extensibility/debugger/reference/idebugproperty2-enumchildren.md)上[IDebugProperty2](../../extensibility/debugger/reference/idebugproperty2.md)从返回的对象[GetMethodProperty](../../extensibility/debugger/reference/idebugexpressionevaluator-getmethodproperty.md) (请参阅[实现 GetMethodProperty](../../extensibility/debugger/implementing-getmethodproperty.md))。 `IDebugProperty2::EnumChildren`返回[IEnumDebugPropertyInfo2](../../extensibility/debugger/reference/ienumdebugpropertyinfo2.md)对象。  
+ When Visual Studio is ready to populate the **Locals** window, it calls [EnumChildren](../../extensibility/debugger/reference/idebugproperty2-enumchildren.md) on the [IDebugProperty2](../../extensibility/debugger/reference/idebugproperty2.md) object returned from [GetMethodProperty](../../extensibility/debugger/reference/idebugexpressionevaluator-getmethodproperty.md) (see [Implementing GetMethodProperty](../../extensibility/debugger/implementing-getmethodproperty.md)). `IDebugProperty2::EnumChildren` returns an [IEnumDebugPropertyInfo2](../../extensibility/debugger/reference/ienumdebugpropertyinfo2.md) object.  
   
- 这种实现`IDebugProperty2::EnumChildren`执行下列任务︰  
+ This implementation of `IDebugProperty2::EnumChildren` performs the following tasks:  
   
-1.  确保这表示一种方法。  
+1.  Ensures this is representing a method.  
   
-2.  使用`guidFilter`参数，以确定哪种方法要对其调用[IDebugMethodField](../../extensibility/debugger/reference/idebugmethodfield.md)对象。 如果`guidFilter`等于︰  
+2.  Uses the `guidFilter` argument to determine which method to call on the [IDebugMethodField](../../extensibility/debugger/reference/idebugmethodfield.md) object. If `guidFilter` equals:  
   
-    1.  `guidFilterLocals`调用[EnumLocals](../../extensibility/debugger/reference/idebugmethodfield-enumlocals.md)获取[IEnumDebugFields](../../extensibility/debugger/reference/ienumdebugfields.md)对象。  
+    1.  `guidFilterLocals`, call [EnumLocals](../../extensibility/debugger/reference/idebugmethodfield-enumlocals.md) to obtain an [IEnumDebugFields](../../extensibility/debugger/reference/ienumdebugfields.md) object.  
   
-    2.  `guidFilterArgs`调用[EnumArguments](../../extensibility/debugger/reference/idebugmethodfield-enumarguments.md)获取`IEnumDebugFields`对象。  
+    2.  `guidFilterArgs`, call [EnumArguments](../../extensibility/debugger/reference/idebugmethodfield-enumarguments.md) to obtain an `IEnumDebugFields` object.  
   
-    3.  `guidFilterLocalsPlusArgs`合成将从结果进行组合的枚举`IDebugMethodField::EnumLocals`和`IDebugMethodField::EnumArguments`。 类表示此合成`CEnumMethodField`。  
+    3.  `guidFilterLocalsPlusArgs`, synthesize an enumeration that combines the results from `IDebugMethodField::EnumLocals` and `IDebugMethodField::EnumArguments`. This synthesis is represented by the class `CEnumMethodField`.  
   
-3.  实例化一个类 (称为`CEnumPropertyInfo`在此示例中)，用于实现`IEnumDebugPropertyInfo2`接口并包含`IEnumDebugFields`对象。  
+3.  Instantiates a class (called `CEnumPropertyInfo` in this example) that implements the `IEnumDebugPropertyInfo2` interface and contains the `IEnumDebugFields` object.  
   
-4.  返回`IEnumDebugProperty2Info2`接口从`CEnumPropertyInfo`对象。  
+4.  Returns the `IEnumDebugProperty2Info2` interface from the `CEnumPropertyInfo` object.  
   
-## <a name="managed-code"></a>托管代码  
- 此示例演示如何实现`IDebugProperty2::EnumChildren`在托管代码中。  
+## <a name="managed-code"></a>Managed Code  
+ This example shows an implementation of `IDebugProperty2::EnumChildren` in managed code.  
   
-```c#  
+```csharp  
 namespace EEMC  
 {  
     public class CFieldProperty : IDebugProperty2  
@@ -136,10 +137,10 @@ namespace EEMC
 }  
 ```  
   
-## <a name="unmanaged-code"></a>非托管代码  
- 此示例演示如何实现`IDebugProperty2::EnumChildren`非托管代码中。  
+## <a name="unmanaged-code"></a>Unmanaged Code  
+ This example shows an implementation of `IDebugProperty2::EnumChildren` in unmanaged code.  
   
-```cpp#  
+```cpp  
 STDMETHODIMP CFieldProperty::EnumChildren(   
         in DEBUGPROP_INFO_FLAGS        infoFlags,  
         in DWORD                       radix,  
@@ -262,7 +263,7 @@ STDMETHODIMP CFieldProperty::EnumChildren(
 }  
 ```  
   
-## <a name="see-also"></a>另请参阅  
- [局部变量的实现示例](../../extensibility/debugger/sample-implementation-of-locals.md)   
- [实现 GetMethodProperty](../../extensibility/debugger/implementing-getmethodproperty.md)   
- [评估上下文](../../extensibility/debugger/evaluation-context.md)
+## <a name="see-also"></a>See Also  
+ [Sample Implementation of Locals](../../extensibility/debugger/sample-implementation-of-locals.md)   
+ [Implementing GetMethodProperty](../../extensibility/debugger/implementing-getmethodproperty.md)   
+ [Evaluation Context](../../extensibility/debugger/evaluation-context.md)

@@ -1,5 +1,5 @@
 ---
-title: "步骤 3：向每个标签分配一个随机图标 | Microsoft Docs"
+title: 'Step 3: Assign a Random Icon to Each Label | Microsoft Docs'
 ms.custom: 
 ms.date: 11/04/2016
 ms.reviewer: 
@@ -27,48 +27,46 @@ translation.priority.ht:
 - tr-tr
 - zh-cn
 - zh-tw
-translationtype: Human Translation
-ms.sourcegitcommit: 9044821c2bfee0dba8ffa91f3d91afd565b8d957
-ms.openlocfilehash: 75c899caa3b620899bb2bd8107c63386dd4f40d9
-ms.lasthandoff: 02/22/2017
+ms.translationtype: HT
+ms.sourcegitcommit: eb5c9550fd29b0e98bf63a7240737da4f13f3249
+ms.openlocfilehash: 9a8c18c2d8e313154aa0c72fe5fd5f047cc1780d
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/30/2017
 
 ---
-# <a name="step-3-assign-a-random-icon-to-each-label"></a>步骤 3：向每个标签分配一个随机图标
-如果图标显示在每个游戏的相同单元格中，就不是很有挑战性。 为避免这种情况，请使用 `AssignIconsToSquares()` 方法将图标随机分配给标签控件。  
+# <a name="step-3-assign-a-random-icon-to-each-label"></a>Step 3: Assign a Random Icon to Each Label
+If the icons show up in the same cells every game, it's not very challenging. To avoid this, assign the icons randomly to the label controls on your form by using an `AssignIconsToSquares()` method.  
   
-### <a name="to-assign-a-random-icon-to-each-label"></a>向每个标签分配一个随机图标  
+### <a name="to-assign-a-random-icon-to-each-label"></a>To assign a random icon to each label  
   
-1.  在添加以下代码之前，请考虑该方法的工作原理。 有一个新的关键字：`foreach`（Visual C# 中）或 `For Each`（Visual Basic 中）。 （其中有一行被故意注释掉，本过程的结尾对此进行了解释）。  
+1.  Before adding the following code, consider how the method works. There's a new keyword: `foreach` in Visual C# and `For Each` in Visual Basic. (One of the lines is commented out on purpose, which is explained at the end of this procedure.)  
   
-     [!code-cs[VbExpressTutorial4Step2_3_4#2](../ide/codesnippet/CSharp/step-3-assign-a-random-icon-to-each-label_1.cs)]
-     [!code-vb[VbExpressTutorial4Step2_3_4#2](../ide/codesnippet/VisualBasic/step-3-assign-a-random-icon-to-each-label_1.vb)]  
+     [!code-csharp[VbExpressTutorial4Step2_3_4#2](../ide/codesnippet/CSharp/step-3-assign-a-random-icon-to-each-label_1.cs)]  [!code-vb[VbExpressTutorial4Step2_3_4#2](../ide/codesnippet/VisualBasic/step-3-assign-a-random-icon-to-each-label_1.vb)]  
   
-2.  按上一步骤所示，添加 `AssignIconsToSquares()` 方法。 可以就将它置于[步骤 2：添加随机对象和图标列表](../ide/step-2-add-a-random-object-and-a-list-of-icons.md)中添加的代码下。  
+2.  Add the `AssignIconsToSquares()` method as shown in the previous step. You can put it just below the code you added in [Step 2: Add a Random Object and a List of Icons](../ide/step-2-add-a-random-object-and-a-list-of-icons.md).  
   
-     前面提到，`AssignIconsToSquares()` 方法中有一个新增功能：`foreach` 循环（在 Visual C# 中）和 `For Each`（在 Visual Basic 中）。 无论何时想要多次执行相同操作，你都可以使用 `For Each` 循环。 在本例中，你要对 TableLayoutPanel 中的每个标签执行相同的语句，下面的代码对此进行了解释。 第一行创建一个名为 `control` 的变量，该变量在每个控件执行循环中的语句时存储一次该控件。  
+     As mentioned earlier, there's something new in your `AssignIconsToSquares()` method: a `foreach` loop in Visual C# and `For Each` in Visual Basic. You can use a `For Each` loop any time you want to do the same action multiple times. In this case, you want to execute the same statements for every label on your TableLayoutPanel, as explained by the following code. The first line creates a variable named `control` that stores each control one at a time while that control has the statements in the loop executed on it.  
   
-     [!code-cs[VbExpressTutorial4Step2_3_4#14](../ide/codesnippet/CSharp/step-3-assign-a-random-icon-to-each-label_2.cs)]
-     [!code-vb[VbExpressTutorial4Step2_3_4#14](../ide/codesnippet/VisualBasic/step-3-assign-a-random-icon-to-each-label_2.vb)]  
+     [!code-csharp[VbExpressTutorial4Step2_3_4#14](../ide/codesnippet/CSharp/step-3-assign-a-random-icon-to-each-label_2.cs)]  [!code-vb[VbExpressTutorial4Step2_3_4#14](../ide/codesnippet/VisualBasic/step-3-assign-a-random-icon-to-each-label_2.vb)]  
   
     > [!NOTE]
-    >  其中使用了名称“iconLabel”和“control”，是因为它们具有描述性。 你可以将这些名称替换为任何名称，代码的运行将完全相同（只要你更改循环内每个语句中的名称）。  
+    >  The names "iconLabel" and "control" are used because they are descriptive. You can replace these names with any names, and the code will work exactly the same as long as you change the name in each statement inside the loop.  
   
-     `AssignIconsToSquares()` 方法将迭代 TableLayoutPanel 中的每个标签控件，并对每个控件执行相同的语句。 这些语句从你在[步骤 2：添加随机对象和图标列表](../ide/step-2-add-a-random-object-and-a-list-of-icons.md)添加的列表拉取随机图标。 （这就是该列表中每个图标都有两个的原因，因此将向随机标签控件分配一对图标。）  
+     The `AssignIconsToSquares()` method iterates through each label control in the TableLayoutPanel and executes the same statements for each of them. Those statements pull a random icon from the list that you added in [Step 2: Add a Random Object and a List of Icons](../ide/step-2-add-a-random-object-and-a-list-of-icons.md). (That's why you included two of each icon in the list, so there would be a pair of icons assigned to random label controls.)  
   
-     更加仔细地观察 `foreach` 或 `For Each` 循环中运行的代码。 此代码将在此处重现。  
+     Look more closely at the code that runs inside the `foreach` or `For Each` loop. This code is reproduced here.  
   
-     [!code-cs[VbExpressTutorial4Step2_3_4#16](../ide/codesnippet/CSharp/step-3-assign-a-random-icon-to-each-label_3.cs)]
-     [!code-vb[VbExpressTutorial4Step2_3_4#16](../ide/codesnippet/VisualBasic/step-3-assign-a-random-icon-to-each-label_3.vb)]  
+     [!code-csharp[VbExpressTutorial4Step2_3_4#16](../ide/codesnippet/CSharp/step-3-assign-a-random-icon-to-each-label_3.cs)]  [!code-vb[VbExpressTutorial4Step2_3_4#16](../ide/codesnippet/VisualBasic/step-3-assign-a-random-icon-to-each-label_3.vb)]  
   
-     第一行将 `control` 变量转换为名为 `iconLabel` 的标签。 第一行之后的行是检查以确保转换起作用的 `if` 语句。 如果转换起作用，则 `if` 语句中的语句将运行。 （你可以回想前面的教程，`if` 语句用于计算你指定的任何条件）。`if` 语句中的第一行将创建一个名为 `randomNumber` 的变量，该变量包含一个与图标列表中的项对应的随机数。 为此，它使用你之前创建的 `Next` 对象的 `Random` 方法。 `Next` 方法将返回此随机数。 此行也使用 `Count` 列表的 `icons` 属性来确定随机数的选择范围。 下一行会将图标列表项之一分配给标签的 `Text` 属性。 本主题后面的部分将介绍已注释掉的行。 最后，`if` 语句中最后一行将从列表中删除已添加到窗体中的图标。  
+     The first line converts the `control` variable to a label named `iconLabel`. The line after that is an `if` statement that checks to make sure the conversion worked. If the conversion does work, the statements in the `if` statement run. (As you may recall from the previous tutorials, the `if` statement is used to evaluate whatever condition you specify.) The first line in the `if` statement creates a variable named `randomNumber` that contains a random number that corresponds to one of the items in the icons list. To do this, it uses the `Next` method of the `Random` object that you created earlier. The `Next` method returns the random number. This line also uses the `Count` property of the `icons` list to determine the range from which to choose the random number. The next line assigns one of the icon list items to the `Text` property of the label. The commented-out line is explained later in this topic. Finally, the last line in the `if` statement removes from the list the icon that has been added to the form.  
   
-     请记住，如果你不确定部分代码的行为，可将鼠标指针定位在代码元素的上方，并查看生成的工具提示。 你还可以在使用 Visual Studio 调试器运行程序时，逐步调试每行代码。 有关详细信息，请参阅 [How Do I: Step with The Debugger in Visual Studio?](http://msdn.microsoft.com/vstudio/ee672313.aspx)（如何：在 Visual Studio 中使用调试器逐步调试？）或[使用调试器浏览代码](../debugger/navigating-through-code-with-the-debugger.md)。  
+     Remember, if you're not sure about what some part of the code does, you can position the mouse pointer over a code element and review the resulting tooltip. You can also step through each line of code while the program is running by using the Visual Studio debugger. See [How Do I: Step with The Debugger in Visual Studio?](http://msdn.microsoft.com/vstudio/ee672313.aspx) or [Navigating through Code with the Debugger](../debugger/navigating-through-code-with-the-debugger.md) for more information.  
   
-3.  若要用图标填充游戏板，你需要在程序启动时调用 `AssignIconsToSquares()` 方法。 如果使用 Visual C#，则在 `Form1` 构造函数中 `InitializeComponent()` 方法调用下方直接添加一条语句，这样窗体便可以调用新方法以在显示之前对自身进行设置。 创建新对象（例如类或结构）时，将调用构造函数。 有关详细信息，请参阅 Visual Basic 中的[构造函数（C# 编程指南）](http://msdn.microsoft.com/library/ace5hbzh.aspx)或[使用构造函数和析构函数](http://msdn.microsoft.com/library/2z08e49e.aspx)。  
+3.  To fill up the game board with icons, you need to call the `AssignIconsToSquares()` method as soon as the program starts. If you're using Visual C#, add a statement just below the call to the `InitializeComponent()` method in the `Form1`*constructor*, so your form calls your new method to set itself up before it's shown. Constructors are called when you create a new object, such as a class or struct. See [Constructors (C# Programming Guide)](http://msdn.microsoft.com/library/ace5hbzh.aspx) or [Using Constructors and Destructors](http://msdn.microsoft.com/library/2z08e49e.aspx) in Visual Basic for more information.  
   
-     [!code-cs[VbExpressTutorial4Step2_3_4#13](../ide/codesnippet/CSharp/step-3-assign-a-random-icon-to-each-label_4.cs)]  
+     [!code-csharp[VbExpressTutorial4Step2_3_4#13](../ide/codesnippet/CSharp/step-3-assign-a-random-icon-to-each-label_4.cs)]  
   
-     对于 Visual Basic，将 `AssignIconsToSquares()` 方法调用添加到 `Form1_Load` 方法，以使代码如下所示。  
+     For Visual Basic, add the `AssignIconsToSquares()` method call to the `Form1_Load` method so that the code looks like the following.  
   
     ```vb  
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load  
@@ -76,27 +74,26 @@ ms.lasthandoff: 02/22/2017
     End Sub  
     ```  
   
-4.  保存并运行程序。 它应该显示一个窗体，其中每个标签都分配了随机图标。  
+4.  Save your program and run it. It should show a form with random icons assigned to each label.  
   
-5.  关闭程序，然后重新运行。 请注意，每个标签都分配了不同的图标，如下图所示。  
+5.  Close your program, and then run it again. Notice that different icons are assigned to each label, as shown in the following picture.  
   
-     ![具有随机图标的匹配游戏](~/ide/media/express_tut4step3.png "Express_Tut4Step3")  
-具有随机图标的匹配游戏  
+     ![Matching game with random icons](../ide/media/express_tut4step3.png "Express_Tut4Step3")  
+Matching game with random icons  
   
-     你没有隐藏这些图标，所以现在可以看到。 若要向玩家隐藏图标，可以将每个标签的 `Forecolor` 属性设置为与 `BackColor` 属性相同的颜色。  
+     The icons are visible now because you haven't hidden them. To hide them from the player, you can set each label's `Forecolor` property to the same color as its `BackColor` property.  
   
     > [!TIP]
-    >  隐藏标签等控件的另一种方法是，将其“可见”属性设置为 `False`。  
+    >  Another way to hide controls like labels is to set their **Visible** property to `False`.  
   
-6.  若要隐藏图标，请停止程序并删除 `For Each` 循环内代码注释行上的注释标记。  
+6.  To hide the icons, stop the program and remove the comment marks for the commented line of code inside the `For Each` loop.  
   
-     [!code-cs[VbExpressTutorial4Step2_3_4#15](../ide/codesnippet/CSharp/step-3-assign-a-random-icon-to-each-label_5.cs)]
-     [!code-vb[VbExpressTutorial4Step2_3_4#15](../ide/codesnippet/VisualBasic/step-3-assign-a-random-icon-to-each-label_5.vb)]  
+     [!code-csharp[VbExpressTutorial4Step2_3_4#15](../ide/codesnippet/CSharp/step-3-assign-a-random-icon-to-each-label_5.cs)]  [!code-vb[VbExpressTutorial4Step2_3_4#15](../ide/codesnippet/VisualBasic/step-3-assign-a-random-icon-to-each-label_5.vb)]  
   
-7.  在菜单栏上，选择“全部保存”按钮保存程序，然后运行该程序。 图标看起来消失了 - 只显示蓝色背景。 但是，图标是随机分配的，仍然存在。 因为图标与背景颜色相同，所以玩家看不到它们。 毕竟，如果玩家能立即看到所有图标，游戏就没有挑战性了！  
+7.  On the menu bar, choose the **Save All** button to save your program, and then run it. The icons seem to have disappeared—only a blue background appears. However, the icons are randomly assigned and are still there. Because the icons are the same color as the background, it hides them from the player. After all, it wouldn't be a very challenging game if the player could see all of the icons right away!  
   
-### <a name="to-continue-or-review"></a>继续或查看  
+### <a name="to-continue-or-review"></a>To continue or review  
   
--   若要转到下一个教程步骤，请参阅[步骤 4：向每个标签添加一个 Click 事件处理程序](../ide/step-4-add-a-click-event-handler-to-each-label.md)。  
+-   To go to the next tutorial step, see [Step 4: Add a Click Event Handler to Each Label](../ide/step-4-add-a-click-event-handler-to-each-label.md).  
   
--   若要返回上一个教程步骤，请参阅[步骤 2：添加随机对象和图标列表](../ide/step-2-add-a-random-object-and-a-list-of-icons.md)。
+-   To return to the previous tutorial step, see [Step 2: Add a Random Object and a List of Icons](../ide/step-2-add-a-random-object-and-a-list-of-icons.md).

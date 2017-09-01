@@ -1,59 +1,76 @@
 ---
-title: "IEnumDebugCustomAttributes::Next | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "IEnumCustomAttributes::Next"
-helpviewer_keywords: 
-  - "IEnumDebugCustomAttributes::Next"
+title: IEnumDebugCustomAttributes::Next | Microsoft Docs
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords:
+- IEnumCustomAttributes::Next
+helpviewer_keywords:
+- IEnumDebugCustomAttributes::Next
 ms.assetid: e36f856b-2619-42d1-b73e-4f2390fc22bd
 caps.latest.revision: 9
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 9
----
-# IEnumDebugCustomAttributes::Next
-[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
+ms.author: gregvanl
+manager: ghogen
+translation.priority.mt:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+ms.translationtype: MT
+ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
+ms.openlocfilehash: 77404e6e1fb8c3d0d0598bfdba2973bb14a3c328
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/28/2017
 
-检索自定义特性指定数目的枚举序列的。  
+---
+# <a name="ienumdebugcustomattributesnext"></a>IEnumDebugCustomAttributes::Next
+Retrieves a specified number of custom attributes in an enumeration sequence.  
   
-## 语法  
+## <a name="syntax"></a>Syntax  
   
-```cpp#  
-HRESULT Next (   
-   ULONG      celt,  
-   CODE_PATH* rgelt,  
-   ULONG*     pceltFetched  
+```cpp  
+HRESULT Next (   
+   ULONG      celt,  
+   CODE_PATH* rgelt,  
+   ULONG*     pceltFetched  
 );  
 ```  
   
-```c#  
+```csharp  
 int Next(  
-   uint                        celt,   
-   out IDebugCustomAttribute[] rgelt,   
-   ref uint                    pceltFetched  
+   uint                        celt,   
+   out IDebugCustomAttribute[] rgelt,   
+   ref uint                    pceltFetched  
 );  
 ```  
   
-#### 参数  
+#### <a name="parameters"></a>Parameters  
  `celt`  
- \[in\] 检索的元素的数目。  并指定 `rgelt` 数组的最大大小。  
+ [in] The number of elements to retrieve. Also specifies the maximum size of the `rgelt` array.  
   
  `rgelt`  
- \[out\] 数组将填充的 [IDebugCustomAttribute](../../../extensibility/debugger/reference/idebugcustomattribute.md) 对象。  
+ [out] An array of [IDebugCustomAttribute](../../../extensibility/debugger/reference/idebugcustomattribute.md) objects to be filled in.  
   
  `pceltFetched`  
- \[out\] 返回在 `rgelt`实际上返回的元素的数目。  
+ [out] Returns the number of elements actually returned in `rgelt`.  
   
-## 返回值  
- 如果成功，则返回 `S_OK`。  ，如果小于元素的请求的数目可能返回，则返回; `S_FALSE` 否则，返回错误代码。  
+## <a name="return-value"></a>Return Value  
+ If successful, returns `S_OK`. Returns `S_FALSE` if fewer than the requested number of elements could be returned; otherwise, returns an error code.  
   
-## 请参阅  
+## <a name="see-also"></a>See Also  
  [IEnumDebugCustomAttributes](../../../extensibility/debugger/reference/ienumdebugcustomattributes.md)   
  [IDebugCustomAttribute](../../../extensibility/debugger/reference/idebugcustomattribute.md)

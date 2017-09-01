@@ -1,59 +1,76 @@
 ---
-title: "IEnumDebugPropertyInfo2::Next | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "IEnumDebugPropertyInfo2::Next"
-helpviewer_keywords: 
-  - "IEnumDebugPropertyInfo2::Next"
+title: IEnumDebugPropertyInfo2::Next | Microsoft Docs
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords:
+- IEnumDebugPropertyInfo2::Next
+helpviewer_keywords:
+- IEnumDebugPropertyInfo2::Next
 ms.assetid: 4eb8c7c3-aadf-4187-abee-c0620308a3eb
 caps.latest.revision: 9
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 9
----
-# IEnumDebugPropertyInfo2::Next
-[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
+ms.author: gregvanl
+manager: ghogen
+translation.priority.mt:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+ms.translationtype: MT
+ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
+ms.openlocfilehash: 5f97a63ae9da055d40b1c6cbe3d91bf343aee067
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/28/2017
 
-返回下一组枚举中的元素。  
+---
+# <a name="ienumdebugpropertyinfo2next"></a>IEnumDebugPropertyInfo2::Next
+Returns the next set of elements from the enumeration.  
   
-## 语法  
+## <a name="syntax"></a>Syntax  
   
-```cpp#  
+```cpp  
 HRESULT Next(  
-   ULONG                 celt,  
-   DEBUG_PROPERTY_INFO** rgelt,  
-   ULONG*                pceltFetched  
+   ULONG                 celt,  
+   DEBUG_PROPERTY_INFO** rgelt,  
+   ULONG*                pceltFetched  
 );  
 ```  
   
-```c#  
+```csharp  
 int Next(  
-   uint                  celt,  
-   DEBUG_PROPERTY_INFO[] rgelt,  
-   ref uint              pceltFetched  
+   uint                  celt,  
+   DEBUG_PROPERTY_INFO[] rgelt,  
+   ref uint              pceltFetched  
 );  
 ```  
   
-#### 参数  
+#### <a name="parameters"></a>Parameters  
  `celt`  
- \[in\] 检索的元素的数目。  并指定 `rgelt` 数组的最大大小。  
+ [in] The number of elements to retrieve. Also specifies the maximum size of the `rgelt` array.  
   
  `rgelt`  
- \[in, out\] 数组将填充的 [DEBUG\_PROPERTY\_INFO](../../../extensibility/debugger/reference/debug-property-info.md) 元素。  
+ [in, out] Array of [DEBUG_PROPERTY_INFO](../../../extensibility/debugger/reference/debug-property-info.md) elements to be filled in.  
   
  `pceltFetched`  
- \[out\] 返回在 `rgelt`实际上返回的元素的数目。  
+ [out] Returns the number of elements actually returned in `rgelt`.  
   
-## 返回值  
- 如果成功，则返回 `S_OK`。  ，如果小于元素的请求的数目可能返回，则返回; `S_FALSE` 否则，返回错误代码。  
+## <a name="return-value"></a>Return Value  
+ If successful, returns `S_OK`. Returns `S_FALSE` if fewer than the requested number of elements could be returned; otherwise, returns an error code.  
   
-## 请参阅  
+## <a name="see-also"></a>See Also  
  [IEnumDebugPropertyInfo2](../../../extensibility/debugger/reference/ienumdebugpropertyinfo2.md)   
- [DEBUG\_PROPERTY\_INFO](../../../extensibility/debugger/reference/debug-property-info.md)
+ [DEBUG_PROPERTY_INFO](../../../extensibility/debugger/reference/debug-property-info.md)

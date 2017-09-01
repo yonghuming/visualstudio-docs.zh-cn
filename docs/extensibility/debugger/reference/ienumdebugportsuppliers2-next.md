@@ -1,5 +1,5 @@
 ---
-title: "IEnumDebugPortSuppliers2::Next |Microsoft 文档"
+title: IEnumDebugPortSuppliers2::Next | Microsoft Docs
 ms.custom: 
 ms.date: 11/04/2016
 ms.reviewer: 
@@ -30,18 +30,19 @@ translation.priority.mt:
 - tr-tr
 - zh-cn
 - zh-tw
-translationtype: Machine Translation
-ms.sourcegitcommit: 5db97d19b1b823388a465bba15d057b30ff0b3ce
-ms.openlocfilehash: a26ebec1e1656e8f2090ac5e3f060759e1802436
-ms.lasthandoff: 02/22/2017
+ms.translationtype: MT
+ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
+ms.openlocfilehash: 9fada85b88e9057eaa9585365444c13d0dd4bcc3
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="ienumdebugportsuppliers2next"></a>IEnumDebugPortSuppliers2::Next
-从枚举中返回下一组元素。  
+Returns the next set of elements from the enumeration.  
   
-## <a name="syntax"></a>语法  
+## <a name="syntax"></a>Syntax  
   
-```cpp#  
+```cpp  
 HRESULT Next(  
    ULONG                 celt,  
    IDebugPortSupplier2** rgelt,  
@@ -49,7 +50,7 @@ HRESULT Next(
 );  
 ```  
   
-```c#  
+```csharp  
 int Next(  
    uint                  celt,  
    IDebugPortSupplier2[] rgelt,  
@@ -57,19 +58,19 @@ int Next(
 );  
 ```  
   
-#### <a name="parameters"></a>参数  
+#### <a name="parameters"></a>Parameters  
  `celt`  
- [in]要检索的元素数。 此外指定的最大大小`rgelt`数组。  
+ [in] The number of elements to retrieve. Also specifies the maximum size of the `rgelt` array.  
   
  `rgelt`  
- [in、 out]数组[IDebugPortSupplier2](../../../extensibility/debugger/reference/idebugportsupplier2.md)元素填充的。  
+ [in, out] Array of [IDebugPortSupplier2](../../../extensibility/debugger/reference/idebugportsupplier2.md) elements to be filled in.  
   
  `pceltFetched`  
- [out]返回中实际返回的元素数目`rgelt`。  
+ [out] Returns the number of elements actually returned in `rgelt`.  
   
-## <a name="return-value"></a>返回值  
- 如果成功，返回`S_OK`。 返回`S_FALSE`如果无法返回请求数目的元素少于; 否则，返回错误代码。  
+## <a name="return-value"></a>Return Value  
+ If successful, returns `S_OK`. Returns `S_FALSE` if fewer than the requested number of elements could be returned; otherwise, returns an error code.  
   
-## <a name="see-also"></a>另请参阅  
+## <a name="see-also"></a>See Also  
  [IEnumDebugPortSuppliers2](../../../extensibility/debugger/reference/ienumdebugportsuppliers2.md)   
  [IDebugPortSupplier2](../../../extensibility/debugger/reference/idebugportsupplier2.md)

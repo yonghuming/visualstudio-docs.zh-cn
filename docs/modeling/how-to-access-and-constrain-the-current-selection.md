@@ -1,65 +1,82 @@
 ---
-title: "如何：访问和约束当前所选内容 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-helpviewer_keywords: 
-  - "域特定语言, 访问当前选择"
+title: 'How to: Access and Constrain the Current Selection | Microsoft Docs'
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.tgt_pltfrm: 
+ms.topic: article
+helpviewer_keywords:
+- Domain-Specific Language, accessing the current selection
 ms.assetid: 2990981e-dfae-416f-b0d0-7197f1242dfa
 caps.latest.revision: 14
-author: "alancameronwills"
-ms.author: "awills"
-manager: "douge"
-caps.handback.revision: 14
----
-# 如何：访问和约束当前所选内容
-[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
+author: alancameronwills
+ms.author: awills
+manager: douge
+translation.priority.mt:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+ms.translationtype: MT
+ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
+ms.openlocfilehash: 73221c9dc178c5f9ba1621146f7b863507e0f1a3
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/28/2017
 
-当您为域特定语言编写的命令或笔势处理程序时，可以确定用户右击哪些元素。 您也可以选择阻止某些形状或字段。 例如，您可以排列当用户单击图标修饰器，而是选择包含它的形状。 约束以这种方式选择可减少您必须编写的处理程序的数量。 它也便于您的用户，可以单击任意位置的形状中而无需避免修饰器。  
+---
+# <a name="how-to-access-and-constrain-the-current-selection"></a>How to: Access and Constrain the Current Selection
+When you write a command or gesture handler for your domain-specific language, you can determine what element the user right-clicked. You can also prevent some shapes or fields from being selected. For example, you can arrange that when the user clicks an icon decorator, the shape that contains it is selected instead. Constraining the selection in this manner reduces the number of handlers that you have to write. It also makes it easier for the user, who can click anywhere in the shape without having to avoid the decorator.  
   
-## 从命令处理程序访问当前所选内容  
- 域特定语言的命令集类包含自定义命令的命令处理程序。<xref:Microsoft.VisualStudio.Modeling.Shell.CommandSet> 类，派生域特定语言的命令集类提供几个成员来访问当前所选内容。  
+## <a name="accessing-the-current-selection-from-a-command-handler"></a>Accessing the Current Selection from a Command Handler  
+ The command set class for a domain-specific language contains the command handlers for your custom commands. The <xref:Microsoft.VisualStudio.Modeling.Shell.CommandSet> class, from which the command set class for a domain-specific language derives, provides a few members for accessing the current selection.  
   
- 根据该命令，命令处理程序可能需要在模型设计器、 模型资源管理器或活动窗口中所选内容。  
+ Depending on the command, the command handler might need the selection in the model designer, the model explorer, or the active window.  
   
-#### 若要访问所选内容信息  
+#### <a name="to-access-selection-information"></a>To access selection information  
   
-1.  <xref:Microsoft.VisualStudio.Modeling.Shell.CommandSet> 类定义了以下可用于访问当前所选内容的成员。  
+1.  The <xref:Microsoft.VisualStudio.Modeling.Shell.CommandSet> class defines the following members that can be used to access the current selection.  
   
-    |成员|描述|  
-    |--------|--------|  
-    |<xref:Microsoft.VisualStudio.Modeling.Shell.CommandSetLibrary.IsAnyDocumentSelectionCompartment%2A> 方法|返回 `true` 如果任何在模型设计器中选择的元素为隔离舱形状; 否则为 `false`。|  
-    |<xref:Microsoft.VisualStudio.Modeling.Shell.CommandSetLibrary.IsDiagramSelected%2A> 方法|返回 `true` 如果关系图是模型设计器中选定; 否则为 `false`。|  
-    |<xref:Microsoft.VisualStudio.Modeling.Shell.CommandSetLibrary.IsSingleDocumentSelection%2A> 方法|返回 `true` 恰好一个元素是否在模型设计器中选定; 否则为 `false`。|  
-    |<xref:Microsoft.VisualStudio.Modeling.Shell.CommandSetLibrary.IsSingleSelection%2A> 方法|返回 `true` 恰好一个元素是活动窗口中选定; 否则为如果 `false`。|  
-    |<xref:Microsoft.VisualStudio.Modeling.Shell.CommandSetLibrary.CurrentDocumentSelection%2A> 属性|获取在模型设计器中选择的元素的只读集合。|  
-    |<xref:Microsoft.VisualStudio.Modeling.Shell.CommandSetLibrary.CurrentSelection%2A> 属性|获取活动窗口中的选定元素的只读集合。|  
-    |<xref:Microsoft.VisualStudio.Modeling.Shell.CommandSetLibrary.SingleDocumentSelection%2A> 属性|在模型设计器中获取所选内容的主要元素。|  
-    |<xref:Microsoft.VisualStudio.Modeling.Shell.CommandSetLibrary.SingleSelection%2A> 属性|在活动窗口获取所选内容的主要元素。|  
+    |Member|Description|  
+    |------------|-----------------|  
+    |<xref:Microsoft.VisualStudio.Modeling.Shell.CommandSetLibrary.IsAnyDocumentSelectionCompartment%2A> method|Returns `true` if any of the elements selected in the model designer is a compartment shape; otherwise, `false`.|  
+    |<xref:Microsoft.VisualStudio.Modeling.Shell.CommandSetLibrary.IsDiagramSelected%2A> method|Returns `true` if the diagram is selected in the model designer; otherwise, `false`.|  
+    |<xref:Microsoft.VisualStudio.Modeling.Shell.CommandSetLibrary.IsSingleDocumentSelection%2A> method|Returns `true` if exactly one element is selected in the model designer; otherwise, `false`.|  
+    |<xref:Microsoft.VisualStudio.Modeling.Shell.CommandSetLibrary.IsSingleSelection%2A> method|Returns `true` if exactly one element is selected in the active window; otherwise, `false`.|  
+    |<xref:Microsoft.VisualStudio.Modeling.Shell.CommandSetLibrary.CurrentDocumentSelection%2A> property|Gets a read-only collection of the elements selected in the model designer.|  
+    |<xref:Microsoft.VisualStudio.Modeling.Shell.CommandSetLibrary.CurrentSelection%2A> property|Gets a read-only collection of the elements selected in the active window.|  
+    |<xref:Microsoft.VisualStudio.Modeling.Shell.CommandSetLibrary.SingleDocumentSelection%2A> property|Gets the primary element of the selection in the model designer.|  
+    |<xref:Microsoft.VisualStudio.Modeling.Shell.CommandSetLibrary.SingleSelection%2A> property|Gets the primary element of the selection in the active window.|  
   
-2.  <xref:Microsoft.VisualStudio.Modeling.Shell.CommandSet.CurrentDocView%2A> 属性 <xref:Microsoft.VisualStudio.Modeling.Shell.CommandSet> 类提供对访问 <xref:Microsoft.VisualStudio.Modeling.Shell.DiagramDocView> 对象，该表示模型设计器窗口，并提供模型设计器中的所选的元素的其他访问对象。  
+2.  The <xref:Microsoft.VisualStudio.Modeling.Shell.CommandSet.CurrentDocView%2A> property of the <xref:Microsoft.VisualStudio.Modeling.Shell.CommandSet> class provides access to the <xref:Microsoft.VisualStudio.Modeling.Shell.DiagramDocView> object that represents the model designer window and provides additional access the selected elements in the model designer.  
   
-3.  此外，生成的代码定义了一个资源管理器工具窗口属性并在命令中的资源管理器中选择属性设置为域特定语言的类。  
+3.  In addition, the generated code defines an explorer tool window property and an explorer selection property in the command set class for the domain-specific language.  
   
-    -   资源管理器工具窗口属性返回的域特定语言的资源管理器工具窗口类的一个实例。 资源管理器工具窗口类派生自 <xref:Microsoft.VisualStudio.Modeling.Shell.ModelExplorerToolWindow> 类并表示为域特定语言模型资源管理器。  
+    -   The explorer tool window property returns an instance of the explorer tool window class for the domain-specific language. The explorer tool window class derives from the <xref:Microsoft.VisualStudio.Modeling.Shell.ModelExplorerToolWindow> class and represents the model explorer for the domain-specific language.  
   
-    -   `ExplorerSelection` 属性在域特定语言模型资源管理器窗口中返回的所选的元素。  
+    -   The `ExplorerSelection` property returns the selected element in the model explorer window for the domain-specific language.  
   
-## 确定哪个窗口处于活动状态  
- <xref:Microsoft.VisualStudio.Modeling.Shell.IMonitorSelectionService> 接口包含定义了提供对在外壳程序中的当前选择状态的访问的成员。 你可以获取 <xref:Microsoft.VisualStudio.Modeling.Shell.IMonitorSelectionService> 对象与包类或域特定语言到命令集类 `MonitorSelection` 在每个基类中定义的属性。 程序包类派生自 <xref:Microsoft.VisualStudio.Modeling.Shell.ModelingPackage> 类，并且命令集类派生自 <xref:Microsoft.VisualStudio.Modeling.Shell.CommandSet> 类。  
+## <a name="determining-which-window-is-active"></a>Determining which window is active  
+ The <xref:Microsoft.VisualStudio.Modeling.Shell.IMonitorSelectionService> interface contains defines members that provide access to the current selection state in the shell. You can get an <xref:Microsoft.VisualStudio.Modeling.Shell.IMonitorSelectionService> object from either the package class or the command set class for the domain-specific language through the `MonitorSelection` property defined in the base class of each. The package class derives from the <xref:Microsoft.VisualStudio.Modeling.Shell.ModelingPackage> class, and the command set class derives from the <xref:Microsoft.VisualStudio.Modeling.Shell.CommandSet> class.  
   
-#### 若要从命令处理程序确定哪种类型的窗口处于活动状态  
+#### <a name="to-determine-from-a-command-handler-what-type-of-window-is-active"></a>To determine from a command handler what type of window is active  
   
-1.  <xref:Microsoft.VisualStudio.Modeling.Shell.CommandSetLibrary.MonitorSelection%2A> 属性 <xref:Microsoft.VisualStudio.Modeling.Shell.CommandSet> 类返回 <xref:Microsoft.VisualStudio.Modeling.Shell.IMonitorSelectionService> 提供对在外壳程序中的当前选择状态的访问的对象。  
+1.  The <xref:Microsoft.VisualStudio.Modeling.Shell.CommandSetLibrary.MonitorSelection%2A> property of the <xref:Microsoft.VisualStudio.Modeling.Shell.CommandSet> class returns an <xref:Microsoft.VisualStudio.Modeling.Shell.IMonitorSelectionService> object that provides access to the current selection state in the shell.  
   
-2.  <xref:Microsoft.VisualStudio.Modeling.Shell.IMonitorSelectionService.CurrentSelectionContainer%2A> 属性 <xref:Microsoft.VisualStudio.Modeling.Shell.IMonitorSelectionService> 接口获取活动选择容器，它可以是不同于活动窗口中。  
+2.  The <xref:Microsoft.VisualStudio.Modeling.Shell.IMonitorSelectionService.CurrentSelectionContainer%2A> property of the <xref:Microsoft.VisualStudio.Modeling.Shell.IMonitorSelectionService> interface gets the active selection container, which can be different from the active window.  
   
-3.  将添加到该命令的以下属性类将为您设置域特定语言，以确定哪种类型的窗口处于活动状态。  
+3.  Add the following properties to the command set class for you domain-specific language to determine what type of window is active.  
   
-    ```c#  
+    ```csharp  
     // using Microsoft.VisualStudio.Modeling.Shell;  
   
     // Returns true if the model designer is the active selection container;  
@@ -85,29 +102,29 @@ caps.handback.revision: 14
     }  
     ```  
   
-## 将所选内容  
- 通过添加所选内容的规则，您可以控制用户在模型中选择某个元素时选择了哪些元素。 例如，若要允许使用者的数量的元素视为单个单元，可以使用所选内容规则。  
+## <a name="constraining-the-selection"></a>Constraining the Selection  
+ By adding selection rules, you can control which elements are selected when the user selects an element in the model. For example, to allow the user to treat a number of elements as a single unit, you can use a selection rule.  
   
-#### 若要创建一个选择规则  
+#### <a name="to-create-a-selection-rule"></a>To create a selection rule  
   
-1.  在 DSL 项目中创建自定义代码文件  
+1.  Create a custom code file in the DSL project  
   
-2.  定义一个派生自的所选内容规则类 <xref:Microsoft.VisualStudio.Modeling.Diagrams.DiagramSelectionRules> 类。  
+2.  Define a selection rule class that is derived from the <xref:Microsoft.VisualStudio.Modeling.Diagrams.DiagramSelectionRules> class.  
   
-3.  重写 <xref:Microsoft.VisualStudio.Modeling.Diagrams.DiagramSelectionRules.GetCompliantSelection%2A> 要应用的选择条件的所选内容规则类的方法。  
+3.  Override the <xref:Microsoft.VisualStudio.Modeling.Diagrams.DiagramSelectionRules.GetCompliantSelection%2A> method of the selection rule class to apply the selection criteria.  
   
-4.  将 ClassDiagram 类的分部类定义添加到您的自定义代码文件。  
+4.  Add a partial class definition for the ClassDiagram class to your custom code file.  
   
-     `ClassDiagram` 类派生自 <xref:Microsoft.VisualStudio.Modeling.Diagrams.Diagram> 类，并在生成的代码文件中，Diagram.cs，在 DSL 项目中定义。  
+     The `ClassDiagram` class derives from the <xref:Microsoft.VisualStudio.Modeling.Diagrams.Diagram> class and is defined in the generated code file, Diagram.cs, in the DSL project.  
   
-5.  重写 <xref:Microsoft.VisualStudio.Modeling.Diagrams.Diagram.SelectionRules%2A> 属性 `ClassDiagram` 类以返回自定义选择规则。  
+5.  Override the <xref:Microsoft.VisualStudio.Modeling.Diagrams.Diagram.SelectionRules%2A> property of the `ClassDiagram` class to return the custom selection rule.  
   
-     默认实现 <xref:Microsoft.VisualStudio.Modeling.Diagrams.Diagram.SelectionRules%2A> 属性获取不会修改所选内容的所选内容规则对象。  
+     The default implementation of the <xref:Microsoft.VisualStudio.Modeling.Diagrams.Diagram.SelectionRules%2A> property gets a selection rule object that does not modify the selection.  
   
-### 示例  
- 下面的代码文件创建一个用于扩展所选内容包括每个最初选择的域形状的所有实例的所选内容规则。  
+### <a name="example"></a>Example  
+ The following code file creates a selection rule that expands the selection to include all instances of each of the domain shapes that was initially selected.  
   
-```c#  
+```csharp  
 using System;  
 using System.Collections.Generic;  
 using Microsoft.VisualStudio.Modeling;  
@@ -205,7 +222,7 @@ namespace CompanyName.ProductName.GroupingDsl
 }  
 ```  
   
-## 请参阅  
+## <a name="see-also"></a>See Also  
  <xref:Microsoft.VisualStudio.Modeling.Shell.CommandSet>   
  <xref:Microsoft.VisualStudio.Modeling.Shell.ModelingPackage>   
  <xref:Microsoft.VisualStudio.Modeling.Shell.DiagramDocView>   

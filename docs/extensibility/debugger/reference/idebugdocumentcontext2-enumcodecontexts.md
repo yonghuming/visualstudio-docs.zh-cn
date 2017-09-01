@@ -1,56 +1,73 @@
 ---
-title: "IDebugDocumentContext2::EnumCodeContexts | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "IDebugDocumentContext2::EnumCodeContexts"
-helpviewer_keywords: 
-  - "IDebugDocumentContext2::EnumCodeContexts"
+title: IDebugDocumentContext2::EnumCodeContexts | Microsoft Docs
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords:
+- IDebugDocumentContext2::EnumCodeContexts
+helpviewer_keywords:
+- IDebugDocumentContext2::EnumCodeContexts
 ms.assetid: 627af69c-5cce-4e1d-8233-5f4d8dbc62e5
 caps.latest.revision: 11
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 11
----
-# IDebugDocumentContext2::EnumCodeContexts
-[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
+ms.author: gregvanl
+manager: ghogen
+translation.priority.mt:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+ms.translationtype: MT
+ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
+ms.openlocfilehash: 02a7edeb55d998019d6f814ca8ee7351dea5429b
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/28/2017
 
-检索所有代码上下文列表与此文档上下文。  
+---
+# <a name="idebugdocumentcontext2enumcodecontexts"></a>IDebugDocumentContext2::EnumCodeContexts
+Retrieves a list of all code contexts associated with this document context.  
   
-## 语法  
+## <a name="syntax"></a>Syntax  
   
-```cpp#  
-HRESULT EnumCodeContexts(   
-   IEnumDebugCodeContexts2** ppEnumCodeCxts  
+```cpp  
+HRESULT EnumCodeContexts(   
+   IEnumDebugCodeContexts2** ppEnumCodeCxts  
 );  
 ```  
   
-```c#  
-int EnumCodeContexts(   
-   out IEnumDebugCodeContexts2 ppEnumCodeCxts  
+```csharp  
+int EnumCodeContexts(   
+   out IEnumDebugCodeContexts2 ppEnumCodeCxts  
 );  
 ```  
   
-#### 参数  
+#### <a name="parameters"></a>Parameters  
  `ppEnumCodeCxts`  
- \[out\] 返回包含代码上下文列出的 [IEnumDebugCodeContexts2](../../../extensibility/debugger/reference/ienumdebugcodecontexts2.md) 对象。  
+ [out] Returns an [IEnumDebugCodeContexts2](../../../extensibility/debugger/reference/ienumdebugcodecontexts2.md) object that contains a list of code contexts.  
   
-## 返回值  
- 如果成功，则返回; `S_OK`否则，返回错误代码。  
+## <a name="return-value"></a>Return Value  
+ If successful, returns `S_OK`; otherwise, returns an error code.  
   
-## 备注  
- 单文件上下文可能生成多个代码上下文，当文档使用模板时或包含文件。  
+## <a name="remarks"></a>Remarks  
+ A single document context can generate multiple code contexts when the document is using templates or include files.  
   
-## 示例  
- 下面的示例演示如何执行显示 [IDebugDocumentContext2](../../../extensibility/debugger/reference/idebugdocumentcontext2.md) 接口的简单 `CDebugContext` 对象的方法。  
+## <a name="example"></a>Example  
+ The following example shows how to implement this method for a simple `CDebugContext` object that exposes the [IDebugDocumentContext2](../../../extensibility/debugger/reference/idebugdocumentcontext2.md) interface.  
   
-```cpp#  
+```cpp  
 HRESULT CDebugContext::EnumCodeContexts(IEnumDebugCodeContexts2 **ppEnumCodeCxts)    
 {    
    HRESULT hr;    
@@ -106,6 +123,6 @@ HRESULT CDebugContext::EnumCodeContexts(IEnumDebugCodeContexts2 **ppEnumCodeCxts
 }    
 ```  
   
-## 请参阅  
+## <a name="see-also"></a>See Also  
  [IDebugDocumentContext2](../../../extensibility/debugger/reference/idebugdocumentcontext2.md)   
  [IEnumDebugCodeContexts2](../../../extensibility/debugger/reference/ienumdebugcodecontexts2.md)

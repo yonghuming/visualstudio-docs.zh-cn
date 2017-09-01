@@ -1,68 +1,85 @@
 ---
-title: "SccRename 函数 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "SccRename"
-helpviewer_keywords: 
-  - "SccRename 函数"
+title: SccRename Function | Microsoft Docs
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords:
+- SccRename
+helpviewer_keywords:
+- SccRename function
 ms.assetid: b467ade6-a1db-4c0b-b60f-7850ec4f79eb
 caps.latest.revision: 12
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 12
----
-# SccRename 函数
-[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
+ms.author: gregvanl
+manager: ghogen
+translation.priority.mt:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+ms.translationtype: MT
+ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
+ms.openlocfilehash: 58a500fe775bb7837e6132bd918be63fb68b7fe2
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/28/2017
 
-此函数在源代码管理系统中重命名文件。  
+---
+# <a name="sccrename-function"></a>SccRename Function
+This function renames a file in the source control system.  
   
-## 语法  
+## <a name="syntax"></a>Syntax  
   
-```cpp#  
+```cpp  
 SCCRTN SccRename(  
-   LPVOID pvContext,  
-   HWND   hWnd,  
-   LPCSTR lpFileName,  
-   LPCSTR lpNewName  
+   LPVOID pvContext,  
+   HWND   hWnd,  
+   LPCSTR lpFileName,  
+   LPCSTR lpNewName  
 );  
 ```  
   
-#### 参数  
+#### <a name="parameters"></a>Parameters  
  pvContext  
- \[\] in源控制插件上下文结构。  
+ [in] The source control plug-in context structure.  
   
  hWnd  
- \[\] in源代码管理插件可以用作所有对话框，它提供了一个父 IDE 窗口的句柄。  
+ [in] A handle to the IDE window that the source control plug-in can use as a parent for any dialog boxes that it provides.  
   
  lpFileName  
- \[\] in要重命名该文件的完全限定的文件名。  
+ [in] The fully qualified file name of the file being renamed.  
   
  lpNewName  
- \[\] in完全限定的新名称。 如果目录路径不同，则该文件已移动从一个子目录到另一个。  
+ [in] The fully qualified new name. If the directory path is different, then the file has moved from one subdirectory to another.  
   
-## 返回值  
- 此函数的源代码控制插件实现应返回下列值之一:  
+## <a name="return-value"></a>Return Value  
+ The source control plug-in implementation of this function is expected to return one of the following values:  
   
-|值|描述|  
-|-------|--------|  
-|SCC\_OK|重命名操作已成功完成。|  
-|SCC\_E\_PROJNOTOPEN|未受源代码管理打开项目。|  
-|SCC\_E\_FILENOTCONTROLLED|文件不是源代码管理下。|  
-|SCC\_E\_ACCESSFAILURE|没有访问源代码管理系统，很可能是由于网络或争用问题时出现问题。|  
-|SCC\_E\_NOTAUTHORIZED|未授权用户来完成此操作。|  
-|SCC\_E\_COULDNOTCREATEPROJECT|重命名过程的一部分，无法创建该项目。|  
-|SCC\_E\_OPNOTPERFORMED|不执行该操作。|  
-|SCC\_E\_NONSPECIFICERROR|未指定或为常规时出错。|  
+|Value|Description|  
+|-----------|-----------------|  
+|SCC_OK|The renaming operation completed successfully.|  
+|SCC_E_PROJNOTOPEN|The project is not open under source control.|  
+|SCC_E_FILENOTCONTROLLED|The file is not under source control.|  
+|SCC_E_ACCESSFAILURE|There was a problem accessing the source control system, probably due to network or contention issues.|  
+|SCC_E_NOTAUTHORIZED|The user is not authorized to complete this operation.|  
+|SCC_E_COULDNOTCREATEPROJECT|The project could not be created as part of the renaming process.|  
+|SCC_E_OPNOTPERFORMED|The operation was not performed.|  
+|SCC_E_NONSPECIFICERROR|An unspecified or general error occurred.|  
   
-## 备注  
- 此函数可用于重命名文件或它从一个位置移动到另一个源控制系统中。 源代码管理插件不应尝试访问磁盘上的文件。 它是 IDE 的责任，若要重命名本地文件。  
+## <a name="remarks"></a>Remarks  
+ This function can be used to rename a file or move it from one location to another in the source control system. The source control plug-in should not attempt to access the file on disk. It is the IDE's responsibility to rename the local file.  
   
-## 请参阅  
- [源代码管理插件 API 功能](../extensibility/source-control-plug-in-api-functions.md)
+## <a name="see-also"></a>See Also  
+ [Source Control Plug-in API Functions](../extensibility/source-control-plug-in-api-functions.md)

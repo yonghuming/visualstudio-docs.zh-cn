@@ -1,26 +1,46 @@
 ---
 title: "如何：在索引中查找主题 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-general"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-helpviewer_keywords: 
-  - "“索引”选项卡 [Help Viewer 2.0]"
-  - "Help Viewer 2.0, 使用索引"
-  - "Help Viewer 2.0, “索引”选项卡"
-  - "使用索引 [Help Viewer 2.0]"
-  - "索引筛选 [Help Viewer 2.0]"
-  - "Help Viewer 2.0, 索引筛选"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-general
+ms.tgt_pltfrm: 
+ms.topic: article
+helpviewer_keywords:
+- Index tab [Help Viewer 2.0]
+- Help Viewer 2.0, using the index
+- Help Viewer 2.0, Index tab
+- using the index [Help Viewer 2.0]
+- index filtering [Help Viewer 2.0]
+- Help Viewer 2.0, index filtering
 ms.assetid: cb071e93-f297-459c-a6fa-8ae0dabc42a4
 caps.latest.revision: 15
-author: "kempb"
-ms.author: "kempb"
-manager: "ghogen"
-caps.handback.revision: 15
+author: kempb
+ms.author: kempb
+manager: ghogen
+translation.priority.ht:
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- ru-ru
+- zh-cn
+- zh-tw
+translation.priority.mt:
+- cs-cz
+- pl-pl
+- pt-br
+- tr-tr
+ms.translationtype: HT
+ms.sourcegitcommit: 5db97d19b1b823388a465bba15d057b30ff0b3ce
+ms.openlocfilehash: 884530b6c2ebc44f935dd814a39bbf0495764303
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/08/2017
+
 ---
 # <a name="how-to-find-topics-in-the-index"></a>如何：在索引中查找主题
 索引包含与安装的内容中的主题相关联的关键字列表。 每个主题可能有多个关键字与之关联，并且每个关键字可能与多个主题相关联。 和使用书中的索引一样使用此索引。  
@@ -42,8 +62,3 @@ caps.handback.revision: 15
   
 ## <a name="see-also"></a>另请参阅  
  [索引搜索提示](../ide/index-search-tips.md)
-
-
-<!--HONumber=Feb17_HO4-->
-
-

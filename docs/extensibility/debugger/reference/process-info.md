@@ -1,5 +1,5 @@
 ---
-title: "PROCESS_INFO |Microsoft 文档"
+title: PROCESS_INFO | Microsoft Docs
 ms.custom: 
 ms.date: 11/04/2016
 ms.reviewer: 
@@ -30,18 +30,19 @@ translation.priority.mt:
 - tr-tr
 - zh-cn
 - zh-tw
-translationtype: Machine Translation
-ms.sourcegitcommit: 5db97d19b1b823388a465bba15d057b30ff0b3ce
-ms.openlocfilehash: 791686d7ab4516f5eb4da0642d97acb9df730f12
-ms.lasthandoff: 02/22/2017
+ms.translationtype: MT
+ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
+ms.openlocfilehash: 5d217a411e11ee0b2b5e372634be69bf9b84ac8b
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="processinfo"></a>PROCESS_INFO
-包含有关进程的信息。  
+Contains information about a process.  
   
-## <a name="syntax"></a>语法  
+## <a name="syntax"></a>Syntax  
   
-```cpp#  
+```cpp  
 typedef struct tagPROCESS_INFO {   
    PROCESS_INFO_FIELDS Fields;  
    BSTR                bstrFileName;  
@@ -55,7 +56,7 @@ typedef struct tagPROCESS_INFO {
 } PROCESS_INFO;  
 ```  
   
-```c#  
+```csharp  
 public struct PROCESS_INFO {   
    public uint          Fields;  
    public string        bstrFileName;  
@@ -69,46 +70,46 @@ public struct PROCESS_INFO {
 };  
 ```  
   
-## <a name="members"></a>成员  
- 字段  
- 中的标志组合[PROCESS_INFO_FIELDS](../../../extensibility/debugger/reference/process-info-fields.md)枚举，用于指定哪些字段会填满。  
+## <a name="members"></a>Members  
+ Fields  
+ A combination of flags from the [PROCESS_INFO_FIELDS](../../../extensibility/debugger/reference/process-info-fields.md) enumeration that specify which fields are filled out.  
   
  bstrFileName  
- 过程的完整路径名称。 等效于调用[GetName](../../../extensibility/debugger/reference/idebugprocess2-getname.md)方法及参数`GN_FILENAME`。  
+ The full path name of the process. Equivalent to calling the [GetName](../../../extensibility/debugger/reference/idebugprocess2-getname.md) method with the parameter `GN_FILENAME`.  
   
  bstrBaseName  
- 文件的名称和进程的扩展。 等效于调用`IDebugProcess2::Getname`方法及参数`GN_BASENAME`。  
+ The file name and extension of the process. Equivalent to calling the `IDebugProcess2::Getname` method with the parameter `GN_BASENAME`.  
   
  bstrTitle  
- 此过程中，如果存在的标题。 等效于调用`IDebugProcess2::Getname`方法及参数`GN_TITLE`。  
+ The title of the process, if one exists. Equivalent to calling the `IDebugProcess2::Getname` method with the parameter `GN_TITLE`.  
   
  ProcessId  
- [AD_PROCESS_ID](../../../extensibility/debugger/reference/ad-process-id.md)标识进程的结构。 等效于调用[GetPhysicalProcessId](../../../extensibility/debugger/reference/idebugprocess2-getphysicalprocessid.md)方法。  
+ The [AD_PROCESS_ID](../../../extensibility/debugger/reference/ad-process-id.md) structure that identifies the process. Equivalent to calling the [GetPhysicalProcessId](../../../extensibility/debugger/reference/idebugprocess2-getphysicalprocessid.md) method.  
   
  dwSessionId  
- 在运行此过程在调试会话标识符。  
+ The identifier of the debug session that this process is running in.  
   
  bstrAttachedSessionName  
- 附加的会话名称。 等效于调用[GetAttachedSessionName](../../../extensibility/debugger/reference/idebugprocess2-getattachedsessionname.md)方法。  
+ The attached session name. Equivalent to calling the [GetAttachedSessionName](../../../extensibility/debugger/reference/idebugprocess2-getattachedsessionname.md) method.  
   
  CreationTime  
- 创建该过程的时间。  
+ The time the process was created.  
   
  Flags  
- 中的标志组合[PROCESS_INFO_FLAGS](../../../extensibility/debugger/reference/process-info-flags.md)指定进程的属性的枚举。  
+ A combination of flags from the [PROCESS_INFO_FLAGS](../../../extensibility/debugger/reference/process-info-flags.md) enumeration that specify properties of the process.  
   
-## <a name="remarks"></a>备注  
- 此结构传递给[GetInfo](../../../extensibility/debugger/reference/idebugprocess2-getinfo.md)填写其中的方法。  
+## <a name="remarks"></a>Remarks  
+ This structure is passed to the [GetInfo](../../../extensibility/debugger/reference/idebugprocess2-getinfo.md) method where it is filled in.  
   
-## <a name="requirements"></a>要求  
- 标头︰ msdbg.h  
+## <a name="requirements"></a>Requirements  
+ Header: msdbg.h  
   
  Namespace: Microsoft.VisualStudio.Debugger.Interop  
   
- 程序集︰ Microsoft.VisualStudio.Debugger.Interop.dll  
+ Assembly: Microsoft.VisualStudio.Debugger.Interop.dll  
   
-## <a name="see-also"></a>另请参阅  
- [结构和联合](../../../extensibility/debugger/reference/structures-and-unions.md)   
+## <a name="see-also"></a>See Also  
+ [Structures and Unions](../../../extensibility/debugger/reference/structures-and-unions.md)   
  [PROCESS_INFO_FIELDS](../../../extensibility/debugger/reference/process-info-fields.md)   
  [PROCESS_INFO_FLAGS](../../../extensibility/debugger/reference/process-info-flags.md)   
  [GetInfo](../../../extensibility/debugger/reference/idebugprocess2-getinfo.md)   

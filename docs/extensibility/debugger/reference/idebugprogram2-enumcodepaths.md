@@ -1,78 +1,95 @@
 ---
-title: "IDebugProgram2::EnumCodePaths | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "IDebugProgram2::EnumCodePaths"
-helpviewer_keywords: 
-  - "IDebugProgram2::EnumCodePaths"
+title: IDebugProgram2::EnumCodePaths | Microsoft Docs
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords:
+- IDebugProgram2::EnumCodePaths
+helpviewer_keywords:
+- IDebugProgram2::EnumCodePaths
 ms.assetid: fb100c3c-9c29-4d63-bd1f-a3e531cb395f
 caps.latest.revision: 10
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 10
----
-# IDebugProgram2::EnumCodePaths
-[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
+ms.author: gregvanl
+manager: ghogen
+translation.priority.mt:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+ms.translationtype: MT
+ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
+ms.openlocfilehash: a70dc85a37f593fc56751a2890b85422b0d193d0
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/28/2017
 
-检索代码路径的列出给定位置的源文件。  
+---
+# <a name="idebugprogram2enumcodepaths"></a>IDebugProgram2::EnumCodePaths
+Retrieves a list of the code paths for a given position in a source file.  
   
-## 语法  
+## <a name="syntax"></a>Syntax  
   
-```cpp#  
-HRESULT EnumCodePaths(   
-   LPCOLESTR            pszHint,  
-   IDebugCodeContext2*  pStart,  
-   IDebugStackFrame2*   pFrame,  
-   BOOL                 fSource,  
-   IEnumCodePaths2**    ppEnum,  
-   IDebugCodeContext2** ppSafety  
+```cpp  
+HRESULT EnumCodePaths(   
+   LPCOLESTR            pszHint,  
+   IDebugCodeContext2*  pStart,  
+   IDebugStackFrame2*   pFrame,  
+   BOOL                 fSource,  
+   IEnumCodePaths2**    ppEnum,  
+   IDebugCodeContext2** ppSafety  
 );  
 ```  
   
-```c#  
-int EnumCodePaths(   
-   string                 pszHint,  
-   IDebugCodeContext2     pStart,  
-   IDebugStackFrame2      pFrame,  
-   Int                    fSource,  
-   out IEnumCodePaths2    ppEnum,  
-   out IDebugCodeContext2 ppSafety  
+```csharp  
+int EnumCodePaths(   
+   string                 pszHint,  
+   IDebugCodeContext2     pStart,  
+   IDebugStackFrame2      pFrame,  
+   Int                    fSource,  
+   out IEnumCodePaths2    ppEnum,  
+   out IDebugCodeContext2 ppSafety  
 );  
 ```  
   
-#### 参数  
+#### <a name="parameters"></a>Parameters  
  `pszHint`  
- \[in\] 在光标之下的单词在 IDE 的 **源** 或 **反汇编** 视图。  
+ [in] The word under the cursor in the **Source** or **Disassembly** view in the IDE.  
   
  `pStart`  
- \[in\] 表示当前代码上下文的 [IDebugCodeContext2](../../../extensibility/debugger/reference/idebugcodecontext2.md) 对象。  
+ [in] An [IDebugCodeContext2](../../../extensibility/debugger/reference/idebugcodecontext2.md) object representing the current code context.  
   
  `pFrame`  
- \[in\] 表示堆栈帧的 [IDebugStackFrame2](../../../extensibility/debugger/reference/idebugstackframe2.md) 对象与当前断点。  
+ [in] An [IDebugStackFrame2](../../../extensibility/debugger/reference/idebugstackframe2.md) object representing the stack frame associated with the current breakpoint.  
   
  `fSource`  
- \[in\] 非零 \(`TRUE`\)，如果在 **源** 视图或零 \(0\)`FALSE`\)，如果在 **反汇编** 视图。  
+ [in] Nonzero (`TRUE`) if in the **Source** view, or zero (`FALSE`) if in the **Disassembly** view.  
   
  `ppEnum`  
- \[out\] 返回包含代码路径的列表 [IEnumCodePaths2](../../../extensibility/debugger/reference/ienumcodepaths2.md) 对象。  
+ [out] Returns an [IEnumCodePaths2](../../../extensibility/debugger/reference/ienumcodepaths2.md) object containing a list of the code paths.  
   
  `ppSafety`  
- \[out\] 但是，如果选定的代码路径跳过，返回表示一个附加代码上下文的 [IDebugCodeContext2](../../../extensibility/debugger/reference/idebugcodecontext2.md) 对象将设置为断点。  则会发生后一个短路的布尔表达式，。  
+ [out] Returns an [IDebugCodeContext2](../../../extensibility/debugger/reference/idebugcodecontext2.md) object representing an additional code context to be set as a breakpoint in case the chosen code path is skipped. This can happen in the case of a short-circuited Boolean expression, for example.  
   
-## 返回值  
- 如果成功，则返回; `S_OK`否则，返回错误代码。  
+## <a name="return-value"></a>Return Value  
+ If successful, returns `S_OK`; otherwise, returns an error code.  
   
-## 备注  
- 代码路径描述方法的名称或调用获取对当前的功能在程序的执行点。  代码路径列表表示调用堆栈。  
+## <a name="remarks"></a>Remarks  
+ A code path describes the name of a method or function that was called to get to the current point in the execution of the program. A list of code paths represents the call stack.  
   
-## 请参阅  
+## <a name="see-also"></a>See Also  
  [IDebugProgram2](../../../extensibility/debugger/reference/idebugprogram2.md)   
  [IEnumCodePaths2](../../../extensibility/debugger/reference/ienumcodepaths2.md)   
  [IDebugCodeContext2](../../../extensibility/debugger/reference/idebugcodecontext2.md)   

@@ -1,5 +1,5 @@
 ---
-title: "IDebugPort2::GetProcess |Microsoft 文档"
+title: IDebugPort2::GetProcess | Microsoft Docs
 ms.custom: 
 ms.date: 11/04/2016
 ms.reviewer: 
@@ -30,42 +30,43 @@ translation.priority.mt:
 - tr-tr
 - zh-cn
 - zh-tw
-translationtype: Machine Translation
-ms.sourcegitcommit: 5db97d19b1b823388a465bba15d057b30ff0b3ce
-ms.openlocfilehash: 9ac8ce25feb21f2deaae733da6ff8bfc58ae79b0
-ms.lasthandoff: 02/22/2017
+ms.translationtype: MT
+ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
+ms.openlocfilehash: 7d49bcda20db3651041477109b6c8c21083bbd84
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="idebugport2getprocess"></a>IDebugPort2::GetProcess
-获取指定的端口上运行的进程。  
+Gets the specified process running on a port.  
   
-## <a name="syntax"></a>语法  
+## <a name="syntax"></a>Syntax  
   
-```cpp#  
+```cpp  
 HRESULT GetProcess(   
    AD_PROCESS_ID    ProcessId,  
    IDebugProcess2** ppProcess  
 );  
 ```  
   
-```c#  
+```csharp  
 int GetProcess(   
    AD_PROCESS_ID      ProcessId,  
    out IDebugProcess2 ppProcess  
 );  
 ```  
   
-#### <a name="parameters"></a>参数  
+#### <a name="parameters"></a>Parameters  
  `ProcessId`  
- [in][AD_PROCESS_ID](../../../extensibility/debugger/reference/ad-process-id.md)结构，它指定的进程标识符。  
+ [in] An [AD_PROCESS_ID](../../../extensibility/debugger/reference/ad-process-id.md) structure that specifies the process identifier.  
   
  `ppProcess`  
- [out]返回[IDebugProcess2](../../../extensibility/debugger/reference/idebugprocess2.md)表示进程的对象。  
+ [out] Returns an [IDebugProcess2](../../../extensibility/debugger/reference/idebugprocess2.md) object representing the process.  
   
-## <a name="return-value"></a>返回值  
- 如果成功，返回`S_OK`; 否则为返回错误代码。  
+## <a name="return-value"></a>Return Value  
+ If successful, returns `S_OK`; otherwise, returns an error code.  
   
-## <a name="see-also"></a>另请参阅  
+## <a name="see-also"></a>See Also  
  [IDebugPort2](../../../extensibility/debugger/reference/idebugport2.md)   
  [IDebugProcess2](../../../extensibility/debugger/reference/idebugprocess2.md)   
  [AD_PROCESS_ID](../../../extensibility/debugger/reference/ad-process-id.md)

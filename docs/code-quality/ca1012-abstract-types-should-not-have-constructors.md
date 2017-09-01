@@ -1,55 +1,71 @@
 ---
-title: "CA1012：抽象类型不应具有构造函数 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-devops-test"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "AbstractTypesShouldNotHaveConstructors"
-  - "CA1012"
-helpviewer_keywords: 
-  - "CA1012"
+title: 'CA1012: Abstract types should not have constructors | Microsoft Docs'
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-devops-test
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords:
+- AbstractTypesShouldNotHaveConstructors
+- CA1012
+helpviewer_keywords:
+- CA1012
 ms.assetid: 09f458ac-dd88-4cd7-a47f-4106c1e80ece
 caps.latest.revision: 25
-author: "stevehoag"
-ms.author: "shoag"
-manager: "wpickett"
-caps.handback.revision: 25
----
-# CA1012：抽象类型不应具有构造函数
-[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
+author: stevehoag
+ms.author: shoag
+manager: wpickett
+translation.priority.ht:
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- ru-ru
+- zh-cn
+- zh-tw
+translation.priority.mt:
+- cs-cz
+- pl-pl
+- pt-br
+- tr-tr
+ms.translationtype: HT
+ms.sourcegitcommit: eb5c9550fd29b0e98bf63a7240737da4f13f3249
+ms.openlocfilehash: 82ee2e7ba06a593ef79d12e9a18e10a65d435f90
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/30/2017
 
+---
+# <a name="ca1012-abstract-types-should-not-have-constructors"></a>CA1012: Abstract types should not have constructors
 |||  
 |-|-|  
-|类型名|AbstractTypesShouldNotHaveConstructors|  
+|TypeName|AbstractTypesShouldNotHaveConstructors|  
 |CheckId|CA1012|  
-|类别|Microsoft.Design|  
-|是否重大更改|非重大更改|  
+|Category|Microsoft.Design|  
+|Breaking Change|Non-breaking|  
   
-## 原因  
- 公共类型为抽象类型，并具有公共构造函数。  
+## <a name="cause"></a>Cause  
+ A public type is abstract and has a public constructor.  
   
-## 规则说明  
- 抽象类型的构造函数只能由派生类型调用。  由于公共构造函数用于创建类型的实例，但无法为抽象类型创建实例，因此具有公共构造函数的抽象类在设计上是错误的。  
+## <a name="rule-description"></a>Rule Description  
+ Constructors on abstract types can be called only by derived types. Because public constructors create instances of a type, and you cannot create instances of an abstract type, an abstract type that has a public constructor is incorrectly designed.  
   
-## 如何解决冲突  
- 要修复与该规则的冲突，请将构造函数设为受保护的构造函数，或者不要将类型声明为抽象类型。  
+## <a name="how-to-fix-violations"></a>How to Fix Violations  
+ To fix a violation of this rule, either make the constructor protected or do not declare the type as abstract.  
   
-## 何时禁止显示警告  
- 不要禁止显示此规则发出的警告。  抽象类型具有公共构造函数。  
+## <a name="when-to-suppress-warnings"></a>When to Suppress Warnings  
+ Do not suppress a warning from this rule. The abstract type has a public constructor.  
   
-## 示例  
- 下面的示例包含一个与此规则冲突的抽象类型。  
+## <a name="example"></a>Example  
+ The following example contains an abstract type that violates this rule.  
   
- [!code-vb[FxCop.Design.AbstractTypeBad#1](../code-quality/codesnippet/VisualBasic/ca1012-abstract-types-should-not-have-constructors_1.vb)]
- [!code-cs[FxCop.Design.AbstractTypeBad#1](../code-quality/codesnippet/CSharp/ca1012-abstract-types-should-not-have-constructors_1.cs)]  
+ [!code-vb[FxCop.Design.AbstractTypeBad#1](../code-quality/codesnippet/VisualBasic/ca1012-abstract-types-should-not-have-constructors_1.vb)] [!code-csharp[FxCop.Design.AbstractTypeBad#1](../code-quality/codesnippet/CSharp/ca1012-abstract-types-should-not-have-constructors_1.cs)]  
   
-## 示例  
- 下面的示例通过将构造函数的可访问性从 `public` 更改为 `protected` 修复了前面的冲突。  
+## <a name="example"></a>Example  
+ The following example fixes the previous violation by changing the accessibility of the constructor from `public` to `protected`.  
   
- [!code-cs[FxCop.Design.AbstractTypeGood#1](../code-quality/codesnippet/CSharp/ca1012-abstract-types-should-not-have-constructors_2.cs)]
- [!code-vb[FxCop.Design.AbstractTypeGood#1](../code-quality/codesnippet/VisualBasic/ca1012-abstract-types-should-not-have-constructors_2.vb)]
+ [!code-csharp[FxCop.Design.AbstractTypeGood#1](../code-quality/codesnippet/CSharp/ca1012-abstract-types-should-not-have-constructors_2.cs)] [!code-vb[FxCop.Design.AbstractTypeGood#1](../code-quality/codesnippet/VisualBasic/ca1012-abstract-types-should-not-have-constructors_2.vb)]

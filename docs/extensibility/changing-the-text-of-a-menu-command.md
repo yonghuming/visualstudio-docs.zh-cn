@@ -1,33 +1,50 @@
 ---
-title: "更改菜单命令的文本 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-helpviewer_keywords: 
-  - "更改文本的菜单"
-  - "文本、 菜单"
-  - "更改文本的命令"
+title: Changing the Text of a Menu Command | Microsoft Docs
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+helpviewer_keywords:
+- menus, changing text
+- text, menus
+- commands, changing text
 ms.assetid: 5cb676a0-c6e2-47e5-bd2b-133dc8842e46
 caps.latest.revision: 25
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 25
----
-# 更改菜单命令的文本
-[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
+ms.author: gregvanl
+manager: ghogen
+translation.priority.mt:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+ms.translationtype: MT
+ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
+ms.openlocfilehash: 5cff9c7a8f834478e9ba414491c193c7a485c936
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/28/2017
 
-下面的步骤演示如何通过更改菜单命令的文本标签 <xref:System.ComponentModel.Design.IMenuCommandService> 服务。  
+---
+# <a name="changing-the-text-of-a-menu-command"></a>Changing the Text of a Menu Command
+The following steps show how to change the text label of a menu command by using the <xref:System.ComponentModel.Design.IMenuCommandService> service.  
   
-## 更改具有 IMenuCommandService 的菜单命令标签  
+## <a name="changing-a-menu-command-label-with-the-imenucommandservice"></a>Changing a menu command label with the IMenuCommandService  
   
-1.  创建一个名为的 VSIX 项目 `MenuText` 与菜单命令名为 **ChangeMenuText**。 有关详细信息，请参阅[使用菜单命令创建扩展](../extensibility/creating-an-extension-with-a-menu-command.md)。  
+1.  Create a VSIX project named `MenuText` with a menu command named **ChangeMenuText**. For more information, see [Creating an Extension with a Menu Command](../extensibility/creating-an-extension-with-a-menu-command.md).  
   
-2.  在.vstc 文件中添加 `TextChanges` 标记，用于您的菜单命令，如下面的示例中所示。  
+2.  In the .vstc file, add the `TextChanges` flag to your menu command, as shown in the following example.  
   
     ```xml  
     <Button guid="guidChangeMenuTextPackageCmdSet" id="ChangeMenuTextId" priority="0x0100" type="Button">  
@@ -40,26 +57,26 @@ caps.handback.revision: 25
     </Button>  
     ```  
   
-3.  在 ChangeMenuText.cs 文件中，创建一个事件处理程序将在显示的菜单命令前调用。  
+3.  In the ChangeMenuText.cs file, create an event handler that will be called before the menu command is displayed.  
   
-    ```c#  
+    ```csharp  
     private void OnBeforeQueryStatus(object sender, EventArgs e)  
     {  
         var myCommand = sender as OleMenuCommand;  
         if (null != myCommand)  
         {  
             myCommand.Text = "New Text";  
-                    }  
+        }  
     }  
     ```  
   
-     此外可以通过更改来更新此方法中的菜单命令的状态 <xref:System.ComponentModel.Design.MenuCommand.Visible%2A>, ，<xref:System.ComponentModel.Design.MenuCommand.Checked%2A>, ，和 <xref:System.ComponentModel.Design.MenuCommand.Enabled%2A> 属性 <xref:Microsoft.VisualStudio.Shell.OleMenuCommand> 对象。  
+     You can also update the status of the menu command in this method by changing the <xref:System.ComponentModel.Design.MenuCommand.Visible%2A>, <xref:System.ComponentModel.Design.MenuCommand.Checked%2A>, and <xref:System.ComponentModel.Design.MenuCommand.Enabled%2A> properties on the <xref:Microsoft.VisualStudio.Shell.OleMenuCommand> object.  
   
-4.  在 ChangeMenuText 构造函数中，用创建的代码替换原始命令初始化和放置代码 <xref:Microsoft.VisualStudio.Shell.OleMenuCommand> \(而不是 `MenuCommand`\) 表示的菜单命令，请添加 <xref:Microsoft.VisualStudio.Shell.OleMenuCommand.BeforeQueryStatus> 事件处理程序，并提供到菜单命令服务菜单命令。  
+4.  In the ChangeMenuText constructor, replace the original command initialization and placement code with code that creates a <xref:Microsoft.VisualStudio.Shell.OleMenuCommand> (rather than a `MenuCommand`) that represents the menu command, adds the <xref:Microsoft.VisualStudio.Shell.OleMenuCommand.BeforeQueryStatus> event handler, and gives the menu command to the menu command service.  
   
-     下面是什么它应如下所示︰  
+     Here is what it should look like:  
   
-    ```c#  
+    ```csharp  
     private ChangeMenuText(Package package)  
     {  
         if (package == null)  
@@ -82,8 +99,9 @@ caps.handback.revision: 25
     }  
     ```  
   
-5.  生成项目并启动调试。 将显示 Visual Studio 的实验实例。  
+5.  Build the project and start debugging. The experimental instance of Visual Studio appears.  
   
-6.  在 **工具** 菜单上，您应该看到名为命令 **调用 ChangeMenuText**。  
+6.  On the **Tools** menu you should see a command named **Invoke ChangeMenuText**.  
   
-7.  单击命令。 您应该看到消息框宣布推出 MenuItemCallback 已被调用。 关闭该消息框，您应看到在工具菜单上命令的名称现在是 **新文本**。
+7.  Click the command. You should see the message box announcing that MenuItemCallback has been called. When you dismiss the message box, you should see that the name of the command on the Tools menu is now **New Text**.
+

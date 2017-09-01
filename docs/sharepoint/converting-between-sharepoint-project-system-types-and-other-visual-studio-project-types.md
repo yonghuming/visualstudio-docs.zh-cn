@@ -1,54 +1,58 @@
 ---
-title: "Converting Between SharePoint Project System Types and Other Visual Studio Project Types | Microsoft Docs"
-ms.custom: ""
-ms.date: "02/02/2017"
-ms.prod: "visual-studio-dev14"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "office-development"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-dev_langs: 
-  - "VB"
-  - "CSharp"
-helpviewer_keywords: 
-  - "SharePoint project service"
+title: Converting Between SharePoint Project System Types and Other Visual Studio Project Types | Microsoft Docs
+ms.custom: 
+ms.date: 02/02/2017
+ms.prod: visual-studio-dev14
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- office-development
+ms.tgt_pltfrm: 
+ms.topic: article
+dev_langs:
+- VB
+- CSharp
+helpviewer_keywords:
+- SharePoint project service
 ms.assetid: ad5d8ab2-1659-4e6a-8783-47e0dad44b11
 caps.latest.revision: 13
-author: "kempb"
-ms.author: "kempb"
-manager: "ghogen"
-caps.handback.revision: 12
+author: kempb
+ms.author: kempb
+manager: ghogen
+ms.translationtype: HT
+ms.sourcegitcommit: eb5c9550fd29b0e98bf63a7240737da4f13f3249
+ms.openlocfilehash: 1859e2ad76804513583aefb0103a4faec1b0ba09
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/30/2017
+
 ---
-# Converting Between SharePoint Project System Types and Other Visual Studio Project Types
-  在某些情况下，您可能拥有 SharePoint 项目系统中的一个对象，希望使用 Visual Studio 自动化对象模型或集成对象模型中相应对象的功能。或者，您可能拥有 Visual Studio 自动化对象模型或集成对象模型中的对象，希望使用 SharePoint 项目系统中相应对象的功能。  在上述情况中，可以使用 SharePoint 项目服务的 <xref:Microsoft.VisualStudio.SharePoint.ISharePointProjectService.Convert%2A> 方法将对象转换为不同的对象模型。  
+# <a name="converting-between-sharepoint-project-system-types-and-other-visual-studio-project-types"></a>Converting Between SharePoint Project System Types and Other Visual Studio Project Types
+  In some cases you might have an object in the SharePoint project system and you want to use features of a corresponding object in the Visual Studio automation object model or integration object model, or vice versa. In these cases, you can use the <xref:Microsoft.VisualStudio.SharePoint.ISharePointProjectService.Convert%2A> method of the SharePoint project service to convert the object to a different object model.  
   
- 例如，您可能拥有一个 <xref:Microsoft.VisualStudio.SharePoint.ISharePointProject> 对象，但希望使用仅对 <xref:EnvDTE.Project> 或 <xref:Microsoft.VisualStudio.Shell.Interop.IVsProject> 对象可用的方法。  在此情形中，您可以使用 <xref:Microsoft.VisualStudio.SharePoint.ISharePointProjectService.Convert%2A> 方法，将 <xref:Microsoft.VisualStudio.SharePoint.ISharePointProject> 转换为 <xref:EnvDTE.Project> 或 <xref:Microsoft.VisualStudio.Shell.Interop.IVsProject>。  
+ For example, you might have an <xref:Microsoft.VisualStudio.SharePoint.ISharePointProject> object, but you want to use methods that are only available on an <xref:EnvDTE.Project> or <xref:Microsoft.VisualStudio.Shell.Interop.IVsProject> object. In this case, you can use the <xref:Microsoft.VisualStudio.SharePoint.ISharePointProjectService.Convert%2A> method to convert the <xref:Microsoft.VisualStudio.SharePoint.ISharePointProject> to an <xref:EnvDTE.Project> or <xref:Microsoft.VisualStudio.Shell.Interop.IVsProject>.  
   
- 有关 Visual Studio 自动化对象模型和 Visual Studio 集成对象模型的更多信息，请参见[Overview of the Programming Model of SharePoint Tools Extensions](../sharepoint/overview-of-the-programming-model-of-sharepoint-tools-extensions.md)。  
+ For more information about the Visual Studio automation object model and the Visual Studio integration object model, see [Overview of the Programming Model of SharePoint Tools Extensions](../sharepoint/overview-of-the-programming-model-of-sharepoint-tools-extensions.md).  
   
-## 转换的类型  
- 下表列出了可利用此方法在 SharePoint 项目系统和其他 Visual Studio 对象模型之间进行转换的类型。  
+## <a name="types-of-conversions"></a>Types of Conversions  
+ The following table lists the types that this method can convert between the SharePoint project system and the other Visual Studio object models.  
   
-|SharePoint 项目系统类型|自动化对象模型和集成对象模型中的对应类型|  
-|-----------------------|--------------------------|  
-|<xref:Microsoft.VisualStudio.SharePoint.ISharePointProject>|<xref:EnvDTE.Project><br /><br /> 或<br /><br /> Visual Studio 集成对象模型中由项目的基础 COM 对象实现的任何接口。  这些接口包括 <xref:Microsoft.VisualStudio.Shell.Interop.IVsHierarchy>、<xref:Microsoft.VisualStudio.Shell.Interop.IVsProject>（或派生接口）和 <xref:Microsoft.VisualStudio.Shell.Interop.IVsBuildPropertyStorage>。  有关由项目实现的主接口的列表，请参见[项目模型核心组件](../extensibility/internals/project-model-core-components.md)。|  
-|<xref:Microsoft.VisualStudio.SharePoint.IMappedFolder><br /><br /> <xref:Microsoft.VisualStudio.SharePoint.ISharePointProjectItem><br /><br /> <xref:Microsoft.VisualStudio.SharePoint.ISharePointProjectItemFile><br /><br /> <xref:Microsoft.VisualStudio.SharePoint.ISharePointProjectFeature><br /><br /> <xref:Microsoft.VisualStudio.SharePoint.ISharePointProjectFeatureResourceFile><br /><br /> <xref:Microsoft.VisualStudio.SharePoint.ISharePointProjectPackage>|<xref:EnvDTE.ProjectItem><br /><br /> 或<br /><br /> 一个 <xref:System.UInt32> 值，也称作 VSITEMID，用于在包含某项目成员的 <xref:Microsoft.VisualStudio.Shell.Interop.IVsHierarchy> 中标识该项目成员。  此值可以传递给某些 <xref:Microsoft.VisualStudio.Shell.Interop.IVsHierarchy> 方法的 *itemid* 参数。|  
+|SharePoint project system type|Corresponding types in the automation and integration object models|  
+|------------------------------------|-------------------------------------------------------------------------|  
+|<xref:Microsoft.VisualStudio.SharePoint.ISharePointProject>|<xref:EnvDTE.Project><br /><br /> or<br /><br /> Any interface in the Visual Studio integration object model that is implemented by the underlying COM object for the project. These interfaces include <xref:Microsoft.VisualStudio.Shell.Interop.IVsHierarchy>, <xref:Microsoft.VisualStudio.Shell.Interop.IVsProject> (or a derived interface), and <xref:Microsoft.VisualStudio.Shell.Interop.IVsBuildPropertyStorage>. For a list of the main interfaces that are implemented by projects, see [Project Model Core Components](/visualstudio/extensibility/internals/project-model-core-components).|  
+|<xref:Microsoft.VisualStudio.SharePoint.IMappedFolder><br /><br /> <xref:Microsoft.VisualStudio.SharePoint.ISharePointProjectItem><br /><br /> <xref:Microsoft.VisualStudio.SharePoint.ISharePointProjectItemFile><br /><br /> <xref:Microsoft.VisualStudio.SharePoint.ISharePointProjectFeature><br /><br /> <xref:Microsoft.VisualStudio.SharePoint.ISharePointProjectFeatureResourceFile><br /><br /> <xref:Microsoft.VisualStudio.SharePoint.ISharePointProjectPackage>|<xref:EnvDTE.ProjectItem><br /><br /> or<br /><br /> A<xref:System.UInt32> value (also called a VSITEMID) that identifies the project member in the <xref:Microsoft.VisualStudio.Shell.Interop.IVsHierarchy> that contains it. This value can be passed to the *itemid* parameter of some <xref:Microsoft.VisualStudio.Shell.Interop.IVsHierarchy> methods.|  
   
-## 示例  
- 下面的代码示例演示如何使用 <xref:Microsoft.VisualStudio.SharePoint.ISharePointProjectService.Convert%2A> 方法，将 <xref:Microsoft.VisualStudio.SharePoint.ISharePointProject> 对象转换为 <xref:EnvDTE.Project>。  
+## <a name="example"></a>Example  
+ The following code example demonstrates how to use the <xref:Microsoft.VisualStudio.SharePoint.ISharePointProjectService.Convert%2A> method to convert an <xref:Microsoft.VisualStudio.SharePoint.ISharePointProject> object to an <xref:EnvDTE.Project>.  
   
- [!code-csharp[SPExtensibility.ProjectService.FromDTE#2](../snippets/csharp/VS_Snippets_OfficeSP/spextensibility.projectservice.fromdte/cs/connect.cs#2)]
- [!code-vb[SPExtensibility.ProjectService.FromDTE#2](../snippets/visualbasic/VS_Snippets_OfficeSP/spextensibility.projectservice.fromdte/vb/connect.vb#2)]  
+ [!code-csharp[SPExtensibility.ProjectService.FromDTE#2](../sharepoint/codesnippet/CSharp/spprojectserviceaddin/connect.cs#2)] [!code-vb[SPExtensibility.ProjectService.FromDTE#2](../sharepoint/codesnippet/VisualBasic/spprojectserviceaddin/connect.vb#2)]  
   
- 此示例需要：  
+ This example requires:  
   
--   具有对 EnvDTE.dll 程序集的引用的 SharePoint 项目系统的扩展。  有关更多信息，请参见[Extending the SharePoint Project System](../sharepoint/extending-the-sharepoint-project-system.md)。  
+-   An extension of the SharePoint project system that has a reference to the EnvDTE.dll assembly. For more information, see [Extending the SharePoint Project System](../sharepoint/extending-the-sharepoint-project-system.md).  
   
--   用于注册 `projectService_ProjectAdded` 方法以处理 <xref:Microsoft.VisualStudio.SharePoint.ISharePointProjectService> 对象的 <xref:Microsoft.VisualStudio.SharePoint.ISharePointProjectEvents.ProjectAdded> 事件的代码。  有关示例，请参见[How to: Create a SharePoint Project Extension](../sharepoint/how-to-create-a-sharepoint-project-extension.md)。  
+-   Code that registers the `projectService_ProjectAdded` method to handle the <xref:Microsoft.VisualStudio.SharePoint.ISharePointProjectEvents.ProjectAdded> event of an <xref:Microsoft.VisualStudio.SharePoint.ISharePointProjectService> object. For an example, see [How to: Create a SharePoint Project Extension](../sharepoint/how-to-create-a-sharepoint-project-extension.md).  
   
-## 请参阅  
+## <a name="see-also"></a>See Also  
  [Using the SharePoint Project Service](../sharepoint/using-the-sharepoint-project-service.md)   
  [How to: Retrieve the SharePoint Project Service](../sharepoint/how-to-retrieve-the-sharepoint-project-service.md)   
  [Overview of the Programming Model of SharePoint Tools Extensions](../sharepoint/overview-of-the-programming-model-of-sharepoint-tools-extensions.md)  

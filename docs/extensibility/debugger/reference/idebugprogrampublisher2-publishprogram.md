@@ -1,5 +1,5 @@
 ---
-title: "IDebugProgramPublisher2::PublishProgram |Microsoft 文档"
+title: IDebugProgramPublisher2::PublishProgram | Microsoft Docs
 ms.custom: 
 ms.date: 11/04/2016
 ms.reviewer: 
@@ -30,16 +30,17 @@ translation.priority.mt:
 - tr-tr
 - zh-cn
 - zh-tw
-translationtype: Machine Translation
-ms.sourcegitcommit: 5db97d19b1b823388a465bba15d057b30ff0b3ce
-ms.openlocfilehash: b37048ed7af208d384a52f25cc5cf99122db1f1e
-ms.lasthandoff: 02/22/2017
+ms.translationtype: MT
+ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
+ms.openlocfilehash: 3f573f35ed0130eb020ac2e8e19a0391050ec06e
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="idebugprogrampublisher2publishprogram"></a>IDebugProgramPublisher2::PublishProgram
-此方法使程序可用于调试引擎 (DEs) 和会话调试管理器。  
+This method makes a program available for debug engines (DEs) and the session debug manager.  
   
-## <a name="syntax"></a>语法  
+## <a name="syntax"></a>Syntax  
   
 ```cpp  
 HRESULT PublishProgram(  
@@ -49,7 +50,7 @@ HRESULT PublishProgram(
 );  
 ```  
   
-```c#  
+```csharp  
 int PublishProgram(  
    CONST_GUID_ARRAY Engines,  
    string           szFriendlyName,  
@@ -57,22 +58,22 @@ int PublishProgram(
 );  
 ```  
   
-#### <a name="parameters"></a>参数  
+#### <a name="parameters"></a>Parameters  
  `Engines`  
- [in]Guid 的数组，针对 DEs，可以启动或附加到此程序。  
+ [in] An array of GUIDs for DEs that can launch or attach to this program.  
   
  `szFriendlyName`  
- [in]（这将显示在菜单或向用户显示的对话框） 的程序的友好名称。  
+ [in] Friendly name for the program (this appears in menus or dialogs presented to the user).  
   
  `pDebuggeeInterface`  
- [in]`IUnknown`程序界面 （此值用作 cookie 用来唯一地标识程序; 此相同的值用于"取消发布"该程序）  
+ [in] `IUnknown` interface for the program (this value is used as a cookie to uniquely identify the program; this same value is used to "unpublish" the program)  
   
-## <a name="return-value"></a>返回值  
- 如果成功，返回`S_OK`; 否则为返回错误代码。  
+## <a name="return-value"></a>Return Value  
+ If successful, returns `S_OK`; otherwise, returns an error code.  
   
-## <a name="remarks"></a>备注  
- 若要使某个程序不再可用于调试，请调用[UnpublishProgram](../../../extensibility/debugger/reference/idebugprogrampublisher2-unpublishprogram.md)。  
+## <a name="remarks"></a>Remarks  
+ To make a program no longer available for debugging, call [UnpublishProgram](../../../extensibility/debugger/reference/idebugprogrampublisher2-unpublishprogram.md).  
   
-## <a name="see-also"></a>另请参阅  
+## <a name="see-also"></a>See Also  
  [IDebugProgramPublisher2](../../../extensibility/debugger/reference/idebugprogrampublisher2.md)   
  [UnpublishProgram](../../../extensibility/debugger/reference/idebugprogrampublisher2-unpublishprogram.md)

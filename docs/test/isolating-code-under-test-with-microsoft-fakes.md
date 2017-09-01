@@ -1,5 +1,5 @@
 ---
-title: "使用 Microsoft Fakes 隔离受测代码 | Microsoft Docs"
+title: Isolating Code Under Test with Microsoft Fakes | Microsoft Docs
 ms.custom: 
 ms.date: 11/04/2016
 ms.reviewer: 
@@ -26,82 +26,82 @@ translation.priority.ht:
 - tr-tr
 - zh-cn
 - zh-tw
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 47057e9611b824c17077b9127f8d2f8b192d6eb8
-ms.openlocfilehash: 3941968fa0e2e6205c94076f555c8366f009d4c0
+ms.translationtype: HT
+ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
+ms.openlocfilehash: 9726d092be94ba082adbcc21ebd09a94fe0c60d2
 ms.contentlocale: zh-cn
-ms.lasthandoff: 05/13/2017
+ms.lasthandoff: 08/28/2017
 
 ---
-# <a name="isolating-code-under-test-with-microsoft-fakes"></a>用 Microsoft Fakes 隔离测试代码
-Microsoft Fakes 将应用的其余部分替换为*存根*或*垫片*，有助于隔离受测代码。 这些是受你的测试控制的小段代码。 通过隔离接受测试的代码，你将会知道，如果测试失败，原因就在这里而不是其他地方。 即使应用程序的其他部分不起作用，存根和填充码也能让你测试代码。  
+# <a name="isolating-code-under-test-with-microsoft-fakes"></a>Isolating Code Under Test with Microsoft Fakes
+Microsoft Fakes help you isolate the code you are testing by replacing other parts of the application with *stubs* or *shims*. These are small pieces of code that are under the control of your tests. By isolating your code for testing, you know that if the test fails, the cause is there and not somewhere else. Stubs and shims also let you test your code even if other parts of your application are not working yet.  
   
- Fakes 有两种风格：  
+ Fakes come in two flavors:  
   
--   [存根](#stubs)将类替换为可实现同一接口的小型替代项。  若要使用存根，你在设计应用程序时必须让每个组件仅依赖接口，而不依赖其他组件。 （“组件”是指一个类或一起开发和更新的一组类，通常包含在一个程序集中。）  
+-   A [stub](#stubs) replaces a class with a small substitute that implements the same interface.  To use stubs, you have to design your application so that each component depends only on interfaces, and not on other components. (By "component" we mean a class or group of classes that are designed and updated together and typically contained in an assembly.)  
   
--   [垫片](#shims)在运行时修改应用的编译代码，这样就可以运行测试提供的垫片代码，而不用执行指定的方法调用。 填充码可用于替换对你无法修改的程序集（如 .NET 程序集）的调用。  
+-   A [shim](#shims) modifies the compiled code of your application at run time so that instead of making a specified method call, it runs the shim code that your test provides. Shims can be used to replace calls to assemblies that you cannot modify, such .NET assemblies.  
   
- ![Fakes 替换其他组件](../test/media/fakes-2.png "Fakes-2")  
+ ![Fakes replace other components](../test/media/fakes-2.png "Fakes-2")  
   
- **要求**  
+ **Requirements**  
   
 -   Visual Studio Enterprise  
   
-## <a name="choosing-between-stub-and-shim-types"></a>在存根和填充类型之间进行选择  
- 通常，你将 Visual Studio 项目视为一个组件，这是因为你同时开发和更新这些类。 对于该项目对你的解决方案中的其他项目所作的调用或对该项目引用的其他程序集所作的调用，应考虑使用存根和填充码。  
+## <a name="choosing-between-stub-and-shim-types"></a>Choosing between stub and shim types  
+ Typically, you would consider a Visual Studio project to be a component, because you develop and update those classes at the same time. You would consider using stubs and shims for calls that the project makes to other projects in your solution, or to other assemblies that the project references.  
   
- 一般原则是，为在 Visual Studio 解决方案中进行的调用使用存根，并为对其他引用的程序集的调用使用填充码。 这是因为在你自己的解决方案中，通过按照存根要求的方式定义接口来分离组件是一个很好的做法。 但是，外部程序集（如 System.dll）通常没有单独的接口定义，因此你必须改用填充码。  
+ As a general guide, use stubs for calls within your Visual Studio solution, and shims for calls to other referenced assemblies. This is because within your own solution it is good practice to decouple the components by defining interfaces in the way that stubbing requires. But external assemblies such as System.dll typically are not provided with separate interface definitions, so you must use shims instead.  
   
- 其他需要注意的事项还有：  
+ Other considerations are:  
   
- **性能。** 填充码运行较慢，因为它们在运行时会重新编写你的代码。 存根没有这项性能开销，与虚方法运行的速度一样快。  
+ **Performance.** Shims run slower because they rewrite your code at run time. Stubs do not have this performance overhead and are as fast as virtual methods can go.  
   
- **静态方法和密封类型方法。** 你只能使用存根实现接口。 因此，存根类型不能用于静态方法、非虚方法、密封虚方法、密封类型中的方法，等等。  
+ **Static methods, sealed types.** You can only use stubs to implement interfaces. Therefore, stub types cannot be used for static methods, non-virtual methods, sealed virtual methods, methods in sealed types, and so on.  
   
- **内部类型。** 存根和填充码都可用于可通过程序集特性 <xref:System.Runtime.CompilerServices.InternalsVisibleToAttribute> 访问的内部类型。  
+ **Internal types.** Both stubs and shims can be used with internal types that are made accessible by using the assembly attribute <xref:System.Runtime.CompilerServices.InternalsVisibleToAttribute>.  
   
- **私有方法。** 如果方法签名中的所有类型都是可见的，则填充码可替换对私有方法的调用。 存根只能替换可见方法。  
+ **Private methods.** Shims can replace calls to private methods if all the types on the method signature are visible. Stubs can only replace visible methods.  
   
- **接口和抽象方法。** 存根提供了可用于测试的接口和抽象方法的实现。 填充码无法检测接口和抽象方法，因为它们没有方法体。  
+ **Interfaces and abstract methods.** Stubs provide implementations of interfaces and abstract methods that can be used in testing. Shims can't instrument interfaces and abstract methods, because they don't have method bodies.  
   
- 通常，我们建议使用存根类型来与基本代码中的依赖项隔离。 可以通过隐藏接口后面的组件执行此操作。 填充码类型可用于与不提供可测试的 API 的第三方组件隔离。  
+ In general, we recommend that you use stub types to isolate from dependencies within your codebase. You can do this by hiding the components behind interfaces. Shim types can be used to isolate from third-party components that do not provide a testable API.  
   
-##  <a name="stubs"></a>开始使用存根  
- 有关更详细的说明，请参阅[使用存根隔离应用的各个部分以供单元测试使用](../test/using-stubs-to-isolate-parts-of-your-application-from-each-other-for-unit-testing.md)。  
+##  <a name="stubs"></a> Getting started with stubs  
+ For a more detailed description, see [Using stubs to isolate parts of your application from each other for unit testing](../test/using-stubs-to-isolate-parts-of-your-application-from-each-other-for-unit-testing.md).  
   
-1.  **注入接口**  
+1.  **Inject interfaces**  
   
-     若要使用存根，你在编写要测试的代码时不应明确提及应用程序的其他组件中的类。 “组件”是指一个类或一起开发和更新的多个类，通常包含在一个 Visual Studio 项目中。 应使用接口来声明变量和参数，并且应使用工厂来传入或创建其他组件的实例。 例如，如果 StockFeed 是应用程序的另一个组件中的类，则可以认为以下内容是错误的：  
+     To use stubs, you have to write the code you want to test in such a way that it does not explicitly mention classes in another component of your application. By "component" we mean a class or classes that are developed and updated together, and typically contained in one Visual Studio project. Variables and parameters should be declared by using interfaces and instances of other components should be passed in or created by using a factory. For example, if StockFeed is a class in another component of the application, then this would be considered bad:  
   
      `return (new StockFeed()).GetSharePrice("COOO"); // Bad`  
   
-     相反，应该定义可由另一个组件实现的接口以及可由存根出于测试目实现的接口：  
+     Instead, define an interface that can be implemented by the other component, and which can also be implemented by a stub for test purposes:  
   
-    ```c#  
+    ```csharp  
     public int GetContosoPrice(IStockFeed feed)  
     { return feed.GetSharePrice("COOO"); }  
   
     ```  
   
-    ```vb#  
+    ```vb  
     Public Function GetContosoPrice(feed As IStockFeed) As Integer  
      Return feed.GetSharePrice("COOO")  
     End Function  
   
     ```  
   
-2.  **添加 Fakes 程序集**  
+2.  **Add Fakes Assembly**  
   
-    1.  在“解决方案资源管理器”中，展开测试项目的引用列表。 如果使用的是 Visual Basic，必须选择“显示所有文件”才能看到引用列表。  
+    1.  In Solution Explorer, expand the test project's reference list. If you are working in Visual Basic, you must choose **Show All Files** in order to see the reference list.  
   
-    2.  选择对其中定义了接口（例如 IStockFeed）的程序集的引用。 在此引用的快捷菜单上，选择“添加 Fakes 程序集”。  
+    2.  Select the reference to the assembly in which the interface (for example IStockFeed) is defined. On the shortcut menu of this reference, choose **Add Fakes Assembly**.  
   
-    3.  重新生成解决方案。  
+    3.  Rebuild the solution.  
   
-3.  在测试中，构建存根的实例并为存根的方法提供代码：  
+3.  In your tests, construct instances of the stub and provide code for its methods:  
   
-    ```c#  
+    ```csharp  
     [TestClass]  
     class TestStockAnalyzer  
     {  
@@ -132,7 +132,7 @@ Microsoft Fakes 将应用的其余部分替换为*存根*或*垫片*，有助于
     }  
     ```  
   
-    ```vb#  
+    ```vb  
     <TestClass()> _  
     Class TestStockAnalyzer  
   
@@ -157,16 +157,16 @@ Microsoft Fakes 将应用的其余部分替换为*存根*或*垫片*，有助于
   
     ```  
   
-     此处最为神奇的就是类 `StubIStockFeed`。 对于所引用程序集中的每个接口，Microsoft Fakes 机制将生成一个存根类。 存根类的名称派生自接口的名称，前缀为“`Fakes.Stub`”，并且在名称后面追加了参数类型名称。  
+     The special piece of magic here is the class `StubIStockFeed`. For every interface in the referenced assembly, the Microsoft Fakes mechanism generates a stub class. The name of the stub class is the derived from the name of the interface, with "`Fakes.Stub`" as a prefix, and the parameter type names appended.  
   
-     另外，还会为属性的 getter 和 setter、事件和泛型方法生成存根。 有关详细信息，请参阅[使用存根隔离应用的各个部分以供单元测试使用](../test/using-stubs-to-isolate-parts-of-your-application-from-each-other-for-unit-testing.md)。  
+     Stubs are also generated for the getters and setters of properties, for events, and for generic methods. For more information, see [Using stubs to isolate parts of your application from each other for unit testing](../test/using-stubs-to-isolate-parts-of-your-application-from-each-other-for-unit-testing.md).  
   
-##  <a name="shims"></a>开始使用垫片  
- （有关更详细的说明，请参阅[使用垫片将应用与其他程序集相隔离以供单元测试使用](../test/using-shims-to-isolate-your-application-from-other-assemblies-for-unit-testing.md)。）  
+##  <a name="shims"></a> Getting started with shims  
+ (For a more detailed description, see [Using shims to isolate your application from other assemblies for unit testing](../test/using-shims-to-isolate-your-application-from-other-assemblies-for-unit-testing.md).)  
   
- 假定你的组件包含对 `DateTime.Now` 的调用：  
+ Suppose your component contains calls to `DateTime.Now`:  
   
-```c#  
+```csharp  
 // Code under test:  
     public int GetTheCurrentYear()  
     {  
@@ -175,19 +175,19 @@ Microsoft Fakes 将应用的其余部分替换为*存根*或*垫片*，有助于
   
 ```  
   
- 在测试过程中，你希望填充 `Now` 属性，因为每次调用时实际版本都会返回不同的值，从而造成了不便。  
+ During testing, you would like to shim the `Now` property, because the real version inconveniently returns a different value at every call.  
   
- 若要使用填充码，无需修改应用程序代码，也无需以特定方式来编写代码。  
+ To use shims, you don't have to modify the application code or write it a particular way.  
   
-1.  **添加 Fakes 程序集**  
+1.  **Add Fakes Assembly**  
   
-     在“解决方案资源管理器”中，打开单元测试项目的引用，然后选择对包含要虚设的方法的程序集的引用。 在此示例中，`DateTime` 类位于 **System.dll** 中。  若要查看 Visual Basic 项目中的引用，请选择“显示所有文件”。  
+     In Solution Explorer, open your unit test project's references and select the reference to the assembly that contains the method you want to fake. In this example, the `DateTime` class is in **System.dll**.  To see the references in a Visual Basic project, choose **Show All Files**.  
   
-     选择“添加 Fakes 程序集”。  
+     Choose **Add Fakes Assembly**.  
   
-2.  **在 ShimsContext 中插入垫片**  
+2.  **Insert a shim in a ShimsContext**  
   
-    ```c#  
+    ```csharp  
     [TestClass]  
     public class TestClass1  
     {   
@@ -220,7 +220,7 @@ Microsoft Fakes 将应用的其余部分替换为*存根*或*垫片*，有助于
   
     ```  
   
-    ```vb#  
+    ```vb  
     <TestClass()> _  
     Public Class TestClass1  
         <TestMethod()> _  
@@ -246,22 +246,22 @@ Microsoft Fakes 将应用的其余部分替换为*存根*或*垫片*，有助于
     End Class  
     ```  
   
-     填充码类名称是通过在原始类型名称前加上 `Fakes.Shim` 前缀构成的。 在方法名称后面将会追加参数名称。 （无需向 System.Fakes 添加任何程序集引用。）  
+     Shim class names are made up by prefixing `Fakes.Shim` to the original type name. Parameter names are appended to the method name. (You don't have to add any assembly reference to System.Fakes.)  
   
- 前面的示例对一个静态方法使用了填充码。 若要将填充码用于实例方法，请在类型名称和方法名称之间写入 `AllInstances`：  
+ The previous example uses a shim for a static method. To use a shim for an instance method, write `AllInstances` between the type name and the method name:  
   
 ```  
 System.IO.Fakes.ShimFile.AllInstances.ReadToEnd = ...  
 ```  
   
- （没有要引用的“System.IO.Fakes”程序集。 命名空间由填充码创建过程生成。 但可按常规方式使用“using”或“Import”。）  
+ (There is no 'System.IO.Fakes' assembly to reference. The namespace is generated by the shim creation process. But you can use 'using' or 'Import' in the usual way.)  
   
- 你还可以为特定实例、构造函数和属性创建填充码。 有关详细信息，请参阅[使用垫片将应用与其他程序集相隔离以供单元测试使用](../test/using-shims-to-isolate-your-application-from-other-assemblies-for-unit-testing.md)。  
+ You can also create shims for specific instances, for constructors, and for properties. For more information, see [Using shims to isolate your application from other assemblies for unit testing](../test/using-shims-to-isolate-your-application-from-other-assemblies-for-unit-testing.md).  
   
-## <a name="in-this-section"></a>本节内容  
- [使用存根针对单元测试隔离应用程序的各个部分](../test/using-stubs-to-isolate-parts-of-your-application-from-each-other-for-unit-testing.md)  
+## <a name="in-this-section"></a>In this section  
+ [Using stubs to isolate parts of your application from each other for unit testing](../test/using-stubs-to-isolate-parts-of-your-application-from-each-other-for-unit-testing.md)  
   
- [使用填充码针对单元测试将应用程序与程序集隔离](../test/using-shims-to-isolate-your-application-from-other-assemblies-for-unit-testing.md)  
+ [Using shims to isolate your application from other assemblies for unit testing](../test/using-shims-to-isolate-your-application-from-other-assemblies-for-unit-testing.md)  
   
- [Microsoft Fakes 中的代码生成、编译和命名约定](../test/code-generation-compilation-and-naming-conventions-in-microsoft-fakes.md)
+ [Code generation, compilation, and naming conventions in Microsoft Fakes](../test/code-generation-compilation-and-naming-conventions-in-microsoft-fakes.md)
 

@@ -1,45 +1,62 @@
 ---
-title: "CA2130：安全关键常量应是透明的 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-devops-test"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "CA2130"
+title: 'CA2130: Security critical constants should be transparent | Microsoft Docs'
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-devops-test
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords:
+- CA2130
 ms.assetid: 344c7f7b-9130-4675-ae7f-9fa260cc9789
 caps.latest.revision: 10
-author: "stevehoag"
-ms.author: "shoag"
-manager: "wpickett"
-caps.handback.revision: 10
----
-# CA2130：安全关键常量应是透明的
-[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
+author: stevehoag
+ms.author: shoag
+manager: wpickett
+translation.priority.ht:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+ms.translationtype: HT
+ms.sourcegitcommit: eb5c9550fd29b0e98bf63a7240737da4f13f3249
+ms.openlocfilehash: c3a511b716c6a5bfc215bbfe967c19da4f4d7609
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/30/2017
 
+---
+# <a name="ca2130-security-critical-constants-should-be-transparent"></a>CA2130: Security critical constants should be transparent
 |||  
 |-|-|  
-|类型名|ConstantsShouldBeTransparent|  
+|TypeName|ConstantsShouldBeTransparent|  
 |CheckId|CA2130|  
-|类别|Microsoft.Security|  
-|是否重大更改|是|  
+|Category|Microsoft.Security|  
+|Breaking Change|Breaking|  
   
-## 原因  
- 用 <xref:System.Security.SecurityCriticalAttribute> 标记的常数字段或枚举成员。  
+## <a name="cause"></a>Cause  
+ A constant field or an enumeration member is marked with the <xref:System.Security.SecurityCriticalAttribute>.  
   
-## 规则说明  
- 未对常数值实施透明强制，因为编译器内联常数值以便在运行时不需要查找。  常数字段应为安全透明的，以便代码评审阅者不会假定透明代码不能访问常数。  
+## <a name="rule-description"></a>Rule Description  
+ Transparency enforcement is not enforced for constant values because compilers inline constant values so that no lookup is required at run time. Constant fields should be security transparent so that code reviewers do not assume that transparent code cannot access the constant.  
   
-## 如何解决冲突  
- 要修复与该规则的冲突，请从字段或值中移除 SecurityCritical 特性。  
+## <a name="how-to-fix-violations"></a>How to Fix Violations  
+ To fix a violation of this rule, remove the SecurityCritical attribute from the field or value.  
   
-## 何时禁止显示警告  
- 不要禁止显示此规则发出的警告。  
+## <a name="when-to-suppress-warnings"></a>When to Suppress Warnings  
+ Do not suppress a warning from this rule.  
   
-## 示例  
- 在下面的示例中，枚举值 `EnumWithCriticalValues.CriticalEnumValue` 和常量 `CriticalConstant` 引发此警告。  若要修复该问题，删除 \[`SecurityCritical`\] 特性，以使其安全透明。  
+## <a name="example"></a>Example  
+ In the following examples, the enum value `EnumWithCriticalValues.CriticalEnumValue` and the constant `CriticalConstant` raise this warning. To fix the issues, remove the [`SecurityCritical`] attribute to make them security transparent.  
   
- [!code-cs[FxCop.Security.CA2130.ConstantsShouldBeTransparent#1](../code-quality/codesnippet/CSharp/ca2130-security-critical-constants-should-be-transparent_1.cs)]
+ [!code-csharp[FxCop.Security.CA2130.ConstantsShouldBeTransparent#1](../code-quality/codesnippet/CSharp/ca2130-security-critical-constants-should-be-transparent_1.cs)]

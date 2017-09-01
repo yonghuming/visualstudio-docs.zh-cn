@@ -1,78 +1,95 @@
 ---
-title: "CA2140：透明代码不得引用安全关键项 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-devops-test"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "CA2129"
-  - "SecurityTransparentCodeShouldNotReferenceNonpublicSecurityCriticalCode"
-  - "CA2140"
-helpviewer_keywords: 
-  - "CA2129"
-  - "CA2140"
-  - "SecurityTransparentCodeShouldNotReferenceNonpublicSecurityCriticalCode"
+title: 'CA2140: Transparent code must not reference security critical items | Microsoft Docs'
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-devops-test
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords:
+- CA2129
+- SecurityTransparentCodeShouldNotReferenceNonpublicSecurityCriticalCode
+- CA2140
+helpviewer_keywords:
+- CA2140
+- SecurityTransparentCodeShouldNotReferenceNonpublicSecurityCriticalCode
+- CA2129
 ms.assetid: 251a12da-0557-47f5-a4f7-0229d590ae7b
 caps.latest.revision: 17
-author: "stevehoag"
-ms.author: "shoag"
-manager: "wpickett"
-caps.handback.revision: 17
----
-# CA2140：透明代码不得引用安全关键项
-[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
+author: stevehoag
+ms.author: shoag
+manager: wpickett
+translation.priority.ht:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+ms.translationtype: HT
+ms.sourcegitcommit: eb5c9550fd29b0e98bf63a7240737da4f13f3249
+ms.openlocfilehash: 6cb8758ba9aa3408b40f7a468523c52925faf78d
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/30/2017
 
+---
+# <a name="ca2140-transparent-code-must-not-reference-security-critical-items"></a>CA2140: Transparent code must not reference security critical items
 |||  
 |-|-|  
-|类型名|TransparentMethodsMustNotReferenceCriticalCode|  
+|TypeName|TransparentMethodsMustNotReferenceCriticalCode|  
 |CheckId|CA2140|  
-|类别|Microsoft.Security|  
-|是否重大更改|是|  
+|Category|Microsoft.Security|  
+|Breaking Change|Breaking|  
   
-## 原因  
- 透明方法：  
+## <a name="cause"></a>Cause  
+ A transparent method:  
   
--   处理安全关键安全异常类型  
+-   handles a security critical security exception type  
   
--   拥有标记为安全关键类型的参数  
+-   has a parameter that is marked as a security critical type  
   
--   拥有带安全关键约束的参数  
+-   has a generic parameter with a security critical constraints  
   
--   拥有安全关键类型的局部变量  
+-   has a local variable of a security critical type  
   
--   引用标记为关键安全类型或成员的类型  
+-   references a type that is marked as security critical  
   
--   调用标记为“安全关键”的方法  
+-   calls a method that is marked as security critical  
   
--   引用标记为关键安全类型或成员的字段  
+-   references a field that is marked as security critical  
   
--   返回标记为关键安全类型或成员的类型  
+-   returns a type that is marked as security critical  
   
-## 规则说明  
- 用 <xref:System.Security.SecurityCriticalAttribute> 特性标记的代码都是安全关键代码。  透明方法不能使用安全关键元素。  如果透明类型尝试使用安全关键类型，则会引发 <xref:System.TypeAccessException>, <xref:System.MethodAccessException> 或 <xref:System.FieldAccessException>。  
+## <a name="rule-description"></a>Rule Description  
+ A code element that is marked with the <xref:System.Security.SecurityCriticalAttribute> attribute is security critical. A transparent method cannot use a security critical element. If a transparent type attempts to use a security critical type a <xref:System.TypeAccessException>, <xref:System.MethodAccessException> , or <xref:System.FieldAccessException> is raised.  
   
-## 如何解决冲突  
- 要解决此规则的冲突，进行以下操作之一：  
+## <a name="how-to-fix-violations"></a>How to Fix Violations  
+ To fix a violation of this rule, do one of the following:  
   
--   用 <xref:System.Security.SecurityCriticalAttribute> 特性标记的安全关键代码标记代码元素。  
+-   Mark the code element that uses the security critical code with the <xref:System.Security.SecurityCriticalAttribute> attribute  
   
-     \- 或 \-  
+     \- or -  
   
--   从标记为关键安全类型或成员的代码元素中删除 <xref:System.Security.SecurityCriticalAttribute> 特性，并使用 <xref:System.Security.SecuritySafeCriticalAttribute> 或 <xref:System.Security.SecurityTransparentAttribute> 特性标记它们。  
+-   Remove the <xref:System.Security.SecurityCriticalAttribute> attribute from the code elements that are marked as security critical and instead mark them with the <xref:System.Security.SecuritySafeCriticalAttribute> or <xref:System.Security.SecurityTransparentAttribute> attribute.  
   
-## 何时禁止显示警告  
- 不要禁止显示此规则发出的警告。  
+## <a name="when-to-suppress-warnings"></a>When to Suppress Warnings  
+ Do not suppress a warning from this rule.  
   
-## 示例  
- 在下面的示例中，透明的方法尝试引用安全关键泛型集合、安全关键字段和安全的关键方法。  
+## <a name="example"></a>Example  
+ In the following examples, a transparent method attempts to reference a security critical generic collection, a security critical field, and a security critical method.  
   
- [!code-cs[FxCop.Security.CA2140.TransparentMethodsMustNotReferenceCriticalCode#1](../code-quality/codesnippet/CSharp/ca2140-transparent-code-must-not-reference-security-critical-items_1.cs)]  
+ [!code-csharp[FxCop.Security.CA2140.TransparentMethodsMustNotReferenceCriticalCode#1](../code-quality/codesnippet/CSharp/ca2140-transparent-code-must-not-reference-security-critical-items_1.cs)]  
   
-## 请参阅  
+## <a name="see-also"></a>See Also  
  <xref:System.Security.SecurityTransparentAttribute>   
  <xref:System.Security.SecurityCriticalAttribute>   
  <xref:System.Security.SecurityTransparentAttribute>   

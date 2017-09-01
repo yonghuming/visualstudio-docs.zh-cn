@@ -1,128 +1,121 @@
 ---
-title: "如何：以编程方式在文档中搜索和替换文本"
-ms.custom: ""
-ms.date: "02/02/2017"
-ms.prod: "visual-studio-dev14"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "office-development"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-dev_langs: 
-  - "VB"
-  - "CSharp"
-helpviewer_keywords: 
-  - "文档 [Visual Studio 中的 Office 开发], 搜索"
-  - "文本 [Visual Studio 中的 Office 开发], 在文档中搜索"
-  - "文本 [Visual Studio 中的 Office 开发], 文本搜索"
-  - "文本搜索, 文档"
-  - "文本搜索, 替换文本"
+title: 'How to: Programmatically Search for and Replace Text  in Documents | Microsoft Docs'
+ms.custom: 
+ms.date: 02/02/2017
+ms.prod: visual-studio-dev14
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- office-development
+ms.tgt_pltfrm: 
+ms.topic: article
+dev_langs:
+- VB
+- CSharp
+helpviewer_keywords:
+- documents [Office development in Visual Studio], searching
+- text searches, replacing text
+- text searches, documents
+- text [Office development in Visual Studio], searching in documents
+- text [Office development in Visual Studio], text searches
 ms.assetid: a66962f5-eeb9-4dc6-a70f-9039ab437a63
 caps.latest.revision: 51
-author: "kempb"
-ms.author: "kempb"
-manager: "ghogen"
-caps.handback.revision: 50
+author: kempb
+ms.author: kempb
+manager: ghogen
+ms.translationtype: HT
+ms.sourcegitcommit: eb5c9550fd29b0e98bf63a7240737da4f13f3249
+ms.openlocfilehash: 91acaa367f2c125e26e8d43444d455d591c318e3
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/30/2017
+
 ---
-# 如何：以编程方式在文档中搜索和替换文本
-  <xref:Microsoft.Office.Interop.Word.Find> 对象是 <xref:Microsoft.Office.Interop.Word.Selection> 和 <xref:Microsoft.Office.Interop.Word.Range> 对象的成员，可使用其中任何一个来搜索 Microsoft Office Word 文档中的文本。  替换命令是查找命令的扩展。  
+# <a name="how-to-programmatically-search-for-and-replace-text--in-documents"></a>How to: Programmatically Search for and Replace Text  in Documents
+  The <xref:Microsoft.Office.Interop.Word.Find> object is a member of both the <xref:Microsoft.Office.Interop.Word.Selection> and the <xref:Microsoft.Office.Interop.Word.Range> objects, and you can use either one to search for text in Microsoft Office Word documents. The replace command is an extension of the find command.  
   
- 使用 <xref:Microsoft.Office.Interop.Word.Find> 对象循环访问 Microsoft Office Word 文档并搜索特定文本、格式或样式，使用 <xref:Microsoft.Office.Interop.Word.Find.Replacement%2A> 属性替换任何找到的项。  
+ Use a <xref:Microsoft.Office.Interop.Word.Find> object to loop through a Microsoft Office Word document and search for specific text, formatting, or style, and use the <xref:Microsoft.Office.Interop.Word.Find.Replacement%2A> property to replace any of the items found.  
   
  [!INCLUDE[appliesto_wdalldocapp](../vsto/includes/appliesto-wdalldocapp-md.md)]  
   
-## 使用 Selection 对象  
- 使用 <xref:Microsoft.Office.Interop.Word.Selection> 对象查找文本时，指定的任何搜索条件均只能应用于当前选定的文本。  如果 <xref:Microsoft.Office.Interop.Word.Selection> 是插入点，则搜索文档。  找到符合搜索条件的项时，将自动将其选中。  
+## <a name="using-a-selection-object"></a>Using a Selection Object  
+ When you use a <xref:Microsoft.Office.Interop.Word.Selection> object to find text, any search criteria you specify are applied only against currently selected text. If the <xref:Microsoft.Office.Interop.Word.Selection> is an insertion point, then the document is searched. When the item is found that matches the search criteria, it is automatically selected.  
   
- 请务必注意，<xref:Microsoft.Office.Interop.Word.Find> 条件是累积性的，这意味着会将条件添加到之前的搜索条件。  搜索前使用 <xref:Microsoft.Office.Interop.Word.Find.ClearFormatting%2A> 方法清除之前的搜索的格式。  
+ It is important to note that the <xref:Microsoft.Office.Interop.Word.Find> criteria are cumulative, which means that criteria are added to previous search criteria. Clear formatting from previous searches by using the <xref:Microsoft.Office.Interop.Word.Find.ClearFormatting%2A> method prior to the search.  
   
-#### 使用 Selection 对象查找文本  
+#### <a name="to-find-text-using-a-selection-object"></a>To find text using a Selection object  
   
-1.  将搜索字符串分配给变量。  
+1.  Assign a search string to a variable.  
   
-     [!code-csharp[Trin_VstcoreWordAutomation#68](../snippets/csharp/VS_Snippets_OfficeSP/Trin_VstcoreWordAutomation/CS/ThisDocument.cs#68)]
-     [!code-vb[Trin_VstcoreWordAutomation#68](../snippets/visualbasic/VS_Snippets_OfficeSP/Trin_VstcoreWordAutomation/VB/ThisDocument.vb#68)]  
+     [!code-vb[Trin_VstcoreWordAutomation#68](../vsto/codesnippet/VisualBasic/Trin_VstcoreWordAutomationVB/ThisDocument.vb#68)]  [!code-csharp[Trin_VstcoreWordAutomation#68](../vsto/codesnippet/CSharp/Trin_VstcoreWordAutomationCS/ThisDocument.cs#68)]  
   
-2.  清除之前的搜索的格式。  
+2.  Clear formatting from previous searches.  
   
-     [!code-csharp[Trin_VstcoreWordAutomation#69](../snippets/csharp/VS_Snippets_OfficeSP/Trin_VstcoreWordAutomation/CS/ThisDocument.cs#69)]
-     [!code-vb[Trin_VstcoreWordAutomation#69](../snippets/visualbasic/VS_Snippets_OfficeSP/Trin_VstcoreWordAutomation/VB/ThisDocument.vb#69)]  
+     [!code-vb[Trin_VstcoreWordAutomation#69](../vsto/codesnippet/VisualBasic/Trin_VstcoreWordAutomationVB/ThisDocument.vb#69)]  [!code-csharp[Trin_VstcoreWordAutomation#69](../vsto/codesnippet/CSharp/Trin_VstcoreWordAutomationCS/ThisDocument.cs#69)]  
   
-3.  执行搜索，并显示消息框和结果。  
+3.  Execute the search and display a message box with the results.  
   
-     [!code-csharp[Trin_VstcoreWordAutomation#70](../snippets/csharp/VS_Snippets_OfficeSP/Trin_VstcoreWordAutomation/CS/ThisDocument.cs#70)]
-     [!code-vb[Trin_VstcoreWordAutomation#70](../snippets/visualbasic/VS_Snippets_OfficeSP/Trin_VstcoreWordAutomation/VB/ThisDocument.vb#70)]  
+     [!code-vb[Trin_VstcoreWordAutomation#70](../vsto/codesnippet/VisualBasic/Trin_VstcoreWordAutomationVB/ThisDocument.vb#70)]  [!code-csharp[Trin_VstcoreWordAutomation#70](../vsto/codesnippet/CSharp/Trin_VstcoreWordAutomationCS/ThisDocument.cs#70)]  
   
- 以下示例显示完整的方法。  
+ The following example shows the complete method.  
   
- [!code-csharp[Trin_VstcoreWordAutomation#67](../snippets/csharp/VS_Snippets_OfficeSP/Trin_VstcoreWordAutomation/CS/ThisDocument.cs#67)]
- [!code-vb[Trin_VstcoreWordAutomation#67](../snippets/visualbasic/VS_Snippets_OfficeSP/Trin_VstcoreWordAutomation/VB/ThisDocument.vb#67)]  
+ [!code-vb[Trin_VstcoreWordAutomation#67](../vsto/codesnippet/VisualBasic/Trin_VstcoreWordAutomationVB/ThisDocument.vb#67)] [!code-csharp[Trin_VstcoreWordAutomation#67](../vsto/codesnippet/CSharp/Trin_VstcoreWordAutomationCS/ThisDocument.cs#67)]  
   
-## 使用 Range 对象  
- 使用 <xref:Microsoft.Office.Interop.Word.Range> 对象使你能够搜索文本，而无需在用户界面中显示任何内容。  如果找到匹配搜索条件的文本，那么 <xref:Microsoft.Office.Interop.Word.Find> 对象返回 **True**；否则返回 **False**。  如果找到了文本，则它还重新定义 <xref:Microsoft.Office.Interop.Word.Range> 对象以匹配搜索条件。  
+## <a name="using-a-range-object"></a>Using a Range Object  
+ Using a <xref:Microsoft.Office.Interop.Word.Range> object enables you to search for text without displaying anything in the user interface. The <xref:Microsoft.Office.Interop.Word.Find> object returns **True** if text is found that matches the search criteria, and **False** if it does not. It also redefines the <xref:Microsoft.Office.Interop.Word.Range> object to match the search criteria if the text is found.  
   
-#### 使用 Range 对象查找文本  
+#### <a name="to-find-text-using-a-range-object"></a>To find text using a Range object  
   
-1.  定义 <xref:Microsoft.Office.Interop.Word.Range> 对象，该对象包含文档中的第二个段落。  
+1.  Define a <xref:Microsoft.Office.Interop.Word.Range> object that consists of the second paragraph in the document.  
   
-     下面的代码示例可用于文档级自定义项。  
+     The following code example can be used in a document-level customization.  
   
-     [!code-csharp[Trin_VstcoreWordAutomation#72](../snippets/csharp/VS_Snippets_OfficeSP/Trin_VstcoreWordAutomation/CS/ThisDocument.cs#72)]
-     [!code-vb[Trin_VstcoreWordAutomation#72](../snippets/visualbasic/VS_Snippets_OfficeSP/Trin_VstcoreWordAutomation/VB/ThisDocument.vb#72)]  
+     [!code-vb[Trin_VstcoreWordAutomation#72](../vsto/codesnippet/VisualBasic/Trin_VstcoreWordAutomationVB/ThisDocument.vb#72)]  [!code-csharp[Trin_VstcoreWordAutomation#72](../vsto/codesnippet/CSharp/Trin_VstcoreWordAutomationCS/ThisDocument.cs#72)]  
   
-     以下代码示例可用于 VSTO 外接程序。  本示例使用活动文档。  
+     The following code example can be used in a VSTO Add-in. This example uses the active document.  
   
-     [!code-csharp[Trin_VstcoreWordAutomationAddIn#72](../snippets/csharp/VS_Snippets_OfficeSP/Trin_VstcoreWordAutomationAddIn/CS/ThisAddIn.cs#72)]
-     [!code-vb[Trin_VstcoreWordAutomationAddIn#72](../snippets/visualbasic/VS_Snippets_OfficeSP/Trin_VstcoreWordAutomationAddIn/VB/ThisAddIn.vb#72)]  
+     [!code-vb[Trin_VstcoreWordAutomationAddIn#72](../vsto/codesnippet/VisualBasic/Trin_VstcoreWordAutomationAddIn/ThisAddIn.vb#72)]  [!code-csharp[Trin_VstcoreWordAutomationAddIn#72](../vsto/codesnippet/CSharp/Trin_VstcoreWordAutomationAddIn/ThisAddIn.cs#72)]  
   
-2.  使用 <xref:Microsoft.Office.Interop.Word.Range> 对象的 <xref:Microsoft.Office.Interop.Word.Range.Find%2A> 属性，首先清除所有现有的格式设置选项，然后搜索字符串 **find me**。  
+2.  Using the <xref:Microsoft.Office.Interop.Word.Range.Find%2A> property of the <xref:Microsoft.Office.Interop.Word.Range> object, first clear any existing formatting options, and then search for the string **find me**.  
   
-     [!code-csharp[Trin_VstcoreWordAutomation#73](../snippets/csharp/VS_Snippets_OfficeSP/Trin_VstcoreWordAutomation/CS/ThisDocument.cs#73)]
-     [!code-vb[Trin_VstcoreWordAutomation#73](../snippets/visualbasic/VS_Snippets_OfficeSP/Trin_VstcoreWordAutomation/VB/ThisDocument.vb#73)]  
+     [!code-vb[Trin_VstcoreWordAutomation#73](../vsto/codesnippet/VisualBasic/Trin_VstcoreWordAutomationVB/ThisDocument.vb#73)]  [!code-csharp[Trin_VstcoreWordAutomation#73](../vsto/codesnippet/CSharp/Trin_VstcoreWordAutomationCS/ThisDocument.cs#73)]  
   
-3.  在消息框中显示搜索结果，然后选择 <xref:Microsoft.Office.Interop.Word.Range> 以使其可见。  
+3.  Display the results of the search in a message box, and select the <xref:Microsoft.Office.Interop.Word.Range> to make it visible.  
   
-     [!code-csharp[Trin_VstcoreWordAutomation#74](../snippets/csharp/VS_Snippets_OfficeSP/Trin_VstcoreWordAutomation/CS/ThisDocument.cs#74)]
-     [!code-vb[Trin_VstcoreWordAutomation#74](../snippets/visualbasic/VS_Snippets_OfficeSP/Trin_VstcoreWordAutomation/VB/ThisDocument.vb#74)]  
+     [!code-vb[Trin_VstcoreWordAutomation#74](../vsto/codesnippet/VisualBasic/Trin_VstcoreWordAutomationVB/ThisDocument.vb#74)]  [!code-csharp[Trin_VstcoreWordAutomation#74](../vsto/codesnippet/CSharp/Trin_VstcoreWordAutomationCS/ThisDocument.cs#74)]  
   
-     如果搜索失败，则选中第二段；如果成功，则显示搜索条件。  
+     If the search fails, the second paragraph is selected; if it succeeds, the search criteria are displayed.  
   
- 下面的示例显示文档级自定项的完整代码。  若要使用此示例，请从项目的 `ThisDocument` 类中运行代码。  
+ The following example shows the complete code for a document-level customization. To use this example, run the code from the `ThisDocument` class in your project.  
   
- [!code-csharp[Trin_VstcoreWordAutomation#71](../snippets/csharp/VS_Snippets_OfficeSP/Trin_VstcoreWordAutomation/CS/ThisDocument.cs#71)]
- [!code-vb[Trin_VstcoreWordAutomation#71](../snippets/visualbasic/VS_Snippets_OfficeSP/Trin_VstcoreWordAutomation/VB/ThisDocument.vb#71)]  
+ [!code-vb[Trin_VstcoreWordAutomation#71](../vsto/codesnippet/VisualBasic/Trin_VstcoreWordAutomationVB/ThisDocument.vb#71)] [!code-csharp[Trin_VstcoreWordAutomation#71](../vsto/codesnippet/CSharp/Trin_VstcoreWordAutomationCS/ThisDocument.cs#71)]  
   
- 下面的示例显示 VSTO 外接程序的完整代码。  若要使用此示例，请从项目的 `ThisAddIn` 类中运行代码。  
+ The following example shows the complete code for a VSTO Add-in. To use this example, run the code from the `ThisAddIn` class in your project.  
   
- [!code-csharp[Trin_VstcoreWordAutomationAddIn#71](../snippets/csharp/VS_Snippets_OfficeSP/Trin_VstcoreWordAutomationAddIn/CS/ThisAddIn.cs#71)]
- [!code-vb[Trin_VstcoreWordAutomationAddIn#71](../snippets/visualbasic/VS_Snippets_OfficeSP/Trin_VstcoreWordAutomationAddIn/VB/ThisAddIn.vb#71)]  
+ [!code-vb[Trin_VstcoreWordAutomationAddIn#71](../vsto/codesnippet/VisualBasic/Trin_VstcoreWordAutomationAddIn/ThisAddIn.vb#71)] [!code-csharp[Trin_VstcoreWordAutomationAddIn#71](../vsto/codesnippet/CSharp/Trin_VstcoreWordAutomationAddIn/ThisAddIn.cs#71)]  
   
-## 在文档中搜索并替换文本  
- 下面的代码搜索当前所选内容，并将出现的所有 **find me** 字符串替换为 **Found** 字符串。  
+## <a name="searching-for-and-replacing-text-in-documents"></a>Searching For and Replacing Text in Documents  
+ The following code searches the current selection and replaces all of the occurrences of the string **find me** with the string **Found**.  
   
-#### 在文档中搜索并替换文本  
+#### <a name="to-search-for-and-replace-text-in-documents"></a>To search for and replace text in documents  
   
-1.  将以下示例代码添加到项目的 `ThisDocument` 或 `ThisAddIn` 类中。  
+1.  Add the following example code to the `ThisDocument` or `ThisAddIn` class in your project.  
   
-     [!code-csharp[Trin_VstcoreWordAutomation#75](../snippets/csharp/VS_Snippets_OfficeSP/Trin_VstcoreWordAutomation/CS/ThisDocument.cs#75)]
-     [!code-vb[Trin_VstcoreWordAutomation#75](../snippets/visualbasic/VS_Snippets_OfficeSP/Trin_VstcoreWordAutomation/VB/ThisDocument.vb#75)]  
+     [!code-vb[Trin_VstcoreWordAutomation#75](../vsto/codesnippet/VisualBasic/Trin_VstcoreWordAutomationVB/ThisDocument.vb#75)]  [!code-csharp[Trin_VstcoreWordAutomation#75](../vsto/codesnippet/CSharp/Trin_VstcoreWordAutomationCS/ThisDocument.cs#75)]  
   
-     <xref:Microsoft.Office.Interop.Word.Find> 类具有 <xref:Microsoft.Office.Interop.Word.Find.ClearFormatting%2A> 方法，而 <xref:Microsoft.Office.Interop.Word.Replacement> 类也具有自己的 <xref:Microsoft.Office.Interop.Word.Replacement.ClearFormatting%2A> 方法。  执行查找和替换操作时，必须使用这两个对象的 ClearFormatting 方法。  如果仅在 <xref:Microsoft.Office.Interop.Word.Find> 对象上使用该方法，则可能会在替换文本中得到意外的结果。  
+     The <xref:Microsoft.Office.Interop.Word.Find> class has a <xref:Microsoft.Office.Interop.Word.Find.ClearFormatting%2A> method, and the <xref:Microsoft.Office.Interop.Word.Replacement> class also has its own <xref:Microsoft.Office.Interop.Word.Replacement.ClearFormatting%2A> method. When you are performing find-and-replace operations, you must use the ClearFormatting method of both objects. If you use it only on the <xref:Microsoft.Office.Interop.Word.Find> object, you might get unanticipated results in the replacement text.  
   
-2.  使用 <xref:Microsoft.Office.Interop.Word.Find> 对象的 <xref:Microsoft.Office.Interop.Word.Find.Execute%2A> 方法来替换每个找到的项。  若要指定要替换的项，请使用 *Replace* 参数。  此参数可能是以下 <xref:Microsoft.Office.Interop.Word.WdReplace> 值之一：  
+2.  Use the <xref:Microsoft.Office.Interop.Word.Find.Execute%2A> method of the <xref:Microsoft.Office.Interop.Word.Find> object to replace each found item. To specify which items to replace, use the *Replace* parameter. This parameter can be one of the following <xref:Microsoft.Office.Interop.Word.WdReplace> values:  
   
-    -   <xref:Microsoft.Office.Interop.Word.WdReplace.wdReplaceAll> 将替换所有找到的项。  
+    -   <xref:Microsoft.Office.Interop.Word.WdReplace.wdReplaceAll> replaces all found items.  
   
-    -   <xref:Microsoft.Office.Interop.Word.WdReplace.wdReplaceNone> 不会替换任何找到的项。  
+    -   <xref:Microsoft.Office.Interop.Word.WdReplace.wdReplaceNone> replaces none of the found items.  
   
-    -   <xref:Microsoft.Office.Interop.Word.WdReplace.wdReplaceOne> 将替换找到的第一个项。  
+    -   <xref:Microsoft.Office.Interop.Word.WdReplace.wdReplaceOne> replaces the first found item.  
   
-## 请参阅  
- [如何：以编程方式在 Word 中设置搜索选项](../vsto/how-to-programmatically-set-search-options-in-word.md)   
- [如何：以编程方式遍历在文档中找到的项](../vsto/how-to-programmatically-loop-through-found-items-in-documents.md)   
- [如何：以编程方式在文档中定义和选择范围](../vsto/how-to-programmatically-define-and-select-ranges-in-documents.md)   
- [如何：以编程方式在搜索后还原选定内容](../vsto/how-to-programmatically-restore-selections-after-searches.md)   
- [Office 解决方案中的可选参数](../vsto/optional-parameters-in-office-solutions.md)  
-  
+## <a name="see-also"></a>See Also  
+ [How to: Programmatically Set Search Options in Word](../vsto/how-to-programmatically-set-search-options-in-word.md)   
+ [How to: Programmatically Loop Through Found Items in Documents](../vsto/how-to-programmatically-loop-through-found-items-in-documents.md)   
+ [How to: Programmatically Define and Select Ranges in Documents](../vsto/how-to-programmatically-define-and-select-ranges-in-documents.md)   
+ [How to: Programmatically Restore Selections After Searches](../vsto/how-to-programmatically-restore-selections-after-searches.md)   
+ [Optional Parameters in Office Solutions](../vsto/optional-parameters-in-office-solutions.md)  
   

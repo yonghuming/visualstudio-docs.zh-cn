@@ -1,55 +1,72 @@
 ---
-title: "传统语言服务中的大纲显示 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-helpviewer_keywords: 
-  - "大纲显示"
-  - "以大纲方式显示的语言服务 [托管的包框架]"
-  - "大纲显示、 支持的语言服务 [托管的包框架]"
+title: Outlining in a Legacy Language Service | Microsoft Docs
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+helpviewer_keywords:
+- outlining
+- language services [managed package framework], outlining
+- outlining, supporting in language services [managed package framework]
 ms.assetid: 7b5578b4-a20a-4b94-ad4c-98687ac133b9
 caps.latest.revision: 15
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 15
----
-# 传统语言服务中的大纲显示
-[!INCLUDE[vs2017banner](../../code-quality/includes/vs2017banner.md)]
+ms.author: gregvanl
+manager: ghogen
+translation.priority.mt:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+ms.translationtype: MT
+ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
+ms.openlocfilehash: e564990901247cf51dd3bfd71b3c121937cf1d86
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/28/2017
 
-以大纲方式显示使可以折叠成概述或大纲复杂的程序。 例如，在 C\# 中的所有方法可以都折叠到单个行中，显示仅方法签名。 此外，结构和类可以折叠以显示仅结构和类的名称。 在单一方法中，可以折叠复杂的逻辑以通过如显示的语句中的，仅第一行中显示的总体流程 `foreach`, ，`if`, ，和 `while`。  
+---
+# <a name="outlining-in-a-legacy-language-service"></a>Outlining in a Legacy Language Service
+Outlining makes it possible to collapse a complex program into an overview or outline. For example, in C# all methods can be collapsed to a single line, showing only the method signature. In addition, structures and classes can be collapsed to show only the names of the structures and classes. Inside a single method, complex logic can be collapsed to show the overall flow by showing only the first line of statements such as `foreach`, `if`, and `while`.  
   
- 旧的语言服务实现为作为 VSPackage 的一部分，但实现语言服务功能的较新方法是使用 MEF 扩展。 若要获得详细信息，请参阅 [演练: 大纲显示](../../extensibility/walkthrough-outlining.md)。  
+ Legacy language services are implemented as part of a VSPackage, but the newer way to implement language service features is to use MEF extensions. To find out more, see [Walkthrough: Outlining](../../extensibility/walkthrough-outlining.md).  
   
 > [!NOTE]
->  我们建议在开始尽可能快地使用新的编辑器 API。 这将提高您的语言服务的性能，并让您充分利用新的编辑器功能。  
+>  We recommend that you begin to use the new editor API as soon as possible. This will improve the performance of your language service and let you take advantage of new editor features.  
   
-## 启用支持大纲显示  
- `AutoOutlining` 注册表项设置为 1 以启用自动大纲显示。 自动大纲显示整个源分析当设置加载文件或将其更改，以确定隐藏的区域并显示大纲显示标志符号。 以大纲方式显示也能受手动用户。  
+## <a name="enabling-support-for-outlining"></a>Enabling Support for Outlining  
+ The `AutoOutlining` registry entry is set to 1 to enable automatic outlining. Automatic outlining sets up a parse of the whole source when a file is loaded or changed in order to identify hidden regions and show the outlining glyphs. Outlining can also be controlled manually by the user.  
   
- 值 `AutoOutlining` 注册表项可以通过获取 <xref:Microsoft.VisualStudio.Package.LanguagePreferences.AutoOutlining%2A> 属性 <xref:Microsoft.VisualStudio.Package.LanguagePreferences> 类。`AutoOutlining` 注册表项可以用到一个命名参数初始化 <xref:Microsoft.VisualStudio.Shell.ProvideLanguageServiceAttribute> 属性 \(请参阅 [注册语言服务](../../extensibility/internals/registering-a-legacy-language-service1.md) 有关的详细信息\)。  
+ The value of the `AutoOutlining` registry entry can be obtained through the <xref:Microsoft.VisualStudio.Package.LanguagePreferences.AutoOutlining%2A> property on the <xref:Microsoft.VisualStudio.Package.LanguagePreferences> class. The `AutoOutlining` registry entry can be initialized with a named parameter to the <xref:Microsoft.VisualStudio.Shell.ProvideLanguageServiceAttribute> attribute (see [Registering a Legacy Language Service](../../extensibility/internals/registering-a-legacy-language-service1.md) for details).  
   
-## 隐藏的区域  
- 若要提供以大纲方式显示，您的语言服务必须支持隐藏的区域。 这些是文本的的可以展开或折叠范围。 通过标准语言符号，如大括号，或通过自定义的符号，可以分隔隐藏的区域。 例如，C\# 具有 `#region`\/`#endregion` 分隔隐藏的区域的对。  
+## <a name="the-hidden-region"></a>The Hidden Region  
+ To provide outlining, your language service must support hidden regions. These are spans of text that can be expanded or collapsed. Hidden regions can be delimited by standard language symbols, such as curly braces, or by custom symbols. For example, C# has a `#region`/`#endregion` pair that delimits a hidden region.  
   
- 隐藏的区域管理的隐藏的区域管理器，它公开为 <xref:Microsoft.VisualStudio.TextManager.Interop.IVsHiddenTextSession> 接口。  
+ Hidden regions are managed by a hidden region manager, which is exposed as the <xref:Microsoft.VisualStudio.TextManager.Interop.IVsHiddenTextSession> interface.  
   
- 以大纲方式显示使用隐藏的区域 <xref:Microsoft.VisualStudio.TextManager.Interop.IVsHiddenRegion> 接口，并在包含隐藏的区域当前可见的状态和标题区范围处于折叠状态时要显示的范围。  
+ Outlining uses hidden regions the <xref:Microsoft.VisualStudio.TextManager.Interop.IVsHiddenRegion> interface and contain the span of the hidden region, the current visible state, and the banner to be shown when the span is collapsed.  
   
- 语言服务分析器使用 <xref:Microsoft.VisualStudio.Package.AuthoringSink.AddHiddenRegion%2A> 方法以添加新的隐藏的区域隐藏区域的默认行为时 <xref:Microsoft.VisualStudio.Package.AuthoringSink.AddHiddenRegion%2A> 方法允许您自定义外观和行为的轮廓。 一旦隐藏的区域隐藏的区域会话时，会获得 [!INCLUDE[vsprvs](../../code-quality/includes/vsprvs_md.md)] 管理语言服务的隐藏的区域。  
+ The language service parser uses the <xref:Microsoft.VisualStudio.Package.AuthoringSink.AddHiddenRegion%2A> method to add a new hidden region with the default behavior for hidden regions, while the <xref:Microsoft.VisualStudio.Package.AuthoringSink.AddHiddenRegion%2A> method allows you to customize the appearance and behavior of the outline. Once hidden regions are given to the hidden region session, [!INCLUDE[vsprvs](../../code-quality/includes/vsprvs_md.md)] manages the hidden regions for the language service.  
   
- 如果您需要确定销毁隐藏的区域会话时，隐藏的区域发生更改时，或者您需要确保特定的隐藏的区域可见，则您必须从派生类 <xref:Microsoft.VisualStudio.Package.Source> 类并重写适当的方法， <xref:Microsoft.VisualStudio.Package.Source.OnBeforeSessionEnd%2A>, ，<xref:Microsoft.VisualStudio.Package.Source.OnHiddenRegionChange%2A>, ，和 <xref:Microsoft.VisualStudio.Package.Source.MakeBaseSpanVisible%2A>, 分别。  
+ If you need to determine when the hidden region session is destroyed, a hidden region is changed, or you need to make sure a particular hidden region is visible; you must derive a class from the <xref:Microsoft.VisualStudio.Package.Source> class and override the appropriate methods, <xref:Microsoft.VisualStudio.Package.Source.OnBeforeSessionEnd%2A>, <xref:Microsoft.VisualStudio.Package.Source.OnHiddenRegionChange%2A>, and <xref:Microsoft.VisualStudio.Package.Source.MakeBaseSpanVisible%2A>, respectively.  
   
-### 示例  
- 下面是创建为大括号中的所有成对的隐藏的区域的一个简化的示例。 假定的语言提供了大括号匹配，并且要匹配的大括号至少包括大括号 （{和}）。 这种方法是仅供说明用途。 完整的实现者必须全面的处理中的事例 <xref:Microsoft.VisualStudio.Package.LanguageService.ParseSource%2A>。 此示例还演示如何设置 <xref:Microsoft.VisualStudio.Package.LanguagePreferences.AutoOutlining%2A> 首选项设置为 `true` 暂时。 一种替代方法是指定 `AutoOutlining` 命名参数在 `ProvideLanguageServiceAttribute` 语言包中的属性。  
+### <a name="example"></a>Example  
+ Here is a simplified example of creating hidden regions for all pairs of curly braces. It is assumed that the language provides brace matching, and that the braces to be matched include at least the curly braces ({ and }). This approach is for illustrative purposes only. A full implementation would have a complete handling of cases in <xref:Microsoft.VisualStudio.Package.LanguageService.ParseSource%2A>. This example also shows how to set the <xref:Microsoft.VisualStudio.Package.LanguagePreferences.AutoOutlining%2A> preference to `true` temporarily. An alternative is to specify the `AutoOutlining` named parameter in the `ProvideLanguageServiceAttribute` attribute in your language package.  
   
- 此示例假定 C\# 注释、 字符串和文字规则。  
+ This example assumes C# rules for comments, strings, and literals.  
   
-```c#  
+```csharp  
 using Microsoft.VisualStudio.Package;  
 using Microsoft.VisualStudio.TextManager.Interop;  
   
@@ -118,6 +135,6 @@ namespace MyLanguagePackage
 }  
 ```  
   
-## 请参阅  
- [遗留语言服务功能](../../extensibility/internals/legacy-language-service-features1.md)   
- [注册语言服务](../../extensibility/internals/registering-a-legacy-language-service1.md)
+## <a name="see-also"></a>See Also  
+ [Legacy Language Service Features](../../extensibility/internals/legacy-language-service-features1.md)   
+ [Registering a Legacy Language Service](../../extensibility/internals/registering-a-legacy-language-service1.md)

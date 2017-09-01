@@ -1,85 +1,102 @@
 ---
-title: "SccDirDiff 函数 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "SccDirDiff"
-helpviewer_keywords: 
-  - "SccDirDiff 函数"
+title: SccDirDiff Function | Microsoft Docs
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords:
+- SccDirDiff
+helpviewer_keywords:
+- SccDirDiff function
 ms.assetid: 26c9ba92-e3b9-4dd2-bd5e-76b17745e308
 caps.latest.revision: 15
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 15
----
-# SccDirDiff 函数
-[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
+ms.author: gregvanl
+manager: ghogen
+translation.priority.mt:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+ms.translationtype: MT
+ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
+ms.openlocfilehash: 8dd2e57fc177f726cc08226df9f7e1e0a520b74b
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/28/2017
 
-该函数将显示在客户端磁盘上当前的本地目录和相应的项目受源代码管理之间的差异。  
+---
+# <a name="sccdirdiff-function"></a>SccDirDiff Function
+This function displays the differences between the current local directory on the client disk and the corresponding project under source control.  
   
-## 语法  
+## <a name="syntax"></a>Syntax  
   
-```cpp#  
+```cpp  
 SCCRTN SccDirDiff(  
-   LPVOID    pContext,  
-   HWND      hWnd,  
-   LPCSTR    lpDirName,  
-   LONG      dwFlags,  
-   LPCMDOPTS pvOptions  
+   LPVOID    pContext,  
+   HWND      hWnd,  
+   LPCSTR    lpDirName,  
+   LONG      dwFlags,  
+   LPCMDOPTS pvOptions  
 );  
 ```  
   
-#### 参数  
+#### <a name="parameters"></a>Parameters  
  pContext  
- \[\] in源控制插件上下文结构。  
+ [in] The source control plug-in context structure.  
   
  hWnd  
- \[\] in源代码管理插件可以用作所有对话框，它提供了一个父 IDE 窗口的句柄。  
+ [in] A handle to the IDE window that the source control plug-in can use as a parent for any dialog boxes that it provides.  
   
  lpDirName  
- \[\] in到为其显示可视的差异的本地目录的完全限定的路径。  
+ [in] Fully qualified path to the local directory for which to show a visual difference.  
   
  dwFlags  
- \[\] in命令标志 \(请参阅备注部分\)。  
+ [in] Command flags (see Remarks section).  
   
  pvOptions  
- \[\] in源代码管理插件特定选项。  
+ [in] Source control plug-in-specific options.  
   
-## 返回值  
- 此函数的源代码控制插件实现应返回下列值之一:  
+## <a name="return-value"></a>Return Value  
+ The source control plug-in implementation of this function is expected to return one of the following values:  
   
-|值|描述|  
-|-------|--------|  
-|SCC\_OK|在磁盘上的目录是与源代码管理中的项目相同。|  
-|SCC\_I\_FILESDIFFER|从源代码管理中的项目的不同磁盘上的目录。|  
-|SCC\_I\_RELOADFILE|需要重新加载文件或项目。|  
-|SCC\_E\_FILENOTCONTROLLED|目录不是源代码管理下。|  
-|SCC\_E\_NOTAUTHORIZED|不允许用户执行此操作。|  
-|SCC\_E\_ACCESSFAILURE|没有访问源代码管理系统，很可能是由于网络或争用问题时出现问题。 建议重试。|  
-|SCC\_E\_NONSPECIFICERROR<br /><br /> SCC\_E\_UNKNOWNERROR|非特定故障。|  
-|SCC\_E\_FILENOTEXIST|找不到本地目录。|  
+|Value|Description|  
+|-----------|-----------------|  
+|SCC_OK|The directory on disk is the same as the project in source code control.|  
+|SCC_I_FILESDIFFER|The directory on disk is different from the project in source code control.|  
+|SCC_I_RELOADFILE|A file or project needs to be reloaded.|  
+|SCC_E_FILENOTCONTROLLED|The directory is not under source code control.|  
+|SCC_E_NOTAUTHORIZED|The user is not allowed to perform this operation.|  
+|SCC_E_ACCESSFAILURE|There was a problem accessing the source control system, probably due to network or contention issues. A retry is recommended.|  
+|SCC_E_NONSPECIFICERROR<br /><br /> SCC_E_UNKNOWNERROR|Nonspecific failure.|  
+|SCC_E_FILENOTEXIST|Local directory could not be found.|  
   
-## 备注  
- 此函数用于指示源代码管理插件以向用户显示的更改到指定的目录列表。 插件，则将其自己的窗口，打开其选择，以显示在磁盘上的用户的目录和相应的项目置于版本控制之下之间的差异的格式。  
+## <a name="remarks"></a>Remarks  
+ This function is used to instruct the source control plug-in to display to the user a list of changes to a specified directory. The plug-in opens its own window, in a format of its choice, to display the differences between the user's directory on disk and the corresponding project under version control.  
   
- 如果插件支持的目录的所有比较，它必须按文件名称支持的目录的比较，即使不支持"快速比较"选项。  
+ If a plug-in supports comparison of directories at all, it must support comparison of directories on a file-name basis even if the "quick-diff" options are not supported.  
   
-|`dwFlags`|解释|  
-|---------------|--------|  
-|SCC\_DIFF\_IGNORECASE|不区分大小写比较 \(可能为快速比较或 visual 使用\)。|  
-|SCC\_DIFF\_IGNORESPACE|将忽略空白区域 \(可能为快速比较或 visual 使用\)。|  
-|SCC\_DIFF\_QD\_CONTENTS|如果支持源代码管理插件，以无提示方式将该目录，逐字节进行比较。|  
-|SCC\_DIFF\_QD\_CHECKSUM|如果插件支持，请以无提示方式比较校验和，通过目录或不受支持，如果回退到 SCC\_DIFF\_QD\_CONTENTS。|  
-|SCC\_DIFF\_QD\_TIME|如果支持的插件，请以无提示方式比较其时间戳，通过目录或不受支持，如果回退 SCC\_DIFF\_QD\_CHECKSUM 或 SCC\_DIFF\_QD\_CONTENTS 上。|  
+|`dwFlags`|Interpretation|  
+|---------------|--------------------|  
+|SCC_DIFF_IGNORECASE|Case-insensitive comparison (may be used for either quick diff or visual).|  
+|SCC_DIFF_IGNORESPACE|Ignores white space (may be used for either quick-diff or visual).|  
+|SCC_DIFF_QD_CONTENTS|If supported by the source control plug-in, silently compares the directory, byte by byte.|  
+|SCC_DIFF_QD_CHECKSUM|If supported by plug-in, silently compares the directory via a checksum, or, if not supported, falls back to SCC_DIFF_QD_CONTENTS.|  
+|SCC_DIFF_QD_TIME|If supported by plug-in, silently compares the directory via its timestamp, or, if not supported, falls back on SCC_DIFF_QD_CHECKSUM or SCC_DIFF_QD_CONTENTS.|  
   
 > [!NOTE]
->  此函数将使用相同的命令标志作为 [SccDiff](../extensibility/sccdiff-function.md)。 但是，可以选择源代码管理插件不支持目录的"快速比较"操作。  
+>  This function uses the same command flags as the [SccDiff](../extensibility/sccdiff-function.md). However, a source control plug-in may choose to not support the "quick-diff" operation for directories.  
   
-## 请参阅  
- [源代码管理插件 API 功能](../extensibility/source-control-plug-in-api-functions.md)
+## <a name="see-also"></a>See Also  
+ [Source Control Plug-in API Functions](../extensibility/source-control-plug-in-api-functions.md)

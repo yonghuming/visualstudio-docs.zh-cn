@@ -1,89 +1,107 @@
 ---
-title: "调试 WebView 控件 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-debug"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-dev_langs: 
-  - "FSharp"
-  - "VB"
-  - "CSharp"
-  - "C++"
+title: Debug a WebView control (Windows Store) | Microsoft Docs
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-debug
+ms.tgt_pltfrm: 
+ms.topic: article
+dev_langs:
+- CSharp
+- VB
+- FSharp
+- C++
 ms.assetid: 7d105907-8b39-4d07-8762-5c5ed74c7f21
 caps.latest.revision: 10
-author: "mikejo5000"
-ms.author: "mikejo"
-manager: "ghogen"
-caps.handback.revision: 10
----
-# 调试 WebView 控件
-[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
+author: mikejo5000
+ms.author: mikejo
+manager: ghogen
+translation.priority.ht:
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- ru-ru
+- zh-cn
+- zh-tw
+translation.priority.mt:
+- cs-cz
+- pl-pl
+- pt-br
+- tr-tr
+ms.translationtype: HT
+ms.sourcegitcommit: 9e6c28d42bec272c6fd6107b4baf0109ff29197e
+ms.openlocfilehash: d4c6acdbe6ad8b6d9aeda8247c0d529da28d91ca
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/22/2017
 
-![适用于 Windows 和 Windows Phone](~/debugger/media/windows_and_phone_content.png "windows\_and\_phone\_content")  
+---
+# <a name="debug-a-webview-control-in-a-windows-store-app"></a>Debug a WebView control in a Windows Store App
+![Applies to Windows and Windows Phone](../debugger/media/windows_and_phone_content.png "windows_and_phone_content")  
   
- 若要检查并调试 Windows 运行时应用中的 `WebView` 控件，你可以在启动应用时配置 Visual Studio 以附加脚本调试器。  从 Visual Studio 2013 Update 2 开始，可通过两种方式来使用调试器与 `WebView` 控件交互：  
+ To inspect and debug `WebView` controls in a Windows Runtime app, you can configure Visual Studio to attach the script debugger when you start your app. Starting with Visual Studio 2013 Update 2, you have two ways to interact with `WebView` controls using the debugger:  
   
--   打开 `WebView` 实例的 [DOM 资源管理器](../debugger/quickstart-debug-html-and-css.md)，然后检查 DOM 元素、调查 CSS 样式问题并测试动态呈现的样式的更改。  
+-   Open the [DOM Explorer](../debugger/quickstart-debug-html-and-css.md) for a `WebView` instance, and inspect DOM elements, investigate CSS style issues, and test dynamically rendered changes to styles.  
   
--   选择网页或作为 [JavaScript 控制台](../debugger/javascript-console-commands.md)窗口中的目标在 `WebView` 实例中显示的 `iFrame`，然后使用控制台命令与网页交互。  控制台提供对当前脚本执行上下文的访问。  
+-   Select the webpage or `iFrame` displayed in the `WebView` instance as a target in the [JavaScript Console](../debugger/javascript-console-commands.md) window, and then interact with the webpage using console commands. The console provides access to the current script execution context.  
   
-### 附加调试器（C\#、Visual Basic、C\+\+）  
+### <a name="attach-the-debugger-c-visual-basic-c"></a>Attach the debugger (C#, Visual Basic, C++)  
   
-1.  在 Visual Studio 中，向 Windows 运行时应用添加 `WebView` 控件。  
+1.  In Visual Studio, add a `WebView` control to your Windows Runtime app.  
   
-2.  在解决方案资源管理器中，通过从项目的快捷菜单中选择**“属性”**来打开项目的属性。  
+2.  In Solution Explorer, open the properties for the project by choosing **Properties** from the shortcut menu for the project.  
   
-3.  选择**“调试”**。  在**“应用程序进程”**列表中，选择**“脚本”**。  
+3.  Choose **Debug**. In the **Application process** list, choose **Script**.  
   
-     ![附加脚本调试器](../debugger/media/js_dom_webview_script_debugger.png "JS\_DOM\_WebView\_Script\_Debugger")  
+     ![Attach the script debugger](../debugger/media/js_dom_webview_script_debugger.png "JS_DOM_WebView_Script_Debugger")  
   
-4.  （可选）对于不是 Express 版本的 Visual Studio，可通过选择**“工具”**、**“选项”**、**“调试”**、**“实时”**，然后禁用脚本的 JIT 调试，来禁用实时 \(JIT\) 调试。  
-  
-    > [!NOTE]
-    >  对于某些网页上发生的无法处理的异常，你可以通过禁用 JIT 调试来隐藏对话框。  在 Visual Studio Express 中，JIT 调试始终处于禁用状态。  
-  
-5.  按 F5 启动调试。  
-  
-### 使用 DOM 资源管理器以检查并调试 WebView 控件  
-  
-1.  （C\#、Visual Basic、C\+\+）向你的应用附加脚本调试器。  请参见第一部分以获取说明。  
-  
-2.  若没有 `WebView` 控件，请向应用添加该控件并按 F5 启动调试。  
-  
-3.  导航到包含 `Webview` 控件的页面。  
-  
-4.  通过选择**“调试”**、**“窗口”**、**“DOM 资源管理器”**来打开 `WebView` 控件的“DOM 资源管理器”窗口，然后选择要检查的 `WebView` 的 URL。  
-  
-     ![打开 DOM 资源管理器](../debugger/media/js_dom_webview.png "JS\_DOM\_WebView")  
-  
-     与 `WebView` 关联的 DOM 资源管理器将在 Visual Studio 中显示为新选项卡。  
-  
-5.  查看并修改 [使用 DOM 资源管理器调试 CSS 样式](../debugger/debug-css-styles-using-dom-explorer.md) 中介绍的实时 DOM 元素和 CSS 样式。  
-  
-### 使用 JavaScript 控制台窗口以检查并调试 WebView 控件  
-  
-1.  （C\#、Visual Basic、C\+\+）向你的应用附加脚本调试器。  请参见第一部分以获取说明。  
-  
-2.  若没有 `WebView` 控件，请向应用添加该控件并按 F5 启动调试。  
-  
-3.  通过选择**“调试”**、**“窗口”**、**“JavaScript 控制台”**，打开 `WebView` 控件的“JavaScript 控制台”窗口。  
-  
-     将显示“JavaScript 控制台”窗口。  
-  
-4.  导航到包含 `Webview` 控件的页面。  
-  
-5.  在控制台窗口中，选择网页或**“目标”**列表中 `WebView` 控件显示的 `iFrame`。  
-  
-     ![JavaScript 控制台窗口中的目标选择](~/debugger/media/js_console_target.png "JS\_Console\_Target")  
+4.  (Optional) For non-Express versions of Visual Studio, disable just-in-time (JIT) debugging by choosing **Tools > Options > Debugging > Just-In-Time**, and then disabling JIT debugging for Script.  
   
     > [!NOTE]
-    >  通过使用控制台，可以与单个 `WebView`、`iFrame` 交互，每次还可以共享协定或 Web Worker。  每个元素都需要单独的 Web 平台主机 \(WWAHost.exe\) 的实例。  一次可与一个主机交互。  
+    >  By disabling JIT debugging, you can hide dialog boxes for unhandled exceptions that occur on some webpages. In Visual Studio Express, JIT debugging is always disabled.  
   
-6.  查看并修改应用中的变量或使用控制台命令，如 [快速入门：调试 JavaScript](../debugger/quickstart-debug-javascript-using-the-console.md) 和 [JavaScript 控制台命令](../debugger/javascript-console-commands.md)中所述。  
+5.  Press F5 to start debugging.  
   
-## 请参阅  
- [快速入门：调试 HTML 和 CSS](../debugger/quickstart-debug-html-and-css.md)
+### <a name="use-the-dom-explorer-to-inspect-and-debug-a-webview-control"></a>Use the DOM Explorer to inspect and debug a WebView control  
+  
+1.  (C#, Visual Basic, C++) Attach the script debugger to your app. See the first section for instructions.  
+  
+2.  If you haven't already, add a `WebView` control to your app and press F5 to start debugging.  
+  
+3.  Navigate to the page containing the `Webview` control(s).  
+  
+4.  Open the DOM Explorer window for the `WebView` control by choosing **Debug**, **Windows**, **DOM Explorer**, and then choose the URL of the `WebView` that you want to inspect.  
+  
+     ![Opening the DOM Explorer](../debugger/media/js_dom_webview.png "JS_DOM_WebView")  
+  
+     The DOM Explorer associated with the `WebView` appears as a new tab in Visual Studio.  
+  
+5.  View and modify live DOM elements and CSS styles as described in [Debug CSS styles using DOM Explorer](../debugger/debug-css-styles-using-dom-explorer.md).  
+  
+### <a name="use-the-javascript-console-window-to-inspect-and-debug-a-webview-control"></a>Use the JavaScript Console window to inspect and debug a WebView control  
+  
+1.  (C#, Visual Basic, C++) Attach the script debugger to your app. See the first section for instructions.  
+  
+2.  If you haven't already, add a `WebView` control to your app and press F5 to start debugging.  
+  
+3.  Open the JavaScript Console window for the `WebView` control by choosing **Debug**, **Windows**, **JavaScript Console**.  
+  
+     The JavaScript Console window appears.  
+  
+4.  Navigate to the page containing the `Webview` control(s).  
+  
+5.  In the Console window, select the webpage or an `iFrame` displayed by the `WebView` control in the **Target** list.  
+  
+     ![Target selection in the JavaScript console window](../debugger/media/js_console_target.png "JS_Console_Target")  
+  
+    > [!NOTE]
+    >  Using the console, you can interact with a single `WebView`, `iFrame`, share contract, or web worker at a time. Each element requires a separate instance of the web platform host (WWAHost.exe). You can interact with one host at a time.  
+  
+6.  View and modify variables in your app or use console commands, as described in [QuickStart: Debug JavaScript](../debugger/quickstart-debug-javascript-using-the-console.md) and [JavaScript Console commands](../debugger/javascript-console-commands.md).  
+  
+## <a name="see-also"></a>See Also  
+ [Quickstart: Debug HTML and CSS](../debugger/quickstart-debug-html-and-css.md)

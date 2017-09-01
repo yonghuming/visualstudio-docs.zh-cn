@@ -1,7 +1,7 @@
 ---
 title: "“选项”->“文本编辑器”->“C/C++”->“实验”| Microsoft Docs"
 ms.custom: 
-ms.date: 11/04/2016
+ms.date: 08/02/2017
 ms.reviewer: 
 ms.suite: 
 ms.tgt_pltfrm: 
@@ -30,11 +30,11 @@ translation.priority.mt:
 - pl-pl
 - pt-br
 - tr-tr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5ea9179ad37514ffad4876177b05150eecc22def
-ms.openlocfilehash: 77c4408fcd93a776468cf5fb23b3807a2b8d594d
+ms.translationtype: HT
+ms.sourcegitcommit: 8a544bd1e1242bb6fabe00f7842ac33ed9d9d444
+ms.openlocfilehash: 1677db7d5af93db8a378d598332e6a6d52f09bdd
 ms.contentlocale: zh-cn
-ms.lasthandoff: 05/24/2017
+ms.lasthandoff: 08/14/2017
 
 ---
 # <a name="options-text-editor-cc-experimental"></a>选项, 文本编辑器, C/C++, 实验
@@ -48,9 +48,10 @@ ms.lasthandoff: 05/24/2017
 >  以下说明中的某些 Visual Studio 用户界面元素在计算机上出现的名称或位置可能会不同。 这些元素取决于你所使用的 Visual Studio 版本和你所使用的设置。 请参阅[个性化设置 Visual Studio IDE](../../ide/personalizing-the-visual-studio-ide.md)。  
   
 ## <a name="enable-predictive-intellisense"></a>启用预测 Intellisense
-预测 IntelliSense 限制 IntelliSense 下拉列表中显示的结果数，以便你仅看到与上下文相关的结果。 例如，如果键入 <code>int x =</code> 并调用 IntelliSense 下拉列表，则只会看到整数或返回整数的函数。 预测 IntelliSense 在默认情况下是关闭的。
+预测 IntelliSense 限制 IntelliSense 下拉列表中显示的结果数，以便你仅看到与上下文相关的结果。 例如，如果键入 <code>int x =</code> 并调用 IntelliSense 下拉列表，只会看到整数或返回整数的函数。 预测 IntelliSense 在默认情况下是关闭的。
 
-## <a name="enable-faster-project-load"></a>启用更快的项目加载
+## <a name="enable-faster-project-load"></a>启用更快的项目加载 
+Visual Studio 2017 版本 15.3 及更高版本：此功能当前被称为“启用项目缓存”，并已被移至 [VC++ 项目设置](vcpp-project-settings-projects-and-solutions-options-dialog-box.md)属性页。
 此选项使 Visual Studio 能缓存项目数据，以便下次打开该项目时，它能直接加载缓存的数据，而无需通过项目文件重新对其计算。 使用缓存数据可显著缩短项目加载时间。  
 
 ## <a name="additional-features-in-the-visual-studio-gallery"></a>Visual Studio 库中的其他功能

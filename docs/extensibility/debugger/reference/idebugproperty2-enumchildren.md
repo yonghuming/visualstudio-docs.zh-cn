@@ -1,81 +1,98 @@
 ---
-title: "IDebugProperty2::EnumChildren | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "IDebugProperty2::EnumChildren"
-helpviewer_keywords: 
-  - "IDebugProperty2::EnumChildren"
+title: IDebugProperty2::EnumChildren | Microsoft Docs
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords:
+- IDebugProperty2::EnumChildren
+helpviewer_keywords:
+- IDebugProperty2::EnumChildren
 ms.assetid: cf79f666-65d1-417c-af7c-9271bac9a267
 caps.latest.revision: 11
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 11
----
-# IDebugProperty2::EnumChildren
-[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
+ms.author: gregvanl
+manager: ghogen
+translation.priority.mt:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+ms.translationtype: MT
+ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
+ms.openlocfilehash: 649123de9961a3bc7aace51faa34cba2e57ce6f7
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/28/2017
 
-检索属性的子元素的列表。  
+---
+# <a name="idebugproperty2enumchildren"></a>IDebugProperty2::EnumChildren
+Retrieves a list of the children of the property.  
   
-## 语法  
+## <a name="syntax"></a>Syntax  
   
-```cpp#  
-HRESULT EnumChildren (   
-   DEBUGPROP_INFO_FLAGS      dwFields,  
-   DWORD                     dwRadix,  
-   REFGUID                   guidFilter,  
-   DBG_ATTRIB_FLAGS          dwAttribFilter,  
-   LPCOLESTR                 pszNameFilter,  
-   DWORD                     dwTimeout,  
-   IEnumDebugPropertyInfo2** ppEnum  
+```cpp  
+HRESULT EnumChildren (   
+   DEBUGPROP_INFO_FLAGS      dwFields,  
+   DWORD                     dwRadix,  
+   REFGUID                   guidFilter,  
+   DBG_ATTRIB_FLAGS          dwAttribFilter,  
+   LPCOLESTR                 pszNameFilter,  
+   DWORD                     dwTimeout,  
+   IEnumDebugPropertyInfo2** ppEnum  
 );  
 ```  
   
-```c#  
-int EnumChildren (   
-   enum_DEBUGPROP_INFO_FLAGS   dwFields,  
-   uint                        dwRadix,  
-   ref Guid                    guidFilter,  
-   uint                        dwAttribFilter,  
-   string                      pszNameFilter,  
-   uint                        dwTimeout,  
-   out IEnumDebugPropertyInfo2 ppEnum  
+```csharp  
+int EnumChildren (   
+   enum_DEBUGPROP_INFO_FLAGS   dwFields,  
+   uint                        dwRadix,  
+   ref Guid                    guidFilter,  
+   uint                        dwAttribFilter,  
+   string                      pszNameFilter,  
+   uint                        dwTimeout,  
+   out IEnumDebugPropertyInfo2 ppEnum  
 );  
 ```  
   
-#### 参数  
+#### <a name="parameters"></a>Parameters  
  `dwFields`  
- \[in\] 标志的组合从指定的 [DEBUGPROP\_INFO\_FLAGS](../../../extensibility/debugger/reference/debugprop-info-flags.md) 枚举在枚举的 [DEBUG\_PROPERTY\_INFO](../../../extensibility/debugger/reference/debug-property-info.md) 结构的哪些字段将填充。  
+ [in] A combination of flags from the [DEBUGPROP_INFO_FLAGS](../../../extensibility/debugger/reference/debugprop-info-flags.md) enumeration that specifies which fields in the enumerated [DEBUG_PROPERTY_INFO](../../../extensibility/debugger/reference/debug-property-info.md) structures are to be filled in.  
   
  `dwRadix`  
- \[in\] 指定用于为所有数字信息基数。  
+ [in] Specifies the radix to be used in formatting any numerical information.  
   
  `guidFilter`  
- \[in\] 筛选器的 GUID 用于以 `DEBUG_PROPERTY_INFO` 子项将枚举 `dwAttribFilter` 和 `pszNameFilter` 参数选择。  例如，局部变量的 `guidFilterLocals` 筛选器。  
+ [in] GUID of the filter used with the `dwAttribFilter` and `pszNameFilter` parameters to select which `DEBUG_PROPERTY_INFO` children are to be enumerated. For example, `guidFilterLocals` filters for local variables.  
   
  `dwAttribFilter`  
- \[in\] 标志的组合从指定的 [DBG\_ATTRIB\_FLAGS](../../../extensibility/debugger/reference/dbg-attrib-flags.md) 枚举的枚举的哪些类型的对象，例如可能是此属性的子级的所有方法的 `DBG_ATTRIB_METHOD` 。  使用 `guidFilter` 和 `pszNameFilter` 参数的组合。  
+ [in] A combination of flags from the [DBG_ATTRIB_FLAGS](../../../extensibility/debugger/reference/dbg-attrib-flags.md) enumeration that specifies what type of objects to enumerate, for example `DBG_ATTRIB_METHOD` for all methods that might be children of this property. Used in combination with the `guidFilter` and `pszNameFilter` parameters.  
   
  `pszNameFilter`  
- \[in\] 筛选器的名称用于以 `DEBUG_PROPERTY_INFO` 子项将枚举 `guidFilter` 和 `dwAttribFilter` 参数选择。  例如，将此参数设置为 “所有子级的 MyX”筛选器具有名称 “MyX”。  
+ [in] The name of the filter used with the `guidFilter` and `dwAttribFilter` parameters to select which `DEBUG_PROPERTY_INFO` children are to be enumerated. For example, setting this parameter to "MyX" filters for all children with the name "MyX."  
   
  `dwTimeout`  
- \[in\] 以毫秒为单位指定最长时间，因此，在返回等待来自此方法。  使用 `INFINITE` 会无限期地等待。  
+ [in] Specifies the maximum time, in milliseconds, to wait before returning from this method. Use `INFINITE` to wait indefinitely.  
   
  `ppEnum`  
- \[out\] 返回包含子属性的列表 [IEnumDebugPropertyInfo2](../../../extensibility/debugger/reference/ienumdebugpropertyinfo2.md) 对象。  
+ [out] Returns an [IEnumDebugPropertyInfo2](../../../extensibility/debugger/reference/ienumdebugpropertyinfo2.md) object containing a list of the child properties.  
   
-## 返回值  
- 如果成功，则返回; `S_OK`否则返回错误代码。  
+## <a name="return-value"></a>Return Value  
+ If successful, returns `S_OK`; otherwise returns error code.  
   
-## 请参阅  
+## <a name="see-also"></a>See Also  
  [IDebugProperty2](../../../extensibility/debugger/reference/idebugproperty2.md)   
- [DEBUGPROP\_INFO\_FLAGS](../../../extensibility/debugger/reference/debugprop-info-flags.md)   
- [DBG\_ATTRIB\_FLAGS](../../../extensibility/debugger/reference/dbg-attrib-flags.md)   
+ [DEBUGPROP_INFO_FLAGS](../../../extensibility/debugger/reference/debugprop-info-flags.md)   
+ [DBG_ATTRIB_FLAGS](../../../extensibility/debugger/reference/dbg-attrib-flags.md)   
  [IEnumDebugPropertyInfo2](../../../extensibility/debugger/reference/ienumdebugpropertyinfo2.md)

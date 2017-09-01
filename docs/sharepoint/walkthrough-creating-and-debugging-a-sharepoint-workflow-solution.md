@@ -1,182 +1,187 @@
 ---
-title: "演练：创建和调试 SharePoint 工作流解决方案"
-ms.custom: ""
-ms.date: "02/02/2017"
-ms.prod: "visual-studio-dev14"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "office-development"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "VS.SharePointTools.Workflow.WorkflowConditions"
-  - "VS.SharePointTools.Workflow.WorkflowList"
-dev_langs: 
-  - "VB"
-  - "CSharp"
-  - "VB"
-  - "CSharp"
-helpviewer_keywords: 
-  - "Visual Studio 中的 SharePoint 开发, 工作流"
-  - "工作流 [Visual Studio 中的 SharePoint 开发]"
+title: 'Walkthrough: Creating and Debugging a SharePoint Workflow Solution | Microsoft Docs'
+ms.custom: 
+ms.date: 02/02/2017
+ms.prod: visual-studio-dev14
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- office-development
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords:
+- VS.SharePointTools.Workflow.WorkflowConditions
+- VS.SharePointTools.Workflow.WorkflowList
+dev_langs:
+- VB
+- CSharp
+- VB
+- CSharp
+helpviewer_keywords:
+- SharePoint development in Visual Studio, workflows
+- workflows [SharePoint development in Visual Studio]
 ms.assetid: 81756490-ab5a-4fa4-96c6-eed2cfbf8374
 caps.latest.revision: 28
-author: "kempb"
-ms.author: "kempb"
-manager: "ghogen"
-caps.handback.revision: 27
+author: kempb
+ms.author: kempb
+manager: ghogen
+ms.translationtype: HT
+ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
+ms.openlocfilehash: 7ee27378034bd9c4c8d7cc2700583d22210e4c70
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/28/2017
+
 ---
-# 演练：创建和调试 SharePoint 工作流解决方案
-  此演练演示如何创建基本的顺序工作流模板。  工作流检查共享文档库的属性，以确定文档是否已评审。  如果文档已评审，则工作流完成。  
+# <a name="walkthrough-creating-and-debugging-a-sharepoint-workflow-solution"></a>Walkthrough: Creating and Debugging a SharePoint Workflow Solution
+  This walkthrough demonstrates how to create a basic sequential workflow template. The workflow checks a property of a shared document library to determine whether a document has been reviewed. If the document has been reviewed, the workflow finishes.  
   
- 本演练阐释了以下任务：  
+ This walkthrough illustrates the following tasks:  
   
--   在 [!INCLUDE[vsprvs](../sharepoint/includes/vsprvs-md.md)] 中创建 SharePoint 列表定义顺序工作流项目。  
+-   Creating a SharePoint list definition sequential workflow project in [!INCLUDE[vsprvs](../sharepoint/includes/vsprvs-md.md)].  
   
--   创建工作流活动。  
+-   Creating workflow activities.  
   
--   处理工作流活动事件。  
+-   Handling workflow activity events.  
   
 > [!NOTE]  
->  虽然本演练使用的是顺序工作流项目，但过程与状态机工作流项目的过程相同。  
+>  Although this walkthrough uses a sequential workflow project, the process is identical for a state machine workflow project.  
 >   
->  另外，以下说明中的某些 Visual Studio 用户界面元素在您的计算机上出现的名称或位置可能会不同。  你安装的 Visual Studio 版本以及使用的设置决定了这些元素。  有关详细信息，请参阅[Customizing Development Settings in Visual Studio](http://msdn.microsoft.com/zh-cn/22c4debb-4e31-47a8-8f19-16f328d7dcd3)。  
+>  Also, your computer might show different names or locations for some of the Visual Studio user interface elements in the following instructions. The Visual Studio edition that you have and the settings that you use determine these elements. For more information, see [Personalize the Visual Studio IDE](../ide/personalizing-the-visual-studio-ide.md).  
   
-## 系统必备  
- 你需要以下组件来完成本演练：  
+## <a name="prerequisites"></a>Prerequisites  
+ You need the following components to complete this walkthrough:  
   
--   支持的 Microsoft Windows 和 SharePoint 版本。  有关详细信息，请参阅[开发 SharePoint 解决方案的要求](../sharepoint/requirements-for-developing-sharepoint-solutions.md)。  
+-   Supported editions of Microsoft Windows and SharePoint. For more information, see [Requirements for Developing SharePoint Solutions](../sharepoint/requirements-for-developing-sharepoint-solutions.md).  
   
--   Visual Studio。  
+-   Visual Studio.  
   
-## 向 SharePoint 共享文档库中添加属性  
- 为跟踪**“共享文档”**库中文档的评审状态，我们将为 SharePoint 网站上的共享文档创建三个新属性：`Status`、`Assignee` 和 `Review Comments`。  我们在**“共享文档”**库中定义这些属性。  
+## <a name="adding-properties-to-the-sharepoint-shared-documents-library"></a>Adding Properties to the SharePoint Shared Documents Library  
+ To track the review status of documents in the **Shared Documents** library, we will create three new properties for shared documents on our SharePoint site: `Status`, `Assignee`, and `Review Comments`. We define these properties in the **Shared Documents** library.  
   
-#### 向 SharePoint 共享文档库中添加属性  
+#### <a name="to-add-properties-to-the-sharepoint-shared-documents-library"></a>To add properties to the SharePoint shared documents library  
   
-1.  在 Web 浏览器中打开一个 SharePoint 网站，如 http:\/\/\<系统名称\>\/SitePages\/Home.aspx。  
+1.  Open a SharePoint site, such as http://\<system name>/SitePages/Home.aspx, in a Web browser.  
   
-2.  在快速启动栏上选择**共享文档**。  
+2.  On the QuickLaunch bar, choose **SharedDocuments**.  
   
-3.  在**“库工具”**功能区上选择**“库”**，然后选择该功能区上的**“创建列”**按钮以创建新列。  
+3.  Choose **Library** on the **Library Tools** ribbon and then choose the **Create Column** button on the ribbon to create a new column.  
   
-4.  将该列命名为“文档状态”，将其类型设置为**“选项\(要从中选择的菜单\)”**，指定以下三个选项，然后选择**“确定”**按钮：  
+4.  Name the column **Document Status**, set its type to **Choice (menu to choose from)**, specify the following three choices, and then choose the **OK** button:  
   
-    -   **需要评审**  
+    -   **Review Needed**  
   
-    -   **评审完成**  
+    -   **Review Complete**  
   
-    -   **请求更改**  
+    -   **Changes Requested**  
   
-5.  再创建两列并将它们命名为“受理人”和“评审注释”。  将“受理人”列类型设置为单行文本，将“评审注释”列类型设置为多行文本。  
+5.  Create two more columns and name them **Assignee** and **Review Comments**. Set the Assignee column type as a single line of text, and the Review Comments column type as multiple lines of text.  
   
-## 使文档无需签出即可编辑  
- 如果无需签出文档即可进行编辑，则测试工作流模板会更容易一些。  在下一个过程中，您将配置 SharePoint 网站以达到此目的。  
+## <a name="enabling-documents-to-be-edited-without-requiring-a-check-out"></a>Enabling Documents to be Edited without Requiring a Check Out  
+ It is easier to test the workflow template when you can edit the documents without having to check them out. In the next procedure, you configure the SharePoint site to enable that.  
   
-#### 使文档无需签出即可编辑  
+#### <a name="to-enable-documents-to-be-edited-without-checking-them-out"></a>To enable documents to be edited without checking them out  
   
-1.  选择快速启动栏上的**“共享文档”**链接。  
+1.  On the QuickLaunch bar, choose the **Shared Documents** link.  
   
-2.  在**“库工具”**功能区上选择**“库”**选项卡，然后选择**“库设置”**按钮以显示**“文档库设置”**页。  
+2.  On the **Library Tools** ribbon, choose the **Library** tab, and then choose the **Library Settings** button to display the **Document Library Settings** page.  
   
-3.  在**“常规设置”**部分中，选择**“版本控制设置”**链接以显示**“版本控制设置”**页。  
+3.  In the **General Settings** section, choose the **Versioning Settings** link to display the **Versioning Settings** page.  
   
-4.  验证**“要求先签出文档然后再对其进行编辑”**的设置是否为**“否”**。  如果不是这样，请将其更改为**“否”**，然后选择**“确定”**按钮。  
+4.  Verify that the setting for **Require documents to be checked out before they can be edited** is **No**. If it is not, change it to **No** and then choose the **OK** button.  
   
-5.  关闭浏览器。  
+5.  Close the browser.  
   
-## 创建 SharePoint 顺序工作流项目  
- 顺序工作流是按顺序执行直到最后一个活动完成的一组步骤。  在此过程中，我们将创建一个将应用于“共享文档”列表的顺序工作流。  利用此工作流向导，您可以将工作流与网站定义或列表定义关联，并可以确定工作流的启动时间。  
+## <a name="creating-a-sharepoint-sequential-workflow-project"></a>Creating a SharePoint Sequential Workflow Project  
+ A sequential workflow is a set of steps that executes in order until the last activity finishes. In this procedure, we create a sequential workflow that will apply to our Shared Documents list. The workflow wizard lets you associate the workflow with either the site definition or the list definition and lets you determine when the workflow will start.  
   
-#### 创建 SharePoint 顺序工作流项目  
+#### <a name="to-create-a-sharepoint-sequential-workflow-project"></a>To create a SharePoint sequential workflow project  
   
-1.  启动 [!INCLUDE[vsprvs](../sharepoint/includes/vsprvs-md.md)]。  
+1.  Start [!INCLUDE[vsprvs](../sharepoint/includes/vsprvs-md.md)].  
   
-2.  在菜单栏上，依次选择**“文件”**、**“新建”**、**“项目”**，以显示**“新建项目”**对话框。  
+2.  On the menu bar, choose **File**, **New**, **Project** to display the **New Project** dialog box.  
   
-3.  展开**“Visual C\#”**或**“Visual Basic”**下的**“SharePoint”**节点，然后选择**“2010”**节点。  
+3.  Expand the **SharePoint** node under either **Visual C#** or **Visual Basic**, and then choose the **2010** node.  
   
-4.  在 **模板** 窗格中，选择 **SharePoint 2010 项目** 模板。  
+4.  In the **Templates** pane, choose the **SharePoint 2010 Project** template.  
   
-5.  在**“名称”**框中，输入MySharePointWorkflow，然后选择**“确定”**按钮。  
+5.  In the **Name** box, enter **MySharePointWorkflow** and then choose the **OK** button.  
   
-     这将显示**“SharePoint 自定义向导”**。  
+     The **SharePoint Customization Wizard** appears.  
   
-6.  在 **指定用于调试的网站和安全级别** 页中，选择 **部署为场解决方案** 选项按钮，然后选择 **完成** 按钮以接受默认站点和信任级别。  
+6.  In the **Specify the site and security level for debugging** page, choose the **Deploy as a farm solution** option button, and then choose the **Finish** button to accept the trust level and default site.  
   
-     此步骤会将解决方案的信任级别设置为场解决方案（工作流项目的唯一可用选项）。  有关详细信息，请参阅[沙盒解决方案注意事项](../sharepoint/sandboxed-solution-considerations.md)。  
+     This step sets the trust level for the solution as farm solution, the only available option for workflow projects. For more information, see [Sandboxed Solution Considerations](../sharepoint/sandboxed-solution-considerations.md).  
   
-7.  在**“解决方案资源管理器”**中，选择项目节点，然后在菜单栏上选择**“项目”**，再选择**“添加新项”**。  
+7.  In **Solution Explorer**, choose the project node, and then, on the menu bar, choose **Project**, **Add New Item**.  
   
-8.  展开**“Visual C\#”**或**“Visual Basic”**下的**“SharePoint”**节点，然后选择**“2010”**节点。  
+8.  Under either **Visual C#** or **Visual Basic**, expand the **SharePoint** node, and then choose the **2010** node.  
   
-9. 在 **模板** 窗格中，选择 **顺序工作流 \(仅场解决方案\)** 模板，然后选择 **添加** 按钮。  
+9. In the **Templates** pane, choose the **Sequential Workflow (Farm Solution only)** template, and then choose the **Add** button.  
   
-     这将显示**“SharePoint 自定义向导”**。  
+     The **SharePoint Customization Wizard** appears.  
   
-10. 在**“指定用于调试的工作流名称”**页上，接受默认名称（**“MySharePointWorkflow \- Workflow1”**）。  保留默认工作流模板类型值**“列表工作流”**，然后选择**“下一步”**按钮。  
+10. In the **Specify the workflow name for debugging** page, accept the default name (**MySharePointWorkflow - Workflow1**). Keep the default workflow template type value, **List Workflow**, and then choose the **Next** button.  
   
-11. 在**“是否希望 Visual Studio 在调试会话中自动关联工作流?”**页中，选择**“下一步”**按钮以接受所有默认设置。  
+11. In the **Would you like Visual Studio to automatically associate the workflow in a debug session?** page, choose the **Next** button to accept all of the default settings.  
   
-     此步骤会自动将工作流与共享文档库关联。  
+     This step automatically associates the workflow with the Shared Documents library.  
   
-12. 在**“指定确定工作流启动方式的条件”**页上，将**“您希望如何启动工作流?”**部分的默认选项保持选中状态，然后选择**“完成”**按钮。  
+12. In the **Specify the conditions for how your workflow is started** page, leave the default options selected in the **How do you want the workflow to start?** section and choose the **Finish** button.  
   
-     可利用此页指定工作流启动的时间。  默认情况下，当用户在 SharePoint 中手动启动工作流时，或在创建与工作流关联的项时，工作流将启动。  
+     This page enables you to specify when your workflow starts. By default, the workflow starts either when a user manually starts it in SharePoint or when an item to which the workflow is associated is created.  
   
-## 创建工作流活动  
- 工作流包含一个或多个表示要执行的操作的活动。  使用工作流设计器可为工作流安排活动。  在此过程中，我们将向工作流中添加两个活动：HandleExternalEventActivity 和 OnWorkFlowItemChanged。  这些活动将监视**“共享文档”**列表中文档的评审状态。  
+## <a name="creating-workflow-activities"></a>Creating Workflow Activities  
+ Workflows contain one or more *activities* that represent actions to perform. Use the workflow designer to arrange activities for a workflow. In this procedure, we will add two activities to the workflow: HandleExternalEventActivity and OnWorkFlowItemChanged. These activities monitor the review status of documents in the **Shared Documents** list  
   
-#### 创建工作流活动  
+#### <a name="to-create-workflow-activities"></a>To create workflow activities  
   
-1.  工作流应显示在工作流设计器中。  如果不是这样，请打开**“解决方案资源管理器”**中的**“Workflow1.cs”**或**“Workflow1.vb”**。  
+1.  The workflow should be displayed in the workflow designer. If it is not, then open either **Workflow1.cs** or **Workflow1.vb** in **Solution Explorer**.  
   
-2.  在设计器中，选择**“OnWorkflowActivated1”**活动。  
+2.  In the designer, choose the **OnWorkflowActivated1** activity.  
   
-3.  在**“属性”**窗口中，在**“Invoked”**属性旁键入 onWorkflowActivated，然后选择 Enter。  
+3.  In the **Properties** window, enter **onWorkflowActivated** next to the **Invoked** property, and then choose the Enter key.  
   
-     代码编辑器将会打开，一个名为“onWorkflowActivated”的事件处理程序方法被添加到 Workflow1 代码文件中。  
+     The Code Editor opens, and an event handler method named onWorkflowActivated is added to the Workflow1 code file.  
   
-4.  切换回工作流设计器，打开工具箱，然后展开**“Windows Workflow v3.0”**节点。  
+4.  Switch back to the workflow designer, open the toolbox, and then expand the **Windows Workflow v3.0** node.  
   
-5.  在 **Windows Workflow v3.0工具箱**节点，请执行以下任意一组步骤：  
+5.  In the **Windows Workflow v3.0** node of the **Toolbox**, perform one of the following sets of steps:  
   
-    1.  打开**While**活动的快捷菜单，然后选择**“复制”**。  在工作流设计器，打开 **onWorkflowActivated1** 活动下方的行快捷菜单，然后选择 **粘贴**。  
+    1.  Open the shortcut menu for the **While** activity, and then choose **Copy**. In the workflow designer, open the shortcut menu for the line under the **onWorkflowActivated1** activity, and then choose **Paste**.  
   
-    2.  从**“工具箱”**拖动一个**While**活动到工作流设计器节点，并将该活动与**“onWorkflowActivated1”**活动下的行连接。  
+    2.  Drag the **While** activity from the **Toolbox** to the workflow designer, and connect the activity to the line under the **onWorkflowActivated1** activity.  
   
-6.  选择 **WhileActivity1** 活动。  
+6.  Choose the **WhileActivity1** activity.  
   
-7.  在**“属性”**窗口中，将**“Condition”**设置为“代码定义”。  
+7.  In the **Properties** window, set **Condition** to Code Condition.  
   
-8.  展开**“Condition”**属性，在**“Condition”**属性旁键入 isWorkflowPending，然后选择 Enter键。  
+8.  Expand the **Condition** property, enter **isWorkflowPending** next to the child **Condition** property, and then choose the Enter key.  
   
-     代码编辑器将会打开，一个名为 isWorkflowPending 的方法被添加到 Workflow1 代码文件中。  
+     The Code Editor opens, and a method named isWorkflowPending is added to the Workflow1 code file.  
   
-9. 切换回工作流设计器，打开工具箱，然后展开**“SharePoint 工作流”**节点。  
+9. Switch back to the workflow designer, open the toolbox, and then expand the **SharePoint Workflow** node.  
   
-10. 在 **SharePoint 工作流工具箱**节点，请执行以下任意一组步骤：  
+10. In the **SharePoint Workflow** node of the **Toolbox**, perform one of the following sets of steps:  
   
-    -   打开**OnWorkflowItemChanged**活动的快捷菜单，然后选择**“复制”**。  在工作流设计器，打开 **whileActivity1** 活动中的行快捷菜单，然后选择 **粘贴**。  
+    -   Open the shortcut menu for the **OnWorkflowItemChanged** activity, and then choose **Copy**. In the workflow designer, open the shortcut menu for the line inside the **whileActivity1** activity, and then choose **Paste**.  
   
-    -   从**“工具箱”**拖动**OnWorkflowItemChanged**活动到工作流设计器，并将该活动与**whileActivity1**活动中的行连接。  
+    -   Drag the **OnWorkflowItemChanged** activity from the **Toolbox** to the workflow designer, and connect the activity to the line inside the **whileActivity1** activity.  
   
-11. 选择 **onWorkflowItemChanged1** 活动。  
+11. Choose the **onWorkflowItemChanged1** activity.  
   
-12. 在**“属性”**窗口中，如下表所示设置属性。  
+12. In the **Properties** window, set the properties as shown in the following table.  
   
-    |Property|值|  
-    |--------------|-------|  
+    |Property|Value|  
+    |--------------|-----------|  
     |**CorrelationToken**|**workflowToken**|  
     |**Invoked**|**onWorkflowItemChanged**|  
   
-## 处理活动事件  
- 最后，检查每个活动后文档的状态。  如果文档已经过评审，则工作流将完成。  
+## <a name="handling-activity-events"></a>Handling Activity Events  
+ Finally, check the status of the document from each activity. If the document has been reviewed, then the workflow is finished.  
   
-#### 处理活动事件  
+#### <a name="to-handle-activity-events"></a>To handle activity events  
   
-1.  在 Workflow1.cs 或 Workflow1.vb 中，将以下字段添加到 `Workflow1` 类的顶部。  在活动中使用此字段可确定工作流是否已完成。  
+1.  In Workflow1.cs or Workflow1.vb, add the following field to the top of the `Workflow1` class. This field is used in an activity to determine whether the workflow is finished.  
   
     ```vb  
     Dim workflowPending As Boolean = True  
@@ -186,7 +191,7 @@ caps.handback.revision: 27
     Boolean workflowPending = true;  
     ```  
   
-2.  将下面的方法添加到 `Workflow1` 类中。  此方法检查“文档”列表的 `Document Status` 属性的值，以确定文档是否已评审。  如果 `Document Status` 属性设置为 `Review Complete`，`checkStatus` 方法就将 `workflowPending` 字段设置为 **false** 以指示工作流可以完成。  
+2.  Add the following method to the `Workflow1` class. This method checks the value of the `Document Status` property of the Documents list to determine whether the document has been reviewed. If the `Document Status` property is set to `Review Complete`, then the `checkStatus` method sets the `workflowPending` field to **false** to indicate that the workflow is ready to finish.  
   
     ```vb  
     Private Sub checkStatus()  
@@ -204,7 +209,7 @@ caps.handback.revision: 27
     }  
     ```  
   
-3.  将下面的代码添加到 `onWorkflowActivated` 和 `onWorkflowItemChanged` 方法以调用 `checkStatus` 方法。  当工作流开始时，`onWorkflowActivated` 方法调用 `checkStatus` 方法以确定文档是否已评审。  如果文档尚未评审，则工作流继续。  保存文档时，`onWorkflowItemChanged` 方法再次调用 `checkStatus` 方法以确定文档是否已评审。  如果 `workflowPending` 字段设置为 **true**，则工作流继续运行。  
+3.  Add the following code to the `onWorkflowActivated` and `onWorkflowItemChanged` methods to call the `checkStatus` method. When the workflow starts, the `onWorkflowActivated` method calls the `checkStatus` method to determine whether the document has already been reviewed. If it has not been reviewed, the workflow continues. When the document is saved, the `onWorkflowItemChanged` method calls the `checkStatus` method again to determine whether the document has been reviewed. While the `workflowPending` field is set to **true**, the workflow continues to run.  
   
     ```vb  
     Private Sub onWorkflowActivated(ByVal sender As System.Object, ByVal e As System.Workflow.Activities.ExternalDataEventArgs)  
@@ -230,7 +235,7 @@ caps.handback.revision: 27
     }  
     ```  
   
-4.  向 `isWorkflowPending` 方法中添加以下代码以检查 `workflowPending` 属性的状态。  每次保存文档时，**“whileActivity1”**活动都会调用 `isWorkflowPending` 方法。  此方法检查 <xref:System.Workflow.Activities.ConditionalEventArgs> 对象的 <xref:System.Workflow.Activities.ConditionalEventArgs.Result%2A> 属性，以确定**“WhileActivity1”**活动应继续还是完成。  如果该属性设置为 **true**，则活动继续。  否则，活动完成并且工作流也完成。  
+4.  Add the following code to the `isWorkflowPending` method to check the status of the `workflowPending` property. Each time the document is saved, the **whileActivity1** activity calls the `isWorkflowPending` method. This method examines the <xref:System.Workflow.Activities.ConditionalEventArgs.Result%2A> property of the <xref:System.Workflow.Activities.ConditionalEventArgs> object to determine whether the **WhileActivity1** activity should continue or finish. If the property is set to **true**, the activity continues. Otherwise, the activity finishes and the workflow finishes.  
   
     ```vb  
     Private Sub isWorkflowPending(ByVal sender As System.Object, ByVal e As System.Workflow.Activities.ConditionalEventArgs)  
@@ -245,55 +250,55 @@ caps.handback.revision: 27
     }  
     ```  
   
-5.  保存项目。  
+5.  Save the project.  
   
-## 测试 SharePoint 工作流模板  
- 启动调试器时，[!INCLUDE[vsprvs](../sharepoint/includes/vsprvs-md.md)] 将工作流模板部署到 SharePoint Server，并将该工作流与**“共享文档”**列表相关联。  若要测试工作流，请从**“共享文档”**列表中的某个文档启动工作流的一个实例。  
+## <a name="testing-the-sharepoint-workflow-template"></a>Testing the SharePoint Workflow Template  
+ When you start the debugger, [!INCLUDE[vsprvs](../sharepoint/includes/vsprvs-md.md)] deploys the workflow template to the SharePoint server and associates the workflow with the **Shared Documents** list. To test the workflow, start an instance of the workflow from a document in the **Shared Documents** list.  
   
-#### 测试 SharePoint 工作流模板  
+#### <a name="to-test-the-sharepoint-workflow-template"></a>To test the SharePoint workflow template  
   
-1.  在 Workflow1.cs 或 Workflow1.vb 中，在**“onWorkflowActivated”**方法旁设置一个断点。  
+1.  In Workflow1.cs or Workflow1.vb, set a breakpoint next to the **onWorkflowActivated** method.  
   
-2.  选择 F5 键生成并运行解决方案。  
+2.  Choose the F5 key to build and run the solution.  
   
-     SharePoint 网站将出现。  
+     The SharePoint site appears.  
   
-3.  在 SharePoint 中的导航窗格中选择**“共享文档”**链接。  
+3.  In the navigation pane in SharePoint, choose the **Shared Documents** link.  
   
-4.  在**“共享文档”**页中，选择**“库工具”**选项卡上的**“文档”**链接，然后选择**“上载文档”**按钮。  
+4.  In the **Shared Documents** page, choose the **Documents** link on the **Library Tools** tab, and then choose the **Upload Document** button.  
   
-5.  在 **上载文档** 对话框中，选择 **浏览** 按钮，选择任何文档文件，选择 **打开** 按钮，然后选择 **确定** 按钮。  
+5.  In the **Upload Document** dialog box, choose the **Browse** button, choose any document file, choose the **Open** button, and then choose the **OK** button.  
   
-     这会将选定文档上载到**“共享文档”**列表中并启动工作流。  
+     This uploads the selected document into the **Shared Documents** list and starts the workflow.  
   
-6.  在 [!INCLUDE[vsprvs](../sharepoint/includes/vsprvs-md.md)] 中，确认调试器是否在 `onWorkflowActivated` 方法旁的断点处停止。  
+6.  In [!INCLUDE[vsprvs](../sharepoint/includes/vsprvs-md.md)], verify that the debugger stops at the breakpoint next to the `onWorkflowActivated` method.  
   
-7.  选择 F5 键继续执行。  
+7.  Choose the F5 key to continue execution.  
   
-8.  虽然您可以在此处更改文档的设置，但此时请选择**“保存”**按钮以保留这些文档设置的默认值。  
+8.  You can change the settings for the document here, but leave them at the default values for now by choosing the **Save** button.  
   
-     这将返回到默认 SharePoint 网站的**“共享文档”**页。  
+     This returns you to the **Shared Documents** page of the default SharePoint Web site.  
   
-9. 在**“共享文档”**页中，验证**“MySharePointWorkflow – Workflow1”**列下方的值是否设置为**“正在进行中”**。  这指示工作流正在进行中，文档在等待评审。  
+9. In the **Shared Documents** page, verify that the value underneath the **MySharePointWorkflow - Workflow1** column is set to **In Progress**. This indicates that the workflow is in progress and that the document is awaiting review.  
   
-10. 在 **共享文档** 页中，选择文档，选择将的箭头，然后选择 **编辑属性** 菜单项。  
+10. In the **Shared Documents** page, choose the document, choose the arrow that appears, and then choose the **Edit Properties** menu item.  
   
-11. 将**“文档状态”**设置为**“评审完成”**，然后选择**“保存”**按钮。  
+11. Set **Document Status** to **Review Complete**, and then choose the **Save** button.  
   
-     这将返回到默认 SharePoint 网站的**“共享文档”**页。  
+     This returns you to the **Shared Documents** page of the default SharePoint Web site.  
   
-12. 在**“共享文档”**页中，验证**Document Status**列下方的值是否设置为**“评审完成”**。  刷新**“共享文档”**页，并验证**“MySharePointWorkflow – Workflow1”**列下方的值是否设置为**“完成”**。  这指示工作流已完成，文档已评审。  
+12. In the **Shared Documents** page, verify that the value underneath the **Document Status** column is set to **Review Complete**. Refresh the **Shared Documents** page and verify that the value underneath the **MySharePointWorkflow - Workflow1** column is set to **Completed**. This indicates that workflow is finished and that the document has been reviewed.  
   
-## 后续步骤  
- 可从以下主题中了解有关如何创建工作流模板的更多信息：  
+## <a name="next-steps"></a>Next Steps  
+ You can learn more about how to create workflow templates from these topics:  
   
--   若要了解有关 SharePoint 工作流活动的更多信息，请参见 [SharePoint Foundation 的工作流活动](http://go.microsoft.com/fwlink/?LinkId=178992)。  
+-   To learn more about SharePoint workflow activities, see [Workflow Activities for SharePoint Foundation](http://go.microsoft.com/fwlink/?LinkId=178992).  
   
--   若要了解有关 Windows Workflow Foundation 活动的更多信息，请参见 [System.Workflow.Activities 命名空间](http://go.microsoft.com/fwlink/?LinkId=178993)。  
+-   To learn more about Windows Workflow Foundation activities, see [System.Workflow.Activities Namespace](http://go.microsoft.com/fwlink/?LinkId=178993).  
   
-## 请参阅  
- [创建 SharePoint 工作流解决方案](../sharepoint/creating-sharepoint-workflow-solutions.md)   
- [SharePoint 项目和项目项模板](../sharepoint/sharepoint-project-and-project-item-templates.md)   
- [生成和调试 SharePoint 解决方案](../sharepoint/building-and-debugging-sharepoint-solutions.md)  
+## <a name="see-also"></a>See Also  
+ [Creating SharePoint Workflow Solutions](../sharepoint/creating-sharepoint-workflow-solutions.md)   
+ [SharePoint Project and Project Item Templates](../sharepoint/sharepoint-project-and-project-item-templates.md)   
+ [Building and Debugging SharePoint Solutions](../sharepoint/building-and-debugging-sharepoint-solutions.md)  
   
   

@@ -1,5 +1,5 @@
 ---
-title: "IDebugComPlusSymbolProvider::GetAttributedClassesForLanguage |Microsoft 文档"
+title: IDebugComPlusSymbolProvider::GetAttributedClassesForLanguage | Microsoft Docs
 ms.custom: 
 ms.date: 11/04/2016
 ms.reviewer: 
@@ -29,16 +29,17 @@ translation.priority.mt:
 - tr-tr
 - zh-cn
 - zh-tw
-translationtype: Machine Translation
-ms.sourcegitcommit: 5db97d19b1b823388a465bba15d057b30ff0b3ce
-ms.openlocfilehash: 35db32026b122ac070e4216d9820fc7815f9c544
-ms.lasthandoff: 02/22/2017
+ms.translationtype: MT
+ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
+ms.openlocfilehash: 0868998a43c48bc985c4801deddcf089c73f01bf
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="idebugcomplussymbolprovidergetattributedclassesforlanguage"></a>IDebugComPlusSymbolProvider::GetAttributedClassesForLanguage
-检索在指定的编程语言中实现的类具有指定属性。  
+Retrieves the classes with the specified attribute that are implemented in the specified programming language.  
   
-## <a name="syntax"></a>语法  
+## <a name="syntax"></a>Syntax  
   
 ```  
 [C++]  
@@ -58,23 +59,23 @@ int GetAttributedClassesForLanguage (
 );  
 ```  
   
-#### <a name="parameters"></a>参数  
+#### <a name="parameters"></a>Parameters  
  `guidLanguage`  
- [in]该语言的唯一标识符。  
+ [in] Unique identifier for the language.  
   
  `pstrAttribute`  
- [in]属性的字符串。  
+ [in] The attribute string.  
   
  `ppEnum`  
- [out]返回一个枚举的属性类。  
+ [out] Returns an enumeration of the attribute classes.  
   
-## <a name="return-value"></a>返回值  
- 如果成功，返回`S_OK`; 否则为返回错误代码。  
+## <a name="return-value"></a>Return Value  
+ If successful, returns `S_OK`; otherwise, returns an error code.  
   
-## <a name="example"></a>示例  
- 下面的示例演示如何实现此方法对于**CDebugSymbolProvider**公开对象[IDebugComPlusSymbolProvider](../../../extensibility/debugger/reference/idebugcomplussymbolprovider.md)接口。  
+## <a name="example"></a>Example  
+ The following example shows how to implement this method for a **CDebugSymbolProvider** object that exposes the [IDebugComPlusSymbolProvider](../../../extensibility/debugger/reference/idebugcomplussymbolprovider.md) interface.  
   
-```cpp#  
+```cpp  
 HRESULT CDebugSymbolProvider::GetAttributedClassesForLanguage(  
     GUID guidLanguage,  
     __in_z LPOLESTR pstrAttribute,  
@@ -202,5 +203,5 @@ Error:
 }  
 ```  
   
-## <a name="see-also"></a>另请参阅  
+## <a name="see-also"></a>See Also  
  [IDebugComPlusSymbolProvider](../../../extensibility/debugger/reference/idebugcomplussymbolprovider.md)

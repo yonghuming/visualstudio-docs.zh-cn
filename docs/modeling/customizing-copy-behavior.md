@@ -1,62 +1,65 @@
 ---
-title: "自定义复制行为 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.tgt_pltfrm: ""
-ms.topic: "article"
+title: Customizing Copy Behavior | Microsoft Docs
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.tgt_pltfrm: 
+ms.topic: article
 ms.assetid: 87fff01c-60ba-440a-b8a0-185edcef83ac
 caps.latest.revision: 16
-author: "alancameronwills"
-ms.author: "awills"
-manager: "douge"
-caps.handback.revision: 16
----
-# 自定义复制行为
-[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
+author: alancameronwills
+ms.author: awills
+manager: douge
+ms.translationtype: MT
+ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
+ms.openlocfilehash: 532fd69bea467403047a7151584b7cf918ad602d
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/28/2017
 
-在使用 [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] 可视化和建模 SDK 创建的域特定语言 \(DSL\) 中，你可以更改当用户复制并粘贴元素时所发生的情况。  
+---
+# <a name="customizing-copy-behavior"></a>Customizing Copy Behavior
+In a domain-specific language (DSL) created with the [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] Visualization and Modeling SDK, you can alter what happens when the user copies and pastes elements.  
   
-## 标准的复制和粘贴行为  
- 若要启用复制，请在 DSL 资源管理器中设置**“编辑器”**节点的**“启用复制粘贴”**属性。  
+## <a name="standard-copy-and-paste-behavior"></a>Standard Copy and Paste Behavior  
+ To enable copying, set the **Enable Copy Paste** property of the **Editor** node in DSL Explorer.  
   
- 默认情况下，当用户将元素复制到剪贴板时，还会复制以下元素：  
+ By default, when the user copies elements to the clipboard, the following elements are also copied:  
   
--   所选元素的嵌入后代。  （即，作为源于复制元素的嵌入关系目标的元素。）  
+-   Embedded descendants of the selected elements. (That is, elements that are the targets of embedding relationships that are sourced at copied elements.)  
   
--   复制的元素之间的关系链接。  
+-   Relationship links between the copied elements.  
   
- 此规则将按递归方式应用到复制的元素和链接。  
+ This rule applies recursively to the copied elements and links.  
   
- ![复制和粘贴的元素](~/modeling/media/dslcopypastedefault.png "DslCopyPasteDefault")  
+ ![Copied and pasted elements](../modeling/media/dslcopypastedefault.png "DslCopyPasteDefault")  
   
- 复制的元素和链接将进行序列化并存储在位于剪贴板上的 <xref:Microsoft.VisualStudio.Modeling.ElementGroupPrototype> \(EGP\)。  
+ The copied elements and links are serialized and stored in an <xref:Microsoft.VisualStudio.Modeling.ElementGroupPrototype> (EGP), which is placed on the clipboard.  
   
- 复制的元素的图像也位于该剪贴板上。  这将允许用户将其粘贴到其他应用程序（如 Word）中。  
+ An image of the copied elements is also placed on the clipboard. This allows the user to paste into other applications such as Word.  
   
- 用户可以根据 DSL 定义将复制的元素粘贴到可以接受元素的目标上。  例如，在从组件解决方案模板生成的 DSL 中，用户可以将端口复制到组件上，但不能复制到关系图上；并且可以将组件粘贴到关系图上，但不能粘贴到其他组件上。  
+ The user can paste copied elements onto a target that can accept the elements according to the DSL Definition. For example, in a DSL generated from the components solution template, the user can paste ports onto components, but not onto the diagram; and can paste components onto the diagram, but not onto other components.  
   
-## 自定义复制和粘贴行为  
- 有关通过使用程序代码自定义模型的详细信息，请参阅[在程序代码中导航和更新模型](../modeling/navigating-and-updating-a-model-in-program-code.md)。  
+## <a name="customizing-copy-and-paste-behavior"></a>Customizing Copy and Paste Behavior  
+ For more information about customizing the model by using program code, see [Navigating and Updating a Model in Program Code](../modeling/navigating-and-updating-a-model-in-program-code.md).  
   
- **启用或禁用复制、剪切和粘贴。**  
- 在 DSL 资源管理器中，设置**“编辑器”**节点的**“启用复制粘贴”**属性。  
+ **Enable or disable copy, cut, and paste.**  
+ In DSL Explorer, set the **Enable Copy Paste** property of the **Editor** node.  
   
- **将链接复制到同一目标。**例如，将复制的注释框链接到相同的使用者元素。  
- 将角色的**“传播复制”**属性设置为**“仅将复制传播到链接”**。  有关详细信息，请参阅[自定义链接复制行为](#customizeLinks)。  
+ **Copy links to the same target.** For example, to have a copied comment box linked to the same subject element.  
+ Set the **Propagates Copy** property of the role to **Propagate copy to link only**. For more information, see [Customizing Link Copy Behavior](#customizeLinks).  
   
- 复制链接的元素。例如，在复制新元素时，还建立了任何链接的注释框的副本。  
- 将角色的**“传播复制”**属性设置为**“将复制传播到链接和相反的角色扮演者”**。  有关详细信息，请参阅[自定义链接复制行为](#customizeLinks)。  
+ Copy linked elements. For example, when you copy a new element, copies of any linked comment boxes are made as well.  
+ Set the **Propagates Copy** property of the role to **Propagate copy to link and opposite role player**. For more information, see [Customizing Link Copy Behavior](#customizeLinks).  
   
- **通过复制和粘贴快速复制元素。**通常，刚复制的项仍处于选中状态，并且你无法将相同类型的元素粘贴到该项上。  
- 将元素合并指令添加到域类，并将其设置为向前合并到父类。  这将在拖动操作上产生相同的效果。  有关详细信息，请参阅[自定义元素创建和移动](../modeling/customizing-element-creation-and-movement.md)。  
+ **Rapidly duplicate elements by copying and pasting.** Normally, the item you just copied is still selected, and you cannot paste the same type of element onto it.  
+ Add an Element Merge Directive to the domain class, and set it to forward merges to the parent class. This will have the same effect on drag operations. For more information, see [Customizing Element Creation and Movement](../modeling/customizing-element-creation-and-movement.md).  
   
- \- 或 \-  
+ \- or -  
   
- 通过重写 `ClipboardCommandSet.ProcessOnPasteCommand()` 选择关系图，然后再粘贴元素。  在 DslPackage 项目的自定义文件中添加此代码：  
+ Select the diagram before pasting the elements, by overriding `ClipboardCommandSet.ProcessOnPasteCommand()`. Add this code in a custom file in the DslPackage project:  
   
-```c#  
+```csharp  
 namespace Company.MyDsl {  
 using System.Linq;  
 using Microsoft.VisualStudio.Modeling.Diagrams;   
@@ -74,25 +77,25 @@ partial class MyDslClipboardCommandSet
   
 ```  
   
- **当用户粘贴到选定的目标上时创建附加链接。**例如，在将注释框粘贴到元素上时，它们之间即创建一个链接。  
- 将元素合并指令添加到目标域类，并将其设置为通过添加链接来处理合并。  这将在拖动操作上产生相同的效果。  有关详细信息，请参阅[自定义元素创建和移动](../modeling/customizing-element-creation-and-movement.md)。  
+ **Create additional links when the user pastes onto a selected target.** For example, when a comment box is pasted onto an element, a link is made between them.  
+ Add an Element Merge Directive to the target domain class, and set it to process the merge by adding links. This will have the same effect on drag operations. For more information, see [Customizing Element Creation and Movement](../modeling/customizing-element-creation-and-movement.md).  
   
- \- 或 \-  
+ \- or -  
   
- 重写 `ClipboardCommandSet.ProcessOnPasteCommand()` 以在调用基方法后创建附加链接。  
+ Override `ClipboardCommandSet.ProcessOnPasteCommand()` to create the additional links after calling the base method.  
   
- **自定义将元素复制**到外部应用程序时所采用的格式 – 例如，若要将边框添加到位图窗体。  
- 在 DslPackage 项目中重写 *MyDsl*`ClipboardCommandSet.ProcessOnMenuCopyCommand()`。  
+ **Customize the formats in which elements can be copied** to external applications - for example, to add a border to the bitmap form.  
+ Override *MyDsl*`ClipboardCommandSet.ProcessOnMenuCopyCommand()` in the DslPackage project.  
   
- **自定义通过复制命令（而非采用拖动操作）将元素复制到剪贴板的方式。**  
- 在 DslPackage 项目中重写 *MyDsl*`ClipboardCommandSet.CopyModelElementsIntoElementGroupPrototype()`。  
+ **Customize how elements are copied to the clipboard by the copy command, but not in a drag operation.**  
+ Override *MyDsl*`ClipboardCommandSet.CopyModelElementsIntoElementGroupPrototype()` in the DslPackage project.  
   
- **通过复制和粘贴保留形状布局。**  
- 当用户复制多个形状时，可以在粘贴它们时保留其相对位置。  [VMSDK：电路图示例](http://go.microsoft.com/fwlink/?LinkId=213879)上的示例演示了此技术。  
+ **Preserve shape layout through copy and paste.**  
+ When the user copies multiple shapes, you can preserve their relative positions when they are pasted. This technique is demonstrated by the example at [VMSDK: Circuit Diagrams sample](http://go.microsoft.com/fwlink/?LinkId=213879).  
   
- 若要获得此效果，请将形状和连接符添加到复制的 ElementGroupPrototype。  重写的最简便方法是 ElementOperations.CreateElementGroupPrototype\(\)。  为此，请将以下代码添加到 DSL 项目：  
+ To achieve this effect, add the shapes and connectors to the copied ElementGroupPrototype. The most convenient method to override is ElementOperations.CreateElementGroupPrototype(). To do this, add the following code to the Dsl project:  
   
-```c#  
+```csharp  
   
 public class MyElementOperations : DesignSurfaceElementOperations  
 {  
@@ -144,12 +147,12 @@ partial class MyDslDiagram // EDIT NAME
   
 ```  
   
- **在所选位置（例如当前光标位置）粘贴形状。**  
- 当用户复制多个形状时，可以在粘贴它们时保留其相对位置。  [VMSDK：电路图示例](http://go.microsoft.com/fwlink/?LinkId=213879)上的示例演示了此技术。  
+ **Paste shapes in a chosen location, such as the current cursor position.**  
+ When the user copies multiple shapes, you can preserve their relative positions when they are pasted. This technique is demonstrated by the example at [VMSDK: Circuit Diagrams sample](http://go.microsoft.com/fwlink/?LinkId=213879).  
   
- 为实现此效果，请重写 `ClipboardCommandSet.ProcessOnMenuPasteCommand()`，以使用特定于位置的版本的 `ElementOperations.Merge()`。  为此，请在 DslPackage 项目中添加以下代码：  
+ To achieve this effect, override `ClipboardCommandSet.ProcessOnMenuPasteCommand()` to use the location-specific version of `ElementOperations.Merge()`. To do this, add the following code in the DslPackage project:  
   
-```c#  
+```csharp  
   
 partial class MyDslClipboardCommandSet // EDIT NAME  
 {  
@@ -211,47 +214,47 @@ partial class MyDslClipboardCommandSet // EDIT NAME
   }  
 ```  
   
- **让用户拖放元素。**  
- 请参阅[如何：添加拖放处理程序](../modeling/how-to-add-a-drag-and-drop-handler.md)。  
+ **Let the user drag and drop elements.**  
+ See [How to: Add a Drag-and-Drop Handler](../modeling/how-to-add-a-drag-and-drop-handler.md).  
   
-##  <a name="customizeLinks"></a> 自定义链接复制行为  
- 当用户复制元素时，标准行为是还会复制所有嵌入元素。  可以修改标准复制行为。  在 DSL 定义中，在关系的一边选择某个角色，然后在“属性”窗口中设置**“传播复制”**值。  
+##  <a name="customizeLinks"></a> Customizing Link Copy Behavior  
+ When the user copies an element, the standard behavior is that any embedded elements are also copied. You can modify the standard copying behavior. In the DSL Definition, select a role at one side of a relationship and in the Properties window set the **Propagates Copy** value.  
   
- ![传播域角色的 Copy 属性](../modeling/media/dslpropagatescopy.png "DslPropagatesCopy")  
+ ![Propagates Copy property of domain role](../modeling/media/dslpropagatescopy.png "DslPropagatesCopy")  
   
- 有三个值：  
+ There are three values:  
   
--   不传播复制  
+-   Do not propagate copy  
   
--   仅将复制传播到链接 \- 在粘贴该组时，此链接的新副本将引用链接另一端上的现有元素。  
+-   Propagate copy to link only - when the group is pasted, the new copy of this link will refer to the existing element at the other end of the link.  
   
--   将复制传播到链接和相反的角色扮演者 \- 复制的组包括位于链接另一端上的元素的副本。  
+-   Propagate copy to link and opposite role player - the copied group includes a copy of the element at the other end of the link.  
   
- ![使用 PropagateCopyToLinkOnly 进行复制的效果](../modeling/media/dslpropagatecopy.png "DslPropagateCopy")  
+ ![Effect of copying with PropagateCopyToLinkOnly](../modeling/media/dslpropagatecopy.png "DslPropagateCopy")  
   
- 所进行的更改将同时影响元素和复制的图像。  
+ The changes that you make will affect both the elements and the image that is copied.  
   
-## 编程复制和粘贴行为  
- 与复制、粘贴、创建和删除对象有关的 DSL 行为的许多方面都由耦合到关系图的 <xref:Microsoft.VisualStudio.Modeling.ElementOperations> 的实例控制。  通过从 <xref:Microsoft.VisualStudio.Modeling.ElementOperations> 中派生自己的类并重写关系图类的 <xref:Microsoft.VisualStudio.Modeling.Diagrams.Diagram.ElementOperations%2A> 属性，可修改 DSL 的行为。  
+## <a name="programming-copy-and-paste-behavior"></a>Programming Copy and Paste Behavior  
+ Many aspects of a DSL's behavior with regard to copy, paste, creation, and deletion of objects are governed by an instance of <xref:Microsoft.VisualStudio.Modeling.ElementOperations> that is coupled to the diagram. You can modify your DSL's behavior by deriving your own class from <xref:Microsoft.VisualStudio.Modeling.ElementOperations> and overriding the <xref:Microsoft.VisualStudio.Modeling.Diagrams.Diagram.ElementOperations%2A> property of your diagram class.  
   
 > [!TIP]
->  有关通过使用程序代码自定义模型的详细信息，请参阅[在程序代码中导航和更新模型](../modeling/navigating-and-updating-a-model-in-program-code.md)。  
+>  For more information about customizing the model by using program code, see [Navigating and Updating a Model in Program Code](../modeling/navigating-and-updating-a-model-in-program-code.md).  
   
- ![复制操作的序列图](~/modeling/media/dslcopyseqdiagram.png "dslCopySeqDiagram")  
+ ![Sequence diagram for the Copy operation](../modeling/media/dslcopyseqdiagram.png "dslCopySeqDiagram")  
   
- ![粘贴操作的序列图](../modeling/media/dslpasteseqdiagram.png "dslPasteSeqDiagram")  
+ ![Sequence diagram of Paste operation](../modeling/media/dslpasteseqdiagram.png "dslPasteSeqDiagram")  
   
-#### 定义自己的 ElementOperations  
+#### <a name="to-define-your-own-elementoperations"></a>To define your own ElementOperations  
   
-1.  在 DSL 项目的新文件中，创建派生自 <xref:Microsoft.VisualStudio.Modeling.Diagrams.DesignSurfaceElementOperations> 的类。  
+1.  In a new file in your DSL project, create a class that is derived from <xref:Microsoft.VisualStudio.Modeling.Diagrams.DesignSurfaceElementOperations>.  
   
-2.  为关系图类添加分部类定义。  该类的名称可以在 **Dsl\\GeneratedCode\\Diagrams.cs** 中找到。  
+2.  Add a partial class definition for your diagram class. The name of this class can be found in **Dsl\GeneratedCode\Diagrams.cs**.  
   
-     在关系图类中，重写 <xref:Microsoft.VisualStudio.Modeling.Diagrams.Diagram.ElementOperations%2A> 以返回 ElementOperations 子类的实例。  应在每次调用时返回同一个实例。  
+     In the diagram class, override  <xref:Microsoft.VisualStudio.Modeling.Diagrams.Diagram.ElementOperations%2A> to return an instance of your ElementOperations subclass. You should return the same instance at every call.  
   
- 在 DslPackage 项目的自定义代码文件中添加此代码：  
+ Add this code in a custom code file in the DslPackage project:  
   
-```c#  
+```csharp  
   
 using Microsoft.VisualStudio.Modeling;  
 using Microsoft.VisualStudio.Modeling.Diagrams;  
@@ -283,21 +286,21 @@ using Microsoft.VisualStudio.Modeling.Diagrams.ExtensionEnablement;
   
 ```  
   
-## 接收从其他模型拖动的项  
- ElementOperations 还可用于定义复制、移动、删除和拖放行为。  作为 ElementOperations 用法的演示，此处提供的示例将定义自定义拖放行为。  但是对于此目的，你可以考虑 [如何：添加拖放处理程序](../modeling/how-to-add-a-drag-and-drop-handler.md) 中所述的替代方法，该方法具有更强的可扩展性。  
+## <a name="receiving-items-dragged-from-other-models"></a>Receiving items dragged from other models  
+ ElementOperations can also be used to define copy, move, deletion and drag-and-drop behavior. As a demonstration of the use of ElementOperations, the example given here defines custom drag-and-drop behavior. However, for that purpose you might consider the alternative approach described in [How to: Add a Drag-and-Drop Handler](../modeling/how-to-add-a-drag-and-drop-handler.md), which is more extensible.  
   
- 在 ElementOperations 类中定义两个方法：  
+ Define two methods in your ElementOperations class:  
   
--   `CanMerge(ModelElement targetElement, System.Windows.Forms.IDataObject data)`，用于确定是否可将源元素拖动到目标形状、连接符或关系图上。  
+-   `CanMerge(ModelElement targetElement, System.Windows.Forms.IDataObject data)` which determines whether the source element can be dragged onto the target shape, connector or diagram.  
   
--   `MergeElementGroupPrototype(ModelElement targetElement, ElementGroupPrototype sourcePrototype)`，用于将源元素合并到目标中。  
+-   `MergeElementGroupPrototype(ModelElement targetElement, ElementGroupPrototype sourcePrototype)` which combines the source element into the target.  
   
-### CanMerge\(\)  
- 调用 `CanMerge()`，以确定当鼠标在关系图上移动时应向用户提供的反馈。  该方法的参数是在其上鼠标悬停的元素，以及有关源的数据（拖动操作从该源执行）。  用户可以从屏幕上的任何位置进行拖动。  因此，源对象可以为多种不同类型，并且可以采用不同的格式进行序列化。  如果源是 DSL 或 UML 模型，则数据参数是 <xref:Microsoft.VisualStudio.Modeling.ElementGroupPrototype> 的序列化。  拖动、复制和工具箱操作使用 ElementGroupPrototypes 来表示模型的片段。  
+### <a name="canmerge"></a>CanMerge()  
+ `CanMerge()` is called to determine feedback that should be given to the user as the mouse moves across the diagram. The parameters to the method are the element over which the mouse is hovering, and data about the source from which the drag operation has been performed. The user can drag from anywhere on the screen. Therefore, the source object can be of many different types and can be serialized in different formats. If the source is a DSL or UML model, the data parameter is the serialization of an <xref:Microsoft.VisualStudio.Modeling.ElementGroupPrototype>. Drag, copy and toolbox operations use ElementGroupPrototypes to represent fragments of models.  
   
- 元素组原型可以包含任意数目的元素和链接。  元素类型可由其 GUID 标识。  GUID 属于已拖动的形状，而不属于基础模型元素。  在以下示例中，如果将来自 UML 关系图的类形状拖动到此关系图上，则 `CanMerge()` 将返回 True。  
+ An Element Group Prototype can contain any number of elements and links. Element types can be identified by their GUIDs. The GUID is of the shape that was dragged, not the underlying model element. In following example, `CanMerge()` returns true if a class shape from a UML diagram is dragged onto this diagram.  
   
-```c#  
+```csharp  
 public override bool CanMerge(ModelElement targetShape, System.Windows.Forms.IDataObject data)  
  {  
   // Extract the element prototype from the data.  
@@ -313,10 +316,10 @@ public override bool CanMerge(ModelElement targetShape, System.Windows.Forms.IDa
   
 ```  
   
-## MergeElementGroupPrototype\(\)  
- 当用户将元素放置在关系图、形状或连接符上时，将调用此方法。  它应将拖动的内容合并到目标元素中。  在此示例中，该代码将确定它是否可识别目标和原型类型的组合；如果识别，则该方法可将拖动的元素转换到应添加到模型的元素的原型中。  调用基方法来执行转换或未转换的元素的合并。  
+## <a name="mergeelementgroupprototype"></a>MergeElementGroupPrototype()  
+ This method is called when the user drops an element onto a diagram, a shape, or a connector. It should merge the dragged content into the target element. In this example, the code determines whether it recognizes the combination of target and prototype types; if so, the method converts the dragged elements into a prototype of the elements that should be added to the model. The base method is called to perform the merge, either of the converted or unconverted elements.  
   
-```c#  
+```csharp  
 public override void MergeElementGroupPrototype(ModelElement targetShape, ElementGroupPrototype sourcePrototype)  
 {  
   ElementGroupPrototype prototypeToMerge = sourcePrototype;  
@@ -331,9 +334,9 @@ public override void MergeElementGroupPrototype(ModelElement targetShape, Elemen
   
 ```  
   
- 此示例将处理从 UML 类关系图中拖动的 UML 类元素。  DSL 的设计目的不是直接存储 UML 类，而是为每个拖动的 UML 类创建 DSL 元素。  例如，如果 DSL 是实例关系图，则这将十分有用。  用户可以将类拖动到关系图上来创建这些类的实例。  
+ This example deals with UML class elements dragged from a UML class diagram. The DSL is not designed to store UML classes directly, but instead, we create a DSL element for each dragged UML class. This would be useful, for example, if the DSL is an instance diagram. The user could drag classes onto the diagram to create instances of those classes.  
   
-```c#  
+```csharp  
   
 private ElementGroupPrototype ConvertDraggedTypeToLocal (MyTargetShape snapshot, ElementGroupPrototype prototype)  
 {  
@@ -369,14 +372,14 @@ private ElementGroupPrototype ConvertDraggedTypeToLocal (MyTargetShape snapshot,
   
 ```  
   
-## 标准复制行为  
- 此部分中的代码将显示可进行重写以更改复制行为的方法。  为了帮助你了解如何实现自己的自定义，此部分显示了可重写涉及复制的方法但不更改标准行为的代码。  
+## <a name="standard-copy-behavior"></a>Standard Copy Behavior  
+ The code in this section shows methods that can you can override to alter copying behavior. To help you see how to achieve your own customizations, this section shows code that overrides the methods involved in copying, but does not change the standard behavior.  
   
- 当用户按 CTRL\+C 或使用“复制”菜单命令时，将调用方法 <xref:Microsoft.VisualStudio.Modeling.Shell.ClipboardCommandSet.ProcessOnMenuCopyCommand%2A>。  你可以查看在 **DslPackage\\Generated Code\\CommandSet.cs** 中设置此命令的方式。  有关如何设置命令的详细信息，请参阅[如何：向快捷菜单中添加命令](../Topic/How%20to:%20Add%20a%20Command%20to%20the%20Shortcut%20Menu.md)。  
+ When the user presses CTRL+C or uses the Copy menu command, the method <xref:Microsoft.VisualStudio.Modeling.Shell.ClipboardCommandSet.ProcessOnMenuCopyCommand%2A> is called. You can see how this is set up in **DslPackage\Generated Code\CommandSet.cs**. For more information about how commands are set up, see [How to: Add a Command to the Shortcut Menu](../modeling/how-to-add-a-command-to-the-shortcut-menu.md).  
   
- 通过在 DslPackage 项目中添加 *MyDsl*`ClipboardCommandSet` 的分部类定义，可重写 ProcessOnMenuCopyCommand。  
+ You can override ProcessOnMenuCopyCommand by adding a partial class definition of *MyDsl*`ClipboardCommandSet` in the DslPackage project.  
   
-```c#  
+```csharp  
 using System.Collections.Generic;  
 using System.Drawing;  
 using System.Windows.Forms;  
@@ -388,7 +391,7 @@ partial class MyDslClipboardCommandSet
   /// <summary>  
   /// Override ProcessOnMenuCopyCommand() to copy elements to the  
   /// clipboard in different formats, or to perform additional tasks  
-  /// before or after copying – for example deselect the copied elements.  
+  /// before or after copying - for example deselect the copied elements.  
   /// </summary>  
   protected override void ProcessOnMenuCopyCommand()  
   {  
@@ -439,9 +442,9 @@ protected override void CopyModelElementsIntoElementGroupPrototype(IDataObject d
 }  
 ```  
   
- 每个关系图都具有 ElementOperations 的单一实例。  你可以提供自己的派生。  此文件（可放置在 DSL 项目中）的行为将与它重写的代码相同：  
+ Each diagram has a singleton instance of ElementOperations. You can supply your own derivative. This file, which can be placed in the DSL project, would behave the same as the code that it overrides:  
   
-```c#  
+```csharp  
 using System;  
 using System.Collections.Generic;  
 using System.Linq;  
@@ -560,8 +563,12 @@ namespace Company.MyDsl
   
 ```  
   
-## 请参阅  
- [自定义元素创建和移动](../modeling/customizing-element-creation-and-movement.md)   
- [如何：添加拖放处理程序](../modeling/how-to-add-a-drag-and-drop-handler.md)   
- [自定义删除行为](../modeling/customizing-deletion-behavior.md)   
- [示例：VMSDK 电路图示例](http://go.microsoft.com/fwlink/?LinkId=213879)
+## <a name="see-also"></a>See Also  
+ [Customizing Element Creation and Movement](../modeling/customizing-element-creation-and-movement.md)   
+ [How to: Add a Drag-and-Drop Handler](../modeling/how-to-add-a-drag-and-drop-handler.md)   
+ [Customizing Deletion Behavior](../modeling/customizing-deletion-behavior.md)   
+ [Sample: VMSDK Circuit Diagrams sample](http://go.microsoft.com/fwlink/?LinkId=213879)
+ 
+[!INCLUDE[modeling_sdk_info](includes/modeling_sdk_info.md)]
+ 
+

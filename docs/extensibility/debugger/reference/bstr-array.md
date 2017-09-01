@@ -1,63 +1,80 @@
 ---
-title: "BSTR_ARRAY | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "BSTR_ARRAY"
-helpviewer_keywords: 
-  - "BSTR_ARRAY 结构"
+title: BSTR_ARRAY | Microsoft Docs
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords:
+- BSTR_ARRAY
+helpviewer_keywords:
+- BSTR_ARRAY structure
 ms.assetid: 48da37f7-a237-48a9-9ff9-389c1a00862c
 caps.latest.revision: 10
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 10
----
-# BSTR_ARRAY
-[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
+ms.author: gregvanl
+manager: ghogen
+translation.priority.mt:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+ms.translationtype: MT
+ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
+ms.openlocfilehash: 0e1d2b2228085505971102494522cdf9085d4a67
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/28/2017
 
-描述字符串数组的结构。  
+---
+# <a name="bstrarray"></a>BSTR_ARRAY
+A structure that describes an array of strings.  
   
-## 语法  
+## <a name="syntax"></a>Syntax  
   
-```cpp#  
+```cpp  
 typedef struct tagBSTR_ARRAY {  
-   DWORD dwCount;  
-   BSTR* Members;  
+   DWORD dwCount;  
+   BSTR* Members;  
 } BSTR_ARRAY;  
 ```  
   
-```c#  
+```csharp  
 struct BSTR_ARRAY {  
-   DWORD    dwCount;  
-   string[] Members;  
+   DWORD    dwCount;  
+   string[] Members;  
 }  
 ```  
   
-## 术语  
+## <a name="terms"></a>Terms  
  dwCount  
- 字符串数。 `Members` 数组。  
+ Number of strings in `Members` array.  
   
- 成员  
- 字符串数组。  
+ Members  
+ Array of strings.  
   
-## 备注  
- 此结构从 [EnumPersistedPorts](../../../extensibility/debugger/reference/idebugportsupplier3-enumpersistedports.md) 方法返回。  
+## <a name="remarks"></a>Remarks  
+ This structure is returned from the [EnumPersistedPorts](../../../extensibility/debugger/reference/idebugportsupplier3-enumpersistedports.md) method.  
   
- 只有 C\+\+ \[\] 必须释放使用 `SysFreeString`，每个单独的字符串，并且，必须释放 `Members` 数组。 `CoTaskMemFree`。  
+ [C++ only] Each individual string must be freed using `SysFreeString`, and the `Members` array must be freed with `CoTaskMemFree`.  
   
-## 要求  
- 标题:msdbg.h  
+## <a name="requirements"></a>Requirements  
+ Header: msdbg.h  
   
- 命名空间:Microsoft.VisualStudio.Debugger.Interop  
+ Namespace: Microsoft.VisualStudio.Debugger.Interop  
   
- 程序集:Microsoft.VisualStudio.Debugger.Interop.dll  
+ Assembly: Microsoft.VisualStudio.Debugger.Interop.dll  
   
-## 请参阅  
- [结构和联合](../../../extensibility/debugger/reference/structures-and-unions.md)   
+## <a name="see-also"></a>See Also  
+ [Structures and Unions](../../../extensibility/debugger/reference/structures-and-unions.md)   
  [EnumPersistedPorts](../../../extensibility/debugger/reference/idebugportsupplier3-enumpersistedports.md)

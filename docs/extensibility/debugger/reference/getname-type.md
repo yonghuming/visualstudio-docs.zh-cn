@@ -1,89 +1,106 @@
 ---
-title: "GETNAME_TYPE | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "GETNAME_TYPE"
-helpviewer_keywords: 
-  - "GETNAME_TYPE 枚举"
+title: GETNAME_TYPE | Microsoft Docs
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords:
+- GETNAME_TYPE
+helpviewer_keywords:
+- GETNAME_TYPE enumeration
 ms.assetid: 2f9f1679-e9e8-4c9c-ac90-aa07bfe69914
 caps.latest.revision: 10
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 10
----
-# GETNAME_TYPE
-[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
+ms.author: gregvanl
+manager: ghogen
+translation.priority.mt:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+ms.translationtype: MT
+ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
+ms.openlocfilehash: e1c6a3fe365a19807d121739df6e3374dbe85129
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/28/2017
 
-指定文件的名称类型检索。  
+---
+# <a name="getnametype"></a>GETNAME_TYPE
+Specifies the name type of files to retrieve.  
   
-## 语法  
+## <a name="syntax"></a>Syntax  
   
-```cpp#  
-enum enum_GETNAME_TYPE {   
-   GN_NAME         = 0,  
-   GN_FILENAME     = 1,  
-   GN_BASENAME     = 2,  
-   GN_MONIKERNAME  = 3,  
-   GN_URL          = 4,  
-   GN_TITLE        = 5,  
-   GN_STARTPAGEURL = 6  
+```cpp  
+enum enum_GETNAME_TYPE {   
+   GN_NAME         = 0,  
+   GN_FILENAME     = 1,  
+   GN_BASENAME     = 2,  
+   GN_MONIKERNAME  = 3,  
+   GN_URL          = 4,  
+   GN_TITLE        = 5,  
+   GN_STARTPAGEURL = 6  
 };  
 typedef DWORD GETNAME_TYPE;  
 ```  
   
-```c#  
-public enum enum_GETNAME_TYPE {   
-   GN_NAME         = 0,  
-   GN_FILENAME     = 1,  
-   GN_BASENAME     = 2,  
-   GN_MONIKERNAME  = 3,  
-   GN_URL          = 4,  
-   GN_TITLE        = 5,  
-   GN_STARTPAGEURL = 6  
+```csharp  
+public enum enum_GETNAME_TYPE {   
+   GN_NAME         = 0,  
+   GN_FILENAME     = 1,  
+   GN_BASENAME     = 2,  
+   GN_MONIKERNAME  = 3,  
+   GN_URL          = 4,  
+   GN_TITLE        = 5,  
+   GN_STARTPAGEURL = 6  
 };  
 ```  
   
-## 成员  
- GN\_NAME  
- 指定文档或上下文的友好名称。  
+## <a name="members"></a>Members  
+ GN_NAME  
+ Specifies a friendly name of the document or context.  
   
- GN\_FILENAME  
- 指定文档或上下文的完整路径。  
+ GN_FILENAME  
+ Specifies the full path of the document or context.  
   
- GN\_BASENAME  
- 指定一个基文件名而不是文档或上下文的完整路径。  
+ GN_BASENAME  
+ Specifies a base file name instead of a full path of the document or context.  
   
- GN\_MONIKERNAME  
- 以标记形式，指定文档或上下文的唯一名称。  
+ GN_MONIKERNAME  
+ Specifies a unique name of the document or context in the form of a moniker.  
   
- GN\_URL  
- 指定文档或上下文的 URL 名称。  
+ GN_URL  
+ Specifies a URL name of the document or context.  
   
- GN\_TITLE  
- ，如果存在，指定文档的标题。  
+ GN_TITLE  
+ Specifies a title of the document, if one exists.  
   
- GN\_STARTPAGEURL  
- 获取开始的页 URL 进程。  
+ GN_STARTPAGEURL  
+ Gets the starting page URL for processes.  
   
-## 备注  
- 这些值作为参数传递给 [GetName](../../../extensibility/debugger/reference/idebugdocument2-getname.md)、 [GetName](../../../extensibility/debugger/reference/idebugdocumentcontext2-getname.md)和 [GetName](../../../extensibility/debugger/reference/idebugprocess2-getname.md) 方法返回指定哪一类型的名称。  
+## <a name="remarks"></a>Remarks  
+ These values are passed as parameters to the [GetName](../../../extensibility/debugger/reference/idebugdocument2-getname.md), [GetName](../../../extensibility/debugger/reference/idebugdocumentcontext2-getname.md), and [GetName](../../../extensibility/debugger/reference/idebugprocess2-getname.md) methods to specify what kind of name to return.  
   
-## 要求  
- 标题:msdbg.h  
+## <a name="requirements"></a>Requirements  
+ Header: msdbg.h  
   
- 命名空间:Microsoft.VisualStudio.Debugger.Interop  
+ Namespace: Microsoft.VisualStudio.Debugger.Interop  
   
- 程序集:Microsoft.VisualStudio.Debugger.Interop.dll  
+ Assembly: Microsoft.VisualStudio.Debugger.Interop.dll  
   
-## 请参阅  
- [枚举](../../../extensibility/debugger/reference/enumerations-visual-studio-debugging.md)   
+## <a name="see-also"></a>See Also  
+ [Enumerations](../../../extensibility/debugger/reference/enumerations-visual-studio-debugging.md)   
  [GetName](../../../extensibility/debugger/reference/idebugdocument2-getname.md)   
  [GetName](../../../extensibility/debugger/reference/idebugdocumentcontext2-getname.md)   
  [GetName](../../../extensibility/debugger/reference/idebugprocess2-getname.md)

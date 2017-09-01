@@ -1,63 +1,79 @@
 ---
-title: "CA1712：不要将类型名用作枚举值的前缀 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-devops-test"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "CA1712"
-  - "DoNotPrefixEnumValuesWithTypeName"
-helpviewer_keywords: 
-  - "CA1712"
-  - "DoNotPrefixEnumValuesWithTypeName"
+title: 'CA1712: Do not prefix enum values with type name | Microsoft Docs'
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-devops-test
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords:
+- CA1712
+- DoNotPrefixEnumValuesWithTypeName
+helpviewer_keywords:
+- CA1712
+- DoNotPrefixEnumValuesWithTypeName
 ms.assetid: df0e3a12-67bf-48f1-a10b-2ef60484a5c7
 caps.latest.revision: 15
-author: "stevehoag"
-ms.author: "shoag"
-manager: "wpickett"
-caps.handback.revision: 15
----
-# CA1712：不要将类型名用作枚举值的前缀
-[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
+author: stevehoag
+ms.author: shoag
+manager: wpickett
+translation.priority.ht:
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- ru-ru
+- zh-cn
+- zh-tw
+translation.priority.mt:
+- cs-cz
+- pl-pl
+- pt-br
+- tr-tr
+ms.translationtype: HT
+ms.sourcegitcommit: eb5c9550fd29b0e98bf63a7240737da4f13f3249
+ms.openlocfilehash: 771fe3536bbf9a47962f6219ce249a168b6b3215
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/30/2017
 
+---
+# <a name="ca1712-do-not-prefix-enum-values-with-type-name"></a>CA1712: Do not prefix enum values with type name
 |||  
 |-|-|  
-|类型名|DoNotPrefixEnumValuesWithTypeName|  
+|TypeName|DoNotPrefixEnumValuesWithTypeName|  
 |CheckId|CA1712|  
-|类别|Microsoft.Naming|  
-|是否重大更改|是|  
+|Category|Microsoft.Naming|  
+|Breaking Change|Breaking|  
   
-## 原因  
- 某枚举中包含的一个成员的名称以枚举的类型名称开头。  
+## <a name="cause"></a>Cause  
+ An enumeration contains a member whose name starts with the type name of the enumeration.  
   
-## 规则说明  
- 枚举成员的名称不能以类型名称作为前缀，因为类型信息将由开发工具提供。  
+## <a name="rule-description"></a>Rule Description  
+ Names of enumeration members are not prefixed with the type name because type information is expected to be provided by development tools.  
   
- 命名约定为所有针对公共语言运行时的库提供了通用的外观。  这缩短了学习新软件库所需的时间，并使客户进一步认为该软件库是由某位具有开发托管代码专门技术的人员所开发。  
+ Naming conventions provide a common look for libraries that target the common language runtime. This reduces the time that is required for to learn a new software library, and increases customer confidence that the library was developed by someone who has expertise in developing managed code.  
   
-## 如何解决冲突  
- 要修复与该规则的冲突，请从枚举成员中移除类型名称前缀。  
+## <a name="how-to-fix-violations"></a>How to Fix Violations  
+ To fix a violation of this rule, remove the type name prefix from the enumeration member.  
   
-## 何时禁止显示警告  
- 不要禁止显示此规则发出的警告。  
+## <a name="when-to-suppress-warnings"></a>When to Suppress Warnings  
+ Do not suppress a warning from this rule.  
   
-## 示例  
- 下面的示例演示不正确命名的枚举，随后列出已更正的版本。  
+## <a name="example"></a>Example  
+ The following example shows an incorrectly named enumeration followed by the corrected version.  
   
- [!code-cs[FxCop.Naming.EnumValues#1](../code-quality/codesnippet/CSharp/ca1712-do-not-prefix-enum-values-with-type-name_1.cs)]
- [!code-cpp[FxCop.Naming.EnumValues#1](../code-quality/codesnippet/CPP/ca1712-do-not-prefix-enum-values-with-type-name_1.cpp)]
- [!code-vb[FxCop.Naming.EnumValues#1](../code-quality/codesnippet/VisualBasic/ca1712-do-not-prefix-enum-values-with-type-name_1.vb)]  
+ [!code-csharp[FxCop.Naming.EnumValues#1](../code-quality/codesnippet/CSharp/ca1712-do-not-prefix-enum-values-with-type-name_1.cs)] [!code-cpp[FxCop.Naming.EnumValues#1](../code-quality/codesnippet/CPP/ca1712-do-not-prefix-enum-values-with-type-name_1.cpp)] [!code-vb[FxCop.Naming.EnumValues#1](../code-quality/codesnippet/VisualBasic/ca1712-do-not-prefix-enum-values-with-type-name_1.vb)]  
   
-## 相关规则  
- [CA1711：标识符应采用正确的后缀](../code-quality/ca1711-identifiers-should-not-have-incorrect-suffix.md)  
+## <a name="related-rules"></a>Related Rules  
+ [CA1711: Identifiers should not have incorrect suffix](../code-quality/ca1711-identifiers-should-not-have-incorrect-suffix.md)  
   
- [CA1027：用 FlagsAttribute 标记枚举](../code-quality/ca1027-mark-enums-with-flagsattribute.md)  
+ [CA1027: Mark enums with FlagsAttribute](../code-quality/ca1027-mark-enums-with-flagsattribute.md)  
   
- [CA2217：不要使用 FlagsAttribute 标记枚举](../code-quality/ca2217-do-not-mark-enums-with-flagsattribute.md)  
+ [CA2217: Do not mark enums with FlagsAttribute](../code-quality/ca2217-do-not-mark-enums-with-flagsattribute.md)  
   
-## 请参阅  
+## <a name="see-also"></a>See Also  
  <xref:System.Enum?displayProperty=fullName>

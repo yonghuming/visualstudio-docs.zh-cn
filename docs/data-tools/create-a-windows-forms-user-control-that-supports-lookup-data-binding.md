@@ -1,188 +1,195 @@
 ---
-title: "演练：创建支持查找数据绑定的 Windows 窗体用户控件 | Microsoft Docs"
-ms.custom: ""
-ms.date: "12/15/2016"
-ms.prod: "visual-studio-dev14"
-ms.reviewer: ""
-ms.suite: ""
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-dev_langs: 
-  - "VB"
-  - "CSharp"
-  - "C++"
-  - "aspx"
-helpviewer_keywords: 
-  - "数据绑定, 用户控件"
-  - "LookupBindingPropertiesAttribute 类, 示例"
-  - "用户控件 [Visual Basic], 创建"
+title: Using lookup tables in data binding - Windows Forms controls| Microsoft Docs
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.tgt_pltfrm: 
+ms.topic: article
+dev_langs:
+- VB
+- CSharp
+helpviewer_keywords:
+- data binding, user controls
+- LookupBindingPropertiesAttribute class, examples
+- user controls [Visual Basic], creating
 ms.assetid: c48b4d75-ccfc-4950-8b14-ff8adbfe4208
 caps.latest.revision: 14
-caps.handback.revision: 11
-author: "mikeblome"
-ms.author: "mblome"
-manager: "ghogen"
+author: mikeblome
+ms.author: mblome
+manager: ghogen
+translation.priority.ht:
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- ru-ru
+- zh-cn
+- zh-tw
+translation.priority.mt:
+- cs-cz
+- pl-pl
+- pt-br
+- tr-tr
+ms.translationtype: HT
+ms.sourcegitcommit: eb5c9550fd29b0e98bf63a7240737da4f13f3249
+ms.openlocfilehash: df0d36441585a6ad856edaf4c5bc0cf3fd65e5bc
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/30/2017
+
 ---
-# 演练：创建支持查找数据绑定的 Windows 窗体用户控件
-在 Windows 窗体上显示数据时，你可以从“工具箱”中选择现有的控件，或者，如果应用程序需要标准控件中无法实现的功能时，你还可以创作自定义控件。  本演练显示了如何创建实现 <xref:System.ComponentModel.LookupBindingPropertiesAttribute> 的控件。  实现 <xref:System.ComponentModel.LookupBindingPropertiesAttribute> 的控件可以包含三个属性，这些属性可以绑定到数据。  此类控件类似于 <xref:System.Windows.Forms.ComboBox>。  
+# <a name="create-a-windows-forms-user-control-that-supports-lookup-data-binding"></a>Create a Windows Forms user control that supports lookup data binding
+When displaying data on Windows Forms, you can choose existing controls from the **Toolbox**, or you can author custom controls if your application requires functionality not available in the standard controls. This walkthrough shows how to create a control that implements the <xref:System.ComponentModel.LookupBindingPropertiesAttribute>. Controls that implement the <xref:System.ComponentModel.LookupBindingPropertiesAttribute> can contain three properties that can be bound to data. Such controls are similar to a <xref:System.Windows.Forms.ComboBox>.  
   
- 有关控件创作的详细信息，请参阅[设计时开发 Windows 窗体控件](../Topic/Developing%20Windows%20Forms%20Controls%20at%20Design%20Time.md)。  
+ For more information on control authoring, see [Developing Windows Forms Controls at Design Time](/dotnet/framework/winforms/controls/developing-windows-forms-controls-at-design-time).  
   
- 创建用于数据绑定方案的控件时，你需要实现以下数据绑定特性之一：  
+ When authoring controls for use in data-binding scenarios you need to implement one of the following data-binding attributes:  
   
-|数据绑定特性的用法|  
-|---------------|  
-|在简单控件上实现 <xref:System.ComponentModel.DefaultBindingPropertyAttribute>（如 <xref:System.Windows.Forms.TextBox>），此类控件用于显示数据的单个列（或属性）。  有关详细信息，请参阅[演练：创建支持简单数据绑定的 Windows 窗体用户控件](../data-tools/create-a-windows-forms-user-control-that-supports-simple-data-binding.md)。|  
-|在控件上实现 <xref:System.ComponentModel.ComplexBindingPropertiesAttribute>（如 <xref:System.Windows.Forms.DataGridView>），此类控件用于显示数据列表（或表）。  有关详细信息，请参阅[演练：创建支持复杂数据绑定的 Windows 窗体用户控件](../data-tools/create-a-windows-forms-user-control-that-supports-complex-data-binding.md)。|  
-|在控件上实现 <xref:System.ComponentModel.LookupBindingPropertiesAttribute>（如 <xref:System.Windows.Forms.ComboBox>），该控件用于显示数据列表（或表），也需要显示数据的单个列或属性。  （本演练页面描述了此过程）。|  
+|Data-binding attribute usage|  
+|-----------------------------------|  
+|Implement the <xref:System.ComponentModel.DefaultBindingPropertyAttribute> on simple controls, like a <xref:System.Windows.Forms.TextBox>, that display a single column (or property) of data. For more information, see [Create a Windows Forms user control that supports simple data binding](../data-tools/create-a-windows-forms-user-control-that-supports-simple-data-binding.md).|  
+|Implement the <xref:System.ComponentModel.ComplexBindingPropertiesAttribute> on controls, like a <xref:System.Windows.Forms.DataGridView>, that display lists (or tables) of data. For more information, see [Create a Windows Forms user control that supports complex data binding](../data-tools/create-a-windows-forms-user-control-that-supports-complex-data-binding.md).|  
+|Implement the <xref:System.ComponentModel.LookupBindingPropertiesAttribute> on controls, like a <xref:System.Windows.Forms.ComboBox>, that display lists (or tables) of data, but also need to present a single column or property. (This process is described in this walkthrough page.)|  
   
- 本演练创建绑定到源自两个表的数据的查找控件。  此示例使用源自 Northwind 示例数据库的 `Customers` 和 `Orders` 表。  该查找控件将会绑定到源自 `Orders` 表的 `CustomerID` 字段。  它将使用此值从 `Customers` 表中查找 `CompanyName`。  
+ This walkthrough creates a lookup control that binds to data from two tables. This example uses the `Customers` and `Orders` tables from the Northwind sample database. The lookup control will be bound to the `CustomerID` field from the `Orders` table. It will use this value to look up the `CompanyName` from the `Customers` table.  
   
- 在本演练中，你将学会如何执行以下任务：  
+ During this walkthrough, you will learn how to:  
   
--   创建新的**“Windows 应用程序”**。  
+-   Create a new **Windows Application**.  
   
--   将新的**“用户控件”**添加到你的项目中。  
+-   Add a new **User Control** to your project.  
   
--   以可视方式设计用户控件。  
+-   Visually design the user control.  
   
--   实现 `LookupBindingProperty` 特性。  
+-   Implement the `LookupBindingProperty` attribute.  
   
--   使用[数据源配置向导](../data-tools/media/data-source-configuration-wizard.png)创建数据集。  
+-   Create a dataset with the **Data Source Configuration** wizard.  
   
--   在**“数据源”**窗口中，设置**“Orders”**表上的**“CustomerID”**列，以使用新的控件。  
+-   Set the **CustomerID** column on the **Orders** table, in the **Data Sources** window, to use the new control.  
   
--   创建一个用于在新控件中显示数据的窗体。  
+-   Create a form to display data in the new control.  
   
-## 系统必备  
- 若要完成本演练，你将需要：  
+## <a name="prerequisites"></a>Prerequisites  
+ In order to complete this walkthrough, you will need:  
   
--   能够访问 Northwind 示例数据库。  有关详细信息，请参阅[如何：安装示例数据库](../data-tools/how-to-install-sample-databases.md)。  
+-   Access to the Northwind sample database.  
   
-## 创建 Windows 应用程序  
- 第一步是创建**“Windows 应用程序”**。  
+## <a name="create-a-windows-application"></a>Create a Windows Application  
+ The first step is to create a **Windows Application**.  
   
-#### 创建新的 Windows 项目  
+#### <a name="to-create-the-new-windows-project"></a>To create the new Windows project  
   
-1.  在 Visual Studio 中，从**“文件”**菜单创建一个新的**“项目”**。  
+1.  In Visual Studio, from the **File** menu, create a new **Project**.  
   
-2.  将项目命名为 LookupControlWalkthrough。  
+2.  Name the project **LookupControlWalkthrough**.  
   
-3.  选择**“Windows 应用程序”**，然后单击**“确定”**。  有关详细信息，请参阅[客户端应用程序](../Topic/Developing%20Client%20Applications%20with%20the%20.NET%20Framework.md)。  
+3.  Select **Windows  Forms Application**, and click **OK**.  
   
-     **“LookupControlWalkthrough”**项目即被创建并添加到**“解决方案资源管理器”**中。  
+     The **LookupControlWalkthrough** project is created, and added to **Solution Explorer**.  
   
-## 将用户控件添加到项目中  
- 由于本演练从**“用户控件”**创建查找控件，所以你必须将**“用户控件”**项添加到**“LookupControlWalkthrough”**项目中。  
+## <a name="add-a-user-control-to-the-project"></a>Add a user control to the project  
+ This walkthrough creates a lookup control from a **User Control**, so add a **User Control** item to the **LookupControlWalkthrough** project.  
   
-#### 将用户控件添加到项目中  
+#### <a name="to-add-a-user-control-to-the-project"></a>To add a user control to the project  
   
-1.  从**“项目”**菜单中，选择**“添加用户控件”**。  
+1.  From the **Project** menu, select **Add User Control**.  
   
-2.  在**“名称”**区域中键入 `LookupBox`，然后单击**“添加”**。  
+2.  Type `LookupBox` in the **Name** area, and then click **Add**.  
   
-     **“LookupBox”**控件将会添加到**“解决方案资源管理器”**中，并在设计器中打开该控件。  
+     The **LookupBox** control is added to **Solution Explorer**, and opens in the designer.  
   
-## 设计 LookupBox 控件  
+## <a name="design-the-lookupbox-control"></a>Design the LookupBox control  
   
-#### 设计 LookupBox 控件  
+#### <a name="to-design-the-lookupbox-control"></a>To design the LookupBox control  
   
--   将 <xref:System.Windows.Forms.ComboBox> 从**“工具箱”**拖到该用户控件的设计图面上。  
+-   Drag a <xref:System.Windows.Forms.ComboBox> from the **Toolbox** onto the user control's design surface.  
   
-## 添加所需的数据绑定特性  
- 对于支持数据绑定的查找控件，你可以实现 <xref:System.ComponentModel.LookupBindingPropertiesAttribute>。  
+## <a name="add-the-required-data-binding-attribute"></a>Add the required data-binding attribute  
+ For lookup controls that support data binding, you can implement the <xref:System.ComponentModel.LookupBindingPropertiesAttribute>.  
   
-#### 实现 LookupBindingProperties 特性  
+#### <a name="to-implement-the-lookupbindingproperties-attribute"></a>To implement the LookupBindingProperties attribute  
   
-1.  将**“LookupBox”**控件切换到代码视图。  （在**“视图”**菜单上，选择**“代码”**。）  
+1.  Switch the **LookupBox** control to code view. (On the **View** menu, choose **Code**.)  
   
-2.  将 `LookupBox` 中的代码替换为以下内容：  
+2.  Replace the code in the `LookupBox` with the following:  
   
-     [!code-vb[VbRaddataDisplaying#5](../data-tools/codesnippet/VisualBasic/create-a-windows-forms-user-control-that-supports-lookup-data-binding_1.vb)]
-     [!code-cs[VbRaddataDisplaying#5](../data-tools/codesnippet/CSharp/create-a-windows-forms-user-control-that-supports-lookup-data-binding_1.cs)]  
+     [!code-vb[VbRaddataDisplaying#5](../data-tools/codesnippet/VisualBasic/create-a-windows-forms-user-control-that-supports-lookup-data-binding_1.vb)]  [!code-csharp[VbRaddataDisplaying#5](../data-tools/codesnippet/CSharp/create-a-windows-forms-user-control-that-supports-lookup-data-binding_1.cs)]  
   
-3.  从**“生成”**菜单中选择**“生成解决方案”**。  
+3.  From the **Build** menu, choose **Build Solution**.  
   
-## 从数据库创建数据源  
- 此步骤根据 Northwind 示例数据库中的 `Customers` 和 `Orders` 表，使用**“数据源配置向导”**创建数据源。  你必须具有对 Northwind 示例数据库的访问权限，才能创建连接。  有关设置 Northwind 示例数据库的信息，请参阅[如何：安装示例数据库](../data-tools/how-to-install-sample-databases.md)。  
+## <a name="create-a-data-source-from-your-database"></a>Create a data source from your database  
+ This step creates a data source using the **Data Source Configuration**wizard, based on the `Customers` and `Orders` tables in the Northwind sample database. You must have access to the Northwind sample database to create the connection. For information on setting up the Northwind sample database, see [Install SQL Server sample databases](../data-tools/install-sql-server-sample-databases.md).  
   
-#### 创建数据源  
+#### <a name="to-create-the-data-source"></a>To create the data source  
   
-1.  在**“数据”**菜单上，单击**“显示数据源”**。  
+1.  On the **Data** menu, click **Show Data Sources**.  
   
-2.  在**“数据源”**窗口中，选择**“添加新数据源”**以启动**“数据源配置向导”**。  
+2.  In the **Data Sources** window, select **Add New Data Source** to start the **Data Source Configuration** wizard.  
   
-3.  在**“选择数据源类型”**页上选择**“数据库”**，然后单击**“下一步”**。  
+3.  Select **Database** on the **Choose a Data Source Type** page, and then click **Next**.  
   
-4.  在**“选择你的数据连接”**页面上，执行以下操作之一：  
+4.  On the **Choose your Data Connection** page do one of the following:  
   
-    -   如果下拉列表中包含到 Northwind 示例数据库的数据连接，请选择该连接。  
+    -   If a data connection to the Northwind sample database is available in the drop-down list, select it.  
   
-         \- 或 \-  
+    -   Select **New Connection** to launch the **Add/Modify Connection** dialog box.  
   
-    -   选择**“新建连接”**，以启动**“添加\/修改连接”**对话框。  
+5.  If your database requires a password, select the option to include sensitive data, and then click **Next**.  
   
-5.  如果数据库需要密码，请选择该选项以包括敏感数据，再单击**“下一步”**。  
+6.  On the **Save connection string to the Application Configuration file** page, click **Next**.  
   
-6.  在**“将连接字符串保存到应用程序配置文件”**页面上单击**“下一步”**。  
+7.  On the **Choose your Database Objects** page, expand the **Tables** node.  
   
-7.  在**“选择数据库对象”**页面上展开**“表”**节点。  
+8.  Select the `Customers` and `Orders` tables, and then click **Finish**.  
   
-8.  选择 `Customers` 和 `Orders` 表，然后单击**“完成”**。  
+     The **NorthwindDataSet** is added to your project, and the `Customers` and `Orders` tables appear in the **Data Sources** window.  
   
-     **“NorthwindDataSet”**将会添加到你的项目中，并且**“数据源”**窗口中将显示 `Customers` 和 `Orders` 表。  
+## <a name="set-the-customerid-column-of-the-orders-table-to-use-the-lookupbox-control"></a>Set the CustomerID column of the Orders table to use the LookupBox control  
+ Within the **Data Sources** window, you can set the control to be created prior to dragging items onto your form.  
   
-## 设置“Orders”表的“CustomerID”列以使用 LookupBox 控件  
- 在**“数据源”**窗口中，你可以先设置要创建的控件，然后再将项拖动到窗体上。  
+#### <a name="to-set-the-customerid-column-to-bind-to-the-lookupbox-control"></a>To set the CustomerID column to bind to the LookupBox control  
   
-#### 将“CustomerID”列设置为绑定到 LookupBox 控件  
+1.  Open **Form1** in the designer.  
   
-1.  在设计器中打开**“Form1”**。  
+2.  Expand the **Customers** node in the **Data Sources** window.  
   
-2.  在**“数据源”**窗口中展开**“Customers”**节点。  
+3.  Expand the **Orders** node (the one in the **Customers** node below the **Fax** column).  
   
-3.  展开**“Orders”**节点（**“Customers”**节点中**“Fax”**列下面的节点）。  
+4.  Click the drop-down arrow on the **Orders** node, and choose **Details** from the control list.  
   
-4.  单击**“Orders”**节点上的下拉箭头，然后从控件列表中选择**“详细信息”**。  
+5.  Click the drop-down arrow on the **CustomerID** column (in the **Orders** node), and choose **Customize**.  
   
-5.  单击**“CustomerID”**列（在**“Orders”**节点中）上的下拉箭头，然后选择**“自定义”**。  
+6.  Select the **LookupBox** from the list of **Associated Controls** in the **Data UI Customization Options** dialog box.  
   
-6.  在**“数据 UI 自定义选项”**对话框中，从**“关联的控件”**列表中选择**“LookupBox”**。  
+7.  Click **OK**.  
   
-7.  单击“确定”。  
+8.  Click the drop-down arrow on the **CustomerID** column, and choose **LookupBox**.  
   
-8.  单击**“CustomerID”**列上的下拉箭头，然后选择**“LookupBox”**。  
+## <a name="add-controls-to-the-form"></a>Add controls to the form  
+ You can create the data-bound controls by dragging items from the **Data Sources** window onto **Form1**.  
   
-## 将控件添加到窗体  
- 通过将某些项从**“数据源”**窗口中拖到**“Form1”**上，可创建数据绑定控件。  
+#### <a name="to-create-data-bound-controls-on-the-windows-form"></a>To create data-bound controls on the Windows Form  
   
-#### 在 Windows 窗体上创建数据绑定控件  
+-   Drag the **Orders** node from the **Data Sources** window onto the Windows Form, and verify that the **LookupBox** control is used to display the data in the `CustomerID` column.  
   
--   将**“Orders”**节点从**“数据源”**窗口中拖到 Windows 窗体上，并验证**“LookupBox”**控件是否用于显示 `CustomerID` 中的数据。  
+## <a name="bind-the-control-to-look-up-companyname-from-the-customers-table"></a>Bind the control to look up CompanyName from the Customers table  
   
-## 绑定该控件以从“Customers”表中查找 CompanyName  
+#### <a name="to-setup-the-lookup-bindings"></a>To setup the lookup bindings  
   
-#### 设置查找绑定  
+-   Select the main **Customers** node in the **Data Sources** window, and drag it onto the combo box in the **CustomerIDLookupBox** on **Form1**.  
   
--   在**“数据源”**窗口中选择主**“Customers”**节点，并将其拖到**“Form1”**上的**“CustomerIDLookupBox”**中的组合框中。  
+     This sets up the data binding to display the `CompanyName` from the `Customers` table, while maintaining the `CustomerID` value from the `Orders` table.  
   
-     此操作对数据绑定进行设置，在保持源自 `Orders` 表的 `CustomerID` 值时，显示 `Customers` 表中的 `CompanyName`。  有关详细信息，请参阅[如何：在 Windows 窗体应用程序中创建查找表](../data-tools/create-lookup-tables-in-windows-forms-applications.md)。  
+## <a name="running-the-application"></a>Running the application  
   
-## 运行应用程序  
+#### <a name="to-run-the-application"></a>To run the application  
   
-#### 运行应用程序  
+-   Press F5 to run the application.  
   
--   按 F5 运行该应用程序。  
+-   Navigate through some records, and verify that the `CompanyName` appears in the `LookupBox` control.  
   
--   通过某些记录进行定位，并验证 `LookupBox` 控件中是否显示 `CompanyName`。  
-  
-## 请参阅  
- [设置从“数据源”窗口中拖动时要创建的控件](../data-tools/set-the-control-to-be-created-when-dragging-from-the-data-sources-window.md)   
- [在 Visual Studio 中将 Windows 窗体控件绑定到数据](../data-tools/bind-windows-forms-controls-to-data-in-visual-studio.md)   
- [连接到 Visual Studio 中的数据](../data-tools/connecting-to-data-in-visual-studio.md)   
- [准备应用程序以接收数据](../Topic/Preparing%20Your%20Application%20to%20Receive%20Data.md)   
- [将数据获取到应用程序](../data-tools/fetching-data-into-your-application.md)   
- [在 Visual Studio 中将控件绑定到数据](../data-tools/bind-controls-to-data-in-visual-studio.md)   
- [在应用程序中编辑数据](../data-tools/editing-data-in-your-application.md)   
- [验证数据](../Topic/Validating%20Data.md)   
- [保存数据](../data-tools/saving-data.md)
+## <a name="see-also"></a>See Also  
+ [Bind Windows Forms controls to data in Visual Studio](../data-tools/bind-windows-forms-controls-to-data-in-visual-studio.md)
+

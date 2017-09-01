@@ -1,62 +1,81 @@
 ---
-title: "InvokeMethod 活动设计器 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.tgt_pltfrm: ""
-ms.topic: "reference"
-f1_keywords: 
-  - "System.Activities.Statements.InvokeMethod.UI"
+title: InvokeMethod Activity Designer | Microsoft Docs
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.tgt_pltfrm: 
+ms.topic: reference
+f1_keywords:
+- System.Activities.Statements.InvokeMethod.UI
 ms.assetid: 15e6efdc-52ca-46d8-9c5e-063f7c8265a6
 caps.latest.revision: 6
-author: "ErikRe"
-ms.author: "erikre"
-manager: "erikre"
-caps.handback.revision: 6
+author: ErikRe
+ms.author: erikre
+manager: erikre
+translation.priority.ht:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+ms.translationtype: HT
+ms.sourcegitcommit: 21a413a3e2d17d77fd83d5109587a96f323a0511
+ms.openlocfilehash: d89a87b211a25845c6656087c1997784dfdc3dc0
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/30/2017
+
 ---
-# InvokeMethod 活动设计器
-**“InvokeMethod”**设计器用于创建和配置 <xref:System.Activities.Statements.InvokeMethod> 活动。  
+# <a name="invokemethod-activity-designer"></a>InvokeMethod Activity Designer
+**InvokeMethod** designer is used to create and configure an <xref:System.Activities.Statements.InvokeMethod> activity.  
   
-## InvokeMethod 活动  
- <xref:System.Activities.Statements.InvokeMethod> 调用指定对象或类型的公共方法。  
+## <a name="the-invokemethod-activity"></a>The InvokeMethod Activity  
+ The <xref:System.Activities.Statements.InvokeMethod> calls a public method of a specified object or type.  
   
-### 使用 InvokeMethod 活动设计器  
- **“InvokeMethod”**活动设计器可在**“工具箱”**的**“基元”**类别中找到，“工具箱”可通过单击 [!INCLUDE[wfd2](../workflow-designer/includes/wfd2_md.md)] 的**“工具箱”**选项卡（或者，从**“视图”**菜单中选择**“工具栏”**或按 Ctrl\+Alt\+X）来访问。  
+### <a name="using-the-invokemethod-activity-designer"></a>Using the InvokeMethod Activity Designer  
+ The **InvokeMethod** activity designer can be found in the **Primitives** category of the **Toolbox**, which is accessed by clicking the **Toolbox** tab [!INCLUDE[wfd2](../workflow-designer/includes/wfd2_md.md)] (Alternatively, select **Toolbar** from the **View** menu, or CRTL+ALT+X.)  
   
- 可以将**“InvokeMethod”**活动设计器从**“工具箱”**拖放到 [!INCLUDE[wfd2](../workflow-designer/includes/wfd2_md.md)] 图面上通常放置活动的任何位置，如 <xref:System.Activities.Statements.Sequence> 内。这将创建具有 InvokeMethod 的默认 <xref:System.Activities.Activity.DisplayName%2A> 的 <xref:System.Activities.Statements.InvokeMethod> 活动。可以在**“InvokeMethod”**活动设计器的标头中或在属性网格的**“DisplayName”**框中编辑 <xref:System.Activities.Activity.DisplayName%2A>。  
+ The **InvokeMethod** activity designer can be dragged from the **Toolbox** and dropped on to the [!INCLUDE[wfd2](../workflow-designer/includes/wfd2_md.md)] surface where ever activities are usually placed, such as inside a <xref:System.Activities.Statements.Sequence>. This creates an <xref:System.Activities.Statements.InvokeMethod> activity with a default <xref:System.Activities.Activity.DisplayName%2A> of InvokeMethod. The <xref:System.Activities.Activity.DisplayName%2A> can be edited in the header of the **InvokeMethod** activity designer or in the **DisplayName** box of the property grid.  
   
-### InvokeMethod 属性  
- 下表列出 <xref:System.Activities.Statements.InvokeMethod> 属性并说明如何在设计器中使用它们。这些属性可以在属性网格中进行编辑，其中一些属性还可以在 [!INCLUDE[wfd2](../workflow-designer/includes/wfd2_md.md)] 设计器图面上进行编辑。  
+### <a name="the-invokemethod-properties"></a>The InvokeMethod Properties  
+ The following table shows the <xref:System.Activities.Statements.InvokeMethod> properties and describes how they are used in the designer. These properties can be edited in property grid and some can be edited on [!INCLUDE[wfd2](../workflow-designer/includes/wfd2_md.md)]designer surface.  
   
-|属性名|必需|用法|  
-|---------|--------|--------|  
-|<xref:System.Activities.Activity.DisplayName%2A>|False|<xref:System.Activities.Statements.InvokeMethod> 活动的友好名称。默认值为 InvokeMethod。<br /><br /> 虽然 <xref:System.Activities.Activity.DisplayName%2A> 不是绝对必需的，但最好使用该属性。|  
-|<xref:System.Activities.Statements.InvokeMethod.MethodName%2A>|True|要在执行活动时调用的方法的名称。调用的方法必须声明为 **public**。此属性可以在设计器图面上进行编辑。此属性是强制属性。|  
-|<xref:System.Activities.Statements.InvokeMethod.Parameters%2A>|False|所调用方法的参数集合。将参数添加到集合中的顺序必须与这些参数在方法签名中出现的顺序相同。在属性网格中，单击**“参数”**字段中的省略号按钮，此时将显示**“参数”**对话框以便您设置此属性。单击**“创建参数”**按钮以添加参数。|  
-|<xref:System.Activities.Statements.InvokeMethod.Result%2A>|False|方法调用的返回值。|  
-|<xref:System.Activities.Statements.InvokeMethod.RunAsynchronously%2A>|True|指定是否异步调用该方法。默认值为 **False**。|  
-|<xref:System.Activities.Statements.InvokeMethod.TargetObject%2A>|False|包含要调用的方法的对象。此属性可以在设计器图面上进行编辑。<br /><br /> 必须设置 <xref:System.Activities.Statements.InvokeMethod.TargetObject%2A> 或 <xref:System.Activities.Statements.InvokeMethod.TargetType%2A> 之一。|  
-|<xref:System.Activities.Statements.InvokeMethod.TargetType%2A>|False|<xref:System.Activities.Statements.InvokeMethod.TargetObject%2A> 的类型。此属性可以在设计器图面上进行编辑。只有当调用的方法为静态时，才必须设置此属性。|  
+|Property Name|Required|Usage|  
+|-------------------|--------------|-----------|  
+|<xref:System.Activities.Activity.DisplayName%2A>|False|The friendly name of the <xref:System.Activities.Statements.InvokeMethod> activity. The default value is InvokeMethod.<br /><br /> Although the <xref:System.Activities.Activity.DisplayName%2A> is not strictly required, it is a best practice to use one.|  
+|<xref:System.Activities.Statements.InvokeMethod.MethodName%2A>|True|The name of the method to be called when the activity executes. The called method must be declared as **public**. This property can be edited on designer surface. This is a mandatory property.|  
+|<xref:System.Activities.Statements.InvokeMethod.Parameters%2A>|False|The parameter collection of the called method. The parameters must be added to the collection in the same order that they appear in the method signature. In the property grid, click the ellipsis button in the **Parameters** field, it displays the **Parameters** dialog to let you set this property. Click the **Create Argument** button to add the parameters.|  
+|<xref:System.Activities.Statements.InvokeMethod.Result%2A>|False|The return value of the method call.|  
+|<xref:System.Activities.Statements.InvokeMethod.RunAsynchronously%2A>|True|Specifies whether the method is called asynchronously. The default value is **False**.|  
+|<xref:System.Activities.Statements.InvokeMethod.TargetObject%2A>|False|The object that contains the method to call. This property can be edited on designer surface.<br /><br /> Either the <xref:System.Activities.Statements.InvokeMethod.TargetObject%2A> or the <xref:System.Activities.Statements.InvokeMethod.TargetType%2A> is required to be set.|  
+|<xref:System.Activities.Statements.InvokeMethod.TargetType%2A>|False|The type of <xref:System.Activities.Statements.InvokeMethod.TargetObject%2A>. This property can be edited on the designer surface. This property must only be set if the method called is static.|  
   
- 若要将参数作为 C\# **out** 参数传递（例如，`Method1(out myParam)`），应使用 **OutArgument** 而不是 **InOutArgument**。  
+ To pass parameters as a C# **out** parameter (for example, `Method1(out myParam)),` you should use **OutArgument** instead of **InOutArgument**  
   
- 具有名为 **TargetObject** 或 **Result** 的参数的方法不能使用 <xref:System.Activities.Statements.InvokeMethod> 活动来调用。原因是 <xref:System.Activities.Statements.InvokeMethod> 活动在 <xref:System.Activities.Activity.CacheMetadata%2A> 中注册 <xref:System.Activities.Statements.InvokeMethod.GenericTypeArguments%2A>、<xref:System.Activities.Statements.InvokeMethod.TargetObject%2A> 和 <xref:System.Activities.Statements.InvokeMethod.Result%2A>。  
+ Methods with arguments called **TargetObject** or **Result** cannot be invoked using the <xref:System.Activities.Statements.InvokeMethod> activity. The reason for this is that <xref:System.Activities.Statements.InvokeMethod> activity registers the <xref:System.Activities.Statements.InvokeMethod.GenericTypeArguments%2A>, <xref:System.Activities.Statements.InvokeMethod.TargetObject%2A> and <xref:System.Activities.Statements.InvokeMethod.Result%2A> in <xref:System.Activities.Activity.CacheMetadata%2A>.  
   
- 在 <xref:System.Activities.Activity.CacheMetadata%2A> 中注册这些参数的算法如下所列：  
+ The algorithm for registering the parameters in <xref:System.Activities.Activity.CacheMetadata%2A> is shown in the following list:  
   
-1.  注册 <xref:System.Activities.Statements.InvokeMethod.TargetObject%2A> 参数。  
+1.  Register <xref:System.Activities.Statements.InvokeMethod.TargetObject%2A> argument.  
   
-2.  注册 <xref:System.Activities.Statements.InvokeMethod.Result%2A> 参数。  
+2.  Register <xref:System.Activities.Statements.InvokeMethod.Result%2A> argument.  
   
-3.  循环访问 <xref:System.Activities.Statements.InvokeMethod.Parameters%2A> 集合并注册每个参数。  
+3.  Iterate through the <xref:System.Activities.Statements.InvokeMethod.Parameters%2A> collection and register each argument.  
   
- 产生的异常的类型为 <xref:System.Activities.InvalidWorkflowException> 并带有以下消息：“InvokeMethod”: 已存在名为“TargetObject”的变量、RuntimeArgument 或 DelegateArgument。在环境作用域中，名称必须唯一。  
+ The resulting exception is of type <xref:System.Activities.InvalidWorkflowException> with the following message: 'InvokeMethod': A variable, RuntimeArgument or a DelegateArgument already exists with the name 'TargetObject'. Names must be unique within an environment scope.  
   
- 此限制不适用于 <xref:System.Activities.Statements.InvokeMethod.TargetType%2A> 和 <xref:System.Activities.Statements.InvokeMethod.RunAsynchronously%2A>，因为它们不是工作流参数，因此在 <xref:System.Activities.Activity.CacheMetadata%2A> 方法中而不在 <xref:System.Activities.Statements.InvokeMethod> 活动的 <xref:System.Activities.Statements.InvokeMethod.GenericTypeArguments%2A> 集合中注册。  
+ This restriction does not apply to <xref:System.Activities.Statements.InvokeMethod.TargetType%2A> and <xref:System.Activities.Statements.InvokeMethod.RunAsynchronously%2A> because they are not workflow arguments and therefore are not registered in the <xref:System.Activities.Statements.InvokeMethod.GenericTypeArguments%2A> collection of <xref:System.Activities.Statements.InvokeMethod> activity in <xref:System.Activities.Activity.CacheMetadata%2A> method.  
   
-## 请参阅  
- [基元](../workflow-designer/primitives-activity-designers.md)   
+## <a name="see-also"></a>See Also  
+ [Primitives](../workflow-designer/primitives-activity-designers.md)   
  [Assign](../workflow-designer/assign-activity-designer.md)   
  [Delay](../workflow-designer/delay-activity-designer.md)   
  [WriteLine](../workflow-designer/writeline-activity-designer.md)

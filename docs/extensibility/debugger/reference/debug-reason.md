@@ -1,77 +1,94 @@
 ---
-title: "DEBUG_REASON | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "DEBUG_REASON"
-helpviewer_keywords: 
-  - "DEBUG_REASON 枚举"
+title: DEBUG_REASON | Microsoft Docs
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords:
+- DEBUG_REASON
+helpviewer_keywords:
+- DEBUG_REASON enumeration
 ms.assetid: ad2ee898-8648-4671-9078-d32873862346
 caps.latest.revision: 8
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 8
----
-# DEBUG_REASON
-[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
+ms.author: gregvanl
+manager: ghogen
+translation.priority.mt:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+ms.translationtype: MT
+ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
+ms.openlocfilehash: e6d6e969b3829222043f789556d26843297d25db
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/28/2017
 
-指定进程的原因。调试生成。  
+---
+# <a name="debugreason"></a>DEBUG_REASON
+Specifies why the process was launched for debugging.  
   
-## 语法  
+## <a name="syntax"></a>Syntax  
   
-```cpp#  
-enum enum_DEBUG_REASON {  
-   DEBUG_REASON_ERROR         = 0,  
-   DEBUG_REASON_USER_LAUNCHED = 1,  
-   DEBUG_REASON_USER_ATTACHED = 2,  
-   DEBUG_REASON_AUTO_ATTACHED = 3,  
-   DEBUG_REASON_CAUSALITY     = 4  
+```cpp  
+enum enum_DEBUG_REASON {  
+   DEBUG_REASON_ERROR         = 0,  
+   DEBUG_REASON_USER_LAUNCHED = 1,  
+   DEBUG_REASON_USER_ATTACHED = 2,  
+   DEBUG_REASON_AUTO_ATTACHED = 3,  
+   DEBUG_REASON_CAUSALITY     = 4  
 };  
-typedef DWORD DEBUG_REASON;  
+typedef DWORD DEBUG_REASON;  
 ```  
   
-```c#  
-public enum enum_DEBUG_REASON {  
-   DEBUG_REASON_ERROR         = 0,  
-   DEBUG_REASON_USER_LAUNCHED = 1,  
-   DEBUG_REASON_USER_ATTACHED = 2,  
-   DEBUG_REASON_AUTO_ATTACHED = 3,  
-   DEBUG_REASON_CAUSALITY     = 4  
+```csharp  
+public enum enum_DEBUG_REASON {  
+   DEBUG_REASON_ERROR         = 0,  
+   DEBUG_REASON_USER_LAUNCHED = 1,  
+   DEBUG_REASON_USER_ATTACHED = 2,  
+   DEBUG_REASON_AUTO_ATTACHED = 3,  
+   DEBUG_REASON_CAUSALITY     = 4  
 };  
 ```  
   
-#### 参数  
- DEBUG\_REASON\_ERROR  
- 一个未指定的发生错误 \(这用作默认条件，当相应的非其他原因时\)。  
+#### <a name="parameters"></a>Parameters  
+ DEBUG_REASON_ERROR  
+ A non-specific error occurred (this is used as a default condition when none of the other reasons fit).  
   
- DEBUG\_REASON\_USER\_LAUNCHED  
- 处理生成了基于用户请求。  
+ DEBUG_REASON_USER_LAUNCHED  
+ The process was launched at the user's request.  
   
- DEBUG\_REASON\_USER\_ATTACHED  
- 正在运行的进程附加到由用户。  
+ DEBUG_REASON_USER_ATTACHED  
+ The already-running process was attached to by the user.  
   
- DEBUG\_REASON\_AUTO\_ATTACHED  
- ，在其生成时，转换过程将自动附加到。  
+ DEBUG_REASON_AUTO_ATTACHED  
+ The process was automatically attached to when it was launched.  
   
- DEBUG\_REASON\_CAUSALITY  
- 处理生成的是由于一个实时 \(JIT\)调试事件。  
+ DEBUG_REASON_CAUSALITY  
+ The process was launched due to a *Just-In-Time* (JIT) debugging event.  
   
-## 备注  
- 返回从 [GetDebugReason](../../../extensibility/debugger/reference/idebugprocess3-getdebugreason.md) 方法。  
+## <a name="remarks"></a>Remarks  
+ Returned from the [GetDebugReason](../../../extensibility/debugger/reference/idebugprocess3-getdebugreason.md) method.  
   
-## 要求  
- 标题:msdbg.h  
+## <a name="requirements"></a>Requirements  
+ Header: msdbg.h  
   
- 命名空间:Microsoft.VisualStudio.Debugger.Interop  
+ Namespace: Microsoft.VisualStudio.Debugger.Interop  
   
- 程序集:Microsoft.VisualStudio.Debugger.Interop.dll  
+ Assembly: Microsoft.VisualStudio.Debugger.Interop.dll  
   
-## 请参阅  
- [枚举](../../../extensibility/debugger/reference/enumerations-visual-studio-debugging.md)   
+## <a name="see-also"></a>See Also  
+ [Enumerations](../../../extensibility/debugger/reference/enumerations-visual-studio-debugging.md)   
  [GetDebugReason](../../../extensibility/debugger/reference/idebugprocess3-getdebugreason.md)

@@ -38,11 +38,11 @@ translation.priority.ht:
 - tr-tr
 - zh-cn
 - zh-tw
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3d32d11a430227800cb3ed53831a9565eb6adeb3
-ms.openlocfilehash: e4abacb0286de16c148076572e73043daed4d567
+ms.translationtype: HT
+ms.sourcegitcommit: a3c0f4d3bde8bb03d3766383eba01665e58458be
+ms.openlocfilehash: 4ec9e4acb1cd859ca96498db42c1cab4473c4c83
 ms.contentlocale: zh-cn
-ms.lasthandoff: 05/30/2017
+ms.lasthandoff: 08/01/2017
 
 ---
 # <a name="signing-page-project-designer"></a>“项目设计器”->“签名”页
@@ -82,7 +82,7 @@ ms.lasthandoff: 05/30/2017
   
 ## <a name="assembly-signing"></a>程序集签名  
  “为程序集签名”复选框  
- 选择此复选框可为程序集签名并创建强名称密钥文件。 有关使用“项目设计器”为程序集签名的详细信息，请参阅[如何：为程序集签名 (Visual Studio)](http://msdn.microsoft.com/en-us/f468a7d3-234c-4353-924d-8e0ae5896564)。  
+ 选择此复选框可为程序集签名并创建强名称密钥文件。 有关使用“项目设计器”为程序集签名的详细信息，请参阅[如何：为程序集签名 (Visual Studio)](../managing-assembly-and-manifest-signing.md#how-to-sign-an-assembly-in-visual-studio)。  
   
  此选项使用 [!INCLUDE[winsdklong](/dotnet/framework/app-domains/how-to-sign-an-assembly-with-a-strong-name) 提供的 Al.exe 工具。  
   
@@ -109,6 +109,6 @@ ms.lasthandoff: 05/30/2017
  [管理程序集签名和清单签名](../../ide/managing-assembly-and-manifest-signing.md)   
  [托管应用程序的强名称签名](http://msdn.microsoft.com/en-us/5fef3490-c519-4363-94fd-8b1ad260dab5)   
  [如何：对应用程序和部署清单进行签名](../../ide/how-to-sign-application-and-deployment-manifests.md)   
- [如何：为程序集签名 (Visual Studio)](http://msdn.microsoft.com/en-us/f468a7d3-234c-4353-924d-8e0ae5896564)   
+ [如何：为程序集签名 (Visual Studio)](../managing-assembly-and-manifest-signing.md#how-to-sign-an-assembly-in-visual-studio)   
  [如何：使用强名称为程序集签名](/dotnet/framework/app-domains/how-to-sign-an-assembly-with-a-strong-name)   
- [具有强名称的程序集](http://msdn.microsoft.com/Library/d4a80263-f3e0-4d81-9b61-f0cbeae3797b)
+ [具有强名称的程序集](/dotnet/framework/app-domains/strong-named-assemblies)   

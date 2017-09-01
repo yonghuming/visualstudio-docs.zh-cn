@@ -1,5 +1,5 @@
 ---
-title: "步骤 6：添加计时器 | Microsoft Docs"
+title: 'Step 6: Add a Timer | Microsoft Docs'
 ms.custom: 
 ms.date: 11/04/2016
 ms.reviewer: 
@@ -27,51 +27,51 @@ translation.priority.ht:
 - tr-tr
 - zh-cn
 - zh-tw
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 47057e9611b824c17077b9127f8d2f8b192d6eb8
-ms.openlocfilehash: 996ec0a9fa601517993cb6049a114796c36489fe
+ms.translationtype: HT
+ms.sourcegitcommit: eb5c9550fd29b0e98bf63a7240737da4f13f3249
+ms.openlocfilehash: 0ab82e9962871d6dd5da724a7a72677c387e9a53
 ms.contentlocale: zh-cn
-ms.lasthandoff: 05/13/2017
+ms.lasthandoff: 08/30/2017
 
 ---
-# <a name="step-6-add-a-timer"></a>步骤 6：添加计时器
-接下来，你要向匹配游戏中添加“Timer”控件。 计时器等待指定的毫秒数后，触发一个称为“Tick”的事件。 这对于启动操作或定时重复操作很有用。 在本例中，你将使用一个计时器，让玩家开始选择两个图标，而如果图标不匹配，则在短暂时间后再次隐藏这两个图标。  
+# <a name="step-6-add-a-timer"></a>Step 6: Add a Timer
+Next, you add a **Timer** control to the matching game. A timer waits a specified number of milliseconds, and then fires an event, referred to as a *tick*. This is useful for starting an action, or repeating an action on a regular basis. In this case, you'll use a timer to enable players to choose two icons, and if the icons don't match, hide the two icons again after a short period of time.  
   
-### <a name="to-add-a-timer"></a>添加计时器  
+### <a name="to-add-a-timer"></a>To add a timer  
   
-1.  在 Windows 窗体设计器中的工具箱中，请选择“Timer”（位于“组件”类别中），然后按 Enter 键，或双击该计时器，向窗体中添加一个计时器控件。 该计时器的图标名为 **Timer1**，应显示在窗体下的空间中，如下图所示。  
+1.  From the toolbox in Windows Forms Designer, choose **Timer** (in the **Components** category) and then choose the ENTER key, or double-click the timer to add a timer control to the form. The timer's icon, called **Timer1**, should appear in a space below the form, as shown in the following picture.  
   
-     ![计时器](~/ide/media/express_timer.png "Express_Timer")  
-计时器  
-  
-    > [!NOTE]
-    >  如果工具箱是空的，请确保在打开工具箱前选择窗体设计器，而不是窗体的后台代码。  
-  
-2.  选择 **Timer1** 图标以选中该计时器。 在“属性”窗口中，从查看事件切换到查看属性。 然后将计时器的 **Interval** 属性设置为 **750**，但保留 **Enabled** 属性的设置“False”。 **Interval** 属性将通知计时器两个计时周期之间的等待时长，或何时触发 Tick 事件。 值为 750 时，将通知计时器等待四分之三秒（750 毫秒）后触发 Tick 事件。 只有在玩家选择第二个标签后，你才能调用 `Start()` 方法启动计时器。  
-  
-3.  选择 Windows 窗体设计器中的计时器控件图标，然后按 Enter 键或双击该计时器，以添加空的“Tick”事件处理程序。 用下列代码替换该代码，或手动将下列代码输入到事件处理程序。  
-  
-     [!code-cs[VbExpressTutorial4Step6#7](../ide/codesnippet/CSharp/step-6-add-a-timer_1.cs)]  [!code-vb[VbExpressTutorial4Step6#7](../ide/codesnippet/VisualBasic/step-6-add-a-timer_1.vb)]  
-  
-     Tick 事件处理程序将执行三个操作：首先，通过调用 `Stop()` 方法确保计时器没有运行。 然后，它使用两个引用变量 `firstClicked` 和 `secondClicked`，使得玩家选择的两个标签的图标再次不可见。 最后，它将 `firstClicked` 和 `secondClicked` 引用变量重置为 `null`（Visual C# 中）或 `Nothing`（Visual Basic 中）。 这一步很重要，因为程序本身就是这样重置的。 现在，它不跟踪任何 `Label` 控件，并已准备好让玩家再次选择标签。  
+     ![Timer](../ide/media/express_timer.png "Express_Timer")  
+Timer  
   
     > [!NOTE]
-    >  `Timer` 对象具有 `Start()` 方法和 `Stop()` 方法，分别用以启动和停止计时器。 如果你在“属性”窗口中将计时器的“Enabled” 属性设置为“True”，则只要程序开始运行，计时器就会开始计时。 但是，如果将该属性保留设置为“False”，则在调用计时器的 `Start()` 方法之前，计时器不会开始计时。 通常，计时器会使用 **Interval** 属性确定在计时周期之间等待的毫秒数，从而反复触发其 Tick 事件。 您可能已经注意到在 Tick 事件中调用计时器的 `Stop()` 方法的方式。 这会将计时器置于“单触发模式”，意味着调用 `Start()` 方法时，计时器会等待指定的间隔时间，触发单个 Tick 事件，然后停止。  
+    >  If the toolbox is empty, be sure to select the form designer, and not the code behind the form, before opening the toolbox.  
   
-4.  若要查看正在使用的新计时器，请转至代码编辑器，将以下代码添加到 `label_Click()` 事件处理程序方法的顶部和底部。 （你要将 `if` 语句添加到顶部，将三个语句添加到底部；该方法的其余部分保持相同。）  
+2.  Choose the **Timer1** icon to select the timer. In the **Properties** window, switch from viewing events to viewing properties. Then, set the timer's **Interval** property to **750**, but leave its **Enabled** property set to **False**. The **Interval** property tells the timer how long to wait between *ticks*, or when it triggers its Tick event. A value of 750 tells the timer to wait three quarters of a second (750 milliseconds) before it fires its Tick event. You'll call the `Start()` method to start the timer only after the player chooses the second label.  
   
-     [!code-cs[VbExpressTutorial4Step6#8](../ide/codesnippet/CSharp/step-6-add-a-timer_2.cs)]  [!code-vb[VbExpressTutorial4Step6#8](../ide/codesnippet/VisualBasic/step-6-add-a-timer_2.vb)]  
+3.  Choose the timer control icon in Windows Forms Designer and then choose the ENTER key, or double-click the timer, to add an empty **Tick** event handler. Either replace the code with the following code, or manually enter the following code into the event handler.  
   
-     该方法顶部的代码通过检查 **Enabled** 属性的值来检查计时器是否已启动。 这样，如果玩家选择第一个和第二个 `Label` 控件，且计时器启动，则选择第三个标签将不会执行任何操作。  
+     [!code-csharp[VbExpressTutorial4Step6#7](../ide/codesnippet/CSharp/step-6-add-a-timer_1.cs)]  [!code-vb[VbExpressTutorial4Step6#7](../ide/codesnippet/VisualBasic/step-6-add-a-timer_1.vb)]  
   
-     该方法底部的代码将 `secondClicked` 引用变量设置为跟踪玩家选择的第二个 `Label` 控件，然后将该标签的图标颜色设置为黑色以使其可见。 然后，它在单触发模式下启动计时器，以便在等待 750 毫秒后触发单个 Tick 事件。 计时器的 Tick 事件处理程序会隐藏这两个图标，并重置 `firstClicked` 和 `secondClicked` 引用变量，以便窗体准备就绪供玩家选择另一对图标。  
+     The Tick event handler does three things: First, it makes sure the timer isn't running by calling the `Stop()` method. Then it uses two reference variables, `firstClicked` and `secondClicked`, to make the icons of the two labels that the player chose invisible again. Finally, it resets the `firstClicked` and `secondClicked` reference variables to `null` in Visual C# and `Nothing` in Visual Basic. This step is important because it's how the program resets itself. Now it's not keeping track of any `Label` controls, and it's ready for the player to choose a label again.  
   
-5.  保存并运行程序。 选择一个图标，它将显示出来。  
+    > [!NOTE]
+    >  A `Timer` object has a `Start()` method that starts the timer, and a `Stop()` method that stops it. When you set the timer's **Enabled** property to **True** in the **Properties** window, it starts ticking as soon as the program begins. But when you leave it set to **False**, it doesn't start ticking until its `Start()` method is called. Normally, a timer fires its Tick event over and over again, using the **Interval** property to determine how many milliseconds to wait between ticks. You may have noticed how the timer's `Stop()` method is called inside the Tick event. That puts the timer into *one shot mode*, meaning that when the `Start()` method is called, it waits for the specified interval, triggers a single Tick event, and then stops.  
   
-6.  选择另一个图标。 它会短暂显示，然后两个图标都消失。 多次重复此操作。 窗体现在跟踪你选择的第一个和第二个图标，并使用计时器在使图标消失之前暂停。  
+4.  To see the new timer in action, go to the code editor and add the following code to the top and bottom of the `label_Click()` event handler method. (You're adding an `if` statement to the top, and three statements to the bottom; the rest of the method stays the same.)  
   
-### <a name="to-continue-or-review"></a>继续或查看  
+     [!code-csharp[VbExpressTutorial4Step6#8](../ide/codesnippet/CSharp/step-6-add-a-timer_2.cs)]  [!code-vb[VbExpressTutorial4Step6#8](../ide/codesnippet/VisualBasic/step-6-add-a-timer_2.vb)]  
   
--   若要转到下一个教程步骤，请参阅[步骤 7：保持对可见](../ide/step-7-keep-pairs-visible.md)。  
+     The code at the top of the method checks whether the timer was started by checking the value of the **Enabled** property. That way, if the player chooses the first and second `Label` controls and the timer starts, choosing a third label won't do anything.  
   
--   若要返回到上一个教程步骤，请参阅[步骤 5：添加标签引用](../ide/step-5-add-label-references.md)。
+     The code at the bottom of the method sets the `secondClicked` reference variable to track the second `Label` control that the player chose, and then it sets that label's icon color to black to make it visible. Then, it starts the timer in one shot mode, so that it waits 750 milliseconds and then fires a single Tick event. The timer's Tick event handler hides the two icons and resets the `firstClicked` and `secondClicked` reference variables so the form is ready for the player to choose another pair of icons.  
+  
+5.  Save and run your program. Choose an icon, and it becomes visible.  
+  
+6.  Choose another icon. It appears briefly, and then both icons disappear. Repeat this numerous times. The form now keeps track of the first and second icons that you choose, and uses the timer to pause before making the icons disappear.  
+  
+### <a name="to-continue-or-review"></a>To continue or review  
+  
+-   To go to the next tutorial step, see [Step 7: Keep Pairs Visible](../ide/step-7-keep-pairs-visible.md).  
+  
+-   To return to the previous tutorial step, see [Step 5: Add Label References](../ide/step-5-add-label-references.md).

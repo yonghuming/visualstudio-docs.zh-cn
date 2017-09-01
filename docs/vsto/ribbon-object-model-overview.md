@@ -1,141 +1,144 @@
 ---
-title: "功能区对象模型概述"
-ms.custom: ""
-ms.date: "02/02/2017"
-ms.prod: "visual-studio-dev14"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "office-development"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-dev_langs: 
-  - "VB"
-  - "CSharp"
-helpviewer_keywords: 
-  - "功能区 [Visual Studio 中的 Office 开发], 对象模型"
+title: Ribbon Object Model Overview | Microsoft Docs
+ms.custom: 
+ms.date: 02/02/2017
+ms.prod: visual-studio-dev14
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- office-development
+ms.tgt_pltfrm: 
+ms.topic: article
+dev_langs:
+- VB
+- CSharp
+helpviewer_keywords:
+- Ribbon [Office development in Visual Studio], object model
 ms.assetid: cae24f66-e980-41ee-a915-d4c8e03efbc1
 caps.latest.revision: 75
-author: "kempb"
-ms.author: "kempb"
-manager: "ghogen"
-caps.handback.revision: 74
+author: kempb
+ms.author: kempb
+manager: ghogen
+ms.translationtype: HT
+ms.sourcegitcommit: eb5c9550fd29b0e98bf63a7240737da4f13f3249
+ms.openlocfilehash: 6c00bd822f9b719027967d00313c0102bf0197e2
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/30/2017
+
 ---
-# 功能区对象模型概述
-  [!INCLUDE[vsto_runtime](../vsto/includes/vsto-runtime-md.md)] 显示可用于获取和设置功能区控件属性在运行时的一个强类型对象模型。  例如，可以动态填充菜单控件，或者按照上下文显示和隐藏控件。  还可以添加选项卡、组和控件添加到功能区，但是，在功能区之前的 Office 应用程序只加载。  有关信息，请参见[设置变成只读属性的属性](#SettingReadOnlyProperties)。  
+# <a name="ribbon-object-model-overview"></a>Ribbon Object Model Overview
+  The [!INCLUDE[vsto_runtime](../vsto/includes/vsto-runtime-md.md)] exposes a strongly typed object model that you can use to get and set the properties of ribbon controls at run time. For example, you can dynamically populate menu controls, or show and hide controls contextually. You can also add tabs, groups, and controls to a ribbon, but only before the ribbon is loaded by the Office application. For information, see [Setting Properties That Become Read-Only](#SettingReadOnlyProperties).  
   
  [!INCLUDE[appliesto_ribbon](../vsto/includes/appliesto-ribbon-md.md)]  
   
- 此功能区对象模型主要由[功能区类](#RibbonClass)、[功能区事件](#RibbonEvents)和[功能区控件类](#RibbonControlClasses)组成。  
+ This Ribbon object model consists mainly of the [Ribbon Class](#RibbonClass), [Ribbon Events](#RibbonEvents), and [Ribbon Control Classes](#RibbonControlClasses).  
   
-##  <a name="RibbonClass"></a> 功能区类  
- 在添加新的 **功能区 \(可视化设计器\)** 项目项时，Visual Studio 会将 **Ribbon** 选件类添加到项目中。  **Ribbon** 类继承自 <xref:Microsoft.Office.Tools.Ribbon.RibbonBase> 类。  
+##  <a name="RibbonClass"></a> Ribbon Class  
+ When you add a new **Ribbon (Visual Designer)** item to a project, Visual Studio adds a **Ribbon** class to your project. The **Ribbon** class inherits from the <xref:Microsoft.Office.Tools.Ribbon.RibbonBase> class.  
   
- 此类作为在功能区代码文件和功能区设计器代码文件之间拆分的分部类出现。  
+ This class appears as a partial class that is split between the Ribbon code file and the Ribbon Designer code file.  
   
-##  <a name="RibbonEvents"></a> 功能区事件  
- **Ribbon** 选件类包含以下三个操作：  
+##  <a name="RibbonEvents"></a> Ribbon Events  
+ The **Ribbon** class contains the following three events:  
   
-|Event|描述|  
-|-----------|--------|  
-|<xref:Microsoft.Office.Tools.Ribbon.RibbonBase.Load>|引发，在 Office 应用程序加载功能区自定义项。  <xref:Microsoft.Office.Tools.Ribbon.OfficeRibbon.Load> 事件处理程序会自动添加到功能区代码文件。  并在功能区加载时，使用此事件处理程序运行自定义代码。|  
-|<xref:Microsoft.Office.Tools.Ribbon.RibbonBase.LoadImage>|并在功能区加载时，允许您对功能区自定义项中缓存图像。  可以使性能稍有，如果您编写代码来缓存此事件处理程序的功能区图像。  有关详细信息，请参阅 <xref:Microsoft.Office.Tools.Ribbon.OfficeRibbon.LoadImage>。|  
-|<xref:Microsoft.Office.Tools.Ribbon.RibbonBase.Close>|引发，后者在功能区实例关闭。|  
+|Event|Description|  
+|-----------|-----------------|  
+|<xref:Microsoft.Office.Tools.Ribbon.RibbonBase.Load>|Raised when the Office application loads the ribbon customization. The <xref:Microsoft.Office.Tools.Ribbon.OfficeRibbon.Load> event handler is automatically added to the ribbon code file. Use this event handler to run custom code when the ribbon loads.|  
+|<xref:Microsoft.Office.Tools.Ribbon.RibbonBase.LoadImage>|Enables you to cache images in the ribbon customization when the ribbon loads. You can get a slight performance gain if you write code to cache the ribbon images in this event handler. For more information, see <xref:Microsoft.Office.Tools.Ribbon.OfficeRibbon.LoadImage>.|  
+|<xref:Microsoft.Office.Tools.Ribbon.RibbonBase.Close>|Raised when the ribbon instance closes.|  
   
-##  <a name="RibbonControlClasses"></a> 功能区控件  
- 对于**“工具箱”**的**“Office 功能区控件”**组中显示的每个控件，<xref:Microsoft.Office.Tools.Ribbon> 命名空间都包含一个对应的类型。  
+##  <a name="RibbonControlClasses"></a> Ribbon Controls  
+ The <xref:Microsoft.Office.Tools.Ribbon> namespace contains a type for each control that you see in the **Office Ribbon Controls** group of the **Toolbox**.  
   
- 下表显示了每个 `Ribbon` 控件的类型。  有关每个控件的说明，请参见[功能区概述](../vsto/ribbon-overview.md)。  
+ The following table shows the type for each `Ribbon` control. For a description of each control, see [Ribbon Overview](../vsto/ribbon-overview.md).  
   
-|控件名称|类名|  
-|----------|--------|  
-|**方框**|<xref:Microsoft.Office.Tools.Ribbon.RibbonBox>|  
-|**按钮**|<xref:Microsoft.Office.Tools.Ribbon.RibbonButton>|  
+|Control name|Class name|  
+|------------------|----------------|  
+|**Box**|<xref:Microsoft.Office.Tools.Ribbon.RibbonBox>|  
+|**Button**|<xref:Microsoft.Office.Tools.Ribbon.RibbonButton>|  
 |**ButtonGroup**|<xref:Microsoft.Office.Tools.Ribbon.RibbonButtonGroup>|  
 |**CheckBox**|<xref:Microsoft.Office.Tools.Ribbon.RibbonCheckBox>|  
 |**ComboBox**|<xref:Microsoft.Office.Tools.Ribbon.RibbonComboBox>|  
 |**DropDown**|<xref:Microsoft.Office.Tools.Ribbon.RibbonDropDown>|  
 |**EditBox**|<xref:Microsoft.Office.Tools.Ribbon.RibbonEditBox>|  
 |**Gallery**|<xref:Microsoft.Office.Tools.Ribbon.RibbonGallery>|  
-|**组合**|<xref:Microsoft.Office.Tools.Ribbon.RibbonGroup>|  
+|**Group**|<xref:Microsoft.Office.Tools.Ribbon.RibbonGroup>|  
 |**Label**|<xref:Microsoft.Office.Tools.Ribbon.RibbonLabel>|  
-|**菜单**|<xref:Microsoft.Office.Tools.Ribbon.RibbonMenu>|  
+|**Menu**|<xref:Microsoft.Office.Tools.Ribbon.RibbonMenu>|  
 |**Separator**|<xref:Microsoft.Office.Tools.Ribbon.RibbonSeparator>|  
 |**SplitButton**|<xref:Microsoft.Office.Tools.Ribbon.RibbonSplitButton>|  
 |**Tab**|<xref:Microsoft.Office.Tools.Ribbon.RibbonTab>|  
 |**ToggleButton**|<xref:Microsoft.Office.Tools.Ribbon.RibbonToggleButton>|  
   
- <xref:Microsoft.Office.Tools.Ribbon> 命名空间对这些类型使用“Ribbon”前缀，以避免与 <xref:System.Windows.Forms> 命名空间中的控件类的名称发生名称冲突。  
+ The <xref:Microsoft.Office.Tools.Ribbon> namespace uses the "Ribbon" prefix for these types to avoid a name collision with the names of control classes in the <xref:System.Windows.Forms> namespace.  
   
- 向功能区设计器中添加控件时，功能区设计器会将该控件的类声明为功能区设计器代码文件中的一个字段。  
+ When you add a control to the Ribbon Designer, the Ribbon Designer declares the class for that control as a field in the Ribbon Designer code file.  
   
-### 使用功能区控件属性的常规任务  
- 每个 `Ribbon` 控件包含可以用来执行各种任务，如为控件指定标签或隐藏和显示控件的属性。  
+### <a name="common-tasks-using-the-properties-of-ribbon-controls"></a>Common Tasks Using the Properties of Ribbon Controls  
+ Each `Ribbon` control contains properties that you can use to perform various tasks, such as assigning a label to a control, or hiding and showing controls.  
   
- 有时，在中，在功能区加载之后或控件添加到动态菜单后，属性将变为只读。  有关更多信息，请参见[设置变成只读属性的属性](#SettingReadOnlyProperties)。  
+ In some cases, properties become read-only after the ribbon loads or after a control is added to a dynamic menu. For more information, see [Setting Properties that Become Read-Only](#SettingReadOnlyProperties).  
   
- 下表描述了可以使用 `Ribbon` 控件属性，可以执行的一些任务。  
+ The following table describes some of the tasks that you can perform by using `Ribbon` control properties.  
   
-|对于此任务：|执行此操作：|  
-|------------|------------|  
-|隐藏或显示控件。|使用 Visible 属性。|  
-|启用或禁用控件。|使用 Enabled 属性。|  
-|设置控件的大小。|使用 ControlSize 属性。|  
-|获取控件上显示的图像。|使用 Image 属性。|  
-|更改控件的标签。|使用 Label 属性。|  
-|向控件中添加用户定义的数据。|使用 Tag 属性。|  
-|获取下列控件中的项：<xref:Microsoft.Office.Tools.Ribbon.RibbonBox>、<xref:Microsoft.Office.Tools.Ribbon.RibbonDropDown>、<xref:Microsoft.Office.Tools.Ribbon.RibbonGallery> 或<br /><br /> <xref:Microsoft.Office.Tools.Ribbon.RibbonSplitButton> 控件。|使用 Items 属性。|  
-|向 <xref:Microsoft.Office.Tools.Ribbon.RibbonComboBox>、<xref:Microsoft.Office.Tools.Ribbon.RibbonDropDown> 或 <xref:Microsoft.Office.Tools.Ribbon.RibbonGallery> 控件中添加项。|使用 Items 属性。|  
-|向 <xref:Microsoft.Office.Tools.Ribbon.RibbonMenu> 中添加控件。|使用 Items 属性。<br /><br /> 若要将控件添加到 <xref:Microsoft.Office.Tools.Ribbon.RibbonMenu>，在功能区加载到 Office 应用程序之后，必须设置 <xref:Microsoft.Office.Tools.Ribbon.RibbonMenu.Dynamic%2A> 属性设置为 **true**，在功能区加载到 Office 应用程序。  有关信息，请参见[设置变成只读属性的属性](#SettingReadOnlyProperties)。|  
-|获取下列控件的选定项：<xref:Microsoft.Office.Tools.Ribbon.RibbonComboBox>、<br /><br /> <xref:Microsoft.Office.Tools.Ribbon.RibbonDropDown> 或 <xref:Microsoft.Office.Tools.Ribbon.RibbonGallery>。|使用 SelectedItem 属性。  对于 <xref:Microsoft.Office.Tools.Ribbon.RibbonComboBox>，使用 <xref:Microsoft.Office.Tools.Ribbon.RibbonComboBox.Text%2A> 属性。|  
-|获取 <xref:Microsoft.Office.Tools.Ribbon.RibbonTab> 上的组。|使用 <xref:Microsoft.Office.Tools.Ribbon.RibbonTab.Groups%2A> 属性。|  
-|指定在 <xref:Microsoft.Office.Tools.Ribbon.RibbonGallery> 中显示的行数和列数。|使用 <xref:Microsoft.Office.Tools.Ribbon.RibbonGallery.RowCount%2A> 和 <xref:Microsoft.Office.Tools.Ribbon.RibbonGallery.ColumnCount%2A> 属性。|  
+|For this task:|Do this:|  
+|--------------------|--------------|  
+|Hide or show a control.|Use the Visible property.|  
+|Enable or disable a control.|Use the Enabled property.|  
+|Set the size of a control.|Use the ControlSize property.|  
+|Get the image that appears on a control.|Use the Image property.|  
+|Change the label of a control.|Use the Label property.|  
+|Add user-defined data to a control.|Use the Tag property.|  
+|Get the items in a <xref:Microsoft.Office.Tools.Ribbon.RibbonBox>, <xref:Microsoft.Office.Tools.Ribbon.RibbonDropDown>, <xref:Microsoft.Office.Tools.Ribbon.RibbonGallery>, or<br /><br /> <xref:Microsoft.Office.Tools.Ribbon.RibbonSplitButton> control.|Use the Items property.|  
+|Add items to a <xref:Microsoft.Office.Tools.Ribbon.RibbonComboBox>, <xref:Microsoft.Office.Tools.Ribbon.RibbonDropDown>, or <xref:Microsoft.Office.Tools.Ribbon.RibbonGallery> control.|Use the Items property.|  
+|Add controls to a <xref:Microsoft.Office.Tools.Ribbon.RibbonMenu>.|Use the Items property.<br /><br /> To add controls to the <xref:Microsoft.Office.Tools.Ribbon.RibbonMenu> after the ribbon is loaded into the Office application, you must set the <xref:Microsoft.Office.Tools.Ribbon.RibbonMenu.Dynamic%2A> property to **true** before the ribbon is loaded into the Office application. For information, see [Setting Properties That Become Read-Only](#SettingReadOnlyProperties).|  
+|Get the selected item of a <xref:Microsoft.Office.Tools.Ribbon.RibbonComboBox>,<br /><br /> <xref:Microsoft.Office.Tools.Ribbon.RibbonDropDown>, or <xref:Microsoft.Office.Tools.Ribbon.RibbonGallery>.|Use the SelectedItem property. For a <xref:Microsoft.Office.Tools.Ribbon.RibbonComboBox>, use the <xref:Microsoft.Office.Tools.Ribbon.RibbonComboBox.Text%2A> property.|  
+|Get the groups on a <xref:Microsoft.Office.Tools.Ribbon.RibbonTab>.|Use the <xref:Microsoft.Office.Tools.Ribbon.RibbonTab.Groups%2A> property.|  
+|Specify the number of rows and columns that appear in a <xref:Microsoft.Office.Tools.Ribbon.RibbonGallery>.|Use the <xref:Microsoft.Office.Tools.Ribbon.RibbonGallery.RowCount%2A> and <xref:Microsoft.Office.Tools.Ribbon.RibbonGallery.ColumnCount%2A> properties.|  
   
-##  <a name="SettingReadOnlyProperties"></a> 设置变成只读属性的属性  
- 有些属性只能在功能区加载之前进行设置。  有三个位置可以设置这些属性：  
+##  <a name="SettingReadOnlyProperties"></a> Setting Properties That Become Read-Only  
+ Some properties can only be set before the ribbon loads. There are three places to set these properties:  
   
--   在 Visual Studio**“属性”**窗口中。  
+-   In the Visual Studio **Properties** window.  
   
--   在 **Ribbon** 选件类的构造函数。  
+-   In the constructor of the **Ribbon** class.  
   
--   在项目的 `ThisAddin`、`ThisWorkbook` 或 `ThisDocument` 类的 CreateRibbonExtensibilityObject 方法中。  
+-   In the CreateRibbonExtensibilityObject method of the `ThisAddin`, `ThisWorkbook`, or `ThisDocument` class of your project.  
   
- 但对于动态菜单，情况则有不同。  您可以创建新控件，设置其属性，然后将它们添加到动态菜单运行时，在包含该菜单后的功能区加载。  
+ Dynamic menus provide some exceptions. You can create new controls, set their properties, and then add them to a dynamic menu at run time, even after the ribbon that contains the menu is loaded.  
   
- 可以随时设置添加到动态菜单的控件的属性。  
+ Properties of controls that you add to a dynamic menu can be set at any time.  
   
- 有关更多信息，请参见[变成只读属性的属性](#ReadOnlyProperties)。  
+ For more information, see [Properties that Become Read-Only](#ReadOnlyProperties).  
   
-### 在功能区的构造函数中设置属性  
- 可以设置一个 `Ribbon` 控件的属性。**Ribbon** 选件类的构造函数。  该代码必须放在对 `InitializeComponent` 方法的调用之后。  下面的示例在当前时间为太平洋时间 \(UTC\-8\) 17:00 或更晚时向组中添加一个新按钮。  
+### <a name="setting-properties-in-the-constructor-of-the-ribbon"></a>Setting Properties in the Constructor of the Ribbon  
+ You can set the properties of a `Ribbon` control in the constructor of the **Ribbon** class. This code must appear after the call to the `InitializeComponent` method. The following example adds a new button to a group if the current time is 17:00 Pacific Time (UTC-8) or later.  
   
- 添加下列代码。  
+ Add the following code.  
   
- [!code-csharp[Trin_Ribbon_ObjectModel#1](../snippets/csharp/VS_Snippets_OfficeSP/Trin_Ribbon_ObjectModel/CS/Ribbon1.Designer.cs#1)]
- [!code-vb[Trin_Ribbon_ObjectModel#1](../snippets/visualbasic/VS_Snippets_OfficeSP/Trin_Ribbon_ObjectModel/VB/Ribbon1.Designer.vb#1)]  
+ [!code-csharp[Trin_Ribbon_ObjectModel#1](../vsto/codesnippet/CSharp/trin_ribbon_objectmodel_dotnet4/Ribbon1.Designer.cs#1)] [!code-vb[Trin_Ribbon_ObjectModel#1](../vsto/codesnippet/VisualBasic/trin_ribbon_objectmodel_dotnet4/Ribbon1.Designer.vb#1)]  
   
- 在 Visual C\# 项目 \(从 Visual Studio 2008 升级，构造函数显示在功能区代码文件。  
+ In Visual C# projects that you upgraded from Visual Studio 2008, the constructor appears in the ribbon code file.  
   
- 在 Visual Basic 项目中，或在 Visual C\# 项目在 [!INCLUDE[vs_dev12](../vsto/includes/vs-dev12-md.md)]创建的，构造函数显示在功能区设计器代码文件。  此文件名为 *YourRibbonItem*。Designer.cs 或 *YourRibbonItem*。. Designer.vb  若要查看 Visual Basic 项目中的此文件，必须先在解决方案资源管理器中单击**“显示所有文件”**按钮。  
+ In Visual Basic projects, or in Visual C# projects that you created in [!INCLUDE[vs_dev12](../vsto/includes/vs-dev12-md.md)], the constructor appears in the Ribbon Designer code file. This file is named *YourRibbonItem*.Designer.cs or *YourRibbonItem*.Designer.vb. To see this file in Visual Basic projects, you must first click the **Show All Files** button in Solution Explorer.  
   
-### 在 CreateRibbonExtensibilityObject 方法中设置属性  
- 当您重写在 `ThisAddin`、`ThisWorkbook`或项目中时，`ThisDocument` 选件类的 CreateRibbonExtensibilityObject 方法可以设置 `Ribbon` 控件的属性。  有关 CreateRibbonExtensibilityObject 方法的更多信息，请参见 [功能区概述](../vsto/ribbon-overview.md)。  
+### <a name="setting-properties-in-the-createribbonextensibilityobject-method"></a>Setting Properties in the CreateRibbonExtensibilityObject Method  
+ You can set the properties of a `Ribbon` control when you override the CreateRibbonExtensibilityObject method in the `ThisAddin`, `ThisWorkbook`, or `ThisDocument` class of your project. For more information about the CreateRibbonExtensibilityObject method, see [Ribbon Overview](../vsto/ribbon-overview.md).  
   
- 下面的示例将在 Excel 工作簿项目的 `ThisWorkbook` 选件类的 CreateRibbonExtensibilityObject 方法的功能区属性。  
+ The following example sets ribbon properties in the CreateRibbonExtensibilityObject method of the `ThisWorkbook` class of an Excel workbook project.  
   
- 添加下列代码。  
+ Add the following code.  
   
- [!code-csharp[Trin_Ribbon_ObjectModel#2](../snippets/csharp/VS_Snippets_OfficeSP/Trin_Ribbon_ObjectModel/CS/ThisWorkbook.cs#2)]
- [!code-vb[Trin_Ribbon_ObjectModel#2](../snippets/visualbasic/VS_Snippets_OfficeSP/Trin_Ribbon_ObjectModel/VB/ThisWorkbook.vb#2)]  
+ [!code-vb[Trin_Ribbon_ObjectModel#2](../vsto/codesnippet/VisualBasic/trin_ribbon_objectmodel_dotnet4/ThisWorkbook.vb#2)] [!code-csharp[Trin_Ribbon_ObjectModel#2](../vsto/codesnippet/CSharp/trin_ribbon_objectmodel_dotnet4/ThisWorkbook.cs#2)]  
   
-###  <a name="ReadOnlyProperties"></a> 变成只读属性的属性  
- 下表显示了只能在功能区加载之前设置的属性。  
+###  <a name="ReadOnlyProperties"></a> Properties That Become Read-Only  
+ The following table shows properties that can only be set before the Ribbon loads.  
   
 > [!NOTE]  
->  可以随时设置动态菜单上控件的属性。  该表不适用于这种情况。  
+>  You can set the properties of controls on dynamic menus at any time. This table does not apply in that case.  
   
-|Property|功能区控件类|  
-|--------------|------------|  
+|Property|Ribbon control class|  
+|--------------|--------------------------|  
 |**BoxStyle**|<xref:Microsoft.Office.Tools.Ribbon.RibbonBox>|  
 |**ButtonType**|<xref:Microsoft.Office.Tools.Ribbon.RibbonSplitButton>|  
 |**ColumnCount**|<xref:Microsoft.Office.Tools.Ribbon.RibbonGallery>|  
@@ -147,7 +150,7 @@ caps.handback.revision: 74
 |**ImageName**|<xref:Microsoft.Office.Tools.Ribbon.RibbonButton><br /><br /> <xref:Microsoft.Office.Tools.Ribbon.RibbonComboBox><br /><br /> <xref:Microsoft.Office.Tools.Ribbon.RibbonDialogLauncher><br /><br /> <xref:Microsoft.Office.Tools.Ribbon.RibbonDropDown><br /><br /> <xref:Microsoft.Office.Tools.Ribbon.RibbonEditBox><br /><br /> <xref:Microsoft.Office.Tools.Ribbon.RibbonGallery><br /><br /> <xref:Microsoft.Office.Tools.Ribbon.RibbonMenu><br /><br /> <xref:Microsoft.Office.Tools.Ribbon.RibbonSplitButton><br /><br /> <xref:Microsoft.Office.Tools.Ribbon.RibbonToggleButton>|  
 |**ItemSize**|<xref:Microsoft.Office.Tools.Ribbon.RibbonMenu><br /><br /> <xref:Microsoft.Office.Tools.Ribbon.RibbonSplitButton>|  
 |**MaxLength**|<xref:Microsoft.Office.Tools.Ribbon.RibbonComboBox><br /><br /> <xref:Microsoft.Office.Tools.Ribbon.RibbonEditBox>|  
-|**名称**|<xref:Microsoft.Office.Tools.Ribbon.RibbonComponent>|  
+|**Name**|<xref:Microsoft.Office.Tools.Ribbon.RibbonComponent>|  
 |**Position**|<xref:Microsoft.Office.Tools.Ribbon.RibbonButton><br /><br /> <xref:Microsoft.Office.Tools.Ribbon.RibbonCheckBox><br /><br /> <xref:Microsoft.Office.Tools.Ribbon.RibbonGallery><br /><br /> <xref:Microsoft.Office.Tools.Ribbon.RibbonGroup><br /><br /> <xref:Microsoft.Office.Tools.Ribbon.RibbonMenu><br /><br /> <xref:Microsoft.Office.Tools.Ribbon.RibbonSeparator><br /><br /> <xref:Microsoft.Office.Tools.Ribbon.RibbonSplitButton><br /><br /> <xref:Microsoft.Office.Tools.Ribbon.RibbonTab><br /><br /> <xref:Microsoft.Office.Tools.Ribbon.RibbonToggleButton>|  
 |**RibbonType**|<xref:Microsoft.Office.Tools.Ribbon.OfficeRibbon>|  
 |**RowCount**|<xref:Microsoft.Office.Tools.Ribbon.RibbonGallery>|  
@@ -156,47 +159,47 @@ caps.handback.revision: 74
 |**ShowItemSelection**|<xref:Microsoft.Office.Tools.Ribbon.RibbonGallery>|  
 |**SizeString**|<xref:Microsoft.Office.Tools.Ribbon.RibbonComboBox><br /><br /> <xref:Microsoft.Office.Tools.Ribbon.RibbonDropDown><br /><br /> <xref:Microsoft.Office.Tools.Ribbon.RibbonEditBox>|  
 |**StartFromScratch**|<xref:Microsoft.Office.Tools.Ribbon.OfficeRibbon>|  
-|**制表符**|<xref:Microsoft.Office.Tools.Ribbon.OfficeRibbon>|  
-|**标题**|<xref:Microsoft.Office.Tools.Ribbon.RibbonSeparator>|  
+|**Tabs**|<xref:Microsoft.Office.Tools.Ribbon.OfficeRibbon>|  
+|**Title**|<xref:Microsoft.Office.Tools.Ribbon.RibbonSeparator>|  
   
-### 设置 Outlook 检查器中显示的功能区的属性  
- 功能区的新实例后，每当用户打开功能区上的检查器。  但是，因此，只有在功能区的第一个实例之前，可以设置上表中列出的属性。  在创建第一个实例之后，这些属性成为只读的，因为第一个实例定义 Outlook 用来加载功能区上的 XML 文件。  
+### <a name="setting-properties-for-ribbons-that-appear-in-outlook-inspectors"></a>Setting Properties for Ribbons that Appear in Outlook Inspectors  
+ A new instance of the ribbon is created each time a user opens an Inspector in which the ribbon appears. However, you can set the properties listed in the table above only before the first instance of the ribbon is created. After the first instance is created, these properties become read-only because the first instance defines the XML file that Outlook uses to load the ribbon.  
   
- 如果您具有设置这些属性中的任何一个为不同的值的条件逻辑，在功能区的其他实例后，此代码将不起作用。  
+ If you have conditional logic that sets any of these properties to a different value when other instances of the ribbon are created, this code will have no effect.  
   
 > [!NOTE]  
->  确保 **名称** 特性已添加到 Outlook 功能区中的每个控件设置。  如果将控件添加到 Outlook 功能区运行时，您必须在代码中设置此属性。  如果将控件添加到 Outlook 功能区在设计时，Name 自动设置属性。  
+>  Ensure that the **Name** property is set for each control that you add to an Outlook ribbon. If you add a control to an Outlook ribbon at run time, you must set this property in your code. If you add a control to an Outlook ribbon at design time, the Name property is set automatically.  
   
-## 功能区控件事件  
- 每个控件类都包含一个或多个事件。  下表描述了这些事件。  
+## <a name="ribbon-control-events"></a>Ribbon Control Events  
+ Each control class contains one or more events. The following table describes these events.  
   
-|Event|描述|  
-|-----------|--------|  
-|Click|在单击控件时发生。|  
-|TextChanged|在编辑框或组合框中的文本更改时发生。|  
-|ItemsLoading|在 Office 请求控件的 Items 集合时发生。  Office 会缓存 Items 集合，直到代码更改控件的属性，或者调用 <xref:Microsoft.Office.Core.IRibbonUI.InvalidateControl%2A> 方法。|  
-|ButtonClick|在单击 <xref:Microsoft.Office.Tools.Ribbon.RibbonGallery> 或 <xref:Microsoft.Office.Tools.Ribbon.RibbonDropDown> 中的按钮时发生。|  
-|SelectionChanged|在 <xref:Microsoft.Office.Tools.Ribbon.RibbonDropDown> 或 <xref:Microsoft.Office.Tools.Ribbon.RibbonGallery> 中的所选内容更改时发生。|  
-|DialogLauncherClick|在单击组右下角的对话框启动器图标时发生。|  
+|Event|Description|  
+|-----------|-----------------|  
+|Click|Occurs when a control is clicked.|  
+|TextChanged|Occurs when the text of an edit box or combo box is changed.|  
+|ItemsLoading|Occurs when the Items collection of the control is requested by Office. Office caches the Items collection until your code changes the properties of the control, or you call the <xref:Microsoft.Office.Core.IRibbonUI.InvalidateControl%2A> method.|  
+|ButtonClick|Occurs when a button in a <xref:Microsoft.Office.Tools.Ribbon.RibbonGallery> or <xref:Microsoft.Office.Tools.Ribbon.RibbonDropDown> is clicked.|  
+|SelectionChanged|Occurs when the selection in a <xref:Microsoft.Office.Tools.Ribbon.RibbonDropDown> or <xref:Microsoft.Office.Tools.Ribbon.RibbonGallery> changes.|  
+|DialogLauncherClick|Occurs when the dialog launcher icon in the lower-right corner of a group is clicked.|  
   
- 这些事件的事件处理程序具有以下两个参数：  
+ The event handlers for these events have the following two parameters.  
   
-|Parameter|描述|  
-|---------------|--------|  
-|*sender*|一个 <xref:System.Object>，表示引发事件的控件。|  
-|*e*|一个包含 <xref:Microsoft.Office.Core.IRibbonControl> 的 <xref:Microsoft.Office.Tools.Ribbon.RibbonControlEventArgs>。  使用此控件可访问在 [!INCLUDE[vsto_runtime](../vsto/includes/vsto-runtime-md.md)] 提供的功能区对象模型中不可用的任何属性。|  
+|Parameter|Description|  
+|---------------|-----------------|  
+|*sender*|An <xref:System.Object> that represents the control that raised the event.|  
+|*e*|A <xref:Microsoft.Office.Tools.Ribbon.RibbonControlEventArgs> that contains a <xref:Microsoft.Office.Core.IRibbonControl>. Use this control to access any property that is not available in the Ribbon object model provided by the [!INCLUDE[vsto_runtime](../vsto/includes/vsto-runtime-md.md)].|  
   
-## 请参阅  
- [在运行时访问功能区](../vsto/accessing-the-ribbon-at-run-time.md)   
- [功能区概述](../vsto/ribbon-overview.md)   
- [如何：开始自定义功能区](../vsto/how-to-get-started-customizing-the-ribbon.md)   
- [功能区设计器](../vsto/ribbon-designer.md)   
- [演练：使用功能区设计器创建自定义选项卡](../vsto/walkthrough-creating-a-custom-tab-by-using-the-ribbon-designer.md)   
- [演练：在运行时更新功能区上的控件](../vsto/walkthrough-updating-the-controls-on-a-ribbon-at-run-time.md)   
- [自定义 Outlook 功能区](../vsto/customizing-a-ribbon-for-outlook.md)   
- [如何：自定义内置选项卡](../vsto/how-to-customize-a-built-in-tab.md)   
- [如何：向 Backstage 视图添加控件](../vsto/how-to-add-controls-to-the-backstage-view.md)   
- [如何：将功能区从功能区设计器导出为功能区 XML](../vsto/how-to-export-a-ribbon-from-the-ribbon-designer-to-ribbon-xml.md)   
- [如何：显示外接程序用户界面错误](../vsto/how-to-show-add-in-user-interface-errors.md)  
+## <a name="see-also"></a>See Also  
+ [Accessing the Ribbon at Run Time](../vsto/accessing-the-ribbon-at-run-time.md)   
+ [Ribbon Overview](../vsto/ribbon-overview.md)   
+ [How to: Get Started Customizing the Ribbon](../vsto/how-to-get-started-customizing-the-ribbon.md)   
+ [Ribbon Designer](../vsto/ribbon-designer.md)   
+ [Walkthrough: Creating a Custom Tab by Using the Ribbon Designer](../vsto/walkthrough-creating-a-custom-tab-by-using-the-ribbon-designer.md)   
+ [Walkthrough: Updating the Controls on a Ribbon at Run Time](../vsto/walkthrough-updating-the-controls-on-a-ribbon-at-run-time.md)   
+ [Customizing a Ribbon for Outlook](../vsto/customizing-a-ribbon-for-outlook.md)   
+ [How to: Customize a Built-in Tab](../vsto/how-to-customize-a-built-in-tab.md)   
+ [How to: Add Controls to the Backstage View](../vsto/how-to-add-controls-to-the-backstage-view.md)   
+ [How to: Export a Ribbon from the Ribbon Designer to Ribbon XML](../vsto/how-to-export-a-ribbon-from-the-ribbon-designer-to-ribbon-xml.md)   
+ [How to: Show Add-in User Interface Errors](../vsto/how-to-show-add-in-user-interface-errors.md)  
   
   

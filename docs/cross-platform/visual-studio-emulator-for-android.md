@@ -1,7 +1,7 @@
 ---
 title: "适用于 Android 的 Visual Studio 仿真程序 | Microsoft Docs"
 ms.custom: 
-ms.date: 11/04/2016
+ms.date: 07/17/2017
 ms.reviewer: 
 ms.suite: 
 ms.technology:
@@ -27,11 +27,11 @@ translation.priority.ht:
 - tr-tr
 - zh-cn
 - zh-tw
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 47057e9611b824c17077b9127f8d2f8b192d6eb8
-ms.openlocfilehash: 07f3e972f06707f21543b5a70c9712d9706a3980
+ms.translationtype: HT
+ms.sourcegitcommit: fd35d38110fdd82d8748a57701d15dcc1933053e
+ms.openlocfilehash: 9a0dc7e7d771fa13300c8287096e330633461400
 ms.contentlocale: zh-cn
-ms.lasthandoff: 05/13/2017
+ms.lasthandoff: 07/25/2017
 
 ---
 # <a name="visual-studio-emulator-for-android"></a>适用于 Android 的 Visual Studio 仿真程序
@@ -39,23 +39,10 @@ ms.lasthandoff: 05/13/2017
   
  适用于 Android 的 Visual Studio 仿真程序旨在为实际设备提供水平相当的性能。 但是，在发布你的应用之前，我们建议你在物理设备上测试应用。  
   
- 你可以为每个 Android 平台、屏幕分辨率和适用于 Android 的 Visual Studio 仿真程序支持的其他硬件属性，在唯一设备配置文件上测试应用。  
-  
- 本主题包含以下各节：  
-  
--   [安装和卸载](#Installing)  
-  
--   [系统需求和后向兼容性](#Requirements)  
-  
--   [适用于 Android 的 Visual Studio 仿真程序中的网络](#Networking)  
-  
--   [配置适用于 Android 的 Visual Studio 仿真程序](#Configuring)  
-  
--   [可在仿真程序中测试的功能](#FeaturesTest)  
-  
--   [无法在仿真程序中测试的功能](#FeaturesNonTest)  
-  
--   [支持资源](#Support)  
+ 你可以为每个 Android 平台、屏幕分辨率和适用于 Android 的 Visual Studio 仿真程序支持的其他硬件属性，在唯一设备配置文件上测试应用。
+
+> [!NOTE]
+> 建议将 Google Android 仿真器与用于 Apache Cordova 的 Visual Studio 工具配合使用。 有关详细信息，请参阅[在 Android 上运行 Apache Cordova 应用](/visualstudio/cross-platform/tools-for-cordova/run-your-app/run-app-android#a-idgoogle-android-emulatora-run-on-the-google-android-emulator)。
   
 ##  <a name="Installing"></a> 安装和卸载  
  安装  
@@ -100,7 +87,7 @@ ms.lasthandoff: 05/13/2017
   
  在 Visual Studio 2015 中，可以通过使用仿真程序管理器安装、卸载和启用设备配置文件。 通过选择“工具”，然后选择“适用于 Android 的 Visual Studio 仿真程序”访问仿真程序管理器。  
   
- ![适用于 Android 管理器的 Visual Studio 仿真程序](~/cross-platform/media/android_emu_manager.png "Android_Emu_Manager")  
+ ![适用于 Android 管理器的 Visual Studio 仿真程序](../cross-platform/media/android_emu_manager.png "Android_Emu_Manager")  
   
  默认情况下，有四个预安装的设备配置文件（KitKat 和 Lollipop 手机/5"和平板电脑/7"配置），如下白色文本和图标所示。 在选择“安装配置文件”按钮以及安装完成之前，列表中的其他配置文件将显示处于灰显状态。 可以按 API 级别筛选列表，然后单击配置文件底部右侧上的详细信息箭头，查看其完整的配置详细信息。  
   

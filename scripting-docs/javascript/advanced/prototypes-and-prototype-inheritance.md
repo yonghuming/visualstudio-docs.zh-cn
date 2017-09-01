@@ -1,32 +1,37 @@
 ---
 title: "原型和原型继承 | Microsoft Docs"
-ms.custom: ""
-ms.date: "01/18/2017"
-ms.prod: "windows-client-threshold"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "devlang-javascript"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-dev_langs: 
-  - "JavaScript"
-  - "TypeScript"
-  - "DHTML"
-helpviewer_keywords: 
-  - "原型 [JavaScript]"
-  - "原型继承 [JavaScript]"
+ms.custom: 
+ms.date: 01/18/2017
+ms.prod: windows-client-threshold
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- devlang-javascript
+ms.tgt_pltfrm: 
+ms.topic: article
+dev_langs:
+- JavaScript
+- TypeScript
+- DHTML
+helpviewer_keywords:
+- prototype [JavaScript]
+- prototype inheritance [JavaScript]
 ms.assetid: 1e1d0631-2a9f-4011-b9fe-fa338e1ef34c
 caps.latest.revision: 6
-author: "mikejo5000"
-ms.author: "mikejo"
-manager: "ghogen"
-caps.handback.revision: 6
+author: mikejo5000
+ms.author: mikejo
+manager: ghogen
+ms.translationtype: HT
+ms.sourcegitcommit: 3fb5627d2cc92c36e9dcf34f4b94796b6620321f
+ms.openlocfilehash: ade60bcbbfad166bae18b650daa6906f9983d4cd
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/11/2017
+
 ---
-# 原型和原型继承
-在 JavaScript 中，`prototype` 是函数的一个属性，同时也是由构造函数创建的对象的一个属性。  函数的原型为对象。  它主要在函数用作构造函数时使用。  
+# <a name="prototypes-and-prototype-inheritance"></a>原型和原型继承
+在 JavaScript 中，`prototype` 是函数的一个属性，同时也是由构造函数创建的对象的一个属性。 函数的原型为对象。 它主要在函数用作构造函数时使用。  
   
-```javascript  
+```JavaScript  
 function Vehicle(wheels, engine) {  
     this.wheels = wheels;  
     this.engine = engine;  
@@ -35,10 +40,10 @@ function Vehicle(wheels, engine) {
   
  在上面的示例中，`Vehicle` 函数的原型是使用 `Vehicle` 构造函数实例化的任何对象的原型。  
   
-## 使用原型添加属性和方法  
+## <a name="using-prototypes-to-add-properties-and-methods"></a>使用原型添加属性和方法  
  可以使用 `prototype` 属性向对象添加属性和方法，甚至于已创建的对象也是如此：  
   
-```javascript  
+```JavaScript  
 var testVehicle = new Vehicle(2, false);  
 Vehicle.prototype.color = "red";  
 var testColor = testVehicle.color;  
@@ -46,9 +51,9 @@ var testColor = testVehicle.color;
   
  `testColor` 的值为“red”。  
   
- 你甚至可以向预定义的对象添加属性和方法。  例如，你可以在 `String` 原型对象上定义一个 `Trim` 方法，脚本中的所有字符串都将继承该方法。  
+ 你甚至可以向预定义的对象添加属性和方法。 例如，你可以在 `Trim` 原型对象上定义一个 `String` 方法，脚本中的所有字符串都将继承该方法。  
   
-```javascript  
+```JavaScript  
 String.prototype.trim = function()  
 {  
     // Replace leading and trailing spaces with the empty string  
@@ -63,24 +68,25 @@ s = s.trim();
 window.alert(s + " (" + s.length + ")");  
 ```  
   
-### 可使用原型通过 Object.create 从一个对象派生另一个对象  
- `prototype` 对象可用于从一个对象派生另一个对象。  例如，你可以使用 [Object.create](../../javascript/reference/object-create-function-javascript.md) 函数派生使用我们之前定义的 `Vehicle` 对象的原型（以及所需的任何新属性）的新对象 `Bicycle`。  
+### <a name="using-prototypes-to-derive-one-object-from-another-with-objectcreate"></a>可使用原型通过 Object.create 从一个对象派生另一个对象  
+
+原型 `Object` 可用于从一个对象派生另一个对象。 例如，可以使用 [Object.create](../../javascript/reference/object-create-function-javascript.md) 函数派生使用我们之前定义的 `Vehicle` 对象的原型（以及所需的任何新属性）的新对象 `Bicycle`。  
   
-```javascript  
-var Bicycle = Object.create(Object.getPrototypeOf(Vehicle), {  
+```JavaScript  
+var bicycle = Object.create(Object.getPrototypeOf(Vehicle), {  
     "pedals" :{value: true}  
 });  
   
 ```  
   
- `Bicycle` 对象具有属性 `wheels`、`engine`、`color` 和 `pedals`，并且其原型为 `Vehicle.prototype`。  JavaScript 引擎会查找 `Bicycle` 的 `pedals` 属性，并查看原型链以便查找 `Vehicle` 的 `wheels`、`engine` 和 `color`。  
+ `bicycle` 对象具有属性 `wheels`、`engine`、`color` 和 `pedals`，并且其原型为 `Vehicle.prototype`。 JavaScript 引擎会查找 `pedals` 的 `bicycle` 属性，并查看原型链以便查找 `wheels` 的 `engine`、`color` 和 `Vehicle`。  
   
-### 更改对象的原型  
- 在 Internet Explorer 11 中，可以通过 [\_\_proto](../../javascript/reference/proto-property-object-javascript.md) 属性用新原型替换对象或函数的内部原型。  使用此属性时，将继承新原型的属性和方法以及其原型链中的其他属性和方法。  
+### <a name="changing-an-objects-prototype"></a>更改对象的原型  
+ 在 Internet Explorer 11 中，可以通过 [__proto\_\_](../../javascript/reference/proto-property-object-javascript.md) 属性用新原型替换对象或函数的内部原型。 使用此属性时，将继承新原型的属性和方法以及其原型链中的其他属性和方法。  
   
- 以下示例演示如何更改对象的原型。  此示例演示当更改对象原型时，对象的继承属性将如何更改。  
+ 以下示例演示如何更改对象的原型。 此示例演示当更改对象原型时，对象的继承属性将如何更改。  
   
-```javascript  
+```JavaScript  
 function Friend() {  
     this.demeanor = "happy";  
 }  
@@ -108,3 +114,4 @@ if (console && console.log) {
     console.log(player.ally === "Tom");             // Returns true  
 }  
 ```
+

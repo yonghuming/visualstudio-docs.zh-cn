@@ -1,5 +1,5 @@
 ---
-title: "“选项”对话框 ->“项目和解决方案” | Microsoft Docs"
+title: Projects and Solutions, Options Dialog Box | Microsoft Docs
 ms.custom: 
 ms.date: 7/14/2017
 ms.reviewer: 
@@ -20,71 +20,71 @@ author: kempb
 ms.author: kempb
 manager: ghogen
 ms.translationtype: HT
-ms.sourcegitcommit: dc7a0c10390de67b56a83d2824224bed24125db0
-ms.openlocfilehash: 9e34dc6bd0a876be15dccaff519d67a566022008
+ms.sourcegitcommit: 17defdd0b96ec1c3273fc6b845af844b031a4a17
+ms.openlocfilehash: 2778964a6d5e4f478422727b02e15a058868e644
 ms.contentlocale: zh-cn
-ms.lasthandoff: 07/17/2017
+ms.lasthandoff: 08/23/2017
 
 ---
-# <a name="projects-and-solutions-options-dialog-box"></a>“选项”对话框 ->“项目和解决方案”
+# <a name="projects-and-solutions-options-dialog-box"></a>Projects and Solutions, Options Dialog Box
 
-设置与项目和解决方案相关的 [!INCLUDE[vsprvs](../../code-quality/includes/vsprvs_md.md)] 行为。 要访问这些选项，请选择“工具 > 选项”，展开“项目和解决方案”，然后单击“常规”。
+Sets [!INCLUDE[vsprvs](../../code-quality/includes/vsprvs_md.md)] behavior related to projects and solutions. To access these options, select **Tools > Options** expand **Projects and Solutions**, and click **General**.
 
-通过相同对话框中的“位置”选项卡设置项目和模板文件夹的默认路径。
+The default paths for project and template folders are set through the **Locations** tab in the same dialog box.
   
 > [!NOTE]
->  对话框中的可用选项以及显示的菜单命令的名称和位置可能与“帮助”中的描述不同，具体取决于您的当前设置或版本。 此帮助页是根据“常规开发设置”而编写的。 若要查看或更改设置，请在“工具”菜单上选择“导入和导出设置”。 有关详细信息，请参阅[个性化设置 Visual Studio IDE](../../ide/personalizing-the-visual-studio-ide.md)。  
+>  The options available in dialog boxes, and the names and locations of menu commands you see, might differ from what is described in Help depending on your active settings or edition. This Help page was written with the **General Development settings** in mind. To view or change your settings, choose **Import and Export Settings** on the **Tools** menu. For more information, see [Personalize the Visual Studio IDE](../../ide/personalizing-the-visual-studio-ide.md).  
   
-## <a name="general-tab-options"></a>常规选项卡选项  
+## <a name="general-tab-options"></a>General tab options  
  
-**轻型解决方案加载** 可减少在 IDE 中加载大型解决方案所需的时间和内存。 包含多个 C#、Visual Basic 或 C++ 项目的大型解决方案使用轻型解决方案加载可能会看到显著的性能优势。
+**Lightweight Solution Load** Reduces the amount of time and memory required to load large solutions in the IDE. Large solutions containing many C#, Visual Basic, or C++ projects are likely to see a substantial performance benefit using lightweight solution load.
 
-- **让 Visual Studio 选择最适合我的解决方案的内容**：让 Visual Studio 根据解决方案的特征来自动确定是否应用轻型解决方案加载。
-- **启用**：加载解决方案时将始终应用轻型解决方案加载。
-- **禁用**：从不应用轻型解决方案加载。
+- **Let Visual Studio choose what's best for my solution**: Lets Visual Studio automatically determine whether to apply Lightweight solution load based on the characteristics of the solution.
+- **Enabled**: Always applies Lightweight solution load when loading solutions.
+- **Disabled**: Never applies Lightweight solution load.
 
-有关详细信息，请参阅[优化 Visual Studio 启动时间](../optimize-visual-studio-startup-time.md#speed-up-solution-load)
+For more information, see [Optimize Visual Studio Startup Time](../optimize-visual-studio-startup-time.md#speed_up_solution_load)
 
-**如果生成完成时出现错误，则始终显示错误列表**  
-仅当项目无法生成时，在完成生成时将打开“错误列表”窗口。 将显示在生成过程中发生的错误。 如果清除此选项，则仍将发生错误，但在完成生成时窗口将不会打开。 默认情况下会启用此选项。  
+**Always show Error List if build finishes with errors**  
+Opens the **Error List** window on build completion, only if a project failed to build. Errors that occur during the build process are displayed. When this option is cleared, the errors still occur but the window does not open when the build is complete. This option is enabled by default.  
 
-**跟踪解决方案资源管理器中的活动项**  
-当选中时，“解决方案资源管理器”将自动打开，活动项处于选中状态。 选定的项根据您在项目或解决方案中使用的不同文件或设计器中的不同组件而不同。 清除此选项后，“解决方案资源管理器”中的所选内容不会自动更改。 默认情况下会启用此选项。  
+**Track Active Item in Solution Explorer**  
+When selected, **Solution Explorer** automatically opens and the active item is selected. The selected item changes as you work with different files in a project or solution, or different components in a designer. When this option is cleared, the selection in **Solution Explorer** does not change automatically. This option is enabled by default.  
 
-**显示高级生成配置**  
-当选中时，生成配置选项显示在“项目属性页”对话框和“解决方案属性页”对话框中。 如果未选中，对于包含一个配置或两个配置调试和发布的 [!INCLUDE[vbprvb](../../code-quality/includes/vbprvb_md.md)] 和 [!INCLUDE[csprcs](../../data-tools/includes/csprcs_md.md)] 项目，生成配置选项将不显示在“项目属性页”对话框和“解决方案属性页”对话框中。 如果一个项目具有用户定义的配置，则会显示生成的配置选项。  
+**Show advanced build configurations**  
+When selected, the build configuration options appear on the **Project Property Pages** dialog box and the **Solution Property Pages** dialog box. When cleared, the build configuration options do not appear on the **Project Property Pages** dialog box and the **Solution Property Pages** dialog box for [!INCLUDE[vbprvb](../../code-quality/includes/vbprvb_md.md)] and [!INCLUDE[csprcs](../../data-tools/includes/csprcs_md.md)] projects that contain one configuration or the two configurations debug and release. If a project has a user-defined configuration, the build configuration options are shown.  
 
-未选中时，“生成”菜单上的命令（如“生成解决方案”、“重新生成解决方案”和“清理解决方案”）将在发布配置上执行，“调试”菜单上的命令（如“启动调试”和“启动但不调试”）将在调试配置上执行。  
+When unselected, the commands on the **Build** menu, such as **Build Solution**, **Rebuild Solution**, and **Clean Solution**, are performed on the Release configuration and the commands on the **Debug** menu, such as **Start Debugging** and **Start Without Debugging**, are performed on the Debug configuration.  
 
-**总是显示解决方案**  
-如果选中，该解决方案和解决方案中执行的所有命令将始终显示在 IDE 中。 未选中时，如果该解决方案只包含一个项目，所有项目将作为独立项目创建，您不会看到在解决方案资源管理器中的解决方案或 IDE 中解决方案的执行命令。  
+**Always show solution**  
+When selected, the solution and all commands that act on solutions are always shown in the IDE. When cleared, all projects are created as stand-alone projects and you do not see the solution in Solution Explorer or commands that act on solutions in the IDE if the solution contains only one project.  
 
-**创建时保存新项目**  
-当选中时，你可以在“新建项目”对话框中为你的项目指定位置。 如果未选中，所有新项目将创建为临时项目。 当您正在使用临时项目时，您可以创建和试验项目，无需指定磁盘位置。  
+**Save new projects when created**  
+When selected, you can specify a location for your project in the **New Project** dialog box. When cleared, all new projects are created as temporary projects. When you are working with temporary projects, you can create and experiment with a project without having to specify a disk location.  
 
-**当项目位置不受信任时警告用户**  
-如果您尝试在不完全信任的位置（例如，在 UNC 路径或 HTTP 路径）创建一个新项目或打开现有项目，将显示一条消息。 使用此选项以指定每次在不完全受信任的位置尝试创建或打开一个项目时是否显示该消息。  
+**Warn user when the project location is not trusted**  
+If you attempt to create a new project or open an existing project in a location that is not fully trusted (for example, on a UNC path or an HTTP path), a message is displayed. Use this option to specify whether the message is displayed each time that you attempt to create or open a project in a location that is not fully trusted.  
 
-**在生成开始时显示输出窗口**  
-在解决方案生成一开始就在 IDE 中自动显示输出窗口。 有关详细信息，请参阅[如何：控制输出窗口](http://msdn.microsoft.com/Library/91aebd15-8854-4a7a-9f7d-57376fb4e858)。
+**Show Output window when build starts**  
+Automatically displays the Output Window in the IDE at the outset of solution builds. For more information, see [How to: Control the Output Window](http://msdn.microsoft.com/Library/91aebd15-8854-4a7a-9f7d-57376fb4e858).
 
-**在重命名文件时提示重命名符号**  
-选定后，[!INCLUDE[vsprvs](../../code-quality/includes/vsprvs_md.md)] 将显示一个消息框，询问是否还应该将项目中的所有引用重命名为代码元素。  
+**Prompt for symbolic renaming when renaming files**  
+When selected, [!INCLUDE[vsprvs](../../code-quality/includes/vsprvs_md.md)] displays a message box asking whether or not it should also rename all references in the project to the code element.  
 
-**将文件移动到新位置之前显示提示**  
-选定后，在通过解决方案资源管理器中的操作更改文件的位置之前，[!INCLUDE[vsprvs](../../code-quality/includes/vsprvs_md.md)] 会显示确认消息框。 
+**Prompt before moving files to a new location**  
+When selected, [!INCLUDE[vsprvs](../../code-quality/includes/vsprvs_md.md)] displays a confirmation message box before the locations of files are changed by actions in Solution Explorer. 
 
-## <a name="locations-tab-options"></a>位置选项卡选项
+## <a name="locations-tab-options"></a>Locations tab options
 
-**项目位置**  
-指定 [!INCLUDE[vsprvs](../../code-quality/includes/vsprvs_md.md)] 在其中创建新的项目和解决方案文件夹的默认位置。 几个对话框还使用此选项中为文件夹起始点设置的位置。 例如，“打开项目”对话框将此位置用于“我的项目”的快捷方式。  
+**Projects location**  
+Specifies the default location where [!INCLUDE[vsprvs](../../code-quality/includes/vsprvs_md.md)] creates new projects and solution folders. Several dialog boxes also use the location set in this option for folder starting points. For example, the Open Project dialog box uses this location for the My Projects shortcut.  
 
-**用户项目模板位置**  
-指定“新建项目”对话框中使用的默认位置来创建“我的模板”的列表。 有关详细信息，请参阅[如何：查找和组织模板](../../ide/how-to-locate-and-organize-project-and-item-templates.md)。  
+**User project templates location**  
+Specifies the default location that the **New Project** dialog box uses to create the list of **My Templates**. For more information, see [How to: Locate and Organize Templates](../../ide/how-to-locate-and-organize-project-and-item-templates.md).  
 
-**用户项模板位置**  
-指定“添加新项”对话框中使用的默认位置来创建“我的模板”的列表。 有关详细信息，请参阅[如何：查找和组织模板](../../ide/how-to-locate-and-organize-project-and-item-templates.md)。 
+**User item templates location**  
+Specifies the default location that the **Add New Item** dialog box uses to create the list of **My Templates**. For more information, see [How to: Locate and Organize Templates](../../ide/how-to-locate-and-organize-project-and-item-templates.md). 
 
-## <a name="see-also"></a>另请参阅  
-- [“选项”对话框 ->“项目和解决方案”->“生成和运行”](../../ide/reference/options-dialog-box-projects-and-solutions-build-and-run.md)
-- - [“选项”对话框、项目和解决方案、Web 项目](../../ide/reference/options-dialog-box-projects-and-solutions-web-projects.md)
+## <a name="see-also"></a>See Also  
+- [Options Dialog Box,  Projects and Solutions, Build and Run](../../ide/reference/options-dialog-box-projects-and-solutions-build-and-run.md)
+- - [Options Dialog Box,  Projects and Solutions, Web Projects](../../ide/reference/options-dialog-box-projects-and-solutions-web-projects.md)

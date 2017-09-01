@@ -1,63 +1,80 @@
 ---
-title: "BP_LOCATION_CODE_ADDRESS | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "BP_LOCATION_CODE_ADDRESS"
-helpviewer_keywords: 
-  - "BP_LOCATION_CODE_ADDRESS 结构"
+title: BP_LOCATION_CODE_ADDRESS | Microsoft Docs
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords:
+- BP_LOCATION_CODE_ADDRESS
+helpviewer_keywords:
+- BP_LOCATION_CODE_ADDRESS structure
 ms.assetid: 83c9da8b-19d9-4be5-b225-854543654901
 caps.latest.revision: 9
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 9
----
-# BP_LOCATION_CODE_ADDRESS
-[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
+ms.author: gregvanl
+manager: ghogen
+translation.priority.mt:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+ms.translationtype: MT
+ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
+ms.openlocfilehash: 2e70f232c0e2cc212b7cb8a473b0a7efc222740b
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/28/2017
 
-描述断点位置在地址在代码。  
+---
+# <a name="bplocationcodeaddress"></a>BP_LOCATION_CODE_ADDRESS
+Describes the location of a breakpoint at an address in code.  
   
-## 语法  
+## <a name="syntax"></a>Syntax  
   
-```cpp#  
-typedef struct _BP_LOCATION_CODE_ADDRESS {   
-   BSTR bstrContext;  
-   BSTR bstrModuleUrl;  
-   BSTR bstrFunction;  
-   BSTR bstrAddress;  
+```cpp  
+typedef struct _BP_LOCATION_CODE_ADDRESS {   
+   BSTR bstrContext;  
+   BSTR bstrModuleUrl;  
+   BSTR bstrFunction;  
+   BSTR bstrAddress;  
 } BP_LOCATION_CODE_ADDRESS;  
 ```  
   
-## 成员  
+## <a name="members"></a>Members  
  `bstrContext`  
- 断点的上下文，通常一个方法或函数名如下所示调用堆栈。  
+ The context of the breakpoint, typically a method or function name as seen on a call stack.  
   
  `bstrModuleUrl`  
- 包含断点模块的 URL。  
+ The URL of the module that contains the breakpoint.  
   
  `bstrFunction`  
- 包含断点的函数的名称。  
+ The name of the function that contains the breakpoint.  
   
  `bstrAddress`  
- 断点的地址，由表达式计算器分析绑定到 [IDebugAddress](../../../extensibility/debugger/reference/idebugaddress.md) 对象。  
+ The address of the breakpoint, which is parsed by an expression evaluator to bind it to an [IDebugAddress](../../../extensibility/debugger/reference/idebugaddress.md) object.  
   
-## 备注  
- 作为一个联合的一部分，此结构是 [BP\_LOCATION](../../../extensibility/debugger/reference/bp-location.md) 结构的成员。  
+## <a name="remarks"></a>Remarks  
+ This structure is a member of the [BP_LOCATION](../../../extensibility/debugger/reference/bp-location.md) structure as part of a union.  
   
-## 要求  
- 标题:msdbg.h  
+## <a name="requirements"></a>Requirements  
+ Header: msdbg.h  
   
- 命名空间:Microsoft.VisualStudio.Debugger.Interop  
+ Namespace: Microsoft.VisualStudio.Debugger.Interop  
   
- 程序集:Microsoft.VisualStudio.Debugger.Interop.dll  
+ Assembly: Microsoft.VisualStudio.Debugger.Interop.dll  
   
-## 请参阅  
- [结构和联合](../../../extensibility/debugger/reference/structures-and-unions.md)   
- [BP\_LOCATION](../../../extensibility/debugger/reference/bp-location.md)   
+## <a name="see-also"></a>See Also  
+ [Structures and Unions](../../../extensibility/debugger/reference/structures-and-unions.md)   
+ [BP_LOCATION](../../../extensibility/debugger/reference/bp-location.md)   
  [IDebugAddress](../../../extensibility/debugger/reference/idebugaddress.md)

@@ -1,50 +1,67 @@
 ---
-title: "IDebugStackFrame2::GetLanguageInfo | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "IDebugStackFrame2::GetLanguageInfo"
-helpviewer_keywords: 
-  - "IDebugStackFrame2::GetLanguageInfo"
+title: IDebugStackFrame2::GetLanguageInfo | Microsoft Docs
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords:
+- IDebugStackFrame2::GetLanguageInfo
+helpviewer_keywords:
+- IDebugStackFrame2::GetLanguageInfo
 ms.assetid: 0e12fd92-f155-46a7-8272-cda279388cfb
 caps.latest.revision: 10
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 10
----
-# IDebugStackFrame2::GetLanguageInfo
-[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
+ms.author: gregvanl
+manager: ghogen
+translation.priority.mt:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+ms.translationtype: MT
+ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
+ms.openlocfilehash: 460979d28bfc9244726ea3345c8a435de87a6c29
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/28/2017
 
-获取该语言与此堆栈帧。  
+---
+# <a name="idebugstackframe2getlanguageinfo"></a>IDebugStackFrame2::GetLanguageInfo
+Gets the language associated with this stack frame.  
   
-## 语法  
+## <a name="syntax"></a>Syntax  
   
-```cpp#  
-HRESULT GetLanguageInfo (   
-   BSTR* pbstrLanguage,  
-   GUID* pguidLanguage  
+```cpp  
+HRESULT GetLanguageInfo (   
+   BSTR* pbstrLanguage,  
+   GUID* pguidLanguage  
 );  
 ```  
   
-```c#  
-int GetLanguageInfo (   
-   ref string pbstrLanguage,  
-   ref Guid   pguidLanguage  
+```csharp  
+int GetLanguageInfo (   
+   ref string pbstrLanguage,  
+   ref Guid   pguidLanguage  
 );  
 ```  
   
-#### 参数  
+#### <a name="parameters"></a>Parameters  
  `pbstrLanguage`  
- \[out\] 返回实现方法与此堆栈帧语言的名称。  
+ [out] Returns the name of the language that implements the method associated with this stack frame.  
   
  `pguidLanguage`  
- \[out\] 返回该语言的 `GUID` 。  为 [!INCLUDE[vsprvs](../../../code-quality/includes/vsprvs_md.md)] 语言，例如，下面可以返回:  
+ [out] Returns the `GUID` of the language. For the [!INCLUDE[vsprvs](../../../code-quality/includes/vsprvs_md.md)] languages, for example, the following can be returned:  
   
 -   `guidVBScriptLang`  
   
@@ -58,8 +75,8 @@ int GetLanguageInfo ( 
   
 -   `guidScriptLang`  
   
-## 返回值  
- 如果成功，则返回; `S_OK`否则，返回错误代码。  
+## <a name="return-value"></a>Return Value  
+ If successful, returns `S_OK`; otherwise, returns an error code.  
   
-## 请参阅  
+## <a name="see-also"></a>See Also  
  [IDebugStackFrame2](../../../extensibility/debugger/reference/idebugstackframe2.md)

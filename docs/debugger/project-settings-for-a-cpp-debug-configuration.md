@@ -1,189 +1,211 @@
 ---
-title: "C++ 调试配置的项目设置 | Microsoft Docs"
-ms.custom: ""
-ms.date: "12/14/2016"
-ms.prod: "visual-studio-dev14"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-debug"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "VC.Project.VCDebugSettings.WebBrowser.DebuggerType"
-  - "VC.Project.IVCGPUDebugPageObject.EnvironmentMerge"
-  - "VC.Project.VCDebugSettings.SymbolPath"
-  - "VC.Project.IVCClusterDebugPageObject.ApplicationCommand"
-  - "VC.Project.IVCRemoteDebugPageObject.WorkingDirectory"
-  - "VC.Project.VCDebugSettings.DebuggerType"
-  - "VC.Project.IVCLocalDebugPageObject.GPUDebuggerTargetType"
-  - "VC.Project.IVCRemoteDebugPageObject.SQLDebugging"
-  - "VC.Project.IVCRemoteDebugPageObject.Remote"
-  - "VC.Project.IVCGPUDebugPageObject.CommandArguments"
-  - "VC.Project.VCDebugSettings.CommandArguments"
-  - "VC.Project.IVCClusterDebugPageObject.MPIRunWorkingDirectory"
-  - "VC.Project.IVCLocalDebugPageObject.SQLDebugging"
-  - "VC.Project.IVCWebSvcDebugPageObject.HttpUrl"
-  - "VC.Project.IVCLocalDebugPageObject.WorkingDirectory"
-  - "VC.Project.IVCLocalDebugPageObject.CommandArguments"
-  - "VC.Project.IVCClusterDebugPageObject.MPIRunCommand"
-  - "VC.Project.IVCGPUDebugPageObject.WorkingDirectory"
-  - "VC.Project.IVCWebSvcDebugPageObject.DebuggerType"
-  - "VC.Project.IVCRemoteDebugPageObject.CommandArguments"
-  - "VC.Project.IVCRemoteDebugPageObject.DebuggerType"
-  - "VC.Project.IVCLocalDebugPageObject.GPUBreakOnAllThreads"
-  - "VC.Project.IVCRemoteDebugPageObject.RemoteMachine"
-  - "VC.Project.IVCClusterDebugPageObject.MPIRunArguments"
-  - "VC.Project.IVCClusterDebugPageObject.MPIAcceptFilter"
-  - "VC.Project.IVCGPUDebugPageObject.RemoteConnection"
-  - "VC.Project.VCDebugSettings.PDBPath"
-  - "VC.Project.IVCRemoteDebugPageObject.DeploymentDirectory"
-  - "VC.Project.VCDebugSettings.SQLDebugging"
-  - "VC.Project.VCDebugSettings.RemoteCommand"
-  - "VC.Project.IVCClusterDebugPageObject.ShimCommand"
-  - "VC.Project.IVCLocalDebugPageObject.Command"
-  - "VC.Project.IVCRemoteDebugPageObject.GPUBreakOnAllThreads"
-  - "VC.Project.IVCLocalDebugPageObject.Attach"
-  - "VC.Project.VCDebugSettings.Command"
-  - "VC.Project.IVCRemoteDebugPageObject.GPUDebuggerTargetType"
-  - "VC.Project.IVCRemoteDebugPageObject.RemoteCommand"
-  - "VC.Project.IVCClusterDebugPageObject.ApplicationArguments"
-  - "VC.Project.IVCLocalDebugPageObject.Environment"
-  - "VC.Project.IVCGPUDebugPageObject.DeploymentDirectory"
-  - "VC.Project.IVCLocalDebugPageObject.EnvironmentMerge"
-  - "VC.Project.VCDebugSettings.Environment"
-  - "VC.Project.IVCGPUDebugPageObject.BreakpointBehavior"
-  - "VC.Project.IVCLocalDebugPageObject.DebuggerType"
-  - "VC.Project.VCDebugSettings.WebBrowser.WebBrowserDebuggerHttpUrl"
-  - "VC.Project.IVCWebSvcDebugPageObject.SQLDebugging"
-  - "VC.Project.IVCGPUDebugPageObject.AcceleratorType"
-  - "VC.Project.IVCGPUDebugPageObject.Environment"
-  - "VC.Project.VCDebugSettings.RemoteMachine"
-  - "VC.Project.IVCGPUDebugPageObject.AdditionalFilesToDeploy"
-  - "VC.Project.VCDebugSettings.WorkingDirectory"
-  - "vs.debug.builds"
-  - "VC.Project.VCDebugSettings.Attach"
-  - "VC.Project.VCDebugSettings.HttpUrl"
-  - "VC.Project.IVCClusterDebugPageObject.MPIAcceptMode"
-  - "VC.Project.IVCGPUDebugPageObject.Attach"
-  - "VC.Project.IVCRemoteDebugPageObject.AdditionalFiles"
-  - "VC.Project.IVCGPUDebugPageObject.Command"
-  - "VC.Project.VCDebugSettings.Remote"
-  - "VC.Project.IVCRemoteDebugPageObject.Attach"
-  - "VC.Project.VCDebugSettings.EnvironmentMerge"
-  - "VC.Project.IVCGPUDebugPageObject.MachineName"
-dev_langs: 
-  - "FSharp"
-  - "VB"
-  - "CSharp"
-  - "C++"
-helpviewer_keywords: 
-  - ".pdb 文件, 调试版本项目设置"
-  - "/DEBUG 链接器选项"
-  - "/MAP 链接器选项"
-  - "/MAPINFO 链接器选项"
-  - "/PDB 链接器选项"
-  - "/PDBSTRIPPED 链接器选项"
-  - "/Z7 编译器选项 [C++]"
-  - "/Zd 编译器选项 [C++]"
-  - "/ZI 编译器选项 [C++]"
-  - "调试版本, 项目设置"
-  - "调试配置, C++"
-  - "DEBUG 链接器选项"
-  - "-DEBUG 链接器选项"
-  - "调试 [C++], 调试器设置"
-  - "MAP 链接器选项"
-  - "-MAP 链接器选项"
-  - "映射文件, 项目设置"
-  - "MAPINFO 链接器选项"
-  - "-MAPINFO 链接器选项"
-  - "pdb 文件, 调试版本项目设置"
-  - "PDB 链接器选项"
-  - "-PDB 链接器选项"
-  - "PDBSTRIPPED 链接器选项"
-  - "-PDBSTRIPPED 链接器选项"
-  - "项目配置, 调试"
-  - "项目设置 [Visual Studio]"
-  - "项目设置 [Visual Studio], 调试配置"
-  - "项目 [Visual Studio], 调试配置"
-  - "Z7 编译器选项 [C++]"
-  - "-Z7 编译器选项 [C++]"
-  - "Zd 编译器选项 [C++]"
-  - "-Zd 编译器选项 [C++]"
-  - "ZI 编译器选项 [C++]"
-  - "-Zl 编译器选项 [C++]"
+title: Project settings for a C++ debug configuration | Microsoft Docs
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-debug
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords:
+- VC.Project.VCDebugSettings.WebBrowser.DebuggerType
+- VC.Project.IVCGPUDebugPageObject.EnvironmentMerge
+- VC.Project.VCDebugSettings.SymbolPath
+- VC.Project.IVCClusterDebugPageObject.ApplicationCommand
+- VC.Project.IVCRemoteDebugPageObject.WorkingDirectory
+- VC.Project.VCDebugSettings.DebuggerType
+- VC.Project.IVCLocalDebugPageObject.GPUDebuggerTargetType
+- VC.Project.IVCRemoteDebugPageObject.SQLDebugging
+- VC.Project.IVCRemoteDebugPageObject.Remote
+- VC.Project.IVCGPUDebugPageObject.CommandArguments
+- VC.Project.VCDebugSettings.CommandArguments
+- VC.Project.IVCClusterDebugPageObject.MPIRunWorkingDirectory
+- VC.Project.IVCLocalDebugPageObject.SQLDebugging
+- VC.Project.IVCWebSvcDebugPageObject.HttpUrl
+- VC.Project.IVCLocalDebugPageObject.WorkingDirectory
+- VC.Project.IVCLocalDebugPageObject.CommandArguments
+- VC.Project.IVCClusterDebugPageObject.MPIRunCommand
+- VC.Project.IVCGPUDebugPageObject.WorkingDirectory
+- VC.Project.IVCWebSvcDebugPageObject.DebuggerType
+- VC.Project.IVCRemoteDebugPageObject.CommandArguments
+- VC.Project.IVCRemoteDebugPageObject.DebuggerType
+- VC.Project.IVCLocalDebugPageObject.GPUBreakOnAllThreads
+- VC.Project.IVCRemoteDebugPageObject.RemoteMachine
+- VC.Project.IVCClusterDebugPageObject.MPIRunArguments
+- VC.Project.IVCClusterDebugPageObject.MPIAcceptFilter
+- VC.Project.IVCGPUDebugPageObject.RemoteConnection
+- VC.Project.VCDebugSettings.PDBPath
+- VC.Project.IVCRemoteDebugPageObject.DeploymentDirectory
+- VC.Project.VCDebugSettings.SQLDebugging
+- VC.Project.VCDebugSettings.RemoteCommand
+- VC.Project.IVCClusterDebugPageObject.ShimCommand
+- VC.Project.IVCLocalDebugPageObject.Command
+- VC.Project.IVCRemoteDebugPageObject.GPUBreakOnAllThreads
+- VC.Project.IVCLocalDebugPageObject.Attach
+- VC.Project.VCDebugSettings.Command
+- VC.Project.IVCRemoteDebugPageObject.GPUDebuggerTargetType
+- VC.Project.IVCRemoteDebugPageObject.RemoteCommand
+- VC.Project.IVCClusterDebugPageObject.ApplicationArguments
+- VC.Project.IVCLocalDebugPageObject.Environment
+- VC.Project.IVCGPUDebugPageObject.DeploymentDirectory
+- VC.Project.IVCLocalDebugPageObject.EnvironmentMerge
+- VC.Project.VCDebugSettings.Environment
+- VC.Project.IVCGPUDebugPageObject.BreakpointBehavior
+- VC.Project.IVCLocalDebugPageObject.DebuggerType
+- VC.Project.VCDebugSettings.WebBrowser.WebBrowserDebuggerHttpUrl
+- VC.Project.IVCWebSvcDebugPageObject.SQLDebugging
+- VC.Project.IVCGPUDebugPageObject.AcceleratorType
+- VC.Project.IVCGPUDebugPageObject.Environment
+- VC.Project.VCDebugSettings.RemoteMachine
+- VC.Project.IVCGPUDebugPageObject.AdditionalFilesToDeploy
+- VC.Project.VCDebugSettings.WorkingDirectory
+- vs.debug.builds
+- VC.Project.VCDebugSettings.Attach
+- VC.Project.VCDebugSettings.HttpUrl
+- VC.Project.IVCClusterDebugPageObject.MPIAcceptMode
+- VC.Project.IVCGPUDebugPageObject.Attach
+- VC.Project.IVCRemoteDebugPageObject.AdditionalFiles
+- VC.Project.IVCGPUDebugPageObject.Command
+- VC.Project.VCDebugSettings.Remote
+- VC.Project.IVCRemoteDebugPageObject.Attach
+- VC.Project.VCDebugSettings.EnvironmentMerge
+- VC.Project.IVCGPUDebugPageObject.MachineName
+dev_langs:
+- CSharp
+- VB
+- FSharp
+- C++
+helpviewer_keywords:
+- DEBUG linker option
+- -PDB linker option
+- -Zl compiler option [C++]
+- /DEBUG linker option
+- /PDBSTRIPPED linker option
+- /MAPINFO linker option
+- -Zd compiler option [C++]
+- -DEBUG linker option
+- MAPINFO linker option
+- /ZI compiler option [C++]
+- ZI compiler option [C++]
+- Z7 compiler option [C++]
+- debugging [C++], debugger settings
+- project settings [Visual Studio], debug configurations
+- mapfiles, project settings
+- debug configurations, C++
+- project settings [Visual Studio]
+- /PDB linker option
+- -PDBSTRIPPED linker option
+- debug builds, project settings
+- PDB linker option
+- projects [Visual Studio], debug configurations
+- project configurations, debug
+- Zd compiler option [C++]
+- MAP linker option
+- /Z7 compiler option [C++]
+- .pdb files, debug build project settings
+- -MAP linker option
+- -MAPINFO linker option
+- /Zd compiler option [C++]
+- PDBSTRIPPED linker option
+- -Z7 compiler option [C++]
+- pdb files, debug build project settings
+- /MAP linker option
 ms.assetid: 860c7f13-a108-4fe5-8fca-d235cd3ca1cb
 caps.latest.revision: 49
-caps.handback.revision: 49
-author: "mikejo5000"
-ms.author: "mikejo"
-manager: "ghogen"
----
-# C++ 调试配置的项目设置
-[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
+author: mikejo5000
+ms.author: mikejo
+manager: ghogen
+translation.priority.ht:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+ms.translationtype: HT
+ms.sourcegitcommit: 9e6c28d42bec272c6fd6107b4baf0109ff29197e
+ms.openlocfilehash: a020b695fbf7e6fa13fde3dcfc6ec9eda8169f24
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/22/2017
 
-您可以在**“属性页”**对话框中更改 C 或 Visual C\+\+ 调试配置的项目设置，[如何：设置调试和发布配置](../debugger/how-to-set-debug-and-release-configurations.md)中对此进行了讨论。  下表显示**“属性页”**对话框中与调试器有关的设置的位置。  
+---
+# <a name="project-settings-for-a-c-debug-configuration"></a>Project settings for a C++ debug configuration
+You can change the project settings for a C or Visual C++ debug configuration in the **Property Pages** dialog box, as discussed in [How to: Set Debug and Release Configurations](../debugger/how-to-set-debug-and-release-configurations.md). The following tables show where to find debugger-related settings in the **Property Pages** dialog box.  
   
 > [!WARNING]
->  用 C\+\+ 编写的 Windows 应用商店应用和组件的**配置属性\/调试**类别中的调试项目设置不同。  请参阅 Windows 开发中心中的[启动调试会话（VB、C\#、C\+\+ 和 XAML）](../debugger/start-a-debugging-session-for-a-store-app-in-visual-studio-vb-csharp-cpp-and-xaml.md)。  
+>  The debug project settings in the **Configuration Properties/Debugging** category for Windows Store apps and components that are written in C++ are different. See [Start a debug session (VB, C#, C++ and XAML)](../debugger/start-a-debugging-session-for-a-store-app-in-visual-studio-vb-csharp-cpp-and-xaml.md).  
   
- 在**“要启动的调试器”**列表框中指定要使用的调试器。  您的选择将影响属性的可见性。  
+ Specify which debugger to use in the **Debugger to launch** list box. Your choice will affect which properties are visible.  
   
- 每当您保存解决方案时，每个调试属性设置均自动写入并保存到解决方案的“每用户”文件 \(.vcxproj.user\) 中。  
+ Each debug property setting is automatically written and saved to the "per-user" file (.vcxproj.user) for your solution whenever you save your solution.  
   
-### “配置属性”文件夹（“调试”类别）  
+## <a name="configuration-properties-folder-debugging-category"></a>Configuration Properties folder (Debugging category)  
   
-|**设置**|**说明**|  
-|------------|------------|  
-|**要启动的调试器**|指定要运行的调试器，有以下选择：<br /><br /> -   **本地 Windows 调试器**<br />-   **远程 Windows 调试器**<br />-   **Web 浏览器调试器**<br />-   **Web 服务调试器**|  
-|**命令**（本地 Windows 调试器）|指定在本地计算机上用于启动要调试程序的命令。|  
-|**远程命令**（远程 Windows 调试器）|远程计算机上的 .exe 的路径。  可以像在远程计算机上一样输入路径。|  
-|**命令参数**（本地 Windows 调试器和远程 Windows 调试器）|-   为前面指定的命令指定参数。<br /><br /> 可以在此框中使用下列重定向运算符：<br /><br /> \< `file`<br /> 从文件中读取 stdin。<br /><br /> \> `file`<br /> 将 stdout 写入文件。<br /><br /> \>\> `file`<br /> 将 stdout 追加到文件中。<br /><br /> 2\> `file`<br /> 将 stderr 写入文件。<br /><br /> 2\>\> `file`<br /> 将 stderr 追加到文件中。<br /><br /> 2\> &1<br /> 将 stderr \(2\) 输出发送到与 stdout \(1\) 相同的位置。<br /><br /> 1\> &2<br /> 将 stdout \(1\) 输出发送到与 stderr \(2\) 相同的位置。<br /><br /> 在大多数情况下，这些运算符仅适用于控制台应用程序。|  
-|**工作目录**|指定要调试的程序的工作目录（相对于 EXE 所在的项目目录）。  如果将此设置保留为空，则工作目录将为项目目录。  对于远程调试，项目目录将位于远程服务器上。|  
-|**附加**（本地 Windows 调试器和远程 Windows 调试器）|指定是启动应用程序还是附加到应用程序。  默认设置为“否”。|  
-|**远程服务器名称**（远程 Windows 调试器）|指定您要在其上调试应用程序的计算机（不是您的计算机）的名称。<br /><br /> RemoteMachine 生成宏被设置为此属性的值；有关详细信息，请参阅[用于生成命令和属性的宏](/visual-cpp/ide/common-macros-for-build-commands-and-properties)。|  
-|**连接**（远程 Windows 调试器）|允许您在远程调试的标准与非身份验证连接类型之间切换。  在**“远程服务器名称”**框中指定远程计算机的名称。  连接类型包括：<br /><br /> -   **带 Windows 身份验证的远程访问**<br />-   **不带身份验证的远程访问（仅限本机）**<br /><br /> **注意** 不带身份验证的远程调试可能会使远程计算机容易受到安全攻击。  Windows 身份验证模式更安全。<br /><br /> 有关详细信息，请参阅[远程调试安装](../debugger/remote-debugging.md)。|  
-|**HTTP URL**（Web 服务调试器和 Web 浏览器调试器）|指定您要调试的项目所在的 URL。|  
-|**调试器类型**|指定要使用的调试器类型：**“仅限本机”**、**“仅限托管”**、**“仅限 GPU”**、**“混合”**、**“自动”**（默认）或**“脚本”**。<br /><br /> -   **“仅限本机”**适用于非托管 C\+\+ 代码。<br />-   **“仅限托管”**适用于在公共语言运行时下运行的代码（托管代码）。<br />-   **“混合”**对托管代码和非托管代码都调用调试器。<br />-   **“自动”**将根据编译器和 EXE 信息确定调试器类型。<br />-   **“脚本”**调用脚本调试器。<br />-   **“仅限 GPU”**用于在 GPU 设备或 DirectX 参考光栅器上运行的 C\+\+ AMP 代码。  请参阅[调试 GPU 代码](../debugger/debugging-gpu-code.md)。|  
-|**环境**（本地 Windows 调试器）|为要调试的程序指定环境变量。  使用标准环境变量语法（例如，`PATH="%SystemRoot%\ … …"`）。  根据**“合并环境”**设置的不同，这些变量将重写系统环境或与系统环境合并。  在设置列中单击时，会出现“编辑…”。  单击该链接可编辑环境变量。|  
-|**合并环境**（本地 Windows 调试器）|确定在**“环境”**框中指定的变量是否与操作系统定义的环境合并。  默认设置为“是”。|  
-|**SQL 调试**（除 MPI 群集调试器外的所有调试器）|启用 [!INCLUDE[vcprvc](../debugger/includes/vcprvc_md.md)] 应用程序中的 SQL 过程的调试。  默认设置为“否”。|  
-|**调试加速器类型**（仅限 GPU 调试）|指定要用于调试的 GPU 设备。  为兼容的 GPU 设备安装设备驱动器将添加其他选项。  默认设置为“GPU \- 软件仿真程序”。|  
-|**GPU 默认断点行为**（仅限 GPU 调试）|指定是否应为 SIMD 经线中的每个线程引发断点事件。  默认设置是仅每次换行引发一次断点事件。|  
-|**Amp 默认快捷键**（仅限 GPU 调试）|在调试 GPU 代码时，指定默认 AMP 快捷键。  如果问题是由硬件或驱动程序导致，而非您的代码导致，请选择**“WARP 软件快捷键”**进行调查。|  
-|**部署目录**（远程 Windows 调试器）|指定项目输出在启动前要被复制的远程计算机上的路径。  路径可以是远程计算机上的网络共享，也可以是到远程计算机上的文件夹的路径。  默认设置为空，这意味着项目输出未复制到网络共享。  若要启用文件的部署，您还必须在“配置管理器”对话框中选中**“部署”**复选框。  有关详细信息，请参阅[如何：创建和编辑配置](../ide/how-to-create-and-edit-configurations.md)。|  
-|**其他要部署的文件**（远程 Windows 调试器）|如果“部署目录”属性已设置，则它是一个要复制到部署目录中的分号分隔的附加文件列表。  默认设置为空，这意味着不会将其他文件复制到部署目录中。  若要启用文件的部署，您还必须在“配置管理器”对话框中选中**“部署”**复选框。  有关详细信息，请参阅[如何：创建和编辑配置](../ide/how-to-create-and-edit-configurations.md)。|  
-|**部署 Visual C\+\+ 调试运行库**（远程 Windows 调试器）|如果“部署目录”属性已设置，则它可以指定当前平台的 Visual C\+\+ 调试运行库是否应被复制到网络共享中。  默认设置为“是”。|  
+|**Setting**|**Description**|  
+|-----------------|---------------------|  
+|**Debugger to launch**|Specifies the debugger to run, with the following choices:<br /><br /> -   **Local Windows Debugger**<br />-   **Remote Windows Debugger**<br />-   **Web Browser Debugger**<br />-   **Web Service Debugger**|  
+|**Command** (Local Windows Debugger)|Specifies the command for starting the program that you are debugging on the local computer.|  
+|**Remote Command** (Remote Windows Debugger)|The path for the .exe on the remote computer. Enter the path just as you would enter it on the remote machine.|  
+|**Command Arguments** (Local Windows Debugger and Remote Windows Debugger)|-   Specifies arguments for the command specified earlier.<br /><br /> You can use the following redirection operators in this box:<br /><br /> < `file`<br /> Reads stdin from file.<br /><br /> > `file`<br /> Writes stdout to file.<br /><br /> >> `file`<br /> Appends stdout to file.<br /><br /> 2> `file`<br /> Writes stderr to file.<br /><br /> 2>> `file`<br /> Appends stderr to file.<br /><br /> 2> &1<br /> Sends stderr (2) output to same location as stdout (1).<br /><br /> 1> &2<br /> Sends stdout (1) output to same location as stderr (2).<br /><br /> In most cases, these operators are applicable only to console applications.|  
+|**Working Directory**|Specifies the working directory of the program being debugged, relative to the project directory where your EXE is located. If you leave this blank, the working directory is the project directory. For remote debugging, the project directory will be on the remote server.|  
+|**Attach** (Local Windows Debugger and Remote Windows Debugger)|Specifies whether to start or attach to the application. Default setting is No.|  
+|**Remote Server Name** (Remote Windows Debugger)|Specifies the name of a computer (other than yours) on which you want to debug an application.<br /><br /> The RemoteMachine Build macro is set to the value of this property; for more information, see [Macros for Build Commands and Properties](/cpp/ide/common-macros-for-build-commands-and-properties).|  
+|**Connection** (Remote Windows Debugger)|Allows you to switch between standard and no-authentication connection types for remote debugging. Specify a remote computer name in the **Remote Server Name** box. Connection types include the following:<br /><br /> -   **Remote with Windows Authentication**<br />-   **Remote with No Authentication**<br /><br /> **Note** Remote debugging with No Authentication may leave the remote computer vulnerable to security violations. Windows Authentication mode is more secure.<br /><br /> For more information, see [Remote Debugging Setup](../debugger/remote-debugging.md).|  
+|**HTTP URL** (Web Service Debugger and Web Browser Debugger)|Specifies the URL where the project you are debugging is located.|  
+|**Debugger Type**|Specifies the type of debugger to be used: **Native Only**, **Managed Only**, **GPU Only**, **Mixed**, **Auto** (default), or **Script**.<br /><br /> -   **Native Only** is for unmanaged C++ code.<br />-   **Managed Only** is for code that runs under the common language runtime (managed code).<br />-   **Mixed** invokes debuggers for both managed and unmanaged code.<br />-   **Auto** determines the debugger type based on compiler and EXE information.<br />-   **Script** invokes a debugger for scripts.<br />-   **GPU Only** is for C++ AMP code that runs on a GPU device or on the DirectX reference rasterizer. See [Debugging GPU Code](../debugger/debugging-gpu-code.md).|  
+|**Environment** (Local Windows Debugger and Remote Windows Debugger)|Specifies environment variables for the program that you are debugging. Use standard environment variable syntax (for example, `PATH="%SystemRoot%\..."`). These variables override the system environment or are merged with the system environment, depending on the **Merge Environment** setting. When you click in the settings column, an "Edit..." appears. Click that link to edit environment variables.|  
+|**Merge Environment** (Local Windows Debugger)|Determines whether the variables that are specified in the **Environment** box will be merged with the environment that is defined by the operating system. Default setting is Yes.|  
+|**SQL Debugging** (all but MPI Cluster Debugger)|Enables debugging of SQL procedures from your [!INCLUDE[vcprvc](../code-quality/includes/vcprvc_md.md)] application. Default setting is No.|  
+|**Debugging Accelerator Type** (GPU debugging only)|Specifies the GPU device to use for debugging. Installing device drivers for compatible GPU devices will add additional options. The default setting is "GPU - Software Emulator."|  
+|**GPU Default Breakpoint Behavior** (GPU debugging only)|Specifies whether a breakpoint event should be raised for each thread in a SIMD warp. The default setting is to raise the breakpoint event only once per warp.|  
+|**Amp Default Accelerator**|Specifies the default AMP accelerator when debugging GPU code. Choose **WARP software accelerator** to investigate if an issue is caused by the hardware or a driver instead of your code.|  
+|**Deployment Directory** (Remote Windows Debugger)|Specifies the path on the remote computer where the project output will be copied prior to launch. The path can be a network share on the remote computer, or it can be a path to a folder on the remote computer. The default setting is empty, which means the project output is not copied to a network share. To enable deployment of the files, you must also select the **Deploy** check box in the Configuration Manager dialog box. For more information, see [How to: Create and Edit Configurations](../ide/how-to-create-and-edit-configurations.md).|  
+|**Additional Files to Deploy** (Remote Windows Debugger)|If the Deployment Directory property is set, this is a semi-colon delimited list of additional files to copy to the deployment directory. The default setting is empty, which means that no additional files are copied to the deployment directory. To enable deployment of the files, you must also select the **Deploy** check box in the Configuration Manager dialog box. For more information, see [How to: Create and Edit Configurations](../ide/how-to-create-and-edit-configurations.md).|  
+|**Deploy Visual C++ Debug Runtime Libraries** (Remote Windows Debugger)|If the Deployment Directory property is set, this specifies whether the Visual C++ debug runtime libraries for the current platform should be copied to the network share. The default setting is Yes.|  
   
-### “C\/C\+\+”文件夹（“常规”类别）  
+## <a name="cc-folder-general-category"></a>C/C++ folder (General category)  
   
-|设置|说明|  
-|--------|--------|  
-|**调试信息格式** \([\/Z7、\/Zd、\/Zi、\/ZI](/visual-cpp/build/reference/z7-zi-zi-debug-information-format)\)|指定要为项目创建的调试信息类型。<br /><br /> 默认选项 \(\/ZI\) 以“编辑并继续”的兼容格式创建程序数据库 \(PDB\)。  有关详细信息，请参阅 [\/Z7、\/Zd、\/Zi、\/ZI（调试信息格式）](/visual-cpp/build/reference/z7-zi-zi-debug-information-format)。|  
+|Setting|Description|  
+|-------------|-----------------|  
+|**Debug Information Format** ([/Z7, /Zd, Zi, /ZI](/cpp/build/reference/z7-zi-zi-debug-information-format))|Specifies the type of debug information to be created for the project.<br /><br /> The default option (/ZI) creates a program database (PDB) in Edit and Continue compatible format. For more information, see [/Z7, /Zd, /Zi, /ZI (Debug Information Format)](/cpp/build/reference/z7-zi-zi-debug-information-format).|  
   
-### “C\/C\+\+”文件夹（“优化”类别）  
+## <a name="cc-folder-optimization-category"></a>C/C++ folder (Optimization category)  
   
-|设置|说明|  
-|--------|--------|  
-|**优化**|指定编译器是否应优化其生成的代码。  优化过程将更改执行的代码。  优化的代码不再与源代码匹配。  因此，调试将变得非常困难。<br /><br /> 默认选项（**“禁用\(\/0d\)”**）取消优化。  您可以在开发时取消优化，然后在创建代码的产品版本时再启用优化。|  
+|Setting|Description|  
+|-------------|-----------------|  
+|**Optimization**|Specifies whether the compiler should optimize the code it produces. Optimization changes the code that is executed. Optimized code no longer matches the source code. Therefore, debugging is difficult.<br /><br /> The default option (**Disabled (/0d**) suppresses optimization. You can develop with optimization suppressed, and then turn it on when you create the production version of your code.|  
   
-### “链接器”文件夹（“调试”类别）  
+## <a name="linker-folder-debugging-category"></a>Linker folder (Debugging category)  
   
-|设置|说明|  
-|--------|--------|  
-|**生成调试信息** \([\/DEBUG](/visual-cpp/build/reference/debug-generate-debug-info)\)|通知链接器包含调试信息，这些信息具有 \/Z7、\/Zd、\/Zi 或 \/ZI 指定的格式。|  
-|**生成程序数据库文件** \([\/PDB:name](/visual-cpp/build/reference/pdb-use-program-database)\)|在该框中指定 PDB 文件的名称。  必须为“调试信息格式”选择 \/ZI 或 \/Zi。|  
-|**去除私有符号** \([\/PDBSTRIPPED:filename](/visual-cpp/build/reference/pdbstripped-strip-private-symbols)\)|如果不希望在 PDB 文件中包含私有符号，则在该框中指定 PDB 文件的名称。  当使用任何生成 PDB 文件的编译器或链接器选项（如 \/DEBUG、\/Z7、\/Zd）生成程序图像时，此选项创建另一个程序数据库 \(PDB\) 文件。  或 \/Zi。  此 PDB 文件省略您不希望交付给客户的符号。  有关详细信息，请参阅 [\/PDBSTRIPPED（去除私有符号）](/visual-cpp/build/reference/pdbstripped-strip-private-symbols)。|  
-|**生成映射文件** \([\/MAP](/visual-cpp/build/reference/map-generate-mapfile)\)|通知链接器在链接过程中生成映射文件。  默认设置为“否”。  有关详细信息，请参阅 [\/MAP（生成映射文件）](/visual-cpp/build/reference/map-generate-mapfile)。|  
-|**映射文件名** \([\/MAP:](/visual-cpp/build/reference/map-generate-mapfile)*name*\)|如果选择“生成映射文件”，则可在该框中指定映射文件。  有关详细信息，请参阅 [\/MAP（生成映射文件）](/visual-cpp/build/reference/map-generate-mapfile)。|  
-|**映射导出** \([\/MAPINFO:EXPORTS](/visual-cpp/build/reference/mapinfo-include-information-in-mapfile)\)|在映射文件中包含导出函数。  默认设置为“否”。  有关详细信息，请参阅 [\/MAPINFO（包含映射文件中的信息）](/visual-cpp/build/reference/mapinfo-include-information-in-mapfile)。|  
-|**可调试程序集** \([\/ASSEMBLYDEBUG](/visual-cpp/build/reference/mapinfo-include-information-in-mapfile)\)|为链接器 \/ASSEMBLYDEBUG 选项指定设置。  可能的值如下：<br /><br /> -   **未产生 Debuggable 特性**。<br />-   **运行时跟踪和禁用优化\(\/ASSEMBLYDEBUG\)**。  此设置为默认设置。<br />-   **无运行时跟踪和启用优化\(\/ASSEMBLYDEBUG:DISABLE\)**。<br />-   **\<从父级或项目默认设置继承\>**。<br />-   有关详细信息，请参阅 [\/ASSEMBLYDEBUG（添加 DebuggableAttribute）](/visual-cpp/build/reference/assemblydebug-add-debuggableattribute)。|  
+|Setting|Description|  
+|-------------|-----------------|  
+|**Generate Debug Info** ([/DEBUG](/cpp/build/reference/debug-generate-debug-info))|Tells the linker to include debug information, which will have the format specified by /Z7, /Zd, Zi, or /ZI.|  
+|**Generate Program Database File** ([/PDB:name](/cpp/build/reference/pdb-use-program-database))|Specify the name of a PDB file in this box. You must select ZI or /Zi for Debug Information Format.|  
+|**Strip Private Symbols** ([/PDBSTRIPPED:filename](/cpp/build/reference/pdbstripped-strip-private-symbols))|Specify the name of a PDB file in this box if you do not want to include private symbols in the PDB file. This option creates a second program database (PDB) file when you build your program image with any of the compiler or linker options that generate a PDB file, such as /DEBUG, /Z7, /Zd. Or /Zi. This second PDB file omits symbols that you would not want to ship to your customers. For more information, see [/PDBSTRIPPED (Strip Private Symbols)](/cpp/build/reference/pdbstripped-strip-private-symbols).|  
+|**Generate Map File** ([/MAP](/cpp/build/reference/map-generate-mapfile))|Tells the linker to generate a map file during linking. Default setting is No. For more information, see [/MAP (Generate Mapfile)](/cpp/build/reference/map-generate-mapfile).|  
+|**Map File Name** ([/MAP:](/cpp/build/reference/map-generate-mapfile)*name*)|If you choose Generate Map File, you can specify the map file in this box. For more information, see [/MAP (Generate Mapfile)](/cpp/build/reference/map-generate-mapfile).|  
+|**Map Exports** ([/MAPINFO:EXPORTS](/cpp/build/reference/mapinfo-include-information-in-mapfile))|Includes exported functions in the map file. Default setting is No. For more information, see [/MAPINFO (Include Information in Mapfile)](/cpp/build/reference/mapinfo-include-information-in-mapfile).|  
+|**Debuggable Assembly** ([/ASSEMBLYDEBUG](/cpp/build/reference/mapinfo-include-information-in-mapfile))|Specifies settings for the Linker /ASSEMBLYDEBUG option. Possible values are as follows:<br /><br /> -   **No debuggable attribute emitted**.<br />-   **Runtime tracking and disable optimizations (/ASSEMBLYDEBUG)**. This is the default setting,<br />-   **No runtime tracking and enable optimizations(/ASSEMBLYDEBUG:DISABLE)**.<br />-   **\<inherit from parent or project defaults>**.<br />-   For more information, see [/ASSEMBLYDEBUG (Add DebuggableAttribute)](/cpp/build/reference/assemblydebug-add-debuggableattribute).|  
   
- 通过使用 Microsoft.VisualStudio.VCProjectEngine.VCDebugSettings 接口，可以在“配置属性”文件夹（“调试”类别）中以编程方式更改这些设置。  有关详细信息，请参阅 <xref:Microsoft.VisualStudio.VCProjectEngine.VCDebugSettings>。  
+ You can change these settings in the Configuration Properties folder (Debug category) programmatically by using the Microsoft.VisualStudio.VCProjectEngine.VCDebugSettings interface. For more information, see <xref:Microsoft.VisualStudio.VCProjectEngine.VCDebugSettings>.
+
+## <a name="other-project-settings"></a>Other project settings
+
+To debug project types such as static libraries and DLLs, your Visual Studio project must be able to find the correct files. When source code is available, you can add static libraries and DLLs as separate projects to the same solution (this makes debugging easy). For information on creating these project types, see [Creating and using a Dynamic Link Library (DLL)](/cpp/build/walkthrough-creating-and-using-a-dynamic-link-library-cpp) and [Creating a using a static library](/cpp/windows/walkthrough-creating-and-using-a-static-library-cpp). With source code available, you can also create a new Visual Studio project by choosing **File > New > Project From Existing Code**.
+
+To debug DLLs that are external to your project, see [Debugging DLL projects](../debugger/debugging-dll-projects.md#vxtskdebuggingdllprojectsexternal). If you need to debug your own DLL project, but don't have access to the project for the calling application, see [How to debug from a DLL project](../debugger/how-to-debug-from-a-dll-project.md).
   
-## 请参阅  
- [调试本机代码](../debugger/debugging-native-code.md)   
- [调试设置和准备](../debugger/debugger-settings-and-preparation.md)   
- [创建和管理 Visual C\+\+ 项目](/visual-cpp/ide/creating-and-managing-visual-cpp-projects)   
- [\/ASSEMBLYDEBUG（添加 DebuggableAttribute）](/visual-cpp/build/reference/assemblydebug-add-debuggableattribute)   
- [用于生成命令和属性的宏](/visual-cpp/ide/common-macros-for-build-commands-and-properties)
+## <a name="see-also"></a>See Also  
+ [Debugging Native Code](../debugger/debugging-native-code.md)   
+ [Debugger Settings and Preparation](../debugger/debugger-settings-and-preparation.md)   
+ [Creating and Managing Visual C++ Projects](/cpp/ide/creating-and-managing-visual-cpp-projects)   
+ [/ASSEMBLYDEBUG (Add DebuggableAttribute)](/cpp/build/reference/assemblydebug-add-debuggableattribute)   
+ [Common Macros for Build Commands and Properties](/cpp/ide/common-macros-for-build-commands-and-properties)

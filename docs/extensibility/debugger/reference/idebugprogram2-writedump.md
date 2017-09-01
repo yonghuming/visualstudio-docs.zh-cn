@@ -1,56 +1,73 @@
 ---
-title: "IDebugProgram2::WriteDump | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "IDebugProgram2::WriteDump"
-helpviewer_keywords: 
-  - "IDebugProgram2::WriteDump"
+title: IDebugProgram2::WriteDump | Microsoft Docs
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords:
+- IDebugProgram2::WriteDump
+helpviewer_keywords:
+- IDebugProgram2::WriteDump
 ms.assetid: 375afb8c-882d-44db-bfa7-e2c9eb555122
 caps.latest.revision: 11
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 11
----
-# IDebugProgram2::WriteDump
-[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
+ms.author: gregvanl
+manager: ghogen
+translation.priority.mt:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+ms.translationtype: MT
+ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
+ms.openlocfilehash: 2053e56d6e8508af1953c8560ac2e167b2966376
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/28/2017
 
-写入文件的转储。  
+---
+# <a name="idebugprogram2writedump"></a>IDebugProgram2::WriteDump
+Writes a dump to a file.  
   
-## 语法  
+## <a name="syntax"></a>Syntax  
   
-```cpp#  
-HRESULT WriteDump(   
-   DUMPTYPE  DumpType,  
-   LPCOLESTR pszDumpUrl  
+```cpp  
+HRESULT WriteDump(   
+   DUMPTYPE  DumpType,  
+   LPCOLESTR pszDumpUrl  
 );  
 ```  
   
-```c#  
-int WriteDump(   
-   enum_DUMPTYPE  DumpType,  
-   string         pszDumpUrl  
+```csharp  
+int WriteDump(   
+   enum_DUMPTYPE  DumpType,  
+   string         pszDumpUrl  
 );  
 ```  
   
-#### 参数  
+#### <a name="parameters"></a>Parameters  
  `DumpType`  
- \[in\] 从指定转储的类型，例如，短或长时间运行的 [DUMPTYPE](../../../extensibility/debugger/reference/dumptype.md) 枚举的值。  
+ [in] A value from the [DUMPTYPE](../../../extensibility/debugger/reference/dumptype.md) enumeration that specifies the type of dump, for example, short or long.  
   
  `pszDumpUrl`  
- \[in\] 写入的 URL 转储。  通常，以 `file://c: \ path \ filename.ext`形式，这是，但是，可以是任何有效的 URL。  
+ [in] The URL to write the dump to. Typically, this is in the form of `file://c:\path\filename.ext`, but may be any valid URL.  
   
-## 返回值  
- 如果成功，则返回; `S_OK`否则，返回错误代码。  
+## <a name="return-value"></a>Return Value  
+ If successful, returns `S_OK`; otherwise, returns an error code.  
   
-## 备注  
- 转储程序在程序通常包括当前堆栈帧、堆栈，正在运行的线程的列表和能程序拥有的所有内存。  
+## <a name="remarks"></a>Remarks  
+ A program dump would typically include the current stack frame, the stack itself, a list of the threads running in the program, and possibly any memory that the program owns.  
   
-## 请参阅  
+## <a name="see-also"></a>See Also  
  [IDebugProgram2](../../../extensibility/debugger/reference/idebugprogram2.md)

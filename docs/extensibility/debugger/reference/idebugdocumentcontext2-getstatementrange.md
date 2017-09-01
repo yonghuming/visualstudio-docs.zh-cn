@@ -1,63 +1,80 @@
 ---
-title: "IDebugDocumentContext2::GetStatementRange | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "IDebugDocumentContext2::GetStatementRange"
-helpviewer_keywords: 
-  - "IDebugDocumentContext2::GetStatementRange"
+title: IDebugDocumentContext2::GetStatementRange | Microsoft Docs
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords:
+- IDebugDocumentContext2::GetStatementRange
+helpviewer_keywords:
+- IDebugDocumentContext2::GetStatementRange
 ms.assetid: bc94851a-0ec4-47ea-99c7-0a585e54e726
 caps.latest.revision: 10
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 10
----
-# IDebugDocumentContext2::GetStatementRange
-[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
+ms.author: gregvanl
+manager: ghogen
+translation.priority.mt:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+ms.translationtype: MT
+ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
+ms.openlocfilehash: f63d3f5512c4f10c810525f0b4a07d04e61d1293
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/28/2017
 
-获取文档上下文的文件语句之间。  
+---
+# <a name="idebugdocumentcontext2getstatementrange"></a>IDebugDocumentContext2::GetStatementRange
+Gets the file statement range of the document context.  
   
-## 语法  
+## <a name="syntax"></a>Syntax  
   
-```cpp#  
-HRESULT GetStatementRange(   
-   TEXT_POSITION* pBegPosition,  
-   TEXT_POSITION* pEndPosition  
+```cpp  
+HRESULT GetStatementRange(   
+   TEXT_POSITION* pBegPosition,  
+   TEXT_POSITION* pEndPosition  
 );  
 ```  
   
-```c#  
-int GetStatementRange(   
-   TEXT_POSITION[] pBegPosition,  
-   TEXT_POSITION[] pEndPosition  
+```csharp  
+int GetStatementRange(   
+   TEXT_POSITION[] pBegPosition,  
+   TEXT_POSITION[] pEndPosition  
 );  
 ```  
   
-#### 参数  
+#### <a name="parameters"></a>Parameters  
  `pBegPosition`  
- \[in, out\] 创建一个起始位置填充的 [TEXT\_POSITION](../../../extensibility/debugger/reference/text-position.md) 结构。  ，如果此信息不是必需的，将此参数设置为空值。  
+ [in, out] A [TEXT_POSITION](../../../extensibility/debugger/reference/text-position.md) structure that is filled in with the starting position. Set this argument to a null value if this information is not needed.  
   
  `pEndPosition`  
- \[in, out\] 在结束位置填充的 [TEXT\_POSITION](../../../extensibility/debugger/reference/text-position.md) 结构。  ，如果此信息不是必需的，将此参数设置为空值。  
+ [in, out] A [TEXT_POSITION](../../../extensibility/debugger/reference/text-position.md) structure that is filled in with the ending position. Set this argument to a null value if this information is not needed.  
   
-## 返回值  
- 如果成功，则返回; `S_OK`否则，返回错误代码。  
+## <a name="return-value"></a>Return Value  
+ If successful, returns `S_OK`; otherwise, returns an error code.  
   
-## 备注  
- 语句之间是提供代码文档上下文引用行的大小。  
+## <a name="remarks"></a>Remarks  
+ A statement range is the range of the lines that contributed the code to which this document context refers.  
   
- 若要获取源代码的大小 \(包括注释\) 中文档上下文，调用 [GetSourceRange](../../../extensibility/debugger/reference/idebugdocumentcontext2-getsourcerange.md) 方法。  
+ To obtain the range of source code (including comments) within this document context, call the [GetSourceRange](../../../extensibility/debugger/reference/idebugdocumentcontext2-getsourcerange.md) method.  
   
-## 示例  
- 下面的示例演示如何执行显示 [IDebugDocumentContext2](../../../extensibility/debugger/reference/idebugdocumentcontext2.md) 接口的简单 `CDebugContext` 对象的方法。  ，仅当开始位置不是 null 值，此示例填充结束位置。  
+## <a name="example"></a>Example  
+ The following example shows how to implement this method for a simple `CDebugContext` object that exposes the [IDebugDocumentContext2](../../../extensibility/debugger/reference/idebugdocumentcontext2.md) interface. This example fills in the ending position only if the beginning position is not a null value.  
   
-```cpp#  
+```cpp  
 HRESULT CDebugContext::GetStatementRange(TEXT_POSITION* pBegPosition,  
                                          TEXT_POSITION* pEndPosition)    
 {    
@@ -86,7 +103,7 @@ HRESULT CDebugContext::GetStatementRange(TEXT_POSITION* pBegPosition,
 }    
 ```  
   
-## 请参阅  
+## <a name="see-also"></a>See Also  
  [IDebugDocumentContext2](../../../extensibility/debugger/reference/idebugdocumentcontext2.md)   
  [GetSourceRange](../../../extensibility/debugger/reference/idebugdocumentcontext2-getsourcerange.md)   
- [TEXT\_POSITION](../../../extensibility/debugger/reference/text-position.md)
+ [TEXT_POSITION](../../../extensibility/debugger/reference/text-position.md)

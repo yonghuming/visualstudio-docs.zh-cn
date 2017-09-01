@@ -1,69 +1,86 @@
 ---
-title: "IDebugEngineProgram2::WatchForThreadStep | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "IDebugEngineProgram2::WatchForThreadStep"
-helpviewer_keywords: 
-  - "IDebugEngineProgram2::WatchForThreadStep"
+title: IDebugEngineProgram2::WatchForThreadStep | Microsoft Docs
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords:
+- IDebugEngineProgram2::WatchForThreadStep
+helpviewer_keywords:
+- IDebugEngineProgram2::WatchForThreadStep
 ms.assetid: b70922a3-1313-409a-b3b7-50c7cd13e394
 caps.latest.revision: 9
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 9
----
-# IDebugEngineProgram2::WatchForThreadStep
-[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
+ms.author: gregvanl
+manager: ghogen
+translation.priority.mt:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+ms.translationtype: MT
+ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
+ms.openlocfilehash: e87c6e5c38726c252a794ddb4342f4cc001861c4
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/28/2017
 
-在特定线程注意注意执行\) 的执行 \(或终止。  
+---
+# <a name="idebugengineprogram2watchforthreadstep"></a>IDebugEngineProgram2::WatchForThreadStep
+Watches for execution (or stops watching for execution) to occur on the given thread.  
   
-## 语法  
+## <a name="syntax"></a>Syntax  
   
-```cpp#  
-HRESULT WatchForThreadStep(   
-   IDebugProgram2* pOriginatingProgram,  
-   DWORD           dwTid,  
-   BOOL            fWatch,  
-   DWORD           dwFrame  
+```cpp  
+HRESULT WatchForThreadStep(   
+   IDebugProgram2* pOriginatingProgram,  
+   DWORD           dwTid,  
+   BOOL            fWatch,  
+   DWORD           dwFrame  
 );  
 ```  
   
-```c#  
-int WatchForThreadStep(   
-   IDebugProgram2 pOriginatingProgram,  
-   uint           dwTid,  
-   int            fWatch,  
-   uint           dwFrame  
+```csharp  
+int WatchForThreadStep(   
+   IDebugProgram2 pOriginatingProgram,  
+   uint           dwTid,  
+   int            fWatch,  
+   uint           dwFrame  
 );  
 ```  
   
-#### 参数  
+#### <a name="parameters"></a>Parameters  
  `pOriginatingProgram`  
- \[in\] 表示程序的 [IDebugProgram2](../../../extensibility/debugger/reference/idebugprogram2.md) 对象步骤。  
+ [in] An [IDebugProgram2](../../../extensibility/debugger/reference/idebugprogram2.md) object representing the program being stepped.  
   
  `dwTid`  
- \[in\] 指定线程的标识关注。  
+ [in] Specifies the identifier of the thread to watch.  
   
  `fWatch`  
- \[in\] 非零 \(`TRUE`\) 表示开始监视由标识的线程的执行。 `dwTid`;否则，零 \(0\)`FALSE`\) 的含义停止监视 `dwTid`的执行。  
+ [in] Non-zero (`TRUE`) means start watching for execution on the thread identified by `dwTid`; otherwise, zero (`FALSE`) means stop watching for execution on `dwTid`.  
   
  `dwFrame`  
- \[in\] 指定控件的步骤类型的帧索引。  在这种值为零 \(0\) 时，步骤类型为 “步骤进入”，程序应停止，只要 `dwTid` 确定的线程上执行。  当 `dwFrame` 是非零时，步骤类型是 “step”，程序应停止，仅当 `dwTid` 确定的线程在索引小于 `dwFrame`是等于或高堆栈中的帧运行。  
+ [in] Specifies a frame index that controls the step type. When this is value is zero (0), the step type is "step into" and the program should stop whenever the thread identified by `dwTid` executes. When `dwFrame` is non-zero, the step type is "step over" and the program should stop only if the thread identified by `dwTid` is running in a frame whose index is equal to or higher on the stack than `dwFrame`.  
   
-## 返回值  
- 如果成功，则返回; `S_OK`否则，返回错误代码。  
+## <a name="return-value"></a>Return Value  
+ If successful, returns `S_OK`; otherwise, returns an error code.  
   
-## 备注  
- 在会议调试管理器 \(SDM\)步骤程序时，确定由 `pOriginatingProgram` 参数，则通过调用此方法以通知其他附加程序。  
+## <a name="remarks"></a>Remarks  
+ When the session debug manager (SDM) steps a program, identified by the `pOriginatingProgram` parameter, it notifies all other attached programs by calling this method.  
   
- 此方法只适用于与样线 \- 步骤。  
+ This method is applicable only to same-thread stepping.  
   
-## 请参阅  
+## <a name="see-also"></a>See Also  
  [IDebugEngineProgram2](../../../extensibility/debugger/reference/idebugengineprogram2.md)   
  [IDebugProgram2](../../../extensibility/debugger/reference/idebugprogram2.md)

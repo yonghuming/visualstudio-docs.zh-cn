@@ -1,5 +1,5 @@
 ---
-title: "IDebugArrayObject::GetElement |Microsoft 文档"
+title: IDebugArrayObject::GetElement | Microsoft Docs
 ms.custom: 
 ms.date: 11/04/2016
 ms.reviewer: 
@@ -30,43 +30,44 @@ translation.priority.mt:
 - tr-tr
 - zh-cn
 - zh-tw
-translationtype: Machine Translation
-ms.sourcegitcommit: 5db97d19b1b823388a465bba15d057b30ff0b3ce
-ms.openlocfilehash: ddfb54b0bf5d6adb1721095fe0c6e748aea024e5
-ms.lasthandoff: 02/22/2017
+ms.translationtype: MT
+ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
+ms.openlocfilehash: f1d56b32b91b840cc87bb3ba50107b65c54c79d5
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="idebugarrayobjectgetelement"></a>IDebugArrayObject::GetElement
-获取数组的元素。  
+Gets an element of the array.  
   
-## <a name="syntax"></a>语法  
+## <a name="syntax"></a>Syntax  
   
-```cpp#  
+```cpp  
 HRESULT GetElement(   
    DWORD          dwIndex,  
    IDebugObject** ppElement  
 );  
 ```  
   
-```c#  
+```csharp  
 int GetElement(  
    [In] uint dwIndex,   
    out IDebugObject ppElement  
 );  
 ```  
   
-#### <a name="parameters"></a>参数  
+#### <a name="parameters"></a>Parameters  
  `dwIndex`  
- [in]元素的索引。  
+ [in] The element index.  
   
  `ppElement`  
- [out]返回[IDebugObject](../../../extensibility/debugger/reference/idebugobject.md)表示的元素的接口。  
+ [out] Returns an [IDebugObject](../../../extensibility/debugger/reference/idebugobject.md) interface that represents the element.  
   
-## <a name="return-value"></a>返回值  
- 如果成功，返回，则为 S_OK;否则，返回错误代码。  
+## <a name="return-value"></a>Return Value  
+ If successful, returns S_OK; otherwise, returns an error code.  
   
-## <a name="remarks"></a>备注  
- 此方法将所有数组对象的元素视为一维数组，即使数组对象是多维的。 例如，给定数组`myarray[3][2][6]`和`dwIndex`20 参数，此方法将返回从元素`myarray[1][1][2]`，和一个`dwIndex`21 参数将返回从元素`myarray[1][1][3]`。 使用[GetCount](../../../extensibility/debugger/reference/idebugarrayobject-getcount.md)方法，以确定数组中元素的总数。  
+## <a name="remarks"></a>Remarks  
+ This method sees all of the elements of an array object as a one-dimensional array, even if the array object is multi-dimensional. For example, given the array `myarray[3][2][6]` and a `dwIndex` parameter of 20, this method would return the element from `myarray[1][1][2]`, and a `dwIndex` parameter of 21 would return the element from `myarray[1][1][3]`. Use the [GetCount](../../../extensibility/debugger/reference/idebugarrayobject-getcount.md) method to determine the total number of elements in the array.  
   
-## <a name="see-also"></a>另请参阅  
+## <a name="see-also"></a>See Also  
  [IDebugArrayObject](../../../extensibility/debugger/reference/idebugarrayobject.md)

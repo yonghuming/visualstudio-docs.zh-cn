@@ -1,154 +1,176 @@
 ---
-title: "演练：使用单表继承创建 LINQ to SQL 类（O/R 设计器） | Microsoft Docs"
-ms.custom: ""
-ms.date: "12/15/2016"
-ms.prod: "visual-studio-dev14"
-ms.reviewer: ""
-ms.suite: ""
-ms.tgt_pltfrm: ""
-ms.topic: "article"
+title: 'Walkthrough: Creating LINQ to SQL Classes by Using Single-Table Inheritance (O-R Designer) | Microsoft Docs'
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.tgt_pltfrm: 
+ms.topic: article
+dev_langs:
+- VB
+- CSharp
 ms.assetid: 63bc6328-e0df-4655-9ce3-5ff74dbf69a4
 caps.latest.revision: 4
-caps.handback.revision: 1
-author: "mikeblome"
-ms.author: "mblome"
-manager: "ghogen"
+author: mikeblome
+ms.author: mblome
+manager: ghogen
+translation.priority.ht:
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- ru-ru
+- zh-cn
+- zh-tw
+translation.priority.mt:
+- cs-cz
+- pl-pl
+- pt-br
+- tr-tr
+ms.translationtype: HT
+ms.sourcegitcommit: 21a413a3e2d17d77fd83d5109587a96f323a0511
+ms.openlocfilehash: 5b98e5ebbcbcbe94b68575d8ceea34fc8ea6fac8
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/30/2017
+
 ---
-# 演练：使用单表继承创建 LINQ to SQL 类（O/R 设计器）
-[对象关系设计器（O\/R 设计器）](../data-tools/linq-to-sql-tools-in-visual-studio2.md)支持通常在关系系统中实现的单表继承。此演练对[如何：使用 O\/R 设计器配置继承](../data-tools/how-to-configure-inheritance-by-using-the-o-r-designer.md)主题中提供的通用步骤进行了扩展，提供一些真实数据演示在 [!INCLUDE[vs_ordesigner_short](../data-tools/includes/vs_ordesigner_short_md.md)]中对继承的使用。  
+# <a name="walkthrough-creating-linq-to-sql-classes-by-using-single-table-inheritance-or-designer"></a>Walkthrough: Creating LINQ to SQL Classes by Using Single-Table Inheritance (O/R Designer)
+The [LINQ to SQL Tools in Visual Studio](../data-tools/linq-to-sql-tools-in-visual-studio2.md) supports single-table inheritance as it is typically implemented in relational systems. This walkthrough expands upon the generic steps provided in the [How to: Configure inheritance by using the O/R Designer](../data-tools/how-to-configure-inheritance-by-using-the-o-r-designer.md) topic and provides some real data to demonstrate the use of inheritance in the [!INCLUDE[vs_ordesigner_short](../data-tools/includes/vs_ordesigner_short_md.md)].  
   
- 在本演练中，您将要执行以下任务：  
+ During this walkthrough, you will perform the following tasks:  
   
--   创建一个数据库表，并向其中添加数据。  
+-   Create a database table and add data to it.  
   
--   创建一个 Windows 窗体应用程序。  
+-   Create a Windows Forms application.  
   
--   将一个 [!INCLUDE[vbtecdlinq](../data-tools/includes/vbtecdlinq_md.md)] 文件添加到项目。  
+-   Add a [!INCLUDE[vbtecdlinq](../data-tools/includes/vbtecdlinq_md.md)] file to a project.  
   
--   创建新的实体类。  
+-   Create new entity classes.  
   
--   配置实体类使用继承。  
+-   Configure the entity classes to use inheritance.  
   
--   查询继承类。  
+-   Query the inherited class.  
   
--   在 Windows 窗体上显示数据。  
+-   Display the data on a Windows Form.  
   
-## 创建要从中继承的表  
- 为了解继承的工作方式，您将创建一个小的 Person 表用作基类，然后创建一个从该表继承的 Employee 对象。  
+## <a name="create-a-table-to-inherit-from"></a>Create a Table to Inherit From  
+ To see how inheritance works, you will create a small Person table, use it as a base class, and then create an Employee object that inherits from it.  
   
-#### 创建基表以演示继承  
+#### <a name="to-create-a-base-table-to-demonstrate-inheritance"></a>To create a base table to demonstrate inheritance  
   
-1.  在**“服务器资源管理器”**\/**“数据库资源管理器”**中，右击**“表”**节点，然后单击**“添加新表”**。  
+1.  In **Server Explorer**/**Database Explorer**, right-click the **Tables** node and click **Add New Table**.  
   
     > [!NOTE]
-    >  可以使用 Northwind 数据库或其他任何可添加表的数据库。  
+    >  You can use the Northwind database or any other database that you can add a table to.  
   
-2.  在表设计器中，向该表中添加以下列：  
+2.  In the Table Designer, add the following columns to the table:  
   
-    |列名|数据类型|允许为 Null|  
-    |--------|----------|--------------|  
-    |ID|int|False|  
-    |类型|int|True|  
-    |FirstName|nvarchar\(200\)|False|  
-    |LastName|nvarchar\(200\)|False|  
-    |经理|int|True|  
+    |Column Name|Data Type|Allow Nulls|  
+    |-----------------|---------------|-----------------|  
+    |**ID**|**int**|**False**|  
+    |**Type**|**int**|**True**|  
+    |**FirstName**|**nvarchar(200)**|**False**|  
+    |**LastName**|**nvarchar(200)**|**False**|  
+    |**Manager**|**int**|**True**|  
   
-3.  将 ID 列设置为主键。  
+3.  Set the ID column as the primary key.  
   
-4.  保存该表并将其命名为 Person。  
+4.  Save the table and name it **Person**.  
   
-## 向表中添加数据  
- 为了验证对继承的配置是否正确，表对于单表继承中的每个类都需要一些数据。  
+## <a name="add-data-to-the-table"></a>Add Data to the Table  
+ So that you can verify that inheritance is configured correctly, the table needs some data for each class in the single-table inheritance.  
   
-#### 向表中添加数据。  
+#### <a name="to-add-data-to-the-table"></a>To add data to the table  
   
-1.  在数据视图中打开该表。（在**“服务器资源管理器”**\/**“数据库资源管理器”**中右击**“Person”**表，然后单击**“显示表数据”**。）  
+1.  Open the table in data view. (Right-click the **Person** table in **Server Explorer**/**Database Explorer** and click **Show Table Data**.)  
   
-2.  将下面的数据复制到表中。（您可以在[Results Pane](http://msdn.microsoft.com/zh-cn/3c712f20-7c9f-4021-b1ac-fdc6f534c95a)中选择整行，复制数据并将数据粘贴到表中。）  
+2.  Copy the following data into the table. (You can copy it and then paste it into the table by selecting the whole row in the Results Pane.)  
   
     ||||||  
     |-|-|-|-|-|  
-    |ID|类型|FirstName|LastName|经理|  
-    |1|1|Anne|Wallace|NULL|  
-    |2|1|Carlos|Grilo|NULL|  
-    |3|1|Yael|Peled|NULL|  
-    |4|2|Gatis|Ozolins|1|  
-    |5|2|Andreas|Hauser|1|  
-    |6|2|Tiffany|Phuvasate|1|  
-    |7|2|Alexey|Orekhov|2|  
-    |8|2|Michał|Poliszkiewicz|2|  
-    |9|2|Tai|Yee|2|  
-    |10|2|Fabricio|Noriega|3|  
-    |11|2|Mindy|Martin|3|  
-    |12|2|Ken|Kwok|3|  
+    |**ID**|**Type**|**FirstName**|**LastName**|**Manager**|  
+    |**1**|**1**|**Anne**|**Wallace**|**NULL**|  
+    |**2**|**1**|**Carlos**|**Grilo**|**NULL**|  
+    |**3**|**1**|**Yael**|**Peled**|**NULL**|  
+    |**4**|**2**|**Gatis**|**Ozolins**|**1**|  
+    |**5**|**2**|**Andreas**|**Hauser**|**1**|  
+    |**6**|**2**|**Tiffany**|**Phuvasate**|**1**|  
+    |**7**|**2**|**Alexey**|**Orekhov**|**2**|  
+    |**8**|**2**|**Michał**|**Poliszkiewicz**|**2**|  
+    |**9**|**2**|**Tai**|**Yee**|**2**|  
+    |**10**|**2**|**Fabricio**|**Noriega**|**3**|  
+    |**11**|**2**|**Mindy**|**Martin**|**3**|  
+    |**12**|**2**|**Ken**|**Kwok**|**3**|  
   
-## 创建新项目  
- 至此，表已经创建完毕，下面创建一个新项目演示对继承的配置。  
+## <a name="create-a-new-project"></a>Create a New Project  
+ Now that you have created the table, create a new project to demonstrate configuring inheritance.  
   
-#### 创建新的 Windows 应用程序  
+#### <a name="to-create-the-new-windows-application"></a>To create the new Windows Application  
   
-1.  从**“文件”**菜单创建一个新的项目。  
+1.  From the **File** menu, create a new project.  
   
-2.  将项目命名为 InheritanceWalkthrough。  
+2.  Name the project **InheritanceWalkthrough**.  
   
     > [!NOTE]
-    >  Visual Basic 和 C\# 项目中都支持 [!INCLUDE[vs_ordesigner_short](../data-tools/includes/vs_ordesigner_short_md.md)]。请使用这两种语言之一创建新项目。  
+    >  The [!INCLUDE[vs_ordesigner_short](../data-tools/includes/vs_ordesigner_short_md.md)] is supported in Visual Basic and C# projects. Create the new project in one of these languages.  
   
-3.  单击**“Windows 窗体应用程序”**模板，然后单击**“确定”**。有关更多信息，请参见 [客户端应用程序](../Topic/Developing%20Client%20Applications%20with%20the%20.NET%20Framework.md)。  
+3.  Click the **Windows Forms Application** template and then click **OK**. For more information, see [Client Applications](/dotnet/framework/develop-client-apps).  
   
-4.  InheritanceWalkthrough 项目即被创建并添加到**“解决方案资源管理器”**中。  
+4.  The InheritanceWalkthrough project is created and added to **Solution Explorer**.  
   
-## 将 LINQ to SQL 类文件添加到项目  
+## <a name="add-a-linq-to-sql-classes-file-to-the-project"></a>Add a LINQ to SQL Classes File to the Project  
   
-#### 将 LINQ to SQL 文件添加到项目  
+#### <a name="to-add-a-linq-to-sql-file-to-the-project"></a>To add a LINQ to SQL File to the project  
   
-1.  在**“项目”**菜单上单击**“添加新项”**。  
+1.  On the **Project** menu, click **Add New Item**.  
   
-2.  单击**“LINQ to SQL 类”**模板，然后单击**“添加”**。  
+2.  Click the **LINQ to SQL Classes** template and then click **Add**.  
   
-     .dbml 文件即添加到项目，[!INCLUDE[vs_ordesigner_short](../data-tools/includes/vs_ordesigner_short_md.md)]打开。  
+     The .dbml file is added to the project and the [!INCLUDE[vs_ordesigner_short](../data-tools/includes/vs_ordesigner_short_md.md)] opens.  
   
-## 使用 O\/R 设计器创建继承  
- 通过将**“继承”**对象从**“工具箱”**拖动到设计图面来配置继承。  
+## <a name="create-the-inheritance-by-using-the-or-designer"></a>Create the Inheritance by Using the O/R Designer  
+ Configure the inheritance by dragging an **Inheritance** object from the **Toolbox** onto the design surface.  
   
-#### 创建继承  
+#### <a name="to-create-the-inheritance"></a>To create the inheritance  
   
-1.  在**“服务器资源管理器”**\/**“数据库资源管理器”**中，定位到之前创建的**“Person”**表。  
+1.  In **Server Explorer**/**Database Explorer**, navigate to the **Person** table that you created earlier.  
   
-2.  将**“Person”**表拖动到 [!INCLUDE[vs_ordesigner_short](../data-tools/includes/vs_ordesigner_short_md.md)]设计图面上。  
+2.  Drag the **Person** table onto the [!INCLUDE[vs_ordesigner_short](../data-tools/includes/vs_ordesigner_short_md.md)] design surface.  
   
-3.  将另一个**“Person”**表拖动到 [!INCLUDE[vs_ordesigner_short](../data-tools/includes/vs_ordesigner_short_md.md)]并将其名称更改为“Employee”。  
+3.  Drag a second **Person** table onto the [!INCLUDE[vs_ordesigner_short](../data-tools/includes/vs_ordesigner_short_md.md)] and change its name to **Employee**.  
   
-4.  从**“Person”**对象删除**“Manager”**属性。  
+4.  Delete the **Manager** property from the **Person** object.  
   
-5.  从**“Employee”**对象删除**“Type”**、**“ID”**、**“FirstName”**和**“LastName”**属性。（即删除**“Manager”**以外的所有属性。）  
+5.  Delete the **Type**, **ID**, **FirstName**, and **LastName** properties from the **Employee** object. (In other words, delete all properties except for **Manager**.)  
   
-6.  从**“工具箱”**的**“对象关系设计器”**选项卡上，在**“Person”**和**“Employee”**对象之间创建**“继承”**。为此，请单击**“工具箱”**中的**“继承”**项，然后松开鼠标按钮。接下来在 [!INCLUDE[vs_ordesigner_short](../data-tools/includes/vs_ordesigner_short_md.md)]中依次单击**“Employee”**对象和**“Person”**对象。继承连线上的箭头将指向**“Person”**对象。  
+6.  From the **Object Relational Designer** tab of the **Toolbox**, create an **Inheritance** between the **Person** and **Employee** objects. To do this, click the **Inheritance** item in the **Toolbox** and release the mouse button. Next, click the **Employee** object and then the **Person** object in the [!INCLUDE[vs_ordesigner_short](../data-tools/includes/vs_ordesigner_short_md.md)]. The arrow on the inheritance line will point to the **Person** object.  
   
-7.  单击设计图面上的**“继承”**连线。  
+7.  Click the **Inheritance** line on the design surface.  
   
-8.  将**“鉴别器属性”**属性设置为**“Type”**。  
+8.  Set the **Discriminator Property** property to **Type**.  
   
-9. 将**“派生类鉴别器值”**属性设置为**“2”**。  
+9. Set the **Derived Class Discriminator Value** property to **2**.  
   
-10. 将**“基类鉴别器值”**属性设置为**“1”**。  
+10. Set the **Base Class Discriminator Value** property to **1**.  
   
-11. 将**“继承默认值”**属性设置为**“Person”**。  
+11. Set the **Inheritance Default** property to **Person**.  
   
-12. 生成项目。  
+12. Build the project.  
   
-## 查询继承类并在窗体上显示数据  
- 您将向窗体中添加一些代码，用于在对象模型中查询特定的类。  
+## <a name="query-the-inherited-class-and-display-the-data-on-the-form"></a>Query the Inherited Class and Display the Data on the Form  
+ You will now add some code to the form that queries for a specific class in the object model.  
   
-#### 创建一个 LINQ 查询并在窗体上显示结果  
+#### <a name="to-create-a-linq-query-and-display-the-results-on-the-form"></a>To create a LINQ query and display the results on the form  
   
-1.  将一个**“ListBox”**拖动到 Form1 上。  
+1.  Drag a **ListBox** onto Form1.  
   
-2.  双击窗体以创建 `Form1_Load` 事件处理程序。  
+2.  Double-click the form to create a `Form1_Load` event handler.  
   
-3.  将下面的代码添加到 `Form1_Load` 事件处理程序中：  
+3.  Add the following code to the `Form1_Load` event handler:  
   
-    ```vb#  
+    ```vb  
     Dim dc As New DataClasses1DataContext  
     Dim results = From emp In dc.Persons _  
         Where TypeOf emp Is Employee _  
@@ -159,7 +181,7 @@ manager: "ghogen"
     Next  
     ```  
   
-    ```c#  
+    ```csharp  
     NorthwindDataContext dc = new DataClasses1DataContext();  
     var results = from emp in dc.Persons  
                   where emp is Employee  
@@ -171,21 +193,20 @@ manager: "ghogen"
     }  
     ```  
   
-## 测试应用程序  
- 运行应用程序并检验列表框中显示的记录是否全为员工（“Type”列值为 2 的记录）。  
+## <a name="test-the-application"></a>Test the Application  
+ Run the application and verify that the records displayed in the list box are all employees (records that have a value of 2 in their Type column).  
   
-#### 测试应用程序  
+#### <a name="to-test-the-application"></a>To test the application  
   
-1.  按 F5。  
+1.  Press F5.  
   
-2.  检验是否仅显示了“Type”列值为 2 的记录。  
+2.  Verify that only records that have a value of 2 in their Type column are displayed.  
   
-3.  关闭窗体。（在**“调试”**菜单上单击**“停止调试”**。）  
+3.  Close the form. (On the **Debug** menu, click **Stop Debugging**.)  
   
-## 请参阅  
- [O\/R 设计器概述](../Topic/LINQ%20to%20SQL%20Tools%20in%20Visual%20Studio1.md)   
- [如何：向项目中添加 LINQ to SQL 类（O\/R 设计器）](../Topic/How%20to:%20Add%20LINQ%20to%20SQL%20Classes%20to%20a%20Project%20\(O-R%20Designer\).md)   
- [演练：创建 LINQ to SQL 类（O\/R 设计器）](../Topic/Walkthrough:%20Creating%20LINQ%20to%20SQL%20Classes%20\(O-R%20Designer\).md)   
- [如何：分配存储过程以执行更新、插入和删除（O\/R 设计器）](../data-tools/how-to-assign-stored-procedures-to-perform-updates-inserts-and-deletes-o-r-designer.md)   
- [LINQ to SQL](../Topic/LINQ%20to%20SQL.md)   
- [如何：使用 Visual Basic 或 C\# 生成对象模型](../Topic/How%20to:%20Generate%20the%20Object%20Model%20in%20Visual%20Basic%20or%20C%23.md)
+## <a name="see-also"></a>See Also  
+ [LINQ to SQL Tools in Visual Studio](../data-tools/linq-to-sql-tools-in-visual-studio2.md)   
+ [Walkthrough: Creating LINQ to SQL Classes (O-R Designer)](how-to-create-linq-to-sql-classes-mapped-to-tables-and-views-o-r-designer.md)   
+ [How to: Assign stored procedures to perform updates, inserts, and deletes (O/R Designer)](../data-tools/how-to-assign-stored-procedures-to-perform-updates-inserts-and-deletes-o-r-designer.md)   
+ [LINQ to SQL](/dotnet/framework/data/adonet/sql/linq/index)   
+ [How to: Generate the Object Model in Visual Basic or C#](/dotnet/framework/data/adonet/sql/linq/how-to-generate-the-object-model-in-visual-basic-or-csharp)

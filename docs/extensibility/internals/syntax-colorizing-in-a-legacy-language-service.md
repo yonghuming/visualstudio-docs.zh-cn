@@ -1,5 +1,5 @@
 ---
-title: "语法着色早期语言服务在 |Microsoft 文档"
+title: Syntax Colorizing in a Legacy Language Service | Microsoft Docs
 ms.custom: 
 ms.date: 11/04/2016
 ms.reviewer: 
@@ -31,46 +31,46 @@ translation.priority.mt:
 - tr-tr
 - zh-cn
 - zh-tw
-ms.translationtype: Machine Translation
-ms.sourcegitcommit: 5db97d19b1b823388a465bba15d057b30ff0b3ce
-ms.openlocfilehash: b9d98323b3957108746b22702306c9155b142fb9
+ms.translationtype: MT
+ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
+ms.openlocfilehash: 1ec6732b511d437a24149d9cd4b20e593a13a8f0
 ms.contentlocale: zh-cn
-ms.lasthandoff: 02/22/2017
+ms.lasthandoff: 08/28/2017
 
 ---
-# <a name="syntax-colorizing-in-a-legacy-language-service"></a>在早期语言服务中的语法着色
-语法颜色设置是一种功能，使编程语言在不同的颜色和样式中的源代码文件中显示的不同元素。 若要支持此功能，您需要提供分析器或可以识别的词法元素或多个文件中的令牌类型的扫描程序。 许多语言的着色它们以不同的方式加以区别关键字、 分隔符 （例如圆括号或大括号） 和注释。  
+# <a name="syntax-colorizing-in-a-legacy-language-service"></a>Syntax Colorizing in a Legacy Language Service
+Syntax colorization is a feature that causes different elements of a programming language to be displayed in a source file in different colors and styles. To support this feature, you need to supply a parser or scanner that can identify the types of lexical elements or tokens in the file. Many languages distinguish keywords, delimiters (such as parentheses or braces), and comments by colorizing them in different ways.  
   
- 旧的语言服务实现为作为 VSPackage 的一部分，但实现语言服务功能的较新方法是使用 MEF 扩展。 若要获得详细信息，请参阅[扩展编辑器和语言服务](../../extensibility/extending-the-editor-and-language-services.md)。  
+ Legacy language services are implemented as part of a VSPackage, but the newer way to implement language service features is to use MEF extensions. To find out more, see [Extending the Editor and Language Services](../../extensibility/extending-the-editor-and-language-services.md).  
   
 > [!NOTE]
->  我们建议在开始尽可能快地使用新的编辑器 API。 这将提高您的语言服务的性能，并让您充分利用新的编辑器功能。  
+>  We recommend that you begin to use the new editor API as soon as possible. This will improve the performance of your language service and let you take advantage of new editor features.  
   
-## <a name="implementation"></a>实现  
- 为了支持着色，托管的包框架 (MPF) 包括<xref:Microsoft.VisualStudio.Package.Colorizer>类，该类实现<xref:Microsoft.VisualStudio.TextManager.Interop.IVsColorizer>接口。</xref:Microsoft.VisualStudio.TextManager.Interop.IVsColorizer> </xref:Microsoft.VisualStudio.Package.Colorizer> 此类与交互<xref:Microsoft.VisualStudio.Package.IScanner>来确定令牌和颜色。</xref:Microsoft.VisualStudio.Package.IScanner> 扫描程序的详细信息，请参阅[旧语言服务分析器和扫描程序](../../extensibility/internals/legacy-language-service-parser-and-scanner.md)。 <xref:Microsoft.VisualStudio.Package.Colorizer>类，然后将标记每个字符的标记的颜色信息并将该信息返回到编辑器中显示的源文件。</xref:Microsoft.VisualStudio.Package.Colorizer>  
+## <a name="implementation"></a>Implementation  
+ To support colorization, the managed package framework (MPF) includes the <xref:Microsoft.VisualStudio.Package.Colorizer> class, which implements the <xref:Microsoft.VisualStudio.TextManager.Interop.IVsColorizer> interface. This class interacts with an <xref:Microsoft.VisualStudio.Package.IScanner> to determine the token and colors. For more information on scanners, see [Legacy Language Service Parser and Scanner](../../extensibility/internals/legacy-language-service-parser-and-scanner.md). The <xref:Microsoft.VisualStudio.Package.Colorizer> class then marks each character of the token with the color information and returns that information to the editor displaying the source file.  
   
- 返回到编辑器中的颜色信息是可着色的项的列表中的索引。 每个可着色的项指定颜色值和一组字体属性，如粗体或删除线。 编辑器提供了一套语言服务可以使用的默认可着色项。 您需要做的只是指定每个标记类型的适当的颜色索引。 但是，您可以提供一组自定义可着色的项和您提供的索引对于令牌，并引用您自己的而不是默认列表可着色的项列表。 您还必须设置`RequestStockColors`为 0 的注册表项 (或不指定`RequestStockColors`根本的条目) 以支持自定义颜色。 您可以设置为一个命名参数与此注册表项<xref:Microsoft.VisualStudio.Shell.ProvideLanguageServiceAttribute>用户定义的属性。</xref:Microsoft.VisualStudio.Shell.ProvideLanguageServiceAttribute> 注册语言服务并设置其选项的详细信息，请参阅[注册早期语言服务](../../extensibility/internals/registering-a-legacy-language-service1.md)。  
+ The color information returned to the editor is an index into a list of colorable items. Each colorable item specifies a color value and a set of font attributes, such as bold or strikethrough. The editor supplies a set of default colorable items that your language service can use. All you need to do is specify the appropriate color index for each token type. However, you can provide a set of custom colorable items and the indices you supply for tokens, and reference your own list of colorable items instead of the default list. You must also set the `RequestStockColors` registry entry to 0 (or do not specify the `RequestStockColors` entry at all) to support custom colors. You can set this registry entry with a named parameter to the <xref:Microsoft.VisualStudio.Shell.ProvideLanguageServiceAttribute> user-defined attribute. For more information on registering a language service and setting its options, see [Registering a Legacy Language Service](../../extensibility/internals/registering-a-legacy-language-service1.md).  
   
-## <a name="custom-colorable-items"></a>自定义可着色的项  
- 若要提供您自己自定义可着色的项，则必须重写<xref:Microsoft.VisualStudio.Package.LanguageService.GetItemCount%2A>和<xref:Microsoft.VisualStudio.Package.LanguageService.GetColorableItem%2A><xref:Microsoft.VisualStudio.Package.LanguageService>类</xref:Microsoft.VisualStudio.Package.LanguageService>的方法</xref:Microsoft.VisualStudio.Package.LanguageService.GetColorableItem%2A></xref:Microsoft.VisualStudio.Package.LanguageService.GetItemCount%2A> 第一种方法返回您的语言服务支持的自定义可着色的项的数目和第二个按索引获取自定义可着色的项。 创建自定义可着色的项的默认列表。 在构造函数中的语言服务，您需要执行是提供一个名称与每个可着色的项。 Visual Studio 自动处理这种情况，其中用户选择一组不同的可着色的项。 此名称就是显示在**字体和颜色**属性页上的**选项**对话框 (可通过 Visual Studio**工具**菜单)，此名称确定哪种颜色的用户已重写。 用户的选择将存储在注册表中的缓存，并通过颜色名称访问。 **字体和颜色**属性页列出了所有的颜色名称按字母顺序，因此您可以通过您的语言名称; 每个颜色名前面放置分组自定义颜色，如"**TestLanguage 注释**"和"**TestLanguage-关键字**"。 可以按类型，您可着色的项进行分组或者"**注释 (TestLanguage)**"和"**关键字 (TestLanguage)**"。 按语言名称的分组是首选方法。  
+## <a name="custom-colorable-items"></a>Custom Colorable Items  
+ To supply your own custom colorable items, you must override the <xref:Microsoft.VisualStudio.Package.LanguageService.GetItemCount%2A> and <xref:Microsoft.VisualStudio.Package.LanguageService.GetColorableItem%2A> method on the <xref:Microsoft.VisualStudio.Package.LanguageService> class. The first method returns the number of custom colorable items that your language service supports and the second gets the custom colorable item by index. You create the default list of custom colorable items. In the constructor of your language service, all you need to do is supply each colorable item with a name. Visual Studio automatically handles the case where the user selects a different set of colorable items. This name is what appears in the **Fonts and Colors** property page on the **Options** dialog box (available from Visual Studio **Tools** menu) and this name determines which color a user has overridden. The user's choices are stored in a cache in the registry and accessed by the color name. The **Fonts and Colors** property page lists all of the color names in alphabetical order, so you can group your custom colors by preceding each color name with your language name; for example, "**TestLanguage- Comment**" and "**TestLanguage- Keyword**". Or you can group your colorable items by type, "**Comment (TestLanguage)**" and "**Keyword (TestLanguage)**". Grouping by language name is preferred.  
   
 > [!CAUTION]
->  强烈建议可着色的项名称以避免冲突与现有的可着色的项名称中包含该语言的名称。  
+>  It is strongly recommended that you include the language name in the colorable item name to avoid collisions with existing colorable item names.  
   
 > [!NOTE]
->  如果您在开发过程中更改其中一个您的颜色的名称，必须重置 Visual Studio 创建了第一次访问了您的颜色的缓存。 您可以执行操作来运行**重置实验室**从 Visual Studio SDK 程序菜单命令。  
+>  If you change the name of one of your colors during development, you must reset the cache that Visual Studio created the first time your colors were accessed. You can do so by running the **Reset the Experimental Hive** command from the Visual Studio SDK program menu.  
   
- 请注意，永远不会引用可着色的项列表中的第一项。 Visual Studio 始终提供的默认文本颜色和为该项的属性。 与此处理的最简单方法是提供占位符可着色的项作为第一项。  
+ Note that the first item in your list of colorable items is never referenced. Visual Studio always supplies the default text colors and attributes for that item. The easiest way of dealing with this is to supply a placeholder colorable item as the first item.  
   
-### <a name="high-color-colorable-items"></a>高颜色可着色的项  
- 可着色项还可以支持通过 24 位或高颜色值<xref:Microsoft.VisualStudio.TextManager.Interop.IVsHiColorItem>接口。</xref:Microsoft.VisualStudio.TextManager.Interop.IVsHiColorItem> MPF<xref:Microsoft.VisualStudio.Package.ColorableItem>类支持<xref:Microsoft.VisualStudio.TextManager.Interop.IVsHiColorItem>正常颜色以及构造函数中指定接口和 24 位颜色。</xref:Microsoft.VisualStudio.TextManager.Interop.IVsHiColorItem> </xref:Microsoft.VisualStudio.Package.ColorableItem> 请参阅<xref:Microsoft.VisualStudio.Package.ColorableItem>更多详细信息的类。</xref:Microsoft.VisualStudio.Package.ColorableItem> 下面的示例演示如何设置关键字和注释的 24 位颜色。 在用户的桌面上; 支持 24 位颜色时，将使用 24 位色否则，将使用普通文本颜色。  
+### <a name="high-color-colorable-items"></a>High Color Colorable Items  
+ Colorable items can also support 24-bit or high color values through the <xref:Microsoft.VisualStudio.TextManager.Interop.IVsHiColorItem> interface. The MPF <xref:Microsoft.VisualStudio.Package.ColorableItem> class supports the <xref:Microsoft.VisualStudio.TextManager.Interop.IVsHiColorItem> interface and the 24-bit colors are specified in the constructor along with the normal colors. See the <xref:Microsoft.VisualStudio.Package.ColorableItem> class for more details. The example below shows how to set the 24-bit colors for keywords and comments. The 24-bit colors are used when 24-bit color is supported on the user's desktop; otherwise, the normal text colors are used.  
   
- 请记住，都是您的语言; 的默认颜色用户可以更改为所需的任何这些颜色。  
+ Remember, these are the default colors for your language; the user can change these colors to whatever they want.  
   
-### <a name="example"></a>示例  
- 此示例演示如何声明和填充使用<xref:Microsoft.VisualStudio.Package.ColorableItem>类</xref:Microsoft.VisualStudio.Package.ColorableItem>的自定义可着色的项的数组的一种方法 本示例使用 24 位颜色的关键字和注释颜色。  
+### <a name="example"></a>Example  
+ This example shows one way to declare and populate an array of custom colorable items using the <xref:Microsoft.VisualStudio.Package.ColorableItem> class. This example sets the keyword and comment colors using 24-bit colors.  
   
-```c#  
+```csharp  
 using Microsoft.VisualStudio.Package;  
 using Microsoft.VisualStudio.TextManager.Interop;  
   
@@ -112,19 +112,19 @@ namespace TestLanguagePackage
 }  
 ```  
   
-## <a name="the-colorizer-class-and-the-scanner"></a>着色器类和扫描程序  
- 基<xref:Microsoft.VisualStudio.Package.LanguageService>类具有<xref:Microsoft.VisualStudio.Package.LanguageService.GetColorizer%2A>方法该 instantiantes<xref:Microsoft.VisualStudio.Package.Colorizer>类</xref:Microsoft.VisualStudio.Package.Colorizer></xref:Microsoft.VisualStudio.Package.LanguageService.GetColorizer%2A></xref:Microsoft.VisualStudio.Package.LanguageService> 从返回的扫描程序<xref:Microsoft.VisualStudio.Package.LanguageService.GetScanner%2A>方法传递给<xref:Microsoft.VisualStudio.Package.Colorizer>类构造函数。</xref:Microsoft.VisualStudio.Package.Colorizer> </xref:Microsoft.VisualStudio.Package.LanguageService.GetScanner%2A>  
+## <a name="the-colorizer-class-and-the-scanner"></a>The Colorizer class and the Scanner  
+ The base <xref:Microsoft.VisualStudio.Package.LanguageService> class has a <xref:Microsoft.VisualStudio.Package.LanguageService.GetColorizer%2A> method that instantiantes the <xref:Microsoft.VisualStudio.Package.Colorizer> class. The scanner that is returned from the <xref:Microsoft.VisualStudio.Package.LanguageService.GetScanner%2A> method is passed to the <xref:Microsoft.VisualStudio.Package.Colorizer> class constructor.  
   
- 您必须实现<xref:Microsoft.VisualStudio.Package.LanguageService.GetScanner%2A>您自己的<xref:Microsoft.VisualStudio.Package.LanguageService>类</xref:Microsoft.VisualStudio.Package.LanguageService>版本中的方法</xref:Microsoft.VisualStudio.Package.LanguageService.GetScanner%2A> <xref:Microsoft.VisualStudio.Package.Colorizer>类使用扫描仪来获取令牌的颜色的所有信息。</xref:Microsoft.VisualStudio.Package.Colorizer>  
+ You must implement the <xref:Microsoft.VisualStudio.Package.LanguageService.GetScanner%2A> method in your own version of the <xref:Microsoft.VisualStudio.Package.LanguageService> class. The <xref:Microsoft.VisualStudio.Package.Colorizer> class uses the scanner to obtain all token color information.  
   
- 扫描程序需要填充<xref:Microsoft.VisualStudio.Package.TokenInfo>结构的每个标记它开始查找。</xref:Microsoft.VisualStudio.Package.TokenInfo> 此结构包含的信息，如该令牌的范围所占颜色索引可以使用，是哪种类型的令牌，和令牌触发器 (请参阅<xref:Microsoft.VisualStudio.Package.TokenTriggers>)。</xref:Microsoft.VisualStudio.Package.TokenTriggers> 只是范围和颜色索引所需的着色的<xref:Microsoft.VisualStudio.Package.Colorizer>类。</xref:Microsoft.VisualStudio.Package.Colorizer>  
+ The scanner needs to populate a <xref:Microsoft.VisualStudio.Package.TokenInfo> structure for every token it finds. This structure contains information such as the span the token occupies, the color index to use, what type is the token, and token triggers (see <xref:Microsoft.VisualStudio.Package.TokenTriggers>). Only the span and color index are needed for colorization by the <xref:Microsoft.VisualStudio.Package.Colorizer> class.  
   
- 颜色索引存储在<xref:Microsoft.VisualStudio.Package.TokenInfo>结构通常是一个介于<xref:Microsoft.VisualStudio.Package.TokenColor>枚举，它提供了一定数量的命名对应于各种语言元素，如关键字和运算符的索引。</xref:Microsoft.VisualStudio.Package.TokenColor> </xref:Microsoft.VisualStudio.Package.TokenInfo> 如果您自定义可着色的项列表的匹配项显示时采用<xref:Microsoft.VisualStudio.Package.TokenColor>枚举，则您可以只使用枚举作为颜色为每个标记。</xref:Microsoft.VisualStudio.Package.TokenColor> 但是，如果您有其他可着色的项或不想使用这种顺序中的现有值，您可以排列您的自定义可着色的项列表，以适应您的需求，并将适当的索引返回到该列表。 只需确保对象时将其存储在<xref:Microsoft.VisualStudio.Package.TokenInfo>结构中; 强制转换为<xref:Microsoft.VisualStudio.Package.TokenColor>的索引[!INCLUDE[vs_current_short](../../code-quality/includes/vs_current_short_md.md)]看到的只是索引。 </xref:Microsoft.VisualStudio.Package.TokenColor></xref:Microsoft.VisualStudio.Package.TokenInfo>  
+ The color index stored in the <xref:Microsoft.VisualStudio.Package.TokenInfo> structure is typically a value from the <xref:Microsoft.VisualStudio.Package.TokenColor> enumeration, which provides a number of named indices corresponding to various language elements such as keywords and operators. If your custom colorable items list matches the items presented in the <xref:Microsoft.VisualStudio.Package.TokenColor> enumeration, then you can just use the enumeration as the color for each token. However, if you have additional colorable items or you do not want to use the existing values in that order, you can arrange your custom colorable items list to suit your needs and return the appropriate index into that list. Just be sure to cast the index to a <xref:Microsoft.VisualStudio.Package.TokenColor> when storing it in the <xref:Microsoft.VisualStudio.Package.TokenInfo> structure; [!INCLUDE[vs_current_short](../../code-quality/includes/vs_current_short_md.md)] sees only the index.  
   
-### <a name="example"></a>示例  
- 下面的示例演示如何扫描程序可能会识别三种令牌类型︰ 数字、 标点符号和标识符 （任何不是数字或标点符号）。 此示例仅供说明用途，并不代表一个全面的分析器和扫描程序实现。 它假设没有`Lexer`类`GetNextToken()`返回的字符串的方法。  
+### <a name="example"></a>Example  
+ The following example shows how the scanner might identify three token types: numbers, punctuation, and identifiers (anything that is not a number or punctuation). This example is for illustrative purposes only and does not represent a comprehensive parser and scanner implementation. It assumes that there is a `Lexer` class with a `GetNextToken()` method that returns a string.  
   
-```c#  
+```csharp  
 using Microsoft.VisualStudio.Package;  
 using Microsoft.VisualStudio.TextManager.Interop;  
   
@@ -162,7 +162,7 @@ namespace TestLanguagePackage
         }  
 ```  
   
-## <a name="see-also"></a>另请参阅  
- [遗留语言服务功能](../../extensibility/internals/legacy-language-service-features1.md)   
- [旧的语言服务分析器和扫描程序](../../extensibility/internals/legacy-language-service-parser-and-scanner.md)   
- [注册早期语言服务](../../extensibility/internals/registering-a-legacy-language-service1.md)
+## <a name="see-also"></a>See Also  
+ [Legacy Language Service Features](../../extensibility/internals/legacy-language-service-features1.md)   
+ [Legacy Language Service Parser and Scanner](../../extensibility/internals/legacy-language-service-parser-and-scanner.md)   
+ [Registering a Legacy Language Service](../../extensibility/internals/registering-a-legacy-language-service1.md)

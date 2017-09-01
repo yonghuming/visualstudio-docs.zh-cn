@@ -1,142 +1,146 @@
 ---
-title: "演练：创建你的第一个 PowerPoint VSTO 外接程序"
-ms.custom: ""
-ms.date: "02/02/2017"
-ms.prod: "visual-studio-dev14"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "office-development"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-dev_langs: 
-  - "VB"
-  - "CSharp"
-helpviewer_keywords: 
-  - "外接程序 [Visual Studio 中的 Office 开发], 创建您的第一个项目"
-  - "应用程序级外接程序 [Visual Studio 中的 Office 开发], 创建您的第一个项目"
-  - "Visual Studio 中的 Office 开发, 创建您的第一个项目"
-  - "PowerPoint [Visual Studio 中的 Office 开发], 创建您的第一个项目"
+title: 'Walkthrough: Creating Your First VSTO Add-in for PowerPoint | Microsoft Docs'
+ms.custom: 
+ms.date: 02/02/2017
+ms.prod: visual-studio-dev14
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- office-development
+ms.tgt_pltfrm: 
+ms.topic: article
+dev_langs:
+- VB
+- CSharp
+helpviewer_keywords:
+- application-level add-ins [Office development in Visual Studio], creating your first project
+- Office development in Visual Studio, creating your first project
+- PowerPoint [Office development in Visual Studio], creating your first project
+- add-ins [Office development in Visual Studio], creating your first project
 ms.assetid: 52d1543a-c9cb-4ee1-aa5b-90759fce9d3a
 caps.latest.revision: 34
-author: "kempb"
-ms.author: "kempb"
-manager: "ghogen"
-caps.handback.revision: 33
+author: kempb
+ms.author: kempb
+manager: ghogen
+ms.translationtype: HT
+ms.sourcegitcommit: eb5c9550fd29b0e98bf63a7240737da4f13f3249
+ms.openlocfilehash: 18569d5e0e719af3657fcbc4c9838b94daa9df75
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/30/2017
+
 ---
-# 演练：创建你的第一个 PowerPoint VSTO 外接程序
-  本演练显示如何为 Microsoft Office PowerPoint 创建 VSTO 外接程序。  你在此类解决方案中创建的功能可用于应用程序本身，而与所打开的演示文稿无关。  有关详细信息，请参阅 [Office 解决方案开发概述 &#40;VSTO&#41;](../vsto/office-solutions-development-overview-vsto.md)。  
+# <a name="walkthrough-creating-your-first-vsto-add-in-for-powerpoint"></a>Walkthrough: Creating Your First VSTO Add-in for PowerPoint
+  This walkthrough shows you how to create an VSTO Add-in for Microsoft Office PowerPoint. The features that you create in this kind of solution are available to the application itself, regardless of which presentations are open. For more information, see [Office Solutions Development Overview &#40;VSTO&#41;](../vsto/office-solutions-development-overview-vsto.md).  
   
  [!INCLUDE[appliesto_pptallapp](../vsto/includes/appliesto-pptallapp-md.md)]  
   
- 本演练阐释了以下任务：  
+ This walkthrough illustrates the following tasks:  
   
--   创建 PowerPoint 的 PowerPoint VSTO 外接程序。  
+-   Creating a PowerPoint VSTO Add-in project for PowerPoint.  
   
--   编写使用 PowerPoint 对象模型来将文本框添加到每张新建幻灯片的代码。  
+-   Writing code that uses the object model of PowerPoint to add a text box to each new slide.  
   
--   生成并运行项目，以对其进行测试。  
+-   Building and running the project to test it.  
   
--   清理项目，使 VSTO 外接程序在开发计算机上不再自动运行。  
+-   Cleaning up the project so that the VSTO Add-in no longer runs automatically on your development computer.  
   
  [!INCLUDE[note_settings_general](../sharepoint/includes/note-settings-general-md.md)]  
   
-## 系统必备  
- 你需要以下组件来完成本演练：  
+## <a name="prerequisites"></a>Prerequisites  
+ You need the following components to complete this walkthrough:  
   
 -   [!INCLUDE[vsto_vsprereq](../vsto/includes/vsto-vsprereq-md.md)]  
   
 -   PowerPoint  
   
-## 创建项目  
+## <a name="creating-the-project"></a>Creating the Project  
   
-#### 创建新项目  
+#### <a name="to-create-a-new-project"></a>To create a new project  
   
-1.  启动 [!INCLUDE[vsprvs](../sharepoint/includes/vsprvs-md.md)]。  
+1.  Start [!INCLUDE[vsprvs](../sharepoint/includes/vsprvs-md.md)].  
   
-2.  在**“文件”**菜单上，指向**“新建”**，然后单击**“项目”**。  
+2.  On the **File** menu, point to **New**, and then click **Project**.  
   
-3.  在模板窗格中，展开**“Visual C\#”**或**“Visual Basic”**，然后展开**“Office\/SharePoint”**。  
+3.  In the templates pane, expand **Visual C#** or **Visual Basic**, and then expand **Office/SharePoint**.  
   
-4.  在展开的**“Office\/SharePoint”**节点下方，选择**“Office 外接程序”**节点。  
+4.  Under the expanded **Office/SharePoint** node, select the **Office Add-ins** node.  
   
-5.  在项目模板列表中，选择一个 PowerPoint VSTO 外接程序项目。  
+5.  In the list of project templates, select a PowerPoint VSTO Add-in project.  
   
-6.  在**“名称”**框中，键入 **FirstPowerPointAddIn**。  
+6.  In the **Name** box, type **FirstPowerPointAddIn**.  
   
-7.  单击“确定”。  
+7.  Click **OK**.  
   
-     [!INCLUDE[vsprvs](../sharepoint/includes/vsprvs-md.md)] 即会创建 **FirstPowerPointAddIn** 项目，并在编辑器中打开 **ThisAddIn** 代码文件。  
+     [!INCLUDE[vsprvs](../sharepoint/includes/vsprvs-md.md)] creates the **FirstPowerPointAddIn** project and opens the **ThisAddIn** code file in the editor.  
   
-## 编写将文本添加到每张新建幻灯片的代码  
- 接下来，将代码添加到 ThisAddIn 代码文件。  新代码将使用 PowerPoint 对象模型来将文本框添加到每张新建幻灯片。  默认情况下，ThisAddIn 代码文件包含以下生成的代码：  
+## <a name="writing-code-that-adds-text-to-each-new-slide"></a>Writing Code that Adds Text to Each New Slide  
+ Next, add code to the ThisAddIn code file. The new code uses the object model of PowerPoint to add a text box to each new slide. By default, the ThisAddIn code file contains the following generated code:  
   
--   `ThisAddIn` 类的部分定义。  此类提供代码的入口点，并提供对 PowerPoint 对象模型的访问权限。  有关详细信息，请参阅 [VSTO 外接程序编程](../vsto/programming-vsto-add-ins.md)。  `ThisAddIn` 类的其余部分是在隐藏代码文件中定义的，不应修改该代码文件。  
+-   A partial definition of the `ThisAddIn` class. This class provides an entry point for your code and provides access to the object model of PowerPoint. For more information, see [Programming VSTO Add-Ins](../vsto/programming-vsto-add-ins.md). The remainder of the `ThisAddIn` class is defined in a hidden code file that you should not modify.  
   
--   `ThisAddIn_Startup` 和 `ThisAddIn_Shutdown` 事件处理程序。  PowerPoint 加载和卸载 VSTO 外接程序时会调用这些事件处理程序。  使用这些事件处理程序，可在加载 VSTO 外接程序对其进行初始化，并在卸载 VSTO 外接程序时清理其使用的资源。  有关详细信息，请参阅 [Office 项目中的事件](../vsto/events-in-office-projects.md)。  
+-   The `ThisAddIn_Startup` and `ThisAddIn_Shutdown` event handlers. These event handlers are called when PowerPoint loads and unloads your VSTO Add-in. Use these event handlers to initialize your VSTO Add-in when it is loaded, and to clean up resources used by your VSTO Add-in when it is unloaded. For more information, see [Events in Office Projects](../vsto/events-in-office-projects.md).  
   
-#### 若要将文本框添加到每张新建幻灯片中  
+#### <a name="to-add-a-text-box-to-each-new-slide"></a>To add a text box to each new slide  
   
-1.  在 ThisAddIn 代码文件中，将下面的代码添加到 `ThisAddIn` 类中。  此代码定义了 <xref:Microsoft.Office.Interop.PowerPoint.Application> 对象的 <xref:Microsoft.Office.Interop.PowerPoint.EApplication_Event.PresentationNewSlide> 事件的一个事件处理程序。  
+1.  In the ThisAddIn code file, add the following code to the `ThisAddIn` class. This code defines an event handler for the <xref:Microsoft.Office.Interop.PowerPoint.EApplication_Event.PresentationNewSlide> event of the <xref:Microsoft.Office.Interop.PowerPoint.Application> object.  
   
-     当用户将新的幻灯片添加到活动演示文稿中时，此事件处理程序会将文本框添加到该新幻灯片的顶部，并添加文本到文本框中。  
+     When the user adds a new slide to the active presentation, this event handler adds a text box to the top of the new slide, and it adds some text to the text box.  
   
-     [!code-csharp[Trin_PowerPointAddInTutorial#1](../snippets/csharp/VS_Snippets_OfficeSP/Trin_PowerPointAddInTutorial/CS/ThisAddIn.cs#1)]
-     [!code-vb[Trin_PowerPointAddInTutorial#1](../snippets/visualbasic/VS_Snippets_OfficeSP/Trin_PowerPointAddInTutorial/VB/ThisAddIn.vb#1)]  
+     [!code-vb[Trin_PowerPointAddInTutorial#1](../vsto/codesnippet/VisualBasic/Trin_PowerPointAddInTutorial/ThisAddIn.vb#1)]  [!code-csharp[Trin_PowerPointAddInTutorial#1](../vsto/codesnippet/CSharp/Trin_PowerPointAddInTutorial/ThisAddIn.cs#1)]  
   
-2.  如果你使用的是 C\#，请将以下代码添加到 `ThisAddIn_Startup` 事件处理程序中。  需要此代码将 `Application_PresentationNewSlide` 事件处理程序与 <xref:Microsoft.Office.Interop.PowerPoint.EApplication_Event.PresentationNewSlide> 事件连接在一起。  
+2.  If you are using C#, add the following code to the `ThisAddIn_Startup` event handler. This code is required to connect the `Application_PresentationNewSlide` event handler with the <xref:Microsoft.Office.Interop.PowerPoint.EApplication_Event.PresentationNewSlide> event.  
   
-     [!code-csharp[Trin_PowerPointAddInTutorial#2](../snippets/csharp/VS_Snippets_OfficeSP/Trin_PowerPointAddInTutorial/CS/ThisAddIn.cs#2)]  
+     [!code-csharp[Trin_PowerPointAddInTutorial#2](../vsto/codesnippet/CSharp/Trin_PowerPointAddInTutorial/ThisAddIn.cs#2)]  
   
- 若要修改每张新建幻灯片，之前的代码示例需使用以下对象：  
+ To modify each new slide, the previous code examples use the following objects:  
   
--   `ThisAddIn` 类的 `Application` 字段。  `Application` 字段返回一个 <xref:Microsoft.Office.Interop.PowerPoint.Application> 对象，该对象表示 PowerPoint 的当前实例。  
+-   The `Application` field of the `ThisAddIn` class. The `Application` field returns an <xref:Microsoft.Office.Interop.PowerPoint.Application> object, which represents the current instance of PowerPoint.  
   
--   <xref:Microsoft.Office.Interop.PowerPoint.EApplication_Event.PresentationNewSlide> 事件的事件处理程序的 `Sld` 参数。  `Sld` 参数是一个 <xref:Microsoft.Office.Interop.PowerPoint.Slide> 对象，用于表示新幻灯片。  有关详细信息，请参阅 [PowerPoint 解决方案](../vsto/powerpoint-solutions.md)。  
+-   The `Sld` parameter of the event handler for the <xref:Microsoft.Office.Interop.PowerPoint.EApplication_Event.PresentationNewSlide> event. The `Sld` parameter is a <xref:Microsoft.Office.Interop.PowerPoint.Slide> object, which represents the new slide. For more information, see [PowerPoint Solutions](../vsto/powerpoint-solutions.md).  
   
-## 测试项目  
- 当生成和运行项目时，请验证添加到演示文稿的新幻灯片中是否出现文本框。  
+## <a name="testing-the-project"></a>Testing the Project  
+ When you build and run the project, verify that the text box appears in new slides that you add to a presentation.  
   
-#### 测试项目  
+#### <a name="to-test-the-project"></a>To test the project  
   
-1.  按 **F5** 生成并运行项目。  
+1.  Press **F5** to build and run your project.  
   
-     生成项目时，会将代码编译成一个程序集，此程序集放置在项目的生成输出文件夹中。  Visual Studio 还会创建一组注册表项，通过这些注册表项，PowerPoint 能够发现和加载 VSTO 外接程序，Visual Studio 还将开发计算机上的安全设置配置为允许 VSTO 外接程序运行。  有关详细信息，请参阅 [生成 Office 解决方案](../vsto/building-office-solutions.md)。  
+     When you build the project, the code is compiled into an assembly that is put in the build output folder for the project. Visual Studio also creates a set of registry entries that enable PowerPoint to discover and load the VSTO Add-in, and it configures the security settings on the development computer to enable the VSTO Add-in to run. For more information, see [Building Office Solutions](../vsto/building-office-solutions.md).  
   
-2.  在 PowerPoint 中，将新的幻灯片添加到活动演示文稿。  
+2.  In PowerPoint, add a new slide to the active presentation.  
   
-3.  验证下面的文本是否添加到幻灯片顶部的新建文本框中。  
+3.  Verify that the following text is added to a new text box at the top of the slide.  
   
-     **此文本是通过使用代码添加的。**  
+     **This text was added by using code.**  
   
-4.  关闭 PowerPoint。  
+4.  Close PowerPoint.  
   
-## 清理项目  
- 完成项目开发后，请从开发计算机上删除 VSTO 外接程序程序集、注册表项和安全设置。  否则，每次在开发计算机上打开 PowerPoint 时 VSTO 外接程序都会运行。  
+## <a name="cleaning-up-the-project"></a>Cleaning up the Project  
+ When you finish developing a project, remove the VSTO Add-in assembly, registry entries, and security settings from your development computer. Otherwise, the VSTO Add-in will run every time you open PowerPoint on the development computer.  
   
-#### 清理项目  
+#### <a name="to-clean-up-your-project"></a>To clean up your project  
   
-1.  在 Visual Studio 中，在**“生成”**菜单上，单击**“清理解决方案”**。  
+1.  In Visual Studio, on the **Build** menu, click **Clean Solution**.  
   
-## 后续步骤  
- 既然已经创建了一个基本的 PowerPoint VSTO 外接程序，就可以从下面这些主题中了解有关如何开发 VSTO 外接程序的详细信息：  
+## <a name="next-steps"></a>Next Steps  
+ Now that you have created a basic VSTO Add-in for PowerPoint, you can learn more about how to develop VSTO Add-ins from these topics:  
   
--   可在 PowerPoint 的 VSTO 外接程序中执行的常规编程任务。  有关详细信息，请参阅 [VSTO 外接程序编程](../vsto/programming-vsto-add-ins.md)。  
+-   General programming tasks that you can perform in VSTO Add-ins for PowerPoint. For more information, see [Programming VSTO Add-Ins](../vsto/programming-vsto-add-ins.md).  
   
--   使用 PowerPoint 对象模型。  有关详细信息，请参阅 [PowerPoint 解决方案](../vsto/powerpoint-solutions.md)。  
+-   Using the object model of PowerPoint. For more information, see [PowerPoint Solutions](../vsto/powerpoint-solutions.md).  
   
--   自定义 PowerPoint 的 UI，例如通过将自定义选项卡添加到功能区或创建你自己的自定义任务窗格。  有关详细信息，请参阅 [Office UI 自定义](../vsto/office-ui-customization.md)。  
+-   Customizing the UI of PowerPoint, for example, by adding a custom tab to the Ribbon or creating your own custom task pane. For more information, see [Office UI Customization](../vsto/office-ui-customization.md).  
   
--   生成和调试 PowerPoint VSTO 外接程序。  有关详细信息，请参阅[生成 Office 解决方案](../vsto/building-office-solutions.md)。  
+-   Building and debugging VSTO Add-ins for PowerPoint. For more information, see [Building Office Solutions](../vsto/building-office-solutions.md).  
   
--   部署 PowerPoint VSTO 外接程序。  有关详细信息，请参阅[部署 Office 解决方案](../vsto/deploying-an-office-solution.md)。  
+-   Deploying VSTO Add-ins for PowerPoint. For more information, see [Deploying an Office Solution](../vsto/deploying-an-office-solution.md).  
   
-## 请参阅  
- [VSTO 外接程序编程](../vsto/programming-vsto-add-ins.md)   
- [PowerPoint 解决方案](../vsto/powerpoint-solutions.md)   
- [Office UI 自定义](../vsto/office-ui-customization.md)   
- [生成 Office 解决方案](../vsto/building-office-solutions.md)   
- [部署 Office 解决方案](../vsto/deploying-an-office-solution.md)   
- [Office 项目模板概述](../vsto/office-project-templates-overview.md)  
+## <a name="see-also"></a>See Also  
+ [Programming VSTO Add-Ins](../vsto/programming-vsto-add-ins.md)   
+ [PowerPoint Solutions](../vsto/powerpoint-solutions.md)   
+ [Office UI Customization](../vsto/office-ui-customization.md)   
+ [Building Office Solutions](../vsto/building-office-solutions.md)   
+ [Deploying an Office Solution](../vsto/deploying-an-office-solution.md)   
+ [Office Project Templates Overview](../vsto/office-project-templates-overview.md)  
   
   

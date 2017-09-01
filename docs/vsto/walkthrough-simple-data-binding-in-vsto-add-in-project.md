@@ -1,169 +1,167 @@
 ---
-title: "演练：VSTO 外接程序项目中的简单数据绑定"
-ms.custom: ""
-ms.date: "02/02/2017"
-ms.prod: "visual-studio-dev14"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "office-development"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-dev_langs: 
-  - "VB"
-  - "CSharp"
-helpviewer_keywords: 
-  - "数据 [Visual Studio 中的 Office 开发]，绑定数据"
-  - "数据绑定 [Visual Studio 中的 Office 开发]，Word"
-  - "数据 [Visual Studio 中的 Office 开发]，简单数据绑定"
+title: 'Walkthrough: Simple Data Binding in VSTO add-in Project | Microsoft Docs'
+ms.custom: 
+ms.date: 02/02/2017
+ms.prod: visual-studio-dev14
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- office-development
+ms.tgt_pltfrm: 
+ms.topic: article
+dev_langs:
+- VB
+- CSharp
+helpviewer_keywords:
+- data [Office development in Visual Studio], binding data
+- data binding [Office development in Visual Studio], Word
+- data [Office development in Visual Studio], simple binding data
 ms.assetid: b248d194-a8b1-4f87-94c4-24e940eea1fd
 caps.latest.revision: 39
-author: "kempb"
-ms.author: "kempb"
-manager: "ghogen"
-caps.handback.revision: 38
+author: kempb
+ms.author: kempb
+manager: ghogen
+ms.translationtype: HT
+ms.sourcegitcommit: eb5c9550fd29b0e98bf63a7240737da4f13f3249
+ms.openlocfilehash: 697b9a06be8f292339518cd5e410a40efc5efac4
+ms.contentlocale: zh-cn
+ms.lasthandoff: 08/30/2017
+
 ---
-# 演练：VSTO 外接程序项目中的简单数据绑定
-  可以将数据绑定到 VSTO 外接程序项目中的宿主控件和 Windows 窗体控件。 本演练演示如何在运行时向 Microsoft Office Word 文档中添加控件并将控件绑定到数据。  
+# <a name="walkthrough-simple-data-binding-in-vsto-add-in-project"></a>Walkthrough: Simple Data Binding in VSTO add-in Project
+  You can bind data to host controls and Windows Forms controls in VSTO Add-in projects. This walkthrough demonstrates how to add controls to a Microsoft Office Word document and bind the controls to data at run time.  
   
  [!INCLUDE[appliesto_wdallapp](../vsto/includes/appliesto-wdallapp-md.md)]  
   
- 本演练阐释了以下任务：  
+ This walkthrough illustrates the following tasks:  
   
--   在运行时向文档中添加 <xref:Microsoft.Office.Tools.Word.ContentControl>。  
+-   Adding a <xref:Microsoft.Office.Tools.Word.ContentControl> to a document at run time.  
   
--   创建用于将该控件连接到某个数据集实例的 <xref:System.Windows.Forms.BindingSource>。  
+-   Creating a <xref:System.Windows.Forms.BindingSource> that connects the control to an instance of a dataset.  
   
--   使用户可以滚动浏览记录以及在控件中查看记录。  
+-   Enabling the user to scroll through the records and view them in the control.  
   
  [!INCLUDE[note_settings_general](../sharepoint/includes/note-settings-general-md.md)]  
   
-## 系统必备  
- 你需要以下组件来完成本演练：  
+## <a name="prerequisites"></a>Prerequisites  
+ You need the following components to complete this walkthrough:  
   
 -   [!INCLUDE[vsto_vsprereq](../vsto/includes/vsto-vsprereq-md.md)]  
   
--   [!INCLUDE[Word_15_short](../vsto/includes/word-15-short-md.md)] 或 [!INCLUDE[Word_14_short](../vsto/includes/word-14-short-md.md)]。  
+-   [!INCLUDE[Word_15_short](../vsto/includes/word-15-short-md.md)] or [!INCLUDE[Word_14_short](../vsto/includes/word-14-short-md.md)].  
   
--   对附加了 `AdventureWorksLT` 示例数据库且正在运行的 SQL Server 2005 或 SQL Server 2005 Express 实例的访问权限。 你可以从 [CodePlex 网站](http://go.microsoft.com/fwlink/?LinkId=115611)下载 `AdventureWorksLT` 数据库。 有关附加数据库的详细信息，请参阅下列主题：  
+-   Access to a running instance of SQL Server 2005 or SQL Server 2005 Express that has the `AdventureWorksLT` sample database attached to it. You can download the `AdventureWorksLT` database from the [CodePlex Web site](http://go.microsoft.com/fwlink/?LinkId=115611). For more information about attaching a database, see the following topics:  
   
-    -   若要使用 SQL Server Management Studio 或 SQL Server Management Studio Express 来附加数据库，请参阅[如何：附加数据库 \(SQL Server Management Studio\)](http://msdn.microsoft.com/zh-cn/b4efb0ae-cfe6-4d81-a4b4-6e4916885caa)。  
+    -   To attach a database by using SQL Server Management Studio or SQL Server Management Studio Express, see [How to: Attach a Database (SQL Server Management Studio)](http://msdn.microsoft.com/en-us/b4efb0ae-cfe6-4d81-a4b4-6e4916885caa).  
   
-    -   若要使用命令行来附加数据库，请参阅[如何：将数据库文件附加到 SQL Server Express](http://msdn.microsoft.com/zh-cn/0f8e42b5-7a8c-4c30-8c98-7d2bdc8dcc68)。  
+    -   To attach a database by using the command line, see [How to: Attach a Database File to SQL Server Express](http://msdn.microsoft.com/en-us/0f8e42b5-7a8c-4c30-8c98-7d2bdc8dcc68).  
   
-## 创建新项目  
- 第一步是创建 Word VSTO 外接程序项目。  
+## <a name="creating-a-new-project"></a>Creating a New Project  
+ The first step is to create a Word VSTO Add-in project.  
   
-#### 创建新项目  
+#### <a name="to-create-a-new-project"></a>To create a new project  
   
-1.  使用 Visual Basic 或 C\# 创建一个名为“从数据库填充文档”的 Word VSTO 外接程序项目。  
+1.  Create a Word VSTO Add-in project with the name **Populating Documents from a Database**, using either Visual Basic or C#.  
   
-     有关详细信息，请参阅[如何：在 Visual Studio 中创建 Office 项目](../vsto/how-to-create-office-projects-in-visual-studio.md)。  
+     For more information, see [How to: Create Office Projects in Visual Studio](../vsto/how-to-create-office-projects-in-visual-studio.md).  
   
-     Visual Studio 会打开 ThisAddIn.vb 或 ThisAddIn.cs 文件，并将“从数据库填充文档”项目添加到“解决方案资源管理器”中。  
+     Visual Studio opens the ThisAddIn.vb or ThisAddIn.cs file and adds the **Populating Documents from a Database** project to **Solution Explorer**.  
   
-2.  如果项目面向 [!INCLUDE[net_v40_short](../sharepoint/includes/net-v40-short-md.md)] 或 [!INCLUDE[net_v45](../vsto/includes/net-v45-md.md)]，则添加对 Microsoft.Office.Tools.Word.v4.0.Utilities.dll 程序集的引用。 在本演练后面的部分中，需要此引用才能以编程方式向文档中添加 Windows 窗体控件。  
+2.  If your project targets the [!INCLUDE[net_v40_short](../sharepoint/includes/net-v40-short-md.md)] or the [!INCLUDE[net_v45](../vsto/includes/net-v45-md.md)], add a reference to the Microsoft.Office.Tools.Word.v4.0.Utilities.dll assembly. This reference is required to programmatically add Windows Forms controls to the document later in this walkthrough.  
   
-## 创建数据源  
- 使用**“数据源”**窗口将类型化数据集添加到项目中。  
+## <a name="creating-a-data-source"></a>Creating a Data Source  
+ Use the **Data Sources** window to add a typed dataset to your project.  
   
-#### 向项目中添加类型化数据集  
+#### <a name="to-add-a-typed-dataset-to-the-project"></a>To add a typed dataset to the project  
   
-1.  如果**“数据源”**窗口不可见，则在菜单栏上，通过选择**“查看”**，**“其他窗口”**、**“数据源”**显示它。  
+1.  If the **Data Sources** window is not visible, display it by, on the menu bar, choosing **View**, **Other Windows**, **Data Sources**.  
   
-2.  选择**“添加新数据源”**以启动**“数据源配置向导”**。  
+2.  Choose **Add New Data Source** to start the **Data Source Configuration Wizard**.  
   
-3.  单击“数据库”，然后单击“下一步”。  
+3.  Click **Database**, and then click **Next**.  
   
-4.  如果已与 `AdventureWorksLT` 数据库建立连接，请选择此连接，然后单击“下一步”。  
+4.  If you have an existing connection to the `AdventureWorksLT` database, choose this connection and click **Next**.  
   
-     否则，单击“新建连接”，然后使用“添加连接”对话框创建新连接。 有关详细信息，请参阅[如何：连接到数据库中的数据](~/data-tools/how-to-connect-to-data-in-a-database.md)。  
+     Otherwise, click **New Connection**, and use the **Add Connection** dialog box to create the new connection. For more information, see [Add new connections](../data-tools/add-new-connections.md).  
   
-5.  在“将连接字符串保存到应用程序配置文件中”页中，单击“下一步”。  
+5.  In the **Save the Connection String to the Application Configuration File** page, click **Next**.  
   
-6.  在“选择数据库对象”页中展开“表”，再选择“Customer \(SalesLT\)”。  
+6.  In the **Choose Your Database Objects** page, expand **Tables** and select **Customer (SalesLT)**.  
   
-7.  单击**“完成”**。  
+7.  Click **Finish**.  
   
-     AdventureWorksLTDataSet.xsd 文件即会添加到“解决方案资源管理器”中。 此文件定义以下各项：  
+     The AdventureWorksLTDataSet.xsd file is added to **Solution Explorer**. This file defines the following items:  
   
-    -   一个名为 `AdventureWorksLTDataSet` 的类型化数据集。 此数据集表示 AdventureWorksLT 数据库中的“Customer \(SalesLT\)”表的内容。  
+    -   A typed dataset named `AdventureWorksLTDataSet`. This dataset represents the contents of the **Customer (SalesLT)** table in the AdventureWorksLT database.  
   
-    -   一个名为 TableAdapter 的 `CustomerTableAdapter`。 此 TableAdapter 可用来在 `AdventureWorksLTDataSet` 中读取和写入数据。 有关详细信息，请参阅[TableAdapter 概述](/visual-studio/data-tools/tableadapter-overview)。  
+    -   A TableAdapter named `CustomerTableAdapter`. This TableAdapter can be used to read and write data in the `AdventureWorksLTDataSet`. For more information, see [TableAdapter Overview](../data-tools/fill-datasets-by-using-tableadapters.md#tableadapter-overview).  
   
-     在本演练后面的部分中，你将使用这两个对象。  
+     You will use both of these objects later in this walkthrough.  
   
-## 创建控件并将控件绑定到数据  
- 在本演练中，用于查看数据库记录的界面非常简单，它是直接在文档内部创建的。 一个 <xref:Microsoft.Office.Tools.Word.ContentControl> 一次显示一条数据库记录，两个 <xref:Microsoft.Office.Tools.Word.Controls.Button> 控件允许你以前后滚动的方式查看记录。 该内容控件使用 <xref:System.Windows.Forms.BindingSource> 来连接到数据库。  
+## <a name="creating-controls-and-binding-controls-to-data"></a>Creating Controls and Binding Controls to Data  
+ The interface for viewing database records in this walkthrough is very basic, and it is created right inside the document. One <xref:Microsoft.Office.Tools.Word.ContentControl> displays a single database record at a time, and two <xref:Microsoft.Office.Tools.Word.Controls.Button> controls enable you to scroll back and forth through the records. The content control uses a <xref:System.Windows.Forms.BindingSource> to connect to the database.  
   
- 有关将控件绑定到数据的详细信息，请参阅 [将数据绑定到 Office 解决方案中的控件](../vsto/binding-data-to-controls-in-office-solutions.md)。  
+ For more information about binding controls to data, see [Binding Data to Controls in Office Solutions](../vsto/binding-data-to-controls-in-office-solutions.md).  
   
-#### 在文档中创建界面  
+#### <a name="to-create-the-interface-in-the-document"></a>To create the interface in the document  
   
-1.  在 `ThisAddIn` 类中声明下列控件，以显示和滚动查看 `AdventureWorksLTDataSet` 数据库的 `Customer` 表。  
+1.  In the `ThisAddIn` class, declare the following controls to display and scroll through the `Customer` table of the `AdventureWorksLTDataSet` database.  
   
-     [!code-csharp[Trin_WordAddInDatabase#1](../snippets/csharp/VS_Snippets_OfficeSP/Trin_WordAddInDatabase/CS/ThisAddIn.cs#1)]
-     [!code-vb[Trin_WordAddInDatabase#1](../snippets/visualbasic/VS_Snippets_OfficeSP/Trin_WordAddInDatabase/VB/ThisAddIn.vb#1)]  
+     [!code-vb[Trin_WordAddInDatabase#1](../vsto/codesnippet/VisualBasic/trin_wordaddindatabase/ThisAddIn.vb#1)]  [!code-csharp[Trin_WordAddInDatabase#1](../vsto/codesnippet/CSharp/trin_wordaddindatabase/ThisAddIn.cs#1)]  
   
-2.  在 `ThisAddIn_Startup` 方法中添加下面的代码，以便初始化数据集并使用 `AdventureWorksLTDataSet` 数据库中的信息填充数据集。  
+2.  In the `ThisAddIn_Startup` method, add the following code to initialize the dataset, fill the dataset with information from the `AdventureWorksLTDataSet` database.  
   
-     [!code-csharp[Trin_WordAddInDatabase#2](../snippets/csharp/VS_Snippets_OfficeSP/Trin_WordAddInDatabase/CS/ThisAddIn.cs#2)]
-     [!code-vb[Trin_WordAddInDatabase#2](../snippets/visualbasic/VS_Snippets_OfficeSP/Trin_WordAddInDatabase/VB/ThisAddIn.vb#2)]  
+     [!code-vb[Trin_WordAddInDatabase#2](../vsto/codesnippet/VisualBasic/trin_wordaddindatabase/ThisAddIn.vb#2)]  [!code-csharp[Trin_WordAddInDatabase#2](../vsto/codesnippet/CSharp/trin_wordaddindatabase/ThisAddIn.cs#2)]  
   
-3.  将以下代码添加到 `ThisAddIn_Startup` 方法中。 这会生成一个扩展文档的宿主项。 有关详细信息，请参阅[在运行时在 VSTO 外接程序中扩展 Word 文档和 Excel 工作簿](../vsto/extending-word-documents-and-excel-workbooks-in-vsto-add-ins-at-run-time.md)。  
+3.  Add the following code to the `ThisAddIn_Startup` method. This generates a host item that extends the document. For more information, see [Extending Word Documents and Excel Workbooks in VSTO Add-ins at Run Time](../vsto/extending-word-documents-and-excel-workbooks-in-vsto-add-ins-at-run-time.md).  
   
-     [!code-csharp[Trin_WordAddInDatabase#3](../snippets/csharp/VS_Snippets_OfficeSP/Trin_WordAddInDatabase/CS/ThisAddIn.cs#3)]
-     [!code-vb[Trin_WordAddInDatabase#3](../snippets/visualbasic/VS_Snippets_OfficeSP/Trin_WordAddInDatabase/VB/ThisAddIn.vb#3)]  
+     [!code-vb[Trin_WordAddInDatabase#3](../vsto/codesnippet/VisualBasic/trin_wordaddindatabase/ThisAddIn.vb#3)]  [!code-csharp[Trin_WordAddInDatabase#3](../vsto/codesnippet/CSharp/trin_wordaddindatabase/ThisAddIn.cs#3)]  
   
-4.  在文档开始处定义多个范围。 这些范围标识用于插入文本和放置控件的位置。  
+4.  Define several ranges at the beginning of the document. These ranges identify where to insert text and place controls.  
   
-     [!code-csharp[Trin_WordAddInDatabase#4](../snippets/csharp/VS_Snippets_OfficeSP/Trin_WordAddInDatabase/CS/ThisAddIn.cs#4)]
-     [!code-vb[Trin_WordAddInDatabase#4](../snippets/visualbasic/VS_Snippets_OfficeSP/Trin_WordAddInDatabase/VB/ThisAddIn.vb#4)]  
+     [!code-vb[Trin_WordAddInDatabase#4](../vsto/codesnippet/VisualBasic/trin_wordaddindatabase/ThisAddIn.vb#4)]  [!code-csharp[Trin_WordAddInDatabase#4](../vsto/codesnippet/CSharp/trin_wordaddindatabase/ThisAddIn.cs#4)]  
   
-5.  将界面控件添加到前面定义的范围内。  
+5.  Add the interface controls to the previously defined ranges.  
   
-     [!code-csharp[Trin_WordAddInDatabase#5](../snippets/csharp/VS_Snippets_OfficeSP/Trin_WordAddInDatabase/CS/ThisAddIn.cs#5)]
-     [!code-vb[Trin_WordAddInDatabase#5](../snippets/visualbasic/VS_Snippets_OfficeSP/Trin_WordAddInDatabase/VB/ThisAddIn.vb#5)]  
+     [!code-vb[Trin_WordAddInDatabase#5](../vsto/codesnippet/VisualBasic/trin_wordaddindatabase/ThisAddIn.vb#5)]  [!code-csharp[Trin_WordAddInDatabase#5](../vsto/codesnippet/CSharp/trin_wordaddindatabase/ThisAddIn.cs#5)]  
   
-6.  使用 <xref:System.Windows.Forms.BindingSource> 将内容控件绑定到 `AdventureWorksLTDataSet`。 对于 C\# 开发人员，为 <xref:Microsoft.Office.Tools.Word.Controls.Button> 控件添加两个事件处理程序。  
+6.  Bind the content control to `AdventureWorksLTDataSet` by using the <xref:System.Windows.Forms.BindingSource>. For C# developers, add two event handlers for the <xref:Microsoft.Office.Tools.Word.Controls.Button> controls.  
   
-     [!code-csharp[Trin_WordAddInDatabase#6](../snippets/csharp/VS_Snippets_OfficeSP/Trin_WordAddInDatabase/CS/ThisAddIn.cs#6)]
-     [!code-vb[Trin_WordAddInDatabase#6](../snippets/visualbasic/VS_Snippets_OfficeSP/Trin_WordAddInDatabase/VB/ThisAddIn.vb#6)]  
+     [!code-vb[Trin_WordAddInDatabase#6](../vsto/codesnippet/VisualBasic/trin_wordaddindatabase/ThisAddIn.vb#6)]  [!code-csharp[Trin_WordAddInDatabase#6](../vsto/codesnippet/CSharp/trin_wordaddindatabase/ThisAddIn.cs#6)]  
   
-7.  添加下面的代码，以浏览数据库记录。  
+7.  Add the following code to navigate through the database records.  
   
-     [!code-csharp[Trin_WordAddInDatabase#7](../snippets/csharp/VS_Snippets_OfficeSP/Trin_WordAddInDatabase/CS/ThisAddIn.cs#7)]
-     [!code-vb[Trin_WordAddInDatabase#7](../snippets/visualbasic/VS_Snippets_OfficeSP/Trin_WordAddInDatabase/VB/ThisAddIn.vb#7)]  
+     [!code-vb[Trin_WordAddInDatabase#7](../vsto/codesnippet/VisualBasic/trin_wordaddindatabase/ThisAddIn.vb#7)]  [!code-csharp[Trin_WordAddInDatabase#7](../vsto/codesnippet/CSharp/trin_wordaddindatabase/ThisAddIn.cs#7)]  
   
-## 测试外接程序  
- 打开 Word 后，内容控件随即显示 `AdventureWorksLTDataSet` 数据集中的数据。 通过单击“下一条”和“上一条”按钮来滚动查看数据库记录。  
+## <a name="testing-the-add-in"></a>Testing the Add-In  
+ When you open Word, the content control displays data from the `AdventureWorksLTDataSet` dataset. Scroll through the database records by clicking the **Next** and **Previous** buttons.  
   
-#### 若要测试 VSTO 外接程序  
+#### <a name="to-test-the-vsto-add-in"></a>To test the VSTO Add-in  
   
-1.  按 F5。  
+1.  Press **F5**.  
   
-     即会创建一个名为 `customerContentControl` 的内容控件，并向该控件填充数据。 同时，向项目添加了一个名为 `adventureWorksLTDataSet` 的数据集对象和一个名为 `customerBindingSource` 的 <xref:System.Windows.Forms.BindingSource>。 已将 <xref:Microsoft.Office.Tools.Word.ContentControl> 绑定到 <xref:System.Windows.Forms.BindingSource>，而后者又绑定到该数据集对象。  
+     A content control named `customerContentControl` is created and populated with data. At the same time, a dataset object named `adventureWorksLTDataSet` and a <xref:System.Windows.Forms.BindingSource> named `customerBindingSource` are added to the project. The <xref:Microsoft.Office.Tools.Word.ContentControl> is bound to the <xref:System.Windows.Forms.BindingSource>, which in turn is bound to the dataset object.  
   
-2.  单击“下一条”和“上一条”按钮来滚动查看数据库记录。  
+2.  Click the **Next** and **Previous** buttons to scroll through the database records.  
   
-## 请参阅  
- [Office 解决方案中的数据](../vsto/data-in-office-solutions.md)   
- [将数据绑定到 Office 解决方案中的控件](../vsto/binding-data-to-controls-in-office-solutions.md)   
- [如何：用数据库中的数据填充工作表](../vsto/how-to-populate-worksheets-with-data-from-a-database.md)   
- [如何：用数据库中的数据填充文档](../vsto/how-to-populate-documents-with-data-from-a-database.md)   
- [如何：用服务中的数据填充文档](../vsto/how-to-populate-documents-with-data-from-services.md)   
- [如何：用对象中的数据填充文档](../vsto/how-to-populate-documents-with-data-from-objects.md)   
- [如何：在工作表中滚动查看数据库记录](../vsto/how-to-scroll-through-database-records-in-a-worksheet.md)   
- [如何：使用宿主控件中的数据更新数据源](../vsto/how-to-update-a-data-source-with-data-from-a-host-control.md)   
- [演练：文档级项目中的简单数据绑定](../vsto/walkthrough-simple-data-binding-in-a-document-level-project.md)   
- [演练：文档级项目中的复杂数据绑定](../vsto/walkthrough-complex-data-binding-in-a-document-level-project.md)   
- [在 Office 解决方案中使用本地数据库文件概述](../vsto/using-local-database-files-in-office-solutions-overview.md)   
- [数据源概述](../data-tools/add-new-data-sources.md)   
- [在 Visual Studio 中将 Windows 窗体控件绑定到数据](../Topic/Binding%20Windows%20Forms%20controls%20to%20data%20in%20Visual%20Studio.md)   
- [如何：用对象中的数据填充文档](../vsto/how-to-populate-documents-with-data-from-objects.md)   
- [如何：使用宿主控件中的数据更新数据源](../vsto/how-to-update-a-data-source-with-data-from-a-host-control.md)   
- [在 Office 解决方案中使用本地数据库文件概述](../vsto/using-local-database-files-in-office-solutions-overview.md)   
- [连接到 Windows 窗体应用程序中的数据](/visual-studio/data-tools/connecting-to-data-in-windows-forms-applications)   
- [BindingSource 组件概述](http://msdn.microsoft.com/library/be838caf-fcb0-4b68-827f-58b2c04b747f)  
+## <a name="see-also"></a>See Also  
+ [Data in Office Solutions](../vsto/data-in-office-solutions.md)   
+ [Binding Data to Controls in Office Solutions](../vsto/binding-data-to-controls-in-office-solutions.md)   
+ [How to: Populate Worksheets with Data from a Database](../vsto/how-to-populate-worksheets-with-data-from-a-database.md)   
+ [How to: Populate Documents with Data from a Database](../vsto/how-to-populate-documents-with-data-from-a-database.md)   
+ [How to: Populate Documents with Data from Services](../vsto/how-to-populate-documents-with-data-from-services.md)   
+ [How to: Populate Documents with Data from Objects](../vsto/how-to-populate-documents-with-data-from-objects.md)   
+ [How to: Scroll Through Database Records in a Worksheet](../vsto/how-to-scroll-through-database-records-in-a-worksheet.md)   
+ [How to: Update a Data Source with Data from a Host Control](../vsto/how-to-update-a-data-source-with-data-from-a-host-control.md)   
+ [Walkthrough: Simple Data Binding in a Document-Level Project](../vsto/walkthrough-simple-data-binding-in-a-document-level-project.md)   
+ [Walkthrough: Complex Data Binding in a Document-Level Project](../vsto/walkthrough-complex-data-binding-in-a-document-level-project.md)   
+ [Using Local Database Files in Office Solutions Overview](../vsto/using-local-database-files-in-office-solutions-overview.md)   
+ [Add new data sources](/visualstudio/data-tools/add-new-data-sources)   
+ [Bind Windows Forms controls to data in Visual Studio](../data-tools/bind-windows-forms-controls-to-data-in-visual-studio.md)   
+ [How to: Populate Documents with Data from Objects](../vsto/how-to-populate-documents-with-data-from-objects.md)   
+ [How to: Update a Data Source with Data from a Host Control](../vsto/how-to-update-a-data-source-with-data-from-a-host-control.md)   
+ [Using Local Database Files in Office Solutions Overview](../vsto/using-local-database-files-in-office-solutions-overview.md)   
+ [Connecting to Data in Windows Forms Applications](/visualstudio/data-tools/connecting-to-data-in-windows-forms-applications)   
+ [BindingSource Component Overview](/dotnet/framework/winforms/controls/bindingsource-component-overview)  
   
   
