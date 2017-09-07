@@ -1,39 +1,57 @@
 ---
-title: "连接字符串包含带有明文密码的凭据并且未使用集成安全性 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/24/2016"
-ms.prod: "visual-studio-dev14"
-ms.reviewer: ""
-ms.suite: ""
-ms.tgt_pltfrm: ""
-ms.topic: "article"
+title: The connection string contains credentials with a clear text password and is not using integrated security | Microsoft Docs
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.tgt_pltfrm: 
+ms.topic: article
 ms.assetid: 501d85af-92e0-4471-b280-8a59c0688575
 caps.latest.revision: 3
-caps.handback.revision: 1
-author: "mikeblome"
-ms.author: "mblome"
-manager: "ghogen"
+author: gewarren
+ms.author: gewarren
+manager: ghogen
+translation.priority.ht:
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- ru-ru
+- zh-cn
+- zh-tw
+translation.priority.mt:
+- cs-cz
+- pl-pl
+- pt-br
+- tr-tr
+ms.translationtype: HT
+ms.sourcegitcommit: 33a857c2d8585e2e8da9bcd9158190366a3b6830
+ms.openlocfilehash: f4981240d341aa1f2b8c0753b95d1f34e69cb031
+ms.contentlocale: zh-cn
+ms.lasthandoff: 09/07/2017
+
 ---
-# 连接字符串包含带有明文密码的凭据并且未使用集成安全性
-是否要将此敏感信息随连接字符串一起保存到当前 DBML 文件和应用程序配置文件中?单击“否”可在保存连接字符串时不保存敏感信息。  
+# <a name="the-connection-string-contains-credentials-with-a-clear-text-password-and-is-not-using-integrated-security"></a>The connection string contains credentials with a clear text password and is not using integrated security
+Do you want to save the connection string to the current DBML file and application configuration files with this sensitive information?  Click No to save the connection string without the sensitive information.  
   
- 在使用包含敏感信息（连接字符串中包含的密码）的数据连接时，可以选择将敏感信息随连接字符串一起保存到项目 DBML 文件和应用程序配置文件中，或者选择不保存敏感信息。  
+ When working with data connections that include sensitive information (passwords that are included in the connection string), you are given the option of saving the connection string into a project's DBML file and application configuration file with or without the sensitive information.  
   
 > [!WARNING]
->  将**“连接”**属性**“应用程序设置”**属性显式设置为**“False”**可将密码添加到 DBML 文件中。  
+>  Explicitly setting the **Connection** properties **Application Settings** property to **False** will add the password to the DBML file.  
   
-### 将敏感信息随连接字符串一起保存在项目的应用程序设置中  
+### <a name="to-save-the-connection-string-with-the-sensitive-information-in-the-projects-application-settings"></a>To save the connection string with the sensitive information in the project's application settings  
   
--   单击**“是”**。  
+-   Click **Yes**.  
   
-     连接字符串将存储为应用程序设置。连接字符串以纯文本形式包含敏感信息。DBML 文件不包含敏感信息。  
+     The connection string is stored as an application setting. The connection string includes the sensitive information in plain text. The DBML file does not contain the sensitive information.  
   
-### 不将敏感信息随连接字符串一起保存在项目的应用程序设置中  
+### <a name="to-save-the-connection-string-without-the-sensitive-information-in-the-projects-application-settings"></a>To save the connection string without the sensitive information in the project's application settings  
   
--   单击**“否”**。  
+-   Click **No**.  
   
-     连接字符串将存储为应用程序设置，但不包含密码。  
+     The connection string is stored as an application setting, but the password is not included.  
   
-## 请参阅  
- [对象关系设计器（O\/R 设计器）](../data-tools/linq-to-sql-tools-in-visual-studio2.md)   
- [连接到 Visual Studio 中的数据](../data-tools/connecting-to-data-in-visual-studio.md)
+## <a name="see-also"></a>See Also  
+ [LINQ to SQL Tools in Visual Studio](../data-tools/linq-to-sql-tools-in-visual-studio2.md)

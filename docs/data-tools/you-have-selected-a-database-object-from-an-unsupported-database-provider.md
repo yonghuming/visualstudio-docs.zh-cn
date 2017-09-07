@@ -1,37 +1,56 @@
 ---
-title: "您从不支持的数据库提供程序选择了数据库对象 | Microsoft Docs"
-ms.custom: ""
-ms.date: "12/14/2016"
-ms.prod: "visual-studio-dev14"
-ms.reviewer: ""
-ms.suite: ""
-ms.tgt_pltfrm: ""
-ms.topic: "article"
+title: You have selected a database object from an unsupported database provider | Microsoft Docs
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.tgt_pltfrm: 
+ms.topic: article
 ms.assetid: c0f1298e-31aa-471e-ae19-1bafffd2ae40
 caps.latest.revision: 3
-caps.handback.revision: 1
-author: "mikeblome"
-ms.author: "mblome"
-manager: "ghogen"
+author: gewarren
+ms.author: gewarren
+manager: ghogen
+translation.priority.ht:
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- ru-ru
+- zh-cn
+- zh-tw
+translation.priority.mt:
+- cs-cz
+- pl-pl
+- pt-br
+- tr-tr
+ms.translationtype: HT
+ms.sourcegitcommit: 33a857c2d8585e2e8da9bcd9158190366a3b6830
+ms.openlocfilehash: 80fa49a711987b4f5c8f7542a5eeb8771de77f2c
+ms.contentlocale: zh-cn
+ms.lasthandoff: 09/07/2017
+
 ---
-# 您从不支持的数据库提供程序选择了数据库对象
-[!INCLUDE[vs_ordesigner_long](../data-tools/includes/vs_ordesigner_long_md.md)]（[!INCLUDE[vs_ordesigner_short](../data-tools/includes/vs_ordesigner_short_md.md)]）仅支持用于 SQL Server 的 .NET Framework 数据提供程序 \(<xref:System.Data.SqlClient>\)。虽然您可以单击**“确定”**并继续使用来自不支持的数据库提供程序的对象，但在运行时可能遇到意外行为。  
+# <a name="you-have-selected-a-database-object-from-an-unsupported-database-provider"></a>You have selected a database object from an unsupported database provider
+The [!INCLUDE[vs_ordesigner_long](../data-tools/includes/vs_ordesigner_long_md.md)] ([!INCLUDE[vs_ordesigner_short](../data-tools/includes/vs_ordesigner_short_md.md)]) supports only the .NET Framework Data Provider for SQL Server (<xref:System.Data.SqlClient>). Although you can click **OK** and continue to work with objects from unsupported database providers, you may experience unexpected behavior at run time.  
   
 > [!NOTE]
->  仅支持使用用于 SQL Server 的 .NET Framework 数据提供程序的数据连接。  
+>  Only data connections that use the .NET Framework Data Provider for SQL Server are supported.  
   
-### 更正此错误  
+### <a name="to-correct-this-error"></a>To correct this error  
   
--   单击**“确定”**，继续设计映射到使用不支持的数据库提供程序的连接的实体类。使用不支持的数据库提供程序时，可能遇到意外行为。  
+-   Click **OK** to continue designing the entity classes that map to the connection that uses the unsupported database provider. You might experience unexpected behavior when you use unsupported database providers.  
   
-     \- 或 \-  
+     -or-  
   
--   单击**“取消”**。  
+-   Click **Cancel**.  
   
-     操作停止。创建或使用采用了用于 SQL Server 的 .NET Framework 提供程序的数据连接。  
+     The action is stopped. Create or use a data connection that uses the .NET Framework Provider for SQL Server.  
   
-## 请参阅  
- [对象关系设计器（O\/R 设计器）](../data-tools/linq-to-sql-tools-in-visual-studio2.md)   
- [LINQ to SQL](../Topic/LINQ%20to%20SQL.md)   
- [.NET Framework 数据提供程序](../Topic/.NET%20Framework%20Data%20Providers.md)   
- [连接到 Visual Studio 中的数据](../data-tools/connecting-to-data-in-visual-studio.md)
+## <a name="see-also"></a>See Also  
+ [LINQ to SQL Tools in Visual Studio](../data-tools/linq-to-sql-tools-in-visual-studio2.md)   
+ [LINQ to SQL](/dotnet/framework/data/adonet/sql/linq/index)   
+ [.NET Framework Data Providers](/dotnet/framework/data/adonet/data-providers)   
+ [Accessing data in Visual Studio](../data-tools/accessing-data-in-visual-studio.md)

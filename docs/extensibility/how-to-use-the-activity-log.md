@@ -1,5 +1,5 @@
 ---
-title: 'How to: Use the Activity Log | Microsoft Docs'
+title: "如何： 使用活动日志 |Microsoft 文档"
 ms.custom: 
 ms.date: 11/04/2016
 ms.reviewer: 
@@ -33,18 +33,18 @@ ms.translationtype: MT
 ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
 ms.openlocfilehash: a1ddf51d02d9e20f6806f8bc202f8a08166876d6
 ms.contentlocale: zh-cn
-ms.lasthandoff: 08/28/2017
+ms.lasthandoff: 09/06/2017
 
 ---
-# <a name="how-to-use-the-activity-log"></a>How to: Use the Activity Log
-VSPackages can write messages to the activity log. This feature is especially useful for debugging VSPackages in retail environments.  
+# <a name="how-to-use-the-activity-log"></a>如何： 使用活动日志
+Vspackage 可以将消息写入活动日志。 此功能非常适合在零售环境中进行调试 Vspackage。  
   
 > [!TIP]
->  The activity log is always turned on. Visual Studio keeps a rolling buffer of the last one hundred entries as well as the first ten entries, which have general configuration information.  
+>  活动日志始终开启。 Visual Studio 将保持最后一个个条目，以及具有常规配置信息的前 10 个项的一个循环缓冲区。  
   
-### <a name="to-write-an-entry-to-the-activity-log"></a>To write an entry to the activity log  
+### <a name="to-write-an-entry-to-the-activity-log"></a>若要向活动日志写入条目  
   
-1.  Insert this code in the <xref:Microsoft.VisualStudio.Shell.Package.Initialize%2A> method or in any other method except the VSPackage constructor:  
+1.  插入此代码中的<xref:Microsoft.VisualStudio.Shell.Package.Initialize%2A>方法或任何其他方法，但 VSPackage 构造函数中：  
   
     ```csharp  
     IVsActivityLog log = GetService(typeof(SVsActivityLog)) as IVsActivityLog;  
@@ -56,28 +56,28 @@ VSPackages can write messages to the activity log. This feature is especially us
         "Called for: {0}", this.ToString()));  
     ```  
   
-     This code gets the <xref:Microsoft.VisualStudio.Shell.Interop.SVsActivityLog> service and casts it to an <xref:Microsoft.VisualStudio.Shell.Interop.IVsActivityLog> interface. <xref:Microsoft.VisualStudio.Shell.Interop.IVsActivityLog.LogEntry%2A> writes an informational entry into the activity log using the current cultural context.  
+     此代码获取<xref:Microsoft.VisualStudio.Shell.Interop.SVsActivityLog>服务并将强制转换到<xref:Microsoft.VisualStudio.Shell.Interop.IVsActivityLog>接口。 <xref:Microsoft.VisualStudio.Shell.Interop.IVsActivityLog.LogEntry%2A>写入到活动日志中，使用当前区域性上下文的信息项。  
   
-2.  When the VSPackage is loaded (usually when a command is invoked or a window is opened), the text is written to the activity log.  
+2.  加载 VSPackage 后 （通常在调用命令或打开一个窗口），会在活动日志中写入文本。  
   
-### <a name="to-examine-the-activity-log"></a>To examine the activity log  
+### <a name="to-examine-the-activity-log"></a>若要检查活动日志  
   
-1.  Find the activity log in the subfolder for  Visual Studio data: *%AppData%*\Microsoft\VisualStudio\15.0\ActivityLog.XML..  
+1.  活动日志的子文件夹中查找 Visual Studio 数据： *%appdata%*\Microsoft\VisualStudio\15.0\ActivityLog.XML...  
   
-2.  Open the activity log with any text editor. Here is a typical entry:  
+2.  使用任何文本编辑器中打开活动日志。 下面是一个典型条目：  
   
     ```  
     Called for: Company.MyApp.MyAppPackage ...  
     ```  
   
-## <a name="robust-programming"></a>Robust Programming  
- Because the activity log is a service, the activity log is unavailable in the VSPackage constructor.  
+## <a name="robust-programming"></a>可靠编程  
+ 由于活动日志是一项服务，则活动日志将在 VSPackage 构造函数中不可用。  
   
- You should obtain the activity log just before writing to it. Do not cache or save the activity log for future use.  
+ 你应写入之前先获取活动日志。 不要缓存或保存活动日志供将来使用。  
   
-## <a name="see-also"></a>See Also  
+## <a name="see-also"></a>另请参阅  
  <xref:Microsoft.VisualStudio.Shell.Interop.IVsActivityLog>   
  <xref:Microsoft.VisualStudio.Shell.Interop.__ACTIVITYLOG_ENTRYTYPE>   
- [Troubleshooting VSPackages](../extensibility/troubleshooting-vspackages.md)   
- [VSPackages](../extensibility/internals/vspackages.md)
+ [故障排除的 Vspackage](../extensibility/troubleshooting-vspackages.md)   
+ [VSPackage](../extensibility/internals/vspackages.md)
 

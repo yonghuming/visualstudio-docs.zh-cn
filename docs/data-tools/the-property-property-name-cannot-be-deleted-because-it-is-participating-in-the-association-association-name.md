@@ -1,36 +1,55 @@
 ---
-title: "无法删除属性 &lt;属性名称&gt;，原因是它参与了关联 &lt;关联名称&gt; | Microsoft Docs"
-ms.custom: ""
-ms.date: "12/14/2016"
-ms.prod: "visual-studio-dev14"
-ms.reviewer: ""
-ms.suite: ""
-ms.tgt_pltfrm: ""
-ms.topic: "article"
+title: The property &lt;property name&gt; cannot be deleted because it is participating in the association &lt;association name&gt; | Microsoft Docs
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.tgt_pltfrm: 
+ms.topic: article
 ms.assetid: 389873cc-92dd-48da-bfca-0f6c8e0ae3c2
 caps.latest.revision: 3
-caps.handback.revision: 1
-author: "mikeblome"
-ms.author: "mblome"
-manager: "ghogen"
+author: gewarren
+ms.author: gewarren
+manager: ghogen
+translation.priority.ht:
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- ru-ru
+- zh-cn
+- zh-tw
+translation.priority.mt:
+- cs-cz
+- pl-pl
+- pt-br
+- tr-tr
+ms.translationtype: HT
+ms.sourcegitcommit: 33a857c2d8585e2e8da9bcd9158190366a3b6830
+ms.openlocfilehash: ba52151c1d92a648a3392507721a164b669071ea
+ms.contentlocale: zh-cn
+ms.lasthandoff: 09/07/2017
+
 ---
-# 无法删除属性 &lt;属性名称&gt;，原因是它参与了关联 &lt;关联名称&gt;
-选择的属性被设置为错误消息中指示的类之间关联的**“关联属性”**。如果属性参与了数据类之间的关联，则无法删除。  
+# <a name="the-property-ltproperty-namegt-cannot-be-deleted-because-it-is-participating-in-the-association-ltassociation-namegt"></a>The property &lt;property name&gt; cannot be deleted because it is participating in the association &lt;association name&gt;
+The selected property is set as the **Association Property** for the association between the classes indicated in the error message. Properties cannot be deleted if they are participating in an association between data classes.  
   
- 将**“关联属性”**设置为数据类的另一个属性，可以成功删除希望删除的属性。  
+ Set the **Association Property** to a different property of the data class to enable successful deletion of the desired property.  
   
-### 更正此错误  
+### <a name="to-correct-this-error"></a>To correct this error  
   
-1.  在 O\/R 设计器中选择连接错误消息中指示的数据类的关联连线。  
+1.  Select the association line on the O/R Designer that connects the data classes indicated in the error message.  
   
-2.  双击该连线以打开**“关联编辑器”**对话框。  
+2.  Double-click the line to open the **Association Editor** dialog box.  
   
-3.  从**“关联属性”**中移除该属性。  
+3.  Remove the property from the **Association Properties**.  
   
-4.  再次尝试删除该属性。  
+4.  Try to delete the property again.  
   
-## 请参阅  
- [O\/R 设计器概述](../Topic/LINQ%20to%20SQL%20Tools%20in%20Visual%20Studio1.md)   
- [如何：创建 LINQ to SQL 类之间的关联（关系）（O\/R 设计器）](../data-tools/how-to-create-an-association-relationship-between-linq-to-sql-classes-o-r-designer.md)   
- [演练：创建 LINQ to SQL 类（O\/R 设计器）](../Topic/Walkthrough:%20Creating%20LINQ%20to%20SQL%20Classes%20\(O-R%20Designer\).md)   
- [LINQ to SQL](../Topic/LINQ%20to%20SQL.md)
+## <a name="see-also"></a>See Also  
+ [LINQ to SQL Tools in Visual Studio](../data-tools/linq-to-sql-tools-in-visual-studio2.md)   
+ [How to: Create an association (relationship) between LINQ to SQL classes (O/R Designer)](../data-tools/how-to-create-an-association-relationship-between-linq-to-sql-classes-o-r-designer.md)   
+ [Walkthrough: Creating LINQ to SQL Classes (O-R Designer)](how-to-create-linq-to-sql-classes-mapped-to-tables-and-views-o-r-designer.md)   
+ [LINQ to SQL](/dotnet/framework/data/adonet/sql/linq/index)
