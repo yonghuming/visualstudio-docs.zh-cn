@@ -1,5 +1,5 @@
 ---
-title: 'How to: Managing Multiple Threads in Managed Code | Microsoft Docs'
+title: "如何： 管理多个线程在托管代码 |Microsoft 文档"
 ms.custom: 
 ms.date: 11/04/2016
 ms.reviewer: 
@@ -30,20 +30,20 @@ ms.translationtype: MT
 ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
 ms.openlocfilehash: 21fcc9388b40baa9e003b4beb876ba2f0f23fbaf
 ms.contentlocale: zh-cn
-ms.lasthandoff: 08/28/2017
+ms.lasthandoff: 09/06/2017
 
 ---
-# <a name="how-to-managing-multiple-threads-in-managed-code"></a>How to: Managing Multiple Threads in Managed Code
-If you have a managed VSPackage extension that calls asynchronous methods or has operations that execute on threads other than the Visual Studio UI thread, you should follow the guidelines given below. You can keep the UI thread responsive because it doesn't need to wait for work on another thread to complete. You can make your code more efficient, because you don't have extra threads that take up stack space, and you can make it more reliable and easier to debug because you avoid deadlocks and hangs.  
+# <a name="how-to-managing-multiple-threads-in-managed-code"></a>如何： 管理多个线程在托管代码
+如果你有一个托管的 VSPackage 扩展调用异步方法或已在 Visual Studio UI 线程外的线程执行的操作，则应遵循下面给出的准则。 你可以让 UI 线程设置为保持响应状态，因为它不需要等待上另一个线程完成的工作。 你会使代码更高效，因为你不具有额外的线程占用堆栈空间，并且可以更加可靠且更易于调试，因为你避免死锁和挂起使。  
   
- In general, you can switch from the UI thread to a different thread, or vice versa. When the method returns, the current thread is the thread from which it was originally called.  
+ 一般情况下，可以从 UI 线程切换到另一个线程，反之亦然。 方法返回时，当前线程将是从中它最初调用的线程。  
   
 > [!IMPORTANT]
->  The following guidelines use the APIs in the <xref:Microsoft.VisualStudio.Threading> namespace, in particular, the <xref:Microsoft.VisualStudio.Threading.JoinableTaskFactory> class. The APIs in this namespace are new in [!INCLUDE[vs_dev12](../extensibility/includes/vs_dev12_md.md)]. You can get an instance of a <xref:Microsoft.VisualStudio.Threading.JoinableTaskFactory> from the <xref:Microsoft.VisualStudio.Shell.ThreadHelper> property `ThreadHelper.JoinableTaskFactory`.  
+>  以下准则使用中的 Api<xref:Microsoft.VisualStudio.Threading>命名空间，特别是，<xref:Microsoft.VisualStudio.Threading.JoinableTaskFactory>类。 此命名空间中的 Api 是中的新增[!INCLUDE[vs_dev12](../extensibility/includes/vs_dev12_md.md)]。 你可以获取其实例<xref:Microsoft.VisualStudio.Threading.JoinableTaskFactory>从<xref:Microsoft.VisualStudio.Shell.ThreadHelper>属性`ThreadHelper.JoinableTaskFactory`。  
   
-## <a name="switching-from-the-ui-thread-to-a-background-thread"></a>Switching from the UI Thread to a Background Thread  
+## <a name="switching-from-the-ui-thread-to-a-background-thread"></a>从 UI 线程切换到后台线程  
   
-1.  If you are on the UI thread and you want to do asynchronous work on a background thread, use Task.Run():  
+1.  如果在 UI 线程，并且你想要执行后台线程上的异步工作，使用 Task.Run():  
   
     ```csharp  
     await Task.Run(async delegate{  
@@ -53,7 +53,7 @@ If you have a managed VSPackage extension that calls asynchronous methods or has
   
     ```  
   
-2.  If you are on the UI thread and you want to synchronously block while you are performing work on a background thread, use the <xref:System.Threading.Tasks.TaskScheduler> property `TaskScheduler.Default` inside <xref:Microsoft.VisualStudio.Threading.JoinableTaskFactory.Run%2A>:  
+2.  如果你是在 UI 线程上，并且你想要以同步方式阻止后台线程，使用在执行工作时<xref:System.Threading.Tasks.TaskScheduler>属性`TaskScheduler.Default`内<xref:Microsoft.VisualStudio.Threading.JoinableTaskFactory.Run%2A>:  
   
     ```csharp  
     // using Microsoft.VisualStudio.Threading;  
@@ -65,18 +65,18 @@ If you have a managed VSPackage extension that calls asynchronous methods or has
     });  
     ```  
   
-## <a name="switching-from-a-background-thread-to-the-ui-thread"></a>Switching from a Background Thread to the UI Thread  
+## <a name="switching-from-a-background-thread-to-the-ui-thread"></a>从后台线程切换到 UI 线程  
   
-1.  If you're on a background thread and you want to do something on the UI thread, use <xref:Microsoft.VisualStudio.Threading.JoinableTaskFactory.SwitchToMainThreadAsync%2A>:  
+1.  如果要在后台线程上，并且你想要在 UI 线程，使用上实现某些<xref:Microsoft.VisualStudio.Threading.JoinableTaskFactory.SwitchToMainThreadAsync%2A>:  
   
     ```csharp  
     // Switch to main thread  
     await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync();  
     ```  
   
-     You can use the <xref:Microsoft.VisualStudio.Threading.JoinableTaskFactory.SwitchToMainThreadAsync%2A> method to switch to the UI thread. This method posts a message to the UI thread with the continuation of the current asynchronous method, and also communicates with the rest of the threading framework to set the correct priority and avoid deadlocks.  
+     你可以使用<xref:Microsoft.VisualStudio.Threading.JoinableTaskFactory.SwitchToMainThreadAsync%2A>方法以切换到 UI 线程。 此方法将消息发送到当前的异步方法中，延续的用户界面线程，还可与线程处理的框架，设置正确的优先级并避免死锁的其余部分通信。  
   
-     If your background thread method isn't asynchronous and you can't make it asynchronous, you can still use the `await` syntax to switch to the UI thread by wrapping your work with <xref:Microsoft.VisualStudio.Threading.JoinableTaskFactory.Run%2A>, as in this example:  
+     如果你的后台线程方法不异步并且不能进行异步，仍可以使用`await`语法通过包装你的工作与切换到 UI 线程<xref:Microsoft.VisualStudio.Threading.JoinableTaskFactory.Run%2A>，如下例所示：  
   
     ```csharp  
     ThreadHelper.JoinableTaskFactory.Run(async delegate {  

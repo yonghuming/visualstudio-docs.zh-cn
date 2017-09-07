@@ -1,5 +1,5 @@
 ---
-title: IDebugPort2::EnumProcesses | Microsoft Docs
+title: "IDebugPort2::EnumProcesses |Microsoft 文档"
 ms.custom: 
 ms.date: 11/04/2016
 ms.reviewer: 
@@ -34,13 +34,13 @@ ms.translationtype: MT
 ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
 ms.openlocfilehash: e16d46d63ee6f2cac5998c84c62299bb2e909948
 ms.contentlocale: zh-cn
-ms.lasthandoff: 08/28/2017
+ms.lasthandoff: 09/06/2017
 
 ---
 # <a name="idebugport2enumprocesses"></a>IDebugPort2::EnumProcesses
-Returns a list of all the processes running on a port.  
+返回一个端口上运行的所有进程的列表。  
   
-## <a name="syntax"></a>Syntax  
+## <a name="syntax"></a>语法  
   
 ```cpp  
 HRESULT EnumProcesses(   
@@ -54,13 +54,13 @@ int EnumProcesses(
 );  
 ```  
   
-#### <a name="parameters"></a>Parameters  
+#### <a name="parameters"></a>参数  
  `ppEnum`  
- [out] Returns an [IEnumDebugProcesses2](../../../extensibility/debugger/reference/ienumdebugprocesses2.md) object that contains a list of all the processes running on a port.  
+ [out]返回[IEnumDebugProcesses2](../../../extensibility/debugger/reference/ienumdebugprocesses2.md)对象，其中包含所有的端口上运行的进程的列表。  
   
-## <a name="return-value"></a>Return Value  
- If successful, returns `S_OK`; otherwise, returns an error code.  
+## <a name="return-value"></a>返回值  
+ 如果成功，则返回`S_OK`; 否则为返回错误代码。  
   
-## <a name="see-also"></a>See Also  
+## <a name="see-also"></a>另请参阅  
  [IDebugPort2](../../../extensibility/debugger/reference/idebugport2.md)   
  [IEnumDebugProcesses2](../../../extensibility/debugger/reference/ienumdebugprocesses2.md)

@@ -1,5 +1,5 @@
 ---
-title: IDebugComPlusSymbolProvider::AreSymbolsLoaded | Microsoft Docs
+title: "IDebugComPlusSymbolProvider::AreSymbolsLoaded |Microsoft 文档"
 ms.custom: 
 ms.date: 11/04/2016
 ms.reviewer: 
@@ -33,13 +33,13 @@ ms.translationtype: MT
 ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
 ms.openlocfilehash: 065a32112c65e9730c5c492e954de5c1415ad3b5
 ms.contentlocale: zh-cn
-ms.lasthandoff: 08/28/2017
+ms.lasthandoff: 09/06/2017
 
 ---
 # <a name="idebugcomplussymbolprovideraresymbolsloaded"></a>IDebugComPlusSymbolProvider::AreSymbolsLoaded
-Determines if the debug symbols are loaded for the specified module given the application domain identifier.  
+确定是否已为给定的应用程序域标识符的指定模块加载调试符号。  
   
-## <a name="syntax"></a>Syntax  
+## <a name="syntax"></a>语法  
   
 ```cpp  
 HRESULT AreSymbolsLoaded (  
@@ -55,18 +55,18 @@ int AreSymbolsLoaded (
 );  
 ```  
   
-#### <a name="parameters"></a>Parameters  
+#### <a name="parameters"></a>参数  
  `ulAppDomainID`  
- [in] Identifier for the application domain.  
+ [in]应用程序域的标识符。  
   
  `guidModule`  
- [in] Unique identifier for the module.  
+ [in]模块的唯一标识符。  
   
-## <a name="return-value"></a>Return Value  
- If the debug symbols are loaded, returns `S_OK`; otherwise, returns `S_FALSE`.  
+## <a name="return-value"></a>返回值  
+ 如果已加载调试符号，则返回`S_OK`; 否则为返回`S_FALSE`。  
   
-## <a name="example"></a>Example  
- The following example shows how to implement this method for a **CDebugSymbolProvider** object that exposes the [IDebugComPlusSymbolProvider](../../../extensibility/debugger/reference/idebugcomplussymbolprovider.md) interface.  
+## <a name="example"></a>示例  
+ 下面的示例演示如何实现此方法对于**CDebugSymbolProvider**公开的对象[IDebugComPlusSymbolProvider](../../../extensibility/debugger/reference/idebugcomplussymbolprovider.md)接口。  
   
 ```cpp  
 HRESULT CDebugSymbolProvider::AreSymbolsLoaded(  
@@ -88,5 +88,5 @@ Error:
 }  
 ```  
   
-## <a name="see-also"></a>See Also  
+## <a name="see-also"></a>另请参阅  
  [IDebugComPlusSymbolProvider](../../../extensibility/debugger/reference/idebugcomplussymbolprovider.md)

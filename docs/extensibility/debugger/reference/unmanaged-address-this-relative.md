@@ -1,5 +1,5 @@
 ---
-title: UNMANAGED_ADDRESS_THIS_RELATIVE | Microsoft Docs
+title: "UNMANAGED_ADDRESS_THIS_RELATIVE |Microsoft 文档"
 ms.custom: 
 ms.date: 11/04/2016
 ms.reviewer: 
@@ -34,13 +34,13 @@ ms.translationtype: MT
 ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
 ms.openlocfilehash: 2412503a57f42b879a7e4226acf81397c4a9a56a
 ms.contentlocale: zh-cn
-ms.lasthandoff: 08/28/2017
+ms.lasthandoff: 09/06/2017
 
 ---
 # <a name="unmanagedaddressthisrelative"></a>UNMANAGED_ADDRESS_THIS_RELATIVE
-This structure represents an address that is relative to a `this` pointer (`Me` in Visual Basic).  
+此结构表示的地址是相对于`this`指针 (`Me`在 Visual Basic 中)。  
   
-## <a name="syntax"></a>Syntax  
+## <a name="syntax"></a>语法  
   
 ```cpp  
 typedef struct _tagUNMANAGED_THIS_RELATIVE {  
@@ -58,26 +58,26 @@ public struct UNMANAGED_THIS_RELATIVE {
 }  
 ```  
   
-## <a name="terms"></a>Terms  
+## <a name="terms"></a>术语  
  dwOffset  
- Byte offset from a base position (for example, start of a class vtable).  
+ 字节偏移量从 （例如，类 vtable 开始） 的基位置。  
   
  dwBitOffset  
- Offset in bits from a base position (always 0 unless referring to a bit field).  
+ 以位为单位的基位置偏移量 (始终为 0 除非引用是位域)。  
   
  dwBitLength  
- Number of bits representing the address (always 0 unless referring to a bit field).  
+ 表示的地址的比特数 (始终为 0 除非引用是位域)。  
   
-## <a name="remarks"></a>Remarks  
- This structure is part of the union in the [DEBUG_ADDRESS_UNION](../../../extensibility/debugger/reference/debug-address-union.md) structure when the `dwKind` field of the `DEBUG_ADDRESS_UNION` structure is set to `ADDRESS_KIND_UNMANAGED_THIS_RELATIVE` (a value from the [ADDRESS_KIND](../../../extensibility/debugger/reference/address-kind.md) enumeration).  
+## <a name="remarks"></a>备注  
+ 此结构是中的联合的一部分[DEBUG_ADDRESS_UNION](../../../extensibility/debugger/reference/debug-address-union.md)结构时`dwKind`字段`DEBUG_ADDRESS_UNION`结构设置为`ADDRESS_KIND_UNMANAGED_THIS_RELATIVE`(从值[ADDRESS_KIND](../../../extensibility/debugger/reference/address-kind.md)枚举）。  
   
-## <a name="requirements"></a>Requirements  
- Header: sh.h  
+## <a name="requirements"></a>要求  
+ 标头： sh.h  
   
  Namespace: Microsoft.VisualStudio.Debugger.Interop  
   
- Assembly: Microsoft.VisualStudio.Debugger.Interop.dll  
+ 程序集： Microsoft.VisualStudio.Debugger.Interop.dll  
   
-## <a name="see-also"></a>See Also  
- [Structures and Unions](../../../extensibility/debugger/reference/structures-and-unions.md)   
+## <a name="see-also"></a>另请参阅  
+ [结构和联合](../../../extensibility/debugger/reference/structures-and-unions.md)   
  [DEBUG_ADDRESS_UNION](../../../extensibility/debugger/reference/debug-address-union.md)

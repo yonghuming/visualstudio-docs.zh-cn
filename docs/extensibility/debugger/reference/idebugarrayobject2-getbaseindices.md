@@ -1,5 +1,5 @@
 ---
-title: IDebugArrayObject2::GetBaseIndices | Microsoft Docs
+title: "IDebugArrayObject2::GetBaseIndices |Microsoft 文档"
 ms.custom: 
 ms.date: 11/04/2016
 ms.reviewer: 
@@ -33,13 +33,13 @@ ms.translationtype: MT
 ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
 ms.openlocfilehash: 3aa9ad51de0f929083457eed86d69cf23f99d10d
 ms.contentlocale: zh-cn
-ms.lasthandoff: 08/28/2017
+ms.lasthandoff: 09/06/2017
 
 ---
 # <a name="idebugarrayobject2getbaseindices"></a>IDebugArrayObject2::GetBaseIndices
-Retrieves the base indices (lower bounds) for each index given the number of dimensions in the array.  
+对于给定的维数的数组中每个索引检索基的索引 （下限）。  
   
-## <a name="syntax"></a>Syntax  
+## <a name="syntax"></a>语法  
   
 ```cpp  
 HRESULT GetBaseIndices (  
@@ -55,18 +55,18 @@ int GetBaseIndices (
 );  
 ```  
   
-#### <a name="parameters"></a>Parameters  
+#### <a name="parameters"></a>参数  
  `dwRank`  
- [in] The number of dimensions (rank) of the array.  
+ [in]数组的维数 （秩） 数。  
   
  `dwIndices`  
- [out] The base indices (lower bounds) for the array.  
+ [out]基本索引 （下限） 的数组。  
   
-## <a name="return-value"></a>Return Value  
- If successful, returns `S_OK`; otherwise, returns an error code.  
+## <a name="return-value"></a>返回值  
+ 如果成功，则返回`S_OK`; 否则为返回错误代码。  
   
-## <a name="remarks"></a>Remarks  
- As an example, this function would return '5' for the array created by the following C# code:  
+## <a name="remarks"></a>备注  
+ 例如，此函数将返回由下面的 C# 代码创建的数组 ' 5':  
   
 ```  
 int[] lengths = { 12 };  
@@ -74,5 +74,5 @@ int[] lowerbounds = { 5 };
 Array.CreateInstance(typeof(int), lengths, lowerbounds);  
 ```  
   
-## <a name="see-also"></a>See Also  
+## <a name="see-also"></a>另请参阅  
  [IDebugArrayObject2](../../../extensibility/debugger/reference/idebugarrayobject2.md)

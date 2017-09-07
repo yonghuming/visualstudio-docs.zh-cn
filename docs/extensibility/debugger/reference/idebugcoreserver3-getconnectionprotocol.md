@@ -1,5 +1,5 @@
 ---
-title: IDebugCoreServer3::GetConnectionProtocol | Microsoft Docs
+title: "IDebugCoreServer3::GetConnectionProtocol |Microsoft 文档"
 ms.custom: 
 ms.date: 11/04/2016
 ms.reviewer: 
@@ -34,13 +34,13 @@ ms.translationtype: MT
 ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
 ms.openlocfilehash: 8901f9fff01ecdfe21e3731df8b2d155fe250ac2
 ms.contentlocale: zh-cn
-ms.lasthandoff: 08/28/2017
+ms.lasthandoff: 09/06/2017
 
 ---
 # IDebugCoreServer3::GetConnectionProtocol
-Returns a value indicating the protocol that is being used to communicate between the server and the debug package.  
+返回一个值，该值使用服务器和调试包之间进行通信的协议。  
   
-## Syntax  
+## 语法  
   
 ```cpp  
 HRESULT GetConnectionProtocol(  
@@ -54,13 +54,13 @@ int GetConnectionProtocol(
 );  
 ```  
   
-#### Parameters  
+#### 参数  
  `pProtocol`  
- [out] Returns one of the values from the [CONNECTION_PROTOCOL](../../../extensibility/debugger/reference/connection-protocol.md) enumeration.  
+ [out]返回从值之一[CONNECTION_PROTOCOL](../../../extensibility/debugger/reference/connection-protocol.md)枚举。  
   
-## Return Value  
- If successful, returns `S_OK`; otherwise, returns error code.  
+## 返回值  
+ 如果成功，则返回`S_OK`; 否则为返回错误代码。  
   
-## See Also  
+## 另请参阅  
  [IDebugCoreServer3](../../../extensibility/debugger/reference/idebugcoreserver3.md)   
  [CONNECTION_PROTOCOL](../../../extensibility/debugger/reference/connection-protocol.md)

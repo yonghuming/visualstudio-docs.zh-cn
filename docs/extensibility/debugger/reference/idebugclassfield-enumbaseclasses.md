@@ -1,5 +1,5 @@
 ---
-title: IDebugClassField::EnumBaseClasses | Microsoft Docs
+title: "IDebugClassField::EnumBaseClasses |Microsoft 文档"
 ms.custom: 
 ms.date: 11/04/2016
 ms.reviewer: 
@@ -34,13 +34,13 @@ ms.translationtype: MT
 ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
 ms.openlocfilehash: 21e2de0ff49be7b1ef25d2b9d5be81ef0aafc6dd
 ms.contentlocale: zh-cn
-ms.lasthandoff: 08/28/2017
+ms.lasthandoff: 09/06/2017
 
 ---
 # <a name="idebugclassfieldenumbaseclasses"></a>IDebugClassField::EnumBaseClasses
-Creates an enumerator for the base classes of this class.  
+创建此类的基类的一个枚举器。  
   
-## <a name="syntax"></a>Syntax  
+## <a name="syntax"></a>语法  
   
 ```cpp  
 HRESULT EnumBaseClasses(   
@@ -54,15 +54,15 @@ int EnumBaseClasses(
 );  
 ```  
   
-#### <a name="parameters"></a>Parameters  
+#### <a name="parameters"></a>参数  
  `ppEnum`  
- [out] Returns an [IEnumDebugFields](../../../extensibility/debugger/reference/ienumdebugfields.md) object representing the list of base classes. Returns a null value if there are no base classes.  
+ [out]返回[IEnumDebugFields](../../../extensibility/debugger/reference/ienumdebugfields.md)表示基的类的列表对象。 如果没有基类，则返回 null 值。  
   
-## <a name="return-value"></a>Return Value  
- If successful, returns S_OK, returns S_SH_NO_BASE_CLASSES if there are no base classes (and the `ppEnum` parameter is set to a null value); otherwise, returns an error code.  
+## <a name="return-value"></a>返回值  
+ 如果成功，返回，则为 S_OK，没有基类是否返回 S_SH_NO_BASE_CLASSES (和`ppEnum`参数设置为 null 值); 否则为返回错误代码。  
   
-## <a name="remarks"></a>Remarks  
- The base classes in the enumerator object are specified in order of the most immediate (or most derived) base class to the most remote base class. For example, given the C++ classes:  
+## <a name="remarks"></a>备注  
+ 中的枚举器对象的基类中最远程基类的最直接的 （或派生程度最高的） 基类的顺序指定。 例如，给定的 c + + 类：  
   
 ```  
 class Root { }  
@@ -71,8 +71,8 @@ class Level2 : Level1 { }
 class MyClass : Level2 { }  
 ```  
   
- The enumeration would return the base classes in the order `Level2`, `Level1`, `Root`.  
+ 在枚举将按顺序返回基类`Level2`， `Level1`， `Root`。  
   
-## <a name="see-also"></a>See Also  
+## <a name="see-also"></a>另请参阅  
  [IDebugClassField](../../../extensibility/debugger/reference/idebugclassfield.md)   
  [IEnumDebugFields](../../../extensibility/debugger/reference/ienumdebugfields.md)

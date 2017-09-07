@@ -1,5 +1,5 @@
 ---
-title: Creating and Managing Modal Dialog Boxes | Microsoft Docs
+title: "创建和管理有模式对话框 |Microsoft 文档"
 ms.custom: 
 ms.date: 11/04/2016
 ms.reviewer: 
@@ -32,21 +32,21 @@ ms.translationtype: MT
 ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
 ms.openlocfilehash: 4da27f2be100df8e9f196f68b4371cbb8f474d27
 ms.contentlocale: zh-cn
-ms.lasthandoff: 08/28/2017
+ms.lasthandoff: 09/06/2017
 
 ---
-# <a name="creating-and-managing-modal-dialog-boxes"></a>Creating and Managing Modal Dialog Boxes
-When you create a modal dialog box inside Visual Studio, you must make sure that the parent window of the dialog box is disabled while the dialog box is displayed, then re-enable the parent window after the dialog box is closed. If you do not do so, you may receive the error: "Microsoft Visual Studio cannot shut down because a modal dialog is active. Close the active dialog and try again."  
+# <a name="creating-and-managing-modal-dialog-boxes"></a>创建和管理有模式对话框
+在创建模式对话框在 Visual Studio 时，你必须确保当显示对话框中，禁用对话框中的父窗口，然后对话框关闭后重新启用父窗口。 如果不这样做，可能会收到错误:"Microsoft Visual Studio 无法关闭，因为一个模式对话框处于活动状态。 关闭 active 对话框中，然后重试。"  
   
- There are two ways of doing this. The recommended way, if you have a WPF dialog box, is to derive it from <xref:Microsoft.VisualStudio.PlatformUI.DialogWindow>, and then call <xref:Microsoft.VisualStudio.PlatformUI.DialogWindow.ShowModal%2A> to display the dialog box. If you do this, you do not need to manage the modal state of the parent window.  
+ 有两种方法执行此操作。 建议的方法，如果你有 WPF 对话框中，是从它派生<xref:Microsoft.VisualStudio.PlatformUI.DialogWindow>，然后调用<xref:Microsoft.VisualStudio.PlatformUI.DialogWindow.ShowModal%2A>以显示对话框。 如果这样做，你不需要管理父窗口的模式状态。  
   
- If your dialog box is not WPF, or for some other reason you cannot derive your dialog box class from <xref:Microsoft.VisualStudio.PlatformUI.DialogWindow>, then you must get the parent of the dialog box by calling <xref:Microsoft.VisualStudio.Shell.Interop.IVsUIShell.GetDialogOwnerHwnd%2A> and manage the modal state yourself, by calling the <xref:Microsoft.VisualStudio.Shell.Interop.IVsUIShell.EnableModeless%2A> method with a parameter of 0 (false) before displaying the dialog box and calling the method again with a parameter of 1 (true) after closing the dialog box.  
+ 如果对话框不是 WPF 中，或者某些其他原因无法派生对话框类从<xref:Microsoft.VisualStudio.PlatformUI.DialogWindow>，则必须通过调用获取对话框中的父<xref:Microsoft.VisualStudio.Shell.Interop.IVsUIShell.GetDialogOwnerHwnd%2A>自行和管理模式状态，通过调用<xref:Microsoft.VisualStudio.Shell.Interop.IVsUIShell.EnableModeless%2A>方法在显示对话框中，并关闭对话框之后调用再次带有 1 (true) 的参数的方法之前的 0 (false) 参数。  
   
-## <a name="creating-a-dialog-box-derived-from-dialogwindow"></a>Creating a dialog box derived from DialogWindow  
+## <a name="creating-a-dialog-box-derived-from-dialogwindow"></a>创建对话框从 DialogWindow 派生  
   
-1.  Create a VSIX project named **OpenDialogTest** and add a menu command named **OpenDialog**. For more information about how to do this, see [Creating an Extension with a Menu Command](../extensibility/creating-an-extension-with-a-menu-command.md).  
+1.  创建一个名为的 VSIX 项目**OpenDialogTest**并添加名为菜单命令**OpenDialog**。 有关如何执行此操作的详细信息，请参阅[使用菜单命令创建扩展](../extensibility/creating-an-extension-with-a-menu-command.md)。  
   
-2.  To use the <xref:Microsoft.VisualStudio.PlatformUI.DialogWindow> class, you must add references to the following assemblies (in the Framework tab of the **Add Reference** dialog box):  
+2.  若要使用<xref:Microsoft.VisualStudio.PlatformUI.DialogWindow>类，你必须添加对以下程序集的引用 (在的框架选项卡**添加引用**对话框中):  
   
     -   PresentationCore  
   
@@ -56,20 +56,20 @@ When you create a modal dialog box inside Visual Studio, you must make sure that
   
     -   System.Xaml  
   
-3.  In OpenDialog.cs, add the following `using` statement:  
+3.  在 OpenDialog.cs，添加以下`using`语句：  
   
     ```csharp  
     using Microsoft.VisualStudio.PlatformUI;  
     ```  
   
-4.  Declare a class named **TestDialogWindow** that derives from <xref:Microsoft.VisualStudio.PlatformUI.DialogWindow>:  
+4.  声明一个名为类**TestDialogWindow**派生自<xref:Microsoft.VisualStudio.PlatformUI.DialogWindow>:  
   
     ```csharp  
     class TestDialogWindow : DialogWindow  
     {. . .}  
     ```  
   
-5.  To be able to minimize and maximize the dialog box, set <xref:Microsoft.VisualStudio.PlatformUI.DialogWindowBase.HasMaximizeButton%2A> and <xref:Microsoft.VisualStudio.PlatformUI.DialogWindowBase.HasMinimizeButton%2A> to true:  
+5.  若要能够最小化和最大化对话框中，设置<xref:Microsoft.VisualStudio.PlatformUI.DialogWindowBase.HasMaximizeButton%2A>和<xref:Microsoft.VisualStudio.PlatformUI.DialogWindowBase.HasMinimizeButton%2A>为 true:  
   
     ```csharp  
     internal TestDialogWindow()  
@@ -79,40 +79,40 @@ When you create a modal dialog box inside Visual Studio, you must make sure that
     }  
     ```  
   
-6.  In the **OpenDialog.ShowMessageBox** method, replace the existing code with the following:  
+6.  在**OpenDialog.ShowMessageBox**方法，将现有代码替换为以下：  
   
     ```csharp  
     TestDialogWindow testDialog = new TestDialogWindow();  
     testDialog.ShowModal();  
     ```  
   
-7.  Build and run the application. The experimental instance of Visual Studio should appear. On the **Tools** menu of the experimental instance you should see a command named **Invoke OpenDialog**. When you click this command, you should see the dialog window. You should be able to minimize and maximize the window.  
+7.  生成并运行应用程序。 应显示 Visual Studio 的实验实例。 上**工具**的实验实例中的菜单，您应该看到名为命令**调用 OpenDialog**。 单击此命令时，你应看到对话框窗口。 你应能够最小化和最大化窗口。  
   
-## <a name="creating-and-managing-a-dialog-box-not-derived-from-dialogwindow"></a>Creating and managing a dialog box not derived from DialogWindow  
+## <a name="creating-and-managing-a-dialog-box-not-derived-from-dialogwindow"></a>创建和管理不派生自 DialogWindow 对话框  
   
-1.  For this procedure, you can use the **OpenDialogTest** solution you created in the previous procedure, with the same assembly references.  
+1.  对于此过程中，你可以使用**OpenDialogTest**在具有相同的程序集引用的上一个过程中创建的解决方案。  
   
-2.  Add the following `using` declarations:  
+2.  添加以下`using`声明：  
   
     ```csharp  
     using System.Windows;  
     using Microsoft.Internal.VisualStudio.PlatformUI;  
     ```  
   
-3.  Create a class named **TestDialogWindow2** that derives from <xref:System.Windows.Window>:  
+3.  创建一个名为类**TestDialogWindow2**派生自<xref:System.Windows.Window>:  
   
     ```csharp  
     class TestDialogWindow2 : Window  
     {. . .}  
     ```  
   
-4.  Add a private reference to <xref:Microsoft.VisualStudio.Shell.Interop.IVsUIShell>:  
+4.  添加对的私有引用<xref:Microsoft.VisualStudio.Shell.Interop.IVsUIShell>:  
   
     ```  
     private IVsUIShell shell;  
     ```  
   
-5.  Add a constructor that sets the reference to <xref:Microsoft.VisualStudio.Shell.Interop.IVsUIShell>:  
+5.  添加将引用设置为一个构造函数<xref:Microsoft.VisualStudio.Shell.Interop.IVsUIShell>:  
   
     ```csharp  
     public TestDialogWindow2(IVsUIShell uiShell)  
@@ -121,7 +121,7 @@ When you create a modal dialog box inside Visual Studio, you must make sure that
     }  
     ```  
   
-6.  In the **OpenDialog.ShowMessageBox** method, replace the existing code with the following:  
+6.  在**OpenDialog.ShowMessageBox**方法，将现有代码替换为以下：  
   
     ```csharp  
     IVsUIShell uiShell = (IVsUIShell)ServiceProvider.GetService(typeof(SVsUIShell));  
@@ -143,4 +143,4 @@ When you create a modal dialog box inside Visual Studio, you must make sure that
     }  
     ```  
   
-7.  Build and run the application. On the **Tools** menu you should see a command named **Invoke OpenDialog**. When you click this command, you should see the dialog window.
+7.  生成并运行应用程序。 上**工具**菜单您应该看到名为命令**调用 OpenDialog**。 单击此命令时，你应看到对话框窗口。

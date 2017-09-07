@@ -1,5 +1,5 @@
 ---
-title: IDebugSymbolProvider::GetAddressesFromPosition | Microsoft Docs
+title: "IDebugSymbolProvider::GetAddressesFromPosition |Microsoft 文档"
 ms.custom: 
 ms.date: 11/04/2016
 ms.reviewer: 
@@ -34,13 +34,13 @@ ms.translationtype: MT
 ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
 ms.openlocfilehash: 957e917870e4482721b0c32e4551072fb9092044
 ms.contentlocale: zh-cn
-ms.lasthandoff: 08/28/2017
+ms.lasthandoff: 09/06/2017
 
 ---
 # <a name="idebugsymbolprovidergetaddressesfromposition"></a>IDebugSymbolProvider::GetAddressesFromPosition
-This method maps a document position into an array of debug addresses.  
+此方法将映射到一个数组的调试地址的文档位置。  
   
-## <a name="syntax"></a>Syntax  
+## <a name="syntax"></a>语法  
   
 ```cpp  
 HRESULT GetAddressesFromPosition(   
@@ -60,28 +60,28 @@ int GetAddressesFromPosition(
 );  
 ```  
   
-#### <a name="parameters"></a>Parameters  
+#### <a name="parameters"></a>参数  
  `pDocPos`  
- [in] The document position.  
+ [in]文档位置中。  
   
  `fStatmentOnly`  
- [in] If TRUE, limits the debug addresses to a single statement.  
+ [in]如果为 TRUE，限制到单个语句的调试地址。  
   
  `ppEnumBegAddresses`  
- [out] Returns an enumerator for the starting debug addresses associated with this statement or line.  
+ [out]返回与此语句或行关联的起始调试地址的枚举数。  
   
  `ppEnumEndAddresses`  
- [out] Returns an [IEnumDebugAddresses](../../../extensibility/debugger/reference/ienumdebugaddresses.md) enumerator for the ending debug addresses associated with this statement or line.  
+ [out]返回[IEnumDebugAddresses](../../../extensibility/debugger/reference/ienumdebugaddresses.md)关联与此语句或行的结束调试地址的枚举数。  
   
-## <a name="return-value"></a>Return Value  
- If successful, returns `S_OK`; otherwise, returns an error code.  
+## <a name="return-value"></a>返回值  
+ 如果成功，则返回`S_OK`; 否则为返回错误代码。  
   
-## <a name="remarks"></a>Remarks  
- A document position typically indicates a range of source lines. This method provides the starting and ending debug addresses associated with these lines. Some languages allow statements that span multiple lines, or lines that contains more than one statement. This method provides a flag to limit the debug addresses to a single statement.  
+## <a name="remarks"></a>备注  
+ 文档位置通常指示源行组成的范围。 此方法提供的起始和结束调试地址相关的替换为以下行。 某些语言允许跨多个行或包含多个语句的行的语句。 此方法提供一个标志，用于限制到单个语句的调试地址。  
   
- It is possible for a single statement to have multiple debug addresses, as in the case of templates.  
+ 它有可能有多个调试地址，如下所示模板的大小写的单个语句。  
   
-## <a name="see-also"></a>See Also  
+## <a name="see-also"></a>另请参阅  
  [IDebugSymbolProvider](../../../extensibility/debugger/reference/idebugsymbolprovider.md)   
  [GetAddressesFromContext](../../../extensibility/debugger/reference/idebugsymbolprovider-getaddressesfromcontext.md)   
  [IEnumDebugAddresses](../../../extensibility/debugger/reference/ienumdebugaddresses.md)

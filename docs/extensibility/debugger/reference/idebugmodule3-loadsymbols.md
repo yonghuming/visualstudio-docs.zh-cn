@@ -1,5 +1,5 @@
 ---
-title: IDebugModule3::LoadSymbols | Microsoft Docs
+title: "IDebugModule3::LoadSymbols |Microsoft 文档"
 ms.custom: 
 ms.date: 11/04/2016
 ms.reviewer: 
@@ -34,13 +34,13 @@ ms.translationtype: MT
 ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
 ms.openlocfilehash: 00b357a7c122de2788875632b770c4346963d975
 ms.contentlocale: zh-cn
-ms.lasthandoff: 08/28/2017
+ms.lasthandoff: 09/06/2017
 
 ---
 # <a name="idebugmodule3loadsymbols"></a>IDebugModule3::LoadSymbols
-Loads the symbols for the current module.  
+加载当前模块的符号。  
   
-## <a name="syntax"></a>Syntax  
+## <a name="syntax"></a>语法  
   
 ```cpp  
 HRESULT LoadSymbols(  
@@ -52,14 +52,14 @@ HRESULT LoadSymbols(
 int LoadSymbols();  
 ```  
   
-## <a name="return-value"></a>Return Value  
- If the method succeeds, it returns `S_OK`. If it fails, it returns an error code.  
+## <a name="return-value"></a>返回值  
+ 如果该方法成功，它将返回`S_OK`。 如果失败，它将返回错误代码。  
   
-## <a name="remarks"></a>Remarks  
- This method loads the symbols from the current search path (which can be altered by calling the [SetSymbolPath](../../../extensibility/debugger/reference/idebugengine3-setsymbolpath.md) method).  
+## <a name="remarks"></a>备注  
+ 此方法从当前的搜索路径加载符号 (这可以通过调用更改[SetSymbolPath](../../../extensibility/debugger/reference/idebugengine3-setsymbolpath.md)方法)。  
   
- This method is preferred over the [ReloadSymbols_Deprecated](../../../extensibility/debugger/reference/idebugmodule2-reloadsymbols-deprecated.md) method.  
+ 此方法是通过首选[ReloadSymbols_Deprecated](../../../extensibility/debugger/reference/idebugmodule2-reloadsymbols-deprecated.md)方法。  
   
-## <a name="see-also"></a>See Also  
+## <a name="see-also"></a>另请参阅  
  [IDebugModule3](../../../extensibility/debugger/reference/idebugmodule3.md)   
  [SetSymbolPath](../../../extensibility/debugger/reference/idebugengine3-setsymbolpath.md)

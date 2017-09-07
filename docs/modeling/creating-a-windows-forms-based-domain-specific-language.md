@@ -1,5 +1,5 @@
 ---
-title: Creating a Windows Forms-Based Domain-Specific Language | Microsoft Docs
+title: "创建 Windows 基于窗体的域特定语言 |Microsoft 文档"
 ms.custom: 
 ms.date: 11/04/2016
 ms.reviewer: 
@@ -15,173 +15,173 @@ ms.translationtype: MT
 ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
 ms.openlocfilehash: 17652a19df04d016db54429ab7bc7d407768df87
 ms.contentlocale: zh-cn
-ms.lasthandoff: 08/28/2017
+ms.lasthandoff: 09/06/2017
 
 ---
-# <a name="creating-a-windows-forms-based-domain-specific-language"></a>Creating a Windows Forms-Based Domain-Specific Language
-You can use Windows Forms to display the state of a domain-specific language (DSL) model, instead of using a DSL diagram. This topic walks you through binding a Windows Form to a DSL, using the [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] Visualization and Modeling SDK.  
+# <a name="creating-a-windows-forms-based-domain-specific-language"></a>创建基于 Windows 窗体的域特定语言
+可以使用 Windows 窗体以显示域特定语言 (DSL) 模型，而不是使用 DSL 图的状态。 本主题将指导你将 Windows 窗体绑定到 DSL、 使用[!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)]可视化和建模 SDK。  
   
- ![DSL&#45;Wpf&#45;2](../modeling/media/dsl-wpf-2.png "DSL-Wpf-2")  
-A DSL instance, showing a Windows Form UI and the model explorer.  
+ ![DSL &#45;Wpf &#45; 2](../modeling/media/dsl-wpf-2.png "DSL-Wpf-2")  
+DSL 实例中，显示 Windows 窗体 UI 和模型资源管理器。  
   
-## <a name="creating-a-windows-forms-dsl"></a>Creating a Windows Forms DSL  
- The **Minimal WinForm Designer** DSL template creates a minimal DSL that you can modify to suit your own requirements.  
+## <a name="creating-a-windows-forms-dsl"></a>创建 Windows 窗体 DSL  
+ **最小 WinForm 设计器**DSL 模板将创建最小 DSL，你可以对其进行修改以满足您自己的要求。  
   
-#### <a name="to-create-a-minimal-winforms-dsl"></a>To create a minimal WinForms DSL  
+#### <a name="to-create-a-minimal-winforms-dsl"></a>若要创建最小的 WinForms DSL  
   
-1.  Create a DSL from the **Minimal WinForm Designer** template.  
+1.  创建从 DSL**最小 WinForm 设计器**模板。  
   
-     In this walkthrough, the following names are assumed:  
+     在本演练中，假定以下名称：  
   
     |||  
     |-|-|  
-    |Solution and DSL name|FarmApp|  
-    |Namespace|Company.FarmApp|  
+    |解决方案和 DSL 名称|FarmApp|  
+    |命名空间|Company.FarmApp|  
   
-2.  Experiment with the initial example that the template provides:  
+2.  使用该模板提供的初始示例试验：  
   
-    1.  Transform All Templates.  
+    1.  转换所有模板。  
   
-    2.  Build and run the sample (**CTRL+F5**).  
+    2.  生成和运行示例 (**CTRL + F5**)。  
   
-    3.  In the experimental instance of Visual Studio, open the `Sample` file in the debugging project.  
+    3.  在 Visual Studio 的实验实例中，打开`Sample`调试的项目文件中。  
   
-         Notice that it is displayed in a Windows Forms control.  
+         请注意，它显示在 Windows 窗体控件。  
   
-         You can also see the elements of the model displayed in the Explorer.  
+         你还可以看到模型浏览器中显示的元素。  
   
-         Add some elements either in the form or the Explorer, and notice that they appear in the other display.  
+         添加一些元素放在窗体或资源管理器，并请注意，它们显示在其他显示。  
   
- In the main instance of [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)], notice the following points about the DSL solution:  
+ 中的主实例[!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)]，请注意 DSL 解决方案有关的以下几点：  
   
--   `DslDefinition.dsl` contains no diagram elements. This is because you will not use DSL diagrams to view instance models of this DSL. Instead, you will bind a Windows Form to the model, and the elements on the form will display the model.  
+-   `DslDefinition.dsl`不包含任何关系图元素。 这是因为你将不使用 DSL 关系图来查看的此 DSL 实例模型。 相反，你将为模式，可以绑定 Windows 窗体和窗体上的元素将显示该模型。  
   
--   In addition to the `Dsl` and `DslPackage` projects, the solution contains a third project named `UI.`**UI** project contains the definition of a Windows Forms control. `DslPackage` depends on `UI`, and `UI` depends on `Dsl`.  
+-   除了`Dsl`和`DslPackage`项目中，该解决方案包含一个名为的第三个项目`UI.` **UI**项目包含 Windows 窗体控件的定义。 `DslPackage`依赖于`UI`，和`UI`取决于`Dsl`。  
   
--   In the `DslPackage` project, `UI\DocView.cs` contains the code that displays the Windows Forms control that is defined in the `UI` project.  
+-   在`DslPackage`项目，`UI\DocView.cs`包含显示 Windows 窗体控件中定义的代码`UI`项目。  
   
--   The `UI` project contains a working sample of a form control bound to the DSL. However, it will not work when you have changed the DSL Definition. The `UI` project contains:  
+-   `UI`项目包含窗体控件绑定到 DSL 的工作示例。 但是，它将不工作时已更改 DSL 定义。 `UI`项目包含：  
   
-    -   A Windows Forms class named `ModelViewControl`.  
+    -   一个名为的 Windows 窗体类`ModelViewControl`。  
   
-    -   A file named `DataBinding.cs` that contains an additional partial definition of `ModelViewControl`. To see its content, in **Solution Explorer**, open the shortcut menu for the file and choose **View Code**.  
+    -   名为的文件`DataBinding.cs`，它包含的其他部分定义`ModelViewControl`。 若要查看其内容，在**解决方案资源管理器**，打开该文件的快捷菜单，选择**查看代码**。  
   
-### <a name="about-the-ui-project"></a>About the UI Project  
- When you update the DSL Definition file to define your own DSL, you will have to update the control in the `UI` project to display your DSL. Unlike the `Dsl` and `DslPackage` projects, the sample `UI` project is not generated from `DslDefinitionl.dsl`. You can add .tt files to generate the code if you want, although that is not covered in this walkthrough.  
+### <a name="about-the-ui-project"></a>有关 UI 项目  
+ 在更新该 DSL 定义文件以定义你自己 DSL 时，你将需要更新中的控件`UI`项目以显示 DSL。 与不同`Dsl`和`DslPackage`项目、 示例`UI`项目不会生成从`DslDefinitionl.dsl`。 你可以添加.tt 文件，生成的代码，如果你想，尽管本演练中未涉及的。  
   
-## <a name="updating-the-dsl-definition"></a>Updating the DSL Definition  
- The following the DSL definition is used in this walkthrough.  
+## <a name="updating-the-dsl-definition"></a>更新 DSL 定义  
+ 本演练中使用 DSL 定义以下。  
   
- ![DSL&#45;Wpf&#45;1](../modeling/media/dsl-wpf-1.png "DSL-Wpf-1")  
+ ![DSL &#45;Wpf &#45; 1](../modeling/media/dsl-wpf-1.png "DSL-Wpf-1")  
   
-#### <a name="to-update-the-dsl-definition"></a>To update the DSL definition  
+#### <a name="to-update-the-dsl-definition"></a>若要更新 DSL 定义  
   
-1.  Open DslDefinition.dsl in the DSL designer.  
+1.  在 DSL 设计器中打开 DslDefinition.dsl。  
   
-2.  Delete **ExampleElement**  
+2.  删除**ExampleElement**  
   
-3.  Rename the **ExampleModel** domain class to `Farm`.  
+3.  重命名**ExampleModel**域类`Farm`。  
   
-     Give it additional domain properties named `Size` of type **Int32**, and `IsOrganic` of type **Boolean**.  
+     为它提供了名为的其他域属性`Size`类型的**Int32**，和`IsOrganic`类型的**布尔**。  
   
     > [!NOTE]
-    >  If you delete the root domain class and then create a new root, you will have to reset the Editor Root Class property. In **DSL Explorer**, select **Editor**. Then in the Properties window, set **Root Class** to `Farm`.  
+    >  如果你删除根域类，然后创建一个新的根目录，你将需要重置的编辑器根类属性。 在**DSL 资源管理器**，选择**编辑器**。 然后在属性窗口中，设置**根类**到`Farm`。  
   
-4.  Use the **Named Domain Class** tool to create the following domain classes:  
+4.  使用**名为域类**工具来创建以下域类：  
   
-    -   `Field` - Give this an additional domain property named `Size`.  
+    -   `Field`-为此提供名为其他域属性`Size`。  
   
-    -   `Animal` - In the Properties window, set **Inheritance Modifier** to **Abstract**.  
+    -   `Animal`-在属性窗口中，设置**继承修饰符**到**抽象**。  
   
-5.  Use the **Domain Class** tool to create the following classes:  
+5.  使用**域类**工具来创建以下类：  
   
     -   `Sheep`  
   
     -   `Goat`  
   
-6.  Use the **Inheritance** tool to make `Goat` and `Sheep` inherit from `Animal`.  
+6.  使用**继承**工具以进行`Goat`和`Sheep`继承`Animal`。  
   
-7.  Use the **Embedding** tool to embed `Field` and `Animal` under `Farm`.  
+7.  使用**Embedding**工具嵌入`Field`和`Animal`下`Farm`。  
   
-8.  You might want to tidy the diagram. To reduce the number of duplicate elements, use the **Bring Subtree Here** command on the shortcut menu of leaf elements.  
+8.  你可能想要整理关系图。 若要减少重复的元素的数目，使用**此处使子树**叶元素的快捷菜单上的命令。  
   
-9. **Transform All Templates** in the toolbar of Solution Explorer.  
+9. **转换所有模板**解决方案资源管理器工具栏中。  
   
-10. Build the **Dsl** project.  
-  
-    > [!NOTE]
-    >  At this stage, the other projects will not build without errors. However, we want to build the Dsl project so that its assembly is available to the Data Source Wizard.  
-  
-## <a name="updating-the-ui-project"></a>Updating the UI Project  
- Now you can create a new user control that will display the information that is stored in the DSL model. The easiest way to connect the user control to the model is through data bindings. The data binding adaptor type named **ModelingBindingSource** is specifically designed to connect DSLs to non-VMSDK interfaces.  
-  
-#### <a name="to-define-your-dsl-model-as-a-data-source"></a>To define your DSL model as a data source  
-  
-1.  On the **Data** menu, choose **Show Data Sources**.  
-  
-     The **Data Sources** window opens.  
-  
-     Choose **Add New Data Source**. The **Data Source Configuration Wizard** opens.  
-  
-2.  Choose **Object**, **Next**.  
-  
-     Expand **Dsl**, **Company.FarmApp**, and select **Farm**, which is the root class of your model. Choose **Finish**.  
-  
-     In Solution Explorer, the **UI** project now contains **Properties\DataSources\Farm.datasource**  
-  
-     The properties and relationships of your model class appear in the Data Sources window.  
-  
-     ![DslWpf&#45;3](../modeling/media/dslwpf-3.png "DslWpf-3")  
-  
-#### <a name="to-connect-your-model-to-a-form"></a>To connect your model to a form  
-  
-1.  In the **UI** project, delete all the existing .cs files.  
-  
-2.  Add a new **User Control** file named `FarmControl` to the **UI** project.  
-  
-3.  In the **Data Sources** window, on the drop-down menu on **Farm**, choose **Details**.  
-  
-     Leave the default settings for the other properties.  
-  
-4.  Open FarmControl.cs in the design view.  
-  
-     Drag **Farm** from the Data Sources window onto FarmControl.  
-  
-     A set of controls appears, one for each property. The relationship properties do not generate controls.  
-  
-5.  Delete **farmBindingNavigator**. This is also automatically generated in the `FarmControl` designer, but it is not useful for this application.  
-  
-6.  Using the toolbox, create two instances of **DataGridView**, and name them `AnimalGridView` and `FieldGridView`.  
+10. 生成**Dsl**项目。  
   
     > [!NOTE]
-    >  An alternative step is to drag the Animals and Fields items from the Data Sources window onto the control. This action automatically creates data grids and bindings between the grid view and the data source. However, this binding does not work correctly for DSLs. Therefore it is better to create the data grids and bindings manually.  
+    >  在此阶段，其他生成项目时将不未出现错误。 但是，我们想要生成的 Dsl 项目，以便其程序集可供数据源向导。  
   
-7.  If the Toolbox does not contain the **ModelingBindingSource** tool, add it. On the shortcut menu of the **Data** tab, choose **Choose Items**. In the **Choose Toolbox Items** dialog, select **ModelingBindingSource** from the **.NET Framework Tab**.  
+## <a name="updating-the-ui-project"></a>更新 UI 项目  
+ 现在你可以创建新的用户控件将显示 DSL 模型中存储的信息。 连接到模型的用户控件的最简单方法是通过数据绑定。 数据绑定适配器类型名为**ModelingBindingSource**专门用于连接到非 VMSDK 接口 Dsl。  
   
-8.  Using the Toolbox, create two instances of **ModelingBindingSource**, and name them `AnimalBinding` and `FieldBinding`.  
+#### <a name="to-define-your-dsl-model-as-a-data-source"></a>若要定义 DSL 模型作为数据源  
   
-9. Set the **DataSource** property of each **ModelingBindingSource** to **farmBindingSource**.  
+1.  上**数据**菜单上，选择**显示数据源**。  
   
-     Set the **DataMember** property to **Animals** or **Fields**.  
+     **数据源**窗口随即打开。  
   
-10. Set the **DataSource** properties of `AnimalGridView` to `AnimalBinding`, and of  `FieldGridView` to `FieldBinding`.  
+     选择**添加新数据源**。 **数据源配置向导**打开。  
   
-11. Adjust the layout of the Farm control to your taste.  
+2.  选择**对象**，**下一步**。  
   
- The **ModelingBindingSource** is an adapter that performs several functions that are specific to DSLs:  
+     展开**Dsl**， **Company.FarmApp**，然后选择**场**，这是你的模型的根类。 选择**完成**。  
   
--   It wraps updates in a VMSDK Store Transaction.  
+     在解决方案资源管理器， **UI**项目现在包含**Properties\DataSources\Farm.datasource**  
   
-     For example, when the user deletes a row from the data view grid, a regular binding would result in a transaction exception.  
+     属性和关系的模型类出现在数据源窗口。  
   
--   It ensures that, when the user selects a row, the Properties window displays the properties of the corresponding model element, instead of the data grid row.  
+     ![DslWpf &#45; 3](../modeling/media/dslwpf-3.png "DslWpf 3")  
+  
+#### <a name="to-connect-your-model-to-a-form"></a>若要向窗体连接您的模型  
+  
+1.  在**UI**项目中，删除所有现有的.cs 文件。  
+  
+2.  添加新**用户控件**名为文件`FarmControl`到**UI**项目。  
+  
+3.  在**数据源**窗口上的下拉列表菜单**场**，选择**详细信息**。  
+  
+     保留其他属性的默认设置。  
+  
+4.  在设计视图中打开 FarmControl.cs。  
+  
+     拖动**场**从 FarmControl 到数据源窗口。  
+  
+     控件将显示一组，一个用于每个属性。 关系属性不会生成控件。  
+  
+5.  删除**farmBindingNavigator**。 这还会自动生成中`FarmControl`设计器中，但这不是用于此应用程序。  
+  
+6.  使用工具箱中，创建的两个实例**DataGridView**，并将它们命名`AnimalGridView`和`FieldGridView`。  
+  
+    > [!NOTE]
+    >  一个可选步骤是从数据源窗口拖到控件拖动的动物和字段的项。 此操作将自动创建数据网格和网格视图和数据源之间的绑定。 但是，此绑定无法正常工作的 Dsl。 因此，它是更好的做法创建的数据网格和绑定手动。  
+  
+7.  如果工具箱中不包含**ModelingBindingSource**工具，将其添加。 快捷菜单上**数据**选项卡上，选择**选择项**。 在**选择工具箱项**对话框中，选择**ModelingBindingSource**从**.NET Framework 选项卡**。  
+  
+8.  使用工具箱中，创建的两个实例**ModelingBindingSource**，并将它们命名`AnimalBinding`和`FieldBinding`。  
+  
+9. 设置**数据源**每个属性**ModelingBindingSource**到**farmBindingSource**。  
+  
+     设置**DataMember**属性**动物**或**字段**。  
+  
+10. 设置**数据源**属性`AnimalGridView`到`AnimalBinding`，和的`FieldGridView`到`FieldBinding`。  
+  
+11. 调整你偏好该场控件的布局。  
+  
+ **ModelingBindingSource**是执行特定于 Dsl 的多个功能的适配器：  
+  
+-   它在 VMSDK 存储事务中包装更新。  
+  
+     例如，当用户从数据视图网格中删除行，正则绑定将导致事务异常。  
+  
+-   它可确保，当用户选择行，则属性窗口将显示相应的模型元素，而不是数据网格行的属性。  
   
  ![DslWpf4](../modeling/media/dslwpf4.png "DslWpf4")  
-Schema of links between data sources and views.  
+数据源和视图之间的链接的架构。  
   
-#### <a name="to-complete-the-bindings-to-the-dsl"></a>To complete the bindings to the DSL  
+#### <a name="to-complete-the-bindings-to-the-dsl"></a>若要完成到 DSL 绑定  
   
-1.  Add the following code in a separate code file in the **UI** project:  
+1.  在单独的代码文件中添加以下代码**UI**项目：  
   
     ```csharp  
     using System.ComponentModel;  
@@ -207,57 +207,57 @@ Schema of links between data sources and views.
     }  
     ```  
   
-2.  In the **DslPackage** project, edit **DslPackage\DocView.tt** to update the following variable definition:  
+2.  在**DslPackage**项目中，编辑**DslPackage\DocView.tt**更新以下变量定义：  
   
     ```csharp  
     string viewControlTypeName = "FarmControl";  
     ```  
   
-## <a name="testing-the-dsl"></a>Testing the DSL  
- The DSL solution can now build and run, although you might want to add further improvements later.  
+## <a name="testing-the-dsl"></a>测试 DSL  
+ DSL 解决方案现在可以生成并运行，尽管你可能想要添加更多改进更高版本。  
   
-#### <a name="to-test-the-dsl"></a>To test the DSL  
+#### <a name="to-test-the-dsl"></a>若要测试 DSL  
   
-1.  Build and run the solution.  
+1.  生成和运行解决方案。  
   
-2.  In the experimental instance of Visual Studio, open the **Sample** file.  
+2.  在 Visual Studio 的实验实例中，打开**示例**文件。  
   
-3.  In the **FarmApp Explorer**, open the shortcut menu on the **Farm** root node, and choose **Add New Goat**.  
+3.  在**FarmApp 资源管理器**，打开快捷菜单上**场**根节点，然后选择**添加新 Goat**。  
   
-     `Goat1` appears in the **Animals** view.  
+     `Goat1`将出现在**动物**视图。  
   
     > [!WARNING]
-    >  You must use the shortcut menu on the **Farm** node, not the **Animals** node.  
+    >  你必须使用的快捷菜单上**场**节点，不**动物**节点。  
   
-4.  Select the **Farm** root node and view its properties.  
+4.  选择**场**根节点并查看其属性。  
   
-     In the form view, change the **Name** or **Size** of the farm.  
+     在窗体视图中，更改**名称**或**大小**的场。  
   
-     When you navigate away from each field in the form, the corresponding property changes in the Properties window.  
+     当你离开在表单中，在属性窗口中的相应属性更改每个字段。  
   
-## <a name="enhancing-the-dsl"></a>Enhancing the DSL  
+## <a name="enhancing-the-dsl"></a>增强 DSL  
   
-#### <a name="to-make-the-properties-update-immediately"></a>To make the properties update immediately  
+#### <a name="to-make-the-properties-update-immediately"></a>要让立即更新的属性  
   
-1.  In the design view of FarmControl.cs, select a simple field such as Name, Size or IsOrganic.  
+1.  在 FarmControl.cs 设计视图中，选择简单字段，如名称、 大小或 IsOrganic。  
   
-2.  In the Properties window, expand **DataBindings** and open **(Advanced)**.  
+2.  在属性窗口中，展开**DataBindings**并打开**（高级）**。  
   
-     In the **Formatting and Advanced Binding** dialog, under **Data Source Update Mode**, choose **OnPropertyChanged**.  
+     在**格式设置和高级绑定**对话框下**数据源更新模式**，选择**OnPropertyChanged**。  
   
-3.  Build and run the solution.  
+3.  生成和运行解决方案。  
   
-     Verify that when you change the content of the field, the corresponding property of the Farm model changes immediately.  
+     验证更改的字段，立即将场的模型更改的相应属性的内容时。  
   
-#### <a name="to-provide-add-buttons"></a>To provide Add buttons  
+#### <a name="to-provide-add-buttons"></a>提供添加按钮  
   
-1.  In the design view of FarmControl.cs, use the toolbox to create a button on the form.  
+1.  在 FarmControl.cs 设计视图中，使用工具箱窗体上创建一个按钮。  
   
-     Edit the name and text of the button, for example to `New Sheep`.  
+     编辑的名称和文本的按钮，例如到`New Sheep`。  
   
-2.  Open the code behind the button (for example by double-clicking it).  
+2.  （例如，通过双击它） 中打开代码隐藏按钮。  
   
-     Edit it as follows:  
+     其进行编辑，如下所示：  
   
     ```csharp  
     private void NewSheepButton_Click(object sender, EventArgs e)  
@@ -290,7 +290,7 @@ Schema of links between data sources and views.
   
     ```  
   
-     You will also need to insert the following directive:  
+     你还需要插入以下指令：  
   
     ```csharp  
   
@@ -298,18 +298,18 @@ Schema of links between data sources and views.
   
     ```  
   
-3.  Add similar buttons for Goats and Fields.  
+3.  添加类似按钮 Goats 和字段。  
   
-4.  Build and run the solution.  
+4.  生成和运行解决方案。  
   
-5.  Verify that the new button adds an item. The new item should appear in both the FarmApp Explorer and in the appropriate data grid view.  
+5.  验证新按钮添加一项。 在这两个 FarmApp 资源管理器和适当的数据网格视图中，应显示新项。  
   
-     You should be able to edit the name of the element in the data grid view. You can also delete it from there.  
+     你应能够编辑数据网格视图中的元素的名称。 此外可以在从此处删除它。  
   
- ![DSL&#45;Wpf&#45;2](../modeling/media/dsl-wpf-2.png "DSL-Wpf-2")  
+ ![DSL &#45;Wpf &#45; 2](../modeling/media/dsl-wpf-2.png "DSL-Wpf-2")  
   
-### <a name="about-the-code-to-add-an-element"></a>About the code to add an element  
- For the new element buttons, the following alternative code is slightly simpler.  
+### <a name="about-the-code-to-add-an-element"></a>有关用于添加一个元素的代码  
+ 为新的元素按钮，下面的备用代码是稍微简单一些。  
   
 ```csharp  
 private void NewSheepButton_Click(object sender, EventArgs e)  
@@ -323,11 +323,11 @@ private void NewSheepButton_Click(object sender, EventArgs e)
   
 ```  
   
- However, this code does not set a default name for the new item. It does not run any customized merge that you might have defined in the **Element Merge Directives** of the DSL, and it does not run any custom merge code that might have been defined.  
+ 但是，此代码不设置新项目的默认名称。 它不会运行可能具有在中定义任何自定义的合并**元素合并指令**的 DSL，因此它不运行任何可能已定义的自定义合并代码。  
   
- Therefore we recommend that you use <xref:Microsoft.VisualStudio.Modeling.ElementOperations> to create new elements. For more information, see [Customizing Element Creation and Movement](../modeling/customizing-element-creation-and-movement.md).  
+ 因此我们建议你使用<xref:Microsoft.VisualStudio.Modeling.ElementOperations>来创建新元素。 有关详细信息，请参阅[移动数据和自定义元素创建](../modeling/customizing-element-creation-and-movement.md)。  
   
-## <a name="see-also"></a>See Also  
- [How to Define a Domain-Specific Language](../modeling/how-to-define-a-domain-specific-language.md)   
- [Writing Code to Customise a Domain-Specific Language](../modeling/writing-code-to-customise-a-domain-specific-language.md)   
- [Modeling SDK for Visual Studio - Domain-Specific Languages](../modeling/modeling-sdk-for-visual-studio-domain-specific-languages.md)
+## <a name="see-also"></a>另请参阅  
+ [如何定义的域特定语言](../modeling/how-to-define-a-domain-specific-language.md)   
+ [编写代码以自域特定语言](../modeling/writing-code-to-customise-a-domain-specific-language.md)   
+ [Visual Studio 的建模 SDK - 特定于域的语言](../modeling/modeling-sdk-for-visual-studio-domain-specific-languages.md)

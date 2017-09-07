@@ -1,5 +1,5 @@
 ---
-title: SccCheckin Function | Microsoft Docs
+title: "SccCheckin 函数 |Microsoft 文档"
 ms.custom: 
 ms.date: 11/04/2016
 ms.reviewer: 
@@ -34,13 +34,13 @@ ms.translationtype: MT
 ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
 ms.openlocfilehash: b082ca831c17dcab3fbc95f8dd547da23a1f8982
 ms.contentlocale: zh-cn
-ms.lasthandoff: 08/28/2017
+ms.lasthandoff: 09/06/2017
 
 ---
-# <a name="scccheckin-function"></a>SccCheckin Function
-This function checks in previously checked-out files to the source control system, storing the changes and creating a new version. This function is called with a count and an array of names of the files to be checked in.  
+# <a name="scccheckin-function"></a>SccCheckin 函数
+此函数签入到源代码管理系统，存储所做的更改和创建新版本的以前的签出文件。 使用计数和要签入的文件的名称的数组调用此函数。  
   
-## <a name="syntax"></a>Syntax  
+## <a name="syntax"></a>语法  
   
 ```cpp  
 SCCRTN SccCheckin (  
@@ -54,50 +54,50 @@ SCCRTN SccCheckin (
 );  
 ```  
   
-#### <a name="parameters"></a>Parameters  
+#### <a name="parameters"></a>参数  
  pvContext  
- [in] The source control plug-in context structure.  
+ [in]源控件插件上下文结构。  
   
  hWnd  
- [in] A handle to the IDE window that the SCC plug-in can use as a parent for any dialog boxes that it provides.  
+ [in]它提供了任何对话框，父级可以使用插件 SCC，则 IDE 窗口的句柄。  
   
  nFiles  
- [in] Number of files selected to be checked in.  
+ [in]选择要签入的文件的数量。  
   
  lpFileNames  
- [in] Array of fully qualified local path names of files to be checked in.  
+ [in]要签入的文件的完全限定的本地路径名称的数组。  
   
  lpComment  
- [in] Comment to be applied to each of the selected files being checked in. This is `NULL` if the source control plug-in should prompt for a comment.  
+ [in]要应用于每个签入所选文件的注释。 这是`NULL`如果源代码管理插件应提示输入注释。  
   
  fOptions  
- [in] Command flags, either 0 or `SCC_KEEP_CHECKEDOUT`.  
+ [in]命令标志，或者 0 或`SCC_KEEP_CHECKEDOUT`。  
   
  pvOptions  
- [in] SCC plug-in-specific options.  
+ [in]SCC 插件特定的选项。  
   
-## <a name="return-value"></a>Return Value  
- The source control plug-in implementation of this function is expected to return one of the following values:  
+## <a name="return-value"></a>返回值  
+ 此函数的源代码控制插件实现应返回以下值之一：  
   
-|Value|Description|  
+|值|描述|  
 |-----------|-----------------|  
-|SCC_OK|Files was successfully checked in.|  
-|SCC_E_FILENOTCONTROLLED|The selected file is not under source code control.|  
-|SCC_E_ACCESSFAILURE|There was a problem accessing the source control system, probably due to network or contention issues. A retry is recommended.|  
-|SCC_E_NONSPECIFICERROR|Nonspecific failure. File was not checked in.|  
-|SCC_E_NOTCHECKEDOUT|The user has not checked out the file, so cannot check it in.|  
-|SCC_E_CHECKINCONFLICT|Checkin could not be performed because:<br /><br /> -   Another user has checked in ahead and `bAutoReconcile` was false.<br /><br /> -or-<br /><br /> -   The auto-merge cannot be done (for example, when files are binary).|  
-|SCC_E_VERIFYMERGE|File has been auto-merged but has not been checked in pending user verification.|  
-|SCC_E_FIXMERGE|File has been auto-merged but has not been checked in due to a merge conflict that must be manually resolved.|  
-|SCC_E_NOTAUTHORIZED|The user is not allowed to perform this operation.|  
-|SCC_I_OPERATIONCANCELED|Operation was cancelled before completion.|  
-|SCC_I_RELOADFILE|A file or project needs to be reloaded.|  
-|SCC_E_FILENOTEXIST|Local file was not found.|  
+|SCC_OK|已成功签入的文件。|  
+|SCC_E_FILENOTCONTROLLED|所选的文件不是源代码管理下。|  
+|SCC_E_ACCESSFAILURE|没有访问源代码管理系统，可能由于网络或争用问题发生时出现问题。 建议重试。|  
+|SCC_E_NONSPECIFICERROR|非特定的失败。 未签入的文件。|  
+|SCC_E_NOTCHECKEDOUT|用户不具有签出文件，因此无法将其签入。|  
+|SCC_E_CHECKINCONFLICT|无法执行签入，因为：<br /><br /> 的另一个用户签入提前和`bAutoReconcile`是 false。<br /><br /> - 或 -<br /><br /> 的 （例如，当文件是二进制文件），不能完成自动合并。|  
+|SCC_E_VERIFYMERGE|文件已自动合并，但具有尚未签入挂起的用户验证。|  
+|SCC_E_FIXMERGE|文件已自动合并，但不是检入由于必须手动解决合并冲突。|  
+|SCC_E_NOTAUTHORIZED|不允许用户执行此操作。|  
+|SCC_I_OPERATIONCANCELED|在完成之前已取消操作。|  
+|SCC_I_RELOADFILE|需要重新加载文件或项目。|  
+|SCC_E_FILENOTEXIST|找不到本地文件。|  
   
-## <a name="remarks"></a>Remarks  
- The comment applies to all files being checked in. The comment argument can be a `null` string, in which case the source control plug-in can prompt the user for a comment string for each file.  
+## <a name="remarks"></a>备注  
+ 注释适用于要签入的所有文件。 该注释参数可以是`null`源代码管理插件可以在这种情况下提示用户输入每个文件的注释字符串的字符串。  
   
- The `fOptions` argument can be given a value of the `SCC_KEEP_CHECKEDOUT` flag to indicate the user's intent to check the file in and check it out again.  
+ `fOptions`参数可以为其赋值的`SCC_KEEP_CHECKEDOUT`标志，用于指示要检查文件，并再次将它签出的用户的意图。  
   
-## <a name="see-also"></a>See Also  
- [Source Control Plug-in API Functions](../extensibility/source-control-plug-in-api-functions.md)
+## <a name="see-also"></a>另请参阅  
+ [源代码管理插件 API 函数](../extensibility/source-control-plug-in-api-functions.md)

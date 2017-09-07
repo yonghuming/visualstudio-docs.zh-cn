@@ -1,5 +1,5 @@
 ---
-title: CONNECTION_PROTOCOL | Microsoft Docs
+title: "CONNECTION_PROTOCOL |Microsoft 文档"
 ms.custom: 
 ms.date: 11/04/2016
 ms.reviewer: 
@@ -34,13 +34,13 @@ ms.translationtype: MT
 ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
 ms.openlocfilehash: 2be5678704e9a5899c4ce7f5caba8cec1d8a21e6
 ms.contentlocale: zh-cn
-ms.lasthandoff: 08/28/2017
+ms.lasthandoff: 09/06/2017
 
 ---
 # CONNECTION_PROTOCOL
-Indicates the protocol being used to communicate between a debug server and the debug package (DE).  
+指示正在使用的调试服务器和调试包 (DE) 之间进行通信的协议。  
   
-## Syntax  
+## 语法  
   
 ```cpp  
 typedef enum tagCONNECTION_PROTOCOL {  
@@ -66,38 +66,38 @@ public enum CONNECTION_PROTOCOL {
 };  
 ```  
   
-#### Parameters  
+#### 参数  
  CONNECTION_NONE  
- No connection has been made to a server.  
+ 已将没有连接到服务器。  
   
  CONNECTION_UNKNOWN  
- A connection has been made, but it is of an unknown type.  
+ 已建立连接，但它是未知类型。  
   
  CONNECTION_LOCAL  
- Connection is to a local server.  
+ 连接是连接到本地服务器。  
   
  CONNECTION_PIPE  
- Connection is through a named pipe.  
+ 连接是通过命名管道。  
   
  CONNECTION_TCPIP  
- Connection uses TCP/IP.  
+ 连接使用 TCP/IP。  
   
  CONNECTION_HTTP  
- Connection uses HTTP (through a Web server).  
+ 连接 （通过 Web 服务器） 使用 HTTP。  
   
  CONNECTION_OTHER  
- Some other type of connection has been established (this value is not currently used).  
+ 已建立连接的某些其他类型 （此值当前未使用）。  
   
-## Remarks  
- These values are returned from the [GetConnectionProtocol](../../../extensibility/debugger/reference/idebugcoreserver3-getconnectionprotocol.md) method.  
+## 备注  
+ 这些值返回从[GetConnectionProtocol](../../../extensibility/debugger/reference/idebugcoreserver3-getconnectionprotocol.md)方法。  
   
-## Requirements  
- Header: msdbg.h  
+## 要求  
+ 标头： msdbg.h  
   
  Namespace: Microsoft.VisualStudio.Debugger.Interop  
   
- Assembly: Microsoft.VisualStudio.Debugger.Interop.dll  
+ 程序集： Microsoft.VisualStudio.Debugger.Interop.dll  
   
-## See Also  
- [Enumerations](../../../extensibility/debugger/reference/enumerations-visual-studio-debugging.md)   
+## 另请参阅  
+ [枚举](../../../extensibility/debugger/reference/enumerations-visual-studio-debugging.md)   
  [GetConnectionProtocol](../../../extensibility/debugger/reference/idebugcoreserver3-getconnectionprotocol.md)

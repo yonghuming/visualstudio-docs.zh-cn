@@ -1,5 +1,5 @@
 ---
-title: IEnumDebugAddresses::Next | Microsoft Docs
+title: "IEnumDebugAddresses::Next |Microsoft 文档"
 ms.custom: 
 ms.date: 11/04/2016
 ms.reviewer: 
@@ -34,13 +34,13 @@ ms.translationtype: MT
 ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
 ms.openlocfilehash: 7b380859a6020c81a9d2cbb81095f49c8c385405
 ms.contentlocale: zh-cn
-ms.lasthandoff: 08/28/2017
+ms.lasthandoff: 09/06/2017
 
 ---
 # <a name="ienumdebugaddressesnext"></a>IEnumDebugAddresses::Next
-This method returns the next set of elements from the enumeration.  
+此方法返回枚举中的下一组元素。  
   
-## <a name="syntax"></a>Syntax  
+## <a name="syntax"></a>语法  
   
 ```cpp  
 HRESULT Next(  
@@ -58,19 +58,19 @@ int Next(
 );  
 ```  
   
-#### <a name="parameters"></a>Parameters  
+#### <a name="parameters"></a>参数  
  `celt`  
- [in] The number of elements to retrieve. Also specifies the maximum size of the `rgelt` array.  
+ [in]要检索的元素数。 此外指定的最大大小`rgelt`数组。  
   
  `rgelt`  
- [in, out] Array of [IDebugAddress](../../../extensibility/debugger/reference/idebugaddress.md) elements to be filled in.  
+ [在中，out]数组[IDebugAddress](../../../extensibility/debugger/reference/idebugaddress.md)元素填充的。  
   
  `pceltFetched`  
- [out] Returns the number of elements actually returned in `rgelt`.  
+ [out]返回中实际返回的元素数目`rgelt`。  
   
-## <a name="return-value"></a>Return Value  
- If successful, returns `S_OK`. Returns `S_FALSE` if fewer than the requested number of elements could be returned; otherwise, returns an error code.  
+## <a name="return-value"></a>返回值  
+ 如果成功，则返回`S_OK`。 返回`S_FALSE`如果无法返回请求数目的元素少于; 否则，返回错误代码。  
   
-## <a name="see-also"></a>See Also  
+## <a name="see-also"></a>另请参阅  
  [IEnumDebugAddresses](../../../extensibility/debugger/reference/ienumdebugaddresses.md)   
  [IDebugAddress](../../../extensibility/debugger/reference/idebugaddress.md)

@@ -1,5 +1,5 @@
 ---
-title: 'Walkthrough: Saving User Settings on a Start Page | Microsoft Docs'
+title: "演练： 在起始页上保存用户设置 |Microsoft 文档"
 ms.custom: 
 ms.date: 11/04/2016
 ms.reviewer: 
@@ -30,32 +30,32 @@ ms.translationtype: MT
 ms.sourcegitcommit: eb5c9550fd29b0e98bf63a7240737da4f13f3249
 ms.openlocfilehash: 0135240448bc74c85ab294b9eb4808830dbb4d00
 ms.contentlocale: zh-cn
-ms.lasthandoff: 08/30/2017
+ms.lasthandoff: 09/06/2017
 
 ---
-# <a name="walkthrough-saving-user-settings-on-a-start-page"></a>Walkthrough: Saving User Settings on a Start Page
-You can persist user settings for your start page. By following this walkthrough, you can create a control that saves a setting to the registry when the user clicks a button, and then retrieves that setting every time the Start Page loads. Because the Start Page project template includes a customizable user control, and the default Start Page XAML calls that control, you do not have to modify the Start Page itself.  
+# <a name="walkthrough-saving-user-settings-on-a-start-page"></a>演练： 将用户设置保存在起始页上
+为你的起始页，可以保留用户设置。 通过完成本演练，你可以创建将设置保存到注册表中，当用户单击按钮时，，然后检索，将设置的每次加载起始页的控件。 因为起始页项目模板包含一个可自定义用户控件，并且默认起始页 XAML 将调用该控件，你无需修改启动页本身。  
   
- The settings store that is instantiated in this walkthrough is an instance of the <xref:Microsoft.VisualStudio.Shell.Interop.IVsWritableSettingsStore> interface, which reads and writes to the following registry location when it is called: HKCU\Software\Microsoft\VisualStudio\14.0\\*CollectionName*  
+ 在本演练中实例化的设置存储是的一个实例<xref:Microsoft.VisualStudio.Shell.Interop.IVsWritableSettingsStore>接口，该读取和写入到以下注册表位置中，被调用时接口： HKCU\Software\Microsoft\VisualStudio\14.0\\ *CollectionName*  
   
- When it is running in the experimental instance of Visual Studio, the settings store reads and writes to HKCU\Software\Microsoft\VisualStudio\14.0Exp\\*CollectionName.*  
+ 当 Visual Studio 的实验实例中运行时，设置存储读取和写入到 HKCU\Software\Microsoft\VisualStudio\14.0Exp\\*CollectionName。*  
   
- For more information about how to persist settings, see [Extending User Settings and Options](../extensibility/extending-user-settings-and-options.md).  
+ 有关如何保存设置的详细信息，请参阅[扩展用户设置和选项](../extensibility/extending-user-settings-and-options.md)。  
   
-## <a name="prerequisites"></a>Prerequisites  
+## <a name="prerequisites"></a>先决条件  
   
 > [!NOTE]
->  To follow this walkthrough, you must install the Visual Studio SDK. For more information, see [Visual Studio SDK](../extensibility/visual-studio-sdk.md).  
+>  要按照本演练的步骤操作，必须安装 Visual Studio SDK。 有关详细信息，请参阅[Visual Studio SDK](../extensibility/visual-studio-sdk.md)。  
 >   
->  You can download the Start Page project template by using **Extension Manager**.  
+>  你可以通过使用下载起始页项目模板**扩展管理器**。  
   
-## <a name="setting-up-the-project"></a>Setting Up the Project  
+## <a name="setting-up-the-project"></a>设置项目  
   
-#### <a name="to-configure-the-project-for-this-walkthrough"></a>To configure the project for this walkthrough  
+#### <a name="to-configure-the-project-for-this-walkthrough"></a>若要为本演练中配置项目  
   
-1.  Create a Start Page project as described in [Creating a Custom Start Page](creating-a-custom-start-page.md). Name the project **SaveMySettings**.  
+1.  创建起始页项目中所述[创建自定义起始页](creating-a-custom-start-page.md)。 将项目**SaveMySettings**。  
   
-2.  In **Solution Explorer**, add the following assembly references to the StartPageControl project:  
+2.  在**解决方案资源管理器**，添加对 StartPageControl 项目的以下程序集引用：  
   
     -   EnvDTE  
   
@@ -65,23 +65,23 @@ You can persist user settings for your start page. By following this walkthrough
   
     -   Microsoft.VisualStudio.Shell.Interop.11.0  
   
-3.  Open MyControl.xaml.  
+3.  打开 MyControl.xaml。  
   
-4.  From the XAML pane, in the top-level <xref:System.Windows.Controls.UserControl> element definition, add the following event declaration after the namespace declarations.  
+4.  从 XAML 窗格中，位于顶级<xref:System.Windows.Controls.UserControl>元素定义中，添加以下事件声明后的命名空间声明。  
   
     ```  
     Loaded="OnLoaded"  
     ```  
   
-5.  In the design pane, click the main area of the control, and then press DELETE.  
+5.  在设计窗格中，单击该控件的主要区域，然后按删除。  
   
-     This removes the <xref:System.Windows.Controls.Border> element and everything in it, and leaves only the top-level <xref:System.Windows.Controls.Grid> element.  
+     这将删除<xref:System.Windows.Controls.Border>元素和中，并使仅顶级的所有内容<xref:System.Windows.Controls.Grid>元素。  
   
-6.  From the **Toolbox**, drag a <xref:System.Windows.Controls.StackPanel> control to the grid.  
+6.  从**工具箱**，拖动<xref:System.Windows.Controls.StackPanel>控件添加到网格。  
   
-7.  Now drag a <xref:System.Windows.Controls.TextBlock>, a <xref:System.Windows.Controls.TextBox>, and a Button to the <xref:System.Windows.Controls.StackPanel>.  
+7.  现在，将拖动<xref:System.Windows.Controls.TextBlock>、 <xref:System.Windows.Controls.TextBox>，和一个按钮到<xref:System.Windows.Controls.StackPanel>。  
   
-8.  Add an **x:Name** attribute for the <xref:System.Windows.Controls.TextBox>, and a `Click` event for the <xref:System.Windows.Controls.Button>, as shown in the following example.  
+8.  添加**X:name**属性，则为<xref:System.Windows.Controls.TextBox>，和一个`Click`事件<xref:System.Windows.Controls.Button>，下面的示例中所示。  
   
     ```xml  
     <StackPanel Width="300" HorizontalAlignment="Center" VerticalAlignment="Center">  
@@ -91,19 +91,19 @@ You can persist user settings for your start page. By following this walkthrough
     </StackPanel>  
     ```  
   
-## <a name="implementing-the-user-control"></a>Implementing the User Control  
+## <a name="implementing-the-user-control"></a>实现用户控件  
   
-#### <a name="to-implement-the-user-control"></a>To implement the user control  
+#### <a name="to-implement-the-user-control"></a>若要实现用户控件  
   
-1.  In the XAML pane, right-click the `Click` attribute of the <xref:System.Windows.Controls.Button> element, and then click **Navigate to Event Handler**.  
+1.  在 XAML 窗格中，右键单击`Click`属性<xref:System.Windows.Controls.Button>元素，，然后单击**定位到事件处理程序**。  
   
-     This opens MyControl.xaml.cs, and creates a stub handler for the `Button_Click` event.  
+     这将打开 MyControl.xaml.cs，并创建存根 （stub） 处理程序`Button_Click`事件。  
   
-2.  Add the following `using` statements to the top of the file.  
+2.  添加以下`using`到文件顶部的语句。  
   
-     [!code-csharp[StartPageDTE#11](../extensibility/codesnippet/CSharp/walkthrough-saving-user-settings-on-a-start-page_1.cs)]  
+     [!code-csharp[StartPageDTE # 11](../extensibility/codesnippet/CSharp/walkthrough-saving-user-settings-on-a-start-page_1.cs)]  
   
-3.  Add a private `SettingsStore` property, as shown in the following example.  
+3.  添加一个私有`SettingsStore`属性，如下面的示例中所示。  
   
     ```csharp  
     private IVsWritableSettingsStore _settingsStore = null;  
@@ -135,9 +135,9 @@ You can persist user settings for your start page. By following this walkthrough
     }  
     ```  
   
-     This property first gets a reference to the <xref:EnvDTE80.DTE2> interface, which contains the Automation object model, from the <xref:System.Windows.FrameworkElement.DataContext%2A> of the user control, and then uses the DTE to get an instance of the <xref:Microsoft.VisualStudio.Shell.Interop.IVsSettingsManager> interface. Then it uses that instance to return the current user settings.  
+     此属性将首先获取对引用<xref:EnvDTE80.DTE2>接口，其中包含从自动化对象模型，<xref:System.Windows.FrameworkElement.DataContext%2A>的用户控件，然后使用以获取其实例对 DTE<xref:Microsoft.VisualStudio.Shell.Interop.IVsSettingsManager>接口。 然后它使用该实例来返回当前用户设置。  
   
-4.  Fill in the `Button_Click` event as follows.  
+4.  填写`Button_Click`，如下所示的事件。  
   
     ```csharp  
     private void Button_Click(object sender, RoutedEventArgs e)  
@@ -152,9 +152,9 @@ You can persist user settings for your start page. By following this walkthrough
     }  
     ```  
   
-     This writes the content of the text box to a "MySetting" field in a "MySettings" collection in the registry. If the collection does not exist, it is created.  
+     这将文本框的内容写入注册表中的"MySettings"集合中的"MySetting"字段中。 如果集合不存在，则创建它。  
   
-5.  Add the following handler for the `OnLoaded` event of the user control.  
+5.  添加以下处理程序`OnLoaded`用户控件的事件。  
   
     ```csharp  
     private void OnLoaded(Object sender, RoutedEventArgs e)  
@@ -166,57 +166,57 @@ You can persist user settings for your start page. By following this walkthrough
     }  
     ```  
   
-     This sets the text of the text box to the current value of "MySetting".  
+     这将文本框中的文本设置为"MySetting"的当前值。  
   
-6.  Build the user control.  
+6.  生成用户控件。  
   
-7.  In **Solution Explorer**, open source.extension.vsixmanifest.  
+7.  在**解决方案资源管理器**，打开 source.extension.vsixmanifest。  
   
-8.  In the manifest editor, set **Product Name** to **Save My Settings Start Page**.  
+8.  在清单编辑器中，设置**产品名称**到**保存我的设置起始页**。  
   
-     This sets the name of the Start Page as it is to appear in the **Customize Start Page** list in the **Options** dialog box.  
+     此设置的启动页的名称，因为它是显示在**自定义起始页**列入**选项**对话框。  
   
-9. Build StartPage.xaml.  
+9. 生成 StartPage.xaml。  
   
-## <a name="testing-the-control"></a>Testing the Control  
+## <a name="testing-the-control"></a>测试控件  
   
-#### <a name="to-test-the-user-control"></a>To test the user control  
+#### <a name="to-test-the-user-control"></a>若要测试该用户控件  
   
-1.  Press F5.  
+1.  按 F5。  
   
-     The experimental instance of Visual Studio opens.  
+     此时将打开 Visual Studio 的实验实例。  
   
-2.  In the experimental instance, on the **Tools** menu, click **Options**.  
+2.  在实验实例中，在**工具**菜单上，单击**选项**。  
   
-3.  In the **Environment** node, click **Startup**, and then, in the **Customize Start Page** list, select **[Installed Extension] Save My Settings Start Page**.  
+3.  在**环境**节点，单击**启动**，然后在**自定义起始页**列表中，选择**[已安装的扩展] 保存我设置起始页**.  
   
-     Click **OK**.  
+     单击“确定”。  
   
-4.  Close the Start Page if it is open, and then, on the **View** menu, click **Start Page**.  
+4.  关闭处于打开状态，，然后，在启动页**视图**菜单上，单击**起始页**。  
   
-5.  On the Start Page, click the **MyControl** tab.  
+5.  在启动页上，单击**MyControl**选项卡。  
   
-6.  In the text box, type **Cat**, and then click **Save My Setting**.  
+6.  在文本框中，键入**Cat**，然后单击**保存我设置**。  
   
-7.  Close the Start Page and then open it again.  
+7.  关闭启动页，然后再次打开它。  
   
-     The word "Cat" should be displayed in the text box.  
+     在文本框中，应显示单词"Cat"。  
   
-8.  Replace the word "Cat" with the word "Dog". Do not click the button.  
+8.  将替换为"Dog"的单词的单词"Cat"。 请不要单击按钮。  
   
-9. Close the Start Page and then open it again.  
+9. 关闭启动页，然后再次打开它。  
   
-     The word "Dog" should be displayed in the text box, even though the setting was not saved. This happens because Visual Studio keeps tool windows in memory, even if they are closed, until Visual Studio itself is closed.  
+     在文本框中，应显示单词"Dog"，即使不保存设置。 这是因为 Visual Studio 将工具窗口保留在内存中，即使它们都将关闭，直到关闭 Visual Studio 自身。  
   
-10. Close the experimental instance of Visual Studio.  
+10. 关闭 Visual Studio 的实验实例。  
   
-11. Press F5 to re-open the experimental instance.  
+11. 按 f5 键以重新打开实验实例。  
   
-12. The word "Cat" should be displayed in the text box.  
+12. 在文本框中，应显示单词"Cat"。  
   
-## <a name="next-steps"></a>Next Steps  
- You can modify this user control to save and retrieve any number of custom settings by using different values from different event handlers to get and set the `SettingsStore` property. As long as you use a different `propertyName` parameter for each call to <xref:Microsoft.VisualStudio.Shell.Interop.IVsWritableSettingsStore.SetString%2A>, the values will not overwrite one another in the registry.  
+## <a name="next-steps"></a>后续步骤  
+ 你可以修改此用户控制选项可保存和检索通过使用从不同的事件处理程序的不同值获取和设置的任意数量的自定义设置`SettingsStore`属性。 只要你使用不同`propertyName`每次调用的参数<xref:Microsoft.VisualStudio.Shell.Interop.IVsWritableSettingsStore.SetString%2A>，值将不会覆盖彼此的注册表中。  
   
-## <a name="see-also"></a>See Also  
+## <a name="see-also"></a>另请参阅  
  <xref:EnvDTE80.DTE2?displayProperty=fullName>     
- [Adding Visual Studio Commands to a Start Page](../extensibility/adding-visual-studio-commands-to-a-start-page.md)
+ [将 Visual Studio 命令添加到起始页](../extensibility/adding-visual-studio-commands-to-a-start-page.md)

@@ -1,5 +1,5 @@
 ---
-title: IDebugComPlusSymbolProvider::GetAddressesInModuleFromPosition | Microsoft Docs
+title: "IDebugComPlusSymbolProvider::GetAddressesInModuleFromPosition |Microsoft 文档"
 ms.custom: 
 ms.date: 11/04/2016
 ms.reviewer: 
@@ -33,13 +33,13 @@ ms.translationtype: MT
 ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
 ms.openlocfilehash: 8f7e77903d98943b1f1d0d5b879656c67b1ac223
 ms.contentlocale: zh-cn
-ms.lasthandoff: 08/28/2017
+ms.lasthandoff: 09/06/2017
 
 ---
 # <a name="idebugcomplussymbolprovidergetaddressesinmodulefromposition"></a>IDebugComPlusSymbolProvider::GetAddressesInModuleFromPosition
-Maps a document position in the specified module to an array of debug addresses.  
+将指定的模块中的文档位置映射到调试地址的数组。  
   
-## <a name="syntax"></a>Syntax  
+## <a name="syntax"></a>语法  
   
 ```  
 [C++]  
@@ -65,30 +65,30 @@ int GetAddressesInModuleFromPosition(
 );  
 ```  
   
-#### <a name="parameters"></a>Parameters  
+#### <a name="parameters"></a>参数  
  `ulAppDomainID`  
- [in] Application domain identifier.  
+ [in]应用程序域标识符。  
   
  `guidModule`  
- [in] Unique identifier of the module.  
+ [in]模块的唯一标识符。  
   
  `pDocPos`  
- [in] The document position.  
+ [in]文档位置中。  
   
  `fStatmentOnly`  
- [in] If `TRUE`, limits the debug addresses to a single statement.  
+ [in]如果`TRUE`，限制到单个语句的调试地址。  
   
  `ppEnumBegAddresses`  
- [out] Returns an enumerator for the starting debug addresses that are associated with this statement or line.  
+ [out]返回与此语句或行相关联的起始调试地址的枚举数。  
   
  `ppEnumEndAddresses`  
- [out] Returns an enumerator for the ending debug addresses that are associated with this statement or line.  
+ [out]返回与此语句或行相关联的结束调试地址的枚举数。  
   
-## <a name="return-value"></a>Return Value  
- If successful, returns `S_OK`; otherwise, returns an error code.  
+## <a name="return-value"></a>返回值  
+ 如果成功，则返回`S_OK`; 否则为返回错误代码。  
   
-## <a name="example"></a>Example  
- The following example shows how to implement this method for a **CDebugSymbolProvider** object that exposes the [IDebugComPlusSymbolProvider](../../../extensibility/debugger/reference/idebugcomplussymbolprovider.md) interface.  
+## <a name="example"></a>示例  
+ 下面的示例演示如何实现此方法对于**CDebugSymbolProvider**公开的对象[IDebugComPlusSymbolProvider](../../../extensibility/debugger/reference/idebugcomplussymbolprovider.md)接口。  
   
 ```cpp  
 HRESULT CDebugSymbolProvider::GetAddressesInModuleFromPosition(  
@@ -239,5 +239,5 @@ Error:
 }  
 ```  
   
-## <a name="see-also"></a>See Also  
+## <a name="see-also"></a>另请参阅  
  [IDebugComPlusSymbolProvider](../../../extensibility/debugger/reference/idebugcomplussymbolprovider.md)

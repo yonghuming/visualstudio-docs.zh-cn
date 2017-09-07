@@ -1,5 +1,5 @@
 ---
-title: IDebugContainerField::EnumFields | Microsoft Docs
+title: "IDebugContainerField::EnumFields |Microsoft 文档"
 ms.custom: 
 ms.date: 11/04/2016
 ms.reviewer: 
@@ -34,13 +34,13 @@ ms.translationtype: MT
 ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
 ms.openlocfilehash: 1244306cbdfa70b0885274df75a7bf51a063bc30
 ms.contentlocale: zh-cn
-ms.lasthandoff: 08/28/2017
+ms.lasthandoff: 09/06/2017
 
 ---
 # <a name="idebugcontainerfieldenumfields"></a>IDebugContainerField::EnumFields
-Creates an enumerator for the fields of the container.  
+创建的容器的字段的枚举数。  
   
-## <a name="syntax"></a>Syntax  
+## <a name="syntax"></a>语法  
   
 ```cpp  
 HRESULT EnumFields(   
@@ -62,29 +62,29 @@ int EnumFields(
 );  
 ```  
   
-#### <a name="parameters"></a>Parameters  
+#### <a name="parameters"></a>参数  
  `dwKindFilter`  
- [in] A combination of [FIELD_KIND](../../../extensibility/debugger/reference/field-kind.md) constants that select the fields to be enumerated. Field kinds can describe storage types, such as class or primitive, or specific information, such as local, parameter, or "this" pointer.  
+ [in]组合[FIELD_KIND](../../../extensibility/debugger/reference/field-kind.md)选择要枚举的字段的常量。 字段类型可以描述存储类型，例如类或基元，或特定的信息，如本地、 参数或"this"指针。  
   
  `dwModifiersFilter`  
- [in] A combination of [FIELD_MODIFIERS](../../../extensibility/debugger/reference/field-modifiers.md) constants that select the fields to be enumerated. Field modifiers can be access permissions, such as public or private, or storage information, such as virtual, static, or final.  
+ [in]组合[FIELD_MODIFIERS](../../../extensibility/debugger/reference/field-modifiers.md)选择要枚举的字段的常量。 字段修饰符可以如公共或私有或存储信息，如虚拟、 静态的或最终的访问权限。  
   
  `pszNameFilter`  
- [in] The name of the field to be enumerated. This can be a null value if all fields are to be returned.  
+ [in]要枚举的字段的名称。 如果要返回的所有字段，这可以是 null 值。  
   
  `nameMatch`  
- [in] A value from the [NAME_MATCH](../../../extensibility/debugger/reference/name-match.md) enumeration that controls whether searching is case-sensitive or not.  
+ [in]取值范围为[NAME_MATCH](../../../extensibility/debugger/reference/name-match.md)枚举，用于控制是否搜索是否区分大小写。  
   
  `ppEnum`  
- [out] Returns an [IEnumDebugFields](../../../extensibility/debugger/reference/ienumdebugfields.md) object representing the list of fields. Returns a null value if there are no fields.  
+ [out]返回[IEnumDebugFields](../../../extensibility/debugger/reference/ienumdebugfields.md)表示的字段的列表对象。 如果没有字段，则返回 null 值。  
   
-## <a name="return-value"></a>Return Value  
- If successful, returns S_OK or S_FALSE if there are no fields. Otherwise, returns an error code.  
+## <a name="return-value"></a>返回值  
+ 如果成功，返回，则为 S_OK 或 S_FALSE 如果没有字段。 否则，返回错误代码。  
   
-## <a name="remarks"></a>Remarks  
- The `dwKindFilter`, `dwModifiersFilter`, and `pszNameFilter` parameters can be combined, for example, to select all public virtual methods named "MyMethod".  
+## <a name="remarks"></a>备注  
+ `dwKindFilter`， `dwModifiersFilter`，和`pszNameFilter`参数可以结合使用，例如，若要选择名为"MyMethod"的所有公共虚拟方法。  
   
-## <a name="see-also"></a>See Also  
+## <a name="see-also"></a>另请参阅  
  [IDebugContainerField](../../../extensibility/debugger/reference/idebugcontainerfield.md)   
  [IEnumDebugFields](../../../extensibility/debugger/reference/ienumdebugfields.md)   
  [FIELD_KIND](../../../extensibility/debugger/reference/field-kind.md)   

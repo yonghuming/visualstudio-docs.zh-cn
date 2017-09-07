@@ -1,5 +1,5 @@
 ---
-title: PARSEFLAGS | Microsoft Docs
+title: "PARSEFLAGS |Microsoft 文档"
 ms.custom: 
 ms.date: 11/04/2016
 ms.reviewer: 
@@ -34,13 +34,13 @@ ms.translationtype: MT
 ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
 ms.openlocfilehash: 86589a8f3886592ad1659b646b0a983a9f31f48b
 ms.contentlocale: zh-cn
-ms.lasthandoff: 08/28/2017
+ms.lasthandoff: 09/06/2017
 
 ---
 # <a name="parseflags"></a>PARSEFLAGS
-Specifies how to parse an expression.  
+指定如何分析的表达式。  
   
-## <a name="syntax"></a>Syntax  
+## <a name="syntax"></a>语法  
   
 ```cpp  
 enum enum_PARSEFLAGS {   
@@ -59,27 +59,27 @@ public enum enum_PARSEFLAGS {
 };  
 ```  
   
-## <a name="members"></a>Members  
+## <a name="members"></a>成员  
  PARSE_EXPRESSION  
- Indicates that the expression is not a statement.  
+ 指示表达式不是一个语句。  
   
  PARSE_FUNCTION_AS_ADDRESS  
- Indicates that the expression is to be parsed (and later evaluated) as an address.  
+ 该值指示表达式是进行分析 （和更高版本评估） 的地址。  
   
  PARSE_DESIGN_TIME_EXPR_EVAL  
- Indicates that the expression is being parsed during design time (that is, when a designer is open).  
+ 指示在设计时正在分析表达式 （即，设计器打开时）。  
   
-## <a name="remarks"></a>Remarks  
- Passed as a parameter to the [ParseText](../../../extensibility/debugger/reference/idebugexpressioncontext2-parsetext.md) and [Parse](../../../extensibility/debugger/reference/idebugexpressionevaluator-parse.md) methods.  
+## <a name="remarks"></a>备注  
+ 作为参数传递给传递[ParseText](../../../extensibility/debugger/reference/idebugexpressioncontext2-parsetext.md)和[分析](../../../extensibility/debugger/reference/idebugexpressionevaluator-parse.md)方法。  
   
-## <a name="requirements"></a>Requirements  
- Header: msdbg.h  
+## <a name="requirements"></a>要求  
+ 标头： msdbg.h  
   
  Namespace: Microsoft.VisualStudio.Debugger.Interop  
   
- Assembly: Microsoft.VisualStudio.Debugger.Interop.dll  
+ 程序集： Microsoft.VisualStudio.Debugger.Interop.dll  
   
-## <a name="see-also"></a>See Also  
- [Enumerations](../../../extensibility/debugger/reference/enumerations-visual-studio-debugging.md)   
+## <a name="see-also"></a>另请参阅  
+ [枚举](../../../extensibility/debugger/reference/enumerations-visual-studio-debugging.md)   
  [ParseText](../../../extensibility/debugger/reference/idebugexpressioncontext2-parsetext.md)   
- [Parse](../../../extensibility/debugger/reference/idebugexpressionevaluator-parse.md)
+ [分析](../../../extensibility/debugger/reference/idebugexpressionevaluator-parse.md)

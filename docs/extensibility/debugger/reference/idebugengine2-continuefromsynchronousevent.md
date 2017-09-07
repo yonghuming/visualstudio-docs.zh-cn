@@ -1,5 +1,5 @@
 ---
-title: IDebugEngine2::ContinueFromSynchronousEvent | Microsoft Docs
+title: "IDebugEngine2::ContinueFromSynchronousEvent |Microsoft 文档"
 ms.custom: 
 ms.date: 11/04/2016
 ms.reviewer: 
@@ -34,13 +34,13 @@ ms.translationtype: MT
 ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
 ms.openlocfilehash: 422dc31356947d9856f235db8e93cb1ca5b69930
 ms.contentlocale: zh-cn
-ms.lasthandoff: 08/28/2017
+ms.lasthandoff: 09/06/2017
 
 ---
 # <a name="idebugengine2continuefromsynchronousevent"></a>IDebugEngine2::ContinueFromSynchronousEvent
-Called by the session debug manager (SDM) to indicate that a synchronous debug event, previously sent by the debug engine (DE) to the SDM, was received and processed.  
+由会话调试管理器 (SDM) 以指示同步调试事件，以前由的调试引擎 (DE) 发送到 SDM，已接收和处理调用。  
   
-## <a name="syntax"></a>Syntax  
+## <a name="syntax"></a>语法  
   
 ```cpp  
 HRESULT ContinueFromSynchronousEvent(   
@@ -54,18 +54,18 @@ HRESULT ContinueFromSynchronousEvent(
 );  
 ```  
   
-#### <a name="parameters"></a>Parameters  
+#### <a name="parameters"></a>参数  
  `pEvent`  
- [in] An [IDebugEvent2](../../../extensibility/debugger/reference/idebugevent2.md) object that represents the previously sent synchronous event from which the debugger should now continue.  
+ [in][IDebugEvent2](../../../extensibility/debugger/reference/idebugevent2.md)表示从中调试器现在应继续之前发送同步事件的对象。  
   
-## <a name="return-value"></a>Return Value  
- If successful, returns `S_OK`; otherwise, returns an error code.  
+## <a name="return-value"></a>返回值  
+ 如果成功，则返回`S_OK`; 否则为返回错误代码。  
   
-## <a name="remarks"></a>Remarks  
- The DE must verify that it was the source of the event represented by the `pEvent` parameter.  
+## <a name="remarks"></a>备注  
+ DE 必须验证它是否表示的事件的源`pEvent`参数。  
   
-## <a name="example"></a>Example  
- The following example shows how to implement this method for a simple `CEngine` object that implements the [IDebugEngine2](../../../extensibility/debugger/reference/idebugengine2.md) interface.  
+## <a name="example"></a>示例  
+ 下面的示例演示如何实现此方法对于简单`CEngine`实现对象[IDebugEngine2](../../../extensibility/debugger/reference/idebugengine2.md)接口。  
   
 ```cpp  
 HRESULT CEngine::ContinueFromSynchronousEvent(IDebugEvent2* pEvent)  
@@ -103,6 +103,6 @@ HRESULT CEngine::ContinueFromSynchronousEvent(IDebugEvent2* pEvent)
 }  
 ```  
   
-## <a name="see-also"></a>See Also  
+## <a name="see-also"></a>另请参阅  
  [IDebugEngine2](../../../extensibility/debugger/reference/idebugengine2.md)   
  [IDebugEvent2](../../../extensibility/debugger/reference/idebugevent2.md)

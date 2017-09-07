@@ -1,5 +1,5 @@
 ---
-title: IDebugObject::IsEqual | Microsoft Docs
+title: "IDebugObject::IsEqual |Microsoft 文档"
 ms.custom: 
 ms.date: 11/04/2016
 ms.reviewer: 
@@ -34,13 +34,13 @@ ms.translationtype: MT
 ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
 ms.openlocfilehash: 9780a18ff72058a90739c421061fabd9ce8520e1
 ms.contentlocale: zh-cn
-ms.lasthandoff: 08/28/2017
+ms.lasthandoff: 09/06/2017
 
 ---
 # <a name="idebugobjectisequal"></a>IDebugObject::IsEqual
-Compares an object with this object.  
+比较对象与此对象。  
   
-## <a name="syntax"></a>Syntax  
+## <a name="syntax"></a>语法  
   
 ```cpp  
 HRESULT IsEqual(   
@@ -56,18 +56,18 @@ int IsEqual(
 );  
 ```  
   
-#### <a name="parameters"></a>Parameters  
+#### <a name="parameters"></a>参数  
  `pObject`  
- [in] An [IDebugObject](../../../extensibility/debugger/reference/idebugobject.md) object representing the object to compare to.  
+ [in][IDebugObject](../../../extensibility/debugger/reference/idebugobject.md)对象表示要比较的对象。  
   
  `pfIsEqual`  
- [out] Returns non-zero (`TRUE`) if the values of the objects are equal; otherwise, returns zero (`FALSE`).  
+ [out]返回非零 (`TRUE`) 如果对象的值相等; 否则为返回零 (`FALSE`)。  
   
-## <a name="return-value"></a>Return Value  
- If successful, returns S_OK; otherwise, returns an error code.  
+## <a name="return-value"></a>返回值  
+ 如果成功，返回，则为 S_OK;否则，返回错误代码。  
   
-## <a name="remarks"></a>Remarks  
- Typically, this method can compare the addresses of the values represented by the `pObject` parameter and this [IDebugObject](../../../extensibility/debugger/reference/idebugobject.md) object; if the addresses are equal, then the objects can be considered equal.  
+## <a name="remarks"></a>备注  
+ 通常情况下，此方法可以比较所表示的值的地址`pObject`参数，这[IDebugObject](../../../extensibility/debugger/reference/idebugobject.md)对象; 如果地址是否相等，则对象可被视为相等。  
   
-## <a name="see-also"></a>See Also  
+## <a name="see-also"></a>另请参阅  
  [IDebugObject](../../../extensibility/debugger/reference/idebugobject.md)

@@ -1,5 +1,5 @@
 ---
-title: Unit Test Basics | Microsoft Docs
+title: "单元测试基础知识 |Microsoft Docs"
 ms.custom: 
 ms.date: 2016-01-07
 ms.reviewer: 
@@ -33,63 +33,63 @@ ms.translationtype: HT
 ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
 ms.openlocfilehash: ff2a1dc934083bb237189a1ebdfa25d42612433e
 ms.contentlocale: zh-cn
-ms.lasthandoff: 08/28/2017
+ms.lasthandoff: 09/06/2017
 
 ---
-# <a name="unit-test-basics"></a>Unit Test Basics
-Check that your code is working as expected by creating and running unit tests. It's called unit testing because you break down the functionality of your program into discrete testable behaviors that you can test as individual *units*. Visual Studio Test Explorer provides a flexible and efficient way to run your unit tests and view their results in Visual Studio. Visual Studio installs the Microsoft unit testing frameworks for managed and native code. Use a *unit testing framework* to create unit tests, run them, and report the results of these tests. Rerun unit tests when you make changes to test that your code is still working correctly. When you use Visual Studio Enterprise, you can run tests automatically after every build.  
+# <a name="unit-test-basics"></a>单元测试基础
+通过创建和运行单元测试，检查你的代码是否按预期工作。 因为可将程序的功能分为可作为单个单元测试的独立可测试行为，所以它叫做单元测试。 Visual Studio 测试资源管理器提供了一种灵活而高效的方法运行你的单元测试并在 Visual Studio 中查看其结果。 Visual Studio 为托管和本机代码安装了 Microsoft 单元测试框架。 使用 *单元测试框架* 创建单元测试，运行测试，并报告这些测试的结果。 进行更改后重新运行单元测试，以测试代码仍能正常工作。 使用 Visual Studio Enterprise 时，你可以在每次生成后自动运行测试。  
   
- Unit testing has the greatest effect on the quality of your code when it's an integral part of your software development workflow. As soon as you write a function or other block of application code, create unit tests that verify the behavior of the code in response to standard, boundary, and incorrect cases of input data, and that check any explicit or implicit assumptions made by the code. With *test driven development*, you create the unit tests before you write the code, so you use the unit tests as both design documentation and functional specifications.  
+ 作为软件开发工作流的组成部分时，单元测试对代码质量的影响最大。 只要你编写了一个函数或其他应用程序代码块，就可以创建单元测试用于验证对应于输入数据的标准、边界和不正确情况的代码的行为，而且用于检查代码所做的任何显式或隐式假设。 通过 *测试驱动开发*，你需要在编写代码前创建单元测试，这样你可以将单元测试用作设计文档和功能规范。  
   
- You can quickly generate test projects and test methods from your code, or manually create the tests as you need them. When you use IntelliTest to explore your .NET code, you can generate test data and a suite of unit tests. For every statement in the code, a test input is generated that will execute that statement. Find out how to [generate unit tests for your code](http://msdn.microsoft.com/library/dn823749.aspx).  
+ 你可以从代码快速生成测试项目和测试方法，或者根据你的需要手动创建测试。 当使用 IntelliTest 浏览你的 .NET 代码时，可以生成测试数据和单元测试套件。 对于代码中的每个语句，将生成执行该语句的测试输入。 了解如何 [为你的代码生成单元测试](http://msdn.microsoft.com/library/dn823749.aspx)。  
   
- Test Explorer can also run third-party and open source unit test frameworks that have implemented Test Explorer add-on interfaces. You can add many of these frameworks through the Visual Studio Extension Manager and the Visual Studio gallery. See [Install third-party unit test frameworks](../test/install-third-party-unit-test-frameworks.md)  
+ 测试资源管理器还可以运行第三方和开放源代码单元测试框架，它们实现了测试资源管理器外接程序接口。 你可以通过 Visual Studio Extension Manager 和 Visual Studio 库添加其中许多框架。 请参阅[安装第三方单元测试框架](../test/install-third-party-unit-test-frameworks.md)  
   
--   [Quick starts](#BKMK_Quick_starts)  
+-   [快速入门](#BKMK_Quick_starts)  
   
--   [The MyBank Solution example](#BKMK_The_MyBank_Solution_example)  
+-   [MyBank 解决方案示例](#BKMK_The_MyBank_Solution_example)  
   
--   [Create unit test projects and test methods](#BKMK_Creating_the_unit_test_projects)  
+-   [创建单元测试项目和测试方法](#BKMK_Creating_the_unit_test_projects)  
   
--   [Write your tests](#BKMK_Writing_your_tests)  
+-   [编写测试](#BKMK_Writing_your_tests)  
   
--   [Run tests in Test Explorer](#BKMK_Running_tests_in_Test_Explorer)  
+-   [在测试资源管理器中运行测试](#BKMK_Running_tests_in_Test_Explorer)  
   
--   [Run and view tests](#BKMK_Running_and_viewing_tests_from_the_Test_Explorer_toolbar)  
+-   [运行和查看测试](#BKMK_Running_and_viewing_tests_from_the_Test_Explorer_toolbar)  
   
-##  <a name="BKMK_Unit_testing_overview"></a> Unit testing overview  
+##  <a name="BKMK_Unit_testing_overview"></a> 单元测试概述  
   
-###  <a name="BKMK_Quick_starts"></a> Quick starts  
- For an introduction to unit testing that takes you directly into coding, see one of these topics:  
+###  <a name="BKMK_Quick_starts"></a> 快速入门  
+ 关于直接进入编码的单元测试的简介，请参阅以下主题之一：  
   
--   [Walkthrough: Creating and Running Unit Tests for Managed Code](../test/walkthrough-creating-and-running-unit-tests-for-managed-code.md)  
+-   [演练：创建并运行托管代码的单元测试](../test/walkthrough-creating-and-running-unit-tests-for-managed-code.md)  
   
--   [Quick Start: Test Driven Development with Test Explorer](../test/quick-start-test-driven-development-with-test-explorer.md)  
+-   [快速入门：通过测试资源管理器进行测试驱动开发](../test/quick-start-test-driven-development-with-test-explorer.md)  
   
--   [Unit testing native code with Test Explorer](http://msdn.microsoft.com/en-us/8a09d6d8-3613-49d8-9ffe-11375ac4736c)  
+-   [使用测试资源管理器对本机代码进行单元测试](http://msdn.microsoft.com/en-us/8a09d6d8-3613-49d8-9ffe-11375ac4736c)  
   
-##  <a name="BKMK_The_MyBank_Solution_example"></a> The MyBank Solution example  
- In this topic, we use the development of a fictional application called `MyBank` as an example. You don't need the actual code to follow the explanations in this topic. Test methods are written in C# and presented by using the Microsoft Unit Testing Framework for Managed Code, However, the concepts are easily transferred to other languages and frameworks.  
+##  <a name="BKMK_The_MyBank_Solution_example"></a> MyBank 解决方案示例  
+ 在本主题中，我们使用称为 `MyBank` 的虚构应用程序的开发作为示例。 无需使用实际代码按照本主题中的说明操作。 测试方法用 C# 编写并使用 Microsoft 单元测试框架为托管代码进行呈现，但是，概念可以轻松地转到其他语言和框架中。  
   
- ![MyBank Solution](../test/media/ute_mybanksolution.png "UTE_MyBankSolution")  
+ ![MyBank 解决方案](../test/media/ute_mybanksolution.png "UTE_MyBankSolution")  
   
- Our first attempt at a design for the `MyBank` application includes an accounts component that represents an individual account and its transactions with the bank, and a database component that represents the functionality to aggregate and manage the individual accounts.  
+ 我们第一次尝试设计的 `MyBank` 应用程序包含表示个人帐户及其与银行交易的帐户组件，以及表示集合和管理单独帐户的功能的数据库组件。  
   
- We create a `MyBank` solution that contains two projects:  
+ 我们创建包含两个项目的 `MyBank` 解决方案：  
   
 -   `Accounts`  
   
 -   `BankDb`  
   
- Our first attempt at designing the `Accounts` project contain a class to hold basic information about an account, an interface that specifies the common functionality of any type of account, like depositing and withdrawing assets from the account, and a class derived from the interface that represents a checking account. We begin the Accounts projects by creating the following source files:  
+ 我们首次尝试设计 `Accounts` 的项目包含一个类来保存有关帐户的基本信息，以及指定任何类型的帐户的通用功能的接口的基本信息（如从该帐户存储和取出资产），以及从表示存款帐户的接口派生的类的基本信息。 首先，我们通过创建以下源文件开始帐户项目：  
   
--   `AccountInfo.cs` defines the basic information for an account.  
+-   `AccountInfo.cs` 定义帐户的基本信息。  
   
--   `IAccount.cs` defines a standard `IAccount` interface for an account, including methods to deposit and withdraw assets from an account and to retrieve the account balance.  
+-   `IAccount.cs` 为帐户定义一个标准 `IAccount` 接口，包括从一个帐户存款和收回资产和检索帐户余额的方法。  
   
--   `CheckingAccount.cs` contains the `CheckingAccount` class that implements the `IAccounts` interface for a checking account.  
+-   `CheckingAccount.cs` 包含 `CheckingAccount` 类，该类实现支票帐户的 `IAccounts` 接口。  
   
- We know from experience that one thing a withdrawal from a checking account must do is to make sure that the amount withdrawn is less than the account balance. So we override the `IAccount.Withdaw` method in `CheckingAccount` with a method that checks for this condition. The method might look like this:  
+ 我们根据经验可知，从支票帐户中取款必须要确保提取的金额小于帐户余额。 因此我们用检查这种情况的一种方法来重写 `IAccount.Withdaw` 中的 `CheckingAccount` 方法。 该方法可能如下所示：  
   
 ```csharp  
   
@@ -107,70 +107,70 @@ public void Withdraw(double amount)
   
 ```  
   
- Now that we have some code, it's time for testing.  
+ 有了代码，现在就可以开始测试了。  
   
-##  <a name="BKMK_Creating_the_unit_test_projects"></a> Create unit test projects and test methods  
- It is often quicker to generate the unit test project and unit test stubs from your code. Or you can choose to create the unit test project and tests manually depending on your requirements.  
+##  <a name="BKMK_Creating_the_unit_test_projects"></a> 创建单元测试项目和测试方法  
+ 通常从你的代码生成单元测试项目和单元测试存根速度更快。 或者，你可以选择创建单元测试项目和根据你的要求进行手动测试。  
   
- **Generate unit test project and unit test stubs**  
+ **生成单元测试项目和单元测试存根**  
   
-1.  From the code editor window, right-click and choose **Create Unit Tests** from the context menu.  
+1.  在代码编辑器窗口中，从上下文菜单右键单击并选择“创建单元测试”  。  
   
-     ![From the editor window, view the context menu](../test/media/createunittestsrightclick.png "CreateUnitTestsRightClick")  
+     ![在编辑器窗口中查看上下文菜单](../test/media/createunittestsrightclick.png "CreateUnitTestsRightClick")  
   
-2.  Click OK to accept the defaults to create your unit tests, or change the values used to create and name the unit test project and the unit tests. You can select the code that is added by default to the unit test methods.  
+2.  单击“确定”接受默认值以创建单元测试，或更改用于创建并命名单元测试项目和单元测试的值。 你可以选择默认添加到单元测试方法的代码。  
   
-     ![Right&#45;click in editor and choose Create Unit Tests](../test/media/createunittestsdialog.png "CreateUnitTestsDialog")  
+     ![在编辑器中右键单击并选择“创建单元测试”](../test/media/createunittestsdialog.png "CreateUnitTestsDialog")  
   
-3.  The unit test stubs are created in a new unit test project for all the methods in the class.  
+3.  在类的所有方法的新单元测试项目中创建单元测试存根。  
   
-     ![The unit tests are created](../test/media/createunittestsstubs.png "CreateUnitTestsStubs")  
+     ![创建的单元测试](../test/media/createunittestsstubs.png "CreateUnitTestsStubs")  
   
-4.  Now jump ahead to learn how to [add code to the unit test methods](#BKMK_Writing_your_tests) to make your unit test meaningful, and any extra unit tests that you might want to add to thoroughly test your code.  
+4.  现在向前跳转，了解如何 [将代码添加到单元测试方法](#BKMK_Writing_your_tests) ，以使你的单元测试有意义，并使你想要添加的额外单元测试彻底地测试代码。  
   
- **Create your unit test project and unit tests manually**  
+ **手动创建单元测试项目和单元测试**  
   
- A unit test project usually mirrors the structure of a single code project. In the MyBank example, you add two unit test projects named `AccountsTests` and `BankDbTests` to the `MyBanks` solution. The test project names are arbitrary, but adopting a standard naming convention is a good idea.  
+ 单元测试项目通常会镜像单个代码项目的结构。 在 MyBank 示例中，你将把名为 `AccountsTests` 和 `BankDbTests` 的两个单元测试项目添加到 `MyBanks` 解决方案中。 测试项目名称是任意的，但采用标准命名约定是一个好主意。  
   
- **To add a unit test project to a solution:**  
+ **若要向解决方案中添加单元测试项目：**  
   
-1.  On the **File** menu, choose **New** and then choose **Project** (Keyboard Ctrl + Shift + N).  
+1.  在“文件”  菜单上，选择“新建”  ，然后选择“项目”  （快捷键：Ctrl + Shift + N）。  
   
-2.  On the New Project dialog box, expand the **Installed** node, choose the language that you want to use for your test project, and then choose **Test**.  
+2.  在“新建项目”对话框中，展开“已安装”  节点，选择你想要用于测试项目的语言，然后选择“测试” 。  
   
-3.  To use one of the Microsoft unit test frameworks, choose **Unit Test Project** from the list of project templates. Otherwise, choose the project template of the unit test framework that you want to use. To test the `Accounts` project of our example, you would name the project `AccountsTests`.  
+3.  若要使用 Microsoft 单元测试框架之一，请从项目模板的列表中选择“单元测试项目”  。 否则，请选择你想要使用的单元测试框架的项目模板。 若要测试我们的示例中的 `Accounts` 项目，你需要将该项目命名为 `AccountsTests`。  
   
     > [!WARNING]
-    >  Not all third-party and open source unit test frameworks provide a Visual Studio project template. Consult the framework document for information about creating a project.  
+    >  并非所有第三方和开放源代码单元测试框架都提供 Visual Studio 项目模板。 有关创建项目的信息，请参阅框架文档。  
   
-4.  In your unit test project, add a reference to the code project under test, in our example to the Accounts project.  
+4.  在你的单元测试项目中，将引用添加到所测试项目的代码中，在我们的示例中应添加到帐户项目中。  
   
-     To create the reference to the code project:  
+     若要创建代码项目的引用：  
   
-    1.  Select the project in Solution Explorer.  
+    1.  在解决方案资源管理器中选择项目。  
   
-    2.  On the **Project** menu, choose **Add Reference**.  
+    2.  在“项目”  菜单上，选择“添加引用” 。  
   
-    3.  On the Reference Manager dialog box, open the **Solution** node and choose **Projects**. Select the code project name and close the dialog box.  
+    3.  在“引用管理器”对话框中，打开“解决方案”  节点，然后选择“项目” 。 选择代码项目名称并关闭对话框。  
   
- Each unit test project contains classes that mirror the names of the classes in the code project. In our example, the `AccountsTests` project would contain the following classes:  
+ 每个单元测试项目包含类，用于镜像代码项目中类的名称。 在我们的示例中， `AccountsTests` 项目将包含以下类：  
   
--   `AccountInfoTests` class contains the unit test methods for the `AccountInfo` class in the `BankAccount` project  
+-   `AccountInfoTests` 类包含用于 `AccountInfo` 项目中 `BankAccount` 类的单元测试方法  
   
--   `CheckingAccountTests` class contains the unit test methods for `CheckingAccount` class.  
+-   `CheckingAccountTests` 类包含用于 `CheckingAccount` 类的单元测试方法。  
   
-##  <a name="BKMK_Writing_your_tests"></a> Write your tests  
- The unit test framework that you use and Visual Studio IntelliSense will guide you through writing the code for your unit tests for a code project. To run in Test Explorer, most frameworks require that you add specific attributes to identify unit test methods. The frameworks also provide a way—usually through assert statements or method attributes—to indicate whether the test method has passed or failed. Other attributes identify optional setup methods that are at class initialization and before each test method and teardown methods that are run after each test method and before the class is destroyed.  
+##  <a name="BKMK_Writing_your_tests"></a> 编写测试  
+ 你使用的单元测试框架和 Visual Studio IntelliSense 将指导你完成为代码项目的单元测试编写代码。 若要在测试资源管理器中运行，大多数框架要求你添加特定的属性来识别单元测试方法。 框架还提供了一种方法，通常通过断言语句或方法属性，来指示测试方法是否已通过或失败。 其他属性标识可选的安装方法，即在类初始化时和每个测试方法和每个拆卸方法之前的安装方法，这些拆卸方法在每个测试方法之后和类被销毁之前运行。  
   
- The AAA (Arrange, Act, Assert) pattern is a common way of writing unit tests for a method under test.  
+ AAA（准备、执行、断言）模式是编写待测试方法的单元测试的常用方法。  
   
--   The **Arrange** section of a unit test method initializes objects and sets the value of the data that is passed to the method under test.  
+-   单元测试方法的 **准备** 部分初始化对象并设置传递给待测试方法的数据的值。  
   
--   The **Act** section invokes the method under test with the arranged parameters.  
+-   **执行** 部分调用具有准备参数的待测试方法。  
   
--   The **Assert** section verifies that the action of the method under test behaves as expected.  
+-   **断言** 部分验证待测试方法的执行行为与预期相同。  
   
- To test the `CheckingAccount.Withdraw` method of our example, we can write two tests: one that verifies the standard behavior of the method, and one that verifies that a withdrawal of more than the balance will fail. In the `CheckingAccountTests` class, we add the following methods:  
+ 若要测试我们的示例中的 `CheckingAccount.Withdraw` 方法，我们可以编写两个测试：一个验证方法的标准行为，另一个验证多于余额的取款将失败。 在 `CheckingAccountTests` 类中，我们将添加以下方法：  
   
 ```csharp  
 [TestMethod]  
@@ -201,16 +201,16 @@ public void Withdraw_AmountMoreThanBalance_Throws()
   
 ```  
   
- Note that `Withdraw_ValidAmount_ChangesBalance` uses an explicit `Assert` statement to determine whether the test method passes or fails, while `Withdraw_AmountMoreThanBalance_Throws` uses the `ExpectedException` attribute to determine the success of the test method. Under the covers, a unit test framework wraps test methods in try/catch statements. In most cases, if an exception is caught, the test method fails and the exception is ignored. The `ExpectedException` attribute causes the test method to pass if the specified exception is thrown.  
+ 请注意， `Withdraw_ValidAmount_ChangesBalance` 使用显式 `Assert` 语句确定测试方法是通过还是失败，而 `Withdraw_AmountMoreThanBalance_Throws` 使用 `ExpectedException` 属性确定测试方法的成功。 在底层，单元测试框架使用 try/catch 语句包装测试方法。 在大多数情况下，只要捕获了一个异常，则测试方法就会失败，并且该异常将被忽略。 如果指定的异常被抛弃， `ExpectedException` 属性将导致该测试方法通过。  
   
- For more information about the Microsoft Unit Testing Frameworks, see one of the following topics:  
+ 有关 Microsoft 单元测试框架的详细信息，请参阅以下主题之一：  
   
--   [Writing Unit Tests for the .NET Framework with the Microsoft Unit Test Framework for Managed Code](../test/writing-unit-tests-for-the-dotnet-framework-with-the-microsoft-unit-test-framework-for-managed-code.md)  
+-   [用 Microsoft 适用于托管代码的单元测试框架编写 .NET Framework 的单元测试](../test/writing-unit-tests-for-the-dotnet-framework-with-the-microsoft-unit-test-framework-for-managed-code.md)  
   
--   [Writing Unit tests for C/C++ with the Microsoft Unit Testing Framework for C++](../test/writing-unit-tests-for-c-cpp-with-the-microsoft-unit-testing-framework-for-cpp.md)  
+-   [用适用于 C++ 的 Microsoft 单元测试框架编写 C/C++ 单元测试](../test/writing-unit-tests-for-c-cpp-with-the-microsoft-unit-testing-framework-for-cpp.md)  
   
-## <a name="set-timeouts-for-unit-tests"></a>Set timeouts for unit tests  
- To set a timeout on an individual test method:  
+## <a name="set-timeouts-for-unit-tests"></a>为单元测试设置超时值  
+ 若要在单个测试方法上设置超时：  
   
 ```csharp  
 [TestMethod]  
@@ -224,7 +224,7 @@ public void My_Test()
   
 ```  
   
- To set the timeout to the maximum allowed:  
+ 若要将超时设置为允许的最大值：  
   
 ```csharp  
 [TestMethod]  
@@ -234,74 +234,74 @@ public void My_Test ()
 }  
 ```  
   
-##  <a name="BKMK_Running_tests_in_Test_Explorer"></a> Run tests in Test Explorer  
- When you build the test project, the tests appear in Test Explorer. If Test Explorer is not visible, choose **Test** on the Visual Studio menu, choose **Windows**, and then choose **Test Explorer**.  
+##  <a name="BKMK_Running_tests_in_Test_Explorer"></a> 在测试资源管理器中运行测试  
+ 在生成测试项目时，测试将出现在测试资源管理器中。 如果测试资源管理器不可见，请选择 Visual Studio 菜单上的“测试”  ，然后依次选择“Windows” 、“测试资源管理器” 。  
   
- ![Unit Test Explorer](../ide/media/ute_failedpassednotrunsummary.png "UTE_FailedPassedNotRunSummary")  
+ ![单元测试资源管理器](../ide/media/ute_failedpassednotrunsummary.png "UTE_FailedPassedNotRunSummary")  
   
- As you run, write, and rerun your tests, the default view of Test Explorer displays the results in groups of **Failed Tests**, **Passed Tests**, **Skipped Tests** and **Not Run Tests**. You can choose a group heading to open the view that displays all them tests in that group.  
+ 当你运行、编写并重新运行测试时，测试资源管理器的默认视图将显示“失败的测试” 、“通过的测试” 、“跳过的测试”  和“未运行的测试” 组中的结果。 你可以选择组标题以打开显示该组中的所有这些测试的视图。  
   
- You can also filter the tests in any view by matching text in the search box at the global level or by selecting one of the pre-defined filters. You can run any selection of the tests at any time. The results of a test run are immediately apparent in the pass/fail bar at the top of the explorer window. Details of a test method result are displayed when you select the test.  
+ 通过在全局级别的搜索框中的匹配文本或选择其中一个预定义的筛选器，你还可以在任何视图中筛选测试。 你可以在任何时间运行任何选定的测试。 测试运行的结果立即显示在资源管理器窗口顶部的通过/失败栏中。 在你选择测试时，会显示测试方法结果的详细信息。  
   
-###  <a name="BKMK_Running_and_viewing_tests_from_the_Test_Explorer_toolbar"></a> Run and view tests  
- The Test Explorer toolbar helps you discover, organize, and run the tests that you are interested in.  
+###  <a name="BKMK_Running_and_viewing_tests_from_the_Test_Explorer_toolbar"></a> 运行和查看测试  
+ 测试资源管理器工具栏可帮助你发现、组织和运行你感兴趣的测试。  
   
- ![Run tests from the Test Explorer toolbar](../test/media/ute_toolbar.png "UTE_ToolBar")  
+ ![从测试资源管理器工具栏运行测试](../test/media/ute_toolbar.png "UTE_ToolBar")  
   
- You can choose **Run All** to run all your tests, or choose **Run** to choose a subset of tests to run. After you run a set of tests, a summary of the test run appears at the bottom of the Test Explorer window. Select a test to view the details of that test in the bottom pane. Choose **Open Test** from the context menu (Keyboard: F12) to display the source code for the selected test.  
+ 你可以选择“运行全部”  来运行所有测试，或选择“运行”  来选择要运行的测试的子集。 运行一组测试后，测试运行的摘要将出现在测试资源管理器窗口的底部。 选择一个测试以在底部窗格中查看该测试的详细信息。 从上下文菜单中选择“打开测试”  （快捷键：F12），以显示所选测试的源代码。  
   
- If individual tests have no dependencies that prevent them from being run in any order, turn on parallel test execution with the ![UTE&#95;parallelicon&#45;small](../test/media/ute_parallelicon-small.png "UTE_parallelicon-small") toggle button on the toolbar. This can noticeably reduce the time taken to run all the tests.  
+ 如果各个测试没有依赖项会阻止其以任意顺序运行，请使用工具栏上的 ![UTE&#95;parallelicon&#45;small](../test/media/ute_parallelicon-small.png "UTE_parallelicon-small") 切换按钮来启用执行并行测试。 这可以显著降低运行所有测试所需的时间。  
   
-###  <a name="BKMK_Running_tests_after_every_build"></a> Run tests after every build  
+###  <a name="BKMK_Running_tests_after_every_build"></a> 每次生成后运行测试  
   
 > [!WARNING]
->  Running unit tests after every build is supported only in Visual Studio Enterprise.  
+>  仅在 Visual Studio Enterprise 中支持每次生成后运行单元测试。  
   
 |||  
 |-|-|  
-|![Run after build](../test/media/ute_runafterbuild_btn.png "UTE_RunAfterBuild_btn")|To run your unit tests after each local build, choose **Test** on the standard menu, choose **Run Tests After Build** on the Test Explorer toolbar.|  
+|![生成后运行](../test/media/ute_runafterbuild_btn.png "UTE_RunAfterBuild_btn")|若要在每个本地生成后运行单元测试，请在标准菜单上选择“测试”  ，然后在测试资源管理器工具栏上选择“生成后运行测试”  。|  
   
-###  <a name="BKMK_Filtering_and_grouping_the_test_list"></a> Filter and group the test list  
- When you have a large number of tests, you can Type in Test Explorer search box to filter the list by the specified string. You can restrict your filter event more by choosing from the filter list.  
+###  <a name="BKMK_Filtering_and_grouping_the_test_list"></a> 筛选和分组测试列表  
+ 当你有大量测试时，你可以在测试资源管理器搜索框中键入，以按指定的字符串筛选列表。 你可以通过从筛选器列表中选择以更多地限制筛选器事件。  
   
- ![Search filter categories](../test/media/ute_searchfilter.png "UTE_SearchFilter")  
+ ![搜索筛选器类别](../test/media/ute_searchfilter.png "UTE_SearchFilter")  
   
 |||  
 |-|-|  
-|![Test Explorer group button](../test/media/ute_groupby_btn.png "UTE_GroupBy_btn")|To group your tests by category, choose the **Group By** button.|  
+|![测试资源管理器的分组按钮](../test/media/ute_groupby_btn.png "UTE_GroupBy_btn")|若要按类别分组测试，请选择“分组依据”  按钮。|  
   
- For more information, see [Run unit tests with Test Explorer](../test/run-unit-tests-with-test-explorer.md)  
+ 有关详细信息，请参阅[使用测试资源管理器运行单元测试](../test/run-unit-tests-with-test-explorer.md)  
   
-## <a name="qa"></a>Q&A  
- **Q: How do I debug unit tests?**  
+## <a name="qa"></a>问题解答  
+ **问：如何调试单元测试？**  
   
- **A:** Use Test Explorer to start a debugging session for your tests. Stepping through your code with the Visual Studio debugger seamlessly takes you back and forth between the unit tests and the project under test. To start debugging:  
+ **答：** 可以使用测试资源管理器为你的测试启动调试会话。 使用 Visual Studio 调试程序无缝地逐句通过代码将使你在单元测试和所测试项目之间来回反复。 若要开始调试：  
   
-1.  In the Visual Studio editor, set a breakpoint in one or more test methods that you want to debug.  
+1.  在 Visual Studio 编辑器中，在想要调试的一个或多个测试方法中设置断点。  
   
     > [!NOTE]
-    >  Because test methods can run in any order, set breakpoints in all the test methods that you want to debug.  
+    >  因为测试方法可以按任何顺序运行，请在想要调试的所有测试方法中设置断点。  
   
-2.  In Test Explorer, select the test methods and then choose **Debug Selected Tests** from the shortcut menu.  
+2.  在测试资源管理器中，选择测试方法，然后从快捷菜单选择“调试选定的测试”  。  
   
- Learn more details about [debugging unit tests](../debugger/debugging-in-visual-studio.md).  
+ 了解有关 [调试单元测试](../debugger/debugging-in-visual-studio.md)的更多详细信息。  
   
- **Q: If I'm using TDD, how do I generate code from my tests?**  
+ 问：如果使用的是 TDD，该如何从我的测试生成代码？  
   
- **A:** Use IntelliSense to generate classes and methods in your project code. Write a statement in a test method that calls the class or method that you want to generate, then open the IntelliSense menu under the call. If the call is to a constructor of the new class, choose **Generate new type** from the menu and follow the wizard to insert the class in your code project. If the call is to a method, choose **Generate new method** from the IntelliSense menu.  
+ **答：** 使用 IntelliSense 在你的项目代码中生成类和方法。 编写调用你想要生成的类或方法的测试方法中的语句，然后打开调用下面的 IntelliSense 菜单。 如果调用新类的构造函数，请从菜单选择“生成新类型”  并按照向导在你的代码项目中插入此类。 如果调用方法，请从 IntelliSense 菜单选择“生成新方法”  。  
   
- ![Generate Method Stub Intellisense Menu](../test/media/ute_generatemethodstubintellisense.png "UTE_GenerateMethodStubIntellisense")  
+ ![生成方法存根 Intellisense 菜单](../test/media/ute_generatemethodstubintellisense.png "UTE_GenerateMethodStubIntellisense")  
   
- **Q: Can I create unit tests that take multiple sets of data as input to run the test?**  
+ **问：我能否创建需要使用多组数据作为输入才能运行的单元测试？**  
   
- **A:** Yes. *Data-driven test methods* let you test a range of values with a single unit test method. Use a `DataSource` attribute for the test method that specifies the data source and table that contains the variable values that you want to test.  In the method body, you assign the row values to variables using the `TestContext.DataRow[`*ColumnName*`]` indexer.  
+ **答：** 可以。 *数据驱动的测试方法* 使你可以用单个单元测试方法测试一系列值。 对指定包含你想要测试的变量值的数据源和表的测试方法使用 `DataSource` 属性。  在方法体中，你可以使用 `TestContext.DataRow[`*ColumnName*`]` 索引器将行值分配给变量。  
   
 > [!NOTE]
->  These procedures apply only to test methods that you write by using the Microsoft unit test framework for managed code. If you're using a different framework, consult the framework documentation for equivalent functionality.  
+>  这些过程仅适用于你使用 Microsoft 单元测试框架为托管代码编写的测试方法。 如果使用的是不同的框架，请查阅框架文档，获取等效功能。  
   
- For example, assume we add an unnecessary method to the `CheckingAccount` class that is named `AddIntegerHelper`. `AddIntegerHelper` adds two integers.  
+ 例如，假定我们将不必要的方法添加到名为 `CheckingAccount` 的 `AddIntegerHelper`类中。 `AddIntegerHelper` 添加两个整数。  
   
- To create a data-driven test for the `AddIntegerHelper` method, we first create an Access database named `AccountsTest.accdb` and a table named `AddIntegerHelperData`. The `AddIntegerHelperData` table defines columns to specify the first and second operands of the addition and a column to specify the expected result. We fill a number of rows with appropriate values.  
+ 若要为 `AddIntegerHelper` 方法创建数据驱动的测试，我们首先创建名为 `AccountsTest.accdb` 的 Access 数据库和名为 `AddIntegerHelperData`的表。 `AddIntegerHelperData` 表定义了指定要添加的第一个和第二个操作数的列和指定预期结果的列。 我们使用适当的值填充行数。  
   
 ```csharp  
   
@@ -322,43 +322,43 @@ public void AddIntegerHelper_DataDrivenValues_AllShouldPass()
   
 ```  
   
- The attributed method runs once for each row in the table. Test Explorer reports a test failure for the method if any of the iterations fail. The test results detail pane for the method shows you the pass/fail status method for each row of data.  
+ 特性化的方法将为表中的每一行运行一次。 如果任何迭代失败，测试资源管理器将报告方法的测试失败。 该方法的测试结果详细信息窗格显示每行数据的通过/失败状态方法。  
   
- Learn more about [data-driven unit tests](../test/how-to-create-a-data-driven-unit-test.md).  
+ 了解有关 [数据驱动的单元测试](../test/how-to-create-a-data-driven-unit-test.md)的详细信息。  
   
- **Q: Can I view how much of my code is tested by my unit tests?**  
+ **问：是否能查看我的单元测试测试了多少代码？**  
   
- **A:** Yes. You can determine the amount of your code that is actually being tested by your unit tests by using the Visual Studio code coverage tool. Native and managed languages and all unit test frameworks that can be run by the Unit Test Framework are supported.  
+ **答：** 可以。 你可以使用 Visual Studio 代码覆盖率工具确定你的单元测试实际测试的代码量。 支持本机和托管语言以及可由单元测试框架运行的所有单元测试框架。  
   
- You can run code coverage on selected tests or on all tests in a solution. The Code Coverage Results window displays the percentage of the blocks of product code that were exercised by line, function, class, namespace and module.  
+ 你可以在选定的测试上或解决方案中的所有测试上运行代码覆盖率。 代码覆盖率结果窗口显示行、函数、类、命名空间和模块执行的产品代码块的百分比。  
   
- To run code coverage for test methods in a solution, choose **Tests** on the Visual Studio menu and then choose **Analyze code coverage**.  
+ 若要在解决方案中运行测试方法的代码覆盖率，请在 Visual Studio 菜单上选择“测试”  ，然后选择“分析代码覆盖率” 。  
   
- Coverage results appear in the Code Coverage Results window.  
+ 覆盖率结果将显示在代码覆盖率结果窗口中。  
   
- ![Code coverage results](../test/media/ute_codecoverageresults.png "UTE_CodeCoverageResults")  
+ ![代码覆盖率结果](../test/media/ute_codecoverageresults.png "UTE_CodeCoverageResults")  
   
- Learn more about [code coverage](../test/using-code-coverage-to-determine-how-much-code-is-being-tested.md) .  
+ 详细了解[代码覆盖率](../test/using-code-coverage-to-determine-how-much-code-is-being-tested.md)。  
   
- **Q: How can I test methods in my code that have external dependencies?**  
+ **问：如何在具有外部依赖项的代码中测试方法？**  
   
- **A:** Yes. If you have Visual Studio Enterprise, Microsoft Fakes can be used with test methods that you write by using unit test frameworks for managed code.  
+ **答：** 可以。 如果安装了 Visual Studio Enterprise，则可以通过使用托管代码的单元测试框架将 Microsoft Fakes 用于你编写的测试方法。  
   
- Microsoft Fakes uses two approaches to create substitute classes for external dependencies.  
+ Microsoft Fakes 使用两种方法为外部依赖项创建替代类。  
   
-1.  *Stubs* generate substitute classes derived from the parent interface of the target dependency class. Stub methods can be substituted for public virtual methods of the target class.  
+1.  *存根 (stub)* 生成派生自目标依赖关系类的父接口的替代类。 可以将存根 (stub) 方法替换为目标类的公共虚拟方法。  
   
-2.  *Shims* use runtime instrumentation to divert calls to a target method to a substitute shim method for non-virtual methods.  
+2.  *填充码* 使用运行时检测将对目标方法的调用转移到非虚拟方法的替代填充码方法。  
   
- In both approaches, you use the generated delegates of calls to the dependency method to specify the behavior that you want in the test method.  
+ 通过这两种方法，你可以使用对依赖关系方法的调用所生成的委托，指定测试方法中所需的行为。  
   
- Learn more about [isolating unit test methods with Microsoft Fakes](../test/isolating-code-under-test-with-microsoft-fakes.md).  
+ 了解有关 [使用 Microsoft Fakes 隔离单元测试方法](../test/isolating-code-under-test-with-microsoft-fakes.md)的详细信息。  
   
- **Q: Can I use other unit test frameworks to create unit tests?**  
+ **问：是否可以使用其他单元测试框架创建单元测试？**  
   
- **A:** Yes, follow these steps to [find and install other frameworks](../test/install-third-party-unit-test-frameworks.md). After you restart Visual Studio, reopen your solution to create your unit tests, and then select your installed frameworks here:  
+ **答：** 可以，请按照下列步骤 [查找和安装其他框架](../test/install-third-party-unit-test-frameworks.md)。 在重新启动 Visual Studio 后，重新打开解决方案以创建单元测试，然后在此处选择你已安装的框架：  
   
- ![Select other installed unit test framework](../test/media/createunittestsdialogextensions.png "CreateUnitTestsDialogExtensions")  
+ ![选择安装的其他单元测试框架](../test/media/createunittestsdialogextensions.png "CreateUnitTestsDialogExtensions")  
   
- Your unit test stubs will be created using the selected framework.
+ 将使用选定的框架创建单元测试存根。
 

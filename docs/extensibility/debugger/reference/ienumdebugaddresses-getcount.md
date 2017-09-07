@@ -1,5 +1,5 @@
 ---
-title: IEnumDebugAddresses::GetCount | Microsoft Docs
+title: "IEnumDebugAddresses::GetCount |Microsoft 文档"
 ms.custom: 
 ms.date: 11/04/2016
 ms.reviewer: 
@@ -34,13 +34,13 @@ ms.translationtype: MT
 ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
 ms.openlocfilehash: 248cdee07ea9a607e1df4a04e003ed5db2d1f3f1
 ms.contentlocale: zh-cn
-ms.lasthandoff: 08/28/2017
+ms.lasthandoff: 09/06/2017
 
 ---
 # <a name="ienumdebugaddressesgetcount"></a>IEnumDebugAddresses::GetCount
-This method returns the number of elements in the enumeration.  
+此方法在枚举中返回元素的数。  
   
-## <a name="syntax"></a>Syntax  
+## <a name="syntax"></a>语法  
   
 ```cpp  
 HRESULT GetCount(  
@@ -54,15 +54,15 @@ int GetCount(
 );  
 ```  
   
-#### <a name="parameters"></a>Parameters  
+#### <a name="parameters"></a>参数  
  `pcelt`  
- [out] Returns the number of elements in the enumeration.  
+ [out]枚举中返回元素的数。  
   
-## <a name="return-value"></a>Return Value  
- If successful, returns `S_OK`; otherwise, returns an error code.  
+## <a name="return-value"></a>返回值  
+ 如果成功，则返回`S_OK`; 否则为返回错误代码。  
   
-## <a name="remarks"></a>Remarks  
- This method is not part of the customary COM enumeration interface which specifies that only Next, Clone, Skip, and Reset need to be implemented.  
+## <a name="remarks"></a>备注  
+ 此方法不是通常的 COM 枚举接口指定下, 一步、 克隆、 跳过和重置需要实现的一部分。  
   
-## <a name="see-also"></a>See Also  
+## <a name="see-also"></a>另请参阅  
  [IEnumDebugAddresses](../../../extensibility/debugger/reference/ienumdebugaddresses.md)

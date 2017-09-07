@@ -1,5 +1,5 @@
 ---
-title: 'How to: Diagnose extension performance| Microsoft Docs'
+title: "如何： 诊断扩展性能 |Microsoft 文档"
 ms.custom: 
 ms.date: 11/08/2016
 ms.reviewer: 
@@ -31,86 +31,86 @@ ms.translationtype: MT
 ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
 ms.openlocfilehash: b78a02b9d780b9556cbbf42fce04b1da06e22833
 ms.contentlocale: zh-cn
-ms.lasthandoff: 08/28/2017
+ms.lasthandoff: 09/06/2017
 
 ---
-# <a name="measuring-extension-impact-in-startup"></a>Measuring extension impact in startup
+# <a name="measuring-extension-impact-in-startup"></a>测量扩展中启动的影响
 
-## <a name="focus-on-extension-performance-in-visual-studio-2017"></a>Focus on extension performance in Visual Studio 2017
+## <a name="focus-on-extension-performance-in-visual-studio-2017"></a>重点介绍在 Visual Studio 2017 扩展性能
 
-Based on customer feedback, one of the focus areas for Visual Studio 2017 release has been startup and solution load performance. While, as Visual Studio platform team, we have been working on improving startup and solution load performance in general, our telemetry suggests installed extensions can also have a considerable impact on those scenarios.
+根据客户反馈，Visual Studio 2017 版本重点区域之一已启动和解决方案负载性能。 作为 Visual Studio 平台团队，我们具有已处理时通常提高启动和解决方案负载性能，我们遥测表明已安装的扩展也可能对这些方案产生相当大的影响。
 
-To help users understand this impact, we added a new feature in Visual Studio to notify users of slow extensions. When Visual Studio detects a new extension that is slowing down either solution load or startup, users will see a notification in the IDE pointing them to new "Manage Visual Studio Performance" dialog. This dialog can also always be accessed by Help menu to browse previously detected extensions.
+若要帮助用户了解这种影响，我们以通知用户的慢速扩展的 Visual Studio 中添加一项新功能。 在 Visual Studio 会检测速度变慢解决方案负载或启动一个新的扩展，用户将看到一个通知 IDE 指向新的"管理 Visual Studio 性能"对话框中。 此对话框还始终可以通过浏览以前检测到的扩展的帮助菜单访问。
 
-![manage Visual Studio performace](media/manage-performance.png)
+![管理 Visual Studio 性能](media/manage-performance.png)
 
-This document aims to help extension developers by describing how extension impact is calculated and how it can be analyzed locally to test if an extension may be shown as a performance impacting extension.
+本文档旨在帮助扩展开发人员描述如何计算扩展影响，如何它可以进行分析本地测试如果扩展中可能显示为性能影响扩展。
 
-## <a name="how-extensions-can-impact-startup"></a>How extensions can impact startup
+## <a name="how-extensions-can-impact-startup"></a>如何扩展可能会影响启动
 
-One of the most common ways for extensions to impact startup performance is by choosing to auto load at one of the known startup UI contexts such as NoSolutionExists or ShellInitialized. These UI contexts get activated during startup and any packages that include the "ProvideAutoLoad" attribute in their definition with those contexts will be loaded and initialized at that time.
+要影响启动性能扩展的最常见方式之一是通过选择其中一个已知的启动 UI 上下文，如 NoSolutionExists 或 ShellInitialized 自动加载。 在启动期间被激活，这些 UI 上下文，包括"ProvideAutoLoad"属性与这些上下文其定义中的任何包将加载和初始化在该时间。
 
-When we measure the impact of an extension, we primarily focus on time spent by those extensions that choose to auto load in the contexts above. Measured times would include but not be limited to:
+当我们会度量的扩展的影响时，我们将主要专注于通过选择上面的上下文中自动加载这些扩展所花费的时间。 测量时间将包括但不是限于：
 
-* Loading of extension assemblies for synchronous packages
-* Time spent in the package class constructor for synchronous packages
-* Time spent in package Initialize (or SetSite) method for synchronous packages
-* For asynchronous packages the above operations run on background thread and therefore are excluded from monitoring
-* Time spent in any asynchronous work scheduled during package initialization to run on main thread
-* Time spent in event handlers, specifically shell initialized context activation or the shell zombie state change
-* Starting from Visual Studio 2017 Update 3, we will also start monitoring time spent in on idle calls before shell is initialized. Long operations in idle handlers also cause unresponsive IDE and contribute to perceived startup time by user.
+* 同步的包的扩展程序集的加载
+* 同步的包的包类构造函数中所用的时间
+* 在同步的包的包初始化 （或 SetSite） 方法中所用的时间
+* 异步包的上述操作在后台线程上运行，并因此从监视中排除
+* 在计划包初始化期间在主线程上运行任何异步工作中所花费的时间
+* 所用的事件处理程序，具体而言 shell 初始化上下文激活或 shell 僵停状态更改时间
+* 从 Visual Studio 2017 Update 3 开始，我们将还启动监视所花费的时间在空闲调用命令行程序初始化之前。 空闲处理程序中的长时间操作还会导致无响应的 IDE 和影响由用户感觉的启动时间。
 
-We have added multiple features starting from Visual Studio 2015 to help with removing the need for packages to auto load, postpone their load to more specific cases where users would be more certain to use the extension or reduce an extension impact when loading automatically.
+我们还增加了从 Visual Studio 2015，以帮助删除程序包添加到自动负载的需要，将推迟到更具体的情况下，用户也将某些更，以使用扩展，或者在加载时减少扩展影响其负载的多个功能自动。
 
-You can find more details about these features in the following documents:
+你可以在以下文档中找到有关这些功能的更多详细信息：
 
-[Rule based UI Contexts](how-to-use-rule-based-ui-context-for-visual-studio-extensions.md): A richer rule based engine built around UI contexts allow you to create custom contexts based on project types, flavors and capabilities. These custom contexts can be used to load a package during more specific scenarios such as the presence of a project with a specific capability instead of startup; or allow [command visibility to be tied to a custom context](https://msdn.microsoft.com/en-us/library/bb166512.aspx) based on project capabilities or other available terms thus eliminating the need to load a package to register a command status query handler.
+[基于规则的 UI 上下文](how-to-use-rule-based-ui-context-for-visual-studio-extensions.md)： 围绕 UI 上下文的更丰富的基于规则引擎允许你创建基于项目类型、 版本和功能的自定义上下文。 这些自定义上下文可用于在更具体的方案，例如具有而不是启动; 某项特定功能的项目存在期间加载的包或允许[命令可见性，以将绑定到自定义上下文](https://msdn.microsoft.com/en-us/library/bb166512.aspx)基于项目功能或其他可用的搜索词，因此不再需要加载的包，以注册命令状态查询处理程序。
 
-[Asynchronous package support](how-to-use-asyncpackage-to-load-vspackages-in-the-background.md): The new AsyncPackage base class in Visual Studio 2015 allows Visual Studio packages to be loaded in the background asynchronously if package load was requested by an auto load attribute or an asynchronous service query. This background loading allows the IDE to stay responsive while the extension is initialized in the background and critical scenarios like startup and solution load wouldn't be impacted.
+[异步包支持](how-to-use-asyncpackage-to-load-vspackages-in-the-background.md): Visual Studio 2015 中的新 AsyncPackage 基类允许 Visual Studio 包要加载在后台以异步方式如果包加载请求了自动负载特性或异步服务查询. 此后台加载允许 IDE 以始终保持响应时在后台中初始化该扩展，并且不会影响启动和解决方案的负载等关键方案。
 
-[Asynchronous services](how-to-provide-an-asynchronous-visual-studio-service.md): With asynchronous package support, we also added support for querying services asynchronously and being able to register asynchronous services. More importantly we are working on converting core Visual Studio services to support asynchronous query so that the majority of work in an async query occurs in background threads. SComponentModel (Visual Studio MEF host) is one of the major services that now supports asynchronous query to allow extensions to support asynchronous loading completely.
+[异步服务](how-to-provide-an-asynchronous-visual-studio-service.md)： 有了异步包支持，我们还增加了对支持异步查询服务，并且能够注册异步服务。 更重要的我们正在处理转换核心 Visual Studio 服务以支持异步查询，以便在后台线程中出现的大部分异步查询中的工作。 SComponentModel （Visual Studio MEF 主机） 是现在支持异步查询，以允许扩展以支持异步加载完全的主要服务之一。
 
-## <a name="reducing-impact-of-auto-loaded-extensions"></a>Reducing impact of auto loaded extensions
+## <a name="reducing-impact-of-auto-loaded-extensions"></a>减少影响自动加载扩展
 
-If a package still needs to be auto loaded at startup, it is important to minimize the work done during package initialization to reduce the chances of the extension impacting startup.
+如果包仍需要将自动在启动加载，务必最大程度减少在包初始化以减少的可能性会影响启动扩展过程完成的工作。
 
-Some examples that could cause package initialization to be expensive are:
+可能会导致包初始化的成本要高一些示例包括：
 
-### <a name="use-of-synchronous-package-load-instead-of-asynchronous-package-load"></a>Use of synchronous package load instead of asynchronous package load
+### <a name="use-of-synchronous-package-load-instead-of-asynchronous-package-load"></a>使用同步包负载而非异步包负载
 
-Because synchronous packages are loaded on the main thread by default, we encourage extension owners that have auto loaded packages use the asynchronous package base class instead as mentioned earlier. Changing an auto loaded package to support asynchronous loading will also make it easier to resolve the other issues below.
+因为默认情况下，同步的包加载到主线程上，我们鼓励具有自动加载包，如前面所述改为使用异步包基类的扩展所有者。 更改自动加载的包，以支持异步加载将也更加轻松地解决下面的其他问题。
 
-### <a name="synchronous-filenetwork-io-requests"></a>Synchronous file/network IO requests
+### <a name="synchronous-filenetwork-io-requests"></a>同步的文件/网络 IO 请求
 
-Ideally any synchronous file or network IO request should be avoided in the main thread as their impact will depend on machine state and can block for long periods of time in some cases.
+理想情况下任何同步的文件或网络 IO 请求应在主线程中避免因为它们的影响将取决于机状态和较长时间的时间在某些情况下可以阻止。
 
-Using asynchronous package loading and asynchronous IO APIs should ensure that package initialization doesn't block the main thread in such cases and users can continue to interact with Visual Studio while I/O requests happen in background.
+使用异步包加载和异步 IO Api 应确保包初始化不会阻止这种情况下中的主线程和用户可以继续使用 Visual Studio 进行交互，而在后台发生输入/输出请求。
 
-### <a name="early-initialization-of-services-components"></a>Early initialization of services, components
+### <a name="early-initialization-of-services-components"></a>服务，组件的早期初始化
 
-One of the common patterns in package initialization is to initialize services either used by or provided by that package in the package constructor or initialize method. While this ensures services are ready to be used, it can also add unnecessary cost to package loading if those services are not used immediately. Instead such services should be initialized on demand to minimize the work done in package initialization.
+在包初始化的常见模式之一是初始化由或提供的该包在包构造函数或初始化方法中的服务。 虽然这可确保服务可供使用，它还可以添加不必要的成本打包加载如果不立即使用这些服务。 而是应按需尽量减小在包初始化完成的工作初始化此类服务。
 
-For global services provided by a package, you can use AddService methods that takes a function to lazily initialize the service only when it is requested by a component. For services used within the package, you can utilize Lazy<T> or AsyncLazy<T> to ensure services are initialized/queried on first use.
+对于由包的全局服务，你可以使用采用延迟初始化的服务，仅当请求的组件时的函数的 AddService 方法。 为了在包中使用的服务，你可以利用 Lazy<T>或 AsyncLazy<T>以确保在首次使用初始化/查询服务。
 
-## <a name="measuring-impact-of-auto-loaded-extensions-using-activity-log"></a>Measuring impact of auto loaded extensions using Activity log
+## <a name="measuring-impact-of-auto-loaded-extensions-using-activity-log"></a>测量影响自动加载扩展使用活动日志
 
-Beginning in Visual Studio 2017 Update 3, Visual Studio activity log will now contain entries for performance impact of packages during startup and solution load. In order to see these measurements, you have to start Visual Studio with /log switch and open ActivityLog.xml file.
+从 Visual Studio 2017 Update 3 开始，Visual Studio 活动日志将现在包含的条目的包的性能影响在启动和解决方案加载过程。 若要查看这些度量值，你必须使用 /log 开关启动 Visual Studio 并打开 ActivityLog.xml 文件。
 
-In the activity log, the entries will be under "Manage Visual Studio Performance" source, and will look like following:
+在活动日志中，该项目将在"管理 Visual Studio 性能"源下，和将看起来类似下面：
 
 ```Component: 3cd7f5bf-6662-4ff0-ade8-97b5ff12f39c, Inclusive Cost: 2008.9381, Exclusive Cost: 2008.9381, Top Level Inclusive Cost: 2008.9381```
 
-This means that package with GUID "3cd7f5bf-6662-4ff0-ade8-97b5ff12f39c" spent 2008 ms in startup of Visual Studio. Note that Visual Studio considers top level cost as the primary number when calculating impact of a package as that would be the savigs user see when they disable the extension for that package.
+这意味着该包处理 GUID"3cd7f5bf-6662-4ff0-ade8-97b5ff12f39c"所用的 Visual Studio 中启动 2008 ms。 请注意当计算的包的影响，会出现 savigs 用户看到时它们会禁用该包的扩展时，Visual Studio，考虑为主号码顶部级别成本。
 
-## <a name="measuring-impact-of-auto-loaded-extensions-using-perfview"></a>Measuring impact of auto loaded extensions using PerfView
+## <a name="measuring-impact-of-auto-loaded-extensions-using-perfview"></a>测量影响自动加载使用 PerfView 的扩展
 
-While code analysis can help identify code paths that can slow down package initialization, you can also utilize tracing by using applications like PerfView to understand the impact of a package load in Visual Studio startup.
+尽管代码分析可帮助标识可能会降低包初始化的代码路径，则还可以通过使用 PerfView 等应用程序以了解在 Visual Studio 启动包负载的影响利用跟踪。
 
-PerfView is a system wide tracing tool that will help you understand hot paths in an application either due to CPU usage or blocking system calls. Below is a quick example on analyzing a sample extension using PerfView available at the [Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=28567).
+PerfView 是一个系统宽跟踪工具，将帮助你了解应用程序由于 CPU 使用率或阻止系统调用中的热路径。 下面是上分析一个使用 PerfView 在可用扩展示例的一个快速示例[Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=28567)。
 
-**Example code:**
+**示例代码：**
 
-This example is based on the sample code below, which is designed to show case some common delay causes:
+此示例基于示例下面代码中，旨在显示这种情况下，一些常见的延迟原因：
 
 ```csharp
 protected override void Initialize()
@@ -151,48 +151,48 @@ private void DoMoreWork()
 }
 ```
 
-**Recording a trace with PerfView:**
+**记录使用 PerfView 跟踪：**
 
-Once you setup your Visual Studio environment with your extension installed, you can record a trace of startup by opening PerfView and opening Collect dialog from "Collect" menu.
+一旦你设置你的 Visual Studio 环境与您安装的扩展，你可以通过打开 PerfView 收集对话框从菜单并打开"收集"记录启动的跟踪。
 
-![perfview collect menu](media/perfview-collect-menu.png)
+![perfview 收集菜单](media/perfview-collect-menu.png)
 
-The default options will provide call stacks for CPU consumption but since we are interested in blocking time as well, you also should enable "Thread Time" stacks. Once the settings are ready you can click on "Start Collection" and start Visual Studio once recording is started.
+默认选项将为 CPU 占用率提供调用堆栈，但由于我们感兴趣以及阻塞时间，你还应启用"线程时间"堆栈。 设置准备就绪后，可单击"开始收集"，启动 Visual Studio，一旦开始录制。
 
-Before you stop collection, you want to make sure Visual Studio is fully initialized, the main window is completely visible and if your extension has any UI pieces that automatically show,  they are also visible. Once Visual Studio is completely loaded and your extension is initialized, you can stop recording to analyze the trace.
+停止收集之前，你想要确保完全初始化 Visual Studio、 完全可见的主窗口，如果你扩展具有自动显示任何 UI 块，它们都是可见的。 Visual Studio 将会完全加载并初始化你的扩展后，你可以停止录制分析跟踪。
 
-**Analyzing a trace with PerfView:**
+**分析跟踪与 PerfView:**
 
-Once recording is completed PerfView will automatically open the trace and expand options.
+完成记录后 PerfView 将自动打开跟踪，并展开选项。
 
-For the purposes of this example, we are mainly interested in the "Thread Time Stacks" view which you can find under "Advanced Group". This view will show total time spent on a thread by a method including both CPU time and blocked time, such as disk IO or waiting on handles.
+为此示例的目的，我们关注的是主要的"线程时间堆栈"视图，其中你可以在"高级组"下找到。 该视图将显示通过包括 CPU 时间和阻塞的时间，例如磁盘 IO 或等待句柄的方法在一个线程上所花费的总时间。
 
- ![thread time stacks](media/perfview-thread-time-stacks.png)
+ ![线程时间堆栈](media/perfview-thread-time-stacks.png)
 
- While opening "Thread Time Stacks" view, you should choose the "devenv" process to start analysis.
+ 时打开"时间堆栈线程"视图，则应选择"devenv"进程开始分析。
 
-PerfView has detailed guidance on how to read thread time stacks under its own Help menu for more detailed analysis. For purposes of this example, we want to filter this view further by only including stacks with our packages module name and startup thread.
+PerfView 详细介绍了如何阅读更详细的分析自己帮助菜单下的时间堆栈的线程的指导。 对于此示例的目的，我们想要通过仅包括与我们包模块名称和启动线程的堆栈筛选进一步此视图。
 
-1. Set "GroupPats" to empty text to remove any grouping added by default.
-2. Set "IncPats" to include part of your assembly name and Startup Thread in addition to existing process filter. In this case, it should be "devenv;Startup Thread;MakeVsSlowExtension".
+1. 将"GroupPats"设置为要删除按默认添加任何分组的空文本。
+2. 除了现有进程筛选器的组"IncPats"来包括程序集名称的一部分和启动线程。 在这种情况下，它应为"devenv;启动线程;MakeVsSlowExtension"。
 
-Now the view will only show cost that is associated with the assemblies related to extension. In this view, any time listed under "Inc" (Inclusive cost) column of startup thread is related to our filtered extension and will be impacting startup.
+现在视图将仅显示使用与扩展相关的程序集关联的成本。 在此视图中，随时下列出的启动线程的"Inc"（非独占成本） 列与我们筛选扩展，并将会影响启动。
 
-For the example above some interesting call stacks would be:
+对于一些有趣调用上面的示例将为堆栈：
 
-1. IO using System.IO class: While inclusive cost of these frames might not be very expensive in the trace, they are a potential cause of an issue since file IO speed will vary from machine to machine.
+1. IO 使用 System.IO 类： 而非独占成本的这些帧可能不是在跟踪中代价很高，它们是问题的可能的原因，由于文件 IO 速度将会相差计算机到计算机。
 
-  ![system io frames](media/perfview-system-io-frames.png)
+  ![系统 io 帧](media/perfview-system-io-frames.png)
 
-2. Blocking calls waiting on other asynchronous work: In this case inclusive time would represent the time the main thread is blocked on the completion of asynchronous work.
+2. 阻止调用在其他异步工作等待： 非独占时间将在此情况下表示主线程阻止对完成的异步工作的时间。
 
-  ![blocking call frames](media/perfview-blocking-call-frames.png)
+  ![阻止调用帧](media/perfview-blocking-call-frames.png)
 
-One of the other views in the trace that will be useful to determine impact will be the "Image Load Stacks". You can apply the same filters as applied to "Thread Time Stacks" view and find out all assemblies loaded because of the code executed by your auto loaded package.
+另一种视图中将很有用，以确定的影响的跟踪中将"图像负载堆栈"。 你可以应用相同的筛选器应用于"线程时间堆栈"视图并找出所有的程序集加载，因为你自动加载的包执行的代码。
 
-It is important to minimize number of loaded assemblies inside a package initialization routine as each additional assembly will involve extra disk I/O which can slow down startup considerably on slower machines.
+请务必为每个其他程序集将涉及额外的磁盘 I/O，从而可能会降低显著上较慢的计算机的启动加载程序集内的包初始化例程的数量降至最低。
 
-## <a name="summary"></a>Summary
+## <a name="summary"></a>摘要
 
-Startup of Visual Studio has been one of the areas we continually get feedback on. Our goal as stated earlier is for all users to have a consistent startup experience regardless of components and extensions they have installed and we would like to work with extension owners to help them help us achieve that goal. The guidance above should be helpful in understanding an extensions impact on startup and either avoiding the need to auto load or load it asynchronously to minimize impact on user productivity.
+启动 Visual Studio 已我们不断获得的反馈区域之一。 我们如上文所述的目标是使所有用户能够以一致方式启动而不考虑组件和它们已安装的扩展体验，我们想要使用扩展所有者以帮助他们帮助我们实现该目标。 上述指南应有助于了解启动扩展影响和可以避免需要自动负载或加载它以异步方式对用户工作效率的影响降至最低。
 

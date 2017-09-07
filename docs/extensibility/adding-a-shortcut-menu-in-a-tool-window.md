@@ -1,5 +1,5 @@
 ---
-title: Adding a Shortcut Menu in a Tool Window | Microsoft Docs
+title: "在工具窗口中添加快捷菜单 |Microsoft 文档"
 ms.custom: 
 ms.date: 11/04/2016
 ms.reviewer: 
@@ -35,29 +35,29 @@ ms.translationtype: MT
 ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
 ms.openlocfilehash: 661e31f32f176e48ea69ae92f23ecdde7911456b
 ms.contentlocale: zh-cn
-ms.lasthandoff: 08/28/2017
+ms.lasthandoff: 09/06/2017
 
 ---
-# <a name="adding-a-shortcut-menu-in-a-tool-window"></a>Adding a Shortcut Menu in a Tool Window
-This walkthrough puts a shortcut menu in a tool window. A shortcut menu is a menu that appears when a user right-clicks a button, text box, or window background. Commands on a shortcut menu behave the same as commands on other menus or toolbars. To support a shortcut menu, specify it in the .vsct file and display it in response to the right-click of the mouse.  
+# <a name="adding-a-shortcut-menu-in-a-tool-window"></a>在工具窗口中添加快捷菜单
+本演练将在工具窗口的快捷菜单。 快捷菜单是当用户右键单击按钮、 文本框中或窗口背景时显示。 快捷菜单上的命令的行为与其他菜单或工具栏上的命令相同。 若要支持的快捷菜单，指定在.vsct 文件中，并将其显示在响应的鼠标右键单击。  
   
- A tool window consists of a WPF user control in a custom tool window class that inherits from <xref:Microsoft.VisualStudio.Shell.ToolWindowPane>.  
+ 工具窗口包含的自定义工具窗口类中继承自的 WPF 用户控件<xref:Microsoft.VisualStudio.Shell.ToolWindowPane>。  
   
- This walkthrough shows how to create a shortcut menu as a Visual Studio menu, by declaring menu items in the .vsct file, and then using the Managed Package Framework to implement them in the class that defines the tool window. This approach facilitates access to Visual Studio commands, UI elements, and the Automation object model.  
+ 本演练演示如何创建作为 Visual Studio 菜单中，通过声明.vsct 文件中的菜单项，然后使用托管包框架来实现它们的类中定义的工具窗口的快捷菜单。 此方法便于访问 Visual Studio 命令、 用户界面元素和自动化对象模型。  
   
- Alternatively, if your shortcut menu will not access Visual Studio functionality, you can use the <xref:System.Windows.FrameworkElement.ContextMenu%2A> property of a XAML element in the user control. For more information, see [ContextMenu](/dotnet/framework/wpf/controls/contextmenu).  
+ 或者，如果你的快捷菜单将不访问 Visual Studio 功能，你可以使用<xref:System.Windows.FrameworkElement.ContextMenu%2A>XAML 元素在用户控件中的属性。 有关详细信息，请参阅[ContextMenu](/dotnet/framework/wpf/controls/contextmenu)。  
   
-## <a name="prerequisites"></a>Prerequisites  
- Starting in Visual Studio 2015, you do not install the Visual Studio SDK from the download center. It is included as an optional feature in Visual Studio setup. You can also install the VS SDK later on. For more information, see [Installing the Visual Studio SDK](../extensibility/installing-the-visual-studio-sdk.md).  
+## <a name="prerequisites"></a>先决条件  
+ 从 Visual Studio 2015 开始，你并不安装 Visual Studio SDK 从下载中心。 它将包括作为 Visual Studio 安装程序中的可选功能。 你还可以在以后安装 VS SDK。 有关详细信息，请参阅[安装 Visual Studio SDK](../extensibility/installing-the-visual-studio-sdk.md)。  
   
-## <a name="creating-the-tool-window-shortcut-menu-package"></a>Creating the Tool Window Shortcut Menu Package  
+## <a name="creating-the-tool-window-shortcut-menu-package"></a>创建工具窗口快捷方式菜单包  
   
-1.  Create a VSIX project named `TWShortcutMenu` and add a tool window template named **ShortCutMenu** to it. For more information about creating a tool window, see [Creating an Extension with a Tool Window](../extensibility/creating-an-extension-with-a-tool-window.md).  
+1.  创建一个名为的 VSIX 项目`TWShortcutMenu`并添加名为的工具窗口模板**快捷菜单**到它。 有关创建工具窗口的详细信息，请参阅[使用工具窗口创建扩展](../extensibility/creating-an-extension-with-a-tool-window.md)。  
   
-## <a name="specifying-the-shortcut-menu"></a>Specifying the Shortcut Menu  
- A shortcut menu such as the one shown in this walkthrough lets the user select from a list of colors that are used to fill the background of the tool window.  
+## <a name="specifying-the-shortcut-menu"></a>指定的快捷菜单  
+ 快捷菜单，如本演练中所示让用户从用于填充工具窗口的背景的颜色的列表中选择。  
   
-1.  In ShortcutMenuPackage.vsct, find in the GuidSymbol element named guidShortcutMenuPackageCmdSet, and declare the shortcut menu, shortcut menu group, and menu options. The GuidSymbol element should now look like this:  
+1.  在 ShortcutMenuPackage.vsct，在名为 guidShortcutMenuPackageCmdSet，GuidSymbol 元素中查找和声明的快捷菜单、 快捷方式菜单组和菜单选项。 GuidSymbol 元素现在应如下所示：  
   
     ```xml  
     <GuidSymbol name="guidShortcutMenuPackageCmdSet" value="{00000000-0000-0000-0000-0000}"> // your GUID here  
@@ -70,7 +70,7 @@ This walkthrough puts a shortcut menu in a tool window. A shortcut menu is a men
     </GuidSymbol>  
     ```  
   
-2.  Just before the Buttons element, create a Menus element and then define the shortcut menu in it.  
+2.  之前的按钮元素，创建菜单元素，然后在它中定义的快捷菜单。  
   
     ```vb  
     <Menus>  
@@ -83,9 +83,9 @@ This walkthrough puts a shortcut menu in a tool window. A shortcut menu is a men
     </Menus>  
     ```  
   
-     A shortcut menu does not have a parent because it is not part of a menu or toolbar.  
+     快捷菜单不具有父级，因为它不是菜单或工具栏的一部分。  
   
-3.  Create a Groups element with a Group element that contains the shortcut menu items, and associate the group with the shortcut menu.  
+3.  使用组元素，其中包含的快捷菜单项，来创建组元素，并将组关联的快捷菜单。  
   
     ```xml  
     <Groups>  
@@ -95,7 +95,7 @@ This walkthrough puts a shortcut menu in a tool window. A shortcut menu is a men
     </Groups>  
     ```  
   
-4.  In the Buttons element, define the individual commands that will appear on the shortcut menu. The Buttons element should look like this:  
+4.  在按钮元素中，定义快捷菜单上的将显示单个命令。 按钮元素应如下所示：  
   
     ```xml  
     <Buttons>  
@@ -130,7 +130,7 @@ This walkthrough puts a shortcut menu in a tool window. A shortcut menu is a men
     </Buttons>  
     ```  
   
-5.  In ShortcutMenuPackageGuids.cs, add the definitions for the command set GUID, the shortcut menu, and the menu items.  
+5.  在 ShortcutMenuPackageGuids.cs，添加命令的定义设置 GUID、 快捷菜单和菜单项。  
   
     ```csharp  
     public const string guidShortcutMenuPackageCmdSet = "00000000-0000-0000-0000-00000000"; // your GUID will differ  
@@ -140,21 +140,21 @@ This walkthrough puts a shortcut menu in a tool window. A shortcut menu is a men
     public const int cmdidBlue = 0x104;  
     ```  
   
-     These are the same command IDs that are defined in the Symbols section of the ShortcutMenuPackage.vsct file. The context group is not included here because it is required only in the .vsct file.  
+     这些是在 ShortcutMenuPackage.vsct 文件的符号节中定义的相同命令 Id。 上下文组不包括此处因为它仅在.vsct 文件中必需。  
   
-## <a name="implementing-the-shortcut-menu"></a>Implementing the Shortcut Menu  
- This section implements the shortcut menu and its commands.  
+## <a name="implementing-the-shortcut-menu"></a>实现的快捷菜单  
+ 本部分实现的快捷菜单和其命令。  
   
-1.  In ShortcutMenu.cs, the tool window can get the menu command service, but the control it contains cannot. The following steps show how to make the menu command service available to the user control.  
+1.  在 ShortcutMenu.cs，工具窗口可获取菜单命令服务，但它所包含的控件无法转换。 以下步骤演示如何创建菜单命令服务可供用户控件。  
   
-2.  In ShortcutMenu.cs, add the following using statements:  
+2.  在 ShortcutMenu.cs，添加以下 using 语句：  
   
     ```csharp  
     using Microsoft.VisualStudio.Shell;  
     using System.ComponentModel.Design;  
     ```  
   
-3.  Override the tool window's Initialize() method to get the menu command service and add the control, passing the menu command service to the contructor:  
+3.  重写该工具窗口 initialize （） 方法以获取菜单命令服务并添加控件，将菜单命令服务传递给构造函数：  
   
     ```csharp  
     protected override void Initialize()  
@@ -164,7 +164,7 @@ This walkthrough puts a shortcut menu in a tool window. A shortcut menu is a men
     }  
     ```  
   
-4.  In the ShortcutMenu tool window constructor, remove the line that adds the control. The constructor should now look like this:  
+4.  在快捷菜单工具窗口构造函数中，删除将控件添加的行。 构造函数现在应如下所示：  
   
     ```csharp  
     public ShortcutMenu() : base(null)  
@@ -175,7 +175,7 @@ This walkthrough puts a shortcut menu in a tool window. A shortcut menu is a men
     }  
     ```  
   
-5.  In ShortcutMenuControl.xaml.cs, add a private field for the menu command service and change the control constructor to take the menu command service. Then use the menu command service to add the context menu commands. The ShortcutMenuControl constructor should now look like the following code. The command handler will be defined later.  
+5.  在 ShortcutMenuControl.xaml.cs，添加菜单命令服务的私有字段和更改控件构造函数，以使用菜单命令服务。 然后使用菜单命令服务添加上下文菜单命令。 ShortcutMenuControl 构造函数现在应类似下面的代码。 将更高版本定义的命令处理程序。  
   
     ```csharp  
     public ShortcutMenuControl(OleMenuCommandService service)  
@@ -201,7 +201,7 @@ This walkthrough puts a shortcut menu in a tool window. A shortcut menu is a men
     }  
     ```  
   
-6.  In ShortcutMenuControl.xaml, add a <xref:System.Windows.UIElement.MouseRightButtonDown> event to the top level <xref:System.Windows.Controls.UserControl> element. The XAML file should now look like this:  
+6.  在 ShortcutMenuControl.xaml，添加<xref:System.Windows.UIElement.MouseRightButtonDown>到顶级事件<xref:System.Windows.Controls.UserControl>元素。 XAML 文件现在应如下所示：  
   
     ```vb  
     <UserControl x:Class="TWShortcutMenu.ShortcutMenuControl"  
@@ -223,7 +223,7 @@ This walkthrough puts a shortcut menu in a tool window. A shortcut menu is a men
     </UserControl>  
     ```  
   
-7.  In ShortcutMenuControl.xaml.cs, add a stub for the event handler.  
+7.  在 ShortcutMenuControl.xaml.cs，添加事件处理程序的存根。  
   
     ```csharp  
     private void MyToolWindow_MouseRightButtonDown(object sender, MouseButtonEventArgs e)  
@@ -232,7 +232,7 @@ This walkthrough puts a shortcut menu in a tool window. A shortcut menu is a men
     }  
     ```  
   
-8.  Add the following using statements to the same file:  
+8.  将以下代码添加到同一个文件 using 语句：  
   
     ```csharp  
     using Microsoft.VisualStudio.Shell;  
@@ -242,7 +242,7 @@ This walkthrough puts a shortcut menu in a tool window. A shortcut menu is a men
     using System.Windows.Media;  
     ```  
   
-9. Implement the `MyToolWindowMouseRightButtonDown` event as follows.  
+9. 实现`MyToolWindowMouseRightButtonDown`，如下所示的事件。  
   
     ```csharp  
     private void MyToolWindow_MouseRightButtonDown(object sender, MouseButtonEventArgs e)  
@@ -258,9 +258,9 @@ This walkthrough puts a shortcut menu in a tool window. A shortcut menu is a men
     }  
     ```  
   
-     This creates a <xref:System.ComponentModel.Design.CommandID> object for the shortcut menu, identifies the location of the mouse click, and opens the shortcut menu in that location by using the <xref:Microsoft.VisualStudio.Shell.OleMenuCommandService.ShowContextMenu%2A> method.  
+     这将创建<xref:System.ComponentModel.Design.CommandID>对象的快捷菜单，标识鼠标单击的位置，将在该位置中的快捷菜单打开使用<xref:Microsoft.VisualStudio.Shell.OleMenuCommandService.ShowContextMenu%2A>方法。  
   
-10. Implement the command handler.  
+10. 实现的命令处理程序。  
   
     ```csharp  
     private void ChangeColor(object sender, EventArgs e)  
@@ -282,18 +282,18 @@ This walkthrough puts a shortcut menu in a tool window. A shortcut menu is a men
     }  
     ```  
   
-     In this case, just one method handles events for all of the menu items by identifying the <xref:System.ComponentModel.Design.CommandID> and setting the background color accordingly. If the menu items had contained unrelated commands, you would have created a separate event handler for each command.  
+     在这种情况下，只是一种方法处理的所有菜单项的事件通过标识<xref:System.ComponentModel.Design.CommandID>并相应地设置背景色。 如果菜单项中包含不相关的命令，你应已创建单独的事件处理程序为每个命令。  
   
-## <a name="testing-the-tool-window-features"></a>Testing the Tool Window Features  
+## <a name="testing-the-tool-window-features"></a>测试工具窗口功能  
   
-1.  Build the project and start debugging. The experimental instance appears.  
+1.  生成项目并启动调试。 实验实例中出现。  
   
-2.  In the experimental instance, click **View / Other Windows**, and then click **ShortcutMenu**. Doing this should display your tool window.  
+2.  在实验实例中，单击**视图 / 其他窗口**，然后单击**快捷菜单**。 执行此操作应显示工具窗口。  
   
-3.  Right-click in the body of the tool window. A shortcut menu that has a list of colors should be displayed.  
+3.  右键单击工具窗口的主体。 应显示快捷菜单具有颜色的列表。  
   
-4.  Click a color on the shortcut menu. The tool window background color should be changed to the selected color.  
+4.  单击快捷菜单上的颜色。 工具窗口背景色应更改为所选颜色。  
   
-## <a name="see-also"></a>See Also  
- [Commands, Menus, and Toolbars](../extensibility/internals/commands-menus-and-toolbars.md)   
- [Using and Providing Services](../extensibility/using-and-providing-services.md)
+## <a name="see-also"></a>另请参阅  
+ [命令、 菜单和工具栏](../extensibility/internals/commands-menus-and-toolbars.md)   
+ [使用并提供服务](../extensibility/using-and-providing-services.md)

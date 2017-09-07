@@ -1,5 +1,5 @@
 ---
-title: Support for the Navigation Bar in a Legacy Language Service | Microsoft Docs
+title: "支持旧语言服务中的导航栏 |Microsoft 文档"
 ms.custom: 
 ms.date: 11/04/2016
 ms.reviewer: 
@@ -33,19 +33,19 @@ ms.translationtype: MT
 ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
 ms.openlocfilehash: eb5212c4828ad24256447bc1c75f85ec0d9d9579
 ms.contentlocale: zh-cn
-ms.lasthandoff: 08/28/2017
+ms.lasthandoff: 09/06/2017
 
 ---
-# <a name="support-for-the-navigation-bar-in-a-legacy-language-service"></a>Support for the Navigation Bar in a Legacy Language Service
-The Navigation bar at the top of the editor view displays the types and members in the file. Types are shown in the left drop-down, and members are shown in the right drop-down. When the user selects a type, the caret is placed on the first line of the type. When the user selects a member, the caret is placed on the definition of the member. The drop-down boxes are updated to reflect the current location of the caret.  
+# <a name="support-for-the-navigation-bar-in-a-legacy-language-service"></a>对旧语言服务中的导航栏的支持
+在编辑器视图的顶部导航栏显示文件中的类型和成员。 在左侧的下拉列表，显示类型，成员将显示在右侧下拉列表。 当用户选择一种类型时，脱字号位于类型的第一行。 当用户选择成员时，脱字号位于成员的定义。 下拉列表框将更新以反映当前插入符号的位置。  
   
-## <a name="displaying-and-updating-the-navigation-bar"></a>Displaying and Updating the Navigation bar  
- To support the Navigation bar, you must derive a class from the <xref:Microsoft.VisualStudio.Package.TypeAndMemberDropdownBars> class and implement the <xref:Microsoft.VisualStudio.Package.TypeAndMemberDropdownBars.OnSynchronizeDropdowns%2A> method. When your language service is given a code window, the base <xref:Microsoft.VisualStudio.Package.LanguageService> class instantiates the <xref:Microsoft.VisualStudio.Package.CodeWindowManager>, which contains the <xref:Microsoft.VisualStudio.TextManager.Interop.IVsCodeWindow> object representing the code window. The <xref:Microsoft.VisualStudio.Package.CodeWindowManager> object is then given a new <xref:Microsoft.VisualStudio.TextManager.Interop.IVsTextView> object. The <xref:Microsoft.VisualStudio.Package.LanguageService.CreateDropDownHelper%2A> method gets a <xref:Microsoft.VisualStudio.Package.TypeAndMemberDropdownBars> object. If you return an instance of your <xref:Microsoft.VisualStudio.Package.TypeAndMemberDropdownBars> class, the <xref:Microsoft.VisualStudio.Package.CodeWindowManager> calls your <xref:Microsoft.VisualStudio.Package.TypeAndMemberDropdownBars.OnSynchronizeDropdowns%2A> method to populate the internal lists and passes your <xref:Microsoft.VisualStudio.Package.TypeAndMemberDropdownBars> object to the [!INCLUDE[vsprvs](../../code-quality/includes/vsprvs_md.md)] drop-down bar manager. The drop-down bar manager, in turn, calls the <xref:Microsoft.VisualStudio.Package.TypeAndMemberDropdownBars.SetDropdownBar%2A> method on your <xref:Microsoft.VisualStudio.Package.TypeAndMemberDropdownBars> object to establish the <xref:Microsoft.VisualStudio.TextManager.Interop.IVsDropdownBar> object that holds the two drop-down bars.  
+## <a name="displaying-and-updating-the-navigation-bar"></a>显示和更新的导航栏  
+ 若要支持的导航栏，你必须从派生类<xref:Microsoft.VisualStudio.Package.TypeAndMemberDropdownBars>类，实现<xref:Microsoft.VisualStudio.Package.TypeAndMemberDropdownBars.OnSynchronizeDropdowns%2A>方法。 语言服务时提供的代码窗口中，基<xref:Microsoft.VisualStudio.Package.LanguageService>类实例化<xref:Microsoft.VisualStudio.Package.CodeWindowManager>，其中包含<xref:Microsoft.VisualStudio.TextManager.Interop.IVsCodeWindow>表示代码窗口的对象。 <xref:Microsoft.VisualStudio.Package.CodeWindowManager>对象然后提供一个新<xref:Microsoft.VisualStudio.TextManager.Interop.IVsTextView>对象。 <xref:Microsoft.VisualStudio.Package.LanguageService.CreateDropDownHelper%2A>方法获取<xref:Microsoft.VisualStudio.Package.TypeAndMemberDropdownBars>对象。 如果返回的实例你<xref:Microsoft.VisualStudio.Package.TypeAndMemberDropdownBars>类，<xref:Microsoft.VisualStudio.Package.CodeWindowManager>调用你<xref:Microsoft.VisualStudio.Package.TypeAndMemberDropdownBars.OnSynchronizeDropdowns%2A>方法来填充内部列出并传递你<xref:Microsoft.VisualStudio.Package.TypeAndMemberDropdownBars>对象传递给[!INCLUDE[vsprvs](../../code-quality/includes/vsprvs_md.md)]下拉栏管理器。 下拉栏管理器中，依次调用<xref:Microsoft.VisualStudio.Package.TypeAndMemberDropdownBars.SetDropdownBar%2A>方法你<xref:Microsoft.VisualStudio.Package.TypeAndMemberDropdownBars>对象以建立<xref:Microsoft.VisualStudio.TextManager.Interop.IVsDropdownBar>对象，其中包含两个下拉栏。  
   
- When the caret moves, the <xref:Microsoft.VisualStudio.Package.LanguageService.OnIdle%2A> method calls the <xref:Microsoft.VisualStudio.Package.LanguageService.OnCaretMoved%2A> method. The base <xref:Microsoft.VisualStudio.Package.LanguageService.OnCaretMoved%2A> method calls the <xref:Microsoft.VisualStudio.Package.TypeAndMemberDropdownBars.OnSynchronizeDropdowns%2A> method in your <xref:Microsoft.VisualStudio.Package.TypeAndMemberDropdownBars> class to update the state of the Navigation bar. You pass a set of <xref:Microsoft.VisualStudio.Package.DropDownMember> objects to this method. Each object represents an entry in the drop-down.  
+ 当脱字号移动时，<xref:Microsoft.VisualStudio.Package.LanguageService.OnIdle%2A>方法调用<xref:Microsoft.VisualStudio.Package.LanguageService.OnCaretMoved%2A>方法。 基<xref:Microsoft.VisualStudio.Package.LanguageService.OnCaretMoved%2A>方法调用<xref:Microsoft.VisualStudio.Package.TypeAndMemberDropdownBars.OnSynchronizeDropdowns%2A>方法在你<xref:Microsoft.VisualStudio.Package.TypeAndMemberDropdownBars>类来更新导航栏的状态。 传递的一组<xref:Microsoft.VisualStudio.Package.DropDownMember>给此方法的对象。 每个对象表示下拉列表中的条目。  
   
-## <a name="the-contents-of-the-navigation-bar"></a>The Contents of the Navigation Bar  
- The Navigation bar usually contains a list of types and a list of members. The list of types includes all types available in the current source file. The type names include the complete namespace information. The following is an example of C# code with two types:  
+## <a name="the-contents-of-the-navigation-bar"></a>导航栏中的内容  
+ 导航栏通常包含的类型的列表和成员的列表。 类型的列表包括在当前的源文件中的所有可用的类型。 类型名称包含完整的命名空间信息。 下面是 C# 代码使用两种类型的示例：  
   
 ```csharp  
 namespace TestLanguagePackage  
@@ -62,48 +62,48 @@ namespace TestLanguagePackage
 }  
 ```  
   
- The type list will display `TestLanguagePackage.TestLanguageService` and `TestLanguagePackage.TestLanguageService.Tokens`.  
+ 类型列表将显示`TestLanguagePackage.TestLanguageService`和`TestLanguagePackage.TestLanguageService.Tokens`。  
   
- The members list displays the available members of the type that is selected in the types list. Using the code example above, if `TestLanguagePackage.TestLanguageService` is the type that is selected, the members list would contain the private members `tokens` and `serviceName`. The internal structure `Token` is not displayed.  
+ 成员列表中显示的类型的类型列表中选择可用的成员。 如果使用上面的代码示例`TestLanguagePackage.TestLanguageService`是选择，则类型成员列表中将包含私有成员`tokens`和`serviceName`。 内部结构`Token`不会显示。  
   
- You can implement the members list to make the name of a member bold when the caret is placed inside it. Members can also be displayed in grayed out text, indicating that they are not within the scope where the caret is currently positioned.  
+ 你可以实现使成员名称加粗，当脱字号位于其内部的成员列表。 成员也可以显示在文本，显示为灰色，指示他们不在当前放置脱字号位置的作用域内。  
   
-## <a name="enabling-support-for-the-navigation-bar"></a>Enabling Support for the Navigation Bar  
- To enable support for the Navigation bar, you must set the `ShowDropdownBarOption` parameter of the <xref:Microsoft.VisualStudio.Shell.ProvideLanguageServiceAttribute> attribute to `true`. This parameter sets the <xref:Microsoft.VisualStudio.Package.LanguagePreferences.ShowNavigationBar%2A> property. To support the Navigation bar, you must implement the <xref:Microsoft.VisualStudio.Package.TypeAndMemberDropdownBars> object in the <xref:Microsoft.VisualStudio.Package.LanguageService.CreateDropDownHelper%2A> method on the <xref:Microsoft.VisualStudio.Package.LanguageService> class.  
+## <a name="enabling-support-for-the-navigation-bar"></a>启用对导航栏的支持  
+ 若要启用对导航栏的支持，必须设置`ShowDropdownBarOption`参数<xref:Microsoft.VisualStudio.Shell.ProvideLanguageServiceAttribute>属性设为`true`。 此参数设置 <xref:Microsoft.VisualStudio.Package.LanguagePreferences.ShowNavigationBar%2A> 属性。 若要支持的导航栏，则必须实现<xref:Microsoft.VisualStudio.Package.TypeAndMemberDropdownBars>对象在<xref:Microsoft.VisualStudio.Package.LanguageService.CreateDropDownHelper%2A>方法<xref:Microsoft.VisualStudio.Package.LanguageService>类。  
   
- In your implementation of the <xref:Microsoft.VisualStudio.Package.LanguageService.CreateDropDownHelper%2A> method, if the <xref:Microsoft.VisualStudio.Package.LanguagePreferences.ShowNavigationBar%2A> property is set to `true`, you can return a <xref:Microsoft.VisualStudio.Package.TypeAndMemberDropdownBars> object. If you do not return the object, the Navigation bar is not displayed.  
+ 实现中<xref:Microsoft.VisualStudio.Package.LanguageService.CreateDropDownHelper%2A>方法，如果<xref:Microsoft.VisualStudio.Package.LanguagePreferences.ShowNavigationBar%2A>属性设置为`true`，你可以返回<xref:Microsoft.VisualStudio.Package.TypeAndMemberDropdownBars>对象。 如果未返回对象，不会显示导航栏。  
   
- The option to show the Navigation bar can be set by the user, so it is possible for this control to be reset while the editor view is open. The user must close and reopen the editor window before the change takes place.  
+ 显示导航栏的选项可以设置用户，因此很可能对于此控件的编辑器视图处于打开状态时要重置。 用户必须关闭再重新打开编辑器窗口，然后发生更改。  
   
-## <a name="implementing-support-for-the-navigation-bar"></a>Implementing Support for the Navigation Bar  
- The <xref:Microsoft.VisualStudio.Package.TypeAndMemberDropdownBars.OnSynchronizeDropdowns%2A> method takes two lists (one for each drop-down) and two values representing the current selection in each list. The lists and the selection values can be updated, in which case the <xref:Microsoft.VisualStudio.Package.TypeAndMemberDropdownBars.OnSynchronizeDropdowns%2A> method must return `true` to indicate that the lists have changed.  
+## <a name="implementing-support-for-the-navigation-bar"></a>实现对导航栏的支持  
+ <xref:Microsoft.VisualStudio.Package.TypeAndMemberDropdownBars.OnSynchronizeDropdowns%2A>方法采用两个列表 （一个用于每个下拉列表） 和表示当前选定内容的每个列表中的两个值。 列表和选择值可以更新，在这种情况下<xref:Microsoft.VisualStudio.Package.TypeAndMemberDropdownBars.OnSynchronizeDropdowns%2A>方法必须返回`true`以指示已更改的列表。  
   
- As the selection changes in the types drop-down, the members list must be updated to reflect the new type. What is shown in the members list can be either:  
+ 当所选内容更改类型下拉列表中时，必须更新成员列表以反映新的类型。 在成员列表中显示的内容可以是：  
   
--   The list of members for the current type.  
+-   对于当前的类型的成员的列表。  
   
--   All the members available in the source file, but with all members not in the current type displayed in grayed-out text. The user can still select the grayed-out members, so they can be used for quick navigation, but the color indicates that they are not part of the currently selected type.  
+-   中的所有成员可用源文件，但与不在当前类型的所有成员显示在灰显的文本。 用户仍可以选择灰显的成员，因此它们可以用于快速导航窗格中，但颜色表示它们不是当前所选类型的一部分。  
   
- An implementation of the <xref:Microsoft.VisualStudio.Package.TypeAndMemberDropdownBars.OnSynchronizeDropdowns%2A> method typically performs the following steps:  
+ 实现<xref:Microsoft.VisualStudio.Package.TypeAndMemberDropdownBars.OnSynchronizeDropdowns%2A>方法通常会执行以下步骤：  
   
-1.  Get a list of current declarations for the source file.  
+1.  获取当前声明源文件的文件名的列表。  
   
-     There are a number of ways to populate the lists. One approach is to create a custom method on your version of the <xref:Microsoft.VisualStudio.Package.LanguageService> class that calls the <xref:Microsoft.VisualStudio.Package.LanguageService.ParseSource%2A> method with a custom parse reason that returns a list of all declarations. Another approach might be to call the <xref:Microsoft.VisualStudio.Package.LanguageService.ParseSource%2A> method directly from the <xref:Microsoft.VisualStudio.Package.TypeAndMemberDropdownBars.OnSynchronizeDropdowns%2A> method with the custom parse reason. A third approach might be to cache the declarations in the <xref:Microsoft.VisualStudio.Package.AuthoringScope> class returned by the last full parsing operation in the <xref:Microsoft.VisualStudio.Package.LanguageService> class and retrieve that from the <xref:Microsoft.VisualStudio.Package.TypeAndMemberDropdownBars.OnSynchronizeDropdowns%2A> method.  
+     有多种方式可填充列表。 一种方法是在你的版本上创建的自定义方法<xref:Microsoft.VisualStudio.Package.LanguageService>调用的类<xref:Microsoft.VisualStudio.Package.LanguageService.ParseSource%2A>方法返回的所有声明的列表的自定义分析原因。 另一种方法可能是调用<xref:Microsoft.VisualStudio.Package.LanguageService.ParseSource%2A>方法直接从<xref:Microsoft.VisualStudio.Package.TypeAndMemberDropdownBars.OnSynchronizeDropdowns%2A>，自定义分析原因的方法。 第三个方法可能是缓存中的声明<xref:Microsoft.VisualStudio.Package.AuthoringScope>类中的最后一个完整分析操作返回<xref:Microsoft.VisualStudio.Package.LanguageService>类和检索，从<xref:Microsoft.VisualStudio.Package.TypeAndMemberDropdownBars.OnSynchronizeDropdowns%2A>方法。  
   
-2.  Populate or update the list of types.  
+2.  填充或更新的类型列表。  
   
-     The contents of the types list may to be updated when the source has changed or if you have chosen to change the text styling of the types based on the current caret position. Note that this position is passed to the <xref:Microsoft.VisualStudio.Package.TypeAndMemberDropdownBars.OnSynchronizeDropdowns%2A> method.  
+     类型列表的内容可能要更新源已更改时，或如果已选择要更改根据当前插入符号位置的类型的文本样式。 请注意，此位置传递给<xref:Microsoft.VisualStudio.Package.TypeAndMemberDropdownBars.OnSynchronizeDropdowns%2A>方法。  
   
-3.  Determine the type to select in the types list based on the current caret position.  
+3.  确定要基于当前插入符号位置的类型列表中选择的类型。  
   
-     You can search the declarations that were obtained in step 1 to find the type that encloses the current caret position, and then search the types list for that type to determine its index into the types list.  
+     你可以在步骤 1 到包含当前插入符号位置，类型中搜索中获取的声明，然后搜索该类型到类型列表中确定其索引的类型列表。  
   
-4.  Populate or update the list of members based on the selected type.  
+4.  填充或更新的基于所选类型的成员的列表。  
   
-     The members list reflects what is currently displayed in the **Members** drop-down. The contents of the members list may need to be updated if the source has changed or if you are displaying only the members of the selected type and the selected type has changed. If you choose to display all the members in the source file, then the text styling of each member in the list needs to be updated if the currently selected type has changed.  
+     成员列表中反映中当前显示的内容**成员**下拉列表。 成员列表中的内容可能需要更新，如果源已更改，或者如果您要显示只有所选类型的成员，并且所选的类型已更改。 如果你选择在源文件中显示的所有成员，然后需要如果当前所选的类型已更改更新列表中每个成员的文本样式。  
   
-5.  Determine the member to select in the members list based on the current caret position.  
+5.  确定要在基于当前插入符号位置的成员列表中选择的成员。  
   
-     Search the declarations that were obtained in step 1 for the member that contains the current caret position, then search the members list for that member to determine its index into the member list.  
+     搜索中获取的声明在步骤 1 中的成员，其中包含当前插入符号位置，然后搜索该成员，以确定其索引到成员列表中的成员列表。  
   
-6.  Return `true` if any changes have been made to the lists or the selections in either list.
+6.  返回`true`如果到列表或在这两个列表中的选项进行了任何更改。

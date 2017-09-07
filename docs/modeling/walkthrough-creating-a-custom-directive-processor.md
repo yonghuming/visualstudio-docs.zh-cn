@@ -1,5 +1,5 @@
 ---
-title: 'Walkthrough: Creating a Custom Directive Processor | Microsoft Docs'
+title: "演练： 创建自定义指令处理器 |Microsoft 文档"
 ms.custom: 
 ms.date: 11/04/2016
 ms.reviewer: 
@@ -32,39 +32,39 @@ ms.translationtype: MT
 ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
 ms.openlocfilehash: 449a8d80eef26935251c265b526d8aacd471d147
 ms.contentlocale: zh-cn
-ms.lasthandoff: 08/28/2017
+ms.lasthandoff: 09/06/2017
 
 ---
-# <a name="walkthrough-creating-a-custom-directive-processor"></a>Walkthrough: Creating a Custom Directive Processor
-*Directive processors* work by adding code to the *generated transformation class*. If you call a *directive* from a *text template*, the rest of the code that you write in your text template can rely on the functionality that the directive provides.  
+# <a name="walkthrough-creating-a-custom-directive-processor"></a>演练：创建自定义指令处理器
+*指令处理器*工作通过将代码添加到*生成转换类*。 如果调用*指令*从*文本模板*，文本模板中编写的代码的其余部分可以依赖于该指令提供的功能。  
   
- You can write your own custom directive processors. This enables you to customize your text templates. To create a custom directive processor, you create a class that inherits from either <xref:Microsoft.VisualStudio.TextTemplating.DirectiveProcessor> or <xref:Microsoft.VisualStudio.TextTemplating.RequiresProvidesDirectiveProcessor>.  
+ 您可以编写自己的自定义指令处理器。 利用它可以自定义文本模板。 若要创建自定义指令处理器，需要创建一个从 <xref:Microsoft.VisualStudio.TextTemplating.DirectiveProcessor> 或 <xref:Microsoft.VisualStudio.TextTemplating.RequiresProvidesDirectiveProcessor> 继承的类。  
   
- Tasks that are illustrated in this walkthrough include the following:  
+ 本演练演示以下任务：  
   
--   Creating a custom directive processor  
+-   创建自定义指令处理器  
   
--   Registering the directive processor  
+-   注册指令处理器  
   
--   Testing the directive processor  
+-   测试指令处理器  
   
-## <a name="prerequisites"></a>Prerequisites  
- To complete this walkthrough, you will need:  
+## <a name="prerequisites"></a>先决条件  
+ 若要完成此演练，您需要：  
   
 -   Visual Studio 2010  
   
 -   Visual Studio 2010 SDK  
   
-## <a name="creating-a-custom-directive-processor"></a>Creating a Custom Directive Processor  
- In this walkthrough, you create a custom directive processor. You add a custom directive that reads an XML file, stores it in an <xref:System.Xml.XmlDocument> variable, and exposes it through a property. In the section "Testing the Directive Processor," you use this property in a text template to access the XML file.  
+## <a name="creating-a-custom-directive-processor"></a>创建自定义指令处理器  
+ 在本演练中，将创建一个自定义指令处理器。 添加一条自定义指令，该指令读取 XML 文件，将其存储在 <xref:System.Xml.XmlDocument> 变量中，并通过一个属性将其公开。 在“测试指令处理器”一节中，将在文本模板中使用此属性访问 XML 文件。  
   
- The call to your custom directive looks like the following:  
+ 自定义指令的调用如下所示：  
   
  `<#@ CoolDirective Processor="CustomDirectiveProcessor" FileName="<Your Path>DocFile.xml" #>`  
   
- The custom directive processor adds the variable and the property to the generated transformation class. The directive that you write uses the <xref:System.CodeDom> classes to create the code that the engine adds to the generated transformation class. The <xref:System.CodeDom> classes create code in either Visual C# or [!INCLUDE[vbprvb](../code-quality/includes/vbprvb_md.md)], depending on the language specified in the `language` parameter of the `template` directive. The language of the directive processor and the language of the text template that is accessing the directive processor do not have to match.  
+ 自定义指令处理器将变量和属性添加到生成转换类。 您编写的指令使用 <xref:System.CodeDom> 类创建引擎添加到生成转换类的代码。 <xref:System.CodeDom> 类使用 Visual C# 或 [!INCLUDE[vbprvb](../code-quality/includes/vbprvb_md.md)] 创建代码，具体取决于在 `language` 指令的 `template` 参数中指定的语言。 指令处理器的语言和访问指令处理器的文本模板的语言不必一致。  
   
- The code that the directive creates looks like the following:  
+ 指令创建的代码如下所示：  
   
 ```csharp  
 private System.Xml.XmlDocument document0Value;  
@@ -95,20 +95,20 @@ Public Overridable ReadOnly Property Document0() As System.Xml.XmlDocument
 End Property  
 ```  
   
-#### <a name="to-create-a-custom-directive-processor"></a>To create a custom directive processor  
+#### <a name="to-create-a-custom-directive-processor"></a>创建自定义指令处理器  
   
-1.  In Visual Studio, create a C# or a Visual Basic class library project named CustomDP.  
+1.  在 Visual Studio 中，创建一个名为 CustomDP 的 C# 或 Visual Basic 类库项目。  
   
     > [!NOTE]
-    >  If you want to install the directive processor on more than one computer, it is better to use a [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] Extension (VSIX) project and include a .pkgdef file in the extension. For more information, see [Deploying a Custom Directive Processor](../modeling/deploying-a-custom-directive-processor.md).  
+    >  如果要在多台计算机上安装指令处理器，最好使用 [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] Extension (VSIX) 项目并在扩展中包含一个 .pkgdef 文件。 有关详细信息，请参阅[部署自定义指令处理器](../modeling/deploying-a-custom-directive-processor.md)。  
   
-2.  Add  references to these assemblies:  
+2.  添加对下列程序集的引用：  
   
-    -   **Microsoft.VisualStudio.TextTemplating.\*.0**  
+    -   **Microsoft.VisualStudio.TextTemplating。\*.0**  
   
-    -   **Microsoft.VisualStudio.TextTemplating.Interfaces.\*.0**  
+    -   **Microsoft.VisualStudio.TextTemplating.Interfaces。\*.0**  
   
-3.  Replace the code in **Class1** with the following code. This code defines a CustomDirectiveProcessor class that inherits from the <xref:Microsoft.VisualStudio.TextTemplating.DirectiveProcessor> class and implements the necessary methods.  
+3.  中的代码替换**Class1**替换为以下代码。 此代码定义一个继承自 <xref:Microsoft.VisualStudio.TextTemplating.DirectiveProcessor> 类的 CustomDirectiveProcessor 类并实现必需的方法。  
   
     ```csharp  
     using System;  
@@ -620,90 +620,90 @@ End Property
     End Namespace  
     ```  
   
-4.  For [!INCLUDE[vbprvb](../code-quality/includes/vbprvb_md.md)] only, open the **Project** menu, and click **CustomDP Properties**. On the **Application** tab, in **Root namespace**, delete the default value, `CustomDP`.  
+4.  有关[!INCLUDE[vbprvb](../code-quality/includes/vbprvb_md.md)]仅，打开**项目**菜单，然后单击**CustomDP 属性**。 上**应用程序**选项卡上，在**根命名空间**，删除默认值， `CustomDP`。  
   
-5.  On the **File** menu, click **Save All**.  
+5.  上**文件**菜单上，单击**保存所有**。  
   
-6.  On the **Build** menu, click **Build Solution**.  
+6.  在 **“生成”** 菜单上，单击 **“生成解决方案”**。  
   
-### <a name="build-the-project"></a>Build the Project  
- Build the project. On the **Build** menu, click **Build Solution**.  
+### <a name="build-the-project"></a>生成项目  
+ 生成项目。 在 **“生成”** 菜单上，单击 **“生成解决方案”**。  
   
-## <a name="registering-the-directive-processor"></a>Registering the Directive Processor  
- Before you can call a directive from a text template in [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)], you must add a registry key for the directive processor.  
+## <a name="registering-the-directive-processor"></a>注册指令处理器  
+ 你可以从中的文本模板调用指令之前[!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)]，必须添加注册表项为指令处理器。  
   
 > [!NOTE]
->  If you want to install the directive processor on more than one computer, it is better to define a [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] Extension (VSIX) that includes a .pkgdef file along with your assembly. For more information, see [Deploying a Custom Directive Processor](../modeling/deploying-a-custom-directive-processor.md).  
+>  如果要在多台计算机上安装指令处理器，最好定义一个 [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] Extension (VSIX)，其中包含一个 .pkgdef 文件和您的程序集。 有关详细信息，请参阅[部署自定义指令处理器](../modeling/deploying-a-custom-directive-processor.md)。  
   
- Keys for directive processors exist in the registry in the following location:  
+ 指令处理器的项在注册表的以下位置：  
   
 ```  
 HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\VisualStudio\*.0\TextTemplating\DirectiveProcessors  
 ```  
   
- For 64-bit systems, the registry location is:  
+ 对于 64 位系统，注册表位置为：  
   
 ```  
 HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft\VisualStudio\*.0\TextTemplating\DirectiveProcessors  
 ```  
   
- In this section, you add a key for your custom directive processor to the registry in the same location.  
+ 在本节中，将在注册表中的该位置为自定义指令处理器添加一个项。  
   
 > [!CAUTION]
->  Incorrectly editing the registry can severely damage your system. Before you make changes to the registry, back up any valuable data that is on the computer.  
+>  错误编辑注册表会严重损坏系统。 更改注册表之前，应备份计算机中的所有重要数据。  
   
-#### <a name="to-add-a-registry-key-for-the-directive-processor"></a>To add a registry key for the directive processor  
+#### <a name="to-add-a-registry-key-for-the-directive-processor"></a>为指令处理器添加注册表项  
   
-1.  Run the `regedit` command by using the Start menu or the command line.  
+1.  运行`regedit`命令通过使用开始菜单或命令行。  
   
-2.  Browse to the location **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\VisualStudio\\\*.0\TextTemplating\DirectiveProcessors**, and click the node.  
+2.  浏览到的位置**HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\VisualStudio\\\*.0\TextTemplating\DirectiveProcessors**，单击的节点。  
   
-     On 64-bit systems, use **HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft\VisualStudio\\\*.0\TextTemplating\DirectiveProcessors**  
+     在 64 位系统上使用**HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft\VisualStudio\\\*.0\TextTemplating\DirectiveProcessors**  
   
-3.  Add a new key named CustomDirectiveProcessor.  
-  
-    > [!NOTE]
-    >  This is the name that you will use in the Processor field of your custom directives. This name does not need to match the name of the directive, the name of the directive processor class, or the directive processor namespace.  
-  
-4.  Add a new string value named Class that has a value CustomDP.CustomDirectiveProcessor for the name of the new string.  
-  
-5.  Add a new string value named CodeBase that has a value equal to the path of the CustomDP.dll that you created earlier in this walkthrough.  
-  
-     For example, the path might look like `C:\UserFiles\CustomDP\bin\Debug\CustomDP.dll`.  
-  
-     Your registry key should have the following values:  
-  
-    |Name|Type|Data|  
-    |----------|----------|----------|  
-    |(Default)|REG_SZ|(value not set)|  
-    |Class|REG_SZ|CustomDP.CustomDirectiveProcessor|  
-    |CodeBase|REG_SZ|**\<Path to Your Solution>**CustomDP\bin\Debug\CustomDP.dll|  
-  
-     If you have put the assembly in the GAC, the values should look like the following:  
-  
-    |Name|Type|Data|  
-    |----------|----------|----------|  
-    |(Default)|REG_SZ|(value not set)|  
-    |Class|REG_SZ|CustomDP.CustomDirectiveProcessor|  
-    |Assembly|REG_SZ|CustomDP.dll|  
-  
-6.  Restart Visual Studio.  
-  
-## <a name="testing-the-directive-processor"></a>Testing the Directive Processor  
- To test the directive processor, you need to write a text template that calls it.  
-  
- In this example, the text template calls the directive and passes in the name of an XML file that contains documentation for a class file.
-  
- The text template then uses the <xref:System.Xml.XmlDocument> property that the directive creates to navigate the XML and print the documentation comments.  
-  
-#### <a name="to-create-an-xml-file-for-use-in-testing-the-directive-processor"></a>To create an XML file for use in testing the directive processor  
-  
-1.  Create a text file named `DocFile.xml` by using any text editor (for example, Notepad).  
+3.  添加名为 CustomDirectiveProcessor 的新项。  
   
     > [!NOTE]
-    >  You can create this file in any location (for example, C:\Test\DocFile.xml).  
+    >  这是将在自定义指令的 Processor 字段中使用的名称。 此名称不必与指令名称、指令处理器类名称或指令处理器命名空间一致。  
   
-2.  Add the following to the text file:  
+4.  添加名为 Class 的新字符串值，该新字符串名称的值为 CustomDP.CustomDirectiveProcessor。  
+  
+5.  添加名为 CodeBase 的新字符串值，它的值等于在本演练前面创建的 CustomDP.dll 的路径。  
+  
+     例如，路径可能如下所示`C:\UserFiles\CustomDP\bin\Debug\CustomDP.dll`。  
+  
+     注册表项应具有以下值：  
+  
+    |名称|类型|数据|  
+    |----------|----------|----------|  
+    |(默认)|REG_SZ|(未设置值)|  
+    |类|REG_SZ|CustomDP.CustomDirectiveProcessor|  
+    |CodeBase|REG_SZ|**\<解决方案的路径 >**CustomDP\bin\Debug\CustomDP.dll|  
+  
+     如果已将程序集放置在 GAC 中，则值应如下所示：  
+  
+    |名称|类型|数据|  
+    |----------|----------|----------|  
+    |(默认)|REG_SZ|(未设置值)|  
+    |类|REG_SZ|CustomDP.CustomDirectiveProcessor|  
+    |程序集|REG_SZ|CustomDP.dll|  
+  
+6.  重新启动 Visual Studio。  
+  
+## <a name="testing-the-directive-processor"></a>测试指令处理器  
+ 若要测试指令处理器，需要编写一个调用它的文本模板。  
+  
+ 在本示例中，文本模板调用指令并传入包含类文件文档的 XML 文件的名称。
+  
+ 然后，文本模板使用该指令创建的 <xref:System.Xml.XmlDocument> 属性导航到 XML 并输出文档注释。  
+  
+#### <a name="to-create-an-xml-file-for-use-in-testing-the-directive-processor"></a>创建供测试指令处理器使用的 XML 文件  
+  
+1.  创建一个名为文本文件`DocFile.xml`使用的任何文本编辑器 （例如，记事本）。  
+  
+    > [!NOTE]
+    >  可以在任意位置（如 C:\Test\DocFile.xml）创建此文件。  
+  
+2.  向文本文件中添加以下内容：  
   
     ```  
     <?xml version="1.0"?>  
@@ -744,22 +744,22 @@ HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft\VisualStudio\*.0\TextTemplatin
     </doc>  
     ```  
   
-3.  Save and close the file.  
+3.  保存并关闭文件。  
   
-#### <a name="to-create-a-text-template-to-test-the-directive-processor"></a>To create a text template to test the directive processor  
+#### <a name="to-create-a-text-template-to-test-the-directive-processor"></a>创建文本模板测试指令处理器  
   
-1.  In Visual Studio, create a C# or Visual Basic class library project named TemplateTest.  
+1.  在 Visual Studio 中，创建一个名为 TemplateTest 的 C# 或 Visual Basic 类库项目。  
   
-2.  Add a new text template file named TestDP.tt.  
+2.  添加名为 TestDP.tt 的新文本模板文件。  
   
-3.  Make sure that the **Custom Tool** property of TestDP.tt is set to `TextTemplatingFileGenerator`.  
+3.  请确保**自定义工具**TestDP.tt 属性设置为`TextTemplatingFileGenerator`。  
   
-4.  Change the content of  TestDP.tt to the following text.  
+4.  将 TestDP.tt 的内容更改为以下文本。  
   
     > [!NOTE]
-    >  Make sure to replace the string <`YOUR PATH>` with the path to the DocFile.xml file.  
+    >  请确保来替换字符串 <`YOUR PATH>`替换为 DocFile.xml 文件的路径。  
   
-     The language of the text template does not have to match the language of the directive processor.  
+     文本模板的语言不必与指令处理器的语言一致。  
   
     ```csharp  
     <#@ assembly name="System.Xml" #>  
@@ -844,19 +844,19 @@ HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft\VisualStudio\*.0\TextTemplatin
     ```  
   
     > [!NOTE]
-    >  In this example, the value of the `Processor` parameter is `CustomDirectiveProcessor`. The value of the `Processor` parameter must match the name of the processor's registry key.  
+    >  在本示例中，`Processor` 参数的值为 `CustomDirectiveProcessor`。 `Processor` 参数的值必须与处理器的注册表项的名称一致。  
   
-5.  On the **File** menu, click **Save All**.  
+5.  上**文件**菜单上，单击**保存所有**。  
   
-#### <a name="to-test-the-directive-processor"></a>To test the directive processor  
+#### <a name="to-test-the-directive-processor"></a>测试指令处理器  
   
-1.  In **Solution Explorer**, right-click TestDP.tt and then click **Run Custom Tool**.  
+1.  在**解决方案资源管理器**，右击 TestDP.tt，然后单击**运行自定义工具**。  
   
-     For [!INCLUDE[vbprvb](../code-quality/includes/vbprvb_md.md)] users, TestDP.txt might not appear in **Solution Explorer** by default. To display all files assigned to the project, open the **Project** menu and click **Show All Files**.  
+     有关[!INCLUDE[vbprvb](../code-quality/includes/vbprvb_md.md)]用户，TestDP.txt 可能未显示在**解决方案资源管理器**默认情况下。 若要显示分配给项目的所有文件，打开**项目**菜单，然后单击**显示所有文件**。  
   
-2.  In **Solution Explorer**, expand the TestDP.txt node, and then double-click TestDP.txt to open it in the editor.  
+2.  在**解决方案资源管理器**，展开 TestDP.txt 节点，然后双击 TestDP.txt，在编辑器中打开它。  
   
-     The generated text output appears. The output should look like the following:  
+     此时将显示生成的文本输出。 输出应如下所示：  
   
     ```  
        Name:  T:SomeClass  
@@ -888,15 +888,15 @@ HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft\VisualStudio\*.0\TextTemplatin
       value:  A value tag is used to describe the property value  
     ```  
   
-## <a name="adding-html-to-generated-text"></a>Adding HTML to Generated Text  
- After you test your custom directive processor, you might want to add some HTML to your generated text.  
+## <a name="adding-html-to-generated-text"></a>向生成的文本添加 HTML  
+ 测试自定义指令处理器后，可能要向生成的文本添加一些 HTML。  
   
-#### <a name="to-add-html-to-the-generated-text"></a>To add HTML to the generated text  
+#### <a name="to-add-html-to-the-generated-text"></a>向生成的文本添加 HTML  
   
-1.  Replace the code in TestDP.tt with the following. The HTML is highlighted. Make sure to replace the string `YOUR PATH` with the path to the DocFile.xml file.  
+1.  用下面的代码替换 TestDP.tt 中的代码。 HTML 为突出显示状态。 请确保来替换字符串`YOUR PATH`替换为 DocFile.xml 文件的路径。  
   
     > [!NOTE]
-    >  Additional open \<# and close #> tags separate the statement code from the HTML tags.  
+    >  附加的开始\<# 和结束 #> 标记将语句代码分离与 HTML 标记。  
   
     ```csharp  
     <#@ assembly name="System.Xml" #>  
@@ -978,9 +978,9 @@ HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft\VisualStudio\*.0\TextTemplatin
     </body></html>  
     ```  
   
-2.  On the **File** menu, click **Save TestDP.txt**.  
+2.  上**文件**菜单上，单击**保存 TestDP.txt**。  
   
-3.  To view the output in a browser, in **Solution Explorer**, right-click TestDP.htm, and click **View In Browser**.  
+3.  若要查看在浏览器中，输出在**解决方案资源管理器**，右击 TestDP.htm，再单击**在浏览器中查看**。  
   
-     Your output should be the same as the original text except it should have the HTML format applied. Each item name should appear in bold.
+     输出应与原始文本相同，只是应用了 HTML 格式。 每个项名称都应显示为粗体。
 

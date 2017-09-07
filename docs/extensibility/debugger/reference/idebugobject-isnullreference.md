@@ -1,5 +1,5 @@
 ---
-title: IDebugObject::IsNullReference | Microsoft Docs
+title: "IDebugObject::IsNullReference |Microsoft 文档"
 ms.custom: 
 ms.date: 11/04/2016
 ms.reviewer: 
@@ -34,13 +34,13 @@ ms.translationtype: MT
 ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
 ms.openlocfilehash: dee4f1909ec5f6e66c7f828b5552ff424b4d9edc
 ms.contentlocale: zh-cn
-ms.lasthandoff: 08/28/2017
+ms.lasthandoff: 09/06/2017
 
 ---
 # <a name="idebugobjectisnullreference"></a>IDebugObject::IsNullReference
-Tests whether this object is a null reference.  
+测试此对象是否为空引用。  
   
-## <a name="syntax"></a>Syntax  
+## <a name="syntax"></a>语法  
   
 ```cpp  
 HRESULT IsNullReference(   
@@ -54,15 +54,15 @@ int IsNullReference(
 );  
 ```  
   
-#### <a name="parameters"></a>Parameters  
+#### <a name="parameters"></a>参数  
  `pfIsNull`  
- [out] Returns non-zero (`TRUE`) if this object is a null reference; otherwise, returns zero (`FALSE`).  
+ [out]返回非零 (`TRUE`) 如果此对象为 null 引用; 否则，返回零 (`FALSE`)。  
   
-## <a name="return-value"></a>Return Value  
- If successful, returns S_OK; otherwise, returns an error code.  
+## <a name="return-value"></a>返回值  
+ 如果成功，返回，则为 S_OK;否则，返回错误代码。  
   
-## <a name="remarks"></a>Remarks  
- A null reference means an empty object or an object that has not been assigned to.  
+## <a name="remarks"></a>备注  
+ 空引用意味着一个空对象或尚未分配到的对象。  
   
-## <a name="see-also"></a>See Also  
+## <a name="see-also"></a>另请参阅  
  [IDebugObject](../../../extensibility/debugger/reference/idebugobject.md)

@@ -1,5 +1,5 @@
 ---
-title: IDebugProperty3::GetStringChars | Microsoft Docs
+title: "IDebugProperty3::GetStringChars |Microsoft 文档"
 ms.custom: 
 ms.date: 11/04/2016
 ms.reviewer: 
@@ -34,13 +34,13 @@ ms.translationtype: MT
 ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
 ms.openlocfilehash: f84c744eef8dab863ec9a91aec621764dfa3c266
 ms.contentlocale: zh-cn
-ms.lasthandoff: 08/28/2017
+ms.lasthandoff: 09/06/2017
 
 ---
 # <a name="idebugproperty3getstringchars"></a>IDebugProperty3::GetStringChars
-Retrieves the string associated with this property and stores it in a user-supplied buffer.  
+检索此属性与关联的字符串，并将其存储在用户提供的缓冲区。  
   
-## <a name="syntax"></a>Syntax  
+## <a name="syntax"></a>语法  
   
 ```cpp  
 HRESULT GetStringChars(  
@@ -58,28 +58,28 @@ int GetStringChars(
 );  
 ```  
   
-#### <a name="parameters"></a>Parameters  
+#### <a name="parameters"></a>参数  
  `buflen`  
- [in] Maximum number of characters the user-supplied buffer can hold.  
+ [in]用户提供缓冲区可以容纳最大字符数。  
   
  `rgString`  
- [out] Returns the string.  
+ [out]返回的字符串。  
   
- [C++ only], `rgString` is a pointer to a buffer that receives the Unicode characters of the string. This buffer must be at least `buflen` characters (not bytes) in size.  
+ [仅 c + +]，`rgString`是指向接收字符串的 Unicode 字符的缓冲区的指针。 此缓冲区必须至少`buflen`大小中的字符 （不字节为单位）。  
   
  `pceltFetched`  
- [out] Where the number of characters actually stored in the buffer is returned. (Can be `NULL` in C++.)  
+ [out]其中返回的实际存储在缓冲区中的字符数。 (可以是`NULL`c + + 中。)  
   
-## <a name="return-value"></a>Return Value  
- If successful, returns `S_OK`; otherwise returns an error code.  
+## <a name="return-value"></a>返回值  
+ 如果成功，则返回`S_OK`; 否则返回错误代码。  
   
-## <a name="remarks"></a>Remarks  
- In C++, care must be taken to insure that the buffer is at least `buflen` Unicode characters long. Note that a Unicode character is 2 bytes long.  
+## <a name="remarks"></a>备注  
+ C + + 中必须格外小心地保证缓冲区至少`buflen`Unicode 字符。 请注意，Unicode 字符长 2 个字节。  
   
 > [!NOTE]
->  In C++, the returned string does not include a terminating null character. If given, `pceltFetched` will specify the number of characters in the string.  
+>  在 c + +，则返回的字符串不包括终止 null 字符。 如果给出，`pceltFetched`将字符串中指定的字符数。  
   
-## <a name="example"></a>Example  
+## <a name="example"></a>示例  
  
 ```cpp  
 CStringW RetrievePropertyString(IDebugProperty2 *pPropInfo)  
@@ -102,7 +102,7 @@ CStringW RetrievePropertyString(IDebugProperty2 *pPropInfo)
 }
 ```    
   
-## <a name="see-also"></a>See Also  
+## <a name="see-also"></a>另请参阅  
  [GetStringCharLength](../../../extensibility/debugger/reference/idebugproperty3-getstringcharlength.md)   
  [IDebugProperty3](../../../extensibility/debugger/reference/idebugproperty3.md)   
  [IDebugProperty2](../../../extensibility/debugger/reference/idebugproperty2.md)
