@@ -1,5 +1,5 @@
 ---
-title: IDebugPort2::GetPortSupplier | Microsoft Docs
+title: "IDebugPort2::GetPortSupplier |Microsoft 文档"
 ms.custom: 
 ms.date: 11/04/2016
 ms.reviewer: 
@@ -34,13 +34,13 @@ ms.translationtype: MT
 ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
 ms.openlocfilehash: b26ff6c2e4d5ff2c7094c203e11e4c6b288fa87b
 ms.contentlocale: zh-cn
-ms.lasthandoff: 08/28/2017
+ms.lasthandoff: 09/06/2017
 
 ---
 # <a name="idebugport2getportsupplier"></a>IDebugPort2::GetPortSupplier
-Gets the port supplier for this port.  
+获取此端口的端口提供程序。  
   
-## <a name="syntax"></a>Syntax  
+## <a name="syntax"></a>语法  
   
 ```cpp  
 HRESULT GetPortSupplier(   
@@ -54,13 +54,13 @@ int GetPortSupplier(
 );  
 ```  
   
-#### <a name="parameters"></a>Parameters  
+#### <a name="parameters"></a>参数  
  `ppSupplier`  
- [out] Returns an [IDebugPortSupplier2](../../../extensibility/debugger/reference/idebugportsupplier2.md) object represents the port supplier for a port.  
+ [out]返回[IDebugPortSupplier2](../../../extensibility/debugger/reference/idebugportsupplier2.md)对象表示为端口端口供应商。  
   
-## <a name="return-value"></a>Return Value  
- If successful, returns `S_OK`; otherwise, returns an error code.  
+## <a name="return-value"></a>返回值  
+ 如果成功，则返回`S_OK`; 否则为返回错误代码。  
   
-## <a name="see-also"></a>See Also  
+## <a name="see-also"></a>另请参阅  
  [IDebugPort2](../../../extensibility/debugger/reference/idebugport2.md)   
  [IDebugPortSupplier2](../../../extensibility/debugger/reference/idebugportsupplier2.md)

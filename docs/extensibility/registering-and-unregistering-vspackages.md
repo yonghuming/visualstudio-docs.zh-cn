@@ -1,5 +1,5 @@
 ---
-title: Registering and Unregistering VSPackages | Microsoft Docs
+title: "注册和注销 Vspackage |Microsoft 文档"
 ms.custom: 
 ms.date: 11/04/2016
 ms.reviewer: 
@@ -33,16 +33,16 @@ ms.translationtype: MT
 ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
 ms.openlocfilehash: 312c06295492ac9bd1136ea7de9a0399f247c365
 ms.contentlocale: zh-cn
-ms.lasthandoff: 08/28/2017
+ms.lasthandoff: 09/06/2017
 
 ---
-# <a name="registering-and-unregistering-vspackages"></a>Registering and Unregistering VSPackages
-You use attributes to register a VSPackage, but  
+# <a name="registering-and-unregistering-vspackages"></a>注册和注销 Vspackage
+特性用于注册 VSPackage，但  
   
-## <a name="registering-a-vspackage"></a>Registering a VSPackage  
- You can use attributes to control the registration of managed VSPackages. All registration information is contained in a .pkgdef file. For more information on file-based registration, see [CreatePkgDef Utility](../extensibility/internals/createpkgdef-utility.md).  
+## <a name="registering-a-vspackage"></a>注册 VSPackage  
+ 特性可用于控制托管的 Vspackage 的注册。 .Pkgdef 文件中包含的所有注册信息。 基于文件的注册的详细信息，请参阅[CreatePkgDef 实用工具](../extensibility/internals/createpkgdef-utility.md)。  
   
- The following code shows how to use the standard registration attributes to register your VSPackage.  
+ 下面的代码演示如何使用标准注册特性注册你的 VSPackage。  
   
 ```csharp  
 [PackageRegistration(UseManagedResourcesOnly = true)]  
@@ -51,16 +51,16 @@ public sealed class BasicPackage : Package
 {. . .}  
 ```  
   
-## <a name="unregistering-an-extension"></a>Unregistering an Extension  
- If you have been experimenting with a lot of different VSPackages and want to remove them from the experimental instance, you can just run the **Reset** command. Look for **Reset the Visual Studio Experimental Instance** on the start page of your computer, or run this command from the command line:  
+## <a name="unregistering-an-extension"></a>注销扩展  
+ 如果你已尝试过使用大量不同的 Vspackage，并且想要从实验实例中删除它们，你可以仅运行**重置**命令。 查找**重置 Visual Studio 实验实例**在你的计算机，开始页上或从命令行运行此命令：  
   
 ```vb  
 <location of Visual Studio 2015 install>\"Microsoft Visual Studio 14.0\VSSDK\VisualStudioIntegration\Tools\Bin\CreateExpInstance.exe" /Reset /VSInstance=14.0 /RootSuffix=Exp  
 ```  
   
- If you want to uninstall an extension that you have installed on your development instance of Visual Studio, go to **Tools / Extensions and Updates**, find the extension, and click **Uninstall**.  
+ 如果你想要卸载已在你的 Visual Studio 的开发实例安装的扩展，请转到**工具 / 扩展和更新**，找到的扩展，然后单击**卸载**。  
   
- If for some reason neither of these methods succeeds at uninstalling the extension, you can unregister the VSPackage assembly from the command line as follows:  
+ 如果出于某种原因这些方法均未成功在卸载该扩展，可以将 VSPackage 程序集，从命令行取消注册，如下所示：  
   
 ```  
 <location of Visual Studio 2015 install>\"Microsoft Visual Studio 14.0\VSSDK\VisualStudioIntegration\Tools\Bin\regpkg" /unregister <pathToVSPackage assembly>  
@@ -68,13 +68,13 @@ public sealed class BasicPackage : Package
   
 <a name="using-a-custom-registration-attribute-to-register-an-extension"></a>  
   
-## <a name="use-a-custom-registration-attribute-to-register-an-extension"></a>Use a custom registration attribute to register an extension  
+## <a name="use-a-custom-registration-attribute-to-register-an-extension"></a>使用自定义注册特性注册扩展  
   
-In certain cases you may need to create a new registration attribute for your extension. You can use registration attributes to add new registry keys or to add new values to existing keys. The new attribute must derive from <xref:Microsoft.VisualStudio.Shell.RegistrationAttribute>, and it must override the <xref:Microsoft.VisualStudio.Shell.RegistrationAttribute.Register%2A> and <xref:Microsoft.VisualStudio.Shell.RegistrationAttribute.Unregister%2A> methods.  
+在某些情况下可能需要创建你的扩展的新注册属性。 若要添加新的注册表项，或将新值添加到现有的密钥，你可以使用注册特性。 新的属性必须派生自<xref:Microsoft.VisualStudio.Shell.RegistrationAttribute>，且必须重写<xref:Microsoft.VisualStudio.Shell.RegistrationAttribute.Register%2A>和<xref:Microsoft.VisualStudio.Shell.RegistrationAttribute.Unregister%2A>方法。  
   
-### <a name="creating-a-custom-attribute"></a>Creating a Custom Attribute  
+### <a name="creating-a-custom-attribute"></a>创建自定义属性  
   
-The following code shows how to create a new registration attribute.  
+下面的代码演示如何创建新的注册属性。  
   
 ```csharp  
 [AttributeUsage(AttributeTargets.Class, Inherited = true, AllowMultiple = false)]  
@@ -83,11 +83,11 @@ The following code shows how to create a new registration attribute.
     }  
 ```  
   
- The <xref:System.AttributeUsageAttribute> is used on attribute classes to specify the program element (class, method, etc.) to which the attribute pertains, whether it can be used more than once, and whether it can be inherited.  
+ <xref:System.AttributeUsageAttribute>在特性类中用于指定对该属性有关、 是否它可以使用一次以上，和是否可以继承的程序元素 （类、 方法等）。  
   
-### <a name="creating-a-registry-key"></a>Creating a Registry Key  
+### <a name="creating-a-registry-key"></a>创建注册表项  
   
-In the following code, the custom attribute creates a **Custom** subkey under the key for the VSPackage that is being registered.  
+在下面的代码中，创建自定义特性**自定义**子项下要注册的 VSPackage 的密钥。  
   
 ```csharp  
 public override void Register(RegistrationAttribute.RegistrationContext context)  
@@ -111,9 +111,9 @@ public override void Unregister(RegistrationContext context)
 }  
 ```  
   
-### <a name="creating-a-new-value-under-an-existing-registry-key"></a>Creating a New Value Under an Existing Registry Key  
+### <a name="creating-a-new-value-under-an-existing-registry-key"></a>创建现有的注册表项下的新值  
   
-You can add custom values to an existing key. The following code shows how to add a new value to a VSPackage registration key.  
+可以将自定义值添加到现有密钥。 下面的代码演示如何将新值添加到 VSPackage 注册密钥。  
   
 ```csharp  
 public override void Register(RegistrationAttribute.RegistrationContext context)  
@@ -137,5 +137,5 @@ public override void Unregister(RegistrationContext context)
 }  
 ```
   
-## <a name="see-also"></a>See Also  
- [VSPackages](../extensibility/internals/vspackages.md)
+## <a name="see-also"></a>另请参阅  
+ [VSPackage](../extensibility/internals/vspackages.md)

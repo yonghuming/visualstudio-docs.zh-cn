@@ -1,5 +1,5 @@
 ---
-title: Invoking Text Transformation in a VS Extension | Microsoft Docs
+title: "在 VS 扩展中调用文本转换 |Microsoft 文档"
 ms.custom: 
 ms.date: 11/04/2016
 ms.reviewer: 
@@ -29,13 +29,13 @@ ms.translationtype: MT
 ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
 ms.openlocfilehash: f47e551fc1aff5e2e1c65ac80e9a020c28cee8dd
 ms.contentlocale: zh-cn
-ms.lasthandoff: 08/28/2017
+ms.lasthandoff: 09/06/2017
 
 ---
-# <a name="invoking-text-transformation-in-a-vs-extension"></a>Invoking Text Transformation in a VS Extension
-If you are writing a Visual Studio extension such as a menu command or [domain-specific language](../modeling/modeling-sdk-for-visual-studio-domain-specific-languages.md), you can use the text templating service to transform text templates. Get the <xref:Microsoft.VisualStudio.TextTemplating.VSHost.STextTemplating> service and cast it to <xref:Microsoft.VisualStudio.TextTemplating.VSHost.ITextTemplating>.  
+# <a name="invoking-text-transformation-in-a-vs-extension"></a>在 VS 扩展中调用文本转换
+如果你正在编写 Visual Studio 扩展，如菜单命令或[域特定语言](../modeling/modeling-sdk-for-visual-studio-domain-specific-languages.md)，则可以使用文本模板化服务转换文本模板。 获取 <xref:Microsoft.VisualStudio.TextTemplating.VSHost.STextTemplating> 服务并将其转换为 <xref:Microsoft.VisualStudio.TextTemplating.VSHost.ITextTemplating>。  
   
-## <a name="getting-the-text-templating-service"></a>Getting the text templating service  
+## <a name="getting-the-text-templating-service"></a>获取文本模板化服务  
   
 ```csharp  
 using Microsoft.VisualStudio.TextTemplating;  
@@ -52,14 +52,14 @@ string result = t4.ProcessTemplate(filePath, System.IO.File.ReadAllText(filePath
   
 ```  
   
-## <a name="passing-parameters-to-the-template"></a>Passing parameters to the template  
- You can pass parameters into the template. Inside the template, you can get the parameter values by using the `<#@parameter#>` directive.  
+## <a name="passing-parameters-to-the-template"></a>将参数传递给模板  
+ 可以将参数传递给模板。 在模板内，可以使用 `<#@parameter#>` 指令获取参数值。  
   
- For the type of a parameter, you must use a type that is serializable or that can be marshaled. That is, the type must be declared with <xref:System.SerializableAttribute>, or it must be derived from <xref:System.MarshalByRefObject>. This restriction is necessary because the text template is executed in a separate AppDomain. All built-in types such as **System.String** and **System.Int32** are serializable.  
+ 对于参数类型，必须使用可序列化的或可封送的类型。 也就是说，必须使用 <xref:System.SerializableAttribute> 声明该类型，或者它必须派生自 <xref:System.MarshalByRefObject>。 此限制是必要的，因为文本模板在单独的 AppDomain 中执行。 所有内置类型，例如**System.String**和**System.Int32**是可序列化。  
   
- To pass parameter values, the calling code can place values either in the `Session` dictionary, or in the <xref:System.Runtime.Remoting.Messaging.CallContext>.  
+ 为传递参数值，调用代码可将值放在 `Session` 字典或 <xref:System.Runtime.Remoting.Messaging.CallContext> 中。  
   
- The following example uses both methods to transform a short test template:  
+ 以下示例使用这两种方法来转换一个简短的测试模板：  
   
 ```  
 using Microsoft.VisualStudio.TextTemplating;  
@@ -93,10 +93,10 @@ string result = t4.ProcessTemplate("",
   
 ```  
   
-## <a name="error-reporting-and-the-output-directive"></a>Error Reporting and the Output Directive  
- Any errors that arise during processing will be displayed in the [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] error window. In addition, you can be notified of errors by specifying a callback that implements <xref:Microsoft.VisualStudio.TextTemplating.VSHost.ITextTemplatingCallback>.  
+## <a name="error-reporting-and-the-output-directive"></a>错误报告和输出指令  
+ 处理过程中出现的任何错误都将显示在 [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] 错误窗口中。 另外，你还可以通过指定实现 <xref:Microsoft.VisualStudio.TextTemplating.VSHost.ITextTemplatingCallback> 的回调来获得错误通知。  
   
- If you want to write the result string to a file, you might want to know what file extension and encoding have been specified in the `<#@output#>` directive in the template. This information will also be passed to your callback. For more information, see [T4 Output Directive](../modeling/t4-output-directive.md).  
+ 如果要将结果字符串写入文件，你可能需要知道模板的 `<#@output#>` 指令中指定的文件扩展名和编码。 此信息也将传递给你的回调。 有关详细信息，请参阅[T4 输出指令](../modeling/t4-output-directive.md)。  
   
 ```csharp  
 void ProcessMyTemplate(string MyTemplateFile)  
@@ -139,7 +139,7 @@ class T4Callback : ITextTemplatingCallback
   
 ```  
   
- The code can be tested with a template file similar to the following:  
+ 可以通过类似于下面的模板文件测试代码：  
   
 ```  
 <#@output extension=".htm" encoding="ASCII"#>  
@@ -148,18 +148,18 @@ class T4Callback : ITextTemplatingCallback
 Sample text.  
 ```  
   
- The compiler warning will appear in the [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] error window, and it will also generate a call to `ErrorCallback`.  
+ 编辑器警告将显示在 [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] 错误窗口中，还将生成对 `ErrorCallback` 的调用。  
   
-## <a name="reference-parameters"></a>Reference parameters  
- You can pass values out of a text template by using a parameter class that is derived from <xref:System.MarshalByRefObject>.  
+## <a name="reference-parameters"></a>引用参数  
+ 可以使用从 <xref:System.MarshalByRefObject> 派生的参数类将值从文本模板传出。  
   
-## <a name="related-topics"></a>Related Topics  
- To generate text from a preprocessed text template:  
- Call the `TransformText()` method of the generated class. For more information, see [Run-Time Text Generation with T4 Text Templates](../modeling/run-time-text-generation-with-t4-text-templates.md).  
+## <a name="related-topics"></a>相关主题  
+ 若要从预处理过的文本模板生成文本，请执行以下操作：  
+ 调用已生成类的 `TransformText()` 方法。 有关详细信息，请参阅[使用 T4 文本模板的运行时文本生成](../modeling/run-time-text-generation-with-t4-text-templates.md)。  
   
- To generate text outside a [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] extension:  
- Define a custom host. For more information, see [Processing Text Templates by using a Custom Host](../modeling/processing-text-templates-by-using-a-custom-host.md).  
+ 若要在 [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] 扩展外生成文本，请执行以下操作：  
+ 定义一个自定义宿主。 有关详细信息，请参阅[使用自定义宿主处理文本模板](../modeling/processing-text-templates-by-using-a-custom-host.md)。  
   
- To generate source code that can later be compiled and executed:  
- Call the `t4.PreprocessTemplate()` method of <xref:Microsoft.VisualStudio.TextTemplating.VSHost.ITextTemplating>.
+ 若要生成可以稍后编译并执行的源代码，请执行以下操作：  
+ 调用 `t4.PreprocessTemplate()` 的 <xref:Microsoft.VisualStudio.TextTemplating.VSHost.ITextTemplating> 方法。
 

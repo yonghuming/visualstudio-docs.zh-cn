@@ -1,5 +1,5 @@
 ---
-title: IDebugObject::SetValue | Microsoft Docs
+title: "IDebugObject::SetValue |Microsoft 文档"
 ms.custom: 
 ms.date: 11/04/2016
 ms.reviewer: 
@@ -34,13 +34,13 @@ ms.translationtype: MT
 ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
 ms.openlocfilehash: 7249c2bc64afea2ca1037cc7fa1cf617357341d7
 ms.contentlocale: zh-cn
-ms.lasthandoff: 08/28/2017
+ms.lasthandoff: 09/06/2017
 
 ---
 # <a name="idebugobjectsetvalue"></a>IDebugObject::SetValue
-Sets the value of the object from a consecutive series of bytes.  
+设置对象的值从一系列连续的字节。  
   
-## <a name="syntax"></a>Syntax  
+## <a name="syntax"></a>语法  
   
 ```cpp  
 HRESULT SetValue(   
@@ -56,19 +56,19 @@ int SetValue(
 );  
 ```  
   
-#### <a name="parameters"></a>Parameters  
+#### <a name="parameters"></a>参数  
  `pValue`  
- [in] An array of bytes representing the new value.  
+ [in]表示新值的字节数组。  
   
  `nSize`  
- [in] The size of the value in bytes.  
+ [in]以字节为单位的值的大小。  
   
-## <a name="return-value"></a>Return Value  
- If successful, returns S_OK; otherwise, returns an error code.  
+## <a name="return-value"></a>返回值  
+ 如果成功，返回，则为 S_OK;否则，返回错误代码。  
   
-## <a name="remarks"></a>Remarks  
- The values in the array are copied into this [IDebugObject](../../../extensibility/debugger/reference/idebugobject.md) object, replacing any existing value. The size of the new value can be larger or smaller than the existing value. This `IDebugObject` cannot be a null reference.  
+## <a name="remarks"></a>备注  
+ 数组中的值复制到此[IDebugObject](../../../extensibility/debugger/reference/idebugobject.md)对象，同时将替换任何现有值。 新值的大小可大于或小于的现有值。 这`IDebugObject`不能为 null 引用。  
   
-## <a name="see-also"></a>See Also  
+## <a name="see-also"></a>另请参阅  
  [IDebugObject](../../../extensibility/debugger/reference/idebugobject.md)   
  [GetValue](../../../extensibility/debugger/reference/idebugobject-getvalue.md)

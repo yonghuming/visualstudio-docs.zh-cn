@@ -1,5 +1,5 @@
 ---
-title: FRAMEINFO_FLAGS | Microsoft Docs
+title: "FRAMEINFO_FLAGS |Microsoft 文档"
 ms.custom: 
 ms.date: 11/04/2016
 ms.reviewer: 
@@ -34,13 +34,13 @@ ms.translationtype: MT
 ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
 ms.openlocfilehash: d0b9ae5b6b9139715cd28b40dd8eae2294c507a7
 ms.contentlocale: zh-cn
-ms.lasthandoff: 08/28/2017
+ms.lasthandoff: 09/06/2017
 
 ---
 # <a name="frameinfoflags"></a>FRAMEINFO_FLAGS
-Specifies the information to retrieve about a stack frame object.  
+指定要检索的堆栈帧对象有关的信息。  
   
-## <a name="syntax"></a>Syntax  
+## <a name="syntax"></a>语法  
   
 ```cpp  
 enum enum_FRAMEINFO_FLAGS {  
@@ -115,114 +115,114 @@ public enum enum_FRAMEINFO_FLAGS {
 };  
 ```  
   
-## <a name="members"></a>Members  
+## <a name="members"></a>成员  
  FIF_FUNCNAME  
- Initialize/use the `m_bstrFuncName` field.  
+ 初始化/使用`m_bstrFuncName`字段。  
   
  FIF_RETURNTYPE  
- Initialize/use the `m_bstrReturnType` field.  
+ 初始化/使用`m_bstrReturnType`字段。  
   
  FIF_ARGS  
- Initialize/use the `m_bstrArgs` field.  
+ 初始化/使用`m_bstrArgs`字段。  
   
  FIF_LANGUAGE  
- Initialize/use the `m_bstrLanguage` field.  
+ 初始化/使用`m_bstrLanguage`字段。  
   
  FIF_MODULE  
- Initialize/use the `m_bstrModule` field.  
+ 初始化/使用`m_bstrModule`字段。  
   
  FIF_STACKRANGE  
- Initialize/use the `m_addrMin` and `m_addrMax` (stack range) fields.  
+ 初始化/使用`m_addrMin`和`m_addrMax`（堆栈范围） 字段。  
   
  FIF_FRAME  
- Initialize/use the `m_pFrame` field.  
+ 初始化/使用`m_pFrame`字段。  
   
  FIF_DEBUGINFO  
- Initialize/use the `m_fHasDebugInfo` field.  
+ 初始化/使用`m_fHasDebugInfo`字段。  
   
  FIF_STALECODE  
- Initialize/use the `m_fStaleCode` field.  
+ 初始化/使用`m_fStaleCode`字段。  
   
  FIF_ANNOTATEDFRAME  
- Initialize/use the `m_fAnnotatedFrame` field.  
+ 初始化/使用`m_fAnnotatedFrame`字段。  
   
  FIF_DEBUG_MODULEP  
- Initialize/use the `m_pModule` field.  
+ 初始化/使用`m_pModule`字段。  
   
  FIF_FUNCNAME_FORMAT  
- Formats the function name. The result is returned in the `m_bstrFunName` field and no other fields are filled out.  
+ 设置格式的函数名称。 在返回结果时`m_bstrFunName`填写字段及其没有其他字段。  
   
  FIF_FUNCNAME_RETURNTYPE  
- Adds the return type to the `m_bstrFuncName` field.  
+ 将添加到的返回类型`m_bstrFuncName`字段。  
   
  FIF_FUNCNAME_ARGS  
- Adds the arguments to the `m_bstrFuncName` field.  
+ 添加的自变量`m_bstrFuncName`字段。  
   
  FIF_FUNCNAME_LANGUAGE  
- Adds the language to the `m_bstrFuncName` field.  
+ 将添加到的语言`m_bstrFuncName`字段。  
   
  FIF_FUNCNAME_MODULE  
- Adds the module name to the `m_bstrFuncName` field.  
+ 将添加到的模块名称`m_bstrFuncName`字段。  
   
  FIF_FUNCNAME_LINES  
- Adds the number of lines to the `m_bstrFuncName` field.  
+ 将添加到的行数`m_bstrFuncName`字段。  
   
  FIF_FUNCNAME_OFFSET  
- Adds to the `m_bstrFuncName` field the offset in bytes from the start of the line if `FIF_FUNCNAME_LINES` is specified. If `FIF_FUNCNAME_LINES` is not specified, or if line numbers are not available, adds the offset in bytes from the start of the function.  
+ 将添加到`m_bstrFuncName`字段以字节为单位，从行的开头的偏移量，如果`FIF_FUNCNAME_LINES`指定。 如果`FIF_FUNCNAME_LINES`未指定，或如果行号不可用，从函数的开始将偏移量添加以字节为单位。  
   
  FIF_FUNCNAME_ARGS_TYPES  
- Adds the type of each function argument to the `m_bstrFuncName` field.  
+ 将添加到每个函数自变量的类型`m_bstrFuncName`字段。  
   
  FIF_FUNCNAME_ARGS_NAMES  
- Adds the name of each function argument to the `m_bstrFuncName` field.  
+ 将添加到每个函数自变量的名称`m_bstrFuncName`字段。  
   
  FIF_FUNCNAME_ARGS_VALUES  
- Adds the value of each function argument to the `m_bstrFuncName` field.  
+ 将添加到每个函数自变量的值`m_bstrFuncName`字段。  
   
  FIF_FUNCNAME_ARGS_ALL  
- Adds the type, name, and value of all arguments to the `m_bstrFuncName` field.  
+ 添加类型、 名称和值的所有自变量`m_bstrFuncName`字段。  
   
  FIF_ARGS_TYPES  
- The argument types are retrieved and formatted.  
+ 自变量类型检索，并且格式化。  
   
  FIF_ARGS_NAMES  
- The argument names are retrieved and formatted.  
+ 将检索的自变量名称，并将其格式化。  
   
  FIF_ARGS_VALUES  
- The argument values are retrieved and formatted.  
+ 自变量值，将检索并设置格式。  
   
  FIF_ARGS_ALL  
- Retrieve and format the type, name, and value of all arguments.  
+ 检索并格式化类型、 名称和所有参数的值。  
   
  FIF_ARGS_NOFORMAT  
- Specifies that the arguments are not be formatted (for example, do not add opening and closing parentheses around the argument list nor add a separator between arguments).  
+ 指定自变量不会格式 （例如，进行不添加左、 右括号周围自变量列表也不添加自变量之间的分隔符）。  
   
  FIF_ARGS_NO_FUNC_EVAL  
- Specifies that function (property) evaluation should not be used when retrieving argument values.  
+ 指定检索参数值时不应使用函数 （属性） 求值。  
   
  FIF_FILTER_NON_USER_CODE  
- The debug engine is to filter non-user code frames so they are not included.  
+ 调试引擎是进行筛选以便不会包含这些的非用户代码帧。  
   
  FIF_ARGS_NO_TOSTRING  
- Do not allow `ToString()` function evaluation or formatting when returning function arguments.  
+ 不允许`ToString()`函数评估或格式设置时返回函数自变量。  
   
  FIF_DESIGN_TIME_EXPR_EVAL  
- Frame information should be gotten from the hosted app-domain rather than the hosting process.  
+ 应从托管的应用程序域，而不是宿主进程收到帧信息。  
   
-## <a name="remarks"></a>Remarks  
- These flags are passed to the [EnumFrameInfo](../../../extensibility/debugger/reference/idebugthread2-enumframeinfo.md) and [GetInfo](../../../extensibility/debugger/reference/idebugstackframe2-getinfo.md) methods to indicate which fields are to be initialized in the [FRAMEINFO](../../../extensibility/debugger/reference/frameinfo.md) structure or structures.  
+## <a name="remarks"></a>备注  
+ 这些标志传递给[EnumFrameInfo](../../../extensibility/debugger/reference/idebugthread2-enumframeinfo.md)和[GetInfo](../../../extensibility/debugger/reference/idebugstackframe2-getinfo.md)方法以指示哪些字段在中初始化[FRAMEINFO](../../../extensibility/debugger/reference/frameinfo.md)结构。  
   
- These flags are also used to indicate which fields of the [FRAMEINFO](../../../extensibility/debugger/reference/frameinfo.md) structure are used and valid when the structure is returned. These values may be combined with a bitwise `OR`.  
+ 这些标志也用于指示哪些字段[FRAMEINFO](../../../extensibility/debugger/reference/frameinfo.md)结构均使用和有效时返回的结构。 这些值可以与按位组合`OR`。  
   
-## <a name="requirements"></a>Requirements  
- Header: msdbg.h  
+## <a name="requirements"></a>要求  
+ 标头： msdbg.h  
   
  Namespace: Microsoft.VisualStudio.Debugger.Interop  
   
- Assembly: Microsoft.VisualStudio.Debugger.Interop.dll  
+ 程序集： Microsoft.VisualStudio.Debugger.Interop.dll  
   
-## <a name="see-also"></a>See Also  
- [Enumerations](../../../extensibility/debugger/reference/enumerations-visual-studio-debugging.md)   
+## <a name="see-also"></a>另请参阅  
+ [枚举](../../../extensibility/debugger/reference/enumerations-visual-studio-debugging.md)   
  [FRAMEINFO](../../../extensibility/debugger/reference/frameinfo.md)   
  [EnumFrameInfo](../../../extensibility/debugger/reference/idebugthread2-enumframeinfo.md)   
  [GetInfo](../../../extensibility/debugger/reference/idebugstackframe2-getinfo.md)

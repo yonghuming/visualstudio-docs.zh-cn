@@ -1,5 +1,5 @@
 ---
-title: IDebugStackFrame2::GetCodeContext | Microsoft Docs
+title: "IDebugStackFrame2::GetCodeContext |Microsoft 文档"
 ms.custom: 
 ms.date: 11/04/2016
 ms.reviewer: 
@@ -34,13 +34,13 @@ ms.translationtype: MT
 ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
 ms.openlocfilehash: df0326f0c6fb70f604d29300853e2cadf2fdd0ad
 ms.contentlocale: zh-cn
-ms.lasthandoff: 08/28/2017
+ms.lasthandoff: 09/06/2017
 
 ---
 # <a name="idebugstackframe2getcodecontext"></a>IDebugStackFrame2::GetCodeContext
-Gets the code context for this stack frame.  
+获取此堆栈帧的代码上下文。  
   
-## <a name="syntax"></a>Syntax  
+## <a name="syntax"></a>语法  
   
 ```cpp  
 HRESULT GetCodeContext (   
@@ -54,13 +54,13 @@ int GetCodeContext (
 );  
 ```  
   
-#### <a name="parameters"></a>Parameters  
+#### <a name="parameters"></a>参数  
  `ppCodeCxt`  
- [out] Returns an [IDebugCodeContext2](../../../extensibility/debugger/reference/idebugcodecontext2.md) object that represents the current instruction pointer in this stack frame.  
+ [out]返回[IDebugCodeContext2](../../../extensibility/debugger/reference/idebugcodecontext2.md)表示此堆栈帧中的当前指令指针的对象。  
   
-## <a name="return-value"></a>Return Value  
- If successful, returns `S_OK`; otherwise, returns an error code.  
+## <a name="return-value"></a>返回值  
+ 如果成功，则返回`S_OK`; 否则为返回错误代码。  
   
-## <a name="see-also"></a>See Also  
+## <a name="see-also"></a>另请参阅  
  [IDebugStackFrame2](../../../extensibility/debugger/reference/idebugstackframe2.md)   
  [IDebugCodeContext2](../../../extensibility/debugger/reference/idebugcodecontext2.md)

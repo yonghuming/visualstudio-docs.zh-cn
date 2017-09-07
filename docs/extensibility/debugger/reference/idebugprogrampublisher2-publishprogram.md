@@ -1,5 +1,5 @@
 ---
-title: IDebugProgramPublisher2::PublishProgram | Microsoft Docs
+title: "IDebugProgramPublisher2::PublishProgram |Microsoft 文档"
 ms.custom: 
 ms.date: 11/04/2016
 ms.reviewer: 
@@ -34,13 +34,13 @@ ms.translationtype: MT
 ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
 ms.openlocfilehash: 3f573f35ed0130eb020ac2e8e19a0391050ec06e
 ms.contentlocale: zh-cn
-ms.lasthandoff: 08/28/2017
+ms.lasthandoff: 09/06/2017
 
 ---
 # <a name="idebugprogrampublisher2publishprogram"></a>IDebugProgramPublisher2::PublishProgram
-This method makes a program available for debug engines (DEs) and the session debug manager.  
+此方法使程序可用于的调试引擎 (DEs) 和会话调试管理器。  
   
-## <a name="syntax"></a>Syntax  
+## <a name="syntax"></a>语法  
   
 ```cpp  
 HRESULT PublishProgram(  
@@ -58,22 +58,22 @@ int PublishProgram(
 );  
 ```  
   
-#### <a name="parameters"></a>Parameters  
+#### <a name="parameters"></a>参数  
  `Engines`  
- [in] An array of GUIDs for DEs that can launch or attach to this program.  
+ [in]针对 DEs 可以启动或将附加到此程序的 Guid 数组。  
   
  `szFriendlyName`  
- [in] Friendly name for the program (this appears in menus or dialogs presented to the user).  
+ [in]（这将显示在菜单或对话框向用户显示） 的程序的友好名称。  
   
  `pDebuggeeInterface`  
- [in] `IUnknown` interface for the program (this value is used as a cookie to uniquely identify the program; this same value is used to "unpublish" the program)  
+ [in]`IUnknown`程序接口 （此值用作 cookie 用来唯一地标识程序; 此相同的值用于"取消发布"节目）  
   
-## <a name="return-value"></a>Return Value  
- If successful, returns `S_OK`; otherwise, returns an error code.  
+## <a name="return-value"></a>返回值  
+ 如果成功，则返回`S_OK`; 否则为返回错误代码。  
   
-## <a name="remarks"></a>Remarks  
- To make a program no longer available for debugging, call [UnpublishProgram](../../../extensibility/debugger/reference/idebugprogrampublisher2-unpublishprogram.md).  
+## <a name="remarks"></a>备注  
+ 若要使程序不再可用于调试，调用[UnpublishProgram](../../../extensibility/debugger/reference/idebugprogrampublisher2-unpublishprogram.md)。  
   
-## <a name="see-also"></a>See Also  
+## <a name="see-also"></a>另请参阅  
  [IDebugProgramPublisher2](../../../extensibility/debugger/reference/idebugprogrampublisher2.md)   
  [UnpublishProgram](../../../extensibility/debugger/reference/idebugprogrampublisher2-unpublishprogram.md)

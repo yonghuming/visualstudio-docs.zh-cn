@@ -1,5 +1,5 @@
 ---
-title: BPREQI_FIELDS90 | Microsoft Docs
+title: "BPREQI_FIELDS90 |Microsoft 文档"
 ms.custom: 
 ms.date: 11/04/2016
 ms.reviewer: 
@@ -32,13 +32,13 @@ ms.translationtype: MT
 ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
 ms.openlocfilehash: 2de27fc0c3ea470e63c82c8116e34e450eb08bb2
 ms.contentlocale: zh-cn
-ms.lasthandoff: 08/28/2017
+ms.lasthandoff: 09/06/2017
 
 ---
 # <a name="bpreqifields90"></a>BPREQI_FIELDS90
-Enumerates the valid values that specify the information to be retrieved about a breakpoint request. This enumeration extends the [BPREQI_FIELDS](../../../extensibility/debugger/reference/bpreqi-fields.md) enumeration.  
+枚举指定断点请求有关的信息要检索的有效值。 此枚举扩展[BPREQI_FIELDS](../../../extensibility/debugger/reference/bpreqi-fields.md)枚举。  
   
-## <a name="syntax"></a>Syntax  
+## <a name="syntax"></a>语法  
   
 ```cpp  
 enum enum_BPREQI_FIELDS90  
@@ -91,58 +91,58 @@ public enum enum_BPREQI_FIELDS90
 };  
 ```  
   
-#### <a name="parameters"></a>Parameters  
+#### <a name="parameters"></a>参数  
  BPREQI90_BPLOCATION  
- Initialize or use the `bpLocation` (breakpoint location) field of the [BP_REQUEST_INFO](../../../extensibility/debugger/reference/bp-request-info.md) or [BP_REQUEST_INFO2](../../../extensibility/debugger/reference/bp-request-info2.md) structure.  
+ 初始化或使用`bpLocation`（断点位置） 字段[BP_REQUEST_INFO](../../../extensibility/debugger/reference/bp-request-info.md)或[BP_REQUEST_INFO2](../../../extensibility/debugger/reference/bp-request-info2.md)结构。  
   
  BPREQI90_LANGUAGE  
- Initialize or use the `guidLanguage` field of the `BP_REQUEST_INFO` or `BP_REQUEST_INFO2` structure.  
+ 初始化或使用`guidLanguage`字段`BP_REQUEST_INFO`或`BP_REQUEST_INFO2`结构。  
   
  BPREQI90_PROGRAM  
- Initialize or use the `pProgram` field of the `BP_REQUEST_INFO` or `BP_REQUEST_INFO2` structure.  
+ 初始化或使用`pProgram`字段`BP_REQUEST_INFO`或`BP_REQUEST_INFO2`结构。  
   
  BPREQI90_PROGRAMNAME  
- Initialize or use the `bstrProgramName` field of the `BP_REQUEST_INFO` or `BP_REQUEST_INFO2` structure.  
+ 初始化或使用`bstrProgramName`字段`BP_REQUEST_INFO`或`BP_REQUEST_INFO2`结构。  
   
  BPREQI90_THREAD  
- Initialize or use the `pThread` field of the `BP_REQUEST_INFO` or `BP_REQUEST_INFO2` structure.  
+ 初始化或使用`pThread`字段`BP_REQUEST_INFO`或`BP_REQUEST_INFO2`结构。  
   
  BPREQI90_THREADNAME  
- Initialize or use the `bstrThreadName` field of the `BP_REQUEST_INFO` or `BP_REQUEST_INFO2` structure.  
+ 初始化或使用`bstrThreadName`字段`BP_REQUEST_INFO`或`BP_REQUEST_INFO2`结构。  
   
  BPREQI90_PASSCOUNT  
- Initialize or use the `bpPassCount` field of the `BP_REQUEST_INFO` or `BP_REQUEST_INFO2` structure.  
+ 初始化或使用`bpPassCount`字段`BP_REQUEST_INFO`或`BP_REQUEST_INFO2`结构。  
   
  BPREQI90_CONDITION  
- Initialize or use the `bpCondition` (breakpoint condition) field of the `BP_REQUEST_INFO` or `BP_REQUEST_INFO2` structure.  
+ 初始化或使用`bpCondition`（断点条件） 字段`BP_REQUEST_INFO`或`BP_REQUEST_INFO2`结构。  
   
  BPREQI90_FLAGS  
- Initialize or use the `dwFlags` field of the `BP_REQUEST_INFO` or `BP_REQUEST_INFO2` structure.  
+ 初始化或使用`dwFlags`字段`BP_REQUEST_INFO`或`BP_REQUEST_INFO2`结构。  
   
  BPREQI90_ALLOLDFIELDS  
- Initialize or use all fields for the of the `BP_REQUEST_INFO` structure.  
+ 初始化或使用的所有字段的`BP_REQUEST_INFO`结构。  
   
  BPREQI90_VENDOR  
- Initialize or use the `guidVendor` field of `BP_REQUEST_INFO2` structure.  
+ 初始化或使用`guidVendor`字段`BP_REQUEST_INFO2`结构。  
   
  BPREQI90_CONSTRAINT  
- Initialize or use the `bstrConstraint` field of `BP_REQUEST_INFO2` structure.  
+ 初始化或使用`bstrConstraint`字段`BP_REQUEST_INFO2`结构。  
   
  BPREQI90_TRACEPOINT  
- Initialize or use the `bstrTracepoint` field of `BP_REQUEST_INFO2` structure.  
+ 初始化或使用`bstrTracepoint`字段`BP_REQUEST_INFO2`结构。  
   
  BPREQI90_MACROTRACEPOINT  
- Initialize or use the `bstrMacroTracepoint` field of `BP_REQUEST_INFO2` structure. BPREQI_ALLFIELDS does not include this field.  
+ 初始化或使用`bstrMacroTracepoint`字段`BP_REQUEST_INFO2`结构。 BPREQI_ALLFIELDS 不包括此字段。  
   
  BPREQI90_ALLFIELDS  
- Specifies all fields for the `BP_REQUEST_INFO2` structure.  
+ 指定的所有字段`BP_REQUEST_INFO2`结构。  
   
-## <a name="requirements"></a>Requirements  
- Header: Msdbg90.h  
+## <a name="requirements"></a>要求  
+ 标头： Msdbg90.h  
   
  Namespace: Microsoft.VisualStudio.Debugger.Interop  
   
- Assembly: Microsoft.VisualStudio.Debugger.Interop.dll  
+ 程序集： Microsoft.VisualStudio.Debugger.Interop.dll  
   
-## <a name="see-also"></a>See Also  
- [Enumerations](../../../extensibility/debugger/reference/enumerations-visual-studio-debugging.md)
+## <a name="see-also"></a>另请参阅  
+ [枚举](../../../extensibility/debugger/reference/enumerations-visual-studio-debugging.md)

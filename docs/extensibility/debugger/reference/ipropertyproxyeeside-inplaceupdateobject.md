@@ -1,5 +1,5 @@
 ---
-title: IPropertyProxyEESide::InPlaceUpdateObject | Microsoft Docs
+title: "IPropertyProxyEESide::InPlaceUpdateObject |Microsoft 文档"
 ms.custom: 
 ms.date: 11/04/2016
 ms.reviewer: 
@@ -34,13 +34,13 @@ ms.translationtype: MT
 ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
 ms.openlocfilehash: 1971b553a355b415543aba8ae8936a69e771976b
 ms.contentlocale: zh-cn
-ms.lasthandoff: 08/28/2017
+ms.lasthandoff: 09/06/2017
 
 ---
 # <a name="ipropertyproxyeesideinplaceupdateobject"></a>IPropertyProxyEESide::InPlaceUpdateObject
-Updates the object's data with the given data object and returns a new data object representing the object's new data.  
+使用给定的数据对象中更新对象的数据，并返回一个表示对象的新数据的新数据对象。  
   
-## <a name="syntax"></a>Syntax  
+## <a name="syntax"></a>语法  
   
 ```cpp  
 HRESULT InPlaceUpdateObject(  
@@ -56,24 +56,24 @@ int InPlaceUpdateObject(
 );  
 ```  
   
-#### <a name="parameters"></a>Parameters  
+#### <a name="parameters"></a>参数  
  `dataIn`  
- [in] An [IEEDataStorage](../../../extensibility/debugger/reference/ieedatastorage.md) object containing the new data.  
+ [in][IEEDataStorage](../../../extensibility/debugger/reference/ieedatastorage.md)对象，其中包含新的数据。  
   
  `dataOut`  
- [out] Returns a new `IEEDataStorage` object containing the replaced data.  
+ [out]返回一个新`IEEDataStorage`对象，其中包含被替换的数据。  
   
-## <a name="return-value"></a>Return Value  
- If successful, returns `S_OK`; otherwise, returns an error code.  
+## <a name="return-value"></a>返回值  
+ 如果成功，则返回`S_OK`; 否则为返回错误代码。  
   
-## <a name="remarks"></a>Remarks  
- This method actually updates the object's data. The data in the returned [IEEDataStorage](../../../extensibility/debugger/reference/ieedatastorage.md) object does not need to be the same as the data in the incoming `IEEDataStorage` object, but the returned object must reflect the property's current value.  
+## <a name="remarks"></a>备注  
+ 此方法实际更新对象的数据。 在返回的数据[IEEDataStorage](../../../extensibility/debugger/reference/ieedatastorage.md)对象不需要中传入的数据相同`IEEDataStorage`对象，但返回的对象必须反映该属性的当前值。  
   
- The incoming data object is typically not implemented by the EE. However, the object returned by this method is always implemented by the EE, which lets the EE implement the `IEEDataStorage` interface on whatever class is desired.  
+ 传入的数据对象通常是不由 EE 实现。 但是，此方法返回的对象始终由 EE，这样就 EE 实现`IEEDataStorage`上任何类所需的接口。  
   
- The [CreateReplacementObject](../../../extensibility/debugger/reference/ipropertyproxyeeside-createreplacementobject.md) method creates a data object based on the incoming data object but does not affect the property's original data.  
+ [CreateReplacementObject](../../../extensibility/debugger/reference/ipropertyproxyeeside-createreplacementobject.md)方法创建传入的数据对象的基础的数据对象，但不会影响该属性的原始数据。  
   
-## <a name="see-also"></a>See Also  
+## <a name="see-also"></a>另请参阅  
  [IPropertyProxyEESide](../../../extensibility/debugger/reference/ipropertyproxyeeside.md)   
  [IEEDataStorage](../../../extensibility/debugger/reference/ieedatastorage.md)   
  [CreateReplacementObject](../../../extensibility/debugger/reference/ipropertyproxyeeside-createreplacementobject.md)

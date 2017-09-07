@@ -1,5 +1,5 @@
 ---
-title: IDebugPendingBreakpoint2::GetState | Microsoft Docs
+title: "IDebugPendingBreakpoint2::GetState |Microsoft 文档"
 ms.custom: 
 ms.date: 11/04/2016
 ms.reviewer: 
@@ -35,13 +35,13 @@ ms.translationtype: MT
 ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
 ms.openlocfilehash: a91ebd3155b4cb0d01a3e1d7d57350023bef8a88
 ms.contentlocale: zh-cn
-ms.lasthandoff: 08/28/2017
+ms.lasthandoff: 09/06/2017
 
 ---
 # <a name="idebugpendingbreakpoint2getstate"></a>IDebugPendingBreakpoint2::GetState
-Gets the state of the pending breakpoint.  
+获取挂起断点的状态。  
   
-## <a name="syntax"></a>Syntax  
+## <a name="syntax"></a>语法  
   
 ```cpp  
 HRESULT GetState(   
@@ -55,13 +55,13 @@ int GetState(
 );  
 ```  
   
-#### <a name="parameters"></a>Parameters  
+#### <a name="parameters"></a>参数  
  `pState`  
- [in, out] A [PENDING_BP_STATE_INFO](../../../extensibility/debugger/reference/pending-bp-state-info.md) structure that is filled in with a description of this pending breakpoint.  
+ [在中，out]A [PENDING_BP_STATE_INFO](../../../extensibility/debugger/reference/pending-bp-state-info.md)使用此挂起断点的说明填充的结构。  
   
-## <a name="return-value"></a>Return Value  
- If successful, returns `S_OK`; otherwise, returns an error code.  
+## <a name="return-value"></a>返回值  
+ 如果成功，则返回`S_OK`; 否则为返回错误代码。  
   
-## <a name="see-also"></a>See Also  
+## <a name="see-also"></a>另请参阅  
  [IDebugPendingBreakpoint2](../../../extensibility/debugger/reference/idebugpendingbreakpoint2.md)   
  [PENDING_BP_STATE_INFO](../../../extensibility/debugger/reference/pending-bp-state-info.md)

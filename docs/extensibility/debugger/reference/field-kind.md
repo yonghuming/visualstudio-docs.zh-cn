@@ -1,5 +1,5 @@
 ---
-title: FIELD_KIND | Microsoft Docs
+title: "FIELD_KIND |Microsoft 文档"
 ms.custom: 
 ms.date: 11/04/2016
 ms.reviewer: 
@@ -34,13 +34,13 @@ ms.translationtype: MT
 ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
 ms.openlocfilehash: 533365fcdaa14a3178809cf04116a4358cd0ba51
 ms.contentlocale: zh-cn
-ms.lasthandoff: 08/28/2017
+ms.lasthandoff: 09/06/2017
 
 ---
 # <a name="fieldkind"></a>FIELD_KIND
-Specifies the kind of field contained in an [IDebugField](../../../extensibility/debugger/reference/idebugfield.md) object.  
+指定字段中包含的类型[IDebugField](../../../extensibility/debugger/reference/idebugfield.md)对象。  
   
-## <a name="syntax"></a>Syntax  
+## <a name="syntax"></a>语法  
   
 ```cpp  
 enum enum_FIELD_KIND {   
@@ -139,120 +139,120 @@ public enum enum_FIELD_KIND {
 };  
 ```  
   
-## <a name="members"></a>Members  
+## <a name="members"></a>成员  
  FIELD_KIND_TYPE  
- Indicates that the field is a type only.  
+ 指示字段只是类型。  
   
  FIELD_KIND_SYMBOL  
- Indicates that the field is a symbol, with type, name, and other information.  
+ 指示字段具有类型、 名称和其他信息的符号。  
   
  FIELD_TYPE_PRIMITIVE  
- Indicates that the field is a primitive data type.  
+ 指示该字段是基元数据类型。  
   
  FIELD_TYPE_STRUCT  
- Indicates that the field is a structure.  
+ 指示该字段是一种结构。  
   
  FIELD_TYPE_CLASS  
- Indicates that the field is a class.  
+ 指示该字段是一个类。  
   
  FIELD_TYPE_INTERFACE  
- Indicates that the field is an interface.  
+ 指示该字段是一个接口。  
   
  FIELD_TYPE_UNION  
- Indicates that the field is a union.  
+ 指示该字段是联合。  
   
  FIELD_TYPE_ARRAY  
- Indicates that the field is an array.  
+ 指示该字段是一个数组。  
   
  FIELD_TYPE_METHOD  
- Indicates that the field is a method.  
+ 指示该字段是一种方法。  
   
  FIELD_TYPE_BLOCK  
- Indicates that the field is a block.  
+ 指示该字段是一个块。  
   
  FIELD_TYPE_POINTER  
- Indicates that the field is a pointer.  
+ 指示该字段是一个指针。  
   
  FIELD_TYPE_ENUM  
- Indicates that the field is an enumerated data type.  
+ 指示该字段是枚举的数据类型。  
   
  FIELD_TYPE_LABEL  
- Indicates that the field is a label.  
+ 指示该字段是标签。  
   
  FIELD_TYPE_TYPEDEF  
- Indicates that the field is a typedef.  
+ 指示该字段是的 typedef。  
   
  FIELD_TYPE_BITFIELD  
- Indicates that the field is a bitfield.  
+ 指示该字段是一组标志。  
   
  FIELD_TYPE_NAMESPACE  
- Indicates that the field is a namespace.  
+ 指示该字段是一个命名空间。  
   
  FIELD_TYPE_MODULE  
- Indicates that the field is a module.  
+ 指示该字段是一个模块。  
   
  FIELD_TYPE_DYNAMIC  
- Indicates that the field is dynamic.  
+ 指示该字段是动态的。  
   
  FIELD_TYPE_PROP  
- Indicates that the field is a property.  
+ 指示该字段是一个属性。  
   
  FIELD_TYPE_INNERCLASS  
- Indicates that the field is an inner class.  
+ 指示该字段是一个内部的类。  
   
  FIELD_TYPE_REFERENCE  
- Indicates that the field is a reference.  
+ 指示该字段是的引用。  
   
  FIELD_TYPE_EXTENDED  
- Reserved for future use.  
+ 留待将来使用。  
   
  FIELD_SYM_MEMBER  
- Indicates that the field is a member.  
+ 指示该字段是成员。  
   
  FIELD_SYM_LOCAL  
- Indicates that the field is local.  
+ 指示该字段是本地。  
   
  FIELD_SYM_PARAMETER  
- Indicates that the field is a parameter.  
+ 指示该字段是一个参数。  
   
  FIELD_SYM_THIS  
- Indicates that the field is the "this" pointer.  
+ 指示该字段是"this"指针。  
   
  FIELD_SYM_GLOBAL  
- Indicates that the field is global.  
+ 指示该字段是全局。  
   
  FIELD_SYM_PROP_GETTER  
- Indicates that the field retrieves properties.  
+ 指示字段检索属性。  
   
  FIELD_SYM_PROP_SETTER  
- Indicates that the field sets properties.  
+ 指示该字段设置属性。  
   
  FIELD_SYM_EXTENDED  
- Reserved for future use.  
+ 留待将来使用。  
   
  FIELD_KIND_MASK  
- Indicates a mask for field kinds.  
+ 指示字段类型的掩码。  
   
  FIELD_TYPE_MASK  
- Indicates a mask for field types.  
+ 指示字段类型的掩码。  
   
  FIELD_SYM_MASK  
- Indicates a mask for symbol information.  
+ 指示符号信息的掩码。  
   
-## <a name="remarks"></a>Remarks  
- Returned from a call to the [GetKind](../../../extensibility/debugger/reference/idebugfield-getkind.md) method.  
+## <a name="remarks"></a>备注  
+ 从调用返回[GetKind](../../../extensibility/debugger/reference/idebugfield-getkind.md)方法。  
   
- Depending on the kind of field, [QueryInterface](/cpp/atl/queryinterface) can be called on the [IDebugField](../../../extensibility/debugger/reference/idebugfield.md) interface for a more specific form of interface. For example, if [GetKind](../../../extensibility/debugger/reference/idebugfield-getkind.md) returns `FIELD_TYPE_METHOD`, you can then call `QueryInterface` on I`DebugField` to obtain the [IDebugMethodField](../../../extensibility/debugger/reference/idebugmethodfield.md) interface.  
+ 具体取决于类型的字段， [QueryInterface](/cpp/atl/queryinterface)可以上调用[IDebugField](../../../extensibility/debugger/reference/idebugfield.md)更特定形式的接口的接口。 例如，如果[GetKind](../../../extensibility/debugger/reference/idebugfield-getkind.md)返回`FIELD_TYPE_METHOD`，然后，你可以调用`QueryInterface`上我`DebugField`获取[IDebugMethodField](../../../extensibility/debugger/reference/idebugmethodfield.md)接口。  
   
-## <a name="requirements"></a>Requirements  
- Header: sh.h  
+## <a name="requirements"></a>要求  
+ 标头： sh.h  
   
  Namespace: Microsoft.VisualStudio.Debugger.Interop  
   
- Assembly: Microsoft.VisualStudio.Debugger.Interop.dll  
+ 程序集： Microsoft.VisualStudio.Debugger.Interop.dll  
   
-## <a name="see-also"></a>See Also  
- [Enumerations](../../../extensibility/debugger/reference/enumerations-visual-studio-debugging.md)   
+## <a name="see-also"></a>另请参阅  
+ [枚举](../../../extensibility/debugger/reference/enumerations-visual-studio-debugging.md)   
  [FIELD_MODIFIERS](../../../extensibility/debugger/reference/field-modifiers.md)   
  [GetKind](../../../extensibility/debugger/reference/idebugfield-getkind.md)   
  [IDebugField](../../../extensibility/debugger/reference/idebugfield.md)

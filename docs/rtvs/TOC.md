@@ -1,4 +1,5 @@
 # [针对 Visual Studio 的 R 工具](index.md)
+## [数据科学和分析应用程序工作负载](data-science-workload.md)
 ## [安装](installation.md)
 ## [R 入门](getting-started-with-r.md)
 ### [示例](getting-started-samples.md)

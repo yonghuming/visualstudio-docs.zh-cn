@@ -1,5 +1,5 @@
 ---
-title: .NET Coding Convention Settings For EditorConfig | Microsoft Docs
+title: "EditorConfig 的 .NET 编码约定设置 | Microsoft Docs"
 ms.custom: 
 ms.date: 12/14/2016
 ms.reviewer: 
@@ -34,639 +34,639 @@ ms.translationtype: HT
 ms.sourcegitcommit: 17defdd0b96ec1c3273fc6b845af844b031a4a17
 ms.openlocfilehash: ced437215b48c76e6df99699b4c6f9c916452d14
 ms.contentlocale: zh-cn
-ms.lasthandoff: 08/23/2017
+ms.lasthandoff: 09/06/2017
 
 ---
 
-# <a name="net-coding-convention-settings-for-editorconfig"></a>.NET Coding Convention Settings For EditorConfig
-.NET coding conventions are configured using an [EditorConfig](https://docs.microsoft.com/en-us/visualstudio/ide/create-portable-custom-editor-options) file. EditorConfig files allow you to **enable/disable individual .NET coding conventions** and **configure the degree at which you want the convention enforced** (via a severity level). To learn more about how to use EditorConfig to enforce consistency on your codebase, read [this article](https://docs.microsoft.com/en-us/visualstudio/ide/create-portable-custom-editor-options).
+# <a name="net-coding-convention-settings-for-editorconfig"></a>EditorConfig 的 .NET 编码约定设置
+使用 [EditorConfig](https://docs.microsoft.com/en-us/visualstudio/ide/create-portable-custom-editor-options) 文件配置 .NET 编码约定。 通过 EditorConfig 文件，可以启用/禁用单个 .NET 编码约定并配置强制实施约定的程度”（通过严重级别）。 若要了解有关如何使用 EditorConfig 强制实施代码库一致性的详细信息，请阅读[本文](https://docs.microsoft.com/en-us/visualstudio/ide/create-portable-custom-editor-options)。
 
-There are three supported .NET coding convention categories:
-- **[Language Conventions](#language)** are rules pertaining to the C# or Visual Basic language, for example, `var`/explicit type, use expression-bodied member.
-- **[Formatting Rules](#formatting)** are rules regarding the layout and structure of your code in order to make it easier to read, for example, Allman braces, spaces in control blocks.
-- **[Naming Conventions](#naming)** are rules respecting the way objects are named, for example, `async` methods must end in "Async". 
+有三种受支持的 .NET 编码约定类别：
+- **[语言约定](#language)**：与 C# 或 Visual Basic 语言相关的规则（例如，`var`/显式类型），使用 expression-bodied 成员。
+- **[格式设置规则](#formatting)**：代码布局和结构规则，让代码更易于阅读。例如，控制块中使用的 Allman 大括号、空格。
+- **[命名约定](#naming)**：遵从对象命名方式的规则。例如，`async` 方法必须以“Async”结尾。 
 
-# <a name="language"> Language Conventions </a>
-## <a name="overview"></a>Overview
-**Rule Format:**
+# <a name="language">语言约定</a>
+## <a name="overview"></a>概述
+**规则格式：**
 `options_name = false|true : none|suggestion|warning|error`
 
-For code style option, you must specify **true** (prefer this option) or **false** (do not prefer this option), a colon (`:`), and a severity (`none`, `silent`, `suggestion`, `warning`, or `error`). Severity means the level of enforcement for that style you want in your code base.
+对于代码样式选项，必须指定“true”（更倾向此选项）或“false”（不倾向此选项）、冒号 (`:`) 和严重性（`none`、`silent`、`suggestion`、`warning` 或 `error`）。 严重性代表想在基本代码中应用的样式的强制级别。
 
-`none` and `silent` are synonymous and mean that no indication of any kind should be shown to the user. This has the effect of disabling this rule.
+`none` 和 `silent` 是同义词，表示不应向用户显示任何形式的指示。 下面介绍禁用此规则的效果。
 
-Severity | effect
+严重性 | 效果
 ------------ | -------------
-none/silent | Do not show anything to the user when this style is not being followed, however code generation features generate in this style. 
-suggestion | When this style is not being followed, show it to the user as a suggestion (underlying dots on the first two characters).
-warning | When this style is not being followed, show a compiler warning.
-error | When this style is not being followed, show a compiler error.
+无/静默 | 如未遵循此样式，不会向用户显示任何内容，但代码生成功能会以此样式生成代码。 
+建议 | 如未遵循此样式，以建议形式向用户显示此样式（前两个字符下带点）。
+警告 | 如未遵循此样式，显示编译器警告。
+错误 | 如未遵循此样式，显示编译器错误。
 
-## <a name="net-language-convention-options"></a>.NET Language Convention Options
+## <a name="net-language-convention-options"></a>.NET 语言约定选项
 
-- **[.NET Code Style Settings](#this_and_me)**
-    - ["This." and "Me." Qualification](#this_and_me)
-        - [Fields](#this_and_me_fields)
-        - [Properties](#this_and_me_properties)
-        - [Methods](#this_and_me_methods)
-        - [Events](#this_and_me_events)
-    - [Language keywords (int, string, etc.) vs framework type names for type references](#language_keywords)
-        - [Locals, parameters, and members](#language_keywords_variables)
-        - [Member access expressions](#language_keywords_member_access)
-    - [Expression-level Preferences](#expression_level)
-        - [Object initializers](#expression_level_object_initializers)
-        - [Collection initializers](#expression_level_collection_initializers)
-        - [Explicit tuple names](#expression_level_tuple_names)
-        - [Coalescing expressions in "null" checking](#expression_level_null_checking)
-        - [Null propagation in "null" checking](#expression_level_null_propogation)
-- **[CSharp Code Style Settings](#csharp_codestyle)**
-    - ["var"](#var)
-        - ["var" for built-in types](#var_built_in)
-        - ["var" when type is apparent](#var_apparent)
-        - ["var" elsewhere](#var_elsewhere)
-    - [Expression-bodied members](#expression_body)
-        - [Methods](#expression_bodied_members_methods)
-        - [Constructors](#expression_bodied_members_constructors)
-        - [Operators](#expression_bodied_members_operators)
-        - [Properties](#expression_bodied_members_properties)
-        - [Indexers](#expression_bodied_members_indexers)
-        - [Accessors](#expression_bodied_members_accessors)
-    - [Pattern matching](#pattern_matching)
-        - ["is" with "cast" checking](#pattern_matching_is_cast)
-        - ["as" with "null" checking](#pattern_matching_as_null)
-    - [Inlined variable declarations](#inlined_variable_declarations)
-    - [Expression-level Preferences](#expression_level_csharp) -[Simplify `default` expressions](#expression_level_default)
-    - ["Null" Checking Preferences](#null_checking)
-        - [Throw-expressions](#null_checking_throw_expressions)
-        - [Conditional delegate calls](#null_checking_conditional_delegate_calls)
-    - [Code Block Preferences](#code_block)
-        - [Prefer braces](#prefer_braces)
+- **[.NET 代码样式设置](#this_and_me)**
+    - [“This.”和“me.”限定](#this_and_me)
+        - [字段](#this_and_me_fields)
+        - [属性](#this_and_me_properties)
+        - [方法](#this_and_me_methods)
+        - [事件](#this_and_me_events)
+    - [语言关键字（int、string 等）与类型引用的框架类型名称](#language_keywords)
+        - [局部变量、参数和成员](#language_keywords_variables)
+        - [成员访问表达式](#language_keywords_member_access)
+    - [表达式级首选项](#expression_level)
+        - [对象初始值设定项](#expression_level_object_initializers)
+        - [集合初始值设定项](#expression_level_collection_initializers)
+        - [显式元组名称](#expression_level_tuple_names)
+        - [“null”检查中的合并表达式](#expression_level_null_checking)
+        - [“null”检查中的 null 传播](#expression_level_null_propogation)
+- **[CSharp 代码样式设置](#csharp_codestyle)**
+    - [“var”](#var)
+        - [内置类型的“var”](#var_built_in)
+        - [类型为明显时的“var”](#var_apparent)
+        - [其他位置的“var”](#var_elsewhere)
+    - [Expression-Bodied 成员](#expression_body)
+        - [方法](#expression_bodied_members_methods)
+        - [构造函数](#expression_bodied_members_constructors)
+        - [运算符](#expression_bodied_members_operators)
+        - [属性](#expression_bodied_members_properties)
+        - [索引器](#expression_bodied_members_indexers)
+        - [访问器](#expression_bodied_members_accessors)
+    - [模式匹配](#pattern_matching)
+        - [“is”和“cast”检查](#pattern_matching_is_cast)
+        - [“as”和“null”检查](#pattern_matching_as_null)
+    - [内联变量声明](#inlined_variable_declarations)
+    - [表达式级首选项](#expression_level_csharp) -[简化 `default` 表达式](#expression_level_default)
+    - [“null”检查首选项](#null_checking)
+        - [Throw 表达式](#null_checking_throw_expressions)
+        - [条件委托调用](#null_checking_conditional_delegate_calls)
+    - [代码块首选项](#code_block)
+        - [首选大括号](#prefer_braces)
 
-## <a name="this_and_me">"This." and "Me." Qualification</a>
-### <a name="this_and_me_fields">Fields (IDE0003/IDE0009)</a>
-| **Option Name** | **Applicable Languages** | **Visual Studio Default** | **Supported Version** |
+## <a name="this_and_me">“This.”和“me.”限定</a>
+### <a name="this_and_me_fields">字段 (IDE0003/IDE0009)</a>
+| **选项名称** | **适用的语言** | **Visual Studio 默认值** | **支持的版本** |
 | ----------- | -------------------- | ----------------------| ----------------  |
-|  `dotnet_style_qualification_for_field` | C# and Visual Basic | false:none | Visual Studio 2017 RTW |
+|  `dotnet_style_qualification_for_field` | C# 和 Visual Basic | false:none | Visual Studio 2017 RTW |
 
 
-| Value | Description | Applied 
+| 值 | 说明 | 已应用 
 | ------------- |:-------------|:-------------|
-| True | Prefer all non-static fields used in non-static methods to be prefaced with `this.` in C# or `Me.` in Visual Basic. | **C#:** <br>`this.capacity = 0;` <br><br> **Visual Basic:** <br> `Me.capacity = 0`
-| False | Prefer all non-static fields used in non-static methods to not be prefaced with `this.` in C# or `Me.` in Visual Basic. | **C#:** <br>`capacity = 0;` <br><br> **Visual Basic:** <br>`capacity = 0`
+| True | 更喜欢非静态方法中使用的所有非静态字段以 `this.` 开始（在 C# 中）或以 `Me.` 开始（在 Visual Basic 中）。 | **C#：** <br>`this.capacity = 0;` <br><br> **Visual Basic：** <br> `Me.capacity = 0`
+| False | 更喜欢非静态方法中使用的所有非静态字段不以 `this.` 开始（在 C# 中）或不以 `Me.` 开始（在 Visual Basic 中）。 | **C#：** <br>`capacity = 0;` <br><br> **Visual Basic：** <br>`capacity = 0`
 
-#### <a name="example-editorconfig-file"></a>Example editorconfig file:
+#### <a name="example-editorconfig-file"></a>editorconfig 文件示例：
 ```
 # CSharp and Visual Basic code style settings:
 [*.{cs,vb}]
 dotnet_style_qualification_for_field = false:suggestion
 ```
 
-### <a name="this_and_me_properties">Properties (IDE0003/IDE0009) </a>
-| **Option Name** | **Applicable Languages** | **Visual Studio Default** | **Supported Version** |
+### <a name="this_and_me_properties">属性 (IDE0003/IDE0009)</a>
+| **选项名称** | **适用的语言** | **Visual Studio 默认值** | **支持的版本** |
 | ----------- | -------------------- | ----------------------| ----------------  |
-|`dotnet_style_qualification_for_property`| C# and Visual Basic | false:none | Visual Studio 2017 RTW |
+|`dotnet_style_qualification_for_property`| C# 和 Visual Basic | false:none | Visual Studio 2017 RTW |
 
 
-| Value | Description | Applied 
+| 值 | 说明 | 已应用 
 | ------------- |:-------------|:-------------|
-| True | Prefer the all non-static properties used in non-static methods to be prefaced with `this.` in C# or `Me.` in Visual Basic.| **C#:** <br>`this.ID = 0;` <br><br> **Visual Basic:** <br>`Me.ID = 0`
-| False | Prefer all non-static properties used in non-static methods to *not* be prefaced with `this.` in C# or `Me.` in Visual Basic. | **C#:** <br>`ID = 0;` <br><br> **Visual Basic:** <br> `ID = 0`
+| True | 更喜欢非静态方法中使用的所有非静态属性以 `this.` 开始（在 C# 中）或以 `Me.` 开始（在 Visual Basic 中）。| **C#：** <br>`this.ID = 0;` <br><br> **Visual Basic：** <br>`Me.ID = 0`
+| False | 更喜欢非静态方法中使用的所有非静态属性不以 `this.` 开始（在 C# 中）或不以 `Me.` 开始（在 Visual Basic 中）。 | **C#：** <br>`ID = 0;` <br><br> **Visual Basic：** <br> `ID = 0`
 
-#### <a name="example-editorconfig-file"></a>Example editorconfig file:
+#### <a name="example-editorconfig-file"></a>editorconfig 文件示例：
 ```
 # CSharp and Visual Basic code style settings:
 [*.{cs,vb}]
 dotnet_style_qualification_for_property = false:suggestion
 ```
 
-### <a name="this_and_me_methods">Methods (IDE0003/IDE0009) </a>
-| **Option Name** | **Applicable Languages** | **Visual Studio Default** | **Supported Version** |
+### <a name="this_and_me_methods">方法 (IDE0003/IDE0009)</a>
+| **选项名称** | **适用的语言** | **Visual Studio 默认值** | **支持的版本** |
 | ----------- | -------------------- | ----------------------| ----------------  |
-|`dotnet_style_qualification_for_method`| C# and Visual Basic | false:none | Visual Studio 2017 RTW |
+|`dotnet_style_qualification_for_method`| C# 和 Visual Basic | false:none | Visual Studio 2017 RTW |
 
 
-| Value | Description | Applied 
+| 值 | 说明 | 已应用 
 | ------------- |:-------------|:-------------|
-| True | Prefer all non-static methods called from within non-static methods to be prefaced with `this.` in C# and `Me.` in VB.| **C#:** <br>`this.Display();` <br><br> **Visual Basic:** <br> `Me.Display()`
-| False | Prefer all non-static methods called from within non-static methods to *not* be prefaced with `this.`in C# and `Me.` in VB. | **C#:** <br>`Display();` <br><br> **Visual Basic:** <br> `Display()`
+| True | 更喜欢从非静态方法中调用的所有非静态方法以 `this.` 开始（在 C# 中）和以 `Me.` 开始（在 VB 中）。| **C#：** <br>`this.Display();` <br><br> **Visual Basic：** <br> `Me.Display()`
+| False | 更喜欢从非静态方法中调用的所有非静态方法不以 `this.` 开始（在 C# 中）和不以 `Me.` 开始（在 VB 中）。 | **C#：** <br>`Display();` <br><br> **Visual Basic：** <br> `Display()`
 
 
-#### <a name="example-editorconfig-file"></a>Example editorconfig file:
+#### <a name="example-editorconfig-file"></a>editorconfig 文件示例：
 ```
 # CSharp and Visual Basic code style settings:
 [*.{cs,vb}]
 dotnet_style_qualification_for_method = false:suggestion
 ```
 
-### <a name="this_and_me_events">Events (IDE0003/IDE0009) </a>
-| **Option Name** | **Applicable Languages** | **Visual Studio Default** | **Supported Version** |
+### <a name="this_and_me_events">事件 (IDE0003/IDE0009)</a>
+| **选项名称** | **适用的语言** | **Visual Studio 默认值** | **支持的版本** |
 | ----------- | -------------------- | ----------------------| ----------------  |
-|`dotnet_style_qualification_for_event`| C# and Visual Basic | false:none | Visual Studio 2017 RTW |
+|`dotnet_style_qualification_for_event`| C# 和 Visual Basic | false:none | Visual Studio 2017 RTW |
 
 
-| Value | Description | Applied 
+| 值 | 说明 | 已应用 
 | ------------- |:-------------|:-------------|
-| True | Prefer all non-static events referenced from within non-static methods to be prefaced with `this.` in C# and `Me.` in VB.| **C#:** <br>`this.Elapsed += Handler;` <br><br> **Visual Basic:** <br> `AddHandler Me.Elapsed, AddressOf Handler`
-| False | Prefer all non-static events referenced from within non-static methods to *not* be prefaced with `this.`in C# and `Me.` in VB. | **C#:** <br>`Elapsed += Handler;` <br><br> **Visual Basic:** <br>`AddHandler Elapsed, AddressOf Handler`
+| True | 更喜欢从非静态方法中引用的所有非静态事件以 `this.` 开始（在 C# 中）和以 `Me.` 开始（在 VB 中）。| **C#：** <br>`this.Elapsed += Handler;` <br><br> **Visual Basic：** <br> `AddHandler Me.Elapsed, AddressOf Handler`
+| False | 更喜欢从非静态方法中引用的所有非静态事件不以 `this.` 开始（在 C# 中）和不以 `Me.` 开始（在 VB 中）。 | **C#：** <br>`Elapsed += Handler;` <br><br> **Visual Basic：** <br>`AddHandler Elapsed, AddressOf Handler`
 
-#### <a name="example-editorconfig-file"></a>Example editorconfig file:
+#### <a name="example-editorconfig-file"></a>editorconfig 文件示例：
 ```
 # CSharp and Visual Basic code style settings:
 [*.{cs,vb}]
 dotnet_style_qualification_for_event = false:suggestion
 ```
 
-## <a name="language_keywords">Language keywords (int, string, etc.) vs framework type names for type references </a>
-### <a name="language_keywords_variables"> Locals, parameters, and members (IDE0012/IDE0014)</a>
-| **Option Name** | **Applicable Languages** | **Visual Studio Default** | **Supported Version** |
+## <a name="language_keywords">语言关键字（int、string 等）与类型引用的框架类型名称</a>
+### <a name="language_keywords_variables">局部变量、参数和成员 (IDE0012/IDE0014)</a>
+| **选项名称** | **适用的语言** | **Visual Studio 默认值** | **支持的版本** |
 | ----------- | -------------------- | ----------------------| ----------------  |
-|`dotnet_style_predefined_type_for_locals_parameters_members`| C# and Visual Basic | true:none | Visual Studio 2017 RTW |
+|`dotnet_style_predefined_type_for_locals_parameters_members`| C# 和 Visual Basic | true:none | Visual Studio 2017 RTW |
 
 
-| Value | Description | Applied 
+| 值 | 说明 | 已应用 
 | ------------- |:-------------|:-------------|
-| True | For locals, parameters and type members, prefer types that have a language keyword to represent them (`int`, `double`, `float`, `short`, `long`, `decimal`, `string`) to use the keyword instead of the type name (`Int32`, `Int64`, etc.).| **C#:** <br>`private int _member;` <br><br> **Visual Basic:** `Private _member As Integer`
-| False | For locals, parameters and type members, prefer types that have a language keyword to represent them (`int`, `double`, `float`, `short`, `long`, `decimal`, `string`) to use the type name (`Int32`, `Int64`, etc.) instead of the keyword.  | **C#:** <br>`private Int32 _member;` <br><br> **Visual Basic:** <br> `Private _member As Int32`
+| True | 对于局部变量、参数和类型成员，更喜欢具有语言关键字（用于表示它们）的类型（`int`、`double`、`float`、`short`、`long`、`decimal` 和 `string`），以使用关键字而不是类型名称（`Int32` 和 `Int64` 等）。| **C#：** <br>`private int _member;` <br><br> **Visual Basic：**`Private _member As Integer`
+| False | 对于局部变量、参数和类型成员，更喜欢具有语言关键字（用于表示它们）的类型（`int`、`double`、`float`、`short`、`long`、`decimal` 和 `string`），以使用类型名称（`Int32` 和 `Int64` 等）而不是关键字。  | **C#：** <br>`private Int32 _member;` <br><br> **Visual Basic：** <br> `Private _member As Int32`
 
-#### <a name="example-editorconfig-file"></a>Example editorconfig file:
+#### <a name="example-editorconfig-file"></a>editorconfig 文件示例：
 ```
 # CSharp and Visual Basic code style settings:
 [*.{cs,vb}]
 dotnet_style_predefined_type_for_locals_parameters_members = true:suggestion
 ``` 
 
-### <a name="language_keywords_member_access">Member access expressions (IDE0013/IDE0015)</a>
-| **Option Name** | **Applicable Languages** | **Visual Studio Default** | **Supported Version** |
+### <a name="language_keywords_member_access">成员访问表达式 (IDE0013/IDE0015)</a>
+| **选项名称** | **适用的语言** | **Visual Studio 默认值** | **支持的版本** |
 | ----------- | -------------------- | ----------------------| ----------------  |
-|`dotnet_style_predefined_type_for_member_access`| C# and Visual Basic | true:none | Visual Studio 2017 RTW |
+|`dotnet_style_predefined_type_for_member_access`| C# 和 Visual Basic | true:none | Visual Studio 2017 RTW |
 
 
-| Value | Description | Applied 
+| 值 | 说明 | 已应用 
 | ------------- |:-------------|:-------------|
-| True | Prefer the keyword whenever a member-access expression is used on a type with a keyword representation (`int`, `double`, `float`, `short`, `long`, `decimal`, `string`).| **C#:** <br>`var local = int.MaxValue;` <br><br> **Visual Basic:** <br> `Dim local = Integer.MaxValue`
-| False | Prefer the type name whenever a member access expression is used on a type with a keyword representation (`int`, `double`, `float`, `short`, `long`, `decimal`, `string`). | **C#:** <br>`var local = Int32.MaxValue;` <br><br> **Visual Basic:** <br> `Dim local = Int32.MaxValue`
+| True | 每当在具有关键字表示形式的类型上使用成员访问表达式时选择关键字（`int`、`double`、`float`、`short`、`long`、`decimal` 和 `string`）。| **C#：** <br>`var local = int.MaxValue;` <br><br> **Visual Basic：** <br> `Dim local = Integer.MaxValue`
+| False | 每当在具有关键字表示形式的类型上使用成员访问表达式时选择类型名称（`int`、`double`、`float`、`short`、`long`、`decimal` 和 `string`）。 | **C#：** <br>`var local = Int32.MaxValue;` <br><br> **Visual Basic：** <br> `Dim local = Int32.MaxValue`
 
-#### <a name="example-editorconfig-file"></a>Example editorconfig file:
+#### <a name="example-editorconfig-file"></a>editorconfig 文件示例：
 ```
 # CSharp and Visual Basic code style settings:
 [*.{cs,vb}]
 dotnet_style_predefined_type_for_member_access = true:suggestion
 ``` 
 
-## <a name="expression_level">Expression-level Preferences</a>
-### <a name="expression_level_object_initializers">Object initializers (IDE0017)</a>
-| **Option Name** | **Applicable Languages** | **Visual Studio Default** | **Supported Version** |
+## <a name="expression_level">表达式级首选项</a>
+### <a name="expression_level_object_initializers">对象初始值设定项 (IDE0017)</a>
+| **选项名称** | **适用的语言** | **Visual Studio 默认值** | **支持的版本** |
 | ----------- | -------------------- | ----------------------| ----------------  |
-|`dotnet_style_object_initializer`| C# and Visual Basic | true:suggestion | Visual Studio 2017 RTW |
+|`dotnet_style_object_initializer`| C# 和 Visual Basic | true:suggestion | Visual Studio 2017 RTW |
 
 
-| Value | Description | Applied 
+| 值 | 说明 | 已应用 
 | ------------- |:-------------|:-------------|
-| True | Prefer objects to be initialized using object initializers when possible.| **C#:** <br>`var c = new Customer(){ Age = 21 };` <br><br> **Visual Basic:** <br> `Dim c = New Customer() With { .Age = 21 }`
-| False | Prefer objects to *not* be initialized using object initializers. | **C#:** <br>`var c = new Customer();`<br>`c.Age = 21;` <br><br> **Visual Basic:** <br>`Dim c = new Customer() `<br>`c.Age = 21`
+| True | 在可能情况下，更倾向使用对象初始值设定项来初始化对象。| **C#：** <br>`var c = new Customer(){ Age = 21 };` <br><br> **Visual Basic：** <br> `Dim c = New Customer() With { .Age = 21 }`
+| False | 更倾向不使用对象初始值设定项来初始化对象。 | **C#：** <br>`var c = new Customer();`<br>`c.Age = 21;` <br><br> **Visual Basic：** <br>`Dim c = new Customer() `<br>`c.Age = 21`
 
-#### <a name="example-editorconfig-file"></a>Example editorconfig file:
+#### <a name="example-editorconfig-file"></a>editorconfig 文件示例：
 ```
 # CSharp and Visual Basic code style settings:
 [*.{cs,vb}]
 dotnet_style_object_initializer = true:suggestion
 ``` 
 
-### <a name="expression_level_collection_initializers">Collection initializers (IDE0028)</a>
-| **Option Name** | **Applicable Languages** | **Visual Studio Default** | **Supported Version** |
+### <a name="expression_level_collection_initializers">集合初始值设定项 (IDE0028)</a>
+| **选项名称** | **适用的语言** | **Visual Studio 默认值** | **支持的版本** |
 | ----------- | -------------------- | ----------------------| ----------------  |
-|`dotnet_style_collection_initializer`| C# and Visual Basic | true:suggestion | Visual Studio 2017 RTW |
+|`dotnet_style_collection_initializer`| C# 和 Visual Basic | true:suggestion | Visual Studio 2017 RTW |
 
 
-| Value | Description | Applied 
+| 值 | 说明 | 已应用 
 | ------------- |:-------------|:-------------|
-| True | Prefer collections to be initialized using collection initializers when possible.| **C#:** <br>`var list = new List<int>{ 1, 2, 3 };` <br><br> **Visual Basic:** <br> `Dim list = new List(Of Integer) From { 1, 2, 3}`
-| False | Prefer objects to *not* be initialized using collection initializers. | **C#:** <br>`var list = new List<int>();`<br>`list.Add(1);`<br>`list.Add(2);`<br>`list.Add(3);` <br><br> **Visual Basic:** <br>`Dim list = new List(Of Integer)`<br>`list.Add(1)`<br>`list.Add(2)`<br>`list.Add(3)`
+| True | 在可能情况下，更倾向使用集合初始值设定项来初始化集合。| **C#：** <br>`var list = new List<int>{ 1, 2, 3 };` <br><br> **Visual Basic：** <br> `Dim list = new List(Of Integer) From { 1, 2, 3}`
+| False | 更倾向不使用集合初始值设定项来初始化对象。 | **C#：** <br>`var list = new List<int>();`<br>`list.Add(1);`<br>`list.Add(2);`<br>`list.Add(3);` <br><br> **Visual Basic：** <br>`Dim list = new List(Of Integer)`<br>`list.Add(1)`<br>`list.Add(2)`<br>`list.Add(3)`
 
-#### <a name="example-editorconfig-file"></a>Example editorconfig file:
+#### <a name="example-editorconfig-file"></a>editorconfig 文件示例：
 ```
 # CSharp and Visual Basic code style settings:
 [*.{cs,vb}]
 dotnet_style_collection_initializer = true:suggestion
 ```
 
-### <a name="expression_level_tuple_names">Explicit tuple names (IDE0033)</a>
-| **Option Name** | **Applicable Languages** | **Visual Studio Default** | **Supported Version** |
+### <a name="expression_level_tuple_names">显式元组名称 (IDE0033)</a>
+| **选项名称** | **适用的语言** | **Visual Studio 默认值** | **支持的版本** |
 | ----------- | -------------------- | ----------------------| ----------------  |
-|`dotnet_style_explicit_tuple_names`| C# 7.0+ and Visual Basic 15+ | true:suggestion | Visual Studio 2017 RTW |
+|`dotnet_style_explicit_tuple_names`| C# 7.0+ 和 Visual Basic 15+ | true:suggestion | Visual Studio 2017 RTW |
 
 
-| Value | Description | Applied 
+| 值 | 说明 | 已应用 
 | ------------- |:-------------|:-------------|
-| True | Prefer tuple names to ItemX properties.| **C#:** <br>`(string name, int age) customer = GetCustomer();`<br>`var name = customer.name;` <br><br> **Visual Basic:** <br> `Dim customer As (name As String, age As Integer) = GetCustomer()`<br>`Dim name = customer.name`
-| False | Prefer ItemX properties to tuple names. | **C#:** <br>`(string name, int age) customer = GetCustomer();`<br>`var name = customer.Item1;` <br><br> **Visual Basic:** <br>`Dim customer As (name As String, age As Integer) = GetCustomer()`<br> `Dim name = customer.Item1`
+| True | 比起 ItemX 属性更倾向元祖名称。| **C#：** <br>`(string name, int age) customer = GetCustomer();`<br>`var name = customer.name;` <br><br> **Visual Basic：** <br> `Dim customer As (name As String, age As Integer) = GetCustomer()`<br>`Dim name = customer.name`
+| False | 比起元组名称更倾向 ItemX 属性。 | **C#：** <br>`(string name, int age) customer = GetCustomer();`<br>`var name = customer.Item1;` <br><br> **Visual Basic：** <br>`Dim customer As (name As String, age As Integer) = GetCustomer()`<br> `Dim name = customer.Item1`
 
-#### <a name="example-editorconfig-file"></a>Example editorconfig file:
+#### <a name="example-editorconfig-file"></a>editorconfig 文件示例：
 ```
 # CSharp and Visual Basic code style settings:
 [*.{cs,vb}]
 dotnet_style_explicit_tuple_names = true:suggestion
 ``` 
 
-### <a name="expression_level_null_checking">Coalescing expressions in "null" checking (IDE0029)</a>
-| **Option Name** | **Applicable Languages** | **Visual Studio Default** | **Supported Version** |
+### <a name="expression_level_null_checking">“null”检查中的合并表达式 (IDE0029)</a>
+| **选项名称** | **适用的语言** | **Visual Studio 默认值** | **支持的版本** |
 | ----------- | -------------------- | ----------------------| ----------------  |
-|`dotnet_style_coalesce_expression`| C# and Visual Basic | true:suggestion | Visual Studio 2017 RTW |
+|`dotnet_style_coalesce_expression`| C# 和 Visual Basic | true:suggestion | Visual Studio 2017 RTW |
 
 
-| Value | Description | Applied 
+| 值 | 说明 | 已应用 
 | ------------- |:-------------|:-------------|
-| True | Prefer null coalescing expression to ternary operator checking.| **C#:** <br>`var v = x ?? y;` <br><br> **Visual Basic:** <br> `Dim v = If(x, y)`
-| False | Prefer ternary operator checking to null coalescing expression. | **C#:** <br>`var v = x != null ? x : y; // or`<br>`var v = x == null ? y : x;` <br><br> **Visual Basic:** <br>`Dim v = If(x Is Nothing, y, x) ' or`<br> `Dim v = If(x IsNot Nothing, x, y)`
+| True | 比起 三元运算符检查更倾向 null 合并表达式。| **C#：** <br>`var v = x ?? y;` <br><br> **Visual Basic：** <br> `Dim v = If(x, y)`
+| False | 比起 null 合并表达式更倾向三元运算符检查。 | **C#：** <br>`var v = x != null ? x : y; // or`<br>`var v = x == null ? y : x;` <br><br> **Visual Basic：** <br>`Dim v = If(x Is Nothing, y, x) ' or`<br> `Dim v = If(x IsNot Nothing, x, y)`
 
-#### <a name="example-editorconfig-file"></a>Example editorconfig file:
+#### <a name="example-editorconfig-file"></a>editorconfig 文件示例：
 ```
 # CSharp and Visual Basic code style settings:
 [*.{cs,vb}]
 dotnet_style_coalesce_expression = true:suggestion
 ``` 
 
-### <a name="expression_level_null_propogation">Null propagation in "null" checking (IDE0031)</a>
-| **Option Name** | **Applicable Languages** | **Visual Studio Default** | **Supported Version** |
+### <a name="expression_level_null_propogation">“null”检查中的 null 传播 (IDE0031)</a>
+| **选项名称** | **适用的语言** | **Visual Studio 默认值** | **支持的版本** |
 | ----------- | -------------------- | ----------------------| ----------------  |
-|`dotnet_style_null_propagation`| C# 6.0+ and Visual Basic 14+ | true:suggestion | Visual Studio 2017 RTW |
+|`dotnet_style_null_propagation`| C# 6.0+ 和 Visual Basic 14+ | true:suggestion | Visual Studio 2017 RTW |
 
 
-| Value | Description | Applied 
+| 值 | 说明 | 已应用 
 | ------------- |:-------------|:-------------|
-| True | Prefer to use null-conditional operator where possible.| **C#:** <br>`var v = o?.ToString();` <br><br> **Visual Basic:** <br> `Dim v = o?.ToString()`
-| False | Prefer to use ternary null checking where possible. | **C#:** <br>`var v = o == null ? null : o.ToString(); // or`<br>`var v = o != null ? o.String() : null;` <br><br> **Visual Basic:** <br>`Dim v = If(o Is Nothing, Nothing, o.ToString()) ' or`<br> `Dim v = If(o IsNot Nothing, o.ToString(), Nothing)`
+| True | 如可能，更倾向使用 null 条件运算符。| **C#：** <br>`var v = o?.ToString();` <br><br> **Visual Basic：** <br> `Dim v = o?.ToString()`
+| False | 如可能，更倾向使用三元 null 检查。 | **C#：** <br>`var v = o == null ? null : o.ToString(); // or`<br>`var v = o != null ? o.String() : null;` <br><br> **Visual Basic：** <br>`Dim v = If(o Is Nothing, Nothing, o.ToString()) ' or`<br> `Dim v = If(o IsNot Nothing, o.ToString(), Nothing)`
 
-#### <a name="example-editorconfig-file"></a>Example editorconfig file:
+#### <a name="example-editorconfig-file"></a>editorconfig 文件示例：
 ```
 # CSharp and Visual Basic code style settings:
 [*.{cs,vb}]
 dotnet_style_null_propagation = true:suggestion
 ``` 
 
-# <a name="csharp_codestyle">CSharp Code Style Settings</a>
-## <a name="var">"var" and Explicit Types</a>
-### <a name="var_built_in">"var" for built-in types (IDE0007, IDE0008)</a>
-| **Option Name** | **Applicable Languages** | **Visual Studio Default** | **Supported Version** |
+# <a name="csharp_codestyle">CSharp 代码样式设置</a>
+## <a name="var">“var”和显式类型</a>
+### <a name="var_built_in">内置类型的“var”(IDE0007, IDE0008)</a>
+| **选项名称** | **适用的语言** | **Visual Studio 默认值** | **支持的版本** |
 | ----------- | -------------------- | ----------------------| ----------------  |
 |`csharp_style_var_for_built_in_types`| C# | true:none | Visual Studio 2017 RTW |
 
 
-| Value | Description | Applied 
+| 值 | 说明 | 已应用 
 | ------------- |:-------------|:-------------|
-| True | Prefer `var` is used for built-in system types such as `int`.| **C#:** <br>`var x = 5;`
-| False | Prefer `var` not be used for built-in system types such as `int`. | **C#:** <br>`int x = 5;`
+| True | 更倾向在内置系统类型（如 `int`）中使用 `var`。| **C#：** <br>`var x = 5;`
+| False | 更倾向在内置系统类型（如 `int`）中不使用 `var`。 | **C#：** <br>`int x = 5;`
 
-#### <a name="example-editorconfig-file"></a>Example editorconfig file:
+#### <a name="example-editorconfig-file"></a>editorconfig 文件示例：
 ```
 # CSharp code style settings:
 [*.cs]
 csharp_style_var_for_built_in_types = true:suggestion
 ``` 
 
-### <a name="var_apparent">"var" when type is apparent (IDE0007, IDE0008)</a>
-| **Option Name** | **Applicable Languages** | **Visual Studio Default** | **Supported Version** |
+### <a name="var_apparent">类型为明显时的“var”(IDE0007, IDE0008)</a>
+| **选项名称** | **适用的语言** | **Visual Studio 默认值** | **支持的版本** |
 | ----------- | -------------------- | ----------------------| ----------------  |
 |`csharp_style_var_when_type_is_apparent`| C# | true:none | Visual Studio 2017 RTW |
 
 
-| Value | Description | Applied 
+| 值 | 说明 | 已应用 
 | ------------- |:-------------|:-------------|
-| True | Prefer `var` when the type is already mentioned on the right-hand side of a declaration expression.| **C#:** <br>`var obj = new C();`
-| False | Prefer to not use `var` when the type is already mentioned on the right-hand side of a declaration expression. | **C#:** <br>`C obj = new C();`
+| True | 声明表达式右侧已提到该类型时更倾向使用 `var`。| **C#：** <br>`var obj = new C();`
+| False | 声明表达式右侧已提到该类型时更倾向不使用 `var`。 | **C#：** <br>`C obj = new C();`
 
-#### <a name="example-editorconfig-file"></a>Example editorconfig file:
+#### <a name="example-editorconfig-file"></a>editorconfig 文件示例：
 ```
 # CSharp code style settings:
 [*.cs]
 csharp_style_var_when_type_is_apparent = true:suggestion
 ``` 
 
-### <a name="var_elsewhere">"var" elsewhere (IDE0007, IDE0008) </a>
-| **Option Name** | **Applicable Languages** | **Visual Studio Default** | **Supported Version** |
+### <a name="var_elsewhere">其他位置 的“var”(IDE0007, IDE0008)</a>
+| **选项名称** | **适用的语言** | **Visual Studio 默认值** | **支持的版本** |
 | ----------- | -------------------- | ----------------------| ----------------  |
 |`csharp_style_var_elsewhere`| C# | true:none | Visual Studio 2017 RTW |
 
 
-| Value | Description | Applied 
+| 值 | 说明 | 已应用 
 | ------------- |:-------------|:-------------|
-| True | Prefer `var` in all cases unless overridden by another code style rule.| **C#:** <br>`var f = this.Init();`
-| False | Prefer to not use var in all cases unless overridden by another code style rule.| **C#:** <br>`bool f = this.Init();`
+| True | 在所有情况下更倾向使用 `var`，除非被另一个代码样式规则重写。| **C#：** <br>`var f = this.Init();`
+| False | 在所有情况下更倾向不使用“var”，除非被另一个代码样式规则重写。| **C#：** <br>`bool f = this.Init();`
 
-#### <a name="example-editorconfig-file"></a>Example editorconfig file:
+#### <a name="example-editorconfig-file"></a>editorconfig 文件示例：
 ```
 # CSharp code style settings:
 [*.cs]
 csharp_style_var_elsewhere = true:suggestion
 ``` 
 
-##<a name="expression_bodied_members">Expression-bodied Members</a>
-### <a name="expression_bodied_members_methods">Methods (IDE0022)</a>
-| **Option Name** | **Applicable Languages** | **Visual Studio Default** | **Supported Version** |
+##<a name="expression_bodied_members">Expression-bodied 成员</a>
+### <a name="expression_bodied_members_methods">方法 (IDE0022)</a>
+| **选项名称** | **适用的语言** | **Visual Studio 默认值** | **支持的版本** |
 | ----------- | -------------------- | ----------------------| ----------------  |
 |`csharp_style_expression_bodied_methods`| C# 6.0+ | false:none | Visual Studio 2017 RTW |
 
 
-| Value | Description | Applied 
+| 值 | 说明 | 已应用 
 | ------------- |:-------------|:-------------|
-| True | Prefer expression-bodied members for methods.| **C#:** <br>`public int GetAge() => this.Age;`
-| False | Do not prefer expression-bodied members for methods.| **C#:** <br>`public int GetAge() { return this.Age; }`
+| True | 倾向于使用方法的 expression-bodied 成员。| **C#：** <br>`public int GetAge() => this.Age;`
+| False | 倾向于不使用方法的 expression-bodied 成员。| **C#：** <br>`public int GetAge() { return this.Age; }`
 
-#### <a name="example-editorconfig-file"></a>Example editorconfig file:
+#### <a name="example-editorconfig-file"></a>editorconfig 文件示例：
 ```
 # CSharp code style settings:
 [*.cs]
 csharp_style_expression_bodied_methods = false:none
 ``` 
 
-### <a name="expression_bodied_members_constructors">Constructors (IDE0021)</a>
-| **Option Name** | **Applicable Languages** | **Visual Studio Default** | **Supported Version** |
+### <a name="expression_bodied_members_constructors">构造函数 (IDE0021)</a>
+| **选项名称** | **适用的语言** | **Visual Studio 默认值** | **支持的版本** |
 | ----------- | -------------------- | ----------------------| ----------------  |
 |`csharp_style_expression_bodied_constructors`| C# 7.0+ | false:none | Visual Studio 2017 RTW |
 
 
-| Value | Description | Applied 
+| 值 | 说明 | 已应用 
 | ------------- |:-------------|:-------------|
-| True | Prefer expression-bodied members for constructors.| **C#:** <br>`public Customer(int age) => Age = age;`
-| False | Do not prefer expression-bodied members for constructors.| **C#:** <br>`public Customer(int age) { Age = age; }`
+| True | 倾向于使用构造函数的 expression-bodied 成员。| **C#：** <br>`public Customer(int age) => Age = age;`
+| False | 倾向于不使用构造函数的 expression-bodied 成员。| **C#：** <br>`public Customer(int age) { Age = age; }`
 
-#### <a name="example-editorconfig-file"></a>Example editorconfig file:
+#### <a name="example-editorconfig-file"></a>editorconfig 文件示例：
 ```
 # CSharp code style settings:
 [*.cs]
 csharp_style_expression_bodied_constructors = false:none
 ``` 
 
-### <a name="expression_bodied_members_operators">Operators (IDE0023, IDE0024)</a>
-| **Option Name** | **Applicable Languages** | **Visual Studio Default** | **Supported Version** |
+### <a name="expression_bodied_members_operators">运算符 (IDE0023, IDE0024)</a>
+| **选项名称** | **适用的语言** | **Visual Studio 默认值** | **支持的版本** |
 | ----------- | -------------------- | ----------------------| ----------------  |
 |`csharp_style_expression_bodied_operators` | C# 7.0+ | false:none | Visual Studio 2017 RTW |
 
 
-| Value | Description | Applied 
+| 值 | 说明 | 已应用 
 | ------------- |:-------------|:-------------|
-| True | Prefer expression-bodied members for operators.| **C#:** <br>`public static ComplexNumber operator +(ComplexNumber c1, ComplexNumber c2)`<br>`=> new ComplexNumber(c1.Real + c2.Real, c1.Imaginary + c2.Imaginary);`
-| False | Do not prefer expression-bodied members for operators.| **C#:** <br>`public static ComplexNumber operator +(ComplexNumber c1, ComplexNumber c2)`<br>`{ return new ComplexNumber(c1.Real + c2.Real, c1.Imaginary + c2.Imaginary); }`
+| True | 倾向于使用运算符的 expression-bodied 成员。| **C#：** <br>`public static ComplexNumber operator +(ComplexNumber c1, ComplexNumber c2)`<br>`=> new ComplexNumber(c1.Real + c2.Real, c1.Imaginary + c2.Imaginary);`
+| False | 倾向于不使用运算符的 expression-bodied 成员。| **C#：** <br>`public static ComplexNumber operator +(ComplexNumber c1, ComplexNumber c2)`<br>`{ return new ComplexNumber(c1.Real + c2.Real, c1.Imaginary + c2.Imaginary); }`
 
-#### <a name="example-editorconfig-file"></a>Example editorconfig file:
+#### <a name="example-editorconfig-file"></a>editorconfig 文件示例：
 ```
 # CSharp code style settings:
 [*.cs]
 csharp_style_expression_bodied_operators = false:none
 ``` 
 
-### <a name="expression_bodied_members_properties">Properties (IDE0025)</a>
-| **Option Name** | **Applicable Languages** | **Visual Studio Default** | **Supported Version** |
+### <a name="expression_bodied_members_properties">属性 (IDE0025)</a>
+| **选项名称** | **适用的语言** | **Visual Studio 默认值** | **支持的版本** |
 | ----------- | -------------------- | ----------------------| ----------------  |
 |`csharp_style_expression_bodied_properties` | C# 7.0+ | true:none | Visual Studio 2017 RTW |
 
 
-| Value | Description | Applied 
+| 值 | 说明 | 已应用 
 | ------------- |:-------------|:-------------|
-| True | Prefer expression-bodied members for properties.| **C#:** <br>`public int Age => _age;`
-| False | Do not prefer expression-bodied members for properties.| **C#:** <br>`public int Age { get { return _age; }}`
+| True | 倾向于使用属性的 expression-bodied 成员。| **C#：** <br>`public int Age => _age;`
+| False | 倾向于不使用属性的 expression-bodied 成员。| **C#：** <br>`public int Age { get { return _age; }}`
 
-#### <a name="example-editorconfig-file"></a>Example editorconfig file:
+#### <a name="example-editorconfig-file"></a>editorconfig 文件示例：
 ```
 # CSharp code style settings:
 [*.cs]
 csharp_style_expression_bodied_properties = true:none
 ``` 
 
-### <a name="expression_bodied_members_indexers">Indexers (IDE0026)</a>
-| **Option Name** | **Applicable Languages** | **Visual Studio Default** | **Supported Version** |
+### <a name="expression_bodied_members_indexers">索引器 (IDE0026)</a>
+| **选项名称** | **适用的语言** | **Visual Studio 默认值** | **支持的版本** |
 | ----------- | -------------------- | ----------------------| ----------------  |
 |`csharp_style_expression_bodied_indexers` | C# 7.0+ | true:none | Visual Studio 2017 RTW |
 
 
-| Value | Description | Applied 
+| 值 | 说明 | 已应用 
 | ------------- |:-------------|:-------------|
-| True | Prefer expression-bodied members for indexers.| **C#:** <br>`public T this[int i] => _value[i];`
-| False | Do not prefer expression-bodied members for indexers.| **C#:** <br>`public T this[int i] { get { return _values[i]; } }`
+| True | 倾向于使用索引器的 expression-bodied 成员。| **C#：** <br>`public T this[int i] => _value[i];`
+| False | 倾向于不使用索引器的 expression-bodied 成员。| **C#：** <br>`public T this[int i] { get { return _values[i]; } }`
 
-#### <a name="example-editorconfig-file"></a>Example editorconfig file:
+#### <a name="example-editorconfig-file"></a>editorconfig 文件示例：
 ```
 # CSharp code style settings:
 [*.cs]
 csharp_style_expression_bodied_indexers = false:none
 ``` 
 
-### <a name="expression_bodied_members_accessors">Accessors (IDE0027)</a>
-| **Option Name** | **Applicable Languages** | **Visual Studio Default** | **Supported Version** |
+### <a name="expression_bodied_members_accessors">访问器 (IDE0027)</a>
+| **选项名称** | **适用的语言** | **Visual Studio 默认值** | **支持的版本** |
 | ----------- | -------------------- | ----------------------| ----------------  |
 |`csharp_style_expression_bodied_accessors` | C# 7.0+ | true:none | Visual Studio 2017 RTW |
 
 
-| Value | Description | Applied 
+| 值 | 说明 | 已应用 
 | ------------- |:-------------|:-------------|
-| True | Prefer expression-bodied members for accessors.| **C#:** <br>`public int Age { get => _age; set => _age = value; }`
-| False | Do not prefer expression-bodied members for accessors.| **C#:** <br>`public int Age { get { return _age; } set { _age = value; } }`
+| True | 倾向于使用访问器的 expression-bodied 成员。| **C#：** <br>`public int Age { get => _age; set => _age = value; }`
+| False | 倾向于不使用访问器的 expression-bodied 成员。| **C#：** <br>`public int Age { get { return _age; } set { _age = value; } }`
 
-#### <a name="example-editorconfig-file"></a>Example editorconfig file:
+#### <a name="example-editorconfig-file"></a>editorconfig 文件示例：
 ```
 # CSharp code style settings:
 [*.cs]
 csharp_style_expression_bodied_accessors = false:none
 ``` 
 
-## <a name="pattern_matching">Pattern matching</a>
-### <a name="pattern_matching_is_cast">"is" with "cast" checking (IDE0020)</a>
-| **Option Name** | **Applicable Languages** | **Visual Studio Default** | **Supported Version** |
+## <a name="pattern_matching">模式匹配</a>
+### <a name="pattern_matching_is_cast">“is”和“cast”检查 (IDE0020)</a>
+| **选项名称** | **适用的语言** | **Visual Studio 默认值** | **支持的版本** |
 | ----------- | -------------------- | ----------------------| ----------------  |
 |`csharp_style_pattern_matching_over_is_with_cast_check` | C# 7.0+ | true:suggestion | Visual Studio 2017 RTW |
 
 
-| Value | Description | Applied 
+| 值 | 说明 | 已应用 
 | ------------- |:-------------|:-------------|
-| True | Prefer pattern matching instead of `is` expressions with type casts.| **C#:** <br>`if (o is int i) {...}`
-| False | Prefer `is` expressions with type casts instead of pattern matching.| **C#:** <br>`if (o is int) {var i = (int)o; ... }`
+| True | 倾向于使用模式匹配，而不是带类型强制转换的 `is` 表达式。| **C#：** <br>`if (o is int i) {...}`
+| False | 倾向于使用带类型强制转换的 `is` 表达式，而不是模式匹配。| **C#：** <br>`if (o is int) {var i = (int)o; ... }`
 
-#### <a name="example-editorconfig-file"></a>Example editorconfig file:
+#### <a name="example-editorconfig-file"></a>editorconfig 文件示例：
 ```
 # CSharp code style settings:
 [*.cs]
 csharp_style_pattern_matching_over_is_with_cast_check = true:suggestion
 ```
 
-### <a name="pattern_matching_as_null">"as" with "null" checking (IDE0019)</a>
-| **Option Name** | **Applicable Languages** | **Visual Studio Default** | **Supported Version** |
+### <a name="pattern_matching_as_null">“as”和“null”检查 (IDE0019)</a>
+| **选项名称** | **适用的语言** | **Visual Studio 默认值** | **支持的版本** |
 | ----------- | -------------------- | ----------------------| ----------------  |
 |`csharp_style_pattern_matching_over_as_with_null_check` | C# 7.0+ | true:suggestion | Visual Studio 2017 RTW |
 
 
-| Value | Description | Applied 
+| 值 | 说明 | 已应用 
 | ------------- |:-------------|:-------------|
-| True | Prefer pattern matching instead of `as` expressions with null checks to determine if something is of a particular type.| **C#:** <br>`if (o is string s) {...}`
-| False | Prefer `as` expressions with null checks instead of pattern matching to determine if something is of a particular type.| **C#:** <br>`var s = o as string; if (s != null) {...}`
+| True | 倾向于使用模式匹配，而不是带 null 检查的 `as` 表达式，来确定内容是否为某个特定类型。| **C#：** <br>`if (o is string s) {...}`
+| False | 倾向于使用带 null 检查的 `as` 表达式，而不是模式匹配，来确定内容是否为某个特定类型。| **C#：** <br>`var s = o as string; if (s != null) {...}`
 
-#### <a name="example-editorconfig-file"></a>Example editorconfig file:
+#### <a name="example-editorconfig-file"></a>editorconfig 文件示例：
 ```
 # CSharp code style settings:
 [*.cs]
 csharp_style_pattern_matching_over_as_with_null_check = true:suggestion
 ```
 
-### <a name="inlined_variable_declarations">Inlined variable declarations (IDE0018)</a>
-| **Option Name** | **Applicable Languages** | **Visual Studio Default** | **Supported Version** |
+### <a name="inlined_variable_declarations">内联变量声明 (IDE0018)</a>
+| **选项名称** | **适用的语言** | **Visual Studio 默认值** | **支持的版本** |
 | ----------- | -------------------- | ----------------------| ----------------  |
 |`csharp_style_inlined_variable_declaration` | C# 7.0+ | true:suggestion | Visual Studio 2017 RTW |
 
 
-| Value | Description | Applied 
+| 值 | 说明 | 已应用 
 | ------------- |:-------------|:-------------|
-| True | Prefer `out` variables to be declared inline when possible. | **C#:** <br>`if (int.TryParse(value, out int i) {...}`
-| False | Prefer `out` variables to be declared explicitly.| **C#:** <br>`int i; if (int.TryParse(value, out i) {...}`
+| True | 如可能，更倾向内联声明 `out` 变量。 | **C#：** <br>`if (int.TryParse(value, out int i) {...}`
+| False | 如可能，更倾向显式声明 `out` 变量。| **C#：** <br>`int i; if (int.TryParse(value, out i) {...}`
 
-#### <a name="example-editorconfig-file"></a>Example editorconfig file:
+#### <a name="example-editorconfig-file"></a>editorconfig 文件示例：
 ```
 # CSharp code style settings:
 [*.cs]
 csharp_style_inlined_variable_declaration = true:suggestion
 ```
-## <a name="expression_level_csharp">Expression-level Preferences</a>
-### <a name="expression_level_default">Simplify `default` expressions (IDE0034) </a>
-| **Option Name** | **Applicable Languages** | **Visual Studio Default** | **Supported Version** |
+## <a name="expression_level_csharp">表达式级首选项</a>
+### <a name="expression_level_default">简化 `default` 表达式 (IDE0034)</a>
+| **选项名称** | **适用的语言** | **Visual Studio 默认值** | **支持的版本** |
 | ----------- | -------------------- | ----------------------| ----------------  |
 |`csharp_prefer_simple_default_expression` | C# 7.1+ | true:suggestion | Visual Studio 2017 v. 15.3 |
 
 
-| Value | Description | Applied 
+| 值 | 说明 | 已应用 
 | ------------- |:-------------|:-------------|
-| True | Prefer `default` over `default(T)` | **C#:** <br>`void DoWork(CancellationToken cancellationToken = default){ ... }`
-| False | Prefer. | **C#:** <br>`void DoWork(CancellationToken cancellationToken = default(CancellationToken)){ ... }`
+| True | 首选 `default` 次选 `default(T)` | **C#：** <br>`void DoWork(CancellationToken cancellationToken = default){ ... }`
+| False | 首选。 | **C#：** <br>`void DoWork(CancellationToken cancellationToken = default(CancellationToken)){ ... }`
 
-#### <a name="example-editorconfig-file"></a>Example editorconfig file:
+#### <a name="example-editorconfig-file"></a>editorconfig 文件示例：
 ```
 # CSharp code style settings:
 [*.cs]
 csharp_prefer_simple_default_expression = true:suggestion
 ``` 
 
-## <a name="null_checking">"Null" Checking Preferences</a>
-### <a name="null_checking_throw_expressions">Throw-expressions (IDE0016)</a>
-| **Option Name** | **Applicable Languages** | **Visual Studio Default** | **Supported Version** |
+## <a name="null_checking">“null”检查首选项</a>
+### <a name="null_checking_throw_expressions">Throw 表达式 (IDE0016)</a>
+| **选项名称** | **适用的语言** | **Visual Studio 默认值** | **支持的版本** |
 | ----------- | -------------------- | ----------------------| ----------------  |
 |`csharp_style_throw_expression`  | C# 7.0+ | true:suggestion | Visual Studio 2017 RTW |
 
 
-| Value | Description | Applied 
+| 值 | 说明 | 已应用 
 | ------------- |:-------------|:-------------|
-| True | Prefer to use `throw` expressions instead of `throw` statements. | **C#:** <br>`this.s = ss ?? throw new ArgumentNullException(nameof(s));`
-| False | Prefer to use `throw` statements instead of `throw` expressions.| **C#:** <br>`if (s==null) {throw new ArgumentNullException(nameof(s));} this.s = s;`
+| True | 更倾向使用 `throw` 表达式，而不是 `throw` 语句。 | **C#：** <br>`this.s = ss ?? throw new ArgumentNullException(nameof(s));`
+| False | 更倾向使用 `throw` 语句，而不是 `throw` 表达式。| **C#：** <br>`if (s==null) {throw new ArgumentNullException(nameof(s));} this.s = s;`
 
-#### <a name="example-editorconfig-file"></a>Example editorconfig file:
+#### <a name="example-editorconfig-file"></a>editorconfig 文件示例：
 ```
 # CSharp code style settings:
 [*.cs]
 csharp_style_throw_expression = true:suggestion
 ```
 
-### <a name="null_checking_conditional_delegate_calls">Prefer conditional delegate calls (IDE0041)</a>
-| **Option Name** | **Applicable Languages** | **Visual Studio Default** | **Supported Version** |
+### <a name="null_checking_conditional_delegate_calls">更倾向使用条件委托调用 (IDE0041)</a>
+| **选项名称** | **适用的语言** | **Visual Studio 默认值** | **支持的版本** |
 | ----------- | -------------------- | ----------------------| ----------------  |
 |`csharp_style_conditional_delegate_call`  | C# 6.0+ | true:suggestion | Visual Studio 2017 RTW |
 
 
-| Value | Description | Applied 
+| 值 | 说明 | 已应用 
 | ------------- |:-------------|:-------------|
-| True | Prefer to use conditional coalescing operation (`?.`) when invoking a lambda instead of performing a null check. | **C#:** <br>`func?.Invoke(args);`
-| False | Prefer to perform a null check before invoking a lambda instead of using the conditional coalescing operator (`?.`).| **C#:** <br>`if (func!=null) { func(args); }`
+| True | 调用 lambda 时，更倾向使用条件合并操作 (`?.`)，而不是执行 null 检查。 | **C#：** <br>`func?.Invoke(args);`
+| False | 调用 lambda 前，更倾向执行 null 检查，而不是使用条件合并运算符 (`?.`)。| **C#：** <br>`if (func!=null) { func(args); }`
 
-#### <a name="example-editorconfig-file"></a>Example editorconfig file:
+#### <a name="example-editorconfig-file"></a>editorconfig 文件示例：
 ```
 # CSharp code style settings:
 [*.cs]
 csharp_style_conditional_delegate_call = false:suggestion
 ```
 
-## <a name="code_block">"Code Block Preferences</a>
-### <a name="prefer_braces">Prefer braces (IDE0011)</a>
-| **Option Name** | **Applicable Languages** | **Visual Studio Default** | **Supported Version** |
+## <a name="code_block">代码块首选项</a>
+### <a name="prefer_braces">首选大括号 (IDE0011)</a>
+| **选项名称** | **适用的语言** | **Visual Studio 默认值** | **支持的版本** |
 | ----------- | -------------------- | ----------------------| ----------------  |
 |`csharp_prefer_braces`  | C#  | true:none | Visual Studio 2017 v. 15.3 |
 
 
-| Value | Description | Applied 
+| 值 | 说明 | 已应用 
 | ------------- |:-------------|:-------------|
-| True | Prefer braces | **C#:** <br>`if (test) { this.Display(); }`
-| False | Prefer no braces when possible | **C#:** <br>`if (test) this.Display();`
+| True | 首选大括号 | **C#：** <br>`if (test) { this.Display(); }`
+| False | 尽可能不使用大括号 | **C#：** <br>`if (test) this.Display();`
 
-#### <a name="example-editorconfig-file"></a>Example editorconfig file:
+#### <a name="example-editorconfig-file"></a>editorconfig 文件示例：
 ```
 # CSharp code style settings:
 [*.cs]
 csharp_prefer_braces = true:none
 ```
 
-# <a name="formatting"> Formatting Rules </a>
-## <a name="overview"></a>Overview
-**Rule Format:**
+# <a name="formatting">格式设置规则</a>
+## <a name="overview"></a>概述
+**规则格式：**
 `options_name = false|true`
 
-For formatting options, you must specify **true** (prefer this option) or **false** (do not prefer this option) except in a couple cases where you must instead specify what conditions you want the rule applied to.
+对于格式选项，必须指定“true”（更倾向此选项）或“false”（不倾向此选项），除非必须改为根据需要指定规则适用的条件。
 
-## <a name="net-formatting-options"></a>.NET Formatting Options
+## <a name="net-formatting-options"></a>.NET 格式设置选项
 
-- **[.NET Formatting Settings](#usings)**
-    - [Organize Usings](#usings)
-        - [Sort System Directives First](#usings_sort_system_first)
-- **[C# Formatting Settings](#newline)**
-    - [Newline Options](#newline)
-        - [Newline Before Open Brace (`{`)](#newline_before_brace)
-        - [Newline Before `else`](#newline_before_else)
-        - [Newline Before `catch`](#newline_before_catch)
-        - [Newline Before `finally`](#newline_before_finally)
-        - [Newline Before Members in Object Initializers](#newline_before_object)
-        - [Newline Before Members in Anonymous Types](#newline_before_anonymous)
-        - [Newline Before Members in Query Expression Clauses](#newline_before_query)
-    - [Indentation Options](#indent)
-        - [Indent `switch` Case Contents](#indent_switch)
-        - [Indent `switch` Labels](#indent_switch_labels)
-        - [Label Positioning](#label)
-    - [Spacing Options](#spacing)
-        - [Space After Cast](#space_after_cast)
-        - [Space After Keywords in Control Flow Statements](#space_control_flow)
-        - [Space Between Method Declaration Parameter-List Parentheses](#space_parameter_list)
-        - [Space Within Parentheses for Method Call Argument List](#space_method_call)
-        - [Space Within Parentheses for Other Options](#space_other)
-    - [Wrapping Options](#wrapping)
-        - [Leave Statements and Member Declarations on the Same Line](#wrapping_statement)
-        - [Leave Block on Single Line](#wrapping_block)
+- **[.NET 格式设置](#usings)**
+    - [组织 Using](#usings)
+        - [首先排序系统指令](#usings_sort_system_first)
+- **[C# 格式设置](#newline)**
+    - [新建行选项](#newline)
+        - [在左大括号 (`{`) 前新建行](#newline_before_brace)
+        - [在 `else` 前新建行](#newline_before_else)
+        - [在 `catch` 前新建行](#newline_before_catch)
+        - [在 `finally` 前新建行](#newline_before_finally)
+        - [在对象初始值设定项中的成员前新建行](#newline_before_object)
+        - [在匿名类型中的成员前新建行](#newline_before_anonymous)
+        - [在查询表达式子句中的成员前新建行](#newline_before_query)
+    - [缩进选项](#indent)
+        - [缩进 `switch` Case 内容](#indent_switch)
+        - [缩进 `switch` 标签](#indent_switch_labels)
+        - [标签定位](#label)
+    - [间距选项](#spacing)
+        - [转换后空格](#space_after_cast)
+        - [在控制流语句中的关键字后空格](#space_control_flow)
+        - [在方法声明参数和列表括号之间空格](#space_parameter_list)
+        - [在方法调用参数列表的括号内空格](#space_method_call)
+        - [在其他选项的括号内空格](#space_other)
+    - [换行选项](#wrapping)
+        - [将语句和成员声明保留在同一行上](#wrapping_statement)
+        - [将程序块保留在单个行上](#wrapping_block)
 
-## <a name="usings">Organize Usings</a>
-### <a name="usings_sort_system_first">Sort System Directives First</a>
-| **Option Name** | **Applicable Languages** | **Visual Studio Default** | **Supported Version** |
+## <a name="usings">组织 Using</a>
+### <a name="usings_sort_system_first">首先排序系统指令</a>
+| **选项名称** | **适用的语言** | **Visual Studio 默认值** | **支持的版本** |
 | ----------- | -------------------- | ----------------------| ----------------  |
-|`dotnet_sort_system_directives_first`  |  C# and Visual Basic | true | Visual Studio 2017 v. 15.3  |
+|`dotnet_sort_system_directives_first`  |  C# 和 Visual Basic | true | Visual Studio 2017 v. 15.3  |
 
 
-| Value | Description | Applied 
+| 值 | 说明 | 已应用 
 | ------------- |:-------------|:-------------|
-| True | Sort System.* usings alphabetically and place them before other usings.| **C#:** <br>`using System.Collections.Generic;`<br> `using System.Threading.Tasks;`<br> `using Octokit;`
-| False | Have no requirements on the ordering of usings | **C#:** <br>`using System.Collections.Generic;`<br> `using Octokit;` <br> `using System.Threading.Tasks;`
+| True | 按字母顺序对 System.* using 排序并将其置于其他 using 前面。| **C#：** <br>`using System.Collections.Generic;`<br> `using System.Threading.Tasks;`<br> `using Octokit;`
+| False | 对 using 的顺序没有要求 | **C#：** <br>`using System.Collections.Generic;`<br> `using Octokit;` <br> `using System.Threading.Tasks;`
 
-#### <a name="example-editorconfig-file"></a>Example editorconfig file:
+#### <a name="example-editorconfig-file"></a>editorconfig 文件示例：
 ```
 # .NET formatting settings:
 [*.{cs,vb}]
 dotnet_sort_system_directives_first = true
 ``` 
 
-# <a name="csharp_formatting">C# Formatting Settings</a>
-## <a name="newline">Newline Options</a>
-### <a name="newline_before_brace"> Newline Before Open Brace (`{`)</a>
-| **Option Name** | **Applicable Languages** | **Visual Studio Default** | **Supported Version** |
+# <a name="csharp_formatting">C# 格式设置</a>
+## <a name="newline">新建行选项</a>
+### <a name="newline_before_brace"> 在左大括号 (`{`) 前新建行</a>
+| **选项名称** | **适用的语言** | **Visual Studio 默认值** | **支持的版本** |
 | ----------- | -------------------- | ----------------------| ----------------  |
-|`csharp_new_line_before_open_brace`  |  C#  | all | Visual Studio 2017 v. 15.3  |
+|`csharp_new_line_before_open_brace`  |  C#  | 全部 | Visual Studio 2017 v. 15.3  |
 
 
-| Value | Description 
+| 值 | 描述 
 | ------------- |:-------------|
-| accessors, anonymous_methods, anonymous_types, control_blocks, events, indexers, lambdas, local_functions, methods, object_collection, properties, types. (For multiple, separate with ','). | Require braces to be on a new line for the given expressions (Allman style) |
-| all | Require braces to be on a new line for all expressions (Allman) |
-| none | Require braces to be on the same line for all expressions (K&R) |
+| accessors、anonymous_methods、anonymous_types、control_blocks、events, indexers、lambdas、local_functions、methods、object_collection、properties、types。 （对于多个值，请用“,”分隔）。 | 对于给定表达式，需要将大括号置于新行（Allman 样式） |
+| 全部 | 对于所有表达式，需要将大括号置于新行 (Allman) |
+| 无 | 对于所有表达式，需要将大括号置于同一行 (K&R) |
 
-#### <a name="applied"></a>Applied:
+#### <a name="applied"></a>已应用：
 ```csharp
 // csharp_new_line_before_open_brace = all
 void MyMethod() 
@@ -687,25 +687,25 @@ void MyMethod() {
 }
 ```
 
-#### <a name="example-editorconfig-file"></a>Example editorconfig file:
+#### <a name="example-editorconfig-file"></a>editorconfig 文件示例：
 ```
 # CSharp formatting settings:
 [*.cs]
 csharp_new_line_before_open_brace = methods, properties, control_blocks, types
 ``` 
 
-### <a name="newline_before_else"> Newline Before `else`</a>
-| **Option Name** | **Applicable Languages** | **Visual Studio Default** | **Supported Version** |
+### <a name="newline_before_else"> 在 `else` 前新建行</a>
+| **选项名称** | **适用的语言** | **Visual Studio 默认值** | **支持的版本** |
 | ----------- | -------------------- | ----------------------| ----------------  |
 |`csharp_new_line_before_else` |  C#  | true | Visual Studio 2017 v. 15.3  |
 
 
-| Value | Description 
+| 值 | 描述 
 | ------------- |:-------------|
-| True | Place `else` statements on a new line.  |
-| False | Place `else` statements on the same line.  |
+| True | 将 `else` 语句置于新行。  |
+| False | 将 `else` 语句置于同一行。  |
 
-#### <a name="applied"></a>Applied:
+#### <a name="applied"></a>已应用：
 ```csharp
 // csharp_new_line_before_else = true
 if (...) {
@@ -725,25 +725,25 @@ if (...) {
 }
 ```
 
-#### <a name="example-editorconfig-file"></a>Example editorconfig file:
+#### <a name="example-editorconfig-file"></a>editorconfig 文件示例：
 ```
 # CSharp formatting settings:
 [*.cs]
 csharp_new_line_before_else = true
 ``` 
 
-### <a name="newline_before_catch"> Newline Before `catch`</a>
-| **Option Name** | **Applicable Languages** | **Visual Studio Default** | **Supported Version** |
+### <a name="newline_before_catch"> 在 `catch` 前新建行</a>
+| **选项名称** | **适用的语言** | **Visual Studio 默认值** | **支持的版本** |
 | ----------- | -------------------- | ----------------------| ----------------  |
 | `csharp_new_line_before_catch`|  C#  | true | Visual Studio 2017 v. 15.3  |
 
 
-| Value | Description 
+| 值 | 描述 
 | ------------- |:-------------|
-| True | Place `catch` statements on a new line.  |
-| False | Place `catch` statements on the same line. |
+| True | 将 `catch` 语句置于新行。  |
+| False | 将 `catch` 语句置于同一行。 |
 
-#### <a name="applied"></a>Applied:
+#### <a name="applied"></a>已应用：
 ```csharp
 // csharp_new_line_before_catch = true
 try {
@@ -763,25 +763,25 @@ try {
 }
 ```
 
-#### <a name="example-editorconfig-file"></a>Example editorconfig file:
+#### <a name="example-editorconfig-file"></a>editorconfig 文件示例：
 ```
 # CSharp formatting settings:
 [*.cs]
 csharp_new_line_before_catch = true
 ``` 
 
-### <a name="newline_before_finally"> Newline Before `finally`</a>
-| **Option Name** | **Applicable Languages** | **Visual Studio Default** | **Supported Version** |
+### <a name="newline_before_finally"> 在 `finally` 前新建行</a>
+| **选项名称** | **适用的语言** | **Visual Studio 默认值** | **支持的版本** |
 | ----------- | -------------------- | ----------------------| ----------------  |
 | `csharp_new_line_before_finally`|  C#  | true | Visual Studio 2017 v. 15.3  |
 
 
-| Value | Description 
+| 值 | 描述 
 | ------------- |:-------------|
-| True | Require `finally` statements to be on a new line after the closing brace.  |
-| False | Require `finally` statements to be on the same line as the closing brace.  |
+| True | 需要将 `finally` 语句置于右大括号后的新行。  |
+| False | 需要将 `finally` 语句置于右大括号所在的同一行。  |
 
-#### <a name="applied"></a>Applied:
+#### <a name="applied"></a>已应用：
 ```csharp
 // csharp_new_line_before_finally = true
 try {
@@ -806,25 +806,25 @@ try {
 }
 ```
 
-#### <a name="example-editorconfig-file"></a>Example editorconfig file:
+#### <a name="example-editorconfig-file"></a>editorconfig 文件示例：
 ```
 # CSharp formatting settings:
 [*.cs]
 csharp_new_line_before_finally = true
 ``` 
 
-### <a name="newline_before_object"> Newline Before Members in Object Initializers</a>
-| **Option Name** | **Applicable Languages** | **Visual Studio Default** | **Supported Version** |
+### <a name="newline_before_object">在对象初始值设定项中的成员前新建行</a>
+| **选项名称** | **适用的语言** | **Visual Studio 默认值** | **支持的版本** |
 | ----------- | -------------------- | ----------------------| ----------------  |
 | `csharp_new_line_before_members_in_object_initializers`|  C#  | true | Visual Studio 2017 v. 15.3  |
 
 
-| Value | Description 
+| 值 | 描述 
 | ------------- |:-------------|
-| True | Require members of object intializers to be on separate lines.  |
-| False | Require members of object initializers to be on the same line.  |
+| True | 需要将对象初始值设定项的成员置于单独的行。  |
+| False | 需要将对象初始值设定项的成员置于同一行。  |
 
-#### <a name="applied"></a>Applied:
+#### <a name="applied"></a>已应用：
 ```csharp
 // csharp_new_line_before_members_in_object_initializers = true
 var z = new B()
@@ -842,25 +842,25 @@ var z = new B()
 }
 ```
 
-#### <a name="example-editorconfig-file"></a>Example editorconfig file:
+#### <a name="example-editorconfig-file"></a>editorconfig 文件示例：
 ```
 # CSharp formatting settings:
 [*.cs]
 csharp_new_line_before_members_in_object_initializers = true
 ``` 
 
-### <a name="newline_before_anonymous"> Newline Before Members in Anonymous Types</a>
-| **Option Name** | **Applicable Languages** | **Visual Studio Default** | **Supported Version** |
+### <a name="newline_before_anonymous"> 在匿名类型中的成员前新建行</a>
+| **选项名称** | **适用的语言** | **Visual Studio 默认值** | **支持的版本** |
 | ----------- | -------------------- | ----------------------| ----------------  |
 | `csharp_new_line_before_members_in_anonymous_types` |  C#  | true | Visual Studio 2017 v. 15.3  |
 
 
-| Value | Description 
+| 值 | 描述 
 | ------------- |:-------------|
-| True | Require members of anonymous types to be on separate lines.  |
-| False | Require members of anonymous types to be on the same line.  |
+| True | 需要将匿名类型的成员置于单独的行。  |
+| False | 需要将匿名类型的成员置于同一行。  |
 
-#### <a name="applied"></a>Applied:
+#### <a name="applied"></a>已应用：
 ```csharp
 // csharp_new_line_before_members_in_anonymous_types = true
 var z = new
@@ -878,25 +878,25 @@ var z = new
 }
 ```
 
-#### <a name="example-editorconfig-file"></a>Example editorconfig file:
+#### <a name="example-editorconfig-file"></a>editorconfig 文件示例：
 ```
 # CSharp formatting settings:
 [*.cs]
 csharp_new_line_before_members_in_anonymous_types = true
 ``` 
 
-### <a name="newline_before_query"> Newline Before Members in Query Expression Clauses</a>
-| **Option Name** | **Applicable Languages** | **Visual Studio Default** | **Supported Version** |
+### <a name="newline_before_query"> 在查询表达式子句中的成员前新建行</a>
+| **选项名称** | **适用的语言** | **Visual Studio 默认值** | **支持的版本** |
 | ----------- | -------------------- | ----------------------| ----------------  |
 |`csharp_new_line_within_query_expression_clauses`  |  C#  | true | Visual Studio 2017 v. 15.3  |
 
 
-| Value | Description 
+| 值 | 描述 
 | ------------- |:-------------|
-| True | Require elements of query expression clauses to be on separate lines.  |
-| False | Require elements of query expression clauses to be on the same line.  |
+| True | 要求将查询表达式子句的元素置于单独的行。  |
+| False | 要求将查询表达式子句的元素置于同一行。  |
 
-#### <a name="applied"></a>Applied:
+#### <a name="applied"></a>已应用：
 ```csharp
 // csharp_new_line_within_query_expression_clauses = true
 var q = from a in e
@@ -910,25 +910,25 @@ var q = from a in e from b in e
         select a * b;
 ```
 
-#### <a name="example-editorconfig-file"></a>Example editorconfig file:
+#### <a name="example-editorconfig-file"></a>editorconfig 文件示例：
 ```
 # CSharp formatting settings:
 [*.cs]
 csharp_new_line_within_query_expression_clauses = true
 ``` 
 
-## <a name="indent">Indentation Options</a>
-### <a name="indent_switch"> Indent `switch` Case Contents </a>
-| **Option Name** | **Applicable Languages** | **Visual Studio Default** | **Supported Version** |
+## <a name="indent">缩进选项</a>
+### <a name="indent_switch"> 缩进 `switch` Case 内容</a>
+| **选项名称** | **适用的语言** | **Visual Studio 默认值** | **支持的版本** |
 | ----------- | -------------------- | ----------------------| ----------------  |
 | `csharp_indent_case_contents`  |  C#  | true | Visual Studio 2017 v. 15.3  |
 
-| Value | Description 
+| 值 | 描述 
 | ------------- |:-------------|
-| True | Indent `switch` case contents  |
-| False | Do not indent `switch` case contents |
+| True | 缩进 `switch` case 内容  |
+| False | 不缩进 `switch` case 内容 |
 
-#### <a name="applied"></a>Applied:
+#### <a name="applied"></a>已应用：
 ```csharp
 // csharp_indent_case_contents = true
 switch(c) {
@@ -959,24 +959,24 @@ switch(c) {
 }
 ```
 
-#### <a name="example-editorconfig-file"></a>Example editorconfig file:
+#### <a name="example-editorconfig-file"></a>editorconfig 文件示例：
 ```
 # CSharp formatting settings:
 [*.cs]
 csharp_indent_case_contents = true
 ``` 
 
-### <a name="indent_switch_labels"> Indent `switch` Labels </a>
-| **Option Name** | **Applicable Languages** | **Visual Studio Default** | **Supported Version** |
+### <a name="indent_switch_labels"> 缩进 `switch` 标签</a>
+| **选项名称** | **适用的语言** | **Visual Studio 默认值** | **支持的版本** |
 | ----------- | -------------------- | ----------------------| ----------------  |
 | `csharp_indent_switch_labels`  |  C#  | true | Visual Studio 2017 v. 15.3  |
 
-| Value | Description 
+| 值 | 描述 
 | ------------- |:-------------|
-| True | Indent `switch` labels  |
-| False | Do not indent `switch` labels |
+| True | 缩进 `switch` 标签  |
+| False | 不缩进 `switch` 标签 |
 
-#### <a name="applied"></a>Applied:
+#### <a name="applied"></a>已应用：
 ```csharp
 // csharp_indent_switch_labels = true
 switch(c) {
@@ -1007,25 +1007,25 @@ default:
 }
 ```
 
-#### <a name="example-editorconfig-file"></a>Example editorconfig file:
+#### <a name="example-editorconfig-file"></a>editorconfig 文件示例：
 ```
 # CSharp formatting settings:
 [*.cs]
 csharp_indent_switch_labels = true
 ``` 
 
-### <a name="label">Label Positioning</a>
-| **Option Name** | **Applicable Languages** | **Visual Studio Default** | **Supported Version** |
+### <a name="label">标签定位</a>
+| **选项名称** | **适用的语言** | **Visual Studio 默认值** | **支持的版本** |
 | ----------- | -------------------- | ----------------------| ----------------  |
 |`csharp_indent_labels`  |  C#  | one_less | Visual Studio 2017 v. 15.3  |
 
 
-| Value | Description 
+| 值 | 描述 
 | ------------- |:-------------|
-| one_less | Labels are placed at one less indent to the current context |
-| no_change | Labels are placed at the same indent as the current context |
+| one_less | 将标签置于比当前上下文少一个缩进的位置 |
+| no_change | 将标签置于与当前上下文相同的缩进位置 |
 
-#### <a name="applied"></a>Applied:
+#### <a name="applied"></a>已应用：
 ```csharp
 // csharp_indent_labels = one_less
 private string MyMethod(...) 
@@ -1051,118 +1051,118 @@ private string MyMethod(...)
 }
 ```
 
-#### <a name="example-editorconfig-file"></a>Example editorconfig file:
+#### <a name="example-editorconfig-file"></a>editorconfig 文件示例：
 ```
 # CSharp formatting settings:
 [*.cs]
 csharp_indent_labels = one_less
 ``` 
 
-## <a name="spacing">Spacing Options</a>
-### <a name="space_after_cast"> Space After Cast </a>
-| **Option Name** | **Applicable Languages** | **Visual Studio Default** | **Supported Version** |
+## <a name="spacing">间距选项</a>
+### <a name="space_after_cast"> 转换后空格</a>
+| **选项名称** | **适用的语言** | **Visual Studio 默认值** | **支持的版本** |
 | ----------- | -------------------- | ----------------------| ----------------  |
 | `csharp_space_after_cast` |  C#  | false | Visual Studio 2017 v. 15.3  |
 
 
-| Value | Description | Applied |
+| 值 | 说明 | 已应用 |
 | ------------- |:-------------|:-------------|
-| True | Require a space between a cast and the value  | **C#:** <br>`int y = (int) x;`
-| False | Require no space between the cast and the value | **C#:** <br>`int y = (int)x;`
+| True | 转换和值之间需要空格  | **C#：** <br>`int y = (int) x;`
+| False | 转换和值之间无需空格 | **C#：** <br>`int y = (int)x;`
 
-#### <a name="example-editorconfig-file"></a>Example editorconfig file:
+#### <a name="example-editorconfig-file"></a>editorconfig 文件示例：
 ```
 # CSharp formatting settings:
 [*.cs]
 csharp_space_after_cast = true
 ``` 
 
-### <a name="space_control_flow"> Space After Keywords in Control Flow Statements </a>
-| **Option Name** | **Applicable Languages** | **Visual Studio Default** | **Supported Version** |
+### <a name="space_control_flow"> 在控制流语句中的关键字后空格 </a>
+| **选项名称** | **适用的语言** | **Visual Studio 默认值** | **支持的版本** |
 | ----------- | -------------------- | ----------------------| ----------------  |
 | `csharp_space_after_keywords_in_control_flow_statements` |  C#  | true | Visual Studio 2017 v. 15.3  |
 
 
-| Value | Description | Applied |
+| 值 | 说明 | 已应用 |
 | ------------- |:-------------|:-------------|
-| True | Require a space after a keyword | **C#:** <br>`for (int i;i<x;i++) { ... }`
-| False | Require no space after a keyword | **C#:** <br>`for(int i;i<x;i++) { ... }`
+| True | 关键字后需要空格 | **C#：** <br>`for (int i;i<x;i++) { ... }`
+| False | 关键字后无需空格 | **C#：** <br>`for(int i;i<x;i++) { ... }`
 
-#### <a name="example-editorconfig-file"></a>Example editorconfig file:
+#### <a name="example-editorconfig-file"></a>editorconfig 文件示例：
 ```
 # CSharp formatting settings:
 [*.cs]
 csharp_space_after_keywords_in_control_flow_statements = true
 ``` 
 
-### <a name="space_parameter_list"> Space Between Method Declaration Argument-List Parentheses </a>
-| **Option Name** | **Applicable Languages** | **Visual Studio Default** | **Supported Version** |
+### <a name="space_parameter_list"> 在方法声明参数和列表括号之间空格</a>
+| **选项名称** | **适用的语言** | **Visual Studio 默认值** | **支持的版本** |
 | ----------- | -------------------- | ----------------------| ----------------  |
 | `csharp_space_between_method_declaration_parameter_list_parentheses` |  C#  | false | Visual Studio 2017 v. 15.3  |
 
 
-| Value | Description | Applied |
+| 值 | 说明 | 已应用 |
 | ------------- |:-------------|:-------------|
-| True | Require a space after a keyword | **C#:** <br>`void Bark( int x ) { ... }`
-| False | Require no space after a keyword | **C#:** <br>`void Bark(int x) { ... }`
+| True | 关键字后需要空格 | **C#：** <br>`void Bark( int x ) { ... }`
+| False | 关键字后无需空格 | **C#：** <br>`void Bark(int x) { ... }`
 
-#### <a name="example-editorconfig-file"></a>Example editorconfig file:
+#### <a name="example-editorconfig-file"></a>editorconfig 文件示例：
 ```
 # CSharp formatting settings:
 [*.cs]
 csharp_space_between_method_declaration_parameter_list_parentheses = true
 ```
 
-### <a name="space_method_call"> Space Within Parentheses for Method Call Argument List</a>
-| **Option Name** | **Applicable Languages** | **Visual Studio Default** | **Supported Version** |
+### <a name="space_method_call"> 在方法调用参数列表的括号内空格</a>
+| **选项名称** | **适用的语言** | **Visual Studio 默认值** | **支持的版本** |
 | ----------- | -------------------- | ----------------------| ----------------  |
 |  `csharp_space_between_method_call_parameter_list_parentheses` |  C#  | false | Visual Studio 2017 v. 15.3  |
 
 
-| Value | Description | Applied |
+| 值 | 说明 | 已应用 |
 | ------------- |:-------------|:-------------|
-| true | Place space between parentheses of control flow statements | **C#:** <br>`MyMethod( argument );`
-| false | Place space between parentheses of expressions | **C#:** <br>`MyMethod(argument);`
+| true | 在控制流语句的括号之间放置空格 | **C#：** <br>`MyMethod( argument );`
+| false | 在表达式的括号之间放置空格 | **C#：** <br>`MyMethod(argument);`
 
-#### <a name="example-editorconfig-file"></a>Example editorconfig file:
+#### <a name="example-editorconfig-file"></a>editorconfig 文件示例：
 ```
 # CSharp formatting settings:
 [*.cs]
 csharp_space_between_method_call_parameter_list_parentheses = control_flow_statements, type_casts
 ```  
 
-### <a name="space_other"> Space Within Parentheses for Other Options </a>
-| **Option Name** | **Applicable Languages** | **Visual Studio Default** | **Supported Version** |
+### <a name="space_other"> 在其他选项的括号内空格</a>
+| **选项名称** | **适用的语言** | **Visual Studio 默认值** | **支持的版本** |
 | ----------- | -------------------- | ----------------------| ----------------  |
 |  `csharp_space_between_parentheses`  |  C#  | false | Visual Studio 2017 v. 15.3  |
 
 
-| Value | Description | Applied |
+| 值 | 说明 | 已应用 |
 | ------------- |:-------------|:-------------|
-| control_flow_statements | Place space between parentheses of control flow statements | **C#:** <br>`for( int i;i<x;i++ ) { ... }`
-| expressions | Place space between parentheses of expressions | **C#:** <br>`var z = ( x * y ) - ( ( y - x ) * 3);`
-| type_casts | Place space between parentheses in type casts | **C#:**<br>`int y = ( int )x;`
+| control_flow_statements | 在控制流语句的括号之间放置空格 | **C#：** <br>`for( int i;i<x;i++ ) { ... }`
+| 表达式 | 在表达式的括号之间放置空格 | **C#：** <br>`var z = ( x * y ) - ( ( y - x ) * 3);`
+| type_casts | 在类型转换中的括号之间放置空格 | **C#：**<br>`int y = ( int )x;`
 
-#### <a name="example-editorconfig-file"></a>Example editorconfig file:
+#### <a name="example-editorconfig-file"></a>editorconfig 文件示例：
 ```
 # CSharp formatting settings:
 [*.cs]
 csharp_space_between_parentheses = control_flow_statements, type_casts
 ``` 
 
-## <a name="wrapping">Wrapping Options</a>
-### <a name="wrapping_statement">Leave Statements and Member Declarations on the Same Line</a>
-| **Option Name** | **Applicable Languages** | **Visual Studio Default** | **Supported Version** |
+## <a name="wrapping">换行选项</a>
+### <a name="wrapping_statement">将语句和成员声明保留在同一行上</a>
+| **选项名称** | **适用的语言** | **Visual Studio 默认值** | **支持的版本** |
 | ----------- | -------------------- | ----------------------| ----------------  |
 |  `csharp_preserve_single_line_statements`   |  C#  | true | Visual Studio 2017 v. 15.3  |
 
 
-| Value | Description |
+| 值 | 描述 |
 | ------------- |:-------------|
-| True | Leave statements and member declarations on the same line  | 
-| False | Leave statements and member declarations on different lines | 
+| True | 将语句和成员声明保留在同一行上  | 
+| False | 将语句和成员声明保留在不同行上 | 
 
-#### <a name="applied"></a>Applied
+#### <a name="applied"></a>已应用
 ```csharp
 //csharp_preserve_single_line_statements = true
 int i = 0; string name = "John";
@@ -1174,25 +1174,25 @@ int i = 0;
 string name = "John";
 ```
 
-#### <a name="example-editorconfig-file"></a>Example editorconfig file:
+#### <a name="example-editorconfig-file"></a>editorconfig 文件示例：
 ```
 # CSharp formatting settings:
 [*.cs]
 csharp_preserve_single_line_statements = true
 ``` 
 
-### <a name="wrapping_block">Leave Block on Single Line</a>
-| **Option Name** | **Applicable Languages** | **Visual Studio Default** | **Supported Version** |
+### <a name="wrapping_block">将程序块保留在单个行上</a>
+| **选项名称** | **适用的语言** | **Visual Studio 默认值** | **支持的版本** |
 | ----------- | -------------------- | ----------------------| ----------------  |
 |   `csharp_preserve_single_line_blocks`    |  C#  | true | Visual Studio 2017 v. 15.3  |
 
 
-| Value | Description |
+| 值 | 描述 |
 | ------------- |:-------------|
-| True | Leave block on single line | 
-| False | Leave block on separate lines | 
+| True | 将程序块保留在单个行上 | 
+| False | 将程序块保留在单独的行上 | 
 
-#### <a name="applied"></a>Applied
+#### <a name="applied"></a>已应用
 ```csharp
 //csharp_preserve_single_line_blocks = true
 public int Foo { get; set; }
@@ -1206,16 +1206,16 @@ public int MyProperty
 }
 ```
 
-#### <a name="example-editorconfig-file"></a>Example editorconfig file:
+#### <a name="example-editorconfig-file"></a>editorconfig 文件示例：
 ```
 # CSharp formatting settings:
 [*.cs]
 csharp_preserve_single_line_blocks = true
 ``` 
 
-# <a name="naming"> Naming Conventions </a>
-## <a name="overview"></a>Overview
-**Rule Format:**<br>
+# <a name="naming">命名约定</a>
+## <a name="overview"></a>概述
+**规则格式：**<br>
 namingRuleTitle:<br>
 `dotnet_naming_rule.<namingRuleTitle>.symbols = <symbolTitle>`<br>
 `dotnet_naming_rule.<namingRuleTitle>.style = <styleTitle>`<br>
@@ -1232,33 +1232,33 @@ styleTitle:<br>
 `dotnet_naming_style.<styleTitle>.required_suffix = string`<br>
 `dotnet_naming_style.<styleTitle>.word_separator = string`<br>
 
-## <a name="writing-a-naming-convention"></a>Writing a Naming Convention
-For naming conventions, you must specify **symbols**, **style**, and a **severity**. Naming conventions should be ordered from most-specific to least-specific. The first rule encountered that can be applied, is the only rule applied. 
+## <a name="writing-a-naming-convention"></a>编写命名约定
+对于命名约定，必须指定“符号”、“样式”和“严重性”。 命名约定应从最具体到最抽象排序。 遇到的第一个可应用规则是唯一应用的规则。 
 
-### <a name="severity"></a>Severity
-The following are valid options for the severity of a naming style rule `none`, `silent`, `suggestion`, `warning`, `error`.
+### <a name="severity"></a>严重性
+以下是命名样式规则 `none`、`silent`、`suggestion`、`warning`、`error` 的严重性的有效选项。
 
- `none` and `silent` are synonymous and mean that no indication of any kind should be shown to the user. This has the effect of disabling this rule.
+ `none` 和 `silent` 是同义词，表示不应向用户显示任何形式的指示。 下面介绍禁用此规则的效果。
 
- `suggestion` means that the user is shown the following in the Error List: and the following in the IDE. The `suggestion` severity allows the naming rule to run, but it doesn't cause the build to break.
+ `suggestion` 表示向用户显示错误列表中的下列内容和 IDE 中的下列内容。 `suggestion` 严重性允许运行命名规则，但不会导致生成中断。
 
-Severity | effect
+严重性 | 效果
 ------------ | -------------
-none/silent | Do not show anything to the user when this style is not being followed, however code generation features generate in this style. 
-suggestion | When this style is not being followed, show it to the user as a suggestion (underlying dots on the first two characters).
-warning | When this style is not being followed, show a compiler warning.
-error | When this style is not being followed, show a compiler error.
+无/静默 | 如未遵循此样式，不会向用户显示任何内容，但代码生成功能会以此样式生成代码。 
+建议 | 如未遵循此样式，以建议形式向用户显示此样式（前两个字符下带点）。
+警告 | 如未遵循此样式，显示编译器警告。
+错误 | 如未遵循此样式，显示编译器错误。
 
-### <a name="symbol-specification"></a>Symbol Specification
-Identify _what_ symbols _with which_ modifiers and _at what_ accessibility level the naming rule should apply to.
+### <a name="symbol-specification"></a>符号规范
+标识应在哪一可访问性级别将命名规则应用于包含哪些修饰符的什么符号。
 
-|  Option Name | `dotnet_naming_rule.<namingRuleTitle>.symbols` |
+|  选项名称 | `dotnet_naming_rule.<namingRuleTitle>.symbols` |
 | ------------- |:-------------:|
 |  | `dotnet_naming_symbols.<symbolTitle>.applicable_kinds`
 |  | `dotnet_naming_symbols.<symbolTitle>.applicable_accessibilities`
 |  | `dotnet_naming_symbols.<symbolTitle>.required_modifiers`
 
-| Symbol | Accessibility | Modifiers
+| 符号 | 可访问性 | 修饰符
 | ------------- |------------- |------------- |
 | `*` | `*` |  `abstract` | 
 | `class` | `public` |  `must_inherit` | `async` | 
@@ -1272,10 +1272,10 @@ Identify _what_ symbols _with which_ modifiers and _at what_ accessibility level
 | `delegate` | | |
 
 
-### <a name="style-specification"></a>Style Specification
-Identify the naming style to apply to the symbols.
+### <a name="style-specification"></a>样式规范
+标识要应用于符号的命名样式。
 
-|  Option Name | `dotnet_naming_rule.<namingRuleTitle>.style = <styleTitle>` |
+|  选项名称 | `dotnet_naming_rule.<namingRuleTitle>.style = <styleTitle>` |
 | ------------- |:-------------:|
 |  | `dotnet_naming_style.<styleTitle>.capitalization`|
 |  | `dotnet_naming_style.<styleTitle>.required_prefix`|
@@ -1283,15 +1283,15 @@ Identify the naming style to apply to the symbols.
 |  | `dotnet_naming_style.<styleTitle>.word_separator`|
 
 
-| Style | Description |
+| 样式 | 描述 |
 | ------------- |:-------------:|
-| Prefix | Required characters that must appear before the identifier. |
-| Suffix | Required characters that must appear after the identifier. |
-| Word Separator | Required separator between words in the identifier. |
-| Capitalization |`pascal_case`, `camel_case`, `first_word_upper`, `all_upper`, `all_lower` | 
+| 前缀 | 必须出现在标识符前面的所需字符。 |
+| 后缀 | 必须出现在标识符后面的所需字符。 |
+| 文字分隔符 | 标识符中文字之间的所需分隔符。 |
+| 大写 |`pascal_case`, `camel_case`, `first_word_upper`, `all_upper`, `all_lower` | 
 
 
-### <a name="example-naming-convention"></a>Example Naming Convention
+### <a name="example-naming-convention"></a>命名约定示例
 ```
 # Dotnet Naming Conventions
 [*.{cs,vb}] 

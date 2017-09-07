@@ -1,34 +1,53 @@
 ---
-title: "警告。 尚未应用对“配置行为”对话框所做的更改 | Microsoft Docs"
-ms.custom: ""
-ms.date: "12/14/2016"
-ms.prod: "visual-studio-dev14"
-ms.reviewer: ""
-ms.suite: ""
-ms.tgt_pltfrm: ""
-ms.topic: "article"
+title: Warning. Changes have been made to the Configure Behavior dialog box that have not been applied | Microsoft Docs
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.tgt_pltfrm: 
+ms.topic: article
 ms.assetid: ce5822dd-4f10-4c86-b707-7766837be216
 caps.latest.revision: 3
-caps.handback.revision: 1
-author: "mikeblome"
-ms.author: "mblome"
-manager: "ghogen"
+author: gewarren
+ms.author: gewarren
+manager: ghogen
+translation.priority.ht:
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- ru-ru
+- zh-cn
+- zh-tw
+translation.priority.mt:
+- cs-cz
+- pl-pl
+- pt-br
+- tr-tr
+ms.translationtype: HT
+ms.sourcegitcommit: 33a857c2d8585e2e8da9bcd9158190366a3b6830
+ms.openlocfilehash: e9ba86170bf9e35258da7c39a8e5f1a980da774d
+ms.contentlocale: zh-cn
+ms.lasthandoff: 09/07/2017
+
 ---
-# 警告。 尚未应用对“配置行为”对话框所做的更改
-警告。尚未应用对“配置行为”对话框所做的更改。是否要应用您所做的更改?  
+# <a name="warning-changes-have-been-made-to-the-configure-behavior-dialog-box-that-have-not-been-applied"></a>Warning. Changes have been made to the Configure Behavior dialog box that have not been applied
+Warning. Changes have been made to the Configure Behavior dialog box that have not been applied. Do you want to apply your changes?  
   
- 使用**“配置行为”**对话框，可以为所有可用类配置插入、更新和删除行为。当选择**“类”**和**“行为”**的新组合并且尚未应用以前的更改时，将出现此消息。  
+ The **Configure Behavior** dialog box enables you to configure Insert, Update, and Delete behavior for all classes available. This message appears when you select a new **Class** and **Behavior** combination and the previous change has not yet been applied.  
   
-### 应用更改并继续  
+### <a name="to-apply-the-change-and-continue"></a>To apply the change and continue  
   
--   单击**“是”**应用对所选**“类”**和**“行为”**的更改。  
+-   Click **Yes** to apply the change to the selected **Class** and **Behavior**.  
   
-### 取消以前的更改并继续  
+### <a name="to-cancel-the-previous-change-and-continue"></a>To cancel the previous change and continue  
   
--   单击**“否”**取消对所选**“类”**和**“行为”**的更改。  
+-   Click **No** to cancel the change to the selected **Class** and **Behavior**.  
   
-## 请参阅  
- [对象关系设计器（O\/R 设计器）](../data-tools/linq-to-sql-tools-in-visual-studio2.md)   
- [如何：分配存储过程以执行更新、插入和删除（O\/R 设计器）](../data-tools/how-to-assign-stored-procedures-to-perform-updates-inserts-and-deletes-o-r-designer.md)   
- [演练：创建 LINQ to SQL 类（O\/R 设计器）](../Topic/Walkthrough:%20Creating%20LINQ%20to%20SQL%20Classes%20\(O-R%20Designer\).md)   
- [LINQ to SQL](../Topic/LINQ%20to%20SQL.md)
+## <a name="see-also"></a>See Also  
+ [LINQ to SQL Tools in Visual Studio](../data-tools/linq-to-sql-tools-in-visual-studio2.md)   
+ [How to: Assign stored procedures to perform updates, inserts, and deletes (O/R Designer)](../data-tools/how-to-assign-stored-procedures-to-perform-updates-inserts-and-deletes-o-r-designer.md)   
+ [Walkthrough: Creating LINQ to SQL Classes (O-R Designer)](how-to-create-linq-to-sql-classes-mapped-to-tables-and-views-o-r-designer.md)   
+ [LINQ to SQL](/dotnet/framework/data/adonet/sql/linq/index)

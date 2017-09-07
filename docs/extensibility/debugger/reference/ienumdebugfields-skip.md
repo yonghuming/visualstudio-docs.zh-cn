@@ -1,5 +1,5 @@
 ---
-title: IEnumDebugFields::Skip | Microsoft Docs
+title: "IEnumDebugFields::Skip |Microsoft 文档"
 ms.custom: 
 ms.date: 11/04/2016
 ms.reviewer: 
@@ -34,13 +34,13 @@ ms.translationtype: MT
 ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
 ms.openlocfilehash: f8ff34cf05769185da9aba717d777a5208ba124d
 ms.contentlocale: zh-cn
-ms.lasthandoff: 08/28/2017
+ms.lasthandoff: 09/06/2017
 
 ---
 # <a name="ienumdebugfieldsskip"></a>IEnumDebugFields::Skip
-This method skips over the specified number of elements.  
+此方法会跳过指定数量的元素。  
   
-## <a name="syntax"></a>Syntax  
+## <a name="syntax"></a>语法  
   
 ```cpp  
 HRESULT Skip(  
@@ -54,15 +54,15 @@ int Skip(
 );  
 ```  
   
-#### <a name="parameters"></a>Parameters  
+#### <a name="parameters"></a>参数  
  `celt`  
- [in] Number of elements to skip.  
+ [in]要跳过的元素数。  
   
-## <a name="return-value"></a>Return Value  
- If successful, returns `S_OK`. Returns `S_FALSE` if `celt` is greater than the number of remaining elements; otherwise, returns an error code.  
+## <a name="return-value"></a>返回值  
+ 如果成功，则返回`S_OK`。 返回`S_FALSE`如果`celt`大于剩余元素的数目; 否则，返回错误代码。  
   
-## <a name="remarks"></a>Remarks  
- If `celt` specifies a value greater than the number of remaining elements, the enumeration is set to the end and `S_FALSE` is returned.  
+## <a name="remarks"></a>备注  
+ 如果`celt`指定一个值大于数剩余元素的枚举设置为结束和`S_FALSE`返回。  
   
-## <a name="see-also"></a>See Also  
+## <a name="see-also"></a>另请参阅  
  [IEnumDebugFields](../../../extensibility/debugger/reference/ienumdebugfields.md)

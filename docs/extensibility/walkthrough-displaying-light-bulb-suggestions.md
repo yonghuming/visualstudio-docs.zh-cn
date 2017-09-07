@@ -1,5 +1,5 @@
 ---
-title: 'Walkthrough: Displaying Light Bulb Suggestions | Microsoft Docs'
+title: "演练： 显示灯泡建议 |Microsoft 文档"
 ms.custom: 
 ms.date: 11/04/2016
 ms.reviewer: 
@@ -30,48 +30,48 @@ ms.translationtype: MT
 ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
 ms.openlocfilehash: 1096b04fee06415e65a93b0ecd8a6257de64edfc
 ms.contentlocale: zh-cn
-ms.lasthandoff: 08/28/2017
+ms.lasthandoff: 09/06/2017
 
 ---
-# <a name="walkthrough-displaying-light-bulb-suggestions"></a>Walkthrough: Displaying Light Bulb Suggestions
-Light bulbs are icons used in the Visual Studio editor that expand to display a set of actions, for example fixes for problems identified by the built-in code analyzers or code refactoring.  
+# <a name="walkthrough-displaying-light-bulb-suggestions"></a>演练： 显示灯泡建议
+电灯泡是 Visual Studio 编辑器中使用的图标会展开以显示一组操作，例如修补通过内置的代码分析器或重构代码标识的问题。  
   
- In the Visual C# and Visual Basic editors, you can also use the .NET Compiler Platform ("Roslyn") to write and package your own code analyzers with actions that display light bulbs automatically. For more information, see:  
+ 在 Visual C# 和 Visual Basic 编辑器中，你可以还使用.NET Compiler Platform ("Roslyn") 编写并打包你自己的代码分析器操作的自动显示电灯泡。 有关详细信息，请参见:  
   
--   [How To: Write a C# Diagnostic and Code Fix](https://github.com/dotnet/roslyn/wiki/How-To-Write-a-C%23-Analyzer-and-Code-Fix)  
+-   [如何： 编写 C# 诊断和代码修复](https://github.com/dotnet/roslyn/wiki/How-To-Write-a-C%23-Analyzer-and-Code-Fix)  
   
--   [How To: Write a Visual Basic Diagnostic and Code Fix](https://github.com/dotnet/roslyn/wiki/How-To-Write-a-Visual-Basic-Analyzer-and-Code-Fix)  
+-   [如何： 编写 Visual Basic 诊断和代码修复](https://github.com/dotnet/roslyn/wiki/How-To-Write-a-Visual-Basic-Analyzer-and-Code-Fix)  
   
- Other languages such as C++ also provide light bulbs for some quick actions, such as a suggestion to create a stub implementation of that function.  
+ C + + 等其他语言还提供一些快速操作，如创建该函数的存根 （stub） 实现的建议电灯泡。  
   
- Here's what a light bulb looks like. In a Visual Basic or Visual C# project, a red squiggle appears under a variable name when it is invalid. When you mouse over the invalid identifier, a light bulb is displayed near the cursor.  
+ 下面是一个灯泡如下所示。 在 Visual Basic 或 Visual C# 项目中，红色波形曲线将出现下变量名时无效。 当你将鼠标移无效的标识符时，灯泡会显示在光标附近。  
   
- ![light bulb](../extensibility/media/lightbulb.png "LightBulb")  
+ ![灯泡](../extensibility/media/lightbulb.png "LightBulb")  
   
- If you click the down arrow by the light bulb, a set of suggested actions is displayed, along with a preview of the selected action. In this case, it shows the changes that will be made to your code if you execute the action.  
+ 如果通过电灯泡单击向下箭头，被显示一组建议的操作，以及所选操作的预览。 在这种情况下，它显示如果执行此操作将对你的代码进行的更改。  
   
- ![light bulb preview](../extensibility/media/lightbulbpreview.png "LightBulbPreview")  
+ ![灯泡预览](../extensibility/media/lightbulbpreview.png "LightBulbPreview")  
   
- You can use light bulbs to provide your own suggested actions. For example, you could provide actions to move opening curly braces to a new line or move them to the end of the preceding line. The following walkthrough shows how to create a light bulb that appears on the current word and has two suggested actions: **Convert to upper case** and **Convert to lower case**.  
+ 电灯泡可用于提供你自己建议的操作。 例如，你可以提供操作来移动打开到新行的大括号或将它们移到前面的行的末尾。 下面的演练演示如何创建出现一个灯泡在当前单词上并且具有两个建议操作：**将转换为大写形式**和**转换为小写**。  
   
-## <a name="prerequisites"></a>Prerequisites  
- Starting in Visual Studio 2015, you do not install the Visual Studio SDK from the download center. It is included as an optional feature in Visual Studio setup. You can also install the VS SDK later on. For more information, see [Installing the Visual Studio SDK](../extensibility/installing-the-visual-studio-sdk.md).  
+## <a name="prerequisites"></a>先决条件  
+ 从 Visual Studio 2015 开始，你并不安装 Visual Studio SDK 从下载中心。 它将包括作为 Visual Studio 安装程序中的可选功能。 你还可以在以后安装 VS SDK。 有关详细信息，请参阅[安装 Visual Studio SDK](../extensibility/installing-the-visual-studio-sdk.md)。  
   
-## <a name="creating-a-managed-extensibility-framework-mef-project"></a>Creating a Managed Extensibility Framework (MEF) Project  
+## <a name="creating-a-managed-extensibility-framework-mef-project"></a>创建 Managed Extensibility Framework (MEF) 项目  
   
-1.  Create a C# VSIX project. (In the **New Project** dialog, select **Visual C# / Extensibility**, then **VSIX Project**.) Name the solution `LightBulbTest`.  
+1.  创建 C# VSIX 项目。 (在**新项目**对话框中，选择**Visual C# / 可扩展性**，然后**VSIX 项目**。)将解决方案命名`LightBulbTest`。  
   
-2.  Add an **Editor Classifier** item template to the project. For more information, see [Creating an Extension with an Editor Item Template](../extensibility/creating-an-extension-with-an-editor-item-template.md).  
+2.  添加**编辑器分类器**到项目的项模板。 有关详细信息，请参阅[带有编辑器项模板创建扩展](../extensibility/creating-an-extension-with-an-editor-item-template.md)。  
   
-3.  Delete the existing class files.  
+3.  删除现有的类文件。  
   
-4.  Add the following reference to the project, and set **Copy Local** to `False`:  
+4.  添加以下引用到项目中，并设置**Copy Local**到`False`:  
   
      Microsoft.VisualStudio.Language.Intellisense  
   
-5.  Add a new class file and name it **LightBulbTest**.  
+5.  添加新的类文件并将其命名**LightBulbTest**。  
   
-6.  Add the following using statements:  
+6.  添加以下 using 语句：  
   
     ```csharp  
     using System;  
@@ -88,9 +88,9 @@ Light bulbs are icons used in the Visual Studio editor that expand to display a 
   
     ```  
   
-## <a name="implementing-the-light-bulb-source-provider"></a>Implementing the Light Bulb Source Provider  
+## <a name="implementing-the-light-bulb-source-provider"></a>实现灯泡源提供程序  
   
-1.  In the LightBulbTest.cs class file, delete the LightBulbTest class. Add a class named **TestSuggestedActionsSourceProvider** that implements <xref:Microsoft.VisualStudio.Language.Intellisense.ISuggestedActionsSourceProvider>. Export it with a Name of **Test Suggested Actions** and a <xref:Microsoft.VisualStudio.Utilities.ContentTypeAttribute> of "text".  
+1.  在 LightBulbTest.cs 类文件中，删除 LightBulbTest 类。 添加一个名为类**TestSuggestedActionsSourceProvider**实现<xref:Microsoft.VisualStudio.Language.Intellisense.ISuggestedActionsSourceProvider>。 使用的名称将其导出**测试建议操作**和<xref:Microsoft.VisualStudio.Utilities.ContentTypeAttribute>"text"。  
   
     ```csharp  
     [Export(typeof(ISuggestedActionsSourceProvider))]  
@@ -99,14 +99,14 @@ Light bulbs are icons used in the Visual Studio editor that expand to display a 
     internal class TestSuggestedActionsSourceProvider : ISuggestedActionsSourceProvider  
     ```  
   
-2.  Inside the source provider class, import the <xref:Microsoft.VisualStudio.Text.Operations.ITextStructureNavigatorSelectorService> and add it as a property.  
+2.  在源提供程序类中，导入<xref:Microsoft.VisualStudio.Text.Operations.ITextStructureNavigatorSelectorService>并将其添加为属性。  
   
     ```csharp  
     [Import(typeof(ITextStructureNavigatorSelectorService))]  
     internal ITextStructureNavigatorSelectorService NavigatorService { get; set; }  
     ```  
   
-3.  Implement the <xref:Microsoft.VisualStudio.Language.Intellisense.ISuggestedActionsSourceProvider.CreateSuggestedActionsSource%2A> method to return an <xref:Microsoft.VisualStudio.Language.Intellisense.ISuggestedActionsSource> object. We will discuss the source in the next section.  
+3.  实现<xref:Microsoft.VisualStudio.Language.Intellisense.ISuggestedActionsSourceProvider.CreateSuggestedActionsSource%2A>方法以返回<xref:Microsoft.VisualStudio.Language.Intellisense.ISuggestedActionsSource>对象。 我们将讨论下一步部分中的源。  
   
     ```csharp  
     public ISuggestedActionsSource CreateSuggestedActionsSource(ITextView textView, ITextBuffer textBuffer)  
@@ -119,16 +119,16 @@ Light bulbs are icons used in the Visual Studio editor that expand to display a 
     }  
     ```  
   
-## <a name="implementing-the-isuggestedactionsource"></a>Implementing the ISuggestedActionSource  
- The suggested action source is responsible for collecting the set of suggested actions and adding them in the right context. In this case the context is the current word and the suggested actions are **UpperCaseSuggestedAction** and **LowerCaseSuggestedAction**, which we will discuss in the following section.  
+## <a name="implementing-the-isuggestedactionsource"></a>实现 ISuggestedActionSource  
+ 建议的操作源负责收集的建议的操作集并将其添加正确的上下文中。 在这种情况下的上下文是当前的单词和建议的操作是**UpperCaseSuggestedAction**和**LowerCaseSuggestedAction**，其下一节中，我们将讨论。  
   
-1.  Add a class **TestSuggestedActionsSource** that implements <xref:Microsoft.VisualStudio.Language.Intellisense.ISuggestedActionsSource>.  
+1.  添加类**TestSuggestedActionsSource**实现<xref:Microsoft.VisualStudio.Language.Intellisense.ISuggestedActionsSource>。  
   
     ```csharp  
     internal class TestSuggestedActionsSource : ISuggestedActionsSource  
     ```  
   
-2.  Add private read-only fields for the suggested action source provider, the text buffer and the text view.  
+2.  建议的操作源提供程序、 文本缓冲区和文本视图添加私有的只读字段。  
   
     ```csharp  
     private readonly TestSuggestedActionsSourceProvider m_factory;  
@@ -136,7 +136,7 @@ Light bulbs are icons used in the Visual Studio editor that expand to display a 
     private readonly ITextView m_textView;  
     ```  
   
-3.  Add a constructor that sets the private fields.  
+3.  添加设置私有字段的构造函数。  
   
     ```csharp  
     public TestSuggestedActionsSource(TestSuggestedActionsSourceProvider testSuggestedActionsSourceProvider, ITextView textView, ITextBuffer textBuffer)  
@@ -147,7 +147,7 @@ Light bulbs are icons used in the Visual Studio editor that expand to display a 
     }  
     ```  
   
-4.  Add a private method that returns the word that is currently under the cursor. The following method looks at the current location of the cursor and asks the text structure navigator for the extent of the word. If the cursor is on a word, the <xref:Microsoft.VisualStudio.Text.Operations.TextExtent> is returned in the out parameter; otherwise the `out` parameter is `null` and the method returns `false`.  
+4.  添加返回单词的目前光标下的一个私有方法。 以下方法查看光标的当前位置，并要求提供的字范围的文本结构导航器。 如果光标在字词<xref:Microsoft.VisualStudio.Text.Operations.TextExtent>out 参数中返回; 否则为`out`参数是`null`并且该方法返回`false`。  
   
     ```csharp  
     private bool TryGetWordUnderCaret(out TextExtent wordExtent)  
@@ -172,9 +172,9 @@ Light bulbs are icons used in the Visual Studio editor that expand to display a 
     }  
     ```  
   
-5.  Implement the <xref:Microsoft.VisualStudio.Language.Intellisense.ISuggestedActionsSource.HasSuggestedActionsAsync%2A> method. The editor calls this method to find out whether to display the light bulb. This call is made quite often, for example whenever the cursor moves from one line to another, or when the mouse hovers over an error squiggle. It is asynchronous in order to allow other UI operations to carry on while this method is working. In most cases this method needs to perform some parsing and analysis of the current line, so the processing may take some time.  
+5.  实现 <xref:Microsoft.VisualStudio.Language.Intellisense.ISuggestedActionsSource.HasSuggestedActionsAsync%2A> 方法。 编辑器中调用此方法以找出是否显示电灯泡。 进行此调用常常，例如只要将光标从一个行移动到另一个，或者当鼠标悬停在错误波形曲线。 它是异步以便允许在处理此方法时，对执行其他 UI 操作。 在大多数情况下，此方法需要执行一些分析和分析的当前行，因此处理可能需要一些时间。  
   
-     In our implementation it asynchronously gets the <xref:Microsoft.VisualStudio.Text.Operations.TextExtent> and determines whether the extent is significant, i.e., whether it has some text other than whitespace.  
+     在我们实现它以异步方式获取<xref:Microsoft.VisualStudio.Text.Operations.TextExtent>并确定范围是否有效，即它是否有一些文本，而不是空格。  
   
     ```csharp  
     public Task<bool> HasSuggestedActionsAsync(ISuggestedActionCategorySet requestedActionCategories, SnapshotSpan range, CancellationToken cancellationToken)  
@@ -192,10 +192,10 @@ Light bulbs are icons used in the Visual Studio editor that expand to display a 
     }  
     ```  
   
-6.  Implement the <xref:Microsoft.VisualStudio.Language.Intellisense.ISuggestedActionsSource.GetSuggestedActions%2A> method, which returns an array of <xref:Microsoft.VisualStudio.Language.Intellisense.SuggestedActionSet> objects that contain the different <xref:Microsoft.VisualStudio.Language.Intellisense.ISuggestedAction> objects. This method is called when the light bulb is expanded.  
+6.  实现<xref:Microsoft.VisualStudio.Language.Intellisense.ISuggestedActionsSource.GetSuggestedActions%2A>方法，返回的数组<xref:Microsoft.VisualStudio.Language.Intellisense.SuggestedActionSet>包含不同的对象<xref:Microsoft.VisualStudio.Language.Intellisense.ISuggestedAction>对象。 展开电灯泡时，调用此方法。  
   
     > [!WARNING]
-    >  You should make sure that the implementations of `HasSuggestedActionsAsync()` and `GetSuggestedActions()` are consistent; that is, if `HasSuggestedActionsAsync()` returns `true`, then `GetSuggestedActions()` should have some actions to display. In many cases `HasSuggestedActionsAsync()` is called just before `GetSuggestedActions()`, but this is not always the case. For example, if the user invokes the light bulb actions by pressing (CTRL + .) only `GetSuggestedActions()` is called.  
+    >  应确保的实现`HasSuggestedActionsAsync()`和`GetSuggestedActions()`是否一致; 即，如果`HasSuggestedActionsAsync()`返回`true`，然后`GetSuggestedActions()`应具有要显示的某些操作。 在许多情况下`HasSuggestedActionsAsync()`之前调用`GetSuggestedActions()`，但并不总是这种情况。 例如，如果用户通过按调用灯泡操作 (CTRL +。) 仅`GetSuggestedActions()`调用。  
   
     ```csharp  
     public IEnumerable<SuggestedActionSet> GetSuggestedActions(ISuggestedActionCategorySet requestedActionCategories, SnapshotSpan range, CancellationToken cancellationToken)  
@@ -212,13 +212,13 @@ Light bulbs are icons used in the Visual Studio editor that expand to display a 
     }   
     ```  
   
-7.  Define a `SuggestedActionsChanged` event.  
+7.  定义`SuggestedActionsChanged`事件。  
   
     ```csharp  
     public event EventHandler<EventArgs> SuggestedActionsChanged;  
     ```  
   
-8.  To complete the implementation, add implementations for the `Dispose()` and `TryGetTelemetryId()` methods. We don't want to do telemetry, so just return false and set the GUID to Empty.  
+8.  若要完成实现，添加实现`Dispose()`和`TryGetTelemetryId()`方法。 我们不希望为遥测，所以只需，则返回 false 然后设置为空的 GUID。  
   
     ```csharp  
     public void Dispose()  
@@ -233,20 +233,20 @@ Light bulbs are icons used in the Visual Studio editor that expand to display a 
     }  
     ```  
   
-## <a name="implementing-light-bulb-actions"></a>Implementing Light Bulb Actions  
+## <a name="implementing-light-bulb-actions"></a>实现灯泡操作  
   
-1.  In the project, add a reference to Microsoft.VisualStudio.Imaging.Interop.14.0.DesignTime.dll and set **Copy Local** to `False`.  
+1.  在项目中，添加到 Microsoft.VisualStudio.Imaging.Interop.14.0.DesignTime.dll 和集的引用**Copy Local**到`False`。  
   
-2.  Create two classes, the first named `UpperCaseSuggestedAction` and the second named `LowerCaseSuggestedAction`. Both classes implement <xref:Microsoft.VisualStudio.Language.Intellisense.ISuggestedAction>.  
+2.  创建两个类，第一个名为`UpperCaseSuggestedAction`和第二个名为`LowerCaseSuggestedAction`。 两个类都实现 <xref:Microsoft.VisualStudio.Language.Intellisense.ISuggestedAction>。  
   
     ```csharp  
     internal class UpperCaseSuggestedAction : ISuggestedAction   
     internal class LowerCaseSuggestedAction : ISuggestedAction  
     ```  
   
-     Both classes are alike except that one calls <xref:System.String.ToUpper%2A> and the other calls <xref:System.String.ToLower%2A>. The following steps cover only the uppercase action class, but you must implement both classes. Use the steps for implementing the uppercase action as a pattern for implementing the lowercase action.  
+     两个类都相似，只不过其中一个调用<xref:System.String.ToUpper%2A>和其他调用<xref:System.String.ToLower%2A>。 以下步骤仅说明大写操作类，但你必须实现这两个类。 将实现大写操作的步骤用作实现小写操作的模式。  
   
-3.  Add the following using statements for these classes:  
+3.  添加以下 using 语句，这些类：  
   
     ```csharp  
     using Microsoft.VisualStudio.Imaging.Interop;  
@@ -257,7 +257,7 @@ Light bulbs are icons used in the Visual Studio editor that expand to display a 
   
     ```  
   
-4.  Declare a set of private fields.  
+4.  声明一组私有字段。  
   
     ```csharp  
     private ITrackingSpan m_span;  
@@ -266,7 +266,7 @@ Light bulbs are icons used in the Visual Studio editor that expand to display a 
     private ITextSnapshot m_snapshot;  
     ```  
   
-5.  Add a constructor that sets the fields.  
+5.  添加设置该字段的构造函数。  
   
     ```csharp  
     public UpperCaseSuggestedAction(ITrackingSpan span)  
@@ -278,7 +278,7 @@ Light bulbs are icons used in the Visual Studio editor that expand to display a 
     }  
     ```  
   
-6.  Implement the <xref:Microsoft.VisualStudio.Language.Intellisense.ISuggestedAction.GetPreviewAsync%2A> method so that it displays the action preview.  
+6.  实现<xref:Microsoft.VisualStudio.Language.Intellisense.ISuggestedAction.GetPreviewAsync%2A>方法，以便它显示操作预览。  
   
     ```csharp  
     public Task<object> GetPreviewAsync(CancellationToken cancellationToken)  
@@ -290,7 +290,7 @@ Light bulbs are icons used in the Visual Studio editor that expand to display a 
     }  
     ```  
   
-7.  Implement the <xref:Microsoft.VisualStudio.Language.Intellisense.ISuggestedAction.GetActionSetsAsync%2A> method so that it returns an empty <xref:Microsoft.VisualStudio.Language.Intellisense.SuggestedActionSet> enumeration.  
+7.  实现<xref:Microsoft.VisualStudio.Language.Intellisense.ISuggestedAction.GetActionSetsAsync%2A>方法，以便它返回一个空<xref:Microsoft.VisualStudio.Language.Intellisense.SuggestedActionSet>枚举。  
   
     ```csharp  
     public Task<IEnumerable<SuggestedActionSet>> GetActionSetsAsync(CancellationToken cancellationToken)  
@@ -299,7 +299,7 @@ Light bulbs are icons used in the Visual Studio editor that expand to display a 
     }  
     ```  
   
-8.  Implement the properties as follows.  
+8.  如下所示实现属性。  
   
     ```csharp  
     public bool HasActionSets  
@@ -334,7 +334,7 @@ Light bulbs are icons used in the Visual Studio editor that expand to display a 
     }  
     ```  
   
-9. Implement the <xref:Microsoft.VisualStudio.Language.Intellisense.ISuggestedAction.Invoke%2A> method by replacing the text in the span with its uppercase equivalent.  
+9. 实现<xref:Microsoft.VisualStudio.Language.Intellisense.ISuggestedAction.Invoke%2A>方法通过将范围中的文本替换为其大写等效项。  
   
     ```csharp  
     public void Invoke(CancellationToken cancellationToken)  
@@ -344,9 +344,9 @@ Light bulbs are icons used in the Visual Studio editor that expand to display a 
     ```  
   
     > [!WARNING]
-    >  The light bulb action **Invoke** method is not expected to show UI.  If your action does bring up new UI (for example a preview or selection dialog), do not display the UI directly from within the **Invoke** method but instead schedule to display your UI after returning from **Invoke**.  
+    >  灯泡操作**Invoke**方法不应显示 UI。  如果你的操作未显示新的用户界面 （例如预览或选择对话框），不会显示直接内从 UI **Invoke**方法但改为计划从返回后显示你的 UI **Invoke**.  
   
-10. To complete the implementation, add the `Dispose()` and `TryGetTelemetryId()` methods.  
+10. 若要完成实现，添加`Dispose()`和`TryGetTelemetryId()`方法。  
   
     ```csharp  
     public void Dispose()  
@@ -361,24 +361,24 @@ Light bulbs are icons used in the Visual Studio editor that expand to display a 
     }  
     ```  
   
-11. Don't forget to do the same thing for `LowerCaseSuggestedAction` changing the display text to "Convert '{0}' to lower case" and the call <xref:System.String.ToUpper%2A> to <xref:System.String.ToLower%2A>.  
+11. 不要忘记将执行相同的操作`LowerCaseSuggestedAction`将显示文本更改为"转换"{0}"为小写"并调用<xref:System.String.ToUpper%2A>到<xref:System.String.ToLower%2A>。  
   
-## <a name="building-and-testing-the-code"></a>Building and Testing the Code  
- To test this code, build the LightBulbTest solution and run it in the Experimental instance.  
+## <a name="building-and-testing-the-code"></a>生成和测试代码  
+ 若要测试此代码，生成 LightBulbTest 解决方案并在实验实例中运行它。  
   
-1.  Build the solution.  
+1.  生成解决方案。  
   
-2.  When you run this project in the debugger, a second instance of Visual Studio is instantiated.  
+2.  在调试器中运行此项目时，Visual Studio 的第二个实例将进行实例化。  
   
-3.  Create a text file and type some text. You should see a light bulb to the left of the text.  
+3.  创建一个文本文件并键入一些文本。 你应看到电灯泡左侧的文本。  
   
-     ![test the light bulb](../extensibility/media/testlightbulb.png "TestLIghtBulb")  
+     ![测试灯泡](../extensibility/media/testlightbulb.png "TestLIghtBulb")  
   
-4.  Point at the light bulb. You should see a down arrow.  
+4.  指向电灯泡。 你应看到向下箭头。  
   
-5.  When you click the light bulb, two suggested actions should be displayed, along with the preview of the selected action.  
+5.  当你单击电灯泡时，两个建议的操作应显示，以及预览选定的操作。  
   
-     ![test light bulb, expanded](../extensibility/media/testlightbulbexpanded.gif "TestLIghtBulbExpanded")  
+     ![测试灯泡，已展开](../extensibility/media/testlightbulbexpanded.gif "TestLIghtBulbExpanded")  
   
-6.  If you click the first action, all the text in the current word should be converted to upper case. If you click the second action, all the text should be converted to lower case.  
+6.  如果单击第一个操作，则当前单词中的所有文本都将转换为大写。 如果单击第二个操作，则所有文本都将转换为小写。  
   

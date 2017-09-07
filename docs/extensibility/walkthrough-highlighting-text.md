@@ -1,5 +1,5 @@
 ---
-title: 'Walkthrough: Highlighting Text | Microsoft Docs'
+title: "演练： 突出显示文本 |Microsoft 文档"
 ms.custom: 
 ms.date: 11/04/2016
 ms.reviewer: 
@@ -32,31 +32,31 @@ ms.translationtype: MT
 ms.sourcegitcommit: eb5c9550fd29b0e98bf63a7240737da4f13f3249
 ms.openlocfilehash: 6d18e69f248f4c046c51dd2dd1189c46369a0f7e
 ms.contentlocale: zh-cn
-ms.lasthandoff: 08/30/2017
+ms.lasthandoff: 09/06/2017
 
 ---
-# <a name="walkthrough-highlighting-text"></a>Walkthrough: Highlighting Text
-You can add different visual effects to the editor by creating Managed Extensibility Framework (MEF) component parts. This walkthrough shows how to highlight every occurrence of the current word in a text file. If a word occurs more than one time in a text file, and you position the caret in one occurrence, every occurrence is highlighted.  
+# <a name="walkthrough-highlighting-text"></a>演练： 突出显示文本
+通过创建 Managed Extensibility Framework (MEF) 组件部分，可以将不同的视觉效果添加到编辑器。 本演练演示如何以突出显示当前的单词在文本文件中每个匹配项。 如果某个单词在文本文件中，发生不止一次和插入符号置于一个匹配项，则突出显示每个匹配项。  
   
-## <a name="prerequisites"></a>Prerequisites  
- Starting in Visual Studio 2015, you do not install the Visual Studio SDK from the download center. It is included as an optional feature in Visual Studio setup. You can also install the VS SDK later on. For more information, see [Installing the Visual Studio SDK](../extensibility/installing-the-visual-studio-sdk.md).  
+## <a name="prerequisites"></a>先决条件  
+ 从 Visual Studio 2015 开始，你并不安装 Visual Studio SDK 从下载中心。 它将包括作为 Visual Studio 安装程序中的可选功能。 你还可以在以后安装 VS SDK。 有关详细信息，请参阅[安装 Visual Studio SDK](../extensibility/installing-the-visual-studio-sdk.md)。  
   
-## <a name="creating-a-mef-project"></a>Creating a MEF Project  
+## <a name="creating-a-mef-project"></a>创建 MEF 项目  
   
-1.  Create a C# VSIX project. (In the **New Project** dialog, select **Visual C# / Extensibility**, then **VSIX Project**.) Name the solution `HighlightWordTest`.  
+1.  创建 C# VSIX 项目。 (在**新项目**对话框中，选择**Visual C# / 可扩展性**，然后**VSIX 项目**。)将解决方案命名`HighlightWordTest`。  
   
-2.  Add an Editor Classifier item template to the project. For more information, see [Creating an Extension with an Editor Item Template](../extensibility/creating-an-extension-with-an-editor-item-template.md).  
+2.  向项目添加编辑器分类器项模板。 有关详细信息，请参阅[带有编辑器项模板创建扩展](../extensibility/creating-an-extension-with-an-editor-item-template.md)。  
   
-3.  Delete the existing class files.  
+3.  删除现有的类文件。  
   
-## <a name="defining-a-textmarkertag"></a>Defining a TextMarkerTag  
- The first step in highlighting text is to subclass <xref:Microsoft.VisualStudio.Text.Tagging.TextMarkerTag> and define its appearance.  
+## <a name="defining-a-textmarkertag"></a>定义 TextMarkerTag  
+ 突出显示文本的第一步是子类化<xref:Microsoft.VisualStudio.Text.Tagging.TextMarkerTag>并定义其外观。  
   
-#### <a name="to-define-a-textmarkertag-and-a-markerformatdefinition"></a>To define a TextMarkerTag and a MarkerFormatDefinition  
+#### <a name="to-define-a-textmarkertag-and-a-markerformatdefinition"></a>若要定义 TextMarkerTag 和 MarkerFormatDefinition  
   
-1.  Add a class file and name it **HighlightWordTag**.  
+1.  添加一个类文件并将其命名**HighlightWordTag**。  
   
-2.  Add the following references:  
+2.  添加以下引用：  
   
     1.  Microsoft.VisualStudio.CoreUtility  
   
@@ -74,7 +74,7 @@ You can add different visual effects to the editor by creating Managed Extensibi
   
     8.  Presentation.Framework  
   
-3.  Import the following namespaces.  
+3.  导入以下命名空间。  
   
     ```csharp  
     using System;  
@@ -91,7 +91,7 @@ You can add different visual effects to the editor by creating Managed Extensibi
     using System.Windows.Media;  
     ```  
   
-4.  Create a class that inherits from <xref:Microsoft.VisualStudio.Text.Tagging.TextMarkerTag> and name it `HighlightWordTag`.  
+4.  创建继承自的类<xref:Microsoft.VisualStudio.Text.Tagging.TextMarkerTag>并将其命名`HighlightWordTag`。  
   
     ```csharp  
     internal class HighlightWordTag : TextMarkerTag  
@@ -100,11 +100,11 @@ You can add different visual effects to the editor by creating Managed Extensibi
     }  
     ```  
   
-5.  Create a second class that inherits from <xref:Microsoft.VisualStudio.Text.Classification.MarkerFormatDefinition>, and name it HighlightWordFormatDefinition. In order to use this format definition for your tag, you must export it with the following attributes:  
+5.  创建另一个类继承自<xref:Microsoft.VisualStudio.Text.Classification.MarkerFormatDefinition>，并将其命名 HighlightWordFormatDefinition。 若要使用此格式定义为你的标记，必须将其导出具有以下属性：  
   
-    -   <xref:Microsoft.VisualStudio.Utilities.NameAttribute>: tags use this to reference this format  
+    -   <xref:Microsoft.VisualStudio.Utilities.NameAttribute>： 标记用于引用此格式  
   
-    -   <xref:Microsoft.VisualStudio.Text.Classification.UserVisibleAttribute>: this causes the format to appear in the UI  
+    -   <xref:Microsoft.VisualStudio.Text.Classification.UserVisibleAttribute>： 这将导致要在 UI 中显示的格式  
   
     ```csharp  
   
@@ -117,7 +117,7 @@ You can add different visual effects to the editor by creating Managed Extensibi
     }  
     ```  
   
-6.  In the constructor for HighlightWordFormatDefinition, define its display name and appearance. The Background property defines the fill color, while the Foreground property defines the border color.  
+6.  在 HighlightWordFormatDefinition 的构造函数，定义其显示名称和外观。 后台属性定义的填充颜色，而的前景色属性定义的边框颜色。  
   
     ```csharp  
     public HighlightWordFormatDefinition()  
@@ -129,18 +129,18 @@ You can add different visual effects to the editor by creating Managed Extensibi
     }  
     ```  
   
-7.  In the constructor for HighlightWordTag, pass in the name of the format definition you just created.  
+7.  HighlightWordTag 的构造函数中, 传入刚刚创建的格式定义的名称。  
   
     ```  
     public HighlightWordTag() : base("MarkerFormatDefinition/HighlightWordFormatDefinition") { }  
     ```  
   
-## <a name="implementing-an-itagger"></a>Implementing an ITagger  
- The next step is to implement the <xref:Microsoft.VisualStudio.Text.Tagging.ITagger%601> interface. This interface assigns, to a given text buffer, tags that provide text highlighting and other visual effects.  
+## <a name="implementing-an-itagger"></a>实现 ITagger  
+ 下一步是实现<xref:Microsoft.VisualStudio.Text.Tagging.ITagger%601>接口。 此接口分配，对给定的文本缓冲区、 提供文本突出显示的标记和其他视觉效果。  
   
-#### <a name="to-implement-a-tagger"></a>To implement a tagger  
+#### <a name="to-implement-a-tagger"></a>若要实现的标记器  
   
-1.  Create a class that implements <xref:Microsoft.VisualStudio.Text.Tagging.ITagger%601> of type `HighlightWordTag`, and name it `HighlightWordTagger`.  
+1.  创建一个类以实现<xref:Microsoft.VisualStudio.Text.Tagging.ITagger%601>类型的`HighlightWordTag`，并将其命名`HighlightWordTagger`。  
   
     ```csharp  
     internal class HighlightWordTagger : ITagger<HighlightWordTag>  
@@ -149,23 +149,23 @@ You can add different visual effects to the editor by creating Managed Extensibi
     }  
     ```  
   
-2.  Add the following private fields and properties to the class:  
+2.  将以下私有字段和属性添加到类：  
   
-    -   An <xref:Microsoft.VisualStudio.Text.Editor.ITextView>, which corresponds to the current text view.  
+    -   <xref:Microsoft.VisualStudio.Text.Editor.ITextView>，它对应于当前的文本视图。  
   
-    -   An <xref:Microsoft.VisualStudio.Text.ITextBuffer>, which corresponds to the text buffer that underlies the text view.  
+    -   <xref:Microsoft.VisualStudio.Text.ITextBuffer>，它对应于文本缓冲区的基础文本视图。  
   
-    -   An <xref:Microsoft.VisualStudio.Text.Operations.ITextSearchService>, which is used to find text.  
+    -   <xref:Microsoft.VisualStudio.Text.Operations.ITextSearchService>，用于查找的文本。  
   
-    -   An <xref:Microsoft.VisualStudio.Text.Operations.ITextStructureNavigator>, which has methods for navigating within text spans.  
+    -   <xref:Microsoft.VisualStudio.Text.Operations.ITextStructureNavigator>，它具有用于导航文本范围内的方法。  
   
-    -   A <xref:Microsoft.VisualStudio.Text.NormalizedSnapshotSpanCollection>, which contains the set of words to highlight.  
+    -   A <xref:Microsoft.VisualStudio.Text.NormalizedSnapshotSpanCollection>，其中包含单词以突出显示的集。  
   
-    -   A <xref:Microsoft.VisualStudio.Text.SnapshotSpan>, which corresponds to the current word.  
+    -   A <xref:Microsoft.VisualStudio.Text.SnapshotSpan>，它对应于当前的单词。  
   
-    -   A <xref:Microsoft.VisualStudio.Text.SnapshotPoint>, which corresponds to the current position of the caret.  
+    -   A <xref:Microsoft.VisualStudio.Text.SnapshotPoint>，这对应于当前插入符号的位置。  
   
-    -   A lock object.  
+    -   锁对象。  
   
     ```csharp  
     ITextView View { get; set; }  
@@ -179,7 +179,7 @@ You can add different visual effects to the editor by creating Managed Extensibi
   
     ```  
   
-3.  Add a constructor that initializes the properties listed earlier and adds <xref:Microsoft.VisualStudio.Text.Editor.ITextView.LayoutChanged> and <xref:Microsoft.VisualStudio.Text.Editor.ITextCaret.PositionChanged> event handlers.  
+3.  添加一个构造函数初始化前面列出的属性并添加<xref:Microsoft.VisualStudio.Text.Editor.ITextView.LayoutChanged>和<xref:Microsoft.VisualStudio.Text.Editor.ITextCaret.PositionChanged>事件处理程序。  
   
     ```csharp  
     public HighlightWordTagger(ITextView view, ITextBuffer sourceBuffer, ITextSearchService textSearchService,  
@@ -197,7 +197,7 @@ You can add different visual effects to the editor by creating Managed Extensibi
   
     ```  
   
-4.  The event handlers both call the `UpdateAtCaretPosition` method.  
+4.  都调用的事件处理程序`UpdateAtCaretPosition`方法。  
   
     ```csharp  
     void ViewLayoutChanged(object sender, TextViewLayoutChangedEventArgs e)  
@@ -215,11 +215,11 @@ You can add different visual effects to the editor by creating Managed Extensibi
     }  
     ```  
   
-5.  You must also add a `TagsChanged` event that will be called by the update method.  
+5.  你还必须添加`TagsChanged`将由的更新方法调用的事件。  
   
-     [!code-csharp[VSSDKHighlightWordTest#10](../extensibility/codesnippet/CSharp/walkthrough-highlighting-text_1.cs)]  [!code-vb[VSSDKHighlightWordTest#10](../extensibility/codesnippet/VisualBasic/walkthrough-highlighting-text_1.vb)]  
+     [!code-csharp[VSSDKHighlightWordTest #10](../extensibility/codesnippet/CSharp/walkthrough-highlighting-text_1.cs)][!code-vb[VSSDKHighlightWordTest #10  ](../extensibility/codesnippet/VisualBasic/walkthrough-highlighting-text_1.vb)]  
   
-6.  The `UpdateAtCaretPosition()` method finds every word in the text buffer that is identical to the word where the cursor is positioned and constructs a list of <xref:Microsoft.VisualStudio.Text.SnapshotSpan> objects that correspond to the occurrences of the word. It then calls `SynchronousUpdate`, which raises the `TagsChanged` event.  
+6.  `UpdateAtCaretPosition()`方法找到的每个词等同于 word 光标位于其中构造一个列表的文本缓冲区<xref:Microsoft.VisualStudio.Text.SnapshotSpan>对应于该单词的出现次数的对象。 然后，它调用`SynchronousUpdate`，这会引发`TagsChanged`事件。  
   
     ```csharp  
     void UpdateAtCaretPosition(CaretPosition caretPosition)  
@@ -301,7 +301,7 @@ You can add different visual effects to the editor by creating Managed Extensibi
   
     ```  
   
-7.  The `SynchronousUpdate` performs a synchronous update on the `WordSpans` and `CurrentWord` properties, and raises the `TagsChanged` event.  
+7.  `SynchronousUpdate`上执行的同步更新`WordSpans`和`CurrentWord`属性，并引发`TagsChanged`事件。  
   
     ```vb  
     void SynchronousUpdate(SnapshotPoint currentRequest, NormalizedSnapshotSpanCollection newSpans, SnapshotSpan? newCurrentWord)  
@@ -321,11 +321,11 @@ You can add different visual effects to the editor by creating Managed Extensibi
     }  
     ```  
   
-8.  You must implement the <xref:Microsoft.VisualStudio.Text.Tagging.ITagger%601.GetTags%2A> method. This method takes a collection of <xref:Microsoft.VisualStudio.Text.SnapshotSpan> objects and returns an enumeration of tag spans.  
+8.  必须实现<xref:Microsoft.VisualStudio.Text.Tagging.ITagger%601.GetTags%2A>方法。 此方法采用集合<xref:Microsoft.VisualStudio.Text.SnapshotSpan>对象，并返回的标记范围的枚举。  
   
-     In C#, implement this method as a yield iterator, which enables lazy evaluation (that is, evaluation of the set only when individual items are accessed) of the tags. In Visual Basic, add the tags to a list and return the list.  
+     在 C# 中，实现此方法作为 yield 迭代器，它使迟缓计算 （即，仅当访问各个项时的集的评估版） 的标记。 在 Visual Basic 中，向列表添加标记，并返回的列表。  
   
-     Here the method returns a <xref:Microsoft.VisualStudio.Text.Tagging.TagSpan%601> object that has a "blue" <xref:Microsoft.VisualStudio.Text.Tagging.TextMarkerTag>, which provides a blue background.  
+     该方法将返回此处<xref:Microsoft.VisualStudio.Text.Tagging.TagSpan%601>对象具有"蓝色" <xref:Microsoft.VisualStudio.Text.Tagging.TextMarkerTag>，该属性提供蓝色背景。  
   
     ```csharp  
     public IEnumerable<ITagSpan<HighlightWordTag>> GetTags(NormalizedSnapshotSpanCollection spans)  
@@ -364,15 +364,15 @@ You can add different visual effects to the editor by creating Managed Extensibi
     }  
     ```  
   
-## <a name="creating-a-tagger-provider"></a>Creating a Tagger Provider  
- To create your tagger, you must implement a <xref:Microsoft.VisualStudio.Text.Tagging.IViewTaggerProvider>. This class is a MEF component part, so you must set the correct attributes so that this extension is recognized.  
+## <a name="creating-a-tagger-provider"></a>创建标记器提供程序  
+ 若要创建你的标记器，则必须实现<xref:Microsoft.VisualStudio.Text.Tagging.IViewTaggerProvider>。 此类是 MEF 组件一部分，因此你必须设置正确的属性，以便识别此扩展。  
   
 > [!NOTE]
->  For more information about MEF, see [Managed Extensibility Framework (MEF)](/dotnet/framework/mef/index).  
+>  有关 MEF 的详细信息，请参阅[Managed Extensibility Framework (MEF)](/dotnet/framework/mef/index)。  
   
-#### <a name="to-create-a-tagger-provider"></a>To create a tagger provider  
+#### <a name="to-create-a-tagger-provider"></a>创建标记器提供程序  
   
-1.  Create a class named `HighlightWordTaggerProvider` that implements <xref:Microsoft.VisualStudio.Text.Tagging.IViewTaggerProvider>, and export it with a <xref:Microsoft.VisualStudio.Utilities.ContentTypeAttribute> of "text" and a <xref:Microsoft.VisualStudio.Text.Tagging.TagTypeAttribute> of <xref:Microsoft.VisualStudio.Text.Tagging.TextMarkerTag>.  
+1.  创建一个名为类`HighlightWordTaggerProvider`实现<xref:Microsoft.VisualStudio.Text.Tagging.IViewTaggerProvider>，并将其与导出<xref:Microsoft.VisualStudio.Utilities.ContentTypeAttribute>"text"和<xref:Microsoft.VisualStudio.Text.Tagging.TagTypeAttribute>的<xref:Microsoft.VisualStudio.Text.Tagging.TextMarkerTag>。  
   
     ```csharp  
     [Export(typeof(IViewTaggerProvider))]  
@@ -382,7 +382,7 @@ You can add different visual effects to the editor by creating Managed Extensibi
     { }  
     ```  
   
-2.  You must import two editor services, the <xref:Microsoft.VisualStudio.Text.Operations.ITextSearchService> and the <xref:Microsoft.VisualStudio.Text.Operations.ITextStructureNavigatorSelectorService>, to instantiate the tagger.  
+2.  你必须导入这两个编辑器服务，<xref:Microsoft.VisualStudio.Text.Operations.ITextSearchService>和<xref:Microsoft.VisualStudio.Text.Operations.ITextStructureNavigatorSelectorService>、 实例化标记器。  
   
     ```csharp  
     [Import]  
@@ -393,7 +393,7 @@ You can add different visual effects to the editor by creating Managed Extensibi
   
     ```  
   
-3.  Implement the <xref:Microsoft.VisualStudio.Text.Tagging.IViewTaggerProvider.CreateTagger%2A> method to return an instance of `HighlightWordTagger`.  
+3.  实现<xref:Microsoft.VisualStudio.Text.Tagging.IViewTaggerProvider.CreateTagger%2A>方法返回的实例`HighlightWordTagger`。  
   
     ```csharp  
     public ITagger<T> CreateTagger<T>(ITextView textView, ITextBuffer buffer) where T : ITag  
@@ -409,18 +409,18 @@ You can add different visual effects to the editor by creating Managed Extensibi
     }  
     ```  
   
-## <a name="building-and-testing-the-code"></a>Building and Testing the Code  
- To test this code, build the HighlightWordTest solution and run it in the experimental instance.  
+## <a name="building-and-testing-the-code"></a>生成和测试代码  
+ 若要测试此代码，生成 HighlightWordTest 解决方案并在实验实例中运行它。  
   
-#### <a name="to-build-and-test-the-highlightwordtest-solution"></a>To build and test the HighlightWordTest solution  
+#### <a name="to-build-and-test-the-highlightwordtest-solution"></a>若要生成和测试 HighlightWordTest 解决方案  
   
-1.  Build the solution.  
+1.  生成解决方案。  
   
-2.  When you run this project in the debugger, a second instance of Visual Studio is instantiated.  
+2.  在调试器中运行此项目时，Visual Studio 的第二个实例将进行实例化。  
   
-3.  Create a text file and type some text in which the words are repeated, for example, "hello hello hello".  
+3.  创建文本文件并键入一些文本，在其中重复的单词，例如，"你好你好你好"。  
   
-4.  Position the cursor in one of the occurrences of "hello". Every occurrence should be highlighted in blue.  
+4.  将光标放置在一个"你好"的匹配项。 每个匹配项应以蓝色突出显示。  
   
-## <a name="see-also"></a>See Also  
- [Walkthrough: Linking a Content Type to a File Name Extension](../extensibility/walkthrough-linking-a-content-type-to-a-file-name-extension.md)
+## <a name="see-also"></a>另请参阅  
+ [演练：将内容类型链接到文件扩展名](../extensibility/walkthrough-linking-a-content-type-to-a-file-name-extension.md)

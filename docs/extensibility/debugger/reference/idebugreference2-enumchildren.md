@@ -1,5 +1,5 @@
 ---
-title: IDebugReference2::EnumChildren | Microsoft Docs
+title: "IDebugReference2::EnumChildren |Microsoft 文档"
 ms.custom: 
 ms.date: 11/04/2016
 ms.reviewer: 
@@ -34,13 +34,13 @@ ms.translationtype: MT
 ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
 ms.openlocfilehash: 9b1777fa80596fb0173cfa401e026264e8879ff0
 ms.contentlocale: zh-cn
-ms.lasthandoff: 08/28/2017
+ms.lasthandoff: 09/06/2017
 
 ---
 # <a name="idebugreference2enumchildren"></a>IDebugReference2::EnumChildren
-Get a list of selected children of a reference. Reserved for future use.  
+获取引用的选定子级的列表。 留待将来使用。  
   
-## <a name="syntax"></a>Syntax  
+## <a name="syntax"></a>语法  
   
 ```cpp  
 HRESULT EnumChildren (   
@@ -64,29 +64,29 @@ int EnumChildren (
 );  
 ```  
   
-#### <a name="parameters"></a>Parameters  
+#### <a name="parameters"></a>参数  
  `dwFields`  
- [in] A combination of flags from the [DEBUGREF_INFO_FLAGS](../../../extensibility/debugger/reference/debugref-info-flags.md) enumeration that specifies which fields in the enumerated [DEBUG_REFERENCE_INFO](../../../extensibility/debugger/reference/debug-reference-info.md) structures are to be filled in.  
+ [in]中的标志的组合[DEBUGREF_INFO_FLAGS](../../../extensibility/debugger/reference/debugref-info-flags.md)指定哪些字段中枚举的枚举[DEBUG_REFERENCE_INFO](../../../extensibility/debugger/reference/debug-reference-info.md)结构是否填充的。  
   
  `dwRadix`  
- [in] The radix to be used in formatting any numerical information.  
+ [in]用于设置格式的任何数字信息基数。  
   
  `dwAttribFilter`  
- [in] A combination of flags from the [DBG_ATTRIB_FLAGS](../../../extensibility/debugger/reference/dbg-attrib-flags.md) enumeration that is used as a filter in combination with the `pszNameFilter` parameter to select which structures are to be enumerated.  
+ [in]中的标志的组合[DBG_ATTRIB_FLAGS](../../../extensibility/debugger/reference/dbg-attrib-flags.md)用作筛选器与结合使用的枚举`pszNameFilter`参数选择的结构是要进行枚举。  
   
  `pszNameFilter`  
- [in] A string specifying a filter, such as "MyX", used in combination with the `dwAttribFilter` parameter to select the structures to be enumerated.  
+ [in]一个字符串，指定筛选器，例如"MyX"，以与结合使用`dwAttribFilter`参数选择要枚举的结构。  
   
  `dwTimeout`  
- [in] Maximum time, in milliseconds, to wait before returning from this method. Use `INFINITE` to wait indefinitely.  
+ [in]以毫秒为单位，从此方法返回前等待的最长时间。 使用`INFINITE`无限期等待。  
   
  `ppEnum`  
- [out] Returns an [IEnumDebugReferenceInfo2](../../../extensibility/debugger/reference/ienumdebugreferenceinfo2.md) object that contains a list of the requested child properties.  
+ [out]返回[IEnumDebugReferenceInfo2](../../../extensibility/debugger/reference/ienumdebugreferenceinfo2.md)对象，其中包含请求的子属性的列表。  
   
-## <a name="return-value"></a>Return Value  
- Always returns `E_NOTIMPL`.  
+## <a name="return-value"></a>返回值  
+ 始终返回 `E_NOTIMPL`。  
   
-## <a name="see-also"></a>See Also  
+## <a name="see-also"></a>另请参阅  
  [IDebugReference2](../../../extensibility/debugger/reference/idebugreference2.md)   
  [DEBUGREF_INFO_FLAGS](../../../extensibility/debugger/reference/debugref-info-flags.md)   
  [DBG_ATTRIB_FLAGS](../../../extensibility/debugger/reference/dbg-attrib-flags.md)   

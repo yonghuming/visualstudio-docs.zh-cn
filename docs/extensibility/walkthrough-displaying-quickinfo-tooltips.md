@@ -1,5 +1,5 @@
 ---
-title: 'Walkthrough: Displaying QuickInfo Tooltips | Microsoft Docs'
+title: "演练： 显示快速信息工具提示 |Microsoft 文档"
 ms.custom: 
 ms.date: 11/04/2016
 ms.reviewer: 
@@ -32,147 +32,147 @@ ms.translationtype: MT
 ms.sourcegitcommit: eb5c9550fd29b0e98bf63a7240737da4f13f3249
 ms.openlocfilehash: 7acb244077949ffb0a59018b24706fd3ccfefc14
 ms.contentlocale: zh-cn
-ms.lasthandoff: 08/30/2017
+ms.lasthandoff: 09/06/2017
 
 ---
-# <a name="walkthrough-displaying-quickinfo-tooltips"></a>Walkthrough: Displaying QuickInfo Tooltips
-QuickInfo is an IntelliSense feature that displays method signatures and descriptions when a user moves the pointer over a method name. You can implement language-based features such as QuickInfo by defining the identifiers for which you want to provide QuickInfo descriptions, and then creating a tooltip in which to display the content. You can define QuickInfo in the context of a language service, or you can define your own file name extension and content type and display the QuickInfo for just that type, or you can display QuickInfo for an existing content type (such as "text"). This walkthrough shows how to display QuickInfo for the "text" content type.  
+# <a name="walkthrough-displaying-quickinfo-tooltips"></a>演练： 显示快速信息工具提示
+快速信息 IntelliSense 功能，用于显示方法签名，说明当用户将指针移到方法名称。 你可以通过定义你想要提供快速信息说明的标识符，然后创建中显示的内容的工具提示实现基于语言的功能，例如快速信息。 你可以在语言服务的上下文中定义快速信息或可以定义你自己的文件名称扩展和内容类型，并显示快速信息只是该类型，或可以为现有内容类型 （如"text") 显示快速信息。 本演练演示如何显示快速信息为"text"的内容类型。  
   
- The QuickInfo example in this walkthrough displays the tooltips when a user moves the pointer over a method name. This design requires you to implement these four interfaces:  
+ 当用户将指针悬停在方法名，此演练中的快速信息示例将显示工具提示。 这种设计需要你实现这些四个接口：  
   
--   source interface  
+-   源接口  
   
--   source provider interface  
+-   源提供程序接口  
   
--   controller interface  
+-   控制器接口  
   
--   controller provider interface  
+-   控制器提供程序接口  
   
- The source and controller providers are Managed Extensibility Framework (MEF) component parts, and are responsible for exporting the source and controller classes and importing services and brokers such as the <xref:Microsoft.VisualStudio.Text.ITextBufferFactoryService>, which creates the tooltip text buffer, and the <xref:Microsoft.VisualStudio.Language.Intellisense.IQuickInfoBroker>, which triggers the QuickInfo session.  
+ 在源和控制器提供程序进行 Managed Extensibility Framework (MEF) 组件部分，并负责导出的源和控制器类导入服务，如代理<xref:Microsoft.VisualStudio.Text.ITextBufferFactoryService>，这将创建的工具提示文本缓冲区，和<xref:Microsoft.VisualStudio.Language.Intellisense.IQuickInfoBroker>，随即将会触发快速信息会话。  
   
- In this example, the QuickInfo source uses a hard-coded list of method names and descriptions, but in full implementations, the language service and the language documentation are responsible for providing that content.  
+ 在此示例中，快速信息源使用硬编码列表的方法名称和说明，但在完整实现中，语言服务和语言文档负责提供该内容。  
   
-## <a name="prerequisites"></a>Prerequisites  
- Starting in Visual Studio 2015, you do not install the Visual Studio SDK from the download center. It is included as an optional feature in Visual Studio setup. You can also install the VS SDK later on. For more information, see [Installing the Visual Studio SDK](../extensibility/installing-the-visual-studio-sdk.md).  
+## <a name="prerequisites"></a>先决条件  
+ 从 Visual Studio 2015 开始，你并不安装 Visual Studio SDK 从下载中心。 它将包括作为 Visual Studio 安装程序中的可选功能。 你还可以在以后安装 VS SDK。 有关详细信息，请参阅[安装 Visual Studio SDK](../extensibility/installing-the-visual-studio-sdk.md)。  
   
-## <a name="creating-a-mef-project"></a>Creating a MEF Project  
+## <a name="creating-a-mef-project"></a>创建 MEF 项目  
   
-#### <a name="to-create-a-mef-project"></a>To create a MEF project  
+#### <a name="to-create-a-mef-project"></a>创建 MEF 项目  
   
-1.  Create a C# VSIX project. (In the **New Project** dialog, select **Visual C# / Extensibility**, then **VSIX Project**.) Name the solution `QuickInfoTest`.  
+1.  创建 C# VSIX 项目。 (在**新项目**对话框中，选择**Visual C# / 可扩展性**，然后**VSIX 项目**。)将解决方案命名`QuickInfoTest`。  
   
-2.  Add an Editor Classifier item template to the project. For more information, see [Creating an Extension with an Editor Item Template](../extensibility/creating-an-extension-with-an-editor-item-template.md).  
+2.  向项目添加编辑器分类器项模板。 有关详细信息，请参阅[带有编辑器项模板创建扩展](../extensibility/creating-an-extension-with-an-editor-item-template.md)。  
   
-3.  Delete the existing class files.  
+3.  删除现有的类文件。  
   
-## <a name="implementing-the-quickinfo-source"></a>Implementing the QuickInfo Source  
- The QuickInfo source is responsible for collecting the set of identifiers and their descriptions and adding the content to the tooltip text buffer when one of the identifiers is encountered. In this example, the identifiers and their descriptions are just added in the source constructor.  
+## <a name="implementing-the-quickinfo-source"></a>实现快速信息源  
+ 快速信息源负责收集标识符和及其说明的集合，并将内容添加到工具提示文本缓冲区，其中一个标识符遇到时。 在此示例中，标识符和及其说明仅在源构造函数中添加。  
   
-#### <a name="to-implement-the-quickinfo-source"></a>To implement the QuickInfo source  
+#### <a name="to-implement-the-quickinfo-source"></a>若要实现快速信息源  
   
-1.  Add a class file and name it `TestQuickInfoSource`.  
+1.  添加一个类文件并将其命名`TestQuickInfoSource`。  
   
-2.  Add a reference to Microsoft.VisualStudio.Language.IntelliSense.  
+2.  添加对 Microsoft.VisualStudio.Language.IntelliSense 的引用。  
   
-3.  Add the following imports.  
+3.  添加以下导入。  
   
-     [!code-vb[VSSDKQuickInfoTest#1](../extensibility/codesnippet/VisualBasic/walkthrough-displaying-quickinfo-tooltips_1.vb)]  [!code-csharp[VSSDKQuickInfoTest#1](../extensibility/codesnippet/CSharp/walkthrough-displaying-quickinfo-tooltips_1.cs)]  
+     [!code-vb[VSSDKQuickInfoTest #1](../extensibility/codesnippet/VisualBasic/walkthrough-displaying-quickinfo-tooltips_1.vb)][!code-csharp[VSSDKQuickInfoTest #1  ](../extensibility/codesnippet/CSharp/walkthrough-displaying-quickinfo-tooltips_1.cs)]  
   
-4.  Declare a class that implements <xref:Microsoft.VisualStudio.Language.Intellisense.IQuickInfoSource>, and name it `TestQuickInfoSource`.  
+4.  声明的类，实现<xref:Microsoft.VisualStudio.Language.Intellisense.IQuickInfoSource>，并将其命名`TestQuickInfoSource`。  
   
-     [!code-vb[VSSDKQuickInfoTest#2](../extensibility/codesnippet/VisualBasic/walkthrough-displaying-quickinfo-tooltips_2.vb)]  [!code-csharp[VSSDKQuickInfoTest#2](../extensibility/codesnippet/CSharp/walkthrough-displaying-quickinfo-tooltips_2.cs)]  
+     [!code-vb[VSSDKQuickInfoTest #2](../extensibility/codesnippet/VisualBasic/walkthrough-displaying-quickinfo-tooltips_2.vb)][!code-csharp[VSSDKQuickInfoTest #2  ](../extensibility/codesnippet/CSharp/walkthrough-displaying-quickinfo-tooltips_2.cs)]  
   
-5.  Add fields for the QuickInfo source provider, the text buffer, and a set of method names and method signatures. In this example, the method names and signatures are initialized in the `TestQuickInfoSource` constructor.  
+5.  快速信息源提供程序、 文本缓冲区中，和方法名称和方法签名的一组中添加字段。 在此示例中，方法名称和签名以进行初始化`TestQuickInfoSource`构造函数。  
   
-     [!code-vb[VSSDKQuickInfoTest#3](../extensibility/codesnippet/VisualBasic/walkthrough-displaying-quickinfo-tooltips_3.vb)]  [!code-csharp[VSSDKQuickInfoTest#3](../extensibility/codesnippet/CSharp/walkthrough-displaying-quickinfo-tooltips_3.cs)]  
+     [!code-vb[VSSDKQuickInfoTest #3](../extensibility/codesnippet/VisualBasic/walkthrough-displaying-quickinfo-tooltips_3.vb)][!code-csharp[VSSDKQuickInfoTest #3  ](../extensibility/codesnippet/CSharp/walkthrough-displaying-quickinfo-tooltips_3.cs)]  
   
-6.  Add a constructor that sets the QuickInfo source provider and the text buffer, and populates the set of method names, and method signatures and descriptions.  
+6.  添加一个构造函数，设置的快速信息源提供程序和文本缓冲区，并填充的方法名称和方法签名和说明。  
   
-     [!code-vb[VSSDKQuickInfoTest#4](../extensibility/codesnippet/VisualBasic/walkthrough-displaying-quickinfo-tooltips_4.vb)]  [!code-csharp[VSSDKQuickInfoTest#4](../extensibility/codesnippet/CSharp/walkthrough-displaying-quickinfo-tooltips_4.cs)]  
+     [!code-vb[VSSDKQuickInfoTest #4](../extensibility/codesnippet/VisualBasic/walkthrough-displaying-quickinfo-tooltips_4.vb)][!code-csharp[VSSDKQuickInfoTest #4  ](../extensibility/codesnippet/CSharp/walkthrough-displaying-quickinfo-tooltips_4.cs)]  
   
-7.  Implement the <xref:Microsoft.VisualStudio.Language.Intellisense.IQuickInfoSource.AugmentQuickInfoSession%2A> method. In this example, the method finds the current word, or the previous word if the cursor is at the end of a line or a text buffer. If the word is one of the method names, the description for that method name is added to the QuickInfo content.  
+7.  实现 <xref:Microsoft.VisualStudio.Language.Intellisense.IQuickInfoSource.AugmentQuickInfoSession%2A> 方法。 在此示例中，该方法查找当前的单词或前一个词如果光标位于行或文本缓冲区的末尾。 如果该单词的方法名称之一，该方法名称的描述添加到快速信息内容。  
   
-     [!code-vb[VSSDKQuickInfoTest#5](../extensibility/codesnippet/VisualBasic/walkthrough-displaying-quickinfo-tooltips_5.vb)]  [!code-csharp[VSSDKQuickInfoTest#5](../extensibility/codesnippet/CSharp/walkthrough-displaying-quickinfo-tooltips_5.cs)]  
+     [!code-vb[VSSDKQuickInfoTest #5](../extensibility/codesnippet/VisualBasic/walkthrough-displaying-quickinfo-tooltips_5.vb)][!code-csharp[VSSDKQuickInfoTest #5  ](../extensibility/codesnippet/CSharp/walkthrough-displaying-quickinfo-tooltips_5.cs)]  
   
-8.  You must also implement a Dispose() method, since <xref:Microsoft.VisualStudio.Language.Intellisense.IQuickInfoSource> implements <xref:System.IDisposable>:  
+8.  你还必须实现 dispose （） 方法，因为<xref:Microsoft.VisualStudio.Language.Intellisense.IQuickInfoSource>实现<xref:System.IDisposable>:  
   
-     [!code-vb[VSSDKQuickInfoTest#6](../extensibility/codesnippet/VisualBasic/walkthrough-displaying-quickinfo-tooltips_6.vb)]  [!code-csharp[VSSDKQuickInfoTest#6](../extensibility/codesnippet/CSharp/walkthrough-displaying-quickinfo-tooltips_6.cs)]  
+     [!code-vb[VSSDKQuickInfoTest #6](../extensibility/codesnippet/VisualBasic/walkthrough-displaying-quickinfo-tooltips_6.vb)][!code-csharp[VSSDKQuickInfoTest #6  ](../extensibility/codesnippet/CSharp/walkthrough-displaying-quickinfo-tooltips_6.cs)]  
   
-## <a name="implementing-a-quickinfo-source-provider"></a>Implementing a QuickInfo Source Provider  
- The provider of the QuickInfo source serves primarily to export itself as a MEF component part and instantiate the QuickInfo source. Because it is a MEF component part, it can import other MEF component parts.  
+## <a name="implementing-a-quickinfo-source-provider"></a>实现快速信息源提供程序  
+ 快速信息源的提供程序服务主要是为了将本身导出为 MEF 组件部分并实例化的快速信息源。 因为它是 MEF 组件部分，它可以导入其他 MEF 组件部分。  
   
-#### <a name="to-implement-a-quickinfo-source-provider"></a>To implement a QuickInfo source provider  
+#### <a name="to-implement-a-quickinfo-source-provider"></a>若要实现快速信息源提供程序  
   
-1.  Declare a QuickInfo source provider named `TestQuickInfoSourceProvider` that implements <xref:Microsoft.VisualStudio.Language.Intellisense.IQuickInfoSourceProvider>, and export it with a <xref:Microsoft.VisualStudio.Utilities.NameAttribute> of "ToolTip QuickInfo Source", an <xref:Microsoft.VisualStudio.Utilities.OrderAttribute> of Before="default", and a <xref:Microsoft.VisualStudio.Utilities.ContentTypeAttribute> of "text".  
+1.  声明名为快速信息源提供程序`TestQuickInfoSourceProvider`实现<xref:Microsoft.VisualStudio.Language.Intellisense.IQuickInfoSourceProvider>，并将其与导出<xref:Microsoft.VisualStudio.Utilities.NameAttribute>的"工具提示快速信息源"<xref:Microsoft.VisualStudio.Utilities.OrderAttribute>的 Before ="default"和<xref:Microsoft.VisualStudio.Utilities.ContentTypeAttribute>"text"。  
   
-     [!code-vb[VSSDKQuickInfoTest#7](../extensibility/codesnippet/VisualBasic/walkthrough-displaying-quickinfo-tooltips_7.vb)]  [!code-csharp[VSSDKQuickInfoTest#7](../extensibility/codesnippet/CSharp/walkthrough-displaying-quickinfo-tooltips_7.cs)]  
+     [!code-vb[VSSDKQuickInfoTest #7](../extensibility/codesnippet/VisualBasic/walkthrough-displaying-quickinfo-tooltips_7.vb)][!code-csharp[VSSDKQuickInfoTest #7  ](../extensibility/codesnippet/CSharp/walkthrough-displaying-quickinfo-tooltips_7.cs)]  
   
-2.  Import two editor services, <xref:Microsoft.VisualStudio.Text.Operations.ITextStructureNavigatorSelectorService> and <xref:Microsoft.VisualStudio.Text.ITextBufferFactoryService>, as properties of `TestQuickInfoSourceProvider`.  
+2.  导入这两个编辑器服务，<xref:Microsoft.VisualStudio.Text.Operations.ITextStructureNavigatorSelectorService>和<xref:Microsoft.VisualStudio.Text.ITextBufferFactoryService>，作为属性的`TestQuickInfoSourceProvider`。  
   
-     [!code-vb[VSSDKQuickInfoTest#8](../extensibility/codesnippet/VisualBasic/walkthrough-displaying-quickinfo-tooltips_8.vb)]  [!code-csharp[VSSDKQuickInfoTest#8](../extensibility/codesnippet/CSharp/walkthrough-displaying-quickinfo-tooltips_8.cs)]  
+     [!code-vb[VSSDKQuickInfoTest #8](../extensibility/codesnippet/VisualBasic/walkthrough-displaying-quickinfo-tooltips_8.vb)][!code-csharp[VSSDKQuickInfoTest #8  ](../extensibility/codesnippet/CSharp/walkthrough-displaying-quickinfo-tooltips_8.cs)]  
   
-3.  Implement <xref:Microsoft.VisualStudio.Language.Intellisense.IQuickInfoSourceProvider.TryCreateQuickInfoSource%2A> to return a new `TestQuickInfoSource`.  
+3.  实现<xref:Microsoft.VisualStudio.Language.Intellisense.IQuickInfoSourceProvider.TryCreateQuickInfoSource%2A>以返回一个新`TestQuickInfoSource`。  
   
-     [!code-vb[VSSDKQuickInfoTest#9](../extensibility/codesnippet/VisualBasic/walkthrough-displaying-quickinfo-tooltips_9.vb)]  [!code-csharp[VSSDKQuickInfoTest#9](../extensibility/codesnippet/CSharp/walkthrough-displaying-quickinfo-tooltips_9.cs)]  
+     [!code-vb[VSSDKQuickInfoTest #9](../extensibility/codesnippet/VisualBasic/walkthrough-displaying-quickinfo-tooltips_9.vb)][!code-csharp[VSSDKQuickInfoTest #9  ](../extensibility/codesnippet/CSharp/walkthrough-displaying-quickinfo-tooltips_9.cs)]  
   
-## <a name="implementing-a-quickinfo-controller"></a>Implementing a QuickInfo Controller  
- QuickInfo controllers determine when QuickInfo should be displayed. In this example, QuickInfo is displayed when the pointer is over a word that corresponds to one of the method names. The QuickInfo controller implements a mouse hover event handler that triggers a QuickInfo session.  
+## <a name="implementing-a-quickinfo-controller"></a>实现快速信息控制器  
+ 快速信息控制器确定何时应显示快速信息。 在此示例中，当鼠标指针位于对应的方法名称之一使用的字符时，将显示快速信息。 快速信息控制器实现触发快速信息会话的鼠标悬停事件处理程序。  
   
-#### <a name="to-implement-a-quickinfo-controller"></a>To implement a QuickInfo controller  
+#### <a name="to-implement-a-quickinfo-controller"></a>若要实现的快速信息控制器  
   
-1.  Declare a class that implements <xref:Microsoft.VisualStudio.Language.Intellisense.IIntellisenseController>, and name it `TestQuickInfoController`.  
+1.  声明的类，实现<xref:Microsoft.VisualStudio.Language.Intellisense.IIntellisenseController>，并将其命名`TestQuickInfoController`。  
   
-     [!code-vb[VSSDKQuickInfoTest#10](../extensibility/codesnippet/VisualBasic/walkthrough-displaying-quickinfo-tooltips_10.vb)]  [!code-csharp[VSSDKQuickInfoTest#10](../extensibility/codesnippet/CSharp/walkthrough-displaying-quickinfo-tooltips_10.cs)]  
+     [!code-vb[VSSDKQuickInfoTest #10](../extensibility/codesnippet/VisualBasic/walkthrough-displaying-quickinfo-tooltips_10.vb)][!code-csharp[VSSDKQuickInfoTest #10  ](../extensibility/codesnippet/CSharp/walkthrough-displaying-quickinfo-tooltips_10.cs)]  
   
-2.  Add private fields for the text view, the text buffers represented in the text view, the QuickInfo session, and the QuickInfo controller provider.  
+2.  添加私有字段对于文本视图中，在文本视图、 快速信息会话和快速信息 controller 提供程序中表示的文本缓冲区。  
   
-     [!code-vb[VSSDKQuickInfoTest#11](../extensibility/codesnippet/VisualBasic/walkthrough-displaying-quickinfo-tooltips_11.vb)]  [!code-csharp[VSSDKQuickInfoTest#11](../extensibility/codesnippet/CSharp/walkthrough-displaying-quickinfo-tooltips_11.cs)]  
+     [!code-vb[VSSDKQuickInfoTest #11](../extensibility/codesnippet/VisualBasic/walkthrough-displaying-quickinfo-tooltips_11.vb)][!code-csharp[VSSDKQuickInfoTest #11  ](../extensibility/codesnippet/CSharp/walkthrough-displaying-quickinfo-tooltips_11.cs)]  
   
-3.  Add a constructor that sets the fields and adds the mouse hover event handler.  
+3.  添加设置该字段并添加鼠标悬停事件处理程序的构造函数。  
   
-     [!code-vb[VSSDKQuickInfoTest#12](../extensibility/codesnippet/VisualBasic/walkthrough-displaying-quickinfo-tooltips_12.vb)]  [!code-csharp[VSSDKQuickInfoTest#12](../extensibility/codesnippet/CSharp/walkthrough-displaying-quickinfo-tooltips_12.cs)]  
+     [!code-vb[VSSDKQuickInfoTest #12](../extensibility/codesnippet/VisualBasic/walkthrough-displaying-quickinfo-tooltips_12.vb)][!code-csharp[VSSDKQuickInfoTest #12  ](../extensibility/codesnippet/CSharp/walkthrough-displaying-quickinfo-tooltips_12.cs)]  
   
-4.  Add the mouse hover event handler that triggers the QuickInfo session.  
+4.  添加的鼠标悬停事件处理程序触发快速信息会话。  
   
-     [!code-vb[VSSDKQuickInfoTest#13](../extensibility/codesnippet/VisualBasic/walkthrough-displaying-quickinfo-tooltips_13.vb)]  [!code-csharp[VSSDKQuickInfoTest#13](../extensibility/codesnippet/CSharp/walkthrough-displaying-quickinfo-tooltips_13.cs)]  
+     [!code-vb[VSSDKQuickInfoTest #13](../extensibility/codesnippet/VisualBasic/walkthrough-displaying-quickinfo-tooltips_13.vb)][!code-csharp[VSSDKQuickInfoTest #13  ](../extensibility/codesnippet/CSharp/walkthrough-displaying-quickinfo-tooltips_13.cs)]  
   
-5.  Implement the <xref:Microsoft.VisualStudio.Language.Intellisense.IIntellisenseController.Detach%2A> method so that it removes the mouse hover event handler when the controller is detached from the text view.  
+5.  实现<xref:Microsoft.VisualStudio.Language.Intellisense.IIntellisenseController.Detach%2A>方法，以便从文本视图分离控制器时，它将删除鼠标悬停事件处理程序。  
   
-     [!code-vb[VSSDKQuickInfoTest#14](../extensibility/codesnippet/VisualBasic/walkthrough-displaying-quickinfo-tooltips_14.vb)]  [!code-csharp[VSSDKQuickInfoTest#14](../extensibility/codesnippet/CSharp/walkthrough-displaying-quickinfo-tooltips_14.cs)]  
+     [!code-vb[VSSDKQuickInfoTest #14](../extensibility/codesnippet/VisualBasic/walkthrough-displaying-quickinfo-tooltips_14.vb)][!code-csharp[VSSDKQuickInfoTest #14  ](../extensibility/codesnippet/CSharp/walkthrough-displaying-quickinfo-tooltips_14.cs)]  
   
-6.  Implement the <xref:Microsoft.VisualStudio.Language.Intellisense.IIntellisenseController.ConnectSubjectBuffer%2A> method and the <xref:Microsoft.VisualStudio.Language.Intellisense.IIntellisenseController.DisconnectSubjectBuffer%2A> method as empty methods for this example.  
+6.  实现<xref:Microsoft.VisualStudio.Language.Intellisense.IIntellisenseController.ConnectSubjectBuffer%2A>方法和<xref:Microsoft.VisualStudio.Language.Intellisense.IIntellisenseController.DisconnectSubjectBuffer%2A>为此示例中的空方法的方法。  
   
-     [!code-vb[VSSDKQuickInfoTest#15](../extensibility/codesnippet/VisualBasic/walkthrough-displaying-quickinfo-tooltips_15.vb)]  [!code-csharp[VSSDKQuickInfoTest#15](../extensibility/codesnippet/CSharp/walkthrough-displaying-quickinfo-tooltips_15.cs)]  
+     [!code-vb[VSSDKQuickInfoTest #15](../extensibility/codesnippet/VisualBasic/walkthrough-displaying-quickinfo-tooltips_15.vb)][!code-csharp[VSSDKQuickInfoTest #15  ](../extensibility/codesnippet/CSharp/walkthrough-displaying-quickinfo-tooltips_15.cs)]  
   
-## <a name="implementing-the-quickinfo-controller-provider"></a>Implementing the QuickInfo Controller Provider  
- The provider of the QuickInfo controller serves primarily to export itself as a MEF component part and instantiate the QuickInfo controller. Because it is a MEF component part, it can import other MEF component parts.  
+## <a name="implementing-the-quickinfo-controller-provider"></a>实现快速信息控制器提供程序  
+ 快速信息控制器的提供程序服务主要是为了将本身导出为 MEF 组件部分并实例化的快速信息控制器。 因为它是 MEF 组件部分，它可以导入其他 MEF 组件部分。  
   
-#### <a name="to-implement-the-quickinfo-controller-provider"></a>To implement the QuickInfo controller provider  
+#### <a name="to-implement-the-quickinfo-controller-provider"></a>实现快速信息控制器提供程序  
   
-1.  Declare a class named `TestQuickInfoControllerProvider` that implements <xref:Microsoft.VisualStudio.Language.Intellisense.IIntellisenseControllerProvider>, and export it with a <xref:Microsoft.VisualStudio.Utilities.NameAttribute> of "ToolTip QuickInfo Controller" and a <xref:Microsoft.VisualStudio.Utilities.ContentTypeAttribute> of "text":  
+1.  声明一个名为类`TestQuickInfoControllerProvider`实现<xref:Microsoft.VisualStudio.Language.Intellisense.IIntellisenseControllerProvider>，并将其与导出<xref:Microsoft.VisualStudio.Utilities.NameAttribute>的"工具提示快速信息控制器"和<xref:Microsoft.VisualStudio.Utilities.ContentTypeAttribute>"text":  
   
-     [!code-vb[VSSDKQuickInfoTest#16](../extensibility/codesnippet/VisualBasic/walkthrough-displaying-quickinfo-tooltips_16.vb)]  [!code-csharp[VSSDKQuickInfoTest#16](../extensibility/codesnippet/CSharp/walkthrough-displaying-quickinfo-tooltips_16.cs)]  
+     [!code-vb[VSSDKQuickInfoTest #16](../extensibility/codesnippet/VisualBasic/walkthrough-displaying-quickinfo-tooltips_16.vb)][!code-csharp[VSSDKQuickInfoTest #16  ](../extensibility/codesnippet/CSharp/walkthrough-displaying-quickinfo-tooltips_16.cs)]  
   
-2.  Import the <xref:Microsoft.VisualStudio.Language.Intellisense.IQuickInfoBroker> as a property.  
+2.  导入<xref:Microsoft.VisualStudio.Language.Intellisense.IQuickInfoBroker>作为属性。  
   
-     [!code-vb[VSSDKQuickInfoTest#17](../extensibility/codesnippet/VisualBasic/walkthrough-displaying-quickinfo-tooltips_17.vb)]  [!code-csharp[VSSDKQuickInfoTest#17](../extensibility/codesnippet/CSharp/walkthrough-displaying-quickinfo-tooltips_17.cs)]  
+     [!code-vb[VSSDKQuickInfoTest #17](../extensibility/codesnippet/VisualBasic/walkthrough-displaying-quickinfo-tooltips_17.vb)][!code-csharp[VSSDKQuickInfoTest #17  ](../extensibility/codesnippet/CSharp/walkthrough-displaying-quickinfo-tooltips_17.cs)]  
   
-3.  Implement the <xref:Microsoft.VisualStudio.Language.Intellisense.IIntellisenseControllerProvider.TryCreateIntellisenseController%2A> method by instantiating the QuickInfo controller.  
+3.  实现<xref:Microsoft.VisualStudio.Language.Intellisense.IIntellisenseControllerProvider.TryCreateIntellisenseController%2A>方法是实例化的快速信息控制器的方法。  
   
-     [!code-vb[VSSDKQuickInfoTest#18](../extensibility/codesnippet/VisualBasic/walkthrough-displaying-quickinfo-tooltips_18.vb)]  [!code-csharp[VSSDKQuickInfoTest#18](../extensibility/codesnippet/CSharp/walkthrough-displaying-quickinfo-tooltips_18.cs)]  
+     [!code-vb[VSSDKQuickInfoTest #18](../extensibility/codesnippet/VisualBasic/walkthrough-displaying-quickinfo-tooltips_18.vb)][!code-csharp[VSSDKQuickInfoTest #18  ](../extensibility/codesnippet/CSharp/walkthrough-displaying-quickinfo-tooltips_18.cs)]  
   
-## <a name="building-and-testing-the-code"></a>Building and Testing the Code  
- To test this code, build the QuickInfoTest solution and run it in the experimental instance.  
+## <a name="building-and-testing-the-code"></a>生成和测试代码  
+ 若要测试此代码，生成 QuickInfoTest 解决方案并在实验实例中运行它。  
   
-#### <a name="to-build-and-test-the-quickinfotest-solution"></a>To build and test the QuickInfoTest solution  
+#### <a name="to-build-and-test-the-quickinfotest-solution"></a>若要生成和测试 QuickInfoTest 解决方案  
   
-1.  Build the solution.  
+1.  生成解决方案。  
   
-2.  When you run this project in the debugger, a second instance of Visual Studio is instantiated.  
+2.  在调试器中运行此项目时，Visual Studio 的第二个实例将进行实例化。  
   
-3.  Create a text file and type some text that includes the words "add" and "subtract".  
+3.  创建文本文件并键入一些文本，其中包括单词"添加"和"减去"。  
   
-4.  Move the pointer over one of the occurrences of "add". The signature and the description of the `add` method should be displayed.  
+4.  将指针悬停在其中一个出现的"添加"。 签名和说明`add`应显示方法。  
   
-## <a name="see-also"></a>See Also  
- [Walkthrough: Linking a Content Type to a File Name Extension](../extensibility/walkthrough-linking-a-content-type-to-a-file-name-extension.md)
+## <a name="see-also"></a>另请参阅  
+ [演练：将内容类型链接到文件扩展名](../extensibility/walkthrough-linking-a-content-type-to-a-file-name-extension.md)

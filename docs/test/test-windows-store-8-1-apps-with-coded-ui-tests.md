@@ -1,5 +1,5 @@
 ---
-title: Test Windows UWP and 8.1 Store Apps with Coded UI Tests | Microsoft Docs
+title: "使用编码的 UI 测试来测试 Windows UWP 和应用商店 8.1 应用 | Microsoft Docs"
 ms.custom: 
 ms.date: 11/04/2016
 ms.reviewer: 
@@ -31,32 +31,32 @@ ms.translationtype: HT
 ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
 ms.openlocfilehash: 2a9dc338ce3d08ac61ecc77da8df96d9261b7e62
 ms.contentlocale: zh-cn
-ms.lasthandoff: 08/28/2017
+ms.lasthandoff: 09/06/2017
 
 ---
-# <a name="test-windows-uwp-and-81-store-apps-with-coded-ui-tests"></a>Test Windows UWP and 8.1 Store Apps with Coded UI Tests
+# <a name="test-windows-uwp-and-81-store-apps-with-coded-ui-tests"></a>使用编码的 UI 测试来测试 Windows UWP 和应用商店 8.1 应用
 
-Use this walkthrough for creating UI tests for UWP apps and XAML-based Store 8.1 apps. 
+本演练展示了如何为 UWP 应用和基于 XAML 的应用商店 8.1 应用创建 UI 测试。 
   
-## <a name="create-a-simple-windows-store-app"></a>Create a simple Windows Store app  
+## <a name="create-a-simple-windows-store-app"></a>创建简单的 Windows 应用商店应用  
   
-1.  If you want to run coded UI tests for your XAML-based Windows Store app, you must [set a unique automation property that identifies each control](../test/set-a-unique-automation-property-for-windows-store-controls-for-testing.md).  
+1.  如果你想要针对基于 XAML 的 Windows 应用商店应用运行编码的 UI 测试，你必须 [设置可标识每个控件的唯一的自动化属性](../test/set-a-unique-automation-property-for-windows-store-controls-for-testing.md)。  
   
-     On the **Tools** menu, point to **Options** and then choose **Text Editor**, then **XAML**, and finally **Miscellaneous**.  
+     在 **“工具”** 菜单上，指向 **“选项”** ，然后依次选择 **“文本编辑器”**、 **“XAML”**和 **“其他”**。  
   
-     Select the check box to automatically name interactive elements on creation.  
+     选中复选框以在创建时自动命名交互元素。  
   
-     ![XAML Miscellaneous options](../test/media/cuit_windowsstoreapp_b.png "CUIT_WindowsStoreApp_B")  
+     ![XAML“杂项”选项](../test/media/cuit_windowsstoreapp_b.png "CUIT_WindowsStoreApp_B")  
   
-2.  Create a new project for a blank XAML based Windows Store app using either Visual C# or Visual Basic template.  
+2.  使用 Visual C# 或 Visual Basic 模板，为基于 XAML 的空白 Windows 应用商店应用创建新项目。  
   
-     ![Create a Windows Store Blank App &#40;XAML&#41;](../test/media/cuit_windowsstoreapp_newproject_blankstoreapp.png "CUIT_WindowsStoreApp_NewProject_BlankStoreApp")  
+     ![创建 Windows 应用商店空白应用 (XAML)](../test/media/cuit_windowsstoreapp_newproject_blankstoreapp.png "CUIT_WindowsStoreApp_NewProject_BlankStoreApp")  
   
-3.  In Solution Explorer, open MainPage.xaml. From the Toolbox, drag a button control and a textbox control to the design surface.  
+3.  在解决方案资源管理器中，打开 MainPage.xaml。 从工具箱中，将按钮控件和文本框控件拖动到设计图面。  
   
-     ![Design the Windows Store app](../test/media/cuit_windowsstoreapp_design.png "CUIT_WindowsStoreApp_Design")  
+     ![设计 Windows 应用商店应用](../test/media/cuit_windowsstoreapp_design.png "CUIT_WindowsStoreApp_Design")  
   
-4.  Double-click the button control and add the following code:  
+4.  双击该按钮控件，然后添加以下代码：  
   
     ```csharp  
     private void button_Click_1(object sender, RoutedEventArgs e)  
@@ -76,60 +76,60 @@ Use this walkthrough for creating UI tests for UWP apps and XAML-based Store 8.1
     End Class  
     ```  
   
-5.  Press F5 to run your Windows Store app.  
+5.  按 F5 以运行你的 Windows 应用商店应用。  
   
-## <a name="create-and-run-a-coded-ui-test-for-the-windows-store-app"></a>Create and run a coded UI test for the Windows Store app  
+## <a name="create-and-run-a-coded-ui-test-for-the-windows-store-app"></a>为 Windows 应用商店应用创建并运行编码的 UI 测试  
 
-[How do I create coded UI tests for Universal Windows Platform (UWP) apps?](#uwpapps)
+[如何为通用 Windows 平台 (UWP) 应用创建编码的 UI 测试？](#uwpapps)
   
-1.  Create a new coded UI test project for the Windows Store app.  
+1.  为 Windows 应用商店应用创建新编码的 UI 测试项目。  
   
-     ![New coded UI tet project &#40;Windows Store Apps&#41;](../test/media/cuit_windowsstore_newproject.png "CUIT_WindowsStore_NewProject")  
+     ![新编码的 UI 测试项目（Windows 应用商店应用）](../test/media/cuit_windowsstore_newproject.png "CUIT_WindowsStore_NewProject")  
   
-2.  Choose to edit the UI map using the cross-hair tool.  
+2.  选择使用十字线工具编辑 UI 映射。  
   
-     ![Choose edit UI map or add assertions](../test/media/cuit_windowsstoreapp_createproject_gencodedialog.png "CUIT_WindowsStoreApp_CreateProject_GenCodeDialog")  
+     ![选择编辑 UI 映射或添加断言](../test/media/cuit_windowsstoreapp_createproject_gencodedialog.png "CUIT_WindowsStoreApp_CreateProject_GenCodeDialog")  
   
-3.  Use the cross-hair tool in the Coded UI Test Builder to select the app tile, right-click **AutomationId** and choose **Copy Value to Clipboard**. The value in the clipboard will be used later for writing action to launch the app for testing.  
+3.  在编码的 UI 测试生成器中使用十字线工具以选择应用磁贴、右键单击 **“AutomationId”** ，然后选择 **“将值复制到剪贴板”**。 稍后将剪贴板中的值用于编写操作以启动可供测试的应用。  
   
-     ![Copy AutomationId to clipboard](../test/media/cuit_windows_store_tileautomationid.png "CUIT_Windows_Store_TileAutomationID")  
+     ![将 AutomationId 复制到剪贴板](../test/media/cuit_windows_store_tileautomationid.png "CUIT_Windows_Store_TileAutomationID")  
   
-4.  In the running Windows Store app, use the cross-hair tool to select the button control and the textbox control. After adding each control, choose the **Add control to UI control map** button in the Coded UI Test Builder toolbar.  
+4.  在运行的 Windows 应用商店应用中，使用十字线工具以选择按钮控件和文本框控件。 在添加每个控件后，请在编码的 UI 测试生成器工具栏中选择 **“将控件添加到 UI 控件图”** 按钮。  
   
-     ![Add control to UI map](../test/media/cuit_windowsstoreapp_uimap.png "CUIT_WindowsStoreApp_UIMap")  
+     ![向 UI 映射添加控件](../test/media/cuit_windowsstoreapp_uimap.png "CUIT_WindowsStoreApp_UIMap")  
   
-5.  Choose the **Generate Code** button in the Coded UI Test Builder toolbar and then choose **Generate** to create code for changes to the UI control map.  
+5.  在编码的 UI 测试生成器工具栏中选择 **“生成代码”** 按钮，然后选择 **“生成”** 来为对 UI 控件图所做的更改创建代码。  
   
-     ![Generate code for the UI map](../test/media/cuit_windowsstoreapp_generate.png "CUIT_WindowsStoreApp_Generate")  
+     ![为 UI 映射生成代码](../test/media/cuit_windowsstoreapp_generate.png "CUIT_WindowsStoreApp_Generate")  
   
-6.  Choose the button to set a value in the textbox.  
+6.  选择按钮以在文本框中设置值。  
   
-     ![Click button control to set textbox value](../test/media/cuit_windowsstoreapp_clickbutton.png "CUIT_WindowsStoreApp_ClickButton")  
+     ![单击 button 控件设置 textbox 值](../test/media/cuit_windowsstoreapp_clickbutton.png "CUIT_WindowsStoreApp_ClickButton")  
   
-7.  Use the cross-hair tool to select the textbox control, and then select the **Text** property.  
+7.  使用十字线工具选择文本框控件，然后选择 **“文本”** 属性。  
   
-     ![Select the Text property](../test/media/cuit_windowsstoreapp_selecttextproperty.png "CUIT_WindowsStoreApp_SelectTextProperty")  
+     ![选择 Text 属性](../test/media/cuit_windowsstoreapp_selecttextproperty.png "CUIT_WindowsStoreApp_SelectTextProperty")  
   
-8.  Add an assertion. It will be used in the test to verify that the value is correct.  
+8.  添加断言。 将在测试中使用它以验证该值是否正确。  
   
-     ![Choose testbox with cross&#45;hair and add assertion](../test/media/cuit_windowsstoreapp_textbox_addassertion.png "CUIT_WindowsStoreApp_Textbox_AddAssertion")  
+     ![选择带有十字线的文本框，然后添加断言](../test/media/cuit_windowsstoreapp_textbox_addassertion.png "CUIT_WindowsStoreApp_Textbox_AddAssertion")  
   
-9. Add and generate code for the assertion.  
+9. 为断言添加并生成代码。  
   
-     ![Generate code for textbox assertion](../test/media/cuit_windowsstoreapp_textbox_generate_assertion.png "CUIT_WindowsStoreApp_Textbox_Generate_Assertion")  
+     ![为文本框断言生成代码](../test/media/cuit_windowsstoreapp_textbox_generate_assertion.png "CUIT_WindowsStoreApp_Textbox_Generate_Assertion")  
   
 10. **Visual C#**  
   
-     In Solution Explorer, open the UIMap.Designer.cs file to view the added code for the assert method and the controls.  
+     在“解决方案资源管理器”中，打开 UIMap.Designer.cs 文件，以查看为断言方法和控件添加的代码。  
   
      **Visual Basic**  
   
-     In Solution Explorer, open the CodedUITest1.vb file and then in the CodedUITestMethod1() test method code, right-click the call to the assertion method that was automatically added `Me.UIMap.AssertMethod1()` and choose **Go To Definition**. This will open the UIMap.Designer.vb file in the code editor so you can view the view the added code for the assert method and the controls.  
+     在“解决方案资源管理器”中，打开 CodedUITest1.vb 文件，然后在 CodedUITestMethod1() 测试方法代码中，右键单击对已自动添加了 `Me.UIMap.AssertMethod1()` 断言方法的调用，然后选择 **“转到定义”**。 这将在代码编辑器中打开 UIMap.Designer.vb 文件，因此你可以查看为断言方法和控件添加的代码。  
   
     > [!WARNING]
-    >  Do not modify the UIMap.designer.cs or UIMap.Designer.vb file directly. If you do this, the changes to the file will be overwritten each time the test is generated.  
+    >  请不要直接修改 UIMap.designer.cs 或 UIMap.Designer.vb 文件。 如果执行此操作，则在每次生成测试时都将覆盖对该文件所做的更改。  
   
-     **Assert method**  
+     **断言方法**  
   
     ```csharp  
     public void AssertMethod1()  
@@ -152,7 +152,7 @@ Use this walkthrough for creating UI tests for UWP apps and XAML-based Store 8.1
     End Sub  
     ```  
   
-     **Controls**  
+     **控件**  
   
     ```csharp  
     #region Properties  
@@ -228,9 +228,9 @@ Use this walkthrough for creating UI tests for UWP apps and XAML-based Store 8.1
     #End Region  
     ```  
   
-11. In Solution Explorer, open the CodedUITest1.cs or CodedUITest1.vb file. You can now add code to the CodedUTTestMethod1 method for the actions need to run the test using the controls added to the UIMap:  
+11. 在“解决方案资源管理器”中，打开 CodedUITest1.cs 或 CodedUITest1.vb 文件。 针对使用已添加到 UIMap 的控件运行测试所需的操作，你现在可以将代码添加到 CodedUTTestMethod1 方法：  
   
-    1.  Launch the Windows Store app using the automation ID property you copied to the clipboard previously:  
+    1.  使用你之前复制到剪贴板的自动化 ID 属性启动 Windows 应用商店应用：  
   
         ```csharp  
         XamlWindow.Launch("8ebca7c4-effe-4c86-9998-068daccee452_cyrqexqw8cc7c!App")  
@@ -240,7 +240,7 @@ Use this walkthrough for creating UI tests for UWP apps and XAML-based Store 8.1
         XamlWindow myAppWindow = XamlWindow.Launch("7254db3e-20a7-424e-8e05-7c4dabf4f28d_cyrqexqw8cc7c!App");  
         ```  
   
-    2.  Add a gesture to tap the button control:  
+    2.  添加手势以点击按钮控件：  
   
         ```csharp  
         Gesture.Tap(this.UIMap.UIApp1Window. UIButtonButton);  
@@ -250,7 +250,7 @@ Use this walkthrough for creating UI tests for UWP apps and XAML-based Store 8.1
         Gesture.Tap(Me.UIMap.UIApp2Window. UIButtonButton)  
         ```  
   
-    3.  Verify that the call to the assert method that was automatically generated comes after launching the app and tap gesture on the button:  
+    3.  验证对已自动生成的断言方法的调用是否发生在启动应用和按钮上的点击手势之后：  
   
         ```csharp  
         this.UIMap.AssertMethod1();  
@@ -260,7 +260,7 @@ Use this walkthrough for creating UI tests for UWP apps and XAML-based Store 8.1
         Me.UIMap.AssertMethod1()  
         ```  
   
-     After adding the code, the CodedUITestMethod1 test method should appear as follows:  
+     添加代码后，CodedUITestMethod1 测试方法应如下所示：  
   
     ```csharp  
     [TestMethod]  
@@ -298,48 +298,48 @@ Use this walkthrough for creating UI tests for UWP apps and XAML-based Store 8.1
         End Sub  
     ```  
   
-12. Build your test and then run the test using the test explorer.  
+12. 生成你的测试，然后使用测试资源管理器运行该测试。  
   
-     ![Run the coded UI test from Test Explorer](../test/media/cuit_windowsstoreapp_runtest.png "CUIT_WindowsStoreApp_RunTest")  
+     ![从测试资源管理器运行编码的 UI 测试](../test/media/cuit_windowsstoreapp_runtest.png "CUIT_WindowsStoreApp_RunTest")  
   
-     The Windows Store app launches, the action to tap the button is completed, and the textbox's Text property is populated and validated using the assert method.  
+     此时 Windows 应用商店应用启动，点击按钮操作完成，然后会使用断言方法填充并验证文本框的 Text 属性。  
   
-     ![Running coded UI test](../test/media/cuit_windowsstoreapp_running.png "CUIT_WindowsStoreApp_Running")  
+     ![运行编码的 UI 测试](../test/media/cuit_windowsstoreapp_running.png "CUIT_WindowsStoreApp_Running")  
   
-     After the test completes, the test explorer displays that the test passed.  
+     完成测试后，测试资源管理器将显示通过了该测试。  
   
-     ![Passed test displays in Test Explorer](../test/media/cuit_windowsstorapp_passedtest.png "CUIT_WindowsStorApp_PassedTest")  
+     ![已通过的测试显示在测试资源管理器中](../test/media/cuit_windowsstorapp_passedtest.png "CUIT_WindowsStorApp_PassedTest")  
   
-## <a name="q--a"></a>Q & A  
+## <a name="q--a"></a>问题解答  
   
-#### <a name="q-why-dont-i-see-the-option-to-record-my-coded-ui-test-in-the-generate-code-for-a-coded-ui-test-dialog"></a>Q: Why don't I see the option to record my coded UI test in the Generate Code for a Coded UI Test dialog?**  
+#### <a name="q-why-dont-i-see-the-option-to-record-my-coded-ui-test-in-the-generate-code-for-a-coded-ui-test-dialog"></a>问：为什么在“生成编码的 UI 测试的代码”对话框中看不到用于记录编码的 UI 测试的选项？**  
   
-**A**: The option to record is not supported for Windows Store apps.  
+**答**：Windows 应用商店应用不支持记录选项。  
   
-#### <a name="q-can-i-create-a-coded-ui-test-for-my-windows-store-apps-based-on-winjs"></a>Q: Can I create a coded UI test for my Windows Store apps based on WinJS?**  
+#### <a name="q-can-i-create-a-coded-ui-test-for-my-windows-store-apps-based-on-winjs"></a>问：我能否为基于 WinJS 的 Windows 应用商店应用创建编码的 UI 测试？**  
 
-**A**: No, only XAML based apps are supported.  
+**答**：否，仅支持基于 XAML 的应用。  
   
-#### <a name="q-can-i-create-coded-ui-tests-for-my-windows-store-apps-on-a-system-that-is-not-running-windows-81-or-windows-10"></a>Q: Can I create coded UI tests for my Windows Store apps on a system that is not running Windows 8.1 or Windows 10?**  
+#### <a name="q-can-i-create-coded-ui-tests-for-my-windows-store-apps-on-a-system-that-is-not-running-windows-81-or-windows-10"></a>问：我能否在未运行 Windows 8.1 或 Windows 10 的系统上为 Windows 应用商店应用创建编码的 UI 测试？**  
   
-**A**: No, the Coded UI Test Project templates are only available on Windows 8.1 and Windows 10. To create automation for Universal Windows Platform (UWP) apps, you'll need Windows 10.  
+**答**：否，编码的 UI 测试项目模板仅适用于 Windows 8.1 和 Windows 10。 若要为通用 Windows 平台 (UWP) 应用创建自动化项，需要 Windows 10。  
 
 <a name="uwpapps"></a>  
-#### <a name="q-how-do-i-create-coded-ui-tests-for-universal-windows-platform-uwp-apps"></a>Q: How do I create coded UI tests for Universal Windows Platform (UWP) apps?**  
+#### <a name="q-how-do-i-create-coded-ui-tests-for-universal-windows-platform-uwp-apps"></a>问：如何为通用 Windows 平台 (UWP) 应用创建编码的 UI 测试？**  
   
-**A**: Depending on the platform where you're testing your UWP app, create coded UI test project in one of these ways:  
+**答**：根据要在其中测试 UWP 应用的平台，通过以下方式之一创建编码的 UI 测试项目：  
   
-- A UWP app running on local machine will run as a Store app. To test this, you must use the **Coded UI Test Project (Windows)** template. To find this template when you create a new project, go to the **Windows**, **Universal** node. Or go to the **Windows**, **Windows 8**, **Windows** node.  
+- 在本地计算机上运行的 UWP 应用将作为应用商店应用运行。 若要对此进行测试，必须使用 **“编码的 UI 测试项目(Windows)”** 模板。 若要在创建新项目时查找此模板，请转到“Windows” 、“通用”  节点。 或转到 **“Windows”**、 **“Windows 8”**、 **“Windows”** 节点。  
   
-- A UWP app running on mobile device or emulator will run as a Phone app. To test this, you must use the **Coded UI Test Project (Windows Phone)** template. To find this template when you create a new project, go to the **Windows**, **Universal** node. Or go to the **Windows**, **Windows 8**, **Windows Phone** node.  
+- 在移动设备或仿真器上运行的 UWP 应用将作为 Phone 应用进行运行。 若要对此进行测试，必须使用 **“编码的 UI 测试项目(Windows Phone)”** 模板。 若要在创建新项目时查找此模板，请转到“Windows” 、“通用”  节点。 或转到 **“Windows”**、 **“Windows 8”**、 **“Windows Phone”** 节点。  
   
-After you create the project, authoring a test stays the same as before.  
+创建项目后，将测试创作为与之前保持相同。  
   
-#### <a name="q-why-cant-i-modify-the-code-in-the-uimapdesigner-file"></a>Q: Why can't I modify the code in the UIMap.Designer file?**  
+#### <a name="q-why-cant-i-modify-the-code-in-the-uimapdesigner-file"></a>问：为什么无法修改 UIMap.Designer 文件中的代码？**  
   
-**A**: Any code changes you make in the UIMapDesigner.cs file will be overwritten every time you generate code using the UIMap - Coded UI Test Builder. If you have to modify a recorded method, you must copy it to UIMap.cs file and rename it. The UIMap.cs file can be used to override methods and properties in the UIMapDesigner.cs file. You must remove the reference to the original method in the Coded UITest.cs file and replace it with the renamed method name.  
+**答**：每次使用“UIMap - 编码的 UI 测试生成器”生成代码时，都将覆盖在 UIMapDesigner.cs 文件中所做的任何代码更改。 如果必须修改录制的方法，则必须将其复制到 UIMap.cs 文件并对其重命名。 UIMap.cs 文件可用于重写 UIMapDesigner.cs 文件中的方法和属性。 必须在 Coded UITest.cs 文件中删除对原始方法的引用，并将其替换为重命名的方法名称。  
   
-## <a name="see-also"></a>See Also  
- [Use UI Automation To Test Your Code](../test/use-ui-automation-to-test-your-code.md)   
- [Set a Unique Automation Property for Windows Store Controls for Testing](../test/set-a-unique-automation-property-for-windows-store-controls-for-testing.md)
+## <a name="see-also"></a>另请参阅  
+ [使用 UI 自动化来测试代码](../test/use-ui-automation-to-test-your-code.md)   
+ [为 Windows 应用商店控件设置唯一的自动化属性以进行测试](../test/set-a-unique-automation-property-for-windows-store-controls-for-testing.md)
 

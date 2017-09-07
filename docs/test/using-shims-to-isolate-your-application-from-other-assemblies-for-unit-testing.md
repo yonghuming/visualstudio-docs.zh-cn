@@ -1,5 +1,5 @@
 ---
-title: Using shims to isolate your application from other assemblies for unit testing | Microsoft Docs
+title: "使用垫片将应用与其他程序集相隔离以供单元测试使用 | Microsoft Docs"
 ms.custom: 
 ms.date: 11/04/2016
 ms.reviewer: 
@@ -30,67 +30,67 @@ ms.translationtype: HT
 ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
 ms.openlocfilehash: 9e27f528abfa41621b840756f11bc139e82708d0
 ms.contentlocale: zh-cn
-ms.lasthandoff: 08/28/2017
+ms.lasthandoff: 09/06/2017
 
 ---
-# <a name="using-shims-to-isolate-your-application-from-other-assemblies-for-unit-testing"></a>Using shims to isolate your application from other assemblies for unit testing
-**Shim types** are one of two technologies that the Microsoft Fakes Framework uses to let you easily isolate components under test from the environment. Shims divert calls to specific methods to code that you write as part of your test. Many methods return different results dependent on external conditions, but a shim is under the control of your test and can return consistent results at every call. This makes your tests much easier to write.  
+# <a name="using-shims-to-isolate-your-application-from-other-assemblies-for-unit-testing"></a>使用填充码针对单元测试将应用程序与程序集隔离
+**垫片类型**是 Microsoft Fakes 框架使用的两种技术之一，方便你轻松地将受测组件与环境隔离开来。 填充码会将对特定方法的调用转换为在测试中编写的部分代码。 很多方法会依赖于外部条件而返回不同的结果，但填充码处于测试的控制之下，并且可以在每次调用时返回一致的结果。 这会使您的测试更易于编写。  
   
- Use shims to isolate your code from assemblies that are not part of your solution. To isolate components of your solution from each other, we recommend that you use stubs.  
+ 使用填充码，可以将代码与不属于解决方案的程序集隔离。 为了相互隔离解决方案的组件，我们建议使用存根。  
   
- For an overview and quick start guidance, see [Isolating Code Under Test with Microsoft Fakes](../test/isolating-code-under-test-with-microsoft-fakes.md)  
+ 有关概述和快速入门指南，请参阅[使用 Microsoft Fakes 隔离受测代码](../test/isolating-code-under-test-with-microsoft-fakes.md)  
   
- **Requirements**  
+ **要求**  
   
 -   Visual Studio Enterprise  
   
- See [Video (1h16): Testing Un-testable Code with Fakes in Visual Studio 2012](http://go.microsoft.com/fwlink/?LinkId=261837)  
+ 请观看[视频（1 小时 16 分钟）：在 Visual Studio 2012 中使用 Fakes 测试不可测试代码](http://go.microsoft.com/fwlink/?LinkId=261837)  
   
-## <a name="in-this-topic"></a>In this topic  
- Here's what you'll learn in this topic:  
+## <a name="in-this-topic"></a>主题内容  
+ 在本主题中，你将了解以下内容：  
   
- [Example: The Y2K bug](../test/using-shims-to-isolate-your-application-from-other-assemblies-for-unit-testing.md#BKMK_Example__The_Y2K_bug)  
+ [示例：千年虫问题](../test/using-shims-to-isolate-your-application-from-other-assemblies-for-unit-testing.md#BKMK_Example__The_Y2K_bug)  
   
- [How to use Shims](../test/using-shims-to-isolate-your-application-from-other-assemblies-for-unit-testing.md#BKMK_Fakes_requirements)  
+ [如何使用垫片](../test/using-shims-to-isolate-your-application-from-other-assemblies-for-unit-testing.md#BKMK_Fakes_requirements)  
   
--   [Add Fakes Assemblies](#AddFakes)  
+-   [添加 Fakes 程序集](#AddFakes)  
   
--   [Use ShimsContext](#ShimsContext)  
+-   [使用 ShimsContext](#ShimsContext)  
   
--   [Write Tests with Shims](#WriteTests)  
+-   [编写包含垫片的测试](#WriteTests)  
   
- [Shims for different kinds of methods](../test/using-shims-to-isolate-your-application-from-other-assemblies-for-unit-testing.md#BKMK_Shim_basics)  
+ [用于各种方法的垫片](../test/using-shims-to-isolate-your-application-from-other-assemblies-for-unit-testing.md#BKMK_Shim_basics)  
   
--   [Static methods](../test/using-shims-to-isolate-your-application-from-other-assemblies-for-unit-testing.md#BKMK_Static_methods)  
+-   [静态方法](../test/using-shims-to-isolate-your-application-from-other-assemblies-for-unit-testing.md#BKMK_Static_methods)  
   
--   [Instance methods (for all instances)](../test/using-shims-to-isolate-your-application-from-other-assemblies-for-unit-testing.md#BKMK_Instance_methods__for_all_instances_)  
+-   [实例方法（对于所有实例）](../test/using-shims-to-isolate-your-application-from-other-assemblies-for-unit-testing.md#BKMK_Instance_methods__for_all_instances_)  
   
--   [Instance methods (for one runtime instance)](../test/using-shims-to-isolate-your-application-from-other-assemblies-for-unit-testing.md#BKMK_Instance_methods__for_one_instance_)  
+-   [实例方法（对于一个运行时实例）](../test/using-shims-to-isolate-your-application-from-other-assemblies-for-unit-testing.md#BKMK_Instance_methods__for_one_instance_)  
   
--   [Constructors](../test/using-shims-to-isolate-your-application-from-other-assemblies-for-unit-testing.md#BKMK_Constructors)  
+-   [构造函数](../test/using-shims-to-isolate-your-application-from-other-assemblies-for-unit-testing.md#BKMK_Constructors)  
   
--   [Base members](../test/using-shims-to-isolate-your-application-from-other-assemblies-for-unit-testing.md#BKMK_Base_members)  
+-   [基成员](../test/using-shims-to-isolate-your-application-from-other-assemblies-for-unit-testing.md#BKMK_Base_members)  
   
--   [Static constructors](../test/using-shims-to-isolate-your-application-from-other-assemblies-for-unit-testing.md#BKMK_Static_constructors)  
+-   [静态构造函数](../test/using-shims-to-isolate-your-application-from-other-assemblies-for-unit-testing.md#BKMK_Static_constructors)  
   
--   [Finalizers](../test/using-shims-to-isolate-your-application-from-other-assemblies-for-unit-testing.md#BKMK_Finalizers)  
+-   [终结器](../test/using-shims-to-isolate-your-application-from-other-assemblies-for-unit-testing.md#BKMK_Finalizers)  
   
--   [Private methods](../test/using-shims-to-isolate-your-application-from-other-assemblies-for-unit-testing.md#BKMK_Private_methods)  
+-   [私有方法](../test/using-shims-to-isolate-your-application-from-other-assemblies-for-unit-testing.md#BKMK_Private_methods)  
   
--   [Binding interfaces](../test/using-shims-to-isolate-your-application-from-other-assemblies-for-unit-testing.md#BKMK_Binding_interfaces)  
+-   [绑定接口](../test/using-shims-to-isolate-your-application-from-other-assemblies-for-unit-testing.md#BKMK_Binding_interfaces)  
   
- [Changing the default behavior](../test/using-shims-to-isolate-your-application-from-other-assemblies-for-unit-testing.md#BKMK_Changing_the_default_behavior)  
+ [更改默认行为](../test/using-shims-to-isolate-your-application-from-other-assemblies-for-unit-testing.md#BKMK_Changing_the_default_behavior)  
   
- [Detecting environment accesses](../test/using-shims-to-isolate-your-application-from-other-assemblies-for-unit-testing.md#BKMK_Detecting_environment_accesses)  
+ [检测环境访问权限](../test/using-shims-to-isolate-your-application-from-other-assemblies-for-unit-testing.md#BKMK_Detecting_environment_accesses)  
   
- [Concurrency](../test/using-shims-to-isolate-your-application-from-other-assemblies-for-unit-testing.md#BKMK_Concurrency)  
+ [并发](../test/using-shims-to-isolate-your-application-from-other-assemblies-for-unit-testing.md#BKMK_Concurrency)  
   
- [Calling the original method from the shim method](../test/using-shims-to-isolate-your-application-from-other-assemblies-for-unit-testing.md#BKMK_Calling_the_original_method_from_the_shim_method)  
+ [通过垫片方法调用原始方法](../test/using-shims-to-isolate-your-application-from-other-assemblies-for-unit-testing.md#BKMK_Calling_the_original_method_from_the_shim_method)  
   
- [Limitations](../test/using-shims-to-isolate-your-application-from-other-assemblies-for-unit-testing.md#BKMK_Limitations)  
+ [限制](../test/using-shims-to-isolate-your-application-from-other-assemblies-for-unit-testing.md#BKMK_Limitations)  
   
-##  <a name="BKMK_Example__The_Y2K_bug"></a> Example: The Y2K bug  
- Let's consider a method that throws an exception on January 1st of 2000:  
+##  <a name="BKMK_Example__The_Y2K_bug"></a>示例：千年虫问题  
+ 设想一种会在 2000 年 1 月 1 日引发异常的方法：  
   
 ```csharp  
 // code under test  
@@ -103,11 +103,11 @@ public static class Y2KChecker {
   
 ```  
   
- Testing this method is particularly problematic because the program depends on `DateTime.Now`, a method that depends on the computer's clock, an environment-dependent, non-deterministic method. Furthermore, the `DateTime.Now` is a static property so a stub type can't be used here. This problem is symptomatic of the isolation issue in unit testing: programs that directly call into database APIs, communicate with web services, and so on are hard to unit test because their logic depends on the environment.  
+ 测试此方法特别成问题，因为程序依赖于 `DateTime.Now`，这是一种依赖于计算机时钟的方法、一种依赖于环境的非确定性方法。 此外，`DateTime.Now` 为静态属性，因此无法在此处使用存根类型。 此问题是单元测试中隔离问题的症状：直接调用数据库 API、与 Web 服务通信等的程序很难进行单元测试，因为它们的逻辑依赖于环境。  
   
- This is where shim types should be used. Shim types provide a mechanism to detour any .NET method to a user defined delegate. Shim types are code-generated by the Fakes generator, and they use delegates, which we call shim types, to specify the new method implementations.  
+ 这种情况下应该使用填充码类型。 填充码类型提供了一种机制，可以使任何 .NET 方法绕道至用户定义的委托。 Fakes 类型是由 Fakes 生成器生成的代码，它们使用委托（我们称为填充码类型）来指定新的方法实现。  
   
- The following test shows how to use the shim type, `ShimDateTime`, to provide a custom implementation of DateTime.Now:  
+ 下面的代码演示如何使用填充码类型 `ShimDateTime` 来提供 DateTime.Now 的自定义实现：  
   
 ```csharp  
 //unit test code  
@@ -121,20 +121,20 @@ using (ShimsContext.Create()
   
 ```  
   
-##  <a name="BKMK_Fakes_requirements"></a> How to use Shims  
+##  <a name="BKMK_Fakes_requirements"></a>如何使用垫片  
   
-###  <a name="AddFakes"></a> Add Fakes Assemblies  
+###  <a name="AddFakes"></a>添加 Fakes 程序集  
   
-1.  In Solution Explorer, expand your unit test project's **References**.  
+1.  在“解决方案资源管理器”中，展开单元测试项目的“引用”。  
   
-    -   If you are working in Visual Basic, you must select **Show All Files** in the Solution Explorer toolbar, in order to see the References list.  
+    -   如果使用的是 Visual Basic，必须选择解决方案资源管理器工具栏中的“显示所有文件”才能看到引用列表。  
   
-2.  Select the assembly that contains the classes definitions for which you want to create shims. For example, if you want to shim DateTime, select System.dll  
+2.  选择包含要为其创建填充码的类定义的程序集。 例如，如果要填充 DateTime，请选择 System.dll  
   
-3.  On the shortcut menu, choose **Add Fakes Assembly**.  
+3.  选择快捷菜单中的“添加 Fakes 程序集”。  
   
-###  <a name="ShimsContext"></a> Use ShimsContext  
- When using shim types in a unit test framework, you must wrap the test code in a `ShimsContext` to control the lifetime of your shims. If we didn't require this, your shims would last until the AppDomain shut down. The easiest way to create a `ShimsContext` is by using the static `Create()` method as shown in the following code:  
+###  <a name="ShimsContext"></a>使用 ShimsContext  
+ 当在单元测试框架中使用填充码类型时，必须将测试代码包装在 `ShimsContext` 中，以便控制填充码的生存期。 如果未作此要求，填充码将一直持续到 AppDomain 关闭。 最简单的方法是使用静态 `ShimsContext` 方法创建一个 `Create()`，如下面的代码中所示：  
   
 ```csharp  
 //unit test code  
@@ -147,10 +147,10 @@ public void Y2kCheckerTest() {
   
 ```  
   
- It is critical to properly dispose each shim context. As a rule of thumb, always call the `ShimsContext.Create` inside of a `using` statement to ensure proper clearing of the registered shims. For example, you might register a shim for a test method that replaces the `DateTime.Now` method with a delegate that always returns the first of January 2000. If you forget to clear the registered shim in the test method, the rest of the test run would always return the first of January 2000 as the DateTime.Now value. This might be suprising and confusing.  
+ 正确释放每个填充码上下文至关重要。 根据经验，请始终调用 `ShimsContext.Create` 语句内的 `using`，以便确保清除已注册的填充码。 例如，您可能为某一测试方法注册了填充码，而且该方法会将 `DateTime.Now` 方法替换为始终返回 2000 年 1 月 1 日的委托。 如果忘记清除测试方法中的已注册填充码，则剩余的测试将始终返回 2000 年 1 月 1 日作为 DateTime.Now 值。 这可能会让人感到惊讶和困惑。  
   
-###  <a name="WriteShims"></a> Write a test with shims  
- In your test code, insert a *detour* for the method you want to fake. For example:  
+###  <a name="WriteShims"></a>编写包含垫片的测试  
+ 在测试代码中，为要虚设的方法插入 *detour*。 例如：  
   
 ```csharp  
 [TestClass]  
@@ -210,19 +210,19 @@ Public Class TestClass1
 End Class  
 ```  
   
- Shim class names are made up by prefixing `Fakes.Shim` to the original type name.  
+ 填充码类名称是通过在原始类型名称前加上 `Fakes.Shim` 前缀构成的。  
   
- Shims work by inserting *detours* into the code of the application under test. Wherever a call to the original method occurs, the Fakes system performs a detour, so that instead of calling the real method, your shim code is called.  
+ 垫片的运行方式为在受测应用的代码中插入 *detour*。 无论在什么位置调用原始方法，Fakes 系统都会执行绕道，这样就会调用填充码代码而不是实际方法。  
   
- Notice that detours are created and deleted at run time. You must always create a detour within the life of a `ShimsContext`. When it is disposed, any shims you created while it was active are removed. The best way to do this is inside a `using` statement.  
+ 请注意，绕道是在运行时创建和删除的。 必须始终在 `ShimsContext` 生存期内创建绕道。 释放绕道后，在绕道活动期间创建的任何填充码都会被移除。 为此，最好的方法是在 `using` 语句内执行。  
   
- You might see a build error stating that the Fakes namespace does not exist. This error sometimes appears when there are other compilation errors. Fix the other errors and it will vanish.  
+ 您可能会看到一个说明 Fakes 命名空间不存在的生成错误。 此错误有时会在发生其他编译错误时出现。 修复其他错误，然后它就会消失。  
   
-##  <a name="BKMK_Shim_basics"></a> Shims for different kinds of methods  
- Shim types allow you to replace any .NET method, including static methods or non-virtual methods, with your own delegates.  
+##  <a name="BKMK_Shim_basics"></a>用于各种方法的垫片  
+ 使用填充码方法，您可以将任何 .NET 方法（包括静态方法或非虚拟方法）替换为自己的委托。  
   
-###  <a name="BKMK_Static_methods"></a> Static methods  
- The properties to attach shims to static methods are placed in a shim type. Each property has only a setter that can be used to attach a delegate to the target method. For example, given a class `MyClass` with a static method `MyMethod`:  
+###  <a name="BKMK_Static_methods"></a>静态方法  
+ 用于将填充码附加到静态方法的属性将放置在填充码类型中。 每个属性只有一个资源库，可用来将委托附加到目标方法。 例如，给定一个具有静态方法 `MyClass` 的类 `MyMethod`：  
   
 ```csharp  
 //code under test  
@@ -233,15 +233,15 @@ public static class MyClass {
 }  
 ```  
   
- We can attach a shim to `MyMethod` that always returns 5:  
+ 我们可以将填充码附加到始终返回 5 的 `MyMethod`：  
   
 ```csharp  
 // unit test code  
 ShimMyClass.MyMethod = () =>5;  
 ```  
   
-###  <a name="BKMK_Instance_methods__for_all_instances_"></a> Instance methods (for all instances)  
- Similarly to static methods, instance methods can be shimmed for all instances. The properties to attach those shims are placed in a nested type named AllInstances to avoid confusion. For example, given a class `MyClass` with an instance method `MyMethod`:  
+###  <a name="BKMK_Instance_methods__for_all_instances_"></a>实例方法（对于所有实例）  
+ 与静态方法类似，可以为所有实例填充实例方法。 为了避免混淆，用于附加这些填充码的属性放置在名为 AllInstances 的嵌套类型中。 例如，给定一个具有静态方法 `MyClass` 的类 `MyMethod`：  
   
 ```csharp  
 // code under test  
@@ -252,14 +252,14 @@ public class MyClass {
 }  
 ```  
   
- You can attach a shim to `MyMethod` that always returns 5, regardless of the instance:  
+ 无论任何实例，您都可以将一个填充码附加到始终返回 5 的 `MyMethod`：  
   
 ```csharp  
 // unit test code  
 ShimMyClass.AllInstances.MyMethod = () => 5;  
 ```  
   
- The generated type structure of ShimMyClass looks like the following code:  
+ 所生成的 ShimMyClass 类型结构类似于以下代码：  
   
 ```csharp  
 // Fakes generated code  
@@ -274,12 +274,12 @@ public class ShimMyClass : ShimBase<MyClass> {
 }  
 ```  
   
- Notice that Fakes passes the runtime instance as the first argument of the delegate in this case.  
+ 请注意，在此示例中，Fakes 会将运行时实例作为委托的第一个自变量传递。  
   
-###  <a name="BKMK_Instance_methods__for_one_instance_"></a> Instance methods (for one runtime instance)  
- Instance methods can also be shimmed by different delegates, based on the receiver of the call. This enables the same instance method to have different behaviors per instance of the type. The properties to set up those shims are instance methods of the shim type itself. Each instantiated shim type is also associated with a raw instance of a shimmed type.  
+###  <a name="BKMK_Instance_methods__for_one_instance_"></a>实例方法（对于一个运行时实例）  
+ 根据调用的接收方，也可以通过不同的委托来填充实例方法。 这样一来，同一实例方法可以根据类型实例而具有不同的行为。 用于设置这些填充码的属性是填充码类型本身的实例方法。 每个实例化的填充码类型也会与一个所填充类型的原始实例相关联。  
   
- For example, given a class `MyClass` with an instance method `MyMethod`:  
+ 例如，给定一个具有静态方法 `MyClass` 的类 `MyMethod`：  
   
 ```csharp  
 // code under test  
@@ -290,7 +290,7 @@ public class MyClass {
 }  
 ```  
   
- We can set up two shim types of MyMethod such that the first one always returns 5 and the second always returns 10:  
+ 我们可以设置两种填充码类型的 MyMethod，以便第一个始终返回 5，而第二个始终返回 10：  
   
 ```csharp  
 // unit test code  
@@ -301,7 +301,7 @@ var myClass1 = new ShimMyClass()
 var myClass2 = new ShimMyClass { MyMethod = () => 10 };  
 ```  
   
- The generated type structure of ShimMyClass looks like the following code:  
+ 所生成的 ShimMyClass 类型结构类似于以下代码：  
   
 ```csharp  
 // Fakes generated code  
@@ -319,7 +319,7 @@ public class ShimMyClass : ShimBase<MyClass> {
 }  
 ```  
   
- The actual shimmed type instance can be accessed through the Instance property:  
+ 实际填充的类型实例可通过 Instance 属性来访问：  
   
 ```csharp  
 // unit test code  
@@ -327,7 +327,7 @@ var shim = new ShimMyClass();
 var instance = shim.Instance;  
 ```  
   
- The shim type also has an implicit conversion to the shimmed type, so you can usually simply use the shim type as is:  
+ 填充码类型还具有到所填充类型的隐式转换，因此您通常可以原样使用填充码类型：  
   
 ```csharp  
 // unit test code  
@@ -336,8 +336,8 @@ MyClass instance = shim; // implicit cast retrieves the runtime
                          // instance  
 ```  
   
-###  <a name="BKMK_Constructors"></a> Constructors  
- Constructors can also be shimmed in order to attach shim types to future objects. Each constructor is exposed as a static method Constructor in the shim type. For example, given a class `MyClass` with a constructor taking an integer:  
+###  <a name="BKMK_Constructors"></a> 构造函数  
+ 构造函数也可以进行填充，以便将填充码类型附加到未来的对象。 在填充码类型中，每个构造函数都作为静态方法构造函数而公开。 例如，给定一个使用整数的构造函数的类 `MyClass`：  
   
 ```csharp  
 // code under test  
@@ -349,7 +349,7 @@ public class MyClass {
 }  
 ```  
   
- We set up the shim type of the constructor so that every future instance returns -5 when the Value getter is invoked, regardless of the value in the constructor:  
+ 我们设置构造函数的填充码类型，以便在调用值 getter 时，使每个未来实例都返回 -5，而无论构造函数中的值是什么：  
   
 ```csharp  
 // unit test code  
@@ -360,7 +360,7 @@ ShimMyClass.ConstructorInt32 = (@this, value) => {
 };  
 ```  
   
- Note that each shim type exposes two constructors. The default constructor should be used when a fresh instance is needed, while the constructor taking a shimmed instance as argument should be used in constructor shims only:  
+ 请注意，每个填充码类型都会公开两个构造函数。 当需要新实例时，应使用默认构造函数，而以填充的实例为参数的构造函数只应在构造函数填充码中使用：  
   
 ```csharp  
 // unit test code  
@@ -368,7 +368,7 @@ public ShimMyClass() { }
 public ShimMyClass(MyClass instance) : base(instance) { }  
 ```  
   
- The generated type structure of ShimMyClass resembles the followoing code:  
+ 所生成的 ShimMyClass 类型结构类似于以下代码：  
   
 ```csharp  
 // Fakes generated code  
@@ -386,10 +386,10 @@ public class ShimMyClass : ShimBase<MyClass>
 }  
 ```  
   
-###  <a name="BKMK_Base_members"></a> Base members  
- The shim properties of base members can be accessed by creating a shim for the base type and passing the child instance as a parameter to the constructor of the base shim class.  
+###  <a name="BKMK_Base_members"></a>基成员  
+ 基成员的填充码属性可以通过以下方式来访问：为基类型创建填充码，并将子实例作为参数传递给基填充码类的构造函数。  
   
- For example, given a class `MyBase` with an instance method `MyMethod` and a subtype `MyChild`:  
+ 例如，给定一个具有实例方法 `MyBase` 和子类型 `MyMethod` 的类 `MyChild`：  
   
 ```csharp  
 public abstract class MyBase {  
@@ -403,7 +403,7 @@ public class MyChild : MyBase {
   
 ```  
   
- We can set up a shim of `MyBase` by creating a new `ShimMyBase` shim:  
+ 我们可以通过创建新的 `MyBase` 填充码来设置 `ShimMyBase` 的填充码：  
   
 ```csharp  
 // unit test code  
@@ -411,9 +411,9 @@ var child = new ShimMyChild();
 new ShimMyBase(child) { MyMethod = () => 5 };  
 ```  
   
- Note that the child shim type is implicitly converted to the child instance when passed as a parameter to the base shim constructor.  
+ 请注意，当作为参数传递给基填充码构造函数时，子填充码类型将隐式转换为子实例。  
   
- The generated type structure of ShimMyChild and ShimMyBase resembles the following code:  
+ 所生成的 ShimMyChild 和 ShimMyBase 类型结构类似于以下代码：  
   
 ```csharp  
 // Fakes generated code  
@@ -429,19 +429,19 @@ public class ShimMyBase : ShimBase<MyBase> {
 }  
 ```  
   
-###  <a name="BKMK_Static_constructors"></a> Static constructors  
- Shim types expose a static method `StaticConstructor` to shim the static constructor of a type. Since static constructors are executed once only, you need to ensure that the shim is configured before any member of the type is accessed.  
+###  <a name="BKMK_Static_constructors"></a>静态构造函数  
+ 填充码类型会公开静态方法 `StaticConstructor`，以便填充类型的静态构造函数。 由于静态构造函数仅执行一次，因此，在访问任何类型成员之前，你需要确保配置填充码。  
   
-###  <a name="BKMK_Finalizers"></a> Finalizers  
- Finalizers are not supported in Fakes.  
+###  <a name="BKMK_Finalizers"></a>终结器  
+ Fakes 中不支持终结器。  
   
-###  <a name="BKMK_Private_methods"></a> Private methods  
- The Fakes code generator will create shim properties for private methods that only have visible types in the signature, i.e. parameter types and return type visible.  
+###  <a name="BKMK_Private_methods"></a>私有方法  
+ Fakes 代码生成器将为仅具有签名中的可见类型的私有方法创建填充码属性，即可见的参数类型和返回类型。  
   
-###  <a name="BKMK_Binding_interfaces"></a> Binding interfaces  
- When a shimmed type implements an interface, the code generator emits a method that allows it to bind all the members from that interface at once.  
+###  <a name="BKMK_Binding_interfaces"></a>绑定接口  
+ 当填充的类型实现某一接口时，代码生成器将发出一个方法，以便它同时绑定该接口的所有成员。  
   
- For example, given a class `MyClass` that implements `IEnumerable<int>`:  
+ 例如，给定一个实现 `MyClass` 的类 `IEnumerable<int>`：  
   
 ```csharp  
 public class MyClass : IEnumerable<int> {  
@@ -453,7 +453,7 @@ public class MyClass : IEnumerable<int> {
   
 ```  
   
- We can shim the implementations of `IEnumerable<int>` in MyClass by calling the Bind method:  
+ 通过调用 Bind 方法，我们可以填充 MyClass 中的 `IEnumerable<int>` 实现：  
   
 ```csharp  
 // unit test code  
@@ -462,7 +462,7 @@ shimMyClass.Bind(new List<int> { 1, 2, 3 });
   
 ```  
   
- The generated type structure of ShimMyClass resembles the following code:  
+ 所生成的 ShimMyClass 类型结构类似于以下代码：  
   
 ```csharp  
 // Fakes generated code  
@@ -474,12 +474,12 @@ public class ShimMyClass : ShimBase<MyClass> {
   
 ```  
   
-##  <a name="BKMK_Changing_the_default_behavior"></a> Changing the default behavior  
- Each generated shim type holds an instance of the `IShimBehavior` interface, through the `ShimBase<T>.InstanceBehavior` property. The behavior is used whenever a client calls an instance member that was not explicitly shimmed.  
+##  <a name="BKMK_Changing_the_default_behavior"></a>更改默认行为  
+ 每个生成的填充码类型都保留 `IShimBehavior` 接口的一个实例（通过 `ShimBase<T>.InstanceBehavior` 属性）。 只要客户端调用未显式填充的实例成员，系统就会使用该行为。  
   
- If the behavior has not been explicitly set, it will use the instance returned by the static `ShimsBehaviors.Current` property. By default, this property returns a behavior that throws a `NotImplementedException` exception.  
+ 如果未显式设置该行为，它将使用静态 `ShimsBehaviors.Current` 属性返回的实例。 默认情况下，此属性将返回引发 `NotImplementedException` 异常的行为。  
   
- This behavior can be changed at any time by setting the `InstanceBehavior` property on any shim instance. For example, the following snippet changes the shim to a behavior that does nothing or returns the default value of the return type—that is, default(T):  
+ 通过设置任何填充码实例的 `InstanceBehavior` 属性，可以随时更改该行为。 例如，下面的代码片段将更改填充码的行为，使之不执行任何操作或返回返回类型的默认值，即 default(T)：  
   
 ```csharp  
 // unit test code  
@@ -489,7 +489,7 @@ shim.InstanceBehavior = ShimsBehaviors.DefaultValue;
   
 ```  
   
- The behavior can also be changed globally for all shimmed instances for which the `InstanceBehavior` property was not explicitly set by setting the static `ShimsBehaviors.Current` property:  
+ 通过设置静态 `InstanceBehavior` 属性，还可以为所有未设置 `ShimsBehaviors.Current` 属性的填充实例全局更改此行为：  
   
 ```csharp  
 // unit test code  
@@ -500,8 +500,8 @@ ShimsBehaviors.Current =
   
 ```  
   
-##  <a name="BKMK_Detecting_environment_accesses"></a> Detecting environment accesses  
- It is possible to attach a behavior to all the members, including static methods, of a particular type by assigning the `ShimsBehaviors.NotImplemented` behavior to the static property `Behavior` of the corresponding shim type:  
+##  <a name="BKMK_Detecting_environment_accesses"></a>检测环境访问权限  
+ 通过将 `ShimsBehaviors.NotImplemented` 行为分配给相应填充码类型的静态属性 `Behavior`，可以将行为附加到特定类型的所有成员（包括静态方法）：  
   
 ```csharp  
 // unit test code  
@@ -512,13 +512,13 @@ ShimMyClass.BehaveAsNotImplemented();
   
 ```  
   
-##  <a name="BKMK_Concurrency"></a> Concurrency  
- Shim types apply to all threads in the AppDomain and don't have thread affinity. This is an important fact if you plan to use a test runner that support concurrency: tests involving shim types cannot run concurrently. This property is not enfored by the Fakes runtime.  
+##  <a name="BKMK_Concurrency"></a> 并发  
+ 填充码类型适用于 AppDomain 中的所有线程，且不具备线程关联性。 如果您计划使用支持并发的测试运行程序，这一点非常重要：涉及填充码类型的测试无法并发运行。 此属性不由 Fakes 运行时来实施。  
   
-##  <a name="BKMK_Calling_the_original_method_from_the_shim_method"></a> Calling the original method from the shim method  
- Imagine that we wanted to actually write the text to the file system after validating the file name passed to the method. In that case, we would want to call the original method in the middle of the shim method.  
+##  <a name="BKMK_Calling_the_original_method_from_the_shim_method"></a>通过垫片方法调用原始方法  
+ 假设我们想要在验证文件名已传递给方法之后，再将文本编写到文件系统。 这种情况下，我们需要调用填充码方法中的原始方法。  
   
- The first approach to solve this problem is to wrap a call to the original method using a delegate and `ShimsContext.ExecuteWithoutShims()` as in the following code:  
+ 要解决这一问题，第一种方法是使用委托和 `ShimsContext.ExecuteWithoutShims()` 来包装对原始方法的调用，如下面的代码中所示：  
   
 ```csharp  
 // unit test code  
@@ -533,7 +533,7 @@ ShimFile.WriteAllTextStringString = (fileName, content) => {
   
 ```  
   
- Another approach is to set the shim to null, call the original method and restore the shim.  
+ 另一种方法是将填充码设置为 null，再调用原始方法，然后恢复填充码。  
   
 ```csharp  
 // unit test code  
@@ -557,16 +557,16 @@ ShimFile.WriteAllTextStringString = shim;
   
 ```  
   
-##  <a name="BKMK_Limitations"></a> Limitations  
- Shims cannot be used on all types from the .NET base class library **mscorlib** and **System**.  
+##  <a name="BKMK_Limitations"></a>限制  
+ 垫片无法用于 .NET 基类库 **mscorlib** 和 **System** 中的所有类型。  
   
-## <a name="external-resources"></a>External resources  
+## <a name="external-resources"></a>外部资源  
   
-### <a name="guidance"></a>Guidance  
- [Testing for Continuous Delivery with Visual Studio 2012 - Chapter 2: Unit Testing: Testing the Inside](http://go.microsoft.com/fwlink/?LinkID=255188)  
+### <a name="guidance"></a>指导  
+ [使用 Visual Studio 2012 测试连续交付 - 第 2 章：单元测试：测试内部](http://go.microsoft.com/fwlink/?LinkID=255188)  
   
-## <a name="see-also"></a>See Also  
- [Isolating Code Under Test with Microsoft Fakes](../test/isolating-code-under-test-with-microsoft-fakes.md)   
- [Peter Provost's blog: Visual Studio 2012 Shims](http://www.peterprovost.org/blog/2012/04/25/visual-studio-11-fakes-part-2)   
- [Video (1h16): Testing Un-testable Code with Fakes in Visual Studio 2012](http://go.microsoft.com/fwlink/?LinkId=261837)
+## <a name="see-also"></a>另请参阅  
+ [使用 Microsoft Fakes 隔离受测代码](../test/isolating-code-under-test-with-microsoft-fakes.md)   
+ [Peter Provost 的博客：Visual Studio 2012 填充码](http://www.peterprovost.org/blog/2012/04/25/visual-studio-11-fakes-part-2)   
+ [视频（1 小时 16 分钟）：在 Visual Studio 2012 中使用 Fakes 测试不可测试代码](http://go.microsoft.com/fwlink/?LinkId=261837)
 

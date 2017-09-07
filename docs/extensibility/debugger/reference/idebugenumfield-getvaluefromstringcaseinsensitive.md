@@ -1,5 +1,5 @@
 ---
-title: IDebugEnumField::GetValueFromStringCaseInsensitive | Microsoft Docs
+title: "IDebugEnumField::GetValueFromStringCaseInsensitive |Microsoft 文档"
 ms.custom: 
 ms.date: 11/04/2016
 ms.reviewer: 
@@ -34,13 +34,13 @@ ms.translationtype: MT
 ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
 ms.openlocfilehash: 68a5f199f389cb5bc24f0e648bb4719c1ad79545
 ms.contentlocale: zh-cn
-ms.lasthandoff: 08/28/2017
+ms.lasthandoff: 09/06/2017
 
 ---
 # <a name="idebugenumfieldgetvaluefromstringcaseinsensitive"></a>IDebugEnumField::GetValueFromStringCaseInsensitive
-This method uses a case-insensitive search to return the value associated with the name of an enumeration constant.  
+此方法使用不区分大小写的搜索返回的枚举常数的名称与关联的值。  
   
-## <a name="syntax"></a>Syntax  
+## <a name="syntax"></a>语法  
   
 ```cpp  
 HRESULT GetValueFromStringCaseInsensitive(  
@@ -56,19 +56,19 @@ int GetValueFromStringCaseInsensitive(
 );  
 ```  
   
-#### <a name="parameters"></a>Parameters  
+#### <a name="parameters"></a>参数  
  `pszValue`  
- [in] A string specifying the name for which to get the value. Note that for C++, this is a wide character string.  
+ [in]指定要为其获取值的名称的字符串。 请注意，对于 c + +，这是宽字符字符串。  
   
  `pValue`  
- [out] Returns the associated numerical value.  
+ [out]返回关联的数字值。  
   
-## <a name="return-value"></a>Return Value  
- If successful, returns `S_OK`; otherwise, returns `S_FALSE`, if the name is not part of the enumeration, or an error code.  
+## <a name="return-value"></a>返回值  
+ 如果成功，则返回`S_OK`; 否则为返回`S_FALSE`，如果名称不是枚举，则返回错误代码的一部分。  
   
-## <a name="remarks"></a>Remarks  
- This method is case-insensitive. If a case-sensitive search is needed (for example, in a language such as C++ where names are case-sensitive), use [GetValueFromString](../../../extensibility/debugger/reference/idebugenumfield-getvaluefromstring.md).  
+## <a name="remarks"></a>备注  
+ 此方法是不区分大小写。 如果需要区分大小写的搜索时 （例如，在其中名称区分大小写的 c + + 等语言），使用[GetValueFromString](../../../extensibility/debugger/reference/idebugenumfield-getvaluefromstring.md)。  
   
-## <a name="see-also"></a>See Also  
+## <a name="see-also"></a>另请参阅  
  [IDebugEnumField](../../../extensibility/debugger/reference/idebugenumfield.md)   
  [GetValueFromString](../../../extensibility/debugger/reference/idebugenumfield-getvaluefromstring.md)

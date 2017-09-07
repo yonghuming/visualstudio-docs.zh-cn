@@ -1,5 +1,5 @@
 ---
-title: IEnumDebugThreads2::Reset | Microsoft Docs
+title: "IEnumDebugThreads2::Reset |Microsoft 文档"
 ms.custom: 
 ms.date: 11/04/2016
 ms.reviewer: 
@@ -34,13 +34,13 @@ ms.translationtype: MT
 ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
 ms.openlocfilehash: 6c0221e19305f07ecfe407cfadae0e77e531ce86
 ms.contentlocale: zh-cn
-ms.lasthandoff: 08/28/2017
+ms.lasthandoff: 09/06/2017
 
 ---
 # <a name="ienumdebugthreads2reset"></a>IEnumDebugThreads2::Reset
-Resets the enumeration to the first element.  
+将枚举重置为第一个元素。  
   
-## <a name="syntax"></a>Syntax  
+## <a name="syntax"></a>语法  
   
 ```cpp  
 HRESULT Reset(  
@@ -52,11 +52,11 @@ HRESULT Reset(
 int Reset();  
 ```  
   
-## <a name="return-value"></a>Return Value  
- If successful, returns `S_OK`; otherwise, returns an error code.  
+## <a name="return-value"></a>返回值  
+ 如果成功，则返回`S_OK`; 否则为返回错误代码。  
   
-## <a name="remarks"></a>Remarks  
- After this method is called, the next call to the [Next](../../../extensibility/debugger/reference/ienumdebugthreads2-next.md) method returns the first element of the enumeration.  
+## <a name="remarks"></a>备注  
+ 调用此方法，对下一个调用后[下一步](../../../extensibility/debugger/reference/ienumdebugthreads2-next.md)方法返回的枚举的第一个元素。  
   
-## <a name="see-also"></a>See Also  
+## <a name="see-also"></a>另请参阅  
  [IEnumDebugThreads2](../../../extensibility/debugger/reference/ienumdebugthreads2.md)

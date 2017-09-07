@@ -1,5 +1,5 @@
 ---
-title: IDebugReference2::SetValueAsReference | Microsoft Docs
+title: "IDebugReference2::SetValueAsReference |Microsoft 文档"
 ms.custom: 
 ms.date: 11/04/2016
 ms.reviewer: 
@@ -34,13 +34,13 @@ ms.translationtype: MT
 ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
 ms.openlocfilehash: e295ad3fd09a8b5dbaa17cdd6f10f3cb8a9ff1b9
 ms.contentlocale: zh-cn
-ms.lasthandoff: 08/28/2017
+ms.lasthandoff: 09/06/2017
 
 ---
 # <a name="idebugreference2setvalueasreference"></a>IDebugReference2::SetValueAsReference
-Sets the value of a reference from another reference. Reserved for future use.  
+设置从另一个引用的引用的值。 留待将来使用。  
   
-## <a name="syntax"></a>Syntax  
+## <a name="syntax"></a>语法  
   
 ```cpp  
 HRESULT SetValueAsReference (   
@@ -60,21 +60,21 @@ int SetValueAsReference (
 );  
 ```  
   
-#### <a name="parameters"></a>Parameters  
+#### <a name="parameters"></a>参数  
  `rgpArgs`  
- [in] An array of [IDebugReference2](../../../extensibility/debugger/reference/idebugreference2.md) objects used to determine how to set the reference value.  
+ [in]数组[IDebugReference2](../../../extensibility/debugger/reference/idebugreference2.md)对象用于确定如何设置引用值。  
   
  `dwArgCount`  
- [in] The number of references in the array.  
+ [in]数组中引用的数目。  
   
  `pValue`  
- [in] An [IDebugReference2](../../../extensibility/debugger/reference/idebugreference2.md) object from which to set the property value.  
+ [in][IDebugReference2](../../../extensibility/debugger/reference/idebugreference2.md)要根据其设置的属性值的对象。  
   
  `dwTimeout`  
- [in] Maximum time, in milliseconds, to wait before returning from this method. Use `INFINITE` to wait indefinitely.  
+ [in]以毫秒为单位，从此方法返回前等待的最长时间。 使用`INFINITE`无限期等待。  
   
-## <a name="return-value"></a>Return Value  
- Always returns `E_NOTIMPL`.  
+## <a name="return-value"></a>返回值  
+ 始终返回 `E_NOTIMPL`。  
   
-## <a name="see-also"></a>See Also  
+## <a name="see-also"></a>另请参阅  
  [IDebugReference2](../../../extensibility/debugger/reference/idebugreference2.md)

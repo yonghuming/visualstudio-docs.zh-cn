@@ -1,5 +1,5 @@
 ---
-title: Creating a Core Editor and Registering an Editor File Type | Microsoft Docs"
+title: "创建核心编辑器和注册编辑器文件类型 |Microsoft 文档\""
 ms.custom: 
 ms.date: 11/04/2016
 ms.reviewer: 
@@ -32,37 +32,37 @@ ms.translationtype: MT
 ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
 ms.openlocfilehash: dec3e53df108377dacfc53ba308029933654b789
 ms.contentlocale: zh-cn
-ms.lasthandoff: 08/28/2017
+ms.lasthandoff: 09/06/2017
 
 ---
-# <a name="walkthrough-creating-a-core-editor-and-registering-an-editor-file-type"></a>Walkthrough: Creating a Core Editor and Registering an Editor File Type
-This walkthrough demonstrates how to create a VSPackage that starts the [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] core editor when a file that has the .myext file name extension is loaded.  
+# <a name="walkthrough-creating-a-core-editor-and-registering-an-editor-file-type"></a>演练： 创建核心编辑器和注册编辑器文件类型
+本演练演示如何创建启动 VSPackage[!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)]核心编辑器具有.myext 文件扩展名的文件时将会加载。  
   
-## <a name="prerequisites"></a>Prerequisites  
- To follow this walkthrough, you must install the Visual Studio SDK. For more information, see [Visual Studio SDK](../extensibility/visual-studio-sdk.md).  
+## <a name="prerequisites"></a>先决条件  
+ 要按照本演练的步骤操作，必须安装 Visual Studio SDK。 有关详细信息，请参阅[Visual Studio SDK](../extensibility/visual-studio-sdk.md)。  
   
-## <a name="locations-for-the-visual-studio-package-project-template"></a>Locations for the Visual Studio Package Project template  
- The Visual Studio Package project template can be found in three different locations in the **New Project** dialog:  
+## <a name="locations-for-the-visual-studio-package-project-template"></a>Visual Studio 包项目模板的位置  
+ 可在“新建项目”  对话框中的三个不同位置找到 Visual Studio 包项目模板：  
   
-1.  Under Visual Basic Extensibility. The default language of the project is Visual Basic.  
+1.  在“Visual Basic 扩展性”之下。 项目的默认语言为 Visual Basic。  
   
-2.  Under C# Extensibility. The default language of the project is C#.  
+2.  在“C# 扩展性”之下。 项目的默认语言为 C#。  
   
-3.  Under Other Project Types Extensibility. The default language of the project is C++.  
+3.  在“其他项目类型扩展性”之下。 项目的默认语言为 C++。  
   
-### <a name="to-create-the-vspackage"></a>To create the VSPackage  
+### <a name="to-create-the-vspackage"></a>若要创建 VSPackage  
   
--   Start [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] and create a [!INCLUDE[csprcs](../data-tools/includes/csprcs_md.md)] VSPackage named `MyPackage`, as outlined in [Walkthrough: Creating a Menu Command VSPackage](http://msdn.microsoft.com/en-us/d699c149-5d1e-47ff-94c7-e1222af02c32).  
+-   启动[!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)]并创建[!INCLUDE[csprcs](../data-tools/includes/csprcs_md.md)]名为的 VSPackage `MyPackage`、 中所述[演练： 创建菜单命令 VSPackage](http://msdn.microsoft.com/en-us/d699c149-5d1e-47ff-94c7-e1222af02c32)。  
   
-### <a name="to-add-the-editor-factory"></a>To add the editor factory  
+### <a name="to-add-the-editor-factory"></a>若要添加编辑器工厂  
   
-1.  Right-click the **MyPackage** project, point to **Add** and then click **Class**.  
+1.  右键单击**MyPackage**项目，指向**添加**，然后单击**类**。  
   
-2.  In the **Add New Item** dialog box, make sure the **Class** template is selected, type `EditorFactory.cs` for the name, and then click **Add** to add the class to your project.  
+2.  在**添加新项**对话框框中，请确保**类**选择模板，类型`EditorFactory.cs`作为名称，然后单击**添加**将类添加到你的项目。  
   
-     The EditorFactory.cs file should be automatically opened.  
+     应自动打开 EditorFactory.cs 文件。  
   
-3.  Reference the following assemblies from your code.  
+3.  在代码中引用以下程序集。  
   
     ```vb  
     Imports System.Runtime.InteropServices  
@@ -85,9 +85,9 @@ This walkthrough demonstrates how to create a VSPackage that starts the [!INCLUD
   
     ```  
   
-4.  Add a GUID to the `EditorFactory` class by adding the `Guid` attribute immediately before the class declaration.  
+4.  添加到 GUID`EditorFactory`类通过添加`Guid`紧靠类声明的属性。  
   
-     You can generate a new GUID by using the guidgen.exe program at the [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] command prompt, or by clicking **Create GUID** on the **Tools** menu. The GUID used here is only an example; do not use it in your project.  
+     你可以通过使用 guidgen.exe 程序在生成新的 GUID[!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)]的命令提示符，或通过单击**创建 GUID**上**工具**菜单。 此处使用的 GUID 只是一个示例;不要在你的项目中使用它。  
   
     ```vb  
     <Guid("0eea3187-c5fa-48d4-aa72-b5eecd3b17b1")> _  
@@ -97,7 +97,7 @@ This walkthrough demonstrates how to create a VSPackage that starts the [!INCLUD
     [Guid("0eea3187-c5fa-48d4-aa72-b5eecd3b17b1")]   
     ```  
   
-5.  In the class definition, add two private variables to contain the parent package and a service provider.  
+5.  在类定义中，添加两个私有变量，使其包含父包和服务提供程序。  
   
     ```vb  
     Class EditorFactory  
@@ -114,7 +114,7 @@ This walkthrough demonstrates how to create a VSPackage that starts the [!INCLUD
   
     ```  
   
-6.  Add a public class constructor that takes one parameter of type <xref:Microsoft.VisualStudio.Shell.Package>:  
+6.  添加一个公共类构造函数采用一个类型的参数<xref:Microsoft.VisualStudio.Shell.Package>:  
   
     ```vb  
     Public Sub New(ByVal parentPackage As Package)  
@@ -129,7 +129,7 @@ This walkthrough demonstrates how to create a VSPackage that starts the [!INCLUD
     }  
     ```  
   
-7.  Modify the `EditorFactory` class declaration to derive from the <xref:Microsoft.VisualStudio.Shell.Interop.IVsEditorFactory> interface.  
+7.  修改`EditorFactory`类声明为派生自<xref:Microsoft.VisualStudio.Shell.Interop.IVsEditorFactory>接口。  
   
     ```vb  
     Class EditorFactory Implements IVsEditorFacto  
@@ -140,11 +140,11 @@ This walkthrough demonstrates how to create a VSPackage that starts the [!INCLUD
   
     ```  
   
-8.  Right-click <xref:Microsoft.VisualStudio.Shell.Interop.IVsEditorFactory>, click **Implement Interface**, and then click **Implement Interface Explicitly**.  
+8.  右键单击<xref:Microsoft.VisualStudio.Shell.Interop.IVsEditorFactory>，单击**实现接口**，然后单击**显式实现接口**。  
   
-     This adds the four methods that must be implemented in the <xref:Microsoft.VisualStudio.Shell.Interop.IVsEditorFactory> interface.  
+     这将添加必须中实现的四个方法<xref:Microsoft.VisualStudio.Shell.Interop.IVsEditorFactory>接口。  
   
-9. Replace the contents of the `IVsEditorFactory.Close` method with the following code.  
+9. 将 `IVsEditorFactory.Close` 方法的内容替换为以下代码。  
   
     ```vb  
     Return VSConstants.S_OK  
@@ -154,7 +154,7 @@ This walkthrough demonstrates how to create a VSPackage that starts the [!INCLUD
     return VSConstants.S_OK;  
     ```  
   
-10. Replace the contents of the `IVsEditorFactory.SetSite` with the following code.  
+10. 内容替换`IVsEditorFactory.SetSite`替换为以下代码。  
   
     ```vb  
     Me.serviceProvider = psp  
@@ -166,7 +166,7 @@ This walkthrough demonstrates how to create a VSPackage that starts the [!INCLUD
     return VSConstants.S_OK;  
     ```  
   
-11. Replace the contents of the `IVsEditorFactory.MapLogicalView` method with the following code.  
+11. 将 `IVsEditorFactory.MapLogicalView` 方法的内容替换为以下代码。  
   
     ```vb  
     Dim retval As Integer = VSConstants.E_NOTIMPL  
@@ -189,7 +189,7 @@ This walkthrough demonstrates how to create a VSPackage that starts the [!INCLUD
     return retval;  
     ```  
   
-12. Replace the contents of the `IVsEditorFactory.CreateEditorInstance` method with the following code.  
+12. 将 `IVsEditorFactory.CreateEditorInstance` 方法的内容替换为以下代码。  
   
     ```vb  
     Dim retval As Integer = VSConstants.E_FAIL          
@@ -332,24 +332,24 @@ This walkthrough demonstrates how to create a VSPackage that starts the [!INCLUD
     return retval;   
     ```  
   
-13. Compile the project and make sure there are no errors.  
+13. 编译该项目，并确保没有任何错误。  
   
-### <a name="to-register-the-editor-factory"></a>To register the editor factory  
+### <a name="to-register-the-editor-factory"></a>若要注册编辑器工厂  
   
-1.  In **Solution Explorer**, double-click the Resources.resx file to open it to the string table, in which the entry **String1 is** selected.  
+1.  在**解决方案资源管理器**，双击 Resources.resx 文件以打开到在其中的字符串表条目**String1 是**选。  
   
-2.  Change the name of the identifier to `IDS_EDITORNAME` and the text to **MyPackage Editor.** This string will appear as the name of your editor.  
+2.  更改到的标识符名称`IDS_EDITORNAME`和到文本**MyPackage 编辑器。** 此字符串将显示为你的编辑器的名称。  
   
-3.  Open the VSPackage.resx file and add a new string, set the name to **101** and the value to `IDS_EDITORNAME`. This provides the package with a resource ID to access the string you just created.  
+3.  打开 VSPackage.resx 文件并添加一个新字符串，将名称设置为**101**和值的`IDS_EDITORNAME`。 这将包提供的资源 ID 访问你刚刚创建的字符串。  
   
     > [!NOTE]
-    >  If the VSPackage.resx file contains another string that the `name` attribute set to **101**, substitute another unique, numeric value, here and in the following steps.  
+    >  如果 VSPackage.resx 文件包含另一个字符串`name`属性设置为**101**，替换另一个唯一的数字值，在此处以及以下步骤中。  
   
-4.  In **Solution Explorer**, open the MyPackagePackage.cs file.  
+4.  在**解决方案资源管理器**，打开 MyPackagePackage.cs 文件。  
   
-     This is the main package file.  
+     这是主包文件。  
   
-5.  Add the following user attributes just before the `Guid` attribute.  
+5.  之前添加以下用户特性`Guid`属性。  
   
     ```vb  
     <ProvideEditorFactoryAttribute(GetType(EditorFactory), 101)> _  
@@ -363,9 +363,9 @@ This walkthrough demonstrates how to create a VSPackage that starts the [!INCLUD
           ".myext", 32, NameResourceID = 101)]   
     ```  
   
-     The <xref:Microsoft.VisualStudio.Shell.ProvideEditorExtensionAttribute> attribute associates the .myext file extension with your editor factory so that any time a file that has that extension is loaded, your editor factory is invoked.  
+     <xref:Microsoft.VisualStudio.Shell.ProvideEditorExtensionAttribute>属性.myext 文件扩展名将与相关联编辑器工厂，以便任何时候，只要具有加载扩展插件、 调用编辑器工厂的文件。  
   
-6.  Add a private variable to the `MyPackage` class, just before the constructor, and give it the type `EditorFactory`.  
+6.  添加到一个私有变量`MyPackage`类之前构造函数中，并为其提供类型`EditorFactory`。  
   
     ```vb  
     Private editorFactory As EditorFactory  
@@ -375,7 +375,7 @@ This walkthrough demonstrates how to create a VSPackage that starts the [!INCLUD
     private EditorFactory editorFactory;  
     ```  
   
-7.  Find the `Initialize` method (you may have to open the `Package Members` hidden region) and add the following code after the call to `base.Initialize()`.  
+7.  查找`Initialize`方法 (你可能需要打开`Package Members`隐藏的区域) 的调用后添加以下代码和`base.Initialize()`。  
   
     ```vb  
     'Create our editor factory and register it.   
@@ -390,27 +390,27 @@ This walkthrough demonstrates how to create a VSPackage that starts the [!INCLUD
   
     ```  
   
-8.  Compile the program and make sure there are no errors.  
+8.  编译此程序，并确保没有任何错误。  
   
-     This step registers the editor factory in the experimental registry hive for [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)]. If you are prompted to override the resource.h file, click **OK**.  
+     此步骤在实验注册表配置单元中注册的编辑器工厂[!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)]。 如果系统提示你重写 resource.h 文件时，请单击**确定**。  
   
-9. Create a sample file named TextFile1.myext.  
+9. 创建一个名为 TextFile1.myext 的示例文件。  
   
-10. Press **F5** to open an instance of the experimental [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)].  
+10. 按**F5**打开的实验实例[!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)]。  
   
-11. In the experimental [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)], on the **File** menu, point to **Open** and then click **File**.  
+11. 在实验性[!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)]上**文件**菜单上，指向**打开**，然后单击**文件**。  
   
-12. Find TextFile1.myext and then click **Open**.  
+12. 查找 TextFile1.myext，然后单击**打开**。  
   
-     The file should now be loaded.  
+     现在应加载的文件。  
   
-## <a name="robust-programming"></a>Robust Programming  
- The [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] core editor handles a wide range of text-based file types and works closely with language services to provide a rich set of features such as syntax highlighting, brace matching, and IntelliSense word-completion and member-completion lists. If you are working with text-based files, then you can use the core editor together with a custom language service that supports your specific file types.  
+## <a name="robust-programming"></a>可靠编程  
+ [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)]核心编辑器处理大量的基于文本的文件类型和与语言服务以提供一组丰富的功能，如语法突出显示，大括号匹配和 IntelliSense 单词完成和成员完成列表紧密协作。 如果你正在使用基于文本的文件，你可以使用以及自定义语言服务支持你的特定文件类型核心编辑器。  
   
- A VSPackage can invoke the [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] core editor by supplying an editor factory. This editor factory is used any time a file that is associated with it is loaded. If the file is part of a project, then the core editor is automatically invoked unless overridden by your VSPackage. However, if the file is loaded outside of a project, then the core editor must be explicitly invoked by your VSPackage.  
+ VSPackage 可以调用[!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)]核心编辑器通过提供编辑器工厂。 加载与之关联的文件的任何时候都可以使用此编辑器工厂。 如果文件是项目的一部分，核心编辑器自动被调用除非通过你的 VSPackage 中重写。 但是，如果在项目外部加载的文件，然后核心编辑器必须显式调用由你的 VSPackage。  
   
- For more information about the core editor, see [Inside the Core Editor](../extensibility/inside-the-core-editor.md).  
+ 有关核心编辑器的详细信息，请参阅[内核心编辑器](../extensibility/inside-the-core-editor.md)。  
   
-## <a name="see-also"></a>See Also  
- [Inside the Core Editor](../extensibility/inside-the-core-editor.md)   
- [Instantiating the Core Editor By Using the Legacy API](../extensibility/instantiating-the-core-editor-by-using-the-legacy-api.md)
+## <a name="see-also"></a>另请参阅  
+ [在核心编辑器](../extensibility/inside-the-core-editor.md)   
+ [使用旧版 API 实例化核心编辑器](../extensibility/instantiating-the-core-editor-by-using-the-legacy-api.md)

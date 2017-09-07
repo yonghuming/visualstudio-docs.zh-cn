@@ -1,5 +1,5 @@
 ---
-title: Property Functions | Microsoft Docs
+title: "属性函数 | Microsoft Docs"
 ms.custom: 
 ms.date: 02/21/2017
 ms.reviewer: 
@@ -33,46 +33,46 @@ ms.translationtype: HT
 ms.sourcegitcommit: 9e6c28d42bec272c6fd6107b4baf0109ff29197e
 ms.openlocfilehash: 03b4eba806256f0bc6a37c6639a3a9cc44abd3ae
 ms.contentlocale: zh-cn
-ms.lasthandoff: 08/22/2017
+ms.lasthandoff: 09/06/2017
 
 ---
-# <a name="property-functions"></a>Property Functions
-In the .NET Framework versions 4 and 4.5, property functions can be used to evaluate MSBuild scripts. Property functions can be used wherever properties appear. Unlike tasks, property functions can be used outside of targets, and are evaluated before any target runs.  
+# <a name="property-functions"></a>属性函数
+在 .NET Framework 4 和 4.5 版中，可以使用属性函数来计算 MSBuild 脚本。 可以在出现属性的任何位置使用属性函数。 与任务不同，属性函数可在目标外部使用，并在任何目标运行之前进行计算。  
 
- Without using MSBuild tasks, you can read the system time, compare strings, match regular expressions, and perform other actions in your build script. MSBuild will try to convert string to number and number to string, and make other conversions as required.  
+ 可以在生成脚本中读取系统时间、比较字符串、匹配正则表达式及执行其他操作，而无需使用 MSBuild 任务。 MSBuild 将尝试将字符串转换为数字、将数字转换为字符串，并根据需要进行其他转换。  
 
-## <a name="property-function-syntax"></a>Property Function Syntax  
- These are three kinds of property functions; each function has a different syntax:  
+## <a name="property-function-syntax"></a>属性函数语法  
+ 下面列出了三种属性函数；每种函数都有不同的语法：  
 
--   String (instance) property functions  
+-   字符串（实例）属性函数  
 
--   Static property functions  
+-   静态属性函数  
 
--   MSBuild property functions  
+-   MSBuild 属性函数  
 
-### <a name="string-property-functions"></a>String Property Functions  
- All build property values are just string values. You can use string (instance) methods to operate on any property value. For example, you can extract the drive name (the first three characters) from a build property that represents a full path by using this code:  
+### <a name="string-property-functions"></a>字符串属性函数  
+ 所有生成属性值都只是字符串值。 可以使用字符串（实例）方法来操作任何属性值。 例如，可以使用以下代码，从表示完整路径的生成属性中提取驱动器名称（前三个字符）：  
 
  `$(ProjectOutputFolder.Substring(0,3))`  
 
-### <a name="static-property-functions"></a>Static Property Functions  
- In your build script, you can access the static properties and methods of many system classes. To get the value of a static property, use the following syntax, where *Class* is the name of the system class and *Property* is the name of the property.  
+### <a name="static-property-functions"></a>静态属性函数  
+ 在生成脚本中，可以访问许多系统类的静态属性和方法。 要获取静态属性的值，请使用以下语法，其中 *Class* 是系统类的名称，*Property* 是属性的名称。  
 
  `$([Class]::Property)`  
 
- For example, you can use the following code to set a build property to the current date and time.  
+ 例如，可以使用以下代码将生成属性设置为当前日期和时间。  
 
  `<Today>$([System.DateTime]::Now)</Today>`  
 
- To call a static method, use the following syntax, where *Class* is the name of the system class, *Method* is the name of the method, and *(Parameters)* is the parameter list for the method:  
+ 要调用静态方法，请使用以下语法，其中 *Class* 是系统类的名称，*Method* 是方法的名称，而 *(Parameters)* 是方法的参数列表：  
 
  `$([Class]::Method(Parameters))`  
 
- For example, to set a build property to a new GUID, you can use this script:  
+ 例如，要将生成属性设置为新的 GUID，可以使用以下脚本：  
 
  `<NewGuid>$([System.Guid]::NewGuid())</NewGuid>`  
 
- In static property functions, you can use any static method or property of these system classes:  
+ 在静态属性函数中，可以使用以下系统类的任何静态方法或属性：  
 
 -   System.Byte  
 
@@ -124,7 +124,7 @@ In the .NET Framework versions 4 and 4.5, property functions can be used to eval
 
 -   Microsoft.Build.Utilities.ToolLocationHelper  
 
- In addition, you can use the following static methods and properties:  
+ 此外，还可以使用以下静态方法和属性：  
 
 -   System.Environment::CommandLine  
 
@@ -160,113 +160,113 @@ In the .NET Framework versions 4 and 4.5, property functions can be used to eval
 
 -   System.IO.File::ReadAllText  
 
-### <a name="calling-instance-methods-on-static-properties"></a>Calling Instance Methods on Static Properties  
- If you access a static property that returns an object instance, you can invoke the instance methods of that object. To invoke an instance method, use the following syntax, where *Class* is the name of the system class, *Property* is the name of the property, *Method* is the name of the method, and *(Parameters)* is the parameter list for the method:  
+### <a name="calling-instance-methods-on-static-properties"></a>对静态属性调用实例方法  
+ 如果访问返回对象实例的静态属性，则可以调用该对象的实例方法。 要调用实例方法，请使用以下语法，其中 *Class* 是系统类的名称，*Property* 是属性的名称，*Method* 是方法的名称，而 *(Parameters)* 是方法的参数列表：  
 
  `$([Class]::Property.Method(Parameters))`  
 
- The name of the class must be fully qualified with the namespace.  
+ 类的名称必须用命名空间加以完全限定。  
 
- For example, you can use the following code to set a build property to the current date today.  
+ 例如，使用以下代码可以将生成属性设置为当天的日期：Today。  
 
  `<Today>$([System.DateTime]::Now.ToString("yyyy.MM.dd"))</Today>`  
 
-### <a name="msbuild-property-functions"></a>MSBuild Property Functions  
- Several static methods in your build can be accessed to provide arithmetic, bitwise logical, and escape character support. You access these methods by using the following syntax, where *Method* is the name of the method and *Parameters* is the parameter list for the method.  
+### <a name="msbuild-property-functions"></a>MSBuild 属性函数  
+ 可以访问生成中的许多静态方法，以提供算术、按位逻辑和转义字符支持。 可以使用以下语法访问这些方法，其中 *Method* 是方法的名称，*Parameters* 是方法的参数列表。  
 
  `$([MSBuild]::Method(Parameters))`  
 
- For example, to add together two properties that have numeric values, use the following code.  
+ 例如，要一起添加两个具有数字值的属性，请使用以下代码。  
 
  `$([MSBuild]::Add($(NumberOne), $(NumberTwo))`  
 
- Here is a list of MSBuild property functions:  
+ 下面列出了 MSBuild 属性函数：  
 
-|Function Signature|Description|  
+|函数签名|描述|  
 |------------------------|-----------------|  
-|double Add(double a, double b)|Add two doubles.|  
-|long Add(long a, long b)|Add two longs.|  
-|double Subtract(double a, double b)|Subtract two doubles.|  
-|long Subtract(long a, long b)|Subtract two longs.|  
-|double Multiply(double a, double b)|Multiply two doubles.|  
-|long Multiply(long a, long b)|Multiply two longs.|  
-|double Divide(double a, double b)|Divide two doubles.|  
-|long Divide(long a, long b)|Divide two longs.|  
-|double Modulo(double a, double b)|Modulo two doubles.|  
-|long Modulo(long a, long b)|Modulo two longs.|  
-|string Escape(string unescaped)|Escape the string according to MSBuild escaping rules.|  
-|string Unescape(string escaped)|Unescape the string according to MSBuild escaping rules.|  
-|int BitwiseOr(int first, int second)|Perform a bitwise `OR` on the first and second (first &#124; second).|  
-|int BitwiseAnd(int first, int second)|Perform a bitwise `AND` on the first and second (first & second).|  
-|int BitwiseXor(int first, int second)|Perform a bitwise `XOR` on the first and second (first ^ second).|  
-|int BitwiseNot(int first)|Perform a bitwise `NOT` (~first).|  
-|bool IsOsPlatform(string platformString)|Specify whether the current OS platform is `platformString`. `platformString` must be a member of <xref:System.Runtime.InteropServices.OSPlatform>.|
-|bool IsOSUnixLike|True if current OS is a Unix system.|
-|string NormalizePath(params string[] path)|Gets the canonicalized full path of the provided path and ensures it contains the correct directory separator characters for the current operating system.|
-|string NormalizeDirectory(params string[] path)|Gets the canonicalized full path of the provided directory and ensures it contains the correct directory separator characters for the current operating system while ensuring it has a trailing slash.|
-|string EnsureTrailingSlash(string path)|If the given path doesn't have a trailing slash then add one. If the path is an empty string, does not modify it.|
-|string GetPathOfFileAbove(string file, string startingDirectory)|Searches for a file based on the current build file's location, or based on `startingDirectory`, if specified.|
-|GetDirectoryNameOfFileAbove(string startingDirectory, string fileName)|Locate a file in either the directory specified or a location in the directory structure above that directory.|
-|string MakeRelative(string basePath, string path)|Makes `path` relative to `basePath`. `basePath` must be an absolute directory. If `path` cannot be made relative, it is returned verbatim. Similar to `Uri.MakeRelativeUri`.|
-|string ValueOrDefault(string conditionValue, string defaultValue)|Return the string in parameter 'defaultValue' only if parameter 'conditionValue' is empty, else, return the value conditionValue.|
+|double Add(双精度型值 a, 双精度型值 b)|将两个双精度型值相加。|  
+|long Add(长型值 a, 长型值 b)|将两个长型值相加。|  
+|double Subtract(双精度型值 a, 双精度型值 b)|将两个双精度型值相减。|  
+|long Subtract(长型值 a, 长型值 b)|将两个长型值相减。|  
+|double Multiply(双精度型值 a, 双精度型值 b)|将两个双精度型值相乘。|  
+|long Multiply(长型值 a, 长型值 b)|将两个长型值相乘。|  
+|double Divide(双精度型值 a, 双精度型值 b)|将两个双精度型值相除。|  
+|long Divide(长型值 a, 长型值 b)|将两个长型值相除。|  
+|double Modulo(双精度型值 a, 双精度型值 b)|对两个双精度型值取模。|  
+|long Modulo(长型值 a, 长型值 b)|对两个长型值取模。|  
+|string Escape(未转义字符串)|根据 MSBuild 转义规则对字符串进行转义。|  
+|string Unescape(已转义字符串)|根据 MSBuild 转义规则取消对字符串进行转义。|  
+|int BitwiseOr(第一个整型值, 第二个整型值)|对第一个值和第二个值执行按位 `OR`（第一个值 | 第二个值）。|  
+|int BitwiseAnd(第一个整型值, 第二个整型值)|对第一个值和第二个值执行按位 `AND`（第一个值 & 第二个值）。|  
+|int BitwiseXor(第一个整型值, 第二个整型值)|对第一个值和第二个值执行按位 `XOR`（第一个值 ^ 第二个值）。|  
+|int BitwiseNot(第一个整型值)|执行按位 `NOT`（~第一个值）。|  
+|bool IsOsPlatform(string platformString)|指定当前 OS 平台是否为 `platformString`。 `platformString` 必须属于 <xref:System.Runtime.InteropServices.OSPlatform>。|
+|bool IsOSUnixLike|如果当前 OS 是 Unix 系统，则为 True。|
+|string NormalizePath(params string[] path)|获取指定路径的规范化完整路径，并确保其包含当前操作系统的正确目录分隔符。|
+|string NormalizeDirectory(params string[] path)|获取指定目录的规范化完整路径，确保其包含当前操作系统的正确目录分隔符，并确保其具有尾部反斜杠。|
+|string EnsureTrailingSlash(string path)|如果给定路径没有尾部反斜杠，请添加一个。 如果路径为空字符串，请勿其进行修改。|
+|string GetPathOfFileAbove(string file, string startingDirectory)|根据当前生成文件的位置，或根据 `startingDirectory`（如果已指定）搜索文件。|
+|GetDirectoryNameOfFileAbove(string startingDirectory, string fileName)|在指定目录或该目录上级的目录结构位置中查找文件。|
+|string MakeRelative(string basePath, string path)|将 `path` 关联到 `basePath`。 `basePath` 必须是绝对目录。 如果无法关联 `path`，则会返回逐字字符串。 类似于 `Uri.MakeRelativeUri`。|
+|string ValueOrDefault(string conditionValue, string defaultValue)|仅当“conditionValue”为空时在参数“defaultValue”中返回字符串，否则返回值 conditionValue。|
 
-##  <a name="nested-property-functions"></a>Nested Property Functions  
- You can combine property functions to form more complex functions, as the following example shows.  
+##  <a name="nested-property-functions"></a>嵌套的属性函数  
+ 可将属性函数组合在一起，组成更复杂的函数，如下例所示。  
 
  `$([MSBuild]::BitwiseAnd(32, $([System.IO.File]::GetAttributes(tempFile))))`  
 
- This example returns the value of the <xref:System.IO.FileAttributes>`Archive` bit (32 or 0) of the file given by the path `tempFile`. Notice that enumerated data values cannot appear by name within property functions. The numeric value (32) must be used instead.  
+ 此示例返回由路径 <xref:System.IO.FileAttributes> 所指定文件的 `Archive``tempFile` 位（32 或 0）的值。 请注意，枚举的数据值不能以名称形式显示在属性函数内。 必须改用数字值 (32)。  
 
- Metadata may also appear in nested property functions. For more information, see [Batching](../msbuild/msbuild-batching.md).  
+ 元数据也可以出现在嵌套的属性函数中。 有关详细信息，请参阅[批处理](../msbuild/msbuild-batching.md)。  
 
 ##  <a name="msbuild-doestaskhostexist"></a>MSBuild DoesTaskHostExist  
- The `DoesTaskHostExist` property function in MSBuild returns whether a task host is currently installed for the specified runtime and architecture values.  
+ MSBuild 中的 `DoesTaskHostExist` 属性函数将返回当前是否针对特定运行时和体系结构值安装了任务宿主。  
 
- This property function has the following syntax:  
+ 此属性函数具有以下语法：  
 
 ```  
 $[MSBuild]::DoesTaskHostExist(string theRuntime, string theArchitecture)  
 ```  
 
 ##  <a name="msbuild-ensuretrailingslash"></a>MSBuild EnsureTrailingSlash  
- The `EnsureTrailingSlash` property function in MSBuild adds a trailing slash if one doesn't already exist.  
+ 如果尚不存在尾部反斜杠，MSBuild 中的 `EnsureTrailingSlash` 属性函数将添加一条。  
 
- This property function has the following syntax:  
+ 此属性函数具有以下语法：  
 
 ```  
 $([MSBuild]::EnsureTrailingSlash('$(PathProperty)')  
 ```  
 
 ##  <a name="msbuild-getdirectorynameoffileabove"></a>MSBuild GetDirectoryNameOfFileAbove  
- The MSBuild `GetDirectoryNameOfFileAbove` property function looks for a file in the directories above the current directory in the path.  
+ MSBuild `GetDirectoryNameOfFileAbove` 属性函数在路径中当前目录的上级目录中查找文件。  
 
- This property function has the following syntax:  
+ 此属性函数具有以下语法：  
 
 ```  
 $[MSBuild]::GetDirectoryNameOfFileAbove(string ThePath, string TheFile)  
 ```  
 
- The following code is an example of this syntax.  
+ 下面的代码是此语法的示例。  
 
 ```xml  
 <Import Project="$([MSBuild]::GetDirectoryNameOfFileAbove($(MSBuildThisFileDirectory), EnlistmentInfo.props))\EnlistmentInfo.props" Condition=" '$([MSBuild]::GetDirectoryNameOfFileAbove($(MSBuildThisFileDirectory), EnlistmentInfo.props))' != '' " />  
 ```  
 
 ##  <a name="msbuild-getpathoffileabove"></a>MSBuild GetPathOfFileAbove  
- The `GetPathOfFileAbove` property function in MSBuild returns the path of the file immediately preceding this one. It is functionally equivalent to calling
+ MSBuild 中的 `GetPathOfFileAbove` 属性函数将返回此文件前紧邻的文件的路径。 它在功能上等效于调用
 
  ```<Import Project="$([MSBuild]::GetDirectoryNameOfFileAbove($(MSBuildThisFileDirectory), dir.props))\dir.props" />```
 
- This property function has the following syntax:  
+ 此属性函数具有以下语法：  
 
 ```  
 $([MSBuild]::GetPathOfFileAbove(dir.props)  
 ```  
 
 ##  <a name="msbuild-getregistryvalue"></a>MSBuild GetRegistryValue  
- The MSBuild `GetRegistryValue` property function returns the value of a registry key. This function takes two arguments, the key name and the value name, and returns the value from the registry. If you don't specify a value name, the default value is returned.  
+ MSBuild `GetRegistryValue` 属性函数返回注册表项的值。 此函数采用两个参数（项名称和值名称），并从注册表中返回值。 如果未指定值名称，则返回默认值。  
 
- The following examples show how this function is used:  
+ 下面的示例演示如何使用此函数：  
 
 ```  
 $([MSBuild]::GetRegistryValue(`HKEY_CURRENT_USER\Software\Microsoft\VisualStudio\10.0\Debugger`, ``))                                  // default value  
@@ -276,40 +276,40 @@ $([MSBuild]::GetRegistryValue(`HKEY_LOCAL_MACHINE\SOFTWARE\(SampleName)`, `(Samp
 ```  
 
 ##  <a name="msbuild-getregistryvaluefromview"></a>MSBuild GetRegistryValueFromView  
- The MSBuild `GetRegistryValueFromView` property function gets system registry data given the registry key, value, and one or more ordered registry views. The key and value are searched in each registry view in order until they are found.  
+ MSBuild `GetRegistryValueFromView` 属性函数在给定了注册表项、值以及一个或多个经过排序的注册表视图的情况下，获取系统注册表数据。 该属性函数将按顺序在每个注册表视图中搜索注册表项和值，直至找到它们。  
 
- The syntax for this property function is:  
+ 该属性函数的语法是：  
 
  [MSBuild\]::GetRegistryValueFromView(string keyName, string valueName, object defaultValue, params object[] views)  
 
- The Windows 64-bit operating system maintains a HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node registry key that presents a HKEY_LOCAL_MACHINE\SOFTWARE registry view for 32-bit applications.  
+ Windows 64 位操作系统维护一个 HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node 注册表项，它表示 32 位应用程序的 HKEY_LOCAL_MACHINE\SOFTWARE 注册表视图。  
 
- By default, a 32-bit application running on WOW64 accesses the 32-bit registry view and a 64-bit application accesses the 64-bit registry view.  
+ 默认情况下，在 WOW64 上运行的 32 位应用程序将访问 32 位注册表视图，而 64 位应用程序将访问 64 位注册表视图。  
 
- The following registry views are available:  
+ 以下这些注册表视图是可用的：  
 
-|Registry View|Definition|  
+|注册表视图|定义|  
 |-------------------|----------------|  
-|RegistryView.Registry32|The 32-bit application registry view.|  
-|RegistryView.Registry64|The 64-bit application registry view.|  
-|RegistryView.Default|The registry view that matches the process that the application is running on.|  
+|RegistryView.Registry32|32 位应用程序注册表视图。|  
+|RegistryView.Registry64|64 位应用程序注册表视图。|  
+|RegistryView.Default|与应用程序正在其中运行的进程匹配的注册表视图。|  
 
- The following is an example.  
+ 下面是一个示例。  
 
  `$([MSBuild]::GetRegistryValueFromView('HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft SDKs\Silverlight\v3.0\ReferenceAssemblies', 'SLRuntimeInstallPath', null, RegistryView.Registry64, RegistryView.Registry32))`  
 
- gets the SLRuntimeInstallPath data of the ReferenceAssemblies key, looking first in the 64-bit registry view and then in the 32-bit registry view.  
+ 首先在 64 位注册表视图中查找，然后在 32 位注册表视图中查找，以获取 ReferenceAssemblies 项的 SLRuntimeInstallPath 数据。  
 
 ##  <a name="msbuild-makerelative"></a>MSBuild MakeRelative  
- The MSBuild `MakeRelative` property function returns the relative path of the second path relative to first path. Each path can be a file or folder.  
+ MSBuild `MakeRelative` 属性函数将返回第二条路径的相对路径（相对于第一条路径）。 每条路径可以是文件或文件夹。  
 
- This property function has the following syntax:  
+ 此属性函数具有以下语法：  
 
 ```  
 $[MSBuild]::MakeRelative($(FileOrFolderPath1), $(FileOrFolderPath2))  
 ```  
 
- The following code is an example of this syntax.  
+ 下面的代码是此语法的示例。  
 
 ```xml  
 <PropertyGroup>  
@@ -330,9 +330,9 @@ Output:
 ```  
 
 ##  <a name="msbuild-valueordefault"></a>MSBuild ValueOrDefault  
- The MSBuild `ValueOrDefault` property function returns the first argument, unless it's null or empty. If the first argument is null or empty, the function returns the second argument.  
+ MSBuild `ValueOrDefault` 属性函数将返回第一个参数，除非它为 null 或空。 如果第一个参数为 null 或空，则该函数将返回第二个参数。  
 
- The following example shows how this function is used.  
+ 下面的示例演示如何使用此函数。  
 
 ```xml  
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">  
@@ -355,7 +355,7 @@ Output:
 -->  
 ```
 
-## <a name="see-also"></a>See Also
-[MSBuild Properties](../msbuild/msbuild-properties.md)   
-[MSBuild Overview](../msbuild/msbuild.md)
+## <a name="see-also"></a>另请参阅
+[MSBuild 属性](../msbuild/msbuild-properties.md)   
+[MSBuild 概述](../msbuild/msbuild.md)
 

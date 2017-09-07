@@ -1,5 +1,5 @@
 ---
-title: Introduction to WPF | Microsoft Docs
+title: "WPF 介绍 | Microsoft Docs"
 ms.custom: 
 ms.date: 11/04/2016
 ms.reviewer: 
@@ -32,38 +32,38 @@ ms.translationtype: HT
 ms.sourcegitcommit: eb5c9550fd29b0e98bf63a7240737da4f13f3249
 ms.openlocfilehash: 3d56a56e4008cecd9fa506ba76425a75618b6a28
 ms.contentlocale: zh-cn
-ms.lasthandoff: 08/30/2017
+ms.lasthandoff: 09/06/2017
 
 ---
-# <a name="introduction-to-wpf"></a>Introduction to WPF
-Windows Presentation Foundation (WPF) lets you create desktop client applications for Windows with visually stunning user experiences.  
+# <a name="introduction-to-wpf"></a>WPF 介绍
+使用 Windows Presentation Foundation (WPF)，你可以创建适用于 Windows 且具有非凡视觉效果的桌面客户端应用程序。  
   
- ![Contoso Healthcare UI sample](../designers/media/wpfintrofigure24.png "WPFIntroFigure24")  
+ ![Contoso Healthcare UI 示例](../designers/media/wpfintrofigure24.png "WPFIntroFigure24")  
   
- The core of WPF is a resolution-independent and vector-based rendering engine that is built to take advantage of modern graphics hardware. WPF extends the core with a comprehensive set of application-development features that include Extensible Application Markup Language (XAML), controls, data binding, layout, 2-D and 3-D graphics, animation, styles, templates, documents, media, text, and typography. WPF is included in the .NET Framework, so you can build applications that incorporate other elements of the .NET Framework class library.  
+ WPF 的核心是一个与分辨率无关且基于矢量的呈现引擎，旨在充分利用现代图形硬件。 WPF 通过一套完善的应用程序开发功能对该核心进行了扩展，这些功能包括可扩展应用程序标记语言 (XAML)、控件、数据绑定、布局、二维和三维图形、动画、样式、模板、文档、媒体、文本和版式。 WPF 包含在 .NET Framework 中，因此你可以生成整合其他 .NET Framework 类库元素的应用程序。  
   
- This overview is intended for newcomers and covers the key capabilities and concepts of WPF.  
+ 本概述适用于新用户，介绍了 WPF 的主要功能和概念。  
   
-##  <a name="Programming_with_WPF"></a> Programming with WPF  
- WPF exists as a subset of .NET Framework types that are for the most part located in the <xref:System.Windows> namespace. If you have previously built applications with .NET Framework using managed technologies like ASP.NET and Windows Forms, the fundamental WPF programming experience should be familiar; you instantiate classes, set properties, call methods, and handle events, all using your favorite .NET programming language, such as C# or Visual Basic.  
+##  <a name="Programming_with_WPF"></a> 使用 WPF 进行编程  
+ WPF 作为大部分位于 <xref:System.Windows> 命名空间中的 .NET Framework 类型的一个子集存在。 如果你之前使用托管技术（如 ASP.NET 和 Windows 窗体）通过 .NET Framework 生成过应用程序，则不会对基本的 WPF 编程体验感到陌生；你可以使用最喜欢的 .NET 编程语言（如 C# 或 Visual Basic）来完成实例化类、设置属性、调用方法以及处理事件等所有操作。  
   
- WPF includes additional programming constructs that enhance properties and events: [dependency properties](https://msdn.microsoft.com/en-us/library/ms752914\(v=vs.100\).aspx) and [routed events](https://msdn.microsoft.com/en-us/library/ms742806\(v=vs.100\).aspx).  
+ WPF 还包括增强属性和事件的其他编程构造： [依赖项属性](https://msdn.microsoft.com/en-us/library/ms752914\(v=vs.100\).aspx) 和 [路由事件](https://msdn.microsoft.com/en-us/library/ms742806\(v=vs.100\).aspx)。  
   
-##  <a name="Markup_And_Codebehind"></a> Markup and Code-Behind  
- WPF lets you develop an application using both *markup* and *code-behind*, an experience that ASP.NET developers should be familiar with. You generally use XAML markup to implement the appearance of an application while using managed programming languages (code-behind) to implement its behavior. This separation of appearance and behavior has the following benefits:  
+##  <a name="Markup_And_Codebehind"></a> 标记和代码隐藏  
+ 通过 WPF，你可以使用 *标记* 和 *代码隐藏*开发应用程序，这是 ASP.NET 开发人员已经熟悉的体验。 通常使用 XAML 标记实现应用程序的外观，同时使用托管编程语言（代码隐藏）来实现其行为。 这种外观和行为的分离具有以下优点：  
   
--   Development and maintenance costs are reduced because appearance-specific markup is not tightly coupled with behavior-specific code.  
+-   降低了开发和维护成本，因为特定于外观的标记与特定于行为的代码不紧密耦合。  
   
--   Development is more efficient because designers can implement an application's appearance simultaneously with developers who are implementing the application's behavior.  
+-   开发效率更高，因为设计人员在实现应用程序外观的同时，开发人员可以实现应用程序的行为。  
   
--   [Globalization and localization](https://msdn.microsoft.com/en-us/library/ms788718\(v=vs.100\).aspx) for WPF applications is simplified.  
+-   WPF 应用程序的[全球化和本地化](https://msdn.microsoft.com/en-us/library/ms788718\(v=vs.100\).aspx) 得以简化。  
   
- The following is a brief introduction to WPF markup and code-behind.  
+ 以下是 WPF 标记和代码隐藏的简介。  
   
-### <a name="markup"></a>Markup  
- XAML is an XML-based markup language that is used to implement an application's appearance declaratively. It is typically used to create windows, dialog boxes, pages, and user controls, and to fill them with controls, shapes, and graphics.  
+### <a name="markup"></a>标记  
+ XAML 是一种基于 XML 的标记语言，用于以声明形式实现应用程序的外观。 它通常用于创建窗口、对话框、页和用户控件，并填充控件、形状和图形。  
   
- The following example uses XAML to implement the appearance of a window that contains a single button.  
+ 下面的示例使用 XAML 来实现包含一个按钮的窗口的外观。  
   
 ```xaml  
 <Window  
@@ -77,16 +77,16 @@ Windows Presentation Foundation (WPF) lets you create desktop client application
 </Window>  
 ```  
   
- Specifically, this XAML defines a window and a button by using the `Window` and `Button` elements, respectively. Each element is configured with attributes, such as the `Window` element's `Title` attribute to specify the window's title-bar text. At run time, WPF converts the elements and attributes that are defined in markup to instances of WPF classes. For example, the `Window` element is converted to an instance of the <xref:System.Windows.Window> class whose <xref:System.Windows.Window.Title%2A> property is the value of the `Title` attribute.  
+ 具体而言，此 XAML 通过分别使用 `Window` 和 `Button` 元素来定义窗口和按钮。 每个元素均配置了特性（如 `Window` 元素的 `Title` 特性）来指定窗口的标题栏文本。 在运行时，WPF 会将标记中定义的元素和特性转换为 WPF 类的实例。 例如， `Window` 元素被转换为 <xref:System.Windows.Window> 类的实例，该类的 <xref:System.Windows.Window.Title%2A> 属性是 `Title` 特性的值。  
   
- The following figure shows the user interface (UI) that is defined by the XAML in the previous example.  
+ 下图显示上一个示例中的 XAML 定义的用户界面 (UI)。  
   
- ![A window that contains a button](../designers/media/wpfintrofigure10.png "WPFIntroFigure10")  
+ ![包含按钮的窗口](../designers/media/wpfintrofigure10.png "WPFIntroFigure10")  
   
- Since XAML is XML-based, the UI that you compose with it is assembled in a hierarchy of nested elements known as an [element tree](https://msdn.microsoft.com/en-us/library/ms753391\(v=vs.100\).aspx). The element tree provides a logical and intuitive way to create and manage UIs.  
+ 由于 XAML 是基于 XML 的，因此使用它编写的 UI 汇集在嵌套元素的层次结构中，称为 [元素树](https://msdn.microsoft.com/en-us/library/ms753391\(v=vs.100\).aspx)。 元素树提供了一种直观的逻辑方式来创建和管理 UI。  
   
-### <a name="code-behind"></a>Code-Behind  
- The main behavior of an application is to implement the functionality that responds to user interactions, including handling events (for example, clicking a menu, tool bar, or button) and calling business logic and data access logic in response. In WPF, this behavior is generally implemented in code that is associated with markup. This type of code is known as code-behind. The following example shows the updated markup from the previous example and the code-behind.  
+### <a name="code-behind"></a>代码隐藏  
+ 应用程序的主要行为是实现响应用户交互的功能，包括处理事件（例如，单击菜单、工具栏或按钮）以及相应地调用业务逻辑和数据访问逻辑。 在 WPF 中，通常在与标记相关联的代码中实现此行为。 此类代码称为代码隐藏。 下面的示例演示上一个示例的更新标记和代码隐藏。  
   
 ```xaml  
 <Window  
@@ -154,99 +154,99 @@ End Namespace
   
 ```  
   
- In this example, the code-behind implements a class that derives from the <xref:System.Windows.Window> class. The `x:Class` attribute is used to associate the markup with the code-behind class. `InitializeComponent` is called from the code-behind class's constructor to merge the UI that is defined in markup with the code-behind class. (`InitializeComponent` is generated for you when your application is built, which is why you don't need to implement it manually.) The combination of `x:Class` and `InitializeComponent` ensure that your implementation is correctly initialized whenever it is created. The code-behind class also implements an event handler for the button's <xref:System.Windows.Controls.Primitives.ButtonBase.Click> event. When the button is clicked, the event handler shows a message box by calling the <xref:System.Windows.MessageBox.Show%2A?displayProperty=fullName> method.  
+ 在此示例中，代码隐藏实现派生自 <xref:System.Windows.Window> 类的类。 `x:Class` 特性用于将标记与代码隐藏类相关联。 从代码隐藏类的构造函数调用 `InitializeComponent`，以将标记中定义的 UI 与代码隐藏类合并在一起。 （生成应用程序时将为你生成 `InitializeComponent`，因此你无需手动实现它。）`x:Class` 和 `InitializeComponent` 的组合可确保你的实现无论在何时创建都会得到正确初始化。 代码隐藏类还可实现按钮的 <xref:System.Windows.Controls.Primitives.ButtonBase.Click> 事件的事件处理程序。 单击该按钮后，事件处理程序会通过调用 <xref:System.Windows.MessageBox.Show%2A?displayProperty=fullName> 方法显示一个消息框。  
   
- The following figure shows the result when the button is clicked.  
+ 下图显示单击该按钮后的结果。  
   
- ![A MessageBox](../designers/media/wpfintrofigure25.png "WPFIntroFigure25")  
+ ![消息框](../designers/media/wpfintrofigure25.png "WPFIntroFigure25")  
   
-##  <a name="Controls"></a> Controls  
- The user experiences that are delivered by the application model are constructed controls. In WPF, "control" is an umbrella term that applies to a category of WPF classes that are hosted in either a window or a page, have a user interface, and implement some behavior.  
+##  <a name="Controls"></a> 控件  
+ 应用程序模型带来的用户体验是构造的控件。 在 WPF 中，“控件”是适用于 WPF 类这一类别的总括术语，这些类托管在窗口或页中、具有用户界面并实现一些行为。  
   
- For more information, see [Controls](/dotnet/framework/wpf/controls/index).  
+ 有关详细信息，请参阅 [控件](/dotnet/framework/wpf/controls/index)。  
   
-### <a name="wpf-controls-by-function"></a>WPF Controls by Function  
- The built-in WPF controls are listed here.  
+### <a name="wpf-controls-by-function"></a>按功能分类的 WPF 控件  
+ 下面列出了内置的 WPF 控件。  
   
--   **Buttons**: <xref:System.Windows.Controls.Button> and <xref:System.Windows.Controls.Primitives.RepeatButton>.  
+-   **按钮**： <xref:System.Windows.Controls.Button> 和 <xref:System.Windows.Controls.Primitives.RepeatButton>。  
   
--   **Data Display**: <xref:System.Windows.Controls.DataGrid>, <xref:System.Windows.Controls.ListView>,and <xref:System.Windows.Controls.TreeView>.  
+-   **数据显示**： <xref:System.Windows.Controls.DataGrid>、 <xref:System.Windows.Controls.ListView>和 <xref:System.Windows.Controls.TreeView>。  
   
--   **Date Display and Selection**: <xref:System.Windows.Controls.Calendar> and <xref:System.Windows.Controls.DatePicker>.  
+-   **日期显示和选项**： <xref:System.Windows.Controls.Calendar> 和 <xref:System.Windows.Controls.DatePicker>。  
   
--   **Dialog Boxes**: <xref:Microsoft.Win32.OpenFileDialog>, <xref:System.Windows.Controls.PrintDialog>, and <xref:Microsoft.Win32.SaveFileDialog>.  
+-   **对话框**： <xref:Microsoft.Win32.OpenFileDialog>、 <xref:System.Windows.Controls.PrintDialog>和 <xref:Microsoft.Win32.SaveFileDialog>。  
   
--   **Digital Ink**: <xref:System.Windows.Controls.InkCanvas> and <xref:System.Windows.Controls.InkPresenter>.  
+-   **数字墨迹**： <xref:System.Windows.Controls.InkCanvas> 和 <xref:System.Windows.Controls.InkPresenter>。  
   
--   **Documents**: <xref:System.Windows.Controls.DocumentViewer>, <xref:System.Windows.Controls.FlowDocumentPageViewer>, <xref:System.Windows.Controls.FlowDocumentReader>, <xref:System.Windows.Controls.FlowDocumentScrollViewer>, and <xref:System.Windows.Controls.StickyNoteControl>.  
+-   **文档**： <xref:System.Windows.Controls.DocumentViewer>、 <xref:System.Windows.Controls.FlowDocumentPageViewer>、 <xref:System.Windows.Controls.FlowDocumentReader>、 <xref:System.Windows.Controls.FlowDocumentScrollViewer>和 <xref:System.Windows.Controls.StickyNoteControl>。  
   
--   **Input**: <xref:System.Windows.Controls.TextBox>, <xref:System.Windows.Controls.RichTextBox>, and <xref:System.Windows.Controls.PasswordBox>.  
+-   **输入**： <xref:System.Windows.Controls.TextBox>、 <xref:System.Windows.Controls.RichTextBox>和 <xref:System.Windows.Controls.PasswordBox>。  
   
--   **Layout**: <xref:System.Windows.Controls.Border>, <xref:System.Windows.Controls.Primitives.BulletDecorator>, <xref:System.Windows.Controls.Canvas>, <xref:System.Windows.Controls.DockPanel>, <xref:System.Windows.Controls.Expander>, <xref:System.Windows.Controls.Grid>, <xref:System.Windows.Controls.GridView>, <xref:System.Windows.Controls.GridSplitter>, <xref:System.Windows.Controls.GroupBox>, <xref:System.Windows.Controls.Panel>, <xref:System.Windows.Controls.Primitives.ResizeGrip>, <xref:System.Windows.Controls.Separator>, <xref:System.Windows.Controls.Primitives.ScrollBar>, <xref:System.Windows.Controls.ScrollViewer>, <xref:System.Windows.Controls.StackPanel>, <xref:System.Windows.Controls.Primitives.Thumb>, <xref:System.Windows.Controls.Viewbox>, <xref:System.Windows.Controls.VirtualizingStackPanel>, <xref:System.Windows.Window>, and <xref:System.Windows.Controls.WrapPanel>.  
+-   **布局**： <xref:System.Windows.Controls.Border>、 <xref:System.Windows.Controls.Primitives.BulletDecorator>、 <xref:System.Windows.Controls.Canvas>、 <xref:System.Windows.Controls.DockPanel>、 <xref:System.Windows.Controls.Expander>、 <xref:System.Windows.Controls.Grid>、 <xref:System.Windows.Controls.GridView>、 <xref:System.Windows.Controls.GridSplitter>、 <xref:System.Windows.Controls.GroupBox>、 <xref:System.Windows.Controls.Panel>、 <xref:System.Windows.Controls.Primitives.ResizeGrip>、 <xref:System.Windows.Controls.Separator>、 <xref:System.Windows.Controls.Primitives.ScrollBar>、 <xref:System.Windows.Controls.ScrollViewer>、 <xref:System.Windows.Controls.StackPanel>、 <xref:System.Windows.Controls.Primitives.Thumb>、 <xref:System.Windows.Controls.Viewbox>、 <xref:System.Windows.Controls.VirtualizingStackPanel>、 <xref:System.Windows.Window>和 <xref:System.Windows.Controls.WrapPanel>。  
   
--   **Media**: <xref:System.Windows.Controls.Image>, <xref:System.Windows.Controls.MediaElement>, and <xref:System.Windows.Controls.SoundPlayerAction>.  
+-   **媒体**： <xref:System.Windows.Controls.Image>、 <xref:System.Windows.Controls.MediaElement>和 <xref:System.Windows.Controls.SoundPlayerAction>。  
   
--   **Menus**: <xref:System.Windows.Controls.ContextMenu>, <xref:System.Windows.Controls.Menu>, and <xref:System.Windows.Controls.ToolBar>.  
+-   **菜单**： <xref:System.Windows.Controls.ContextMenu>、 <xref:System.Windows.Controls.Menu>和 <xref:System.Windows.Controls.ToolBar>。  
   
--   **Navigation**: <xref:System.Windows.Controls.Frame>, <xref:System.Windows.Documents.Hyperlink>, <xref:System.Windows.Controls.Page>, <xref:System.Windows.Navigation.NavigationWindow>, and <xref:System.Windows.Controls.TabControl>.  
+-   **导航**： <xref:System.Windows.Controls.Frame>、 <xref:System.Windows.Documents.Hyperlink>、 <xref:System.Windows.Controls.Page>、 <xref:System.Windows.Navigation.NavigationWindow>和 <xref:System.Windows.Controls.TabControl>。  
   
--   **Selection**: <xref:System.Windows.Controls.CheckBox>, <xref:System.Windows.Controls.ComboBox>, <xref:System.Windows.Controls.ListBox>, <xref:System.Windows.Controls.RadioButton>, and <xref:System.Windows.Controls.Slider>.  
+-   **选项**： <xref:System.Windows.Controls.CheckBox>、 <xref:System.Windows.Controls.ComboBox>、 <xref:System.Windows.Controls.ListBox>、 <xref:System.Windows.Controls.RadioButton>和 <xref:System.Windows.Controls.Slider>。  
   
--   **User Information**: <xref:System.Windows.Controls.AccessText>, <xref:System.Windows.Controls.Label>, <xref:System.Windows.Controls.Primitives.Popup>, <xref:System.Windows.Controls.ProgressBar>, <xref:System.Windows.Controls.Primitives.StatusBar>, <xref:System.Windows.Controls.TextBlock>, and <xref:System.Windows.Controls.ToolTip>.  
+-   **用户信息**： <xref:System.Windows.Controls.AccessText>、 <xref:System.Windows.Controls.Label>、 <xref:System.Windows.Controls.Primitives.Popup>、 <xref:System.Windows.Controls.ProgressBar>、 <xref:System.Windows.Controls.Primitives.StatusBar>、 <xref:System.Windows.Controls.TextBlock>和 <xref:System.Windows.Controls.ToolTip>。  
   
-##  <a name="Input_And_Commanding"></a> Input and Commanding  
- Controls most often detect and respond to user input. The [WPF input system](https://msdn.microsoft.com/en-us/library/ms754010\(v=vs.100\).aspx) uses both direct and routed events to support text input, focus management, and mouse positioning.  
+##  <a name="Input_And_Commanding"></a> 输入和命令  
+ 最常检测和响应用户输入的控件。 [WPF 输入系统](https://msdn.microsoft.com/en-us/library/ms754010\(v=vs.100\).aspx) 使用直接事件和路由事件来支持文本输入、焦点管理和鼠标定位。  
   
- Applications often have complex input requirements. WPF provides a [command system](https://msdn.microsoft.com/en-us/library/ms752308\(v=vs.100\).aspx) that separates user input actions from the code that responds to those actions.  
+ 应用程序通常具有复杂的输入要求。 WPF 提供了 [命令系统](https://msdn.microsoft.com/en-us/library/ms752308\(v=vs.100\).aspx) ，用于将用户输入操作与对这些操作做出响应的代码分隔开来。  
   
-##  <a name="Layout"></a> Layout  
- When you create a user interface, you arrange your controls by location and size to form a layout. A key requirement of any layout is to adapt to changes in window size and display settings. Rather than forcing you to write the code to adapt a layout in these circumstances, WPF provides a first-class, extensible layout system for you.  
+##  <a name="Layout"></a> 布局  
+ 创建用户界面时，按照位置和大小排列控件以形成布局。 任何布局的一项关键要求都是适应窗口大小和显示设置的变化。 WPF 为你提供一流的可扩展布局系统，而不强制你编写代码以适应这些情况下的布局。  
   
- The cornerstone of the layout system is relative positioning, which increases the ability to adapt to changing window and display conditions. In addition, the layout system manages the negotiation between controls to determine the layout. The negotiation is a two-step process: first, a control tells its parent what location and size it requires; second, the parent tells the control what space it can have.  
+ 布局系统的基础是相对定位，这提高了适应不断变化的窗口和显示条件的能力。 此外，该布局系统还可管理控件之间的协商以确定布局。 协商是一个两步过程：首先，控件将需要的位置和大小告知父级；其次，父级将控件可以有的空间告知控件。  
   
- The layout system is exposed to child controls through base WPF classes. For common layouts such as grids, stacking, and docking, WPF includes several layout controls:  
+ 该布局系统通过基 WPF 类公开给子控件。 对于通用的布局（如网格、堆叠和停靠），WPF 包括若干布局控件：  
   
--   <xref:System.Windows.Controls.Canvas>: Child controls provide their own layout.  
+-   <xref:System.Windows.Controls.Canvas>：子控件提供其自己的布局。  
   
--   <xref:System.Windows.Controls.DockPanel>: Child controls are aligned to the edges of the panel.  
+-   <xref:System.Windows.Controls.DockPanel>：子控件与面板的边缘对齐。  
   
--   <xref:System.Windows.Controls.Grid>: Child controls are positioned by rows and columns.  
+-   <xref:System.Windows.Controls.Grid>：子控件由行和列定位。  
   
--   <xref:System.Windows.Controls.StackPanel>: Child controls are stacked either vertically or horizontally.  
+-   <xref:System.Windows.Controls.StackPanel>：子控件垂直或水平堆叠。  
   
--   <xref:System.Windows.Controls.VirtualizingStackPanel>: Child controls are virtualized and arranged on a single line that is either horizontally or vertically oriented.  
+-   <xref:System.Windows.Controls.VirtualizingStackPanel>：子控件在水平或垂直的行上虚拟化并排列。  
   
--   <xref:System.Windows.Controls.WrapPanel>: Child controls are positioned in left-to-right order and wrapped to the next line when there are more controls on the current line than space allows.  
+-   <xref:System.Windows.Controls.WrapPanel>：子控件按从左到右的顺序定位，在当前行上的控件超出允许的空间时，换行到下一行。  
   
- The following example uses a <xref:System.Windows.Controls.DockPanel> to lay out several <xref:System.Windows.Controls.TextBox> controls.  
+ 下面的示例使用 <xref:System.Windows.Controls.DockPanel> 布置几个 <xref:System.Windows.Controls.TextBox> 控件。  
   
  [!code-xml[IntroToWPFSnippets#LayoutMARKUP](../designers/codesnippet/Xaml/introduction-to-wpf_1.xaml)]  
   
- The <xref:System.Windows.Controls.DockPanel> allows the child <xref:System.Windows.Controls.TextBox> controls to tell it how to arrange them. To do this, the <xref:System.Windows.Controls.DockPanel> implements a <xref:System.Windows.Controls.DockPanel.Dock%2A> property that is exposed to the child controls to allow each of them to specify a dock style.  
+ <xref:System.Windows.Controls.DockPanel> 允许子 <xref:System.Windows.Controls.TextBox> 控件，以告诉它如何排列这些控件。 为了完成此操作， <xref:System.Windows.Controls.DockPanel> 实现 <xref:System.Windows.Controls.DockPanel.Dock%2A> 属性，该属性公开给子控件，以允许每个子控件指定停靠样式。  
   
 > [!NOTE]
->  A property that is implemented by a parent control for use by child controls is a WPF construct called an [attached property](https://msdn.microsoft.com/en-us/library/ms749011\(v=vs.100\).aspx).  
+>  由父控件实现以便子控件使用的属性是 WPF 构造，称为 [附加属性](https://msdn.microsoft.com/en-us/library/ms749011\(v=vs.100\).aspx)。  
   
- The following figure shows the result of the XAML markup in the preceding example.  
+ 下图显示上一个示例中的 XAML 标记的结果。  
   
- ![DockPanel page](../designers/media/wpfintrofigure11.png "WPFIntroFigure11")  
+ ![DockPanel 页](../designers/media/wpfintrofigure11.png "WPFIntroFigure11")  
   
-##  <a name="Data_Binding"></a> Data Binding  
- Most applications are created to provide users with the means to view and edit data. For WPF applications, the work of storing and accessing data is already provided for by technologies such as SQL Server and ADO .NET. After the data is accessed and loaded into an application's managed objects, the hard work for WPF applications begins. Essentially, this involves two things:  
+##  <a name="Data_Binding"></a> 数据绑定  
+ 大多数应用程序旨在为用户提供查看和编辑数据的方法。 对于 WPF 应用程序，已对存储和访问数据的工作提供技术（如 SQL Server 和 ADO.NET）。 访问数据并将数据加载到应用程序的托管对象后，WPF 应用程序的复杂工作开始。 从根本上来说，这涉及到两件事：  
   
-1.  Copying the data from the managed objects into controls, where the data can be displayed and edited.  
+1.  将数据从托管对象复制到控件，在控件中可以显示和编辑数据。  
   
-2.  Ensuring that changes made to data by using controls are copied back to the managed objects.  
+2.  确保使用控件对数据所做的更改将复制回托管对象。  
   
- To simplify application development, WPF provides a data binding engine to automatically perform these steps. The core unit of the data binding engine is the <xref:System.Windows.Data.Binding> class, whose job is to bind a control (the binding target) to a data object (the binding source). This relationship is illustrated by the following figure.  
+ 为了简化应用程序开发，WPF 提供了一个数据绑定引擎来自动执行这些步骤。 数据绑定引擎的核心单元是 <xref:System.Windows.Data.Binding> 类，其工作是将控件（绑定目标）绑定到数据对象（绑定源）。 下图阐释了这种关系。  
   
- ![Basic data binding diagram](../designers/media/databindingmostbasic.png "DataBindingMostBasic")  
+ ![基本数据绑定示意图](../designers/media/databindingmostbasic.png "DataBindingMostBasic")  
   
- The following example demonstrates how to bind a <xref:System.Windows.Controls.TextBox> to an instance of a custom `Person` object. The `Person` implementation is shown in the following code.  
+ 下面的示例演示如何将 <xref:System.Windows.Controls.TextBox> 绑定到自定义 `Person` 对象的实例。 下面的代码演示了 `Person` 实现。  
   
  [!code-vb[SimpleDataBindingSnippets#PersonClassCODE](../designers/codesnippet/VisualBasic/introduction-to-wpf_2.vb)] [!code-csharp[SimpleDataBindingSnippets#PersonClassCODE](../designers/codesnippet/CSharp/introduction-to-wpf_2.cs)]  
   
- The following markup binds the <xref:System.Windows.Controls.TextBox> to an instance of a custom `Person` object.  
+ 下面的标记将 <xref:System.Windows.Controls.TextBox> 绑定到自定义 `Person` 对象的实例。  
   
  [!code-xml[SimpleDataBindingSnippets#DataBindingMARKUP1](../designers/codesnippet/Xaml/introduction-to-wpf_3.xaml)]  
 [!code-xml[SimpleDataBindingSnippets#DataBindingMARKUP2](../designers/codesnippet/Xaml/introduction-to-wpf_4.xaml)]  
@@ -254,277 +254,277 @@ End Namespace
   
  [!code-vb[SimpleDataBindingSnippets#DataBindingCODEBEHIND](../designers/codesnippet/VisualBasic/introduction-to-wpf_6.vb)] [!code-csharp[SimpleDataBindingSnippets#DataBindingCODEBEHIND](../designers/codesnippet/CSharp/introduction-to-wpf_6.cs)]  
   
- In this example, the `Person` class is instantiated in code-behind and is set as the data context for the `DataBindingWindow`. In markup, the <xref:System.Windows.Controls.TextBox.Text%2A> property of the <xref:System.Windows.Controls.TextBox> is bound to the `Person.Name` property (using the "`{Binding ... }`" XAML syntax). This XAML tells WPF to bind the <xref:System.Windows.Controls.TextBox> control to the `Person` object that is stored in the <xref:System.Windows.FrameworkElement.DataContext%2A> property of the window.  
+ 在此示例中， `Person` 类在代码隐藏中实例化并被设置为 `DataBindingWindow`的数据上下文。 在标记中， <xref:System.Windows.Controls.TextBox.Text%2A> 的 <xref:System.Windows.Controls.TextBox> 属性被绑定至 `Person.Name` 属性（使用“`{Binding ... }`”XAML 语法）。 此 XAML 告知 WPF 将 <xref:System.Windows.Controls.TextBox> 控件绑定至窗口的 `Person` 属性中存储的 <xref:System.Windows.FrameworkElement.DataContext%2A> 对象。  
   
- The WPF data binding engine provides additional support that includes validation, sorting, filtering, and grouping. Furthermore, data binding supports the use of data templates to create custom user interface for bound data when the user interface displayed by the standard WPF controls is not appropriate.  
+ WPF 数据绑定引擎提供了额外支持，包括验证、排序、筛选和分组。 此外，数据绑定支持在标准 WPF 控件显示的用户界面不恰当时，使用数据模板来为数据绑定创建自定义的用户界面。  
   
- For more information, see [Data Binding Overview](https://msdn.microsoft.com/en-us/library/ms752347\(v=vs.100\).aspx).  
+ 有关详细信息，请参阅 [数据绑定概述](https://msdn.microsoft.com/en-us/library/ms752347\(v=vs.100\).aspx)。  
   
-##  <a name="Graphics"></a> Graphics  
- WPF introduces an extensive, scalable, and flexible set of graphics features that have the following benefits:  
+##  <a name="Graphics"></a> 图形  
+ WPF 引入了一组广泛、可伸缩的灵活图形功能，具有以下优点：  
   
--   **Resolution-independent and device-independent graphics**. The basic unit of measurement in the WPF graphics system is the device independent pixel, which is 1/96th of an inch, regardless of actual screen resolution, and provides the foundation for resolution-independent and device-independent rendering. Each device-independent pixel automatically scales to match the dots-per-inch (dpi) setting of the system it renders on.  
+-   **图形与分辨率和设备均无关**。 WPF 图形系统中的基本度量单位是与设备无关的像素（即 1/96 英寸），且不考虑实际屏幕分辨率，并为实现与分辨率和设备无关的呈现提供了基础。 每个与设备无关的像素都会自动缩放，以匹配呈现它的系统的每英寸点数 (dpi) 设置。  
   
--   **Improved precision**. The WPF coordinate system is measured with double-precision floating-point numbers rather than single-precision. Transformations and opacity values are also expressed as double-precision. WPF also supports a wide color gamut (scRGB) and provides integrated support for managing inputs from different color spaces.  
+-   **精度更高**。 WPF 坐标系统使用双精度浮点数字度量，而不是单精度数字。 转换和不透明度值也表示为双精度数字。 WPF 还支持广泛的颜色域 (scRGB)，并集成了对管理来自不同颜色空间的输入的支持。  
   
--   **Advanced graphics and animation support**. WPF simplifies graphics programming by managing animation scenes for you; there is no need to worry about scene processing, rendering loops, and bilinear interpolation. Additionally, WPF provides hit-testing support and full alpha-compositing support.  
+-   **高级图形和动画支持**。 WPF 通过为你管理动画场景简化了图形编程，你无需担心场景处理、呈现循环和双线性内插。 此外，WPF 还提供了点击测试支持和全面的 alpha 合成支持。  
   
--   **Hardware acceleration**. The WPF graphics system takes advantage of graphics hardware to minimize CPU usage.  
+-   **硬件加速**。 WPF 图形系统充分利用图形硬件来尽量降低 CPU 使用率。  
   
-### <a name="2-d-shapes"></a>2-D Shapes  
- WPF provides a library of common vector-drawn 2-D shapes, such as the rectangles and ellipses that are shown in the following illustration.  
+### <a name="2-d-shapes"></a>二维形状  
+ WPF 提供一个常用矢量绘制的二维形状库，如下图中所示的矩形和椭圆。  
   
- ![Ellipses and rectangles](../designers/media/wpfintrofigure4.PNG "WPFIntroFigure4")  
+ ![椭圆和矩形](../designers/media/wpfintrofigure4.PNG "WPFIntroFigure4")  
   
- An interesting capability of shapes is that they are not just for display; shapes implement many of the features that you expect from controls, including keyboard and mouse input. The following example shows the <xref:System.Windows.UIElement.MouseUp> event of an <xref:System.Windows.Shapes.Ellipse> being handled.  
+ 形状的一个有趣功能是它们不只是用于显示；形状实现许多你期望的控件功能，包括键盘和鼠标输入。 下面的示例演示要处理的 <xref:System.Windows.UIElement.MouseUp> 的 <xref:System.Windows.Shapes.Ellipse> 事件。  
   
  [!code-xml[IntroToWPFSnippets#HandleEllipseMouseUpEventMARKUP](../designers/codesnippet/Xaml/introduction-to-wpf_7.xaml)]  
   
  [!code-vb[IntroToWPFSnippets#HandleEllipseMouseUpEventCODEBEHIND](../designers/codesnippet/VisualBasic/introduction-to-wpf_8.vb)] [!code-csharp[IntroToWPFSnippets#HandleEllipseMouseUpEventCODEBEHIND](../designers/codesnippet/CSharp/introduction-to-wpf_8.cs)]  
   
- The following figure shows what is produced by the preceding code.  
+ 下图显示了前面的代码生成的内容。  
   
- ![A window with the text "you clicked the ellipse&#33;"](../designers/media/wpfintrofigure12.png "WPFIntroFigure12")  
+ ![包含文本“你已单击省略号!”的窗口](../designers/media/wpfintrofigure12.png "WPFIntroFigure12")  
   
- For more information, see [Shapes and Basic Drawing in WPF Overview](https://msdn.microsoft.com/en-us/library/ms747393\(v=vs.100\).aspx).  
+ 有关详细信息，请参阅 [WPF 中的形状和基本绘图概述](https://msdn.microsoft.com/en-us/library/ms747393\(v=vs.100\).aspx)。  
   
-### <a name="2-d-geometries"></a>2-D Geometries  
- The 2-D shapes provided by WPF cover the standard set of basic shapes. However, you may need to create custom shapes to facilitate the design of a customized user interface. For this purpose, WPF provides geometries. The following figure demonstrates the use of geometries to create a custom shape that can be drawn directly, used as a brush, or used to clip other shapes and controls.  
+### <a name="2-d-geometries"></a>二维几何图形  
+ WPF 提供的二维形状包含基本形状的标准集。 但是，你可能需要创建自定义形状以帮助改进自定义用户界面的设计。 为此，WPF 提供了几何图形。 下图演示了使用几何图形来创建可直接绘制、用作画笔或用于剪辑其他形状和控件的自定义形状。  
   
- <xref:System.Windows.Shapes.Path> objects can be used to draw closed or open shapes, multiple shapes, and even curved shapes.  
+ <xref:System.Windows.Shapes.Path> 对象可用于绘制封闭式或开放式形状、多个形状，甚至曲线形状。  
   
- <xref:System.Windows.Media.Geometry> objects can be used for clipping, hit-testing, and rendering 2-D graphic data.  
+ <xref:System.Windows.Media.Geometry> 对象可用于剪辑、命中测试以及呈现二维图形数据。  
   
- ![Various uses of a Path](../designers/media/wpfintrofigure5.PNG "WPFIntroFigure5")  
+ ![Path 的各种用法](../designers/media/wpfintrofigure5.PNG "WPFIntroFigure5")  
   
- For more information, see [Geometry Overview](https://msdn.microsoft.com/en-us/library/ms751808\(v=vs.100\).aspx)  
+ 有关详细信息，请参阅 [几何图形概述](https://msdn.microsoft.com/en-us/library/ms751808\(v=vs.100\).aspx)  
   
-### <a name="2-d-effects"></a>2-D Effects  
- A subset of WPF 2-D capabilities includes visual effects, such as gradients, bitmaps, drawings, painting with videos, rotation, scaling, and skewing. These are all achieved with brushes; the following figure shows some examples.  
+### <a name="2-d-effects"></a>二维效果  
+ WPF 二维功能的子集包括视觉效果，如渐变、位图、绘图、用视频绘画、旋转、缩放和倾斜。 这些效果都可以使用画笔实现；下图演示了一些示例。  
   
- ![Illustration of different brushes](../designers/media/wpfintrofigure6.PNG "WPFIntroFigure6")  
+ ![不同画笔的图示](../designers/media/wpfintrofigure6.PNG "WPFIntroFigure6")  
   
- For more information, see [WPF Brushes Overview](https://msdn.microsoft.com/en-us/library/aa970904\(v=vs.100\).aspx).  
+ 有关详细信息，请参阅 [WPF 画笔概述](https://msdn.microsoft.com/en-us/library/aa970904\(v=vs.100\).aspx)。  
   
-### <a name="3-d-rendering"></a>3-D Rendering  
- WPF also includes 3-D rendering capabilities that integrate with 2-d graphics to allow the creation of more exciting and interesting user interfaces. For example, the following figure shows 2-D images rendered onto 3-D shapes.  
+### <a name="3-d-rendering"></a>三维呈现  
+ WPF 还包括三维呈现功能，这些功能与二维图形集成，以创建更精彩、更有趣的用户界面。 例如，下图显示呈现在三维形状上的二维图像。  
   
- ![Visual3D sample screen shot](../designers/media/wpfintrofigure13.png "WPFIntroFigure13")  
+ ![Visual3D 示例屏幕快照](../designers/media/wpfintrofigure13.png "WPFIntroFigure13")  
   
- For more information, see [3-D Graphics Overview](https://msdn.microsoft.com/en-us/library/ms747437\(v=vs.100\).aspx).  
+ 有关详细信息，请参阅 [三维图形概述](https://msdn.microsoft.com/en-us/library/ms747437\(v=vs.100\).aspx)。  
   
-##  <a name="Animation"></a> Animation  
- WPF animation support lets you make controls grow, shake, spin, and fade, to create interesting page transitions, and more. You can animate most WPF classes, even custom classes. The following figure shows a simple animation in action.  
+##  <a name="Animation"></a> 动画  
+ WPF 动画支持可以使控件变大、抖动、旋转和淡出，以形成有趣的页面过渡等。 你可以对大多数 WPF 类，甚至自定义类进行动画处理。 下图显示了运行中的一个简单动画。  
   
- ![Images of an animated cube](../designers/media/wpfintrofigure7.png "WPFIntroFigure7")  
+ ![具有动画多维数据集的图像](../designers/media/wpfintrofigure7.png "WPFIntroFigure7")  
   
- For more information, see [Animation Overview](https://msdn.microsoft.com/en-us/library/ms752312\(v=vs.100\).aspx).  
+ 有关详细信息，请参阅 [动画概述](https://msdn.microsoft.com/en-us/library/ms752312\(v=vs.100\).aspx)。  
   
-##  <a name="Media"></a> Media  
- One way to convey rich content is through the use of audiovisual media. WPF provides special support for images, video, and audio.  
+##  <a name="Media"></a> 媒体  
+ 传达丰富内容的一种方法是使用视听媒体。 WPF 为图像、视频和音频提供特殊支持。  
   
-### <a name="images"></a>Images  
- Images are common to most applications, and WPF provides several ways to use them. The following figure shows a user interface with a list box that contains thumbnail images. When a thumbnail is selected, the image is shown full-size.  
+### <a name="images"></a>图像  
+ 图像对大多数应用程序很常见，WPF 提供多种方式来使用它们。 下图显示一个用户界面，该用户界面中的列表框中包含缩略图图像。 选中一个缩略图后，将显示该图像的原尺寸。  
   
- ![Thumbnail images and a full&#45;size image](../designers/media/wpfintrofigure8.PNG "WPFIntroFigure8")  
+ ![缩略图图像和完整尺寸图像](../designers/media/wpfintrofigure8.PNG "WPFIntroFigure8")  
   
- For more information, see [Imaging Overview](https://msdn.microsoft.com/en-us/library/ms748873\(v=vs.100\).aspx).  
+ 有关详细信息，请参阅 [图像概述](https://msdn.microsoft.com/en-us/library/ms748873\(v=vs.100\).aspx)。  
   
-### <a name="video-and-audio"></a>Video and Audio  
- The <xref:System.Windows.Controls.MediaElement> control is capable of playing both video and audio, and it is flexible enough to be the basis for a custom media player. The following XAML markup implements a media player.  
+### <a name="video-and-audio"></a>视频和音频  
+ <xref:System.Windows.Controls.MediaElement> 控件能够播放视频和音频，并且其足够灵活，可以用作其他自定义媒体播放器的基础。 下面的 XAML 标记实现一个媒体播放器。  
   
  [!code-xml[IntroToWPFSnippets#MediaElementMARKUP](../designers/codesnippet/Xaml/introduction-to-wpf_9.xaml)]  
   
- The window in the following figure shows the <xref:System.Windows.Controls.MediaElement> control in action.  
+ 下图中的窗口显示了运行中的 <xref:System.Windows.Controls.MediaElement> 控件。  
   
- ![A MediaElement control with audio and video](../designers/media/wpfintrofigure1.png "WPFIntroFigure1")  
+ ![具有音频和视频的 MediaElement 控件](../designers/media/wpfintrofigure1.png "WPFIntroFigure1")  
   
- For more information, see [WPF Graphics, Animation, and Media Overview](https://msdn.microsoft.com/en-us/library/ms742562\(v=vs.100\).aspx).  
+ 有关详细信息，请参阅 [WPF 图形、动画和媒体概述](https://msdn.microsoft.com/en-us/library/ms742562\(v=vs.100\).aspx)。  
   
-##  <a name="Text_and_Typography"></a> Text and Typography  
- To facilitate high-quality text rendering, WPF offers the following features:  
+##  <a name="Text_and_Typography"></a> 文本和版式  
+ 为了促进高质量的文本呈现，WPF 提供以下功能：  
   
--   OpenType font support.  
+-   OpenType 字体支持。  
   
--   ClearType enhancements.  
+-   ClearType 增强功能。  
   
--   High performance that takes advantage of hardware acceleration.  
+-   利用硬件加速的高性能。  
   
--   Integration of text with media, graphics, and animation.  
+-   文本与媒体、图形和动画的集成。  
   
--   International font support and fallback mechanisms.  
+-   国际字体支持和回退机制。  
   
- As a demonstration of text integration with graphics, the following figure shows the application of text decorations.  
+ 作为文本与图形集成的演示，下图显示了文本修饰的应用程序。  
   
- ![Text with various text decorations](../designers/media/wpfintrofigure23.png "WPFIntroFigure23")  
+ ![具有各种文本修饰的文本](../designers/media/wpfintrofigure23.png "WPFIntroFigure23")  
   
- For more information, see [Typography in Windows Presentation Foundation](https://msdn.microsoft.com/en-us/library/ms742190\(v=vs.100\).aspx).  
+ 有关详细信息，请参阅 [Windows Presentation Foundation 中的版式](https://msdn.microsoft.com/en-us/library/ms742190\(v=vs.100\).aspx)。  
   
-##  <a name="WPF_Customization"></a> Customizing WPF Applications  
- Up to this point, you've seen the core WPF building blocks for developing applications. You use the application model to host and deliver application content, which consists mainly of controls. To simplify the arrangement of controls in a user interface, and to ensure the arrangement is maintained in the face of changes to window size and display settings, you use the WPF layout system. Because most applications allow users to interact with data, you use data binding to reduce the work of integrating your user interface with data. To enhance the visual appearance of your application, you use the comprehensive range of graphics, animation, and media support provided by WPF.  
+##  <a name="WPF_Customization"></a> 自定义 WPF 应用程序  
+ 到目前为止，你已经了解用于开发应用程序的核心 WPF 构建块。 你可以使用该应用程序模型来托管和交付应用程序内容，它主要由控件组成。 若要简化用户界面中控件的排列，并确保保持该排列能够应对窗口大小和显示设置的更改，你可以使用 WPF 布局系统。 由于大多数应用程序允许用户与数据交互，因此你可以使用数据绑定来减少将用户界面与数据集成的工作。 若要增强你应用程序的可视化外观，可以使用 WPF 提供的综合图形、动画和媒体支持。  
   
- Often, though, the basics are not enough for creating and managing a truly distinct and visually stunning user experience. The standard WPF controls may not integrate with the desired appearance of your application. Data may not be displayed in the most effective way. Your application's overall user experience may not be suited to the default look and feel of Windows themes. In many ways, a presentation technology needs visual extensibility as much as any other kind of extensibility.  
+ 不过，在创建和管理真正独特且视觉效果非凡的用户体验时，基础知识通常是不够的。 标准的 WPF 控件可能无法与你所需的应用程序外观集成。 数据可能不会以最有效的方式显示。 你应用程序的整体用户体验可能不适合 Windows 主题的默认外观和感觉。 在许多方面，演示技术需要视觉扩展性，需要的程度与任何其他类型的扩展性一样。  
   
- For this reason, WPF provides a variety of mechanisms for creating unique user experiences, including a rich content model for controls, triggers, control and data templates, styles, user interface resources, and themes and skins.  
+ 为此，WPF 提供了多种机制用于创建独特的用户体验，包括控件、触发器、控件和数据模板、样式、用户界面资源以及主题和皮肤的丰富内容模型。  
   
-### <a name="content-model"></a>Content Model  
- The main purpose of a majority of the WPF controls is to display content. In WPF, the type and number of items that can constitute the content of a control is referred to as the control's *content model*. Some controls can contain a single item and type of content; for example, the content of a <xref:System.Windows.Controls.TextBox> is a string value that is assigned to the <xref:System.Windows.Controls.TextBox.Text%2A> property. The following example sets the content of a <xref:System.Windows.Controls.TextBox>.  
+### <a name="content-model"></a>内容模型  
+ 大多数 WPF 控件的主要用途是显示内容。 在 WPF 中，可以构成控件内容的项的类型和数目称为控件的 *内容模型*。 某些控件可以包含一种内容类型的一个项；例如， <xref:System.Windows.Controls.TextBox> 的内容是分配给 <xref:System.Windows.Controls.TextBox.Text%2A> 属性的一个字符串值。 下面的示例设置 <xref:System.Windows.Controls.TextBox>的内容。  
   
  [!code-xml[IntroToWPFSnippets#TextBoxContentMARKUP1](../designers/codesnippet/Xaml/introduction-to-wpf_10.xaml)]  
 [!code-xml[IntroToWPFSnippets#TextBoxContentMARKUP2](../designers/codesnippet/Xaml/introduction-to-wpf_11.xaml)]  
 [!code-xml[IntroToWPFSnippets#TextBoxContentMARKUP3](../designers/codesnippet/Xaml/introduction-to-wpf_12.xaml)]  
   
- The following figure shows the result.  
+ 下图显示结果。  
   
- ![A TextBox control that contains text](../designers/media/wpfintrofigure21.png "WPFIntroFigure21")  
+ ![包含文本的 TextBox 控件](../designers/media/wpfintrofigure21.png "WPFIntroFigure21")  
   
- Other controls, however, can contain multiple items of different types of content; the content of a <xref:System.Windows.Controls.Button>, specified by the <xref:System.Windows.Controls.ContentControl.Content%2A> property, can contain a variety of items including layout controls, text, images, and shapes. The following example shows a <xref:System.Windows.Controls.Button> with content that includes a <xref:System.Windows.Controls.DockPanel>, a <xref:System.Windows.Controls.Label>, a <xref:System.Windows.Controls.Border>, and a <xref:System.Windows.Controls.MediaElement>.  
+ 但是，其他控件可以包含不同内容类型的多个项； <xref:System.Windows.Controls.Button>的内容（由 <xref:System.Windows.Controls.ContentControl.Content%2A> 属性指定）可以包含各种项（包括布局控件、文本、图像和形状）。 下面的示例演示了 <xref:System.Windows.Controls.Button> ，其内容包括 <xref:System.Windows.Controls.DockPanel>、 <xref:System.Windows.Controls.Label>、 <xref:System.Windows.Controls.Border>和 <xref:System.Windows.Controls.MediaElement>。  
   
  [!code-xml[IntroToWPFSnippets#ButtonContentMARKUP1](../designers/codesnippet/Xaml/introduction-to-wpf_13.xaml)]  
 [!code-xml[IntroToWPFSnippets#ButtonContentMARKUP2](../designers/codesnippet/Xaml/introduction-to-wpf_14.xaml)]  
 [!code-xml[IntroToWPFSnippets#ButtonContentMARKUP3](../designers/codesnippet/Xaml/introduction-to-wpf_15.xaml)]  
   
- The following figure shows the content of this button.  
+ 下图显示此按钮的内容。  
   
- ![A button that contains multiple types of content](../designers/media/wpfintrofigure22.png "WPFIntroFigure22")  
+ ![包含多种类型的内容的按钮](../designers/media/wpfintrofigure22.png "WPFIntroFigure22")  
   
- For more information on the kinds of content that is supported by various controls, see [WPF Content Model](https://msdn.microsoft.com/en-us/library/bb613548\(v=vs.100\).aspx).  
+ 有关各种控件支持的内容类型的详细信息，请参阅 [WPF 内容模型](https://msdn.microsoft.com/en-us/library/bb613548\(v=vs.100\).aspx)。  
   
-### <a name="triggers"></a>Triggers  
- Although the main purpose of XAML markup is to implement an application's appearance, you can also use XAML to implement some aspects of an application's behavior. One example is the use of triggers to change an application's appearance based on user interactions. For more information, see [Styling and Templating](https://msdn.microsoft.com/en-us/library/ms745683\(v=vs.100\).aspx).  
+### <a name="triggers"></a>触发器  
+ 尽管 XAML 标记的主要用途是实现应用程序的外观，你也可以使用 XAML 来实现应用程序行为的某些方面。 其中一个示例是使用触发器来基于用户交互更改应用程序的外观。 有关详细信息，请参阅[样式设置和模板化](https://msdn.microsoft.com/en-us/library/ms745683\(v=vs.100\).aspx)。  
   
-### <a name="control-templates"></a>Control Templates  
- The default user interfaces for WPF controls are typically constructed from other controls and shapes. For example, a <xref:System.Windows.Controls.Button> is composed of both <xref:Microsoft.Windows.Themes.ButtonChrome> and <xref:System.Windows.Controls.ContentPresenter> controls. The <xref:Microsoft.Windows.Themes.ButtonChrome> provides the standard button appearance, while the <xref:System.Windows.Controls.ContentPresenter> displays the button's content, as specified by the <xref:System.Windows.Controls.ContentControl.Content%2A> property.  
+### <a name="control-templates"></a>控件模板  
+ WPF 控件的默认用户界面通常是从其他控件和形状构造的。 例如， <xref:System.Windows.Controls.Button> 由 <xref:Microsoft.Windows.Themes.ButtonChrome> 和 <xref:System.Windows.Controls.ContentPresenter> 控件组成。 <xref:Microsoft.Windows.Themes.ButtonChrome> 提供了标准按钮外观，而 <xref:System.Windows.Controls.ContentPresenter> 显示按钮的内容，正如 <xref:System.Windows.Controls.ContentControl.Content%2A> 属性所指定。  
   
- Sometimes the default appearance of a control may be incongruent with the overall appearance of an application. In this case, you can use a <xref:System.Windows.Controls.ControlTemplate> to change the appearance of the control's user interface without changing its content and behavior.  
+ 有时，某个控件的默认外观可能与应用程序的整体外观不一致。 在这种情况下，可以使用 <xref:System.Windows.Controls.ControlTemplate> 更改控件的用户界面的外观，而不更改其内容和行为。  
   
- For example, the following example shows how to change the appearance of a <xref:System.Windows.Controls.Button> by using a <xref:System.Windows.Controls.ControlTemplate>.  
+ 例如，下面的示例演示如何使用 <xref:System.Windows.Controls.Button> 更改 <xref:System.Windows.Controls.ControlTemplate>的外观。  
   
  [!code-xml[IntroToWPFSnippets#ButtonControlTemplateWindowMARKUP](../designers/codesnippet/Xaml/introduction-to-wpf_16.xaml)]  
   
  [!code-csharp[IntroToWPFSnippets#ButtonControlTemplateWindowCODEBEHIND](../designers/codesnippet/CSharp/introduction-to-wpf_17.cs)] [!code-vb[IntroToWPFSnippets#ButtonControlTemplateWindowCODEBEHIND](../designers/codesnippet/VisualBasic/introduction-to-wpf_17.vb)]  
   
- In this example, the default button user interface has been replaced with an <xref:System.Windows.Shapes.Ellipse> that has a dark blue border and is filled using a <xref:System.Windows.Media.RadialGradientBrush>. The <xref:System.Windows.Controls.ContentPresenter> control displays the content of the <xref:System.Windows.Controls.Button>, "Click Me!" When the <xref:System.Windows.Controls.Button> is clicked, the <xref:System.Windows.Controls.Primitives.ButtonBase.Click> event is still raised as part of the <xref:System.Windows.Controls.Button> control's default behavior. The result is shown in the following figure.  
+ 在此示例中，默认按钮用户界面已被替换为 <xref:System.Windows.Shapes.Ellipse> ，它具有深蓝色边框并使用 <xref:System.Windows.Media.RadialGradientBrush>进行填充。 <xref:System.Windows.Controls.ContentPresenter> 控件显示 <xref:System.Windows.Controls.Button>的内容，“单击我!” 单击 <xref:System.Windows.Controls.Button> 后，在 <xref:System.Windows.Controls.Primitives.ButtonBase.Click> 控件的默认行为中，仍将引发 <xref:System.Windows.Controls.Button> 事件。 结果如下图所示。  
   
- ![An elliptical button and a second window](../designers/media/wpfintrofigure2.png "WPFIntroFigure2")  
+ ![省略号按钮和第二个窗口](../designers/media/wpfintrofigure2.png "WPFIntroFigure2")  
   
-### <a name="data-templates"></a>Data Templates  
- Whereas a control template lets you specify the appearance of a control, a data template lets you specify the appearance of a control's content. Data templates are frequently used to enhance how bound data is displayed. The following figure shows the default appearance for a <xref:System.Windows.Controls.ListBox> that is bound to a collection of `Task` objects, where each task has a name, description, and priority.  
+### <a name="data-templates"></a>数据模板  
+ 使用控件模板可以指定控件的外观，而使用数据模板则可以指定控件内容的外观。 数据模板经常用于改进绑定数据的显示方式。 下图显示 <xref:System.Windows.Controls.ListBox> 的默认外观，它绑定到 `Task` 对象的集合，其中每个任务都具有名称、描述和优先级。  
   
- ![A list box with the default appearance](../designers/media/wpfintrofigure18.png "WPFIntroFigure18")  
+ ![具有默认外观的列表框](../designers/media/wpfintrofigure18.png "WPFIntroFigure18")  
   
- The default appearance is what you would expect from a <xref:System.Windows.Controls.ListBox>. However, the default appearance of each task contains only the task name. To show the task name, description, and priority, the default appearance of the <xref:System.Windows.Controls.ListBox> control's bound list items must be changed by using a <xref:System.Windows.DataTemplate>. The following XAML defines such a <xref:System.Windows.DataTemplate>, which is applied to each task by using the <xref:System.Windows.Controls.ItemsControl.ItemTemplate%2A> attribute.  
+ 默认外观是你对 <xref:System.Windows.Controls.ListBox>的期望。 但是，每个任务的默认外观仅包含任务名称。 若要显示任务名称、描述和优先级，必须使用 <xref:System.Windows.Controls.ListBox> 更改 <xref:System.Windows.DataTemplate>控件绑定列表项的默认外观。 下面的 XAML 定义了此类 <xref:System.Windows.DataTemplate>，它通过使用 <xref:System.Windows.Controls.ItemsControl.ItemTemplate%2A> 特性应用于每个任务。  
   
  [!code-xml[IntroToWPFSnippets#DataTemplateMARKUP1](../designers/codesnippet/Xaml/introduction-to-wpf_18.xaml)]  
 [!code-xml[IntroToWPFSnippets#DataTemplateMARKUP2](../designers/codesnippet/Xaml/introduction-to-wpf_19.xaml)]  
 [!code-xml[IntroToWPFSnippets#DataTemplateMARKUP3](../designers/codesnippet/Xaml/introduction-to-wpf_20.xaml)]  
 [!code-xml[IntroToWPFSnippets#DataTemplateMARKUP4](../designers/codesnippet/Xaml/introduction-to-wpf_21.xaml)]  
   
- The following figure shows the effect of this code.  
+ 下图显示了此代码的作用。  
   
- ![Llist box that uses a data template](../designers/media/wpfintrofigure19.png "WPFIntroFigure19")  
+ ![使用数据模板的列表框](../designers/media/wpfintrofigure19.png "WPFIntroFigure19")  
   
- Note that the <xref:System.Windows.Controls.ListBox> has retained its behavior and overall appearance; only the appearance of the content being displayed by the list box has changed.  
+ 注意， <xref:System.Windows.Controls.ListBox> 已保留其行为和整体外观；仅列表框显示的内容外观已更改。  
   
- For more information, see [Data Templating Overview](https://msdn.microsoft.com/en-us/library/ms742521\(v=vs.100\).aspx).  
+ 有关详细信息，请参阅 [数据模板化概述](https://msdn.microsoft.com/en-us/library/ms742521\(v=vs.100\).aspx)。  
   
-### <a name="styles"></a>Styles  
- Styles enable developers and designers to standardize on a particular appearance for their product. WPF provides a strong style model, the foundation of which is the <xref:System.Windows.Style> element. The following example creates a style that sets the background color for every <xref:System.Windows.Controls.Button> on a window to `Orange`.  
+### <a name="styles"></a>样式  
+ 通过样式功能，开发人员和设计人员能够对其产品的特定外观进行标准化。 WPF 提供了一个强样式模型，其基础是 <xref:System.Windows.Style> 元素。 下面的示例创建一个样式，该样式将窗口上的每个 <xref:System.Windows.Controls.Button> 的背景色设置为 `Orange`。  
   
  [!code-xml[IntroToWPFSnippets#StyleMARKUP1](../designers/codesnippet/Xaml/introduction-to-wpf_22.xaml)]  
 [!code-xml[IntroToWPFSnippets#StyleMARKUP2](../designers/codesnippet/Xaml/introduction-to-wpf_23.xaml)]  
 [!code-xml[IntroToWPFSnippets#StyleMARKUP3](../designers/codesnippet/Xaml/introduction-to-wpf_24.xaml)]  
 [!code-xml[IntroToWPFSnippets#StyleMARKUP4](../designers/codesnippet/Xaml/introduction-to-wpf_25.xaml)]  
   
- Because this style targets all <xref:System.Windows.Controls.Button> controls, the style is automatically applied to all the buttons in the window, as shown in the following figure.  
+ 由于此样式针对所有 <xref:System.Windows.Controls.Button> 控件，因此将自动应用于窗口中的所有按钮，如下图所示。  
   
- ![Two orange buttons](../designers/media/wpfintrofigure20.png "WPFIntroFigure20")  
+ ![两个橙色按钮](../designers/media/wpfintrofigure20.png "WPFIntroFigure20")  
   
- For more information, see [Styling and Templating](https://msdn.microsoft.com/en-us/library/ms745683\(v=vs.100\).aspx).  
+ 有关详细信息，请参阅[样式设置和模板化](https://msdn.microsoft.com/en-us/library/ms745683\(v=vs.100\).aspx)。  
   
-### <a name="resources"></a>Resources  
- Controls in an application should share the same appearance, which can include anything from fonts and background colors to control templates, data templates, and styles. You can use WPF's support for user interface resources to encapsulate these resources in a single location for reuse.  
+### <a name="resources"></a>资源  
+ 应用程序中的控件应共享相同的外观，它可以包括从字体和背景色到控件模板、数据模板和样式的所有内容。 你可以对用户界面资源使用 WPF 支持，以将这些资源封装在一个位置以便重复使用。  
   
- The following example defines a common background color that is shared by a <xref:System.Windows.Controls.Button> and a <xref:System.Windows.Controls.Label>.  
+ 下面的示例定义 <xref:System.Windows.Controls.Button> 和 <xref:System.Windows.Controls.Label>共享的通用背景色。  
   
  [!code-xml[IntroToWPFSnippets#ResourceWindowMARKUP1](../designers/codesnippet/Xaml/introduction-to-wpf_26.xaml)]  
 [!code-xml[IntroToWPFSnippets#ResourceWindowMARKUP2](../designers/codesnippet/Xaml/introduction-to-wpf_27.xaml)]  
 [!code-xml[IntroToWPFSnippets#ResourceWindowMARKUP3](../designers/codesnippet/Xaml/introduction-to-wpf_28.xaml)]  
   
- This example implements a background color resource by using the `Window.Resources` property element. This resource is available to all children of the <xref:System.Windows.Window>. There are a variety of resource scopes, including the following, listed in the order in which they are resolved:  
+ 此示例通过使用 `Window.Resources` 属性元素实现背景色资源。 此资源可供 <xref:System.Windows.Window>的所有子级使用。 有各种资源作用域，具体如下（按解析顺序列出）：  
   
-1.  An individual control (using the inherited <xref:System.Windows.FrameworkElement.Resources%2A?displayProperty=fullName> property).  
+1.  单个控件（使用继承的 <xref:System.Windows.FrameworkElement.Resources%2A?displayProperty=fullName> 属性）。  
   
-2.  A <xref:System.Windows.Window> or a <xref:System.Windows.Controls.Page> (also using the inherited <xref:System.Windows.FrameworkElement.Resources%2A?displayProperty=fullName> property).  
+2.  <xref:System.Windows.Window> 或 <xref:System.Windows.Controls.Page> （也使用继承的 <xref:System.Windows.FrameworkElement.Resources%2A?displayProperty=fullName> 属性）。  
   
-3.  An <xref:System.Windows.Application> (using the <xref:System.Windows.Application.Resources%2A?displayProperty=fullName> property).  
+3.  <xref:System.Windows.Application> （使用 <xref:System.Windows.Application.Resources%2A?displayProperty=fullName> 属性）。  
   
- The variety of scopes gives you flexibility with respect to the way in which you define and share your resources.  
+ 这些不同种类的作用域在定义和共享资源的方式方面为你提供了灵活性。  
   
- As an alternative to directly associating your resources with a particular scope, you can package one or more resources by using a separate <xref:System.Windows.ResourceDictionary> that can be referenced in other parts of an application. For example, the following example defines a default background color in a resource dictionary.  
+ 作为直接将你的资源与特定作用域关联的替代方法，可以通过使用单独的 <xref:System.Windows.ResourceDictionary> （可以在应用程序的其他部分引用）打包一个或多个资源。 例如，下面的示例定义资源字典中的默认背景色。  
   
  [!code-xml[IntroToWPFSnippets#ResourceDictionaryMARKUP1](../designers/codesnippet/Xaml/introduction-to-wpf_29.xaml)]  
 [!code-xml[IntroToWPFSnippets#ResourceDictionaryMARKUP2](../designers/codesnippet/Xaml/introduction-to-wpf_30.xaml)]  
   
- The following example references the resource dictionary defined in the previous example so that it is shared across an application.  
+ 下面的示例引用上一个示例中定义的资源字典，以便在应用程序中共享它。  
   
  [!code-xml[IntroToWPFSnippets#ApplicationScopedResourceDictionaryMARKUP1](../designers/codesnippet/Xaml/introduction-to-wpf_31.xaml)]  
 [!code-xml[IntroToWPFSnippets#ApplicationScopedResourceDictionaryMARKUP2](../designers/codesnippet/Xaml/introduction-to-wpf_32.xaml)]  
   
- Resources and resource dictionaries are the foundation of WPF support for themes and skins.  
+ 资源和资源字典是 WPF 主题和皮肤支持的基础。  
   
- For more information, see [Resources Overview](https://msdn.microsoft.com/en-us/library/ms750613\(v=vs.100\).aspx).  
+ 有关详细信息，请参阅 [资源概述](https://msdn.microsoft.com/en-us/library/ms750613\(v=vs.100\).aspx)。  
   
-### <a name="custom-controls"></a>Custom Controls  
- Although WPF provides a host of customization support, you may encounter situations where existing WPF controls do not meet the needs of either your application or its users. This can occur when:  
+### <a name="custom-controls"></a>自定义控件  
+ 尽管 WPF 提供了大量自定义支持，但你仍可能会遇到现有 WPF 控件不满足你的应用程序或其用户的需求的情况。 出现这种情况的原因有：  
   
--   The user interface that you require cannot be created by customizing the look and feel of existing WPF implementations.  
+-   不能通过自定义现有 WPF 实现的外观和感觉创建所需的用户界面。  
   
--   The behavior that you require is not supported (or not easily supported) by existing WPF implementations.  
+-   现有 WPF 实现不支持（或很难支持）所需的行为。  
   
- At this point, however, you can take advantage of one of three WPF models to create a new control. Each model targets a specific scenario and requires your custom control to derive from a particular WPF base class. The three models are listed here:  
+ 但是，此时，你可以充分利用三个 WPF 模型中的一个来创建新的控件。 每个模型都针对一个特定的方案并要求你的自定义控件派生自特定 WPF 基类。 下面列出了这三个模型：  
   
--   **User Control Model**. A custom control derives from <xref:System.Windows.Controls.UserControl> and is composed of one or more other controls.  
+-   **用户控件模型**。 自定义控件派生自 <xref:System.Windows.Controls.UserControl> 并由一个或多个其他控件组成。  
   
--   **Control Model**. A custom control derives from <xref:System.Windows.Controls.Control> and is used to build implementations that separate their behavior from their appearance using templates, much like the majority of WPF controls. Deriving from <xref:System.Windows.Controls.Control> allows you more freedom for creating a custom user interface than user controls, but it may require more effort.  
+-   **控件模型**。 自定义控件派生自 <xref:System.Windows.Controls.Control> ，并用于生成使用模板将其行为与其外观分隔开来的实现，非常类似大多数 WPF 控件。 派生自 <xref:System.Windows.Controls.Control> 使得你可以更自由地创建自定义用户界面（相较用户控件），但它可能需要花费更多精力。  
   
--   **Framework Element Model**. A custom control derives from <xref:System.Windows.FrameworkElement> when its appearance is defined by custom rendering logic (not templates).  
+-   **框架元素模型**。 当其外观由自定义呈现逻辑（而不是模板）定义时，自定义控件派生自 <xref:System.Windows.FrameworkElement> 。  
   
- The following example shows a custom numeric up/down control that derives from <xref:System.Windows.Controls.UserControl>.  
+ 下面的示例演示一个派生自 <xref:System.Windows.Controls.UserControl>的自定义数值加/减控件。  
   
  [!code-xml[IntroToWPFSnippets#UserControlMARKUP](../designers/codesnippet/Xaml/introduction-to-wpf_33.xaml)]  
   
  [!code-csharp[IntroToWPFSnippets#UserControlCODEBEHIND1](../designers/codesnippet/CSharp/introduction-to-wpf_34.cs)] [!code-vb[IntroToWPFSnippets#UserControlCODEBEHIND1](../designers/codesnippet/VisualBasic/introduction-to-wpf_34.vb)]  
   
- The next example illustrates the XAML that is required to incorporate the user control into a <xref:System.Windows.Window>.  
+ 下一个示例说明了将用户控件合并到 <xref:System.Windows.Window>所需的 XAML。  
   
  [!code-xml[IntroToWPFSnippets#UserControlWindowMARKUP1](../designers/codesnippet/Xaml/introduction-to-wpf_37.xaml)]  
   
- The following figure shows the `NumericUpDown` control hosted in a <xref:System.Windows.Window>.  
+ 下图显示了 `NumericUpDown` 中托管的 <xref:System.Windows.Window>控件。  
   
- ![A custom UserControl](../designers/media/wpfintrofigure3.png "WPFIntroFigure3")  
+ ![自定义用户控件](../designers/media/wpfintrofigure3.png "WPFIntroFigure3")  
   
- For more information on custom controls, see [Control Authoring Overview](https://msdn.microsoft.com/en-us/library/ms745025\(v=vs.100\).aspx).  
+ 有关自定义控件的详细信息，请参阅 [控件创作概述](https://msdn.microsoft.com/en-us/library/ms745025\(v=vs.100\).aspx)。  
   
-##  <a name="WPF_Best_Practices"></a> WPF Best Practices  
- As with any development platform, WPF can be used in a variety of ways to achieve the desired result. As a way of ensuring that your WPF applications provide the required user experience and meet the demands of the audience in general, there are recommended best practices for accessibility, globalization and localization, and performance. See the following for more information:  
+##  <a name="WPF_Best_Practices"></a> WPF 最佳做法  
+ 与任何开发平台一样，可以采用多种方式使用 WPF 以实现所需的结果。 为确保你的 WPF 应用程序提供所需的用户体验并满足一般用户的需求，针对辅助功能、全球化和本地化以及性能提供了一些建议的最佳做法。 有关详细信息，请参阅以下主题：  
   
--   [Accessibility Best Practices](https://msdn.microsoft.com/en-us/library/aa350483\(v=vs.100\).aspx)Accessibility Best Practices  
+-   [辅助功能最佳做法](https://msdn.microsoft.com/en-us/library/aa350483\(v=vs.100\).aspx)辅助功能最佳做法  
   
--   [WPF Globalization and Localization Overview](https://msdn.microsoft.com/en-us/library/ms788718\(v=vs.100\).aspx)  
+-   [WPF 全球化和本地化概述](https://msdn.microsoft.com/en-us/library/ms788718\(v=vs.100\).aspx)  
   
--   [Optimizing WPF Application Performance](https://msdn.microsoft.com/en-us/library/aa970683\(v=vs.100\).aspx)  
+-   [优化 WPF 应用程序性能](https://msdn.microsoft.com/en-us/library/aa970683\(v=vs.100\).aspx)  
   
--   [Windows Presentation Foundation Security](https://msdn.microsoft.com/en-us/library/aa970906\(v=vs.100\).aspx)  
+-   [Windows Presentation Foundation 安全性](https://msdn.microsoft.com/en-us/library/aa970906\(v=vs.100\).aspx)  
   
-##  <a name="Summary"></a> Summary  
- WPF is a comprehensive presentation technology for building a wide variety of visually stunning client applications. This introduction has provided a look at the key features of WPF.  
+##  <a name="Summary"></a> 摘要  
+ WPF 是一种综合演示技术，用于生成各种视觉效果非凡的客户端应用程序。 本简介已大致介绍了 WPF 的主要功能。  
   
- The next step is to build WPF applications!  
+ 接着是如何生成 WPF 应用程序！  
   
- As you build them, you can come back to this introduction for a refresher on the key features and to find references to more detailed coverage of the features covered in this introduction.  
+ 在你生成应用程序时，你可以回到本简介复习主要功能，并查找对本简介中所涵盖功能的更详细说明的参考。  
   
-## <a name="see-also"></a>See Also  
- [Getting Started with WPF](../designers/getting-started-with-wpf.md)   
- [Create Modern Desktop Applications with Windows Presentation Foundation](../designers/create-modern-desktop-applications-with-windows-presentation-foundation.md)   
+## <a name="see-also"></a>另请参阅  
+ [WPF 入门](../designers/getting-started-with-wpf.md)   
+ [使用 Windows Presentation Foundation 创建现代桌面应用程序](../designers/create-modern-desktop-applications-with-windows-presentation-foundation.md)   
  [Windows Presentation Foundation](https://msdn.microsoft.com/en-us/library/ms754130\(v=vs.100\).aspx)

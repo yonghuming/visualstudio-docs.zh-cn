@@ -1,5 +1,5 @@
 ---
-title: IDebugStackFrame2::EnumProperties | Microsoft Docs
+title: "IDebugStackFrame2::EnumProperties |Microsoft 文档"
 ms.custom: 
 ms.date: 11/04/2016
 ms.reviewer: 
@@ -34,13 +34,13 @@ ms.translationtype: MT
 ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
 ms.openlocfilehash: 5359698b2ae148abd5fc38da346ebcd5c456634c
 ms.contentlocale: zh-cn
-ms.lasthandoff: 08/28/2017
+ms.lasthandoff: 09/06/2017
 
 ---
 # <a name="idebugstackframe2enumproperties"></a>IDebugStackFrame2::EnumProperties
-Creates an enumerator for properties associated with the stack frame, such as local variables.  
+创建与该堆栈帧，如本地变量关联的属性的枚举数。  
   
-## <a name="syntax"></a>Syntax  
+## <a name="syntax"></a>语法  
   
 ```cpp  
 HRESULT EnumProperties (   
@@ -64,32 +64,32 @@ int EnumProperties (
 );  
 ```  
   
-#### <a name="parameters"></a>Parameters  
+#### <a name="parameters"></a>参数  
  `dwFieldSpec`  
- [in] A combination of flags from the [DEBUGPROP_INFO_FLAGS](../../../extensibility/debugger/reference/debugprop-info-flags.md) enumeration that specifies which fields in the enumerated [DEBUG_PROPERTY_INFO](../../../extensibility/debugger/reference/debug-property-info.md) structures are to be filled in.  
+ [in]中的标志的组合[DEBUGPROP_INFO_FLAGS](../../../extensibility/debugger/reference/debugprop-info-flags.md)指定哪些字段中枚举的枚举[DEBUG_PROPERTY_INFO](../../../extensibility/debugger/reference/debug-property-info.md)结构是否填充的。  
   
  `nRadix`  
- [in] The radix to be used in formatting any numerical information.  
+ [in]用于设置格式的任何数字信息基数。  
   
  `refiid`  
- [in] A GUID of a filter used to select which [DEBUG_PROPERTY_INFO](../../../extensibility/debugger/reference/debug-property-info.md) structures are to be enumerated, such as `guidFilterLocals`.  
+ [in]筛选器用于选择哪个选项卡的 GUID [DEBUG_PROPERTY_INFO](../../../extensibility/debugger/reference/debug-property-info.md)结构是要枚举，如`guidFilterLocals`。  
   
  `dwTimeout`  
- [in] Maximum time, in milliseconds, to wait before returning from this method. Use `INFINITE` to wait indefinitely.  
+ [in]以毫秒为单位，从此方法返回前等待的最长时间。 使用`INFINITE`无限期等待。  
   
  `pcelt`  
- [out] Returns the number of properties enumerated. This is the same as calling the [GetCount](../../../extensibility/debugger/reference/ienumdebugpropertyinfo2-getcount.md) method.  
+ [out]返回的枚举的属性的数量。 这是调用相同[GetCount](../../../extensibility/debugger/reference/ienumdebugpropertyinfo2-getcount.md)方法。  
   
  `ppEnum`  
- [out] Returns an [IEnumDebugPropertyInfo2](../../../extensibility/debugger/reference/ienumdebugpropertyinfo2.md) object containing a list of the desired properties.  
+ [out]返回[IEnumDebugPropertyInfo2](../../../extensibility/debugger/reference/ienumdebugpropertyinfo2.md)对象，其中包含所需的属性的列表。  
   
-## <a name="return-value"></a>Return Value  
- If successful, returns `S_OK`; otherwise, returns an error code.  
+## <a name="return-value"></a>返回值  
+ 如果成功，则返回`S_OK`; 否则为返回错误代码。  
   
-## <a name="remarks"></a>Remarks  
- Because this method allows all selected properties to be retrieved with a single call, it is faster than sequentially calling the [GetDebugProperty](../../../extensibility/debugger/reference/idebugstackframe2-getdebugproperty.md) and [EnumChildren](../../../extensibility/debugger/reference/idebugproperty2-enumchildren.md) methods.  
+## <a name="remarks"></a>备注  
+ 此方法可以通过使用单个调用检索所有所选的属性，因为它是比按顺序调用快[GetDebugProperty](../../../extensibility/debugger/reference/idebugstackframe2-getdebugproperty.md)和[EnumChildren](../../../extensibility/debugger/reference/idebugproperty2-enumchildren.md)方法。  
   
-## <a name="see-also"></a>See Also  
+## <a name="see-also"></a>另请参阅  
  [IDebugStackFrame2](../../../extensibility/debugger/reference/idebugstackframe2.md)   
  [DEBUGPROP_INFO_FLAGS](../../../extensibility/debugger/reference/debugprop-info-flags.md)   
  [IEnumDebugPropertyInfo2](../../../extensibility/debugger/reference/ienumdebugpropertyinfo2.md)   

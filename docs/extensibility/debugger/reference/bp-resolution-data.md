@@ -1,5 +1,5 @@
 ---
-title: BP_RESOLUTION_DATA | Microsoft Docs
+title: "BP_RESOLUTION_DATA |Microsoft 文档"
 ms.custom: 
 ms.date: 11/04/2016
 ms.reviewer: 
@@ -34,13 +34,13 @@ ms.translationtype: MT
 ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
 ms.openlocfilehash: f5be75214e9ab112cc3af17bd8bdcfae00083661
 ms.contentlocale: zh-cn
-ms.lasthandoff: 08/28/2017
+ms.lasthandoff: 09/06/2017
 
 ---
 # <a name="bpresolutiondata"></a>BP_RESOLUTION_DATA
-Describes the result of binding a data breakpoint.  
+介绍绑定数据断点的结果。  
   
-## <a name="syntax"></a>Syntax  
+## <a name="syntax"></a>语法  
   
 ```cpp  
 typedef struct _BP_RESOLUTION_DATA {   
@@ -60,31 +60,31 @@ public struct BP_RESOLUTION_DATA {
 };  
 ```  
   
-## <a name="members"></a>Members  
+## <a name="members"></a>成员  
  `bstrDataExpr`  
- The data expression that has been bound.  
+ 已绑定数据表达式。  
   
  `bstrFunc`  
- The name of the function the data breakpoint has bound in (if any).  
+ 函数的名称 （如果有），已在绑定数据断点。  
   
  `bstrImage`  
- The name of the module (MyModule.dll, for example) that the data breakpoint has bound in.  
+ 数据断点已绑定中的模块 (例如 MyModule.dll) 名称。  
   
  `dwFlags`  
- A value from the [BP_RES_DATA_FLAGS](../../../extensibility/debugger/reference/bp-res-data-flags.md) enumeration, describing how the data breakpoint is implemented.  
+ 取值范围为[BP_RES_DATA_FLAGS](../../../extensibility/debugger/reference/bp-res-data-flags.md)枚举，描述如何实现数据断点。  
   
-## <a name="remarks"></a>Remarks  
- This structure is a member of the [BP_RESOLUTION_LOCATION](../../../extensibility/debugger/reference/bp-resolution-location.md) structure, which is in turn a member of the [BP_RESOLUTION_INFO](../../../extensibility/debugger/reference/bp-resolution-info.md) structure returned by the [GetResolutionInfo](../../../extensibility/debugger/reference/idebugbreakpointresolution2-getresolutioninfo.md) method.  
+## <a name="remarks"></a>备注  
+ 此结构是的成员[BP_RESOLUTION_LOCATION](../../../extensibility/debugger/reference/bp-resolution-location.md)结构，是在打开的成员[BP_RESOLUTION_INFO](../../../extensibility/debugger/reference/bp-resolution-info.md)结构返回[GetResolutionInfo](../../../extensibility/debugger/reference/idebugbreakpointresolution2-getresolutioninfo.md)方法。  
   
-## <a name="requirements"></a>Requirements  
- Header: msdbg.h  
+## <a name="requirements"></a>要求  
+ 标头： msdbg.h  
   
  Namespace: Microsoft.VisualStudio.Debugger.Interop  
   
- Assembly: Microsoft.VisualStudio.Debugger.Interop.dll  
+ 程序集： Microsoft.VisualStudio.Debugger.Interop.dll  
   
-## <a name="see-also"></a>See Also  
- [Structures and Unions](../../../extensibility/debugger/reference/structures-and-unions.md)   
+## <a name="see-also"></a>另请参阅  
+ [结构和联合](../../../extensibility/debugger/reference/structures-and-unions.md)   
  [BP_RESOLUTION_LOCATION](../../../extensibility/debugger/reference/bp-resolution-location.md)   
  [BP_RESOLUTION_INFO](../../../extensibility/debugger/reference/bp-resolution-info.md)   
  [GetResolutionInfo](../../../extensibility/debugger/reference/idebugbreakpointresolution2-getresolutioninfo.md)

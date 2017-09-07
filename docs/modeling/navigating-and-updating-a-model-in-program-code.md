@@ -1,5 +1,5 @@
 ---
-title: Navigating and Updating a Model in Program Code | Microsoft Docs
+title: "导航和更新中的模型程序代码 |Microsoft 文档"
 ms.custom: 
 ms.date: 11/04/2016
 ms.reviewer: 
@@ -31,67 +31,67 @@ ms.translationtype: MT
 ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
 ms.openlocfilehash: 40f3a1d56019a8bcab4a11ffaf3aa7d37b02d262
 ms.contentlocale: zh-cn
-ms.lasthandoff: 08/28/2017
+ms.lasthandoff: 09/06/2017
 
 ---
-# <a name="navigating-and-updating-a-model-in-program-code"></a>Navigating and Updating a Model in Program Code
-You can write code to create and delete model elements, set their properties, and create and delete links between elements. All changes must be made within a transaction. If the elements are viewed on a diagram, the diagram will be "fixed up" automatically at the end of the transaction.  
+# <a name="navigating-and-updating-a-model-in-program-code"></a>在程序代码中导航和更新模型
+你可以编写代码以创建和删除模型元素、 设置其属性，并创建和删除元素之间的链接。 必须在事务中进行所有更改。 如果元素在关系图上查看，关系图将""自动更正事务的末尾。  
   
-## <a name="in-this-topic"></a>In this Topic  
- [An Example DSL Definition](#example)  
+## <a name="in-this-topic"></a>本主题内容  
+ [DSL 定义示例](#example)  
   
- [Navigating the Model](#navigation)  
+ [导航模型](#navigation)  
   
- [Accessing Class Information](#metadata)  
+ [访问类信息](#metadata)  
   
- [Perform Changes inside a Transaction](#transaction)  
+ [执行在事务内的更改](#transaction)  
   
- [Creating Model Elements](#elements)  
+ [创建模型元素](#elements)  
   
- [Creating Relationship Links](#links)  
+ [创建关系链接](#links)  
   
- [Deleting Elements](#deleteelements)  
+ [删除元素](#deleteelements)  
   
- [Deleting Relationship Links](#deletelinks)  
+ [删除关系链接](#deletelinks)  
   
- [Reordering the Links of a Relationship](#reorder)  
+ [重新排序的一种关系的链接](#reorder)  
   
- [Locks](#locks)  
+ [锁](#locks)  
   
- [Copy and Paste](#copy)  
+ [复制和粘贴](#copy)  
   
- [Navigating and Updating Diagrams](#diagrams)  
+ [导航和更新关系图](#diagrams)  
   
- [Navigating between Shapes and Elements](#views)  
+ [形状和元素之间导航](#views)  
   
- [Properties of Shapes and Connectors](#shapeProperties)  
+ [形状和连接器的属性](#shapeProperties)  
   
- [DocView and DocData](#docdata)  
+ [DocView 和 DocData](#docdata)  
   
-##  <a name="example"></a> An Example DSL Definition  
- This is the main part of DslDefinition.dsl for the examples in this topic:  
+##  <a name="example"></a>DSL 定义示例  
+ 这是本主题中的示例 DslDefinition.dsl 的主要部分：  
   
- ![DSL Definition diagram &#45; family tree model](../modeling/media/familyt_person.png "FamilyT_Person")  
+ ![DSL 定义关系图 &#45;王朝家谱模型](../modeling/media/familyt_person.png "FamilyT_Person")  
   
- This model is an instance of this DSL:  
+ 此模型是此 DSL 的实例：  
   
- ![Tudor Family Tree Model](../modeling/media/tudor_familytreemodel.png "Tudor_FamilyTreeModel")  
+ ![都铎王朝家谱模型](../modeling/media/tudor_familytreemodel.png "Tudor_FamilyTreeModel")  
   
-### <a name="references-and-namespaces"></a>References and Namespaces  
- To run the code in this topic, you should reference:  
+### <a name="references-and-namespaces"></a>引用和命名空间  
+ 若要运行本主题中的代码，您应引用：  
   
  `Microsoft.VisualStudio.Modeling.Sdk.11.0.dll`  
   
- Your code will use this namespace:  
+ 你的代码将使用此命名空间：  
   
  `using Microsoft.VisualStudio.Modeling;`  
   
- In addition, if you are writing the code in a different project from the one in which your DSL is defined, you should import the assembly that is built by the Dsl project.  
+ 此外，如果你正在从在其中定义 DSL 的不同项目中编写代码，则应导入由 Dsl 项目生成的程序集。  
   
-##  <a name="navigation"></a> Navigating the Model  
+##  <a name="navigation"></a>导航模型  
   
-### <a name="properties"></a>Properties  
- Domain properties that you define in the DSL definition become properties that you can access in program code:  
+### <a name="properties"></a>属性  
+ DSL 定义中定义的域属性变为可以访问在程序代码中的属性：  
   
  `Person henry = ...;`  
   
@@ -99,28 +99,28 @@ You can write code to create and delete model elements, set their properties, an
   
  `if (henry.Name.EndsWith("VIII")) ...`  
   
- If you want to set a property, you must do so inside a [transaction](#transaction):  
+ 如果你想要设置的属性，则必须执行这样内[事务](#transaction):  
   
  `henry.Name = "Henry VIII";`  
   
- If in the DSL definition, a property's **Kind** is **Calculated**, you cannot set it. For more information, see [Calculated and Custom Storage Properties](../modeling/calculated-and-custom-storage-properties.md).  
+ 如果在 DSL 定义中，一个属性的**类型**是**计算**，能将其设置。 有关详细信息，请参阅[计算和自定义存储属性](../modeling/calculated-and-custom-storage-properties.md)。  
   
-### <a name="relationships"></a>Relationships  
- Domain relationships that you define in the DSL definition become pairs of properties, one on the class at each end of the relationship. The names of the properties appear in the DslDefinition diagram as labels on the roles at each side of the relationship. Depending on the multiplicity of the role, the type of the property is either the class at the other end of the relationship, or a collection of that class.  
+### <a name="relationships"></a>关系  
+ DSL 定义中定义的域关系会变得对属性，一个在两端的关系类。 属性的名称在 DslDefinition 关系图中显示为在每个关系的一端的角色上的标签。 具体取决于角色的重数，属性的类型是在另一端的关系类，或者此类的集合。  
   
  `foreach (Person child in henry.Children) { ... }`  
   
  `FamilyTreeModel ftree = henry.FamilyTreeModel;`  
   
- The properties at opposite ends of a relationship are always reciprocal. When a link is created or deleted, the role properties on both elements are updated. The following expression (which uses the extensions of `System.Linq`) is always true for the ParentsHaveChildren relationship in the example:  
+ 位于关系的相反端的属性始终是倒数。 创建或删除链接后，将更新这两个元素上的角色属性。 下面的表达式 (它使用的扩展`System.Linq`) 始终适用于在示例中的 ParentsHaveChildren 关系：  
   
  `(Person p) => p.Children.All(child => child.Parents.Contains(p))`  
   
  `&& p.Parents.All(parent => parent.Children.Contains(p));`  
   
- **ElementLinks**. A relationship is also represented by a model element called a *link*, which is an instance of the domain relationship type. A link always has one source element and one target element. The source element and the target element can be the same.  
+ **ElementLinks**。 关系也可由一个名为模型元素*链接*，这是域关系类型的实例。 链接始终具有一个源元素和一个目标元素。 源元素和目标元素可以是相同的。  
   
- You can access a link and its properties:  
+ 你可以访问链接和其属性：  
   
  `ParentsHaveChildren link = ParentsHaveChildren.GetLink(henry, edward);`  
   
@@ -128,35 +128,35 @@ You can write code to create and delete model elements, set their properties, an
   
  `link == null || link.Parent == henry && link.Child == edward`  
   
- By default, no more than one instance of a relationship is allowed to link any pair of model elements. But if in the DSL definition, the `Allow Duplicates` flag is true for the relationship, then there might be more than one link, and you must use `GetLinks`:  
+ 默认情况下，不能超过一个实例的关系会允许链接模型元素的任何对。 但如果在 DSL 定义中，`Allow Duplicates`标志为 true 对于关系，则可能有多个链接，并且你必须使用`GetLinks`:  
   
  `foreach (ParentsHaveChildren link in ParentsHaveChildren.GetLinks(henry, edward)) { ... }`  
   
- There are also other methods for accessing links. For example:  
+ 还有其他一些方法用于访问链接。 例如:   
   
  `foreach (ParentsHaveChildren link in     ParentsHaveChildren.GetLinksToChildren(henry)) { ... }`  
   
- **Hidden roles.** If in the DSL definition, **Is Property Generated** is **false** for a particular role, then no property is generated that corresponds to that role. However, you can still access the links and traverse the links using the methods of the relationship:  
+ **隐藏的角色。** 如果在 DSL 定义中，**属性生成**是**false**对于特定角色，则没有属性会生成对应于该角色。 但是，你仍可以访问链接和遍历使用关系的方法的链接：  
   
  `foreach (Person p in ParentsHaveChildren.GetChildren(henry)) { ... }`  
   
- The most frequently used example is the <xref:Microsoft.VisualStudio.Modeling.Diagrams.PresentationViewsSubject> relationship, which links a model element to the shape that displays it on a diagram:  
+ 最常使用的示例是<xref:Microsoft.VisualStudio.Modeling.Diagrams.PresentationViewsSubject>关系，模型元素链接到显示在关系图的形状：  
   
  `PresentationViewsSubject.GetPresentation(henry)[0] as PersonShape`  
   
-### <a name="the-element-directory"></a>The Element Directory  
- You can access all the elements in the store using the element directory:  
+### <a name="the-element-directory"></a>元素目录  
+ 你可以访问存储区中使用的元素目录中的所有元素：  
   
  `store.ElementDirectory.AllElements`  
   
- There are also methods for finding elements, such as the following:  
+ 也有一些方法，用于查找元素，如下所示：  
   
  `store.ElementDirectory.FindElements(Person.DomainClassId);`  
   
  `store.ElementDirectory.GetElement(elementId);`  
   
-##  <a name="metadata"></a> Accessing Class Information  
- You can get information about the classes, relationships, and other aspects of the DSL definition. For example:  
+##  <a name="metadata"></a>访问类信息  
+ 你可以获取有关类、 关系和 DSL 定义的其他方面的信息。 例如:   
   
  `DomainClassInfo personClass = henry.GetDomainClass();`  
   
@@ -170,16 +170,16 @@ You can write code to create and delete model elements, set their properties, an
   
  `DomainRoleInfo sourceRole = relationship.DomainRole[0];`  
   
- The ancestor classes of model elements are as follows:  
+ 模型元素的上级类如下所示：  
   
--   ModelElement - all elements and relationships are ModelElements  
+-   模型元素的所有元素和关系是数目  
   
--   ElementLink - all relationships are ElementLinks  
+-   元角色的所有关系都是 ElementLinks  
   
-##  <a name="transaction"></a> Perform Changes inside a Transaction  
- Whenever your program code changes anything in the Store, it must do so inside a transaction. This applies to all model elements, relationships, shapes, diagrams, and their properties. For more information, see <xref:Microsoft.VisualStudio.Modeling.Transaction>.  
+##  <a name="transaction"></a>执行在事务内的更改  
+ 当你的程序代码发生更改存储区中的任何内容时，它必须在事务内将这样做。 这适用于所有模型元素、 关系、 形状、 关系图和其属性。 有关更多信息，请参见<xref:Microsoft.VisualStudio.Modeling.Transaction>。  
   
- The most convenient method of managing a transaction is with a `using` statement enclosed in a `try...catch` statement:  
+ 管理事务的最方便的方法是借助`using`语句括在`try...catch`语句：  
   
 ```  
 Store store; ...  
@@ -205,12 +205,12 @@ catch (Exception ex)
 }  
 ```  
   
- You can make any number of changes inside one transaction. You can open new transactions inside an active transaction.  
+ 你可以在一个事务内的更改的任何数。 你可以打开在活动事务内的新事务。  
   
- To make your changes permanent, you should `Commit` the transaction before it is disposed. If an exception occurs that is not caught inside the transaction, the Store will be reset to its state before the changes.  
+ 若要使所做的更改为永久更改，你应`Commit`事务之前已释放。 如果异常发生在事务捕获不到，存储将重置为其状态之前所做的更改。  
   
-##  <a name="elements"></a> Creating Model Elements  
- This example adds an element to an existing model:  
+##  <a name="elements"></a>创建模型元素  
+ 此示例将元素添加到现有模型：  
   
 ```  
 FamilyTreeModel familyTree = ...; // The root of the model.         
@@ -230,97 +230,97 @@ using (Transaction t =
 }  
 ```  
   
- This example illustrates these essential points about creating an element:  
+ 此示例阐释了这些要点有关创建的元素：  
   
--   Create the new element in a specific partition of the Store. For model elements and relationships, but not shapes, this is usually the default partition.  
+-   在特定分区的存储区中创建新的元素。 模型元素和关系，但不形状，这通常是默认分区。  
   
--   Make it the target of an embedding relationship. In the DslDefinition of this example, each Person must be the target of embedding relationship FamilyTreeHasPeople. To achieve this, we can either set the FamilyTreeModel role property of the Person object, or add the Person to the People role property of the FamilyTreeModel object.  
+-   请将它嵌入关系的目标。 在此示例 DslDefinition，每个人员必须嵌入关系 FamilyTreeHasPeople 的目标。 若要实现此目的，我们可以设置 FamilyTreeModel 角色属性的 Person 对象，或将用户添加到 FamilyTreeModel 对象的用户角色属性。  
   
--   Set the properties of a new element, particularly the property for which `IsName` is true in the DslDefinition. This flag marks the property that serves to identify the element uniquely within its owner. In this case, the Name property has that flag.  
+-   设置的新元素，尤其是为其属性的属性`IsName`DslDefinition 中是如此。 此标志将标记来标识唯一内其所有者的元素的属性。 在这种情况下，该名称属性具有该标志。  
   
--   The DSL definition of this DSL must have been loaded into the Store. If you are writing an extension such as a menu command, this will typically be already true. In other cases, you can explicitly load the model into the Store, or use <xref:Microsoft.VisualStudio.Modeling.Integration.ModelBus> to load it. For more information, see [How to: Open a Model from File in Program Code](../modeling/how-to-open-a-model-from-file-in-program-code.md).  
+-   到存储中，必须已加载此 DSL 的 DSL 定义。 如果你正在编写如菜单命令的扩展，这通常会已 true。 在其他情况下，你可以显式将模型加载到应用商店，或者使用<xref:Microsoft.VisualStudio.Modeling.Integration.ModelBus>加载它。 有关详细信息，请参阅[如何： 从在程序代码中的文件打开模型](../modeling/how-to-open-a-model-from-file-in-program-code.md)。  
   
- When you create an element in this way, a shape is automatically created (if the DSL has a diagram). It appears in an automatically assigned location, with default shape, color, and other features. If you want to control where and how the associated shape appears, see [Creating an Element and its Shape](#merge).  
+ 当以这种方式创建一个元素时，（如果 DSL 具有关系图），将自动创建一种形状。 它显示在自动分配的位置中，使用默认形状、 颜色和其他功能。 如果你想要控制在何处以及如何显示相关联的形状，请参阅[创建元素和其形状](#merge)。  
   
-##  <a name="links"></a> Creating Relationship Links  
- There are two relationships defined in the example DSL definition. Each relationship defines a *role property* on the class at each end of the relationship.  
+##  <a name="links"></a>创建关系链接  
+ 有两个示例 DSL 定义中定义的关系。 每个关系定义*角色属性*两端的关系类。  
   
- There are three ways in which you can create an instance of a relationship. Each of these three methods has the same effect:  
+ 有三种方法可以在其中创建关系的实例。 这三种方法的每个具有相同的效果：  
   
--   Set the property of the source role player. For example:  
+-   设置的属性的源角色扮演者。 例如:   
   
     -   `familyTree.People.Add(edward);`  
   
     -   `edward.Parents.Add(henry);`  
   
--   Set the property of the target role player. For example:  
+-   将目标角色扮演者属性设置。 例如:   
   
     -   `edward.familyTreeModel = familyTree;`  
   
-         The multiplicity of this role is `1..1`, so we assign the value.  
+         此角色的重数是`1..1`，因此我们将值分配。  
   
     -   `henry.Children.Add(edward);`  
   
-         The multiplicity of this role is `0..*`, so we add to the collection.  
+         此角色的重数是`0..*`，因此我们将添加到集合。  
   
--   Construct an instance of the relationship explicitly. For example:  
+-   显式构造关系的实例。 例如:   
   
     -   `FamilyTreeHasPeople edwardLink = new FamilyTreeHasPeople(familyTreeModel, edward);`  
   
     -   `ParentsHaveChildren edwardHenryLink = new ParentsHaveChildren(henry, edward);`  
   
- The last method is useful if you want to set properties on the relationship itself.  
+ 最后一个方法是很有用，如果你想要在关系本身上设置属性。  
   
- When you create an element in this way, a connector on the diagram is automatically created, but it has a default shape, color, and other features. To control how the associated connector is created, see [Creating an Element and its Shape](#merge).  
+ 当以这种方式创建一个元素时，自动创建关系图上的连接器，但它具有默认形状、 颜色和其他功能。 若要控制如何创建关联的连接器，请参阅[创建元素和其形状](#merge)。  
   
-##  <a name="deleteelements"></a> Deleting Elements  
- Delete an element by calling `Delete()`:  
+##  <a name="deleteelements"></a>删除元素  
+ 通过调用中删除某个元素`Delete()`:  
   
  `henry.Delete();`  
   
- This operation will also delete:  
+ 此操作还将删除：  
   
--   Relationship links to and from the element. For example, `edward.Parents` will no longer contain `henry`.  
+-   关系链接到和从元素。 例如，`edward.Parents`将不再包含`henry`。  
   
--   Elements at roles for which the `PropagatesDelete` flag is true. For example, the shape that displays the element will be deleted.  
+-   元素出现在为其角色`PropagatesDelete`标志为 true。 例如，将删除显示元素的形状。  
   
- By default, every embedding relationship has `PropagatesDelete` true at the target role. Deleting `henry` does not delete the `familyTree`, but `familyTree.Delete()` would delete all the `Persons`. For more information, see [Customizing Deletion Behavior](../modeling/customizing-deletion-behavior.md).  
+ 默认情况下，每个嵌入关系具有`PropagatesDelete`true 在目标的角色。 删除`henry`不会删除`familyTree`，但`familyTree.Delete()`将删除所有`Persons`。 有关详细信息，请参阅[自定义删除行为](../modeling/customizing-deletion-behavior.md)。  
   
- By default, `PropagatesDelete` is not true for the roles of reference relationships.  
+ 默认情况下，`PropagatesDelete`不适用于引用关系的角色。  
   
- You can cause the deletion rules to omit specific propagations when you delete an object. This is useful if you are substituting one element for another. You supply the GUID of one or more roles for which deletion should not be propagated. The GUID can be obtained from the relationship class:  
+ 你可能会导致删除规则，以忽略特定传播时删除对象。 这是如果你一个元素替换为另一个有用的。 提供为其不应传播删除的一个或多个角色的 GUID。 可以从关系类获取 GUID:  
   
  `henry.Delete(ParentsHaveChildren.SourceDomainRoleId);`  
   
- (This particular example would have no effect, because `PropagatesDelete` is `false` for the roles of the `ParentsHaveChildren` relationship.)  
+ (此特定示例将不起作用，因为`PropagatesDelete`是`false`的角色`ParentsHaveChildren`关系。)  
   
- In some cases, deletion is prevented by the existence of a lock, either on the element or on an element that would be deleted by propagation. You can use `element.CanDelete()` to check whether the element can be deleted.  
+ 在某些情况下，删除将阻止的锁，元素上或在传播将删除的元素上存在。 你可以使用`element.CanDelete()`以检查是否可以删除元素。  
   
-##  <a name="deletelinks"></a> Deleting Relationship Links  
- You can delete a relationship link by removing an element from a role property:  
+##  <a name="deletelinks"></a>删除关系链接  
+ 你可以通过从角色属性中移除元素中删除的关系链接：  
   
  `henry.Children.Remove(edward); // or:`  
   
  `edward.Parents.Remove(henry);  // or:`  
   
- You can also delete the link explicitly:  
+ 你可以显式删除的链接：  
   
  `edwardHenryLink.Delete();`  
   
- These three methods all have the same effect. You only need to use one of them.  
+ 所有这三种方法具有相同的效果。 只需使用其中一个。  
   
- If the role has 0..1 or 1..1 multiplicity, you can set it to `null`, or to another value:  
+ 如果角色的 0..1 或 1..1 重数，可以将其设置为`null`，或为其他值：  
   
- `edward.FamilyTreeModel = null;` // or:  
+ `edward.FamilyTreeModel = null;`或：  
   
  `edward.FamilyTreeModel = anotherFamilyTree;`  
   
-##  <a name="reorder"></a> Re-ordering the Links of a Relationship  
- The links of a particular relationship that are sourced or targeted at a particular model element have a specific sequence. They appear in the order in which they were added. For example, this statement will always yield the children in the same order:  
+##  <a name="reorder"></a>重新排序的一种关系的链接  
+ 源或目标特定的模型元素的一特定关系的链接有特定的顺序。 它们显示在已添加的顺序。 例如，此语句将始终产生相同顺序的子级：  
   
  `foreach (Person child in henry.Children) ...`  
   
- You can change the order of the links:  
+ 你可以更改的链接顺序：  
   
  `ParentsHaveChildren link = GetLink(henry,edward);`  
   
@@ -332,13 +332,13 @@ using (Transaction t =
   
  `link.MoveBefore(role, nextLink);`  
   
-##  <a name="locks"></a> Locks  
- Your changes might be prevented by a lock. Locks can be set on individual elements, on partitions, and on the store. If any of these levels has a lock that prevents the kind of change that you want to make, an exception might be thrown when you attempt it. You can discover whether locks are set by using element.GetLocks(), which is an extension method that is defined in the namespace <xref:Microsoft.VisualStudio.Modeling.Immutability>.  
+##  <a name="locks"></a>锁  
+ 所做的更改可能会阻止的锁。 可以设置锁，各个元素、 分区和存储。 如果任何这些级别必须锁来防止你想要的更改的类型，当你尝试时可能引发异常。 你可以发现是否锁使用设置的元素。GetLocks()，命名空间中定义的扩展方法<xref:Microsoft.VisualStudio.Modeling.Immutability>。  
   
- For more information, see [Defining a Locking Policy to Create Read-Only Segments](../modeling/defining-a-locking-policy-to-create-read-only-segments.md).  
+ 有关详细信息，请参阅[创建只读线段定义锁定策略](../modeling/defining-a-locking-policy-to-create-read-only-segments.md)。  
   
-##  <a name="copy"></a> Copy and Paste  
- You can copy elements or groups of elements to an <xref:System.Windows.Forms.IDataObject>:  
+##  <a name="copy"></a>复制和粘贴  
+ 你可以复制元素或元素组<xref:System.Windows.Forms.IDataObject>:  
   
 ```  
 Person person = personShape.ModelElement as Person;  
@@ -348,9 +348,9 @@ personShape.Diagram.ElementOperations
       .Copy(data, person.Children.ToList<ModelElement>());  
 ```  
   
- The elements are stored as a serialized Element Group.  
+ 元素的序列化的元素组作为存储。  
   
- You can merge elements from an IDataObject into a model:  
+ 可以将从 IDataObject 元素合并到一个模型：  
   
 ```  
 using (Transaction t = targetDiagram.Store.  
@@ -360,32 +360,32 @@ using (Transaction t = targetDiagram.Store.
 }  
 ```  
   
- `Merge ()` can accept either a `PresentationElement` or a `ModelElement`. If you give it a `PresentationElement`, you can also specify a position on the target diagram as a third parameter.  
+ `Merge ()`可以接受`PresentationElement`或`ModelElement`。 如果你赋予它`PresentationElement`，也可以作为第三个参数的目标关系图上指定的位置。  
   
-##  <a name="diagrams"></a> Navigating and updating diagrams  
- In a DSL, the domain model element, which represents a concept such as Person or Song, is separate from the shape element, which represents what you see on the diagram. The domain model element stores the important properties and relationships of the concepts. The shape element stores the size, position and color of the object's view on the diagram, and the layout of its component parts.  
+##  <a name="diagrams"></a>导航和更新关系图  
+ DSL，在域模型元素，它表示如人员或歌曲的概念，是独立于形状元素，它表示关系图上看到的内容。 域模型元素存储的重要属性和关系的概念。 形状元素存储大小、 位置和颜色的关系图的对象的视图和其组成部分的布局。  
   
-### <a name="presentation-elements"></a>Presentation Elements  
- ![Class diagram of base shape and element types](../modeling/media/dslshapesandelements.png "DSLshapesAndElements")  
+### <a name="presentation-elements"></a>表示元素  
+ ![基本形状和元素类型的类图](../modeling/media/dslshapesandelements.png "DSLshapesAndElements")  
   
- In your DSL Definition, each element that you specify creates a class that is derived from one of the following standard classes.  
+ 在你的 DSL 定义，你指定每个元素创建从以下标准类之一派生的类。  
   
-|Kind of element|Base class|  
+|一种元素|基类|  
 |---------------------|----------------|  
-|Domain class|<xref:Microsoft.VisualStudio.Modeling.ModelElement>|  
-|Domain relationship|<xref:Microsoft.VisualStudio.Modeling.ElementLink>|  
-|Shape|<xref:Microsoft.VisualStudio.Modeling.Diagrams.NodeShape>|  
-|Connector|<xref:Microsoft.VisualStudio.Modeling.Diagrams.BinaryLinkShape>|  
-|Diagram|<xref:Microsoft.VisualStudio.Modeling.Diagrams.Diagram>|  
+|域类|<xref:Microsoft.VisualStudio.Modeling.ModelElement>|  
+|域关系|<xref:Microsoft.VisualStudio.Modeling.ElementLink>|  
+|形状|<xref:Microsoft.VisualStudio.Modeling.Diagrams.NodeShape>|  
+|连接符|<xref:Microsoft.VisualStudio.Modeling.Diagrams.BinaryLinkShape>|  
+|关系图|<xref:Microsoft.VisualStudio.Modeling.Diagrams.Diagram>|  
   
- An element on a diagram usually represents a model element. Typically (but not always), a <xref:Microsoft.VisualStudio.Modeling.Diagrams.NodeShape> represents a domain class instance, and a <xref:Microsoft.VisualStudio.Modeling.Diagrams.BinaryLinkShape> represents a domain relationship instance. The <xref:Microsoft.VisualStudio.Modeling.Diagrams.PresentationViewsSubject> relationship links a node or link shape to the model element that it represents.  
+ 关系图上的元素通常表示的模型元素。 通常 （但不是总是），<xref:Microsoft.VisualStudio.Modeling.Diagrams.NodeShape>表示域类实例和一个<xref:Microsoft.VisualStudio.Modeling.Diagrams.BinaryLinkShape>表示域关系实例。 <xref:Microsoft.VisualStudio.Modeling.Diagrams.PresentationViewsSubject>关系节点或链接将形状链接到它所表示的模型元素。  
   
- Every node or link shape belongs to one diagram. A binary link shape connects two node shapes.  
+ 每个节点或链接形状属于一个关系图。 二进制链接形状连接两个节点形状。  
   
- Shapes can have child shapes in two sets. A shape in the `NestedChildShapes` set is confined to the bounding box of its parent. A shape in the `RelativeChildShapes` list can appear outside or partly outside the bounds of the parent - for example a label or a port. A diagram has no `RelativeChildShapes` and no `Parent`.  
+ 形状可以有两个集的子形状。 中的一个形状`NestedChildShapes`集限制为其父级的边界框。 中的一个形状`RelativeChildShapes`列表可以显示外侧或部分父-例如标签或端口范围之外。 关系图没有`RelativeChildShapes`并且不`Parent`。  
   
-###  <a name="views"></a> Navigating between shapes and elements  
- Domain model elements and shape elements are related by the <xref:Microsoft.VisualStudio.Modeling.Diagrams.PresentationViewsSubject> relationship.  
+###  <a name="views"></a>形状和元素之间导航  
+ 通过相关域的模型元素和形状元素<xref:Microsoft.VisualStudio.Modeling.Diagrams.PresentationViewsSubject>关系。  
   
 ```csharp  
 // using Microsoft.VisualStudio.Modeling;  
@@ -397,7 +397,7 @@ PersonShape henryShape =
     .FirstOrDefault() as PersonShape;  
 ```  
   
- The same relationship links relationships to connectors on the diagram:  
+ 同一关系链接到关系图上的连接器的关系：  
   
 ```  
 Descendants link = Descendants.GetLink(henry, edward);  
@@ -407,7 +407,7 @@ DescendantConnector dc =
 // dc.FromShape == henryShape && dc.ToShape == edwardShape  
 ```  
   
- This relationship also links the root of the model to the diagram:  
+ 此关系还链接到关系图的模型的根：  
   
 ```  
 FamilyTreeDiagram diagram =   
@@ -415,28 +415,28 @@ FamilyTreeDiagram diagram =
       .FirstOrDefault() as FamilyTreeDiagram;  
 ```  
   
- To get the model element represented by a shape, use:  
+ 若要获取形状所表示的模型元素，请使用：  
   
  `henryShape.ModelElement as Person`  
   
  `diagram.ModelElement as FamilyTreeModel`  
   
-### <a name="navigating-around-the-diagram"></a>Navigating around the Diagram  
- In general it is not advisable to navigate between shapes and connectors on the diagram. It is better to navigate the relationships in the model, moving between the shapes and connectors only when it is necessary to work on the appearance of the diagram. These methods link connectors to the shapes at each end:  
+### <a name="navigating-around-the-diagram"></a>导航关系图  
+ 一般情况下不建议形状和关系图上的连接器间导航。 它是更好的做法导航的关系在模型中，必要的关系图的外观上工作时之间的形状和连接符移动。 这些方法将连接器链接到每一端形状：  
   
  `personShape.FromRoleLinkShapes, personShape.ToRoleLinkShapes`  
   
  `connector.FromShape, connector.ToShape`  
   
- Many shapes are composites; they are made up of a parent shape and one or more layers of children. Shapes that are positioned relative to another shape are said to be its *children*. When the parent shape moves, the children move with it.  
+ 多个形状是复合服务;它们的父形状和的子级的一个或多个层组成。 位于相对于另一种形状的形状可认为是其*子级*。 当父形状移动时，子项将随之移动。  
   
- *Relative children* can appear outside the bounding box of the parent shape. *Nested* children appear strictly inside the bounds of the parent.  
+ *相对子级*可以显示父形状的边界框外部。 *嵌套*子级显示严格父边界内。  
   
- To obtain the top set of shapes on a diagram, use:  
+ 若要获取的关系图上形状顶部的一组，请使用：  
   
  `Diagram.NestedChildShapes`  
   
- The ancestor classes of shapes and connectors are:  
+ 形状和连接符的上级类如下：  
   
  <xref:Microsoft.VisualStudio.Modeling.ModelElement>  
   
@@ -456,31 +456,31 @@ FamilyTreeDiagram diagram =
   
  --------- *YourConnector*  
   
-###  <a name="shapeProperties"></a> Properties of Shapes and Connectors  
- In most cases, it is not necessary to make explicit changes to shapes. When you have changed the model elements, the "fix up" rules update the shapes and connectors. For more information, see [Responding to and Propagating Changes](../modeling/responding-to-and-propagating-changes.md).  
+###  <a name="shapeProperties"></a>形状和连接器的属性  
+ 在大多数情况下，不需要对形状进行显式更改。 当你更改的模型元素时，"修复"规则更新形状和连接符。 有关详细信息，请参阅[响应和传播更改](../modeling/responding-to-and-propagating-changes.md)。  
   
- However, it is useful to make some explicit changes to shapes in properties that are independent of the model elements. For example, you could change these properties:  
+ 但是，它可用于独立于的模型元素的属性中的形状做一些显式更改。 例如，你无法更改这些属性：  
   
--   <xref:Microsoft.VisualStudio.Modeling.Diagrams.NodeShape.Size%2A> - determines the height and width of the shape.  
+-   <xref:Microsoft.VisualStudio.Modeling.Diagrams.NodeShape.Size%2A>-确定的高度和宽度的形状。  
   
--   <xref:Microsoft.VisualStudio.Modeling.Diagrams.NodeShape.Location%2A> - position relative to the parent shape or diagram  
+-   <xref:Microsoft.VisualStudio.Modeling.Diagrams.NodeShape.Location%2A>-位置相对于父形状或关系图  
   
--   <xref:Microsoft.VisualStudio.Modeling.Diagrams.ShapeElement.StyleSet%2A> - the set of pens and brushes used for drawing the shape or connector  
+-   <xref:Microsoft.VisualStudio.Modeling.Diagrams.ShapeElement.StyleSet%2A>-钢笔和画笔用于绘制形状或连接器的集  
   
--   <xref:Microsoft.VisualStudio.Modeling.Diagrams.ShapeElement.Hide%2A> - makes the shape invisible  
+-   <xref:Microsoft.VisualStudio.Modeling.Diagrams.ShapeElement.Hide%2A>-使形状不可见  
   
--   <xref:Microsoft.VisualStudio.Modeling.Diagrams.ShapeElement.Show%2A> - makes the shape visible after a `Hide()`  
+-   <xref:Microsoft.VisualStudio.Modeling.Diagrams.ShapeElement.Show%2A>-使形状后可见`Hide()`  
   
-###  <a name="merge"></a> Creating an Element and its Shape  
- When you create an element and link it into the tree of embedding relationships, a shape is automatically created and associated with it. This is done by the "fixup" rules that execute at the end of the transaction. However, the shape will appear in an automatically-assigned location, and its shape, color and other features will have default values. To control how the shape is created, you can use the merge function. You must first add the elements you want to add into an ElementGroup, and then merge the group into the diagram.  
+###  <a name="merge"></a>创建元素和其形状  
+ 当你创建一个元素，并将其链接到嵌入关系的树时，形状上自动创建并与之关联。 这可通过在事务结束执行的"修正"规则。 但是，形状将显示在自动分配的位置，并且其形状、 颜色和其他功能将具有默认值。 若要控制如何创建形状，可以使用合并功能。 必须先添加你想要添加到 ElementGroup 的元素，然后将组合并到关系图。  
   
- This method:  
+ 此方法：  
   
--   Sets the name, if you have assigned a property as the element name.  
+-   如果你已分配为元素名称的属性的名称，请将其设置。  
   
--   Observes any Element Merge Directives that you specified in the DSL Definition.  
+-   观察 DSL 定义中指定任何元素合并指令。  
   
- This example creates a shape at the mouse position, when the user double-clicks the diagram. In the DSL Definition for this sample, the `FillColor` property of `ExampleShape` has been exposed.  
+ 此示例创建一个形状鼠标位置中，当用户双击关系图。 在此示例中，DSL 定义`FillColor`属性`ExampleShape`已公开。  
   
 ```  
   
@@ -517,24 +517,24 @@ partial class MyDiagram
   
 ```  
   
- If you provide more than one shape, set their relative positions using the `AbsoluteBounds`.  
+ 如果你提供多个形状，设置其使用的相对位置`AbsoluteBounds`。  
   
- You can also set the color and other exposed properties of connectors using this method.  
+ 你还可以设置颜色和其他公开的属性的连接器使用此方法。  
   
-### <a name="use-transactions"></a>Use Transactions  
- Shapes, connectors and diagrams are subtypes of <xref:Microsoft.VisualStudio.Modeling.ModelElement> and live in the Store. You must therefore make changes to them only inside a transaction. For more information, see [How to: Use Transactions to Update the Model](../modeling/how-to-use-transactions-to-update-the-model.md).  
+### <a name="use-transactions"></a>使用事务  
+ 形状、 连接器和关系图是子类型的<xref:Microsoft.VisualStudio.Modeling.ModelElement>和实时存储区中。 仅在事务内，因此必须对它们进行更改。 有关详细信息，请参阅[如何： 使用事务来更新模型](../modeling/how-to-use-transactions-to-update-the-model.md)。  
   
-##  <a name="docdata"></a> Document View and Document Data  
- ![Class diagram of standard diagram types](../modeling/media/dsldiagramsanddocs.png "DSLDiagramsandDocs")  
+##  <a name="docdata"></a>文档视图和文档数据  
+ ![标准关系图类型的类图](../modeling/media/dsldiagramsanddocs.png "DSLDiagramsandDocs")  
   
-## <a name="store-partitions"></a>Store Partitions  
- When a model is loaded, the accompanying diagram is loaded at the same time. Typically, the model is loaded into Store.DefaultPartition, and the diagram content is loaded into another Partition. Usually, the content of each partition is loaded and saved to a separate file.  
+## <a name="store-partitions"></a>存储分区  
+ 加载模型后，在同一时间加载随附的关系图。 通常情况下，该模型加载到 Store.DefaultPartition，和关系图内容都加载到另一个分区。 通常情况下，每个分区的内容的加载，并保存到单独的文件中。  
   
-## <a name="see-also"></a>See Also  
+## <a name="see-also"></a>另请参阅  
  <xref:Microsoft.VisualStudio.Modeling.ModelElement>   
- [Validation in a Domain-Specific Language](../modeling/validation-in-a-domain-specific-language.md)   
- [Generating Code from a Domain-Specific Language](../modeling/generating-code-from-a-domain-specific-language.md)   
- [How to: Use Transactions to Update the Model](../modeling/how-to-use-transactions-to-update-the-model.md)   
- [Integrating Models by using Visual Studio Modelbus](../modeling/integrating-models-by-using-visual-studio-modelbus.md)   
- [Responding to and Propagating Changes](../modeling/responding-to-and-propagating-changes.md)
+ [域特定语言中的验证](../modeling/validation-in-a-domain-specific-language.md)   
+ [从域特定语言生成代码](../modeling/generating-code-from-a-domain-specific-language.md)   
+ [如何： 使用事务来更新模型](../modeling/how-to-use-transactions-to-update-the-model.md)   
+ [通过使用 Visual Studio Modelbus 集成模型](../modeling/integrating-models-by-using-visual-studio-modelbus.md)   
+ [响应并传播更改](../modeling/responding-to-and-propagating-changes.md)
 

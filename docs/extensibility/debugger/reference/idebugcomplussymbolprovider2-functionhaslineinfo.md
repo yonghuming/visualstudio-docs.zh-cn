@@ -1,5 +1,5 @@
 ---
-title: IDebugComPlusSymbolProvider2::FunctionHasLineInfo | Microsoft Docs
+title: "IDebugComPlusSymbolProvider2::FunctionHasLineInfo |Microsoft 文档"
 ms.custom: 
 ms.date: 11/04/2016
 ms.reviewer: 
@@ -33,13 +33,13 @@ ms.translationtype: MT
 ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
 ms.openlocfilehash: 8fa84124925947ed8119b356ed8ee2c1bcff310a
 ms.contentlocale: zh-cn
-ms.lasthandoff: 08/28/2017
+ms.lasthandoff: 09/06/2017
 
 ---
 # <a name="idebugcomplussymbolprovider2functionhaslineinfo"></a>IDebugComPlusSymbolProvider2::FunctionHasLineInfo
-Determines if the specified method has line information.  
+确定指定的方法是否具有行信息。  
   
-## <a name="syntax"></a>Syntax  
+## <a name="syntax"></a>语法  
   
 ```cpp  
 HRESULT FunctionHasLineInfo(  
@@ -53,15 +53,15 @@ int FunctionHasLineInfo(
 );  
 ```  
   
-#### <a name="parameters"></a>Parameters  
+#### <a name="parameters"></a>参数  
  `pAddress`  
- [in] The debug address that is represented by an [IDebugAddress](../../../extensibility/debugger/reference/idebugaddress.md) interface. This address must be a METHOD_ADDRESS.  
+ [in]由调试地址[IDebugAddress](../../../extensibility/debugger/reference/idebugaddress.md)接口。 此地址必须是 METHOD_ADDRESS。  
   
-## <a name="return-value"></a>Return Value  
- If successful, returns `S_OK`; otherwise, returns `S_FALSE`.  
+## <a name="return-value"></a>返回值  
+ 如果成功，则返回`S_OK`; 否则为返回`S_FALSE`。  
   
-## <a name="example"></a>Example  
- The following example shows how to implement this method for a **CDebugSymbolProvider** object that exposes the [IDebugComPlusSymbolProvider2](../../../extensibility/debugger/reference/idebugcomplussymbolprovider2.md) interface.  
+## <a name="example"></a>示例  
+ 下面的示例演示如何实现此方法对于**CDebugSymbolProvider**公开的对象[IDebugComPlusSymbolProvider2](../../../extensibility/debugger/reference/idebugcomplussymbolprovider2.md)接口。  
   
 ```cpp  
 HRESULT CDebugSymbolProvider::FunctionHasLineInfo(  
@@ -100,5 +100,5 @@ Error:
 }  
 ```  
   
-## <a name="see-also"></a>See Also  
+## <a name="see-also"></a>另请参阅  
  [IDebugComPlusSymbolProvider2](../../../extensibility/debugger/reference/idebugcomplussymbolprovider2.md)

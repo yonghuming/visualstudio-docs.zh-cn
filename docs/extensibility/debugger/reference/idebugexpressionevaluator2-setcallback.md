@@ -1,5 +1,5 @@
 ---
-title: IDebugExpressionEvaluator2::SetCallback | Microsoft Docs
+title: "IDebugExpressionEvaluator2::SetCallback |Microsoft 文档"
 ms.custom: 
 ms.date: 11/04/2016
 ms.reviewer: 
@@ -33,13 +33,13 @@ ms.translationtype: MT
 ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
 ms.openlocfilehash: e5b9964dee0580fe0fbab6d817c4dc2abf56dad4
 ms.contentlocale: zh-cn
-ms.lasthandoff: 08/28/2017
+ms.lasthandoff: 09/06/2017
 
 ---
 # <a name="idebugexpressionevaluator2setcallback"></a>IDebugExpressionEvaluator2::SetCallback
-Enables the expression evaluator (EE) to specify the callback interface that the debugger engine (DE) will use to read metric settings.  
+使表达式计算器 (EE) 来指定调试器引擎 (DE) 将用于读取度量值设置的回调接口。  
   
-## <a name="syntax"></a>Syntax  
+## <a name="syntax"></a>语法  
   
 ```cpp  
 HRESULT SetCallback (  
@@ -53,18 +53,18 @@ int SetCallback (
 );  
 ```  
   
-#### <a name="parameters"></a>Parameters  
+#### <a name="parameters"></a>参数  
  `pCallback`  
- [in] Interface to use for the settings callback.  
+ [in]要用于设置回调的接口。  
   
-## <a name="return-value"></a>Return Value  
- If successful, returns `S_OK`; otherwise, returns an error code.  
+## <a name="return-value"></a>返回值  
+ 如果成功，则返回`S_OK`; 否则为返回错误代码。  
   
-## <a name="remarks"></a>Remarks  
- This method provides an interface to the session debug manager that an expression evaluator can use to read metric settings. It is useful in remote debugging to read metrics on the [!INCLUDE[vsprvs](../../../code-quality/includes/vsprvs_md.md)] computer.  
+## <a name="remarks"></a>备注  
+ 此方法的表达式计算器可用于读取指标设置的会话调试管理器提供的接口。 它可在远程调试上读取的指标[!INCLUDE[vsprvs](../../../code-quality/includes/vsprvs_md.md)]计算机。  
   
-## <a name="example"></a>Example  
- The following examples shows how to implement this method for a **CEE** object that exposes the [IDebugSettingsCallback2](../../../extensibility/debugger/reference/idebugsettingscallback2.md) interface.  
+## <a name="example"></a>示例  
+ 下面的示例演示如何实现此方法对于**CEE**公开的对象[IDebugSettingsCallback2](../../../extensibility/debugger/reference/idebugsettingscallback2.md)接口。  
   
 ```cpp  
 HRESULT CEE::SetCallback(IDebugSettingsCallback2* in_pCallback)  
@@ -91,5 +91,5 @@ HRESULT CEE::SetCallback(IDebugSettingsCallback2* in_pCallback)
 }  
 ```  
   
-## <a name="see-also"></a>See Also  
+## <a name="see-also"></a>另请参阅  
  [IDebugExpressionEvaluator2](../../../extensibility/debugger/reference/idebugexpressionevaluator2.md)

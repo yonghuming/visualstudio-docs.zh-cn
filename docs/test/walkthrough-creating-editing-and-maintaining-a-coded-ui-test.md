@@ -1,5 +1,5 @@
 ---
-title: 'Walkthrough: Creating, Editing and Maintaining a Coded UI Test | Microsoft Docs'
+title: "演练：创建、编辑和维护编码的 UI 测试 | Microsoft Docs"
 ms.custom: 
 ms.date: 11/04/2016
 ms.reviewer: 
@@ -30,54 +30,54 @@ ms.translationtype: HT
 ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
 ms.openlocfilehash: 63dd3f809e472bea8f558bff15e17bbfa0421a2c
 ms.contentlocale: zh-cn
-ms.lasthandoff: 08/28/2017
+ms.lasthandoff: 09/06/2017
 
 ---
-# <a name="walkthrough-creating-editing-and-maintaining-a-coded-ui-test"></a>Walkthrough: Creating, Editing and Maintaining a Coded UI Test
-In this walkthrough, you will create a simple Windows Presentation Foundation (WPF) application to demonstrate how to create, edit, and maintain a coded UI test. The walkthrough provides solutions for correcting tests that have been broken by various timing issues and control refactoring.  
+# <a name="walkthrough-creating-editing-and-maintaining-a-coded-ui-test"></a>演练：创建、编辑和维护编码的 UI 测试
+在本演练中，你将创建一个简单的 Windows Presentation Foundation (WPF) 应用程序来演示如何创建、编辑和维护编码的 UI 测试。 本演练为更正由各种计时问题和控件重构中断的测试提供了解决方案。  
   
-## <a name="prerequisites"></a>Prerequisites  
- For this walkthrough you will need:  
+## <a name="prerequisites"></a>先决条件  
+ 本演练需要：  
   
 -   Visual Studio Enterprise  
   
-### <a name="create-a-simple-wpf-application"></a>Create a Simple WPF Application  
+### <a name="create-a-simple-wpf-application"></a>创建一个简单的 WPF 应用程序  
   
-1.  On the **FILE** menu, point to **New**, and then select **Project**.  
+1.  在“文件”菜单上，指向“新建”，然后选择“项目”。  
   
-     The **New Project** dialog box appears.  
+     此时将出现 **“新建项目”** 对话框。  
   
-2.  In the **Installed** pane, expand **Visual C#**, and then select **Windows Desktop**.  
+2.  在“已安装”窗格中，展开 **Visual C#**，然后选择“Windows 桌面”。  
   
-3.  Above the middle pane, verify that the target framework drop-down list is set to **.NET Framework 4.5**.  
+3.  在中间窗格之上，验证是否将目标框架下拉列表设置为“.NET Framework 4.5”。  
   
-4.  In the middle pane, select the **WPF Application** template.  
+4.  在中间窗格中，选择“WPF 应用程序”模板。  
   
-5.  In the **Name** text box, type **SimpleWPFApp**.  
+5.  在“名称”文本框中，键入 **SimpleWPFApp**。  
   
-6.  Choose a folder where you will save the project. In the **Location** text box, type the name of the folder.  
+6.  选择要用于保存项目的文件夹。 在“位置”文本框中，键入文件夹的名称。  
   
-7.  Choose **OK**.  
+7.  选择 **“确定”**。  
   
-     The WPF Designer for Visual Studio opens and displays MainWindow of the project.  
+     用于 Visual Studio 的 WPF 设计器将打开，并显示项目的主窗口。  
   
-8.  If the toolbox is not currently open, open it. Choose the **VIEW** menu, and then choose **Toolbox**.  
+8.  如果当前未打开工具箱，请将其打开。 选择“视图”菜单，然后选择“工具箱”。  
   
-9. Under the **All WPF Controls** section, drag a **Button**, **CheckBox** and **ProgressBar** control onto the MainWindow in the design surface.  
+9. 在“所有 WPF 控件”部分，将一个“Button”、“CheckBox”和“ProgressBar”控件拖动到设计图面的主窗口中。  
   
-10. Select the Button control. In the Properties window, change the value for the **Name** property from \<No Name> to button1. Then change the value for the **Content** property from Button to Start.  
+10. 选择 Button 控件。 在“属性”窗口中，将“名称”属性的值从 \<无名称> 更改为 button1。 然后将“内容”属性的值从 Button 更改为 Start。  
   
-11. Select the ProgressBar control. In the Properties window, change the value for the value for the **Name** property from \<No Name> to progressBar1. Then change the value for the **Maximum** property from **100** to **10000**.  
+11. 选择 ProgressBar 控件。 在“属性”窗口中，将“名称”属性的值从 \<无名称> 更改为 progressBar1。 然后将“最大值”属性的值从“100”更改为“10000”。  
   
-12. Select the Checkbox control. In the Properties window, change the value for the **Name** property from \<No Name> to checkBox1 and clear the **IsEnabled** property.  
+12. 选择 Checkbox 控件。 在“属性”窗口中，将“名称”属性的值从 \<无名称> 更改为 checkBox1，然后清除“IsEnabled”属性。  
   
-     ![Simple WPF Application](../test/media/codedui_wpfapp.png "CodedUI_WPFApp")  
+     ![简单 WPF 应用程序](../test/media/codedui_wpfapp.png "CodedUI_WPFApp")  
   
-13. Double-click the button control to add a click event handler.  
+13. 双击按钮控件，以添加单击事件处理程序。  
   
-     The MainWindow.xmal.cs is displayed in the Code Editor with the cursor in the new button1_Click method.  
+     将在代码编辑器中显示 MainWindow.xmal.cs，并且光标位于新的 button1_Click 方法中。  
   
-14. At the top of the MainWindow class, add a delegate. The delegate will be used for the progress bar. To add the delegate, add the following code:  
+14. 在 MainWindow 类的顶部，添加一个委托。 该委托将用于进度栏。 若要添加委托，请添加以下代码：  
   
     ```csharp  
     public partial class MainWindow : Window  
@@ -92,7 +92,7 @@ In this walkthrough, you will create a simple Windows Presentation Foundation (W
   
     ```  
   
-15. In the button1_Click method, add the following code:  
+15. 在 button1_Click 方法中，添加以下代码：  
   
     ```csharp  
     private void button1_Click(object sender, RoutedEventArgs e)  
@@ -118,97 +118,97 @@ In this walkthrough, you will create a simple Windows Presentation Foundation (W
   
     ```  
   
-16. Save the file.  
+16. 保存该文件。  
   
-### <a name="verify-the-wpf-application-runs-correctly"></a>Verify the WPF Application Runs Correctly  
+### <a name="verify-the-wpf-application-runs-correctly"></a>验证 WPF 应用程序是否正常运行  
   
-1.  On the **DEBUG** menu, select **Start Debugging** or press **F5**.  
+1.  在“调试”菜单上，选择“启动调试”或按 **F5**。  
   
-2.  Notice that the check box control is disabled. Choose **Start**.  
+2.  注意该复选框控件此时处于禁用状态。 选择“启动”。  
   
-     In a few seconds, the progress bar should be 100% complete.  
+     几秒后，进度栏应 100% 完成。  
   
-3.  You can now select the check box control.  
+3.  现在，你可以选择该复选框控件。  
   
-4.  Close SimpleWPFApp.  
+4.  关闭 SimpleWPFApp。  
   
-### <a name="create-and-run-a-coded-ui-test-for-simplewpfapp"></a>Create and Run a Coded UI Test for SimpleWPFApp  
+### <a name="create-and-run-a-coded-ui-test-for-simplewpfapp"></a>为 SimpleWPFApp 创建和运行编码的 UI 测试  
   
-1.  Locate the SimpleWPFApp application that you created earlier. By default, the application will be located at C:\Users\\<username\>\Documents\Visual Studio \<version>\Projects\SimpleWPFApp\SimpleWPFApp\bin\Debug\SimpleWPFApp.exe  
+1.  查找你之前创建的 SimpleWPFApp 应用程序。 默认情况下，该应用程序将位于 C:\Users\\<username\>\Documents\Visual Studio \<version>\Projects\SimpleWPFApp\SimpleWPFApp\bin\Debug\SimpleWPFApp.exe  
   
-2.  Create a desktop shortcut to the SimpleWPFApp application. Right-click SimpleWPFApp.exe and choose **Copy**. On your desktop, right-click and choose **Paste shortcut**.  
+2.  创建 SimpleWPFApp 应用程序的桌面快捷方式。 右键单击 SimpleWPFApp.exe 并选择“复制”。 在桌面上右键单击，然后选择“粘贴快捷方式”。  
   
     > [!TIP]
-    >  A shortcut to the application makes it easier to add or modify Coded UI tests for your application because it lets you start the application quickly.  
+    >  使用应用程序的快捷方式可以快速启动应用程序，因此便于为应用程序添加或修改编码的 UI 测试。  
   
-3.  In Solution Explorer, right-click the solution, choose **Add** and then select **New Project**.  
+3.  在解决方案资源管理器中，右键单击该解决方案，选择“添加”，然后选择“新建项目”。  
   
-     The **Add New Project** dialog box appears.  
+     此时，将显示 **“添加新项目”** 对话框。  
   
-4.  In the **Installed** pane, expand **Visual C#**, and then select **Test**.  
+4.  在“已安装”窗格中，展开 **Visual C#**，然后选择“测试”。  
   
-5.  In the middle pane, select the **Coded UI Test Project** template.  
+5.  在中间窗格中，选择“编码的 UI 测试项目”模板。  
   
-6.  Choose **OK**.  
+6.  选择 **“确定”**。  
   
-     In Solution Explorer, the new coded UI test project named **CodedUITestProject1** is added to your solution.  
+     在解决方案资源管理器中，将名为 **CodedUITestProject1** 的新编码的 UI 测试项目添加到你的解决方案中。  
   
-     The **Generate Code for Coded UI Test** dialog box appears.  
+     此时将显示“为编码的 UI 测试生成代码”对话框。  
   
-7.  Select the **Record actions, edit UI map or add assertions** option and choose **OK**.  
+7.  选择“录制操作、编辑 UI 映射或添加断言”选项，然后选择“确定”。  
   
-     The UIMap - Coded UI Test Builder appears, and the Visual Studio window is minimized.  
+     将显示“UIMap - 编码的 UI 测试生成器”，且 Visual Studio 窗口将最小化。  
   
-     For more information about the options in the dialog box, see [Creating Coded UI Tests](../test/use-ui-automation-to-test-your-code.md#VerifyingCodeUsingCUITCreate).  
+     有关对话框中的选项的详细信息，请参阅[创建编码的 UI 测试](../test/use-ui-automation-to-test-your-code.md#VerifyingCodeUsingCUITCreate)。  
   
-8.  Choose **Start Recording** on the UIMap - Coded UI Test Builder.  
+8.  在“UIMap - 编码的 UI 测试生成器”中选择“开始记录”。  
   
-     ![Start recording](../test/media/cuit_builder_record.png "CUIT_Builder_Record")  
+     ![开始记录](../test/media/cuit_builder_record.png "CUIT_Builder_Record")  
   
-     You can pause the recording if needed, for example if you have to deal with incoming mail.  
+     如果需要，你可以暂停记录（例如，如果你必须处理传入的邮件）。  
   
-     ![Pause the recording](../test/media/cuit_.png "CUIT_")  
+     ![暂停记录](../test/media/cuit_.png "CUIT_")  
   
     > [!WARNING]
-    >  All actions performed on the desktop will be recorded. Pause the recording if you are performing actions that may lead to sensitive data being included in the recording.  
+    >  将录制在桌面上执行的所有操作。 如果你正在执行可能会导致敏感数据被包括在录制中的操作，则暂停录制。  
   
-9. Launch the SimpleWPFApp using the desktop shortcut.  
+9. 使用桌面快捷方式启动 SimpleWPFApp。  
   
-     As before, notice that the check box control is disabled.  
+     像以前一样，注意该复选框控件此时处于禁用状态。  
   
-10. On the SimpleWPFApp, choose **Start**.  
+10. 在 SimpleWPFApp 上选择“启动”。  
   
-     In a few seconds, the progress bar should be 100% complete.  
+     几秒后，进度栏应 100% 完成。  
   
-11. Check the check box control which is now enabled.  
+11. 选中现在处于启用状态的复选框控件。  
   
-12. Close the SimpleWPFApp application.  
+12. 关闭 SimpleWPFApp 应用程序。  
   
-13. On the UIMap - Coded UI Test Builder, choose **Generate Code**.  
+13. 在“UIMap - 编码的 UI 测试生成器”中，选择“生成代码”。  
   
-14. In the Method Name type **SimpleAppTest** and choose **Add and Generate**. In a few seconds, the Coded UI test appears and is added to the Solution.  
+14. 在“方法名称”中键入 **SimpleAppTest**，然后选择“添加并生成”。 几秒后，编码的 UI 测试将出现，并且会添加到“解决方案”中。  
   
-15. Close the UIMap - Coded UI Test Builder.  
+15. 关闭“UIMap - 编码的 UI 测试生成器”。  
   
-     The CodedUITest1.cs file appears in the Code Editor.  
+     CodedUITest1.cs 文件将出现在代码编辑器中。  
   
-16. Save your project.  
+16. 保存你的项目。  
   
-### <a name="run-the-coded-ui-test"></a>Run the Coded UI Test  
+### <a name="run-the-coded-ui-test"></a>运行编码的 UI 测试  
   
-1.  From the **TEST** menu, choose **Windows** and then choose **Test Explorer**.  
+1.  从“测试”菜单中，选择“窗口”，然后选择“测试资源管理器”。  
   
-2.  From the **BUILD** menu, choose **Build Solution**.  
+2.  从“生成”菜单中选择“生成解决方案”。  
   
-3.  In the CodedUITest1.cs file, locate the **CodedUITestMethod** method, right-click and select **Run Tests**, or run the test from Test Explorer.  
+3.  在 CodedUITest1.cs 文件中，找到 **CodedUITestMethod** 方法、右键单击并选择“运行测试”，或从“测试资源管理器”中运行该测试。  
   
-     While the coded UI test runs, the SimpleWPFApp is visible. It conducts the steps that you did in the previous procedure. However, when the test tries to select the check box for the check box control, the Test Results window shows that the test failed. This is because the test tries to select the check box but is not aware that the check box control is disabled until the progress bar is 100% complete. You can correct this and similar issues by using the various `UITestControl.WaitForControlXXX()` methods that are available for coded UI testing. The next procedure will demonstrate using the `WaitForControlEnabled()` method to correct the issue that caused this test to fail. For more information, see [Making Coded UI Tests Wait For Specific Events During Playback](../test/making-coded-ui-tests-wait-for-specific-events-during-playback.md).  
+     当编码的 UI 测试运行时，SimpleWPFApp 将可见。 它会执行你在前面的过程中执行的步骤。 但是，当测试尝试选中复选框控件对应的复选框时，“测试结果”窗口将显示测试未通过。 原因是测试尝试选中该复选框，但不知道复选框控件此时处于禁用状态，直至进度栏 100% 完成为止。 通过可用于编码的 UI 测试的各种 `UITestControl.WaitForControlXXX()` 方法可以更正此问题和类似问题。 下面的过程将演示如何使用 `WaitForControlEnabled()` 方法更正导致此测试未通过的问题。 有关详细信息，请参阅[播放期间让编码的 UI 测试等待特定事件](../test/making-coded-ui-tests-wait-for-specific-events-during-playback.md)。  
   
-### <a name="edit-and-rerun-the-coded-ui-test"></a>Edit and Rerun the Coded UI Test  
+### <a name="edit-and-rerun-the-coded-ui-test"></a>编辑并重新运行编码的 UI 测试  
   
-1.  In the Test Explorer window, select the failed test and in the **StackTrace** section, choose the first link to **UIMap.SimpleAppTest()**.  
+1.  在“测试资源管理器”窗口中，选择未通过的测试，然后在 **StackTrace** 部分中，选择指向 **UIMap.SimpleAppTest()** 的第一个链接。  
   
-2.  The UIMap.Designer.cs file opens with the point of error highlighted in the code:  
+2.  将打开 UIMap.Designer.cs 文件，并在代码中突出显示错误点：  
   
     ```csharp  
   
@@ -216,35 +216,35 @@ In this walkthrough, you will create a simple Windows Presentation Foundation (W
     uICheckBoxCheckBox.Checked = this.SimpleAppTestParams.UICheckBoxCheckBoxChecked;  
     ```  
   
-3.  To correct this problem, you can make the coded UI test wait for the CheckBox control to be enabled before continuing on to this line using the `WaitForControlEnabled()` method.  
+3.  若要更正此问题，可以使用 `WaitForControlEnabled()` 方法使编码的 UI 测试等待 CheckBox 控件被启用，然后再继续此行。  
   
     > [!WARNING]
-    >  Do not modify the UIMap.Designer.cs file. Any code changes you make in the UIMapDesigner.cs file will be overwritten every time you generate code using the UIMap - Coded UI Test Builder. If you have to modify a recorded method, you must copy it to UIMap.cs file and rename it. The UIMap.cs file can be used to override methods and properties in the UIMapDesigner.cs file. You must remove the reference to the original method in the Coded UITest.cs file and replace it with the renamed method name.  
+    >  请不要修改 UIMap.Designer.cs 文件。 每次使用“UIMap - 编码的 UI 测试生成器”生成代码时，都会覆盖在 UIMapDesigner.cs 文件中进行的所有代码更改。 如果必须修改录制的方法，则必须将其复制到 UIMap.cs 文件并对其重命名。  UIMap.cs 文件可用于重写 UIMapDesigner.cs 文件中的方法和属性。 必须在 Coded UITest.cs 文件中删除对原始方法的引用，并将其替换为重命名的方法名称。  
   
-4.  In Solution Explorer, locate **UIMap.uitest** in your coded UI test project.  
+4.  在解决方案资源管理器中，找到编码的 UI 测试项目中的 **UIMap.uitest**。  
   
-5.  Open the shortcut menu for **UIMap.uitest** and choose **Open**.  
+5.  打开 **UIMap.uitest** 的快捷菜单并选择“打开”。  
   
-     The coded UI test is displayed in the Coded UI Test Editor. You can now view and edit the coded UI test.  
+     编码的 UI 测试编辑器中将显示编码的 UI 测试。 此时你可以查看并编辑编码的 UI 测试。  
   
-6.  In the **UI Action** pane, select the test method (SimpleAppTest) that you want to move to the UIMap.cs or UIMap.vb file to facilitate custom code functionality which won't be overwritten when the test code is recompiled.  
+6.  在“UI 操作”窗格中，选择要移动到 UIMap.cs 或 UIMap.vb 文件的测试方法 (SimpleAppTest)，以便使用在重新编译测试代码时不会重写的自定义代码功能。  
   
-7.  Choose the **Move Code** button on the Coded UI Test Editor toolbar.  
+7.  选择“编码的 UI 测试编辑器”工具栏上的“移动代码”按钮。  
   
-8.  A Microsoft Visual Studio dialog box is displayed. It warns you that the method will be moved from the UIMap.uitest file to the UIMap.cs file and that you will no longer be able to edit the method using the Coded UI Test Editor. Choose **Yes**.  
+8.  将显示一个 Microsoft Visual Studio 对话框。 该对话框将警告你，该方法将从 UIMap.uitest 文件移动到 UIMap.cs 文件，并且你将不能再使用编码的 UI 测试编辑器来编辑该方法。 选择 **“是”**。  
   
-     The test method is removed from the UIMap.uitest file and no longer is displayed in the UI Actions pane. To edit the moved test file, open the UIMap.cs file from Solution Explorer.  
+     将从 UIMap.uitest 文件中移除该测试方法，并且“UI 操作”窗格中将不再显示该测试方法。 若要编辑移动的测试文件，请从解决方案资源管理器中打开 UIMap.cs 文件。  
   
-9. On the [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] toolbar, choose **Save**.  
+9. 在 [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] 工具栏上，选择“保存”。  
   
-     The updates to the test method are saved in the UIMap.Designer file.  
+     对测试方法的更新保存在 UIMap.Designer 文件中。  
   
     > [!CAUTION]
-    >  Once you have moved the method, you can no longer edit it using the Coded UI Test Editor. You must add your custom code and maintain it using the Code Editor.  
+    >  一旦移动了该方法，你就不再能使用编码的 UI 测试编辑器对其进行编辑。 你必须使用代码编辑器添加并维护你的自定义代码。  
   
-10. Rename the method from `SimpleAppTest()` to `ModifiedSimpleAppTest()`  
+10. 将方法由 `SimpleAppTest()` 重命名为 `ModifiedSimpleAppTest()`  
   
-11. Add the following using statement to the file:  
+11. 将下面的 using 语句添加到文件中：  
   
     ```csharp  
   
@@ -252,7 +252,7 @@ In this walkthrough, you will create a simple Windows Presentation Foundation (W
   
     ```  
   
-12. Add the following `WaitForControlEnabled()` method before the offending line of code identified previously:  
+12. 在之前标识的有问题的代码行之前添加下面的 `WaitForControlEnabled()` 方法：  
   
     ```csharp  
   
@@ -263,7 +263,7 @@ In this walkthrough, you will create a simple Windows Presentation Foundation (W
   
     ```  
   
-13. In the CodedUITest1.cs file, locate the **CodedUITestMethod** method and either comment out or rename the reference to the original SimpleAppTest() method and then replace it with the new ModifiedSimpleAppTest():  
+13. 在 CodedUITest1.cs 文件中，查找 **CodedUITestMethod** 方法并注释掉或重命名对原始 SimpleAppTest() 方法的引用，然后将其替换为新的 ModifiedSimpleAppTest()：  
   
     ```csharp  
     [TestMethod]  
@@ -277,27 +277,27 @@ In this walkthrough, you will create a simple Windows Presentation Foundation (W
   
     ```  
   
-14. On the **BUILD** menu, choose **Build Solution**.  
+14. 在“生成”菜单上，选择“生成解决方案”。  
   
-15. Right-click the **CodedUITestMethod** method and select **Run Tests**.  
+15. 右键单击 **CodedUITestMethod** 方法，然后选择“运行测试”。  
   
-16. This time the coded UI test successfully completes all the steps in the test and **Passed** is displayed in the Test Explorer window.  
+16. 此时，编码的 UI 测试已成功完成测试中的所有步骤，“测试资源管理器”窗口中将显示“已通过”。  
   
-### <a name="refactor-a-control-in-the-simplewpfapp"></a>Refactor a Control in the SimpleWPFApp  
+### <a name="refactor-a-control-in-the-simplewpfapp"></a>在 SimpleWPFApp 中重构控件  
   
-1.  In the MainWindow.xaml file, in the Designer, select the button control.  
+1.  在 MainWindow.xaml 文件中，在设计器中选择按钮控件。  
   
-2.  At the top of the Properties window, change the **Name** property value from button1 to buttonA.  
+2.  在“属性”窗口的顶部，将“名称”属性值从 button1 更改为 buttonA。  
   
-3.  On the **BUILD** menu, choose **Build Solution**.  
+3.  在“生成”菜单上，选择“生成解决方案”。  
   
-4.  In Test Explorer, run **CodedUITestMethod1**.  
+4.  在测试资源管理器中，运行 **CodedUITestMethod1**。  
   
-     The test fails because the coded UI test cannot locate the button control that was originally mapped in the UIMap as button1. Refactoring can impact coded UI tests in this manner.  
+     由于编码的 UI 测试找不到最初在 UIMap 映射为 button1 的按钮控件，因此测试未通过。 重构会以此方式对编码的 UI 测试产生影响。  
   
-5.  In the Test Explorer window, in the **StackTrace** section, choose the first link next to **UIMpa.ModifiedSimpleAppTest()**.  
+5.  在“测试资源管理器”窗口的 **StackTrace** 部分中，选择 **UIMpa.ModifiedSimpleAppTest()** 旁边的第一个链接。  
   
-     The UIMap.cs file opens. The point of error is highlighted in the code:  
+     将打开 UIMap.cs 文件。 代码中将突出显示错误点：  
   
     ```csharp  
   
@@ -305,43 +305,43 @@ In this walkthrough, you will create a simple Windows Presentation Foundation (W
     Mouse.Click(uIStartButton, new Point(27, 10));  
     ```  
   
-     Notice that the line of code earlier in this procedure is using `UiStartButton`, which is the UIMap name before it was refactored.  
+     请注意，此过程前面的代码行使用了 `UiStartButton`，这是重构之前的 UIMap 名称。  
   
-     To correct the issue, you can add the refactored control to the UIMap by using the Coded UI Test Builder. You can update the test's code to use the code, as demonstrated in the next procedure.  
+     若要更正此问题，可使用编码的 UI 测试生成器向 UIMap 中添加重构的控件。 可以更新测试的代码以使用该代码，如下一过程所示。  
   
-### <a name="map-refactored-control-and-edit-and-rerun-the-coded-ui-test"></a>Map Refactored Control and Edit and Rerun the Coded UI Test  
+### <a name="map-refactored-control-and-edit-and-rerun-the-coded-ui-test"></a>映射重构的控件并编辑和重新运行编码的 UI 测试  
   
-1.  In the CodedUITest1.cs file, in the **CodedUITestMethod1()** method, right-click, select **Generate Code for Coded UI Test** and then choose **Use Coded UI Test Builder**.  
+1.  在 CodedUITest1.cs 文件的 **CodedUITestMethod1()** 方法中，右键单击并选择“为编码的 UI 测试生成代码”，然后选择“使用编码的 UI 测试生成器”。  
   
-     The UIMap - Coded UI Test Builder appears.  
+     将出现“UIMap - 编码的 UI 测试生成器”。  
   
-2.  Using the desktop shortcut you created earlier, run the SimpleWPFApp application that you created earlier.  
+2.  使用你之前创建的桌面快捷方式，运行你在之前创建的 SimpleWPFApp 应用程序。  
   
-3.  On the UIMap - Coded UI Test Builder, drag the crosshair tool to the **Start** button on the SimpleWPFApp.  
+3.  在“UIMap - 编码的 UI 测试生成器”中，将十字线工具拖到 SimpleWPFApp 中的“启动”按钮。  
   
-     The **Start** button is enclosed in a blue box and the Coded UI Test Builder takes a few seconds to process the data for the selected control and displays the controls properties. Notice that the **AutomationUId** is named **buttonA**.  
+     “Start”按钮包围在蓝色框中，编码的 UI 测试生成器需要几秒钟来为选定控件处理数据并显示控件属性。 请注意，**AutomationUId** 命名为 **buttonA**。  
   
-4.  In the properties for the control, choose the arrow at the upper-left corner to expand the UI Control Map. Notice that **UIStartButton1** is selected.  
+4.  在控件的属性中，选择左上角的箭头以展开 UI 控件图。 请注意，已选择 **UIStartButton1**。  
   
-5.  In the toolbar, choose the **Add control to UI Control Map**.  
+5.  在工具栏中，选择“将控件添加到 UI 控件图”。  
   
-     The status at the bottom of the window verifies the action by displaying **Selected control has been added to the UI control map**.  
+     窗口底部的状态通过显示“所选控件已添加到 UI 控件图中”来验证操作。  
   
-6.  On the UIMap - Coded UI Test Builder, choose **Generate Code**.  
+6.  在“UIMap - 编码的 UI 测试生成器”中，选择“生成代码”。  
   
-     The Coded UI Test Builder - Generate Code appears with a note indicating that no new method is required and that code will only be generated for the changes to the UI control map.  
+     将显示“编码的 UI 测试生成器 –-生成代码”，其中包含一个注释，指示不需要任何新方法，并且只为 UI 控件图的更改生成代码。  
   
-7.  Choose **Generate**.  
+7.  选择“生成”。  
   
-8.  Close SimpleWPFApp.exe.  
+8.  关闭 SimpleWPFApp.exe。  
   
-9. Close UIMap - Coded UI Test Builder.  
+9. 关闭“UIMap - 编码的 UI 测试生成器”。  
   
-     The UIMap - Coded UI Test Builder takes a few seconds to process the UI control map changes.  
+     “UIMap - 编码的 UI 测试生成器”需要几秒钟来处理 UI 控件图更改。  
   
-10. In Solution Explorer, open the UIMap.Designer.cs file.  
+10. 在解决方案资源管理器中，打开 UIMap.Designer.cs 文件。  
   
-11. In the UIMap.Designer.cs file, locate the UIStartButton1 property. Notice the `SearchProperties` is set to `"buttonA"`:  
+11. 在 UIMap.Designer.cs 文件中，找到 UIStartButton1 属性。 请注意，`SearchProperties` 设置为 `"buttonA"`：  
   
     ```csharp  
   
@@ -363,9 +363,9 @@ In this walkthrough, you will create a simple Windows Presentation Foundation (W
   
     ```  
   
-     Now you can modify the coded UI test to use the newly mapped control. As pointed out in the previous procedure if you want to override any methods or properties in the coded UI test, you must do so in the UIMap.cs file.  
+     现在，你可以修改编码的 UI 测试，以使用新映射的控件。 如前一过程所述，如果要在编码的 UI 测试中重写任何方法或属性，则必须在 UIMap.cs 文件中执行此操作。  
   
-12. In the UIMap.cs file, add a constructor and specify the `SearchProperties` property of the `UIStartButton` property to use the `AutomationID` property with a value of `"buttonA":`  
+12. 在 UIMap.cs 文件中，添加一个构造函数，并指定 `SearchProperties` 属性的 `UIStartButton` 属性，以使用值为 `AutomationID` 的 `"buttonA":` 属性  
   
     ```csharp  
   
@@ -376,35 +376,35 @@ In this walkthrough, you will create a simple Windows Presentation Foundation (W
   
     ```  
   
-13. On the **BUILD** menu, choose **Build Solution**.  
+13. 在“生成”菜单上，选择“生成解决方案”。  
   
-14. In Test Explorer, run CodedUITestMethod1.  
+14. 在“测试资源管理器”中，运行“CodedUITestMethod1”。  
   
-     This time, the coded UI test successfully completes all the steps in the test.  In the Test Results Window, you will see a status of **Passed**.  
+     此时，编码的 UI 测试已成功完成测试中的所有步骤。  在“测试结果”窗口中，你会看到状态“已通过”。  
   
-## <a name="external-resources"></a>External Resources  
+## <a name="external-resources"></a>外部资源  
   
-### <a name="videos"></a>Videos  
- ![link to video](../data-tools/media/playvideo.gif "PlayVideo") [Coded UI Tests-DeepDive-Episode1-GettingStarted](http://go.microsoft.com/fwlink/?LinkID=230573)  
+### <a name="videos"></a>视频  
+ ![链接至视频](../data-tools/media/playvideo.gif "PlayVideo") [编码的 UI 测试-DeepDive-第 1 集-入门](http://go.microsoft.com/fwlink/?LinkID=230573)  
   
- ![link to video](../data-tools/media/playvideo.gif "PlayVideo") [Coded UI Tests-DeepDive-Episode2-MaintainenceAndDebugging](http://go.microsoft.com/fwlink/?LinkID=230574)  
+ ![链接至视频](../data-tools/media/playvideo.gif "PlayVideo") [编码的 UI 测试-DeepDive-第 2 集-维护和调试](http://go.microsoft.com/fwlink/?LinkID=230574)  
   
- ![link to video](../data-tools/media/playvideo.gif "PlayVideo") [Coded UI Tests-DeepDive-Episode3-HandCoding](http://go.microsoft.com/fwlink/?LinkID=230575)  
+ ![链接至视频](../data-tools/media/playvideo.gif "PlayVideo") [编码的 UI 测试-DeepDive-第 3 集-手工编码](http://go.microsoft.com/fwlink/?LinkID=230575)  
   
-### <a name="hands-on-lab"></a>Hands on lab  
- [MSDN Virtual Lab: Introduction to Creating Coded UI Tests with Visual Studio 2010](http://go.microsoft.com/fwlink/?LinkID=22508)  
+### <a name="hands-on-lab"></a>动手实验  
+ [MSDN 虚拟实验室：使用 Visual Studio 2010 创建编码的 UI 测试的简介](http://go.microsoft.com/fwlink/?LinkID=22508)  
   
 ### <a name="faq"></a>FAQ  
- [Coded UI Tests FAQ - 1](http://go.microsoft.com/fwlink/?LinkID=230576)  
+ [编码的 UI 测试常见问题 - 1](http://go.microsoft.com/fwlink/?LinkID=230576)  
   
- [Coded UI Tests FAQ -2](http://go.microsoft.com/fwlink/?LinkID=230578)  
+ [编码的 UI 测试常见问题 - 2](http://go.microsoft.com/fwlink/?LinkID=230578)  
   
-### <a name="forum"></a>Forum  
- [Visual Studio UI Automation Testing (includes CodedUI)](http://go.microsoft.com/fwlink/?LinkID=224497)  
+### <a name="forum"></a>论坛  
+ [Visual Studio UI 自动测试（包括 CodedUI）](http://go.microsoft.com/fwlink/?LinkID=224497)  
   
-## <a name="see-also"></a>See Also  
- [Use UI Automation To Test Your Code](../test/use-ui-automation-to-test-your-code.md)   
- [Getting Started with the WPF Designer](http://msdn.microsoft.com/en-us/18e61d03-b96a-4058-a166-8ec6b3f6116b)   
- [Supported Configurations and Platforms for Coded UI Tests and Action Recordings](../test/supported-configurations-and-platforms-for-coded-ui-tests-and-action-recordings.md)   
- [Editing Coded UI Tests Using the Coded UI Test Editor](../test/editing-coded-ui-tests-using-the-coded-ui-test-editor.md)
+## <a name="see-also"></a>另请参阅  
+ [使用 UI 自动化来测试代码](../test/use-ui-automation-to-test-your-code.md)   
+ [WPF 设计器入门](http://msdn.microsoft.com/en-us/18e61d03-b96a-4058-a166-8ec6b3f6116b)   
+ [支持编码的 UI 测试和操作录制的配置和平台](../test/supported-configurations-and-platforms-for-coded-ui-tests-and-action-recordings.md)   
+ [使用编码的 UI 测试编辑器编辑编码的 UI 测试](../test/editing-coded-ui-tests-using-the-coded-ui-test-editor.md)
 
