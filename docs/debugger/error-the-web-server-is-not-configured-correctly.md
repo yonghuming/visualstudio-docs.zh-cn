@@ -1,39 +1,56 @@
 ---
-title: "错误：Web 服务器配置不正确 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-debug"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "vs.debug.remote.projnotconfigured"
-dev_langs: 
-  - "FSharp"
-  - "VB"
-  - "CSharp"
-  - "C++"
-helpviewer_keywords: 
-  - "调试器, Web 应用程序错误"
+title: 'Error: The web server is not configured correctly | Microsoft Docs'
+ms.custom: 
+ms.date: 06/08/2017
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-debug
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords:
+- vs.debug.remote.projnotconfigured
+dev_langs:
+- CSharp
+- VB
+- FSharp
+- C++
+helpviewer_keywords:
+- debugger, Web application errors
 ms.assetid: 875ba87f-c372-4126-8fe3-e33931cf26c0
 caps.latest.revision: 22
-author: "mikejo5000"
-ms.author: "mikejo"
-manager: "ghogen"
-caps.handback.revision: 22
----
-# 错误：Web 服务器配置不正确
-[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
+author: mikejo5000
+ms.author: mikejo
+manager: ghogen
+translation.priority.ht:
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- ru-ru
+- zh-cn
+- zh-tw
+translation.priority.mt:
+- cs-cz
+- pl-pl
+- pt-br
+- tr-tr
+ms.translationtype: HT
+ms.sourcegitcommit: 1d4298d60886d8fe8b402b59b1838a4171532ab1
+ms.openlocfilehash: e98410b3b60f2f7259adf7de930ec32fb72fb376
+ms.contentlocale: zh-cn
+ms.lasthandoff: 09/07/2017
 
-此错误的可能原因包括：  
+---
+# <a name="error-the-web-server-is-not-configured-correctly"></a>Error: The web server is not configured correctly
+Possible causes of this error include:  
   
--   尝试调试一个已复制到不同的计算机上、经过手动重命名或移动过的 .NET Web 应用程序。  
+-   Trying to debug a .NET Web application that was copied to a different machine, manually renamed, or moved.  
   
--   没有足够的 IIS 连接。 有关将网站部署到 IIS 的详细信息，请参阅[创建网站](http://www.iis.net/learn/get-started/getting-started-with-iis/create-a-web-site)。  
+-   Not having enough IIS connections. For more information about deploying a web site to IIS, see [IIS 8.0 Using ASP.NET 3.5 and ASP.NET 4.5](https://docs.microsoft.com/en-us/iis/get-started/whats-new-in-iis-8/iis-80-using-aspnet-35-and-aspnet-45) and, for ASP.NET Core, see [Host on Windows with IIS](https://docs.asp.net/en/latest/publishing/iis.html).  
   
--   如果你正尝试调试 ASP.NET 应用程序，请参阅[发布到 IIS](https://docs.asp.net/en/latest/publishing/iis.html)，了解有关部署到运行 IIS 8 或更高版本的远程计算机的说明，或参阅 [远程调试远程 IIS 7.5 计算机上的 ASP.NET](../debugger/remote-debugging-aspnet-on-a-remote-iis-7-5-computer.md)，了解有关部署到运行 IIS 7.5 的远程计算机的说明。  
-  
-## 请参阅  
- [调试 Web 应用程序：错误和疑难解答](../debugger/debugging-web-applications-errors-and-troubleshooting.md)
+## <a name="see-also"></a>See Also  
+ [Remote Debugging ASP.NET on a Remote IIS Computer](../debugger/remote-debugging-aspnet-on-a-remote-iis-7-5-computer.md)   
+ [Debugging Web Applications: Errors and Troubleshooting](../debugger/debugging-web-applications-errors-and-troubleshooting.md)
