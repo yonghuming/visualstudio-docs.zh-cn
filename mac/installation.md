@@ -1,6 +1,6 @@
 ---
-title: "安装 Visual Studio for Mac"
-description: "有关如何安装 Visual Studio for Mac 和跨平台开发所需附加组件的说明。"
+title: Install Visual Studio for Mac
+description: Instructions on how to install Visual Studio for Mac and additional components required for cross-platform development.
 author: asb3993
 ms.author: amburns
 ms.date: 04/14/2017
@@ -8,71 +8,82 @@ ms.topic: article
 ms.technology: vs-ide-install
 ms.assetid: 22B1F2CD-32AE-464D-80AC-C8AB4786B015
 ms.translationtype: HT
-ms.sourcegitcommit: e2b7ff9126e1cc38ac2e58d6be339b656a024e7f
-ms.openlocfilehash: 24d2fa5f9054e621cd5167692a2571e9275c2bae
+ms.sourcegitcommit: d4e4258ae5cd0bb564a9d9b8b731256bb39ada11
+ms.openlocfilehash: 5a89260b405ad655d331425d65a14985f4c46c11
 ms.contentlocale: zh-cn
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/08/2017
 
 ---
 
-# <a name="setup-and-install-visual-studio-for-mac"></a>设置和安装 Visual Studio for Mac
+# <a name="setup-and-install-visual-studio-for-mac"></a>Setup and Install Visual Studio for Mac
 
-## <a name="setup"></a>安装
+## <a name="setup"></a>Setup
 
-下载 Visual Studio for Mac 后，要开始开发本机跨平台应用，还需先安装并设置一些其他内容。
+To start developing native, cross-platform apps when you download Visual Studio for Mac there are a couple of things that you must install and set up in preparation.
 
-要结合使用 iOS 和 Visual Studio，需要以下各项：
+For working with iOS in Visual Studio you need the following pieces:
 
-* 运行 macOS Sierra 10.12 或更高版本的 Mac
+* a Mac with macOS Sierra 10.12 or above
 * Xcode 8.3
-* 一个 Apple ID。 如果没有 Apple ID，请在 https://appleid.apple.com 新建一个。 需要 Apple ID 才可安装和登录 Xcode。
+* An Apple ID. If you don't have an Apple ID already you can create a new one at https://appleid.apple.com. It's necessary to have an Apple ID for installing and signing into Xcode.
 
-## <a name="install"></a>安装
+## <a name="install"></a>Install
 
-1. 从 [https://www.visualstudio.com/](https://www.visualstudio.com/) 下载 Visual Studio for Mac
+1. Download Visual Studio for Mac from [https://www.visualstudio.com/](https://www.visualstudio.com/)
 
-2. 下载安装包后，单击“VisualStudioInstaller.dmg”文件装载安装程序，然后通过双击徽标运行它，如下图所示：
+2. Once the installer package is downloaded, click the **VisualStudioInstaller.dmg** file to mount the installer and then run it by double-clicking the logo, as illustrated by the following image:
 
-  ![安装程序对话框](media/installer-image1.png)
+  ![Installer dialog](media/installer-image1.png)
 
-3. 系统可能会通过警报对话框发出提示，如下图所示。 在此情况下，请单击“打开”：
+3. You might be prompted with an alert dialog similar to the following image. In this case, click **Open**:
 
-  ![警报对话框](media/installer-image2.png)
+  ![alert dialog](media/installer-image2.png)
 
-4. 安装程序会检查系统，确定需要安装或更新的组件：
+4. The installer inspects your system to verify which components need to be installed or updated:
 
-  ![评估系统](media/installer-image3.png)
+  ![Assessing your system](media/installer-image3.png)
 
-5. 之后，会出现一个警报对话框，要求确认隐私和许可条款。 按“继续”按钮接受条款：
+5. You'll then be presented with an alert dialog asking you to acknowledge the Privacy and License terms. Press the **Continue** button to acknowledge the terms:
 
-  ![许可对话框](media/installer-image4.png)
+  ![License dialog](media/installer-image4.png)
 
-6. 安装程序会列出缺少和需要下载并安装的所需组件。 在此处选择要下载的产品：
+6. The installer presents a list of required components that are missing and that need to be downloaded and installed. Select the products you wish to download here:
 
-  ![选择项](media/installer-image5.png)
+  ![Select Items](media/installer-image5.png)
 
-  此安装屏幕显示每个组件的版本和大小。 可单击每个组件查看该组件的依赖项列表（对于 Android），该组件下载的其他包（对于 .NET Core），或任何其他所需应用程序（对于 iOS 和 macOS）：
+  This installation screen displays the version and size of each individual component. You can click each component to display a list of dependencies for that component (for Android), see additional packages that it downloads (for .NET Core), or view any additional applications required (for iOS and macOS):
 
-  ![Android 附加依赖项](media/installer-image6.png)
+  ![Android additional dependencies](media/installer-image6.png)
 
-7. 确认选择后，选择“安装和更新”按钮开始安装过程。
+7. Once you are happy with your selection, select the **Install and Update** button to start the installation process.
 
-8. 安装程序会启动所选项的下载和安装过程：
+8. The installer starts the download and install process of the selected items:
 
-  ![开始安装](media/installer-image7.png)
+  ![Starting Installation](media/installer-image7.png)
 
-  ![下载 Xamarin.Mac](media/installer-image8.png)
+  ![Downloading Xamarin.Mac](media/installer-image8.png)
 
-  ![完成安装](media/installer-image9.png)
+  ![Finishing Installation](media/installer-image9.png)
 
-9. 系统可能会提示为完成安装所需的各个组件提升必要的权限。 在此处输入管理员凭据以继续安装过程：
+9. You might be prompted to elevate the permissions necessary for individual components that are needed to complete installation. Enter your administrator credentials here to continue the installation process:
 
-  ![输入权限以继续执行安装程序](media/installer-image10.png)
+  ![Enter permissions to continue with installer](media/installer-image10.png)
 
-10. 安装成功后，可通过按“开始”，开始在 Visual Studio 中开发应用：
+10. Once the installation is successful, you can start developing apps in Visual Studio by pressing **Start**:
 
-  ![打开 Visual Studio](media/installer-image11.png)
+  ![Open Visual Studio](media/installer-image11.png)
 
 > [!NOTE]
-如果在原始安装期间选择不安装平台或工具（通过在步骤 #6 中取消选择相关选项），且希望稍后添加该组件，必须再次运行[安装程序](https://www.visualstudio.com/vs/)。
+If you chose not install a platform or tool during the original installation (by unselecting it in step #6), you must run the [installer](https://www.visualstudio.com/vs/) again if you wish to add the components later.
 
+## <a name="manual-installation"></a>Manual Installation
+
+If your installation fails or any single component of your installation fails, you may be able to resolve the issue through manual installation. To view the required components and download each one, take the following steps:
+
+1. On the second screen on the Visual Studio Installer, go to the menu bar and select **View Manual Installation Instructions**:
+
+    ![Option showing manual install menu item](media/installer-image12.png)
+
+2. Follow the instructions to download and install the components manually:
+
+  ![Manual installation dialog](media/installer-image13.png)
