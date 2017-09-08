@@ -1,43 +1,61 @@
 ---
-title: "Visual C# 和 Visual Basic 入门 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-general"
-ms.tgt_pltfrm: ""
-ms.topic: "get-started-article"
-helpviewer_keywords: 
-  - "C# 教程"
-  - "学习 C#"
-  - "学习 VB"
-  - "学习 Visual Basic"
-  - "VB 教程"
-  - "Visual Basic 教程"
+title: Getting Started with Visual C# and Visual Basic using Visual Studio | Microsoft Docs
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-general
+ms.tgt_pltfrm: 
+ms.topic: get-started-article
+helpviewer_keywords:
+- C# tutorial
+- Visual Basic tutorial
+- learn VB
+- VB tutorial
+- learn C#
+- learn Visual Basic
 ms.assetid: d57bb19f-58d6-48cc-96cb-ab1c540a25d0
 caps.latest.revision: 13
-author: "kempb"
-ms.author: "kempb"
-manager: "ghogen"
-caps.handback.revision: 13
----
-# Visual C# 和 Visual Basic 入门
-[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
+author: kempb
+ms.author: kempb
+manager: ghogen
+translation.priority.ht:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+ms.translationtype: HT
+ms.sourcegitcommit: 3ce2d22a82f81db35575275a99d193066068e127
+ms.openlocfilehash: 562e94fb9881bc1844b78466d52611fc51a90a27
+ms.contentlocale: zh-cn
+ms.lasthandoff: 09/07/2017
 
-无论你是否刚开始使用 Visual C\# 或 Microsoft Visual Basic，都可以从本教程入手。  入门帮助是一系列向你介绍 Visual C\# 和 Visual Basic 的连续课程。  您可以体验其中的乐趣，并编写一些很棒的软件。  
+---
+# <a name="getting-started-with-visual-c-and-visual-basic-using-visual-studio"></a>Getting Started with Visual C# and Visual Basic using Visual Studio
+Whether you are new to Visual C# or Microsoft Visual Basic, this is the place to start. Getting Started Help is a series of sequential lessons that introduces you to Visual C# and Visual Basic. Have fun, and write some great software.  
   
- 若要了解有关 Visual C\+\+ 的信息，请参阅 [Visual C\+\+ 资源](http://msdn.microsoft.com/vstudio/hh386302.aspx)。  
+ To learn about Visual C++, see [Visual C++ resources](http://msdn.microsoft.com/vstudio/hh386302.aspx).  
   
-## 本节内容  
- [演练：创建简单应用程序](../ide/walkthrough-create-a-simple-application-with-visual-csharp-or-visual-basic.md)  
- 认识 Visual Studio IDE 中的基本窗口，通过配置设置优化你的开发体验，然后生成一个简单的程序。  
+## <a name="in-this-section"></a>In This Section  
+ [Walkthrough: Create a Simple Application](../ide/walkthrough-create-a-simple-application-with-visual-csharp-or-visual-basic.md)  
+ Identify the basic windows in the Visual Studio IDE, optimize your development experience by configuring a setting, and then build a simple program.  
   
- [教程 1：创建图片查看器](../ide/tutorial-1-create-a-picture-viewer.md)  
- 构建一个程序，该程序可从文件中加载某个图片，并在窗口中显示该图片。  了解如何拖动控件（如窗体上的按钮和图片框）、如何设置其属性以及如何使用容器平滑地调整窗体的大小。  开始学习编写代码。  
+ [Tutorial 1: Create a Picture Viewer](../ide/tutorial-1-create-a-picture-viewer.md)  
+ Build a program that loads a picture from a file and displays it in a window. Learn how to drag controls like buttons and picture boxes on your form, set their properties, and use containers to smoothly resize the form. Get started writing code.  
   
- [教程 2：创建计时数学测验](../ide/tutorial-2-create-a-timed-math-quiz.md)  
- 构建一个计时的数学测验游戏，在该游戏中，玩家必须在指定时间内回答四道随机的数学习题。  了解如何执行以下操作：使用 `Random` 类生成随机数；使用 `Timer` 控件触发事件；使用 `if else` 语句控制程序流以及执行基本算术运算。  
+ [Tutorial 2: Create a Timed Math Quiz](../ide/tutorial-2-create-a-timed-math-quiz.md)  
+ Build a timed math quiz game, where the player must answer four random arithmetic problems within a specified time. Learn how to generate random numbers using the `Random` class, trigger events using a `Timer` control, control program flow using `if else` statements, and perform basic arithmetic operations.  
   
- [教程 3：创建匹配游戏](../ide/tutorial-3-create-a-matching-game.md)  
- 构建一个匹配游戏，在该游戏中，玩家必须匹配隐藏的图标对。  了解如何执行以下操作：使用 `List` 对象包含多个对象；使用 `foreach` 循环；使用引用变量跟踪窗体状态；构建可用于多个对象的事件处理程序以及使计时器在开始时正好触发一次。
+ [Tutorial 3: Create a Matching Game](../ide/tutorial-3-create-a-matching-game.md)  
+ Build a matching game, where the player must match pairs of hidden icons. Learn how to hold objects using a `List` object, use a `foreach` loop, keep track of a form's state using reference variables, build an event handler that you can use with multiple objects, and make a timer fire exactly once when started.
+
