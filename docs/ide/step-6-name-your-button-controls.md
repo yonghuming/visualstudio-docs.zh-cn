@@ -1,5 +1,5 @@
 ---
-title: 'Step 6: Name Your Button Controls | Microsoft Docs'
+title: "步骤 6：命名按钮控件 | Microsoft Docs"
 ms.custom: 
 ms.date: 11/04/2016
 ms.reviewer: 
@@ -32,66 +32,66 @@ ms.translationtype: HT
 ms.sourcegitcommit: eb5c9550fd29b0e98bf63a7240737da4f13f3249
 ms.openlocfilehash: 8bd8c04c9a9aba653f587d74b2c6e4fc7ce562f9
 ms.contentlocale: zh-cn
-ms.lasthandoff: 08/30/2017
+ms.lasthandoff: 09/06/2017
 
 ---
-# <a name="step-6-name-your-button-controls"></a>Step 6: Name Your Button Controls
-There's only one PictureBox on your form. When you added it, the IDE automatically named it **pictureBox1**. There's only one CheckBox, which is named **checkBox1**. Soon, you will write some code, and that code will refer to the CheckBox and PictureBox. Because there's only one of each of these controls, you will know what it means when you see **pictureBox1** or **checkBox1** in your code.  
+# <a name="step-6-name-your-button-controls"></a>步骤 6：命名按钮控件
+窗体上只有一个 PictureBox。 当添加此控件时，IDE 自动将其命名为“pictureBox1” 。 只有一个名为“checkBox1” 的 CheckBox。 很快，你将编写一些代码，并且这些代码将引用到上述的 CheckBox 和 PictureBox。 因为上述每种控件都只有一个控件，所以当你在代码中看到  “pictureBox1”或  “checkBox1”时，应知道其中的含义。  
   
 > [!NOTE]
->  In Visual Basic, the default first letter of any control name is initial cap, so the names are **PictureBox1**, **CheckBox1**, and so on.  
+>  在 Visual Basic 中，任何控件名称的第一个字母默认是首字母大写，因此名称为 **“PictureBox1”**、 **“CheckBox1”**等等。  
   
- There are four buttons on your form, and the IDE named them **button1**, **button2**, **button3**, and **button4**. By just looking at their current names, you don't know which button is the **Close** button and which one is the **Show a picture** button. That's why giving your button controls more informative names is helpful.  
+ 窗体上包含四个按钮，IDE 将它们分别命名为“button1” 、“button2” 、“button3” 和 “button4”。 只看这些按钮的当前名称，你并不知道哪个按钮是“关闭”  按钮，哪个按钮是“显示图片”  按钮。 这就是为按钮控件提供包含更多信息的名字会很有帮助的原因。  
   
- ![link to video](../data-tools/media/playvideo.gif "PlayVideo")For a video version of this topic, see [Tutorial 1: Create a Picture Viewer in Visual Basic - Video 3](http://go.microsoft.com/fwlink/?LinkId=205213) or [Tutorial 1: Create a Picture Viewer in C# - Video 3](http://go.microsoft.com/fwlink/?LinkId=205202). These videos use an earlier version of Visual Studio, so there are slight differences in some menu commands and other user interface elements. However, the concepts and procedures work similarly in the current version of Visual Studio.  
+ ![视频链接](../data-tools/media/playvideo.gif "PlayVideo")有关本主题的视频版本，请观看[Tutorial 1: Create a Picture Viewer in Visual Basic - Video 3](http://go.microsoft.com/fwlink/?LinkId=205213)（教程 1：用 Visual Basic 创建图片查看器 - 视频 3）或 [Tutorial 1: Create a Picture Viewer in C# - Video 3](http://go.microsoft.com/fwlink/?LinkId=205202)（教程 1：用 C# 创建图片查看器 - 视频 3）。 这些视频使用 Visual Studio 的早期版本，因此在一些菜单命令和其他用户界面元素上略有差异。 但是，概念和过程与当前版本的 Visual Studio 大同小异。  
   
-### <a name="to-name-your-button-controls"></a>To name your button controls  
+### <a name="to-name-your-button-controls"></a>要命名按钮控件  
   
-1.  On the form, choose the **Close** button. (If you still have all the buttons selected, choose the ESC key to cancel the selection.) Scroll in the **Properties** window until you see the **(Name)** property. (The **(Name)** property is near the top when the properties are alphabetical.) Change the name to **closeButton**, as shown in the following picture.  
+1.  在窗体上，选择“关闭”  按钮。 （如果你仍选择了所有按钮，请选择 Esc 键取消选择。）在“属性”窗口中滚动，直到看到“(Name)”属性。 （当属性按字母顺序排列时，“(Name)”属性位于顶部附近。）将此名称更改为“closeButton”，如下图中所示。  
   
-     ![Properties window with closeButton name](../ide/media/express_setnameproperty.png "Express_SetNameProperty")  
-Properties window with closeButton name  
+     ![标题名称为 closeButton 的“属性”窗口](../ide/media/express_setnameproperty.png "Express_SetNameProperty")  
+带有 closeButton 名称的“属性”窗口  
   
     > [!NOTE]
-    >  If you try changing the name of your button to **closeButton**, with a space between the words close and Button, the IDE displays an error message: "Property value is not valid." Spaces (and a few other characters) are not allowed in control names.  
+    >  如果尝试将按钮的名称更改为 （在单词“close”和“Button”之间有一个空格），则 IDE 将显示错误消息“属性值无效”。 控件名称中不允许使用空格和一些其他字符。  
   
-2.  Rename the other three buttons to **backgroundButton**, **clearButton**, and **showButton**. You can verify the names by choosing the control selector drop-down list in the **Properties** window. The new button names appear.  
+2.  将其他三个按钮重命名为“backgroundButton” 、 “clearButton”和“showButton” 。 你可通过选择“属性”  窗口中的控件选择器下拉列表来验证这些名称。 新的按钮名称将出现。  
   
-3.  Double-click the **Show a picture** button on the form. As an alternative, choose the **Show a picture** button on the form, and then choose the ENTER key. When you do, the IDE opens an additional tab in the main window called **Form1.cs** (**Form1.vb** if you're using Visual Basic). This tab shows the code file behind the form, as shown in the following picture.  
+3.  双击窗体上的“显示图片”  按钮。 或者，选择窗体上的“显示图片”  按钮，然后选择 Enter 键。 此时，IDE 将在名为“Form1.cs”  （如果使用的是 Visual Basic，则名为“Form1.vb” ）的主窗口中打开一个附加选项卡。 此选项卡将显示窗体后面的代码文件，如下图所示。  
   
-     ![Form1.cs tab with Visual C&#35; code](../ide/media/express_showbuttoncode.png "Express_ShowButtonCode")  
-Form1.cs tab with Visual C# code  
+     ![包含 Visual C&#35; 代码的 Form1.cs 选项卡](../ide/media/express_showbuttoncode.png "Express_ShowButtonCode")  
+包含 Visual C# 代码的 Form1.cs 选项卡  
   
-4.  Focus on this part of the code. (Choose the **VB** tab below if you're using Visual Basic to view the Visual Basic version of the code.)  
+4.  重点考虑这一部分的代码。 （如果你要使用 Visual Basic 查看代码的 Visual Basic 版本，请选择下面的  “VB”选项卡。）  
   
      [!code-vb[VbExpressTutorial1Step6#1](../ide/codesnippet/VisualBasic/step-6-name-your-button-controls_1.vb)]  [!code-csharp[VbExpressTutorial1Step6#1](../ide/codesnippet/CSharp/step-6-name-your-button-controls_1.cs)]  
   
-     You are looking at code called `showButton_Click()`. The IDE added this to the form's code when you opened the code file for the **showButton** button. At design-time, when you open the code file for a control in a form, code is generated for the control if it doesn't already exist. This code, known as a *method*, runs when you run your program and choose the control - in this case, the **Show a picture** button.  
+     你要查看名为 `showButton_Click()`的代码。 当你打开“showButton”  按钮的代码文件时，IDE 已将此代码添加到窗体的代码中。 在设计时，当你打开窗体中的某个控件的代码文件时，如果该控件没有代码，则将为该控件生成代码。 当你运行程序并选择控件（在此示例中为“显示图片” 按钮）时，该代码（称为“方法”  ）将会运行。  
   
     > [!NOTE]
-    >  In this tutorial, the Visual Basic code that's automatically generated has been simplified by removing everything between the parentheses, (). Whenever this occurs, you can remove the same code. Your program will work either way. For the remainder of the tutorials, any automatically generated code is simplified whenever possible.  
+    >  在本教程中，自动生成的 Visual Basic 代码进行了简化（删除了圆括号 () 之间的所有代码）。 只要出现自动生成的代码，你都可以删除相同的代码。 程序不管怎样都将工作。 对于其余教程，任何自动生成的代码都将尽可能得到简化。  
   
-5.  Choose the Windows Forms Designer tab again (**Form1.cs [Design]** in Visual C#, **Form1.vb [Design]** in Visual Basic) and then open the code file for the **Clear the picture** button to create a method for it in the form's code. Repeat this for the remaining two buttons. Each time, the IDE adds a new method to the form's code file.  
+5.  再次选择“Windows 窗体设计器”选项卡（Visual C# 中的 “Form1.cs [设计]”，Visual Basic 中的“Form1.vb [设计]”  ），然后打开“清除图片”  按钮的代码文件以在窗体的代码中为它创建方法。 对于剩余两个按钮，重复此操作。 IDE 每次都会向窗体的代码文件添加一个新方法。  
   
-6.  To add one more method, open the code file for the CheckBox control in Windows Forms Designer to make the IDE add a `checkBox1_CheckedChanged()` method. That method is called whenever the user selects or clears the check box.  
+6.  若要再添加一个方法，请在 Windows 窗体设计器中打开 CheckBox 控件的代码文件，以使 IDE 添加 `checkBox1_CheckedChanged()` 方法。 每当用户选中或清除此复选框时都将调用此方法。  
   
     > [!NOTE]
-    >  When working on a program, you often move between the code editor and Windows Forms Designer. The IDE makes it easy to navigate in your project. Use **Solution Explorer** to open Windows Forms Designer by double-clicking **Form1.cs** in Visual C# or **Form1.vb** in Visual Basic, or on the menu bar, choose **View**, **Designer**.  
+    >  当运行程序时，你经常要在代码编辑器和 Windows 窗体设计器之间进行移动。 有了 IDE，就能够轻松地在项目中导航。 使用“解决方案资源管理器”  通过双击 Visual C# 中的  “Form1.cs”或 Visual Basic 中的  “Form1.vb”打开“Windows 窗体设计器”，或者在菜单栏上选择 “视图”、“设计器” 。  
   
-     The following shows the new code that you see in the code editor.  
+     下面显示了你在代码编辑器中看到的新代码。  
   
      [!code-vb[VbExpressTutorial1Step6#2](../ide/codesnippet/VisualBasic/step-6-name-your-button-controls_2.vb)]  [!code-csharp[VbExpressTutorial1Step6#2](../ide/codesnippet/CSharp/step-6-name-your-button-controls_2.cs)]  
   
-     The five methods that you added are called *event handlers*, because your program calls them whenever an event (like a user choosing a button or selecting a box) happens.  
+     你所添加的五个方法称为“事件处理程序” ，原因是每当事件（如用户选择按钮或选择框）发生时程序都将调用这些方法。  
   
-     When you view the code for a control in the IDE at design time, Visual Studio adds an event handler method for the control if one isn't there. For example, when you double-click a button, the IDE adds an event handler for its Click event (which is called whenever the user chooses the button). When you double-click a check box, the IDE adds an event handler for its CheckedChanged event (which is called whenever the user selects or clears the box).  
+     当你在设计时查看 IDE 中的控件代码时，如果不存在该控件代码，则 Visual Studio 将为控件添加事件处理程序方法。 例如，双击某个按钮时，IDE 将为此按钮的 Click 事件（每当用户选择此按钮时调用）添加一个事件处理程序。 当双击某个复选框时，IDE 会为此复选框的 CheckedChanged 事件（每当用户选中或清除框时调用）添加一个事件处理程序。  
   
-     After you add an event handler for a control, you can return to it at any time from Windows Forms Designer by double-clicking the control, or on the menu bar, choosing **View**, **Code**.  
+     在为控件添加事件处理程序后，通过双击控件或在菜单栏上选择 “视图”、 “代码”，你可以随时从 Windows 窗体设计器返回到控件。  
   
-     Names are important when you build programs, and methods (including event handlers) can have any name that you want. When you add an event handler with the IDE, it creates a name based on the control's name and the event being handled. For example, the Click event for a button named **showButton** is called the `showButton_Click()` event handler method. Also, opening and closing parentheses () are usually added after the method name to indicate that methods are being discussed. If you decide you want to change a code variable name, right-click the variable in the code and then choose **Refactor**, **Rename**. All instances of that variable in the code are renamed. See [Rename Refactoring (C#)](../csharp-ide/refactoring/rename.md) or [Rename Refactoring (Visual Basic)](../vb-ide/refactoring/rename.md) for more information.
+     生成程序时名称很重要，并且方法（包括事件处理程序）可以具有任何所需的名称。 使用 IDE 添加事件处理程序时，IDE 将基于控件的名称和正在处理的事件创建一个名称。 例如，名为  “showButton”的按钮的 Click 事件称为 `showButton_Click()` 事件处理程序方法。 此外，通常会在方法名称后面添加一对括号 ()，以表明正在讨论的对象是方法。 如果你决定要更改代码的变量名，请右键单击代码中的变量，然后选择 “重构”、 “重命名”。 将重命名代码中变量的所有实例。 有关详细信息，请参阅[重命名重构 (C#)](../csharp-ide/refactoring/rename.md)或[重命名重构 (Visual Basic)](../vb-ide/refactoring/rename.md)。
   
-### <a name="to-continue-or-review"></a>To continue or review  
+### <a name="to-continue-or-review"></a>继续或查看  
   
--   To go to the next tutorial step, see [Step 7: Add Dialog Components to Your Form](../ide/step-7-add-dialog-components-to-your-form.md).  
+-   若要转到下一个教程，请参阅[步骤 7：向窗体添加对话框组件](../ide/step-7-add-dialog-components-to-your-form.md)。  
   
--   To return to the previous tutorial step, see [Step 5: Add Controls to Your Form](../ide/step-5-add-controls-to-your-form.md).
+-   若要返回上一个教程，请参阅[步骤 5：向窗体添加控件](../ide/step-5-add-controls-to-your-form.md)。

@@ -1,5 +1,5 @@
 ---
-title: 'Step 3: Add a Countdown Timer | Microsoft Docs'
+title: "步骤 3：添加倒计时计时器 | Microsoft Docs"
 ms.custom: 
 ms.date: 11/04/2016
 ms.reviewer: 
@@ -32,47 +32,47 @@ ms.translationtype: HT
 ms.sourcegitcommit: eb5c9550fd29b0e98bf63a7240737da4f13f3249
 ms.openlocfilehash: 1719ed1feb1caa38644550322484d2ba519c1be2
 ms.contentlocale: zh-cn
-ms.lasthandoff: 08/30/2017
+ms.lasthandoff: 09/06/2017
 
 ---
-# <a name="step-3-add-a-countdown-timer"></a>Step 3: Add a Countdown Timer
-In the third part of this tutorial, you'll add a countdown timer to track the number of seconds that remain for the quiz taker to finish.  
+# <a name="step-3-add-a-countdown-timer"></a>步骤 3：添加一个倒计时计时器
+在本教程的第 3 部分中，您将添加一个倒计时计时器，用于跟踪测验对象完成测验所剩秒数。  
   
 > [!NOTE]
->  This topic is part of a tutorial series about basic coding concepts. For an overview of the tutorial, see [Tutorial 2: Create a Timed Math Quiz](../ide/tutorial-2-create-a-timed-math-quiz.md).  
+>  本主题是基本编码概念教程系列中的一部分。 有关本教程的概述，请参阅[教程 2：创建计时数学测验](../ide/tutorial-2-create-a-timed-math-quiz.md)。  
   
-### <a name="to-add-a-countdown-timer"></a>To add a countdown timer  
+### <a name="to-add-a-countdown-timer"></a>添加倒计时计时器  
   
-1.  Add an integer variable that's named **timeLeft**, just like you did in the previous procedure. Your code should look like the following.  
+1.  添加一个名为“timeLeft”的整型变量，就像在上一个过程中一样。 你的代码应类似以下内容。  
   
      [!code-vb[VbExpressTutorial3Step3#5](../ide/codesnippet/VisualBasic/step-3-add-a-countdown-timer_1.vb)]  [!code-csharp[VbExpressTutorial3Step3#5](../ide/codesnippet/CSharp/step-3-add-a-countdown-timer_1.cs)]  
   
-     Now you need a method that actually counts the seconds, such as a timer, which raises an event after the amount of time that you specify.  
+     现在您需要一个进行实际读秒的方法（例如计时器），此方法在您指定的时间后将引发一个事件。  
   
-2.  In the design window, move a `Timer` control from the **Components** category of the Toolbox to your form.  
+2.  在设计窗口中，将工具箱的“组件”类别中的 `Timer` 控件移到窗体中。  
   
-     The control appears in the gray area at the bottom of the design window.  
+     此控件显示在设计窗口底部的灰色区域内。  
   
-3.  On the form, choose the **timer1** icon that you just added, and set its **Interval** property to **1000**.  
+3.  在窗体中，请选择刚才添加的“timer1”图标，并将其“Interval”属性设置为“1000”。  
   
-     Because the interval value is milliseconds, a value of 1000 causes the Tick event to fire every second.  
+     因为间隔值单位为毫秒，因此当值为 1000 时将使 Tick 事件每秒触发一次。  
   
-4.  On the form, double-click the Timer control, or choose it and then choose the Enter key.  
+4.  在窗体中，双击 Timer 控件，或将其选中，然后选择 Enter 键。  
   
-     The code editor appears and displays the method for the Tick event handler that you just added.  
+     此时将出现代码编辑器，并显示您刚才添加的 Tick 事件处理程序的方法。  
   
-5.  Add the following statements to the new event handler method.  
+5.  将下面的语句添加到新事件处理程序方法。  
   
      [!code-vb[VbExpressTutorial3Step3#6](../ide/codesnippet/VisualBasic/step-3-add-a-countdown-timer_2.vb)]  [!code-csharp[VbExpressTutorial3Step3#6](../ide/codesnippet/CSharp/step-3-add-a-countdown-timer_2.cs)]  
   
-     Based on what you added, the timer checks each second whether time has run out by determining whether the **timeLeft** integer variable is greater than 0. If it is, time still remains. The timer first subtracts 1 from timeLeft and then updates the **Text** property of the `timeLabel` control to show the quiz taker how many seconds remain.  
+     根据刚才添加的语句，计时器将每秒检查一次“timeLeft”整型变量是否大于 0，从而确定时间是否已用完。 如果大于 0，则表示仍有剩余时间。 首先，计时器从 timeLeft 中减去 1，然后更新 `timeLabel` 控件的“Text”属性，以便向测验者显示剩余的秒数。  
   
-     If no time remains, the timer stops and changes the text of the `timeLabel` control so that it shows **Time's up!** A message box announces that the quiz is over, and the answer is revealed—in this case, by adding addend1 and addend2. The **Enabled** property of the `startButton` control is set to `true` so that the quiz taker can start another quiz.  
+     如果没有剩余时间，则计时器停止并更改 `timeLabel` 控件的文本，使之显示“Time's up!”（时间到!）。 此时将通过一个消息框宣布测验结束，并公布答案，在此示例中，是将 addend1 和 addend2 相加。 将 `startButton` 控件的“Enabled”属性设置为 `true`，以便测验者开始其他测试。  
   
-     You just added an `if else` statement, which is how you tell programs to make decisions. An `if else` statement looks like the following.  
+     您刚刚添加了 `if else` 语句，可通过这种方式告诉程序做出判断。 `if else` 语句如下所示。  
   
     > [!NOTE]
-    >  The following example is for illustration only-don't add it to your project.  
+    >  下面的示例仅用于说明，请勿添加到你的项目。  
   
     ```vb  
     If (something that your program will check) Then  
@@ -97,29 +97,29 @@ In the third part of this tutorial, you'll add a countdown timer to track the nu
     }  
     ```  
   
-     Look closely at the statement that you added in the `else` block to show the answer to the addition problem.  
+     请仔细查看您刚才在 `else` 块中添加的、用于显示加法题答案的语句。  
   
      [!code-vb[VbExpressTutorial3Step3#24](../ide/codesnippet/VisualBasic/step-3-add-a-countdown-timer_3.vb)]  [!code-csharp[VbExpressTutorial3Step3#24](../ide/codesnippet/CSharp/step-3-add-a-countdown-timer_3.cs)]  
   
-     The statement `addend1 + addend2` adds the values in the two variables together. The first part (`sum.Value`) uses the **Value** property of the sum `NumericUpDown` control to display the correct answer. You use the same property later to check the answers for the quiz.  
+     语句 `addend1 + addend2` 会将两个变量中的值相加。 第一部分 (`sum.Value`) 使用 sum `NumericUpDown` 控件的“Value”属性来显示正确答案。 您稍后将使用相同的属性来检查测验的答案。  
   
-     Quiz takers can enter numbers more easily by using a `NumericUpDown` control, which is why you use one for the answers to the math problems. All of the potential answers are whole numbers from 0 through 100. By leaving the default values of the **Minimum**, **Maximum**, and **DecimalPlaces** properties, you ensure that quiz takers can't enter decimals, negative numbers, or numbers that are too high. (If you wanted to allow quiz takers to enter 3.141 but not 3.1415, you could set the **DecimalPlaces** property to 3.)  
+     测验者可以使用 `NumericUpDown` 控件更轻松地输入数字，因此将此控件用于数学问题的回答。 所有可能的答案均为 0 到 100 之间的整数。 通过保留“Minimum”、“Maximum”和“DecimalPlaces”属性的默认值，可以确保测验者不能输入小数、负数或过大的数字。 （如果要允许测验者输入 3.141 但不允许输入 3.1415，则可以将“DecimalPlaces”属性设置为 3。）  
   
-6.  Add three lines to the end of the `StartTheQuiz()` method, so the code looks like the following.  
+6.  将三行代码添加到 `StartTheQuiz()` 方法的结尾，以使代码类似于下面这样。  
   
      [!code-vb[VbExpressTutorial3Step3#7](../ide/codesnippet/VisualBasic/step-3-add-a-countdown-timer_4.vb)]  [!code-csharp[VbExpressTutorial3Step3#7](../ide/codesnippet/CSharp/step-3-add-a-countdown-timer_4.cs)]  
   
-     Now, when your quiz starts, the **timeLeft** variable is set to 30 and the **Text** property of the `timeLabel` control is set to 30 seconds. Then the `Start()` method of the `Timer` control starts the countdown. (The quiz doesn't check the answer yet—that comes next.)  
+     现在，当测验开始时，“timeLeft”变量将设置为 30，而 `timeLabel` 控件的“Text”属性将设置为 30 秒。 然后，`Timer` 控件的 `Start()` 方法开始倒计时。 （测验现在还不会检查答案，接下来将介绍此内容。）  
   
-7.  Save your program, run it, and then choose the **Start** button on the form.  
+7.  保存并运行程序，然后选择窗体上的“开始”按钮。  
   
-     The timer starts to count down. When time runs out, the quiz ends, and the answer appears. The following illustration shows the quiz in progress.  
+     计时器将开始倒计时。 当时间用完时，测验将结束，并显示答案。 下图显示了正在进行的测验。  
   
-     ![Math quiz in progress](../ide/media/express_addcountdown.png "Express_AddCountdown")  
-Math quiz in progress  
+     ![正在进行数学测验](../ide/media/express_addcountdown.png "Express_AddCountdown")  
+数学测验正在进行中  
   
-### <a name="to-continue-or-review"></a>To continue or review  
+### <a name="to-continue-or-review"></a>继续或查看  
   
--   To go to the next tutorial step, see [Step 4: Add the CheckTheAnswer() Method](../ide/step-4-add-the-checktheanswer-parens-method.md).  
+-   若要转到下一个教程，请参阅[步骤 4：添加 CheckTheAnswer() 方法](../ide/step-4-add-the-checktheanswer-parens-method.md)。  
   
--   To return to the previous tutorial step, see [Step 2: Create a Random Addition Problem](../ide/step-2-create-a-random-addition-problem.md).
+-   若要返回上一个教程，请参阅[步骤 2：创建随机加法问题](../ide/step-2-create-a-random-addition-problem.md)。

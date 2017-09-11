@@ -1,6 +1,6 @@
 ---
-title: Visual Studio Test Controller 2017 workload and component IDs | Microsoft Docs
-description: Use Visual Studio workload and component IDs to distribute automated tests to multiple machines
+title: "Visual Studio Test Controller 2017 工作负载和组件 ID | Microsoft Docs"
+description: "使用 Visual Studio 工作负载和组件 ID 将自动测试分发到多台计算机"
 keywords: 
 author: TerryGLee
 ms.author: tglee
@@ -35,47 +35,47 @@ ms.translationtype: HT
 ms.sourcegitcommit: 96018963278cd1d53b226473baade41da1e98111
 ms.openlocfilehash: 4af6768bbb9f3e4e494ea85596a9706103537824
 ms.contentlocale: zh-cn
-ms.lasthandoff: 08/30/2017
+ms.lasthandoff: 09/06/2017
 
 ---
 
-# <a name="visual-studio-test-controller-2017-component-directory"></a>Visual Studio Test Controller 2017 component directory
+# <a name="visual-studio-test-controller-2017-component-directory"></a>Visual Studio Test Controller 2017 组件目录
 
-The tables on this page list the IDs that you can use to install Visual Studio by using the command line. Note that we will add additional components as we release updates to Visual Studio.
+本页中的表中列出了可用于通过命令行安装 Visual Studio 的 ID。 请注意，我们将在发布 Visual Studio 更新时添加其他组件。
 
-Also note the following about the page:
+另请注意以下有关本页的注意事项：
 
-* Each workload has its own section, followed by the workload ID and a table of the components that are available for the workload.
-* By default, the **Required** components will be installed when you install the workload. If you choose to, you can also install the **Recommended** and **Optional** components.
-* We've also added a section that lists the additional components that are not affiliated with any workload.
+* 每个工作负载均有其自己的部分，后跟工作负载 ID 和适用于工作负载的组件表格。
+* 默认情况下，安装工作负载时将安装**必需**组件。 如果愿意，还可以安装**推荐**和**可选**组件。
+* 我们还添加了一个部分，此部分列出了不属于任何工作负载的其他组件。
 
-For more information about how to use these IDs, see [Use Command-Line Parameters to Install Visual Studio 2017](use-command-line-parameters-to-install-visual-studio.md) page. And, for a list of workload and component IDs for other products, see [Visual Studio 2017 Workload and Component IDs](workload-and-component-ids.md) page.
+有关如何使用这些 ID 的详细信息，请参阅[使用命令行参数安装 Visual Studio 2017](use-command-line-parameters-to-install-visual-studio.md) 页。 另外，有关其他产品的工作负载和组件 ID 的列表，请参阅 [Visual Studio 2017 工作负载和组件 ID](workload-and-component-ids.md) 页。
 
-## <a name="test-controller"></a>Test Controller
+## <a name="test-controller"></a>测试控制器
 
-**ID:** Microsoft.VisualStudio.Workload.TestController
+**ID：**Microsoft.VisualStudio.Workload.TestController
 
-**Description:** Distribute automated tests to multiple machines
+**说明：**将自动测试分发给多台计算机
 
-### <a name="components-included-by-this-workload"></a>Components included by this workload
+### <a name="components-included-by-this-workload"></a>此工作负载所包含的组件
 
-Component ID | Name | Version | Dependency type
+组件 ID | 名称 | 版本 | 依赖项类型
 --- | --- | --- | ---
-Microsoft.VisualStudio.ComponentGroup.TestTools.TestController | Test Controller core features | 15.0.26711.1 | Required
+Microsoft.VisualStudio.ComponentGroup.TestTools.TestController | 测试控制器核心功能 | 15.0.26711.1 | 必需
 
-## <a name="unaffiliated-components"></a>Unaffiliated components
+## <a name="unaffiliated-components"></a>独立组件
 
-These are components that are not included with any workload, but may be selected as an individual component.
+这些组件不随附于任何工作负载，但可选择作为单个组件。
 
-Component ID | Name | Version
+组件 ID | 名称 | 版本
 --- | --- | ---
-n/a | n/a | n/a
+无 | 不可用 | 无
 
-## <a name="see-also"></a>See also
+## <a name="see-also"></a>另请参阅
 
-* [Visual Studio workload and component IDs](workload-and-component-ids.md)
-* [Visual Studio administrator guide](visual-studio-administrator-guide.md)
-* [Use command-line parameters to install Visual Studio](use-command-line-parameters-to-install-visual-studio.md)
-  * [Command-line parameter examples](command-line-parameter-examples.md)
-* [Create an offline installation of Visual Studio](create-an-offline-installation-of-visual-studio.md)
+* [Visual Studio 工作负荷和组件 ID](workload-and-component-ids.md)
+* [Visual Studio 管理员指南](visual-studio-administrator-guide.md)
+* [使用命令行参数安装 Visual Studio](use-command-line-parameters-to-install-visual-studio.md)
+  * [命令行参数示例](command-line-parameter-examples.md)
+* [创建 Visual Studio 的脱机安装](create-an-offline-installation-of-visual-studio.md)
 

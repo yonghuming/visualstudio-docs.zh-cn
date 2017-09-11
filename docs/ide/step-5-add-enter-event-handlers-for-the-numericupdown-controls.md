@@ -1,5 +1,5 @@
 ---
-title: 'Step 5: Add Enter Event Handlers for the NumericUpDown Controls | Microsoft Docs'
+title: "步骤 5：为 NumericUpDown 控件添加 Enter 事件处理程序 | Microsoft Docs"
 ms.custom: 
 ms.date: 11/04/2016
 ms.reviewer: 
@@ -32,62 +32,62 @@ ms.translationtype: HT
 ms.sourcegitcommit: eb5c9550fd29b0e98bf63a7240737da4f13f3249
 ms.openlocfilehash: b5f12c71a894937ad452a31bf53e19e4fbb2d7a2
 ms.contentlocale: zh-cn
-ms.lasthandoff: 08/30/2017
+ms.lasthandoff: 09/06/2017
 
 ---
-# <a name="step-5-add-enter-event-handlers-for-the-numericupdown-controls"></a>Step 5: Add Enter Event Handlers for the NumericUpDown Controls
-In the fifth part of this tutorial, you'll add Enter event handlers to make entering answers for quiz problems a little easier. This code will select and clear the current value in each NumericUpDown control as soon as the quiz taker chooses it and starts to enter a different value.  
+# <a name="step-5-add-enter-event-handlers-for-the-numericupdown-controls"></a>步骤 5：为 NumericUpDown 控件添加 Enter 事件处理程序
+在本教程的第 5 部分中，您将添加 Enter 事件处理程序，以便在输入测验问题的答案时变得轻松一些。 当测验对象选择每个 NumericUpDown 控件中的当前值并开始输入其他值时，此代码将立即选中并清除该当前值。  
   
 > [!NOTE]
->  This topic is part of a tutorial series about basic coding concepts. For an overview of the tutorial, see [Tutorial 2: Create a Timed Math Quiz](../ide/tutorial-2-create-a-timed-math-quiz.md).  
+>  本主题是基本编码概念教程系列中的一部分。 有关本教程的概述，请参阅[教程 2：创建计时数学测验](../ide/tutorial-2-create-a-timed-math-quiz.md)。  
   
-### <a name="to-verify-the-default-behavior"></a>To verify the default behavior  
+### <a name="to-verify-the-default-behavior"></a>验证默认行为  
   
-1.  Run your program, and start the quiz.  
+1.  运行您的程序，并开始测验。  
   
-     In the NumericUpDown control for the addition problem, the cursor flashes next to **0** (zero).  
+     在加法题的 NumericUpDown 控件中，游标在“0”（零）旁边闪烁。  
   
-2.  Enter `3`, and note that the control shows **30**.  
+2.  输入 `3`，然后注意此控件显示“30”。  
   
-3.  Enter `5`, and note that **350** appears but changes to **100** after a second.  
+3.  输入 `5`，然后请注意显示“350”，但一秒后更改为“100”。  
   
-     Before you fix this problem, think about what's happening. Consider why the **0** didn't disappear when you entered `3` and why **350** changed to **100** but not immediately.  
+     在解决此问题之前，请先想想发生了什么事。 请考虑一下为什么当输入 `3` 时“0”未消失，以及为什么“350”更改为“100”但不是立即更改。  
   
-     This behavior may seem odd, but it makes sense given the logic of the code. When you choose the **Start** button, its **Enabled** property is set to **False**, and the button appears dimmed and is unavailable. Your program changes the current selection (focus) to the control that has the next lowest TabIndex value, which is the NumericUpDown control for the addition problem. When you use the Tab key to go to a NumericUpDown control, the cursor is automatically positioned at the start of the control, which is why the numbers that you enter appear from the left side and not the right side. When you specify a number that's higher than the value of the **MaximumValue** property, which is set to 100, the number that you enter is replaced with the value of that property.  
+     此行为可能看似奇怪，但是考虑到代码的逻辑就可以说得通了。 选择“开始”按钮时，其“Enabled”属性设置为“False”，此按钮将显示为灰色且不可用。 您的程序会将当前选择（焦点）更改为具有最小 TabIndex 值的控件，即加法题的 NumericUpDown 控件。 当您使用 Tab 键转到 NumericUpDown 控件时，光标将自动定位到此控件的起始位置，因此，您输入的数字将从左侧而不是右侧显示。 当指定的值大于“MaximumValue”属性的值（设置为 100）时，输入的数字将替换为该属性的值。  
   
-### <a name="to-add-an-enter-event-handler-for-a-numericupdown-control"></a>To add an Enter event handler for a NumericUpDown control  
+### <a name="to-add-an-enter-event-handler-for-a-numericupdown-control"></a>为 NumericUpDown 控件添加 Enter 事件处理程序  
   
-1.  Choose the first NumericUpDown control (named "sum") on the form, and then, in the **Properties** dialog box, choose the **Events** icon on the toolbar.  
+1.  选择窗体上的第一个 NumericUpDown 控件（名为“sum”），然后在“属性”对话框中，选择工具栏上的“事件”图标。  
   
-     The **Events** tab in the **Properties** dialog box displays all of the events that you can respond to (handle) for the item that you choose on the form. Because you chose the NumericUpDown control, all of the events listed pertain to it.  
+     “属性”对话框中的“事件”选项卡显示窗体中所选项的所有可响应（处理）的事件。 由于您选择了 NumericUpDown 控件，因此所列出的事件都与此控件相关。  
   
-2.  Choose the **Enter** event, enter `answer_Enter`, and then choose the Enter key.  
+2.  选择“Enter”事件，输入 `answer_Enter`，然后选择 Enter 键。  
   
-     ![Properties dialog box](../ide/media/express_answerenter.png "Express_AnswerEnter")  
-Properties dialog box  
+     ![“属性”对话框](../ide/media/express_answerenter.png "Express_AnswerEnter")  
+“属性”对话框  
   
-     You've just added an Enter event handler for the sum NumericUpDown control, and you've named the handler **answer_Enter**.  
+     刚才已为 sum NumericUpDown 控件添加一个 Enter 事件处理程序，并将此处理程序命名为“answer_Enter”。  
   
-3.  In the method for the **answer_Enter** event handler, add the following code.  
+3.  在“answer_Enter”事件处理程序的方法中，请添加以下代码。  
   
      [!code-vb[VbExpressTutorial3Step5_6#11](../ide/codesnippet/VisualBasic/step-5-add-enter-event-handlers-for-the-numericupdown-controls_1.vb)]  [!code-csharp[VbExpressTutorial3Step5_6#11](../ide/codesnippet/CSharp/step-5-add-enter-event-handlers-for-the-numericupdown-controls_1.cs)]  
   
-     This code may look complex, but you can understand it if you look at it step by step. First, look at the top of the method: `object sender` in C# or `sender As System.Object` in Visual Basic. This parameter refers to the object whose event is firing, which is known as the sender. In this case, the sender object is the NumericUpDown control. So, in the first line of the method, you specify that the sender isn't just any generic object but specifically a NumericUpDown control. (Every NumericUpDown control is an object, but not every object is a NumericUpDown control.) The NumericUpDown control is named **answerBox** in this method, because it will be used for all of the NumericUpDown controls on the form, not just the sum NumericUpDown control. Because you declare the answerBox variable in this method, its scope applies only to this method. In other words, the variable can be used only within this method.  
+     此代码可能看起来复杂，但如果分步来看就可以理解。 首先，查看方法的顶部：在 C# 中为 `object sender`，在 Visual Basic 中为 `sender As System.Object`。 此参数引用已触发其事件的对象，即发送方。 在此示例中，发送方对象为 NumericUpDown 控件。 因此，在此方法的第一行中，您指定发送方不是任何一般对象，而是具体的 NumericUpDown 控件。 （每个 NumericUpDown 控件都是一个对象，但并不是每个对象都是 NumericUpDown 控件。）在此方法中，NumericUpDown 控件命名为“answerBox”，因为它将用于窗体上的所有 NumericUpDown 控件，而不仅是 sum NumericUpDown 控件。 由于您在此方法中声明了 answerBox 变量，因此其范围仅适用于此方法。 换言之，该变量只能在此方法内使用。  
   
-     The next line verifies whether answerBox was successfully converted (cast) from an object to a NumericUpDown control. If the conversion was unsuccessful, the variable would have a value of `null` (C#) or `Nothing` (Visual Basic). The third line gets the length of the answer that appears in the NumericUpDown control, and the fourth line selects the current value in the control based on this length. Now, when the quiz taker chooses the control, Visual Studio fires this event, which causes the current answer to be selected. As soon as the quiz taker starts to enter a different answer, the previous answer is cleared and replaced with the new answer.  
+     下一行验证 answerBox 是否已成功地从一个对象转换（强制转换）为一个 NumericUpDown 控件。 如果转换不成功，此变量的值将为 `null` (C#) 或 `Nothing` (Visual Basic)。 第三行将获取 NumericUpDown 控件中所显示答案的长度，第四行将根据此长度选择控件中的当前值。 此时，当测试对象选择此控件时，Visual Studio 将触发此事件，从而选中当前答案。 一旦测试对象开始输入其他答案，之前的答案将被清除并替换为新答案。  
   
-4.  In Windows Forms Designer, choose the difference NumericUpDown control.  
+4.  在 Windows 窗体设计器中，选择 difference NumericUpDown 控件。  
   
-5.  In the **Events** page of the **Properties** dialog box, scroll down to the **Enter** event, choose the drop-down arrow at the end of the row, and then choose the `answer_Enter` event handler that you just added.  
+5.  在“属性”对话框的“事件”页中，向下滚动到“Enter”事件，选择行末尾的下拉箭头，然后选择刚才添加的 `answer_Enter` 事件处理程序。  
   
-6.  Repeat the previous step for the product and quotient NumericUpDown controls.  
+6.  对 product 和 quotient NumericUpDown 控件重复上述步骤。  
   
-7.  Save your program, and then run it.  
+7.  保存您的程序，然后运行程序。  
   
-     When you choose a NumericUpDown control, the existing value is automatically selected and then cleared when you start to enter a different value.  
+     当您选择 NumericUpDown 控件时，将自动选中现有值，然后在您开始输入其他值时自动清除现有值。  
   
-### <a name="to-continue-or-review"></a>To continue or review  
+### <a name="to-continue-or-review"></a>继续或查看  
   
--   To go to the next tutorial step, see [Step 6: Add a Subtraction Problem](../ide/step-6-add-a-subtraction-problem.md).  
+-   若要转到下一个教程，请参阅[步骤 6：添加减法问题](../ide/step-6-add-a-subtraction-problem.md)。  
   
--   To return to the previous tutorial step, see [Step 4: Add the CheckTheAnswer() Method](../ide/step-4-add-the-checktheanswer-parens-method.md).
+-   若要返回上一个教程，请参阅[步骤 4：添加 CheckTheAnswer() 方法](../ide/step-4-add-the-checktheanswer-parens-method.md)。

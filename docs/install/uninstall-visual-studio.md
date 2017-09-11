@@ -1,6 +1,6 @@
 ---
-title: Uninstall Visual Studio 2017 | Microsoft Docs
-description: Learn how to uninstall Visual Studio, step-by-step.
+title: "卸载 Visual Studio 2017 | Microsoft Docs"
+description: "了解如何逐步卸载 Visual Studio。"
 ms.custom: 
 ms.date: 08/16/2017
 ms.reviewer: 
@@ -20,42 +20,42 @@ ms.translationtype: HT
 ms.sourcegitcommit: 7adecc638a0ea4b198501752930a5c92c9db282c
 ms.openlocfilehash: c1b7c0aa1218090e328f90ca6d44e5a7a47ca219
 ms.contentlocale: zh-cn
-ms.lasthandoff: 08/28/2017
+ms.lasthandoff: 09/06/2017
 
 ---
 
-# <a name="uninstall-visual-studio"></a>Uninstall Visual Studio
-This page walks you through uninstalling Visual Studio, our integrated suite of productivity tools for developers.  
+# <a name="uninstall-visual-studio"></a>卸载 Visual Studio
+此页面介绍如何卸载 Visual Studio（一个面向开发人员的工作效率工具集成套件）。  
 
-1.  Find the Visual Studio Installer on your computer.  
+1.  在计算机上找到 Visual Studio 安装程序。  
 
-     For example, on a computer running Windows 10 Anniversary Update, select **Start** and scroll to the letter **V**, where it is listed as **Visual Studio Installer**.  
+     例如，在运行 Windows 10 周年更新的计算机上，选择“开始”，滚动到字母“V”，其中它作为“Visual Studio 安装程序”列出。  
 
-     ![Visual Studio Installer](media/vs2017-locate-the-visual-studio-installer.PNG "Locate the Microsoft Visual Studio Installer")
+     ![Visual Studio 安装程序](media/vs2017-locate-the-visual-studio-installer.PNG "查找 Microsoft Visual Studio 安装程序")
 
      >[!NOTE]
-     On some computers, the Visual Studio Installer might be listed under the letter **"M"** as the **Microsoft Visual Studio Installer**.<br/><br/> Alternatively, you can find the Visual Studio Installer in the following location: `C:\Program Files (x86)\Microsoft Visual Studio\Installer\vs_installer.exe`
+     对于某些计算机，Visual Studio 安装程序可能列在字母**“M”**下，即 **Microsoft Visual Studio 安装程序**。<br/><br/> 或者，可以在以下位置找到 Visual Studio 安装程序：`C:\Program Files (x86)\Microsoft Visual Studio\Installer\vs_installer.exe`
 
-2.  Click to start the installer, click the ![Details icon](media/vs2017uninstall-UninstallIcon.png "Select the Options icon") icon, and then click **Uninstall**.  
+2.  单击以启动安装程序，单击![“详细信息”图标](media/vs2017uninstall-UninstallIcon.png "“选择选项”图标")，然后单击“卸载”。  
 
-     ![Modifying Visual Studio 2017; Modify, Launch, Repair, or Uninstall](media/vs2017-uninstall.PNG "Repair or Uninstall Visual Studio 2017")  
+     ![修改 Visual Studio 2017；修改、启动、修复或卸载](media/vs2017-uninstall.PNG "修复或卸载 Visual Studio 2017")  
 
-3.  Click **OK** to confirm your choice.
+3.  单击“确定”确认所做选择。
 
-     ![Modifying Visual Studio 2017; Uninstall product](media/vs2017-uninstall-confirm.PNG "Confirm to uninstall Visual Studio 2017")  
+     ![修改 Visual Studio 2017；卸载产品](media/vs2017-uninstall-confirm.PNG "确认卸载 Visual Studio 2017")  
 
-If you change your mind later and want to reinstall Visual Studio 2017, start the Visual Studio Installer again, and then select **Install** from the selection screen.
+如果以后改变主意，想重新安装 Visual Studio 2017，请再次启动 Visual Studio 安装程序，然后从选择屏幕中选择“安装”。
 
-## <a name="uninstall-visual-studio-installer"></a>Uninstall Visual Studio Installer
-To completely remove all installations of Visual Studio 2017 as well as the Visual Studio Installer from your machine, uninstall it from Apps & Features.
-1. Open Apps & Features. For example, in Windows 10, select **Start**, and in the search bar, type **Apps and Features**.  
-2. Find **Microsoft Visual Studio 2017**.  
-3. Click **Uninstall**.  
+## <a name="uninstall-visual-studio-installer"></a>卸载 Visual Studio 安装程序
+若要从计算机中彻底删除 Visual Studio 2017 的所有安装内容和 Visual Studio 安装程序，请使用“应用程序和功能”进行卸载。
+1. 打开“应用和功能”。 例如，在 Windows 10 中，选择“开始”，然后在搜索栏中键入“应用和功能”。  
+2. 查找 Microsoft Visual Studio 2017。  
+3. 单击“卸载” 。  
 
 
-## <a name="see-also"></a>See also  
-* [Install Visual Studio](install-visual-studio.md)
-* [Modify Visual Studio 2017](modify-visual-studio.md)
-* [Update Visual Studio](update-visual-studio.md)
-* [How to Report a Problem with Visual Studio 2017](../ide/how-to-report-a-problem-with-visual-studio-2017.md)
+## <a name="see-also"></a>请参阅  
+* [安装 Visual Studio](install-visual-studio.md)
+* [修改 Visual Studio 2017](modify-visual-studio.md)
+* [更新 Visual Studio](update-visual-studio.md)
+* [如何报告 Visual Studio 2017 的问题](../ide/how-to-report-a-problem-with-visual-studio-2017.md)
 
