@@ -1,5 +1,5 @@
 ---
-title: Visual Studio Performance Tips and Tricks | Microsoft Docs
+title: "Visual Studio 性能提示和技巧 | Microsoft Docs"
 ms.date: 08/31/2017
 ms.reviewer: 
 ms.suite: 
@@ -33,123 +33,123 @@ ms.translationtype: HT
 ms.sourcegitcommit: 4306111cd49a5299bfa5d4e5e22b212bc7799fe2
 ms.openlocfilehash: fbaa543564506a99d3ed6833ec4d1f692fae43f7
 ms.contentlocale: zh-cn
-ms.lasthandoff: 09/02/2017
+ms.lasthandoff: 09/06/2017
 
 ---
-# <a name="visual-studio-performance-tips-and-tricks"></a>Visual Studio Performance Tips and Tricks
+# <a name="visual-studio-performance-tips-and-tricks"></a>Visual Studio 性能提示和技巧
 
-Visual Studio performance recommendations are intended for low memory situations, which may occur in rare cases. In these situations, you can optimize certain Visual Studio features that you may not be using. The following tips are not intended as general recommendations.
+Visual Studio 性能建议适用于内存不足的情况，这种情况极少出现。 出现这种情况时，可优化某些未使用的 Visual Studio 功能。 以下提示不作为一般性建议。
 
 > [!NOTE]
-> If you’re having difficulty using the product because of memory issues, let us know through the feedback tool.
+> 如果因为内存问题而在使用产品时遇到困难，请通过反馈工具告知我们。
 
-## <a name="optimize-your-environment"></a>Optimize your environment
+## <a name="optimize-your-environment"></a>优化环境
 
-- **Use a 64bit OS**
+- **使用 64 位操作系统**
 
-    If you upgrade your system from a 32-bit version of Windows to a 64-bit version, you expand the amount of virtual memory available to Visual Studio from 2 GB to 4 GB. This enables Visual Studio to handle significantly larger workloads even though it is 32-bit process.
+    如果将系统从 Windows 32 位版本升级到 64 位版本，那么 Visual Studio 的可用虚拟内存量会从 2 GB 扩展到 4 GB。 这样，即使 Visual Studio 是 32 位进程，也可以处理更大的工作负荷。
 
-    For more information, see [Memory limits](https://msdn.microsoft.com/en-us/library/windows/desktop/aa366778(v=vs.85).aspx#memory_limits) and [Using /LARGEADDRESSAWARE on 64-bit Windows](https://blogs.msdn.microsoft.com/oldnewthing/20050601-24/?p=35483/).
+    有关详细信息，请参阅[内存限制](https://msdn.microsoft.com/en-us/library/windows/desktop/aa366778(v=vs.85).aspx#memory_limits)和 [Using /LARGEADDRESSAWARE on 64-bit Windows](https://blogs.msdn.microsoft.com/oldnewthing/20050601-24/?p=35483/)（在 64 位 Windows 上使用 /LARGEADDRESSAWARE）。
 
-## <a name="configure-solution-and-projects"></a>Configure solution and projects
+## <a name="configure-solution-and-projects"></a>配置解决方案和项目
 
-If you have a very large solution with many projects, you may benefit by making the following optimizations:
+如果你的超大型解决方案中包含多个项目，可通过进行以下优化受益：
 
-- **Enable Lightweight Solution Load**
+- **启用轻型解决方案加载**
 
-    Using **Lightweight Solution Load** may improve memory and CPU performance by deferring the load of some projects within your solution. You can also enable this feature per-solution. This option is off by default.
+    使用“轻型解决方案加载”可以延迟解决方案中某些项目的加载，从而提升内存和 CPU 性能。 还可对每个解决方案启用此功能。 默认情况下，此选项处于关闭状态。
 
-    To enable **Lightweight Solution Load**, choose **Tools > Options > Projects and Solutions > Lightweight Solution Load**.
+    要启动“轻型解决方案加载”，请选择“工具”>“选项”>“项目和解决方案”>“轻型解决方案加载”。
 
-    Some IDE features are not enabled in this mode. To determine whether this choice may help, see [Shorter solution load time](https://blogs.msdn.microsoft.com/visualstudio/2016/10/11/shorter-solution-load-time-in-visual-studio-15/) and [Optimize solution loading](../ide/optimize-solution-loading-in-visual-studio).
+    在此模式下，没有启用某些 IDE 功能。 若要确定此选择是否有所帮助，请参阅[缩短解决方案加载时间](https://blogs.msdn.microsoft.com/visualstudio/2016/10/11/shorter-solution-load-time-in-visual-studio-15/)和[优化解决方案加载](../ide/optimize-solution-loading-in-visual-studio)。
 
-- **Unload Projects**
+- **卸载项目**
 
-    You can manually unload rarely used individual projects from Solution Explorer using the right-click context menu.
+    可通过使用右键单击上下文菜单，从解决方案资源管理器中卸载很少使用的各个项目。
 
-- **Refactor the solution**
+- **重构解决方案**
 
-    You can split your solution into several smaller solution files with commonly used projects. This refactoring should significantly reduce memory usage for your workflow. Smaller solutions also load faster.
+    可以将解决方案拆分为多个较小的解决方案文件，并在这些文件中包含常用的项目。 此重构可大幅减少工作流的内存使用率。 此外，解决方案越小，加载速度越快。
 
-## <a name="configure-debugging-options"></a>Configure debugging options
-If you are typically running low on memory during debugging sessions, you can optimize performance by making one or more configuration changes.
+## <a name="configure-debugging-options"></a>配置调试选项
+如果经常在调试会话期间遇到内存不足的情况，可以通过更改一项或多项配置来优化性能。
 
-- **Enable Just My Code**
+- **启用“仅我的代码”**
 
-    The simplest optimization is to enable the **Just My Code** feature, which only loads symbols for your project. Enabling this feature can result in a significant memory saving for debugging managed applications (.NET). This option is already enabled by default in some project types.
+    最简单的优化是启用“仅我的代码” 功能，启用此功能后只会加载你项目的符号。 启用此功能后，调试托管的应用程序 (.NET) 时可节省大量内存。 对于某些项目类型，此选项默认为启用状态。
 
-    To enable **Just My Code**, choose **Tools > Options > Debugging > General**, and then select **Enable Just My Code**.
+    要启用“仅我的代码”，请选择“工具”>“选项”>“调试”>“常规”，然后选择“启用仅我的代码”。
 
-- **Specify symbols to load**
+- **指定要加载的符号**
 
-    For native debugging, loading symbol files (.pdb) is expensive in terms of memory resources. You can configure your debugger symbol settings to conserve memory. Typically, you configure the solution to only load modules from your project.
+    对于本机调试，加载符号文件 (.pdb) 会占用很多内存资源。 可通过配置调试程序符号设置来节省内存。 通常情况下，将解决方案配置为仅加载你项目中的模块。
 
-    To specify symbol loading, choose **Tools > Options > Debugging > Symbols**.
+    要指定符号加载，请选择“工具”>“选项”>“调试”>“符号”。
 
-    Set the options to **Only specified modules** instead of **All modules** and then specify which modules you care to load. While debugging, you can also right-click specific modules in the **Modules** window to explicitly include a module in the symbol load. (To open the window while debugging, choose **Debug > Windows > Modules**.)
+    将选项设置为“仅指定模块”，而不是“所有模块”，然后指定要加载的负载。 调试时，还可以在“模块”窗口中右键单击特定模块，将其显示包含在系统加载中。 （要在调试时打开窗口，请选择“调试”>“窗口”>“模块”。）
 
-    For more information, see [Understanding symbol files](https://blogs.msdn.microsoft.com/visualstudioalm/2015/01/05/understanding-symbol-files-and-visual-studios-symbol-settings/).
+    有关详细信息，请参阅 [Understanding symbol files](https://blogs.msdn.microsoft.com/visualstudioalm/2015/01/05/understanding-symbol-files-and-visual-studios-symbol-settings/)（了解符号文件）。
 
-- **Disable Diagnostic Tools**
+- **禁用诊断工具**
 
-    It is recommended that you disable CPU profiling after use. This feature can consume large amounts of resources. Once CPU profiling is enabled, this state is persisted across subsequent debug sessions, so it’s worth explicitly turning it off when done. You may save some resources by disabling the diagnostic tools while debugging if you do not need the provided features.
+    建议在使用 CPU 分析后将其禁用。 此功能可能会占用大量资源。 CPU 分析处于启用状态后，后续调试会话中会一直保持启用状态，因此可在其完成时将其显示关闭。 如果不需要提供的功能，可以通过在调试时禁用诊断工具节省一些资源。
 
-    To disable the Diagnostic Tools, start a debugging session, choose **Tools > Options > Enable Diagnostic Tools**, and deselect the option.
+    要禁用“诊断工具”，请启动一个调试会话，并选择“工具”>“选项”>“启用诊断工具”，然后取消选择该选项。
 
-    For more information, see [Profiling Tools](https://docs.microsoft.com/en-us/visualstudio/profiling/profiling-tools).
+    有关详细信息，请参阅[分析工具](https://docs.microsoft.com/en-us/visualstudio/profiling/profiling-tools)。
 
-## <a name="disable-tools-and-extensions"></a>Disable tools and extensions
-Some tools or extensions may to turned off to improve performance.
+## <a name="disable-tools-and-extensions"></a>禁用工具和扩展
+某些工具或扩展可能会关闭以提高性能。
 
 > [!TIP]
-> You can often isolate performance issues by turning off extensions one at a time and rechecking performance.
+> 通常可以通过一次关闭一个扩展并重新检查性能来隔离性能问题。
 
-### <a name="managed-language-services-roslyn"></a>Managed Language Services (Roslyn)
+### <a name="managed-language-services-roslyn"></a>托管的语言服务 (Roslyn)
 
-For information about Roslyn performance considerations, see [Performance considerations for large solutions] (https://github.com/dotnet/roslyn/wiki/Performance-considerations-for-large-solutions).
+有关 Roslyn 性能注意事项的信息，请参阅 [Performance considerations for large solutions] (https://github.com/dotnet/roslyn/wiki/Performance-considerations-for-large-solutions)（大型解决方案的性能注意事项）。
 
-- **Disable Full Solution Analysis**
+- **禁用完整解决方案分析**
 
-    Visual Studio performs analysis on your entire solution in order to provide a rich experience about errors before invoking a build. This feature is useful to identify errors as soon as possible. However, for very large solutions, this feature can consume significant memory resources. If you’re experiencing memory pressure or similar issues, you can disable this experience to free up these resources. By default, this option is enabled for Visual Basic and disabled for C#.
+    Visual Studio 对整个解决方案执行分析，以在调用生成前提供关于错误的丰富体验。 此功能可用于尽快速识别错误。 但是，对于超大型解决方案，这一功能可能会占用大量内存资源。 如果遇到内存不足或类似问题，可以禁用此体验并释放这些资源。 默认情况下，Visual Basic 启用此选项，而 C# 禁用此选项。
 
-    To disable **Full Solution Analysis**, choose **Tools > Options > Text Editor > <Visual Basic or C#>**. Then choose **Advanced** and deselect **Enable full solution analysis**.
+    要禁用“完整解决方案分析”，请选择“工具”>“选项”>“文本编辑器”>“<Visual Basic 或 C#>”。 然后选择“高级”，并取消选择“启用完整解决方案分析”。
 
-- **Disable CodeLens**
+- **禁用 CodeLens**
 
-    Visual Studio performs a **Find All References** task on each method as it is displayed. CodeLens provides features such as the inline display of the number of references. The work is performed in a separate process (for example, ServiceHub.RoslynCodeAnalysisService32). In very large solutions or on resource constrained systems, this feature can have significant impact on performance even though it is run at a low priority. If you’re experiencing high CPU in this process, or memory issues (for example, when loading a large solution on a 4-GB machine), you can try disabling this feature to free up resources.
+    Visual Studio 对显示的每个方法执行“查找所有引用”任务。 CodeLens 提供内联显示引用数目等功能。 工作在单独的进程（例如，ServiceHub.RoslynCodeAnalysisService32）中执行。 在超大型解决方案或资源受限的系统中，此功能对性能有显著影响，即使它的运行优先级较低。 如果在这过程中（例如，当在 4 GB 计算机上加载大型解决方案时）遇到高 CPU 或内存问题，可以尝试禁用此功能以释放资源。
 
-    To disable CodeLens, choose **Tools > Options > Text Editor > All Languages > CodeLens**, and deselect the feature.
+    要禁用 CodeLens，请选择“工具”>“选项”>“文本编辑器”>“所有语言”>“CodeLens”，然后取消选择该功能。
 
-    This feature is available in Visual Studio Professional and Visual Studio Enterprise.
+    此功能在 Visual Studio Professional 和 Visual Studio Enterprise 中可用。
 
-### <a name="other-tools-and-extensions"></a>Other tools and extensions
+### <a name="other-tools-and-extensions"></a>其他工具和扩展
 
-- **Disable Extensions**
+- **禁用扩展**
 
-    Extensions are additional software components added to Visual Studio that provide new functionality or extend existing functionality. Extensions can often be a source of memory resource issues. If you’re experiencing memory resource problems, try disabling extensions one at a time to see how it impacts the scenario or workflow.
+    扩展是添加到 Visual Studio 的附加软件组件，用于提供新功能或扩展现有功能。 扩展通常可能导致内存资源问题。 如果遇到内存资源问题，请尝试一次禁用一个扩展，并查看这将如何影响方案或工作流。
 
-    To disable extensions, go to **Tools | Extensions and Updates**, and disable a particular extension.
+    要禁用扩展，请转到“工具”|“扩展和更新”，然后禁用特定扩展。
 
-- **Disable XAML Designer**
+- **禁用 XAML 设计器**
 
-    The XAML designer is enabled by default, but only consumes resources if you open a .XAML file. If you work with XAML files but do not wish to use the designer functionality, disable this feature to free up some memory.
+    默认情况下，XAML 设计器处于启用状态，但是只会在打开 .XAML 文件时占用资源。 如果使用 XAML 文件，但不希望使用设计器功能，请禁用此功能以释放内存。
 
-    To disable XAML Designer, go to **Tools > Options > XAML Designer > Enable XAML Designer**, and deselect the option.
+    要禁用 XAML 设计器，请转到“工具”>“选项”>“XAML 设计器”>“启用 XAML 设计器”，然后取消选择该选项。
 
-- **Remove workloads**
+- **删除工作负载**
 
-    You can use the Visual Studio Installer to remove workloads that are no longer used. This action can streamline the startup and runtime cost by skipping packages and assemblies that aren’t needed anymore.
+    可以使用 Visual Studio 安装程序删除不再使用的工作负载。 此操作可以跳过不再使用的包和程序集，从而优化启动和运行时的资源占用。
 
-## <a name="force-a-garbage-collection"></a>Force a garbage collection
+## <a name="force-a-garbage-collection"></a>强制垃圾回收
 
-The CLR uses a garbage collection memory management system. In this system, sometimes memory is used by objects that are no longer needed. This state is temporary; the garbage collector will release this memory based on its performance and resource usage heuristics. You can force the CLR to collect any unused memory by using a hotkey in Visual Studio. If there is a significant amount of garbage waiting for collection and you force a garbage collection, you should see the memory usage of the devenv.exe process drop in Task Manager. It’s rarely necessary to use this method. However, after an expensive operation has completed (such as a full build, debug session, or a solution open event), it can help you determine how much memory is really being used by the process. Because Visual Studio is mixed (managed & native), it’s occasionally possible for the native allocator and the garbage collector to compete for limited memory resources. Under conditions of high memory usage, it may help to force the garbage collector to run.
+CLR 使用垃圾回收内存管理系统。 在此系统中，内存有时会被不再需要的对象占用。 这一状态是临时的，垃圾回收器会基于其性能和资源使用情况试探法释放此内存。 可通过在 Visual Studio 中使用热键强制 CLR 回收任何未使用的内存。 如果有大量垃圾等待回收并已强制垃圾回收，可在任务管理器中看到 devenv.exe 进程的内存使用率降低。 很少需要使用此方法。 但是，在完成一个资源占用较高的操作（如完整生成、调试会话或解决方案打开事件）后，此方法有助于确定进程实际在使用的内存量。 由于 Visual Studio 属于混合型（托管和本机），因此本机分配器和垃圾回收器有时可能会竞争有限的内存资源。 在内存使用率较高的情况下，这可能有助于强制垃圾回收器运行。
 
-To force a garbage collection, use the hotkey: **Ctrl+Alt+Shift+F12**, **Ctrl+Alt+Shift+F12** (press it twice).
+要强制垃圾回收，请使用热键：Ctrl+Alt+Shift+F12、Ctrl+Alt+Shift+F12（按两次）。
 
-If forcing garbage collection reliably makes your scenario work, file a report through the Visual Studio feedback tool as this behavior is likely to be a bug.
+如果强制垃圾回收确实可让方案正常工作，请通过 Visual Studio 反馈工具提交报告，因为这一行为可能是一个 Bug。
 
-For a detailed description of the CLR garbage collector, see [Fundamental of Garbage Collection](https://msdn.microsoft.com/en-us/library/ee787088(v=vs.110).aspx).
+有关 CLR 垃圾回收器的详细描述，请参阅 [Fundamental of Garbage Collection](https://msdn.microsoft.com/en-us/library/ee787088(v=vs.110).aspx)（垃圾回收的基本原理）。
 
-## <a name="see-also"></a>See Also  
+## <a name="see-also"></a>另请参阅  
  [Visual Studio IDE](../ide/index.md)
 

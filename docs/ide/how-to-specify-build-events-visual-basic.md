@@ -1,5 +1,5 @@
 ---
-title: "如何：指定生成事件 (Visual Basic) | Microsoft Docs"
+title: 'How to: Specify Build Events (Visual Basic) | Microsoft Docs'
 ms.custom: 
 ms.date: 11/04/2016
 ms.reviewer: 
@@ -33,40 +33,41 @@ translation.priority.ht:
 - tr-tr
 - zh-cn
 - zh-tw
-translationtype: Human Translation
-ms.sourcegitcommit: 5db97d19b1b823388a465bba15d057b30ff0b3ce
-ms.openlocfilehash: 595995a0369ff74c4223e7a585c913bc90aca411
-ms.lasthandoff: 02/22/2017
+ms.translationtype: HT
+ms.sourcegitcommit: cca2a707627c36221a654cf8a06730383492f371
+ms.openlocfilehash: d021d979067c5394843511682255a7b55c3007ae
+ms.contentlocale: zh-cn
+ms.lasthandoff: 09/13/2017
 
 ---
-# <a name="how-to-specify-build-events-visual-basic"></a>如何：指定生成事件 (Visual Basic)
-Visual Basic 中的生成事件可用于运行脚本、宏或用作作为编译过程的一部分的其他操作。 预生成事件发生于编译之前；生成后事件发生于编译之后。  
+# <a name="how-to-specify-build-events-visual-basic"></a>How to: Specify Build Events (Visual Basic)
+Build events in Visual Basic can be used to run scripts, macros, or other actions as a part of the compilation process. Pre-build events occur before compilation; post-build events occur after compilation.  
   
- 在“生成事件”对话框中指定生成事件，可从“项目设计器”的“编译”页面获取。  
+ Build events are specified in the **Build Events** dialog box, available from the **Compile** page of the **Project Designer**.  
   
 > [!NOTE]
->  Visual Basic 速成版不支持输入生成事件。 仅完整版 Visual Studio 产品支持此操作。  
+>  Visual Basic Express does not support entry of build events. This is supported only in the full Visual Studio product.  
   
-## <a name="how-to-specify-pre-build-and-post-build-events"></a>如何指定预生成事件和生成后事件  
+## <a name="how-to-specify-pre-build-and-post-build-events"></a>How to Specify Pre-Build and Post-Build Events  
   
-#### <a name="to-specify-a-build-event"></a>指定生成事件  
+#### <a name="to-specify-a-build-event"></a>To specify a build event  
   
-1.  在“解决方案资源管理器” 中选择了项目的情况下，在“项目”  菜单上单击“属性” 。  
+1.  With a project selected in **Solution Explorer**, on the **Project** menu, click **Properties**.  
   
-2.  单击“编译”选项卡。  
+2.  Click the **Compile** tab.  
   
-3.  单击“生成事件”按钮以打开“生成事件”对话框。  
+3.  Click the **Build Events** button to open the **Build Events** dialog box.  
   
-4.  输入预生成操作或生成后操作的命令行参数，然后单击“确定”。  
-  
-    > [!NOTE]
-    >  在运行 .bat 文件的所有生成后命令之前添加 `call` 语句。 例如，`call C:\MyFile.bat` 或 `call C:\MyFile.bat call C:\MyFile2.bat`。  
+4.  Enter the command-line arguments for your pre-build or post-build action, and then click **OK**.  
   
     > [!NOTE]
-    >  如果预生成事件或生成后事件未成功完成，可通过使用除零 (0) 之外的代码退出事件操作来终止生成，这表示操作成功。  
+    >  Add a `call` statement before all post-build commands that run .bat files. For example, `call C:\MyFile.bat` or `call C:\MyFile.bat call C:\MyFile2.bat`.  
   
-## <a name="example-how-to-change-manifest-information-using-a-post-build-event"></a>示例：如何使用生成后事件更改清单信息  
- 以下过程演示如何使用从生成后事件（项目目录中的 .exe.manifest 文件）调用的 .exe 命令在应用程序清单中设置最低的操作系统版本。 最低的操作系统版本是由四个部分组成的数字组合，例如 4.10.0.0。 为此，该命令将更改清单的 `<dependentOS>` 部分：  
+    > [!NOTE]
+    >  If your pre-build or post-build event does not complete successfully, you can terminate the build by having your event action exit with a code other than zero (0), which indicates a successful action.  
+  
+## <a name="example-how-to-change-manifest-information-using-a-post-build-event"></a>Example: How to Change Manifest Information Using a Post-Build Event  
+ The following procedure shows how to set the minimum operating system version in the application manifest using an .exe command called from a post-build event (the .exe.manifest file in the project directory). The minimum operating system version is a four-part number such as 4.10.0.0. To do this, the command will change the `<dependentOS>` section of the manifest:  
   
 ```  
 <dependentOS>  
@@ -76,19 +77,19 @@ Visual Basic 中的生成事件可用于运行脚本、宏或用作作为编译�
 </dependentOS>  
 ```  
   
-#### <a name="to-create-an-exe-command-to-change-the-application-manifest"></a>创建 .exe 命令以更改应用程序清单  
+#### <a name="to-create-an-exe-command-to-change-the-application-manifest"></a>To create an .exe command to change the application manifest  
   
-1.  为命令创建控制台应用程序。 在“文件”菜单上，单击“新建”，然后单击“项目”。  
+1.  Create a console application for the command. From the **File** menu, click **New**, and then click **Project**.  
   
-2.  在“新建项目”对话框的“Visual Basic”节点中，依次选择“Windows”、“控制台应用程序”模板。 将项目命名为 `ChangeOSVersionVB`。  
+2.  In the **New Project** dialog box, in the **Visual Basic** node, select **Windows** and then the **Console Application** template. Name the project `ChangeOSVersionVB`.  
   
-3.  在 Module1.vb 中，将以下行添加到文件顶部的其他 `Imports` 语句中：  
+3.  In Module1.vb, add the following line to the other `Imports` statements at the top of the file:  
   
     ```  
     Imports System.Xml  
     ```  
   
-4.  在 `Sub Main` 中添加下列代码：  
+4.  Add the following code in `Sub Main`:  
   
     ```  
     Sub Main()  
@@ -131,57 +132,57 @@ Visual Basic 中的生成事件可用于运行脚本、宏或用作作为编译�
     End Sub  
     ```  
   
-     此命令采用两个参数。 第一个参数是应用程序清单的路径（即生成进程在其中创建清单的文件夹，通常为 Projectname.publish）。 第二个参数是新的操作系统版本。  
+     The command takes two arguments. The first argument is the path to the application manifest (that is, the folder in which the build process creates the manifest, typically Projectname.publish). The second argument is the new operating system version.  
   
-5.  在 **“生成”** 菜单上，单击 **“生成解决方案”**。  
+5.  On the **Build** menu, click **Build Solution**.  
   
-6.  将 .exe 文件复制到目录，例如 `C:\TEMP\ChangeOSVersionVB.exe`。  
+6.  Copy the .exe file to a directory such as `C:\TEMP\ChangeOSVersionVB.exe`.  
   
- 接下来，在生成后事件中调用此命令以更改应用程序清单。  
+ Next, invoke this command in a post-build event to change the application manifest.  
   
-#### <a name="to-invoke-a-post-build-event-to-change-the-application-manifest"></a>调用生成后事件以更改应用程序清单  
+#### <a name="to-invoke-a-post-build-event-to-change-the-application-manifest"></a>To invoke a post-build event to change the application manifest  
   
-1.  为要发布的项目创建 Windows 应用程序。 在“文件”菜单上，单击“新建”，然后单击“项目”。  
+1.  Create a Windows application for the project to be published. From the **File** menu, click **New**, and then click **Project**.  
   
-2.  在“新建项目”对话框的“Visual Basic”节点中，依次选择“Windows”、“Windows 应用程序”模板。 将项目命名为 `VBWinApp`。  
+2.  In the **New Project** dialog box, in the **Visual Basic** node, select **Windows Classic Desktop** and then the **Windows Forms App** template. Name the project `VBWinApp`.  
   
-3.  在“解决方案资源管理器”中选择一个项目，然后在“项目”菜单上单击“属性”。  
+3.  With the project selected in **Solution Explorer**, on the **Project** menu, click **Properties**.  
   
-4.  在项目设计器中，转到“发布”页面，并将“发布位置”设置为 `C:\TEMP\`。  
+4.  In the Project Designer, go to the **Publish** page and set **Publishing location** to `C:\TEMP\`.  
   
-5.  单击“立即发布”以发布项目。  
+5.  Publish the project by clicking **Publish Now**.  
   
-     将生成清单文件，并将其置于 `C:\TEMP\VBWinApp_1_0_0_0\VBWinApp.exe.manifest` 中。 若要查看清单，请右键单击该文件，然后依次单击“打开方式”、“从列表中选择程序”、“记事本”。  
+     The manifest file will be built and put in `C:\TEMP\VBWinApp_1_0_0_0\VBWinApp.exe.manifest`. To view the manifest, right-click the file and click **Open with**, then click **Select the program from a list**, and then click **Notepad**.  
   
-     在文件中搜索 `<osVersionInfo>` 元素。 例如，版本可能为：  
+     Search in the file for the `<osVersionInfo>` element. For example, the version might be:  
   
     ```  
     <os majorVersion="4" minorVersion="10" buildNumber="0" servicePackMajor="0" />  
     ```  
   
-6.  在项目设计器中，转到“编译”选项卡，然后单击“生成事件”按钮以打开“生成事件”对话框。  
+6.  In the Project Designer, go to the **Compile** tab and click the **Build Events** button to open the **Build Events** dialog box.  
   
-7.  在“生成后事件命令行”框中，输入以下命令：  
+7.  In the **Post-build Event Command Line** box, enter the following command:  
   
      `C:\TEMP\ChangeOSVersionVB.exe "$(TargetPath).manifest" 5.1.2600.0`  
   
-     生成项目时，此命令会将应用程序清单中的最低操作系统版本更改为 5.1.2600.0。  
+     When you build the project, this command will change the minimum operating system version in the application manifest to 5.1.2600.0.  
   
-     `$(TargetPath)` 宏表示正在创建的可执行文件的完整路径。 因此，$(TargetPath). 清单将指定在 bin 目录中创建的应用程序清单。 发布操作会将此清单复制到之前设置的发布位置。  
+     The `$(TargetPath)` macro expresses the full path for the executable being created. Therefore, $(TargetPath).manifest will specify the application manifest created in the bin directory. Publishing will copy this manifest to the publishing location that you set earlier.  
   
-8.  再次发布该项目。 转到“发布”页面，然后单击“立即发布”。  
+8.  Publish the project again. Go to the **Publish** page and click **Publish Now**.  
   
-     再次查看该清单。 若要查看清单，请转到发布目录、右键单击该文件，然后依次单击“打开方式”、“从列表中选择程序”、“记事本”。  
+     View the manifest again. To view the manifest, go to the publish directory, right-click the file and click **Open with** and then **Select the program from a list**, and then click **Notepad**.  
   
-     版本现在应显示为：  
+     The version should now read:  
   
     ```  
     <os majorVersion="5" minorVersion="1" buildNumber="2600" servicePackMajor="0" />  
     ```  
   
-## <a name="see-also"></a>另请参阅  
- [管理编译属性](http://msdn.microsoft.com/en-us/94308881-f10f-4caf-a729-f1028e596a2c)   
- [“项目设计器”->“编译”页 (Visual Basic)](../ide/reference/compile-page-project-designer-visual-basic.md)   
- [“项目设计器”->“发布”页](../ide/reference/publish-page-project-designer.md)   
- [预生成事件/生成后事件命令行对话框](../ide/reference/pre-build-event-post-build-event-command-line-dialog-box.md)   
- [如何：指定生成事件 (C#)](../ide/how-to-specify-build-events-csharp.md)
+## <a name="see-also"></a>See Also  
+ [Managing Compilation Properties](http://msdn.microsoft.com/en-us/94308881-f10f-4caf-a729-f1028e596a2c)   
+ [Compile Page, Project Designer (Visual Basic)](../ide/reference/compile-page-project-designer-visual-basic.md)   
+ [Publish Page, Project Designer](../ide/reference/publish-page-project-designer.md)   
+ [Pre-build Event/Post-build Event Command Line Dialog Box](../ide/reference/pre-build-event-post-build-event-command-line-dialog-box.md)   
+ [How to: Specify Build Events (C#)](../ide/how-to-specify-build-events-csharp.md)

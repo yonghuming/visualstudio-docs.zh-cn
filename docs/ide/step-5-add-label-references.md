@@ -1,5 +1,5 @@
 ---
-title: 'Step 5: Add Label References | Microsoft Docs'
+title: "步骤 5：添加标签引用 | Microsoft Docs"
 ms.custom: 
 ms.date: 11/04/2016
 ms.reviewer: 
@@ -31,37 +31,37 @@ ms.translationtype: HT
 ms.sourcegitcommit: eb5c9550fd29b0e98bf63a7240737da4f13f3249
 ms.openlocfilehash: 8aeaf5b9871d7123ab89a2db59accd61b143e0e1
 ms.contentlocale: zh-cn
-ms.lasthandoff: 08/30/2017
+ms.lasthandoff: 09/06/2017
 
 ---
-# <a name="step-5-add-label-references"></a>Step 5: Add Label References
-The program needs to track which label controls the player chooses. Right now, the program shows all labels chosen by the player. But we're going to change that. After the first label is chosen, the program should show the label's icon. After the second label is chosen, the program should display both icons for a brief time, and then hide both icons again. Your program will now keep track of which label control is chosen first and which is chosen second by using *reference variables*.  
+# <a name="step-5-add-label-references"></a>步骤 5：添加标签引用
+该程序需要跟踪玩家选择了哪些标签控件。 现在，该程序将显示玩家选择的所有标签。 但是，我们要更改这一行为。 在选择第一个标签后，该程序应显示该标签的图标。 在选择第二个标签后，该程序应短暂显示两个图标，然后再隐藏这两个图标。 程序现将通过引用变量跟踪第一次和第二次分别选择的标签控件。  
   
-### <a name="to-add-label-references"></a>To add label references  
+### <a name="to-add-label-references"></a>添加标签引用  
   
-1.  Add label references to your form by using the following code.  
+1.  通过使用下面的代码向窗体中添加标签引用。  
   
      [!code-vb[VbExpressTutorial4Step5#5](../ide/codesnippet/VisualBasic/step-5-add-label-references_1.vb)]  [!code-csharp[VbExpressTutorial4Step5#5](../ide/codesnippet/CSharp/step-5-add-label-references_1.cs)]  
   
-     These reference variables look similar to the statements you used earlier to add objects (like `Timer` objects, `List` objects, and `Random` objects) to your form. However, these statements don't cause two extra label controls to appear on the form because there's no `new` keyword used in either of the two statements. Without the `new` keyword, no object is created. That's why `firstClicked` and `secondClicked` are called reference variables: They just keep track (or, refer to) `Label` objects.  
+     这些引用变量看上去类似于你之前用来向窗体添加对象（如 `Timer` 对象、`List` 对象和 `Random` 对象）的语句。 但是，这些语句不会导致窗体中显示两个额外的标签控件，因为这两个语句中都没有 `new` 关键字。 没有 `new` 关键字，就不会创建对象。 这就是将 `firstClicked` 和 `secondClicked` 称为引用变量的原因：它们只跟踪（或引用）`Label` 对象。  
   
-     When a variable isn't keeping track of an object, it's set to a special reserved value: `null` in Visual C# and `Nothing` in Visual Basic. So, when the program starts, both `firstClicked` and `secondClicked` are set to `null` or `Nothing`, which means that the variables aren't keeping track of anything.  
+     当某变量不跟踪对象时，将设置为特殊的保留值：`null`（Visual C# 中）或 `Nothing`（Visual Basic 中）。 因此，当程序启动时，`firstClicked` 和 `secondClicked` 都设置为 `null` 或 `Nothing`，这意味着两个变量不会跟踪任何对象。  
   
-2.  Modify your Click event handler to use the new `firstClicked` reference variable. Remove the last statement in the `label_Click()` event handler method (`clickedLabel.ForeColor = Color.Black;`) and replace it with the `if` statement that follows. (Be sure you include the comment, and the whole `if` statement.)  
+2.  修改 Click 事件处理程序，以使用新的 `firstClicked` 引用变量。 移除 `label_Click()` 事件处理程序方法中的最后一个语句 (`clickedLabel.ForeColor = Color.Black;`)，并将它替换为下面的 `if` 语句。 （务必包括注释，以及整个 `if` 语句。）  
   
      [!code-vb[VbExpressTutorial4Step5#6](../ide/codesnippet/VisualBasic/step-5-add-label-references_2.vb)]  [!code-csharp[VbExpressTutorial4Step5#6](../ide/codesnippet/CSharp/step-5-add-label-references_2.cs)]  
   
-3.  Save and run your program. Choose one of the label controls, and its icon appears.  
+3.  保存并运行程序。 选择其中一个标签控件，它的图标将显示。  
   
-4.  Choose the next label control, and notice that nothing happens. The program is already keeping track of the first label that the player chose, so `firstClicked` isn't equal to `null` in Visual C# or `Nothing` in Visual Basic. When your `if` statement checks `firstClicked` to determine if it's equal to `null` or `Nothing`, it finds that it isn't, and it doesn't execute the statements in the `if` statement. So, only the first icon that's chosen turns black, and the other icons are invisible, as shown in the following picture.  
+4.  选择下一个标签控件，发现没有任何反应。 该程序已跟踪玩家选择的第一个标签，因此 `firstClicked` 不等于 Visual C# 中的 `null` 或 Visual Basic 中的 `Nothing`。 当 `if` 语句检查 `firstClicked` 以确定它是否等于 `null` 或 `Nothing` 时，它发现它不等于，因而不会在 `if` 语句中执行语句。 因此，只有选择的第一个图标变为黑色，其他图标是不可见的，如下图所示。  
   
-     ![Matching game showing one icon](../ide/media/express_tut4step5.png "Express_Tut4Step5")  
-Matching game showing one icon  
+     ![显示一个图标的匹配游戏](../ide/media/express_tut4step5.png "Express_Tut4Step5")  
+显示一个图标的匹配游戏  
   
-     You'll fix this situation in the next step of the tutorial by adding a **Timer** control.  
+     在教程的下一步中，将添加“计时器”控件修复此情况。  
   
-### <a name="to-continue-or-review"></a>To continue or review  
+### <a name="to-continue-or-review"></a>继续或查看  
   
--   To go to the next tutorial step, see [Step 6: Add a Timer](../ide/step-6-add-a-timer.md).  
+-   若要转到下一个教程步骤，请参阅[步骤6：添加计时器](../ide/step-6-add-a-timer.md)。  
   
--   To return to the previous tutorial step, see [Step 4: Add a Click Event Handler to Each Label](../ide/step-4-add-a-click-event-handler-to-each-label.md).
+-   若要转到下一个教程步骤，请参阅[步骤 4：向每个标签添加一个 Click 事件处理程序](../ide/step-4-add-a-click-event-handler-to-each-label.md)。

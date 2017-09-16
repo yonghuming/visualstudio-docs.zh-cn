@@ -1,5 +1,5 @@
 ---
-title: Accessibility tips and tricks | Microsoft Docs
+title: "辅助功能提示和技巧 | Microsoft Docs"
 ms.custom: 
 ms.date: 08/22/2017
 ms.reviewer: 
@@ -19,47 +19,47 @@ ms.translationtype: HT
 ms.sourcegitcommit: 17defdd0b96ec1c3273fc6b845af844b031a4a17
 ms.openlocfilehash: 906e8c70df502245001f87795cab9f5efe808c83
 ms.contentlocale: zh-cn
-ms.lasthandoff: 08/23/2017
+ms.lasthandoff: 09/06/2017
 
 ---
-# <a name="accessibility-tips-and-tricks"></a>Accessibility tips and tricks
+# <a name="accessibility-tips-and-tricks"></a>辅助功能提示和技巧
 > [!TIP]
-> To learn more about recent accessibility updates, see the [Accessibility improvements in Visual Studio 2017 version 15.3](https://blogs.msdn.microsoft.com/visualstudio/2017/08/14/accessibility-improvements-in-visual-studio-2017-version-15-3/) blog post.
+> 若要详细了解最新的辅助功能更新，请参阅博文 [Visual Studio 2017 版本 15.3 中的辅助功能改进](https://blogs.msdn.microsoft.com/visualstudio/2017/08/14/accessibility-improvements-in-visual-studio-2017-version-15-3/)。
 
-Visual Studio includes built-in accessibility features so you can easily work from the keyboard and use screen readers or other assistive technology devices. The topic includes some suggestions for optimizing Visual Studio for accessibility as well as some useful shortcut key combinations. Shortcut key combinations enable you to perform tasks in Visual Studio by using the keyboard.
+Visual Studio 包含一些内置的辅助功能，可帮助用户轻松地操作键盘和使用屏幕阅读器或其他辅助技术设备。 本主题包括关于优化 Visual Studio 辅助功能的一些建议，以及一些有用的快捷组合键。 使用快捷组合键，可在 Visual Studio 中利用键盘执行任务。
 
-## <a name="save-your-ide-settings"></a>Save your IDE settings  
- You can customize your IDE experience by saving your window layout, keyboard mapping scheme, and other preferences. For more information, see [Personalize the Visual Studio IDE](../../ide/personalizing-the-visual-studio-ide.md).  
+## <a name="save-your-ide-settings"></a>保存 IDE 设置  
+ 可以通过保存窗口布局、键盘映射方案和其他首选项来自定义 IDE 体验。 有关详细信息，请参阅[个性化设置 Visual Studio IDE](../../ide/personalizing-the-visual-studio-ide.md)。  
 
-## <a name="accessing-toolbars"></a>Accessing toolbars
-The Visual Studio IDE has toolbars as do many tool windows. The following shortcut key combinations help you access them.
+## <a name="accessing-toolbars"></a>访问工具栏
+与许多工具窗口一样，Visual Studio IDE 也具有多个工具栏。 可使用以下快捷键访问这些工具栏。
 
-|Feature|Description|Key Combination|  
+|功能|描述|组合键|  
 |-------------|-----------------|---------------------|  
-|IDE toolbars|Select the first button on the Standard toolbar.|**ALT**, **CTRL** + **TAB**|  
-|Tool window toolbars|Move focus to the toolbars in a tool window. <br> <br> **NOTE:** This works for most tool windows, but only when the focus is in a tool window. Also, you must choose the SHIFT key before the ALT key. In some tool windows, such as Team Explorer, you must hold the SHIFT key for a moment before choosing the ALT key.|**SHIFT** + **ALT**|
-|Toolbars|Go to the first item in the next toolbar (when a toolbar has focus).|**CTRL** + **TAB**|
+|IDE 工具栏|选择“标准”工具栏上的第一个按钮。|**Alt****Ctrl** + **Tab**|  
+|工具窗口工具栏|将焦点移动到工具窗口中的工具栏。 <br> <br> 注意：此方法适用于大多数工具窗口，但仅限焦点位于工具窗口的情况。 此外，还必须在按 Alt 键前按 Shift 键。 在一些工具窗口（如团队资源管理器）中，必须先按住 Shift 键一会才能按 Alt 键。|**Shift** + **Alt**|
+|工具栏|转到下一工具栏中的第一项（当焦点位于工具栏时）。|**Ctrl** + **Tab**|
 
-## <a name="other-useful-shortcut-key-combinations"></a>Other useful shortcut key combinations  
-Some other useful shortcut key combinations include the following.
+## <a name="other-useful-shortcut-key-combinations"></a>其他有用的快捷组合键  
+下面是其他一些有用的快捷组合键。
 
-|Feature|Description|Key Combination|  
+|功能|描述|组合键|  
 |-------------|-----------------|---------------------|  
-|IDE|Switch High Contrast on and off. <br> <br> **NOTE:** Standard Windows shortcut|**Left ALT + Left SHIFT + PRINT SCREEN**|  
-|Dialog box|Select or clear the check box option in a dialog box. <br> <br> **NOTE:** Standard Windows shortcut|**SPACEBAR**|  
-|Context menus|Open a context (right-click) menu. <br> <br> **NOTE:** Standard Windows shortcut|**SHIFT** + **F10**|
-|Menus|Quickly access a menu item by using its accelerator keys. Choose the **ALT** key followed by the underlined letters in a menu to activate the command. For example, to view the Open Project dialog box in Visual Studio, you would choose **ALT** + **F** + **O** + **P**.  <br><br> **NOTE:** Standard Windows shortcut|**ALT** + **[letter]**|
-|Toolbox window|Move among Toolbox tabs.|**CTRL** + **UPARROW**<br /><br /> and<br /><br /> **CTRL** + **DOWNARROW**|  
-|Toolbox window|Add a control from the Toolbox to a form or designer.|**ENTER**|  
-|Keyboard, Environment, Options dialog box|Delete a key combination entered in the **Press shortcut keys** option.|**BACKSPACE**|  
+|IDE|打开或关闭高对比度。 <br> <br> 备注：标准 Windows 快捷方式|**左 Alt + 左 Shift + PrtScn**|  
+|对话框|选中或清除对话框中的复选框选项。 <br> <br> 备注：标准 Windows 快捷方式|**空格键**|  
+|上下文菜单|打开上下文菜单（右键单击）。 <br> <br> 备注：标准 Windows 快捷方式|**Shift** + **F10**|
+|菜单|通过使用快捷键快速访问菜单项。 在菜单中按 Alt 键 + 带下划线的字母可激活命令。 例如，若要查看 Visual Studio 中的“打开项目”对话框，则应按 Alt + F + O + P。  <br><br> 备注：标准 Windows 快捷方式|**Alt** + **[字母]**|
+|工具箱窗口|在工具箱选项卡之间移动。|**Ctrl** + **向上键**<br /><br /> 和<br /><br /> **Ctrl** + **向下键**|  
+|工具箱窗口|将工具箱中的控件添加到窗体或设计器。|**Enter**|  
+|“选项”对话框 ->“环境”->“键盘”|删除在“按快捷键”选项中输入的组合键。|**Backspace**|  
 
 > [!NOTE]
->  The dialog boxes and menu commands you see might differ from those described in Help depending on your active settings or edition.  
+>  显示的对话框和菜单命令可能会与“帮助”中的描述不同，具体取决于你现用的设置或版本。  
 
-## <a name="see-also"></a>See also  
- [Accessibility Features of Visual Studio](../../ide/reference/accessibility-features-of-visual-studio.md)
+## <a name="see-also"></a>请参阅  
+ [Visual Studio 的辅助功能](../../ide/reference/accessibility-features-of-visual-studio.md)
 
- [How to: Customize Menus and Toolbars in Visual Studio](../../ide/how-to-customize-menus-and-toolbars-in-visual-studio.md)
+ [如何：在 Visual Studio 中自定义菜单和工具栏](../../ide/how-to-customize-menus-and-toolbars-in-visual-studio.md)
 
- [Personalize the Visual Studio IDE](../../ide/personalizing-the-visual-studio-ide.md)
+ [个性化设置 Visual Studio IDE](../../ide/personalizing-the-visual-studio-ide.md)
 

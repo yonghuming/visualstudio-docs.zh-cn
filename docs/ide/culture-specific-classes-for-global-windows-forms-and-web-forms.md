@@ -1,5 +1,5 @@
 ---
-title: Culture-Specific Classes for Global Windows Forms and Web Forms | Microsoft Docs
+title: "全球 Windows 窗体和 Web 窗体的区域性特定类 | Microsoft Docs"
 ms.custom: 
 ms.date: 11/04/2016
 ms.reviewer: 
@@ -48,16 +48,16 @@ ms.translationtype: HT
 ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
 ms.openlocfilehash: 7eae24ec725509b2a2a6a276ad7f474a079bd952
 ms.contentlocale: zh-cn
-ms.lasthandoff: 08/28/2017
+ms.lasthandoff: 09/06/2017
 
 ---
-# <a name="culture-specific-classes-for-global-windows-forms-and-web-forms"></a>Culture-Specific Classes for Global Windows Forms and Web Forms
-Each culture has different conventions for displaying dates, time, numbers, currency, and other information. The <xref:System.Globalization> namespace contains classes that can be used to modify how culture-specific values are displayed, such as <xref:System.Globalization.DateTimeFormatInfo>, **Calendar**, and <xref:System.Globalization.NumberFormatInfo>.  
+# <a name="culture-specific-classes-for-global-windows-forms-and-web-forms"></a>全球 Windows 窗体和 Web 窗体的区域性特定类
+每个区域性都具有有关显示日期、时间、数字、货币和其他信息的不同约定。 <xref:System.Globalization> 命名空间包含可用于修改区域性专属值的显示方式的类，如 <xref:System.Globalization.DateTimeFormatInfo>、Calendar 和 <xref:System.Globalization.NumberFormatInfo>。  
   
-## <a name="using-the-culture-setting"></a>Using the Culture Setting  
- But most of the time you will use the culture setting, stored either in the application or in the **Regional Options** control panel, to automatically determine the conventions at run time and format the information accordingly. For more information on setting the culture, see [How to: Set the Culture and UI Culture for Windows Forms Globalization](http://msdn.microsoft.com/en-us/694e049f-0b91-474a-9789-d35124f248f0) or [How to: Set the Culture and UI Culture for ASP.NET Web Page Globalization](http://msdn.microsoft.com/Library/76091f86-f967-4687-a40f-de87bd8cc9a0). Classes that automatically format information according to the culture setting are called culture-specific. Some culture-specific methods are <xref:System.IFormattable.ToString%2A?displayProperty=fullName>, <xref:System.Console.WriteLine%2A?displayProperty=fullName>, and <xref:System.String.Format%2A?displayProperty=fullName>. Some culture-specific functions (in the Visual Basic language) are `MonthName` and `WeekDayName`.  
+## <a name="using-the-culture-setting"></a>使用区域性设置  
+ 但大多数情况下，将使用存储在应用程序或“区域选项”控制面板中的区域性设置，自动在运行时确定约定并相应设置信息的格式。 有关设置区域性的详细信息，请参阅[如何：为 Windows 窗体全球化设置区域性和 UI 区域性](http://msdn.microsoft.com/en-us/694e049f-0b91-474a-9789-d35124f248f0)或[如何：为 ASP.NET 网页全球化设置区域性和 UI 区域性](http://msdn.microsoft.com/Library/76091f86-f967-4687-a40f-de87bd8cc9a0)。 根据区域性设置自动设置信息格式的类称为特定于区域性的类。 一些区域性专属方法包括 <xref:System.IFormattable.ToString%2A?displayProperty=fullName>、<xref:System.Console.WriteLine%2A?displayProperty=fullName> 和 <xref:System.String.Format%2A?displayProperty=fullName>。 特定于区域性的函数（在 Visual Basic 语言中）中包括 `MonthName` 和 `WeekDayName`。  
   
- For example, the following code shows how you can use the <xref:System.IFormattable.ToString%2A> method to format currency for the current culture:  
+ 例如，下面的代码展示了如何使用 <xref:System.IFormattable.ToString%2A> 方法，为当前的区域性设置货币格式：  
   
 ```vb  
 ' Put the Imports statements at the beginning of the code module  
@@ -78,19 +78,19 @@ int myInt = 100;
 Console.WriteLine(myInt.ToString("C", Thread.CurrentThread.CurrentCulture));  
 ```  
   
- If the culture is set to "fr-FR", you will see this in the output window:  
+ 如果该区域性设置为“fr-FR”，会在输出窗口中看到：  
   
  `100,00`  
   
- If the culture is set to "en-US", you will see this in the output window:  
+ 如果该区域性设置为“en-US”，会在输出窗口中看到：  
   
  `$100.00`  
   
-## <a name="see-also"></a>See Also  
+## <a name="see-also"></a>另请参阅  
  <xref:System.IFormattable.ToString%2A?displayProperty=fullName>   
  <xref:System.Globalization.DateTimeFormatInfo>   
  <xref:System.Globalization.NumberFormatInfo>   
  <xref:System.Globalization.Calendar>   
  <xref:System.Console.WriteLine%2A?displayProperty=fullName>   
  <xref:System.String.Format%2A?displayProperty=fullName>   
- [Globalizing and Localizing Applications](../ide/globalizing-and-localizing-applications.md)
+ [对应用程序进行全球化和本地化](../ide/globalizing-and-localizing-applications.md)

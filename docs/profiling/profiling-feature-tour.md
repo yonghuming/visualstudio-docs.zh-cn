@@ -1,5 +1,5 @@
 ---
-title: Profiling Feature Tour | Microsoft Docs
+title: "分析功能简介 | Microsoft Docs"
 ms.custom: H1HackMay2017
 ms.date: 05/18/2017
 ms.reviewer: 
@@ -34,151 +34,151 @@ ms.translationtype: HT
 ms.sourcegitcommit: 9e6c28d42bec272c6fd6107b4baf0109ff29197e
 ms.openlocfilehash: b4f4e312fb7717edfe950cf6977279a1bd67a458
 ms.contentlocale: zh-cn
-ms.lasthandoff: 08/22/2017
+ms.lasthandoff: 09/06/2017
 
 ---
-# <a name="profiling-feature-tour"></a>Profiling Feature Tour
+# <a name="profiling-feature-tour"></a>分析功能简介
 
-Visual Studio provides a variety of profiling tools to help you diagnose different kinds of performance issues depending on your app type.
+Visual Studio 提供了各种分析工具，可依据你的应用类型帮助你诊断不同种类的性能问题。
 
-The profiling tools that you can access during a debugging session are available in the Diagnostic Tools window. The Diagnostic Tools window appears automatically unless you have turned it off. To bring up the window, click **Debug / Windows / Show Diagnostic Tools**. With the window open, you can select tools for which you want to collect data.
+调试会话期间可以访问的分析工具在“诊断工具”窗口中提供。 将自动显示“诊断工具”窗口，除非你已将其关闭。 若要显示该窗口，请依次单击“调试”、“Windows”、“显示诊断工具”。 窗口打开后，可以选择想要用于收集数据的工具。
 
-![Diagnostic Tools window](../profiling/media/prof-tour-diagnostic-tools.png "Diagnostic Tools")
+![诊断工具窗口](../profiling/media/prof-tour-diagnostic-tools.png "诊断工具")
 
-While you are debugging, you can use the **Diagnostic Tools** window to analyze CPU and memory usage, and you can view events that show performance-related information.
+调试时，你可以使用“诊断工具”窗口分析 CPU 和内存使用情况，并且可以查看显示性能相关信息的事件。
 
-![Diagnostic Tools Summary view](../profiling/media/prof-tour-cpu-and-memory-graph.gif "Diagnostic Tools Summary")
+![诊断工具摘要视图](../profiling/media/prof-tour-cpu-and-memory-graph.gif "Diagnostic Tools Summary")
 
-The **Diagnostic Tools** window is often the preferred way to profile apps, but you can also do a post-mortem analysis of your app instead. If you want more information on different approaches, see [Running Profiling Tools With or Without the Debugger](../profiling/running-profiling-tools-with-or-without-the-debugger.md).
+“诊断工具”窗口通常是分析应用的首选方式，但你也可改为对应用执行事后分析。 如果想要了解关于不同方法的详细信息，请参阅[运行带或不带调试器的分析工具](../profiling/running-profiling-tools-with-or-without-the-debugger.md)。
 
-## <a name="analyze-cpu-usage"></a>Analyze CPU Usage
+## <a name="analyze-cpu-usage"></a>分析 CPU 的使用量
 
-The CPU Usage tool is a good place to start analyzing your app's performance. It will tell you more about CPU resources that your app is consuming. For a more detailed walkthrough of the CPU Usage tool, see [Beginner's Guide to Performance Profiling](../profiling/beginners-guide-to-performance-profiling.md).
+CPU 使用率工具很适合用于开始分析应用的性能。 它将向你详细介绍应用正在使用的 CPU 资源。 有关 CPU 使用率工具的更详细的演练，请参阅[性能分析初学者指南](../profiling/beginners-guide-to-performance-profiling.md)。
 
-From the **Summary** view of the Diagnostic Tools, choose **Enable CPU Profiling** (you must be in a debugging session).
+在诊断工具的“摘要”视图中，选择“启用 CPU 分析”（必须正在参与调试会话）。
 
-![Enable CPU usage in the Diagnostic Tools](../profiling/media/prof-tour-enable-cpu-profiling.png "Diagnostic Tools Enable CPU Usage")
+![启用诊断工具中的 CPU 使用情况](../profiling/media/prof-tour-enable-cpu-profiling.png "Diagnostic Tools Enable CPU Usage")
 
-To use the tool most effectively, set two breakpoints in your code, one at the beginning and one at the end of the function or the region of code you want to analyze. Examine the profiling data when you are paused at the second breakpoint.
+若要最有效地使用该工具，请在代码中设置两个断点，一个在开头，一个在函数的末尾或想要分析的代码区域。 在第二个断点暂停时，请检查分析数据。
 
-The **CPU Usage** view shows you a list of functions ordered by longest running, with the longest running function at the top. This can help guide you to functions where performance bottlenecks are happening.
+“CPU 使用率”视图显示按最长运行时间排序的函数列表，运行时间最长的函数排在前面。 这有助于将你引导至发生性能瓶颈的函数。
 
-![Diagnostic Tools CPU Usage view](../profiling/media/prof-tour-cpu-usage.png "Diagnostic Tools CPU Usage")
+![诊断工具 CPU 使用情况视图](../profiling/media/prof-tour-cpu-usage.png "Diagnostic Tools CPU Usage")
 
-Double-click on a function that you are interested in, and you will see a more detailed three-pane "butterfly" view, with the selected function in the middle of the window, the calling function on the left, and called functions on the right. The **Function Body** section shows the total amount of time (and the percentage of time) spent in the function body excluding time spent in calling and called functions. This data can help you evaluate whether the function itself is a performance bottleneck.
+双击感兴趣的函数，然后将看到更加详细的三窗格“蝶形”视图，其中所选函数位于窗口中央，调用函数位于左侧，而被调用函数位于右侧。 **函数体**部分显示函数体中所用的时间总量（及百分比），其中不包括调用和被调用函数中所用的时间。 此数据可以帮助评估函数本身是否属于性能瓶颈。
 
-![Diagnostic Tools caller callee "butterfly" view](../profiling/media/prof-tour-cpu-usage-caller-callee.png "Diagnostic Tools Caller Callee View")
+![诊断工具调用方被调用方“蝶形”视图](../profiling/media/prof-tour-cpu-usage-caller-callee.png "Diagnostics Tools Caller Callee View")
 
-## <a name="analyze-memory-usage"></a>Analyze Memory Usage
+## <a name="analyze-memory-usage"></a>分析内存使用量
 
-The Diagnostic Tools window also allows you to evaluate memory usage in your app. For example, you can look at the number and size of objects on the heap. For more detailed instructions to analyze memory, see [Analyze Memory Usage](../profiling/memory-usage.md).
+“诊断工具”窗口还可用于评估应用中的内存使用量。 例如，你可以查看堆上对象的数量和大小。 若要详细了解如何分析内存，请参阅[分析内存使用情况](../profiling/memory-usage.md)。
 
-To analyze memory usage, you need to take at least one memory snapshot while you are debugging. Often, the best way to analyze memory is to take two snapshots; the first right before a suspected memory issue, and the second snapshot right after a suspected memory issue occurs. Then you can view a diff of the two snapshots and see exactly what changed.
+若要分析内存使用量，你需要在进行调试时拍摄至少一张内存快照。 通常，分析内存的最好方法是拍摄两张快照；一张正好拍摄于发生可疑内存问题之前，另一张拍摄于发生可疑内存问题之后。 然后可以查看两张快照的差异，并发现实际更改的内容。
 
-![Take a snapshot in the Diagnostic Tools](../profiling/media/prof-tour-take-snapshots.gif "Diagnostic Tools Take Snapshots")
+![在诊断工具中拍摄快照](../profiling/media/prof-tour-take-snapshots.gif "Diagnostic Tools Take Snapshots")
 
-When you select one of the arrow links, you are given a differential view of the heap (a red up arrow ![Memory Usage Increase](../profiling/media/prof-tour-mem-usage-up-arrow.png "Memory Usage Increase") shows an increasing object count (left) or an increasing heap size (right)). If you click the right link, you get a differential heap view ordered by objects that increased the most in heap size. This can help you pinpoint memory problems. For example, in the illustration below, the bytes used by `ClassHandlersStore` objects increased by 3,492 bytes in the second snapshot.
+选择其中一个箭头链接时，系统会提供关于堆的差异视图（一个向上的红色箭头![内存使用量增加](../profiling/media/prof-tour-mem-usage-up-arrow.png "Memory Usage Increase")表明对象计数（左）增加或堆大小（右）增加）。 如果单击右侧的链接，将获得按堆大小增加最多的对象进行排序的差异堆视图。 这可帮助查明内存问题。 例如，在下图中，`ClassHandlersStore` 对象使用的字节数在第二张快照中增加了 3,492 字节。
 
-![Diagnostic Tools heap diff view](../profiling/media/prof-tour-mem-usage-diff-heap.png "Diagnostic Tools Heap Diff view")
+![诊断工具堆差异视图](../profiling/media/prof-tour-mem-usage-diff-heap.png "Diagnostics Tools Heap Diff view")
 
-If you click the link on the left instead in the **Memory Usage** view, the heap view is organized by object count; the objects of a particular type that increased the most in number are shown at the top (sorted by **Count Diff** column).
+如果改为单击“内存使用量”视图左侧的链接，堆视图将按对象计数排列；数量增加最多的特殊类型的对象显示在顶部（按“计数差异”列排序）。
 
-## <a name="examine-performance-events"></a>Examine Performance Events
+## <a name="examine-performance-events"></a>检查性能事件
 
-The **Events** view in the Diagnostic Tools shows you different events that occur while you are debugging, such as the setting of a breakpoint or a code stepping operation. You can check information such as the duration of the event (measured from when the debugger was last paused, or when the app started). For example, if you step through code (F10, F11), the **Events** view shows you the app runtime duration from the previous step operation to the current step.
+诊断工具中的“事件”视图显示调试时发生的不同事件，例如设置断点或代码单步执行操作。 你可以查看事件持续时间（从调试程序上次暂停或应用启动时开始计算）等信息。 例如，如果单步执行代码（F10、F11），“事件”视图将显示自上次单步执行操作到当前单步执行操作的应用运行时持续时间。
 
-![Diagnostic Tools Events view](../profiling/media/prof-tour-events.png "Diagnostic Tools View Events")
+![诊断工具事件视图](../profiling/media/prof-tour-events.png "Diagnostic Tools View Events")
 
  > [!NOTE]
- > If you have Visual Studio Enterprise, you can also see [IntelliTrace events](../debugger/intellitrace.md) in this tab.
+ > 如果你有 Visual Studio Enterprise，你还可以在此选项卡中查看 [IntelliTrace 事件](../debugger/intellitrace.md)。
 
-The same events also show up in the code editor, which you can view as PerfTips.
+相同事件也会出现在代码编辑器中，可将其作为性能提示进行查看。
 
-![Profiling Tour PerfTips](../profiling/media/prof-tour-perf-tips.png "Profiling Tour PerfTips")
+![分析教程性能提示](../profiling/media/prof-tour-perf-tips.png "Profiling Tour PerfTips")
 
-## <a name="examine-ui-performance-and-accessibility-events-uwp"></a>Examine UI Performance and Accessibility Events (UWP)
+## <a name="examine-ui-performance-and-accessibility-events-uwp"></a>检查 UI 性能和辅助功能事件 (UWP)
 
-In your UWP apps, you can enable **UI Analysis** in the Diagnostic Tools window. The tool searches for common performance or accessibility issues and displays them in the **Events** view while you are debugging. The event descriptions provide information that can help resolve issues.
+在 UWP 应用中，你可以在“诊断工具”窗口中启用“UI 分析”。 该工具搜索常见的性能和辅助功能问题，在你进行调试时将其显示在“事件”视图中。 事件描述可提供有助于解决问题的信息。
 
-![View UI Analysis events in the Diagnostic Tools](../profiling/media/prof-tour-ui-analysis.png "Diagnostic Tools View UI Analysis Events")
+![在诊断工具中查看 UI 分析事件](../profiling/media/prof-tour-ui-analysis.png "Diagnostic Tools View UI Analysis Events")
 
-## <a name="profile-release-builds-without-the-debugger"></a>Profile Release Builds without the Debugger
+## <a name="profile-release-builds-without-the-debugger"></a>不使用调试器分析发行版本
 
-Profiling tools like CPU Usage and Memory Usage can be used with the debugger (see earlier sections), or you can run profiling tools using the Performance Profiler, which is intended to provide analysis for **Release** builds. In the Performance Profiler, you can collect diagnostic info while the app is running, and then examine the collected information after the app is stopped. For more information on these different approaches, see [Running Profiling Tools With or Without the Debugger](../profiling/running-profiling-tools-with-or-without-the-debugger.md).
+CPU 使用率和内存使用量等分析工具可以与调试器配合使用（参见前面部分），或者可以使用性能探查器运行分析工具，其目的是为**发行**生成提供分析。 在性能探查器中，可以在应用仍在运行时收集诊断信息，然后在应用停止后检查收集的信息。 有关这些不同方法的详细信息，请参阅[运行带或不带调试器的分析工具](../profiling/running-profiling-tools-with-or-without-the-debugger.md)。
 
-![Performance Profiler](../profiling/media/prof-tour-performance-profiler.png "Performance Profiler")
+![性能探查器](../profiling/media/prof-tour-performance-profiler.png "Performance Profiler")
 
-Open the Performance Profiler by choosing **Debug / Performance Profiler**.
+选择“调试”>“性能探查器”打开性能探查器。
 
-The window will allow you to select multiple profiling tools in some scenarios. Tools such as CPU Usage may provide complementary data that you can use to help in your analysis.
+该窗口使你能够在某些应用场景中选择多个分析工具。 CPU 使用率等工具可提供在分析中有所帮助的补充性数据。
 
-## <a name="analyze-resource-consumption-xaml"></a>Analyze Resource Consumption (XAML)
+## <a name="analyze-resource-consumption-xaml"></a>分析资源消耗情况 (XAML)
 
-In XAML apps, such as Windows desktop WPF apps and Windows Store apps, you can analyze resource consumption using the Application Timeline tool. For example, you can analyze the time spent by your application preparing UI frames (layout and render), servicing network and disk requests, and in scenarios like application startup, page load, and Window resize. To use the tool, choose **Application Timeline** in the Performance Profiler, and then choose **Start**. In your app, go through the scenario with a suspected resource consumption issue, and then choose **Stop collection** to generate the report.
+在如 Windows 桌面 WPF 应用和 Windows 应用商店应用等 XAML 应用等 XAML 应用中，你可以使用应用程序时间线工具分析资源消耗情况。 例如，你可以分析应用程序准备 UI 框架（布局和呈现）以及为网络和磁盘请求提供服务所花费的时间，以及在应用程序启动、页面加载以及调整窗口大小等应用场景中花费的时间。 若要使用该工具，请在性能探查器中选择“应用程序时间线”，然后选择“开始”。 在应用中，浏览资源消耗存在可疑问题的应用场景，然后选择“停止收集”生成报表。
 
-Low framerates in the **Visual throughput** graph may correspond to visual problems that you see when running your app. Similarly, high numbers in the **UI thread utilization** graph may also correspond to UI responsiveness issues. In the report, you can select a time period with a suspected performance issue, and then examine the detailed UI thread activities in the Timeline details view (lower pane).
+**可视吞吐量**关系图中的帧速率低可能对应运行应用时看到的视觉问题。 与此类似，**UI 线程使用率**关系图中的高数值也可能对应 UI 响应能力问题。 在报表中，你可以选择出现可疑性能问题的时间段，然后在“时间线”详细信息视图（下方窗格）中检查详细的 UI 线程活动。
 
-![Application Timeline profiling tool](../profiling/media/prof-tour-application-timeline.gif "Profiling Tour Application Timeline")
+![应用程序时间线分析工具](../profiling/media/prof-tour-application-timeline.gif "Profiling Tour Application Timeline")
 
-In the Timeline details view, you can find information such as the type of activitiy (or the UI element involved) along with the duration of the activity. For example, in the illustration, a **Layout** event for a Grid control takes 57.53 ms.
+在时间线详细信息视图中，你可以找到比如活动类型（或涉及的 UI 元素）以及活动持续时间等信息。 例如，在图中，网格控件的**布局**事件需要 57.53 毫秒。
 
-For more information, see [Application Timeline](../profiling/application-timeline.md).
+有关详细信息，请参阅[应用程序时间线](../profiling/application-timeline.md)。
 
-## <a name="analyze-gpu-usage-direct3d"></a>Analyze GPU Usage (Direct3D)
+## <a name="analyze-gpu-usage-direct3d"></a>分析 GPU 使用情况 (Direct3D)
 
-In Direct3D apps (Direct3D components must be in C++), you can examine activity on the GPU and analyze performance issues. For more information, see [GPU Usage](../debugger/gpu-usage.md). To use the tool, choose **GPU Usage** in the Performance Profiler, and then choose **Start**. In your app, go through the scenario that you're interested in profiling, and then choose **Stop collection** to generate a report.
+在 Direct3D 应用（Direct3D 组件必须使用 C++）中，你可以检查关于 GPU 的活动并分析性能问题。 有关详细信息，请参阅 [GPU 使用情况](../debugger/gpu-usage.md)。 若要使用该工具，请在性能探查器中选择“GPU 使用情况”，然后选择“开始”。 在应用中，浏览你对分析感兴趣的应用场景，然后选择“停止收集”生成报表。
 
-When you select a time period in the graphs and choose **view details**, a detailed view appears in the lower pane. In the detailed view, you can examine how much activity is happening on each CPU and GPU. Select events in the lowest pane to get popups in the timeline. For example, select the **Present** event to view **Present** call popups. (The light gray vertical Vsync lines can be used as a reference to understand whether certain **Present** calls missed Vsync. There must be one **Present** call between every two Vsyncs in order for the app to steadily hit 60 FPS.)
+在关系图中选择一个时间段，并选择“查看详细信息”后，下方窗格中将出现详细信息视图。 在详细信息视图中，你可以检查每个 CPU 和 GPU 上发生活动的数量。 选择底部窗格中的事件可在时间线中获得弹出窗口。 例如，选择 **Present** 事件可查看 **Present** 调用弹出窗口。 （浅灰色垂直 Vsync 线条可以作为参考，用于了解某些 **Present** 是否调用缺少的 Vsync。 为了让应用稳定达到 60 FPS，每两个 Vsync 之间必须有一个 **Present** 调用。）
 
-![GPU Usage profiling tool](../profiling/media/prof-tour-gpu-usage.png "Diag GPU Usage")
+![GPU 使用情况分析工具](../profiling/media/prof-tour-gpu-usage.png "Diag GPU Usage")
 
-You can also use the graphs to determine whether there are CPU bound or GPU bound performance bottlenecks.
+关系图还可用于确定是否存在与 CPU 或 GPU 绑定的性能瓶颈。
 
-## <a name="analyze-performance-javascript"></a>Analyze Performance (JavaScript)
+## <a name="analyze-performance-javascript"></a>分析性能 (JavaScript)
 
-For Windows Universal HTML apps, you can use the JavaScript Memory tool and the HTML UI Responsiveness tool.
+对于 Windows 通用 HTML 应用，可以使用 JavaScript 内存工具和 HTML UI 响应能力工具。
 
-The JavaScript Memory tool is similar to the Memory Usage tool available for other app types. You can use this tool to understand memory usage and find memory leaks in your app. For more details about the tool, see [JavaScript Memory](../profiling/javascript-memory.md).
+JavaScript 内存工具类似于适用于其他应用类型的内存使用量工具。 你可以使用此工具来了解内存使用量并查找应用中的内存泄露。 有关工具的详细信息，请参阅 [JavaScript 内存](../profiling/javascript-memory.md)。
 
-![JavaScript Memory profiling tool](../profiling/media/diagjsmemory.png "DiagJSMemory")
+![JavaScript 内存分析工具](../profiling/media/diagjsmemory.png "DiagJSMemory")
 
-To diagnose UI responsiveness, slow loading time, and slow visual updates in Windows Universal HTML apps, use the HTML UI Responsiveness tool. Usage is similar to the Application Timeline tool for other app types. For more information, see [HTML UI responsiveness](../profiling/html-ui-responsiveness.md).
+若要在 Windows 通用 HTML 应用中诊断 UI 响应能力、减慢加载时间和减慢视觉对象更新，请使用 HTML UI 响应能力工具。 使用情况类似于适用于其他应用类型的应用程序时间线工具。 有关更多信息，请参阅 [HTML UI 响应能力](../profiling/html-ui-responsiveness.md)。
 
-![HTML UI Responsiveness profiling tool](../profiling/media/diaghtmlresp.png "DiagHTMLResp")
+![HTML UI 响应能力分析工具](../profiling/media/diaghtmlresp.png "DiagHTMLResp")
 
-## <a name="analyze-network-usage-uwp"></a>Analyze Network Usage (UWP)
+## <a name="analyze-network-usage-uwp"></a>分析网络使用情况 (UWP)
 
-In UWP apps, you can analyze network operations performed using the `Windows.Web.Http` API.This tool may help you to resolve issues like access and authentication problems, incorrect cache-use, and poor display and download performance. To use the tool, choose **Network** in the Performance Profiler, and then choose **Start**. In your app, go through the scenario that uses `Windows.Web.Http`, and then choose **Stop collection** to generate the report.
+在 UWP 应用中，你可以使用 `Windows.Web.Http` API 分析执行的网络操作。本工具可帮助你解决如访问和身份验证问题、缓存误用以及显示和下载性能差等问题。 若要使用该工具，请在性能探查器中选择“网络”，然后选择“开始”。 在应用中，浏览使用 `Windows.Web.Http` 的应用场景，然后选择“停止收集”生成报表。
 
-![Network Usage profiling tool](../profiling/media/prof-tour-network-usage.png "Diag Network Usage")
+![网络使用情况分析工具](../profiling/media/prof-tour-network-usage.png "Diag Network Usage")
 
-Select an operation in the summary view to view more details.
+选择摘要视图中的操作以查看更多详细信息。
 
-![Detailed information in the Network Usage tool](../profiling/media/prof-tour-network-usage-details.png "Diag Network Usage Details")
+![网络使用情况工具中的详细信息](../profiling/media/prof-tour-network-usage-details.png "Diag Network Usage Details")
 
-For more information, see [Network Usage](../profiling/network-usage.md).
+有关详细信息，请参阅[网络使用情况](../profiling/network-usage.md)。
 
-## <a name="analyze-performance-legacy-tools"></a>Analyze Performance (Legacy Tools)
+## <a name="analyze-performance-legacy-tools"></a>分析性能（旧工具）
 
-If you need features such as instrumentation that are not currently present in CPU Usage or Memory Usage tools, and you are running desktop or ASP.NET apps, you can use the Performance Explorer for profiling. (Not supported in UWP apps). For more info, see [Performance Explorer](../profiling/performance-explorer.md)
+如果你需要 CPU 使用率或内存使用量工具中当前不存在的功能（如检测），当你在运行桌面或 ASP.NET 应用时，可使用性能资源管理器进行分析。 （UWP 应用中不支持）。 有关详细信息，请参阅[性能资源管理器](../profiling/performance-explorer.md)
 
-![Performance Explorer tool](../profiling/media/prof-tour-performance-explorer.png "Performance Explorer")
+![性能资源管理器工具](../profiling/media/prof-tour-performance-explorer.png "Performance Explorer")
 
-## <a name="which-tool-should-i-use"></a>Which Tool Should I Use?  
-Here is a table that lists the different tools Visual Studio offers and the different project types you can use them with:
+## <a name="which-tool-should-i-use"></a>应使用哪一种工具？  
+下表列出了 Visual Studio 提供的不同工具以及适用的不同项目类型：
   
-|Performance Tool|Windows desktop|Windows Universal/Store|ASP.NET/ASP.NET Core|  
+|性能工具|Windows 桌面|Windows 通用/应用商店|ASP.NET/ASP.NET Core|  
 |----------------------|---------------------|------------------------------|-------------|  
-|[Memory Usage](../profiling/memory-usage.md)|yes|yes|yes|  
-|[CPU Usage](../profiling/cpu-usage.md)|yes|yes|yes|  
-|[GPU Usage](../debugger/gpu-usage.md)|yes|yes|no|  
-|[Application Timeline](../profiling/application-timeline.md)|yes|yes|no|  
-|[PerfTips](../profiling/perftips.md)|yes|yes for XAML, no for HTML|yes|  
-|[Performance Explorer](../profiling/performance-explorer.md)|yes|no|yes (no for ASP.NET Core)|  
-|[IntelliTrace](../debugger/intellitrace.md)|.NET Enterprise only|.NET Enterprise only|.NET Enterprise only|
-|[Network Usage](../profiling/network-usage.md)|no|yes|no| 
-|[HTML UI responsiveness](../profiling/html-ui-responsiveness.md)|no|yes for HTML, no for XAML|no|  
-|[JavaScript Memory](../profiling/javascript-memory.md)|no|yes for HTML, no for XAML|no|  
+|[内存使用率](../profiling/memory-usage.md)|是|是|是|  
+|[CPU 使用率](../profiling/cpu-usage.md)|是|是|是|  
+|[GPU 使用情况](../debugger/gpu-usage.md)|是|是|no|  
+|[应用程序时间线](../profiling/application-timeline.md)|是|是|no|  
+|[性能提示](../profiling/perftips.md)|是|XAML 适用，HTML 不适用|是|  
+|[性能资源管理器](../profiling/performance-explorer.md)|是|no|是（不适用于 ASP.NET Core）|  
+|[IntelliTrace](../debugger/intellitrace.md)|仅限 .NET Enterprise|仅限 .NET Enterprise|仅限 .NET Enterprise|
+|[网络使用情况](../profiling/network-usage.md)|no|是|no| 
+|[HTML UI responsiveness](../profiling/html-ui-responsiveness.md)|no|HTML 适用，XAML 不适用|no|  
+|[JavaScript 内存](../profiling/javascript-memory.md)|no|HTML 适用，XAML 不适用|no|  
 
-## <a name="see-also"></a>See Also  
- [Debugging in Visual Studio](../debugger/debugging-in-visual-studio.md)
+## <a name="see-also"></a>另请参阅  
+ [在 Visual Studio 中进行调试](../debugger/debugging-in-visual-studio.md)

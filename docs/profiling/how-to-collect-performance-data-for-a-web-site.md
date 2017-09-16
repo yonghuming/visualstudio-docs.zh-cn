@@ -1,5 +1,5 @@
 ---
-title: 'How to: Collect Performance Data for a Web Site | Microsoft Docs'
+title: "如何：为 Web 站点收集性能数据 | Microsoft Docs"
 ms.custom: 
 ms.date: 11/04/2016
 ms.reviewer: 
@@ -42,86 +42,86 @@ ms.translationtype: HT
 ms.sourcegitcommit: 9e6c28d42bec272c6fd6107b4baf0109ff29197e
 ms.openlocfilehash: 7fe6230d86e79b6540b35d358ac9af2a3b4760a7
 ms.contentlocale: zh-cn
-ms.lasthandoff: 08/22/2017
+ms.lasthandoff: 09/06/2017
 
 ---
-# <a name="how-to-collect-performance-data-for-a-web-site"></a>How to: Collect Performance Data for a Web Site
-You can use the **Performance Wizard** to collect performance data for an [!INCLUDE[vstecasp](../code-quality/includes/vstecasp_md.md)] Web application. You can profile a Web application that is open in [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)], or you can profile an [!INCLUDE[vstecasp](../code-quality/includes/vstecasp_md.md)] Web site that is located on your local computer and not open in the [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] IDE.  
+# <a name="how-to-collect-performance-data-for-a-web-site"></a>如何：为 Web 站点收集性能数据
+可以使用“性能向导”  为 [!INCLUDE[vstecasp](../code-quality/includes/vstecasp_md.md)] Web 应用程序收集性能数据。 可以分析在 [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)]中打开的 Web 应用程序，也可以分析位于本地计算机且未在 [!INCLUDE[vstecasp](../code-quality/includes/vstecasp_md.md)] IDE 中打开的 [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] Web 站点。  
   
 > [!NOTE]
->  The **Performance Wizard** enables you to add tier interaction (TIP) data, JScript performance data, or both to the collected profiling data. The TIP option collects data from server-side processes. The JScript profiling collects data from scripts that are running on a local or  remote Web site. In most cases, you should choose only one of the options.  
+>  利用“性能向导”  ，你可以将层交互 (TIP) 数据和/或 JScript 性能数据添加到收集的分析数据中。 TIP 选项从服务器端进程收集数据。 JScript 分析从本地或远程网站运行的脚本处收集数据。 大多数情况下，应只选其中一项。  
   
- Depending on User Access Permissions settings that an administrator has made available, an individual user might or might not have security permission to create a profiler session on the computer that hosts the ASP.NET process. The following examples illustrate possible differences among users:  
+ 根据管理员提供的用户访问权限设置，单个用户可能会有（也可能没有）在托管 ASP.NET 进程的计算机上创建探查器会话的安全权限。 下面的示例说明了用户之间可能存在的差异：  
   
--   Some users might access advanced profiling features when the Administrator has set the driver and service to start.  
+-   如果管理员将驱动程序和服务设置为启动，一些用户可能会访问高级分析功能。  
   
--   Domain users might access sample profiling only.  
+-   域用户可能只能访问样本分析。  
   
--   Some users might deny access to profiling to all other users.  
+-   一些用户可能会拒绝其他所有用户访问分析功能。  
   
- For more information, see [Profiling and Windows Vista Security](../profiling/profiling-and-windows-vista-security.md) and the ADMIN options in [VSPerfCmd](../profiling/vsperfcmd.md).  
+ 有关详细信息，请参阅[分析和 Windows Vista 安全性](../profiling/profiling-and-windows-vista-security.md)和 [VSPerfCmd](../profiling/vsperfcmd.md) 中的管理选项。  
   
-### <a name="to-profile-a-web-site-project"></a>To profile a Web site project  
+### <a name="to-profile-a-web-site-project"></a>若要分析网站项目  
   
-1.  Open the [!INCLUDE[vstecasp](../code-quality/includes/vstecasp_md.md)] Web project in [!INCLUDE[vsPreShort](../code-quality/includes/vspreshort_md.md)] or [!INCLUDE[vsUltShort](../code-quality/includes/vsultshort_md.md)].  
+1.  在 [!INCLUDE[vsPreShort](../code-quality/includes/vspreshort_md.md)] 或 [!INCLUDE[vsUltShort](../code-quality/includes/vsultshort_md.md)] 中打开 [!INCLUDE[vstecasp](../code-quality/includes/vstecasp_md.md)] Web 项目。  
   
-2.  On the **Analyze** menu, select **Performance Profiler**, select **Performance Explorer**, and then select **Start**.  
+2.  在“分析”菜单上，选择“性能探查器”，选择“性能资源管理器”，然后选择“启动”。  
   
-3.  On the first page of the wizard, select a profiling method, and then click **Next**. For more information about profiling methods, see [Understanding Performance Collection Methods](../profiling/understanding-performance-collection-methods.md). Note that the concurrency visualizer profiling method is not available for web applications.  
+3.  在向导的第一页上，选择一种分析方法，然后单击“下一步” 。 有关分析方法的详细信息，请参阅[了解性能收集方法](../profiling/understanding-performance-collection-methods.md)。 请注意，并发可视化工具分析方法对 Web 应用程序不可用。  
   
-4.  In the **Which application would you like to target for profiling?** drop-down list, make sure that the current project is selected, and then click **Next**.  
+4.  在“要以哪个应用程序为目标进行分析?”  下拉列表中，请确保选择当前项目，然后单击“下一步” 。  
   
-5.  On the third page of the wizard, you can choose to add tier interaction profiling (TIP) data, data from the JavaScript running in the Web pages, or both.  
+5.  在向导的第三页上，可以选择添加层交互分析 (TIP) 数据和/或网页上运行的 JavaScript 中的数据。  
   
-    -   To collect tier interaction, select the **Enable Tier Interaction Profiling** check box.  
+    -   若要收集层交互，请选中“启用层交互分析”  复选框。  
   
-    -   To collect data from the JavaScript running in the Web pages, select the **Profile JavaScript** check box.  
+    -   若要从网页中运行的 JavaScript 中收集数据，请选中“分析 JavaScript”  复选框。  
   
-6.  Click **Next**.  
+6.  单击 **“下一步”**。  
   
-7.  On the fourth page of the wizard, click **Finish**.  
+7.  在向导的第四页上，单击“完成” 。  
   
-8.  A performance session is created for the [!INCLUDE[vstecasp](../code-quality/includes/vstecasp_md.md)] application, and the Web site is started in the browser. Exercise the functionality that you want to profile, and then close the browser.  
+8.  为 [!INCLUDE[vstecasp](../code-quality/includes/vstecasp_md.md)] 应用程序创建了性能会话，且在浏览器中启动了网站。 练习要分析的功能，然后关闭浏览器。  
   
-     The profiler generates the data file and displays the Summary view of the data in the [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] main window.  
+     探查器生成数据文件，并在 [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] 主窗口中显示数据的摘要视图。  
   
-### <a name="to-profile-a-web-site-without-opening-a-project-in-visual-studio"></a>To profile a Web site without opening a project in Visual Studio  
+### <a name="to-profile-a-web-site-without-opening-a-project-in-visual-studio"></a>未在 Visual Studio 中打开项目的情况下分析网站  
   
-1.  Open [!INCLUDE[vsPreShort](../code-quality/includes/vspreshort_md.md)] or [!INCLUDE[vsUltShort](../code-quality/includes/vsultshort_md.md)].  
+1.  打开 [!INCLUDE[vsPreShort](../code-quality/includes/vspreshort_md.md)] 或 [!INCLUDE[vsUltShort](../code-quality/includes/vsultshort_md.md)]。  
   
-2.  On the **Analyze** menu, select **Performance Profiler**, select **Performance Explorer**, and then select **Start**.  
+2.  在“分析”菜单上，选择“性能探查器”，选择“性能资源管理器”，然后选择“启动”。  
   
-3.  On the first page of the wizard, select a profiling method, and then click **Next**. For more information, see [Understanding Performance Collection Methods](../profiling/understanding-performance-collection-methods.md).  
+3.  在向导的第一页上，选择一种分析方法，然后单击“下一步” 。 有关详细信息，请参阅[了解性能收集方法](../profiling/understanding-performance-collection-methods.md)。  
   
-4.  On the second page of the wizard, select the **Profile an ASP.NET or JavaScript application** option, and then click **Next**.  
+4.  在向导的第二页上，选择“分析 ASP.NET 或 JavaScript 应用程序选项”  ，然后单击“下一步” 。  
   
-5.  In the **What URL or Path will run your web application** box on the third page of the wizard, enter the URL to the application home page, and then click **Next**.  
+5.  在向导第三页的“运行 Web 应用程序的 URL 或路径是什么”  框中，在应用程序主页上输入 URL，然后单击“下一步” 。  
   
-    -   For a server (IIS) based Web site, type a URL such as **http://localhost/MySite/default.aspx**. This causes the [!INCLUDE[vstecasp](../code-quality/includes/vstecasp_md.md)] application on the local computer at the application root of MySite to be profiled, and the page default.aspx on that site to be started in Internet Explorer to start the session.  
+    -   对于基于网站的服务器 (IIS)，键入 URL，如 **http://localhost/MySite/default.aspx**。 这将导致对 MySite 应用程序根目录上本地计算机中的 [!INCLUDE[vstecasp](../code-quality/includes/vstecasp_md.md)] 应用程序进行分析，并且在 Internet Explorer 中启动该站点网页 default.aspx，从而启动会话。  
   
-    -   For a file based Web site, type a path such as file///**c:\WebSites\MySite\default.aspx**. This causes the [!INCLUDE[vstecasp](../code-quality/includes/vstecasp_md.md)] application located at c:\webSites\MySite to be profiled and the page http://localhost:nnnn/MySite/default.aspx to be started in Internet Explorer to start the session.  
+    -   对于基于文件的网站，请键入路径，例如文件 ///**c:\WebSites\MySite\default.aspx**。 这将导致对位于 c:\webSites\MySite 上的 [!INCLUDE[vstecasp](../code-quality/includes/vstecasp_md.md)] 应用程序进行分析，并且在 Internet Explorer 中启动 http://localhost:nnnn/MySite/default.aspx 网页，从而启动会话。  
   
-    -   For external sites that you wish to collect JavaScript data on, type the URL, for example http://www.contoso.com.  
+    -   对于想要在其收集 JavaScript 数据的外部网站，键入 URL，例如 http://www.contoso.com。  
   
-     For more information, view the property pages for an [!INCLUDE[vstecasp](../code-quality/includes/vstecasp_md.md)] target binary.  
+     有关详细信息，请查看 [!INCLUDE[vstecasp](../code-quality/includes/vstecasp_md.md)] 目标二进制文件的属性页。  
   
-6.  On the third page of the wizard, you can choose to add tier interaction profiling (TIP) data, data from the JavaScript running in the Web pages, or both.  
+6.  在向导的第三页上，可以选择添加层交互分析 (TIP) 数据和/或网页上运行的 JavaScript 中的数据。  
   
-    -   To collect tier interaction, select the **Enable Tier Interaction Profiling** check box.  
+    -   若要收集层交互，请选中“启用层交互分析”  复选框。  
   
-    -   To collect data from the JavaScript running in the Web pages, select the **Profile JavaScript** check box.  
+    -   若要从网页中运行的 JavaScript 中收集数据，请选中“分析 JavaScript”  复选框。  
   
-7.  Click **Next**.  
+7.  单击 **“下一步”**。  
   
-8.  On the fourth page of the wizard, click **Finish**.  
+8.  在向导的第四页上，单击“完成” 。  
   
-9. A performance session is created for the ASP.NET application, and the Web site is started in the browser. Exercise the functionality that you want to profile, and then close the browser.  
+9. 这样就为 ASP.NET 应用程序创建了性能会话，并在浏览器中启动了网站。 练习要分析的功能，然后关闭浏览器。  
   
-     The profiler generates the data file and displays the Summary view of the data in the [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] main window.  
+     探查器生成数据文件，并在 [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] 主窗口中显示数据的摘要视图。  
   
-## <a name="see-also"></a>See Also  
- [Overviews](../profiling/overviews-performance-tools.md)   
- [Configuring Performance Sessions](../profiling/configuring-performance-sessions.md)   
- [Understanding Instrumentation Data Values](../profiling/understanding-instrumentation-data-values.md)   
- [Understanding Sampling Data Values](../profiling/understanding-sampling-data-values.md)
+## <a name="see-also"></a>另请参阅  
+ [概述](../profiling/overviews-performance-tools.md)   
+ [配置性能会话](../profiling/configuring-performance-sessions.md)   
+ [了解检测数据值](../profiling/understanding-instrumentation-data-values.md)   
+ [了解采样数据值](../profiling/understanding-sampling-data-values.md)
 
