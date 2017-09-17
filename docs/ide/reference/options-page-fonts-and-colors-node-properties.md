@@ -56,7 +56,7 @@ ms.lasthandoff: 02/22/2017
 |属性项名称|值|描述|  
 |------------------------|-----------|-----------------|  
 |FontFamily|Get/Set (String)|要使用的字体名称，如“Courier New”。|  
-|FontCharacterSet|Get/Set (<xref:EnvDTE.vsFontCharSet>)|<xref:EnvDTE.vsFontCharSet> 值，指定要使用的字符集的类型，例如希伯来语或俄语。|  
+|FontCharacterSet|Get/Set (<xref:EnvDTE.vsFontCharSet>)|&lt;xref:EnvDTE.vsFontCharSet&gt; 值，指定要使用的字符集的类型，例如希伯来语或俄语。|  
 |FontSize|Get/Set (Short)|要使用的字体大小（以磅为单位）。 例如，10 或 12。|  
   
 ## <a name="see-also"></a>另请参阅  
