@@ -1,72 +1,55 @@
 ---
-title: IDebugExceptionEvent2::PassToDebuggee | Microsoft Docs
-ms.custom: 
-ms.date: 11/04/2016
-ms.reviewer: 
-ms.suite: 
-ms.technology:
-- vs-ide-sdk
-ms.tgt_pltfrm: 
-ms.topic: article
-f1_keywords:
-- IDebugExceptionEvent2::PassToDebuggee
-helpviewer_keywords:
-- IDebugExceptionEvent2::PassToDebuggee
+title: "IDebugExceptionEvent2::PassToDebuggee | Microsoft Docs"
+ms.custom: ""
+ms.date: "11/04/2016"
+ms.reviewer: ""
+ms.suite: ""
+ms.technology: 
+  - "vs-ide-sdk"
+ms.tgt_pltfrm: ""
+ms.topic: "article"
+f1_keywords: 
+  - "IDebugExceptionEvent2::PassToDebuggee"
+helpviewer_keywords: 
+  - "IDebugExceptionEvent2::PassToDebuggee"
 ms.assetid: a20d0f0b-2ca0-4437-bd22-9213c81d2738
 caps.latest.revision: 12
-ms.author: gregvanl
-manager: ghogen
-translation.priority.mt:
-- cs-cz
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pl-pl
-- pt-br
-- ru-ru
-- tr-tr
-- zh-cn
-- zh-tw
-ms.translationtype: MT
-ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
-ms.openlocfilehash: 9b7ab19e370570dc736ab7685f1bda75aef13981
-ms.contentlocale: zh-cn
-ms.lasthandoff: 08/28/2017
-
+ms.author: "gregvanl"
+manager: "ghogen"
+caps.handback.revision: 12
 ---
-# <a name="idebugexceptionevent2passtodebuggee"></a>IDebugExceptionEvent2::PassToDebuggee
-Specifies whether the exception should be passed on to the program being debugged when execution resumes, or if the exception should be discarded.  
+# IDebugExceptionEvent2::PassToDebuggee
+[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
+
+指定是否应异常传递给正在调试的程序，当执行恢复，或者，如果应丢弃异常。  
   
-## <a name="syntax"></a>Syntax  
+## 语法  
   
-```cpp  
-HRESULT PassToDebuggee(  
-   BOOL fPass  
+```cpp#  
+HRESULT PassToDebuggee(  
+   BOOL fPass  
 );  
 ```  
   
-```csharp  
-int PassToDebuggee(  
-   int fPass  
+```c#  
+int PassToDebuggee(  
+   int fPass  
 );  
 ```  
   
-#### <a name="parameters"></a>Parameters  
+#### 参数  
  `fPass`  
- [in] Nonzero (`TRUE`) if the exception should be passed on to the program being debugged when execution resumes, or zero (`FALSE`) if the exception should be discarded.  
+ \[in\] 非零 \(`TRUE`\)，如果异常应传递到正在调试的程序，当执行恢复，或者零 \(0\)`FALSE`\)，则应丢弃异常。  
   
-## <a name="return-value"></a>Return Value  
- If successful, returns `S_OK`; otherwise, returns an error code.  
+## 返回值  
+ 如果成功，则返回; `S_OK`否则，返回错误代码。  
   
-## <a name="remarks"></a>Remarks  
- Calling this method does not actually cause any code to be executed in the program being debugged. The call is merely to set the state for the next code execution. For example, calls to the [CanPassToDebuggee](../../../extensibility/debugger/reference/idebugexceptionevent2-canpasstodebuggee.md) method may return `S_OK` with the [EXCEPTION_INFO](../../../extensibility/debugger/reference/exception-info.md).`dwState` field set to `EXCEPTION_STOP_SECOND_CHANCE`.  
+## 备注  
+ 调用此方法在正在调试的程序实际上不会导致任何代码执行。  调用仅仅是设置代码执行的状态。  例如，对 [CanPassToDebuggee](../../../extensibility/debugger/reference/idebugexceptionevent2-canpasstodebuggee.md) 方法可返回 `S_OK` 和 [EXCEPTION\_INFO](../../../extensibility/debugger/reference/exception-info.md)。`dwState` 字段设置为 `EXCEPTION_STOP_SECOND_CHANCE`。  
   
- The IDE may receive the [IDebugExceptionEvent2](../../../extensibility/debugger/reference/idebugexceptionevent2.md) event and call the [Continue](../../../extensibility/debugger/reference/idebugprogram2-continue.md) method. The debug engine (DE) should have a default behavior to handle the case if the `PassToDebuggee` method is not called.  
+ IDE 会接收 [IDebugExceptionEvent2](../../../extensibility/debugger/reference/idebugexceptionevent2.md) 事件和调用 [继续](../../../extensibility/debugger/reference/idebugprogram2-continue.md) 方法。  调试引擎 \(DE\)应具有默认行为处理用例 `PassToDebuggee` 方法没有被调用。  
   
-## <a name="see-also"></a>See Also  
+## 请参阅  
  [IDebugExceptionEvent2](../../../extensibility/debugger/reference/idebugexceptionevent2.md)   
  [CanPassToDebuggee](../../../extensibility/debugger/reference/idebugexceptionevent2-canpasstodebuggee.md)   
- [Continue](../../../extensibility/debugger/reference/idebugprogram2-continue.md)
+ [继续](../../../extensibility/debugger/reference/idebugprogram2-continue.md)

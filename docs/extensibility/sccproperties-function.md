@@ -1,81 +1,64 @@
 ---
-title: SccProperties Function | Microsoft Docs
-ms.custom: 
-ms.date: 11/04/2016
-ms.reviewer: 
-ms.suite: 
-ms.technology:
-- vs-ide-sdk
-ms.tgt_pltfrm: 
-ms.topic: article
-f1_keywords:
-- SccProperties
-helpviewer_keywords:
-- SccProperties function
+title: "SccProperties 函数 | Microsoft Docs"
+ms.custom: ""
+ms.date: "11/04/2016"
+ms.reviewer: ""
+ms.suite: ""
+ms.technology: 
+  - "vs-ide-sdk"
+ms.tgt_pltfrm: ""
+ms.topic: "article"
+f1_keywords: 
+  - "SccProperties"
+helpviewer_keywords: 
+  - "SccProperties 函数"
 ms.assetid: 1bed38c9-73d2-4474-9717-f9dc26a89cbe
 caps.latest.revision: 14
-ms.author: gregvanl
-manager: ghogen
-translation.priority.mt:
-- cs-cz
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pl-pl
-- pt-br
-- ru-ru
-- tr-tr
-- zh-cn
-- zh-tw
-ms.translationtype: MT
-ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
-ms.openlocfilehash: ce333ce31ffb7f265677837dc7fc27b0ac502c0b
-ms.contentlocale: zh-cn
-ms.lasthandoff: 08/28/2017
-
+ms.author: "gregvanl"
+manager: "ghogen"
+caps.handback.revision: 14
 ---
-# <a name="sccproperties-function"></a>SccProperties Function
-This function displays source control properties for a file or project.  
+# SccProperties 函数
+[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
+
+该函数将显示文件或项目的源控件属性。  
   
-## <a name="syntax"></a>Syntax  
+## 语法  
   
-```cpp  
+```cpp#  
 SCCRTN SccProperties (  
-   LPVOID pvContext,  
-   HWND   hWnd,  
-   LPCSTR lpFileName  
+   LPVOID pvContext,  
+   HWND   hWnd,  
+   LPCSTR lpFileName  
 );  
 ```  
   
-#### <a name="parameters"></a>Parameters  
+#### 参数  
  pvContext  
- [in] The source control plug-in context structure.  
+ \[\] in源控制插件上下文结构。  
   
  hWnd  
- [in] A handle to the IDE window that the source control plug-in can use as a parent for any dialog boxes that it provides.  
+ \[\] in源代码管理插件可以用作所有对话框，它提供了一个父 IDE 窗口的句柄。  
   
  lpFileName  
- [in] The fully qualified path name of the file or project.  
+ \[\] in文件或项目的完全限定的路径名称。  
   
-## <a name="return-value"></a>Return Value  
- The source control plug-in implementation of this function is expected to return one of the following values:  
+## 返回值  
+ 此函数的源代码控制插件实现应返回下列值之一:  
   
-|Value|Description|  
-|-----------|-----------------|  
-|SCC_OK|Properties were successfully displayed.|  
-|SCC_I_RELOADFILE|The version control system has modified the file properties, so the IDE should reload this file.|  
-|SCC_E_PROJNOTOPEN|The specified project has not been opened in source control.|  
-|SCC_E_NOTAUTHORIZED|The user is not authorized to view properties of this file or project.|  
-|SCC_E_FILENOTCONTROLLED|The specified file or project is not under source control.|  
-|SCC_E_NONSPECIFICERROR<br /><br /> SCC_E_UNKNOWNERROR|An unknown or general error occurred.|  
+|值|说明|  
+|-------|--------|  
+|SCC\_OK|已成功地显示属性。|  
+|SCC\_I\_RELOADFILE|版本控制系统已修改文件属性，因此 IDE 应重新加载此文件。|  
+|SCC\_E\_PROJNOTOPEN|尚未在源代码管理中打开指定的项目。|  
+|SCC\_E\_NOTAUTHORIZED|用户无权查看此文件或项目的属性。|  
+|SCC\_E\_FILENOTCONTROLLED|指定的文件或项目不在源代码管理下。|  
+|SCC\_E\_NONSPECIFICERROR<br /><br /> SCC\_E\_UNKNOWNERROR|出现未知或常规错误。|  
   
-## <a name="remarks"></a>Remarks  
- The source control plug-in displays the properties in its own dialog box.  
+## 备注  
+ 源代码管理插件在其自己的对话框中显示的属性。  
   
- The properties are defined by the source control plug-in and may differ from plug-in to plug-in. If the plug-in allows the user to change the source control properties of a file, it should return `SCC_I_RELOAD` to signal the IDE that this file or project needs to be reloaded.  
+ 这些属性定义由源代码管理插件和插件可能不同于插件。 如果该插件允许用户更改文件的源控件属性，它应返回 `SCC_I_RELOAD` 发出信号 IDE，需要重新加载此文件或项目。  
   
-## <a name="see-also"></a>See Also  
- [Source Control Plug-in API Functions](../extensibility/source-control-plug-in-api-functions.md)
+## 请参阅  
+ [源代码管理插件 API 功能](../extensibility/source-control-plug-in-api-functions.md)

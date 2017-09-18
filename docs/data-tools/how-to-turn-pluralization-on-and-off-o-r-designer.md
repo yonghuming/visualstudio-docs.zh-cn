@@ -1,62 +1,43 @@
 ---
-title: 'How to: Turn pluralization on and off (O-R Designer) | Microsoft Docs'
-ms.custom: 
-ms.date: 11/04/2016
-ms.reviewer: 
-ms.suite: 
-ms.tgt_pltfrm: 
-ms.topic: article
+title: "如何：打开和关闭复数形式（O/R 设计器） | Microsoft Docs"
+ms.custom: ""
+ms.date: "12/15/2016"
+ms.prod: "visual-studio-dev14"
+ms.reviewer: ""
+ms.suite: ""
+ms.tgt_pltfrm: ""
+ms.topic: "article"
 ms.assetid: 9b693bc3-303a-40a9-97ee-9cef5ca3ae81
 caps.latest.revision: 2
-author: gewarren
-ms.author: gewarren
-manager: ghogen
-translation.priority.ht:
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- ru-ru
-- zh-cn
-- zh-tw
-translation.priority.mt:
-- cs-cz
-- pl-pl
-- pt-br
-- tr-tr
-ms.translationtype: HT
-ms.sourcegitcommit: 33a857c2d8585e2e8da9bcd9158190366a3b6830
-ms.openlocfilehash: 30bb3f7f371b5c354580153e768d6de89cdcb7ec
-ms.contentlocale: zh-cn
-ms.lasthandoff: 09/07/2017
-
+caps.handback.revision: 2
+author: "mikeblome"
+ms.author: "mblome"
+manager: "ghogen"
 ---
-# <a name="how-to-turn-pluralization-on-and-off-or-designer"></a>How to: Turn pluralization on and off (O/R Designer)
-By default, when you drag database objects that have names ending in s or ies from **Server Explorer**/**Database Explorer** onto the [LINQ to SQL Tools in Visual Studio](../data-tools/linq-to-sql-tools-in-visual-studio2.md), the names of the generated entity classes are changed from plural to singular. This is done to more accurately represent the fact that the instantiated entity class maps to a single record of data. For example, adding a Customers table to the [!INCLUDE[vs_ordesigner_short](../data-tools/includes/vs_ordesigner_short_md.md)] results in an entity class named Customer because the class will hold data for only a single customer.  
+# 如何：打开和关闭复数形式（O/R 设计器）
+默认情况下，将名称以 s 或 ies 结尾的数据库对象从**“服务器资源管理器”**\/**“数据库资源管理器”**拖放到 [对象关系设计器（O\/R 设计器）](../data-tools/linq-to-sql-tools-in-visual-studio2.md)上时，生成的实体类的名称从复数形式变为单数形式。这样可以更准确地表示实例化的实体类映射到单个数据记录的事实。例如，将 Customers 表添加到 [!INCLUDE[vs_ordesigner_short](../data-tools/includes/vs_ordesigner_short_md.md)]将声称名为 Customer 的实体类，因为该类将仅为一个客户保存数据。  
   
 > [!NOTE]
->  Pluralization is on by default only in the English-language version of Visual Studio.  
+>  默认情况下，复数形式仅在 Visual Studio 的英语版本中启用。  
   
-[!INCLUDE[note_settings_general](../data-tools/includes/note_settings_general_md.md)]  
+ [!INCLUDE[note_settings_general](../data-tools/includes/note_settings_general_md.md)]  
   
-### <a name="to-turn-pluralization-on-and-off"></a>To turn pluralization on and off  
+### 打开和关闭复数形式  
   
-1.  On the **Tools** menu, click **Options**.  
+1.  在**“工具”**菜单上单击**“选项”**。  
   
-2.  In the **Options** dialog box, expand **Database Tools**.  
+2.  在**“选项”**对话框中展开**“数据库工具”**。  
   
 > [!NOTE]
->  Select **Show all settings** if the **Database Tools** node is not visible.  
+>  如果**“数据库工具”**节点不可见，请选择**“显示所有设置”**。  
   
-1.  Click **O/R Designer**.  
+1.  单击**“O\/R 设计器”**。  
   
-2.  Set **Pluralization of names** to **Enabled** = **False** to set the [!INCLUDE[vs_ordesigner_short](../data-tools/includes/vs_ordesigner_short_md.md)] so that it does not change class names.  
+2.  将**“名称的复数形式”**设置为**“启用”**\=**“False”**，可将 [!INCLUDE[vs_ordesigner_short](../data-tools/includes/vs_ordesigner_short_md.md)]设置为不更改类名称。  
   
-3.  Set **Pluralization of names** to **Enabled** = **True** to apply pluralization rules to the class names of objects added to the [!INCLUDE[vs_ordesigner_short](../data-tools/includes/vs_ordesigner_short_md.md)].  
+3.  将**“名称的复数形式”**设置为**“启用”**\=**“True”**，可向添加到 [!INCLUDE[vs_ordesigner_short](../data-tools/includes/vs_ordesigner_short_md.md)]的对象的类名称应用复数规则。  
   
-## <a name="see-also"></a>See Also  
- [LINQ to SQL Tools in Visual Studio](../data-tools/linq-to-sql-tools-in-visual-studio2.md)   
- [LINQ to SQL](/dotnet/framework/data/adonet/sql/linq/index)   
- [Accessing data in Visual Studio](../data-tools/accessing-data-in-visual-studio.md)
+## 请参阅  
+ [对象关系设计器（O\/R 设计器）](../data-tools/linq-to-sql-tools-in-visual-studio2.md)   
+ [LINQ to SQL](../Topic/LINQ%20to%20SQL.md)   
+ [在 Visual Studio 中访问数据](../data-tools/accessing-data-in-visual-studio.md)

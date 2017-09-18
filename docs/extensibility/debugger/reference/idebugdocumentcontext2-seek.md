@@ -1,70 +1,53 @@
 ---
-title: IDebugDocumentContext2::Seek | Microsoft Docs
-ms.custom: 
-ms.date: 11/04/2016
-ms.reviewer: 
-ms.suite: 
-ms.technology:
-- vs-ide-sdk
-ms.tgt_pltfrm: 
-ms.topic: article
-f1_keywords:
-- IDebugDocumentContext2::Seek
-helpviewer_keywords:
-- IDebugDocumentContext2::Seek
+title: "IDebugDocumentContext2::Seek | Microsoft Docs"
+ms.custom: ""
+ms.date: "11/04/2016"
+ms.reviewer: ""
+ms.suite: ""
+ms.technology: 
+  - "vs-ide-sdk"
+ms.tgt_pltfrm: ""
+ms.topic: "article"
+f1_keywords: 
+  - "IDebugDocumentContext2::Seek"
+helpviewer_keywords: 
+  - "IDebugDocumentContext2::Seek"
 ms.assetid: 71501356-8a82-4d36-b354-6625bdd2baa0
 caps.latest.revision: 10
-ms.author: gregvanl
-manager: ghogen
-translation.priority.mt:
-- cs-cz
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pl-pl
-- pt-br
-- ru-ru
-- tr-tr
-- zh-cn
-- zh-tw
-ms.translationtype: MT
-ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
-ms.openlocfilehash: e532f27a8256206575f930862a3c7e85c66b3a37
-ms.contentlocale: zh-cn
-ms.lasthandoff: 08/28/2017
-
+ms.author: "gregvanl"
+manager: "ghogen"
+caps.handback.revision: 10
 ---
-# <a name="idebugdocumentcontext2seek"></a>IDebugDocumentContext2::Seek
-Moves the document context by a given number of statements or lines.  
+# IDebugDocumentContext2::Seek
+[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
+
+由语句或行的许多移动文档上下文。  
   
-## <a name="syntax"></a>Syntax  
+## 语法  
   
-```cpp  
-HRESULT Seek(   
-   int                      nCount,  
-   IDebugDocumentContext2** ppDocContext  
+```cpp#  
+HRESULT Seek(   
+   int                      nCount,  
+   IDebugDocumentContext2** ppDocContext  
 );  
 ```  
   
-```cpp  
-int Seek(   
-   int                        nCount,  
-   out IDebugDocumentContext2 ppDocContext  
+```cpp#  
+int Seek(   
+   int                        nCount,  
+   out IDebugDocumentContext2 ppDocContext  
 );  
 ```  
   
-#### <a name="parameters"></a>Parameters  
+#### 参数  
  `nCount`  
- [in] The number of statements or lines to move ahead, depending on the document context.  
+ \[in\] 转发的语句或行数，基于文档上下文。  
   
  `ppDocContext`  
- [out] Returns a new [IDebugDocumentContext2](../../../extensibility/debugger/reference/idebugdocumentcontext2.md) object with the new position.  
+ \[out\] 返回与新位置的新 [IDebugDocumentContext2](../../../extensibility/debugger/reference/idebugdocumentcontext2.md) 对象。  
   
-## <a name="return-value"></a>Return Value  
- If successful, returns `S_OK`; otherwise, returns an error code.  
+## 返回值  
+ 如果成功，则返回; `S_OK`否则，返回错误代码。  
   
-## <a name="see-also"></a>See Also  
+## 请参阅  
  [IDebugDocumentContext2](../../../extensibility/debugger/reference/idebugdocumentcontext2.md)

@@ -1,75 +1,58 @@
 ---
-title: IDebugCustomAttribute::GetAttributeBytes | Microsoft Docs
-ms.custom: 
-ms.date: 11/04/2016
-ms.reviewer: 
-ms.suite: 
-ms.technology:
-- vs-ide-sdk
-ms.tgt_pltfrm: 
-ms.topic: article
-f1_keywords:
-- IDebugCustomAttribute::GetAttributeBytes
-helpviewer_keywords:
-- IDebugCustomAttribute::GetAttributeBytes
+title: "IDebugCustomAttribute::GetAttributeBytes | Microsoft Docs"
+ms.custom: ""
+ms.date: "11/04/2016"
+ms.reviewer: ""
+ms.suite: ""
+ms.technology: 
+  - "vs-ide-sdk"
+ms.tgt_pltfrm: ""
+ms.topic: "article"
+f1_keywords: 
+  - "IDebugCustomAttribute::GetAttributeBytes"
+helpviewer_keywords: 
+  - "IDebugCustomAttribute::GetAttributeBytes"
 ms.assetid: cf34583b-6530-4dcc-89f8-eb27e4e8d594
 caps.latest.revision: 9
-ms.author: gregvanl
-manager: ghogen
-translation.priority.mt:
-- cs-cz
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pl-pl
-- pt-br
-- ru-ru
-- tr-tr
-- zh-cn
-- zh-tw
-ms.translationtype: MT
-ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
-ms.openlocfilehash: 0b153e2ee1f5e01f8016de8c45fc2ba45c431cbd
-ms.contentlocale: zh-cn
-ms.lasthandoff: 08/28/2017
-
+ms.author: "gregvanl"
+manager: "ghogen"
+caps.handback.revision: 9
 ---
-# <a name="idebugcustomattributegetattributebytes"></a>IDebugCustomAttribute::GetAttributeBytes
-Gets the attribute information as a blob of bytes.  
+# IDebugCustomAttribute::GetAttributeBytes
+[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
+
+获取属性信息作为字节 blob。  
   
-## <a name="syntax"></a>Syntax  
+## 语法  
   
-```cpp  
-HRESULT GetAttributeBytes(   
-   BYTE*  ppBlob,  
-   DWORD* pdwLen  
+```cpp#  
+HRESULT GetAttributeBytes(   
+   BYTE*  ppBlob,  
+   DWORD* pdwLen  
 );  
 ```  
   
-```csharp  
+```c#  
 int GetAttributeBytes(  
-   ref byte[] ppBlob,   
-   ref uint   pdwLen  
+   ref byte[] ppBlob,   
+   ref uint   pdwLen  
 );  
 ```  
   
-#### <a name="parameters"></a>Parameters  
+#### 参数  
  `ppBlob`  
- [in, out] An array that is filled in with the attribute bytes.  
+ \[in, out\] 用特性字节填充的数组。  
   
  `pdwLen`  
- [in, out] Specifies the maximum number of bytes to return in the `ppBlob` array and returns the number of bytes actually written to the array.  
+ \[in, out\] 在 `ppBlob` 数组指定最大字节数返回并返回到数组实际上编写字节数。  
   
-## <a name="return-value"></a>Return Value  
- If successful, returns S_OK; otherwise, returns an error code.  
+## 返回值  
+ 如果成功，则返回 S\_OK;否则，返回错误代码。  
   
-## <a name="remarks"></a>Remarks  
- Set the `ppBlob` parameter to a null value to return the number of attributes bytes available. Then allocate an array and pass that array in for the `ppBlob` parameter.  
+## 备注  
+ 设置 `ppBlob` 参数设置为空值返回属性的字节数。可用。  然后将一个数组并为 `ppBlob` 参数将该数组。  
   
- The attribute bytes represent the raw data of the custom attribute.  
+ 属性字节表示自定义属性的原始数据。  
   
-## <a name="see-also"></a>See Also  
+## 请参阅  
  [IDebugCustomAttribute](../../../extensibility/debugger/reference/idebugcustomattribute.md)

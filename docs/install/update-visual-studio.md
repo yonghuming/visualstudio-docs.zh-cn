@@ -1,6 +1,6 @@
 ---
-title: Update Visual Studio 2017 | Microsoft Docs
-description: Learn how to update Visual Studio, step-by-step.
+title: "更新 Visual Studio 2017 | Microsoft Docs"
+description: "了解更新 Visual Studio 的分步流程。"
 ms.date: 04/06/2017
 ms.reviewer: 
 ms.suite: 
@@ -31,53 +31,52 @@ translation.priority.mt:
 - pl-pl
 - pt-br
 - tr-tr
-ms.translationtype: HT
-ms.sourcegitcommit: cca2a707627c36221a654cf8a06730383492f371
-ms.openlocfilehash: 2b776e9567fd48bc91bf507cab5a1efb9d984a25
-ms.contentlocale: zh-cn
-ms.lasthandoff: 09/13/2017
+translationtype: Human Translation
+ms.sourcegitcommit: 47c39bd711b69efdb863d71f11e3e472054a3ce3
+ms.openlocfilehash: d97358681ba486d75b30d59da1aba8b460c6f757
+ms.lasthandoff: 04/06/2017
 
 ---
-# <a name="update-visual-studio-2017-to-the-most-recent-release"></a>Update Visual Studio 2017 to the most recent release
-We update Visual Studio often to extend its functionality and to fix customer-reported issues. To make sure you have the most [current, optimized release of Visual Studio](https://www.visualstudio.com/en-us/news/releasenotes/vs2017-relnotes#release-history), you'll want to update it. Here's how.
+# <a name="update-visual-studio-2017-to-the-most-recent-release"></a>将 Visual Studio 2017 更新到最新版本
+更新 Visual Studio 通常是为了扩展其功能和解决客户报告的问题。 为了确保 [Visual Studio 是经过优化的最新版本](https://www.visualstudio.com/en-us/news/releasenotes/vs2017-relnotes#release-history)，不妨进行更新。 操作方法如下。
 
-## <a name="update-by-using-the-notifications-hub"></a>Update by using the Notifications hub
-1. When there are updates, you will see a notification flag in Visual Studio.
+## <a name="update-by-using-the-notifications-hub"></a>使用“通知”中心进行更新
+1. 若有更新，Visual Studio 中会显示通知标志。
 
-  ![Update Visual Studio 2017 by using the Notification hub](media/notification-flag.png "The Notification flag in Visual Studio")
+  ![使用“通知”中心更新 Visual Studio 2017](~/install/media/notification-flag.png "Visual Studio 中的通知标志")
 
-  Click or tap the notification flag to open the **Notifications** hub.
+  单击或点击通知标志，打开“通知”中心。
 
-  ![Update Visual Studio 2017 by using the Notification hub](media/notifications-hub.png "The Notifications hub in Visual Studio")
+  ![使用“通知”中心更新 Visual Studio 2017](~/install/media/notifications-hub.png "Visual Studio 中的“通知”中心")
 
-2. Click or tap **"Visual Studio Update" is available**, which opens the **Extensions and Updates** dialog box.
+2. 单击或点击“有‘Visual Studio 更新’”，打开“扩展和更新”对话框。
 
-  ![Update Visual Studio 2017 by using the Notifications hub](media/notifications-hub-select.png "The Notifications hub in Visual Studio")
+  ![使用“通知”中心更新 Visual Studio 2017](~/install/media/notifications-hub-select.png "Visual Studio 中的“通知”中心")
 
-3. In the **Extensions and Updates** dialog box, click or tap the **Update** button.
+3. 在“扩展和更新”对话框中，单击或点击“更新”按钮。
 
-  ![Update Visual Studio 2017 by using the Notifications hub](media/notifications-extensions-and-updates.png "The Extensions and Updates dialog in Visual Studio")
+  ![使用“通知”中心更新 Visual Studio 2017](~/install/media/notifications-extensions-and-updates.png "Visual Studio 中的“扩展和更新”对话框")
 
-## <a name="update-by-using-the-visual-studio-installer"></a>Update by using the Visual Studio Installer
-1.  Open the installer. You might need to update the installer before continuing. If this is the case, you'll be prompted to do so.
+## <a name="update-by-using-the-visual-studio-installer"></a>使用 Visual Studio 安装程序进行更新
+1.    打开安装程序。 可能需要先更新安装程序，然后才能继续操作。 如果确是这种情况，系统会提示你更新安装程序。
  >[!NOTE]
- > On a computer running Windows 10, you'll find the installer under the letter **V** as the **Visual Studio Installer**, or under the letter **M** as the **Microsoft Visual Studio Installer**.
+ > 在运行 Windows 10 的计算机上，可以在字母“V”下找到“Visual Studio 安装程序”，也可以在字母“M”下找到“Microsoft Visual Studio 安装程序”。
 
-2.  On the **Product** page in the installer, look for the edition of Visual Studio that you have installed.
+2.    在安装程序中的“产品”页上，确定已安装的 Visual Studio 版本。
 
-3.  If an update is available, you'll see an **Update** button. (It might take a few seconds for the installer to determine whether an update is available.)
+3.    若有更新，你会看到“更新”按钮。 （可能需要等待几秒钟的时间，安装程序才能确定是否有更新。）
 
-  Click or tap the **Update** button to install the updates.
+  单击或点击“更新”按钮来安装更新。
 
-     ![Update Visual Studio 2017 by using the Visual Studio Installer](media/update-visual-studio.png "Update Visual Studio 2017 by using the Visual Studio Installer")
+     ![使用 Visual Studio 安装程序更新 Visual Studio 2017](~/install/media/update-visual-studio.png "使用 Visual Studio 安装程序更新 Visual Studio 2017")
 
-## <a name="get-support"></a>Get support
-Sometimes, things can go wrong. If your Visual Studio installation fails, see the [Troubleshooting Visual Studio 2017 installation and upgrade failures](https://support.microsoft.com/help/4015967/troubleshooting-visual-studio-2017-installation-and-upgrade-failures) KB article for troubleshooting tips.
+## <a name="get-support"></a>获取支持
+有时也会遇到问题。 如果 Visual Studio 安装失败，请参阅 [Visual Studio 2017 安装和升级失败疑难解答](https://support.microsoft.com/help/4015967/troubleshooting-visual-studio-2017-installation-and-upgrade-failures)知识库文章，查看疑难解答提示。
 
-## <a name="see-also"></a>See also
-* [Install Visual Studio 2017](install-visual-studio.md)
-* [Modify Visual Studio 2017](modify-visual-studio.md)
-* [Uninstall Visual Studio 2017](uninstall-visual-studio.md)
-* [Administrator guide for Visual Studio 2017](visual-studio-administrator-guide.md)
-* [Report a problem with Visual Studio 2017](../ide/how-to-report-a-problem-with-visual-studio-2017.md)
+## <a name="see-also"></a>请参阅
+* [安装 Visual Studio 2017](https://go.microsoft.com/fwlink/?linkid=833223)
+* [修改 Visual Studio 2017](modify-visual-studio.md)
+* [卸载 Visual Studio 2017](uninstall-visual-studio.md)
+* [适用于 Visual Studio 2017 的 Visual Studio 管理员指南](visual-studio-administrator-guide.md)
+* [报告 Visual Studio 2017 的问题](../ide/how-to-report-a-problem-with-visual-studio-2017.md)
 

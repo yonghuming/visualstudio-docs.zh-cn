@@ -1,74 +1,57 @@
 ---
-title: IDebugEnumField::GetValueFromString | Microsoft Docs
-ms.custom: 
-ms.date: 11/04/2016
-ms.reviewer: 
-ms.suite: 
-ms.technology:
-- vs-ide-sdk
-ms.tgt_pltfrm: 
-ms.topic: article
-f1_keywords:
-- IDebugEnumField::GetValueFromString
-helpviewer_keywords:
-- IDebugEnumField::GetValueFromString method
+title: "IDebugEnumField::GetValueFromString | Microsoft Docs"
+ms.custom: ""
+ms.date: "11/04/2016"
+ms.reviewer: ""
+ms.suite: ""
+ms.technology: 
+  - "vs-ide-sdk"
+ms.tgt_pltfrm: ""
+ms.topic: "article"
+f1_keywords: 
+  - "IDebugEnumField::GetValueFromString"
+helpviewer_keywords: 
+  - "IDebugEnumField::GetValueFromString 方法"
 ms.assetid: 1ef8ac5e-a3e0-4078-b876-7f5615aedcbb
 caps.latest.revision: 7
-ms.author: gregvanl
-manager: ghogen
-translation.priority.mt:
-- cs-cz
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pl-pl
-- pt-br
-- ru-ru
-- tr-tr
-- zh-cn
-- zh-tw
-ms.translationtype: MT
-ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
-ms.openlocfilehash: 9def9e56e0896d11c10bfebfd5c2defe3fb52da8
-ms.contentlocale: zh-cn
-ms.lasthandoff: 08/28/2017
-
+ms.author: "gregvanl"
+manager: "ghogen"
+caps.handback.revision: 7
 ---
-# <a name="idebugenumfieldgetvaluefromstring"></a>IDebugEnumField::GetValueFromString
-This method returns the value associated with the name of an enumeration constant.  
+# IDebugEnumField::GetValueFromString
+[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
+
+此方法返回值与枚举常量的名称。  
   
-## <a name="syntax"></a>Syntax  
+## 语法  
   
-```cpp  
+```cpp#  
 HRESULT GetValueFromString(  
-   LPCOLESTR  pszValue,  
-   ULONGLONG* pvalue  
+   LPCOLESTR  pszValue,  
+   ULONGLONG* pvalue  
 );  
 ```  
   
-```csharp  
+```c#  
 int GetValueFromString(  
-   string    pszValue,  
-   out ulong pValue  
+   string    pszValue,  
+   out ulong pValue  
 );  
 ```  
   
-#### <a name="parameters"></a>Parameters  
+#### 参数  
  `pszValue`  
- [in] A string specifying the name for which to get the value. Note that for C++, this is a wide character string.  
+ \[in\] 指定名称的字符串获取值。  请注意 C\+\+ 中，这是宽字符字符串。  
   
  `pValue`  
- [out] Returns the associated numerical value.  
+ \[out\] 返回一个关联的数值。  
   
-## <a name="return-value"></a>Return Value  
- If successful, returns `S_OK`; otherwise, returns `S_FALSE`, if the name is not part of the enumeration, or an error code.  
+## 返回值  
+ 如果成功，则返回; `S_OK`否则，返回 `S_FALSE`，因此，如果该名称不是枚举的一部分，或错误代码。  
   
-## <a name="remarks"></a>Remarks  
- This method is case-sensitive. If a case-insensitive search is needed (for example, in a language such as Visual Basic where names are not case sensitive), use [GetValueFromStringCaseInsensitive](../../../extensibility/debugger/reference/idebugenumfield-getvaluefromstringcaseinsensitive.md).  
+## 备注  
+ 此方法区分大小写。  如果不区分大小写的搜索需要的 \(例如，在一种语言 \(如名称不区分大小写\) 的 Visual Basic 中，使用 [GetValueFromStringCaseInsensitive](../Topic/IDebugEnumField::GetValueFromStringCaseInsensitive.md)。  
   
-## <a name="see-also"></a>See Also  
+## 请参阅  
  [IDebugEnumField](../../../extensibility/debugger/reference/idebugenumfield.md)   
- [GetValueFromStringCaseInsensitive](../../../extensibility/debugger/reference/idebugenumfield-getvaluefromstringcaseinsensitive.md)
+ [GetValueFromStringCaseInsensitive](../Topic/IDebugEnumField::GetValueFromStringCaseInsensitive.md)

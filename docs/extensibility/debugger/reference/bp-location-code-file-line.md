@@ -1,72 +1,55 @@
 ---
-title: BP_LOCATION_CODE_FILE_LINE | Microsoft Docs
-ms.custom: 
-ms.date: 11/04/2016
-ms.reviewer: 
-ms.suite: 
-ms.technology:
-- vs-ide-sdk
-ms.tgt_pltfrm: 
-ms.topic: article
-f1_keywords:
-- BP_LOCATION_CODE_FILE_LINE
-helpviewer_keywords:
-- BP_LOCATION_CODE_FILE_LINE structure
+title: "BP_LOCATION_CODE_FILE_LINE | Microsoft Docs"
+ms.custom: ""
+ms.date: "11/04/2016"
+ms.reviewer: ""
+ms.suite: ""
+ms.technology: 
+  - "vs-ide-sdk"
+ms.tgt_pltfrm: ""
+ms.topic: "article"
+f1_keywords: 
+  - "BP_LOCATION_CODE_FILE_LINE"
+helpviewer_keywords: 
+  - "BP_LOCATION_CODE_FILE_LINE 结构"
 ms.assetid: 3ff32032-d412-44d3-91bf-870cc354a09e
 caps.latest.revision: 10
-ms.author: gregvanl
-manager: ghogen
-translation.priority.mt:
-- cs-cz
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pl-pl
-- pt-br
-- ru-ru
-- tr-tr
-- zh-cn
-- zh-tw
-ms.translationtype: MT
-ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
-ms.openlocfilehash: f303e96852c3a30e79137e0ac2bbbfad12b73fe8
-ms.contentlocale: zh-cn
-ms.lasthandoff: 08/28/2017
-
+ms.author: "gregvanl"
+manager: "ghogen"
+caps.handback.revision: 10
 ---
-# <a name="bplocationcodefileline"></a>BP_LOCATION_CODE_FILE_LINE
-Contains the data for the location of a breakpoint at a specific line in a code source file.  
+# BP_LOCATION_CODE_FILE_LINE
+[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
+
+包含数据。断点位置在给定行在源代码文件。  
   
-## <a name="syntax"></a>Syntax  
+## 语法  
   
-```cpp  
-typedef struct _BP_LOCATION_CODE_FILE_LINE {   
-   BSTR                     bstrContext;  
-   IDebugDocumentPosition2* pDocPos;  
+```cpp#  
+typedef struct _BP_LOCATION_CODE_FILE_LINE {   
+   BSTR                     bstrContext;  
+   IDebugDocumentPosition2* pDocPos;  
 } BP_LOCATION_CODE_FILE_LINE;  
 ```  
   
-## <a name="members"></a>Members  
+## 成员  
  `bstrContext`  
- The context of the breakpoint, typically a method or function name as seen on a call stack.  
+ 断点的上下文，通常一个方法或函数名如下所示调用堆栈。  
   
  `pDocPos`  
- The [IDebugDocumentPosition2](../../../extensibility/debugger/reference/idebugdocumentposition2.md) object that represents the document position of the breakpoint.  
+ 表示断点的文档位置的 [IDebugDocumentPosition2](../../../extensibility/debugger/reference/idebugdocumentposition2.md) 对象。  
   
-## <a name="remarks"></a>Remarks  
- This structure is a member of the [BP_LOCATION](../../../extensibility/debugger/reference/bp-location.md) structure as part of a union.  
+## 备注  
+ 作为一个联合的一部分，此结构是 [BP\_LOCATION](../../../extensibility/debugger/reference/bp-location.md) 结构的成员。  
   
-## <a name="requirements"></a>Requirements  
- Header: msdbg.h  
+## 要求  
+ 标题:msdbg.h  
   
- Namespace: Microsoft.VisualStudio.Debugger.Interop  
+ 命名空间:Microsoft.VisualStudio.Debugger.Interop  
   
- Assembly: Microsoft.VisualStudio.Debugger.Interop.dll  
+ 程序集:Microsoft.VisualStudio.Debugger.Interop.dll  
   
-## <a name="see-also"></a>See Also  
- [Structures and Unions](../../../extensibility/debugger/reference/structures-and-unions.md)   
- [BP_LOCATION](../../../extensibility/debugger/reference/bp-location.md)   
+## 请参阅  
+ [结构和联合](../../../extensibility/debugger/reference/structures-and-unions.md)   
+ [BP\_LOCATION](../../../extensibility/debugger/reference/bp-location.md)   
  [IDebugDocumentPosition2](../../../extensibility/debugger/reference/idebugdocumentposition2.md)

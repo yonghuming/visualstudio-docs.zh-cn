@@ -1,66 +1,49 @@
 ---
-title: IDebugProcessSecurity::GetUserName | Microsoft Docs
-ms.custom: 
-ms.date: 11/04/2016
-ms.reviewer: 
-ms.suite: 
-ms.technology:
-- vs-ide-sdk
-ms.tgt_pltfrm: 
-ms.topic: article
-helpviewer_keywords:
-- IDebugProcessSecurity::GetUserName
+title: "IDebugProcessSecurity::GetUserName | Microsoft Docs"
+ms.custom: ""
+ms.date: "11/04/2016"
+ms.reviewer: ""
+ms.suite: ""
+ms.technology: 
+  - "vs-ide-sdk"
+ms.tgt_pltfrm: ""
+ms.topic: "article"
+helpviewer_keywords: 
+  - "IDebugProcessSecurity::GetUserName"
 ms.assetid: c73c60ac-da6e-45ae-8f04-95353a24ca3e
 caps.latest.revision: 4
-ms.author: gregvanl
-manager: ghogen
-translation.priority.mt:
-- cs-cz
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pl-pl
-- pt-br
-- ru-ru
-- tr-tr
-- zh-cn
-- zh-tw
-ms.translationtype: MT
-ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
-ms.openlocfilehash: 081f073ba59021ca56dd084bd2cef0fde6c5c32e
-ms.contentlocale: zh-cn
-ms.lasthandoff: 08/28/2017
-
+ms.author: "gregvanl"
+manager: "ghogen"
+caps.handback.revision: 4
 ---
-# <a name="idebugprocesssecuritygetusername"></a>IDebugProcessSecurity::GetUserName
-Gets the user name from the port supplier.  
+# IDebugProcessSecurity::GetUserName
+[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
+
+从端口提供程序获取用户名。  
   
-## <a name="syntax"></a>Syntax  
+## 语法  
   
-```cpp  
+```cpp#  
 HRESULT GetUserName(  
-    BSTR *pbstrUserName  
+    BSTR *pbstrUserName  
 );  
 ```  
   
-```csharp  
+```c#  
 int GetUserName (  
-    string pbstrUserName  
+    string pbstrUserName  
 );  
 ```  
   
-#### <a name="parameters"></a>Parameters  
+#### 参数  
  `pbstrUserName`  
- [out] A string containing the user name.  
+ \[out\] 包含用户名的字符串。  
   
-## <a name="return-value"></a>Return Value  
- If the method succeeds, it returns `S_OK`. Otherwise it returns an error code.  
+## 返回值  
+ 如果方法成功，则返回 `S_OK`。  否则返回错误代码。  
   
-## <a name="remarks"></a>Remarks  
- `GetUserName` returns the user name that is displayed in the **User Name** column of the **Attach to Process** dialog box. To view the **Attach to Process** dialog box, click **Attach to Process** on the **Tools** menu in the [!INCLUDE[vsprvs](../../../code-quality/includes/vsprvs_md.md)] integrated development environment (IDE).  
+## 备注  
+ `GetUserName` 返回在 **附加的进程** 对话框的 **用户名** 列中显示的用户名。  若要查看 **附加的进程** 对话框中，单击 **附加的进程** 在 **工具** 菜单中 [!INCLUDE[vsprvs](../../../code-quality/includes/vsprvs_md.md)] 集成开发环境中 \(IDE\)。  
   
-## <a name="see-also"></a>See Also  
+## 请参阅  
  [IDebugProcessSecurity](../../../extensibility/debugger/reference/idebugprocesssecurity.md)

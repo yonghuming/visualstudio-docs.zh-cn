@@ -1,92 +1,75 @@
 ---
-title: IDebugEngineProgram2::WatchForExpressionEvaluationOnThread | Microsoft Docs
-ms.custom: 
-ms.date: 11/04/2016
-ms.reviewer: 
-ms.suite: 
-ms.technology:
-- vs-ide-sdk
-ms.tgt_pltfrm: 
-ms.topic: article
-f1_keywords:
-- IDebugEngineProgram2::WatchForExpressionEvaluationOnThread
-helpviewer_keywords:
-- IDebugEngineProgram2::WatchForExpressionEvaluationOnThread
+title: "IDebugEngineProgram2::WatchForExpressionEvaluationOnThread | Microsoft Docs"
+ms.custom: ""
+ms.date: "11/04/2016"
+ms.reviewer: ""
+ms.suite: ""
+ms.technology: 
+  - "vs-ide-sdk"
+ms.tgt_pltfrm: ""
+ms.topic: "article"
+f1_keywords: 
+  - "IDebugEngineProgram2::WatchForExpressionEvaluationOnThread"
+helpviewer_keywords: 
+  - "IDebugEngineProgram2::WatchForExpressionEvaluationOnThread"
 ms.assetid: 01d05e77-8cac-4d1b-b19f-25756767ed27
 caps.latest.revision: 10
-ms.author: gregvanl
-manager: ghogen
-translation.priority.mt:
-- cs-cz
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pl-pl
-- pt-br
-- ru-ru
-- tr-tr
-- zh-cn
-- zh-tw
-ms.translationtype: MT
-ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
-ms.openlocfilehash: abaf37b2fbc494bde66c4b3661e551a38c2c9841
-ms.contentlocale: zh-cn
-ms.lasthandoff: 08/28/2017
-
+ms.author: "gregvanl"
+manager: "ghogen"
+caps.handback.revision: 10
 ---
-# <a name="idebugengineprogram2watchforexpressionevaluationonthread"></a>IDebugEngineProgram2::WatchForExpressionEvaluationOnThread
-Allows (or disallows) expression evaluation to occur on the given thread, even if the program has stopped.  
+# IDebugEngineProgram2::WatchForExpressionEvaluationOnThread
+[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
+
+在特定允许线程 \(或禁止\) 表达式计算结果，因此，即使程序停止。  
   
-## <a name="syntax"></a>Syntax  
+## 语法  
   
-```cpp  
-HRESULT WatchForExpressionEvaluationOnThread(   
-   IDebugProgram2*       pOriginatingProgram,  
-   DWORD                 dwTid,  
-   DWORD                 dwEvalFlags,  
-   IDebugEventCallback2* pExprCallback,  
-   BOOL                  fWatch  
+```cpp#  
+HRESULT WatchForExpressionEvaluationOnThread(   
+   IDebugProgram2*       pOriginatingProgram,  
+   DWORD                 dwTid,  
+   DWORD                 dwEvalFlags,  
+   IDebugEventCallback2* pExprCallback,  
+   BOOL                  fWatch  
 );  
 ```  
   
-```csharp  
-int WatchForExpressionEvaluationOnThread(   
-   IDebugProgram2       pOriginatingProgram,  
-   uint                  dwTid,  
-   uint                  dwEvalFlags,  
-   IDebugEventCallback2 pExprCallback,  
-   int                   fWatch  
+```c#  
+int WatchForExpressionEvaluationOnThread(   
+   IDebugProgram2       pOriginatingProgram,  
+   uint                  dwTid,  
+   uint                  dwEvalFlags,  
+   IDebugEventCallback2 pExprCallback,  
+   int                   fWatch  
 );  
 ```  
   
-#### <a name="parameters"></a>Parameters  
+#### 参数  
  `pOriginatingProgram`  
- [in] An [IDebugProgram2](../../../extensibility/debugger/reference/idebugprogram2.md) object representing the program that is evaluating an expression.  
+ \[in\] 表示计算表达式的程序的 [IDebugProgram2](../../../extensibility/debugger/reference/idebugprogram2.md) 对象。  
   
  `dwTid`  
- [in] Specifies the identifier of the thread.  
+ \[in\] 指定线程的标识符。  
   
  `dwEvalFlags`  
- [in] A combination of flags from the [EVALFLAGS](../../../extensibility/debugger/reference/evalflags.md) enumeration that specify how the evaluation is to be performed.  
+ \[in\] 指定标志的组合。 [EVALFLAGS](../../../extensibility/debugger/reference/evalflags.md) 枚举的计算方式执行。  
   
  `pExprCallback`  
- [in] An [IDebugEventCallback2](../../../extensibility/debugger/reference/idebugeventcallback2.md) object to be used to send debug events that occur during expression evaluation.  
+ \[in\] 要使用的 [IDebugEventCallback2](../../../extensibility/debugger/reference/idebugeventcallback2.md) 对象发送调试在计算表达式时发生的事件。  
   
  `fWatch`  
- [in] If non-zero (`TRUE`), allows expression evaluation on the thread identified by `dwTid`; otherwise, zero (`FALSE`) disallows expression evaluation on that thread.  
+ \[in\] 如果非零 \(`TRUE`\)，允许在 `dwTid`确定线程的表达式计算;否则，零 \(0\)`FALSE`\) 禁止该线程的表达式计算。  
   
-## <a name="return-value"></a>Return Value  
- If successful, returns `S_OK`; otherwise, returns an error code.  
+## 返回值  
+ 如果成功，则返回; `S_OK`否则，返回错误代码。  
   
-## <a name="remarks"></a>Remarks  
- When the session debug manager (SDM) asks a program, identified by the `pOriginatingProgram` parameter, to evaluate an expression, it notifies all other attached programs by calling this method.  
+## 备注  
+ 在会议调试时管理器 \(SDM\)要求程序，这是由 `pOriginatingProgram` 参数，计算表达式，它通过调用此方法以通知其他附加程序。  
   
- Expression evaluation in one program may cause code to run in another, due to function evaluation or evaluation of any `IDispatch` properties. Because of this, this method allows expression evaluation to run and complete even though the thread may be stopped in this program.  
+ 在一个程序的表达式计算在另一个可导致代码运行，因为函数的所有 `IDispatch` 属性的计算或计算。  因此，此方法允许表达式计算运行和完成，即使线程在此程序可以停止。  
   
-## <a name="see-also"></a>See Also  
+## 请参阅  
  [IDebugEngineProgram2](../../../extensibility/debugger/reference/idebugengineprogram2.md)   
  [EVALFLAGS](../../../extensibility/debugger/reference/evalflags.md)   
  [IDebugEventCallback2](../../../extensibility/debugger/reference/idebugeventcallback2.md)   

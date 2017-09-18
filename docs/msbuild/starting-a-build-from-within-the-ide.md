@@ -1,53 +1,36 @@
 ---
-title: Starting a Build from within the IDE | Microsoft Docs
-ms.custom: 
-ms.date: 11/04/2016
-ms.reviewer: 
-ms.suite: 
-ms.technology:
-- vs-ide-sdk
-ms.tgt_pltfrm: 
-ms.topic: article
-helpviewer_keywords:
-- build
+title: "在 IDE 中启动生成 | Microsoft Docs"
+ms.custom: ""
+ms.date: "11/04/2016"
+ms.reviewer: ""
+ms.suite: ""
+ms.technology: 
+  - "vs-ide-sdk"
+ms.tgt_pltfrm: ""
+ms.topic: "article"
+helpviewer_keywords: 
+  - "生成"
 ms.assetid: 936317aa-63b7-4eb0-b9db-b260a0306196
 caps.latest.revision: 5
-author: kempb
-ms.author: kempb
-manager: ghogen
-translation.priority.ht:
-- cs-cz
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pl-pl
-- pt-br
-- ru-ru
-- tr-tr
-- zh-cn
-- zh-tw
-ms.translationtype: HT
-ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
-ms.openlocfilehash: 4480985bdbca5225703d5efafc87c553e02f4b22
-ms.contentlocale: zh-cn
-ms.lasthandoff: 08/28/2017
-
+author: "kempb"
+ms.author: "kempb"
+manager: "ghogen"
+caps.handback.revision: 5
 ---
-# <a name="starting-a-build-from-within-the-ide"></a>Starting a Build from within the IDE
-Custom project systems must use <xref:Microsoft.VisualStudio.Shell.Interop.IVsBuildManagerAccessor> to start builds. This topic describes the reasons for this and outlines the procedure.  
+# 在 IDE 中启动生成
+[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
+
+自定义项目系统必须使用 <xref:Microsoft.VisualStudio.Shell.Interop.IVsBuildManagerAccessor> 开始生成过程。  本主题介绍这样做的原因并概述具体过程。  
   
-## <a name="parallel-builds-and-threads"></a>Parallel Builds and Threads  
- [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] allows parallel builds which requires mediation for access to common resources. Project systems can run builds asynchronously, but such systems must not call build functions from within call backs is provided to the build manager.  
+## 并行生成和线程  
+ [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] 允许需要干预的并行生成访问常见资源。  项目系统可以异步运行生成，但此类系统不能从提供给生成管理器的回调中调用生成函数。  
   
- If the project system modifies environment variables, it must set the NodeAffinity of the build to OutOfProc. This means that you cannot use host objects, since they require the in-proc node.  
+ 如果项目系统修改环境变量，它必须将生成的 NodeAffinity 设置为 OutOfProc。  这意味着不能使用宿主对象，因为它们需要进程内节点。  
   
-## <a name="using-ivsbuildmanageraccessor"></a>Using IVSBuildManagerAccessor  
- The code below outlines a method that a project system can use to start a build:  
+## 使用 IVSBuildManagerAccessor  
+ 下面的代码概括了项目系统可用于启动生成的方法：  
   
-```csharp
+```  
   
 public bool Build(Project project, bool isDesignTimeBuild)  
 {  

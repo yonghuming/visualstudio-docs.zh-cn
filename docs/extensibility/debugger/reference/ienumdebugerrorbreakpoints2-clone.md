@@ -1,68 +1,51 @@
 ---
-title: IEnumDebugErrorBreakpoints2::Clone | Microsoft Docs
-ms.custom: 
-ms.date: 11/04/2016
-ms.reviewer: 
-ms.suite: 
-ms.technology:
-- vs-ide-sdk
-ms.tgt_pltfrm: 
-ms.topic: article
-f1_keywords:
-- IEnumDebugErrorBreakpoints2::Clone
-helpviewer_keywords:
-- IEnumDebugErrorBreakpoints2::Clone
+title: "IEnumDebugErrorBreakpoints2::Clone | Microsoft Docs"
+ms.custom: ""
+ms.date: "11/04/2016"
+ms.reviewer: ""
+ms.suite: ""
+ms.technology: 
+  - "vs-ide-sdk"
+ms.tgt_pltfrm: ""
+ms.topic: "article"
+f1_keywords: 
+  - "IEnumDebugErrorBreakpoints2::Clone"
+helpviewer_keywords: 
+  - "IEnumDebugErrorBreakpoints2::Clone"
 ms.assetid: f6fb4985-8dd6-4a9b-98e0-15dbc64cc9ec
 caps.latest.revision: 9
-ms.author: gregvanl
-manager: ghogen
-translation.priority.mt:
-- cs-cz
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pl-pl
-- pt-br
-- ru-ru
-- tr-tr
-- zh-cn
-- zh-tw
-ms.translationtype: MT
-ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
-ms.openlocfilehash: 455c2d61fd4439826a9ae174a9eda9ad5ccd74ba
-ms.contentlocale: zh-cn
-ms.lasthandoff: 08/28/2017
-
+ms.author: "gregvanl"
+manager: "ghogen"
+caps.handback.revision: 9
 ---
-# <a name="ienumdebugerrorbreakpoints2clone"></a>IEnumDebugErrorBreakpoints2::Clone
-Returns a copy of the current enumeration as a separate object.  
+# IEnumDebugErrorBreakpoints2::Clone
+[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
+
+返回当前枚举的副本作为单独的对象。  
   
-## <a name="syntax"></a>Syntax  
+## 语法  
   
-```cpp  
+```cpp#  
 HRESULT Clone(  
-   IEnumDebugErrorBreakpoints2** ppEnum  
+   IEnumDebugErrorBreakpoints2** ppEnum  
 );  
 ```  
   
-```csharp  
+```c#  
 int Clone(  
-   out IEnumDebugErrorBreakpoints2 ppEnum  
+   out IEnumDebugErrorBreakpoints2 ppEnum  
 );  
 ```  
   
-#### <a name="parameters"></a>Parameters  
+#### 参数  
  `ppEnum`  
- [out] Returns a copy of this enumeration as a separate object.  
+ \[out\] 返回此枚举的副本作为单独的对象。  
   
-## <a name="return-value"></a>Return Value  
- If successful, returns `S_OK`; otherwise, returns an error code.  
+## 返回值  
+ 如果成功，则返回; `S_OK`否则，返回错误代码。  
   
-## <a name="remarks"></a>Remarks  
- The copy of the enumeration has the same state as the original at the time this method is called. However, the copy's and the original's states are separate and can be changed individually.  
+## 备注  
+ ，此方法调用后，枚举的副本的状态和原始相同的。  但是，复制的值和原始的状态是独立的，并可以单独进行更改。  
   
-## <a name="see-also"></a>See Also  
+## 请参阅  
  [IEnumDebugErrorBreakpoints2](../../../extensibility/debugger/reference/ienumdebugerrorbreakpoints2.md)

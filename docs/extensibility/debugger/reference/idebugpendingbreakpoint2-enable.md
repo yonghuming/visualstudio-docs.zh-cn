@@ -1,76 +1,59 @@
 ---
-title: IDebugPendingBreakpoint2::Enable | Microsoft Docs
-ms.custom: 
-ms.date: 11/04/2016
-ms.reviewer: 
-ms.suite: 
-ms.technology:
-- vs-ide-sdk
-ms.tgt_pltfrm: 
-ms.topic: article
-f1_keywords:
-- IDebugPendingBreakpoint2::Enable
-helpviewer_keywords:
-- IDebugPendingBreakpoint2::Enable method
-- Enable method
+title: "IDebugPendingBreakpoint2::Enable | Microsoft Docs"
+ms.custom: ""
+ms.date: "11/04/2016"
+ms.reviewer: ""
+ms.suite: ""
+ms.technology: 
+  - "vs-ide-sdk"
+ms.tgt_pltfrm: ""
+ms.topic: "article"
+f1_keywords: 
+  - "IDebugPendingBreakpoint2::Enable"
+helpviewer_keywords: 
+  - "IDebugPendingBreakpoint2::Enable 方法"
+  - "Enable 方法"
 ms.assetid: 09e32d05-464b-40a6-a41d-76f2759cf2cd
 caps.latest.revision: 10
-ms.author: gregvanl
-manager: ghogen
-translation.priority.mt:
-- cs-cz
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pl-pl
-- pt-br
-- ru-ru
-- tr-tr
-- zh-cn
-- zh-tw
-ms.translationtype: MT
-ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
-ms.openlocfilehash: 5cab200b842de2d63596dfa311acb18236c50782
-ms.contentlocale: zh-cn
-ms.lasthandoff: 08/28/2017
-
+ms.author: "gregvanl"
+manager: "ghogen"
+caps.handback.revision: 10
 ---
-# <a name="idebugpendingbreakpoint2enable"></a>IDebugPendingBreakpoint2::Enable
-Toggles the enabled state of the pending breakpoint.  
+# IDebugPendingBreakpoint2::Enable
+[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
+
+切换挂起的断点的启用状态。  
   
-## <a name="syntax"></a>Syntax  
+## 语法  
   
-```cpp  
-HRESULT Enable(   
-   BOOL fEnable  
+```cpp#  
+HRESULT Enable(   
+   BOOL fEnable  
 );  
 ```  
   
-```csharp  
-int Enable(   
-   int fEnable  
+```c#  
+int Enable(   
+   int fEnable  
 );  
 ```  
   
-#### <a name="parameters"></a>Parameters  
+#### 参数  
  `fEnable`  
- [in] Set to nonzero (`TRUE`) to enable a pending breakpoint, or to zero (`FALSE`) to disable.  
+ \[in\] 设置为非零 \(`TRUE`\) 启用挂起的断点或零 \(`FALSE`\) 禁用。  
   
-## <a name="return-value"></a>Return Value  
- If successful, returns `S_OK`; otherwise, returns an error code. Returns `E_BP_DELETED` if the breakpoint has been deleted.  
+## 返回值  
+ 如果成功，则返回; `S_OK`否则，返回错误代码。  ，如果断点删除，返回 `E_BP_DELETED` 。  
   
-## <a name="remarks"></a>Remarks  
- When a pending breakpoint is enabled or disabled, all breakpoints bound from it are set to the same state.  
+## 备注  
+ 当挂起的断点已启用或禁用时，从其绑定到的所有断点设置为相同的状态。  
   
- This method may be called as many times as necessary, even if the breakpoint is already enabled or disabled.  
+ 此方法会根据需要多次调用，因此，即使断点已启用或禁用。  
   
-## <a name="example"></a>Example  
- The following example shows how to implement this method for a simple `CPendingBreakpoint` object that exposes the [IDebugPendingBreakpoint2](../../../extensibility/debugger/reference/idebugpendingbreakpoint2.md) interface.  
+## 示例  
+ 下面的示例演示如何执行显示 [IDebugPendingBreakpoint2](../../../extensibility/debugger/reference/idebugpendingbreakpoint2.md) 接口的简单 `CPendingBreakpoint` 对象的方法。  
   
-```cpp  
+```cpp#  
 HRESULT CPendingBreakpoint::Enable(BOOL fEnable)    
 {    
    HRESULT hr;    
@@ -100,5 +83,5 @@ HRESULT CPendingBreakpoint::Enable(BOOL fEnable)
 }    
 ```  
   
-## <a name="see-also"></a>See Also  
+## 请参阅  
  [IDebugPendingBreakpoint2](../../../extensibility/debugger/reference/idebugpendingbreakpoint2.md)

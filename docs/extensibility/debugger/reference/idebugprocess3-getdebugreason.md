@@ -1,66 +1,49 @@
 ---
-title: IDebugProcess3::GetDebugReason | Microsoft Docs
-ms.custom: 
-ms.date: 11/04/2016
-ms.reviewer: 
-ms.suite: 
-ms.technology:
-- vs-ide-sdk
-ms.tgt_pltfrm: 
-ms.topic: article
-f1_keywords:
-- IDebugProcess3::GetDebugReason
-helpviewer_keywords:
-- IDebugProcess3::GetDebugReason
+title: "IDebugProcess3::GetDebugReason | Microsoft Docs"
+ms.custom: ""
+ms.date: "11/04/2016"
+ms.reviewer: ""
+ms.suite: ""
+ms.technology: 
+  - "vs-ide-sdk"
+ms.tgt_pltfrm: ""
+ms.topic: "article"
+f1_keywords: 
+  - "IDebugProcess3::GetDebugReason"
+helpviewer_keywords: 
+  - "IDebugProcess3::GetDebugReason"
 ms.assetid: f23fbabc-8b18-4278-bebf-4cdc7091513c
 caps.latest.revision: 11
-ms.author: gregvanl
-manager: ghogen
-translation.priority.mt:
-- cs-cz
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pl-pl
-- pt-br
-- ru-ru
-- tr-tr
-- zh-cn
-- zh-tw
-ms.translationtype: MT
-ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
-ms.openlocfilehash: 18c88ee00372b8669aa700824c225afacc4c48bb
-ms.contentlocale: zh-cn
-ms.lasthandoff: 08/28/2017
-
+ms.author: "gregvanl"
+manager: "ghogen"
+caps.handback.revision: 11
 ---
-# <a name="idebugprocess3getdebugreason"></a>IDebugProcess3::GetDebugReason
-This method returns the reason that the process was launched for debugging.  
+# IDebugProcess3::GetDebugReason
+[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
+
+此方法返回处理用于调试生成的原因。  
   
-## <a name="syntax"></a>Syntax  
+## 语法  
   
 ```cpp  
-HRESULT GetDebugReason(  
-   DEBUG_REASON* pReason  
+HRESULT GetDebugReason(  
+   DEBUG_REASON* pReason  
 );  
 ```  
   
-```csharp  
+```c#  
 int GetDebugReason(  
-   out enum_DEBUG_REASON pReason  
+   out enum_DEBUG_REASON pReason  
 );  
 ```  
   
-#### <a name="parameters"></a>Parameters  
+#### 参数  
  `pReason`  
- [out] Returns a value from the [DEBUG_REASON](../../../extensibility/debugger/reference/debug-reason.md) enumeration.  
+ \[out\] 返回从 [DEBUG\_REASON](../../../extensibility/debugger/reference/debug-reason.md) 枚举的值。  
   
-## <a name="return-value"></a>Return Value  
- If successful, returns `S_OK`; otherwise, returns error code.  
+## 返回值  
+ 如果成功，则返回; `S_OK`否则，返回错误代码。  
   
-## <a name="see-also"></a>See Also  
+## 请参阅  
  [IDebugProcess3](../../../extensibility/debugger/reference/idebugprocess3.md)   
- [DEBUG_REASON](../../../extensibility/debugger/reference/debug-reason.md)
+ [DEBUG\_REASON](../../../extensibility/debugger/reference/debug-reason.md)

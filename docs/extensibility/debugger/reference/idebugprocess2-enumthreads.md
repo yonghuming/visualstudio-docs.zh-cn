@@ -1,72 +1,55 @@
 ---
-title: IDebugProcess2::EnumThreads | Microsoft Docs
-ms.custom: 
-ms.date: 11/04/2016
-ms.reviewer: 
-ms.suite: 
-ms.technology:
-- vs-ide-sdk
-ms.tgt_pltfrm: 
-ms.topic: article
-f1_keywords:
-- IDebugProcess2::EnumThreads
-helpviewer_keywords:
-- IDebugProcess2::EnumThreads
+title: "IDebugProcess2::EnumThreads | Microsoft Docs"
+ms.custom: ""
+ms.date: "11/04/2016"
+ms.reviewer: ""
+ms.suite: ""
+ms.technology: 
+  - "vs-ide-sdk"
+ms.tgt_pltfrm: ""
+ms.topic: "article"
+f1_keywords: 
+  - "IDebugProcess2::EnumThreads"
+helpviewer_keywords: 
+  - "IDebugProcess2::EnumThreads"
 ms.assetid: 05677385-7a7f-4545-8438-af00dde85db0
 caps.latest.revision: 10
-ms.author: gregvanl
-manager: ghogen
-translation.priority.mt:
-- cs-cz
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pl-pl
-- pt-br
-- ru-ru
-- tr-tr
-- zh-cn
-- zh-tw
-ms.translationtype: MT
-ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
-ms.openlocfilehash: da0bfd2700c00e215f7f42d5247cd0a42881fc35
-ms.contentlocale: zh-cn
-ms.lasthandoff: 08/28/2017
-
+ms.author: "gregvanl"
+manager: "ghogen"
+caps.handback.revision: 10
 ---
-# <a name="idebugprocess2enumthreads"></a>IDebugProcess2::EnumThreads
-Retrieves a list of all the threads running in the process.  
+# IDebugProcess2::EnumThreads
+[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
+
+检索运行进程中的所有线程的列表。  
   
-## <a name="syntax"></a>Syntax  
+## 语法  
   
-```cpp  
-HRESULT EnumThreads(  
-   IEnumDebugThreads2** ppEnum  
+```cpp#  
+HRESULT EnumThreads(  
+   IEnumDebugThreads2** ppEnum  
 );  
 ```  
   
-```csharp  
-int EnumThreads(  
-   out IEnumDebugThreads2 ppEnum  
+```c#  
+int EnumThreads(  
+   out IEnumDebugThreads2 ppEnum  
 );  
 ```  
   
-#### <a name="parameters"></a>Parameters  
+#### 参数  
  `ppEnum`  
- [out] Returns an [IEnumDebugThreads2](../../../extensibility/debugger/reference/ienumdebugthreads2.md) object that contains a list of all threads in all programs in the process.  
+ \[out\] 返回在进程中的所有程序包含所有线程列表的 [IEnumDebugThreads2](../../../extensibility/debugger/reference/ienumdebugthreads2.md) 对象。  
   
-## <a name="return-value"></a>Return Value  
- If successful, returns `S_OK`; otherwise, returns an error code.  
+## 返回值  
+ 如果成功，则返回; `S_OK`否则，返回错误代码。  
   
-## <a name="remarks"></a>Remarks  
- This method enumerates the threads running in each program and then combines them into a process view of the threads. A single thread may run in multiple programs; this method enumerates that thread only once.  
+## 备注  
+ 此方法枚举运行在每个程序的线程然后将它们合并为线程的进程视图。  一个线程在多个程序可以运行;此方法一次只枚举该线程。  
   
- This method presents a list of the process's threads without duplicates. Otherwise, to enumerate the threads running in a particular program, use the [EnumThreads](../../../extensibility/debugger/reference/idebugprogram2-enumthreads.md) method.  
+ 此方法为无进程的线程的列表副本。  否则，枚举运行在特定程序的线程，请使用 [EnumThreads](../../../extensibility/debugger/reference/idebugprogram2-enumthreads.md) 方法。  
   
-## <a name="see-also"></a>See Also  
+## 请参阅  
  [IDebugProcess2](../../../extensibility/debugger/reference/idebugprocess2.md)   
  [IEnumDebugThreads2](../../../extensibility/debugger/reference/ienumdebugthreads2.md)   
  [IDebugThread2](../../../extensibility/debugger/reference/idebugthread2.md)   

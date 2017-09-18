@@ -1,79 +1,62 @@
 ---
-title: IDebugSymbolProvider::GetLanguage | Microsoft Docs
-ms.custom: 
-ms.date: 11/04/2016
-ms.reviewer: 
-ms.suite: 
-ms.technology:
-- vs-ide-sdk
-ms.tgt_pltfrm: 
-ms.topic: article
-f1_keywords:
-- IDebugSymbolProvider::GetLanguage
-helpviewer_keywords:
-- IDebugSymbolProvider::GetLanguage method
+title: "IDebugSymbolProvider::GetLanguage | Microsoft Docs"
+ms.custom: ""
+ms.date: "11/04/2016"
+ms.reviewer: ""
+ms.suite: ""
+ms.technology: 
+  - "vs-ide-sdk"
+ms.tgt_pltfrm: ""
+ms.topic: "article"
+f1_keywords: 
+  - "IDebugSymbolProvider::GetLanguage"
+helpviewer_keywords: 
+  - "IDebugSymbolProvider::GetLanguage 方法"
 ms.assetid: e4142183-3d8b-418f-907f-4ee4c753d8ce
 caps.latest.revision: 11
-ms.author: gregvanl
-manager: ghogen
-translation.priority.mt:
-- cs-cz
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pl-pl
-- pt-br
-- ru-ru
-- tr-tr
-- zh-cn
-- zh-tw
-ms.translationtype: MT
-ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
-ms.openlocfilehash: ac300d90d6cd6841cdcc7213a5a6004a29b5a6f6
-ms.contentlocale: zh-cn
-ms.lasthandoff: 08/28/2017
-
+ms.author: "gregvanl"
+manager: "ghogen"
+caps.handback.revision: 11
 ---
-# <a name="idebugsymbolprovidergetlanguage"></a>IDebugSymbolProvider::GetLanguage
-This method gets the language that was used to compile the code at the debug address.  
+# IDebugSymbolProvider::GetLanguage
+[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
+
+此方法获取用于生成代码在调试地址的语言。  
   
-## <a name="syntax"></a>Syntax  
+## 语法  
   
-```cpp  
-HRESULT GetLanguage(   
-   IDebugAddress* pAddress,  
-   GUID*          pguidLanguage,  
-   GUID*          pguidLanguageVendor  
+```cpp#  
+HRESULT GetLanguage(   
+   IDebugAddress* pAddress,  
+   GUID*          pguidLanguage,  
+   GUID*          pguidLanguageVendor  
 );  
 ```  
   
-```csharp  
+```c#  
 int GetLanguage(  
-   IDebugAddress pAddress,   
-   out Guid      pguidLanguage,   
-   out Guid      pguidLanguageVendor  
+   IDebugAddress pAddress,   
+   out Guid      pguidLanguage,   
+   out Guid      pguidLanguageVendor  
 );  
 ```  
   
-#### <a name="parameters"></a>Parameters  
+#### 参数  
  `pAddress`  
- [in] An address object represented by an [IDebugAddress](../../../extensibility/debugger/reference/idebugaddress.md) interface.  
+ \[in\] [IDebugAddress](../../../extensibility/debugger/reference/idebugaddress.md) 接口表示的地址对象。  
   
  `pguidLanguage`  
- [out] Returns a `GUID` that specifies the language.  
+ \[out\] 返回指定该语言的 `GUID` 。  
   
  `pguidLanguageVendor`  
- [out] Returns a `GUID` that specifies the language vendor.  
+ \[out\] 返回指定语言供应商的 `GUID` 。  
   
-## <a name="return-value"></a>Return Value  
- If successful, returns `S_OK`; otherwise, returns an error code.  
+## 返回值  
+ 如果成功，则返回; `S_OK`否则，返回错误代码。  
   
-## <a name="remarks"></a>Remarks  
- The debug engine calls this method to obtain the information it needs to select the correct expression evaluator.  
+## 备注  
+ 调试引擎调用它需要选择正确的表达式计算器此方法获取信息。  
   
-## <a name="see-also"></a>See Also  
+## 请参阅  
  [IDebugSymbolProvider](../../../extensibility/debugger/reference/idebugsymbolprovider.md)   
  [IDebugAddress](../../../extensibility/debugger/reference/idebugaddress.md)

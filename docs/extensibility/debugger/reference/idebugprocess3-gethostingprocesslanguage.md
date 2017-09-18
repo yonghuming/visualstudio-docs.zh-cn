@@ -1,66 +1,49 @@
 ---
-title: IDebugProcess3::GetHostingProcessLanguage | Microsoft Docs
-ms.custom: 
-ms.date: 11/04/2016
-ms.reviewer: 
-ms.suite: 
-ms.technology:
-- vs-ide-sdk
-ms.tgt_pltfrm: 
-ms.topic: article
-f1_keywords:
-- IDebugProcess3::GetHostingProcessLanguage
-helpviewer_keywords:
-- IDebugProcess3::GetHostingProcessLanguage
+title: "IDebugProcess3::GetHostingProcessLanguage | Microsoft Docs"
+ms.custom: ""
+ms.date: "11/04/2016"
+ms.reviewer: ""
+ms.suite: ""
+ms.technology: 
+  - "vs-ide-sdk"
+ms.tgt_pltfrm: ""
+ms.topic: "article"
+f1_keywords: 
+  - "IDebugProcess3::GetHostingProcessLanguage"
+helpviewer_keywords: 
+  - "IDebugProcess3::GetHostingProcessLanguage"
 ms.assetid: 52fca002-a9ef-43b1-9192-afbe7bb59ad4
 caps.latest.revision: 10
-ms.author: gregvanl
-manager: ghogen
-translation.priority.mt:
-- cs-cz
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pl-pl
-- pt-br
-- ru-ru
-- tr-tr
-- zh-cn
-- zh-tw
-ms.translationtype: MT
-ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
-ms.openlocfilehash: 9d44703c318e03dd464b122b448454e304fb72f3
-ms.contentlocale: zh-cn
-ms.lasthandoff: 08/28/2017
-
+ms.author: "gregvanl"
+manager: "ghogen"
+caps.handback.revision: 10
 ---
-# <a name="idebugprocess3gethostingprocesslanguage"></a>IDebugProcess3::GetHostingProcessLanguage
-This method returns a `GUID` representing the language of this process as set by a call to [SetHostingProcessLanguage](../../../extensibility/debugger/reference/idebugprocess3-sethostingprocesslanguage.md).  
+# IDebugProcess3::GetHostingProcessLanguage
+[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
+
+此方法返回该语言的 `GUID` 处理由设置由对 [SetHostingProcessLanguage](../../../extensibility/debugger/reference/idebugprocess3-sethostingprocesslanguage.md)。  
   
-## <a name="syntax"></a>Syntax  
+## 语法  
   
 ```cpp  
-HRESULT GetHostingProcessLanguage(  
-   GUID* pguidLang  
+HRESULT GetHostingProcessLanguage(  
+   GUID* pguidLang  
 );  
 ```  
   
-```csharp  
+```c#  
 int GetHostingProcessLanguage(  
-   out Guid pguidLang  
+   out Guid pguidLang  
 );  
 ```  
   
-#### <a name="parameters"></a>Parameters  
+#### 参数  
  `pguidLang`  
- [out] The `GUID` of the language of this process. `GUID_NULL` (C++) or `Guid.Empty` (C#) means that the language is not set.  
+ \[out\] 此语言的 `GUID` 处理。  `GUID_NULL` \(c\+\+\) 或 `Guid.Empty` \(c\#\) 意味着该语言不设置。  
   
-## <a name="return-value"></a>Return Value  
- If successful, returns `S_OK`; otherwise, returns error code.  
+## 返回值  
+ 如果成功，则返回; `S_OK`否则，返回错误代码。  
   
-## <a name="see-also"></a>See Also  
+## 请参阅  
  [IDebugProcess3](../../../extensibility/debugger/reference/idebugprocess3.md)   
  [SetHostingProcessLanguage](../../../extensibility/debugger/reference/idebugprocess3-sethostingprocesslanguage.md)

@@ -1,91 +1,74 @@
 ---
-title: IDebugSymbolProvider | Microsoft Docs
-ms.custom: 
-ms.date: 11/04/2016
-ms.reviewer: 
-ms.suite: 
-ms.technology:
-- vs-ide-sdk
-ms.tgt_pltfrm: 
-ms.topic: article
-f1_keywords:
-- IDebugSymbolProvider
-helpviewer_keywords:
-- IDebugSymbolProvider interface
+title: "IDebugSymbolProvider | Microsoft Docs"
+ms.custom: ""
+ms.date: "11/04/2016"
+ms.reviewer: ""
+ms.suite: ""
+ms.technology: 
+  - "vs-ide-sdk"
+ms.tgt_pltfrm: ""
+ms.topic: "article"
+f1_keywords: 
+  - "IDebugSymbolProvider"
+helpviewer_keywords: 
+  - "IDebugSymbolProvider 接口"
 ms.assetid: df5f095f-1dee-46f9-84cf-92417c71d5fb
 caps.latest.revision: 14
-ms.author: gregvanl
-manager: ghogen
-translation.priority.mt:
-- cs-cz
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pl-pl
-- pt-br
-- ru-ru
-- tr-tr
-- zh-cn
-- zh-tw
-ms.translationtype: MT
-ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
-ms.openlocfilehash: 0dd5d0f5b58a9ea7ae60abf11e9b25eb24bca8ee
-ms.contentlocale: zh-cn
-ms.lasthandoff: 08/28/2017
-
+ms.author: "gregvanl"
+manager: "ghogen"
+caps.handback.revision: 14
 ---
-# <a name="idebugsymbolprovider"></a>IDebugSymbolProvider
-This interface represents a symbol provider that provides symbols and types, returning them as fields.  
+# IDebugSymbolProvider
+[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
+
+此接口表示提供符号和类型的符号提供程序，返回它们作为字段。  
   
-## <a name="syntax"></a>Syntax  
+## 语法  
   
 ```  
 IDebugSymbolProvider : IUnknown  
 ```  
   
-## <a name="notes-for-implementers"></a>Notes for Implementers  
- A symbol provider must implement this interface to supply symbol and type information to an expression evaluator.  
+## 实现者说明  
+ 符号提供程序必须实现此接口提供符号和类型信息对表达式计算器。  
   
-## <a name="notes-for-callers"></a>Notes for Callers  
- This interface is obtained by using COM's `CoCreateInstance` function (for unmanaged symbol providers) or by loading the appropriate managed code assembly and instantiating the symbol provider based on the information found in that assembly. The debug engine instantiates the symbol provider to work in coordination with the expression evaluator. See the Example for one approach to instantiating this interface.  
+## 调用方的说明  
+ 此接口获取使用 COM 的 `CoCreateInstance` 函数 \(非托管符号提供程序\) 或通过将相应的托管代码程序集和实例化基于信息的符号提供程序在该程序集中找到。  调试引擎实例化符号提供程序与表达式计算器进行交互的方式。  为一个方法参见示例在运行时实例化此接口。  
   
-## <a name="methods-in-vtable-order"></a>Methods in Vtable Order  
- The following table shows the methods of `IDebugSymbolProvider`.  
+## 方法按 Vtable 顺序  
+ 下表显示 `IDebugSymbolProvider`方法。  
   
-|Method|Description|  
-|------------|-----------------|  
-|`Initialize`|Deprecated. Do not use.|  
-|`Uninitialize`|Deprecated. Do not use.|  
-|[GetContainerField](../../../extensibility/debugger/reference/idebugsymbolprovider-getcontainerfield.md)|Gets the field that contains the debug address.|  
-|`GetField`|Deprecated. Do not use.|  
-|[GetAddressesFromPosition](../../../extensibility/debugger/reference/idebugsymbolprovider-getaddressesfromposition.md)|Maps a document position into an array of debug addresses.|  
-|[GetAddressesFromContext](../../../extensibility/debugger/reference/idebugsymbolprovider-getaddressesfromcontext.md)|Maps a document context into an array of debug addresses.|  
-|[GetContextFromAddress](../../../extensibility/debugger/reference/idebugsymbolprovider-getcontextfromaddress.md)|Maps a debug address into a document context.|  
-|[GetLanguage](../../../extensibility/debugger/reference/idebugsymbolprovider-getlanguage.md)|Gets the language used to compile the code at the debug address.|  
-|`GetGlobalContainer`|Deprecated. Do not use.|  
-|[GetMethodFieldsByName](../../../extensibility/debugger/reference/idebugsymbolprovider-getmethodfieldsbyname.md)|Gets the field representing a fully qualified method name.|  
-|[GetClassTypeByName](../../../extensibility/debugger/reference/idebugsymbolprovider-getclasstypebyname.md)|Gets the class field type representing a fully qualified class name.|  
-|[GetNamespacesUsedAtAddress](../../../extensibility/debugger/reference/idebugsymbolprovider-getnamespacesusedataddress.md)|Creates an enumerator for namespaces associated with the debug address.|  
-|[GetTypeByName](../../../extensibility/debugger/reference/idebugsymbolprovider-gettypebyname.md)|Maps a symbol name to a symbol type.|  
-|[GetNextAddress](../../../extensibility/debugger/reference/idebugsymbolprovider-getnextaddress.md)|Gets the debug address that follows a given debug address in a method.|  
+|方法|说明|  
+|--------|--------|  
+|`Initialize`|已否决。  不要使用。|  
+|`Uninitialize`|已否决。  不要使用。|  
+|[GetContainerField](../../../extensibility/debugger/reference/idebugsymbolprovider-getcontainerfield.md)|获取包含调试地址的字段。|  
+|`GetField`|已否决。  不要使用。|  
+|[GetAddressesFromPosition](../Topic/IDebugSymbolProvider::GetAddressesFromPosition.md)|映射一个文档位置到数组调试地址。|  
+|[GetAddressesFromContext](../../../extensibility/debugger/reference/idebugsymbolprovider-getaddressesfromcontext.md)|映射到文档上下文设置为数组调试地址。|  
+|[GetContextFromAddress](../../../extensibility/debugger/reference/idebugsymbolprovider-getcontextfromaddress.md)|映射一个调试地址到文档上下文。|  
+|[GetLanguage](../../../extensibility/debugger/reference/idebugsymbolprovider-getlanguage.md)|获取该语言用于生成代码在调试地址。|  
+|`GetGlobalContainer`|已否决。  不要使用。|  
+|[GetMethodFieldsByName](../Topic/IDebugSymbolProvider::GetMethodFieldsByName.md)|获取表示完全限定的方法名称的字段。|  
+|[GetClassTypeByName](../../../extensibility/debugger/reference/idebugsymbolprovider-getclasstypebyname.md)|获取表示一个完全限定类名的类字段类型。|  
+|[GetNamespacesUsedAtAddress](../../../extensibility/debugger/reference/idebugsymbolprovider-getnamespacesusedataddress.md)|创建命名空间的枚举数与调试地址。|  
+|[GetTypeByName](../../../extensibility/debugger/reference/idebugsymbolprovider-gettypebyname.md)|映射一个符号名到符号类型。|  
+|[GetNextAddress](../Topic/IDebugSymbolProvider::GetNextAddress.md)|获取遵循给定的调试在方法的地址的调试地址。|  
   
-## <a name="remarks"></a>Remarks  
- This interface maps document positions into debug addresses and vice versa.  
+## 备注  
+ 此接口映射文档位置到调试地址反之亦然。  
   
-## <a name="requirements"></a>Requirements  
- Header: sh.h  
+## 要求  
+ 标题:sh.h  
   
- Namespace: Microsoft.VisualStudio.Debugger.Interop  
+ 命名空间:Microsoft.VisualStudio.Debugger.Interop  
   
- Assembly: Microsoft.VisualStudio.Debugger.Interop.dll  
+ 程序集:Microsoft.VisualStudio.Debugger.Interop.dll  
   
-## <a name="example"></a>Example  
- This example shows how to instantiate the symbol provider, given its GUID (a debug engine must know this value).  
+## 示例  
+ 此示例演示如何实例化符号提供程序将其 GUID \(调试引擎必须知道此值\)。  
   
-```cpp  
+```cpp#  
 // A debug engine uses its own symbol provider and would know the GUID  
 // of that provider.  
 IDebugSymbolProvider *GetSymbolProvider(GUID *pSymbolProviderGuid)  
@@ -121,5 +104,5 @@ IDebugSymbolProvider *GetSymbolProvider(GUID *pSymbolProviderGuid)
 }  
 ```  
   
-## <a name="see-also"></a>See Also  
- [Symbol Provider Interfaces](../../../extensibility/debugger/reference/symbol-provider-interfaces.md)
+## 请参阅  
+ [符号提供程序接口](../../../extensibility/debugger/reference/symbol-provider-interfaces.md)

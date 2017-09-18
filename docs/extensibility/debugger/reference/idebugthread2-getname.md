@@ -1,69 +1,52 @@
 ---
-title: IDebugThread2::GetName | Microsoft Docs
-ms.custom: 
-ms.date: 11/04/2016
-ms.reviewer: 
-ms.suite: 
-ms.technology:
-- vs-ide-sdk
-ms.tgt_pltfrm: 
-ms.topic: article
-f1_keywords:
-- IDebugThread2::GetName
-helpviewer_keywords:
-- IDebugThread2::GetName
+title: "IDebugThread2::GetName | Microsoft Docs"
+ms.custom: ""
+ms.date: "11/04/2016"
+ms.reviewer: ""
+ms.suite: ""
+ms.technology: 
+  - "vs-ide-sdk"
+ms.tgt_pltfrm: ""
+ms.topic: "article"
+f1_keywords: 
+  - "IDebugThread2::GetName"
+helpviewer_keywords: 
+  - "IDebugThread2::GetName"
 ms.assetid: eec54b8f-4a0e-4919-b0f9-81d4bd1e0b6f
 caps.latest.revision: 10
-ms.author: gregvanl
-manager: ghogen
-translation.priority.mt:
-- cs-cz
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pl-pl
-- pt-br
-- ru-ru
-- tr-tr
-- zh-cn
-- zh-tw
-ms.translationtype: MT
-ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
-ms.openlocfilehash: 675f2bd0e42ac8584914c570e5efbeee415036db
-ms.contentlocale: zh-cn
-ms.lasthandoff: 08/28/2017
-
+ms.author: "gregvanl"
+manager: "ghogen"
+caps.handback.revision: 10
 ---
-# <a name="idebugthread2getname"></a>IDebugThread2::GetName
-Gets the name of a thread.  
+# IDebugThread2::GetName
+[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
+
+获取线程的名称。  
   
-## <a name="syntax"></a>Syntax  
+## 语法  
   
-```cpp  
-HRESULT GetName (   
-   BSTR* pbstrName  
+```cpp#  
+HRESULT GetName (   
+   BSTR* pbstrName  
 );  
 ```  
   
-```csharp  
-int GetName (   
-   out string pbstrName  
+```c#  
+int GetName (   
+   out string pbstrName  
 );  
 ```  
   
-#### <a name="parameters"></a>Parameters  
+#### 参数  
  `pbstrName`  
- [out] Returns the name of the thread.  
+ \[out\] 返回线程的名称。  
   
-## <a name="return-value"></a>Return Value  
- If successful, returns `S_OK`; otherwise, returns an error code.  
+## 返回值  
+ 如果成功，则返回; `S_OK`否则，返回错误代码。  
   
-## <a name="remarks"></a>Remarks  
- The retrieved name is always a name that can be displayed and this name describes the thread. The thread name might be derived from a run-time architecture that supports named threads, or it might be a name derived from the debug engine. Alternatively, the name of the thread can be set by a call to the [SetThreadName](../../../extensibility/debugger/reference/idebugthread2-setthreadname.md) method.  
+## 备注  
+ 该检索的名称总是可以显示的名称，该名称描述线程。  线程名称可能从支持命名线程的运行时体系结构派生，也可能是从调试引擎派生的名称。  或者，线程的名称可以通过对 [SetThreadName](../../../extensibility/debugger/reference/idebugthread2-setthreadname.md) 方法的调用设置。  
   
-## <a name="see-also"></a>See Also  
+## 请参阅  
  [IDebugThread2](../../../extensibility/debugger/reference/idebugthread2.md)   
  [SetThreadName](../../../extensibility/debugger/reference/idebugthread2-setthreadname.md)

@@ -1,5 +1,5 @@
 ---
-title: Editing Python Code in Visual Studio | Microsoft Docs
+title: "在 Visual Studio 中编辑 Python 代码 | Microsoft Docs"
 ms.custom: 
 ms.date: 7/10/2017
 ms.prod: visual-studio-dev15
@@ -16,147 +16,148 @@ author: kraigb
 ms.author: kraigb
 manager: ghogen
 ms.translationtype: HT
-ms.sourcegitcommit: 4013eb0b251985b0984d0cbf2a723175fe91aad5
-ms.openlocfilehash: f4d594297359c0b79d1ad64bbc5682de916899b8
+ms.sourcegitcommit: 6d25db4639f2c8391c1e32542701ea359f560178
+ms.openlocfilehash: d16b8fcae5b7d1a14c8f6068dfd7103115cba291
 ms.contentlocale: zh-cn
-ms.lasthandoff: 09/09/2017
+ms.lasthandoff: 07/18/2017
 
 ---
 
-# <a name="editing-python-code"></a>Editing Python code
+# <a name="editing-python-code"></a>编辑 Python 代码
 
-Developers spend much of their time in the code editor, so [Python support in Visual Studio](installation.md) provides functionality to help you be more productive. Features include IntelliSense syntax highlighting, auto-completion, signature help, method overrides, search, and navigation. 
+开发人员需要花费大量时间埋头于代码编辑器，因此可借助 [Visual Studio 中的 Python 的支持](installation.md)中的功能来提高工作效率。 这些功能包括 IntelliSense 语法突出显示、自动完成、签名帮助、方法重写、搜索和导航。 
 
-In this topic:
+在本主题中：
 
-- [IntelliSense](#intellisense) including completions, signature help, quick info, and code coloring.
-- [Code snippets](#code-snippets)
-- [Navigating your code](#navigating-your-code)
+- [IntelliSense](#intellisense) 包括完成、签名帮助、快速信息和代码着色。
+- [代码片段](#code-snippets)
+- [导航代码](#navigating-your-code)
 
-For general documentation on editing code in Visual Studio, see [Writing Code in the Code and Text Editor](../ide/writing-code-in-the-code-and-text-editor.md). Also see [Outlining in Visual Studio](../ide/outlining.md), which helps you stay focused on particular sections of your code. Python support includes using the Visual Studio Object Browser (**View > Other Windows > Object Browser** or Ctrl+W,J) for inspecting classes defined in each module and the functions defined in those classes. 
+有关在 Visual Studio 中编辑代码的常规文档，请参阅[在代码和文本编辑器中编写代码](../ide/writing-code-in-the-code-and-text-editor.md)。 另请参阅 [Visual Studio 中的大纲显示](../ide/outlining.md)，方便你将重点放在代码的特定部分。 Python 支持包括使用 Visual Studio 对象浏览器（“视图”>“其他窗口”>“对象浏览器”或 Ctrl+W、J）检查每个模块中定义的类及这些类中定义的函数。 
 
-The editor is also integrated with the interactive window in Visual Studio, making it easy to exchange code between the two. See [Getting Started - Using the interactive REPL window](getting-started.md#using-the-interactive-repl-window) and [Using the interactive window - Send code to interactive command](interactive-repl.md#send-code-to-interactive-command) for details.
+编辑器还集成了 Visual Studio 中的交互式窗口，便于在两者之间交换代码。 请参阅[入门 - 使用交互式 REPL 窗口](getting-started.md#using-the-interactive-repl-window)和[使用交互式窗口 - 将代码发送给交互式命令](interactive-repl.md#send-code-to-interactive-command)了解有关详细信息。
 
-For an introduction to editing Python code, see [Getting Started with Python in Visual Studio, Part 3: Editing](https://youtu.be/uZGZNEyyeKs?list=PLReL099Y5nRdLgGAdrb_YeTdEnd23s6Ff) (youtube.com, 3m48s):
+有关编辑 Python 代码的简介，请参阅 [ Visual Studio 中的 Python 入门，第 3 部分：编辑](https://youtu.be/uZGZNEyyeKs?list=PLReL099Y5nRdLgGAdrb_YeTdEnd23s6Ff)（youtube.com，3 分 48 秒）：
 
 > [!VIDEO https://www.youtube.com/embed/uZGZNEyyeKs]
 
 ## <a name="intellisense"></a>IntelliSense
 
-IntelliSense provides [completions](#completions), [signature help](#signature-help), [quick info](#quick-info), and [code coloring](#code-coloring). To improve performance, IntelliSense depends on the completion database that's generated for each Python environment in your project. Databases may need refreshing if you add, remove, or update packages. Database status is shown in the **Python Environments** window (a sibling of Solution Explorer) on the **IntelliSense** tab (see [Python Environments](python-environments.md)). 
+IntelliSense 可提供[完成](#completions)、[签名帮助](#signature-help)、[快速信息](#quick-info)和[代码着色](#code-coloring)等功能。 为了提高性能，IntelliSense 将取决于为项目中的每个 Python 环境生成的完成数据库。 添加、删除或更新包后可能需要刷新数据库。 数据库状态将显示在“IntelliSense”选项卡上的“Python 环境”窗口（解决方案资源管理器的同级）中（请参阅 [Python 环境](python-environments.md)）。 
 
-### <a name="completions"></a>Completions
+### <a name="completions"></a>完成
 
-Completions appear as statements, identifiers, and other words that may be appropriately entered at the current location in the editor. What's shown in the list is based on context and is filtered to omit incorrect or distracting options. Completions are often triggered by typing different statements (such as `import`) and operators (including a period), but you can have them appear at anytime by typing Ctrl-J, Space.
+完成显示为语句、标识符和可能在编辑器的当前位置输入的其他字词。 在列表中显示的内容基于上下文，并进行筛选以忽略不正确或干扰的选项。 完成通过键入不同的语句（如 `import`）和运算符（包括句点）触发，但可以随时通过键入 Ctrl-J、空格使其显示。
 
-![Member completion](media/code-editing-completions-simple.png)
+![成员完成](media/code-editing-completions-simple.png)
 
-When a completion list is open, you can search for the completion you want using the arrow keys, the mouse, or by continuing to type. As you type more letters, the list is further filtered to show likely completions. You can also use shortcuts such as:
+打开完成列表时，可使用箭头键、鼠标或通过继续键入搜索所需完成。 随着键入更多的字母，将进一步筛选列表以显示可能的完成。 还可以使用如下快捷方式：
 
-- Typing letters that are not at the start of the name, such as 'parse' to find 'argparse'
-- Typing only letters that are at the start of words, such as 'abc' to find 'AbstractBaseClass' or 'air' to find 'as_integer_ratio'
-- Skipping letters, such as 'b64' to find 'base64'
+- 键入非名称开头的字母，如键入“parse”查找“argparse”
+- 仅键入位于单词开头的字母，如键入“abc”查找“AbstractBaseClass”或键入“air”查找“as_integer_ratio”
+- 跳过字母，如键入“b64”查找“base64”
 
-Some examples:
+示例如下：
 
-![Member completion with filtering](media/code-editing-completion-filtering.png)
+![使用筛选的成员完成](media/code-editing-completion-filtering.png)
 
-Member completions appear automatically when you type a period after a variable or value, along with the methods and attributes of the potential types. If a variable could be more than one type, the list includes all possibilities from all types, with extra information to indicate which types support each completion. Where a completion is supported by all possible types, it is shown without annotation.
+在变量或值后键入一个句点后将自动显示成员完成，并显示可能类型的方法和属性。 如果某个变量属于多个类型，该列表将包含所有类型的所有可能项，并提供附加信息，指示支持每个完成的类型。 如果所有可能的类型支持某个完成，则该完成不显示批注。
 
-![Member completion on multiple types](media/code-editing-completion-types.png)
+![关于多种类型的成员完成](media/code-editing-completion-types.png)
 
-By default, "dunder" members (members beginning and ending with a double underscore) are not shown. In general, such members should not be accessed directly. If you need one, however, typing the leading double underscore adds these completions to the list:
+默认情况下，不显示以双下划线开头和结尾的“dunder”成员。 一般情况下，无法直接访问这类成员。 但如果需要该完成，请键入前导双下划线将这些完成添加到列表：
 
-![Private member completion](media/code-editing-completion-dunder.png)
+![私有成员完成](media/code-editing-completion-dunder.png)
 
-The `import` and `from ... import` statements display a list of modules that can be imported. With `from ... import`, the list includes members that can be imported from the specified module.
+`import` 和 `from ... import` 语句会显示一系列可以导入的模块。 通过 `from ... import`，列表会包含可以从指定模块导入的成员。
 
-![Import completion](media/code-editing-completion-import.png)
+![导入完成](media/code-editing-completion-import.png)
 
-The `raise` and `except` statements display lists of classes likely to be error types. The list may not include all user-defined exceptions, but helps you find suitable built-in exceptions quickly:
+`raise` 和 `except` 语句会显示可能为错误类型的类列表。 该列表可能不包括用户定义的所有异常，但有助于快速查找合适的内置异常：
 
-![Exception completion](media/code-editing-completion-exception.png)
+![异常完成](media/code-editing-completion-exception.png)
 
-Typing @ starts a decorator and shows potential decorators. Many of these items aren't usable as decorators; check the library documentation to determine which to use.
+键入 @ 将启动装饰器并显示可能的修饰器。 其中许多项不能用作修饰器；请查看库文档以确定使用哪个项。
 
-![Decorator completion](media/code-editing-completion-decorator.png)
-
-> [!Tip]
-> You can configure the behavior of completions through **Tools > Options > Text Editor > Python > Advanced"**. Among these, **Filter list based on search string**: applies filtering of completion suggestions as you type (default is checked), and **Member completion displays intersection of members** shows only completions that are supported by all possible types (default is unchecked). See [Options - completion results](options.md#completion-results).
-
-### <a name="signature-help"></a>Signature help
-
-When writing code that calls a function, signature help appears when you type the opening `(` and displays available documentation and parameter information. You can also make it appear with Ctrl+Shift+Space inside a function call. The information displayed depends on the documentation strings in the function's source code, but includes any default values.
-
-![Signature help](media/code-editing-signature-help.png)
+![修饰器完成](media/code-editing-completion-decorator.png)
 
 > [!Tip]
-> To disable signature help, go to **Tools > Options > Text Editor > Python > General** and clear **Statement completion > Parameter information**.
+> 可以通过“工具”>“选项”>“文本编辑器”>“Python”>“高级”来配置完成的行为。 其中，**基于搜索字符串筛选列表**将在你键入时应用筛选完成建议（默认为选中状态），而**成员完成显示成员交集**将仅显示所有可能的类型支持的完成（默认为未选中）。 请参阅[选项 - 完成结果](options.md#completion-results)。
 
-### <a name="quick-info"></a>Quick info
+### <a name="signature-help"></a>签名帮助
 
-Hovering the mouse pointer over an identifier displays a Quick Info tooltip. Depending on the identifier, Quick Info may display the potential values or types, any available documentation, return types and, definition locations:
+编写调用函数的代码时，签名帮助将在键入左括号 `(` 时出现，并显示可用的文档和参数信息。 还可以在函数调用中使用 Ctrl+Shift+空格使其显示。 显示的信息取决于函数源代码中的文档字符串，但包括所有默认值。
 
-![Quick Info](media/code-editing-quick-info.png)
-
-### <a name="code-coloring"></a>Code coloring
-
-Code coloring uses information from code analysis to colors variables, statements, and other parts of your code. For example, variables that refer to modules or classes may be shown in a different color than functions or other values, and parameter names appear in a different color than local or global variables. (By default, functions are not shown in bold):
-
-![Code coloring](media/code-editing-code-coloring.png)
-
-To customize the colors, go to **Tools > Options > Environment > Fonts and Colors** and modify the Python entries in the **Display items** list:
-
-![Fonts and Colors options](media/code-editing-customize-colors.png)
+![签名帮助](media/code-editing-signature-help.png)
 
 > [!Tip]
-> To disable code coloring, go to **Tools > Options > Text Editor > Python > Advanced** and clear **Miscellaneous Options > Color names based on type**. See [Options - Miscellaneous Options](options.md#miscellaneous-options).
+> 若要禁用签名帮助，请转到“工具”>“选项”>“文本编辑器”>“Python”>“常规”并清除“语句完成”>“参数信息”。
 
+### <a name="quick-info"></a>快速信息
 
-## <a name="code-snippets"></a>Code snippets
+将鼠标指针悬停在标识符的上方可显示快速信息工具提示。 根据标识符，快速信息可能会显示可能的值或类型、所有可用文档、返回类型以及定义位置：
 
-Code snippets are fragments of code that can be inserted into your files by typing a shortcut and pressing Tab, or using the **Edit > IntelliSense > Insert Code Snippet** **Surround With** commands. For example, typing `class` followed by the Tab key generates the rest of the class. You can type over the name and bases list, moving between the highlighted fields with Tab, then press Enter to begin typing the body.
+![快速信息](media/code-editing-quick-info.png)
 
-![Code Snippets](media/code-editing-code-snippets.png)
+### <a name="code-coloring"></a>代码着色
 
-You can see the available code snippets in the Code Snippets Manager (**Tools > Code Snippets Manager**), selecting **Python** as the language:
+代码着色使用代码分析中的信息为变量、语句和代码的其他部分着色。 例如，引用模块或类的变量可能采用不同于函数或其他值的颜色显示，而参数名称将采用不同于局部变量或全局变量的颜色显示。 （默认情况下，函数不以粗体形式显示）：
 
-![Code Snippets Manager](media/code-editing-code-snippets-manager.png)
+![代码着色](media/code-editing-code-coloring.png)
 
-To create your own snippets, see [Walkthrough: Creating a Code Snippet](../ide/walkthrough-creating-a-code-snippet.md). 
+若要自定义颜色，请转到“工具”>“选项”>“环境”>“字体和颜色”，然后修改“显示项”列表中的 Python 项：
 
-If you write a great code snippet that you'd like to share, feel free to post it in a gist and [let us know](https://github.com/Microsoft/PTVS/issues). We may be able to include it in a future release of Visual Studio.
-
-
-## <a name="navigating-your-code"></a>Navigating your code
-
-Python support in Visual Studio provides several means to quickly navigate within your code, including libraries for which source code is available: the [navigation bar](#navigation-bar), [Go To Definition](#go-to-definition), [Navigate To](#navigate-to), and [Find All References](#find-all-references). You can also use the Visual Studio [Object Browser](../ide/viewing-the-structure-of-code.md#BKMK_ObjectBrowser).
-
-### <a name="navigation-bar"></a>Navigation bar
-
-The navigation bar is displayed at the top of each editor window and includes a two-level list of definitions. The left drop-down contains top-level class and function definitions in the current file; the right drop-down displays a list of definitions within the scope shown in the left. As you move around in the editor, the lists update to show your current context, and you can also select an entry from these lists to jump directly to in.
-
-![Navigation Bar](media/code-editing-navigation-bar.png)
+![“字体”和“颜色”选项](media/code-editing-customize-colors.png)
 
 > [!Tip]
-> To hide the navigation bar, go to **Tools > Options > Text Editor > Python > General** and clear **Settings > Navigation bar**.
+> 若要禁用代码着色，请转到“工具”>“选项”>“文本编辑器”>“Python”>“高级”，然后清除“杂项选项”>“基于类型为名称着色”。 请参阅[选项 - 杂项选项](options.md#miscellaneous-options)。
 
-### <a name="go-to-definition"></a>Go To Definition
 
-**Go To Definition** quickly jumps from the use of an identifier (such as a function name, class, or variable), to the source code where it's defined. You invoke it by right-clicking an identifier and selecting **Go To Definition** or, by placing the caret in the identifier and pressing F12. It works across your code and external libraries provided that source code is available. If library source code is not available, **Go To Definition** jumps to the relevant `import` statement for a module reference, or display an error.
+## <a name="code-snippets"></a>代码片段
 
-![Go To Definition](media/code-editing-go-to-definition.png)
+代码片段是可通过键入快捷方式并按 Tab 键或使用“编辑”>“IntelliSense”>“插入代码片段”**外侧代码**命令插入文件的几段代码。 例如，键入 `class` 并按 Tab 可生成类的其余部分。 你可以在名称和基列表上键入，使用 Tab 键在突出显示的字段间移动，然后按 Enter 开始键入正文。
 
-### <a name="navigate-to"></a>Navigate To
+![代码段](media/code-editing-code-snippets.png)
 
-The **Edit > Navigate To...** command (Ctrl-comma) displays a search box in the editor where you can type any string and see possible matches in your code that defines a function, class, or variable containing that string. This feature provides a similar capability as **Go To Definition** but without having to locate a use of an identifier.
+你可以在代码片段管理器中看到可用的代码片段（“工具”>“代码片段管理器”），选择“Python”作为语言：
 
-Double-clicking any name, or selecting with arrow keys and Enter, navigates to the definition of that identifier.
+![代码片段管理器](media/code-editing-code-snippets-manager.png)
 
-![Navigate To](media/code-editing-navigate-to.png)
+若要创建自己的代码段，请参阅[演练：创建代码段](../ide/walkthrough-creating-a-code-snippet.md)。
+通过[创建代码段](https://msdn.microsoft.com/library/ms165394.aspx)并导入可自定义代码片段 
 
-### <a name="find-all-references"></a>Find All References
+如果编写优质的代码片段并且想要将其共享，请随时发布到 gist 并[告诉我们](https://github.com/Microsoft/PTVS/issues)。 我们可能将其包含在 Visual Studio 的未来版本中。
 
-**Find All References** is a helpful way of discovering where any given identifier is both defined and used, including imports and assignments. You invoke it by right-clicking an identifier and selecting **Find All References**, or by placing the caret in the identifier and pressing Shift+F12. Double-clicking an item in the list navigates to its location.
 
-![Find All References results](media/code-editing-find-all-references.png)
+## <a name="navigating-your-code"></a>导航代码
+
+Visual Studio 中的 Python 支持提供多种方式在代码中快速导航，其中包括其源代码可用的库：[导航栏](#navigation-bar)、[转到定义](#go-to-definition)、[导航到](#navigate-to)、[查找所有引用](#find-all-references)。 还可以使用 Visual Studio [对象浏览器](../ide/viewing-the-structure-of-code.md#BKMK_ObjectBrowser)。
+
+### <a name="navigation-bar"></a>导航栏
+
+导航栏在每个编辑器窗口的顶部显示且包含两级定义列表。 左侧下拉列表包含当前文件中的顶级类和函数定义；右侧下拉列表显示左侧作用域内的定义列表。 在编辑器中移动时，列表会进行更新，以显示当前上下文，并且还可以从这些列表中选择某项以直接转入。
+
+![导航栏](media/code-editing-navigation-bar.png)
+
+> [!Tip]
+> 若要隐藏导航栏，请转到“工具”>“选项”>“文本编辑器”>“Python”>“常规”，然后清除“设置”>“导航栏”。
+
+### <a name="go-to-definition"></a>转到定义
+
+**转到定义**可从使用标识符（如函数名、类或变量）快速跳转至定义它的源代码。 通过右键单击标识符并选择“转到定义”，或将插入点放在标识符中并按 F12 可进行调用。 如果源代码可用，它可用于代码和外部库。 如果库源代码不可用，则“转到定义”将跳转到模块引用的相关 `import` 语句或显示错误。
+
+![转到定义](media/code-editing-go-to-definition.png)
+
+### <a name="navigate-to"></a>定位到
+
+“编辑”>“导航到...”命令（Ctrl-comma）将在编辑器中显示搜索框，你可在搜索框中键入任何字符串并查看在定义函数、类或变量的代码中是否存在包含此字符串的匹配项。 此功能与“转到定义”类似，但无需查找标识符的使用。
+
+双击任何名称或使用箭头键和 Enter 选择名称，然后导航到该标识符的定义。
+
+![定位到](media/code-editing-navigate-to.png)
+
+### <a name="find-all-references"></a>查找所有引用
+
+**查找所有引用**是一种有用的方法，用于发现同时定义和使用任何给定标识符的位置，包括导入和分配。 通过右键单击标识符并选择“查找所有引用”或将插入点放在标识符中并按 Shift+F12 可以进行调用。 双击列表中的项可导航到其位置。
+
+![查找所有引用结果](media/code-editing-find-all-references.png)

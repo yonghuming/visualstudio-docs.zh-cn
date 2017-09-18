@@ -1,88 +1,72 @@
 ---
-title: 'Walkthrough: Downloading Satellite Assemblies on Demand with the ClickOnce Deployment API | Microsoft Docs'
-ms.custom: 
-ms.date: 11/04/2016
-ms.reviewer: 
-ms.suite: 
-ms.technology:
-- vs-ide-deployment
-ms.tgt_pltfrm: 
-ms.topic: article
-dev_langs:
-- VB
-- CSharp
-- C++
-helpviewer_keywords:
-- ClickOnce deployment, globalization
-- localization, Windows Forms
-- Windows Forms, localization
-- globalization, ClickOnce
-- satellite assemblies, ClickOnce
-- ClickOnce deployment, on-demand download
-- localization, ClickOnce deployment
-- ClickOnce deployment, localization
+title: "演练：使用 ClickOnce 部署 API 按需下载附属程序集 | Microsoft Docs"
+ms.custom: ""
+ms.date: "12/15/2016"
+ms.prod: "visual-studio-dev14"
+ms.reviewer: ""
+ms.suite: ""
+ms.technology: 
+  - "vs-ide-deployment"
+ms.tgt_pltfrm: ""
+ms.topic: "article"
+dev_langs: 
+  - "VB"
+  - "CSharp"
+  - "C++"
+helpviewer_keywords: 
+  - "ClickOnce 部署, 全球化"
+  - "ClickOnce 部署, 本地化"
+  - "ClickOnce 部署, 按需下载"
+  - "全球化, ClickOnce"
+  - "本地化, ClickOnce 部署"
+  - "本地化, Windows 窗体"
+  - "附属程序集, ClickOnce"
+  - "Windows 窗体, 本地化"
 ms.assetid: fdaa553f-a27e-44eb-a4e2-08c122105a87
 caps.latest.revision: 11
-author: stevehoag
-ms.author: shoag
-manager: wpickett
-translation.priority.ht:
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- ru-ru
-- zh-cn
-- zh-tw
-translation.priority.mt:
-- cs-cz
-- pl-pl
-- pt-br
-- tr-tr
-ms.translationtype: HT
-ms.sourcegitcommit: eb5c9550fd29b0e98bf63a7240737da4f13f3249
-ms.openlocfilehash: 617b8edabe41382c298ee70b68c304cfdc51eb6f
-ms.contentlocale: zh-cn
-ms.lasthandoff: 08/30/2017
-
+caps.handback.revision: 11
+author: "stevehoag"
+ms.author: "shoag"
+manager: "wpickett"
 ---
-# <a name="walkthrough-downloading-satellite-assemblies-on-demand-with-the-clickonce-deployment-api"></a>Walkthrough: Downloading Satellite Assemblies on Demand with the ClickOnce Deployment API
-Windows Forms applications can be configured for multiple cultures through the use of satellite assemblies. A *satellite assembly* is an assembly that contains application resources for a culture other than the application's default culture.  
+# 演练：使用 ClickOnce 部署 API 按需下载附属程序集
+[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
+
+通过使用附属程序集，可以为多个区域性配置 Windows 窗体应用程序。*附属程序集*是一种包含除应用程序默认区域性以外区域性的应用程序资源的程序集。  
   
- As discussed in [Localizing ClickOnce Applications](../deployment/localizing-clickonce-applications.md), you can include multiple satellite assemblies for multiple cultures within the same [!INCLUDE[ndptecclick](../deployment/includes/ndptecclick_md.md)] deployment. By default, [!INCLUDE[ndptecclick](../deployment/includes/ndptecclick_md.md)] will download all of the satellite assemblies in your deployment to the client machine, although a single client will probably require only one satellite assembly.  
+ 如 [本地化 ClickOnce 应用程序](../deployment/localizing-clickonce-applications.md)中所述，可以在同一 [!INCLUDE[ndptecclick](../deployment/includes/ndptecclick_md.md)] 部署中包含适用于多个区域性的多个附属程序集。 默认情况下，即使单个客户端可能只需要一个附属程序集，[!INCLUDE[ndptecclick](../deployment/includes/ndptecclick_md.md)] 也会将部署中的所有附属程序集下载到客户端计算机中。  
   
- This walkthrough demonstrates how to mark your satellite assemblies as optional, and download only the assembly a client machine needs for its current culture settings. The following procedure uses the tools available in the [!INCLUDE[winsdklong](../deployment/includes/winsdklong_md.md)]. You can also perform this task in [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)].  Also see [Walkthrough: Downloading Satellite Assemblies on Demand with the ClickOnce Deployment API Using the Designer](http://msdn.microsoft.com/library/ms366788\(v=vs.110\)) or [Walkthrough: Downloading Satellite Assemblies on Demand with the ClickOnce Deployment API Using the Designer](http://msdn.microsoft.com/library/ms366788\(v=vs.120\)).  
+ 本演练演示如何将附属程序集标记为可选，并且只下载客户端计算机的当前区域性设置需要的程序集。 下面的过程使用 [!INCLUDE[winsdklong](../deployment/includes/winsdklong_md.md)] 中可用的工具。 还可在 [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] 中执行此任务。  另请参阅[演练：在设计器中使用 ClickOnce 部署 API 按需下载附属程序集](http://msdn.microsoft.com/library/ms366788\(v=vs.110\))或[演练：在设计器中使用 ClickOnce 部署 API 按需下载附属程序集](http://msdn.microsoft.com/library/ms366788\(v=vs.120\))。  
   
 > [!NOTE]
->  For testing purposes, the following code example programmatically sets the culture to `ja-JP`. See the "Next Steps" section later in this topic for information on how to adjust this code for a production environment.  
+>  出于测试目的，下面的代码示例以编程方式将区域性设置为 `ja-JP`。 有关如何为生产环境调整此代码的信息，请参阅本主题中后面的“后续步骤”部分。  
   
-## <a name="prerequisites"></a>Prerequisites  
- This topic assumes that you know how to add localized resources to your application using Visual Studio. For detailed instructions, see [Walkthrough: Localizing Windows Forms](https://msdn.microsoft.com/en-us/library/vstudio/y99d1cd3\(v=vs.100\).aspx).  
+## 系统必备  
+ 本主题假定你知道如何使用 Visual Studio 将本地化的资源添加到应用程序。 有关详细说明，请参阅[演练：本地化 Windows 窗体](https://msdn.microsoft.com/en-us/library/vstudio/y99d1cd3\(v=vs.100\).aspx)。  
   
-### <a name="to-download-satellite-assemblies-on-demand"></a>To download satellite assemblies on demand  
+### 按需下载附属程序集  
   
-1.  Add the following code to your application to enable on-demand downloading of satellite assemblies.  
+1.  将以下代码添加到应用程序以启用按需下载附属程序集。  
   
-     [!code-csharp[ClickOnce.SatelliteAssembliesSDK#1](../deployment/codesnippet/CSharp/walkthrough-downloading-satellite-assemblies-on-demand-with-the-clickonce-deployment-api_1.cs)]  [!code-vb[ClickOnce.SatelliteAssembliesSDK#1](../deployment/codesnippet/VisualBasic/walkthrough-downloading-satellite-assemblies-on-demand-with-the-clickonce-deployment-api_1.vb)]  
+     [!code-cs[ClickOnce.SatelliteAssembliesSDK#1](../deployment/codesnippet/CSharp/walkthrough-downloading-satellite-assemblies-on-demand-with-the-clickonce-deployment-api_1.cs)]
+     [!code-vb[ClickOnce.SatelliteAssembliesSDK#1](../deployment/codesnippet/VisualBasic/walkthrough-downloading-satellite-assemblies-on-demand-with-the-clickonce-deployment-api_1.vb)]  
   
-2.  Generate satellite assemblies for your application by using [Resgen.exe (Resource File Generator)](/dotnet/framework/tools/resgen-exe-resource-file-generator) or [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)].  
+2.  使用[Resgen.exe（资源文件生成器）](../Topic/Resgen.exe%20\(Resource%20File%20Generator\).md) 或 [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] 为应用程序生成附属程序集。  
   
-3.  Generate an application manifest, or open your existing application manifest, by using MageUI.exe. For more information about this tool, see [MageUI.exe (Manifest Generation and Editing Tool, Graphical Client)](/dotnet/framework/tools/mageui-exe-manifest-generation-and-editing-tool-graphical-client).  
+3.  使用 MageUI.exe 生成应用程序清单，或打开现有的应用程序清单。 有关此工具的详细信息，请参阅[MageUI.exe（图形化客户端中的清单生成和编辑工具）](../Topic/MageUI.exe%20\(Manifest%20Generation%20and%20Editing%20Tool,%20Graphical%20Client\).md)。  
   
-4.  Click the **Files** tab.  
+4.  单击“文件”选项卡。  
   
-5.  Click the **ellipsis** button (**...**) and select the directory containing all of your application's assemblies and files, including the satellite assemblies you generated using Resgen.exe. (A satellite assembly will have a name in the form *isoCode*\ApplicationName.resources.dll, where *isoCode* is a language identifier in RFC 1766 format.)  
+5.  单击“省略号”按钮（“...”），然后选择包含所有应用程序的程序集和文件（包括使用 Resgen.exe 生成的附属程序集）的目录。 （附属程序集将包含一个名称，形式为 *isoCode*\\ApplicationName.resources.dll，其中 *isoCode* 是 RFC 1766 格式的语言标识符。）  
   
-6.  Click **Populate** to add the files to your deployment.  
+6.  单击“填充”将文件添加到部署。  
   
-7.  Select the **Optional** check box for each satellite assembly.  
+7.  选择每个附属程序集的“可选”复选框。  
   
-8.  Set the group field for each satellite assembly to its ISO language identifier. For example, for a Japanese satellite assembly, you would specify a download group name of `ja-JP`. This will enable the code you added in step 1 to download the appropriate satellite assembly, depending upon the user's <xref:System.Threading.Thread.CurrentUICulture%2A> property setting.  
+8.  将每个附属程序集的组字段设置为它的 ISO 语言标识符。 例如，对于日语附属程序集，可以指定 `JA-JP` 的下载组名称。 这将使在步骤 1 添加的代码能够下载适当的附属程序集，这取决于用户的 <xref:System.Threading.Thread.CurrentUICulture%2A> 属性设置。  
   
-## <a name="next-steps"></a>Next Steps  
- In a production environment, you will likely need to remove the line in the code example that sets <xref:System.Threading.Thread.CurrentUICulture%2A> to a specific value, because client machines will have the correct value set by default. When your application runs on a Japanese client machine, for example, <xref:System.Threading.Thread.CurrentUICulture%2A> will be `ja-JP` by default. Setting this value programmatically is a good way to test your satellite assemblies before you deploy your application.  
+## 后续步骤  
+ 在生产环境中，可能需要删除将 <xref:System.Threading.Thread.CurrentUICulture%2A> 设置为特定值的代码示例中的行，因为客户端计算机将以默认方式设置正确值。 例如，当在日语客户端计算机上运行应用程序时，默认情况下，<xref:System.Threading.Thread.CurrentUICulture%2A> 将设置为 `ja-JP`。 以编程方式设置此值是在部署应用程序之前测试附属程序集的一个很好的方法。  
   
-## <a name="see-also"></a>See Also  
- [Localizing ClickOnce Applications](../deployment/localizing-clickonce-applications.md)
+## 请参阅  
+ [本地化 ClickOnce 应用程序](../deployment/localizing-clickonce-applications.md)

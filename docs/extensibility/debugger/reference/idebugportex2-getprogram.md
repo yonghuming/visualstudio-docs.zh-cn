@@ -1,72 +1,55 @@
 ---
-title: IDebugPortEx2::GetProgram | Microsoft Docs
-ms.custom: 
-ms.date: 11/04/2016
-ms.reviewer: 
-ms.suite: 
-ms.technology:
-- vs-ide-sdk
-ms.tgt_pltfrm: 
-ms.topic: article
-f1_keywords:
-- IDebugPortEx2::GetProgram
-helpviewer_keywords:
-- IDebugPortEx2::GetProgram
+title: "IDebugPortEx2::GetProgram | Microsoft Docs"
+ms.custom: ""
+ms.date: "11/04/2016"
+ms.reviewer: ""
+ms.suite: ""
+ms.technology: 
+  - "vs-ide-sdk"
+ms.tgt_pltfrm: ""
+ms.topic: "article"
+f1_keywords: 
+  - "IDebugPortEx2::GetProgram"
+helpviewer_keywords: 
+  - "IDebugPortEx2::GetProgram"
 ms.assetid: cd83a111-bfd5-4eae-b576-526466c6b6ec
 caps.latest.revision: 10
-ms.author: gregvanl
-manager: ghogen
-translation.priority.mt:
-- cs-cz
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pl-pl
-- pt-br
-- ru-ru
-- tr-tr
-- zh-cn
-- zh-tw
-ms.translationtype: MT
-ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
-ms.openlocfilehash: 36d291194a8fce2c8b82a0113399edb20a817eee
-ms.contentlocale: zh-cn
-ms.lasthandoff: 08/28/2017
-
+ms.author: "gregvanl"
+manager: "ghogen"
+caps.handback.revision: 10
 ---
-# <a name="idebugportex2getprogram"></a>IDebugPortEx2::GetProgram
-Gets the program associated with a program node.  
+# IDebugPortEx2::GetProgram
+[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
+
+获取程序与程序节点。  
   
-## <a name="syntax"></a>Syntax  
+## 语法  
   
-```cpp  
-HRESULT GetProgram(   
-   IDebugProgramNode2* pProgramNode,  
-   IDebugProgram2**    ppProgram  
+```cpp#  
+HRESULT GetProgram(   
+   IDebugProgramNode2* pProgramNode,  
+   IDebugProgram2**    ppProgram  
 );  
 ```  
   
-```csharp  
-int GetProgram(   
-   IDebugProgramNode2 pProgramNode,  
-   out IDebugProgram2 ppProgram  
+```c#  
+int GetProgram(   
+   IDebugProgramNode2 pProgramNode,  
+   out IDebugProgram2 ppProgram  
 );  
 ```  
   
-#### <a name="parameters"></a>Parameters  
+#### 参数  
  `pProgramNode`  
- [in] An [IDebugProgramNode2](../../../extensibility/debugger/reference/idebugprogramnode2.md) object representing the program node.  
+ \[in\] 表示程序节点的 [IDebugProgramNode2](../../../extensibility/debugger/reference/idebugprogramnode2.md) 对象。  
   
  `ppProgram`  
- [out] Returns an [IDebugProgram2](../../../extensibility/debugger/reference/idebugprogram2.md) object that represents the program associated with the program node.  
+ \[out\] 返回表示程序与程序节点的 [IDebugProgram2](../../../extensibility/debugger/reference/idebugprogram2.md) 对象。  
   
-## <a name="return-value"></a>Return Value  
- If successful, returns `S_OK`; otherwise, returns an error code.  
+## 返回值  
+ 如果成功，则返回; `S_OK`否则，返回错误代码。  
   
-## <a name="see-also"></a>See Also  
+## 请参阅  
  [IDebugPortEx2](../../../extensibility/debugger/reference/idebugportex2.md)   
  [IDebugProgramNode2](../../../extensibility/debugger/reference/idebugprogramnode2.md)   
  [IDebugProgram2](../../../extensibility/debugger/reference/idebugprogram2.md)

@@ -1,58 +1,41 @@
 ---
-title: Creating a Multi-Instance Tool Window | Microsoft Docs
-ms.custom: 
-ms.date: 11/04/2016
-ms.reviewer: 
-ms.suite: 
-ms.technology:
-- vs-ide-sdk
-ms.tgt_pltfrm: 
-ms.topic: article
-helpviewer_keywords:
-- multi
-- tool windows
+title: "创建多实例工具窗口 | Microsoft Docs"
+ms.custom: ""
+ms.date: "11/04/2016"
+ms.reviewer: ""
+ms.suite: ""
+ms.technology: 
+  - "vs-ide-sdk"
+ms.tgt_pltfrm: ""
+ms.topic: "article"
+helpviewer_keywords: 
+  - "多"
+  - "工具窗口"
 ms.assetid: 4a7872f1-acc9-4f43-8932-5a526b36adea
 caps.latest.revision: 12
-ms.author: gregvanl
-manager: ghogen
-translation.priority.mt:
-- cs-cz
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pl-pl
-- pt-br
-- ru-ru
-- tr-tr
-- zh-cn
-- zh-tw
-ms.translationtype: MT
-ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
-ms.openlocfilehash: bed04fe13e7232b2c227072ab91e6a56db0c6963
-ms.contentlocale: zh-cn
-ms.lasthandoff: 08/28/2017
-
+ms.author: "gregvanl"
+manager: "ghogen"
+caps.handback.revision: 12
 ---
-# <a name="creating-a-multi-instance-tool-window"></a>Creating a Multi-Instance Tool Window
-You can program a tool window so that multiple instances of it can be open simultaneously. By default, tool windows can have only one instance open.  
+# 创建多实例工具窗口
+[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
+
+您可以编程的工具窗口，以便它的多个实例可以同时打开。 默认情况下，工具窗口可以只有一个打开的实例。  
   
- When you use a multi-instance tool window, you can show several related sources of information at the same time. For example, you could put a multi-line <xref:System.Windows.Forms.TextBox> control in a multi-instance tool window so that several code snippets are simultaneously available during a programming session. Also for example, you could put a <xref:System.Windows.Forms.DataGrid> control and a drop-down list box in a multi-instance tool window so that several real-time data sources can be tracked simultaneously.  
+ 当使用多实例工具窗口时，可以显示在同一时间信息的多个相关的源。 例如，您可以将多行 <xref:System.Windows.Forms.TextBox> 控件的多实例工具窗口中，以便在编程会话期间几个代码段是同时使用。 此外例如中，您可以将 <xref:System.Windows.Forms.DataGrid> 控制和下拉列表框中的多实例工具窗口中，以便可以同时跟踪几个实时数据源。  
   
-## <a name="creating-a-basic-single-instance-tool-window"></a>Creating a Basic (Single-Instance) Tool Window  
+## 创建基本 （单实例） 工具窗口  
   
-1.  Create a project named **MultiInstanceToolWindow** using the VSIX template, and add a custom tool window item template named **MIToolWindow**.  
+1.  创建一个名为项目 **MultiInstanceToolWindow** 使用 VSIX 模板，并将添加一个名为的自定义工具窗口项模板 **MIToolWindow**。  
   
     > [!NOTE]
-    >  For more information about creating an extension with a tool window, see [Creating an Extension with a Tool Window](../extensibility/creating-an-extension-with-a-tool-window.md).  
+    >  有关使用一个工具窗口创建扩展的详细信息，请参阅 [使用一个工具窗口创建扩展](../extensibility/creating-an-extension-with-a-tool-window.md)。  
   
-## <a name="making-a-tool-window-multi-instance"></a>Making a tool window multi-instance  
+## 从而使工具窗口多实例  
   
-1.  Open the **MIToolWindowPackage.cs** file and find the `ProvideToolWindow` attribute. and the `MultiInstances=true` parameter, as shown in the following example.  
+1.  打开 **MIToolWindowPackage.cs** 文件并查找 `ProvideToolWindow` 属性。 与 `MultiInstances=true` 参数，如下面的示例中所示。  
   
-    ```csharp  
+    ```c#  
     [PackageRegistration(UseManagedResourcesOnly = true)]  
         [InstalledProductRegistration("#110", "#112", "1.0", IconResourceID = 400)] // Info on this package for Help/About  
         [ProvideMenuResource("Menus.ctmenu", 1)]  
@@ -62,17 +45,17 @@ You can program a tool window so that multiple instances of it can be open simul
     {. . .}  
     ```  
   
-2.  In the MIToolWindowCommand.cs file, find the ShowToolWindos() method. In this method, call the <xref:Microsoft.VisualStudio.Shell.Package.FindToolWindow%2A> method and set its `create` flag to `false` so that it will iterate through existing tool window instances until an available `id` is found.  
+2.  在 MIToolWindowCommand.cs 文件中，找到 ShowToolWindos\(\) 方法。 在这种方法，调用 <xref:Microsoft.VisualStudio.Shell.Package.FindToolWindow%2A> 方法，并设置其 `create` 标记，用于 `false` ，以便它将循环访问现有的工具窗口实例之前是可用 `id` 找到。  
   
-3.  To create a tool window instance, call the <xref:Microsoft.VisualStudio.Shell.Package.FindToolWindow%2A> method and set its `id` to an available value and its `create` flag to `true`.  
+3.  若要创建工具窗口实例，请调用 <xref:Microsoft.VisualStudio.Shell.Package.FindToolWindow%2A> 方法，并设置其 `id` 为可用的值并将其 `create` 标记，用于 `true`。  
   
-     By default, the value of the `id` parameter of the <xref:Microsoft.VisualStudio.Shell.Package.FindToolWindow%2A> method is `0`. This makes a single-instance tool window. For more than one instance to be hosted, every instance must have its own unique `id`.  
+     默认情况下，值 `id` 参数 <xref:Microsoft.VisualStudio.Shell.Package.FindToolWindow%2A> 方法是 `0`。 这使得单实例工具窗口。 对于要承载的多个实例，每个实例必须具有其自己唯一 `id`。  
   
-4.  Call the <xref:Microsoft.VisualStudio.Shell.Interop.IVsWindowFrame.Show%2A> method on the <xref:Microsoft.VisualStudio.Shell.Interop.IVsWindowFrame> object that is returned by the <xref:Microsoft.VisualStudio.Shell.ToolWindowPane.Frame%2A> property of the tool window instance.  
+4.  调用 <xref:Microsoft.VisualStudio.Shell.Interop.IVsWindowFrame.Show%2A> 方法 <xref:Microsoft.VisualStudio.Shell.Interop.IVsWindowFrame> 所返回的对象 <xref:Microsoft.VisualStudio.Shell.ToolWindowPane.Frame%2A> 工具窗口实例的属性。  
   
-5.  By default, the `ShowToolWindow` method that is created by the tool window item template creates a single-instance tool window. The following example shows how to modify the `ShowToolWindow` method to create multiple instances.  
+5.  默认情况下， `ShowToolWindow` 由工具窗口项模板创建的方法创建一个单实例工具窗口。 下面的示例演示如何修改 `ShowToolWindow` 方法来创建多个实例。  
   
-    ```csharp  
+    ```c#  
     private void ShowToolWindow(object sender, EventArgs e)  
     {  
         for (int i = 0; i < 10; i++)  

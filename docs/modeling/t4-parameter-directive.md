@@ -1,51 +1,34 @@
 ---
-title: T4 Parameter Directive | Microsoft Docs
-ms.custom: 
-ms.date: 11/04/2016
-ms.reviewer: 
-ms.suite: 
-ms.tgt_pltfrm: 
-ms.topic: article
+title: "T4 参数指令 | Microsoft Docs"
+ms.custom: ""
+ms.date: "11/04/2016"
+ms.reviewer: ""
+ms.suite: ""
+ms.tgt_pltfrm: ""
+ms.topic: "article"
 ms.assetid: 1d590387-1d9d-40a5-a72c-65fae7a8bdf3
 caps.latest.revision: 3
-author: alancameronwills
-ms.author: awills
-manager: douge
-translation.priority.ht:
-- cs-cz
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pl-pl
-- pt-br
-- ru-ru
-- tr-tr
-- zh-cn
-- zh-tw
-ms.translationtype: MT
-ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
-ms.openlocfilehash: 6b14a319cbf9e349de4cbf04a2d6781a0c87bf88
-ms.contentlocale: zh-cn
-ms.lasthandoff: 08/28/2017
-
+author: "alancameronwills"
+ms.author: "awills"
+manager: "douge"
+caps.handback.revision: 3
 ---
-# <a name="t4-parameter-directive"></a>T4 Parameter Directive
-In a [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] text template, the `parameter` directive declares properties in your template code that are initialized from values passed in from the external context. You can set these values if you write code that invokes text transformation.  
+# T4 参数指令
+[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
+
+在 [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] 文本模板中，`parameter` 指令声明模板代码中从自外部上下文传入的值初始化的属性。  如果编写调用文本转换的代码，则可以设置这些值。  
   
-## <a name="using-the-parameter-directive"></a>Using the Parameter Directive  
+## 使用参数指令  
   
 ```  
 <#@ parameter type="Full.TypeName" name="ParameterName" #>  
 ```  
   
- The `parameter` directive declares properties in your template code that are initialized from values passed in from the external context. You can set these values if you write code that invokes text transformation. The values can be passed either in the `Session` dictionary, or in <xref:System.Runtime.Remoting.Messaging.CallContext>.  
+ `parameter` 指令声明模板代码中从自外部上下文传入的值初始化的属性。  如果编写调用文本转换的代码，则可以设置这些值。  这些值既可以在 `Session` 字典中传递，也可以在 <xref:System.Runtime.Remoting.Messaging.CallContext> 中传递。  
   
- You can declare parameters of any remotable type. That is, the type must be declared with <xref:System.SerializableAttribute>, or it must derive from <xref:System.MarshalByRefObject>. This allows parameter values to be passed into the AppDomain in which the template is processed.  
+ 可以声明任何远程类型的参数。  也就是说，类型必须使用 <xref:System.SerializableAttribute> 进行声明，或者必须从 <xref:System.MarshalByRefObject> 派生。  这样可以将参数值传递到在其中处理模板的 AppDomain 中。  
   
- For example, you could write a text template with the following content:  
+ 例如，可以使用以下内容编写文本模板：  
   
 ```  
 <#@ template language="C#" #>  
@@ -58,11 +41,11 @@ Line <#= i #>
   
 ```  
   
-## <a name="passing-parameter-values-to-a-template"></a>Passing parameter values to a template  
- If you are writing a [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] Extension such as a menu command or an event handler, you can process a template by using the text templating service:  
+## 将参数值传递到模板  
+ 如果要编写诸如菜单命令或事件处理程序等的 [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] 扩展，则可以使用文本模板化服务来处理模板：  
   
-```csharp  
-// Get a service provider - how you do this depends on the context:  
+```c#  
+// Get a service provider – how you do this depends on the context:  
 IServiceProvider serviceProvider = dte; // or dslDiagram.Store, for example   
 // Get the text template service:  
 ITextTemplating t4 = serviceProvider.GetService(typeof(STextTemplating)) as ITextTemplating;  
@@ -77,12 +60,12 @@ string result = t4.ProcessTemplate("MyTemplateFile.t4",
   
 ```  
   
-## <a name="passing-values-in-the-call-context"></a>Passing values in the Call Context  
- You can alternatively pass values as logical data in <xref:System.Runtime.Remoting.Messaging.CallContext>.  
+## 在调用上下文中传递值  
+ 或者，您可以在 <xref:System.Runtime.Remoting.Messaging.CallContext> 中作为逻辑数据传递值。  
   
- The following example passes values by using both methods:  
+ 以下示例使用这两种方法来传递值：  
   
-```csharp  
+```c#  
 ITextTemplating t4 = this.Store.GetService(typeof(STextTemplating)) as ITextTemplating;  
 ITextTemplatingSessionHost host = t4 as ITextTemplatingSessionHost;  
 host.Session = host.CreateSession();  
@@ -102,12 +85,12 @@ string result = t4.ProcessTemplate("",
   
 ```  
   
-## <a name="passing-values-to-a-run-time-preprocessed-text-template"></a>Passing values to a Run-Time (Preprocessed) Text Template  
- It is not usually necessary to use the `<#@parameter#>` directive with run-time (preprocessed) text templates. Instead, you can define an additional constructor or a settable property for the generated code, through which you pass parameter values. For more information, see [Run-Time Text Generation with T4 Text Templates](../modeling/run-time-text-generation-with-t4-text-templates.md).  
+## 将值传递给运行时（预处理过的）文本模板  
+ 通常没有必要将 `<#@parameter#>` 指令与运行时（预处理过的）文本模板配合使用。  相反，可以为生成的代码（通过它可以传递参数值）定义其他构造函数或可设置属性。  有关更多信息，请参见[使用 T4 文本模板的运行时文本生成](../modeling/run-time-text-generation-with-t4-text-templates.md)。  
   
- However, if you want to use `<#@parameter>` in a run-time template, you can pass values to it by using the Session dictionary. As an example, suppose you have created the file as a preprocessed template called `PreTextTemplate1`. You can invoke the template in your program by using the following code.  
+ 然而，如果要在运行时模板中使用 `<#@parameter>`，则可以使用会话字典将值传递给该参数。  举例来说，假设您已经创建了作为预处理过的模板（名为 `PreTextTemplate1`）的文件。  可以使用以下代码在您的程序中调用该模板。  
   
-```csharp  
+```c#  
 PreTextTemplate1 t = new PreTextTemplate1();  
 t.Session = new Microsoft.VisualStudio.TextTemplating.TextTemplatingSession();  
 t.Session["TimesToRepeat"] = 5;  
@@ -117,7 +100,7 @@ string resultText = t.TransformText();
   
 ```  
   
-## <a name="obtaining-arguments-from-texttemplateexe"></a>Obtaining arguments from TextTemplate.exe  
+## 从 TextTemplate.exe 获得参数  
   
 > [!IMPORTANT]
->  The `parameter` directive does not retrieve values set in the `-a` parameter of the `TextTransform.exe` utility. To get those values, set `hostSpecific="true"` in the `template` directive, and use `this.Host.ResolveParameterValue("","","argName")`.
+>  `parameter` 指令不检索在 `TextTransform.exe` 实用工具的 `–a` 参数中设置的值。  若要获得这些值，请在 `template` 指令中设置 `hostSpecific="true"`，并使用 `this.Host.ResolveParameterValue("","","argName")`。

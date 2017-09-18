@@ -1,71 +1,54 @@
 ---
-title: SccCloseProject Function | Microsoft Docs
-ms.custom: 
-ms.date: 11/04/2016
-ms.reviewer: 
-ms.suite: 
-ms.technology:
-- vs-ide-sdk
-ms.tgt_pltfrm: 
-ms.topic: article
-f1_keywords:
-- SccCloseProject
-helpviewer_keywords:
-- SccCloseProject function
+title: "SccCloseProject 函数 | Microsoft Docs"
+ms.custom: ""
+ms.date: "11/04/2016"
+ms.reviewer: ""
+ms.suite: ""
+ms.technology: 
+  - "vs-ide-sdk"
+ms.tgt_pltfrm: ""
+ms.topic: "article"
+f1_keywords: 
+  - "SccCloseProject"
+helpviewer_keywords: 
+  - "SccCloseProject 函数"
 ms.assetid: 259c2069-d349-4814-810f-1c3151b7fb84
 caps.latest.revision: 15
-ms.author: gregvanl
-manager: ghogen
-translation.priority.mt:
-- cs-cz
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pl-pl
-- pt-br
-- ru-ru
-- tr-tr
-- zh-cn
-- zh-tw
-ms.translationtype: MT
-ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
-ms.openlocfilehash: bcdc0cbc2916c9efa6224a26abae94b75832c33a
-ms.contentlocale: zh-cn
-ms.lasthandoff: 08/28/2017
-
+ms.author: "gregvanl"
+manager: "ghogen"
+caps.handback.revision: 15
 ---
-# <a name="scccloseproject-function"></a>SccCloseProject Function
-This function closes a project, marking the end of a particular session.  
+# SccCloseProject 函数
+[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
+
+此函数将关闭特定会话的结束标记的项目。  
   
-## <a name="syntax"></a>Syntax  
+## 语法  
   
-```cpp  
+```cpp#  
 SCCRTN SccCloseProject (  
-   LPVOID pvContext  
+   LPVOID pvContext  
 );  
 ```  
   
-#### <a name="parameters"></a>Parameters  
+#### 参数  
  pvContext  
- The source control plug-in context structure.  
+ 源控制插件上下文结构。  
   
-## <a name="return-value"></a>Return Value  
- The source control plug-in implementation of this function is expected to return one of the following values:  
+## 返回值  
+ 此函数的源代码控制插件实现应返回下列值之一:  
   
-|Value|Description|  
-|-----------|-----------------|  
-|SCC_OK|The project was successfully closed.|  
-|SCC_E_PROJNOTOPEN|No project is currently open.|  
-|SCC_E_NOTAUTHORIZED|The user is not allowed to perform this operation.|  
-|SCC_E_NONSPECIFICERROR|Nonspecific failure.|  
+|值|说明|  
+|-------|--------|  
+|SCC\_OK|已成功关闭该项目。|  
+|SCC\_E\_PROJNOTOPEN|不没有当前打开任何项目。|  
+|SCC\_E\_NOTAUTHORIZED|不允许用户执行此操作。|  
+|SCC\_E\_NONSPECIFICERROR|非特定故障。|  
   
-## <a name="remarks"></a>Remarks  
- The [SccOpenProject](../extensibility/sccopenproject-function.md) is always called before this function. A call to this function is then followed by a call to either the `SccOpenProject` function or the [SccUninitialize](../extensibility/sccuninitialize-function.md), which ends the connection to the source control system completely.  
+## 备注  
+ [SccOpenProject](../extensibility/sccopenproject-function.md) 始终调用函数之前调用此函数。 对此函数的调用后跟在调用 `SccOpenProject` 函数或 [SccUninitialize](../extensibility/sccuninitialize-function.md), ，这完全结束与源代码管理系统的连接。  
   
-## <a name="see-also"></a>See Also  
- [Source Control Plug-in API Functions](../extensibility/source-control-plug-in-api-functions.md)   
+## 请参阅  
+ [源代码管理插件 API 功能](../extensibility/source-control-plug-in-api-functions.md)   
  [SccOpenProject](../extensibility/sccopenproject-function.md)   
  [SccInitialize](../extensibility/sccinitialize-function.md)

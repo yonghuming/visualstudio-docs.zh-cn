@@ -1,54 +1,36 @@
 ---
-title: Utilization Navigator | Microsoft Docs
-ms.custom: 
-ms.date: 11/04/2016
-ms.reviewer: 
-ms.suite: 
-ms.technology:
-- vs-ide-debug
-ms.tgt_pltfrm: 
-ms.topic: article
-f1_keywords:
-- vs.cv.performance.utilizationnavigator
+title: "使用率导航器 | Microsoft Docs"
+ms.custom: ""
+ms.date: "11/04/2016"
+ms.reviewer: ""
+ms.suite: ""
+ms.technology: 
+  - "vs-ide-debug"
+ms.tgt_pltfrm: ""
+ms.topic: "article"
+f1_keywords: 
+  - "vs.cv.performance.utilizationnavigator"
 ms.assetid: 522a981a-37ef-4cdd-a04c-f1e7525a2aab
 caps.latest.revision: 9
-author: mikejo5000
-ms.author: mikejo
-manager: ghogen
-translation.priority.ht:
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- ru-ru
-- zh-cn
-- zh-tw
-translation.priority.mt:
-- cs-cz
-- pl-pl
-- pt-br
-- tr-tr
-ms.translationtype: HT
-ms.sourcegitcommit: 7c87490f8e4ad01df8761ebb2afee0b2d3744fe2
-ms.openlocfilehash: 49fde5b95e12d40af4778d182058f0ae3204e3b8
-ms.contentlocale: zh-cn
-ms.lasthandoff: 08/31/2017
-
+author: "mikejo5000"
+ms.author: "mikejo"
+manager: "ghogen"
+caps.handback.revision: 9
 ---
-# <a name="utilization-navigator"></a>Utilization Navigator
-You can use the Utilization Navigator in the Concurrency Visualizer to select an interval of time in a trace. The Concurrency Visualizer shows the utilization of CPU cores by the target process over time. This makes it easier to examine CPU utilization patterns and also enables comparison between the utilization data and the data in other views. The Utilization Navigator appears at the top of every view in the Concurrency Visualizer. The following illustration shows the Utilization Navigator.  
+# 使用率导航器
+[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
+
+您可以使用并发可视化工具中的利用导航器来选择跟踪的时间间隔。  并发可视化工具显示目标进程一段时间内 的CPU 内核使用率。  这样便于检查 CPU 使用率模式并可以启用在利用数据和其他视图的数据之间的比较。  使用率导航器显示在并发可视化工具的每个视图的顶部。  下图显示利用导航器。  
   
- ![Utilization Navigator showing selected timeframe](../profiling/media/cvutilizationnavigator.png "CVUtilizationNavigator")  
-Utilization Navigator and a selected time frame  
+ ![显示选定时间范围的利用率导航器](~/profiling/media/cvutilizationnavigator.png "CVUtilizationNavigator")  
+利用率导航器和一个选定时间的框架。  
   
- In the illustration, the selected interval is defined by a red rectangle, known as the *thumb*.  
+ 在图中，选择的时间由一个红色矩形定义的，即 *Thumb控件*。  
   
- Here's how you can use the Utilization Navigator to manipulate the displayed time range:  
+ 这儿显示如何使用这些利用率操作导航器来操作显示时间的范围：  
   
--   You can pan by dragging the thumb left or right. (Keyboard: Move the focus to the thumb and then press the left or right arrow key.)  
+-   可以通过拖动Thumb控件向左或向右来平移。\(键盘：将焦点移动到 Thumb控件 然后按下向左或向右箭头键。\)  
   
--   You can change the extent of the interval by dragging one of the handles. (Keyboard: Move the focus to a handle and then press the right or left arrow key.)  
+-   通过拖动其中一个图柄来更改间隔的程度。\(键盘：将焦点移动到 一个图柄 然后按下向右或向左箭头键。\)  
   
- If you change the interval by using a different Concurrency Visualizer zoom control, the Utilization Navigator updates to reflect the change.
+ 如果使用另一种并发可视化工具缩放控件来更改间隔，则使用率导航器会更新以反射更改。

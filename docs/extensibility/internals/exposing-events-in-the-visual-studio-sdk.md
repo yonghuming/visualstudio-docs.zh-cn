@@ -1,100 +1,83 @@
 ---
-title: Exposing Events in the Visual Studio SDK | Microsoft Docs
-ms.custom: 
-ms.date: 11/04/2016
-ms.reviewer: 
-ms.suite: 
-ms.technology:
-- vs-ide-sdk
-ms.tgt_pltfrm: 
-ms.topic: article
-helpviewer_keywords:
-- events [Visual Studio], exposing
-- automation [Visual Studio SDK], exposing events
+title: "公开 Visual Studio SDK 中的事件 | Microsoft Docs"
+ms.custom: ""
+ms.date: "11/04/2016"
+ms.reviewer: ""
+ms.suite: ""
+ms.technology: 
+  - "vs-ide-sdk"
+ms.tgt_pltfrm: ""
+ms.topic: "article"
+helpviewer_keywords: 
+  - "事件 [Visual Studio] 公开"
+  - "自动化 [Visual Studio SDK]，公开事件"
 ms.assetid: 70bbc258-c221-44f8-b0d7-94087d83b8fe
 caps.latest.revision: 16
-ms.author: gregvanl
-manager: ghogen
-translation.priority.mt:
-- cs-cz
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pl-pl
-- pt-br
-- ru-ru
-- tr-tr
-- zh-cn
-- zh-tw
-ms.translationtype: MT
-ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
-ms.openlocfilehash: 4aa7d8c575230b3dced59e8c463373fac5c15cff
-ms.contentlocale: zh-cn
-ms.lasthandoff: 08/28/2017
-
+ms.author: "gregvanl"
+manager: "ghogen"
+caps.handback.revision: 16
 ---
-# <a name="exposing-events-in-the-visual-studio-sdk"></a>Exposing Events in the Visual Studio SDK
-[!INCLUDE[vsprvs](../../code-quality/includes/vsprvs_md.md)] lets you source events by using automation. We recommend that you source events for projects and project items.  
+# 公开 Visual Studio SDK 中的事件
+[!INCLUDE[vs2017banner](../../code-quality/includes/vs2017banner.md)]
+
+[!INCLUDE[vsprvs](../../code-quality/includes/vsprvs_md.md)] 允许通过使用自动化源事件。 我们建议源项目和项目项的事件。  
   
- Events are retrieved by automation consumers from the <xref:EnvDTE.DTEClass.Events%2A> object or <xref:EnvDTE.DTEClass.GetObject%2A> ("EventObjectName"). The environment calls `IDispatch::Invoke` by using the `DISPATCH_METHOD` or `DISPATCH_PROPERTYGET` flags to return an event.  
+ 从自动化者中检索事件 <xref:EnvDTE.DTEClass.Events%2A> 对象或 <xref:EnvDTE.DTEClass.GetObject%2A> ("EventObjectName")。 环境调用 `IDispatch::Invoke` 使用 `DISPATCH_METHOD` 或 `DISPATCH_PROPERTYGET` 标志返回事件。  
   
- The following process explains how VSPackage-specific events are returned.  
+ 以下过程说明如何返回 VSPackage 特定的事件。  
   
-1.  The environment starts.  
+1.  启动该环境。  
   
-2.  It reads from the registry all value names under the Automation, AutomationEvents and AutomationProperties keys of all VSPackages, and stores those names in a table.  
+2.  它从注册表中读取所有 Vspackage，自动化、 AutomationEvents 和 AutomationProperties 项下的所有值名称，并将这些名称存储在表中。  
   
-3.  An automation consumer calls, in this example, `DTE.Events.AutomationProjectsEvents` or `DTE.Events.AutomationProjectItemsEvents`.  
+3.  自动化使用者调用，在此示例中， `DTE.Events.AutomationProjectsEvents` 或 `DTE.Events.AutomationProjectItemsEvents`。  
   
-4.  The environment finds the string parameter in the table and loads the corresponding VSPackage.  
+4.  环境表中查找的字符串参数，并加载相应的 VSPackage。  
   
-5.  The environment calls the <xref:Microsoft.VisualStudio.Shell.Interop.IVsPackage.GetAutomationObject%2A> method by using the name passed in the call; in this example, AutomationProjectsEvents or AutomationProjectItemsEvents.  
+5.  环境调用 <xref:Microsoft.VisualStudio.Shell.Interop.IVsPackage.GetAutomationObject%2A> 方法使用的名称传递的调用中; 在此示例中，AutomationProjectsEvents 或 AutomationProjectItemsEvents。  
   
-6.  The VSPackage creates a root object that has methods such as `get_AutomationProjectsEvents` and `get_AutomationProjectItemEvents` and then returns an IDispatch pointer to the object.  
+6.  VSPackage 创建一个根对象，如具有方法 `get_AutomationProjectsEvents` 和 `get_AutomationProjectItemEvents` 然后 IDispatch 指针返回到对象。  
   
-7.  The environment calls the appropriate method based on the name passed into the automation call.  
+7.  环境调用相应方法基于传递给自动化调用的名称。  
   
-8.  The `get_` method creates another IDispatch-based event object that implements both the `IConnectionPointContainer` interface and the `IConnectionPoint` interface and returns an IDispatchpointer to the object.  
+8.   `get_` 方法创建同时实现的另一个基于 IDispatch 的事件对象 `IConnectionPointContainer` 接口和 `IConnectionPoint` 接口，并返回 IDispatchpointer 的对象。  
   
- To expose an event by using automation, you must respond to <xref:Microsoft.VisualStudio.Shell.Interop.IVsPackage.GetAutomationObject%2A> and watch for the strings that you add to the registry. In the Basic Project sample, the strings are "BscProjectsEvents" and "BscProjectItemsEvents".  
+ 若要通过使用自动化中公开事件，你必须响应 <xref:Microsoft.VisualStudio.Shell.Interop.IVsPackage.GetAutomationObject%2A> 和向注册表添加的字符串的监视。 在基本项目示例中，字符串为"BscProjectsEvents"和"BscProjectItemsEvents"。  
   
-## <a name="registry-entries-from-the-basic-project-sample"></a>Registry Entries from the Basic Project Sample  
- This section shows where to add automation event values to the registry.  
+## <a name="registry-entries-from-the-basic-project-sample"></a>从基本项目示例的注册表项  
+ 本部分说明如何向注册表添加自动化事件值。  
   
- [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\VisualStudio\8.0\Packages\\<PkgGUID\>\AutomationEvents]  
+ [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\VisualStudio\8.0\Packages\\< PkgGUID\>\AutomationEvents]  
   
- "AutomationProjectEvents"="Returns the AutomationProjectEvents Object"  
+ "AutomationProjectEvents"="返回 AutomationProjectEvents 对象"  
   
- "AutomationProjectItemEvents"="Returns the AutomationProjectItemsEvents Object"  
+ "AutomationProjectItemEvents"="返回 AutomationProjectItemsEvents 对象"  
   
-|Name|Type|Range|Description|  
+|名称|类型|范围|描述|  
 |----------|----------|-----------|-----------------|  
-|Default (@)|REG_SZ|Unused|Unused. You can use the data field for documentation.|  
-|AutomationProjectsEvents|REG_SZ|Name of your event object.|Only the key name is relevant. You can use the data field for documentation.<br /><br /> This example comes from the Basic Project sample.|  
-|AutomationProjectItemEvents|REG_SZ|Name of your event object|Only the key name is relevant. You can use the data field for documentation.<br /><br /> This example comes from the Basic Project sample.|  
+|默认值 (@)|REG_SZ|未使用|未使用。 数据字段可用于文档。|  
+|AutomationProjectsEvents|REG_SZ|事件对象的名称。|仅密钥的名称为相关。 数据字段可用于文档。<br /><br /> 此示例来自于基本项目示例。|  
+|AutomationProjectItemEvents|REG_SZ|事件对象的名称|仅密钥的名称为相关。 数据字段可用于文档。<br /><br /> 此示例来自于基本项目示例。|  
   
- When any of your event objects are requested by an automation consumer, create a root object that has methods for any event that your VSPackage supports. The environment calls the appropriate `get_` method on this object. For example, if `DTE.Events.AutomationProjectsEvents` is called, the `get_AutomationProjectsEvents` method on the root object is invoked.  
+ 当自动化使用者所请求的任何事件对象时，创建具有为你的 VSPackage 支持任何事件的方法的根对象。 环境调用相应 `get_` 对此对象的方法。 例如，如果 `DTE.Events.AutomationProjectsEvents` 调用时， `get_AutomationProjectsEvents` 调用上的根对象的方法。  
   
- ![Visual Studio Project Events](../../extensibility/internals/media/projectevents.gif "ProjectEvents")  
-Automation model for events  
+ ![Visual Studio 项目事件](~/extensibility/internals/media/projectevents.gif "ProjectEvents")  
+事件的自动化模型  
   
- The class `CProjectEventsContainer` represents the source object for BscProjectsEvents, while `CProjectItemsEventsContainer` represents the source object for BscProjectItemsEvents.  
+ 类 `CProjectEventsContainer` BscProjectsEvents，表示源对象时 `CProjectItemsEventsContainer` BscProjectItemsEvents 表示源对象。  
   
- In most cases, you must return a new object for every event request because most event objects take a filter object. When you fire your event, check this filter to verify that the event handler is being called.  
+ 在大多数情况下，您必须返回每个事件请求的新对象，因为大多数事件对象需要的筛选器对象。 当在激发事件时，检查此筛选器以验证正在调用事件处理程序。  
   
- AutomationEvents.h and AutomationEvents.cpp contain declarations and implementations of the classes in the following table.  
+ AutomationEvents.h 和 AutomationEvents.cpp 包含声明和下表中的类的实现。  
   
-|Class|Description|  
+|类|描述|  
 |-----------|-----------------|  
-|`CAutomationEvents`|Implements an event root object, retrieved from the `DTE.Events` object.|  
-|`CProjectsEventsContainer` and `CProjectItemsEventsContainer`|Implement the event source objects that fire the corresponding events.|  
+|`CAutomationEvents`|实现从检索到的事件根对象 `DTE.Events` 对象。|  
+|`CProjectsEventsContainer` 和 `CProjectItemsEventsContainer`|实现激发相应的事件的事件源对象。|  
   
- The following code example shows how to respond to a request for an event object.  
+ 下面的代码示例演示如何对一个事件对象的请求作出响应。  
   
-```cpp  
+```cpp#  
 STDMETHODIMP CVsPackage::GetAutomationObject(  
     /* [in]  */ LPCOLESTR       pszPropName,   
     /* [out] */ IDispatch **    ppIDispatch)  
@@ -123,10 +106,10 @@ STDMETHODIMP CVsPackage::GetAutomationObject(
 }  
 ```  
   
- In the code above, `g_wszAutomationProjects` is the name of your project collection ("FigProjects"), `g_wszAutomationProjectsEvents` ("FigProjectsEvents") and `g_wszAutomationProjectItemsEvents` ("FigProjectItemEvents") are the names of project events and project items events that are sourced from your VSPackage implementation.  
+ 在上面的代码， `g_wszAutomationProjects` 是你的项目集合 ("FigProjects") 的名称 `g_wszAutomationProjectsEvents` ("FigProjectsEvents") 和 `g_wszAutomationProjectItemsEvents` ("FigProjectItemEvents") 是项目事件的名称和项目项源自 VSPackage 实现的事件。  
   
- Event objects are retrieved from the same central location, the `DTE.Events` object. This way, all event objects are grouped together so that an end user does not have to browse the entire object model to find a specific event. This also lets you provide your specific VSPackage objects, instead of requiring you to implement your own code for system-wide events. However, for the end user,who must find an event for your `ProjectItem` interface, it is not immediately clear from where that event object is retrieved.  
+ 从相同的中心位置，检索事件对象 `DTE.Events` 对象。 这样一来，所有事件对象被都组合在一起，以便最终用户不必浏览整个对象模型以查找特定事件。 这还允许你提供特定的 VSPackage 对象，而不是要求你可以实现你自己的代码的系统级事件。 但是，最终用户，用户必须找到的事件你 `ProjectItem` 接口，它不是立即清除从中检索该事件对象。  
   
-## <a name="see-also"></a>See Also  
+## <a name="see-also"></a>请参阅  
  <xref:Microsoft.VisualStudio.Shell.Interop.IVsPackage.GetAutomationObject%2A>   
- [VSSDK Samples](http://aka.ms/vs2015sdksamples)
+ [VSSDK 示例](../../misc/vssdk-samples.md)

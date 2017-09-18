@@ -1,61 +1,44 @@
 ---
-title: BP_RESOLUTION_LOCATION | Microsoft Docs
-ms.custom: 
-ms.date: 11/04/2016
-ms.reviewer: 
-ms.suite: 
-ms.technology:
-- vs-ide-sdk
-ms.tgt_pltfrm: 
-ms.topic: article
-f1_keywords:
-- BP_RESOLUTION_LOCATION
-helpviewer_keywords:
-- BP_RESOLUTION_LOCATION structure
+title: "BP_RESOLUTION_LOCATION | Microsoft Docs"
+ms.custom: ""
+ms.date: "11/04/2016"
+ms.reviewer: ""
+ms.suite: ""
+ms.technology: 
+  - "vs-ide-sdk"
+ms.tgt_pltfrm: ""
+ms.topic: "article"
+f1_keywords: 
+  - "BP_RESOLUTION_LOCATION"
+helpviewer_keywords: 
+  - "BP_RESOLUTION_LOCATION 结构"
 ms.assetid: 21dc5246-69c1-43e3-855c-9cd4e596c0e6
 caps.latest.revision: 10
-ms.author: gregvanl
-manager: ghogen
-translation.priority.mt:
-- cs-cz
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pl-pl
-- pt-br
-- ru-ru
-- tr-tr
-- zh-cn
-- zh-tw
-ms.translationtype: MT
-ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
-ms.openlocfilehash: 82945a764887f47e11d7878417e96f77b9dba1a2
-ms.contentlocale: zh-cn
-ms.lasthandoff: 08/28/2017
-
+ms.author: "gregvanl"
+manager: "ghogen"
+caps.handback.revision: 10
 ---
-# <a name="bpresolutionlocation"></a>BP_RESOLUTION_LOCATION
-Specifies the structure of the breakpoint resolution location.  
+# BP_RESOLUTION_LOCATION
+[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
+
+指定断点解析位置的结构。  
   
-## <a name="syntax"></a>Syntax  
+## 语法  
   
-```cpp  
+```cpp#  
 struct _BP_RESOLUTION_LOCATION {  
-   BP_TYPE bpType;  
-   union {  
-      BP_RESOLUTION_CODE bpresCode;  
-      BP_RESOLUTION_DATA bpresData;  
-      int                unused;  
-   } bpResLocation;  
+   BP_TYPE bpType;  
+   union {  
+      BP_RESOLUTION_CODE bpresCode;  
+      BP_RESOLUTION_DATA bpresData;  
+      int                unused;  
+   } bpResLocation;  
 } BP_RESOLUTION_LOCATION;  
 ```  
   
-```csharp  
+```c#  
 public struct BP_RESOLUTION_LOCATION {  
-   public uint bpType;  
+   public uint bpType;  
    public IntPtr unionmember1;  
    public IntPtr unionmember2;  
    public IntPtr unionmember3;  
@@ -63,45 +46,45 @@ public struct BP_RESOLUTION_LOCATION {
 };  
 ```  
   
-## <a name="members"></a>Members  
+## 成员  
  `bpType`  
- A value from the [BP_TYPE](../../../extensibility/debugger/reference/bp-type.md) enumeration that specifies how to interpret the `bpResLocation` union or `unionmemberX` members.  
+ 从指定如何解释 `bpResLocation` 联合或 `unionmemberX` 成员的 [BP\_TYPE](../../../extensibility/debugger/reference/bp-type.md) 枚举的值。  
   
  `bpResLocation.bpresCode`  
- [C++ only] Contains the [BP_RESOLUTION_CODE](../../../extensibility/debugger/reference/bp-resolution-code.md) structure if `bpType` = `BPT_CODE`.  
+ 只有 C\+\+ \[\] 包含 [BP\_RESOLUTION\_CODE](../../../extensibility/debugger/reference/bp-resolution-code.md) 结构，如果 `bpType` \= `BPT_CODE`。  
   
  `bpResLocation.bpresData`  
- [C++ only] Contains the [BP_RESOLUTION_DATA](../../../extensibility/debugger/reference/bp-resolution-data.md) structure if `bpType` = `BPT_DATA`.  
+ 只有 C\+\+ \[\] 包含 [BP\_RESOLUTION\_DATA](../../../extensibility/debugger/reference/bp-resolution-data.md) 结构，如果 `bpType` \= `BPT_DATA`。  
   
  `bpResLocation.unused`  
- [C++ only] A placeholder.  
+ 只有 C\+\+ \[\] 的占位符。  
   
  `unionmember1`  
- [C# only] See Remarks on how to interpret.  
+ \[仅限于 c\#\] 请参见有关如何的备注解释。  
   
  `unionmember2`  
- [C# only] See Remarks on how to interpret.  
+ \[仅限于 c\#\] 请参见有关如何的备注解释。  
   
  `unionmember3`  
- [C# only] See Remarks on how to interpret.  
+ \[仅限于 c\#\] 请参见有关如何的备注解释。  
   
  `unionmember4`  
- [C# only] See Remarks on how to interpret.  
+ \[仅限于 c\#\] 请参见有关如何的备注解释。  
   
-## <a name="remarks"></a>Remarks  
- This structure is a member of the [BP_ERROR_RESOLUTION_INFO](../../../extensibility/debugger/reference/bp-error-resolution-info.md) and [BP_RESOLUTION_INFO](../../../extensibility/debugger/reference/bp-resolution-info.md) structures.  
+## 备注  
+ 此结构是 [BP\_ERROR\_RESOLUTION\_INFO](../../../extensibility/debugger/reference/bp-error-resolution-info.md) 和 [BP\_RESOLUTION\_INFO](../../../extensibility/debugger/reference/bp-resolution-info.md) 结构的成员。  
   
- [C# only] The `unionmemberX` members are interpreted according to the following table. Look down the left column for the `bpType` value then across to determine what each `unionmemberX` member represents and marshal the `unionmemberX` accordingly. See the Example for a way to interpret this structure in C#.  
+ \[仅限于 c\#\] `unionmemberX` 成员根据下表解释。  查找在左列下为 `bpType` 值然后确定每个 `unionmemberX` 成员表示并相应地排列 `unionmemberX` 。  请参见示例以方式解释 c\# 的此结构。  
   
 |`bpLocationType`|`unionmember1`|`unionmember2`|`unionmember3`|`unionmember4`|  
 |----------------------|--------------------|--------------------|--------------------|--------------------|  
-|`BPT_CODE`|[IDebugCodeContext2](../../../extensibility/debugger/reference/idebugcodecontext2.md)|-|-|-|  
-|`BPT_DATA`|`string` (data expression)|`string` (function name)|`string` (image name)|`enum_BP_RES_DATA_FLAGS`|  
+|`BPT_CODE`|[IDebugCodeContext2](../../../extensibility/debugger/reference/idebugcodecontext2.md)|\-|\-|\-|  
+|`BPT_DATA`|`string` \(数据表达式\)|`string` \(函数名\)|`string` 图像 \(名称\)|`enum_BP_RES_DATA_FLAGS`|  
   
-## <a name="example"></a>Example  
- This example shows how to interpret the `BP_RESOLUTION_LOCATION` structure in C#.  
+## 示例  
+ 此示例演示如何解释 c\# 中 `BP_RESOLUTION_LOCATION` 结构。  
   
-```csharp  
+```c#  
 using System;  
 using System.Runtime.Interop.Services;  
 using Microsoft.VisualStudio.Debugger.Interop;  
@@ -128,18 +111,18 @@ namespace MyPackage
 }  
 ```  
   
-## <a name="requirements"></a>Requirements  
- Header: msdbg.h  
+## 要求  
+ 标题:msdbg.h  
   
- Namespace: Microsoft.VisualStudio.Debugger.Interop  
+ 命名空间:Microsoft.VisualStudio.Debugger.Interop  
   
- Assembly: Microsoft.VisualStudio.Debugger.Interop.dll  
+ 程序集:Microsoft.VisualStudio.Debugger.Interop.dll  
   
-## <a name="see-also"></a>See Also  
- [Structures and Unions](../../../extensibility/debugger/reference/structures-and-unions.md)   
- [BP_TYPE](../../../extensibility/debugger/reference/bp-type.md)   
- [BP_ERROR_RESOLUTION_INFO](../../../extensibility/debugger/reference/bp-error-resolution-info.md)   
- [BP_RESOLUTION_INFO](../../../extensibility/debugger/reference/bp-resolution-info.md)   
- [BP_RESOLUTION_CODE](../../../extensibility/debugger/reference/bp-resolution-code.md)   
- [BP_RESOLUTION_DATA](../../../extensibility/debugger/reference/bp-resolution-data.md)   
- [BP_RES_DATA_FLAGS](../../../extensibility/debugger/reference/bp-res-data-flags.md)
+## 请参阅  
+ [结构和联合](../../../extensibility/debugger/reference/structures-and-unions.md)   
+ [BP\_TYPE](../../../extensibility/debugger/reference/bp-type.md)   
+ [BP\_ERROR\_RESOLUTION\_INFO](../../../extensibility/debugger/reference/bp-error-resolution-info.md)   
+ [BP\_RESOLUTION\_INFO](../../../extensibility/debugger/reference/bp-resolution-info.md)   
+ [BP\_RESOLUTION\_CODE](../../../extensibility/debugger/reference/bp-resolution-code.md)   
+ [BP\_RESOLUTION\_DATA](../../../extensibility/debugger/reference/bp-resolution-data.md)   
+ [BP\_RES\_DATA\_FLAGS](../../../extensibility/debugger/reference/bp-res-data-flags.md)

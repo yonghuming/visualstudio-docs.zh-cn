@@ -1,67 +1,50 @@
 ---
-title: IDebugGenericFieldDefinition::TypeParamCount | Microsoft Docs
-ms.custom: 
-ms.date: 11/04/2016
-ms.reviewer: 
-ms.suite: 
-ms.technology:
-- vs-ide-sdk
-ms.tgt_pltfrm: 
-ms.topic: article
-helpviewer_keywords:
-- TypeParamCount
-- IDebugGenericFieldDefinition::TypeParamCount
+title: "IDebugGenericFieldDefinition::TypeParamCount | Microsoft Docs"
+ms.custom: ""
+ms.date: "11/04/2016"
+ms.reviewer: ""
+ms.suite: ""
+ms.technology: 
+  - "vs-ide-sdk"
+ms.tgt_pltfrm: ""
+ms.topic: "article"
+helpviewer_keywords: 
+  - "TypeParamCount"
+  - "IDebugGenericFieldDefinition::TypeParamCount"
 ms.assetid: d41dd5ea-aa25-4bf3-bcfd-e0bf451ead49
 caps.latest.revision: 8
-ms.author: gregvanl
-manager: ghogen
-translation.priority.mt:
-- cs-cz
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pl-pl
-- pt-br
-- ru-ru
-- tr-tr
-- zh-cn
-- zh-tw
-ms.translationtype: MT
-ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
-ms.openlocfilehash: 9dbcabaab49dcdba6c42c3eaf222d22800aaf05f
-ms.contentlocale: zh-cn
-ms.lasthandoff: 08/28/2017
-
+ms.author: "gregvanl"
+manager: "ghogen"
+caps.handback.revision: 8
 ---
-# <a name="idebuggenericfielddefinitiontypeparamcount"></a>IDebugGenericFieldDefinition::TypeParamCount
-Retrieves the number of type parameters that are associated with the generic field.  
+# IDebugGenericFieldDefinition::TypeParamCount
+[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
+
+检索与泛型字段关联的类型参数的数目。  
   
-## <a name="syntax"></a>Syntax  
+## <a name="syntax"></a>语法  
   
-```cpp  
+```cpp#  
 HRESULT TypeParamCount(  
    ULONG32* pcParams  
 );  
 ```  
   
-```csharp  
+```c#  
 int TypeParamCount(  
    ref uint pcParams  
 );  
 ```  
   
-#### <a name="parameters"></a>Parameters  
+#### <a name="parameters"></a>参数  
  `pcParams`  
- [in, out] Number of type parameters.  
+ [在中，out]类型参数的数目。  
   
-## <a name="return-value"></a>Return Value  
- If successful, returns `S_OK`; otherwise, returns an error code.  
+## <a name="return-value"></a>返回值  
+ 如果成功，返回 `S_OK`; 否则为返回错误代码。  
   
-## <a name="remarks"></a>Remarks  
- If List\<T>, this method returns 1, and, if List\<T1,T2>, this method returns 2. This method returns 0 if there are no type parameters.  
+## <a name="remarks"></a>备注  
+ 如果列表 \< T>, ，此方法返回 1，并且，如果列表 \< T1、 T2 >，此方法返回 2。 如果没有类型参数，此方法将返回 0。  
   
-## <a name="see-also"></a>See Also  
+## <a name="see-also"></a>请参阅  
  [IDebugGenericFieldDefinition](../../../extensibility/debugger/reference/idebuggenericfielddefinition.md)

@@ -1,79 +1,62 @@
 ---
-title: CODE_PATH | Microsoft Docs
-ms.custom: 
-ms.date: 11/04/2016
-ms.reviewer: 
-ms.suite: 
-ms.technology:
-- vs-ide-sdk
-ms.tgt_pltfrm: 
-ms.topic: article
-f1_keywords:
-- CODE_PATH
-helpviewer_keywords:
-- CODE_PATH structure
+title: "CODE_PATH | Microsoft Docs"
+ms.custom: ""
+ms.date: "11/04/2016"
+ms.reviewer: ""
+ms.suite: ""
+ms.technology: 
+  - "vs-ide-sdk"
+ms.tgt_pltfrm: ""
+ms.topic: "article"
+f1_keywords: 
+  - "CODE_PATH"
+helpviewer_keywords: 
+  - "CODE_PATH 结构"
 ms.assetid: 2d4b2890-4c9d-47e1-83c0-df9c6436427f
 caps.latest.revision: 10
-ms.author: gregvanl
-manager: ghogen
-translation.priority.mt:
-- cs-cz
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pl-pl
-- pt-br
-- ru-ru
-- tr-tr
-- zh-cn
-- zh-tw
-ms.translationtype: MT
-ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
-ms.openlocfilehash: 828ed054adb81597f32425cff134b0b0d682ecab
-ms.contentlocale: zh-cn
-ms.lasthandoff: 08/28/2017
-
+ms.author: "gregvanl"
+manager: "ghogen"
+caps.handback.revision: 10
 ---
-# <a name="codepath"></a>CODE_PATH
-Describes a method or function call.  
+# CODE_PATH
+[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
+
+描述一个方法或函数调用。  
   
-## <a name="syntax"></a>Syntax  
+## 语法  
   
-```cpp  
-typedef struct tagCODE_PATH {   
-   BSTR                bstrName;  
-   IDebugCodeContext2* pCode;  
+```cpp#  
+typedef struct tagCODE_PATH {   
+   BSTR                bstrName;  
+   IDebugCodeContext2* pCode;  
 } CODE_PATH;  
 ```  
   
-```csharp  
+```c#  
 public struct CODE_PATH {  
    public string            bstrName;  
    public IDebugCodeContext pCode;  
 }  
 ```  
   
-## <a name="members"></a>Members  
+## 成员  
  bstrName  
- The name of the code path.  
+ 代码路径的名称。  
   
  pCode  
- The [IDebugCodeContext2](../../../extensibility/debugger/reference/idebugcodecontext2.md) object that identifies where in the code to step into a function.  
+ 在代码标识的单步执行函数的 [IDebugCodeContext2](../../../extensibility/debugger/reference/idebugcodecontext2.md) 对象。  
   
-## <a name="remarks"></a>Remarks  
- This structure is used to implement stepping into a function. [EnumCodePaths](../../../extensibility/debugger/reference/idebugprogram2-enumcodepaths.md) returns all the calls from the current location in the program being debugged. This structure represents one such call.  
+## 备注  
+ 此机制用于实现单步执行函数。  [EnumCodePaths](../../../extensibility/debugger/reference/idebugprogram2-enumcodepaths.md) 返回所有从正在调试的程序的当前位置调用。  此类调用此结构表示一。  
   
-## <a name="requirements"></a>Requirements  
- Header: msdbg.h  
+## 要求  
+ 标题:msdbg.h  
   
- Namespace: Microsoft.VisualStudio.Debugger.Interop  
+ 命名空间:Microsoft.VisualStudio.Debugger.Interop  
   
- Assembly: Microsoft.VisualStudio.Debugger.Interop.dll  
+ 程序集:Microsoft.VisualStudio.Debugger.Interop.dll  
   
-## <a name="see-also"></a>See Also  
- [Structures and Unions](../../../extensibility/debugger/reference/structures-and-unions.md)   
+## 请参阅  
+ [结构和联合](../../../extensibility/debugger/reference/structures-and-unions.md)   
  [IDebugCodeContext2](../../../extensibility/debugger/reference/idebugcodecontext2.md)   
  [EnumCodePaths](../../../extensibility/debugger/reference/idebugprogram2-enumcodepaths.md)

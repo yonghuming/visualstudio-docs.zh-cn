@@ -1,68 +1,51 @@
 ---
-title: IDebugClassField::GetEnclosingClass | Microsoft Docs
-ms.custom: 
-ms.date: 11/04/2016
-ms.reviewer: 
-ms.suite: 
-ms.technology:
-- vs-ide-sdk
-ms.tgt_pltfrm: 
-ms.topic: article
-f1_keywords:
-- IDebugClassField::GetEnclosingClass
-helpviewer_keywords:
-- IDebugClassField::GetEnclosingClass method
+title: "IDebugClassField::GetEnclosingClass | Microsoft Docs"
+ms.custom: ""
+ms.date: "11/04/2016"
+ms.reviewer: ""
+ms.suite: ""
+ms.technology: 
+  - "vs-ide-sdk"
+ms.tgt_pltfrm: ""
+ms.topic: "article"
+f1_keywords: 
+  - "IDebugClassField::GetEnclosingClass"
+helpviewer_keywords: 
+  - "IDebugClassField::GetEnclosingClass 方法"
 ms.assetid: a0c12e3c-9ea0-4dfb-9e45-8cea18725022
 caps.latest.revision: 9
-ms.author: gregvanl
-manager: ghogen
-translation.priority.mt:
-- cs-cz
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pl-pl
-- pt-br
-- ru-ru
-- tr-tr
-- zh-cn
-- zh-tw
-ms.translationtype: MT
-ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
-ms.openlocfilehash: e595390fb636f6b98041fa45aa5eb798940bc61d
-ms.contentlocale: zh-cn
-ms.lasthandoff: 08/28/2017
-
+ms.author: "gregvanl"
+manager: "ghogen"
+caps.handback.revision: 9
 ---
-# <a name="idebugclassfieldgetenclosingclass"></a>IDebugClassField::GetEnclosingClass
-Gets the class that encloses this class.  
+# IDebugClassField::GetEnclosingClass
+[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
+
+获取包含此类的类。  
   
-## <a name="syntax"></a>Syntax  
+## 语法  
   
-```cpp  
-HRESULT GetEnclosingClass(   
-   IDebugClassField** ppClassField  
+```cpp#  
+HRESULT GetEnclosingClass(   
+   IDebugClassField** ppClassField  
 );  
 ```  
   
-```csharp  
+```c#  
 int GetEnclosingClass(  
-   out IDebugClassField ppClassField  
+   out IDebugClassField ppClassField  
 );  
 ```  
   
-#### <a name="parameters"></a>Parameters  
+#### 参数  
  `ppClassField`  
- [out] Returns an [IDebugClassField](../../../extensibility/debugger/reference/idebugclassfield.md) object representing the enclosing class. Returns a null value if there is no enclosing class.  
+ \[out\] 返回表示封闭类的 [IDebugClassField](../../../extensibility/debugger/reference/idebugclassfield.md) 对象。  ; 如果没有封闭类，则返回 null 值。  
   
-## <a name="return-value"></a>Return Value  
- If successful, returns S_OK; otherwise, returns an error code.  
+## 返回值  
+ 如果成功，则返回 S\_OK;否则，返回错误代码。  
   
-## <a name="remarks"></a>Remarks  
- If the class represented by this [IDebugClassField](../../../extensibility/debugger/reference/idebugclassfield.md) object is a nested class, then the `ppClassField` parameter returns an `IDebugClassField` object representing the enclosing class. For example, given this class definition:  
+## 备注  
+ 如果此 [IDebugClassField](../../../extensibility/debugger/reference/idebugclassfield.md) 对象表示的类是嵌套类，则 `ppClassField` 参数返回表示封闭类的 `IDebugClassField` 对象。  例如命名此类定义:  
   
 ```  
 class RootClass {  
@@ -70,7 +53,7 @@ class RootClass {
 };  
 ```  
   
- Calling the `GetEnclosingClass` method on the `IDebugClassField` object representing the `NestedClass` class returns an `IDebugClassField` object representing the class `RootClass`.  
+ 对表示 `NestedClass` 类的 `IDebugClassField` 对象的 `GetEnclosingClass` 方法返回表示类 `RootClass`的 `IDebugClassField` 对象。  
   
-## <a name="see-also"></a>See Also  
+## 请参阅  
  [IDebugClassField](../../../extensibility/debugger/reference/idebugclassfield.md)

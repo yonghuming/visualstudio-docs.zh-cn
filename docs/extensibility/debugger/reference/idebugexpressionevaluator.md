@@ -1,87 +1,70 @@
 ---
-title: IDebugExpressionEvaluator | Microsoft Docs
-ms.custom: 
-ms.date: 11/04/2016
-ms.reviewer: 
-ms.suite: 
-ms.technology:
-- vs-ide-sdk
-ms.tgt_pltfrm: 
-ms.topic: article
-f1_keywords:
-- IDebugExpressionEvaluator
-helpviewer_keywords:
-- IDebugExpressionEvaluator interface
+title: "IDebugExpressionEvaluator | Microsoft Docs"
+ms.custom: ""
+ms.date: "11/04/2016"
+ms.reviewer: ""
+ms.suite: ""
+ms.technology: 
+  - "vs-ide-sdk"
+ms.tgt_pltfrm: ""
+ms.topic: "article"
+f1_keywords: 
+  - "IDebugExpressionEvaluator"
+helpviewer_keywords: 
+  - "IDebugExpressionEvaluator 接口"
 ms.assetid: 0636d8c3-625a-49fa-94b6-516f22b7e1bc
 caps.latest.revision: 14
-ms.author: gregvanl
-manager: ghogen
-translation.priority.mt:
-- cs-cz
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pl-pl
-- pt-br
-- ru-ru
-- tr-tr
-- zh-cn
-- zh-tw
-ms.translationtype: MT
-ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
-ms.openlocfilehash: 2d817f3316a13b8b1abb4942cf50625ccdae8b16
-ms.contentlocale: zh-cn
-ms.lasthandoff: 08/28/2017
-
+ms.author: "gregvanl"
+manager: "ghogen"
+caps.handback.revision: 14
 ---
-# <a name="idebugexpressionevaluator"></a>IDebugExpressionEvaluator
+# IDebugExpressionEvaluator
+[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
+
 > [!IMPORTANT]
->  In Visual Studio 2015, this way of implementing expression evaluators is deprecated. For information about implementing CLR expression evaluators, please see [CLR Expression Evaluators](https://github.com/Microsoft/ConcordExtensibilitySamples/wiki/CLR-Expression-Evaluators) and [Managed Expression Evaluator Sample](https://github.com/Microsoft/ConcordExtensibilitySamples/wiki/Managed-Expression-Evaluator-Sample).  
+>  在 Visual Studio 2015 中，这种实现表达式计算器不推荐使用。 有关实现 CLR 表达式计算器的信息，请参阅 [CLR 表达式计算器](https://github.com/Microsoft/ConcordExtensibilitySamples/wiki/CLR-Expression-Evaluators) 和 [托管表达式计算器示例](https://github.com/Microsoft/ConcordExtensibilitySamples/wiki/Managed-Expression-Evaluator-Sample)。  
   
- This interface represents the expression evaluator.  
+ 此接口表示表达式计算器。  
   
-## <a name="syntax"></a>Syntax  
+## 语法  
   
 ```  
 IDebugExpressionEvaluator : IUnknown  
 ```  
   
-## <a name="notes-for-implementers"></a>Notes for Implementers  
- The expression evaluator must implement this interface.  
+## 实施者注意事项  
+ 表达式计算器必须实现此接口。  
   
-## <a name="notes-for-callers"></a>Notes for Callers  
- To obtain this interface, instantiate the expression evaluator through the `CoCreateInstance` method by using the class ID (CLSID) of the evaluator. See the Example.  
+## 调用方的说明  
+ 若要获得此接口，实例化表达式计算器通过 `CoCreateInstance` 方法通过使用该计算器的类 ID \(CLSID\)。 请参阅示例。  
   
-## <a name="methods-in-vtable-order"></a>Methods in Vtable Order  
- The following table shows the methods of `IDebugExpressionEvaluator`.  
+## Vtable 顺序中的方法  
+ 下表显示的方法 `IDebugExpressionEvaluator`。  
   
-|Method|Description|  
-|------------|-----------------|  
-|[Parse](../../../extensibility/debugger/reference/idebugexpressionevaluator-parse.md)|Converts an expression string to a parsed expression.|  
-|[GetMethodProperty](../../../extensibility/debugger/reference/idebugexpressionevaluator-getmethodproperty.md)|Gets the local variables, arguments, and other properties of a method.|  
-|[GetMethodLocationProperty](../../../extensibility/debugger/reference/idebugexpressionevaluator-getmethodlocationproperty.md)|Converts a method location and offset into a memory address.|  
-|[SetLocale](../../../extensibility/debugger/reference/idebugexpressionevaluator-setlocale.md)|Determines which language to use to create printable results.|  
-|[SetRegistryRoot](../../../extensibility/debugger/reference/idebugexpressionevaluator-setregistryroot.md)|Sets the registry root. Used for side-by-side debugging.|  
+|方法|描述|  
+|--------|--------|  
+|[分析](../../../extensibility/debugger/reference/idebugexpressionevaluator-parse.md)|将一个表达式字符串转换为分析的表达式。|  
+|[GetMethodProperty](../../../extensibility/debugger/reference/idebugexpressionevaluator-getmethodproperty.md)|获取本地变量、 参数和方法的其他属性。|  
+|[GetMethodLocationProperty](../Topic/IDebugExpressionEvaluator::GetMethodLocationProperty.md)|将具有方法位置和偏移量转换为内存地址。|  
+|[SetLocale](../../../extensibility/debugger/reference/idebugexpressionevaluator-setlocale.md)|确定要用于创建可打印结果的语言。|  
+|[SetRegistryRoot](../../../extensibility/debugger/reference/idebugexpressionevaluator-setregistryroot.md)|设置的注册表根目录。 用于通过并行调试。|  
   
-## <a name="remarks"></a>Remarks  
- In a typical situation, the debug engine (DE) instantiates the expression evaluator (EE) as a result of a call to [ParseText](../../../extensibility/debugger/reference/idebugexpressioncontext2-parsetext.md). Because the DE knows the language and vendor of the EE it wants to use, the DE gets the EE's CLSID from the registry (the [SDK Helpers for Debugging](../../../extensibility/debugger/reference/sdk-helpers-for-debugging.md) function, `GetEEMetric`, helps with this retrieval).  
+## 备注  
+ 在典型的情况下，调试引擎 \(DE\) 进行实例化表达式计算器 \(EE\) 作为的调用结果 [ParseText](../../../extensibility/debugger/reference/idebugexpressioncontext2-parsetext.md)。 DE 由于 DE 知道的语言和 EE 它想要使用的供应商联系，从注册表获取 EE 的 CLSID \( [SDK 帮助器调试](../../../extensibility/debugger/reference/sdk-helpers-for-debugging.md) 函数， `GetEEMetric`, ，可以帮助完成此检索\)。  
   
- After the EE is instantiated, the DE calls [Parse](../../../extensibility/debugger/reference/idebugexpressionevaluator-parse.md) to parse the expression and store it in an [IDebugParsedExpression](../../../extensibility/debugger/reference/idebugparsedexpression.md) object. Later, a call to [EvaluateSync](../../../extensibility/debugger/reference/idebugparsedexpression-evaluatesync.md) evaluates the expression.  
+ DE EE 实例化后，调用 [分析](../../../extensibility/debugger/reference/idebugexpressionevaluator-parse.md) 分析表达式并将其存储在 [IDebugParsedExpression](../../../extensibility/debugger/reference/idebugparsedexpression.md) 对象。 更高版本，对的调用 [EvaluateSync](../../../extensibility/debugger/reference/idebugparsedexpression-evaluatesync.md) 计算表达式的值。  
   
-## <a name="requirements"></a>Requirements  
- Header: ee.h  
+## 要求  
+ 标头︰ ee.h  
   
- Namespace: Microsoft.VisualStudio.Debugger.Interop  
+ 命名空间 ︰ Microsoft.VisualStudio.Debugger.Interop  
   
- Assembly: Microsoft.VisualStudio.Debugger.Interop.dll  
+ 程序集 ︰ Microsoft.VisualStudio.Debugger.Interop.dll  
   
-## <a name="example"></a>Example  
- This example shows how to instantiate the expression evaluator given a symbol provider and an address in the source code. This example uses a function, `GetEEMetric`, from the [SDK Helpers for Debugging](../../../extensibility/debugger/reference/sdk-helpers-for-debugging.md) library, dbgmetric.lib.  
+## 示例  
+ 此示例演示如何实例化表达式计算器中的源代码中给出符号提供程序和地址。 此示例使用一个函数， `GetEEMetric`, ，从 [SDK 帮助器调试](../../../extensibility/debugger/reference/sdk-helpers-for-debugging.md) 库、 dbgmetric.lib。  
   
-```cpp  
+```cpp#  
 IDebugExpressionEvaluator GetExpressionEvaluator(IDebugSymbolProvider pSymbolProvider,  
                                                  IDebugAddress *pSourceAddress)  
 {  
@@ -120,9 +103,9 @@ IDebugExpressionEvaluator GetExpressionEvaluator(IDebugSymbolProvider pSymbolPro
 }  
 ```  
   
-## <a name="see-also"></a>See Also  
- [Expression Evaluation Interfaces](../../../extensibility/debugger/reference/expression-evaluation-interfaces.md)   
+## 请参阅  
+ [表达式计算接口](../../../extensibility/debugger/reference/expression-evaluation-interfaces.md)   
  [ParseText](../../../extensibility/debugger/reference/idebugexpressioncontext2-parsetext.md)   
  [IDebugParsedExpression](../../../extensibility/debugger/reference/idebugparsedexpression.md)   
  [EvaluateSync](../../../extensibility/debugger/reference/idebugparsedexpression-evaluatesync.md)   
- [SDK Helpers for Debugging](../../../extensibility/debugger/reference/sdk-helpers-for-debugging.md)
+ [SDK 帮助器调试](../../../extensibility/debugger/reference/sdk-helpers-for-debugging.md)

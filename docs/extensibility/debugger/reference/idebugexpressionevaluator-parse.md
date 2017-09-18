@@ -1,95 +1,78 @@
 ---
-title: IDebugExpressionEvaluator::Parse | Microsoft Docs
-ms.custom: 
-ms.date: 11/04/2016
-ms.reviewer: 
-ms.suite: 
-ms.technology:
-- vs-ide-sdk
-ms.tgt_pltfrm: 
-ms.topic: article
-f1_keywords:
-- IDebugExpressionEvaluator::Parse
-helpviewer_keywords:
-- IDebugExpressionEvaluator::Parse method
+title: "IDebugExpressionEvaluator::Parse | Microsoft Docs"
+ms.custom: ""
+ms.date: "11/04/2016"
+ms.reviewer: ""
+ms.suite: ""
+ms.technology: 
+  - "vs-ide-sdk"
+ms.tgt_pltfrm: ""
+ms.topic: "article"
+f1_keywords: 
+  - "IDebugExpressionEvaluator::Parse"
+helpviewer_keywords: 
+  - "IDebugExpressionEvaluator::Parse 方法"
 ms.assetid: e6e31b3a-63a7-4293-bcda-267eb78dffb6
 caps.latest.revision: 12
-ms.author: gregvanl
-manager: ghogen
-translation.priority.mt:
-- cs-cz
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pl-pl
-- pt-br
-- ru-ru
-- tr-tr
-- zh-cn
-- zh-tw
-ms.translationtype: MT
-ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
-ms.openlocfilehash: 3fc2616f840a79bbda012f943f40c4744a39bf35
-ms.contentlocale: zh-cn
-ms.lasthandoff: 08/28/2017
-
+ms.author: "gregvanl"
+manager: "ghogen"
+caps.handback.revision: 12
 ---
-# <a name="idebugexpressionevaluatorparse"></a>IDebugExpressionEvaluator::Parse
-This method converts an expression string to a parsed expression.  
+# IDebugExpressionEvaluator::Parse
+[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
+
+此方法将表达式字符串转换为分析的表达式。  
   
-## <a name="syntax"></a>Syntax  
+## 语法  
   
-```cpp  
-HRESULT Parse(   
-   LPCOLESTR                upstrExpression,  
-   PARSEFLAGS               dwFlags,  
-   UINT                     nRadix,  
-   BSTR*                    pbstrError,  
-   UINT*                    pichError,  
-   IDebugParsedExpression** ppParsedExpression  
+```cpp#  
+HRESULT Parse(   
+   LPCOLESTR                upstrExpression,  
+   PARSEFLAGS               dwFlags,  
+   UINT                     nRadix,  
+   BSTR*                    pbstrError,  
+   UINT*                    pichError,  
+   IDebugParsedExpression** ppParsedExpression  
 );  
 ```  
   
-```csharp  
+```c#  
 int Parse(  
-   string                     upstrExpression,   
-   enum_PARSEFLAGS            dwFlags,   
-   uint                       nRadix,   
-   out string                 pbstrError,   
-   out uint                   pichError,   
-   out IDebugParsedExpression ppParsedExpression  
+   string                     upstrExpression,   
+   enum_PARSEFLAGS            dwFlags,   
+   uint                       nRadix,   
+   out string                 pbstrError,   
+   out uint                   pichError,   
+   out IDebugParsedExpression ppParsedExpression  
 );  
 ```  
   
-#### <a name="parameters"></a>Parameters  
+#### 参数  
  `upstrExpression`  
- [in] The expression string to be parsed.  
+ \[in\] 要分析的字符串表达式。  
   
  `dwFlags`  
- [in] A collection of [PARSEFLAGS](../../../extensibility/debugger/reference/parseflags.md) constants that determine how the expression is to be parsed.  
+ \[in\] 的 [PARSEFLAGS](../../../extensibility/debugger/reference/parseflags.md) 常数的集合确定表达式如何分析。  
   
  `nRadix`  
- [in] Radix to be used to interpret any numerical information.  
+ \[in\] 要使用的基数解释任何数字信息。  
   
  `pbstrError`  
- [out] Returns the  error as human-readable text.  
+ \[out\] 返回错误作为可读的文本。  
   
  `pichError`  
- [out] Returns the character position of the start of the error in the expression string.  
+ \[out\] 返回错误的字符位置在表达式字符串。  
   
  `ppParsedExpression`  
- [out] Returns the parsed expression in an [IDebugParsedExpression](../../../extensibility/debugger/reference/idebugparsedexpression.md) object.  
+ \[out\] 返回在 [IDebugParsedExpression](../../../extensibility/debugger/reference/idebugparsedexpression.md) 对象进行分析的表达式。  
   
-## <a name="return-value"></a>Return Value  
- If successful, returns `S_OK`; otherwise, returns an error code.  
+## 返回值  
+ 如果成功，则返回; `S_OK`否则，返回错误代码。  
   
-## <a name="remarks"></a>Remarks  
- This method produces a parsed expression, not an actual value. A parsed expression is ready to be evaluated, that is, converted to a value.  
+## 备注  
+ 此方法生成的分析的表达式，而不是实际值。  一个分析的表达式准备进行计算，也就是说，转换为值。  
   
-## <a name="see-also"></a>See Also  
+## 请参阅  
  [IDebugExpressionEvaluator](../../../extensibility/debugger/reference/idebugexpressionevaluator.md)   
  [IDebugParsedExpression](../../../extensibility/debugger/reference/idebugparsedexpression.md)   
  [PARSEFLAGS](../../../extensibility/debugger/reference/parseflags.md)

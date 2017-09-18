@@ -1,61 +1,42 @@
 ---
-title: Changing the return type of a DataContext method cannot be undone | Microsoft Docs
-ms.custom: 
-ms.date: 11/04/2016
-ms.reviewer: 
-ms.suite: 
-ms.tgt_pltfrm: 
-ms.topic: article
+title: "更改 DataContext 方法的返回类型的操作无法撤消 | Microsoft Docs"
+ms.custom: ""
+ms.date: "12/14/2016"
+ms.prod: "visual-studio-dev14"
+ms.reviewer: ""
+ms.suite: ""
+ms.tgt_pltfrm: ""
+ms.topic: "article"
 ms.assetid: 76b161fc-5075-4192-8d94-f15b02e199e9
 caps.latest.revision: 3
-author: gewarren
-ms.author: gewarren
-manager: ghogen
-translation.priority.ht:
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- ru-ru
-- zh-cn
-- zh-tw
-translation.priority.mt:
-- cs-cz
-- pl-pl
-- pt-br
-- tr-tr
-ms.translationtype: HT
-ms.sourcegitcommit: 33a857c2d8585e2e8da9bcd9158190366a3b6830
-ms.openlocfilehash: 0dbf3618bb92ed58a1ec57c14d59eadabcf4a734
-ms.contentlocale: zh-cn
-ms.lasthandoff: 09/07/2017
-
+caps.handback.revision: 1
+author: "mikeblome"
+ms.author: "mblome"
+manager: "ghogen"
 ---
-# <a name="changing-the-return-type-of-a-datacontext-method-cannot-be-undone"></a>Changing the return type of a DataContext method cannot be undone
-Changing the return type of a DataContext method cannot be undone. To revert back to the automatically generated type, you must drag the item from Server Explorer/Database Explorer onto the O/R Designer again. Are you sure you want to change the return type?  
+# 更改 DataContext 方法的返回类型的操作无法撤消
+更改 DataContext 方法的返回类型的操作无法撤消。要恢复为自动生成的类型，您必须将该项从服务器资源管理器\/数据库资源管理器中再次拖动到 O\/R Designer 上。是否确实要更改返回类型？  
   
- The return type of a <xref:System.Data.Linq.DataContext> method differs depending on where you drop the item in the [!INCLUDE[vs_ordesigner_short](../data-tools/includes/vs_ordesigner_short_md.md)]. If you drop an item directly onto an existing entity class, a <xref:System.Data.Linq.DataContext> method that has the return type of the entity class is created. If you drop an item onto an empty area of the [!INCLUDE[vs_ordesigner_short](../data-tools/includes/vs_ordesigner_short_md.md)], a <xref:System.Data.Linq.DataContext> method that returns an automatically generated type is created. You can change the return type of a <xref:System.Data.Linq.DataContext> method after you add it to the methods pane. To inspect or change the return type of a <xref:System.Data.Linq.DataContext> method, select it and click the **Return Type** property in the **Properties** window.  
+ <xref:System.Data.Linq.DataContext> 方法的返回类型根据您在 [!INCLUDE[vs_ordesigner_short](../data-tools/includes/vs_ordesigner_short_md.md)]中放置项的位置而不同。如果直接将项放在现有实体类上，则将创建具有该实体类返回类型的 <xref:System.Data.Linq.DataContext> 方法。如果将项放在 [!INCLUDE[vs_ordesigner_short](../data-tools/includes/vs_ordesigner_short_md.md)]的空白区域，则将创建返回自动生成类型的 <xref:System.Data.Linq.DataContext> 方法。在将 <xref:System.Data.Linq.DataContext> 方法添加到方法窗格后可以更改该方法的返回类型。若要检查或更改 <xref:System.Data.Linq.DataContext> 方法的返回类型，请选中该方法并在**“属性”**窗口中单击**“返回类型”**属性。  
   
-### <a name="to-change-the-return-type-of-a-datacontext"></a>To change the return type of a DataContext  
+### 更改 DataColumn 的返回类型  
   
--   Click **Yes**.  
+-   单击**“是”**。  
   
-### <a name="to-exit-the-message-box-and-leave-the-return-type-unchanged"></a>To exit the message box and leave the return type unchanged  
+### 退出消息框，不更改返回类型  
   
--   Click **No**.  
+-   单击**“否”**。  
   
-### <a name="to-revert-to-the-original-return-type-after-changing-the-return-type"></a>To revert to the original return type after changing the return type  
+### 在更改返回类型后恢复为原始返回类型  
   
-1.  Select the <xref:System.Data.Linq.DataContext> method on the [!INCLUDE[vs_ordesigner_short](../data-tools/includes/vs_ordesigner_short_md.md)] and delete it.  
+1.  在 [!INCLUDE[vs_ordesigner_short](../data-tools/includes/vs_ordesigner_short_md.md)]上选择 <xref:System.Data.Linq.DataContext> 方法，然后删除它。  
   
-2.  Locate the item in **Server Explorer/Database Explorer** and drag it onto the [!INCLUDE[vs_ordesigner_short](../data-tools/includes/vs_ordesigner_short_md.md)].  
+2.  在**“服务器资源管理器\/数据库资源管理器”**中找到该项，并将其拖动到 [!INCLUDE[vs_ordesigner_short](../data-tools/includes/vs_ordesigner_short_md.md)]上。  
   
-     A <xref:System.Data.Linq.DataContext> method is created with the original default return type.  
+     这样做将创建具有原始默认返回类型的 <xref:System.Data.Linq.DataContext> 方法。  
   
-## <a name="see-also"></a>See Also  
- [LINQ to SQL Tools in Visual Studio](../data-tools/linq-to-sql-tools-in-visual-studio2.md)   
- [DataContext Methods (O/R Designer)](../data-tools/datacontext-methods-o-r-designer.md)   
- [How to: Create DataContext methods mapped to stored procedures and functions (O/R Designer)](../data-tools/how-to-create-datacontext-methods-mapped-to-stored-procedures-and-functions-o-r-designer.md)   
- [LINQ to SQL](/dotnet/framework/data/adonet/sql/linq/index)
+## 请参阅  
+ [对象关系设计器（O\/R 设计器）](../data-tools/linq-to-sql-tools-in-visual-studio2.md)   
+ [DataContext 方法（O\/R 设计器）](../data-tools/datacontext-methods-o-r-designer.md)   
+ [如何：创建映射到存储过程和函数的 DataContext 方法（O\/R 设计器）](../data-tools/how-to-create-datacontext-methods-mapped-to-stored-procedures-and-functions-o-r-designer.md)   
+ [LINQ to SQL](../Topic/LINQ%20to%20SQL.md)

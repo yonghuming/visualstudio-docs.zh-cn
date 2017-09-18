@@ -1,73 +1,56 @@
 ---
-title: IDebugFunctionObject::CreatePrimitiveObject | Microsoft Docs
-ms.custom: 
-ms.date: 11/04/2016
-ms.reviewer: 
-ms.suite: 
-ms.technology:
-- vs-ide-sdk
-ms.tgt_pltfrm: 
-ms.topic: article
-f1_keywords:
-- IDebugFunctionObject::CreatePrimitiveObject
-helpviewer_keywords:
-- IDebugFunctionObject::CreatePrimitiveObject method
+title: "IDebugFunctionObject::CreatePrimitiveObject | Microsoft Docs"
+ms.custom: ""
+ms.date: "11/04/2016"
+ms.reviewer: ""
+ms.suite: ""
+ms.technology: 
+  - "vs-ide-sdk"
+ms.tgt_pltfrm: ""
+ms.topic: "article"
+f1_keywords: 
+  - "IDebugFunctionObject::CreatePrimitiveObject"
+helpviewer_keywords: 
+  - "IDebugFunctionObject::CreatePrimitiveObject 方法"
 ms.assetid: 6e9dc8b6-b4e1-4abf-b6e0-e885910775bc
 caps.latest.revision: 10
-ms.author: gregvanl
-manager: ghogen
-translation.priority.mt:
-- cs-cz
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pl-pl
-- pt-br
-- ru-ru
-- tr-tr
-- zh-cn
-- zh-tw
-ms.translationtype: MT
-ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
-ms.openlocfilehash: fd6aedb49b17fa818ee03ca4a5fed5758fe8a9c3
-ms.contentlocale: zh-cn
-ms.lasthandoff: 08/28/2017
-
+ms.author: "gregvanl"
+manager: "ghogen"
+caps.handback.revision: 10
 ---
-# <a name="idebugfunctionobjectcreateprimitiveobject"></a>IDebugFunctionObject::CreatePrimitiveObject
-Creates a primitive data object, such as a simple integer.  
+# IDebugFunctionObject::CreatePrimitiveObject
+[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
+
+创建一个原始数据对象，例如一个简单的整数。  
   
-## <a name="syntax"></a>Syntax  
+## 语法  
   
-```cpp  
-HRESULT CreatePrimitiveObject(   
-   OBJECT_TYPE    ot,  
-   IDebugObject** ppObject  
+```cpp#  
+HRESULT CreatePrimitiveObject(   
+   OBJECT_TYPE    ot,  
+   IDebugObject** ppObject  
 );  
 ```  
   
-```csharp  
+```c#  
 int CreatePrimitiveObject(  
-   enum_OBJECT_TYPE ot,   
-   out IDebugObject ppObject  
+   enum_OBJECT_TYPE ot,   
+   out IDebugObject ppObject  
 );  
 ```  
   
-#### <a name="parameters"></a>Parameters  
+#### 参数  
  `ot`  
- [in] A value from the [OBJECT_TYPE](../../../extensibility/debugger/reference/object-type.md) enumeration representing the type of primitive to create.  
+ \[in\] 从表示原始的类型 [OBJECT\_TYPE](../../../extensibility/debugger/reference/object-type.md) 枚举的值创建。  
   
  `ppObject`  
- [out] Returns an [IDebugObject](../../../extensibility/debugger/reference/idebugobject.md) representing the newly created object.  
+ \[out\] 返回表示新创建的对象的 [IDebugObject](../../../extensibility/debugger/reference/idebugobject.md) 。  
   
-## <a name="return-value"></a>Return Value  
- If successful, returns S_OK; otherwise, returns an error code.  
+## 返回值  
+ 如果成功，则返回 S\_OK;否则，返回错误代码。  
   
-## <a name="remarks"></a>Remarks  
- Call this method to create an object that represents a primitive object that is a parameter to the function which is represented by the [IDebugFunctionObject](../../../extensibility/debugger/reference/idebugfunctionobject.md) interface. For example, if the expression string is "myString(5)", this method would be used to create an object representing the integer 5.  
+## 备注  
+ 调用此方法创建表示为基元对象是参数传递给函数的 [IDebugFunctionObject](../../../extensibility/debugger/reference/idebugfunctionobject.md) 接口表示的对象。  例如，如果表达式，字符串 “myString \(5\)”，此方法将用于创建表示该整数 5. 的对象。  
   
-## <a name="see-also"></a>See Also  
+## 请参阅  
  [IDebugFunctionObject](../../../extensibility/debugger/reference/idebugfunctionobject.md)

@@ -1,130 +1,113 @@
 ---
-title: Accessing Local and Remote Data in ClickOnce Applications | Microsoft Docs
-ms.custom: 
-ms.date: 11/04/2016
-ms.reviewer: 
-ms.suite: 
-ms.technology:
-- vs-ide-deployment
-ms.tgt_pltfrm: 
-ms.topic: article
-dev_langs:
-- VB
-- CSharp
-- C++
-helpviewer_keywords:
-- ClickOnce deployment, data
-- data access, ClickOnce applications
+title: "在 ClickOnce 应用程序中访问本地数据和远程数据 | Microsoft Docs"
+ms.custom: ""
+ms.date: "12/15/2016"
+ms.prod: "visual-studio-dev14"
+ms.reviewer: ""
+ms.suite: ""
+ms.technology: 
+  - "vs-ide-deployment"
+ms.tgt_pltfrm: ""
+ms.topic: "article"
+dev_langs: 
+  - "VB"
+  - "CSharp"
+  - "C++"
+helpviewer_keywords: 
+  - "ClickOnce 部署, 数据"
+  - "数据访问, ClickOnce 应用程序"
 ms.assetid: be5cbe12-6cb6-49c9-aa59-a1624e1eef3d
 caps.latest.revision: 21
-author: stevehoag
-ms.author: shoag
-manager: wpickett
-translation.priority.ht:
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- ru-ru
-- zh-cn
-- zh-tw
-translation.priority.mt:
-- cs-cz
-- pl-pl
-- pt-br
-- tr-tr
-ms.translationtype: HT
-ms.sourcegitcommit: eb5c9550fd29b0e98bf63a7240737da4f13f3249
-ms.openlocfilehash: 471b2a77d60576caacfe8d89dd711fc1aaedd9e6
-ms.contentlocale: zh-cn
-ms.lasthandoff: 08/30/2017
-
+caps.handback.revision: 21
+author: "stevehoag"
+ms.author: "shoag"
+manager: "wpickett"
 ---
-# <a name="accessing-local-and-remote-data-in-clickonce-applications"></a>Accessing Local and Remote Data in ClickOnce Applications
-Most applications consume or produce data. [!INCLUDE[ndptecclick](../deployment/includes/ndptecclick_md.md)] gives you a variety of options for reading and writing data, both locally and remotely.  
+# 在 ClickOnce 应用程序中访问本地数据和远程数据
+[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
+
+大多数应用程序使用或生成数据。[!INCLUDE[ndptecclick](../deployment/includes/ndptecclick_md.md)] 为你提供多种选项用于在本地及远程读取和写入数据。  
   
-## <a name="local-data"></a>Local Data  
- With [!INCLUDE[ndptecclick](../deployment/includes/ndptecclick_md.md)], you can load and store data locally by using any one of the following methods:  
+## 本地数据  
+ 借助 [!INCLUDE[ndptecclick](../deployment/includes/ndptecclick_md.md)]，你可以通过以下任意一种方法在本地加载和存储数据：  
   
--   [!INCLUDE[ndptecclick](../deployment/includes/ndptecclick_md.md)] Data Directory  
+-   [!INCLUDE[ndptecclick](../deployment/includes/ndptecclick_md.md)] 数据目录  
   
--   Isolated Storage  
+-   独立存储  
   
--   Other Local Files  
+-   其他本地文件  
   
-### <a name="clickonce-data-directory"></a>ClickOnce Data Directory  
- Every [!INCLUDE[ndptecclick](../deployment/includes/ndptecclick_md.md)] application installed on a local computer has a data directory, stored in the user's Documents and Settings folder. Any file included in a [!INCLUDE[ndptecclick](../deployment/includes/ndptecclick_md.md)] application and marked as a "data" file is copied to this directory when an application is installed. Data files can be of any file type, the most frequently used being text, XML, and database files such as Microsoft Access .mdb files.  
+### ClickOnce 数据目录  
+ 本地计算机上安装的每个 [!INCLUDE[ndptecclick](../deployment/includes/ndptecclick_md.md)] 应用程序都有一个数据目录，该数据目录存储在用户的 Documents and Settings 文件夹中。 安装应用程序时，会将 [!INCLUDE[ndptecclick](../deployment/includes/ndptecclick_md.md)] 应用程序中包含的且标记为“数据”文件的所有文件复制到此目录。 数据文件可以是任何类型的文件，最常用的是文本文件、XML 文件和数据库文件（如 Microsoft Access.mdb 文件）。  
   
- The data directory is intended for application-managed data, which is data that the application explicitly stores and maintains. All static, nondependency files not marked as "data" in the application manifest will instead reside in the Application Directory. This directory is where the application's executable (.exe) files and assemblies reside.  
-  
-> [!NOTE]
->  When a [!INCLUDE[ndptecclick](../deployment/includes/ndptecclick_md.md)] application is uninstalled, its Data Directory is also removed. Never use the Data Directory to store end-user-managed data, such as documents.  
-  
-#### <a name="marking-data-files-in-a-clickonce-distribution"></a>Marking Data Files in a ClickOnce Distribution  
- To put an existing file inside the Data Directory, you must mark the existing file as a data file in your [!INCLUDE[ndptecclick](../deployment/includes/ndptecclick_md.md)] application's application manifest file. For more information, see [How to: Include a Data File in a ClickOnce Application](../deployment/how-to-include-a-data-file-in-a-clickonce-application.md).  
-  
-#### <a name="reading-from-and-writing-to-the-data-directory"></a>Reading from and Writing to the Data Directory  
- Reading from the Data Directory requires that your [!INCLUDE[ndptecclick](../deployment/includes/ndptecclick_md.md)] application request Read permission; similarly, writing to the directory requires Write permission. Your application will automatically have this permission if it is configured to run with Full Trust. For more information about elevating permissions for your application by using either Permission Elevation or Trusted Application Deployment, see [Securing ClickOnce Applications](../deployment/securing-clickonce-applications.md).  
+ 数据目录预期用于应用程序管理的数据，即应用程序显式存储和维护的数据。 应用程序清单中未标记为“数据”的所有静态非依赖文件都将改为驻留在应用程序目录中。 此目录是应用程序的可执行文件 \(.exe\) 文件和程序集所在的位置。  
   
 > [!NOTE]
->  If your organization does not use Trusted Application Deployment and has turned off Permission Elevation, asserting permissions will fail.  
+>  卸载 [!INCLUDE[ndptecclick](../deployment/includes/ndptecclick_md.md)] 应用程序时，也会删除其数据目录。 切勿使用数据目录来存储最终用户管理的数据，如文档。  
   
- After your application has these permissions, it can access the Data Directory by using method calls on classes within the <xref:System.IO>. You can obtain the path of the Data Directory within a Windows Forms [!INCLUDE[ndptecclick](../deployment/includes/ndptecclick_md.md)] application by using the <xref:System.Deployment.Application.ApplicationDeployment.DataDirectory%2A> property defined on the <xref:System.Deployment.Application.ApplicationDeployment.CurrentDeployment%2A> property of <xref:System.Deployment.Application.ApplicationDeployment>. This is the most convenient and recommended way to access your data. The following code example demonstrates how to do this for a text file named CSV.txt that you have included in your deployment as a data file.  
+#### 在 ClickOnce 分发中标记数据文件  
+ 若要将现有文件放入数据目录，必须在 [!INCLUDE[ndptecclick](../deployment/includes/ndptecclick_md.md)] 应用程序的应用程序清单文件中将现有文件标记为数据文件。 有关详细信息，请参阅[如何：将数据文件包括到 ClickOnce 应用程序中](../deployment/how-to-include-a-data-file-in-a-clickonce-application.md)。  
   
- [!code-csharp[ClickOnce.OpenDataFile#1](../deployment/codesnippet/CSharp/accessing-local-and-remote-data-in-clickonce-applications_1.cs)] [!code-vb[ClickOnce.OpenDataFile#1](../deployment/codesnippet/VisualBasic/accessing-local-and-remote-data-in-clickonce-applications_1.vb)]  
+#### 读取和写入数据目录  
+ 读取数据目录要求你的 [!INCLUDE[ndptecclick](../deployment/includes/ndptecclick_md.md)] 应用程序请求读取权限；同样，写入目录也需要写入权限。 如果它被配置为使用完全信任的权限运行，则你的应用程序将自动拥有此权限。 有关通过使用权限提升或信任的应用程序部署提升应用程序权限的详细信息，请参阅 [保护 ClickOnce 应用程序](../deployment/securing-clickonce-applications.md)。  
   
- For more information on marking files in your deployment as data files, see [How to: Include a Data File in a ClickOnce Application](../deployment/how-to-include-a-data-file-in-a-clickonce-application.md).  
+> [!NOTE]
+>  如果你的组织不使用信任的应用程序部署，并且已经关闭了权限提升，则断言权限将失效。  
   
- You can also obtain the data directory path using the relevant variables on the <xref:System.Windows.Forms.Application> class, such as <xref:System.Windows.Forms.Application.LocalUserAppDataPath%2A>.  
+ 应用程序具有这些权限后，就可以通过对 <xref:System.IO> 中的类进行方法调用访问数据目录。 你可以通过使用在 <xref:System.Deployment.Application.ApplicationDeployment> 的 <xref:System.Deployment.Application.ApplicationDeployment.CurrentDeployment%2A> 属性上定义的 <xref:System.Deployment.Application.ApplicationDeployment.DataDirectory%2A> 属性，获取 Windows 窗体 [!INCLUDE[ndptecclick](../deployment/includes/ndptecclick_md.md)] 应用程序中数据目录的路径。 这是访问数据的最简便方法，并且推荐使用此方法。 下面的代码示例演示如何对名为 CSV.txt 且已作为数据文件包括到部署中的文本文件执行此操作。  
   
- Manipulating other types of files might require additional permissions. For example, if you want to use an Access database (.mdb) file, your application must assert full trust in order to use the relevant <xref:System.Data> classes.  
+ [!CODE [ClickOnce.OpenDataFile#1](../CodeSnippet/VS_Snippets_Winforms/ClickOnce.OpenDataFile#1)]  
   
-#### <a name="data-directory-and-application-versions"></a>Data Directory and Application Versions  
- Each version of an application has its own Data Directory, which is isolated from other versions. [!INCLUDE[ndptecclick](../deployment/includes/ndptecclick_md.md)] creates this directory regardless of whether any data files are included in the deployment so that the application has a location to create new data files at run time. When a new version of an application is installed, [!INCLUDE[ndptecclick](../deployment/includes/ndptecclick_md.md)] will copy all the existing data files from the previous version's Data Directory into the new version's Data Directory—whether they were included in the original deployment or created by the application.  
+ 有关在部署中将文件标记为数据文件的详细信息，请参阅[如何：将数据文件包括到 ClickOnce 应用程序中](../deployment/how-to-include-a-data-file-in-a-clickonce-application.md)。  
   
- [!INCLUDE[ndptecclick](../deployment/includes/ndptecclick_md.md)] will replace the older version of the file with the newer version of the server if a data file has a different hash value in the old version of the application as in the new version. Also, if the earlier version of the application created a new file that has the same name as a file included in the new version's deployment, [!INCLUDE[ndptecclick](../deployment/includes/ndptecclick_md.md)] will overwrite the old version's file with the new file. In both cases, the old files will be included in a subdirectory inside the data directory named `.pre`, so that the application can still access the old data for migration purposes.  
+ 你还可以使用 <xref:System.Windows.Forms.Application> 类上的相关变量（如 <xref:System.Windows.Forms.Application.LocalUserAppDataPath%2A>）来获取数据目录路径。  
   
- If you need finer-grained migration of data, you can use the [!INCLUDE[ndptecclick](../deployment/includes/ndptecclick_md.md)] Deployment API to perform custom migration from the old Data Directory to the new Data Directory. You will have to test for an available download by using <xref:System.Deployment.Application.ApplicationDeployment.IsFirstRun%2A>, download the update using <xref:System.Deployment.Application.ApplicationDeployment.Update%2A> or <xref:System.Deployment.Application.ApplicationDeployment.UpdateAsync%2A>, and do any custom data migration work in your own after the update is finished.  
+ 处理其他类型的文件可能需要其他权限。 例如，如果希望使用 Access 数据库 \(.mdb\) 文件，你的应用程序必须声明完全信任才能使用相关的 <xref:System.Data> 类。  
   
-### <a name="isolated-storage"></a>Isolated Storage  
- Isolated Storage provides an API for creating and accessing files by using a simple API. The actual location of the stored files is hidden from both the developer and the user.  
+#### 数据目录和应用程序版本  
+ 应用程序的每个版本都具有其自己的数据目录，每个版本的数据目录相互独立。 无论数据文件是否包括到部署中，[!INCLUDE[ndptecclick](../deployment/includes/ndptecclick_md.md)] 都将创建此目录，以便该应用程序在运行时有一个位置可以创建新的数据文件。 安装新的应用程序版本时，[!INCLUDE[ndptecclick](../deployment/includes/ndptecclick_md.md)] 会将现有全部数据文件从以前版本的数据目录复制到新版本的数据目录，而无论这些数据文件是原始部署中包括的还是应用程序创建的数据文件。  
   
- Isolated Storage works in all versions of the [!INCLUDE[dnprdnshort](../code-quality/includes/dnprdnshort_md.md)]. Isolated Storage also works in partially trusted applications without the need for additional permission grants. You should use Isolated Storage if your application must run in partial trust, but must maintain application-specific data.  
+ 如果旧版应用程序中的数据文件与新版应用程序具有不同的哈希值，[!INCLUDE[ndptecclick](../deployment/includes/ndptecclick_md.md)] 会将旧版文件替换为新版服务器。 此外，如果旧版应用程序创建的新文件与新版部署中包括的文件具有相同的名称，[!INCLUDE[ndptecclick](../deployment/includes/ndptecclick_md.md)] 会将旧版文件覆盖为新文件。 在这两种情况下，旧文件都将包括到名为 `.pre` 的数据目录内部的子目录下，以便应用程序仍然可以访问旧数据以进行迁移。  
   
- For more information, see [Isolated Storage](/dotnet/standard/io/isolated-storage).  
+ 如果需要更细粒度的数据迁移，则可以使用 [!INCLUDE[ndptecclick](../deployment/includes/ndptecclick_md.md)] 部署 API 执行从旧数据目录到新数据目录的自定义迁移。 你必须使用 <xref:System.Deployment.Application.ApplicationDeployment.IsFirstRun%2A> 测试是否可以下载，使用 <xref:System.Deployment.Application.ApplicationDeployment.Update%2A> 或 <xref:System.Deployment.Application.ApplicationDeployment.UpdateAsync%2A> 下载更新，以及在更新完成后用自己的方式进行任何自定义数据迁移工作。  
   
-### <a name="other-local-files"></a>Other Local Files  
- If your application must work with or save end-user data such as reports, images, music, and so on, your application will require <xref:System.Security.Permissions.FileIOPermission> to read and write data to the local file system.  
+### 独立存储  
+ 独立存储提供一个 API，用于通过一个简单的 API 创建和访问文件。 存储文件的实际位置对开发人员和用户来说都是隐藏的。  
   
-## <a name="remote-data"></a>Remote Data  
- At some point, your application will likely have to retrieve information from a remote Web site, such as customer data or market information. This section discusses the most common techniques for retrieving remote data.  
+ 独立存储适用于 [!INCLUDE[dnprdnshort](../code-quality/includes/dnprdnshort_md.md)] 的所有版本。 独立存储也适用于部分信任的应用程序，而无需授予其他权限。 如果你的应用程序必须在部分信任环境中运行，但必须维护应用程序特定的数据，则应使用独立存储。  
   
-### <a name="accessing-files-by-using-http"></a>Accessing Files by Using HTTP  
- You can access data from a Web server by using either the <xref:System.Net.WebClient> or the <xref:System.Net.HttpWebRequest> class in the <xref:System.Net> namespace. The data can be either static files or [!INCLUDE[vstecasp](../code-quality/includes/vstecasp_md.md)] applications that return raw text or XML data. If your data is in XML format, the fastest way to retrieve the data is by using the <xref:System.Xml.XmlDocument> class, whose <xref:System.Xml.XmlDocument.Load%2A> method takes a URL as an argument. For an example, see [Reading an XML Document into the DOM](/dotnet/standard/data/xml/reading-an-xml-document-into-the-dom).  
+ 有关更多信息，请参见[独立存储](../Topic/Isolated%20Storage.md)。  
   
- You have to consider security when your application accesses remote data over HTTP. By default, your [!INCLUDE[ndptecclick](../deployment/includes/ndptecclick_md.md)] application's access to network resources may be restricted, depending on how your application was deployed. These restrictions are applied to prevent malicious programs from gaining access to privileged remote data or from using a user's computer to attack other computers on the network.  
+### 其他本地文件  
+ 如果你的应用程序必须处理或保存最终用户数据（例如报表、图像、音乐等），你的应用程序将需要 <xref:System.Security.Permissions.FileIOPermission> 来读取本地文件系统中的数据以及将数据写入本地文件系统。  
   
- The following table lists the deployment strategies you might use and their default Web permissions.  
+## 远程数据  
+ 在某些时候，你的应用程序可能需要从远程网站检索信息（如客户数据或市场信息）。 本部分讨论用于检索远程数据的最常用技术。  
   
-|Deployment type|Default network permissions|  
-|---------------------|---------------------------------|  
-|Web Install|Can only access the Web server from which the application was installed|  
-|File Share Install|Cannot access any Web servers|  
-|CD-ROM Install|Can access any Web servers|  
+### 通过使用 HTTP 访问文件  
+ 你可以通过使用 <xref:System.Net> 命名空间中的 <xref:System.Net.WebClient> 或 <xref:System.Net.HttpWebRequest> 类从 Web 服务器访问数据。 数据可以是静态文件，也可以是运行原始文本或 XML 数据的 [!INCLUDE[vstecasp](../code-quality/includes/vstecasp_md.md)] 应用程序。 如果你的数据为 XML 格式，则检索数据最快的方法是使用 <xref:System.Xml.XmlDocument> 类，该类的 <xref:System.Xml.XmlDocument.Load%2A> 方法采用 URL 作为参数。 有关示例，请参见 [将 XML 文档读入 DOM](../Topic/Reading%20an%20XML%20Document%20into%20the%20DOM.md)。  
   
- If your [!INCLUDE[ndptecclick](../deployment/includes/ndptecclick_md.md)] application cannot access a Web server because of security restrictions, the application must assert <xref:System.Net.WebPermission> for that Web site. For more information about increasing security permissions for a [!INCLUDE[ndptecclick](../deployment/includes/ndptecclick_md.md)] application, see [Securing ClickOnce Applications](../deployment/securing-clickonce-applications.md).  
+ 当应用程序通过 HTTP 访问远程数据时，你需要考虑安全性。 默认情况下，[!INCLUDE[ndptecclick](../deployment/includes/ndptecclick_md.md)] 应用程序对网络资源的访问可能受限，具体取决于应用程序的部署方式。 应用这些限制的目的是防止恶意程序获得对特权远程数据的访问或利用用户的计算机攻击网络上的其他计算机。  
   
-### <a name="accessing-data-through-an-xml-web-service"></a>Accessing Data through an XML Web Service  
- If you expose your data as an XML Web service, you can access the data by using an XML Web service proxy. The proxy is a [!INCLUDE[dnprdnshort](../code-quality/includes/dnprdnshort_md.md)] class you create by using either [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)]. The operations of the XML Web service—such as retrieving customers, placing orders, and so on—are exposed as methods on the proxy. This makes Web services much easier to use than raw text or XML files.  
+ 下表列出了可能使用的部署策略及其默认 Web 权限。  
   
- If your XML Web service operates over HTTP, the service will be bound by the same security restrictions as the <xref:System.Net.WebClient> and <xref:System.Net.HttpWebRequest> classes.  
+|部署类型|默认网络权限|  
+|----------|------------|  
+|Web 安装|只能从安装应用程序的 Web 服务器访问|  
+|文件共享安装|不能访问任何 Web 服务器|  
+|CD\-ROM 安装|不能访问任何 Web 服务器|  
   
-### <a name="accessing-a-database-directly"></a>Accessing a Database Directly  
- You can use the classes within the <xref:System.Data> namespace to establish direct connections with a database server such as SQL Server on your network, but you must account for the security issues. Unlike HTTP requests, database connection requests are always forbidden by default under partial trust; you will only have such permission by default if you install your [!INCLUDE[ndptecclick](../deployment/includes/ndptecclick_md.md)] application from a CD-ROM. This gives your application full trust. To enable access to a specific SQL Server database, your application must request <xref:System.Data.SqlClient.SqlClientPermission> to it; to enable access to a database other than SQL Server, it must request <xref:System.Data.OleDb.OleDbPermission>.  
+ 如果你的 [!INCLUDE[ndptecclick](../deployment/includes/ndptecclick_md.md)] 应用程序因安全限制而不能访问 Web 服务器，则应用程序必须为该网站断言 <xref:System.Net.WebPermission>。 有关增加 [!INCLUDE[ndptecclick](../deployment/includes/ndptecclick_md.md)] 应用程序安全权限的详细信息，请参阅 [保护 ClickOnce 应用程序](../deployment/securing-clickonce-applications.md)。  
   
- Most of the time, you will not have to access the database directly, but will access it instead through a Web server application written in [!INCLUDE[vstecasp](../code-quality/includes/vstecasp_md.md)] or an XML Web service. Accessing the database in this manner is frequently the best method if your [!INCLUDE[ndptecclick](../deployment/includes/ndptecclick_md.md)] application is deployed from a Web server. You can access the server in partial trust without elevating your application's permissions.  
+### 通过 XML Web 服务访问数据  
+ 如果以 XML Web 服务形式公开你的数据，则可以通过使用 XML Web 服务代理来访问数据。 代理是你使用 [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] 创建的 [!INCLUDE[dnprdnshort](../code-quality/includes/dnprdnshort_md.md)] 类。 XML Web 服务的操作（如检索客户、下订单等）在代理中作为方法公开。 这使得 Web 服务相比原始文本和 XML 文件更易于使用。  
   
-## <a name="see-also"></a>See Also  
- [How to: Include a Data File in a ClickOnce Application](../deployment/how-to-include-a-data-file-in-a-clickonce-application.md)
+ 如果你的 XML Web 服务通过 HTTP 操作，该服务将与 <xref:System.Net.WebClient> 和 <xref:System.Net.HttpWebRequest> 类受到相同的安全限制约束。  
+  
+### 直接访问数据库  
+ 你可以使用 <xref:System.Data> 命名空间中的类来与网络上的数据库服务器（如 SQL Server）建立直接联系，但必须考虑安全问题。 与 HTTP 请求不同，在部分信任的环境下，数据库连接请求始终默认处于禁止状态；仅当你从 CD\-ROM 安装 [!INCLUDE[ndptecclick](../deployment/includes/ndptecclick_md.md)] 应用程序，才默认具有此类权限。 这样，你的应用程序即具有完全信任的权限。 若要实现对特定 SQL Server 数据库的访问，你的应用程序必须向其请求 <xref:System.Data.SqlClient.SqlClientPermission>；若要实现对 SQL Server 以外的数据库的访问，必须请求 <xref:System.Data.OleDb.OleDbPermission>。  
+  
+ 大多数情况下，你将不必直接访问数据，但将改为通过写入 [!INCLUDE[vstecasp](../code-quality/includes/vstecasp_md.md)] 的 Web 服务器应用程序或 XML Web 服务访问。 如果你的 [!INCLUDE[ndptecclick](../deployment/includes/ndptecclick_md.md)] 应用程序是从 Web 服务器部署的，则以这种方式访问数据库通常是最好的方法。 你可以使用部分信任的权限访问服务器，而无需提升你的应用程序权限。  
+  
+## 请参阅  
+ [如何：将数据文件包括到 ClickOnce 应用程序中](../deployment/how-to-include-a-data-file-in-a-clickonce-application.md)

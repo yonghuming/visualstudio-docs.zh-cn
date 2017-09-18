@@ -1,72 +1,55 @@
 ---
-title: IDebugCanStopEvent2::GetDocumentContext | Microsoft Docs
-ms.custom: 
-ms.date: 11/04/2016
-ms.reviewer: 
-ms.suite: 
-ms.technology:
-- vs-ide-sdk
-ms.tgt_pltfrm: 
-ms.topic: article
-f1_keywords:
-- IDebugCanStopEvent2::GetDocumentContext
-helpviewer_keywords:
-- IDebugCanStopEvent2::GetDocumentContext
+title: "IDebugCanStopEvent2::GetDocumentContext | Microsoft Docs"
+ms.custom: ""
+ms.date: "11/04/2016"
+ms.reviewer: ""
+ms.suite: ""
+ms.technology: 
+  - "vs-ide-sdk"
+ms.tgt_pltfrm: ""
+ms.topic: "article"
+f1_keywords: 
+  - "IDebugCanStopEvent2::GetDocumentContext"
+helpviewer_keywords: 
+  - "IDebugCanStopEvent2::GetDocumentContext"
 ms.assetid: 936a6c4e-30c5-4c7e-9ad5-910cc605a4b5
 caps.latest.revision: 10
-ms.author: gregvanl
-manager: ghogen
-translation.priority.mt:
-- cs-cz
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pl-pl
-- pt-br
-- ru-ru
-- tr-tr
-- zh-cn
-- zh-tw
-ms.translationtype: MT
-ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
-ms.openlocfilehash: 77622201d0cd90bc45f8508614bb2b7170d95acd
-ms.contentlocale: zh-cn
-ms.lasthandoff: 08/28/2017
-
+ms.author: "gregvanl"
+manager: "ghogen"
+caps.handback.revision: 10
 ---
-# <a name="idebugcanstopevent2getdocumentcontext"></a>IDebugCanStopEvent2::GetDocumentContext
-Gets the document context that describes the location of this event.  
+# IDebugCanStopEvent2::GetDocumentContext
+[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
+
+获取描述此事件的位置的文档上下文。  
   
-## <a name="syntax"></a>Syntax  
+## 语法  
   
-```cpp  
-HRESULT GetDocumentContext (   
-   IDebugDocumentContext2** ppDocCxt  
+```cpp#  
+HRESULT GetDocumentContext (   
+   IDebugDocumentContext2** ppDocCxt  
 );  
 ```  
   
-```csharp  
-int GetDocumentContext (   
-   out IDebugDocumentContext2 ppDocCxt  
+```c#  
+int GetDocumentContext (   
+   out IDebugDocumentContext2 ppDocCxt  
 );  
 ```  
   
-#### <a name="parameters"></a>Parameters  
+#### 参数  
  `ppDocCxt`  
- [out] Returns the [IDebugDocumentContext2](../../../extensibility/debugger/reference/idebugdocumentcontext2.md) interface that represents a position in a source file document corresponding to the current code location.  
+ \[out\] 返回表示源文件中的位置文档与当前代码位置对应的 [IDebugDocumentContext2](../../../extensibility/debugger/reference/idebugdocumentcontext2.md) 接口。  
   
-## <a name="return-value"></a>Return Value  
- If successful, returns `S_OK`; otherwise, returns an error code.  
+## 返回值  
+ 如果成功，则返回; `S_OK`否则，返回错误代码。  
   
-## <a name="remarks"></a>Remarks  
- Generally, the document context can be thought of as a position in a source file.  
+## 备注  
+ 通常，文档上下文可视为在源文件中的位置。  
   
- To get the code context, which is oriented towards code instructions, call the [GetCodeContext](../../../extensibility/debugger/reference/idebugcanstopevent2-getcodecontext.md) method.  
+ 获取代码上下文，是针对代码命令，调用 [GetCodeContext](../../../extensibility/debugger/reference/idebugcanstopevent2-getcodecontext.md) 方法。  
   
-## <a name="see-also"></a>See Also  
+## 请参阅  
  [IDebugCanStopEvent2](../../../extensibility/debugger/reference/idebugcanstopevent2.md)   
  [IDebugDocumentContext2](../../../extensibility/debugger/reference/idebugdocumentcontext2.md)   
  [GetCodeContext](../../../extensibility/debugger/reference/idebugcanstopevent2-getcodecontext.md)

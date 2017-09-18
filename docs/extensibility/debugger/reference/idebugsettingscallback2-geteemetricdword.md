@@ -1,78 +1,61 @@
 ---
-title: IDebugSettingsCallback2::GetEEMetricDword | Microsoft Docs
-ms.custom: 
-ms.date: 11/04/2016
-ms.reviewer: 
-ms.suite: 
-ms.technology:
-- vs-ide-sdk
-ms.tgt_pltfrm: 
-ms.topic: article
-helpviewer_keywords:
-- IDebugSettingsCallback2::GetEEMetricDword
+title: "IDebugSettingsCallback2::GetEEMetricDword | Microsoft Docs"
+ms.custom: ""
+ms.date: "11/04/2016"
+ms.reviewer: ""
+ms.suite: ""
+ms.technology: 
+  - "vs-ide-sdk"
+ms.tgt_pltfrm: ""
+ms.topic: "article"
+helpviewer_keywords: 
+  - "IDebugSettingsCallback2::GetEEMetricDword"
 ms.assetid: c5f8f417-0ef0-4fd0-a779-b0a8ead4effe
 caps.latest.revision: 9
-ms.author: gregvanl
-manager: ghogen
-translation.priority.mt:
-- cs-cz
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pl-pl
-- pt-br
-- ru-ru
-- tr-tr
-- zh-cn
-- zh-tw
-ms.translationtype: MT
-ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
-ms.openlocfilehash: 5571f418bd8e70f8c924e36e89ee3ec4d0f45d88
-ms.contentlocale: zh-cn
-ms.lasthandoff: 08/28/2017
-
+ms.author: "gregvanl"
+manager: "ghogen"
+caps.handback.revision: 9
 ---
-# <a name="idebugsettingscallback2geteemetricdword"></a>IDebugSettingsCallback2::GetEEMetricDword
-Retrieves a value that corresponds to the specified metric of the expression evaluator.  
+# IDebugSettingsCallback2::GetEEMetricDword
+[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
+
+检索对应于指定的指标表达式计算器的值。  
   
-## <a name="syntax"></a>Syntax  
+## 语法  
   
-```cpp  
+```cpp#  
 HRESULT GetEEMetricDword(  
-   REFGUID guidLang,  
-   REFGUID guidVendor,  
-   LPCWSTR pszMetric,  
-   DWORD*  pdwValue  
+   REFGUID guidLang,  
+   REFGUID guidVendor,  
+   LPCWSTR pszMetric,  
+   DWORD*  pdwValue  
 );  
 ```  
   
-```csharp  
+```c#  
 private int GetEEMetricDword(  
-   ref Guid guidLang,  
-   ref Guid guidVendor,  
-   string   pszMetric,  
-   out uint pdwValue  
+   ref Guid guidLang,  
+   ref Guid guidVendor,  
+   string   pszMetric,  
+   out uint pdwValue  
 );  
 ```  
   
-#### <a name="parameters"></a>Parameters  
+#### 参数  
  `guidLang`  
- [in] Unique identifier of the programming language.  
+ \[in\] 编程语言的唯一标识符。  
   
  `guidVendor`  
- [in] Unique identifier of the vendor.  
+ \[in\] 供应商的唯一标识符。  
   
  `pszMetric`  
- [in] Name of the metric.  
+ \[in\] 名称的指标。  
   
  `pdwValue`  
- [out] Returns the value that corresponds to the metric string.  
+ \[out\] 返回对应于该指标字符串的值。  
   
-## <a name="return-value"></a>Return Value  
- If successful, returns `S_OK`; otherwise, returns an error code.  
+## 返回值  
+ 如果成功，则返回; `S_OK`否则，返回错误代码。  
   
-## <a name="see-also"></a>See Also  
+## 请参阅  
  [IDebugSettingsCallback2](../../../extensibility/debugger/reference/idebugsettingscallback2.md)

@@ -1,101 +1,84 @@
 ---
-title: DISASSEMBLY_FLAGS | Microsoft Docs
-ms.custom: 
-ms.date: 11/04/2016
-ms.reviewer: 
-ms.suite: 
-ms.technology:
-- vs-ide-sdk
-ms.tgt_pltfrm: 
-ms.topic: article
-f1_keywords:
-- DISASSEMBLY_FLAGS
-helpviewer_keywords:
-- DISASSEMBLY_FLAGS enumeration
+title: "DISASSEMBLY_FLAGS | Microsoft Docs"
+ms.custom: ""
+ms.date: "11/04/2016"
+ms.reviewer: ""
+ms.suite: ""
+ms.technology: 
+  - "vs-ide-sdk"
+ms.tgt_pltfrm: ""
+ms.topic: "article"
+f1_keywords: 
+  - "DISASSEMBLY_FLAGS"
+helpviewer_keywords: 
+  - "DISASSEMBLY_FLAGS 枚举"
 ms.assetid: c1ec5a4d-5d42-4660-932c-7348550140cb
 caps.latest.revision: 10
-ms.author: gregvanl
-manager: ghogen
-translation.priority.mt:
-- cs-cz
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pl-pl
-- pt-br
-- ru-ru
-- tr-tr
-- zh-cn
-- zh-tw
-ms.translationtype: MT
-ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
-ms.openlocfilehash: c2e591340d80d2c17b214a0328cbdb0f0c121d81
-ms.contentlocale: zh-cn
-ms.lasthandoff: 08/28/2017
-
+ms.author: "gregvanl"
+manager: "ghogen"
+caps.handback.revision: 10
 ---
-# <a name="disassemblyflags"></a>DISASSEMBLY_FLAGS
-Specifies the flags for disassembly.  
+# DISASSEMBLY_FLAGS
+[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
+
+用于反汇编指定标志。  
   
-## <a name="syntax"></a>Syntax  
+## 语法  
   
-```cpp  
-enum enum_DISASSEMBLY_FLAGS {   
-   DF_DOCUMENTCHANGE     = 0x00000001,  
-   DF_DISABLED           = 0x00000002,  
-   DF_INSTRUCTION_ACTIVE = 0x00000004,  
-   DF_DATA               = 0x00000008,  
-   DF_HASSOURCE          = 0x00000010,  
-   DF_DOCUMENT_CHECKSUM  = 0x00000020  
+```cpp#  
+enum enum_DISASSEMBLY_FLAGS {   
+   DF_DOCUMENTCHANGE     = 0x00000001,  
+   DF_DISABLED           = 0x00000002,  
+   DF_INSTRUCTION_ACTIVE = 0x00000004,  
+   DF_DATA               = 0x00000008,  
+   DF_HASSOURCE          = 0x00000010,  
+   DF_DOCUMENT_CHECKSUM  = 0x00000020  
 };  
 typedef DWORD DISASSEMBLY_FLAGS;  
 ```  
   
-```csharp  
-public enum enum_DISASSEMBLY_FLAGS {   
-   DF_DOCUMENTCHANGE     = 0x00000001,  
-   DF_DISABLED           = 0x00000002,  
-   DF_INSTRUCTION_ACTIVE = 0x00000004,  
-   DF_DATA               = 0x00000008,  
-   DF_HASSOURCE          = 0x00000010,  
-   DF_DOCUMENT_CHECKSUM  = 0x00000020  
+```c#  
+public enum enum_DISASSEMBLY_FLAGS {   
+   DF_DOCUMENTCHANGE     = 0x00000001,  
+   DF_DISABLED           = 0x00000002,  
+   DF_INSTRUCTION_ACTIVE = 0x00000004,  
+   DF_DATA               = 0x00000008,  
+   DF_HASSOURCE          = 0x00000010,  
+   DF_DOCUMENT_CHECKSUM  = 0x00000020  
 };  
 ```  
   
-## <a name="members"></a>Members  
- DF_DOCUMENTCHANGE  
- Indicates that this instruction is in a different document than the previous one.  
+## 成员  
+ DF\_DOCUMENTCHANGE  
+ 指示此命令比前一个在其他文档。  
   
- DF_DISABLED  
- Indicates that this instruction will not be executed.  
+ DF\_DISABLED  
+ 指示此命令不会执行。  
   
- DF_INSTRUCTION_ACTIVE  
- Indicates that this instruction is one of the next instructions to be executed (there may be more than one).  
+ DF\_INSTRUCTION\_ACTIVE  
+ 指示此命令是其中一命令执行 \(可以有多个\)。  
   
- DF_DATA  
- Indicates that this instruction is really data (not code).  
+ DF\_DATA  
+ 指示此命令实际上是数据 \(不是代码\)。  
   
- DF_HASSOURCE  
- Indicates that this instruction has source. Some instructions, such as profiling or garbage collection code, have no corresponding source.  
+ DF\_HASSOURCE  
+ 指示此命令具有源。  这些命令，例如分析或垃圾回收代码，没有相应的源。  
   
- DF_DOCUMENT_CHECKSUM  
- Indicates that `bstrDocumentUrl` field contains checksum data after the document URL. See the Remarks section for the [DisassemblyData](../../../extensibility/debugger/reference/disassemblydata.md) structure for how the checksum data is stored.  
+ DF\_DOCUMENT\_CHECKSUM  
+ 指示 `bstrDocumentUrl` 字段在以后包含检查和数据文档 URL。  说明如何的 [DisassemblyData](../../../extensibility/debugger/reference/disassemblydata.md) 结构请参见 " 备注 " 部分中检查和数据。  
   
-## <a name="remarks"></a>Remarks  
- Used as the `dwFlags` member of the [DisassemblyData](../../../extensibility/debugger/reference/disassemblydata.md) structure.  
+## 备注  
+ 用作 [DisassemblyData](../../../extensibility/debugger/reference/disassemblydata.md) 结构的 `dwFlags` 成员。  
   
- These flags may be combined with a bitwise `OR`.  
+ 这些标志可以按位组合使用 `OR`。  
   
-## <a name="requirements"></a>Requirements  
- Header: msdbg.h  
+## 要求  
+ 标题:msdbg.h  
   
- Namespace: Microsoft.VisualStudio.Debugger.Interop  
+ 命名空间:Microsoft.VisualStudio.Debugger.Interop  
   
- Assembly: Microsoft.VisualStudio.Debugger.Interop.dll  
+ 程序集:Microsoft.VisualStudio.Debugger.Interop.dll  
   
-## <a name="see-also"></a>See Also  
- [Enumerations](../../../extensibility/debugger/reference/enumerations-visual-studio-debugging.md)   
+## 请参阅  
+ [枚举](../../../extensibility/debugger/reference/enumerations-visual-studio-debugging.md)   
  [DisassemblyData](../../../extensibility/debugger/reference/disassemblydata.md)

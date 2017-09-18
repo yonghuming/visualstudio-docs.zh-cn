@@ -1,107 +1,90 @@
 ---
-title: EVENTATTRIBUTES | Microsoft Docs
-ms.custom: 
-ms.date: 11/04/2016
-ms.reviewer: 
-ms.suite: 
-ms.technology:
-- vs-ide-sdk
-ms.tgt_pltfrm: 
-ms.topic: article
-f1_keywords:
-- EVENTATTRIBUTES
-helpviewer_keywords:
-- EVENTATTRIBUTES enumeration
+title: "EVENTATTRIBUTES | Microsoft Docs"
+ms.custom: ""
+ms.date: "11/04/2016"
+ms.reviewer: ""
+ms.suite: ""
+ms.technology: 
+  - "vs-ide-sdk"
+ms.tgt_pltfrm: ""
+ms.topic: "article"
+f1_keywords: 
+  - "EVENTATTRIBUTES"
+helpviewer_keywords: 
+  - "EVENTATTRIBUTES 枚举"
 ms.assetid: 04db10f7-df31-4464-98e8-b3777428179e
 caps.latest.revision: 10
-ms.author: gregvanl
-manager: ghogen
-translation.priority.mt:
-- cs-cz
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pl-pl
-- pt-br
-- ru-ru
-- tr-tr
-- zh-cn
-- zh-tw
-ms.translationtype: MT
-ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
-ms.openlocfilehash: fff378260ab2136e6f8917d10d4669911dac3faa
-ms.contentlocale: zh-cn
-ms.lasthandoff: 08/28/2017
-
+ms.author: "gregvanl"
+manager: "ghogen"
+caps.handback.revision: 10
 ---
-# <a name="eventattributes"></a>EVENTATTRIBUTES
-Specifies the event attributes.  
+# EVENTATTRIBUTES
+[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
+
+指定事件属性。  
   
-## <a name="syntax"></a>Syntax  
+## 语法  
   
-```cpp  
-enum enum_EVENTATTRIBUTES {   
-   EVENT_ASYNCHRONOUS          = 0x0000,  
-   EVENT_SYNCHRONOUS           = 0x0001,  
-   EVENT_STOPPING              = 0x0002,  
-   EVENT_ASYNC_STOP            = 0x0002,  
-   EVENT_SYNC_STOP             = 0x0003,  
-   EVENT_IMMEDIATE             = 0x0004,  
-   EVENT_EXPRESSION_EVALUATION = 0x0008  
+```cpp#  
+enum enum_EVENTATTRIBUTES {   
+   EVENT_ASYNCHRONOUS          = 0x0000,  
+   EVENT_SYNCHRONOUS           = 0x0001,  
+   EVENT_STOPPING              = 0x0002,  
+   EVENT_ASYNC_STOP            = 0x0002,  
+   EVENT_SYNC_STOP             = 0x0003,  
+   EVENT_IMMEDIATE             = 0x0004,  
+   EVENT_EXPRESSION_EVALUATION = 0x0008  
 };  
 typedef DWORD EVENTATTRIBUTES;  
 ```  
   
-```csharp  
-public enum enum_EVENTATTRIBUTES {   
-   EVENT_ASYNCHRONOUS          = 0x0000,  
-   EVENT_SYNCHRONOUS           = 0x0001,  
-   EVENT_STOPPING              = 0x0002,  
-   EVENT_ASYNC_STOP            = 0x0002,  
-   EVENT_SYNC_STOP             = 0x0003,  
-   EVENT_IMMEDIATE             = 0x0004,  
-   EVENT_EXPRESSION_EVALUATION = 0x0008  
+```c#  
+public enum enum_EVENTATTRIBUTES {   
+   EVENT_ASYNCHRONOUS          = 0x0000,  
+   EVENT_SYNCHRONOUS           = 0x0001,  
+   EVENT_STOPPING              = 0x0002,  
+   EVENT_ASYNC_STOP            = 0x0002,  
+   EVENT_SYNC_STOP             = 0x0003,  
+   EVENT_IMMEDIATE             = 0x0004,  
+   EVENT_EXPRESSION_EVALUATION = 0x0008  
 };  
 ```  
   
-## <a name="members"></a>Members  
- EVENT_ASYNCHRONOUS  
- Indicates that the event is asynchronous and no reply to the event is needed.  
+## 成员  
+ EVENT\_ASYNCHRONOUS  
+ 指示该操作是异步的和向事件的否定答案是必需的。  
   
- EVENT_SYNCHRONOUS  
- Indicates that the event is synchronous; reply by means of [ContinueFromSynchronousEvent](../../../extensibility/debugger/reference/idebugengine2-continuefromsynchronousevent.md).  
+ EVENT\_SYNCHRONOUS  
+ 指示该操作是同步;通过 [ContinueFromSynchronousEvent](../Topic/IDebugEngine2::ContinueFromSynchronousEvent.md)的答案。  
   
- EVENT_STOPPING  
- Indicates that this is a stopping event. Must be combined with either `EVENT_ASYNCHRONOUS` or `EVENT_SYNCHRONOUS`.  
+ EVENT\_STOPPING  
+ 指示这是一个停止点的事件。  必须将与 `EVENT_ASYNCHRONOUS` 或 `EVENT_SYNCHRONOUS`。  
   
- EVENT_ASYNC_STOP  
- Indicates an asynchronous stopping event. There is currently no such event. This flag is only a placeholder.  
+ EVENT\_ASYNC\_STOP  
+ 指示异步终止的事件。  当前没有这样的事件。  此标志仅占位符。  
   
- EVENT_SYNC_STOP  
- Indicates a synchronous stopping event (a combination of `EVENT_SYNCHRONOUS` and `EVENT_STOPPING`). This value is used by a debug engine (DE) when it sends a stopping event. The reply is made by means of a call to [Execute](../../../extensibility/debugger/reference/idebugprogram2-execute.md), [Step](../../../extensibility/debugger/reference/idebugprogram2-step.md), or [Continue](../../../extensibility/debugger/reference/idebugprogram2-continue.md).  
+ EVENT\_SYNC\_STOP  
+ 指示一个同步终止的事件 \( `EVENT_SYNCHRONOUS` 和 `EVENT_STOPPING`的组合\)。  ，当它发送一个停止点的事件时，调试引擎 \(DE\)使用此值。  答案通过调用可对 [执行](../../../extensibility/debugger/reference/idebugprogram2-execute.md)、 [单步执行](../../../extensibility/debugger/reference/idebugprogram2-step.md)或 [继续](../../../extensibility/debugger/reference/idebugprogram2-continue.md)。  
   
- EVENT_IMMEDIATE  
- Indicates an event that is sent immediately and synchronously to the IDE. This flag is combined with other flags like `EVENT_ASYNCHRONOUS`, `EVENT_SYNCHRONOUS`, or `EVENT_SYNC_STOP` to indicate the type of event and the fact that the reply mechanism (if any) is known.  
+ EVENT\_IMMEDIATE  
+ 指示立即和同步发送到 IDE 的事件。  此标志组合与 `EVENT_ASYNCHRONOUS`、 `EVENT_SYNCHRONOUS`或 `EVENT_SYNC_STOP` 的其他标志指示操作和该条件的类型答案结构 \(如果有\) 了解。  
   
- EVENT_EXPRESSION_EVALUATION  
- The event is a result of expression evaluation.  
+ EVENT\_EXPRESSION\_EVALUATION  
+ 事件是表达式计算的结果。  
   
-## <a name="remarks"></a>Remarks  
- These values are passed in the `dwAttrib` parameter of the [Event](../../../extensibility/debugger/reference/idebugeventcallback2-event.md) method.  
+## 备注  
+ 这些值在 [事件](../../../extensibility/debugger/reference/idebugeventcallback2-event.md) 方法的 `dwAttrib` 参数传递。  
   
- These values may be combined with a bitwise `OR`.  
+ 这些值可能按位组合使用 `OR`。  
   
-## <a name="requirements"></a>Requirements  
- Header: msdbg.h  
+## 要求  
+ 标题:msdbg.h  
   
- Namespace: Microsoft.VisualStudio.Debugger.Interop  
+ 命名空间:Microsoft.VisualStudio.Debugger.Interop  
   
- Assembly: Microsoft.VisualStudio.Debugger.Interop.dll  
+ 程序集:Microsoft.VisualStudio.Debugger.Interop.dll  
   
-## <a name="see-also"></a>See Also  
- [Enumerations](../../../extensibility/debugger/reference/enumerations-visual-studio-debugging.md)   
- [ContinueFromSynchronousEvent](../../../extensibility/debugger/reference/idebugengine2-continuefromsynchronousevent.md)   
- [Event](../../../extensibility/debugger/reference/idebugeventcallback2-event.md)
+## 请参阅  
+ [枚举](../../../extensibility/debugger/reference/enumerations-visual-studio-debugging.md)   
+ [ContinueFromSynchronousEvent](../Topic/IDebugEngine2::ContinueFromSynchronousEvent.md)   
+ [事件](../../../extensibility/debugger/reference/idebugeventcallback2-event.md)

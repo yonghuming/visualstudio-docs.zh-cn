@@ -1,71 +1,54 @@
 ---
-title: IDebugStackFrame2::GetDocumentContext | Microsoft Docs
-ms.custom: 
-ms.date: 11/04/2016
-ms.reviewer: 
-ms.suite: 
-ms.technology:
-- vs-ide-sdk
-ms.tgt_pltfrm: 
-ms.topic: article
-f1_keywords:
-- IDebugStackFrame2::GetDocumentContext
-helpviewer_keywords:
-- IDebugStackFrame2::GetDocumentContext
+title: "IDebugStackFrame2::GetDocumentContext | Microsoft Docs"
+ms.custom: ""
+ms.date: "11/04/2016"
+ms.reviewer: ""
+ms.suite: ""
+ms.technology: 
+  - "vs-ide-sdk"
+ms.tgt_pltfrm: ""
+ms.topic: "article"
+f1_keywords: 
+  - "IDebugStackFrame2::GetDocumentContext"
+helpviewer_keywords: 
+  - "IDebugStackFrame2::GetDocumentContext"
 ms.assetid: 69e81439-1238-4f18-9028-6fd1c1ba5e4a
 caps.latest.revision: 10
-ms.author: gregvanl
-manager: ghogen
-translation.priority.mt:
-- cs-cz
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pl-pl
-- pt-br
-- ru-ru
-- tr-tr
-- zh-cn
-- zh-tw
-ms.translationtype: MT
-ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
-ms.openlocfilehash: 4e9e6ae94f046a54c778e39dfa5ddd3aa68b0092
-ms.contentlocale: zh-cn
-ms.lasthandoff: 08/28/2017
-
+ms.author: "gregvanl"
+manager: "ghogen"
+caps.handback.revision: 10
 ---
-# <a name="idebugstackframe2getdocumentcontext"></a>IDebugStackFrame2::GetDocumentContext
-Gets the document context for this stack frame.  
+# IDebugStackFrame2::GetDocumentContext
+[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
+
+获取堆栈帧的文档上下文。  
   
-## <a name="syntax"></a>Syntax  
+## 语法  
   
-```cpp  
-HRESULT GetDocumentContext (   
-   IDebugDocumentContext2** ppCxt  
+```cpp#  
+HRESULT GetDocumentContext (   
+   IDebugDocumentContext2** ppCxt  
 );  
 ```  
   
-```csharp  
-int GetDocumentContext (   
-   out IDebugDocumentContext2 ppCxt  
+```c#  
+int GetDocumentContext (   
+   out IDebugDocumentContext2 ppCxt  
 );  
 ```  
   
-#### <a name="parameters"></a>Parameters  
+#### 参数  
  `ppCxt`  
- [out] Returns an [IDebugDocumentContext2](../../../extensibility/debugger/reference/idebugdocumentcontext2.md) object that represents the current position in a source document.  
+ \[out\] 返回表示中的当前位置源文档的 [IDebugDocumentContext2](../../../extensibility/debugger/reference/idebugdocumentcontext2.md) 对象。  
   
-## <a name="return-value"></a>Return Value  
- If successful, returns `S_OK`; otherwise, returns an error code.  
+## 返回值  
+ 如果成功，则返回; `S_OK`否则，返回错误代码。  
   
-## <a name="remarks"></a>Remarks  
- This method is faster than calling the [GetCodeContext](../../../extensibility/debugger/reference/idebugstackframe2-getcodecontext.md) method and then calling the [GetDocumentContext](../../../extensibility/debugger/reference/idebugcodecontext2-getdocumentcontext.md) method on the code context. However, it is not guaranteed that every debug engine (DE) will implement this method.  
+## 备注  
+ 此方法比调用 [GetCodeContext](../Topic/IDebugStackFrame2::GetCodeContext.md) 方法随后调用代码上下文的 [GetDocumentContext](../Topic/IDebugCodeContext2::GetDocumentContext.md) 方法更快。  但是，无法保证每调试引擎 \(DE\)会执行此方法。  
   
-## <a name="see-also"></a>See Also  
+## 请参阅  
  [IDebugStackFrame2](../../../extensibility/debugger/reference/idebugstackframe2.md)   
  [IDebugDocumentContext2](../../../extensibility/debugger/reference/idebugdocumentcontext2.md)   
- [GetDocumentContext](../../../extensibility/debugger/reference/idebugcodecontext2-getdocumentcontext.md)   
- [GetCodeContext](../../../extensibility/debugger/reference/idebugstackframe2-getcodecontext.md)
+ [GetDocumentContext](../Topic/IDebugCodeContext2::GetDocumentContext.md)   
+ [GetCodeContext](../Topic/IDebugStackFrame2::GetCodeContext.md)

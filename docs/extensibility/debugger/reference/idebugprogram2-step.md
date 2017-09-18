@@ -1,86 +1,69 @@
 ---
-title: IDebugProgram2::Step | Microsoft Docs
-ms.custom: 
-ms.date: 11/04/2016
-ms.reviewer: 
-ms.suite: 
-ms.technology:
-- vs-ide-sdk
-ms.tgt_pltfrm: 
-ms.topic: article
-f1_keywords:
-- IDebugProgram2::Step
-helpviewer_keywords:
-- IDebugProgram2::Step
+title: "IDebugProgram2::Step | Microsoft Docs"
+ms.custom: ""
+ms.date: "11/04/2016"
+ms.reviewer: ""
+ms.suite: ""
+ms.technology: 
+  - "vs-ide-sdk"
+ms.tgt_pltfrm: ""
+ms.topic: "article"
+f1_keywords: 
+  - "IDebugProgram2::Step"
+helpviewer_keywords: 
+  - "IDebugProgram2::Step"
 ms.assetid: e4c2ffce-9810-4088-8162-eac9ef04f2a9
 caps.latest.revision: 16
-ms.author: gregvanl
-manager: ghogen
-translation.priority.mt:
-- cs-cz
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pl-pl
-- pt-br
-- ru-ru
-- tr-tr
-- zh-cn
-- zh-tw
-ms.translationtype: MT
-ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
-ms.openlocfilehash: 4ea86b30abbd2651a17e04d979df1c37f0d5306d
-ms.contentlocale: zh-cn
-ms.lasthandoff: 08/28/2017
-
+ms.author: "gregvanl"
+manager: "ghogen"
+caps.handback.revision: 16
 ---
-# <a name="idebugprogram2step"></a>IDebugProgram2::Step
-Performs a step.  
+# IDebugProgram2::Step
+[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
+
+执行一步。  
   
 > [!NOTE]
->  This method is deprecated. Use the [Step](../../../extensibility/debugger/reference/idebugprocess3-step.md) method instead.  
+>  此方法已被否决。  请改用 [单步执行](../../../extensibility/debugger/reference/idebugprocess3-step.md) 方法。  
   
-## <a name="syntax"></a>Syntax  
+## 语法  
   
-```cpp  
-HRESULT Step(   
-   IDebugThread2*  pThread,  
-   STEPKIND        sk,  
-   STEPUNIT        step  
+```cpp#  
+HRESULT Step(   
+   IDebugThread2*  pThread,  
+   STEPKIND        sk,  
+   STEPUNIT        step  
 );  
 ```  
   
-```csharp  
-int Step(   
-   IDebugThread2  pThread,  
-   enum_STEPKIND  sk,  
-   enum_STEPUNIT  step  
+```c#  
+int Step(   
+   IDebugThread2  pThread,  
+   enum_STEPKIND  sk,  
+   enum_STEPUNIT  step  
 );  
 ```  
   
-#### <a name="parameters"></a>Parameters  
+#### 参数  
  `pThread`  
- [in] An [IDebugThread2](../../../extensibility/debugger/reference/idebugthread2.md) object that represents the thread being stepped.  
+ \[in\] 表示单步执行的线程的 [IDebugThread2](../../../extensibility/debugger/reference/idebugthread2.md) 对象。  
   
  `sk`  
- [in] A value from the [STEPKIND](../../../extensibility/debugger/reference/stepkind.md) enumeration that specifies the kind of step.  
+ \[in\] 从指定步骤的 [STEPKIND](../../../extensibility/debugger/reference/stepkind.md) 枚举的值。  
   
  `step`  
- [in] A value from the [STEPUNIT](../../../extensibility/debugger/reference/stepunit.md) enumeration that specifies the unit of step (for example, by statement or instruction).  
+ \[in\] 从如指定步骤单元测试的 [STEPUNIT](../../../extensibility/debugger/reference/stepunit.md) 枚举的值 \(，由语句或命令\)。  
   
-## <a name="return-value"></a>Return Value  
- If successful, returns `S_OK`; otherwise, returns an error code.  
+## 返回值  
+ 如果成功，则返回; `S_OK`否则，返回错误代码。  
   
-## <a name="remarks"></a>Remarks  
- In case there is any thread synchronization or communication between threads, other threads in the program should run when a particular thread is stepping.  
+## 备注  
+ 如果有任何线程同步或通信线程之间，其他线程在程序应运行，在特定线程上执行时。  
   
 > [!WARNING]
->  Do not send a stopping event or an immediate (synchronous) event to [Event](../../../extensibility/debugger/reference/idebugeventcallback2-event.md) while handling this call; otherwise the debugger may hang.  
+>  不要将一个终止的事件或一个即时 \(\) 同步事件。 [事件](../../../extensibility/debugger/reference/idebugeventcallback2-event.md) ，当处理此时调用，否则调试器会停止。  
   
-## <a name="see-also"></a>See Also  
+## 请参阅  
  [IDebugProgram2](../../../extensibility/debugger/reference/idebugprogram2.md)   
  [IDebugEngineProgram2](../../../extensibility/debugger/reference/idebugengineprogram2.md)   
- [Event](../../../extensibility/debugger/reference/idebugeventcallback2-event.md)
+ [事件](../../../extensibility/debugger/reference/idebugeventcallback2-event.md)

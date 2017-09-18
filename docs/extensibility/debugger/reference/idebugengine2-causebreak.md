@@ -1,63 +1,46 @@
 ---
-title: IDebugEngine2::CauseBreak | Microsoft Docs
-ms.custom: 
-ms.date: 11/04/2016
-ms.reviewer: 
-ms.suite: 
-ms.technology:
-- vs-ide-sdk
-ms.tgt_pltfrm: 
-ms.topic: article
-f1_keywords:
-- IDebugEngine2::CauseBreak
-helpviewer_keywords:
-- IDebugEngine2::CauseBreak
+title: "IDebugEngine2::CauseBreak | Microsoft Docs"
+ms.custom: ""
+ms.date: "11/04/2016"
+ms.reviewer: ""
+ms.suite: ""
+ms.technology: 
+  - "vs-ide-sdk"
+ms.tgt_pltfrm: ""
+ms.topic: "article"
+f1_keywords: 
+  - "IDebugEngine2::CauseBreak"
+helpviewer_keywords: 
+  - "IDebugEngine2::CauseBreak"
 ms.assetid: 17fe4698-b04e-4798-8412-80e0da60c387
 caps.latest.revision: 8
-ms.author: gregvanl
-manager: ghogen
-translation.priority.mt:
-- cs-cz
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pl-pl
-- pt-br
-- ru-ru
-- tr-tr
-- zh-cn
-- zh-tw
-ms.translationtype: MT
-ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
-ms.openlocfilehash: 9f9026984b37d273b455229c09f52b4fd5fb8416
-ms.contentlocale: zh-cn
-ms.lasthandoff: 08/28/2017
-
+ms.author: "gregvanl"
+manager: "ghogen"
+caps.handback.revision: 8
 ---
-# <a name="idebugengine2causebreak"></a>IDebugEngine2::CauseBreak
-Requests that all programs being debugged by this debug engine (DE) to stop execution the next time one of their threads attempts to run.  
+# IDebugEngine2::CauseBreak
+[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
+
+此请求正在调试的所有过程调试引擎 \(DE\)停止自己的线程尝试执行下次正在运行。  
   
-## <a name="syntax"></a>Syntax  
+## 语法  
   
-```cpp  
-HRESULT CauseBreak(   
-   void   
+```cpp#  
+HRESULT CauseBreak(   
+   void   
 );  
 ```  
   
-```csharp  
+```c#  
 int CauseBreak();  
 ```  
   
-## <a name="return-value"></a>Return Value  
- If successful, returns `S_OK`; otherwise, returns an error code.  
+## 返回值  
+ 如果成功，则返回; `S_OK`否则，返回错误代码。  
   
-## <a name="remarks"></a>Remarks  
- This method is asynchronous: an [IDebugBreakEvent2](../../../extensibility/debugger/reference/idebugbreakevent2.md) event is sent when the program next attempts to execute after this method is called.  
+## 备注  
+ 此方法是异步的:发送 [IDebugBreakEvent2](../../../extensibility/debugger/reference/idebugbreakevent2.md) 事件，当接下来程序尝试执行时，在调用方法之后。  
   
-## <a name="see-also"></a>See Also  
+## 请参阅  
  [CauseBreak](../../../extensibility/debugger/reference/idebugprogram2-causebreak.md)   
  [IDebugEngine2](../../../extensibility/debugger/reference/idebugengine2.md)

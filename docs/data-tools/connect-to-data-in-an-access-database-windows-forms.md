@@ -1,146 +1,138 @@
 ---
-title: Connect to data in an Access database (Windows Forms) | Microsoft Docs
-ms.custom: 
-ms.date: 11/04/2016
-ms.reviewer: 
-ms.suite: 
-ms.tgt_pltfrm: 
-ms.topic: article
-helpviewer_keywords:
-- databases, connecting to
-- databases, Access
-- data [Visual Studio], connecting
-- connecting to data, from Access databases
-- Access databases, connecting
+title: "演练：连接到 Access 数据库中的数据（Windows 窗体） | Microsoft Docs"
+ms.custom: ""
+ms.date: "12/15/2016"
+ms.prod: "visual-studio-dev14"
+ms.reviewer: ""
+ms.suite: ""
+ms.tgt_pltfrm: ""
+ms.topic: "article"
+dev_langs: 
+  - "VB"
+  - "CSharp"
+  - "C++"
+  - "aspx"
+helpviewer_keywords: 
+  - "Access 数据库, 连接"
+  - "连接到数据, 从 Access 数据库"
+  - "数据 [Visual Studio], 连接"
+  - "数据库, Access"
+  - "数据库, 连接"
 ms.assetid: 4159e815-d430-4ad0-a234-e4125fcbef18
 caps.latest.revision: 29
-author: gewarren
-ms.author: gewarren
-manager: ghogen
-translation.priority.ht:
-- cs-cz
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pl-pl
-- pt-br
-- ru-ru
-- tr-tr
-- zh-cn
-- zh-tw
-ms.translationtype: HT
-ms.sourcegitcommit: 33a857c2d8585e2e8da9bcd9158190366a3b6830
-ms.openlocfilehash: 3f11055b41e6fd5ca19b44ccf817ae0b1644a76b
-ms.contentlocale: zh-cn
-ms.lasthandoff: 09/07/2017
-
+caps.handback.revision: 24
+author: "mikeblome"
+ms.author: "mblome"
+manager: "ghogen"
 ---
-# <a name="connect-to-data-in-an-access-database-windows-forms"></a>Connect to data in an Access database (Windows Forms)
-You can connect to an Access database (either an .mdf file or an .accdb file) by using Visual Studio. After you define the connection, the data appears in the **Data Sources** window. From there, you can drag tables or views onto your forms.   
+# 演练：连接到 Access 数据库中的数据（Windows 窗体）
+可以通过使用 Visual Studio 连接到 Access 数据库（.mdf 文件或 .accdb 文件）。  在定义此连接后，数据会显示在**“数据源”**窗口中。  可从该位置将表或视图拖动到窗体上。  若要了解 Visual Studio 中的项目系统如何管理这些本地数据库文件，请参见[如何：管理项目中的本地数据文件](../data-tools/how-to-manage-local-data-files-in-your-project.md)。  
   
-## <a name="prerequisites"></a>Prerequisites  
- To use these procedures, you need a Windows Forms application project, and either an Access database (.accdb file) or an Access 2000-2003 database (.mdb file). Follow the procedure that corresponds to your file type.  
+## 系统必备  
+ 若要使用这些过程，你需要 Windows 窗体应用程序项目和 Access 数据库（.accdb 文件）或 Access 2000\-2003 数据库（.mdb 文件）。  按照与你的文件类型对应的过程操作。  
   
-## <a name="creating-the-dataset-for-an-accdb-file"></a>Creating the dataset for an .accdb file  
- You can connect to databases created through Access 2013, Office 365, Access 2010, or Access 2007 by using the following procedure.  
+## 为 .accdb 文件创建数据集  
+ 通过使用以下过程，可连接到使用 Access 2013、Office 365、Access 2010 或 Access 2007 创建的数据库。  
   
-#### <a name="to-create-the-dataset"></a>To create the dataset  
+#### 创建数据集  
   
-1.  Open the Windows Forms application to which you want to connect data.  
+1.  打开要将数据连接到的 Windows 窗体应用程序。  
   
-2.  On the **View** menu, select **Other Windows** > **Data Sources**.  
+2.  在**“视图”**菜单中，选择**“其他窗口”**\>**“数据源”**。  
   
-     ![View Other Windows Data Sources](../data-tools/media/viewdatasources.png "ViewDataSources")  
+     ![查看其他 Windows 数据源](~/data-tools/media/viewdatasources.png "ViewDataSources")  
   
-3.  In the **Data Sources** window, click **Add New Data Source**.  
+3.  在**“数据源”**窗口中，单击**“添加新数据源”**。  
   
-     ![Add New Data Source](../data-tools/media/dataaddnewdatasource.png "dataAddNewDataSource")  
+     ![添加新数据源](~/data-tools/media/dataaddnewdatasource.png "dataAddNewDataSource")  
   
-4.  Select **Database** on the **Choose a Data Source Type** page, and then select **Next**.  
+4.  在**“选择数据源类型”**页上，选择**“数据库”**，然后单击**“下一步”**。  
   
-5.  Select **Dataset** on the **Choose a Database Model** page, and then select **Next**.  
+5.  在**“选择数据库模型”**页上，选择**“数据集”**，然后选择**“下一步”**。  
   
-6.  On the **Choose your Data Connection** page, select **New Connection** to configure a new data connection.  
+6.  在**“选择您的数据连接”**页面上选择**“新建连接”**以配置一个新的数据连接。  
   
-7.  Change the **Data source** to **.NET Framework Data Provider for OLE DB**.  
+7.  将**“数据源”**更改为**“OLE DB 的 .NET Framework 数据提供程序”**。  
   
-     ![Change Data Provider to OLE DB](../data-tools/media/datachangedatasourceoledb.png "dataChangeDataSourceOLEDB")  
+     ![将数据提供程序更改为 OLE DB](../data-tools/media/datachangedatasourceoledb.png "dataChangeDataSourceOLEDB")  
   
     > [!IMPORTANT]
-    >  Although a data source of **Microsoft Access Database File (OLE DB)** might seem like the right choice, you use that data-source type only for .mdb database files.  
+    >  **“Microsoft Access 数据库文件\(OLE DB\)”**的数据源似乎是正确的选择，你只能为 .mdb 数据库文件使用该数据源。  
   
-8.  In **OLE DB Provider**, select **Microsoft Office 12.0 Access Database Engine OLE DB Provider**.  
+8.  在**“OLE DB 提供程序”**中，选择**“Microsoft Office 12.0 Access 数据库引擎 OLE DB 提供程序”**。  
   
-     ![OLE DB Provider Microsoft Office 12.0 Access](../data-tools/media/dataoledbprovideroffice12access.png "dataOLEDBProviderOffice12Access")  
+     ![OLE DB 提供程序 Microsoft Office 12.0 Access](../data-tools/media/dataoledbprovideroffice12access.png "dataOLEDBProviderOffice12Access")  
   
-9. In **Server or file name**, specify the path and name of the .accdb file to which you want to connect, and then select **OK**.  
+9. 在**“服务器或文件名”**中，指定要连接到的 .accdb 文件的路径和名称，然后选择**“确定”**。  
   
     > [!NOTE]
-    >  If the database file has a user name and password, specify them before you select **OK**.  
+    >  如果数据库文件具有用户名和密码，则先指定它们，然后再选择**“确定”**。  
   
-10. Select **Next** on the **Choose your Data Connection** page.  
+10. 在**“选择你的数据连接”**页上，选择**“下一步”**。  
   
-11. Select **Next** on the **Save connection string to the Application Configuration file** page.  
+11. 在**“将连接字符串保存到应用程序配置文件”**页上，选择**“下一步”**。  
   
-12. Expand the **Tables** node on the **Choose your Database Objects** page.  
+12. 在**“选择数据库对象”**页面上展开**“表”**节点。  
   
-13. Select whatever tables or views you want in your dataset, and then select **Finish**.  
+13. 在数据集中选择所需的表或视图，然后选择**“完成”**。  
   
-     The dataset is added to your project, and the tables and views appear in the **Data Sources** window.  
+     数据集将添加到项目中，并且**“数据源”**窗口中将显示表和视图。  
   
-## <a name="creating-the-dataset-for-an-mdb-file"></a>Creating the dataset for an .mdb file  
- You create the dataset by running the **Data Source Configuration Wizard**.  
+## 为 .mdb 文件创建数据集  
+ 通过运行**“数据源配置向导”**创建数据集。  
   
-#### <a name="to-create-the-dataset"></a>To create the dataset  
+#### 创建数据集  
   
-1.  Open the Windows Forms application to which you want to connect data.  
+1.  打开要将数据连接到的 Windows 窗体应用程序。  
   
-2.  On the **View** menu, select **Other Windows** > **Data Sources**.  
+2.  在**“视图”**菜单中，选择**“其他窗口”**\>**“数据源”**。  
   
-     ![View Other Windows Data Sources](../data-tools/media/viewdatasources.png "ViewDataSources")  
+     ![查看其他 Windows 数据源](~/data-tools/media/viewdatasources.png "ViewDataSources")  
   
-3.  In the **Data Sources** window, click **Add New Data Source**.  
+3.  在**“数据源”**窗口中，单击**“添加新数据源”**。  
   
-4.  Select **Database** on the **Choose a Data Source Type** page, and then select **Next**.  
+     ![添加新数据源](~/data-tools/media/dataaddnewdatasource.png "dataAddNewDataSource")  
   
-5.  Select **Dataset** on the **Choose a Database Model** page, and then select **Next**.  
+4.  在**“选择数据源类型”**页上，选择**“数据库”**，然后单击**“下一步”**。  
   
-6.  On the **Choose your Data Connection** page, select **New Connection** to configure a new data connection.  
+5.  在**“选择数据库模型”**页上，选择**“数据集”**，然后选择**“下一步”**。  
   
-7.  If the data source is not **Microsoft Access Database File (OLE DB)**, select **Change** to open the **Change Data Source** dialog box and select **Microsoft Access Database File**, and then select **OK**.  
+6.  在**“选择您的数据连接”**页面上选择**“新建连接”**以配置一个新的数据连接。  
   
-8.  In the **Database file name**, specify the path and name of the .mdb file to which you want to connect, and then select **OK**.  
+7.  如果**“数据源”**不是**“Microsoft Access 数据库文件\(OLE DB\)”**，请选择**“更改”**以打开**“更改数据源”**对话框，并选择**“Microsoft Access 数据库文件”**，然后选择**“确定”**。  
   
-     ![Add Connection Access Database File](../data-tools/media/dataaddconnectionaccessmdb.png "dataAddConnectionAccessMDB")  
+8.  在**“数据库文件名”**中，指定要连接到的 .mdb 文件的路径和名称，然后选择**“确定”**。  
   
-9. Select **Next** on the **Choose your Data Connection** page.  
+     ![添加连接访问数据库文件](../data-tools/media/dataaddconnectionaccessmdb.png "dataAddConnectionAccessMDB")  
   
-10. Select **Next** on the **Save connection string to the Application Configuration file** page.  
+9. 在**“选择你的数据连接”**页上，选择**“下一步”**。  
   
-11. Expand the **Tables** node on the **Choose your Database Objects** page.  
+10. 在**“将连接字符串保存到应用程序配置文件”**页上，选择**“下一步”**。  
   
-12. Select whatever tables or views you want in your dataset, and then select **Finish**.  
+11. 在**“选择数据库对象”**页面上展开**“表”**节点。  
   
-     The dataset is added to your project, and the tables and views appear in the **Data Sources** window.  
+12. 在数据集中选择所需的表或视图，然后选择**“完成”**。  
   
-## <a name="security"></a>Security  
- Storing sensitive information (such as a password) can affect the security of your application. Using Windows Authentication (also known as integrated security) is a more secure way to control access to a database. For more information, see [Protecting Connection Information](/dotnet/framework/data/adonet/protecting-connection-information).  
+     数据集将添加到项目中，并且**“数据源”**窗口中将显示表和视图。  
   
-## <a name="next-steps"></a>Next Steps  
- The dataset that you just created is now available in the **Data Sources** window. You can now perform any of the following tasks:  
+## 安全性  
+ 存储敏感信息（如密码）会影响应用程序的安全性。  若要控制对数据库的访问，一种较为安全的方法是使用 Windows 身份验证（也称为集成安全性）。  有关更多信息，请参见[保护连接信息](../Topic/Protecting%20Connection%20Information.md)。  
   
--   Select items in the **Data Sources** window and drag them onto your form (see [Bind Windows Forms controls to data in Visual Studio](../data-tools/bind-windows-forms-controls-to-data-in-visual-studio.md)).  
+## 后续步骤  
+ 刚刚创建的数据集此时出现在**“数据源”**窗口中。  现在你可以执行以下任何任务  
   
--   Open the data source in the **Dataset Designer** to add or edit the objects that make up the dataset.  
+-   在**“数据源”**窗口中选择项，并将这些项拖动到窗体上（请参见[在 Visual Studio 中将 Windows 窗体控件绑定到数据](../data-tools/bind-windows-forms-controls-to-data-in-visual-studio.md)）。  
   
--   Add validation logic to the <xref:System.Data.DataTable.ColumnChanging> or <xref:System.Data.DataTable.RowChanging> event of the data tables in the dataset (see [Validate data in datasets](../data-tools/validate-data-in-datasets.md)).  
+-   在[数据集设计器](../data-tools/creating-and-editing-typed-datasets.md)中打开数据源，以便添加或编辑组成数据集的对象。  
   
-## <a name="see-also"></a>See Also  
-
- [Bind controls to data in Visual Studio](../data-tools/bind-controls-to-data-in-visual-studio.md)   
- [Validating Data](validate-data-in-datasets.md)   
- [Saving Data](../data-tools/saving-data.md)   
-
+-   向该数据集中数据表的 <xref:System.Data.DataTable.ColumnChanging> 或 <xref:System.Data.DataTable.RowChanging> 事件添加验证逻辑（请参见[验证数据集中的数据](../data-tools/validate-data-in-datasets.md)）。  
+  
+## 请参阅  
+ [连接到 Visual Studio 中的数据](../data-tools/connecting-to-data-in-visual-studio.md)   
+ [准备应用程序以接收数据](../Topic/Preparing%20Your%20Application%20to%20Receive%20Data.md)   
+ [将数据获取到应用程序](../data-tools/fetching-data-into-your-application.md)   
+ [在 Visual Studio 中将控件绑定到数据](../data-tools/bind-controls-to-data-in-visual-studio.md)   
+ [在应用程序中编辑数据](../data-tools/editing-data-in-your-application.md)   
+ [验证数据](../Topic/Validating%20Data.md)   
+ [保存数据](../data-tools/saving-data.md)   
+ [数据演练](../Topic/Data%20Walkthroughs.md)

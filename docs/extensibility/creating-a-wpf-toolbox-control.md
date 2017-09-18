@@ -1,66 +1,49 @@
 ---
-title: Creating a WPF Toolbox Control | Microsoft Docs
-ms.custom: 
-ms.date: 11/04/2016
-ms.reviewer: 
-ms.suite: 
-ms.technology:
-- vs-ide-sdk
-ms.tgt_pltfrm: 
-ms.topic: article
-helpviewer_keywords:
-- toolbox control
-- toolbox
-- wpf
+title: "创建 WPF 工具箱控件 | Microsoft Docs"
+ms.custom: ""
+ms.date: "11/04/2016"
+ms.reviewer: ""
+ms.suite: ""
+ms.technology: 
+  - "vs-ide-sdk"
+ms.tgt_pltfrm: ""
+ms.topic: "article"
+helpviewer_keywords: 
+  - "在工具箱控件"
+  - "工具箱"
+  - "wpf"
 ms.assetid: 9cc34db9-b0d1-4951-a02f-7537fbbb51ad
 caps.latest.revision: 16
-ms.author: gregvanl
-manager: ghogen
-translation.priority.mt:
-- cs-cz
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pl-pl
-- pt-br
-- ru-ru
-- tr-tr
-- zh-cn
-- zh-tw
-ms.translationtype: MT
-ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
-ms.openlocfilehash: 40196a61c1fdc1dd7f2cf7d75e5fa65fb0580160
-ms.contentlocale: zh-cn
-ms.lasthandoff: 08/28/2017
-
+ms.author: "gregvanl"
+manager: "ghogen"
+caps.handback.revision: 16
 ---
-# <a name="creating-a-wpf-toolbox-control"></a>Creating a WPF Toolbox Control
-The WPF (Windows Presentation Framework) Toolbox Control template lets you create WPF controls that are automatically added to the **Toolbox** when the extension is installed. This topic shows how to use the template to create a **Toolbox** control that you can distribute to other users.  
+# 创建 WPF 工具箱控件
+[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
+
+WPF \(Windows Presentation Framework\) 工具箱控件模板允许您创建 WPF 控件，会自动添加到 **工具箱** 安装扩展的安装。 本主题演示如何使用模板来创建 **工具箱** 可以分发给其他用户的控件。  
   
- Starting in Visual Studio 2015, you do not install the Visual Studio SDK from the download center. It is included as an optional feature in Visual Studio setup. You can also install the VS SDK later on. For more information, see [Installing the Visual Studio SDK](../extensibility/installing-the-visual-studio-sdk.md).  
+ 启动 Visual Studio 2015 中，您并不安装 Visual Studio SDK 从下载中心获得。 它将包括作为 Visual Studio 安装程序中的可选功能。 您还可以在以后安装 VS SDK。 有关更多信息，请参见[安装 Visual Studio SDK](../extensibility/installing-the-visual-studio-sdk.md)。  
   
-## <a name="creating-a-wpf-toolbox-control"></a>Creating a WPF Toolbox Control  
+## 创建 WPF 工具箱控件  
   
-#### <a name="create-an-extension-with-a-wpf-toolbox-control"></a>Create an Extension with a WPF Toolbox Control  
+#### 与 WPF 工具箱控件中创建的扩展  
   
-1.  Create a VSIX project named `MyToolboxControl`. You can find the VSIX project template in the **New Project** dialog under **Visual C# / Extensibility**.  
+1.  创建一个名为的 VSIX 项目 `MyToolboxControl`。 您可以找到中的 VSIX 项目模板 **新项目** 下的对话框 **Visual C\# \/ 可扩展性**。  
   
-2.  When the project opens, add a **WPF Toolbox Control** item template named `MyToolboxControl`. In the **Solution Explorer**, right-click the project node and select **Add / New Item**. In the **Add New Item** dialog, go to **Visual C# / Extensibility** and select **WPF Toolbox Control**. In the **Name** field at the bottom of the window, change the command file name to `MyToolboxControl.cs`.  
+2.  在打开该项目，添加 **WPF 工具箱控件** 项模板名为 `MyToolboxControl`。 在 **解决方案资源管理器**, ，用鼠标右键单击项目节点并选择 **添加 \/ 新项**。 在 **添加新项** 对话框中，转到 **Visual C\# \/ 可扩展性** ，然后选择 **WPF 工具箱控件**。 在 **名称** 在窗口的底部字段中，命令文件名称更改为 `MyToolboxControl.cs`。  
   
-     The solution now contains a user control, a `ProvideToolboxControlAttribute`<xref:Microsoft.VisualStudio.Shell.RegistrationAttribute> that adds the control to the **Toolbox**, and a **Microsoft.VisualStudio.ToolboxControl** Asset entry in the VSIX manifest for  deployment.  
+     该解决方案现在包含一个用户控件， `ProvideToolboxControlAttribute`<xref:Microsoft.VisualStudio.Shell.RegistrationAttribute> ，将控件添加到 **工具箱**, ，和一个 **Microsoft.VisualStudio.ToolboxControl** 资产部署的 VSIX 清单中的条目。  
   
-#### <a name="to-create-the-control-ui"></a>To create the control UI  
+#### 若要创建控件用户界面  
   
-1.  Open MyToolboxControl.xaml in the designer.  
+1.  在设计器中打开 MyToolboxControl.xaml。  
   
-     The designer shows a <xref:System.Windows.Controls.Grid> control that contains a <xref:System.Windows.Controls.Button> control.  
+     此设计器显示包含 <xref:System.Windows.Controls.Button> 控件的 <xref:System.Windows.Controls.Grid> 控件。  
   
-2.  Arrange the grid layout. When you select the <xref:System.Windows.Controls.Grid> control, blue control bars appear on the top and left edges of the grid. You can add rows and columns to the grid by clicking the bars.  
+2.  排列网格布局。 当您选择 <xref:System.Windows.Controls.Grid> 控制，网格的顶部和左侧边缘上显示蓝色的控件条。 您可以添加到网格的行和列，方法是单击标题栏。  
   
-3.  Add child controls to the grid. You can position a child control by dragging it from the **Toolbox** to a section of the grid, or by setting its `Grid.Row` and `Grid.Column` attributes in the XAML. The following example adds two labels on the top row of the grid and a button on the second row.  
+3.  将子控件添加到网格。 您可以通过将其从拖动定位子控件 **工具箱** 部分的网格中，或通过设置其 `Grid.Row` 和 `Grid.Column` 在 XAML 中的属性。 下面的示例在网格中，然后第二行上的按钮的顶行上添加两个标签。  
   
     ```xaml  
     <Grid>  
@@ -70,18 +53,18 @@ The WPF (Windows Presentation Framework) Toolbox Control template lets you creat
     </Grid>  
     ```  
   
-## <a name="renaming-the-control"></a>Renaming the control  
- By default, your control will appear in the **Toolbox** as **MyToolboxControl** in a group named **MyToolboxControl.MyToolboxControl**. You can change these names in the MyToolboxControl.xaml.cs file.  
+## 重命名控件  
+ 默认情况下，您的控件将出现在 **工具箱** 作为 **MyToolboxControl** 中一个名为组 **MyToolboxControl.MyToolboxControl**。 您可以更改这些名称 MyToolboxControl.xaml.cs 文件中。  
   
-1.  Open MyToolboxControl.xaml.cs in the code view.  
+1.  在代码视图中打开 MyToolboxControl.xaml.cs。  
   
-2.  Find the MyToolboxControl class and rename it to TestControl. (The fastest way to do this is to rename the class, then select **Rename** from the context menu and complete the steps. (For more information about the **Rename** command, see [Rename Refactoring (C#)](../csharp-ide/rename-refactoring-csharp.md).)  
+2.  查找 MyToolboxControl 类并将它重命名为 TestControl。 \(若要这样做的最快方法是重命名类中，然后选择 **重命名** 从上下文菜单并完成的步骤。 \(有关详细信息 **重命名** 命令，请参阅 [重命名重构 \(C\#\)](../csharp-ide/rename-refactoring-csharp.md)。\)  
   
-3.  Go to the `ProvideToolboxControl` attribute and change the value of the first parameter to **Test**. This is the name of the group that will contain the control in the **Toolbox**.  
+3.  转到 `ProvideToolboxControl` 属性并更改的第一个参数的值 **测试**。 这是将包含控件中的组的名称 **工具箱**。  
   
-     The resulting code should look like this:  
+     生成的代码应如下所示︰  
   
-    ```csharp  
+    ```c#  
     [ProvideToolboxControl("Test", true)]  
     public partial class TestControl : UserControl  
     {  
@@ -92,27 +75,27 @@ The WPF (Windows Presentation Framework) Toolbox Control template lets you creat
     }  
     ```  
   
-## <a name="building-testing-and-deployment"></a>Building, Testing, and Deployment  
- When you debug the project, you should find the control installed in the **Toolbox** of the experimental instance of Visual Studio.  
+## 生成、测试和部署  
+ 当调试项目时，您应会看到在安装该控件 **工具箱** 的 Visual Studio 的实验实例。  
   
-#### <a name="to-build-and-test-the-control"></a>To build and test the control  
+#### 生成并测试控件  
   
-1.  Rebuild the project and start debugging.  
+1.  重新生成项目并启动调试。  
   
-2.  In the new instance of Visual Studio, create a WPF Application project. Make sure the XAML Designer is open.  
+2.  在 Visual Studio 的新实例中，创建 WPF 应用程序项目。 请确保 XAML 设计器处于打开状态。  
   
-3.  Find your control in the **Toolbox** and drag it to the design surface.  
+3.  在“工具箱”中查找控件，并将其拖动到设计图面上。  
   
-4.  Start debugging the WPF application.  
+4.  开始调试 WPF 应用程序。  
   
-5.  Verify that your control appears.  
+5.  确认出现了您的控件。  
   
-#### <a name="to-deploy-the-control"></a>To deploy the control  
+#### 部署控件  
   
-1.  After you build the tested project, you can find the .vsix file in the \bin\debug\ folder of the project.  
+1.  生成测试的项目后，可以在项目的 \\bin\\debug\\ 文件夹中找到的.vsix 文件。  
   
-2.  You can install it on a local computer by double-clicking the .vsix file and following the installation procedure. To uninstall the control, go to **Tools / Extensions and Updates** and look for the control extension, then click **Uninstall**.  
+2.  您可以安装它在本地计算机上双击.vsix 文件并按照安装过程。 若要卸载该控件，请转到 **工具 \/ 扩展和更新** 并寻找控件扩展，然后单击 **卸载**。  
   
-3.  Upload the .vsix file to a network or to a Web site.  
+3.  将 .vsix 文件上载到网络或网站。  
   
-     If you upload the file to the [Visual Studio Gallery](http://go.microsoft.com/fwlink/?LinkID=123847) Web site, other users can use **Tools / Extensions and Updates** in Visual Studio to find the control online and install it.
+     如果您将文件上载到 [Visual Studio 库](http://go.microsoft.com/fwlink/?LinkID=123847) 网站，其他用户可以使用 **工具 \/ 扩展和更新** 在 Visual Studio 中查找联机的控件并将其安装。
