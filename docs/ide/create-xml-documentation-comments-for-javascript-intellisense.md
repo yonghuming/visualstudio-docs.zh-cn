@@ -87,7 +87,7 @@ manager: "ghogen"
   
 ### 若要创建 XML 文档注释的重载函数  
   
-1.  在函数中，添加[\<signature\>](../Topic/%3Csignature%3E%20\(JavaScript\).md)元素，为每个重载。  在这些元素中，添加其他元素，如`<summary>`， `<param>`，和`<returns>`前三个斜杠 \(\/ \/\) 与每个元素。  
+1.  在函数中，添加[\<signature\>](../ide/signature-javascript.md)元素，为每个重载。  在这些元素中，添加其他元素，如`<summary>`， `<param>`，和`<returns>`前三个斜杠 \(\/ \/\) 与每个元素。  
   
      下面的示例演示重载的 JavaScript 函数。  在此示例中，参数类型不同的重载。  
   
