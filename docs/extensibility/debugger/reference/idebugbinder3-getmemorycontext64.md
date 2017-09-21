@@ -1,79 +1,62 @@
 ---
-title: IDebugBinder3::GetMemoryContext64 | Microsoft Docs
-ms.custom: 
-ms.date: 11/04/2016
-ms.reviewer: 
-ms.suite: 
-ms.technology:
-- vs-ide-sdk
-ms.tgt_pltfrm: 
-ms.topic: article
-helpviewer_keywords:
-- GetMemoryContext64
-- IDebugBinder3::GetMemoryContext64
+title: "IDebugBinder3::GetMemoryContext64 | Microsoft Docs"
+ms.custom: ""
+ms.date: "11/04/2016"
+ms.reviewer: ""
+ms.suite: ""
+ms.technology: 
+  - "vs-ide-sdk"
+ms.tgt_pltfrm: ""
+ms.topic: "article"
+helpviewer_keywords: 
+  - "GetMemoryContext64"
+  - "IDebugBinder3::GetMemoryContext64"
 ms.assetid: f021fd16-9fc7-4c41-86af-e54e6224cfbb
 caps.latest.revision: 9
-ms.author: gregvanl
-manager: ghogen
-translation.priority.mt:
-- cs-cz
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pl-pl
-- pt-br
-- ru-ru
-- tr-tr
-- zh-cn
-- zh-tw
-ms.translationtype: MT
-ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
-ms.openlocfilehash: 6fa8347d8f4ce02deafd6cd48b44871600426a3f
-ms.contentlocale: zh-cn
-ms.lasthandoff: 08/28/2017
-
+ms.author: "gregvanl"
+manager: "ghogen"
+caps.handback.revision: 9
 ---
-# <a name="idebugbinder3getmemorycontext64"></a>IDebugBinder3::GetMemoryContext64
-Converts either an object location or a 64-bit memory address to a memory context.  
+# IDebugBinder3::GetMemoryContext64
+[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
+
+将对象位置或一个 64 位内存地址为内存上下文。  
   
-## <a name="syntax"></a>Syntax  
+## 语法  
   
-```cpp  
+```cpp#  
 HRESULT GetMemoryContext64 (  
-   IDebugField*           pField,  
-   UINT64                 uConstant,  
-   IDebugMemoryContext2** ppMemCxt  
+   IDebugField*           pField,  
+   UINT64                 uConstant,  
+   IDebugMemoryContext2** ppMemCxt  
 );  
 ```  
   
-```csharp  
+```c#  
 int GetMemoryContext64 (  
-   IDebugField              pField,  
-   ulong                    uConstant,  
-   out IDebugMemoryContext2 ppMemCxt  
+   IDebugField              pField,  
+   ulong                    uConstant,  
+   out IDebugMemoryContext2 ppMemCxt  
 );  
 ```  
   
-#### <a name="parameters"></a>Parameters  
+#### 参数  
  `pField`  
- [in] An [IDebugField](../../../extensibility/debugger/reference/idebugfield.md) that describes the object to locate. If `NULL`, then use `dwConstant` instead.  
+ \[in\] 描述对象所在的 [IDebugField](../../../extensibility/debugger/reference/idebugfield.md) 。  如果 `NULL`，然后使用 `dwConstant` 。  
   
  `uConstant`  
- [in] A 64-bit memory address, such as 0x50000000.  
+ \[in\] 一个 64 位内存地址，例如 0x50000000。  
   
  `ppMemCxt`  
- [out] Returns the [IDebugMemoryContext2](../../../extensibility/debugger/reference/idebugmemorycontext2.md) interface that represents the address of the object, or the address in memory.  
+ \[out\] 返回表示对象的地址的 [IDebugMemoryContext2](../../../extensibility/debugger/reference/idebugmemorycontext2.md) 接口，或者在内存中的地址。  
   
-## <a name="return-value"></a>Return Value  
- If successful, returns `S_OK`; otherwise, returns an error code.  
+## 返回值  
+ 如果成功，则返回; `S_OK`否则，返回错误代码。  
   
-## <a name="example"></a>Example  
- The following examples creates an object that implements the [IDebugBinder3](../../../extensibility/debugger/reference/idebugbinder3.md) interface and uses this method to retrieve the memory context.  
+## 示例  
+ 下面的示例创建对象 [IDebugBinder3](../../../extensibility/debugger/reference/idebugbinder3.md) 实现接口并使用此方法检索内存上下文。  
   
-```cpp  
+```cpp#  
 HRESULT CValueProperty::GetMemoryContext ( IDebugMemoryContext2** out_ppMemoryContext )  
 {  
     // precondition  
@@ -144,5 +127,5 @@ HRESULT CValueProperty::GetMemoryContext ( IDebugMemoryContext2** out_ppMemoryCo
 }  
 ```  
   
-## <a name="see-also"></a>See Also  
+## 请参阅  
  [IDebugBinder3](../../../extensibility/debugger/reference/idebugbinder3.md)

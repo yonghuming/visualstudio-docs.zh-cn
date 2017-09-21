@@ -1,78 +1,61 @@
 ---
-title: GUID_ARRAY | Microsoft Docs
-ms.custom: 
-ms.date: 11/04/2016
-ms.reviewer: 
-ms.suite: 
-ms.technology:
-- vs-ide-sdk
-ms.tgt_pltfrm: 
-ms.topic: article
-helpviewer_keywords:
-- GUID_ARRAY structure
+title: "GUID_ARRAY | Microsoft Docs"
+ms.custom: ""
+ms.date: "11/04/2016"
+ms.reviewer: ""
+ms.suite: ""
+ms.technology: 
+  - "vs-ide-sdk"
+ms.tgt_pltfrm: ""
+ms.topic: "article"
+helpviewer_keywords: 
+  - "GUID_ARRAY 结构"
 ms.assetid: 9e12500c-2c1c-49b1-a0ba-e08366c97eb8
 caps.latest.revision: 8
-ms.author: gregvanl
-manager: ghogen
-translation.priority.mt:
-- cs-cz
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pl-pl
-- pt-br
-- ru-ru
-- tr-tr
-- zh-cn
-- zh-tw
-ms.translationtype: MT
-ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
-ms.openlocfilehash: afccf495feef9a01aa5969d994d7612d1539b38a
-ms.contentlocale: zh-cn
-ms.lasthandoff: 08/28/2017
-
+ms.author: "gregvanl"
+manager: "ghogen"
+caps.handback.revision: 8
 ---
-# <a name="guidarray"></a>GUID_ARRAY
-Describes an array of unique identifiers for available debug engines.  
+# GUID_ARRAY
+[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
+
+描述数组可用的唯一标识符调试引擎。  
   
-## <a name="syntax"></a>Syntax  
+## 语法  
   
-```cpp  
+```cpp#  
 typedef struct tagGUID_ARRAY  
 {  
-   DWORD dwCount;  
-   GUID *Members;  
+   DWORD dwCount;  
+   GUID *Members;  
 } GUID_ARRAY;  
 ```  
   
-```csharp  
+```c#  
 public struct GUID_ARRAY  
 {  
-   public uint dwCount;  
-   public Guid Members;  
+   public uint dwCount;  
+   public Guid Members;  
 }  
 ```  
   
-## <a name="terms"></a>Terms  
+## 术语  
  dwCount  
- Number of unique identifiers in the array.  
+ 唯一标识符的数字数组中。  
   
- Members  
- Array that contains unique identifiers.  
+ 成员  
+ 对包含唯一标识符。  
   
-## <a name="remarks"></a>Remarks  
- This structure is returned by the [GetEngineFilter](../../../extensibility/debugger/reference/idebugprocess3-getenginefilter.md) method.  
+## 备注  
+ 此 framework 使用 [GetEngineFilter](../../../extensibility/debugger/reference/idebugprocess3-getenginefilter.md) 方法返回。  
   
-## <a name="requirements"></a>Requirements  
- Header: Msdbg.h  
+## 要求  
+ 标题:Msdbg.h  
   
- Namespace: Microsoft.VisualStudio.Debugger.Interop  
+ 命名空间:Microsoft.VisualStudio.Debugger.Interop  
   
- Assembly: Microsoft.VisualStudio.Debugger.Interop.dll  
+ 程序集:Microsoft.VisualStudio.Debugger.Interop.dll  
   
-## <a name="see-also"></a>See Also  
- [Structures and Unions](../../../extensibility/debugger/reference/structures-and-unions.md)   
+## 请参阅  
+ [结构和联合](../../../extensibility/debugger/reference/structures-and-unions.md)   
  [GetEngineFilter](../../../extensibility/debugger/reference/idebugprocess3-getenginefilter.md)

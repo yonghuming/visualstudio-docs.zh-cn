@@ -1,101 +1,82 @@
 ---
-title: Error Codes | Microsoft Docs
-ms.custom: 
-ms.date: 11/04/2016
-ms.reviewer: 
-ms.suite: 
-ms.technology:
-- vs-ide-sdk
-ms.tgt_pltfrm: 
-ms.topic: article
-helpviewer_keywords:
-- error codes, source control plug-ins
-- source control plug-ins, error codes
-- errors [Visual Studio SDK]
+title: "错误代码 | Microsoft Docs"
+ms.custom: ""
+ms.date: "11/04/2016"
+ms.reviewer: ""
+ms.suite: ""
+ms.technology: 
+  - "vs-ide-sdk"
+ms.tgt_pltfrm: ""
+ms.topic: "article"
+helpviewer_keywords: 
+  - "错误代码，源代码管理插件"
+  - "源代码管理插件，错误代码"
+  - "错误 [Visual Studio SDK]"
 ms.assetid: d9cbd1c4-719b-467a-8100-333c1e146d3b
 caps.latest.revision: 19
-ms.author: gregvanl
-manager: ghogen
-translation.priority.mt:
-- cs-cz
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pl-pl
-- pt-br
-- ru-ru
-- tr-tr
-- zh-cn
-- zh-tw
-ms.translationtype: MT
-ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
-ms.openlocfilehash: 69f5ade6fa28b85d77924dffab9b82d602e04421
-ms.contentlocale: zh-cn
-ms.lasthandoff: 08/28/2017
-
+ms.author: "gregvanl"
+manager: "ghogen"
+caps.handback.revision: 19
 ---
-# <a name="error-codes"></a>Error Codes
-When a Source Control Plug-in API function returns an error, it is expected to be one of the following error codes. All errors are negative, warnings or informational error codes are positive, and success is 0.  
+# 错误代码
+[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
+
+当源控制插件 API 函数返回一个错误时，它需要是以下的错误代码之一。 所有错误都是负数，警告或信息性错误代码都为正数，并且成功是 0。  
   
-|Error Code|Value|Description|  
-|----------------|-----------|-----------------|  
-|`SCC_I_SHARESUBPROJOK`|7|Plug-in supports adding files from source control in two steps. For more information, see [SccSetOption](../extensibility/sccsetoption-function.md).|  
-|`SCC_I_FILEDIFFERS`|6|The local file is different from the file in the source control database (for example, [SccDiff](../extensibility/sccdiff-function.md) may return this value).|  
-|`SCC_I_RELOADFILE`|5|Local file was changed during the source control operation; the IDE should reload the file if possible.|  
-|`SCC_I_FILENOTAFFECTED`|4|The file is not affected.|  
-|`SCC_I_PROJECTCREATED`|3|The Project was created during the source control operation (for example, during a call to [SccOpenProject](../extensibility/sccopenproject-function.md) when `SCC_OP_CREATEIFNEW` flag is specified).|  
-|`SCC_I_OPERATIONCANCELED`|2|Operation was cancelled.|  
-|`SCC_I_ADV_SUPPORT`|1|Plug-in supports advanced options for the specified command. For more information, see [SccGetCommandOptions](../extensibility/sccgetcommandoptions-function.md).|  
-|`SCC_OK`|0|Success.|  
-|`SCC_E_INITIALIZEFAILED`|-1|Error: initialization failed.|  
-|`SCC_E_UNKNOWNPROJECT`|-2|Error: project is unknown.|  
-|`SCC_E_COULDNOTCREATEPROJECT`|-3|Error: project could not be created.|  
-|`SCC_E_NOTCHECKEDOUT`|-4|Error: the file is not checked out.|  
-|`SCC_E_ALREADYCHECKEDOUT`|-5|Error: the file is already checked out.|  
-|`SCC_E_FILEISLOCKED`|-6|Error: the file is locked.|  
-|`SCC_E_FILEOUTEXCLUSIVE`|-7|Error: the file is exclusively checked out.|  
-|`SCC_E_ACCESSFAILURE`|-8|There was a problem accessing the source control system, probably due to network or contention issues. A retry is recommended.|  
-|`SCC_E_CHECKINCONFLICT`|-9|Error: there was a conflict during check in.|  
-|`SCC_E_FILEALREADYEXISTS`|-10|Error: the file already exists.|  
-|`SCC_E_FILENOTCONTROLLED`|-11|Error: the file is not under source control.|  
-|`SCC_E_FILEISCHECKEDOUT`|-12|Error: the file is checked out.|  
-|`SCC_E_NOSPECIFIEDVERSION`|-13|Error: there is no specified version.|  
-|`SCC_E_OPNOTSUPPORTED`|-14|Error: the operation is not supported.|  
-|`SCC_E_NONSPECIFICERROR`|-15|Nonspecific error.|  
-|`SCC_E_OPNOTPERFORMED`|-16|Error, the operation was not performed.|  
-|`SCC_E_TYPENOTSUPPORTED`|-17|Error: the type of the file, for example, binary, is not supported by the source code control system.|  
-|`SCC_E_VERIFYMERGE`|-18|File has been auto-merged but has not been checked because it is pending user verification.|  
-|`SCC_E_FIXMERGE`|-19|File has been auto-merged but has not been checked in due to a merge conflict that must be manually resolved.|  
-|`SCC_E_SHELLFAILURE`|-20|Error due to a shell failure.|  
-|`SCC_E_INVALIDUSER`|-21|Error: the user is invalid.|  
-|`SCC_E_PROJECTALREADYOPEN`|-22|Error: the project is already open.|  
-|`SCC_E_PROJSYNTAXERR`|-23|Project syntax error.|  
-|`SCC_E_INVALIDFILEPATH`|-24|Error: the file path is invalid.|  
-|`SCC_E_PROJNOTOPEN`|-25|Error: the project is not open.|  
-|`SCC_E_NOTAUTHORIZED`|-26|Error: the user is not authorized to perform this operation.|  
-|`SCC_E_FILESYNTAXERR`|-27|File syntax error.|  
-|`SCC_E_FILENOTEXIST`|-28|Error, the local file does not exist.|  
-|`SCC_E_CONNECTIONFAILURE`|-29|Error: there was a connection failure.|  
-|`SCC_E_UNKNOWNERROR`|-30|Unknown error.|  
-|`SCC_E_BACKGROUNDGETINPROGRESS`|-31|Background get operation is currently in progress.|  
+|错误代码|值|描述|  
+|----------|-------|--------|  
+|`SCC_I_SHARESUBPROJOK`|7|插件支持从两个步骤中的源代码管理中添加文件。 有关详细信息，请参阅[SccSetOption](../extensibility/sccsetoption-function.md)。|  
+|`SCC_I_FILEDIFFERS`|6|本地文件是不同于在源代码管理数据库中的文件 \(例如， [SccDiff](../extensibility/sccdiff-function.md) 可能会返回此值\)。|  
+|`SCC_I_RELOADFILE`|5|在源代码管理操作; 过程中更改本地文件IDE 应尽可能重新加载该文件。|  
+|`SCC_I_FILENOTAFFECTED`|4|该文件不受影响。|  
+|`SCC_I_PROJECTCREATED`|3|在源代码管理操作过程中创建项目 \(例如，在调用期间 [SccOpenProject](../extensibility/sccopenproject-function.md) 时 `SCC_OP_CREATEIFNEW` 指定标志\)。|  
+|`SCC_I_OPERATIONCANCELED`|2|操作已取消。|  
+|`SCC_I_ADV_SUPPORT`|1|用于指定的命令的高级选项的插件支持。 有关详细信息，请参阅[SccGetCommandOptions](../extensibility/sccgetcommandoptions-function.md)。|  
+|`SCC_OK`|0|成功。|  
+|`SCC_E_INITIALIZEFAILED`|\-1|错误: 初始化失败。|  
+|`SCC_E_UNKNOWNPROJECT`|\-2|错误: 项目是未知的。|  
+|`SCC_E_COULDNOTCREATEPROJECT`|\-3|错误: 无法创建项目。|  
+|`SCC_E_NOTCHECKEDOUT`|\-4|错误: 该文件未签出。|  
+|`SCC_E_ALREADYCHECKEDOUT`|\-5|错误: 该文件已签出。|  
+|`SCC_E_FILEISLOCKED`|\-6|错误: 该文件被锁定。|  
+|`SCC_E_FILEOUTEXCLUSIVE`|\-7|错误: 该文件以独占方式签出。|  
+|`SCC_E_ACCESSFAILURE`|\-8|没有访问源代码管理系统，很可能是由于网络或争用问题时出现问题。 建议重试。|  
+|`SCC_E_CHECKINCONFLICT`|\-9|错误: 时发生冲突签入的过程。|  
+|`SCC_E_FILEALREADYEXISTS`|\-10|错误: 该文件已存在。|  
+|`SCC_E_FILENOTCONTROLLED`|\-11|错误: 该文件不是源代码管理下。|  
+|`SCC_E_FILEISCHECKEDOUT`|\-12|错误: 该文件已签出。|  
+|`SCC_E_NOSPECIFIEDVERSION`|\-13|错误: 没有指定的版本。|  
+|`SCC_E_OPNOTSUPPORTED`|\-14|错误: 不支持该操作。|  
+|`SCC_E_NONSPECIFICERROR`|\-15|非特定的错误。|  
+|`SCC_E_OPNOTPERFORMED`|\-16|不执行错误，该操作。|  
+|`SCC_E_TYPENOTSUPPORTED`|\-17|错误: 源代码管理系统不支持二进制文件，该文件，例如的类型。|  
+|`SCC_E_VERIFYMERGE`|\-18|文件已被自动合并，但尚未检查，因为它是挂起的用户验证。|  
+|`SCC_E_FIXMERGE`|\-19|文件已被自动合并，但未检入由于必须手动解决合并冲突。|  
+|`SCC_E_SHELLFAILURE`|\-20|由于外壳程序失败，出现错误。|  
+|`SCC_E_INVALIDUSER`|\-21|错误: 用户无效。|  
+|`SCC_E_PROJECTALREADYOPEN`|\-22|错误: 该项目已打开。|  
+|`SCC_E_PROJSYNTAXERR`|\-23|项目存在语法错误。|  
+|`SCC_E_INVALIDFILEPATH`|\-24|错误: 文件路径无效。|  
+|`SCC_E_PROJNOTOPEN`|\-25|错误: 该项目未打开。|  
+|`SCC_E_NOTAUTHORIZED`|\-26|错误: 用户未授权来执行此操作。|  
+|`SCC_E_FILESYNTAXERR`|\-27|文件存在语法错误。|  
+|`SCC_E_FILENOTEXIST`|\-28|错误，本地文件不存在。|  
+|`SCC_E_CONNECTIONFAILURE`|\-29|Error: there was 时失败的连接。|  
+|`SCC_E_UNKNOWNERROR`|\-30|出现未知的错误。|  
+|`SCC_E_BACKGROUNDGETINPROGRESS`|\-31|当前正在进行后台 get 操作。|  
   
-## <a name="macros-provided-for-quick-checking"></a>Macros Provided for Quick Checking  
+## 提供用于快速检查宏  
   
-```cpp  
-IS_SCC_ERROR(rtn) (((rtn) < 0) ? TRUE : FALSE)  
-IS_SCC_SUCCESS(rtn) (((rtn) == SCC_OK) ? TRUE : FALSE)  
-IS_SCC_WARNING(rtn) (((rtn) > 0) ? TRUE : FALSE)  
+```cpp#  
+IS_SCC_ERROR(rtn) (((rtn) < 0) ? TRUE : FALSE) IS_SCC_SUCCESS(rtn) (((rtn) == SCC_OK) ? TRUE : FALSE) IS_SCC_WARNING(rtn) (((rtn) > 0) ? TRUE : FALSE)  
 ```  
   
-## <a name="remarks"></a>Remarks  
- All Source Control Plug-in API functions (except the [SccAdd](../extensibility/sccadd-function.md), [SccCheckin](../extensibility/scccheckin-function.md), and [SccDiff](../extensibility/sccdiff-function.md)) are expected to succeed when the local files that are passed as arguments do not exist in the working folder. For example, the IDE may issue a call to the [SccCheckout](../extensibility/scccheckout-function.md) or [SccUncheckout](../extensibility/sccuncheckout-function.md) on a file that does not exist in the working folder, but exists in the source control system. This call would succeed. Only when there is no file in the working folder or in the source control system is the function expected to fail.  
+## 备注  
+ 所有源控制插件 API 函数 \(除 [SccAdd](../extensibility/sccadd-function.md), ，[SccCheckin](../extensibility/scccheckin-function.md), ，和 [SccDiff](../extensibility/sccdiff-function.md)\) 都按照预期成功时作为参数传递的本地文件中的工作文件夹不存在。 例如，IDE 可能会发出调用 [SccCheckout](../extensibility/scccheckout-function.md) 或 [SccUncheckout](../extensibility/sccuncheckout-function.md) 中工作文件夹中，不存在，但在源代码管理系统中存在的文件。 此调用将会成功。 只有在没有工作文件夹中或在源代码管理系统中没有文件时该函数应失败。  
   
- Certain functions, such as `SccAdd` and `SccCheckin`, should specifically return `SCC_E_FILENOTEXIST` when the file in the working folder does not exist. Other functions are expected to succeed when the working file does not exist, if the functions operate on a valid file name in the source control system.  
+ 某些函数，如 `SccAdd` 和 `SccCheckin`, ，应专门返回 `SCC_E_FILENOTEXIST` 工作文件夹中的文件不存在时。 其他函数需要时工作文件不存在，如果函数在源代码管理系统上有效的文件名操作成功。  
   
- The source control plug-in should make no assumptions regarding privileges on a file in the working folder, even if the plug-in had marked the file read-only during some operation. A file in the working folder can be moved, deleted, and changed outside the plug-in's control.  
+ 即使插件已将其标记文件只读的某项操作时，源代码管理插件应在工作文件夹中，做任何假设有关文件上的权限。 工作文件夹中的文件可以移动、 删除和更改即插即用接程序的控制范围之外。  
   
-## <a name="see-also"></a>See Also  
- [Source Control Plug-ins](../extensibility/source-control-plug-ins.md)
+## 请参阅  
+ [源代码管理插件](../extensibility/source-control-plug-ins.md)

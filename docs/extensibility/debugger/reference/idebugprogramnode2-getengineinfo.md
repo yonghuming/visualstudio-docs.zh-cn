@@ -1,70 +1,53 @@
 ---
-title: IDebugProgramNode2::GetEngineInfo | Microsoft Docs
-ms.custom: 
-ms.date: 11/04/2016
-ms.reviewer: 
-ms.suite: 
-ms.technology:
-- vs-ide-sdk
-ms.tgt_pltfrm: 
-ms.topic: article
-f1_keywords:
-- IDebugProgramNode2::GetEngineInfo
-helpviewer_keywords:
-- IDebugProgramNode2::GetEngineInfo
+title: "IDebugProgramNode2::GetEngineInfo | Microsoft Docs"
+ms.custom: ""
+ms.date: "11/04/2016"
+ms.reviewer: ""
+ms.suite: ""
+ms.technology: 
+  - "vs-ide-sdk"
+ms.tgt_pltfrm: ""
+ms.topic: "article"
+f1_keywords: 
+  - "IDebugProgramNode2::GetEngineInfo"
+helpviewer_keywords: 
+  - "IDebugProgramNode2::GetEngineInfo"
 ms.assetid: 664e7fe5-9100-4b7d-9dc5-e5a4dd0d0451
 caps.latest.revision: 13
-ms.author: gregvanl
-manager: ghogen
-translation.priority.mt:
-- cs-cz
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pl-pl
-- pt-br
-- ru-ru
-- tr-tr
-- zh-cn
-- zh-tw
-ms.translationtype: MT
-ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
-ms.openlocfilehash: 116495c3d5fd7a3b06d8d83fd82e23584645c5a0
-ms.contentlocale: zh-cn
-ms.lasthandoff: 08/28/2017
-
+ms.author: "gregvanl"
+manager: "ghogen"
+caps.handback.revision: 13
 ---
-# <a name="idebugprogramnode2getengineinfo"></a>IDebugProgramNode2::GetEngineInfo
-Gets the name and identifier of the debug engine (DE) running a program.  
+# IDebugProgramNode2::GetEngineInfo
+[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
+
+获取运行程序的调试引擎的名称 \(DE\)和标识符。  
   
-## <a name="syntax"></a>Syntax  
+## 语法  
   
-```cpp  
-HRESULT GetEngineInfo (   
-   BSTR* pbstrEngine,  
-   GUID* pguidEngine  
+```cpp#  
+HRESULT GetEngineInfo (   
+   BSTR* pbstrEngine,  
+   GUID* pguidEngine  
 );  
 ```  
   
-```csharp  
+```c#  
 int GetEngineInfo(  
-   out string pbstrEngine,   
-   out Guid pguidEngine  
+   out string pbstrEngine,   
+   out Guid pguidEngine  
 );  
 ```  
   
-#### <a name="parameters"></a>Parameters  
+#### 参数  
  `pbstrEngine`  
- [out] Returns the name of the DE running the program (C++-specific: this can be a null pointer indicating that the caller is not interested in the name of the engine).  
+ \[out\] 返回运行程序的 DE 的名称 \(C\+\+ 特定:这可能是指示的 NULL 指针被调用方提供引擎的名称不感兴趣。\)  
   
  `pguidEngine`  
- [out] Returns the globally unique identifier of the DE running the program (C++-specific: this can be a null pointer indicating that the caller is not interested in the GUID of the engine).  
+ \[out\] 返回运行程序的 DE 的全局唯一标识符 \(guid\) \(C\+\+ 特定:这可能是指示的 NULL 指针调用方不是引擎的 GUID 感兴趣\)。  
   
-## <a name="return-value"></a>Return Value  
- If successful, returns `S_OK`; otherwise, returns an error code.  
+## 返回值  
+ 如果成功，则返回; `S_OK`否则，返回错误代码。  
   
-## <a name="see-also"></a>See Also  
+## 请参阅  
  [IDebugProgramNode2](../../../extensibility/debugger/reference/idebugprogramnode2.md)

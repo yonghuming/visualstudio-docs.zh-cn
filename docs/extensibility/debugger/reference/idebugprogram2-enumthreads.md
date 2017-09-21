@@ -1,67 +1,50 @@
 ---
-title: IDebugProgram2::EnumThreads | Microsoft Docs
-ms.custom: 
-ms.date: 11/04/2016
-ms.reviewer: 
-ms.suite: 
-ms.technology:
-- vs-ide-sdk
-ms.tgt_pltfrm: 
-ms.topic: article
-f1_keywords:
-- IDebugProgram2::EnumThreads
-helpviewer_keywords:
-- IDebugProgram2::EnumThreads
+title: "IDebugProgram2::EnumThreads | Microsoft Docs"
+ms.custom: ""
+ms.date: "11/04/2016"
+ms.reviewer: ""
+ms.suite: ""
+ms.technology: 
+  - "vs-ide-sdk"
+ms.tgt_pltfrm: ""
+ms.topic: "article"
+f1_keywords: 
+  - "IDebugProgram2::EnumThreads"
+helpviewer_keywords: 
+  - "IDebugProgram2::EnumThreads"
 ms.assetid: 0f2a8c51-1315-4c96-8aa1-6a937dc2a769
 caps.latest.revision: 10
-ms.author: gregvanl
-manager: ghogen
-translation.priority.mt:
-- cs-cz
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pl-pl
-- pt-br
-- ru-ru
-- tr-tr
-- zh-cn
-- zh-tw
-ms.translationtype: MT
-ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
-ms.openlocfilehash: f6fa931b1f48d13cd6160eb3a160c29601706882
-ms.contentlocale: zh-cn
-ms.lasthandoff: 08/28/2017
-
+ms.author: "gregvanl"
+manager: "ghogen"
+caps.handback.revision: 10
 ---
-# <a name="idebugprogram2enumthreads"></a>IDebugProgram2::EnumThreads
-Retrieves a list of the threads that are running in the program.  
+# IDebugProgram2::EnumThreads
+[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
+
+检索在程序运行线程的列表。  
   
-## <a name="syntax"></a>Syntax  
+## 语法  
   
-```cpp  
-HRESULT EnumThreads(   
-   IEnumDebugThreads2** ppEnum  
+```cpp#  
+HRESULT EnumThreads(   
+   IEnumDebugThreads2** ppEnum  
 );  
 ```  
   
-```csharp  
-int EnumThreads(   
-   out IEnumDebugThreads2 ppEnum  
+```c#  
+int EnumThreads(   
+   out IEnumDebugThreads2 ppEnum  
 );  
 ```  
   
-#### <a name="parameters"></a>Parameters  
+#### 参数  
  `ppEnum`  
- [out] Returns an [IEnumDebugThreads2](../../../extensibility/debugger/reference/ienumdebugthreads2.md) object that contains a list of the threads.  
+ \[out\] 返回一个线程的列表 [IEnumDebugThreads2](../../../extensibility/debugger/reference/ienumdebugthreads2.md) 对象。  
   
-## <a name="return-value"></a>Return Value  
- If successful, returns `S_OK`; otherwise, returns an error code.  
+## 返回值  
+ 如果成功，则返回; `S_OK`否则，返回错误代码。  
   
-## <a name="see-also"></a>See Also  
+## 请参阅  
  [IDebugProgram2](../../../extensibility/debugger/reference/idebugprogram2.md)   
  [IEnumDebugThreads2](../../../extensibility/debugger/reference/ienumdebugthreads2.md)   
  [IDebugThread2](../../../extensibility/debugger/reference/idebugthread2.md)

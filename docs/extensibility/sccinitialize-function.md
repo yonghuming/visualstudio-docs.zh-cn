@@ -1,108 +1,91 @@
 ---
-title: SccInitialize Function | Microsoft Docs
-ms.custom: 
-ms.date: 11/04/2016
-ms.reviewer: 
-ms.suite: 
-ms.technology:
-- vs-ide-sdk
-ms.tgt_pltfrm: 
-ms.topic: article
-f1_keywords:
-- SccInitialize
-helpviewer_keywords:
-- SccInitialize function
+title: "SccInitialize 函数 | Microsoft Docs"
+ms.custom: ""
+ms.date: "11/04/2016"
+ms.reviewer: ""
+ms.suite: ""
+ms.technology: 
+  - "vs-ide-sdk"
+ms.tgt_pltfrm: ""
+ms.topic: "article"
+f1_keywords: 
+  - "SccInitialize"
+helpviewer_keywords: 
+  - "SccInitialize 函数"
 ms.assetid: 5bc0d28b-2c68-4d43-9e51-541506a8f76e
 caps.latest.revision: 14
-ms.author: gregvanl
-manager: ghogen
-translation.priority.mt:
-- cs-cz
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pl-pl
-- pt-br
-- ru-ru
-- tr-tr
-- zh-cn
-- zh-tw
-ms.translationtype: MT
-ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
-ms.openlocfilehash: 76235f932ccaac04672e50f8d349ab6fcd55cd4d
-ms.contentlocale: zh-cn
-ms.lasthandoff: 08/28/2017
-
+ms.author: "gregvanl"
+manager: "ghogen"
+caps.handback.revision: 14
 ---
-# <a name="sccinitialize-function"></a>SccInitialize Function
-This function initializes the source control plug-in and provides capabilities and limits to the integrated development environment (IDE).  
+# SccInitialize 函数
+[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
+
+此函数初始化源代码管理插件，并提供了集成的开发环境 \(IDE\) 的限制和功能。  
   
-## <a name="syntax"></a>Syntax  
+## 语法  
   
-```cpp  
+```cpp#  
 SCCRTN SccInitialize (  
-   LPVOID* ppvContext,  
-   HWND    hWnd,  
-   LPCSTR  lpCallerName,  
-   LPSTR   lpSccName,  
-   LPLONG  lpSccCaps,  
-   LPSTR   lpAuxPathLabel,  
-   LPLONG  pnCheckoutCommentLen,  
-   LPLONG  pnCommentLen  
+   LPVOID* ppvContext,  
+   HWND    hWnd,  
+   LPCSTR  lpCallerName,  
+   LPSTR   lpSccName,  
+   LPLONG  lpSccCaps,  
+   LPSTR   lpAuxPathLabel,  
+   LPLONG  pnCheckoutCommentLen,  
+   LPLONG  pnCommentLen  
 );  
 ```  
   
-#### <a name="parameters"></a>Parameters  
+#### 参数  
  `ppvContext`  
- [in] The source control plug-in can place a pointer to its context structure here.  
+ \[\] in源代码管理插件可以在此处放置指向其上下文结构的指针。  
   
  `hWnd`  
- [in] A handle to the IDE window that the source control plug-in can use as a parent for any dialog boxes that it provides.  
+ \[\] in源代码管理插件可以用作所有对话框，它提供了一个父 IDE 窗口的句柄。  
   
  `lpCallerName`  
- [in] The name of the program calling the source control plug-in.  
+ \[\] in调用的源代码管理插件的程序的名称。  
   
  `lpSccName`  
- [in, out] The buffer where the source control plug-in puts its own name (not to exceed `SCC_NAME_LEN`).  
+ \[in、 out\]源代码管理插件放置其自己的名称的位置的缓冲区 \(不能超过 `SCC_NAME_LEN`\)。  
   
  `lpSccCaps`  
- [out] Returns the source control plug-in's capability flags.  
+ \[\] out返回的源代码管理插件的功能标志。  
   
  `lpAuxPathLabel`  
- [in, out] The buffer where the source control plug-in puts a string that describes the `lpAuxProjPath` parameter returned by the [SccOpenProject](../extensibility/sccopenproject-function.md) and the [SccGetProjPath](../extensibility/sccgetprojpath-function.md) (not to exceed `SCC_AUXLABEL_LEN`).  
+ \[in、 out\]源代码管理插件放置一个字符串，描述的位置的缓冲区 `lpAuxProjPath` 返回由参数 [SccOpenProject](../extensibility/sccopenproject-function.md) 和 [SccGetProjPath](../extensibility/sccgetprojpath-function.md) \(不能超过 `SCC_AUXLABEL_LEN`\)。  
   
  `pnCheckoutCommentLen`  
- [out] Returns the maximum permissible length for a checkout comment.  
+ \[\] out返回签出注释的最大允许长度。  
   
  `pnCommentLen`  
- [out] Returns the maximum permissible length for other comments.  
+ \[\] out返回其他注释的最大允许长度。  
   
-## <a name="return-value"></a>Return Value  
- The source control plug-in implementation of this function is expected to return one of the following values:  
+## 返回值  
+ 此函数的源代码控制插件实现应返回下列值之一:  
   
-|Value|Description|  
-|-----------|-----------------|  
-|SCC_OK|Source control initialization succeeded.|  
-|SCC_E_INITIALIZEFAILED|System could not be initialized.|  
-|SCC_E_NOTAUTHORIZED|The user is not allowed to perform the specified operation.|  
-|SCC_E_NONSPECFICERROR|Nonspecific failure; source control system was not initialized.|  
+|值|描述|  
+|-------|--------|  
+|SCC\_OK|源控件初始化成功。|  
+|SCC\_E\_INITIALIZEFAILED|无法初始化系统。|  
+|SCC\_E\_NOTAUTHORIZED|不允许用户以执行指定的操作。|  
+|SCC\_E\_NONSPECFICERROR|模糊失败;未初始化源代码管理系统。|  
   
-## <a name="remarks"></a>Remarks  
- The IDE calls this function when it first loads the source control plug-in. It enables the IDE to pass certain information, such as the caller name, to the plug-in. The IDE also gets back certain information such as the maximum allowable length for comments and the plug-in's capabilities.  
+## 备注  
+ 它首次加载源代码管理插件时，IDE 将调用此函数。 这样，IDE 将某些信息，如到插件的调用方名称。 IDE 还会让某些信息，如注释和即插即用接程序的功能的最大允许长度。  
   
- The `ppvContext` points to a `NULL` pointer. The source control plug-in can allocate a structure for its own use and store a pointer to that structure in `ppvContext`. The IDE will pass this pointer to every other VSSCI API function, allowing the plug-in to have context information available without resorting to global storage and to support multiple instances of the plug-in. This structure should be deallocated when the [SccUninitialize](../extensibility/sccuninitialize-function.md) is called.  
+ `ppvContext` 指向 `NULL` 指针。 源代码管理插件可以分配供自己使用的结构并将存储到在该结构的指针 `ppvContext`。 IDE 会将此指针传递给每个其他 VSSCI API 函数，允许插件而无需对全局存储中有可用的上下文信息和支持的插件的多个实例。 这种结构应该释放时 [SccUninitialize](../extensibility/sccuninitialize-function.md) 调用。  
   
- The `lpCallerName` and `lpSccName` parameters enable the IDE and the source control plug-in to exchange names. These names may be used simply to distinguish among multiple instances, or they may actually appear in menus or dialog boxes.  
+ `lpCallerName` 和 `lpSccName` 参数使 IDE 和源代码管理插件能够交换名称。 可能使用这些名称只是为了区分多个实例，或者它们可能会实际出现在菜单或对话框。  
   
- The `lpAuxPathLabel` parameter is a string used as a comment to identify the auxiliary project path that is stored in the solution file and passed to the source control plug-in in a call to the [SccOpenProject](../extensibility/sccopenproject-function.md). [!INCLUDE[vsvss](../extensibility/includes/vsvss_md.md)] uses the string "SourceSafe Project:"; other source control plug-ins should refrain from using this particular string.  
+ `lpAuxPathLabel` 参数是一个字符串作为注释用于标识存储在解决方案文件，并传递到源代码管理插件对的调用中的辅助项目路径 [SccOpenProject](../extensibility/sccopenproject-function.md)。[!INCLUDE[vsvss](../extensibility/includes/vsvss_md.md)] 使用字符串"SourceSafe 项目:";其他源代码管理插件应避免使用此特定字符串。  
   
- The `lpSccCaps` parameter gives the source control plug-in a place to store bitflags indicating the plug-in's capabilities. (For a full list of capability bitflags, see [Capability Flags](../extensibility/capability-flags.md)). For instance, if the plug-in plans to write results into a caller-provided callback function, the plug-in would set the capability bit SCC_CAP_TEXTOUT. This would signal the IDE to create a window for version control results.  
+ `lpSccCaps` 参数给出源代码管理插件一个位置来存储 bitflags，该值指示即插即用接程序的功能。 \(有关功能 bitflags 的完整列表，请参阅 [功能标志](../extensibility/capability-flags.md)\)。 例如，如果将结果写到一个调用方提供回调函数，该插件会将设置功能的插件计划位 SCC\_CAP\_TEXTOUT。 这将向 IDE 来创建版本控制结果的窗口发送信号。  
   
-## <a name="see-also"></a>See Also  
- [Source Control Plug-in API Functions](../extensibility/source-control-plug-in-api-functions.md)   
+## 请参阅  
+ [源代码管理插件 API 功能](../extensibility/source-control-plug-in-api-functions.md)   
  [SccUninitialize](../extensibility/sccuninitialize-function.md)   
  [SccOpenProject](../extensibility/sccopenproject-function.md)   
- [Capability Flags](../extensibility/capability-flags.md)
+ [功能标志](../extensibility/capability-flags.md)

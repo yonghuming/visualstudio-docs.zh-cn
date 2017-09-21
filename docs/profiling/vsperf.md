@@ -1,91 +1,73 @@
 ---
-title: VSPerf | Microsoft Docs
-ms.custom: 
-ms.date: 11/04/2016
-ms.reviewer: 
-ms.suite: 
-ms.technology:
-- vs-ide-debug
-ms.tgt_pltfrm: 
-ms.topic: article
+title: "VSPerf | Microsoft Docs"
+ms.custom: ""
+ms.date: "11/04/2016"
+ms.reviewer: ""
+ms.suite: ""
+ms.technology: 
+  - "vs-ide-debug"
+ms.tgt_pltfrm: ""
+ms.topic: "article"
 ms.assetid: b5854e62-279e-4850-bfeb-0c6ef82f4805
 caps.latest.revision: 6
-author: mikejo5000
-ms.author: mikejo
-manager: ghogen
-translation.priority.ht:
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- ru-ru
-- zh-cn
-- zh-tw
-translation.priority.mt:
-- cs-cz
-- pl-pl
-- pt-br
-- tr-tr
-ms.translationtype: HT
-ms.sourcegitcommit: 7c87490f8e4ad01df8761ebb2afee0b2d3744fe2
-ms.openlocfilehash: d150336c336d046983d44afffc59c90cd30136af
-ms.contentlocale: zh-cn
-ms.lasthandoff: 08/31/2017
-
+author: "mikejo5000"
+ms.author: "mikejo"
+manager: "ghogen"
+caps.handback.revision: 6
 ---
-# <a name="vsperf"></a>VSPerf
-Use the **VsPerf** command line tool to:  
+# VSPerf
+[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
+
+使用 **VsPerf** 命令行工具：  
   
-1.  Profile Windows Store apps from the command line when Visual Studio is not installed on the device.  
+1.  当 Visual Studio 在设备时，不安装配置文件中存储从命令行运行的应用。  
   
-2.  Profile Windows 8 desktop applications and Windows Server 2012 applications using the sampling profiling method.  
+2.  使用采样分析方法分析 Windows 桌面8 应用程序和 Windows Server 2012 应用程序。  
   
- For more information about your profiling options, see [Performance Tools on Windows 8 and Windows Server 2012 applications](../profiling/performance-tools-on-windows-8-and-windows-server-2012-applications.md).  
+ 有关 [分析 Windows 8 和 Windows Server 2012 应用程序](../profiling/performance-tools-on-windows-8-and-windows-server-2012-applications.md) 命令行选项的更多信息，请参见 。  
   
-##  <a name="BKMK_In_this_topic"></a> In this topic  
- This topic describes the options that you can use with the `vsperf.exe` command line tool. The topic contains the following sections:  
+##  <a name="BKMK_In_this_topic"></a> 主题内容  
+ 本主题描述可使用 `vsperf.exe` 命令行工具的选项。  本主题包含以下各节：  
   
- [Windows Store apps only](#BKMK_windows_store_apps_only)  
+ [只有Windows 应用商店应用](#BKMK_windows_store_apps_only)  
   
- [Windows 8 desktop applications and Windows Server 2012 applications only](#BKMK_Windows_8_classic_applications_and_Windows_Server_2012_applications_only)  
+ [仅Windows 8桌面应用程序和 Windows Server 2012 应用程序](#BKMK_Windows_8_classic_applications_and_Windows_Server_2012_applications_only)  
   
- [All applications](#BKMK_All_applications)  
+ [所有应用程序。](#BKMK_All_applications)  
   
-##  <a name="BKMK_windows_store_apps_only"></a> Windows Store apps only  
- These options apply only to Windows Store apps.  
-  
-|||  
-|-|-|  
-|**/app:{AppName}**|Starts the profiler and waits for the specified app to be launched from the Start menu.<br /><br /> Run `vsperf /listapps` to view the app Name and PackageFullName of installed apps.|  
-|**/package:{PackageFullName}**|Starts the profiler and waits for the specified app to be launched from the Start menu.<br /><br /> Run `vsperf /listapps` to view the app Name and PackageFullName of installed apps.|  
-|**/js**|Required for profiling JavaScript apps.<br /><br /> Collect performance data from JavaScript apps.<br /><br /> Use only with /package or /attach.|  
-|**/noclr**|Optional. Do not collect CLR data.<br /><br /> Use only with /package or /attach.<br /><br /> Optimization, no managed symbols will resolve.|  
-|**/listapps**|List installed app Names and PackageFullNames.|  
-  
-##  <a name="BKMK_Windows_8_classic_applications_and_Windows_Server_2012_applications_only"></a> Windows 8 desktop applications and Windows Server 2012 applications only  
- These options do not work on Windows Store apps.  
+##  <a name="BKMK_windows_store_apps_only"></a> 只有Windows 应用商店应用  
+ 这些选项仅适用于中存储应用。  
   
 |||  
 |-|-|  
-|**/launch:{Executable}**|Starts and begins profiling the specified executable file.|  
-|**/args:{ExecutableArguments}**|Specifies command line arguments to pass the **/launch** target.|  
-|**/console**|Runs the **/launch** target in a new command window.|  
+|**\/app:{AppName}**|启动探查器并等待指定的应用从"开始"菜单启动。<br /><br /> 运行 `vsperf /listapps` 查看安装的应用应用名称和 PackageFullName。|  
+|**\/package:{PackageFullName}**|启动探查器并等待指定的应用从"开始"菜单启动。<br /><br /> 运行 `vsperf /listapps` 查看安装的应用应用名称和 PackageFullName。|  
+|**\/js**|分析 JavaScript 应用。<br /><br /> 从 JavaScript 应用收集性能数据。<br /><br /> 只能用 \/package 或 \/attach。|  
+|**\/noclr**|可选。   不收集CLR数据。<br /><br /> 只能用 \/package 或 \/attach。<br /><br /> 优化，将不解析任何托管符号。|  
+|**\/listapps**|列出已安装的应用名称和 PackageFullNames。|  
   
-##  <a name="BKMK_All_applications"></a> All applications  
- These option apply to any Windows 8 or Windows Server 2012 application.  
+##  <a name="BKMK_Windows_8_classic_applications_and_Windows_Server_2012_applications_only"></a> 仅Windows 8桌面应用程序和 Windows Server 2012 应用程序  
+ 这些选项在中存储应用不起作用。  
   
 |||  
 |-|-|  
-|**/attach:{PID&#124;ProcessName}[,PID&#124;ProcessName]...**|Collects data from the specified processes.<br /><br /> Use Task Manager to view the process id (PID) and process names of running apps.|  
-|**/file:{ReportName}**|Optional. Specifies output file (overwrites existing file).<br /><br /> Use only with /package or /attach.|  
-|**/pause**|Pause data collection.|  
-|**/resume**|Resume data collection.|  
-|**/stop**|Stop data collection and terminate target processes.|  
-|**/detach**|Stop data collection, but let target processes continue to run.|  
-|**/status**|Show profiler status.|  
+|**\/launch:{Executable}**|开始和开始配置文件指定的可执行文件。|  
+|**\/args:{ExecutableArguments}**|指定命令行参数传递 **\/launch** 目标。|  
+|**\/console**|在新的命令窗口的 **\/launch** 目标。|  
   
-## <a name="see-also"></a>See Also  
- [Performance Tools on Windows 8 and Windows Server 2012 applications](../profiling/performance-tools-on-windows-8-and-windows-server-2012-applications.md)   
- [Profiling from the Command-Line](../profiling/using-the-profiling-tools-from-the-command-line.md)
+##  <a name="BKMK_All_applications"></a> 所有应用程序。  
+ 这些选项适用于所有 Windows 8 或 Windows Server 2012 应用程序。  
+  
+|||  
+|-|-|  
+|**\/attach:{PID&#124;ProcessName}\[,PID&#124;ProcessName\]...**|从指定的进程收集数据。<br /><br /> 使用任务管理器查看进程 ID \(PID\) 并处理连续应用名称。|  
+|**\/file:{ReportName}**|可选。  指定输出文件名 \(覆盖现有文件\)。<br /><br /> 只能用 \/package 或 \/attach。|  
+|**\/pause**|暂停数据收集。|  
+|**\/resume**|继续数据收集。|  
+|**\/stop**|停止数据收集并停止目标进程。|  
+|**\/detach**|停止数据收集，但允许目标进程继续运行。|  
+|**\/status**|探查器显示状态。|  
+  
+## 请参阅  
+ [分析 Windows 8 和 Windows Server 2012 应用程序](../profiling/performance-tools-on-windows-8-and-windows-server-2012-applications.md)   
+ [通过命令行进行分析](../profiling/using-the-profiling-tools-from-the-command-line.md)

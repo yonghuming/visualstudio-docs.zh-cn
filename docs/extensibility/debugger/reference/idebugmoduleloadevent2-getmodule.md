@@ -1,76 +1,59 @@
 ---
-title: IDebugModuleLoadEvent2::GetModule | Microsoft Docs
-ms.custom: 
-ms.date: 11/04/2016
-ms.reviewer: 
-ms.suite: 
-ms.technology:
-- vs-ide-sdk
-ms.tgt_pltfrm: 
-ms.topic: article
-f1_keywords:
-- IDebugModuleLoadEvent2::GetModule
-helpviewer_keywords:
-- IDebugModuleLoadEvent2::GetModule
+title: "IDebugModuleLoadEvent2::GetModule | Microsoft Docs"
+ms.custom: ""
+ms.date: "11/04/2016"
+ms.reviewer: ""
+ms.suite: ""
+ms.technology: 
+  - "vs-ide-sdk"
+ms.tgt_pltfrm: ""
+ms.topic: "article"
+f1_keywords: 
+  - "IDebugModuleLoadEvent2::GetModule"
+helpviewer_keywords: 
+  - "IDebugModuleLoadEvent2::GetModule"
 ms.assetid: c86482bb-9ce5-4e63-bbe0-969b50169424
 caps.latest.revision: 10
-ms.author: gregvanl
-manager: ghogen
-translation.priority.mt:
-- cs-cz
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pl-pl
-- pt-br
-- ru-ru
-- tr-tr
-- zh-cn
-- zh-tw
-ms.translationtype: MT
-ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
-ms.openlocfilehash: e8f8c66fb4f3c65986d8d3591ad2483dd7d81955
-ms.contentlocale: zh-cn
-ms.lasthandoff: 08/28/2017
-
+ms.author: "gregvanl"
+manager: "ghogen"
+caps.handback.revision: 10
 ---
-# <a name="idebugmoduleloadevent2getmodule"></a>IDebugModuleLoadEvent2::GetModule
-Gets the module that is being loaded or unloaded.  
+# IDebugModuleLoadEvent2::GetModule
+[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
+
+获取加载或卸载的模块。  
   
-## <a name="syntax"></a>Syntax  
+## 语法  
   
-```cpp  
-HRESULT GetModule(   
-   IDebugModule2** pModule,  
-   BSTR*           pbstrDebugMessage,  
-   BOOL*           pbLoad  
+```cpp#  
+HRESULT GetModule(   
+   IDebugModule2** pModule,  
+   BSTR*           pbstrDebugMessage,  
+   BOOL*           pbLoad  
 );  
 ```  
   
-```csharp  
-int GetModule(   
-   out IDebugModule2 pModule,  
-   ref string        pbstrDebugMessage,  
-   ref int           pbLoad  
+```c#  
+int GetModule(   
+   out IDebugModule2 pModule,  
+   ref string        pbstrDebugMessage,  
+   ref int           pbLoad  
 );  
 ```  
   
-#### <a name="parameters"></a>Parameters  
+#### 参数  
  `pModule`  
- [out] Returns an [IDebugModule2](../../../extensibility/debugger/reference/idebugmodule2.md) object that represents the module which is loading or unloading.  
+ \[out\] 返回表示模块加载或卸载的 [IDebugModule2](../../../extensibility/debugger/reference/idebugmodule2.md) 对象。  
   
  `pbstrDebugMessage`  
- [in, out] Returns an optional message describing this event. If this parameter is a null value, no message is requested.  
+ \[in, out\] 返回描述此事件的可选消息。  如果此参数是一个空值，消息未请求。  
   
  `pbLoad`  
- [in, out] Nonzero (`TRUE`) if the module is loading and zero (`FALSE`) if the module is unloading. If this parameter is a null value, no status is requested.  
+ \[in, out\] 非零 \(`TRUE`\)，如果模块加载和零 \(0\)`FALSE`\)，如果卸载模块。  如果此参数是一个空值，状态未请求。  
   
-## <a name="return-value"></a>Return Value  
- If successful, returns `S_OK`; otherwise, returns an error code.  
+## 返回值  
+ 如果成功，则返回; `S_OK`否则，返回错误代码。  
   
-## <a name="see-also"></a>See Also  
+## 请参阅  
  [IDebugModuleLoadEvent2](../../../extensibility/debugger/reference/idebugmoduleloadevent2.md)   
  [IDebugModule2](../../../extensibility/debugger/reference/idebugmodule2.md)

@@ -1,147 +1,135 @@
 ---
-title: 'Walkthrough: Creating a Legacy Language Service | Microsoft Docs'
-ms.custom: 
-ms.date: 11/04/2016
-ms.reviewer: 
-ms.suite: 
-ms.technology:
-- vs-ide-sdk
-ms.tgt_pltfrm: 
-ms.topic: article
-helpviewer_keywords:
-- language services [managed package framework], creating
+title: "演练︰ 创建传统语言服务 | Microsoft Docs"
+ms.custom: ""
+ms.date: "11/04/2016"
+ms.reviewer: ""
+ms.suite: ""
+ms.technology: 
+  - "vs-ide-sdk"
+ms.tgt_pltfrm: ""
+ms.topic: "article"
+helpviewer_keywords: 
+  - "创建语言服务 [托管的包框架]"
 ms.assetid: 6a5dd2c2-261b-4efd-a3f4-8fb90b73dc82
 caps.latest.revision: 19
-ms.author: gregvanl
-manager: ghogen
-translation.priority.mt:
-- cs-cz
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pl-pl
-- pt-br
-- ru-ru
-- tr-tr
-- zh-cn
-- zh-tw
-ms.translationtype: MT
-ms.sourcegitcommit: eb5c9550fd29b0e98bf63a7240737da4f13f3249
-ms.openlocfilehash: 1322e22acf70d37e43e68edac4fe23ba96011317
-ms.contentlocale: zh-cn
-ms.lasthandoff: 08/30/2017
-
+ms.author: "gregvanl"
+manager: "ghogen"
+caps.handback.revision: 19
 ---
-# <a name="walkthrough-creating-a-legacy-language-service"></a>Walkthrough: Creating a Legacy Language Service
-Using the managed package framework (MPF) language classes to implement a language service in [!INCLUDE[csprcs](../../data-tools/includes/csprcs_md.md)] is straightforward. You need a VSPackage to host the language service, the language service itself, and a parser for your language.  
+# 演练︰ 创建传统语言服务
+[!INCLUDE[vs2017banner](../../code-quality/includes/vs2017banner.md)]
+
+使用托管的包框架 \(MPF\) 语言类实现中的语言服务 [!INCLUDE[csprcs](../../data-tools/includes/csprcs_md.md)] 非常简单。 您需要 VSPackage 来宿主语言服务，语言服务本身和用于您的语言的分析器。  
   
-## <a name="prerequisites"></a>Prerequisites  
- To follow this walkthrough, you must install the Visual Studio SDK. For more information, see [Visual Studio SDK](../../extensibility/visual-studio-sdk.md).  
+## 系统必备  
+ 要按照本演练的步骤操作，必须安装 Visual Studio SDK。 有关详细信息，请参阅[Visual Studio SDK](../../extensibility/visual-studio-sdk.md)。  
   
-## <a name="locations-for-the-visual-studio-package-project-template"></a>Locations for the Visual Studio Package Project Template  
- The Visual Studio Package Project Template can be found in three different template locations in the **New Project** dialog box:  
+## Visual Studio 包项目模板的位置  
+ 在中的三个不同的模板位置可以找到 Visual Studio 程序包项目模板 **新项目** 对话框中︰  
   
-1.  Under Visual Basic Extensibility. The default language of the project is Visual Basic.  
+1.  在“Visual Basic 扩展性”之下。 项目的默认语言为 Visual Basic。  
   
-2.  Under C# Extensibility. The default language of the project is C#.  
+2.  在“C\# 扩展性”之下。 项目的默认语言为 C\#。  
   
-3.  Under Other Project Types Extensibility. The default language of the project is C++.  
+3.  在“其他项目类型扩展性”之下。 项目的默认语言为 C\+\+。  
   
-### <a name="create-a-vspackage"></a>Create a VSPackage  
+### 创建的 VSPackage  
   
-1.  Create a new VSPackage with the Visual Studio Package project template.  
+1.  使用 Visual Studio Package 项目模板创建新的 VSPackage。  
   
-     If you are adding a language service to an existing VSPackage, skip the following steps and go directly to the "Create the Language Service Class" procedure.  
+     如果要添加到现有的 VSPackage 的语言服务，跳过以下步骤，直接转到"创建语言服务类"过程。  
   
-2.  Enter MyLanguagePackage for the name of the project and click **OK**.  
+2.  MyLanguagePackage 输入项目的名称，再单击 **确定**。  
   
-     You can use whatever name you want. These procedures detailed here assume MyLanguagePackage as the name.  
+     可以使用所需的任意名称。 此处详细介绍这些过程假定 MyLanguagePackage 作为名称。  
   
-3.  Select [!INCLUDE[csprcs](../../data-tools/includes/csprcs_md.md)] as the language and the option to generate a new key file. Click **Next**.  
+3.  选择 [!INCLUDE[csprcs](../../data-tools/includes/csprcs_md.md)] 语言以及用于生成新的密钥文件的选项。 单击**“下一步”**。  
   
-4.  Enter the appropriate company and package information. Click **Next**.  
+4.  输入相应的公司和包信息。 单击**“下一步”**。  
   
-5.  Select **Menu Command**. Click **Next**.  
+5.  选择 **菜单命令**。 单击**“下一步”**。  
   
-     If you do not intend to support code snippets, you can just click Finish and ignore the next step.  
+     如果不想支持代码段，您可以只需单击完成并忽略下一步。  
   
-6.  Enter **Insert Snippet** as the **Command Name** and `cmdidInsertSnippet` for the **Command ID**. Click **Finish**.  
+6.  输入 **插入代码段** 作为 **命令名称** 和 `cmdidInsertSnippet` 为 **命令 ID**。 单击**“完成”**。  
   
-     The **Command Name** and **Command ID** can be whatever you want, these are just examples.  
+     **命令名称** 和 **命令 ID** 可以是任何所需，它们只是示例。  
   
-### <a name="create-the-language-service-class"></a>Create the Language Service Class  
+### 创建语言服务类  
   
-1.  In **Solution Explorer**, right-click on the MyLanguagePackage project, choose **Add**, **Reference**, and then choose the **Add New Reference** button.  
+1.  在 **解决方案资源管理器**, ，右键单击该 MyLanguagePackage 项目，选择 **添加**, ，**引用**, ，然后选择 **添加新引用** 按钮。  
   
-2.  In the **Add Reference** dialog box, select **Microsoft.VisualStudio.Package.LanguageService** in the **.NET** tab and click **OK**.  
+2.  在 **添加引用** 对话框中，选择 **Microsoft.VisualStudio.Package.LanguageService** 中 **.NET** 选项卡上，单击 **确定**。  
   
-     This needs to be done only once for the language package project.  
+     这需要进行一次只能为语言包项目。  
   
-3.  In **Solution Explorer**, right-click on the VSPackage project and select **Add**, **Class**.  
+3.  在 **解决方案资源管理器**, ，右击 VSPackage 项目，选择 **添加**, ，**类**。  
   
-4.  Make sure **Class** is selected in the templates list.  
+4.  请确保 **类** 在模板列表中选择。  
   
-5.  Enter **MyLanguageService.cs** for the name of the class file and click **Add**.  
+5.  输入 **MyLanguageService.cs** 名称的类文件，并单击 **添加**。  
   
-     You can use whatever name you want. These procedures detailed here assume `MyLanguageService` as the name.  
+     可以使用所需的任意名称。 此处详细介绍这些过程假设 `MyLanguageService` 作为名称。  
   
-6.  In the MyLanguageService.cs file, add the following `using` statements.  
+6.  在 MyLanguageService.cs 文件中，添加以下 `using` 语句。  
   
-     [!code-csharp[CreatingALanguageService(ManagedPackageFramework)#1](../../extensibility/internals/codesnippet/CSharp/walkthrough-creating-a-legacy-language-service_1.cs)]  [!code-vb[CreatingALanguageService(ManagedPackageFramework)#1](../../extensibility/internals/codesnippet/VisualBasic/walkthrough-creating-a-legacy-language-service_1.vb)]  
+     [!code-cs[CreatingALanguageService(ManagedPackageFramework)#1](../../extensibility/internals/codesnippet/CSharp/walkthrough-creating-a-legacy-language-service_1.cs)]
+     [!code-vb[CreatingALanguageService(ManagedPackageFramework)#1](../../extensibility/internals/codesnippet/VisualBasic/walkthrough-creating-a-legacy-language-service_1.vb)]  
   
-7.  Modify the `MyLanguageService` class to derive from the <xref:Microsoft.VisualStudio.Package.LanguageService> class:  
+7.  修改 `MyLanguageService` 类派生自 <xref:Microsoft.VisualStudio.Package.LanguageService> 类︰  
   
-     [!code-csharp[CreatingALanguageService(ManagedPackageFramework)#2](../../extensibility/internals/codesnippet/CSharp/walkthrough-creating-a-legacy-language-service_2.cs)]  [!code-vb[CreatingALanguageService(ManagedPackageFramework)#2](../../extensibility/internals/codesnippet/VisualBasic/walkthrough-creating-a-legacy-language-service_2.vb)]  
+     [!code-cs[CreatingALanguageService(ManagedPackageFramework)#2](../../extensibility/internals/codesnippet/CSharp/walkthrough-creating-a-legacy-language-service_2.cs)]
+     [!code-vb[CreatingALanguageService(ManagedPackageFramework)#2](../../extensibility/internals/codesnippet/VisualBasic/walkthrough-creating-a-legacy-language-service_2.vb)]  
   
-8.  Position the cursor on "LanguageService" and from the **Edit**, **IntelliSense** menu, select **Implement Abstract Class**. This adds the minimum necessary methods to implement a language service class.  
+8.  将光标放在"LanguageService"，从 **编辑**, ，**IntelliSense** 菜单上，选择 **实现抽象类**。 这将添加最小必需的方法来实现的语言服务类。  
   
-9. Implement the abstract methods as described in [Implementing a Legacy Language Service](../../extensibility/internals/implementing-a-legacy-language-service2.md).  
+9. 实现抽象方法，如中所述 [实现语言服务](../../extensibility/internals/implementing-a-legacy-language-service2.md)。  
   
-### <a name="register-the-language-service"></a>Register the Language Service  
+### 注册语言服务  
   
-1.  Open the MyLanguagePackagePackage.cs file and add the following `using` statements:  
+1.  打开 MyLanguagePackagePackage.cs 文件并添加以下 `using` 语句︰  
   
-     [!code-vb[CreatingALanguageService(ManagedPackageFramework)#3](../../extensibility/internals/codesnippet/VisualBasic/walkthrough-creating-a-legacy-language-service_3.vb)]  [!code-csharp[CreatingALanguageService(ManagedPackageFramework)#3](../../extensibility/internals/codesnippet/CSharp/walkthrough-creating-a-legacy-language-service_3.cs)]  
+     [!code-vb[CreatingALanguageService(ManagedPackageFramework)#3](../../extensibility/internals/codesnippet/VisualBasic/walkthrough-creating-a-legacy-language-service_3.vb)]
+     [!code-cs[CreatingALanguageService(ManagedPackageFramework)#3](../../extensibility/internals/codesnippet/CSharp/walkthrough-creating-a-legacy-language-service_3.cs)]  
   
-2.  Register your language service class as described in [Registering a Legacy Language Service](../../extensibility/internals/registering-a-legacy-language-service1.md). This includes the ProvideXX attributes and "Proffering the Language Service" sections. Use MyLanguageService where this topic uses TestLanguageService.  
+2.  注册您的语言服务类，如中所述 [注册语言服务](../../extensibility/internals/registering-a-legacy-language-service1.md)。 这包括 ProvideXX 属性和"Proffering 语言服务"部分。 使用本主题中使用 TestLanguageService MyLanguageService。  
   
-### <a name="the-parser-and-scanner"></a>The Parser and Scanner  
+### 分析器和扫描程序  
   
-1.  Implement a parser and scanner for your language as described in [Legacy Language Service Parser and Scanner](../../extensibility/internals/legacy-language-service-parser-and-scanner.md).  
+1.  实现分析器和扫描您的语言程序中所述 [旧的语言服务分析器和扫描程序](../../extensibility/internals/legacy-language-service-parser-and-scanner.md)。  
   
-     How you implement your parser and scanner is entirely up to you and is beyond the scope of this topic.  
+     如何实现您的分析器和扫描程序完全取决于您并不属于本主题的讨论范围。  
   
-## <a name="language-service-features"></a>Language Service Features  
- To implement each feature in the language service, you typically derive a class from the appropriate MPF language service class, implement any abstract methods as necessary, and override the appropriate methods. What classes you create and/or derive from is dependent on the features you intend to support. These features are discussed in detail in [Legacy Language Service Features](../../extensibility/internals/legacy-language-service-features1.md). The following procedure is the general approach to deriving a class from the MPF classes.  
+## 语言服务功能  
+ 若要实现语言服务中的每项功能，您通常适当 MPF 语言服务类中派生一个类、 必要时，实现所有抽象方法和重写适当的方法。 你想要支持创建和\/或派生自哪些类是依赖的功能。 中详细地讨论这些功能 [遗留语言服务功能](../../extensibility/internals/legacy-language-service-features1.md)。 下面的过程是从 MPF 类派生一个类为常规方法。  
   
-#### <a name="deriving-from-an-mpf-class"></a>Deriving From an MPF Class  
+#### 派生自 MPF 类  
   
-1.  In **Solution Explorer**, right-click on the VSPackage project and select **Add**, **Class**.  
+1.  在 **解决方案资源管理器**, ，右击 VSPackage 项目，选择 **添加**, ，**类**。  
   
-2.  Make sure **Class** is selected in the templates list.  
+2.  请确保 **类** 在模板列表中选择。  
   
-     Enter a suitable name for the class file and click **Add**.  
+     输入一个合适的名称的类文件，然后单击 **添加**。  
   
-3.  In the new class file, add the following `using` statements.  
+3.  在新的类文件中，添加以下 `using` 语句。  
   
-     [!code-csharp[CreatingALanguageService(ManagedPackageFramework)#4](../../extensibility/internals/codesnippet/CSharp/walkthrough-creating-a-legacy-language-service_4.cs)]  [!code-vb[CreatingALanguageService(ManagedPackageFramework)#4](../../extensibility/internals/codesnippet/VisualBasic/walkthrough-creating-a-legacy-language-service_4.vb)]  
+     [!code-cs[CreatingALanguageService(ManagedPackageFramework)#4](../../extensibility/internals/codesnippet/CSharp/walkthrough-creating-a-legacy-language-service_4.cs)]
+     [!code-vb[CreatingALanguageService(ManagedPackageFramework)#4](../../extensibility/internals/codesnippet/VisualBasic/walkthrough-creating-a-legacy-language-service_4.vb)]  
   
-4.  Modify the class to derive from the desired MPF class.  
+4.  修改要从所需的 MPF 类派生的类。  
   
-5.  Add a class constructor that takes at least the same parameters as the base class's constructor and pass the constructor parameters on to the base class constructor.  
+5.  添加至少采用相同参数作为基类的构造函数的类构造函数并传递到基类构造函数的构造函数参数。  
   
-     For example, the constructor for a class derived from the <xref:Microsoft.VisualStudio.Package.Source> class might look like the following:  
+     例如，一个类的构造函数派生自 <xref:Microsoft.VisualStudio.Package.Source> 类可能如下所示︰  
   
-     [!code-csharp[CreatingALanguageService(ManagedPackageFramework)#5](../../extensibility/internals/codesnippet/CSharp/walkthrough-creating-a-legacy-language-service_5.cs)]  [!code-vb[CreatingALanguageService(ManagedPackageFramework)#5](../../extensibility/internals/codesnippet/VisualBasic/walkthrough-creating-a-legacy-language-service_5.vb)]  
+     [!code-cs[CreatingALanguageService(ManagedPackageFramework)#5](../../extensibility/internals/codesnippet/CSharp/walkthrough-creating-a-legacy-language-service_5.cs)]
+     [!code-vb[CreatingALanguageService(ManagedPackageFramework)#5](../../extensibility/internals/codesnippet/VisualBasic/walkthrough-creating-a-legacy-language-service_5.vb)]  
   
-6.  From the **Edit**, **IntelliSense** menu, select **Implement Abstract Class** if the base class has any abstract methods that must be implemented.  
+6.  从 **编辑**, ，**IntelliSense** 菜单上，选择 **实现抽象类** 类的基类是否必须实现所有抽象方法。  
   
-7.  Otherwise, position the caret inside the class and enter the method to be overridden.  
+7.  否则为放置在类中插入符号，并输入要被重写的方法。  
   
-     For example, type `public override` to see a list of all methods that can be overridden in that class.  
+     例如，键入 `public override` 以查看所有可以在此类中重写的方法的列表。  
   
-## <a name="see-also"></a>See Also  
- [Implementing a Legacy Language Service](../../extensibility/internals/implementing-a-legacy-language-service1.md)
+## 请参阅  
+ [实现传统语言服务](../../extensibility/internals/implementing-a-legacy-language-service1.md)

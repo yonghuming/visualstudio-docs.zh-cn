@@ -1,84 +1,67 @@
 ---
-title: MACHINE_INFO | Microsoft Docs
-ms.custom: 
-ms.date: 11/04/2016
-ms.reviewer: 
-ms.suite: 
-ms.technology:
-- vs-ide-sdk
-ms.tgt_pltfrm: 
-ms.topic: article
-f1_keywords:
-- MACHINE_INFO
-helpviewer_keywords:
-- MACHINE_INFO structure
+title: "MACHINE_INFO | Microsoft Docs"
+ms.custom: ""
+ms.date: "11/04/2016"
+ms.reviewer: ""
+ms.suite: ""
+ms.technology: 
+  - "vs-ide-sdk"
+ms.tgt_pltfrm: ""
+ms.topic: "article"
+f1_keywords: 
+  - "MACHINE_INFO"
+helpviewer_keywords: 
+  - "MACHINE_INFO 结构"
 ms.assetid: e7564ff2-00b5-4750-8fd5-dc1029a16912
 caps.latest.revision: 10
-ms.author: gregvanl
-manager: ghogen
-translation.priority.mt:
-- cs-cz
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pl-pl
-- pt-br
-- ru-ru
-- tr-tr
-- zh-cn
-- zh-tw
-ms.translationtype: MT
-ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
-ms.openlocfilehash: 6656cb960d0ec96ebb88752c7ba9a1570659c158
-ms.contentlocale: zh-cn
-ms.lasthandoff: 08/28/2017
-
+ms.author: "gregvanl"
+manager: "ghogen"
+caps.handback.revision: 10
 ---
-# <a name="machineinfo"></a>MACHINE_INFO
-Describes a particular machine.  
+# MACHINE_INFO
+[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
+
+描述特定计算机。  
   
-## <a name="syntax"></a>Syntax  
+## 语法  
   
-```cpp  
-typedef struct tagMACHINE_INFO {   
-   MACHINE_INFO_FIELDS Fields;  
-   BSTR                bstrName;  
-   MACHINE_INFO_FLAGS  Flags;  
+```cpp#  
+typedef struct tagMACHINE_INFO {   
+   MACHINE_INFO_FIELDS Fields;  
+   BSTR                bstrName;  
+   MACHINE_INFO_FLAGS  Flags;  
 } MACHINE_INFO;  
 ```  
   
-```csharp  
-public struct MACHINE_INFO {   
-   public uint   Fields;  
-   public string bstrName;  
-   public uint   Flags;  
+```c#  
+public struct MACHINE_INFO {   
+   public uint   Fields;  
+   public string bstrName;  
+   public uint   Flags;  
 };  
 ```  
   
-## <a name="members"></a>Members  
+## 成员  
  `Fields`  
- A combination of flags from the [MACHINE_INFO_FIELDS](../../../extensibility/debugger/reference/machine-info-fields.md) enumeration that specify which fields of the structure are initialized.  
+ 指定标志的组合。 [MACHINE\_INFO\_FIELDS](../../../extensibility/debugger/reference/machine-info-fields.md) 枚举结构的哪些字段初始化。  
   
  `bstrName`  
- The machine name. Equivalent to calling [GetMachineName](../../../extensibility/debugger/reference/idebugcoreserver2-getmachinename.md).  
+ 计算机名称。  调用 [GetMachineName](../../../extensibility/debugger/reference/idebugcoreserver2-getmachinename.md)等效。  
   
  `Flags`  
- A combination of flags from the [MACHINE_INFO_FLAGS](../../../extensibility/debugger/reference/machine-info-flags.md) enumeration describing the machine attributes.  
+ 标志的组合。描述设备特性的 [MACHINE\_INFO\_FLAGS](../../../extensibility/debugger/reference/machine-info-flags.md) 枚举的。  
   
-## <a name="remarks"></a>Remarks  
- This structure is returned by a call to the [GetMachineInfo](../../../extensibility/debugger/reference/idebugcoreserver2-getmachineinfo.md) method.  
+## 备注  
+ 此结构通过对 [GetMachineInfo](../Topic/IDebugCoreServer2::GetMachineInfo.md) 方法的调用返回。  
   
-## <a name="requirements"></a>Requirements  
- Header: msdbg.h  
+## 要求  
+ 标题:msdbg.h  
   
- Namespace: Microsoft.VisualStudio.Debugger.Interop  
+ 命名空间:Microsoft.VisualStudio.Debugger.Interop  
   
- Assembly: Microsoft.VisualStudio.Debugger.Interop.dll  
+ 程序集:Microsoft.VisualStudio.Debugger.Interop.dll  
   
-## <a name="see-also"></a>See Also  
- [Structures and Unions](../../../extensibility/debugger/reference/structures-and-unions.md)   
- [MACHINE_INFO_FIELDS](../../../extensibility/debugger/reference/machine-info-fields.md)   
- [GetMachineInfo](../../../extensibility/debugger/reference/idebugcoreserver2-getmachineinfo.md)
+## 请参阅  
+ [结构和联合](../../../extensibility/debugger/reference/structures-and-unions.md)   
+ [MACHINE\_INFO\_FIELDS](../../../extensibility/debugger/reference/machine-info-fields.md)   
+ [GetMachineInfo](../Topic/IDebugCoreServer2::GetMachineInfo.md)

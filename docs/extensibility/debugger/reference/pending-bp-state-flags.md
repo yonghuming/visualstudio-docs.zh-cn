@@ -1,79 +1,62 @@
 ---
-title: PENDING_BP_STATE_FLAGS | Microsoft Docs
-ms.custom: 
-ms.date: 11/04/2016
-ms.reviewer: 
-ms.suite: 
-ms.technology:
-- vs-ide-sdk
-ms.tgt_pltfrm: 
-ms.topic: article
-f1_keywords:
-- PENDING_BP_STATE_FLAGS
-helpviewer_keywords:
-- PENDING_BP_STATE_FLAGS enumeration
+title: "PENDING_BP_STATE_FLAGS | Microsoft Docs"
+ms.custom: ""
+ms.date: "11/04/2016"
+ms.reviewer: ""
+ms.suite: ""
+ms.technology: 
+  - "vs-ide-sdk"
+ms.tgt_pltfrm: ""
+ms.topic: "article"
+f1_keywords: 
+  - "PENDING_BP_STATE_FLAGS"
+helpviewer_keywords: 
+  - "PENDING_BP_STATE_FLAGS 枚举"
 ms.assetid: 85522449-3fd8-4da5-b0fe-a43160e0c33b
 caps.latest.revision: 9
-ms.author: gregvanl
-manager: ghogen
-translation.priority.mt:
-- cs-cz
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pl-pl
-- pt-br
-- ru-ru
-- tr-tr
-- zh-cn
-- zh-tw
-ms.translationtype: MT
-ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
-ms.openlocfilehash: 65f0037632918ed02ac12decd46e5b7beffbf1c2
-ms.contentlocale: zh-cn
-ms.lasthandoff: 08/28/2017
-
+ms.author: "gregvanl"
+manager: "ghogen"
+caps.handback.revision: 9
 ---
-# <a name="pendingbpstateflags"></a>PENDING_BP_STATE_FLAGS
-Specifies the pending breakpoint state flags.  
+# PENDING_BP_STATE_FLAGS
+[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
+
+指定挂起状态断点标志。  
   
-## <a name="syntax"></a>Syntax  
+## 语法  
   
-```cpp  
-enum enum_PENDING_BP_STATE_FLAGS {   
-   PBPSF_NONE        = 0x0000,  
-   PBPSF_VIRTUALIZED = 0x0001  
+```cpp#  
+enum enum_PENDING_BP_STATE_FLAGS {   
+   PBPSF_NONE        = 0x0000,  
+   PBPSF_VIRTUALIZED = 0x0001  
 };  
 typedef DWORD PENDING_BP_STATE_FLAGS;  
 ```  
   
-```csharp  
-public enum enum_PENDING_BP_STATE_FLAGS {   
-   PBPSF_NONE        = 0x0000,  
-   PBPSF_VIRTUALIZED = 0x0001  
+```c#  
+public enum enum_PENDING_BP_STATE_FLAGS {   
+   PBPSF_NONE        = 0x0000,  
+   PBPSF_VIRTUALIZED = 0x0001  
 };  
 ```  
   
-## <a name="members"></a>Members  
- PBPSF_NONE  
- Placeholder.  
+## 成员  
+ PBPSF\_NONE  
+ 占位符。  
   
- PBPSF_VIRTUALIZED  
- Specifies a virtualized pending breakpoint, one that is to be bound every time new code is loaded.  
+ PBPSF\_VIRTUALIZED  
+ 指定有效等待断点，是每次必须新代码加载的元素。  
   
-## <a name="remarks"></a>Remarks  
- Used for the `flags` member of the [PENDING_BP_STATE_INFO](../../../extensibility/debugger/reference/pending-bp-state-info.md) structure.  
+## 备注  
+ 用于 [PENDING\_BP\_STATE\_INFO](../../../extensibility/debugger/reference/pending-bp-state-info.md) 结构的 `flags` 成员。  
   
-## <a name="requirements"></a>Requirements  
- Header: msdbg.h  
+## 要求  
+ 标题:msdbg.h  
   
- Namespace: Microsoft.VisualStudio.Debugger.Interop  
+ 命名空间:Microsoft.VisualStudio.Debugger.Interop  
   
- Assembly: Microsoft.VisualStudio.Debugger.Interop.dll  
+ 程序集:Microsoft.VisualStudio.Debugger.Interop.dll  
   
-## <a name="see-also"></a>See Also  
- [Enumerations](../../../extensibility/debugger/reference/enumerations-visual-studio-debugging.md)   
- [PENDING_BP_STATE_INFO](../../../extensibility/debugger/reference/pending-bp-state-info.md)
+## 请参阅  
+ [枚举](../../../extensibility/debugger/reference/enumerations-visual-studio-debugging.md)   
+ [PENDING\_BP\_STATE\_INFO](../../../extensibility/debugger/reference/pending-bp-state-info.md)

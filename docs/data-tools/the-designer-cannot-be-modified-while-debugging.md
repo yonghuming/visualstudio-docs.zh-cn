@@ -1,48 +1,29 @@
 ---
-title: The designer cannot be modified while debugging | Microsoft Docs
-ms.custom: 
-ms.date: 11/04/2016
-ms.reviewer: 
-ms.suite: 
-ms.tgt_pltfrm: 
-ms.topic: article
+title: "在调试时无法修改设计器 | Microsoft Docs"
+ms.custom: ""
+ms.date: "12/14/2016"
+ms.prod: "visual-studio-dev14"
+ms.reviewer: ""
+ms.suite: ""
+ms.tgt_pltfrm: ""
+ms.topic: "article"
 ms.assetid: 487dafe4-d57c-4be1-9e3a-bb0a8699b2fa
 caps.latest.revision: 3
-author: gewarren
-ms.author: gewarren
-manager: ghogen
-translation.priority.ht:
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- ru-ru
-- zh-cn
-- zh-tw
-translation.priority.mt:
-- cs-cz
-- pl-pl
-- pt-br
-- tr-tr
-ms.translationtype: HT
-ms.sourcegitcommit: 33a857c2d8585e2e8da9bcd9158190366a3b6830
-ms.openlocfilehash: f108a7917558e182a784ca933a615c9c64476e5b
-ms.contentlocale: zh-cn
-ms.lasthandoff: 09/07/2017
-
+caps.handback.revision: 1
+author: "mikeblome"
+ms.author: "mblome"
+manager: "ghogen"
 ---
-# <a name="the-designer-cannot-be-modified-while-debugging"></a>The designer cannot be modified while debugging
-This message appears when an attempt is made to modify items on the O/R Designer when the application is running in debug mode. When the application is running in debug mode, the O/R Designer is read-only.  
+# 在调试时无法修改设计器
+当应用程序以调试模式运行时，如果试图对 O\/R 设计器中的项进行修改，则会出现此消息。当应用程序以调试模式运行时，O\/R 设计器是只读的。  
   
-### <a name="to-correct-this-error"></a>To correct this error  
+### 更正此错误  
   
--   Click **Stop Debugging** on the **Debug** menu.  
+-   单击**“调试”**菜单上的**“停止调试”**。  
   
-     The application stops debugging, and items in the O/R Designer can be modified.  
+     应用程序将停止调试，从而可以对 O\/R 设计器中的项进行修改。  
   
-## <a name="see-also"></a>See Also  
- [LINQ to SQL Tools in Visual Studio](../data-tools/linq-to-sql-tools-in-visual-studio2.md)   
- [Walkthrough: Creating LINQ to SQL Classes (O-R Designer)](how-to-create-linq-to-sql-classes-mapped-to-tables-and-views-o-r-designer.md)   
- [LINQ to SQL](/dotnet/framework/data/adonet/sql/linq/index)
+## 请参阅  
+ [O\/R 设计器概述](../Topic/LINQ%20to%20SQL%20Tools%20in%20Visual%20Studio1.md)   
+ [演练：创建 LINQ to SQL 类（O\/R 设计器）](../Topic/Walkthrough:%20Creating%20LINQ%20to%20SQL%20Classes%20\(O-R%20Designer\).md)   
+ [LINQ to SQL](../Topic/LINQ%20to%20SQL.md)

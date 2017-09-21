@@ -1,90 +1,73 @@
 ---
-title: IDebugStackFrame3::InterceptCurrentException | Microsoft Docs
-ms.custom: 
-ms.date: 11/04/2016
-ms.reviewer: 
-ms.suite: 
-ms.technology:
-- vs-ide-sdk
-ms.tgt_pltfrm: 
-ms.topic: article
-f1_keywords:
-- IDebugStackFrame3::InterceptCurrentException
-helpviewer_keywords:
-- IDebugStackFrame3::InterceptCurrentException
+title: "IDebugStackFrame3::InterceptCurrentException | Microsoft Docs"
+ms.custom: ""
+ms.date: "11/04/2016"
+ms.reviewer: ""
+ms.suite: ""
+ms.technology: 
+  - "vs-ide-sdk"
+ms.tgt_pltfrm: ""
+ms.topic: "article"
+f1_keywords: 
+  - "IDebugStackFrame3::InterceptCurrentException"
+helpviewer_keywords: 
+  - "IDebugStackFrame3::InterceptCurrentException"
 ms.assetid: 116c7324-7645-4c15-b484-7a5cdd065ef5
 caps.latest.revision: 9
-ms.author: gregvanl
-manager: ghogen
-translation.priority.mt:
-- cs-cz
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pl-pl
-- pt-br
-- ru-ru
-- tr-tr
-- zh-cn
-- zh-tw
-ms.translationtype: MT
-ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
-ms.openlocfilehash: 009c775af66f457c41342d2ce6c8b20288052f6e
-ms.contentlocale: zh-cn
-ms.lasthandoff: 08/28/2017
-
+ms.author: "gregvanl"
+manager: "ghogen"
+caps.handback.revision: 9
 ---
-# <a name="idebugstackframe3interceptcurrentexception"></a>IDebugStackFrame3::InterceptCurrentException
-Called by the debugger on the current stack frame when it wants to intercept the current exception.  
+# IDebugStackFrame3::InterceptCurrentException
+[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
+
+调用由当前堆栈帧的调试器，则若要截获当前异常。  
   
-## <a name="syntax"></a>Syntax  
+## 语法  
   
 ```cpp  
 HRESULT InterceptCurrentException(  
-   INTERCEPT_EXCEPTION_ACTION dwFlags,  
-   UINT64*                    pqwCookie  
+   INTERCEPT_EXCEPTION_ACTION dwFlags,  
+   UINT64*                    pqwCookie  
 );  
 ```  
   
-```csharp  
+```c#  
 int InterceptCurrentException(  
-   uint dwFlags,   
-   out  ulong pqwCookie  
+   uint dwFlags,   
+   out  ulong pqwCookie  
 );  
 ```  
   
-#### <a name="parameters"></a>Parameters  
+#### 参数  
  `dwFlags`  
- [in] Specifies different actions. Currently, only the [INTERCEPT_EXCEPTION_ACTION](../../../extensibility/debugger/reference/intercept-exception-action.md) value `IEA_INTERCEPT` is supported and must be specified.  
+ \[in\] 指定不同的操作。  目前，仅 [INTERCEPT\_EXCEPTION\_ACTION](../../../extensibility/debugger/reference/intercept-exception-action.md) 值 `IEA_INTERCEPT` 支持并且必须指定。  
   
  `pqwCookie`  
- [out] Unique value identifying a particular exception.  
+ \[out\] 标识特定异常的唯一值。  
   
-## <a name="return-value"></a>Return Value  
- If successful, returns S_OK; otherwise, returns an error code.  
+## 返回值  
+ 如果成功，则返回 S\_OK;否则，返回错误代码。  
   
- The following are the most common error returns.  
+ 下面是最常见的错误返回。  
   
-|Error|Description|  
-|-----------|-----------------|  
-|`E_EXCEPTION_CANNOT_BE_INTERCEPTED`|The current exception cannot be intercepted.|  
-|`E_EXCEPTION_CANNOT_UNWIND_ABOVE_CALLBACK`|The current execution frame hasn't been searched for a handler yet.|  
-|`E_INTERCEPT_CURRENT_EXCEPTION_NOT_SUPPORTED`|This method is not supported for this frame.|  
+|错误|说明|  
+|--------|--------|  
+|`E_EXCEPTION_CANNOT_BE_INTERCEPTED`|无法截获当前异常。|  
+|`E_EXCEPTION_CANNOT_UNWIND_ABOVE_CALLBACK`|当前执行帧尚未搜索处理程序。|  
+|`E_INTERCEPT_CURRENT_EXCEPTION_NOT_SUPPORTED`|此方法不受此框架支持。|  
   
-## <a name="remarks"></a>Remarks  
- When an exception is thrown, the debugger gains control from the run time at key points during the exception handling process. During these key moments, the debugger can ask the current stack frame if the frame wants to intercept the exception. In this way, an intercepted exception is essentially an on-the-fly exception handler for a stack frame, even if that stack frame doesn't have an exception handler (for example, a try/catch block in the program code).  
+## 备注  
+ 引发异常时，控件从的运行时关键点在异常处理过程的调试器的进程。  在这些关键时间期间，因此，如果帧若要截获异常，调试器可能需要当前堆栈帧。  这样，已截获的异常实质上是堆栈帧的一个正在进行中的异常处理程序，因此，即使该堆栈帧没有异常处理程序 \(例如， try\/catch 在程序代码块\)。  
   
- When the debugger wants to know if the exception should be intercepted, it calls this method on the current stack frame object. This method is responsible for handling all details of the exception. If the [IDebugStackFrame3](../../../extensibility/debugger/reference/idebugstackframe3.md) interface is not implemented or the `InterceptStackException` method returns any error, then the debugger continues processing the exception normally.  
+ 当调试器需要知道是否应截获异常，则调用当前堆栈帧对象的方法。  此方法以处理异常的所有详细信息负责。  如果 [IDebugStackFrame3](../../../extensibility/debugger/reference/idebugstackframe3.md) 接口未实现或 `InterceptStackException` 方法返回所有错误，则调试器继续正常处理异常。  
   
 > [!NOTE]
->  Exceptions can be intercepted only in managed code, that is, when the program being debugged is running under the .NET run time. Of course, third-party language implementers can implement `InterceptStackException` in their own debug engines if they so choose.  
+>  ，当正在调试的程序运行在 .NET 运行时下，即，第二次异常仅可被截获。  当然，因此，如果他们这样做选择，第三方语言实现可以实现在其 `InterceptStackException` 调试引擎。  
   
- After the interception is complete, an [IDebugInterceptExceptionCompleteEvent2](../../../extensibility/debugger/reference/idebuginterceptexceptioncompleteevent2.md) is signaled.  
+ 在截获完成后， [IDebugInterceptExceptionCompleteEvent2](../../../extensibility/debugger/reference/idebuginterceptexceptioncompleteevent2.md) 终止状态。  
   
-## <a name="see-also"></a>See Also  
+## 请参阅  
  [IDebugStackFrame3](../../../extensibility/debugger/reference/idebugstackframe3.md)   
- [INTERCEPT_EXCEPTION_ACTION](../../../extensibility/debugger/reference/intercept-exception-action.md)   
+ [INTERCEPT\_EXCEPTION\_ACTION](../../../extensibility/debugger/reference/intercept-exception-action.md)   
  [IDebugInterceptExceptionCompleteEvent2](../../../extensibility/debugger/reference/idebuginterceptexceptioncompleteevent2.md)

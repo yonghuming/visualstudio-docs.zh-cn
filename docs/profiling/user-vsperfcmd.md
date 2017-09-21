@@ -1,72 +1,55 @@
 ---
-title: User (VSPerfCmd) | Microsoft Docs
-ms.custom: 
-ms.date: 11/04/2016
-ms.reviewer: 
-ms.suite: 
-ms.technology:
-- vs-ide-debug
-ms.tgt_pltfrm: 
-ms.topic: article
+title: "User (VSPerfCmd) | Microsoft Docs"
+ms.custom: ""
+ms.date: "11/04/2016"
+ms.reviewer: ""
+ms.suite: ""
+ms.technology: 
+  - "vs-ide-debug"
+ms.tgt_pltfrm: ""
+ms.topic: "article"
 ms.assetid: ee1a478e-374d-4f30-ae28-d260b9d4723a
 caps.latest.revision: 7
-author: mikejo5000
-ms.author: mikejo
-manager: ghogen
-translation.priority.ht:
-- cs-cz
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pl-pl
-- pt-br
-- ru-ru
-- tr-tr
-- zh-cn
-- zh-tw
-ms.translationtype: HT
-ms.sourcegitcommit: 7c87490f8e4ad01df8761ebb2afee0b2d3744fe2
-ms.openlocfilehash: 4fbb8ad36461f3f06abb9318e537868e26d55860
-ms.contentlocale: zh-cn
-ms.lasthandoff: 08/31/2017
-
+author: "mikejo5000"
+ms.author: "mikejo"
+manager: "ghogen"
+caps.handback.revision: 7
 ---
-# <a name="user-vsperfcmd"></a>User (VSPerfCmd)
-The **User** option specifies the domain and user name of the account that owns the profiled process. This option is required only if the process is running as a user other than the logged on user. The process owner is listed in the User Name column on the Processes tab of Windows Task Manager.  
+# User (VSPerfCmd)
+[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
+
+**User** 选项指定拥有所分析进程的帐户的域和用户名。  仅当运行进程的用户不是已登录用户时，才需要此选项。  进程所有者列在 Windows 任务管理器的“进程”选项卡上的“用户名”列中。  
   
- The **User** option can only be specified on a command line that also contains the **Start** option.  
+ 只能在同时包含 **Start** 选项的命令行上指定 **User** 选项。  
   
-## <a name="syntax"></a>Syntax  
+## 语法  
   
 ```  
 VSPerfCmd.exe /Start:Method /Output:FileName /User:[Domain\]UserName [Options]  
 ```  
   
-#### <a name="parameters"></a>Parameters  
+#### 参数  
  `Domain`  
- The name of the user's domain.  
+ 用户的域的名称。  
   
  `UserName`  
- The name of the user.  
+ 用户的名称。  
   
-## <a name="required-options"></a>Required Options  
- The **User** option can only be used with the **Start** option.  
+## 必需选项  
+ **User** 选项只能与 **Start** 选项一起使用。  
   
  **Start:** `Method`  
- Initializes the profiler to the specified profiling method.  
+ 将探查器初始化为指定的分析方法。  
   
-## <a name="example"></a>Example  
- The following example demonstrates the use of the **User** option.  
+## 示例  
+ 下面的示例演示如何使用 **User** 选项。  
   
 ```  
 VSPerfCmd.exe /Start:Sample /Output:TestApp.exe.vsp /User:SYSTEM  
 ```  
   
-## <a name="see-also"></a>See Also  
+## 请参阅  
  [VSPerfCmd](../profiling/vsperfcmd.md)   
- [Profiling Stand-Alone Applications](../profiling/command-line-profiling-of-stand-alone-applications.md)   
- [Profiling ASP.NET Web Applications](../profiling/command-line-profiling-of-aspnet-web-applications.md)   
- [Profiling Services](../profiling/command-line-profiling-of-services.md)
+ [分析独立应用程序](../profiling/command-line-profiling-of-stand-alone-applications.md)   
+ [分析 ASP.NET Web 应用程序](../profiling/command-line-profiling-of-aspnet-web-applications.md)   
+ [分析服务](../profiling/command-line-profiling-of-services.md)

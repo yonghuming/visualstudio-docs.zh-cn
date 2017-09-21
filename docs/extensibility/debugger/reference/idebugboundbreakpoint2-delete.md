@@ -1,63 +1,46 @@
 ---
-title: IDebugBoundBreakpoint2::Delete | Microsoft Docs
-ms.custom: 
-ms.date: 11/04/2016
-ms.reviewer: 
-ms.suite: 
-ms.technology:
-- vs-ide-sdk
-ms.tgt_pltfrm: 
-ms.topic: article
-f1_keywords:
-- IDebugBoundBreakpoint2::Delete
-helpviewer_keywords:
-- Delete method
-- IDebugBoundBreakpoint2::Delete method
+title: "IDebugBoundBreakpoint2::Delete | Microsoft Docs"
+ms.custom: ""
+ms.date: "11/04/2016"
+ms.reviewer: ""
+ms.suite: ""
+ms.technology: 
+  - "vs-ide-sdk"
+ms.tgt_pltfrm: ""
+ms.topic: "article"
+f1_keywords: 
+  - "IDebugBoundBreakpoint2::Delete"
+helpviewer_keywords: 
+  - "Delete 方法"
+  - "IDebugBoundBreakpoint2::Delete 方法"
 ms.assetid: 7088dc66-f24a-446f-a52a-397d02457a41
 caps.latest.revision: 8
-ms.author: gregvanl
-manager: ghogen
-translation.priority.mt:
-- cs-cz
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pl-pl
-- pt-br
-- ru-ru
-- tr-tr
-- zh-cn
-- zh-tw
-ms.translationtype: MT
-ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
-ms.openlocfilehash: a56a9c558d60edeca3521b3bb392fdd63b78185d
-ms.contentlocale: zh-cn
-ms.lasthandoff: 08/28/2017
-
+ms.author: "gregvanl"
+manager: "ghogen"
+caps.handback.revision: 8
 ---
-# <a name="idebugboundbreakpoint2delete"></a>IDebugBoundBreakpoint2::Delete
-Deletes the breakpoint.  
+# IDebugBoundBreakpoint2::Delete
+[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
+
+删除断点。  
   
-## <a name="syntax"></a>Syntax  
+## 语法  
   
-```cpp  
-HRESULT Delete(   
-   void   
+```cpp#  
+HRESULT Delete(   
+   void   
 );  
 ```  
   
-```csharp  
+```c#  
 int Delete();  
 ```  
   
-## <a name="return-value"></a>Return Value  
- If successful, returns `S_OK`; otherwise, returns an error code. Returns `E_BP_DELETED` if the state of the bound breakpoint object is set to `BPS_DELETED` (part of the [BP_STATE](../../../extensibility/debugger/reference/bp-state.md) enumeration).  
+## 返回值  
+ 如果成功，则返回; `S_OK`否则，返回错误代码。  返回 `E_BP_DELETED` ，如果绑定断点对象的状态设置为 `BPS_DELETED` \(的一部分 [BP\_STATE](../../../extensibility/debugger/reference/bp-state.md) 枚举\)。  
   
-## <a name="example"></a>Example  
- The following example shows how to implement this method for a simple `CBoundBreakpoint` object that exposes the [IDebugBoundBreakpoint2](../../../extensibility/debugger/reference/idebugboundbreakpoint2.md) interface.  
+## 示例  
+ 下面的示例演示如何执行显示 [IDebugBoundBreakpoint2](../../../extensibility/debugger/reference/idebugboundbreakpoint2.md) 接口的简单 `CBoundBreakpoint` 对象的方法。  
   
 ```  
 HRESULT CBoundBreakpoint::Delete(void)    
@@ -83,6 +66,6 @@ HRESULT CBoundBreakpoint::Delete(void)
 }     
 ```  
   
-## <a name="see-also"></a>See Also  
+## 请参阅  
  [IDebugBoundBreakpoint2](../../../extensibility/debugger/reference/idebugboundbreakpoint2.md)   
- [BP_STATE](../../../extensibility/debugger/reference/bp-state.md)
+ [BP\_STATE](../../../extensibility/debugger/reference/bp-state.md)

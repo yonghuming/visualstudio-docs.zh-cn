@@ -1,69 +1,52 @@
 ---
-title: IDebugMemoryContext2::GetName | Microsoft Docs
-ms.custom: 
-ms.date: 11/04/2016
-ms.reviewer: 
-ms.suite: 
-ms.technology:
-- vs-ide-sdk
-ms.tgt_pltfrm: 
-ms.topic: article
-f1_keywords:
-- IDebugMemoryContext2::GetName
-helpviewer_keywords:
-- IDebugMemoryContext2::GetName method
-- GetName method
+title: "IDebugMemoryContext2::GetName | Microsoft Docs"
+ms.custom: ""
+ms.date: "11/04/2016"
+ms.reviewer: ""
+ms.suite: ""
+ms.technology: 
+  - "vs-ide-sdk"
+ms.tgt_pltfrm: ""
+ms.topic: "article"
+f1_keywords: 
+  - "IDebugMemoryContext2::GetName"
+helpviewer_keywords: 
+  - "IDebugMemoryContext2::GetName 方法"
+  - "GetName 方法"
 ms.assetid: 8c212556-7d9e-4d68-b2a9-8212f50d0287
 caps.latest.revision: 13
-ms.author: gregvanl
-manager: ghogen
-translation.priority.mt:
-- cs-cz
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pl-pl
-- pt-br
-- ru-ru
-- tr-tr
-- zh-cn
-- zh-tw
-ms.translationtype: MT
-ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
-ms.openlocfilehash: ff2cab57f2db7cfc5095faa049bf73b16e6e2bc3
-ms.contentlocale: zh-cn
-ms.lasthandoff: 08/28/2017
-
+ms.author: "gregvanl"
+manager: "ghogen"
+caps.handback.revision: 13
 ---
-# <a name="idebugmemorycontext2getname"></a>IDebugMemoryContext2::GetName
-Retrieves the user-displayable name for this context.  
+# IDebugMemoryContext2::GetName
+[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
+
+检索用户可显示的名称此上下文中。  
   
-## <a name="syntax"></a>Syntax  
+## 语法  
   
-```cpp  
-HRESULT GetName(   
-   BSTR* pbstrName  
+```cpp#  
+HRESULT GetName(   
+   BSTR* pbstrName  
 );  
 ```  
   
-```csharp  
+```c#  
 int GetName(  
-   out string pbstrName  
+   out string pbstrName  
 );  
 ```  
   
-#### <a name="parameters"></a>Parameters  
+#### 参数  
  `pbstrName`  
- [out] Returns the name of the memory context.  
+ \[out\] 返回内存上下文的名称。  
   
-## <a name="return-value"></a>Return Value  
- If successful, returns `S_OK`; otherwise, returns an error code.  
+## 返回值  
+ 如果成功，则返回; `S_OK`否则，返回错误代码。  
   
-## <a name="remarks"></a>Remarks  
- The name of a memory context is not normally used.  
+## 备注  
+ 通常不使用内存上下文的名称。  
   
-## <a name="see-also"></a>See Also  
+## 请参阅  
  [IDebugMemoryContext2](../../../extensibility/debugger/reference/idebugmemorycontext2.md)

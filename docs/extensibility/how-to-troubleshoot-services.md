@@ -1,90 +1,69 @@
 ---
-title: 'How to: Troubleshoot Services | Microsoft Docs'
-ms.custom: 
-ms.date: 11/04/2016
-ms.reviewer: 
-ms.suite: 
-ms.technology:
-- vs-ide-sdk
-ms.tgt_pltfrm: 
-ms.topic: article
-helpviewer_keywords:
-- services, troubleshooting
+title: "如何: 解决服务疑难问题 | Microsoft Docs"
+ms.custom: ""
+ms.date: "11/04/2016"
+ms.reviewer: ""
+ms.suite: ""
+ms.technology: 
+  - "vs-ide-sdk"
+ms.tgt_pltfrm: ""
+ms.topic: "article"
+helpviewer_keywords: 
+  - "服务，故障排除"
 ms.assetid: 001551da-4847-4f59-a0b2-fcd327d7f5ca
 caps.latest.revision: 14
-ms.author: gregvanl
-manager: ghogen
-translation.priority.mt:
-- cs-cz
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pl-pl
-- pt-br
-- ru-ru
-- tr-tr
-- zh-cn
-- zh-tw
-ms.translationtype: MT
-ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
-ms.openlocfilehash: d8292cb6aa52ffd872783bb4c0faae38d0be8ac5
-ms.contentlocale: zh-cn
-ms.lasthandoff: 08/28/2017
-
+ms.author: "gregvanl"
+manager: "ghogen"
+caps.handback.revision: 14
 ---
-# <a name="how-to-troubleshoot-services"></a>How to: Troubleshoot Services
-There are several common problems that can occur when you try to get a service:  
+# 如何: 解决服务疑难问题
+[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
+
+有几个 when you try to 获取服务可以发生的常见问题:  
   
--   The service is not registered with [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)].  
+-   该服务未注册 [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)]。  
   
--   The service is requested by interface type and not by service type.  
+-   在请求服务时由接口类型而不是服务类型。  
   
--   The VSPackage requesting the service has not been sited.  
+-   位置不正确 VSPackage 请求该服务。  
   
--   The wrong service provider is used.  
+-   使用错误的服务提供程序。  
   
- If the requested service cannot be obtained, the call to <xref:Microsoft.VisualStudio.Shell.Package.GetService%2A> returns null. You should always test for null after requesting a service:  
+ 如果请求的服务无法获得，则会调用 <xref:Microsoft.VisualStudio.Shell.Package.GetService%2A> ，则返回 null。 您应该始终测试存在 null 请求服务之后:  
   
-```csharp  
-IVsActivityLog log =   
-    GetService(typeof(SVsActivityLog)) as IVsActivityLog;  
-if (log == null) return;  
+```c#  
+IVsActivityLog log = GetService(typeof(SVsActivityLog)) as IVsActivityLog; if (log == null) return;  
 ```  
   
-### <a name="to-troubleshoot-a-service"></a>To troubleshoot a service  
+### 若要解决服务问题  
   
-1.  Examine the system registry to see whether the service has been correctly registered. For more information, see [How to: Provide a Service](../extensibility/how-to-provide-a-service.md).  
+1.  检查系统注册表，以查看是否已正确注册该服务。 有关详细信息，请参阅[注册服务](../misc/registering-services.md)。  
   
-     The following .reg file fragment shows how the SVsTextManager service might be registered:  
+     下面的.reg 文件片断演示可能注册 SVsTextManager 服务的方式:  
   
     ```  
-    [HKEY_LOCAL_MACHINE\Software\Microsoft\VisualStudio\<version number>\Services\{F5E7E71D-1401-11d1-883B-0000F87579D2}]  
-    @="{F5E7E720-1401-11d1-883B-0000F87579D2}"  
-    "Name"="SVsTextManager"  
+    [HKEY_LOCAL_MACHINE\Software\Microsoft\VisualStudio\<version number>\Services\{F5E7E71D-1401-11d1-883B-0000F87579D2}] @="{F5E7E720-1401-11d1-883B-0000F87579D2}" "Name"="SVsTextManager"  
     ```  
   
-     In the example above, version number is the version of [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)], such as 12.0 or 14.0, the key {F5E7E71D-1401-11d1-883B-0000F87579D2} is the service identifier (SID) of the service, SVsTextManager, and the default value {F5E7E720-1401-11d1-883B-0000F87579D2} is the package GUID of the text manager VSPackage, which provides the service.  
+     在上面的示例中，版本号是版本 [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)], ，如 12.0 或 14.0，键 {F5E7E71D\-1401\-11d1\-883B\-0000F87579D2} 是 SVsTextManager，服务的服务标识符 \(SID\)，默认值 {F5E7E720\-1401\-11d1\-883B\-0000F87579D2} 是包的文本管理器 VSPackage，它提供服务的 GUID。  
   
-2.  Use the service type and not the interface type when you call GetService. When requesting a service from [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)], <xref:Microsoft.VisualStudio.Shell.Package> extracts the GUID from the type. A service will not be found if the following conditions exist:  
+2.  当您调用 GetService 时使用的服务类型而不是接口类型。 请求的一项服务时 [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)], ，<xref:Microsoft.VisualStudio.Shell.Package> 提取从类型的 GUID。 如果满足下列条件，将不会找到一种服务:  
   
-    1.  An interface type is passed to GetService instead of the service type.  
+    1.  接口类型而不是服务类型传递给 GetService。  
   
-    2.  No GUID is explicitly assigned to the interface. Therefore, the system creates a default GUID for an object as needed.  
+    2.  没有 GUID 显式分配给的接口。 因此，系统会创建为所需的对象的默认 GUID。  
   
-3.  Be sure the VSPackage requesting the service has been sited. [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] sites a VSPackage after constructing it and before calling <xref:Microsoft.VisualStudio.Shell.Package.Initialize%2A>.  
+3.  请确保已放置 VSPackage 请求该服务。[!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] 构建该信息之后，然后才能调用站点 VSPackage <xref:Microsoft.VisualStudio.Shell.Package.Initialize%2A>。  
   
-     If you have code in a VSPackage constructor that needs a service, move it to the Initialize method.  
+     如果您需要一种服务的 VSPackage 构造函数中的代码，则将其移动到的初始化方法。  
   
-4.  Be sure that you are using the correct service provider.  
+4.  请确保您正在使用正确的服务提供程序。  
   
-     Not all service providers are alike. The service provider that [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] passes to a tool window differs from the one it passes to a VSPackage. The tool window service provider knows about <xref:Microsoft.VisualStudio.Shell.Interop.STrackSelection>, but does not know about <xref:Microsoft.VisualStudio.Shell.Interop.SVsRunningDocumentTable>. You can call <xref:Microsoft.VisualStudio.Shell.Package.GetGlobalService%2A> to get a VSPackage service provider from within a tool window.  
+     并非所有服务提供程序都是相同的。 服务提供商， [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] 将传递到工具窗口不同于将其传递到 VSPackage。 工具窗口服务提供商知道 <xref:Microsoft.VisualStudio.Shell.Interop.STrackSelection>, ，但并不了解 <xref:Microsoft.VisualStudio.Shell.Interop.SVsRunningDocumentTable>。 您可以调用 <xref:Microsoft.VisualStudio.Shell.Package.GetGlobalService%2A> 工具窗口中获取的 VSPackage 服务提供程序。  
   
-     If a tool window hosts a user control or any other control container, the container will be sited by the Windows component model and will not have access to any [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] services. You can call <xref:Microsoft.VisualStudio.Shell.Package.GetGlobalService%2A> to get a VSPackage service provider from within a control container.  
+     如果一个工具窗口承载用户控件或任何其他控件容器，容器将通过 Windows 组件模型确定位置，并将不具有访问任何 [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] 服务。 您可以调用 <xref:Microsoft.VisualStudio.Shell.Package.GetGlobalService%2A> 来获取在控件容器中的 VSPackage 服务提供程序。  
   
-## <a name="see-also"></a>See Also  
- [List of Available Services](../extensibility/internals/list-of-available-services.md)   
- [Using and Providing Services](../extensibility/using-and-providing-services.md)   
- [Service Essentials](../extensibility/internals/service-essentials.md)
+## 请参阅  
+ [可用服务列表](../extensibility/internals/list-of-available-services.md)   
+ [使用并提供服务](../extensibility/using-and-providing-services.md)   
+ [服务基础知识](../extensibility/internals/service-essentials.md)

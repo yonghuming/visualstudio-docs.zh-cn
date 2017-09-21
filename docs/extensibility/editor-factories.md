@@ -1,73 +1,57 @@
 ---
-title: Editor Factories | Microsoft Docs
-ms.custom: 
-ms.date: 11/04/2016
-ms.reviewer: 
-ms.suite: 
-ms.technology:
-- vs-ide-sdk
-ms.tgt_pltfrm: 
-ms.topic: article
-helpviewer_keywords:
-- editors [Visual Studio SDK], legacy - editor factories
+title: "编辑器工厂 | Microsoft Docs"
+ms.custom: ""
+ms.date: "11/04/2016"
+ms.reviewer: ""
+ms.suite: ""
+ms.technology: 
+  - "vs-ide-sdk"
+ms.tgt_pltfrm: ""
+ms.topic: "article"
+helpviewer_keywords: 
+  - "编辑器 [Visual Studio SDK]，旧的编辑器工厂"
 ms.assetid: cf4e8164-3546-441d-b465-e8a836ae7216
 caps.latest.revision: 20
-ms.author: gregvanl
-manager: ghogen
-translation.priority.mt:
-- cs-cz
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pl-pl
-- pt-br
-- ru-ru
-- tr-tr
-- zh-cn
-- zh-tw
-ms.translationtype: MT
-ms.sourcegitcommit: eb5c9550fd29b0e98bf63a7240737da4f13f3249
-ms.openlocfilehash: 33e13e1c5c0c46d5380e1c090c3feb72a7b70428
-ms.contentlocale: zh-cn
-ms.lasthandoff: 08/30/2017
-
+ms.author: "gregvanl"
+manager: "ghogen"
+caps.handback.revision: 20
 ---
-# <a name="editor-factories"></a>Editor Factories
-An editor factory creates editor objects and puts them in a window frame, known as a physical view. It creates the document data and document view objects that are necessary to create editors and designers. An editor factory is required to create the Visual Studio core editor and any standard editor. A custom editor can also optionally be created with an editor factory.  
+# 编辑器工厂
+[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
+
+编辑工厂。窗架创建编辑对象并将它们放置，也称为的一个物理视图。  它创建文档数据和文档需要创建编辑器和设计器的视图对象。  需要编辑工厂创建 Visual Studio 核心编辑器和所有标准编辑。  自定义编辑器可以通过编辑工厂选择性地创建。  
   
- You create an editor factory by implementing the <xref:Microsoft.VisualStudio.Shell.Interop.IVsEditorFactory> interface. The following example illustrates how to implement <xref:Microsoft.VisualStudio.Shell.Interop.IVsEditorFactory> to create an editor factory:  
+ 通过实现 <xref:Microsoft.VisualStudio.Shell.Interop.IVsEditorFactory> 接口创建一个编辑工厂。  下面的示例演示如何实现 <xref:Microsoft.VisualStudio.Shell.Interop.IVsEditorFactory> 创建编辑工厂:  
   
- [!code-vb[VSSDKEditorFactories#1](../extensibility/codesnippet/VisualBasic/editor-factories_1.vb)] [!code-csharp[VSSDKEditorFactories#1](../extensibility/codesnippet/CSharp/editor-factories_1.cs)]  
+ [!code-vb[VSSDKEditorFactories#1](../extensibility/codesnippet/VisualBasic/editor-factories_1.vb)]
+ [!code-cs[VSSDKEditorFactories#1](../extensibility/codesnippet/CSharp/editor-factories_1.cs)]  
   
- An editor is loaded the first time that you open a file type handled by that editor. You can choose to open either a specific editor or the default editor. If you select the default editor, the integrated development environment (IDE) determines the correct editor to open and then opens it. For more information, see [Determining Which Editor Opens a File in a Project](../extensibility/internals/determining-which-editor-opens-a-file-in-a-project.md).  
+ 您打开该编辑器处理的文件类型编辑器第一次加载。  可以选择打开一特定编辑器或默认编辑器。  如果选择默认编辑器，集成开发环境 \(IDE\) \(ide\) 确定正确的编辑器中打开然后将其打开。  有关更多信息，请参见 [确定哪个编辑器随即打开，在项目中的文件](../extensibility/internals/determining-which-editor-opens-a-file-in-a-project.md)。  
   
-## <a name="registering-editor-factories"></a>Registering Editor Factories  
- Before you can use an editor that you have created, you first must register information about it, including the file extensions it can handle.  
+## 注册表编辑器工厂  
+ 在将您创建的编辑之前，必须先有关它可以处理的方式注册信息，包括文件扩展名。  
   
- If your VSPackage is written in managed code, you can use the Managed Package Framework (MPF) method <xref:Microsoft.VisualStudio.Shell.Package.RegisterEditorFactory%2A> to register the editor factory after your VSPackage is loaded. If your VSPackage is written in unmanaged code, then you must register your editor factory by using the <xref:Microsoft.VisualStudio.Shell.Interop.SVsRegisterEditors> service.  
+ 如果 VSPackage 用托管代码编写，可以使用托管包 framework \(MPF\) 方法 <xref:Microsoft.VisualStudio.Shell.Package.RegisterEditorFactory%2A> 注册编辑器工厂，在 VSPackage 加载之后。  如果 VSPackage 在非托管代码编写的，使用 <xref:Microsoft.VisualStudio.Shell.Interop.SVsRegisterEditors> 服务，则必须注册编辑器工厂。  
   
-### <a name="registering-an-editor-factory-by-using-managed-code"></a>Registering an Editor Factory by Using Managed Code  
- You must register your editor factory in your VSPackage's the `Initialize` method. First call `base.Initialize`, and then call <xref:Microsoft.VisualStudio.Shell.Package.RegisterEditorFactory%2A> for each editor factory  
+### 注册使用托管代码的一个版本工厂  
+ 必须注册 VSPackage 中 `Initialize` 方法的编辑工厂。  第一次调用 `base.Initialize`，然后调用每个编辑工厂的 <xref:Microsoft.VisualStudio.Shell.Package.RegisterEditorFactory%2A>  
   
- In managed code, there is no need to unregister an editor factory, because the VSPackage will handle this for you. Also, if your editor factory implements <xref:System.IDisposable>, it is automatically disposed when it is unregistered.  
+ 在托管代码中，因为 VSPackage，将会处理您的，不需要注销每编辑工厂。  此外，，如果编辑工厂实现 <xref:System.IDisposable>，它将自动进行配置，以便中注销时。  
   
-### <a name="registering-an-editor-factory-by-using-unmanaged-code"></a>Registering an editor factory by using unmanaged code  
- In the <xref:Microsoft.VisualStudio.Shell.Interop.IVsPackage.SetSite%2A> implementation for your editor package, use the `QueryService` method to call `SVsRegisterEditors`. Doing this returns a pointer to <xref:Microsoft.VisualStudio.Shell.Interop.IVsRegisterEditors>. Call the <xref:Microsoft.VisualStudio.Shell.Interop.IVsRegisterEditors.RegisterEditor%2A> method by passing your implementation of the <xref:Microsoft.VisualStudio.Shell.Interop.IVsEditorFactory> interface. You must mplement <xref:Microsoft.VisualStudio.Shell.Interop.IVsEditorFactory> in a separate class.  
+### 注册使用非托管代码的一个版本工厂  
+ 在编辑器软件包的 <xref:Microsoft.VisualStudio.Shell.Interop.IVsPackage.SetSite%2A> 实现中，使用 `QueryService` 方法调用 `SVsRegisterEditors`。  执行此操作返回指向 <xref:Microsoft.VisualStudio.Shell.Interop.IVsRegisterEditors>。  通过将 <xref:Microsoft.VisualStudio.Shell.Interop.IVsEditorFactory> 接口的实现调用 <xref:Microsoft.VisualStudio.Shell.Interop.IVsRegisterEditors.RegisterEditor%2A> 方法。  必须在单独的类的 mplement <xref:Microsoft.VisualStudio.Shell.Interop.IVsEditorFactory> 。  
   
-## <a name="the-editor-factory-registration-process"></a>The Editor Factory Registration Process  
- The following process occurs when Visual Studio loads your editor using your editor factory:  
+## 编辑工厂注册过程  
+ 使用编辑器工厂，，那么，当 Visual Studio 加载编辑器以下过程发生:  
   
-1.  The [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] project system calls <xref:Microsoft.VisualStudio.Shell.Interop.IVsUIShellOpenDocument.OpenStandardEditor%2A>.  
+1.  [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] 项目系统调用 <xref:Microsoft.VisualStudio.Shell.Interop.IVsUIShellOpenDocument.OpenStandardEditor%2A>。  
   
-2.  This method returns the editor factory. Visual Studio delays loading the editor's package, however, until a project system actually needs the editor.  
+2.  此方法返回编辑工厂。  ，但是， Visual Studio 延迟加载编辑的包，直到项目系统确实需要编辑器。  
   
-3.  When a project system needs the editor, Visual Studio calls <xref:Microsoft.VisualStudio.Shell.Interop.IVsEditorFactory.CreateEditorInstance%2A>, a specialized method that returns both the document view and the document data objects.  
+3.  当项目系统需要编辑器时， Visual Studio 会调用 <xref:Microsoft.VisualStudio.Shell.Interop.IVsEditorFactory.CreateEditorInstance%2A>，返回文档视图和文档数据对象的专用方法。  
   
-4.  If calls by Visual Studio to your editor factory using <xref:Microsoft.VisualStudio.Shell.Interop.IVsEditorFactory.CreateEditorInstance%2A> return both a document data object and a document view object, Visual Studio then creates the document window, places the document view object in it, and makes an entry into the running document table (RDT) for the document data object.  
+4.  如果由 Visual Studio 调入编辑工厂使用 <xref:Microsoft.VisualStudio.Shell.Interop.IVsEditorFactory.CreateEditorInstance%2A> 返回文档数据对象并记录视图对象，然后 Visual Studio 在创建文档窗口中，将文档视图对象，并提交项转换为文档文档 \(RDT\)数据对象的表的运行。  
   
-## <a name="see-also"></a>See Also  
+## 请参阅  
  <xref:Microsoft.VisualStudio.Shell.Interop.IVsEditorFactory>   
- [Running Document Table](../extensibility/internals/running-document-table.md)
+ [正在运行的 Document 表](../extensibility/internals/running-document-table.md)

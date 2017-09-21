@@ -1,84 +1,67 @@
 ---
-title: IDebugSymbolProviderDirect::GetCurrentModulesInfo | Microsoft Docs
-ms.custom: 
-ms.date: 11/04/2016
-ms.reviewer: 
-ms.suite: 
-ms.technology:
-- vs-ide-sdk
-ms.tgt_pltfrm: 
-ms.topic: article
-helpviewer_keywords:
-- IDebugSymbolProviderDirect::GetCurrentModulesInfo
-- GetCurrentModulesInfo
+title: "IDebugSymbolProviderDirect::GetCurrentModulesInfo | Microsoft Docs"
+ms.custom: ""
+ms.date: "11/04/2016"
+ms.reviewer: ""
+ms.suite: ""
+ms.technology: 
+  - "vs-ide-sdk"
+ms.tgt_pltfrm: ""
+ms.topic: "article"
+helpviewer_keywords: 
+  - "IDebugSymbolProviderDirect::GetCurrentModulesInfo"
+  - "GetCurrentModulesInfo"
 ms.assetid: b3b45ed2-ea4e-4389-b78a-11fc9796a6c1
 caps.latest.revision: 9
-ms.author: gregvanl
-manager: ghogen
-translation.priority.mt:
-- cs-cz
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pl-pl
-- pt-br
-- ru-ru
-- tr-tr
-- zh-cn
-- zh-tw
-ms.translationtype: MT
-ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
-ms.openlocfilehash: 25cbece11a4f00f1d70362a86269899ee6e93043
-ms.contentlocale: zh-cn
-ms.lasthandoff: 08/28/2017
-
+ms.author: "gregvanl"
+manager: "ghogen"
+caps.handback.revision: 9
 ---
-# <a name="idebugsymbolproviderdirectgetcurrentmodulesinfo"></a>IDebugSymbolProviderDirect::GetCurrentModulesInfo
-Retrieves information about the modules in the symbol group.  
+# IDebugSymbolProviderDirect::GetCurrentModulesInfo
+[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
+
+检索有关模块的符号信息在组中。  
   
-## <a name="syntax"></a>Syntax  
+## 语法  
   
-```cpp  
+```cpp#  
 HRESULT GetCurrentModulesInfo(  
-   unsigned long * pCount,  
-   GUID *          ppGuids,  
-   DWORD *         pADIds,  
-   DWORD *         pCurrentState,  
-   IUnknown **     ppCDModItfs  
+   unsigned long * pCount,  
+   GUID *          ppGuids,  
+   DWORD *         pADIds,  
+   DWORD *         pCurrentState,  
+   IUnknown **     ppCDModItfs  
 );  
 ```  
   
-```csharp  
+```c#  
 int GetCurrentModulesInfo(  
-   uint       pCount,  
-   Guid       ppGuids,  
-   uint       pADIds,  
-   uint       pCurrentState,  
-   out object ppCDModItfs  
+   uint       pCount,  
+   Guid       ppGuids,  
+   uint       pADIds,  
+   uint       pCurrentState,  
+   out object ppCDModItfs  
 );  
 ```  
   
-#### <a name="parameters"></a>Parameters  
+#### 参数  
  `pCount`  
- [in] Number of modules in the `ppGuids` array.  
+ \[in\] 模块数。 `ppGuids` 数组。  
   
  `ppGuids`  
- [in] Array that contains the unique identifiers for the modules.  
+ \[in\] 对包含模块的唯一标识符。  
   
  `pADIds`  
- [in] Identifiers for the application domains.  
+ \[in\] 应用程序域的标识符。  
   
  `pCurrentState`  
- [in] Current state of the symbol group.  
+ \[in\] 符号组的当前状态。  
   
  `ppCDModItfs`  
- [out] Returns an object that contains the modules in the symbol group.  
+ \[out\] 返回在符号组中包含模块的对象。  
   
-## <a name="return-value"></a>Return Value  
- If successful, returns `S_OK`; otherwise, returns an error code.  
+## 返回值  
+ 如果成功，则返回; `S_OK`否则，返回错误代码。  
   
-## <a name="see-also"></a>See Also  
+## 请参阅  
  [IDebugSymbolProviderDirect](../../../extensibility/debugger/reference/idebugsymbolproviderdirect.md)

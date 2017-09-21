@@ -1,38 +1,35 @@
 ---
-title: Accessing Models from Text Templates | Microsoft Docs
-ms.custom: 
-ms.date: 11/04/2016
-ms.reviewer: 
-ms.suite: 
-ms.tgt_pltfrm: 
-ms.topic: article
-helpviewer_keywords:
-- text templates, accessing models
+title: "从文本模板访问模型 | Microsoft Docs"
+ms.custom: ""
+ms.date: "11/04/2016"
+ms.reviewer: ""
+ms.suite: ""
+ms.tgt_pltfrm: ""
+ms.topic: "article"
+helpviewer_keywords: 
+  - "文本模板, 访问模型"
 ms.assetid: cf65395a-0ca3-4826-89c7-b1869562685c
 caps.latest.revision: 33
-author: alancameronwills
-ms.author: awills
-manager: douge
-ms.translationtype: MT
-ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
-ms.openlocfilehash: 741fc8ac1ed4e0cc449c8010b71bd13a484933a8
-ms.contentlocale: zh-cn
-ms.lasthandoff: 08/28/2017
-
+author: "alancameronwills"
+ms.author: "awills"
+manager: "douge"
+caps.handback.revision: 33
 ---
-# <a name="accessing-models-from-text-templates"></a>Accessing Models from Text Templates
-By using text templates, you can create report files, source code files, and other text files that are based on domain-specific language models. For basic information about text templates, see [Code Generation and T4 Text Templates](../modeling/code-generation-and-t4-text-templates.md). The text templates will work in the experimental mode when you are debugging your DSL, and will also work on a computer on which you have deployed the DSL.  
+# 从文本模板访问模型
+[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
+
+使用文本模板，可以创建报告文件、源代码文件和基于域特定语言模型中的其他文本文件。  有关文本模板的基本信息，请参见 [代码生成和 T4 文本模板](../modeling/code-generation-and-t4-text-templates.md)。  文本模板在实验模式中工作，在调试 DSL 和还处理部署了 DSL 的计算机。  
   
 > [!NOTE]
->  When you create a DSL solution, sample text template **\*.tt** files are generated in the debugging project. When you change the names of the domain classes, these templates will no longer work. Nevertheless, they include the basic directives that you need, and provide examples that you can update to match your DSL.  
+>  如果您创建一个 DSL 解决方案时，示例文本模板 **\*.tt** 文件在调试项目中生成的。  当您更改字段类的名称，这些模板将不再有效。  但是，它们由所需的基本指令，并提供可更新与 DSL 的示例。  
   
- To access a model from a text template:  
+ 对于从文本模板访问一个模型:  
   
--   Set the inherit property of the template directive to <xref:Microsoft.VisualStudio.TextTemplating.VSHost.ModelingTextTransformation>. This provides access to the Store.  
+-   设置模板指令的继承属性设置为 <xref:Microsoft.VisualStudio.TextTemplating.VSHost.ModelingTextTransformation>。  这提供了对存储。  
   
--   Specify directive processors for the DSL that you want to access. This loads the assemblies for your DSL so that you can use its domain classes, properties, and relationships in the code of your text template. It also loads the model file that you specify.  
+-   为要访问的 DSL 指定指令处理器。  这将加载 DSL 的程序集，以便您在文本模板的代码可以使用其域类、属性和关系。  它还会加载您指定的模型文件。  
   
- A `.tt` file similar to the following example is created in the Debugging project when you create a new [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] solution from the DSL Minimal Language template.  
+ ，当您创建从 DSL 最小的语言模板时，的新 [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] 解决方案 `.tt` 文件类似于下面的示例在调试项目创建。  
   
 ```  
 <#@ template inherits="Microsoft.VisualStudio.TextTemplating.VSHost.ModelingTextTransformation" #>  
@@ -55,57 +52,57 @@ Here is a list of elements in the model:
   
 ```  
   
- Notice the following points about this template:  
+ 以下几点此模板的通知:  
   
--   The template can use the domain classes, properties, and relationships that you defined in the DSL Definition.  
+-   模板可以使用在 DSL 定义的域类、属性和关系。  
   
--   The template loads the model file that you specify in the `requires` property.  
+-   模板加载在 `requires` 属性指定的模型文件。  
   
--   A property in `this` contains the root element. From there, your code can navigate to other elements of the model. The name of the property is usually the same as the root domain class of your DSL. In this example, it is `this.ExampleModel`.  
+-   在 `this` 的属性包含根元素。  因此，代码可以导航到模型中的其他元素。  属性的名称通常与 DSL 的根域类。  在此示例中，它是 `this.ExampleModel`。  
   
--   Although the language in which the code fragments are written is C#, you can generate text of any kind. You can alternatively write the code in [!INCLUDE[vbprvb](../code-quality/includes/vbprvb_md.md)] by adding the property `language="VB"` to the `template` directive.  
+-   虽然代码零碎的语言编写是 C\#，可以生成任何类型的文本。  通过添加属性或者可以编写在 [!INCLUDE[vbprvb](../code-quality/includes/vbprvb_md.md)] 的代码 `language="VB"` 到 `template` 指令。  
   
--   To debug the template, add `debug="true"` to the `template` directive. The template will open in another instance of [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] if an exception occurs. If you want to break into the debugger at a specific point in the code, insert the statement `System.Diagnostics.Debugger.Break();`  
+-   若要调试模板，请添加 `debug="true"` 到 `template` 指令。  如果发生异常，，该模板中 [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] 其他实例中打开。  如果要中断调试器中的特定点在代码中，插入语句 `System.Diagnostics.Debugger.Break();`  
   
-     For more information, see [Debugging a T4 Text Template](../modeling/debugging-a-t4-text-template.md).  
+     有关更多信息，请参见 [调试 T4 文本模板](../modeling/debugging-a-t4-text-template.md)。  
   
-## <a name="about-the-dsl-directive-processor"></a>About the DSL directive processor  
- The template can use the domain classes that you defined in your DSL Definition. This is brought about by a directive that usually appears near the start of the template. In the previous example, it is the following.  
+## 有关 DSL 指令处理器  
+ 模板可以使用在 DSL 定义的字段类。  这是在模板的开头。通常出现的指令实现。  在前面的示例中，它下面。  
   
 ```  
 <#@ MyLanguage processor="MyLanguageDirectiveProcessor" requires="fileName='Sample.myDsl1'" #>  
 ```  
   
- The name of the directive ( `MyLanguage`, in this example) is derived from the name of your DSL. It invokes a *directive processor* that is generated as part of your DSL. You can find its source code in **Dsl\GeneratedCode\DirectiveProcessor.cs**.  
+ 指令 \( `MyLanguage`的名称，在本例中为\) 从 DSL 的名称派生。  它调用作为 DSL 的一部分，生成的指令 *处理器* 。  可以查找其在 **Dsl\\GeneratedCode\\DirectiveProcessor.cs**的源代码。  
   
- The DSL directive processor performs two principal tasks:  
+ DSL 指令处理器执行两个主要任务:  
   
--   It effectively inserts assembly and import directives into the template that references your DSL. This lets you use your domain classes in the template code.  
+-   活动会插入程序集和导入指令添加到引用 DSL 的模板中。  这在模板代码可以使用域类。  
   
--   It loads the file that you specify in the `requires` parameter, and sets a property in `this` that refers to the root element of the loaded model.  
+-   它加载在 `requires` 参数指定的文件，然后将引用加载模块的根元素。 `this` 的属性。  
   
-## <a name="validating-the-model-before-running-the-template"></a>Validating the model before running the template  
- You can cause the model to be validated before the template is executed.  
+## 验证模型在运行之前模板  
+ 在模板中，前，可以使模型验证。  
   
 ```  
 <#@ MyLanguage processor="MyLanguageDirectiveProcessor" requires="fileName='Sample.myDsl1';validation='open|load|save|menu'" #>  
   
 ```  
   
- Notice that:  
+ 通知该:  
   
-1.  The `filename` and `validation` parameters are separated with ";" and there must be no other separators or spaces.  
+1.  `filename` 和 `validation` 参数用 “; ”并没有其他分隔符或空格。  
   
-2.  The list of validation categories determines which validation methods will be executed. Multiple categories should be separated with "&#124;" and there must be no other separators or spaces.  
+2.  验证类别列表将确定哪些验证方案中执行。  应分隔多个类别。 “&#124;”并没有其他分隔符或空格。  
   
- If an error is found, it will be reported in the errors window, and the result file will contain an error message.  
+ 如果发现错误，在错误窗口中将报告，因此，结果文件将包含一条错误消息。  
   
-##  <a name="Multiple"></a> Accessing multiple models from a text template  
+##  <a name="Multiple"></a> 从文本模板访问的多个模型  
   
 > [!NOTE]
->  This method lets you read multiple models in the same template but does not support ModelBus references. To read models that are interlinked by ModelBus References, see [Using Visual Studio ModelBus in a Text Template](../modeling/using-visual-studio-modelbus-in-a-text-template.md).  
+>  此方法使您得以在同一模板的多个模型，但不支持 ModelBus 引用。  若要读取由 ModelBus 交互相联接的方式引用，请参见 [在文本模板中使用 Visual Studio ModelBus](../modeling/using-visual-studio-modelbus-in-a-text-template.md)。  
   
- If you want to access more than one model from the same text template, you must call the generated directive processor one time for each model. You must specify the file name of each model in the `requires` parameter. You must specify the names that you want to use for the root domain class in the `provides` parameter. You must specify different values for the `provides` parameters in each of the directive calls. For example, assume that you have three model files called Library.xyz, School.xyz, and Work.xyz. To access them from the same text template, you must write three directive calls that resemble the following ones.  
+ 如果要访问多从同一个文本模板的模型，必须调用所生成的指令处理器每个模型的一次。  在 `requires` 参数必须指定每个模型文件名。  必须指定要对根域类使用在 `provides` 参数的名称。  必须为 `provides` 参数指定不同的值在每个指令调用。  例如，假定，可以调用 Library.xyz、 School.xyz 和 Work.xyz 的三个模型文件。  访问类似于下面几节中的它们从同一个文本模板，必须编写三个指令调用。  
   
 ```  
 <#@ ExampleModel processor="<YourLanguageName>DirectiveProcessor" requires="fileName='Library.xyz'" provides="ExampleModel=LibraryModel" #>  
@@ -114,11 +111,11 @@ Here is a list of elements in the model:
 ```  
   
 > [!NOTE]
->  This example code is for a language that is based on the Minimal Language solution template.  
+>  此代码示例是基于最小语言解决方案模板的语言。  
   
- To access the models in your text template, you can now write code similar to the code in the following example.  
+ 访问在文本模板中，您的模型现在可以编写代码类似于下面示例中的代码。  
   
-```csharp  
+```c#  
 <#  
 foreach (ExampleElement element in this.LibraryModel.Elements)  
 ...  
@@ -129,7 +126,7 @@ foreach (ExampleElement element in this.WorkModel.Elements)
 #>  
 ```  
   
-```vb  
+```vb#  
 <#  
 For Each element As ExampleElement In Me.LibraryModel.Elements  
 ...  
@@ -140,22 +137,22 @@ For Each element As ExampleElement In Me.WorkModel.Elements
 #>  
 ```  
   
-## <a name="loading-models-dynamically"></a>Loading models dynamically  
- If you want to determine at runtime which models to load, you can load a model file dynamically in your program code, instead of using the DSL-specific directive.  
+## 动态加载模块  
+ 如果要在建模加载的运行时，在程序代码中动态加载的模型文件，而不是将使用 DSL 特定指令。  
   
- However, one of the functions of the DSL-specific directive is to import the DSL namespace, so that the template code can use the domain classes defined in that DSL. Because you are not using the directive, you must add **\<assembly>** and **\<import>** directives for all the models that you might load. This is easy if the different models that you might load are all instances of the same DSL.  
+ 但是，其中一个 DSL 特定指令的函数是导入 DSL 命名空间，因此，模板代码在该 DSL 可以使用定义的字段类。  由于不使用指令，必须添加 **\<assembly\>** 和 **\<import\>** 指令可以加载的所有设计的。  这是简单，如果您可能会加载不同的方式相同 DSL 的所有实例。  
   
- To load the file, the most effective method is by using [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] ModelBus. In a typical scenario, your text template will use a DSL-specific directive to load the first model in the usual way. That model would contain ModelBus References to another model. You can use ModelBus to open the referenced model and access a particular element. For more information, see [Using Visual Studio ModelBus in a Text Template](../modeling/using-visual-studio-modelbus-in-a-text-template.md).  
+ 使用 [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] ModelBus，若要加载文件，最有效的方法。  在典型的方案中，文本模板在常规方式将使用一个 DSL 特定指令加载第一个模型。  模型将包含 ModelBus 引用另一个模型。  可以使用 ModelBus 引用打开模型和访问特定元素。  有关更多信息，请参见 [在文本模板中使用 Visual Studio ModelBus](../modeling/using-visual-studio-modelbus-in-a-text-template.md)。  
   
- In a less usual scenario, you might want to open a model file for which you have only a filename, and which might not be in the current [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] project. In this case, you can open the file by using the technique described in [How to: Open a Model from File in Program Code](../modeling/how-to-open-a-model-from-file-in-program-code.md).  
+ 在较长通常不方案，您可能需要打开您仅有一个文件名，并且，可能不在此 [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] 项目中的模型文件。  在这种情况下，可以使用打开该文件在 [如果：在程序代码中从文件打开模型](../modeling/how-to-open-a-model-from-file-in-program-code.md)描述的技术。  
   
-## <a name="generating-multiple-files-from-a-template"></a>Generating multiple files from a template  
- If you want to generate a several files - for example, to generate a separate file for each element in a model, there are several possible approaches. By default, only one file is produced from each template file.  
+## 从模板生成的多文件  
+ 如果您希望生成多个文件 \(例如，为每个元素生成一个单独的文件中设计，有几种可能的方法。  默认情况下，只有一个文件从每个模板文件生成。  
   
-### <a name="splitting-a-long-file"></a>Splitting a long file  
- In this method, you use a template to generate a single file, separated by a delimiter. Then you split the file into its parts. There are two templates, one to generate the single file, and the other to split it.  
+### 拆分较长的文件  
+ 在此方法中，将使用一个模板都生成一个单独的文件中，用分隔符。  然后可以拆分了文件转换为其部件。  有两个模板，一个用于启动单文件以及其他拆分它。  
   
- **LoopTemplate.t4** generates the long single file. Notice that its file extension is ".t4", because it should not be processed directly when you click **Transform All Templates**. This template takes a parameter, which specifies the delimiter string that separates the segments:  
+ **LoopTemplate.t4** 生成长的单文件。  通知其文件扩展名为 “.t4”，因为，不应直接对其进行处理，当您单击 **转换所有模板**。  此模板参数，指定分隔符符来分隔段:  
   
 ```  
 <#@ template ninherits="Microsoft.VisualStudio.TextTemplating.VSHost.ModelingTextTransformation" #>  
@@ -178,7 +175,7 @@ For Each element As ExampleElement In Me.WorkModel.Elements
   
 ```  
   
- `LoopSplitter.tt` invokes `LoopTemplate.t4`, and then splits the resulting file into its segments. Notice that this template does not have to be a modeling template, because it does not read the model.  
+ `LoopSplitter.tt` 调用 `LoopTemplate.t4`，然后拆分生成的文件转换为它的段。  请注意此模板不必是一个建模，模板，因为它不读取模型。  
   
 ```  
 <#@ template hostspecific="true" language="C#" #>  

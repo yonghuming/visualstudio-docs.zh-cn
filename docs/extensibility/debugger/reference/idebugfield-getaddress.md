@@ -1,66 +1,49 @@
 ---
-title: IDebugField::GetAddress | Microsoft Docs
-ms.custom: 
-ms.date: 11/04/2016
-ms.reviewer: 
-ms.suite: 
-ms.technology:
-- vs-ide-sdk
-ms.tgt_pltfrm: 
-ms.topic: article
-f1_keywords:
-- IDebugField::GetAddress
-helpviewer_keywords:
-- IDebugField::GetAddress method
+title: "IDebugField::GetAddress | Microsoft Docs"
+ms.custom: ""
+ms.date: "11/04/2016"
+ms.reviewer: ""
+ms.suite: ""
+ms.technology: 
+  - "vs-ide-sdk"
+ms.tgt_pltfrm: ""
+ms.topic: "article"
+f1_keywords: 
+  - "IDebugField::GetAddress"
+helpviewer_keywords: 
+  - "IDebugField::GetAddress 方法"
 ms.assetid: 6981bf03-66ef-4bf9-87ea-f6c9624486cb
 caps.latest.revision: 11
-ms.author: gregvanl
-manager: ghogen
-translation.priority.mt:
-- cs-cz
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pl-pl
-- pt-br
-- ru-ru
-- tr-tr
-- zh-cn
-- zh-tw
-ms.translationtype: MT
-ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
-ms.openlocfilehash: 56cf317fad706249ef88be6dc6e0fea470b874eb
-ms.contentlocale: zh-cn
-ms.lasthandoff: 08/28/2017
-
+ms.author: "gregvanl"
+manager: "ghogen"
+caps.handback.revision: 11
 ---
-# <a name="idebugfieldgetaddress"></a>IDebugField::GetAddress
-This method gets the debug address of a field.  
+# IDebugField::GetAddress
+[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
+
+此方法获取域的调试地址。  
   
-## <a name="syntax"></a>Syntax  
+## 语法  
   
-```cpp  
-HRESULT GetAddress(   
-   IDebugAddress** ppAddress  
+```cpp#  
+HRESULT GetAddress(   
+   IDebugAddress** ppAddress  
 );  
 ```  
   
-```csharp  
+```c#  
 int GetAddress(  
-   out IDebugAddress ppAddress  
+   out IDebugAddress ppAddress  
 );  
 ```  
   
-#### <a name="parameters"></a>Parameters  
+#### 参数  
  `ppAddress`  
- [out] Returns the address as an [IDebugAddress](../../../extensibility/debugger/reference/idebugaddress.md) object.  
+ \[out\] 返回该地址作为 [IDebugAddress](../../../extensibility/debugger/reference/idebugaddress.md) 对象。  
   
-## <a name="return-value"></a>Return Value  
- If successful, returns `S_OK`; otherwise, return an error code.  
+## 返回值  
+ 如果成功，则返回; `S_OK`否则，返回错误代码。  
   
-## <a name="see-also"></a>See Also  
+## 请参阅  
  [IDebugField](../../../extensibility/debugger/reference/idebugfield.md)   
  [IDebugAddress](../../../extensibility/debugger/reference/idebugaddress.md)

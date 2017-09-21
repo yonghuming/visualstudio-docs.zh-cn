@@ -1,108 +1,91 @@
 ---
-title: IDebugPortEx2::LaunchSuspended | Microsoft Docs
-ms.custom: 
-ms.date: 11/04/2016
-ms.reviewer: 
-ms.suite: 
-ms.technology:
-- vs-ide-sdk
-ms.tgt_pltfrm: 
-ms.topic: article
-f1_keywords:
-- IDebugPortEx2::LaunchSuspended
-helpviewer_keywords:
-- IDebugPortEx2::LaunchSuspended
+title: "IDebugPortEx2::LaunchSuspended | Microsoft Docs"
+ms.custom: ""
+ms.date: "11/04/2016"
+ms.reviewer: ""
+ms.suite: ""
+ms.technology: 
+  - "vs-ide-sdk"
+ms.tgt_pltfrm: ""
+ms.topic: "article"
+f1_keywords: 
+  - "IDebugPortEx2::LaunchSuspended"
+helpviewer_keywords: 
+  - "IDebugPortEx2::LaunchSuspended"
 ms.assetid: 34b2cf99-2e52-4757-8969-1d12ac517ec0
 caps.latest.revision: 10
-ms.author: gregvanl
-manager: ghogen
-translation.priority.mt:
-- cs-cz
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pl-pl
-- pt-br
-- ru-ru
-- tr-tr
-- zh-cn
-- zh-tw
-ms.translationtype: MT
-ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
-ms.openlocfilehash: a8d1faea09d72130b737fb9c64d4cfb03afbcf77
-ms.contentlocale: zh-cn
-ms.lasthandoff: 08/28/2017
-
+ms.author: "gregvanl"
+manager: "ghogen"
+caps.handback.revision: 10
 ---
-# <a name="idebugportex2launchsuspended"></a>IDebugPortEx2::LaunchSuspended
-Launches an executable file.  
+# IDebugPortEx2::LaunchSuspended
+[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
+
+生成可执行文件。  
   
-## <a name="syntax"></a>Syntax  
+## 语法  
   
-```cpp  
-HRESULT LaunchSuspended(   
-   LPCOLESTR        pszExe,  
-   LPCOLESTR        pszArgs,  
-   LPCOLESTR        pszDir,  
-   BSTR             bstrEnv,  
-   DWORD            hStdInput,  
-   DWORD            hStdOutput,  
-   DWORD            hStdError,  
-   IDebugProcess2** ppPortProcess  
+```cpp#  
+HRESULT LaunchSuspended(   
+   LPCOLESTR        pszExe,  
+   LPCOLESTR        pszArgs,  
+   LPCOLESTR        pszDir,  
+   BSTR             bstrEnv,  
+   DWORD            hStdInput,  
+   DWORD            hStdOutput,  
+   DWORD            hStdError,  
+   IDebugProcess2** ppPortProcess  
 );  
 ```  
   
-```csharp  
-int LaunchSuspended(   
-   string             pszExe,  
-   string             pszArgs,  
-   string             pszDir,  
-   string             bstrEnv,  
-   uint               hStdInput,  
-   uint               hStdOutput,  
-   uint               hStdError,  
-   out IDebugProcess2 ppPortProcess  
+```c#  
+int LaunchSuspended(   
+   string             pszExe,  
+   string             pszArgs,  
+   string             pszDir,  
+   string             bstrEnv,  
+   uint               hStdInput,  
+   uint               hStdOutput,  
+   uint               hStdError,  
+   out IDebugProcess2 ppPortProcess  
 );  
 ```  
   
-#### <a name="parameters"></a>Parameters  
+#### 参数  
  `pszExe`  
- [in] The name of the executable to be launched. This can be a full path or relative to the working directory specified in the `pszDir` parameter.  
+ \[in\] 将生成的可执行文件的名称。  这是一个完整路径或相对在 `pszDir` 参数指定的工作目录。  
   
  `pszArgs`  
- [in] The arguments to pass to the executable. May be a null value if there are no arguments.  
+ \[in\] 通过将参数传递到可执行文件。  ; 如果没有参数，可能为 null 值。  
   
  `pszDir`  
- [in] The name of the working directory used by the executable. May be a null value if no working directory is required.  
+ \[in\] 可执行文件使用的工作目录的名称。  ，如果不需要，可能为 null 值工作目录。  
   
  `bstrEnv`  
- [in] Environment block of null-terminated strings, followed by an additional NULL terminator.  
+ \[in\] 环境块 null 终止的字符串，后跟一个附加 NULL 结束符。  
   
  `hStdInput`  
- [in] Handle to an alternate input stream. May be 0 if redirection is not required.  
+ \[in\] 设置为替换输入流的句柄。  ，如果不需要，可能为 0 重定向。  
   
  `hStdOutput`  
- [in] Handle to an alternate output stream. May be 0 if redirection is not required.  
+ \[in\] 设置为替换输出流的句柄。  ，如果不需要，可能为 0 重定向。  
   
  `hStdError`  
- [in] Handle to an alternate error output stream. May be 0 if redirection is not required.  
+ \[in\] 对备用错误输出流的句柄。  ，如果不需要，可能为 0 重定向。  
   
  `ppPortProcess`  
- [out] Returns an [IDebugPendingBreakpoint2](../../../extensibility/debugger/reference/idebugpendingbreakpoint2.md) object that represents the launched process.  
+ \[out\] 返回表示生成的处理的 [IDebugPendingBreakpoint2](../../../extensibility/debugger/reference/idebugpendingbreakpoint2.md) 对象。  
   
-## <a name="return-value"></a>Return Value  
- If successful, returns `S_OK`; otherwise, returns an error code.  
+## 返回值  
+ 如果成功，则返回; `S_OK`否则，返回错误代码。  
   
-## <a name="remarks"></a>Remarks  
- This method should launch the process so that it is suspended and not running any code. The [ResumeProcess](../../../extensibility/debugger/reference/idebugportex2-resumeprocess.md) method is called to resume the process.  
+## 备注  
+ 此方法应生成过程，使其挂起和未运行任何代码。  [ResumeProcess](../../../extensibility/debugger/reference/idebugportex2-resumeprocess.md) 方法调用回收进程。  
   
- A program can also be launched from a debug engine. For details, see [Launching a Program](../../../extensibility/debugger/launching-a-program.md).  
+ 程序从调试引擎还会启动。  有关详细信息，请参见[下启动程序](../../../extensibility/debugger/launching-a-program.md)。  
   
-## <a name="see-also"></a>See Also  
+## 请参阅  
  [IDebugPortEx2](../../../extensibility/debugger/reference/idebugportex2.md)   
  [IDebugPendingBreakpoint2](../../../extensibility/debugger/reference/idebugpendingbreakpoint2.md)   
  [ResumeProcess](../../../extensibility/debugger/reference/idebugportex2-resumeprocess.md)   
- [Launching a Program](../../../extensibility/debugger/launching-a-program.md)
+ [下启动程序](../../../extensibility/debugger/launching-a-program.md)

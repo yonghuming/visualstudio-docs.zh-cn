@@ -1,73 +1,56 @@
 ---
-title: 'How to: Provide an Asynchronous Visual Studio Service | Microsoft Docs'
-ms.custom: 
-ms.date: 11/04/2016
-ms.reviewer: 
-ms.suite: 
-ms.tgt_pltfrm: 
-ms.topic: article
+title: "如何︰ 提供异步 Visual Studio 服务 | Microsoft Docs"
+ms.custom: ""
+ms.date: "11/04/2016"
+ms.reviewer: ""
+ms.suite: ""
+ms.tgt_pltfrm: ""
+ms.topic: "article"
 ms.assetid: 0448274c-d3d2-4e12-9d11-8aca78a1f3f5
 caps.latest.revision: 10
-ms.author: gregvanl
-manager: ghogen
-translation.priority.mt:
-- cs-cz
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pl-pl
-- pt-br
-- ru-ru
-- tr-tr
-- zh-cn
-- zh-tw
-ms.translationtype: MT
-ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
-ms.openlocfilehash: b96102a7f6a661d544ae6e82fcabb6eb6c38acb5
-ms.contentlocale: zh-cn
-ms.lasthandoff: 08/28/2017
-
+ms.author: "gregvanl"
+manager: "ghogen"
+caps.handback.revision: 10
 ---
-# <a name="how-to-provide-an-asynchronous-visual-studio-service"></a>How to: Provide an Asynchronous Visual Studio Service
-If you want to obtain a service without blocking the UI thread, you should create an asynchronous service and load the package on a background thread. For this purpose you can use an <xref:Microsoft.VisualStudio.Shell.AsyncPackage> rather than a <xref:Microsoft.VisualStudio.Shell.Package>, and add the service with the asynchronous package's special asynchronous methods  
+# 如何︰ 提供异步 Visual Studio 服务
+[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
+
+如果您想要获得服务，而不必阻止 UI 线程，您应该创建异步服务并加载后台线程上的包。 为此，您可以使用 <xref:Microsoft.VisualStudio.Shell.AsyncPackage> 而不是 <xref:Microsoft.VisualStudio.Shell.Package>, ，使用异步数据包特殊异步方法中添加服务  
   
- For information about providing synchronous Visual Studio services, see [How to: Provide a Service](../extensibility/how-to-provide-a-service.md).  
+ 有关同步的 Visual Studio 服务提供的信息，请参阅 [如何: 提供的服务](../extensibility/how-to-provide-a-service.md)。  
   
-## <a name="implementing-an-asynchronous-service"></a>Implementing an Asynchronous Service  
+## 实现异步服务  
   
-1.  Create a VSIX project (**File / New / Project / Visual C# / Extensiblity / VSIX Project**). Name the project **TestAsync**.  
+1.  创建一个 VSIX 项目 \(**文件 \/ 新建 \/ 项目 \/ Visual C\# \/ Extensiblity \/ VSIX 项目**\)。 将项目命名为 **TestAsync**。  
   
-2.  Add a VSPackage to the project. Select the project node in the **Solution Explorer** and click **Add / New item / Visual C# Items / Extensibility / Visual Studio Package**. Name this file **TestAsyncPackage.cs**.  
+2.  向项目中添加 VSPackage。 选择中的项目节点 **解决方案资源管理器** ，然后单击 **添加 \/ 新建项 \/ Visual C\# 项 \/ 扩展性 \/ Visual Studio Package**。 将此文件命名 **TestAsyncPackage.cs**。  
   
-3.  In TestAsyncPackage.cs, change the package to inherit from AsyncPackage rather than Package:  
+3.  在 TestAsyncPackage.cs，来更改要继承 AsyncPackage 而不是包的包︰  
   
-    ```csharp  
+    ```c#  
     public sealed class TestAsyncPackage : AsyncPackage  
     ```  
   
-4.  To implement a service, you need to create three types:  
+4.  若要实现的服务，需要创建三种类型︰  
   
-    -   An interface that describes the service. Many of these interfaces are empty, that is, they have no methods.  
+    -   一个描述该服务的接口。 许多这些接口是空的也就是说，它们有没有方法。  
   
-    -   An interface that describes the service interface. This interface includes the methods to be implemented.  
+    -   一个描述服务接口的接口。 此接口包括要实现的方法。  
   
-    -   A class that implements both the service and the service interface.  
+    -   实现服务和服务接口的类。  
   
-5.  The following example shows a very basic implementation of the three types. The constructor of the service class must set the service provider. In this example we'll just add the service to the package code file.  
+5.  下面的示例演示三种类型的非常基本的实现。 服务类的构造函数必须设置的服务提供程序。 在此示例中我们只是将向包代码文件中添加该服务。  
   
-6.  Add the following using statements to the package file:  
+6.  将以下代码添加到包文件 using 语句︰  
   
-    ```csharp  
+    ```c#  
     using System.Threading;  
     using System.Threading.Tasks;  
     using System.Runtime.CompilerServices;  
     using System.IO;  
     ```  
   
-7.  Here's the asynchronous service implementation. Note that you need to set the asynchronous service provider rather than the synchronous service provider in the constructor:  
+7.  下面是异步的服务实现。 请注意，您需要在构造函数中设置的异步服务提供程序，而不是同步服务提供程序︰  
   
     ```  
     public class TextWriterService : STextWriterService, ITextWriterService  
@@ -98,16 +81,16 @@ If you want to obtain a service without blocking the UI thread, you should creat
     }  
     ```  
   
-## <a name="registering-a-service"></a>Registering a Service  
- To register a service, add the <xref:Microsoft.VisualStudio.Shell.ProvideServiceAttribute> to the package that provides the service. There are two differences from registering a synchronous service:  
+## 注册服务  
+ 若要注册了服务，将添加 <xref:Microsoft.VisualStudio.Shell.ProvideServiceAttribute> 到包中提供的服务。 有两个从注册同步服务的差异︰  
   
--   If you are autoloading the package, you must add the <xref:Microsoft.VisualStudio.Shell.PackageAutoLoadFlags> BackgroundLoad value to the attribute. For more information about autoloading VSPackages, see [Loading VSPackages](../extensibility/loading-vspackages.md).  
+-   如果要自动加载包，您必须添加 <xref:Microsoft.VisualStudio.Shell.PackageAutoLoadFlags> BackgroundLoad 到属性的值。 有关自动加载 Vspackage 的详细信息，请参阅 [加载 Vspackage](../extensibility/loading-vspackages.md)。  
   
--   You must add the **AllowsBackgroundLoading = true** field to the <xref:Microsoft.VisualStudio.Shell.PackageRegistrationAttribute>. For more information about the PackageRegistrationAttribute, see [Registering and Unregistering VSPackages](../extensibility/registering-and-unregistering-vspackages.md).  
+-   您必须添加 **AllowsBackgroundLoading \= true** 字段拖至 <xref:Microsoft.VisualStudio.Shell.PackageRegistrationAttribute>。 有关 PackageRegistrationAttribute 详细信息，请参阅 [注册和注销 VSPackages 迁移](../extensibility/registering-and-unregistering-vspackages.md)。  
   
- Here is an example of an AsyncPackage with an asynchronous service registration::  
+ 下面是举例说明如何使用异步服务注册 AsyncPackage::  
   
-```csharp  
+```c#  
 [ProvideService((typeof(STextWriterService)), IsAsyncQueryable = true)]  
 [ProvideAutoLoad(UIContextGuids80.SolutionExists, PackageAutoLoadFlags.BackgroundLoad)]  
 [PackageRegistration(UseManagedResourcesOnly = true, AllowsBackgroundLoading = true)]   
@@ -116,9 +99,9 @@ public sealed class TestAsyncPackage : AsyncPackage
 {. . . }  
 ```  
   
-## <a name="adding-a-service"></a>Adding a service  
+## 添加服务  
   
-1.  In TestAsyncPackage.cs, remove the `Initialize()` method and override the `InitializeAsync()` method. Add the service, and add a callback method to create the services. Here is an example of the asynchronous initializer adding a service:  
+1.  在 TestAsyncPackage.cs，删除 `Initialize()` 方法，并替代 `InitializeAsync()` 方法。 添加该服务，并添加一个回调方法来创建服务。 下面是举例说明如何将服务添加异步初始值设定项︰  
   
     ```  
     protected override async System.Threading.Tasks.Task InitializeAsync(CancellationToken cancellationToken, IProgress<ServiceProgressData> progress)  
@@ -130,11 +113,11 @@ public sealed class TestAsyncPackage : AsyncPackage
   
     ```  
   
-2.  Add a reference to Microsoft.VisualStudio.Shell.Interop.14.0.DesignTime.dll.  
+2.  添加对 Microsoft.VisualStudio.Shell.Interop.14.0.DesignTime.dll 的引用。  
   
-3.  Implement the callback method as an asynchronous method that creates and returns the service.  
+3.  作为异步方法，创建并返回该服务实现的回调方法。  
   
-    ```csharp  
+    ```c#  
     public async System.Threading.Tasks.Task<object> CreateService(IAsyncServiceContainer container, CancellationToken cancellationToken, Type serviceType)  
     {  
         STextWriterService service = null;  
@@ -147,12 +130,12 @@ public sealed class TestAsyncPackage : AsyncPackage
   
     ```  
   
-## <a name="using-a-service"></a>Using a Service  
- Now you can get the service and use its methods.  
+## 使用服务  
+ 现在，您可以获取该服务，使用其方法。  
   
-1.  We'll show this in the initializer, but you can get the service anywhere you want to use the service.  
+1.  我们将介绍此初始值设定项，但您可以获取任意位置您想要的服务使用该服务。  
   
-    ```csharp  
+    ```c#  
     protected override async System.Threading.Tasks.Task InitializeAsync(CancellationToken cancellationToken, IProgress<ServiceProgressData> progress)  
     {  
         this.AddService(typeof(STextWriterService), CreateService);  
@@ -166,24 +149,24 @@ public sealed class TestAsyncPackage : AsyncPackage
   
     ```  
   
-     Don't forget to change *\<userpath>* to a filename and path that makes sense on your machine!  
+     不要忘了将 *\< userpath \>* 到文件名和路径，在您的计算机上有意义 ！  
   
-2.  Build and run the code. When the experimental instance of Visual Studio appears, open a solution. This causes the AsyncPackage to autoload. When the initializer has run, you should find a file in the location you specified.  
+2.  生成并运行该代码。 Visual Studio 的实验实例出现时，打开的解决方案。 这将导致自动加载 AsyncPackage。 初始值设定项开始运行后，您应该在您指定的位置中找到文件。  
   
-## <a name="using-an-asynchronous-service-in-a-command-handler"></a>Using an Asynchronous Service in a Command Handler  
- Here's an example of how to use an asynchronous service in a menu command. You can use the procedure shown here to use the service in other non-asynchronous methods.  
+## 在命令处理程序中使用异步服务  
+ 下面是举例说明如何在菜单命令中使用异步服务。 可以使用此处显示要在其他非异步方法中使用该服务的过程。  
   
-1.  Add a menu command to your project. (In the **Solution Explorer**, select the project node, right-click, and select **Add / New Item / Extensibility / Custom Command**.) Name the command file **TestAsyncCommand.cs.**  
+1.  将菜单命令添加到您的项目。 \(在 **解决方案资源管理器**, ，选择项目节点，右键单击，并选择 **添加 \/ 新项 \/ 扩展性 \/ 自定义命令**。\) 命令文件命名 **TestAsyncCommand.cs。**  
   
-2.  The custom command template re-adds the `Initialize()` method to the TestAsyncPackage.cs file in order to initialize the command. In the Initialize() method, copy the line that initializes the command. It should look like this:  
+2.  自定义命令模板重新添加 `Initialize()` TestAsyncPackage.cs 文件才能初始化该命令的方法。 在 initialize （） 方法中，将复制初始化命令的行。 它应如下所示︰  
   
     ```  
     TestAsyncCommand.Initialize(this);  
     ```  
   
-     Move this line to the `InitializeAsync()` method in the AsyncPackageForService.cs file. Since this is in an asynchronous initialization, you must switch to the main thread before you initialize the command using <xref:Microsoft.VisualStudio.Threading.JoinableTaskFactory.SwitchToMainThreadAsync%2A>. It should now look like this:  
+     移动到此线 `InitializeAsync()` AsyncPackageForService.cs 文件中的方法。 由于这是在异步初始化中，您必须先初始化命令使用来切换到主线程 <xref:Microsoft.VisualStudio.Threading.JoinableTaskFactory.SwitchToMainThreadAsync%2A>。 它现在应如下所示︰  
   
-    ```csharp  
+    ```c#  
   
     protected override async System.Threading.Tasks.Task InitializeAsync(CancellationToken cancellationToken, IProgress<ServiceProgressData> progress)  
     {  
@@ -202,31 +185,31 @@ public sealed class TestAsyncPackage : AsyncPackage
   
     ```  
   
-3.  Delete the `Initialize()` method.  
+3.  删除 `Initialize()` 方法。  
   
-4.  In the TestAsyncCommand.cs file, find the `MenuItemCallback()` method. Delete the body of the method.  
+4.  在 TestAsyncCommand.cs 文件中查找 `MenuItemCallback()` 方法。 删除方法的主体。  
   
-5.  Add a using statement:  
+5.  添加一条 using 语句︰  
   
     ```  
     using System.IO;  
     ```  
   
-6.  Add an asynchronous method named `GetAsyncService()`, which gets the service and uses its methods:  
+6.  添加名为异步方法 `GetAsyncService()`, ，它获取的服务，并使用其方法︰  
   
-    ```csharp  
+    ```c#  
     private async System.Threading.Tasks.Task GetAsyncService()  
     {  
         ITextWriterService textService =   
            this.ServiceProvider.GetService(typeof(STextWriterService))  
               as ITextWriterService;  
-        // don't forget to change <userpath> to a local path  
+        // don’t forget to change <userpath> to a local path  
         await writer.WriteLineAsync((<userpath>),"this is a test");  
        }  
   
     ```  
   
-7.  Call this method from the `MenuItemCallback()` method:  
+7.  调用此方法从 `MenuItemCallback()` 方法︰  
   
     ```  
     private void MenuItemCallback(object sender, EventArgs e)  
@@ -236,7 +219,7 @@ public sealed class TestAsyncPackage : AsyncPackage
   
     ```  
   
-8.  Build the solution and start debugging. When the experimental instance of Visual Studio appears, go to the **Tools** menu and look for the **Invoke TestAsyncCommand** menu item. When you click it, the TextWriterService writes to the file you specified. (You don't need to open a solution, because invoking the command also causes the package to load.)  
+8.  生成解决方案并启动调试。 Visual Studio 的实验实例出现时，请转到 **工具** 菜单和查找 **调用 TestAsyncCommand** 菜单项。 当您单击它时，TextWriterService 将写入您指定的文件。 （您不需要打开的解决方案，因为调用该命令还会导致要加载的包。）  
   
-## <a name="see-also"></a>See Also  
- [Using and Providing Services](../extensibility/using-and-providing-services.md)
+## 请参阅  
+ [使用并提供服务](../extensibility/using-and-providing-services.md)

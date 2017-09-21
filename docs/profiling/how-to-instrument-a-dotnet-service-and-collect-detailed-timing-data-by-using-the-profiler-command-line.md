@@ -1,133 +1,117 @@
 ---
-title: 'How to: Instrument a .NET Service and Collect Detailed Timing Data by Using the Profiler Command Line | Microsoft Docs'
-ms.custom: 
-ms.date: 11/04/2016
-ms.reviewer: 
-ms.suite: 
-ms.technology:
-- vs-ide-debug
-ms.tgt_pltfrm: 
-ms.topic: article
+title: "如何：使用探查器命令行检测 .NET 服务和收集详细计时数据 | Microsoft Docs"
+ms.custom: ""
+ms.date: "12/16/2016"
+ms.prod: "visual-studio-dev14"
+ms.reviewer: ""
+ms.suite: ""
+ms.technology: 
+  - "vs-ide-debug"
+ms.tgt_pltfrm: ""
+ms.topic: "article"
 ms.assetid: 9f73593a-69a7-41b7-a21c-81d3ab0eb8fe
 caps.latest.revision: 27
-author: mikejo5000
-ms.author: mikejo
-manager: ghogen
-translation.priority.ht:
-- cs-cz
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pl-pl
-- pt-br
-- ru-ru
-- tr-tr
-- zh-cn
-- zh-tw
-ms.translationtype: HT
-ms.sourcegitcommit: 7c87490f8e4ad01df8761ebb2afee0b2d3744fe2
-ms.openlocfilehash: c77988c7c443b79211d3183946dfe8382b6cbb1e
-ms.contentlocale: zh-cn
-ms.lasthandoff: 08/31/2017
-
+caps.handback.revision: 27
+author: "mikejo5000"
+ms.author: "mikejo"
+manager: "ghogen"
 ---
-# <a name="how-to-instrument-a-net-service-and-collect-detailed-timing-data-by-using-the-profiler-command-line"></a>How to: Instrument a .NET Service and Collect Detailed Timing Data by Using the Profiler Command Line
-This topic describes how to use [!INCLUDE[vsPreShort](../code-quality/includes/vspreshort_md.md)] Profiling Tools command-line tools to instrument a [!INCLUDE[dnprdnshort](../code-quality/includes/dnprdnshort_md.md)] service and collect detailed timing data.  
+# 如何：使用探查器命令行检测 .NET 服务和收集详细计时数据
+[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
+
+本主题介绍如何使用 [!INCLUDE[vsPreShort](../code-quality/includes/vspreshort_md.md)]分析工具的命令行工具检测 [!INCLUDE[dnprdnshort](../code-quality/includes/dnprdnshort_md.md)] 服务和收集详细计时数据。  
   
 > [!NOTE]
->  You cannot profile a service with the instrumentation method if the service cannot be restarted after the computer starts, such a service that starts only when the operating system starts.  
+>  如果一个服务在计算机启动之后无法重新启动，这样的服务只能在操作系统启动时启动，则无法使用检测方法分析该服务。  
 >   
->  Command-line tools of the Profiling Tools are located in the \Team Tools\Performance Tools subdirectory of the [!INCLUDE[vs_current_short](../code-quality/includes/vs_current_short_md.md)] installation directory. On 64 bit computers, both 64 bit and 32 bit versions of the tools are available. To use the profiler command-line tools, you must add the tools path to the PATH environment variable of the command prompt window or add it to the command itself. For more information, see [Specifying the Path to Command Line Tools](../profiling/specifying-the-path-to-profiling-tools-command-line-tools.md).  
+>  分析工具的命令行工具位于 [!INCLUDE[vs_current_short](../code-quality/includes/vs_current_short_md.md)] 安装目录的 \\Team Tools\\Performance Tools 子目录中。  在 64 位计算机上，同时提供这些工具的 64 位和 32 位版本。  若要使用探查器命令行工具，必须将该工具路径添加到命令提示符窗口的 PATH 环境变量中，或添加到命令本身。  有关详细信息，请参阅[指定命令行工具的路径](../profiling/specifying-the-path-to-profiling-tools-command-line-tools.md)。  
 >   
->  Adding tier interaction data to a profiling run requires specific procedures with the command line profiling tools. See [Collecting tier interaction data](../profiling/adding-tier-interaction-data-from-the-command-line.md).  
+>  将层交互数据添加到运行的分析需要使用分析工具的特定程序。  请参见 [收集层交互数据](../profiling/adding-tier-interaction-data-from-the-command-line.md)。  
   
- To collect detailed timing data from a [!INCLUDE[dnprdnshort](../code-quality/includes/dnprdnshort_md.md)] service by using the instrumentation method, you use the [VSInstr.exe](../profiling/vsinstr.md) tool to generate an instrumented version of the component. You then replace the non-instrumented version of the service with the instrumented version, making sure that the service is configured to start manually. You use the [VSPerfCLREnv.cmd](../profiling/vsperfclrenv.md) tool to initialize the global profiling environment variables and then restart the host computer. You then start the profiler.  
+ 若要使用检测方法从 [!INCLUDE[dnprdnshort](../code-quality/includes/dnprdnshort_md.md)] 服务收集详细计时数据，请使用 [VSInstr.exe](../profiling/vsinstr.md) 工具生成组件的受检测版本。  然后，将该服务的非检测版本替换为检测版本，确保将该服务配置为手动启动。  使用 [VSPerfCLREnv.cmd](../profiling/vsperfclrenv.md) 工具初始化全局分析环境变量并重新启动主机。  然后启动探查器。  
   
- When the service is started, timing data is automatically collected to a data file. You can pause and resume data collection during the profiling session.  
+ 在启动该服务时，会自动将计时数据收集到数据文件中。  在分析会话过程中可以暂停和继续数据收集。  
   
- To end a profiling session, you turn off the service and then explicitly shut down the profiler. In most cases, we recommend clearing the profiling environment variables at the end of a session.  
+ 若要结束分析会话，可关闭该服务，然后显式关闭探查器。  在大多数情况下，建议在会话结束时清除分析环境变量。  
   
-## <a name="starting-the-application-with-the-profiler"></a>Starting the Application with the Profiler  
+## 将应用程序与探查器一起启动  
   
-#### <a name="to-start-profiling-a-net-framework-service"></a>To start profiling a .NET Framework service  
+#### 开始分析 .NET Framework 服务  
   
-1.  Open a command prompt window.  
+1.  打开命令提示符窗口。  
   
-2.  Use the **VSInstr** tool to generate an instrumented version of the service binary.  
+2.  使用 **VSInstr** 工具生成该服务版本的检测版本。  
   
-3.  Replace the original binary with the instrumented version. In the Windows Service Control Manager, make sure that the service Startup Type is set to Manual.  
+3.  使用检测版本替换原始版本。  在 Windows 服务控制管理器中，确保将服务的“启动类型”设置为“手动”。  
   
-4.  Initialize the [!INCLUDE[dnprdnshort](../code-quality/includes/dnprdnshort_md.md)] profiling environment variables. Type:  
+4.  初始化 [!INCLUDE[dnprdnshort](../code-quality/includes/dnprdnshort_md.md)] 分析环境变量。  键入：  
   
-     **VSPerfClrEnv /globaltraceon**  
+     **VSPerfClrEnv \/globaltraceon**  
   
-5.  Restart the computer.  
+5.  重新启动计算机。  
   
-6.  Open a command prompt window.  
+6.  打开命令提示符窗口。  
   
-7.  Start the profiler. Type:  
+7.  启动探查器。  键入：  
   
-     **VSPerfCmd /start:trace /output:** `OutputFile` [`Options`]  
+     **VSPerfCmd \/start:trace \/output:** `OutputFile` \[`Options`\]  
   
-    -   The [/start](../profiling/start.md)**:trace** option initializes the profiler.  
+    -   [\/start](../profiling/start.md) **:trace** 选项初始化探查器。  
   
-    -   The [/output](../profiling/output.md)**:**`OutputFile` option is required with **/start**. `OutputFile` specifies the name and location of the profiling data (.vsp) file.  
+    -   [\/output](../profiling/output.md) **:** `OutputFile` 选项对于 **\/start** 是必需的。  `OutputFile` 指定分析数据 \(.vsp\) 文件的名称和位置。  
   
-     You can use any one of the following options with the **/start:trace** option.  
+     可以将下列任意一个选项与 **\/start:trace** 选项一起使用。  
   
     > [!NOTE]
-    >  The **/user** and **/crosssession** options are usually required for profiling services.  
+    >  分析服务通常需要 **\/user** 和 **\/crosssession** 选项。  
   
-    |Option|Description|  
-    |------------|-----------------|  
-    |[/user](../profiling/user-vsperfcmd.md) **:**[`Domain`**\\**]`UserName`|Specifies the domain and user name of the account that owns the profiled process. This option is required only if the process is running as a user other than the logged on user. The process owner is listed in the User Name column on the Processes tab of Windows Task Manager.|  
-    |[/crosssession](../profiling/crosssession.md)|Enables profiling of processes in other sessions. This option is required if the application is running in a different session. The session id is listed in the Session ID column on the Processes tab of Windows Task Manager. **/CS** can be specified as an abbreviation for **/crosssession**.|  
-    |[/waitstart](../profiling/waitstart.md)[**:**`Interval`]|Specifies the number of seconds to wait for the profiler to initialize before it returns an error. If `Interval` is not specified, the profiler waits indefinitely. By default, **/start** returns immediately.|  
-    |[/globaloff](../profiling/globalon-and-globaloff.md)|To start the profiler with data collection paused, add the **/globaloff** option to the **/start** command line. Use **/globalon** to resume profiling.|  
-    |[/counter](../profiling/counter.md) **:** `Config`|Collects information from the processor performance counter specified in Config. Counter information is added to the data collected at each profiling event.|  
-    |[/wincounter](../profiling/wincounter.md) **:** `WinCounterPath`|Specifies a Windows performance counter to be collected during profiling.|  
-    |[/automark](../profiling/automark.md) **:** `Interval`|Use with **/wincounter** only. Specifies the number of milliseconds between Windows performance counter collection events. Default is 500 ms.|  
-    |[/events](../profiling/events-vsperfcmd.md) **:** `Config`|Specifies an Event Tracing for Windows (ETW) event to be collected during profiling. ETW events are collected in a separate (.etl) file.|  
+    |选项|描述|  
+    |--------|--------|  
+    |[\/user](../profiling/user-vsperfcmd.md) **:**\[`Domain`**\\**\]`UserName`|指定拥有所分析进程的帐户的域名和用户名。  仅当运行进程的用户不是已登录用户时，才需要此选项。  进程所有者列在 Windows 任务管理器的“进程”选项卡上的“用户名”列中。|  
+    |[\/crosssession](../profiling/crosssession.md)|启用其他会话中的进程分析。  如果应用程序在其他会话中运行，则需要此选项。  会话 ID 列在 Windows 任务管理器的“进程”选项卡上的“会话 ID”列中。  **\/CS** 可指定为 **\/crosssession** 的缩略词。|  
+    |[\/waitstart](../profiling/waitstart.md)\[**:**`Interval`\]|指定探查器初始化期间在返回错误之前等待的秒数。  如果未指定 `Interval`，则探查器将无限期等待。  默认情况下，**\/start** 将立即返回。|  
+    |[\/globaloff](../profiling/globalon-and-globaloff.md)|若要启动探查器而暂停数据收集，请将 **\/globaloff** 选项添加到 **\/start** 命令行。  使用 **\/globalon** 可继续分析。|  
+    |[\/counter](../profiling/counter.md) **:** `Config`|从 Config 中所指定的处理器性能计数器收集信息。  计数器信息将添加到在每个分析事件中收集的数据中。|  
+    |[\/wincounter](../profiling/wincounter.md) **:** `WinCounterPath`|指定要在分析过程中收集的 Windows 性能计数器。|  
+    |[\/automark](../profiling/automark.md) **:** `Interval`|仅与 **\/wincounter** 一起使用。  指定 Windows 性能计数器收集事件之间间隔的毫秒数。  默认值为 500 毫秒。|  
+    |[\/events](../profiling/events-vsperfcmd.md) **:** `Config`|指定要在分析过程中收集的 Windows 事件跟踪 \(ETW\) 事件。  将在单独的 \(.etl\) 文件中收集 ETW 事件。|  
   
-8.  Start the service from Windows Service Control Manager.  
+8.  从 Windows 服务控制管理器中启动相应服务。  
   
-## <a name="controlling-data-collection"></a>Controlling Data Collection  
- When the service is running, you can use **VSPerfCmd.exe** options to start and stop the writing of data to the profiler data file. Controlling data collection enables you to collect data for a specific part of program execution, such as starting or shutting down the service.  
+## 控制数据收集  
+ 在服务运行时，可以使用 **VSPerfCmd.exe** 选项启动和停止向探查器数据文件写入数据。  通过控制数据收集，可以收集程序执行的特定阶段（如启动或关闭服务阶段）的数据。  
   
-#### <a name="to-start-and-stop-data-collection"></a>To start and stop data collection  
+#### 开始和停止数据收集  
   
--   The following pairs of **VSPerfCmd** options start and stop data collection. Specify each option on a separate command line. You can turn data collection on and off multiple times.  
+-   以下 **VSPerfCmd** 选项对可开始和停止数据收集。  在单独的命令行上指定每个选项。  您可以多次打开和关闭数据收集。  
   
-    |Option|Description|  
-    |------------|-----------------|  
-    |[/globalon /globaloff](../profiling/globalon-and-globaloff.md)|Starts (**/globalon**) or stops (**/globaloff**) data collection for all processes.|  
-    |[/processon](../profiling/processon-and-processoff.md) **:** `PID` [/processoff](../profiling/processon-and-processoff.md) **:** `PID`|Starts (**/processon**) or stops (**/processoff**) data collection for the process specified by the process ID (`PID`).|  
-    |[/threadon](../profiling/threadon-and-threadoff.md) **:** `TID` [/threadoff](../profiling/threadon-and-threadoff.md) **:** `TID`|Starts (**/threadon**) or stops (**/threadoff**) data collection for the thread specified by the thread ID (`TID`).|  
+    |选项|描述|  
+    |--------|--------|  
+    |[\/globalon \/globaloff](../profiling/globalon-and-globaloff.md)|开始 \(**\/globalon**\) 或停止 \(**\/globaloff**\) 所有进程的数据收集。|  
+    |[\/processon](../profiling/processon-and-processoff.md) **:** `PID` [\/processoff](../profiling/processon-and-processoff.md)**:**`PID`|开始 \(**\/processon**\) 或停止 \(**\/processoff**\) 进程 ID \(`PID`\) 所指定的进程的数据收集。|  
+    |[\/threadon](../profiling/threadon-and-threadoff.md) **:** `TID` [\/threadoff](../profiling/threadon-and-threadoff.md)**:**`TID`|开始 \(**\/threadon**\) 或停止 \(**\/threadoff**\) 线程 ID \(`TID`\) 所指定的线程的数据收集。|  
   
-## <a name="ending-the-profiling-session"></a>Ending the Profiling Session  
- To end a profiling session, stop the service that is running the instrumented component, and then call the **VSPerfCmd** [/shutdown](../profiling/shutdown.md) option to turn the profiler off and close the profiling data file. The **VSPerfClrEnv /globaloff** command clears the profiling environment variables.  
+## 结束分析会话  
+ 若要结束分析会话，请停止正在运行受检测组件的服务，然后调用 **VSPerfCmd** [\/shutdown](../profiling/shutdown.md) 选项以关闭探查器和关闭分析数据文件。  **VSPerfClrEnv \/globaloff** 命令清除分析环境变量。  
   
- You must restart the computer for the new environment settings to be applied.  
+ 必须重新启动计算机，才能应用新的环境设置。  
   
-#### <a name="to-end-a-profiling-session"></a>To end a profiling session  
+#### 结束分析会话  
   
-1.  Stop the service from Service Control Manager.  
+1.  从服务控制管理器停止服务。  
   
-2.  Shut down the profiler. Type:  
+2.  关闭探查器。  键入：  
   
-     **VSPerfCmd /shutdown**  
+     **VSPerfCmd \/shutdown**  
   
-3.  When you have completed all profiling, clear the profiling environment variables. Type:  
+3.  完成所有分析后，清除分析环境变量。  键入：  
   
-     **VSPerfClrEnv /globaloff**  
+     **VSPerfClrEnv \/globaloff**  
   
-4.  Replace the instrumented module with the original. If necessary, reconfigure the Startup Type of the service.  
+4.  使用检测模块替换原始模块。  如有必要，重新配置服务的“启动类型”。  
   
-5.  Restart the computer.  
+5.  重新启动计算机。  
   
-## <a name="see-also"></a>See Also  
- [Profiling Services](../profiling/command-line-profiling-of-services.md)   
- [Instrumentation Method Data Views](../profiling/instrumentation-method-data-views.md)
+## 请参阅  
+ [分析服务](../profiling/command-line-profiling-of-services.md)   
+ [检测方法数据视图](../profiling/instrumentation-method-data-views.md)

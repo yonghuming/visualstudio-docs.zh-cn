@@ -1,74 +1,57 @@
 ---
-title: IDebugEngine2::SetMetric | Microsoft Docs
-ms.custom: 
-ms.date: 11/04/2016
-ms.reviewer: 
-ms.suite: 
-ms.technology:
-- vs-ide-sdk
-ms.tgt_pltfrm: 
-ms.topic: article
-f1_keywords:
-- IDebugEngine2:::SetMetric
-helpviewer_keywords:
-- IDebugEngine2:::SetMetric
+title: "IDebugEngine2::SetMetric | Microsoft Docs"
+ms.custom: ""
+ms.date: "11/04/2016"
+ms.reviewer: ""
+ms.suite: ""
+ms.technology: 
+  - "vs-ide-sdk"
+ms.tgt_pltfrm: ""
+ms.topic: "article"
+f1_keywords: 
+  - "IDebugEngine2:::SetMetric"
+helpviewer_keywords: 
+  - "IDebugEngine2:::SetMetric"
 ms.assetid: dcda4972-c32e-4693-a0e1-25d5c58b9782
 caps.latest.revision: 15
-ms.author: gregvanl
-manager: ghogen
-translation.priority.mt:
-- cs-cz
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pl-pl
-- pt-br
-- ru-ru
-- tr-tr
-- zh-cn
-- zh-tw
-ms.translationtype: MT
-ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
-ms.openlocfilehash: c7b73130574492b74e4a1cdb4859aa1c612d7be5
-ms.contentlocale: zh-cn
-ms.lasthandoff: 08/28/2017
-
+ms.author: "gregvanl"
+manager: "ghogen"
+caps.handback.revision: 15
 ---
-# <a name="idebugengine2setmetric"></a>IDebugEngine2::SetMetric
-This method sets a registry value known as a metric.  
+# IDebugEngine2::SetMetric
+[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
+
+此方法设置称为的指标注册表值。  
   
-## <a name="syntax"></a>Syntax  
+## 语法  
   
-```cpp  
-HRESULT SetMetric(  
-   LPCOLESTR pszMetric,  
-   VARIANT   varValue  
+```cpp#  
+HRESULT SetMetric(  
+   LPCOLESTR pszMetric,  
+   VARIANT   varValue  
 );  
 ```  
   
-```csharp  
+```c#  
 int SetMetric(  
-   string pszMetric,  
-   object varValue  
+   string pszMetric,  
+   object varValue  
 );  
 ```  
   
-#### <a name="parameters"></a>Parameters  
+#### 参数  
  `pszMetric`  
- [in] The metric name.  
+ \[in\] 指标名称。  
   
  `varValue`  
- [in] Specifies the metric value.  
+ \[in\] 指定该指标。  
   
-## <a name="return-value"></a>Return Value  
- If successful, returns `S_OK`; otherwise, returns an error code.  
+## 返回值  
+ 如果成功，则返回; `S_OK`否则，返回错误代码。  
   
-## <a name="remarks"></a>Remarks  
- A metric is a registry value used to change a debug engine's behavior or to advertise supported functionality. This method can forward the call to the appropriate form of the [SDK Helpers for Debugging](../../../extensibility/debugger/reference/sdk-helpers-for-debugging.md) function, `SetMetric`.  
+## 备注  
+ 度量值是用于注册表值更改调试引擎的行为或一个支持的功能播发。  此方法可转发对 [SDK 帮助器调试](../../../extensibility/debugger/reference/sdk-helpers-for-debugging.md) 功能， `SetMetric`的相应窗体。  
   
-## <a name="see-also"></a>See Also  
+## 请参阅  
  [IDebugEngine2](../../../extensibility/debugger/reference/idebugengine2.md)   
- [SDK Helpers for Debugging](../../../extensibility/debugger/reference/sdk-helpers-for-debugging.md)
+ [SDK 帮助器调试](../../../extensibility/debugger/reference/sdk-helpers-for-debugging.md)

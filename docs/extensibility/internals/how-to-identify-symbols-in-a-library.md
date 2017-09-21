@@ -1,45 +1,28 @@
 ---
-title: 'How to: Identify Symbols in a Library | Microsoft Docs'
-ms.custom: 
-ms.date: 11/04/2016
-ms.reviewer: 
-ms.suite: 
-ms.technology:
-- vs-ide-sdk
-ms.tgt_pltfrm: 
-ms.topic: article
-helpviewer_keywords:
-- Call Browser tool, identifying symbols in the library
-- Call Browser tool
+title: "如何: 确定库中的符号 | Microsoft Docs"
+ms.custom: ""
+ms.date: "11/04/2016"
+ms.reviewer: ""
+ms.suite: ""
+ms.technology: 
+  - "vs-ide-sdk"
+ms.tgt_pltfrm: ""
+ms.topic: "article"
+helpviewer_keywords: 
+  - "调用浏览器工具，用于标识库中的符号"
+  - "调用浏览器工具"
 ms.assetid: 8fb0de61-71e7-42d1-8b41-2ad915474384
 caps.latest.revision: 21
-ms.author: gregvanl
-manager: ghogen
-translation.priority.mt:
-- cs-cz
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pl-pl
-- pt-br
-- ru-ru
-- tr-tr
-- zh-cn
-- zh-tw
-ms.translationtype: MT
-ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
-ms.openlocfilehash: 099af7cc3e5f77041f95f72e7b42fd6bfb324fdc
-ms.contentlocale: zh-cn
-ms.lasthandoff: 08/28/2017
-
+ms.author: "gregvanl"
+manager: "ghogen"
+caps.handback.revision: 21
 ---
-# <a name="how-to-identify-symbols-in-a-library"></a>How to: Identify Symbols in a Library
-Symbol-browsing tools display hierarchical views of symbols. The symbols represent namespaces, objects, classes, class members, and other language elements.  
+# 如何: 确定库中的符号
+[!INCLUDE[vs2017banner](../../code-quality/includes/vs2017banner.md)]
+
+符号符号浏览工具显示分层视图。  符号表示命名空间、对象、类、类成员和其他语言元素。  
   
- Each symbol in the hierarchy can be identified by the navigation information passed by the symbol library to the [!INCLUDE[vsprvs](../../code-quality/includes/vsprvs_md.md)] object manager through the following interfaces:  
+ 在层次结构中每个符号可由符号库传递的导航信息来确定 [!INCLUDE[vsprvs](../../code-quality/includes/vsprvs_md.md)] 对象管理器以下接口:  
   
  <xref:Microsoft.VisualStudio.Shell.Interop.IVsNavInfo>  
   
@@ -47,11 +30,11 @@ Symbol-browsing tools display hierarchical views of symbols. The symbols represe
   
  <xref:Microsoft.VisualStudio.Shell.Interop.IVsEnumNavInfoNodes>.  
   
- The location of the symbol in the hierarchy distinguishes a symbol. It allows symbol-browsing tools to navigate to a specific symbol. The unique, fully qualified path to the symbol determines the location. Each element in the path is a node. The path starts with the top-level node and ends with the specific symbol. For example, if the M1 method is a member of the C1 class and C1 is in N1 namespace, the full path of the M1 method is N1.C1.M1. This path contains three nodes: N1, C1, and M1.  
+ 符号的位置在层次结构中区分个符号。  它允许符号浏览工具导航到特定符号。  符号的唯一，完全限定路径确定位置。  路径中的每个元素都是节点。  路径从顶部节点和结束启动与特定符号。  例如，在中，如果该 M1 方法是 C1 类的成员，并且 C1 在 N1 命名空间，则与方法的完整路径为 N1。C1。与.  此路径包含三个节点:N1、 C1 和 M1。  
   
- The navigation information allows the [!INCLUDE[vsprvs](../../code-quality/includes/vsprvs_md.md)] object manager to locate, select and keep selected the symbols in the hierarchy. It allows navigating from one browsing tool to another. While using **Object Browser** to browse symbols in a [!INCLUDE[vcprvc](../../code-quality/includes/vcprvc_md.md)] project, you can right click a method and start the **Call Browser** tool to display the method in a call graph.  
+ 导航信息允许 [!INCLUDE[vsprvs](../../code-quality/includes/vsprvs_md.md)] 对象管理器中，选择，并保留选择了在层次结构的符号。  它允许在从一个工具浏览到另一个。  当使用 **对象浏览器** 浏览 [!INCLUDE[vcprvc](../../debugger/includes/vcprvc_md.md)] 符号时项目中，可以右击方法和启动 **调用浏览器** 工具显示在调用关系图的方法。  
   
- Two forms describe the symbol location. The canonical form is based on the fully qualified path of the symbol. It represents a unique position of the symbol in the hierarchy. It is independent of the symbol-browsing tool. To obtain the canonical form information, the [!INCLUDE[vsprvs](../../code-quality/includes/vsprvs_md.md)] object manager calls <xref:Microsoft.VisualStudio.Shell.Interop.IVsNavInfo.EnumCanonicalNodes%2A> method. The presentation form describes the location of the symbol within a specific symbol-browsing tool. The position of the symbol is relative to the position of other symbols in the hierarchicy. A given symbol may have several presentation paths, but only one canonical path. For example, if C1 class is inherited from C2 class and both classes are in N1 namespace, the **Object Browser** displays the following hierarchical tree:  
+ 两种形式描述符号位置。  规范格式基于符号的完全限定路径。  它表示符号的一个位置在层次结构。  它是符号浏览和独立。  若要获取规范格式窗体信息， [!INCLUDE[vsprvs](../../code-quality/includes/vsprvs_md.md)] 对象管理器调用 <xref:Microsoft.VisualStudio.Shell.Interop.IVsNavInfo.EnumCanonicalNodes%2A> 方法。  表示形式描述符号的位置在特定符号浏览工具中的。  符号的位置相对于其他符号的位置。 hierarchicy。  特定符号只能有若干表示路径，但是，一个规范路径。  例如，因此，如果 C1 类从 C2 类继承，并且类在 N1 命名空间， **对象浏览器** 显示以下分层树:  
   
 ```  
 N1  
@@ -64,19 +47,19 @@ N1
   
 ```  
   
- The canonical path of C2 class, in this example, is N1 + C2. The presentation path of C2 includes C1 and "Bases and Interfaces" nodes: N1 + C1 + "Bases and Interfaces" + C2.  
+ C2 类规范路径，在此示例中，是 N1 \+ C2。  C2 表示路径包括 C1 和 “foundation 和接口”节点:N1 \+ C1 \+ “foundation 和接口” \+ C2。  
   
- To obtain the presentation form information, the object manager calls <xref:Microsoft.VisualStudio.Shell.Interop.IVsNavInfo.EnumPresentationNodes%2A> method.  
+ 若要获取表示形式信息，对象管理器调用 <xref:Microsoft.VisualStudio.Shell.Interop.IVsNavInfo.EnumPresentationNodes%2A> 方法。  
   
-## <a name="identifying-a-symbol-in-the-hierarchy"></a>Identifying a Symbol in the Hierarchy  
+## 标识在层次结构中的符号  
   
-#### <a name="to-obtain-canonical-and-presentation-forms-information"></a>To obtain canonical and presentation forms information  
+#### 获取规范和表示形式信息  
   
-1.  Implement the <xref:Microsoft.VisualStudio.Shell.Interop.IVsNavInfo.EnumCanonicalNodes%2A> method.  
+1.  实现 <xref:Microsoft.VisualStudio.Shell.Interop.IVsNavInfo.EnumCanonicalNodes%2A> 方法。  
   
-     The object manager calls this method to obtain the list of nodes contained in the canonical path of the symbol.  
+     对象管理器调用此方法来获取该符号规范路径包含的节点列表。  
   
-    ```vb  
+    ```vb#  
     Public Function EnumCanonicalNodes(ByRef ppEnum As Microsoft.VisualStudio.Shell.Interop.IVsEnumNavInfoNodes) As Integer  
         Dim EnumNavInfoNodes As CallBrowserEnumNavInfoNodes = _New CallBrowserEnumNavInfoNodes(m_strMethod)  
         ppEnum = CType(EnumNavInfoNodes, IVsEnumNavInfoNodes)  
@@ -84,7 +67,7 @@ N1
     End Function  
     ```  
   
-    ```csharp  
+    ```c#  
     public int EnumCanonicalNodes(out Microsoft.VisualStudio.Shell.Interop.IVsEnumNavInfoNodes ppEnum)  
     {  
         CallBrowserEnumNavInfoNodes EnumNavInfoNodes =  
@@ -95,11 +78,11 @@ N1
   
     ```  
   
-2.  Implement the <xref:Microsoft.VisualStudio.Shell.Interop.IVsNavInfo.EnumPresentationNodes%2A> method.  
+2.  实现 <xref:Microsoft.VisualStudio.Shell.Interop.IVsNavInfo.EnumPresentationNodes%2A> 方法。  
   
-     The object manager calls this method to obtain the list of nodes contained in the presentation path of the symbol.  
+     对象管理器调用此方法来获取该符号表示路径包含的节点列表。  
   
-## <a name="see-also"></a>See Also  
- [Supporting Symbol-Browsing Tools](../../extensibility/internals/supporting-symbol-browsing-tools.md)   
- [How to: Register a Library with the Object Manager](../../extensibility/internals/how-to-register-a-library-with-the-object-manager.md)   
- [How to: Expose Lists of Symbols Provided by the Library to the Object Manager](../../extensibility/internals/how-to-expose-lists-of-symbols-provided-by-the-library-to-the-object-manager.md)
+## 请参阅  
+ [支持符号浏览工具](../../extensibility/internals/supporting-symbol-browsing-tools.md)   
+ [如何: 注册库与对象管理器](../../extensibility/internals/how-to-register-a-library-with-the-object-manager.md)   
+ [如何: 公开库对对象管理器提供的符号列表](../../extensibility/internals/how-to-expose-lists-of-symbols-provided-by-the-library-to-the-object-manager.md)

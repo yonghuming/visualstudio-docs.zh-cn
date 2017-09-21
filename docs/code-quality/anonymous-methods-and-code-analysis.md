@@ -1,69 +1,52 @@
 ---
-title: Anonymous Methods and Code Analysis | Microsoft Docs
-ms.custom: 
-ms.date: 11/04/2016
-ms.reviewer: 
-ms.suite: 
-ms.technology:
-- vs-devops-test
-ms.tgt_pltfrm: 
-ms.topic: article
-helpviewer_keywords:
-- methods, anonymous
-- code analysis, anonymous methods
-- anonymous methods, code analysis
+title: "匿名方法和代码分析 | Microsoft Docs"
+ms.custom: ""
+ms.date: "11/04/2016"
+ms.reviewer: ""
+ms.suite: ""
+ms.technology: 
+  - "vs-devops-test"
+ms.tgt_pltfrm: ""
+ms.topic: "article"
+helpviewer_keywords: 
+  - "匿名方法, 代码分析"
+  - "代码分析, 匿名方法"
+  - "方法, 匿名"
 ms.assetid: bf0a1a9b-b954-4d46-9c0b-cee65330ad00
 caps.latest.revision: 19
-author: gewarren
-ms.author: gewarren
-manager: ghogen
-translation.priority.ht:
-- cs-cz
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pl-pl
-- pt-br
-- ru-ru
-- tr-tr
-- zh-cn
-- zh-tw
-ms.translationtype: HT
-ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
-ms.openlocfilehash: 85a6bd427cf3bc5cada6bbec20b2b919e2a02d62
-ms.contentlocale: zh-cn
-ms.lasthandoff: 08/28/2017
-
+author: "stevehoag"
+ms.author: "shoag"
+manager: "wpickett"
+caps.handback.revision: 19
 ---
-# <a name="anonymous-methods-and-code-analysis"></a>Anonymous Methods and Code Analysis
-An *anonymous method* is a method that has no name. Anonymous methods are most frequently used to pass a code block as a delegate parameter.  
+# 匿名方法和代码分析
+[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
+
+“匿名方法”就是没有名称的方法。  匿名方法通常用于将代码块作为委托参数进行传递。  
   
- This topic explains how Code Analysis handles warnings and metrics that are associated with anonymous methods.  
+ 本主题介绍代码分析如何处理与匿名方法关联的警告和度量。  
   
-## <a name="anonymous-methods-declared-in-a-member"></a>Anonymous Methods Declared In a Member  
- Warnings and metrics for an anonymous method that is declared in a member, such as a method or accessor, are associated with the member that declares the method. They are not associated with the member that calls the method.  
+## 成员中声明的匿名方法  
+ 在某个成员（如方法或访问器）中声明的匿名方法的警告和度量与声明该方法的成员相关联，  而不与调用该方法的成员关联。  
   
- For example, in the following class, any warnings that are found in the declaration of **anonymousMethod** should be raised against **Method1** and not **Method2**.  
+ 例如，在下面的类中，**anonymousMethod** 的声明中出现的任何警告，都应针对 **Method1** 而不是 **Method2** 引发。  
   
-```vb  
+```vb#  
   
-      Delegate Function ADelegate(ByVal value As Integer) As Boolean  
+        Delegate Function ADelegate(ByVal value As Integer) As Boolean  
 Class AClass  
   
     Sub Method1()  
-        Dim anonymousMethod As ADelegate = Function(ByVal value As Integer) value > 5  
+        Dim anonymousMethod As ADelegate = Function(ByVal value As  Integer) value > 5  
         Method2(anonymousMethod)  
-    End SubSub Method2(ByVal anonymousMethod As ADelegate)  
+    End Sub Sub Method2(ByVal anonymousMethod As ADelegate)  
         anonymousMethod(10)  
-    End SubEnd Class  
+    End Sub End Class  
 ```  
   
-```csharp  
+```c#  
   
-      delegate void Delegate();  
+        delegate void Delegate();  
 class Class  
 {  
     void Method1()  
@@ -82,26 +65,26 @@ class Class
 }  
 ```  
   
-## <a name="inline-anonymous-methods"></a>Inline Anonymous Methods  
- Warnings and metrics for an anonymous method that is declared as an inline assignment to a field are associated with the constructor. If the field is declared as `static` (`Shared` in [!INCLUDE[vbprvb](../code-quality/includes/vbprvb_md.md)]), the warnings and metrics are associated with the class constructor; otherwise, they are associated with the instance constructor.  
+## 内联匿名方法  
+ 声明为向字段内联赋值的匿名方法的警告和度量与构造函数相关联。  如果字段声明为 `static`（[!INCLUDE[vbprvb](../code-quality/includes/vbprvb_md.md)] 中的 `Shared`），则警告和度量与类构造函数相关联；否则，与实例构造函数相关联。  
   
- For example, in the following class, any warnings that are found in the declaration of **anonymousMethod1** will be raised against the implicitly generated default constructor of **Class**. Whereas, those found in **anonymousMethod2** will be applied against the implicitly generated class constructor.  
+ 例如，在下面的类中，**anonymousMethod1** 的声明中出现的任何警告，都将针对隐式生成的默认 **Class** 构造函数引发。  而 **anonymousMethod2** 中出现的警告，则将针对隐式生成的类构造函数应用。  
   
-```vb  
+```vb#  
   
-  Delegate Function ADelegate(ByVal value As Integer) As BooleanClass AClass  
-Dim anonymousMethod1 As ADelegate = Function(ByVal value As    Integer) value > 5  
-Shared anonymousMethod2 As ADelegate = Function(ByVal value As     Integer) value > 5  
+    Delegate Function ADelegate(ByVal value As Integer) As Boolean Class AClass  
+Dim anonymousMethod1 As ADelegate = Function(ByVal value As     Integer) value > 5  
+Shared anonymousMethod2 As ADelegate = Function(ByVal value As      Integer) value > 5  
   
 Sub Method1()  
     anonymousMethod1(10)  
     anonymousMethod2(10)  
-End SubEnd Class  
+End Sub End Class  
 ```  
   
-```csharp  
+```c#  
   
-      delegate void Delegate();  
+        delegate void Delegate();  
 class Class  
 {  
     Delegate anonymousMethod1 = delegate()   
@@ -122,27 +105,27 @@ class Class
 }  
 ```  
   
- A class could contain an inline anonymous method that assigns a value to a field that has multiple constructors. In this case, warnings and metrics are associated with all the constructors unless that constructor chains to another constructor in the same class.  
+ 类可以包含一个内联匿名方法，用以向具有多个构造函数的字段赋值。  这种情况下，警告和度量与所有构造函数相关联，除非构造函数链接到同一个类的另一个构造函数。  
   
- For example, in the following class, any warnings that are found in the declaration of **anonymousMethod** should be raised against **Class(int)** and **Class(string)** but not against **Class()**.  
+ 例如，在下面的类中，**anonymousMethod** 的声明中出现的任何警告，都应针对 **Class\(int\)** 和 **Class\(string\)** 而不是 **Class\(\)** 引发。  
   
-```vb  
+```vb#  
   
-  Delegate Function ADelegate(ByVal value As Integer) As BooleanClass AClass  
+    Delegate Function ADelegate(ByVal value As Integer) As Boolean Class AClass  
   
 Dim anonymousMethod As ADelegate = Function(ByVal value As Integer)   
 value > 5  
   
-SubNew()  
+Sub New()  
     New(CStr(Nothing))  
-End SubSub New(ByVal a As Integer)  
-End SubSub New(ByVal a As String)  
-End SubEnd Class  
+End Sub Sub New(ByVal a As Integer)  
+End Sub Sub New(ByVal a As String)  
+End Sub End Class  
 ```  
   
-```csharp  
+```c#  
   
-      delegate void Delegate();  
+        delegate void Delegate();  
 class Class  
 {  
     Delegate anonymousMethod = delegate()   
@@ -164,9 +147,9 @@ class Class
 }  
 ```  
   
- Although this might seem unexpected, this occurs because the compiler outputs a unique method for every constructor that does not chain to another constructor. Because of this behavior, any violation that occurs in **anonymousMethod** must be suppressed separately. This also means that if a new constructor is introduced, warnings that were previously suppressed against **Class(int)** and **Class(string)** must also be suppressed against the new constructor.  
+ 即使这看起来有点意外，但由于编译器会为未链接到其他构造函数的每个构造函数都输出一个唯一的方法，因此就会出现这种情况。  由于存在这一行为，在 **anonymousMethod** 内出现的任何冲突都必须单独禁止显示。  这也意味着，如果引入新的构造函数，以前针对 **Class\(int\)** 和 **Class\(string\)** 禁止显示的警告也必须针对新构造函数禁止显示。  
   
- You can work around this issue in one of two ways. You could declare **anonymousMethod** in a common constructor that all constructors chain. Or you could declare it in an initialization method that is called by all constructors.  
+ 这个问题可通过下面两种方法解决。  一是在所有构造函数都与之链接的公共构造函数中声明 **anonymousMethod**。  二是在所有构造函数都调用的初始化方法中声明该方法。  
   
-## <a name="see-also"></a>See Also  
- [Analyzing Managed Code Quality](../code-quality/analyzing-managed-code-quality-by-using-code-analysis.md)
+## 请参阅  
+ [分析托管代码质量](../code-quality/analyzing-managed-code-quality-by-using-code-analysis.md)

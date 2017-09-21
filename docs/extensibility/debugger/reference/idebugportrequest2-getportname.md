@@ -1,68 +1,51 @@
 ---
-title: IDebugPortRequest2::GetPortName | Microsoft Docs
-ms.custom: 
-ms.date: 11/04/2016
-ms.reviewer: 
-ms.suite: 
-ms.technology:
-- vs-ide-sdk
-ms.tgt_pltfrm: 
-ms.topic: article
-f1_keywords:
-- IDebugPortRequest2::GetPortName
-helpviewer_keywords:
-- IDebugPortRequest2::GetPortName
+title: "IDebugPortRequest2::GetPortName | Microsoft Docs"
+ms.custom: ""
+ms.date: "11/04/2016"
+ms.reviewer: ""
+ms.suite: ""
+ms.technology: 
+  - "vs-ide-sdk"
+ms.tgt_pltfrm: ""
+ms.topic: "article"
+f1_keywords: 
+  - "IDebugPortRequest2::GetPortName"
+helpviewer_keywords: 
+  - "IDebugPortRequest2::GetPortName"
 ms.assetid: 53e2a3a4-bb34-4a02-a983-6bd84ea70587
 caps.latest.revision: 10
-ms.author: gregvanl
-manager: ghogen
-translation.priority.mt:
-- cs-cz
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pl-pl
-- pt-br
-- ru-ru
-- tr-tr
-- zh-cn
-- zh-tw
-ms.translationtype: MT
-ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
-ms.openlocfilehash: c32f92b5edf8b6a119e7e1124d6d58207e58f742
-ms.contentlocale: zh-cn
-ms.lasthandoff: 08/28/2017
-
+ms.author: "gregvanl"
+manager: "ghogen"
+caps.handback.revision: 10
 ---
-# <a name="idebugportrequest2getportname"></a>IDebugPortRequest2::GetPortName
-Gets the name of the port.  
+# IDebugPortRequest2::GetPortName
+[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
+
+获取端口的名称。  
   
-## <a name="syntax"></a>Syntax  
+## 语法  
   
-```cpp  
-HRESULT GetPortName(   
-   BSTR* pbstrPortName  
+```cpp#  
+HRESULT GetPortName(   
+   BSTR* pbstrPortName  
 );  
 ```  
   
-```csharp  
-int GetPortName(   
-   out string pbstrPortName  
+```c#  
+int GetPortName(   
+   out string pbstrPortName  
 );  
 ```  
   
-#### <a name="parameters"></a>Parameters  
+#### 参数  
  `pbstrPortName`  
- [out] Returns the name of the port.  
+ \[out\] 返回端口的名称。  
   
-## <a name="return-value"></a>Return Value  
- If successful, returns `S_OK`; otherwise, returns an error code.  
+## 返回值  
+ 如果成功，则返回; `S_OK`否则，返回错误代码。  
   
-## <a name="remarks"></a>Remarks  
- The [IDebugPortRequest2](../../../extensibility/debugger/reference/idebugportrequest2.md) interface is usually passed from a debug package (the client) to a port supplier (the server) to obtain a connection to a port. Both the debug package and the port supplier are aware of the possible choices for the port. If a simple string can describe the port, then the `IDebugPortRequest2::GetPortName` method has enough information to make the connection. Otherwise, additional interfaces can be provided by the client, which can be obtained by the server using `IDebugPortRequest2::QueryInterface`.  
+## 备注  
+ [IDebugPortRequest2](../../../extensibility/debugger/reference/idebugportrequest2.md) 接口从调试包 \(客户端\) 通常通过对端口提供程序 \(服务器\) 获取与端口的连接。  调试包和端口提供程序知道端口的选择。  如果一个简单的字符串可以描述端口，则 `IDebugPortRequest2::GetPortName` 方法具有生成足够的信息连接。  否则，附加接口可由客户端提供，使用 `IDebugPortRequest2::QueryInterface`，可由服务器获取。  
   
-## <a name="see-also"></a>See Also  
+## 请参阅  
  [IDebugPortRequest2](../../../extensibility/debugger/reference/idebugportrequest2.md)

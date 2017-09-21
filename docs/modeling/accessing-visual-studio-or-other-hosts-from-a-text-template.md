@@ -1,49 +1,32 @@
 ---
-title: Accessing Visual Studio or other Hosts from a Text Template | Microsoft Docs
-ms.custom: 
-ms.date: 11/04/2016
-ms.reviewer: 
-ms.suite: 
-ms.tgt_pltfrm: 
-ms.topic: article
+title: "从文本模板访问 Visual Studio 或其他主机 | Microsoft Docs"
+ms.custom: ""
+ms.date: "11/04/2016"
+ms.reviewer: ""
+ms.suite: ""
+ms.tgt_pltfrm: ""
+ms.topic: "article"
 ms.assetid: a68886da-7416-4785-8145-3796bb382cba
 caps.latest.revision: 5
-author: alancameronwills
-ms.author: awills
-manager: douge
-translation.priority.ht:
-- cs-cz
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pl-pl
-- pt-br
-- ru-ru
-- tr-tr
-- zh-cn
-- zh-tw
-ms.translationtype: MT
-ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
-ms.openlocfilehash: 767f5fc72efbfcb6fc69fdec023d8572149b1685
-ms.contentlocale: zh-cn
-ms.lasthandoff: 08/28/2017
-
+author: "alancameronwills"
+ms.author: "awills"
+manager: "douge"
+caps.handback.revision: 5
 ---
-# <a name="accessing-visual-studio-or-other-hosts-from-a-text-template"></a>Accessing Visual Studio or other Hosts from a Text Template
-In a text template, you can use methods and properties exposed by the host that executes the template, such as [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)].  
+# 从文本模板访问 Visual Studio 或其他主机
+[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
+
+在文本模板中，可以使用执行模板的主机（例如 [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)]）公开的方法和属性。  
   
- This applies to regular text templates, not preprocessed text templates.  
+ 这适用于常规文本模板，而不是预处理过的文本模板。  
   
-## <a name="obtaining-access-to-the-host"></a>Obtaining access to the host  
- Set `hostspecific="true"` in the `template` directive. This lets you use  `this.Host`, which has type <xref:Microsoft.VisualStudio.TextTemplating.ITextTemplatingEngineHost>. This type has members that you can use, for example, to resolve file names and to log errors.  
+## 获取对主机的访问  
+ 在 `template` 指令中设置 `hostspecific="true"`。  这样可以使用 `this.Host`，其类型为 <xref:Microsoft.VisualStudio.TextTemplating.ITextTemplatingEngineHost>。  例如，此类型具有您可以用于解析文件名并记录错误的成员。  
   
-### <a name="resolving-file-names"></a>Resolving File Names  
- To find the full path of a file relative to the text template, use this.Host.ResolvePath().  
+### 解析文件名  
+ 若要查找文件相对于文本模板的完整路径，请使用 this.Host.ResolvePath\(\)。  
   
-```csharp  
+```c#  
 <#@ template hostspecific="true" language="C#" #>  
 <#@ output extension=".txt" #>  
 <#@ import namespace="System.IO" #>  
@@ -56,10 +39,10 @@ Content of myFile is:
   
 ```  
   
-### <a name="displaying-error-messages"></a>Displaying Error Messages  
- This example logs messages when you transform the template. If the host is [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)], they are added to the error window.  
+### 显示错误消息  
+ 此示例会在您转换模板时记录消息。  如果主机是 [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)]，则将它们添加到错误窗口。  
   
-```csharp  
+```c#  
 <#@ template hostspecific="true" language="C#" #>  
 <#@ output extension=".txt" #>  
 <#@ import namespace="System.CodeDom.Compiler" #>  
@@ -74,14 +57,14 @@ Content of myFile is:
   
 ```  
   
-## <a name="using-the-visual-studio-api"></a>Using the Visual Studio API  
- If you are executing a text template in [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)], you can use `this.Host` to access services provided by [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] and any packages or extensions that are loaded.  
+## 使用 Visual Studio API  
+ 如果您要在 [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] 中执行文本模板，则可以使用 `this.Host` 访问 [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] 提供的服务以及加载的任何包或扩展。  
   
- Set hostspecific="true" and cast `this.Host` to <xref:System.IServiceProvider>.  
+ 设置 hostspecific\="true" 并将 `this.Host` 转换为 <xref:System.IServiceProvider>。  
   
- This example gets the [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] API, <xref:EnvDTE.DTE>, as a service:  
+ 此示例获取 [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] API <xref:EnvDTE.DTE> 作为服务：  
   
-```csharp  
+```c#  
 <#@ template hostspecific="true" language="C#" #>  
 <#@ output extension=".txt" #>  
 <#@ assembly name="EnvDTE" #>  
@@ -94,5 +77,5 @@ Number of projects in this solution: <#=  dte.Solution.Projects.Count #>
   
 ```  
   
-## <a name="using-hostspecific-with-template-inheritance"></a>Using hostSpecific with template inheritance  
- Specify `hostspecific="trueFromBase"` if you also use the `inherits` attribute, and if you inherit from a template that specifies `hostspecific="true"`. This avoids a compiler warning to the effect that the property `Host` has been declared twice.
+## 使用 hostSpecific 模板继承  
+ 指定`hostspecific="trueFromBase"`如果还使用`inherits`属性中，如果您指定的模板从继承和`hostspecific="true"`。  这样可以避免编译器警告的效果的属性`Host`两次声明。

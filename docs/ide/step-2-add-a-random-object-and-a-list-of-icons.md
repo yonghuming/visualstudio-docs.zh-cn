@@ -1,75 +1,59 @@
 ---
-title: 'Step 2: Add a Random Object and a List of Icons | Microsoft Docs'
-ms.custom: 
-ms.date: 11/04/2016
-ms.reviewer: 
-ms.suite: 
-ms.technology:
-- vs-ide-general
-ms.tgt_pltfrm: 
-ms.topic: article
+title: "步骤 2：添加随机对象和图标列表 | Microsoft Docs"
+ms.custom: ""
+ms.date: "11/04/2016"
+ms.reviewer: ""
+ms.suite: ""
+ms.technology: 
+  - "vs-ide-general"
+ms.tgt_pltfrm: ""
+ms.topic: "article"
 ms.assetid: 95faea28-eddc-4cfa-95fb-3b34b5a976d7
 caps.latest.revision: 22
-author: kempb
-ms.author: kempb
-manager: ghogen
-translation.priority.ht:
-- cs-cz
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pl-pl
-- pt-br
-- ru-ru
-- tr-tr
-- zh-cn
-- zh-tw
-ms.translationtype: HT
-ms.sourcegitcommit: eb5c9550fd29b0e98bf63a7240737da4f13f3249
-ms.openlocfilehash: e20f96c4515d9e06de779bd70dd33e09526bbf23
-ms.contentlocale: zh-cn
-ms.lasthandoff: 08/30/2017
-
+author: "kempb"
+ms.author: "kempb"
+manager: "ghogen"
+caps.handback.revision: 22
 ---
-# <a name="step-2-add-a-random-object-and-a-list-of-icons"></a>Step 2: Add a Random Object and a List of Icons
-In this step, you create a set of matching symbols for the game. Each symbol is added to two random cells in the TableLayoutPanel on the form. To do this, you use two `new` statements to create two objects. The first is a `Random` object, like the one you used in the math quiz game. It is used in this code to randomly choose cells in the TableLayoutPanel. The second object, which may be new to you, is a `List` object which is used to store the randomly-chosen symbols.  
+# 步骤 2：添加随机对象和图标列表
+[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
+
+在本步骤中，你要为游戏创建一组匹配的符号。  每个符号将添加到窗体上 TableLayoutPanel 中的两个随机单元格。  为此，请使用两个 `new` 语句创建两个对象。  第一个是 `Random` 对象，类似于数学测验游戏中使用的对象。  此代码中使用它来随机选择 TableLayoutPanel 中的单元格。  第二个对象是用于存储随机选择的符号的 `List` 对象，你可能没有见过。  
   
-### <a name="to-add-a-random-object-and-a-list-of-icons"></a>To add a Random object and a list of icons  
+### 添加随机对象和图标列表  
   
-1.  In **Solution Explorer**, choose **Form1.cs** if you're using Visual C#, or **Form1.vb** if you're using Visual Basic, and then on the menu bar, choose **View**, **Code**. As an alternative, you can choose the **F7** key or double-click **Form1** in **Solution Explorer**.  
+1.  在**“解决方案资源管理器”**中，选择**“Form1.cs”**（如果使用 Visual C\#）或**“Form1.vb”**（如果使用 Visual Basic），然后在菜单栏上选择**“查看”**\-\>**“代码”**。  你也可以按 **F7** 或在**“解决方案资源管理器”**中双击**“Form1”**。  
   
-     This displays the code module behind Form1.  
+     这会显示 Form1 的后台代码模块。  
   
-2.  In the existing code, add the following code.  
+2.  在现有代码中，添加以下代码。  
   
-     [!code-csharp[VbExpressTutorial4Step2_3_4#1](../ide/codesnippet/CSharp/step-2-add-a-random-object-and-a-list-of-icons_1.cs)]  [!code-vb[VbExpressTutorial4Step2_3_4#1](../ide/codesnippet/VisualBasic/step-2-add-a-random-object-and-a-list-of-icons_1.vb)]  
+     [!code-cs[VbExpressTutorial4Step2_3_4#1](../ide/codesnippet/CSharp/step-2-add-a-random-object-and-a-list-of-icons_1.cs)]
+     [!code-vb[VbExpressTutorial4Step2_3_4#1](../ide/codesnippet/VisualBasic/step-2-add-a-random-object-and-a-list-of-icons_1.vb)]  
   
-     If you're using Visual C#, be sure you put the code after the opening curly brace and just after the class declaration (`public partial class Form1 : Form`). If you're using Visual Basic, put the code right after the class declaration (`Public Class Form1`).  
+     如果你使用 Visual C\#，请确保将代码放在左大括号后面，紧靠类声明 \(`public partial class Form1 : Form`\) 之后。  如果你使用 Visual Basic，请将代码放在紧靠类声明 \(`Public Class Form1`\) 之后。  
   
-3.  When adding the `List` object, notice the **IntelliSense** window that opens. The following is a Visual C# example, but similar text appears when you add a list in Visual Basic.  
+3.  添加 `List` 对象时，请注意打开的**“IntelliSense”**窗口。  下面是一个 Visual C\# 示例，但在 Visual Basic 中添加列表时会显示类似文本。  
   
-     ![Properties window showing Click event](../ide/media/express_listintellisense.png "Express_ListIntellisense")  
-IntelliSense window  
-  
-    > [!NOTE]
-    >  The Intellisense window appears only when you enter code manually. If you copy and paste the code, it doesn't appear.  
-  
-     If you look at the code (and remarks) in small sections, it's easier to understand. Your programs can use `List` objects to keep track of many different types of items. A list can hold numbers, true/false values, text, or other objects. You can even have a `List` object that holds other `List` objects. The items in a list are called *elements*, and each list only holds one type of element. So, a list of numbers can only hold numbers—you can't add text to that list. Similarly, you can't add numbers to a list of true/false values.  
-  
-     When you create a `List` object using a `new` statement, you need to specify the kind of data you want to store in it. That's why the tooltip at the top of the **IntelliSense** window shows the types of elements in the list. Also, that's what `List<string>` (in Visual C#) and `List(Of String)` (in Visual Basic) means: It's a `List` object that holds elements of `string` data type. A string is what your program uses to store text, which is what the tooltip to the right of the **IntelliSense** window is telling you.  
-  
-4.  Consider why in Visual Basic a temporary array must be created first, but in Visual C#, the list can be created with one statement. This is because the Visual C# language has *collection initializers*, which prepare the list to accept values. In Visual Basic, you can use a collection initializer. However, for compatibility with the previous version of Visual Basic, we recommend using the preceding code.  
-  
-     When you use a collection initializer with a `new` statement, after the new `List` object is created, the program fills it with the data you provided inside the curly braces. In this case, you get a list of strings named **icons**, and that list will be initialized so that it contains sixteen strings. Each of those strings is a single letter, and they all correspond to the icons that will be in the labels. So, the game will have a pair of exclamation points, a pair of uppercase N letters, a pair of commas, and so on. (When these characters are set to the Webdings font, they will appear as symbols, such as a bus, a bike, a spider, and so forth.) Your `List` object will have sixteen strings in all, one for each cell in the TableLayoutPanel panel.  
+     ![显示 Click 事件的“属性”窗口](~/ide/media/express_listintellisense.png "Express\_ListIntellisense")  
+“IntelliSense”窗口  
   
     > [!NOTE]
-    >  In Visual Basic, you get the same result, but first the strings are put into a temporary array, which is then converted into a `List` object. An array is similar to a list, except, for example, arrays are created with a fixed size. Lists can shrink and grow as needed, which is important in this program.  
+    >  “IntelliSense”窗口仅在你手动输入代码时显示。  如果你复制和粘贴代码，则不显示。  
   
-### <a name="to-continue-or-review"></a>To continue or review  
+     如果你分小段查看代码（和备注），理解起来会更容易。  你的程序可以使用 `List` 对象跟踪多个不同类型的项目。  列表可以包含数字、true\/false 值、文本或其他对象。  你甚至可以有一个包含其他 `List` 对象的 `List` 对象。  列表中的项目称为“元素”，每个列表只包含一种类型的元素。  所以数字列表只包含数字，你不能向该列表中添加文本。  同样，你也不能向 true\/false 值列表中添加数字。  
   
--   To go to the next tutorial step, see [Step 3: Assign a Random Icon to Each Label](../ide/step-3-assign-a-random-icon-to-each-label.md).  
+     当使用 `new` 语句创建 `List` 对象时，你需要指定要在其中存储的数据类型。  因此，**“IntelliSense”**窗口顶部的工具提示会显示列表中的元素类型。  `List<string>`（Visual C\# 中）和 `List(Of String)`（Visual Basic 中）的含义也在于此：这是存储 `string` 数据类型的元素的 `List` 对象。  **“IntelliSense”**窗口右侧的工具提示将告诉你，你的程序使用字符串来存储文本。  
   
--   To return to the previous tutorial step, see [Step 1: Create a Project and Add a Table to Your Form](../ide/step-1-create-a-project-and-add-a-table-to-your-form.md).
+4.  请考虑为什么在 Visual Basic 中必须首先创建临时数组，但在 Visual C\# 中可以使用一条语句创建列表。  这是因为 Visual C\# 语言具有“集合初始值设定项”，从而准备了可以接受值的列表。  在 Visual Basic 中，你可以使用集合初始值设定项。  但是，为了与以前版本的 Visual Basic 兼容，我们建议你使用上面的代码。  
+  
+     当你将集合初始值设定项与 `new` 语句一同使用时，在创建新的 `List` 对象后，程序将使用你在大括号内提供的数据填充它。  在本例中，你将获得名为**“图标”**的字符串列表，该列表将初始化以包含十六个字符串。  其中每个字符串都是单个字母，它们都对应于将在标签中出现的图标。  因此，该游戏将包含一对感叹号、一对大写的 N 字母、一对逗号等。（这些字符设置为 Webdings 字体时，将显示为符号，例如公交车、自行车、蜘蛛等。）`List` 对象将总共包含十六个字符串，每个字符串对应于 TableLayoutPanel 面板中的一个单元格。  
+  
+    > [!NOTE]
+    >  在 Visual Basic 中，可以获得相同的结果，但是字符串首先放入临时数组中，该数组然后转换为 `List` 对象。  数组类似于列表，但也有不同之处，例如数组在创建时具有固定大小。  列表可以根据需要收缩或增长，这在此程序中非常重要。  
+  
+### 继续或查看  
+  
+-   若要转到下一个教程步骤，请参阅[步骤 3：向每个标签分配一个随机图标](../Topic/Step%203:%20Assign%20a%20Random%20Icon%20to%20Each%20Label.md)。  
+  
+-   若要返回上一个教程步骤，请参阅[步骤 1：创建项目并向窗体添加表](../ide/step-1-create-a-project-and-add-a-table-to-your-form.md)。

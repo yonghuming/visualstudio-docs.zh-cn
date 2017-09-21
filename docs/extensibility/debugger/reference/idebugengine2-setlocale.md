@@ -1,68 +1,51 @@
 ---
-title: IDebugEngine2::SetLocale | Microsoft Docs
-ms.custom: 
-ms.date: 11/04/2016
-ms.reviewer: 
-ms.suite: 
-ms.technology:
-- vs-ide-sdk
-ms.tgt_pltfrm: 
-ms.topic: article
-f1_keywords:
-- IDebugEngine2::SetLocale
-helpviewer_keywords:
-- IDebugEngine2::SetLocale
+title: "IDebugEngine2::SetLocale | Microsoft Docs"
+ms.custom: ""
+ms.date: "11/04/2016"
+ms.reviewer: ""
+ms.suite: ""
+ms.technology: 
+  - "vs-ide-sdk"
+ms.tgt_pltfrm: ""
+ms.topic: "article"
+f1_keywords: 
+  - "IDebugEngine2::SetLocale"
+helpviewer_keywords: 
+  - "IDebugEngine2::SetLocale"
 ms.assetid: cd0d2cf1-2aac-43da-a830-4bb3d696c219
 caps.latest.revision: 10
-ms.author: gregvanl
-manager: ghogen
-translation.priority.mt:
-- cs-cz
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pl-pl
-- pt-br
-- ru-ru
-- tr-tr
-- zh-cn
-- zh-tw
-ms.translationtype: MT
-ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
-ms.openlocfilehash: 6b655d95dacbaf5142c6be70141420e553012d73
-ms.contentlocale: zh-cn
-ms.lasthandoff: 08/28/2017
-
+ms.author: "gregvanl"
+manager: "ghogen"
+caps.handback.revision: 10
 ---
-# <a name="idebugengine2setlocale"></a>IDebugEngine2::SetLocale
-Sets the locale of the debug engine (DE).  
+# IDebugEngine2::SetLocale
+[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
+
+设置调试引擎的区域设置 \(DE\)。  
   
-## <a name="syntax"></a>Syntax  
+## 语法  
   
-```cpp  
-HRESULT SetLocale(   
-   WORD wLangID  
+```cpp#  
+HRESULT SetLocale(   
+   WORD wLangID  
 );  
 ```  
   
-```csharp  
-int SetLocale(   
-   ushort wLangID  
+```c#  
+int SetLocale(   
+   ushort wLangID  
 );  
 ```  
   
-#### <a name="parameters"></a>Parameters  
+#### 参数  
  `wLangID`  
- [in] Specifies the language locale. For example, 1033 for English.  
+ \[in\] 指定语言区域设置。  例如， 1033 english 的。  
   
-## <a name="return-value"></a>Return Value  
- If successful, returns `S_OK`; otherwise, returns an error code.  
+## 返回值  
+ 如果成功，则返回; `S_OK`否则，返回错误代码。  
   
-## <a name="remarks"></a>Remarks  
- This method is called by the session debug manager (SDM) to propagate the locale settings of the IDE so that strings returned by the DE are properly localized.  
+## 备注  
+ 此方法由该会话调用调试管理器 \(SDM\)传播 IDE 的区域设置，以便 DE 返回的字符串正确本地化。  
   
-## <a name="see-also"></a>See Also  
+## 请参阅  
  [IDebugEngine2](../../../extensibility/debugger/reference/idebugengine2.md)

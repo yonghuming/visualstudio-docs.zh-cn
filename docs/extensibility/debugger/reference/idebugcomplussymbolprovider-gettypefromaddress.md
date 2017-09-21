@@ -1,74 +1,57 @@
 ---
-title: IDebugComPlusSymbolProvider::GetTypeFromAddress | Microsoft Docs
-ms.custom: 
-ms.date: 11/04/2016
-ms.reviewer: 
-ms.suite: 
-ms.technology:
-- vs-ide-sdk
-ms.tgt_pltfrm: 
-ms.topic: article
-helpviewer_keywords:
-- IDebugComPlusSymbolProvider::GetTypeFromAddress
-- GetTypeFromAddress
+title: "IDebugComPlusSymbolProvider::GetTypeFromAddress | Microsoft Docs"
+ms.custom: ""
+ms.date: "11/04/2016"
+ms.reviewer: ""
+ms.suite: ""
+ms.technology: 
+  - "vs-ide-sdk"
+ms.tgt_pltfrm: ""
+ms.topic: "article"
+helpviewer_keywords: 
+  - "IDebugComPlusSymbolProvider::GetTypeFromAddress"
+  - "GetTypeFromAddress"
 ms.assetid: 01f21ff9-e8a5-4e5f-9f7b-1b6de8b1432f
 caps.latest.revision: 9
-ms.author: gregvanl
-manager: ghogen
-translation.priority.mt:
-- cs-cz
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pl-pl
-- pt-br
-- ru-ru
-- tr-tr
-- zh-cn
-- zh-tw
-ms.translationtype: MT
-ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
-ms.openlocfilehash: 2f2fd6d46f16ec91f66dbbf4798e2626be474e44
-ms.contentlocale: zh-cn
-ms.lasthandoff: 08/28/2017
-
+ms.author: "gregvanl"
+manager: "ghogen"
+caps.handback.revision: 9
 ---
-# <a name="idebugcomplussymbolprovidergettypefromaddress"></a>IDebugComPlusSymbolProvider::GetTypeFromAddress
-Retrieves to a symbol type given its debug address.  
+# IDebugComPlusSymbolProvider::GetTypeFromAddress
+[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
+
+检索对符号给定的类型其调试地址。  
   
-## <a name="syntax"></a>Syntax  
+## 语法  
   
-```cpp  
+```cpp#  
 HRESULT GetTypeFromAddress(  
-   IDebugAddress* pAddress,  
-   IDebugField**  ppField  
+   IDebugAddress* pAddress,  
+   IDebugField**  ppField  
 );  
 ```  
   
-```csharp  
+```c#  
 int GetTypeFromAddress(  
-   IDebugAddress   pAddress,  
-   out IDebugField ppField  
+   IDebugAddress   pAddress,  
+   out IDebugField ppField  
 );  
 ```  
   
-#### <a name="parameters"></a>Parameters  
+#### 参数  
  `pAddress`  
- [in] The debug address that is represented by an [IDebugAddress](../../../extensibility/debugger/reference/idebugaddress.md) interface.  
+ \[in\] 由 [IDebugAddress](../../../extensibility/debugger/reference/idebugaddress.md) 接口表示的调试地址。  
   
  `ppField`  
- [out] Returns the array type as it is represented by an [IDebugClassField](../../../extensibility/debugger/reference/idebugclassfield.md) interface.  
+ \[out\] ，在 [IDebugClassField](../../../extensibility/debugger/reference/idebugclassfield.md) 接口，表示返回数组类型。  
   
-## <a name="return-value"></a>Return Value  
- If successful, returns `S_OK`; otherwise, returns an error code.  
+## 返回值  
+ 如果成功，则返回; `S_OK`否则，返回错误代码。  
   
-## <a name="example"></a>Example  
- The following example shows how to implement this method for a **CDebugSymbolProvider** object that exposes the [IDebugComPlusSymbolProvider](../../../extensibility/debugger/reference/idebugcomplussymbolprovider.md) interface.  
+## 示例  
+ 下面的示例演示如何执行显示 [IDebugComPlusSymbolProvider](../../../extensibility/debugger/reference/idebugcomplussymbolprovider.md) 接口的 **CDebugSymbolProvider** 对象的方法。  
   
-```cpp  
+```cpp#  
 HRESULT CDebugSymbolProvider::GetTypeFromAddress(  
     IDebugAddress *pAddress,  
     IDebugField **ppField)  
@@ -133,5 +116,5 @@ Error:
 }  
 ```  
   
-## <a name="see-also"></a>See Also  
+## 请参阅  
  [IDebugComPlusSymbolProvider](../../../extensibility/debugger/reference/idebugcomplussymbolprovider.md)

@@ -1,86 +1,67 @@
 ---
-title: 'How to: Create a PolicyActivity Rule Set (Legacy) | Microsoft Docs'
-ms.custom: 
-ms.date: 11/04/2016
-ms.reviewer: 
-ms.suite: 
-ms.tgt_pltfrm: 
-ms.topic: reference
-helpviewer_keywords:
-- PolicyActivity activity, creating rule sets
-- Rule Set Editor dialog box
-- PolicyActivity activity, selecting rule sets
-- Select Rule Set dialog box
-- rule sets, creating for PolicyActivity
+title: "如何：创建 PolicyActivity 规则集（旧版） | Microsoft Docs"
+ms.custom: ""
+ms.date: "11/04/2016"
+ms.reviewer: ""
+ms.suite: ""
+ms.tgt_pltfrm: ""
+ms.topic: "reference"
+helpviewer_keywords: 
+  - "PolicyActivity 活动, 创建规则集"
+  - "PolicyActivity 活动, 选择规则集"
+  - "“规则集编辑器”对话框"
+  - "规则集, 针对 PolicyActivity 创建"
+  - "“选择规则集”对话框"
 ms.assetid: f272489d-3342-4511-8b59-6a0fd7a42d70
 caps.latest.revision: 4
-author: ErikRe
-ms.author: erikre
-manager: erikre
-translation.priority.ht:
-- cs-cz
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pl-pl
-- pt-br
-- ru-ru
-- tr-tr
-- zh-cn
-- zh-tw
-ms.translationtype: HT
-ms.sourcegitcommit: 21a413a3e2d17d77fd83d5109587a96f323a0511
-ms.openlocfilehash: 42d94d625e2ad7db23dbd4917107b8da4f24009b
-ms.contentlocale: zh-cn
-ms.lasthandoff: 08/30/2017
-
+author: "ErikRe"
+ms.author: "erikre"
+manager: "erikre"
+caps.handback.revision: 4
 ---
-# <a name="how-to-create-a-policyactivity-rule-set-legacy"></a>How to: Create a PolicyActivity Rule Set (Legacy)
-This topic describes how to create a policy activity rule set using the legacy [!INCLUDE[wfd1](../workflow-designer/includes/wfd1_md.md)] that targets the [!INCLUDE[netfx35_long](../workflow-designer/includes/netfx35_long_md.md)] or the [!INCLUDE[vstecwinfx](../workflow-designer/includes/vstecwinfx_md.md)].  
+# 如何：创建 PolicyActivity 规则集（旧版）
+本主题介绍如何使用面向 [!INCLUDE[netfx35_long](../workflow-designer/includes/netfx35_long_md.md)] 或 [!INCLUDE[vstecwinfx](../workflow-designer/includes/vstecwinfx_md.md)] 的旧 [!INCLUDE[wfd1](../workflow-designer/includes/wfd1_md.md)] 来创建策略活动规则集。  
   
- After you have dragged a **Policy** activity item from the **Toolbox** to the workflow design surface, you will want to select an existing rule or create a new rule set for the [PolicyActivity](http://go.microsoft.com/fwlink?LinkID=65019) activity. You select an existing rule set by using the [Select Rule Set Dialog Box (Legacy)](../workflow-designer/select-rule-set-dialog-box-legacy.md) and you create rule sets by using the [Rule Set Editor Dialog Box (Legacy)](../workflow-designer/rule-set-editor-dialog-box-legacy.md).  
+ 在将**“策略”**活动项从**“工具箱”**拖动到工作流设计图面之后，需要为 [PolicyActivity](http://go.microsoft.com/fwlink?LinkID=65019)（可能为英文网页）活动选择现有规则或创建新规则集。通过使用[“选择规则集”对话框（旧版）](../workflow-designer/select-rule-set-dialog-box-legacy.md)可以选择现有规则集；通过使用[“规则集编辑器”对话框（旧版）](../workflow-designer/rule-set-editor-dialog-box-legacy.md)可以创建规则集。  
   
 > [!NOTE]
->  You can open the [Rule Set Editor Dialog Box (Legacy)](../workflow-designer/rule-set-editor-dialog-box-legacy.md) dialog box directly by double-clicking on a [PolicyActivity](http://go.microsoft.com/fwlink?LinkID=65019) activity that is on the workflow design surface.  
+>  通过双击工作流设计图面上的 [PolicyActivity](http://go.microsoft.com/fwlink?LinkID=65019)（可能为英文网页）活动，您可以直接打开[“规则集编辑器”对话框（旧版）](../workflow-designer/rule-set-editor-dialog-box-legacy.md)对话框。  
   
-### <a name="to-select-or-create-a-rule-set-for-a-policyactivity-activity"></a>To select or create a rule set for a PolicyActivity activity  
+### 为 PolicyActivity 活动选择或创建规则集  
   
-1.  Right-click the [PolicyActivity](http://go.microsoft.com/fwlink?LinkID=65019), and then click **Properties** to open the **Properties** window.  
+1.  右击 [PolicyActivity](http://go.microsoft.com/fwlink?LinkID=65019)（可能为英文网页），然后单击**“属性”**打开**“属性”**窗口。  
   
-2.  Click the **RuleSetReference** property.  
+2.  单击**“RuleSetReference”**属性。  
   
-3.  Do one of the following:  
+3.  执行下列操作之一：  
   
-    -   Click the **RuleSetReference** ellipsis **[...]**, and then select an existing rule set in the [Select Rule Set Dialog Box (Legacy)](../workflow-designer/select-rule-set-dialog-box-legacy.md). Then go to step 10.  
+    -   单击**“RuleSetReference”**省略号**“\[…\]”**，然后在[“选择规则集”对话框（旧版）](../workflow-designer/select-rule-set-dialog-box-legacy.md)中选择现有规则集。然后转到步骤 10。  
   
-         -or-  
+         \- 或 \-  
   
-    -   Type a name for a rule set. Click the **RuleSetReference** ellipsis **[...]**, and then select **Edit** in the [Select Rule Set Dialog Box (Legacy)](../workflow-designer/select-rule-set-dialog-box-legacy.md).  
+    -   键入规则集的名称。单击**“RuleSetReference”**省略号**“\[…\]”**，然后在[“选择规则集”对话框（旧版）](../workflow-designer/select-rule-set-dialog-box-legacy.md)中选择**“编辑”**。  
   
-         -or-  
+         \- 或 \-  
   
-    -   Type a name for a rule set. Expand the **RuleSetReference** property and select the ellipsis **[...]** in the **RuleSet Definition** property.  
+    -   键入规则集的名称。展开**“RuleSetReference”**属性并在**“RuleSet 定义”**属性中选择省略号**“\[…\]”**。  
   
-         The [Rule Set Editor Dialog Box (Legacy)](../workflow-designer/rule-set-editor-dialog-box-legacy.md) opens.  
+         这将打开[“规则集编辑器”对话框（旧版）](../workflow-designer/rule-set-editor-dialog-box-legacy.md)。  
   
-4.  In the [Rule Set Editor Dialog Box (Legacy)](../workflow-designer/rule-set-editor-dialog-box-legacy.md), click **Add Rule** to add a new rule to the rule set.  
+4.  在[“规则集编辑器”对话框（旧版）](../workflow-designer/rule-set-editor-dialog-box-legacy.md)中单击**“添加规则”**以将新规则添加到规则集中。  
   
-5.  Enter the **Name**, **Priority**, and **Reevaluation** properties, or keep the default values.  
+5.  输入**“名称”**、**“优先级”**和**“重新计算”**属性，或者保留默认值。  
   
-6.  Enter the text for the **Condition**.  
+6.  为**“条件”**输入文本。  
   
-7.  Enter the text for the **Then Actions** and the **Else Actions**.  
+7.  为**“Then 操作”**和**“Else 操作”**输入文本。  
   
-8.  Click **Add Rule** again to add another rule.  
+8.  再次单击**“添加规则”**以添加另一规则。  
   
-9. When you are finished, click **OK**.  
+9. 完成上述操作后，单击**“确定”**。  
   
-## <a name="see-also"></a>See Also  
+## 请参阅  
  [PolicyActivity](http://go.microsoft.com/fwlink?LinkID=65019)   
- [Select Rule Set Dialog Box (Legacy)](../workflow-designer/select-rule-set-dialog-box-legacy.md)   
- [Rule Set Editor Dialog Box (Legacy)](../workflow-designer/rule-set-editor-dialog-box-legacy.md)   
- [Using the Policy Activity](http://go.microsoft.com/fwlink?LinkID=65004)   
- [Legacy Workflow Activities](../workflow-designer/legacy-workflow-activities.md)
+ [“选择规则集”对话框（旧版）](../workflow-designer/select-rule-set-dialog-box-legacy.md)   
+ [“规则集编辑器”对话框（旧版）](../workflow-designer/rule-set-editor-dialog-box-legacy.md)   
+ [使用策略活动](http://go.microsoft.com/fwlink?LinkID=65004)   
+ [旧版工作流活动](../workflow-designer/legacy-workflow-activities.md)

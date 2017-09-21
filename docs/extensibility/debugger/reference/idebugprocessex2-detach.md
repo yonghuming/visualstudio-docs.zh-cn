@@ -1,68 +1,51 @@
 ---
-title: IDebugProcessEx2::Detach | Microsoft Docs
-ms.custom: 
-ms.date: 11/04/2016
-ms.reviewer: 
-ms.suite: 
-ms.technology:
-- vs-ide-sdk
-ms.tgt_pltfrm: 
-ms.topic: article
-f1_keywords:
-- IDebugProcessEx2::Detach
-helpviewer_keywords:
-- IDebugProcessEx2::Detach method
+title: "IDebugProcessEx2::Detach | Microsoft Docs"
+ms.custom: ""
+ms.date: "11/04/2016"
+ms.reviewer: ""
+ms.suite: ""
+ms.technology: 
+  - "vs-ide-sdk"
+ms.tgt_pltfrm: ""
+ms.topic: "article"
+f1_keywords: 
+  - "IDebugProcessEx2::Detach"
+helpviewer_keywords: 
+  - "IDebugProcessEx2::Detach 方法"
 ms.assetid: 66d54c2c-9302-47c8-9975-f30ed988ab29
 caps.latest.revision: 15
-ms.author: gregvanl
-manager: ghogen
-translation.priority.mt:
-- cs-cz
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pl-pl
-- pt-br
-- ru-ru
-- tr-tr
-- zh-cn
-- zh-tw
-ms.translationtype: MT
-ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
-ms.openlocfilehash: d3ba5d8ea92200a70623a6e53ceb484aadfc3af2
-ms.contentlocale: zh-cn
-ms.lasthandoff: 08/28/2017
-
+ms.author: "gregvanl"
+manager: "ghogen"
+caps.handback.revision: 15
 ---
-# <a name="idebugprocessex2detach"></a>IDebugProcessEx2::Detach
-This method informs the process that a session is no longer debugging the process.  
+# IDebugProcessEx2::Detach
+[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
+
+此方法通知进程内会话不再调试进程。  
   
-## <a name="syntax"></a>Syntax  
+## 语法  
   
-```cpp  
-HRESULT Detach(   
-   IDebugSession2* pSession  
+```cpp#  
+HRESULT Detach(   
+   IDebugSession2* pSession  
 );  
 ```  
   
-```csharp  
+```c#  
 int Detach(  
-   IDebugSession2 pSession  
+   IDebugSession2 pSession  
 );  
 ```  
   
-#### <a name="parameters"></a>Parameters  
+#### 参数  
  `pSession`  
- [in] A value that uniquely identifies the session to detach this process from.  
+ \[in\] 唯一标识该会话分离此的值的过程。  
   
-## <a name="return-value"></a>Return Value  
- If successful, returns `S_OK`; otherwise, returns an error code.  
+## 返回值  
+ 如果成功，则返回; `S_OK`否则，返回错误代码。  
   
-## <a name="remarks"></a>Remarks  
- The interface passed in `pSession` is to be treated only as a cookie, a value that uniquely identifies the session debug manager that originally attached to this process; none of the methods on the supplied interface are functional.  
+## 备注  
+ 在 `pSession` 传递的接口将只视为 cookie，唯一标识该会话调试管理器最初附加到此过程的值;在提供的接口的任何方法都不起作用。  
   
-## <a name="see-also"></a>See Also  
+## 请参阅  
  [IDebugProcessEx2](../../../extensibility/debugger/reference/idebugprocessex2.md)

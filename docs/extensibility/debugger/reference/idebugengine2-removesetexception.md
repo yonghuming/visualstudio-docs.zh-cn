@@ -1,71 +1,54 @@
 ---
-title: IDebugEngine2::RemoveSetException | Microsoft Docs
-ms.custom: 
-ms.date: 11/04/2016
-ms.reviewer: 
-ms.suite: 
-ms.technology:
-- vs-ide-sdk
-ms.tgt_pltfrm: 
-ms.topic: article
-f1_keywords:
-- IDebugEngine2::RemoveSetException
-helpviewer_keywords:
-- IDebugEngine2::RemoveSetException
+title: "IDebugEngine2::RemoveSetException | Microsoft Docs"
+ms.custom: ""
+ms.date: "11/04/2016"
+ms.reviewer: ""
+ms.suite: ""
+ms.technology: 
+  - "vs-ide-sdk"
+ms.tgt_pltfrm: ""
+ms.topic: "article"
+f1_keywords: 
+  - "IDebugEngine2::RemoveSetException"
+helpviewer_keywords: 
+  - "IDebugEngine2::RemoveSetException"
 ms.assetid: bdd25097-0e9d-4218-b417-0497ea48d2e8
 caps.latest.revision: 11
-ms.author: gregvanl
-manager: ghogen
-translation.priority.mt:
-- cs-cz
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pl-pl
-- pt-br
-- ru-ru
-- tr-tr
-- zh-cn
-- zh-tw
-ms.translationtype: MT
-ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
-ms.openlocfilehash: 93e7f3ca221460c0f29385249341f85f16299a45
-ms.contentlocale: zh-cn
-ms.lasthandoff: 08/28/2017
-
+ms.author: "gregvanl"
+manager: "ghogen"
+caps.handback.revision: 11
 ---
-# <a name="idebugengine2removesetexception"></a>IDebugEngine2::RemoveSetException
-Removes the specified exception so it is no longer handled by the debug engine.  
+# IDebugEngine2::RemoveSetException
+[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
+
+移除指定的异常，因此它由调试引擎不再处理。  
   
-## <a name="syntax"></a>Syntax  
+## 语法  
   
-```cpp  
-HRESULT RemoveSetException(   
-   EXCEPTION_INFO* pException  
+```cpp#  
+HRESULT RemoveSetException(   
+   EXCEPTION_INFO* pException  
 );  
 ```  
   
-```csharp  
-int RemoveSetException(   
-   EXCEPTION_INFO[] pException  
+```c#  
+int RemoveSetException(   
+   EXCEPTION_INFO[] pException  
 );  
 ```  
   
-#### <a name="parameters"></a>Parameters  
+#### 参数  
  `pException`  
- [in] An [EXCEPTION_INFO](../../../extensibility/debugger/reference/exception-info.md) structure that describes the exception to be removed.  
+ \[in\] 描述要移除的异常的 [EXCEPTION\_INFO](../../../extensibility/debugger/reference/exception-info.md) 结构。  
   
-## <a name="return-value"></a>Return Value  
- If successful, returns `S_OK`; otherwise, returns an error code.  
+## 返回值  
+ 如果成功，则返回; `S_OK`否则，返回错误代码。  
   
-## <a name="remarks"></a>Remarks  
- The exception being removed must have been previously set by an earlier call to the [SetException](../../../extensibility/debugger/reference/idebugengine2-setexception.md) method.  
+## 备注  
+ 必须由之前设置移除的异常之前调用对 [SetException](../../../extensibility/debugger/reference/idebugengine2-setexception.md) 方法。  
   
- To remove all set exceptions at once, call the [RemoveAllSetExceptions](../../../extensibility/debugger/reference/idebugengine2-removeallsetexceptions.md) method.  
+ 立即移除所有设置的异常，请调用 [RemoveAllSetExceptions](../Topic/IDebugEngine2::RemoveAllSetExceptions.md) 方法。  
   
-## <a name="see-also"></a>See Also  
+## 请参阅  
  [IDebugEngine2](../../../extensibility/debugger/reference/idebugengine2.md)   
- [EXCEPTION_INFO](../../../extensibility/debugger/reference/exception-info.md)
+ [EXCEPTION\_INFO](../../../extensibility/debugger/reference/exception-info.md)

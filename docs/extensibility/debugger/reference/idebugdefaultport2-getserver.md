@@ -1,69 +1,52 @@
 ---
-title: IDebugDefaultPort2::GetServer | Microsoft Docs
-ms.custom: 
-ms.date: 11/04/2016
-ms.reviewer: 
-ms.suite: 
-ms.technology:
-- vs-ide-sdk
-ms.tgt_pltfrm: 
-ms.topic: article
-f1_keywords:
-- IDebugDefaultPort2::GetServer
-helpviewer_keywords:
-- IDebugDefaultPort2::GetServer
+title: "IDebugDefaultPort2::GetServer | Microsoft Docs"
+ms.custom: ""
+ms.date: "11/04/2016"
+ms.reviewer: ""
+ms.suite: ""
+ms.technology: 
+  - "vs-ide-sdk"
+ms.tgt_pltfrm: ""
+ms.topic: "article"
+f1_keywords: 
+  - "IDebugDefaultPort2::GetServer"
+helpviewer_keywords: 
+  - "IDebugDefaultPort2::GetServer"
 ms.assetid: cacb4b74-0f39-471c-af38-54b73f5b2868
 caps.latest.revision: 10
-ms.author: gregvanl
-manager: ghogen
-translation.priority.mt:
-- cs-cz
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pl-pl
-- pt-br
-- ru-ru
-- tr-tr
-- zh-cn
-- zh-tw
-ms.translationtype: MT
-ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
-ms.openlocfilehash: 214339a65ab6f4aba08529f2f9dcd287934bf2d7
-ms.contentlocale: zh-cn
-ms.lasthandoff: 08/28/2017
-
+ms.author: "gregvanl"
+manager: "ghogen"
+caps.handback.revision: 10
 ---
-# <a name="idebugdefaultport2getserver"></a>IDebugDefaultPort2::GetServer
-This method obtains an interface to the server that this port is on.  
+# IDebugDefaultPort2::GetServer
+[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
+
+此方法获取一个接口。服务器此端口打开。  
   
-## <a name="syntax"></a>Syntax  
+## 语法  
   
 ```cpp  
-HRESULT GetServer(  
-   IDebugCoreServer3** ppServer  
+HRESULT GetServer(  
+   IDebugCoreServer3** ppServer  
 );  
 ```  
   
-```csharp  
-int GetServer(  
-   out IDebugCoreServer3 ppServer  
+```c#  
+int GetServer(  
+   out IDebugCoreServer3 ppServer  
 );  
 ```  
   
-#### <a name="parameters"></a>Parameters  
+#### 参数  
  `ppServer`  
- [out] Returns an object implementing the [IDebugCoreServer3](../../../extensibility/debugger/reference/idebugcoreserver3.md) interface.  
+ \[out\] 返回实现 [IDebugCoreServer3](../../../extensibility/debugger/reference/idebugcoreserver3.md) 接口的对象。  
   
-## <a name="return-value"></a>Return Value  
- If successful, returns `S_OK`; otherwise, returns an error code.  
+## 返回值  
+ 如果成功，则返回; `S_OK`否则，返回错误代码。  
   
-## <a name="remarks"></a>Remarks  
- The [IDebugCoreServer3](../../../extensibility/debugger/reference/idebugcoreserver3.md) is implemented by Visual Studio and represents the server that the port is located on.  
+## 备注  
+ [IDebugCoreServer3](../../../extensibility/debugger/reference/idebugcoreserver3.md) 由 Visual Studio 实现表示服务所在的服务器端口。  
   
-## <a name="see-also"></a>See Also  
+## 请参阅  
  [IDebugDefaultPort2](../../../extensibility/debugger/reference/idebugdefaultport2.md)   
  [IDebugCoreServer3](../../../extensibility/debugger/reference/idebugcoreserver3.md)

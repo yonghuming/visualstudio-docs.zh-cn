@@ -1,79 +1,62 @@
 ---
-title: IEEVisualizerDataProvider::SetObjectForVisualizer | Microsoft Docs
-ms.custom: 
-ms.date: 11/04/2016
-ms.reviewer: 
-ms.suite: 
-ms.technology:
-- vs-ide-sdk
-ms.tgt_pltfrm: 
-ms.topic: article
-f1_keywords:
-- IEEVisualizerDataProvider::SetObjectForVisualizer
-helpviewer_keywords:
-- IEEVisualizerDataProvider::SetObjectForVisualizer method
+title: "IEEVisualizerDataProvider::SetObjectForVisualizer | Microsoft Docs"
+ms.custom: ""
+ms.date: "11/04/2016"
+ms.reviewer: ""
+ms.suite: ""
+ms.technology: 
+  - "vs-ide-sdk"
+ms.tgt_pltfrm: ""
+ms.topic: "article"
+f1_keywords: 
+  - "IEEVisualizerDataProvider::SetObjectForVisualizer"
+helpviewer_keywords: 
+  - "IEEVisualizerDataProvider::SetObjectForVisualizer 方法"
 ms.assetid: 40dad2be-57ff-4f74-9d82-c48039c125c4
 caps.latest.revision: 9
-ms.author: gregvanl
-manager: ghogen
-translation.priority.mt:
-- cs-cz
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pl-pl
-- pt-br
-- ru-ru
-- tr-tr
-- zh-cn
-- zh-tw
-ms.translationtype: MT
-ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
-ms.openlocfilehash: 235fe7aa4f21068f3b218a4286d457a02940a335
-ms.contentlocale: zh-cn
-ms.lasthandoff: 08/28/2017
-
+ms.author: "gregvanl"
+manager: "ghogen"
+caps.handback.revision: 9
 ---
-# <a name="ieevisualizerdataprovidersetobjectforvisualizer"></a>IEEVisualizerDataProvider::SetObjectForVisualizer
-This method changes the object that the visualizer represents.  
+# IEEVisualizerDataProvider::SetObjectForVisualizer
+[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
+
+此方法更改可视化表示的对象。  
   
-## <a name="syntax"></a>Syntax  
+## 语法  
   
 ```cpp  
-HRESULT SetObjectForVisualizer(  
-   IDebugObject*  pNewObject,  
-   BSTR*          error,  
-   IDebugObject** pException  
+HRESULT SetObjectForVisualizer(  
+   IDebugObject*  pNewObject,  
+   BSTR*          error,  
+   IDebugObject** pException  
 );  
 ```  
   
-```csharp  
-int SetObjectForVisualizer(  
-   IDebugObject     pNewObject,  
-   out string       error,  
-   out IDebugObject pException  
+```c#  
+int SetObjectForVisualizer(  
+   IDebugObject     pNewObject,  
+   out string       error,  
+   out IDebugObject pException  
 );  
 ```  
   
-#### <a name="parameters"></a>Parameters  
+#### 参数  
  `pNewObject`  
- [in] The object to set.  
+ \[in\] 设置的对象。  
   
  `error`  
- [out] If there was an error setting the object, this string holds the error message.  
+ \[out\] 如果具有对象的错误，该字符串包含错误消息。  
   
  `pException`  
- [out] If there was an error, this object holds the exception information.  
+ \[out\] 如果出现错误，此对象包含异常信息。  
   
-## <a name="return-value"></a>Return Value  
- If successful, returns `S_OK`; otherwise, returns an error code.  
+## 返回值  
+ 如果成功，则返回; `S_OK`否则，返回错误代码。  
   
-## <a name="remarks"></a>Remarks  
- It is up to the implementer to determine how error information is returned. However, it is possible that some callers may only look to see if an exception object was returned to know there was an error, so this method should always return an exception object if there was an error. The error string should also be supplied in case the caller wants to make use of it.  
+## 备注  
+ 应确定错误信息如何实现返回。  但是，可以将某些调用方只查找查看异常对象是否返回已知有错误，因此，此方法应始终返回异常对象，则出现错误。  错误字符串，如果调用方希望利用它，还应提供。  
   
-## <a name="see-also"></a>See Also  
+## 请参阅  
  [IEEVisualizerDataProvider](../../../extensibility/debugger/reference/ieevisualizerdataprovider.md)   
  [IDebugObject](../../../extensibility/debugger/reference/idebugobject.md)

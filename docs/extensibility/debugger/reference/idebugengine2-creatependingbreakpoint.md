@@ -1,80 +1,63 @@
 ---
-title: IDebugEngine2::CreatePendingBreakpoint | Microsoft Docs
-ms.custom: 
-ms.date: 11/04/2016
-ms.reviewer: 
-ms.suite: 
-ms.technology:
-- vs-ide-sdk
-ms.tgt_pltfrm: 
-ms.topic: article
-f1_keywords:
-- IDebugEngine2::CreatePendingBreakpoint
-helpviewer_keywords:
-- IDebugEngine2::CreatePendingBreakpoint
+title: "IDebugEngine2::CreatePendingBreakpoint | Microsoft Docs"
+ms.custom: ""
+ms.date: "11/04/2016"
+ms.reviewer: ""
+ms.suite: ""
+ms.technology: 
+  - "vs-ide-sdk"
+ms.tgt_pltfrm: ""
+ms.topic: "article"
+f1_keywords: 
+  - "IDebugEngine2::CreatePendingBreakpoint"
+helpviewer_keywords: 
+  - "IDebugEngine2::CreatePendingBreakpoint"
 ms.assetid: 92e85b90-a931-48d9-89a7-a6edcb83ae5a
 caps.latest.revision: 10
-ms.author: gregvanl
-manager: ghogen
-translation.priority.mt:
-- cs-cz
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pl-pl
-- pt-br
-- ru-ru
-- tr-tr
-- zh-cn
-- zh-tw
-ms.translationtype: MT
-ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
-ms.openlocfilehash: 26a44b7c1449e767bca10793bd4602ea472a8a48
-ms.contentlocale: zh-cn
-ms.lasthandoff: 08/28/2017
-
+ms.author: "gregvanl"
+manager: "ghogen"
+caps.handback.revision: 10
 ---
-# <a name="idebugengine2creatependingbreakpoint"></a>IDebugEngine2::CreatePendingBreakpoint
-Creates a pending breakpoint in the debug engine (DE).  
+# IDebugEngine2::CreatePendingBreakpoint
+[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
+
+在调试引擎 \(DE\)创建挂起的断点。  
   
-## <a name="syntax"></a>Syntax  
+## 语法  
   
-```cpp  
-HRESULT CreatePendingBreakpoint(   
-   IDebugBreakpointRequest2*  pBPRequest,  
-   IDebugPendingBreakpoint2** ppPendingBP  
+```cpp#  
+HRESULT CreatePendingBreakpoint(   
+   IDebugBreakpointRequest2*  pBPRequest,  
+   IDebugPendingBreakpoint2** ppPendingBP  
 );  
 ```  
   
-```csharp  
-int CreatePendingBreakpoint(   
-   IDebugBreakpointRequest2     pBPRequest,  
-   out IDebugPendingBreakpoint2 ppPendingBP  
+```c#  
+int CreatePendingBreakpoint(   
+   IDebugBreakpointRequest2     pBPRequest,  
+   out IDebugPendingBreakpoint2 ppPendingBP  
 );  
 ```  
   
-#### <a name="parameters"></a>Parameters  
+#### 参数  
  `pBPRequest`  
- [in] An [IDebugBreakpointRequest2](../../../extensibility/debugger/reference/idebugbreakpointrequest2.md) object that describes the pending breakpoint to create.  
+ \[in\] 描述挂起的断点创建的 [IDebugBreakpointRequest2](../../../extensibility/debugger/reference/idebugbreakpointrequest2.md) 对象。  
   
  `ppPendingBP`  
- [out] Returns an [IDebugPendingBreakpoint2](../../../extensibility/debugger/reference/idebugpendingbreakpoint2.md) object that represents the pending breakpoint.  
+ \[out\] 返回表示挂起的断点的 [IDebugPendingBreakpoint2](../../../extensibility/debugger/reference/idebugpendingbreakpoint2.md) 对象。  
   
-## <a name="return-value"></a>Return Value  
- If successful, returns `S_OK`; otherwise, returns an error code. Typically returns `E_FAIL` if the `pBPRequest` parameter does not match any language supported by the DE of if the `pBPRequest` parameter is invalid or incomplete.  
+## 返回值  
+ 如果成功，则返回; `S_OK`否则，返回错误代码。  通常返回 `E_FAIL` ，如果 `pBPRequest` 参数不匹配 DE 支持的任何语言，如果 `pBPRequest` 参数无效或不完整。  
   
-## <a name="remarks"></a>Remarks  
- A pending breakpoint is essentially a collection of all the information needed to bind a breakpoint to code. The pending breakpoint returned from this method is not bound to code until the [Bind](../../../extensibility/debugger/reference/idebugpendingbreakpoint2-bind.md) method is called.  
+## 备注  
+ 挂起断点实质上是所需的所有信息的集合绑定断点代码。  从此方法返回的挂起的断点将不一定代码，直到 [将绑定](../../../extensibility/debugger/reference/idebugpendingbreakpoint2-bind.md) 方法调用。  
   
- For each pending breakpoint the user sets, the session debug manager (SDM) calls this method in each attached DE. It is up to the DE to verify that the breakpoint is valid for programs running in that DE.  
+ 对于每个挂起的断点用户集，会议调试管理器 \(SDM\)对每个附加 DE 的此方法。  将由验证的、断点用于运行该 DE 的过程是有效的。  
   
- When the user sets a breakpoint on a line of code, the DE is free to bind the breakpoint to the closest line in the document that corresponds to this code. This makes it possible for the user to set a breakpoint on the first line of a multi-line statement, but bind it on the last line (where all the code is attributed in the debug information).  
+ 当用户将在某行代码中设置断点， DE 可以自由绑定断点到对应于此代码的文档的最接近的行。  这使得用户可以在一个多行语句的第一行中设置断点，但是，将其绑定在最后一行 \(其中所有代码在调试信息特性化\)。  
   
-## <a name="example"></a>Example  
- The following example shows how to implement this method for a simple `CProgram` object. The DE's implementation of the `IDebugEngine2::CreatePendingBreakpoint` could then forward all calls to this implementation of the method in each program.  
+## 示例  
+ 下面的示例演示如何执行简单的 `CProgram` 对象的方法。  `IDebugEngine2::CreatePendingBreakpoint` 的 DE 的实现可以转发对的所有调用方法实现在每个程序中。  
   
 ```  
 HRESULT CProgram::CreatePendingBreakpoint(IDebugBreakpointRequest2* pBPRequest, IDebugPendingBreakpoint2** ppPendingBP)     
@@ -88,8 +71,8 @@ HRESULT CProgram::CreatePendingBreakpoint(IDebugBreakpointRequest2* pBPRequest, 
 }    
 ```  
   
-## <a name="see-also"></a>See Also  
+## 请参阅  
  [IDebugEngine2](../../../extensibility/debugger/reference/idebugengine2.md)   
- [Bind](../../../extensibility/debugger/reference/idebugpendingbreakpoint2-bind.md)   
+ [将绑定](../../../extensibility/debugger/reference/idebugpendingbreakpoint2-bind.md)   
  [IDebugBreakpointRequest2](../../../extensibility/debugger/reference/idebugbreakpointrequest2.md)   
  [IDebugPendingBreakpoint2](../../../extensibility/debugger/reference/idebugpendingbreakpoint2.md)

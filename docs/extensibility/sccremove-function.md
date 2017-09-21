@@ -1,97 +1,80 @@
 ---
-title: SccRemove Function | Microsoft Docs
-ms.custom: 
-ms.date: 11/04/2016
-ms.reviewer: 
-ms.suite: 
-ms.technology:
-- vs-ide-sdk
-ms.tgt_pltfrm: 
-ms.topic: article
-f1_keywords:
-- SccRemove
-helpviewer_keywords:
-- SccRemove function
+title: "SccRemove 函数 | Microsoft Docs"
+ms.custom: ""
+ms.date: "11/04/2016"
+ms.reviewer: ""
+ms.suite: ""
+ms.technology: 
+  - "vs-ide-sdk"
+ms.tgt_pltfrm: ""
+ms.topic: "article"
+f1_keywords: 
+  - "SccRemove"
+helpviewer_keywords: 
+  - "SccRemove 函数"
 ms.assetid: 20830fdc-c0e9-4a5f-bf60-33f28874442f
 caps.latest.revision: 13
-ms.author: gregvanl
-manager: ghogen
-translation.priority.mt:
-- cs-cz
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pl-pl
-- pt-br
-- ru-ru
-- tr-tr
-- zh-cn
-- zh-tw
-ms.translationtype: MT
-ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
-ms.openlocfilehash: 02a6aedc192bed7dbe0947ceae1ea55d9f50e3ed
-ms.contentlocale: zh-cn
-ms.lasthandoff: 08/28/2017
-
+ms.author: "gregvanl"
+manager: "ghogen"
+caps.handback.revision: 13
 ---
-# <a name="sccremove-function"></a>SccRemove Function
-This function deletes files from the source control system.  
+# SccRemove 函数
+[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
+
+此函数从源代码管理系统中删除文件。  
   
-## <a name="syntax"></a>Syntax  
+## 语法  
   
-```cpp  
+```cpp#  
 SCCRTN SccRemove(  
-   LPVOID    pvContext,  
-   HWND      hWnd,  
-   LONG      nFiles,  
-   LPCSTR*   lpFileNames,  
-   LPCSTR    lpComment,  
-   LONG      fOptions,  
-   LPCMDOPTS pvOptions  
+   LPVOID    pvContext,  
+   HWND      hWnd,  
+   LONG      nFiles,  
+   LPCSTR*   lpFileNames,  
+   LPCSTR    lpComment,  
+   LONG      fOptions,  
+   LPCMDOPTS pvOptions  
 );  
 ```  
   
-#### <a name="parameters"></a>Parameters  
+#### 参数  
  pvContext  
- [in] The source control plug-in context structure.  
+ \[\] in源控制插件上下文结构。  
   
  hWnd  
- [in] A handle to the IDE window that the source control plug-in can use as a parent for any dialog boxes that it provides.  
+ \[\] in源代码管理插件可以用作所有对话框，它提供了一个父 IDE 窗口的句柄。  
   
  nFiles  
- [in] Number of files specified in the `lpFileNames` array.  
+ \[\] in中指定的文件数 `lpFileNames` 数组。  
   
  lpFileNames  
- [in] Array of fully qualified local path names of files to be removed.  
+ \[\] in要删除的文件的完全限定的本地路径名称的数组。  
   
  lpComment  
- [in] The comment to be applied to each file being removed.  
+ \[\] in要应用于每个文件被删除的注释。  
   
- fOptions  
- [in] Command flags (unused).  
+ 选项  
+ \[\] in命令的标志 \(未使用\)。  
   
  pvOptions  
- [in] Source control plug-in-specific options.  
+ \[\] in源代码管理插件特定选项。  
   
-## <a name="return-value"></a>Return Value  
- The source control plug-in implementation of this function is expected to return one of the following values:  
+## 返回值  
+ 此函数的源代码控制插件实现应返回下列值之一:  
   
-|Value|Description|  
-|-----------|-----------------|  
-|SCC_OK|Removal was successful.|  
-|SCC_E_FILENOTCONTROLLED|The selected file is not under source control.|  
-|SCC_E_OPNOTSUPPORTED|The source control system does not support this operation.|  
-|SCC_E_ISCHECKEDOUT|Cannot remove a file because a user currently has it checked out.|  
-|SCC_E_ACCESSFAILURE|There was a problem accessing the source control system, probably due to network or contention issues.|  
-|SCC_E_NOTAUTHORIZED|The user is not allowed to perform this operation.|  
-|SCC_E_NONSPECIFICERROR|Nonspecific failure; file was not removed.|  
-|SCC_I_OPERATIONCANCELED|The operation was cancelled before completion.|  
+|值|说明|  
+|-------|--------|  
+|SCC\_OK|删除成功。|  
+|SCC\_E\_FILENOTCONTROLLED|所选的文件不受源代码管理中。|  
+|SCC\_E\_OPNOTSUPPORTED|源代码管理系统不支持此操作。|  
+|SCC\_E\_ISCHECKEDOUT|无法删除文件，因为用户当前已将其签。|  
+|SCC\_E\_ACCESSFAILURE|没有访问源代码管理系统，很可能是由于网络或争用问题时出现问题。|  
+|SCC\_E\_NOTAUTHORIZED|不允许用户执行此操作。|  
+|SCC\_E\_NONSPECIFICERROR|模糊失败;不删除文件。|  
+|SCC\_I\_OPERATIONCANCELED|在完成之前取消了操作。|  
   
-## <a name="remarks"></a>Remarks  
- This function removes the files from the source control system but does not delete them from the user's local hard drive.  
+## 备注  
+ 此函数从源代码管理系统中删除文件，而不会从用户的本地硬盘删除它们。  
   
-## <a name="see-also"></a>See Also  
- [Source Control Plug-in API Functions](../extensibility/source-control-plug-in-api-functions.md)
+## 请参阅  
+ [源代码管理插件 API 功能](../extensibility/source-control-plug-in-api-functions.md)

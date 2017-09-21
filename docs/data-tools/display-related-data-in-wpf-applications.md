@@ -1,79 +1,65 @@
 ---
-title: Display related data in WPF applications | Microsoft Docs
-ms.custom: 
-ms.date: 11/04/2016
-ms.reviewer: 
-ms.suite: 
-ms.tgt_pltfrm: 
-ms.topic: article
-helpviewer_keywords:
-- data [WPF], displaying
-- WPF, data binding in Visual Studio
-- WPF data binding [Visual Studio]
-- displaying data, WPF
-- WPF [WPF], data
-- WPF Designer, data binding
-- data binding, WPF
+title: "如何：在 WPF 应用程序中显示相关数据 | Microsoft Docs"
+ms.custom: ""
+ms.date: "09/21/2016"
+ms.prod: "visual-studio-dev14"
+ms.reviewer: ""
+ms.suite: ""
+ms.tgt_pltfrm: ""
+ms.topic: "article"
+dev_langs: 
+  - "VB"
+  - "CSharp"
+  - "C++"
+  - "aspx"
+helpviewer_keywords: 
+  - "数据 [WPF], 显示"
+  - "数据绑定, WPF"
+  - "显示数据, WPF"
+  - "WPF [WPF], 数据"
+  - "WPF 数据绑定 [Visual Studio]"
+  - "WPF 设计器, 数据绑定"
+  - "WPF, Visual Studio 中的数据绑定"
 ms.assetid: 3aa80194-0191-474d-9d28-5ec05654b426
 caps.latest.revision: 16
-author: gewarren
-ms.author: gewarren
-manager: ghogen
-translation.priority.ht:
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- ru-ru
-- zh-cn
-- zh-tw
-translation.priority.mt:
-- cs-cz
-- pl-pl
-- pt-br
-- tr-tr
-ms.translationtype: HT
-ms.sourcegitcommit: 33a857c2d8585e2e8da9bcd9158190366a3b6830
-ms.openlocfilehash: 034e376e5667611275ee14202ad25586603f4222
-ms.contentlocale: zh-cn
-ms.lasthandoff: 09/07/2017
-
+caps.handback.revision: 13
+author: "mikeblome"
+ms.author: "mblome"
+manager: "ghogen"
 ---
-# <a name="display-related-data-in-wpf-applications"></a>Display related data in WPF applications
-In some applications, you might want to work with data that comes from multiple tables or entities that are related to each other in a parent-child relationship. For example, you might want to display a grid that displays customers from a `Customers` table. When the user selects a specific customer, another grid displays the orders for that customer from a related `Orders` table.  
+# 如何：在 WPF 应用程序中显示相关数据
+在某些应用程序中，您可能需要处理来自多个表或实体（这些表或实体以父子关系相互关联）中的数据。  例如，您可能要显示一个显示来自 `Customers` 表中的客户的网格。  当用户选择某个特定客户时，另一个网格将从一个相关的 `Orders` 表中显示该客户的订单。  
   
- You can create data-bound controls that display related data by dragging items from the **Data Sources** window to the WPF Designer.  
+ 通过将项从**“数据源”**窗口拖到 WPF 设计器中，可以创建显示相关数据的数据绑定控件。  
   
-## <a name="to-create-controls-that-display-related-records"></a>To create controls that display related records  
+### 创建显示相关记录的控件  
   
-1.  On the **Data** menu, click **Show Data Sources** to open the **Data Sources** window.  
+1.  在**“数据”**菜单上单击**“显示数据源”**，打开**“数据源”**窗口。  
   
-2.  Click **Add New Data Source**, and complete the **Data Source Configuration** wizard.  
+2.  单击**“添加新数据源”**并完成**“数据源配置向导”**。  
   
-3.  Open the WPF designer, and make sure that the designer contains a container that is a valid drop target for the items in the **Data Sources** window.  
+3.  打开 WPF 设计器，并确保设计器包含一个作为**“数据源”**窗口中的项的有效放置目标的容器。  
   
-     For more information about valid drop targets, see [Bind WPF controls to data in Visual Studio](../data-tools/bind-wpf-controls-to-data-in-visual-studio.md).  
+     有关有效放置目标的更多信息，请参见[在 Visual Studio 中将 WPF 控件绑定到数据](../data-tools/bind-wpf-controls-to-data-in-visual-studio1.md)。  
   
-4.  In the **Data Sources** window, expand the node that represents the parent table or object in the relationship. The parent table or object is on the "one" side of a one-to-many relationship.  
+4.  在**“数据源”**窗口中，展开表示关系中的父表或父对象的节点。  父表或父对象位于一对多关系中的“一”端。  
   
-5.  Drag the parent node (or any individual items in the parent node) from the **Data Sources** window onto a valid drop target in the designer.  
+5.  将父节点（或父节点中的任何单个项）从**“数据源”**窗口拖到设计器的有效放置目标中。  
   
-     Visual Studio generates XAML that creates new data-bound controls for each item that you drag. The XAML also adds a new <xref:System.Windows.Data.CollectionViewSource> for the parent table or object to the resources of the drop target. For some data sources, Visual Studio also generates code to load the data into the parent table or object. For more information, see [Bind WPF controls to data in Visual Studio](../data-tools/bind-wpf-controls-to-data-in-visual-studio.md).  
+     Visual Studio 会生成 XAML，它将为您拖动的每个项创建一个新的数据绑定控件。  XAML 还会将父表或父对象的新 <xref:System.Windows.Data.CollectionViewSource> 添加到放置目标的资源中。  对于某些数据源，Visual Studio 还会生成代码以将数据加载到父表或父对象中。  有关更多信息，请参见[在 Visual Studio 中将 WPF 控件绑定到数据](../data-tools/bind-wpf-controls-to-data-in-visual-studio1.md)。  
   
-6.  In the **Data Sources** window, locate the related child table or object. Related child tables and objects appear as expandable nodes at the bottom of the parent node's list of data.  
+6.  在**“数据源”**窗口中，找到相关子表或子对象。  相关子表和子对象作为可展开节点显示在父节点的数据列表的底部。  
   
-7.  Drag the child node (or any individual items in the child node) from the **Data Sources** window onto a valid drop target in the designer.  
+7.  将子节点（或子节点中的任何单个项）从**“数据源”**窗口拖到设计器的有效放置目标中。  
   
-     Visual Studio generates XAML that creates new data-bound controls for each of the items you drag. The XAML also adds a new <xref:System.Windows.Data.CollectionViewSource> for the child table or object to the resources of the drop target. This new <xref:System.Windows.Data.CollectionViewSource> is bound to the property of the parent table or object that you just dragged to the designer. For some data sources, Visual Studio also generates code to load the data into the child table or object.  
+     Visual Studio 会生成 XAML，它将为您拖动的每个项创建一个新的数据绑定控件。  XAML 还会将子表或子对象的新 <xref:System.Windows.Data.CollectionViewSource> 添加到放置目标的资源中。  此新的 <xref:System.Windows.Data.CollectionViewSource> 将绑定到您刚刚拖动到设计器中的父表或父对象的属性上。  对于某些数据源，Visual Studio 还会生成代码以将数据加载到子表或子对象中。  
   
-     The following figure demonstrates the related **Orders** table of the **Customers** table in a dataset in the **Data Sources** window.  
+     下图演示了**“数据源”**窗口的数据集中的**“Customers”**表的相关**“Orders”**表。  
   
-     ![Data Sources Window showing relation](../data-tools/media/datasources2.gif "DataSources2")  
+     ![显示关系的数据源窗口](~/data-tools/media/datasources2.gif "DataSources2")  
   
-## <a name="see-also"></a>See Also  
- [Bind WPF controls to data in Visual Studio](../data-tools/bind-wpf-controls-to-data-in-visual-studio.md)   
- [Bind WPF controls to data in Visual Studio](../data-tools/bind-wpf-controls-to-data-in-visual-studio.md)   
- [Create lookup tables in WPF applications](../data-tools/create-lookup-tables-in-wpf-applications.md)   
- [Walkthrough: Displaying Related Data in a WPF Application](../data-tools/display-related-data-in-wpf-applications.md)
+## 请参阅  
+ [在 Visual Studio 中将 WPF 控件绑定到数据](../data-tools/bind-wpf-controls-to-data-in-visual-studio1.md)   
+ [如何：在 Visual Studio 中将 WPF 控件绑定到数据](../data-tools/bind-wpf-controls-to-data-in-visual-studio2.md)   
+ [如何：在 WPF 应用程序中创建查找表](../data-tools/create-lookup-tables-in-wpf-applications.md)   
+ [演练：在 WPF 应用程序中显示相关数据](../data-tools/walkthrough-displaying-related-data-in-a-wpf-application.md)

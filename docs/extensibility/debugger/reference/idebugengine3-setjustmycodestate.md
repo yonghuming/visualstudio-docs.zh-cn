@@ -1,79 +1,62 @@
 ---
-title: IDebugEngine3::SetJustMyCodeState | Microsoft Docs
-ms.custom: 
-ms.date: 11/04/2016
-ms.reviewer: 
-ms.suite: 
-ms.technology:
-- vs-ide-sdk
-ms.tgt_pltfrm: 
-ms.topic: article
-f1_keywords:
-- IDebugEngine3::SetJustMyCodeState
-helpviewer_keywords:
-- IDebugEngine3::SetJustMyCodeState
+title: "IDebugEngine3::SetJustMyCodeState | Microsoft Docs"
+ms.custom: ""
+ms.date: "11/04/2016"
+ms.reviewer: ""
+ms.suite: ""
+ms.technology: 
+  - "vs-ide-sdk"
+ms.tgt_pltfrm: ""
+ms.topic: "article"
+f1_keywords: 
+  - "IDebugEngine3::SetJustMyCodeState"
+helpviewer_keywords: 
+  - "IDebugEngine3::SetJustMyCodeState"
 ms.assetid: 8ec17fbf-df93-424a-b2ed-fd1e5ee51256
 caps.latest.revision: 12
-ms.author: gregvanl
-manager: ghogen
-translation.priority.mt:
-- cs-cz
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pl-pl
-- pt-br
-- ru-ru
-- tr-tr
-- zh-cn
-- zh-tw
-ms.translationtype: MT
-ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
-ms.openlocfilehash: 15559f89279ece438ca3af55c1a9936c0b5c4c06
-ms.contentlocale: zh-cn
-ms.lasthandoff: 08/28/2017
-
+ms.author: "gregvanl"
+manager: "ghogen"
+caps.handback.revision: 12
 ---
-# <a name="idebugengine3setjustmycodestate"></a>IDebugEngine3::SetJustMyCodeState
-This method tells the debug engine about the JustMyCode state information.  
+# IDebugEngine3::SetJustMyCodeState
+[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
+
+此方法通知 JustMyCode 状态信息的调试引擎。  
   
-## <a name="syntax"></a>Syntax  
+## 语法  
   
 ```cpp  
-HRESULT SetJustMyCodeState(  
-   BOOL           fUpdate,  
-   DWORD          dwModules,  
-   JMC_CODE_SPEC* rgJMCSpec  
+HRESULT SetJustMyCodeState(  
+   BOOL           fUpdate,  
+   DWORD          dwModules,  
+   JMC_CODE_SPEC* rgJMCSpec  
 );  
 ```  
   
-```csharp  
+```c#  
 int SetJustMyCodeState(  
-   int             fUpdate,   
-   uint            dwModules,   
-   JMC_CODE_SPEC[] rgJMCSpec  
+   int             fUpdate,   
+   uint            dwModules,   
+   JMC_CODE_SPEC[] rgJMCSpec  
 );  
 ```  
   
-#### <a name="parameters"></a>Parameters  
+#### 参数  
  `fUpdate`  
- [in] Nonzero (`TRUE`) to update current information, zero (`FALSE`) to reset all information (ignoring anything previously set).  
+ \[in\] 非零 \(`TRUE`\) 更新当前信息，零 \(0\)`FALSE`\) 重置所有信息 \(忽略之前设置的任何内容\)。  
   
  `dwModules`  
- [in] Number of information structures in `rgJMCSpec.`  
+ \[in\] 信息结构数。 `rgJMCSpec.`的  
   
  `rgJMCSpec`  
- [in] Array of [JMC_CODE_SPEC](../../../extensibility/debugger/reference/jmc-code-spec.md) structures to use.  
+ \[in\] 某些使用的 [JMC\_CODE\_SPEC](../../../extensibility/debugger/reference/jmc-code-spec.md) 结构。  
   
-## <a name="return-value"></a>Return Value  
- If successful, returns `S_OK`; otherwise, returns error code.  
+## 返回值  
+ 如果成功，则返回; `S_OK`否则，返回错误代码。  
   
-## <a name="remarks"></a>Remarks  
- JustMyCode is the concept of debugging only the code that belongs to a user and ignoring all intermediate code such as system code—even if source code is available for that system code.  
+## 备注  
+ JustMyCode 是调试属于用户并忽略所有中间代码 \(如代码均匀的系统仅的代码的概念，如果源代码对该系统代码可用。  
   
-## <a name="see-also"></a>See Also  
+## 请参阅  
  [IDebugEngine3](../../../extensibility/debugger/reference/idebugengine3.md)   
- [JMC_CODE_SPEC](../../../extensibility/debugger/reference/jmc-code-spec.md)
+ [JMC\_CODE\_SPEC](../../../extensibility/debugger/reference/jmc-code-spec.md)

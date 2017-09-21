@@ -1,68 +1,51 @@
 ---
-title: IDebugComPlusSymbolProvider::IsFunctionStale | Microsoft Docs
-ms.custom: 
-ms.date: 11/04/2016
-ms.reviewer: 
-ms.suite: 
-ms.technology:
-- vs-ide-sdk
-ms.tgt_pltfrm: 
-ms.topic: article
-helpviewer_keywords:
-- IDebugComPlusSymbolProvider::IsFunctionStale
+title: "IDebugComPlusSymbolProvider::IsFunctionStale | Microsoft Docs"
+ms.custom: ""
+ms.date: "11/04/2016"
+ms.reviewer: ""
+ms.suite: ""
+ms.technology: 
+  - "vs-ide-sdk"
+ms.tgt_pltfrm: ""
+ms.topic: "article"
+helpviewer_keywords: 
+  - "IDebugComPlusSymbolProvider::IsFunctionStale"
 ms.assetid: dcffc090-4ed8-47b2-ba51-bce1a6b6428d
 caps.latest.revision: 9
-ms.author: gregvanl
-manager: ghogen
-translation.priority.mt:
-- cs-cz
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pl-pl
-- pt-br
-- ru-ru
-- tr-tr
-- zh-cn
-- zh-tw
-ms.translationtype: MT
-ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
-ms.openlocfilehash: 5c8759806c57aefb6fcca1538cec233fc1c9ca1b
-ms.contentlocale: zh-cn
-ms.lasthandoff: 08/28/2017
-
+ms.author: "gregvanl"
+manager: "ghogen"
+caps.handback.revision: 9
 ---
-# <a name="idebugcomplussymbolproviderisfunctionstale"></a>IDebugComPlusSymbolProvider::IsFunctionStale
-Determines if the function at the specified debug address is considered stale.  
+# IDebugComPlusSymbolProvider::IsFunctionStale
+[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
+
+确定在中指定的函数是否调试地址被视为已过时。  
   
-## <a name="syntax"></a>Syntax  
+## 语法  
   
-```cpp  
+```cpp#  
 HRESULT IsFunctionStale(  
-   IDebugAddress* pAddress  
+   IDebugAddress* pAddress  
 );  
 ```  
   
-```csharp  
+```c#  
 int IsFunctionStale(  
-   IDebugAddress pAddress  
+   IDebugAddress pAddress  
 );  
 ```  
   
-#### <a name="parameters"></a>Parameters  
+#### 参数  
  `pAddress`  
- [in] The debug address that is represented by an [IDebugAddress](../../../extensibility/debugger/reference/idebugaddress.md) interface. This address must be a METHOD_ADDRESS.  
+ \[in\] 由 [IDebugAddress](../../../extensibility/debugger/reference/idebugaddress.md) 接口表示的调试地址。  此地址必须是 METHOD\_ADDRESS。  
   
-## <a name="return-value"></a>Return Value  
- If the function is considered stale, returns `S_OK`. If the function is not stale, returns `S_FALSE`.  
+## 返回值  
+ 如果该函数被视为过时，返回 `S_OK`。  如果函数不是过时，返回 `S_FALSE`。  
   
-## <a name="example"></a>Example  
- The following example shows how to implement this method for a **CDebugSymbolProvider** object that exposes the [IDebugComPlusSymbolProvider](../../../extensibility/debugger/reference/idebugcomplussymbolprovider.md) interface.  
+## 示例  
+ 下面的示例演示如何执行显示 [IDebugComPlusSymbolProvider](../../../extensibility/debugger/reference/idebugcomplussymbolprovider.md) 接口的 **CDebugSymbolProvider** 对象的方法。  
   
-```cpp  
+```cpp#  
 HRESULT CDebugSymbolProvider::IsFunctionStale(  
     IDebugAddress* pAddress  
 )  
@@ -106,5 +89,5 @@ Error:
 }  
 ```  
   
-## <a name="see-also"></a>See Also  
+## 请参阅  
  [IDebugComPlusSymbolProvider](../../../extensibility/debugger/reference/idebugcomplussymbolprovider.md)

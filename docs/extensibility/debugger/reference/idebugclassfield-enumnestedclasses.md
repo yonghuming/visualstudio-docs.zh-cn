@@ -1,70 +1,53 @@
 ---
-title: IDebugClassField::EnumNestedClasses | Microsoft Docs
-ms.custom: 
-ms.date: 11/04/2016
-ms.reviewer: 
-ms.suite: 
-ms.technology:
-- vs-ide-sdk
-ms.tgt_pltfrm: 
-ms.topic: article
-f1_keywords:
-- IDebugClassField::EnumNestedClasses
-helpviewer_keywords:
-- IDebugClassField::EnumNestedClasses method
+title: "IDebugClassField::EnumNestedClasses | Microsoft Docs"
+ms.custom: ""
+ms.date: "11/04/2016"
+ms.reviewer: ""
+ms.suite: ""
+ms.technology: 
+  - "vs-ide-sdk"
+ms.tgt_pltfrm: ""
+ms.topic: "article"
+f1_keywords: 
+  - "IDebugClassField::EnumNestedClasses"
+helpviewer_keywords: 
+  - "IDebugClassField::EnumNestedClasses 方法"
 ms.assetid: 2ba5ef0c-395e-4006-9e3c-9b06e1d711d0
 caps.latest.revision: 9
-ms.author: gregvanl
-manager: ghogen
-translation.priority.mt:
-- cs-cz
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pl-pl
-- pt-br
-- ru-ru
-- tr-tr
-- zh-cn
-- zh-tw
-ms.translationtype: MT
-ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
-ms.openlocfilehash: 756d6783a7990d5ad06ed86dc243cc2c08646f7e
-ms.contentlocale: zh-cn
-ms.lasthandoff: 08/28/2017
-
+ms.author: "gregvanl"
+manager: "ghogen"
+caps.handback.revision: 9
 ---
-# <a name="idebugclassfieldenumnestedclasses"></a>IDebugClassField::EnumNestedClasses
-Creates an enumerator for the classes nested in this class.  
+# IDebugClassField::EnumNestedClasses
+[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
+
+此类创建嵌套类的枚举数。  
   
-## <a name="syntax"></a>Syntax  
+## 语法  
   
-```cpp  
-HRESULT EnumNestedClasses(   
-   IEnumDebugFields** ppEnum  
+```cpp#  
+HRESULT EnumNestedClasses(   
+   IEnumDebugFields** ppEnum  
 );  
 ```  
   
-```csharp  
+```c#  
 int EnumNestedClasses(  
-   out IEnumDebugFields ppEnum  
+   out IEnumDebugFields ppEnum  
 );  
 ```  
   
-#### <a name="parameters"></a>Parameters  
+#### 参数  
  `ppEnum`  
- [out] Returns an [IEnumDebugFields](../../../extensibility/debugger/reference/ienumdebugfields.md) object representing the list of nested classes. Returns a null value if there are no nested classes.  
+ \[out\] 返回表示嵌套类的列表 [IEnumDebugFields](../../../extensibility/debugger/reference/ienumdebugfields.md) 对象。  ; 如果没有嵌套类，则返回 null 值。  
   
-## <a name="return-value"></a>Return Value  
- If successful, returns S_OK or returns S_FALSE if there are no nested classes. Otherwise, returns an error code.  
+## 返回值  
+ 如果成功，则返回 S\_OK 或返回 S\_FALSE，如果没有嵌套类。  否则，返回错误代码。  
   
-## <a name="remarks"></a>Remarks  
- Each element of the enumeration is an [IDebugClassField](../../../extensibility/debugger/reference/idebugclassfield.md) object describing a nested class.  
+## 备注  
+ 枚举的每个元素是一个描述嵌套类的 [IDebugClassField](../../../extensibility/debugger/reference/idebugclassfield.md) 对象。  
   
- A nested class is a class defined inside another class. For example:  
+ 嵌套类是类中定义在其他类中。  例如：  
   
 ```  
 class RootClass {  
@@ -72,8 +55,8 @@ class RootClass {
 };  
 ```  
   
- The [IEnumDebugFields](../../../extensibility/debugger/reference/ienumdebugfields.md) enumeration would contain one object representing the `NestedClass` class.  
+ [IEnumDebugFields](../../../extensibility/debugger/reference/ienumdebugfields.md) 枚举将包含表示 `NestedClass` 类的对象。  
   
-## <a name="see-also"></a>See Also  
+## 请参阅  
  [IDebugClassField](../../../extensibility/debugger/reference/idebugclassfield.md)   
  [IEnumDebugFields](../../../extensibility/debugger/reference/ienumdebugfields.md)

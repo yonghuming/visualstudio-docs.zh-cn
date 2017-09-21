@@ -6,10 +6,10 @@ ms.date: 04/14/2017
 ms.topic: article
 ms.assetid: 6ACF5FD4-D5C1-4050-95E3-467C753F25F1
 ms.translationtype: HT
-ms.sourcegitcommit: f6c7e290f0abc2c32456e076420a7695ae868ba6
-ms.openlocfilehash: 655795fd64958805e0137d7e231391c59f676776
+ms.sourcegitcommit: e2b7ff9126e1cc38ac2e58d6be339b656a024e7f
+ms.openlocfilehash: bccf6e4fdb3983c3fbfd937817b558d4b61a8a44
 ms.contentlocale: zh-cn
-ms.lasthandoff: 09/07/2017
+ms.lasthandoff: 08/11/2017
 
 ---
 
@@ -150,16 +150,16 @@ Xamarin 跨平台功能始终是 Xamarin Studio 的首要功能，但一些 Xama
 
 ### <a name="android"></a>Android 
 
-* [Android SDK 管理器](https://developer.xamarin.com/guides/android/application_fundamentals/using-the-sdk-manager/)  
+* [Android SDK 管理器](https://developer.xamarin.com/guides/android/application_fundamentals/using-the-sdk-manager/)（预览） 
 * 仅 Visual Studio for Mac 支持 Android O，Xamarin Studio 不支持 
 
 ### <a name="ios-and-mac"></a>iOS 和 Mac 
 
 * [iOS 签名工作流更新](https://developer.xamarin.com/guides/cross-platform/macios/apple-account-management/) 
     * 创建签名标识，并将它们安装到本地 Keychain。 
-    * 创建预配配置文件。 
-    * 向现有配置文件添加签名标识。
-    *  预配设备：在 Apple 开发者门户中注册设备，并将它们添加到预配配置文件。
+    * 创建预配配置文件。 **预览**
+    * 向现有配置文件添加签名标识。 **预览**
+    *  预配设备：在 Apple 开发者门户中注册设备，并将它们添加到预配配置文件。 **预览**
 * 仅 Visual Studio for Mac 支持 iOS 11、watchOS 4、和 tvOS 2，Xamarin Studio 不支持 
 * 仅 Visual Studio for Mac 支持 MacOS High Sierra，Xamarin Studio 不支持 
 

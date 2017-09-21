@@ -1,72 +1,55 @@
 ---
-title: IDebugEngine2::DestroyProgram | Microsoft Docs
-ms.custom: 
-ms.date: 11/04/2016
-ms.reviewer: 
-ms.suite: 
-ms.technology:
-- vs-ide-sdk
-ms.tgt_pltfrm: 
-ms.topic: article
-f1_keywords:
-- IDebugEngine2::DestroyProgram
-helpviewer_keywords:
-- IDebugEngine2::DestroyProgram
+title: "IDebugEngine2::DestroyProgram | Microsoft Docs"
+ms.custom: ""
+ms.date: "11/04/2016"
+ms.reviewer: ""
+ms.suite: ""
+ms.technology: 
+  - "vs-ide-sdk"
+ms.tgt_pltfrm: ""
+ms.topic: "article"
+f1_keywords: 
+  - "IDebugEngine2::DestroyProgram"
+helpviewer_keywords: 
+  - "IDebugEngine2::DestroyProgram"
 ms.assetid: 0c9e2698-c70f-4770-a7bb-39650e9c3a1f
 caps.latest.revision: 10
-ms.author: gregvanl
-manager: ghogen
-translation.priority.mt:
-- cs-cz
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pl-pl
-- pt-br
-- ru-ru
-- tr-tr
-- zh-cn
-- zh-tw
-ms.translationtype: MT
-ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
-ms.openlocfilehash: 09019a49385d5f35eb742b57bb2bd2e9382e0c4d
-ms.contentlocale: zh-cn
-ms.lasthandoff: 08/28/2017
-
+ms.author: "gregvanl"
+manager: "ghogen"
+caps.handback.revision: 10
 ---
-# <a name="idebugengine2destroyprogram"></a>IDebugEngine2::DestroyProgram
-Informs a debug engine (DE) that the program specified has been atypically terminated and that the DE should clean up all references to the program and send a program destroy event.  
+# IDebugEngine2::DestroyProgram
+[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
+
+通知一个调试引擎 \(DE\)指定的程序非通常停止了，并且 DE 应清理所有引用。程序并发送程序销毁事件。  
   
-## <a name="syntax"></a>Syntax  
+## 语法  
   
-```cpp  
-HRESULT DestroyProgram(   
-   IDebugProgram2* pProgram  
+```cpp#  
+HRESULT DestroyProgram(   
+   IDebugProgram2* pProgram  
 );  
 ```  
   
-```cpp  
-int DestroyProgram(   
-   IDebugProgram2 pProgram  
+```cpp#  
+int DestroyProgram(   
+   IDebugProgram2 pProgram  
 );  
 ```  
   
-#### <a name="parameters"></a>Parameters  
+#### 参数  
  `pProgram`  
- [in] An [IDebugProgram2](../../../extensibility/debugger/reference/idebugprogram2.md) object that represents the program that has been atypically terminated.  
+ \[in\] 表示程序非通常停止的 [IDebugProgram2](../../../extensibility/debugger/reference/idebugprogram2.md) 对象。  
   
-## <a name="return-value"></a>Return Value  
- If successful, returns `S_OK`; otherwise, returns an error code.  
+## 返回值  
+ 如果成功，则返回; `S_OK`否则，返回错误代码。  
   
-## <a name="remarks"></a>Remarks  
- After this method is called, the DE subsequently sends an [IDebugProgramDestroyEvent2](../../../extensibility/debugger/reference/idebugprogramdestroyevent2.md) event back to the session debug manager (SDM).  
+## 备注  
+ 在调用方法之后， DE 随后将一个 [IDebugProgramDestroyEvent2](../../../extensibility/debugger/reference/idebugprogramdestroyevent2.md) 事件为会话调试管理器 \(SDM\)。  
   
- This method is not implemented (returns `E_NOTIMPL`) if the DE runs in the same process as the program being debugged. This method is implemented only if the DE runs in the same process as the SDM.  
+ 此方法不执行 \(返回 `E_NOTIMPL`\)，如果 DE 运行在同一进程，当正在调试的程序。  ，仅当、运行在同一进程作为 SDM，此方法执行。  
   
-## <a name="see-also"></a>See Also  
+## 请参阅  
  [IDebugEngine2](../../../extensibility/debugger/reference/idebugengine2.md)   
  [IDebugProgramDestroyEvent2](../../../extensibility/debugger/reference/idebugprogramdestroyevent2.md)   
  [IDebugProgram2](../../../extensibility/debugger/reference/idebugprogram2.md)

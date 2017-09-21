@@ -1,99 +1,82 @@
 ---
-title: FIELD_INFO_FIELDS | Microsoft Docs
-ms.custom: 
-ms.date: 11/04/2016
-ms.reviewer: 
-ms.suite: 
-ms.technology:
-- vs-ide-sdk
-ms.tgt_pltfrm: 
-ms.topic: article
-f1_keywords:
-- FIELD_INFO_FIELDS
-helpviewer_keywords:
-- FIELD_INFO_FIELDS enumeration
+title: "FIELD_INFO_FIELDS | Microsoft Docs"
+ms.custom: ""
+ms.date: "11/04/2016"
+ms.reviewer: ""
+ms.suite: ""
+ms.technology: 
+  - "vs-ide-sdk"
+ms.tgt_pltfrm: ""
+ms.topic: "article"
+f1_keywords: 
+  - "FIELD_INFO_FIELDS"
+helpviewer_keywords: 
+  - "FIELD_INFO_FIELDS 枚举"
 ms.assetid: a69487d2-e701-4165-804a-8a011df9a3bd
 caps.latest.revision: 14
-ms.author: gregvanl
-manager: ghogen
-translation.priority.mt:
-- cs-cz
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pl-pl
-- pt-br
-- ru-ru
-- tr-tr
-- zh-cn
-- zh-tw
-ms.translationtype: MT
-ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
-ms.openlocfilehash: efb41f7bffeaa652c51af5623d4b38a8d826d2bf
-ms.contentlocale: zh-cn
-ms.lasthandoff: 08/28/2017
-
+ms.author: "gregvanl"
+manager: "ghogen"
+caps.handback.revision: 14
 ---
-# <a name="fieldinfofields"></a>FIELD_INFO_FIELDS
-Specifies what information to retrieve about an [IDebugField](../../../extensibility/debugger/reference/idebugfield.md) object.  
+# FIELD_INFO_FIELDS
+[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
+
+指定检索的信息有关 [IDebugField](../../../extensibility/debugger/reference/idebugfield.md) 对象。  
   
-## <a name="syntax"></a>Syntax  
+## 语法  
   
-```cpp  
-enum enum_FIELD_INFO_FIELDS {   
-   FIF_FULLNAME  = 0x0001,  
-   FIF_NAME      = 0x0002,  
-   FIF_TYPE      = 0x0004,  
-   FIF_MODIFIERS = 0x0008,  
-   FIF_ALL       = 0xffffffff,  
-   FIF_NONE      = 0x0000  
+```cpp#  
+enum enum_FIELD_INFO_FIELDS {   
+   FIF_FULLNAME  = 0x0001,  
+   FIF_NAME      = 0x0002,  
+   FIF_TYPE      = 0x0004,  
+   FIF_MODIFIERS = 0x0008,  
+   FIF_ALL       = 0xffffffff,  
+   FIF_NONE      = 0x0000  
 };  
 typedef DWORD FIELD_INFO_FIELDS;  
 ```  
   
-```csharp  
+```c#  
 public enum enum_FIELD_INFO_FIELDS {  
-   FIF_FULLNAME  = 0x0001,  
-   FIF_NAME      = 0x0002,  
-   FIF_TYPE      = 0x0004,  
-   FIF_MODIFIERS = 0x0008,  
-   FIF_ALL       = 0xffffffff,  
-   FIF_NONE      = 0x0000  
+   FIF_FULLNAME  = 0x0001,  
+   FIF_NAME      = 0x0002,  
+   FIF_TYPE      = 0x0004,  
+   FIF_MODIFIERS = 0x0008,  
+   FIF_ALL       = 0xffffffff,  
+   FIF_NONE      = 0x0000  
 };  
 ```  
   
-## <a name="members"></a>Members  
- FIF_FULLNAME  
- Initialize/use the `bstrFullName` field in the [FIELD_INFO](../../../extensibility/debugger/reference/field-info.md) structure.  
+## 成员  
+ FIF\_FULLNAME  
+ 初始化\/使用在 [FIELD\_INFO](../../../extensibility/debugger/reference/field-info.md) 结构的 `bstrFullName` 字段。  
   
- FIF_NAME  
- Initialize/use the `bstrName` field in the `FIELD_INFO` structure.  
+ FIF\_NAME  
+ 初始化\/使用在 `FIELD_INFO` 结构的 `bstrName` 字段。  
   
- FIF_TYPE  
- Initialize/use the `bstrType` field in the `FIELD_INFO` structure.  
+ FIF\_TYPE  
+ 初始化\/使用在 `FIELD_INFO` 结构的 `bstrType` 字段。  
   
- FIF_MODIFIERS  
- Initialize/use the `bstrModifiers` field in the `FIELD_INFO` structure.  
+ FIF\_MODIFIERS  
+ 初始化\/使用在 `FIELD_INFO` 结构的 `bstrModifiers` 字段。  
   
-## <a name="remarks"></a>Remarks  
- These values are also passed as an argument to the [GetInfo](../../../extensibility/debugger/reference/idebugfield-getinfo.md) method to specify which fields of the [FIELD_INFO](../../../extensibility/debugger/reference/field-info.md) structure are to be initialized.  
+## 备注  
+ 这些值还通过，因为参数。 [GetInfo](../../../extensibility/debugger/reference/idebugfield-getinfo.md) 方法指定 [FIELD\_INFO](../../../extensibility/debugger/reference/field-info.md) 结构的哪些字段进行初始化。  
   
- These values are also used in the `dwFields` member of the `FIELD_INFO` structure to indicate which fields are used and valid.  
+ 这些值也用于 `FIELD_INFO` 结构的 `dwFields` 成员指示哪些字段是使用和有效。  
   
- These flags may be combined with a bitwise `OR`.  
+ 这些标志可以按位组合使用 `OR`。  
   
-## <a name="requirements"></a>Requirements  
- Header: sh.h  
+## 要求  
+ 标题:sh.h  
   
- Namespace: Microsoft.VisualStudio.Debugger.Interop  
+ 命名空间:Microsoft.VisualStudio.Debugger.Interop  
   
- Assembly: Microsoft.VisualStudio.Debugger.Interop.dll  
+ 程序集:Microsoft.VisualStudio.Debugger.Interop.dll  
   
-## <a name="see-also"></a>See Also  
- [Enumerations](../../../extensibility/debugger/reference/enumerations-visual-studio-debugging.md)   
- [FIELD_INFO](../../../extensibility/debugger/reference/field-info.md)   
+## 请参阅  
+ [枚举](../../../extensibility/debugger/reference/enumerations-visual-studio-debugging.md)   
+ [FIELD\_INFO](../../../extensibility/debugger/reference/field-info.md)   
  [IDebugField](../../../extensibility/debugger/reference/idebugfield.md)   
  [GetInfo](../../../extensibility/debugger/reference/idebugfield-getinfo.md)

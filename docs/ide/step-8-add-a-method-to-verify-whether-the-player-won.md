@@ -1,61 +1,46 @@
 ---
-title: 'Step 8: Add a Method to Verify Whether the Player Won | Microsoft Docs'
-ms.custom: 
-ms.date: 11/04/2016
-ms.reviewer: 
-ms.suite: 
-ms.technology:
-- vs-ide-general
-ms.tgt_pltfrm: 
-ms.topic: article
+title: "步骤 8：添加方法以验证玩家是否获胜 | Microsoft Docs"
+ms.custom: ""
+ms.date: "11/04/2016"
+ms.reviewer: ""
+ms.suite: ""
+ms.technology: 
+  - "vs-ide-general"
+ms.tgt_pltfrm: ""
+ms.topic: "article"
 ms.assetid: 6e317f6e-ba4c-4306-8924-300b0c2f65c6
 caps.latest.revision: 17
-author: kempb
-ms.author: kempb
-manager: ghogen
-translation.priority.ht:
-- cs-cz
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pl-pl
-- pt-br
-- ru-ru
-- tr-tr
-- zh-cn
-- zh-tw
-ms.translationtype: HT
-ms.sourcegitcommit: eb5c9550fd29b0e98bf63a7240737da4f13f3249
-ms.openlocfilehash: ae7a07c3ecf77764907a58e8c5f87a73b22df80b
-ms.contentlocale: zh-cn
-ms.lasthandoff: 08/30/2017
-
+author: "kempb"
+ms.author: "kempb"
+manager: "ghogen"
+caps.handback.revision: 17
 ---
-# <a name="step-8-add-a-method-to-verify-whether-the-player-won"></a>Step 8: Add a Method to Verify Whether the Player Won
-You've created a fun game, but it needs an additional item to finish it. The game should end when the player wins, so you need to add a `CheckForWinner()` method to verify whether the player won.  
+# 步骤 8：添加方法以验证玩家是否获胜
+[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
+
+你已创建了一个有趣的游戏，但需要添加其他项来完成制作。  该游戏应当在玩家获胜时结束，因此你需要添加 `CheckForWinner()` 方法以验证玩家是否获胜。  
   
-### <a name="to-add-a-method-to-verify-whether-the-player-won"></a>To add a method to verify whether the player won  
+### 添加方法以验证玩家是否获胜  
   
-1.  Add a `CheckForWinner()` method to the bottom of your code, below the `timer1_Tick()` event handler, as shown in the following code.  
+1.  在你的代码底部，`CheckForWinner()` 事件处理程序下方添加一个 `timer1_Tick()` 方法，如以下代码所示。  
   
-     [!code-csharp[VbExpressTutorial4Step8#10](../ide/codesnippet/CSharp/step-8-add-a-method-to-verify-whether-the-player-won_1.cs)]  [!code-vb[VbExpressTutorial4Step8#10](../ide/codesnippet/VisualBasic/step-8-add-a-method-to-verify-whether-the-player-won_1.vb)]  
+     [!code-cs[VbExpressTutorial4Step8#10](../ide/codesnippet/CSharp/step-8-add-a-method-to-verify-whether-the-player-won_1.cs)]
+     [!code-vb[VbExpressTutorial4Step8#10](../ide/codesnippet/VisualBasic/step-8-add-a-method-to-verify-whether-the-player-won_1.vb)]  
   
-     The method uses another `foreach` loop in Visual C# or `For Each` loop in Visual Basic to go through each label in the TableLayoutPanel. It uses the equality operator (`==` in Visual C# and `=` in Visual Basic) to check each label's icon color to verify whether it matches the background. If the colors match, the icon remains invisible, and the player hasn't matched all of the icons remaining. In that case, the program uses a `return` statement to skip the rest of the method. If the loop gets through all of the labels without executing the `return` statement, that means that all of the icons on the form were matched. The program shows a MessageBox to congratulate the player on winning, and then calls the form's `Close()` method to end the game.  
+     该方法使用 `foreach` 循环（Visual C\# 中）或 `For Each` 循环（Visual Basic 中）遍历 TableLayoutPanel 中的每个标签。  它使用相等运算符（在 Visual C\# 中为 `==`，在 Visual Basic 中为 `=`）检查每个标签的图标颜色以验证它是否与背景匹配。  如果颜色匹配，图标将保持不可见，玩家还没有匹配所有剩余的图标。  在这种情况下，程序使用 `return` 语句跳过其余方法。  如果循环遍历所有标签而不执行 `return` 语句，则意味着窗体上的所有图标均已匹配。  该程序将显示一个恭喜玩家获胜的 MessageBox，然后调用窗体的 `Close()` 方法来结束游戏。  
   
-2.  Next, have the label's Click event handler call the new `CheckForWinner()` method. Be sure that your program checks for a winner immediately after it shows the second icon that the player chooses. Look for the line where you set the second chosen icon's color, and then call the `CheckForWinner()` method right after that, as shown in the following code.  
+2.  接下来，让标签的 Click 事件处理程序调用新的 `CheckForWinner()` 方法。  请确保程序在显示玩家选择的第二个图标后立即检查是否有赢家。  查找设置第二个选中图标颜色的行，然后在其后直接调用 `CheckForWinner()` 方法，如以下代码所示。  
   
-     [!code-csharp[VbExpressTutorial4Step8#11](../ide/codesnippet/CSharp/step-8-add-a-method-to-verify-whether-the-player-won_2.cs)]  [!code-vb[VbExpressTutorial4Step8#11](../ide/codesnippet/VisualBasic/step-8-add-a-method-to-verify-whether-the-player-won_2.vb)]  
+     [!code-cs[VbExpressTutorial4Step8#11](../ide/codesnippet/CSharp/step-8-add-a-method-to-verify-whether-the-player-won_2.cs)]
+     [!code-vb[VbExpressTutorial4Step8#11](../ide/codesnippet/VisualBasic/step-8-add-a-method-to-verify-whether-the-player-won_2.vb)]  
   
-3.  Save and run the program. Play the game and match all of the icons. When you win, the program displays a congratulatory MessageBox (as shown in the following picture), and then closes the box.  
+3.  保存并运行程序。  玩游戏并匹配所有图标。  当你获胜时，该程序将显示一个祝贺性的 MessageBox（如下图所示），然后关闭该框。  
   
-     ![Matching game with MessageBox](../ide/media/express_tut4step8.png "Express_Tut4Step8")  
-Matching game with MessageBox  
+     ![具有 MessageBox 的匹配游戏](../ide/media/express_tut4step8.png "Express\_Tut4Step8")  
+具有 MessageBox 的匹配游戏  
   
-### <a name="to-continue-or-review"></a>To continue or review  
+### 继续或查看  
   
--   To go to the next tutorial step, see [Step 9: Try Other Features](../ide/step-9-try-other-features.md).  
+-   若要转到下一个教程步骤，请参阅[步骤 9：尝试其他功能](../ide/step-9-try-other-features.md)。  
   
--   To return to the previous tutorial step, see [Step 7: Keep Pairs Visible](../ide/step-7-keep-pairs-visible.md).
+-   若要返回上一个教程步骤，请参阅[步骤 7：保持对可见](../Topic/Step%207:%20Keep%20Pairs%20Visible.md)。

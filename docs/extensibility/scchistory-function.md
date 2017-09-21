@@ -1,99 +1,82 @@
 ---
-title: SccHistory Function | Microsoft Docs
-ms.custom: 
-ms.date: 11/04/2016
-ms.reviewer: 
-ms.suite: 
-ms.technology:
-- vs-ide-sdk
-ms.tgt_pltfrm: 
-ms.topic: article
-f1_keywords:
-- SccHistory
-helpviewer_keywords:
-- SccHistory function
+title: "SccHistory 函数 | Microsoft Docs"
+ms.custom: ""
+ms.date: "11/04/2016"
+ms.reviewer: ""
+ms.suite: ""
+ms.technology: 
+  - "vs-ide-sdk"
+ms.tgt_pltfrm: ""
+ms.topic: "article"
+f1_keywords: 
+  - "SccHistory"
+helpviewer_keywords: 
+  - "SccHistory 函数"
 ms.assetid: a636d9d3-47c1-4b48-ac6b-bcfde19d6cf9
 caps.latest.revision: 16
-ms.author: gregvanl
-manager: ghogen
-translation.priority.mt:
-- cs-cz
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pl-pl
-- pt-br
-- ru-ru
-- tr-tr
-- zh-cn
-- zh-tw
-ms.translationtype: MT
-ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
-ms.openlocfilehash: 0efb8505fa59957f8178214d64c7ac0d979a3359
-ms.contentlocale: zh-cn
-ms.lasthandoff: 08/28/2017
-
+ms.author: "gregvanl"
+manager: "ghogen"
+caps.handback.revision: 16
 ---
-# <a name="scchistory-function"></a>SccHistory Function
-This function displays the history of the specified files.  
+# SccHistory 函数
+[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
+
+此函数将显示指定的文件的历史记录。  
   
-## <a name="syntax"></a>Syntax  
+## 语法  
   
-```cpp  
+```cpp#  
 SCCRTN SccHistory(  
-   LPVOID    pvContext,  
-   HWND      hWnd,  
-   LONG      nFiles,  
-   LPCSTR*   lpFileNames,  
-   LONG      fOptions,  
-   LPCMDOPTS pvOptions  
+   LPVOID    pvContext,  
+   HWND      hWnd,  
+   LONG      nFiles,  
+   LPCSTR*   lpFileNames,  
+   LONG      fOptions,  
+   LPCMDOPTS pvOptions  
 );  
 ```  
   
-#### <a name="parameters"></a>Parameters  
+#### 参数  
  `pvContext`  
- [in] The source control plug-in context structure.  
+ \[\] in源控制插件上下文结构。  
   
  `hWnd`  
- [in] A handle to the IDE window that the source control plug-in can use as a parent for any dialog boxes that it provides.  
+ \[\] in源代码管理插件可以用作所有对话框，它提供了一个父 IDE 窗口的句柄。  
   
  `nFiles`  
- [in] Number of files specified in the `lpFileName` array.  
+ \[\] in中指定的文件数 `lpFileName` 数组。  
   
  `lpFileName`  
- [in] Array of fully qualified names of files.  
+ \[\] in文件的完全限定名称的数组。  
   
  `fOptions`  
- [in] Command flags (currently not used).  
+ \[\] in\(当前未使用\) 的命令标志。  
   
  `pvOptions`  
- [in] Source control plug-in-specific options.  
+ \[\] in源代码管理插件特定选项。  
   
-## <a name="return-value"></a>Return Value  
- The source control plug-in implementation of this function is expected to return one of the following values:  
+## 返回值  
+ 此函数的源代码控制插件实现应返回下列值之一:  
   
-|Value|Description|  
-|-----------|-----------------|  
-|SCC_OK|Version history was successfully obtained.|  
-|SCC_I_RELOADFILE|The source control system actually modified the file on disk while fetching the history (for instance, by getting an old version of it), so the IDE should reload this file.|  
-|SCC_E_FILENOTCONTROLLED|The file is not under source control.|  
-|SCC_E_OPNOTSUPPORTED|The source control system does not support this operation.|  
-|SCC_E_NOTAUTHORIZED|The user is not allowed to perform this operation.|  
-|SCC_E_ACCESSFAILURE|There was a problem accessing the source control system, probably due to network or contention issues. A retry is recommended.|  
-|SCC_E_PROJNOTOPEN|The project is has not been opened.|  
-|SCC_E_NONSPECIFICERROR|Nonspecific failure. File history could not be obtained.|  
+|值|描述|  
+|-------|--------|  
+|SCC\_OK|成功获取版本历史记录。|  
+|SCC\_I\_RELOADFILE|源代码管理系统实际上在情况下修改磁盘上的文件提取历史记录 \(例如，通过获取的旧版本\)，因此 IDE 应重新加载此文件。|  
+|SCC\_E\_FILENOTCONTROLLED|文件不是源代码管理下。|  
+|SCC\_E\_OPNOTSUPPORTED|源代码管理系统不支持此操作。|  
+|SCC\_E\_NOTAUTHORIZED|不允许用户执行此操作。|  
+|SCC\_E\_ACCESSFAILURE|没有访问源代码管理系统，很可能是由于网络或争用问题时出现问题。 建议重试。|  
+|SCC\_E\_PROJNOTOPEN|该项目是已打开。|  
+|SCC\_E\_NONSPECIFICERROR|非特定故障。 无法获得文件历史记录。|  
   
-## <a name="remarks"></a>Remarks  
- The source control plug-in can display its own dialog box to show the history of each file, using `hWnd` as the parent window. Alternatively, the optional text output callback function supplied to the [SccOpenProject](../extensibility/sccopenproject-function.md) can be used, if it is supported.  
+## 备注  
+ 源代码管理插件可以显示其自己的对话框来显示每个文件的历史记录使用 `hWnd` 作为父窗口。 或者，可选的文本输出回调函数提供给 [SccOpenProject](../extensibility/sccopenproject-function.md) 可用，如果它受支持。  
   
- Note that under certain circumstances, the file being examined may change during the execution of this call. For example, the [!INCLUDE[vsvss](../extensibility/includes/vsvss_md.md)] history command gives the user a chance to get an old version of the file. In such a case, the source control plug-in returns `SCC_I_RELOAD` to warn the IDE that it needs to reload the file.  
+ 请注意，在某些情况下，此调用的执行期间可能会更改所检查的文件。 例如， [!INCLUDE[vsvss](../extensibility/includes/vsvss_md.md)] history 命令使用户有机会以获取文件的旧版本。 在这种情况下，源代码管理插件返回 `SCC_I_RELOAD` 警告 IDE，需要重新加载该文件。  
   
 > [!NOTE]
->  If the source control plug-in does not support this function for an array of files, only the file history for the first file can be displayed.  
+>  如果源代码管理插件不支持此函数对于一组文件，可以显示仅的文件历史记录的第一个文件。  
   
-## <a name="see-also"></a>See Also  
- [Source Control Plug-in API Functions](../extensibility/source-control-plug-in-api-functions.md)   
+## 请参阅  
+ [源代码管理插件 API 功能](../extensibility/source-control-plug-in-api-functions.md)   
  [SccOpenProject](../extensibility/sccopenproject-function.md)

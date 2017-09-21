@@ -1,104 +1,87 @@
 ---
-title: DEBUG_ADDRESS | Microsoft Docs
-ms.custom: 
-ms.date: 11/04/2016
-ms.reviewer: 
-ms.suite: 
-ms.technology:
-- vs-ide-sdk
-ms.tgt_pltfrm: 
-ms.topic: article
-f1_keywords:
-- DEBUG_ADDRESS
-helpviewer_keywords:
-- DEBUG_ADDRESS structure
+title: "DEBUG_ADDRESS | Microsoft Docs"
+ms.custom: ""
+ms.date: "11/04/2016"
+ms.reviewer: ""
+ms.suite: ""
+ms.technology: 
+  - "vs-ide-sdk"
+ms.tgt_pltfrm: ""
+ms.topic: "article"
+f1_keywords: 
+  - "DEBUG_ADDRESS"
+helpviewer_keywords: 
+  - "DEBUG_ADDRESS 结构"
 ms.assetid: 79f5e765-9aac-4b6e-82ef-bed88095e9ba
 caps.latest.revision: 10
-ms.author: gregvanl
-manager: ghogen
-translation.priority.mt:
-- cs-cz
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pl-pl
-- pt-br
-- ru-ru
-- tr-tr
-- zh-cn
-- zh-tw
-ms.translationtype: MT
-ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
-ms.openlocfilehash: aa37858e7fc9c05a9ba86570a2df5891600399d9
-ms.contentlocale: zh-cn
-ms.lasthandoff: 08/28/2017
-
+ms.author: "gregvanl"
+manager: "ghogen"
+caps.handback.revision: 10
 ---
-# <a name="debugaddress"></a>DEBUG_ADDRESS
-This structure represents an address.  
+# DEBUG_ADDRESS
+[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
+
+此结构表示地址。  
   
-## <a name="syntax"></a>Syntax  
+## 语法  
   
 ```cpp  
 typedef struct _tagDEBUG_ADDRESS {  
-   ULONG32             ulAppDomainID;  
-   GUID                guidModule;  
-   _mdToken            tokClass;  
-   DEBUG_ADDRESS_UNION addr;  
+   ULONG32             ulAppDomainID;  
+   GUID                guidModule;  
+   _mdToken            tokClass;  
+   DEBUG_ADDRESS_UNION addr;  
 } DEBUG_ADDRESS;  
 ```  
   
-```csharp  
+```c#  
 public struct DEBUG_ADDRESS {  
-   public uint                ulAppDomainID;  
-   public Guid                guidModule;  
-   public int                 tokClass;  
-   public DEBUG_ADDRESS_UNION addr;  
+   public uint                ulAppDomainID;  
+   public Guid                guidModule;  
+   public int                 tokClass;  
+   public DEBUG_ADDRESS_UNION addr;  
 }  
 ```  
   
-## <a name="terms"></a>Terms  
+## 术语  
  ulAppDomainID  
- The process ID.  
+ 进程 ID.  
   
  guidModule  
- The GUID of the module that contains this address.  
+ 包含此地址模块的 GUID。  
   
  tokClass  
- The token identifying the class or type of this address.  
+ 标识此地址的类或类型标记。  
   
 > [!NOTE]
->  This value is specific to a symbol provider and therefore has no general meaning other than as an identifier for a class type.  
+>  除了为类类型的，一个标识符。此值是特定于符号提供程序并没有一般意义。  
   
- addr  
- A [DEBUG_ADDRESS_UNION](../../../extensibility/debugger/reference/debug-address-union.md) structure, which contains a union of structures that describe the individual address types. The value `addr`.`dwKind` comes from the [ADDRESS_KIND](../../../extensibility/debugger/reference/address-kind.md) enumeration, which explains how to interpret the union.  
+ 地址  
+ [DEBUG\_ADDRESS\_UNION](../../../extensibility/debugger/reference/debug-address-union.md) 结构，结构包含联合描述各个地址类型。  值 `addr`。`dwKind` 来自 [ADDRESS\_KIND](../../../extensibility/debugger/reference/address-kind.md) 枚举，说明如何解释联合。  
   
-## <a name="remarks"></a>Remarks  
- This structure is passed to the [GetAddress](../../../extensibility/debugger/reference/idebugaddress-getaddress.md) method to be filled in.  
+## 备注  
+ 此结构传递给将填充的 [GetAddress](../../../extensibility/debugger/reference/idebugaddress-getaddress.md) 方法。  
   
- **Warning [C++ only]**  
+ **警告 \[只有 C\+\+\]**  
   
- If `addr.dwKind` is `ADDRESS_KIND_METADATA_LOCAL` and if `addr.addr.addrLocal.pLocal` is not a null value, then you must call `Release` on the token pointer:  
+ 如果 `addr.dwKind` 是 `ADDRESS_KIND_METADATA_LOCAL` ，并且，如果 `addr.addr.addrLocal.pLocal` 不是 null 值，则必须对标记指针的 `Release` :  
   
 ```  
 if (addr.dwKind == ADDRESS_KIND_METADATA_LOCAL &&  addr.addr.addrLocal.pLocal != NULL)  
 {  
-    addr.addr.addrLocal.pLocal->Release();  
+    addr.addr.addrLocal.pLocal->Release();  
 }  
 ```  
   
-## <a name="requirements"></a>Requirements  
- Header: sh.h  
+## 要求  
+ 标题:sh.h  
   
- Namespace: Microsoft.VisualStudio.Debugger.Interop  
+ 命名空间:Microsoft.VisualStudio.Debugger.Interop  
   
- Assembly: Microsoft.VisualStudio.Debugger.Interop.dll  
+ 程序集:Microsoft.VisualStudio.Debugger.Interop.dll  
   
-## <a name="see-also"></a>See Also  
- [Structures and Unions](../../../extensibility/debugger/reference/structures-and-unions.md)   
+## 请参阅  
+ [结构和联合](../../../extensibility/debugger/reference/structures-and-unions.md)   
  [GetAddress](../../../extensibility/debugger/reference/idebugaddress-getaddress.md)   
- [DEBUG_ADDRESS_UNION](../../../extensibility/debugger/reference/debug-address-union.md)   
- [ADDRESS_KIND](../../../extensibility/debugger/reference/address-kind.md)
+ [DEBUG\_ADDRESS\_UNION](../../../extensibility/debugger/reference/debug-address-union.md)   
+ [ADDRESS\_KIND](../../../extensibility/debugger/reference/address-kind.md)

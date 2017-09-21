@@ -1,328 +1,314 @@
 ---
-title: 'Walkthrough: Debugging a Parallel Application | Microsoft Docs'
-ms.custom: H1HackMay2017
-ms.date: 05/18/2017
-ms.reviewer: 
-ms.suite: 
-ms.technology:
-- vs-ide-debug
-ms.tgt_pltfrm: 
-ms.topic: article
-dev_langs:
-- CSharp
-- VB
-- FSharp
-- C++
-helpviewer_keywords:
-- debugger, parallel tasks walkthrough
-- parallel stacks toolwindow
-- parallel tasks toolwindow
-- parallel applications, debugging [C++]
-- debugging, parallel applications
-- parallel applications, debugging [Visual Basic]
-- parallel applications, debugging [C#]
+title: "演练：调试并行应用程序 | Microsoft Docs"
+ms.custom: ""
+ms.date: "12/15/2016"
+ms.prod: "visual-studio-dev14"
+ms.reviewer: ""
+ms.suite: ""
+ms.technology: 
+  - "vs-ide-debug"
+ms.tgt_pltfrm: ""
+ms.topic: "article"
+dev_langs: 
+  - "FSharp"
+  - "VB"
+  - "CSharp"
+  - "C++"
+helpviewer_keywords: 
+  - "调试器, 并行任务演练"
+  - "调试, 并行应用程序"
+  - "并行应用程序, 调试 [C#]"
+  - "并行应用程序, 调试 [C++]"
+  - "并行应用程序, 调试 [Visual Basic]"
+  - "“并行堆栈”工具窗口"
+  - "“并行任务”工具窗口"
 ms.assetid: 2820ac4c-c893-4d87-8c62-83981d561493
 caps.latest.revision: 28
-author: mikejo5000
-ms.author: mikejo
-manager: ghogen
-translation.priority.ht:
-- cs-cz
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pl-pl
-- pt-br
-- ru-ru
-- tr-tr
-- zh-cn
-- zh-tw
-ms.translationtype: HT
-ms.sourcegitcommit: eb5c9550fd29b0e98bf63a7240737da4f13f3249
-ms.openlocfilehash: 70301ddf35e675d2d187346f4c0e77f034576c14
-ms.contentlocale: zh-cn
-ms.lasthandoff: 08/30/2017
-
+caps.handback.revision: 28
+author: "mikejo5000"
+ms.author: "mikejo"
+manager: "ghogen"
 ---
-# <a name="walkthrough-debugging-a-parallel-application-in-visual-studio"></a>Walkthrough: Debugging a Parallel Application in Visual Studio
-This walkthrough shows how to use the **Parallel Tasks** and **Parallel Stacks** windows to debug a parallel application. These windows help you understand and verify the runtime behavior of code that uses the [Task Parallel Library (TPL)](/dotnet/standard/parallel-programming/task-parallel-library-tpl) or the [Concurrency Runtime](/cpp/parallel/concrt/concurrency-runtime). This walkthrough provides sample code that has built-in breakpoints. After the code breaks, the walkthrough shows how to use the **Parallel Tasks** and **Parallel Stacks** windows to examine it.  
+# 演练：调试并行应用程序
+[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
+
+本演练演示如何使用**“并行任务”**和**“并行堆栈”**窗口调试并行应用程序。  这些窗口有助于您了解和验证使用[Task Parallel Library \(TPL\)](../Topic/Task%20Parallel%20Library%20\(TPL\).md)和[并发运行时](/visual-cpp/parallel/concrt/concurrency-runtime)的代码的运行时行为。  本演练提供了具有内置断点的代码示例。  本演练演示如何在代码中断后使用**“并行任务”**和**“并行堆栈”**窗口检查代码。  
   
- This walkthrough teaches these tasks:  
+ 本演练介绍了以下任务：  
   
--   How to view the call stacks of all threads in one view.  
+-   如何在一个视图中查看所有线程的调用堆栈。  
   
--   How to view the list of `System.Threading.Tasks.Task` instances that are created in your application.  
+-   如何查看在应用程序中创建的 `System.Threading.Tasks.Task` 实例的列表。  
   
--   How to view the real call stacks of tasks instead of threads.  
+-   如何查看任务（而不是线程）的实际调用堆栈。  
   
--   How to navigate to code from the **Parallel Tasks** and **Parallel Stacks** windows.  
+-   如何从**“并行任务”**和**“并行堆栈”**窗口定位到代码。  
   
--   How the windows cope with scale through grouping, zooming, and other related features.  
+-   窗口如何通过分组、缩放和其他相关功能来处理缩放。  
   
-## <a name="prerequisites"></a>Prerequisites  
- This walkthrough assumes that **Just My Code** is enabled (it is enabled by default in more recent versions of Visual Studio). On the **Tools** menu, click **Options**, expand the **Debugging** node, select **General**, and then select **Enable Just My Code (Managed only)**. If you do not set this feature, you can still use this walkthrough, but your results may differ from the illustrations.  
+## 系统必备  
+ 本演练假定已启用**“仅我的代码”**。  在**“工具”**菜单上，单击**“选项”**，展开**“调试”**节点，选择**“常规”**，然后选择**“启用‘仅我的代码’\(仅限托管\)”**。  如果未设置此功能，您仍可以使用本演练，但结果可能会与以下各图不同。  
   
-## <a name="c-sample"></a>C# Sample  
- If you use the C# sample, this walkthrough also assumes that External Code is hidden. To toggle whether external code is displayed, right-click the **Name** table header of the **Call Stack** window, and then select or clear **Show External Code**. If you do not set this feature, you can still use this walkthrough, but your results may differ from the illustrations.  
+## C\# 示例  
+ 如果使用 C\# 示例，本演练还将假定外部代码处于隐藏状态。  若要在是否显示外部代码之间进行切换，请右击**“调用堆栈”**窗口的**“名称”**表标题，然后选中或清除**“显示外部代码”**。  如果未设置此功能，您仍可以使用本演练，但结果可能会与以下各图不同。  
   
-## <a name="c-sample"></a>C++ Sample  
- If you use the C++ sample, you can ignore references to External Code in this topic. External Code only applies to the C# sample.  
+## C\+\+ 示例  
+ 如果使用 C\+\+ 示例，则可以忽略本主题中对外部代码的引用。  外部代码仅适用于 C\# 示例。  
   
-## <a name="illustrations"></a>Illustrations  
- The illustrations in this topic recorded on a quad core computer running the C# sample. Although you can use other configurations to complete this walkthrough, the illustrations may differ from what is displayed on your computer.  
+## 图示  
+ 本主题中的图示是在运行 C\# 示例的四核计算机上记录的。  您也可以使用其他配置完成本演练，但您的计算机上显示的内容可能与这些图示不同。  
   
-## <a name="creating-the-sample-project"></a>Creating the Sample Project  
- The sample code in this walkthrough is for an application that does nothing. The goal is just to understand how to use the tool windows to debug a parallel application.  
+## 创建示例项目  
+ 本演练中的代码示例适用于不执行任何操作的应用程序。  其目的仅在于理解如何使用工具窗口调试并行应用程序。  
   
-#### <a name="to-create-the-sample-project"></a>To create the sample project  
+#### 创建示例项目  
   
-1.  In Visual Studio, on the **File** menu, point to **New** and then click **Project**.  
+1.  在 Visual Studio 中的**“文件”**菜单上，指向**“新建”**，然后单击**“项目”**。  
   
-2.  In the **Installed Templates** pane, select either Visual C#, Visual Basic, or Visual C++. For the managed languages, ensure that [!INCLUDE[net_v40_short](../code-quality/includes/net_v40_short_md.md)] is displayed in the framework box.  
+2.  在**“已安装的模板”**窗格中，选择“Visual C\#”、“Visual Basic”或“Visual C\+\+”。  对于托管语言，请确保 [!INCLUDE[net_v40_short](../debugger/includes/net_v40_short_md.md)] 显示在框架框中。  
   
-3.  Select **Console Application** and then click **OK**. Remain in Debug configuration, which is the default.  
+3.  选择**“控制台应用程序”**，再单击**“确定”**。  保留默认的调试配置。  
   
-4.  Open the .cpp, .cs, or .vb code file in the project. Delete its contents to create an empty code file.  
+4.  在项目中打开 .cpp、.cs 或 .vb 代码文件。  删除其内容以创建一个空代码文件。  
   
-5.  Paste the following code for your chosen language into the empty code file.  
+5.  将所选语言的以下代码粘贴到上述空代码文件中。  
   
- [!code-csharp[Debugger#1](../debugger/codesnippet/CSharp/walkthrough-debugging-a-parallel-application_1.cs)] [!code-cpp[Debugger#1](../debugger/codesnippet/CPP/walkthrough-debugging-a-parallel-application_1.cpp)] [!code-vb[Debugger#1](../debugger/codesnippet/VisualBasic/walkthrough-debugging-a-parallel-application_1.vb)]  
+ [!code-cs[Debugger#1](../debugger/codesnippet/CSharp/walkthrough-debugging-a-parallel-application_1.cs)]
+ [!code-cpp[Debugger#1](../debugger/codesnippet/CPP/walkthrough-debugging-a-parallel-application_1.cpp)]
+ [!code-vb[Debugger#1](../debugger/codesnippet/VisualBasic/walkthrough-debugging-a-parallel-application_1.vb)]  
   
-1.  On the **File** menu, click **Save All**.  
+1.  在**“文件”**菜单上，单击**“全部保存”**。  
   
-2.  On the **Build** menu, click **Rebuild Solution**.  
+2.  在**“生成”**菜单上，单击**“重新生成解决方案”**。  
   
-     Notice that there are four calls to `Debugger.Break` (`DebugBreak` in the C++ sample) Therefore, you do not have to insert breakpoints; just running the application will cause it to break in the debugger up to four times.  
+     请注意，有四个对 `Debugger.Break`（在 C\+\+ 示例中为 `DebugBreak`）的调用。因此，您无需插入断点；您只需运行应用程序即可使其四次中断调试器。  
   
-## <a name="using-the-parallel-stacks-window-threads-view"></a>Using the Parallel Stacks Window: Threads View  
- On the **Debug** menu, click **Start Debugging**. Wait for the first breakpoint to be hit.  
+## 使用“并行堆栈”窗口：“线程”视图  
+ 在**“调试”**菜单上，单击**“启动调试”**。  等待命中第一个断点。  
   
-#### <a name="to-view-the-call-stack-of-a-single-thread"></a>To view the call stack of a single thread  
+#### 查看一个线程的调用堆栈  
   
-1.  On the **Debug** menu, point to **Windows** and then click **Threads**. Dock the **Threads** window at the bottom of Visual Studio.  
+1.  在**“调试”**菜单上指向**“窗口”**，再单击**“线程”**。  将**“线程”**窗口停靠在 Visual Studio 底部。  
   
-2.  On the **Debug** menu, point to **Windows** and then click **Call Stack**. Dock the **Call Stack** window at the bottom Visual Studio.  
+2.  在**“调试”**菜单上指向**“窗口”**，然后单击**“调用堆栈”**。  将**“调用堆栈”**窗口停靠在 Visual Studio 底部。  
   
-3.  Double-click a thread in the **Threads** window to make it current. Current threads have a yellow arrow. When you change the current thread, its call stack is displayed in the **Call Stack** window.  
+3.  在**“线程”**窗口中双击线程，使其作为当前线程。  当前线程具有一个黄色箭头。  更改当前线程时，将在**“调用堆栈”**窗口中显示其调用堆栈。  
   
-#### <a name="to-examine-the-parallel-stacks-window"></a>To examine the Parallel Stacks window  
+#### 查看“并行堆栈”窗口  
   
-1.  On the **Debug** menu, point to **Windows** and then click **Parallel Stacks**. Make sure that **Threads** is selected in the box at the upper-left corner.  
+1.  在**“调试”**菜单上指向**“窗口”**，然后单击**“并行堆栈”**。  在左上角的框中，确保选择**“线程”**。  
   
-     By using the **Parallel Stacks** window, you can view multiple call stacks at the same time in one view. The following illustration shows the **Parallel Stacks** window above the **Call Stack** window.  
+     使用**“并行堆栈”**窗口可以在一个视图中同时查看多个调用堆栈。  以下图示在**“调用堆栈”**窗口上方显示**“并行堆栈”**窗口。  
   
-     ![Threads view in Parallel Stacks window](../debugger/media/pdb_walkthrough_1.png "PDB_Walkthrough_1")  
+     ![“并行堆栈”窗口中的“线程”视图](../debugger/media/pdb_walkthrough_1.png "PDB\_Walkthrough\_1")  
   
-     The call stack of the Main thread appears in one box and the call stacks for the other four threads are grouped in another box. Four threads are grouped together because their stack frames share the same method contexts; that is, they are in the same methods: `A`, `B`, and `C`. To view the thread IDs and names of the threads that share the same box, hover over the header (**4 Threads**). The current thread is displayed in bold, as shown in the following illustration.  
+     主线程的调用堆栈显示在一个框中，其他四个线程的调用堆栈则划分到另一个框中。  将这四个线程划分在一起是因为其堆栈帧共享相同的方法上下文；也就是说，它们处于相同的方法中：`A`、`B` 和 `C`。  若要查看处于同一框中的线程的线程 ID 和名称，请将鼠标指针悬停在标题（**“4 个线程”**）上。  当前线程显示为粗体，如下图所示。  
   
-     ![Tooltip that shows thread IDs and names](../debugger/media/pdb_walkthrough_1a.png "PDB_Walkthrough_1A")  
+     ![显示线程 ID 和名称的工具提示](~/debugger/media/pdb_walkthrough_1a.png "PDB\_Walkthrough\_1A")  
   
-     The yellow arrow indicates the active stack frame of the current thread. To get more information, hover over it  
+     黄色箭头指示当前线程的活动堆栈帧。  若要获取更多信息，请将鼠标指针悬停在堆栈帧上。  
   
-     ![Tooltip on active stack frame](../debugger/media/pdb_walkthrough_1b.png "PDB_Walkthrough_1B")  
+     ![活动堆栈帧上的工具提示](../debugger/media/pdb_walkthrough_1b.png "PDB\_Walkthrough\_1B")  
   
-     You can set how much detail to show for the stack frames (**Module Names**, **Parameter Types**, **Parameter Names**, **Parameter Values**, **Line Numbers** and **Byte Offsets**) by right-clicking in the **Call Stack** window.  
+     通过右击**“调用堆栈”**窗口，可以设置要显示堆栈帧的多少细节（**“模块名称”**、**“参数类型”**、**“参数名称”**、**“参数值”**、**“行号”**和**“字节偏移量”**）。  
   
-     A blue highlight around a box indicates that the current thread is part of that box. The current thread is also indicated by the bold stack frame in the tooltip. If you double-click the Main thread in the Threads window, you can observe that the blue highlight in the **Parallel Stacks** window moves accordingly.  
+     方框周围的蓝色突出显示指示当前线程是该框的一部分。  工具提示中的粗体堆栈帧也可指示当前线程。  如果双击“线程”窗口中的主线程，您可以看到**“并行堆栈”**窗口中的蓝色突出显示将相应移动。  
   
-     ![Highlighted main thread in Parallel Stacks window](../debugger/media/pdb_walkthrough_1c.png "PDB_Walkthrough_1C")  
+     ![“并行堆栈”窗口中突出显示的主线程](~/debugger/media/pdb_walkthrough_1c.png "PDB\_Walkthrough\_1C")  
   
-#### <a name="to-resume-execution-until-the-second-breakpoint"></a>To resume execution until the second breakpoint  
+#### 继续执行到第二个断点  
   
-1.  To resume execution until the second breakpoint is hit, on the **Debug** menu, click **Continue**. The following illustration shows the thread tree at the second breakpoint.  
+1.  若要继续执行到命中第二个断点，请在**“调试”**菜单上，单击**“继续”**。  下图所示为第二个断点处的线程树。  
   
-     ![Parallel Stacks window that shows many branches](../debugger/media/pdb_walkthrough_2.png "PDB_Walkthrough_2")  
+     ![显示多个分支的“并行堆栈”窗口](../debugger/media/pdb_walkthrough_2.png "PDB\_Walkthrough\_2")  
   
-     At the first breakpoint, four threads all went from S.A to S.B to S.C methods. That information is still visible in the **Parallel Stacks** window, but the four threads have progressed further. One of them continued to S.D and then S.E. Another continued to S.F, S.G, and S.H. Two others continued to S.I and S.J, and from there one of them went to S.K and the other continued to non-user External Code.  
+     在第一个断点处，所有四个线程均从 S.A 执行到 S.B 再到 S.C 方法。  该信息仍会显示在**“并行堆栈”**窗口中，但是这四个线程已进一步执行。  其中一个线程继续执行到 S.D 再到 S.E。  另一个线程继续执行到 S.F、S.G 和 S.H。  其余两个线程继续执行到 S.I 和 S.J，其中一个线程从此方法执行到 S.K，而另一个线程继续执行到非用户外部代码。  
   
-     You can hover over the box header, for example, **1 Thread** or **2 Threads**, to see the thread IDs of the threads. You can hover over stack frames to see thread IDs plus other frame details. The blue highlight indicates the current thread and the yellow arrow indicates the active stack frame of the current thread.  
+     您可以将鼠标指针悬停在框标题（例如，**“1 个线程”**或**“2 个线程”**）上，以查看线程的线程 ID。  将鼠标指针悬停在堆栈帧上可以查看线程 ID 和其他帧详细信息。  蓝色突出显示指示当前线程，黄色箭头指示当前线程的活动堆栈帧。  
   
-     The cloth-threads icon (overlapping blue and red waved lines) indicate the active stack frames of the noncurrent threads. In the **Call Stack** window, double-click S.B to switch frames. The **Parallel Stacks** window indicates the current stack frame of the current thread by using a green curved arrow icon.  
+     细线图标（重叠的蓝色和红色波浪线）指示非当前线程的活动堆栈帧。  在**“调用堆栈”**窗口中，双击 S.B 可以切换帧。  **“并行堆栈”**窗口通过使用绿色的曲线箭头图标指示当前线程的当前堆栈帧。  
   
-     In the **Threads** window, switch between threads and observe that the view in the **Parallel Stacks** window is updated.  
+     在**“线程”**窗口中进行线程切换时，**“并行堆栈”**窗口中的视图将相应更新。  
   
-     You can switch to another thread, or to another frame of another thread, by using the shortcut menu in the **Parallel Stacks** window. For example, right-click S.J, point to **Switch To Frame**, and then click a command.  
+     在**“并行堆栈”**窗口中使用快捷菜单可以切换到其他线程或其他线程的其他帧。  例如，右击 S.J，指向**“切换到帧”**，然后单击某一命令。  
   
-     ![Parallel Stacks Path of Execution](../debugger/media/pdb_walkthrough_2b.png "PDB_Walkthrough_2B")  
+     ![并行堆栈执行路径](../debugger/media/pdb_walkthrough_2b.png "PDB\_Walkthrough\_2B")  
   
-     Right-click S.C and point to **Switch To Frame**. One of the commands has a check mark that indicates the stack frame of the current thread. You can switch to that frame of the same thread (just the green arrow will move) or you can switch to the other thread (the blue highlight will also move). The following illustration shows the submenu.  
+     右击 S.C，指向**“切换到帧”**。  其中一个带有选中标记的命令指示当前线程的堆栈帧。  您可以切换到相同线程的上述帧（将仅移动绿色箭头），也可以切换到其他线程（将同时移动蓝色突出显示）。  下图所示为子菜单。  
   
-     ![Stacks menu with 2 options on C while J is current](../debugger/media/pdb_walkthrough_3.png "PDB_Walkthrough_3")  
+     ![当 J 为当前项时，在 C 上有两个选项的堆栈菜单](../debugger/media/pdb_walkthrough_3.png "PDB\_Walkthrough\_3")  
   
-     When a method context is associated with just one stack frame, the box header displays **1 Thread** and you can switch to it by double-clicking. If you double-click a method context that has more than 1 frame associated with it, then the menu automatically pops up. As you hover over the method contexts, notice the black triangle at the right. Clicking that triangle also displays the shortcut menu.  
+     当方法上下文只与一个堆栈帧关联时，框标题将显示**“1 个线程”**，双击它即可切换到该线程。  如果双击关联有一个以上的帧的方法上下文，则会自动弹出该菜单。  将鼠标指针悬停在方法上下文上时，请注意右侧的黑色三角形。  单击该三角形也可以显示该快捷菜单。  
   
-     For large applications that have many threads, you may want to focus on just a subset of threads. The **Parallel Stacks** window can display call stacks only for flagged threads. On the toolbar, click the **Show Only Flagged** button next to the list box.  
+     对于具有多个线程的大型应用程序，您可能只希望关注某个线程子集。  **“并行堆栈”**窗口可仅显示已标记线程的调用堆栈。  在工具栏上，单击列表框旁边的**“仅显示已标记项”**按钮。  
   
-     ![Empty Parallel Stacks window and tooltip](../debugger/media/pdb_walkthrough_3a.png "PDB_Walkthrough_3A")  
+     ![空的“并行堆栈”窗口和工具提示](../debugger/media/pdb_walkthrough_3a.png "PDB\_Walkthrough\_3A")  
   
-     Next, in the **Threads** window, flag threads one by one to see how their call stacks appear in the **Parallel Stacks** window. To flag threads, use the shortcut menu or the first cell of a thread. Click the **Show Only Flagged** toolbar button again to show all threads.  
+     接着，在**“线程”**窗口中依次标记线程，以查看其调用堆栈在**“并行堆栈”**窗口中的显示方式。  若要标记线程，请使用快捷菜单或线程的第一个单元格。  再次单击**“仅显示已标记项”**工具栏按钮可以显示所有线程。  
   
-#### <a name="to-resume-execution-until-the-third-breakpoint"></a>To resume execution until the third breakpoint  
+#### 继续执行到第三个断点  
   
-1.  To resume execution until the third breakpoint is hit, on the **Debug** menu, click **Continue**.  
+1.  若要继续执行到命中第三个断点，请在**“调试”**菜单上，单击**“继续”**。  
   
-     When multiple threads are in the same method but the method was not at the beginning of the call stack, the method appears in different boxes. An example at the current breakpoint is S.L, which has three threads in it and appears in three boxes. Double-click S.L.  
+     如果有多个线程位于同一方法中，但该方法不在调用堆栈开头，则会在不同框中显示该方法。  当前断点处的一个示例是 S.L，它包含三个线程并在三个框中显示这三个线程。  双击 S.L。  
   
-     ![Execution path in Parallel Stacks window](../debugger/media/pdb_walkthrough_3b.png "PDB_Walkthrough_3B")  
+     ![“并行堆栈”窗口中的执行路径](../debugger/media/pdb_walkthrough_3b.png "PDB\_Walkthrough\_3B")  
   
-     Notice that S.L is bold in the other two boxes so that you can see where else it appears. If you want to see which frames call into S.L and which frames it calls, click the **Toggle Method View** button on the toolbar. The following illustration shows the method view of The **Parallel Stacks** window.  
+     请注意，S.L 在其他两个框中为粗体，这样您可以看到 S.L 的其他显示位置。  如果您希望查看对 S.L 进行调用的帧和 S.L 所调用的帧，请单击工具栏上的**“切换方法视图”**按钮。  下图所示为**“并行堆栈”**窗口的方法视图。  
   
-     ![Method view in Parallel Stacks window](../debugger/media/pdw_walkthrough_4.png "PDW_Walkthrough_4")  
+     ![“并行堆栈”窗口中的“方法”视图](../debugger/media/pdw_walkthrough_4.png "PDW\_Walkthrough\_4")  
   
-     Notice how the diagram pivoted on the selected method and positioned it in its own box in the middle of the view. The callees and callers appear on the top and bottom. Click the **Toggle Method View** button again to leave this mode.  
+     请注意以上关系图以所选方法为中心并将其单独放在视图中间的方框中。  被调用方和调用方分别显示在顶部和底部。  再次单击**“切换方法视图”**按钮可以退出该模式。  
   
-     The shortcut menu of the **Parallel Stacks** window also has the following other items.  
+     **“并行堆栈”**窗口的快捷菜单还包括以下其他项。  
   
-    -   **Hexadecimal Display** toggles the numbers in the tooltips between decimal and hexadecimal.  
+    -   **“十六进制显示”**，用于在十进制和十六进制之间切换工具提示中的数字。  
   
-    -   **Symbol Load Information** and **Symbol Settings** open the respective dialog boxes.  
+    -   **“符号加载信息”**和**“符号设置”**，用于打开各自的对话框。  
   
-    -   **Go To Source Code** and **Go To Disassembly** navigate in the editor to the selected method.  
+    -   **“转到源代码”**和**“转到反汇编”**，用于在编辑器中定位到选定方法。  
   
-    -   **Show External Code** displays all the frames even if they are not in user code. Try it to see the diagram expand to accommodate the additional frames (which may be dimmed because you do not have symbols for them).  
+    -   **“显示外部代码”**，用于显示所有帧（即使这些帧未处于用户代码中）。  使用此项可查看展开的关系图，其中包含其他帧（这些帧可能因没有相应符号而灰显）。  
   
-     When you have large diagrams and you step to the next breakpoint, you may want the view to auto scroll to the active stack frame of the current thread; that is, the thread that hit the breakpoint first. In the **Parallel Stacks** window, make sure that the **Auto Scroll to Current Stack Frame** button on the toolbar is on.  
+     如果关系图较大，当单步执行到下一断点时，您可能希望视图自动滚动到当前线程的活动堆栈帧；即第一个命中该断点的线程。  在**“并行堆栈”**窗口中，确保已启用工具栏上的**“自动滚动到当前堆栈帧”**按钮。  
   
-     ![Autoscrolling in the Parallel Stacks window](../debugger/media/pdb_walkthrough_4a.png "PDB_Walkthrough_4A")  
+     ![“并行堆栈”窗口中的自动滚动](../debugger/media/pdb_walkthrough_4a.png "PDB\_Walkthrough\_4A")  
   
-2.  Before you continue, in the **Parallel Stacks** window, scroll all the way to the left and all the way down.  
+2.  继续之前，请在**“并行堆栈”**窗口中一直滚动到左侧和底部。  
   
-#### <a name="to-resume-execution-until-the-fourth-breakpoint"></a>To resume execution until the fourth breakpoint  
+#### 继续执行到第四个断点  
   
-1.  To resume execution until the fourth breakpoint is hit, on the **Debug** menu, click **Continue**.  
+1.  若要继续执行到命中第四个断点，请在**“调试”**菜单上，单击**“继续”**。  
   
-     Notice how the view autoscrolled into place. Switch threads in the **Threads** window or switch stack frames in the **Call Stack** window and notice how the view always autoscrolls to the correct frame. Turn off **Auto Scroll to Current Tool Frame** option and view the difference.  
+     请注意视图如何自动滚动到位。  在**“线程”**窗口中切换线程或在**“调用堆栈”**窗口中切换堆栈帧，请注意视图如何一直自动滚动到正确的帧。  禁用**“自动滚动到当前工具帧”**选项并查看不同之处。  
   
-     The **Bird's Eye View** also helps with large diagrams in the **Parallel Stacks** window. You can see the **Bird's Eye View** by clicking the button between the scroll bars on the lower-right corner of the window, as shown in the following illustration.  
+     **“鸟瞰图”**还有助于在**“并行堆栈”**窗口中处理大型关系图。  通过单击窗口右下角滚动条之间的按钮可以查看**“鸟瞰图”**，如下图所示。  
   
-     ![Bird's&#45;eye view in Parallel Stacks window](../debugger/media/pdb_walkthrough_5.png "PDB_Walkthrough_5")  
+     ![“并行堆栈”窗口中的鸟瞰视图](../debugger/media/pdb_walkthrough_5.png "PDB\_Walkthrough\_5")  
   
-     You can move the rectangle to quickly pan around the diagram.  
+     移动矩形可以快速移动到关系图的任何位置。  
   
-     Another way to move the diagram in any direction is to click a blank area of the diagram and drag it where you want it.  
+     朝任意方向移动此关系图的另一种方法是：单击此关系图的空白区域并将其拖动到所需位置。  
   
-     To zoom in and out of the diagram, press and hold CTRL while you move the mouse wheel. Alternatively, click the Zoom button on the toolbar and then use the Zoom tool.  
+     若要放大和缩小此关系图，请按住 Ctrl 并移动鼠标滚轮。  或者，也可以单击工具栏上的“缩放”按钮并使用缩放工具。  
   
-     ![Zoomed stacks in Parallel Stacks window](../debugger/media/pdb_walkthrough_5a.png "PDB_Walkthrough_5A")  
+     ![“并行堆栈”窗口中的缩放堆栈](../debugger/media/pdb_walkthrough_5a.png "PDB\_Walkthrough\_5A")  
   
-     You can also view the stacks in a top-down direction instead of bottom-up, by clicking the **Tools** menu, clicking **Options**, and then select or clear the option under the **Debugging** node.  
+     通过单击**“工具”**菜单和**“选项”**，并选中或清除**“调试”**节点下的相应选项，您还可以按从上到下（而不是从下到上）的方向查看堆栈。  
   
-2.  Before you continue, on the **Debug** menu, click **Stop Debugging** to end execution.  
+2.  继续之前，请在**“调试”**菜单上，单击**“停止调试”**以结束执行。  
   
-## <a name="using-the-parallel-tasks-window-and-the-tasks-view-of-the-parallel-stacks-window"></a>Using the Parallel Tasks Window and the Tasks View of the Parallel Stacks window  
- We recommended that you complete the earlier procedures before you continue.  
+## 使用“并行任务”窗口和“并行堆栈”窗口的任务视图  
+ 继续之前，建议您先完成前面的过程。  
   
-#### <a name="to-restart-the-application-until-the-first-breakpoint-is-hit"></a>To restart the application until the first breakpoint is hit  
+#### 重新启动应用程序，直到命中第一个断点  
   
-1.  On the **Debug** menu, click **Start Debugging** and wait for the first breakpoint to be hit.  
+1.  在**“调试”**菜单上，单击**“启动调试”**并等待命中第一个断点。  
   
-2.  On the **Debug** menu, point to **Windows** and then click **Threads**. Dock the **Threads** window at the bottom of Visual Studio.  
+2.  在**“调试”**菜单上指向**“窗口”**，再单击**“线程”**。  将**“线程”**窗口停靠在 Visual Studio 底部。  
   
-3.  On the **Debug** menu, point to **Windows** and click **Call Stack**. Dock the **Call Stack** window at the bottom Visual Studio.  
+3.  在**“调试”**菜单上指向**“窗口”**，然后单击**“调用堆栈”**。  将**“调用堆栈”**窗口停靠在 Visual Studio 底部。  
   
-4.  Double-click a thread in the **Threads** window to makes it current. Current threads have the yellow arrow. When you change the current thread, the other windows are updated. Next, we will examine tasks.  
+4.  在**“线程”**窗口中双击线程，以将其作为当前线程。  当前线程具有一个黄色箭头。  更改当前线程时，将更新其他窗口。  接着，我们将查看任务。  
   
-5.  On the **Debug** menu, point to **Windows** and then click **Parallel Tasks**. The following illustration shows the **Tasks** window.  
+5.  在**“调试”**菜单上指向**“窗口”**，然后单击**“并行任务”**。  下图所示为**“并行任务”**窗口。  
   
-     ![Four running tasks in Tasks window](../debugger/media/pdw_walkthrough_6.png "PDW_Walkthrough_6")  
+     ![“并行任务”窗口中的 4 个正在运行的任务](~/debugger/media/pdw_walkthrough_6.png "PDW\_Walkthrough\_6")  
   
-     For each running Task, you can read its ID, which is returned by the same-named property, the ID and name of the thread that runs it, its location (hovering over that displays a tooltip that has the whole call stack). Also, under the **Task** column, you can see the method that was passed into the task; in other words, the starting point.  
+     对于运行的每一项任务，您可以读取其 ID（由名称相同的属性返回）、运行该任务的线程的 ID 和名称以及任务位置（悬停以显示具有整个调用堆栈的工具提示）。  此外，**“任务”**列下还会显示传递到任务中的方法，即起始点。  
   
-     You can sort any column. Notice the sort glyph that indicates the sort column and direction. You can also reorder the columns by dragging them left or right.  
+     可以对任何列进行排序。  请注意指示排序列和方向的排序标志符号。  您还可以通过向左或向右拖动列来对列重新排序。  
   
-     The yellow arrow indicates the current task. You can switch tasks by double-clicking a task or by using the shortcut menu. When you switch tasks, the underlying thread becomes current and the other windows are updated.  
+     黄色箭头指示当前任务。  通过双击某一任务或使用快捷菜单可以切换任务。  切换任务时，基础线程即成为当前线程并更新其他窗口。  
   
-     When you manually switch from one task to another, the yellow arrow moves, but a white arrow still shows the task that caused the debugger to break.  
+     在不同任务之间进行手动切换时，黄色箭头将相应移动，而白色箭头仍显示导致调试器中断的任务。  
   
-#### <a name="to-resume-execution-until-the-second-breakpoint"></a>To resume execution until the second breakpoint  
+#### 继续执行到第二个断点  
   
-1.  To resume execution until the second breakpoint is hit, on the **Debug** menu, click **Continue**.  
+1.  若要继续执行到命中第二个断点，请在**“调试”**菜单上，单击**“继续”**。  
   
-     Previously, the **Status** column showed all tasks as Running, but now two of the tasks are Waiting. Tasks can be blocked for many different reasons. In the **Status** column, hover over a waiting task to learn why it is blocked. For example, in the following illustration, task 3 is waiting on task 4.  
+     **“状态”**列以前将所有任务显示为正在运行，而现在有两个任务处于等待状态。  任务可能因多种不同原因而被阻止。  在**“状态”**列中，将鼠标指针悬停在正在等待的任务上可以确定其阻止原因。  例如，在下图中，任务 3 正在等待任务 4。  
   
-     ![Two waiting tasks in Tasks window](../debugger/media/pdb_walkthrough_7.png "PDB_Walkthrough_7")  
+     ![“并行任务”窗口中的两个等待任务](../debugger/media/pdb_walkthrough_7.png "PDB\_Walkthrough\_7")  
   
-     Task 4, in turn, is waiting on a monitor owned by the thread assigned to task 2.  
+     任务 4 又在等待分配给任务 2 的线程所拥有的监视器。  
   
-     ![Waiting task and tooltip in Tasks window](../debugger/media/pdb_walkthrough_7a.png "PDB_Walkthrough_7A")  
+     ![“任务”窗口中的等待任务和工具提示](../debugger/media/pdb_walkthrough_7a.png "PDB\_Walkthrough\_7A")  
   
-     You can flag a task by clicking the flag in the first column of the **Tasks** window.  
+     单击**“并行任务”**窗口第一列中的标志可以对任务进行标记。  
   
-     You can use flagging to track tasks between different breakpoints in the same debugging session or to filter for tasks whose call stacks are shown in the **Parallel Stacks** window.  
+     使用标记功能可以跟踪同一调试会话中的不同断点之间的任务或筛选**“并行堆栈”**窗口中显示的调用堆栈所对应的任务。  
   
-     When you used the **Parallel Stacks** window earlier, you viewed the application threads. View the **Parallel Stacks** window again, but this time view the application tasks. Do this by selecting **Tasks** in the box on the upper left. The following illustration shows the Tasks View.  
+     在先前使用**“并行堆栈”**窗口时，您已查看了应用程序线程。  请再次查看**“并行堆栈”**窗口，但这次查看应用程序任务。  请在左上方的框中选择**“任务”**来执行此操作。  下图所示为任务视图。  
   
-     ![Threads view in Parallel Stacks window](../debugger/media/pdb_walkthrough_8.png "PDB_Walkthrough_8")  
+     ![“并行堆栈”窗口中的“线程”视图](~/debugger/media/pdb_walkthrough_8.png "PDB\_Walkthrough\_8")  
   
-     Threads that are not currently executing tasks are not shown in the Tasks View of the **Parallel Stacks** window. Also, for threads that execute tasks, some of the stack frames that are not relevant to tasks are filtered from the top and bottom of the stack.  
+     当前未在执行任务的线程不会显示在**“并行堆栈”**窗口的任务视图中。  此外，对于执行任务的线程，某些与任务无关的堆栈帧将从堆栈的顶部和底部筛选掉。  
   
-     View the **Tasks** window again. Right-click any column header to see a shortcut menu for the column.  
+     再次查看**“并行任务”**窗口。  右击任何列标题可以查看该列的快捷菜单。  
   
-     ![Shortcut view menu in Tasks window](../debugger/media/pdb_walkthrough_8a.png "PDB_Walkthrough_8A")  
+     ![“并行任务”窗口中的“快捷视图”菜单](../debugger/media/pdb_walkthrough_8a.png "PDB\_Walkthrough\_8A")  
   
-     You can use the shortcut menu to add or remove columns. For example, the AppDomain column is not selected; therefore, it is not displayed in the list. Click **Parent**. The **Parent** column appears without values for any of the four tasks.  
+     您可以使用此快捷菜单添加或移除列。  例如，AppDomain 列未处于选中状态；因此，不会在列表中显示它。  单击**“父级”**。  此时将显示**“父级”**列，但不显示四个任务中任何任务的值。  
   
-#### <a name="to-resume-execution-until-the-third-breakpoint"></a>To resume execution until the third breakpoint  
+#### 继续执行到第三个断点  
   
-1.  To resume execution until the third breakpoint is hit, on the **Debug** menu, click **Continue**.  
+1.  若要继续执行到命中第三个断点，请在**“调试”**菜单上，单击**“继续”**。  
   
-     A new task, task 5, is now running and task 4 is now waiting. You can see why by hovering over the waiting task in the **Status** window. In the **Parent** column, notice that task 4 is the parent of task 5.  
+     此时，新任务（即任务 5）正在运行，而任务 4 则处于等待状态。  通过将鼠标指针悬停在**“状态”**窗口中正在等待的任务上，您可以查看其原因。  在**“父级”**列中，请注意任务 4 是任务 5 的父级。  
   
-     To better visualize the parent-child relationship, right-click the **Parent** column header and then click **Parent Child View**. You should see the following illustration.  
+     为了更直观地显示父子关系，请右击**“父级”**列标题，并单击**“父子视图”**。  您应看到以下图示。  
   
-     ![Parent&#45;child view in Tasks window](../debugger/media/pdb_walkthrough_9.png "PDB_Walkthrough_9")  
+     ![“并行任务”窗口中的父子视图](../debugger/media/pdb_walkthrough_9.png "PDB\_Walkthrough\_9")  
   
-     Notice that task 4 and task 5 are running on the same thread. This information is not displayed in the **Threads** window; seeing it here is another benefit of the **Tasks** window. To confirm this, view the **Parallel Stacks** window. Make sure that you are viewing **Tasks**. Locate tasks 4 and 5 by double-clicking them in the **Tasks** window. When you do, the blue highlight in the **Parallel Stacks** window is updated. You can also locate tasks 4 and 5 by scanning the tooltips on the **Parallel Stacks** window.  
+     请注意，任务 4 和任务 5 正在同一线程上运行。  此信息不会显示在**“线程”**窗口中；在此处显示此信息是**“并行任务”**窗口的另一优势。  为确认这一点，请查看**“并行堆栈”**窗口。  确保您正在查看**“任务”**。  在**“并行任务”**窗口中双击任务 4 和任务 5，找到这两个任务。  执行此操作时，将更新**“并行堆栈”**窗口中的蓝色突出显示。  此外，您还可以通过扫描**“并行堆栈”**窗口上的工具提示来查找任务 4 和任务 5。  
   
-     ![Task view in Parallel Stacks window](../debugger/media/pdb_walkthrough_9a.png "PDB_Walkthrough_9A")  
+     ![“并行堆栈”窗口中的“任务”视图](../debugger/media/pdb_walkthrough_9a.png "PDB\_Walkthrough\_9A")  
   
-     In the **Parallel Stacks** window, right-click S.P, and then click **Go To Thread**. The window switches to Threads View and the corresponding frame is in view. You can see both tasks on the same thread.  
+     在**“并行堆栈”**窗口中右击 S.P，再单击**“转至线程”**。  此时，窗口将切换到线程视图，并显示相应帧。  您可以在同一线程上查看两个任务。  
   
-     ![Highlighted thread in threads view](../debugger/media/pdb_walkthrough_9b.png "PDB_Walkthrough_9B")  
+     ![“线程”视图中突出显示的线程](~/debugger/media/pdb_walkthrough_9b.png "PDB\_Walkthrough\_9B")  
   
-     This is another benefit of the Tasks View in the **Parallel Stacks** window, compared to the **Threads** window.  
+     这是**“并行堆栈”**窗口中的任务视图的另一优势（相较于**“线程”**窗口而言）。  
   
-#### <a name="to-resume-execution-until-the-fourth-breakpoint"></a>To resume execution until the fourth breakpoint  
+#### 继续执行到第四个断点  
   
-1.  To resume execution until the third breakpoint is hit, on the **Debug** menu, click **Continue**. Click the **ID** column header to sort by ID. You should see the following illustration.  
+1.  若要继续执行到命中第三个断点，请在**“调试”**菜单上，单击**“继续”**。  单击要按 ID 排序的**“ID”**列标题。  您应看到以下图示。  
   
-     ![Four task states in Parallel Stacks window](../debugger/media/pdb_walkthrough_10.png "PDB_Walkthrough_10")  
+     ![“并行堆栈”窗口中的 4 种任务状态](../debugger/media/pdb_walkthrough_10.png "PDB\_Walkthrough\_10")  
   
-     Because task 5 has completed, it is no longer displayed. If that is not the case on your computer and the deadlock is not shown, step one time by pressing F11.  
+     由于任务 5 已完成，因此不再显示该任务。  如果您的计算机上并非如此并且未显示死锁，请通过按 F11 单步执行一次。  
   
-     Task 3 and task 4 are now waiting on each other and are deadlocked. There are also 5 new tasks that are children of task 2 and are now scheduled. Scheduled tasks are tasks that have been started in code but have not run yet. Therefore, their **Location** and **Thread Assignment** columns are empty.  
+     此时，任务 3 和任务 4 正在相互等待，且处于死锁状态。  此外，还存在 5 个作为任务 2 的子级的新任务，目前已计划这些任务。  已计划任务是已在代码中启动但尚未运行的任务。  因此，其**“位置”**和**“线程分配”**列为空。  
   
-     View the **Parallel Stacks** window again. The header of each box has a tooltip that shows the thread IDs and names. Switch to Tasks View in the **Parallel Stacks** window. Hover over a header to see the task ID and name, and the status of the task, as shown in the following illustration.  
+     再次查看**“并行堆栈”**窗口。  每个框的标题都具有一个显示线程 ID 和名称的工具提示。  在**“并行堆栈”**窗口中切换到任务视图。  将鼠标指针悬停在标题上可以查看任务 ID 和名称以及任务状态，如下图所示。  
   
-     ![Header tooltip in Parallel Stacks window](../debugger/media/pdb_walkthrough_11.png "PDB_Walkthrough_11")  
+     ![“并行堆栈”窗口中的标题工具提示](../debugger/media/pdb_walkthrough_11.png "PDB\_Walkthrough\_11")  
   
-     You can group the tasks by column. In the **Tasks** window, right-click the **Status** column header and then click **Group by Status**. The following illustration shows the **Tasks** window grouped by status.  
+     可以按列对任务进行分组。  在**“并行任务”**窗口中，右击**“状态”**列标题并单击**“按状态分组”**。  下图所示为按状态分组的**“并行任务”**窗口。  
   
-     ![Grouped tasks in Tasks window](../debugger/media/pdb_walkthrough_12.png "PDB_Walkthrough_12")  
+     ![“并行任务”窗口中的已分组任务](~/debugger/media/pdb_walkthrough_12.png "PDB\_Walkthrough\_12")  
   
-     You can also group by any other column. By grouping tasks, you can focus on a subset of tasks. Each collapsible group has a count of the items that are grouped together. You can also quickly flag all items in the group by clicking the **Flag** button to the right of the **Collapse** button.  
+     此外，还可以按其他列进行分组。  通过对任务进行分组，您可以关注某个任务子集。  每个可折叠的组都包含一个分组在一起的项的计数。  也可以通过单击**“折叠”**按钮右侧的**“标志”**按钮来快速标记该组中的所有项。  
   
-     ![Grouped stacks in Parallel Stacks window](../debugger/media/pdb_walkthrough_12a.png "PDB_Walkthrough_12A")  
+     ![“并行堆栈”窗口中的已分组堆栈](../debugger/media/pdb_walkthrough_12a.png "PDB\_Walkthrough\_12A")  
   
-     The last feature of the **Tasks** window to examine is the shortcut menu that is displayed when you right-click a task.  
+     要查看的最后一个**“并行任务”**窗口功能是在右击任务时所显示的快捷菜单。  
   
-     ![Shortcut menu in Tasks window](../debugger/media/pdb_walkthrough_12b.png "PDB_Walkthrough_12B")  
+     ![“并行任务”窗口中的快捷菜单](../debugger/media/pdb_walkthrough_12b.png "PDB\_Walkthrough\_12B")  
   
-     The shortcut menu displays different commands, depending on the status of the task. The commands may include **Copy**, **Select All**, **Hexadecimal Display**, **Switch to Task**, **Freeze Assigned Thread**, **Freeze All Threads But This**, and **Thaw Assigned Thread**, and **Flag**.  
+     快捷菜单根据任务状态显示不同的命令。  这些命令可能包括**“复制”**、**“全选”**、**“十六进制显示”**、**“切换到任务”**、**“冻结指定的线程”**、**“冻结此线程之外的全部线程”**、**“解冻指定的线程”**和**“标志”**。  
   
-     You can freeze the underlying thread of a task, or tasks, or you can freeze all threads except the assigned one. A frozen thread is represented in the **Tasks** window as it is in the **Threads** window, by a blue *pause* icon.  
+     您可以冻结一个或多个任务的基础线程，也可以冻结除指定线程外的所有线程。  冻结的线程在**“并行任务”**窗口中的表示方式与在**“线程”**窗口中相同，由蓝色的“暂停”图标指示。  
   
-## <a name="summary"></a>Summary  
- This walkthrough demonstrated the **Parallel Tasks** and **Parallel Stacks** debugger windows. Use these windows on real projects that use multithreaded code. You can examine parallel code written in C++, C#, or Visual Basic.  
+## 摘要  
+ 本演练演示**“并行任务”**和**“并行堆栈”**调试器窗口。  请在采用多线程代码的实际项目中使用这些窗口。  可以检查用 C\+\+、C\# 或 Visual Basic 编写的并行代码。  
   
-## <a name="see-also"></a>See Also  
+## 请参阅  
  [Debugging Multithreaded Applications](../debugger/walkthrough-debugging-a-parallel-application.md)   
- [Debugger Basics](../debugger/debugger-basics.md)   
- [Debugging Managed Code](../debugger/debugging-managed-code.md)   
- [Parallel Programming](/dotnet/standard/parallel-programming/index)   
- [Concurrency Runtime](/cpp/parallel/concrt/concurrency-runtime)   
- [Using the Parallel Stacks Window](../debugger/using-the-parallel-stacks-window.md)   
- [Using the Tasks Window](../debugger/using-the-tasks-window.md)
+ [调试器基础知识](../debugger/debugger-basics.md)   
+ [调试托管代码](../debugger/debugging-managed-code.md)   
+ [Parallel Programming](../Topic/Parallel%20Programming%20in%20the%20.NET%20Framework.md)   
+ [并发运行时](/visual-cpp/parallel/concrt/concurrency-runtime)   
+ [使用“并行堆栈”窗口](../debugger/using-the-parallel-stacks-window.md)   
+ [使用“任务”窗口](../debugger/using-the-tasks-window.md)
