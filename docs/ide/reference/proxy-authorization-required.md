@@ -10,8 +10,8 @@ ms.tgt_pltfrm:
 ms.topic: article
 ms.assetid: c2d24ae1-9902-460e-b72a-0299eed9ee82
 caps.latest.revision: 4
-author: kempb
-ms.author: kempb
+author: gewarren
+ms.author: gewarren
 manager: ghogen
 translation.priority.ht:
 - de-de
@@ -35,12 +35,10 @@ ms.contentlocale: zh-cn
 ms.lasthandoff: 07/14/2017
 
 ---
-# 所需的代理身份验证
-<a id="proxy-authorization-required" class="xliff"></a>
+# <a name="proxy-authorization-required"></a>所需的代理身份验证
 当用户通过代理服务器连接到 Visual Studio Online，而代理服务器对调用进行阻止时通常会发生此错误。 Visual Studio Online 用于使用户保持登录到 IDE 的状态。  
   
-## 更正此错误
-<a id="to-correct-this-error" class="xliff"></a>  
+## <a name="to-correct-this-error"></a>更正此错误  
   
 -   重新启动 Visual Studio。 这时会出现一个代理身份验证对话框。 在对话框中输入你的凭据。  
   

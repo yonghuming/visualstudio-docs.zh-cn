@@ -10,8 +10,8 @@ ms.tgt_pltfrm:
 ms.topic: article
 ms.assetid: f697d7b4-704e-4cac-b13a-bc57d2ff8318
 caps.latest.revision: 131
-author: kempb
-ms.author: kempb
+author: gewarren
+ms.author: gewarren
 manager: ghogen
 translation.priority.ht:
 - de-de
@@ -64,7 +64,7 @@ ms.lasthandoff: 05/13/2017
   
  若要查看引用代码，将你的鼠标移动到引用的顶部。  
   
- ![CodeLens - 查看引用](~/ide/media/codelensviewreferencespeekreference.png "CodeLensViewReferencesPeekReference")  
+ ![CodeLens - 查看引用](../ide/media/codelensviewreferencespeekreference.png "CodeLensViewReferencesPeekReference")  
   
  若要打开包含该引用的文件，请双击该引用。  
   
@@ -85,34 +85,34 @@ ms.lasthandoff: 05/13/2017
   
  对于随 Team Foundation 版本控制 (TFVC) 或 Git 一起存储的 Visual C#.NET 或 Visual Basic.NET 代码，你可以获取类和方法级别的 CodeLens 详细信息（*代码元素级别* 指示器）。 如果你的 Git 存储库托管在 TfGit 中，则还可以获取指向 TFS 工作项的链接。  
   
- ![代码元素 - 级别指示器](~/ide/media/codelenselementlevelindicators.png "CodeLensElementLevelIndicators")  
+ ![代码元素 - 级别指示器](../ide/media/codelenselementlevelindicators.png "CodeLensElementLevelIndicators")  
   
  对于可在 Visual Studio 编辑器中打开的所有其他类型的文件，在窗口底部的某个位置获取整个文件的 CodeLens 详细信息（*文件级* 指示器）。  
   
- ![文件 - 级别 CodeLens 指示器](~/ide/media/almcodelensfilelevelindicators.png "ALMCodeLensFileLevelIndicators")  
+ ![文件 - 级别 CodeLens 指示器](../ide/media/almcodelensfilelevelindicators.png "ALMCodeLensFileLevelIndicators")  
   
  若要使用键盘来选择指示器，请按住“ALT”  键以显示相关的数字键。  
   
- ![按 Alt 以查看键盘访问数字键](~/ide/media/codelensaltkeyindicators.png "CodeLensAltKeyIndicators")  
+ ![按 Alt 以查看键盘访问数字键](../ide/media/codelensaltkeyindicators.png "CodeLensAltKeyIndicators")  
   
 ### <a name="find-changes-in-your-code"></a>查找你的代码中的更改  
  在代码元素级指示器中，查找你的 C# 或 Visual Basic 代码的更改人员以及他们所做的更改。 这是你在 Team Foundation Server 或 Visual Studio Team Services 中使用 Team Foundation 版本控制 (TFVC) 时看到的内容。  
   
- ![CodeLens：获取 TFVC 中代码的更改历史记录](~/ide/media/codelenscodechanges.png "CodeLensCodeChanges")  
+ ![CodeLens：获取 TFVC 中代码的更改历史记录](../ide/media/codelenscodechanges.png "CodeLensCodeChanges")  
   
  默认时间段为最近 12 个月。 如果你的代码存储在 Team Foundation Server 中，则可以通过运行具有 [CodeIndex 命令](http://msdn.microsoft.com/en-us/94424190-3b6b-4f33-a6b6-5807f4225b62) 和 [/indexHistoryPeriod](../ide/codeindex-command.md) 标志的 **TFSConfig 命令** 来对此进行更改。  
   
  若要查看所有更改（包括一年前的更改）的详细历史记录，选择 **“显示所有文件更改”**。  
   
- ![显示所有代码更改](~/ide/media/codelensshowsallchanges.png "CodeLensShowsAllChanges")  
+ ![显示所有代码更改](../ide/media/codelensshowsallchanges.png "CodeLensShowsAllChanges")  
   
  这将打开变更集的历史记录窗口。  
   
- ![所有代码更改的历史记录窗口](~/ide/media/codelenscodechangeshistory.png "CodeLensCodeChangesHistory")  
+ ![所有代码更改的历史记录窗口](../ide/media/codelenscodechangeshistory.png "CodeLensCodeChangesHistory")  
   
  当你的文件位于 Git 存储库中并且你选择代码元素级更改指示器时，这将是你所看到的内容。  
   
- ![CodeLens：获取 Git 中代码的更改历史记录](~/ide/media/codelenscodechangesgit.png "CodeLensCodeChangesGit")  
+ ![CodeLens：获取 Git 中代码的更改历史记录](../ide/media/codelenscodechangesgit.png "CodeLensCodeChangesGit")  
   
  在窗口底部中的文件级别指示器中查找对整个文件（C# 和 Visual Basic 文件除外）进行的更改。  
   
@@ -122,7 +122,7 @@ ms.lasthandoff: 05/13/2017
   
  还可以查看在某段时间内更改代码的人员。 这可以帮助发现团队更改中的模式并评估它们的影响。  
   
- ![CodeLens：通过图形查看代码更改历史记录](~/ide/media/codelens.png "CodeLens")  
+ ![CodeLens：通过图形查看代码更改历史记录](../ide/media/codelens.png "CodeLens")  
   
 #### <a name="find-changes-in-your-current-branch"></a>查找当前分支中的更改  
  假设你的团队有多个分支（一个主分支和一个子开发）以降低破坏稳定代码的风险：  
@@ -139,7 +139,7 @@ ms.lasthandoff: 05/13/2017
  ![CodeLens：在对代码进行分支时查找](../ide/media/codelensfirstbranchscreenshot.png "CodeLensFirstBranchScreenshot")  
   
 #### <a name="find-incoming-changes-from-other-branches"></a>查找来自其他分支的传入更改  
- ![CodeLens：查找其他分支中的代码更改](~/ide/media/codelensbranchchangecheckinconceptual.png "CodeLensBranchChangeCheckinConceptual")  
+ ![CodeLens：查找其他分支中的代码更改](../ide/media/codelensbranchchangecheckinconceptual.png "CodeLensBranchChangeCheckinConceptual")  
   
  …类似于此处开发分支中的 Bug 修复：  
   
@@ -167,14 +167,14 @@ ms.lasthandoff: 05/13/2017
   
 |**图标**|**更改来源于何处？**|  
 |--------------|-----------------------------------------|  
-|![CodeLens：“从当前分支进行更改”图标](~/ide/media/codelensbranchcurrenticon.png "CodeLensBranchCurrentIcon")|当前的分支|  
-|![CodeLens -“从父分支进行更改”图标](~/ide/media/codelensbranchparenticon.png "CodeLensBranchParentIcon")|父分支|  
-|![CodeLens：“从子分支进行更改”图标](~/ide/media/codelensbranchchildicon.png "CodeLensBranchChildIcon")|子分支|  
-|![CodeLens -“从对等分支进行更改”图标](~/ide/media/codelensbranchpeericon.png "CodeLensBranchPeerIcon")|对等分支|  
-|![CodeLens -“从更进一步的分支进行更改”图标](~/ide/media/codelensbranchfurtherawayicon.png "CodeLensBranchFurtherAwayIcon")|比父、子或对等更进一步的分支|  
-|![CodeLens：“从父分支进行合并”图标](~/ide/media/codelensbranchmergefromparenticon.png "CodeLensBranchMergeFromParentIcon")|从父分支到子分支的合并|  
-|![CodeLens：“从子分支进行合并”图标](~/ide/media/codelensbranchmergefromchildicon.png "CodeLensBranchMergeFromChildIcon")|从子分支到父分支的合并|  
-|![CodeLens：“从不相关的分支进行合并”图标](~/ide/media/codelensbranchmergefromunrelatedicon.png "CodeLensBranchMergeFromUnrelatedIcon")|来自不相关分支的合并（baseless 合并）|  
+|![CodeLens：“从当前分支进行更改”图标](../ide/media/codelensbranchcurrenticon.png "CodeLensBranchCurrentIcon")|当前的分支|  
+|![CodeLens -“从父分支进行更改”图标](../ide/media/codelensbranchparenticon.png "CodeLensBranchParentIcon")|父分支|  
+|![CodeLens：“从子分支进行更改”图标](../ide/media/codelensbranchchildicon.png "CodeLensBranchChildIcon")|子分支|  
+|![CodeLens -“从对等分支进行更改”图标](../ide/media/codelensbranchpeericon.png "CodeLensBranchPeerIcon")|对等分支|  
+|![CodeLens -“从更进一步的分支进行更改”图标](../ide/media/codelensbranchfurtherawayicon.png "CodeLensBranchFurtherAwayIcon")|比父、子或对等更进一步的分支|  
+|![CodeLens：“从父分支进行合并”图标](../ide/media/codelensbranchmergefromparenticon.png "CodeLensBranchMergeFromParentIcon")|从父分支到子分支的合并|  
+|![CodeLens：“从子分支进行合并”图标](../ide/media/codelensbranchmergefromchildicon.png "CodeLensBranchMergeFromChildIcon")|从子分支到父分支的合并|  
+|![CodeLens：“从不相关的分支进行合并”图标](../ide/media/codelensbranchmergefromunrelatedicon.png "CodeLensBranchMergeFromUnrelatedIcon")|来自不相关分支的合并（baseless 合并）|  
   
 ### <a name="find-linked-work-items"></a>查找链接工作项  
  ![CodeLens - 查找特定代码的工作项](../ide/media/codelensworkitems.png "CodeLensWorkItems")  
@@ -186,11 +186,11 @@ ms.lasthandoff: 05/13/2017
  ![CodeLens - 查找链接到变更集的 bug ](../ide/media/codelensbugschangesets.png "CodeLensBugsChangesets")  
   
 ### <a name="contact-the-owner-of-an-item"></a>联系项的所有者  
- ![联系项的所有者](~/ide/media/codelenscontactitemowner.png "CodeLensContactItemOwner")  
+ ![联系项的所有者](../ide/media/codelenscontactitemowner.png "CodeLensContactItemOwner")  
   
  打开一个项的快捷菜单来查看联系人选项。 如果安装了 Lync 或 Skype for Business，则会看到以下选项：  
   
- ![项的联系人选项](~/ide/media/codelensitemcontactmenu.png "CodeLensItemContactMenu")  
+ ![项的联系人选项](../ide/media/codelensitemcontactmenu.png "CodeLensItemContactMenu")  
   
 ##  <a name="FindRunUnitTests"></a>查找代码的单元测试  
  了解针对你的代码的单元测试的更多信息，而无需打开测试资源管理器。 你将需要：  
@@ -207,7 +207,7 @@ ms.lasthandoff: 05/13/2017
   
      ![CodeLens - 在代码编辑器中选择测试状态](../ide/media/codelenschoosetestindicator.png "CodeLensChooseTestIndicator")  
   
-3.  如果看到警告图标 ![CodeLens - 单元测试尚未运行警告](~/ide/media/codelenstestwarningicon.png "CodeLensTestWarningIcon")，请运行测试。  
+3.  如果看到警告图标 ![CodeLens - 单元测试尚未运行警告](../ide/media/codelenstestwarningicon.png "CodeLensTestWarningIcon")，请运行测试。  
   
      ![CodeLens - 查看尚未运行的单元测试](../ide/media/codelenstestsnotyetrun.png "CodeLensTestsNotYetRun")  
   
@@ -215,7 +215,7 @@ ms.lasthandoff: 05/13/2017
   
      ![CodeLens - 转到单元测试定义](../ide/media/codelensunittestdefinition.png "CodeLensUnitTestDefinition")  
   
-5.  查看测试结果。 选择测试状态指示器（![CodeLens -“单元测试未通过”图标](~/ide/media/codelenstestfailedicon.png "CodeLensTestFailedIcon")或 ![CodeLens -“单元测试已通过”图标](~/ide/media/codelenstestpassedicon.png "CodeLensTestPassedIcon")），或按 **Alt+1**。  
+5.  查看测试结果。 选择测试状态指示器（![CodeLens -“单元测试未通过”图标](../ide/media/codelenstestfailedicon.png "CodeLensTestFailedIcon")或 ![CodeLens -“单元测试已通过”图标](../ide/media/codelenstestpassedicon.png "CodeLensTestPassedIcon")），或按 **Alt+1**。  
   
      ![CodeLens - 查看单元测试结果](../ide/media/codelensunittestresult.png "CodeLensUnitTestResult")  
   
@@ -232,7 +232,7 @@ ms.lasthandoff: 05/13/2017
   
  使用编辑器窗口底部的 V 形图标打开和关闭 CodeLens 文件级指示器。  
   
- ![打开和关闭文件级别指示器](~/ide/media/codelensfilelevelonandoff.png "CodeLensFileLevelOnAndOff")  
+ ![打开和关闭文件级别指示器](../ide/media/codelensfilelevelonandoff.png "CodeLensFileLevelOnAndOff")  
   
 ###  <a name="NoIndicators"></a>问：CodeLens 位于何处？  
  **答：** CodeLens 出现在方法、类、索引器和属性级别的 Visual C#.NET 和 Visual Basic.NET 代码中。 对于所有其他文件类型，CodeLens 出现在文件级别。  
@@ -277,11 +277,11 @@ ms.lasthandoff: 05/13/2017
 4.  按 **Tab** 转到 **“显示其设置”** 列表，然后按向下键  选择 **“CodeLens”**。  
   
 ### <a name="q-can-i-move-the-codelens-heads-up-display"></a>问：我是否能移动 CodeLens 提醒显示？  
- **答：**是的，选择 ![CodeLens - 停靠为窗口](~/ide/media/codelensdockwindow.png "CodeLensDockWindow")，将 CodeLens 停靠为窗口。  
+ **答：**是的，选择 ![CodeLens - 停靠为窗口](../ide/media/codelensdockwindow.png "CodeLensDockWindow")，将 CodeLens 停靠为窗口。  
   
- ![停靠 CodeLens 指示器窗口](~/ide/media/codelensselectdockwindow.png "CodeLensSelectDockWindow")  
+ ![停靠 CodeLens 指示器窗口](../ide/media/codelensselectdockwindow.png "CodeLensSelectDockWindow")  
   
- ![停靠的 CodeLens 引用窗口](~/ide/media/codelensreferencesdockedwindow.png "CodeLensReferencesDockedWindow")  
+ ![停靠的 CodeLens 引用窗口](../ide/media/codelensreferencesdockedwindow.png "CodeLensReferencesDockedWindow")  
   
 ### <a name="q-how-do-i-refresh-the-indicators"></a>问：如何刷新指示器？  
  **答：** 这取决于指示器：  

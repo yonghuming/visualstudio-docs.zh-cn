@@ -5,7 +5,7 @@ ms.date: 11/04/2016
 ms.reviewer: 
 ms.suite: 
 ms.technology:
-- vs-ide-general
+- vs-ide-designers
 ms.tgt_pltfrm: 
 ms.topic: article
 f1_keywords:
@@ -13,8 +13,8 @@ f1_keywords:
 - VS.XamlDesigner.EditResource
 ms.assetid: 3ff4006d-659d-4073-9a41-06ff85e6cfdf
 caps.latest.revision: 13
-author: kempb
-ms.author: kempb
+author: gewarren
+ms.author: gewarren
 manager: ghogen
 translation.priority.ht:
 - cs-cz
@@ -50,7 +50,7 @@ XAML 设计器中元素的样式和模板存储在称作资源的可重用实体
   
      将出现用于创建资源的相应对话框。 当从画笔创建资源时，就会出现此对话框：  
   
-     ![“创建资源”对话框](~/designers/media/xaml_create_resource.png "xaml_create_resource")  
+     ![“创建资源”对话框](../designers/media/xaml_create_resource.png "xaml_create_resource")  
   
 3.  在“名称(关键字)”框中，输入关键字名称。 这是当希望其他元素可以引用该资源时，可以使用的名称。  
   

@@ -1,24 +1,44 @@
 ---
 title: "步骤 5：向窗体添加控件 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-general"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-acquisition
+ms.tgt_pltfrm: 
+ms.topic: article
 ms.assetid: dc2746f4-0b5c-4674-9ef7-f40f94150f52
 caps.latest.revision: 20
-author: "kempb"
-ms.author: "kempb"
-manager: "ghogen"
-caps.handback.revision: 20
+author: TerryGLee
+ms.author: tglee
+manager: ghogen
+translation.priority.ht:
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- ru-ru
+- zh-cn
+- zh-tw
+translation.priority.mt:
+- cs-cz
+- pl-pl
+- pt-br
+- tr-tr
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 5db97d19b1b823388a465bba15d057b30ff0b3ce
+ms.openlocfilehash: 07048d1ab89599609d7ece1e69056e6dd1dd7eea
+ms.contentlocale: zh-cn
+ms.lasthandoff: 02/22/2017
+
 ---
 # <a name="step-5-add-controls-to-your-form"></a>步骤 5：向窗体添加控件
 在此步骤中，将向窗体添加控件（如 `PictureBox` 控件和 `CheckBox` 控件）。 然后向窗体添加按钮。  
   
- ![视频链接](~/data-tools/media/playvideo.gif "PlayVideo")有关本主题的视频版本，请观看[Tutorial 1: Create a Picture Viewer in Visual Basic - Video 2](http://go.microsoft.com/fwlink/?LinkId=205211)（教程 1：用 Visual Basic 创建图片查看器 - 视频 2）或 [Tutorial 1: Create a Picture Viewer in C# - Video 2](http://go.microsoft.com/fwlink/?LinkId=205200)（教程 1：用 C# 创建图片查看器 - 视频 2）。 这些视频使用 Visual Studio 的早期版本，因此在一些菜单命令和其他用户界面元素上略有差异。 但是，概念和过程与当前版本的 Visual Studio 大同小异。  
+ ![视频链接](../data-tools/media/playvideo.gif "PlayVideo")有关本主题的视频版本，请观看[Tutorial 1: Create a Picture Viewer in Visual Basic - Video 2](http://go.microsoft.com/fwlink/?LinkId=205211)（教程 1：用 Visual Basic 创建图片查看器 - 视频 2）或 [Tutorial 1: Create a Picture Viewer in C# - Video 2](http://go.microsoft.com/fwlink/?LinkId=205200)（教程 1：用 C# 创建图片查看器 - 视频 2）。 这些视频使用 Visual Studio 的早期版本，因此在一些菜单命令和其他用户界面元素上略有差异。 但是，概念和过程与当前版本的 Visual Studio 大同小异。  
   
 ### <a name="to-add-controls-to-your-form"></a>向窗体添加控件  
   
@@ -30,7 +50,7 @@ caps.handback.revision: 20
   
 4.  如下图所示，选择新的 PictureBox 控件以将其选中，然后选择新 PictureBox 控件上的黑色三角形以显示其任务列表。  
   
-     ![PictureBox 任务](~/ide/media/express_pictureboxtasks.png "Express_PictureBoxTasks")  
+     ![PictureBox 任务](../ide/media/express_pictureboxtasks.png "Express_PictureBoxTasks")  
 PictureBox 任务  
   
     > [!NOTE]
@@ -45,7 +65,7 @@ PictureBox 任务
   
 7.  选择窗体上的 TableLayoutPanel，然后将“CheckBox”控件添加到窗体。 双击工具箱中的“CheckBox”项，向表中下一个空白单元格添加新的 CheckBox 控件。 由于 PictureBox 占据了 TableLayoutPanel 中的前两个单元格，因此 CheckBox 控件将添加到左下方的单元格。 如下图所示，选择“Text”属性并键入单词“Stretch”。  
   
-     ![带 Stretch 属性的 TextBox 控件](~/ide/media/express_pictureviewercheckbox.png "Express_PictureViewerCheckbox")  
+     ![带 Stretch 属性的 TextBox 控件](../ide/media/express_pictureviewercheckbox.png "Express_PictureViewerCheckbox")  
 带 Stretch 属性的 TextBox 控件  
   
 8.  选择窗体上的 TableLayoutPanel，然后转到工具箱（可在此获取 TableLayoutPanel 控件）中的“容器”组，并双击“FlowLayoutPanel”项以将一个新控件添加到 PictureBox 的最后一个单元格（右下方）。 然后，在 TableLayoutPanel 中停靠 FlowLayoutPanel（方法是选择 FlowLayoutPanel 的黑色三角形任务列表中的“在父容器中停靠”，或将 FlowLayoutPanel 的“Dock”属性设置为“Fill”）。  
@@ -71,7 +91,7 @@ PictureBox 任务
   
 5.  选择“关闭”按钮以将其选中。 按住 Ctrl 键并选择其他三个按钮，以便将其全部选中。 在选定所有这些按钮后，转到“属性”窗口，然后向上滚动到“AutoSize”属性。 此属性会告知按钮自动调整自身大小以适合其所有文本。 将此属性设置为“true”。 此时这些按钮应具有适当大小且按照适当的顺序排列。 （只要选定所有四个按钮，就可以同时更改所有四个“AutoSize”属性。）下图显示了这四个按钮。  
   
-     ![带四个按钮的图片查看器](~/ide/media/express_autosize.png "Express_AutoSize")  
+     ![带四个按钮的图片查看器](../ide/media/express_autosize.png "Express_AutoSize")  
 带四个按钮的图片查看器  
   
 6.  此时重新运行程序以查看具有最新布局的窗体。 选择这些按钮和选中复选框并不会执行任何操作，但它们很快将会起作用。  
@@ -81,8 +101,3 @@ PictureBox 任务
 -   若要转到下一个教程，请参阅[步骤 6：命名按钮控件](../ide/step-6-name-your-button-controls.md)。  
   
 -   若要返回上一个教程，请参阅[步骤 4：使用 TableLayoutPanel 控件设置窗体的布局](../ide/step-4-lay-out-your-form-with-a-tablelayoutpanel-control.md)。
-
-
-<!--HONumber=Feb17_HO4-->
-
-

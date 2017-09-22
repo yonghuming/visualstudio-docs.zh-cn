@@ -5,7 +5,7 @@ ms.date: 11/04/2016
 ms.reviewer: 
 ms.suite: 
 ms.technology:
-- vs-ide-general
+- vs-ide-designers
 ms.tgt_pltfrm: 
 ms.topic: article
 f1_keywords:
@@ -13,12 +13,13 @@ f1_keywords:
 - vs.graphics.imageeditor
 ms.assetid: fc71d502-c548-4863-8afc-12a1d3ec90d4
 caps.latest.revision: 45
-author: BrianPeek
-ms.author: brpeek
+author: gewarren
+ms.author: gewarren
 manager: ghogen
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 5db97d19b1b823388a465bba15d057b30ff0b3ce
 ms.openlocfilehash: 0def4c66be3cf1bbd65c9cb0dea5e3366f65aae1
+ms.contentlocale: zh-cn
 ms.lasthandoff: 02/22/2017
 
 ---
@@ -95,7 +96,7 @@ ms.lasthandoff: 02/22/2017
   
  “图像编辑器模式”工具栏如下：  
   
- ![图像编辑器模式工具栏。](~/designers/media/digit-tre-modal-toolbar.png "Digit-TRE-Modal-Toolbar")  
+ ![图像编辑器模式工具栏。](../designers/media/digit-tre-modal-toolbar.png "Digit-TRE-Modal-Toolbar")  
   
  下表描述“图像编辑器模式”工具栏上的各项，按其从左至右的显示顺序依次列出。  
   
@@ -119,7 +120,7 @@ ms.lasthandoff: 02/22/2017
   
  “图像编辑器”工具栏如下。  
   
- ![图像编辑器工具栏](~/designers/media/digit-tre-toolbar.png "Digit-TRE-Toolbar")  
+ ![图像编辑器工具栏](../designers/media/digit-tre-toolbar.png "Digit-TRE-Toolbar")  
   
  下表描述“图像编辑器”工具栏上的项目，按其从上到下的显示顺序列出。  
   

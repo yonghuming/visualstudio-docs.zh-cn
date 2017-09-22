@@ -14,8 +14,8 @@ helpviewer_keywords:
 - Visual C#, international applications
 ms.assetid: 8e1b9920-e1ac-4691-928e-cd95bfc6550b
 caps.latest.revision: 9
-author: kempb
-ms.author: kempb
+author: gewarren
+ms.author: gewarren
 manager: ghogen
 translation.priority.ht:
 - cs-cz
@@ -38,17 +38,14 @@ ms.contentlocale: zh-cn
 ms.lasthandoff: 05/30/2017
 
 ---
-# 全球化应用程序
-<a id="globalizing-applications" class="xliff"></a>
+# <a name="globalizing-applications"></a>全球化应用程序
 全球化是指设计和开发针对多个区域性的软件产品的过程。 本节内容适用于 Windows 窗体和 Web 窗体页面。  
   
-## 本节内容
-<a id="in-this-section" class="xliff"></a>  
+## <a name="in-this-section"></a>本节内容  
  [全球 Windows 窗体和 Web 窗体的区域性特定类](../ide/culture-specific-classes-for-global-windows-forms-and-web-forms.md)  
  介绍根据区域性设置，为日期、时间、数字、货币和其他信息设置格式的类。  
   
-## 相关章节
-<a id="related-sections" class="xliff"></a>  
+## <a name="related-sections"></a>相关章节  
  [全球化 Windows 窗体](/dotnet/framework/winforms/advanced/globalizing-windows-forms)  
  提供 Windows 窗体全球化帮助页的链接。  
   

@@ -58,8 +58,8 @@ helpviewer_keywords:
 - Resource Compiler
 ms.assetid: f382fd40-a98f-4934-8c9a-5aeae881acde
 caps.latest.revision: 38
-author: kempb
-ms.author: kempb
+author: gewarren
+ms.author: gewarren
 manager: ghogen
 translation.priority.ht:
 - cs-cz
@@ -82,12 +82,10 @@ ms.contentlocale: zh-cn
 ms.lasthandoff: 05/24/2017
 
 ---
-# 管理外部工具
-<a id="manage-external-tools" class="xliff"></a>
+# <a name="manage-external-tools"></a>管理外部工具
 可以使用“工具”菜单从 Visual Studio 内部调用外部工具。 “工具”菜单上提供了几个默认工具，但你可以添加自己的其他可执行文件。  
 
-## Visual Studio Tools 菜单中提供的工具
-<a id="tools-available-on-the-visual-studio-tools-menu" class="xliff"></a>
+## <a name="tools-available-on-the-visual-studio-tools-menu"></a>Visual Studio Tools 菜单中提供的工具
  “工具”菜单包含若干内置命令，如：
 
 *  用于[管理 Visual Studio 扩展](finding-and-using-visual-studio-extensions.md)的“扩展和更新”
@@ -96,8 +94,7 @@ ms.lasthandoff: 05/24/2017
 *  用于[自定义菜单和工具栏](how-to-customize-menus-and-toolbars-in-visual-studio.md)的“自定义...”
 *  用于[为 Visual Studio IDE 和其他工具设置各种不同选项](reference/options-dialog-box-visual-studio.md)的“选项...”
 
-## 将新工具添加到“工具”菜单
-<a id="add-new-tools-to-the-tools-menu" class="xliff"></a> 
+## <a name="add-new-tools-to-the-tools-menu"></a>将新工具添加到“工具”菜单 
  可将外部工具添加到“工具”菜单。 打开“外部工具...”对话框并单击“添加”，然后填写信息。 例如，以下条目会导致 Windows 资源管理器在当前已在 Visual Studio 中打开的文件目录中打开：  
   
 1.  标题：打开文件位置
@@ -130,7 +127,6 @@ ms.lasthandoff: 05/24/2017
 |解决方案目录|$(SolutionDir)|当前解决方案的目录（驱动器 + 路径）。|  
 |解决方案文件名|$(SolutionFileName)|当前解决方案的文件名（驱动器 + 路径 + 文件名）。|  
 
-## 另请参阅
-<a id="see-also" class="xliff"></a>  
+## <a name="see-also"></a>另请参阅  
  [C/C++ 生成工具](/cpp/build/reference/c-cpp-build-tools)
 

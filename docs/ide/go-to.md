@@ -9,8 +9,8 @@ ms.technology:
 ms.tgt_pltfrm: 
 ms.topic: article
 ms.assetid: 509b2107-23d1-4fb3-987f-ab99ef45b72e
-author: BrianPeek
-ms.author: brpeek
+author: gewarren
+ms.author: gewarren
 manager: ghogen
 translation.priority.ht:
 - cs-cz
@@ -26,9 +26,10 @@ translation.priority.ht:
 - tr-tr
 - zh-cn
 - zh-tw
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 3b812629bf0f655f39c35a56eb1b3ca9113303a6
 ms.openlocfilehash: 8bf6d49b21d128d15f5312fb230d4a8e7a8195af
+ms.contentlocale: zh-cn
 ms.lasthandoff: 03/01/2017
 
 ---
@@ -48,35 +49,35 @@ ms.lasthandoff: 03/01/2017
 
 默认情况下将在 IDE 的右上方显示一个小的窗口。
 
-![转到全部](~/ide/media/gotoall.png)
+![转到全部](media/gotoall.png)
 
 可以在此窗口中使用多种方法进行搜索：
 * 使用文本框下面所选的[筛选图标](#filtered-searches)输入不带前缀的文本进行搜索。
 * 输入[前缀](#filtered-searches)，后跟文本进行搜索。
 * 输入一个问号 (?) 来获取更多帮助。
-  ![转到全部帮助](~/ide/media/gotoall_help.png)
+  ![转到全部帮助](media/gotoall_help.png)
 
 ### <a name="filtered-searches"></a>经过筛选的搜索
 若要将搜索范围缩小到特定类型，可以在键入时使用前缀，或使用搜索窗口下面的图标，如下所示。
 
 前缀 | 图标 | 快捷键 | 说明
 :----: | ---- | -------- | ---
-#      | ![符号图标](~/ide/media/gotoall_symbolicon.png) | Ctrl+1、Ctrl+S | 查找匹配的符号
-f      | ![文件图标](~/ide/media/gotoall_fileicon.png)     | Ctrl+1、Ctrl+F | 查找匹配的文件名
-m      | ![成员图标](~/ide/media/gotoall_membericon.png) | Ctrl+1、Ctrl+M | 查找匹配的成员
-T      | ![类型图标](~/ide/media/gotoall_typeicon.png)     | Ctrl+1、Ctrl+T | 查找匹配的类型
-:      | ![行图标](~/ide/media/gotoall_lineicon.png)     | Ctrl+G         | 转到输入的行号
+#      | ![符号图标](media/gotoall_symbolicon.png) | Ctrl+1、Ctrl+S | 查找匹配的符号
+f      | ![文件图标](media/gotoall_fileicon.png)     | Ctrl+1、Ctrl+F | 查找匹配的文件名
+m      | ![成员图标](media/gotoall_membericon.png) | Ctrl+1、Ctrl+M | 查找匹配的成员
+T      | ![类型图标](media/gotoall_typeicon.png)     | Ctrl+1、Ctrl+T | 查找匹配的类型
+:      | ![行图标](media/gotoall_lineicon.png)     | Ctrl+G         | 转到输入的行号
 
 ### <a name="search-locations"></a>搜索位置
 若要将搜索范围缩小到特定位置，请使用两个文档图标。
 
 图标 | 描述
 ---- | ---
-![当前文档](~/ide/media/gotoall_currentdocument.png) | 仅搜索当前文档
-![外部文档](~/ide/media/gotoall_external.png) | 除了项目/解决方案中的文档外还搜索外部文档
+![当前文档](media/gotoall_currentdocument.png) | 仅搜索当前文档
+![外部文档](media/gotoall_external.png) | 除了项目/解决方案中的文档外还搜索外部文档
 
 ### <a name="settings"></a>设置
-单击齿轮图标 ![齿轮图标](~/ide/media/gotoall_gear.png) 此图标位于右下方，使用此图标可以更改功能的工作原理。
+单击齿轮图标 ![齿轮图标](media/gotoall_gear.png) 此图标位于右下方，使用此图标可以更改功能的工作原理。
 
 设置 | 说明
 ------- | ---

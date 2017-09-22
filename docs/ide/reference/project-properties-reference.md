@@ -13,8 +13,8 @@ helpviewer_keywords:
 - projects [Visual Studio], user interface
 ms.assetid: eec49aec-5474-48a7-889d-709045b9a475
 caps.latest.revision: 18
-author: kempb
-ms.author: kempb
+author: gewarren
+ms.author: gewarren
 manager: ghogen
 translation.priority.ht:
 - cs-cz
@@ -37,12 +37,10 @@ ms.contentlocale: zh-cn
 ms.lasthandoff: 05/24/2017
 
 ---
-# 项目属性引用
-<a id="project-properties-reference" class="xliff"></a>
+# <a name="project-properties-reference"></a>项目属性引用
 详细了解如何配置和自定义项目属性。  
   
-## 项目属性页
-<a id="project-properties-pages" class="xliff"></a>  
+## <a name="project-properties-pages"></a>项目属性页  
   
 |标题|说明|  
 |-----------|-----------------|  
@@ -59,9 +57,7 @@ ms.lasthandoff: 05/24/2017
 |[项目设计器 ->“引用”页 (Visual Basic)](../../ide/reference/references-page-project-designer-visual-basic.md)|使用此页管理项目所使用的引用。|  
 |[“项目设计器”->“安全”页](../../ide/reference/security-page-project-designer.md)|使用此页配置使用 [!INCLUDE[ndptecclick](../../deployment/includes/ndptecclick_md.md)] 部署部署的应用程序的代码访问安全性设置。|  
 |[“项目设计器”->“签名”页](../../ide/reference/signing-page-project-designer.md)|使用此页对应用程序和部署清单及程序集进行签名。|  
-|||  
-|||  
   
-## 另请参阅
-<a id="see-also" class="xliff"></a>  
+## <a name="see-also"></a>另请参阅  
  [解决方案和项目](../../ide/solutions-and-projects-in-visual-studio.md)
+

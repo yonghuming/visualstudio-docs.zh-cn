@@ -13,8 +13,8 @@ helpviewer_keywords:
 - Class Designer [Visual Studio], opening
 ms.assetid: 0eac1b54-2711-4e4b-9654-a0c429c08c8f
 caps.latest.revision: 39
-author: kempb
-ms.author: kempb
+author: gewarren
+ms.author: gewarren
 manager: ghogen
 translation.priority.ht:
 - cs-cz
@@ -37,14 +37,12 @@ ms.contentlocale: zh-cn
 ms.lasthandoff: 07/14/2017
 
 ---
-# How to: Add Class Diagrams to Projects (Class Designer)
-<a id="how-to-add-class-diagrams-to-projects-class-designer" class="xliff"></a>
+# <a name="how-to-add-class-diagrams-to-projects-class-designer"></a>How to: Add Class Diagrams to Projects (Class Designer)
 若要设计、编辑及重构类和其他类型，请将类图添加到 Visual C# .NET、Visual Basic .NET 或 C++ 项目中。 若要直观显示项目中代码的不同部分，请将多个类图添加到该项目中。  
   
  你不可以从在多个应用间共享代码的项目创建类图。 要创建 UML 类图，请参阅[创建 UML 建模项目和关系图](../modeling/create-uml-modeling-projects-and-diagrams.md)。  
   
-### 向项目中添加空白类图
-<a id="to-add-a-blank-class-diagram-to-a-project" class="xliff"></a>  
+### <a name="to-add-a-blank-class-diagram-to-a-project"></a>向项目中添加空白类图  
   
 1.  在解决方案资源管理器中，右击项目名称。 然后选择“添加新项”或“添加”、“新建项”。  
   
@@ -54,8 +52,7 @@ ms.lasthandoff: 07/14/2017
   
 3.  要添加多个类图，请重复上述步骤。  
   
-### 基于现有类型添加类图
-<a id="to-add-a-class-diagram-based-on-existing-types" class="xliff"></a>  
+### <a name="to-add-a-class-diagram-based-on-existing-types"></a>基于现有类型添加类图  
   
 1.  在解决方案资源管理器中，打开类文件上下文菜单，然后选择“查看类图”。  
   
@@ -63,15 +60,13 @@ ms.lasthandoff: 07/14/2017
   
      在“类视图”中，打开命名空间或类型上下文菜单，然后选择“查看类图”。  
   
-### 在类图中显示完整项目的内容
-<a id="to-display-the-contents-of-a-complete-project-in-a-class-diagram" class="xliff"></a>  
+### <a name="to-display-the-contents-of-a-complete-project-in-a-class-diagram"></a>在类图中显示完整项目的内容  
   
 1.  在“解决方案资源管理器”或“类视图”中，右键单击该项目并选择“视图”，然后选择“查看类图”。  
   
      即会创建一个自动填充的类图。  
   
-## 另请参阅
-<a id="see-also" class="xliff"></a>  
+## <a name="see-also"></a>另请参阅  
  [如何：使用类设计器创建类型](../ide/how-to-create-types-by-using-class-designer.md)   
  [如何：查看现有类型（类设计器）](../ide/how-to-view-existing-types-class-designer.md)   
  [设计类和类型（类设计器）](../ide/designing-classes-and-types-class-designer.md)   

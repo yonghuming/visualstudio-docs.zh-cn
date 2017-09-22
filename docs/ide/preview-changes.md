@@ -9,8 +9,8 @@ ms.technology:
 ms.tgt_pltfrm: 
 ms.topic: article
 ms.assetid: e15c00f6-3e22-49b8-8269-69e4c8be8040
-author: BrianPeek
-ms.author: brpeek
+author: gewarren
+ms.author: gewarren
 manager: ghogen
 f1_keywords:
 - vs.codefix.previewchanges
@@ -28,9 +28,11 @@ translation.priority.ht:
 - tr-tr
 - zh-cn
 - zh-tw
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 14e6961d6db557e77687eef17aae9b16f5a4d706
 ms.openlocfilehash: eb49815ed120ee4ff65dfc04764282f1ac6d1ff8
+ms.contentlocale: zh-cn
+ms.lasthandoff: 02/22/2017
 
 ---
 
@@ -38,7 +40,7 @@ ms.openlocfilehash: eb49815ed120ee4ff65dfc04764282f1ac6d1ff8
 
 在 Visual Studio 中使用各种*快速操作*或*重构*工具时，在接受更改之前通常可以预览要对项目所做的更改。  可以在“预览更改”窗口中完成此操作。  例如，下面的**预览更改**窗口显示在 C# 项目中重命名重构过程中的更改内容：
 
-![预览更改](~/ide/media/previewchanges.png)
+![预览更改](media/previewchanges.png)
 
 窗口的上半部分显示要更改的特定行，每个行都有一个复选框。  如果想要有选择地将重构应用于特定行，可以选中或取消选中各个复选框。
 
@@ -48,9 +50,4 @@ ms.openlocfilehash: eb49815ed120ee4ff65dfc04764282f1ac6d1ff8
 
 ## <a name="see-also"></a>另请参阅  
 [在 Visual Studio 中重构](../ide/refactoring-in-visual-studio.md)
-
-
-
-<!--HONumber=Feb17_HO4-->
-
 

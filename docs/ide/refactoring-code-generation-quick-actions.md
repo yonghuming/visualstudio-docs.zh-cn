@@ -9,8 +9,8 @@ ms.technology:
 ms.tgt_pltfrm: 
 ms.topic: article
 ms.assetid: fc929a81-b20c-4802-92a7-388fd15aec3c
-author: BrianPeek
-ms.author: brpeek
+author: gewarren
+ms.author: gewarren
 manager: ghogen
 translation.priority.ht:
 - cs-cz
@@ -26,9 +26,10 @@ translation.priority.ht:
 - tr-tr
 - zh-cn
 - zh-tw
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 46846db26bee30841e6cb35913d533b512d01ba0
 ms.openlocfilehash: 59ed01aa24468dd7b08a10389f91580321fe9b82
+ms.contentlocale: zh-cn
 ms.lasthandoff: 03/27/2017
 
 ---
@@ -51,7 +52,7 @@ Visual Studio 可以帮助生成部分源代码，让你专注于实际工作。
 
 <a name="#quick-actions"></a>
 ## <a name="quick-actions"></a>快速操作
-通过快速操作，只凭单个操作便可轻松重构、生成或修改代码。  可使用灯泡图标![小灯泡图标](~/ide/media/vs2015_lightbulbsmall.png "VS2017_LightBulbSmall")，或按“Ctrl+.”应用这些快速操作， 前提是光标位于相应的代码行上。
+通过快速操作，只凭单个操作便可轻松重构、生成或修改代码。  可使用灯泡图标![小灯泡图标](media/vs2015_lightbulbsmall.png "VS2017_LightBulbSmall")，或按“Ctrl+.”应用这些快速操作， 前提是光标位于相应的代码行上。
 
 * [快速操作](quick-actions.md)
 * [代码样式和快速操作](code-styles-and-quick-actions.md)

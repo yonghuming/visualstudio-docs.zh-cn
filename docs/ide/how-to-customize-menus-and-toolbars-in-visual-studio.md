@@ -29,8 +29,8 @@ helpviewer_keywords:
 - toolbars [Visual Studio], customizing in the IDE
 ms.assetid: b570ae2f-5302-45dc-9cc9-8d4d1ad50603
 caps.latest.revision: 28
-author: kempb
-ms.author: kempb
+author: gewarren
+ms.author: gewarren
 manager: ghogen
 translation.priority.ht:
 - cs-cz
@@ -46,9 +46,10 @@ translation.priority.ht:
 - tr-tr
 - zh-cn
 - zh-tw
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 5db97d19b1b823388a465bba15d057b30ff0b3ce
 ms.openlocfilehash: 0ca0020fa9025e57df874f8fa8b5eb41e63a8c29
+ms.contentlocale: zh-cn
 ms.lasthandoff: 02/22/2017
 
 ---
@@ -78,7 +79,7 @@ ms.lasthandoff: 02/22/2017
   
     -   若要添加菜单，请选择“添加新菜单”按钮，选择“修改所选内容”按钮，然后命名要添加的菜单。  
   
-         ![显示如何添加菜单的“自定义”对话框](~/ide/media/addmenu.png "AddMenu")  
+         ![显示如何添加菜单的“自定义”对话框](../ide/media/addmenu.png "AddMenu")  
   
     -   若要删除菜单，请在“控件”列表中选择该菜单，然后选择“删除”按钮。  
   
@@ -94,7 +95,7 @@ ms.lasthandoff: 02/22/2017
   
     -   若要添加工具栏，请选择“新建”按钮，指定要添加的工具栏的名称，然后选择“确定”按钮。  
   
-         ![显示如何添加工具栏的“自定义”对话框](~/ide/media/addtoolbar.png "AddToolbar")  
+         ![显示如何添加工具栏的“自定义”对话框](../ide/media/addtoolbar.png "AddToolbar")  
   
     -   若要删除自定义工具栏，请在“工具栏”列表中选择该工具栏，然后选择“删除”按钮。  
   
@@ -122,7 +123,7 @@ ms.lasthandoff: 02/22/2017
   
          在“添加命令”对话框中，依次选择“类别”列表中的项和“命令”列表中的项，然后选择“确定”按钮。  
   
-         ![Visual Studio 中的“添加命令”对话框](~/ide/media/addcommand.png "AddCommand")  
+         ![Visual Studio 中的“添加命令”对话框](../ide/media/addcommand.png "AddCommand")  
   
     -   若要删除命令，请在“控件”列表中选择该命令，然后选择“删除”按钮。  
   
