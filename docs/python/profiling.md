@@ -2,7 +2,6 @@
 title: "衡量 Visual Studio 中 Python 代码的性能 | Microsoft Docs"
 ms.custom: 
 ms.date: 7/13/2017
-ms.prod: visual-studio-dev15
 ms.reviewer: 
 ms.suite: 
 ms.technology:

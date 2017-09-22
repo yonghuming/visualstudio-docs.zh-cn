@@ -2,7 +2,6 @@
 title: "移植、迁移和升级 Visual Studio 项目 | Microsoft Docs"
 ms.custom: 
 ms.date: 7/24/2017
-ms.prod: visual-studio-dev15
 ms.reviewer: 
 ms.suite: 
 ms.technology:

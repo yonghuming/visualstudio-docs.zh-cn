@@ -2,7 +2,6 @@
 title: "Visual Studio 中适用于 Python 的 Django Web 项目模板 | Microsoft Docs"
 ms.custom: 
 ms.date: 7/13/2017
-ms.prod: visual-studio-dev15
 ms.reviewer: 
 ms.suite: 
 ms.technology:

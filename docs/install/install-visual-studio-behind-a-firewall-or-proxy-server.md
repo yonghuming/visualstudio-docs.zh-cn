@@ -3,7 +3,6 @@ title: "在防火墙或代理服务器后安装 Visual Studio | Microsoft Docs"
 description: 
 ms.custom: 
 ms.date: 08/01/2017
-ms.prod: visual-studio-dev15
 ms.reviewer: 
 ms.suite: 
 ms.technology:

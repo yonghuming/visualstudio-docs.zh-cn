@@ -2,7 +2,6 @@
 title: "在 Visual Studio 中设置 Python 代码格式 | Microsoft Docs"
 ms.custom: 
 ms.date: 7/12/2017
-ms.prod: visual-studio-dev15
 ms.reviewer: 
 ms.suite: 
 ms.technology:
