@@ -1,19 +1,39 @@
 ---
 title: "如何：创建基本纹理 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-general"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-designers
+ms.tgt_pltfrm: 
+ms.topic: article
 ms.assetid: 0222e8bf-d29f-421b-9b1f-123d500fa179
 caps.latest.revision: 15
-author: "BrianPeek"
-ms.author: "brpeek"
-manager: "ghogen"
-caps.handback.revision: 15
+author: gewarren
+ms.author: gewarren
+manager: ghogen
+translation.priority.ht:
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- ru-ru
+- zh-cn
+- zh-tw
+translation.priority.mt:
+- cs-cz
+- pl-pl
+- pt-br
+- tr-tr
+ms.translationtype: Human Translation
+ms.sourcegitcommit: 5db97d19b1b823388a465bba15d057b30ff0b3ce
+ms.openlocfilehash: e8455a68a2be88e177746433ad3b41e412c8de38
+ms.contentlocale: zh-cn
+ms.lasthandoff: 02/22/2017
+
 ---
 # <a name="how-to-create-a-basic-texture"></a>如何：创建基本纹理
 本文档说明如何使用图像编辑器创建基本纹理。  
@@ -35,7 +55,7 @@ caps.handback.revision: 15
   
  以下步骤显示如何创建表示“靶心”目标的纹理。完成后，该纹理应如下图所示。 为了更好地演示纹理中的透明度，已将图像编辑器配置为使用绿色的方格棋盘图案来显示它。  
   
- ![显示为绿色的透明“靶心”目标](~/designers/media/digit-bullseye-texture-in-editor.png "Digit-Bullseye-Texture-In-Editor")  
+ ![显示为绿色的透明“靶心”目标](../designers/media/digit-bullseye-texture-in-editor.png "Digit-Bullseye-Texture-In-Editor")  
   
  开始前，请确保显示“属性”窗口”。 在工作时，可以使用“属性”窗口设置图像的大小、更改工具属性以及指定颜色。  
   
@@ -83,14 +103,9 @@ caps.handback.revision: 15
   
  “靶心”目标纹理是完整的。 下面是最终图像（以透明度显示）。  
   
- ![完整的“靶心”目标纹理](~/designers/media/gfx_image_demo_bullseye.png "gfx_image_demo_bullseye")  
+ ![完整的“靶心”目标纹理](../designers/media/gfx_image_demo_bullseye.png "gfx_image_demo_bullseye")  
   
  作为下一步，可以为此纹理生成 MIP 级别。 有关信息，请参阅[如何：创建和修改 MIP 级别](../designers/how-to-create-and-modify-mip-levels.md)。  
   
 ## <a name="see-also"></a>另请参阅  
  [图像编辑器](../designers/image-editor.md)
-
-
-<!--HONumber=Feb17_HO4-->
-
-

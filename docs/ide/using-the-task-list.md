@@ -17,8 +17,8 @@ helpviewer_keywords:
 - Visual Studio, task list
 ms.assetid: f46a75a8-47b3-4cb6-bb59-b72e3356a664
 caps.latest.revision: 29
-author: kempb
-ms.author: kempb
+author: gewarren
+ms.author: gewarren
 manager: ghogen
 translation.priority.ht:
 - de-de
@@ -35,9 +35,10 @@ translation.priority.mt:
 - pl-pl
 - pt-br
 - tr-tr
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 5db97d19b1b823388a465bba15d057b30ff0b3ce
 ms.openlocfilehash: 01e8f3cc1bbcc2bc4b2fc94df1dad7d248b67290
+ms.contentlocale: zh-cn
 ms.lasthandoff: 02/22/2017
 
 ---
@@ -65,7 +66,7 @@ ms.lasthandoff: 02/22/2017
   
 -   在“视图”菜单中，选择“任务列表”（键盘：Ctrl+\\、T）。  
   
-     ![“任务列表”窗口](~/ide/media/vs2015_task_list.png "vs2015_task_list")  
+     ![“任务列表”窗口](../ide/media/vs2015_task_list.png "vs2015_task_list")  
   
 #### <a name="to-change-the-sort-order-of-the-list"></a>更改列表的排序顺序  
   
@@ -114,7 +115,7 @@ ms.lasthandoff: 02/22/2017
   
      此时将显示[“选项”对话框 ->“环境”->“任务列表”](../ide/reference/task-list-environment-options-dialog-box.md)。  
   
-     ![Visual Studio 任务列表](~/ide/media/vs2015_task_list_options.png "vs2015_task_list_options")  
+     ![Visual Studio 任务列表](../ide/media/vs2015_task_list_options.png "vs2015_task_list_options")  
   
 3.  在“令牌”  类别中的“名称”  文本框中，输入你的令牌名称，如“BUG”。  
   
@@ -134,7 +135,7 @@ ms.lasthandoff: 02/22/2017
 ##  <a name="shortcuts"></a>快捷方式  
  “快捷方式”  是代码中的书签，在“任务列表” 中跟踪；它具有与常规书签不同的图标。 双击 **“任务列表”** 中的快捷方式可转到代码中的对应位置。  
   
- ![Visual Studio 任务列表快捷方式图标](~/ide/media/vs2015_task_list_bookmark.png "vs2015_task_list_bookmark")  
+ ![Visual Studio 任务列表快捷方式图标](../ide/media/vs2015_task_list_bookmark.png "vs2015_task_list_bookmark")  
   
 #### <a name="to-create-a-shortcut"></a>创建快捷方式  
   

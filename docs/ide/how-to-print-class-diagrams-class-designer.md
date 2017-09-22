@@ -13,8 +13,8 @@ helpviewer_keywords:
 - class diagrams, printing
 ms.assetid: 62c87425-3446-41fb-943c-1f86397883c8
 caps.latest.revision: 10
-author: kempb
-ms.author: kempb
+author: gewarren
+ms.author: gewarren
 manager: ghogen
 translation.priority.ht:
 - cs-cz
@@ -37,12 +37,10 @@ ms.contentlocale: zh-cn
 ms.lasthandoff: 07/14/2017
 
 ---
-# 如何：打印类关系图（类设计器）
-<a id="how-to-print-class-diagrams-class-designer" class="xliff"></a>
+# <a name="how-to-print-class-diagrams-class-designer"></a>如何：打印类关系图（类设计器）
 可以使用 Visual Studio 的打印功能打印类图。  
   
-### 打印类图
-<a id="to-print-a-class-diagram" class="xliff"></a>  
+### <a name="to-print-a-class-diagram"></a>打印类图  
   
 1.  显示类图。 （如有必要，请选中“类图”选项卡以显示类图。）  
   
@@ -50,7 +48,6 @@ ms.lasthandoff: 07/14/2017
   
      随即将打印整个类图。 请注意，可能需要调整“页面设置”对话框中的设置，以便按适当大小进行打印。  
   
-## 另请参阅
-<a id="see-also" class="xliff"></a>  
+## <a name="see-also"></a>另请参阅  
  [如何：将类图元素复制到 Microsoft Office 文档（类设计器）](../ide/how-to-copy-class-diagram-elements-to-a-microsoft-office-document-class-designer.md)   
  [如何：将类图导出为图像（类设计器）](../ide/how-to-export-class-diagrams-as-images-class-designer.md)

@@ -8,8 +8,8 @@ ms.tgt_pltfrm:
 ms.topic: article
 ms.assetid: ac600581-8fc8-49e3-abdf-1569a3483d74
 caps.latest.revision: 5
-author: kempb
-ms.author: kempb
+author: gewarren
+ms.author: gewarren
 manager: ghogen
 translation.priority.ht:
 - de-de
@@ -26,9 +26,10 @@ translation.priority.mt:
 - pl-pl
 - pt-br
 - tr-tr
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 5db97d19b1b823388a465bba15d057b30ff0b3ce
 ms.openlocfilehash: 138f318b84044a1ed8a92f9b2ee7b47b2211cdb7
+ms.contentlocale: zh-cn
 ms.lasthandoff: 02/22/2017
 
 ---
@@ -47,7 +48,7 @@ ms.lasthandoff: 02/22/2017
   
  当禁用项目代码时，Visual Studio 将显示占位符，如绑定中数据不再可用的属性的名称；或显示不再运行的控件的占位符。  
   
- ![“未经处理的异常”对话框](~/designers/media/xaml_unhandledexception.png "XAML_UnhandledException")  
+ ![“未经处理的异常”对话框](../designers/media/xaml_unhandledexception.png "XAML_UnhandledException")  
   
 #### <a name="to-determine-if-project-code-is-causing-an-exception"></a>确定项目代码是否会导致异常  
   
@@ -63,7 +64,7 @@ ms.lasthandoff: 02/22/2017
   
 2.  在 Windows 任务管理器中，选择“结束任务”  按钮以关闭当前运行的 Visual Studio XAML 设计器的任何实例。  
   
-     ![TaskManager 中的 XAML 设计器实例](~/designers/media/xaml_taskmanager.png "XAML_TaskManager")  
+     ![TaskManager 中的 XAML 设计器实例](../designers/media/xaml_taskmanager.png "XAML_TaskManager")  
   
 3.  在 Visual Studio 中，打开 XAML 页面，其中包含要调试的代码或控件。  
   
@@ -75,7 +76,7 @@ ms.lasthandoff: 02/22/2017
   
 7.  在“附加到进程”  对话框中，从“可用进程”  列表中选择“XDesProc.exe” ，然后选择“附加”  按钮。  
   
-     ![XAML 设计器进程](~/designers/media/xaml_attach.png "XAML_Attach")  
+     ![XAML 设计器进程](../designers/media/xaml_attach.png "XAML_Attach")  
   
      这是 Visual Studio 的第一个实例中 XAML 设计器的进程。  
   
@@ -89,7 +90,7 @@ ms.lasthandoff: 02/22/2017
   
 -   或者，在 XAML 设计器的工具栏上，选择“禁用项目代码”  按钮。  
   
-     ![“禁用项目代码”按钮](~/designers/media/xaml_disablecode.png "XAML_DisableCode")  
+     ![“禁用项目代码”按钮](../designers/media/xaml_disablecode.png "XAML_DisableCode")  
   
      你可以再次切换按钮以重新启用项目代码。  
   

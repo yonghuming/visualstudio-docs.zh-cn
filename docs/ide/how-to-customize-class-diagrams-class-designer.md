@@ -15,8 +15,8 @@ helpviewer_keywords:
 - class diagrams, removing type shapes
 ms.assetid: e9030aea-c77d-4cc1-b8f6-b6ca469b692d
 caps.latest.revision: 29
-author: kempb
-ms.author: kempb
+author: gewarren
+ms.author: gewarren
 manager: ghogen
 translation.priority.ht:
 - cs-cz
@@ -39,8 +39,7 @@ ms.contentlocale: zh-cn
 ms.lasthandoff: 07/14/2017
 
 ---
-# 如何：自定义类图（类设计器）
-<a id="how-to-customize-class-diagrams-class-designer" class="xliff"></a>
+# <a name="how-to-customize-class-diagrams-class-designer"></a>如何：自定义类图（类设计器）
 你可以更改类图显示信息的方式。 可以在设计图面上自定义整个关系图或各个类型。  
   
  例如，你可以调整整个类图的缩放级别，更改各个类型成员的分组和排序方式，隐藏或显示关系并将单个类型或类型集移动到类图上的任意位置。  
@@ -164,8 +163,7 @@ ms.lasthandoff: 07/14/2017
   
      此时即会从关系图中移除形状，并从项目中删除形状的基础代码。  
   
-## 另请参阅
-<a id="see-also" class="xliff"></a>  
+## <a name="see-also"></a>另请参阅  
  [使用类图（类设计器）](../ide/working-with-class-diagrams-class-designer.md)   
  [如何：在成员表示法与关联表示法之间转换（类设计器）](../ide/how-to-change-between-member-notation-and-association-notation-class-designer.md)   
  [如何：查看现有类型（类设计器）](../ide/how-to-view-existing-types-class-designer.md)   
