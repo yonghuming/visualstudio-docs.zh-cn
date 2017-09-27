@@ -19,4 +19,4 @@ ms.openlocfilehash: 866c0f4d27720f0084673b385c711b27246d21ec
 ms.contentlocale: zh-cn
 
 ---
-Visual Studio Ultimate
+Visual Studio 旗舰版

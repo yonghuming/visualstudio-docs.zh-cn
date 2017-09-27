@@ -15,10 +15,10 @@ author: kraigb
 ms.author: kraigb
 manager: ghogen
 ms.translationtype: HT
-ms.sourcegitcommit: 6d25db4639f2c8391c1e32542701ea359f560178
-ms.openlocfilehash: 6dbf4f2bfabbfe5dc780eb4e973c6fae7ca6b1d9
+ms.sourcegitcommit: d0a5b44962b0cfbe549453b1760a38237de7e6ab
+ms.openlocfilehash: 420af3d78a514a7e6b6ded186c204ad8301c4c85
 ms.contentlocale: zh-cn
-ms.lasthandoff: 07/18/2017
+ms.lasthandoff: 09/26/2017
 
 ---
 
@@ -44,7 +44,7 @@ Visual Studio 中的 Python 支持包括大量的[项目模板](python-projects.
 1. 选择“Python 应用程序”模板，为项目指定文件夹并选择“确定”。 （如果想要立即为项目创建本地存储库，还需选择“添加到源控件”选项）。
 
     > [!Tip]
-    > 通过“基于现有的 Python 代码”模板，可快速从已包含 Python 代码的文件夹中创建 Visual Studio 项目，而不是创建新的空项目并将现有代码导入其中。
+    > 使用“通过现有 Python 代码”模板，可快速从已包含 Python 代码的文件夹创建 Visual Studio 项目，而不用新建空项目并向其中导入现有代码。
 
 1. 几分钟后，项目将在 Visual Studio 解决方案资源管理器窗口中打开。 在此处可以浏览项目中的文件和文件夹，也可以管理环境。
 
@@ -239,7 +239,7 @@ Visual Studio 中的 Python 支持包括大量的[项目模板](python-projects.
 
 1. 若要继续运行代码，直到下一个断点（或程序结束），请再次按 F5 或者选择“继续”工具栏按钮或“调试”>“继续”。 因为 `for` 循环中有断点，因此下一次迭代将中断。
 
-1. 逐句通过循环的上百次迭代可能会很单调，因此可向之前设定的断点添加条件，使其仅在 `i` 的值超过特定值（例如 1600）时中断。 要设置条件，请右键单击红色断点，选择“条件...”。 在显示的“断点设置”窗口中，输入 `i > 1600` 作为表达式，选择“关闭”。 现在，按 F5 继续，将看到程序再次中断前运行了一段时间。 
+1. 逐句通过循环的上百次迭代可能会很单调，因此可向之前设定的断点添加条件，使其仅在 `i` 的值超过特定值（例如 1600）时中断。 要设置条件，请右键单击红色断点，选择“条件...”。在显示的“断点设置”窗口中，输入 `i > 1600` 作为表达式，选择“关闭”。 现在，按 F5 继续，将看到程序再次中断前运行了一段时间。 
 
     ![设定断点条件](media/getting-started-debugging-4.png)
 

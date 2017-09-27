@@ -34,7 +34,7 @@ ms.translationtype: MT
 ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
 ms.openlocfilehash: ed511fa58ca0d98d38ed2ab1ed3bc24bed642170
 ms.contentlocale: zh-cn
-ms.lasthandoff: 09/06/2017
+ms.lasthandoff: 09/26/2017
 
 ---
 # <a name="adding-user-control-to-the-start-page"></a>将用户控件添加到开始页
@@ -190,7 +190,7 @@ ms.lasthandoff: 09/06/2017
   
 ## <a name="testing-a-manually-created-custom-start-page"></a>测试手动创建自定义起始页  
   
-1.  将你的 XAML 文件，以及任何支持的文本文件或标记文件，为复制**%USERPROFILE%\My Documents\Visual Studio 2015 \startpages\\** 文件夹。  
+1.  将你的 XAML 文件，以及任何支持的文本文件或标记文件，为复制**%USERPROFILE%\My Documents\Visual Studio 2015 \startpages\\ **文件夹。  
   
 2.  如果你的起始页引用的任何控件或未安装 Visual studio 的程序集中的类型，复制程序集，然后粘贴在*Visual Studio 安装文件夹***\Common7\IDE\PrivateAssemblies\\**。  
   

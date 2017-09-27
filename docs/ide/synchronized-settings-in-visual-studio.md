@@ -1,4 +1,3 @@
-
 ---
 title: "在 Visual Studio 中同步你的设置 | Microsoft Docs"
 ms.custom: 
@@ -13,8 +12,8 @@ f1_keywords:
 - VS.ToolsOptionsPages.Environment.RoamingSettings
 ms.assetid: a3d2ea29-be5d-4012-9820-44b06adbb7dd
 caps.latest.revision: 10
-author: kempb
-ms.author: kempb
+author: gewarren
+ms.author: gewarren
 manager: ghogen
 translation.priority.ht:
 - cs-cz
@@ -31,10 +30,10 @@ translation.priority.ht:
 - zh-cn
 - zh-tw
 ms.translationtype: HT
-ms.sourcegitcommit: cc949cae43fe524771f43fe7e9261de3b4325649
-ms.openlocfilehash: 8b8a7587687579e074d1b9ea1c9ae52a5f857fce
+ms.sourcegitcommit: ea1e787c1d509123a650cf2bd20e5fa8bffd5b4e
+ms.openlocfilehash: 1882e191caa027e7a6e2b52c766135b240b309a1
 ms.contentlocale: zh-cn
-ms.lasthandoff: 08/15/2017
+ms.lasthandoff: 09/26/2017
 
 ---
 # <a name="synchronize-your-settings-in-visual-studio"></a>在 Visual Studio 中同步你的设置
@@ -82,7 +81,7 @@ ms.lasthandoff: 08/15/2017
 注意：要使用新的特定于安装的设置，必须先完成全新安装。 将现有 Visual Studio 2017 安装升级到最新更新时，其会使用现有共享位置。 如果现在已拥有 Visual Studio 2017 的并行安装，并决定升级且希望使用特定于安装的新设置文件位置，请参阅以下步骤：
 
 1. 升级之后，使用“导入\导出”设置向导将所有现有设置导出到 `%localappdata%\Microsoft\VisualStudio\15.0_xxxxxxxx` 文件夹之外的某个位置。
-2. 打开适用于 VS 2017 的开发人员命令提示符（它属于已升级的 Visual Studio 安装），并在其中运行“devenv resetuserdata”。
+2. 打开已安装的升级后 Visual Studio 的 VS 2017 开发者命令提示符，并通过它运行 `devenv /resetuserdata`。
 3. 启动 Visual Studio，并从导出的设置文件中导入保存的设置。
 
 ## <a name="see-also"></a>请参阅

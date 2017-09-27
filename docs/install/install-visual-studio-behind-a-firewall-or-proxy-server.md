@@ -19,15 +19,15 @@ author: TerryGLee
 ms.author: tglee
 manager: ghogen
 ms.translationtype: HT
-ms.sourcegitcommit: f23906933add1f4706d8786b2950fb3b5d2e6781
-ms.openlocfilehash: 0803ea25bd8f45d79d618ff481094fb5786b1acb
+ms.sourcegitcommit: 1e017806ca7bf3d23410ba3a2f999dca0b78f240
+ms.openlocfilehash: cb2ef641cb5b9b6efbd1aeb539154da1e4082b51
 ms.contentlocale: zh-cn
-ms.lasthandoff: 08/14/2017
+ms.lasthandoff: 09/26/2017
 
 ---
 # <a name="install-visual-studio-behind-a-firewall-or-proxy-server"></a>在防火墙或代理服务器后安装 Visual Studio
 
-Visual Studio 安装程序从各种域及其下载服务器下载文件。 此页列出了你希望在部署脚本中作为受信任的项列入“允许列表”的域 URL。
+Visual Studio 安装程序从各种域及其下载服务器下载文件。 此页列出了你希望在部署脚本中作为受信任的项列入“白名单”的域 URL。
 
 如果适用于环境，请考虑添加同时使用 HTTP 和 HTTPS 协议的以下域。
 

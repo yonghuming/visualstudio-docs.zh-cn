@@ -1,86 +1,122 @@
 ---
-title: "QUERYCHANGESFUNC | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "QUERYCHANGESFUNC"
-helpviewer_keywords: 
-  - "QUERYCHANGESFUNC 回调函数"
-  - "QUERYCHANGESDATA 结构"
+title: "QUERYCHANGESFUNC |Microsoft 文档"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords:
+- QUERYCHANGESFUNC
+helpviewer_keywords:
+- QUERYCHANGESFUNC callback function
+- QUERYCHANGESDATA structure
 ms.assetid: 9d383e2c-eee1-4996-973a-0652d4c5951c
 caps.latest.revision: 16
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 16
----
-# QUERYCHANGESFUNC
-[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
+ms.author: gregvanl
+manager: ghogen
+translation.priority.mt:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+ms.translationtype: MT
+ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
+ms.openlocfilehash: 7b53174955e07f2ecfc58a32b7cd888443640511
+ms.contentlocale: zh-cn
+ms.lasthandoff: 09/26/2017
 
-这是由一个回调函数 [SccQueryChanges](../extensibility/sccquerychanges-function.md) 操作，以枚举集合的文件的名称并确定每个文件的状态。  
+---
+# <a name="querychangesfunc"></a>QUERYCHANGESFUNC
+这是由一个回调函数[SccQueryChanges](../extensibility/sccquerychanges-function.md)操作枚举文件名称的集合，并确定每个文件的状态。  
   
- `SccQueryChanges` 函数提供一组文件和一个指向 `QUERYCHANGESFUNC` 回调。 源代码管理插件枚举给定的列表，并提供相应的每个文件在列表中的状态 \(通过此回调\)。  
+ `SccQueryChanges`函数提供的文件和指向的指针列表`QUERYCHANGESFUNC`回调。 源代码管理插件枚举给定的列表，并为每个列表中的文件提供 （通过此回调中） 的状态。  
   
-## 签名  
+## <a name="signature"></a>签名  
   
-```cpp#  
-typedef BOOL (*QUERYCHANGESFUNC)( LPVOID pvCallerData, QUERYCHANGESDATA * pChangesData );  
+```cpp  
+typedef BOOL (*QUERYCHANGESFUNC)(  
+   LPVOID pvCallerData,  
+   QUERYCHANGESDATA * pChangesData  
+);  
 ```  
   
-## 参数  
+## <a name="parameters"></a>参数  
  pvCallerData  
- \[\] in `pvCallerData` 参数由呼叫方 \(IDE\) 传递给 [SccQueryChanges](../extensibility/sccquerychanges-function.md)。 源代码管理插件应当作出任何假设内容的此值。  
+ [in]`pvCallerData`参数由调用方 (IDE) 传递给[SccQueryChanges](../extensibility/sccquerychanges-function.md)。 源代码管理插件应作出任何假设内容的此值。  
   
  pChangesData  
- \[\] in指向 [QUERYCHANGESDATA 结构](#LinkQUERYCHANGESDATA) 结构的结构描述对文件的更改。  
+ [in]指向[QUERYCHANGESDATA 结构](#LinkQUERYCHANGESDATA)结构描述的文件更改。  
   
-## 返回值  
- IDE 将返回相应的错误代码:  
+## <a name="return-value"></a>返回值  
+ IDE 返回相应的错误代码：  
   
 |值|描述|  
-|-------|--------|  
-|SCC\_OK|继续进行处理。|  
-|SCC\_I\_OPERATIONCANCELED|停止处理。|  
-|SCC\_E\_xxx|任何相应的 SCC 错误应停止处理。|  
+|-----------|-----------------|  
+|SCC_OK|继续进行处理。|  
+|SCC_I_OPERATIONCANCELED|停止处理。|  
+|SCC_E_xxx|任何相应的 SCC 错误应停止处理。|  
   
-##  <a name="LinkQUERYCHANGESDATA"></a> QUERYCHANGESDATA 结构  
- 为每个文件中传递的结构如下所示:  
+##  <a name="LinkQUERYCHANGESDATA"></a>QUERYCHANGESDATA 结构  
+ 每个文件中传递的结构如下所示：  
   
-```cpp#  
-struct QUERYCHANGESDATA_A { DWORD  dwSize; LPCSTR lpFileName; DWORD  dwChangeType; LPCSTR lpLatestName; }; typedef struct QUERYCHANGESDATA_A QUERYCHANGESDATA; struct QUERYCHANGESDATA_W { DWORD   dwSize; LPCWSTR lpFileName; DWORD   dwChangeType; LPCWSTR lpLatestName; };  
+```cpp  
+struct QUERYCHANGESDATA_A  
+{  
+    DWORD  dwSize;  
+    LPCSTR lpFileName;  
+    DWORD  dwChangeType;  
+    LPCSTR lpLatestName;  
+};  
+  
+typedef struct QUERYCHANGESDATA_A QUERYCHANGESDATA;  
+  
+struct QUERYCHANGESDATA_W  
+{  
+    DWORD   dwSize;  
+    LPCWSTR lpFileName;  
+    DWORD   dwChangeType;  
+    LPCWSTR lpLatestName;  
+};  
 ```  
   
  dwSize  
- 此结构 \(以字节为单位\) 的大小。  
+ 此结构 （以字节为单位） 的大小。  
   
  lpFileName  
  此项的原始文件名称。  
   
  dwChangeType  
- 指示文件的状态代码:  
+ 指示文件的状态代码：  
   
-|代码|说明|  
-|--------|--------|  
-|`SCC_CHANGE_UNKNOWN`|无法通知发生了什么变化。|  
-|`SCC_CHANGE_UNCHANGED`|此文件未名称更改。|  
+|代码|描述|  
+|----------|-----------------|  
+|`SCC_CHANGE_UNKNOWN`|无法告知发生了什么变化。|  
+|`SCC_CHANGE_UNCHANGED`|没有此文件的名称更改。|  
 |`SCC_CHANGE_DIFFERENT`|文件使用不同的标识，但数据库中存在相同的名称。|  
 |`SCC_CHANGE_NONEXISTENT`|在数据库中或本地文件不存在。|  
 |`SCC_CHANGE_DATABASE_DELETED`|从数据库中删除的文件。|  
-|`SCC_CHANGE_LOCAL_DELETED`|删除本地文件，但该文件仍在数据库中。 如果无法确定该名称，返回 `SCC_CHANGE_DATABASE_ADDED`。|  
-|`SCC_CHANGE_DATABASE_ADDED`|文件添加到数据库，但本地不存在。|  
-|`SCC_CHANGE_LOCAL_ADDED`|文件数据库中不存在，并且是新的本地文件。|  
-|`SCC_CHANGE_RENAMED_TO`|重命名或移动的数据库中文件 `lpLatestName`。|  
-|`SCC_CHANGE_RENAMED_FROM`|重命名或移动的数据库中文件 `lpLatestName`; 如果这是开销太大而跟踪时，返回不同的标记，如 `SCC_CHANGE_DATABASE_ADDED`。|  
+|`SCC_CHANGE_LOCAL_DELETED`|在本地删除的文件，但该文件仍存在数据库中。 如果无法确定该名称，则返回`SCC_CHANGE_DATABASE_ADDED`。|  
+|`SCC_CHANGE_DATABASE_ADDED`|文件添加到数据库，但不存在本地。|  
+|`SCC_CHANGE_LOCAL_ADDED`|文件数据库中不存在，且是一个新的本地文件。|  
+|`SCC_CHANGE_RENAMED_TO`|文件重命名或移动在与数据库中`lpLatestName`。|  
+|`SCC_CHANGE_RENAMED_FROM`|文件重命名或从数据库中移动`lpLatestName`; 如果这是过于昂贵，若要跟踪，返回一个不同的标志，例如`SCC_CHANGE_DATABASE_ADDED`。|  
   
  lpLatestName  
- 此项目的当前的文件名称。  
+ 此项的当前文件名称。  
   
-## 请参阅  
+## <a name="see-also"></a>另请参阅  
  [由 IDE 实现的回调函数](../extensibility/callback-functions-implemented-by-the-ide.md)   
  [SccQueryChanges](../extensibility/sccquerychanges-function.md)   
  [错误代码](../extensibility/error-codes.md)

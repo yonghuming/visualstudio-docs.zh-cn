@@ -23,7 +23,7 @@ ms.translationtype: MT
 ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
 ms.openlocfilehash: 5bfeb8ea94b457114d7ba6ab74b783972e64350c
 ms.contentlocale: zh-cn
-ms.lasthandoff: 09/06/2017
+ms.lasthandoff: 09/26/2017
 
 ---
 # <a name="walkthrough-connecting-a-host-to-a-generated-directive-processor"></a>演练：将主机连接至生成的指令处理器
@@ -96,7 +96,7 @@ ms.lasthandoff: 09/06/2017
   
 1.  打开 CustomHost 解决方案。  
   
-2.  上**项目**菜单上，单击**添加引用**。  
+2.  在“项目”菜单上，单击“添加引用”。  
   
      **添加引用**对话框将打开带有**.NET**显示的选项卡。  
   
