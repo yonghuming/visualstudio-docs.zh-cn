@@ -69,7 +69,7 @@ Dotfuscator 可以将[反调试行为][debug]注入应用程序以阻止这种�
 
 Dotfuscator CE 可将[应用程序验证代码][checks]插入程序集（包括[防篡改][tamper]和[反调试][debug]措施）。
 检测到无效的应用程序状态时，验证代码可[要求应用程序代码以适当方式处理该情况][check-app]。
-或者，如果不想编写代码来处理应用程序的无效使用，Dotfuscator 还可以注入[遥测报告][check-telemetry]和[响应][ check-action]行为，无需对源代码进行任何修改。
+或者，如果不想编写代码来处理应用程序的无效使用，Dotfuscator 还可以注入[遥测报告][check-telemetry]和 [响应][check-action] 行为，无需对源代码进行任何修改。
 
 许多这些相同的方法还可用于针对评估和试用软件，强制实施[使用周期结束的最后期限][shelflife]。
 
