@@ -2,7 +2,6 @@
 title: "Python 的 Azure 云服务项目模板 |Microsoft Docs"
 ms.custom: 
 ms.date: 7/13/2017
-ms.prod: visual-studio-dev15
 ms.reviewer: 
 ms.suite: 
 ms.technology:

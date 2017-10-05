@@ -19,4 +19,4 @@ ms.openlocfilehash: 03158b7ea2d8c05ebee5629d217829bf243a2d50
 ms.contentlocale: zh-cn
 
 ---
-Visual Studio Premium
+Visual Studio 高级专业版

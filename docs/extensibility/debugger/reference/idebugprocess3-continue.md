@@ -1,58 +1,75 @@
 ---
-title: "IDebugProcess3::Continue | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "IDebugProcess3::Continue"
-helpviewer_keywords: 
-  - "IDebugProcess3::Continue"
+title: "IDebugProcess3::Continue |Microsoft 文档"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology:
+- vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords:
+- IDebugProcess3::Continue
+helpviewer_keywords:
+- IDebugProcess3::Continue
 ms.assetid: 57506242-5763-4c08-adb9-8a78ce02cebb
 caps.latest.revision: 7
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 7
----
-# IDebugProcess3::Continue
-[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
+ms.author: gregvanl
+manager: ghogen
+translation.priority.mt:
+- cs-cz
+- de-de
+- es-es
+- fr-fr
+- it-it
+- ja-jp
+- ko-kr
+- pl-pl
+- pt-br
+- ru-ru
+- tr-tr
+- zh-cn
+- zh-tw
+ms.translationtype: MT
+ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
+ms.openlocfilehash: c112a29d6b936b53aef5be5366f4066a66265e4f
+ms.contentlocale: zh-cn
+ms.lasthandoff: 09/26/2017
 
-继续运行此从一种状态中止处理。  所有以前执行状态 \(例如步骤\) 保留和处理再次开始执行。  
+---
+# <a name="idebugprocess3continue"></a>IDebugProcess3::Continue
+将继续运行此过程从已停止状态。 保留任何以前的执行状态 （如步骤），并再次执行的进程启动。  
   
 > [!NOTE]
->  应使用此方法而不是 [继续](../../../extensibility/debugger/reference/idebugprogram2-continue.md)。  
+>  此方法应使用而不是[继续](../../../extensibility/debugger/reference/idebugprogram2-continue.md)。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
 ```cpp  
 HRESULT Continue(  
-   IDebugThread2* pThread  
+   IDebugThread2* pThread  
 );  
 ```  
   
-```c#  
+```csharp  
 int Continue(  
-   IDebugThread2 pThread  
+   IDebugThread2 pThread  
 );  
 ```  
   
-#### 参数  
+#### <a name="parameters"></a>参数  
  `pThread`  
- \[in\] 表示线程的 [IDebugThread2](../../../extensibility/debugger/reference/idebugthread2.md) 对象将继续。  
+ [in][IDebugThread2](../../../extensibility/debugger/reference/idebugthread2.md)对象表示要能继续的线程。  
   
-## 返回值  
- 如果成功，则返回; `S_OK`否则，返回错误代码。  
+## <a name="return-value"></a>返回值  
+ 如果成功，则返回`S_OK`; 否则为返回错误代码。  
   
-## 备注  
- 此方法调用此过程无论多少进程进行调试，或者的过程生成已停止的事件。  实现必须保留以前执行状态 \(例如步骤\) 和继续执行，就象在完成其前面执行之前从未停止。  也就是说，如果线程中执行过程中的步骤操作并已停止运行，因为某些其他进程停止， `Continue` 然后调用，指定的线程必须完成步骤操作的初始。  
+## <a name="remarks"></a>备注  
+ 在此过程而不考虑多少进程正在调试，或哪个进程生成 stopping 事件上调用此方法。 实现必须保留以前的执行状态 （如步骤），并继续执行，就像它已完成其之前执行之前永远不会停止。 也就是说，如果中的线程则此过程将正在进行操作逐过程操作并且由于某些其他进程已停止，已停止，然后`Continue`调用，指定线程必须完成原始逐过程操作。  
   
- **警告**不发送一个终止的事件或一个即时 \(\) 同步事件。 [事件](../../../extensibility/debugger/reference/idebugeventcallback2-event.md) ，当处理此时调用，否则调试器会停止。  
+ **警告**不发送 stopping 事件或即时 （同步） 事件与[事件](../../../extensibility/debugger/reference/idebugeventcallback2-event.md)时处理此调用; 否则调试器可能会挂起。  
   
-## 请参阅  
+## <a name="see-also"></a>另请参阅  
  [IDebugProcess3](../../../extensibility/debugger/reference/idebugprocess3.md)   
  [IDebugThread2](../../../extensibility/debugger/reference/idebugthread2.md)   
- [事件](../../../extensibility/debugger/reference/idebugeventcallback2-event.md)
+ [Event](../../../extensibility/debugger/reference/idebugeventcallback2-event.md)

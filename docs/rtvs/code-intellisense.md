@@ -2,7 +2,6 @@
 title: "适用于 R 代码 Visual Studio 的 IntelliSense | Microsoft Docs"
 ms.custom: 
 ms.date: 6/29/2017
-ms.prod: visual-studio-dev15
 ms.reviewer: 
 ms.suite: 
 ms.technology:

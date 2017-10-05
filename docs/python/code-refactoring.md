@@ -2,7 +2,6 @@
 title: "在 Visual Studio 中重构 Python 代码 | Microsoft Docs"
 ms.custom: 
 ms.date: 7/12/2017
-ms.prod: visual-studio-dev15
 ms.reviewer: 
 ms.suite: 
 ms.technology:

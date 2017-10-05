@@ -2,7 +2,6 @@
 title: "Visual Studio 中的 Python 选项 | Microsoft Docs"
 ms.custom: 
 ms.date: 7/13/2017
-ms.prod: visual-studio-dev15
 ms.reviewer: 
 ms.suite: 
 ms.technology:

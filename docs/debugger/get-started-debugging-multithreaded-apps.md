@@ -1,5 +1,5 @@
 ---
-title: Get started debugging multithreaded applications | Microsoft Docs
+title: "开始调试多线程应用程序 |Microsoft 文档"
 ms.custom: H1HackMay2017
 ms.date: 06/02/2017
 ms.reviewer: 
@@ -36,46 +36,46 @@ translation.priority.ht:
 - zh-cn
 - zh-tw
 ms.translationtype: HT
-ms.sourcegitcommit: 9e6c28d42bec272c6fd6107b4baf0109ff29197e
-ms.openlocfilehash: 5c5aa0df75451fe829b0d6849d8c9d1672e677b0
+ms.sourcegitcommit: 1d4298d60886d8fe8b402b59b1838a4171532ab1
+ms.openlocfilehash: 3ffb550707280d76756cbd144ed03f4143ce144b
 ms.contentlocale: zh-cn
-ms.lasthandoff: 08/22/2017
+ms.lasthandoff: 09/26/2017
 
 ---
-# <a name="get-started-debugging-a-multithreaded-application-in-visual-studio"></a>Get started debugging a multithreaded application in Visual Studio
-Visual Studio provides several tools and user interface elements to help you debug multithreaded applications. This tutorial shows how to use conditional breakpoints and filter breakpoints, the **Parallel Stacks** window, and **Parallel Watch** window. This tutorial takes only a few minutes, but completing it will familiarize you with the features for debugging multithreaded applications.
+# <a name="get-started-debugging-a-multithreaded-application-in-visual-studio"></a>开始调试 Visual Studio 中的多线程应用程序
+Visual Studio 提供的若干工具和用户界面元素，以帮助你调试多线程应用程序。 本教程演示如何使用线程标记**并行堆栈**窗口中，**并行监视**窗口中，条件断点，并筛选器断点。 本教程只需几分钟，但完成它将使您熟悉用于调试多线程应用程序的功能。
 
 |         |         |
 |---------|---------|
-| ![Watch a video](../install/media/video-icon.png "WatchVideo") | [Watch a video](#video) on multithreaded debugging that shows similar steps. |
+| ![观看视频](../install/media/video-icon.png "WatchVideo") | [观看视频](#video)上展示类似的步骤的多线程调试。 |
 
-Other topics provide additional information on using other multithreaded debugging tools:
+其他主题提供有关使用其他多线程调试工具的其他信息：
 
-- For a similar topic that shows how to use the **Debug Location** toolbar and the **Threads** window, see [Walkthrough: Debug a Multithreaded Application](../debugger/how-to-use-the-threads-window.md).
+- 有关演示如何使用某个类似主题**调试位置**工具栏和**线程**窗口中，请参阅[演练： 调试多线程应用程序](../debugger/how-to-use-the-threads-window.md)。
 
-- For a similar topic with a sample that uses <xref:System.Threading.Tasks.Task> (managed code) and the concurrency runtime (C++), see [Walkthrough: Debugging a Parallel Application](../debugger/walkthrough-debugging-a-parallel-application.md). For general debugging tips that apply to most multithreaded application types, read both this topic and the linked topic.
+- 与使用的示例类似主题<xref:System.Threading.Tasks.Task>（托管代码） 和并发运行时 （c + +），请参阅[演练： 调试并行应用程序](../debugger/walkthrough-debugging-a-parallel-application.md)。 有关适用于最多线程应用程序类型的常规调试技巧，阅读本主题和链接的主题。
   
-To begin this tutorial, you need a multithreaded application project. Follow the steps listed here to create that project.  
+若要开始本教程，你需要一个多线程应用程序项目。 请按照下面列出的步骤创建该项目。  
   
-#### <a name="to-create-the-multithreaded-app-project"></a>To create the multithreaded app project  
+#### <a name="to-create-the-multithreaded-app-project"></a>若要创建多线程应用程序项目  
   
-1.  On the **File** menu, choose **New** and then click **Project**.  
+1.  上**文件**菜单上，选择**新建**，然后单击**项目**。  
   
-     The **New Project** dialog box appears.  
+     此时将出现 “新建项目” 对话框。  
   
-2.  In the **Project Type**s box, click the language of your choice: **Visual C#**, **Visual C++**, or **Visual Basic**.  
+2.  在**项目类型**s 框中，单击你选择的语言： **Visual C#**， **Visual c + +**，或**Visual Basic**。  
   
-3.  In the **Templates** box, choose **Console App**.  
+3.  在**模板**框中，选择**控制台应用程序**。  
   
-4.  In the **Name** box, type the name MyThreadWalkthroughApp.  
+4.  在**名称**框中，键入名称 MyThreadWalkthroughApp。  
   
-5.  Click **OK**.  
+5.  单击“确定”。  
   
-     A new console project appears. When the project has been created, a source file appears. Depending on the language you have chosen, the source file might be called Program.cs, MyThreadWalkthroughApp.cpp, or Module1.vb.  
+     新的控制台项目随即显示。 创建该项目后，将显示源文件。 具体取决于你选择的语言，源文件可能 Program.cs、 MyThreadWalkthroughApp.cpp 或 Module1.vb 调用。  
   
-6.  Delete the code that appears in the source file and replace it with the example code shown here.
+6.  删除显示在源文件中的代码并将其替换为此处所示的示例代码。
 
-    ```C#
+    ```csharp
     using System;
     using System.Threading;
 
@@ -208,11 +208,11 @@ To begin this tutorial, you need a multithreaded application project. Follow the
     End Class
     ```
   
-7.  On the **File** menu, click **Save All**.  
+7.  上**文件**菜单上，单击**保存所有**。  
   
-#### <a name="to-begin-the-tutorial"></a>To begin the tutorial  
+#### <a name="to-begin-the-tutorial"></a>若要开始使用本教程  
   
--   In the source code editor, look for the following code: 
+-   在源代码编辑器中，查找以下代码： 
   
     ```CSharp  
     Thread.Sleep(3000);  
@@ -228,20 +228,20 @@ To begin this tutorial, you need a multithreaded application project. Follow the
     Console.WriteLine()
     ```
   
-#### <a name="to-start-debugging"></a>To start debugging  
+#### <a name="to-start-debugging"></a>开始调试  
   
-1.  Click in the left gutter of the `Thread.Sleep` or `Thread::Sleep` statement to insert a new breakpoint.  
+1.  单击左滚动条槽中`Thread.Sleep`或`Thread::Sleep`用于插入新断点的语句。  
   
-     In the gutter on the left side of the source code editor, a red circle appears. This indicates that a breakpoint is now set at this location. 
+     在源代码编辑器左侧槽中，将显示一个红色圆圈。 这表示现在已在该位置设置了一个断点。 
   
-2.  On the **Debug** menu, click **Start Debugging** (**F5**).  
+2.  上**调试**菜单上，单击**启动调试**(**F5**)。  
   
-     Visual Studio builds the solution, the app starts to run with the debugger attached, and then the app stops at the breakpoint.  
+     Visual Studio 生成该解决方案、 启动附带调试器，运行该应用程序和应用程序然后在断点处停止。  
   
     > [!NOTE]
-    > If you switch focus to the console window, click in the [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] window to return focus to [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)].  
+    > 如果你将焦点切换到控制台窗口中，单击在[!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)]窗口以使焦点返回到[!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)]。  
   
-4.  In the source code editor, locate the line that contains the breakpoint:  
+4.  在源代码编辑器中，找到包含断点的行：  
   
     ```CSharp  
     Thread.Sleep(3000);  
@@ -255,153 +255,153 @@ To begin this tutorial, you need a multithreaded application project. Follow the
     Thread.Sleep(3000)
     ```    
   
-#### <a name="ShowThreadsInSource"></a>To discover the thread marker  
+#### <a name="ShowThreadsInSource"></a>若要发现线程标记  
 
-1.  In the Debug Toolbar, click the **Show Threads in Source** button ![Show Threads in Source](../debugger/media/dbg-multithreaded-show-threads.png "ThreadMarker").
+1.  在调试工具栏中，单击**在源中显示线程**按钮![在源中显示线程](../debugger/media/dbg-multithreaded-show-threads.png "ThreadMarker")。
 
-2. Press **F11** once to advance the debugger one line of code.
+2. 按**F11**一次向前移动代码的调试器一个行。
   
-3.  Look at the gutter on the left side of the window. On this line, you will see a *thread marker* icon  ![Thread Marker](../debugger/media/dbg-thread-marker.png "ThreadMarker") that resembles two cloth threads. The thread marker indicates that a thread is stopped at this location.
+3.  查看窗口左侧的滚动条槽。 在这行内容，你将看到*线程标记*图标![线程标记](../debugger/media/dbg-thread-marker.png "ThreadMarker") ，类似于两根细线。 线程标记指示线程在此位置停止。
 
-    Notice that a thread marker may be partially concealed by a breakpoint. 
+    请注意可能断点部分隐藏线程标记。 
   
-4.  Hover the pointer over the thread marker. A DataTip appears. The DataTip tells you the name and thread ID number for each stopped thread. In this case, the name is probably `<noname>`. 
+4.  将指针悬停在线程标记上。 屏幕上显示数据提示。 数据提示将告诉您每个已停止线程的名称和线程 ID 号。 名称在这种情况下，可能是`<noname>`。 
   
-5.  Right-click the thread marker to see the available options on the shortcut menu.
+5.  右键单击要查看的快捷菜单上的可用选项的线程标记。
     
-## <a name="ParallelStacks"></a>View the Location of Threads
+## <a name="ParallelStacks"></a>查看线程的位置
 
-In the **Parallel Stacks** window, you can switch between a Threads view and (for task-based programming) Tasks view, and you can view call stack information for each thread. In this app, we can use the Threads view.
+在**并行堆栈**窗口中，你可以切换任务视图，并在视图间切换线程和 （对于基于任务的编程） 可以查看每个线程的调用堆栈信息。 在此应用中，我们可以使用线程视图。
 
-1. Open the **Parallel Stacks** window by choosing **Debug > Windows > Parallel Stacks**. You should see something similar to this (the exact information will be different depending on the current location of each thread, your hardware, and your programming language).
+1. 打开**并行堆栈**通过选择窗口**调试 > Windows > 并行堆栈**。 您应看到类似于以下内容 （的准确信息将当前位置的每个线程、 你的硬件和您的编程语言而异）。
 
-    ![Parallel Stacks Window](../debugger/media/dbg-multithreaded-parallel-stacks.png "ParallelStacksWindow")
+    ![并行堆栈窗口](../debugger/media/dbg-multithreaded-parallel-stacks.png "ParallelStacksWindow")
 
-    In this example, from left to right we get this information:
+    在此示例中，从左到右我们获取此信息：
     
-    - The Main thread (left side) has stopped on `Thread.Start` (the stop point is indicated by the thread marker icon ![Thread Marker](../debugger/media/dbg-thread-marker.png "ThreadMarker")).
-    - Two threads have entered the `ServerClass.InstanceMethod`, one of which is the current thread (yellow arrow), while the other thread has stopped in `Thread.Sleep`.
-    - A new thread (on the right) is also starting (stopped on `ThreadHelper.ThreadStart`).
+    - 主线程 （左侧） 已停止上`Thread.Start`(停止点由线程标记图标表示![线程标记](../debugger/media/dbg-thread-marker.png "ThreadMarker"))。
+    - 两个线程已进入`ServerClass.InstanceMethod`，其中之一是当前线程 （黄色箭头），而另一个线程已停止在`Thread.Sleep`。
+    - 此外启动新线程 （右侧） (上停止`ThreadHelper.ThreadStart`)。
 
-2.  Right-click entries in the **Parallel Stacks** window to see the available options on the shortcut menu.
+2.  右键单击中的条目**并行堆栈**窗口来查看快捷菜单上的可用选项。
 
-    You can take various actions from these right-click menus, but for this tutorial we will show more of these details in the **Parallel Watch** window (next sections).
+    你可以执行各种操作从这些右键单击菜单中，但对于本教程，我们将演示多个这些详细信息中**并行监视**窗口 （下一节）。
 
     > [!NOTE]
-    > If you are more interested in seeing a list view with information on each thread, use the **Threads** window instead. See [Walkthrough: Debug a Multithreaded Application](../debugger/how-to-use-the-threads-window.md).
+    > 如果你更感兴趣的列表，查看有关每个线程的信息，请使用**线程**窗口相反。 请参阅[演练： 调试多线程应用程序](../debugger/how-to-use-the-threads-window.md)。
 
-## <a name="set-a-watch-on-a-variable"></a>Set a Watch on a Variable
+## <a name="set-a-watch-on-a-variable"></a>在变量上设置监视
 
-1. Open the **Parallel Watch** window by choosing **Debug > Windows > Parallel Watch > Parallel Watch 1**.
+1. 打开**并行监视**通过选择窗口**调试 > Windows > 并行监视 > 并行监视 1**。
 
-2. Click in the cell where you see the `<Add Watch>` text (or the empty header cell in the 4th column), type `data`, and press Enter.
+2. 单击单元格所在`<Add Watch>`文本 （或第四个列中的空标题单元格） 类型`data`，然后按 Enter。
 
-    The values for the data variable for each thread appear in the window.
+    在窗口中显示每个线程数据变量的值。
 
-3. Click again in the cell where you see the `<Add Watch>` text (or the empty header cell in the 5th column), type `count`, and press Enter.
+3. 再次单击单元格所在`<Add Watch>`文本 （或第五个列中的空标题单元格） 类型`count`，然后按 Enter。
 
-    The values for the count variable for each thread appear in the window. (If you don't see this much information yet, try pressing F11 a few more times to advance the execution of the threads in the debugger.)
+    在窗口中显示每个线程的计数变量的值。 （如果看不到尚未这么多信息，请尝试按 F11 几次向前移动在调试器中的线程的执行。）
 
-    ![Parallel Watch Window](../debugger/media/dbg-multithreaded-parallel-watch.png "ParallelWatchWindow")
+    ![并行监视窗口](../debugger/media/dbg-multithreaded-parallel-watch.png "ParallelWatchWindow")
 
-4. Right-click one of the rows in the window to see available options.
+4. 右键单击某个窗口以查看可用选项中的行。
 
-## <a name="flagging-and-unflagging-threads"></a>Flagging and Unflagging Threads  
-You can flag threads that you want to give special attention. Flagging threads is a good way to keep track of important threads and to ignore threads that you do not care about.  
+## <a name="flagging-and-unflagging-threads"></a>标记线程和取消标记线程  
+您可以标记要格外关注的线程。 标记线程是一种好的方法来跟踪重要线程并忽略您不关心的线程。  
   
-#### <a name="to-flag-threads"></a>To flag threads  
+#### <a name="to-flag-threads"></a>标记线程  
 
-1. In the **Parallel Watch** window, hold down the SHIFT key and select multiple rows.
+1. 在**并行监视**窗口中，按住 SHIFT 键并选择多个行。
 
-2. Right-click and choose **Flag**.
+2. 右键单击并选择**标志**。
 
-    Now, all the selected threads are flagged. Now, you can filter to show only flagged threads.
+    现在，所有选定的线程会将标记。 现在，你可以筛选，以仅显示已标记的线程。
   
-3.  In the **Parallel Watch** window, find the **Show Only Flagged Threads** button ![Show Flagged Threads](../debugger/media/dbg-threads-show-flagged.png "ThreadMarker").  
+3.  在**并行监视**窗口中，查找**仅显示标记的线程**按钮![显示标记的线程](../debugger/media/dbg-threads-show-flagged.png "ThreadMarker")。  
   
-4.  Click the **Show Only Flagged Threads** button.  
+4.  单击**仅显示标记的线程**按钮。  
   
-    Only the flagged thread appears in the list now.
+    现在只有标记的线程显示在该列表中。
 
     > [!TIP]
-    > When you have flagged some threads, you can right-click a line of code in the code editor and choose **Run Flagged Threads to Cursor** (make sure that you choose code that all flagged threads will reach). This will pause threads on the selected line of code, making it easier to control the order of execution by [freezing and thawing threads](#bkmk_freeze).
+    > 当你具有标记的一些线程时，可以右键单击代码编辑器中的代码行，然后选择**运行到光标处的标记线程**（请确保你选择的所有标记的线程的代码将到达）。 这将暂停代码，使其更容易地控制的执行顺序的选定行上的线程[冻结和解冻线程](#bkmk_freeze)。
 
-5.  Click the **Show Only Flagged Threads** button to toggle back to **Show All Threads** mode.
+5.  单击**仅显示标记的线程**按钮切换回**显示所有线程**模式。
     
-#### <a name="to-unflag-threads"></a>To unflag threads
+#### <a name="to-unflag-threads"></a>取消标记线程
 
-To unflag threads, you can right-click one or more flagged threads in the **Parallel Watch** window and choose **Unflag**.
+若要取消标记线程，可以右键单击一个或多个标记的线程中**并行监视**窗口，然后选择**取消标记**。
 
-## <a name="bkmk_freeze"></a> Freezing and thawing thread execution 
+## <a name="bkmk_freeze"></a>冻结和解冻线程执行 
 
 > [!TIP]
-> You can freeze and thaw (suspend and resume) threads to control the order in which threads perform work. This can help you resolve concurrency issues such as deadlocks and race conditions.
+> 你可以冻结和解冻 （挂起和恢复） 线程控制，线程执行工作的顺序。 这可以帮助你解决并发问题，例如死锁和争用条件。
   
-#### <a name="to-freeze-and-unfreeze-threads"></a>To freeze and unfreeze threads  
+#### <a name="to-freeze-and-unfreeze-threads"></a>冻结和解冻线程  
   
-1.  In the **Parallel Watch** window, with all the rows selected, right-click and select **Freeze**.
+1.  在**并行监视**窗口中，所有选定的行，右键单击并选择并**冻结**。
 
-    In the second column, a pause icon now appears for each row. The pause icon indicates that the thread is frozen.
+    在第二列中，暂停图标现在显示为每个行。 暂停图标指示该线程已冻结。
 
-2.  Deselect the rows by clicking one row only.
+2.  通过单击对应的一行，取消选中行。
 
-3.  Right-click a row and select **Thaw**.
+3.  右键单击某一行，然后选择**解冻**。
 
-    The pause icon goes away on this row, indicating that the thread is no longer frozen.
+    在此行，指示已不再被冻结线程上的暂停图标将消失。
 
-4.  Switch to the code editor and click **F11**. Only the unfrozen thread runs.
+4.  切换到代码编辑器中，单击**F11**。 仅在未冻结的线程运行。
 
-    The app may also instantiate some new threads. Notice that any new threads are unflagged and are not frozen.
+    应用程序还可以实例化某些新线程。 请注意，任何新线程是未标记，并且未被冻结。
 
-## <a name="bkmk_follow_a_thread"></a> Follow a Single Thread by using Conditional Breakpoints
+## <a name="bkmk_follow_a_thread"></a>通过使用条件断点按照单线程
 
-Sometimes, it can be helpful to follow the execution of a single thread in the debugger. One way you can do that is by freezing threads that you are not interested in, but in some scenarios you may wish to follow a single thread without freezing other threads (to repro a particular bug, for example). To follow a thread without freezing other threads, you must avoid breaking into code except on the thread that you are interested in. You can do this by setting a [conditional breakpoint](../debugger/using-breakpoints.md#BKMK_Specify_a_breakpoint_condition_using_a_code_expression).
+有时，它可以帮助执行在调试器中单个线程。 你可以执行该操作的一种方法是通过冻结你不感兴趣的线程，但在某些情况下，你可能希望按照单个线程冻结其他线程 （与特定 bug，例如重现）。 若要遵循的线程不冻结其他线程的情况下，必须避免破坏到除你感兴趣的线程上的代码。 你可以执行此操作通过设置[条件断点](../debugger/using-breakpoints.md#BKMK_Specify_a_breakpoint_condition_using_a_code_expression)。
 
-You can set breakpoints on different conditions, such as the thread name or the thread ID. Another method that may be helpful is to set the condition on data that you know will be unique to each thread. This is a common debugging scenario, in which you are more interested in some particular data value than in any particular thread.
+你可以设置断点，在不同情况下，例如线程名称或线程 id。 可能会有所帮助的另一种方法是在你知道将是唯一的每个线程的数据设置的条件。 这是常见的调试方案中，您是对更感兴趣比任何特定的线程中的一些特定的数据值。
 
-#### <a name="to-follow-a-single-thread"></a>To follow a single thread
+#### <a name="to-follow-a-single-thread"></a>若要遵循的单个线程
 
-1. Right-click the breakpoint you previously created and choose **Conditions**.
+1. 右键单击先前创建的断点并选择**条件**。
 
-2. In the **Breakpoint Settings** window, type `data == 5` for the conditional expression.
+2. 在**断点设置**窗口中，键入`data == 5`条件表达式。
 
-    ![Conditional Breakpoint](../debugger/media/dbg-multithreaded-conditional-breakpoint.png "ConditionalBreakpoint")
+    ![条件断点](../debugger/media/dbg-multithreaded-conditional-breakpoint.png "ConditionalBreakpoint")
 
     > [!TIP]
-    > If you are more interested in a specific thread, then use a thread name or thread ID for the condition. To do this in the **Breakpoint Settings** window, select **Filter** instead of **Conditional expression**, and follow the filter tips. You may want to name your threads in your app code (since threads IDs change when you restart the debugger).
+    > 如果要对更感兴趣的特定线程，然后使用线程名称或线程 ID，此条件。 若要执行此操作在**断点设置**窗口中，选择**筛选器**而不是**条件表达式**，并按照筛选器提示。 你可能想要将应用程序代码中的线程命名 （因为线程 Id 进行更改时重新启动调试器）。
 
-3. Close the **Breakpoint Settings** window.
+3. 关闭**断点设置**窗口。
 
-4. Click the Restart ![Restart App](../debugger/media/dbg-tour-restart.png "RestartApp") button to restart your debugging session.
+4. 单击重新启动![重新启动应用](../debugger/media/dbg-tour-restart.png "RestartApp")按钮以重新启动调试会话。
 
-    You will break into code on the thread for which the data variable is 5. Look for the yellow arrow (current debugger context) in the **Parallel Watch** window to verify that.
+    你将中断为其数据变量为 5 的线程上的代码。 在中查找的黄色箭头 （当前调试器上下文）**并行监视**窗口，以确认。
 
-5. Now, you can step over code (F10) and step into code (F11) and follow the execution of the single thread.
+5. 现在，你可以单步执行代码 (F10) 和单步执行代码 (F11) 并遵循单个线程的执行。
 
-    As long as the breakpoint condition is unique to the thread, and the debugger doesn't hit any other breakpoints on other threads (you may need to disable them), you can step over code and step into code without switching to other threads.
+    只要断点条件是唯一的线程，并且调试器不会命中 （可能需要禁用它们） 其他线程上的任何其他断点，可以单步执行代码并单步执行代码，而无需切换到其他线程。
 
     > [!NOTE]
-    > When you advance the debugger, all threads will run. However, the debugger won't break into code on other threads unless one of the other threads hits a breakpoint. 
+    > 当你继续调试器时，将运行所有线程。 但是，调试器不会中断其他线程上的代码，除非有其他线程命中断点。 
   
-## <a name="more-about-the-multithreaded-debugging-windows"></a>More about the multithreaded debugging windows 
+## <a name="more-about-the-multithreaded-debugging-windows"></a>有关多线程调试窗口的详细信息 
 
-#### <a name="to-switch-to-another-thread"></a>To switch to another thread 
+#### <a name="to-switch-to-another-thread"></a>若要切换到另一个线程 
 
-- To switch to another thread, see [How to: Switch to Another Thread While Debugging](../debugger/how-to-switch-to-another-thread-while-debugging.md) 
+- 若要切换到另一个线程，请参阅[How to： 切换到另一个线程中调试时](../debugger/how-to-switch-to-another-thread-while-debugging.md) 
 
-## <a name="video"></a> Watch a video on multithreaded debugging
+## <a name="video"></a>观看视频多线程调试
 
 <div style="padding-top: 56.25%; position: relative; width: 100%;">
 <iframe style="position: absolute;top: 0;left: 0;right: 0;bottom: 0;" width="100%" height="100%" src="https://mva.microsoft.com/en-US/training-courses-embed/getting-started-with-visual-studio-2017-17798/Debugging-Multi-threaded-Apps-in-Visual-Studio-2017-MoZPKMD6D_111787171" frameborder="0" allowfullscreen></iframe>
 </div>
 
-#### <a name="to-learn-more-about-the-parallel-stack-and-parallel-watch-windows"></a>To learn more about the Parallel Stack and Parallel Watch windows  
+#### <a name="to-learn-more-about-the-parallel-stack-and-parallel-watch-windows"></a>若要了解有关并行堆栈和并行监视窗口  
   
-- See [How to: Use the Parallel Stack Window](../debugger/using-the-parallel-stacks-window.md) 
+- 请参阅[如何： 使用并行堆栈窗口](../debugger/using-the-parallel-stacks-window.md) 
 
-- See [How to: Use the Parallel Watch Window](../debugger/how-to-use-the-parallel-watch-window.md) 
+- 请参阅[如何： 使用并行监视窗口](../debugger/how-to-use-the-parallel-watch-window.md) 
   
-## <a name="see-also"></a>See Also  
- [Debug Multithreaded Applications](../debugger/debug-multithreaded-applications-in-visual-studio.md)   
- [How to: Switch to Another Thread While Debugging](../debugger/how-to-switch-to-another-thread-while-debugging.md)
+## <a name="see-also"></a>另请参阅  
+ [调试多线程应用程序](../debugger/debug-multithreaded-applications-in-visual-studio.md)   
+ [如何：在调试时切换到另一个线程](../debugger/how-to-switch-to-another-thread-while-debugging.md)
 
