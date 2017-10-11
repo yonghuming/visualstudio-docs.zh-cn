@@ -16,20 +16,6 @@ manager: ghogen
 dev_langs:
 - CSharp
 - VB
-translation.priority.ht:
-- cs-cz
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pl-pl
-- pt-br
-- ru-ru
-- tr-tr
-- zh-cn
-- zh-tw
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 8bf0b097be929b30627e0f1139c6e0b145933ab4
 ms.openlocfilehash: ec2ae70312c7cb5f26630246046cadc7c210e1c2
@@ -62,7 +48,7 @@ ms.lasthandoff: 05/26/2017
 ### <a name="add-missing-casesdefault-caseboth"></a>添加缺少的 case/默认 case/二者
 在 C# 中创建 `switch` 语句，或在 Visual Basic 中创建 `Select Case` 语句时，可使用代码操作自动添加缺少的 case 项、默认 case 语句或同时添加二者。  对于如下所示的空语句：
 
-```CSharp
+```csharp
 enum MyEnum
 {
     Item1,
@@ -78,8 +64,7 @@ switch(myEnum)
 {
 }
 ```
-
-```VB
+```vb
 Enum MyEnum
     Item1
     Item2
@@ -96,7 +81,7 @@ End Select
 
 使用“添加两者”快速操作同时填入缺少 的 case 和默认 case 将创建以下内容：
 
-```CSharp
+```csharp
 switch(myEnum)
 {
     case MyEnum.Item1:
@@ -109,8 +94,7 @@ switch(myEnum)
         break;
 }
 ```
-
-```VB
+```vb
 Select Case myEnum
     Case MyEnum.Item1
         Exit Select
@@ -124,7 +108,7 @@ End Select
 ### <a name="correct-misspelled-type"></a>更正拼写错误的类型
 如果在 Visual Studio 中意外拼错了一个类型，此快速操作会为你自动更正错误。  可在灯泡菜单中看到这些项显示有“‘将拼写错误的类型’更改为‘正确类型’”。  例如：
 
-```CSharp
+```csharp
 // Before
 private viod MyMethod()
 {
@@ -137,8 +121,7 @@ private void MyMethod()
 {
 }
 ```
-
-```VB
+```vb
 ' Before
 Function MyFunction as Intger
 End Function
@@ -153,7 +136,7 @@ End Function
 ### <a name="remove-unnecessary-cast"></a>删除不必要的 cast
 如果将某类型强制转换为不需要 cast 的另一类型，则“删除不必要的 cast”快速操作将从代码中删除该 cast。
 
-```CSharp
+```csharp
 // before
 int number = (int)3;
 
@@ -162,8 +145,7 @@ int number = (int)3;
 // after
 int number = 3;
 ```
-
-```VB
+```vb
 ' Before
 Dim number as Integer = CType(3, Integer)
 
@@ -176,7 +158,7 @@ Dim number as Integer = 3
 ### <a name="replace-method-with-property--replace-property-with-method"></a>将方法替换为属性/将属性替换为方法
 这些快速操作可将方法转换为属性，反之亦然。  以下示例演示了从方法到属性的转换。  相反情况下，只需将 *Before* 和 *After* 部分颠倒过来即可。
 
-```CSharp
+```csharp
 private int MyValue;
 
 // Before
@@ -193,8 +175,7 @@ public int MyValue
     get { return MyValue; }
 }
 ```
-
-```VB
+```vb
 Dim MyValue As Integer
 
 ' Before
@@ -215,7 +196,7 @@ End Property
 ### <a name="make-method-synchronous"></a>使方法同步
 在对方法使用 `async`/`Async` 关键字时，很有可能也会在该方法的内部某一位置使用 `await`/`Await` 关键字。  但是，如果不是这种情况，则会出现可通过删除 `async`/`Async` 关键字并更改返回类型以使方法同步的快速操作。  从“快速操作”菜单中使用“使方法同步”选项。
 
-```CSharp
+```csharp
 // Before
 async Task<int> MyAsyncMethod()
 {
@@ -230,8 +211,7 @@ int MyAsyncMethod()
     return 3;
 }
 ```
-
-```VB
+```vb
 ' Before
 Async Function MyAsyncMethod() As Task(Of Integer)
     Return 3
@@ -248,7 +228,7 @@ End Function
 ### <a name="make-method-asynchronous"></a>使方法异步
 在方法内使用 `await`/`Await` 关键字时，该方法本身很有可能会标记有 `async`/`Async` 关键字。  但是，如果不是这种情况，则会出现可使方法异步的快速操作。  从“快速操作”菜单中使用“使方法/函数异步”选项。
 
-```CSharp
+```csharp
 // Before
 int MyAsyncMethod()
 {
@@ -263,8 +243,7 @@ async Task<int> MyAsyncMethod()
     return await Task.Run(...);
 }
 ```
-
-```VB
+```vb
 ' Before
 Function MyAsyncMethod() as Integer
     Return  Await Task.Run(...)
@@ -289,7 +268,7 @@ End Function
 
 启用后，如果使用当前未导入但引用程序集或 NuGet 包中存在的命名空间中的类型，则会创建 using/import 语句。
 
-```CSharp
+```csharp
 // Before
 Debug.WriteLine("Hello");
 
@@ -300,8 +279,7 @@ using System.Diagnostics;
 
 Debug.WriteLine("Hello");
 ```
-
-```VB
+```vb
 ' Before
 Debug.WriteLine("Hello")
 
@@ -316,7 +294,7 @@ Debug.WriteLine("Hello")
 ### <a name="convert-to-interpolated-string"></a>转换为内插字符串
 类似于 **[String.Format](https://msdn.microsoft.com/library/system.string.format.aspx)** 方法，[内插字符串](/dotnet/csharp/language-reference/keywords/interpolated-strings)是使用嵌入式变量来表达字符串的一种简单方式。  此快速操作可识别何时需要将字符串连接在一起或使用 **String.Format**，然后将用法更改为内插字符串。
 
-```CSharp
+```csharp
 // Before
 int num = 3;
 string s = string.Format("My string with {0} in the middle", num);
@@ -327,8 +305,7 @@ string s = string.Format("My string with {0} in the middle", num);
 int num = 3;
 string s = $"My string with {num} in the middle";
 ```
-
-```VB
+```vb
 ' Before
 Dim num as Integer = 3
 Dim s as String = String.Format("My string with {0} in the middle", num)
@@ -382,7 +359,7 @@ Dim s As String = $"My string with {num} in the middle"
 ### <a name="convert-if-construct-to-switch"></a>将 **if** 构造转换成 **switch**
 借助此快速操作，可以将 **if-then-else** 构造转换成 **switch** 构造。 （仅适用于 Visual Studio 2017（版本 15.3 - 预览版）。）
 
-```CSharp
+```csharp
 // Before
 if (obj is string s)
 {
@@ -407,8 +384,7 @@ switch (obj)
     break;
 }
 ```
-
-```VB
+```vb
 ' Before
 If TypeOf obj Is String s Then
     Console.WriteLine("obj is a string: " + s)
