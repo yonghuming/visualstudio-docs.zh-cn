@@ -1,31 +1,9 @@
 ---
-title: "VsgDbg::~VsgDbg（析构函数） | Microsoft Docs"
-ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-debug"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-ms.assetid: 7a3b97fb-d344-4df7-b195-9347d1edfcf7
-caps.latest.revision: 4
-caps.handback.revision: 4
-author: "mikejo5000"
-ms.author: "mikejo"
-manager: "ghogen"
----
-# VsgDbg::~VsgDbg（析构函数）
-[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
+redirect_url: /visualstudio/debugger/graphics/vsgdbg-tilde-vsgdbg-destructor
+ms.translationtype: HT
+ms.sourcegitcommit: 9b332c2a5fdb1cd14b28a2280a5d0b109f2abc11
+ms.openlocfilehash: 289bf3f2e0917ae79e6712729999a74abc3c9647
+ms.contentlocale: zh-cn
+ms.lasthandoff: 11/08/2017
 
-销毁 `VsgDbg` 类的实例。  如果图形信息正在被记录，绘图日志文件定稿和关闭，同时积极捕捉图像信息所用的所有资源被释放。  
-  
-## 语法  
-  
-```cpp  
-~VsgDbg();  
-```  
-  
-## 请参阅  
- [VsgDbg::VsgDbg（构造函数）](../Topic/VsgDbg::VsgDbg%20\(Constructor\).md)
+---
