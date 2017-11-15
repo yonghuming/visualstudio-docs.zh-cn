@@ -4,34 +4,18 @@ ms.custom:
 ms.date: 11/04/2016
 ms.reviewer: 
 ms.suite: 
-ms.technology:
-- vs-devops-test
+ms.technology: vs-devops-test
 ms.tgt_pltfrm: 
 ms.topic: article
 ms.assetid: a859595f-6517-43f2-9d61-c706cb55a388
-caps.latest.revision: 23
+caps.latest.revision: "23"
 ms.author: douge
 manager: douge
-translation.priority.ht:
-- cs-cz
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pl-pl
-- pt-br
-- ru-ru
-- tr-tr
-- zh-cn
-- zh-tw
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 47057e9611b824c17077b9127f8d2f8b192d6eb8
-ms.openlocfilehash: 28ce78165492b6f74cdd85ba79eae26e4d68d32c
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/13/2017
-
+ms.openlocfilehash: 6c8e2cac9d6f2622bacae0b27cecc8f074ea3a15
+ms.sourcegitcommit: aadb9588877418b8b55a5612c1d3842d4520ca4c
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="using-different-web-browsers-with-coded-ui-tests"></a>对编码的 UI 测试使用不同的 Web 浏览器
 编码的 UI 测试可通过使用 Internet Explorer 记录你的测试来自动化 Web 应用程序的测试。 然后，你可以自定义你的测试并使用 Internet Explorer 或其他适用于这些 Web 应用程序的浏览器类型来播放测试。  
@@ -117,17 +101,17 @@ ms.lasthandoff: 05/13/2017
  *我还应该知道什么？*  
  **注意**  
   
--   ![先决条件](~/test/media/prereq.png "Prereq") 不支持 Apple Safari Web 浏览器。  
+-   ![先决条件](../test/media/prereq.png "Prereq") 不支持 Apple Safari Web 浏览器。  
   
--   ![先决条件](~/test/media/prereq.png "Prereq") 必须在编码的 UI 测试期间启动 Web 浏览器。  
+-   ![先决条件](../test/media/prereq.png "Prereq") 必须在编码的 UI 测试期间启动 Web 浏览器。  
   
      如果你已打开 Web 浏览器并想在其中运行步骤，则播放将失败，除非你使用 Internet Explorer。 因此，最佳做法是将 Web 浏览器的启动操作作为编码的 UI 测试的一部分。  
   
--   ![先决条件](~/test/media/prereq.png "Prereq") 不支持自动执行浏览器专属 UI 操作（如最大化、最小化和还原）。  
+-   ![先决条件](../test/media/prereq.png "Prereq") 不支持自动执行浏览器专属 UI 操作（如最大化、最小化和还原）。  
   
  **提示**  
   
--   ![提示](~/test/media/tip.png "Tip") 可以将输出配置为在编码的 UI 日志中添加屏幕截图。 为此，你需要在 QTAgent32.exe.config 文件中设置某些配置设置。 默认情况下，该文件安装在以下位置：  
+-   ![提示](../test/media/tip.png "Tip") 可以将输出配置为在编码的 UI 日志中添加屏幕截图。 为此，你需要在 QTAgent32.exe.config 文件中设置某些配置设置。 默认情况下，该文件安装在以下位置：  
   
      **C:\Program Files (x86)\Microsoft Visual Studio 11.0\Common7\IDE**  
   
@@ -171,4 +155,3 @@ ms.lasthandoff: 05/13/2017
  [使用 UI 自动化来测试代码](../test/use-ui-automation-to-test-your-code.md)   
  [支持编码的 UI 测试和操作录制的配置和平台](../test/supported-configurations-and-platforms-for-coded-ui-tests-and-action-recordings.md)   
  [使用编码的 UI 测试日志分析编码的 UI 测试](../test/analyzing-coded-ui-tests-using-coded-ui-test-logs.md)
-

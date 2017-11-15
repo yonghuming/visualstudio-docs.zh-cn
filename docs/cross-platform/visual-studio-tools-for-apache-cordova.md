@@ -8,26 +8,15 @@ ms.suite:
 ms.tgt_pltfrm: 
 ms.topic: article
 ms.assetid: 21dcf46e-5d6d-439c-90e3-3d678e50c5a6
-caps.latest.revision: 4
+caps.latest.revision: "4"
 author: ghogen
 ms.author: ghogen
 manager: ghogen
-translation.priority.ht:
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- ru-ru
-- zh-cn
-- zh-tw
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 47057e9611b824c17077b9127f8d2f8b192d6eb8
-ms.openlocfilehash: c2934e927a612f89338d748a1f4a33632c548533
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/13/2017
-
+ms.openlocfilehash: 96c5864deb3f5db0599eaca26a3b99bb9691c9b2
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="visual-studio-tools-for-apache-cordova"></a>Visual Studio Tools for Apache Cordova
 生成可在 iOS、Android 和 Windows 设备上运行的应用，并共享近 100% 的代码。 使用你喜爱的 Web 技术生成这些应用。 Apache Cordova 让你能够从本机访问设备功能（如手机上的照相机），并且最棒的是它不收取任何费用。 Visual Studio 添加了这些附加程序，可让你更轻松地生成应用：  

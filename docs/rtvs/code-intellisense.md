@@ -1,27 +1,24 @@
 ---
 title: "适用于 R 代码 Visual Studio 的 IntelliSense | Microsoft Docs"
 ms.custom: 
-ms.date: 6/29/2017
+ms.date: 06/29/2017
 ms.reviewer: 
 ms.suite: 
-ms.technology:
-- devlang-r
+ms.technology: devlang-r
 ms.devlang: r
 ms.tgt_pltfrm: 
 ms.topic: article
 ms.assetid: d96e3677-e5ec-4e11-82a8-d914a93b1aa9
-caps.latest.revision: 1
+caps.latest.revision: "1"
 author: kraigb
 ms.author: kraigb
 manager: ghogen
+ms.openlocfilehash: 821f92f7a3cf0e5ca1d647890602ec17e580b36b
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
 ms.translationtype: HT
-ms.sourcegitcommit: 712cc780388acc5e373f71d51fc8f1f42adb5bed
-ms.openlocfilehash: 4e96184aa9a7711a7c046eb886049563dd308433
-ms.contentlocale: zh-cn
-ms.lasthandoff: 07/12/2017
-
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-
 # <a name="intellisense"></a>IntelliSense
 
 编写代码时，Visual Studio IntelliSense 能直观显示可调用函数、对象成员、函数参数和[代码片段](code-snippets.md)的相关信息。 它还会在你键入时显示可能的补全内容，并在按 Tab 或 Enter 键时进行补全（请参阅“高级”选项卡中的[编辑器选项](code-editing.md#editor-options)）。 编辑器和[交互窗口](interactive-repl.md)都支持 IntelliSense。
@@ -69,4 +66,3 @@ IntelliSense 还适用于相同文件和当前会话中的变量：
 当边距中显示灯泡（称之为智能标记）时，表示 Visual Studio 提示存在可用于常用操作的快捷方式。 例如，将鼠标悬停在编辑器中含 `library` 语句的行上，即可看见灯泡。 选择灯泡会显示可用选项：
 
 ![编辑器中适用于 R 的智能标记](media/intellisense-smart-tags.png)
-

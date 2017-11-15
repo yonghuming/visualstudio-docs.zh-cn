@@ -1,27 +1,24 @@
 ---
 title: "在 Visual Studio 中使用 PyLint | Microsoft Docs"
 ms.custom: 
-ms.date: 7/12/2017
+ms.date: 07/12/2017
 ms.reviewer: 
 ms.suite: 
-ms.technology:
-- devlang-python
+ms.technology: devlang-python
 ms.devlang: python
 ms.tgt_pltfrm: 
 ms.topic: article
 ms.assetid: bc668a4b-10ae-4199-90b8-c984456b6003
-caps.latest.revision: 1
+caps.latest.revision: "1"
 author: kraigb
 ms.author: kraigb
 manager: ghogen
+ms.openlocfilehash: 70c119be4402b8f00d44a4fe2a9b5770b7f83694
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
 ms.translationtype: HT
-ms.sourcegitcommit: 8a544bd1e1242bb6fabe00f7842ac33ed9d9d444
-ms.openlocfilehash: 4b22d434b99bdd2648408b9191c5f050589883ae
-ms.contentlocale: zh-cn
-ms.lasthandoff: 08/14/2017
-
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-
 # <a name="using-pylint-to-check-python-code"></a>使用 PyLint 检查 Python 代码
 
 [PyLint](https://www.pylint.org/) 是一种广泛使用的工具，当前已集成到 Visual Studio for Python 项目中，可用于检查 Python 代码中的错误以及促进建立良好的 Python 编码模式。
@@ -58,4 +55,3 @@ PyLint 文档中的[命令行选项](https://pylint.readthedocs.io/en/latest/use
 1. 打开要编辑的文件，该文件中包含可以使用的各种设置。 若要禁用警告，请找到 `[MESSAGES CONTROL]` 部分，然后在该部分中找到 `disable` 设置。 将出现特定消息的一条长字符串，可以向其追加所需的任何警告。 在此例中，追加 `,missing-docstring`（包括界定逗号）。
 
 1. 保存 `.pylintrc` 文件，然后再次运行 PyLint 以查看现在禁止显示的警告。
-

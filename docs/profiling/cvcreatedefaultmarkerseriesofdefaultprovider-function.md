@@ -1,30 +1,29 @@
 ---
 title: "CvCreateDefaultMarkerSeriesOfDefaultProvider 函数 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-debug"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "cvmarkers/CvCreateDefaultMarkerSeriesOfDefaultProvider"
-helpviewer_keywords: 
-  - "CvCreateDefaultMarkerSeriesOfDefaultProvider 方法"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology: vs-ide-debug
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords: cvmarkers/CvCreateDefaultMarkerSeriesOfDefaultProvider
+helpviewer_keywords: CvCreateDefaultMarkerSeriesOfDefaultProvider method
 ms.assetid: 24eb80f8-8fca-4c47-93b5-bb1eb8ffdffd
-caps.latest.revision: 2
-author: "mikejo5000"
-ms.author: "mikejo"
-manager: "ghogen"
-caps.handback.revision: 2
+caps.latest.revision: "2"
+author: mikejo5000
+ms.author: mikejo
+manager: ghogen
+ms.openlocfilehash: 076a815be9a900b45fffee95856caa003d8155d2
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# CvCreateDefaultMarkerSeriesOfDefaultProvider 函数
-[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
-
+# <a name="cvcreatedefaultmarkerseriesofdefaultprovider-function"></a>CvCreateDefaultMarkerSeriesOfDefaultProvider 函数
 创建默认提供程序的默认标记系列。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
 ```  
 HRESULT CvCreateDefaultMarkerSeriesOfDefaultProvider(  
@@ -33,18 +32,18 @@ HRESULT CvCreateDefaultMarkerSeriesOfDefaultProvider(
 );  
 ```  
   
-#### 参数  
+#### <a name="parameters"></a>参数  
  `ppProvider`  
- 提供程序对象变量的地址。  地址不能为 null，此变量可以具有任何值。  
+ 提供程序对象变量的地址。 地址不能为 NULL，该变量可以具有任何值。  
   
  `ppMarkerSeries`  
- 地址标记系列对象变量。  地址不能为 null，此变量可以具有任何值。  
+ 标记系列对象变量的地址。 地址不能为 NULL，该变量可以具有任何值。  
   
-## 返回值  
- S\_OK，当提供程序和标记系列成功创建或有错误代码以防有任何错误。  使用 SUCCEEDED\/FAILED 宏检查错误状态。  
+## <a name="return-value"></a>返回值  
+ 成功创建提供程序和标记系列时返回 S_OK，出现任何错误时返回错误代码。 使用 SUCCEEDED/FAILED 宏检查错误条件。  
   
-## 要求  
- **页眉：**cvmarkers.h  
+## <a name="requirements"></a>要求  
+ **标头：**cvmarkers.h  
   
-## 请参阅  
- [C\+\+ 库参考](../profiling/cpp-library-reference.md)
+## <a name="see-also"></a>另请参阅  
+ [C++ 库参考](../profiling/cpp-library-reference.md)

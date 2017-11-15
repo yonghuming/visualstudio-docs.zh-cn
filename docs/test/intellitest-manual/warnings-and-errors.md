@@ -4,36 +4,19 @@ ms.custom:
 ms.date: 05/02/2017
 ms.reviewer: 
 ms.suite: 
-ms.technology:
-- vs-devops-test
+ms.technology: vs-devops-test
 ms.tgt_pltfrm: 
 ms.topic: article
-helpviewer_keywords:
-- IntelliTest, Warnings and errors
+helpviewer_keywords: IntelliTest, Warnings and errors
 ms.assetid: F725B4A3-F79E-4F05-945F-847756CD69B9
-caps.latest.revision: 56
+caps.latest.revision: "56"
 ms.author: douge
 manager: douge
-translation.priority.ht:
-- cs-cz
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pl-pl
-- pt-br
-- ru-ru
-- tr-tr
-- zh-cn
-- zh-tw
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 45d36934cf1c46902cac566203cddf4a118b7fe4
-ms.openlocfilehash: 74f844b7e80892b6eb41d85c78e93083604e0ce6
-ms.contentlocale: zh-cn
-ms.lasthandoff: 06/02/2017
-
+ms.openlocfilehash: 214637302a326750abc7b782d47ed6e7241a53c2
+ms.sourcegitcommit: aadb9588877418b8b55a5612c1d3842d4520ca4c
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="warnings-and-errors"></a>警告和错误
 
@@ -360,4 +343,3 @@ IntelliTest 不知道未检测中间方法的作用，因此无法生成与嵌�
 ## <a name="got-feedback"></a>是否获得反馈？
 
 在 [UserVoice](https://visualstudio.uservoice.com/forums/121579-visual-studio-2015/category/157869-test-tools?query=IntelliTest) 上发布想法和功能请求。
-

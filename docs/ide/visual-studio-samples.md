@@ -4,47 +4,28 @@ ms.custom:
 ms.date: 11/16/2016
 ms.reviewer: 
 ms.suite: 
-ms.technology:
-- vs-ide-general
+ms.technology: vs-acquisition
 ms.tgt_pltfrm: 
 ms.topic: article
-helpviewer_keywords:
-- sample applications [Visual Studio]
+helpviewer_keywords: sample applications [Visual Studio]
 ms.assetid: 3070fa13-46c7-4252-a1c2-857b4a2c9528
-caps.latest.revision: 51
-author: mikeblome
-ms.author: mblome
+caps.latest.revision: "51"
+author: TerryGLee
+ms.author: tglee
 manager: ghogen
-translation.priority.ht:
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- ru-ru
-- zh-cn
-- zh-tw
-translation.priority.mt:
-- cs-cz
-- pl-pl
-- pt-br
-- tr-tr
-translationtype: Human Translation
-ms.sourcegitcommit: 5db97d19b1b823388a465bba15d057b30ff0b3ce
-ms.openlocfilehash: 702a87042fd3ddad3a96c066961494481e9c98c2
-ms.lasthandoff: 02/22/2017
-
+ms.openlocfilehash: a69ac4580d14546211fb65b19e05b6766b07af91
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="visual-studio-samples"></a>Visual Studio Samples
 可以在 [MSDN 代码库](http://go.microsoft.com/fwlink/?LinkID=127810) 网站上找到 Visual Studio 示例。  
   
- 你可以使用“新项目”  对话框浏览示例。 （如果要打开对话框，在菜单栏上选择“文件” ，“新建” ，“项目” 。）  
-  
 ## <a name="finding-samples"></a>查找示例  
  以下是其他一些可以查找示例的位置。  
   
-|区域|描述|  
+|区域|说明|  
 |----------|-----------------|  
 |[Windows 开发人员中心示例](http://go.microsoft.com/fwlink/?LinkID=255278)|演示如何开发 [!INCLUDE[win8_appname_long](../debugger/includes/win8_appname_long_md.md)] 应用。|  
 |[.NET Framework 示例](http://msdn.microsoft.com/en-us/177055f8-4a1f-43e7-aee6-995c196079b1)|显示 C# 和 Visual Basic 中 [!INCLUDE[dnprdnshort](../code-quality/includes/dnprdnshort_md.md)] 的各个方面。|  

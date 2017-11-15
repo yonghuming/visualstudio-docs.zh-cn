@@ -1,30 +1,29 @@
 ---
 title: "CvLeaveSpan 函数 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-debug"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "cvmarkers/CvLeaveSpan"
-helpviewer_keywords: 
-  - "CvLeaveSpan 方法"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology: vs-ide-debug
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords: cvmarkers/CvLeaveSpan
+helpviewer_keywords: CvLeaveSpan method
 ms.assetid: 3bf65fdf-a471-4efd-ac7a-03e701bbae5d
-caps.latest.revision: 3
-author: "mikejo5000"
-ms.author: "mikejo"
-manager: "ghogen"
-caps.handback.revision: 3
+caps.latest.revision: "3"
+author: mikejo5000
+ms.author: mikejo
+manager: ghogen
+ms.openlocfilehash: 1886858cfedbb3651a394b9f739feadd6c77d1a4
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# CvLeaveSpan 函数
-[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
-
+# <a name="cvleavespan-function"></a>CvLeaveSpan 函数
 标记范围的结束位置。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
 ```  
 HRESULT CvLeaveSpan(  
@@ -32,15 +31,15 @@ HRESULT CvLeaveSpan(
 );  
 ```  
   
-#### 参数  
+#### <a name="parameters"></a>参数  
  `pSpan`  
- 范围对象为上一 CvEnterSpan\* 调用返回的对象。  不能为 NULL。  
+ 上一 CvEnterSpan* 调用返回的范围对象 不能为 NULL。  
   
-## 返回值  
- S\_OK，当消息成功写入。  错误代码，当有任何错误时。  使用 SUCCEEDED\/FAILED 宏检查错误状态。  
+## <a name="return-value"></a>返回值  
+ 成功写入消息时返回 S_OK。 出现任何错误时返回错误代码。 使用 SUCCEEDED/FAILED 宏检查错误条件。  
   
-## 要求  
- **页眉：**cvmarkers.h  
+## <a name="requirements"></a>要求  
+ **标头：**cvmarkers.h  
   
-## 请参阅  
- [C\+\+ 库参考](../profiling/cpp-library-reference.md)
+## <a name="see-also"></a>另请参阅  
+ [C++ 库参考](../profiling/cpp-library-reference.md)

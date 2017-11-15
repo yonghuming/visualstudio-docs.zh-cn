@@ -1,63 +1,63 @@
 ---
 title: "“列出源”命令 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-general"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "Debug.ListSource"
-helpviewer_keywords: 
-  - "Debug.ListSource 命令"
-  - "“列出源”命令"
-  - "ListSource 命令"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology: vs-ide-general
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords: Debug.ListSource
+helpviewer_keywords:
+- Debug.ListSource command
+- list source command
+- ListSource command
 ms.assetid: e45f08d2-f4a3-49c3-9452-aa60508e2f74
-caps.latest.revision: 6
-author: "kempb"
-ms.author: "kempb"
-manager: "ghogen"
-caps.handback.revision: 6
+caps.latest.revision: "6"
+author: gewarren
+ms.author: gewarren
+manager: ghogen
+ms.openlocfilehash: 2f94f7bea2f4742fa975948d838e0cb01ce5e11e
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# “列出源”命令
-[!INCLUDE[vs2017banner](../../code-quality/includes/vs2017banner.md)]
-
+# <a name="list-source-command"></a>“列出源”命令
 显示源代码的指定行。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
 ```  
 Debug.ListSource [/Count:number] [/Current] [/File:filename]  
 [/Line:number] [/ShowLineNumbers:yes|no]  
 ```  
   
-## 开关  
- \/Count:`number`  
- 可选。  指定要显示的行数。  
+## <a name="switches"></a>开关  
+ /Count:`number`  
+ 可选。 指定要显示的行的编号。  
   
- \/Current  
- 可选。  显示当前行。  
+ /Current  
+ 可选。 显示当前行。  
   
- \/File:`filename`  
- 可选。  要显示的文件的路径。  如果未指定文件名，则该命令显示当前语句行的源代码。  
+ /File:`filename`  
+ 可选。 要显示的文件的路径。 如果未指定文件名，该命令会显示当前语句所在行的源代码。  
   
- \/Line:`number`  
- 可选。  显示特定行号。  
+ /Line:`number`  
+ 可选。 显示特定行号。  
   
- \/ShowLineNumbers:`yes|no`  
- 可选。  指定是否显示行号。  
+ /ShowLineNumbers:`yes|no`  
+ 可选。 指定是否显示行号。  
   
-## 备注  
+## <a name="remarks"></a>备注  
   
-## 示例  
- 此示例从文件 Form1.vb 的第 4 行列出源代码和可见的行号。  
+## <a name="example"></a>示例  
+ 此示例列出文件 Form1.vb 第 4 行的源代码，并显示行号。  
   
 ```  
 Debug.ListSource /File:"C:\Visual Studio Projects\Form1.vb" /Line:4 /ShowLineNumbers:yes  
 ```  
   
-## 请参阅  
+## <a name="see-also"></a>另请参阅  
  [Visual Studio 命令](../../ide/reference/visual-studio-commands.md)   
  [“命令”窗口](../../ide/reference/command-window.md)

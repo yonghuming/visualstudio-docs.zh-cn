@@ -1,30 +1,31 @@
 ---
 title: "筛选节点 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-general"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology: vs-ide-designers
+ms.tgt_pltfrm: 
+ms.topic: article
 ms.assetid: f7cae2dc-e9a7-49d4-8be5-58b79868624e
-caps.latest.revision: 12
-author: "BrianPeek"
-ms.author: "brpeek"
-manager: "ghogen"
-caps.handback.revision: 12
+caps.latest.revision: "12"
+author: gewarren
+ms.author: gewarren
+manager: ghogen
+ms.openlocfilehash: b11e18af13cc0fc60812a036174c52105ac08a7d
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# 筛选节点
-[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
-
-在着色器设计器中，筛选器节点转换输入—例如，一种颜色或纹理示例—到一个比方颜色值。  这些比方颜色值通常用于非逼真呈现或在其他可视化效果中作为组件。  
+# <a name="filter-nodes"></a>筛选节点
+在着色器设计器中，筛选节点会将输入（如颜色或纹理样本）转换为形象的颜色值。 这些形象的颜色值通常用于非真实感渲染或用作其他视觉效果的分量。  
   
-## 筛选器节点的引用  
+## <a name="filter-node-reference"></a>筛选节点引用  
   
 |节点|详细信息|属性|  
-|--------|----------|--------|  
-|**模糊**|使用Gauss 函数模糊纹理中的像素。<br /><br /> 可以使用这来减少在纹理中的的颜色详细信息或噪声。<br /><br /> **输入：**<br /><br /> `UV`: `float2`<br /> 要测试的纹理的坐标。<br /><br /> **输出：**<br /><br /> `Output`: `float4`<br /> 模糊的颜色值。|**纹理**<br /> 与在模糊检测过程中使用的采样器关联的纹理寄存器。|  
-|**去饱和**|减少指定颜色值中的颜色量。<br /><br /> 当颜色被移除后，该颜色值将近似于其灰度等效值。<br /><br /> **输入：**<br /><br /> `RGB`: `float3`<br /> 要去饱和的颜色。<br /><br /> `Percent`: `float`<br /> 移除颜色百分比表示为范围 \[0, 1\] 中规范化的值。<br /><br /> **输出：**<br /><br /> `Output`: `float3`<br /> 第一个固定的颜色。|**“亮度”**<br /> 为红色、绿色和蓝色分量指定的权重。|  
-|**边缘检测**|使用 Canny 边检测器检测纹理中的边。  边缘像素是输出为白色；非边缘像素是输出为黑色。<br /><br /> 可使用此方法确定纹理中的边，以便能用其他效果处理边像素。<br /><br /> **输入：**<br /><br /> `UV`: `float2`<br /> 要测试的纹理的坐标。<br /><br /> **输出：**<br /><br /> `Output`: `float4`<br /> 如果纹素在边缘上，则为白色；否则为黑色。|**纹理**<br /> 与在边检测过程中使用的采样器关联的纹理寄存器。|  
-|**锐化**|锐化纹理。<br /><br /> 可以使用下面突出显示了纹理的内容的详细信息。<br /><br /> **输入：**<br /><br /> `UV`: `float2`<br /> 要测试的纹理的坐标。<br /><br /> **输出：**<br /><br /> `Output`: `float4`<br /> 模糊的颜色值。|**纹理**<br /> 与在锐化检测过程中使用的采样器关联的纹理寄存器。|
+|----------|-------------|----------------|  
+|**模糊**|通过高斯函数模糊纹理中的像素。<br /><br /> 它可用于减少纹理中的颜色细节或干扰。<br /><br /> **输入：**<br /><br /> `UV`: `float2`<br /> 要测试的纹素坐标。<br /><br /> **输出：**<br /><br /> `Output`: `float4`<br /> 经过模糊处理的颜色值。|**纹理**<br /> 与模糊过程中使用的采样器关联的纹理寄存器。|  
+|**去除饱和度**|减少指定颜色的颜色量。<br /><br /> 删除颜色后，该颜色值将近似于其灰度等效值。<br /><br /> **输入：**<br /><br /> `RGB`: `float3`<br /> 要去除饱和度的颜色。<br /><br /> `Percent`: `float`<br /> 要删除的颜色百分比，以范围 [0, 1] 中的标准值表示。<br /><br /> **输出：**<br /><br /> `Output`: `float3`<br /> 去除饱和度的颜色。|**亮度**<br /> 为红色、绿色和蓝色分量指定的权重。|  
+|**边缘检测**|使用 Canny 边缘检测程序检测纹理中的边缘。 边缘像素输出为白色；非边缘像素输出为黑色。<br /><br /> 它可用于识别纹理中的边缘，以便可使用其他效果处理边缘像素。<br /><br /> **输入：**<br /><br /> `UV`: `float2`<br /> 要测试的纹素坐标。<br /><br /> **输出：**<br /><br /> `Output`: `float4`<br /> 如果纹素位于边缘，则为白色；否则为黑色。|**纹理**<br /> 与边缘检测过程中使用的采样器关联的纹理寄存器。|  
+|**锐化**|锐化纹理。<br /><br /> 它可用于突出显示纹理中的细节。<br /><br /> **输入：**<br /><br /> `UV`: `float2`<br /> 要测试的纹素坐标。<br /><br /> **输出：**<br /><br /> `Output`: `float4`<br /> 经过模糊处理的颜色值。|**纹理**<br /> 与锐化过程中使用的采样器关联的纹理寄存器。|

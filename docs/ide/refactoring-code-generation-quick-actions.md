@@ -4,34 +4,18 @@ ms.custom:
 ms.date: 03/23/2017
 ms.reviewer: 
 ms.suite: 
-ms.technology:
-- vs-ide-general
+ms.technology: vs-ide-general
 ms.tgt_pltfrm: 
 ms.topic: article
 ms.assetid: fc929a81-b20c-4802-92a7-388fd15aec3c
 author: gewarren
 ms.author: gewarren
 manager: ghogen
-translation.priority.ht:
-- cs-cz
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pl-pl
-- pt-br
-- ru-ru
-- tr-tr
-- zh-cn
-- zh-tw
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 46846db26bee30841e6cb35913d533b512d01ba0
-ms.openlocfilehash: 59ed01aa24468dd7b08a10389f91580321fe9b82
-ms.contentlocale: zh-cn
-ms.lasthandoff: 03/27/2017
-
+ms.openlocfilehash: 7d987cc154f912b8b93bd79365ef3939da1e0457
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="refactoring-code-generation-and-quick-actions-in-visual-studio"></a>Visual Studio 中的重构、代码生成和快速操作
 Visual Studio 提供多种可帮助编写代码的工具。  因为这些工具的功能与语言语法密切相关，所以 Visual Studio 中的每个语言服务都会提供自己的功能。
@@ -60,5 +44,4 @@ Visual Studio 可以帮助生成部分源代码，让你专注于实际工作。
 ## <a name="see-also"></a>另请参阅  
 [Visual Studio IDE](../ide/visual-studio-ide.md)   
 [在代码和文本编辑器中编写代码](../ide/writing-code-in-the-code-and-text-editor.md)  
-
 

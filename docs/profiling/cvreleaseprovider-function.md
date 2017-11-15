@@ -1,30 +1,29 @@
 ---
 title: "CvReleaseProvider 函数 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-debug"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "cvmarkers/CvReleaseProvider"
-helpviewer_keywords: 
-  - "CvReleaseProvider 方法"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology: vs-ide-debug
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords: cvmarkers/CvReleaseProvider
+helpviewer_keywords: CvReleaseProvider method
 ms.assetid: 8d74379e-295d-452b-bd5f-0769df387d4f
-caps.latest.revision: 3
-author: "mikejo5000"
-ms.author: "mikejo"
-manager: "ghogen"
-caps.handback.revision: 3
+caps.latest.revision: "3"
+author: mikejo5000
+ms.author: mikejo
+manager: ghogen
+ms.openlocfilehash: 6a6adcdd1be3b14ec4dbb9462ebddd82d9835e4e
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# CvReleaseProvider 函数
-[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
-
-发布标记提供程序。  发布标记提供程序不会影响此提供程序创建之前的标记。  标记系列必须分别会释放由 CvReleaseMarkerSeries 调用。  如果释放提供程序会导致内存泄漏。  
+# <a name="cvreleaseprovider-function"></a>CvReleaseProvider 函数
+发布标记提供程序。 发布标记提供程序不会影响此提供程序以前创建的标记系列。 标记系列必须由 CvReleaseMarkerSeries 调用单独发布。 提供程序发布失败会导致内存泄漏。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
 ```  
 HRESULT CvReleaseProvider(  
@@ -32,15 +31,15 @@ HRESULT CvReleaseProvider(
 );  
 ```  
   
-#### 参数  
+#### <a name="parameters"></a>参数  
  `pProvider`  
- 提供程序上下文。  不能为 NULL。  
+ 提供程序上下文。 不能为 NULL。  
   
-## 返回值  
- S\_OK，当提供程序成功发布或错误代码当有任何错误时。  使用 SUCCEEDED\/FAILED 宏检查错误状态。  
+## <a name="return-value"></a>返回值  
+ 成功发布提供程序时返回 S_OK，出现任何错误时返回错误代码。 使用 SUCCEEDED/FAILED 宏检查错误条件。  
   
-## 要求  
- **页眉：**cvmarkers.h  
+## <a name="requirements"></a>要求  
+ **标头：**cvmarkers.h  
   
-## 请参阅  
- [C\+\+ 库参考](../profiling/cpp-library-reference.md)
+## <a name="see-also"></a>另请参阅  
+ [C++ 库参考](../profiling/cpp-library-reference.md)

@@ -5,14 +5,12 @@ ms.author: amburns
 ms.date: 04/14/2017
 ms.topic: article
 ms.assetid: 0FE27C0C-A861-4133-A74E-8D0505CF5342
-ms.translationtype: HT
-ms.sourcegitcommit: e2b7ff9126e1cc38ac2e58d6be339b656a024e7f
 ms.openlocfilehash: 1f2ee1d440ad1c7d8cd75ae9194c651f2fc16a41
-ms.contentlocale: zh-cn
-ms.lasthandoff: 08/11/2017
-
+ms.sourcegitcommit: aadb9588877418b8b55a5612c1d3842d4520ca4c
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/27/2017
 ---
-
 # <a name="code-snippets"></a>代码片段 
 
 代码片段通常被称为“代码模板”，对高效编程很有帮助，因为它们支持插入和编辑预编写的代码块。 使用代码片段，可以非常方便地快速添加常用模式，甚至还可在使用不熟悉的语法进行开发时非常方便地学习新模式。 针对 C#、F#、HTML、XML、Python 和 Razor 提供了模板。
@@ -40,4 +38,3 @@ ms.lasthandoff: 08/11/2017
 虽然有多种语言的许多模板可供使用和编辑，但也可通过导航到“Visual Studio”>“首选项”>“文本编辑器”>“代码片段”来添加新模板：
 
 ![插入新模板](media/source-editor-image12.png)
-

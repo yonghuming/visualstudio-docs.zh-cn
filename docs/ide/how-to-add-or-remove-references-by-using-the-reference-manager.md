@@ -4,12 +4,10 @@ ms.custom:
 ms.date: 06/21/2017
 ms.reviewer: 
 ms.suite: 
-ms.technology:
-- vs-ide-general
+ms.technology: vs-ide-general
 ms.tgt_pltfrm: 
 ms.topic: article
-f1_keywords:
-- VS.ReferenceManager
+f1_keywords: VS.ReferenceManager
 helpviewer_keywords:
 - Visual C# projects, references
 - references [Visual Studio], adding
@@ -23,30 +21,15 @@ helpviewer_keywords:
 - references [Visual Studio], removing
 - referencing components, assemblies not listed
 ms.assetid: 1aabb520-99b0-46c6-9368-21b4d84793eb
-caps.latest.revision: 45
-author: kempb
-ms.author: kempb
+caps.latest.revision: "45"
+author: gewarren
+ms.author: gewarren
 manager: ghogen
-translation.priority.ht:
-- cs-cz
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pl-pl
-- pt-br
-- ru-ru
-- tr-tr
-- zh-cn
-- zh-tw
-ms.translationtype: Human Translation
-ms.sourcegitcommit: d2f4eba36e9069a35cf279ccf1c78f72a51d77a1
-ms.openlocfilehash: b2141a16d27725c54b3407e92151e0ed7afd745e
-ms.contentlocale: zh-cn
-ms.lasthandoff: 06/23/2017
-
+ms.openlocfilehash: 3c5e414ab56641171e9d3f5cddf758b6a13a6458
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="how-to-add-or-remove-references-by-using-the-reference-manager"></a>如何：使用引用管理器添加或删除引用
 可以使用“引用管理器”对话框添加和管理对你、Microsoft 或其他公司开发的组件的引用。 如果要开发通用 Windows 应用，你的项目将自动引用所有正确的 Windows SDK DLL。 如果要开发 .NET 应用程序，你的项目将自动引用 mscorlib.dll。 一些 .NET API 在必须手动添加的组件中进行公开。 对 COM 组件或自定义组件的引用必须手动添加。  
@@ -147,7 +130,7 @@ ms.lasthandoff: 06/23/2017
 
      通过在 HKEY_LOCAL_MACHINE 节点下创建注册表项，所有用户都可以在“添加引用”对话框中的指定位置看到这些程序集。 如果在 HKEY_CURRENT_USER 节点下创建注册表项，则只会影响当前用户的设置。  
 
-     再次打开“添加引用”对话框。 程序集应出现在“.NET”选项卡中。 如果未显示，请确保这些程序集位于指定的 AssemblyLocation 目录中，然后重启 Visual Studio 并重试。  
+     再次打开“添加引用”对话框。 程序集应出现在“.NET”选项卡中。如果未显示，请确保这些程序集位于指定的 AssemblyLocation 目录中，然后重启 Visual Studio 并重试。  
 
 ## <a name="com-tab"></a>“COM”选项卡  
  “COM”选项卡列出可供引用的所有 COM 组件。 如果要添加对包含内部清单的已注册 COM DLL 的引用，请先注销该 DLL。 否则，Visual Studio 会将程序集引用作为 ActiveX 控件而不是本机 DLL 添加。  
@@ -233,4 +216,3 @@ ms.lasthandoff: 06/23/2017
 
 ## <a name="see-also"></a>另请参阅  
  [管理项目中的引用](../ide/managing-references-in-a-project.md)
-

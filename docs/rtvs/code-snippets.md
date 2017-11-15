@@ -1,27 +1,24 @@
 ---
 title: "使用针对 Visual Studio 的 R 工具的代码片段 | Microsoft Docs"
 ms.custom: 
-ms.date: 6/29/2017
+ms.date: 06/29/2017
 ms.reviewer: 
 ms.suite: 
-ms.technology:
-- devlang-r
+ms.technology: devlang-r
 ms.devlang: r
 ms.tgt_pltfrm: 
 ms.topic: article
 ms.assetid: 90bf4f87-e276-40cd-bc17-3dfb47ef1870
-caps.latest.revision: 1
+caps.latest.revision: "1"
 author: kraigb
 ms.author: kraigb
 manager: ghogen
+ms.openlocfilehash: 47cf9ff074884902c94cd146c7a00826088833a3
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
 ms.translationtype: HT
-ms.sourcegitcommit: 712cc780388acc5e373f71d51fc8f1f42adb5bed
-ms.openlocfilehash: 55d7e61f1066de900d6568a848a0aa78e3fd3897
-ms.contentlocale: zh-cn
-ms.lasthandoff: 07/12/2017
-
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-
 # <a name="code-snippets"></a>代码片段
 
 Visual Studio 中的代码片段提供了一些快捷方式，可用于快速插入任意长度的代码块，有助于避免反复键入相似的代码。 针对 Visual Studio 的 R 工具 (RTVS) 向 Visual Studio 的集合添加了许多有用的 R 代码片段。
@@ -68,4 +65,3 @@ Visual Studio 中的代码片段提供了一些快捷方式，可用于快速插
 ```
 
 用于所有代码片段的 XML 文件是随 RTVS 一起安装的；“代码片段管理器”中的“位置”字段提供了相关路径。 也可以在 [src/Package/Impl/Snippets](https://github.com/Microsoft/RTVS/tree/master/src/Package/Impl/Snippets) 下 GitHub 的 RTVS 源代码中找到它们。
-

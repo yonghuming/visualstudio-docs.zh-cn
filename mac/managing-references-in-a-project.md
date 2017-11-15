@@ -5,14 +5,12 @@ ms.author: amburns
 ms.date: 04/14/2017
 ms.topic: article
 ms.assetid: 4AD51385-B0A8-4BA7-B2D4-BF2BD167A142
-ms.translationtype: HT
-ms.sourcegitcommit: e2b7ff9126e1cc38ac2e58d6be339b656a024e7f
 ms.openlocfilehash: 30f6c99c6ac827b7da94fd228a7034e9ce0b0fac
-ms.contentlocale: zh-cn
-ms.lasthandoff: 08/11/2017
-
+ms.sourcegitcommit: aadb9588877418b8b55a5612c1d3842d4520ca4c
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/27/2017
 ---
-
 # <a name="managing-references-in-a-project"></a>管理项目中的引用
 
 Visual Studio for Mac 提供了三种将其他引用添加到项目的方法：
@@ -44,4 +42,3 @@ NuGet 是 .NET 开发最常用的程序包管理器。 通过 Visual Studio for 
 为此，请右键单击“包”文件夹，然后选择“添加包”。
 
 [在项目中包括 NuGet 包](~/nuget-walkthrough.md)演练中提供了有关使用 NuGet 包的详细信息。
-

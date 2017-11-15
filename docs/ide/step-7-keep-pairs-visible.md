@@ -4,35 +4,19 @@ ms.custom:
 ms.date: 11/04/2016
 ms.reviewer: 
 ms.suite: 
-ms.technology:
-- vs-ide-general
+ms.technology: vs-acquisition
 ms.tgt_pltfrm: 
 ms.topic: article
 ms.assetid: 42e1d08c-7b2e-4efd-9f47-85d6206afe35
-caps.latest.revision: 21
-author: kempb
-ms.author: kempb
+caps.latest.revision: "21"
+author: TerryGLee
+ms.author: tglee
 manager: ghogen
-translation.priority.ht:
-- cs-cz
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pl-pl
-- pt-br
-- ru-ru
-- tr-tr
-- zh-cn
-- zh-tw
+ms.openlocfilehash: 7aba2366893e188107632e5b8393fff79c0a5f82
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
 ms.translationtype: HT
-ms.sourcegitcommit: eb5c9550fd29b0e98bf63a7240737da4f13f3249
-ms.openlocfilehash: 15990f447ba3e368b19d93317eadbde7b126326a
-ms.contentlocale: zh-cn
-ms.lasthandoff: 09/06/2017
-
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="step-7-keep-pairs-visible"></a>步骤 7：保持对可见
 只要玩家仅选择不匹配的图标对，游戏即可顺畅地运行。 但是，请考虑玩家选择匹配对时发生的情况。 游戏不是通过打开计时器（使用 `Start()` 方法）来使图标消失，而应当进行重置，这样游戏就不再使用 `firstClicked` 和 `secondClicked` 引用变量跟踪任何标签，而且无需重置选择的两个标签的颜色。  
@@ -41,7 +25,8 @@ ms.lasthandoff: 09/06/2017
   
 1.  将下面的 `if` 语句添加到 `label_Click()` 事件处理程序方法中，紧靠启动计时器的语句上方代码的结尾处。 将代码添加到程序时，请仔细查看一下代码。 考虑代码如何运行。  
   
-     [!code-csharp[VbExpressTutorial4Step7#9](../ide/codesnippet/CSharp/step-7-keep-pairs-visible_1.cs)]  [!code-vb[VbExpressTutorial4Step7#9](../ide/codesnippet/VisualBasic/step-7-keep-pairs-visible_1.vb)]  
+     [!code-csharp[VbExpressTutorial4Step7#9](../ide/codesnippet/CSharp/step-7-keep-pairs-visible_1.cs)]
+     [!code-vb[VbExpressTutorial4Step7#9](../ide/codesnippet/VisualBasic/step-7-keep-pairs-visible_1.vb)]  
   
      你刚添加的 `if` 语句的第一行会检查玩家选择的第一个标签中的图标是否与第二个标签中的图标相同。 如果图标相同，则程序执行 C# 中大括号之间的三个语句或 Visual Basic 中 `if` 语句内的三个语句。 前两个语句重置 `firstClicked` 和 `secondClicked` 引用变量，使它们不再跟踪任何标签。 （您可以从计时器的 Tick 事件处理程序识别这两个语句。）第三个语句是 `return` 语句，它通知程序跳过方法中的其余语句，不执行它们。  
   

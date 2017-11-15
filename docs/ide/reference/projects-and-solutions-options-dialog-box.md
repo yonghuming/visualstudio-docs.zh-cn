@@ -1,11 +1,10 @@
 ---
 title: "“选项”对话框 ->“项目和解决方案” | Microsoft Docs"
 ms.custom: 
-ms.date: 7/14/2017
+ms.date: 07/14/2017
 ms.reviewer: 
 ms.suite: 
-ms.technology:
-- vs-ide-general
+ms.technology: vs-ide-general
 ms.tgt_pltfrm: 
 ms.topic: article
 f1_keywords:
@@ -15,19 +14,17 @@ helpviewer_keywords:
 - Projects and Solutions Options dialog box
 - Options dialog box, Projects and Solutions
 ms.assetid: 2801f24e-a138-488a-ae3c-e1f99a678ac0
-caps.latest.revision: 12
+caps.latest.revision: "12"
 author: gewarren
 ms.author: gewarren
 manager: ghogen
+ms.openlocfilehash: f912a0aa6588895fb99da83396e2e5caf976e223
+ms.sourcegitcommit: c0422a3d594ea5ae8fc03f1aee684b04f417522e
 ms.translationtype: HT
-ms.sourcegitcommit: 17defdd0b96ec1c3273fc6b845af844b031a4a17
-ms.openlocfilehash: 2778964a6d5e4f478422727b02e15a058868e644
-ms.contentlocale: zh-cn
-ms.lasthandoff: 09/06/2017
-
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="projects-and-solutions-options-dialog-box"></a>“选项”对话框 ->“项目和解决方案”
-
 设置与项目和解决方案相关的 [!INCLUDE[vsprvs](../../code-quality/includes/vsprvs_md.md)] 行为。 要访问这些选项，请选择“工具 > 选项”，展开“项目和解决方案”，然后单击“常规”。
 
 通过相同对话框中的“位置”选项卡设置项目和模板文件夹的默认路径。
@@ -86,5 +83,5 @@ ms.lasthandoff: 09/06/2017
 指定“添加新项”对话框中使用的默认位置来创建“我的模板”的列表。 有关详细信息，请参阅[如何：查找和组织模板](../../ide/how-to-locate-and-organize-project-and-item-templates.md)。 
 
 ## <a name="see-also"></a>另请参阅  
-- [“选项”对话框 ->“项目和解决方案”->“生成和运行”](../../ide/reference/options-dialog-box-projects-and-solutions-build-and-run.md)
-- - [“选项”对话框、项目和解决方案、Web 项目](../../ide/reference/options-dialog-box-projects-and-solutions-web-projects.md)
+- [“选项”对话框 ->“项目和解决方案”->“生成和运行”](../../ide/reference/options-dialog-box-projects-and-solutions-build-and-run.md)  
+- [“选项”对话框、项目和解决方案、Web 项目](../../ide/reference/options-dialog-box-projects-and-solutions-web-projects.md)

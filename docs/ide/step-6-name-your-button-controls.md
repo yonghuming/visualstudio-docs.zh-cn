@@ -4,36 +4,19 @@ ms.custom:
 ms.date: 11/04/2016
 ms.reviewer: 
 ms.suite: 
-ms.technology:
-- vs-ide-general
+ms.technology: vs-acquisition
 ms.tgt_pltfrm: 
 ms.topic: article
 ms.assetid: 56b3baa3-651e-4ad4-8942-e334c5c57158
-caps.latest.revision: 29
-author: kempb
-ms.author: kempb
+caps.latest.revision: "29"
+author: TerryGLee
+ms.author: tglee
 manager: ghogen
-translation.priority.ht:
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- ru-ru
-- zh-cn
-- zh-tw
-translation.priority.mt:
-- cs-cz
-- pl-pl
-- pt-br
-- tr-tr
+ms.openlocfilehash: bbda1d3a9835d95978f7bfadbfe1b99971f6d367
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
 ms.translationtype: HT
-ms.sourcegitcommit: eb5c9550fd29b0e98bf63a7240737da4f13f3249
-ms.openlocfilehash: 8bd8c04c9a9aba653f587d74b2c6e4fc7ce562f9
-ms.contentlocale: zh-cn
-ms.lasthandoff: 09/06/2017
-
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="step-6-name-your-button-controls"></a>步骤 6：命名按钮控件
 窗体上只有一个 PictureBox。 当添加此控件时，IDE 自动将其命名为“pictureBox1” 。 只有一个名为“checkBox1” 的 CheckBox。 很快，你将编写一些代码，并且这些代码将引用到上述的 CheckBox 和 PictureBox。 因为上述每种控件都只有一个控件，所以当你在代码中看到  “pictureBox1”或  “checkBox1”时，应知道其中的含义。  
@@ -64,7 +47,8 @@ ms.lasthandoff: 09/06/2017
   
 4.  重点考虑这一部分的代码。 （如果你要使用 Visual Basic 查看代码的 Visual Basic 版本，请选择下面的  “VB”选项卡。）  
   
-     [!code-vb[VbExpressTutorial1Step6#1](../ide/codesnippet/VisualBasic/step-6-name-your-button-controls_1.vb)]  [!code-csharp[VbExpressTutorial1Step6#1](../ide/codesnippet/CSharp/step-6-name-your-button-controls_1.cs)]  
+     [!code-vb[VbExpressTutorial1Step6#1](../ide/codesnippet/VisualBasic/step-6-name-your-button-controls_1.vb)]
+     [!code-csharp[VbExpressTutorial1Step6#1](../ide/codesnippet/CSharp/step-6-name-your-button-controls_1.cs)]  
   
      你要查看名为 `showButton_Click()`的代码。 当你打开“showButton”  按钮的代码文件时，IDE 已将此代码添加到窗体的代码中。 在设计时，当你打开窗体中的某个控件的代码文件时，如果该控件没有代码，则将为该控件生成代码。 当你运行程序并选择控件（在此示例中为“显示图片” 按钮）时，该代码（称为“方法”  ）将会运行。  
   
@@ -80,7 +64,8 @@ ms.lasthandoff: 09/06/2017
   
      下面显示了你在代码编辑器中看到的新代码。  
   
-     [!code-vb[VbExpressTutorial1Step6#2](../ide/codesnippet/VisualBasic/step-6-name-your-button-controls_2.vb)]  [!code-csharp[VbExpressTutorial1Step6#2](../ide/codesnippet/CSharp/step-6-name-your-button-controls_2.cs)]  
+     [!code-vb[VbExpressTutorial1Step6#2](../ide/codesnippet/VisualBasic/step-6-name-your-button-controls_2.vb)]
+     [!code-csharp[VbExpressTutorial1Step6#2](../ide/codesnippet/CSharp/step-6-name-your-button-controls_2.cs)]  
   
      你所添加的五个方法称为“事件处理程序” ，原因是每当事件（如用户选择按钮或选择框）发生时程序都将调用这些方法。  
   

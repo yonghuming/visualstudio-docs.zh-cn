@@ -4,8 +4,7 @@ ms.custom:
 ms.date: 11/04/2016
 ms.reviewer: 
 ms.suite: 
-ms.technology:
-- vs-ide-general
+ms.technology: vs-ide-general
 ms.tgt_pltfrm: 
 ms.topic: article
 f1_keywords:
@@ -27,30 +26,15 @@ helpviewer_keywords:
 - defaults, colors
 - printers, customizing
 ms.assetid: c767d302-51ed-47a8-a527-c07bce2aa485
-caps.latest.revision: 27
-author: kempb
-ms.author: kempb
+caps.latest.revision: "27"
+author: gewarren
+ms.author: gewarren
 manager: ghogen
-translation.priority.ht:
-- cs-cz
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pl-pl
-- pt-br
-- ru-ru
-- tr-tr
-- zh-cn
-- zh-tw
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5ea9179ad37514ffad4876177b05150eecc22def
-ms.openlocfilehash: 209ddbe4166e7818e5ea3a1a699f6a0f1ee096e0
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/24/2017
-
+ms.openlocfilehash: ccb924164b4d590f8ed440dfa905c1c040a13924
+ms.sourcegitcommit: c0422a3d594ea5ae8fc03f1aee684b04f417522e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="fonts-and-colors-environment-options-dialog-box"></a>“选项”对话框 ->“环境”->“字体和颜色”
 通过“选项”对话框的“字体和颜色”页，可以为集成开发环境 (IDE) 中的各种用户界面元素建立自定义字体和配色方案。 单击“工具”/“选项”，然后选择“环境”/“字体和颜色”即可访问此对话框。 如果此页未出现在列表中，请在“选项”对话框中选择“显示所有设置”。  
@@ -93,20 +77,20 @@ ms.lasthandoff: 05/24/2017
     > [!NOTE]
     >  对“[全部文本工具窗口]”项的文本的更改在进行这些更改的会话期间不会生效。 可以通过打开 Visual Studio 的另一个实例计算此类更改。  
   
- 使用默认设置  
- 重置在“显示其设置”中选定的列表项的字体和颜色值。 “使用”按钮在有其他显示方案可供选择时出现。 例如，可以从两种适用于打印机的方案中进行选择。  
+使用默认设置  
+重置在“显示其设置”中选定的列表项的字体和颜色值。 “使用”按钮在有其他显示方案可供选择时出现。 例如，可以从两种适用于打印机的方案中进行选择。  
   
- 字体(粗体表示等宽字体)  
- 列出系统中安装的所有字体。 下拉菜单第一次出现时，“显示其设置”字段中选定的元素的当前字体突出显示。 在编辑器中更易于对齐的固定字体以粗体显示。  
+字体(粗体表示等宽字体)  
+列出系统中安装的所有字体。 下拉菜单第一次出现时，“显示其设置”字段中选定的元素的当前字体突出显示。 在编辑器中更易于对齐的固定字体以粗体显示。  
   
- **Size**  
- 列出可用于突出显示字体的磅值。 更改字体的大小将影响“显示其设置”选择的所有“显示项”。  
+**Size**  
+列出可用于突出显示字体的磅值。 更改字体的大小将影响“显示其设置”选择的所有“显示项”。  
   
- 显示项  
- 列出可为其修改前景色和背景色的项。  
+显示项  
+列出可为其修改前景色和背景色的项。  
   
 > [!NOTE]
-> 默认的显示项为“纯文本” ****。 因此，分配给“纯文本”的属性将被分配给其他显示项的属性替代。 例如，如果将蓝色分配给“纯文本”，将绿色分配给“标识符”，则所有标识符都以绿色显示。 在此示例中，“标识符”属性替代“纯文本”属性。  
+>  默认的显示项为“纯文本”。 因此，分配给“纯文本”的属性将被分配给其他显示项的属性替代。 例如，如果将蓝色分配给“纯文本”，将绿色分配给“标识符”，则所有标识符都以绿色显示。 在此示例中，“标识符”属性替代“纯文本”属性。  
   
  一些显示项包括：  
   
@@ -179,7 +163,7 @@ ms.lasthandoff: 05/24/2017
 |SQL DML 标记|应用于 Transact-SQL 编辑器。 默认情况下，此编辑器中的 DML 语句以蓝色的边界框进行标记。|  
 |陈旧的代码|等待更新的取代代码。 在某些情况下，“编辑并继续”无法立即应用代码更改，而是在稍后继续调试时应用这些更改。 当编辑某个必须调用当前所执行的函数的函数，或将超过 64 个字节的新变量添加到等待调用堆栈的某个函数中时，会发生这种情况。 发生这种情况时，调试器将显示一个“陈旧代码警告”对话框，而取代代码继续执行，直到上述函数完成并被重新调用为止。 “编辑并继续”将在此时应用代码更改。|  
 |**字符串**|字符串。|  
-|字符串(C# @ 逐字字符串)|在 C# 中逐字解释的字符串。 例如：<br /><br /> @"x"|  
+|字符串(C# @ 逐字字符串)|在 C# 中逐字解释的字符串。 例如: <br /><br /> @"x"|  
 |语法错误|分析错误。|  
 |任务列表快捷方式|如果将“任务列表”快捷方式添加到某一行，并禁用指示器边距，则将突出显示该行。|  
 |跟踪点(禁用)|未使用。|  

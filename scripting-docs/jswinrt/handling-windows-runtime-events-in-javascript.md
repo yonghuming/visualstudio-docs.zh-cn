@@ -5,24 +5,22 @@ ms.date: 01/18/2017
 ms.prod: windows-client-threshold
 ms.reviewer: 
 ms.suite: 
-ms.technology:
-- javascript
+ms.technology: javascript
 ms.tgt_pltfrm: 
 ms.topic: article
 helpviewer_keywords:
 - JavaScript, Windows Runtime events
 - Windows Runtime events [JavaScript]
 ms.assetid: d9436aff-2c30-4846-b8df-eaa3e63fd75c
-caps.latest.revision: 6
+caps.latest.revision: "6"
 author: mikejo5000
 ms.author: mikejo
 manager: ghogen
-ms.translationtype: HT
-ms.sourcegitcommit: 29eb97427c2c5a29ee9a66e8e2a85953fd797efd
 ms.openlocfilehash: e963472ee51f2439b50807a49425dcd7f6d8443a
-ms.contentlocale: zh-cn
-ms.lasthandoff: 08/11/2017
-
+ms.sourcegitcommit: aadb9588877418b8b55a5612c1d3842d4520ca4c
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="handling-windows-runtime-events-in-javascript"></a>在 JavaScript 中处理 Windows 运行时事件
 Windows 运行时事件在 JavaScript 中的表示方式与它们在 C++ 或 .NET Framework 中的表示方式不同。 它们不是类属性，而是表示为传递到类的 `addEventListener` 和 `removeEventListener` 方法的字符串标识符。 例如，可以通过将字符串“replacementchanged”传递给 `Geolocator.addEventListener` 方法来为 [Geolocator.PositionChanged](http://msdn.microsoft.com/library/windows/apps/xaml/windows.devices.geolocation.geolocator.positionchanged.aspx) 事件添加事件处理程序：  

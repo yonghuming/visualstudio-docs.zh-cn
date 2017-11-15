@@ -5,23 +5,20 @@ ms.date: 02/03/2017
 ms.prod: windows-client-threshold
 ms.reviewer: 
 ms.suite: 
-ms.technology:
-- javascript
+ms.technology: javascript
 ms.tgt_pltfrm: 
 ms.topic: article
-helpviewer_keywords:
-- JavaScript, Windows Runtime
+helpviewer_keywords: JavaScript, Windows Runtime
 ms.assetid: 90658546-f746-4e34-a7d1-71cf9ee322a2
-caps.latest.revision: 16
+caps.latest.revision: "16"
 author: mikejo5000
 ms.author: mikejo
 manager: ghogen
-ms.translationtype: HT
-ms.sourcegitcommit: 6fbf89668d47d55d1d77a1d7f11765567fc73405
 ms.openlocfilehash: c81f5d83056ceb87987e263f09c0d5e5017dbb6f
-ms.contentlocale: zh-cn
-ms.lasthandoff: 08/11/2017
-
+ms.sourcegitcommit: aadb9588877418b8b55a5612c1d3842d4520ca4c
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="using-the-windows-runtime-in-javascript"></a>在 JavaScript 中使用 Windows 运行时
 在编写通用 Windows 平台 (UWP) 应用时，可以按使用本机 JavaScript 对象、方法和属性大致相同的方式来使用 Windows 运行时类、方法以及属性。 本主题提供介绍性信息以及指向主题的链接，这些主题解释了在 JavaScript 中使用 Windows 运行时 API 的基本概念，包括如何表示 Windows 运行时类型的解释、如何使用异步 Windows 运行时方法以及如何侦听和处理 Windows 运行时事件。  

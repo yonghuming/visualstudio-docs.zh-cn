@@ -1,23 +1,26 @@
 ---
 title: "DA0026：处理过程的内核 CPU 时间过长 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-debug"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "vs.performance.rules.DA0026"
-  - "vs.performance.DA0026"
-  - "vs.performance.26"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology: vs-ide-debug
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords:
+- vs.performance.rules.DA0026
+- vs.performance.DA0026
+- vs.performance.26
 ms.assetid: 4cfc8a29-b29b-4a72-b386-03d8856fdf8a
-caps.latest.revision: 7
-author: "mikejo5000"
-ms.author: "mikejo"
-manager: "ghogen"
-caps.handback.revision: 7
+caps.latest.revision: "7"
+author: mikejo5000
+ms.author: mikejo
+manager: ghogen
+ms.openlocfilehash: 2c574d176ccb30c1518238a78472afa798230247
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="da0026-excessive-kernel-cpu-time-processing"></a>DA0026：处理过程的内核 CPU 时间过长
 |||  
@@ -38,8 +41,3 @@ caps.handback.revision: 7
   
 ## <a name="how-to-fix-violations"></a>如何解决冲突  
  若要调查应用程序执行的系统调用的类型，可再次运行分析，并基于系统调用选择收集示例的选项。 如果在 IDE 内部运行分析工具，请参阅[如何：选择采样事件](../profiling/how-to-choose-sampling-events.md)了解详细信息。 如果要运行命令行中的分析工具，请参阅分析工具命令行工具引用中的 [VSPerfCmd](../profiling/vsperfcmd.md) 主题的**采样间隔选项**部分。
-
-
-<!--HONumber=Feb17_HO4-->
-
-

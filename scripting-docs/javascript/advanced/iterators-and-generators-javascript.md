@@ -5,8 +5,7 @@ ms.date: 01/18/2017
 ms.prod: windows-client-threshold
 ms.reviewer: 
 ms.suite: 
-ms.technology:
-- devlang-javascript
+ms.technology: devlang-javascript
 ms.tgt_pltfrm: 
 ms.topic: article
 dev_langs:
@@ -14,16 +13,15 @@ dev_langs:
 - TypeScript
 - DHTML
 ms.assetid: 68ef5b2f-0349-492b-b557-73ff2a2f90cf
-caps.latest.revision: 14
+caps.latest.revision: "14"
 author: mikejo5000
 ms.author: mikejo
 manager: ghogen
-ms.translationtype: HT
-ms.sourcegitcommit: 9713f09b7379b14b9362e3853a910948935c501e
 ms.openlocfilehash: 85c27969609a38b87b15c727e9c8aef89ee77032
-ms.contentlocale: zh-cn
-ms.lasthandoff: 08/11/2017
-
+ms.sourcegitcommit: aadb9588877418b8b55a5612c1d3842d4520ca4c
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="iterators-and-generators-javascript"></a>迭代器和生成器 (JavaScript)
 迭代器是一个对象，用于将容器对象作为列表遍历。 在 JavaScript 中，迭代器对象不是一个独立的内置对象，而是一个实现 `next` 方法以访问容器对象中的下一项的对象。  
@@ -166,4 +164,3 @@ console.log(si3.next(100).value);
 ```  
   
  其他高级生成器可能调用生成器的 `throw` 方法。 引发的错误似乎会在生成器暂停的位置引发（在下一条 `yield` 语句之前）。
-

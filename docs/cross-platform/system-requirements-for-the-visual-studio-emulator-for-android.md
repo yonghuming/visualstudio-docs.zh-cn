@@ -4,36 +4,19 @@ ms.custom:
 ms.date: 11/04/2016
 ms.reviewer: 
 ms.suite: 
-ms.technology:
-- tgt-pltfrm-cross-plat
+ms.technology: tgt-pltfrm-cross-plat
 ms.tgt_pltfrm: 
 ms.topic: article
 ms.assetid: 35e766ad-269f-41e4-ba23-74a556c315f3
-caps.latest.revision: 5
+caps.latest.revision: "5"
 author: mikejo5000
 ms.author: mikejo
 manager: ghogen
-translation.priority.ht:
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- ru-ru
-- zh-cn
-- zh-tw
-translation.priority.mt:
-- cs-cz
-- pl-pl
-- pt-br
-- tr-tr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 47057e9611b824c17077b9127f8d2f8b192d6eb8
-ms.openlocfilehash: b4ed14f43316dc02ef8d039c590cd2f93b3060e5
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/13/2017
-
+ms.openlocfilehash: 469a8298122abdc96c69f13ed96a893b02575fc9
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="system-requirements-for-the-visual-studio-emulator-for-android"></a>System requirements for the Visual Studio Emulator for Android
 适用于 Android 的 Visual Studio 仿真程序在 Hyper-V（Windows 8 及以上版本的虚拟化技术）上作为虚拟机运行。 要运行仿真器，计算机必须满足本主题中所述的 Hyper-V 运行要求。  
@@ -101,7 +84,7 @@ ms.lasthandoff: 05/13/2017
   
  要检查 RAM 和 Windows 的要求，请在“控制面板”中选择“系统和安全”，然后选择“系统”。  
   
- ![验证系统要求](~/cross-platform/media/android_emu_system_requirements.png "Android_Emu_System_Requirements")  
+ ![验证系统要求](../cross-platform/media/android_emu_system_requirements.png "Android_Emu_System_Requirements")  
   
 ##  <a name="Network"></a>网络要求  
  网络必须满足以下要求：  
@@ -147,7 +130,7 @@ ms.lasthandoff: 05/13/2017
 > [!IMPORTANT]
 >  加入该组后，注销或重启以使更改生效。  
   
- ![加入 Hyper-V 管理员安全组](~/cross-platform/media/android_emu_hyperv_admin.png "Android_Emu_HyperV_Admin")  
+ ![加入 Hyper-V 管理员安全组](../cross-platform/media/android_emu_hyperv_admin.png "Android_Emu_HyperV_Admin")  
   
  要手动将自己添加到组中，请打开本地用户和组管理单元。 有关详细信息，请参阅 [向组添加用户帐户](http://windows.microsoft.com/en-us/windows/add-user-account-to-group#1TC=windows-7)。 （此 Windows 7 主题也适用于 Windows 8。）  
   

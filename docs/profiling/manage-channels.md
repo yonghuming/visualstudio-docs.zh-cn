@@ -1,66 +1,65 @@
 ---
 title: "管理通道 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-debug"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "vs.cv.threads.tools.managechannels"
-helpviewer_keywords: 
-  - "并发可视化工具, 管理通道"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology: vs-ide-debug
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords: vs.cv.threads.tools.managechannels
+helpviewer_keywords: Concurrency Visualizer, Manage Channels
 ms.assetid: 507b06e9-bb56-4a72-8fd5-f91f958da6fc
-caps.latest.revision: 13
-author: "mikejo5000"
-ms.author: "mikejo"
-manager: "ghogen"
-caps.handback.revision: 13
+caps.latest.revision: "13"
+author: mikejo5000
+ms.author: mikejo
+manager: ghogen
+ms.openlocfilehash: 794b34365dfa025c6ade7f2d7a2f1216c2b4e4ff
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# 管理通道
-[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
-
-在并发可视化工具的 **线程视图**中，您可以为您的进程组织通道，以便可以查看特定模式。  您可以可排序通道，上下移动通道以及隐藏或显示它们。  
+# <a name="manage-channels"></a>管理通道
+在并发可视化工具的“线程视图”中，可以整理进程的各个通道，以便查看特定模式。 您可以将通道排序、上下移动，以及隐藏或显示这些通道。  
   
-## 排序方式  
- 基于当前缩放级别，可以使用此控件按不同条件对线程排序。  在查找特定模式时，此控件尤其有用。  您可以根据这些条件排序：  
+## <a name="sort-by"></a>排序依据  
+ 基于当前的缩放级别，您可以使用“排序依据”控件按不同的条件对线程排序。 在查找特定模式时，这特别有用。 您可以按照以下条件排序：  
   
 |条件|定义|  
-|--------|--------|  
-|开始时间|按线程的开始时间对线程排序。  这是默认排序顺序。|  
-|结束时间|按线程的停止时间对线程排序。|  
-|执行|按执行所用时间的百分比对线程排序。|  
-|同步|按同步所用时间的百分比对线程排序。|  
-|I\/O|按 I\/O（读取和写入数据）所用时间的百分比对线程排序。|  
-|Sleep|按休眠所用时间的百分比对线程排序。|  
-|分页|按分页所用时间的百分比对线程排序。|  
-|抢占|按抢占所用时间的百分比对线程排序。|  
-|UI 处理|按 UI 处理所用时间的百分比对线程排序。|  
+|--------------|----------------|  
+|开始时间|按线程的开始时间排序。 这是默认的排序顺序。|  
+|结束时间|按线程的结束时间排序。|  
+|执行|按执行所用的时间百分比对线程排序。|  
+|同步|按同步所用的时间百分比对线程排序。|  
+|I/O|按 I/O（读取和写入数据）所用的时间百分比对线程排序。|  
+|休眠|按休眠所用的时间百分比对线程排序。|  
+|分页|按分页所用的时间百分比对线程排序。|  
+|优先|按抢占所用的时间百分比对线程排序。|  
+|UI 处理|按用户界面处理所用的时间百分比对线程排序。|  
   
-## 上移或下移所选通道  
- 可以使用这些控件上向上或向下移动列表中的一条通道。  例如，您可以彼此相关通道放在一起帮助您检查特定模式或跨线程的关系。  
+## <a name="move-selected-channel-up-or-down"></a>上移或下移选定的通道  
+ 可以使用这些控件向上或向下移动列表中的通道。 例如，您可以将彼此相关的通道放在一起，以便帮助您检查特定的模式或跨线程关系。  
   
-## 将所选通道移动到顶部或底部  
- 可以将选定的通道移动到列表的顶部或底部，以便可以查看特定模式，或在检查其他通道时，移开某些通道。  
+## <a name="move-selected-channel-to-top-or-bottom"></a>将选定的通道移动到顶部或底部  
+ 您可以将选定的通道移动到列表的顶部或底部，以便检查特定的模式，或在检查某些通道时移开其他的通道。  
   
-## 隐藏选定的通道  
- 在希望隐藏通道时，选择该控件。  例如，如果一个线程在您托管进程的生存期内 100% 同步，则可以在分析其他线程时隐藏该线程。  
+## <a name="hide-selected-channels"></a>隐藏选定的通道  
+ 如果要隐藏通道，请选择此控件。 例如，如果一个线程在您托管进程的生存期内 100% 同步，则可以在分析其他线程时隐藏该线程。  
   
 > [!NOTE]
->  隐藏线程还会从活动图例和配置文件报表中显示的计算时间中移除该线程。  
+>  隐藏某个线程时，还会将其从计算时间中移除，计算时间显示在活动图例和分析报告中。  
   
-## 显示所有通道  
- 在一个或多个通道被隐藏时，此控件是活动的。  如果选择它，所有隐藏的元素将被显示并添加到时间的计算中。  
+## <a name="show-all-channels"></a>显示所有通道  
+ 当一个或多个通道被隐藏时，此控件处于活动状态。 如果选择此控件，将显示所有隐藏的元素并将其全部添加回时间计算。  
   
-## 将标记移到顶部  
- 如果跟踪包含标记事件，可以使用此命令将标记通道移动到时间线的顶部。  它们的相对顺序被保留。  
+## <a name="move-markers-to-top"></a>将标记移到顶部  
+ 如果跟踪包含标记事件，则可以使用此命令将标记通道移动到时间线的顶部。 它们的相对顺序将被保留。  
   
-## 按线程对标记进行分组  
- 如果跟踪包含标记事件，可以在生成标记事件的线程中使用此命令组合标记通道。磁盘通道被移动到列表的顶部，并且 GPU 通道移动被到底部。  
+## <a name="group-markers-by-thread"></a>按线程对标记进行分组  
+ 如果跟踪包含标记事件，则可以使用此命令，按照生成标记事件的线程对标记通道进行分组。  磁盘通道将被移动到列表的顶部，而 GPU 通道将被移动到底部。  
   
-## 请参阅  
+## <a name="see-also"></a>另请参阅  
  [缩放控件（线程视图）](../profiling/zoom-control-threads-view.md)   
- [打开\/关闭度量模式](../profiling/measure-mode-on-off.md)   
- [线程视图](../profiling/threads-view-parallel-performance.md)
+ [打开/关闭度量模式](../profiling/measure-mode-on-off.md)   
+ [“线程”视图](../profiling/threads-view-parallel-performance.md)

@@ -4,36 +4,19 @@ ms.custom:
 ms.date: 11/04/2016
 ms.reviewer: 
 ms.suite: 
-ms.technology:
-- vs-ide-general
+ms.technology: vs-acquisition
 ms.tgt_pltfrm: 
 ms.topic: article
 ms.assetid: 45a99a5d-c881-4298-b74d-adb481dec5ee
-caps.latest.revision: 18
-author: kempb
-ms.author: kempb
+caps.latest.revision: "18"
+author: TerryGLee
+ms.author: tglee
 manager: ghogen
-translation.priority.ht:
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- ru-ru
-- zh-cn
-- zh-tw
-translation.priority.mt:
-- cs-cz
-- pl-pl
-- pt-br
-- tr-tr
+ms.openlocfilehash: f3cf117116f5da70391f5252e3d1bde4e2416b69
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
 ms.translationtype: HT
-ms.sourcegitcommit: eb5c9550fd29b0e98bf63a7240737da4f13f3249
-ms.openlocfilehash: b5f12c71a894937ad452a31bf53e19e4fbb2d7a2
-ms.contentlocale: zh-cn
-ms.lasthandoff: 09/06/2017
-
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="step-5-add-enter-event-handlers-for-the-numericupdown-controls"></a>步骤 5：为 NumericUpDown 控件添加 Enter 事件处理程序
 在本教程的第 5 部分中，您将添加 Enter 事件处理程序，以便在输入测验问题的答案时变得轻松一些。 当测验对象选择每个 NumericUpDown 控件中的当前值并开始输入其他值时，此代码将立即选中并清除该当前值。  
@@ -70,7 +53,8 @@ ms.lasthandoff: 09/06/2017
   
 3.  在“answer_Enter”事件处理程序的方法中，请添加以下代码。  
   
-     [!code-vb[VbExpressTutorial3Step5_6#11](../ide/codesnippet/VisualBasic/step-5-add-enter-event-handlers-for-the-numericupdown-controls_1.vb)]  [!code-csharp[VbExpressTutorial3Step5_6#11](../ide/codesnippet/CSharp/step-5-add-enter-event-handlers-for-the-numericupdown-controls_1.cs)]  
+     [!code-vb[VbExpressTutorial3Step5_6#11](../ide/codesnippet/VisualBasic/step-5-add-enter-event-handlers-for-the-numericupdown-controls_1.vb)]
+     [!code-csharp[VbExpressTutorial3Step5_6#11](../ide/codesnippet/CSharp/step-5-add-enter-event-handlers-for-the-numericupdown-controls_1.cs)]  
   
      此代码可能看起来复杂，但如果分步来看就可以理解。 首先，查看方法的顶部：在 C# 中为 `object sender`，在 Visual Basic 中为 `sender As System.Object`。 此参数引用已触发其事件的对象，即发送方。 在此示例中，发送方对象为 NumericUpDown 控件。 因此，在此方法的第一行中，您指定发送方不是任何一般对象，而是具体的 NumericUpDown 控件。 （每个 NumericUpDown 控件都是一个对象，但并不是每个对象都是 NumericUpDown 控件。）在此方法中，NumericUpDown 控件命名为“answerBox”，因为它将用于窗体上的所有 NumericUpDown 控件，而不仅是 sum NumericUpDown 控件。 由于您在此方法中声明了 answerBox 变量，因此其范围仅适用于此方法。 换言之，该变量只能在此方法内使用。  
   

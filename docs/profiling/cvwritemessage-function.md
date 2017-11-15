@@ -1,37 +1,40 @@
 ---
 title: "CvWriteMessage 函数 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-debug"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "cvmarkers/CvWriteMessageW"
-  - "cvmarkers/CvWriteMessageExW"
-  - "cvmarkers/CvWriteMessageVA"
-  - "cvmarkers/CvWriteMessageExVW"
-  - "cvmarkers/CvWriteMessageExA"
-  - "cvmarkers/CvWriteMessageA"
-  - "cvmarkers/CvWriteMessageExVA"
-  - "cvmarkers/CvWriteMessageVW"
-helpviewer_keywords: 
-  - "CvWriteMessageExVA 方法"
-  - "CvWriteMessageW 方法"
-  - "CvWriteMessageVW 方法"
-  - "CvWriteMessageExVW 方法"
-  - "CvWriteMessageExW 方法"
-  - "CvWriteMessageA 方法"
-  - "CvWriteMessageVA 方法"
-  - "CvWriteMessageExA 方法"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology: vs-ide-debug
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords:
+- cvmarkers/CvWriteMessageW
+- cvmarkers/CvWriteMessageExW
+- cvmarkers/CvWriteMessageVA
+- cvmarkers/CvWriteMessageExVW
+- cvmarkers/CvWriteMessageExA
+- cvmarkers/CvWriteMessageA
+- cvmarkers/CvWriteMessageExVA
+- cvmarkers/CvWriteMessageVW
+helpviewer_keywords:
+- CvWriteMessageExVA method
+- CvWriteMessageW method
+- CvWriteMessageVW method
+- CvWriteMessageExVW method
+- CvWriteMessageExW method
+- CvWriteMessageA method
+- CvWriteMessageVA method
+- CvWriteMessageExA method
 ms.assetid: e20ae7be-bfa7-437a-b8c1-fa0f1baa7f83
-caps.latest.revision: 3
-author: "mikejo5000"
-ms.author: "mikejo"
-manager: "ghogen"
-caps.handback.revision: 3
+caps.latest.revision: "3"
+author: mikejo5000
+ms.author: mikejo
+manager: ghogen
+ms.openlocfilehash: 6559ed85c44e262d00965be7e173b0c6257f696c
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="cvwritemessage-function"></a>CvWriteMessage 函数
 向并发可视化工具跟踪文件写入一条消息。  
@@ -120,8 +123,3 @@ HRESULT CvWriteMessageExVA(
   
 ## <a name="see-also"></a>另请参阅  
  [C++ 库参考](../profiling/cpp-library-reference.md)
-
-
-<!--HONumber=Feb17_HO4-->
-
-

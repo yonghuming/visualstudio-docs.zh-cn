@@ -4,12 +4,10 @@ ms.custom:
 ms.date: 06/21/2017
 ms.reviewer: 
 ms.suite: 
-ms.technology:
-- vs-ide-general
+ms.technology: vs-ide-general
 ms.tgt_pltfrm: 
 ms.topic: article
-f1_keywords:
-- vs.classdesigner.cpplimitation
+f1_keywords: vs.classdesigner.cpplimitation
 helpviewer_keywords:
 - Visual C++, Class Designer
 - Class Designer, Visual C++ support
@@ -19,33 +17,17 @@ helpviewer_keywords:
 - C++, class diagrams
 - C++, Class Designer
 ms.assetid: f5b40921-2ef7-4de0-b595-45b44c79ffa6
-caps.latest.revision: 23
-author: kempb
-ms.author: kempb
+caps.latest.revision: "23"
+author: gewarren
+ms.author: gewarren
 manager: ghogen
-translation.priority.ht:
-- cs-cz
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pl-pl
-- pt-br
-- ru-ru
-- tr-tr
-- zh-cn
-- zh-tw
-ms.translationtype: Human Translation
-ms.sourcegitcommit: d2f4eba36e9069a35cf279ccf1c78f72a51d77a1
-ms.openlocfilehash: 0d974e9af7d22c5d02b1313cb2e46c873592f4d3
-ms.contentlocale: zh-cn
-ms.lasthandoff: 06/23/2017
-
+ms.openlocfilehash: ef75c8108b7d86367e69ab7eead8a3a282596560
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# 使用 Visual C++ 代码（类设计器）
-<a id="working-with-visual-c-code-class-designer" class="xliff"></a>
+# <a name="working-with-visual-c-code-class-designer"></a>使用 Visual C++ 代码（类设计器）
 类设计器将显示一个称为*类图*的可视化设计图面，其在项目中提供代码元素的可视化表现形式。 可以使用类图来设计和可视化项目中的类和其他类型。  
 
  类设计器支持以下 C++ 代码元素：  
@@ -67,21 +49,17 @@ ms.lasthandoff: 06/23/2017
 > [!NOTE]
 >  与 UML 类图不同的时你可以在建模项目中创建。 有关详细信息，请参阅 [UML 类图：参考](../modeling/uml-class-diagrams-reference.md)。  
 
-## 类型解析和显示问题的疑难解答
-<a id="troubleshooting-type-resolution-and-display-issues" class="xliff"></a>  
+## <a name="troubleshooting-type-resolution-and-display-issues"></a>类型解析和显示问题的疑难解答  
 
-### 源文件的位置
-<a id="location-of-source-files" class="xliff"></a>  
+### <a name="location-of-source-files"></a>源文件的位置  
  类设计器不会持续跟踪源文件的位置。 因此，如果修改项目结构或移动项目中的源文件，则类设计器会失去对类型的跟踪（尤其是 typedef、基类或关联类型的源类型）。 可能会收到错误，如“类设计器无法显示此类型”。 如果收到错误，要将修改过的或被重新定位的源代码再次拖到类图中以重新显示。  
 
-### 更新和性能问题
-<a id="update-and-performance-issues" class="xliff"></a>  
+### <a name="update-and-performance-issues"></a>更新和性能问题  
  对于 Visual C++ 项目，在源文件中所做的更改要出现在类图中可能需要 30 到 60 秒的时间。 这种延迟也可能导致类设计器引发错误“选定内容中未找到任何类型”。 如果收到此类错误，请在错误消息中单击“取消”，并等待代码元素出现在类视图中。 之后，类设计器应可以显示此类型。  
 
  如果类图未使用你在代码中所做的更改进行更新，则可能需要关闭关系图，并重新打开它。  
 
-### 类型解析问题
-<a id="type-resolution-issues" class="xliff"></a>  
+### <a name="type-resolution-issues"></a>类型解析问题  
  以下原因可能会导致类设计器无法解析类型：  
   
 -   该类型所在的项目或程序集未从包含类图的项目进行引用。 若要纠正此错误，请添加一个对包含该类型的项目或程序集的引用。 有关详细信息，请参阅[管理项目中的引用](managing-references-in-a-project.md)。  
@@ -104,8 +82,7 @@ ms.lasthandoff: 06/23/2017
   
 -   确保该类型位于正确的范围，因此选件类设计器可以找到它。 确保代码未缺失 `using`、`imports` 或 `#include` 语句。 还请确保未将该类型（或相关类型）移出它原来所在的命名空间。  
 
-### 排除其他错误消息
-<a id="troubleshooting-other-error-messages" class="xliff"></a>  
+### <a name="troubleshooting-other-error-messages"></a>排除其他错误消息  
  在 Microsoft Developer Network (MSDN) 公共论坛中，可以找到有关对错误和警告进行疑难解答的帮助。 请参阅 [Visual Studio 类设计器论坛](http://go.microsoft.com/fwlink/?linkid=160754)。  
 
 ##  <a name="limitations"></a>C++ 代码元素的限制  
@@ -130,8 +107,7 @@ ms.lasthandoff: 06/23/2017
 
 -   类设计器无法显示 void 类型或从 void 类型派生的类型。  
 
-## 另请参阅
-<a id="see-also" class="xliff"></a>  
+## <a name="see-also"></a>另请参阅  
  [设计和查看类与类型](../ide/designing-and-viewing-classes-and-types.md)   
  [使用类和其他类型（类设计器）](../ide/working-with-classes-and-other-types-class-designer.md)   
  [使用类图（类设计器）](../ide/working-with-class-diagrams-class-designer.md)   
@@ -141,4 +117,3 @@ ms.lasthandoff: 06/23/2017
  [类设计器中的 Visual C++ 结构](../ide/visual-cpp-structures-in-class-designer.md)   
  [类设计器中的 Visual C++ 枚举](../ide/visual-cpp-enumerations-in-class-designer.md)   
  [类设计器中的 Visual C++ Typedef](../ide/visual-cpp-typedefs-in-class-designer.md)
-

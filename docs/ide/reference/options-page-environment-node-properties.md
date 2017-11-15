@@ -4,37 +4,22 @@ ms.custom:
 ms.date: 11/04/2016
 ms.reviewer: 
 ms.suite: 
-ms.technology:
-- vs-ide-general
+ms.technology: vs-ide-general
 ms.tgt_pltfrm: 
 ms.topic: article
 helpviewer_keywords:
 - automation [Visual Studio], controlling Tools Options
 - Tools Options settings, Environment node properties
 ms.assetid: 26dca41f-91fc-4ca7-9103-3da402baa1d5
-caps.latest.revision: 18
-author: kempb
-ms.author: kempb
+caps.latest.revision: "18"
+author: gewarren
+ms.author: gewarren
 manager: ghogen
-translation.priority.ht:
-- cs-cz
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pl-pl
-- pt-br
-- ru-ru
-- tr-tr
-- zh-cn
-- zh-tw
-translationtype: Human Translation
-ms.sourcegitcommit: 5658ecf52637a38bc3c2a5ad9e85b2edebf7d445
-ms.openlocfilehash: ac450b7e414596632d56117813907ee4406ad69d
-ms.lasthandoff: 02/22/2017
-
+ms.openlocfilehash: ae50f2d537836501ec4c9c29e50d86aa3e325661
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="options-page-environment-node-properties"></a>“选项”页 ->“环境”节点属性
 本文档描述了与“选项”对话框的“环境”类别 `DTE.Properties("Environment", <Property Page>)` 关联的页面（或属性集合）。 每个小节的标题都是用于访问属性集合的调用，而每个小节中的表列出了集合中的属性。  
@@ -50,7 +35,7 @@ ms.lasthandoff: 02/22/2017
 |动画|Get/Set (Boolean)|确定集成开发环境 (IDE) 是否在状态栏中使用动画。|  
 |AnimationSpeed|Get/Set (Short)||  
 |AutoAdjustExperience|Get/Set (Boolean)|根据客户端性能自动调整视觉体验。|  
-|RichClientExperienceOptions|Get/Set (Enum)|通过 <xref:EnvDTE100.vsRichClientExperienceOptions> 中的值开启丰富的客户端视觉体验。|  
+|RichClientExperienceOptions|Get/Set (Enum)|使用 <xref:EnvDTE100.vsRichClientExperienceOptions> 中的值启用丰富的客户端视觉体验。|  
 |CloseButtonActiveTabOnly|Get/Set (Boolean)|确定“关闭”按钮是否仅显示在活动选项卡上。|  
 |AutohidePinActiveTabOnly|Get/Set (Boolean)|确定“自动隐藏”按钮是否仅影响活动选项卡。|  
   
@@ -78,7 +63,7 @@ ms.lasthandoff: 02/22/2017
 |SaveDocsAsUnicodeWhenDataLoss|Get/Set (Boolean)|无法将数据保存在代码页时将文档保存为 Unicode 格式。|  
 |DontShowGlobalUndoChangeLossDialog|Get/Set (Boolean)|当全局撤消会修改其他已编辑文件时显示警告。|  
 |AllowEditingReadOnlyFiles|Get/Set (Boolean)|尝试保存只读文件时，允许对其进行编辑，但发出警告。|  
-|DocumentDockPreference|Get/Set (Enum)|<xref:EnvDTE100.vsDocumentDockPreferenceOptions>。 要在其中插入已打开文档的选项卡条中的位置。|  
+|DocumentDockPreference|Get/Set (Enum)|<xref:EnvDTE100.vsDocumentDockPreferenceOptions>. 要在其中插入已打开文档的选项卡条中的位置。|  
   
 ## <a name="extension-manager"></a>扩展管理器  
  `DTE.Properties("Environment", "ExtensionManager")`  
@@ -163,7 +148,7 @@ ms.lasthandoff: 02/22/2017
 |ConfirmTaskDeletion|Get/Set (Boolean)|指定从“任务列表”删除任务时是否显示确认框。|  
 |WarnOnAddingHiddenItem|Get/Set (Boolean)|指定在添加不会显示的用户任务时是否收到警告。|  
 |DontShowFilePaths|Get/Set (Boolean)|指定是否在任务列表中显示完整文件路径。|  
-|CommentTokens|SafeArray|返回注释标记值的 SafeArray。 每一项都具有字段、`Name`（字符串）和 `Priority`（<xref:EnvDTE.vsTaskPriority>、高、中或低）。|  
+|CommentTokens|SafeArray|返回注释标记值的 SafeArray。 每个都具有字段、`Name`（字符串）和 `Priority`（<xref:EnvDTE.vsTaskPriority>、高、中或低）。|  
   
 ## <a name="web-browser"></a>Web 浏览器  
  `DTE.Properties("Environment", "WebBrowser")`  

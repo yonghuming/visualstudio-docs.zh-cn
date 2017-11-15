@@ -1,27 +1,24 @@
 ---
 title: "针对 Visual Studio 的 R 工具示例项目 | Microsoft Docs"
 ms.custom: 
-ms.date: 6/29/2017
+ms.date: 06/29/2017
 ms.reviewer: 
 ms.suite: 
-ms.technology:
-- devlang-r
+ms.technology: devlang-r
 ms.devlang: r
 ms.tgt_pltfrm: 
 ms.topic: get-started-article
 ms.assetid: aa52ed0e-cdb5-4fb2-814c-c94cac2ffc6f
-caps.latest.revision: 1
+caps.latest.revision: "1"
 author: kraigb
 ms.author: kraigb
 manager: ghogen
+ms.openlocfilehash: 6ceedfff067f245de4b159728bd34a3a849fe9dc
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
 ms.translationtype: HT
-ms.sourcegitcommit: 712cc780388acc5e373f71d51fc8f1f42adb5bed
-ms.openlocfilehash: ec9862f9e7fcbd084d5e12c0467c8b608a5b4956
-ms.contentlocale: zh-cn
-ms.lasthandoff: 07/12/2017
-
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-
 # <a name="r-tools-for-visual-studio-sample-projects"></a>针对 Visual Studio 的 R 工具示例项目
 
 此示例集合可助你开始使用 R、针对 Visual Studio 的 R 工具 (RTVS) 以及 Microsoft R Server：
@@ -93,4 +90,3 @@ ms.lasthandoff: 07/12/2017
 下图比较生成逻辑回归模型所用的运行时间（秒），从而预测航班延误是否将超过 15 分钟。  行数的微小增加会导致 CRAN R 中的运行时间显著增加，而 MRS 的增加量仅约为行数的两倍。 有关此基准的详细信息，请参阅 `Benchmarks/rxGlm_benchmark.R` 示例。
 
 ![rxGlm 基准](media/samples-rxGLM-benchmark.png)
-

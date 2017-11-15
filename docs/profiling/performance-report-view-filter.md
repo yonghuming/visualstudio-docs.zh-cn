@@ -1,22 +1,25 @@
 ---
-title: "分析工具报告视图筛选器 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-debug"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-helpviewer_keywords: 
-  - "分析工具, 探查器报告视图筛选器"
-  - "探查器报告视图筛选器, 分析工具"
+title: "性能报告视图筛选器 | Microsoft Docs"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology: vs-ide-debug
+ms.tgt_pltfrm: 
+ms.topic: article
+helpviewer_keywords:
+- profiling tools, Profiler Report view filter
+- Profiler Report View filter, profiling tools
 ms.assetid: 35f89d86-4683-4db1-aa0c-ae0ce65fa524
-caps.latest.revision: 16
-author: "mikejo5000"
-ms.author: "mikejo"
-manager: "ghogen"
-caps.handback.revision: 16
+caps.latest.revision: "16"
+author: mikejo5000
+ms.author: mikejo
+manager: ghogen
+ms.openlocfilehash: 8a7bee6cb18fee301dfab5e7c08c58521eac4e84
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="performance-report-view-filter"></a>性能报告视图筛选器
 “探查器报告视图筛选器”窗口位于“性能报告”窗口顶部。 如果看不到它，请单击“显示筛选器”按钮。  
@@ -39,8 +42,3 @@ caps.handback.revision: 16
 ## <a name="see-also"></a>另请参阅  
  [分析性能工具数据](../profiling/analyzing-performance-tools-data.md)   
  [VSPerfReport](../profiling/vsperfreport.md)
-
-
-<!--HONumber=Feb17_HO4-->
-
-

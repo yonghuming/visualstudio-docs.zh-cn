@@ -4,53 +4,32 @@ ms.custom:
 ms.date: 11/04/2016
 ms.reviewer: 
 ms.suite: 
-ms.technology:
-- vs-ide-general
+ms.technology: vs-ide-general
 ms.tgt_pltfrm: 
 ms.topic: article
-f1_keywords:
-- Microsoft.VisualStudio.Publish.BaseProvider.Dialog.Bootstrapper
+f1_keywords: Microsoft.VisualStudio.Publish.BaseProvider.Dialog.Bootstrapper
 dev_langs:
 - VB
 - CSharp
 - C++
-helpviewer_keywords:
-- Prerequisites dialog box
+helpviewer_keywords: Prerequisites dialog box
 ms.assetid: 53ac863c-77a0-409b-91e5-7a4bd8b8474e
-caps.latest.revision: 75
-author: kempb
-ms.author: kempb
+caps.latest.revision: "75"
+author: gewarren
+ms.author: gewarren
 manager: ghogen
-translation.priority.ht:
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- ru-ru
-- zh-cn
-- zh-tw
-translation.priority.mt:
-- cs-cz
-- pl-pl
-- pt-br
-- tr-tr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8bf0b097be929b30627e0f1139c6e0b145933ab4
-ms.openlocfilehash: 5a8237e5c437878b22bd3c67a3a4ba2cdc3fa126
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/26/2017
-
+ms.openlocfilehash: 68e326d8045733fc4f491c51405ed51414a92afd
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# Prerequisites Dialog Box
-<a id="prerequisites-dialog-box" class="xliff"></a>
+# <a name="prerequisites-dialog-box"></a>Prerequisites Dialog Box
 此对话框指定安装哪些必备组件、如何安装以及组件包的安装顺序。  
   
- 若要访问此对话框，请在“解决方案资源管理器”中选择项目节点，然后在“项目”菜单上单击“属性”。 当 **“项目设计器”** 出现时，单击 **“发布”** 选项卡。 在“发布”页上，单击“系统必备”。 对于安装项目，在“项目”菜单上单击“属性”。 “属性页”对话框出现后，单击“系统必备”。  
+ 若要访问此对话框，请在“解决方案资源管理器”中选择项目节点，然后在“项目”菜单上单击“属性”。 当 **“项目设计器”** 出现时，单击 **“发布”** 选项卡。在“发布”页上，单击“系统必备”。 对于安装项目，在“项目”菜单上单击“属性”。 “属性页”对话框出现后，单击“系统必备”。  
   
-## UIElement 列表
-<a id="uielement-list" class="xliff"></a>  
+## <a name="uielement-list"></a>UIElement 列表  
   
 |元素|说明|  
 |-------------|-----------------|  
@@ -61,8 +40,7 @@ ms.lasthandoff: 05/26/2017
 |**从与我的应用程序相同的位置下载系统必备组件**|指定从与应用程序相同的位置安装系统必备组件。 这会将所有系统必备包复制到发布位置。 要让此选项正常工作，系统必备包必须位于开发计算机上。|  
 |**从下列位置下载系统必备组件**|指定从选定的位置安装系统必备组件。 可使用“浏览”按钮选择位置。|  
   
-## 系统必备信息
-<a id="prerequisites-information" class="xliff"></a>  
+## <a name="prerequisites-information"></a>系统必备信息  
  出现在“系统必备”对话框中的系统必备组件可能与下面列表中的不同。 第一次打开对话框时将自动设置**“系统必备”对话框**中所列的必备组件包。 如果随后更改项目的目标框架，则必须手动选择必备组件，以便与新目标框架相匹配。  
   
 |元素|说明|  
@@ -85,8 +63,7 @@ ms.lasthandoff: 05/26/2017
 |**Windows Installer 3.1**|此程序包安装 Microsoft Windows Installer 可再发行版本 3.1，以便可以安装 Windows Installer 安装项目。 它预安装在 Windows Server 2003 SP1 和更高版本上。<br /><br /> 默认情况下，此项处于选定状态。|  
 |**Windows Installer 4.5**|此程序包安装 Microsoft Windows Installer 可再发行版本 4.5，以便可以安装 Windows Installer 安装项目。|  
   
-## 另请参阅
-<a id="see-also" class="xliff"></a>  
+## <a name="see-also"></a>另请参阅  
  [“项目设计器”->“发布”页](../../ide/reference/publish-page-project-designer.md)   
  [应用程序部署必备](../../deployment/application-deployment-prerequisites.md)   
  [再发行 .NET Framework](http://msdn.microsoft.com/en-us/a18d0456-fd89-493e-97f4-756505bfe287)   

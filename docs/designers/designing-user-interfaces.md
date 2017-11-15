@@ -1,24 +1,22 @@
 ---
 title: "设计用户界面 | Microsoft Docs"
 ms.custom: 
-ms.date: 7/17/2017
+ms.date: 07/17/2017
 ms.reviewer: 
 ms.suite: 
-ms.technology:
-- vs-ide-designers
+ms.technology: vs-ide-designers
 ms.tgt_pltfrm: 
 ms.topic: article
 ms.assetid: 880da508-7573-4434-b3a0-d48cf003c0a9
-caps.latest.revision: 11
+caps.latest.revision: "11"
 author: gewarren
 ms.author: gewarren
 manager: ghogen
+ms.openlocfilehash: b19f65870212435904c29a2f60fb86c60921635a
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
 ms.translationtype: HT
-ms.sourcegitcommit: 6d25db4639f2c8391c1e32542701ea359f560178
-ms.openlocfilehash: 935f531b3e9fd52eb66a463db350e1f438bbdcba
-ms.contentlocale: zh-cn
-ms.lasthandoff: 07/18/2017
-
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="designing-user-interfaces"></a>设计用户界面
 可使用 Visual Studio 中的各种工具创建和设计应用程序的用户界面。
@@ -31,4 +29,3 @@ ms.lasthandoff: 07/18/2017
 |设计使用 XAML 的 WPF 风格的桌面应用程序 | [使用 Windows Presentation Foundation 创建新式桌面应用程序](../designers/create-modern-desktop-applications-with-windows-presentation-foundation.md) |
 | 在 Visual Studio 中开发 DirectX 应用程序 | [为游戏和应用使用三维资产](../designers/working-with-3-d-assets-for-games-and-apps.md) |
 | 适用于程序的标准图标 | [Visual Studio 图像库](../designers/the-visual-studio-image-library.md) |
-

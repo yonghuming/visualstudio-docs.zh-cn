@@ -5,8 +5,7 @@ ms.date: 01/18/2017
 ms.prod: windows-client-threshold
 ms.reviewer: 
 ms.suite: 
-ms.technology:
-- devlang-javascript
+ms.technology: devlang-javascript
 ms.tgt_pltfrm: 
 ms.topic: article
 dev_langs:
@@ -17,16 +16,15 @@ helpviewer_keywords:
 - arrays [JavaScript]
 - arrays [JavaScript], objects
 ms.assetid: 785c5acd-b8b3-4152-af9a-dd42ecdd75ba
-caps.latest.revision: 13
+caps.latest.revision: "13"
 author: mikejo5000
 ms.author: mikejo
 manager: ghogen
-ms.translationtype: HT
-ms.sourcegitcommit: 47057e9611b824c17077b9127f8d2f8b192d6eb8
 ms.openlocfilehash: 4c5218a8353a796128d8b672ecc781665c6bde20
-ms.contentlocale: zh-cn
-ms.lasthandoff: 08/11/2017
-
+ms.sourcegitcommit: aadb9588877418b8b55a5612c1d3842d4520ca4c
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="using-arrays-javascript"></a>使用数组 (JavaScript)
 [!INCLUDE[javascript](../../javascript/includes/javascript-md.md)] 中的数组是稀疏型。 即，如果数组中有三个元素，编号为 0、1 和 2，则可以创建元素 50，而无需考虑元素 3 到元素 49。 如果此数组中包含自动长度变量（请参阅[固有对象](../../javascript/intrinsic-objects-javascript.md)查看关于自动监视数组长度的说明），则会将长度变量设置为 51，而非 4。 可以创建元素编号间不存在间隔的数组，但是不会要求必须这样做。  

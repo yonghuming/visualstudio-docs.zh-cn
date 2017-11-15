@@ -8,16 +8,15 @@ ms.suite:
 ms.tgt_pltfrm: 
 ms.topic: article
 ms.assetid: 30ec744e-57cc-4ef5-8fe1-d2c27b946548
-caps.latest.revision: 14
+caps.latest.revision: "14"
 author: mikejo5000
 ms.author: mikejo
 manager: ghogen
-ms.translationtype: HT
-ms.sourcegitcommit: 47057e9611b824c17077b9127f8d2f8b192d6eb8
 ms.openlocfilehash: 2bf213bf262ede7642e05c66e424b860238dc57f
-ms.contentlocale: zh-cn
-ms.lasthandoff: 08/11/2017
-
+ms.sourcegitcommit: aadb9588877418b8b55a5612c1d3842d4520ca4c
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="hosting-the-javascript-runtime"></a>承载 JavaScript 运行时
 JavaScript 运行时 (JsRT) API 采用基于标准并被 Microsoft Edge 和 Internet Explorer 使用的 Chakra JavaScript 引擎，为 Windows 操作系统上运行的桌面、Windows 应用商店和服务器端应用程序提供了一种在应用程序中添加脚本功能的途径。 凡是在计算机中安装 Internet Explorer 11.0 版的 Windows 10 以及其他 Windows 操作系统版本都提供这些 API。 有关更多信息，请参见 [Reference (JavaScript Runtime)](../chakra-hosting/reference-javascript-runtime.md)。 有关在 Windows 应用商店应用中使用 JsRT 的信息，请参阅 [JsRT and the Universal Windows Platform](#Windows)。  
@@ -71,7 +70,7 @@ JavaScript 运行时 (JsRT) API 采用基于标准并被 Microsoft Edge 和 Inte
 ## <a name="debugging-and-profiling"></a>调试和分析  
  JsRT API 通过活动脚本技术支持调试和分析。  
   
- 从 Windows 10 开始，Chakra JavaScript 引擎支持旧引擎和 Edge 引擎，并且也可以面向 JsRT（请参阅[面向 Edge 和旧引擎](../chakra-hosting/targeting-edge-vs-legacy-engines-in-jsrt-apis.md)获取详细信息）。 利用旧引擎在 Visual Studio 中调试脚本与利用 Edge 引擎调试脚本有所不同。 使用旧引擎时，主机需要提供 [IDebugApplication 接口](../winscript/reference/idebugapplication-interface.md)指针，该指针可以从 [IProcessDebugManager 接口](../winscript/reference/iprocessdebugmanager-interface.md)实例中获取。 使用 Edge 引擎时， `IDebugApplication` 被弃用，并且 Chakra 引擎能够通过 Visual Studio 调试器启用本机和脚本调试功能，而无需从用户处实现 `IDebugApplication` 。  
+ 从 Windows 10 开始，Chakra JavaScript 引擎支持旧引擎和 Edge 引擎，并且也可以面向 JsRT（请参阅[面向 Edge 和旧引擎](../chakra-hosting/targeting-edge-vs-legacy-engines-in-jsrt-apis.md)获取详细信息）。 利用旧引擎在 Visual Studio 中调试脚本与利用 Microsoft Edge 引擎调试脚本有所不同。 使用旧引擎时，主机需要提供 [IDebugApplication 接口](../winscript/reference/idebugapplication-interface.md)指针，该指针可以从 [IProcessDebugManager 接口](../winscript/reference/iprocessdebugmanager-interface.md)实例中获取。 使用 Edge 引擎时， `IDebugApplication` 被弃用，并且 Chakra 引擎能够通过 Visual Studio 调试器启用本机和脚本调试功能，而无需从用户处实现 `IDebugApplication` 。  
   
  若要使脚本能够在执行上下文中可调试，Chakra 引擎必须切换到使用效率较低的代码执行方法。 同样，可调试的代码的运行速度通常比非可调试的代码慢。 因此，使用旧引擎时，主机可以选择通过 `IDebugApplication` 提供 `JsCreateContext`指针，以便从最开始的上下文执行开始调试，也可以等待，直到需要调试时再调用 `JsStartDebugging`。 使用 Edge 引擎时， `JsCreateContext` 不会再采用 `IDebugApplication` 参数，因此，只有调用 `JsStartDebugging` 之后才可调用脚本。 在使用 Visual Studio 调试时，必须启用“脚本”调试器选项。  
   
@@ -79,7 +78,7 @@ JavaScript 运行时 (JsRT) API 采用基于标准并被 Microsoft Edge 和 Inte
   
 <a name="Windows"></a>   
 ## <a name="jsrt-and-the-universal-windows-platform"></a>JsRT 和通用 Windows 平台  
- JsRT API 可用于将脚本功能添加到通用 Windows 应用中。 使用 JsRT API 的通用 Windows 应用将需要面向 Edge JSRT API，以面向 Edge Chakra 引擎。 有关详细信息，请参阅[面向 JsRT API 中的 Edge 引擎和旧引擎](../chakra-hosting/targeting-edge-vs-legacy-engines-in-jsrt-apis.md)。 完整的 JsRT API 可适用于通用 Windows 应用，但分析和堆枚举支持除外（不支持`JsStartProfiling`、 `JsStopProfiling`、 `JsEnumerateHeap`和 `JsIsEnumeratingHeap` ）。  
+ JsRT API 可用于将脚本功能添加到通用 Windows 应用中。 使用 JsRT API 的通用 Windows 应用将需要面向 Edge JSRT API，以面向 Edge Chakra 引擎。 有关详细信息，请参阅[面向 JsRT API 中的 Microsoft Edge 引擎和旧引擎](../chakra-hosting/targeting-edge-vs-legacy-engines-in-jsrt-apis.md)。 完整的 JsRT API 可适用于通用 Windows 应用，但分析和堆枚举支持除外（不支持`JsStartProfiling`、 `JsStopProfiling`、 `JsEnumerateHeap`和 `JsIsEnumeratingHeap` ）。  
   
  在通过 Edge JsRT API [公开 API 命名空间后，JsRT 还允许脚本以本机方式访问任何](https://msdn.microsoft.com/en-us/library/windows/apps/br211377.aspx) 通用 Windows 平台 (UWP) API `JsProjectWinRTNamespace`。 虽然通用 Windows 应用程序除了投影必要的命名空间外不需要进行设置，但在经典 (Win32) Windows 应用程序中，则需要利用 `JsSetProjectionEnqueueCallback` 启用 COM 初始化的委托发送机制来启用事件和异步 API。 下面的 Win32 示例利用异步 UWP API 创建 http 客户端以便从 Uri 中获取内容：  
   

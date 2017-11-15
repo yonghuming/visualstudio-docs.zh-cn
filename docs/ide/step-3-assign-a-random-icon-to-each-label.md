@@ -4,35 +4,19 @@ ms.custom:
 ms.date: 11/04/2016
 ms.reviewer: 
 ms.suite: 
-ms.technology:
-- vs-ide-general
+ms.technology: vs-acquisition
 ms.tgt_pltfrm: 
 ms.topic: article
 ms.assetid: 0ba5ed7a-9aaa-41f4-95d2-e3c2d567bc79
-caps.latest.revision: 31
-author: kempb
-ms.author: kempb
+caps.latest.revision: "31"
+author: TerryGLee
+ms.author: tglee
 manager: ghogen
-translation.priority.ht:
-- cs-cz
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pl-pl
-- pt-br
-- ru-ru
-- tr-tr
-- zh-cn
-- zh-tw
+ms.openlocfilehash: 0f92699f25e01234eb3f236d1282e267307e5083
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
 ms.translationtype: HT
-ms.sourcegitcommit: eb5c9550fd29b0e98bf63a7240737da4f13f3249
-ms.openlocfilehash: 9a8c18c2d8e313154aa0c72fe5fd5f047cc1780d
-ms.contentlocale: zh-cn
-ms.lasthandoff: 09/06/2017
-
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="step-3-assign-a-random-icon-to-each-label"></a>步骤 3：向每个标签分配一个随机图标
 如果图标显示在每个游戏的相同单元格中，就不是很有挑战性。 为避免这种情况，请使用 `AssignIconsToSquares()` 方法将图标随机分配给标签控件。  
@@ -41,13 +25,15 @@ ms.lasthandoff: 09/06/2017
   
 1.  在添加以下代码之前，请考虑该方法的工作原理。 有一个新的关键字：`foreach`（Visual C# 中）或 `For Each`（Visual Basic 中）。 （其中有一行被故意注释掉，本过程的结尾对此进行了解释）。  
   
-     [!code-csharp[VbExpressTutorial4Step2_3_4#2](../ide/codesnippet/CSharp/step-3-assign-a-random-icon-to-each-label_1.cs)]  [!code-vb[VbExpressTutorial4Step2_3_4#2](../ide/codesnippet/VisualBasic/step-3-assign-a-random-icon-to-each-label_1.vb)]  
+     [!code-csharp[VbExpressTutorial4Step2_3_4#2](../ide/codesnippet/CSharp/step-3-assign-a-random-icon-to-each-label_1.cs)]
+     [!code-vb[VbExpressTutorial4Step2_3_4#2](../ide/codesnippet/VisualBasic/step-3-assign-a-random-icon-to-each-label_1.vb)]  
   
 2.  按上一步骤所示，添加 `AssignIconsToSquares()` 方法。 可以就将它置于[步骤 2：添加随机对象和图标列表](../ide/step-2-add-a-random-object-and-a-list-of-icons.md)中添加的代码下。  
   
      前面提到，`AssignIconsToSquares()` 方法中有一个新增功能：`foreach` 循环（在 Visual C# 中）和 `For Each`（在 Visual Basic 中）。 无论何时想要多次执行相同操作，你都可以使用 `For Each` 循环。 在本例中，你要对 TableLayoutPanel 中的每个标签执行相同的语句，下面的代码对此进行了解释。 第一行创建一个名为 `control` 的变量，该变量在每个控件执行循环中的语句时存储一次该控件。  
   
-     [!code-csharp[VbExpressTutorial4Step2_3_4#14](../ide/codesnippet/CSharp/step-3-assign-a-random-icon-to-each-label_2.cs)]  [!code-vb[VbExpressTutorial4Step2_3_4#14](../ide/codesnippet/VisualBasic/step-3-assign-a-random-icon-to-each-label_2.vb)]  
+     [!code-csharp[VbExpressTutorial4Step2_3_4#14](../ide/codesnippet/CSharp/step-3-assign-a-random-icon-to-each-label_2.cs)]
+     [!code-vb[VbExpressTutorial4Step2_3_4#14](../ide/codesnippet/VisualBasic/step-3-assign-a-random-icon-to-each-label_2.vb)]  
   
     > [!NOTE]
     >  其中使用了名称“iconLabel”和“control”，是因为它们具有描述性。 你可以将这些名称替换为任何名称，代码的运行将完全相同（只要你更改循环内每个语句中的名称）。  
@@ -56,7 +42,8 @@ ms.lasthandoff: 09/06/2017
   
      更加仔细地观察 `foreach` 或 `For Each` 循环中运行的代码。 此代码将在此处重现。  
   
-     [!code-csharp[VbExpressTutorial4Step2_3_4#16](../ide/codesnippet/CSharp/step-3-assign-a-random-icon-to-each-label_3.cs)]  [!code-vb[VbExpressTutorial4Step2_3_4#16](../ide/codesnippet/VisualBasic/step-3-assign-a-random-icon-to-each-label_3.vb)]  
+     [!code-csharp[VbExpressTutorial4Step2_3_4#16](../ide/codesnippet/CSharp/step-3-assign-a-random-icon-to-each-label_3.cs)]
+     [!code-vb[VbExpressTutorial4Step2_3_4#16](../ide/codesnippet/VisualBasic/step-3-assign-a-random-icon-to-each-label_3.vb)]  
   
      第一行将 `control` 变量转换为名为 `iconLabel` 的标签。 第一行之后的行是检查以确保转换起作用的 `if` 语句。 如果转换起作用，则 `if` 语句中的语句将运行。 （你可以回想前面的教程，`if` 语句用于计算你指定的任何条件）。`if` 语句中的第一行将创建一个名为 `randomNumber` 的变量，该变量包含一个与图标列表中的项对应的随机数。 为此，它使用你之前创建的 `Next` 对象的 `Random` 方法。 `Next` 方法将返回此随机数。 此行也使用 `Count` 列表的 `icons` 属性来确定随机数的选择范围。 下一行会将图标列表项之一分配给标签的 `Text` 属性。 本主题后面的部分将介绍已注释掉的行。 最后，`if` 语句中最后一行将从列表中删除已添加到窗体中的图标。  
   
@@ -88,7 +75,8 @@ ms.lasthandoff: 09/06/2017
   
 6.  若要隐藏图标，请停止程序并删除 `For Each` 循环内代码注释行上的注释标记。  
   
-     [!code-csharp[VbExpressTutorial4Step2_3_4#15](../ide/codesnippet/CSharp/step-3-assign-a-random-icon-to-each-label_5.cs)]  [!code-vb[VbExpressTutorial4Step2_3_4#15](../ide/codesnippet/VisualBasic/step-3-assign-a-random-icon-to-each-label_5.vb)]  
+     [!code-csharp[VbExpressTutorial4Step2_3_4#15](../ide/codesnippet/CSharp/step-3-assign-a-random-icon-to-each-label_5.cs)]
+     [!code-vb[VbExpressTutorial4Step2_3_4#15](../ide/codesnippet/VisualBasic/step-3-assign-a-random-icon-to-each-label_5.vb)]  
   
 7.  在菜单栏上，选择“全部保存”按钮保存程序，然后运行该程序。 图标看起来消失了 - 只显示蓝色背景。 但是，图标是随机分配的，仍然存在。 因为图标与背景颜色相同，所以玩家看不到它们。 毕竟，如果玩家能立即看到所有图标，游戏就没有挑战性了！  
   

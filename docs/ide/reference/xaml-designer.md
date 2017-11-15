@@ -4,37 +4,20 @@ ms.custom:
 ms.date: 03/02/2017
 ms.reviewer: 
 ms.suite: 
-ms.technology:
-- vs-ide-general
+ms.technology: vs-ide-general
 ms.tgt_pltfrm: 
 ms.topic: article
-f1_keywords:
-- VS.ToolsOptionsPages.XAMLDesigner
+f1_keywords: VS.ToolsOptionsPages.XAMLDesigner
 ms.assetid: ad3820b2-0d95-4807-a75c-c3467ed973a3
-caps.latest.revision: 1
-author: kempb
-ms.author: kempb
+caps.latest.revision: "1"
+author: gewarren
+ms.author: gewarren
 manager: ghogen
-translation.priority.ht:
-- cs-cz
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pl-pl
-- pt-br
-- ru-ru
-- tr-tr
-- zh-cn
-- zh-tw
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3d32d11a430227800cb3ed53831a9565eb6adeb3
-ms.openlocfilehash: bda254d18dc391f3c10e3544ee09fd09171d0938
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/30/2017
-
+ms.openlocfilehash: 3058e19d4ac6211c741efd973344a1af14238d10
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="xaml-designer-options-page"></a>XAML 设计器选项页
 使用“XAML 设计器”选项页可指定如何在 XAML 文档中设置元素和特性的格式。 若要打开此页，请选择“工具”菜单，然后选择“选项”。 若要访问“XAML 设计器”属性页，请选择“XAML 设计器”节点。 打开文档时将应用 XAML 设计器的相关设置。 因此，如果对设置进行更改，则需关闭并重新打开 Visual Studio，才能看到更改。
@@ -120,4 +103,3 @@ ms.lasthandoff: 05/30/2017
  [WPF 中的 XAML](/dotnet/framework/wpf/advanced/xaml-in-wpf)   
  [如何：更改 XAML 视图设置](http://msdn.microsoft.com/en-us/aee87c79-ca01-4f84-8fb7-a9e47048ee47)   
  [XAML 和代码演练](http://msdn.microsoft.com/en-us/b3ff41a0-a2a3-4f61-b698-ac88ec8f799c)
-

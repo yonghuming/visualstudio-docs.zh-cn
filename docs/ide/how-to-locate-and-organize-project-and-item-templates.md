@@ -4,8 +4,7 @@ ms.custom:
 ms.date: 06/02/2017
 ms.reviewer: 
 ms.suite: 
-ms.technology:
-- vs-ide-general
+ms.technology: vs-ide-general
 ms.tgt_pltfrm: 
 ms.topic: article
 helpviewer_keywords:
@@ -16,30 +15,15 @@ helpviewer_keywords:
 - project templates [Visual Studio], displaying
 - templates [Visual Studio], locations
 ms.assetid: 71f9ed52-c9c9-4818-9bce-c279ffaa0438
-caps.latest.revision: 25
-author: kempb
-ms.author: kempb
+caps.latest.revision: "25"
+author: gewarren
+ms.author: gewarren
 manager: ghogen
-translation.priority.ht:
-- cs-cz
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pl-pl
-- pt-br
-- ru-ru
-- tr-tr
-- zh-cn
-- zh-tw
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 07ff2413503209d6ade252ac89dbfbe2589e7e85
-ms.openlocfilehash: 2ca380e99f820f99fbcd5059e271fa34c8ce1a72
-ms.contentlocale: zh-cn
-ms.lasthandoff: 06/02/2017
-
+ms.openlocfilehash: 1846b145833a7474e8662442313d0e39a262e67c
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="how-to-locate-and-organize-project-and-item-templates"></a>如何：查找和组织项目模板和项模板
 必须将模板文件放置在 Visual Studio 能够识别的位置，这样“新建项目”和“添加新项”对话框中才会显示这些模板。 可以为模板创建自定义子类别，以使用户界面中也显示这些子类别。  
@@ -194,4 +178,3 @@ ms.lasthandoff: 06/02/2017
  [NumberOfParentCategoriesToRollUp（Visual Studio 模板）](../extensibility/numberofparentcategoriestorollup-visual-studio-templates.md)   
  [如何：创建项目模板](../ide/how-to-create-project-templates.md)   
  [如何：创建项模板](../ide/how-to-create-item-templates.md)
-

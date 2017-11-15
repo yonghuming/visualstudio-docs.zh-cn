@@ -4,36 +4,19 @@ ms.custom:
 ms.date: 06/21/2017
 ms.reviewer: 
 ms.suite: 
-ms.technology:
-- vs-ide-general
+ms.technology: vs-ide-general
 ms.tgt_pltfrm: 
 ms.topic: article
 ms.assetid: 20489db9-7441-4f8b-97de-c72070d569b1
-caps.latest.revision: 10
-author: kempb
-ms.author: kempb
+caps.latest.revision: "10"
+author: gewarren
+ms.author: gewarren
 manager: ghogen
-translation.priority.ht:
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- ru-ru
-- zh-cn
-- zh-tw
-translation.priority.mt:
-- cs-cz
-- pl-pl
-- pt-br
-- tr-tr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: d2f4eba36e9069a35cf279ccf1c78f72a51d77a1
-ms.openlocfilehash: 27dc4d56a0608ddf031b47775bd9aaef20e24194
-ms.contentlocale: zh-cn
-ms.lasthandoff: 06/23/2017
-
+ms.openlocfilehash: 40172defbd56f31de9aedbb4cc422c10d1a68dfd
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="tips-and-tricks-for-visual-studio"></a>Visual Studio 的提示和技巧
 您可以通过使用本主题中的快捷方式更轻松地在 [!INCLUDE[vs_dev12](../extensibility/includes/vs_dev12_md.md)]中进行导航。 本主题只介绍一部分可用的键盘快捷方式。 有关更完整的列表，请参阅 [Visual Studio 中的默认键盘快捷方式](../ide/default-keyboard-shortcuts-in-visual-studio.md)。 有关如何优化 Visual Studio 的辅助功能的信息，请参阅[辅助功能提示和技巧](../ide/reference/accessibility-tips-and-tricks.md)。  
@@ -90,19 +73,18 @@ ms.lasthandoff: 06/23/2017
 |-|-|  
 |IntelliSense 建议模式|Ctrl+Alt+空格键（切换）|  
 |强制显示 IntelliSense|Ctrl+J|  
-|智能标记|Ctrl+.|  
+|快速操作|Ctrl+.|  
 |代码段选择器|Ctrl+K,X 或 ?,Tab (VB)|  
 |环绕|Ctrl+K,S|  
 |显示快速信息|Ctrl+K,I|  
 |定位到|Ctrl+,|  
-|转到定义|F12|  
-|查看定义|Alt+F12|  
-|转到定义堆栈|Ctrl+Shift+8（后退），Ctrl+Shift+7（前进）|  
 |导航突出显示的引用|Ctrl+Shift+Up（上一个），Ctrl+Shift+Down（下一个）|  
 |编辑器缩放|Ctrl+Shift+>（放大），Ctrl+Shift+<（缩小）|  
 |块选择|按住 Alt 并拖动鼠标，Shift+Alt+方向键|  
 |上移/下移行|Alt+向上键/Alt+向下键|  
+|转到定义|F12|  
 |查看定义|Alt+F12|  
+|转到定义堆栈|Ctrl+Shift+8（后退），Ctrl+Shift+7（前进）|  
 |关闭“查看定义”窗口|Esc|  
 |将“查看定义”窗口提升为常规文档选项卡|Ctrl+Alt+Home|  
 |在多个“查看定义”窗口之间导航|Ctrl+Alt+- 和 Ctrl+Alt+=|  
@@ -146,4 +128,3 @@ ms.lasthandoff: 06/23/2017
  [Visual Studio Toolbox on Channel 9](http://channel9.msdn.com/Shows/Visual-Studio-Toolbox) （Channel 9 上的 Visual Studio 工具箱）  
  [Visual Studio UserVoice](http://visualstudio.uservoice.com/forums/121579-visual-studio)   
  [Visual Studio 连接 bug](http://connect.microsoft.com/VisualStudio)
-

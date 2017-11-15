@@ -1,27 +1,24 @@
 ---
 title: "针对 Visual Studio 的 R 工具中的程序包管理器 | Microsoft Docs"
 ms.custom: 
-ms.date: 6/29/2017
+ms.date: 06/29/2017
 ms.reviewer: 
 ms.suite: 
-ms.technology:
-- devlang-r
+ms.technology: devlang-r
 ms.devlang: r
 ms.tgt_pltfrm: 
 ms.topic: article
 ms.assetid: 93accb9a-1ef8-4806-baa4-02477c2d7ef0
-caps.latest.revision: 1
+caps.latest.revision: "1"
 author: kraigb
 ms.author: kraigb
 manager: ghogen
+ms.openlocfilehash: 87f4c97941a55bd378a72681200748f28e8dd236
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
 ms.translationtype: HT
-ms.sourcegitcommit: 712cc780388acc5e373f71d51fc8f1f42adb5bed
-ms.openlocfilehash: 5170c170f8d087319a8240831237965ca4d252db
-ms.contentlocale: zh-cn
-ms.lasthandoff: 07/12/2017
-
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-
 # <a name="package-manager"></a>程序包管理器
 
 针对 Visual Studio 的 R 工具 (RTVS) 程序包管理器是一个用于管理 R 程序包的UI。 若要打开它，请选择“R 工具”>“窗口”>“程序包”或按 Ctrl+7。
@@ -49,4 +46,3 @@ ms.lasthandoff: 07/12/2017
 
 - RTVS 随附的核心程序包安装在 `C:\Program Files\Microsoft\R Client\R_SERVER\library` 中
 - 其他程序包的安装位置为：`%userprofile%\Documents\R\win-library\3.3`
-

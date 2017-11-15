@@ -5,8 +5,7 @@ ms.date: 01/18/2017
 ms.prod: windows-client-threshold
 ms.reviewer: 
 ms.suite: 
-ms.technology:
-- devlang-javascript
+ms.technology: devlang-javascript
 ms.tgt_pltfrm: 
 ms.topic: article
 dev_langs:
@@ -27,16 +26,15 @@ helpviewer_keywords:
 - custom objects
 - initializing objects, using constructors
 ms.assetid: 58d1baa5-4fe8-4a56-a926-5b11765df704
-caps.latest.revision: 19
+caps.latest.revision: "19"
 author: mikejo5000
 ms.author: mikejo
 manager: ghogen
-ms.translationtype: HT
-ms.sourcegitcommit: 359e1eb5df8f19774d352ace631802367b6dd8c9
 ms.openlocfilehash: 0ba7962179cc2f0fcb972caee692edabee368c7d
-ms.contentlocale: zh-cn
-ms.lasthandoff: 08/11/2017
-
+ms.sourcegitcommit: aadb9588877418b8b55a5612c1d3842d4520ca4c
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="creating-objects-javascript"></a>Creating 对象 (JavaScript)
 可通过多种方法在 JavaScript 中创建你自己的对象。 可以直接实例化 [Object 对象](../javascript/reference/object-object-javascript.md)，然后添加自己的属性和方法。 或者可以使用对象文字表示法来定义你的对象。 还可使用构造函数来定义对象。 有关使用构造函数的详细信息，请参阅[使用构造函数来定义类型](../javascript/advanced/using-constructors-to-define-types.md)。  
@@ -162,4 +160,3 @@ const obj = {
     [ 'prop_' + (() => 42)() ]: 42  
 };  
 ```
-

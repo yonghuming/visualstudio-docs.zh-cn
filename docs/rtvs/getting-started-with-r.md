@@ -1,27 +1,24 @@
 ---
 title: "Visual Studio 中的 R 入门 | Microsoft Docs"
 ms.custom: 
-ms.date: 6/29/2017
+ms.date: 06/29/2017
 ms.reviewer: 
 ms.suite: 
-ms.technology:
-- devlang-r
+ms.technology: devlang-r
 ms.devlang: r
 ms.tgt_pltfrm: 
 ms.topic: get-started-article
 ms.assetid: 39228cf0-8d21-43bb-a2ce-5e5fdc81ec41
-caps.latest.revision: 1
+caps.latest.revision: "1"
 author: kraigb
 ms.author: kraigb
 manager: ghogen
+ms.openlocfilehash: 616b39cdd355e6a795a4b4e2929586ba233ab8da
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
 ms.translationtype: HT
-ms.sourcegitcommit: 712cc780388acc5e373f71d51fc8f1f42adb5bed
-ms.openlocfilehash: b9fb38bf7e21924d7fbece72978e99d298a42b74
-ms.contentlocale: zh-cn
-ms.lasthandoff: 07/12/2017
-
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-
 # <a name="getting-started-with-r-tools-for-visual-studio"></a>针对 Visual Studio 的 R 工具入门
 
 安装了针对 Visual Studio 的 R 工具 (RTVS)（请参阅[安装](installation.md)）后，很快就能亲身感受这些工具提供的体验。 以下各节将引导你完成简短教程：
@@ -183,4 +180,3 @@ Visual Studio 的一个主要优势就是它的调试 UI。 RTVS 构建于这一
 - [调试](debugging.md)
 - [工作区](workspaces.md)
 - [可视化数据](visualizing-data.md)
-

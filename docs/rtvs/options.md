@@ -1,11 +1,10 @@
 ---
 title: "Visual Studio 中的 R 工具选项 | Microsoft Docs"
 ms.custom: 
-ms.date: 6/29/2017
+ms.date: 06/29/2017
 ms.reviewer: 
 ms.suite: 
-ms.technology:
-- devlang-r
+ms.technology: devlang-r
 ms.devlang: r
 ms.tgt_pltfrm: 
 f1_keywords:
@@ -14,18 +13,16 @@ f1_keywords:
 - vs.toolsoptionspages.r_tools.#150
 ms.topic: article
 ms.assetid: 554dc602-ecad-4cd0-8e6f-a60bb8a2328f
-caps.latest.revision: 1
+caps.latest.revision: "1"
 author: kraigb
 ms.author: kraigb
 manager: ghogen
+ms.openlocfilehash: 82e17109ff595ae566ea326dae9237274ee5ad15
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
 ms.translationtype: HT
-ms.sourcegitcommit: 1e017806ca7bf3d23410ba3a2f999dca0b78f240
-ms.openlocfilehash: 5777be7df1256d4fe4d34be41fb10eb546d4a0ac
-ms.contentlocale: zh-cn
-ms.lasthandoff: 09/26/2017
-
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-
 # <a name="r-tools-for-visual-studio-options"></a>针对 Visual Studio 的 R 工具选项
  
 要访问设置，可使用“R 工具”>“选项”**菜单，也可使用“工具”>“选项”****，然后滚到“R 工具”**进：
@@ -112,4 +109,3 @@ ms.lasthandoff: 09/26/2017
 | 在关闭项目时保存工作区 | `No` | 如果设置为 `Yes`，在关闭项目时，全局环境将保存到 `.RData` 文件中。 |
 | 切换工作区前显示确认对话框 | `Yes` | 如果设置为 `No`，在不同工作区之间切换时，不会出现用户确认提示。 请参阅[在工作区之间切换](workspaces.md#switching-between-workspaces) |
  
-

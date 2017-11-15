@@ -4,33 +4,18 @@ ms.custom:
 ms.date: 11/04/2016
 ms.reviewer: 
 ms.suite: 
-ms.technology:
-- vs-devops-test
+ms.technology: vs-devops-test
 ms.tgt_pltfrm: 
 ms.topic: article
 ms.assetid: 7d08de69-c32e-4f0b-89aa-75347b15fb82
-caps.latest.revision: 11
+caps.latest.revision: "11"
 ms.author: douge
 manager: douge
-translation.priority.ht:
-- cs-cz
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pl-pl
-- pt-br
-- ru-ru
-- tr-tr
-- zh-cn
-- zh-tw
-translationtype: Human Translation
-ms.sourcegitcommit: 5ab78b6b8eaa8156ed2c8a807b1d8a80e75afa84
-ms.openlocfilehash: badc5d3077ddfe8f76f24cbbf7a52869fde8f318
-ms.lasthandoff: 04/04/2017
-
+ms.openlocfilehash: 665e16720466faff5dd52635066198e36d58d117
+ms.sourcegitcommit: aadb9588877418b8b55a5612c1d3842d4520ca4c
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="unit-testing-existing-c-applications-with-test-explorer"></a>用测试资源管理器对现有的 C++ 应用程序进行单元测试
 我们建议在更改现有应用程序之前，请确保单元测试中已覆盖其各种情况。 如此，你便有信心保证你的更改不会引入 bug。 如果应用程序尚没有单元测试，可使用本主题演示的方法自己添加。 本主题介绍如何为现有 Visual C++ 代码添加单元测试 - 从确定测试代码的方法，直到测试的创建、编写和最终运行。  
@@ -182,4 +167,3 @@ ms.lasthandoff: 04/04/2017
 2.  在“测试资源管理器”中，选择 **“全部运行”**。  
   
  有关详细信息，请参阅[快速入门：通过测试资源管理器进行测试驱动开发](../test/quick-start-test-driven-development-with-test-explorer.md)。
-

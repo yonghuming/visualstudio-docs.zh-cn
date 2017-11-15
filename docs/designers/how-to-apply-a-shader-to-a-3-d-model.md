@@ -1,48 +1,49 @@
 ---
 title: "如何：向三维模型应用着色器 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-general"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology: vs-ide-designers
+ms.tgt_pltfrm: 
+ms.topic: article
 ms.assetid: a3877bd6-abd8-4a9d-842c-6848b6c2f335
-caps.latest.revision: 15
-author: "BrianPeek"
-ms.author: "brpeek"
-manager: "ghogen"
-caps.handback.revision: 15
+caps.latest.revision: "15"
+author: gewarren
+ms.author: gewarren
+manager: ghogen
+ms.openlocfilehash: adec7e86fcb33985aa61b7e20b7e9ac16d2ad7b1
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# 如何：向三维模型应用着色器
-[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
-
-本文档演示如何使用模型编辑器，以便将定向关系图着色器语言 \(DGSL\) 着色器应用到三维模型中。  
+# <a name="how-to-apply-a-shader-to-a-3-d-model"></a>如何：向三维模型应用着色器
+本文档演示如何使用模型编辑器将定向关系图着色器语言 (DGSL) 着色器应用于三维模型。  
   
- 本文档演示此活动：  
+ 本文档演示了此活动：  
   
--   应用着色器到三维模型  
+-   向三维模型应用着色器  
   
-## 应用着色器到三维模型  
- 可以将着色器效果应用于三维模型来为它指定有趣的外表。  
+## <a name="applying-a-shader-to-a-3-d-model"></a>向三维模型应用着色器  
+ 可对三维模型应用着色效果，使其具有有趣的外观。  
   
- 在开始之前，请确保显示**“属性”**窗口。  
+ 开始前，请确保显示“属性”窗口”。  
   
-#### 将着色器应用到三维模型  
+#### <a name="to-apply-a-shader-to-a-3-d-model"></a>向三维模型应用着色器  
   
-1.  以包含一个或多个模型的三维场景开始。  如果没有适当的三维场景，请创建一个如[如何：创建基本三维模型](../Topic/How%20to:%20Create%20a%20Basic%203-D%20Model.md)所述。  必须拥有可以应用于模型的 DGSL 着色器。  如果没有适当的着色器，请创建一个，如[如何：创建基本颜色着色器](../designers/how-to-create-a-basic-color-shader.md) 所述，并确保已保存到文件才能继续。  
+1.  从包含一个或多个模型的三维场景开始。 如果没有合适的三维场景，请按照[如何：创建基本三维模型](../designers/how-to-create-a-basic-3-d-model.md)中所述进行创建。 还必须具有可应用于模型的 DGSL 着色器。 如果没有合适的着色器，请按照[如何：创建基本颜色着色器](../designers/how-to-create-a-basic-color-shader.md)中所述进行创建，并在继续操作前确保已将其保存至文件中。  
   
-2.  在 **选择** 模式中，选择要应用于着色器的模型，然后在 **属性** 窗口中，在 **文件名** 属性 **效果** 属性组中，指定要应用于模型的 DGSL 着色器。  
+2.  在“选择”模式中，选择要应用着色器的模型，然后在“属性”窗口的“效果”属性组中的 **Filename** 属性中，指定要应用到模型的 DGSL 着色器。  
   
- 这是具有应用于该模型的基本颜色效果：  
+ 以下模型应用了基本颜色效果：  
   
- ![显示基本颜色效果的三维场景](../designers/media/digit-3d-model-effect.png "Digit\-3D\-Model\-Effect")  
+ ![显示基本颜色效果的三维场景](../designers/media/digit-3d-model-effect.png "Digit-3D-Model-Effect")  
   
- 在适用于着色器模型后，您可以通过选择模型打开在着色器设计器，然后在 **属性** 窗口中，在 **\(高级\)** 属性 **效果** 属性组，选择省略号 \(**...**\) 按钮。  
+ 将着色器应用到模型后，可在着色器设计器中打开它，方式是选择模型，然后在“属性”窗口的“效果”属性组的 **(Advanced)** 属性中选择省略号 (**...**) 按钮。  
   
-## 请参阅  
- [如何：创建基本三维模型](../Topic/How%20to:%20Create%20a%20Basic%203-D%20Model.md)   
+## <a name="see-also"></a>另请参阅  
+ [如何：创建基本三维模型](../designers/how-to-create-a-basic-3-d-model.md)   
  [如何：创建基本颜色着色器](../designers/how-to-create-a-basic-color-shader.md)   
  [模型编辑器](../designers/model-editor.md)   
  [着色器设计器](../designers/shader-designer.md)

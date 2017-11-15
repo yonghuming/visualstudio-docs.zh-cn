@@ -1,30 +1,31 @@
 ---
 title: "如何：创建基本纹理着色器 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-general"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology: vs-ide-designers
+ms.tgt_pltfrm: 
+ms.topic: article
 ms.assetid: 5af113fb-6415-4be0-8b23-10fddb10e80a
-caps.latest.revision: 23
-author: "BrianPeek"
-ms.author: "brpeek"
-manager: "ghogen"
-caps.handback.revision: 23
+caps.latest.revision: "23"
+author: gewarren
+ms.author: gewarren
+manager: ghogen
+ms.openlocfilehash: 4620278c98ea373b8e0cde387f1b5526bf21349b
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# 如何：创建基本纹理着色器
-[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
-
-本文档演示如何使用着色器设计器和定向关系图着色器语言 \(DGSL\) 来创建单个纹理着色器。  此着色器将最终颜色直接设置为 RGB 以及从纹理中采样的 alpha 值。  
+# <a name="how-to-create-a-basic-texture-shader"></a>如何：创建基本纹理着色器
+本文档演示如何使用着色器设计器和定向关系图着色器语言 (DGSL) 创建单纹理着色器。 此着色器直接将最终颜色设置为从纹理中采样的 RGB 和 alpha 值。  
   
- 本文档演示这些活动：  
+ 本文档演示了这些活动：  
   
--   移除着色器图中的节点  
+-   移除着色器关系图中的节点  
   
--   将节点的到关系图  
+-   将节点添加到关系图  
   
 -   设置着色器参数  
   
@@ -32,39 +33,39 @@ caps.handback.revision: 23
   
 -   连接节点  
   
-## 创建基本纹理着色器  
- 您可以通过直接写入纹理示例的颜色和 alpha 值到最终输出颜色实现基本的单纹理着色器。  
+## <a name="creating-a-basic-texture-shader"></a>创建基本纹理着色器  
+ 可通过将纹理样本的颜色和 alpha 值直接写入最终输出颜色，实现基本的单纹理着色器。  
   
- 在开始之前，请确保显示**“属性”**窗口和**“工具箱”**。  
+ 开始前，请确保显示“属性”窗口和“工具箱”。  
   
-#### 创建基本纹理着色器  
+#### <a name="to-create-a-basic-texture-shader"></a>创建基本纹理着色器  
   
-1.  创建要使用的 DGSL 着色器。  有关如何向项目中添加 DGSL 着色器的信息，请参见[着色器设计器](../designers/shader-designer.md)中的“入门”部分。  
+1.  创建要使用的 DGSL 着色器。 若要了解如何向项目添加 DGSL 着色器，请参阅[着色器设计器](../designers/shader-designer.md)中的“入门”部分。  
   
-2.  删除**“点颜色”**节点。  在**“选择”**模式下，选择**“点颜色”**节点，然后在菜单栏上，选择**“编辑”**，**“删除”**。  这为在下一步中添加的节点腾出空间。  
+2.  删除“点颜色”节点。 在“选择”模式下，选择“点颜色”节点，然后在菜单栏上选择“编辑”和“删除”。 这为在下一步中添加的节点腾出空间。  
   
-3.  添加一个**“纹理示例”**节点到关系图中。  在**“纹理”**下的**“工具箱”**中，选择**“纹理示例”**并将其移动到设计图面。  
+3.  将“纹理样本”节点添加到关系图。 在“工具箱”中的“纹理”下选择“纹理样本”，然后将其移到设计图面。  
   
-4.  添加一个**“纹理坐标”**节点到关系图中。  在**“纹理”**下的**“工具箱”**中，选择**“纹理坐标”**并将其移动到设计图面。  
+4.  将“纹理坐标”节点添加到关系图。 在“工具箱”中的“纹理”下选择“纹理坐标”，然后将其移到设计图面。  
   
-5.  选择应用纹理。  在 **选择** 模式中，选择 **纹理示例** 节点，然后在 **属性** 窗口，通过使用 **文件名** 属性，指定要使用的纹理。  
+5.  选择要应用的纹理。 在“选择”模式中，选择“纹理样本”节点，然后在“属性”窗口中通过“文件名”属性指定要使用的纹理。  
   
-6.  使纹理公开可访问。  选择**“纹理示例”**节点，然后在**“属性”**窗体中，将**“访问”**属性为**“公开”**设置。  现在您可以从其他工具设置纹理，例如**“模型编辑器”**。  
+6.  使纹理可公开访问。 选择“纹理样本”节点，然后在“属性”窗口中将“访问”属性设置为“公共”。 现可利用其他工具（如**模型编辑器**）设置纹理。  
   
-7.  连接纹理坐标到纹理示例。  在**“选择”**模式下，移动**“纹理坐标”**节点的**“输出”**终端到**“纹理示例”**节点的**“UV”**终端。  此连接采样指定坐标处的纹理。  
+7.  将纹理坐标连接到纹理样本。 在“选择”模式下，将“纹理坐标”节点的“输出”终端移到“纹理样本”节点的“UV”终端。 此连接在指定坐标处对纹理进行采样。  
   
-8.  连接纹理示例到最终颜色。  将**“纹理示例”**节点的**“RGB”**终端移到**“最终颜色”**节点的**“RGB”**终端，然后将**“纹理示例”**节点的**“Alpha”**终端移到**“最终颜色”**节点的**“Alpha”**终端。  
+8.  将纹理样本连接到最终颜色。 将“纹理示例”节点的“RGB”终端移到“最终颜色”节点的“RGB”终端，然后将“纹理示例”节点的“Alpha”终端移到“最终颜色”节点的“Alpha”终端。  
   
- 下图显示了完整的着色器关系图和应用于多维数据集的着色器的预览。  
+ 下图显示了已完成的着色器关系图和应用于立方体的着色器预览。  
   
 > [!NOTE]
->  在此插图，指定为预览形状和纹理平面，更好地演示着色器的效果。  
+>  在此插图中，飞机用作预览形状，并且已指定一个纹理以更好地演示着色器的效果。  
   
- ![着色器图及其效果预览](../designers/media/digit-texture-effect.png "Digit\-Texture\-Effect")  
+ ![着色器图及其效果预览](../designers/media/digit-texture-effect.png "Digit-Texture-Effect")  
   
- 某些形状可能为某些着色器提供更好的预览。  有关如何在着色器设计器中预览着色器的更多信息，请参见 [着色器设计器](../designers/shader-designer.md)  
+ 某些形状可能会增强某些着色器的预览效果。 若要深入了解如何在着色器设计器中预览着色器，请参阅[着色器设计器](../designers/shader-designer.md)  
   
-## 请参阅  
+## <a name="see-also"></a>另请参阅  
  [如何：向三维模型应用着色器](../designers/how-to-apply-a-shader-to-a-3-d-model.md)   
  [图像编辑器](../designers/image-editor.md)   
  [着色器设计器](../designers/shader-designer.md)   

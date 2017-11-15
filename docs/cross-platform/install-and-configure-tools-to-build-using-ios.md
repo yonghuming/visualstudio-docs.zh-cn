@@ -4,38 +4,20 @@ ms.custom:
 ms.date: 11/04/2016
 ms.reviewer: 
 ms.suite: 
-ms.technology:
-- tgt-pltfrm-cross-plat
+ms.technology: tgt-pltfrm-cross-plat
 ms.tgt_pltfrm: 
 ms.topic: article
-dev_langs:
-- C++
+dev_langs: C++
 ms.assetid: d0c311c9-9eb9-42c5-ba07-25604362cd28
-caps.latest.revision: 11
-author: BrianPeek
-ms.author: brpeek
+caps.latest.revision: "11"
+author: corob-msft
+ms.author: corob
 manager: ghogen
-translation.priority.ht:
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- ru-ru
-- zh-cn
-- zh-tw
-translation.priority.mt:
-- cs-cz
-- pl-pl
-- pt-br
-- tr-tr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 47057e9611b824c17077b9127f8d2f8b192d6eb8
-ms.openlocfilehash: 53224c67d6778ea51e1cf055a0c4c0db34940ada
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/13/2017
-
+ms.openlocfilehash: 368481d0a38b7b8f721aa18be0ecda7d35a42aba
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="install-and-configure-tools-to-build-using-ios"></a>Install and Configure Tools to Build using iOS
 可以使用用于跨平台移动开发的 Visual C++ 来编辑、调试 iOS 代码，并将其部署到 iOS 模拟器或 iOS 设备，但由于许可限制，该代码必须在 Mac 上远程生成和运行。 若要使用 Visual Studio 生成和运行 iOS 应用，需要在 Mac 上安装并配置远程代理 [vcremote](http://go.microsoft.com/fwlink/p/?LinkId=534988)。 该远程代理会处理来自 Visual Studio 的生成请求，并在连接到 Mac 的 iOS 设备上或 Mac 上的 iOS 仿真程序中运行应用。  
@@ -110,7 +92,7 @@ ms.lasthandoff: 05/13/2017
      在安装期间，vcremote 将被安装在你的 Mac 上，同时将激活开发人员模式。 同时还会安装[Homebrew](http://brew.sh/) 以及 vcremote lib 和 vcremote-utils 这两个 npm 包。  
   
     > [!NOTE]
-    >  若要安装 Homebrew，你必须具有 sudo（管理员）访问权限。 如果你不想以 sudo 份安装 vcremote，你可以在 usr/local 位置手动安装 Homebrew 并将其 bin 文件夹添加到你的路径。 有关详细信息，请参阅 [Homebrew 文档](https://github.com/Homebrew/homebrew/wiki/Installation)。 若要手动启用开发者模式，请在 Terminal 应用中输入以下命令：`DevToolsSecurity -enable`  
+    >  若要安装 Homebrew，你必须具有 sudo（管理员）访问权限。 如果你不想以 sudo 份安装 vcremote，你可以在 usr/local 位置手动安装 Homebrew 并将其 bin 文件夹添加到你的路径。 有关详细信息，请参阅 [Homebrew 文档](https://github.com/Homebrew/homebrew/wiki/Installation)。 若要手动启用开发人员模式，请在 Terminal 应用中输入以下命令： `DevToolsSecurity -enable`  
   
  如果更新到新版本的 Visual Studio，那么必须将远程代理也更新到最新版本。 若要更新远程代理，请重复下载并安装远程代理的步骤。  
   
@@ -127,7 +109,7 @@ ms.lasthandoff: 05/13/2017
   
  第一次启动代理和每次创建新客户端证书时，将向你提供在 Visual Studio 中配置代理所需的信息，包括主机名、端口和 PIN。  
   
- ![使用 vcremote 生成安全 PIN](~/cross-platform/media/cppmdd_vcremote_generateclientcert.png "CPPMDD_vcremote_generateClientCert")  
+ ![使用 vcremote 生成安全 PIN](../cross-platform/media/cppmdd_vcremote_generateclientcert.png "CPPMDD_vcremote_generateClientCert")  
   
  如果打算在 Visual Studio 中使用主机名配置远程代理，请使用该主机名从 Windows 对 Mac 进行 ping 操作，以确认它是可连接的。 否则，你可能需要使用 IP 地址。  
   
@@ -177,7 +159,7 @@ ms.lasthandoff: 05/13/2017
   
 7.  选择“配对”以启用配对。  
   
-     ![为 iOS 版本配置 vcremote 连接](~/cross-platform/media/cppmdd_options_ios.PNG "CPPMDD_Options_iOS")  
+     ![为 iOS 版本配置 vcremote 连接](../cross-platform/media/cppmdd_options_ios.PNG "CPPMDD_Options_iOS")  
   
      除非更改主机名或端口，否则配对会一直存在。 如果在“选项”  对话框中更改了主机名或端口，要撤销此更改，请选择“还原”  按钮以还原到上一配对。  
   

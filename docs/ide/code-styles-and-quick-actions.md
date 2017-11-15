@@ -4,8 +4,7 @@ ms.custom:
 ms.date: 03/10/2017
 ms.reviewer: 
 ms.suite: 
-ms.technology:
-- vs-ide-general
+ms.technology: vs-ide-general
 ms.tgt_pltfrm: 
 ms.topic: article
 ms.devlang: csharp
@@ -16,28 +15,12 @@ manager: ghogen
 f1_keywords:
 - VS.ToolsOptionsPages.Text_Editor.CSharp.Code_Style.General
 - VS.ToolsOptionsPages.Text_Editor.Basic.Code_Style.General
-translation.priority.ht:
-- cs-cz
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pl-pl
-- pt-br
-- ru-ru
-- tr-tr
-- zh-cn
-- zh-tw
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 46846db26bee30841e6cb35913d533b512d01ba0
-ms.openlocfilehash: acc01617fffd7465cee01267482112aac5e352fc
-ms.contentlocale: zh-cn
-ms.lasthandoff: 03/27/2017
-
+ms.openlocfilehash: d42bb9165748b7282aa42f062b545add62ad1c93
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-
 # <a name="code-styles-and-quick-actions"></a>代码样式和快速操作
 可按如下方法设置 C# 和 Visual Basic 项目的代码样式首选项：打开“工具”>“选项”窗口，然后选择“文本编辑器”>“C#/Basic”>“代码样式”>“常规”。  此窗口中设置的选项适用于本地计算机。  列表中的每一项都会显示所选首选项的预览，如下所示。
 
@@ -47,5 +30,5 @@ ms.lasthandoff: 03/27/2017
 
 也可以通过 [EditorConfig](editorconfig-code-style-settings-reference.md) 文件管理 .NET 的代码样式设置。  在此情况下，将优先采用 EditorConfig 文件中的设置，而“选项”窗口中的所选设置将成为后备设置。  可使用此文件为整个存储库或团队强制执行和配置代码样式。
 
-# <a name="see-also"></a>另请参阅
+## <a name="see-also"></a>另请参阅
 * [快速操作](quick-actions.md)

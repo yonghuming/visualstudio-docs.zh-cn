@@ -7,19 +7,15 @@ ms.suite:
 ms.tgt_pltfrm: 
 ms.topic: article
 ms.assetid: aa4b8161-d98f-4a1a-9db3-520133bfc82f
-caps.latest.revision: 7
-author: BrianPeek
-ms.author: brpeek
+caps.latest.revision: "7"
+author: corob-msft
+ms.author: corob
 manager: ghogen
-translation.priority.mt:
-- cs-cz
-- pl-pl
-- pt-br
-- tr-tr
-translationtype: Human Translation
-ms.sourcegitcommit: 5db97d19b1b823388a465bba15d057b30ff0b3ce
-ms.openlocfilehash: 828aa9efccd636e517535947606a33322a3bbc4b
-
+ms.openlocfilehash: 07dc7d8eefb7ab1183d5e5532f13a5cfdac8de80
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="import-an-xcode-project"></a>导入 XCode 项目
 在适用于跨平台移动开发的 Microsoft Visual C++ 中，支持将 XCode 项目移动到 Visual Studio，可在此处创建跨平台库并与其他项目共享代码。 通过“从 XCode 导入”向导，可更轻松地导入项目和拆分 XCode 目标中的 C++ 代码，使其用作静态库或共享代码项目。 可在 Visual Studio 中管理特定于 iOS 的代码，还可继续使用 XCode 处理情节提要和生成操作。 若要了解如何轻松地在 Visual Studio 和 XCode 之间来回移动代码，请参阅“在 XCode 和 Visual Studio 间移动更改”。  
@@ -31,11 +27,11 @@ ms.openlocfilehash: 828aa9efccd636e517535947606a33322a3bbc4b
   
 1.  在“文件”菜单上，依次选择“新建”、“导入”和“从 XCode 导入”。 这将启动“从 XCode 导入”向导对话框。  
   
-     ![选择要导入的 XCode 目标项目](~/cross-platform/media/cppmdd_u2_importxcode_choose.PNG "CPPMDD_U2_ImportXCode_Choose")  
+     ![选择要导入的 XCode 目标项目](../cross-platform/media/cppmdd_u2_importxcode_choose.PNG "CPPMDD_U2_ImportXCode_Choose")  
   
 2.  在“选择项目”窗格中，选择“浏览”按钮以选择 XCode.pbxproj 文件。 导航到“选择 XCode 项目文件”对话框中的项目文件，然后选择“打开”。  
   
-     ![在“选择 Xcode 项目文件”对话框中选择一个项目文件](~/cross-platform/media/cppmdd_u2_importxcode_browse.PNG "CPPMDD_U2_ImportXCode_Browse")  
+     ![在“选择 Xcode 项目文件”对话框中选择一个项目文件](../cross-platform/media/cppmdd_u2_importxcode_browse.PNG "CPPMDD_U2_ImportXCode_Browse")  
   
      在“从 XCode 导入”向导中，选择“下一步”。  
   
@@ -80,8 +76,3 @@ ms.openlocfilehash: 828aa9efccd636e517535947606a33322a3bbc4b
      若要使用向导设置导入 XCode 项目，请选择“导入”。  
   
  “从 XCode 导入”向导会在 Visual Studio 中创建与所选 XCode 项目目标对应的项目。 可与其他 C++ 项目共享的代码会拆分为单独的共享代码和静态库项目。 剩下的代码将放置在可由 Visual Studio 远程生成的 iOS 库和应用程序项目中。 若要深入了解如何在 Visual Studio 和 XCode 间移动代码，请参阅[在 XCode 和 Visual Studio 之间同步更改](../cross-platform/sync-changes-between-xcode-and-visual-studio.md)。
-
-
-<!--HONumber=Feb17_HO4-->
-
-

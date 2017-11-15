@@ -4,8 +4,7 @@ ms.custom:
 ms.date: 11/04/2016
 ms.reviewer: 
 ms.suite: 
-ms.technology:
-- vs-ide-debug
+ms.technology: vs-ide-debug
 ms.tgt_pltfrm: 
 ms.topic: article
 helpviewer_keywords:
@@ -15,33 +14,17 @@ helpviewer_keywords:
 - profiling tools,VSPerfCmd
 - VSPerfCmd tool
 ms.assetid: 778bc105-7643-46c4-a338-f3620e31125a
-caps.latest.revision: 49
+caps.latest.revision: "49"
 author: mikejo5000
 ms.author: mikejo
 manager: ghogen
-translation.priority.ht:
-- cs-cz
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pl-pl
-- pt-br
-- ru-ru
-- tr-tr
-- zh-cn
-- zh-tw
+ms.openlocfilehash: 82fada9e9b043511fe94cab6cae99ee9e521f84b
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
 ms.translationtype: HT
-ms.sourcegitcommit: 63aad78bdc7df685ca3a73ec16a9cbc87b78151f
-ms.openlocfilehash: 55baa67bbc07d67ed4a72ea315296b955fad6737
-ms.contentlocale: zh-cn
-ms.lasthandoff: 07/14/2017
-
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# VSPerfCmd
-<a id="vsperfcmd" class="xliff"></a>
+# <a name="vsperfcmd"></a>VSPerfCmd
 VSPerfCmd.exe 工具用于启动和停止性能数据收集。 它使用以下语法：  
   
 ```  
@@ -73,8 +56,7 @@ VSPerfCmd [/U] [/options]
 |[ThreadOn 和 ThreadOff](../profiling/threadon-and-threadoff.md) **:** *tid*|暂停对指定线程的分析。 仅在使用检测方法进行分析时使用“ThreadOff”。|  
 |[Mark](../profiling/mark.md) **:** *MarkNum*[**,***MarkText***]**|使用可选文本将一个标记插入到分析数据文件中。|  
   
-## 采样方法选项
-<a id="sampling-method-options" class="xliff"></a>  
+## <a name="sampling-method-options"></a>采样方法选项  
  只有在使用采样分析方法时才能使用以下选项。  
   
 |选项|描述|  
@@ -86,8 +68,7 @@ VSPerfCmd [/U] [/options]
 |[Detach](../profiling/detach.md)[**:***PID*[,*PID*]]|停止分析指定进程。 进程可由进程 ID 或进程名称标识。 如果未指定进程，将停止所有进程分析。|  
 |[GC](../profiling/gc-vsperfcmd.md)[**:**{**Allocation**`&#124;`**Lifetime**}]|收集 .NET 内存分配数据和对象生存期数据。 仅与 VSPerfCmdLaunch 选项一起使用。|  
   
-### 采样间隔选项
-<a id="sampling-interval-options" class="xliff"></a>  
+### <a name="sampling-interval-options"></a>采样间隔选项  
  以下选项指定采样间隔的类型和持续时间。 默认值为 Timer。 还可以使用 Counter 选项将 CPU 计数器指定为间隔。 这些选项只能通过 Launch 或分析会话的第一个 Attach指定。  
   
 |选项|描述|  
@@ -96,8 +77,7 @@ VSPerfCmd [/U] [/options]
 |[Sys](../profiling/sys-vsperfcmd.md)[**:***n*]|有关每个第 n 个系统调用的示例（默认值=10）。|  
 |[Timer](../profiling/timer.md)[**:***n*]|有关每个第 n 个处理器周期的示例（默认值=10000000）。|  
   
-## 服务组件和内核模式设备选项
-<a id="service-component-and-kernel-mode-device-options" class="xliff"></a>  
+## <a name="service-component-and-kernel-mode-device-options"></a>服务组件和内核模式设备选项  
  以下 Admin 选项支持分析服务组件或内核模式设备驱动程序。 Admin 选项设置分析权限，并控制分析服务或设备驱动程序。  
   
  必须在使用管理凭据运行的命令提示符下执行 Admin 选项。  
@@ -109,12 +89,10 @@ VSPerfCmd [/U] [/options]
 |**Admin:** \<*Service*&#124;*Driver*>\<**START**&#124;**STOP**&#124;**INSTALL**&#124;**UNINSTALL**>|启动、停止、安装或卸载分析服务组件（服务）或内核模式设备驱动程序（驱动程序）。|  
 |**Admin:** \<*Service*&#124;*Driver*>**AutoStart**\<**ON**&#124;**OFF**>|在重启后，启用或禁用自动启动分析服务（服务）或内核模式设备驱动程序（驱动程序）。|  
   
-## VSPerfCmd /Driver
-<a id="vsperfcmd-driver" class="xliff"></a>  
+## <a name="vsperfcmd-driver"></a>VSPerfCmd /Driver  
  VSPerfCmd /Driver 选项现已过时。 将 VsPerfCmdAdmin 选项用于此功能。  
   
-## 另请参阅
-<a id="see-also" class="xliff"></a>  
+## <a name="see-also"></a>另请参阅  
  [VSInstr](../profiling/vsinstr.md)   
  [VSPerfMon](../profiling/vsperfmon.md)   
  [VSPerfReport](../profiling/vsperfreport.md)

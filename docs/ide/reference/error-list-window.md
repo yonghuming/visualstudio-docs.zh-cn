@@ -4,42 +4,25 @@ ms.custom:
 ms.date: 11/04/2016
 ms.reviewer: 
 ms.suite: 
-ms.technology:
-- vs-ide-general
+ms.technology: vs-ide-general
 ms.tgt_pltfrm: 
 ms.topic: article
-f1_keywords:
-- VS.ErrorList
+f1_keywords: VS.ErrorList
 helpviewer_keywords:
 - Task List
 - build errors
 - Error List window
 - errors [Visual Studio], Error List window
 ms.assetid: b7f6d45a-733b-4ad8-bc2f-737a37509e56
-caps.latest.revision: 32
+caps.latest.revision: "32"
 author: gewarren
 ms.author: gewarren
 manager: ghogen
-translation.priority.ht:
-- cs-cz
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pl-pl
-- pt-br
-- ru-ru
-- tr-tr
-- zh-cn
-- zh-tw
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5ea9179ad37514ffad4876177b05150eecc22def
-ms.openlocfilehash: ee881a2ecb205ad01a1d8be6229947dd748cb2b7
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/24/2017
-
+ms.openlocfilehash: d332700fc663375c9fab96d86645b5762e77d851
+ms.sourcegitcommit: c0422a3d594ea5ae8fc03f1aee684b04f417522e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="error-list-window"></a>“错误列表”窗口
 > [!NOTE]
@@ -59,11 +42,11 @@ ms.lasthandoff: 05/24/2017
   
 -   搜索特定术语，并将搜索范围限定在当前项目或文档。  
   
- 若要显示“错误列表”，请单击“视图”/“错误列表”或按 **CTRL+\\+E**。  
+若要显示“错误列表”，请单击“视图”/“错误列表”或按 **CTRL+\\+E**。  
   
- 可以选择“错误”、“警告”和“消息”选项卡来查看不同级别的信息。  
+可以选择“错误”、“警告”和“消息”选项卡来查看不同级别的信息。  
   
- 若要对列表进行排序，请单击任一列标头。 若要按其他列对列表进行进一步排序，请按住 Shift 键并单击其他列标头。 若要选择显示哪些列和隐藏哪些列，请从快捷菜单中选择“显示列”。 若要更改列的显示顺序，请将任意列标头向左或向右拖动。  
+若要对列表进行排序，请单击任一列标头。 若要按其他列对列表进行进一步排序，请按住 Shift 键并单击其他列标头。 若要选择显示哪些列和隐藏哪些列，请从快捷菜单中选择“显示列”。 若要更改列的显示顺序，请将任意列标头向左或向右拖动。  
   
 > [!NOTE]
 >  显示的对话框和菜单命令可能与此处的描述不同，具体取决于你的当前设置或版本。 若要更改设置，请单击“工具”/“导入和导出设置”。 有关详细信息，请参阅[个性化设置 Visual Studio IDE](../../ide/personalizing-the-visual-studio-ide.md)。  
@@ -82,9 +65,9 @@ ms.lasthandoff: 05/24/2017
   
 3.  **当前文档**：显示“编辑器”或“解决方案资源管理器”中当前选定文档的错误、警告和消息。  
   
- 如果某个筛选器当前已应用到搜索结果，该筛选器的名称会显示在“错误列表”标题栏上。 然后，“错误”、“警告”和“消息”按钮会显示经过筛选后显示出来的项目数量以及项目总数；例如，这些按钮会演示筛选出 x 个错误，总共有 y 个错误。 如果未应用筛选器，标题栏将仅显示“错误列表”。  
+如果某个筛选器当前已应用到搜索结果，该筛选器的名称会显示在“错误列表”标题栏上。 然后，“错误”、“警告”和“消息”按钮会显示经过筛选后显示出来的项目数量以及项目总数；例如，这些按钮会演示筛选出 x 个错误，总共有 y 个错误。 如果未应用筛选器，标题栏将仅显示“错误列表”。  
   
- 工具栏右侧的列表用于指定是显示生成错误（由于生成操作导致的错误）、IntelliSense 错误（运行生成之前检测到的错误）还是同时显示这两种错误。  
+工具栏右侧的列表用于指定是显示生成错误（由于生成操作导致的错误）、IntelliSense 错误（运行生成之前检测到的错误）还是同时显示这两种错误。  
   
 ## <a name="search"></a>搜索  
  使用“错误列表”工具栏右侧的“搜索错误列表”文本框在错误列表中查找特定错误。 你可以搜索错误列表中的任何可见列。搜索结果将始终根据拥有排序优先级的列排序，而不会按照应用的查询或筛选器排序。 当焦点位于“错误列表”中时，选择 **Esc** 键会清除搜索词和筛选的搜索结果。 也可以单击文本框右侧的 **X** 将其清除。  

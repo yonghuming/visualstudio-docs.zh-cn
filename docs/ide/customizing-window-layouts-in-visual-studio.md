@@ -4,8 +4,7 @@ ms.custom:
 ms.date: 01/23/2017
 ms.reviewer: 
 ms.suite: 
-ms.technology:
-- vs-ide-general
+ms.technology: vs-ide-general
 ms.tgt_pltfrm: 
 ms.topic: article
 f1_keywords:
@@ -24,31 +23,15 @@ helpviewer_keywords:
 - debug mode
 - custom layouts
 ms.assetid: 7517ff13-76de-4ecf-9c1b-eb9b7ff4d718
-caps.latest.revision: 27
-author: kempb
-ms.author: kempb
+caps.latest.revision: "27"
+author: gewarren
+ms.author: gewarren
 manager: ghogen
-translation.priority.ht:
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- ru-ru
-- zh-cn
-- zh-tw
-translation.priority.mt:
-- cs-cz
-- pl-pl
-- pt-br
-- tr-tr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5ea9179ad37514ffad4876177b05150eecc22def
-ms.openlocfilehash: 8ab795965dc205cd783f469d134d64fb2b5dacf6
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/24/2017
-
+ms.openlocfilehash: 85881bf35fb89f753eb4110d7b1128b4761a73a3
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="customize-window-layouts-in-visual-studio"></a>在 Visual Studio 中自定义窗口布局
 在 Visual Studio 中，你可以自定义窗口的位置、大小和行为，以为各种开发工作流创建最佳窗口布局。 自定义布局时，IDE 会记住它。 例如，如果你更改了 **“解决方案资源管理器”** 的停靠位置然后关闭 Visual Studio，则下次启动时（即使在另一台计算机上工作）， **“解决方案资源管理器”** 将停靠在相同位置。 还可以为自定义布局命名并将其保存，并通过单个命令在各布局间切换。 例如，可以创建一个用于编辑的布局和另一个用于调试的布局，并通过使用“窗口”|“应用窗口布局”菜单命令在二者之间切换。  
@@ -56,7 +39,7 @@ ms.lasthandoff: 05/24/2017
 ## <a name="kinds-of-windows"></a>窗口类型  
 
 ### <a name="tool-and-document-windows"></a>工具窗口和文档窗口  
- IDE 提供两种基本窗口类型，即 *“工具窗口”* 和 *“文档窗口”*。 工具窗口包括解决方案资源管理器、服务器资源管理器、输出窗口、错误列表、设计器、调试器窗口等。 文档窗口包含源代码文件、任意文本文件、配置文件等。 可以在标题栏处对工具窗口进行重设大小和拖动。 可以在选项卡处拖动文档窗口。 右键单击选项卡或标题栏，以设置窗口上的其他选项。  
+ IDE 提供两种基本窗口类型，即 *“工具窗口”* 和 *“文档窗口”*。 工具窗口包括解决方案资源管理器、服务器资源管理器、输出窗口、错误列表、设计器、调试器窗口等。 文档窗口包含源代码文件、任意文本文件、配置文件等。 可以在标题栏处对工具窗口进行重设大小和拖动。 可以在选项卡处拖动文档窗口。右键单击选项卡或标题栏，以设置窗口上的其他选项。  
 
  **“窗口”** 菜单显示用于在 IDE 中停靠、浮动和隐藏窗口的选项。 右键单击窗口选项卡或标题栏，以了解该特定窗口的其他选项。 可以一次同时显示特定工具窗口的多个实例。 例如，可以显示多个 Web 浏览器窗口，还可以通过选择 **“窗口”** 菜单上的 **“新建窗口”** ，创建某些工具窗口的其他实例。  
 
@@ -105,22 +88,22 @@ ms.lasthandoff: 05/24/2017
 
  下图显示文档窗口（仅可停靠在编辑框内）的菱形引导标记：  
 
- ![文档窗口菱形引导标记](~/ide/media/documentwindowguidediamonds.png "Documentwindowguidediamonds")  
+ ![文档窗口菱形引导标记](../ide/media/documentwindowguidediamonds.png "Documentwindowguidediamonds")  
 
  工具窗口可固定到 IDE 中框架的一侧或固定到编辑框内。 当将工具窗口拖动到另一个位置时，会显示一个菱形引导标记，以帮助你轻松地重新停靠窗口。  
 
  工具窗口的菱形引导标记  
 
- ![工具窗口菱形引导标记](~/ide/media/vs10guidediamond.png "VS10GuideDiamond")  
+ ![工具窗口菱形引导标记](../ide/media/vs10guidediamond.png "VS10GuideDiamond")  
 
  下图显示将解决方案资源管理器停靠到新位置（用蓝色阴影区域显示）：  
 
- ![新位置处的停靠解决方案资源管理器](~/ide/media/vs2015_dock_diamond.png "VS2017_Dock_diamond")  
+ ![新位置处的停靠解决方案资源管理器](../ide/media/vs2015_dock_diamond.png "VS2017_Dock_diamond")  
 
 ### <a name="close-and-auto-hide-tool-windows"></a>关闭和自动隐藏工具窗口  
  可以通过单击标题栏右上角的 X 关闭工具窗口；若要重新打开该窗口，可使用其键盘快捷方式或菜单命令。 工具窗口支持一个名为“自动隐藏”的功能，这可导致窗口在你使用其他窗口时滑开。 窗口自动隐藏时，其名称将显示在 IDE 边缘的选项卡上。 若要再次使用该窗口，请指向该选项卡，使该窗口滑回视野。  
 
- ![自动隐藏](~/ide/media/vs2015_auto_hide.png "vs2017_auto_hide")  
+ ![自动隐藏](../ide/media/vs2015_auto_hide.png "vs2017_auto_hide")  
 
 > [!NOTE]
 >  若要设置“自动隐藏”是单独针对工具窗口执行还是作为停靠组执行，请选中或清除 **“选项”** 对话框中的 **“自动隐藏按钮仅影响活动工具窗口”** 。 有关详细信息，请参阅 [General, Environment, Options Dialog Box](../ide/reference/general-environment-options-dialog-box.md)。  
@@ -180,13 +163,13 @@ ms.lasthandoff: 05/24/2017
 
      如果在工作地点设置了多个监视器，在家里设置了一个单监视器笔记本电脑，则可创建为每个计算机优化的布局。  
 
-     请注意：如果在单监视器系统上应用多监视器布局，放置在第二个监视器上的浮动窗口将隐藏在 Visual Studio 窗口后。 可按 Alt + Tab 将这些窗口前置。 如果稍后打开带多个监视器的 Visual Studio，则可通过重新应用布局将这些窗口恢复到其指定的位置。  
+     请注意：如果在单监视器系统上应用多监视器布局，放置在第二个监视器上的浮动窗口将隐藏在 Visual Studio 窗口后。 可按 Alt + Tab 将这些窗口前置。如果稍后打开带多个监视器的 Visual Studio，则可通过重新应用布局将这些窗口恢复到其指定的位置。  
 
 ##### <a name="manage-and-roam-your-layouts"></a>管理和漫游你的布局  
 
 1.  可通过选择“窗口”>“管理窗口布局”来删除、重命名或重新排列自定义布局。 如果移动布局，则键绑定自动调整以反映列表中的新位置。 绑定不能以其他方式修改，因此一次可存储最多 10 个布局。  
 
-     ![管理窗口布局](~/ide/media/managewindowlayouts.png "ManageWindowLayouts")  
+     ![管理窗口布局](../ide/media/managewindowlayouts.png "ManageWindowLayouts")  
 
      要提醒自己哪个键盘快捷键分配给了哪个布局，可选择“窗口”>“应用窗口布局”。  
 
@@ -195,4 +178,3 @@ ms.lasthandoff: 05/24/2017
 ## <a name="related-topics"></a>相关主题  
 
 [如何：在 IDE 中移动](../ide/how-to-move-around-in-the-visual-studio-ide.md)
-

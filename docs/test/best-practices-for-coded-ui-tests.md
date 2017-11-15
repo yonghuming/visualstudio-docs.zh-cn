@@ -4,35 +4,19 @@ ms.custom:
 ms.date: 11/04/2016
 ms.reviewer: 
 ms.suite: 
-ms.technology:
-- vs-devops-test
+ms.technology: vs-devops-test
 ms.tgt_pltfrm: 
 ms.topic: article
-helpviewer_keywords:
-- coded UI tests, best practices
+helpviewer_keywords: coded UI tests, best practices
 ms.assetid: d5aef766-a24c-4f1f-ac9b-e5462b6627d4
-caps.latest.revision: 39
+caps.latest.revision: "39"
 ms.author: douge
 manager: douge
-translation.priority.ht:
-- cs-cz
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pl-pl
-- pt-br
-- ru-ru
-- tr-tr
-- zh-cn
-- zh-tw
-translationtype: Human Translation
-ms.sourcegitcommit: 5ab78b6b8eaa8156ed2c8a807b1d8a80e75afa84
-ms.openlocfilehash: 444f6bf46c3eac65a2771655616fd67d8ed83b32
-ms.lasthandoff: 04/04/2017
-
+ms.openlocfilehash: 76727d06b3f7c41436ae2939518986baba4b8e5c
+ms.sourcegitcommit: aadb9588877418b8b55a5612c1d3842d4520ca4c
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="best-practices-for-coded-ui-tests"></a>编码的 UI 测试的最佳做法
 本主题介绍在开发编码的 UI 测试时应遵循的最佳做法。  
@@ -60,17 +44,17 @@ ms.lasthandoff: 04/04/2017
   
 -   如果用户界面 (UI) 更改，请重新记录测试方法或断言方法，或重新记录现有测试方法中受影响的部分。  
   
--   为受测应用中的每个模块单独创建 <xref:Microsoft.VisualStudio.TestTools.UITest.Common.UIMap.UIMap> 文件。 有关详细信息，请参阅[使用多个 UI 映射测试大型应用程序](../test/testing-a-large-application-with-multiple-ui-maps.md)。  
+-   为受测应用程序中的每个模块创建一个单独的 <xref:Microsoft.VisualStudio.TestTools.UITest.Common.UIMap.UIMap> 文件。 有关详细信息，请参阅[使用多个 UI 映射测试大型应用程序](../test/testing-a-large-application-with-multiple-ui-maps.md)。  
   
 -   在受测应用程序中创建 UI 控件时，请使用有意义的名称。 这比自动生成的控件名称更有意义，更易于使用。  
   
--   若要通过用 API 编码来创建断言，请为 `UIMap.cs` 文件中 <xref:Microsoft.VisualStudio.TestTools.UITest.Common.UIMap.UIMap> 类部分中的每个断言创建一个方法。 从测试方法中调用此方法以执行断言。  
+-   如果通过用 API 编码来创建断言，请为 `UIMap.cs` 文件中 <xref:Microsoft.VisualStudio.TestTools.UITest.Common.UIMap.UIMap> 类部分中的每个断言创建一个方法。 从测试方法中调用此方法以执行断言。  
   
 -   如果直接用 API 编码，请在代码中尽可能使用 `UIMap.Designer.cs` 文件中生成的类中的属性和方法。 这些类将使您的工作更简单可靠，并帮助您提高效率。  
   
  编码的 UI 测试能够自动适应用户界面中的许多更改。 例如，在大多数情况下，如果 UI 元素更改了位置或颜色，则编码的 UI 测试仍将找到正确的元素。  
   
- 在测试运行期间，测试框架使用一组搜索属性来定位 UI 控件，这些属性应用于**编码的 UI 测试生成器**在 `UIMap.Designer.cs` 文件中创建的定义中的每个控件类。 搜索属性包含可用于标识控件的属性名称和属性值的名称/值对，如控件的 <xref:Microsoft.VisualStudio.TestTools.UITesting.UITestControl.FriendlyName%2A>、<xref:Microsoft.VisualStudio.TestTools.UITesting.UITestControl.Name%2A> 和 <xref:Microsoft.VisualStudio.TestTools.UITesting.UITestControl.ControlType%2A> 属性。 如果搜索属性未更改，则编码的 UI 测试会在 UI 中成功找到控件。 如果搜索属性发生更改，编码的 UI 测试会使用一个智能匹配算法，应用试探方法在 UI 中查找控件和窗口。 当 UI 已更改时，你或许能够修改以前标识的元素的搜索属性，以确保能够找到这些元素。  
+ 在测试运行期间，测试框架使用一组搜索属性来定位 UI 控件，这些属性应用于**编码的 UI 测试生成器**在 `UIMap.Designer.cs` 文件中创建的定义中的每个控件类。 搜索属性包含可用于标识控件的属性名称和属性值的名称-值对，例如控件的 <xref:Microsoft.VisualStudio.TestTools.UITesting.UITestControl.FriendlyName%2A>、<xref:Microsoft.VisualStudio.TestTools.UITesting.UITestControl.Name%2A> 和 <xref:Microsoft.VisualStudio.TestTools.UITesting.UITestControl.ControlType%2A> 属性。 如果搜索属性未更改，则编码的 UI 测试会在 UI 中成功找到控件。 如果搜索属性发生更改，编码的 UI 测试会使用一个智能匹配算法，应用试探方法在 UI 中查找控件和窗口。 当 UI 已更改时，你或许能够修改以前标识的元素的搜索属性，以确保能够找到这些元素。  
   
 ## <a name="what-to-do-if-your-user-interface-changes"></a>如果用户界面发生更改应如何操作  
  在开发过程中，用户界面经常更改。 下面提供了一些可以降低这些更改的影响的方法：  
@@ -108,4 +92,3 @@ Playback.PlaybackSettings.WaitForReadyLevel = WaitForReadyLevel.UIThreadOnly;
  [创建编码的 UI 测试](../test/use-ui-automation-to-test-your-code.md#VerifyingCodeUsingCUITCreate)   
  [使用多个 UI 映射测试大型应用程序](../test/testing-a-large-application-with-multiple-ui-maps.md)   
  [支持编码的 UI 测试和操作录制的配置和平台](../test/supported-configurations-and-platforms-for-coded-ui-tests-and-action-recordings.md)
-

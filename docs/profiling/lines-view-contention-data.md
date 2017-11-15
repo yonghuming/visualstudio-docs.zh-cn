@@ -1,21 +1,23 @@
 ---
-title: "“行”视图 - 探查器争用数据 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-debug"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-helpviewer_keywords: 
-  - "“行”视图"
+title: "“行”视图 — 争用数据 | Microsoft Docs"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology: vs-ide-debug
+ms.tgt_pltfrm: 
+ms.topic: article
+helpviewer_keywords: Lines view
 ms.assetid: 859b02d2-eddf-4ad3-95de-0df67ee2ab03
-caps.latest.revision: 9
-author: "mikejo5000"
-ms.author: "mikejo"
-manager: "ghogen"
-caps.handback.revision: 9
+caps.latest.revision: "9"
+author: mikejo5000
+ms.author: mikejo
+manager: ghogen
+ms.openlocfilehash: 88b8169f5e0e53a76ff2b1bee61dc80f41a9f595
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="lines-view---contention-data"></a>“行”视图 — 争用数据
 争用数据的“行”视图列出分析运行期间收集样本时所执行语句的性能数据。 在源文件中，一个语句可分散在多行中，而一行也可包括多个语句。  
@@ -67,8 +69,3 @@ caps.handback.revision: 9
  [“行”视图](../profiling/lines-view.md)   
  [“行”视图 - 采样](../profiling/lines-view-dotnet-memory-sampling-data.md)   
  [“行”视图](../profiling/lines-view-sampling-data.md)
-
-
-<!--HONumber=Feb17_HO4-->
-
-

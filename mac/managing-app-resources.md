@@ -6,14 +6,12 @@ ms.author: amburns
 ms.date: 04/14/2017
 ms.topic: article
 ms.assetid: 61EAAB8F-3C32-4574-924F-CFC616604089
-ms.translationtype: HT
-ms.sourcegitcommit: e2b7ff9126e1cc38ac2e58d6be339b656a024e7f
 ms.openlocfilehash: 46338778813b73dbc87458f90cfe0548bd8ccb8a
-ms.contentlocale: zh-cn
-ms.lasthandoff: 08/11/2017
-
+ms.sourcegitcommit: aadb9588877418b8b55a5612c1d3842d4520ca4c
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/27/2017
 ---
-
 # <a name="managing-app-resources"></a>管理应用资源
 
 应用资源文件（如图像、文本文件和音频文件）是应用程序的整型元素且不使用应用程序编译。 每个 Visual Studio for Mac 支持的平台处理这些文件类型的方法都不同。 有关处理 Visual Studio for Mac 中的应用资源的详细信息，请查看以下指南。
@@ -40,6 +38,5 @@ Xamarin.Forms 代码在多个平台上运行 - 每个平台都有自己的文件
 ## <a name="xamarinmac"></a>Xamarin.Mac
 
 * [使用图像](https://developer.xamarin.com/guides/mac/application_fundamentals/working-with-images/)
-
 
 

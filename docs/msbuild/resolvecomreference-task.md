@@ -4,12 +4,10 @@ ms.custom:
 ms.date: 11/04/2016
 ms.reviewer: 
 ms.suite: 
-ms.technology:
-- vs-ide-sdk
+ms.technology: vs-ide-sdk
 ms.tgt_pltfrm: 
 ms.topic: article
-f1_keywords:
-- http://schemas.microsoft.com/developer/msbuild/2003#ResolveComReference
+f1_keywords: http://schemas.microsoft.com/developer/msbuild/2003#ResolveComReference
 dev_langs:
 - VB
 - CSharp
@@ -19,30 +17,15 @@ helpviewer_keywords:
 - MSBuild, ResolveCOMReference task
 - ResolveCOMReference task [MSBuild]
 ms.assetid: c9bf5fcf-6453-40ea-b50f-a212adc3e9b5
-caps.latest.revision: 26
+caps.latest.revision: "26"
 author: kempb
 ms.author: kempb
 manager: ghogen
-translation.priority.ht:
-- cs-cz
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pl-pl
-- pt-br
-- ru-ru
-- tr-tr
-- zh-cn
-- zh-tw
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 11a9cee75f912c5fb31cf4a031644abe9c63d744
-ms.openlocfilehash: 2448ac7c838c9ee1a22e7923e130688d24c398f0
-ms.contentlocale: zh-cn
-ms.lasthandoff: 06/03/2017
-
+ms.openlocfilehash: bb95d43af71a7860f239c56ab3db46a2e3c5e238
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="resolvecomreference-task"></a>ResolveComReference 任务
 获取一个或多个类型库名称或 .tlb 文件的列表，将这些类型库解析为磁盘上的位置。  
@@ -81,7 +64,7 @@ ms.lasthandoff: 06/03/2017
 |`VersionMajor`|所需的项元数据。<br /><br /> 类型库的主版本。 如果未指定此项元数据，则任务失败。|  
 |`VersionMinor`|所需的项元数据。<br /><br /> 类型库的次版本。 如果未指定此项元数据，则任务失败。|  
 |`LocaleIdentifier`|可选项元数据。<br /><br /> 类型库的区域设置标识符（或 LCID）。 被指定为 32 位值，可标识用户、区域或应用程序首选的人类语言。 如果未指定此项元数据，任务将使用默认区域设置标识符“0”。|  
-|`WrapperTool`|可选项元数据。<br /><br /> 指定用于生成此类型库的包装程序集的包装工具。 如果未指定此项元数据，任务将使用默认包装工具“tlbimp”。 可供类型库使用且区分大小写的选项有：<br /><br /> -   `Primary`：如果希望使用 COM 组件已经生成的主互操作程序集，请使用此包装工具。 使用此包装工具时，请勿指定包装器输出目录，否则任务会失败。<br />-   `TLBImp`：如果希望为 COM 组件生成互操作程序集，请使用此包装工具。<br />-   `AXImp`：如果希望为 ActiveX 控件生成互操作程序集，请使用此包装工具。|  
+|`WrapperTool`|可选项元数据。<br /><br /> 指定用于生成此类型库的程序集包装器的包装工具。 如果未指定此项元数据，任务将使用默认包装工具“tlbimp”。 可供类型库使用且区分大小写的选项有：<br /><br /> -   `Primary`：如果希望使用 COM 组件已经生成的主互操作程序集，请使用此包装工具。 使用此包装工具时，请勿指定包装器输出目录，否则任务会失败。<br />-   `TLBImp`：如果希望为 COM 组件生成互操作程序集，请使用此包装工具。<br />-   `AXImp`：如果希望为 ActiveX 控件生成互操作程序集，请使用此包装工具。|  
   
 ## <a name="typelibfiles-item-metadata"></a>TypeLibFiles 项元数据  
  下表介绍了传递给 `TypeLibFiles` 参数的项可用的项元数据。  

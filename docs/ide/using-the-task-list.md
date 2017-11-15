@@ -4,8 +4,7 @@ ms.custom:
 ms.date: 11/04/2016
 ms.reviewer: 
 ms.suite: 
-ms.technology:
-- vs-ide-general
+ms.technology: vs-ide-general
 ms.tgt_pltfrm: 
 ms.topic: article
 f1_keywords:
@@ -16,31 +15,15 @@ helpviewer_keywords:
 - task list
 - Visual Studio, task list
 ms.assetid: f46a75a8-47b3-4cb6-bb59-b72e3356a664
-caps.latest.revision: 29
+caps.latest.revision: "29"
 author: gewarren
 ms.author: gewarren
 manager: ghogen
-translation.priority.ht:
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- ru-ru
-- zh-cn
-- zh-tw
-translation.priority.mt:
-- cs-cz
-- pl-pl
-- pt-br
-- tr-tr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5db97d19b1b823388a465bba15d057b30ff0b3ce
-ms.openlocfilehash: 01e8f3cc1bbcc2bc4b2fc94df1dad7d248b67290
-ms.contentlocale: zh-cn
-ms.lasthandoff: 02/22/2017
-
+ms.openlocfilehash: a380d0e1503a0a0a0683d6088a1ca2f9c085184d
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="using-the-task-list"></a>使用任务列表
 使用“任务列表”  跟踪使用 `TODO` 和 `HACK`或自定义令牌等令牌的代码注释，还能管理直接导向代码中的预定义位置的快捷方式。 单击列表中的项以转到其在源代码中的位置。  
@@ -59,7 +42,7 @@ ms.lasthandoff: 02/22/2017
   
 -   [快捷方式](../ide/using-the-task-list.md#shortcuts)  
   
-##  <a name="taskListWindow"></a>“任务列表”窗口  
+##  <a name="taskListWindow"></a> “任务列表”窗口  
  当“任务列表”  打开后，它将显示在应用程序窗口的底部。  
   
 #### <a name="to-open-the-task-list"></a>打开“任务列表”  
@@ -82,12 +65,12 @@ ms.lasthandoff: 02/22/2017
   
 -   将任意列标头拖动到所需的位置。  
   
-##  <a name="userTasks"></a>用户任务  
+##  <a name="userTasks"></a> 用户任务  
  已在 Visual Studio 2015 中删除用户任务功能。 当你打开的解决方案具有 Visual Studio 2013 和早期的 Visual Studio 2015 中的用户任务数据时，将不影响 .suo 文件中的用户任务数据，但用户任务不会显示在任务列表中。  
   
  如果想要继续访问和更新你的用户任务数据，应在 Visual Studio 2013 中打开项目，并将任何用户任务的内容复制到你的首选项目管理工具（如 Team Foundation Server）中。  
   
-##  <a name="tokensComments"></a>令牌和注释  
+##  <a name="tokensComments"></a> 令牌和注释  
  **“任务列表”** 窗口中还将显示注释标记后的代码注释和预定义的令牌。 例如，以下 C# 注释包含三个不同的部分：  
   
 -   注释标记 (`//`)  
@@ -102,7 +85,7 @@ ms.lasthandoff: 02/22/2017
   
  因为 `TODO` 是预定义令牌，该注释将在列表中显示为 `TODO` 任务。  
   
-###  <a name="customTokens"></a>自定义令牌  
+###  <a name="customTokens"></a> 自定义令牌  
  默认情况下，Visual Studio 包含以下令牌：HACK、TODO、UNDONE、NOTE。 它们不区分大小写。  
   
  你也可以创建自己的自定义令牌。  
@@ -121,7 +104,7 @@ ms.lasthandoff: 02/22/2017
   
 4.  在 **“优先级别”** 下拉列表中，为新令牌选择默认优先级别。 选择 **“添加”** 按钮。  
   
-###  <a name="cppComments"></a>C++ TODO 注释  
+###  <a name="cppComments"></a> C++ TODO 注释  
  默认情况下，C++ TODO 注释显示在“任务列表”  窗口中。 你可以更改这一行为。  
   
 ##### <a name="to-turn-off-c-todo-comments"></a>关闭 C++ TODO 注释  
@@ -132,7 +115,7 @@ ms.lasthandoff: 02/22/2017
   
 3.  在“C/C++” 下，选择“查看” ，然后将“枚举注释任务”  设置为“False” 。  
   
-##  <a name="shortcuts"></a>快捷方式  
+##  <a name="shortcuts"></a> 快捷方式  
  “快捷方式”  是代码中的书签，在“任务列表” 中跟踪；它具有与常规书签不同的图标。 双击 **“任务列表”** 中的快捷方式可转到代码中的对应位置。  
   
  ![Visual Studio 任务列表快捷方式图标](../ide/media/vs2015_task_list_bookmark.png "vs2015_task_list_bookmark")  

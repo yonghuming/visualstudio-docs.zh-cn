@@ -4,36 +4,19 @@ ms.custom:
 ms.date: 11/04/2016
 ms.reviewer: 
 ms.suite: 
-ms.technology:
-- vs-ide-general
+ms.technology: vs-ide-general
 ms.tgt_pltfrm: 
 ms.topic: article
 ms.assetid: 31827b17-f933-413d-b28a-b19f903b64ca
-caps.latest.revision: 5
-author: kempb
-ms.author: kempb
+caps.latest.revision: "5"
+author: gewarren
+ms.author: gewarren
 manager: ghogen
-translation.priority.ht:
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- ru-ru
-- zh-cn
-- zh-tw
-translation.priority.mt:
-- cs-cz
-- pl-pl
-- pt-br
-- tr-tr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 47057e9611b824c17077b9127f8d2f8b192d6eb8
-ms.openlocfilehash: 0c4c9c5a885b6f71b8531d4b04baecaec7f45949
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/13/2017
-
+ms.openlocfilehash: 77230702bf8dc582e176e4dd0f17eab3385966c6
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="how-to-suppress-compiler-warnings"></a>如何：取消显示编译器警告
 可清理生成日志，方法是指定一种或多种不希望包含的编译器警告。 例如，将生成日志的详细级别设置为“一般”、“详细”或“诊断”时，可以使用此方法查看自动生成的部分信息，但不是所有信息。 有关详细级别的更多信息，请参阅[如何：查看、保存和配置生成日志文件](../ide/how-to-view-save-and-configure-build-log-files.md)。  
@@ -127,4 +110,3 @@ ms.lasthandoff: 05/13/2017
  [演练：生成应用程序](../ide/walkthrough-building-an-application.md)   
  [如何：查看、保存和配置生成日志文件](../ide/how-to-view-save-and-configure-build-log-files.md)   
  [编译和生成](../ide/compiling-and-building-in-visual-studio.md)
-

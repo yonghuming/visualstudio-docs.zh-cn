@@ -1,19 +1,22 @@
 ---
-title: "分析工具性能规则参考 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-debug"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
+title: "性能规则参考 | Microsoft Docs"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology: vs-ide-debug
+ms.tgt_pltfrm: 
+ms.topic: article
 ms.assetid: 59fc9424-76ca-4365-ae47-bb14a736c9c2
-caps.latest.revision: 14
-author: "mikejo5000"
-ms.author: "mikejo"
-manager: "ghogen"
-caps.handback.revision: 14
+caps.latest.revision: "14"
+author: mikejo5000
+ms.author: mikejo
+manager: ghogen
+ms.openlocfilehash: bec05a24a932816374766c107c1aab6f018e77cf
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="performance-rules-reference"></a>性能规则参考
 分析工具的性能规则提供有关应用程序性能的其他警告和信息。 性能规则分析在分析运行中从源（如 Windows 和处理器性能计数器）收集的数据。 规则消息会出现在 [!INCLUDE[vs_current_short](../code-quality/includes/vs_current_short_md.md)] 集成开发环境的“错误输出”窗口中。 这些消息使用以下规则级别之一列出：  
@@ -35,8 +38,3 @@ caps.handback.revision: 14
 |[内存和分页性能规则](../profiling/memory-and-paging-performance-rules.md)|分析应用程序的托管内存和分页行为的规则。|  
 |[分析工具使用规则](../profiling/profiling-tools-usage-rules.md)|可帮助高效使用分析工具的规则。|  
 |[资源监控性能规则](../profiling/resource-monitoring-performance-rules.md)|有关分析运行中的处理器和内存利用率的信息消息。|
-
-
-<!--HONumber=Feb17_HO4-->
-
-

@@ -1,27 +1,24 @@
 ---
 title: "将 SQL Server 与针对 Visual Studio 的 R 工具集成 | Microsoft Docs"
 ms.custom: 
-ms.date: 6/30/2017
+ms.date: 06/30/2017
 ms.reviewer: 
 ms.suite: 
-ms.technology:
-- devlang-r
+ms.technology: devlang-r
 ms.devlang: r
 ms.tgt_pltfrm: 
 ms.topic: article
 ms.assetid: 919dfc34-234a-489e-91bf-74a4cefae26c
-caps.latest.revision: 1
+caps.latest.revision: "1"
 author: kraigb
 ms.author: kraigb
 manager: ghogen
+ms.openlocfilehash: 8c26ad4d9df3fb8b84c5d8c93e213858bc2ccb67
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
 ms.translationtype: HT
-ms.sourcegitcommit: fa4f6a27eeacd2f016a248daa74074392b1137f2
-ms.openlocfilehash: b7afc0b2e62245e30814a0bc00d455400ae1b2d8
-ms.contentlocale: zh-cn
-ms.lasthandoff: 07/20/2017
-
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-
 # <a name="working-with-sql-server-and-r"></a>使用 SQL Server 和 R
 
 Visual Studio 能够完美地支持 SQL Server，可以创建和运行 SQL 查询并使用存储过程，帮助数据科学家使用 R 和 SQL 数据库。
@@ -159,4 +156,3 @@ WITH RESULT SETS ((medallion NVARCHAR(max), hack_license NVARCHAR(max)));
 
 > [!Tip]
 > 如果在 Visual Studio 中打开了 SQL Server 对象资源管理器，则已发布的存储过程会显示在数据库的“可编程性”>“存储过程”文件夹中。 另外，通过右键单击并选择“执行过程”，或者从 `.sql` 查询窗口交互调用，也可以从对象资源管理器运行该操作。
-

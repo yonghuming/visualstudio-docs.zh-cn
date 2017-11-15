@@ -1,53 +1,54 @@
 ---
 title: "大纲显示 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-general"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-helpviewer_keywords: 
-  - "大纲显示"
-  - "Visual Studio，展开/折叠代码"
-  - "Visual Studio，大纲显示"
-  - "展开/折叠代码"
-  - "代码 [Visual Studio]，大纲显示"
-  - "代码 [Visual Studio]，隐藏"
-  - "以大纲方式显示代码"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology: vs-ide-general
+ms.tgt_pltfrm: 
+ms.topic: article
+helpviewer_keywords:
+- outlining
+- Visual Studio, expand/collapse code
+- Visual Studio, outlining
+- expand/collapse code
+- code [Visual Studio], outlining
+- code [Visual Studio], hiding
+- outlining code
 ms.assetid: d1476758-9d35-4d74-b63c-310661932ecd
-caps.latest.revision: 34
-author: "kempb"
-ms.author: "kempb"
-manager: "ghogen"
-caps.handback.revision: 34
+caps.latest.revision: "34"
+author: gewarren
+ms.author: gewarren
+manager: ghogen
+ms.openlocfilehash: cc1b41f0b1095876129a9be451e5a1ff774c8dc5
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# 大纲显示
-[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
-
-通过视图的代码折叠区域，可以选择隐藏某些代码，以便它在一个加号 \(\+\) 下。  通过单击加号展开折叠的区域。\(也可以按 CTRL\+M\+M折叠区域，然后再次CTRL\+M \+ M将其展开。\)在代码的左边区域，你可以通过双击大纲边距的任何线来折叠大纲区域。  当将鼠标指针悬停在这个折叠区域时，可以看到一个折叠区域的内容提示。  
+# <a name="outlining"></a>大纲显示
+你可以选择隐藏视图中的某些代码，方法是折叠某个区域的代码，使其显示在加号 (+) 下面。 单击加号可展开折叠的区域。 （或者可以按 CTRL + M + M 折叠一个区域，再按 CTRL + M + M 将其展开。）你还可以双击大纲边距（位于代码左侧）上的区域中的任意行来折叠大纲区域。 将鼠标悬停在折叠区域时，可以看见折叠区域的内容提示。  
   
- 当将鼠标指针悬停在使用鼠标时，的边距在大纲边距的区域来显示。  在某些颜色配置下，默认高亮颜色看起来有些模糊。  可以在“工具\/选项\/环境\/字体颜色\/折叠区域”中改变。  
+ 将鼠标悬停在边距上时也会突出显示大纲边距中的区域。 在某些颜色配置中，默认的突出显示颜色可能看起来很模糊。 可以在“工具”/“选项”/“环境”/“字体和颜色”/“可折叠区域”中更改此颜色。  
   
- 以大纲方式显示代码后，您可以展开要工作的部分，完成后折叠它们，然后移动到其他部分。  当你不希望大纲显示时，可使用“停止大纲”命令移除大纲信息而不会影响基础代码。  
+ 当处理以大纲方式显示的代码时，可以展开要处理的部分，完成后将其折叠，然后移到其他部分。 如果不希望使用大纲显示方式，可以使用**停止大纲显示**命令删除大纲信息，但是不会影响基础代码。  
   
- **“编辑”**菜单上的**“撤消”**和**“重复”**命令可影响这些操作。  **“复制”**，**“剪切”**，**“粘贴”**和拖放操作保留大纲显示信息，但不保留可折叠区域的状态。  例如，当您复制折叠的区域时，**“粘贴”**操作将复制的文本粘贴为展开的区域。  
+ “编辑”菜单上的“撤消”和“重做”命令会影响这些操作。 **复制**、**剪切**、**粘贴**和拖放操作可保留大纲信息，但是不保留可折叠区域的状态。 例如，如果复制处于折叠状态的区域，那么**粘贴**操作将把复制的文本作为展开的区域进行粘贴。  
   
 > [!CAUTION]
->  当你更改一个大纲区域时，则大纲可能丢失。  例如，删除或查找和替换操作可能会清除区域末尾的内容。  
+>  如果更改大纲显示区域，那么大纲显示可能失效。 例如，删除或“查找和替换”操作可能删除区域的结尾标记。  
   
- 下面的命令可以在“编辑\/大纲”子菜单中查找。  
+ “编辑”/“大纲显示”子菜单包含以下命令。  
   
 |||  
 |-|-|  
-|隐藏选定内容|\(CTRL \+ M , CTRL \+ H\)\-折叠一个选中的区域，其中的代码在大纲中不是一直有效。例如一个`if`块。  使用**停止隐藏当前** \(或 CTRL \+ M, CTRL \+ U\)移除定制区域。  Visual Basic 中不可用。|  
-|切换大纲显示展开|当光标处于一个嵌套的折叠部分时，当前隐藏区域会反转或者展开最内存大纲区域的状态。|  
-|切换所有大纲显示|\(CTRL \+ M，CTRL \+ L\)\-设置所有区域为同一折叠或展开状态。  如果一些区域展开而另一些区域隐藏，那么隐藏的区域也将展开。|  
-|停止大纲显示|\(CTRL \+ M, CTRL \+ P\)\-移除整个文档中所有的大纲信息。|  
-|停止隐藏当前区域|\(CTRL \+ M, CTRL \+ U\)\-移除当前选定的用户定义区域的大纲信息。  Visual Basic 中不可用。|  
-|折叠到定义|\(CTRL \+ M，CTRL \+ O"\) \-折叠所有类型的成员。|  
-|折叠块\<逻辑边界\>|\(Visual C\+\+\)可以把包含插入点的函数折叠一个区域。  例如，如果插入点在循环内，则循环隐藏。|  
-|\<逻辑结构\>全部折叠。|\(Visual C\+\+\)折叠函数中的所有结构体。|  
+|隐藏选定内容|（CTRL + M、CTRL + H）- 折叠所选的代码块，此功能通常不可用于大纲显示，例如 `if` 代码块。 若要移除自定义区域，请使用**停止隐藏当前内容**（或使用 CTRL + M、CTRL + U）。 此命令不可用于 Visual Basic。|  
+|切换大纲显示展开|- 当游标位于嵌套的折叠部分时，反转大纲最内层部分的当前的隐藏或展开状态。|  
+|切换所有大纲显示|（CTRL + M、CTRL + L）- 将所有区域设置为相同的折叠或展开状态。 如果一些区域为展开状态，一些为折叠状态，那么将展开折叠区域。|  
+|停止大纲显示|（CTRL + M、CTRL + P）- 删除整个文档的所有大纲信息。|  
+|停止隐藏当前内容|（CTRL + M、CTRL + U）- 删除当前所选的用户定义的区域的大纲信息。 此命令不可用于 Visual Basic。|  
+|折叠到定义|（CTRL + M、CTRL + O）- 折叠所有类型的成员。|  
+|折叠块：\<逻辑边界>|(Visual C++) 折叠包含插入点的函数中的一个区域。 例如，如果插入点在一个循环内，则隐藏此循环。|  
+|全部折叠：\<逻辑结构>|(Visual C++) 折叠函数内的所有结构。|  
   
- 还可以使用 Visual Studio SDK 定义要展开或折叠的文本区域。  请参见 [演练: 大纲显示](../extensibility/walkthrough-outlining.md)。
+ 你还可以使用 Visual Studio SDK 定义想要展开或折叠的文本区域。 请参阅[演练：大纲显示](../extensibility/walkthrough-outlining.md)。

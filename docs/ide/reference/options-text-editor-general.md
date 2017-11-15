@@ -4,8 +4,7 @@ ms.custom:
 ms.date: 11/04/2016
 ms.reviewer: 
 ms.suite: 
-ms.technology:
-- vs-ide-general
+ms.technology: vs-ide-general
 ms.tgt_pltfrm: 
 ms.topic: article
 f1_keywords:
@@ -42,36 +41,23 @@ f1_keywords:
 - VS.ToolsOptionsPages.Text_Editor.T-SQL90.General
 - VS.ToolsOptionsPages.Text_Editor.General
 - VS.ToolsOptionsPages.Text_Editor.CSharp
+- VS.ToolsOptionsPages.Text_Editor.Python
+- VS.ToolsOptionsPages.Text_Editor.R
 helpviewer_keywords:
 - Text Editor Options dialog box
 - Code Editor
 - Text Editor [Visual Studio]
 - editors, global settings
 ms.assetid: 4ac21e48-3243-4141-9058-7eaf12b3cde7
-caps.latest.revision: 29
-author: kempb
-ms.author: kempb
+caps.latest.revision: "29"
+author: gewarren
+ms.author: gewarren
 manager: ghogen
-translation.priority.ht:
-- cs-cz
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pl-pl
-- pt-br
-- ru-ru
-- tr-tr
-- zh-cn
-- zh-tw
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5ea9179ad37514ffad4876177b05150eecc22def
-ms.openlocfilehash: eee3b34e9f473c200463b65f1b839416f5dce0ec
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/24/2017
-
+ms.openlocfilehash: 747e17f876972fb44f686fe90ad4e97fd035279e
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="options-text-editor-general"></a>选项，文本编辑器，常规
 使用此对话框可以更改 [!INCLUDE[vsprvs](../../code-quality/includes/vsprvs_md.md)] 代码和文本编辑器的全局设置。 若要显示此对话框，请在“工具”菜单上单击“选项”，展开“文本编辑器”文件夹，然后单击“常规”。  
@@ -98,7 +84,7 @@ ms.lasthandoff: 05/24/2017
   
 |打开选定内容的边距|关闭选定内容的边距|  
 |-------------------------|--------------------------|  
-|![HTMLpageSelectionMarginOn 屏幕截图](~/ide/reference/media/vxselmaron.gif "vxSelmaron")|![HTMLpageSelectionMarginOff 屏幕截图](~/ide/reference/media/vxselmaroff.gif "vxSelmaroff")|  
+|![HTMLpageSelectionMarginOn 屏幕截图](../../ide/reference/media/vxselmaron.gif "vxSelmaron")|![HTMLpageSelectionMarginOff 屏幕截图](../../ide/reference/media/vxselmaroff.gif "vxSelmaroff")|  
   
  指示器边距  
  勾选此项后，将显示编辑器文本区域的左侧边缘外的垂直边距。 在此边距内单击时，会显示与文本有关的图标和工具提示。 例如，指示器边距内会出现断点或任务列表快捷方式。 但不显示指示器边距信息。  

@@ -1,56 +1,56 @@
 ---
 title: "Error 任务 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "http://schemas.microsoft.com/developer/msbuild/2003#Error"
-dev_langs: 
-  - "VB"
-  - "CSharp"
-  - "C++"
-  - "jsharp"
-helpviewer_keywords: 
-  - "Error 任务 [MSBuild]"
-  - "MSBuild, Error 任务"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology: vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords: http://schemas.microsoft.com/developer/msbuild/2003#Error
+dev_langs:
+- VB
+- CSharp
+- C++
+- jsharp
+helpviewer_keywords:
+- Error task [MSBuild]
+- MSBuild, Error task
 ms.assetid: e96a90ee-a8ae-4e5b-8ef2-b5cf5fedd8b2
-caps.latest.revision: 20
-author: "kempb"
-ms.author: "kempb"
-manager: "ghogen"
-caps.handback.revision: 20
+caps.latest.revision: "20"
+author: kempb
+ms.author: kempb
+manager: ghogen
+ms.openlocfilehash: 35360c057d0c18a1d6c891796f5788d5cfeab89b
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# Error 任务
-[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
-
-根据计算的条件语句停止生成操作并记录错误。  
+# <a name="error-task"></a>Error 任务
+基于评估的条件语句，停止生成操作并记录错误。  
   
-## 参数  
+## <a name="parameters"></a>参数  
  下表描述了 `Error` 任务的参数。  
   
-|Parameter|说明|  
-|---------------|--------|  
-|`Code`|可选 `String` 参数。<br /><br /> 要与错误关联的错误代码。|  
-|`File`|可选 `String` 参数。<br /><br /> 包含错误的文件的名称。  如果未提供任何文件名，则将使用包含“错误”任务的文件。|  
-|`HelpKeyword`|可选 `String` 参数。<br /><br /> 与错误关联的“帮助”关键字。|  
-|`Text`|可选 `String` 参数。<br /><br /> 当 `Condition` 参数的计算结果为 `true` 时，[!INCLUDE[vstecmsbuild](../extensibility/internals/includes/vstecmsbuild_md.md)] 记录的错误文本。|  
+|参数|描述|  
+|---------------|-----------------|  
+|`Code`|可选 `String` 参数。<br /><br /> 与错误关联的错误代码。|  
+|`File`|可选 `String` 参数。<br /><br /> 包含错误的文件的名称。 如果未提供任何文件名称，将使用包含 Error 任务的文件。|  
+|`HelpKeyword`|可选 `String` 参数。<br /><br /> 与错误关联的 Help 关键字。|  
+|`Text`|可选 `String` 参数。<br /><br /> `Condition` 参数评估为 `true` 时 [!INCLUDE[vstecmsbuild](../extensibility/internals/includes/vstecmsbuild_md.md)] 记录的错误文本。|  
   
-## 备注  
- `Error` 任务使 [!INCLUDE[vstecmsbuild](../extensibility/internals/includes/vstecmsbuild_md.md)] 项目可以向记录器发出错误文本并停止执行生成。  
+## <a name="remarks"></a>备注  
+ `Error` 任务允许 [!INCLUDE[vstecmsbuild](../extensibility/internals/includes/vstecmsbuild_md.md)] 项目将错误文本上报给记录器并停止执行生成。  
   
- 如果 `Condition` 参数的计算结果为 `true`，将停止生成，并记录错误。  如果 `Condition` 参数不存在，将记录错误并停止执行生成。  有关日志记录的更多信息，请参见 [获取生成日志](../msbuild/obtaining-build-logs-with-msbuild.md)。  
+ 如果 `Condition` 参数评估为 `true`，将停止生成，并记录一个错误。 如果 `Condition` 参数不存在，将记录错误并停止执行生成。 有关日志记录的详细信息，请参阅[获取生成日志](../msbuild/obtaining-build-logs-with-msbuild.md)。  
   
- 除了上面列出的参数，此任务还将从 <xref:Microsoft.Build.Tasks.TaskExtension> 类继承参数，此类本身从 <xref:Microsoft.Build.Utilities.Task> 类继承。  有关这些附加参数及其说明的列表，请参见 [TaskExtension 基类](../msbuild/taskextension-base-class.md)。  
+ 除上面列出的参数外，此任务还从 <xref:Microsoft.Build.Tasks.TaskExtension> 类继承参数，后者自身继承自 <xref:Microsoft.Build.Utilities.Task> 类。 有关这些其他参数的列表及其说明的信息，请参阅 [TaskExtension Base Class](../msbuild/taskextension-base-class.md)。  
   
-## 示例  
- 下面的代码示例验证是否所有必需的属性都已设置。  如果未设置这些属性，则项目将引发错误事件，并记录 `Error` 任务的 `Text` 参数的值。  
+## <a name="example"></a>示例  
+ 以下代码示例验证所有所需的属性均得以设置。 如果未设置这些属性，则项目引发错误事件，并记录 `Error` 任务中 `Text` 参数的值。  
   
-```  
+```xml  
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">  
     <Target Name="ValidateCommandLine">  
         <Error  
@@ -64,6 +64,6 @@ caps.handback.revision: 20
 </Project>  
 ```  
   
-## 请参阅  
+## <a name="see-also"></a>另请参阅  
  [任务参考](../msbuild/msbuild-task-reference.md)   
  [获取生成日志](../msbuild/obtaining-build-logs-with-msbuild.md)

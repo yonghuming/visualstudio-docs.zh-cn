@@ -4,34 +4,19 @@ ms.custom:
 ms.date: 11/04/2016
 ms.reviewer: 
 ms.suite: 
-ms.technology:
-- vs-ide-sdk
+ms.technology: vs-ide-sdk
 ms.tgt_pltfrm: 
 ms.topic: article
 ms.assetid: 92814100-392a-471d-96fd-e26f637d6cc2
-caps.latest.revision: 5
+caps.latest.revision: "5"
 author: kempb
 ms.author: kempb
 manager: ghogen
-translation.priority.ht:
-- cs-cz
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pl-pl
-- pt-br
-- ru-ru
-- tr-tr
-- zh-cn
-- zh-tw
-translationtype: Human Translation
-ms.sourcegitcommit: ce1142acf4acb0e44e85b7e9ab313136d7ed7727
-ms.openlocfilehash: 0ef80ff90b0182405f72f9413de13b699aed971d
-ms.lasthandoff: 03/28/2017
-
+ms.openlocfilehash: 69669acc9cc0815dc8df0c88172213ad3e3698f9
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="how-to-configure-targets-and-tasks"></a>如何；配置目标和任务
 可将所选的 MSBuild 任务设置为在其目标环境中运行，而不考虑开发计算机的环境。 例如，当使用 64 位计算机生成面向 32 位体系结构的应用程序时，将在 32 位进程中运行所选的任务。  
@@ -118,7 +103,7 @@ ms.lasthandoff: 03/28/2017
  与其他任务参数不同，`MSBuildRuntime` 和 `MSBuildArchitecture` 并不对任务本身显示。  若要编写可识别其运行的上下文的任务，必须通过调用 .NET Framework 来测试上下文，或使用生成属性通过其他任务参数来传递上下文信息。  
   
 > [!NOTE]
-> 可通过工具集和环境属性设置  `UsingTask` 特性。  
+>  可通过工具集和环境属性设置 `UsingTask` 特性。  
   
  `MSBuildRuntime` 和 `MSBuildArchitecture` 参数提供设置目标上下文的最灵活方式，但其范围也最受限制。  一方面，因为这些参数是在任务实例本身上设置的，并在任务运行之前不会进行计算，因此可从计算时和生成时都可用的全部属性范围中派生其值。  另一方面，这些参数仅适用于特定目标中任务的特定实例。  
   
@@ -127,4 +112,3 @@ ms.lasthandoff: 03/28/2017
   
 ## <a name="see-also"></a>另请参阅  
  [配置目标和任务](../msbuild/configuring-targets-and-tasks.md)
-

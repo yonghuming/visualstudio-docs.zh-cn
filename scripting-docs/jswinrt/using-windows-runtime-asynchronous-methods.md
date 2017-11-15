@@ -5,23 +5,20 @@ ms.date: 01/18/2017
 ms.prod: windows-client-threshold
 ms.reviewer: 
 ms.suite: 
-ms.technology:
-- javascript
+ms.technology: javascript
 ms.tgt_pltfrm: 
 ms.topic: article
-helpviewer_keywords:
-- JavaScript, Windows Runtime asynchronous methods
+helpviewer_keywords: JavaScript, Windows Runtime asynchronous methods
 ms.assetid: 70756833-44f7-4383-827f-2ac781558082
-caps.latest.revision: 15
+caps.latest.revision: "15"
 author: mikejo5000
 ms.author: mikejo
 manager: ghogen
-ms.translationtype: HT
-ms.sourcegitcommit: 29eb97427c2c5a29ee9a66e8e2a85953fd797efd
 ms.openlocfilehash: 215a04a2f3f875743a7fbf910a3a565cf34fb558
-ms.contentlocale: zh-cn
-ms.lasthandoff: 08/11/2017
-
+ms.sourcegitcommit: aadb9588877418b8b55a5612c1d3842d4520ca4c
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="using-windows-runtime-asynchronous-methods"></a>使用 Windows 运行时异步方法
 许多 Windows 运行时方法（特别是可能需要花费很长时间才能完成的方法）是异步的。 这些方法通常返回一个异步行为或操作（例如，`Windows.Foundation.IAsyncAction`、`Windows.Foundation.IAsyncOperation`、`Windows.Foundation.IAsyncActionWithProgress` 或 `Windows.Foundation.IAsyncOperationWithProgress`）。 这些方法在 JavaScript 中以 [CommonJS/Promises/A](http://go.microsoft.com/fwlink/p/?LinkId=244434) 形式表示。 也就是说，它们返回一个具有 [then](https://msdn.microsoft.com/en-us/library/windows/apps/br229728.aspx) 函数的 Promise 对象，必须为其提供一个 `completed` 函数（如果操作成功，则该函数将处理结果）。 如果不希望提供错误处理程序，则应使用 [done](https://msdn.microsoft.com/en-us/library/windows/apps/hh701079.aspx) 函数而不是 `then` 函数。  

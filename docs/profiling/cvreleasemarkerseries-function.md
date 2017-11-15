@@ -1,30 +1,29 @@
 ---
 title: "CvReleaseMarkerSeries 函数 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-debug"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "cvmarkers/CvReleaseMarkerSeries"
-helpviewer_keywords: 
-  - "CvReleaseMarkerSeries 方法"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology: vs-ide-debug
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords: cvmarkers/CvReleaseMarkerSeries
+helpviewer_keywords: CvReleaseMarkerSeries method
 ms.assetid: 3b4711ee-e534-411d-9128-f69cd7932a48
-caps.latest.revision: 3
-author: "mikejo5000"
-ms.author: "mikejo"
-manager: "ghogen"
-caps.handback.revision: 3
+caps.latest.revision: "3"
+author: mikejo5000
+ms.author: mikejo
+manager: ghogen
+ms.openlocfilehash: d295d73560a560caa7f374965a280cf48ad66c2d
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# CvReleaseMarkerSeries 函数
-[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
-
-发布标记系列。  在发布之后请勿使用标记系列对象，否则应用程序可能会崩溃。  发布失败的标记系列会导致内存泄漏。  
+# <a name="cvreleasemarkerseries-function"></a>CvReleaseMarkerSeries 函数
+发布标记系列。 在发布之后请勿使用标记系列对象，否则应用程序可能会崩溃。 标记系列发布失败会导致内存泄漏。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
 ```  
 HRESULT CvReleaseMarkerSeries(  
@@ -32,15 +31,15 @@ HRESULT CvReleaseMarkerSeries(
 );  
 ```  
   
-#### 参数  
+#### <a name="parameters"></a>参数  
  `pMarkerSeries`  
- 提供程序对象变量的地址。  地址不能为 null，此变量可以具有任何值。  
+ 提供程序对象变量的地址。 地址不能为 NULL，该变量可以具有任何值。  
   
-## 返回值  
- S\_OK，当标记系列成功发布或错误代码以防有任何错误时。  使用 SUCCEEDED\/FAILED 宏检查错误状态。  
+## <a name="return-value"></a>返回值  
+ 成功发布标记系列时返回 S_OK，出现任何错误时返回错误代码。 使用 SUCCEEDED/FAILED 宏检查错误条件。  
   
-## 要求  
- **页眉：**cvmarkers.h  
+## <a name="requirements"></a>要求  
+ **标头：**cvmarkers.h  
   
-## 请参阅  
- [C\+\+ 库参考](../profiling/cpp-library-reference.md)
+## <a name="see-also"></a>另请参阅  
+ [C++ 库参考](../profiling/cpp-library-reference.md)

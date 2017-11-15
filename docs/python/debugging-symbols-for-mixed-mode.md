@@ -1,33 +1,29 @@
 ---
 title: "Visual Studio 中 Python/C++ 混合模式调试的符号 | Microsoft Docs"
 ms.custom: 
-ms.date: 7/12/2017
-ms.prod: visual-studio-dev15
+ms.date: 07/12/2017
 ms.reviewer: 
 ms.suite: 
-ms.technology:
-- devlang-python
+ms.technology: devlang-python
 ms.devlang: python
 ms.tgt_pltfrm: 
 ms.topic: article
 ms.assetid: be5fdf2f-b55f-488a-9772-58adfe07a7ab
-caps.latest.revision: 1
+caps.latest.revision: "1"
 author: kraigb
 ms.author: kraigb
 manager: ghogen
+ms.openlocfilehash: 365131bf30f57c90715bd04cded0f7c4c5761797
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
 ms.translationtype: HT
-ms.sourcegitcommit: 6d25db4639f2c8391c1e32542701ea359f560178
-ms.openlocfilehash: 1be4e28055f0501433f85325870654671c12f961
-ms.contentlocale: zh-cn
-ms.lasthandoff: 07/18/2017
-
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-
 # <a name="installing-debugging-symbols-for-python-interpreters"></a>安装用于 Python 解释器的调试符号
 
 为了提供完整的调试体验，Visual Studio 中的 [Python 混合模式调试器](debugging-mixed-mode.md)需要 Python 解释器（正在用于分析大量内部数据结构）的调试符号。 例如，对于 python27.dll，相应的符号文件是 python27.pdb；对于 python36.dll，符号文件是 python36.pdb。 解释器的每个版本都提供了各种模块的符号文件。
 
-对于 Visual Studio 2017，“Python 3”和“Anaconda 3”解释器会自动安装其各自的符号，Visual Studio 会自动找到这些符号。 对于 Visual Studio 2015 及更早版本，或使用其他解释器时，需要单独下载符号，然后通过“调试”>“符号”选项卡中的“工具”>“选项”对话框，将 Visual Studio 指向它们。 以下各节将详细介绍这些步骤。
+对于 Visual Studio 2017，“Python 3”和“Anaconda 3”解释器会自动安装其各自的符号，Visual Studio 会自动找到这些符号。 对于 Visual Studio 2015 及更早版本，或使用其他解释器时，需要单独下载符号，然后通过“调试”>“符号”选项卡中的“工具”>“选项”对话框，将 Visual Studio 指向它们。以下各节将详细介绍这些步骤。
 
 Visual Studio 可能会在需要符号的时候（通常是在启动混合模式的调试会话时）提示你。 在这种情况下，将显示一个对话框，其中包含两个选项：
 

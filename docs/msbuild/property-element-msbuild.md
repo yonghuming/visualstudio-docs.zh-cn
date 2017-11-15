@@ -4,8 +4,7 @@ ms.custom:
 ms.date: 03/13/2017
 ms.reviewer: 
 ms.suite: 
-ms.technology:
-- vs-ide-sdk
+ms.technology: vs-ide-sdk
 ms.tgt_pltfrm: 
 ms.topic: article
 dev_langs:
@@ -17,29 +16,15 @@ helpviewer_keywords:
 - <Property> Element [MSBuild]
 - Property Element [MSBuild]
 ms.assetid: 69ab08ab-3e76-41dd-a01b-49aa1d2e0cac
-caps.latest.revision: 17
+caps.latest.revision: "17"
 author: kempb
 ms.author: kempb
 manager: ghogen
-translation.priority.ht:
-- cs-cz
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pl-pl
-- pt-br
-- ru-ru
-- tr-tr
-- zh-cn
-- zh-tw
-translationtype: Human Translation
-ms.sourcegitcommit: 79460291e91f0659df0a4241e17616e55187a0e2
-ms.openlocfilehash: 369a8c9cbfb5431d482cbfdca6da036a9c5b60da
-ms.lasthandoff: 02/22/2017
-
+ms.openlocfilehash: e931468b27807a99e86249008718faf4e044cbd7
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="property-element-msbuild"></a>Property 元素 (MSBuild)
 包含用户定义的属性名和值。 [!INCLUDE[vstecmsbuild](../extensibility/internals/includes/vstecmsbuild_md.md)] 项目中使用的每一个属性都必须被指定为 `PropertyGroup` 元素的子元素。  
@@ -94,4 +79,3 @@ ms.lasthandoff: 02/22/2017
 ## <a name="see-also"></a>另请参阅
 [MSBuild 属性](../msbuild/msbuild-properties.md)  
  [项目文件架构参考](../msbuild/msbuild-project-file-schema-reference.md)
-

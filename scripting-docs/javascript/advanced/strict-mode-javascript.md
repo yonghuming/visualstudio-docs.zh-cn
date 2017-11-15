@@ -5,8 +5,7 @@ ms.date: 01/18/2017
 ms.prod: windows-client-threshold
 ms.reviewer: 
 ms.suite: 
-ms.technology:
-- devlang-javascript
+ms.technology: devlang-javascript
 ms.tgt_pltfrm: 
 ms.topic: article
 f1_keywords:
@@ -26,16 +25,15 @@ helpviewer_keywords:
 - strict mode
 - use strict
 ms.assetid: 0f27022a-f41c-4504-965c-5a2701f342cd
-caps.latest.revision: 14
+caps.latest.revision: "14"
 author: mikejo5000
 ms.author: mikejo
 manager: ghogen
-ms.translationtype: HT
-ms.sourcegitcommit: 29eb97427c2c5a29ee9a66e8e2a85953fd797efd
 ms.openlocfilehash: 77ee7d54dd265026b2bf4c9af52a71cccf9a7675
-ms.contentlocale: zh-cn
-ms.lasthandoff: 08/11/2017
-
+ms.sourcegitcommit: aadb9588877418b8b55a5612c1d3842d4520ca4c
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="strict-mode-javascript"></a>严格模式 (JavaScript)
 严格模式是一种将更好的错误检查引入代码中的方法。 在使用严格模式时，你无法使用隐式声明的变量、将值赋给只读属性或将属性添加到不可扩展的对象等。 本主题后面的[代码在严格模式下受到的限制](../../javascript/advanced/strict-mode-javascript.md#rest)部分列出了相关限制。 有关严格模式的更多信息，请参阅 [ECMAScript 语言规范版本 5](http://www.ecma-international.org/publications/standards/Ecma-262.htm)。  
