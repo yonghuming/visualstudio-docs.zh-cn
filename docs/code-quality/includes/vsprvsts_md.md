@@ -13,10 +13,10 @@ translation.priority.ht:
 - tr-tr
 - zh-cn
 - zh-tw
-ms.openlocfilehash: e33f8139f52e80a9b7f5c6072368231ed2ab309d
+ms.openlocfilehash: 3eeb7999b5e2933f8fbe7d738ea4292da75fcbe2
 ms.sourcegitcommit: aadb9588877418b8b55a5612c1d3842d4520ca4c
 ms.translationtype: MT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 10/27/2017
 ---
-Visual C#
+Visual Studio 应用程序生命周期管理
