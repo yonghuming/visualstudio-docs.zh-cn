@@ -4,37 +4,22 @@ ms.custom:
 ms.date: 11/04/2016
 ms.reviewer: 
 ms.suite: 
-ms.technology:
-- vs-ide-general
+ms.technology: vs-ide-general
 ms.tgt_pltfrm: 
 ms.topic: article
 helpviewer_keywords:
 - Tools Options settings, Text Editor node properties
 - automation [Visual Studio], controlling Tools Options
 ms.assetid: 19438302-0677-4f4d-9720-5667e6a22ab2
-caps.latest.revision: 17
-author: kempb
-ms.author: kempb
+caps.latest.revision: "17"
+author: gewarren
+ms.author: gewarren
 manager: ghogen
-translation.priority.ht:
-- cs-cz
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pl-pl
-- pt-br
-- ru-ru
-- tr-tr
-- zh-cn
-- zh-tw
-translationtype: Human Translation
-ms.sourcegitcommit: 5658ecf52637a38bc3c2a5ad9e85b2edebf7d445
-ms.openlocfilehash: 922e6ae930ee146a0e948a659cb128149e140396
-ms.lasthandoff: 02/22/2017
-
+ms.openlocfilehash: 5a917167b8e81445d0ec47a1dd44cf74f5d87d4f
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="options-page-text-editor-node-properties"></a>“选项”页 ->“文本编辑器”节点属性
 本文档描述了与“选项”对话框的“文本编辑器”类别 `DTE.Properties("TextEditor", <Property Page>)` 关联的一些页面（或属性集合）。 每个小节的标题都是用于访问 `Properties` 集合的调用，而每个小节中的表都列出了集合中的属性。  
@@ -73,7 +58,7 @@ ms.lasthandoff: 02/22/2017
 |WordWrapGlyphs|Get/Set (Boolean)|在行的末尾显示标志符号；这表明该行会换到下一行。|  
 |EnableLeftClickForURLs|Get/Set (Boolean)|确定编辑器是否为 URL 加下划线，并且是否启用单击鼠标左键时跳转到系统注册的 Web 浏览器中的 URL。|  
 |IndentStyle|Get/Set (<xref:EnvDTE.vsIndentStyle>)|确定缩进样式：“默认”、“智能”或“无”。|  
-|TabSize|Get/Set (Long)|表示等于一个制表符的空格数。 不能将整数设置在 1 至 60（包含 1 和 60）的范围之外。|  
+|TabSize|Get/Set (Long)|表示等于一个制表符的空格数。不能将整数设置在 1 至 60（包含 1 和 60）的范围之外。|  
 |InsertTabs|Get/Set (Boolean)|如果为 `True`，则缩进时使用 Tab 字符。|  
 |IndentSize|Get/Set (Long)|表示等于一个缩进级别的空格数。 不能将整数值设置在 1 至 60（包含 1 和 60）的范围之外。|  
 |ShowLineNumbers|Get/Set (Boolean)|确定核心编辑器文档的视图是否在左边距中显示行号。|  

@@ -4,36 +4,19 @@ ms.custom:
 ms.date: 05/02/2017
 ms.reviewer: 
 ms.suite: 
-ms.technology:
-- vs-devops-test
+ms.technology: vs-devops-test
 ms.tgt_pltfrm: 
 ms.topic: article
-helpviewer_keywords:
-- automated testing, lab management, test lab
+helpviewer_keywords: automated testing, lab management, test lab
 ms.assetid: F34B0D19-B430-4C01-B402-62A861007E71
-caps.latest.revision: 56
+caps.latest.revision: "56"
 ms.author: douge
 manager: douge
-translation.priority.ht:
-- cs-cz
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pl-pl
-- pt-br
-- ru-ru
-- tr-tr
-- zh-cn
-- zh-tw
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 45d36934cf1c46902cac566203cddf4a118b7fe4
-ms.openlocfilehash: 77a0339e1aae3036990f0d9d133a1fcb68844486
-ms.contentlocale: zh-cn
-ms.lasthandoff: 06/02/2017
-
+ms.openlocfilehash: 8d843800666ae53a686a18fcab28d02eb4c16743
+ms.sourcegitcommit: aadb9588877418b8b55a5612c1d3842d4520ca4c
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="use-build-and-release-management-instead-of-lab-management-for-automated-testing"></a>使用 Build Management 或 Release Management（而不是实验室管理工具版）进行自动测试
 
@@ -101,5 +84,4 @@ XAML 生成依赖于在 MTM 中创建的各种构造（例如实验室环境、�
 
 * 网络隔离有一个动机就是简化多个克隆的配置。 每个克隆都是原始对象的精确副本，因此计算机名称和配置设置保留原样，这样便可轻松设置新环境。 但是，这种优势在生命周期（例如在生产中）后期会导致出现问题，因为最终部署应用程序的方式不同。 可改为考虑按设置生产的相同方式设置新环境，并避免使用网络隔离。
 
-* 使用 [Microsoft Azure](https://azure.microsoft.com/) 等公有云基础结构满足测试需求。 轻松使用 [Azure Marketplace](https://azure.microsoft.com/marketplace/) 或 [Azure 快速入门模板](https://azure.microsoft.com/documentation/templates/) 提供的 [Azure 资格管理器模板](https://azure.microsoft.com/documentation/templates/)，只需通过代理或“跳转盒”即可设置通过私有网络连接，并向公用网络公开的一系列虚拟机。
-
+* 使用 [Microsoft Azure](https://azure.microsoft.com/) 等公有云基础结构满足测试需求。 轻松使用 [Azure Marketplace](https://azure.microsoft.com/marketplace/) 或 [Azure 快速入门模板](https://azure.microsoft.com/documentation/templates/)提供的 [Azure 资格管理器模板](https://azure.microsoft.com/documentation/templates/)，只需通过代理或“跳转盒”即可设置通过私有网络连接，并向公用网络公开的一系列虚拟机。

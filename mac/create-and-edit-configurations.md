@@ -6,14 +6,12 @@ ms.author: amburns
 ms.date: 04/14/2017
 ms.topic: article
 ms.assetid: CC1B72D6-12FF-4CCC-A9D4-00F2DC14589F
-ms.translationtype: HT
-ms.sourcegitcommit: e2b7ff9126e1cc38ac2e58d6be339b656a024e7f
 ms.openlocfilehash: 0cce820d76660124838307cc231b379c449b58a7
-ms.contentlocale: zh-cn
-ms.lasthandoff: 08/11/2017
-
+ms.sourcegitcommit: aadb9588877418b8b55a5612c1d3842d4520ca4c
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/27/2017
 ---
-
 # <a name="creating-and-editing-build-configurations"></a>创建和编辑生成配置
 
 可以为单个项目创建生成配置，也可创建适用于整个解决方案的生成配置。 这些配置提供对生成的精确控制。
@@ -62,4 +60,3 @@ ms.lasthandoff: 08/11/2017
 选择“重命名”按钮。
 
 ![“重命名”对话框](media/create-and-edit-configurations-image5.png) 
-

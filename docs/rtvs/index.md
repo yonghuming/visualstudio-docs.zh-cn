@@ -1,27 +1,24 @@
 ---
 title: "针对 Visual Studio 的 R 工具 | Microsoft Docs"
 ms.custom: 
-ms.date: 6/29/2017
+ms.date: 06/29/2017
 ms.reviewer: 
 ms.suite: 
-ms.technology:
-- devlang-r
+ms.technology: devlang-r
 ms.devlang: r
 ms.tgt_pltfrm: 
 ms.topic: hero-article
 ms.assetid: 11324501-ceb6-47a2-ae13-e9e992d3603e
-caps.latest.revision: 1
+caps.latest.revision: "1"
 author: kraigb
 ms.author: kraigb
 manager: ghogen
+ms.openlocfilehash: 693b070974c86babcfb57f71d37aa7eb030aac90
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
 ms.translationtype: HT
-ms.sourcegitcommit: 712cc780388acc5e373f71d51fc8f1f42adb5bed
-ms.openlocfilehash: 80a10c710aac8413bd59b53bb61de7a982c09952
-ms.contentlocale: zh-cn
-ms.lasthandoff: 07/12/2017
-
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-
 # <a name="working-with-r-in-visual-studio"></a>在 Visual Studio 中使用 R
 
 R 是用于统计计算和图形的高度可扩展语言和环境。 它是使用 GNU 通用公共许可证免费分发的工具，提供强大的社区支持，并因能够生成发布质量的绘图（包括数学符号和公式）而闻名。 若要了解详细信息，请参阅 [r-project.org](https://www.r-project.org/about.html) 和 [R 简介](https://cran.r-project.org/doc/manuals/r-release/R-intro.html)。
@@ -126,4 +123,3 @@ R 是用于统计计算和图形的高度可扩展语言和环境。 它是使�
 1. 发送笑脸/哭脸：使用“R 工具 > 反馈”菜单，可以快速发送反馈，并附加 RTVS 日志文件，以帮助我们诊断你遇到的问题。 （如果要单独发送，请将日志写入 `%temp%/RTVSlogs.zip`。）如果已使用“帮助 > 反馈 > 设置”菜单命令或在安装期间选择禁用了 Visual Studio 遥测，日志记录也会被禁用。
 
 1. 电子邮件：可以直接向团队发送反馈，地址是 rtvsuserfeedback@microsoft.com。
-

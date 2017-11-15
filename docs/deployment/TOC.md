@@ -103,4 +103,3 @@
 #### [<PackageFiles> 元素（引导程序）](packagefiles-element-bootstrapper.md)
 #### [<Strings> 元素（引导程序）](strings-element-bootstrapper.md)
 #### [<Schedules> 元素（引导程序）](schedules-element-bootstrapper.md)
-## [InstallShield Limited Edition](installshield-limited-edition.md)

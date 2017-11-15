@@ -13,10 +13,10 @@ translation.priority.ht:
 - tr-tr
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 7798c1d43e2cdea9fc01e36a6baf78ebcc5d60fe
+ms.openlocfilehash: 1be59b2c10f34a6ab358f1f2a21a42ebc340a31d
 ms.sourcegitcommit: aadb9588877418b8b55a5612c1d3842d4520ca4c
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 10/27/2017
 ---
-Visual Studio 2005
+.NET Framework Client Profile

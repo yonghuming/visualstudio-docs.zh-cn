@@ -4,42 +4,25 @@ ms.custom:
 ms.date: 11/04/2016
 ms.reviewer: 
 ms.suite: 
-ms.technology:
-- vs-ide-designers
+ms.technology: vs-ide-designers
 ms.tgt_pltfrm: 
 ms.topic: article
 ms.assetid: b9fbc8fa-66d1-4055-8460-24d8b8fbe43e
-caps.latest.revision: 10
+caps.latest.revision: "10"
 author: gewarren
 ms.author: gewarren
 manager: ghogen
-translation.priority.ht:
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- ru-ru
-- zh-cn
-- zh-tw
-translation.priority.mt:
-- cs-cz
-- pl-pl
-- pt-br
-- tr-tr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ca7c86466fa23fb21a932f26dc24e37c71cf29b4
-ms.openlocfilehash: 2cb4836ae868d56147a82fcefa0c5546bfcf8cad
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/05/2017
-
+ms.openlocfilehash: 92d133d688ad009dae1b4e518bdd8c749ebc329f
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="working-with-textures-and-images"></a>使用纹理和图像
-可以在 [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] 中使用图像编辑器来创建和修改纹理和图像。 如同用 DirectX 应用程序开发的应用程序一样，图像编辑器支持丰富的纹理和图像格式。  
+你可以在 [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] 中使用图像编辑器来创建和修改纹理与图像。 如同用 DirectX 应用程序开发的应用程序一样，图像编辑器支持丰富的纹理和图像格式。  
   
 > [!NOTE]
->  图像编辑器不支持低色彩图像，例如图标或光标。 若要创建或修改这种图像，请使用[适用于图标的图像编辑器](/cpp/windows/image-editor-for-icons)。  
+>  图像编辑器不支持低色彩图像，例如图标或光标。 若要创建或修改这种图像，请使用 [Image Editor for Icons](/cpp/windows/image-editor-for-icons)。  
   
 ## <a name="textures-and-images"></a>纹理和图像  
  简单地说，纹理和图像只是用于在图形应用中提供可视细节的数据表。 纹理或图像提供的细节取决于其用法，颜色样本、Alpha（透明度）值、法线与高度值是常见的示例。 纹理与图像之间的主要差别在于，前者连同形状的表示形式（通常是 3D 模型）来呈现整个对象或场景，而图像通常是对象或场景的独立表示形式。  

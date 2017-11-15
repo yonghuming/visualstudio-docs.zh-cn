@@ -4,8 +4,7 @@ ms.custom:
 ms.date: 11/04/2016
 ms.reviewer: 
 ms.suite: 
-ms.technology:
-- vs-ide-general
+ms.technology: vs-ide-general
 ms.tgt_pltfrm: 
 ms.topic: article
 helpviewer_keywords:
@@ -14,37 +13,20 @@ helpviewer_keywords:
 - bi-directional language support, encoded files
 - file encoding, bi-directional languages
 ms.assetid: cb52b732-b395-4ba1-a3ef-104b3942a12a
-caps.latest.revision: 8
-author: kempb
-ms.author: kempb
+caps.latest.revision: "8"
+author: gewarren
+ms.author: gewarren
 manager: ghogen
-translation.priority.ht:
-- cs-cz
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pl-pl
-- pt-br
-- ru-ru
-- tr-tr
-- zh-cn
-- zh-tw
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3d32d11a430227800cb3ed53831a9565eb6adeb3
-ms.openlocfilehash: 83faa2ad32073c4133295953afa6259e88eee2d5
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/30/2017
-
+ms.openlocfilehash: c9dca526f53c59b8db35b50378e4bf280d5e0a1e
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# 如何：保存和打开带有编码的文件
-<a id="how-to-save-and-open-files-with-encoding" class="xliff"></a>
+# <a name="how-to-save-and-open-files-with-encoding"></a>如何：保存和打开带有编码的文件
 可以使用特定字符编码保存文件，以支持双向语言。 还可以在打开文件时指定编码，以便 Visual Studio 正确显示文件。  
   
-### 使用编码保存文件
-<a id="to-save-a-file-with-encoding" class="xliff"></a>  
+### <a name="to-save-a-file-with-encoding"></a>使用编码保存文件  
   
 1.  从“文件”菜单中选择“将文件另存为”，然后单击“保存”按钮旁边的下拉按钮。  
   
@@ -58,8 +40,7 @@ ms.lasthandoff: 05/30/2017
   
      如果要使用已知通过特定方式编码的文件，则可以让 Visual Studio 在打开该文件时使用相应编码。 所使用的方法取决于文件是否是项目的一部分。  
   
-### 打开属于项目一部分的编码文件
-<a id="to-open-an-encoded-file-that-is-part-of-a-project" class="xliff"></a>  
+### <a name="to-open-an-encoded-file-that-is-part-of-a-project"></a>打开属于项目一部分的编码文件  
   
 1.  在**“解决方案资源管理器”**中右键单击文件，然后选择**“打开方式”**  
   
@@ -69,8 +50,7 @@ ms.lasthandoff: 05/30/2017
   
 3.  在“编码”对话框中，选择编辑器应使用的编码。  
   
-### 打开不属于项目一部分的编码文件
-<a id="to-open-an-encoded-file-that-is-not-part-of-a-project" class="xliff"></a>  
+### <a name="to-open-an-encoded-file-that-is-not-part-of-a-project"></a>打开不属于项目一部分的编码文件  
   
 1.  在“文件”菜单上，指向“打开”、选择“文件”或“来自 Web 的文件”，然后选择要打开的文件。  
   
@@ -78,7 +58,6 @@ ms.lasthandoff: 05/30/2017
   
 3.  按照上述步骤中的步骤 2 和步骤 3 操作。  
   
-## 另请参阅
-<a id="see-also" class="xliff"></a>  
+## <a name="see-also"></a>另请参阅  
  [编码和 Windows 窗体全球化](/dotnet/framework/winforms/advanced/encoding-and-windows-forms-globalization)   
  [对应用程序进行全球化和本地化](../ide/globalizing-and-localizing-applications.md)

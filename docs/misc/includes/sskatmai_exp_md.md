@@ -13,10 +13,10 @@ translation.priority.ht:
 - tr-tr
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 7798c1d43e2cdea9fc01e36a6baf78ebcc5d60fe
+ms.openlocfilehash: ce4b6ce80e25839fc27231369f0830e184f5a77e
 ms.sourcegitcommit: aadb9588877418b8b55a5612c1d3842d4520ca4c
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-CN
 ms.lasthandoff: 10/27/2017
 ---
-Visual Studio 2005
+SQL Server 2008 Express
