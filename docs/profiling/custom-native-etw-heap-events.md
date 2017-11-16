@@ -4,39 +4,21 @@ ms.custom:
 ms.date: 02/24/2017
 ms.reviewer: 
 ms.suite: 
-ms.technology:
-- vs-ide-debug
+ms.technology: vs-ide-debug
 ms.tgt_pltfrm: 
 ms.topic: article
 ms.assetid: 668a6603-5082-4c78-98e6-f3dc871aa55b
-caps.latest.revision: 8
-author: BrianPeek
-ms.author: brpeek
+caps.latest.revision: "8"
+author: mikejo5000
+ms.author: mikejo
 manager: ghogen
-dev_langs:
-- C++
-translation.priority.ht:
-- cs-cz
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pl-pl
-- pt-br
-- ru-ru
-- tr-tr
-- zh-cn
-- zh-tw
+dev_langs: C++
+ms.openlocfilehash: 10d4ab630132d8ce4191978de669436ca7ba5852
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
 ms.translationtype: HT
-ms.sourcegitcommit: 7c87490f8e4ad01df8761ebb2afee0b2d3744fe2
-ms.openlocfilehash: f2a659347823fee4b933463011c0b69c07fa937f
-ms.contentlocale: zh-cn
-ms.lasthandoff: 09/06/2017
-
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-
 # <a name="custom-native-etw-heap-events"></a>自定义本机 ETW 堆事件
 
 Visual Studio 包含本机内存探查器等各种[分析和诊断工具](https://docs.microsoft.com/en-us/visualstudio/profiling/profiling-tools)。  此探查器与堆提供程序中的 [ETW 事件](/windows-hardware/drivers/devtest/event-tracing-for-windows--etw-)挂钩，并分析如何分配和使用内存。  默认情况下，此工具仅可以分析从标准的 Windows 堆进行的分配，不会显示此本机堆以外的任何分配。
@@ -170,12 +152,11 @@ Foo* pFoo3 = (Foo*)mPool.allocate();
 
 ![带跟踪器的 NT 堆](media/heap-example-windows-heap.png)
 
-如[](https://docs.microsoft.com/en-us/visualstudio/profiling/memory-usage)文档中所述，与标准的 Windows 堆一样，你还可使用此工具比较快照，并查找自定义堆中的泄漏和损坏。
+[如](https://docs.microsoft.com/en-us/visualstudio/profiling/memory-usage)文档中所述，与标准的 Windows 堆一样，你还可使用此工具比较快照，并查找自定义堆中的泄漏和损坏。
 
 > [!TIP]
-> Visual Studio 在**性能分析**工具集中还包含**内存使用量**工具，可在“调试”>“性能探查器”菜单选项或通过 **Alt+F2** 键盘组合启用该工具。  此功能不包含堆跟踪，并且不会按如下所述显示你的自定义堆。  只有“诊断工具”窗口包含此功能，可以使用启用“调试”>“Windows”>“显示诊断工具”菜单或 **Ctrl+Alt+F2** 键盘组合来启用此窗口。
+> Visual Studio 在**性能分析**工具集中还包含**内存使用量**工具，可在**“调试”>“性能探查器”**菜单选项或通过 **Alt+F2** 键盘组合启用该工具。  此功能不包含堆跟踪，并且不会按如下所述显示你的自定义堆。  只有“诊断工具”窗口包含此功能，可以使用启用“调试”>“Windows”>“显示诊断工具”菜单或 **Ctrl+Alt+F2** 键盘组合来启用此窗口。
 
 ## <a name="see-also"></a>另请参阅
-* [分析工具](https://docs.microsoft.com/en-us/visualstudio/profiling/profiling-tools)
-* [内存使用率](https://docs.microsoft.com/en-us/visualstudio/profiling/memory-usage)
-
+[分析工具](https://docs.microsoft.com/en-us/visualstudio/profiling/profiling-tools)  
+[内存使用率](https://docs.microsoft.com/en-us/visualstudio/profiling/memory-usage)

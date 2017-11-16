@@ -1,55 +1,56 @@
 ---
 title: "DA0038：锁争用率很高 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-debug"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "vs.performance.38"
-  - "vs.performance.rules.DA0038"
-  - "vs.performance.DA0038"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology: vs-ide-debug
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords:
+- vs.performance.38
+- vs.performance.rules.DA0038
+- vs.performance.DA0038
 ms.assetid: ae0c8b2f-17b2-4f3d-a834-aa2f6371753b
-caps.latest.revision: 10
-author: "mikejo5000"
-ms.author: "mikejo"
-manager: "ghogen"
-caps.handback.revision: 10
+caps.latest.revision: "10"
+author: mikejo5000
+ms.author: mikejo
+manager: ghogen
+ms.openlocfilehash: 30f9dbb760bd013bae08b5539f32d652ec3313bd
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# DA0038：锁争用率很高
-[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
-
+# <a name="da0038-high-rate-of-lock-contentions"></a>DA0038：锁争用率很高
 |||  
 |-|-|  
 |规则 ID|DA0038|  
-|类别|.NET Framework 使用|  
+|类别|.NET Framework 使用情况|  
 |分析方法|采样<br /><br /> 检测<br /><br /> .NET 内存|  
-|消息|.NET 锁争用的发生率高。  请运行并发分析，以调查此锁争用的原因。|  
+|消息|.NET 锁争用率非常高。 请运行“并发”分析调查出现此锁争用的原因。|  
 |规则类型|信息|  
   
- 在使用采样、.NET 内存或资源争用方法进行分析时，必须收集至少 25 个样本才能触发此规则。  
+ 使用采样法、.NET 内存或资源争用方法进行分析时，必须至少收集 25 个样本才能触发此规则。  
   
-## 原因  
- 随分析数据一起收集的系统性能数据表明应用程序执行期间锁争用的发生率很高。  请考虑使用并发分析方法重新进行分析，以找出争用的原因。  
+## <a name="cause"></a>原因  
+ 与分析数据一起收集的系统性能数据表示：应用程序执行期间的锁争用率非常高。 请再次考虑使用并发分析进行分析，以找出争用的起因。  
   
-## 规则说明  
- 锁用于保护代码的关键段，这些段在多线程应用程序中一次只能由一个线程按顺序执行。  Microsoft .NET 公共语言运行时 \(CLR\) 提供一整套同步基元和锁定基元。  举例来说，C\# 语言支持 lock 语句（在 Visual Basic 中为 SyncLock）。  托管应用程序可以调用 System.Threading 命名空间中的 Monitor.Enter 和 Monitor.Exit 方法，以直接获取和释放锁。  .NET Framework 支持额外的同步基元和锁定基元，其中包括支持 Mutexes、ReaderWriterLocks 和 Semaphores 的类。  有关更多信息，请参见 MSDN 网站上.NET Framework 开发人员指南中的同步基元[概述](http://go.microsoft.com/fwlink/?LinkId=177867)。  这些 .NET Framework 类本身位于 Windows 操作系统内置的较低级别同步服务之上。  它们包括关键代码段对象和许多不同的 Wait 和事件信号发送函数。  有关更多信息，请参见 MSDN Library 中Win32的 [同步](http://go.microsoft.com/fwlink/?LinkId=177869) 部分和 COM 开发。  
+## <a name="rule-description"></a>规则说明  
+ 锁用于保护代码的关键部分，这些关键部分必须由一个线程在多线程应用程序上一次按顺序执行。 Microsoft .NET 公共语言运行时 (CLR) 提供了一套完整的同步和锁定基元。 例如，C# 语言支持 lock 语句（Visual Basic 中的 SyncLock）。 托管应用程序可调用 System.Threading 命名空间中的 Monitor.Enter 和 Monitor.Exit 方法，从而直接获取和释放 lock。 .NET Framework 支持其他同步和锁定基元，包括支持互斥锁、ReaderWriterLock 和信号量的类。 有关详细信息，请参阅 MSDN 网站上“.NET Framework 开发人员指南”中的 [Overview of Synchronization Primitives](http://go.microsoft.com/fwlink/?LinkId=177867)（同步基元概述）。 .NET Framework 类本身分层在 Windows 操作系统内置的级别较低的同步服务上。 其中包括关键部分对象和很多不同的 Wait 和事件信号函数。 有关详细信息，请参阅 MSDN 库中“Win32 和 COM 开发”的 [Synchronization](http://go.microsoft.com/fwlink/?LinkId=177869)（同步）部分  
   
- 在用于同步和锁定的 .NET Framework 类和 Windows 本机对象下面，是必须使用互锁操作更改的共享内存位置。  互锁操作使用特定于硬件的指令，这些指令通过原子操作处理共享内存位置以更改其状态。  原子操作在计算机中的所有处理器之间一定是一致的。  Locks 和 WaitHandles 是在被设置或重置时自动使用互锁操作的 .NET 对象。  应用程序中可能会有其他共享内存数据结构同样要求使用互锁操作，以便采用线程安全方式进行更新。  有关更多信息，请参见 MSND Library 的 .NET Framework 部分的 [互锁操作](http://go.microsoft.com/fwlink/?LinkId=177870)  
+ 用于同步和锁定的 .NET Framework 类和 Windows 对象以共享内存位置为基础，且必须使用互锁操作才能更改该共享内存位置。 通过在共享内存位置进行操作的特定于硬件的说明，互锁操作使用原子操作更改其状态。 应确保原子操作在计算机的所有处理器中保持一致。 lock 和 WaitHandles 是 .NET 对象，设置或重置二者时，它们将自动使用互锁操作。 应用程序中可能有其他共享内存数据结构，需使用互锁操作才能以线程安全的方式进行更新。 有关详细信息，请参阅 MSDN 库 .NET Framework 部分中的 [Interlocked Operations](http://go.microsoft.com/fwlink/?LinkId=177870)（互锁操作）  
   
- 同步和锁定是用于确保多线程应用程序正确执行的机制。  多线程应用程序的每个线程都是独立的执行单元，由操作系统独立进行安排。  每当一个尝试获取锁的线程由于另一个线程占用该锁而被延迟时，就会发生锁争用。  
+ 同步和锁定是确保正确执行多线程应用程序的机制。 多线程应用程序的每个线程都是由操作系统单独安排的独立执行单元。 每当尝试获取锁的线程因另一线程持有锁而延迟时，都将出现锁争用。  
   
- 锁经常嵌套在一起。  当执行关键代码段的线程执行随后需要另一个锁的函数时，就会发生嵌套。  些许锁嵌套是无法避免的。  关键代码段可能会调用一个依靠锁来确保线程安全性的 .NET Framework 方法。  如果从应用程序中的某个关键代码段调入 Framework 方法，该方法用不同锁句柄也进行了锁定，则会导致锁嵌套。  嵌套锁定情况可能会导致公认的难以解决和修复的性能问题。  
+ 锁经常嵌套。 执行关键部分的线程执行需要另一锁的函数时，会出现嵌套。 一定量的锁嵌套是无法避免的。 关键部分可调用依赖于锁的 .NET Framework 方法，以确保其线程安全。 应用程序中某些关键部分调用使用其他锁句柄进行锁定的 Framework 方法时会导致锁嵌套。 嵌套的锁定条件可导致难以解决和修复的性能问题。  
   
- 如果分析运行期间执行的测量表明存在过量锁争用情况，则会激发此规则。  锁争用将延迟执行等待锁的线程。  低端硬件上运行的单元测试或负载测试中即使出现相当少量的锁争用，也应进行调查。  
+ 分析运行期间采用的测量值表明锁争用过高时，将触发此规则。 锁争用将延迟执行等待锁的线程。 即使是在低端硬件上运行的单元测试或负载测试中的少量锁争用，也应进行调查。  
   
 > [!NOTE]
->  当分析数据中报告的锁争用的发生率过高时，将激发 [DA0039：锁争用率非常高](../profiling/da0039-very-high-rate-of-lock-contentions.md)警告消息，而不是此信息消息。  
+>  分析数据中报告的锁争用率过高时，将触发 [DA0039：锁争用率非常高](../profiling/da0039-very-high-rate-of-lock-contentions.md)警告消息，不会触发此信息消息。  
   
-## 如何调查警告  
- 双击该消息以导航到分析数据的[标记](../profiling/marks-view.md)视图。找到**“.NET CLR LocksAndThreads\\Contention Rate \/ sec”**列。  确定程序执行过程中是否有一些特定阶段的锁争用情况多于其他阶段。  
+## <a name="how-to-investigate-a-warning"></a>如何调查警告  
+ 双击消息导航到分析数据的[“标记”](../profiling/marks-view.md)视图。  查找 **.NET CLR LocksAndThreads\Contention Rate / sec** 列。 确定是否存在特定阶段的程序执行，其中锁争用高于其他阶段。  
   
- 仅当未使用并发分析方法时，才会激发此规则。  并发分析方法是用于诊断应用程序中与锁争用相关的性能问题的最佳工具。  收集并发分析数据以了解应用程序的锁定行为。  这包括了解哪些锁的争用很激烈、等待争用锁的线程要延迟多久才能执行，以及其中牵涉了哪些特定代码。  并发分析收集所有锁争用的相关数据，其中包括本机 Windows 功能的锁定行为、.NET Framework 类以及您的应用程序引用的任何其他第三方库。  有关 [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] IDE 中的并发分析的信息，请参见[收集线程和进程并发数据](../profiling/collecting-thread-and-process-concurrency-data.md)。  有关指向命令行中并发分析相关信息的链接，请参见[从命令行使用分析方法](../profiling/using-profiling-methods-to-collect-performance-data-from-the-command-line.md)的**Using the Concurrency Method to Collect Resource Contention and Thread Activity Data**一节。
+ 仅在未使用并发分析方法时才会触发此规则。 并发分析方法是诊断应用程序中与锁争用相关的性能问题的最好工具。 收集并发分析数据，以便了解应用程序的锁定行为。 包括了解哪些锁争用较严重、等待争用锁时延迟的线程执行时间，以及其中涉及哪些特定代码。 并发分析收集所有锁争用的数据，包括本机 Windows 设备、.NET Framework 类和应用程序引用的任何其他第三方库的锁定行为。 有关 [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] IDE 中的并发分析的详细信息，请参阅[收集线程和处理并发数据](../profiling/collecting-thread-and-process-concurrency-data.md)。 有关命令行中的并发分析的信息的链接，请参阅[使用命令行中的分析方法](../profiling/using-profiling-methods-to-collect-performance-data-from-the-command-line.md)的**使用并发方法收集资源争用和线程活动数据**部分。

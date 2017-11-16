@@ -7,31 +7,15 @@ ms.suite:
 ms.tgt_pltfrm: 
 ms.topic: article
 ms.assetid: 22725520-59ba-4f6f-80e4-097b1287a34b
-caps.latest.revision: 10
+caps.latest.revision: "10"
 author: ghogen
 ms.author: ghogen
 manager: ghogen
-translation.priority.ht:
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- ru-ru
-- zh-cn
-- zh-tw
-translation.priority.mt:
-- cs-cz
-- pl-pl
-- pt-br
-- tr-tr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 47057e9611b824c17077b9127f8d2f8b192d6eb8
-ms.openlocfilehash: b3c999f9b960e6d220fcf9e4715393dd27e5fe73
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/13/2017
-
+ms.openlocfilehash: b93ea35fd58d5ee678176e3da98e33b65f82740a
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="setup-install-and-verifications-for-mac-users"></a>Mac 用户的设置、安装和验证
 本主题针对主要在 Mac 上工作并选择在 Mac 上的 Windows 虚拟机内使用 Visual Studio 的开发人员。 如果你是主要使用 Windows 计算机的开发人员且需要设置辅助 Mac 来面向 iOS，请参阅[设置和安装](../cross-platform/setup-and-install.md)主题。
@@ -62,7 +46,7 @@ ms.lasthandoff: 05/13/2017
 
 1.  使用在 Parallels/VMWare 内配置的 Windows 桌面，[下载并启动 Visual Studio 2017 任何版本（Community、Professional 或 Enterprise）的安装程序](https://www.visualstudio.com/downloads/)。 Visual Studio 2017 Community 是免费版本；Professional 和 Enterprise 可免费试用 30 天。
 
-2.  在安装程序中，单击“启动”_旁的“其他选择”（三条杠图标）按钮，然后选择“修改”：  
+2.  在安装程序中，单击**“启动”**_旁的_**“其他选择”**（三条杠图标）按钮，然后选择**“修改”**：  
   
      ![选择 Visual Studio 安装程序中的“修改”选项](../cross-platform/media/cross-plat-xamarin-setup-1a.png "跨平台 Xamarin 安装 1")  
   

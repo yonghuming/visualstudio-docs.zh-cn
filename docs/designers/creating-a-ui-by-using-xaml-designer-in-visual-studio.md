@@ -1,11 +1,10 @@
 ---
 title: "在 Visual Studio 中使用 XAML 设计器创建 UI | Microsoft Docs"
 ms.custom: 
-ms.date: 7/17/2017
+ms.date: 07/17/2017
 ms.reviewer: 
 ms.suite: 
-ms.technology:
-- vs-ide-designers
+ms.technology: vs-ide-designers
 ms.tgt_pltfrm: 
 ms.topic: article
 f1_keywords:
@@ -14,16 +13,15 @@ f1_keywords:
 - VS.XamlEditor
 - VS.DocumentOutline
 ms.assetid: c54969a7-d75a-4a35-9b37-af7a596a7c24
-caps.latest.revision: 29
+caps.latest.revision: "29"
 author: gewarren
 ms.author: gewarren
 manager: ghogen
+ms.openlocfilehash: 20ffb34c3c9ac1d2842995c53332eb241337b769
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
 ms.translationtype: HT
-ms.sourcegitcommit: 6d25db4639f2c8391c1e32542701ea359f560178
-ms.openlocfilehash: 0122714fa0c932a1fba849226e1200795ff20cfa
-ms.contentlocale: zh-cn
-ms.lasthandoff: 07/18/2017
-
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="creating-a-ui-by-using-xaml-designer-in-visual-studio"></a>在 Visual Studio 中，使用 XAML 设计器创建 UI
 Visual Studio 中的 XAML 设计器提供可视化界面，有助于设计基于 XAML 的 Windows 和 Web 应用。 可以通过拖动“工具箱”  中的控件，并在“属性”  窗口设置属性，为应用程序创建用户界面。 还可以直接在 XAML 视图中编辑 XAML。  
@@ -57,7 +55,7 @@ Visual Studio 中的 XAML 设计器提供可视化界面，有助于设计基于
  重设句柄大小显示在所选控件上，使你能够调整控件的大小。 当调整控件大小时，通常会出现宽度和高度值，帮助设置控件的大小。 有关在“设计”视图中操纵控件的详细信息，请参见 [Working with elements in XAML Designer](../designers/working-with-elements-in-xaml-designer.md)。  
   
  **边距**  
- 边距表示控件边缘与其容器边缘之间的固定空间量。 可使用“属性”窗口中 **“布局”** 下的 [Margin](http://msdn.microsoft.com/library/windows/apps/windows.ui.xaml.frameworkelement.margin.aspx) 属性来设置控件的边距。  
+ 边距表示控件边缘与其容器边缘之间的固定空间量。 可使用“属性”窗口中**“布局”** 下的 [Margin](http://msdn.microsoft.com/library/windows/apps/windows.ui.xaml.frameworkelement.margin.aspx) 属性来设置控件的边距。  
   
  **边距装饰器**  
  可使用边距装饰器更改元素相对于其布局容器的边距。 打开边距装饰器，未设置边距时，边距装饰器将显示断开的锁链。 未设置边距时，元素将在运行时调整布局容器的大小时保留在原处。 边距装饰器关闭时，边距装饰器将显示完好的锁链，且在运行时调整布局容器的大小时，元素将随边距一起移动（边距保持固定）。  
@@ -113,7 +111,7 @@ Visual Studio 中的 XAML 设计器提供可视化界面，有助于设计基于
  以选定的对比度设置预览应用程序。 如果将此设置的值不是“默认值” ，将重写 App.xaml 中的 `RequestedTheme` 属性设置。  
   
  **重写缩放**  
- 在设计图面中开启和关闭文档缩放仿真。 这使你可以按系数提高缩放百分比。 选中该复选框，以开启仿真。 例如，如果缩放百分比为 100%，则设计图面中的文档将放大到 140%。 如果当前缩放百分比为 180，则将禁用此选项。  
+ 在设计图面中开启和关闭文档缩放仿真。 这使你可以按系数提高缩放百分比。 选中该复选框，以开启仿真。 例如，如果缩放百分比为 100%，则设计图面中的文档将最大纵向扩展至 140%。 如果当前缩放百分比为 180，则将禁用此选项。  
   
  **最小宽度**  
  指定最小宽度设置。 最小宽度可在 App.xaml 中更改。  
