@@ -13,11 +13,11 @@ caps.latest.revision: "1"
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.openlocfilehash: 8c26ad4d9df3fb8b84c5d8c93e213858bc2ccb67
-ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.openlocfilehash: dfccd737ae7017823fdf7f2a5112fd05c8900559
+ms.sourcegitcommit: fb751e41929f031d1a9247bc7c8727312539ad35
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="working-with-sql-server-and-r"></a>使用 SQL Server 和 R
 
@@ -68,7 +68,7 @@ Transact-SQL 编辑器支持各种其他功能，例如查看查询的执行计�
 ### <a name="add-a-database-connection"></a>添加数据库连接
 
 1. 选择“R 工具”>“数据”>“添加数据库连接”，弹出“连接属性”对话框。 可在此指定数据源（本例中为 SQL Server）的名称、服务器的名称、身份验证模式和数据库的名称。 关闭对话框前，选择“测试连接”验证输入。
- 
+
     ![“SQL 连接”对话框](media/sql-connection-string-dialog.png)
 
 1. 在通过有效连接选择“确定”后，Visual Studio 会在新 `settings.R` 文件中生成一个名为 `dbConnection` 的连接字符串。 RTVS 会自动寻源（运行）此文件，因此可立即使用 R 脚本的连接：
@@ -78,7 +78,7 @@ Transact-SQL 编辑器支持各种其他功能，例如查看查询的执行计�
 ### <a name="write-and-test-a-sql-stored-procedure"></a>编写和测试 SQL 存储过程
 
 若要添加新 SQL 存储过程，请右键单击项目，选择“添加”>“新项...”，从模板列表选择“使用 R 的 SQL 存储过程”，命名文件（本示例中名称为 `StoredProcedure.R`），然后选择“确定”。
- 
+
 RTVS 会为存储过程创建三个文件：为 R 代码创建 `.R` 文件，为 SQL 代码创建 `.Query.sql` 文件，以及结合这两个文件的 `.Template.sql` 文件。 后两者会作为 `.R` 文件的子文件出现在解决方案资源管理器中：
 
 ![使用 R 的 SQL 存储过程的解决方案资源管理器展开视图](media/sql-solution-explorer-expanded.png)

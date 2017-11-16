@@ -1,29 +1,29 @@
 ---
-title: "如何：自定义分析工具报告视图列 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-debug"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "vs.test.columnchooser.dialogbox"
-helpviewer_keywords: 
-  - "分析工具, 自定义报表"
-  - "性能报表, 自定义"
+title: "如何：自定义报告视图列 | Microsoft Docs"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology: vs-ide-debug
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords: vs.test.columnchooser.dialogbox
+helpviewer_keywords:
+- profiling tools, customizing reports
+- performance reports, customizing
 ms.assetid: cb6f6d30-52a5-4d92-ab07-1d5ddb67884c
-caps.latest.revision: 18
-author: "mikejo5000"
-ms.author: "mikejo"
-manager: "ghogen"
-caps.handback.revision: 18
+caps.latest.revision: "18"
+author: mikejo5000
+ms.author: mikejo
+manager: ghogen
+ms.openlocfilehash: 7e80bd33d9351c6b2dd5ce65d327e6cdb40fc70a
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# 如何：自定义分析工具报告视图列
-[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
-
-Visual Studio Team System开发版中的性能工具与集成开发环境 \(IDE\) 全面集成，提供无缝的用户体验。  下表显示了可通过添加、移除和重新排列列自定义的视图：  
+# <a name="how-to-customize-report-view-columns"></a>如何：自定义报告视图列
+Visual Studio Team System Development Edition 中的性能工具与集成开发环境 (IDE) 全面集成，旨在提供无缝的用户体验。 下表显示了可通过添加、删除和重新排列列自定义的视图：  
   
 -   [“模块”视图](../profiling/modules-view.md)  
   
@@ -31,9 +31,9 @@ Visual Studio Team System开发版中的性能工具与集成开发环境 \(IDE\
   
 -   [“行”视图](../profiling/lines-view.md)  
   
--   [“指令指针”\(IP\) 视图](../profiling/instruction-pointers-ips-view.md)  
+-   [“指令指针”(IP) 视图](../profiling/instruction-pointers-ips-view.md)  
   
--   [“调用方\/被调用方”视图](../profiling/caller-callee-view.md)  
+-   [“调用方/被调用方”视图](../profiling/caller-callee-view.md)  
   
 -   [“调用关系树”视图](../profiling/call-tree-view.md)  
   
@@ -45,16 +45,16 @@ Visual Studio Team System开发版中的性能工具与集成开发环境 \(IDE\
   
 -   [“进程”视图](../profiling/process-view.md)  
   
-### 自定义报告视图  
+### <a name="to-customize-a-report-view"></a>自定义报告视图  
   
 1.  打开报告视图。  
   
-2.  右击报告视图图面，然后单击**“添加\/移除列”**。  
+2.  右键单击报告视图图面，然后单击“添加/删除列”。  
   
-     将出现**“添加\/移除列”**对话框。  
+     随即出现“添加/删除列”对话框。  
   
 3.  选择要添加的列。  
   
-4.  单击箭头按钮对列进行重新排序。  
+4.  单击箭头按钮对列重新排序。  
   
-5.  单击**“确定”**。
+5.  单击“确定”。

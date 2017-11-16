@@ -1,27 +1,24 @@
 ---
 title: "Visual Studio 中适用于 Python 的 CookieCutter 扩展 | Microsoft Docs"
 ms.custom: 
-ms.date: 7/12/2017
+ms.date: 07/12/2017
 ms.reviewer: 
 ms.suite: 
-ms.technology:
-- devlang-python
+ms.technology: devlang-python
 ms.devlang: python
 ms.tgt_pltfrm: 
 ms.topic: article
 ms.assetid: 783da5fd-726c-4716-994e-aa04d6b75896
-caps.latest.revision: 1
+caps.latest.revision: "1"
 author: kraigb
 ms.author: kraigb
 manager: ghogen
+ms.openlocfilehash: da14e15713e7c02dbd99bc0595e6ca19217a5cbb
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
 ms.translationtype: HT
-ms.sourcegitcommit: 6d25db4639f2c8391c1e32542701ea359f560178
-ms.openlocfilehash: 6db7e2efc54414dcb72899ab3238a9b7a0390921
-ms.contentlocale: zh-cn
-ms.lasthandoff: 07/18/2017
-
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-
 # <a name="using-the-cookiecutter-extension"></a>使用 Cookiecutter 扩展
 
 [Cookiecutter](https://cookiecutter.readthedocs.io/en/latest/) 可提供图形用户界面，用于发现模板、输入模板选项以及创建项目和文件。 Cookiecutter 在 Visual Studio 2017 中随附，在 Visual Studio 早期版本中可单独安装。
@@ -228,4 +225,3 @@ Cookiecutter 具有名为“后生成挂钩”的功能，允许文件生成后�
 使用 Bash（非致命）：
 
 - **openstack-dev/cookiecutter**
-

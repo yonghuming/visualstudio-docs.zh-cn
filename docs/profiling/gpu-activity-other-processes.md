@@ -1,26 +1,27 @@
 ---
 title: "GPU 活动(其他进程) | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-debug"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "vs.cv.threads.timeline.gpuother"
-  - "vs.cv.threads.timeline.gpuactivity"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology: vs-ide-debug
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords:
+- vs.cv.threads.timeline.gpuother
+- vs.cv.threads.timeline.gpuactivity
 ms.assetid: 8a68df65-eb63-452f-9285-fb4ffc92f2b2
-caps.latest.revision: 6
-author: "mikejo5000"
-ms.author: "mikejo"
-manager: "ghogen"
-caps.handback.revision: 6
+caps.latest.revision: "6"
+author: mikejo5000
+ms.author: mikejo
+manager: ghogen
+ms.openlocfilehash: 3b32ee2967ccc4a7cf1f02935a58cfff5c9e8a33
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# GPU 活动(其他进程)
-[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
-
-当 GPU 代表系统上的其他进程处理请求时，在并发可视化工具的线程视图的 **GPU 活动 \(其他进程\)** 时间段表示。  这些请求发送GPU 作为直接内存存取 \(DMA\) 数据包。段的长度代表数据包的 GPU 处理时间的持续时间。  
+# <a name="gpu-activity-other-processes"></a>GPU 活动(其他进程)
+并发可视化工具的“线程”视图中的“GPU 活动(其他进程)”段表示 GPU 代表系统上的其他进程处理请求的时间。 这些请求以直接内存访问 (DMA) 数据包的形式发送到 GPU。  段的长度代表 GPU 处理数据包的持续时间。  
   
- 当选择 这种活动段，则 当前  选项卡显示有关被处理的 DMA 数据包信息的报告。该信息包括与 DirectX 引擎关联的数据包在硬件队列中等待的总共时间，进程提交数据包以及需要的处理数据包的时间。
+ 当选择此类型段时，“当前”选项卡上的报告将显示所处理的数据包的相关信息。  此信息包括数据包在与 DirectX 引擎关联的硬件队列中等待的总时间、提交数据包的进程，以及处理数据包所需的时间。

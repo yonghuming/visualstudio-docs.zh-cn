@@ -1,24 +1,27 @@
 ---
 title: "DA0012：大量反射 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-debug"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "vs.performance.rules.DAReflection"
-  - "vs.performance.12"
-  - "vs.performance.rules.DA0012"
-  - "vs.performance.DA0011"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology: vs-ide-debug
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords:
+- vs.performance.rules.DAReflection
+- vs.performance.12
+- vs.performance.rules.DA0012
+- vs.performance.DA0011
 ms.assetid: c92a1d76-21fa-426e-8b1b-a3c08e9bcbca
-caps.latest.revision: 13
-author: "mikejo5000"
-ms.author: "mikejo"
-manager: "ghogen"
-caps.handback.revision: 13
+caps.latest.revision: "13"
+author: mikejo5000
+ms.author: mikejo
+manager: ghogen
+ms.openlocfilehash: 971b12e3f14848e5f30420da0994f231f8299491
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="da0012-significant-amount-of-reflection"></a>DA0012：大量反射
 |||  
@@ -39,8 +42,3 @@ caps.handback.revision: 13
   
 ## <a name="how-to-investigate-a-warning"></a>如何调查警告  
  双击“错误列表”窗口中的消息，导航到分析数据的[函数详细信息视图](../profiling/function-details-view.md)。 检查 System.Type 或 System.Reflection 方法的调用函数，以查找程序中使用 .NET Reflection API 最频繁的部分。 避免使用返回元数据的方法。 当应用程序的性能十分重要时，可能需要避免在运行时使用后期绑定或动态创建类型。
-
-
-<!--HONumber=Feb17_HO4-->
-
-

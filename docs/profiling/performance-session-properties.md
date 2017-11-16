@@ -1,23 +1,26 @@
 ---
 title: "性能会话属性 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-debug"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-helpviewer_keywords: 
-  - "分析工具, 属性"
-  - "属性页, 分析工具"
-  - "性能工具, 性能会话属性"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology: vs-ide-debug
+ms.tgt_pltfrm: 
+ms.topic: article
+helpviewer_keywords:
+- Profiling Tools,properties
+- property pages,Profiling Tools
+- performance tools, performance session properties
 ms.assetid: c3a86913-172b-488f-a31a-cea01a71b2ea
-caps.latest.revision: 16
-author: "mikejo5000"
-ms.author: "mikejo"
-manager: "ghogen"
-caps.handback.revision: 16
+caps.latest.revision: "16"
+author: mikejo5000
+ms.author: mikejo
+manager: ghogen
+ms.openlocfilehash: 268a3b335990bc620a2eb798c3b774f34bc3262b
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="performance-session-properties"></a>性能会话属性
 通过**性能会话**可以配置用于确定如何分析应用程序的设置。 它还存储为分析会话生成的报告。  
@@ -112,8 +115,3 @@ caps.handback.revision: 16
  [概述](../profiling/overviews-performance-tools.md)   
  [配置性能会话](../profiling/configuring-performance-sessions.md)   
  [控制数据收集](../profiling/controlling-data-collection.md)
-
-
-<!--HONumber=Feb17_HO4-->
-
-

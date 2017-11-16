@@ -1,28 +1,24 @@
 ---
 title: "在针对 Visual Studio 的 R 工具中编辑代码 | Microsoft Docs"
 ms.custom: 
-ms.date: 6/29/2017
-ms.prod: visual-studio-dev15
+ms.date: 06/29/2017
 ms.reviewer: 
 ms.suite: 
-ms.technology:
-- devlang-r
+ms.technology: devlang-r
 ms.devlang: r
 ms.tgt_pltfrm: 
 ms.topic: article
 ms.assetid: a198ccc3-5506-48e7-b3b2-9399661b80d5
-caps.latest.revision: 1
+caps.latest.revision: "1"
 author: kraigb
 ms.author: kraigb
 manager: ghogen
+ms.openlocfilehash: 5c856bb02ca33f999273fd6da782226be5f0f2d2
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
 ms.translationtype: HT
-ms.sourcegitcommit: 712cc780388acc5e373f71d51fc8f1f42adb5bed
-ms.openlocfilehash: 261cced8583b751d74701a8903a10a4584928940
-ms.contentlocale: zh-cn
-ms.lasthandoff: 07/12/2017
-
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-
 # <a name="editing-r-code-in-visual-studio"></a>在 Visual Studio 中编辑 R 代码
  
 针对 Visual Studio 的 R 工具 (RTVS) 为 R 专门定制 Visual Studio 编辑体验，同时保留所有功能并且能够使用扩展。 （例如，如果偏好 VIM 键绑定，可从 Visual Studio 库安装免费 [VsVim 扩展](https://visualstudiogallery.msdn.microsoft.com/59ca71b3-a4a3-46ca-8fe1-0e90e3f79329)。）
@@ -112,7 +108,7 @@ f <- function(a) { return(a + 1) }
 
 自动格式设置是可以撤消的单独操作。 例如，如果将代码及其应用的格式粘贴到编辑器，选择“编辑”>“撤消”或按一次 Ctrl+Z 将撤消格式设置；按第二次“撤消”将撤消粘贴操作。
  
-通过“文本编辑器”>“R”>“高级”选项卡上的“工具”>“选项”可设置格式选项（包括关闭格式设置）。 可以使用“R 工具”>“编辑器选项...”命令，或通过在编辑器中右键单击并选择“格式设置选项...”直接转到此页面。 请参阅[编辑器选项](#editor-options)部分了解详细信息。
+通过“文本编辑器”>“R”>“高级”选项卡上的“工具”>“选项”可设置格式选项（包括关闭格式设置）。可以使用“R 工具”>“编辑器选项...”命令，或通过在编辑器中右键单击并选择“格式设置选项...”直接转到此页面。请参阅[编辑器选项](#editor-options)部分了解详细信息。
  
 ## <a name="inserting-roxygen-comments"></a>插入 Roxygen 注释
 
@@ -150,4 +146,3 @@ RTVS 提供一种快捷方式，通过使用函数的参数名来生成 [Roxygen
 | 交互窗口 | 在 R 控制台中进行语法检查 | Off | 在交互窗口中应用语法检测。 在多行语句中，语法检查可能无法正常工作。 | 
 | 大纲显示 | 代码大纲显示 | On | 为多行语句这样的区域自动创建可折叠区域。 | 
 | 语法检查 | 显示语法错误 | On | 为代码启用自动语法检查。 |
-

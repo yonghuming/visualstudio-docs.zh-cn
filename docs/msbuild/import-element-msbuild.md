@@ -4,12 +4,10 @@ ms.custom:
 ms.date: 03/13/2017
 ms.reviewer: 
 ms.suite: 
-ms.technology:
-- vs-ide-sdk
+ms.technology: vs-ide-sdk
 ms.tgt_pltfrm: 
 ms.topic: article
-f1_keywords:
-- http://schemas.microsoft.com/developer/msbuild/2003#Import
+f1_keywords: http://schemas.microsoft.com/developer/msbuild/2003#Import
 dev_langs:
 - VB
 - CSharp
@@ -19,30 +17,15 @@ helpviewer_keywords:
 - Import element [MSBuild]
 - <Import> element [MSBuild]
 ms.assetid: 3bfecaf1-69fd-4008-b651-c9dafd4389d9
-caps.latest.revision: 29
+caps.latest.revision: "29"
 author: kempb
 ms.author: kempb
 manager: ghogen
-translation.priority.ht:
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- ru-ru
-- zh-cn
-- zh-tw
-translation.priority.mt:
-- cs-cz
-- pl-pl
-- pt-br
-- tr-tr
-translationtype: Human Translation
-ms.sourcegitcommit: 0e5a449ef396e7b9fd23a2c018bdc7f8791b7b38
-ms.openlocfilehash: 507b5fc312ca1f3a8c3ab4e24d3c43fddd0398eb
-ms.lasthandoff: 03/13/2017
-
+ms.openlocfilehash: 5709fc2ea456a8cfa45d8ce01e97c0c79d256c38
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="import-element-msbuild"></a>Import 元素 (MSBuild)
 将一个项目文件的内容导入其他项目文件中。  
@@ -72,9 +55,9 @@ ms.lasthandoff: 03/13/2017
 
 ### <a name="parent-elements"></a>父元素  
 
-|元素|说明|  
+|元素|描述|  
 |-------------|-----------------|  
-|[项目](../msbuild/project-element-msbuild.md)|[!INCLUDE[vstecmsbuild](../extensibility/internals/includes/vstecmsbuild_md.md)] 项目文件必需的根元素。|  
+|[Project](../msbuild/project-element-msbuild.md)|[!INCLUDE[vstecmsbuild](../extensibility/internals/includes/vstecmsbuild_md.md)] 项目文件必需的根元素。|  
 |[ImportGroup](../msbuild/importgroup-element.md)|包含在可选条件下进行分组的 `Import` 元素的集合。|  
 
 ## <a name="remarks"></a>备注  
@@ -84,9 +67,9 @@ ms.lasthandoff: 03/13/2017
 
  导入项目中的相对路径会相对于导入项目的目录进行解释。 因此，如果项目文件导入位于不同位置的多个项目文件中，则导入项目文件中的相对路径对于每个导入项目会以不同方式进行解释。  
 
- 与导入项目中引用的项目文件相关的所有 [!INCLUDE[vstecmsbuild](../extensibility/internals/includes/vstecmsbuild_md.md)] 保留属性（例如，`MSBuildProjectDirectory` 和 `MSBuildProjectFile`）都会基于导入项目文件进行赋值。  
+ 与导入项目中引用的项目文件相关的所有 [!INCLUDE[vstecmsbuild](../extensibility/internals/includes/vstecmsbuild_md.md)] 保留属性（例如， `MSBuildProjectDirectory` 和 `MSBuildProjectFile`）都会基于导入项目文件进行赋值。  
 
- 如果导入项目没有 `DefaultTargets` 属性，则会按导入顺序检查导入项目，并使用发现的第一个 `DefaultTargets` 属性的值。 例如，如果 ProjectA 导入 ProjectB 和 ProjectC（按照该顺序），并且 ProjectB 导入 ProjectD，则 [!INCLUDE[vstecmsbuild](../extensibility/internals/includes/vstecmsbuild_md.md)] 会首先查找 ProjectA 上指定的 `DefaultTargets`，然后是 ProjectB，接下来是 ProjectD，最后是 ProjectC。  
+ 如果导入项目没有 `DefaultTargets` 属性，则会按导入顺序检查导入项目，并使用发现的第一个 `DefaultTargets` 属性的值。 例如，如果 ProjectA 导入 ProjectB 和 ProjectC（按照该顺序），并且 ProjectB 导入 ProjectD，则 [!INCLUDE[vstecmsbuild](../extensibility/internals/includes/vstecmsbuild_md.md)] 会首先查找 ProjectA 上指定的 `DefaultTargets` ，然后是 ProjectB，接下来是 ProjectD，最后是 ProjectC。  
 
  导入项目的架构与标准项目相同。 虽然 [!INCLUDE[vstecmsbuild](../extensibility/internals/includes/vstecmsbuild_md.md)] 可能能够生成导入项目，不过这不太可能，因为导入项目通常不包含有关要设置的属性或运行目标的顺序的信息。 导入项目依靠将它导入其中的项目来提供该信息。  
 
@@ -133,4 +116,3 @@ ms.lasthandoff: 03/13/2017
 ## <a name="see-also"></a>另请参阅  
  [项目文件架构参考](../msbuild/msbuild-project-file-schema-reference.md)   
  [如何：在多个项目文件中使用同一目标](../msbuild/how-to-use-the-same-target-in-multiple-project-files.md)
-

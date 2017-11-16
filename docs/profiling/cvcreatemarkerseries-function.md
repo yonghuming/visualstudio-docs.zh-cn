@@ -1,32 +1,33 @@
 ---
 title: "CvCreateMarkerSeries 函数 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-debug"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "cvmarkers/CvCreateMarkerSeriesA"
-  - "cvmarkers/CvCreateMarkerSeriesW"
-helpviewer_keywords: 
-  - "CvCreateMarkerSeriesA 方法"
-  - "CvCreateMarkerSeriesW 方法"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology: vs-ide-debug
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords:
+- cvmarkers/CvCreateMarkerSeriesA
+- cvmarkers/CvCreateMarkerSeriesW
+helpviewer_keywords:
+- CvCreateMarkerSeriesA method
+- CvCreateMarkerSeriesW method
 ms.assetid: e280530b-137a-43a7-8643-aa514ab86ed7
-caps.latest.revision: 3
-author: "mikejo5000"
-ms.author: "mikejo"
-manager: "ghogen"
-caps.handback.revision: 3
+caps.latest.revision: "3"
+author: mikejo5000
+ms.author: mikejo
+manager: ghogen
+ms.openlocfilehash: 5eccac7a0b139b830121add61518c23fa055ca23
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# CvCreateMarkerSeries 函数
-[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
-
-创建特定提供程序的标记之前。  
+# <a name="cvcreatemarkerseries-function"></a>CvCreateMarkerSeries 函数
+为给定提供程序创建标记系列。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
 ```  
 _Check_return_ HRESULT CvCreateMarkerSeriesW(  
@@ -40,25 +41,25 @@ _Check_return_ HRESULT CvCreateMarkerSeriesA(
     _Out_ PCV_MARKERSERIES* ppMarkerSeries);  
 ```  
   
-#### 参数  
+#### <a name="parameters"></a>参数  
  `pProvider`  
- 提供程序对象先前由 CvInitProvider 初始化。  不能为 NULL。  
+ 先前由 CvInitProvider 初始化的提供程序对象。 不能为 NULL。  
   
  `pSeriesName`  
- 标记系列名称。  不能包括 NULL，但允许空字符串。  
+ 标记系列名称。 不能为 NULL，但允许空字符串。  
   
  `ppMarkerSeries`  
- 输出变量的地址将会存储标记系列上下文。  不能为 NULL。  
+ 输出变量的地址，用于存储标记系列上下文。 不能为 NULL。  
   
-## 返回值  
- S\_OK，当标记系列成功创建或有错误代码以防有任何错误时。  使用 SUCCEEDED\/FAILED 宏检查错误状态。  
+## <a name="return-value"></a>返回值  
+ 成功创建标记系列时返回 S_OK，出现任何错误时返回错误代码。 使用 SUCCEEDED/FAILED 宏检查错误条件。  
   
-## 要求  
- **页眉：**cvmarkers.h  
+## <a name="requirements"></a>要求  
+ **标头：**cvmarkers.h  
   
- **Unicode:** CvCreateMarkerSeriesW  
+ **Unicode：**CvCreateMarkerSeriesW  
   
- **ANSI:** CvCreateMarkerSeriesA  
+ **ANSI：**CvCreateMarkerSeriesA  
   
-## 请参阅  
- [C\+\+ 库参考](../profiling/cpp-library-reference.md)
+## <a name="see-also"></a>另请参阅  
+ [C++ 库参考](../profiling/cpp-library-reference.md)

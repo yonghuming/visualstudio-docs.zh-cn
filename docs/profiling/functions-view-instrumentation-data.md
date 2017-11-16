@@ -1,21 +1,23 @@
 ---
-title: "“函数”视图 - 探查器检测数据 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-debug"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-helpviewer_keywords: 
-  - "“函数”视图"
+title: "“函数”视图 - 检测数据 | Microsoft Docs"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology: vs-ide-debug
+ms.tgt_pltfrm: 
+ms.topic: article
+helpviewer_keywords: Function view
 ms.assetid: 595d91c8-a42b-4644-85b8-39e8140a5dfe
-caps.latest.revision: 11
-author: "mikejo5000"
-ms.author: "mikejo"
-manager: "ghogen"
-caps.handback.revision: 11
+caps.latest.revision: "11"
+author: mikejo5000
+ms.author: mikejo
+manager: ghogen
+ms.openlocfilehash: 582ec23192001b262938a82b9867ae82805e0cab
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="functions-view---instrumentation-data"></a>“函数”视图 - 检测数据
 函数报表视图按函数名称列出分析数据。  
@@ -86,8 +88,3 @@ caps.handback.revision: 11
  [“函数”视图](../profiling/functions-view-sampling-data.md)   
  [“函数”视图 - 采样](../profiling/functions-view-dotnet-memory-sampling-data.md)   
  [“函数”视图 - 检测](../profiling/functions-view-dotnet-memory-instrumentation-data.md)
-
-
-<!--HONumber=Feb17_HO4-->
-
-

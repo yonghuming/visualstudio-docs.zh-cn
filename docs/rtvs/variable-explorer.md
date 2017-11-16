@@ -1,27 +1,24 @@
 ---
 title: "针对 Visual Studio 的 R 工具中的变量资源管理器 | Microsoft Docs"
 ms.custom: 
-ms.date: 6/30/2017
+ms.date: 06/30/2017
 ms.reviewer: 
 ms.suite: 
-ms.technology:
-- devlang-r
+ms.technology: devlang-r
 ms.devlang: r
 ms.tgt_pltfrm: 
 ms.topic: article
 ms.assetid: 6c669434-40d8-4970-92cc-502a98c8b5ab
-caps.latest.revision: 1
+caps.latest.revision: "1"
 author: kraigb
 ms.author: kraigb
 manager: ghogen
+ms.openlocfilehash: 1d86bca24d9e8d4d1bde8d62cd0be25c485b9253
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
 ms.translationtype: HT
-ms.sourcegitcommit: 712cc780388acc5e373f71d51fc8f1f42adb5bed
-ms.openlocfilehash: 92396808161886cf3b15f7e8e0ab23a0a35e26b9
-ms.contentlocale: zh-cn
-ms.lasthandoff: 07/12/2017
-
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-
 # <a name="variable-explorer"></a>变量资源管理器
 
 “变量资源管理器”窗口可通过使用“R 工具”>“窗口”>“变量资源管理器”（如果使用了“R 工具”>“数据科学设置”，则可使用 Ctrl+8）打开，显示当前 R 会话中给定范围的所有变量。 例如，如果已打开变量资源管理器，并在[交互窗口](interactive-repl.md)输入以下行：
@@ -82,4 +79,3 @@ n <- c(1,2,3,5,8,13)
 确定要导入的 CSV 文件后，Visual Studio 会显示一个“导入数据集”对话框，在其中可以选择数据文件的解析方式（即，采用什么字段分隔符以及如何处理引号）。 还可以预览导入的数据帧和原始数据文件：
 
 ![“添加数据集”对话框](media/variable-explorer-import-dataset-dialog.png)
-

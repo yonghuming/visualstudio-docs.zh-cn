@@ -4,8 +4,7 @@ ms.custom:
 ms.date: 06/05/2017
 ms.reviewer: 
 ms.suite: 
-ms.technology:
-- vs-ide-general
+ms.technology: vs-ide-general
 ms.tgt_pltfrm: 
 ms.topic: article
 helpviewer_keywords:
@@ -15,31 +14,15 @@ helpviewer_keywords:
 - Code Snippet Inserter [C#]
 - Visual C#, default snippets
 ms.assetid: dbea3dd6-e650-4190-b874-c9f097d7de6e
-caps.latest.revision: 33
-author: kempb
-ms.author: kempb
+caps.latest.revision: "33"
+author: gewarren
+ms.author: gewarren
 manager: ghogen
-translation.priority.ht:
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- ru-ru
-- zh-cn
-- zh-tw
-translation.priority.mt:
-- cs-cz
-- pl-pl
-- pt-br
-- tr-tr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5f996aff0c247db658f3b9f1fec666792751ae11
-ms.openlocfilehash: 407ef81649de1c62d91d5a79535a8f9c67feb97c
-ms.contentlocale: zh-cn
-ms.lasthandoff: 06/06/2017
-
+ms.openlocfilehash: 72e0e00fb5495946adcd7f47de8cdc2d6e0d32dc
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="visual-c-code-snippets"></a>Visual C# 代码段
 代码片段是现成的代码段，可快速插入到代码中。 例如，`for` 代码片段刻创建一个空 `for` 循环。 有些代码片段为外侧代码片段，让你可以选择代码行，然后选择包含所选代码行的代码片段。 例如，选择代码行并激活 `for` 代码片段时，会通过循环块内的代码行创建 `for` 循环。 使用代码片段可以更快、更容易且更可靠地编写程序代码。  
@@ -97,4 +80,3 @@ ms.lasthandoff: 06/06/2017
  [代码片段](../ide/code-snippets.md)   
  [模板参数](../ide/template-parameters.md)   
  [如何：使用外侧代码片段](../ide/how-to-use-surround-with-code-snippets.md)   
-

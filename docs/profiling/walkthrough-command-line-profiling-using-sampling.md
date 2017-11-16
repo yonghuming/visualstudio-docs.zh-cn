@@ -1,23 +1,26 @@
 ---
 title: "演练：使用采样进行命令行分析 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-debug"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-helpviewer_keywords: 
-  - "分析工具, 演练"
-  - "性能工具, 演练"
-  - "性能工具, 命令行工具"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology: vs-ide-debug
+ms.tgt_pltfrm: 
+ms.topic: article
+helpviewer_keywords:
+- profiling tools, walkthroughs
+- performance tools, walkthroughs
+- performance tools, command-line tools
 ms.assetid: 1d53972f-6f35-4842-8c74-1b627f18c70a
-caps.latest.revision: 21
-author: "mikejo5000"
-ms.author: "mikejo"
-manager: "ghogen"
-caps.handback.revision: 21
+caps.latest.revision: "21"
+author: mikejo5000
+ms.author: mikejo
+manager: ghogen
+ms.openlocfilehash: 338b79cfe5dbdb812b385d237523d2a79d8cc965
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="walkthrough-command-line-profiling-using-sampling"></a>演练：使用采样进行命令行分析
 本演练演示如何使用命令行工具和采样功能分析应用程序以确定性能问题。  
@@ -108,8 +111,3 @@ caps.handback.revision: 21
  [VSPerfCmd](../profiling/vsperfcmd.md)   
  [了解采样数据值](../profiling/understanding-sampling-data-values.md)   
  [性能报告视图](../profiling/performance-report-views.md)
-
-
-<!--HONumber=Feb17_HO4-->
-
-

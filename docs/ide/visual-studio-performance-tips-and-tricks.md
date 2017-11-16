@@ -3,38 +3,20 @@ title: "Visual Studio 性能提示和技巧 | Microsoft Docs"
 ms.date: 08/31/2017
 ms.reviewer: 
 ms.suite: 
-ms.technology:
-- vs-ide-general
+ms.technology: vs-ide-general
 ms.tgt_pltfrm: 
 ms.topic: article
-helpviewer_keywords:
-- debugger
+helpviewer_keywords: debugger
 ms.assetid: 2fbcb59e-e981-4b40-8b7a-c1140d31ec4b
-caps.latest.revision: 1
+caps.latest.revision: "1"
 author: gewarren
 ms.author: gewarren
 manager: ghogen
-translation.priority.ht:
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- ru-ru
-- zh-cn
-- zh-tw
-translation.priority.mt:
-- cs-cz
-- pl-pl
-- pt-br
-- tr-tr
+ms.openlocfilehash: 173811a4f2d9974755e2432822c801388403ab7c
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
 ms.translationtype: HT
-ms.sourcegitcommit: 4306111cd49a5299bfa5d4e5e22b212bc7799fe2
-ms.openlocfilehash: fbaa543564506a99d3ed6833ec4d1f692fae43f7
-ms.contentlocale: zh-cn
-ms.lasthandoff: 09/06/2017
-
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="visual-studio-performance-tips-and-tricks"></a>Visual Studio 性能提示和技巧
 
@@ -61,7 +43,7 @@ Visual Studio 性能建议适用于内存不足的情况，这种情况极少出
 
     要启动“轻型解决方案加载”，请选择“工具”>“选项”>“项目和解决方案”>“轻型解决方案加载”。
 
-    在此模式下，没有启用某些 IDE 功能。 若要确定此选择是否有所帮助，请参阅[缩短解决方案加载时间](https://blogs.msdn.microsoft.com/visualstudio/2016/10/11/shorter-solution-load-time-in-visual-studio-15/)和[优化解决方案加载](../ide/optimize-solution-loading-in-visual-studio)。
+    在此模式下，没有启用某些 IDE 功能。 若要确定此选择是否有所帮助，请参阅[缩短解决方案加载时间](https://blogs.msdn.microsoft.com/visualstudio/2016/10/11/shorter-solution-load-time-in-visual-studio-15/)和[优化解决方案加载](../ide/optimize-solution-loading-in-visual-studio.md)。
 
 - **卸载项目**
 
@@ -152,4 +134,3 @@ CLR 使用垃圾回收内存管理系统。 在此系统中，内存有时会被
 
 ## <a name="see-also"></a>另请参阅  
  [Visual Studio IDE](../ide/index.md)
-

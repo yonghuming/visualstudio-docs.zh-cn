@@ -4,8 +4,7 @@ ms.custom:
 ms.date: 11/04/2016
 ms.reviewer: 
 ms.suite: 
-ms.technology:
-- vs-ide-general
+ms.technology: vs-ide-general
 ms.tgt_pltfrm: 
 ms.topic: article
 f1_keywords:
@@ -20,30 +19,15 @@ helpviewer_keywords:
 - line numbers
 - virtual space
 ms.assetid: 49ee7306-9d46-4170-850f-a1716171752d
-caps.latest.revision: 20
-author: kempb
-ms.author: kempb
+caps.latest.revision: "20"
+author: gewarren
+ms.author: gewarren
 manager: ghogen
-translation.priority.ht:
-- cs-cz
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pl-pl
-- pt-br
-- ru-ru
-- tr-tr
-- zh-cn
-- zh-tw
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5ea9179ad37514ffad4876177b05150eecc22def
-ms.openlocfilehash: 00829d499ae9d5a52e94094eed15b1ae39894075
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/24/2017
-
+ms.openlocfilehash: 61b3ab54929cdd7e6a584737f8963302335c4fd1
+ms.sourcegitcommit: c0422a3d594ea5ae8fc03f1aee684b04f417522e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="options-text-editor-all-languages"></a>选项、文本编辑器、所有语言
 使用此对话框可更改代码编辑器的默认行为。 这些设置也适用于其他基于代码编辑器的编辑器，如 HTML 设计器的“源”视图。 若要打开此对话框，请从“工具”菜单中选择“选项”。 在“文本编辑器”文件夹中，展开“所有语言”子文件夹，然后选择“常规”。  
@@ -79,7 +63,7 @@ ms.lasthandoff: 05/24/2017
  显示可视的自动换行标志符号  
  选中后，在一个长行换行到第二行的位置会显示一个回车箭头指示符。  
   
- ![LineBreakSymbol 屏幕截图](~/ide/reference/media/linebreak.gif "linebreak")  
+ ![LineBreakSymbol 屏幕截图](../../ide/reference/media/linebreak.gif "linebreak")  
   
  如果不希望显示这些指示符，则清除此选项。  
   
@@ -93,7 +77,7 @@ ms.lasthandoff: 05/24/2017
   
 -   清除此选项后，“剪切”命令将移除空行。 但仍保留剪贴板中的数据。 因此，如果随后使用“粘贴”命令，则会粘贴最近复制到剪贴板的内容。 如果先前没有复制任何内容，则不会粘贴任何内容。  
   
- 此设置对行非空时的复制或剪切操作无效。 如果未选择任何内容，将会对整行进行复制或剪切。 如果随后执行粘贴操作，则粘贴整行文本及其行尾字符。  
+此设置对行非空时的复制或剪切操作无效。 如果未选择任何内容，将会对整行进行复制或剪切。 如果随后执行粘贴操作，则粘贴整行文本及其行尾字符。  
   
 > [!TIP]
 >  若要显示空格、制表符和行尾的指示符，从而区分缩进行和完全空白的行，请从“编辑”菜单中选择“高级”，然后选择“查看空白”。  

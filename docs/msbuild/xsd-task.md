@@ -1,31 +1,34 @@
 ---
 title: "XSD 任务 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "vc.task.xsd"
-  - "VC.Project.VCXMLDataGeneratorTool.Namespace"
-  - "VC.Project.VCXMLDataGeneratorTool.GenerateFromSchema"
-dev_langs: 
-  - "VB"
-  - "CSharp"
-  - "C++"
-  - "jsharp"
-helpviewer_keywords: 
-  - "XSD 任务 (MSBuild (Visual C++))"
-  - "MSBuild （Visual c + +），XSD 任务"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology: vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords:
+- vc.task.xsd
+- VC.Project.VCXMLDataGeneratorTool.Namespace
+- VC.Project.VCXMLDataGeneratorTool.GenerateFromSchema
+dev_langs:
+- VB
+- CSharp
+- C++
+- jsharp
+helpviewer_keywords:
+- XSD task (MSBuild (Visual C++))
+- MSBuild (Visual C++), XSD task
 ms.assetid: 15c99f5c-7124-4bbc-bc03-70c7bcce8893
-caps.latest.revision: 13
-author: "kempb"
-ms.author: "kempb"
-manager: "ghogen"
-caps.handback.revision: 13
+caps.latest.revision: "13"
+author: kempb
+ms.author: kempb
+manager: ghogen
+ms.openlocfilehash: df309f6b4d28da051dca9b824d06dcae221b2a9e
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="xsd-task"></a>XSD 任务
 包装从源生成架构或类文件的 XML 架构定义工具 (Xsd.exe)。  
@@ -85,8 +88,3 @@ caps.handback.revision: 13
   
 ## <a name="see-also"></a>另请参阅  
  [任务参考](../msbuild/msbuild-task-reference.md)
-
-
-<!--HONumber=Feb17_HO4-->
-
-

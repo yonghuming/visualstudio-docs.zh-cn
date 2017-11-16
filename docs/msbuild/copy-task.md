@@ -1,32 +1,35 @@
 ---
 title: "Copy 任务 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "http://schemas.microsoft.com/developer/msbuild/2003#Copy"
-  - "MSBuild.Copy.SourceFileNotFound"
-  - "MSBuild.Copy.Retrying"
-  - "MSBuild.Copy.ExceededRetries"
-dev_langs: 
-  - "VB"
-  - "CSharp"
-  - "C++"
-  - "jsharp"
-helpviewer_keywords: 
-  - "Copy 任务 [MSBuild]"
-  - "MSBuild, Copy 任务"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology: vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords:
+- http://schemas.microsoft.com/developer/msbuild/2003#Copy
+- MSBuild.Copy.SourceFileNotFound
+- MSBuild.Copy.Retrying
+- MSBuild.Copy.ExceededRetries
+dev_langs:
+- VB
+- CSharp
+- C++
+- jsharp
+helpviewer_keywords:
+- MSBuild, Copy task
+- Copy task [MSBuild]
 ms.assetid: a46ba9da-3e4e-4890-b4ea-09a099b6bc40
-caps.latest.revision: 23
-author: "kempb"
-ms.author: "kempb"
-manager: "ghogen"
-caps.handback.revision: 21
+caps.latest.revision: "23"
+author: kempb
+ms.author: kempb
+manager: ghogen
+ms.openlocfilehash: 82e1bd6b760745aaf442bddaff1b00f20f35faf0
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="copy-task"></a>Copy 任务
 将文件复制到文件系统的一个新位置。  
@@ -34,7 +37,7 @@ caps.handback.revision: 21
 ## <a name="parameters"></a>参数  
  下表描述了 `Copy` 任务的参数。  
   
-|参数|说明|  
+|参数|描述|  
 |---------------|-----------------|  
 |`CopiedFiles`|可选的 <xref:Microsoft.Build.Framework.ITaskItem>`[]` 输出参数。<br /><br /> 包含已成功复制的项。|  
 |`DestinationFiles`|可选 <xref:Microsoft.Build.Framework.ITaskItem>`[]` 参数。<br /><br /> 指定要对其复制源文件的文件的列表。 此列表应与 `SourceFiles` 参数中指定的列表具有一对一的映射关系。 也就是说，`SourceFiles` 中指定的第一个文件将复制到 `DestinationFiles` 中指定的第一个位置，依次类推。|  
@@ -43,7 +46,7 @@ caps.handback.revision: 21
 |`Retries`|可选 `Int32` 参数。<br /><br /> 指定之前的所有尝试都失败后，尝试复制的次数。 默认为零。<br /><br /> **注意：**重试的使用可以屏蔽生成过程中的同步问题。|  
 |`RetryDelayMilliseconds`|可选 `Int32` 参数。<br /><br /> 指定任何必需的重试之间的延迟。 默认值为传递给 CopyTask 构造函数的 RetryDelayMillisecondsDefault 参数。|  
 |`SkipUnchangedFiles`|可选 `Boolean` 参数。<br /><br /> 如果为`true` ，则跳过复制在源和目标之间保持不变的文件。 如果文件的大小和上次修改时间相同，则 `Copy` 任务认为文件保持不变。 **注意：**如果此参数设置为 `true`，则不应对包含目标使用依赖关系分析，因为如果源文件的上次修改时间比目标文件的上次修改时间更新，则只运行该任务。|  
-|`SourceFiles`|所需的 <xref:Microsoft.Build.Framework.ITaskItem>`[]` 参数。<br /><br /> 指定要复制的文件。|  
+|`SourceFiles`|必选 <xref:Microsoft.Build.Framework.ITaskItem>`[]` 参数。<br /><br /> 指定要复制的文件。|  
 |`UseHardlinksIfPossible`|可选 `Boolean` 参数。<br /><br /> 如果为 `true`，则创建已复制文件的硬链接，而不是复制该文件。|  
   
 ## <a name="warnings"></a>警告  
@@ -68,7 +71,7 @@ caps.handback.revision: 21
 ## <a name="remarks"></a>备注  
  必须指定 `DestinationFolder` 或 `DestinationFiles` 参数，但不能对两者都进行指定。 如果指定了两者，则任务失败并记录一条错误。  
   
- 除了上面列出的参数，此任务还从 <xref:Microsoft.Build.Tasks.TaskExtension> 类继承参数，此类本身继承自 <xref:Microsoft.Build.Utilities.Task> 类。 有关这些其他参数及其说明的列表，请参阅 [TaskExtension 基类](../msbuild/taskextension-base-class.md)。  
+ 除上面列出的参数外，此任务还从 <xref:Microsoft.Build.Tasks.TaskExtension> 类继承参数，后者自身继承自 <xref:Microsoft.Build.Utilities.Task> 类。 有关这些其他参数的列表及其说明的信息，请参阅 [TaskExtension Base Class](../msbuild/taskextension-base-class.md)。  
   
 ## <a name="example"></a>示例  
  以下示例将 `MySourceFiles` 项集合中的项复制到文件夹 c:\MyProject\Destination。  
@@ -113,8 +116,3 @@ caps.handback.revision: 21
 ## <a name="see-also"></a>另请参阅  
  [任务](../msbuild/msbuild-tasks.md)   
  [任务参考](../msbuild/msbuild-task-reference.md)
-
-
-<!--HONumber=Feb17_HO4-->
-
-

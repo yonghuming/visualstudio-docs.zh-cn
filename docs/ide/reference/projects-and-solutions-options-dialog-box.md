@@ -18,11 +18,11 @@ caps.latest.revision: "12"
 author: gewarren
 ms.author: gewarren
 manager: ghogen
-ms.openlocfilehash: f912a0aa6588895fb99da83396e2e5caf976e223
-ms.sourcegitcommit: c0422a3d594ea5ae8fc03f1aee684b04f417522e
+ms.openlocfilehash: fee3419b6e041983fb3aa77cace5bb02e48e1b9a
+ms.sourcegitcommit: fb751e41929f031d1a9247bc7c8727312539ad35
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="projects-and-solutions-options-dialog-box"></a>“选项”对话框 ->“项目和解决方案”
 设置与项目和解决方案相关的 [!INCLUDE[vsprvs](../../code-quality/includes/vsprvs_md.md)] 行为。 要访问这些选项，请选择“工具 > 选项”，展开“项目和解决方案”，然后单击“常规”。
@@ -32,15 +32,7 @@ ms.lasthandoff: 11/02/2017
 > [!NOTE]
 >  对话框中的可用选项以及显示的菜单命令的名称和位置可能与“帮助”中的描述不同，具体取决于您的当前设置或版本。 此帮助页是根据“常规开发设置”而编写的。 若要查看或更改设置，请在“工具”菜单上选择“导入和导出设置”。 有关详细信息，请参阅[个性化设置 Visual Studio IDE](../../ide/personalizing-the-visual-studio-ide.md)。  
   
-## <a name="general-tab-options"></a>常规选项卡选项  
- 
-**轻型解决方案加载** 可减少在 IDE 中加载大型解决方案所需的时间和内存。 包含多个 C#、Visual Basic 或 C++ 项目的大型解决方案使用轻型解决方案加载可能会看到显著的性能优势。
-
-- **让 Visual Studio 选择最适合我的解决方案的内容**：让 Visual Studio 根据解决方案的特征来自动确定是否应用轻型解决方案加载。
-- **启用**：加载解决方案时将始终应用轻型解决方案加载。
-- **禁用**：从不应用轻型解决方案加载。
-
-有关详细信息，请参阅[优化 Visual Studio 启动时间](../optimize-visual-studio-startup-time.md#speed_up_solution_load)
+## <a name="general-tab-options"></a>常规选项卡选项
 
 **如果生成完成时出现错误，则始终显示错误列表**  
 仅当项目无法生成时，在完成生成时将打开“错误列表”窗口。 将显示在生成过程中发生的错误。 如果清除此选项，则仍将发生错误，但在完成生成时窗口将不会打开。 默认情况下会启用此选项。  

@@ -1,27 +1,24 @@
 ---
 title: "使用针对 Visual Studio 的 R 工具进行调试 | Microsoft Docs"
 ms.custom: 
-ms.date: 6/29/2017
+ms.date: 06/29/2017
 ms.reviewer: 
 ms.suite: 
-ms.technology:
-- devlang-r
+ms.technology: devlang-r
 ms.devlang: r
 ms.tgt_pltfrm: 
 ms.topic: article
 ms.assetid: cb5fe5f8-03bc-42bf-8346-c845036a9c6c
-caps.latest.revision: 1
+caps.latest.revision: "1"
 author: kraigb
 ms.author: kraigb
 manager: ghogen
+ms.openlocfilehash: 7927e897a63b8b06cda9670701f44bc59296fd01
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
 ms.translationtype: HT
-ms.sourcegitcommit: 712cc780388acc5e373f71d51fc8f1f42adb5bed
-ms.openlocfilehash: e4b8d7fb27407bf8ef4463524e9da66bac591ff4
-ms.contentlocale: zh-cn
-ms.lasthandoff: 07/12/2017
-
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-
 # <a name="debugging-r-in-visual-studio"></a>在 Visual Studio 中调试 R
 
 针对 Visual Studio 的 R 工具 (RTVS) 集成了 Visual Studio 的完整调试体验（请参阅[在 Visual Studio 中进行调试](../debugger/debugging-in-visual-studio.md)）。 此支持包括断点、附加到运行进程、检查和监视变量以及检查调用堆栈。 本主题随后探讨了 R 和 RTVS 独有的调试属性。
@@ -73,4 +70,3 @@ add <- function(x, y) {
 | &lt;expr&gt; | 在 expr 中计算表达式。 |
 
 ![交互窗口中的环境浏览器](media/debugger-environment-browser.png)
-

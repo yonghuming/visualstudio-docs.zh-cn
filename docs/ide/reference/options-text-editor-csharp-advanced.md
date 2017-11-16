@@ -4,8 +4,7 @@ ms.custom:
 ms.date: 11/04/2016
 ms.reviewer: 
 ms.suite: 
-ms.technology:
-- vs-ide-general
+ms.technology: vs-ide-general
 ms.tgt_pltfrm: 
 ms.topic: article
 f1_keywords:
@@ -20,30 +19,15 @@ helpviewer_keywords:
 - outlining options [J#]
 - XML documentation, creating
 ms.assetid: 947f9d9a-b0f3-408d-9866-d82895bcee31
-caps.latest.revision: 22
-author: kempb
-ms.author: kempb
+caps.latest.revision: "22"
+author: gewarren
+ms.author: gewarren
 manager: ghogen
-translation.priority.ht:
-- cs-cz
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pl-pl
-- pt-br
-- ru-ru
-- tr-tr
-- zh-cn
-- zh-tw
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5ea9179ad37514ffad4876177b05150eecc22def
-ms.openlocfilehash: 61a061b6a58b18451fc53c8d53f77889cc1ea253
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/24/2017
-
+ms.openlocfilehash: 7537b4fc3fec90808c6bdc4a982fe3b7ff37a1d5
+ms.sourcegitcommit: c0422a3d594ea5ae8fc03f1aee684b04f417522e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="options-text-editor-c-advanced"></a>选项，文本编辑器，C#，高级
 使用此对话框可修改 Visual C# 的编辑器格式设置、代码重构设置和 XML 文档注释设置。 若要访问此对话框，请在“工具菜单”上单击“选项”，展开“文本编辑器”文件夹，再展开“C#”，然后单击“高级”。  
@@ -67,13 +51,13 @@ ms.lasthandoff: 05/24/2017
   
 -   无效的[编辑并继续](../../debugger/edit-and-continue.md)编辑为紫色。  
   
- 将指针移到用下划线标出的代码段，可查看包含错误相关信息的工具提示。  
+将指针移到用下划线标出的代码段，可查看包含错误相关信息的工具提示。  
   
- 显示实时语义错误  
- 标识某些没有显式编译的编译错误，例如，声明和使用未知类型或引用未知属性。  
+显示实时语义错误  
+标识某些没有显式编译的编译错误，例如，声明和使用未知类型或引用未知属性。  
   
- 突出显示对光标下符号的引用  
- 光标定位在符号内，或单击某个符号时，将突出显示代码文件中该符号的所有实例。  
+突出显示对光标下符号的引用  
+光标定位在符号内，或单击某个符号时，将突出显示代码文件中该符号的所有实例。  
   
 ## <a name="refactoring"></a>重构  
  验证重构结果  

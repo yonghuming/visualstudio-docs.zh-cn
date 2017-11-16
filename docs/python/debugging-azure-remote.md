@@ -1,27 +1,24 @@
 ---
 title: "使用针对 Visual Studio 的 Python 进行 Azure 远程调试 | Microsoft Docs"
 ms.custom: 
-ms.date: 7/12/2017
+ms.date: 07/12/2017
 ms.reviewer: 
 ms.suite: 
-ms.technology:
-- devlang-python
+ms.technology: devlang-python
 ms.devlang: python
 ms.tgt_pltfrm: 
 ms.topic: article
 ms.assetid: d68fdc53-65a1-423c-8964-9815dbb3387e
-caps.latest.revision: 1
+caps.latest.revision: "1"
 author: kraigb
 ms.author: kraigb
 manager: ghogen
+ms.openlocfilehash: 1ce80ecdc38075b048c8ae0a7f5773de965355f5
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
 ms.translationtype: HT
-ms.sourcegitcommit: 6d25db4639f2c8391c1e32542701ea359f560178
-ms.openlocfilehash: a4ddd2d52aa1a1e4437c0d1f7821761700c2a91e
-ms.contentlocale: zh-cn
-ms.lasthandoff: 07/18/2017
-
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-
 # <a name="remotely-debugging-python-code-on-azure"></a>在 Azure 上远程调试 Python 代码
 
 [Visual Studio 中的 Python 支持](installation.md)包括远程调试在 Azure 应用服务上运行的 Python 代码的功能。 与简单的远程调试不同，此方案中的目标计算机不能直接通过 TCP 访问，因此 Visual Studio 提供一个通过 HTTP 公开调试器协议的代理。 使用 Web 模板创建的项目在生成的 `web.debug.config` 文件中自动配置此代理。 如 [发布到 Azure 应用服务](template-web.md#publishing-to-azure-app-service)中所述发布项目的调试配置时，同时启用了远程调试。
@@ -55,4 +52,3 @@ Visual Studio 可能会直接转到一组用于直接附加的指令，如下面
 若要附加调试器，请选择“调试”>“附加到进程”，在“传输”下拉列表中选择“Python 远程调试”，将 URL 输入到“限定符”文本框，然后按 Enter。 如果 Visual Studio 可成功连接到应用服务，它将在列表中显示单个 Python 进程。 选择它，然后选择“附加”启动调试：
 
 ![使用“附加到进程”对话框附加到 Azure 网站](media/azure-remote-debugging-manual-attach.png)
-

@@ -4,12 +4,10 @@ ms.custom:
 ms.date: 03/13/2017
 ms.reviewer: 
 ms.suite: 
-ms.technology:
-- vs-ide-sdk
+ms.technology: vs-ide-sdk
 ms.tgt_pltfrm: 
 ms.topic: article
-f1_keywords:
-- http://schemas.microsoft.com/developer/msbuild/2003#Target
+f1_keywords: http://schemas.microsoft.com/developer/msbuild/2003#Target
 dev_langs:
 - VB
 - CSharp
@@ -19,31 +17,15 @@ helpviewer_keywords:
 - Target element [MSBuild]
 - <Target> element [MSBuild]
 ms.assetid: 350f6fc2-86b3-45f2-a31e-ece0e6bd4dca
-caps.latest.revision: 34
+caps.latest.revision: "34"
 author: kempb
 ms.author: kempb
 manager: ghogen
-translation.priority.ht:
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- ru-ru
-- zh-cn
-- zh-tw
-translation.priority.mt:
-- cs-cz
-- pl-pl
-- pt-br
-- tr-tr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0e5a449ef396e7b9fd23a2c018bdc7f8791b7b38
-ms.openlocfilehash: 217f42db123e95557c2425b5678fb1ac9473c162
-ms.contentlocale: zh-cn
-ms.lasthandoff: 03/13/2017
-
+ms.openlocfilehash: ed3af7142d556c52fbed71f03d5cc53eb3025035
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="target-element-msbuild"></a>Target 元素 (MSBuild)
 包含一组要连续执行的 [!INCLUDE[vstecmsbuild](../extensibility/internals/includes/vstecmsbuild_md.md)] 任务。  
@@ -100,9 +82,9 @@ ms.lasthandoff: 03/13/2017
 
 ### <a name="parent-elements"></a>父元素  
 
-|元素|说明|  
+|元素|描述|  
 |-------------|-----------------|  
-|[项目](../msbuild/project-element-msbuild.md)|[!INCLUDE[vstecmsbuild](../extensibility/internals/includes/vstecmsbuild_md.md)] 项目文件必需的根元素。|  
+|[Project](../msbuild/project-element-msbuild.md)|[!INCLUDE[vstecmsbuild](../extensibility/internals/includes/vstecmsbuild_md.md)] 项目文件必需的根元素。|  
 
 ## <a name="remarks"></a>备注  
  在运行时指定第一个要执行的目标。 目标可依赖于其他目标。 例如，部署的目标依赖于编译的目标。 [!INCLUDE[vstecmsbuild](../extensibility/internals/includes/vstecmsbuild_md.md)] 引擎按依赖关系在 `DependsOnTargets` 属性中出现的顺序从左到右依次执行依赖关系。 有关详细信息，请参阅[目标](../msbuild/msbuild-targets.md)。  
@@ -139,4 +121,3 @@ ms.lasthandoff: 03/13/2017
 ## <a name="see-also"></a>另请参阅  
  [目标](../msbuild/msbuild-targets.md)   
  [项目文件架构参考](../msbuild/msbuild-project-file-schema-reference.md)
-

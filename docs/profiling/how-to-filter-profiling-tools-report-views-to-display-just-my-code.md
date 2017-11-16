@@ -1,19 +1,22 @@
 ---
-title: "如何：筛选分析工具报告视图以显示“仅我的代码” | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-debug"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
+title: "如何：筛选分析工具报告视图以显示“仅我的代码”| Microsoft Docs"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology: vs-ide-debug
+ms.tgt_pltfrm: 
+ms.topic: article
 ms.assetid: e45c7903-f945-495d-b43b-11cdd09052aa
-caps.latest.revision: 15
-author: "mikejo5000"
-ms.author: "mikejo"
-manager: "ghogen"
-caps.handback.revision: 15
+caps.latest.revision: "15"
+author: mikejo5000
+ms.author: mikejo
+manager: ghogen
+ms.openlocfilehash: 6bb2da222b566362a069eaa9ab59d959a0c5b71d
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="how-to-filter-profiling-tools-report-views-to-display-just-my-code"></a>如何：筛选分析工具报告视图以显示“仅我的代码”
 Visual Studio 2010 高级专业版提供了性能报告的筛选功能，使之仅显示你已实现的代码。 此功能名为“仅我的代码”，默认情况下会启用。 可通过“选项”对话框中的“仅我的代码”选项配置此功能。  
@@ -36,8 +39,3 @@ Visual Studio 2010 高级专业版提供了性能报告的筛选功能，使之�
   
 ## <a name="see-also"></a>另请参阅  
  [自定义性能工具报表视图](../profiling/customizing-performance-tools-report-views.md)
-
-
-<!--HONumber=Feb17_HO4-->
-
-
