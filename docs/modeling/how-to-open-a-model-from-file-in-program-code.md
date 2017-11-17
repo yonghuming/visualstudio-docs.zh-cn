@@ -1,61 +1,63 @@
 ---
-title: "如果：在程序代码中从文件打开模型 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.tgt_pltfrm: ""
-ms.topic: "article"
+title: "如何： 从在程序代码中的文件打开模型 |Microsoft 文档"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.tgt_pltfrm: 
+ms.topic: article
 ms.assetid: d7d68697-5418-4263-bdb2-48401924ea71
-caps.latest.revision: 8
-author: "alancameronwills"
-ms.author: "awills"
-manager: "douge"
-caps.handback.revision: 8
+caps.latest.revision: "8"
+author: alancameronwills
+ms.author: awills
+manager: douge
+ms.openlocfilehash: d225f991d7d0160f261c4a7c25c1251564a8b97b
+ms.sourcegitcommit: aadb9588877418b8b55a5612c1d3842d4520ca4c
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/27/2017
 ---
-# 如果：在程序代码中从文件打开模型
-[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
-
-可以在任何应用程序的 DSL 模型。  
+# <a name="how-to-open-a-model-from-file-in-program-code"></a>如果：在程序代码中从文件打开模型
+你可以在任何应用程序中打开 DSL 模型。  
   
- 从 [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] 扩展，可以为此使用 ModelBus。  ，则移动了， ModelBus 提供标准机制为引用一个模型或组件在设计以及查找该模型。  有关更多信息，请参见 [通过使用 Visual Studio Modelbus 集成模型](../modeling/integrating-models-by-using-visual-studio-modelbus.md)。  
+ 从[!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)]扩展，你可以使用 ModelBus 实现此目的。 ModelBus 提供的引用的模型或在模型中，元素和查找模型，如果它已移动的标准机制。 有关详细信息，请参阅[集成模型通过使用 Visual Studio Modelbus](../modeling/integrating-models-by-using-visual-studio-modelbus.md)。  
   
-## 目标 Framework  
- 设置应用程序项目的 **目标框架** 到 **.NET framework 4**。  
+## <a name="target-framework"></a>目标 Framework  
+ 设置**目标框架**到应用程序项目**.NET Framework 4**。  
   
-#### 设置目标框架  
+#### <a name="to-set-the-target-framework"></a>若要设置的目标框架  
   
-1.  打开要读取 DSL 模型的应用程序中 [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] 项目。  
+1.  打开[!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)]应用程序想要读取 DSL 模型项目。  
   
-2.  在**“解决方案资源管理器”**中右击该项目，再单击**“属性”**。  
+2.  在**解决方案资源管理器**，右键单击项目，然后单击**属性**。  
   
-3.  在项目属性窗口，请在 **应用程序** 选项卡上，将 **目标框架** 字段设置为 **.NET framework 4**。  
+3.  在项目属性窗口中，在**应用程序**选项卡上，设置**目标框架**字段**.NET Framework 4**。  
   
 > [!NOTE]
->  您可能需要执行此操作，即使您选择了项目创建对话框的 **.NET framework 4** 。  目标结构不应是 **.NET framework 4 client profile**。  
+>  你可能需要执行此操作，即使你选择**.NET Framework 4**项目创建对话框中。 目标框架不应为**.NET Framework 4 Client Profile**。  
   
-## 引用  
- 必须将这些引用。 [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] 应用程序项目:  
+## <a name="references"></a>参考资料  
+ 你必须添加到这些引用你[!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)]应用程序项目：  
   
 -   `Microsoft.VisualStudio.Modeling.Sdk.11.0`  
   
-    -   如果看不到此在 **添加引用** 对话框的 **.NET** 选项卡下，单击 **浏览** 选项并定位到 `%Program Files%\Microsoft Visual Studio 2010 SDK\VisualStudioIntegration\Common\Assemblies \`。  
+    -   如果你未看到此下**.NET**选项卡中**添加引用**对话框中，单击**浏览**选项卡上，并导航到`%Program Files%\Microsoft Visual Studio 2010 SDK\VisualStudioIntegration\Common\Assemblies\`。  
   
--   DSL 程序集，则会在 bin 文件夹下 DSL 项目。  其名称功能的形式为: *公司*。*TheProject*`. Dsl.dll`。  
+-   你 DSL 的程序集，你将找到的 bin 文件夹下 DSL 项目。 其名称的格式通常为： *YourCompany*。*您的项目*`.Dsl.dll`。  
   
-## 在 DSL 的关键类  
- 在可以编写读取 DSL 的代码之前，应知道特定的名称 DSL 生成类。  在 DSL 解决方案中，打开 **DSL** 项目并在 **GeneratedCode** 文件夹。  或者，请双击项目 **引用**的 DSL 程序集，并在 **对象浏览器**的 DSL 命名空间。  
+## <a name="important-classes-in-the-dsl"></a>DSL 中的重要类  
+ 你可以编写读取 DSL 的代码之前，你应了解一些 DSL 所生成的类的名称。 在 DSL 解决方案中，打开**Dsl**项目，然后查看**GeneratedCode**文件夹。 或者，双击你的项目中的 DSL 程序集**引用**，并打开中的 DSL 命名空间**对象浏览器**。  
   
- 这些是您应确定的类:  
+ 这些是应标识的类：  
   
--   *TheDslRootClass* \- 这是根类的名称。 `DslDefinition.dsl`的。  
+-   *YourDslRootClass* -这是中的根类的名称你`DslDefinition.dsl`。  
   
--   *TheDslName* `SerializationHelper` \- 此类在 DSL 项目的 `SerializationHelper.cs` 定义。  
+-   *YourDslName* `SerializationHelper` -此类中定义`SerializationHelper.cs`DSL 项目中。  
   
--   *TheDslName* `DomainModel` \- 此类在 DSL 项目的 `DomainModel.cs` 定义。  
+-   *YourDslName* `DomainModel` -此类中定义`DomainModel.cs`DSL 项目中。  
   
-## 读取文件  
- 下面的示例旨在读取关键类的 DSL 如下所示:  
+## <a name="reading-from-a-file"></a>从文件中读取  
+ 下面的示例，可以读取的 DSL 重要的类是，如下所示：  
   
 -   FamilyTreeModel  
   
@@ -63,7 +65,7 @@ caps.handback.revision: 8
   
 -   FamilyTreeDomainModel  
   
- 在 DSL 的另一个域类是人员。  
+ 此 DSL 中的其他域类是人。  
   
 ```  
 using System;  
@@ -101,8 +103,8 @@ namespace StandaloneReadDslConsole
 } } } }  
 ```  
   
-## 对文件的保存  
- 前面代码的下面添加更改该模型然后将其保存到文件。  
+## <a name="saving-to-a-file"></a>保存到文件  
+ 前面的代码中添加以下内容对模型进行了更改，然后将其保存到文件。  
   
 ```  
 using (Transaction t =  

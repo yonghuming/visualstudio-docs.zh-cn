@@ -1,5 +1,5 @@
 ---
-title: "如何︰ 修改标准的菜单命令在域特定语言 |Microsoft 文档"
+title: "如何： 修改域特定语言中的标准菜单命令 |Microsoft 文档"
 ms.custom: 
 ms.date: 11/04/2016
 ms.reviewer: 
@@ -10,39 +10,39 @@ helpviewer_keywords:
 - .vsct files, adding commands to a domain-specific language
 - Domain-Specific Language, adding custom commands
 ms.assetid: 9b9d8314-d0d8-421a-acb9-d7e91e69825c
-caps.latest.revision: 10
+caps.latest.revision: "10"
 author: alancameronwills
 ms.author: awills
 manager: douge
-translationtype: Machine Translation
-ms.sourcegitcommit: eb2ab9d49cdeb1ed71da8ef67841f7796862dc30
-ms.openlocfilehash: 571b30e0be9863b20dc1c8abca87940bb21cc344
-ms.lasthandoff: 02/22/2017
-
+ms.openlocfilehash: 6e5d17a1a84eb71252956e921522e6eebfd67925
+ms.sourcegitcommit: aadb9588877418b8b55a5612c1d3842d4520ca4c
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="how-to-modify-a-standard-menu-command-in-a-domain-specific-language"></a>如何：使用域特定语言修改标准的菜单命令
-可修改某些在 DSL 中自动定义的标准命令的行为。 例如，您可以修改**剪切**，以便排除敏感信息。 若要实现此目的，请重写命令集类中的方法。 这些类定义在 CommandSet.cs 文件中，在 DslPackage 项目中，并从<xref:Microsoft.VisualStudio.Modeling.Shell.CommandSet>。</xref:Microsoft.VisualStudio.Modeling.Shell.CommandSet>派生  
+可修改某些在 DSL 中自动定义的标准命令的行为。 例如，你可以修改**剪切**，以便它不包括敏感信息。 若要实现此目的，请重写命令集类中的方法。 这些类定义在 DslPackage 项目的 CommandSet.cs 文件中，并派生自 <xref:Microsoft.VisualStudio.Modeling.Shell.CommandSet>。  
   
  总之，若要修改命令，请执行以下操作：  
   
-1.  [发现可以修改的命令](#what)。  
+1.  [发现哪些命令可以修改](#what)。  
   
-2.  [创建相应命令集类的分部声明](#extend)。  
+2.  [创建相应的命令集类的分部声明](#extend)。  
   
-3.  [重写 ProcessOnStatus 和 ProcessOnMenu 方法](#override)命令。  
+3.  [重写的 ProcessOnStatus 和 ProcessOnMenu 方法](#override)命令。  
   
  本主题解释了此过程。  
   
 > [!NOTE]
->  如果你想要创建您自己的菜单命令，请参阅[如何︰ 向快捷菜单添加命令](../modeling/how-to-add-a-command-to-the-shortcut-menu.md)。  
+>  如果你想要创建您自己的菜单命令，请参阅[如何： 向快捷菜单添加命令](../modeling/how-to-add-a-command-to-the-shortcut-menu.md)。  
   
-##  <a name="a-namewhata-what-commands-can-you-modify"></a><a name="what"></a>您可以修改哪些命令？  
+##  <a name="what"></a>你可以修改哪些命令？  
   
 #### <a name="to-discover-what-commands-you-can-modify"></a>发现可以修改的命令  
   
-1.  在`DslPackage`项目中，打开`GeneratedCode\CommandSet.cs`。 此 C# 文件可在解决方案资源管理器作为`CommandSet.tt`。  
+1.  在`DslPackage`项目中，打开`GeneratedCode\CommandSet.cs`。 此 C# 文件可在解决方案资源管理器的子公司作为`CommandSet.tt`。  
   
-2.  查找该文件中类的名称结尾"`CommandSet`"，例如`Language1CommandSet`和`Language1ClipboardCommandSet`。  
+2.  查找此文件中类以其名称结尾"`CommandSet`"，例如`Language1CommandSet`和`Language1ClipboardCommandSet`。  
   
 3.  在每个命令集类中，键入“`override`”，后跟一个空格。 IntelliSense 将显示可重写方法的列表。 每个命令具有一对其名称以“`ProcessOnStatus`”和“`ProcessOnMenu`”开头的方法。  
   
@@ -53,7 +53,7 @@ ms.lasthandoff: 02/22/2017
     > [!NOTE]
     >  通常，不应编辑已生成的文件。 任何编辑都将在下次生成文件时丢失。  
   
-##  <a name="a-nameextenda-extend-the-appropriate-command-set-class"></a><a name="extend"></a>扩展相应命令集类  
+##  <a name="extend"></a>扩展相应的命令集类  
  创建包含命令集类的分部声明的新文件。  
   
 #### <a name="to-extend-the-command-set-class"></a>扩展命令集类  
@@ -64,9 +64,9 @@ ms.lasthandoff: 02/22/2017
   
      `{ ...  internal partial class Language1CommandSet : ...`  
   
-2.  在**DslPackage**，创建一个名为**自定义代码**。 在此文件夹中，创建名为的新类文件`CommandSet.cs`。  
+2.  在**DslPackage**，创建名为的文件夹**自定义代码**。 在此文件夹中，创建名为的新类文件`CommandSet.cs`。  
   
-3.  在该新文件中，编写具有与生成的分部类相同的命名空间和名称的分部声明。 例如：  
+3.  在该新文件中，编写具有与生成的分部类相同的命名空间和名称的分部声明。 例如:   
   
     ```  
     using System;  
@@ -76,10 +76,10 @@ ms.lasthandoff: 02/22/2017
     { internal partial class Language1CommandSet { ...  
     ```  
   
-     **请注意**如果类文件模板用于创建新的文件，则必须更正命名空间和类名。  
+     **请注意**如果类文件模板用于创建新文件，则必须更正命名空间和类名。  
   
-##  <a name="a-nameoverridea-override-the-command-methods"></a><a name="override"></a>重写命令方法  
- 大多数命令都具有两个关联的方法︰ 方法提供名称喜欢`ProcessOnStatus`...来确定命令是否应该是可见且已启用。 它将在每当用户右键单击关系图时调用，并应快速执行且不做任何更改。 `ProcessOnMenu`...当用户单击该命令，并应执行该命令的函数时调用。 你可能想要重写其中一个方法，或两者都进行重写。  
+##  <a name="override"></a>重写命令方法  
+ 大多数命令具有两个关联的方法： 具有名称的方法让`ProcessOnStatus`...确定是否该命令应为可见和启用状态。 它将在每当用户右键单击关系图时调用，并应快速执行且不做任何更改。 `ProcessOnMenu`...当用户单击该命令，并应执行该命令的函数调用。 你可能想要重写其中一个方法，或两者都进行重写。  
   
 ### <a name="to-change-when-the-command-appears-on-a-menu"></a>更改命令何时显示在菜单上  
  重写 ProcessOnStatus...方法。 此方法应设置其参数 MenuCommand 的“可见”和“已启用”属性。 通常，命令查看 this.CurrentSelection 来确定命令是否应用到选定的元素，还可能查看其属性来确定命令是否可以应用到其当前状态中。  
@@ -137,7 +137,7 @@ protected override void ProcessOnMenuDeleteCommand()
   
 -   `this.CurrentSelection`。 用户右键单击的形状始终包含在此形状和连接符列表中。 如果用户单击关系图的空白部分，则“关系图”是该列表中的唯一成员。  
   
--   `this.IsDiagramSelected()` - `true`如果用户单击该关系图的空白部分。  
+-   `this.IsDiagramSelected()` - `true`如果用户单击关系图的空白部分。  
   
 -   `this.IsCurrentDiagramEmpty()`  
   
@@ -147,15 +147,14 @@ protected override void ProcessOnMenuDeleteCommand()
   
 -   `shape.ModelElement as MyLanguageElement` - 由形状表示的模型元素。  
   
- 有关如何进行导航元素元素以及有关如何创建对象和链接的详细信息，请参阅[导航和更新程序代码中的模型](../modeling/navigating-and-updating-a-model-in-program-code.md)。  
+ 有关如何导航到元素和有关如何创建的对象和链接的详细信息，请参阅[导航和更新程序代码中的模型](../modeling/navigating-and-updating-a-model-in-program-code.md)。  
   
 ## <a name="see-also"></a>另请参阅  
- <xref:System.ComponentModel.Design.MenuCommand></xref:System.ComponentModel.Design.MenuCommand>   
+ <xref:System.ComponentModel.Design.MenuCommand>   
  [编写代码以自域特定语言](../modeling/writing-code-to-customise-a-domain-specific-language.md)   
- [如何︰ 向快捷菜单添加命令](../modeling/how-to-add-a-command-to-the-shortcut-menu.md)   
+ [如何： 向快捷菜单添加命令](../modeling/how-to-add-a-command-to-the-shortcut-menu.md)   
  [Vspackage 如何添加用户界面元素](../extensibility/internals/how-vspackages-add-user-interface-elements.md)   
  [Visual Studio 命令表 (。Vsct) 文件](../extensibility/internals/visual-studio-command-table-dot-vsct-files.md)   
  [VSCT XML 架构参考](../extensibility/vsct-xml-schema-reference.md)   
- [VMSDK – 电路图示例。广泛的 DSL 自定义项](http://code.msdn.microsoft.com/Visualization-Modeling-SDK-763778e8)   
- [示例代码︰ 电路图](http://code.msdn.microsoft.com/Visualization-Modeling-SDK-763778e8)
-
+ [VMSDK-线路关系图示例。广泛 DSL 自定义项](http://code.msdn.microsoft.com/Visualization-Modeling-SDK-763778e8)   
+ [示例代码： 线路关系图](http://code.msdn.microsoft.com/Visualization-Modeling-SDK-763778e8)

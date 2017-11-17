@@ -1,65 +1,65 @@
 ---
-title: "如何：用 SignTool.exe (ClickOnce) 对安装文件进行签名 | Microsoft Docs"
-ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-deployment"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-dev_langs: 
-  - "VB"
-  - "CSharp"
-  - "C++"
-helpviewer_keywords: 
-  - "ClickOnce 应用程序, 对 setup.exe 重新签名"
-  - "ClickOnce 应用程序, signtool.exe"
-  - "ClickOnce 部署, 对 setup.exe 重新签名"
-  - "ClickOnce 部署, signtool.exe"
-  - "部署应用程序 [ClickOnce], 对 setup.exe 重新签名"
+title: "如何： 安装文件进行签名与 SignTool.exe (ClickOnce) |Microsoft 文档"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology: vs-ide-deployment
+ms.tgt_pltfrm: 
+ms.topic: article
+dev_langs:
+- VB
+- CSharp
+- C++
+helpviewer_keywords:
+- ClickOnce applications, signtool.exe
+- deploying applications [ClickOnce], re-signing setup.exe
+- ClickOnce deployment, signtool.exe
+- ClickOnce applications, re-signing setup.exe
+- ClickOnce deployment, re-signing setup.exe
 ms.assetid: 545a4005-d283-4110-9821-c78a9833c250
-caps.latest.revision: 8
-caps.handback.revision: 8
-author: "stevehoag"
-ms.author: "shoag"
-manager: "wpickett"
+caps.latest.revision: "8"
+author: stevehoag
+ms.author: shoag
+manager: wpickett
+ms.openlocfilehash: 9cf5b1b9680d2c4267fde5798cb0b41297f72153
+ms.sourcegitcommit: aadb9588877418b8b55a5612c1d3842d4520ca4c
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/27/2017
 ---
-# 如何：用 SignTool.exe (ClickOnce) 对安装文件进行签名
-[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
-
-你可以使用 SignTool.exe 为安装程序 \(setup.exe\) 签名。  此过程有助于确保不会在最终用户计算机上安装经过篡改的文件。  
+# <a name="how-to-sign-setup-files-with-signtoolexe-clickonce"></a>如何：用 SignTool.exe (ClickOnce) 对安装文件进行签名
+你可以使用 SignTool.exe 为安装程序 (setup.exe) 签名。 此过程有助于确保不会在最终用户计算机上安装经过篡改的文件。  
   
- 默认情况下，ClickOnce 具有签名的清单和一个签名的安装程序。  但是，如果想在以后更改安装程序的参数，则以后必须对该安装程序进行签名。  如果对安装程序签名后更改参数，则签名将会损坏。  
+ 默认情况下，ClickOnce 具有签名的清单和一个签名的安装程序。 但是，如果想在以后更改安装程序的参数，则以后必须对该安装程序进行签名。 如果对安装程序签名后更改参数，则签名将会损坏。  
   
- 下面的过程将生成未签名的清单和未签名的安装程序。  然后，在 Visual Studio 中启用 ClickOnce 签名以生成签名的清单。  此安装程序将处于未签名状态，以便客户可以用他们自己的证书对可执行文件进行签名。  
+ 下面的过程将生成未签名的清单和未签名的安装程序。 然后，在 Visual Studio 中启用 ClickOnce 签名以生成签名的清单。 此安装程序将处于未签名状态，以便客户可以用他们自己的证书对可执行文件进行签名。  
   
-### 生成未签名的安装程序并在以后进行签名  
+### <a name="to-generate-an-unsigned-setup-program-and-sign-later"></a>生成未签名的安装程序并在以后进行签名  
   
 1.  在开发计算机上，安装想要用于对清单进行签名的证书。  
   
-2.  在**“解决方案资源管理器”**中选择项目。  
+2.  选择的项目中**解决方案资源管理器**。  
   
-3.  在**“项目”**菜单上，单击“*项目名称***属性**”。  
+3.  上**项目**菜单上，单击*ProjectName* **属性**。  
   
-4.  在**“签名”**页中，清除**“为 ClickOnce 清单签名”**。  
+4.  在**签名**页上，清除**ClickOnce 清单签名**。  
   
-5.  在**“发布”**页中，单击**“系统必备”**。  
+5.  在**发布**页上，单击**先决条件**。  
   
-6.  验证是否选中了所有系统必备，然后单击**“确定”**。  
+6.  验证所有系统必备组件已选中，然后单击**确定**。  
   
-7.  在**“发布”**页中，验证发布设置，然后单击**“立即发布”**。  
+7.  在**发布**页上，验证发布设置，然后单击**立即发布**。  
   
      该解决方案会将未签名的应用程序清单、未签名的部署清单、特定于版本的文件以及未签名的安装程序发布到发布文件夹位置。  
   
-8.  在**“发布”**页中，单击**“系统必备”**。  
+8.  在**发布**页上，单击**先决条件**。  
   
-9. 在**“系统必备”**对话框中，清除**“创建用于安装系统必备组件的安装程序”**。  
+9. 在**先决条件**对话框中，清除**创建用于安装系统必备组件安装程序**。  
   
-10. 在**“发布”**页中，验证发布设置，然后单击**“立即发布”**。  
+10. 在**发布**页上，验证发布设置，然后单击**立即发布**。  
   
-     该解决方案会将签名的应用程序清单、签名的部署清单和特定于版本的文件发布到发布文件夹位置。  发布过程不会覆盖未签名的安装程序。  
+     该解决方案会将签名的应用程序清单、签名的部署清单和特定于版本的文件发布到发布文件夹位置。 发布过程不会覆盖未签名的安装程序。  
   
 11. 在客户站点，打开命令提示符。  
   
@@ -79,5 +79,5 @@ manager: "wpickett"
     signtool sign /f CertFileName Setup.exe  
     ```  
   
-## 请参阅  
+## <a name="see-also"></a>另请参阅  
  [如何：为应用程序和部署清单重新签名](../deployment/how-to-re-sign-application-and-deployment-manifests.md)

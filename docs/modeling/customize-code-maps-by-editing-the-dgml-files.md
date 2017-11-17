@@ -20,39 +20,25 @@ helpviewer_keywords:
 - graph documents, grouping nodes
 - dependency graphs, assigning categories and properties
 ms.assetid: a2e141f4-4fd8-4611-b236-6b9e7bc54fc1
-caps.latest.revision: 93
+caps.latest.revision: "93"
 author: alexhomer1
 ms.author: ahomer
 manager: douge
-translation.priority.ht:
-- cs-cz
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pl-pl
-- pt-br
-- ru-ru
-- tr-tr
-- zh-cn
-- zh-tw
-translationtype: Machine Translation
-ms.sourcegitcommit: fd26c504273cae739ccbeef5e406891def732985
-ms.openlocfilehash: 40444a707b6c7a013429777f2f8b6cb508e2db81
-ms.lasthandoff: 02/22/2017
-
+ms.openlocfilehash: f270966c5c91dab1a492a775faca3da220a98d6c
+ms.sourcegitcommit: aadb9588877418b8b55a5612c1d3842d4520ca4c
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="customize-code-maps-by-editing-the-dgml-files"></a>Customize code maps by editing the DGML files
 若要自定义代码图，可以编辑代码图的定向关系图标记语言 (.dgml) 文件。 例如，可以编辑元素来指定自定义样式，向代码元素和链接分配属性和类别，或将文档（或 URL）链接到代码元素（或链接）。 有关 DGML 元素的详细信息，请参阅[定向图形标记语言 (DGML) 引用](../modeling/directed-graph-markup-language-dgml-reference.md)。  
   
- 在文本编辑器或 XML 编辑器中编辑代码图的 .dgml 文件。 如果映射 Visual Studio 解决方案的一部分，请选择在**解决方案资源管理器**，打开快捷菜单，然后选择**打开**， **XML （文本） 编辑器**。  
+ 在文本编辑器或 XML 编辑器中编辑代码图的 .dgml 文件。 如果映射为 Visual Studio 解决方案的一部分，选择在**解决方案资源管理器**，打开快捷菜单，然后选择**打开**， **XML （文本） 编辑器**。  
   
 > [!NOTE]
 >  若要创建代码图，必须具有 Visual Studio Enterprise。 在 Visual Studio 中编辑代码图时，Visual Studio 会在保存 .dgml 文件时删除所有未使用的 DGML 元素和属性以进行清理。 当手动添加新链接时，它还将自动创建代码元素。 当你保存 .dgml 文件时，你添加到元素的任何特性可能会按字母顺序重新排列。  
   
-##  <a name="a-nameorganizenodesa-group-code-elements"></a><a name="OrganizeNodes"></a>代码元素分组  
+##  <a name="OrganizeNodes"></a>代码元素进行分组  
  你可以添加新组，也可以将现有节点转换为一个组。  
   
 1.  在文本编辑器或 XML 编辑器中打开 .dgml 文件。  
@@ -91,10 +77,10 @@ ms.lasthandoff: 02/22/2017
     </Links>  
     ```  
   
-     有关详细信息`Category`属性，请参阅[向代码元素和链接分配类别](#AssignCategories)。  
+     有关详细信息`Category`属性，请参阅[将类别分配给代码元素和链接](#AssignCategories)。  
   
-##  <a name="a-namechangegraphstylea-change-the-style-of-the-map"></a><a name="ChangeGraphStyle"></a>更改地图的样式  
- 你可以通过编辑代码图的 .dgml 文件来更改代码图的背景色和边框颜色。 若要更改的代码元素和链接的样式，请参阅[更改代码元素和链接的样式](#Highlight)。  
+##  <a name="ChangeGraphStyle"></a>更改地图的样式  
+ 你可以通过编辑代码图的 .dgml 文件来更改代码图的背景色和边框颜色。 若要更改的代码元素和链接的样式，请参阅[更改的代码元素和链接的样式](#Highlight)。  
   
 1.  在文本编辑器或 XML 编辑器中打开 .dgml 文件。  
   
@@ -121,7 +107,7 @@ ms.lasthandoff: 02/22/2017
     </DirectedGraph>  
     ```  
   
-##  <a name="a-namehighlighta-change-the-style-of-code-elements-and-links"></a><a name="Highlight"></a>更改代码元素和链接的样式  
+##  <a name="Highlight"></a>更改的代码元素和链接的样式  
   
 ###  <a name="CreateCustomStyles"></a>   
  你可以将自定义样式应用于以下代码元素：  
@@ -282,7 +268,7 @@ ms.lasthandoff: 02/22/2017
   
 2.  在 `<Style/>` 元素中，添加一个包含 `<Condition/>` 特性的 `Expression` 元素，以指定返回布尔值的表达式。  
   
-     例如：  
+     例如:   
   
     ```xml  
     <Condition Expression="MyCategory"/>  
@@ -308,7 +294,7 @@ ms.lasthandoff: 02/22/2017
   
      <UnaryExpression> ::= "!" <Expression> &#124; "+" <Expression> &#124; "-" <Expression>  
   
-     <Operator>::= "<" |=""></">\<=" |"=" |">=" |">" |"!=" |"|"和"|"+" |"*" |"/" |"-"  
+     <Operator>:: ="<"&#124;"\<="&#124;"="&#124;"> ="&#124;">"&#124;"！ ="&#124;"&#124;"和"&#124;"+"&#124;"*"&#124;"/"&#124;"-"  
   
      <MemberBindings> ::= <MemberBindings> &#124; <MemberBinding> "." <MemberBinding>  
   
@@ -322,11 +308,11 @@ ms.lasthandoff: 02/22/2017
   
      <Identifier> ::= [^. ]*  
   
-     <Literal>:: = 单引号或双引号括起来的字符串文字  
+     <Literal>:: = 单引号或双引号括起来的字符串文本  
   
      <Number>:: = 带有可选小数点的数字的字符串  
   
-     您可以指定多个`<Condition/>`必须均为 true 才能应用样式的元素。  
+     你可以指定多个`<Condition/>`元素必须均为 true 才能应用样式。  
   
 3.  在 `<Condition/>` 元素后的下一行上，添加一个或多个 `<Setter/>` 元素，以指定要应用于满足条件的代码图、代码元素或链接的 `Property` 特性和固定 `Value` 特性或者计算所得的 `Expression` 特性。  
   
@@ -451,7 +437,7 @@ ms.lasthandoff: 02/22/2017
 </DirectedGraph>  
 ```  
   
-##  <a name="a-nameassignpropertiesa-assign-properties-to-code-elements-and-links"></a><a name="AssignProperties"></a>为代码元素和链接分配属性  
+##  <a name="AssignProperties"></a>将属性分配给代码元素和链接  
  你可以通过向代码元素和链接分配属性来组织代码元素和链接。 例如，可以选择具有特定属性的代码元素，以便能够对这些代码元素进行分组、更改它们的样式或隐藏它们。  
   
 #### <a name="to-assign-a-property-to-a-code-element"></a>向代码元素分配属性  
@@ -496,7 +482,7 @@ ms.lasthandoff: 02/22/2017
     </Properties>  
     ```  
   
-##  <a name="a-nameassigncategoriesa-assign-categories-to-code-elements-and-links"></a><a name="AssignCategories"></a>向代码元素和链接分配类别  
+##  <a name="AssignCategories"></a>将类别分配给代码元素和链接  
  以下各节演示如何通过将类别分配给代码元素来组织代码元素，以及如何创建可帮助组织代码元素并通过使用继承将特性添加到子类别的分层类别。  
   
 #### <a name="to-assign-a-category-to-a-code-element"></a>向代码元素分配类别  
@@ -567,9 +553,8 @@ ms.lasthandoff: 02/22/2017
   
      在此示例中，`MyFirstNode` 的背景为绿色，因为它的 `Category` 特性继承 `Background` 的 `MyParentCategory` 特性。  
   
-##  <a name="a-nameaddreferencesa-link-documents-or-urls-to-code-elements-and-links"></a><a name="AddReferences"></a>将文档或 Url 链接到代码元素和链接  
- 可以通过以下方式将文档或 URL 链接到代码元素或链接：编辑代码图的 .dgml 文件并将 `Reference` 特性添加到代码元素的 `<Node/>` 元素或链接的 `<Link/>` 元素。 然后，你可以打开并查看代码元素或链接的内容。 
-          `Reference` 特性指定该内容的路径。 此路径可能是相对于 .dgml 文件位置的路径，也可能是绝对路径。  
+##  <a name="AddReferences"></a>链接到代码元素和链接的文档或 Url  
+ 可以通过以下方式将文档或 URL 链接到代码元素或链接：编辑代码图的 .dgml 文件并将 `Reference` 特性添加到代码元素的 `<Node/>` 元素或链接的 `<Link/>` 元素。 然后，你可以打开并查看代码元素或链接的内容。 `Reference` 特性指定该内容的路径。 此路径可能是相对于 .dgml 文件位置的路径，也可能是绝对路径。  
   
 > [!CAUTION]
 >  如果使用相对路径，并将 .dgml 文件移至其他位置，则将不再解析这些路径。 当你尝试打开并查看链接内容时，将出现表示内容无法查看的错误。  
@@ -578,11 +563,11 @@ ms.lasthandoff: 02/22/2017
   
 -   若要描述某个类的更改，则可以将工作代码元素、文档或另一个 .dgml 文件的 URL 链接到该类的代码元素。  
   
--   可以将依赖项关系图链接到表示软件逻辑体系结构中的层的组代码元素。  
+-   您可以链接到一种表示软件的逻辑体系结构中的图层组代码元素的依赖项关系图。  
   
 -   若要显示有关公开某接口的组件的更多信息，可以将组件图链接到该接口的代码元素。  
   
--   代码元素链接到 Team Foundation Server 工作项或 bug 或与代码元素相关的一些其他信息。  
+-   代码元素链接到 Team Foundation Server 工作项或 bug 或对代码元素相关的一些其他信息。  
   
 #### <a name="to-link-a-document-or-url-to-a-code-element"></a>将文档或 URL 链接到代码元素  
   
@@ -620,11 +605,11 @@ ms.lasthandoff: 02/22/2017
   
         2.  将 `Id` 特性设置为新引用特性的名称。  
   
-        3.  添加`IsReference`特性，并将其设置为`True`以使显示在代码元素的引用**转到引用**快捷菜单。  
+        3.  添加`IsReference`属性，并将其设置为`True`以使显示在代码元素的引用**转到引用**快捷菜单。  
   
-        4.  使用`Label`特性来指定代码元素上的显示文本**转到引用**快捷菜单。  
+        4.  使用`Label`特性以指定在代码元素的显示文本**转到引用**快捷菜单。  
   
-     例如：  
+     例如:   
   
     ```xml  
     <Nodes>  
@@ -636,12 +621,11 @@ ms.lasthandoff: 02/22/2017
     </Properties>  
     ```  
   
-     在代码图上，代码元素的名称带下划线显示。 当您打开代码元素或链接的快捷菜单时，您将看到**转到引用**包含供你选择的链接的代码元素的快捷菜单。  
+     在代码图上，代码元素的名称带下划线显示。 当你打开的代码元素或链接的快捷菜单时，你将看到**转到引用**包含供你从中选择的链接的代码元素的快捷菜单。  
   
 4.  使用 `ReferenceTemplate` 特性来指定多个引用使用的公共字符串（例如 URL），而不是在引用中重复该字符串。  
   
-     
-          `ReferenceTemplate` 特性为引用的值指定占位符。 在下面的示例中，`{0}` 特性中的 `ReferenceTemplate` 占位符将替换为 `MyFirstReference` 元素中 `MySecondReference` 和 `<Node/>` 特性的值，以生成完整路径：  
+     `ReferenceTemplate` 特性为引用的值指定占位符。 在下面的示例中，`{0}` 特性中的 `ReferenceTemplate` 占位符将替换为 `MyFirstReference` 元素中 `MySecondReference` 和 `<Node/>` 特性的值，以生成完整路径：  
   
     ```xml  
     <Nodes>  
@@ -657,9 +641,8 @@ ms.lasthandoff: 02/22/2017
 5.  若要查看引用的代码元素或代码图中的代码元素，请打开代码元素或链接的快捷菜单。 选择**转到引用**，然后代码元素。  
   
 ## <a name="see-also"></a>另请参阅  
- [映射解决方案之间的依赖关系](../modeling/map-dependencies-across-your-solutions.md)   
- [使用代码图调试应用程序](../modeling/use-code-maps-to-debug-your-applications.md)   
- [使用代码图分析器发现潜在问题](../modeling/find-potential-problems-using-code-map-analyzers.md)   
+ [映射解决方案中的依赖关系](../modeling/map-dependencies-across-your-solutions.md)   
+ [使用代码图调试你的应用程序](../modeling/use-code-maps-to-debug-your-applications.md)   
+ [使用代码图分析器查找潜在问题](../modeling/find-potential-problems-using-code-map-analyzers.md)   
  [浏览和重新排列代码图](../modeling/browse-and-rearrange-code-maps.md)   
  [定向图形标记语言 (DGML) 引用](../modeling/directed-graph-markup-language-dgml-reference.md)
-

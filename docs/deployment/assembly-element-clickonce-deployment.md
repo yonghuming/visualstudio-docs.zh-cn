@@ -1,53 +1,52 @@
 ---
-title: "&lt;assembly&gt; 元素（ClickOnce 部署） | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-deployment"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "urn:schemas-microsoft-com:asm.v2#assembly"
-dev_langs: 
-  - "VB"
-  - "CSharp"
-  - "C++"
-helpviewer_keywords: 
-  - "<assembly> 元素 [ClickOnce 部署清单]"
+title: "&lt;程序集&gt;元素 （ClickOnce 部署） |Microsoft 文档"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology: vs-ide-deployment
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords: urn:schemas-microsoft-com:asm.v2#assembly
+dev_langs:
+- VB
+- CSharp
+- C++
+helpviewer_keywords: <assembly> element [ClickOnce deployment manifest]
 ms.assetid: b8e3362a-f821-4696-b98d-571d4bbfe431
-caps.latest.revision: 11
-author: "stevehoag"
-ms.author: "shoag"
-manager: "wpickett"
-caps.handback.revision: 11
+caps.latest.revision: "11"
+author: stevehoag
+ms.author: shoag
+manager: wpickett
+ms.openlocfilehash: 90def1bc4d824c6fdfd597ec8beb4b1f18f9e008
+ms.sourcegitcommit: aadb9588877418b8b55a5612c1d3842d4520ca4c
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/27/2017
 ---
-# &lt;assembly&gt; 元素（ClickOnce 部署）
-[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
-
-部署清单的顶级元素。  
+# <a name="ltassemblygt-element-clickonce-deployment"></a>&lt;程序集&gt;元素 （ClickOnce 部署）
+部署清单的的顶级元素。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
 ```  
   
-      <assembly    
+      <assembly    
    manifestVersion  
 />  
 ```  
   
-## 元素和特性  
- `assembly` 元素是根元素，因此是必需的。  它包含的第一个元素必须是一个 `assemblyIdentity` 元素。  清单元素必须位于下列命名空间中：`urn:schemas-microsoft-com:asm.v1`、`urn:schemas-microsoft-com:asm.v2` 和 `http://www.w3.org/2000/09/xmldsig#`。  程序集的子元素也必须位于这些命名空间中（通过继承或使用标记）。  
+## <a name="elements-and-attributes"></a>元素和属性  
+ `assembly`元素是根元素，它需要。 其第一个包含的元素必须是`assemblyIdentity`元素。 清单元素必须在以下命名空间： `urn:schemas-microsoft-com:asm.v1`， `urn:schemas-microsoft-com:asm.v2`，和`http://www.w3.org/2000/09/xmldsig#`。 程序集的子元素也必须通过继承或使用标记这些命名空间中。  
   
- `assembly` 元素具有下列特性。  
+ `assembly`元素具有以下属性。  
   
 |特性|说明|  
-|--------|--------|  
-|`manifestVersion`|必选。  此特性必须设置为 `1.0`。|  
+|---------------|-----------------|  
+|`manifestVersion`|必需。 此属性必须设置为`1.0`。|  
   
-## 示例  
- 下面的代码示例阐释了某应用程序的部署清单中的 `assembly` 元素，该应用程序是使用 [!INCLUDE[ndptecclick](../deployment/includes/ndptecclick_md.md)] 部署的。  此代码示例摘自为 [ClickOnce 部署清单](../deployment/clickonce-deployment-manifest.md)主题提供的一个更大示例。  
+## <a name="example"></a>示例  
+ 下面的代码示例阐释了`assembly`部署使用的应用程序的部署清单中的元素[!INCLUDE[ndptecclick](../deployment/includes/ndptecclick_md.md)]。 此代码示例摘自更大的示例为提供[ClickOnce 部署清单](../deployment/clickonce-deployment-manifest.md)主题。  
   
 ```  
 <asmv1:assembly   
@@ -64,6 +63,6 @@ caps.handback.revision: 11
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">  
 ```  
   
-## 请参阅  
+## <a name="see-also"></a>另请参阅  
  [ClickOnce 部署清单](../deployment/clickonce-deployment-manifest.md)   
- [\<assembly\> 元素](../deployment/assembly-element-clickonce-application.md)
+ [\<程序集 > 元素](../deployment/assembly-element-clickonce-application.md)
