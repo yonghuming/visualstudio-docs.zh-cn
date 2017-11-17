@@ -7,30 +7,15 @@ ms.suite:
 ms.tgt_pltfrm: 
 ms.topic: article
 ms.assetid: 2b0a8e04-6fee-4c6c-b086-e49fc728a3ed
-caps.latest.revision: 10
+caps.latest.revision: "10"
 author: alancameronwills
 ms.author: awills
 manager: douge
-translation.priority.ht:
-- cs-cz
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pl-pl
-- pt-br
-- ru-ru
-- tr-tr
-- zh-cn
-- zh-tw
+ms.openlocfilehash: 9b48a6d079ebe43f3d1e3c97a9272e8ad05b6735
+ms.sourcegitcommit: aadb9588877418b8b55a5612c1d3842d4520ca4c
 ms.translationtype: MT
-ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
-ms.openlocfilehash: a93cb843f45efffe2b8ccdb86543baf48736ed90
-ms.contentlocale: zh-cn
-ms.lasthandoff: 09/26/2017
-
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="t4-template-directive"></a>T4 模板指令
 [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] T4 文本模板通常以 `template` 指令开头，该指令指定应如何处理模板。 文本模板及其包括的任何文件中不应有多个 template 指令。  
@@ -252,4 +237,3 @@ This is the common footer.
  `internal`  
   
  在运行时文本模板中，这将设置生成类的可见性特性。 默认情况下，此类是你代码的公共 API 的一部分，但通过设置 `visibility="internal"`，你可以确保仅你的代码可使用文本生成类。
-

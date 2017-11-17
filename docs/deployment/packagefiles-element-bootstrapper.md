@@ -1,33 +1,33 @@
 ---
-title: "&lt;PackageFiles&gt; 元素（引导程序） | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-deployment"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-dev_langs: 
-  - "FSharp"
-  - "VB"
-  - "CSharp"
-  - "C++"
-helpviewer_keywords: 
-  - "<PackageFiles> 元素 [引导程序]"
+title: "&lt;PackageFiles&gt;元素 （引导程序） |Microsoft 文档"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology: vs-ide-deployment
+ms.tgt_pltfrm: 
+ms.topic: article
+dev_langs:
+- FSharp
+- VB
+- CSharp
+- C++
+helpviewer_keywords: <PackageFiles> element [bootstrapper]
 ms.assetid: 3ea252d7-18a3-47d8-af83-47feebcfe82b
-caps.latest.revision: 16
-author: "stevehoag"
-ms.author: "shoag"
-manager: "wpickett"
-caps.handback.revision: 16
+caps.latest.revision: "16"
+author: stevehoag
+ms.author: shoag
+manager: wpickett
+ms.openlocfilehash: a85b06bfc5c82e7d4bd08bef8f768ad2e28a2ab0
+ms.sourcegitcommit: aadb9588877418b8b55a5612c1d3842d4520ca4c
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/27/2017
 ---
-# &lt;PackageFiles&gt; 元素（引导程序）
-[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
-
-`PackageFiles` 元素包含 `PackageFile` 元素，后者定义作为 `Command` 元素的结果执行的安装包。  
+# <a name="ltpackagefilesgt-element-bootstrapper"></a>&lt;PackageFiles&gt;元素 （引导程序）
+`PackageFiles`元素包含`PackageFile`元素，后者定义的结果执行的安装程序包`Command`元素。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
 ```  
 <PackageFiles  
@@ -43,28 +43,28 @@ caps.handback.revision: 16
 </PackageFiles>  
 ```  
   
-## 元素和特性  
- `PackageFiles` 元素具有下列特性。  
+## <a name="elements-and-attributes"></a>元素和属性  
+ `PackageFiles`元素具有以下属性。  
+  
+|特性|描述|  
+|---------------|-----------------|  
+|`CopyAllPackageFiles`|可选。 如果设置为`false`，安装程序将仅下载文件从引用`Command`元素。 如果设置为`true`，将下载所有文件。<br /><br /> 如果设置为`IfNotHomesite`，安装将具有相同的行为就像`False`如果`ComponentsLocation`设置为`HomeSite`，和将否则具有相同行为就像`True`。 此设置可用于在 HomeSite 方案中执行其自己的行为对于允许它们本身的程序包。<br /><br /> 默认值为 `true`。|  
+  
+## <a name="packagefile"></a>即包文件  
+ `PackageFile`元素是的子`PackageFiles`元素。 A`PackageFiles`元素必须具有至少一个`PackageFile`元素。  
+  
+ `PackageFile`具有以下属性。  
   
 |特性|说明|  
-|--------|--------|  
-|`CopyAllPackageFiles`|可选。  如果设置为 `false`，安装程序将仅下载从 `Command` 元素引用的文件。  如果设置为 `true`，则将下载所有文件。<br /><br /> 如果设置为 `IfNotHomesite`，则在 `ComponentsLocation` 设置为 `HomeSite` 的情况下，安装程序的行为将与设置为 `False` 的行为相同，其他情况下，安装程序的行为将与设置为 `True` 的行为相同。  此设置对于允许自身为引导程序的程序包在 HomeSite 方案中执行自己的行为是非常有用的。<br /><br /> 默认值为 `true`。|  
+|---------------|-----------------|  
+|`Name`|必需。 包文件的名称。 这是的名称，`Command`它定义包安装在其下的条件时，将引用元素。 此值还用作键到`Strings`表以检索等工具的本地化的名称[!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)]将用来描述包。|  
+|`HomeSite`|可选。 在远程服务器上，如果不包括安装包的位置。|  
+|`CopyOnBuild`|可选。 指定引导程序生成时是否应将复制到磁盘的包文件。 默认值为 true。|  
+|`PublicKey`|加密的包的证书签名者的公钥。 如果存在`HomeSite`为止使用; 否则为可选。|  
+|`Hash`|可选。 包文件的 SHA1 哈希。 这用于在安装时验证该文件的完整性。 如果不能为相同的哈希计算从包文件，将不会安装包。|  
   
-## PackageFile  
- `PackageFile` 元素是 `PackageFiles` 元素的子元素。  `PackageFiles` 元素必须至少有一个 `PackageFile` 元素。  
-  
- `PackageFile` 具有下列特性。  
-  
-|特性|说明|  
-|--------|--------|  
-|`Name`|必选。  包文件的名称。  这是 `Command` 元素在定义包的安装条件时将引用的名称。  该值还可以用作 `Strings` 表中的键，以检索工具（例如 [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)]）将用来描述包的本地化名称。|  
-|`HomeSite`|可选。  远程服务器上的包的位置（如果安装程序不附带该包）。|  
-|`CopyOnBuild`|可选。  指定在生成时，引导程序是否应将包文件复制到磁盘上。  默认值为 true。|  
-|`PublicKey`|包的证书签名者的加密公钥。  如果使用了 `HomeSite`，此特性是必需的；否则，是可选的。|  
-|`Hash`|可选。  包文件的一个 SHA1 哈希。  用于在安装时验证文件的完整性。  如果无法从包文件计算相同的哈希，则不会安装此包。|  
-  
-## 示例  
- 下面的代码示例为 [!INCLUDE[dnprdnshort](../code-quality/includes/dnprdnshort_md.md)] 可再发行组件包及其依赖项（例如 Windows Installer）定义了各种包。  
+## <a name="example"></a>示例  
+ 下面的代码示例定义包[!INCLUDE[dnprdnshort](../code-quality/includes/dnprdnshort_md.md)]可再发行组件包和依赖项，如 Windows Installer。  
   
 ```  
 <PackageFiles>  
@@ -75,7 +75,7 @@ caps.handback.revision: 16
 </PackageFiles>  
 ```  
   
-## 请参阅  
- [\<Product\> 元素](../deployment/product-element-bootstrapper.md)   
- [\<Package\> 元素](../deployment/package-element-bootstrapper.md)   
+## <a name="see-also"></a>另请参阅  
+ [\<产品 > 元素](../deployment/product-element-bootstrapper.md)   
+ [\<包 > 元素](../deployment/package-element-bootstrapper.md)   
  [产品和包架构引用](../deployment/product-and-package-schema-reference.md)
