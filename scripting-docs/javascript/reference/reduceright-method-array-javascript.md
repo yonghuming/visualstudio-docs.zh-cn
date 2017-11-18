@@ -1,112 +1,115 @@
 ---
-title: "reduceRight 方法 (Array) (JavaScript) | Microsoft Docs"
-ms.custom: ""
-ms.date: "01/18/2017"
-ms.prod: "windows-client-threshold"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "devlang-javascript"
-ms.tgt_pltfrm: ""
-ms.topic: "language-reference"
-dev_langs: 
-  - "JavaScript"
-  - "TypeScript"
-  - "DHTML"
-helpviewer_keywords: 
-  - "数组 [JavaScript], reduceRight 方法"
-  - "reduceRight 方法 [JavaScript]"
+title: "reduceRight 方法 (Array) (JavaScript) |Microsoft 文档"
+ms.custom: 
+ms.date: 01/18/2017
+ms.prod: windows-client-threshold
+ms.reviewer: 
+ms.suite: 
+ms.technology: devlang-javascript
+ms.tgt_pltfrm: 
+ms.topic: language-reference
+dev_langs:
+- JavaScript
+- TypeScript
+- DHTML
+helpviewer_keywords:
+- arrays [JavaScript], reduceRight method
+- reduceRight method [JavaScript]
 ms.assetid: 85963761-da11-407c-8bce-278c930e61bd
-caps.latest.revision: 19
-author: "mikejo5000"
-ms.author: "mikejo"
-manager: "ghogen"
-caps.handback.revision: 19
+caps.latest.revision: "19"
+author: mikejo5000
+ms.author: mikejo
+manager: ghogen
+ms.openlocfilehash: 0d7fd2794157eadacefa7404f9333c51aed9425c
+ms.sourcegitcommit: aadb9588877418b8b55a5612c1d3842d4520ca4c
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/27/2017
 ---
-# reduceRight 方法 (Array) (JavaScript)
-按降序顺序对数组中的所有元素调用指定的回调函数。  该回调函数的返回值为累积结果，并且此返回值在下一次调用该回调函数时作为参数提供。  
+# <a name="reduceright-method-array-javascript"></a>reduceRight 方法 (Array) (JavaScript)
+为数组、 以降序顺序中的所有元素调用指定的回调函数。 回调函数的返回值是累积的结果，并且作为对回调函数的下一个调用中的自变量提供。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
 ```  
   
 array1.reduceRight(callbackfn[, initialValue])  
 ```  
   
-#### 参数  
+#### <a name="parameters"></a>参数  
   
 |参数|定义|  
-|--------|--------|  
-|`array1`|必需。  一个数组对象。|  
-|`callbackfn`|必需。  一个接受最多四个参数的函数。  对于数组中的每个元素，`reduceRight` 方法都会调用 `callbackfn` 函数一次。|  
-|`initialValue`|可选。  如果指定 `initialValue`，则它将用作初始值来启动累积。  第一次调用 `callbackfn` 函数会将此值作为参数而非数组值提供。|  
+|---------------|----------------|  
+|`array1`|必需。 一个数组对象。|  
+|`callbackfn`|必需。 接受最多四个自变量的函数。 对于数组中的每个元素，`reduceRight` 方法都会调用 `callbackfn` 函数一次。|  
+|`initialValue`|可选。 如果`initialValue`指定，它用于作为初始值开始累积。 首次调用`callbackfn`函数提供此值作为参数而不是数组值。|  
   
-## 返回值  
- 包含通过最后一次调用回调函数获得的累积结果的对象。  
+## <a name="return-value"></a>返回值  
+ 包含从对回调函数的最后一个调用累积的结果的对象。  
   
-## 异常  
- 当满足下列任一条件时，将引发 `TypeError` 异常：  
+## <a name="exceptions"></a>异常  
+ A`TypeError`时将引发异常的以下条件的任何一种情况：  
   
--   `callbackfn` 参数不是函数对象。  
+-   `callbackfn`参数不是函数对象。  
   
--   数组不包含元素，且未提供 `initialValue`。  
+-   数组不包含任何元素和`initialValue`未提供。  
   
-## 备注  
- 如果提供了 `initialValue`，则 `reduceRight` 方法会按降序索引顺序对数组中的每个元素调用一次 `callbackfn` 函数。  如果未提供 `initialValue`，则 `reduceRight` 方法会按降序索引顺序对每个元素（从倒数第二个元素开始）调用 `callbackfn` 函数。  
+## <a name="remarks"></a>备注  
+ 如果`initialValue`提供，`reduceRight`方法调用`callbackfn`函数中降序索引的数组中每个元素的一次。 如果没有`initialValue`提供，`reduceRight`方法调用`callbackfn`函数对每个元素，从上一次第二个元素，按降序索引开始。  
   
- 回调函数的返回值在下一次调用回调函数时作为 `previousValue` 参数提供。  最后一次调用回调函数获得的返回值为 `reduceRight` 方法的返回值。  
+ 回调函数的返回值用作`previousValue`上对回调函数的下一个调用的自变量。 对回调函数的最后一个调用的返回值是返回值的`reduceRight`方法。  
   
- 不为数组中缺少的元素调用该回调函数。  
+ 将不会为数组中缺少的元素调用回调函数。  
   
- 若要按升序索引顺序累积结果，请使用 [reduce 方法 \(Array\)](../../javascript/reference/reduce-method-array-javascript.md)。  
+ 若要会累积升序索引顺序中的某个结果，使用[reduce 方法 (Array)](../../javascript/reference/reduce-method-array-javascript.md)。  
   
-## 回调函数语法  
+## <a name="callback-function-syntax"></a>回调函数语法  
  回调函数的语法如下所示：  
   
  `function callbackfn(previousValue, currentValue, currentIndex, array1)`  
   
- 可使用最多四个参数来声明回调函数。  
+ 可以使用最多四个参数来声明回调函数。  
   
  下表列出了回调函数参数。  
   
 |回调参数|定义|  
-|----------|--------|  
-|`previousValue`|通过上一次调用回调函数获得的值。  如果向 `reduceRight` 方法提供 `initialValue`，则在首次调用函数时，`previousValue` 为 `initialValue`。|  
+|-----------------------|----------------|  
+|`previousValue`|来自调用的回调函数的值。 如果`initialValue`提供给`reduceRight`方法，`previousValue`是`initialValue`在首次调用该函数。|  
 |`currentValue`|当前数组元素的值。|  
 |`currentIndex`|当前数组元素的数字索引。|  
 |`array1`|包含该元素的数组对象。|  
   
-## 第一次调用回调函数  
- 在第一次调用回调函数时，作为参数提供的值取决于 `reduceRight` 方法是否具有 `initialValue` 参数。  
+## <a name="first-call-to-the-callback-function"></a>首次调用回调函数  
+ 第一次调用回调函数时，作为自变量提供的值取决于是否`reduceRight`方法具有`initialValue`自变量。  
   
- 如果向 `reduceRight` 方法提供 `initialValue`：  
+ 如果`initialValue`提供给`reduceRight`方法：  
   
 -   `previousValue` 参数为 `initialValue`。  
   
--   `currentValue` 参数是数组中的最后一个元素的值。  
+-   `currentValue`参数是数组中出现的最后一个元素的值。  
   
- 如果未提供 `initialValue`：  
+ 如果`initialValue`未提供：  
   
--   `previousValue` 参数是数组中的最后一个元素的值。  
+-   `previousValue`参数是数组中出现的最后一个元素的值。  
   
--   `currentValue` 参数是数组中的倒数第二个元素的值。  
+-   `currentValue`参数是数组中出现的倒数第二个元素的值。  
   
-## 修改数组对象  
+## <a name="modifying-the-array-object"></a>修改数组对象  
  数组对象可由回调函数修改。  
   
  下表描述了在 `reduceRight` 方法启动后修改数组对象所获得的结果。  
   
-|`reduceRight` 方法启动后的条件|元素是否传递给回调函数|  
-|----------------------------|-----------------|  
-|在数组的原始长度之外添加元素。|否。|  
+|`reduceRight` 方法启动后的条件|元素是否传递给回调函数？|  
+|-----------------------------------------------------|------------------------------------------|  
+|在数组的原始长度之外添加元素。|不可以。|  
 |添加元素以填充数组中缺少的元素。|是，如果该索引尚未传递给回调函数。|  
-|元素被更改。|是，如果该元素尚未传递给回调函数。|  
+|元素已更改。|是，如果该元素尚未传递给回调函数。|  
 |从数组中删除元素。|否，除非该元素已传递给回调函数。|  
   
-## 示例  
- 下面的示例将数组值连接成字符串，各个值用“::”分隔开。  由于未向 `reduceRight` 方法提供初始值，第一次调用回调函数时会将 456 作为 `previousValue` 参数并将 123 作为 `currentValue` 参数。  
+## <a name="example"></a>示例  
+ 下面的示例将数组值串联成一个字符串，分隔各个值与"::"。 因为没有初始值提供给`reduceRight`方法，对回调函数的第一个调用已作为 456`previousValue`自变量并将它作为 123`currentValue`自变量。  
   
-```javascript  
+```JavaScript  
 // Define the callback function.  
 function appendCurrent (previousValue, currentValue) {  
     return previousValue + "::" + currentValue;  
@@ -125,10 +128,10 @@ document.write(result);
 //  456::123::def::abc  
 ```  
   
-## 示例  
- 下面的示例查找数组元素的平方和。  使用初始值 0 调用 `reduceRight` 方法。  
+## <a name="example"></a>示例  
+ 下面的示例查找数组元素的平方和。 `reduceRight`方法调用使用初始值为 0。  
   
-```javascript  
+```JavaScript  
 // Define the callback function.  
 function Process(previousValue, currentValue, index, array) {  
     // Add the previous value to the current value squared.  
@@ -153,10 +156,10 @@ document.write("sum of squares=" + sumOfSquares);
 //  sum of squares=50  
 ```  
   
-## 示例  
- 下面的示例获取数组中值为 1 到 10 之间的元素。  提供给 `reduceRight` 方法的初始值是一个空数组。  
+## <a name="example"></a>示例  
+ 下面的示例获取一个数组，其值是 1 到 10 之间的那些元素。 提供给的初始值`reduceRight`方法为空数组。  
   
-```javascript  
+```JavaScript  
 function Process2(previousArray, currentValue) {  
     // If currentValue is between 1 and 10,   
     // append currentValue to the array.  
@@ -186,10 +189,10 @@ document.write("result array=" + resultArray);
 //  result array=3,6,1  
 ```  
   
-## 示例  
- `reduceRight` 方法可应用于字符串。  下面的示例演示如何使用此方法反转字符串中的字符。  
+## <a name="example"></a>示例  
+ `reduceRight` 方法可应用于一个字符串。 下面的示例演示如何使用此方法反向字符串中的字符。  
   
-```javascript  
+```JavaScript  
 // Define the callback function.  
 function AppendToArray(previousValue, currentValue) {  
     return previousValue + currentValue;  
@@ -208,8 +211,8 @@ document.write(result);
 // the computer  
 ```  
   
-## 要求  
+## <a name="requirements"></a>要求  
  [!INCLUDE[jsv9](../../javascript/includes/jsv9-md.md)]  
   
-## 请参阅  
- [reduce 方法 \(Array\)](../../javascript/reference/reduce-method-array-javascript.md)
+## <a name="see-also"></a>另请参阅  
+ [reduce 方法 (Array)](../../javascript/reference/reduce-method-array-javascript.md)

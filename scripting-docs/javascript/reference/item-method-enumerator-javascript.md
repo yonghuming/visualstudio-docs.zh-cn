@@ -1,51 +1,52 @@
 ---
-title: "item 方法 (Enumerator) (JavaScript) | Microsoft Docs"
-ms.custom: ""
-ms.date: "01/18/2017"
-ms.prod: "windows-client-threshold"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "devlang-javascript"
-ms.tgt_pltfrm: ""
-ms.topic: "language-reference"
-f1_keywords: 
-  - "item"
-dev_langs: 
-  - "JavaScript"
-  - "TypeScript"
-  - "DHTML"
-helpviewer_keywords: 
-  - "Item 方法"
+title: "item 方法 (Enumerator) (JavaScript) |Microsoft 文档"
+ms.custom: 
+ms.date: 01/18/2017
+ms.prod: windows-client-threshold
+ms.reviewer: 
+ms.suite: 
+ms.technology: devlang-javascript
+ms.tgt_pltfrm: 
+ms.topic: language-reference
+f1_keywords: item
+dev_langs:
+- JavaScript
+- TypeScript
+- DHTML
+helpviewer_keywords: Item method
 ms.assetid: a88e93f2-42df-4578-a4f9-0760bd074185
-caps.latest.revision: 15
-author: "mikejo5000"
-ms.author: "mikejo"
-manager: "ghogen"
-caps.handback.revision: 15
+caps.latest.revision: "15"
+author: mikejo5000
+ms.author: mikejo
+manager: ghogen
+ms.openlocfilehash: 94275b2c82f199c96ef2d6c7d667fd27fba2702d
+ms.sourcegitcommit: aadb9588877418b8b55a5612c1d3842d4520ca4c
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/27/2017
 ---
-# item 方法 (Enumerator) (JavaScript)
+# <a name="item-method-enumerator-javascript"></a>item 方法 (Enumerator) (JavaScript)
 返回集合中的当前项。  
   
 > [!WARNING]
 >  此对象仅在 Internet Explorer 中受支持。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
 ```  
   
-enumObj.item()  
+enumObj.item()   
 ```  
   
-## 备注  
+## <a name="remarks"></a>备注  
  所需 *enumObj* 引用可以是任何 `Enumerator` 对象。  
   
  **item** 方法将返回当前项。 如果集合为空，或者当前项未定义，则该方法将返回 **undefined**。  
   
-## 示例  
+## <a name="example"></a>示例  
  在以下代码中，使用 **item** 方法返回 `Drives` 集合的成员。  
   
-```javascript  
+```JavaScript  
 function ShowDrives()  
 {  
     var s = "";  
@@ -82,12 +83,12 @@ function ShowDrives()
 }  
 ```  
   
-## 要求  
- 在以下文档模式中受支持：Quirks、Internet Explorer 6 标准模式、Internet Explorer 7 标准模式、Internet Explorer 8 标准模式、Internet Explorer 9 标准模式和 Internet Explorer 10 标准模式。 在 [!INCLUDE[win8_appname_long](../../javascript/includes/win8-appname-long-md.md)]应用中不受支持。 请参阅[版本信息](../../javascript/reference/javascript-version-information.md)。  
+## <a name="requirements"></a>要求  
+ 在以下文档模式中受支持：Quirks、Internet Explorer 6 标准模式、Internet Explorer 7 标准模式、Internet Explorer 8 标准模式、Internet Explorer 9 标准模式和 Internet Explorer 10 标准模式。 在 [!INCLUDE[win8_appname_long](../../javascript/includes/win8-appname-long-md.md)] 应用中不受支持。 请参阅 [版本信息](../../javascript/reference/javascript-version-information.md)。  
   
- **适用于**：[Enumerator 对象](../../javascript/reference/enumerator-object-javascript.md)  
+ **适用于**： [Enumerator Object](../../javascript/reference/enumerator-object-javascript.md)  
   
-## 请参阅  
- [atEnd 方法 \(Enumerator\)](../../javascript/reference/atend-method-enumerator-javascript.md)   
- [moveFirst 方法 \(Enumerator\)](../../javascript/reference/movefirst-method-enumerator-javascript.md)   
- [moveNext 方法 \(Enumerator\)](../../javascript/reference/movenext-method-enumerator-javascript.md)
+## <a name="see-also"></a>另请参阅  
+ [atEnd 方法 (Enumerator)](../../javascript/reference/atend-method-enumerator-javascript.md)   
+ [moveFirst 方法 (Enumerator)](../../javascript/reference/movefirst-method-enumerator-javascript.md)   
+ [moveNext 方法 (Enumerator)](../../javascript/reference/movenext-method-enumerator-javascript.md)

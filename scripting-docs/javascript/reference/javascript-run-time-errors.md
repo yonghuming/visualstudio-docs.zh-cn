@@ -1,60 +1,63 @@
 ---
-title: "JavaScript 运行时错误 | Microsoft Docs"
-ms.custom: ""
-ms.date: "01/18/2017"
-ms.prod: "windows-client-threshold"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "devlang-javascript"
-ms.tgt_pltfrm: ""
-ms.topic: "language-reference"
-f1_keywords: 
-  - "VS.WebClient.Help.SCRIPT-32725"
-  - "VS.WebClient.Help.SCRIPT7002"
-  - "VS.WebClient.Help.SCRIPT1001"
-  - "VS.WebClient.Help.SCRIPT16389"
-  - "VS.WebClient.HelpSCRIPT50"
-  - "VS.WebClient.HelpSCRIPT70"
-  - "VS.WebClient.HelpSCRIPT87"
-  - "VS.WebClient.HelpSCRIPT65535"
-  - "VS.WebClient.HelpSCRIPT445"
-  - "VS.WebClient.HelpSCRIPT600"
-  - "VS.WebClient.HelpSCRIPT2343"
-  - "VS.WebClient.HelpSCRIPT122"
-  - "VS.WebClient.HelpSCRIPT28"
-  - "VS.WebClient.HelpSCRIPT16386"
-  - "VS.WebClient.HelpSCRIPT7015"
-  - "VS.WebClient.HelpSCRIPT3"
-  - "VS.WebClient.HelpSCRIPT16388"
-  - "VS.WebClient.HelpSCRIPT14"
-  - "VS.WebClient.HelpSCRIPT12030"
-  - "VS.WebClient.HelpSCRIPT12029"
-  - "VS.WebClient.HelpSCRIPT1001"
-dev_langs: 
-  - "JavaScript"
-  - "TypeScript"
-  - "DHTML"
-helpviewer_keywords: 
-  - "错误 [JavaScript]"
-  - "运行时错误, JavaScript"
+title: "JavaScript 运行时错误 |Microsoft 文档"
+ms.custom: 
+ms.date: 01/18/2017
+ms.prod: windows-client-threshold
+ms.reviewer: 
+ms.suite: 
+ms.technology: devlang-javascript
+ms.tgt_pltfrm: 
+ms.topic: language-reference
+f1_keywords:
+- VS.WebClient.Help.SCRIPT-32725
+- VS.WebClient.Help.SCRIPT7002
+- VS.WebClient.Help.SCRIPT1001
+- VS.WebClient.Help.SCRIPT16389
+- VS.WebClient.HelpSCRIPT50
+- VS.WebClient.HelpSCRIPT70
+- VS.WebClient.HelpSCRIPT87
+- VS.WebClient.HelpSCRIPT65535
+- VS.WebClient.HelpSCRIPT445
+- VS.WebClient.HelpSCRIPT600
+- VS.WebClient.HelpSCRIPT2343
+- VS.WebClient.HelpSCRIPT122
+- VS.WebClient.HelpSCRIPT28
+- VS.WebClient.HelpSCRIPT16386
+- VS.WebClient.HelpSCRIPT7015
+- VS.WebClient.HelpSCRIPT3
+- VS.WebClient.HelpSCRIPT16388
+- VS.WebClient.HelpSCRIPT14
+- VS.WebClient.HelpSCRIPT12030
+- VS.WebClient.HelpSCRIPT12029
+- VS.WebClient.HelpSCRIPT1001
+dev_langs:
+- JavaScript
+- TypeScript
+- DHTML
+helpviewer_keywords:
+- errors [JavaScript]
+- run-time errors, JavaScript
 ms.assetid: c111469d-8f31-4bde-9d46-16d58775db7d
-caps.latest.revision: 20
-author: "mikejo5000"
-ms.author: "mikejo"
-manager: "ghogen"
-caps.handback.revision: 20
+caps.latest.revision: "20"
+author: mikejo5000
+ms.author: mikejo
+manager: ghogen
+ms.openlocfilehash: fb75c59fae32911c3dd3a7468439a198d7191755
+ms.sourcegitcommit: aadb9588877418b8b55a5612c1d3842d4520ca4c
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/27/2017
 ---
-# JavaScript 运行时错误
+# <a name="javascript-run-time-errors"></a>JavaScript 运行时错误
 [!INCLUDE[javascript](../../javascript/includes/javascript-md.md)] 运行时错误是指当你的脚本尝试执行系统无法执行的操作时发生的错误。 在计算变量表达式或分配内存时，你可能会看到运行时错误。  
   
-## Windows 运行时错误  
+## <a name="windows-runtime-errors"></a>Windows 运行时错误  
  如果你正在 [!INCLUDE[win8_appname_long](../../javascript/includes/win8-appname-long-md.md)] 应用中使用 Windows 运行时 API，你可能会看到从 Windows Runtime HRESULT 转换而来的 JavaScript 错误。 超过 0x80070000 范围的 Windows 运行时 HRESULT 将通过采用低位的十六进制值，然后将该值转换为十进制来转换为 JavaScript 错误。 例如，HRESULT 0x80070032 将转换为十进制值 50，因此 JavaScript 错误为 SCRIPT50。 HRESULT 0x80074005 将转换为十进制值 16389，因此 JavaScript 错误为 SCRIPT16389。  
   
-## 错误  
+## <a name="errors"></a>错误  
   
 |错误号|描述|  
-|---------|--------|  
+|------------------|-----------------|  
 |5|[拒绝访问](../../javascript/misc/access-is-denied.md)|  
 |438|[对象不支持此属性或方法](../../javascript/misc/object-doesn-t-support-this-property-or-method.md)|  
 |1001|内存不足|  
@@ -68,8 +71,8 @@ caps.handback.revision: 20
 |5006|[缺少日期对象](../../javascript/misc/date-object-expected.md)|  
 |5015|[缺少枚举器对象](../../javascript/misc/enumerator-object-expected.md)|  
 |5022|[引发了异常且未被捕获](../../javascript/misc/exception-thrown-and-not-caught.md)|  
-|5020|[正则表达式中缺少“\)”](../../javascript/misc/expected-right-parenthesis-in-regular-expression-javascript.md)|  
-|5019|[正则表达式中缺少“&#93;”](../../javascript/misc/expected-right-square-bracket-in-regular-expression-javascript.md)|  
+|5020|[正则表达式中缺少“)”](../../javascript/misc/expected-right-parenthesis-in-regular-expression-javascript.md)|  
+|5019|[预期 &#93; 正则表达式中](../../javascript/misc/expected-right-square-bracket-in-regular-expression-javascript.md)|  
 |5023|[函数没有有效的原型对象](../../javascript/misc/function-does-not-have-a-valid-prototype-object.md)|  
 |5002|[缺少函数](../../javascript/misc/function-expected.md)|  
 |5008|[非法赋值](../../javascript/misc/illegal-assignment-javascript.md)|  
@@ -90,5 +93,5 @@ caps.handback.revision: 20
 |5018|[意外的限定符](../../javascript/misc/unexpected-quantifier-javascript.md)|  
 |5013|[缺少 VBArray](../../javascript/misc/vbarray-expected.md)|  
   
-## 请参阅  
+## <a name="see-also"></a>另请参阅  
  [JavaScript 语法错误](../../javascript/reference/javascript-syntax-errors.md)

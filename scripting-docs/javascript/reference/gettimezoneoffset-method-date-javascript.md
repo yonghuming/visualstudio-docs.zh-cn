@@ -1,52 +1,54 @@
 ---
-title: "getTimezoneOffset 方法 (Date) (JavaScript) | Microsoft Docs"
-ms.custom: ""
-ms.date: "01/18/2017"
-ms.prod: "windows-client-threshold"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "devlang-javascript"
-ms.tgt_pltfrm: ""
-ms.topic: "language-reference"
-f1_keywords: 
-  - "getTimeZoneOffset"
-dev_langs: 
-  - "JavaScript"
-  - "TypeScript"
-  - "DHTML"
-helpviewer_keywords: 
-  - "getTimezoneOffset 方法"
-  - "时区 [Visual Studio]"
+title: "getTimezoneOffset 方法 (Date) (JavaScript) |Microsoft 文档"
+ms.custom: 
+ms.date: 01/18/2017
+ms.prod: windows-client-threshold
+ms.reviewer: 
+ms.suite: 
+ms.technology: devlang-javascript
+ms.tgt_pltfrm: 
+ms.topic: language-reference
+f1_keywords: getTimeZoneOffset
+dev_langs:
+- JavaScript
+- TypeScript
+- DHTML
+helpviewer_keywords:
+- getTimezoneOffset method
+- time zones [Visual Studio]
 ms.assetid: 58ee22b0-4688-45bd-a337-cc23119b09ce
-caps.latest.revision: 16
-author: "mikejo5000"
-ms.author: "mikejo"
-manager: "ghogen"
-caps.handback.revision: 16
+caps.latest.revision: "16"
+author: mikejo5000
+ms.author: mikejo
+manager: ghogen
+ms.openlocfilehash: e49a3c8b7060e6097300f8aaf99b2ef869833018
+ms.sourcegitcommit: aadb9588877418b8b55a5612c1d3842d4520ca4c
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/27/2017
 ---
-# getTimezoneOffset 方法 (Date) (JavaScript)
-获取本地计算机的时间与协调通用时间 \(UTC\) 之间的分钟差值。  
+# <a name="gettimezoneoffset-method-date-javascript"></a>getTimezoneOffset 方法 (Date) (JavaScript)
+获取本地计算机上的时间与协调世界时 (UTC) 之间的差异以分钟为单位。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
 ```  
   
 dateObj.getTimezoneOffset()   
 ```  
   
-#### 参数  
- 必需的 `dateObj` 引用是 `Date` 对象。  
+#### <a name="parameters"></a>参数  
+ 所需 `dateObj` 引用是 `Date` 对象。  
   
-## 返回值  
- 返回当前计算机（客户端计算机或服务器计算机（如果从服务器脚本调用此方法））的时间与 UTC 之间的分钟数。  如果当前计算机的本地时间在 UTC 之后（例如太平洋夏时制）则为正值，如果当前计算机的本地时间是 UTC 之前（例如日本）则为负值。  当位于洛杉矶的客户端在 12 月 1 日与位于纽约市的服务器进行联系时，如果是在客户端上执行的，则 `getTimezoneOffset` 返回 480；如果是在服务器上执行的，则它返回 300。  
+## <a name="return-value"></a>返回值  
+ 返回当前计算机上的时间之间的分钟数 (客户端计算机或从服务器脚本中的服务器计算机中调用此方法) 和 UTC。 如果当前计算机的本地时间是 UTC （例如，太平洋夏令时） 和负后面，如果当前计算机的本地时间早于 UTC （例如，日语），它为正。 如果在纽约的服务器已连接则洛杉矶中的客户端年 12 月 1 日，`getTimezoneOffset`返回 480，如果客户端或执行 300 如果在服务器上执行。  
   
-## 备注  
+## <a name="remarks"></a>备注  
   
-## 示例  
- 下面的示例演示如何使用 `getTimezoneOffset` 方法。  
+## <a name="example"></a>示例  
+ 下面的示例显示如何使用 `getTimezoneOffset` 方法。  
   
-```javascript  
+```JavaScript  
 var date =  new Date();  
 var minutes = date.getTimezoneOffset();  
   
@@ -60,10 +62,10 @@ else
   
 ```  
   
-## 要求  
+## <a name="requirements"></a>要求  
  [!INCLUDE[jsv1](../../javascript/misc/includes/jsv1-md.md)]  
   
- **适用于**：[Date 对象](../../javascript/reference/date-object-javascript.md)  
+ **适用于**： [Date Object](../../javascript/reference/date-object-javascript.md)  
   
-## 请参阅  
- [getTime 方法 \(Date\)](../../javascript/reference/gettime-method-date-javascript.md)
+## <a name="see-also"></a>另请参阅  
+ [getTime 方法 (Date)](../../javascript/reference/gettime-method-date-javascript.md)

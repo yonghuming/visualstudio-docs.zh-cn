@@ -1,50 +1,51 @@
 ---
-title: "multiline 属性（正则表达式）(JavaScript) | Microsoft Docs"
-ms.custom: ""
-ms.date: "01/18/2017"
-ms.prod: "windows-client-threshold"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "devlang-javascript"
-ms.tgt_pltfrm: ""
-ms.topic: "language-reference"
-f1_keywords: 
-  - "multiline"
-dev_langs: 
-  - "JavaScript"
-  - "TypeScript"
-  - "DHTML"
-helpviewer_keywords: 
-  - "multiline 属性"
+title: "multiline 属性 （正则表达式） (JavaScript) |Microsoft 文档"
+ms.custom: 
+ms.date: 01/18/2017
+ms.prod: windows-client-threshold
+ms.reviewer: 
+ms.suite: 
+ms.technology: devlang-javascript
+ms.tgt_pltfrm: 
+ms.topic: language-reference
+f1_keywords: multiline
+dev_langs:
+- JavaScript
+- TypeScript
+- DHTML
+helpviewer_keywords: multiline property
 ms.assetid: ca7b276a-1fe2-4189-ac27-f089ab3e9974
-caps.latest.revision: 13
-author: "mikejo5000"
-ms.author: "mikejo"
-manager: "ghogen"
-caps.handback.revision: 13
+caps.latest.revision: "13"
+author: mikejo5000
+ms.author: mikejo
+manager: ghogen
+ms.openlocfilehash: 289cb8d8e103d8c4ac1b1ef06714105d21cba743
+ms.sourcegitcommit: aadb9588877418b8b55a5612c1d3842d4520ca4c
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/27/2017
 ---
-# multiline 属性（正则表达式）(JavaScript)
-返回布尔值，该值指示在正则表达式中使用的 multiline 标志 \(**m**\) 的状态。  默认值为 **false**。  只读。  
+# <a name="multiline-property-regular-expression-javascript"></a>multiline 属性（正则表达式）(JavaScript)
+返回一个布尔值，该值指示多行的标志的状态 (**m**) 与正则表达式一起使用。 默认值是**false**。 只读。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
 ```  
   
 rgExp.multiline  
 ```  
   
-## 备注  
- 必需的 `rgExp` 参数是 `RegExp` 对象的实例  
+## <a name="remarks"></a>备注  
+ 所需`rgExp`自变量是的一个实例`RegExp`对象  
   
- **multiline** 属性在 multiline 标志是为正则表达式设置时，返回 **true**，否则返回 **false**。  如果使用 **m** 标志创建正则表达式对象，那么 **multiline** 属性就是 **true**。  
+ **多行**属性返回**true**如果多行的标志设置为正则表达式，并返回**false**如果它不是。 **多行**属性是**true**如果使用正则表达式对象创建了**m**标志。  
   
- 如果 **multiline** 为 **false**，那么“^”与字符串的开始位置相匹配，而“$”与字符串的结束位置相匹配。  如果 **multiline** 为 **true**，那么“^”与字符串开始位置以及“\\n”或“\\r”之后的位置相匹配，而“$”与字符串结束位置以及“\\n”或“\\r”之前的位置相匹配。  
+ 如果**多行**是**false**，"^"匹配字符串末尾的位置的开头的字符串，以及"$"匹配项的位置。 如果**多行**是**true**，"^"匹配以及字符串的开头的位置，如以下"\n"或"\r"和"$"的位置匹配字符串末尾的位置和前面"\n 的位置"或"\r"。  
   
-## 示例  
- 下面的示例阐释了 **multiline** 属性的行为。  如果将“m”传递到下面显示的函数中，“while”一词将替换为“and”一词。  这是因为设置了 multiline 标志，并且“while”一词出现在换行符后面一行的开头。  multiline 标志允许对多行字符串执行搜索。  
+## <a name="example"></a>示例  
+ 下面的示例演示的行为**多行**属性。 如果将"m"中传递给下面显示的函数，在词"while"将被替换单词"和"。 这是因为使用多行标志设置和换行字符之后的行开始时，发生在词"while"。 多行标志将允许要在多行字符串上执行搜索。  
   
-```javascript  
+```JavaScript  
 function RegExpMultilineDemo(flag){  
    // The flag parameter is a string that contains  
    // g, i, or m.  The flags can be combined.  
@@ -77,12 +78,12 @@ sb = RegExpMultilineDemo("");
 document.write (sa + "<br />" + sb);  
 ```  
   
-## 要求  
+## <a name="requirements"></a>要求  
  [!INCLUDE[jsv55](../../javascript/reference/includes/jsv55-md.md)]  
   
- **适用于**：[正则表达式对象](../../javascript/reference/regular-expression-object-javascript.md)  
+ **适用于**:[正则表达式对象](../../javascript/reference/regular-expression-object-javascript.md)  
   
-## 请参阅  
- [global 属性（正则表达式）](../../javascript/reference/global-property-regular-expression-javascript.md)   
- [ignoreCase 属性（正则表达式）](../../javascript/reference/ignorecase-property-regular-expression-javascript.md)   
- [Regular Expression Syntax \(JavaScript\)](http://msdn.microsoft.com/zh-cn/ab0766e1-7037-45ed-aa23-706f58358c0e)
+## <a name="see-also"></a>另请参阅  
+ [global 属性 （正则表达式）](../../javascript/reference/global-property-regular-expression-javascript.md)   
+ [ignoreCase 属性 （正则表达式）](../../javascript/reference/ignorecase-property-regular-expression-javascript.md)   
+ [正则表达式语法 (JavaScript)](http://msdn.microsoft.com/en-us/ab0766e1-7037-45ed-aa23-706f58358c0e)

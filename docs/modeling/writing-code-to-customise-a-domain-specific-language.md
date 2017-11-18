@@ -1,44 +1,45 @@
 ---
-title: "编写代码以自域特定语言 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-helpviewer_keywords: 
-  - "域特定语言编程"
+title: "编写代码以自域特定语言 |Microsoft 文档"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.tgt_pltfrm: 
+ms.topic: article
+helpviewer_keywords: Domain-Specific Language, programming
 ms.assetid: a4a17f5b-9c97-4575-b2d1-3182c1896b72
-caps.latest.revision: 29
-author: "alancameronwills"
-ms.author: "awills"
-manager: "douge"
-caps.handback.revision: 29
+caps.latest.revision: "29"
+author: alancameronwills
+ms.author: awills
+manager: douge
+ms.openlocfilehash: 2d456f84078e54694deb11fda0082ac40d278dd2
+ms.sourcegitcommit: aadb9588877418b8b55a5612c1d3842d4520ca4c
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/27/2017
 ---
-# 编写代码以自域特定语言
-[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
-
-本节在域特定语言 \(dsl\) 演示如何使用自定义代码访问，修改或创建模型。  
+# <a name="writing-code-to-customise-a-domain-specific-language"></a>编写代码以自定义域特定语言
+本部分演示如何使用自定义代码来访问、 修改或创建域特定语言模型。  
   
- 可以编写用于 DSL 一起使用的一些上下文:  
+ 有几个可以在其中编写适用于 DSL 代码的上下文：  
   
--   **自定义命令。**可以创建用户可以通过右击调用关系图，因此，可以修改模型的命令。  有关更多信息，请参见 [如何：向快捷菜单中添加命令](../Topic/How%20to:%20Add%20a%20Command%20to%20the%20Shortcut%20Menu.md)。  
+-   **自定义命令。** 你可以创建命令，用户可以调用通过右键单击关系图中，并且其可以修改模型。 有关详细信息，请参阅[如何： 向快捷菜单添加命令](../modeling/how-to-add-a-command-to-the-shortcut-menu.md)。  
   
--   **验证。**您可以验证的代码模型在一个正确的状态。  有关更多信息，请参见 [域特定语言中的验证](../modeling/validation-in-a-domain-specific-language.md)。  
+-   **验证。** 你可以编写代码，用于验证在模型处于正确状态。 有关详细信息，请参阅[域特定语言中的验证](../modeling/validation-in-a-domain-specific-language.md)。  
   
--   **重写默认行为。**可以修改从 DslDefinition.dsl 生成代码的许多方面。  有关更多信息，请参见 [重写和扩展生成的类](../modeling/overriding-and-extending-the-generated-classes.md)。  
+-   **重写默认行为。** 你可以修改从 DslDefinition.dsl 生成的代码的许多方面。 有关详细信息，请参阅[重写和扩展生成的类](../modeling/overriding-and-extending-the-generated-classes.md)。  
   
--   **文本转换。**可以编写包含代码访问模型并生成一个文本文件，例如生成程序代码的文本模板。  有关更多信息，请参见 [从域特定语言生成代码](../modeling/generating-code-from-a-domain-specific-language.md)。  
+-   **文本转换。** 你可以编写包含访问模型，并生成一个文本文件，例如，若要生成程序代码的代码的文本模板。 有关详细信息，请参阅[从域特定语言生成代码](../modeling/generating-code-from-a-domain-specific-language.md)。  
   
--   **其他 Visual Studio 扩展。**您可以读取和修改模型编写单独的 VSIX 扩展。  有关更多信息，请参见[如果：在程序代码中从文件打开模型](../modeling/how-to-open-a-model-from-file-in-program-code.md)  
+-   **其他 Visual Studio 扩展。** 你可以编写单独的 VSIX 扩展的读取和修改模型。 有关详细信息，请参阅[如何： 从在程序代码中的文件打开模型](../modeling/how-to-open-a-model-from-file-in-program-code.md)  
   
- 在 DslDefinition.dsl 定义类的实例在调用内存 *存储 \(IMS\)* 或存储的数据结构中保留 *。* 在 DSL 定义的类始终采用作为参数传递给构造函数。  例如， DSL，如果定义了一个名为 Example 的类:  
+ 在 DslDefinition.dsl 中定义的类的实例保留在调用的数据结构*内存中存储*(IM) 或*存储*。 你始终在 DSL 中定义的类需要存储作为自变量的构造函数。 例如，如果 DSL 定义一个名为示例类：  
   
  `Example element = new Example (theStore);`  
   
- 将对象保留在单元 \(而不是普通对象\) 提供一些好处。  
+ 保持对象 （而不是仅为普通对象） 存储区中提供以下几个好处。  
   
--   **事务**。  可将一系列相关更改为事务:  
+-   **事务**。 你可以进行分组一的系列成事务的相关更改：  
   
      `using (Transaction t = store.TransactionManager.BeginTransaction("updates"))`  
   
@@ -50,27 +51,27 @@ caps.handback.revision: 29
   
      `}`  
   
-     在更改期间，如果发生异常，因此，最终 Commit\(\) 未实现，存储将重置为其以前的状态。  这有助于确保，错误处于不一致状态不能使该模型保留。  有关更多信息，请参见 [在程序代码中导航和更新模型](../modeling/navigating-and-updating-a-model-in-program-code.md)。  
+     如果异常过程中发生更改，以便不执行最终的 commit （），应用商店将重置为其以前的状态。 这可帮助你确保错误不会处于不一致状态中离开模型。 有关详细信息，请参阅[导航和更新程序代码中的模型](../modeling/navigating-and-updating-a-model-in-program-code.md)。  
   
--   **二进制关系**。  如果您定义两个类之间的关系，实例在两端具有导航到另一端的属性。  两端总是同步的。  例如，因此，如果您定义了名为 Parents 和子级的角色的框架标识关系，可以编写:  
+-   **二进制关系**。 如果你定义两个类之间的关系，在两端的实例将具有一个属性，导航到另一端。 两个端点始终保持同步。 例如，如果用名为父项和子项的角色定义 parenthood 关系时，你可以编写：  
   
      `John.Children.Add(Mary)`  
   
-     下面的两个表达式现在为 true:  
+     下面的表达式都现在成立：  
   
      `John.Children.Contains(Mary)`  
   
      `Mary.Parents.Contains(John)`  
   
-     您可以通过编写还获得相同的效果:  
+     此外可以通过编写获得相同的效果：  
   
      `Mary.Parents.Add(John)`  
   
-     有关更多信息，请参见 [在程序代码中导航和更新模型](../modeling/navigating-and-updating-a-model-in-program-code.md)。  
+     有关详细信息，请参阅[导航和更新程序代码中的模型](../modeling/navigating-and-updating-a-model-in-program-code.md)。  
   
--   **规则和事件**。  可以定义激发的规则，只要指定的更改。  它们的规则用于，例如，在关系图上的形状最新的模型元素。  有关更多信息，请参见 [响应并传播更改](../modeling/responding-to-and-propagating-changes.md)。  
+-   **规则和事件**。 你可以定义激发时指定更改的规则。 使用规则，例如，要保留在关系图上的形状就提供的模型元素最新。 有关详细信息，请参阅[响应和传播更改](../modeling/responding-to-and-propagating-changes.md)。  
   
--   **序列化**。  存储为其包含到文件的标准方式序列化对象。  您可以自定义序列化和反序列化的规则。  有关更多信息，请参见 [自定义文件存储和 XML 序列化](../modeling/customizing-file-storage-and-xml-serialization.md)。  
+-   **序列化**。 存储区提供了一种标准方式进行序列化到文件包含的对象。 你可以自定义序列化和反序列化的规则。 有关详细信息，请参阅[自定义文件存储和 XML 序列化](../modeling/customizing-file-storage-and-xml-serialization.md)。  
   
-## 请参阅  
+## <a name="see-also"></a>另请参阅  
  [自定义和扩展域特定语言](../modeling/customizing-and-extending-a-domain-specific-language.md)

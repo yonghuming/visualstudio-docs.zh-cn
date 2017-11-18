@@ -1,39 +1,43 @@
 ---
-title: "活动视图（旧版） | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.tgt_pltfrm: ""
-ms.topic: "reference"
-helpviewer_keywords: 
-  - "活动, 活动视图"
-  - "活动视图"
-  - "视图, activity（活动）"
+title: "活动视图 （旧版） |Microsoft 文档"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.tgt_pltfrm: 
+ms.topic: reference
+helpviewer_keywords:
+- activities, activity views
+- views, activity
+- activity views
 ms.assetid: 83dc68cd-2cb2-45c2-9a6e-10d82053171a
-caps.latest.revision: 5
-author: "ErikRe"
-ms.author: "erikre"
-manager: "erikre"
-caps.handback.revision: 5
+caps.latest.revision: "5"
+author: ErikRe
+ms.author: erikre
+manager: erikre
+ms.openlocfilehash: 50f57684db32f601bd4cbf870456da458aa5ce7c
+ms.sourcegitcommit: aadb9588877418b8b55a5612c1d3842d4520ca4c
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/27/2017
 ---
-# 活动视图（旧版）
-[!INCLUDE[wf](../workflow-designer/includes/wf_md.md)] 提供的许多活动（可通过这些活动构成工作流）都具有旧 [!INCLUDE[wfd1](../workflow-designer/includes/wfd1_md.md)] 中可用的多个设计视图。将某个活动设计器从**“工具箱”**拖到设计图面上，并且之后每当选择该活动时，都可以通过使用**“工作流”**菜单或通过右击选定的活动在不同设计视图之间切换。同时，当您将指针移到选定活动的名称上时，将出现一组以下拉方式显示的选项卡，可以用来在不同的视图之间切换。  
+# <a name="activity-views-legacy"></a>活动视图（旧版）
+[!INCLUDE[wf](../workflow-designer/includes/wf_md.md)] 提供的许多活动（可通过这些活动构成工作流）都具有旧 [!INCLUDE[wfd1](../workflow-designer/includes/wfd1_md.md)] 中可用的多个设计视图。 当将某个活动设计器从**工具箱**拖到设计图面中，并且之后每当选择该活动时，你可以通过使用不同的设计视图之间进行切换**工作流**菜单或通过右键单击选定的活动。 同时，当您将指针移到选定活动的名称上时，将出现一组以下拉方式显示的选项卡，可以用来在不同的视图之间切换。  
   
- 每个活动都至少有一个视图；此视图是将活动设计器从**“工具箱”**拖到设计图面上时显示的默认视图。此活动默认视图在菜单和选项卡上以**“查看 \[活动类型\]”**选项的形式提供，例如，**“查看 Parallel”**。大多数活动都有附加视图，并且不同活动可以有不同的视图。例如，[TransactionScopeActivity](http://go.microsoft.com/fwlink?LinkID=65093) 活动具有补偿视图，而 [EventHandlingScopeActivity](http://go.microsoft.com/fwlink?LinkID=65030) 活动具有事件视图。Windows Workflow Foundation 附带的许多活动都有**“查看取消处理程序”**和**“查看错误处理程序”**设计视图，用于查看与活动关联的 [CancellationHandlerActivity](http://go.microsoft.com/fwlink?LinkID=65050) 和 [FaultHandlersActivity](http://go.microsoft.com/fwlink?LinkID=65055)。  
+ 每个活动都至少一个视图;这是显示拖动某个活动设计器从时的默认视图**工具箱**拖到设计图面。 此活动默认视图是可用作**查看 [活动类型]**选项菜单和选项卡上，例如，**视图并行**。 大多数活动都有附加视图，并且不同活动可以有不同的视图。 例如， [TransactionScopeActivity](http://go.microsoft.com/fwlink?LinkID=65093)活动具有补偿视图和[EventHandlingScopeActivity](http://go.microsoft.com/fwlink?LinkID=65030)活动具有事件视图。 有许多 Windows Workflow Foundation 附带的活动的**查看取消处理程序**和**视图错误**设计视图的视图[CancellationHandlerActivity](http://go.microsoft.com/fwlink?LinkID=65050)和[FaultHandlersActivity](http://go.microsoft.com/fwlink?LinkID=65055)与其关联。  
   
  下表列出了每个视图的名称和说明。  
   
-|菜单\/选项卡选项|说明|  
-|---------------|--------|  
-|**查看 \[活动类型\]**|选择此菜单或选项卡选项可查看选定活动的默认图形表示形式。|  
-|**查看取消处理程序**|选择此菜单或选项卡选项视图可查看与选定活动关联的 [CancellationHandlerActivity](http://go.microsoft.com/fwlink?LinkID=65050)。|  
-|**查看错误处理程序**|选择此菜单或选项卡选项视图可查看与选定活动关联的 [FaultHandlersActivity](http://go.microsoft.com/fwlink?LinkID=65055)。|  
-|**查看补偿处理程序**|选择此菜单或选项卡选项视图可查看与选定 [TransactionScopeActivity](http://go.microsoft.com/fwlink?LinkID=65093) 关联的 [CompensationHandlerActivity](http://go.microsoft.com/fwlink?LinkID=65053)。|  
-|**查看事件处理程序**|选择此菜单或选项卡选项视图可查看与选定 [EventHandlingScopeActivity](http://go.microsoft.com/fwlink?LinkID=65030) 关联的 [EventHandlersActivity](http://go.microsoft.com/fwlink?LinkID=65018)。|  
+|菜单/选项卡选项|描述|  
+|----------------------|-----------------|  
+|**查看 [活动类型]**|选择此菜单或选项卡选项可查看选定活动的默认图形表示形式。|  
+|**查看取消处理程序**|选择此菜单或选项卡选项视图可查看[CancellationHandlerActivity](http://go.microsoft.com/fwlink?LinkID=65050)与选定活动关联。|  
+|**查看错误处理程序**|选择此菜单或选项卡选项视图可查看[FaultHandlersActivity](http://go.microsoft.com/fwlink?LinkID=65055)与选定活动关联。|  
+|**查看补偿处理程序**|选择此菜单或选项卡选项视图可查看[CompensationHandlerActivity](http://go.microsoft.com/fwlink?LinkID=65053)关联与所选[TransactionScopeActivity](http://go.microsoft.com/fwlink?LinkID=65093)。|  
+|**查看事件处理程序**|选择此菜单或选项卡选项视图可查看[EventHandlersActivity](http://go.microsoft.com/fwlink?LinkID=65018)关联与所选[EventHandlingScopeActivity](http://go.microsoft.com/fwlink?LinkID=65030)。|  
   
- 有关类似视图的信息，请参见[顺序工作流视图（旧版）](../workflow-designer/sequential-workflow-views-legacy.md)。  
+ 有关类似视图的信息，请参阅[顺序工作流视图 （旧版）](../workflow-designer/sequential-workflow-views-legacy.md)。  
   
-## 请参阅  
- [旧版工作流活动](../workflow-designer/legacy-workflow-activities.md)   
+## <a name="see-also"></a>另请参阅  
+ [旧工作流活动](../workflow-designer/legacy-workflow-activities.md)   
  [顺序工作流视图（旧版）](../workflow-designer/sequential-workflow-views-legacy.md)

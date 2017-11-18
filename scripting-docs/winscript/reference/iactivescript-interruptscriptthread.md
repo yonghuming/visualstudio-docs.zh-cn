@@ -1,27 +1,30 @@
 ---
-title: "IActiveScript::InterruptScriptThread | Microsoft Docs"
-ms.custom: ""
-ms.date: "01/18/2017"
-ms.prod: "windows-script-interfaces"
-ms.reviewer: ""
-ms.suite: ""
-ms.tgt_pltfrm: ""
-ms.topic: "reference"
+title: "IActiveScript::InterruptScriptThread |Microsoft 文档"
+ms.custom: 
+ms.date: 01/18/2017
+ms.prod: windows-script-interfaces
+ms.reviewer: 
+ms.suite: 
+ms.tgt_pltfrm: 
+ms.topic: reference
 apiname: IActiveScript.InterruptScriptThread
 apilocation: scrobj.dll
-helpviewer_keywords: 
-  - "IActiveScript_InterruptScriptThread"
+helpviewer_keywords: IActiveScript_InterruptScriptThread
 ms.assetid: 2304d035-6d39-4811-acd3-8a9640fdbef6
-caps.latest.revision: 8
-author: "mikejo5000"
-ms.author: "mikejo"
-manager: "ghogen"
-caps.handback.revision: 8
+caps.latest.revision: "8"
+author: mikejo5000
+ms.author: mikejo
+manager: ghogen
+ms.openlocfilehash: ad717ee950dda4f0f0d7a14292f0f5f150ab4973
+ms.sourcegitcommit: aadb9588877418b8b55a5612c1d3842d4520ca4c
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/27/2017
 ---
-# IActiveScript::InterruptScriptThread
-中断运行的脚本线程\(事件接收器、立即执行或宏调用\)的执行。  此方法可用于停止例如承受不住的脚本\(，陷入无穷循环\)。  它可以从非基础线程调用未导致非基础出站承载对象或到 [IActiveScriptSite](../../winscript/reference/iactivescriptsite.md) 方法。  
+# <a name="iactivescriptinterruptscriptthread"></a>IActiveScript::InterruptScriptThread
+中断正在运行的脚本线程 （事件接收器、 立即执行或宏调用） 的执行。 此方法可以用于终止卡 （例如，在无限循环） 的脚本。 它可以调用从非基本的线程不会导致为主机对象或设置为非基本标注[IActiveScriptSite](../../winscript/reference/iactivescriptsite.md)方法。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
 ```  
 HRESULT InterruptScriptThread(  
@@ -31,36 +34,36 @@ HRESULT InterruptScriptThread(
 );  
 ```  
   
-#### 参数  
+#### <a name="parameters"></a>参数  
  `stidThread`  
- \[in\]中断线程的ID或一个以下特殊线程标识符值：  
+ [in]到中断或以下特殊线程标识符值的线程的标识符：  
   
 |值|含义|  
-|-------|--------|  
-|SCRIPTTHREADID\_ALL|所有线程。  该中断当前应用于正在进行任何脚本的方法。  请注意，除非调用方请求该脚本是分开的，下一个为其编写脚本的事件会导致脚本代码再次调用与设置为的SCRIPTSTATE\_DISCONNECTED或SCRIPTSTATE\_INITIALIZED标志的 [IActiveScript::SetScriptState](../../winscript/reference/iactivescript-setscriptstate.md) 方法来运行。|  
-|SCRIPTTHREADID\_BASE|基本线程;即脚本引擎实例化的线程。|  
-|SCRIPTTHREADID\_CURRENT|当前执行线程。|  
+|-----------|-------------|  
+|SCRIPTTHREADID_ALL|所有线程。 中断应用于当前正在进行的所有脚本方法。 请注意，除非调用方已请求该脚本将断开连接下, 一步的脚本化的事件导致要再次运行的调用的脚本代码[IActiveScript::SetScriptState](../../winscript/reference/iactivescript-setscriptstate.md) SCRIPTSTATE_DISCONNECTED 方法或设置 SCRIPTSTATE_INITIALIZED 标志。|  
+|SCRIPTTHREADID_BASE|基线程;也就是说，在其中的脚本引擎的线程已实例化。|  
+|SCRIPTTHREADID_CURRENT|当前正在执行的线程。|  
   
  `pexcepinfo`  
- \[in\]包含应改为中止的脚本报告错误的信息的 `EXCEPINFO` 结构的地址。  
+ [in]地址`EXCEPINFO`结构，它包含应中止脚本报告的错误信息。  
   
  `dwFlags`  
- \[in\]可选标志与该中断。  可以是这些值之一：  
+ [in]中断与相关联的选项标志。 可以是下列值之一：  
   
 |值|含义|  
-|-------|--------|  
-|SCRIPTINTERRUPT\_DEBUG|如果支持，输入脚本引擎的调试器在当前脚本执行点。|  
-|SCRIPTINTERRUPT\_RAISEEXCEPTION|如果支持脚本引擎的语言，使脚本处理异常。  否则，脚本方法中止，并将错误代码返回调用方;即事件源或宏祈求者。|  
+|-----------|-------------|  
+|SCRIPTINTERRUPT_DEBUG|如果支持，请输入当前脚本执行点处的脚本引擎调试器。|  
+|SCRIPTINTERRUPT_RAISEEXCEPTION|如果脚本引擎的语言支持，使脚本在处理异常。 否则为中止的脚本方法，并且错误代码返回到调用方;即，事件源或宏调用程序。|  
   
-## 返回值  
+## <a name="return-value"></a>返回值  
  返回下列值之一：  
   
 |返回值|含义|  
-|---------|--------|  
+|------------------|-------------|  
 |`S_OK`|成功。|  
-|`E_INVALIDARG`|参数无效。|  
-|`E_POINTER`|无效指针指定了。|  
-|`E_UNEXPECTED`|调用非预期\(例如，脚本引擎尚未加载还未初始化\)。|  
+|`E_INVALIDARG`|自变量无效。|  
+|`E_POINTER`|指定了无效的指针。|  
+|`E_UNEXPECTED`|不应调用 （例如，脚本引擎具有尚未加载或初始化）。|  
   
-## 请参阅  
+## <a name="see-also"></a>另请参阅  
  [IActiveScript](../../winscript/reference/iactivescript.md)

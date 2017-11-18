@@ -1,28 +1,29 @@
 ---
-title: "BoundsRules 约束形状位置和大小 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-helpviewer_keywords: 
-  - "域特定语言, 事件"
+title: "BoundsRules 约束形状位置和大小 |Microsoft 文档"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.tgt_pltfrm: 
+ms.topic: article
+helpviewer_keywords: Domain-Specific Language, events
 ms.assetid: 4d08e541-fc67-4e68-bf31-30d346aa2aa0
-caps.latest.revision: 18
-author: "alancameronwills"
-ms.author: "awills"
-manager: "douge"
-caps.handback.revision: 18
+caps.latest.revision: "18"
+author: alancameronwills
+ms.author: awills
+manager: douge
+ms.openlocfilehash: 8a611bd18cb06b712f671d370bfc26d4dc8cf4f3
+ms.sourcegitcommit: aadb9588877418b8b55a5612c1d3842d4520ca4c
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/27/2017
 ---
-# BoundsRules 约束形状位置和大小
-[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
-
-*区域规则* 是定义一个形状的大小和位置限制的类。  它提供重复调用的方法，当用户拖动形状的角上时或端。  
+# <a name="boundsrules-constrain-shape-location-and-size"></a>BoundsRules 约束形状位置和大小
+A*边界规则*是一个类，它定义的大小和形状的位置上的限制。 它提供的用户正在拖动形状或角或两边的形状时重复调用的方法。  
   
- 下面的示例约束矩形是栏固定大小，水平或垂直。  当用户拖动角或端时，轮廓翻转在高度和宽度的两种允许的配置之间。  
+ 下面的示例约束是条形图的固定大小，水平或垂直矩形形状。 当用户拖动的角或侧时，大纲翻转之间的两个允许的配置的高度和宽度。  
   
- 区域规则是从 <xref:Microsoft.VisualStudio.Modeling.Diagrams.BoundsRules>派生的类。  规则的实例在形状创建的:  
+ 边界规则类派生自<xref:Microsoft.VisualStudio.Modeling.Diagrams.BoundsRules>。 在形状中创建的规则的实例：  
   
 ```  
 using Microsoft.VisualStudio.Modeling.Diagrams; ...  
@@ -62,8 +63,8 @@ public class BarBoundsRule: BoundsRules
 } } }  
 ```  
   
- 通知位置和大小可以约束，如果您希望。  
+ 请注意是否你想，可以约束的位置和大小。  
   
-## 请参阅  
+## <a name="see-also"></a>另请参阅  
  <xref:Microsoft.VisualStudio.Modeling.Diagrams.BoundsRules>   
  [响应并传播更改](../modeling/responding-to-and-propagating-changes.md)

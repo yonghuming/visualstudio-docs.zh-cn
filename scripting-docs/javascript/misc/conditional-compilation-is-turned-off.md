@@ -1,45 +1,47 @@
 ---
-title: "条件编译已关闭 | Microsoft Docs"
-ms.custom: ""
-ms.date: "01/18/2017"
-ms.prod: "windows-client-threshold"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "javascript"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "VS.WebClient.Help.SCRIPT1030"
-dev_langs: 
-  - "JavaScript"
-  - "TypeScript"
-  - "DHTML"
+title: "条件编译已关闭 |Microsoft 文档"
+ms.custom: 
+ms.date: 01/18/2017
+ms.prod: windows-client-threshold
+ms.reviewer: 
+ms.suite: 
+ms.technology: javascript
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords: VS.WebClient.Help.SCRIPT1030
+dev_langs:
+- JavaScript
+- TypeScript
+- DHTML
 ms.assetid: 59a030b0-a6c6-47f2-b90e-c0ed204d5116
-caps.latest.revision: 9
-author: "mikejo5000"
-ms.author: "mikejo"
-manager: "ghogen"
-caps.handback.revision: 9
+caps.latest.revision: "9"
+author: mikejo5000
+ms.author: mikejo
+manager: ghogen
+ms.openlocfilehash: 8f2eabb900e24072c8f390061b5d6081de9bc889
+ms.sourcegitcommit: aadb9588877418b8b55a5612c1d3842d4520ca4c
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/27/2017
 ---
-# 条件编译已关闭
-尝试在未先启用条件编译的情况下使用条件编译变量。  启用条件编译将告知 [!INCLUDE[javascript](../../javascript/includes/javascript-md.md)] 编译器将以 @ 开头的标识符解释为条件编译变量。  可以使用以下语句开始条件代码以完成此操作：  
+# <a name="conditional-compilation-is-turned-off"></a>条件编译已关闭
+您尝试上使用条件编译变量，但不将首次启用条件编译。 打开条件编译告知[!INCLUDE[javascript](../../javascript/includes/javascript-md.md)]编译器将解释为条件编译变量，开头的标识符。 通过从你条件代码中的使用语句执行此操作：  
   
 ```  
 /*@cc_on @*/  
 ```  
   
-### 更正此错误  
+### <a name="to-correct-this-error"></a>更正此错误  
   
--   将以下语句添加到条件代码的开头：  
+-   将以下语句添加到你的条件代码的开头：  
   
-    ```javascript  
+    ```JavaScript  
     /*@cc_on @*/  
     ```  
   
-## 请参阅  
+## <a name="see-also"></a>另请参阅  
  [条件编译](../../javascript/advanced/conditional-compilation-javascript.md)   
  [条件编译变量](../../javascript/advanced/conditional-compilation-variables-javascript.md)   
- [@cc\_on 语句](../../javascript/reference/at-cc-on-statement-javascript.md)   
- [@if 语句](../../javascript/reference/at-if-statement-javascript.md)   
+ [@cc_on语句](../../javascript/reference/at-cc-on-statement-javascript.md)   
+ [@if语句](../../javascript/reference/at-if-statement-javascript.md)   
  [@set 语句](../../javascript/reference/at-set-statement-javascript.md)

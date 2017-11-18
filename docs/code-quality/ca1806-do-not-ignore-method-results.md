@@ -1,11 +1,10 @@
 ---
-title: 'CA1806: Do not ignore method results | Microsoft Docs'
+title: "CA1806： 不要忽略方法结果 |Microsoft 文档"
 ms.custom: 
 ms.date: 11/04/2016
 ms.reviewer: 
 ms.suite: 
-ms.technology:
-- vs-devops-test
+ms.technology: vs-ide-code-analysis
 ms.tgt_pltfrm: 
 ms.topic: article
 f1_keywords:
@@ -15,88 +14,79 @@ helpviewer_keywords:
 - CA1806
 - DoNotIgnoreMethodResults
 ms.assetid: fd805687-0817-481e-804e-b62cfb3b1076
-caps.latest.revision: 27
-author: stevehoag
-ms.author: shoag
-manager: wpickett
-translation.priority.ht:
-- cs-cz
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pl-pl
-- pt-br
-- ru-ru
-- tr-tr
-- zh-cn
-- zh-tw
-ms.translationtype: HT
-ms.sourcegitcommit: eb5c9550fd29b0e98bf63a7240737da4f13f3249
-ms.openlocfilehash: 758939a6e49402d6e4da8d9e0d549e8da94f1bb8
-ms.contentlocale: zh-cn
-ms.lasthandoff: 08/30/2017
-
+caps.latest.revision: "27"
+author: gewarren
+ms.author: gewarren
+manager: ghogen
+ms.openlocfilehash: 58da9a40f8cbbf8a506feb35dcba8a8e9f405899
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# <a name="ca1806-do-not-ignore-method-results"></a>CA1806: Do not ignore method results
+# <a name="ca1806-do-not-ignore-method-results"></a>CA1806：不要忽略方法结果
 |||  
 |-|-|  
 |TypeName|DoNotIgnoreMethodResults|  
 |CheckId|CA1806|  
-|Category|Microsoft.Usage|  
-|Breaking Change|Non Breaking|  
+|类别|Microsoft.Usage|  
+|是否重大更改|非重大更改|  
   
-## <a name="cause"></a>Cause  
- There are several possible reasons for this warning:  
+## <a name="cause"></a>原因  
+ 有几个可能的原因，此警告：  
   
--   A new object is created but never used.  
+-   一个新的对象已创建，但从未使用过。  
   
--   A method that creates and returns a new string is called and the new string is never used.  
+-   创建并返回一个新字符串的方法称为，永远不会使用新的字符串。  
   
--   A COM or P/Invoke method that returns a HRESULT or error code that is never used. Rule Description  
+-   COM 或 P/Invoke 方法，返回从未使用过的 HRESULT 或错误代码。 规则说明  
   
- Unnecessary object creation and the associated garbage collection of the unused object degrade performance.  
+ 不必要的对象创建和未使用的对象的关联的垃圾回收会降低性能。  
   
- Strings are immutable and methods such as String.ToUpper returns a new instance of a string instead of modifying the instance of the string in the calling method.  
+ 字符串是不可变，并如 String.ToUpper 方法返回的字符串，而非修改在调用方法中字符串的实例的新实例。  
   
- Ignoring HRESULT or error code can lead to unexpected behavior in error conditions or to low-resource conditions.  
+ 忽略 HRESULT 或错误代码可能会导致意外行为在错误条件或资源不足的情况。  
   
-## <a name="how-to-fix-violations"></a>How to Fix Violations  
- If method A creates a new instance of B object that is never used, pass the instance as an argument to another method or assign the instance to a variable. If the object creation is unnecessary, remove the it.-or-  
+## <a name="how-to-fix-violations"></a>如何解决冲突  
+ 如果方法 A 创建从未使用过的 B 对象的新实例，将实例作为参数传递到另一种方法，或将实例分配给一个变量。 如果创建对象是不必要的则删除它。-或-  
   
- If method A calls method B, but does not use the new string instance that the method B returns. Pass the instance as an argument to another method, assign the instance to a variable. Or remove the call if it is unnecessary.  
+ 如果方法 A 调用 B，但未使用新 B 该方法返回的字符串实例。 将实例作为参数传递到另一种方法，将实例分配给一个变量。 或者，如果它是不必要移除此调用。  
   
- -or-  
+ - 或 -  
   
- If method A calls method B, but does not use the HRESULT or error code that the method returns. Use the result in a conditional statement, assign the result to a variable, or pass it as an argument to another method.  
+ 如果方法 A 调用 B，但未使用的 HRESULT 或错误代码，该方法返回。 在条件语句中使用的结果、 将结果赋给一个变量，或将其作为自变量传递到另一种方法。  
   
-## <a name="when-to-suppress-warnings"></a>When to Suppress Warnings  
- Do not suppress a warning from this rule unless the act of creating the object serves some purpose.  
+## <a name="when-to-suppress-warnings"></a>何时禁止显示警告  
+ 除非创建对象的操作有特定的用途不禁止显示此规则的警告。  
   
-## <a name="example"></a>Example  
- The following example shows a class that ignores the result of calling String.Trim.  
+## <a name="example"></a>示例  
+ 下面的示例演示将忽略调用 String.Trim 的结果的类。  
   
- [!code-csharp[FxCop.Usage.DoNotIgnoreMethodResults3#1](../code-quality/codesnippet/CSharp/ca1806-do-not-ignore-method-results_1.cs)] [!code-vb[FxCop.Usage.DoNotIgnoreMethodResults3#1](../code-quality/codesnippet/VisualBasic/ca1806-do-not-ignore-method-results_1.vb)] [!code-cpp[FxCop.Usage.DoNotIgnoreMethodResults3#1](../code-quality/codesnippet/CPP/ca1806-do-not-ignore-method-results_1.cpp)]  
+ [!code-csharp[FxCop.Usage.DoNotIgnoreMethodResults3#1](../code-quality/codesnippet/CSharp/ca1806-do-not-ignore-method-results_1.cs)]
+ [!code-vb[FxCop.Usage.DoNotIgnoreMethodResults3#1](../code-quality/codesnippet/VisualBasic/ca1806-do-not-ignore-method-results_1.vb)]
+ [!code-cpp[FxCop.Usage.DoNotIgnoreMethodResults3#1](../code-quality/codesnippet/CPP/ca1806-do-not-ignore-method-results_1.cpp)]  
   
-## <a name="example"></a>Example  
- The following example fixes the previous violation by assigning the result of String.Trim back to the variable it was called on.  
+## <a name="example"></a>示例  
+ 下面的示例修复 String.Trim 的结果赋回给调用了该变量的前面的冲突。  
   
- [!code-csharp[FxCop.Usage.DoNotIgnoreMethodResults4#1](../code-quality/codesnippet/CSharp/ca1806-do-not-ignore-method-results_2.cs)] [!code-vb[FxCop.Usage.DoNotIgnoreMethodResults4#1](../code-quality/codesnippet/VisualBasic/ca1806-do-not-ignore-method-results_2.vb)] [!code-cpp[FxCop.Usage.DoNotIgnoreMethodResults4#1](../code-quality/codesnippet/CPP/ca1806-do-not-ignore-method-results_2.cpp)]  
+ [!code-csharp[FxCop.Usage.DoNotIgnoreMethodResults4#1](../code-quality/codesnippet/CSharp/ca1806-do-not-ignore-method-results_2.cs)]
+ [!code-vb[FxCop.Usage.DoNotIgnoreMethodResults4#1](../code-quality/codesnippet/VisualBasic/ca1806-do-not-ignore-method-results_2.vb)]
+ [!code-cpp[FxCop.Usage.DoNotIgnoreMethodResults4#1](../code-quality/codesnippet/CPP/ca1806-do-not-ignore-method-results_2.cpp)]  
   
-## <a name="example"></a>Example  
- The following example shows a method that does not use an object that it creates.  
+## <a name="example"></a>示例  
+ 下面的示例演示不使用它创建的对象的方法。  
   
 > [!NOTE]
->  This violation cannot be reproduced in Visual Basic.  
+>  无法在 Visual Basic 中重现此冲突。  
 
- [!code-cpp[FxCop.Usage.DoNotIgnoreMethodResults5#1](../code-quality/codesnippet/CPP/ca1806-do-not-ignore-method-results_3.cpp)] [!code-csharp[FxCop.Usage.DoNotIgnoreMethodResults5#1](../code-quality/codesnippet/CSharp/ca1806-do-not-ignore-method-results_3.cs)]   
+ [!code-cpp[FxCop.Usage.DoNotIgnoreMethodResults5#1](../code-quality/codesnippet/CPP/ca1806-do-not-ignore-method-results_3.cpp)]
+ [!code-csharp[FxCop.Usage.DoNotIgnoreMethodResults5#1](../code-quality/codesnippet/CSharp/ca1806-do-not-ignore-method-results_3.cs)]   
   
-## <a name="example"></a>Example  
- The following example fixes the previous violation by removing the unnecessary creation of an object.  
+## <a name="example"></a>示例  
+ 下面的示例通过删除不必要创建对象修复前面的冲突。  
 
- [!code-csharp[FxCop.Usage.DoNotIgnoreMethodResults6#1](../code-quality/codesnippet/CSharp/ca1806-do-not-ignore-method-results_4.cs)] [!code-cpp[FxCop.Usage.DoNotIgnoreMethodResults6#1](../code-quality/codesnippet/CPP/ca1806-do-not-ignore-method-results_4.cpp)] 
+ [!code-csharp[FxCop.Usage.DoNotIgnoreMethodResults6#1](../code-quality/codesnippet/CSharp/ca1806-do-not-ignore-method-results_4.cs)]
+ [!code-cpp[FxCop.Usage.DoNotIgnoreMethodResults6#1](../code-quality/codesnippet/CPP/ca1806-do-not-ignore-method-results_4.cpp)] 
 
 <!-- Examples don't exist for the below... -->
 <!--

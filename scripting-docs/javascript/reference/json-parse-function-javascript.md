@@ -1,40 +1,42 @@
 ---
-title: "JSON.parse 函数 (JavaScript) | Microsoft Docs"
-ms.custom: ""
-ms.date: "01/18/2017"
-ms.prod: "windows-client-threshold"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "devlang-javascript"
-ms.tgt_pltfrm: ""
-ms.topic: "language-reference"
-f1_keywords: 
-  - "JSON.parse"
-dev_langs: 
-  - "JavaScript"
-  - "TypeScript"
-  - "DHTML"
-helpviewer_keywords: 
-  - "JSON.parse 方法"
-  - "parse JSON 方法"
+title: "JSON.parse 函数 (JavaScript) |Microsoft 文档"
+ms.custom: 
+ms.date: 01/18/2017
+ms.prod: windows-client-threshold
+ms.reviewer: 
+ms.suite: 
+ms.technology: devlang-javascript
+ms.tgt_pltfrm: 
+ms.topic: language-reference
+f1_keywords: JSON.parse
+dev_langs:
+- JavaScript
+- TypeScript
+- DHTML
+helpviewer_keywords:
+- parse JSON method
+- JSON.parse method
 ms.assetid: 20f00d31-5ab5-4c3c-ab49-2534fc39a9b4
-caps.latest.revision: 41
-author: "mikejo5000"
-ms.author: "mikejo"
-manager: "ghogen"
-caps.handback.revision: 41
+caps.latest.revision: "41"
+author: mikejo5000
+ms.author: mikejo
+manager: ghogen
+ms.openlocfilehash: 3d66aee32a191c8cc1879c9436788c196c05e7bd
+ms.sourcegitcommit: aadb9588877418b8b55a5612c1d3842d4520ca4c
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/27/2017
 ---
-# JSON.parse 函数 (JavaScript)
-将 JavaScript 对象表示法 \(JSON\) 字符串转换为对象。  
+# <a name="jsonparse-function-javascript"></a>JSON.parse 函数 (JavaScript)
+将 JavaScript 对象表示法 (JSON) 字符串转换为对象。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
 ```  
 JSON.parse(text [, reviver])  
 ```  
   
-## 参数  
+## <a name="parameters"></a>参数  
  `text`  
  必需。 一个有效的 JSON 字符串。  
   
@@ -47,29 +49,29 @@ JSON.parse(text [, reviver])
   
 -   如果 `reviver` 返回 `null` 或 `undefined`，则删除了该成员。  
   
-## 返回值  
+## <a name="return-value"></a>返回值  
  一个对象或数组。  
   
-## 异常  
+## <a name="exceptions"></a>异常  
  如果此函数引发 [!INCLUDE[javascript](../../javascript/includes/javascript-md.md)] 分析器错误（如“SCRIPT1014：无效字符”），则输入文本将不遵循 JSON 语法。 若要更正此错误，请执行下列操作之一：  
   
--   修改 `text` 参数以遵循 JSON 语法。 有关更多信息，请参见 JSON 对象的 [BNF 语法表示法](http://go.microsoft.com/fwlink/?LinkId=125203)。  
+-   修改 `text` 参数以遵循 JSON 语法。 有关更多信息，请参见 JSON 对象的 [BNF 语法表示法](http://go.microsoft.com/fwlink/?LinkId=125203) 。  
   
      例如，如果响应的格式为 JSONP 而非纯 JSON，请在响应对象上尝试此代码：  
   
-    ```javascript  
+    ```JavaScript  
     var fixedResponse = response.responseText.replace(/\\'/g, "'");  
     var jsonObj = JSON.parse(fixedResponse);  
     ```  
   
--   确保通过 JSON 兼容的实现（如 `text`）对 `JSON.stringify` 参数进行序列化。  
+-   确保通过 JSON 兼容的实现（如 `text` ）对 `JSON.stringify`参数进行序列化。  
   
--   在 JSON 验证程序（如 [JSLint](http://www.jslint.com/)）中运行 `text` 参数以帮助找到语法错误。  
+-   在 JSON 验证程序（如 `text` JSLint [）中运行](http://www.jslint.com/) 参数以帮助找到语法错误。  
   
-## 示例  
+## <a name="example"></a>示例  
  以下示例使用 `JSON.parse` 将 JSON 字符串转换成对象。  
   
-```javascript  
+```JavaScript  
 var jsontext = '{"firstname":"Jesper","surname":"Aaberg","phone":["555-0100","555-0120"]}';  
 var contact = JSON.parse(jsontext);  
 document.write(contact.surname + ", " + contact.firstname);  
@@ -79,10 +81,10 @@ document.write(contact.phone[1]);
 // 555-0100  
 ```  
   
-## 示例  
- 以下示例演示了如何使用 `JSON.stringify` 将数组转换成 JSON 字符串，然后使用 `JSON.parse` 将该字符串重新转换成数组。  
+## <a name="example"></a>示例  
+ 以下示例演示了如何使用 `JSON.stringify`将数组转换成 JSON 字符串，然后使用 `JSON.parse`将该字符串重新转换成数组。  
   
-```javascript  
+```JavaScript  
 var arr = ["a", "b", "c"];  
 var str = JSON.stringify(arr);  
 document.write(str);  
@@ -101,10 +103,10 @@ while (newArr.length > 0) {
 // a  
 ```  
   
-## 示例  
- `reviver` 函数通常用于将国际标准化组织 \(ISO\) 日期字符串的 JSON 表示形式转换为协调世界时 \(UTC\) 格式`日期`对象。 此示例使用 `JSON.parse` 来反序列化 ISO 格式的日期字符串。`dateReviver` 函数为格式为 ISO 日期字符串的成员返回 `Date` 对象。  
+## <a name="example"></a>示例  
+ `reviver` 函数通常用于将国际标准化组织 (ISO) 日期字符串的 JSON 表示形式转换为协调世界时 (UTC) 格式 `Date` 对象。 此示例使用 `JSON.parse` 来反序列化 ISO 格式的日期字符串。 `dateReviver` 函数为格式为 ISO 日期字符串的成员返回 `Date` 对象。  
   
-```javascript  
+```JavaScript  
 var jsontext = '{ "hiredate": "2008-01-01T12:00:00Z", "birthdate": "2008-12-25T12:00:00Z" }';  
 var dates = JSON.parse(jsontext, dateReviver);  
 document.write(dates.birthdate.toUTCString());  
@@ -126,10 +128,10 @@ function dateReviver(key, value) {
   
 ```  
   
-## 要求  
+## <a name="requirements"></a>要求  
  [!INCLUDE[jsv58](../../javascript/reference/includes/jsv58-md.md)]  
   
-## 请参阅  
+## <a name="see-also"></a>另请参阅  
  [JSON.stringify 函数](../../javascript/reference/json-stringify-function-javascript.md)   
- [toJSON 方法 \(Date\)](../../javascript/reference/tojson-method-date-javascript.md)   
- [中心模板示例应用（Windows 应用商店）](http://code.msdn.microsoft.com/Hub-template-sample-with-4b70002d)
+ [toJSON 方法 (Date)](../../javascript/reference/tojson-method-date-javascript.md)   
+ [中心模板示例应用程序 （Windows 应用商店）](http://code.msdn.microsoft.com/Hub-template-sample-with-4b70002d)

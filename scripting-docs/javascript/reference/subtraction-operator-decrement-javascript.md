@@ -1,47 +1,48 @@
 ---
-title: "减法运算符 (-) (JavaScript) | Microsoft Docs"
-ms.custom: ""
-ms.date: "01/18/2017"
-ms.prod: "windows-client-threshold"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "devlang-javascript"
-ms.tgt_pltfrm: ""
-ms.topic: "language-reference"
-f1_keywords: 
-  - "-"
-dev_langs: 
-  - "JavaScript"
-  - "TypeScript"
-  - "DHTML"
-helpviewer_keywords: 
-  - "- 运算符"
-  - "- 运算符, 关于 - 运算符"
-  - "算术运算符, 减法"
-  - "非运算符"
-  - "运算符, 减法"
-  - "减法运算符, 语法"
+title: "减法运算符 （-） (JavaScript) |Microsoft 文档"
+ms.custom: 
+ms.date: 01/18/2017
+ms.prod: windows-client-threshold
+ms.reviewer: 
+ms.suite: 
+ms.technology: devlang-javascript
+ms.tgt_pltfrm: 
+ms.topic: language-reference
+f1_keywords: '-'
+dev_langs:
+- JavaScript
+- TypeScript
+- DHTML
+helpviewer_keywords:
+- '- operator, about - operator'
+- '- operator'
+- negation operator
+- subtraction operator, syntax
+- arithmetic operators, subtraction
+- operators, subtraction
 ms.assetid: cd0681d3-15cd-49fe-b4dd-e087de55d778
-caps.latest.revision: 8
-author: "mikejo5000"
-ms.author: "mikejo"
-manager: "ghogen"
-caps.handback.revision: 8
+caps.latest.revision: "8"
+author: mikejo5000
+ms.author: mikejo
+manager: ghogen
+ms.openlocfilehash: fb79aab0a57c733871dbfc73ac96c7ddbf4db37c
+ms.sourcegitcommit: aadb9588877418b8b55a5612c1d3842d4520ca4c
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/27/2017
 ---
-# 减法运算符 (-) (JavaScript)
-从一个表达式的值中减去另一个表达式的值，若只有一个表达式时则取其相反数。  
+# <a name="subtraction-operator---javascript"></a>减法运算符 (-) (JavaScript)
+从另一个表达式的值中减去或提供一元求反运算的单个表达式。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
 ```  
   
 result = number1 - number2;  
-  
 ```  
   
-## 参数  
- *result*  
+## <a name="parameters"></a>参数  
+ *结果*  
  任何数值变量。  
   
  `number`  
@@ -53,25 +54,25 @@ result = number1 - number2;
  `number2`  
  任何数值表达式。  
   
-## 备注  
- 在语法 1 中，**\-** 运算符是用于计算两个数差值的算术减法运算符。  在语法 2 中，**\-** 运算符用作一元求反运算符，指示表达式的负值。  
+## <a name="remarks"></a>备注  
+ 在语法 1，  **-** 运算符是用来查找两个数字之间的差异的算术减法运算符。 在语法 2，  **-** 运算符用于一元求反运算符指示表达式的负值。  
   
- 对于语法 2，和所有一元运算符一样，按如下规则计算表达式：  
+ 对于语法 2，和所有一元运算符，计算表达式，如下所示：  
   
--   如果应用于未定义的表达式或 `null` 表达式，则会引发一个运行时错误。  
+-   如果应用于未定义或`null`引发表达式，运行时错误。  
   
--   将对象转换为字符串。  
+-   对象将转换为字符串。  
   
--   如果可能，将字符串转换为数字。  否则，将引发运行时错误。  
+-   如果可能，将字符串转换为数字。 否则，将引发运行时错误。  
   
--   布尔值被视为数字（如果为 false，则为 0；如果为 true，则为 1）。  
+-   布尔值被视为数字 （0，如果为 false，1，如果为 true）。  
   
- 运算符将应用于结果数字。  在语法 2 中，如果结果数字不是零，则 *result* 与结果数字符号颠倒后的值相等。  如果结果数字为零，则 *result* 为零。  
+ 运算符应用于结果数字。 在语法 2 中，如果结果的数字不为零，*结果*等于符号颠倒得到数。 如果生成的数字为零，*结果*为零。  
   
-## 要求  
+## <a name="requirements"></a>要求  
  [!INCLUDE[jsv1](../../javascript/misc/includes/jsv1-md.md)]  
   
-## 请参阅  
- [减法赋值运算符 \(\-\=\)](../../javascript/reference/subtraction-assignment-operator-decrement-equal-javascript.md)   
+## <a name="see-also"></a>另请参阅  
+ [减法赋值运算符 （-）](../../javascript/reference/subtraction-assignment-operator-decrement-equal-javascript.md)   
  [运算符优先级](../../javascript/operator-subtractprecedence-javascript.md)   
- [运算符摘要 \(JavaScript\)](../../javascript/misc/operator-subtractsummary-javascript.md)
+ [运算符摘要 (JavaScript)](../../javascript/misc/operator-subtractsummary-javascript.md)

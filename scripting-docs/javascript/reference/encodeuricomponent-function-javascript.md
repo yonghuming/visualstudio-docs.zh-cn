@@ -1,47 +1,48 @@
 ---
-title: "encodeURIComponent 函数 (JavaScript) | Microsoft Docs"
-ms.custom: ""
-ms.date: "01/18/2017"
-ms.prod: "windows-client-threshold"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "devlang-javascript"
-ms.tgt_pltfrm: ""
-ms.topic: "language-reference"
-f1_keywords: 
-  - "encodeURIComponent"
-dev_langs: 
-  - "JavaScript"
-  - "TypeScript"
-  - "DHTML"
-helpviewer_keywords: 
-  - "encodeURIComponent 方法"
+title: "encodeURIComponent 函数 (JavaScript) |Microsoft 文档"
+ms.custom: 
+ms.date: 01/18/2017
+ms.prod: windows-client-threshold
+ms.reviewer: 
+ms.suite: 
+ms.technology: devlang-javascript
+ms.tgt_pltfrm: 
+ms.topic: language-reference
+f1_keywords: encodeURIComponent
+dev_langs:
+- JavaScript
+- TypeScript
+- DHTML
+helpviewer_keywords: encodeURIComponent method
 ms.assetid: 8202bce6-1342-40dc-a5ef-ac6d210a7d15
-caps.latest.revision: 12
-author: "mikejo5000"
-ms.author: "mikejo"
-manager: "ghogen"
-caps.handback.revision: 12
+caps.latest.revision: "12"
+author: mikejo5000
+ms.author: mikejo
+manager: ghogen
+ms.openlocfilehash: 56680e9bcfe1de61d8a1eabd0ff8d2eced01d603
+ms.sourcegitcommit: aadb9588877418b8b55a5612c1d3842d4520ca4c
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/27/2017
 ---
-# encodeURIComponent 函数 (JavaScript)
-将文本字符串编码为统一资源标识符 \(URI\) 的一个有效组件。  
+# <a name="encodeuricomponent-function-javascript"></a>encodeURIComponent 函数 (JavaScript)
+将文本字符串编码为一个有效的组件的统一资源标识符 (URI)。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
 ```  
 encodeURIComponent(encodedURIString)  
 ```  
   
-## 备注  
- 必需的 `encodedURIString` 参数是表示已编码的 URI 组件的值。  
+## <a name="remarks"></a>备注  
+ 所需`encodedURIString`参数是表示编码的 URI 组件的值。  
   
- `encodeURIComponent` 函数返回一个已编码的 URI。  如果将该结果传递给 `decodeURIComponent`，则将返回原始字符串。  因为 `encodeURIComponent` 函数编码所有字符，所以请注意该字符串是否表示路径，例如 \/folder1\/folder2\/default.html。  斜杠字符将被编码，因此如果作为请求发送到 Web 服务器将无效。  如果字符串中包含多个 URI 组件，请使用 `encodeURI` 函数进行编码。  
+ `encodeURIComponent`函数将返回已编码的 URI。 如果通过将结果发送到`decodeURIComponent`，则返回原始字符串。 因为`encodeURIComponent`函数将所有字符都编码，请注意，如果该字符串表示路径如**/folder1/folder2/default.html**。 斜杠字符进行编码，并且无法有效如果作为请求发送到 web 服务器。 使用`encodeURI`如果字符串包含多个单个 URI 组件正常工作。  
   
-## 示例  
- 下面的代码首先编码 URI 组件，然后对其进行解码。  
+## <a name="example"></a>示例  
+ 下面的代码首先对 URI 组件进行编码，然后对它进行解码。  
   
-```javascript  
+```JavaScript  
 var uriEncode = encodeURIComponent ("www.Not a URL.com");  
 var uriDecode = decodeURIComponent(uriEncode);  
   
@@ -54,9 +55,9 @@ document.write(uriDecode);
 // www.Not a URL.com  
 ```  
   
-## 要求  
+## <a name="requirements"></a>要求  
  [!INCLUDE[jsv55](../../javascript/reference/includes/jsv55-md.md)]  
   
-## 请参阅  
+## <a name="see-also"></a>另请参阅  
  [decodeURI 函数](../../javascript/reference/decodeuri-function-javascript.md)   
  [decodeURIComponent 函数](../../javascript/reference/decodeuricomponent-function-javascript.md)

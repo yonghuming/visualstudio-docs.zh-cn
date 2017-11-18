@@ -1,24 +1,26 @@
 ---
-title: "演练：使用文本模板生成代码 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-helpviewer_keywords: 
-  - "演练 [文本模板], 生成应用程序代码"
-  - "演练 [文本模板]"
+title: "演练： 使用文本模板生成代码 |Microsoft 文档"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.tgt_pltfrm: 
+ms.topic: article
+helpviewer_keywords:
+- walkthroughs [text templates], generating application code
+- walkthroughs [text templates]
 ms.assetid: 24602ade-baca-425e-a6ce-be09a2c7f7e1
-caps.latest.revision: 11
-author: "alancameronwills"
-ms.author: "awills"
-manager: "douge"
-caps.handback.revision: 11
+caps.latest.revision: "11"
+author: alancameronwills
+ms.author: awills
+manager: douge
+ms.openlocfilehash: b39d142a44a99cc0fde362249d5717ee75c09323
+ms.sourcegitcommit: aadb9588877418b8b55a5612c1d3842d4520ca4c
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/27/2017
 ---
-# 演练：使用文本模板生成代码
-[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
-
+# <a name="walkthrough-generating-code-by-using-text-templates"></a>演练：使用文本模板生成代码
 代码生成允许生成强类型化的程序代码，但可在源模型更改时轻松对其进行更改。 与之相比，另一种编写可接受配置文件的完全泛型程序的替代技术更灵活，但生成的代码既不易读取和更改，也没有这么好的性能。 本演练将演示这一优势。  
   
 ## <a name="typed-code-for-reading-xml"></a>读取 XML 的类型化代码  
@@ -102,7 +104,7 @@ foreach (XmlNode artist in catalog.SelectNodes("artist"))
   
 4.  本演练中，命名文件 `exampleXml.xml`。 将文件的内容设置为上一节中所示的 XML。  
   
- ..  
+ .  
   
 ### <a name="add-a-test-code-file"></a>添加测试代码文件  
  将 C# 文件添加到项目，并在其中编写希望能够进行编写的代码示例。 例如：  

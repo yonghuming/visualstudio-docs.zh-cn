@@ -1,54 +1,56 @@
 ---
-title: "getFullYear 方法 (Date) (JavaScript) | Microsoft Docs"
-ms.custom: ""
-ms.date: "01/18/2017"
-ms.prod: "windows-client-threshold"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "devlang-javascript"
-ms.tgt_pltfrm: ""
-ms.topic: "language-reference"
-f1_keywords: 
-  - "getFullYear"
-dev_langs: 
-  - "JavaScript"
-  - "TypeScript"
-  - "DHTML"
-helpviewer_keywords: 
-  - "日期，返回年"
-  - "Date 对象"
-  - "getFullYear 方法"
+title: "getFullYear 方法 (Date) (JavaScript) |Microsoft 文档"
+ms.custom: 
+ms.date: 01/18/2017
+ms.prod: windows-client-threshold
+ms.reviewer: 
+ms.suite: 
+ms.technology: devlang-javascript
+ms.tgt_pltfrm: 
+ms.topic: language-reference
+f1_keywords: getFullYear
+dev_langs:
+- JavaScript
+- TypeScript
+- DHTML
+helpviewer_keywords:
+- dates, returning year
+- Date object
+- getFullYear method
 ms.assetid: f9ec1262-02e9-4791-90b5-48f33b1dc4bc
-caps.latest.revision: 15
-author: "mikejo5000"
-ms.author: "mikejo"
-manager: "ghogen"
-caps.handback.revision: 15
+caps.latest.revision: "15"
+author: mikejo5000
+ms.author: mikejo
+manager: ghogen
+ms.openlocfilehash: 211d6c86435e39eb75b9b1ce3415738541ca07db
+ms.sourcegitcommit: aadb9588877418b8b55a5612c1d3842d4520ca4c
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/27/2017
 ---
-# getFullYear 方法 (Date) (JavaScript)
-使用当地时间获取年份。  
+# <a name="getfullyear-method-date-javascript"></a>getFullYear 方法 (Date) (JavaScript)
+获取一年中，使用本地时间。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
 ```  
   
 dateObj.getFullYear()   
 ```  
   
-#### 参数  
- 必需的 `dateObj` 引用是 `Date` 对象。  
+#### <a name="parameters"></a>参数  
+ 所需 `dateObj` 引用是 `Date` 对象。  
   
-## 返回值  
- 由四位数字表示的年份。  例如，1976 年的返回值为 1976。  在 `Date` 构造函数或 `setFullYear` 中指定为两位数字的年份被假定处于 20 世纪，因此，对于给定的“5\/14\/12”，`getFullYear` 将返回“1912”。  
+## <a name="return-value"></a>返回值  
+ 由四位数字表示的年份。 例如，年份 1976年被返回值为 1976年。 指定为两个数字中的年`Date`构造函数或在`setFullYear`假定处于二十世纪，因此给定"5/14/12"`getFullYear`返回"公历 1912"。  
   
-## 备注  
- 若要根据协调世界时 \(UTC\) 获取年份，请使用 `getUTCFullYear` 方法。  
+## <a name="remarks"></a>备注  
+ 若要获取使用协调世界时 (UTC) 的年份，使用`getUTCFullYear`方法。  
   
-## 示例  
- 以下示例演示 **getFullYear** 方法的用法。  
+## <a name="example"></a>示例  
+ 下面的示例演示如何使用**getFullYear**方法。  
   
-```javascript  
+```JavaScript  
 var date = new Date("1/1/01");  
 document.write(date.getFullYear());  
   
@@ -56,12 +58,12 @@ document.write(date.getFullYear());
   
 ```  
   
-## 要求  
+## <a name="requirements"></a>要求  
  [!INCLUDE[jsv3](../../javascript/reference/includes/jsv3-md.md)]  
   
- **适用于**：[Date 对象](../../javascript/reference/date-object-javascript.md)  
+ **适用于**： [Date Object](../../javascript/reference/date-object-javascript.md)  
   
-## 请参阅  
- [getUTCFullYear 方法 \(Date\)](../../javascript/reference/getutcfullyear-method-date-javascript.md)   
- [setFullYear 方法 \(Date\)](../../javascript/reference/setfullyear-method-date-javascript.md)   
- [setUTCFullYear 方法 \(Date\)](../../javascript/reference/setutcfullyear-method-date-javascript.md)
+## <a name="see-also"></a>另请参阅  
+ [getUTCFullYear 方法 (Date)](../../javascript/reference/getutcfullyear-method-date-javascript.md)   
+ [setFullYear 方法 (Date)](../../javascript/reference/setfullyear-method-date-javascript.md)   
+ [setUTCFullYear 方法 (Date)](../../javascript/reference/setutcfullyear-method-date-javascript.md)

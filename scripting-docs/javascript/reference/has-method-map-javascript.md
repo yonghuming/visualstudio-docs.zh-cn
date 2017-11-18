@@ -1,48 +1,51 @@
 ---
-title: "has 方法 (Map) (JavaScript) | Microsoft Docs"
-ms.custom: ""
-ms.date: "01/18/2017"
-ms.prod: "windows-client-threshold"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "devlang-javascript"
-ms.tgt_pltfrm: ""
-ms.topic: "language-reference"
-dev_langs: 
-  - "JavaScript"
-  - "TypeScript"
-  - "DHTML"
+title: "has 方法 (Map) (JavaScript) |Microsoft 文档"
+ms.custom: 
+ms.date: 01/18/2017
+ms.prod: windows-client-threshold
+ms.reviewer: 
+ms.suite: 
+ms.technology: devlang-javascript
+ms.tgt_pltfrm: 
+ms.topic: language-reference
+dev_langs:
+- JavaScript
+- TypeScript
+- DHTML
 ms.assetid: 876df854-2941-4db2-92c6-1b497840b169
-caps.latest.revision: 5
-author: "mikejo5000"
-ms.author: "mikejo"
-manager: "ghogen"
-caps.handback.revision: 5
+caps.latest.revision: "5"
+author: mikejo5000
+ms.author: mikejo
+manager: ghogen
+ms.openlocfilehash: 48228b495c845bef91caa0b85e67980100a6f790
+ms.sourcegitcommit: aadb9588877418b8b55a5612c1d3842d4520ca4c
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/27/2017
 ---
-# has 方法 (Map) (JavaScript)
-如果映射包含指定元素，则返回 `true`。  
+# <a name="has-method-map-javascript"></a>has 方法 (Map) (JavaScript)
+返回`true`如果映射包含指定的元素。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
-```javascript  
+```JavaScript  
 mapObj.has(key)  
 ```  
   
-#### 参数  
+#### <a name="parameters"></a>参数  
  `mapObj`  
- 必需。  `Map` 对象。  
+ 必需。 一个 `Map` 对象。  
   
  `key`  
- 必需。  要测试的元素的键。  
+ 必需。 要测试的元素的键。  
   
-## 属性值\/返回值  
- `true` 如果映射包含指定的元素。  
+## <a name="property-valuereturn-value"></a>属性值/返回值  
+ `true`如果映射包含指定的元素。  
   
-## 示例  
- 下面的示例演示如何将成员添加到 `Map` 然后检查映射是否包含它。  
+## <a name="example"></a>示例  
+ 下面的示例演示如何将成员添加到`Map`，然后检查 map 中是否包含它。  
   
-```javascript  
+```JavaScript  
 var m = new Map();  
 m.set(2, "red");  
   
@@ -52,5 +55,5 @@ document.write(m.has(2));
 // true  
 ```  
   
-## 要求  
+## <a name="requirements"></a>要求  
  [!INCLUDE[jsv11](../../javascript/reference/includes/jsv11-md.md)]

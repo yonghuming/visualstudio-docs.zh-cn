@@ -19,36 +19,21 @@ helpviewer_keywords:
 - MSBuild, dependency diagrams
 - MSBuild, validating code
 ms.assetid: 70cbe55d-4b33-4355-b0a7-88c770a6f75c
-caps.latest.revision: 82
+caps.latest.revision: "82"
 author: alexhomer1
 ms.author: ahomer
 manager: douge
-translation.priority.ht:
-- cs-cz
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pl-pl
-- pt-br
-- ru-ru
-- tr-tr
-- zh-cn
-- zh-tw
-ms.translationtype: Machine Translation
-ms.sourcegitcommit: 5581224b17a7b42f65b69f741f984a144d78fc26
-ms.openlocfilehash: 53c623ce7ab7126c22aaab856a439862252a5d56
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/04/2017
-
+ms.openlocfilehash: c6c5954cdb4979ede5e43d2052801ca399f128fd
+ms.sourcegitcommit: aadb9588877418b8b55a5612c1d3842d4520ca4c
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="validate-code-with-dependency-diagrams"></a>使用依赖项关系图验证代码
 
-**最新新闻**︰ 请参阅[这篇博客文章](https://blogs.msdn.microsoft.com/visualstudioalm/2016/11/30/live-dependency-validation-in-visual-studio-2017/)。
+**最新新闻**： 请参阅[这篇博客文章](https://blogs.msdn.microsoft.com/visualstudioalm/2016/11/30/live-dependency-validation-in-visual-studio-2017/)。
 
-[视频︰ 验证实时体系结构依赖项](https://sec.ch9.ms/sessions/69613110-c334-4f25-bb36-08e5a93456b5/170ValidateArchitectureDependenciesWithVisualStudio.mp4) 
+[视频： 验证实时体系结构依赖项](https://sec.ch9.ms/sessions/69613110-c334-4f25-bb36-08e5a93456b5/170ValidateArchitectureDependenciesWithVisualStudio.mp4) 
 
 ## <a name="why-use-dependency-diagrams"></a>为何使用依赖项关系图？
 
@@ -72,9 +57,9 @@ ms.lasthandoff: 04/04/2017
   
 -   具有使用依赖项关系图的建模项目的解决方案。 此依赖项关系图必须链接到你想要验证的 Visual C#.NET 或 Visual Basic.NET 项目中的项。 请参阅[在代码中创建依赖项关系图](../modeling/create-layer-diagrams-from-your-code.md)。  
   
- 若要查看支持此功能的 Visual Studio 的版本，请参阅[体系结构和建模工具的版本支持](../modeling/what-s-new-for-design-in-visual-studio.md#VersionSupport)。  
+ 若要查看支持此功能的 Visual Studio 的版本，请参阅 [Version support for architecture and modeling tools](../modeling/what-s-new-for-design-in-visual-studio.md#VersionSupport)。  
   
- 你可以验证代码手动从 Visual Studio 中打开的依赖项关系图或从命令提示符。 你还可以在运行本地生成或 Team Foundation Build 时自动验证代码。 请参阅[第 9 频道视频︰ 设计和验证体系结构使用依赖项关系图](http://go.microsoft.com/fwlink/?LinkID=252073)。  
+ 你可以验证代码手动从 Visual Studio 中打开的依赖项关系图或从命令提示符。 你还可以在运行本地生成或 Team Foundation Build 时自动验证代码。 请参阅[第 9 频道视频： 设计和验证体系结构使用依赖项关系图](http://go.microsoft.com/fwlink/?LinkID=252073)。  
   
 > [!IMPORTANT]
 >  如果想要使用 Team Foundation Build 运行层验证，则还必须在生成服务器上安装相同版本的 Visual Studio。  
@@ -154,7 +139,7 @@ ms.lasthandoff: 04/04/2017
   
          - 或 -  
   
-         浏览到包含建模的文件夹项目文件 (.modelproj) 和依赖项关系图，然后运行[!INCLUDE[vstecmsbuild](../extensibility/internals/includes/vstecmsbuild_md.md)]使用下面的自定义属性︰  
+         浏览到包含建模的文件夹项目文件 (.modelproj) 和依赖项关系图，然后运行[!INCLUDE[vstecmsbuild](../extensibility/internals/includes/vstecmsbuild_md.md)]使用下面的自定义属性：  
   
         ```  
         msbuild /p:ValidateArchitecture=true   
@@ -168,7 +153,7 @@ ms.lasthandoff: 04/04/2017
   
          - 或 -  
   
-         浏览到解决方案文件夹，必须包含建模项目包含依赖项关系图，，然后运行[!INCLUDE[vstecmsbuild](../extensibility/internals/includes/vstecmsbuild_md.md)]使用下面的自定义属性︰  
+         浏览到解决方案文件夹，必须包含建模项目包含依赖项关系图，，然后运行[!INCLUDE[vstecmsbuild](../extensibility/internals/includes/vstecmsbuild_md.md)]使用下面的自定义属性：  
   
         ```  
         msbuild /p:ValidateArchitecture=true  
@@ -188,7 +173,7 @@ ms.lasthandoff: 04/04/2017
   
 -   在**错误列表**窗口中，右击错误，指向**创建工作项**，然后单击你想要创建的工作项类型。  
   
- 使用以下任务来管理中的验证错误**错误列表**窗口︰  
+ 使用以下任务来管理中的验证错误**错误列表**窗口：  
   
 |**若要**|**请按照下列步骤**|  
 |------------|----------------------------|  
@@ -228,7 +213,7 @@ ms.lasthandoff: 04/04/2017
   
 1.  在**团队资源管理器**，双击生成定义，然后单击**过程**。  
   
-2.  下**生成过程参数**，展开**编译**，并键入以下内容中的**MSBuild 参数**参数︰  
+2.  下**生成过程参数**，展开**编译**，并键入以下内容中的**MSBuild 参数**参数：  
   
      `/p:ValidateArchitecture=true`  
   
@@ -264,7 +249,7 @@ ms.lasthandoff: 04/04/2017
   
 |**语法**|**描述**|  
 |----------------|---------------------|  
-|*ArtifactN*(*ArtifactTypeN*)|*ArtifactN*是与依赖项关系图上的层关联的项目。<br /><br /> *ArtifactTypeN*是一种*ArtifactN*，如**类**或**方法**，例如︰<br /><br /> MySolution.MyProject.MyClass.MyMethod(Method)|  
+|*ArtifactN*(*ArtifactTypeN*)|*ArtifactN*是与依赖项关系图上的层关联的项目。<br /><br /> *ArtifactTypeN*是一种*ArtifactN*，如**类**或**方法**，例如：<br /><br /> MySolution.MyProject.MyClass.MyMethod(Method)|  
 |*命名空间名称 n*|命名空间的名称。|  
 |*层名称 n*|依赖项关系图上的层的名称。|  
 |*DependencyType*|之间的依赖关系类型*Artifact1*和*Artifact2*。 例如， *Artifact1*具有**调用**关系*Artifact2*。|  
@@ -281,5 +266,4 @@ ms.lasthandoff: 04/04/2017
  
 ## <a name="see-also"></a>另请参阅  
  [在开发过程中验证你的系统](../modeling/validate-your-system-during-development.md)   
- [视频︰ 验证实时体系结构依赖项](https://sec.ch9.ms/sessions/69613110-c334-4f25-bb36-08e5a93456b5/170ValidateArchitectureDependenciesWithVisualStudio.mp4)   
-
+ [视频： 验证实时体系结构依赖项](https://sec.ch9.ms/sessions/69613110-c334-4f25-bb36-08e5a93456b5/170ValidateArchitectureDependenciesWithVisualStudio.mp4)   

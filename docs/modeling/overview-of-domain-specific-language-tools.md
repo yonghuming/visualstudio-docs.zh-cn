@@ -1,41 +1,42 @@
 ---
-title: "域特定语言工具的概述 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-helpviewer_keywords: 
-  - "域特定语言"
+title: "域特定语言工具的概述 |Microsoft 文档"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.tgt_pltfrm: 
+ms.topic: article
+helpviewer_keywords: Domain-Specific Language
 ms.assetid: 50d93ea2-8c88-4522-853b-40ab194953db
-caps.latest.revision: 54
-author: "alancameronwills"
-ms.author: "awills"
-manager: "douge"
-caps.handback.revision: 54
+caps.latest.revision: "54"
+author: alancameronwills
+ms.author: awills
+manager: douge
+ms.openlocfilehash: 20d4222f96958a730c563ff9bc84b2b5d0b08538
+ms.sourcegitcommit: aadb9588877418b8b55a5612c1d3842d4520ca4c
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/27/2017
 ---
-# 域特定语言工具的概述
-[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
-
-域特定语言工具 \(DSL 工具\)，在 [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)]承载，可以设计域特定语言 \(dsl\) 然后生成所有用户必须创建基于该语言的模型。  
+# <a name="overview-of-domain-specific-language-tools"></a>域特定语言工具的概述
+域特定语言工具 （DSL 工具），它承载在[!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)]，但仍使设计的域特定语言，然后生成用户必须具有创建基于语言的模型的所有内容。  
   
- 下列工具在 DSL 工具包括:  
+ DSL 工具中包含的以下工具：  
   
--   使用不同的解决方案模板帮助的项目向导 " 在开始开发一个域特定语言。  
+-   使用不同的解决方案模板来帮助你开始开发你的域特定语言项目向导。  
   
--   创建和编辑特定于域的语言定义一个图形设计器。  
+-   图形设计器用于创建和编辑你的域特定语言的定义。  
   
--   确保以验证引擎域特定语言定义格式良好，则显示错误和警告，如果存在问题。  
+-   确保验证引擎的域特定语言定义的格式正确，并显示错误和警告，如果有问题。  
   
--   采用一个域特定语言定义作为输入并导致源代码作为输出的代码生成器。  
+-   代码生成器，采用的域特定语言定义作为输入并且生成作为输出的源代码。  
   
-## DSL 工具解决方案  
- 域特定设计器向导提供以下解决方案模板:  
+## <a name="the-dsl-tools-solution"></a>DSL 工具解决方案  
+ 特定于域的设计器向导提供了以下的解决方案模板：  
   
 -   任务流  
   
--   类图  
+-   类关系图  
   
 -   最小的语言  
   
@@ -47,34 +48,34 @@ caps.handback.revision: 54
   
 -   DSL 库  
   
- 有关更多信息，请参见 [选择域特定语言解决方案模板](../modeling/choosing-a-domain-specific-language-solution-template.md)。  
+ 有关详细信息，请参阅[选择的域特定语言解决方案模板](../modeling/choosing-a-domain-specific-language-solution-template.md)。  
   
- 向导创建具有以下项的一个 [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] 解决方案:  
+ 此向导将创建[!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)]解决方案，它具有以下项目：  
   
--   DSL  
+-   dsl  
   
-     DSL 项目定义域特定语言及其编辑的和进程的工具。  
+     Dsl 项目定义的域特定语言和及其编辑和处理的工具。  
   
 -   **DslPackage**  
   
-     DslPackage 项确定语言工具如何与集成 [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)]。  
+     DslPackage 项目确定如何将语言工具与集成[!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)]。  
   
-## DSL 工具图形界面  
- 可以使用 DSL 工具图形界面将元素和关系到域特定语言。  在添加元素之后，可以通过映射到形状，自定义颜色和添加修饰器定义其外观。  还可以将元素添加到工具箱中。  
+## <a name="the-dsl-tools-graphical-interface"></a>DSL 工具图形界面  
+ DSL 工具图形界面可用于将元素和关系添加到你的域特定语言。 添加元素后，你可以通过将其映射到形状、 自定义颜色，以及添加修饰符定义其外观。 你还可以将元素添加到工具箱。  
   
-## 在 DSL 工具的验证  
- DSL 提供验证的一个级别，以确保域模型与代码生成的基本要求。  通常，那么，当您创建时将拥有域特定语言，您将拥有验证表示业务逻辑规则。  有关自定义验证的更多信息，请参见 [域特定语言中的验证](../modeling/validation-in-a-domain-specific-language.md)。  
+## <a name="validation-in-dsl-tools"></a>DSL 工具中的验证  
+ Dsl 提供一层验证以确保域模型代码生成满足的基本要求。 通常情况下，在创建你自己的域特定语言时，你应该添加你自己的验证来表示您的业务逻辑规则。 有关自定义验证的详细信息，请参阅[域特定语言中的验证](../modeling/validation-in-a-domain-specific-language.md)。  
   
- 建议您通常以验证此修复域特定语言，在设计时。  如果该域特定语言出现验证错误，则无法生成源代码。  从模板生成的源代码处理通过单击 **转换所有模板** 执行在解决方案资源管理器工具栏。  每当修改语言定义，请确定对 **转换所有模板**。  有关更多信息，请参见 [如何：创建域特定语言解决方案](../modeling/how-to-create-a-domain-specific-language-solution.md)。  
+ 我们建议你设计时通常验证你的域特定语言。 如果你的域特定语言具有验证错误，无法生成源代码。 从模板生成源代码的过程执行通过单击**转换所有模板**解决方案资源管理器工具栏中。 每当你修改语言定义，还请确保**转换所有模板**。 有关详细信息，请参阅[如何： 创建域特定语言解决方案](../modeling/how-to-create-a-domain-specific-language-solution.md)。  
   
-## DSL 工具的自定义项  
- 可以提供其他的代码改进设计的行为和定义在该语言的约束。  如果需要，可以修改文本模板进行重大更改。  
+## <a name="customization-of-dsl-tools"></a>DSL 工具的自定义  
+ 你可以提供额外的代码来优化模型的行为并通过你的语言定义约束。 如有必要，你可以通过修改文本模板进行重要更改。  
   
-## 分配 DSL 解决方案  
- DSL 工具生成在 [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)]承载的包。  包显示工具箱、 DSL 资源管理器和使用这种域特定语言，它允许用户创建模型中的其他 UI 元素。  
+## <a name="distributing-your-dsl-solution"></a>分发 DSL 解决方案  
+ DSL 工具生成中承载的包[!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)]。 包显示工具箱、 的 DSL 资源管理器中和其他 UI 元素，用户可以通过使用你的域特定语言创建模型。  
   
- 在生成并运行 DSL 工具在 [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)]的解决方案时， [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] 第二个实例显示可以为域特定语言如何查找对该语言的用户。 在确认一切正常工作后，可以将自己在 DslPackage 项目的生成文件夹中查找的 `.vsix` 文件。  此文件可用于安装 DSL 作为 [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] 扩展到其他计算机上。  有关更多信息，请参见 [部署域特定语言解决方案](../modeling/deploying-domain-specific-language-solutions.md)。  
+ 当生成并运行 DSL 工具解决方案[!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)]，第二个实例[!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)]显示语言的用户看到你的域特定语言的样子。 验证一切是否正常工作后，你可以将分发`.vsix`你将在 DslPackage 项目的生成文件夹中找到的文件。 此文件可以用于安装作为 DSL[!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)]在其他计算机上的扩展。  有关详细信息，请参阅[部署域特定语言解决方案](../modeling/deploying-domain-specific-language-solutions.md)。  
   
-## 请参阅  
+## <a name="see-also"></a>另请参阅  
  [实验实例](../extensibility/the-experimental-instance.md)   
- [Domain\-Specific Language Tools Glossary](http://msdn.microsoft.com/zh-cn/ca5e84cb-a315-465c-be24-76aa3df276aa)
+ [域特定语言工具词汇表](http://msdn.microsoft.com/en-us/ca5e84cb-a315-465c-be24-76aa3df276aa)

@@ -1,49 +1,51 @@
 ---
-title: "index 属性 (RegExp) (JavaScript) | Microsoft Docs"
-ms.custom: ""
-ms.date: "01/18/2017"
-ms.prod: "windows-client-threshold"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "devlang-javascript"
-ms.tgt_pltfrm: ""
-ms.topic: "language-reference"
-f1_keywords: 
-  - "index"
-dev_langs: 
-  - "JavaScript"
-  - "TypeScript"
-  - "DHTML"
-helpviewer_keywords: 
-  - "Index 属性"
-  - "匹配字符串"
+title: "index 属性 (RegExp) (JavaScript) |Microsoft 文档"
+ms.custom: 
+ms.date: 01/18/2017
+ms.prod: windows-client-threshold
+ms.reviewer: 
+ms.suite: 
+ms.technology: devlang-javascript
+ms.tgt_pltfrm: 
+ms.topic: language-reference
+f1_keywords: index
+dev_langs:
+- JavaScript
+- TypeScript
+- DHTML
+helpviewer_keywords:
+- Index property
+- matching strings
 ms.assetid: d8be1ef6-1bf2-43cd-b0b5-567a61eabaad
-caps.latest.revision: 14
-author: "mikejo5000"
-ms.author: "mikejo"
-manager: "ghogen"
-caps.handback.revision: 14
+caps.latest.revision: "14"
+author: mikejo5000
+ms.author: mikejo
+manager: ghogen
+ms.openlocfilehash: 9c6b11a5caf6e727b4d525b9a2d51eddd4542bc4
+ms.sourcegitcommit: aadb9588877418b8b55a5612c1d3842d4520ca4c
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/27/2017
 ---
-# index 属性 (RegExp) (JavaScript)
-返回字符位置，它是被搜索字符串中第一个成功匹配的开始位置。  只读。  
+# <a name="index-property-regexp-javascript"></a>index 属性 (RegExp) (JavaScript)
+返回被搜索的字符串中第一个成功匹配的开始位置的字符位置。 只读。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
 ```  
   
 RegExp.index   
 ```  
   
-## 备注  
- 与此属性关联的对象始终为全局 `RegExp` 对象。  
+## <a name="remarks"></a>备注  
+ 此属性与关联的对象始终是全局`RegExp`对象。  
   
- **index** 属性是从零开始的。  **index** 属性的初始值是 –1。  每当产生成功匹配时，其值就会相应更改。  
+ **索引**属性是从零开始。 初始值**索引**属性为-1。 每当将生成一个成功匹配，其值更改。  
   
-## 示例  
- 下面的示例阐释了 **index** 属性的用法。  该函数重复一个字符串搜索，并打印出字符串中每一个词的 **index** 和 `lastIndex` 值。  
+## <a name="example"></a>示例  
+ 下面的示例演示如何使用**索引**属性。 此函数循环访问搜索字符串，并输出**索引**和`lastIndex`每个单词在字符串中的值。  
   
-```javascript  
+```JavaScript  
 function RegExpTest()  
 {  
    var ver = Number(ScriptEngineMajorVersion() + "." + ScriptEngineMinorVersion())  
@@ -70,10 +72,10 @@ function RegExpTest()
 }  
 ```  
   
-## 要求  
+## <a name="requirements"></a>要求  
  [!INCLUDE[jsv3](../../javascript/reference/includes/jsv3-md.md)]  
   
- **适用于**：[RegExp 对象](../../javascript/reference/regexp-object-javascript.md)  
+ **适用于**: [RegExp 对象](../../javascript/reference/regexp-object-javascript.md)  
   
-## 请参阅  
- [Regular Expression Syntax \(JavaScript\)](http://msdn.microsoft.com/zh-cn/ab0766e1-7037-45ed-aa23-706f58358c0e)
+## <a name="see-also"></a>另请参阅  
+ [正则表达式语法 (JavaScript)](http://msdn.microsoft.com/en-us/ab0766e1-7037-45ed-aa23-706f58358c0e)

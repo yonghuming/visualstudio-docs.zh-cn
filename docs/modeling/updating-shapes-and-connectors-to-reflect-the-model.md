@@ -7,16 +7,15 @@ ms.suite:
 ms.tgt_pltfrm: 
 ms.topic: article
 ms.assetid: 51eb2af9-00e7-4725-a87d-62fb4f39f444
-caps.latest.revision: 6
+caps.latest.revision: "6"
 author: alancameronwills
 ms.author: awills
 manager: douge
-ms.translationtype: MT
-ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
 ms.openlocfilehash: ae3a0d952b8ff88f2df4d297509d01d1a6731d56
-ms.contentlocale: zh-cn
-ms.lasthandoff: 09/26/2017
-
+ms.sourcegitcommit: aadb9588877418b8b55a5612c1d3842d4520ca4c
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="updating-shapes-and-connectors-to-reflect-the-model"></a>更新形状和连接线以反映模型
 域特定语言中[!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)]，你可以反映的基础模型的状态的形状的外观。  
@@ -158,4 +157,3 @@ public partial class ArrowConnector // My connector class.
  `AssociateValueWith()`应调用一次为每个你想要注册的域属性。 已调用后，将调用对指定的属性的任何更改`OnAssociatedPropertyChanged()`中存在该属性的模型元素的任何形状。  
   
  不需要调用`AssociateValueWith()`每个实例。 尽管 InitializeResources 是实例方法，它被调用一次只能为每个形状类。
-

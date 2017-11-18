@@ -1,64 +1,65 @@
 ---
-title: "sort 方法 (Array) (JavaScript) | Microsoft Docs"
-ms.custom: ""
-ms.date: "01/18/2017"
-ms.prod: "windows-client-threshold"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "devlang-javascript"
-ms.tgt_pltfrm: ""
-ms.topic: "language-reference"
-f1_keywords: 
-  - "sort"
-dev_langs: 
-  - "JavaScript"
-  - "TypeScript"
-  - "DHTML"
-helpviewer_keywords: 
-  - "Sort 方法"
+title: "sort 方法 (Array) (JavaScript) |Microsoft 文档"
+ms.custom: 
+ms.date: 01/18/2017
+ms.prod: windows-client-threshold
+ms.reviewer: 
+ms.suite: 
+ms.technology: devlang-javascript
+ms.tgt_pltfrm: 
+ms.topic: language-reference
+f1_keywords: sort
+dev_langs:
+- JavaScript
+- TypeScript
+- DHTML
+helpviewer_keywords: Sort method
 ms.assetid: 9bd8b54a-c838-4806-85c8-62eebe6bc48c
-caps.latest.revision: 15
-author: "mikejo5000"
-ms.author: "mikejo"
-manager: "ghogen"
-caps.handback.revision: 15
+caps.latest.revision: "15"
+author: mikejo5000
+ms.author: mikejo
+manager: ghogen
+ms.openlocfilehash: 2d098b47591ca7bbb4e3e8da5e5c14f8c0e9b255
+ms.sourcegitcommit: aadb9588877418b8b55a5612c1d3842d4520ca4c
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/27/2017
 ---
-# sort 方法 (Array) (JavaScript)
-对 `Array` 排序。  
+# <a name="sort-method-array-javascript"></a>sort 方法 (Array) (JavaScript)
+排序`Array`。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
 ```  
   
 arrayobj.sort(sortFunction)   
 ```  
   
-## 参数  
+## <a name="parameters"></a>参数  
  `arrayObj`  
- 必需。  任意 `Array` 对象。  
+ 必需。 任意 `Array` 对象。  
   
  `sortFunction`  
- 可选。  用来确定元素顺序的函数的名称。  如果省略 ASCII 字符顺序，则将按升序对这些元素进行排序。  
+ 可选。 用于确定元素的顺序的函数的名称。 如果省略，则对元素进行排序以升序，ASCII 字符。  
   
-## 返回值  
+## <a name="return-value"></a>返回值  
  已排序的数组。  
   
-## 备注  
- `sort` 方法就地对 `Array` 对象进行排序；在执行过程中不会创建新 `Array` 对象。  
+## <a name="remarks"></a>备注  
+ `sort`方法排序`Array`就地对象; 如果否新`Array`执行过程中创建对象。  
   
- 如果在 `sortFunction` 参数中提供一个函数，则该函数必须返回下列值之一：  
+ 如果提供中的函数`sortFunction`自变量，它必须返回下列值之一：  
   
--   如果所传递的第一个参数小于第二个参数，则返回负值。  
+-   负值传递的第一个自变量是否小于第二个参数。  
   
--   如果两个参数相等，则返回零。  
+-   如果两个参数相等，则为零。  
   
--   如果第一个参数大于第二个参数，则返回正值。  
+-   如果第一个参数大于第二个参数是正数值。  
   
-## 示例  
- 下面的示例演示如何使用 `sort` 方法。  
+## <a name="example"></a>示例  
+ 下面的示例显示如何使用 `sort` 方法。  
   
-```javascript  
+```JavaScript  
 var a = new Array(4, 11, 2, 10, 3, 1);  
   
 var b = a.sort();  
@@ -86,5 +87,5 @@ function CompareForSort(first, second)
 }  
 ```  
   
-## 要求  
+## <a name="requirements"></a>要求  
  [!INCLUDE[jsv2](../../javascript/reference/includes/jsv2-md.md)]

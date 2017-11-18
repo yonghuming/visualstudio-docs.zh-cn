@@ -1,49 +1,51 @@
 ---
-title: "如何︰ 扩展域特定语言设计器 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.tgt_pltfrm: ""
-ms.topic: "article"
+title: "如何： 扩展的域特定语言设计器 |Microsoft 文档"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.tgt_pltfrm: 
+ms.topic: article
 ms.assetid: fa807f1b-2780-491e-925b-abbfd31b2bfa
-caps.latest.revision: 9
-author: "alancameronwills"
-ms.author: "awills"
-manager: "douge"
-caps.handback.revision: 9
+caps.latest.revision: "9"
+author: alancameronwills
+ms.author: awills
+manager: douge
+ms.openlocfilehash: 44b3ea3d3997ac781b02220316810f00826f2beb
+ms.sourcegitcommit: aadb9588877418b8b55a5612c1d3842d4520ca4c
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/27/2017
 ---
-# 如何︰ 扩展域特定语言设计器
-[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
-
-您可以扩展到用于编辑 DSL 定义的设计器。 您可以添加更多菜单命令添加处理程序将拖动和双击手势和特定类型的值或关系更改时触发的规则的扩展的类型。 这些扩展可以打包为 Visual Studio 集成扩展 \(VSIX\) 并分发给其他用户。  
+# <a name="how-to-extend-the-domain-specific-language-designer"></a>如何：扩展域特定语言设计器
+你可以扩展的设计器，用于编辑 DSL 定义。 你可以添加更多菜单命令添加处理程序拖双击手势和特定类型的值或关系更改时触发的规则的扩展的类型。 扩展可打包为 Visual Studio 集成扩展 (VSIX)，并可以分发给其他用户。  
   
- 示例代码和有关此功能的详细信息，请参阅 Visual Studio [可视化和建模 SDK \(VMSDK\) 网站](http://go.microsoft.com/fwlink/?LinkID=186128)。  
+ 有关示例代码以及有关此功能的详细信息，请参阅 Visual Studio[可视化和建模 SDK (VMSDK) 网站](http://go.microsoft.com/fwlink/?LinkID=186128)。  
   
-## 设置该解决方案  
- 设置包含您的扩展的代码的项目和一个导出该项目的 VSIX 项目。 您的解决方案可以包含其他合并到同一 VSIX 的项目。  
+## <a name="setting-up-the-solution"></a>设置该解决方案  
+ 设置一个包含你的扩展的代码项目和一个导出该项目的 VSIX 项目。 你的解决方案可以包含其他并入同一个 VSIX 的项目。  
   
-#### 若要创建 DSL 设计器扩展解决方案  
+#### <a name="to-create-a-dsl-designer-extension-solution"></a>若要创建 DSL 设计器扩展解决方案  
   
-1.  创建使用类库项目模板新建一个项目。 在 **新项目** 对话框中，单击 **Visual C\#** 然后在中间的窗口中单击 **类库**。  
+1.  创建新项目使用的类库项目模板。 在**新项目**对话框中，单击**Visual C#** ，然后在中间的窗口中单击**类库**。  
   
-     此项目将包含您的扩展的代码。  
+     此项目将包含你的扩展的代码。  
   
-2.  创建新项目使用 VSIX 项目模板。 在 **新项目** 对话框框中，展开 **Visual C\#**, ，请单击 **扩展性**, ，然后在中间的窗口中选择 **VSIX 项目**。  
+2.  创建新项目使用 VSIX 项目模板。 在**新项目**对话框框中，展开**Visual C#**，单击**扩展性**，然后在中间的窗口中选择**VSIX 项目**。  
   
-     选择 **将添加到解决方案**。  
+     选择**将添加到解决方案**。  
   
      在 VSIX 清单编辑器中打开 Source.extension.vsixmanifest。  
   
-3.  在内容字段上方单击 **添加内容**。  
+3.  以上内容的字段中，单击**添加内容**。  
   
-4.  在 **添加内容** 对话框中，设置 **选择内容类型** 到 **MEF 组件**, ，并设置 **项目** 对类库项目。  
+4.  在**添加内容**对话框中，设置**选择内容类型**到**MEF 组件**，并设置**项目**到你的类库项目。  
   
-5.  单击 **选择版本** 并确保 **Visual Studio Enterprise** 已选中。  
+5.  单击**选择版本**并确保**Visual Studio Enterprise**已选中。  
   
-6.  请确保将 VSIX 项目解决方案的启动项目。  
+6.  请确保将 VSIX 项目的解决方案的启动项目。  
   
-7.  在类库项目中，添加对下列程序集的引用︰  
+7.  在类库项目，添加对以下程序集的引用：  
   
      Microsoft.VisualStudio.CoreUtility  
   
@@ -63,27 +65,27 @@ caps.handback.revision: 9
   
      System.Windows.Forms  
   
-## 测试和部署  
- 若要测试本主题中的任何扩展名，生成并运行解决方案。 将打开 [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] 的实验实例。 在此情况下，打开 DSL 解决方案。 编辑 DslDefinition 关系图。 可以看到扩展行为。  
+## <a name="testing-and-deployment"></a>测试和部署  
+ 在本主题中测试任何扩展，生成和运行解决方案。 将打开 [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] 的实验实例。 在此实例中，打开 DSL 解决方案。 编辑 DslDefinition 关系图。 扩展行为，可以查看。  
   
- 若要将扩展部署到主 [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)], ，然后到其他计算机，请执行以下步骤︰  
+ 若要将扩展部署到主[!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)]，和其他计算机，请按照下列步骤：  
   
-1.  在 VSIX 项目中 bin\\\*\\\*.vsix 找到 VSIX 安装文件，  
+1.  查找 VSIX 安装文件，在 VSIX 项目中 bin\\*\\\*.vsix  
   
 2.  将此文件复制到目标计算机，然后在 Windows 资源管理器 （或文件资源管理器） 中，双击它。  
   
-     [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] 扩展管理器将打开，并确认是否已安装该扩展程序。  
+     [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)]扩展管理器将打开，以确认是否已安装扩展。  
   
- 若要卸载该扩展，请按照下列步骤︰  
+ 若要卸载该扩展，请按照下列步骤：  
   
-1.  在 [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)], ，请在 **工具** 菜单上，单击 **扩展管理器**。  
+1.  在[!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)]上**工具**菜单上，单击**扩展管理器**。  
   
 2.  选择的扩展，并将其删除。  
   
-## 添加快捷菜单命令  
- 若要使在 DSL 设计器图面或 DSL 资源管理器窗口中显示的快捷方式菜单命令，请编写类似于以下的类。  
+## <a name="adding-a-shortcut-menu-command"></a>添加的快捷方式菜单命令  
+ 若要使 DSL 设计器图面上或在 DSL 资源管理器窗口中出现的快捷方式菜单命令，编写类似于以下的类。  
   
- 类必须实现 `ICommandExtension` 必须具有的特性和 `DslDefinitionModelCommandExtension`。  
+ 类必须实现`ICommandExtension`并且必须具有该属性`DslDefinitionModelCommandExtension`。  
   
 ```  
 using System.Collections.Generic;  
@@ -145,7 +147,7 @@ namespace Fabrikam.SimpleDslDesignerExtension
 }  
 ```  
   
-## 处理鼠标手势  
+## <a name="handling-mouse-gestures"></a>处理鼠标手势  
  代码将类似于菜单命令的代码。  
   
 ```  
@@ -206,8 +208,8 @@ namespace Fabrikam.SimpleDslDesignerExtension
  }  
 ```  
   
-## 响应值更改  
- 此处理程序需要域模型才能正常工作。 我们提供了简单的域模型。  
+## <a name="responding-to-value-changes"></a>响应值更改  
+ 此处理程序需要域模型正常工作。 我们提供了简单的域模型。  
   
 ```  
 using System.Diagnostics;  
@@ -247,7 +249,7 @@ namespace Fabrikam.SimpleDslDesignerExtension
 } }  }  );  
 ```  
   
- 下面的代码实现一个简单的模型。 创建一个新的 GUID，以替换占位符。  
+ 下面的代码实现一个简单的模型。 创建一个新的 GUID，将占位符。  
   
 ```  
 using System;  

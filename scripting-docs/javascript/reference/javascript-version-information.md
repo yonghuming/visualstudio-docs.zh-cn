@@ -1,78 +1,80 @@
 ---
-title: "JavaScript 版本信息 | Microsoft Docs"
-ms.custom: ""
-ms.date: "01/18/2017"
-ms.prod: "windows-client-threshold"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "devlang-javascript"
-ms.tgt_pltfrm: ""
-ms.topic: "language-reference"
-dev_langs: 
-  - "JavaScript"
-  - "TypeScript"
-  - "DHTML"
-helpviewer_keywords: 
-  - "JavaScript, 版本信息"
+title: "JavaScript 版本信息 |Microsoft 文档"
+ms.custom: 
+ms.date: 01/18/2017
+ms.prod: windows-client-threshold
+ms.reviewer: 
+ms.suite: 
+ms.technology: devlang-javascript
+ms.tgt_pltfrm: 
+ms.topic: language-reference
+dev_langs:
+- JavaScript
+- TypeScript
+- DHTML
+helpviewer_keywords: JavaScript, version information
 ms.assetid: 440f4924-f7a9-48e0-873e-bd599a93b437
-caps.latest.revision: 93
-author: "mikejo5000"
-ms.author: "mikejo"
-manager: "ghogen"
-caps.handback.revision: 93
+caps.latest.revision: "93"
+author: mikejo5000
+ms.author: mikejo
+manager: ghogen
+ms.openlocfilehash: b0503abb3d62e9fd61149b884a7b58a685fbc62c
+ms.sourcegitcommit: aadb9588877418b8b55a5612c1d3842d4520ca4c
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/27/2017
 ---
-# JavaScript 版本信息
-不同版本的 JavaScript 支持不同的 JavaScript 元素集。[!INCLUDE[win8_appname_long](../../javascript/includes/win8-appname-long-md.md)]应用支持 Internet Explorer 中略微不同的功能集。  
+# <a name="javascript-version-information"></a>JavaScript 版本信息
+不同版本的 JavaScript 支持不同的 JavaScript 元素集。 [!INCLUDE[win8_appname_long](../../javascript/includes/win8-appname-long-md.md)] 应用支持 Internet Explorer 中略微不同的功能集。  
   
 > [!IMPORTANT]
->  [!INCLUDE[win8_appname_long](../../javascript/includes/win8-appname-long-md.md)] 应用是一种在 [!INCLUDE[win8](../../javascript/includes/win8-md.md)] 设备上运行的新型应用程序。 若要查找有关 [!INCLUDE[win8_appname_long](../../javascript/includes/win8-appname-long-md.md)] 应用的详细信息，请参见[What's a Windows Store app?](http://msdn.microsoft.com/zh-cn/231c1fba-9f87-468e-94aa-45dd57edcc70)  
+>  [!INCLUDE[win8_appname_long](../../javascript/includes/win8-appname-long-md.md)] 应用是一种在 [!INCLUDE[win8](../../javascript/includes/win8-md.md)] 设备上运行的新型应用程序。 若要查找有关 [!INCLUDE[win8_appname_long](../../javascript/includes/win8-appname-long-md.md)] 应用的详细信息，请参见 [What's a Windows Store app?](http://msdn.microsoft.com/en-us/231c1fba-9f87-468e-94aa-45dd57edcc70)  
   
- 标准模式（当有 `<!doctype>` 指令时在 Internet Explorer 直至 Internet Explorer 11 的所有版本中使用的模式）支持的元素集与 Quirks 模式（当没有 `<!doctype>` 指令时使用的模式）支持的元素集有所不同。 有关版本控制的详细信息，请参见[定义文档兼容性](http://go.microsoft.com/fwlink/?LinkId=208537)。  
+ 标准模式（当有 `<!doctype>` 指令时在 Internet Explorer 直至 Internet Explorer 11 的所有版本中使用的模式）支持的元素集与 Quirks 模式（当没有 `<!doctype>` 指令时使用的模式）支持的元素集有所不同。 有关版本控制的详细信息，请参见 [定义文档兼容性](http://go.microsoft.com/fwlink/?LinkId=208537)。  
   
- 下表显示支持特定语言元素的 Internet Explorer 文档模式（以及表示 [!INCLUDE[win8_appname_long](../../javascript/includes/win8-appname-long-md.md)] 和 [!INCLUDE[winphone_appname](../../javascript/reference/includes/winphone-appname-md.md)] 的应用商店应用）。 支持给定元素的文档模式在显示时带有字母 **Y**，不支持给定元素的文档模式在显示时带有字母 **N**。  
+ 下表显示支持特定语言元素的 Internet Explorer 文档模式（以及表示 [!INCLUDE[win8_appname_long](../../javascript/includes/win8-appname-long-md.md)] 和 [!INCLUDE[winphone_appname](../../javascript/reference/includes/winphone-appname-md.md)]的应用商店应用）。 支持给定元素的文档模式在显示时带有字母 **Y**，不支持给定元素的文档模式在显示时带有字母 **N**。  
   
 > [!IMPORTANT]
->  [!INCLUDE[jsv12text](../../javascript/includes/jsv12text-md.md)]（Windows 10 中的边缘浏览器）不包括对旧的文档模式的支持。 对 [!INCLUDE[winphone_appname](../../javascript/reference/includes/winphone-appname-md.md)] 应用的支持始于 Windows Phone 8.1。 实验功能 \(about:flags\) 由 "Exp."指示  
+>  [!INCLUDE[jsv12text](../../javascript/includes/jsv12text-md.md)]（Windows 10 中的边缘浏览器）不包括对旧的文档模式的支持。 对 [!INCLUDE[winphone_appname](../../javascript/reference/includes/winphone-appname-md.md)] 应用的支持始于 Windows Phone 8.1。 实验功能 (关于： 标志) 由"Exp"指示。  
   
  该表包含摘要信息。 有关更具体的信息，请参阅语言元素的文档。  
   
 |语言元素|Quirks、Internet Explorer 6 标准、Internet Explorer 7 标准|Internet Explorer 8 标准|Internet Explorer 9 标准|Internet Explorer 10 标准|Internet Explorer 11 标准|边缘|应用商店应用|  
-|----------|----------------------------------------------------------|----------------------------|----------------------------|-----------------------------|-----------------------------|--------|------------|  
-|[\_\_proto\_\_ 属性 \(Object\)](../../javascript/reference/proto-property-object-javascript.md)|N|N|N|N|Y|Y|v8 \(Win\): N<br />v8.1 \(Win\): Y<br />v8.1 \(Phone\): Y|  
-|[$1...$9 属性 \(RegExp\)](../../javascript/reference/dollar-1-dot-dot-dot-dollar-9-properties-regexp-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
+|----------------------|--------------------------------------------------------------------------|-----------------------------------|-----------------------------------|------------------------------------|------------------------------------|----------|----------------|  
+|[__proto\_ \_属性 （对象）](../../javascript/reference/proto-property-object-javascript.md)|N|N|N|N|Y|Y|v8 (Win): N<br />v8.1 (Win): Y<br />v8.1 (Phone): Y|  
+|[$1...$9 属性 (RegExp)](../../javascript/reference/dollar-1-dot-dot-dot-dollar-9-properties-regexp-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
 |[0n 属性](../../javascript/reference/0-dot-dot-dot-n-properties-arguments-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
 |[abs 函数](../../javascript/reference/math-abs-function-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
 |[acos 函数](../../javascript/reference/math-acos-function-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
 |[acosh 函数](../../javascript/reference/math-acosh-function-javascript.md)|N|N|N|N|N|Y|v8.1: N<br />v10: Y|  
 |[ActiveXObject 对象](../../javascript/reference/activexobject-object-javascript.md)|Y|Y|Y|Y|Y|Y|N|  
-|[加法赋值运算符 \(\+\=\)](../../javascript/reference/addition-assignment-operator-decrement-equal-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
-|[加法运算符 \(\+\)](../../javascript/reference/addition-operator-decrement-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
+|[加法赋值运算符 (+=)](../../javascript/reference/addition-assignment-operator-decrement-equal-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
+|[加法运算符 (+)](../../javascript/reference/addition-operator-decrement-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
 |[apply 方法](../../javascript/reference/apply-method-function-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
 |[arguments 对象](../../javascript/reference/arguments-object-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
 |[arguments 属性](../../javascript/reference/arguments-property-function-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
 |[Array 对象](../../javascript/reference/array-object-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
-|[Array.from 函数（数组）](../../javascript/reference/array-from-function-array-javascript.md)|N|N|N|N|N|N|v8.1: N<br />v10: Y|  
+|[Array.from 函数 (Array)](../../javascript/reference/array-from-function-array-javascript.md)|N|N|N|N|N|N|v8.1: N<br />v10: Y|  
 |[Array.isArray 函数](../../javascript/reference/array-isarray-function-javascript.md)|N|N|Y|Y|Y|Y|Y|  
-|[Array.of 函数（数组）](../../javascript/reference/array-of-function-array-javascript.md)|N|N|N|N|N|N|v8.1: N<br />v10: Y|  
+|[Array.of 函数 (Array)](../../javascript/reference/array-of-function-array-javascript.md)|N|N|N|N|N|N|v8.1: N<br />v10: Y|  
 |[ArrayBuffer 对象](../../javascript/reference/arraybuffer-object.md)|N|N|N|Y|Y|Y|Y|  
 |[函数](../../javascript/functions-javascript.md)|N|N|N|N|N|N|v8.1: N<br />v10: Y|  
 |[asin 函数](../../javascript/reference/math-asin-function-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
-|[Object.assign 函数（对象）](../../javascript/reference/object-assign-function-object-javascript.md)|N|N|N|N|N|N|v8.1: N<br />v10: Y|  
-|[赋值运算符 \(\=\)](../../javascript/reference/assignment-operator-decrement-equal-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
+|[Object.assign 函数 (Object)](../../javascript/reference/object-assign-function-object-javascript.md)|N|N|N|N|N|N|v8.1: N<br />v10: Y|  
+|[赋值运算符 (=)](../../javascript/reference/assignment-operator-decrement-equal-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
 |[atan 函数](../../javascript/reference/math-atan-function-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
 |[atan2 函数](../../javascript/reference/math-atan2-function-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
 |[atEnd 方法](../../javascript/reference/atend-method-enumerator-javascript.md)|Y|Y|Y|Y|Y|Y|N|  
 |[bind 方法](../../javascript/reference/bind-method-function-javascript.md)|N|N|Y|Y|Y|Y|Y|  
-|[按位“与”赋值运算符 \(&\=\)](../../javascript/reference/bitwise-and-assignment-operator-decrement-equal-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
-|[按位“与”运算符 \(&\)](../../javascript/reference/bitwise-and-operator-decrement-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
-|[按位左移运算符 \(\<\<\)](../../javascript/reference/bitwise-left-shift-operator-decrement-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
-|[按位“取非”运算符 \(~\)](../../javascript/reference/bitwise-not-operator-decrement-tilde-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
-|[按位“或”赋值运算符 \(&#124;\=\)](../../javascript/reference/bitwise-or-assignment-operator-decrement-equal-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
-|[按位“或”运算符 \(&#124;\)](../../javascript/reference/bitwise-or-operator-decrement-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
-|[按位右移运算符 \(\>\>\)](../../javascript/reference/bitwise-right-shift-operator-decrement-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
-|[按位 YOR 赋值运算符 \(^\=\)](../../javascript/reference/bitwise-xor-assignment-operator-decrement-hat-equal-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
-|[按位 YOR 运算符 \(^\)](../../javascript/reference/bitwise-xor-operator-decrement-hat-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
+|[按位“与”赋值运算符 (&=)](../../javascript/reference/bitwise-and-assignment-operator-decrement-equal-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
+|[按位“与”运算符 (&)](../../javascript/reference/bitwise-and-operator-decrement-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
+|[按位左移运算符 (<\<)](../../javascript/reference/bitwise-left-shift-operator-decrement-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
+|[按位“取非”运算符 (~)](../../javascript/reference/bitwise-not-operator-decrement-tilde-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
+|[按位 OR 赋值运算符 (&#124; =)](../../javascript/reference/bitwise-or-assignment-operator-decrement-equal-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
+|[按位 OR 运算符 (&#124;)](../../javascript/reference/bitwise-or-operator-decrement-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
+|[按位右移运算符 (>>)](../../javascript/reference/bitwise-right-shift-operator-decrement-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
+|[按位 YOR 赋值运算符 (^=)](../../javascript/reference/bitwise-xor-assignment-operator-decrement-hat-equal-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
+|[按位 YOR 运算符 (^)](../../javascript/reference/bitwise-xor-operator-decrement-hat-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
 |[blink 方法](../../javascript/reference/html-tag-methods-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
 |[bold 方法](../../javascript/reference/html-tag-methods-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
 |[Boolean 对象](../../javascript/reference/boolean-object-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
@@ -86,18 +88,18 @@ caps.handback.revision: 93
 |[charCodeAt 方法](../../javascript/reference/charcodeat-method-string-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
 |[class 语句](../../javascript/reference/class-statement-javascript.md)|N|N|N|N|N|Exp.|v8.1: N<br />v10: Exp。|  
 |[codePointAt 方法（字符串）](../../javascript/reference/codepointat-method-string-javascript.md)|N|N|N|N|N|Y|v8.1: N<br />v10: Y|  
-|[逗号运算符 \(,\)](../../javascript/reference/comma-operator-decrement-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
-|[\/\/（单行注释语句）](../../javascript/reference/comment-statements-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
-|[\/\*..\*\/（多行注释语句）](../../javascript/reference/comment-statements-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
+|[逗号运算符 (,)](../../javascript/reference/comma-operator-decrement-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
+|[//（单行注释语句）](../../javascript/reference/comment-statements-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
+|[/*..\*/ （多行注释语句）](../../javascript/reference/comment-statements-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
 |[比较运算符](../../javascript/reference/comparison-operators-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
 |[compile 方法](../../javascript/reference/compile-method-regular-expression-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
 |[concat 方法（数组）](../../javascript/reference/concat-method-array-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
 |[concat 方法（字符串）](../../javascript/reference/concat-method-string-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
 |[条件编译](../../javascript/advanced/conditional-compilation-javascript.md)|Y|Y|Y|Y|N|N|N|  
 |[条件编译变量](../../javascript/advanced/conditional-compilation-variables-javascript.md)|Y|Y|Y|Y|N|N|N|  
-|[条件（三元）运算符 \(?:\)](../../javascript/reference/conditional-ternary-operator-decrement-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
+|[条件（三元）运算符 (?:)](../../javascript/reference/conditional-ternary-operator-decrement-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
 |[constructor 属性](../../javascript/reference/constructor-property-object-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
-|[const 语句](../../javascript/reference/const-statement-javascript.md)|N|N|N|N|Y|Y|v8 \(Win\): N<br />v8.1 \(Win\): Y<br />v8.1 \(Phone\): Y|  
+|[const 语句](../../javascript/reference/const-statement-javascript.md)|N|N|N|N|Y|Y|v8 (Win): N<br />v8.1 (Win): Y<br />v8.1 (Phone): Y|  
 |[continue 语句](../../javascript/reference/continue-statement-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
 |[cos 函数](../../javascript/reference/math-cos-function-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
 |[create 函数](../../javascript/reference/object-create-function-javascript.md)|N|N|Y|Y|Y|Y|Y|  
@@ -109,35 +111,35 @@ caps.handback.revision: 93
 |[debugger 语句](../../javascript/reference/debugger-statement-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
 |[decodeURI 函数](../../javascript/reference/decodeuri-function-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
 |[DecodeURIComponent 函数](../../javascript/reference/decodeuricomponent-function-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
-|[减量运算符 \(\-\-\)](../../javascript/reference/increment-and-decrement-operators-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
+|[减量运算符 (--)](../../javascript/reference/increment-and-decrement-operators-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
 |[函数](../../javascript/functions-javascript.md)|N|N|N|N|N|Exp.|v8.1: N<br />v10: Exp。|  
-|[defineProperties 函数](../../javascript/reference/object-defineproperties-function-javascript.md)|N|Y\*|Y|Y|Y|Y|Y|  
-|[defineProperty 函数](../../javascript/reference/object-defineproperty-function-javascript.md)|N|Y\*|Y|Y|Y|Y|Y|  
+|[defineProperties 函数](../../javascript/reference/object-defineproperties-function-javascript.md)|N|Y*|Y|Y|Y|Y|Y|  
+|[defineProperty 函数](../../javascript/reference/object-defineproperty-function-javascript.md)|N|Y*|Y|Y|Y|Y|Y|  
 |[delete 运算符](../../javascript/reference/delete-operator-decrementjavascript.md)|Y|Y|Y|Y|Y|Y|Y|  
 |[description 属性](../../javascript/reference/description-property-error-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
 |[dimensions 方法](../../javascript/reference/dimensions-method-vbarray-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
-|[除法赋值运算符 \(\/\=\)](../../javascript/reference/division-assignment-operator-decrement-equal-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
-|[除法运算符 \(\/\)](../../javascript/reference/division-operator-decrement-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
+|[除法赋值运算符 (/=)](../../javascript/reference/division-assignment-operator-decrement-equal-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
+|[除法运算符 (/)](../../javascript/reference/division-operator-decrement-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
 |[do...while 语句](../../javascript/reference/do-dot-dot-dot-while-statement-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
 |[E 常量](../../javascript/reference/math-constants-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
 |[encodeURI 函数](../../javascript/reference/encodeuri-function-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
 |[encodeURI 组件函数](../../javascript/reference/encodeuricomponent-function-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
-|[entries 方法（数组）](../../javascript/reference/entries-method-array-javascript.md)|N|N|N|N|N|N|v8.1: N<br />v10: Y|  
+|[entries 方法 (Array)](../../javascript/reference/entries-method-array-javascript.md)|N|N|N|N|N|N|v8.1: N<br />v10: Y|  
 |[Enumerator 对象](../../javascript/reference/enumerator-object-javascript.md)|Y|Y|Y|Y|Y|Y|N|  
 |[Number 常量](../../javascript/reference/number-constants-javascript.md)|N|N|N|N|N|N|v8.1: N<br />v10: Y|  
-|[相等运算符 \(\=\=\)](../../javascript/reference/comparison-operators-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
+|[相等运算符 (==)](../../javascript/reference/comparison-operators-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
 |[错误对象](../../javascript/reference/error-object-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
-|[stack 属性（错误）](../../javascript/reference/stack-property-error-javascript.md)|N|N|N|Y|Y|Y|Y|  
-|[stackTraceLimit 属性（错误）](../../javascript/reference/stacktracelimit-property-error-javascript.md)|N|N|N|Y|Y|Y|Y|  
+|[stack 属性 (Error)](../../javascript/reference/stack-property-error-javascript.md)|N|N|N|Y|Y|Y|Y|  
+|[stackTraceLimit 属性 (Error)](../../javascript/reference/stacktracelimit-property-error-javascript.md)|N|N|N|Y|Y|Y|Y|  
 |[escape 函数](../../javascript/reference/escape-function-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
 |[eval 函数](../../javascript/reference/eval-function-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
 |[exec 方法](../../javascript/reference/exec-method-regular-expression-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
 |[every 方法](../../javascript/reference/every-method-array-javascript.md)|N|N|Y|Y|Y|Y|Y|  
 |[exp 函数](../../javascript/reference/math-exp-function-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
-|[fill 方法（数组）](../../javascript/reference/fill-method-array-javascript.md)|N|N|N|N|N|N|v8.1: N<br />v10: Y|  
+|[fill 方法 (Array)](../../javascript/reference/fill-method-array-javascript.md)|N|N|N|N|N|N|v8.1: N<br />v10: Y|  
 |[filter 方法](../../javascript/reference/filter-method-array-javascript.md)|N|N|Y|Y|Y|Y|Y|  
 |[finally 语句](../../javascript/reference/try-dot-dot-dot-catch-dot-dot-dot-finally-statement-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
-|[findIndex 方法（数组）](../../javascript/reference/findindex-method-array-javascript.md)|N|N|N|N|N|N|v8.1: N<br />v10: Y|  
+|[findIndex 方法 (Array)](../../javascript/reference/findindex-method-array-javascript.md)|N|N|N|N|N|N|v8.1: N<br />v10: Y|  
 |[fixed 方法](../../javascript/reference/html-tag-methods-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
 |[Float32Array 对象](../../javascript/reference/float32array-object.md)|N|N|N|Y|Y|Y|Y|  
 |[Float64Array 对象](../../javascript/reference/float64array-object.md)|N|N|N|Y|Y|Y|Y|  
@@ -147,7 +149,7 @@ caps.handback.revision: 93
 |[for 语句](../../javascript/reference/for-statement-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
 |[forEach 方法](../../javascript/reference/foreach-method-array-javascript.md)|N|N|Y|Y|Y|Y|Y|  
 |[for...in 语句](../../javascript/reference/for-dot-dot-dot-in-statement-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
-|[for…of 语句](../../javascript/reference/for-dot-dot-dot-of-statement-javascript.md)|N|N|N|N|N|Y|v8.1: N<br />v10: Y|  
+|[for...of 语句](../../javascript/reference/for-dot-dot-dot-of-statement-javascript.md)|N|N|N|N|N|Y|v8.1: N<br />v10: Y|  
 |[freeze 函数](../../javascript/reference/object-freeze-function-javascript.md)|N|N|Y|Y|Y|Y|Y|  
 |[fromCharCode 函数](../../javascript/reference/string-fromcharcode-function-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
 |[fromCodePoint 函数](../../javascript/reference/string-fromcodepoint-function-javascript.md)|N|N|N|N|N|Y|v8.1: N<br />v10: Y|  
@@ -163,7 +165,7 @@ caps.handback.revision: 93
 |[getMinutes 方法](../../javascript/reference/getminutes-method-date-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
 |[getMonth 方法](../../javascript/reference/getmonth-method-date-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
 |[GetObject 函数](../../javascript/reference/getobject-function-javascript.md)|Y|Y|N|N|N|N|N|  
-|[getOwnPropertyDescriptor 函数](../../javascript/reference/object-getownpropertydescriptor-function-javascript.md)|N|Y\*|Y|Y|Y|Y|Y|  
+|[getOwnPropertyDescriptor 函数](../../javascript/reference/object-getownpropertydescriptor-function-javascript.md)|N|Y*|Y|Y|Y|Y|Y|  
 |[getOwnPropertyNames 函数](../../javascript/reference/object-getownpropertynames-function-javascript.md)|N|N|Y|Y|Y|Y|Y|  
 |[getPrototypeOf 函数](../../javascript/reference/object-getprototypeof-function-javascript.md)|N|N|Y|Y|Y|Y|Y|  
 |[getSeconds 方法](../../javascript/reference/getseconds-method-date-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
@@ -181,29 +183,29 @@ caps.handback.revision: 93
 |[getYear 方法](../../javascript/reference/getyear-method-date-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
 |[Global 对象](../../javascript/reference/global-object-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
 |[global 属性](../../javascript/reference/global-property-regular-expression-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
-|[大于运算符 \(\>\)](../../javascript/reference/comparison-operators-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
-|[大于或等于运算符 \(\>\=\)](../../javascript/reference/comparison-operators-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
+|[大于运算符 (>)](../../javascript/reference/comparison-operators-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
+|[大于或等于运算符 (>=)](../../javascript/reference/comparison-operators-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
 |[hasOwnProperty 方法](../../javascript/reference/hasownproperty-method-object-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
 |[HTML 标记方法](../../javascript/reference/html-tag-methods-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
 |[hypot 函数](../../javascript/reference/math-hypot-function-javascript.md)|N|N|N|N|N|Y|v8.1: N<br />v10: Y|  
-|[恒等运算符 \(\=\=\=\)](../../javascript/reference/comparison-operators-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
+|[恒等运算符 (===)](../../javascript/reference/comparison-operators-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
 |[if...else 语句](../../javascript/reference/if-dot-dot-dot-else-statement-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
 |[ignoreCase 属性](../../javascript/reference/ignorecase-property-regular-expression-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
 |[imul 函数](../../javascript/reference/math-imul-function-javascript.md)|N|N|N|N|N|Y|v8.1: N<br />v10: Y|  
 |[In 运算符](../../javascript/reference/in-operator-decrementjavascript.md)|Y|Y|Y|Y|Y|Y|Y|  
 |[includes 方法（字符串）](../../javascript/reference/includes-method-string-javascript.md)|N|N|N|N|N|Y|v8.1: N<br />v10: Y|  
-|[增量运算符 \(\+\+\)](../../javascript/reference/increment-and-decrement-operators-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
+|[增量运算符 (++)](../../javascript/reference/increment-and-decrement-operators-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
 |[index 属性](../../javascript/reference/index-property-regexp-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
 |[indexOf 方法（数组）](../../javascript/reference/indexof-method-array-javascript.md)|N|N|Y|Y|Y|Y|Y|  
 |[indexOf 方法（字符串）](../../javascript/reference/indexof-method-string-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
-|[不等运算符 \(\!\=\)](../../javascript/reference/comparison-operators-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
+|[不等运算符 (!=)](../../javascript/reference/comparison-operators-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
 |[Infinity 常数](../../javascript/reference/infinity-constant-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
-|[input 属性 \($\_\)](../../javascript/reference/input-property-dollar-regexp-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
+|[input 属性 ($_)](../../javascript/reference/input-property-dollar-regexp-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
 |[instanceof 运算符](../../javascript/reference/instanceof-operator-decrementjavascript.md)|Y|Y|Y|Y|Y|Y|Y|  
 |[Int8Array 对象](../../javascript/reference/int8array-object.md)|N|N|N|Y|Y|Y|Y|  
 |[Int16Array 对象](../../javascript/reference/int16array-object.md)|N|N|N|Y|Y|Y|Y|  
 |[Int32Array 对象](../../javascript/reference/int32array-object.md)|N|N|N|Y|Y|Y|Y|  
-|[Intl.Collator 对象](../../javascript/reference/intl-collator-object-javascript.md)|N|N|N|N|Y|Y|v8 \(Win\): N<br />v8.1 \(Win\): Y<br />v8.1 \(Phone\): Y|  
+|[Intl.Collator 对象](../../javascript/reference/intl-collator-object-javascript.md)|N|N|N|N|Y|Y|v8 (Win): N<br />v8.1 (Win): Y<br />v8.1 (Phone): Y|  
 |[Intl.DateTimeFormat 对象](../../javascript/reference/intl-datetimeformat-object-javascript.md)|N|N|N|N|Y|Y|v8: N<br />v8.1: Y|  
 |[Intl.NumberFormat 对象](../../javascript/reference/intl-numberformat-object-javascript.md)|N|N|N|N|Y|Y|v8: N<br />v8.1: Y|  
 |[isFinite 函数](../../javascript/reference/isfinite-function-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
@@ -222,22 +224,22 @@ caps.handback.revision: 93
 |[join 方法](../../javascript/reference/join-method-array-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
 |[JSON 对象](../../javascript/reference/json-object-javascript.md)|N|Y|Y|Y|Y|Y|Y|  
 |[keys 函数](../../javascript/reference/object-keys-function-javascript.md)|N|N|Y|Y|Y|Y|Y|  
-|[keys 方法（数组）](../../javascript/reference/keys-method-array-javascript.md)|N|N|N|N|N|Y|v8.1: N<br />v10: Y|  
+|[keys 方法 (Array)](../../javascript/reference/keys-method-array-javascript.md)|N|N|N|N|N|Y|v8.1: N<br />v10: Y|  
 |[Labeled 语句](../../javascript/reference/labeled-statement-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
 |[lastIndex 属性](../../javascript/reference/lastindex-property-regexp-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
 |[lastIndexOf 方法（数组）](../../javascript/reference/lastindexof-method-array-javascript.md)|N|N|Y|Y|Y|Y|Y|  
 |[lastIndexOf 方法（字符串）](../../javascript/reference/lastindexof-method-string-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
-|[lastMatch 属性 \($&\)](../../javascript/reference/lastmatch-property-dollar-regexp-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
-|[lastParen 属性 \($\+\)](../../javascript/reference/lastparen-property-dollar-regexp-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
+|[lastMatch 属性 ($&)](../../javascript/reference/lastmatch-property-dollar-regexp-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
+|[lastParen 属性 ($+)](../../javascript/reference/lastparen-property-dollar-regexp-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
 |[lbound 方法](../../javascript/reference/lbound-method-vbarray-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
-|[leftContext 属性 \($'\)](../../javascript/reference/leftcontext-property-dollar-grave-regexp-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
-|[左移赋值运算符 \(\<\<\=\)](../../javascript/reference/left-shift-assignment-operator-decrement-equal-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
+|[leftContext 属性 ($')](../../javascript/reference/leftcontext-property-dollar-grave-regexp-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
+|[左移赋值运算符 (<<=)](../../javascript/reference/left-shift-assignment-operator-decrement-equal-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
 |[length 属性（参数）](../../javascript/reference/length-property-arguments-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
 |[length 属性（数组）](../../javascript/reference/length-property-array-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
 |[length 属性（函数）](../../javascript/reference/length-property-function-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
 |[length 属性（字符串）](../../javascript/reference/length-property-string-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
-|[小于运算符 \(\<\)](../../javascript/reference/comparison-operators-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
-|[小于或等于运算符 \(\<\=\)](../../javascript/reference/comparison-operators-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
+|[小于运算符 (<)](../../javascript/reference/comparison-operators-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
+|[小于或等于运算符 (<=)](../../javascript/reference/comparison-operators-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
 |[let 语句](../../javascript/reference/let-statement-javascript.md)|N|N|N|N|Y|Y|v8: N<br />v8.1: Y|  
 |[link 方法](../../javascript/reference/html-tag-methods-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
 |[LN2 常量](../../javascript/reference/math-constants-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
@@ -246,31 +248,31 @@ caps.handback.revision: 93
 |[log 函数](../../javascript/reference/math-log-function-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
 |[LOG2E 常量](../../javascript/reference/math-constants-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
 |[LOG10E 常量](../../javascript/reference/math-constants-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
-|[逻辑“与”运算符 \(&&\)](../../javascript/reference/logical-and-operator-decrement-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
-|[逻辑“非”运算符 \(\!\)](../../javascript/reference/logical-not-operator-decrement-exclpt-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
-|[逻辑“或”运算符 \(&#124;&#124;\)](../../javascript/reference/logical-or-operator-decrement-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
+|[逻辑“与”运算符 (&&)](../../javascript/reference/logical-and-operator-decrement-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
+|[逻辑“非”运算符 (!)](../../javascript/reference/logical-not-operator-decrement-exclpt-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
+|[逻辑或运算符 (&#124; &#124;)](../../javascript/reference/logical-or-operator-decrement-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
 |[map 方法](../../javascript/reference/map-method-array-javascript.md)|N|N|Y|Y|Y|Y|Y|  
 |[Map 对象](../../javascript/reference/map-object-javascript.md)|N|N|N|N|Y|Y|v8: N<br />v8.1: Y|  
 |[match 方法](../../javascript/reference/match-method-string-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
 |[Math 对象](../../javascript/reference/math-object-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
 |[max 函数](../../javascript/reference/math-max-function-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
-|[MAX\_VALUE 常量](../../javascript/reference/number-constants-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
+|[MAX_VALUE 常量](../../javascript/reference/number-constants-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
 |[message 属性](../../javascript/reference/message-property-error-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
 |[min 函数](../../javascript/reference/math-min-function-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
-|[MIN\_VALUE 常量](../../javascript/reference/number-constants-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
-|[取模赋值运算符 \(%\=\)](../../javascript/reference/modulus-assignment-operator-decrement-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
-|[取模运算符 \(%\)](../../javascript/reference/modulus-operator-decrementjavascript.md)|Y|Y|Y|Y|Y|Y|Y|  
+|[MIN_VALUE 常量](../../javascript/reference/number-constants-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
+|[取模赋值运算符 (%=)](../../javascript/reference/modulus-assignment-operator-decrement-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
+|[取模运算符 (%)](../../javascript/reference/modulus-operator-decrementjavascript.md)|Y|Y|Y|Y|Y|Y|Y|  
 |[moveFirst 方法](../../javascript/reference/movefirst-method-enumerator-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
 |[moveNext 方法](../../javascript/reference/movenext-method-enumerator-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
 |[multiline 属性](../../javascript/reference/multiline-property-regular-expression-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
-|[乘法赋值运算符 \(\*\=\)](../../javascript/reference/multiplication-assignment-operator-decrement-equal-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
-|[乘法运算符 \(\*\)](../../javascript/reference/multiplication-operator-decrement-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
+|[乘法赋值运算符 (*=)](../../javascript/reference/multiplication-assignment-operator-decrement-equal-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
+|[乘法运算符 (*)](../../javascript/reference/multiplication-operator-decrement-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
 |[name 属性](../../javascript/reference/name-property-error-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
 |[NaN 常量（全局）](../../javascript/reference/nan-constant-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
 |[NaN 常量（数字）](../../javascript/reference/number-constants-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
-|[NEGATIVE\_INFINITY 常量](../../javascript/reference/number-constants-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
+|[NEGATIVE_INFINITY 常量](../../javascript/reference/number-constants-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
 |[new 运算符](../../javascript/reference/new-operator-decrementjavascript.md)|Y|Y|Y|Y|Y|Y|Y|  
-|[非恒等运算符 \(\!\=\=\)](../../javascript/reference/comparison-operators-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
+|[非恒等运算符 (!==)](../../javascript/reference/comparison-operators-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
 |[now 函数](../../javascript/reference/date-now-function-javascript.md)|N|N|Y|Y|Y|Y|Y|  
 |[Number 对象](../../javascript/reference/number-object-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
 |[number 属性](../../javascript/reference/number-property-error-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
@@ -282,7 +284,7 @@ caps.handback.revision: 93
 |[parseInt 函数](../../javascript/reference/parseint-function-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
 |[PI 常量](../../javascript/reference/math-constants-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
 |[pop 方法](../../javascript/reference/pop-method-array-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
-|[POSITIVE\_INFINITY 常量](../../javascript/reference/number-constants-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
+|[POSITIVE_INFINITY 常量](../../javascript/reference/number-constants-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
 |[pow 函数](../../javascript/reference/math-pow-function-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
 |[preventExtensions 函数](../../javascript/reference/object-preventextensions-function-javascript.md)|N|N|Y|Y|Y|Y|Y|  
 |[Promise 对象](../../javascript/reference/promise-object-javascript.md)|N|N|N|N|N|Y|v8.1: N<br />v10: Y|  
@@ -296,15 +298,15 @@ caps.handback.revision: 93
 |[reduceRight 方法](../../javascript/reference/reduceright-method-array-javascript.md)|N|N|Y|Y|Y|Y|Y|  
 |[RegExp 对象](../../javascript/reference/regexp-object-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
 |[正则表达式对象](../../javascript/reference/regular-expression-object-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
-|[正则表达式语法](http://msdn.microsoft.com/zh-cn/ab0766e1-7037-45ed-aa23-706f58358c0e)|Y|Y|Y|Y|Y|Y|Y|  
-|[正则表达式 \/y 标志](../../javascript/reference/regular-expression-object-javascript.md)|N|N|N|N|N|Exp.|v8.1: N<br />v10: Exp。|  
+|[正则表达式语法](http://msdn.microsoft.com/en-us/ab0766e1-7037-45ed-aa23-706f58358c0e)|Y|Y|Y|Y|Y|Y|Y|  
+|[正则表达式 /y 标志](../../javascript/reference/regular-expression-object-javascript.md)|N|N|N|N|N|Exp.|v8.1: N<br />v10: Exp。|  
 |[repeat 方法（字符串）](../../javascript/reference/repeat-method-string-javascript.md)|N|N|N|N|N|Y|v8.1: N<br />v10: Y|  
 |[replace 方法](../../javascript/reference/replace-method-string-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
 |[函数](../../javascript/functions-javascript.md)|N|N|N|N|N|N|v8.1: N<br />v10: Y|  
 |[return 语句](../../javascript/reference/return-statement-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
 |[reverse 方法](../../javascript/reference/reverse-method-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
-|[rightContext 属性 \($'\)](../../javascript/reference/rightcontext-property-dollar-regexp-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
-|[右移赋值运算符 \(\>\>\=\)](../../javascript/reference/right-shift-assignment-operator-decrement-equal-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
+|[rightContext 属性 ($')](../../javascript/reference/rightcontext-property-dollar-regexp-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
+|[右移赋值运算符 (>>=)](../../javascript/reference/right-shift-assignment-operator-decrement-equal-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
 |[round 函数](../../javascript/reference/math-round-function-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
 |[ScriptEngine 函数](../../javascript/reference/scriptengine-function-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
 |[ScriptEngineBuildVersion 函数](../../javascript/reference/scriptenginebuildversion-function-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
@@ -341,7 +343,7 @@ caps.handback.revision: 93
 |[split 方法](../../javascript/reference/split-method-string-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
 |[函数](../../javascript/functions-javascript.md)|N|N|N|N|N|Y|v8.1: N<br />v10: Y|  
 |[sqrt 函数](../../javascript/reference/math-sqrt-function-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
-|[SQRT1\_2 常量](../../javascript/reference/math-constants-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
+|[SQRT1_2 常量](../../javascript/reference/math-constants-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
 |[SQRT2 常量](../../javascript/reference/math-constants-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
 |[使用严格指令](../../javascript/reference/use-strict-directive.md)|N|N|N|Y|Y|Y|Y|  
 |[strike 方法](../../javascript/reference/html-tag-methods-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
@@ -350,8 +352,8 @@ caps.handback.revision: 93
 |[sub 方法](../../javascript/reference/html-tag-methods-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
 |[substr 方法](../../javascript/reference/substr-method-string-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
 |[substring 方法](../../javascript/reference/substring-method-string-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
-|[减法赋值运算符 \(\-\=\)](../../javascript/reference/subtraction-assignment-operator-decrement-equal-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
-|[减法运算符 \(\-\)](../../javascript/reference/subtraction-operator-decrement-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
+|[减法赋值运算符 (-=)](../../javascript/reference/subtraction-assignment-operator-decrement-equal-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
+|[减法运算符 (-)](../../javascript/reference/subtraction-operator-decrement-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
 |[sup 方法](../../javascript/reference/html-tag-methods-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
 |[switch 语句](../../javascript/reference/switch-statement-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
 |[Symbol 对象](../../javascript/reference/symbol-object-javascript.md)|N|N|N|N|N|Y|v8.1: N<br />v10: Y|  
@@ -385,18 +387,18 @@ caps.handback.revision: 93
 |[Uint8Array 对象](../../javascript/reference/uint8array-object.md)|N|N|N|Y|Y|Y|Y|  
 |[Uint16Array 对象](../../javascript/reference/uint16array-object.md)|N|N|N|Y|Y|Y|Y|  
 |[Uint32Array 对象](../../javascript/reference/uint32array-object.md)|N|N|N|Y|Y|Y|Y|  
-|[Uint8ClampedArray 对象](../../javascript/reference/uint8clampedarray-object-javascript.md)|N|N|N|N|Y|Y|v8: No<br />v8.1 \(Win\): Yes<br />v8.1 \(Phone\): No<br />v10: Y|  
-|[一元求非运算符 \(\-\)](../../javascript/reference/subtraction-operator-decrement-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
+|[Uint8ClampedArray 对象](../../javascript/reference/uint8clampedarray-object-javascript.md)|N|N|N|N|Y|Y|v8: No<br />v8.1 (Win): Yes<br />v8.1 (Phone): No<br />v10: Y|  
+|[一元求非运算符 (-)](../../javascript/reference/subtraction-operator-decrement-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
 |[undefined 常量](../../javascript/reference/undefined-constant-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
 |[unescape 函数](../../javascript/reference/unescape-function-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
 |[Unicode 码位转义字符](../../javascript/advanced/special-characters-javascript.md)|N|N|N|N|N|Y|v8.1: N<br />v10: Y|  
 |[unshift 方法](../../javascript/reference/unshift-method-array-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
-|[无符号右移赋值运算符 \(\>\>\>\=\)](../../javascript/reference/unsigned-right-shift-assignment-operator-decrement-equal-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
-|[无符号右移运算符 \(\>\>\>\)](../../javascript/reference/unsigned-right-shift-operator-decrement-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
+|[无符号右移赋值运算符 (>>>=)](../../javascript/reference/unsigned-right-shift-assignment-operator-decrement-equal-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
+|[无符号右移运算符 (>>>)](../../javascript/reference/unsigned-right-shift-operator-decrement-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
 |[使用严格指令](../../javascript/reference/use-strict-directive.md)|N|N|N|Y|Y|Y|Y|  
 |[UTC 函数](../../javascript/reference/date-utc-function-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
 |[valueOf 方法](../../javascript/reference/valueof-method-object-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
-|[values 方法（数组）](../../javascript/reference/values-method-array-javascript.md)|N|N|N|N|N|Y|v8.1: N<br />v10: Y|  
+|[values 方法 (Array)](../../javascript/reference/values-method-array-javascript.md)|N|N|N|N|N|Y|v8.1: N<br />v10: Y|  
 |[var 语句](../../javascript/reference/var-statement-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
 |[VBArray 对象](../../javascript/reference/vbarray-object-javascript.md)|Y|Y|Y|Y|Y|Y|N|  
 |[void 运算符](../../javascript/reference/void-operator-decrementjavascript.md)|Y|Y|Y|Y|Y|Y|Y|  
@@ -408,7 +410,7 @@ caps.handback.revision: 93
 |[write 函数](../../javascript/reference/debug-write-function-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
 |[writeln 函数](../../javascript/reference/debug-writeln-function-javascript.md)|Y|Y|Y|Y|Y|Y|Y|  
   
- \* 支持 DOM 对象，但不支持用户定义的对象。 可以指定 `enumerable` 和 `configurable` 特性，但不使用它们。  
+ \*支持 DOM 对象，但不是用户定义的对象。 可以指定 `enumerable` 和 `configurable` 特性，但不使用它们。  
   
-## 请参阅  
+## <a name="see-also"></a>另请参阅  
  [定义文档兼容性](http://go.microsoft.com/fwlink/?LinkId=208537)

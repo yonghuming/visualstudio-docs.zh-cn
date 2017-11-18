@@ -1,54 +1,56 @@
 ---
-title: "getUTCHours 方法 (Date) (JavaScript) | Microsoft Docs"
-ms.custom: ""
-ms.date: "01/18/2017"
-ms.prod: "windows-client-threshold"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "devlang-javascript"
-ms.tgt_pltfrm: ""
-ms.topic: "language-reference"
-f1_keywords: 
-  - "getUTCHours"
-dev_langs: 
-  - "JavaScript"
-  - "TypeScript"
-  - "DHTML"
-helpviewer_keywords: 
-  - "小时"
-  - "UTC 时间，返回"
-  - "getUTCHours 方法"
+title: "getUTCHours 方法 (Date) (JavaScript) |Microsoft 文档"
+ms.custom: 
+ms.date: 01/18/2017
+ms.prod: windows-client-threshold
+ms.reviewer: 
+ms.suite: 
+ms.technology: devlang-javascript
+ms.tgt_pltfrm: 
+ms.topic: language-reference
+f1_keywords: getUTCHours
+dev_langs:
+- JavaScript
+- TypeScript
+- DHTML
+helpviewer_keywords:
+- hours
+- UTC times, returning
+- getUTCHours method
 ms.assetid: 7c9825dd-4b3a-4614-8e09-f40df123b630
-caps.latest.revision: 11
-author: "mikejo5000"
-ms.author: "mikejo"
-manager: "ghogen"
-caps.handback.revision: 11
+caps.latest.revision: "11"
+author: mikejo5000
+ms.author: mikejo
+manager: ghogen
+ms.openlocfilehash: 34a07f9f63fe22d3101cc748e9dde978385a71ab
+ms.sourcegitcommit: aadb9588877418b8b55a5612c1d3842d4520ca4c
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/27/2017
 ---
-# getUTCHours 方法 (Date) (JavaScript)
-使用协调通用时间\(utc\)，获取在 `Date` 对象中的小时值。  
+# <a name="getutchours-method-date-javascript"></a>getUTCHours 方法 (Date) (JavaScript)
+获取的小时值`Date`对象使用协调世界时 (UTC)。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
 ```  
   
 dateObj.getUTCHours()   
 ```  
   
-#### 参数  
- 必需的 `dateObj` 引用 `Date` 对象。  
+#### <a name="parameters"></a>参数  
+ 所需 `dateObj` 引用是 `Date` 对象。  
   
-## 返回值  
- 返回以指示小时数0和23之间的整数自午夜。  ，如果时间为1:00之前，零返回: 00 AM。  如果 `Date` 对象创建的，而无需指定时，默认情况下为0小时UTC时间。  这个可能是非零在其他时区。  
+## <a name="return-value"></a>返回值  
+ 返回介于 0 和 23，该值指示午夜算起的小时数之间的整数。 如果时间为 1:00:00 am 之前，则返回零。 如果`Date`创建对象时未使用指定的时间，默认情况下在一小时是 0 UTC 时间。 这一次可以为非零其他时区中。  
   
-## 备注  
- 若要使用当地时间获取自午夜之后经过的小时数，请使用 `getHours` 方法。  
+## <a name="remarks"></a>备注  
+ 若要获取的数小时午夜以来所经历使用本地时间，使用`getHours`方法。  
   
-## 示例  
+## <a name="example"></a>示例  
  下面的示例演示 `getUTCHours` 方法的用法。  
   
-```javascript  
+```JavaScript  
 var date = new Date("1/1/2001");  
 document.write(date.getUTCHours());  
 document.write("<br/>");  
@@ -59,15 +61,14 @@ document.write(datee.getUTCHours());
 // Output (in the PST time zone):  
 // 8  
 // 19  
-  
 ```  
   
-## 要求  
+## <a name="requirements"></a>要求  
  [!INCLUDE[jsv3](../../javascript/reference/includes/jsv3-md.md)]  
   
- **Applies To**: [Date 对象](../../javascript/reference/date-object-javascript.md)  
+ **适用于**： [Date Object](../../javascript/reference/date-object-javascript.md)  
   
-## 请参阅  
- [getHours 方法 \(Date\)](../../javascript/reference/gethours-method-date-javascript.md)   
- [setHours 方法 \(Date\)](../../javascript/reference/sethours-method-date-javascript.md)   
- [setUTCHours 方法 \(Date\)](../../javascript/reference/setutchours-method-date-javascript.md)
+## <a name="see-also"></a>另请参阅  
+ [getHours 方法 (Date)](../../javascript/reference/gethours-method-date-javascript.md)   
+ [setHours 方法 (Date)](../../javascript/reference/sethours-method-date-javascript.md)   
+ [setUTCHours 方法 (Date)](../../javascript/reference/setutchours-method-date-javascript.md)

@@ -7,39 +7,25 @@ ms.suite:
 ms.tgt_pltfrm: 
 ms.topic: article
 ms.assetid: cc3e4ae7-60fa-4e22-9227-98020b480b73
-caps.latest.revision: 8
+caps.latest.revision: "8"
 author: alexhomer1
 ms.author: ahomer
 manager: douge
-translation.priority.ht:
-- cs-cz
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pl-pl
-- pt-br
-- ru-ru
-- tr-tr
-- zh-cn
-- zh-tw
-translationtype: Machine Translation
-ms.sourcegitcommit: 5db97d19b1b823388a465bba15d057b30ff0b3ce
-ms.openlocfilehash: c6aadef5b4f8e9ae8682779ccb9cb88d6ca2d3a2
-ms.lasthandoff: 02/22/2017
-
+ms.openlocfilehash: e1ea2e37668806849b88d1fb7d6a15142518c076
+ms.sourcegitcommit: aadb9588877418b8b55a5612c1d3842d4520ca4c
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="directed-graph-markup-language-dgml-reference"></a>定向图形标记语言 (DGML) 引用
 定向图形标记语言 (DGML) 描述用于可视化和执行复杂分析的信息，并且是用于存留 Visual Studio 中的代码图的格式。 DGML 使用简单 XML 来描述循环和非循环的定向关系图。 定向关系图是一组由链接或边缘连接的节点。 可以使用节点和链接来表示网络结构，如软件项目中的元素。  
   
- 请注意，某些版本的 Visual Studio 支持仅部分 DGML 功能，请参阅[体系结构和建模工具的版本支持](../modeling/what-s-new-for-design-in-visual-studio.md#VersionSupport)。  
+ 请注意，某些版本的 Visual Studio 支持 DGML 功能的一个子集，请参阅[体系结构和建模工具的版本支持](../modeling/what-s-new-for-design-in-visual-studio.md#VersionSupport)。  
   
 > [!NOTE]
->  在编辑 .dgml 文件时，IntelliSense 可帮助您标识对每个元素及其值可用的特性。 若要指定特性中的颜色，请使用常用颜色的名称，如“Blue”或 ARGB 十六进制值（如“#ffa0b1c3”）。 DGML 使用一小部分 Windows Presentation Foundation (WPF) 颜色定义格式。 有关详细信息，请参阅[Colors 类](http://go.microsoft.com/fwlink/?LinkId=182345)。  
+>  在编辑 .dgml 文件时，IntelliSense 可帮助您标识对每个元素及其值可用的特性。 若要指定特性中的颜色，请使用常用颜色的名称，如“Blue”或 ARGB 十六进制值（如“#ffa0b1c3”）。 DGML 使用一小部分 Windows Presentation Foundation (WPF) 颜色定义格式。 有关详细信息，请参阅[颜色类](http://go.microsoft.com/fwlink/?LinkId=182345)。  
   
-##  <a name="a-namedgmla-dgml-syntax"></a><a name="DGML"></a>DGML 语法  
+##  <a name="DGML"></a>DGML 语法  
  下表描述在 DGML 中使用的各种元素：  
   
 -   `<DirectedGraph></DirectedGraph>`  
@@ -52,11 +38,11 @@ ms.lasthandoff: 02/22/2017
   
      `BackgroundImage` - 要用作代码图背景的图像文件的位置。  
   
-     `GraphDirection` - 代码图设置为树布局 (`Sugiyama`) 时排列节点，使大多数链接都按指定的方向流动：`TopToBottom`、`BottomToTop`、`LeftToRight` 或 `RightToLeft`。 请参阅[更改代码图布局](../modeling/browse-and-rearrange-code-maps.md#Selecting)。  
+     `GraphDirection` - 代码图设置为树布局 (`Sugiyama`) 时排列节点，使大多数链接都按指定的方向流动：`TopToBottom`、`BottomToTop`、`LeftToRight` 或 `RightToLeft`。 请参阅[更改映射布局](../modeling/browse-and-rearrange-code-maps.md#Selecting)。  
   
-     `Layout` - 将代码图设置为下列布局：`None`、`Sugiyama`（树布局）、`ForceDirected`（快速群集）或 `DependencyMatrix`。 请参阅[更改代码图布局](../modeling/browse-and-rearrange-code-maps.md#Selecting)。  
+     `Layout` - 将代码图设置为下列布局：`None`、`Sugiyama`（树布局）、`ForceDirected`（快速群集）或 `DependencyMatrix`。 请参阅[更改映射布局](../modeling/browse-and-rearrange-code-maps.md#Selecting)。  
   
-     `NeighborhoodDistance` - 代码图设置为树布局或快速群集布局时，仅显示距所选节点指定链接数 (1-7) 的节点。 请参阅[更改代码图布局](../modeling/browse-and-rearrange-code-maps.md#Selecting)。  
+     `NeighborhoodDistance` - 代码图设置为树布局或快速群集布局时，仅显示距所选节点指定链接数 (1-7) 的节点。 请参阅[更改映射布局](../modeling/browse-and-rearrange-code-maps.md#Selecting)。  
   
      示例:  
   
@@ -109,9 +95,9 @@ ms.lasthandoff: 02/22/2017
   
      下面的列表描述可包含的部分可选特性：  
   
-     `Label`的该节点显示名称。  
+     `Label`的节点显示名称。  
   
-     样式特性。 请参阅[通过编辑 DGML 文件自定义代码图](../modeling/customize-code-maps-by-editing-the-dgml-files.md)。  
+     样式特性。 请参阅 [Customize code maps by editing the DGML files](../modeling/customize-code-maps-by-editing-the-dgml-files.md)。  
   
      `Category` - 标识共享此特性的元素的类别的名称。 有关更多信息，请参见 `<Category/>` 元素。  
   
@@ -121,7 +107,7 @@ ms.lasthandoff: 02/22/2017
   
      `Visibility` - 将此特性设置为 `Visible`、`Hidden` 或 `Collapsed`。 使用 `System.Windows.Visibility`。 请参阅[隐藏或显示节点和链接](../modeling/browse-and-rearrange-code-maps.md#HidingShowing)。  
   
-     `Reference` - 将此特性设置为链接到文档或 URL。 请参阅[将文档或 Url 链接到代码元素和链接](../modeling/customize-code-maps-by-editing-the-dgml-files.md#AddReferences)。  
+     `Reference` - 将此特性设置为链接到文档或 URL。 请参阅[链接到代码元素和链接的文档或 Url](../modeling/customize-code-maps-by-editing-the-dgml-files.md#AddReferences)。  
   
      示例:  
   
@@ -176,7 +162,7 @@ ms.lasthandoff: 02/22/2017
   
      `Label` - 链接的显示名称  
   
-     样式特性。 请参阅[通过编辑 DGML 文件自定义代码图](../modeling/customize-code-maps-by-editing-the-dgml-files.md)。  
+     样式特性。 请参阅 [Customize code maps by editing the DGML files](../modeling/customize-code-maps-by-editing-the-dgml-files.md)。  
   
      `Category` - 标识共享此特性的元素的类别的名称。 有关更多信息，请参见 `<Category/>` 元素。  
   
@@ -219,8 +205,7 @@ ms.lasthandoff: 02/22/2017
   
 -   `<Category/>`  
   
-     此元素定义 `Category` 特性，此特性用于标识共享此特性的元素。 
-          `Category` 特性可用于组织代码图元素，通过继承提供共享特性或定义其他元数据。  
+     此元素定义 `Category` 特性，此特性用于标识共享此特性的元素。 `Category` 特性可用于组织代码图元素，通过继承提供共享特性或定义其他元数据。  
   
      此元素必须包括以下特性：  
   
@@ -232,9 +217,9 @@ ms.lasthandoff: 02/22/2017
   
      `BasedOn` - 当前元素的 `<Category/>` 继承自的父类别。  
   
-     在此元素的示例中，`FailedTest` 类别从 `Stroke` 类别继承其 `PassedTest` 特性。 请参阅"创建分层类别"中的[通过编辑 DGML 文件自定义代码图](../modeling/customize-code-maps-by-editing-the-dgml-files.md)。  
+     在此元素的示例中，`FailedTest` 类别从 `Stroke` 类别继承其 `PassedTest` 特性。 请参阅创建分层类别"的"[通过编辑 DGML 文件自定义代码图](../modeling/customize-code-maps-by-editing-the-dgml-files.md)。  
   
-     类别还提供一些基本模板行为，这些行为用于控制节点和链接在代码图上显示的外观。 请参阅[通过编辑 DGML 文件自定义代码图](../modeling/customize-code-maps-by-editing-the-dgml-files.md)。  
+     类别还提供一些基本模板行为，这些行为用于控制节点和链接在代码图上显示的外观。 请参阅 [Customize code maps by editing the DGML files](../modeling/customize-code-maps-by-editing-the-dgml-files.md)。  
   
      示例:  
   
@@ -285,9 +270,9 @@ ms.lasthandoff: 02/22/2017
   
     -   `DataType` - 该属性存储的数据的类型  
   
-     如果您希望该属性才会显示在**属性**窗口中，使用`Label`属性来指定属性的显示名称。  
+     如果你想要在中显示的属性**属性**窗口中，使用`Label`属性以指定属性的显示名称。  
   
-     请参阅[向代码元素和链接分配类别](../modeling/customize-code-maps-by-editing-the-dgml-files.md#AssignCategories)。  
+     请参阅[将类别分配给代码元素和链接](../modeling/customize-code-maps-by-editing-the-dgml-files.md#AssignCategories)。  
   
      示例:  
   
@@ -316,7 +301,7 @@ ms.lasthandoff: 02/22/2017
     </DirectedGraph>  
     ```  
   
-###  <a name="a-nameaddaliasa-aliases-for-commonly-used-paths"></a><a name="AddAlias"></a>常用路径的别名  
+###  <a name="AddAlias"></a>常用路径的别名  
  将常用路径替换为别名有助于减小 .dgml 文件的大小和加载或保存该文件所需的时间。 若要创建别名，请在 .dgml 文件的结尾处添加 `<Paths></Paths>` 部分。 在此部分添加 `<Path/>` 元素以定义路径的别名：  
   
 ```xml  
@@ -325,7 +310,7 @@ ms.lasthandoff: 02/22/2017
 </Paths>  
 ```  
   
- 若要从.dgml 文件中的元素引用别名，请将`Id`的\<路径 /&1;> 用美元符号 （$） 和括号 （（）） 的元素︰  
+ 若要从.dgml 文件中的元素引用别名，请将`Id`的\<路径 / > 用美元符号 （$） 和括号 （（）） 的元素：  
   
 ```xml  
 <Nodes>  
@@ -337,6 +322,6 @@ ms.lasthandoff: 02/22/2017
 ```  
   
 ## <a name="see-also"></a>另请参阅  
- [映射解决方案之间的依赖关系](../modeling/map-dependencies-across-your-solutions.md)   
- [使用代码图调试应用程序](../modeling/use-code-maps-to-debug-your-applications.md)   
+ [映射解决方案中的依赖关系](../modeling/map-dependencies-across-your-solutions.md)   
+ [使用代码图调试你的应用程序](../modeling/use-code-maps-to-debug-your-applications.md)   
  [使用代码图分析查找潜在问题](../modeling/find-potential-problems-using-code-map-analyzers.md)

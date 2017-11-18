@@ -1,56 +1,57 @@
 ---
-title: "Array 对象 (JavaScript) | Microsoft Docs"
-ms.custom: ""
-ms.date: "01/18/2017"
-ms.prod: "windows-client-threshold"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "devlang-javascript"
-ms.tgt_pltfrm: ""
-ms.topic: "language-reference"
-f1_keywords: 
-  - "Array"
-dev_langs: 
-  - "JavaScript"
-  - "TypeScript"
-  - "DHTML"
-helpviewer_keywords: 
-  - "Array 对象"
-  - "constructor 属性"
+title: "数组对象 (JavaScript) |Microsoft 文档"
+ms.custom: 
+ms.date: 01/18/2017
+ms.prod: windows-client-threshold
+ms.reviewer: 
+ms.suite: 
+ms.technology: devlang-javascript
+ms.tgt_pltfrm: 
+ms.topic: language-reference
+f1_keywords: Array
+dev_langs:
+- JavaScript
+- TypeScript
+- DHTML
+helpviewer_keywords:
+- Array object
+- constructor property
 ms.assetid: 08e5f552-0797-4b48-8164-609582fc18c9
-caps.latest.revision: 27
-author: "mikejo5000"
-ms.author: "mikejo"
-manager: "ghogen"
-caps.handback.revision: 27
+caps.latest.revision: "27"
+author: mikejo5000
+ms.author: mikejo
+manager: ghogen
+ms.openlocfilehash: a48d0ab5bac9d532e8fe8e356f4ea4df9e377b02
+ms.sourcegitcommit: aadb9588877418b8b55a5612c1d3842d4520ca4c
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/27/2017
 ---
-# Array 对象 (JavaScript)
+# <a name="array-object-javascript"></a>Array 对象 (JavaScript)
 支持创建任何数据类型的数组。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
-```  
-  
-        arrayObj = new Array()  
+```
+arrayObj = new Array()  
 arrayObj = new Array([size])  
 arrayObj = new Array([element0[, element1[, ...[, elementN]]]])  
 ```  
   
-## 参数  
+## <a name="parameters"></a>参数  
  `arrayObj`  
- 必需。  `Array` 对象分配到的变量名称。  
+ 必需。 `Array` 对象分配到的变量名称。  
   
  `size`  
- 可选。  数组大小。  当数组基于零时，所创建的元素将具有从零到 `size` \-1 的索引。  
+ 可选。 数组大小。 当数组基于零时，所创建的元素将具有从零到 `size` -1 的索引。  
   
  `element0,...,elementN`  
- 可选。  要置于数组中的元素。  这将创建一个具有 *n* \+ 1 个元素且 `length` 为 *n* \+ 1 的数组。  一旦使用此语法，你必须提供多个元素。  
+ 可选。 要置于数组中的元素。 这将创建具有数组 *n*  + 1 个元素和`length`的 *n*  + 1。 一旦使用此语法，你必须提供多个元素。  
   
-## 备注  
- 在创建数组后，你可以通过使用 \[ \] 表示法来访问数组的各个元素。  注意，[!INCLUDE[javascript](../../javascript/includes/javascript-md.md)] 中的数组是从零开始的。  
+## <a name="remarks"></a>备注  
+ 在创建数组后，你可以通过使用 [ ] 表示法来访问数组的各个元素。 注意，[!INCLUDE[javascript](../../javascript/includes/javascript-md.md)] 中的数组是从零开始的。  
   
-```javascript  
+```JavaScript  
 var my_array = new Array();  
 for (i = 0; i < 10; i++) {  
     my_array[i] = i;  
@@ -61,9 +62,9 @@ document.write(x);
 // Output: 4  
 ```  
   
- 你可以将无符号 32 位整数传递到 `Array` 构造函数以指定数组的大小。  如果该值为负或不是整数，则会发生运行时错误。  如果你运行以下代码，则应会看到控制台中出现此错误。  
+ 你可以将无符号 32 位整数传递到 `Array` 构造函数以指定数组的大小。 如果该值为负或不是整数，则会发生运行时错误。 如果你运行以下代码，则应会看到控制台中出现此错误。  
   
-```javascript  
+```JavaScript  
 var arr = new Array(10);  
 document.write(arr.length);  
   
@@ -88,39 +89,39 @@ one
   
 ```  
   
- JavaScript 数组是稀疏数组，即，并非数组内的所有元素都可能包含数据。  在 JavaScript 中，数组中仅存在实际包含数据的元素。  这将减少数组所使用的内存量。  
+ JavaScript 数组是稀疏数组，即，并非数组内的所有元素都可能包含数据。 在 JavaScript 中，数组中仅存在实际包含数据的元素。 这将减少数组所使用的内存量。  
   
-## 要求  
+## <a name="requirements"></a>要求  
  [!INCLUDE[jsv2](../../javascript/reference/includes/jsv2-md.md)]  
   
- 更高版本中已引入以下列表中的某些成员。  有关详细信息，请参阅 [版本信息](../../javascript/reference/javascript-version-information.md)或单个成员对应的文档。  
+ 更高版本中已引入以下列表中的某些成员。 有关详细信息，请参阅[版本信息](../../javascript/reference/javascript-version-information.md)或各个成员的文档。  
   
-## 属性  
+## <a name="properties"></a>属性  
  下表列出了 `Array` 对象的属性。  
   
 |属性|描述|  
-|--------|--------|  
+|--------------|-----------------|  
 |[constructor 属性](../../javascript/reference/constructor-property-array.md)|指定创建数组的函数。|  
 |[length 属性（数组）](../../javascript/reference/length-property-array-javascript.md)|返回一个整数值，此整数比数组中所定义的最高位元素大 1。|  
 |[prototype 属性](../../javascript/reference/prototype-property-array.md)|返回对数组的原型的引用。|  
   
-## 函数  
+## <a name="functions"></a>函数  
  下表介绍了 `Array` 对象的函数。  
   
 |函数|描述|  
-|--------|--------|  
+|--------------|-----------------|  
 |[Array.from 函数](../../javascript/reference/array-from-function-array-javascript.md)|从类似数组的对象或可迭代的对象返回一个数组。|  
 |[Array.isArray 函数](../../javascript/reference/array-isarray-function-javascript.md)|返回一个布尔值，该值指示对象是否为数组。|  
-|[Array.of 函数](../../javascript/reference/array-of-function-array-javascript.md)|从传入的参数返回一个数组。|  
+|[Array.of 函数](../../javascript/reference/array-of-function-array-javascript.md)|从传入的自变量返回一个数组。|  
   
 <a name="js56jsobjarraymeth"></a>   
-## 方法  
+## <a name="methods"></a>方法  
  下表列出了 `Array` 对象的方法。  
   
 |方法|描述|  
-|--------|--------|  
+|------------|-----------------|  
 |[concat 方法（数组）](../../javascript/reference/concat-method-array-javascript.md)|返回由两个数组组合而成的新数组。|  
-|[entries 方法](../../javascript/reference/entries-method-array-javascript.md)|返回包含数组的键\/值对的迭代器。|  
+|[entries 方法](../../javascript/reference/entries-method-array-javascript.md)|返回包含数组的键/值对的迭代器。|  
 |[every 方法](../../javascript/reference/every-method-array-javascript.md)|检查定义的回调函数是否为数组中的所有元素返回 `true`。|  
 |[fill 方法](../../javascript/reference/fill-method-array-javascript.md)|使用指定值填充数组。|  
 |[filter 方法](../../javascript/reference/filter-method-array-javascript.md)|对数组的每个元素调用定义的回调函数，并返回回调函数为其返回 `true` 的值的数组。|  
@@ -136,8 +137,8 @@ one
 |[pop 方法](../../javascript/reference/pop-method-array-javascript.md)|从数组中移除最后一个元素并将该元素返回。|  
 |[propertyIsEnumerable 方法](../../javascript/reference/propertyisenumerable-method-object-javascript.md)|返回一个布尔值，该值指示指定属性是否为对象的一部分且是否可枚举。|  
 |[push 方法](../../javascript/reference/push-method-array-javascript.md)|将新元素追加到一个数组中，并返回数组的新长度。|  
-|[reduce 方法](../../javascript/reference/reduce-method-array-javascript.md)|通过对数组中的所有元素调用定义的回调函数来累积单个结果。  回调函数的返回值是累积的结果，并且作为对回调函数的下一个调用中的参数提供。|  
-|[reduceRight 方法](../../javascript/reference/reduceright-method-array-javascript.md)|通过对数组中的所有元素调用定义的回调函数来按降序顺序累积单个结果。  回调函数的返回值是累积的结果，并且作为对回调函数的下一个调用中的参数提供。|  
+|[reduce 方法](../../javascript/reference/reduce-method-array-javascript.md)|通过对数组中的所有元素调用定义的回调函数来累积单个结果。 回调函数的返回值是累积的结果，并且作为对回调函数的下一个调用中的自变量提供。|  
+|[reduceRight 方法](../../javascript/reference/reduceright-method-array-javascript.md)|通过对数组中的所有元素调用定义的回调函数来按降序顺序累积单个结果。 回调函数的返回值是累积的结果，并且作为对回调函数的下一个调用中的自变量提供。|  
 |[reverse 方法](../../javascript/reference/reverse-method-javascript.md)|将元素顺序被反转的 `Array` 对象返回。|  
 |[shift 方法](../../javascript/reference/shift-method-array-javascript.md)|从数组中移除第一个元素并将返回该元素。|  
 |[slice 方法（数组）](../../javascript/reference/slice-method-array-javascript.md)|返回一个数组中的一部分。|  
@@ -150,5 +151,5 @@ one
 |[valueOf 方法](../../javascript/reference/valueof-method-array.md)|获取对数组的引用。|  
 |[values 方法](../../javascript/reference/values-method-array-javascript.md)|返回包含数组的值的迭代器。|  
   
-## 请参阅  
- [滚动、平移和缩放示例应用](http://code.msdn.microsoft.com/ie/Scrolling-panning-and-6834aaf9)
+## <a name="see-also"></a>另请参阅  
+ [滚动、 平移和缩放示例应用](http://code.msdn.microsoft.com/ie/Scrolling-panning-and-6834aaf9)
