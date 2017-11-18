@@ -1,56 +1,55 @@
 ---
-title: "IDiaSymbol::get_hfaDouble | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-debug"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-dev_langs: 
-  - "C++"
-helpviewer_keywords: 
-  - "IDiaSymbol::get_hfaDouble 方法"
+title: "Idiasymbol:: Get_hfadouble |Microsoft 文档"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology: vs-ide-debug
+ms.tgt_pltfrm: 
+ms.topic: article
+dev_langs: C++
+helpviewer_keywords: IDiaSymbol::get_hfaDouble method
 ms.assetid: efc247b9-c16e-4fa3-89b0-901caf7b74c3
-caps.latest.revision: 5
-author: "mikejo5000"
-ms.author: "mikejo"
-manager: "ghogen"
-caps.handback.revision: 5
+caps.latest.revision: "5"
+author: mikejo5000
+ms.author: mikejo
+manager: ghogen
+ms.openlocfilehash: 599f83a4b6813cf18addcd9e860b7b8e9ec7f776
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# IDiaSymbol::get_hfaDouble
-[!INCLUDE[vs2017banner](../../code-quality/includes/vs2017banner.md)]
-
-检索指定的标志一个用户定义的类型 \(UDT\)是否包含类型二进制文件同类浮点复合 \(HFA\) 数据。  
+# <a name="idiasymbolgethfadouble"></a>IDiaSymbol::get_hfaDouble
+检索指定的用户定义的类型 (UDT) 是否包含同类浮点聚合 (HFA) 数据的双精度类型的标志。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
-```cpp#  
-HRESULT get_hfaDouble(   
-   BOOL* pRetVal  
+```C++  
+HRESULT get_hfaDouble(   
+   BOOL* pRetVal  
 );  
 ```  
   
-#### 参数  
+#### <a name="parameters"></a>参数  
  `pRetVal`  
- \[out\] ，如果 UDT 类型包含二进制文件， HFA 数据返回 `TRUE` ;否则，返回 `FALSE`。  
+ [out]返回`TRUE`如果 UDT 包含 HFA 数据类型的双精度; 否则为返回`FALSE`。  
   
-## 返回值  
- 如果成功，则返回; `S_OK`否则，返回 `S_FALSE` 或错误代码。  
+## <a name="return-value"></a>返回值  
+ 如果成功，则返回`S_OK`; 否则为返回`S_FALSE`或错误代码。  
   
 > [!NOTE]
->  `S_FALSE` 的返回值表示该属性用于符号不可用。  
+>  返回值`S_FALSE`意味着属性不是可用于符号。  
   
-## 备注  
+## <a name="remarks"></a>备注  
   
-## 要求  
- 标题:Dia2.h  
+## <a name="requirements"></a>要求  
+ 标头： Dia2.h  
   
- 库:diaguids.lib  
+ 库： diaguids.lib  
   
- DLL:msdia100.dll  
+ DLL: msdia100.dll  
   
-## 请参阅  
+## <a name="see-also"></a>另请参阅  
  [IDiaSymbol](../../debugger/debug-interface-access/idiasymbol.md)   
- [IDiaSymbol::get\_udtKind](../../debugger/debug-interface-access/idiasymbol-get-udtkind.md)
+ [IDiaSymbol::get_udtKind](../../debugger/debug-interface-access/idiasymbol-get-udtkind.md)

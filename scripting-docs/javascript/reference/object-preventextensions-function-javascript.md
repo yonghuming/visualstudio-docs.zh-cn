@@ -1,75 +1,78 @@
 ---
-title: "Object.preventExtensions 函数 (JavaScript) | Microsoft Docs"
-ms.custom: ""
-ms.date: "01/18/2017"
-ms.prod: "windows-client-threshold"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "devlang-javascript"
-ms.tgt_pltfrm: ""
-ms.topic: "language-reference"
-dev_langs: 
-  - "JavaScript"
-  - "TypeScript"
-  - "DHTML"
-helpviewer_keywords: 
-  - "Object.preventExtensions 函数 [JavaScript]"
-  - "preventExtensions 函数 [JavaScript]"
-  - "阻止新属性 [JavaScript]"
-  - "属性 [JavaScript], 阻止新"
+title: "Object.preventExtensions 函数 (JavaScript) |Microsoft 文档"
+ms.custom: 
+ms.date: 01/18/2017
+ms.prod: windows-client-threshold
+ms.reviewer: 
+ms.suite: 
+ms.technology: devlang-javascript
+ms.tgt_pltfrm: 
+ms.topic: language-reference
+dev_langs:
+- JavaScript
+- TypeScript
+- DHTML
+helpviewer_keywords:
+- properties [JavaScript], preventing new
+- preventing new properties [JavaScript]
+- preventExtensions function [JavaScript]
+- Object.preventExtensions function [JavaScript]
 ms.assetid: e6b48197-2374-4437-a9fe-519dd45a2077
-caps.latest.revision: 9
-author: "mikejo5000"
-ms.author: "mikejo"
-manager: "ghogen"
-caps.handback.revision: 9
+caps.latest.revision: "9"
+author: mikejo5000
+ms.author: mikejo
+manager: ghogen
+ms.openlocfilehash: 868f917cc2249a1634194e4b2dd097e0dcbd4c08
+ms.sourcegitcommit: aadb9588877418b8b55a5612c1d3842d4520ca4c
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/27/2017
 ---
-# Object.preventExtensions 函数 (JavaScript)
-阻止向对象添加新属性。  
+# <a name="objectpreventextensions-function-javascript"></a>Object.preventExtensions 函数 (JavaScript)
+防止向对象添加新属性。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
-```javascript  
+```JavaScript  
 Object.preventExtensions(object)  
 ```  
   
-#### 参数  
+#### <a name="parameters"></a>参数  
  `object`  
- 必需。  要成为不可扩展的对象的对象。  
+ 必需。 要成为不可扩展的对象的对象。  
   
-## 返回值  
+## <a name="return-value"></a>返回值  
  传递给函数的对象。  
   
-## 异常  
- 如果 `object` 参数不是对象，则将引发 `TypeError` 异常。  
+## <a name="exceptions"></a>异常  
+ 如果`object`自变量不是一个对象，`TypeError`引发异常。  
   
-## 备注  
- `Object.preventExtensions` 函数使对象不可扩展，这样便无法向其添加新的命名属性。  在使某个对象不可扩展后，不能对其进行扩展。  
+## <a name="remarks"></a>备注  
+ `Object.preventExtensions`函数使对象不可扩展的以便将新的命名的属性不能添加到它。 一个对象进行非可扩展之后，无法将其变为可扩展。  
   
- 有关如何设置属性的特性的信息，请参见 [Object.defineProperty 函数](../../javascript/reference/object-defineproperty-function-javascript.md)。  
+ 有关如何设置属性特性的信息，请参阅[Object.defineProperty 函数](../../javascript/reference/object-defineproperty-function-javascript.md)。  
   
-## 相关函数  
- 以下相关函数可阻止修改对象的特性。  
+## <a name="related-functions"></a>相关的函数  
+ 以下相关的函数防止修改对象属性。  
   
-|函数|对象已设置为不可扩展的|为每个属性将 `configurable` 设置为 `false`|为每个属性将 `writable` 设置为 `false`|  
-|--------|-----------------|---------------------------------------|-----------------------------------|  
-|`Object.preventExtensions`|是|否|否|  
-|[Object.seal](../../javascript/reference/object-seal-function-javascript.md)|是|是|否|  
+|函数|由非可扩展对象|`configurable`设置为`false`每个属性|`writable`设置为`false`每个属性|  
+|--------------|------------------------------------|--------------------------------------------------------|----------------------------------------------------|  
+|`Object.preventExtensions`|是|No|No|  
+|[Object.seal](../../javascript/reference/object-seal-function-javascript.md)|是|是|No|  
 |[Object.freeze](../../javascript/reference/object-freeze-function-javascript.md)|是|是|是|  
   
- 如果满足下表中标记的所有条件，则以下函数返回 `true`。  
+ 以下函数将返回`true`如果满足所有标记下表中的条件。  
   
-|函数|对象是否可扩展|为所有属性将 `configurable` 设置为 `false`|为所有数据属性将 `writable` 设置为 `false`|  
-|--------|-------------|---------------------------------------|-------------------------------------|  
-|[Object.isExtensible](../../javascript/reference/object-isextensible-function-javascript.md)|是|否|否|  
-|[Object.isSealed](../../javascript/reference/object-issealed-function-javascript.md)|否|是|否|  
-|[Object.isFrozen](../../javascript/reference/object-isfrozen-function-javascript.md)|否|是|是|  
+|函数|对象是可扩展的？|`configurable`是`false`的所有属性？|`writable`是`false`的所有数据属性？|  
+|--------------|---------------------------|---------------------------------------------------|----------------------------------------------------|  
+|[Object.isExtensible](../../javascript/reference/object-isextensible-function-javascript.md)|是|No|No|  
+|[Object.isSealed](../../javascript/reference/object-issealed-function-javascript.md)|No|是|No|  
+|[Object.isFrozen](../../javascript/reference/object-isfrozen-function-javascript.md)|No|是|是|  
   
-## 示例  
+## <a name="example"></a>示例  
  下面的示例阐释了 `Object.preventExtensions` 函数的用法。  
   
-```javascript  
+```JavaScript  
 // Create an object that has two properties.  
 var obj = { pasta: "spaghetti", length: 10 };  
   
@@ -88,10 +91,10 @@ document.write(obj.newProp);
   
 ```  
   
-## 要求  
+## <a name="requirements"></a>要求  
  [!INCLUDE[jsv9](../../javascript/includes/jsv9-md.md)]  
   
-## 请参阅  
+## <a name="see-also"></a>另请参阅  
  [Object.seal 函数](../../javascript/reference/object-seal-function-javascript.md)   
  [Object.freeze 函数](../../javascript/reference/object-freeze-function-javascript.md)   
  [Object.isExtensible 函数](../../javascript/reference/object-isextensible-function-javascript.md)   

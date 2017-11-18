@@ -1,58 +1,57 @@
 ---
-title: "IDiaSymbol::get_liveRangeStartAddressSection | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-debug"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-dev_langs: 
-  - "C++"
-helpviewer_keywords: 
-  - "IDiaSymbol::get_liveRangeStartAddressSection"
+title: "IDiaSymbol::get_liveRangeStartAddressSection |Microsoft 文档"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology: vs-ide-debug
+ms.tgt_pltfrm: 
+ms.topic: article
+dev_langs: C++
+helpviewer_keywords: IDiaSymbol::get_liveRangeStartAddressSection
 ms.assetid: 892b80ff-5957-4233-b4d7-6144167be289
-caps.latest.revision: 9
-author: "mikejo5000"
-ms.author: "mikejo"
-manager: "ghogen"
-caps.handback.revision: 9
+caps.latest.revision: "9"
+author: mikejo5000
+ms.author: mikejo
+manager: ghogen
+ms.openlocfilehash: 01bd3d099bc714aa20a9066c414b4222d3894f5e
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# IDiaSymbol::get_liveRangeStartAddressSection
-[!INCLUDE[vs2017banner](../../code-quality/includes/vs2017banner.md)]
-
-返回范围的起始地址的部分部件本地符号是有效的。  
+# <a name="idiasymbolgetliverangestartaddresssection"></a>IDiaSymbol::get_liveRangeStartAddressSection
+返回本地符号的范围的起始地址的部分部分。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
-```cpp#  
-HRESULT get_liveRangeStartAddressSection (   
-   DWORD* section  
+```C++  
+HRESULT get_liveRangeStartAddressSection (   
+   DWORD* section  
 );  
 ```  
   
-#### 参数  
+#### <a name="parameters"></a>参数  
  `section`  
- \[out\] 返回起始地址范围的部分部件。  
+ [out]返回的起始地址范围的部分部分。  
   
-## 返回值  
- 如果成功，则返回; `S_OK`否则，返回错误代码。  
+## <a name="return-value"></a>返回值  
+ 如果成功，则返回`S_OK`; 否则为返回错误代码。  
   
 > [!NOTE]
->  一返回的错误代码表示符号没有活动范围信息。  
+>  返回的错误代码意味着符号不具有实时范围信息。  
   
-## 备注  
- 部分和扭曲窗体的地址是符号是有效范围的开头。  
+## <a name="remarks"></a>备注  
+ 通过部分和偏移量而形成的地址是符号无效范围的开始处。  
   
- 获取该地址的偏移量部件，使用 [IDiaSymbol::get\_liveRangeStartAddressOffset](../Topic/IDiaSymbol::get_liveRangeStartAddressOffset.md)。  
+ 若要获取地址的偏移量的部分，使用[IDiaSymbol::get_liveRangeStartAddressOffset](../../debugger/debug-interface-access/idiasymbol-get-liverangestartaddressoffset.md)。  
   
-## 要求  
- 标题:Dia2.h  
+## <a name="requirements"></a>要求  
+ 标头： Dia2.h  
   
- 库:diaguids.lib  
+ 库： diaguids.lib  
   
- DLL:msdia100.dll  
+ DLL: msdia100.dll  
   
-## 请参阅  
+## <a name="see-also"></a>另请参阅  
  [IDiaSymbol](../../debugger/debug-interface-access/idiasymbol.md)

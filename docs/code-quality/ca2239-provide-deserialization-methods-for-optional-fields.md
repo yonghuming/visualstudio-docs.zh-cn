@@ -1,11 +1,10 @@
 ---
-title: 'CA2239: Provide deserialization methods for optional fields | Microsoft Docs'
+title: "CA2239： 提供反序列化方法为可选字段 |Microsoft 文档"
 ms.custom: 
 ms.date: 11/04/2016
 ms.reviewer: 
 ms.suite: 
-ms.technology:
-- vs-devops-test
+ms.technology: vs-ide-code-analysis
 ms.tgt_pltfrm: 
 ms.topic: article
 f1_keywords:
@@ -15,67 +14,53 @@ helpviewer_keywords:
 - ProvideDeserializationMethodsForOptionalFields
 - CA2239
 ms.assetid: 6480ff5e-0caa-4707-814e-2f927cdafef5
-caps.latest.revision: 13
-author: stevehoag
-ms.author: shoag
-manager: wpickett
-translation.priority.ht:
-- cs-cz
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pl-pl
-- pt-br
-- ru-ru
-- tr-tr
-- zh-cn
-- zh-tw
-ms.translationtype: HT
-ms.sourcegitcommit: eb5c9550fd29b0e98bf63a7240737da4f13f3249
-ms.openlocfilehash: f7dc9755c80095b5b79695aea583fd5ab710c774
-ms.contentlocale: zh-cn
-ms.lasthandoff: 08/30/2017
-
+caps.latest.revision: "13"
+author: gewarren
+ms.author: gewarren
+manager: ghogen
+ms.openlocfilehash: 6992dc561fb9ef018de02b0192528621d2e069fb
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# <a name="ca2239-provide-deserialization-methods-for-optional-fields"></a>CA2239: Provide deserialization methods for optional fields
+# <a name="ca2239-provide-deserialization-methods-for-optional-fields"></a>CA2239：为可选字段提供反序列化方法
 |||  
 |-|-|  
 |TypeName|ProvideDeserializationMethodsForOptionalFields|  
 |CheckId|CA2239|  
-|Category|Microsoft.Usage|  
-|Breaking Change|Non Breaking|  
+|类别|Microsoft.Usage|  
+|是否重大更改|非重大更改|  
   
-## <a name="cause"></a>Cause  
- A type has a field that is marked with the <xref:System.Runtime.Serialization.OptionalFieldAttribute?displayProperty=fullName> attribute and the type does not provide de-serialization event handling methods.  
+## <a name="cause"></a>原因  
+ 类型具有与标记的字段<xref:System.Runtime.Serialization.OptionalFieldAttribute?displayProperty=fullName>属性和类型没有提供反序列化事件处理方法。  
   
-## <a name="rule-description"></a>Rule Description  
- The <xref:System.Runtime.Serialization.OptionalFieldAttribute> attribute has no effect on serialization; a field marked with the attribute is serialized. However, the field is ignored on de-serialization and retains the default value associated with its type. De-serialization event handlers should be declared to set the field during the de-serialization process.  
+## <a name="rule-description"></a>规则说明  
+ <xref:System.Runtime.Serialization.OptionalFieldAttribute>特性没有在序列化的任何影响，序列化用特性标记的字段。 但是，该字段在反序列化上被忽略，并且保留其类型与关联的默认值。 反序列化事件处理程序应将声明为反序列化过程中设置该字段。  
   
-## <a name="how-to-fix-violations"></a>How to Fix Violations  
- To fix a violation of this rule, add de-serialization event handling methods to the type.  
+## <a name="how-to-fix-violations"></a>如何解决冲突  
+ 若要修复与此规则的冲突，添加反序列化事件处理方法的类型。  
   
-## <a name="when-to-suppress-warnings"></a>When to Suppress Warnings  
- It is safe to suppress a warning from this rule if the field should be ignored during the de-serialization process.  
+## <a name="when-to-suppress-warnings"></a>何时禁止显示警告  
+ 则可以安全地禁止显示此规则的警告，如果应在反序列化过程中忽略该字段。  
   
-## <a name="example"></a>Example  
- The following example shows a type with an optional field and de-serialization event handling methods.  
+## <a name="example"></a>示例  
+ 下面的示例演示具有可选字段和反序列化事件的类型处理方法。  
   
- [!code-csharp[FxCop.Usage.OptionalFields#1](../code-quality/codesnippet/CSharp/ca2239-provide-deserialization-methods-for-optional-fields_1.cs)] [!code-vb[FxCop.Usage.OptionalFields#1](../code-quality/codesnippet/VisualBasic/ca2239-provide-deserialization-methods-for-optional-fields_1.vb)]  
+ [!code-csharp[FxCop.Usage.OptionalFields#1](../code-quality/codesnippet/CSharp/ca2239-provide-deserialization-methods-for-optional-fields_1.cs)]
+ [!code-vb[FxCop.Usage.OptionalFields#1](../code-quality/codesnippet/VisualBasic/ca2239-provide-deserialization-methods-for-optional-fields_1.vb)]  
   
-## <a name="related-rules"></a>Related Rules  
- [CA2236: Call base class methods on ISerializable types](../code-quality/ca2236-call-base-class-methods-on-iserializable-types.md)  
+## <a name="related-rules"></a>相关的规则  
+ [CA2236：对 ISerializable 类型调用基类方法](../code-quality/ca2236-call-base-class-methods-on-iserializable-types.md)  
   
- [CA2240: Implement ISerializable correctly](../code-quality/ca2240-implement-iserializable-correctly.md)  
+ [CA2240：正确实现 ISerializable](../code-quality/ca2240-implement-iserializable-correctly.md)  
   
- [CA2229: Implement serialization constructors](../code-quality/ca2229-implement-serialization-constructors.md)  
+ [CA2229：实现序列化构造函数](../code-quality/ca2229-implement-serialization-constructors.md)  
   
- [CA2238: Implement serialization methods correctly](../code-quality/ca2238-implement-serialization-methods-correctly.md)  
+ [CA2238：正确实现序列化方法](../code-quality/ca2238-implement-serialization-methods-correctly.md)  
   
- [CA2235: Mark all non-serializable fields](../code-quality/ca2235-mark-all-non-serializable-fields.md)  
+ [CA2235：标记所有不可序列化的字段](../code-quality/ca2235-mark-all-non-serializable-fields.md)  
   
- [CA2237: Mark ISerializable types with SerializableAttribute](../code-quality/ca2237-mark-iserializable-types-with-serializableattribute.md)  
+ [CA2237：以 SerializableAttribute 标记 ISerializable 类型](../code-quality/ca2237-mark-iserializable-types-with-serializableattribute.md)  
   
- [CA2120: Secure serialization constructors](../code-quality/ca2120-secure-serialization-constructors.md)
+ [CA2120：保护序列化构造函数](../code-quality/ca2120-secure-serialization-constructors.md)

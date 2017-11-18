@@ -1,47 +1,46 @@
 ---
-title: "IDiaStackWalkHelper::imageForVA | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-debug"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-dev_langs: 
-  - "C++"
-helpviewer_keywords: 
-  - "IDiaStackWalkHelper::imageForVA 方法"
+title: "Idiastackwalkhelper:: Imageforva |Microsoft 文档"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology: vs-ide-debug
+ms.tgt_pltfrm: 
+ms.topic: article
+dev_langs: C++
+helpviewer_keywords: IDiaStackWalkHelper::imageForVA method
 ms.assetid: 8d4edabf-3c01-4fef-8b61-4779f3371067
-caps.latest.revision: 7
-author: "mikejo5000"
-ms.author: "mikejo"
-manager: "ghogen"
-caps.handback.revision: 7
+caps.latest.revision: "7"
+author: mikejo5000
+ms.author: mikejo
+manager: ghogen
+ms.openlocfilehash: df2b5f938d136a3013c3128f3e32c583c109708e
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# IDiaStackWalkHelper::imageForVA
-[!INCLUDE[vs2017banner](../../code-quality/includes/vs2017banner.md)]
-
-返回一个可执行图像的开始对在可执行文件的内存空间提供的虚拟地址是内存的。  
+# <a name="idiastackwalkhelperimageforva"></a>IDiaStackWalkHelper::imageForVA
+返回给定的虚拟地址某处的可执行文件的内存空间中的内存中的开始位置的可执行文件的映像。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
-```cpp#  
+```C++  
 HRESULT imageForVA(  
-   ULONGLONG  vaContext,  
-   ULONGLONG *pvaImageStart  
+   ULONGLONG  vaContext,  
+   ULONGLONG *pvaImageStart  
 );  
 ```  
   
-#### 参数  
+#### <a name="parameters"></a>参数  
  `vaContext`  
- \[in\] 在可执行文件的空间在某处的虚拟地址。  
+ [in]在可执行文件的空间中的某处存在于虚拟地址。  
   
  `pvaImageStart`  
- \[out\] 返回可执行的图像的起始虚拟地址。  
+ [out]返回可执行文件的映像的起始虚拟地址。  
   
-## 返回值  
- 如果成功，则返回; `S_OK`否则，返回错误代码。  
+## <a name="return-value"></a>返回值  
+ 如果成功，则返回`S_OK`; 否则为返回错误代码。  
   
-## 请参阅  
+## <a name="see-also"></a>另请参阅  
  [IDiaStackWalkHelper](../../debugger/debug-interface-access/idiastackwalkhelper.md)

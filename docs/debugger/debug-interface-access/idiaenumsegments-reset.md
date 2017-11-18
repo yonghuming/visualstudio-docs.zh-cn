@@ -1,37 +1,36 @@
 ---
-title: "IDiaEnumSegments::Reset | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-debug"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-dev_langs: 
-  - "C++"
-helpviewer_keywords: 
-  - "IDiaEnumSegments::Reset 方法"
+title: "Idiaenumsegments:: Reset |Microsoft 文档"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology: vs-ide-debug
+ms.tgt_pltfrm: 
+ms.topic: article
+dev_langs: C++
+helpviewer_keywords: IDiaEnumSegments::Reset method
 ms.assetid: 5eabca3c-6023-4474-a545-a3bec7521e4d
-caps.latest.revision: 7
-author: "mikejo5000"
-ms.author: "mikejo"
-manager: "ghogen"
-caps.handback.revision: 7
+caps.latest.revision: "7"
+author: mikejo5000
+ms.author: mikejo
+manager: ghogen
+ms.openlocfilehash: 24c0642f055973d2d5385d2e1de602f5f678d4b8
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# IDiaEnumSegments::Reset
-[!INCLUDE[vs2017banner](../../code-quality/includes/vs2017banner.md)]
-
-重置枚举序列与开头。  
+# <a name="idiaenumsegmentsreset"></a>IDiaEnumSegments::Reset
+将枚举序列重置到开头。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
-```cpp#  
+```C++  
 HRESULT Reset ();  
 ```  
   
-## 返回值  
+## <a name="return-value"></a>返回值  
  返回 `S_OK`。  
   
-## 请参阅  
+## <a name="see-also"></a>另请参阅  
  [IDiaEnumSegments](../../debugger/debug-interface-access/idiaenumsegments.md)

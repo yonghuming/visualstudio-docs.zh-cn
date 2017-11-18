@@ -1,11 +1,10 @@
 ---
-title: 'CA1039: Lists are strongly typed | Microsoft Docs'
+title: "CA1039： 列表已强类型化 |Microsoft 文档"
 ms.custom: 
 ms.date: 11/04/2016
 ms.reviewer: 
 ms.suite: 
-ms.technology:
-- vs-devops-test
+ms.technology: vs-ide-code-analysis
 ms.tgt_pltfrm: 
 ms.topic: article
 f1_keywords:
@@ -15,41 +14,26 @@ helpviewer_keywords:
 - CA1039
 - ListsAreStronglyTyped
 ms.assetid: 5ac366c4-fd87-4d5c-95d5-f755510c8e5c
-caps.latest.revision: 15
-author: stevehoag
-ms.author: shoag
-manager: wpickett
-translation.priority.ht:
-- cs-cz
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pl-pl
-- pt-br
-- ru-ru
-- tr-tr
-- zh-cn
-- zh-tw
-ms.translationtype: HT
-ms.sourcegitcommit: eb5c9550fd29b0e98bf63a7240737da4f13f3249
-ms.openlocfilehash: b6063c818995f2b0c7c4d181ee3b6203f2c1f66a
-ms.contentlocale: zh-cn
-ms.lasthandoff: 08/30/2017
-
+caps.latest.revision: "15"
+author: gewarren
+ms.author: gewarren
+manager: ghogen
+ms.openlocfilehash: 57bbb053c39680d8064fb757679ffadb3c87aeeb
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# <a name="ca1039-lists-are-strongly-typed"></a>CA1039: Lists are strongly typed
+# <a name="ca1039-lists-are-strongly-typed"></a>CA1039：列表已强类型化
 |||  
 |-|-|  
 |TypeName|ListsAreStronglyTyped|  
 |CheckId|CA1039|  
-|Category|Microsoft.Design|  
-|Breaking Change|Breaking|  
+|类别|Microsoft.Design|  
+|是否重大更改|重大|  
   
-## <a name="cause"></a>Cause  
- The public or protected type implements <xref:System.Collections.IList?displayProperty=fullName> but does not provide a strongly typed method for one or more of the following:  
+## <a name="cause"></a>原因  
+ 公共或受保护类型实现<xref:System.Collections.IList?displayProperty=fullName>但未提供的一个或多个以下的强类型化的方法：  
   
 -   IList.Item  
   
@@ -63,30 +47,30 @@ ms.lasthandoff: 08/30/2017
   
 -   IList.Remove  
   
-## <a name="rule-description"></a>Rule Description  
- This rule requires <xref:System.Collections.IList> implementations to provide strongly typed members so that users are not required to cast arguments to the <xref:System.Object?displayProperty=fullName> type when they use the functionality that is provided by the interface. The <xref:System.Collections.IList> interface is implemented by collections of objects that can be accessed by index. This rule assumes that the type that implements <xref:System.Collections.IList> does this to manage a collection of instances of a type that is stronger than <xref:System.Object>.  
+## <a name="rule-description"></a>规则说明  
+ 此规则要求<xref:System.Collections.IList>实现提供强类型化成员，以便用户不需要强制转换到的自变量<xref:System.Object?displayProperty=fullName>键入当用户界面中使用提供的功能时。 <xref:System.Collections.IList>接口由可按照索引访问的对象的集合。 此规则假定该类型实现<xref:System.Collections.IList>这样做是为了管理集合的实例的类型属于强于<xref:System.Object>。  
   
- <xref:System.Collections.IList> implements the <xref:System.Collections.ICollection?displayProperty=fullName> and <xref:System.Collections.IEnumerable?displayProperty=fullName> interfaces. If you implement <xref:System.Collections.IList>, you must provide the required strongly typed members for <xref:System.Collections.ICollection>. If the objects in the collection extend <xref:System.ValueType?displayProperty=fullName>, you must provide a strongly typed member for <xref:System.Collections.IEnumerable.GetEnumerator%2A> to avoid the decrease in performance that is caused by boxing; this is not required when the objects of the collection are a reference type.  
+ <xref:System.Collections.IList>实现<xref:System.Collections.ICollection?displayProperty=fullName>和<xref:System.Collections.IEnumerable?displayProperty=fullName>接口。 如果你实现<xref:System.Collections.IList>，你必须提供必需的强类型的成员<xref:System.Collections.ICollection>。 如果集合中的对象扩展<xref:System.ValueType?displayProperty=fullName>，你必须提供强类型的成员的<xref:System.Collections.IEnumerable.GetEnumerator%2A>以避免导致性能降低由装箱导致; 这不是必需的对象集合的引用类型时。  
   
- To comply with this rule, implement the interface members explicitly by using names in the form InterfaceName.InterfaceMemberName, such as <xref:System.Collections.IList.Add%2A>. The explicit interface members use the data types that are declared by the interface. Implement the strongly typed members by using the interface member name, such as `Add`. Declare the strongly typed members as public, and declare parameters and return values to be of the strong type that is managed by the collection. The strong types replace weaker types such as <xref:System.Object> and <xref:System.Array> that are declared by the interface.  
+ 若要符合此规则，实现接口成员显式使用名称的形式 InterfaceName.InterfaceMemberName，类似于<xref:System.Collections.IList.Add%2A>。 显式接口成员的界面使用声明的数据类型。 通过使用接口成员的名称，如实现强类型的成员`Add`。 声明为公共的强类型的成员和声明的参数和返回值可由集合的强类型。 强类型替代较弱类型，如<xref:System.Object>和<xref:System.Array>由接口声明。  
   
-## <a name="how-to-fix-violations"></a>How to Fix Violations  
- To fix a violation of this rule, explicitly implement <xref:System.Collections.IList> members and provide strongly typed alternatives for the members that were noted previously. For code that correctly implements the <xref:System.Collections.IList> interface and provides the required strongly typed members, see the following example.  
+## <a name="how-to-fix-violations"></a>如何解决冲突  
+ 若要修复与此规则的冲突，显式实现<xref:System.Collections.IList>成员和前面所述的成员提供强类型替代项。 正确实现的代码<xref:System.Collections.IList>接口，并提供所需强类型的成员，请参阅下面的示例。  
   
-## <a name="when-to-suppress-warnings"></a>When to Suppress Warnings  
- Suppress a warning from this rule when you implement a new object-based collection, such as a linked list, where types that extend the new collection determine the strong type. These types should comply with this rule and expose strongly typed members.  
+## <a name="when-to-suppress-warnings"></a>何时禁止显示警告  
+ 实现基于对象的一个新集合，如链接列表，其中扩展新集合的类型决定强类型时，禁止显示此规则的警告。 这些类型应符合此规则，并公开强类型的成员。  
   
-## <a name="example"></a>Example  
- In the following example, the type `YourType` extends <xref:System.Collections.CollectionBase?displayProperty=fullName>, as should all strongly typed collections. Note that <xref:System.Collections.CollectionBase> provides the explicit implementation of the <xref:System.Collections.IList> interface for you. Therefore, you must only provide the strongly typed members for <xref:System.Collections.IList> and <xref:System.Collections.ICollection>.  
+## <a name="example"></a>示例  
+ 在下面的示例中，类型`YourType`扩展<xref:System.Collections.CollectionBase?displayProperty=fullName>，所有强类型的集合也应如此。 请注意，<xref:System.Collections.CollectionBase>提供的显式实现<xref:System.Collections.IList>接口供你。 因此，你必须只提供的强类型的成员<xref:System.Collections.IList>和<xref:System.Collections.ICollection>。  
   
  [!code-csharp[FxCop.Design.IListStrongTypes#1](../code-quality/codesnippet/CSharp/ca1039-lists-are-strongly-typed_1.cs)]  
   
-## <a name="related-rules"></a>Related Rules  
- [CA1035: ICollection implementations have strongly typed members](../code-quality/ca1035-icollection-implementations-have-strongly-typed-members.md)  
+## <a name="related-rules"></a>相关的规则  
+ [CA1035：ICollection 实现含有强类型成员](../code-quality/ca1035-icollection-implementations-have-strongly-typed-members.md)  
   
- [CA1038: Enumerators should be strongly typed](../code-quality/ca1038-enumerators-should-be-strongly-typed.md)  
+ [CA1038：枚举数应强类型化](../code-quality/ca1038-enumerators-should-be-strongly-typed.md)  
   
-## <a name="see-also"></a>See Also  
+## <a name="see-also"></a>另请参阅  
  <xref:System.Collections.CollectionBase?displayProperty=fullName>   
  <xref:System.Collections.ICollection?displayProperty=fullName>   
  <xref:System.Collections.IEnumerable?displayProperty=fullName>   

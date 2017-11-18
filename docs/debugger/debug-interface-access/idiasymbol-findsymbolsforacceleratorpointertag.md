@@ -1,45 +1,45 @@
 ---
-title: "IDiaSymbol::findSymbolsForAcceleratorPointerTag | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-debug"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-dev_langs: 
-  - "C++"
+title: "IDiaSymbol::findSymbolsForAcceleratorPointerTag |Microsoft 文档"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology: vs-ide-debug
+ms.tgt_pltfrm: 
+ms.topic: article
+dev_langs: C++
 ms.assetid: fb66852c-c5f7-4140-b9fe-20cb4e51a9fe
-caps.latest.revision: 3
-author: "mikejo5000"
-ms.author: "mikejo"
-manager: "ghogen"
-caps.handback.revision: 3
+caps.latest.revision: "3"
+author: mikejo5000
+ms.author: mikejo
+manager: ghogen
+ms.openlocfilehash: c39e6ac981cae6195023d63f008b1ee4b0013bbd
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# IDiaSymbol::findSymbolsForAcceleratorPointerTag
-[!INCLUDE[vs2017banner](../../code-quality/includes/vs2017banner.md)]
-
-返回快捷键在c. C\+\+ AMP存根函数的指针标记的数目。  
+# <a name="idiasymbolfindsymbolsforacceleratorpointertag"></a>IDiaSymbol::findSymbolsForAcceleratorPointerTag
+在 c + + AMP 存根 （stub） 函数中返回快捷键指针标记的数。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
-```cpp  
+```C++  
 HRESULT findSymbolsForAccleratorPointerTag (   
    DWORD             tagValue,  
    IDiaEnumSymbols** ppResult);  
 ```  
   
-#### 参数  
+#### <a name="parameters"></a>参数  
  `tagValue`  
- \[\] pointee符号记录找到的指针值进行标记。  
+ [in]为其找到 pointee 符号记录指针标记值。  
   
  `ppResult`  
- \[out\]一个指向初始化结果的 `IDiaEnumSymbols` 接口指针的指针。  
+ [out]指向的指针`IDiaEnumSymbols`结果初始化接口指针。  
   
-## 返回值  
- 如果成功，则返回 `S_OK`，否则返回 `S_FALSE` 或者错误值代码。  
+## <a name="return-value"></a>返回值  
+ 如果成功，则返回`S_OK`; 否则为返回`S_FALSE`或错误代码。  
   
-## 请参阅  
+## <a name="see-also"></a>另请参阅  
  [IDiaSymbol](../../debugger/debug-interface-access/idiasymbol.md)   
  [IDiaEnumSymbols](../../debugger/debug-interface-access/idiaenumsymbols.md)

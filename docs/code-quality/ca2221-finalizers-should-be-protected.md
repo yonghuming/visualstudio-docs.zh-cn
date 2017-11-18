@@ -1,51 +1,51 @@
 ---
-title: "CA2221：终结器应受到保护 | Microsoft Docs"
-ms.custom: ""
-ms.date: "12/14/2016"
-ms.prod: "visual-studio-dev14"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-devops-test"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "CA2221"
-  - "FinalizersShouldBeProtected"
-helpviewer_keywords: 
-  - "CA2221"
-  - "FinalizersShouldBeProtected"
+title: "CA2221： 终结器应受到保护 |Microsoft 文档"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology: vs-ide-code-analysis
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords:
+- CA2221
+- FinalizersShouldBeProtected
+helpviewer_keywords:
+- FinalizersShouldBeProtected
+- CA2221
 ms.assetid: bda03aee-4cce-45d3-907d-17f4ee030acc
-caps.latest.revision: 14
-caps.handback.revision: 14
-author: "stevehoag"
-ms.author: "shoag"
-manager: "wpickett"
+caps.latest.revision: "14"
+author: gewarren
+ms.author: gewarren
+manager: ghogen
+ms.openlocfilehash: 8ff2d5cd64a77f09437a07b446f486e1c2dd5024
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# CA2221：终结器应受到保护
-[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
-
+# <a name="ca2221-finalizers-should-be-protected"></a>CA2221：终结器应受到保护
 |||  
 |-|-|  
-|类型名|FinalizersShouldBeProtected|  
+|TypeName|FinalizersShouldBeProtected|  
 |CheckId|CA2221|  
 |类别|Microsoft.Usage|  
-|是否重大更改|否|  
+|是否重大更改|非重大更改|  
   
-## 原因  
- 公共类型实现的终结器未指定族（受保护）访问。  
+## <a name="cause"></a>原因  
+ 公共类型实现一个并不指定系列 （受保护） 的访问的终结器。  
   
-## 规则说明  
- 终结器必须使用族访问修饰符。  该规则由 C\#、Visual Basic 和 Visual C\+\+ 编译器强制实施。  
+## <a name="rule-description"></a>规则说明  
+ 终结器必须使用族访问修饰符。 通过 C#、 Visual Basic 和 Visual c + + 编译器强制执行此规则。  
   
-## 如何解决冲突  
- 要修复与该规则的冲突，请将终结器更改为可进行族访问。  
+## <a name="how-to-fix-violations"></a>如何解决冲突  
+ 若要修复与此规则的冲突，更改终结器可访问系列。  
   
-## 何时禁止显示警告  
- 不要禁止显示此规则发出的警告。  
+## <a name="when-to-suppress-warnings"></a>何时禁止显示警告  
+ 不禁止显示此规则发出的警告。  
   
-## 示例  
- 在任何高级 .NET 语言中，都不能与该规则冲突；如果编写 Microsoft 中间语言，则可以与该规则冲突。  
+## <a name="example"></a>示例  
+ 不能在任何高级的.NET 语言; 中违反此规则如果你正在编写 Microsoft 中间语言，它可以违反了。  
   
 ```  
 // =============== CLASS MEMBERS DECLARATION ===================  
@@ -80,5 +80,5 @@ manager: "wpickett"
 } // end of namespace  
 ```  
   
-## 请参阅  
- [释放模式](../Topic/Dispose%20Pattern.md)
+## <a name="see-also"></a>另请参阅  
+ [释放模式](/dotnet/standard/design-guidelines/dispose-pattern)

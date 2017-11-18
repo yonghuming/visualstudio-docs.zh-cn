@@ -1,40 +1,39 @@
 ---
-title: "IDiaLoadCallback2::RestrictDBGAccess | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-debug"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-dev_langs: 
-  - "C++"
-helpviewer_keywords: 
-  - "IDiaLoadCallback2::RestrictDBGAccess 方法"
+title: "Idialoadcallback2:: Restrictdbgaccess |Microsoft 文档"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology: vs-ide-debug
+ms.tgt_pltfrm: 
+ms.topic: article
+dev_langs: C++
+helpviewer_keywords: IDiaLoadCallback2::RestrictDBGAccess method
 ms.assetid: 63b67a93-2910-4fff-aa70-6b2eaa08e5c8
-caps.latest.revision: 7
-author: "mikejo5000"
-ms.author: "mikejo"
-manager: "ghogen"
-caps.handback.revision: 7
+caps.latest.revision: "7"
+author: mikejo5000
+ms.author: mikejo
+manager: ghogen
+ms.openlocfilehash: feebffca2c332466e6f5105c4f69b74744922cf0
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# IDiaLoadCallback2::RestrictDBGAccess
-[!INCLUDE[vs2017banner](../../code-quality/includes/vs2017banner.md)]
-
-确定查找是否调试信息从 .dbg 文件授予权限。  
+# <a name="idialoadcallback2restrictdbgaccess"></a>IDiaLoadCallback2::RestrictDBGAccess
+确定从.dbg 文件是否允许寻找调试信息。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
-```cpp#  
+```C++  
 HRESULT RestrictDBGAccess();  
 ```  
   
-## 返回值  
- 如果成功，则返回; `S_OK`否则，返回错误代码。  
+## <a name="return-value"></a>返回值  
+ 如果成功，则返回`S_OK`; 否则为返回错误代码。  
   
-## 备注  
- 任何返回值。 `S_OK` 外防止查找调试信息从 .dbg 文件。  
+## <a name="remarks"></a>备注  
+ 之外的任何返回值`S_OK`以防止寻找.dbg 文件中的调试信息。  
   
-## 请参阅  
+## <a name="see-also"></a>另请参阅  
  [IDiaLoadCallback2](../../debugger/debug-interface-access/idialoadcallback2.md)

@@ -1,53 +1,55 @@
 ---
-title: "trim 方法 (String) (JavaScript) | Microsoft Docs"
-ms.custom: ""
-ms.date: "01/18/2017"
-ms.prod: "windows-client-threshold"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "devlang-javascript"
-ms.tgt_pltfrm: ""
-ms.topic: "language-reference"
-dev_langs: 
-  - "JavaScript"
-  - "TypeScript"
-  - "DHTML"
-helpviewer_keywords: 
-  - "trim 方法"
+title: "trim 方法 (String) (JavaScript) |Microsoft 文档"
+ms.custom: 
+ms.date: 01/18/2017
+ms.prod: windows-client-threshold
+ms.reviewer: 
+ms.suite: 
+ms.technology: devlang-javascript
+ms.tgt_pltfrm: 
+ms.topic: language-reference
+dev_langs:
+- JavaScript
+- TypeScript
+- DHTML
+helpviewer_keywords: trim method
 ms.assetid: 03d38c7e-25cd-4ede-b58e-1a10b5249bab
-caps.latest.revision: 17
-author: "mikejo5000"
-ms.author: "mikejo"
-manager: "ghogen"
-caps.handback.revision: 17
+caps.latest.revision: "17"
+author: mikejo5000
+ms.author: mikejo
+manager: ghogen
+ms.openlocfilehash: de358981cfbf569ef35be95b55b3e9856027df35
+ms.sourcegitcommit: aadb9588877418b8b55a5612c1d3842d4520ca4c
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/27/2017
 ---
-# trim 方法 (String) (JavaScript)
+# <a name="trim-method-string-javascript"></a>trim 方法 (String) (JavaScript)
 从字符串中移除前导空格、尾随空格和行终止符。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
 ```  
   
 stringObj.trim()  
 ```  
   
-## 参数  
+## <a name="parameters"></a>参数  
  `stringObj`  
- 必选。  `String` 对象或字符串。  `trim` 方法不修改该字符串。  
+ 必需。 `String` 对象或字符串。 `trim` 方法不修改该字符串。  
   
-## 返回值  
+## <a name="return-value"></a>返回值  
  已移除前导空格、尾随空格和行终止符的原始字符串。  
   
-## 备注  
- 移除的字符包括空格、制表符、换页符、回车符和换行符。  有关空格和行终止符的完整列表，请参见[特殊字符](../../javascript/advanced/special-characters-javascript.md)。  
+## <a name="remarks"></a>备注  
+ 移除的字符包括空格、制表符、换页符、回车符和换行符。 请参阅[特殊字符](../../javascript/advanced/special-characters-javascript.md)有关空格和行终止符字符的完整列表。  
   
- 有关说明如何实现你自己的修整方法的示例，请参见[原型和原型继承](../../javascript/advanced/prototypes-and-prototype-inheritance.md)。  
+ 有关演示如何实现剪裁方法示例，请参阅[原型和原型继承](../../javascript/advanced/prototypes-and-prototype-inheritance.md)。  
   
-## 示例  
+## <a name="example"></a>示例  
  下面的示例演示 `trim` 方法的用法。  
   
-```javascript  
+```JavaScript  
 var message = "    abc def     \r\n  ";  
   
 document.write("[" + message.trim() + "]");  
@@ -59,10 +61,10 @@ document.write("length: " + message.trim().length);
 //  length: 7  
 ```  
   
-## 要求  
+## <a name="requirements"></a>要求  
  [!INCLUDE[jsv9](../../javascript/includes/jsv9-md.md)]  
   
-## 请参阅  
+## <a name="see-also"></a>另请参阅  
  [特殊字符](../../javascript/advanced/special-characters-javascript.md)   
- [String 对象](../../javascript/reference/string-object-javascript.md)   
- [滚动、平移和缩放示例应用程序](http://code.msdn.microsoft.com/ie/Scrolling-panning-and-6834aaf9)
+ [字符串对象](../../javascript/reference/string-object-javascript.md)   
+ [滚动、 平移和缩放示例应用](http://code.msdn.microsoft.com/ie/Scrolling-panning-and-6834aaf9)

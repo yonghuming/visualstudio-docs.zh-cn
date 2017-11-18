@@ -1,11 +1,10 @@
 ---
-title: 'CA2225: Operator overloads have named alternates | Microsoft Docs'
+title: "CA2225： 运算符重载具有命名的备用项 |Microsoft 文档"
 ms.custom: 
 ms.date: 11/04/2016
 ms.reviewer: 
 ms.suite: 
-ms.technology:
-- vs-devops-test
+ms.technology: vs-ide-code-analysis
 ms.tgt_pltfrm: 
 ms.topic: article
 f1_keywords:
@@ -15,110 +14,95 @@ helpviewer_keywords:
 - OperatorOverloadsHaveNamedAlternates
 - CA2225
 ms.assetid: af8f7ab1-63ad-4861-afb9-b7a7a2be15e1
-caps.latest.revision: 20
-author: stevehoag
-ms.author: shoag
-manager: wpickett
-translation.priority.ht:
-- cs-cz
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pl-pl
-- pt-br
-- ru-ru
-- tr-tr
-- zh-cn
-- zh-tw
-ms.translationtype: HT
-ms.sourcegitcommit: eb5c9550fd29b0e98bf63a7240737da4f13f3249
-ms.openlocfilehash: bc8e648b8a463b08ce520cde7bcec8efaeeec4c8
-ms.contentlocale: zh-cn
-ms.lasthandoff: 08/30/2017
-
+caps.latest.revision: "20"
+author: gewarren
+ms.author: gewarren
+manager: ghogen
+ms.openlocfilehash: 07d15e5ec123e645a7607f16b6020487d4c0fc2a
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# <a name="ca2225-operator-overloads-have-named-alternates"></a>CA2225: Operator overloads have named alternates
+# <a name="ca2225-operator-overloads-have-named-alternates"></a>CA2225：运算符重载具有命名的备用项
 |||  
 |-|-|  
 |TypeName|OperatorOverloadsHaveNamedAlternates|  
 |CheckId|CA2225|  
-|Category|Microsoft.Usage|  
-|Breaking Change|Non Breaking|  
+|类别|Microsoft.Usage|  
+|是否重大更改|非重大更改|  
   
-## <a name="cause"></a>Cause  
- An operator overload was detected, and the expected named alternative method was not found.  
+## <a name="cause"></a>原因  
+ 检测到运算符重载，但未找到预期的指定备用方法。  
   
-## <a name="rule-description"></a>Rule Description  
- Operator overloading allows the use of symbols to represent computations for a type. For example, a type that overloads the plus symbol (+) for addition would typically have an alternative member named 'Add'. The named alternative member provides access to the same functionality as the operator, and is provided for developers who program in languages that do not support overloaded operators.  
+## <a name="rule-description"></a>规则说明  
+ 运算符重载允许使用的符号来表示类型的计算。 例如，添加重载加号 （+） 的类型通常具有名为 Add 的可选成员。 命名的备用成员提供对与运算符相同的功能的访问，并提供给开发人员的不支持重载的运算符的语言进行编程。  
   
- This rule examines the operators listed in the following table.  
+ 此规则检查下表中列出的运算符。  
   
-|C#|Visual Basic|C++|Alternate name|  
+|C#|Visual Basic|C++|备用名称|  
 |---------|------------------|-----------|--------------------|  
-|+ (binary)|+|+ (binary)|Add|  
-|+=|+=|+=|Add|  
+|+ （二进制）|+|+ （二进制）|添加|  
+|+=|+=|+=|添加|  
 |&|And|&|BitwiseAnd|  
-|&=|And=|&=|BitwiseAnd|  
+|&=|和 =|&=|BitwiseAnd|  
 |&#124;|Or|&#124;|BitwiseOr|  
-|&#124;=|Or=|&#124;=|BitwiseOr|  
-|--|N/A|--|Decrement|  
-|/|/|/|Divide|  
-|/=|/=|/=|Divide|  
+|&#124;=|或 =|&#124;=|BitwiseOr|  
+|--|不可用|--|递减|  
+|/|/|/|除|  
+|/=|/=|/=|除|  
 |==|=|==|Equals|  
 |^|Xor|^|Xor|  
-|^=|Xor=|^=|Xor|  
-|>|>|>|Compare|  
-|>=|>=|>=|Compare|  
-|++|N/A|++|Increment|  
+|^=|Xor =|^=|Xor|  
+|>|>|>|比较|  
+|>=|>=|>=|比较|  
+|++|不可用|++|递增|  
 |<>|!=|Equals|  
 |<<|<<|<<|LeftShift|  
 |<<=|<<=|<<=|LeftShift|  
-|<|<|<|Compare|  
-|<=|<=|\<=|Compare|  
-|&&|N/A|&&|LogicalAnd|  
-|&#124;&#124;|N/A|&#124;&#124;|LogicalOr|  
-|!|N/A|!|LogicalNot|  
-|%|Mod|%|Mod or Remainder|  
-|%=|N/A|%=|Mod|  
-|* (binary)|*|*|Multiply|  
-|*=|N/A|*=|Multiply|  
-|~|Not|~|OnesComplement|  
+|<|<|<|比较|  
+|<=|<=|\<=|比较|  
+|&&|不可用|&&|LogicalAnd|  
+|&#124;&#124;|不可用|&#124;&#124;|LogicalOr|  
+|!|不可用|!|LogicalNot|  
+|%|Mod|%|Mod 或余数|  
+|%=|不可用|%=|Mod|  
+|* （二进制）|*|*|相乘|  
+|*=|不可用|*=|相乘|  
+|~|不|~|OnesComplement|  
 |>>|>>|>>|RightShift|  
-=|N/A|>>=|RightShift|  
-|- (binary)|- (binary)|- (binary)|Subtract|  
-|-=|N/A|-=|Subtract|  
-|true|IsTrue|N/A|IsTrue (Property)|  
-|- (unary)|N/A|-|Negate|  
-|+ (unary)|N/A|+|Plus|  
-|false|IsFalse|False|IsTrue (Property)|  
+=|不可用|>>=|RightShift|  
+|-（二进制）|-（二进制）|-（二进制）|减|  
+|-=|不可用|-=|减|  
+|true|IsTrue|不可用|IsTrue （属性）|  
+|-（一元）|不可用|-|要求反|  
+|+ （一元）|不可用|+|加号|  
+|false|IsFalse|False|IsTrue （属性）|  
   
- N/A == Cannot be overloaded in the selected language.  
+ 不适用 = = 所选的语言不能重载。  
   
- The rule also checks implicit and explicit cast operators in a type (`SomeType`) by checking for methods named `ToSomeType` and `FromSomeType`.  
+ 规则还检查类型中的隐式和显式强制转换运算符 (`SomeType`) 通过检查方法名为`ToSomeType`和`FromSomeType`。  
   
- In C#, when a binary operator is overloaded, the corresponding assignment operator, if any, is also implicitly overloaded.  
+ 在 C# 中，在一个二元运算符重载时，相应的赋值运算符，如果有的话，也会隐式重载。  
   
-## <a name="how-to-fix-violations"></a>How to Fix Violations  
- To fix a violation of this rule, implement the alternative method for the operator; name it using the recommended alternative name.  
+## <a name="how-to-fix-violations"></a>如何解决冲突  
+ 若要修复与此规则的冲突，可对运算符; 实现的替代方法将它使用建议的替代名称。  
   
-## <a name="when-to-suppress-warnings"></a>When to Suppress Warnings  
- Do not suppress a warning from this rule if you are implementing a shared library. Applications can ignore a warning from this rule.  
+## <a name="when-to-suppress-warnings"></a>何时禁止显示警告  
+ 如果你要实现共享的库不禁止显示此规则的警告。 应用程序可以忽略此规则的警告。  
   
-## <a name="example"></a>Example  
- The following example defines a structure that violates this rule. To correct the example, add a public `Add(int x, int y)` method to the structure.  
+## <a name="example"></a>示例  
+ 下面的示例定义一个结构，它与该规则冲突。 若要更正该示例，将添加一个公共`Add(int x, int y)`的结构的方法。  
   
  [!code-csharp[FxCop.Usage.OperatorOverloadsHaveNamedAlternates#1](../code-quality/codesnippet/CSharp/ca2225-operator-overloads-have-named-alternates_1.cs)]  
   
-## <a name="related-rules"></a>Related Rules  
- [CA1046: Do not overload operator equals on reference types](../code-quality/ca1046-do-not-overload-operator-equals-on-reference-types.md)  
+## <a name="related-rules"></a>相关的规则  
+ [CA1046：不要对引用类型重载相等运算符](../code-quality/ca1046-do-not-overload-operator-equals-on-reference-types.md)  
   
- [CA2226: Operators should have symmetrical overloads](../code-quality/ca2226-operators-should-have-symmetrical-overloads.md)  
+ [CA2226：运算符应有对称重载](../code-quality/ca2226-operators-should-have-symmetrical-overloads.md)  
   
- [CA2224: Override equals on overloading operator equals](../code-quality/ca2224-override-equals-on-overloading-operator-equals.md)  
+ [CA2224：重载相等运算符时重写 Equals 方法](../code-quality/ca2224-override-equals-on-overloading-operator-equals.md)  
   
- [CA2218: Override GetHashCode on overriding Equals](../code-quality/ca2218-override-gethashcode-on-overriding-equals.md)  
+ [CA2218：重写 Equals 时重写 GetHashCode](../code-quality/ca2218-override-gethashcode-on-overriding-equals.md)  
   
- [CA2231: Overload operator equals on overriding ValueType.Equals](../code-quality/ca2231-overload-operator-equals-on-overriding-valuetype-equals.md)
+ [CA2231：重写 ValueType.Equals 时应重载相等运算符](../code-quality/ca2231-overload-operator-equals-on-overriding-valuetype-equals.md)

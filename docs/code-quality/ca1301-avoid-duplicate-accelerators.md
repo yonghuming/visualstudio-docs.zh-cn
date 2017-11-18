@@ -1,11 +1,10 @@
 ---
-title: 'CA1301: Avoid duplicate accelerators | Microsoft Docs'
+title: "CA1301： 避免快捷键重复 |Microsoft 文档"
 ms.custom: 
 ms.date: 11/04/2016
 ms.reviewer: 
 ms.suite: 
-ms.technology:
-- vs-devops-test
+ms.technology: vs-ide-code-analysis
 ms.tgt_pltfrm: 
 ms.topic: article
 f1_keywords:
@@ -15,59 +14,43 @@ helpviewer_keywords:
 - CA1301
 - AvoidDuplicateAccelerators
 ms.assetid: 20570a00-864b-459c-a1fa-a6e9db5f1001
-caps.latest.revision: 17
-author: stevehoag
-ms.author: shoag
-manager: wpickett
-translation.priority.ht:
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- ru-ru
-- zh-cn
-- zh-tw
-translation.priority.mt:
-- cs-cz
-- pl-pl
-- pt-br
-- tr-tr
-ms.translationtype: HT
-ms.sourcegitcommit: eb5c9550fd29b0e98bf63a7240737da4f13f3249
-ms.openlocfilehash: 0e48aa6fd82a218e0184f80b1c4ec90736c46e66
-ms.contentlocale: zh-cn
-ms.lasthandoff: 08/30/2017
-
+caps.latest.revision: "17"
+author: gewarren
+ms.author: gewarren
+manager: ghogen
+ms.openlocfilehash: 13d2f36014ab15aea3148ab4175a89b77deb4846
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# <a name="ca1301-avoid-duplicate-accelerators"></a>CA1301: Avoid duplicate accelerators
+# <a name="ca1301-avoid-duplicate-accelerators"></a>CA1301：避免快捷键重复
 |||  
 |-|-|  
 |TypeName|AvoidDuplicateAccelerators|  
 |CheckId|CA1301|  
-|Category|Microsoft.Globalization|  
-|Breaking Change|Non-breaking|  
+|类别|Microsoft.Globalization|  
+|是否重大更改|非重大|  
   
-## <a name="cause"></a>Cause  
- A type extends <xref:System.Windows.Forms.Control?displayProperty=fullName> and contains two or more top level controls that have identical access keys that are stored in a resource file.  
+## <a name="cause"></a>原因  
+ 类型扩展<xref:System.Windows.Forms.Control?displayProperty=fullName>和包含两个或多个具有相同访问密钥存储在资源文件中的顶级控件。  
   
-## <a name="rule-description"></a>Rule Description  
- An access key, also known as an accelerator, enables keyboard access to a control by using the ALT key. When multiple controls have duplicate access keys, the behavior of the access key is not well defined. The user might not be able to access the intended control by using the access key and a control other than the one that is intended might be enabled.  
+## <a name="rule-description"></a>规则说明  
+ 访问键也称为快捷键，它通过使用 Alt 键来实现对控件的键盘访问。 如果多个控件具有重复的访问键，则访问键的行为定义不正确。 用户可能无法访问目标的控件使用的访问密钥，并可能启用旨在以外的控件。  
   
- The current implementation of this rule ignores menu items. However, menu items in the same submenu should not have identical access keys.  
+ 此规则的当前实现将忽略菜单项。 但是，相同子菜单中的菜单项不应具有相同访问密钥。  
   
-## <a name="how-to-fix-violations"></a>How to Fix Violations  
- To fix a violation of this rule, define unique access keys for all controls.  
+## <a name="how-to-fix-violations"></a>如何解决冲突  
+ 若要修复与此规则的冲突，定义所有控件的唯一访问的密钥。  
   
-## <a name="when-to-suppress-warnings"></a>When to Suppress Warnings  
- Do not suppress a warning from this rule.  
+## <a name="when-to-suppress-warnings"></a>何时禁止显示警告  
+ 不禁止显示此规则发出的警告。  
   
-## <a name="example"></a>Example  
- The following example shows a minimal form that contains two controls that have identical access keys. The keys are stored in a resource file, which is not shown; however, their values appear in the commented out `checkBox.Text` lines. The behavior of duplicate accelerators can be examined by exchanging the `checkBox.Text` lines with their commented out counterparts. However, in this case, the example will not generate a warning from the rule.  
+## <a name="example"></a>示例  
+ 下面的示例演示包含具有相同的访问键的两个控件的最小表单。 密钥存储在资源文件中，而不会显示;但是，其值出现在注释掉`checkBox.Text`行。 可以通过交换检查重复快捷键的行为`checkBox.Text`与其注释掉的对应项的行。 但是，在这种情况下，该示例将不会生成警告从规则。  
   
  [!code-csharp[FxCop.Globalization.AvoidDuplicateAccels#1](../code-quality/codesnippet/CSharp/ca1301-avoid-duplicate-accelerators_1.cs)]  
   
-## <a name="see-also"></a>See Also  
+## <a name="see-also"></a>另请参阅  
  <xref:System.Resources.ResourceManager?displayProperty=fullName>   
- [Resources in Desktop Apps](/dotnet/framework/resources/index)
+ [桌面应用中的资源](/dotnet/framework/resources/index)

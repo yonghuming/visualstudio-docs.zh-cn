@@ -1,63 +1,46 @@
 ---
-title: 'CA2133: Delegates must bind to methods with consistent transparency | Microsoft Docs'
+title: "CA2133： 委托必须绑定到方法具有一致透明度 |Microsoft 文档"
 ms.custom: 
 ms.date: 11/04/2016
 ms.reviewer: 
 ms.suite: 
-ms.technology:
-- vs-devops-test
+ms.technology: vs-ide-code-analysis
 ms.tgt_pltfrm: 
 ms.topic: article
-f1_keywords:
-- CA2133
+f1_keywords: CA2133
 ms.assetid: a09672e2-63cb-4abd-9e8f-dff515e101ce
-caps.latest.revision: 11
-author: stevehoag
-ms.author: shoag
-manager: wpickett
-translation.priority.ht:
-- cs-cz
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pl-pl
-- pt-br
-- ru-ru
-- tr-tr
-- zh-cn
-- zh-tw
-ms.translationtype: HT
-ms.sourcegitcommit: eb5c9550fd29b0e98bf63a7240737da4f13f3249
-ms.openlocfilehash: 473dbf2d6373c59c693a91db804897bfe73b5300
-ms.contentlocale: zh-cn
-ms.lasthandoff: 08/30/2017
-
+caps.latest.revision: "11"
+author: gewarren
+ms.author: gewarren
+manager: ghogen
+ms.openlocfilehash: f191c9f67fd09e72d4cb57ded2fa88135c388611
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# <a name="ca2133-delegates-must-bind-to-methods-with-consistent-transparency"></a>CA2133: Delegates must bind to methods with consistent transparency
+# <a name="ca2133-delegates-must-bind-to-methods-with-consistent-transparency"></a>CA2133：委托必须绑定到具有一致透明度的方法
 |||  
 |-|-|  
 |TypeName|DelegatesMustBindWithConsistentTransparency|  
 |CheckId|CA2133|  
-|Category|Microsoft.Security|  
-|Breaking Change|Breaking|  
+|类别|Microsoft.Security|  
+|是否重大更改|重大|  
   
 > [!NOTE]
->  This warning is only applied to code that is running the CoreCLR (the version of the CLR that is specific to Silverlight Web applications).  
+>  此警告仅应用于运行 CoreCLR （特定于 Silverlight 的 Web 应用程序的 clr 的版本） 的代码。  
   
-## <a name="cause"></a>Cause  
- This warning fires on a method that binds a delegate that is marked with the <xref:System.Security.SecurityCriticalAttribute> to a method that is transparent or that is marked with the <xref:System.Security.SecuritySafeCriticalAttribute>. The warning also fires a method that binds a delegate that is transparent or safe-critical to a critical method.  
+## <a name="cause"></a>原因  
+ 对用标记的委托绑定的方法引发此警告<xref:System.Security.SecurityCriticalAttribute>透明的或用标记的方法<xref:System.Security.SecuritySafeCriticalAttribute>。 还会对另一个具有以下特点的方法引发此警告：该方法将透明的或安全关键的委托绑定到一个关键方法。  
   
-## <a name="rule-description"></a>Rule Description  
- Delegate types and the methods that they bind to must have consistent transparency. Transparent and safe-critical delegates may only bind to other transparent or safe-critical methods. Similarly, critical delegates may only bind to critical methods. These binding rules ensure that the only code that can invoke a method via a delegate could have also invoked the same method directly. For example, binding rules prevent transparent code from calling critical code directly via a transparent delegate.  
+## <a name="rule-description"></a>规则说明  
+ 委托类型和其绑定到的方法必须具有一致的透明度。 透明和安全关键的委托可能只能绑定到其他透明或安全关键方法。 同样，关键的委托可能仅绑定到关键方法。 这些绑定规则确保可以在调用委托通过方法的唯一代码无法具有还调用同一方法直接。 例如，绑定规则阻止透明代码调用关键代码直接通过透明的委托。  
   
-## <a name="how-to-fix-violations"></a>How to Fix Violations  
- To fix a violation of this warning, change the transparency of the delegate or of the method that it binds so that the transparency of the two are equivalent.  
+## <a name="how-to-fix-violations"></a>如何解决冲突  
+ 若要修复与此警告的冲突，更改该委托的或它绑定，以便这两个透明度是等效的方法的透明度。  
   
-## <a name="when-to-suppress-warnings"></a>When to Suppress Warnings  
- Do not suppress a warning from this rule.  
+## <a name="when-to-suppress-warnings"></a>何时禁止显示警告  
+ 不禁止显示此规则发出的警告。  
   
-### <a name="code"></a>Code  
+### <a name="code"></a>代码  
  [!code-csharp[FxCop.Security.CA2133.DelegatesMustBindWithConsistentTransparency#1](../code-quality/codesnippet/CSharp/ca2133-delegates-must-bind-to-methods-with-consistent-transparency_1.cs)]

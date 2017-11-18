@@ -1,53 +1,52 @@
 ---
-title: "IDiaSymbol::get_value | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-debug"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-dev_langs: 
-  - "C++"
-helpviewer_keywords: 
-  - "IDiaSymbol::get_value 方法"
+title: "Idiasymbol:: Get_value |Microsoft 文档"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology: vs-ide-debug
+ms.tgt_pltfrm: 
+ms.topic: article
+dev_langs: C++
+helpviewer_keywords: IDiaSymbol::get_value method
 ms.assetid: 2e40174a-2a61-4e5f-bb32-9e0ceec2178a
-caps.latest.revision: 9
-author: "mikejo5000"
-ms.author: "mikejo"
-manager: "ghogen"
-caps.handback.revision: 9
+caps.latest.revision: "9"
+author: mikejo5000
+ms.author: mikejo
+manager: ghogen
+ms.openlocfilehash: 1178fa79631e32e4b15ee7157fc40ebd9fd7383b
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# IDiaSymbol::get_value
-[!INCLUDE[vs2017banner](../../code-quality/includes/vs2017banner.md)]
-
-检索常数的值。  
+# <a name="idiasymbolgetvalue"></a>IDiaSymbol::get_value
+检索常量的值。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
-```cpp#  
-HRESULT get_value (   
-   VARIANT* pRetVal  
+```C++  
+HRESULT get_value (   
+   VARIANT* pRetVal  
 );  
 ```  
   
-#### 参数  
+#### <a name="parameters"></a>参数  
  `pRetVal`  
- \[in, out\] 使用常数的值填充的 `VARIANT` 对象。  
+ [在中，out]A`VARIANT`使用常量的值填充的对象。  
   
-## 返回值  
- 如果成功，则返回; `S_OK`否则，返回 `S_FALSE` 或错误代码。  
+## <a name="return-value"></a>返回值  
+ 如果成功，则返回`S_OK`; 否则为返回`S_FALSE`或错误代码。  
   
 > [!NOTE]
->  `S_FALSE` 的返回值表示该属性用于符号不可用。  
+>  返回值`S_FALSE`意味着属性不是可用于符号。  
   
-## 备注  
- 所提供的变量，在被传递给此方法之前，必须初始化。  有关更多信息，请参见示例。  
+## <a name="remarks"></a>备注  
+ 传递到此方法前，必须初始化提供变体。 有关详细信息，请参阅示例。  
   
-## 示例  
+## <a name="example"></a>示例  
   
-```cpp#  
+```C++  
 void ProcessValue(IDiaSymbol *pSymbol)  
 {  
     VARIANT value;  
@@ -70,5 +69,5 @@ void ProcessValue2(IDiaSymbol *pSymbol)
 }  
 ```  
   
-## 请参阅  
+## <a name="see-also"></a>另请参阅  
  [IDiaSymbol](../../debugger/debug-interface-access/idiasymbol.md)

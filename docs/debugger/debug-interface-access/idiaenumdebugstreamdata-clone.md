@@ -1,43 +1,42 @@
 ---
-title: "IDiaEnumDebugStreamData::Clone | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-debug"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-dev_langs: 
-  - "C++"
-helpviewer_keywords: 
-  - "IDiaEnumDebugStreamData::Clone 方法"
+title: "Idiaenumdebugstreamdata:: Clone |Microsoft 文档"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology: vs-ide-debug
+ms.tgt_pltfrm: 
+ms.topic: article
+dev_langs: C++
+helpviewer_keywords: IDiaEnumDebugStreamData::Clone method
 ms.assetid: e7f17750-0694-4634-bf34-c821cd265c2f
-caps.latest.revision: 7
-author: "mikejo5000"
-ms.author: "mikejo"
-manager: "ghogen"
-caps.handback.revision: 7
+caps.latest.revision: "7"
+author: mikejo5000
+ms.author: mikejo
+manager: ghogen
+ms.openlocfilehash: a28d189066e1f062c3dd268fb9226331bff5e23e
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# IDiaEnumDebugStreamData::Clone
-[!INCLUDE[vs2017banner](../../code-quality/includes/vs2017banner.md)]
-
-创建包含枚举序列和枚举当前枚举数相同的枚举数。  
+# <a name="idiaenumdebugstreamdataclone"></a>IDiaEnumDebugStreamData::Clone
+创建包含为当前的枚举器枚举的顺序一个枚举器。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
-```cpp#  
-HRESULT Clone (   
-   IDiaEnumDebugStreamData** ppenum  
+```C++  
+HRESULT Clone (   
+   IDiaEnumDebugStreamData** ppenum  
 );  
 ```  
   
-#### 参数  
+#### <a name="parameters"></a>参数  
  ppenum  
- \[out\] 返回包含重复的顺序调试数据流记录的 [IDiaEnumDebugStreamData](../../debugger/debug-interface-access/idiaenumdebugstreamdata.md) 对象。  
+ [out]返回[IDiaEnumDebugStreamData](../../debugger/debug-interface-access/idiaenumdebugstreamdata.md)包含重复的调试数据流记录序列的对象。  
   
-## 返回值  
- 如果成功，则返回; `S_OK`否则，返回错误代码。  
+## <a name="return-value"></a>返回值  
+ 如果成功，则返回`S_OK`; 否则为返回错误代码。  
   
-## 请参阅  
+## <a name="see-also"></a>另请参阅  
  [IDiaEnumDebugStreamData](../../debugger/debug-interface-access/idiaenumdebugstreamdata.md)

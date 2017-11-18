@@ -1,48 +1,50 @@
 ---
-title: "保存数据 | Microsoft Docs"
-ms.custom: ""
-ms.date: "12/14/2016"
-ms.prod: "visual-studio-dev14"
-ms.reviewer: ""
-ms.suite: ""
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "DataRow.RowState"
-  - "DataSet.GetChanges"
-dev_langs: 
-  - "VB"
-  - "CSharp"
-  - "C++"
-  - "aspx"
-helpviewer_keywords: 
-  - "数据 [Visual Studio], 保存"
-  - "数据 [Visual Studio], 更新"
-  - "数据库, 更新"
-  - "DBDirect 方法"
-  - "保存数据"
-  - "TableAdapter DBDirect 方法"
-  - "TableAdapter.Update 方法"
-  - "更新数据"
-  - "更新数据库"
+title: "保存数据 |Microsoft 文档"
+ms.custom: 
+ms.date: 10/19/2016
+ms.reviewer: 
+ms.suite: 
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords:
+- DataRow.RowState
+- DataSet.GetChanges
+helpviewer_keywords:
+- DBDirect methods
+- updating data
+- data [Visual Studio], saving
+- TableAdapter DBDirect methods
+- databases, updating
+- TableAdapter.Update method
+- data [Visual Studio], updating
+- saving data
+- updating databases
 ms.assetid: 21d2b115-62e4-4ac9-a873-dcbb535b8af8
-caps.latest.revision: 13
-caps.handback.revision: 13
-author: "mikeblome"
-ms.author: "mblome"
-manager: "ghogen"
+caps.latest.revision: "13"
+author: gewarren
+ms.author: gewarren
+manager: ghogen
 robots: noindex,nofollow
+ms.technology: vs-data-tools
+ms.openlocfilehash: 34ceecce635cb5388bd53ed191c0fc1fa861bc38
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# 保存数据
-保存数据就是将应用程序的数据模型中的已更改数据保存回原始数据存储区（通常是关系数据库，如 SQL Server）的过程。  
+# <a name="saving-data"></a>保存数据
+保存数据是保留的过程更改回原始数据存储通常如 SQL Server 关系数据库的应用程序的数据模型中的数据。  
   
- 通过数据模型更新数据源通常是一个包含两个步骤的过程。  第一步是使用新信息（新记录、已更改的记录或已删除的记录）更新数据模型。  第二步是将在数据模型中的更改保存回数据库。  
+ 通过数据模型中更新数据源通常是一个两步过程。 第一步是使用新信息更新数据模型 — 新记录、 已更改的记录，或已删除的记录。 第二步是将更改保存回数据库在数据模型中。  
   
- 下列主题将描述与保存数据相关的概念和任务。  
+ 以下主题介绍的概念和与保存数据关联的任务。  
   
-## 相关主题  
- [将数据保存在数据集中](../data-tools/save-data-back-to-the-database.md)  
- 提供有关如何在数据集中进行更改以及数据集如何跟踪更改信息以将这些更改保存到数据库的概述。  
+## <a name="related-topics"></a>相关主题  
+[将数据保存回数据库](../data-tools/save-data-back-to-the-database.md)  
+ 提供如何在数据集进行更改以及数据集如何跟踪以便将这些更改保存到数据库的更改的信息的概述。  
   
- [保存实体数据](../data-tools/saving-entity-data.md)  
- 介绍如何在 [ADO.NET 实体框架](../Topic/ADO.NET%20Entity%20Framework.md)和 [WCF 数据服务 4.5](../Topic/WCF%20Data%20Services%204.5.md)应用程序中保存更改。
+[如何： 添加、 修改和删除实体 （WCF 数据服务）](/dotnet/framework/data/wcf/how-to-add-modify-and-delete-entities-wcf-data-services)  
+演示如何创建、 更新和删除数据服务中的实体数据。  
+  
+[如何： 执行数据服务查询 （WCF 数据服务）](/dotnet/framework/data/wcf/how-to-execute-data-service-queries-wcf-data-services)  
+演示如何查询数据服务从数据服务应用程序。  

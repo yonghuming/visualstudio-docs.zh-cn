@@ -1,61 +1,60 @@
 ---
-title: "DiaAddressMapEntry | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-debug"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-dev_langs: 
-  - "C++"
-helpviewer_keywords: 
-  - "DiaAddressMapEntry 枚举"
+title: "DiaAddressMapEntry |Microsoft 文档"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology: vs-ide-debug
+ms.tgt_pltfrm: 
+ms.topic: article
+dev_langs: C++
+helpviewer_keywords: DiaAddressMapEntry enumeration
 ms.assetid: 5d0ae226-981d-4541-a801-fc4993fe663b
-caps.latest.revision: 9
-author: "mikejo5000"
-ms.author: "mikejo"
-manager: "ghogen"
-caps.handback.revision: 9
+caps.latest.revision: "9"
+author: mikejo5000
+ms.author: mikejo
+manager: ghogen
+ms.openlocfilehash: f1324ea79ec60a61e315253573b9d4aa3ced2695
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# DiaAddressMapEntry
-[!INCLUDE[vs2017banner](../../code-quality/includes/vs2017banner.md)]
-
-在地址图描述项。  
+# <a name="diaaddressmapentry"></a>DiaAddressMapEntry
+描述地址映射中的项。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
-```cpp#  
-struct DiaAddressMapEntry {   
-   DWORD rva,  
-   DWORD rvaTo  
+```C++  
+struct DiaAddressMapEntry {   
+   DWORD rva,  
+   DWORD rvaTo  
 };  
 ```  
   
-## Elements  
+## <a name="elements"></a>元素  
  `rva`  
- 在图像 A. 的相对 \(RVA\)虚拟地址。  
+ A.映像中的相对虚拟地址 (RVA)  
   
  `rvaTo`  
- 该相对虚拟地址 `rva` 映射到图像 B。  
+ 相对虚拟地址`rva`映像 B.中映射到  
   
-## 备注  
- 地址图提供从一个图像格式\) 的转换到另一 \(b\)。  数组 `rva` 排序的 `DiaAddressMapEntry` framework 定义了一个地址图。  
+## <a name="remarks"></a>备注  
+ 地址映射提供从一个图像布局 （A） 到另一个 （B） 的转换。 数组`DiaAddressMapEntry`结构按排序`rva`定义地址映射。  
   
- 若要将地址， `addrA`，在图像为地址， `addrB`，在图像 B，执行以下步骤:  
+ 转换一个地址， `addrA`，为地址，一个图像中`addrB`，在图 B 中，执行以下步骤：  
   
-1.  搜索映射项， `e`，和最大的 `rva` 小于或等于 `addrA`。  
+1.  搜索的项，映射`e`，最大的排`rva`小于或等于`addrA`。  
   
-2.  设置 `delta = addrA – e.rva`。  
+2.  Set `delta = addrA - e.rva`.  
   
-3.  设置 `addrB = e.rvaTo + delta`。  
+3.  Set `addrB = e.rvaTo + delta`.  
   
- 数组 `DiaAddressMapEntry` 结构传递给 [IDiaAddressMap::set\_addressMap](../../debugger/debug-interface-access/idiaaddressmap-set-addressmap.md) 方法。  
+ 数组`DiaAddressMapEntry`结构传递给[idiaaddressmap:: Set_addressmap](../../debugger/debug-interface-access/idiaaddressmap-set-addressmap.md)方法。  
   
-## 要求  
- 标题:dia2.h  
+## <a name="requirements"></a>要求  
+ 标头： dia2.h  
   
-## 请参阅  
+## <a name="see-also"></a>另请参阅  
  [枚举和结构](../../debugger/debug-interface-access/enumerations-and-structures.md)   
- [IDiaAddressMap::set\_addressMap](../../debugger/debug-interface-access/idiaaddressmap-set-addressmap.md)
+ [IDiaAddressMap::set_addressMap](../../debugger/debug-interface-access/idiaaddressmap-set-addressmap.md)

@@ -1,11 +1,10 @@
 ---
-title: 'CA1415: Declare P-Invokes correctly | Microsoft Docs'
+title: "CA1415: P 调用正确声明 |Microsoft 文档"
 ms.custom: 
 ms.date: 11/04/2016
 ms.reviewer: 
 ms.suite: 
-ms.technology:
-- vs-devops-test
+ms.technology: vs-ide-code-analysis
 ms.tgt_pltfrm: 
 ms.topic: article
 f1_keywords:
@@ -15,56 +14,40 @@ helpviewer_keywords:
 - CA1415
 - DeclarePInvokesCorrectly
 ms.assetid: 42a90796-0264-4460-bf97-2fb4a093dfdc
-caps.latest.revision: 15
-author: stevehoag
-ms.author: shoag
-manager: wpickett
-translation.priority.ht:
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- ru-ru
-- zh-cn
-- zh-tw
-translation.priority.mt:
-- cs-cz
-- pl-pl
-- pt-br
-- tr-tr
-ms.translationtype: HT
-ms.sourcegitcommit: eb5c9550fd29b0e98bf63a7240737da4f13f3249
-ms.openlocfilehash: 2e19d4a786bb58ac6fac55ebcb977be8c330a081
-ms.contentlocale: zh-cn
-ms.lasthandoff: 08/30/2017
-
+caps.latest.revision: "15"
+author: gewarren
+ms.author: gewarren
+manager: ghogen
+ms.openlocfilehash: a9edc52bbc1cd05ed1a3a726dcfb49f26574ccc1
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# <a name="ca1415-declare-pinvokes-correctly"></a>CA1415: Declare P/Invokes correctly
+# <a name="ca1415-declare-pinvokes-correctly"></a>CA1415：正确声明 P/Invoke
 |||  
 |-|-|  
 |TypeName|DeclarePInvokesCorrectly|  
 |CheckId|CA1415|  
-|Category|Microsoft.Interoperability|  
-|Breaking Change|Non-breaking - If the P/Invoke that declares the parameter cannot be seen outside the assembly. Breaking - If the P/Invoke that declares the parameter can be seen outside the assembly.|  
+|类别|Microsoft.Interoperability|  
+|是否重大更改|无间断-如果将参数声明 P/Invoke 无法程序集外可见。 中断性-如果将参数声明 P/Invoke 可以程序集外可见。|  
   
-## <a name="cause"></a>Cause  
- A platform invoke method is incorrectly declared.  
+## <a name="cause"></a>原因  
+ 平台调用方法未正确声明。  
   
-## <a name="rule-description"></a>Rule Description  
- A platform invoke method accesses unmanaged code and is defined by using the `Declare` keyword in [!INCLUDE[vbprvb](../code-quality/includes/vbprvb_md.md)] or the <xref:System.Runtime.InteropServices.DllImportAttribute?displayProperty=fullName>. Currently, this rule looks for platform invoke method declarations that target Win32 functions that have a pointer to an OVERLAPPED structure parameter and the corresponding managed parameter is not a pointer to a <xref:System.Threading.NativeOverlapped?displayProperty=fullName> structure.  
+## <a name="rule-description"></a>规则说明  
+ 平台调用方法访问非托管的代码，而且使用定义`Declare`中的关键字[!INCLUDE[vbprvb](../code-quality/includes/vbprvb_md.md)]或<xref:System.Runtime.InteropServices.DllImportAttribute?displayProperty=fullName>。 目前，此规则查找针对平台调用目标有一个指针指向 OVERLAPPED 结构参数的 Win32 函数的方法声明和对应的托管的参数不是一个指向<xref:System.Threading.NativeOverlapped?displayProperty=fullName>结构。  
   
-## <a name="how-to-fix-violations"></a>How to Fix Violations  
- To fix a violation of this rule, correctly declare the platform invoke method.  
+## <a name="how-to-fix-violations"></a>如何解决冲突  
+ 若要修复与此规则的冲突，正确声明平台调用方法。  
   
-## <a name="when-to-suppress-warnings"></a>When to Suppress Warnings  
- Do not suppress a warning from this rule.  
+## <a name="when-to-suppress-warnings"></a>何时禁止显示警告  
+ 不禁止显示此规则发出的警告。  
   
-## <a name="example"></a>Example  
- The following example shows platform invoke methods that violate the rule and satisfy the rule.  
+## <a name="example"></a>示例  
+ 平台调用方法，与该规则冲突并满足该规则的以下示例所示。  
   
  [!code-csharp[FxCop.Interoperability.DeclarePInvokes#1](../code-quality/codesnippet/CSharp/ca1415-declare-p-invokes-correctly_1.cs)]  
   
-## <a name="see-also"></a>See Also  
- [Interoperating with Unmanaged Code](/dotnet/framework/interop/index)
+## <a name="see-also"></a>另请参阅  
+ [与非托管代码交互操作](/dotnet/framework/interop/index)

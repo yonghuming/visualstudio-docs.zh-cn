@@ -1,53 +1,52 @@
 ---
-title: "IDiaSession::findLinesByVA | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-debug"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-dev_langs: 
-  - "C++"
-helpviewer_keywords: 
-  - "IDiaSession::findLinesByVA 方法"
+title: "Idiasession:: Findlinesbyva |Microsoft 文档"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology: vs-ide-debug
+ms.tgt_pltfrm: 
+ms.topic: article
+dev_langs: C++
+helpviewer_keywords: IDiaSession::findLinesByVA method
 ms.assetid: f647eee9-a73c-483b-9fe9-21f42e560a7b
-caps.latest.revision: 9
-author: "mikejo5000"
-ms.author: "mikejo"
-manager: "ghogen"
-caps.handback.revision: 9
+caps.latest.revision: "9"
+author: mikejo5000
+ms.author: mikejo
+manager: ghogen
+ms.openlocfilehash: ba8c06066c78505d915834f2ffcc1d8c634a1c73
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# IDiaSession::findLinesByVA
-[!INCLUDE[vs2017banner](../../code-quality/includes/vs2017banner.md)]
-
-检索在指定的虚拟地址范围包含的行的行号信息 \(VA\)。  
+# <a name="idiasessionfindlinesbyva"></a>IDiaSession::findLinesByVA
+检索指定的虚拟地址 (VA) 范围中包含行的行号信息。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
-```cpp#  
-HRESULT findLinesByVA (   
-   ULONGLONG             va,  
-   DWORD                 length,  
-   IDiaEnumLineNumbers** ppResult  
+```C++  
+HRESULT findLinesByVA (   
+   ULONGLONG             va,  
+   DWORD                 length,  
+   IDiaEnumLineNumbers** ppResult  
 );  
 ```  
   
-#### 参数  
+#### <a name="parameters"></a>参数  
  `va`  
- \[in\] 指定该地址作为 VA。  
+ [in]指定的地址作为弗吉尼亚  
   
  `length`  
- \[in\] 指定字节数地址范围。此查询中。  
+ [in]指定要与此查询涵盖地址范围的字节数。  
   
  `ppResult`  
- \[out\] 返回包含所有行号列表包含指定的地址范围的 [IDiaEnumLineNumbers](../../debugger/debug-interface-access/idiaenumlinenumbers.md) 对象。  
+ [out]返回[IDiaEnumLineNumbers](../../debugger/debug-interface-access/idiaenumlinenumbers.md)对象，其中包含的所有行列表数字该覆盖指定的地址范围。  
   
-## 示例  
- 此示例演示可通过在函数包含的所有行号使用函数的虚拟地址和长度的函数。  
+## <a name="example"></a>示例  
+ 此示例演示获取使用函数的虚拟地址和长度的函数中包含的所有行号的函数。  
   
-```cpp#  
+```C++  
 IDiaEnumLineNumbers *GetLineNumbersByVA(IDiaSymbol *pFunc, IDiaSession *pSession)  
 {  
     IDiaEnumLineNumbers* pEnum = NULL;  
@@ -63,6 +62,6 @@ IDiaEnumLineNumbers *GetLineNumbersByVA(IDiaSymbol *pFunc, IDiaSession *pSession
 }  
 ```  
   
-## 请参阅  
+## <a name="see-also"></a>另请参阅  
  [IDiaEnumLineNumbers](../../debugger/debug-interface-access/idiaenumlinenumbers.md)   
  [IDiaSession](../../debugger/debug-interface-access/idiasession.md)

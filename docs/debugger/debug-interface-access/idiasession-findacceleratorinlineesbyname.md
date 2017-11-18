@@ -1,54 +1,54 @@
 ---
-title: "IDiaSession::findAcceleratorInlineesByName | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-debug"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-dev_langs: 
-  - "C++"
+title: "IDiaSession::findAcceleratorInlineesByName |Microsoft 文档"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology: vs-ide-debug
+ms.tgt_pltfrm: 
+ms.topic: article
+dev_langs: C++
 ms.assetid: e203e5c2-6563-43fa-be56-3063955043ab
-caps.latest.revision: 3
-author: "mikejo5000"
-ms.author: "mikejo"
-manager: "ghogen"
-caps.handback.revision: 3
+caps.latest.revision: "3"
+author: mikejo5000
+ms.author: mikejo
+manager: ghogen
+ms.openlocfilehash: 25aceb146aac7d23647172e53989d30bd9d72a08
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# IDiaSession::findAcceleratorInlineesByName
-[!INCLUDE[vs2017banner](../../code-quality/includes/vs2017banner.md)]
-
-返回符号的枚举内联帧的具有指定的内联函数名称相对应。  
+# <a name="idiasessionfindacceleratorinlineesbyname"></a>IDiaSession::findAcceleratorInlineesByName
+返回与指定的内联函数名称对应的嵌入式框架的符号的枚举。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
-```cpp#  
-HRESULT findAcceleratorInlineeLinesByName (   
-   LPCOLESTR             name,  
+```C++  
+HRESULT findAcceleratorInlineeLinesByName (   
+   LPCOLESTR             name,  
    DWORD                 option,  
-   IDiaEnumSymbols**     ppResult  
+   IDiaEnumSymbols**     ppResult  
 );  
 ```  
   
-#### 参数  
+#### <a name="parameters"></a>参数  
  `name`  
- \[in\]要搜索的被内联方函数名。  
+ [in]要搜索的被内联方函数名称。  
   
  `option`  
- \[out\]将使用的名称搜索选项搜索，则对应于 `name`的内联帧时。  有关更多信息，请参见 [NameSearchOptions 枚举](../../debugger/debug-interface-access/namesearchoptions.md)。  
+ [in]名称搜索选项，用于搜索内联帧，对应于`name`。 有关详细信息，请参阅[NameSearchOptions 枚举](../../debugger/debug-interface-access/namesearchoptions.md)。  
   
  `ppResult`  
- \[out\]一个指向初始化结果的 `IDiaEnumSymbols` 接口指针的指针。  
+ [out]指向的指针`IDiaEnumSymbols`结果初始化的接口指针。  
   
-## 返回值  
- 如果成功，则返回 `S_OK`，否则返回错误值代码。  
+## <a name="return-value"></a>返回值  
+ 如果成功，则返回`S_OK`; 否则为返回错误代码。  
   
-## 备注  
- 此功能只搜索inlinees在快捷键存根函数中。  它将忽略本机C\+\+程序记录。  
+## <a name="remarks"></a>备注  
+ 此函数搜索的 inlinees 仅在快捷键存根 （stub） 函数中。 它将忽略本机 c + + 过程记录。  
   
-## 请参阅  
+## <a name="see-also"></a>另请参阅  
  [IDiaSession](../../debugger/debug-interface-access/idiasession.md)   
  [IDiaEnumSymbols](../../debugger/debug-interface-access/idiaenumsymbols.md)   
  [IDiaSymbol](../../debugger/debug-interface-access/idiasymbol.md)

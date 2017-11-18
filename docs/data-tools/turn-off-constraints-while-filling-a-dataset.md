@@ -1,5 +1,5 @@
 ---
-title: Turn off constraints while filling a dataset | Microsoft Docs
+title: "在填充数据集时关闭约束 |Microsoft 文档"
 ms.custom: 
 ms.date: 11/04/2016
 ms.reviewer: 
@@ -13,60 +13,44 @@ f1_keywords:
 dev_langs:
 - VB
 - CSharp
-- C++
-- aspx
 helpviewer_keywords:
 - updating datasets, constraints
 - constraints [Visual Basic], datasets
 - datasets [Visual Basic], constraints
 - constraints [Visual Basic], suspending during dataset update
 ms.assetid: 553f7d0c-2faa-4c17-b226-dd02855bf1dc
-caps.latest.revision: 18
-author: mikeblome
-ms.author: mblome
+caps.latest.revision: "18"
+author: gewarren
+ms.author: gewarren
 manager: ghogen
-translation.priority.ht:
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- ru-ru
-- zh-cn
-- zh-tw
-translation.priority.mt:
-- cs-cz
-- pl-pl
-- pt-br
-- tr-tr
-ms.translationtype: HT
-ms.sourcegitcommit: 9e6c28d42bec272c6fd6107b4baf0109ff29197e
-ms.openlocfilehash: 5b5d6a28bfed55aa925aa667877f9c5e3b7f57c1
-ms.contentlocale: zh-cn
-ms.lasthandoff: 08/22/2017
-
+ms.technology: vs-data-tools
+ms.openlocfilehash: 29b24794c74f2bd042845384d72a3716506d5e2d
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# <a name="turn-off-constraints-while-filling-a-dataset"></a>Turn off constraints while filling a dataset
-If a dataset contains constraints (such as foreign-key constraints), they can raise errors related to the order of operations that are performed against the dataset. For example, loading child records before loading related parent records can violate a constraint and cause an error. As soon as you load a child record, the constraint checks for the related parent record and raises an error.  
+# <a name="turn-off-constraints-while-filling-a-dataset"></a>在填充数据集时关闭约束
+如果数据集包含约束 （如外键约束），则它们可以引发顺序对数据集执行的操作相关的错误。 例如，加载子记录之前加载相关的父记录可以违反约束，并会导致错误。 一旦加载子记录时，约束检查相关的父记录，并引发错误。  
   
- If there were no mechanism to allow temporary constraint suspension, an error would be raised every time you tried to load a record into the child table. Another way to suspend all constraints in a dataset is with the <xref:System.Data.DataRow.BeginEdit%2A>, and <xref:System.Data.DataRow.EndEdit%2A> properties.  
+ 如果没有任何机制来允许临时约束挂起，在每次尝试加载到子表的记录时，将引发错误。 挂起数据集中的所有约束的另一个方法是使用<xref:System.Data.DataRow.BeginEdit%2A>，和<xref:System.Data.DataRow.EndEdit%2A>属性。  
   
 > [!NOTE]
->  Validation events (for example, <xref:System.Data.DataTable.ColumnChanging> and<xref:System.Data.DataTable.RowChanging>) will not be raised when constraints are turned off.  
+>  验证事件 (例如，<xref:System.Data.DataTable.ColumnChanging>和<xref:System.Data.DataTable.RowChanging>) 约束处于关闭状态时将不会引发。  
   
-### <a name="to-suspend-update-constraints-programmatically"></a>To suspend update constraints programmatically  
+### <a name="to-suspend-update-constraints-programmatically"></a>若要以编程方式挂起更新约束  
   
--   The following example shows how to temporarily turn off constraint checking in a dataset:  
+-   下面的示例演示如何暂时关闭约束检查的数据集：  
   
-     [!code-cs[VbRaddataEditing#10](../data-tools/codesnippet/CSharp/turn-off-constraints-while-filling-a-dataset_1.cs)]  [!code-vb[VbRaddataEditing#10](../data-tools/codesnippet/VisualBasic/turn-off-constraints-while-filling-a-dataset_1.vb)]  
+     [!code-csharp[VbRaddataEditing#10](../data-tools/codesnippet/CSharp/turn-off-constraints-while-filling-a-dataset_1.cs)]
+     [!code-vb[VbRaddataEditing#10](../data-tools/codesnippet/VisualBasic/turn-off-constraints-while-filling-a-dataset_1.vb)]  
   
-### <a name="to-suspend-update-constraints-using-the-dataset-designer"></a>To suspend update constraints using the Dataset Designer  
+### <a name="to-suspend-update-constraints-using-the-dataset-designer"></a>若要挂起更新约束使用数据集设计器  
   
-1.  Open your dataset in the **Dataset Designer**. For more information, see [Walkthrough: Creating a Dataset in the Dataset Designer](walkthrough-creating-a-dataset-with-the-dataset-designer.md).  
+1.  打开中的数据集**数据集设计器**。 有关详细信息，请参阅[演练： 创建数据集设计器中的数据集](walkthrough-creating-a-dataset-with-the-dataset-designer.md)。  
   
-2.  In the **Properties** window, set the <xref:System.Data.DataSet.EnforceConstraints%2A> property to `false`.  
+2.  在**属性**窗口中，设置<xref:System.Data.DataSet.EnforceConstraints%2A>属性`false`。  
   
-## <a name="see-also"></a>See Also  
- [Fill datasets by using TableAdapters](../data-tools/fill-datasets-by-using-tableadapters.md)   
- [Relationships in datasets](../data-tools/relationships-in-datasets.md)
+## <a name="see-also"></a>另请参阅  
+ [通过使用 Tableadapter 填充数据集](../data-tools/fill-datasets-by-using-tableadapters.md)   
+ [数据集中的关系](../data-tools/relationships-in-datasets.md)

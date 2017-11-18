@@ -1,43 +1,42 @@
 ---
-title: "IDiaSectionContrib::get_dataCrc | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-debug"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-dev_langs: 
-  - "C++"
-helpviewer_keywords: 
-  - "IDiaSectionContrib::get_dataCrc 方法"
+title: "Idiasectioncontrib:: Get_datacrc |Microsoft 文档"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology: vs-ide-debug
+ms.tgt_pltfrm: 
+ms.topic: article
+dev_langs: C++
+helpviewer_keywords: IDiaSectionContrib::get_dataCrc method
 ms.assetid: 33b7488f-dc9c-47b3-b08c-737e0eb1bf7d
-caps.latest.revision: 8
-author: "mikejo5000"
-ms.author: "mikejo"
-manager: "ghogen"
-caps.handback.revision: 8
+caps.latest.revision: "8"
+author: mikejo5000
+ms.author: mikejo
+manager: ghogen
+ms.openlocfilehash: e99a55c5e74e707b94a3632226905d562156757f
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# IDiaSectionContrib::get_dataCrc
-[!INCLUDE[vs2017banner](../../code-quality/includes/vs2017banner.md)]
-
-检索数据的 \(CRC\)循环冗余检查在节中。  
+# <a name="idiasectioncontribgetdatacrc"></a>IDiaSectionContrib::get_dataCrc
+检索部分中的数据的循环冗余的检查 (CRC)。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
-```cpp#  
-HRESULT get_dataCrc (   
-   DWORD* pRetVal  
+```C++  
+HRESULT get_dataCrc (   
+   DWORD* pRetVal  
 );  
 ```  
   
-#### 参数  
+#### <a name="parameters"></a>参数  
  `pRetVal`  
- \[out\] 返回数据的 CRC 在节中。  
+ [out]本节对返回的数据的 CRC。  
   
-## 返回值  
- 如果成功，则返回 `S_OK`。  ，如果此属性不受支持，返回 `S_FALSE` 。  否则，返回错误代码。  
+## <a name="return-value"></a>返回值  
+ 如果成功，则返回`S_OK`。 返回`S_FALSE`如果不支持此属性。 否则，返回错误代码。  
   
-## 请参阅  
+## <a name="see-also"></a>另请参阅  
  [IDiaSectionContrib](../../debugger/debug-interface-access/idiasectioncontrib.md)
