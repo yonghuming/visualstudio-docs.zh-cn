@@ -4,37 +4,21 @@ ms.custom:
 ms.date: 11/04/2016
 ms.reviewer: 
 ms.suite: 
-ms.technology:
-- vs-ide-sdk
+ms.technology: vs-ide-sdk
 ms.tgt_pltfrm: 
 ms.topic: article
-f1_keywords:
-- IDebugAddress2
-helpviewer_keywords:
-- IDebugAddress2 interface
+f1_keywords: IDebugAddress2
+helpviewer_keywords: IDebugAddress2 interface
 ms.assetid: b150e0ed-4ac0-4f8c-9732-4b3e54b9d243
-caps.latest.revision: 10
+caps.latest.revision: "10"
+author: gregvanl
 ms.author: gregvanl
 manager: ghogen
-translation.priority.mt:
-- cs-cz
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pl-pl
-- pt-br
-- ru-ru
-- tr-tr
-- zh-cn
-- zh-tw
-translationtype: Machine Translation
-ms.sourcegitcommit: ca7c86466fa23fb21a932f26dc24e37c71cf29b4
-ms.openlocfilehash: e36f2863680dea79451e57d06bd749b52fbed933
-ms.lasthandoff: 04/05/2017
-
+ms.openlocfilehash: 13161c2be23d2eec6f1d91fd59fc465cbc59a510
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="idebugaddress2"></a>IDebugAddress2
 此接口提供对拥有其地址的对象的进程 ID 访问表示通过此接口。  
@@ -52,18 +36,18 @@ IDebugAddress2 : IDebugAddress
  使用[QueryInterface](/cpp/atl/queryinterface)获取此接口从[IDebugAddress](../../../extensibility/debugger/reference/idebugaddress.md)接口。  
   
 ## <a name="methods-in-vtable-order"></a>Vtable 顺序中的方法  
- 除了从继承的方法[IDebugAddress](../../../extensibility/debugger/reference/idebugaddress.md)接口，此接口实现以下方法︰  
+ 除了从继承的方法[IDebugAddress](../../../extensibility/debugger/reference/idebugaddress.md)接口，此接口实现以下方法：  
   
-|方法|说明|  
+|方法|描述|  
 |------------|-----------------|  
 |[GetProcessID](../../../extensibility/debugger/reference/idebugaddress2-getprocessid.md)|检索此接口表示该对象所属的进程的 ID。|  
   
 ## <a name="requirements"></a>要求  
- 标头︰ sh.h  
+ 标头： sh.h  
   
  Namespace: Microsoft.VisualStudio.Debugger.Interop  
   
- 程序集︰ Microsoft.VisualStudio.Debugger.Interop.dll  
+ 程序集： Microsoft.VisualStudio.Debugger.Interop.dll  
   
 ## <a name="see-also"></a>另请参阅  
  [符号提供程序接口](../../../extensibility/debugger/reference/symbol-provider-interfaces.md)   

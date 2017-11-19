@@ -1,37 +1,39 @@
 ---
-title: "优化菜单和工具栏命令 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-helpviewer_keywords: 
-  - "命令 [Visual Studio] 菜单"
-  - "工具栏的命令 [Visual Studio]"
-  - "菜单 [Visual Studio SDK] 命令"
-  - "实现菜单命令"
-  - "工具栏 [Visual Studio] 命令"
+title: "优化菜单和工具栏命令 |Microsoft 文档"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology: vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+helpviewer_keywords:
+- commands [Visual Studio], menus
+- commands [Visual Studio], toolbars
+- menus [Visual Studio SDK], commands
+- menu commands, implementing
+- toolbars [Visual Studio], commands
 ms.assetid: 8385f1a6-1e98-4dca-83d2-fcbed7177242
-caps.latest.revision: 8
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 8
+caps.latest.revision: "8"
+author: gregvanl
+ms.author: gregvanl
+manager: ghogen
+ms.openlocfilehash: 08502ab2e1161d753323642589ed00b00ed94ad2
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# 优化菜单和工具栏命令
-[!INCLUDE[vs2017banner](../../code-quality/includes/vs2017banner.md)]
-
-Vspackage 和到其相应命令添加 [!INCLUDE[vsprvs](../../code-quality/includes/vsprvs_md.md)] 可能会导致很拥挤的 UI。[!INCLUDE[vsprvs](../../code-quality/includes/vsprvs_md.md)] 提供了方法，以帮助最小化 UI 命令混淆。  
+# <a name="optimizing-menu-and-toolbar-commands"></a>优化菜单和工具栏命令
+添加 Vspackage 和到其相应命令[!INCLUDE[vsprvs](../../code-quality/includes/vsprvs_md.md)]可能会导致拥挤的 UI。 [!INCLUDE[vsprvs](../../code-quality/includes/vsprvs_md.md)]提供方法来帮助减少 UI 命令混淆。  
   
-## 本节内容  
- [提供命令](../../extensibility/internals/making-commands-available.md)  
- 提供有关最小化围的通用准则 [!INCLUDE[vsprvs](../../code-quality/includes/vsprvs_md.md)] UI 时添加 Vspackage。  
+## <a name="in-this-section"></a>本节内容  
+ [提供可用命令](../../extensibility/internals/making-commands-available.md)  
+ 尽量减少的围提供一般准则[!INCLUDE[vsprvs](../../code-quality/includes/vsprvs_md.md)]UI 添加 Vspackage 时。  
   
- [放置指导原则](../../extensibility/internals/command-placement-guidelines.md)  
- 提供用于实现根据命令集的大小的 VSPackage 的特定指导原则。  
+ [放置准则](../../extensibility/internals/command-placement-guidelines.md)  
+ 提供用于实现根据命令集的大小 VSPackage 的特定准则。  
   
-## 相关章节  
- [命令、 菜单和工具栏](../../extensibility/internals/commands-menus-and-toolbars.md)  
- 说明如何创建一个用户界面，包括菜单、 工具栏和命令组合框。
+## <a name="related-sections"></a>相关章节  
+ [命令、菜单和工具栏](../../extensibility/internals/commands-menus-and-toolbars.md)  
+ 说明如何创建包含菜单、工具栏和命令组合框的 UI。

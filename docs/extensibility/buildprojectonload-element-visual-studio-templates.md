@@ -1,55 +1,61 @@
 ---
-title: "BuildProjectOnload 元素（Visual Studio 模板） | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-general"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
+title: "BuildProjectOnload 元素 （Visual Studio 模板） |Microsoft 文档"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology: vs-ide-general
+ms.tgt_pltfrm: 
+ms.topic: article
 ms.assetid: b07d3074-0fc9-45e1-baf5-da6bd4f3f1c0
-caps.latest.revision: 8
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 8
+caps.latest.revision: "8"
+author: gregvanl
+ms.author: gregvanl
+manager: ghogen
+ms.openlocfilehash: 362dd868e6f9c273e9495295a453d8da4e2183cd
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# BuildProjectOnload 元素（Visual Studio 模板）
-[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
-
-仅生成新的项目中，您将创建并将其添加到解决方案。  整个解决方案不进行生成。  
+# <a name="buildprojectonload-element-visual-studio-templates"></a>BuildProjectOnload 元素（Visual Studio 模板）
+只有新项目将生成尽可能创建并将其添加到解决方案。 不生成整个解决方案。  
   
-## 语法  
+ \<VSTemplate >  
+ \<TemplateData >  
+ \<BuildProjectOnLoad >  
+  
+## <a name="syntax"></a>语法  
   
 ```vb  
 <BuildProjectOnLoad> true/false </BuildOnLoad>  
 ```  
   
-## 特性和元素  
- 以下几节描述了特性、子元素和父元素。  
+## <a name="attributes-and-elements"></a>特性和元素  
+ 下列各节描述了特性、子元素和父元素。  
   
-### 特性  
+### <a name="attributes"></a>特性  
  无。  
   
-### 子元素  
+### <a name="child-elements"></a>子元素  
  无。  
   
-### 父元素  
+### <a name="parent-elements"></a>父元素  
   
-|元素|描述|  
-|--------|--------|  
-|TemplateData|类模板并定义如何显示在 **新建项目** 和 **添加新项** 对话框。|  
+|元素|说明|  
+|-------------|-----------------|  
+|TemplateData|将此模板分类并定义中的显示方式**新项目**和**添加新项**对话框。|  
   
-## 文本值  
+## <a name="text-value"></a>文本值  
  需要一个文本值。  
   
- 当从模板时，创建该文本是否必须是 `true` 或 `false` 指示只生成新项目。  
+ 文本必须是`true`或`false`以指示是否从模板创建时生成新的项目。  
   
-## 备注  
- `BuildProjectOnLoad` 是可选元素。  默认值为 `false`。  
+## <a name="remarks"></a>备注  
+ `BuildProjectOnLoad` 是可选元素。 默认值为 `false`。  
   
-## 示例  
- 下面的示例演示一个 visual C\# 模板的元数据。  
+## <a name="example"></a>示例  
+ 下面的示例演示 Visual C# 模板的元数据。  
   
 ```  
 <VSTemplate Type="Project" Version="3.0.0"  
@@ -74,9 +80,8 @@ caps.handback.revision: 8
         </Project>  
     </TemplateContent>  
 </VSTemplate>  
-  
 ```  
   
-## 请参阅  
- [创建自定义项目和项模板](../ide/creating-project-and-item-templates.md)   
+## <a name="see-also"></a>另请参阅  
+ [创建项目和项模板](../ide/creating-project-and-item-templates.md)   
  [Visual Studio 模板架构参考](../extensibility/visual-studio-template-schema-reference.md)

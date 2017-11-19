@@ -1,52 +1,52 @@
 ---
-title: "IDebugArrayField::GetElementType | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "IDebugArrayField::GetElementType"
-helpviewer_keywords: 
-  - "IDebugArrayField::GetElementType 方法"
+title: "IDebugArrayField::GetElementType |Microsoft 文档"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology: vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords: IDebugArrayField::GetElementType
+helpviewer_keywords: IDebugArrayField::GetElementType method
 ms.assetid: c46bf625-0a48-4cbb-8f1f-286356f2c065
-caps.latest.revision: 9
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 9
+caps.latest.revision: "9"
+author: gregvanl
+ms.author: gregvanl
+manager: ghogen
+ms.openlocfilehash: a2286f201e358a190510fdff634b01f7ec9a64d9
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# IDebugArrayField::GetElementType
-[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
-
-获取元素的类型在数组的。  
+# <a name="idebugarrayfieldgetelementtype"></a>IDebugArrayField::GetElementType
+获取数组中元素的类型。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
-```cpp#  
-HRESULT GetElementType(   
-   IDebugField** ppType  
+```cpp  
+HRESULT GetElementType(   
+   IDebugField** ppType  
 );  
 ```  
   
-```c#  
+```csharp  
 int GetElementType(  
-   out IDebugField ppType  
+   out IDebugField ppType  
 );  
 ```  
   
-#### 参数  
+#### <a name="parameters"></a>参数  
  `ppType`  
- \[out\] 返回描述元素的类型的 [IDebugField](../../../extensibility/debugger/reference/idebugfield.md) 对象。  
+ [out]返回[IDebugField](../../../extensibility/debugger/reference/idebugfield.md)描述元素的类型的对象。  
   
-## 返回值  
- 如果成功，则返回 S\_OK;否则，返回错误代码。  
+## <a name="return-value"></a>返回值  
+ 如果成功，返回，则为 S_OK;否则，返回错误代码。  
   
-## 备注  
- [IDebugArrayField](../../../extensibility/debugger/reference/idebugarrayfield.md) 对象，假设数组的所有元素是同一类型。  
+## <a name="remarks"></a>备注  
+ [IDebugArrayField](../../../extensibility/debugger/reference/idebugarrayfield.md)对象假定数组的所有元素都具有相同的类型。  
   
-## 请参阅  
+## <a name="see-also"></a>另请参阅  
  [IDebugArrayField](../../../extensibility/debugger/reference/idebugarrayfield.md)   
  [IDebugField](../../../extensibility/debugger/reference/idebugfield.md)

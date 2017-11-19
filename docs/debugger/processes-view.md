@@ -1,63 +1,62 @@
 ---
-title: "Processes View | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-debug"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "vs.externaltools.spyplus.processesview"
-helpviewer_keywords: 
-  - "Processes view"
+title: "进程视图 |Microsoft 文档"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology: vs-ide-debug
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords: vs.externaltools.spyplus.processesview
+helpviewer_keywords: Processes view
 ms.assetid: e144e70e-eef2-45a7-a562-a177f177d9a1
-caps.latest.revision: 6
-author: "mikejo5000"
-ms.author: "mikejo"
-manager: "ghogen"
-caps.handback.revision: 6
+caps.latest.revision: "6"
+author: mikejo5000
+ms.author: mikejo
+manager: ghogen
+ms.openlocfilehash: b2ca6d0d7f875e376af37fcdcfa5d4156b8f4038
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# Processes View
-[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
-
-进程视图显示系统中所有活动进程的树。  其中显示了进程 ID 和模块名称。  如果要检查特定系统进程（通常对应于正在执行的程序），请使用进程视图。  进程由模块名称标识，或者可以将其指定为“系统进程”。  
+# <a name="processes-view"></a>进程视图
+进程视图显示你的系统上的所有活动进程树。 显示进程 ID 和模块名称。 如果你想要检查特定的系统进程，它通常对应于执行程序，请使用进程视图。 进程标识由模块名称，或者其指定为"系统 processes"。  
   
- Microsoft Windows 支持多个进程。  每个进程都可以具有一个或多个线程，每个线程可以具有一个或多个关联的顶级窗口。  每个顶级窗口可以拥有一系列窗口。  \+ 符号表示已折叠级别。  折叠的视图对每个进程包含一行。  单击 \+ 符号可展开级别。  
+ Microsoft Windows 支持多个进程。 每个进程都可以有一个或多个线程和每个线程可以具有一个或多个关联的顶级窗口。 每个顶级窗口可以拥有一系列窗口。 一个 + 符号指示级别处于折叠状态。 在折叠的视图包含一个行，每个进程。 单击 + 符号来扩展该级别。  
   
- 如果要检查特定系统进程（通常对应于正在执行的程序），请使用进程视图。  进程由模块名称标识，或者可以将其指定为“系统进程”。若要查找进程，请折叠树并搜索列表。  
+ 如果你想要检查特定的系统进程，它通常对应于执行程序，请使用进程视图。 进程标识由模块名称，或者其指定为"系统 processes"。 若要查找进程，折叠树和搜索列表。  
   
-## 过程  
+## <a name="procedures"></a>过程  
   
-#### 打开进程视图  
+#### <a name="to-open-the-processes-view"></a>若要打开进程视图  
   
-1.  从“监视”菜单中选择“进程”。  
+1.  从**Spy**菜单上，选择**进程**。  
   
- ![Spy&#43;&#43; 进程视图](../debugger/media/spy--_processes.png "Spy\+\+\_Processes")  
-Spy\+\+ 进程视图  
+ ![Spy &#43; &#43;进程视图](../debugger/media/spy--_processes.png "Spy + + _Processes")  
+Spy++ 进程视图  
   
- 上图显示进程和线程节点已展开的进程视图。  
+ 上图显示了与进程和线程节点已展开的进程视图。  
   
-### 本节内容  
- [在进程视图中搜索进程](../debugger/how-to-search-for-a-process-in-processes-view.md)  
- 说明如何在进程视图中查找特定进程。  
+### <a name="in-this-section"></a>本节内容  
+ [进程视图中的进程搜索](../debugger/how-to-search-for-a-process-in-processes-view.md)  
+ 说明如何在进程视图中查找特定的进程。  
   
  [显示进程属性](../debugger/how-to-display-process-properties.md)  
- 说明如何显示有关消息的更多信息。  
+ 说明如何显示一条消息有关的详细信息。  
   
-### 相关章节  
- [Spy\+\+ 视图](../debugger/spy-increment-views.md)  
- 说明窗口、消息、进程和线程的 Spy\+\+ 树视图。  
+### <a name="related-sections"></a>相关章节  
+ [Spy++ 视图](../debugger/spy-increment-views.md)  
+ 说明 windows、 消息、 进程和线程 Spy + + 树视图。  
   
- [使用 Spy\+\+](../debugger/using-spy-increment.md)  
- 介绍 Spy\+\+ 工具并说明如何使用。  
+ [使用 Spy++](../debugger/using-spy-increment.md)  
+ 引入了 Spy + + 工具，并说明如何使用它。  
   
  [“进程搜索”对话框](../debugger/process-search-dialog-box.md)  
- 用于在进程视图中查找特定进程的节点。  
+ 用于查找特定的进程在进程视图中的节点。  
   
  [“进程属性”对话框](../debugger/process-properties-dialog-box.md)  
  显示在进程视图中选择的进程的属性。  
   
- [Spy\+\+ 参考](../debugger/spy-increment-reference.md)  
- 包含描述各个 Spy\+\+ 菜单和对话框的章节。
+ [Spy++ 参考](../debugger/spy-increment-reference.md)  
+ 包含描述每个 Spy + + 菜单和对话框框中的部分。

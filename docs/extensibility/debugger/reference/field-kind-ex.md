@@ -1,29 +1,30 @@
 ---
-title: "FIELD_KIND_EX | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-helpviewer_keywords: 
-  - "FIELD_KIND_EX 枚举"
+title: "FIELD_KIND_EX |Microsoft 文档"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology: vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+helpviewer_keywords: FIELD_KIND_EX enumeration
 ms.assetid: 922c3208-1e94-485f-b70a-3bc96affeff8
-caps.latest.revision: 7
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 7
+caps.latest.revision: "7"
+author: gregvanl
+ms.author: gregvanl
+manager: ghogen
+ms.openlocfilehash: 700eae83a53cf9ef88c81d33a07f9a79bd77a4b8
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# FIELD_KIND_EX
-[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
-
-枚举 [IDebugField](../../../extensibility/debugger/reference/idebugfield.md) 对象可以包含的其他类型字段。  此枚举扩展 [FIELD\_KIND](../../../extensibility/debugger/reference/field-kind.md) 枚举。  
+# <a name="fieldkindex"></a>FIELD_KIND_EX
+枚举其他类型的字段， [IDebugField](../../../extensibility/debugger/reference/idebugfield.md)对象可以包含。 此枚举扩展[FIELD_KIND](../../../extensibility/debugger/reference/field-kind.md)枚举。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
-```cpp#  
+```cpp  
 enum enum_FIELD_KIND_EX  
 {  
    FIELD_KIND_EX_NONE = 0,  
@@ -33,7 +34,7 @@ enum enum_FIELD_KIND_EX
 typedef DWORD FIELD_KIND_EX;  
 ```  
   
-```c#  
+```csharp  
 public enum enum_FIELD_KIND_EX  
 {  
    FIELD_KIND_EX_NONE = 0,  
@@ -42,23 +43,23 @@ public enum enum_FIELD_KIND_EX
 };  
 ```  
   
-## 成员  
- FIELD\_KIND\_EX\_NONE  
- 字段不包含一个扩展类型。  
+## <a name="members"></a>成员  
+ FIELD_KIND_EX_NONE  
+ 字段不包含扩展的类型。  
   
- FIELD\_TYPE\_EX\_METHODVAR  
- 字段包含方法的变量。  
+ FIELD_TYPE_EX_METHODVAR  
+ 字段包含方法变量。  
   
- FIELD\_TYPE\_EX\_CLASSVAR  
+ FIELD_TYPE_EX_CLASSVAR  
  字段包含类变量。  
   
-## 要求  
- 标题:Sh.h  
+## <a name="requirements"></a>要求  
+ 标头： Sh.h  
   
- 命名空间:Microsoft.VisualStudio.Debugger.Interop  
+ Namespace: Microsoft.VisualStudio.Debugger.Interop  
   
- 程序集:Microsoft.VisualStudio.Debugger.Interop.dll  
+ 程序集： Microsoft.VisualStudio.Debugger.Interop.dll  
   
-## 请参阅  
+## <a name="see-also"></a>另请参阅  
  [枚举](../../../extensibility/debugger/reference/enumerations-visual-studio-debugging.md)   
  [GetExtendedKind](../../../extensibility/debugger/reference/idebugextendedfield-getextendedkind.md)

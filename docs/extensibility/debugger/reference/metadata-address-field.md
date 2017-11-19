@@ -1,59 +1,59 @@
 ---
-title: "METADATA_ADDRESS_FIELD | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "METADATA_ADDRESS_FIELD"
-helpviewer_keywords: 
-  - "METADATA_ADDRESS_FIELD 结构"
+title: "METADATA_ADDRESS_FIELD |Microsoft 文档"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology: vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords: METADATA_ADDRESS_FIELD
+helpviewer_keywords: METADATA_ADDRESS_FIELD structure
 ms.assetid: 15ab45fe-6b3b-4e09-880b-31b34f523607
-caps.latest.revision: 6
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 6
+caps.latest.revision: "6"
+author: gregvanl
+ms.author: gregvanl
+manager: ghogen
+ms.openlocfilehash: 4f3de6d6dc309158f6c337d2aa2b76f477b17047
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# METADATA_ADDRESS_FIELD
-[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
-
-此结构表示类或结构的域的地址。  
+# <a name="metadataaddressfield"></a>METADATA_ADDRESS_FIELD
+此结构表示类或结构的字段的地址。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
 ```cpp  
 typedef struct _tagMETADATA_ADDRESS_FIELD {  
-   _mdToken tokField;  
+   _mdToken tokField;  
 } METADATA_ADDRESS_FIELD  
 ```  
   
-```c#  
+```csharp  
 public struct METADATA_ADDRESS_FIELD {  
-   public int tokField;  
+   public int tokField;  
 }  
 ```  
   
-## 术语  
+## <a name="terms"></a>术语  
  tokField  
- 标记字段的 ID。  
+ 字段令牌的 ID。  
   
- \[c\+\+\] `_mdToken` 是 32 位 `int`的 `typedef` 。  
+ [C + +]`_mdToken`是`typedef`适用于 32 位`int`。  
   
-## 备注  
- 此结构是联合的一部分。 [DEBUG\_ADDRESS\_UNION](../../../extensibility/debugger/reference/debug-address-union.md) 结构时， `DEBUG_ADDRESS_UNION` 结构的 `dwKind` 字段设置为 `ADDRESS_KIND_FIELD` 时 \(从 [ADDRESS\_KIND](../../../extensibility/debugger/reference/address-kind.md) 枚举的值\)。  
+## <a name="remarks"></a>备注  
+ 此结构是中的联合的一部分[DEBUG_ADDRESS_UNION](../../../extensibility/debugger/reference/debug-address-union.md)结构时`dwKind`字段`DEBUG_ADDRESS_UNION`结构设置为`ADDRESS_KIND_FIELD`(从值[ADDRESS_KIND](../../../extensibility/debugger/reference/address-kind.md)枚举）。  
   
-## 要求  
- 标题:sh.h  
+## <a name="requirements"></a>要求  
+ 标头： sh.h  
   
- 命名空间:Microsoft.VisualStudio.Debugger.Interop  
+ Namespace: Microsoft.VisualStudio.Debugger.Interop  
   
- 程序集:Microsoft.VisualStudio.Debugger.Interop.dll  
+ 程序集： Microsoft.VisualStudio.Debugger.Interop.dll  
   
-## 请参阅  
+## <a name="see-also"></a>另请参阅  
  [结构和联合](../../../extensibility/debugger/reference/structures-and-unions.md)   
- [DEBUG\_ADDRESS\_UNION](../../../extensibility/debugger/reference/debug-address-union.md)   
- [ADDRESS\_KIND](../../../extensibility/debugger/reference/address-kind.md)
+ [DEBUG_ADDRESS_UNION](../../../extensibility/debugger/reference/debug-address-union.md)   
+ [ADDRESS_KIND](../../../extensibility/debugger/reference/address-kind.md)

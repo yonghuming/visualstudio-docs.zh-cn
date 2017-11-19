@@ -1,52 +1,52 @@
 ---
-title: "IDebugDocumentPosition2::IsPositionInDocument | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "IDebugDocumentPosition2::IsPositionInDocument"
-helpviewer_keywords: 
-  - "IDebugDocumentPosition2::IsPositionInDocument"
+title: "IDebugDocumentPosition2::IsPositionInDocument |Microsoft 文档"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology: vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords: IDebugDocumentPosition2::IsPositionInDocument
+helpviewer_keywords: IDebugDocumentPosition2::IsPositionInDocument
 ms.assetid: d5cf57cb-b93b-4e1d-bec9-185f4fe8668d
-caps.latest.revision: 10
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 10
+caps.latest.revision: "10"
+author: gregvanl
+ms.author: gregvanl
+manager: ghogen
+ms.openlocfilehash: fc2c5d3a9b4d0a59aa85208479f57490c18d3c2c
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# IDebugDocumentPosition2::IsPositionInDocument
-[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
-
-确定文档位置是否位于给定的包含文档。  
+# <a name="idebugdocumentposition2ispositionindocument"></a>IDebugDocumentPosition2::IsPositionInDocument
+确定文档位置是否包含给定文档中。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
-```cpp#  
-HRESULT IsPositionInDocument(   
-   IDebugDocument2* pDoc  
+```cpp  
+HRESULT IsPositionInDocument(   
+   IDebugDocument2* pDoc  
 );  
 ```  
   
-```c#  
-int IsPositionInDocument(   
-   IDebugDocument2 pDoc  
+```csharp  
+int IsPositionInDocument(   
+   IDebugDocument2 pDoc  
 );  
 ```  
   
-#### 参数  
+#### <a name="parameters"></a>参数  
  `pDoc`  
- \[in\] 表示包含的 [IDebugDocument2](../../../extensibility/debugger/reference/idebugdocument2.md) 对象文档候选对象。  
+ [in][IDebugDocument2](../../../extensibility/debugger/reference/idebugdocument2.md)表示包含文档候选对象。  
   
-## 返回值  
- 如果成功，则返回; `S_OK`否则，返回错误代码。  
+## <a name="return-value"></a>返回值  
+ 如果成功，则返回`S_OK`; 否则为返回错误代码。  
   
-## 备注  
- 此方法主要在设置使用在 [IDebugDocument2](../../../extensibility/debugger/reference/idebugdocument2.md) 接口的断点。  加载文档，断点位置调用来确定文档是否包含此位置。  
+## <a name="remarks"></a>备注  
+ 此方法使用主要体现在中设置断点[IDebugDocument2](../../../extensibility/debugger/reference/idebugdocument2.md)接口。 在文档加载时，都会调用断点位置来确定文档是否包含此位置。  
   
-## 请参阅  
+## <a name="see-also"></a>另请参阅  
  [IDebugDocumentPosition2](../../../extensibility/debugger/reference/idebugdocumentposition2.md)   
  [IDebugDocument2](../../../extensibility/debugger/reference/idebugdocument2.md)

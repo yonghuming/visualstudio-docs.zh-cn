@@ -1,55 +1,57 @@
 ---
-title: "如何：对 Office 解决方案进行签名"
-ms.custom: ""
-ms.date: "02/02/2017"
-ms.prod: "visual-studio-dev14"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "office-development"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-dev_langs: 
-  - "VB"
-  - "CSharp"
-helpviewer_keywords: 
-  - "证书 [Visual Studio 中的 Office 开发], Office 解决方案"
-  - "安全性 [Visual Studio 中的 Office 开发], 对 Office 解决方案进行签名"
-  - "对清单进行签名 [Visual Studio 中的 Office 开发]"
+title: "如何： 登录 Office 解决方案 |Microsoft 文档"
+ms.custom: 
+ms.date: 02/02/2017
+ms.reviewer: 
+ms.suite: 
+ms.technology: office-development
+ms.tgt_pltfrm: 
+ms.topic: article
+dev_langs:
+- VB
+- CSharp
+helpviewer_keywords:
+- certificates [Office development in Visual Studio], Office solutions
+- security [Office development in Visual Studio], signing Office solutions
+- signing manifests [Office development in Visual Studio]
 ms.assetid: d3df5ee6-f1b7-47ed-b7ee-8985679ee3af
-caps.latest.revision: 18
-author: "kempb"
-ms.author: "kempb"
-manager: "ghogen"
-caps.handback.revision: 17
+caps.latest.revision: "18"
+author: gewarren
+ms.author: gewarren
+manager: ghogen
+ms.openlocfilehash: 12a367b6051f7ed1ca1f51e0c9d7e8ada4be4ba6
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# 如何：对 Office 解决方案进行签名
-  如果为解决方案签名，您可以使用证书作为证据向解决方案授予信任。  您可以为多个解决方案使用同一证书，并且无需额外更新安全策略即可使所有解决方案得到信任。  
+# <a name="how-to-sign-office-solutions"></a>如何：对 Office 解决方案进行签名
+  如果你登录解决方案，你可以授予对使用证书作为证据解决方案信任。 你可以为多个解决方案，使用相同的证书，所有的解决方案将没有其他安全策略更新受信任。  
   
  [!INCLUDE[appliesto_all](../vsto/includes/appliesto-all-md.md)]  
   
- 如果使用清单生成和编辑工具（mage.exe 和 mageui.exe）手动编辑应用程序清单和部署清单，您必须对这些清单进行重新签名，然后才能使用它们。  有关更多信息，请参见[如何：为应用程序和部署清单重新签名](~/deployment/how-to-re-sign-application-and-deployment-manifests.md)。  
+ 如果您手动编辑应用程序和部署清单通过使用清单生成和编辑工具 （mage.exe 和 mageui.exe），你必须重新为清单签名之后才能使用它们。 有关详细信息，请参阅 [How to: Re-sign Application and Deployment Manifests](/visualstudio/deployment/how-to-re-sign-application-and-deployment-manifests)。  
   
-## 使用证书进行签名  
- 证书是一个文件，其中包含解决方案发布者的唯一密钥和标识。  您可以从证书颁发机构购买证书，也可以创建自己的证书并让证书颁发机构为其签名。  
+## <a name="signing-by-using-a-certificate"></a>使用证书进行签名  
+ 证书是包含一个唯一键和解决方案发布服务器的标识的文件。 可以从证书颁发机构购买证书或创建你自己的证书，并且有对其进行签名的证书颁发机构。  
   
- 为启用调试，Visual Studio 会使用一个临时证书对 Office 解决方案进行签名。  您不应将已部署解决方案中的临时证书用作证据。  
+ Visual Studio 会对签名与一个临时证书来启用调试 Office 解决方案。 作为证据，不应在已部署的解决方案中使用该临时证书。  
   
-#### 使用证书为 Office 解决方案签名  
+#### <a name="to-sign-an-office-solution-by-using-a-certificate"></a>使用证书对 Office 解决方案进行签名  
   
-1.  在**“项目”**菜单上，单击“*解决方案名称* **属性”**。  
+1.  上**项目**菜单上，单击*SolutionName***属性**。  
   
-2.  单击**“签名”**选项卡。  
+2.  单击“签名”选项卡。  
   
-3.  选择**“为 ClickOnce 清单签名”**。  
+3.  选择**ClickOnce 清单签名**。  
   
-4.  通过单击**“从存储区选择”**或**“从文件选择”**并定位到证书来查找证书。  
+4.  通过单击找到的证书**从存储中选择**或**从文件中选择**和导航到该证书。  
   
-5.  若要验证是否在使用正确的证书，请单击**“更多详细信息”**来查看证书信息。  
+5.  若要验证是否正在使用正确的证书，请单击**更多详细信息**若要查看证书信息。  
   
-## 请参阅  
- [保护 Office 解决方案的安全](../vsto/securing-office-solutions.md)   
+## <a name="see-also"></a>另请参阅  
+ [保护 Office 解决方案](../vsto/securing-office-solutions.md)   
  [向 Office 解决方案授予信任](../vsto/granting-trust-to-office-solutions.md)   
- [“项目设计器”-&#62;“签名”页](../ide/reference/signing-page-project-designer.md)  
+ [“项目设计器”->“签名”页](/visualstudio/ide/reference/signing-page-project-designer)  
   
   

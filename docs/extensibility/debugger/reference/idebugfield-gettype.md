@@ -1,48 +1,48 @@
 ---
-title: "IDebugField::GetType | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "IDebugField::GetType"
-helpviewer_keywords: 
-  - "IDebugField::GetType 方法"
+title: "IDebugField::GetType |Microsoft 文档"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology: vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords: IDebugField::GetType
+helpviewer_keywords: IDebugField::GetType method
 ms.assetid: b3cdec9f-ef7b-44d0-a775-d17ef7eae968
-caps.latest.revision: 11
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 11
+caps.latest.revision: "11"
+author: gregvanl
+ms.author: gregvanl
+manager: ghogen
+ms.openlocfilehash: a5b1363395c048f1ddc790d2ef7843d25333f234
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# IDebugField::GetType
-[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
-
-此方法获取域的类型。  
+# <a name="idebugfieldgettype"></a>IDebugField::GetType
+此方法获取字段的类型。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
-```cpp#  
-HRESULT GetType(   
-   IDebugField** ppType  
+```cpp  
+HRESULT GetType(   
+   IDebugField** ppType  
 );  
 ```  
   
-```c#  
+```csharp  
 int GetType(  
-   out IDebugField ppType  
+   out IDebugField ppType  
 );  
 ```  
   
-#### 参数  
+#### <a name="parameters"></a>参数  
  `ppType`  
- \[out\] 返回字段类型作为另一 [IDebugField](../../../extensibility/debugger/reference/idebugfield.md) 对象。  
+ [out]返回与另一个字段的类型[IDebugField](../../../extensibility/debugger/reference/idebugfield.md)对象。  
   
-## 返回值  
- 如果成功，则返回; `S_OK`否则，返回错误代码。  
+## <a name="return-value"></a>返回值  
+ 如果成功，则返回`S_OK`; 否则为返回错误代码。  
   
-## 请参阅  
+## <a name="see-also"></a>另请参阅  
  [IDebugField](../../../extensibility/debugger/reference/idebugfield.md)

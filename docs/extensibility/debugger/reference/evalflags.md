@@ -1,90 +1,90 @@
 ---
-title: "EVALFLAGS | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "EVALFLAGS"
-helpviewer_keywords: 
-  - "EVALFLAGS 枚举"
+title: "EVALFLAGS |Microsoft 文档"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology: vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords: EVALFLAGS
+helpviewer_keywords: EVALFLAGS enumeration
 ms.assetid: 7b2cb14a-511a-4fef-9e4f-308139719fba
-caps.latest.revision: 12
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 12
+caps.latest.revision: "12"
+author: gregvanl
+ms.author: gregvanl
+manager: ghogen
+ms.openlocfilehash: 45bef946605818f11d0199600849fd49b5463ab8
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# EVALFLAGS
-[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
-
-指定控制表达式计算的标志。  
+# <a name="evalflags"></a>EVALFLAGS
+指定可控制表达式计算的标志。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
-```cpp#  
-enum enum_EVALFLAGS {  
-   EVAL_RETURNVALUE = 0x0002,  
-   EVAL_NOSIDEEFFECTS = 0x0004,  
-   EVAL_ALLOWBPS = 0x0008,  
-   EVAL_ALLOWERRORREPORT = 0x0010,  
-   EVAL_FUNCTION_AS_ADDRESS = 0x0040,  
-   EVAL_NOFUNCEVAL = 0x0080,  
-   EVAL_NOEVENTS = 0x1000  
+```cpp  
+enum enum_EVALFLAGS {  
+   EVAL_RETURNVALUE = 0x0002,  
+   EVAL_NOSIDEEFFECTS = 0x0004,  
+   EVAL_ALLOWBPS = 0x0008,  
+   EVAL_ALLOWERRORREPORT = 0x0010,  
+   EVAL_FUNCTION_AS_ADDRESS = 0x0040,  
+   EVAL_NOFUNCEVAL = 0x0080,  
+   EVAL_NOEVENTS = 0x1000  
 };  
 typedef DWORD EVALFLAGS;  
 ```  
   
-```c#  
-public enum enum_EVALFLAGS {  
-   EVAL_RETURNVALUE = 0x0002,  
-   EVAL_NOSIDEEFFECTS = 0x0004,  
-   EVAL_ALLOWBPS = 0x0008,  
-   EVAL_ALLOWERRORREPORT = 0x0010,  
-   EVAL_FUNCTION_AS_ADDRESS = 0x0040,  
-   EVAL_NOFUNCEVAL = 0x0080,  
-   EVAL_NOEVENTS = 0x1000  
+```csharp  
+public enum enum_EVALFLAGS {  
+   EVAL_RETURNVALUE = 0x0002,  
+   EVAL_NOSIDEEFFECTS = 0x0004,  
+   EVAL_ALLOWBPS = 0x0008,  
+   EVAL_ALLOWERRORREPORT = 0x0010,  
+   EVAL_FUNCTION_AS_ADDRESS = 0x0040,  
+   EVAL_NOFUNCEVAL = 0x0080,  
+   EVAL_NOEVENTS = 0x1000  
 }  
 ```  
   
-## 成员  
- EVAL\_RETURNVALUE  
- 指定返回值，如果有，则计算。  
+## <a name="members"></a>成员  
+ EVAL_RETURNVALUE  
+ 指定返回的值，如果有的话，进行计算。  
   
- EVAL\_NOSIDEEFFECTS  
- 指定副作用不允许。  
+ EVAL_NOSIDEEFFECTS  
+ 指定不允许副作用。  
   
- EVAL\_ALLOWBPS  
- 停止的标识在断点。  
+ EVAL_ALLOWBPS  
+ 指定在断点上的停止。  
   
- EVAL\_ALLOWERRORREPORT  
- 指定错误报告给将允许的。  主要用于表达式计算在脚本在 Internet Explorer。  
+ EVAL_ALLOWERRORREPORT  
+ 指定错误报告到主机，以允许。 主要用于在 Internet Explorer 中的脚本中的表达式计算。  
   
- EVAL\_FUNCTION\_AS\_ADDRESS  
- 军队的优点函数会计算为地址，而不是调用该函数。  
+ EVAL_FUNCTION_AS_ADDRESS  
+ 强制函数计算结果为地址，而不是调用该函数。  
   
- EVAL\_NOFUNCEVAL  
- 防止函数进行求值。  例如，请考虑在表达式 `myExpression(int) + 10`的 `int` 标记。  此功能能被正确计算为地址，但是，不是值。  
+ EVAL_NOFUNCEVAL  
+ 正在评估会阻止函数。 例如，考虑`int`令牌在表达式中`myExpression(int) + 10`。 为地址，但不是作为一个值，此函数可以正确评估。  
   
- EVAL\_NOEVENTS  
- 指示标志。表达式计算期间发生的事件不应发送到该会话调试管理器 \(SDM\)或对 IDE。  
+ EVAL_NOEVENTS  
+ 标记以指示在表达式计算过程中发生的事件应将不发送到会话调试管理器 (SDM) 或 IDE。  
   
-## 备注  
- 这些标志将作为参数传递 [EvaluateAsync](../../../extensibility/debugger/reference/idebugexpression2-evaluateasync.md) 和 [EvaluateSync](../../../extensibility/debugger/reference/idebugexpression2-evaluatesync.md) 方法。  
+## <a name="remarks"></a>备注  
+ 这些标志传递的自变量作为[EvaluateAsync](../../../extensibility/debugger/reference/idebugexpression2-evaluateasync.md)和[EvaluateSync](../../../extensibility/debugger/reference/idebugexpression2-evaluatesync.md)方法。  
   
- 这些标志可以按位组合使用或。  
+ 可能与按位 OR 组合这些标志。  
   
-## 要求  
- 标题:msdbg.h  
+## <a name="requirements"></a>要求  
+ 标头： msdbg.h  
   
- 命名空间:Microsoft.VisualStudio.Debugger.Interop  
+ Namespace: Microsoft.VisualStudio.Debugger.Interop  
   
- 程序集:Microsoft.VisualStudio.Debugger.Interop.dll  
+ 程序集： Microsoft.VisualStudio.Debugger.Interop.dll  
   
-## 请参阅  
+## <a name="see-also"></a>另请参阅  
  [枚举](../../../extensibility/debugger/reference/enumerations-visual-studio-debugging.md)   
  [EvaluateAsync](../../../extensibility/debugger/reference/idebugexpression2-evaluateasync.md)   
  [EvaluateSync](../../../extensibility/debugger/reference/idebugexpression2-evaluatesync.md)

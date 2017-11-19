@@ -1,51 +1,51 @@
 ---
-title: "IDebugObject::GetMemoryContext | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "IDebugObject::GetMemoryContext"
-helpviewer_keywords: 
-  - "IDebugObject::GetMemoryContext 方法"
+title: "IDebugObject::GetMemoryContext |Microsoft 文档"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology: vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords: IDebugObject::GetMemoryContext
+helpviewer_keywords: IDebugObject::GetMemoryContext method
 ms.assetid: 6760a0d3-a898-4e81-b68f-c45c584b225b
-caps.latest.revision: 9
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 9
+caps.latest.revision: "9"
+author: gregvanl
+ms.author: gregvanl
+manager: ghogen
+ms.openlocfilehash: 93f6d82b88be23b160effe1c8162648132f461c5
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# IDebugObject::GetMemoryContext
-[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
-
-获取表示对象的值地址的内存上下文。  
+# <a name="idebugobjectgetmemorycontext"></a>IDebugObject::GetMemoryContext
+获取表示对象的值的地址的内存上下文。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
-```cpp#  
-HRESULT GetMemoryContext(   
-   IDebugMemoryContext2** pContext  
+```cpp  
+HRESULT GetMemoryContext(   
+   IDebugMemoryContext2** pContext  
 );  
 ```  
   
-```c#  
+```csharp  
 int GetMemoryContext(  
-   ref IDebugMemoryContext2 pContext  
+   ref IDebugMemoryContext2 pContext  
 );  
 ```  
   
-#### 参数  
+#### <a name="parameters"></a>参数  
  `pContext`  
- \[out\] 返回表示对象的值地址的 [IDebugMemoryContext2](../../../extensibility/debugger/reference/idebugmemorycontext2.md) 对象。  
+ [out]返回[IDebugMemoryContext2](../../../extensibility/debugger/reference/idebugmemorycontext2.md)对象表示的对象的值的地址。  
   
-## 返回值  
- 如果成功，则返回 S\_OK;否则，返回错误代码。  
+## <a name="return-value"></a>返回值  
+ 如果成功，返回，则为 S_OK;否则，返回错误代码。  
   
-## 备注  
- 返回的内存上下文指定值的地址如由以下 [IDebugObject](../../../extensibility/debugger/reference/idebugobject.md) 对象。  
+## <a name="remarks"></a>备注  
+ 返回的内存上下文指定的值的地址，如由此[IDebugObject](../../../extensibility/debugger/reference/idebugobject.md)对象。  
   
-## 请参阅  
+## <a name="see-also"></a>另请参阅  
  [IDebugMemoryContext2](../../../extensibility/debugger/reference/idebugmemorycontext2.md)

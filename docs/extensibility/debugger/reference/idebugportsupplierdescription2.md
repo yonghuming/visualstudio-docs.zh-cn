@@ -1,45 +1,46 @@
 ---
-title: "IDebugPortSupplierDescription2 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-helpviewer_keywords: 
-  - "IDebugPortSupplierDescription2 接口"
+title: "IDebugPortSupplierDescription2 |Microsoft 文档"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology: vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+helpviewer_keywords: IDebugPortSupplierDescription2 interface
 ms.assetid: dd19b9d6-0703-44b3-9498-cedffa0ce5b7
-caps.latest.revision: 8
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 8
+caps.latest.revision: "8"
+author: gregvanl
+ms.author: gregvanl
+manager: ghogen
+ms.openlocfilehash: 8ce42039759128ac8b41556b94714da8cd43197d
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# IDebugPortSupplierDescription2
-[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
-
-使 [!INCLUDE[vsprvs](../../../code-quality/includes/vsprvs_md.md)] UI 显示在 **附加的进程** 对话框的 **将信息传输** 部分的内部文本。  
+# <a name="idebugportsupplierdescription2"></a>IDebugPortSupplierDescription2
+使[!INCLUDE[vsprvs](../../../code-quality/includes/vsprvs_md.md)]UI，以显示内的文本**传输信息**部分**附加到进程**对话框。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
 ```  
 IDebugPortSupplierDescription2 : IUnknown  
 ```  
   
-## 实现者说明  
- 此接口由端口提供程序实现。  
+## <a name="notes-for-implementers"></a>实施者注意事项  
+ 通过端口供应商实现此接口。  
   
-## 方法  
- 下表显示 `IDebugPortSupplierDescription2`方法。  
+## <a name="methods"></a>方法  
+ 下表显示的方法`IDebugPortSupplierDescription2`。  
   
-|方法|说明|  
-|--------|--------|  
-|[GetDescription](../../../extensibility/debugger/reference/idebugportsupplierdescription2-getdescription.md)|检索说明和说明元数据端口提供程序的。|  
+|方法|描述|  
+|------------|-----------------|  
+|[GetDescription](../../../extensibility/debugger/reference/idebugportsupplierdescription2-getdescription.md)|检索端口供应商的说明和描述元数据。|  
   
-## 要求  
- 标题:Msdbg.h  
+## <a name="requirements"></a>要求  
+ 标头： Msdbg.h  
   
- 命名空间:Microsoft.VisualStudio.Debugger.Interop  
+ Namespace: Microsoft.VisualStudio.Debugger.Interop  
   
- 程序集:Microsoft.VisualStudio.Debugger.Interop.dll
+ 程序集： Microsoft.VisualStudio.Debugger.Interop.dll

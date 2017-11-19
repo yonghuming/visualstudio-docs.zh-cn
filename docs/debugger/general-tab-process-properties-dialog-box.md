@@ -1,36 +1,36 @@
 ---
-title: "“进程属性”对话框 -&gt;“常规”选项卡 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-debug"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-helpviewer_keywords: 
-  - "Windows NT 的进程属性"
+title: "常规选项卡上，处理属性对话框中 |Microsoft 文档"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology: vs-ide-debug
+ms.tgt_pltfrm: 
+ms.topic: article
+helpviewer_keywords: Process properties for Windows NT
 ms.assetid: 86f4d61d-a594-4aac-8960-c5279b4a10fd
-caps.latest.revision: 4
-author: "mikejo5000"
-ms.author: "mikejo"
-manager: "ghogen"
-caps.handback.revision: 4
+caps.latest.revision: "4"
+author: mikejo5000
+ms.author: mikejo
+manager: ghogen
+ms.openlocfilehash: c9548b35d893fa08458c6254776c8949cc83c510
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# “进程属性”对话框 -&gt;“常规”选项卡
-[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
-
-使用“常规”选项卡可以查找有关特定进程的更多信息。  若要显示[“进程属性”对话框](../debugger/process-properties-dialog-box.md)，请将焦点移动到[进程视图](../debugger/processes-view.md)窗口。  在树中选择任何进程节点，然后从“视图”菜单中选择“属性”。  
+# <a name="general-tab-process-properties-dialog-box"></a>“进程属性”对话框 ->“常规”选项卡
+使用**常规**选项卡以找出有关特定的进程的详细信息。 若要显示[过程属性对话框中](../debugger/process-properties-dialog-box.md)，焦点移到[进程视图](../debugger/processes-view.md)窗口。 在树中，选择任何进程节点，然后选择**属性**从**视图**菜单。  
   
- “常规”选项卡上提供了下列设置：  
+ 以下设置子网上有**常规**选项卡：  
   
-|Entry|说明|  
-|-----------|--------|  
+|条目|描述|  
+|-----------|-----------------|  
 |**模块名**|模块的名称。|  
-|**进程 ID**|此进程的唯一 ID。  进程 ID 号会重复使用，所以它们只在进程的生存期中标识该进程。  在程序运行时，将创建进程对象类型。  进程中的所有线程共享同一地址空间并有权访问相同的数据。|  
-|**优先级基数**|此进程的当前基本优先级。  进程中的线程可以相对于进程的基本优先级，提升和降低它们自己的基本优先级。|  
-|**线程**|此进程中当前处于活动状态的线程数量。|  
-|**CPU 时间**|在此进程及其线程上花费的总 CPU 时间。  等于用户时间与特权时间之和。|  
-|**用户时间**|此进程的线程以用户模式，在非空闲线程中执行代码所花费的累计运行时间。  应用程序以用户模式执行，窗口管理器和图形引擎等子系统也是如此。|  
-|**特权时间**|此进程以特权模式在非空闲线程中运行的总时间。  服务层、执行例程和内核以特权模式执行。  大多数设备（除图形适配器和打印机外）的设备驱动程序也以特权模式执行。  除特权时间外，Windows 为应用程序执行的某些工作可能显示在其他子系统进程中。|  
-|**运行时间**|此进程已运行的总时间。|
+|**进程 ID**|此进程的唯一 ID。 进程 ID 号会重复使用，以便它们仅针对该进程的生存期的标识过程。 运行程序时创建的进程对象类型。 在进程中的所有线程共享相同的地址空间，并有权访问相同的数据。|  
+|**优先级基数**|此进程当前基本优先级。 进程中的线程可以引发和降低其自己的基本优先级相对于进程的基本优先级。|  
+|**线程**|此过程中处于活动状态的线程数。|  
+|**CPU 时间**|在此过程，并且其线程上花费的总 CPU 时间。 用户时间加上 Privileged 的 Time 等于。|  
+|**用户的时间**|此进程的线程正在执行代码在用户模式下在非空闲线程所用累计运行时间。 子系统，如窗口管理器和图形引擎一样，应用程序在用户模式中执行。|  
+|**Privileged 的 Time**|总运行时间此进程已运行在特权模式下在非空闲线程中。 服务层、 高级管理人员例程和内核在特权模式下中执行。 图形适配器和打印机以外的大多数设备的设备驱动程序还执行在特权模式下。 除了 Privileged Time 其他子系统进程对 Windows 应用程序执行某些工作可能会出现。|  
+|**运行时间**|总运行时间此进程已运行。|

@@ -1,28 +1,29 @@
 ---
-title: "事件源 (Visual Studio SDK) | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-helpviewer_keywords: 
-  - "调试 [调试 SDK]，事件源"
+title: "事件源 (Visual Studio SDK) |Microsoft 文档"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology: vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+helpviewer_keywords: debugging [Debugging SDK], event sources
 ms.assetid: b9ba0908-ae4c-4a64-aab1-bee453dd7a22
-caps.latest.revision: 8
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 8
+caps.latest.revision: "8"
+author: gregvanl
+ms.author: gregvanl
+manager: ghogen
+ms.openlocfilehash: dcd2b8457854817f84272420a42872a1b947e6c2
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# 事件源 (Visual Studio SDK)
-[!INCLUDE[vs2017banner](../../code-quality/includes/vs2017banner.md)]
-
-有两个源:调试引擎 \(DE\)和会议调试管理器 \(SDM\)。  ，而从 SDM 发送事件具有一个空引擎，从 DE 发送事件具有非 null 引擎。  
+# <a name="event-sources-visual-studio-sdk"></a>事件源 (Visual Studio SDK)
+有两个源的事件： 调试管理器 (SDM) 进行的调试引擎 (DE) 和会话。 从 DE 发送的事件有一个非 NULL 引擎，而从 SDM 发送的事件有一个 NULL 引擎。  
   
-## 示例  
- 下面的示例演示如何从、发送 **IDebugProgramCreateEvent2** 到 SDM。  
+## <a name="example"></a>示例  
+ 下面的示例演示如何发送**IDebugProgramCreateEvent2**从到 SDM DE。  
   
 ```  
 CDebugProgramCreateEvent* pProgramCreateEvent = new CDebugProgramCreateEvent();  
@@ -73,5 +74,5 @@ HRESULT CEvent::SendAsynchronousEvent(IDebugEventCallback2 *pCallback, IDebugEng
   
 ```  
   
-## 请参阅  
+## <a name="see-also"></a>另请参阅  
  [发送事件](../../extensibility/debugger/sending-events.md)

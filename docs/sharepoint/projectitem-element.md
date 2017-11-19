@@ -1,30 +1,31 @@
 ---
-title: "ProjectItem Element"
-ms.custom: ""
-ms.date: "02/02/2017"
-ms.prod: "visual-studio-dev14"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "office-development"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-dev_langs: 
-  - "VB"
-  - "CSharp"
-helpviewer_keywords: 
-  - "ProjectItem element"
+title: "ProjectItem 元素 |Microsoft 文档"
+ms.custom: 
+ms.date: 02/02/2017
+ms.reviewer: 
+ms.suite: 
+ms.technology: office-development
+ms.tgt_pltfrm: 
+ms.topic: article
+dev_langs:
+- VB
+- CSharp
+helpviewer_keywords: ProjectItem element
 ms.assetid: df588235-12a1-4798-bc56-ef81843de17f
-caps.latest.revision: 15
-author: "kempb"
-ms.author: "kempb"
-manager: "ghogen"
-caps.handback.revision: 14
+caps.latest.revision: "15"
+author: gewarren
+ms.author: gewarren
+manager: ghogen
+ms.openlocfilehash: e8a9f1ac258f6501aedb2fd89ce21514d785b25f
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# ProjectItem Element
-  表示 SharePoint 项目项。  这是 .spdata 文件的必需的根元素。  
+# <a name="projectitem-element"></a>ProjectItem 元素
+  表示一个 SharePoint 项目项。 这是.spdata 文件的所需的根元素。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
 ```  
 <ProjectItem DefaultFile = "File that opens in the editor when you open the project item"  
@@ -41,43 +42,43 @@ caps.handback.revision: 14
 </ProjectItem>  
 ```  
   
-## 特性和元素  
- 以下几节描述了特性、子元素和父元素。  
+## <a name="attributes-and-elements"></a>特性和元素  
+ 下列各节描述了特性、子元素和父元素。  
   
-### 特性  
+### <a name="attributes"></a>特性  
   
-|特性|说明|  
-|--------|--------|  
-|**DefaultFile**|可选的 **xs:string** 特性。<br /><br /> 在您于**“解决方案资源管理器”**中打开 SharePoint 项目项时，Visual Studio 编辑器中打开的文件的相对路径（包括文件名）。  路径与包含 .spdata 文件的文件夹是相对的。|  
-|**FeatureReceiverClass**|可选的 **xs:string** 特性。<br /><br /> 功能接收器类完全合格的名称，用于该 SharePoint 项目项。  有关功能接收器的更多信息，请参见[在项目项中提供打包和部署信息](../sharepoint/providing-packaging-and-deployment-information-in-project-items.md)。|  
-|**FeatureReceiverAssembly**|可选的 **xs:string** 特性。<br /><br /> 指定程序集完全合格的名称，其定义了该 SharePoint 项目项的接收器。  有关功能接收器的更多信息，请参见[在项目项中提供打包和部署信息](../sharepoint/providing-packaging-and-deployment-information-in-project-items.md)。  有关完全限定程序集名称的更多信息，请参见 [程序集名称](http://msdn.microsoft.com/library/8f8c2c90-f15d-400e-87e7-a757e4f04d0e)。|  
-|**SupportedTrustLevels**|可选的 **xs:string** 特性。<br /><br /> 指定该 SharePoint 项目项支持的信任级别。  此值可以为以下字符串之一：Sandboxed、FullTrust 或 All。  值 All 指定 Sandboxed 和 FullTrust。<br /><br /> 在自定义的 SharePoint 项目项类型中，此特性的值对应于在实现 <xref:Microsoft.VisualStudio.SharePoint.ISharePointProjectItemTypeProvider.InitializeType%2A> 方法时分配给 <xref:Microsoft.VisualStudio.SharePoint.ISharePointProjectItemTypeDefinition.SupportedTrustLevels%2A> 属性的值。  如果您为此特性指定了一个不同的值，则 Visual Studio 将覆盖该值，以使其指定的信任级别与您在 <xref:Microsoft.VisualStudio.SharePoint.ISharePointProjectItemTypeDefinition.SupportedTrustLevels%2A> 属性中指定的信任级别相同。|  
-|**SupportedDeploymentScopes**|可选的 **xs:string** 特性。<br /><br /> 指定该 SharePoint 项目项支持的部署范围。  此值是以逗号分隔的字符串，其组成为一个或多个下列字符串：服务器场、网站、Web、WebApplication 或程序包。  例如，"Web、站点"。<br /><br /> 在自定义的 SharePoint 项目项类型中，此特性的值对应于在实现 <xref:Microsoft.VisualStudio.SharePoint.ISharePointProjectItemTypeProvider.InitializeType%2A> 方法时分配给 <xref:Microsoft.VisualStudio.SharePoint.ISharePointProjectItemTypeDefinition.SupportedDeploymentScopes%2A> 属性的值。  如果您为此特性指定了一个不同的值，则 Visual Studio 将覆盖该值，以使其指定的信任级别与您在 <xref:Microsoft.VisualStudio.SharePoint.ISharePointProjectItemTypeDefinition.SupportedDeploymentScopes%2A> 属性中指定的信任级别相同。|  
-|**Type**|必选的 **xs:string** 特性。<br /><br /> SharePoint 项目项的标识符。  在自定义 SharePoint 项目项类型时，标识符即是传递给 <xref:Microsoft.VisualStudio.SharePoint.SharePointProjectItemTypeAttribute> 的字符串。  有关更多信息，请参见[How to: Define a SharePoint Project Item Type](../sharepoint/how-to-define-a-sharepoint-project-item-type.md)。<br /><br /> 有关 Visual Studio 附带的内置 SharePoint 项目项的标识符，请参见[Extending SharePoint Project Items](../sharepoint/extending-sharepoint-project-items.md)。|  
+|特性|描述|  
+|---------------|-----------------|  
+|**DefaultFile**|可选**xs: string**属性。<br /><br /> 包括的文件名称，当你打开中的 SharePoint 项目项时，在 Visual Studio 编辑器中打开的文件的相对路径**解决方案资源管理器**。 该路径是相对从包含.spdata 文件的文件夹。|  
+|**FeatureReceiverClass**|可选**xs: string**属性。<br /><br /> 此 SharePoint 项目项功能接收器类完全限定的名称。 有关功能接收器的详细信息，请参阅[提供打包和部署信息在项目项中](../sharepoint/providing-packaging-and-deployment-information-in-project-items.md)。|  
+|**FeatureReceiverAssembly**|可选**xs: string**属性。<br /><br /> 指定定义功能接收器此 SharePoint 项目项的程序集的完全限定的名称。 有关功能接收器的详细信息，请参阅[提供打包和部署信息在项目项中](../sharepoint/providing-packaging-and-deployment-information-in-project-items.md)。 有关完全限定程序集名称的详细信息，请参阅[程序集名称](/dotnet/framework/app-domains/assembly-names)。|  
+|**SupportedTrustLevels**|可选**xs: string**属性。<br /><br /> 指定此 SharePoint 项目项支持的信任级别。 此值可以是下列字符串之一： 沙盒解决方案，FullTrust，或所有。 值所有指定 Sandboxed 和 FullTrust。<br /><br /> 在某个自定义 SharePoint 项目项类型，此属性的值对应于分配给值<xref:Microsoft.VisualStudio.SharePoint.ISharePointProjectItemTypeDefinition.SupportedTrustLevels%2A>属性的实现中<xref:Microsoft.VisualStudio.SharePoint.ISharePointProjectItemTypeProvider.InitializeType%2A>方法。 如果指定此属性的不同值时，Visual Studio 将覆盖的值，以便指定要在指定的相同信任级别<xref:Microsoft.VisualStudio.SharePoint.ISharePointProjectItemTypeDefinition.SupportedTrustLevels%2A>属性。|  
+|**SupportedDeploymentScopes**|可选**xs: string**属性。<br /><br /> 指定此 SharePoint 项目项支持的部署作用域。 此值是一个以逗号分隔的字符串组成的一个或多个以下字符串： 场、 站点、 Web、 web 应用程序或包。 例如，"Web，站点"。<br /><br /> 在某个自定义 SharePoint 项目项类型，此属性的值对应于分配给值<xref:Microsoft.VisualStudio.SharePoint.ISharePointProjectItemTypeDefinition.SupportedDeploymentScopes%2A>属性的实现中<xref:Microsoft.VisualStudio.SharePoint.ISharePointProjectItemTypeProvider.InitializeType%2A>方法。 如果指定此属性的不同值时，Visual Studio 将覆盖的值，以便指定要在指定的相同信任级别<xref:Microsoft.VisualStudio.SharePoint.ISharePointProjectItemTypeDefinition.SupportedDeploymentScopes%2A>属性。|  
+|**类型**|所需**xs: string**属性。<br /><br /> SharePoint 项目项的标识符。 在自定义 SharePoint 项目项类型中，标识符是字符串，将传递给<xref:Microsoft.VisualStudio.SharePoint.SharePointProjectItemTypeAttribute>。 有关详细信息，请参阅[如何： 定义 SharePoint 项目项类型](../sharepoint/how-to-define-a-sharepoint-project-item-type.md)。<br /><br /> Visual Studio 附带的内置 SharePoint 项目项的标识符的列表，请参阅[扩展 SharePoint 项目项](../sharepoint/extending-sharepoint-project-items.md)。|  
   
-### 子元素  
+### <a name="child-elements"></a>子元素  
   
-|元素|说明|  
-|--------|--------|  
-|[ExtensionData](../sharepoint/extensiondata-element.md)|可选元素。<br /><br /> 表示与 SharePoint 项目项关联的自定义数据项的集合。<br /><br /> 只能包含一个 **ExtensionData** 元素。|  
-|[FeatureProperties](../sharepoint/featureproperties-element.md)|可选元素。<br /><br /> 表示将功能部署到 SharePoint 时功能附带的属性值的集合。<br /><br /> 只能包含一个 **FeatureProperties** 元素。|  
-|[Files](../sharepoint/files-element.md)|可选的 **FileCollectionType** 元素。<br /><br /> 指定要用 SharePoint 项目项部署的文件，如功能元素文件和依赖于非 SharePoint 项目的输出。<br /><br /> 必须包含 **Files** 或 **ProjectItemFolder** 元素，但是不能同时包含二者。|  
-|[ProjectItemFolder](../sharepoint/projectitemfolder-element.md)|可选的 **ProjectItemFolderType** 元素。<br /><br /> 表示映射的文件夹。<br /><br /> 必须包含 **Files** 或 **ProjectItemFolder** 元素，但是不能同时包含二者。|  
-|[SafeControls](../sharepoint/safecontrols-element.md)|可选元素。<br /><br /> 表示 ASPX 控件或 Web 部件的集合，这些控件或部件已指定为安全，可供任何用户在 SharePoint 网站上的任何 ASPX 页上访问。<br /><br /> 只能包含一个 **SafeControls** 元素。|  
+|元素|描述|  
+|-------------|-----------------|  
+|[ExtensionData](../sharepoint/extensiondata-element.md)|可选元素。<br /><br /> 表示自定义数据与 SharePoint 项目项关联的项的集合。<br /><br /> 你只能包含一个**ExtensionData**元素。|  
+|[FeatureProperties](../sharepoint/featureproperties-element.md)|可选元素。<br /><br /> 表示部署到 SharePoint 时所包含的一项功能的属性值的集合。<br /><br /> 你只能包含一个**FeatureProperties**元素。|  
+|[文件](../sharepoint/files-element.md)|可选**FileCollectionType**元素。<br /><br /> 指定要部署使用 SharePoint 项目项，如功能元素文件和依赖的非 SharePoint 项目的输出的文件。<br /><br /> 你必须将**文件**或**ProjectItemFolder**元素，但不是两者。|  
+|[ProjectItemFolder](../sharepoint/projectitemfolder-element.md)|可选**ProjectItemFolderType**元素。<br /><br /> 表示映射的文件夹。<br /><br /> 你必须将**文件**或**ProjectItemFolder**元素，但不是两者。|  
+|[SafeControls](../sharepoint/safecontrols-element.md)|可选元素。<br /><br /> 表示 ASPX 控件和指定为安全的任何用户访问 SharePoint 站点上的任意 ASPX 页上的 Web 部件的集合。<br /><br /> 你只能包含一个**SafeControls**元素。|  
   
-### 父元素  
+### <a name="parent-elements"></a>父元素  
  无。  
   
-## 元素信息  
+## <a name="element-information"></a>元素信息  
   
 |||  
 |-|-|  
-|**命名空间**|http:\/\/schemas.microsoft.com\/VisualStudio\/2010\/SharePointTools\/SharePointProjectItemModel|  
+|**Namespace**|http://schemas.microsoft.com/VisualStudio/2010/SharePointTools/SharePointProjectItemModel|  
 |**架构名称**|SharePoint 项目项架构|  
 |**验证文件**|ProjectItemModelSchema.xsd|  
-|**是否可以为空**|否|  
+|**可以为空**|No|  
   
-## 请参阅  
- [SharePoint Project Item Schema Reference](../sharepoint/sharepoint-project-item-schema-reference.md)  
+## <a name="see-also"></a>另请参阅  
+ [SharePoint 项目项架构参考](../sharepoint/sharepoint-project-item-schema-reference.md)  
   
   

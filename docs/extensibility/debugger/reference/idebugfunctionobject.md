@@ -4,37 +4,21 @@ ms.custom:
 ms.date: 11/04/2016
 ms.reviewer: 
 ms.suite: 
-ms.technology:
-- vs-ide-sdk
+ms.technology: vs-ide-sdk
 ms.tgt_pltfrm: 
 ms.topic: article
-f1_keywords:
-- IDebugFunctionObject
-helpviewer_keywords:
-- IDebugFunctionObject interface
+f1_keywords: IDebugFunctionObject
+helpviewer_keywords: IDebugFunctionObject interface
 ms.assetid: 8d94e97c-a9d1-400c-8a98-a44b5385b33a
-caps.latest.revision: 13
+caps.latest.revision: "13"
+author: gregvanl
 ms.author: gregvanl
 manager: ghogen
-translation.priority.mt:
-- cs-cz
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pl-pl
-- pt-br
-- ru-ru
-- tr-tr
-- zh-cn
-- zh-tw
-translationtype: Machine Translation
-ms.sourcegitcommit: ca7c86466fa23fb21a932f26dc24e37c71cf29b4
-ms.openlocfilehash: 6188a5dad827abf76d22441706e6600f1dd3781a
-ms.lasthandoff: 04/05/2017
-
+ms.openlocfilehash: 69b0556712ddea8570b2a06fba09538649a06e9c
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="idebugfunctionobject"></a>IDebugFunctionObject
 > [!IMPORTANT]
@@ -70,11 +54,11 @@ IDebugFunctionObject : IDebugObject
  此接口允许表达式计算器才能表示分析树中的函数。 `Create`中此接口的方法用于构造对象表示对方法的输入的参数。 然后可以通过调用执行函数[评估](../../../extensibility/debugger/reference/idebugfunctionobject-evaluate.md)方法，返回一个对象，该对象表示函数的返回值。  
   
 ## <a name="requirements"></a>要求  
- 标头︰ ee.h  
+ 标头： ee.h  
   
  Namespace: Microsoft.VisualStudio.Debugger.Interop  
   
- 程序集︰ Microsoft.VisualStudio.Debugger.Interop.dll  
+ 程序集： Microsoft.VisualStudio.Debugger.Interop.dll  
   
 ## <a name="see-also"></a>另请参阅  
  [表达式评估接口](../../../extensibility/debugger/reference/expression-evaluation-interfaces.md)   

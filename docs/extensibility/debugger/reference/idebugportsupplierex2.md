@@ -1,50 +1,51 @@
 ---
-title: "IDebugPortSupplierEx2 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-helpviewer_keywords: 
-  - "IDebugPortSupplierEx2 接口"
+title: "IDebugPortSupplierEx2 |Microsoft 文档"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology: vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+helpviewer_keywords: IDebugPortSupplierEx2 interface
 ms.assetid: dae0050a-a50a-4f35-bfbd-e538f537b20f
-caps.latest.revision: 4
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 4
+caps.latest.revision: "4"
+author: gregvanl
+ms.author: gregvanl
+manager: ghogen
+ms.openlocfilehash: 1027267fdfdcc211ae4b101114ec9db24dc758ad
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# IDebugPortSupplierEx2
-[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
-
-提供支持将端口提供程序可以与内核服务器选择并与之交互。  
+# <a name="idebugportsupplierex2"></a>IDebugPortSupplierEx2
+选择并核心服务器与之交互的端口供应商提供的支持。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
 ```  
 IDebugPortSupplierEx2 : IUnknown  
 ```  
   
-## 实现者说明  
- 自定义端口提供程序实现此接口，以便可以选择核心服务器使用。  
+## <a name="notes-for-implementers"></a>实施者注意事项  
+ 自定义端口供应商提供实现此接口，以便它可以选择要使用的核心服务器。  
   
-## 方法  
- 下表显示 **IDebugPortSupplierEx2**方法。  
+## <a name="methods"></a>方法  
+ 下表显示的方法**IDebugPortSupplierEx2**。  
   
-|方法|说明|  
-|--------|--------|  
-|[SetServer](../../../extensibility/debugger/reference/idebugportsupplierex2-setserver.md)|将端口提供程序的核心服务器。|  
+|方法|描述|  
+|------------|-----------------|  
+|[SetServer](../../../extensibility/debugger/reference/idebugportsupplierex2-setserver.md)|设置端口提供程序的核心服务器。|  
   
-## 要求  
- 标题:Portpriv.h  
+## <a name="requirements"></a>要求  
+ 标头： Portpriv.h  
   
- 命名空间:Microsoft.VisualStudio.Debugger.Interop  
+ Namespace: Microsoft.VisualStudio.Debugger.Interop  
   
- 程序集:Microsoft.VisualStudio.Debugger.Interop.dll  
+ 程序集： Microsoft.VisualStudio.Debugger.Interop.dll  
   
-## 请参阅  
+## <a name="see-also"></a>另请参阅  
  [核心接口](../../../extensibility/debugger/reference/core-interfaces.md)   
  [IDebugPortSupplier2](../../../extensibility/debugger/reference/idebugportsupplier2.md)   
  [IDebugPortSupplier3](../../../extensibility/debugger/reference/idebugportsupplier3.md)

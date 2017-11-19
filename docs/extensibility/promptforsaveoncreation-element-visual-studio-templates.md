@@ -4,44 +4,28 @@ ms.custom:
 ms.date: 11/04/2016
 ms.reviewer: 
 ms.suite: 
-ms.technology:
-- vs-ide-general
+ms.technology: vs-ide-general
 ms.tgt_pltfrm: 
 ms.topic: article
-f1_keywords:
-- http://schemas.microsoft.com/developer/vstemplate/2005#PromptForSaveOnCreation
-helpviewer_keywords:
-- PromptForSaveOnCreation element [Visual Studio project templates]
+f1_keywords: http://schemas.microsoft.com/developer/vstemplate/2005#PromptForSaveOnCreation
+helpviewer_keywords: PromptForSaveOnCreation element [Visual Studio project templates]
 ms.assetid: 75174674-0c3c-4b57-b2fd-6ea8e817b67d
-caps.latest.revision: 18
+caps.latest.revision: "18"
+author: gregvanl
 ms.author: gregvanl
 manager: ghogen
-translation.priority.ht:
-- cs-cz
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pl-pl
-- pt-br
-- ru-ru
-- tr-tr
-- zh-cn
-- zh-tw
-translationtype: Machine Translation
-ms.sourcegitcommit: 5db97d19b1b823388a465bba15d057b30ff0b3ce
-ms.openlocfilehash: 6d39ad8e236ef2b9ea9fbf29fbe0d11d08e5643c
-ms.lasthandoff: 02/22/2017
-
+ms.openlocfilehash: 8ce7e73801b34542bcf1c6be35d950b1fabdc7c3
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="promptforsaveoncreation-element-visual-studio-templates"></a>PromptForSaveOnCreation 元素（Visual Studio 模板）
-指定是否提示用户输入项目保存位置通过**新项目**对话框中创建项目时。 如果此元素设置为`true`，则提示用户输入保存的位置; 如果`false`，则不会收到提示。 （即，创建一个临时项目。）  
+指定是否提示用户输入保存位置通过项目**新项目**对话框中创建项目时。 如果此元素设置为`true`，然后会提示用户输入保存位置; 如果`false`，然后将不再提示他们。 （即，创建一个临时项目。）  
   
- \<VSTemplate&1;>  
- \<TemplateData&1;>  
- \<PromptForSaveOnCreation&1;>  
+ \<VSTemplate >  
+ \<TemplateData >  
+ \<PromptForSaveOnCreation >  
   
 ## <a name="syntax"></a>语法  
   
@@ -67,12 +51,12 @@ ms.lasthandoff: 02/22/2017
 ## <a name="text-value"></a>文本值  
  需要一个文本值。  
   
- 此文本必须`true`或`false`， `true` ，该值指示将提示用户输入保存在创建新项目时的位置。  
+ 文本必须是`true`或`false`， `true` ，该值指示将提示用户输入保存位置创建新项目时。  
   
 ## <a name="remarks"></a>备注  
  `PromptForSaveOnCreation` 是可选元素。 默认值为 `false`。  
   
- 临时项目是项目，您可以创建和修改而不在磁盘上保存该项目的内容。 有关详细信息，请参阅[NIB 临时项目](http://msdn.microsoft.com/en-us/9cf1944c-7045-44cc-8701-7b0eb4099f2b)。  
+ 临时项目是你可以创建和修改而不在磁盘上保存该项目的内容项目。 有关详细信息，请参阅[NIB 临时项目](http://msdn.microsoft.com/en-us/9cf1944c-7045-44cc-8701-7b0eb4099f2b)。  
   
 ## <a name="example"></a>示例  
  下面的示例设置的值`PromptForSaveOnCreation`等于`false`，该选项指定允许为临时项目创建的项目。  

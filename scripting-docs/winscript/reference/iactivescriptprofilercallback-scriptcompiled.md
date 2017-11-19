@@ -1,25 +1,29 @@
 ---
-title: "IActiveScriptProfilerCallback::ScriptCompiled | Microsoft Docs"
-ms.custom: ""
-ms.date: "01/18/2017"
-ms.prod: "windows-script-interfaces"
-ms.reviewer: ""
-ms.suite: ""
-ms.tgt_pltfrm: ""
-ms.topic: "reference"
+title: "IActiveScriptProfilerCallback::ScriptCompiled |Microsoft 文档"
+ms.custom: 
+ms.date: 01/18/2017
+ms.prod: windows-script-interfaces
+ms.reviewer: 
+ms.suite: 
+ms.tgt_pltfrm: 
+ms.topic: reference
 apiname: IActiveScriptProfilerCallback.ScriptCompiled
 apilocation: scrobj.dll
 ms.assetid: 1bb8e9be-cbb1-4a61-b36c-805127a56ac7
-caps.latest.revision: 8
-author: "mikejo5000"
-ms.author: "mikejo"
-manager: "ghogen"
-caps.handback.revision: 8
+caps.latest.revision: "8"
+author: mikejo5000
+ms.author: mikejo
+manager: ghogen
+ms.openlocfilehash: 7ea1823087b323f2acc9b87edfce48bbe9f924bd
+ms.sourcegitcommit: aadb9588877418b8b55a5612c1d3842d4520ca4c
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/27/2017
 ---
-# IActiveScriptProfilerCallback::ScriptCompiled
-通知探查器对象脚本引擎编译的脚本。  此方法针对生成的每个脚本调用。  
+# <a name="iactivescriptprofilercallbackscriptcompiled"></a>IActiveScriptProfilerCallback::ScriptCompiled
+通知探查器对象的脚本引擎编译的脚本。 为每个编译的脚本调用此方法。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
 ```  
 HRESULT ScriptCompiled(  
@@ -28,21 +32,21 @@ HRESULT ScriptCompiled(
     [in] IUnknown *pIDebugDocumentContext);  
 ```  
   
-#### 参数  
+#### <a name="parameters"></a>参数  
  `scriptId`  
- \[in\]生成脚本的唯一ID。  此ID由脚本引擎分配。  
+ [in]已编译的脚本唯一 ID。 通过脚本引擎分配有此 ID。  
   
  `type`  
- \[in\]生成脚本的类型。  值在 [PROFILER\_SCRIPT\_TYPE 枚举](../../winscript/reference/profiler-script-type-enumeration.md)定义。  
+ [in]已编译的脚本的类型。 中定义的值[PROFILER_SCRIPT_TYPE 枚举](../../winscript/reference/profiler-script-type-enumeration.md)。  
   
  `pIDebugDocumentContext`  
- \[out\]如果存在，对探查器必须为 [IDebugDocumentContext 接口](../../winscript/reference/idebugdocumentcontext-interface.md) 指针查询的 `IUnknown` 接口的指针。  否则，这将为空。  
+ [in]如果可用，请指向的指针`IUnknown`探查器必须查询的接口[IDebugDocumentContext 接口](../../winscript/reference/idebugdocumentcontext-interface.md)指针。 否则，这将为 null。  
   
-## 返回值  
- 此方法的返回值由脚本引擎忽略。  
+## <a name="return-value"></a>返回值  
+ 通过脚本引擎忽略此方法的返回值。  
   
-## 备注  
- 只有当由宿主，支持脚本引擎可提供文档上下文。  
+## <a name="remarks"></a>备注  
+ 仅当主机支持此功能，脚本引擎可以提供的文档上下文。  
   
-## 请参阅  
+## <a name="see-also"></a>另请参阅  
  [IActiveScriptProfilerCallback 接口](../../winscript/reference/iactivescriptprofilercallback-interface.md)

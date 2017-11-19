@@ -1,120 +1,120 @@
 ---
-title: "DisassemblyData | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "DisassemblyData"
-helpviewer_keywords: 
-  - "DisassemblyData 结构"
+title: "DisassemblyData |Microsoft 文档"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology: vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords: DisassemblyData
+helpviewer_keywords: DisassemblyData structure
 ms.assetid: 10e70aa7-9381-40d3-bdd1-d2cad78ef16c
-caps.latest.revision: 13
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 13
+caps.latest.revision: "13"
+author: gregvanl
+ms.author: gregvanl
+manager: ghogen
+ms.openlocfilehash: 798ac2d76bb3d9b0bcad2a6dbf7e7aa300030b42
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# DisassemblyData
-[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
-
-描述集成开发环境 \(ide\) 的一个反汇编命令 \(IDE\)将显示。  
+# <a name="disassemblydata"></a>DisassemblyData
+描述一个反汇编指令集成的开发环境 (IDE) 以显示。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
-```cpp#  
-typedef struct tagDisassemblyData {   
-   DISASSEMBLY_STREAM_FIELDS dwFields;  
-   BSTR                      bstrAddress;  
-   BSTR                      bstrAddressOffset;  
-   BSTR                      bstrCodeBytes;  
-   BSTR                      bstrOpcode;  
-   BSTR                      bstrOperands;  
-   BSTR                      bstrSymbol;  
-   UINT64                    uCodeLocationId;  
-   TEXT_POSITION             posBeg;  
-   TEXT_POSITION             posEnd;  
-   BSTR                      bstrDocumentUrl;  
-   DWORD                     dwByteOffset;  
-   DISASSEMBLY_FLAGS         dwFlags;  
+```cpp  
+typedef struct tagDisassemblyData {   
+   DISASSEMBLY_STREAM_FIELDS dwFields;  
+   BSTR                      bstrAddress;  
+   BSTR                      bstrAddressOffset;  
+   BSTR                      bstrCodeBytes;  
+   BSTR                      bstrOpcode;  
+   BSTR                      bstrOperands;  
+   BSTR                      bstrSymbol;  
+   UINT64                    uCodeLocationId;  
+   TEXT_POSITION             posBeg;  
+   TEXT_POSITION             posEnd;  
+   BSTR                      bstrDocumentUrl;  
+   DWORD                     dwByteOffset;  
+   DISASSEMBLY_FLAGS         dwFlags;  
 } DisassemblyData;  
 ```  
   
-```c#  
-public struct DisassemblyData {   
-   public uint          dwFields;  
-   public string        bstrAddress;  
-   public string        bstrAddressOffset;  
-   public string        bstrCodeBytes;  
-   public string        bstrOpcode;  
-   public string        bstrOperands;  
-   public string        bstrSymbol;  
-   public ulong         uCodeLocationId;  
-   public TEXT_POSITION posBeg;  
-   public TEXT_POSITION posEnd;  
-   public string        bstrDocumentUrl;  
-   public uint          dwByteOffset;  
-   public uint          dwFlags;  
+```csharp  
+public struct DisassemblyData {   
+   public uint          dwFields;  
+   public string        bstrAddress;  
+   public string        bstrAddressOffset;  
+   public string        bstrCodeBytes;  
+   public string        bstrOpcode;  
+   public string        bstrOperands;  
+   public string        bstrSymbol;  
+   public ulong         uCodeLocationId;  
+   public TEXT_POSITION posBeg;  
+   public TEXT_POSITION posEnd;  
+   public string        bstrDocumentUrl;  
+   public uint          dwByteOffset;  
+   public uint          dwFlags;  
 };  
 ```  
   
-## 成员  
+## <a name="members"></a>成员  
  `dwFields`  
- 指定的 [DISASSEMBLY\_STREAM\_FIELDS](../../../extensibility/debugger/reference/disassembly-stream-fields.md) 常数哪些字段。完成。  
+ [DISASSEMBLY_STREAM_FIELDS](../../../extensibility/debugger/reference/disassembly-stream-fields.md)常量，用于指定哪些字段填出。  
   
  `bstrAddress`  
- 地址为从某些的偏移量起点 \(通常关联的函数的开头\)。  
+ 为从某些起始点 （通常是相关的函数的开头） 的偏移量地址。  
   
  `bstrCodeBytes`  
- 此命令的代码字节。  
+ 此指令代码字节。  
   
  `bstrOpcode`  
- 此命令的操作码。  
+ 此指令的操作码。  
   
  `bstrOperands`  
- 此命令的操作数。  
+ 此指令的操作数。  
   
  `bstrSymbol`  
- 符号名，如果有，与地址 \(公共符号，标签，等等\)。  
+ 符号名称，如果任何，关联的地址 （公共符号、 标签和等等）。  
   
  `uCodeLocationId`  
- 此被拆卸行的代码位置标识符。  如果一行代码上下文地址比另一个的代码上下文地址大，则将反汇编的代码位置标识符第一个也比代码位置标识符大第二个。  
+ 反汇编此行代码位置标识符。 如果一个行的代码上下文地址大于另一个代码上下文地址，然后反汇编的代码位置标识符的第一个也将大于第二个的代码位置标识符。  
   
  `posBeg`  
- 对应于文档的位置反汇编数据开始的 [TEXT\_POSITION](../../../extensibility/debugger/reference/text-position.md) 。  
+ [TEXT_POSITION](../../../extensibility/debugger/reference/text-position.md) ，它对应于反汇编数据开始处的文档中的位置。  
   
  `posEnd`  
- 对应于文档的位置反汇编数据结尾的 [TEXT\_POSITION](../../../extensibility/debugger/reference/text-position.md) 。  
+ [TEXT_POSITION](../../../extensibility/debugger/reference/text-position.md) ，它对应于文档中的反汇编数据的结尾处的位置。  
   
  `bstrDocumentUrl`  
- 使用格式 `file://file 名称`，对于可表示为文件名的文本文档， `bstrDocumentUrl` 字段创建一个源可以找到的文件名，填充。  
+ 文本文档，可以表示为文件名称和`bstrDocumentUrl`使用的文件名称，可找到源的位置，填充字段使用格式`file://file name`。  
   
- 对于不能表示为文件名的文本文档， `bstrDocumentUrl` 是文档的唯一标识符，因此，调试引擎必须执行 [GetDocument](../../../extensibility/debugger/reference/idebugdisassemblystream2-getdocument.md) 方法。  
+ 不能表示为文件名称的文本文档`bstrDocumentUrl`是文档的唯一标识符和的调试引擎必须实现[GetDocument](../../../extensibility/debugger/reference/idebugdisassemblystream2-getdocument.md)方法。  
   
- 此字段也可以包含有关校验和的附加信息。  请参见 " 备注 " 了解详细信息。  
+ 此字段还可以包含有关校验和的其他信息。 有关详细信息，请参阅备注。  
   
  `dwByteOffset`  
- 字节数命令是从初始代码行。  
+ 指令是从代码行的开头的字节数。  
   
  `dwFlags`  
- 指定的 [DISASSEMBLY\_FLAGS](../../../extensibility/debugger/reference/disassembly-flags.md) 常数的标志处于活动状态。  
+ [DISASSEMBLY_FLAGS](../../../extensibility/debugger/reference/disassembly-flags.md)常量，用于指定哪些标志处于活动状态。  
   
-## 备注  
- 每 `DisassemblyData` 结构描述反汇编的命令。  数组这些结构从 [读取](../../../extensibility/debugger/reference/idebugdisassemblystream2-read.md) 方法返回。  
+## <a name="remarks"></a>备注  
+ 每个`DisassemblyData`结构描述一个指令的反汇编。 这些结构的数组返回从[读取](../../../extensibility/debugger/reference/idebugdisassemblystream2-read.md)方法。  
   
- [TEXT\_POSITION](../../../extensibility/debugger/reference/text-position.md) framework 为文本只使用基本单据。  此命令的源代码大小为生成的第一个命令只能在从语句或行，例如，那么，当 `dwByteOffset == 0`。  
+ [TEXT_POSITION](../../../extensibility/debugger/reference/text-position.md)结构用于基于文本的文档。 此指令的代码的源范围填写仅对从语句或行，例如生成的第一个指令，当`dwByteOffset == 0`。  
   
- 对于文档是非文本的，文档上下文可以从代码获取，因此， `bstrDocumentUrl` 字段应为 null 值。  如果 `bstrDocumentUrl` 字段相同的与前面的 `DisassemblyData` 数组元素的 `bstrDocumentUrl` 字段，然后将 `bstrDocumentUrl` 为一个 null 值。  
+ 非文本的文档，可以从代码，获取文档上下文和`bstrDocumentUrl`字段应为 null 值。 如果`bstrDocumentUrl`字段等同于`bstrDocumentUrl`字段中的上一个`DisassemblyData`数组元素，则设置`bstrDocumentUrl`为 null 值。  
   
- 如果 `dwFlags` 字段都有 `DF_DOCUMENT_CHECKSUM` 设置了标志，则附加的检查和信息遵循该字符串指向由 `bstrDocumentUrl` 字段。  具体而言，对 null 字符串结束符后，其中遵循标识依次通过指示字节数在检查和的 4 个字节值执行，并通过检查和字节而执行的检查和算法的 GUID。  请参见本主题中的示例有关如何输入和解密。 [!INCLUDE[csprcs](../../../data-tools/includes/csprcs_md.md)]的此字段。  
+ 如果`dwFlags`字段具有`DF_DOCUMENT_CHECKSUM`标志设置，然后其他校验和信息遵循指向字符串`bstrDocumentUrl`字段。 具体而言，null 字符串终止符之后, 那里遵循一个标识校验和算法，反过来后跟一个 4 字节值，该值校验和中的字节数，反过来后跟的校验和字节的 GUID。 有关如何进行编码和解码中的此字段，请参阅本主题中的示例[!INCLUDE[csprcs](../../../data-tools/includes/csprcs_md.md)]。  
   
-## 示例  
- ，如果 `DF_DOCUMENT_CHECKSUM` 设置了标志， `bstrDocumentUrl` 字段可以包含其他信息字符串以外的。  创建和读取此编码字符串处理非常简单在 [!INCLUDE[vcprvc](../../../debugger/includes/vcprvc_md.md)]。  但是，在 [!INCLUDE[csprcs](../../../data-tools/includes/csprcs_md.md)]，它是另一个问题。  对于是好奇的人员，下面的示例演示一种创建从 [!INCLUDE[csprcs](../../../data-tools/includes/csprcs_md.md)] 的编码字符串和一种解密。 [!INCLUDE[csprcs](../../../data-tools/includes/csprcs_md.md)]的编码字符串。  
+## <a name="example"></a>示例  
+ `bstrDocumentUrl`字段可以包含除字符串之外的其他信息，如果`DF_DOCUMENT_CHECKSUM`设置标志。 创建并将读取此编码的字符串的过程非常简单中[!INCLUDE[vcprvc](../../../code-quality/includes/vcprvc_md.md)]。 但是，在[!INCLUDE[csprcs](../../../data-tools/includes/csprcs_md.md)]，它是另一回事。 为那些不好奇，下面的示例演示一种方法创建从编码的字符串[!INCLUDE[csprcs](../../../data-tools/includes/csprcs_md.md)]和解码中编码的字符串的一种方法[!INCLUDE[csprcs](../../../data-tools/includes/csprcs_md.md)]。  
   
-```c#  
+```csharp  
 using System;  
 using System.Runtime.InteropServices;  
   
@@ -223,11 +223,11 @@ namespace MyNamespace
 }  
 ```  
   
-## 请参阅  
+## <a name="see-also"></a>另请参阅  
  [结构和联合](../../../extensibility/debugger/reference/structures-and-unions.md)   
  [读取](../../../extensibility/debugger/reference/idebugdisassemblystream2-read.md)   
- [DISASSEMBLY\_STREAM\_FIELDS](../../../extensibility/debugger/reference/disassembly-stream-fields.md)   
+ [DISASSEMBLY_STREAM_FIELDS](../../../extensibility/debugger/reference/disassembly-stream-fields.md)   
  [IDebugCodeContext2](../../../extensibility/debugger/reference/idebugcodecontext2.md)   
  [IDebugDocumentContext2](../../../extensibility/debugger/reference/idebugdocumentcontext2.md)   
- [TEXT\_POSITION](../../../extensibility/debugger/reference/text-position.md)   
- [DISASSEMBLY\_FLAGS](../../../extensibility/debugger/reference/disassembly-flags.md)
+ [TEXT_POSITION](../../../extensibility/debugger/reference/text-position.md)   
+ [DISASSEMBLY_FLAGS](../../../extensibility/debugger/reference/disassembly-flags.md)

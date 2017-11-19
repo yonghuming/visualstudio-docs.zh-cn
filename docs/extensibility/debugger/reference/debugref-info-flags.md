@@ -1,103 +1,103 @@
 ---
-title: "DEBUGREF_INFO_FLAGS | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "DEBUGREF_INFO_FLAGS"
-helpviewer_keywords: 
-  - "DEBUGREF_INFO_FLAGS 枚举"
+title: "DEBUGREF_INFO_FLAGS |Microsoft 文档"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology: vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords: DEBUGREF_INFO_FLAGS
+helpviewer_keywords: DEBUGREF_INFO_FLAGS enumeration
 ms.assetid: 1b043327-302a-4f6d-b51d-f94f9d7c7f9d
-caps.latest.revision: 11
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 11
+caps.latest.revision: "11"
+author: gregvanl
+ms.author: gregvanl
+manager: ghogen
+ms.openlocfilehash: 6022173da00b42272c0b03d5a9a2e2c83f6fb890
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# DEBUGREF_INFO_FLAGS
-[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
-
-指定检索的信息有关调试引用对象。  
+# <a name="debugrefinfoflags"></a>DEBUGREF_INFO_FLAGS
+指定要检索有关调试引用对象的信息。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
-```cpp#  
-enum enum_DEBUGREF_INFO_FLAGS {   
-   DEBUGREF_INFO_NAME             = 0x00000001,  
-   DEBUGREF_INFO_TYPE             = 0x00000002,  
-   DEBUGREF_INFO_VALUE            = 0x00000004,  
-   DEBUGREF_INFO_ATTRIB           = 0x00000008,  
-   DEBUGREF_INFO_REFTYPE          = 0x00000010,  
-   DEBUGREF_INFO_REF              = 0x00000020,  
-   DEBUGREF_INFO_VALUE_AUTOEXPAND = 0x00010000,  
-   DEBUGREF_INFO_NONE             = 0x00000000,  
-   DEBUGREF_INFO_ALL              = 0xffffffff  
+```cpp  
+enum enum_DEBUGREF_INFO_FLAGS {   
+   DEBUGREF_INFO_NAME             = 0x00000001,  
+   DEBUGREF_INFO_TYPE             = 0x00000002,  
+   DEBUGREF_INFO_VALUE            = 0x00000004,  
+   DEBUGREF_INFO_ATTRIB           = 0x00000008,  
+   DEBUGREF_INFO_REFTYPE          = 0x00000010,  
+   DEBUGREF_INFO_REF              = 0x00000020,  
+   DEBUGREF_INFO_VALUE_AUTOEXPAND = 0x00010000,  
+   DEBUGREF_INFO_NONE             = 0x00000000,  
+   DEBUGREF_INFO_ALL              = 0xffffffff  
 };  
 typedef DWORD DEBUGREF_INFO_FLAGS;  
 ```  
   
-```c#  
-public enum enum_DEBUGREF_INFO_FLAGS {   
-   DEBUGREF_INFO_NAME             = 0x00000001,  
-   DEBUGREF_INFO_TYPE             = 0x00000002,  
-   DEBUGREF_INFO_VALUE            = 0x00000004,  
-   DEBUGREF_INFO_ATTRIB           = 0x00000008,  
-   DEBUGREF_INFO_REFTYPE          = 0x00000010,  
-   DEBUGREF_INFO_REF              = 0x00000020,  
-   DEBUGREF_INFO_VALUE_AUTOEXPAND = 0x00010000,  
-   DEBUGREF_INFO_NONE             = 0x00000000,  
-   DEBUGREF_INFO_ALL              = 0xffffffff  
+```csharp  
+public enum enum_DEBUGREF_INFO_FLAGS {   
+   DEBUGREF_INFO_NAME             = 0x00000001,  
+   DEBUGREF_INFO_TYPE             = 0x00000002,  
+   DEBUGREF_INFO_VALUE            = 0x00000004,  
+   DEBUGREF_INFO_ATTRIB           = 0x00000008,  
+   DEBUGREF_INFO_REFTYPE          = 0x00000010,  
+   DEBUGREF_INFO_REF              = 0x00000020,  
+   DEBUGREF_INFO_VALUE_AUTOEXPAND = 0x00010000,  
+   DEBUGREF_INFO_NONE             = 0x00000000,  
+   DEBUGREF_INFO_ALL              = 0xffffffff  
 };  
 ```  
   
-## 成员  
- DEBUGREF\_INFO\_NAME  
- 初始化\/使用结构中的 `bstrName` 字段。  
+## <a name="members"></a>成员  
+ DEBUGREF_INFO_NAME  
+ 初始化/使用`bstrName`结构中的字段。  
   
- DEBUGREF\_INFO\_TYPE  
- 初始化\/使用结构中的 `bstrType` 字段。  
+ DEBUGREF_INFO_TYPE  
+ 初始化/使用`bstrType`结构中的字段。  
   
- DEBUGREF\_INFO\_VALUE  
- 初始化\/使用结构中的 `bstrValue` 字段。  
+ DEBUGREF_INFO_VALUE  
+ 初始化/使用`bstrValue`结构中的字段。  
   
- DEBUGREF\_INFO\_ATTRIB  
- 初始化\/使用结构中的`dwAttrib` 字段。  
+ DEBUGREF_INFO_ATTRIB  
+ 初始化/使用`dwAttrib`结构中的字段。  
   
- DEBUGREF\_INFO\_REFTYPE  
- 初始化\/使用结构中的 `dwRefType` 字段。  
+ DEBUGREF_INFO_REFTYPE  
+ 初始化/使用`dwRefType`结构中的字段。  
   
- DEBUGREF\_INFO\_REF  
- 初始化\/使用结构中的 `pReference` 字段。  
+ DEBUGREF_INFO_REF  
+ 初始化/使用`pReference`结构中的字段。  
   
- DEBUGREF\_INFO\_VALUE\_AUTOEXPAND  
- 值字段应包含自动展开的值，如果有，则此类型的对象。  
+ DEBUGREF_INFO_VALUE_AUTOEXPAND  
+ 值字段应包含自动展开值时，如果可用，此类型的对象。  
   
- DEBUGREF\_INFO\_NONE  
- 指示未设置任何标志。  
+ DEBUGREF_INFO_NONE  
+ 指示不设置任何标志。  
   
- DEBUGREF\_INFO\_ALL  
- 指示标志掩码。  
+ DEBUGREF_INFO_ALL  
+ 指示标志的掩码。  
   
-## 备注  
- 这些标志传递给 [EnumChildren](../Topic/IDebugReference2::EnumChildren.md) 和 [GetReferenceInfo](../../../extensibility/debugger/reference/idebugreference2-getreferenceinfo.md) 方法指示 [DEBUG\_REFERENCE\_INFO](../../../extensibility/debugger/reference/debug-reference-info.md) 结构的哪些字段进行初始化。  
+## <a name="remarks"></a>备注  
+ 这些标志传递给[EnumChildren](../../../extensibility/debugger/reference/idebugreference2-enumchildren.md)和[GetReferenceInfo](../../../extensibility/debugger/reference/idebugreference2-getreferenceinfo.md)方法以指示哪些字段[DEBUG_REFERENCE_INFO](../../../extensibility/debugger/reference/debug-reference-info.md)结构是否被初始化。  
   
- 用于 `DEBUG_REFERENCE_INFO` 结构的 `dwFields` 成员指示哪些字段是使用和有效，当结构返回。  
+ 用于`dwFields`的成员`DEBUG_REFERENCE_INFO`以指示哪些字段是使用和有效时返回结构的结构。  
   
- 这些值可能按位组合使用 `OR`。  
+ 这些值可以与按位组合`OR`。  
   
-## 要求  
- 标题:msdbg.h  
+## <a name="requirements"></a>要求  
+ 标头： msdbg.h  
   
- 命名空间:Microsoft.VisualStudio.Debugger.Interop  
+ Namespace: Microsoft.VisualStudio.Debugger.Interop  
   
- 程序集:Microsoft.VisualStudio.Debugger.Interop.dll  
+ 程序集： Microsoft.VisualStudio.Debugger.Interop.dll  
   
-## 请参阅  
+## <a name="see-also"></a>另请参阅  
  [枚举](../../../extensibility/debugger/reference/enumerations-visual-studio-debugging.md)   
- [DEBUG\_REFERENCE\_INFO](../../../extensibility/debugger/reference/debug-reference-info.md)   
- [EnumChildren](../Topic/IDebugReference2::EnumChildren.md)   
+ [DEBUG_REFERENCE_INFO](../../../extensibility/debugger/reference/debug-reference-info.md)   
+ [EnumChildren](../../../extensibility/debugger/reference/idebugreference2-enumchildren.md)   
  [GetReferenceInfo](../../../extensibility/debugger/reference/idebugreference2-getreferenceinfo.md)

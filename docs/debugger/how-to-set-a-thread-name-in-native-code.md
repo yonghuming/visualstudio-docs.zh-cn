@@ -1,39 +1,42 @@
 ---
-title: "如何：在本机代码中设置线程名称 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-debug"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-dev_langs: 
-  - "FSharp"
-  - "VB"
-  - "CSharp"
-  - "C++"
-helpviewer_keywords: 
-  - "调试 [C++], 线程"
-  - "调试 [Visual Studio], 线程"
-  - "SetThreadName 函数"
-  - "线程名称"
-  - "线程处理 [Visual Studio], 名称"
+title: "如何： 在本机代码中设置线程名称 |Microsoft 文档"
+ms.custom: 
+ms.date: 04/27/2017
+ms.reviewer: 
+ms.suite: 
+ms.technology: vs-ide-debug
+ms.tgt_pltfrm: 
+ms.topic: article
+dev_langs:
+- CSharp
+- VB
+- FSharp
+- C++
+helpviewer_keywords:
+- debugging [C++], threads
+- SetThreadName function
+- threading [Visual Studio], names
+- thread names
+- debugging [Visual Studio], threads
 ms.assetid: c85d0968-9f22-4d69-87f4-acca2ae777b8
-caps.latest.revision: 37
-author: "mikejo5000"
-ms.author: "mikejo"
-manager: "ghogen"
-caps.handback.revision: 37
+caps.latest.revision: "37"
+author: mikejo5000
+ms.author: mikejo
+manager: ghogen
+ms.openlocfilehash: 2ded01065c3971daf630fd743d0ad017e2b3d91c
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# 如何：在本机代码中设置线程名称
-[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
+# <a name="how-to-set-a-thread-name-in-native-code"></a>如何：在本机代码中设置线程名称
+在 Visual Studio 的任何版本中都可以使用线程命名功能。 线程命名功能用于跟踪中的线程非常有用**线程**窗口。
 
 若要在程序中设置线程名称，请使用 `SetThreadName` 函数，如下面的代码示例所示。 请注意，线程名称将复制到线程，从而可以释放 `threadName` 参数的内存空间。  
   
-## 示例  
+## <a name="example"></a>示例  
   
-```cpp  
+```C++  
 //  
 // Usage: SetThreadName ((DWORD)-1, "MainThread");  
 //  
@@ -66,7 +69,7 @@ void SetThreadName(DWORD dwThreadID, const char* threadName) {
   
 ```  
   
-## 请参阅  
+## <a name="see-also"></a>另请参阅  
  [调试多线程应用程序](../debugger/debug-multithreaded-applications-in-visual-studio.md)   
- [查看调试器中的数据](../debugger/viewing-data-in-the-debugger.md)   
+ [在调试器中查看数据](../debugger/viewing-data-in-the-debugger.md)   
  [如何：在托管代码中设置线程名称](../debugger/how-to-set-a-thread-name-in-managed-code.md)

@@ -1,88 +1,89 @@
 ---
-title: "管理-并行文件关联 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-helpviewer_keywords: 
-  - "设置默认的谓词"
+title: "管理并排显示文件关联 |Microsoft 文档"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology: vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+helpviewer_keywords: verbs, setting default
 ms.assetid: 9b6df3bc-d15c-4a5d-9015-948a806193b7
-caps.latest.revision: 17
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 17
+caps.latest.revision: "17"
+author: gregvanl
+ms.author: gregvanl
+manager: ghogen
+ms.openlocfilehash: dfb3bcca8c56ebefa665e44384df0751e71f6591
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# 管理-并行文件关联
-[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
-
-如果 VSPackage 提供文件关联，您必须如何确定到 [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] 的特定版本应调用打开文件的处理并行安装。  不兼容的文件格式配制问题。  
+# <a name="managing-side-by-side-file-associations"></a>管理并排显示文件关联
+如果你的 VSPackage 提供的文件关联，你必须决定如何处理在其中通过并行安装的特定版本[!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)]应被调用来打开文件。 文件格式不兼容复合问题。  
   
- 用户希望产品的新版本与早期版本兼容，因此，现有文件较新版本可加载，而不会丢失数据。  理想情况下， VSPackage 中加载和保存早期版本文件格式。  如果不为 true，则应该提供升级文件格式转换为 VSPackage 的新版本。  弊端是升级的文件处于较早版本不能打开。  
+ 用户期望的产品是与早期版本中，兼容的以便可以在新版本中而不会丢失数据加载现有文件的新版本。 理想情况下，你的 VSPackage 可以同时加载和保存早期版本的文件格式。 如果不是这样，你应提供的用于升级到你的 VSPackage 的最新版本的文件格式。 此方法的缺点是，无法在早期版本中打开升级的文件。  
   
- 文件时，在窗体变得不兼容时，若要避免此问题，您可以更改扩展。  例如， VSPackage 的 1 版可以使用此扩展， .mypkg10，并且，版本 2 可以使用此扩展， .mypkg20。  此差异标识打开特定文件的 VSPackage。  如果添加较新的 Vspackage 到与早期扩展程序的列表，用户可以右击文件并选择以打开它在较新的 VSPackage。  此时， VSPackage 中提供文件升级到新的布局或打开文件并保持与 VSPackage 的早期版本兼容。  
+ 若要避免此问题，可以更改扩展时的文件格式变得不兼容。 例如，版本 1 的你的 VSPackage 可以使用扩展、.mypkg10 和 2 无法使用扩展，版本.mypkg20。 这种差异标识打开特定文件的 VSPackage。 如果你将较新的 Vspackage 添加到与旧扩展名相关联的程序列表中，用户可以右键单击该文件，并选择在较新的 VSPackage 中打开它。 此时，你的 VSPackage 可提供的用于升级到新格式的文件或打开文件并保持与早期版本的 VSPackage 兼容性。  
   
 > [!NOTE]
->  可以将这些方法。  例如，您可以通过加载较旧的文件提供向后兼容和提供升级文件格式，当用户保存它。  
+>  你可以结合使用这些方法。 例如，你可以通过将较旧文件加载提供向后兼容性，并为提供时用户将其保存升级的文件格式。  
   
-## 面对问题  
- 如果需要多个并行的 Vspackage 使用同一个扩展，您必须选择与该扩展 [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] 的版本。  这是两个选择:  
+## <a name="facing-the-problem"></a>面向问题  
+ 如果你想要使用相同的扩展的多个并排显示 Vspackage，你必须选择的版本[!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)]扩展与该键相关联。 以下是两种替代方法：  
   
--   打开在 [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] 最新版本的文件安装在用户的计算机。  
+-   打开中的最新版本的文件[!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)]用户的计算机上安装。  
   
-     此方法，安装程序来确定 [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] 的最新版本以及包含该负责在为文件关联编写的注册表项。  在 Windows Installer 包，可以包括自定义操作设置一 [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)]的最新版本的属性。  
+     在此方法时，安装程序，负责确定的最新版本[!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)]和包括所写入的文件关联的注册表项中。 在 Windows Installer 包中，你可以包括自定义操作以便设置一个属性，指示的最新版本[!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)]。  
   
     > [!NOTE]
-    >  在此上下文中， “最新的”表示 “最新版本”。这些安装程序项将不会自动检测 [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)]后续版本。  项。 [检测系统要求](../extensibility/internals/detecting-system-requirements.md) 和在 [必须在安装后运行的命令](../extensibility/internals/commands-that-must-be-run-after-installation.md) 类似于存在的一个此处以及需要支持 [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)]的其他版本。  
+    >  在此上下文中，"最新"意味着"最新支持的版本"。 这些安装程序项将不会自动检测的后续版本[!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)]。 中的条目[检测系统要求](../extensibility/internals/detecting-system-requirements.md)并在[命令，必须将运行之后安装](../extensibility/internals/commands-that-must-be-run-after-installation.md)是类似于此处所述，支持的其他版本所需[!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)]。  
   
-     在 CustomAction 的以下行表设置 DEVENV\_EXE\_LATEST 属性是 AppSearch 和 RegLocator 表设置的属性讨论在 [必须在安装后运行的命令](../extensibility/internals/commands-that-must-be-run-after-installation.md)。  行。 InstallExecuteSequence 表中计划自定义操作的早期执行顺序。  在这种情况列的值提交逻辑工作:  
+     CustomAction 表中的以下行设置 DEVENV_EXE_LATEST 属性可由 AppSearch 设置的属性和 RegLocator 表中所述[命令，必须将运行之后安装](../extensibility/internals/commands-that-must-be-run-after-installation.md)。 InstallExecuteSequence 表中的行计划尽早执行序列中的自定义操作。 条件列进行的逻辑工作中的值：  
   
-    -   ，如果它是唯一的当前版本， Visual Studio .NET 2002 中是最新的版本。  
+    -   如果它是仅存在版本，visual Studio.NET 2002年将是最新版本。  
   
-    -   Visual Studio .NET 2003 中是最新版本，仅当存在，并且 [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] 不存在。  
+    -   Visual Studio.NET 2003年是最新版本，仅当存在和[!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)]不存在。  
   
-    -   ，如果它是唯一的当前版本，[!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] 是最新的版本。  
+    -   [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)]如果它是仅存在版本，是最新版本。  
   
-     这种实际结果是 DEVENV\_EXE\_LATEST 包含 devenv.exe 的最新版本的路径。  
+     最终结果是 DEVENV_EXE_LATEST 包含 devenv.exe 的最新版本的路径。  
   
-    ### CustomAction 确定 Visual Studio 的最新版本的表行  
+    ### <a name="customaction-table-rows-that-determine-the-latest-version-of-visual-studio"></a>确定最新版本的 Visual Studio 的 CustomAction 表行  
   
-    |操作|类型|源|Target|  
-    |--------|--------|-------|------------|  
-    |CA\_SetDevenvLatest\_2002|51|DEVENV\_EXE\_LATEST|\[DEVENV\_EXE\_2002\]|  
-    |CA\_SetDevenvLatest\_2003|51|DEVENV\_EXE\_LATEST|\[DEVENV\_EXE\_2003\]|  
-    |CA\_SetDevenvLatest\_2005|51|DEVENV\_EXE\_LATEST|\[DEVENV\_EXE\_2005\]|  
+    |操作|类型|源|目标|  
+    |------------|----------|------------|------------|  
+    |CA_SetDevenvLatest_2002|51|DEVENV_EXE_LATEST|[DEVENV_EXE_2002]|  
+    |CA_SetDevenvLatest_2003|51|DEVENV_EXE_LATEST|[DEVENV_EXE_2003]|  
+    |CA_SetDevenvLatest_2005|51|DEVENV_EXE_LATEST|[DEVENV_EXE_2005]|  
   
-    ### InstallExecuteSequence 确定 Visual Studio 的最新版本的表行  
+    ### <a name="installexecutesequence-table-rows-that-determine-the-latest-version-of-visual-studio"></a>确定最新版本的 Visual Studio 的 InstallExecuteSequence 表行  
   
-    |操作|Condition|顺序|  
-    |--------|---------------|--------|  
-    |CA\_SetDevenvLatest\_2002|DEVENV\_EXE\_2002 和非 \(DEVENV\_EXE\_2003 或 DEVENV\_EXE\_2005\)|410|  
-    |CA\_SetDevenvLatest\_2003|而不是 DEVENV\_EXE\_2003 DEVENV\_EXE\_2005|420|  
-    |CA\_SetDevenvLatest\_2005|DEVENV\_EXE\_2005|430|  
+    |操作|条件|序列|  
+    |------------|---------------|--------------|  
+    |CA_SetDevenvLatest_2002|DEVENV_EXE_2002 和 NOT （DEVENV_EXE_2003 或 DEVENV_EXE_2005）|410|  
+    |CA_SetDevenvLatest_2003|DEVENV_EXE_2003 和不 DEVENV_EXE_2005|420|  
+    |CA_SetDevenvLatest_2005|DEVENV_EXE_2005|430|  
   
-     您在 Windows Installer 包的注册表表中使用 DEVENV\_EXE\_LATEST 属性编写 HKEY\_CLASSES\_ROOT \\*ProgId*\\Shell\\Open\\Command key's default value， \[DEVENV\_EXE\_LATEST\] “%1 "  
+     可以使用 Windows Installer 包的注册表表中的 DEVENV_EXE_LATEST 属性编写 HKEY_CLASSES_ROOT*ProgId*ShellOpenCommand 密钥的默认值，[DEVENV_EXE_LATEST]"%1"  
   
--   运行可能由可用 VSPackage 版本做出最好的选择的共享启动器程序。  
+-   运行可以做出最佳选择从可用 VSPackage 版本共享的启动器程序。  
   
-     [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] 开发人员选择此方法处理解决方案多种格式的复杂要求和项目从 [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)]的许多版本的该结果。  此方法，您注册启动器程序作为扩展处理程序。  启动签出文件确定 [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] 的版本和 VSPackage 可以特定文档的事件。  例如，因此，如果用户打开由 VSPackage 的特定版本上次保存的文件，启动器开始在 [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)]匹配版本的该 VSPackage。  此外，用户可以配置启动器始终启动最新的版本。  启动器还可以提示用户升级文件的格式。  如果文件的格式包括一个版本号，启动器会通知用户，如果文件格式是从与一个或多个后安装的 Vspackage 的版本。  
+     开发人员确定的[!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)]选择这种方法来处理复杂的需求的解决方案和项目所产生的多个版本的多个格式[!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)]。 在此方法中，你将启动器程序注册为扩展处理程序。 启动器检查该文件，并决定哪个版本的[!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)]并且你的 VSPackage 可以处理该特定的文件。 例如，如果用户打开自上次保存你的 VSPackage 的特定版本的文件，启动器可以启动该 VSPackage 中匹配的版本[!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)]。 此外，用户无法配置启动器始终启动最新版本。 启动程序还可能提示用户升级文件的格式。 如果文件的格式包括版本号，启动器无法从版本晚于一个或多个已安装的 Vspackage 的文件格式是否通知用户。  
   
-     启动器应在使用 VSPackage 的所有版本共享的 Windows Installer 组件。  此过程确保始终安装最新版本和不会移除，直到 VSPackage 的所有版本中卸载。  这样，文件关联和启动组件的其他注册表项保留，即使 VSPackage 的一个版本中卸载。  
+     启动程序应为与你的 VSPackage 的所有版本共享的 Windows Installer 组件。 此过程可确保最新版本始终安装，并且不会删除它，直到卸载你的 VSPackage 的所有版本。 这种方式，文件关联和启动程序组件的其他注册表项会保留即使卸载的 VSPackage 的一个版本。  
   
-## 卸载和文件关联  
- 卸载 VSPackage 写入文件关联的注册表项移除文件关联。  因此，该扩展没有关联的程序。  Windows Installer “无法恢复”添加的注册表项，当安装 VSPackage。  这是一些可以修复用户文件关联:  
+## <a name="uninstall-and-file-associations"></a>卸载和文件关联  
+ 卸载写入文件关联的注册表项的 VSPackage 中删除的文件关联。 因此，扩展插件没有任何关联的节目。 Windows Installer 未"恢复"安装 VSPackage 时已添加的注册表项。 以下是解决用户的文件关联的一些方法：  
   
--   如使用共享启动器元素。  
+-   使用共享的启动器组件，如上文所述。  
   
--   提示用户运行 VSPackage 版本的修复用户希望拥有文件关联。  
+-   指示用户运行版本的用户想要拥有文件关联的 VSPackage 的修复。  
   
--   提供复盖相应的注册表项的单独的可执行程序。  
+-   提供一个单独的可执行程序，用于重写相应的注册表项。  
   
--   提供配置选项让用户选择文件关联和还原失去的关联页或对话框。  提示用户在其卸载。  
+-   提供配置选项的页面或对话框框中，从而让用户选择文件关联，并回收丢失的关联。 指示用户卸载后运行它。  
   
-## 请参阅  
- [注册由并行部署的文件扩展名](../extensibility/registering-file-name-extensions-for-side-by-side-deployments.md)   
+## <a name="see-also"></a>另请参阅  
+ [注册-并排部署的文件扩展名](../extensibility/registering-file-name-extensions-for-side-by-side-deployments.md)   
  [注册文件扩展名的谓词](../extensibility/registering-verbs-for-file-name-extensions.md)

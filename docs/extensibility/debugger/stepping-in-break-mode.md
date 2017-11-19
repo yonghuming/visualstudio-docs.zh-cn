@@ -1,33 +1,35 @@
 ---
-title: "在中断模式中单步执行 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-helpviewer_keywords: 
-  - "中断模式下，单步执行"
-  - "单步执行，在中断模式下"
-  - "调试 [调试 SDK]，在中断模式下单步执行"
+title: "在中断模式下单步执行 |Microsoft 文档"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology: vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+helpviewer_keywords:
+- break mode, stepping
+- stepping, in break mode
+- debugging [Debugging SDK], stepping in break mode
 ms.assetid: b08dc8ee-6c63-4462-a097-6f525cfbb35a
-caps.latest.revision: 7
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 7
+caps.latest.revision: "7"
+author: gregvanl
+ms.author: gregvanl
+manager: ghogen
+ms.openlocfilehash: 011de9ce3e4e1445354f907dcf56a0f4ecbef6bc
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# 在中断模式中单步执行
-[!INCLUDE[vs2017banner](../../code-quality/includes/vs2017banner.md)]
-
-下面描述发生的处理，调试器处于中断模式，并且必须逐句通过代码:  
+# <a name="stepping-in-break-mode"></a>在中断模式下单步执行
+下面描述了当调试器处于中断模式，并且必须单步执行代码时出现的过程：  
   
-## 单步执行处理  
+## <a name="stepping-process"></a>单步执行过程  
   
-1.  调用带有 [STEPKIND](../../extensibility/debugger/reference/stepkind.md) 和 [STEPUNIT](../../extensibility/debugger/reference/stepunit.md) 参数的 [IDebugProgram2:: 步骤](../../extensibility/debugger/reference/idebugprogram2-step.md) 执行中的步骤。  
+1.  调用[IDebugProgram2::Step](../../extensibility/debugger/reference/idebugprogram2-step.md)与[STEPKIND](../../extensibility/debugger/reference/stepkind.md)和[STEPUNIT](../../extensibility/debugger/reference/stepunit.md)自变量执行一个步骤。  
   
-2.  当该步骤完成时，请发送 [IDebugStepCompleteEvent2](../../extensibility/debugger/reference/idebugstepcompleteevent2.md) 作为一个停止点的事件。  
+2.  完成步骤后，发送[IDebugStepCompleteEvent2](../../extensibility/debugger/reference/idebugstepcompleteevent2.md)为停止事件。  
   
-## 请参阅  
+## <a name="see-also"></a>另请参阅  
  [调用调试器事件](../../extensibility/debugger/calling-debugger-events.md)

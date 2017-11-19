@@ -1,49 +1,49 @@
 ---
-title: "IDebugEngine3::SetEngineGuid | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "IDebugEngine3::SetEngineGuid"
-helpviewer_keywords: 
-  - "IDebugEngine3::SetEngineGuid"
+title: "IDebugEngine3::SetEngineGuid |Microsoft 文档"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology: vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords: IDebugEngine3::SetEngineGuid
+helpviewer_keywords: IDebugEngine3::SetEngineGuid
 ms.assetid: 8bdfa05d-feb7-4d98-abac-77825a04c50f
-caps.latest.revision: 10
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 10
+caps.latest.revision: "10"
+author: gregvanl
+ms.author: gregvanl
+manager: ghogen
+ms.openlocfilehash: f31bc27cdfe197a118d1b696225ea332fc0026ca
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# IDebugEngine3::SetEngineGuid
-[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
-
-此方法设置调试引擎的 \(DE\) `GUID`。  
+# <a name="idebugengine3setengineguid"></a>IDebugEngine3::SetEngineGuid
+此方法会设置调试引擎 (DE) `GUID`。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
 ```cpp  
-HRESULT SetEngineGuid(  
-   GUID* guidEngine  
+HRESULT SetEngineGuid(  
+   GUID* guidEngine  
 );  
 ```  
   
 ```  
 [C#]  
 int SetEngineGuid(  
-   ref Guid guidEngine  
+   ref Guid guidEngine  
 );  
 ```  
   
-#### 参数  
+#### <a name="parameters"></a>参数  
  `guidEngine`  
- \[in\] 引擎的 `GUID` 。  
+ [in]`GUID`的引擎。  
   
-## 返回值  
- 如果成功，则返回; `S_OK`否则，返回错误代码。  
+## <a name="return-value"></a>返回值  
+ 如果成功，则返回`S_OK`; 否则为返回错误代码。  
   
-## 请参阅  
+## <a name="see-also"></a>另请参阅  
  [IDebugEngine3](../../../extensibility/debugger/reference/idebugengine3.md)

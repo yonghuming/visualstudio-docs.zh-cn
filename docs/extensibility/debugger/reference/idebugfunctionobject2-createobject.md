@@ -1,75 +1,77 @@
 ---
-title: "IDebugFunctionObject2::CreateObject | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-helpviewer_keywords: 
-  - "IDebugFunctionObject2::CreateObject"
-  - "CreateObject"
+title: "IDebugFunctionObject2::CreateObject |Microsoft 文档"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology: vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+helpviewer_keywords:
+- IDebugFunctionObject2::CreateObject
+- CreateObject
 ms.assetid: 148de615-941e-4b64-ab11-75b692aae465
-caps.latest.revision: 9
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 9
+caps.latest.revision: "9"
+author: gregvanl
+ms.author: gregvanl
+manager: ghogen
+ms.openlocfilehash: 08ae477758aabb2b65b5823a37a9c07d61d4083b
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# IDebugFunctionObject2::CreateObject
-[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
-
-创建使用给定的构造函数计算标志设置和超时值的对象。  
+# <a name="idebugfunctionobject2createobject"></a>IDebugFunctionObject2::CreateObject
+创建使用给定评估标志设置和超时值的构造函数的对象。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
-```cpp#  
+```cpp  
 HRESULT CreateObject (  
-   IDebugFunctionObject* pConstructor,  
-   DWORD                 dwArgs,  
-   IDebugObject*         pArgs[],  
-   DWORD                 dwEvalFlags,  
-   DWORD                 dwTimeout,  
-   IDebugObject**        ppObject  
+   IDebugFunctionObject* pConstructor,  
+   DWORD                 dwArgs,  
+   IDebugObject*         pArgs[],  
+   DWORD                 dwEvalFlags,  
+   DWORD                 dwTimeout,  
+   IDebugObject**        ppObject  
 );  
 ```  
   
-```c#  
+```csharp  
 int CreateObject (  
-   IDebugFunctionObject pConstructor,  
-   uint                 dwArgs,  
-   IDebugObject[]       pArgs,  
-   uint                 dwEvalFlags,  
-   uint                 dwTimeout,  
-   out IDebugObject**   ppObject  
+   IDebugFunctionObject pConstructor,  
+   uint                 dwArgs,  
+   IDebugObject[]       pArgs,  
+   uint                 dwEvalFlags,  
+   uint                 dwTimeout,  
+   out IDebugObject**   ppObject  
 );  
 ```  
   
-#### 参数  
+#### <a name="parameters"></a>参数  
  `pConstructor`  
- \[in\] 表示要创建的对象构造函数的 [IDebugFunctionObject](../../../extensibility/debugger/reference/idebugfunctionobject.md) 对象。  
+ [in][IDebugFunctionObject](../../../extensibility/debugger/reference/idebugfunctionobject.md)对象，表示要创建的对象的构造函数。  
   
  `dwArgs`  
- \[in\] 的参数数量。 `pArg` 数组。  表示参数的数目传递给构造函数。  
+ [in]中的参数数目`pArg`数组。 表示传递给构造函数的参数的数目。  
   
  `pArgs`  
- \[in\] 表示参数的数组 [IDebugObject](../../../extensibility/debugger/reference/idebugobject.md) 对象传递给构造函数。  
+ [in]数组[IDebugObject](../../../extensibility/debugger/reference/idebugobject.md)表示的参数的对象传递给构造函数。  
   
  `dwEvalFlags`  
- \[in\] 指定标志的组合。 [EVALFLAGS](../../../extensibility/debugger/reference/evalflags.md) 枚举的计算方式执行。  
+ [in]中的标志的组合[EVALFLAGS](../../../extensibility/debugger/reference/evalflags.md)指定如何执行计算的枚举。  
   
  `dwTimeout`  
- \[in\] 最长时间，以毫秒为单位，在返回等待来自此方法。  使用 **无限** 会无限期地等待。  
+ [in]以毫秒为单位，从此方法返回前等待的最长时间。 使用**无限**无限期等待。  
   
  `ppObject`  
- \[out\] 返回表示新创建的对象的 **IDebugObject** 。  
+ [out]返回**IDebugObject**表示新创建的对象。  
   
-## 返回值  
- 如果成功，则返回; `S_OK`否则，返回错误代码。  
+## <a name="return-value"></a>返回值  
+ 如果成功，则返回`S_OK`; 否则为返回错误代码。  
   
-## 备注  
- 调用此方法创建表示类实例对象，或者需要构造函数，为参数的其他复杂类型。  
+## <a name="remarks"></a>备注  
+ 调用此方法以创建一个对象，表示一个类或其他复杂类型的要求的构造函数的参数的实例。  
   
-## 请参阅  
+## <a name="see-also"></a>另请参阅  
  [IDebugFunctionObject2](../../../extensibility/debugger/reference/idebugfunctionobject2.md)

@@ -1,39 +1,39 @@
 ---
-title: "AsyncTaskMethodBuilder &lt; TResult &gt;。ObjectIdForDebugger 属性 | Microsoft Docs"
-ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-helpviewer_keywords: 
-  - "ObjectForDebugger 属性，AsyncTaskMethodBuilder < TResult > 结构 [.NET Framework 的调试引擎]"
+title: "AsyncTaskMethodBuilder&lt;TResult&gt;。ObjectIdForDebugger 属性 |Microsoft 文档"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology: vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+helpviewer_keywords: ObjectForDebugger property, AsyncTaskMethodBuilder<TResult> structure [.NET Framework debug engines]
 ms.assetid: 060b857f-daf5-43ea-bb51-abf9368e1e91
-caps.latest.revision: 3
-caps.handback.revision: 3
-ms.author: "gregvanl"
-manager: "ghogen"
+caps.latest.revision: "3"
+author: gregvanl
+ms.author: gregvanl
+manager: ghogen
+ms.openlocfilehash: 81d1869088681bd58d261278b35660cc0a048c48
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# AsyncTaskMethodBuilder &lt; TResult &gt;。ObjectIdForDebugger 属性
-[!INCLUDE[vs2017banner](../../code-quality/includes/vs2017banner.md)]
-
-获取可用于唯一地标识调试器到此生成器的对象。  
+# <a name="asynctaskmethodbuilderlttresultgtobjectidfordebugger-property"></a>AsyncTaskMethodBuilder&lt;TResult&gt;。ObjectIdForDebugger 属性
+获取可用于唯一标识调试器到此生成器的对象。  
   
- **命名空间:** <xref:System.Runtime.CompilerServices?displayProperty=fullName>  
+ **命名空间：** <xref:System.Runtime.CompilerServices?displayProperty=fullName>  
   
- **程序集:** mscorlib \(在 mscorlib.dll\)  
+ **程序集：** mscorlib （mscorlib.dll) 中  
   
- 由于无法在.NET Framework 中访问此内部成员，下面的语法提供通用中间语言 \(CIL\)。  
+ 由于无法访问此内部成员在.NET Framework 中，以下语法提供共同点中间语言 (CIL)。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
-```c#  
+```csharp  
 private object ObjectIdForDebugger  
 ```  
   
-## 请参阅  
+## <a name="see-also"></a>另请参阅  
  <xref:System.Runtime.CompilerServices.AsyncTaskMethodBuilder%601>   
- [适用于.NET Framework 并行扩展内幕](../../extensibility/debugger/parallel-extension-internals-for-the-dotnet-framework.md)
+ [.NET Framework 的并行扩展内幕](../../extensibility/debugger/parallel-extension-internals-for-the-dotnet-framework.md)

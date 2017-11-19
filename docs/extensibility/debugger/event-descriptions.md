@@ -1,49 +1,50 @@
 ---
-title: "事件描述 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-helpviewer_keywords: 
-  - "调试 [调试 SDK] 事件"
+title: "事件说明 |Microsoft 文档"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology: vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+helpviewer_keywords: debugging [Debugging SDK], events
 ms.assetid: 09f61652-7e16-4bb0-8055-f61a84bf384e
-caps.latest.revision: 7
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 7
+caps.latest.revision: "7"
+author: gregvanl
+ms.author: gregvanl
+manager: ghogen
+ms.openlocfilehash: 6ce3e623a2d1787aa67f8a6e4dcfcf9530e8766c
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# 事件描述
-[!INCLUDE[vs2017banner](../../code-quality/includes/vs2017banner.md)]
-
-事件的每种类型都有特定用途。  
+# <a name="event-descriptions"></a>事件说明
+每种类型的事件有特定用途。  
   
-## 事件和原因它们的使用。  
+## <a name="events-and-the-reasons-for-their-use"></a>事件和其使用的原因  
   
-|Event|说明|  
-|-----------|--------|  
-|activate 文档事件|，在调试引擎 \(DE\)希望 IDE 给前景，打开或使文档中发生。|  
-|断点区域或断点错误事件|发送，当断点绑定时，或者当断点不能绑定时和错误返回。|  
-|断点未绑定操作|，当绑定断点从代码，请在发生。|  
-|可以停止事件|发送到 IDE 确定用户是否希望停止对指定点在代码。|  
-|断点事件|，在代码或数据断点被命中，请发生。|  
-|文档文本事件|，更改，请发生文档中的文本。  这些事件未通过 `IDebugEventCallBack2::Event` 方法发送。|  
-|引擎创建事件|发送，当引擎首先创建。|  
-|入口点事件|发送，当正在调试的程序运行时其初始化代码和达到其第一个输入点。|  
-|异常事件|发送，当正在运行的程序遇到异常。|  
-|表达式计算完成事件|发送，在异步表达式计算完成。|  
-|查找符号事件|发送，只要 DE 需要要求用户查找模块的符号。|  
-|加载完成事件|发送，仅当原始程序负载完成时与第一个代码将运行程序。|  
-|邮件事件|发送，当发送给用户。|  
-|模块加载事件|发送，在一个新模块加载或卸载。|  
-|输出字符串操作|发送，当程序编写调试输出。|  
-|创建和销毁事件|发送消息创建或损坏进程，程序、属性、会话和线程，因此 Visual Studio IDE 会记录被调试的程序的状态。|  
-|步骤完成事件|发送，当步骤完成的。|  
-|线程名称更改事件|发送，当用户更改线程的名称。|  
-|过程名称更改事件|发送，当用户更改程序的名称。|  
+|Event|描述|  
+|-----------|-----------------|  
+|激活文档事件|发生时的调试引擎 (DE) 想 IDE 以打开或将文档置于前台。|  
+|断点绑定或断点错误事件|绑定断点或当断点无法绑定，并返回一个错误时发送。|  
+|未绑定的断点事件|从代码解除绑定的断点的绑定时发生。|  
+|可以停止事件|发送到 IDE 以确定用户想要在代码中的指定点处停止。|  
+|断点事件|代码或数据断点命中时发生。|  
+|文档文本事件|在文档中的文本更改时发生。 这些事件不会通过发送`IDebugEventCallBack2::Event`方法。|  
+|引擎创建事件|发送一个引擎首次创建时。|  
+|入口点事件|正在调试的程序已运行其初始化代码和达到其第一个的用户入口点时发送。|  
+|异常事件|发送时遇到异常时运行的程序。|  
+|表达式计算完成事件|异步表达式求值完成后发送。|  
+|查找符号事件|发送每当 DE 需要让用户查找的模块的符号。|  
+|加载完成事件|仅当初始程序加载已完成，而且在程序中运行的第一个代码时发送。|  
+|消息事件|当消息发送到用户时发送。|  
+|模块加载事件|加载或卸载新的模块时发送。|  
+|输出字符串事件|当程序写入调试输出时发送。|  
+|创建和销毁事件|发送以宣布的创建或销毁的进程、 程序、 属性、 会话和线程，以便 Visual Studio IDE 可以跟踪的正在调试的程序的状态。|  
+|步骤完成事件|步骤已完成时发送。|  
+|线程名称更改事件|发送时用户更改线程的名称。|  
+|程序名称更改事件|发送时用户更改程序的名称。|  
   
-## 请参阅  
+## <a name="see-also"></a>另请参阅  
  [发送事件](../../extensibility/debugger/sending-events.md)

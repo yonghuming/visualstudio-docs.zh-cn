@@ -1,63 +1,63 @@
 ---
-title: "IDebugEngine2::CreatePendingBreakpoint | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "IDebugEngine2::CreatePendingBreakpoint"
-helpviewer_keywords: 
-  - "IDebugEngine2::CreatePendingBreakpoint"
+title: "IDebugEngine2::CreatePendingBreakpoint |Microsoft 文档"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology: vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords: IDebugEngine2::CreatePendingBreakpoint
+helpviewer_keywords: IDebugEngine2::CreatePendingBreakpoint
 ms.assetid: 92e85b90-a931-48d9-89a7-a6edcb83ae5a
-caps.latest.revision: 10
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 10
+caps.latest.revision: "10"
+author: gregvanl
+ms.author: gregvanl
+manager: ghogen
+ms.openlocfilehash: fdc73a2245390ec04cc3adc2b3a4ac4f5ced3f51
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# IDebugEngine2::CreatePendingBreakpoint
-[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
-
-在调试引擎 \(DE\)创建挂起的断点。  
+# <a name="idebugengine2creatependingbreakpoint"></a>IDebugEngine2::CreatePendingBreakpoint
+在调试引擎 (DE) 中创建挂起断点。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
-```cpp#  
-HRESULT CreatePendingBreakpoint(   
-   IDebugBreakpointRequest2*  pBPRequest,  
-   IDebugPendingBreakpoint2** ppPendingBP  
+```cpp  
+HRESULT CreatePendingBreakpoint(   
+   IDebugBreakpointRequest2*  pBPRequest,  
+   IDebugPendingBreakpoint2** ppPendingBP  
 );  
 ```  
   
-```c#  
-int CreatePendingBreakpoint(   
-   IDebugBreakpointRequest2     pBPRequest,  
-   out IDebugPendingBreakpoint2 ppPendingBP  
+```csharp  
+int CreatePendingBreakpoint(   
+   IDebugBreakpointRequest2     pBPRequest,  
+   out IDebugPendingBreakpoint2 ppPendingBP  
 );  
 ```  
   
-#### 参数  
+#### <a name="parameters"></a>参数  
  `pBPRequest`  
- \[in\] 描述挂起的断点创建的 [IDebugBreakpointRequest2](../../../extensibility/debugger/reference/idebugbreakpointrequest2.md) 对象。  
+ [in][IDebugBreakpointRequest2](../../../extensibility/debugger/reference/idebugbreakpointrequest2.md)描述挂起断点，以创建对象。  
   
  `ppPendingBP`  
- \[out\] 返回表示挂起的断点的 [IDebugPendingBreakpoint2](../../../extensibility/debugger/reference/idebugpendingbreakpoint2.md) 对象。  
+ [out]返回[IDebugPendingBreakpoint2](../../../extensibility/debugger/reference/idebugpendingbreakpoint2.md)表示挂起断点的对象。  
   
-## 返回值  
- 如果成功，则返回; `S_OK`否则，返回错误代码。  通常返回 `E_FAIL` ，如果 `pBPRequest` 参数不匹配 DE 支持的任何语言，如果 `pBPRequest` 参数无效或不完整。  
+## <a name="return-value"></a>返回值  
+ 如果成功，则返回`S_OK`; 否则为返回错误代码。 通常返回`E_FAIL`如果`pBPRequest`参数与支持的如果 DE 的任何语言不匹配`pBPRequest`参数是无效或不完整。  
   
-## 备注  
- 挂起断点实质上是所需的所有信息的集合绑定断点代码。  从此方法返回的挂起的断点将不一定代码，直到 [将绑定](../../../extensibility/debugger/reference/idebugpendingbreakpoint2-bind.md) 方法调用。  
+## <a name="remarks"></a>备注  
+ 挂起断点是实质上是将断点绑定到代码所需的所有信息的集合。 此方法返回挂起断点未绑定到之前的代码[绑定](../../../extensibility/debugger/reference/idebugpendingbreakpoint2-bind.md)调用方法。  
   
- 对于每个挂起的断点用户集，会议调试管理器 \(SDM\)对每个附加 DE 的此方法。  将由验证的、断点用于运行该 DE 的过程是有效的。  
+ 对于每个挂起断点的用户组中，会话调试管理器 (SDM) 调用此方法在每个附加 DE。 负责 DE 以验证断点为该 DE 中运行的程序有效。  
   
- 当用户将在某行代码中设置断点， DE 可以自由绑定断点到对应于此代码的文档的最接近的行。  这使得用户可以在一个多行语句的第一行中设置断点，但是，将其绑定在最后一行 \(其中所有代码在调试信息特性化\)。  
+ 当用户的代码行上设置断点时，DE 可以自由地将断点绑定到对应于此代码的文档中的最近的一行。 这使得用户能够在多行语句，第一个行上设置断点但又将其绑定的最后一行 （其中的所有代码都特性中的调试信息）。  
   
-## 示例  
- 下面的示例演示如何执行简单的 `CProgram` 对象的方法。  `IDebugEngine2::CreatePendingBreakpoint` 的 DE 的实现可以转发对的所有调用方法实现在每个程序中。  
+## <a name="example"></a>示例  
+ 下面的示例演示如何实现此方法对于简单`CProgram`对象。 DE 实现`IDebugEngine2::CreatePendingBreakpoint`无法转发到的此实现的每个程序中的方法的所有调用。  
   
 ```  
 HRESULT CProgram::CreatePendingBreakpoint(IDebugBreakpointRequest2* pBPRequest, IDebugPendingBreakpoint2** ppPendingBP)     
@@ -71,8 +71,8 @@ HRESULT CProgram::CreatePendingBreakpoint(IDebugBreakpointRequest2* pBPRequest, 
 }    
 ```  
   
-## 请参阅  
+## <a name="see-also"></a>另请参阅  
  [IDebugEngine2](../../../extensibility/debugger/reference/idebugengine2.md)   
- [将绑定](../../../extensibility/debugger/reference/idebugpendingbreakpoint2-bind.md)   
+ [绑定](../../../extensibility/debugger/reference/idebugpendingbreakpoint2-bind.md)   
  [IDebugBreakpointRequest2](../../../extensibility/debugger/reference/idebugbreakpointrequest2.md)   
  [IDebugPendingBreakpoint2](../../../extensibility/debugger/reference/idebugpendingbreakpoint2.md)

@@ -1,12 +1,10 @@
 ---
-title: 'Walkthrough: Importing a Form Region That Is Designed in Outlook | Microsoft Docs'
+title: "演练： 导入在 Outlook 中设计的窗体区域 |Microsoft 文档"
 ms.custom: 
 ms.date: 02/02/2017
-ms.prod: visual-studio-dev14
 ms.reviewer: 
 ms.suite: 
-ms.technology:
-- office-development
+ms.technology: office-development
 ms.tgt_pltfrm: 
 ms.topic: article
 dev_langs:
@@ -16,252 +14,256 @@ helpviewer_keywords:
 - importing form regions
 - form regions [Office development in Visual Studio], importing
 ms.assetid: 86b0ef1a-6d7e-4ea5-b90e-458ffe4e1d10
-caps.latest.revision: 35
-author: kempb
-ms.author: kempb
+caps.latest.revision: "35"
+author: gewarren
+ms.author: gewarren
 manager: ghogen
-ms.translationtype: HT
-ms.sourcegitcommit: eb5c9550fd29b0e98bf63a7240737da4f13f3249
-ms.openlocfilehash: 5029c259d892b8848eae80d73751dd4be1d5d245
-ms.contentlocale: zh-cn
-ms.lasthandoff: 08/30/2017
-
+ms.openlocfilehash: 63073ca3100f1b4a11d5a39043e5d5eeebe7b628
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# <a name="walkthrough-importing-a-form-region-that-is-designed-in-outlook"></a>Walkthrough: Importing a Form Region That Is Designed in Outlook
-  This walkthrough demonstrates how to design a form region in Microsoft Office Outlook, and then import the form region into an Outlook VSTO Add-in project by using the **New Form Region** wizard. Designing the form region in Outlook makes it possible for you to add native Outlook controls to the form region that bind to Outlook data. After you import the form region, you can handle the events of each control.  
+# <a name="walkthrough-importing-a-form-region-that-is-designed-in-outlook"></a>演练：导入在 Outlook 中设计的窗体区域
+  此演练演示如何在 Microsoft Office Outlook 中设计窗体区域，然后通过使用“新建窗体区域”  向导将窗体区域导入 Outlook VSTO 外接程序项目。 通过在 Outlook 中设计窗体区域，可以将本机 Outlook 控件添加到绑定到 Outlook 数据的窗体区域。 导入窗体区域后，可以处理每个控件的事件。  
   
  [!INCLUDE[appliesto_olkallapp](../vsto/includes/appliesto-olkallapp-md.md)]  
   
- This walkthrough illustrates the following tasks:  
+ 本演练阐释了以下任务：  
   
--   Designing a form region by using the form region designer in Outlook.  
+-   使用 Outlook 中的窗体区域设计器来设计窗体区域。  
   
--   Importing a form region into an Outlook VSTO Add-in project.  
+-   向 Outlook VSTO 外接程序项目导入窗体区域。  
   
--   Handling the events of controls on the form region.  
+-   处理窗体区域中的控件的事件。  
   
  [!INCLUDE[note_settings_general](../sharepoint/includes/note-settings-general-md.md)]  
   
-## <a name="prerequisites"></a>Prerequisites  
- You need the following components to complete this walkthrough:  
+## <a name="prerequisites"></a>先决条件  
+ 你需要以下组件来完成本演练：  
   
 -   [!INCLUDE[vsto_vsprereq](../vsto/includes/vsto-vsprereq-md.md)]  
   
--   [!INCLUDE[Outlook_15_short](../vsto/includes/outlook-15-short-md.md)] or [!INCLUDE[Outlook_14_short](../vsto/includes/outlook-14-short-md.md)].  
+-   [!INCLUDE[Outlook_15_short](../vsto/includes/outlook-15-short-md.md)] 或 [!INCLUDE[Outlook_14_short](../vsto/includes/outlook-14-short-md.md)]。  
   
 > [!NOTE]  
->  Your computer might show different names or locations for some of the Visual Studio user interface elements in the following instructions. The Visual Studio edition that you have and the settings that you use determine these elements. For more information, see [Personalize the Visual Studio IDE](../ide/personalizing-the-visual-studio-ide.md).  
+>  以下说明中的某些 Visual Studio 用户界面元素在计算机上出现的名称或位置可能会不同。 这些元素取决于你所使用的 Visual Studio 版本和你所使用的设置。 有关详细信息，请参阅[个性化设置 Visual Studio IDE](../ide/personalizing-the-visual-studio-ide.md)。  
   
- ![link to video](../vsto/media/playvideo.gif "link to video") For a related video demonstration, see [How Do I: Create Outlook Form Regions Using Visual Studio 2008?](http://go.microsoft.com/fwlink/?LinkID=130305).  
+ ![视频链接](../vsto/media/playvideo.gif "视频链接")相关的视频演示，请参阅[如何执行 i： 创建 Outlook 窗体区域使用 Visual Studio 2008？](http://go.microsoft.com/fwlink/?LinkID=130305)。  
   
-## <a name="designing-a-form-region-by-using-the-form-region-designer-in-outlook"></a>Designing a Form Region by Using the Form Region Designer in Outlook  
- In this step you will design a form region in Outlook. You will then the save the form region to an easy-to-find location so that you can import it into [!INCLUDE[vsprvs](../sharepoint/includes/vsprvs-md.md)].  
+## <a name="designing-a-form-region-by-using-the-form-region-designer-in-outlook"></a>使用 Outlook 中的窗体区域设计器来设计窗体区域  
+ 在此步骤中，将在 Outlook 中设计一个窗体区域。 然后将该窗体区域保存到一个易于查找的位置，以便将其导入 [!INCLUDE[vsprvs](../sharepoint/includes/vsprvs-md.md)]。  
   
- This example form region completely replaces the usual Task form. It provides a way to track the progress of all tasks that must be completed before the main task can be performed (prerequisite tasks). The form region displays a list of the prerequisite tasks, and shows the completion status for each task in the list. Users can add tasks to the list and remove them. They can also refresh the completion status of each task.  
+ 此示例窗体区域可完全代替常用的任务窗体。 它提供了一种方法来跟踪在执行主要任务之前必须完成的所有任务的进度（系统必备任务）。 窗体区域显示系统必备任务列表，并显示列表中每项任务的完成状态。 用户可以将任务添加到列表中，也可以将其删除。 还可以刷新每项任务的完成状态。  
   
-#### <a name="to-design-a-form-region-by-using-the-form-region-designer-in-outlook"></a>To design a form region by using the form region designer in Outlook  
+#### <a name="to-design-a-form-region-by-using-the-form-region-designer-in-outlook"></a>通过使用 Outlook 中的窗体区域设计器来设计窗体区域  
   
-1.  Start Microsoft Office Outlook.  
+1.  启动 Microsoft Office Outlook。  
   
-2.  In Outlook, on the **Developer** tab, click **Design a Form**. For more information, see [How to: Show the Developer Tab on the Ribbon](../vsto/how-to-show-the-developer-tab-on-the-ribbon.md).  
+2.  在 Outlook 中，在“开发人员”  选项卡中，单击“设计窗体” 。 有关更多信息，请参见 [How to: Show the Developer Tab on the Ribbon](../vsto/how-to-show-the-developer-tab-on-the-ribbon.md)。  
   
-3.  In the **Design Form** box, click **Task**, and then click **Open**.  
+3.  在“设计窗体”  框中，单击“任务” ，然后单击“打开” 。  
   
-4.  In Outlook, on the **Developer** tab, in the **Design** group, click **New Form Region**.  
+4.  在 Outlook 中，在“开发人员”  选项卡中，在“设计”  组中，单击“新建窗体区域” 。  
   
-     A new form region opens. If the **Field Chooser** does not appear, click **Field Chooser** in the **Tools** group.  
+     随即会打开一个新窗体区域。 如果未出现 **字段选择器** ，请单击“工具”  组中的 **字段选择器** 。  
   
-5.  Drag the **Subject** field and the **% Complete** field from the **Field Chooser** to the form region.  
+5.  将“主题”  字段和“完成百分比”  字段从 **字段选择器** 拖动到窗体区域。  
   
-6.  In the **Tools** group, click **Control Toolbox** to open the **Toolbox**.  
+6.  在“工具”  组中，单击 **控件工具箱** 以打开 **工具箱**。  
   
-7.  Drag a Label from the **Toolbox** to the form region. Position the label beneath the **Subject** and **% Complete** fields.  
+7.  将控件从 **工具箱** 拖动到窗体区域。 将标签置于“主题”  和“完成百分比”  字段下方。  
   
-8.  Right-click the label, and then click **Advanced Properties**.  
+8.  右击该标签，然后单击“高级属性” 。  
   
-9. In the **Properties** window, set the **Caption** property to **This task depends on the following tasks**, set the **Width** property to **200**, and then click **Apply**.  
+9. 在“属性”  窗口中，将“标题”  属性设置为“此任务依赖于以下任务” ，将“宽度”  属性设置为 **200**，然后单击“应用” 。  
   
-10. Drag a ListBox control from the **Toolbox** to the form region. Position the list box beneath the **This task depends on the following tasks** label.  
+10. 将 ListBox 控件从 **工具箱** 拖动到窗体区域。 将列表框置于“此任务依赖于以下任务”  标签下方。  
   
-11. Select the list box that you just added.  
+11. 选择刚才添加的列表框。  
   
-12. In the **Properties** window, set **Width** to **300**, and then click **Apply**.  
+12. 在“属性”  窗口中，将“宽度”  设置为 **300**，然后单击“应用” 。  
   
-13. Drag a Label from the **Toolbox** to the form region. Position the label beneath the list box.  
+13. 将控件从 **工具箱** 拖动到窗体区域。 将标签置于列表框下方。  
   
-14. Select the label that you just added.  
+14. 选择刚才添加的标签。  
   
-15. In the **Properties** window, set the **Caption** property to **Select a task to add to the list of dependent tasks**, set the **Width** property to **200**, and then click **Apply**.  
+15. 在“属性”  窗口中，将“标题”  属性设置为“选择一项要添加到依赖任务列表中的任务” ，将“宽度”  属性设置为 **200**，然后单击“应用” 。  
   
-16. Drag a ComboBox control from the **Toolbox** to the form region. Position the combo box beneath the **Select a task to add to the list of dependent tasks** label.  
+16. 将 ComboBox 控件从 **工具箱** 拖动到窗体区域。 将组合框置于“选择一项要添加到依赖任务列表中的任务”  标签下方。  
   
-17. Select the combo box that you just added.  
+17. 选择刚才添加的组合框。  
   
-18. In the **Properties** window, set the **Width** property to **300**, and then click **Apply**.  
+18. 在“属性”  窗口中，将“宽度”  属性设置为 **300**，然后单击“应用” 。  
   
-19. Drag a CommandButton control from the **Toolbox** to the form region. Position the command button next to the combo box.  
+19. 将 CommandButton 控件从 **工具箱** 拖动到窗体区域。 将命令按钮置于组合框旁。  
   
-20. Select the command button that you just added.  
+20. 选择刚才添加的命令按钮。  
   
-21. In the **Properties** window, set **Name** to **AddDependentTask**, set **Caption** to **Add Dependent Task**, set **Width** to **100**, and then click **Apply**.  
+21. 在“属性”  窗口中，将“名称”  设置为 **AddDependentTask**，将“标题”  设置为“添加依赖任务” ，将“宽度”  设置为 **100**，然后单击“应用” 。  
   
-22. In the **Field Chooser**, click **New**.  
+22. 在 **字段选择器**中，单击“新建” 。  
   
-23. In the **New Field** dialog box, type **hiddenField** in the **Name** field, and then click **OK**.  
+23. 在“新建字段”  对话框中，在“名称”  字段中键入 **hiddenField** ，然后单击“确定” 。  
   
-24. Drag the **hiddenField** field from the **Field Chooser** to the form region.  
+24. 将“hiddenField”  字段从 **字段选择器** 拖动到窗体区域。  
   
-25. In the **Properties** window, set **Visible** to **0 - False**, and then click **Apply**.  
+25. 在“属性”  窗口中，将“可见”  设置为 **0 - False**，然后单击“应用” 。  
   
-26. In Outlook, on the **Developer** tab, in the **Design** group, click the **Save** button, and then click **Save Form Region As**.  
+26. 在 Outlook 中，在“开发人员”  选项卡中，在“设计”  组中，单击“保存”  按钮，然后单击“将窗体区域另存为” 。  
   
-     Name the form region **TaskFormRegion** and save it to a local directory on your computer.  
+     命名窗体区域 **TaskFormRegion** 并将其保存到计算机的本地目录中。  
   
-     Outlook saves the form region as an Outlook Form Storage (.ofs) file. The form region is saved with the name TaskFormRegion.ofs.  
+     Outlook 将窗体区域保存为 Outlook 窗体存储 (.ofs) 文件。 以 TaskFormRegion.ofs 名称保存该窗体区域。  
   
-27. Exit Outlook.  
+27. 退出 Outlook。  
   
-## <a name="creating-a-new-outlook-add-in-project"></a>Creating a New Outlook Add-in Project  
- In this step, you will create an Outlook VSTO Add-in project. Later in this walkthrough, you will import the form region into to the project.  
+## <a name="creating-a-new-outlook-add-in-project"></a>创建新的 Outlook 外接程序项目  
+ 在此步骤中，将创建一个 Outlook VSTO 外接程序项目。 在本演练的后面部分，将向项目中导入窗体区域。  
   
-#### <a name="to-create-a-new-outlook-vsto-add-in-project"></a>To create a new Outlook VSTO Add-in project  
+#### <a name="to-create-a-new-outlook-vsto-add-in-project"></a>创建新的 Outlook VSTO 外接程序项目  
   
-1.  In [!INCLUDE[vsprvs](../sharepoint/includes/vsprvs-md.md)], create an Outlook VSTO Add-in project with the name **TaskAddIn**.  
+1.  在 [!INCLUDE[vsprvs](../sharepoint/includes/vsprvs-md.md)]中，创建名为 **TaskAddIn**的 Outlook VSTO 外接程序项目。  
   
-2.  In the **New Project** dialog box, select **Create directory for solution**.  
+2.  在 **“新建项目”** 对话框中，选择 **“创建解决方案的目录”**。  
   
-3.  Save the project to the default project directory.  
+3.  将项目保存到默认项目目录中。  
   
-     For more information, see [How to: Create Office Projects in Visual Studio](../vsto/how-to-create-office-projects-in-visual-studio.md).  
+     有关详细信息，请参阅 [How to: Create Office Projects in Visual Studio](../vsto/how-to-create-office-projects-in-visual-studio.md)。  
   
-## <a name="importing-the-form-region"></a>Importing the Form Region  
- You can import the form region that you designed in Outlook into the Outlook VSTO Add-in project by using the **New Outlook Form Region** wizard.  
+## <a name="importing-the-form-region"></a>导入窗体区域  
+ 可使用“新建 Outlook 窗体区域”  向导将 Outlook 中设计的窗体区域导入 Outlook VSTO 外接程序项目。  
   
-#### <a name="to-import-the-form-region-into-the-outlook-vsto-add-in-project"></a>To import the form region into the Outlook VSTO Add-in project  
+#### <a name="to-import-the-form-region-into-the-outlook-vsto-add-in-project"></a>向 Outlook VSTO 外接程序项目导入窗体区域  
   
-1.  In **Solution Explorer**, right-click the **TaskAddIn** project, point to **Add**, and then click **New Item**.  
+1.  在 **解决方案资源管理器**中右击 **TaskAddIn** 项目，指向“添加” ，然后单击“新建项” 。  
   
-2.  In the **Templates** pane, select **Outlook Form Region**, name the file **TaskFormRegion**, and then click **Add**.  
+2.  在“模板”  窗格中，选择“Outlook 窗体区域” ，将文件命名为 **TaskFormRegion**，然后单击“添加” 。  
   
-     The **NewOutlook Form Region** wizard starts.  
+     **NewOutlook 窗体区域**向导将启动。  
   
-3.  On the **Select how you want to create the form region** page, click **Import an Outlook Form Storage (.ofs) File**, and then click **Browse**.  
+3.  在“选择窗体区域的创建方式”  页上单击“导入 Outlook 窗体存储 (.ofs) 文件” ，然后单击“浏览” 。  
   
-4.  In the **Existing Outlook Form Region File Location** dialog box, browse to the location of **TaskFormRegion.ofs**, select **TaskFormRegion.ofs**, click **Open**, and then click **Next**.  
+4.  在“现有 Outlook 窗体区域文件位置”  对话框中，浏览到 **TaskFormRegion.ofs**的位置，选择 **TaskFormRegion.ofs**，单击“打开” ，然后单击“下一步” 。  
   
-5.  On the **Select the type of form region you want to create** page, click **Replace-all**, and then click **Next**.  
+5.  在“选择要创建的窗体区域的类型”  页上，单击“全部替换” ，然后单击“下一步” 。  
   
-     A *replace-all* form region replaces the entire Outlook form. For more information about form region types, see [Creating Outlook Form Regions](../vsto/creating-outlook-form-regions.md).  
+     “全部替换”  窗体区域将替换整个 Outlook 窗体。 有关窗体区域类型的更多信息，请参阅 [Creating Outlook Form Regions](../vsto/creating-outlook-form-regions.md)。  
   
-6.  On the **Supply descriptive text and select your display preferences** page, click **Next**.  
+6.  在“提供说明性文本并选择显示首选项”  页上，单击“下一步” 。  
   
-7.  On the **Identify the message classes that will display this form region** page, in the **Which custom message classes will display this form region** field, type **IPM.Task.TaskFormRegion**, and then click **Finish**.  
+7.  在“标识将显示此窗体区域的邮件类”  页上的 **哪些自定义邮件类将显示此窗体区域** 字段中，键入 **IPM.Task.TaskFormRegion**，然后单击“完成” 。  
   
-     A TaskFormRegion.cs or TaskFormRegion.vb file is added to your project.  
+     TaskFormRegion.cs 或 TaskFormRegion.vb 文件将添加到你的项目中。  
   
-## <a name="handling-the-events-of-controls-on-the-form-region"></a>Handling the Events of Controls on the Form Region  
- Now that you have the form region in the project, you can add code that handles the Microsoft.Office.Interop.Outlook.OlkCommandButton.Click event of the button that you added to the form region in Outlook.  
+## <a name="handling-the-events-of-controls-on-the-form-region"></a>处理窗体区域中的控件的事件  
+ 现在，你已在项目的窗体区域，你可以添加处理 Microsoft.Office.Interop.Outlook.OlkCommandButton.Click 事件添加到窗体区域在 Outlook 中的按钮的代码。  
   
- Also, add code to the <xref:Microsoft.Office.Tools.Outlook.FormRegionControl.FormRegionShowing> event that updates controls on the form region when the form region appears.  
+ 此外，将代码添加到 <xref:Microsoft.Office.Tools.Outlook.FormRegionControl.FormRegionShowing> 事件以在窗体区域出现时更新窗体区域上的控件。  
   
-#### <a name="to-handle-the-events-of-controls-on-the-form-region"></a>To handle the events of controls on the form region  
+#### <a name="to-handle-the-events-of-controls-on-the-form-region"></a>若要处理窗体区域中的控件的事件  
   
-1.  In **Solution Explorer**, right-click TaskFormRegion.cs or TaskFormRegion.vb, and then click **View Code**.  
+1.  在 **解决方案资源管理器**中，右击 TaskFormRegion.cs 或 TaskFormRegion.vb,，然后单击“查看代码” 。  
   
-     TaskFormRegion.cs or TaskFormRegion.vb opens in the Code Editor.  
+     随即会在代码编辑器中打开 TaskFormRegion.cs 或 TaskFormRegion.vb。  
   
-2.  Add the following code to the `TaskFormRegion` class. This code populates the combo box on the form region with the subject line of each task from the Outlook Tasks folder.  
+2.  向 `TaskFormRegion` 类添加下面的代码。 此代码用 Outlook 任务文件夹中每项任务的主题行来填充窗体区域上的组合框。  
   
-     [!code-csharp[Trin_Outlook_FR_Import#1](../vsto/codesnippet/CSharp/Trin_Outlook_FR_Import/TaskFormRegion.cs#1)]  [!code-vb[Trin_Outlook_FR_Import#1](../vsto/codesnippet/VisualBasic/Trin_Outlook_FR_Import_O12/TaskFormRegion.vb#1)]  
+     [!code-csharp[Trin_Outlook_FR_Import#1](../vsto/codesnippet/CSharp/Trin_Outlook_FR_Import/TaskFormRegion.cs#1)]
+     [!code-vb[Trin_Outlook_FR_Import#1](../vsto/codesnippet/VisualBasic/Trin_Outlook_FR_Import_O12/TaskFormRegion.vb#1)]  
   
-3.  Add the following code to the `TaskFormRegion` class. This code performs the following tasks:  
+3.  向 `TaskFormRegion` 类添加下面的代码。 这段代码执行下列任务：  
   
-    -   Locates the Microsoft.Office.Interop.Outlook.TaskItem in the Tasks folder by calling the `FindTaskBySubjectName` helper method and passing the subject of the desired task. You will add the `FindTaskBySubjectName` helper method in the next step.  
+    -   在任务文件夹中查找 Microsoft.Office.Interop.Outlook.TaskItem，通过调用`FindTaskBySubjectName`帮助器方法并传递所需的任务的主题。 下一步将添加 `FindTaskBySubjectName` 帮助器方法。  
   
-    -   Adds the Microsoft.Office.Interop.Outlook.TaskItem.Subject and Microsoft.Office.Interop.Outlook.TaskItem.PercentComplete values to the dependent task list box.  
+    -   将 Microsoft.Office.Interop.Outlook.TaskItem.Subject 和 Microsoft.Office.Interop.Outlook.TaskItem.PercentComplete 值添加到依赖任务列表框。  
   
-    -   Adds the subject of the task to the hidden field on the form region. The hidden field stores these values as part of the Outlook item.  
+    -   将任务的主题添加到窗体区域中的隐藏字段。 隐藏字段将这些值存储为 Outlook 项目的一部分。  
   
-     [!code-csharp[Trin_Outlook_FR_Import#2](../vsto/codesnippet/CSharp/Trin_Outlook_FR_Import/TaskFormRegion.cs#2)] [!code-vb[Trin_Outlook_FR_Import#2](../vsto/codesnippet/VisualBasic/Trin_Outlook_FR_Import_O12/TaskFormRegion.vb#2)]  
+     [!code-csharp[Trin_Outlook_FR_Import#2](../vsto/codesnippet/CSharp/Trin_Outlook_FR_Import/TaskFormRegion.cs#2)]
+     [!code-vb[Trin_Outlook_FR_Import#2](../vsto/codesnippet/VisualBasic/Trin_Outlook_FR_Import_O12/TaskFormRegion.vb#2)]  
   
-4.  Add the following code to the `TaskFormRegion` class. This code provides the helper method `FindTaskBySubjectName` that was described in the preceding step.  
+4.  向 `TaskFormRegion` 类添加下面的代码。 此代码提供了之前步骤中所述的帮助器方法 `FindTaskBySubjectName` 。  
   
-     [!code-csharp[Trin_Outlook_FR_Import#3](../vsto/codesnippet/CSharp/Trin_Outlook_FR_Import/TaskFormRegion.cs#3)]  [!code-vb[Trin_Outlook_FR_Import#3](../vsto/codesnippet/VisualBasic/Trin_Outlook_FR_Import_O12/TaskFormRegion.vb#3)]  
+     [!code-csharp[Trin_Outlook_FR_Import#3](../vsto/codesnippet/CSharp/Trin_Outlook_FR_Import/TaskFormRegion.cs#3)]
+     [!code-vb[Trin_Outlook_FR_Import#3](../vsto/codesnippet/VisualBasic/Trin_Outlook_FR_Import_O12/TaskFormRegion.vb#3)]  
   
-5.  Add the following code to the `TaskFormRegion` class. This code performs the following tasks:  
+5.  向 `TaskFormRegion` 类添加下面的代码。 这段代码执行下列任务：  
   
-    -   Refreshes the list box on the form region with the current completion status of each dependent task.  
+    -   刷新窗体区域的列表框中每项依赖任务的当前完成状态。  
   
-    -   Parses the hidden text field to obtain the subject of each dependent task. It then locates each Microsoft.Office.Interop.Outlook.TaskItem in the Tasks folder by calling the `FindTaskBySubjectName` helper method and passing the subject of each task.  
+    -   分析隐藏的文本字段，以获取每项依赖任务的主题。 它然后每个 Microsoft.Office.Interop.Outlook.TaskItem 任务文件夹中，通过定位调用`FindTaskBySubjectName`帮助器方法并传递每项任务的主题。  
   
-    -   Adds the Microsoft.Office.Interop.Outlook.TaskItem.Subject and Microsoft.Office.Interop.Outlook.TaskItem.PercentComplete values to the dependent task list box.  
+    -   将 Microsoft.Office.Interop.Outlook.TaskItem.Subject 和 Microsoft.Office.Interop.Outlook.TaskItem.PercentComplete 值添加到依赖任务列表框。  
   
-     [!code-csharp[Trin_Outlook_FR_Import#4](../vsto/codesnippet/CSharp/Trin_Outlook_FR_Import/TaskFormRegion.cs#4)] [!code-vb[Trin_Outlook_FR_Import#4](../vsto/codesnippet/VisualBasic/Trin_Outlook_FR_Import_O12/TaskFormRegion.vb#4)]  
+     [!code-csharp[Trin_Outlook_FR_Import#4](../vsto/codesnippet/CSharp/Trin_Outlook_FR_Import/TaskFormRegion.cs#4)]
+     [!code-vb[Trin_Outlook_FR_Import#4](../vsto/codesnippet/VisualBasic/Trin_Outlook_FR_Import_O12/TaskFormRegion.vb#4)]  
   
-6.  Replace the `TaskFormRegion_FormRegionShowing` event handler with the following code. This code performs the following tasks:  
+6.  将 `TaskFormRegion_FormRegionShowing` 事件处理程序替换为以下代码。 这段代码执行下列任务：  
   
-    -   Populates the combo box on the form region with task subjects when the form region appears.  
+    -   出现窗体区域时，用任务主题填充窗体区域中的组合框。  
   
-    -   Calls the `RefreshTaskListBox` helper method when the form region appears. This displays any dependent tasks that were added to the list box when the item was previously opened.  
+    -   出现窗体区域时调用 `RefreshTaskListBox` 帮助器方法。 从而将显示以前打开项目时已添加到列表框中的任何依赖任务。  
   
-     [!code-csharp[Trin_Outlook_FR_Import#5](../vsto/codesnippet/CSharp/Trin_Outlook_FR_Import/TaskFormRegion.cs#5)] [!code-vb[Trin_Outlook_FR_Import#5](../vsto/codesnippet/VisualBasic/Trin_Outlook_FR_Import_O12/TaskFormRegion.vb#5)]  
+     [!code-csharp[Trin_Outlook_FR_Import#5](../vsto/codesnippet/CSharp/Trin_Outlook_FR_Import/TaskFormRegion.cs#5)]
+     [!code-vb[Trin_Outlook_FR_Import#5](../vsto/codesnippet/VisualBasic/Trin_Outlook_FR_Import_O12/TaskFormRegion.vb#5)]  
   
-## <a name="testing-the-outlook-form-region"></a>Testing the Outlook Form Region  
- To test the form region, add tasks to the list of prerequisite tasks on the form region. Update the completion status of a prerequisite task, and then view the updated completion status of the task in the prerequisite task list.  
+## <a name="testing-the-outlook-form-region"></a>测试 Outlook 窗体区域  
+ 若要测试窗体区域，请将任务添加到窗体区域中的系统必备任务列表中。 更新系统必备任务的完成状态，然后查看系统必备任务列表中任务的已更新完成状态。  
   
-#### <a name="to-test-the-form-region"></a>To test the form region  
+#### <a name="to-test-the-form-region"></a>测试窗体区域  
   
-1.  Press F5 to run the project.  
+1.  按 F5 运行项目。  
   
-     Outlook starts.  
+     Outlook 启动。  
   
-2.  In Outlook, on the **Home** tab, click **New Items**, and then click **Task**.  
+2.  在 Outlook 中，在“主页”  选项卡上，单击“新建项” ，然后单击“任务” 。  
   
-3.  In the task form, type **Dependent Task** in the **Subject** field.  
+3.  在任务窗体中，在“主题”  字段中键入“依赖任务”  。  
   
-4.  On the **Task** tab of the Ribbon, in the **Actions** group, click **Save & Close**.  
+4.  上**任务**功能区选项卡，请在**操作**组中，单击**保存并关闭**。  
   
-5.  In Outlook, on the **Home** tab, click **New Items**, click **More Items**, and then click **Choose Form**.  
+5.  在 Outlook 中，在“主页”  选项卡上，依次单击“新建项” 、“更多项” ，然后单击“选择窗体” 。  
   
-6.  In the **Choose Form** dialog box, click **TaskFormRegion**, and then click **Open**.  
+6.  在“选择窗体”  对话框中，单击“TaskFormRegion” ，然后单击“打开” 。  
   
-     The **TaskFormRegion** form region appears. This form replaces the entire task form. The **Select a task to add to the list of dependent tasks** combo box is populated with other tasks in the Tasks folder.  
+     随即显示“TaskFormRegion”  窗体区域。 此窗体将替换整个任务窗体。 用任务文件夹中的其他任务填充“选择一项要添加到依赖任务列表中的任务”  组合框。  
   
-7.  On the task form, in the **Subject** field, type **Primary Task**.  
+7.  在任务窗体中，在“主题”  字段中键入“主要任务” 。  
   
-8.  In the **Select a task to add to the list of dependent tasks** combo box, select **Dependent Task**, and then click **Add Dependent Task**.  
+8.  在“选择一项要添加到依赖任务列表中的任务”  组合框中，选择“依赖任务” ，然后单击“添加依赖任务” 。  
   
-     **0% Complete -- Dependent Task** appears in the **This task depends on the following tasks** list box. This demonstrates that you successfully handled the Microsoft.Office.Interop.Outlook.OlkCommandButton.Click event of the button.  
+     “此任务依赖于以下任务” 列表框中出现“0% 完成 -- 依赖任务”  。 此示例演示你已成功处理该按钮的 Microsoft.Office.Interop.Outlook.OlkCommandButton.Click 事件。  
   
-9. Save and close the **Primary Task** item.  
+9. 保存并关闭“主要任务”  项目。  
   
-10. Reopen the Dependent Task item in Outlook.  
+10. 在 Outlook 中重新打开依赖任务项。  
   
-11. On the Dependent Task form, change the **% Complete** field to **50%**.  
+11. 在依赖任务窗体中，将“完成百分比”  字段改为 **50%**。  
   
-12. On the **Task** tab of the Dependent Task Ribbon, in the **Actions** group, click **Save & Close**.  
+12. 上**任务**依赖任务功能区选项卡，请在**操作**组中，单击**保存并关闭**。  
   
-13. Reopen the **Primary Task** item in Outlook.  
+13. 在 Outlook 中重新打开“主要任务”  项。  
   
-     **50% Complete -- Dependent Task** now appears in the **This task depends on the following tasks** list box.  
+     “此任务依赖于以下任务” 列表框中出现“50% 完成 -- 依赖任务”  。  
   
-## <a name="next-steps"></a>Next Steps  
- You can learn more about how to customize the UI of an Outlook application from these topics:  
+## <a name="next-steps"></a>后续步骤  
+ 可从以下主题了解有关如何自定义 Outlook 应用程序 UI 的详细信息：  
   
--   To learn more about how to design the appearance of a form region by dragging managed controls onto a visual designer, see [Walkthrough: Designing an Outlook Form Region](../vsto/walkthrough-designing-an-outlook-form-region.md).  
+-   若要了解有关如何通过将托管控件拖动到可视化设计器设计的窗体区域的外观的详细信息，请参阅[演练： 设计 Outlook 窗体区域](../vsto/walkthrough-designing-an-outlook-form-region.md)。  
   
--   To learn about how to customize the Ribbon of an Outlook item, see [Customizing a Ribbon for Outlook](../vsto/customizing-a-ribbon-for-outlook.md).  
+-   若要了解如何自定义 Outlook 项的功能区，请参阅 [Customizing a Ribbon for Outlook](../vsto/customizing-a-ribbon-for-outlook.md)。  
   
--   To learn more about how to add a custom task pane to Outlook, see [Custom Task Panes](../vsto/custom-task-panes.md).  
+-   若要了解有关如何将自定义任务窗格添加到 Outlook 的详细信息，请参阅[自定义任务窗格](../vsto/custom-task-panes.md)。  
   
-## <a name="see-also"></a>See Also  
- [Accessing a Form Region at Run Time](../vsto/accessing-a-form-region-at-run-time.md)   
- [Creating Outlook Form Regions](../vsto/creating-outlook-form-regions.md)   
- [Guidelines for Creating Outlook Form Regions](../vsto/guidelines-for-creating-outlook-form-regions.md)   
- [Walkthrough: Designing an Outlook Form Region](../vsto/walkthrough-designing-an-outlook-form-region.md)   
- [How to: Add a Form Region to an Outlook Add-in Project](../vsto/how-to-add-a-form-region-to-an-outlook-add-in-project.md)   
- [Associating a Form Region with an Outlook Message Class](../vsto/associating-a-form-region-with-an-outlook-message-class.md)   
- [Custom Actions in Outlook Form Regions](../vsto/custom-actions-in-outlook-form-regions.md)   
- [How to: Prevent Outlook from Displaying a Form Region](../vsto/how-to-prevent-outlook-from-displaying-a-form-region.md)  
+## <a name="see-also"></a>另请参阅  
+ [在运行时访问窗体区域](../vsto/accessing-a-form-region-at-run-time.md)   
+ [创建 Outlook 窗体区域](../vsto/creating-outlook-form-regions.md)   
+ [Outlook 窗体区域创建准则](../vsto/guidelines-for-creating-outlook-form-regions.md)   
+ [演练： 设计 Outlook 窗体区域](../vsto/walkthrough-designing-an-outlook-form-region.md)   
+ [如何： 向 Outlook 外接程序项目添加窗体区域](../vsto/how-to-add-a-form-region-to-an-outlook-add-in-project.md)   
+ [将窗体区域与 Outlook 邮件类关联](../vsto/associating-a-form-region-with-an-outlook-message-class.md)   
+ [Outlook 窗体区域中的自定义操作](../vsto/custom-actions-in-outlook-form-regions.md)   
+ [如何：防止 Outlook 显示窗体区域](../vsto/how-to-prevent-outlook-from-displaying-a-form-region.md)  
   
   

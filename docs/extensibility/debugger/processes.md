@@ -1,46 +1,47 @@
 ---
-title: "进程 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-helpviewer_keywords: 
-  - "调试 [调试 SDK]，处理"
+title: "进程 |Microsoft 文档"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology: vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+helpviewer_keywords: debugging [Debugging SDK], processes
 ms.assetid: a6a1efdc-b243-40c8-a778-6f69f6b018be
-caps.latest.revision: 14
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 14
+caps.latest.revision: "14"
+author: gregvanl
+ms.author: gregvanl
+manager: ghogen
+ms.openlocfilehash: f295dd93580caee4b6288febf7e83c09736b6080
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# 进程
-[!INCLUDE[vs2017banner](../../code-quality/includes/vs2017banner.md)]
-
-根据调试器体系结构， **过程**:  
+# <a name="processes"></a>进程
+在调试器体系结构，方面**过程**:  
   
--   是的容器设置程序。  它类似于 windows 紧密地处理，是的容器设置线程。  
+-   是一组程序的容器。 它是非常类似于 Windows 进程，这是一组的线程的容器。  
   
--   可以按名称标识自身，标识符或物理标识符。  
+-   可以将自己标识的名称、 标识符或物理标识符。  
   
--   可以枚举所有正在运行的程序 \(及其线程\)。  
+-   可以枚举运行的所有程序 （和其线程）。  
   
--   可以自我描述，它运行的端口和包含它的计算机。  
+-   可以描述本身、，在运行的端口和包含它的计算机。  
   
--   可以创建一个或多个程序，停止它创建的任何程序或导致程序停止。  
+-   可以创建一个或多个程序终止的任何程序创建，或导致程序停止。  
   
--   由 [IDebugProcess2](../../extensibility/debugger/reference/idebugprocess2.md) 接口表示，创建，以便在进程启动时。  处理由或生成会议调试管理器 \(SDM\)或 [LaunchSuspended](../../extensibility/debugger/reference/idebugenginelaunch2-launchsuspended.md)。  
+-   由[IDebugProcess2](../../extensibility/debugger/reference/idebugprocess2.md)接口，启动进程时创建的。 由任一会话调试管理器 (SDM) 启动进程或[LaunchSuspended](../../extensibility/debugger/reference/idebugenginelaunch2-launchsuspended.md)。  
   
- 调试包可以将调试引擎 \(DE\)附加到进程通过调用 [Attach](../../extensibility/debugger/reference/idebugprocess2-attach.md)。  这意味着 DE 附加到运行在它可以处理的处理所有可能的过程。  例如，因此，如果公共语言运行时、附加到进程，仅附加到正在运行托管代码的程序。  
+ 调试包可以调试引擎 (DE) 通过附加到进程调用[附加](../../extensibility/debugger/reference/idebugprocess2-attach.md)。 这意味着，DE 将附加到所有可能的程序在它可以处理的过程中运行。 例如，如果公共语言运行时 DE 附加到进程，附加仅到正在运行托管的代码的程序。  
   
-## 请参阅  
- [Programs](../../extensibility/debugger/programs.md)   
+## <a name="see-also"></a>另请参阅  
+ [程序](../../extensibility/debugger/programs.md)   
  [线程](../../extensibility/debugger/threads.md)   
  [调试器概念](../../extensibility/debugger/debugger-concepts.md)   
  [调试包](../../extensibility/debugger/debug-package.md)   
  [调试引擎](../../extensibility/debugger/debug-engine.md)   
  [IDebugProcess2](../../extensibility/debugger/reference/idebugprocess2.md)   
  [LaunchSuspended](../../extensibility/debugger/reference/idebugenginelaunch2-launchsuspended.md)   
- [Attach](../../extensibility/debugger/reference/idebugprocess2-attach.md)
+ [附加](../../extensibility/debugger/reference/idebugprocess2-attach.md)

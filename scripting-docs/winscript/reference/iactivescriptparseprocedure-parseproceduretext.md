@@ -1,27 +1,30 @@
 ---
-title: "IActiveScriptParseProcedure::ParseProcedureText | Microsoft Docs"
-ms.custom: ""
-ms.date: "01/18/2017"
-ms.prod: "windows-script-interfaces"
-ms.reviewer: ""
-ms.suite: ""
-ms.tgt_pltfrm: ""
-ms.topic: "reference"
+title: "IActiveScriptParseProcedure::ParseProcedureText |Microsoft 文档"
+ms.custom: 
+ms.date: 01/18/2017
+ms.prod: windows-script-interfaces
+ms.reviewer: 
+ms.suite: 
+ms.tgt_pltfrm: 
+ms.topic: reference
 apiname: IActiveScriptParseProcedure.ParseProcedureText
 apilocation: scrobj.dll
-helpviewer_keywords: 
-  - "IActiveScriptParseProcedure_ParseProcedureText"
+helpviewer_keywords: IActiveScriptParseProcedure_ParseProcedureText
 ms.assetid: 345a74ae-b4e8-42b2-abd8-633a370e8e7f
-caps.latest.revision: 7
-author: "mikejo5000"
-ms.author: "mikejo"
-manager: "ghogen"
-caps.handback.revision: 7
+caps.latest.revision: "7"
+author: mikejo5000
+ms.author: mikejo
+manager: ghogen
+ms.openlocfilehash: c2a877f6ebc692f9f54d69597e06db501f642802
+ms.sourcegitcommit: aadb9588877418b8b55a5612c1d3842d4520ca4c
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/27/2017
 ---
-# IActiveScriptParseProcedure::ParseProcedureText
-分析特定代码程序并添加过程到命名空间。  
+# <a name="iactivescriptparseprocedureparseproceduretext"></a>IActiveScriptParseProcedure::ParseProcedureText
+分析给定的代码过程并添加到命名空间的过程。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
 ```  
 HRESULT ParseProcedureText(  
@@ -38,58 +41,58 @@ HRESULT ParseProcedureText(
 );  
 ```  
   
-#### 参数  
+#### <a name="parameters"></a>参数  
  `pstrCode`  
- \[in\]计算的程序文本的地址。  此字符串的解释取决于这种脚本语言。  
+ [in]要评估的过程文本的地址。 此字符串的解释依赖于脚本语言。  
   
  `pstrFormalParams`  
- \[in\]形参名称地址对于程序。  必须分隔参数名后面加上脚本引擎的相应分隔符。  不应括在括号名称。  
+ [in]该过程的形式参数名称的地址。 参数名称必须与脚本引擎适当的分隔符分隔。 名称应不能括在括号中。  
   
  `pstrProcedureName`  
- \[in\]要分析的过程名地址。  
+ [in]要分析的过程名称的地址。  
   
  `pstrItemName`  
- \[in\]提供上下文该程序将计算项目名称的地址。  如果此参数是 `NULL`，代码对脚本引擎的全局上下文进行计算。  
+ [in]将给出上下文是用要计算该过程的项名称的地址。 如果此参数为`NULL`，在脚本引擎的全局上下文中计算代码。  
   
  `punkContext`  
- \[out\]上下文对象的地址。  此对象保留了用于调试环境，此上下文可能由调试器提供表示有效的运行时上下文。  如果此参数是 `NULL`，引擎使用 `pstrItemName` 标识上下文。  
+ [in]上下文对象的地址。 此对象保留在调试环境中，此类上下文可能由调试器来表示活动的运行时上下文中使用。 如果此参数为`NULL`，则引擎会使用`pstrItemName`能够识别该上下文。  
   
  `pstrDelimiter`  
- \[in\]关闭程序分隔符的地址。  当 `pstrCode` 从文本时流进行分析，宿主通常使用一个分隔符，例如两个引号\("\)，检测过程的结尾。  此参数指定例如使用的主机，允许脚本引擎提供某些条件原始预处理的分隔符\(，一个单引号\[ \] “将两个单引号用作分隔符\)。  \(和\)，如果脚本引擎正确如何利用此信息取决于脚本引擎。  如果宿主不使用一个分隔符以指示该程序，结束时将此参数设置为 `NULL`。  
+ [in]最终的过程分隔符的地址。 当`pstrCode`分析从文本流中，主机通常使用分隔符，如两个单引号 （'），来检测过程末尾。 此参数指定主机使用，从而提供某些条件的基元预处理的脚本引擎的分隔符 （例如，将作为分隔符用于两个单引号替换单引号 [']）。 完全如何 （和如果） 可以使用此信息的使用取决于脚本引擎脚本引擎进行。 将此参数设置为`NULL`如果主机未使用分隔符来标记该过程的结尾。  
   
  `dwSourceContextCookie`  
- \[in\]使用了用于调试目的应用程序定义的值。  
+ [in]出于调试目的使用的应用程序定义的值。  
   
  `ulStartingLineNumber`  
- \[in\]指定的从零开始的值哪行分析将启动。  
+ [in]指定的分析将开始的行的从零开始值。  
   
  `dwFlags`  
- \[in\]标志与该程序。  可以是这些值的组合：  
+ [in]与该过程关联的标志。 可以是这些值的组合：  
   
 |值|含义|  
-|-------|--------|  
-|SCRIPTPROC\_ISEXPRESSION|指示在 `pstrCode` 的代码是表示该过程的返回值的表达式。  默认情况下，代码可以在程序包含表达式，语句脚本语言允许的列表或其他。|  
-|SCRIPTPROC\_IMPLICIT\_THIS|指示 `this` 指针包括在该过程范围内。|  
-|SCRIPTPROC\_IMPLICIT\_PARENTS|指示 `this` 指针的父包括在该过程范围内。|  
+|-----------|-------------|  
+|SCRIPTPROC_ISEXPRESSION|指示中的代码`pstrCode`是表示该过程的返回值的表达式。 默认情况下，代码可以包含表达式、 语句的列表，或任何其他允许的脚本语言在过程中。|  
+|SCRIPTPROC_IMPLICIT_THIS|指示`this`过程的作用域内包括指针。|  
+|SCRIPTPROC_IMPLICIT_PARENTS|指示的父级`this`指针都包括在该过程的作用域。|  
   
  `ppdisp`  
- \[out\]指针的地址包含脚本的全局方法和属性的对象。  如果脚本引擎不支持这些对象，`NULL` 返回。  
+ [out]包含脚本的全局方法和属性的对象的指针的地址。 如果脚本引擎不支持此类对象，`NULL`返回。  
   
-## 返回值  
+## <a name="return-value"></a>返回值  
  返回下列值之一：  
   
 |返回值|含义|  
-|---------|--------|  
+|------------------|-------------|  
 |`S_OK`|成功。|  
-|`E_INVALIDARG`|参数无效。|  
-|`E_POINTER`|无效指针指定了。|  
-|`E_NOTIMPL`|此方法不受支持。  脚本引擎不支持程序的运行时向命名空间。|  
-|`E_UNEXPECTED`|调用非预期\(例如，脚本引擎在未初始化或已关闭状态\)。|  
-|`OLESCRIPT_E_SYNTAX`|一个未指定的语法错误在过程生成的。|  
-|`S_FALSE`|脚本引擎不支持计划对象；`ppdisp` 参数设置为 `NULL`。|  
+|`E_INVALIDARG`|自变量无效。|  
+|`E_POINTER`|指定了无效的指针。|  
+|`E_NOTIMPL`|不支持此方法。 脚本引擎不支持运行时添加到命名空间的过程。|  
+|`E_UNEXPECTED`|不应调用 （例如，脚本引擎处于未初始化或已关闭状态）。|  
+|`OLESCRIPT_E_SYNTAX`|在过程中出现未指定的语法错误。|  
+|`S_FALSE`|脚本引擎不支持调度的对象;`ppdisp`参数设置为`NULL`。|  
   
-## 备注  
- 脚本代码不会计算在调用;相反，该程序被编译到其可以由该脚本调用后的脚本状态。  
+## <a name="remarks"></a>备注  
+ 此调用; 不计算任何脚本代码则相反，该过程会编译成，则可以调用脚本更高版本的脚本状态。  
   
-## 请参阅  
+## <a name="see-also"></a>另请参阅  
  [IActiveScriptParseProcedure](../../winscript/reference/iactivescriptparseprocedure.md)

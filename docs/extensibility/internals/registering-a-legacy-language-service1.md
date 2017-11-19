@@ -1,27 +1,28 @@
 ---
-title: "注册旧语言 Service1 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-helpviewer_keywords: 
-  - "注册语言服务 [托管的包框架]"
+title: "注册旧语言 Service1 |Microsoft 文档"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology: vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+helpviewer_keywords: language services [managed package framework], registering
 ms.assetid: d33b08af-09e0-4c79-87b2-5536b27fbacf
-caps.latest.revision: 22
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 22
+caps.latest.revision: "22"
+author: gregvanl
+ms.author: gregvanl
+manager: ghogen
+ms.openlocfilehash: 9335f9a9ad6aedab1f0455267c1cca48bf1b3ca4
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# 注册早期语言服务
-[!INCLUDE[vs2017banner](../../code-quality/includes/vs2017banner.md)]
-
-VSPackage 中托管的包框架 \(MPF\) 中，提供该语言服务 \(请参阅 [Vspackage](../../extensibility/internals/vspackages.md)\) 并向注册的 [!INCLUDE[vsprvs](../../code-quality/includes/vsprvs_md.md)] 通过添加注册表项和条目。 在安装过程中部分和部分运行时，会在完成此注册过程。  
+# <a name="registering-a-legacy-language-service"></a>注册旧语言服务
+在托管的包框架 (MPF) 中，语言服务提供由 VSPackage (请参阅[Vspackage](../../extensibility/internals/vspackages.md)) 并注册的[!INCLUDE[vsprvs](../../code-quality/includes/vsprvs_md.md)]通过添加注册表项和条目。 在安装过程中部分和部分运行时，会在完成此注册过程。  
   
-## 通过使用属性注册语言服务  
+## <a name="register-the-language-service-by-using-attributes"></a>通过使用特性中注册该语言服务  
  以下属性用于注册语言服务。  
   
 -   <xref:Microsoft.VisualStudio.Shell.ProvideServiceAttribute>  
@@ -36,12 +37,12 @@ VSPackage 中托管的包框架 \(MPF\) 中，提供该语言服务 \(请参阅 
   
  下面介绍这些属性  
   
-### ProvideServiceAttribute  
- 此属性作为一项服务注册语言服务。  
+### <a name="provideserviceattribute"></a>ProvideServiceAttribute  
+ 此属性将语言服务注册为服务。  
   
-### 示例  
+### <a name="example"></a>示例  
   
-```c#  
+```csharp  
 using Microsoft.VisualStudio.Shell;  
   
 namespace TestLanguagePackage  
@@ -55,12 +56,12 @@ namespace TestLanguagePackage
 }  
 ```  
   
-### ProvideLanguageServiceAttribute  
- 此属性将您的语言服务注册专门为语言服务。 它允许您设置指定语言服务提供的功能的选项。 该示例演示一种语言服务可以提供的选项的子集。 有关完整的语言服务选项集，请参阅 <xref:Microsoft.VisualStudio.Shell.ProvideLanguageServiceAttribute>。  
+### <a name="providelanguageserviceattribute"></a>ProvideLanguageServiceAttribute  
+ 此属性将你的语言服务注册专门为语言服务。 它允许你设置指定语言服务提供的功能的选项。 该示例演示一种语言服务可以提供的选项的子集。 有关完整的语言服务选项集，请参阅<xref:Microsoft.VisualStudio.Shell.ProvideLanguageServiceAttribute>。  
   
-### 示例  
+### <a name="example"></a>示例  
   
-```c#  
+```csharp  
 using Microsoft.VisualStudio.Shell;  
   
 namespace TestLanguagePackage  
@@ -80,12 +81,12 @@ namespace TestLanguagePackage
 }  
 ```  
   
-### ProvideLanguageExtensionAttribute  
- 此属性将与文件扩展名关联语言服务。 每当加载该扩展名的文件后，在任何项目，您的语言服务已启动，并用于显示文件的内容。  
+### <a name="providelanguageextensionattribute"></a>ProvideLanguageExtensionAttribute  
+ 此属性将与文件扩展名关联语言服务。 每当加载与该扩展名的文件，在任何项目中，语言服务启动和用来显示文件的内容。  
   
-### 示例  
+### <a name="example"></a>示例  
   
-```c#  
+```csharp  
 using Microsoft.VisualStudio.Shell;  
   
 namespace TestLanguagePackage  
@@ -99,12 +100,12 @@ namespace TestLanguagePackage
 }  
 ```  
   
-### ProvideLanguageCodeExpansionAttribute  
- 此属性将注册的代码中获取扩展或代码段模板的位置。 使用此信息 **代码段浏览器** 和由编辑器代码段插入到源文件中时。  
+### <a name="providelanguagecodeexpansionattribute"></a>ProvideLanguageCodeExpansionAttribute  
+ 此属性注册的代码中获取扩展或代码段模板的位置。 通过使用此信息**代码段浏览器**和通过代码段插入到的源文件中时的编辑器。  
   
-### 示例  
+### <a name="example"></a>示例  
   
-```c#  
+```csharp  
 using Microsoft.VisualStudio.Shell;  
   
 namespace TestLanguagePackage  
@@ -125,13 +126,13 @@ namespace TestLanguagePackage
 }  
 ```  
   
-### ProvideLanguageEditorOptionPageAttribute  
- 此属性注册要显示在属性页 **选项** 对话框中的下 **文本编辑器** 类别。 使用每个页后，可以为您的语言服务显示这些属性之一。 如果您需要组织您的网页的树状结构中，使用其他属性来定义树的每个节点。  
+### <a name="providelanguageeditoroptionpageattribute"></a>ProvideLanguageEditorOptionPageAttribute  
+ 此属性注册属性页中显示**选项**对话框中的下**文本编辑器**类别。 使用每个页后，可以为你的语言服务显示的以下属性之一。 如果您需要组织页面的树状结构中，使用其他属性来定义树的每个节点。  
   
-### 示例  
- 此示例演示两个属性页中， **选项** 和 **缩进**, ，和一个节点，其中包含第二个属性页。  
+### <a name="example"></a>示例  
+ 此示例演示两个属性页中，**选项**和**缩进**，和一个节点，其中包含第二个属性页。  
   
-```c#  
+```csharp  
 using Microsoft.VisualStudio.Shell;  
   
 namespace TestLanguagePackage  
@@ -160,13 +161,13 @@ namespace TestLanguagePackage
 }  
 ```  
   
-## 提供在运行时的语言服务  
- 加载语言包后，您必须告诉 [!INCLUDE[vsprvs](../../code-quality/includes/vsprvs_md.md)] 您语言服务已准备就绪。 执行此操作通过 proffering 服务。 这是 <xref:Microsoft.VisualStudio.Shell.Package.Initialize%2A> 方法。 此外，您需要启动一个计时器，用于在空闲期间调用您的语言服务，因此可以完成后台分析。 此空闲计时器还用于更新文档属性，如果您已实施了任何通过 <xref:Microsoft.VisualStudio.Package.DocumentProperties> 类。 为了支持一个计时器，必须实现您的软件包 <xref:Microsoft.VisualStudio.OLE.Interop.IOleComponent> 接口 \(仅 <xref:Microsoft.VisualStudio.OLE.Interop.IOleComponent.FDoIdle%2A> 方法需要将其完全实现的其余的方法可返回默认值\)。  
+## <a name="proffer-the-language-service-at-runtime"></a>Proffer 语言服务在运行时  
+ 加载语言包后，你必须告知[!INCLUDE[vsprvs](../../code-quality/includes/vsprvs_md.md)]你语言服务已准备就绪。 通过 proffering 服务执行此操作。 将执行此操作<xref:Microsoft.VisualStudio.Shell.Package.Initialize%2A>方法。 此外，你需要启动一个计时器，在空闲期间调用你的语言服务，因此可以完成后台分析。 此空闲计时器还用于更新文档属性，如果实现了任何通过<xref:Microsoft.VisualStudio.Package.DocumentProperties>类。 你的包必须实现为了支持一个计时器，<xref:Microsoft.VisualStudio.OLE.Interop.IOleComponent>接口 (仅<xref:Microsoft.VisualStudio.OLE.Interop.IOleComponent.FDoIdle%2A>方法需要完全实现的其余的方法可返回默认值)。  
   
-### 示例  
- 此示例演示一个典型的做法 proffering 服务并提供一个空闲计时器。  
+### <a name="example"></a>示例  
+ 此示例演示到 proffering 服务并提供一个空闲计时器典型的方法。  
   
-```c#  
+```csharp  
   
 using System;  
 using System.Runtime.InteropServices;  

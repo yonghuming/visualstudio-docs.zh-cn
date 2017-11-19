@@ -1,27 +1,30 @@
 ---
-title: "IActiveScriptSiteDebug::GetRootApplicationNode | Microsoft Docs"
-ms.custom: ""
-ms.date: "01/18/2017"
-ms.prod: "windows-script-interfaces"
-ms.reviewer: ""
-ms.suite: ""
-ms.tgt_pltfrm: ""
-ms.topic: "reference"
+title: "IActiveScriptSiteDebug::GetRootApplicationNode |Microsoft 文档"
+ms.custom: 
+ms.date: 01/18/2017
+ms.prod: windows-script-interfaces
+ms.reviewer: 
+ms.suite: 
+ms.tgt_pltfrm: 
+ms.topic: reference
 apiname: IActiveScriptSiteDebug.GetRootApplicationNode
 apilocation: scrobj.dll
-helpviewer_keywords: 
-  - "IActiveScriptSiteDebug::GetRootApplicationNode"
+helpviewer_keywords: IActiveScriptSiteDebug::GetRootApplicationNode
 ms.assetid: 2393f566-6b97-47c0-8041-4dd7e3b1d3a3
-caps.latest.revision: 8
-author: "mikejo5000"
-ms.author: "mikejo"
-manager: "ghogen"
-caps.handback.revision: 8
+caps.latest.revision: "8"
+author: mikejo5000
+ms.author: mikejo
+manager: ghogen
+ms.openlocfilehash: abcb7c307513e513f3ba4d3a64d34f1e07e60d74
+ms.sourcegitcommit: aadb9588877418b8b55a5612c1d3842d4520ca4c
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/27/2017
 ---
-# IActiveScriptSiteDebug::GetRootApplicationNode
-获取下脚本应添加的应用程序节点。  
+# <a name="iactivescriptsitedebuggetrootapplicationnode"></a>IActiveScriptSiteDebug::GetRootApplicationNode
+获取应在脚本下添加文档的应用程序节点。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
 ```  
 HRESULT GetRootApplicationNode(  
@@ -29,19 +32,19 @@ HRESULT GetRootApplicationNode(
 );  
 ```  
   
-#### 参数  
+#### <a name="parameters"></a>参数  
  `ppdanRoot`  
- \[in\]一个包含脚本的调试应用程序节点文档。  可以为 `NULL`。  
+ [out]调试应用程序节点包含脚本文档。 可以是`NULL`。  
   
-## 返回值  
- 该方法返回 `HRESULT`。  可能的值包括，但是，并不限于，这些下表中。  
+## <a name="return-value"></a>返回值  
+ 该方法返回 `HRESULT`。 可能的值包括（但并不限于）下表中的项。  
   
-|值|说明|  
-|-------|--------|  
+|值|描述|  
+|-----------|-----------------|  
 |`S_OK`|方法成功。|  
   
-## 备注  
- 此方法返回下脚本应添加的应用程序节点。  如果脚本应是顶级的，方法可以返回 `ppdanRoot` 的 `NULL`。  
+## <a name="remarks"></a>备注  
+ 此方法返回应在其下添加脚本文档的应用程序节点。 该方法可以返回`NULL`为`ppdanRoot`如果脚本文档应为顶级。  
   
-## 请参阅  
+## <a name="see-also"></a>另请参阅  
  [IActiveScriptSiteDebug 接口](../../winscript/reference/iactivescriptsitedebug-interface.md)

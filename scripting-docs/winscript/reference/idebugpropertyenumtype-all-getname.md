@@ -1,40 +1,43 @@
 ---
-title: "IDebugPropertyEnumType_All::GetName | Microsoft Docs"
-ms.custom: ""
-ms.date: "01/18/2017"
-ms.prod: "windows-script-interfaces"
-ms.reviewer: ""
-ms.suite: ""
-ms.tgt_pltfrm: ""
-ms.topic: "reference"
+title: "IDebugPropertyEnumType_All::GetName |Microsoft 文档"
+ms.custom: 
+ms.date: 01/18/2017
+ms.prod: windows-script-interfaces
+ms.reviewer: 
+ms.suite: 
+ms.tgt_pltfrm: 
+ms.topic: reference
 apiname: IDebugPropertyEnumType_All.GetName
 apilocation: scrobj.dll
-helpviewer_keywords: 
-  - "IDebugPropertyEnumType_All::GetName"
+helpviewer_keywords: IDebugPropertyEnumType_All::GetName
 ms.assetid: 24bbe4d5-4263-48d0-8e8d-bff957ffcad2
-caps.latest.revision: 8
-author: "mikejo5000"
-ms.author: "mikejo"
-manager: "ghogen"
-caps.handback.revision: 8
+caps.latest.revision: "8"
+author: mikejo5000
+ms.author: mikejo
+manager: ghogen
+ms.openlocfilehash: 49b90938630fa96ca91f3346a37a7147ec2b90e7
+ms.sourcegitcommit: aadb9588877418b8b55a5612c1d3842d4520ca4c
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/27/2017
 ---
-# IDebugPropertyEnumType_All::GetName
-返回包含 `EnumType`的名称BSTR。  
+# <a name="idebugpropertyenumtypeallgetname"></a>IDebugPropertyEnumType_All::GetName
+返回包含名称的一个 BSTR `EnumType`。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
 ```  
 HRESULT GetName(  
-   BSTR*  pname  
+   BSTR*  pname  
 );  
 ```  
   
-#### 参数  
+#### <a name="parameters"></a>参数  
  `pname`  
- \[in\]包含 `EnumType`的名称A BSTR。  
+ [out]包含名称的 BSTR `EnumType`。  
   
-## 返回值  
- 返回有效的 `HRESULT`，通常 `S_OK`。  
+## <a name="return-value"></a>返回值  
+ 返回一个有效`HRESULT`，通常`S_OK`。  
   
-## 请参阅  
- [IDebugPropertyEnumType\_All 接口](../../winscript/reference/idebugpropertyenumtype-all-interface.md)
+## <a name="see-also"></a>另请参阅  
+ [IDebugPropertyEnumType_All 接口](../../winscript/reference/idebugpropertyenumtype-all-interface.md)

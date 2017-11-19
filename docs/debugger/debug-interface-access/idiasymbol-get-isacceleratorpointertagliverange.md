@@ -1,40 +1,40 @@
 ---
-title: "IDiaSymbol::get_isAcceleratorPointerTagLiveRange | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-debug"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-dev_langs: 
-  - "C++"
+title: "IDiaSymbol::get_isAcceleratorPointerTagLiveRange |Microsoft 文档"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology: vs-ide-debug
+ms.tgt_pltfrm: 
+ms.topic: article
+dev_langs: C++
 ms.assetid: d195aec4-6d3c-42e0-88a5-3d463539f0b8
-caps.latest.revision: 3
-author: "mikejo5000"
-ms.author: "mikejo"
-manager: "ghogen"
-caps.handback.revision: 3
+caps.latest.revision: "3"
+author: mikejo5000
+ms.author: mikejo
+manager: ghogen
+ms.openlocfilehash: 2434dac0a4f0e4d9ff1c998f0cd70da4f9c558b0
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# IDiaSymbol::get_isAcceleratorPointerTagLiveRange
-[!INCLUDE[vs2017banner](../../code-quality/includes/vs2017banner.md)]
-
-检索指示的标志符号是否符合指针变量的标记元素的 *定义范围符号* 在为c. C\+\+ AMP快捷键生成的代码。  定义范围符号是变量的位置地址范围的。  
+# <a name="idiasymbolgetisacceleratorpointertagliverange"></a>IDiaSymbol::get_isAcceleratorPointerTagLiveRange
+检索一个标志，指示符号是否对应于*定义范围符号*中编译 c + + AMP 快捷键的代码的指针变量的标记组件。 定义范围符号是变量的地址范围的位置。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
-```cpp  
+```C++  
 HRESULT get_isAcceleratorPointerTagLiveRange(   
    BOOL* pFlag);  
 ```  
   
-#### 参数  
+#### <a name="parameters"></a>参数  
  `pFlag`  
- \[in\]一个对 `BOOL` 的指针符号是否符合定义范围符号。  
+ [out]指向的指针`BOOL`，该值指示是否符号对应于定义范围符号。  
   
-## 返回值  
- 如果成功，则返回 `S_OK`，否则返回 `S_FALSE` 或者错误值代码。  
+## <a name="return-value"></a>返回值  
+ 如果成功，则返回`S_OK`; 否则为返回`S_FALSE`或错误代码。  
   
-## 请参阅  
+## <a name="see-also"></a>另请参阅  
  [IDiaSymbol](../../debugger/debug-interface-access/idiasymbol.md)

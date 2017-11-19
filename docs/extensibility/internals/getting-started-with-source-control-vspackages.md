@@ -1,34 +1,36 @@
 ---
-title: "开始使用源控件 Vspackage | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-helpviewer_keywords: 
-  - "源代码管理包入门"
-  - "获取已启动，源代码管理包"
+title: "开始使用源控件 Vspackage |Microsoft 文档"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology: vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+helpviewer_keywords:
+- source control packages, getting started
+- getting started, source control packages
 ms.assetid: 049c68f4-a041-4f24-8575-4837e7f5cf3f
-caps.latest.revision: 22
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 22
+caps.latest.revision: "22"
+author: gregvanl
+ms.author: gregvanl
+manager: ghogen
+ms.openlocfilehash: 3b167d85713acfd547083b38437c8b2400f2d739
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# 开始使用源控件 Vspackage
-[!INCLUDE[vs2017banner](../../code-quality/includes/vs2017banner.md)]
-
-源代码管理 VSPackage 是更高级的替代源代码管理插件。  \(请参见 [创建了源代码管理插件](../../extensibility/internals/creating-a-source-control-plug-in.md) 有关源代码管理插件的更多信息。\)源代码管理 VSPackage 启用源控件设计、函数和用户界面的完全 \(UI\)控制，因此，它集成 [!INCLUDE[vsprvs](../../code-quality/includes/vsprvs_md.md)] 环境作为 VSPackage。  
+# <a name="getting-started-with-source-control-vspackages"></a>开始使用源控件 Vspackage
+源代码管理 VSPackage 是一个更高级的替代方法的源代码管理插件。 (请参阅[创建源代码管理插件](../../extensibility/internals/creating-a-source-control-plug-in.md)对于源的详细信息来控制的插件。)源代码管理 VSPackage 启用对源控件模型、 功能和用户界面 (UI) 的完全控制和集成到[!INCLUDE[vsprvs](../../code-quality/includes/vsprvs_md.md)]作为 VSPackage 的环境。  
   
-## 本节内容  
- [确定是否实现源控件 VSPackage](../../extensibility/internals/determining-whether-to-implement-a-source-control-vspackage.md)  
- 解释源代码管理解决方案的选项并为选择适当的集成路径提供全面的指南。  
+## <a name="in-this-section"></a>本节内容  
+ [确定是否实现源代码管理 VSPackage](../../extensibility/internals/determining-whether-to-implement-a-source-control-vspackage.md)  
+ 介绍源控制解决方案的选项并选择适当的集成路径提供全面的指南。  
   
-## 相关章节  
- [在源代码管理中的新增功能](../../extensibility/internals/what-s-new-in-source-control.md)  
- 使用源代码管理，的 Vspackage 描述新功能。  
+## <a name="related-sections"></a>相关章节  
+ [源代码管理中的新增功能](../../extensibility/internals/what-s-new-in-source-control.md)  
+ 介绍 Vspackage 使用源代码管理的新功能。  
   
- [创建源控件 VSPackage](../../extensibility/internals/creating-a-source-control-vspackage.md)  
- 讨论如何创建不但提供源代码管理功能的源代码管理 VSPackage，但可以使用自定义 [!INCLUDE[vsprvs](../../code-quality/includes/vsprvs_md.md)] 源代码管理 UI。
+ [创建源代码管理 VSPackage](../../extensibility/internals/creating-a-source-control-vspackage.md)  
+ 讨论如何创建一个源控件不仅提供源代码管理功能，但可以用于自定义的 VSPackage[!INCLUDE[vsprvs](../../code-quality/includes/vsprvs_md.md)]源代码管理 UI。

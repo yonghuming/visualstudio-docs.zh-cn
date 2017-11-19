@@ -1,27 +1,30 @@
 ---
-title: "IDispatchEx::GetMemberProperties | Microsoft Docs"
-ms.custom: ""
-ms.date: "01/18/2017"
-ms.prod: "windows-script-interfaces"
-ms.reviewer: ""
-ms.suite: ""
-ms.tgt_pltfrm: ""
-ms.topic: "reference"
+title: "IDispatchEx::GetMemberProperties |Microsoft 文档"
+ms.custom: 
+ms.date: 01/18/2017
+ms.prod: windows-script-interfaces
+ms.reviewer: 
+ms.suite: 
+ms.tgt_pltfrm: 
+ms.topic: reference
 apiname: IDispatchEx.GetMemberProperties
 apilocation: scrobj.dll
-helpviewer_keywords: 
-  - "GetMemberProperties 方法"
+helpviewer_keywords: GetMemberProperties method
 ms.assetid: 20d43209-12e2-472a-9bf3-81eced137b71
-caps.latest.revision: 8
-author: "mikejo5000"
-ms.author: "mikejo"
-manager: "ghogen"
-caps.handback.revision: 8
+caps.latest.revision: "8"
+author: mikejo5000
+ms.author: mikejo
+manager: ghogen
+ms.openlocfilehash: 0d216bb7b21c8895337b9925007637c00d0deb37
+ms.sourcegitcommit: aadb9588877418b8b55a5612c1d3842d4520ca4c
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/27/2017
 ---
-# IDispatchEx::GetMemberProperties
-检索成员的特性。  
+# <a name="idispatchexgetmemberproperties"></a>IDispatchEx::GetMemberProperties
+检索成员的属性。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
 ```  
 HRESULT GetMemberProperties(  
@@ -31,49 +34,49 @@ HRESULT GetMemberProperties(
 );  
 ```  
   
-#### 参数  
+#### <a name="parameters"></a>参数  
  `id`  
- 标识成员。  使用 `GetDispID` 或 `GetNextDispID` 获取调度标识符。  
+ 标识成员。 使用`GetDispID`或`GetNextDispID`若要获取调度标识符。  
   
  `grfdexFetch`  
- 确定检索哪些属性。  这可能是值的组合列表中 `pgrfdex` 下和\/或下列值的组合：  
+ 确定要检索的属性。 这可以是下列出的值的组合`pgrfdex`和/或以下值的组合：  
   
 |值|含义|  
-|-------|--------|  
-|grfdexPropCanAll|合并fdexPropCanGet、fdexPropCanPut、fdexPropCanPutRef、fdexPropCanCall、fdexPropCanConstruct和fdexPropCanSourceEvents。|  
-|grfdexPropCannotAll|合并fdexPropCannotGet、fdexPropCannotPut、fdexPropCannotPutRef、fdexPropCannotCall、fdexPropCannotConstruct和fdexPropCannotSourceEvents。|  
-|grfdexPropExtraAll|合并fdexPropNoSideEffects和fdexPropDynamicType。|  
-|grfdexPropAll|合并grfdexPropCanAll、grfdexPropCannotAll和grfdexPropExtraAll。|  
+|-----------|-------------|  
+|grfdexPropCanAll|将合并 fdexPropCanGet、 fdexPropCanPut、 fdexPropCanPutRef、 fdexPropCanCall、 fdexPropCanConstruct 和 fdexPropCanSourceEvents。|  
+|grfdexPropCannotAll|将合并 fdexPropCannotGet、 fdexPropCannotPut、 fdexPropCannotPutRef、 fdexPropCannotCall、 fdexPropCannotConstruct 和 fdexPropCannotSourceEvents。|  
+|grfdexPropExtraAll|将 fdexPropNoSideEffects 和 fdexPropDynamicType 合并。|  
+|grfdexPropAll|将合并 grfdexPropCanAll、 grfdexPropCannotAll 和 grfdexPropExtraAll。|  
   
  `pgrfdex`  
- 接收请求的属性 `DWORD` 的地址。  该位置可以是下列值的组合：  
+ 地址`DWORD`接收请求的属性。 这可以是以下值的组合：  
   
 |值|含义|  
-|-------|--------|  
-|fdexPropCanGet|使用DISPATCH\_PROPERTYGET，该成员可用。|  
-|fdexPropCannotGet|使用DISPATCH\_PROPERTYGET，该成员不能获得。|  
-|fdexPropCanPut|使用DISPATCH\_PROPERTYPUT，该成员可以设置。|  
-|fdexPropCannotPut|使用DISPATCH\_PROPERTYPUT，该成员不能设置。|  
-|fdexPropCanPutRef|使用DISPATCH\_PROPERTYPUTREF，该成员可以设置。|  
-|fdexPropCannotPutRef|使用DISPATCH\_PROPERTYPUTREF，该成员不能设置。|  
-|fdexPropNoSideEffects|该成员没有任何副作用。  例如，调试器安全性可能get\/set\/调用此成员，而不更改正在调试的脚本的状态。|  
-|fdexPropDynamicType|在对象的生存期内，该成员是动态的，它可以更改。|  
-|fdexPropCanCall|使用DISPATCH\_METHOD，该成员可以调用作为方法。|  
-|fdexPropCannotCall|使用DISPATCH\_METHOD，该成员不能调用作为方法。|  
-|fdexPropCanConstruct|使用DISPATCH\_CONSTRUCT，该成员可以调用作为构造函数。|  
-|fdexPropCannotConstruct|使用DISPATCH\_CONSTRUCT，该成员不能调用作为构造函数。|  
-|fdexPropCanSourceEvents|该成员可激发事件。|  
-|fdexPropCannotSourceEvents|该成员不能激发事件。|  
+|-----------|-------------|  
+|fdexPropCanGet|可以使用 DISPATCH_PROPERTYGET 获取该成员。|  
+|fdexPropCannotGet|无法使用 DISPATCH_PROPERTYGET 获得成员。|  
+|fdexPropCanPut|可以使用 DISPATCH_PROPERTYPUT 设置成员。|  
+|fdexPropCannotPut|成员不能通过 DISPATCH_PROPERTYPUT 设置。|  
+|fdexPropCanPutRef|可以使用 DISPATCH_PROPERTYPUTREF 设置成员。|  
+|fdexPropCannotPutRef|成员不能通过 DISPATCH_PROPERTYPUTREF 设置。|  
+|fdexPropNoSideEffects|成员没有任何副作用。 例如，调试器无法安全地 get/组/调用此成员而无需更改正在调试的脚本的状态。|  
+|fdexPropDynamicType|成员是动态的并且可在对象的生命周期中更改。|  
+|fdexPropCanCall|可以作为一种方法使用 DISPATCH_METHOD 调用成员。|  
+|fdexPropCannotCall|不能作为一种方法使用 DISPATCH_METHOD 调用成员。|  
+|fdexPropCanConstruct|可以作为构造函数使用 DISPATCH_CONSTRUCT 调用成员。|  
+|fdexPropCannotConstruct|不能作为构造函数使用 DISPATCH_CONSTRUCT 调用成员。|  
+|fdexPropCanSourceEvents|成员可以激发事件。|  
+|fdexPropCannotSourceEvents|成员不能激发事件。|  
   
-## 返回值  
+## <a name="return-value"></a>返回值  
  返回下列值之一：  
   
 |||  
 |-|-|  
 |`S_OK`|成功。|  
-|`DISP_E_UNKNOWNNAME`|该名称不知道。|  
+|`DISP_E_UNKNOWNNAME`|名称未知。|  
   
-## 示例  
+## <a name="example"></a>示例  
   
 ```  
 BSTR bstrName;  
@@ -90,7 +93,7 @@ BSTR bstrName;
    }  
 ```  
   
-## 请参阅  
+## <a name="see-also"></a>另请参阅  
  [IDispatchEx 接口](../../winscript/reference/idispatchex-interface.md)   
  [IDispatchEx::GetDispID](../../winscript/reference/idispatchex-getdispid.md)   
  [IDispatchEx::GetNextDispID](../../winscript/reference/idispatchex-getnextdispid.md)

@@ -4,34 +4,19 @@ ms.custom:
 ms.date: 11/04/2016
 ms.reviewer: 
 ms.suite: 
-ms.technology:
-- vs-ide-sdk
+ms.technology: vs-ide-sdk
 ms.tgt_pltfrm: 
 ms.topic: article
 ms.assetid: 754b9bf3-8681-4c77-b0a4-09146a4e1d2d
-caps.latest.revision: 18
+caps.latest.revision: "18"
+author: gregvanl
 ms.author: gregvanl
 manager: ghogen
-translation.priority.mt:
-- cs-cz
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pl-pl
-- pt-br
-- ru-ru
-- tr-tr
-- zh-cn
-- zh-tw
+ms.openlocfilehash: 7a7d8649e0d8cf83650da58386901e638ec14a2a
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
 ms.translationtype: MT
-ms.sourcegitcommit: eb5c9550fd29b0e98bf63a7240737da4f13f3249
-ms.openlocfilehash: 0135240448bc74c85ab294b9eb4808830dbb4d00
-ms.contentlocale: zh-cn
-ms.lasthandoff: 09/06/2017
-
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="walkthrough-saving-user-settings-on-a-start-page"></a>演练： 将用户设置保存在起始页上
 为你的起始页，可以保留用户设置。 通过完成本演练，你可以创建将设置保存到注册表中，当用户单击按钮时，，然后检索，将设置的每次加载起始页的控件。 因为起始页项目模板包含一个可自定义用户控件，并且默认起始页 XAML 将调用该控件，你无需修改启动页本身。  
@@ -101,7 +86,7 @@ ms.lasthandoff: 09/06/2017
   
 2.  添加以下`using`到文件顶部的语句。  
   
-     [!code-csharp[StartPageDTE # 11](../extensibility/codesnippet/CSharp/walkthrough-saving-user-settings-on-a-start-page_1.cs)]  
+     [!code-csharp[StartPageDTE#11](../extensibility/codesnippet/CSharp/walkthrough-saving-user-settings-on-a-start-page_1.cs)]  
   
 3.  添加一个私有`SettingsStore`属性，如下面的示例中所示。  
   

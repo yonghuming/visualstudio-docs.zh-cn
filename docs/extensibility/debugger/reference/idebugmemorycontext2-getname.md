@@ -1,52 +1,53 @@
 ---
-title: "IDebugMemoryContext2::GetName | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "IDebugMemoryContext2::GetName"
-helpviewer_keywords: 
-  - "IDebugMemoryContext2::GetName 方法"
-  - "GetName 方法"
+title: "IDebugMemoryContext2::GetName |Microsoft 文档"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology: vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords: IDebugMemoryContext2::GetName
+helpviewer_keywords:
+- IDebugMemoryContext2::GetName method
+- GetName method
 ms.assetid: 8c212556-7d9e-4d68-b2a9-8212f50d0287
-caps.latest.revision: 13
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 13
+caps.latest.revision: "13"
+author: gregvanl
+ms.author: gregvanl
+manager: ghogen
+ms.openlocfilehash: cbe610430239936e1722df74960651659a92947c
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# IDebugMemoryContext2::GetName
-[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
-
-检索用户可显示的名称此上下文中。  
+# <a name="idebugmemorycontext2getname"></a>IDebugMemoryContext2::GetName
+检索此上下文的用户可显示名称。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
-```cpp#  
-HRESULT GetName(   
-   BSTR* pbstrName  
+```cpp  
+HRESULT GetName(   
+   BSTR* pbstrName  
 );  
 ```  
   
-```c#  
+```csharp  
 int GetName(  
-   out string pbstrName  
+   out string pbstrName  
 );  
 ```  
   
-#### 参数  
+#### <a name="parameters"></a>参数  
  `pbstrName`  
- \[out\] 返回内存上下文的名称。  
+ [out]返回内存上下文的名称。  
   
-## 返回值  
- 如果成功，则返回; `S_OK`否则，返回错误代码。  
+## <a name="return-value"></a>返回值  
+ 如果成功，则返回`S_OK`; 否则为返回错误代码。  
   
-## 备注  
+## <a name="remarks"></a>备注  
  通常不使用内存上下文的名称。  
   
-## 请参阅  
+## <a name="see-also"></a>另请参阅  
  [IDebugMemoryContext2](../../../extensibility/debugger/reference/idebugmemorycontext2.md)

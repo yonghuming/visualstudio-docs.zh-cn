@@ -1,56 +1,56 @@
 ---
-title: "IDebugErrorBreakpoint2 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "IDebugErrorBreakpoint2"
-helpviewer_keywords: 
-  - "IDebugErrorBreakpoint2 接口"
+title: "IDebugErrorBreakpoint2 |Microsoft 文档"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology: vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords: IDebugErrorBreakpoint2
+helpviewer_keywords: IDebugErrorBreakpoint2 interface
 ms.assetid: 1f2a4b94-3713-46e9-8272-3917187792bd
-caps.latest.revision: 11
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 11
+caps.latest.revision: "11"
+author: gregvanl
+ms.author: gregvanl
+manager: ghogen
+ms.openlocfilehash: b37d8596a6bf4465d1146651673acbccdd441a13
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# IDebugErrorBreakpoint2
-[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
-
-此接口表示错误或警告断点，例如无效的位置、一个表达式无效或原因挂起的断点尚未绑定 \(未加载的代码，等等\)。  
+# <a name="idebugerrorbreakpoint2"></a>IDebugErrorBreakpoint2
+此接口表示一个错误或警告断点，如无效位置、 无效的表达式或为什么挂起断点有未绑定 （代码未加载尚未，依次类推） 的原因。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
 ```  
 IDebugErrorBreakpoint2 : IUnknown  
 ```  
   
-## 实现者说明  
- 调试引擎实现此接口作为其一部分为断点支持。  此接口用于报告绑定断点的问题。  
+## <a name="notes-for-implementers"></a>实施者注意事项  
+ 调试引擎实现此接口作为断点其支持的一部分。 使用此接口来报告与绑定断点的问题。  
   
-## 调用方的说明  
- 为 [GetErrorBreakpoint](../../../extensibility/debugger/reference/idebugbreakpointerrorevent2-geterrorbreakpoint.md) 的调用获取此接口。  此接口可以通过对 [CanBind](../../../extensibility/debugger/reference/idebugpendingbreakpoint2-canbind.md) 或 [EnumErrorBreakpoints](../Topic/IDebugPendingBreakpoint2::EnumErrorBreakpoints.md)的调用也返回 \(作为 [IEnumDebugErrorBreakpoints2](../../../extensibility/debugger/reference/ienumdebugerrorbreakpoints2.md) 接口表示的列表一部分\)。  
+## <a name="notes-for-callers"></a>调用方的说明  
+ 调用[GetErrorBreakpoint](../../../extensibility/debugger/reference/idebugbreakpointerrorevent2-geterrorbreakpoint.md)获取此接口。 此接口，也会返回 (表示列表的一部分[IEnumDebugErrorBreakpoints2](../../../extensibility/debugger/reference/ienumdebugerrorbreakpoints2.md)接口) 通过调用[CanBind](../../../extensibility/debugger/reference/idebugpendingbreakpoint2-canbind.md)或[EnumErrorBreakpoints](../../../extensibility/debugger/reference/idebugpendingbreakpoint2-enumerrorbreakpoints.md)。  
   
-## 方法按 Vtable 顺序  
- 下表显示 `IDebugErrorBreakpoint2`方法。  
+## <a name="methods-in-vtable-order"></a>Vtable 顺序中的方法  
+ 下表显示的方法`IDebugErrorBreakpoint2`。  
   
-|方法|说明|  
-|--------|--------|  
-|[GetPendingBreakpoint](../../../extensibility/debugger/reference/idebugerrorbreakpoint2-getpendingbreakpoint.md)|获取导致该错误的挂起的断点。|  
+|方法|描述|  
+|------------|-----------------|  
+|[GetPendingBreakpoint](../../../extensibility/debugger/reference/idebugerrorbreakpoint2-getpendingbreakpoint.md)|获取导致错误的挂起断点。|  
 |[GetBreakpointResolution](../../../extensibility/debugger/reference/idebugerrorbreakpoint2-getbreakpointresolution.md)|获取描述错误的断点错误解析。|  
   
-## 要求  
- 标题:msdbg.h  
+## <a name="requirements"></a>要求  
+ 标头： msdbg.h  
   
- 命名空间:Microsoft.VisualStudio.Debugger.Interop  
+ Namespace: Microsoft.VisualStudio.Debugger.Interop  
   
- 程序集:Microsoft.VisualStudio.Debugger.Interop.dll  
+ 程序集： Microsoft.VisualStudio.Debugger.Interop.dll  
   
-## 请参阅  
+## <a name="see-also"></a>另请参阅  
  [IDebugBreakpointErrorEvent2](../../../extensibility/debugger/reference/idebugbreakpointerrorevent2.md)   
  [GetErrorBreakpoint](../../../extensibility/debugger/reference/idebugbreakpointerrorevent2-geterrorbreakpoint.md)   
  [IEnumDebugErrorBreakpoints2](../../../extensibility/debugger/reference/ienumdebugerrorbreakpoints2.md)   

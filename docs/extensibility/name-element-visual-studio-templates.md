@@ -1,29 +1,33 @@
 ---
-title: "Name 元素（Visual Studio 模板） | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-general"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "http://schemas.microsoft.com/developer/vstemplate/2005#Name"
-helpviewer_keywords: 
-  - "Name 元素 [Visual Studio 项目模板]"
+title: "名称元素 （Visual Studio 模板） |Microsoft 文档"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology: vs-ide-general
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords: http://schemas.microsoft.com/developer/vstemplate/2005#Name
+helpviewer_keywords: Name element [Visual Studio project templates]
 ms.assetid: 48788dbf-7da0-4443-8061-aab966fc22c8
-caps.latest.revision: 17
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 17
+caps.latest.revision: "17"
+author: gregvanl
+ms.author: gregvanl
+manager: ghogen
+ms.openlocfilehash: 919244051df838861816279513f14e8e98f3e34f
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# Name 元素（Visual Studio 模板）
-[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
-
-指定模板出现在**“新建项目”**或**“添加新项”**对话框中时此模板的名称。  
+# <a name="name-element-visual-studio-templates"></a>Name 元素（Visual Studio 模板）
+指定模板的名称，如所示**新项目**或**添加新项**对话框。  
   
-## 语法  
+ \<VSTemplate >  
+ \<TemplateData >  
+ \<名称 >  
+  
+## <a name="syntax"></a>语法  
   
 ```  
 <Name> Template Name </Name>  
@@ -33,35 +37,35 @@ caps.handback.revision: 17
 <Name Package="{PackageID}" ID="ResourceID" />  
 ```  
   
-## 特性和元素  
- 以下几节描述了特性、子元素和父元素。  
+## <a name="attributes-and-elements"></a>特性和元素  
+ 下列各节描述了特性、子元素和父元素。  
   
-### 特性  
+### <a name="attributes"></a>特性  
   
 |特性|描述|  
-|--------|--------|  
-|`Package`|可选特性，适用于高级用户情形。<br /><br /> 一个 GUID，它指定 Visual Studio 数据包 ID。|  
-|`ID`|可选特性，适用于高级用户情形。<br /><br /> 指定 Visual Studio 资源 ID。|  
+|---------------|-----------------|  
+|`Package`|可选特性，高级的用户应用场景。<br /><br /> 指定 Visual Studio 包的 GUID id。|  
+|`ID`|可选特性，高级的用户应用场景。<br /><br /> 指定 Visual Studio 资源 id。|  
   
-### 子元素  
+### <a name="child-elements"></a>子元素  
  无。  
   
-### 父元素  
+### <a name="parent-elements"></a>父元素  
   
-|元素|描述|  
-|--------|--------|  
-|[TemplateData](../extensibility/templatedata-element-visual-studio-templates.md)|必需的元素。<br /><br /> 将此模板分类并定义此模板在**“新建项目”**或**“添加新项”**对话框中的显示方式。|  
+|元素|说明|  
+|-------------|-----------------|  
+|[TemplateData](../extensibility/templatedata-element-visual-studio-templates.md)|必需的元素。<br /><br /> 将此模板分类并定义此模板在 **“新建项目”** 或 **“添加新项”** 对话框中的显示方式。|  
   
-## 文本值  
- 除非使用了 `Package` 和 `ID` 特性，否则需要一个文本值。  
+## <a name="text-value"></a>文本值  
+ 一个文本值是必需的除非`Package`和`ID`可以使用的属性。  
   
  此文本提供模板的名称。  
   
-## 备注  
- `Name` 是 `TemplateData` 的一个必选子元素。  
+## <a name="remarks"></a>备注  
+ `Name` 是 `TemplateData` 的必需子元素。  
   
-## 示例  
- 下面的示例演示针对 [!INCLUDE[csprcs](../data-tools/includes/csprcs_md.md)] 应用程序的某个项目模板的元数据。  
+## <a name="example"></a>示例  
+ 下面的示例演示用于的项目模板的元数据[!INCLUDE[csprcs](../data-tools/includes/csprcs_md.md)]应用程序。  
   
 ```  
 <VSTemplate Type="Project" Version="3.0.0"  
@@ -87,6 +91,6 @@ caps.handback.revision: 17
 </VSTemplate>  
 ```  
   
-## 请参阅  
+## <a name="see-also"></a>另请参阅  
  [Visual Studio 模板架构参考](../extensibility/visual-studio-template-schema-reference.md)   
- [创建自定义项目和项模板](../ide/creating-project-and-item-templates.md)
+ [创建项目和项模板](../ide/creating-project-and-item-templates.md)

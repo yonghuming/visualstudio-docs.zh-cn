@@ -1,32 +1,32 @@
 ---
-title: "“消息”菜单命令 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-debug"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-helpviewer_keywords: 
-  - "“消息”菜单命令"
+title: "消息菜单命令 |Microsoft 文档"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology: vs-ide-debug
+ms.tgt_pltfrm: 
+ms.topic: article
+helpviewer_keywords: Messages menu commands
 ms.assetid: 8ffcee99-7950-41af-906e-661e19e3257a
-caps.latest.revision: 3
-author: "mikejo5000"
-ms.author: "mikejo"
-manager: "ghogen"
-caps.handback.revision: 3
+caps.latest.revision: "3"
+author: mikejo5000
+ms.author: mikejo
+manager: ghogen
+ms.openlocfilehash: 0538410ce5e3879d15a583cbf896ed623f0a5370
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# “消息”菜单命令
-[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
-
-“消息”菜单提供用于控制消息视图的命令。  
+# <a name="messages-menu-commands"></a>“消息”菜单命令
+**消息**菜单提供了用于控制消息视图的命令。  
   
- **开始\/停止记录**  
- 开始或停止记录消息。  
+ **启动/停止日志记录**  
+ 启动或停止的消息视图。  
   
- **记录选项**  
- 打开“消息选项”对话框，您可在该对话框中指定消息搜索条件。  
+ **日志记录选项**  
+ 打开**消息**对话框中，你可以在其中指定消息搜索条件。  
   
  **清除日志**  
- 清除活动消息视图的内容。
+ 清除活动的消息视图的内容。

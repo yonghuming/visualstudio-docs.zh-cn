@@ -4,37 +4,21 @@ ms.custom:
 ms.date: 11/04/2016
 ms.reviewer: 
 ms.suite: 
-ms.technology:
-- vs-ide-sdk
+ms.technology: vs-ide-sdk
 ms.tgt_pltfrm: 
 ms.topic: article
-f1_keywords:
-- IDebugExceptionEvent2
-helpviewer_keywords:
-- IDebugExceptionEvent2 interface
+f1_keywords: IDebugExceptionEvent2
+helpviewer_keywords: IDebugExceptionEvent2 interface
 ms.assetid: 53d32e59-a84b-4710-833e-c5ab08100516
-caps.latest.revision: 11
+caps.latest.revision: "11"
+author: gregvanl
 ms.author: gregvanl
 manager: ghogen
-translation.priority.mt:
-- cs-cz
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pl-pl
-- pt-br
-- ru-ru
-- tr-tr
-- zh-cn
-- zh-tw
-translationtype: Machine Translation
-ms.sourcegitcommit: ca7c86466fa23fb21a932f26dc24e37c71cf29b4
-ms.openlocfilehash: c9817ca386846833ab022c5dbca3d3807bd38ef6
-ms.lasthandoff: 04/05/2017
-
+ms.openlocfilehash: 4aa1c643a07f15f361c77c618d717cc2655277c6
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="idebugexceptionevent2"></a>IDebugExceptionEvent2
 当前正在执行的程序中引发异常时，调试引擎 (DE) 会将此接口发送到会话调试管理器 (SDM)。  
@@ -62,11 +46,11 @@ IDebugExceptionEvent2 : IUnknown
 |[PassToDebuggee](../../../extensibility/debugger/reference/idebugexceptionevent2-passtodebuggee.md)|指定异常应该传递到如果执行恢复，被调试的程序是否应放弃该异常。|  
   
 ## <a name="requirements"></a>要求  
- 标头︰ msdbg.h  
+ 标头： msdbg.h  
   
  Namespace: Microsoft.VisualStudio.Debugger.Interop  
   
- 程序集︰ Microsoft.VisualStudio.Debugger.Interop.dll  
+ 程序集： Microsoft.VisualStudio.Debugger.Interop.dll  
   
 ## <a name="remarks"></a>备注  
  在之前将该事件的发送，DE 检查是否此异常事件已由及早或第二次异常的以前调用[SetException](../../../extensibility/debugger/reference/idebugengine2-setexception.md)。 如果已指定为最可能的异常，`IDebugExceptionEvent2`向 SDM 发送事件。 如果没有，DE 使应用程序有机会处理异常。 如果没有异常处理提供，并且已指定为第二个机会异常，异常`IDebugExceptionEvent2`向 SDM 发送事件。 否则为 DE 继续执行程序，并且操作系统或运行时处理异常。  

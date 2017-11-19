@@ -1,51 +1,52 @@
 ---
-title: "IDebugProcessSecurity | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-helpviewer_keywords: 
-  - "IDebugProcessSecurity 接口"
+title: "IDebugProcessSecurity |Microsoft 文档"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology: vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+helpviewer_keywords: IDebugProcessSecurity interface
 ms.assetid: 8a52ddca-bd99-49c0-9778-469dce7abd44
-caps.latest.revision: 4
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 4
+caps.latest.revision: "4"
+author: gregvanl
+ms.author: gregvanl
+manager: ghogen
+ms.openlocfilehash: 0e9c3a5f87540f8b255030654fb0917e3045ae19
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# IDebugProcessSecurity
-[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
-
-`IDebugProcessSecurity` 由端口提供程序实现警告用户附加到进程是不安全的。  
+# <a name="idebugprocesssecurity"></a>IDebugProcessSecurity
+`IDebugProcessSecurity`实现端口供应商来警告用户附加到进程是不安全。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
 ```  
 IDebugProcessSecurity : IUnknown  
 ```  
   
-## 方法按 Vtable 顺序  
- 下表显示 `IDebugProcessSecurity`方法。  
+## <a name="methods-in-vtable-order"></a>Vtable 顺序中的方法  
+ 下表显示的方法`IDebugProcessSecurity`。  
   
-|方法|说明|  
-|--------|--------|  
-|[GetUserName](../../../extensibility/debugger/reference/idebugprocesssecurity-getusername.md)|从端口提供程序获取用户名。|  
-|[QueryCanSafelyAttach](../../../extensibility/debugger/reference/idebugprocesssecurity-querycansafelyattach.md)|警告附加到调试进程是不安全的用户。|  
+|方法|描述|  
+|------------|-----------------|  
+|[GetUserName](../../../extensibility/debugger/reference/idebugprocesssecurity-getusername.md)|从端口供应商处获取的用户名。|  
+|[QueryCanSafelyAttach](../../../extensibility/debugger/reference/idebugprocesssecurity-querycansafelyattach.md)|警告用户，将附加到调试过程很不安全。|  
   
-## 备注  
- 实现此接口公开警告并允许用户取消，如果附加的进程可被视为不安全。  
+## <a name="remarks"></a>备注  
+ 实现此接口可显示一条警告，并允许用户取消如果您将连接的过程可被视为不安全。  
   
-## 要求  
- 标题:msdbg.h  
+## <a name="requirements"></a>要求  
+ 标头： msdbg.h  
   
- 命名空间:Microsoft.VisualStudio.Debugger.Interop  
+ Namespace: Microsoft.VisualStudio.Debugger.Interop  
   
- 程序集:Microsoft.VisualStudio.Debugger.Interop.dll  
+ 程序集： Microsoft.VisualStudio.Debugger.Interop.dll  
   
-## 请参阅  
+## <a name="see-also"></a>另请参阅  
  [端口](../../../extensibility/debugger/ports.md)   
  [端口供应商](../../../extensibility/debugger/port-suppliers.md)   
  [核心接口](../../../extensibility/debugger/reference/core-interfaces.md)   

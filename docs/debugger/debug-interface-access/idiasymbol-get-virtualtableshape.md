@@ -1,46 +1,45 @@
 ---
-title: "IDiaSymbol::get_virtualTableShape | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-debug"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-dev_langs: 
-  - "C++"
-helpviewer_keywords: 
-  - "IDiaSymbol::get_virtualTableShape 方法"
+title: "Idiasymbol:: Get_virtualtableshape |Microsoft 文档"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology: vs-ide-debug
+ms.tgt_pltfrm: 
+ms.topic: article
+dev_langs: C++
+helpviewer_keywords: IDiaSymbol::get_virtualTableShape method
 ms.assetid: 92360cbd-0761-446e-93f9-04dc8f4b66c6
-caps.latest.revision: 8
-author: "mikejo5000"
-ms.author: "mikejo"
-manager: "ghogen"
-caps.handback.revision: 8
+caps.latest.revision: "8"
+author: mikejo5000
+ms.author: mikejo
+manager: ghogen
+ms.openlocfilehash: c003b713c7ffc82609c052696507da5423387c20
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# IDiaSymbol::get_virtualTableShape
-[!INCLUDE[vs2017banner](../../code-quality/includes/vs2017banner.md)]
-
-检索虚表的类型的符号接口一个用户定义的类型的。  
+# <a name="idiasymbolgetvirtualtableshape"></a>IDiaSymbol::get_virtualTableShape
+检索虚拟表的用户定义的类型的类型的符号接口。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
-```cpp#  
-HRESULT get_virtualTableShape (   
-   IDiaSymbol** pRetVal  
+```C++  
+HRESULT get_virtualTableShape (   
+   IDiaSymbol** pRetVal  
 );  
 ```  
   
-#### 参数  
+#### <a name="parameters"></a>参数  
  `pRetVal`  
- \[out\] 返回表示一个用户定义的类型的 [IDiaSymbol](../../debugger/debug-interface-access/idiasymbol.md) 对象虚拟表。  
+ [out]返回[IDiaSymbol](../../debugger/debug-interface-access/idiasymbol.md)表示的用户定义的类型的虚拟表对象。  
   
-## 返回值  
- 如果成功，则返回; `S_OK`否则，返回 `S_FALSE` 或错误代码。  
+## <a name="return-value"></a>返回值  
+ 如果成功，则返回`S_OK`; 否则为返回`S_FALSE`或错误代码。  
   
 > [!NOTE]
->  `S_FALSE` 的返回值表示该属性用于符号不可用。  
+>  返回值`S_FALSE`意味着属性不是可用于符号。  
   
-## 请参阅  
+## <a name="see-also"></a>另请参阅  
  [IDiaSymbol](../../debugger/debug-interface-access/idiasymbol.md)

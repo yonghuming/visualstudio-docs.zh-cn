@@ -1,43 +1,44 @@
 ---
-title: "IDebugDynamicFieldCOMPlus | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-helpviewer_keywords: 
-  - "IDebugDynamicFieldCOMPlus 接口"
+title: "IDebugDynamicFieldCOMPlus |Microsoft 文档"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology: vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+helpviewer_keywords: IDebugDynamicFieldCOMPlus interface
 ms.assetid: c3a25f27-327a-4bdb-b026-27d436ddcd0c
-caps.latest.revision: 6
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 6
+caps.latest.revision: "6"
+author: gregvanl
+ms.author: gregvanl
+manager: ghogen
+ms.openlocfilehash: 40bd08ef1cba620332d613fb1e1522982594ef51
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# IDebugDynamicFieldCOMPlus
-[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
-
-表示 [IDebugBinder](../../../extensibility/debugger/reference/idebugbinder.md) 对象的动态字段。  
+# <a name="idebugdynamicfieldcomplus"></a>IDebugDynamicFieldCOMPlus
+表示有关动态字段[IDebugBinder](../../../extensibility/debugger/reference/idebugbinder.md)对象。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
 ```  
 IDebugDynamicFieldCOMPlus : IDebugDynamicField  
 ```  
   
-## 方法  
- 除了在 [IDebugDynamicField](../../../extensibility/debugger/reference/idebugdynamicfield.md) 接口的方法之外，此接口执行以下方法:  
+## <a name="methods"></a>方法  
+ 除了上的方法[IDebugDynamicField](../../../extensibility/debugger/reference/idebugdynamicfield.md)接口，此接口实现以下方法：  
   
-|方法|说明|  
-|--------|--------|  
-|[GetTypeFromPrimitive](../../../extensibility/debugger/reference/idebugdynamicfieldcomplus-gettypefromprimitive.md)|检索给定的类型其原始类型。|  
-|[GetTypeFromTypeDef](../../../extensibility/debugger/reference/idebugdynamicfieldcomplus-gettypefromtypedef.md)|检索给定的类型其标记。|  
+|方法|描述|  
+|------------|-----------------|  
+|[GetTypeFromPrimitive](../../../extensibility/debugger/reference/idebugdynamicfieldcomplus-gettypefromprimitive.md)|检索给定其基元类型的类型。|  
+|[GetTypeFromTypeDef](../../../extensibility/debugger/reference/idebugdynamicfieldcomplus-gettypefromtypedef.md)|检索给定标记的类型。|  
   
-## 要求  
- 标题:Sh.h  
+## <a name="requirements"></a>要求  
+ 标头： Sh.h  
   
- 命名空间:Microsoft.VisualStudio.Debugger.Interop  
+ Namespace: Microsoft.VisualStudio.Debugger.Interop  
   
- 程序集:Microsoft.VisualStudio.Debugger.Interop.dll
+ 程序集： Microsoft.VisualStudio.Debugger.Interop.dll

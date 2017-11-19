@@ -1,40 +1,40 @@
 ---
-title: "IDiaSymbol::get_numberOfModifiers | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-debug"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-dev_langs: 
-  - "C++"
+title: "IDiaSymbol::get_numberOfModifiers |Microsoft 文档"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology: vs-ide-debug
+ms.tgt_pltfrm: 
+ms.topic: article
+dev_langs: C++
 ms.assetid: 61ff7431-1994-4f7e-a182-1817f16f60a9
-caps.latest.revision: 3
-author: "mikejo5000"
-ms.author: "mikejo"
-manager: "ghogen"
-caps.handback.revision: 3
+caps.latest.revision: "3"
+author: mikejo5000
+ms.author: mikejo
+manager: ghogen
+ms.openlocfilehash: 0bfe8c999a0c1303f4be07c20dce07d190624ab6
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# IDiaSymbol::get_numberOfModifiers
-[!INCLUDE[vs2017banner](../../code-quality/includes/vs2017banner.md)]
-
-检索应用于基元类型修饰符的数目。  
+# <a name="idiasymbolgetnumberofmodifiers"></a>IDiaSymbol::get_numberOfModifiers
+检索应用于原始类型的修饰符的数目。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
-```cpp  
+```C++  
 HRESULT get_numberOfModifiers(   
    DWORD* pRetVal);  
 ```  
   
-#### 参数  
+#### <a name="parameters"></a>参数  
  `pRetVal`  
- \[in\]用于指定修饰符的数将应用于基元类型为 `DWORD` 的指针。  
+ [out]指向的指针`DWORD`，它指定应用于原始类型的修饰符的数量。  
   
-## 返回值  
- 如果成功，则返回 `S_OK`，否则返回 `S_FALSE` 或者错误值代码。  
+## <a name="return-value"></a>返回值  
+ 如果成功，则返回`S_OK`; 否则为返回`S_FALSE`或错误代码。  
   
-## 请参阅  
+## <a name="see-also"></a>另请参阅  
  [IDiaSymbol](../../debugger/debug-interface-access/idiasymbol.md)

@@ -1,52 +1,53 @@
 ---
-title: "IDebugBoundBreakpoint2::GetState | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "IDebugBoundBreakpoint2::GetState"
-helpviewer_keywords: 
-  - "GetState 方法"
-  - "IDebugBoundBreakpoint2::GetState 方法"
+title: "IDebugBoundBreakpoint2::GetState |Microsoft 文档"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology: vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords: IDebugBoundBreakpoint2::GetState
+helpviewer_keywords:
+- GetState method
+- IDebugBoundBreakpoint2::GetState method
 ms.assetid: a40a8382-295e-4916-aae6-ffe3a9cd3f2d
-caps.latest.revision: 11
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 11
+caps.latest.revision: "11"
+author: gregvanl
+ms.author: gregvanl
+manager: ghogen
+ms.openlocfilehash: cdf9b86212d42f50cc676084a58e2b654fb11486
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# IDebugBoundBreakpoint2::GetState
-[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
-
-获取此绑定断点状态。  
+# <a name="idebugboundbreakpoint2getstate"></a>IDebugBoundBreakpoint2::GetState
+获取此绑定的断点的状态。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
-```cpp#  
-HRESULT GetState(   
-   BP_STATE* pState  
+```cpp  
+HRESULT GetState(   
+   BP_STATE* pState  
 );  
 ```  
   
-```c#  
-int GetState(   
-   out enum_BP_STATE pState  
+```csharp  
+int GetState(   
+   out enum_BP_STATE pState  
 );  
 ```  
   
-#### 参数  
+#### <a name="parameters"></a>参数  
  `pState`  
- \[out\] 返回从描述断点状态的 [BP\_STATE](../../../extensibility/debugger/reference/bp-state.md) 枚举的值。  
+ [out]返回一个值从[BP_STATE](../../../extensibility/debugger/reference/bp-state.md)描述断点的状态的枚举。  
   
-## 返回值  
- 如果成功，则返回; `S_OK`否则，返回错误代码。  
+## <a name="return-value"></a>返回值  
+ 如果成功，则返回`S_OK`; 否则为返回错误代码。  
   
-## 示例  
- 下面的示例演示如何执行显示 [IDebugBoundBreakpoint2](../../../extensibility/debugger/reference/idebugboundbreakpoint2.md) 接口的简单 `CBoundBreakpoint` 对象的方法。  
+## <a name="example"></a>示例  
+ 下面的示例演示如何实现此方法对于简单`CBoundBreakpoint`公开的对象[IDebugBoundBreakpoint2](../../../extensibility/debugger/reference/idebugboundbreakpoint2.md)接口。  
   
 ```  
 HRESULT CBoundBreakpoint::GetState(BP_STATE* pState)    
@@ -68,6 +69,6 @@ HRESULT CBoundBreakpoint::GetState(BP_STATE* pState)
 }    
 ```  
   
-## 请参阅  
+## <a name="see-also"></a>另请参阅  
  [IDebugBoundBreakpoint2](../../../extensibility/debugger/reference/idebugboundbreakpoint2.md)   
- [BP\_STATE](../../../extensibility/debugger/reference/bp-state.md)
+ [BP_STATE](../../../extensibility/debugger/reference/bp-state.md)

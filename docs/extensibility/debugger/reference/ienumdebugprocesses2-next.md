@@ -1,59 +1,59 @@
 ---
-title: "IEnumDebugProcesses2::Next | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "IEnumDebugProcesses2::Next"
-helpviewer_keywords: 
-  - "IEnumDebugProcesses2::Next"
+title: "IEnumDebugProcesses2::Next |Microsoft 文档"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology: vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords: IEnumDebugProcesses2::Next
+helpviewer_keywords: IEnumDebugProcesses2::Next
 ms.assetid: abef89eb-198b-49cd-a4c9-17bce6cac0e1
-caps.latest.revision: 9
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 9
+caps.latest.revision: "9"
+author: gregvanl
+ms.author: gregvanl
+manager: ghogen
+ms.openlocfilehash: e1987dbc7e14824ccbfda5fd6bb7d644389a65f7
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# IEnumDebugProcesses2::Next
-[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
-
-返回下一组枚举中的元素。  
+# <a name="ienumdebugprocesses2next"></a>IEnumDebugProcesses2::Next
+枚举中返回下一组元素。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
-```cpp#  
+```cpp  
 HRESULT Next(  
-   ULONG            celt,  
-   IDebugProcess2** rgelt,  
-   ULONG*           pceltFetched  
+   ULONG            celt,  
+   IDebugProcess2** rgelt,  
+   ULONG*           pceltFetched  
 );  
 ```  
   
-```c#  
+```csharp  
 int Next(  
-   uint             celt,  
-   IDebugProcess2[] rgelt,  
-   ref uint         pceltFetched  
+   uint             celt,  
+   IDebugProcess2[] rgelt,  
+   ref uint         pceltFetched  
 );  
 ```  
   
-#### 参数  
+#### <a name="parameters"></a>参数  
  `celt`  
- \[in\] 检索的元素的数目。  并指定 `rgelt` 数组的最大大小。  
+ [in]要检索的元素数。 此外指定的最大大小`rgelt`数组。  
   
  `rgelt`  
- \[in, out\] 数组将填充的 [IDebugProcess2](../../../extensibility/debugger/reference/idebugprocess2.md) 元素。  
+ [在中，out]数组[IDebugProcess2](../../../extensibility/debugger/reference/idebugprocess2.md)元素填充的。  
   
  `pceltFetched`  
- \[out\] 返回在 `rgelt`实际上返回的元素的数目。  
+ [out]返回中实际返回的元素数目`rgelt`。  
   
-## 返回值  
- 如果成功，则返回 `S_OK`。  ，如果小于元素的请求的数目可能返回，则返回; `S_FALSE` 否则，返回错误代码。  
+## <a name="return-value"></a>返回值  
+ 如果成功，则返回`S_OK`。 返回`S_FALSE`如果无法返回请求数目的元素少于; 否则，返回错误代码。  
   
-## 请参阅  
+## <a name="see-also"></a>另请参阅  
  [IEnumDebugProcesses2](../../../extensibility/debugger/reference/ienumdebugprocesses2.md)   
  [IDebugProcess2](../../../extensibility/debugger/reference/idebugprocess2.md)

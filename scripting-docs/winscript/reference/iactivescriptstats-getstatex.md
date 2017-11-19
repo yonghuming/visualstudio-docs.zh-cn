@@ -1,27 +1,30 @@
 ---
-title: "IActiveScriptStats::GetStatEx | Microsoft Docs"
-ms.custom: ""
-ms.date: "01/18/2017"
-ms.prod: "windows-script-interfaces"
-ms.reviewer: ""
-ms.suite: ""
-ms.tgt_pltfrm: ""
-ms.topic: "reference"
+title: "IActiveScriptStats::GetStatEx |Microsoft 文档"
+ms.custom: 
+ms.date: 01/18/2017
+ms.prod: windows-script-interfaces
+ms.reviewer: 
+ms.suite: 
+ms.tgt_pltfrm: 
+ms.topic: reference
 apiname: IActiveScriptStats.GetStatEx
 apilocation: scrobj.dll
-helpviewer_keywords: 
-  - "IActiveScriptStats::GetStatEx"
+helpviewer_keywords: IActiveScriptStats::GetStatEx
 ms.assetid: f526f51d-8ab5-49ef-a8f7-ae0ac1cb46e4
-caps.latest.revision: 8
-author: "mikejo5000"
-ms.author: "mikejo"
-manager: "ghogen"
-caps.handback.revision: 8
+caps.latest.revision: "8"
+author: mikejo5000
+ms.author: mikejo
+manager: ghogen
+ms.openlocfilehash: 5cb8adf27811f3046de7b447e537443ef129a8c3
+ms.sourcegitcommit: aadb9588877418b8b55a5612c1d3842d4520ca4c
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/27/2017
 ---
-# IActiveScriptStats::GetStatEx
-返回一个自定义脚本统计信息。  
+# <a name="iactivescriptstatsgetstatex"></a>IActiveScriptStats::GetStatEx
+返回自定义脚本统计信息。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
 ```  
 HRESULT GetStatEx(  
@@ -31,30 +34,30 @@ HRESULT GetStatEx(
 );  
 ```  
   
-#### 参数  
+#### <a name="parameters"></a>参数  
  `guid`  
- \[in\]用于指定返回的哪个统计信息。  统计信息对应于特定GUID完全是引擎中定义的语义。  
+ [in]指定要返回的统计信息。 语义的统计信息对应于特定 GUID 是完全定义的引擎。  
   
  `pluHi`  
- \[in\]表示统计信息的64位无符号整数的高32位。  
+ [out]表示该统计信息的 64 位无符号整数的高 32 位。  
   
  `pluLo`  
- \[out\]表示统计信息的64位无符号整数的低32位。  
+ [out]表示该统计信息的 64 位无符号整数的低 32 位。  
   
-## 返回值  
- 该方法返回 `HRESULT`。  可能的值包括，但是，并不限于，这些下表中。  
+## <a name="return-value"></a>返回值  
+ 该方法返回 `HRESULT`。 可能的值包括（但并不限于）下表中的项。  
   
-|值|说明|  
-|-------|--------|  
+|值|描述|  
+|-----------|-----------------|  
 |`S_OK`|方法成功。|  
-|`E_NOTIMPL`|此方法未实现。|  
+|`E_NOTIMPL`|未实现方法。|  
   
-## 备注  
- 此方法允许自定义脚本引擎返回统计信息有意义到自定义宿主。  
+## <a name="remarks"></a>备注  
+ 此方法允许自定义脚本引擎能够将自定义主机返回统计信息的有意义。  
   
 > [!NOTE]
->  此方法目前尚未实现。  
+>  当前未实现此方法。  
   
-## 请参阅  
+## <a name="see-also"></a>另请参阅  
  [IActiveScriptStats::GetStat](../../winscript/reference/iactivescriptstats-getstat.md)   
  [IActiveScriptStats 接口](../../winscript/reference/iactivescriptstats-interface.md)

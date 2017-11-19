@@ -1,27 +1,30 @@
 ---
-title: "IDebugDocumentContext::EnumCodeContexts | Microsoft Docs"
-ms.custom: ""
-ms.date: "01/18/2017"
-ms.prod: "windows-script-interfaces"
-ms.reviewer: ""
-ms.suite: ""
-ms.tgt_pltfrm: ""
-ms.topic: "reference"
+title: "IDebugDocumentContext::EnumCodeContexts |Microsoft 文档"
+ms.custom: 
+ms.date: 01/18/2017
+ms.prod: windows-script-interfaces
+ms.reviewer: 
+ms.suite: 
+ms.tgt_pltfrm: 
+ms.topic: reference
 apiname: IDebugDocumentContext.EnumCodeContexts
 apilocation: pdm.dll
-helpviewer_keywords: 
-  - "IDebugDocumentContext::EnumCodeContexts"
+helpviewer_keywords: IDebugDocumentContext::EnumCodeContexts
 ms.assetid: fb0aa64e-c458-4ef1-bcd8-5cebdc972549
-caps.latest.revision: 8
-author: "mikejo5000"
-ms.author: "mikejo"
-manager: "ghogen"
-caps.handback.revision: 8
+caps.latest.revision: "8"
+author: mikejo5000
+ms.author: mikejo
+manager: ghogen
+ms.openlocfilehash: 300102d75fcfa797e8e073b9a1ce77cc5ee2827a
+ms.sourcegitcommit: aadb9588877418b8b55a5612c1d3842d4520ca4c
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/27/2017
 ---
-# IDebugDocumentContext::EnumCodeContexts
-枚举代码上下文与此文档上下文。  
+# <a name="idebugdocumentcontextenumcodecontexts"></a>IDebugDocumentContext::EnumCodeContexts
+枚举与此文档上下文关联的代码上下文。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
 ```  
 HRESULT EnumCodeContexts(  
@@ -29,19 +32,19 @@ HRESULT EnumCodeContexts(
 );  
 ```  
   
-#### 参数  
+#### <a name="parameters"></a>参数  
  `ppescc`  
- \[out\]上下文代码与此文档上下文。  
+ [out]与此文档上下文关联的代码上下文。  
   
-## 返回值  
- 该方法返回 `HRESULT`。  可能的值包括，但是，并不限于，这些下表中。  
+## <a name="return-value"></a>返回值  
+ 该方法返回 `HRESULT`。 可能的值包括（但并不限于）下表中的项。  
   
-|值|说明|  
-|-------|--------|  
+|值|描述|  
+|-----------|-----------------|  
 |`S_OK`|方法成功。|  
   
-## 备注  
- 除非该文档包含文件或模板，文档通常只与一代码上下文。  
+## <a name="remarks"></a>备注  
+ 文档是通常与只有一个代码上下文相关联，除非该文档包含文件或模板。  
   
-## 请参阅  
+## <a name="see-also"></a>另请参阅  
  [IDebugDocumentContext 接口](../../winscript/reference/idebugdocumentcontext-interface.md)

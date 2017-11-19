@@ -1,63 +1,63 @@
 ---
-title: "IEnumDebugAddresses | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "IEnumDebugAddresses"
-helpviewer_keywords: 
-  - "IEnumDebugAddresses 接口"
+title: "IEnumDebugAddresses |Microsoft 文档"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology: vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords: IEnumDebugAddresses
+helpviewer_keywords: IEnumDebugAddresses interface
 ms.assetid: 5f6f6751-e6d8-4c5a-8e81-414b6e5d8cc5
-caps.latest.revision: 6
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 6
+caps.latest.revision: "6"
+author: gregvanl
+ms.author: gregvanl
+manager: ghogen
+ms.openlocfilehash: db531c35ea3bbb6176095f19897404d192096e22
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# IEnumDebugAddresses
-[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
-
-此接口表示实现 [IDebugAddress](../../../extensibility/debugger/reference/idebugaddress.md) 接口的对象的集合。  
+# <a name="ienumdebugaddresses"></a>IEnumDebugAddresses
+此接口表示的对象实现的集合[IDebugAddress](../../../extensibility/debugger/reference/idebugaddress.md)接口。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
 ```  
 IEnumDebugAdresses : IUnknown  
 ```  
   
-## 实现者说明  
- 此接口由符号提供程序实现提供了一组对象实现 [IDebugAddress](../../../extensibility/debugger/reference/idebugaddress.md) 接口。  注意不是标准 COM 枚举由于 [GetCount](../Topic/IEnumDebugAddresses::GetCount.md) 方法的显示。  
+## <a name="notes-for-implementers"></a>实施者注意事项  
+ 此接口由符号提供程序来实现的对象集的实现[IDebugAddress](../../../extensibility/debugger/reference/idebugaddress.md)接口。 请注意这不是由于存在标准 COM 枚举[GetCount](../../../extensibility/debugger/reference/ienumdebugaddresses-getcount.md)方法。  
   
-## 调用方的说明  
- 此接口由 [GetAddressesFromContext](../../../extensibility/debugger/reference/idebugsymbolprovider-getaddressesfromcontext.md) 和 [GetAddressesFromPosition](../Topic/IDebugSymbolProvider::GetAddressesFromPosition.md)返回。  
+## <a name="notes-for-callers"></a>调用方的说明  
+ 此接口由[GetAddressesFromContext](../../../extensibility/debugger/reference/idebugsymbolprovider-getaddressesfromcontext.md)和[GetAddressesFromPosition](../../../extensibility/debugger/reference/idebugsymbolprovider-getaddressesfromposition.md)。  
   
-## 方法按 Vtable 顺序  
- 此接口执行以下操作方法。  
+## <a name="methods-in-vtable-order"></a>Vtable 顺序中的方法  
+ 此接口实现以下方法。  
   
-|方法|说明|  
-|--------|--------|  
-|[下一步](../Topic/IEnumDebugAddresses::Next.md)|枚举检索下一组 [IDebugAddress](../../../extensibility/debugger/reference/idebugaddress.md) 对象。|  
-|[Skip](../Topic/IEnumDebugAddresses::Skip.md)|跳过项指定数目的。|  
-|[重置](../../../extensibility/debugger/reference/ienumdebugaddresses-reset.md)|重置枚举先 enter。|  
+|方法|描述|  
+|------------|-----------------|  
+|[下一篇](../../../extensibility/debugger/reference/ienumdebugaddresses-next.md)|检索下一组[IDebugAddress](../../../extensibility/debugger/reference/idebugaddress.md)枚举中的对象。|  
+|[Skip](../../../extensibility/debugger/reference/ienumdebugaddresses-skip.md)|跳过指定的数目的条目。|  
+|[重置](../../../extensibility/debugger/reference/ienumdebugaddresses-reset.md)|将枚举重置为第一个条目。|  
 |[克隆](../../../extensibility/debugger/reference/ienumdebugaddresses-clone.md)|检索当前枚举的副本。|  
-|[GetCount](../Topic/IEnumDebugAddresses::GetCount.md)|检索项数在枚举的。|  
+|[GetCount](../../../extensibility/debugger/reference/ienumdebugaddresses-getcount.md)|检索在枚举中的项数。|  
   
-## 备注  
- 调试引擎通常用于此接口来帮助确定适当的地址生成一个表达式计算器。  
+## <a name="remarks"></a>备注  
+ 调试引擎通常使用此接口来帮助确定相应的地址，以便向表达式计算器。  
   
-## 要求  
- 标题:sh.h  
+## <a name="requirements"></a>要求  
+ 标头： sh.h  
   
- 命名空间:Microsoft.VisualStudio.Debugger.Interop  
+ Namespace: Microsoft.VisualStudio.Debugger.Interop  
   
- 程序集:Microsoft.VisualStudio.Debugger.Interop.dll  
+ 程序集： Microsoft.VisualStudio.Debugger.Interop.dll  
   
-## 请参阅  
+## <a name="see-also"></a>另请参阅  
  [符号提供程序接口](../../../extensibility/debugger/reference/symbol-provider-interfaces.md)   
  [IDebugAddress](../../../extensibility/debugger/reference/idebugaddress.md)   
  [GetAddressesFromContext](../../../extensibility/debugger/reference/idebugsymbolprovider-getaddressesfromcontext.md)   
- [GetAddressesFromPosition](../Topic/IDebugSymbolProvider::GetAddressesFromPosition.md)
+ [GetAddressesFromPosition](../../../extensibility/debugger/reference/idebugsymbolprovider-getaddressesfromposition.md)

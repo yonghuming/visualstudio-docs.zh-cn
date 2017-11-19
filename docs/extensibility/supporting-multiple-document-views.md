@@ -1,43 +1,44 @@
 ---
-title: "支持多个文档视图 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-helpviewer_keywords: 
-  - "编辑器 [Visual Studio SDK]，自定义的多个文档视图"
+title: "支持多个文档视图 |Microsoft 文档"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology: vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+helpviewer_keywords: editors [Visual Studio SDK], custom - multiple document views
 ms.assetid: c7ec2366-91c4-477f-908d-e89068bdb3e3
-caps.latest.revision: 25
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 25
+caps.latest.revision: "25"
+author: gregvanl
+ms.author: gregvanl
+manager: ghogen
+ms.openlocfilehash: 79b9224a16388dabbe2b68553e5c0d9bfff29519
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# 支持多个文档视图
-[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
-
-可以提供多个文档的视图通过创建单独的文档数据和文档编辑器的视图对象。  附加文档视图的情形是有用的是:  
+# <a name="supporting-multiple-document-views"></a>支持多个文档视图
+你可以通过为你的编辑器创建单独的文档数据和文档视图对象提供文档的多个的视图。 某些情况下，在此将为有用的附加文档视图是：  
   
--   新窗口支持:您希望此编辑器提供了相同类型的两个或多个视图，因此，已经打开一个窗口在编辑器的用户可以通过选择 **新窗口** 命令打开一个新窗口从 **窗口** 菜单。  
+-   新窗口支持： 您希望您编辑器来提供相同类型，两个或多个视图，以便已有在编辑器中打开一个窗口的用户可以打开一个新窗口，通过选择**新窗口**命令**窗口**菜单。  
   
--   窗体和代码视图支持:您希望此编辑器提供了不同类型的视图。  [!INCLUDE[vbprvb](../code-quality/includes/vbprvb_md.md)]，例如，提供一个窗体视图和一个代码视图。  
+-   窗体和代码查看支持： 您希望您编辑器提供了不同类型的视图。 [!INCLUDE[vbprvb](../code-quality/includes/vbprvb_md.md)]例如，提供窗体视图和代码视图。  
   
- 有关这方面的更多信息，请参见。 EditorFactory.cs 文件的 CreateEditorInstance 程序在 Visual Studio 包模板创建的自定义编辑项目。  有关此项目的更多信息，请参见 [演练: 创建自定义编辑器](../extensibility/walkthrough-creating-a-custom-editor.md)。  
+ 这有关的详细信息，请参阅在 Visual Studio 包模板创建的自定义编辑器项目的 EditorFactory.cs 文件中的 CreateEditorInstance 过程。 有关本项目的详细信息，请参阅[演练： 创建自定义编辑器](../extensibility/walkthrough-creating-a-custom-editor.md)。  
   
-## 同步视图  
- 在实现多个视图时，文档数据对象以使所有视图负责与数据同步。  您可以使用过程在 <xref:Microsoft.VisualStudio.TextManager.Interop.VsTextBuffer> 的事件接口与数据同步多个视图。  
+## <a name="synchronizing-views"></a>同步视图  
+ 当实现多个视图时，文档数据对象负责保持与数据同步的所有视图。 你可以使用的事件处理接口上<xref:Microsoft.VisualStudio.TextManager.Interop.VsTextBuffer>以多个视图的数据同步的。  
   
- 如果不使用 <xref:Microsoft.VisualStudio.TextManager.Interop.VsTextBuffer> 对象同步多个视图，则必须实现拥有事件系统对组成其进行处理到文档的数据对象。  可以使用粒度的不同级别保持多个视图是最新的。  设置最大，粒度，因为您输入一个视图能够立即更新其他视图。  最小的粒度，其他视图不更新，直到激活它们。  
+ 如果不使用<xref:Microsoft.VisualStudio.TextManager.Interop.VsTextBuffer>同步多个视图，则必须实现自己的事件系统以处理对文档数据对象所做更改的对象。 可以使用不同的粒度级别保持多个视图最新。 利用的最大粒度的设置，在一个视图中键入其他视图立即更新。 最小粒度，与其他视图不会更新之前会激活这些。  
   
-## 确定是否文档已打开的数据  
- 运行文档在集成开发环境帮助 \(IDE\)跟踪的表 \(RDT\)数据。文档是否已打开，则，如下图所示。  
+## <a name="determining-whether-document-data-is-already-open"></a>确定是否文档数据是已打开  
+ 在集成的开发环境 (IDE) 中运行文档表 (RDT) 可帮助跟踪是否文档的数据已处于打开状态，如下面的关系图中所示。  
   
- ![DocDataView 图](~/extensibility/media/docdataview.gif "Docdataview")  
-多个视图  
+ ![DocDataView 图](../extensibility/media/docdataview.gif "Docdataview")  
+多视图  
   
- 默认情况下，每个视图 \(文档视图对象\) 在其自己的窗架 \(<xref:Microsoft.VisualStudio.Shell.Interop.IVsWindowFrame>\) 包含。  如已经注意到，但是，文档数据可以显示在多个视图。  若要实现此功能， Visual Studio 检查 RDT 确定相关的文档是否已打开在编辑器中  当 IDE 调用 <xref:Microsoft.VisualStudio.Shell.Interop.IVsEditorFactory.CreateEditorInstance%2A> 创建编辑器时，在 `punkDocDataExisting` 参数返回的非空值指示文档已打开的在其他编辑器。  有关 RDT 方式的更多信息函数，请参见 [正在运行的 Document 表](../extensibility/internals/running-document-table.md)。  
+ 默认情况下，每个视图 （文档视图对象） 包含在其自己的窗口框架中 (<xref:Microsoft.VisualStudio.Shell.Interop.IVsWindowFrame>)。 已特别说明，但是，文档数据可以显示多个视图中。 若要启用此功能，Visual Studio，请检查 RDT 以确定问题的文档是否已在编辑器中打开。 当 IDE 调用<xref:Microsoft.VisualStudio.Shell.Interop.IVsEditorFactory.CreateEditorInstance%2A>若要创建编辑器中，在中非 NULL 值返回`punkDocDataExisting`参数指示该文档已在另一个编辑器中打开。 详细了解如何 RDT 函数中，请参阅[运行 Document 表](../extensibility/internals/running-document-table.md)。  
   
- 在 <xref:Microsoft.VisualStudio.Shell.Interop.IVsEditorFactory> 实现，请检查在 `punkDocDataExisting` 返回的文档数据对象确定文档是否为编辑器正确。  \(例如，应由 HTML 编辑器仅显示 HTML 数据。\)如果适用，则编辑工厂应为数据提供第二个视图。  如果 `punkDocDataExisting` 参数不是 `NULL`，可能会文档数据对象已在其他编辑器中其中之一，或者，更可能，文档数据已打开的与相同的不同视图编辑器。  如果文档数据已在编辑工厂不支持的其他编辑器， Visual Studio 无法打开编辑工厂。  有关更多信息，请参见 [如何︰ 附加视图文档数据](../extensibility/how-to-attach-views-to-document-data.md)。
+ 在你<xref:Microsoft.VisualStudio.Shell.Interop.IVsEditorFactory>实现中，检查文档数据对象中返回`punkDocDataExisting`来确定文档数据是否适合于你的编辑器。 （例如，仅 HTML 数据应显示的 HTML 编辑器。）如果适当，编辑器工厂应为数据提供第二个视图。 如果`punkDocDataExisting`参数不是`NULL`，这可能可能是文档数据对象是在另一个编辑器中打开，或可在更有可能，已存在具有相同编辑器中的不同视图中打开文档数据。 如果在你的编辑器工厂不支持的其他编辑器中打开的文档数据，Visual Studio 将无法打开编辑器工厂。 有关详细信息，请参阅[如何： 附加到文档数据的视图](../extensibility/how-to-attach-views-to-document-data.md)。

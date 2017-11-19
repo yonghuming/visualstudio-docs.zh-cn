@@ -1,64 +1,65 @@
 ---
-title: "将附加到程序 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-helpviewer_keywords: 
-  - "附加到程序的调试引擎"
+title: "附加到的程序 |Microsoft 文档"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology: vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+helpviewer_keywords: debug engines, attaching to programs
 ms.assetid: 9a3f5b83-60b5-4ef0-91fe-a432105bd066
-caps.latest.revision: 10
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 10
+caps.latest.revision: "10"
+author: gregvanl
+ms.author: gregvanl
+manager: ghogen
+ms.openlocfilehash: 7dd4baed877bd5d0262e966edf006dea80596b47
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# 将附加到程序
-[!INCLUDE[vs2017banner](../../code-quality/includes/vs2017banner.md)]
-
-在签入了正确的端口中的过程后，必须将调试器附加到要调试的程序。  
+# <a name="attaching-to-the-program"></a>附加到程序
+你向适当的端口注册您的程序后，你必须将调试器附加到你想要调试的程序。  
   
-## 选择如何附加  
- 具有会议调试管理器 \(SDM\)尝试附加到正在调试的程序的三种方式。  
+## <a name="choosing-how-to-attach"></a>选择如何将附加  
+ 有三种方法会话调试管理器 (SDM) 尝试附加到正在调试的程序。  
   
-1.  例如按调试引擎是通过 [LaunchSuspended](../../extensibility/debugger/reference/idebugenginelaunch2-launchsuspended.md) 方法的过程 \(功能解释语言，\)， SDM 从 [IDebugProgramNode2](../../extensibility/debugger/reference/idebugprogramnode2.md) 对象的 [IDebugProgramNodeAttach2](../../extensibility/debugger/reference/idebugprogramnodeattach2.md) 接口与附加的程序。  如果 SDM 可以获取 `IDebugProgramNodeAttach2` 接口，然后 SDM 调用 [OnAttach](../../extensibility/debugger/reference/idebugprogramnodeattach2-onattach.md) 方法。  `IDebugProgramNodeAttach2::OnAttach` 方法返回 `S_OK` 指示不附加到程序，并尝试其他可能会更改附加到程序。  
+1.  程序的调试引擎通过启动[LaunchSuspended](../../extensibility/debugger/reference/idebugenginelaunch2-launchsuspended.md)方法 （典型的解释语言，例如），SDM 获取[IDebugProgramNodeAttach2](../../extensibility/debugger/reference/idebugprogramnodeattach2.md)从接口[IDebugProgramNode2](../../extensibility/debugger/reference/idebugprogramnode2.md)与附加到程序关联的对象。 如果可以获得 SDM`IDebugProgramNodeAttach2`接口，然后调用 SDM [OnAttach](../../extensibility/debugger/reference/idebugprogramnodeattach2-onattach.md)方法。 `IDebugProgramNodeAttach2::OnAttach`方法返回`S_OK`以指示它未附加到程序和可以进行其他尝试附加到程序。  
   
-2.  如果 SDM 可以从附加到的程序的 [IDebugProgramEx2](../../extensibility/debugger/reference/idebugprogramex2.md) 接口， SDM 调用 [Attach](../../extensibility/debugger/reference/idebugprogramex2-attach.md) 方法。  此方法对由端口提供远程启动的过程很常见。  
+2.  如果可以获得 SDM [IDebugProgramEx2](../../extensibility/debugger/reference/idebugprogramex2.md)接口从附加到 SDM 调用程序[附加](../../extensibility/debugger/reference/idebugprogramex2-attach.md)方法。 这种方法是典型的端口提供程序由远程启动的程序。  
   
-3.  如果程序不能通过 `IDebugProgramNodeAttach2::OnAttach` 或 `IDebugProgramEx2::Attach` 方法附加属性， SDM 通过调用 `CoCreateInstance` 功能加载调试引擎 \(如果尚未加载\) 然后调用 [Attach](../../extensibility/debugger/reference/idebugengine2-attach.md) 方法。  此方法为端口提供程序是局部程序很常见。  
+3.  如果程序不能通过附加`IDebugProgramNodeAttach2::OnAttach`或`IDebugProgramEx2::Attach`方法，SDM 加载 （如果尚未加载） 的调试引擎通过调用`CoCreateInstance`函数，然后调用[附加](../../extensibility/debugger/reference/idebugengine2-attach.md)方法。 这种方法是程序启动本地端口供应商的典型方式。  
   
-     调用 `IDebugProgramEx2::Attach` 方法的自定义端口提供程序的实现的 `IDebugEngine2::Attach` 方法自定义端口供应商也是可能的。  通常情况下，自定义端口提供生成在远程计算机上调试引擎。  
+     你也可用于自定义端口的供应商联系，以调用`IDebugEngine2::Attach`方法的自定义端口供应商的实现中`IDebugProgramEx2::Attach`方法。 通常在这种情况下，自定义端口提供程序将启动远程计算机上的调试引擎。  
   
- ，在会议调试管理器 \(SDM\) [Attach](../../extensibility/debugger/reference/idebugengine2-attach.md) 调用方法时，附件实现。  
+ 当会话调试管理器 (SDM) 调用实现附件[附加](../../extensibility/debugger/reference/idebugengine2-attach.md)方法。  
   
- 如果运行中的 DE 同一进程中，在调试应用程序，则必须执行 [IDebugProgramNode2](../../extensibility/debugger/reference/idebugprogramnode2.md)以下方法:  
+ 如果在与要调试应用程序相同的进程中运行你 DE，则必须实现以下的方法[IDebugProgramNode2](../../extensibility/debugger/reference/idebugprogramnode2.md):  
   
--   [GetHostName](../../extensibility/debugger/reference/idebugprogramnode2-gethostname.md),  
+-   [GetHostName](../../extensibility/debugger/reference/idebugprogramnode2-gethostname.md)，  
   
 -   [GetHostPid](../../extensibility/debugger/reference/idebugprogramnode2-gethostpid.md)  
   
 -   [GetProgramName](../../extensibility/debugger/reference/idebugprogramnode2-getprogramname.md)  
   
- 在 `IDebugEngine2::Attach` 调用方法后，请按照 `IDebugEngine2::Attach` 方法的实现执行以下步骤:  
+ 后`IDebugEngine2::Attach`调用方法，请按照这些步骤的实现中`IDebugEngine2::Attach`方法：  
   
-1.  发送到 SDM 的一 [IDebugEngineCreateEvent2](../../extensibility/debugger/reference/idebugenginecreateevent2.md) 事件对象。  有关更多信息，请参见 [发送事件](../../extensibility/debugger/sending-events.md)。  
+1.  发送[IDebugEngineCreateEvent2](../../extensibility/debugger/reference/idebugenginecreateevent2.md)到 SDM 事件对象。 有关详细信息，请参阅[发送事件](../../extensibility/debugger/sending-events.md)。  
   
-2.  调用传递给 `IDebugEngine2::Attach` 方法的 [IDebugProgram2](../../extensibility/debugger/reference/idebugprogram2.md) 对象的 [GetProgramId](../../extensibility/debugger/reference/idebugprogram2-getprogramid.md) 方法。  
+2.  调用[GetProgramId](../../extensibility/debugger/reference/idebugprogram2-getprogramid.md)方法[IDebugProgram2](../../extensibility/debugger/reference/idebugprogram2.md)对象传递到`IDebugEngine2::Attach`方法。  
   
-     用于标识程序的方法返回 `GUID` 。  在表示本地程序对 DE 的对象必须存储 `GUID` ，因此，必须返回，而 `IDebugProgram2::GetProgramId` 调用方法 `IDebugProgram2` 接口时。  
-  
-    > [!NOTE]
-    >  如果实现 `IDebugProgramNodeAttach2` 接口，程序的 `GUID` 传递给 `IDebugProgramNodeAttach2::OnAttach` 方法。  此 `GUID` 为 `IDebugProgram2::GetProgramId` 方法返回的程序的 `GUID` 使用。  
-  
-3.  发送一 [IDebugProgramCreateEvent2](../../extensibility/debugger/reference/idebugprogramcreateevent2.md) 事件对象通知 SDM 本地 `IDebugProgram2` 创建一个对象来表示程序到 DE。  有关详细信息，请参见[发送事件](../../extensibility/debugger/sending-events.md)。  
+     这将返回`GUID`用于找出的程序。 `GUID`必须存储在对象，表示本地编程为 DE，且必须返回时`IDebugProgram2::GetProgramId`方法调用`IDebugProgram2`接口。  
   
     > [!NOTE]
-    >  这不是传递到 `IDebugEngine2::Attach` 方案的同一 `IDebugProgram2` 对象。  以前通过的 `IDebugProgram2` 对象只能由端口识别和是单独的对象。  
+    >  如果你实现`IDebugProgramNodeAttach2`接口，该程序的`GUID`传递给`IDebugProgramNodeAttach2::OnAttach`方法。 这`GUID`用于程序的`GUID`返回`IDebugProgram2::GetProgramId`方法。  
   
-## 请参阅  
+3.  发送[IDebugProgramCreateEvent2](../../extensibility/debugger/reference/idebugprogramcreateevent2.md)事件对象，以通知 SDM，本地`IDebugProgram2`创建对象来表示 DE 到的程序。 有关详细信息，请参阅[发送事件](../../extensibility/debugger/sending-events.md)。  
+  
+    > [!NOTE]
+    >  这是不相同`IDebugProgram2`对象已传递到`IDebugEngine2::Attach`方法。 以前传递`IDebugProgram2`对象端口仅被识别，并为一个单独的对象。  
+  
+## <a name="see-also"></a>另请参阅  
  [启动基于附件](../../extensibility/debugger/launch-based-attachment.md)   
  [发送事件](../../extensibility/debugger/sending-events.md)   
  [LaunchSuspended](../../extensibility/debugger/reference/idebugenginelaunch2-launchsuspended.md)   
@@ -69,5 +70,5 @@ caps.handback.revision: 10
  [IDebugProgramNode2](../../extensibility/debugger/reference/idebugprogramnode2.md)   
  [GetProgramId](../../extensibility/debugger/reference/idebugprogram2-getprogramid.md)   
  [IDebugProgramEx2](../../extensibility/debugger/reference/idebugprogramex2.md)   
- [Attach](../../extensibility/debugger/reference/idebugprogramex2-attach.md)   
- [Attach](../../extensibility/debugger/reference/idebugengine2-attach.md)
+ [附加](../../extensibility/debugger/reference/idebugprogramex2-attach.md)   
+ [附加](../../extensibility/debugger/reference/idebugengine2-attach.md)

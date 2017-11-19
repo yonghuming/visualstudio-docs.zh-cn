@@ -1,51 +1,51 @@
 ---
-title: "BP_LOCATION_RESOLUTION | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "BP_LOCATION_RESOLUTION"
-helpviewer_keywords: 
-  - "BP_LOCATION_RESOLUTION 结构"
+title: "BP_LOCATION_RESOLUTION |Microsoft 文档"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology: vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords: BP_LOCATION_RESOLUTION
+helpviewer_keywords: BP_LOCATION_RESOLUTION structure
 ms.assetid: 86ea2c8a-54a3-48e8-83c7-18a515273129
-caps.latest.revision: 8
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 8
+caps.latest.revision: "8"
+author: gregvanl
+ms.author: gregvanl
+manager: ghogen
+ms.openlocfilehash: 25be3738f7183199c97eb0454e23b0ba74a0537c
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# BP_LOCATION_RESOLUTION
-[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
-
-在特定位置断点描述的解决方法。  
+# <a name="bplocationresolution"></a>BP_LOCATION_RESOLUTION
+说明中的特定位置断点的分辨率。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
-```cpp#  
-typedef struct _BP_LOCATION_RESOLUTION {   
-   IDebugBreakpointResolution2* pResolution;  
+```cpp  
+typedef struct _BP_LOCATION_RESOLUTION {   
+   IDebugBreakpointResolution2* pResolution;  
 } BP_LOCATION_RESOLUTION;  
 ```  
   
-## 成员  
+## <a name="members"></a>成员  
  pResolution  
- 确定断点及其解决信息的类型的 [IDebugBreakpointResolution2](../../../extensibility/debugger/reference/idebugbreakpointresolution2.md) 对象。  
+ [IDebugBreakpointResolution2](../../../extensibility/debugger/reference/idebugbreakpointresolution2.md)确定断点以及其解决方法信息的类型的对象。  
   
-## 备注  
- 作为一个联合的一部分，此结构是 [BP\_LOCATION](../../../extensibility/debugger/reference/bp-location.md) 结构的成员。  
+## <a name="remarks"></a>备注  
+ 此结构是的成员[BP_LOCATION](../../../extensibility/debugger/reference/bp-location.md)作为联合的一部分的结构。  
   
-## 要求  
- 标题:msdbg.h  
+## <a name="requirements"></a>要求  
+ 标头： msdbg.h  
   
- 命名空间:Microsoft.VisualStudio.Debugger.Interop  
+ Namespace: Microsoft.VisualStudio.Debugger.Interop  
   
- 程序集:Microsoft.VisualStudio.Debugger.Interop.dll  
+ 程序集： Microsoft.VisualStudio.Debugger.Interop.dll  
   
-## 请参阅  
+## <a name="see-also"></a>另请参阅  
  [结构和联合](../../../extensibility/debugger/reference/structures-and-unions.md)   
- [BP\_LOCATION](../../../extensibility/debugger/reference/bp-location.md)   
+ [BP_LOCATION](../../../extensibility/debugger/reference/bp-location.md)   
  [IDebugBreakpointResolution2](../../../extensibility/debugger/reference/idebugbreakpointresolution2.md)

@@ -1,31 +1,34 @@
 ---
-title: "IActiveScriptProfilerControl2 接口 | Microsoft Docs"
-ms.custom: ""
-ms.date: "01/18/2017"
-ms.prod: "windows-script-interfaces"
-ms.reviewer: ""
-ms.suite: ""
-ms.tgt_pltfrm: ""
-ms.topic: "reference"
-helpviewer_keywords: 
-  - "IActiveScriptProfilerControl2 接口"
+title: "IActiveScriptProfilerControl2 接口 |Microsoft 文档"
+ms.custom: 
+ms.date: 01/18/2017
+ms.prod: windows-script-interfaces
+ms.reviewer: 
+ms.suite: 
+ms.tgt_pltfrm: 
+ms.topic: reference
+helpviewer_keywords: IActiveScriptProfilerControl2 interface
 ms.assetid: 89455276-5c23-420b-a7e0-804a32635291
-caps.latest.revision: 5
-author: "mikejo5000"
-ms.author: "mikejo"
-manager: "ghogen"
-caps.handback.revision: 5
+caps.latest.revision: "5"
+author: mikejo5000
+ms.author: mikejo
+manager: ghogen
+ms.openlocfilehash: 9bc0dfa31b37a6bf99427c8eddfe2bd038da9b9d
+ms.sourcegitcommit: aadb9588877418b8b55a5612c1d3842d4520ca4c
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/27/2017
 ---
-# IActiveScriptProfilerControl2 接口
-提供添加能够开始或停止分析方法脚本运行时间。  
+# <a name="iactivescriptprofilercontrol2-interface"></a>IActiveScriptProfilerControl2 接口
+提供添加启动或停止分析运行脚本时的功能的方法。  
   
-## 方法  
+## <a name="methods"></a>方法  
   
-|方法|说明|  
-|--------|--------|  
-|[IActiveScriptProfilerControl2::CompleteProfilerStart](../../winscript/reference/iactivescriptprofilercontrol2-completeprofilerstart.md)|通知探查器正在从启动分析在所有适用的脚本引擎。  这使您可以获取完整的调用堆栈，如果 [!INCLUDE[javascript](../../javascript/includes/javascript-md.md)] 运行，则启动分析时。|  
-|[IActiveScriptProfilerControl2::PrepareProfilerStop](../../winscript/reference/iactivescriptprofilercontrol2-prepareprofilerstop.md)|通知探查器可以停止分析在所有适用的脚本引擎。  这使您可以获取完整的调用堆栈，如果 [!INCLUDE[javascript](../../javascript/includes/javascript-md.md)] 运行，当停止分析。|  
+|方法|描述|  
+|------------|-----------------|  
+|[IActiveScriptProfilerControl2::CompleteProfilerStart](../../winscript/reference/iactivescriptprofilercontrol2-completeprofilerstart.md)|通知探查器已启动所有适用的脚本引擎上进行分析。 这使您能够获取完整的调用堆栈，如果[!INCLUDE[javascript](../../javascript/includes/javascript-md.md)]开始分析时处于运行状态。|  
+|[IActiveScriptProfilerControl2::PrepareProfilerStop](../../winscript/reference/iactivescriptprofilercontrol2-prepareprofilerstop.md)|通知探查器将停止所有适用的脚本引擎上进行分析。 这使您能够获取完整的调用堆栈，如果[!INCLUDE[javascript](../../javascript/includes/javascript-md.md)]时停止分析运行。|  
   
-## 请参阅  
+## <a name="see-also"></a>另请参阅  
  [IActiveScriptProfilerControl 接口](../../winscript/reference/iactivescriptprofilercontrol-interface.md)   
- [活动脚本探查器接口](../../winscript/reference/active-script-profiler-interfaces.md)
+ [Active Script Profiler 接口](../../winscript/reference/active-script-profiler-interfaces.md)

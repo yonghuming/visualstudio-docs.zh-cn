@@ -1,68 +1,68 @@
 ---
-title: "IDebugEngine3::SetSymbolPath | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "IDebugEngine3::SetSymbolPath"
-helpviewer_keywords: 
-  - "IDebugEngine3::SetSymbolPath"
+title: "IDebugEngine3::SetSymbolPath |Microsoft 文档"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology: vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords: IDebugEngine3::SetSymbolPath
+helpviewer_keywords: IDebugEngine3::SetSymbolPath
 ms.assetid: 47b48f84-8a96-401f-84df-0baa8a96d26e
-caps.latest.revision: 12
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 12
+caps.latest.revision: "12"
+author: gregvanl
+ms.author: gregvanl
+manager: ghogen
+ms.openlocfilehash: 77a5f294acf60eebc745cb78042e0ea3431fc998
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# IDebugEngine3::SetSymbolPath
-[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
-
-设置中搜索调试符号的路径或路径。  
+# <a name="idebugengine3setsymbolpath"></a>IDebugEngine3::SetSymbolPath
+设置的路径或调试符号中搜索的路径。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
-```cpp#  
+```cpp  
 HRESULT SetSymbolPath (  
-   LPOLESTR            szSymbolSearchPath,  
-   LPOLESTR            szSymbolCachePath,  
-   LOAD_SYMBOLS_FLAGS  Flags  
+   LPOLESTR            szSymbolSearchPath,  
+   LPOLESTR            szSymbolCachePath,  
+   LOAD_SYMBOLS_FLAGS  Flags  
 );  
 ```  
   
-```c#  
+```csharp  
 int SetSymbolPath(  
-   string                    szSymbolSearchPath,   
-   string                    szSymbolCachePath,   
-   enum_LOAD_SYMBOLS_FLAGS   Flags  
+   string                    szSymbolSearchPath,   
+   string                    szSymbolCachePath,   
+   enum_LOAD_SYMBOLS_FLAGS   Flags  
 );  
 ```  
   
-#### 参数  
+#### <a name="parameters"></a>参数  
   
-|Parameter|说明|  
-|---------------|--------|  
-|`szSymbolSearchPath`|\[in\] 字符串包含符号搜索路径或路径。  请参见 “备注”了解详细信息。  不能为 null。|  
-|`szSymbolCachePath`|\[in\] 字符串包含可缓存符号的本地路径。  不能为 null。|  
-|`Flags`|\[in\] 不使用;始终设置为 0。|  
+|参数|描述|  
+|---------------|-----------------|  
+|`szSymbolSearchPath`|[in]包含符号搜索路径的字符串。 有关详细信息，请参阅"备注"。 不能为 null。|  
+|`szSymbolCachePath`|[in]包含可以在其中缓存符号的本地路径的字符串。 不能为 null。|  
+|`Flags`|[in]不使用;始终设置为 0。|  
   
-## 返回值  
- 如果成功，则返回 S\_OK;否则返回错误代码。  
+## <a name="return-value"></a>返回值  
+ 如果成功，返回，则为 S_OK;否则返回错误代码。  
   
-## 备注  
- 该字符串`szSymbolSearchPath` 是一个或多个路径列表，由分号分隔，搜索符号。  这些路径可以是本地路径、 UNC 路径样式或 URL。  这些路径可能也不同类型的组合。  如果是 UNC 路径 \(例如， \\\\Symserver\\Symbols\)，然后调试引擎应确保路径是否到符号服务器，并应能够将该服务器加载符号，缓存它们在 `szSymbolCachePath`指定的路径。  
+## <a name="remarks"></a>备注  
+ 字符串`szSymbolSearchPath`是用分号分隔，搜索符号分隔的一个或多个路径的列表。 这些路径可以是本地路径、 UNC 样式路径或 URL。 这些路径也可以是不同类型的组合。 如果路径是 UNC (例如， \\\Symserver\Symbols)，然后如果路径是到符号服务器，并且应能够从该服务器，它们在缓存中指定的路径加载符号，应确定的调试引擎`szSymbolCachePath`。  
   
- 符号路径可能还包含一个或多个缓存位置。  缓存按优先级顺序，具有最高优先级的缓存和分隔的 \* 符号最前面。  例如：  
+ 符号路径还可以包含一个或多个缓存位置。 首先，列出按优先级顺序，最高的优先级缓存并隔开缓存 * 符号。 例如:   
   
 ```  
 \\symbols\symbols;\\someotherserver\symbols;c:\symbols\httpsymbols*http://msdl.microsoft.com  
 ```  
   
- [LoadSymbols](../../../extensibility/debugger/reference/idebugengine3-loadsymbols.md) 方法执行符号的实际负载。  
+ [LoadSymbols](../../../extensibility/debugger/reference/idebugengine3-loadsymbols.md)方法执行的符号的实际负载。  
   
-## 请参阅  
+## <a name="see-also"></a>另请参阅  
  [LoadSymbols](../../../extensibility/debugger/reference/idebugengine3-loadsymbols.md)   
  [IDebugEngine3](../../../extensibility/debugger/reference/idebugengine3.md)

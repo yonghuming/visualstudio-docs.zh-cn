@@ -1,27 +1,30 @@
 ---
-title: "IScriptEntry::GetRange | Microsoft Docs"
-ms.custom: ""
-ms.date: "01/18/2017"
-ms.prod: "windows-script-interfaces"
-ms.reviewer: ""
-ms.suite: ""
-ms.tgt_pltfrm: ""
-ms.topic: "reference"
+title: "IScriptEntry::GetRange |Microsoft 文档"
+ms.custom: 
+ms.date: 01/18/2017
+ms.prod: windows-script-interfaces
+ms.reviewer: 
+ms.suite: 
+ms.tgt_pltfrm: 
+ms.topic: reference
 apiname: IScriptEntry.GetRange
 apilocation: scrobj.dll
-helpviewer_keywords: 
-  - "IScriptEntry::GetRange"
+helpviewer_keywords: IScriptEntry::GetRange
 ms.assetid: 3ac18f0a-b470-4f4d-b8f5-2da3fdef74f1
-caps.latest.revision: 10
-author: "mikejo5000"
-ms.author: "mikejo"
-manager: "ghogen"
-caps.handback.revision: 10
+caps.latest.revision: "10"
+author: mikejo5000
+ms.author: mikejo
+manager: ghogen
+ms.openlocfilehash: 0ae0ee34298e03fdd2e9c6bc841d9fbe90967e8f
+ms.sourcegitcommit: aadb9588877418b8b55a5612c1d3842d4520ca4c
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/27/2017
 ---
-# IScriptEntry::GetRange
-返回项的起始位置和长度。  
+# <a name="iscriptentrygetrange"></a>IScriptEntry::GetRange
+返回的起始位置和长度的一个条目。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
 ```  
 HRESULT GetRange(  
@@ -30,29 +33,29 @@ HRESULT GetRange(
 );  
 ```  
   
-#### 参数  
+#### <a name="parameters"></a>参数  
  `pichMin`  
- \[in\]用于指定脚本的 `IScriptEntry` 对象块，则返回0。  
+ [out]有关`IScriptEntry`指定脚本块的对象，则返回 0。  
   
- 对指定函数对象的 `IScriptEntry` 对象，并返回该函数的起始位置在当前脚本块。  
+ 有关`IScriptEntry`指定是函数对象，对象在当前脚本块中返回该函数的开始位置。  
   
- 为 `IScriptScriptlet` 对象，则返回0。  
+ 有关`IScriptScriptlet`对象，则返回 0。  
   
  `pcch`  
- \[in\]用于指定脚本的 `IScriptEntry` 对象块，返回文本的长度。  
+ [out]有关`IScriptEntry`指定脚本块中，对象返回文本的长度。  
   
- 对指定函数对象的 `IScriptEntry` 对象，并返回该函数定义的长度。  
+ 有关`IScriptEntry`指定一个函数对象的对象返回的函数定义长度。  
   
- 为 `IScriptScriptlet` 对象，返回项的长度。  
+ 有关`IScriptScriptlet`对象，则返回的项的长度。  
   
-## 返回值  
- 一个 `HRESULT`。  可能的值包括，但是，并不限于，这些下表中。  
+## <a name="return-value"></a>返回值  
+ 一个 `HRESULT`。 可能的值包括（但并不限于）下表中的项。  
   
-|值|说明|  
-|-------|--------|  
+|值|描述|  
+|-----------|-----------------|  
 |`S_OK`|方法成功。|  
   
-## 备注  
+## <a name="remarks"></a>备注  
   
-## 请参阅  
+## <a name="see-also"></a>另请参阅  
  [IScriptEntry 接口](../../winscript/reference/iscriptentry-interface.md)

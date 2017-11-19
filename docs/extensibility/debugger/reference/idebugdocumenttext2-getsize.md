@@ -1,58 +1,58 @@
 ---
-title: "IDebugDocumentText2::GetSize | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "IDebugDocumentText2::GetSize"
-helpviewer_keywords: 
-  - "IDebugDocumentText2::GetSize"
+title: "IDebugDocumentText2::GetSize |Microsoft 文档"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology: vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords: IDebugDocumentText2::GetSize
+helpviewer_keywords: IDebugDocumentText2::GetSize
 ms.assetid: bf515a8f-dcee-4004-8f81-543d547ceaae
-caps.latest.revision: 10
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 10
+caps.latest.revision: "10"
+author: gregvanl
+ms.author: gregvanl
+manager: ghogen
+ms.openlocfilehash: 25bf0a7c570c2c11e09c9e6d98d1f4be05d7adb5
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# IDebugDocumentText2::GetSize
-[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
-
-检索文本的范围在文档中的该位置。  
+# <a name="idebugdocumenttext2getsize"></a>IDebugDocumentText2::GetSize
+检索在此位置上的文档中的文本的大小。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
-```cpp#  
-HRESULT GetSize(   
-   ULONG* pcNumLines,  
-   ULONG* pcNumChars  
+```cpp  
+HRESULT GetSize(   
+   ULONG* pcNumLines,  
+   ULONG* pcNumChars  
 );  
 ```  
   
-```c#  
-int GetSize(   
-   ref uint pcNumLines,  
-   ref uint pcNumChars  
+```csharp  
+int GetSize(   
+   ref uint pcNumLines,  
+   ref uint pcNumChars  
 );  
 ```  
   
-#### 参数  
+#### <a name="parameters"></a>参数  
  `pcNumLines`  
- \[out\] 返回文本行数。  
+ [out]返回的文本的行数。  
   
  `pcNumChars`  
- \[out\] 返回文本字符数。  
+ [out]返回的文本的字符数。  
   
-## 返回值  
- 如果成功，则返回; `S_OK`否则，返回错误代码。  
+## <a name="return-value"></a>返回值  
+ 如果成功，则返回`S_OK`; 否则为返回错误代码。  
   
-## 备注  
- 只有 C\+\+ \[\]，如果特定值不需要，请为参数传递 NULL。  
+## <a name="remarks"></a>备注  
+ [C + +]如果不需要特定的值，传递参数为 NULL。  
   
- \[仅限于 c\#\] 必须指定两个参数。  
+ [仅限 C#]必须指定这两个参数。  
   
-## 请参阅  
+## <a name="see-also"></a>另请参阅  
  [IDebugDocumentText2](../../../extensibility/debugger/reference/idebugdocumenttext2.md)

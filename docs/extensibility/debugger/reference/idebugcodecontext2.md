@@ -1,63 +1,63 @@
 ---
-title: "IDebugCodeContext2 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "IDebugCodeContext2"
-helpviewer_keywords: 
-  - "IDebugCodeContext2 接口"
+title: "IDebugCodeContext2 |Microsoft 文档"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology: vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords: IDebugCodeContext2
+helpviewer_keywords: IDebugCodeContext2 interface
 ms.assetid: 3670439e-2171-405d-9d77-dedb0f1cba93
-caps.latest.revision: 10
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 10
+caps.latest.revision: "10"
+author: gregvanl
+ms.author: gregvanl
+manager: ghogen
+ms.openlocfilehash: e9e003372e390d7e807f314555310c167bf011a8
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# IDebugCodeContext2
-[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
-
-此接口表示代码命令的起始位置。  设置为当天大多数运行时体系结构，代码上下文可视为在程序执行流的地址。  
+# <a name="idebugcodecontext2"></a>IDebugCodeContext2
+此接口表示代码指令的起始位置。 为大多数运行时体系结构现在，代码上下文被想象的为程序的执行流中的地址。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
 ```  
-IDebugCodeContext2 : IDebugMemoryContext2  
+IDebugCodeContext2 : IDebugMemoryContext2  
 ```  
   
-## 实现者说明  
- 调试引擎实现此接口与文档位置相关代码命令的位置。  
+## <a name="notes-for-implementers"></a>实施者注意事项  
+ 调试引擎实现此接口可关联到的文档位置代码指令的位置。  
   
-## 调用方的说明  
- 在大多数接口的方法，但最常见，返回此接口 [GetCodeContext](../Topic/IDebugStackFrame2::GetCodeContext.md)。  它广泛还用于 [IDebugDisassemblyStream2](../../../extensibility/debugger/reference/idebugdisassemblystream2.md) 接口以及在断点解析信息。  
+## <a name="notes-for-callers"></a>调用方的说明  
+ 许多接口上的方法返回此接口，最常[GetCodeContext](../../../extensibility/debugger/reference/idebugstackframe2-getcodecontext.md)。 它还用于广泛[IDebugDisassemblyStream2](../../../extensibility/debugger/reference/idebugdisassemblystream2.md)接口以及如下所示断点解析信息。  
   
-## 方法按 Vtable 顺序  
- 除了在 [IDebugMemoryContext2](../../../extensibility/debugger/reference/idebugmemorycontext2.md) 接口的方法之外，此接口执行以下方法:  
+## <a name="methods-in-vtable-order"></a>Vtable 顺序中的方法  
+ 除了上的方法[IDebugMemoryContext2](../../../extensibility/debugger/reference/idebugmemorycontext2.md)接口，此接口实现以下方法：  
   
-|方法|说明|  
-|--------|--------|  
-|[GetDocumentContext](../Topic/IDebugCodeContext2::GetDocumentContext.md)|获取对应于活动代码上下文的文档上下文。|  
+|方法|描述|  
+|------------|-----------------|  
+|[GetDocumentContext](../../../extensibility/debugger/reference/idebugcodecontext2-getdocumentcontext.md)|获取对应于活动的代码上下文文档上下文。|  
 |[GetLanguageInfo](../../../extensibility/debugger/reference/idebugcodecontext2-getlanguageinfo.md)|获取此代码上下文的语言信息。|  
   
-## 备注  
- `IDebugCodeContext2` 接口和 [IDebugMemoryContext2](../../../extensibility/debugger/reference/idebugmemorycontext2.md) 接口之间的主要差异是 `IDebugCodeContext2` 始终命令对齐。  这意味着 `IDebugCodeContext2` 始终指向命令的开头，，而 `IDebugMemoryContext2` 在运行时结构中可以指向所有字节内存。  `IDebugCodeContext2` 由命令增加而不是基本存储范围 \(通常为字节\)。  
+## <a name="remarks"></a>备注  
+ 主要区别`IDebugCodeContext2`接口和[IDebugMemoryContext2](../../../extensibility/debugger/reference/idebugmemorycontext2.md)接口是`IDebugCodeContext2`始终指令对齐。 这意味着，`IDebugCodeContext2`始终指向指令的开头而`IDebugMemoryContext2`都可能会导致任何字节的内存中的运行时体系结构。 `IDebugCodeContext2`即会递增按说明而不是基本的存储大小 （通常字节）。  
   
-## 要求  
- 标题:msdbg.h  
+## <a name="requirements"></a>要求  
+ 标头： msdbg.h  
   
- 命名空间:Microsoft.VisualStudio.Debugger.Interop  
+ Namespace: Microsoft.VisualStudio.Debugger.Interop  
   
- 程序集:Microsoft.VisualStudio.Debugger.Interop.dll  
+ 程序集： Microsoft.VisualStudio.Debugger.Interop.dll  
   
-## 请参阅  
+## <a name="see-also"></a>另请参阅  
  [GetDisassemblyStream](../../../extensibility/debugger/reference/idebugprogram2-getdisassemblystream.md)   
- [CanSetNextStatement](../Topic/IDebugThread2::CanSetNextStatement.md)   
+ [CanSetNextStatement](../../../extensibility/debugger/reference/idebugthread2-cansetnextstatement.md)   
  [SetNextStatement](../../../extensibility/debugger/reference/idebugthread2-setnextstatement.md)   
  [GetCodeContext](../../../extensibility/debugger/reference/idebugcanstopevent2-getcodecontext.md)   
- [GetCodeContext](../Topic/IDebugStackFrame2::GetCodeContext.md)   
+ [GetCodeContext](../../../extensibility/debugger/reference/idebugstackframe2-getcodecontext.md)   
  [下一步](../../../extensibility/debugger/reference/ienumdebugcodecontexts2-next.md)   
  [IDebugMemoryContext2](../../../extensibility/debugger/reference/idebugmemorycontext2.md)
