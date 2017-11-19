@@ -1,60 +1,60 @@
 ---
-title: "IDebugProcess3::Execute | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "IDebugProcess3::Execute"
-helpviewer_keywords: 
-  - "IDebugProcess3::Execute"
+title: "IDebugProcess3::Execute |Microsoft 文档"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology: vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords: IDebugProcess3::Execute
+helpviewer_keywords: IDebugProcess3::Execute
 ms.assetid: d831cd81-d7bf-4172-8517-aa699867791f
-caps.latest.revision: 10
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 10
+caps.latest.revision: "10"
+author: gregvanl
+ms.author: gregvanl
+manager: ghogen
+ms.openlocfilehash: 96b18bdb8aa0097071369a01013772dc3bd0d5bd
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# IDebugProcess3::Execute
-[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
-
-继续运行此从一种状态中止处理。  \(例如步骤\) 清除所有以前执行状态和处理再次开始执行。  
+# <a name="idebugprocess3execute"></a>IDebugProcess3::Execute
+将继续运行此过程从已停止状态。 清除任何以前的执行状态 （如步骤） 和进程启动再次执行。  
   
 > [!NOTE]
->  应使用此方法而不是 [执行](../../../extensibility/debugger/reference/idebugprogram2-execute.md)。  
+>  此方法应使用而不是[执行](../../../extensibility/debugger/reference/idebugprogram2-execute.md)。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
 ```cpp  
-HRESULT Execute(  
-   IDebugThread2* pThread  
+HRESULT Execute(  
+   IDebugThread2* pThread  
 );  
 ```  
   
-```c#  
-int Execute(  
-   IDebugThread2 pThread  
+```csharp  
+int Execute(  
+   IDebugThread2 pThread  
 );  
 ```  
   
-#### 参数  
+#### <a name="parameters"></a>参数  
  `pThread`  
- \[in\] 表示线程的 [IDebugThread2](../../../extensibility/debugger/reference/idebugthread2.md) 对象执行。  
+ [in][IDebugThread2](../../../extensibility/debugger/reference/idebugthread2.md)对象表示要执行的线程。  
   
-## 返回值  
- 如果成功，则返回; `S_OK`否则，返回错误代码。  
+## <a name="return-value"></a>返回值  
+ 如果成功，则返回`S_OK`; 否则为返回错误代码。  
   
-## 备注  
- 当用户开始执行从其他某种进程的线程中的一种停止状态，此方法调用此过程。  ，当用户选择 **开始** 命令在 IDE 时，的 **调试** 菜单此方法被调用。  此方法的实现可能十分简单调用当前线程的 [Resume](../../../extensibility/debugger/reference/idebugthread2-resume.md) 方法在处理。  
+## <a name="remarks"></a>备注  
+ 当用户开始从停止状态在某些其他进程的线程中执行时，在此过程上调用此方法。 当用户选择，则还会调用此方法**启动**命令**调试**菜单在 IDE 中的。 此方法的实现可能很简单，只需与调用[恢复](../../../extensibility/debugger/reference/idebugthread2-resume.md)过程中在当前线程上的方法。  
   
 > [!WARNING]
->  不要将一个终止的事件或一个即时 \(\) 同步事件。 [事件](../../../extensibility/debugger/reference/idebugeventcallback2-event.md) ，当处理此时调用，否则调试器会停止。  
+>  不发送 stopping 事件或即时 （同步） 事件与[事件](../../../extensibility/debugger/reference/idebugeventcallback2-event.md)时处理此调用; 否则调试器可能会挂起。  
   
-## 请参阅  
+## <a name="see-also"></a>另请参阅  
  [IDebugProcess3](../../../extensibility/debugger/reference/idebugprocess3.md)   
  [IDebugThread2](../../../extensibility/debugger/reference/idebugthread2.md)   
- [Resume](../../../extensibility/debugger/reference/idebugthread2-resume.md)   
- [事件](../../../extensibility/debugger/reference/idebugeventcallback2-event.md)
+ [恢复](../../../extensibility/debugger/reference/idebugthread2-resume.md)   
+ [Event](../../../extensibility/debugger/reference/idebugeventcallback2-event.md)

@@ -1,84 +1,84 @@
 ---
-title: "IDebugProgramProvider2::GetProviderProcessData | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "IDebugProgramProvider2::GetProviderProcessData"
-helpviewer_keywords: 
-  - "IDebugProgramProvider2::GetProviderProcessData"
+title: "IDebugProgramProvider2::GetProviderProcessData |Microsoft 文档"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology: vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords: IDebugProgramProvider2::GetProviderProcessData
+helpviewer_keywords: IDebugProgramProvider2::GetProviderProcessData
 ms.assetid: 90cf7b7f-53d2-487e-b793-94501a6e24dd
-caps.latest.revision: 12
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 12
+caps.latest.revision: "12"
+author: gregvanl
+ms.author: gregvanl
+manager: ghogen
+ms.openlocfilehash: ae46cd5e90b4cdd23b0c7fafa147c43805974283
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# IDebugProgramProvider2::GetProviderProcessData
-[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
-
-从检索运行程序列表中指定的进程。  
+# <a name="idebugprogramprovider2getproviderprocessdata"></a>IDebugProgramProvider2::GetProviderProcessData
+检索的从指定的进程中运行程序的列表。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
 ```cpp  
-HRESULT GetProviderProcessData(  
-   PROVIDER_FLAGS         Flags,  
-   IDebugDefaultPort2*    pPort,  
-   AD_PROCESS_ID          processId,  
-   CONST_GUID_ARRAY       EngineFilter,  
-   PROVIDER_PROCESS_DATA* pProcess  
+HRESULT GetProviderProcessData(  
+   PROVIDER_FLAGS         Flags,  
+   IDebugDefaultPort2*    pPort,  
+   AD_PROCESS_ID          processId,  
+   CONST_GUID_ARRAY       EngineFilter,  
+   PROVIDER_PROCESS_DATA* pProcess  
 );  
 ```  
   
-```c#  
-int GetProviderProcessData(  
-   enum_PROVIDER_FLAGS     Flags,  
-   IDebugDefaultPort2      pPort,  
-   AD_PROCESS_ID           ProcessId,  
-   CONST_GUID_ARRAY        EngineFilter,  
-   PROVIDER_PROCESS_DATA[] pProcess  
+```csharp  
+int GetProviderProcessData(  
+   enum_PROVIDER_FLAGS     Flags,  
+   IDebugDefaultPort2      pPort,  
+   AD_PROCESS_ID           ProcessId,  
+   CONST_GUID_ARRAY        EngineFilter,  
+   PROVIDER_PROCESS_DATA[] pProcess  
 );  
 ```  
   
-#### 参数  
+#### <a name="parameters"></a>参数  
  `Flags`  
- \[in\] 标志的组合。 [PROVIDER\_FLAGS](../../../extensibility/debugger/reference/provider-flags.md) 枚举的。  下面的标志。这是典型的调用:  
+ [in]中的标志的组合[PROVIDER_FLAGS](../../../extensibility/debugger/reference/provider-flags.md)枚举。 以下标志是典型的此调用：  
   
-|Flag|说明|  
-|----------|--------|  
-|`PFLAG_REMOTE_PORT`|调用方在远程计算机上运行。|  
-|`PFLAG_DEBUGGEE`|调用方当前正在调试 \(有关排列的其他信息。每个节点都将返回\)。|  
-|`PFLAG_ATTACHED_TO_DEBUGGEE`|调用方附加到，但未由调试器启动。|  
-|`PFLAG_GET_PROGRAM_NODES`|调用方请求程序节点列表返回。|  
+|Flag|描述|  
+|----------|-----------------|  
+|`PFLAG_REMOTE_PORT`|调用方远程计算机上运行。|  
+|`PFLAG_DEBUGGEE`|当前正在调试调用方 （每个节点将返回有关封送处理的其他信息）。|  
+|`PFLAG_ATTACHED_TO_DEBUGGEE`|调用方已附加到但不是由调试器启动。|  
+|`PFLAG_GET_PROGRAM_NODES`|调用方要求提供程序节点的列表，要返回。|  
   
  `pPort`  
- \[in\] 调用过程的端口运行。  
+ [in]调用进程的端口运行。  
   
  `processId`  
- \[in\] 保存包含相关的程序进程的 ID 的 [AD\_PROCESS\_ID](../../../extensibility/debugger/reference/ad-process-id.md) 结构。  
+ [in][AD_PROCESS_ID](../../../extensibility/debugger/reference/ad-process-id.md)保存包含的程序的进程 ID 问题的结构。  
   
  `EngineFilter`  
- \[in\] 数组 GUID 为调试分配的引擎调试此过程 \(这些属性将用于筛选实际返回基于的程序所提供的引擎;如果引擎未指定，则所有过程将返回\)。  
+ [in]分配要调试该进程 （这些将用于筛选基于提供的引擎的支持; 如果未不指定任何引擎，则将返回所有程序实际都返回的程序） 的调试引擎的 Guid 数组。  
   
  `pProcess`  
- \[out\] 用请求的信息填充的 [PROVIDER\_PROCESS\_DATA](../../../extensibility/debugger/reference/provider-process-data.md) 结构。  
+ [out]A [PROVIDER_PROCESS_DATA](../../../extensibility/debugger/reference/provider-process-data.md)使用所需的信息填充的结构。  
   
-## 返回值  
- 如果成功，则返回; `S_OK`否则，返回错误代码。  
+## <a name="return-value"></a>返回值  
+ 如果成功，则返回`S_OK`; 否则为返回错误代码。  
   
-## 备注  
- 此方法由进程通常称为获取运行由于的程序进程列表。  返回的信息是 [IDebugProgramNode2](../../../extensibility/debugger/reference/idebugprogramnode2.md) 对象的列表。  
+## <a name="remarks"></a>备注  
+ 此方法通常调用由进程以获取该进程中运行的程序的列表。 返回的信息是一份[IDebugProgramNode2](../../../extensibility/debugger/reference/idebugprogramnode2.md)对象。  
   
-## 请参阅  
+## <a name="see-also"></a>另请参阅  
  [IDebugProgramProvider2](../../../extensibility/debugger/reference/idebugprogramprovider2.md)   
  [IDebugDefaultPort2](../../../extensibility/debugger/reference/idebugdefaultport2.md)   
- [AD\_PROCESS\_ID](../../../extensibility/debugger/reference/ad-process-id.md)   
- [CONST\_GUID\_ARRAY](../../../extensibility/debugger/reference/const-guid-array.md)   
- [PROVIDER\_FLAGS](../../../extensibility/debugger/reference/provider-flags.md)   
- [PROVIDER\_PROCESS\_DATA](../../../extensibility/debugger/reference/provider-process-data.md)   
+ [AD_PROCESS_ID](../../../extensibility/debugger/reference/ad-process-id.md)   
+ [CONST_GUID_ARRAY](../../../extensibility/debugger/reference/const-guid-array.md)   
+ [PROVIDER_FLAGS](../../../extensibility/debugger/reference/provider-flags.md)   
+ [PROVIDER_PROCESS_DATA](../../../extensibility/debugger/reference/provider-process-data.md)   
  [IDebugProgramNode2](../../../extensibility/debugger/reference/idebugprogramnode2.md)

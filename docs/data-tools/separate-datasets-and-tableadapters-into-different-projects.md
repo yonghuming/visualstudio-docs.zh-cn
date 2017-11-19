@@ -1,88 +1,68 @@
 ---
-title: Separate datasets and TableAdapters into different projects | Microsoft Docs
+title: "将数据集和 Tableadapter 分离到不同的项目 |Microsoft 文档"
 ms.custom: 
 ms.date: 11/04/2016
 ms.reviewer: 
 ms.suite: 
 ms.tgt_pltfrm: 
 ms.topic: article
-dev_langs:
-- VB
-- CSharp
-- C++
-- aspx
 helpviewer_keywords:
 - TableAdapters, n-tier applications
 - n-tier applications, separating Datasets and TableAdapters
 ms.assetid: f66a3940-6227-46af-a930-9177f425f4fd
-caps.latest.revision: 18
-author: mikeblome
-ms.author: mblome
+caps.latest.revision: "18"
+author: gewarren
+ms.author: gewarren
 manager: ghogen
-translation.priority.ht:
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- ru-ru
-- zh-cn
-- zh-tw
-translation.priority.mt:
-- cs-cz
-- pl-pl
-- pt-br
-- tr-tr
-ms.translationtype: HT
-ms.sourcegitcommit: 9e6c28d42bec272c6fd6107b4baf0109ff29197e
-ms.openlocfilehash: dc20aca5db8114c30cf4e42966317e42f3b518b8
-ms.contentlocale: zh-cn
-ms.lasthandoff: 08/22/2017
-
+ms.technology: vs-data-tools
+ms.openlocfilehash: 4ae00a8b3a51b088100d4a27893dd100d5d7ba71
+ms.sourcegitcommit: ee42a8771f0248db93fd2e017a22e2506e0f9404
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/09/2017
 ---
-# <a name="separate-datasets-and-tableadapters-into-different-projects"></a>Separate datasets and TableAdapters into different projects
-Typed datasets have been enhanced so that the [TableAdapters](create-and-configure-tableadapters.md) and dataset classes can be generated into separate projects. This enables you to quickly separate application layers and generate n-tier data applications.  
+# <a name="separate-datasets-and-tableadapters-into-different-projects"></a>单独的数据集和 tableadapter 分离到不同的项目
+类型化数据集已得到增强，以便[Tableadapter](create-and-configure-tableadapters.md)和数据集类可以生成到单独的项目。 这使你可以快速分离各应用程序层及生成 n 层数据应用程序。  
   
- The following procedure describes the process of using the **Dataset Designer** to generate dataset code into a project that is separate from the project that contains the generated `TableAdapter` code.  
+下面的过程介绍使用的过程**数据集设计器**以独立于包含生成的 TableAdapter 代码的项目的项目中生成数据集代码。  
   
-## <a name="separatedatasets-and-tableadapters"></a>Separatedatasets and TableAdapters  
- When you separate dataset code from `TableAdapter` code, the project that  contains the dataset code must be located in the current solution. If this project is not located in the current solution, it won't be available in the **DataSet Project** list in the **Properties** window.  
+## <a name="separate-datasets-and-tableadapters"></a>单独的数据集和 Tableadapter  
+在将数据集代码分离 TableAdapter 代码中，包含的数据集代码的项目必须位于当前解决方案中。 如果此项目不在当前解决方案中，它将不可用在**数据集项目**列入**属性**窗口。  
   
- [!INCLUDE[note_settings_general](../data-tools/includes/note_settings_general_md.md)]  
+[!INCLUDE[note_settings_general](../data-tools/includes/note_settings_general_md.md)]  
   
-#### <a name="to-separate-the-dataset-into-a-different-project"></a>To separate the dataset into a different project  
+#### <a name="to-separate-the-dataset-into-a-different-project"></a>若要将数据集分离到不同的项目  
   
-1.  Open a solution that contains a dataset (.xsd file).  
-  
-    > [!NOTE]
-    >  If the solution does not contain the project into which you want to separate your dataset code, create the project, or add an existing project to the solution.  
-  
-2.  Double-click a typed dataset file (an .xsd file) in **Solution Explorer** to open the dataset in the **Dataset Designer**.  
-  
-3.  Select an empty area of the **Dataset Designer**.  
-  
-4.  In the **Properties** window, locate the **DataSet Project** node.  
-  
-5.  In the **DataSet Project** list, select the name of the project into which you want to generate the dataset code.  
-  
-     After you select the project into which you want to generate the dataset code, the **DataSet File** property is populated with a default file name. You can change this name if necessary. Additionally, if you want to generate the dataset code into a specific directory, you can set the **Project Folder** property to the name of a folder.  
+1.  打开包含数据集 （.xsd 文件） 的解决方案。  
   
     > [!NOTE]
-    >  When you separate datasets and TableAdapters (by setting the **DataSet Project** property), existing partial dataset classes in the project won't be moved automatically. Existing dataset partial classes must be  moved manually to the dataset project.  
+    >  如果解决方案不包含想要将数据集代码分离到其中的项目，创建项目，或将现有项目添加到解决方案。  
   
-6.  Save the dataset.  
+2.  双击一个类型化数据集文件 （.xsd 文件） 中**解决方案资源管理器**以打开中的数据集**数据集设计器**。  
   
-     The dataset code is generated into the selected project  in the **DataSet Project** property, and the **TableAdapter** code is generated into the current project.  
+3.  选择的空白区域**数据集设计器**。  
   
- By default, after you separate the dataset and `TableAdapter` code, the result is a discrete class file in each project. The original project has a file  named DatasetName.Designer.vb (or DatasetName.Designer.cs) that contains the `TableAdapter` code. The project that's designated in the **Dataset Project** property has a file named DatasetName.DataSet.Designer.vb (or DatasetName.DataSet.Designer.cs) that contains the dataset code.  
+4.  在**属性**窗口中，找到**数据集项目**节点。  
+  
+5.  在**数据集项目**列表中，选择你要在其中生成数据集代码项目的名称。  
+  
+     选择你要在其中生成数据集代码中，的项目后**数据集文件**默认文件名称中填充属性。 如有必要，可以更改此名称。 此外，如果你想要特定目录中生成数据集代码，你可以设置**项目文件夹**到的文件夹名称的属性。  
+  
+    > [!NOTE]
+    >  当你将数据集和 Tableadapter (通过设置**数据集项目**属性)，将不会自动移动项目中的现有数据集分部类。 到数据集项目，必须手动移动现有数据集分部类。  
+  
+6.  保存的数据集。  
+  
+     数据集代码生成到中的选定项目**数据集项目**属性，与**TableAdapter**代码生成到当前项目。  
+  
+默认情况下，分隔的数据集和 TableAdapter 代码后结果将是离散的类文件中的每个项目。 原始项目具有一个文件，其名为 DatasetName.Designer.vb （或 DatasetName.Designer.cs） 包含 TableAdapter 代码。 中指定的项目**数据集项目**属性包含一个名为 DatasetName.DataSet.Designer.vb （或 DatasetName.DataSet.Designer.cs） 包含的数据集代码。  
   
 > [!NOTE]
->  To view the generated class file, select the dataset or `TableAdapter` project. Then, in **Solution Explorer**, select **Show All Files**.  
+>  若要查看生成的类文件中，选择数据集或 TableAdapter 项目。 然后，在**解决方案资源管理器**，选择**显示所有文件**。  
   
-## <a name="see-also"></a>See Also  
- [N-Tier Data Applications Overview](../data-tools/n-tier-data-applications-overview.md)   
- [Walkthrough: Creating an N-Tier Data Application](../data-tools/walkthrough-creating-an-n-tier-data-application.md)   
- [Hierarchical update](../data-tools/hierarchical-update.md)   
- [Accessing data in Visual Studio](../data-tools/accessing-data-in-visual-studio.md)   
- [ADO.NET](/dotnet/framework/data/adonet/index)
+## <a name="see-also"></a>请参阅
+[N 层数据应用程序概述](../data-tools/n-tier-data-applications-overview.md)   
+[演练： 创建 N 层数据应用程序](../data-tools/walkthrough-creating-an-n-tier-data-application.md)   
+[分层更新](../data-tools/hierarchical-update.md)   
+[在 Visual Studio 中访问数据](../data-tools/accessing-data-in-visual-studio.md)   
+[ADO.NET](/dotnet/framework/data/adonet/index)

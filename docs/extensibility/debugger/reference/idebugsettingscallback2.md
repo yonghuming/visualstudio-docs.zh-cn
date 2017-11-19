@@ -1,61 +1,62 @@
 ---
-title: "IDebugSettingsCallback2 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-helpviewer_keywords: 
-  - "IDebugSettingsCallback2 接口"
+title: "IDebugSettingsCallback2 |Microsoft 文档"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology: vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+helpviewer_keywords: IDebugSettingsCallback2 interface
 ms.assetid: 7e525d0b-7d7a-4d1c-8b78-e1398fa922f2
-caps.latest.revision: 8
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 8
+caps.latest.revision: "8"
+author: gregvanl
+ms.author: gregvanl
+manager: ghogen
+ms.openlocfilehash: e7488b937c2390000ce4ac3ef4d8ff04555f1b16
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# IDebugSettingsCallback2
-[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
-
-启用调试引擎远程读取指标设置。  
+# <a name="idebugsettingscallback2"></a>IDebugSettingsCallback2
+启用调试引擎读取指标设置远程。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
 ```  
 IDebugSettingsCallback2D : IUnknown  
 ```  
   
-## 实现者说明  
- 此接口由该会话的事件回调实现调试管理器，并使用调试引擎。  它还可以使用本地而不是 Dbgmetric \[\] d .lib。  
+## <a name="notes-for-implementers"></a>实施者注意事项  
+ 此接口是由会话调试管理器的事件回调实现由和使用的调试引擎。 它可能还用于本地而不是 Dbgmetric [d].lib。  
   
-## 方法  
- 下表显示 `IDebugSettingsCallback2`方法。  
+## <a name="methods"></a>方法  
+ 下表显示的方法`IDebugSettingsCallback2`。  
   
-|方法|说明|  
-|--------|--------|  
-|[EnumEEs](../../../extensibility/debugger/reference/idebugsettingscallback2-enumees.md)|枚举提供的表达式计算器为语言和供应商标识符。|  
-|[GetEELocalObject](../../../extensibility/debugger/reference/idebugsettingscallback2-geteelocalobject.md)|检索给定的表达式计算器本地对象指标。|  
-|[GetEEMetricDword](../../../extensibility/debugger/reference/idebugsettingscallback2-geteemetricdword.md)|检索对应于指定的指标表达式计算器的值。|  
-|[GetEEMetricFile](../../../extensibility/debugger/reference/idebugsettingscallback2-geteemetricfile.md)|检索给定的表达式计算器指标文件名称或指标。|  
-|[GetEEMetricGuid](../../../extensibility/debugger/reference/idebugsettingscallback2-geteemetricguid.md)|检索命名的表达式计算器指标的唯一标识符其名称。|  
-|[GetEEMetricString](../../../extensibility/debugger/reference/idebugsettingscallback2-geteemetricstring.md)|检索命名值的字符串表达式计算器指标其名称。|  
-|[GetMetricDword](../../../extensibility/debugger/reference/idebugsettingscallback2-getmetricdword.md)|检索命名值的指标其名称。|  
-|[GetMetricGuid](../../../extensibility/debugger/reference/idebugsettingscallback2-getmetricguid.md)|检索命名的唯一标识符指标其名称。|  
-|[GetMetricString](../Topic/IDebugSettingsCallback2::GetMetricString.md)|检索命名值的字符串指标其名称。|  
+|方法|描述|  
+|------------|-----------------|  
+|[EnumEEs](../../../extensibility/debugger/reference/idebugsettingscallback2-enumees.md)|枚举给定语言和供应商标识符可用的表达式计算器。|  
+|[GetEELocalObject](../../../extensibility/debugger/reference/idebugsettingscallback2-geteelocalobject.md)|检索给定度量值的表达式计算器本地对象。|  
+|[GetEEMetricDword](../../../extensibility/debugger/reference/idebugsettingscallback2-geteemetricdword.md)|检索一个值，对应于指定指标的表达式计算器。|  
+|[GetEEMetricFile](../../../extensibility/debugger/reference/idebugsettingscallback2-geteemetricfile.md)|检索给定的名称或该度量值的表达式计算器指标文件。|  
+|[GetEEMetricGuid](../../../extensibility/debugger/reference/idebugsettingscallback2-geteemetricguid.md)|检索在给定其名称的表达式计算器指标的唯一标识符。|  
+|[GetEEMetricString](../../../extensibility/debugger/reference/idebugsettingscallback2-geteemetricstring.md)|检索在给定其名称的表达式计算器指标的值字符串。|  
+|[GetMetricDword](../../../extensibility/debugger/reference/idebugsettingscallback2-getmetricdword.md)|检索给定名称的情况的指标的值。|  
+|[GetMetricGuid](../../../extensibility/debugger/reference/idebugsettingscallback2-getmetricguid.md)|检索给定名称的某个度量值的唯一标识符。|  
+|[GetMetricString](../../../extensibility/debugger/reference/idebugsettingscallback2-getmetricstring.md)|检索在给定其名称的度量值的值字符串。|  
   
-## 要求  
- 标题:Msdbg.h  
+## <a name="requirements"></a>要求  
+ 标头： Msdbg.h  
   
- 命名空间:Microsoft.VisualStudio.Debugger.Interop  
+ Namespace: Microsoft.VisualStudio.Debugger.Interop  
   
- 程序集:Microsoft.VisualStudio.Debugger.Interop.dll  
+ 程序集： Microsoft.VisualStudio.Debugger.Interop.dll  
   
-## 示例  
- 下面的示例演示获取 **IDebugSettingsCallback2** 对象作为参数的函数。  
+## <a name="example"></a>示例  
+ 下面的示例演示采用的函数**IDebugSettingsCallback2**对象作为参数。  
   
-```cpp#  
+```cpp  
 HRESULT GetDebugSettingsCallback (IDebugSettingsCallback2 **ppCallback)  
 {  
     HRESULT hRes = E_FAIL;  

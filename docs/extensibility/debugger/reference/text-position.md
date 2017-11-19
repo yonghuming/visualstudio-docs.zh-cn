@@ -1,55 +1,55 @@
 ---
-title: "TEXT_POSITION | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "TEXT_POSITION"
-helpviewer_keywords: 
-  - "TEXT_POSITION 结构"
+title: "TEXT_POSITION |Microsoft 文档"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology: vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords: TEXT_POSITION
+helpviewer_keywords: TEXT_POSITION structure
 ms.assetid: 6dcec574-a852-49fa-8c2e-2e71cbb5e3c6
-caps.latest.revision: 8
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 8
+caps.latest.revision: "8"
+author: gregvanl
+ms.author: gregvanl
+manager: ghogen
+ms.openlocfilehash: 178acde6dbadeb9d87b672582efebe8dcbd71408
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# TEXT_POSITION
-[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
-
-在给定文本描述行和列位置。  
+# <a name="textposition"></a>TEXT_POSITION
+描述在给定的文本中的行和列位置。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
-```cpp#  
-typedef struct _tagTEXT_POSITION {   
-   DWORD dwLine;  
-   DWORD dwColumn;  
+```cpp  
+typedef struct _tagTEXT_POSITION {   
+   DWORD dwLine;  
+   DWORD dwColumn;  
 } TEXT_POSITION;  
 ```  
   
-```c#  
-public struct TEXT_POSITION {   
-   public uint dwLine;  
-   public uint dwColumn;  
+```csharp  
+public struct TEXT_POSITION {   
+   public uint dwLine;  
+   public uint dwColumn;  
 };  
 ```  
   
-## 成员  
+## <a name="members"></a>成员  
  dwLine  
- 行索引在源文件中。  
+ 源文件中的行的索引。  
   
  dwColumn  
- 字符偏移量行中。  
+ 字符偏移量行。  
   
-## 备注  
- 此机制用于 [CONTEXT\_INFO](../../../extensibility/debugger/reference/context-info.md) 和 [DisassemblyData](../../../extensibility/debugger/reference/disassemblydata.md) 结构。  
+## <a name="remarks"></a>备注  
+ 在使用此结构[CONTEXT_INFO](../../../extensibility/debugger/reference/context-info.md)和[DisassemblyData](../../../extensibility/debugger/reference/disassemblydata.md)结构。  
   
- 此结构由对以下方法的调用填充:  
+ 通过调用以下方法以填充此结构：  
   
 -   [GetStatementRange](../../../extensibility/debugger/reference/idebugdocumentcontext2-getstatementrange.md)  
   
@@ -57,9 +57,9 @@ public struct TEXT_POSITION { 
   
 -   [GetRange](../../../extensibility/debugger/reference/idebugdocumentposition2-getrange.md)  
   
--   [GetOffset](../Topic/IDebugFunctionPosition2::GetOffset.md)  
+-   [GetOffset](../../../extensibility/debugger/reference/idebugfunctionposition2-getoffset.md)  
   
- 此结构参数形式传递给以下方法:  
+ 此结构作为参数传递给以下方法：  
   
 -   [GetText](../../../extensibility/debugger/reference/idebugdocumenttext2-gettext.md)  
   
@@ -71,20 +71,20 @@ public struct TEXT_POSITION { 
   
 -   [onUpdateTextAttributes](../../../extensibility/debugger/reference/idebugdocumenttextevents2-onupdatetextattributes.md)  
   
-## 要求  
- 标题:msdbg.h  
+## <a name="requirements"></a>要求  
+ 标头： msdbg.h  
   
- 命名空间:Microsoft.VisualStudio.Debugger.Interop  
+ Namespace: Microsoft.VisualStudio.Debugger.Interop  
   
- 程序集:Microsoft.VisualStudio.Debugger.Interop.dll  
+ 程序集： Microsoft.VisualStudio.Debugger.Interop.dll  
   
-## 请参阅  
+## <a name="see-also"></a>另请参阅  
  [结构和联合](../../../extensibility/debugger/reference/structures-and-unions.md)   
  [GetStatementRange](../../../extensibility/debugger/reference/idebugdocumentcontext2-getstatementrange.md)   
  [GetSourceRange](../../../extensibility/debugger/reference/idebugdocumentcontext2-getsourcerange.md)   
  [GetRange](../../../extensibility/debugger/reference/idebugdocumentposition2-getrange.md)   
- [GetOffset](../Topic/IDebugFunctionPosition2::GetOffset.md)   
+ [GetOffset](../../../extensibility/debugger/reference/idebugfunctionposition2-getoffset.md)   
  [GetText](../../../extensibility/debugger/reference/idebugdocumenttext2-gettext.md)   
  [IDebugDocumentTextEvents2](../../../extensibility/debugger/reference/idebugdocumenttextevents2.md)   
- [CONTEXT\_INFO](../../../extensibility/debugger/reference/context-info.md)   
+ [CONTEXT_INFO](../../../extensibility/debugger/reference/context-info.md)   
  [DisassemblyData](../../../extensibility/debugger/reference/disassemblydata.md)

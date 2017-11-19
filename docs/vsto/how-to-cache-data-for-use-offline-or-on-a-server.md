@@ -1,12 +1,10 @@
 ---
-title: 'How to: Cache Data for Use Offline or on a Server | Microsoft Docs'
+title: "如何： 使用缓存数据，脱机或服务器上 |Microsoft 文档"
 ms.custom: 
 ms.date: 02/02/2017
-ms.prod: visual-studio-dev14
 ms.reviewer: 
 ms.suite: 
-ms.technology:
-- office-development
+ms.technology: office-development
 ms.tgt_pltfrm: 
 ms.topic: article
 dev_langs:
@@ -20,56 +18,56 @@ helpviewer_keywords:
 - data [Office development in Visual Studio], caching
 - data caching [Office development in Visual Studio], offline use
 ms.assetid: 6246b187-9413-4336-821d-2259b1adec5a
-caps.latest.revision: 49
-author: kempb
-ms.author: kempb
+caps.latest.revision: "49"
+author: gewarren
+ms.author: gewarren
 manager: ghogen
-ms.translationtype: HT
-ms.sourcegitcommit: eb5c9550fd29b0e98bf63a7240737da4f13f3249
-ms.openlocfilehash: 0958c4b94f6d0d1e5121ee3d153cf5a19ddfe42f
-ms.contentlocale: zh-cn
-ms.lasthandoff: 08/30/2017
-
+ms.openlocfilehash: 7a8da60aa9d9dc3ab7becb56b3b4c7701494daef
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# <a name="how-to-cache-data-for-use-offline-or-on-a-server"></a>How to: Cache Data for Use Offline or on a Server
-  You can mark a data item to be cached in the document, so that it is available offline. This also makes it possible for the data in the document to be manipulated by other code when the document is stored on a server.  
+# <a name="how-to-cache-data-for-use-offline-or-on-a-server"></a>如何：缓存数据以便脱机使用或在服务器上使用
+  你可以将标记在文档中，缓存的数据项，以便可脱机。 这还使其成为可能的数据中要文档存储在服务器上时，其他代码进行操作的文档。  
   
  [!INCLUDE[appliesto_alldoc](../vsto/includes/appliesto-alldoc-md.md)]  
   
- You can mark a data item to be cached when the data item is declared in your code, or, if you are using a <xref:System.Data.DataSet>, by setting a property in the **Properties** window. If you are caching a data item that is not a <xref:System.Data.DataSet> or <xref:System.Data.DataTable>, ensure that it meets the criteria for being cached in the document. For more information, see [Caching Data](../vsto/caching-data.md).  
+ 你可以将标记在代码中，声明的数据项时或者如果你使用缓存的数据项<xref:System.Data.DataSet>，通过设置属性**属性**窗口。 如果缓存不是数据项<xref:System.Data.DataSet>或<xref:System.Data.DataTable>，确保它达到缓存到文档中的条件。 有关更多信息，请参见 [Caching Data](../vsto/caching-data.md)。  
   
 > [!NOTE]  
->  Datasets created using Visual Basic that are marked as **Cached** and **WithEvents** (including datasets that are dragged from the **Data Sources** window or **Toolbox** that have the **CacheInDocument** property set to **True**) have an underscore prefixed to their names in the cache. For example, if you create a dataset and name it **Customers**, the <xref:Microsoft.VisualStudio.Tools.Applications.CachedDataItem> name will be **_Customers** in the cache. When you use <xref:Microsoft.VisualStudio.Tools.Applications.ServerDocument> to access this cached item, you must specify **_Customers** instead of **Customers**.  
+>  使用标记为 Visual Basic 创建的数据集**缓存**和**WithEvents** (包括从拖动的数据集**数据源**窗口或**工具箱**具有**CacheInDocument**属性设置为**True**) 作为其缓存中的名称的前缀是下划线。 例如，如果你创建数据集并将其命名**客户**、<xref:Microsoft.VisualStudio.Tools.Applications.CachedDataItem>名称将**_Customers**缓存中。 当你使用<xref:Microsoft.VisualStudio.Tools.Applications.ServerDocument>若要访问此缓存的项目，必须指定**_Customers**而不是**客户**。  
   
-### <a name="to-cache-data-in-the-document-using-code"></a>To cache data in the document using code  
+### <a name="to-cache-data-in-the-document-using-code"></a>在使用代码的文档中缓存数据  
   
-1.  Declare a public field or property for the data item as a member of a host item class in your project, such as the `ThisDocumen`t class in a Word project or the `ThisWorkbook` class in an Excel project.  
+1.  作为在项目中，某个主机项类的成员中声明的公共字段或属性的数据项目将例如`ThisDocumen`Word 项目中的 t 类或`ThisWorkbook`Excel 项目中的类。  
   
-2.  Apply the <xref:Microsoft.VisualStudio.Tools.Applications.Runtime.CachedAttribute> attribute to the member to mark the data item to be stored in the document's data cache. The following example applies this attribute to a field declaration for a <xref:System.Data.DataSet>.  
+2.  应用<xref:Microsoft.VisualStudio.Tools.Applications.Runtime.CachedAttribute>给要将文档的数据缓存中存储的数据项标记的成员属性。 下面的示例将此特性应用于字段声明<xref:System.Data.DataSet>。  
   
-     [!code-csharp[Trin_VstcoreDataExcel#11](../vsto/codesnippet/CSharp/Trin_VstcoreDataExcelCS/Sheet1.cs#11)]  [!code-vb[Trin_VstcoreDataExcel#11](../vsto/codesnippet/VisualBasic/Trin_VstcoreDataExcelVB/Sheet1.vb#11)]  
+     [!code-csharp[Trin_VstcoreDataExcel#11](../vsto/codesnippet/CSharp/Trin_VstcoreDataExcelCS/Sheet1.cs#11)]
+     [!code-vb[Trin_VstcoreDataExcel#11](../vsto/codesnippet/VisualBasic/Trin_VstcoreDataExcelVB/Sheet1.vb#11)]  
   
-3.  Add code to create an instance of the data item and, if applicable, to load it from the database.  
+3.  添加代码以创建数据项目的实例，如果适用，若要从数据库加载。  
   
-     The data item is only loaded when it is first created; thereafter, the cache stays with the document and you must write other code to update it.  
+     当首次创建; 仅加载数据项此后，缓存留与文档中，你必须编写其他代码以更新它。  
   
-### <a name="to-cache-a-dataset-in-the-document-by-using-the-properties-window"></a>To cache a dataset in the document by using the Properties window  
+### <a name="to-cache-a-dataset-in-the-document-by-using-the-properties-window"></a>通过使用属性窗口中缓存文档中的数据集  
   
-1.  Add the dataset to the project by using tools in the Visual Studio designer, for example, by adding a data source to your project using the **Data Sources** window.  
+1.  将数据集添加到项目中，通过使用工具在 Visual Studio 设计器中，例如，通过将数据源添加到你的项目使用**数据源**窗口。  
   
-2.  Create an instance of the dataset if you do not already have one, and select the instance in the designer.  
+2.  如果你尚未拥有一个，并不在设计器中选择的实例，请创建数据集的实例。  
   
-3.  In the **Properties** window, set the **CacheInDocument** property to **True**.  
+3.  在**属性**窗口中，设置**CacheInDocument**属性**True**。  
   
-     For more information, see [Properties in Office Projects](../vsto/properties-in-office-projects.md).  
+     有关详细信息，请参阅[Office 项目中的属性](../vsto/properties-in-office-projects.md)。  
   
-4.  In the **Properties** window, set the **Modifiers** property to **Public** (by default it is **Internal**).  
+4.  在**属性**窗口中，设置**修饰符**属性**公共**(默认情况下它是**内部**)。  
   
-## <a name="see-also"></a>See Also  
- [Caching Data](../vsto/caching-data.md)   
- [How to: Programmatically Cache a Data Source in an Office Document](../vsto/how-to-programmatically-cache-a-data-source-in-an-office-document.md)   
- [How to: Cache Data in a Password-Protected Document](../vsto/how-to-cache-data-in-a-password-protected-document.md)   
- [Accessing Data in Documents on the Server](../vsto/accessing-data-in-documents-on-the-server.md)   
- [Saving Data](/visualstudio/data-tools/saving-data)  
+## <a name="see-also"></a>另请参阅  
+ [缓存数据](../vsto/caching-data.md)   
+ [如何： 以编程方式缓存中的 Office 文档的数据源](../vsto/how-to-programmatically-cache-a-data-source-in-an-office-document.md)   
+ [如何： 在受密码保护的文档中缓存数据](../vsto/how-to-cache-data-in-a-password-protected-document.md)   
+ [访问服务器上的文档中的数据](../vsto/accessing-data-in-documents-on-the-server.md)   
+ [保存数据](/visualstudio/data-tools/saving-data)  
   
   

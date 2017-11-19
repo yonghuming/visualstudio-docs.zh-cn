@@ -4,37 +4,21 @@ ms.custom:
 ms.date: 11/04/2016
 ms.reviewer: 
 ms.suite: 
-ms.technology:
-- vs-ide-sdk
+ms.technology: vs-ide-sdk
 ms.tgt_pltfrm: 
 ms.topic: article
-f1_keywords:
-- IDebugEngineProgram2
-helpviewer_keywords:
-- IDebugEngineProgram2 interface
+f1_keywords: IDebugEngineProgram2
+helpviewer_keywords: IDebugEngineProgram2 interface
 ms.assetid: 151003a9-2e4d-4acf-9f4d-365dfa6b9596
-caps.latest.revision: 11
+caps.latest.revision: "11"
+author: gregvanl
 ms.author: gregvanl
 manager: ghogen
-translation.priority.mt:
-- cs-cz
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pl-pl
-- pt-br
-- ru-ru
-- tr-tr
-- zh-cn
-- zh-tw
-translationtype: Machine Translation
-ms.sourcegitcommit: ca7c86466fa23fb21a932f26dc24e37c71cf29b4
-ms.openlocfilehash: 2897213b9c94a2c8a140c12bfdbc3d4deb29052e
-ms.lasthandoff: 04/05/2017
-
+ms.openlocfilehash: 9e4b7d83f40607dbb94371e4ca3244a9bb5b9a5b
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="idebugengineprogram2"></a>IDebugEngineProgram2
 此接口提供多线程调试支持。  
@@ -56,7 +40,7 @@ IDebugEngineProgram2 : IUnknown
   
 |方法|描述|  
 |------------|-----------------|  
-|[停止](../../../extensibility/debugger/reference/idebugengineprogram2-stop.md)|停止所有线程在此程序中运行。|  
+|[Stop](../../../extensibility/debugger/reference/idebugengineprogram2-stop.md)|停止所有线程在此程序中运行。|  
 |[WatchForThreadStep](../../../extensibility/debugger/reference/idebugengineprogram2-watchforthreadstep.md)|用于执行 （或停止执行监视） 监视给定线程上发生。|  
 |[WatchForExpressionEvaluationOnThread](../../../extensibility/debugger/reference/idebugengineprogram2-watchforexpressionevaluationonthread.md)|允许 （或不允许） 表达式计算上才会出现的给定线程，即使程序已停止。|  
   
@@ -64,11 +48,11 @@ IDebugEngineProgram2 : IUnknown
  Visual Studio 会调用此接口以响应[IDebugProgramCreateEvent2](../../../extensibility/debugger/reference/idebugprogramcreateevent2.md)事件并设置该程序的"监视的线程步骤"和"监视的表达式评估上线程"状态。 [停止](../../../extensibility/debugger/reference/idebugengineprogram2-stop.md)每当调用的程序即将停止; 此方法为提供程序终止所有线程的机会。  
   
 ## <a name="requirements"></a>要求  
- 标头︰ msdbg.h  
+ 标头： msdbg.h  
   
  Namespace: Microsoft.VisualStudio.Debugger.Interop  
   
- 程序集︰ Microsoft.VisualStudio.Debugger.Interop.dll  
+ 程序集： Microsoft.VisualStudio.Debugger.Interop.dll  
   
 ## <a name="see-also"></a>另请参阅  
  [IDebugProgram2](../../../extensibility/debugger/reference/idebugprogram2.md)

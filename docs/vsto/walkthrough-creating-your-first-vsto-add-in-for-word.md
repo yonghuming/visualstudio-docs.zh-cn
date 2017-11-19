@@ -1,12 +1,10 @@
 ---
-title: 'Walkthrough: Creating Your First VSTO Add-in for Word | Microsoft Docs'
+title: "演练： 创建第一个 VSTO 外接程序 word |Microsoft 文档"
 ms.custom: 
 ms.date: 02/02/2017
-ms.prod: visual-studio-dev14
 ms.reviewer: 
 ms.suite: 
-ms.technology:
-- office-development
+ms.technology: office-development
 ms.tgt_pltfrm: 
 ms.topic: article
 dev_langs:
@@ -18,135 +16,135 @@ helpviewer_keywords:
 - add-ins [Office development in Visual Studio], creating your first project
 - Word [Office development in Visual Studio], creating your first project
 ms.assetid: 9d857be7-5c74-4303-baf4-672afc1ea397
-caps.latest.revision: 55
-author: kempb
-ms.author: kempb
+caps.latest.revision: "55"
+author: gewarren
+ms.author: gewarren
 manager: ghogen
-ms.translationtype: HT
-ms.sourcegitcommit: eb5c9550fd29b0e98bf63a7240737da4f13f3249
-ms.openlocfilehash: 31464b710698d4dd253382676bde88b01f86a62a
-ms.contentlocale: zh-cn
-ms.lasthandoff: 08/30/2017
-
+ms.openlocfilehash: a61a56401e97a47da0903dadfff35e16c974bbc5
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# <a name="walkthrough-creating-your-first-vsto-add-in-for-word"></a>Walkthrough: Creating Your First VSTO Add-in for Word
-  This introductory walkthrough shows you how to create a VSTO Add-in for Microsoft Office Word. The features that you create in this kind of solution are available to the application itself, regardless of which documents are open.  
+# <a name="walkthrough-creating-your-first-vsto-add-in-for-word"></a>演练：创建你的第一个 Word VSTO 外接程序
+  本介绍性演练说明如何创建 Microsoft Office Word 的 VSTO 外接程序。 你在此类解决方案中创建的功能可用于应用程序本身，而与所打开的文档无关。  
   
  [!INCLUDE[appliesto_wdallapp](../vsto/includes/appliesto-wdallapp-md.md)]  
   
- This walkthrough illustrates the following tasks:  
+ 本演练阐释了以下任务：  
   
--   Creating a Word VSTO Add-in project.  
+-   创建 Word VSTO 外接程序项目。  
   
--   Writing code that uses the object model of Word to add text to a document when it is saved.  
+-   编写代码，使用 Word 的对象模型在保存文档时向文档中添加文本。  
   
--   Building and running the project to test it.  
+-   生成并运行项目，以对其进行测试。  
   
--   Cleaning up the completed project so that the VSTO Add-in no longer runs automatically on your development computer.  
+-   清理已完成的项目，使 VSTO 外接程序在开发计算机上不再自动运行。  
   
  [!INCLUDE[note_settings_general](../sharepoint/includes/note-settings-general-md.md)]  
   
-## <a name="prerequisites"></a>Prerequisites  
- You need the following components to complete this walkthrough:  
+## <a name="prerequisites"></a>先决条件  
+ 你需要以下组件来完成本演练：  
   
 -   [!INCLUDE[vsto_vsprereq](../vsto/includes/vsto-vsprereq-md.md)]  
   
 -   Microsoft Word  
   
-## <a name="creating-the-project"></a>Creating the Project  
+## <a name="creating-the-project"></a>创建项目  
   
-#### <a name="to-create-a-new-word-vsto-add-in-project-in-visual-studio"></a>To create a new Word VSTO Add-in project in Visual Studio  
+#### <a name="to-create-a-new-word-vsto-add-in-project-in-visual-studio"></a>在 Visual Studio 中创建新的 Word VSTO 外接程序项目  
   
-1.  Start [!INCLUDE[vsprvs](../sharepoint/includes/vsprvs-md.md)].  
+1.  启动 [!INCLUDE[vsprvs](../sharepoint/includes/vsprvs-md.md)]。  
   
-2.  On the **File** menu, point to **New**, and then click **Project**.  
+2.  在 **“文件”** 菜单上，指向 **“新建”**，然后单击 **“项目”**。  
   
-3.  In the templates pane, expand **Visual C#** or **Visual Basic**, and then expand **Office/SharePoint**.  
+3.  在模板窗格中，展开 **“Visual C#”** 或 **“Visual Basic”**，然后展开 **“Office/SharePoint”**。  
   
-4.  Under the expanded **Office/SharePoint** node, select the **Office Add-ins** node.  
+4.  在展开的 **“Office/SharePoint”** 节点下方，选择 **“Office 外接程序”** 节点。  
   
-5.  In the list of project templates, select a Word VSTO Add-in project.  
+5.  在项目模板列表中，选择 Word VSTO 外接程序项目。  
   
-6.  In the **Name** box, type **FirstWordAddIn**.  
+6.  在**名称**框中，键入**FirstWordAddIn**。  
   
-7.  Click **OK**.  
+7.  单击“确定”。  
   
-     [!INCLUDE[vsprvs](../sharepoint/includes/vsprvs-md.md)] creates the **FirstWordAddIn** project and opens the ThisAddIn code file in the editor.  
+     [!INCLUDE[vsprvs](../sharepoint/includes/vsprvs-md.md)]创建**FirstWordAddIn**项目，并在编辑器中打开 ThisAddIn 代码文件。  
   
-## <a name="writing-code-to-add-text-to-the-saved-document"></a>Writing Code to Add Text to the Saved Document  
- Next, add code to the ThisAddIn code file. The new code uses the object model of Word to add boilerplate text to each saved document. By default, the ThisAddIn code file contains the following generated code:  
+## <a name="writing-code-to-add-text-to-the-saved-document"></a>编写用于向已保存文档添加文本的代码  
+ 接下来，将代码添加到 ThisAddIn 代码文件。 新的代码则使用 Word 的对象模型向每个已保存文档添加样本文本。 默认情况下，ThisAddIn 代码文件包含以下生成的代码：  
   
--   A partial definition of the `ThisAddIn` class. This class provides an entry point for your code and provides access to the object model of Word. For more information, see [Programming VSTO Add-Ins](../vsto/programming-vsto-add-ins.md). The remainder of the `ThisAddIn` class is defined in a hidden code file that you should not modify.  
+-   `ThisAddIn` 类的部分定义。 此类提供代码的入口点，并提供对 Word 对象模型的访问权限。 有关更多信息，请参见 [Programming VSTO Add-Ins](../vsto/programming-vsto-add-ins.md)。`ThisAddIn` 类的其余部分是在隐藏代码文件中定义的，不应修改该代码文件。  
   
--   The `ThisAddIn_Startup` and `ThisAddIn_Shutdown` event handlers. These event handlers are called when Word loads and unloads your VSTO Add-in. Use these event handlers to initialize your VSTO Add-in when it is loaded, and to clean up resources used by your VSTO Add-in when it is unloaded. For more information, see [Events in Office Projects](../vsto/events-in-office-projects.md).  
+-   `ThisAddIn_Startup` 和 `ThisAddIn_Shutdown` 事件处理程序。 Word 加载和卸载 VSTO 外接程序时会调用这些事件处理程序。 使用这些事件处理程序，可在加载 VSTO 外接程序对其进行初始化，并在卸载 VSTO 外接程序时清理其使用的资源。 有关详细信息，请参阅 [Events in Office Projects](../vsto/events-in-office-projects.md)。  
   
-#### <a name="to-add-a-paragraph-of-text-to-the-saved-document"></a>To add a paragraph of text to the saved document  
+#### <a name="to-add-a-paragraph-of-text-to-the-saved-document"></a>向已保存的文档添加文本段落  
   
-1.  In the ThisAddIn code file, add the following code to the `ThisAddIn` class. The new code defines an event handler for the <xref:Microsoft.Office.Interop.Word.ApplicationEvents4_Event.DocumentBeforeSave> event, which is raised when a document is saved.  
+1.  在 ThisAddIn 代码文件中，将下面的代码添加到 `ThisAddIn` 类中。 新的代码定义 <xref:Microsoft.Office.Interop.Word.ApplicationEvents4_Event.DocumentBeforeSave> 事件的事件处理程序，该事件在保存文档时引发。  
   
-     When the user saves a document, the event handler adds new text at the start of the document.  
+     用户保存文档时，该事件处理程序会将新文本添加到文档的开头。  
   
-     [!code-vb[Trin_WordAddInTutorial#1](../vsto/codesnippet/VisualBasic/FirstWordAddIn/ThisAddIn.vb#1)]  [!code-csharp[Trin_WordAddInTutorial#1](../vsto/codesnippet/CSharp/FirstWordAddIn/ThisAddIn.cs#1)]  
+     [!code-vb[Trin_WordAddInTutorial#1](../vsto/codesnippet/VisualBasic/FirstWordAddIn/ThisAddIn.vb#1)]
+     [!code-csharp[Trin_WordAddInTutorial#1](../vsto/codesnippet/CSharp/FirstWordAddIn/ThisAddIn.cs#1)]  
   
     > [!NOTE]  
-    >  This code uses an index value of 1 to access the first paragraph in the <xref:Microsoft.Office.Interop.Word._Document.Paragraphs%2A> collection. Although Visual Basic and Visual C# use 0-based arrays, the lower array bounds of most collections in the Word object model is 1. For more information, see [Writing Code in Office Solutions](../vsto/writing-code-in-office-solutions.md).  
+    >  此代码使用索引值为 1 来访问 <xref:Microsoft.Office.Interop.Word._Document.Paragraphs%2A> 集合中的第一个段落。 尽管 Visual Basic 和 Visual C# 使用从 0 开始的数组，但 Word 对象模型中大多数集合的数组下限都是 1。 有关详细信息，请参阅 [Writing Code in Office Solutions](../vsto/writing-code-in-office-solutions.md)。  
   
-2.  If you are using C#, add the following required code to the `ThisAddIn_Startup` event handler. This code is used to connect the `Application_DocumentBeforeSave` event handler with the <xref:Microsoft.Office.Interop.Word.ApplicationEvents4_Event.DocumentBeforeSave> event.  
+2.  如果你使用的是 C#，请将以下必需代码添加到 `ThisAddIn_Startup` 事件处理程序中。 此代码用于将 `Application_DocumentBeforeSave` 事件处理程序与 <xref:Microsoft.Office.Interop.Word.ApplicationEvents4_Event.DocumentBeforeSave> 事件连接在一起。  
   
      [!code-csharp[Trin_WordAddInTutorial#2](../vsto/codesnippet/CSharp/FirstWordAddIn/ThisAddIn.cs#2)]  
   
- To modify the document when it is saved, the previous code examples use the following objects:  
+ 为了在保存文档后对其进行修改，前面的代码示例使用以下对象：  
   
--   The `Application` field of the `ThisAddIn` class. The `Application` field returns a <xref:Microsoft.Office.Interop.Word.Application> object, which represents the current instance of Word.  
+-   `ThisAddIn` 类的 `Application` 字段。 `Application` 字段返回一个 <xref:Microsoft.Office.Interop.Word.Application> 对象，该对象表示 Word 的当前实例。  
   
--   The `Doc` parameter of the event handler for the <xref:Microsoft.Office.Interop.Word.ApplicationEvents4_Event.DocumentBeforeSave> event. The `Doc` parameter is a <xref:Microsoft.Office.Interop.Word.Document> object, which represents the saved document. For more information, see [Word Object Model Overview](../vsto/word-object-model-overview.md).  
+-   <xref:Microsoft.Office.Interop.Word.ApplicationEvents4_Event.DocumentBeforeSave> 事件的事件处理程序的 `Doc` 参数。 `Doc` 参数是一个 <xref:Microsoft.Office.Interop.Word.Document> 对象，用于表示已保存的文档。 有关详细信息，请参阅 [Word Object Model Overview](../vsto/word-object-model-overview.md)。  
   
-## <a name="testing-the-project"></a>Testing the Project  
+## <a name="testing-the-project"></a>测试项目  
   
-#### <a name="to-test-the-project"></a>To test the project  
+#### <a name="to-test-the-project"></a>测试项目  
   
-1.  Press **F5** to build and run your project.  
+1.  按 **F5** 生成并运行项目。  
   
-     When you build the project, the code is compiled into an assembly that is included in the build output folder for the project. Visual Studio also creates a set of registry entries that enable Word to discover and load the VSTO Add-in, and it configures the security settings on the development computer to enable the VSTO Add-in to run. For more information, see [Building Office Solutions](../vsto/building-office-solutions.md).  
+     生成项目时，代码会编译成一个程序集，此程序集包含在项目的生成输出文件夹中。 Visual Studio 还会创建一组注册表项，通过这些注册表项，Word 能够发现和加载 VSTO 外接程序，Visual Studio 还将开发计算机上的安全设置配置为允许 VSTO 外接程序运行。 有关详细信息，请参阅[生成 Office 解决方案](../vsto/building-office-solutions.md)。  
   
-2.  In Word, save the active document.  
+2.  在 Word 中，保存活动文档。  
   
-3.  Verify that the following text is added to the document.  
+3.  验证下面的文本是否已添加到文档中。  
   
      **This text was added by using code.**  
   
-4.  Close Word.  
+4.  关闭 Word。  
   
-## <a name="cleaning-up-the-project"></a>Cleaning up the Project  
- When you finish developing a project, remove the VSTO Add-in assembly, registry entries, and security settings from your development computer. Otherwise, the VSTO Add-in will continue to run every time that you open Word on your development computer.  
+## <a name="cleaning-up-the-project"></a>清理项目  
+ 完成项目开发后，请从开发计算机上删除 VSTO 外接程序程序集、注册表项和安全设置。 否则，每次在开发计算机上打开 Word 时，VSTO 外接程序都将继续运行。  
   
-#### <a name="to-clean-up-the-completed-project-on-your-development-computer"></a>To clean up the completed project on your development computer  
+#### <a name="to-clean-up-the-completed-project-on-your-development-computer"></a>在开发计算机上清理已完成的项目  
   
-1.  In Visual Studio, on the **Build** menu, click **Clean Solution**.  
+1.  在 Visual Studio 中，在 **“生成”** 菜单上，单击 **“清理解决方案”**。  
   
-## <a name="next-steps"></a>Next Steps  
- Now that you have created a basic VSTO Add-in for Word, you can learn more about how to develop VSTO Add-ins from these topics:  
+## <a name="next-steps"></a>后续步骤  
+ 既然你已经创建了一个基本的 Word VSTO 外接程序，就可以从下面这些主题中了解有关如何开发 VSTO 外接程序的详细信息：  
   
--   General programming tasks that you can perform in VSTO Add-ins: [Programming VSTO Add-Ins](../vsto/programming-vsto-add-ins.md).  
+-   可在 VSTO 外接程序中执行的常规编程任务： [Programming VSTO Add-Ins](../vsto/programming-vsto-add-ins.md)。  
   
--   Programming tasks that are specific to Word VSTO Add-ins: [Word Solutions](../vsto/word-solutions.md).  
+-   特定于 Word VSTO 外接程序的编程任务： [Word 解决方案](../vsto/word-solutions.md)。  
   
--   Using the object model of Word: [Word Object Model Overview](../vsto/word-object-model-overview.md).  
+-   使用 Word 对象模型： [Word 对象模型概述](../vsto/word-object-model-overview.md)。  
   
--   Customizing the UI of Word, for example, by adding a custom tab to the Ribbon or creating your own custom task pane: [Office UI Customization](../vsto/office-ui-customization.md).  
+-   自定义 Word 的 UI，例如，通过向功能区添加自定义选项卡或创建你自己的自定义任务窗格： [Office UI 自定义项](../vsto/office-ui-customization.md)。  
   
--   Building and debugging VSTO Add-ins for Word: [Building Office Solutions](../vsto/building-office-solutions.md).  
+-   生成和调试针对 Word 的 VSTO 外接程序：[生成 Office 解决方案](../vsto/building-office-solutions.md)。  
   
--   Deploying VSTO Add-ins for Word: [Deploying an Office Solution](../vsto/deploying-an-office-solution.md).  
+-   部署 Word 的 VSTO 外接程序：[部署 Office 解决方案](../vsto/deploying-an-office-solution.md)。  
   
-## <a name="see-also"></a>See Also  
- [Office Solutions Development Overview &#40;VSTO&#41;](../vsto/office-solutions-development-overview-vsto.md)   
- [Word Solutions](../vsto/word-solutions.md)   
+## <a name="see-also"></a>另请参阅  
+ [Office 解决方案开发概述 &#40;VSTO &#41;](../vsto/office-solutions-development-overview-vsto.md)   
+ [Word 解决方案](../vsto/word-solutions.md)   
  [Programming VSTO Add-Ins](../vsto/programming-vsto-add-ins.md)   
- [Word Object Model Overview](../vsto/word-object-model-overview.md)   
- [Office UI Customization](../vsto/office-ui-customization.md)   
- [Building Office Solutions](../vsto/building-office-solutions.md)   
- [Deploying an Office Solution](../vsto/deploying-an-office-solution.md)   
- [Office Project Templates Overview](../vsto/office-project-templates-overview.md)  
+ [Word 对象模型概述](../vsto/word-object-model-overview.md)   
+ [Office UI 自定义项](../vsto/office-ui-customization.md)   
+ [生成 Office 解决方案](../vsto/building-office-solutions.md)   
+ [部署 Office 解决方案](../vsto/deploying-an-office-solution.md)   
+ [Office 项目模板概述](../vsto/office-project-templates-overview.md)  
   
   

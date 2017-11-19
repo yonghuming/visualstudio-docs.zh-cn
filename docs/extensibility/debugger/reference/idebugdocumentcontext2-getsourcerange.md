@@ -1,60 +1,60 @@
 ---
-title: "IDebugDocumentContext2::GetSourceRange | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "IDebugDocumentContext2::GetSourceRange"
-helpviewer_keywords: 
-  - "IDebugDocumentContext2::GetSourceRange"
+title: "IDebugDocumentContext2::GetSourceRange |Microsoft 文档"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology: vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords: IDebugDocumentContext2::GetSourceRange
+helpviewer_keywords: IDebugDocumentContext2::GetSourceRange
 ms.assetid: 5903c75e-5390-4d13-9314-1ee276255313
-caps.latest.revision: 10
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 10
+caps.latest.revision: "10"
+author: gregvanl
+ms.author: gregvanl
+manager: ghogen
+ms.openlocfilehash: 3fc08e761b3944aafd2303bd7266c98dc06e1be8
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# IDebugDocumentContext2::GetSourceRange
-[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
-
-获取此的源代码大小文档上下文。  
+# <a name="idebugdocumentcontext2getsourcerange"></a>IDebugDocumentContext2::GetSourceRange
+获取此文档上下文的代码的源范围。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
-```cpp#  
-HRESULT GetSourceRange(   
-   TEXT_POSITION* pBegPosition,  
-   TEXT_POSITION* pEndPosition  
+```cpp  
+HRESULT GetSourceRange(   
+   TEXT_POSITION* pBegPosition,  
+   TEXT_POSITION* pEndPosition  
 );  
 ```  
   
-```c#  
-int GetSourceRange(   
-   TEXT_POSITION[] pBegPosition,  
-   TEXT_POSITION[] pEndPosition  
+```csharp  
+int GetSourceRange(   
+   TEXT_POSITION[] pBegPosition,  
+   TEXT_POSITION[] pEndPosition  
 );  
 ```  
   
-#### 参数  
+#### <a name="parameters"></a>参数  
  `pBegPosition`  
- \[in, out\] 创建一个起始位置填充的 [TEXT\_POSITION](../../../extensibility/debugger/reference/text-position.md) 结构。  ，如果此信息不是必需的，将此参数设置为空值。  
+ [在中，out]A [TEXT_POSITION](../../../extensibility/debugger/reference/text-position.md)使用的起始位置填充的结构。 如果不需要此信息，请将此参数设置为 null 值。  
   
  `pEndPosition`  
- \[in, out\] 在结束位置填充的 [TEXT\_POSITION](../../../extensibility/debugger/reference/text-position.md) 结构。  ，如果此信息不是必需的，将此参数设置为空值。  
+ [在中，out]A [TEXT_POSITION](../../../extensibility/debugger/reference/text-position.md)使用结束位置填充的结构。 如果不需要此信息，请将此参数设置为 null 值。  
   
-## 返回值  
- 如果成功，则返回; `S_OK`否则，返回错误代码。  
+## <a name="return-value"></a>返回值  
+ 如果成功，则返回`S_OK`; 否则为返回错误代码。  
   
-## 备注  
- 源范围是源代码的整个范围，从当前语句返回到以前的声明后面提供的代码。  源范围为混合的源语句通常使用，包括注释，并且代码 " 反汇编 " 窗口。  
+## <a name="remarks"></a>备注  
+ 源的范围是源代码的整个范围，从当前的语句后，之后提供的代码与前一个语句。 源范围通常用于混合源语句，其中包括注释，使用反汇编窗口中的代码。  
   
- 此内包含的代码语句的范围文档上下文的访问，调用 [GetStatementRange](../../../extensibility/debugger/reference/idebugdocumentcontext2-getstatementrange.md) 方法。  
+ 若要获取有关只包含在此文档上下文中的代码语句范围，请调用[GetStatementRange](../../../extensibility/debugger/reference/idebugdocumentcontext2-getstatementrange.md)方法。  
   
-## 请参阅  
+## <a name="see-also"></a>另请参阅  
  [IDebugDocumentContext2](../../../extensibility/debugger/reference/idebugdocumentcontext2.md)   
  [GetStatementRange](../../../extensibility/debugger/reference/idebugdocumentcontext2-getstatementrange.md)   
- [TEXT\_POSITION](../../../extensibility/debugger/reference/text-position.md)
+ [TEXT_POSITION](../../../extensibility/debugger/reference/text-position.md)

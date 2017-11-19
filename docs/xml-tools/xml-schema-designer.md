@@ -1,36 +1,37 @@
 ---
-title: "XML 架构设计器 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-general"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
+title: "XML 架构设计器 |Microsoft 文档"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology: vs-ide-general
+ms.tgt_pltfrm: 
+ms.topic: article
 ms.assetid: ffdf63ee-faa6-45b7-bbf9-a5644dc8aca2
-caps.latest.revision: 2
-author: "kempb"
-ms.author: "kempb"
-manager: "ghogen"
-caps.handback.revision: 2
+caps.latest.revision: "2"
+author: gewarren
+ms.author: gewarren
+manager: ghogen
+ms.openlocfilehash: 1a0868c898b9713bec07939a2e0404eb17d988ae
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# XML 架构设计器
-[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
-
-XML 架构设计器（XSD 设计器）是一个图形工具，可用于在不同的抽象级别使架构集可视化。以下是 XSD 设计器的主要组件：  
+# <a name="xml-schema-designer"></a>XML 架构设计器
+XML 架构设计器（XSD 设计器）是一个图形工具，可用于在不同的抽象级别使架构集可视化。 以下是 XSD 设计器的主要组件：  
   
--   [XML 架构资源管理器](../xml-tools/xml-schema-explorer.md)，使用它可浏览和导航 XML 架构树并执行搜索。  
+-   [XML 架构资源管理器](../xml-tools/xml-schema-explorer.md)使您能够浏览和导航 XML 架构树以及执行搜索。  
   
--   [起始视图](../xml-tools/start-view.md)，它是 XSD 设计器的启动点；从起始视图可以导航到 XSD 设计器的其他视图，并查看架构集的详细信息。  
+-   [起始视图](../xml-tools/start-view.md)是的启动点 XSD 设计器; 从起始视图，你可以导航到 XSD 设计器的其他视图，并查看架构集的详细信息。  
   
--   [图形视图](../xml-tools/graph-view.md)，利用它可查看架构集的概览以及架构节点之间的关系。  
+-   [图形视图](../xml-tools/graph-view.md)使你可以查看架构集和架构节点之间的关系的概述。  
   
--   [内容模型视图](../xml-tools/content-model-view.md)，它提供局部和全局架构节点（包括简单类型和复杂类型、元素、组、特性及特性组）详细信息的图形表示形式。  
+-   [内容模型视图](../xml-tools/content-model-view.md)提供的图形表示形式的局部和全局架构节点，包括简单和复杂类型、 元素、 组、 属性和属性组的详细信息。  
   
-## 本节内容  
+## <a name="in-this-section"></a>本节内容  
  [XML 架构资源管理器](../xml-tools/xml-schema-explorer.md)  
- 概述 XML 架构资源管理器以及它如何使您能够使用 XML 架构定义语言 \(XSD\) 架构。  
+ 概述 XML 架构资源管理器以及它如何使您能够使用 XML 架构定义语言 (XSD) 架构。  
   
  [XML 架构设计器工作区](../xml-tools/xml-schema-designer-workspace.md)  
  概述 XSD 架构设计器工作区。  

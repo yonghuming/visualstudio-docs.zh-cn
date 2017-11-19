@@ -1,83 +1,83 @@
 ---
-title: "IDebugParsedExpression::EvaluateSync | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "IDebugParsedExpression::EvaluateSync"
-helpviewer_keywords: 
-  - "IDebugParsedExpression::EvaluateSync 方法"
+title: "IDebugParsedExpression::EvaluateSync |Microsoft 文档"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology: vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords: IDebugParsedExpression::EvaluateSync
+helpviewer_keywords: IDebugParsedExpression::EvaluateSync method
 ms.assetid: 0ea04cfa-de87-4b6c-897e-4572c1a28942
-caps.latest.revision: 11
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 11
+caps.latest.revision: "11"
+author: gregvanl
+ms.author: gregvanl
+manager: ghogen
+ms.openlocfilehash: 7dbc17c9998be2d97e65452decf2ab97836e3128
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# IDebugParsedExpression::EvaluateSync
-[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
-
-此方法计算已分析的表达式并选择性地将结果为其他数据类型。  
+# <a name="idebugparsedexpressionevaluatesync"></a>IDebugParsedExpression::EvaluateSync
+此方法计算已分析的表达式，并 （可选） 将结果转换为另一种数据类型。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
-```cpp#  
-HRESULT EvaluateSync(   
-   DWORD                 dwEvalFlags,  
-   DWORD                 dwTimeout,  
-   IDebugSymbolProvider* pSymbolProvider,  
-   IDebugAddress*        pAddress,  
-   IDebugBinder*         pBinder,  
-   BSTR                  bstrResultType,  
-   IDebugProperty2**     ppResult  
+```cpp  
+HRESULT EvaluateSync(   
+   DWORD                 dwEvalFlags,  
+   DWORD                 dwTimeout,  
+   IDebugSymbolProvider* pSymbolProvider,  
+   IDebugAddress*        pAddress,  
+   IDebugBinder*         pBinder,  
+   BSTR                  bstrResultType,  
+   IDebugProperty2**     ppResult  
 );  
 ```  
   
-```c#  
+```csharp  
 int EvaluateSync(  
-   uint                 dwEvalFlags,   
-   uint                 dwTimeout,   
-   IDebugSymbolProvider pSymbolProvider,   
-   IDebugAddress        pAddress,   
-   IDebugBinder         pBinder,   
-   string               bstrResultType,   
-   out IDebugProperty2  ppResult  
+   uint                 dwEvalFlags,   
+   uint                 dwTimeout,   
+   IDebugSymbolProvider pSymbolProvider,   
+   IDebugAddress        pAddress,   
+   IDebugBinder         pBinder,   
+   string               bstrResultType,   
+   out IDebugProperty2  ppResult  
 );  
 ```  
   
-#### 参数  
+#### <a name="parameters"></a>参数  
  `dwEvalFlags`  
- \[in\] 的 [EVALFLAGS](../../../extensibility/debugger/reference/evalflags.md) 常数的组合控件表达式如何将计算。  
+ [in]组合[EVALFLAGS](../../../extensibility/debugger/reference/evalflags.md)控制如何计算表达式的常量。  
   
  `dwTimeout`  
- \[in\] 以毫秒为单位指定最长时间，因此，在返回等待来自此方法。  使用 `INFINITE` 会无限期地等待。  
+ [in]指定以毫秒为单位，从此方法返回前等待的最长时间。 使用`INFINITE`无限期等待。  
   
  `pSymbolProvider`  
- \[in\] 符号提供程序，是以 [IDebugSymbolProvider](../../../extensibility/debugger/reference/idebugsymbolprovider.md) 接口。  
+ [in]符号提供程序，表示为[IDebugSymbolProvider](../../../extensibility/debugger/reference/idebugsymbolprovider.md)接口。  
   
  `pAddress`  
- \[in\] 在方法中执行当前位置，是以 [IDebugAddress](../../../extensibility/debugger/reference/idebugaddress.md) 接口。  
+ [in]在方法中，表示为当前执行位置[IDebugAddress](../../../extensibility/debugger/reference/idebugaddress.md)接口。  
   
  `pBinder`  
- \[in\] 联编程序，是以 [IDebugBinder](../../../extensibility/debugger/reference/idebugbinder.md) 接口。  
+ [in]联编程序，表示为[IDebugBinder](../../../extensibility/debugger/reference/idebugbinder.md)接口。  
   
  `bstrResultType`  
- \[in\] 应将该类型结果。  此参数可以为 null 值。  
+ [in]结果的类型应强制转换为。 此参数可以是 null 值。  
   
  `ppResult`  
- \[out\] 返回表示计算结果的 [IDebugProperty2](../../../extensibility/debugger/reference/idebugproperty2.md) 接口。  
+ [out]返回[IDebugProperty2](../../../extensibility/debugger/reference/idebugproperty2.md)表示评估的结果的接口。  
   
-## 返回值  
- 如果成功，则返回; `S_OK`否则，返回错误代码。  
+## <a name="return-value"></a>返回值  
+ 如果成功，则返回`S_OK`; 否则为返回错误代码。  
   
-## 备注  
- `pAddress`生成一个表达式计算上下文，从而确定所包含的方法来使用语言范围规则确定符号值在表达式中。  
+## <a name="remarks"></a>备注  
+ 给定表达式评估上下文`pAddress`，从而无法确定包含方法和则使用语言作用域规则来确定在表达式中的符号的值。  
   
-## 请参阅  
+## <a name="see-also"></a>另请参阅  
  [IDebugSymbolProvider](../../../extensibility/debugger/reference/idebugsymbolprovider.md)   
  [IDebugBinder](../../../extensibility/debugger/reference/idebugbinder.md)   
  [IDebugAddress](../../../extensibility/debugger/reference/idebugaddress.md)   

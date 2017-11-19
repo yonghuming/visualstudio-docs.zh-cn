@@ -1,61 +1,61 @@
 ---
-title: "IDebugProgramEngines2::EnumPossibleEngines | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "IDebugProgramEngines2::EnumPossibleEngines"
-helpviewer_keywords: 
-  - "IDebugProgramEngines2::EnumPossibleEngines"
+title: "IDebugProgramEngines2::EnumPossibleEngines |Microsoft 文档"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology: vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords: IDebugProgramEngines2::EnumPossibleEngines
+helpviewer_keywords: IDebugProgramEngines2::EnumPossibleEngines
 ms.assetid: 993d70a4-f6a5-4e47-a603-0b162b9fde00
-caps.latest.revision: 10
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 10
+caps.latest.revision: "10"
+author: gregvanl
+ms.author: gregvanl
+manager: ghogen
+ms.openlocfilehash: d1cf3eead4b268dbbca5ad4333adcc647522b051
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# IDebugProgramEngines2::EnumPossibleEngines
-[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
-
-返回所有可能的 GUID 调试能 \(DE\)调试此过程的引擎。  
+# <a name="idebugprogramengines2enumpossibleengines"></a>IDebugProgramEngines2::EnumPossibleEngines
+返回所有可能的调试引擎 (DE)，可以调试此程序的 Guid。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
-```cpp#  
-HRESULT EnumPossibleEngines(   
-   DWORD  celtBuffer,  
-   GUID*  rgguidEngines,  
-   DWORD* pceltEngines  
+```cpp  
+HRESULT EnumPossibleEngines(   
+   DWORD  celtBuffer,  
+   GUID*  rgguidEngines,  
+   DWORD* pceltEngines  
 );  
 ```  
   
-```c#  
-int EnumPossibleEngines(   
-   uint      celtBuffer,  
-   GUID[]    rgguidEngines,  
-   ref DWORD pceltEngines  
+```csharp  
+int EnumPossibleEngines(   
+   uint      celtBuffer,  
+   GUID[]    rgguidEngines,  
+   ref DWORD pceltEngines  
 );  
 ```  
   
-#### 参数  
+#### <a name="parameters"></a>参数  
  `celtBuffer`  
- \[in\] DE 返回的 GUID 的数字。  它还指定 `rgguidEngines` 数组的最大大小。  
+ [in]DE Guid 来返回数。 这还将指定的最大大小`rgguidEngines`数组。  
   
  `rgguidEngines`  
- \[in, out\] 数组、将填充的 GUID。  
+ [在中，out]DE Guid 填充的数组。  
   
  `pceltEngines`  
- \[out\] 返回 DE 返回的 GUID 的实际数目。  
+ [out]返回的实际返回的 DE Guid 数目。  
   
-## 返回值  
- 如果成功，则返回; `S_OK`否则，返回错误代码。  返回 \[c\+\+\] `HRESULT_FROM_WIN32(ERROR_INSUFFICIENT_BUFFER)` 或 \[c\#\] 0x8007007A，如果缓冲区不足够大。  
+## <a name="return-value"></a>返回值  
+ 如果成功，则返回`S_OK`; 否则为返回错误代码。 返回 [c + +]`HRESULT_FROM_WIN32(ERROR_INSUFFICIENT_BUFFER)`或 [C#] 0x8007007A 缓冲区是否不足够大。  
   
-## 备注  
- 为了确定有多少个引擎一次是，调用此方法与 `celtBuffer` 参数设置为 0 `rgguidEngines` 参数设置为空值。  这将返回 `HRESULT_FROM_WIN32(ERROR_INSUFFICIENT_BUFFER)` \(C\# 中 0x8007007A\)，并且， `pceltEngines` 参数返回缓冲区的所需大小。  
+## <a name="remarks"></a>备注  
+ 为了确定有多少引擎是，请调用此方法一次与`celtBuffer`参数设置为 0 和`rgguidEngines`参数设置为 null 值。 这将返回`HRESULT_FROM_WIN32(ERROR_INSUFFICIENT_BUFFER)`(0x8007007A 对于 C# 中的) 和`pceltEngines`参数返回的缓冲区所需要的大小。  
   
-## 请参阅  
+## <a name="see-also"></a>另请参阅  
  [IDebugProgramEngines2](../../../extensibility/debugger/reference/idebugprogramengines2.md)

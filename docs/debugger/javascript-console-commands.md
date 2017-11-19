@@ -1,38 +1,38 @@
 ---
-title: "JavaScript Console commands | Microsoft Docs"
-ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-debug"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-dev_langs: 
-  - "FSharp"
-  - "VB"
-  - "CSharp"
-  - "C++"
-helpviewer_keywords: 
-  - "JavaScript 控制台命令 [Windows 应用商店应用程序]"
-  - "JavaScript 调试, 控制台 [Windows 应用商店应用程序]"
-  - "调试 JavaScript, 控制台 [Windows 应用商店应用程序]"
+title: "Visual Studio 中的 JavaScript 控制台命令 |Microsoft 文档"
+ms.custom: 
+ms.date: 07/17/2017
+ms.reviewer: 
+ms.suite: 
+ms.technology: vs-ide-debug
+ms.tgt_pltfrm: 
+ms.topic: article
+dev_langs:
+- CSharp
+- VB
+- FSharp
+- C++
+helpviewer_keywords:
+- JavaScript Console commands [UWP apps]
+- JavaScript debugging, console [UWP apps]
+- debugging JavaScript, console [UWP apps]
 ms.assetid: 359e2b24-6bb7-48e7-8b55-b570df0cb774
-caps.latest.revision: 47
-caps.handback.revision: 47
-author: "mikejo5000"
-ms.author: "mikejo"
-manager: "ghogen"
+caps.latest.revision: "47"
+author: mikejo5000
+ms.author: mikejo
+manager: ghogen
+ms.openlocfilehash: d9808c664e5e3d06558faf8f9b44a6a2bb6e9b83
+ms.sourcegitcommit: 26419ab0cccdc30d279c32d6a841758cfa903806
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/11/2017
 ---
-# JavaScript Console commands
-[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
-
-![适用于 Windows 和 Windows Phone](~/debugger/media/windows_and_phone_content.png "windows_and_phone_content")  
+# <a name="javascript-console-commands-in-visual-studio"></a>Visual Studio 中的 JavaScript 控制台命令
+![适用于 Windows 和 Windows Phone](../debugger/media/windows_and_phone_content.png "windows_and_phone_content")  
   
- 你可以在 Visual Studio 的“JavaScript 控制台”窗口中使用命令发送消息和执行其他任务。 有关演示如何使用该窗口的示例，请参阅 [快速入门︰ 调试 JavaScript](../debugger/quickstart-debug-javascript-using-the-console.md)。 本主题中的信息适用于 Windows 应用商店应用、Windows Phone 应用商店应用，以及使用 Visual Studio Tools for Apache Cordova 创建的应用。 有关 Cordova 应用中受支持控制台命令的信息，请参阅 [Debug Your App](../Topic/Debug%20Your%20App%20Built%20with%20Visual%20Studio%20Tools%20for%20Apache%20Cordova.md)。 有关在 Internet Explorer F12 工具中使用控制台的信息，请参阅 [本主题](http://msdn.microsoft.com/library/ie/dn255006.aspx)。  
+ 你可以在 Visual Studio 的“JavaScript 控制台”窗口中使用命令发送消息和执行其他任务。 有关演示如何使用该窗口的示例，请参阅[快速入门： 调试 JavaScript](../debugger/quickstart-debug-javascript-using-the-console.md)。 本主题中的信息适用于 UWP 应用和使用 Visual Studio Tools for Apache Cordova 创建的应用。 Cordova 应用中受支持的控制台命令的信息，请参阅[调试应用](https://taco.visualstudio.com/en-us/docs/debug-using-visual-studio/)。 有关在 Internet Explorer F12 工具中使用控制台的信息，请参阅 [本主题](http://msdn.microsoft.com/library/ie/dn255006.aspx)。  
   
- 如果“JavaScript 控制台”窗口已关闭，可在 Visual Studio 中调试时，单击 **“调试”** > **“窗口”** > **“JavaScript 控制台”**。  
+ 如果 JavaScript 控制台窗口已关闭，你可以打开它通过选择在 Visual Studio 中调试时**调试** > **Windows** > **JavaScript控制台**。  
   
 > [!NOTE]
 >  如果该窗口在调试会话期间不可用，请确保在项目的“调试”属性中将调试器类型设置为 **“脚本”** 。  
@@ -59,10 +59,10 @@ manager: "ghogen"
 |`groupEnd()`|当前组结束。<br /><br /> 要求：<br /><br /> Visual Studio 2013|请参见 `group` 命令的示例。|  
 |`info(message)`|向控制台窗口发送 `message` 。 消息以信息符号开头。|`console.info("info message");`<br /><br /> 有关更多示例，请参阅本主题后面部分的 [Formatting console.log output](#ConsoleLog) 。|  
 |`log(message)`|向控制台窗口发送 `message` 。<br /><br /> 若传递某个对象，则该命令将该对象发送到控制台窗口并在对象可视化工具中显示它。 可使用该可视化工具在控制台窗口中检查属性。|`console.log("logging message");`|  
-|`msIsIndependentlyComposed(element)`|在 Web 应用中使用。 在使用 JavaScript 的应用商店应用中不受支持。|不支持。|  
-|`profile(reportName)`|在 Web 应用中使用。 在使用 JavaScript 的应用商店应用中不受支持。|不支持。|  
-|`profileEnd()`|在 Web 应用中使用。 在使用 JavaScript 的应用商店应用中不受支持。|不支持。|  
-|`select(element)`|在 `element` DOM 资源管理器 [中选择指定的 HTML](../debugger/quickstart-debug-html-and-css.md)。|console.select(element);|  
+|`msIsIndependentlyComposed(element)`|在 Web 应用中使用。 使用 JavaScript 的 UWP 应用中不支持。|不支持。|  
+|`profile(reportName)`|在 Web 应用中使用。 使用 JavaScript 的 UWP 应用中不支持。|不支持。|  
+|`profileEnd()`|在 Web 应用中使用。 使用 JavaScript 的 UWP 应用中不支持。|不支持。|  
+|`select(element)`|选择指定的 HTML`element`中[DOM 资源管理器](../debugger/quickstart-debug-html-and-css.md)。|console.select(element);|  
 |`time (name)`|启动由可选的 `name` 参数标识的计时器。 配合 `console.timeEnd`使用时，计算 `time` 和 `timeEnd`之间经历的时间，并使用 `name` 字符串作为前缀将结果（以 ms 为测量单位）发送到控制台。 用于启用应用程序代码的检测以衡量性能。|`console.time("app start");  app.start();  console.timeEnd("app start");`|  
 |`timeEnd(name)`|停止由可选的 `name` 参数标识的计时器。 请参见 `time` 控制台命令。|`console.time("app start"); app.start(); console.timeEnd("app start");`|  
 |`trace()`|将堆栈跟踪发送到控制台窗口。 跟踪包括完整的调用堆栈以及文件名、行号和列号等信息。|`console.trace();`|  
@@ -77,7 +77,7 @@ manager: "ghogen"
 |`$(id)`|按 ID 返回元素。 这是 `document.getElementById(id)`的快捷方式命令，其中 `id` 是一个表示元素 ID 的字符串。|`$("contenthost")`|  
 |`$$(selector)`|使用 CSS 选择器语法返回与指定选择器匹配的元素的数组。 这是 `document.querySelectorAll()`的快捷方式命令。|`$$(".itemlist")`|  
 |`cd()`<br /><br /> `cd(window)`|用于将表达式计算的上下文从页面的默认顶级窗口改为指定框架的窗口。 无参数调用 `cd()` 可使上下文返回顶级窗口。|`cd();`<br /><br /> `cd(myframe);`|  
-|`select(element)`|在 [DOM 资源管理器](../debugger/quickstart-debug-html-and-css.md)中选择指定元素。|`select(document.getElementById("element"));`<br /><br /> `select($("element"));`<br /><br /> `select($1);`|  
+|`select(element)`|选择中的指定的元素[DOM 资源管理器](../debugger/quickstart-debug-html-and-css.md)。|`select(document.getElementById("element"));`<br /><br /> `select($("element"));`<br /><br /> `select($1);`|  
 |`dir(object)`|为指定的对象返回一个可视化工具。 可使用该可视化工具在控制台窗口中检查属性。|`dir(obj);`|  
   
 ## <a name="checking-whether-a-console-command-exists"></a>检查控制台命令是否存在  
@@ -93,7 +93,7 @@ if (console && console.log) {
 ## <a name="examining-objects-in-the-javascript-console-window"></a>检查“JavaScript 控制台”窗口中的对象  
  使用“JavaScript 控制台”窗口时，你可以与范围内的任何对象进行交互。 若要检查控制台窗口中超出范围的对象，请在代码中使用 `console.log` 、 `console.dir`或其他命令。 当对象在范围内时，你还可以在代码中设置断点（**“断点”** > **Insert “断点”**），从控制台窗口与对象进行交互。  
   
-##  <a name="a-nameconsoleloga-formatting-consolelog-output"></a><a name="ConsoleLog"></a> 格式化 console.log 输出  
+##  <a name="ConsoleLog"></a>格式化 console.log 输出  
  若将多个参数传递给 `console.log`，则控制台将这些参数视为数组并连接输出。  
   
 ```javascript  
@@ -138,5 +138,5 @@ console.log("%s is %f years old!", user.first, user.age);
 ```  
   
 ## <a name="see-also"></a>另请参阅  
- [快速入门︰ 调试 JavaScript](../debugger/quickstart-debug-javascript-using-the-console.md)   
- [快速入门︰ 调试 HTML 和 CSS](../debugger/quickstart-debug-html-and-css.md)
+ [快速入门： 调试 JavaScript](../debugger/quickstart-debug-javascript-using-the-console.md)   
+ [快速入门：调试 HTML 和 CSS](../debugger/quickstart-debug-html-and-css.md)

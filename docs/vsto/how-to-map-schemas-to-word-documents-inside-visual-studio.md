@@ -1,70 +1,72 @@
 ---
-title: "如何：将架构映射到 Visual Studio 内部的 Word 文档"
-ms.custom: ""
-ms.date: "02/02/2017"
-ms.prod: "visual-studio-dev14"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "office-development"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-dev_langs: 
-  - "VB"
-  - "CSharp"
-helpviewer_keywords: 
-  - "映射 [Visual Studio 中的 Office 开发], XML 架构到 Word 文档"
-  - "Word [Visual Studio 中的 Office 开发], 映射 XML 架构"
-  - "XML 架构 [Visual Studio 中的 Office 开发], 映射"
+title: "如何： 将架构映射到 Visual Studio 内部的 Word 文档 |Microsoft 文档"
+ms.custom: 
+ms.date: 02/02/2017
+ms.reviewer: 
+ms.suite: 
+ms.technology: office-development
+ms.tgt_pltfrm: 
+ms.topic: article
+dev_langs:
+- VB
+- CSharp
+helpviewer_keywords:
+- XML schemas [Office development in Visual Studio], mapping
+- mappings [Office development in Visual Studio], XML schemas to Word documents
+- Word [Office development in Visual Studio], mapping XML schemas
 ms.assetid: 9bfb3c7b-6392-45bd-b4c1-b2012b9ded69
-caps.latest.revision: 27
-author: "kempb"
-ms.author: "kempb"
-manager: "ghogen"
-caps.handback.revision: 26
+caps.latest.revision: "27"
+author: gewarren
+ms.author: gewarren
+manager: ghogen
+ms.openlocfilehash: fdfc13415a06960ad0ec736b19eb5b2483e7f19c
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# 如何：将架构映射到 Visual Studio 内部的 Word 文档
-  **重要事项** 有关 Microsoft Word 的本主题开头的信息对于位于美国境外及其领土或使用对单个的优点和使用完全呈现和组织，或者运行的开发的程序，即在 2010 年一月之前的 Microsoft 许可证的 Microsoft Word 产品，那么，当 Microsoft 从 Microsoft Word 移除了特殊功能的实现与自定义 XML 相关。  凡位于美国及其各州内的个体或组织，在使用或开发用于在由 Microsoft 于 2010 年 1 月 10 日之后授予许可的 Microsoft Word 产品上运行的程序时，请勿参考或使用此与 Microsoft Word 相关的信息；这些产品与此许可日期之前的产品，或在美国以外的国家\/地区销售和授予使用许可的产品的行为不同。  
+# <a name="how-to-map-schemas-to-word-documents-inside-visual-studio"></a>如何：将架构映射到 Visual Studio 内部的 Word 文档
+  **重要**提出有关 Microsoft Word 本主题中的信息不提供的以独占方式适合的好处和使用个人和组织用户位于美国和其区域之外，或使用，或开发在运行的程序，在 2010 年 1 月，Microsoft 中删除的特定功能实现的时间之前已授权的 Microsoft 的 Microsoft Word 产品被与 Microsoft Word 自定义 XML。 有关 Microsoft Word 此信息不能读取或使用的个人或美国或其地区熟悉使用，或开发在 Microsoft Word 2010 年 1 月 10 日之后已授权的 Microsoft 的产品运行的程序中的组织;这些产品将无法与产品许可在该日期之前或购买并获得美国以外的使用许可相同。  
   
  [!INCLUDE[appliesto_wdalldoc](../vsto/includes/appliesto-wdalldoc-md.md)]  
   
- 当文档在 Visual Studio 中打开时，可以将 XML 架构映射到该文档。  使用的 Microsoft Office Word 工具与文档在 Visual Studio 外部打开时使用的工具相同。  不管是在创建 Word 解决方案之前还是之后将架构映射到文档，Office 项目都会创建相同的对象。  
+ 在 Visual Studio 中打开文档时，你可以将 XML 架构映射到文档。 使用 Visual Studio 外部打开文档时使用的相同的 Microsoft Office Word 工具。 是否将架构映射到的文档之前或之后创建 Word 解决方案时，Office 项目创建相同的对象。  
   
-### 在 Visual Studio 中将 XML 架构映射到 Word 文档  
+### <a name="to-map-an-xml-schema-to-a-word-document-in-visual-studio"></a>若要将 XML 架构映射到 Visual Studio 中的 Word 文档  
   
-1.  在 Visual Studio 内打开 Word 文档或模板项目。  
+1.  打开 Visual Studio 内部的 Word 文档或模板项目。  
   
-2.  在文档内部单击，使设计器获得焦点。  
+2.  单击要将焦点移到设计器中的文档中。  
   
-3.  在功能区上，单击**“开发人员”**选项卡。  
+3.  在功能区上，单击 **“开发人员”** 选项卡。  
   
     > [!NOTE]  
-    >  如果看不到**“开发人员”**选项卡，您必须首先显示该选项卡。  有关更多信息，请参见[如何：在功能区上显示“开发人员”选项卡](../vsto/how-to-show-the-developer-tab-on-the-ribbon.md)。  
+    >  如果看不到 **“开发人员”** 选项卡，则必须首先显示它。 有关详细信息，请参阅 [How to: Show the Developer Tab on the Ribbon](../vsto/how-to-show-the-developer-tab-on-the-ribbon.md)。  
   
-4.  在**“XML”**组中，单击**“架构”**。  
+4.  在**XML**组中，单击**架构**。  
   
-     **“模板和加载项”**对话框将打开。  
+     **模板和外接程序**对话框随即打开。  
   
-5.  单击**“XML 架构”**选项卡。  
+5.  单击**XML 架构**选项卡。  
   
-6.  单击**“添加架构”**。  
+6.  单击**将架构添加**。  
   
-     随即打开**“添加架构”**对话框。  
+     **添加架构**对话框随即打开。  
   
-7.  浏览至架构文件，选择该文件，然后单击**“打开”**。  
+7.  浏览到你的架构文件，选择它，，然后单击**打开**。  
   
-     **“架构设置”**对话框打开。  
+     **架构设置**对话框随即打开。  
   
-8.  分配一个别名或单击**“确定”**，以添加没有别名的架构。  
+8.  分配一个别名，或单击**确定**以添加别名没有架构。  
   
-9. 单击**“确定”**。  
+9. 单击“确定”。  
   
-     **“XML 结构”**窗口打开。  
+     **XML 结构**窗口随即打开。  
   
-10. 将元素从**“XML 结构”**窗口拖动到文档中要创建相应控件的位置。  
+10. 将元素从**XML 结构**到文档中的位置，想要创建的相应控件的窗口。  
   
-## 请参阅  
- [如何：将架构映射到 Visual Studio 内部的工作表](../vsto/how-to-map-schemas-to-worksheets-inside-visual-studio.md)   
+## <a name="see-also"></a>另请参阅  
+ [如何： 将架构映射到 Visual Studio 内部的工作表](../vsto/how-to-map-schemas-to-worksheets-inside-visual-studio.md)   
  [文档级自定义项中的 XML 架构和数据](../vsto/xml-schemas-and-data-in-document-level-customizations.md)  
   
   

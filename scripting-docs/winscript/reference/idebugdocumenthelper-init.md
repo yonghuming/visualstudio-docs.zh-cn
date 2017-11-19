@@ -1,27 +1,30 @@
 ---
-title: "IDebugDocumentHelper::Init | Microsoft Docs"
-ms.custom: ""
-ms.date: "01/18/2017"
-ms.prod: "windows-script-interfaces"
-ms.reviewer: ""
-ms.suite: ""
-ms.tgt_pltfrm: ""
-ms.topic: "reference"
+title: "IDebugDocumentHelper::Init |Microsoft 文档"
+ms.custom: 
+ms.date: 01/18/2017
+ms.prod: windows-script-interfaces
+ms.reviewer: 
+ms.suite: 
+ms.tgt_pltfrm: 
+ms.topic: reference
 apiname: IDebugDocumentHelper.Init
 apilocation: pdm.dll
-helpviewer_keywords: 
-  - "IDebugDocumentHelper::Init"
+helpviewer_keywords: IDebugDocumentHelper::Init
 ms.assetid: 1dd5a01f-0779-4109-8c6c-f16f5a3835bf
-caps.latest.revision: 8
-author: "mikejo5000"
-ms.author: "mikejo"
-manager: "ghogen"
-caps.handback.revision: 8
+caps.latest.revision: "8"
+author: mikejo5000
+ms.author: mikejo
+manager: ghogen
+ms.openlocfilehash: 45cd57e4ba9e86bf84f927f487c637d61aa5339b
+ms.sourcegitcommit: aadb9588877418b8b55a5612c1d3842d4520ca4c
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/27/2017
 ---
-# IDebugDocumentHelper::Init
-`Init` 方法初始化调试文档与初始属性的帮助器。  
+# <a name="idebugdocumenthelperinit"></a>IDebugDocumentHelper::Init
+`Init`方法初始化具有名称和初始的属性的调试文档帮助。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
 ```  
 HRESULT Init(  
@@ -32,32 +35,32 @@ HRESULT Init(
 );  
 ```  
   
-#### 参数  
+#### <a name="parameters"></a>参数  
  `pda`  
- \[in\]调试应用程序与此文档。  
+ [in]调试应用程序与此文档关联。  
   
  `pszShortName`  
- \[in\]一个Null终止的包含文档的短名称的字符串。  
+ [in]以 null 结尾的字符串，包含文档的短名称。  
   
  `pszLongName`  
- \[in\]一个Null终止的包含文档的长名称的字符串。  
+ [in]以 null 结尾的字符串，包含长名称的文档。  
   
  `docAttr`  
- \[in\]用于指定文本文档属性。  
+ [in]指定文本文档属性。  
   
-## 返回值  
- 该方法返回 `HRESULT`。  可能的值包括，但是，并不限于，这些下表中。  
+## <a name="return-value"></a>返回值  
+ 该方法返回 `HRESULT`。 可能的值包括（但并不限于）下表中的项。  
   
-|值|说明|  
-|-------|--------|  
+|值|描述|  
+|-----------|-----------------|  
 |`S_OK`|方法成功。|  
   
-## 备注  
- 此方法初始化调试文档与初始属性的帮助器。  
+## <a name="remarks"></a>备注  
+ 此方法初始化具有名称和初始的属性的调试文档帮助。  
   
- 文档不会出现在树，直到 `IDebugDocumentHelper::Attach` 调用。  
+ 本文档不会显示在树中，直到`IDebugDocumentHelper::Attach`调用。  
   
-## 请参阅  
+## <a name="see-also"></a>另请参阅  
  [IDebugDocumentHelper::Attach](../../winscript/reference/idebugdocumenthelper-attach.md)   
  [IDebugDocumentHelper 接口](../../winscript/reference/idebugdocumenthelper-interface.md)   
- [TEXT\_DOC\_ATTR 常量](../../winscript/reference/text-doc-attr-constants.md)
+ [TEXT_DOC_ATTR 常量](../../winscript/reference/text-doc-attr-constants.md)

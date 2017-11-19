@@ -1,53 +1,53 @@
 ---
-title: "IDebugProgramNode2::GetHostPid | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "IDebugProgramNode2::GetHostPid"
-helpviewer_keywords: 
-  - "IDebugProgramNode2::GetHostPid"
+title: "IDebugProgramNode2::GetHostPid |Microsoft 文档"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology: vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords: IDebugProgramNode2::GetHostPid
+helpviewer_keywords: IDebugProgramNode2::GetHostPid
 ms.assetid: e65b4b15-46d8-4ca7-9456-2b4c078f7cf9
-caps.latest.revision: 12
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 12
+caps.latest.revision: "12"
+author: gregvanl
+ms.author: gregvanl
+manager: ghogen
+ms.openlocfilehash: 163999e160baeaaad618ee793a1879da694e35ea
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# IDebugProgramNode2::GetHostPid
-[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
-
-获取系统处理承载程序的进程的标识符。  
+# <a name="idebugprogramnode2gethostpid"></a>IDebugProgramNode2::GetHostPid
+获取承载此程序的进程的系统进程标识符。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
-```cpp#  
-HRESULT GetHostPid (   
-   AD_PROCESS_ID * pdwHostPid  
+```cpp  
+HRESULT GetHostPid (   
+   AD_PROCESS_ID * pdwHostPid  
 );  
 ```  
   
-```c#  
-int GetHostPid (   
-   out AD_PROCESS_ID pdwHostPid  
+```csharp  
+int GetHostPid (   
+   out AD_PROCESS_ID pdwHostPid  
 );  
 ```  
   
-#### 参数  
+#### <a name="parameters"></a>参数  
  `pdwHostPid`  
- \[out\] 返回该系统进程承载的标识符处理。  
+ [out]返回宿主进程的系统进程标识符。  
   
-## 返回值  
- 如果成功，则返回; `S_OK`否则，返回错误代码。  
+## <a name="return-value"></a>返回值  
+ 如果成功，则返回`S_OK`; 否则为返回错误代码。  
   
-## 示例  
- 下面的示例演示如何执行简单的 `CProgram` 对象的方法实现 [IDebugProgramNode2](../../../extensibility/debugger/reference/idebugprogramnode2.md) 接口。  
+## <a name="example"></a>示例  
+ 下面的示例演示如何实现此方法对于简单`CProgram`实现对象[IDebugProgramNode2](../../../extensibility/debugger/reference/idebugprogramnode2.md)接口。  
   
-```cpp#  
+```cpp  
 HRESULT CProgram::GetHostPid(DWORD* pdwHostPid) {    
     // Check for valid argument.    
    if (pdwHostPid)    
@@ -62,5 +62,5 @@ HRESULT CProgram::GetHostPid(DWORD* pdwHostPid) {
 }    
 ```  
   
-## 请参阅  
+## <a name="see-also"></a>另请参阅  
  [IDebugProgramNode2](../../../extensibility/debugger/reference/idebugprogramnode2.md)

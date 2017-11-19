@@ -1,53 +1,53 @@
 ---
-title: "IDebugClassField::EnumNestedEnums | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "IDebugClassField::EnumNestedEnums"
-helpviewer_keywords: 
-  - "IDebugClassField::EnumNestedEnums 方法"
+title: "IDebugClassField::EnumNestedEnums |Microsoft 文档"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology: vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords: IDebugClassField::EnumNestedEnums
+helpviewer_keywords: IDebugClassField::EnumNestedEnums method
 ms.assetid: 90fd0cef-9145-4de6-91d4-6c881df39d6e
-caps.latest.revision: 9
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 9
+caps.latest.revision: "9"
+author: gregvanl
+ms.author: gregvanl
+manager: ghogen
+ms.openlocfilehash: 7667e21f57f3fc2844800e498d9519ddf9929f85
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# IDebugClassField::EnumNestedEnums
-[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
-
-创建此类的嵌套枚举的枚举数。  
+# <a name="idebugclassfieldenumnestedenums"></a>IDebugClassField::EnumNestedEnums
+创建此类的嵌套枚举器的枚举数。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
-```cpp#  
-HRESULT EnumNestedEnums(   
-   IEnumDebugFields** ppEnum  
+```cpp  
+HRESULT EnumNestedEnums(   
+   IEnumDebugFields** ppEnum  
 );  
 ```  
   
-```c#  
+```csharp  
 int EnumNestedEnums(  
-   out IEnumDebugFields ppEnum  
+   out IEnumDebugFields ppEnum  
 );  
 ```  
   
-#### 参数  
+#### <a name="parameters"></a>参数  
  `ppEnum`  
- \[out\] 返回表示嵌套的枚举列表 [IEnumDebugFields](../../../extensibility/debugger/reference/ienumdebugfields.md) 对象。  ; 如果没有嵌套的枚举，返回空值。  
+ [out]返回[IEnumDebugFields](../../../extensibility/debugger/reference/ienumdebugfields.md)对象表示嵌套枚举列表。 如果不有任何嵌套的枚举，则返回 null 值。  
   
-## 返回值  
- 如果成功，则返回 S\_OK 或返回 S\_FALSE，如果没有嵌套的枚举器。  否则，返回错误代码。  
+## <a name="return-value"></a>返回值  
+ 如果成功，返回，则为 S_OK，则返回 S_FALSE，如果不有任何嵌套的枚举器。 否则，返回错误代码。  
   
-## 备注  
- 枚举的每个元素是一个描述嵌套的枚举的 [IDebugEnumField](../../../extensibility/debugger/reference/idebugenumfield.md) 对象。  
+## <a name="remarks"></a>备注  
+ 在枚举每个元素都[IDebugEnumField](../../../extensibility/debugger/reference/idebugenumfield.md)描述嵌套的枚举对象。  
   
- 枚举声明在类中称为 " 嵌套的枚举。  例如，给定：  
+ 枚举在类中声明被视为嵌套的枚举。 例如，给定：  
   
 ```  
 class RootClass {  
@@ -55,9 +55,9 @@ class RootClass {
 };  
 ```  
   
- `EnumNestedEnums` 方法将返回一 [IDebugEnumField](../../../extensibility/debugger/reference/idebugenumfield.md) 对象表示 `NestedEnum` 枚举的 [IEnumDebugFields](../../../extensibility/debugger/reference/ienumdebugfields.md) 对象。  
+ `EnumNestedEnums`方法将返回[IEnumDebugFields](../../../extensibility/debugger/reference/ienumdebugfields.md)对象，其中包含一个[IDebugEnumField](../../../extensibility/debugger/reference/idebugenumfield.md)对象，表示`NestedEnum`枚举。  
   
-## 请参阅  
+## <a name="see-also"></a>另请参阅  
  [IDebugClassField](../../../extensibility/debugger/reference/idebugclassfield.md)   
  [IEnumDebugFields](../../../extensibility/debugger/reference/ienumdebugfields.md)   
  [IDebugEnumField](../../../extensibility/debugger/reference/idebugenumfield.md)

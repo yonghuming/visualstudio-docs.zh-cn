@@ -1,61 +1,61 @@
 ---
-title: "IEnumDebugProcesses2 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "IEnumDebugProcesses2"
-helpviewer_keywords: 
-  - "IEnumDebugProcesses2"
+title: "IEnumDebugProcesses2 |Microsoft 文档"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology: vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords: IEnumDebugProcesses2
+helpviewer_keywords: IEnumDebugProcesses2
 ms.assetid: 06a1368f-10f0-44eb-af61-e388c2327111
-caps.latest.revision: 13
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 13
+caps.latest.revision: "13"
+author: gregvanl
+ms.author: gregvanl
+manager: ghogen
+ms.openlocfilehash: 6e5be156ec0a30f736b96cfe6451b893dfb8eacf
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# IEnumDebugProcesses2
-[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
-
-此接口、枚举过程运行在调试端口。  
+# <a name="ienumdebugprocesses2"></a>IEnumDebugProcesses2
+此接口枚举在调试端口上运行的进程。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
 ```  
 IEnumDebugProcesses : IUnknown  
 ```  
   
-## 实现者说明  
- 自定义端口提供程序实现此接口提供进程列表运行在端口。  
+## <a name="notes-for-implementers"></a>实施者注意事项  
+ 自定义端口供应商提供实现此接口可提供的端口上运行的进程的列表。  
   
-## 调用方的说明  
- Visual Studio 会调用 [EnumProcesses](../Topic/IDebugPort2::EnumProcesses.md) 获取此接口。  
+## <a name="notes-for-callers"></a>调用方的说明  
+ Visual Studio 调用[EnumProcesses](../../../extensibility/debugger/reference/idebugport2-enumprocesses.md)获取此接口。  
   
-## 方法按 Vtable 顺序  
- 下表显示 `IEnumDebugProcesses2`方法。  
+## <a name="methods-in-vtable-order"></a>Vtable 顺序中的方法  
+ 下表显示的方法`IEnumDebugProcesses2`。  
   
-|方法|说明|  
-|--------|--------|  
-|[下一步](../../../extensibility/debugger/reference/ienumdebugprocesses2-next.md)|在枚举顺序检索一个指定的数量。|  
-|[Skip](../../../extensibility/debugger/reference/ienumdebugprocesses2-skip.md)|在枚举序列跳过一个指定的数量。|  
-|[重置](../../../extensibility/debugger/reference/ienumdebugprocesses2-reset.md)|重置枚举序列与开头。|  
-|[克隆](../Topic/IEnumDebugProcesses2::Clone.md)|创建包含枚举状态和枚举当前枚举数相同的枚举数。|  
-|[GetCount](../../../extensibility/debugger/reference/ienumdebugprocesses2-getcount.md)|在枚举器获取数量。|  
+|方法|描述|  
+|------------|-----------------|  
+|[下一篇](../../../extensibility/debugger/reference/ienumdebugprocesses2-next.md)|检索指定的枚举序列中的进程数目。|  
+|[Skip](../../../extensibility/debugger/reference/ienumdebugprocesses2-skip.md)|跳过指定的数目的枚举序列中的进程。|  
+|[重置](../../../extensibility/debugger/reference/ienumdebugprocesses2-reset.md)|将枚举序列重置到开头。|  
+|[克隆](../../../extensibility/debugger/reference/ienumdebugprocesses2-clone.md)|创建包含与当前的枚举器相同的枚举状态的枚举。|  
+|[GetCount](../../../extensibility/debugger/reference/ienumdebugprocesses2-getcount.md)|获取枚举器中的进程数。|  
   
-## 备注  
- Visual Studio 使用此接口填充 **处理** 窗口。  
+## <a name="remarks"></a>备注  
+ Visual Studio 使用此接口来填充**进程**窗口。  
   
-## 要求  
- 标题:msdbg.h  
+## <a name="requirements"></a>要求  
+ 标头： msdbg.h  
   
- 命名空间:Microsoft.VisualStudio.Debugger.Interop  
+ Namespace: Microsoft.VisualStudio.Debugger.Interop  
   
- 程序集:Microsoft.VisualStudio.Debugger.Interop.dll  
+ 程序集： Microsoft.VisualStudio.Debugger.Interop.dll  
   
-## 请参阅  
+## <a name="see-also"></a>另请参阅  
  [核心接口](../../../extensibility/debugger/reference/core-interfaces.md)   
- [EnumProcesses](../Topic/IDebugPort2::EnumProcesses.md)
+ [EnumProcesses](../../../extensibility/debugger/reference/idebugport2-enumprocesses.md)

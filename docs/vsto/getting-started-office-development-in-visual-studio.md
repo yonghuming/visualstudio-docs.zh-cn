@@ -1,34 +1,38 @@
 ---
-title: "入门（Visual Studio 中的 Office 开发）"
-ms.custom: ""
-ms.date: "02/02/2017"
-ms.prod: "visual-studio-dev14"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "office-development"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-dev_langs: 
-  - "VB"
-  - "CSharp"
-helpviewer_keywords: 
-  - "Visual Studio 中的 Office 开发, 入门"
+title: "入门 （Visual Studio 中的 Office 开发） |Microsoft 文档"
+ms.custom: 
+ms.date: 02/02/2017
+ms.reviewer: 
+ms.suite: 
+ms.technology: office-development
+ms.tgt_pltfrm: 
+ms.topic: article
+dev_langs:
+- VB
+- CSharp
+helpviewer_keywords: Office development in Visual Studio, getting started
 ms.assetid: fc27e84c-dca2-4b0a-8794-f57a2a886262
-caps.latest.revision: 56
-author: "kempb"
-ms.author: "kempb"
-manager: "ghogen"
-caps.handback.revision: 52
+caps.latest.revision: "56"
+author: gewarren
+ms.author: gewarren
+manager: ghogen
+ms.openlocfilehash: 04e0419fe3c56ef51656aafb20f16d78045dabab
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# 入门（Visual Studio 中的 Office 开发）
+# <a name="getting-started-office-development-in-visual-studio"></a>入门（Visual Studio 中的 Office 开发）
   本部分包含可帮助你开始在 Visual Studio 中使用 Microsoft Office 开发人员工具的主题。  
   
-## 本节内容  
- [Office 解决方案开发概述 &#40;VSTO&#41;](../vsto/office-solutions-development-overview-vsto.md)  
+> [!NOTE]  
+>  开发扩展的 Office 体验跨解决方案是否有兴趣[多个平台](https://dev.office.com/add-in-availability)？ 查看全新[Office 外接程序模型](https://dev.office.com/docs/add-ins/overview/office-add-ins)。 Office 外接程序具有内存占用较小与 VSTO 外接程序和解决方案，相比，并且你可以通过使用几乎任何 web 编程技术，例如 HTML5、 JavaScript、 CSS3 和 XML 生成它们。  
+  
+## <a name="in-this-section"></a>本节内容  
+ [Office 解决方案开发概述 &#40;VSTO &#41;](../vsto/office-solutions-development-overview-vsto.md)  
  提供用于在 Visual Studio 中开发 Office 解决方案的背景信息。  
   
- [面向 .NET Framework 4 或 .NET Framework 4.5 的 Office 项目设计的更改](../vsto/changes-to-the-design-of-office-projects-that-target-the-dotnet-framework-4-or-the-dotnet-framework-4-5.md)  
+ [面向 .NET Framework 4 或 .NET Framework 4.5 的 Office 项目设计更改](../vsto/changes-to-the-design-of-office-projects-that-target-the-dotnet-framework-4-or-the-dotnet-framework-4-5.md)  
  介绍面向 [!INCLUDE[net_v40_short](../sharepoint/includes/net-v40-short-md.md)] 或更高版本的 Office 项目的新设计，并列出迁移至 [!INCLUDE[net_v40_short](../sharepoint/includes/net-v40-short-md.md)] 或更高版本的 Office 项目中的代码的重大更改。  
   
  [按 Office 应用程序和项目类型提供的功能](../vsto/features-available-by-office-application-and-project-type.md)  
@@ -44,7 +48,7 @@ caps.handback.revision: 52
  提供使用 Visual Studio 创建 Word 文档级自定义项所需的重要概念的摘要。  
   
  [VSTO 外接程序编程入门](../vsto/getting-started-programming-vsto-add-ins.md)  
- 提供使用 Visual Studio 创建适用于 Microsoft Office 应用程序的应用程序级 Visual Studio Tools for Office \(VSTO\) 外接程序所需的重要概念的摘要。  
+ 提供使用 Visual Studio 创建适用于 Microsoft Office 应用程序的应用程序级 Visual Studio Tools for Office (VSTO) 外接程序所需的重要概念的摘要。  
   
  [比较 VBA 解决方案和 Visual Studio 中的 Office 解决方案](../vsto/vba-and-office-solutions-in-visual-studio-compared.md)  
  介绍用于开发 Office 解决方案的 Visual Basic for Applications 和 Visual Studio 中的 Office 开发工具的相对优势。  
@@ -52,7 +56,7 @@ caps.handback.revision: 52
  [Office 编程中的常规任务](../vsto/common-tasks-in-office-programming.md)  
  提供指向可帮助解决常见问题的主题的链接。  
   
-## 相关章节  
+## <a name="related-sections"></a>相关章节  
  [Office 开发示例和演练](../vsto/office-development-samples-and-walkthroughs.md)  
  提供指向示例应用程序和主题的链接，这些主题提供有关执行常规任务的分步说明。  
   
@@ -60,12 +64,12 @@ caps.handback.revision: 52
  介绍 Office 解决方案的组件及其在设计时和运行时的工作方式。  
   
  [设计和创建 Office 解决方案](../vsto/designing-and-creating-office-solutions.md)  
- 提供有关如何创建 Office 项目和在 [!INCLUDE[vsprvs](../sharepoint/includes/vsprvs-md.md)] 中配置项目的信息。  
+ 提供有关如何创建 Office 项目和在 [!INCLUDE[vsprvs](../sharepoint/includes/vsprvs-md.md)]中配置项目的信息。  
   
  [开发 Office 解决方案](../vsto/developing-office-solutions.md)  
  提供有关如何在 Office 项目中实现代码和用户界面自定义的信息。  
   
- [保护 Office 解决方案的安全](../vsto/securing-office-solutions.md)  
+ [确保 Office 解决方案的安全](../vsto/securing-office-solutions.md)  
  提供有关 Office 解决方案的安全性要求的信息。  
   
  [部署 Office 解决方案](../vsto/deploying-an-office-solution.md)  

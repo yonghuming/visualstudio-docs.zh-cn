@@ -10,30 +10,15 @@ helpviewer_keywords:
 - layer models, navigating in program code
 - layer models, updating in program code
 ms.assetid: c60edc87-33ee-4964-a954-40069f9febf3
-caps.latest.revision: 20
+caps.latest.revision: "20"
 author: alexhomer1
 ms.author: ahomer
 manager: douge
-translation.priority.ht:
-- cs-cz
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pl-pl
-- pt-br
-- ru-ru
-- tr-tr
-- zh-cn
-- zh-tw
+ms.openlocfilehash: 50da0b90dd1c8924d8772eabd83265ff3827c2c2
+ms.sourcegitcommit: ec1c7e7e3349d2f3a4dc027e7cfca840c029367d
 ms.translationtype: MT
-ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
-ms.openlocfilehash: cfe4f389516a3421bdc0d8643790dbb9c7cc2733
-ms.contentlocale: zh-cn
-ms.lasthandoff: 09/26/2017
-
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="navigate-and-update-layer-models-in-program-code"></a>在程序代码中导航和更新层模型
 本主题介绍了层模型中的元素和关系，可使用程序代码进行导航和更新。 有关从用户的角度来看的依赖项关系图的详细信息，请参阅[依赖项关系图： 参考](../modeling/layer-diagrams-reference.md)和[依赖项关系图： 准则](../modeling/layer-diagrams-guidelines.md)。  
@@ -137,7 +122,7 @@ public void ... (...)
   
  ![每个 ilayerelement 都由一个 ishape 表示。] (../modeling/media/layerapi_shapes.png "LayerApi_Shapes")  
   
- <xref:Microsoft.VisualStudio.ArchitectureTools.Extensibility.Presentation.IShape> 和 <xref:Microsoft.VisualStudio.ArchitectureTools.Extensibility.Presentation.IDiagram> 也用于显示 UML 模型。 有关详细信息，请参阅[关系图上显示 UML 模型](../modeling/display-a-uml-model-on-diagrams.md)。  
+ <xref:Microsoft.VisualStudio.ArchitectureTools.Extensibility.Presentation.IShape> 和 <xref:Microsoft.VisualStudio.ArchitectureTools.Extensibility.Presentation.IDiagram> 也用于显示 UML 模型。 
   
 ## <a name="see-also"></a>另请参阅  
  [向依赖项关系图添加命令和笔势](../modeling/add-commands-and-gestures-to-layer-diagrams.md)   
@@ -145,4 +130,3 @@ public void ... (...)
  [将自定义属性添加到依赖项关系图](../modeling/add-custom-properties-to-layer-diagrams.md)   
  [依赖项关系图： 参考](../modeling/layer-diagrams-reference.md)   
  [依赖项关系图：指南](../modeling/layer-diagrams-guidelines.md)   
-

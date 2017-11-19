@@ -1,44 +1,47 @@
 ---
-title: "IDebugProperty::SetValueAsString | Microsoft Docs"
-ms.custom: ""
-ms.date: "01/18/2017"
-ms.prod: "windows-script-interfaces"
-ms.reviewer: ""
-ms.suite: ""
-ms.tgt_pltfrm: ""
-ms.topic: "reference"
+title: "IDebugProperty::SetValueAsString |Microsoft 文档"
+ms.custom: 
+ms.date: 01/18/2017
+ms.prod: windows-script-interfaces
+ms.reviewer: 
+ms.suite: 
+ms.tgt_pltfrm: 
+ms.topic: reference
 apiname: IDebugProperty.SetValueAsString
 apilocation: scrobj.dll
-helpviewer_keywords: 
-  - "IDebugProperty::SetValueAsString"
+helpviewer_keywords: IDebugProperty::SetValueAsString
 ms.assetid: cad8d7b2-19a5-4a29-9000-cafdecdc238b
-caps.latest.revision: 8
-author: "mikejo5000"
-ms.author: "mikejo"
-manager: "ghogen"
-caps.handback.revision: 8
+caps.latest.revision: "8"
+author: mikejo5000
+ms.author: mikejo
+manager: ghogen
+ms.openlocfilehash: 88a7cba4ec83c5428dd4da4a23ce554702177e76
+ms.sourcegitcommit: aadb9588877418b8b55a5612c1d3842d4520ca4c
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/27/2017
 ---
-# IDebugProperty::SetValueAsString
-设置属性的值从特定字符串的。  
+# <a name="idebugpropertysetvalueasstring"></a>IDebugProperty::SetValueAsString
+从给定字符串设置属性的值。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
 ```  
 HRESULT SetValueAsString (  
-   LPCOLESTR pszValue,  
-   UINT nRadix,  
+   LPCOLESTR pszValue,  
+   UINTnRadix,  
 );  
 ```  
   
-#### 参数  
+#### <a name="parameters"></a>参数  
  `pszValue`  
- \[in\]要设置的值。  
+ [in]要设置的值。  
   
  `nRadix`  
- \[in\]用于解释任何数字信息基数。  
+ [in]用于解释的任何数字信息的基数。  
   
-## 返回值  
- 返回有效的 `HRESULT`，通常 `S_OK`。  
+## <a name="return-value"></a>返回值  
+ 返回一个有效`HRESULT`，通常`S_OK`。  
   
-## 请参阅  
+## <a name="see-also"></a>另请参阅  
  [IDebugProperty 接口](../../winscript/reference/idebugproperty-interface.md)

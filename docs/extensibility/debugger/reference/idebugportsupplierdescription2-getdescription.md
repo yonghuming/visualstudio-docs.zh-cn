@@ -1,51 +1,52 @@
 ---
-title: "IDebugPortSupplierDescription2::GetDescription | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-helpviewer_keywords: 
-  - "IDebugPortSupplierDescription2::GetDescription"
+title: "IDebugPortSupplierDescription2::GetDescription |Microsoft 文档"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology: vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+helpviewer_keywords: IDebugPortSupplierDescription2::GetDescription
 ms.assetid: bff5f536-1cd1-4313-8856-db7b05818305
-caps.latest.revision: 8
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 8
+caps.latest.revision: "8"
+author: gregvanl
+ms.author: gregvanl
+manager: ghogen
+ms.openlocfilehash: d281ae3b069eb3644e57b82581cc3f5b51a7b0c2
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# IDebugPortSupplierDescription2::GetDescription
-[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
-
-检索说明和说明元数据端口提供程序的。  
+# <a name="idebugportsupplierdescription2getdescription"></a>IDebugPortSupplierDescription2::GetDescription
+检索端口供应商的说明和描述元数据。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
-```cpp#  
+```cpp  
 HRESULT GetDescription(  
-   PORT_SUPPLIER_DESCRIPTION_FLAGS *pdwFlags,  
-   BSTR *pbstrText  
+   PORT_SUPPLIER_DESCRIPTION_FLAGS *pdwFlags,  
+   BSTR *pbstrText  
 );  
 ```  
   
-```c#  
+```csharp  
 public int GetDescription(  
-   out enum_PORT_SUPPLIER_DESCRIPTION_FLAGS pdwFlags,  
-   out string pbstrText  
+   out enum_PORT_SUPPLIER_DESCRIPTION_FLAGS pdwFlags,  
+   out string pbstrText  
 );  
 ```  
   
-#### 参数  
+#### <a name="parameters"></a>参数  
  `pdwFlags`  
- \[out\] 声明的元数据标志。  
+ [out]有关说明的元数据标志。  
   
  `pbstrText`  
- \[out\] 端口提供程序的说明。  
+ [out]端口供应商的说明。  
   
-## 返回值  
- 如果成功，则返回; `S_OK`否则，返回错误代码。  
+## <a name="return-value"></a>返回值  
+ 如果成功，则返回`S_OK`; 否则为返回错误代码。  
   
-## 请参阅  
+## <a name="see-also"></a>另请参阅  
  [IDebugPortSupplierDescription2](../../../extensibility/debugger/reference/idebugportsupplierdescription2.md)

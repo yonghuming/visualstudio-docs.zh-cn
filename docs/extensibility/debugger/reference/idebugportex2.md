@@ -4,37 +4,21 @@ ms.custom:
 ms.date: 11/04/2016
 ms.reviewer: 
 ms.suite: 
-ms.technology:
-- vs-ide-sdk
+ms.technology: vs-ide-sdk
 ms.tgt_pltfrm: 
 ms.topic: article
-f1_keywords:
-- IDebugPortEx2
-helpviewer_keywords:
-- IDebugPortEx2 interface
+f1_keywords: IDebugPortEx2
+helpviewer_keywords: IDebugPortEx2 interface
 ms.assetid: 144724d0-38ee-4c9b-87ca-8a504371182b
-caps.latest.revision: 13
+caps.latest.revision: "13"
+author: gregvanl
 ms.author: gregvanl
 manager: ghogen
-translation.priority.mt:
-- cs-cz
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pl-pl
-- pt-br
-- ru-ru
-- tr-tr
-- zh-cn
-- zh-tw
-translationtype: Machine Translation
-ms.sourcegitcommit: ca7c86466fa23fb21a932f26dc24e37c71cf29b4
-ms.openlocfilehash: fa36bf7ae96058c4eb7c0462114af50fa08af656
-ms.lasthandoff: 04/05/2017
-
+ms.openlocfilehash: 06eab3133669381d13416c0990370ad01378222c
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="idebugportex2"></a>IDebugPortEx2
 此接口可让调试程序和在端口上运行的进程管理器 (SDM) 控制会话。  
@@ -69,11 +53,11 @@ IDebugPortEx2 : IUnknown
  如果需要，调试引擎 (DE) 可以查看为此接口[IDebugPort2](../../../extensibility/debugger/reference/idebugport2.md)接口传递到[LaunchSuspended](../../../extensibility/debugger/reference/idebugenginelaunch2-launchsuspended.md)并用[LaunchSuspended](../../../extensibility/debugger/reference/idebugportex2-launchsuspended.md)要启动程序。 但是，这是不是一种要求，并且 DE 可以执行它需要执行要启动请求程序的任何内容。  
   
 ## <a name="requirements"></a>要求  
- 标头︰ portpriv.h  
+ 标头： portpriv.h  
   
  Namespace: Microsoft.VisualStudio.Debugger.Interop  
   
- 程序集︰ Microsoft.VisualStudio.Debugger.Interop.dll  
+ 程序集： Microsoft.VisualStudio.Debugger.Interop.dll  
   
 ## <a name="see-also"></a>另请参阅  
  [核心接口](../../../extensibility/debugger/reference/core-interfaces.md)   

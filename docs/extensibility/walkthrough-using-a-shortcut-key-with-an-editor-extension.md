@@ -1,59 +1,60 @@
 ---
-title: "演练︰ 使用快捷键与编辑器扩展 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-helpviewer_keywords: 
-  - "编辑器 [Visual Studio SDK]，新-将键击链接到命令"
+title: "演练： 使用快捷键编辑器扩展名 |Microsoft 文档"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology: vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+helpviewer_keywords: editors [Visual Studio SDK], new - link keystrokes to commands
 ms.assetid: cf6cc6c6-5a65-4f90-8f14-663decf74672
-caps.latest.revision: 32
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 32
+caps.latest.revision: "32"
+author: gregvanl
+ms.author: gregvanl
+manager: ghogen
+ms.openlocfilehash: 8066ac52076afd9c0f8cb697ca51327188c9c216
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# 演练︰ 使用快捷键与编辑器扩展
-[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
-
-可以在您的编辑器扩展来响应键盘快捷方式。 下面的演练演示如何使用快捷方式键将视图修饰添加到文本视图。 本演练基于视区修饰编辑器模板，并且它允许您通过使用添加修饰 \+ 字符。  
+# <a name="walkthrough-using-a-shortcut-key-with-an-editor-extension"></a>演练： 使用快捷键编辑器扩展名
+您可以在你的编辑器扩展响应快捷键。 下面的演练演示如何将视图修饰添加到文本视图中，通过使用快捷方式的键。 本演练基于视区修饰编辑器模板，并且它使你使用添加修饰 + 字符。  
   
-## 系统必备  
- 启动 Visual Studio 2015 中，您并不安装 Visual Studio SDK 从下载中心获得。 它将包括作为 Visual Studio 安装程序中的可选功能。 您还可以在以后安装 VS SDK。 有关详细信息，请参阅[安装 Visual Studio SDK](../extensibility/installing-the-visual-studio-sdk.md)。  
+## <a name="prerequisites"></a>先决条件  
+ 从 Visual Studio 2015 开始，你并不安装 Visual Studio SDK 从下载中心。 它将包括作为 Visual Studio 安装程序中的可选功能。 你还可以在以后安装 VS SDK。 有关详细信息，请参阅[安装 Visual Studio SDK](../extensibility/installing-the-visual-studio-sdk.md)。  
   
-## 创建 Managed Extensibility Framework \(MEF\) 项目  
+## <a name="creating-a-managed-extensibility-framework-mef-project"></a>创建 Managed Extensibility Framework (MEF) 项目  
   
-1.  创建 C\# VSIX 项目。 \(在 **新项目** 对话框中，选择 **Visual C\# \/ 可扩展性**, ，然后 **VSIX 项目**。\) 将解决方案命名 `KeyBindingTest`。  
+1.  创建 C# VSIX 项目。 (在**新项目**对话框中，选择**Visual C# / 可扩展性**，然后**VSIX 项目**。)将解决方案命名`KeyBindingTest`。  
   
-2.  编辑器文本修饰项模板添加到项目并将其命名 `KeyBindingTest`。 有关更多信息，请参见[在编辑器中的项模板创建扩展](../extensibility/creating-an-extension-with-an-editor-item-template.md)。  
+2.  向项目添加编辑器文本修饰项模板并将其命名`KeyBindingTest`。 有关详细信息，请参阅[带有编辑器项模板创建扩展](../extensibility/creating-an-extension-with-an-editor-item-template.md)。  
   
-3.  添加以下引用，并设置 **CopyLocal** 到 `false`:  
+3.  添加以下引用和设置**CopyLocal**到`false`:  
   
      Microsoft.VisualStudio.Editor  
   
      Microsoft.VisualStudio.OLE.Interop  
   
-     Microsoft.VisualStudio.Shell.14.0  
+     Microsoft.visualstudio.shell.14.0 的引用  
   
      Microsoft.VisualStudio.TextManager.Interop  
   
- 在 KeyBindingTest 类文件中，将类名更改为 PurpleCornerBox。 用于变量的灯泡图标显示在左边距中进行其他适当的更改。 在构造函数，从修饰层的名称更改 **KeyBindingTest** 到 **PurpleCornerBox**:  
+ 在 KeyBindingTest 类文件中，将类名更改为 PurpleCornerBox。 使用的左边距中显示的电灯泡进行其他相应的更改。 在构造函数中，更改从修饰层的名称**KeyBindingTest**到**PurpleCornerBox**:  
   
-```c#  
+```csharp  
 this.layer = view.GetAdornmentLayer("PurpleCornerBox");  
 ```  
   
-## 定义命令筛选器  
- 命令筛选器是实现 <xref:Microsoft.VisualStudio.OLE.Interop.IOleCommandTarget>, ，用于处理该命令通过实例化修饰。  
+## <a name="defining-the-command-filter"></a>定义命令筛选器  
+ 命令筛选器是实现<xref:Microsoft.VisualStudio.OLE.Interop.IOleCommandTarget>，可通过实例化修饰处理该命令。  
   
-1.  添加一个类文件并将其命名 `KeyBindingCommandFilter`。  
+1.  添加一个类文件并将其命名`KeyBindingCommandFilter`。  
   
 2.  添加下面的 using 语句。  
   
-    ```c#  
+    ```csharp  
     using System;  
     using System.Runtime.InteropServices;  
     using Microsoft.VisualStudio.OLE.Interop;  
@@ -62,24 +63,24 @@ this.layer = view.GetAdornmentLayer("PurpleCornerBox");
   
     ```  
   
-3.  名为 KeyBindingCommandFilter 的类应继承自 <xref:Microsoft.VisualStudio.OLE.Interop.IOleCommandTarget>。  
+3.  名为 KeyBindingCommandFilter 的类应从继承<xref:Microsoft.VisualStudio.OLE.Interop.IOleCommandTarget>。  
   
-    ```c#  
-    internal class KeyBindingCommandFilter : IOleCommandTarget  
+    ```csharp  
+    internal class KeyBindingCommandFilter : IOleCommandTarget  
     ```  
   
-4.  在该命令链和一个标志，用于表示是否已添加的命令筛选器添加为文本视图的私有字段、 下一步命令。  
+4.  添加为文本视图的私有字段下, 一个命令中的命令链和一个标志，用于表示是否已添加的命令筛选器。  
   
-    ```c#  
+    ```csharp  
     private IWpfTextView m_textView;  
     internal IOleCommandTarget m_nextTarget;  
-    internal bool m_added;  
-    internal bool m_adorned;  
+    internal bool m_added;  
+    internal bool m_adorned;  
     ```  
   
-5.  添加一个构造函数来设置文本视图。  
+5.  添加设置文本视图的构造函数。  
   
-    ```c#  
+    ```csharp  
     public KeyBindingCommandFilter(IWpfTextView textView)  
     {  
         m_textView = textView;  
@@ -87,7 +88,7 @@ this.layer = view.GetAdornmentLayer("PurpleCornerBox");
     }  
     ```  
   
-6.  实现 `QueryStatus()` 方法，如下所示。  
+6.  实现`QueryStatus()`方法，如下所示。  
   
     ```vb  
     int IOleCommandTarget.QueryStatus(ref Guid pguidCmdGroup, uint cCmds, OLECMD[] prgCmds, IntPtr pCmdText)  
@@ -96,9 +97,9 @@ this.layer = view.GetAdornmentLayer("PurpleCornerBox");
     }  
     ```  
   
-7.  实现 `Exec()` 方法，以便它向视图添加一个紫色框中，如果 \+ 键入字符。  
+7.  实现`Exec()`方法，以便它将一个紫色框添加到视图如果 + 类型字符。  
   
-    ```c#  
+    ```csharp  
     int IOleCommandTarget.Exec(ref Guid pguidCmdGroup, uint nCmdID, uint nCmdexecopt, IntPtr pvaIn, IntPtr pvaOut)  
     {  
         if (m_adorned == false)  
@@ -120,12 +121,12 @@ this.layer = view.GetAdornmentLayer("PurpleCornerBox");
   
     ```  
   
-## 添加命令筛选器  
- 修饰提供程序必须将命令筛选器添加到文本视图。 在此示例中，提供程序实现 <xref:Microsoft.VisualStudio.Editor.IVsTextViewCreationListener> 来侦听文本视图创建事件。 此修饰提供程序还将导出修饰层，它定义修饰的 Z 顺序。  
+## <a name="adding-the-command-filter"></a>添加命令筛选器  
+ 修饰提供程序必须将命令筛选器添加到文本视图。 在此示例中，提供程序实现<xref:Microsoft.VisualStudio.Editor.IVsTextViewCreationListener>来侦听文本视图创建事件。 此修饰提供程序还将导出修饰层，它定义的修饰的 Z 顺序。  
   
-1.  在 KeyBindingTestTextViewCreationListener 文件中，添加以下 using 语句︰  
+1.  在 KeyBindingTestTextViewCreationListener 文件中，添加以下 using 语句：  
   
-    ```c#  
+    ```csharp  
     using System;  
     using System.Collections.Generic;  
     using System.ComponentModel.Composition;  
@@ -138,35 +139,35 @@ this.layer = view.GetAdornmentLayer("PurpleCornerBox");
   
     ```  
   
-2.  在修饰层定义中，更改的名称从 AdornmentLayer **KeyBindingTest** 到 **PurpleCornerBox**。  
+2.  在修饰层定义中，更改的名称从 AdornmentLayer **KeyBindingTest**到**PurpleCornerBox**。  
   
-    ```c#  
+    ```csharp  
     [Export(typeof(AdornmentLayerDefinition))]  
     [Name("PurpleCornerBox")]  
     [Order(After = PredefinedAdornmentLayers.Selection, Before = PredefinedAdornmentLayers.Text)]  
     public AdornmentLayerDefinition editorAdornmentLayer;  
     ```  
   
-3.  若要获取文本视图适配器，必须导入 <xref:Microsoft.VisualStudio.Editor.IVsEditorAdaptersFactoryService>。  
+3.  若要获取文本视图适配器，必须导入<xref:Microsoft.VisualStudio.Editor.IVsEditorAdaptersFactoryService>。  
   
-    ```c#  
+    ```csharp  
     [Import(typeof(IVsEditorAdaptersFactoryService))]  
     internal IVsEditorAdaptersFactoryService editorFactory = null;  
   
     ```  
   
-4.  更改 <xref:Microsoft.VisualStudio.Text.Editor.IWpfTextViewCreationListener.TextViewCreated%2A> 方法，以便它将添加 `KeyBindingCommandFilter`。  
+4.  更改<xref:Microsoft.VisualStudio.Text.Editor.IWpfTextViewCreationListener.TextViewCreated%2A>方法，以便它将添加`KeyBindingCommandFilter`。  
   
-    ```c#  
+    ```csharp  
     public void TextViewCreated(IWpfTextView textView)  
     {  
         AddCommandFilter(textView, new KeyBindingCommandFilter(textView));  
     }  
     ```  
   
-5.  `AddCommandFilter` 获取文本视图适配器处理程序，并添加命令筛选器。  
+5.  `AddCommandFilter`处理程序获取文本视图适配器，并添加命令筛选器。  
   
-    ```c#  
+    ```csharp  
     void AddCommandFilter(IWpfTextView textView, KeyBindingCommandFilter commandFilter)  
     {  
         if (commandFilter.m_added == false)  
@@ -188,12 +189,12 @@ this.layer = view.GetAdornmentLayer("PurpleCornerBox");
     }  
     ```  
   
-## 进行修饰出现在每个行中  
- 原始修饰出现在每个字符 'a' 在文本文件中。 现在，我们已更改为 \+ 字符的响应中添加修饰的代码，它仅在行上添加修饰其中 '\+' 类型化。 我们可以更改修饰代码，以便修饰一次出现在每个 a。  
+## <a name="making-the-adornment-appear-on-every-line"></a>进行修饰出现在每个行中  
+ 原始修饰出现在每个字符 'a' 在文本文件中。 现在，我们已更改用于修饰添加到 + 字符的响应中的代码，它将修饰添加仅在行上，+ 类型化。 我们可以更改修饰代码，以便修饰一次将出现在每个 a。  
   
- 在 KeyBindingTest.cs 文件中，更改 CreateVisuals\(\) 方法来循环访问修饰 a 字符视图中的所有行。  
+ 在 KeyBindingTest.cs 文件中，更改要循环访问修饰 a 字符的视图中的所有行的 CreateVisuals() 方法。  
   
-```c#  
+```csharp  
 private void CreateVisuals(ITextViewLine line)  
 {  
     IWpfTextViewLineCollection textViewLines = this.view.TextViewLines;  
@@ -235,10 +236,10 @@ private void CreateVisuals(ITextViewLine line)
 }  
 ```  
   
-## 生成和测试代码  
+## <a name="building-and-testing-the-code"></a>生成和测试代码  
   
 1.  生成 KeyBindingTest 解决方案并在实验实例中运行它。  
   
-2.  创建或打开一个文本文件。 键入包含字符某些字词 a，然后键入 \+ 文本视图中的任意位置。  
+2.  创建或打开一个文本文件。 键入包含字符某些字词 a，然后键入 + 文本视图中的任意位置。  
   
-     紫色正方形应该显示在文件中的每个 a 字符。
+     紫色正方形应显示在文件中的每个 a 字符。

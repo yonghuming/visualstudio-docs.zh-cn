@@ -1,27 +1,30 @@
 ---
-title: "SCRIPTSTATE 枚举 | Microsoft Docs"
-ms.custom: ""
-ms.date: "01/18/2017"
-ms.prod: "windows-script-interfaces"
-ms.reviewer: ""
-ms.suite: ""
-ms.tgt_pltfrm: ""
-ms.topic: "reference"
+title: "SCRIPTSTATE 枚举 |Microsoft 文档"
+ms.custom: 
+ms.date: 01/18/2017
+ms.prod: windows-script-interfaces
+ms.reviewer: 
+ms.suite: 
+ms.tgt_pltfrm: 
+ms.topic: reference
 apiname: SCRIPTSTATE
 apilocation: scrobj.dll
-helpviewer_keywords: 
-  - "SCRIPTSTATE 枚举"
+helpviewer_keywords: SCRIPTSTATE enum
 ms.assetid: 5f5deb05-c4bb-4964-8077-e624c6b2a14e
-caps.latest.revision: 7
-author: "mikejo5000"
-ms.author: "mikejo"
-manager: "ghogen"
-caps.handback.revision: 7
+caps.latest.revision: "7"
+author: mikejo5000
+ms.author: mikejo
+manager: ghogen
+ms.openlocfilehash: 35e062a9c2f3076144063ffb77895c8a03ecc4ac
+ms.sourcegitcommit: aadb9588877418b8b55a5612c1d3842d4520ca4c
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/27/2017
 ---
-# SCRIPTSTATE 枚举
-指定一个脚本引擎的状态。  [IActiveScript::GetScriptState](../../winscript/reference/iactivescript-getscriptstate.md) 、 [IActiveScript::SetScriptState](../../winscript/reference/iactivescript-setscriptstate.md) 和 [IActiveScriptSite::OnStateChange](../../winscript/reference/iactivescriptsite-onstatechange.md) 方法使用此枚举。  
+# <a name="scriptstate-enumeration"></a>SCRIPTSTATE 枚举
+指定的脚本引擎的状态。 此枚举由[IActiveScript::GetScriptState](../../winscript/reference/iactivescript-getscriptstate.md) ， [IActiveScript::SetScriptState](../../winscript/reference/iactivescript-setscriptstate.md) ，和[IActiveScriptSite::OnStateChange](../../winscript/reference/iactivescriptsite-onstatechange.md)方法。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
 ```  
 typedef enum tagSCRIPTSTATE {  
@@ -34,16 +37,16 @@ typedef enum tagSCRIPTSTATE {
 } SCRIPTSTATE;  
 ```  
   
-## 枚举值  
+## <a name="enumeration-values"></a>枚举值  
   
 |||  
 |-|-|  
-|SCRIPTSTATE\_UNINITIALIZED|使用 `IPersist*` 接口和 [IActiveScript::SetScriptSite](../../winscript/reference/iactivescript-setscriptsite.md)，脚本创建的，则，但未初始化。|  
-|SCRIPTSTATE\_INITIALIZED|脚本初始化，则为;但不运行\(连接到其他对象或接收的事件\)也不执行任何代码。  代码可在执行查询通过调用 [IActiveScriptParse::ParseScriptText](../../winscript/reference/iactivescriptparse-parsescripttext.md) 方法。|  
-|SCRIPTSTATE\_STARTED|脚本可以执行代码，但是，不接收 [IActiveScript::AddNamedItem](../../winscript/reference/iactivescript-addnameditem.md) 方法添加的对象事件。|  
-|SCRIPTSTATE\_CONNECTED|脚本用于接收的事件已加载并连接。|  
-|SCRIPTSTATE\_DISCONNECTED|脚本加载并具有一个运行时执行状态，但是，从接收的事件临时断开连接的。|  
-|SCRIPTSTATE\_CLOSED|脚本已关闭。  脚本引擎不再工作并返回大多数方法是错误的。|  
+|SCRIPTSTATE_UNINITIALIZED|脚本刚刚创建，但尚未尚未初始化使用`IPersist*`接口和[IActiveScript::SetScriptSite](../../winscript/reference/iactivescript-setscriptsite.md) 。|  
+|SCRIPTSTATE_INITIALIZED|脚本已初始化，但未运行 （连接到其他对象或接收事件） 或执行任何代码。 代码可以通过调用查询的执行[IActiveScriptParse::ParseScriptText](../../winscript/reference/iactivescriptparse-parsescripttext.md)方法。|  
+|SCRIPTSTATE_STARTED|脚本可以执行代码，但尚未不接收添加的对象的事件[IActiveScript::AddNamedItem](../../winscript/reference/iactivescript-addnameditem.md)方法。|  
+|SCRIPTSTATE_CONNECTED|加载脚本，并将其连接以接收事件。|  
+|SCRIPTSTATE_DISCONNECTED|脚本加载和运行时执行状态，但暂时断开接收事件。|  
+|SCRIPTSTATE_CLOSED|脚本已关闭。 脚本引擎不再运行，并不再针对多数方法返回错误。|  
   
-## 请参阅  
+## <a name="see-also"></a>另请参阅  
  [活动脚本常量、枚举和错误代码](../../winscript/reference/active-script-constants-enumerations-and-error-codes.md)

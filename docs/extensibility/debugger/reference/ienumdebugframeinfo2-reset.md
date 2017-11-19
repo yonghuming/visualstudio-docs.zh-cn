@@ -1,45 +1,45 @@
 ---
-title: "IEnumDebugFrameInfo2::Reset | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "IEnumDebugFrameInfo2::Reset"
-helpviewer_keywords: 
-  - "IEnumDebugFrameInfo2::Reset"
+title: "IEnumDebugFrameInfo2::Reset |Microsoft 文档"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology: vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords: IEnumDebugFrameInfo2::Reset
+helpviewer_keywords: IEnumDebugFrameInfo2::Reset
 ms.assetid: e149b559-f072-480b-9552-a452b147f3a8
-caps.latest.revision: 9
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 9
+caps.latest.revision: "9"
+author: gregvanl
+ms.author: gregvanl
+manager: ghogen
+ms.openlocfilehash: 26be0ca97b032dae3c13162f2218987fc076f0f2
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# IEnumDebugFrameInfo2::Reset
-[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
-
-重置枚举到第一个元素。  
+# <a name="ienumdebugframeinfo2reset"></a>IEnumDebugFrameInfo2::Reset
+将枚举重置为第一个元素。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
-```cpp#  
+```cpp  
 HRESULT Reset(  
-   void  
+   void  
 );  
 ```  
   
-```c#  
+```csharp  
 int Reset();  
 ```  
   
-## 返回值  
- 如果成功，则返回; `S_OK`否则，返回错误代码。  
+## <a name="return-value"></a>返回值  
+ 如果成功，则返回`S_OK`; 否则为返回错误代码。  
   
-## 备注  
- 此方法调用之后，下调用 [下一步](../Topic/IEnumDebugFrameInfo2::Next.md) 方法返回枚举中的第一个元素。  
+## <a name="remarks"></a>备注  
+ 调用此方法，对下一个调用后[下一步](../../../extensibility/debugger/reference/ienumdebugframeinfo2-next.md)方法返回的枚举的第一个元素。  
   
-## 请参阅  
+## <a name="see-also"></a>另请参阅  
  [IEnumDebugFrameInfo2](../../../extensibility/debugger/reference/ienumdebugframeinfo2.md)

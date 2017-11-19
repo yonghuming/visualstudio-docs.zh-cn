@@ -1,59 +1,59 @@
 ---
-title: "IEnumDebugObjects::Next | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "IEnumDebugObjects::Next"
-helpviewer_keywords: 
-  - "IEnumDebugObjects::Next 方法"
+title: "IEnumDebugObjects::Next |Microsoft 文档"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology: vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords: IEnumDebugObjects::Next
+helpviewer_keywords: IEnumDebugObjects::Next method
 ms.assetid: e54c3055-6030-4dc9-9f7a-5e3ce75f252f
-caps.latest.revision: 6
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 6
+caps.latest.revision: "6"
+author: gregvanl
+ms.author: gregvanl
+manager: ghogen
+ms.openlocfilehash: 8b57634ffd0634c7dada2f91827605b03d5cd3f7
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# IEnumDebugObjects::Next
-[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
-
-此方法返回下一组枚举中的元素。  
+# <a name="ienumdebugobjectsnext"></a>IEnumDebugObjects::Next
+此方法返回枚举中的下一组元素。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
-```cpp#  
+```cpp  
 HRESULT Next(  
-   ULONG          celt,  
-   IDebugObject** rgelt,  
-   ULONG*         pceltFetched  
+   ULONG          celt,  
+   IDebugObject** rgelt,  
+   ULONG*         pceltFetched  
 );  
 ```  
   
-```c#  
+```csharp  
 int Next(  
-   uint           celt,  
-   IDebugObject[] rgelt,  
-   ref uint       pceltFetched  
+   uint           celt,  
+   IDebugObject[] rgelt,  
+   ref uint       pceltFetched  
 );  
 ```  
   
-#### 参数  
+#### <a name="parameters"></a>参数  
  `celt`  
- \[in\] 检索的元素的数目。  并指定 `rgelt` 数组的最大大小。  
+ [in]要检索的元素数。 此外指定的最大大小`rgelt`数组。  
   
  `rgelt`  
- \[in, out\] 数组将填充的 [IDebugObject](../../../extensibility/debugger/reference/idebugobject.md) 元素。  
+ [在中，out]数组[IDebugObject](../../../extensibility/debugger/reference/idebugobject.md)元素填充的。  
   
  `pceltFetched`  
- \[out\] 返回在 `rgelt`实际上返回的元素的数目。  
+ [out]返回中实际返回的元素数目`rgelt`。  
   
-## 返回值  
- 如果成功，则返回 `S_OK`。  ，如果小于元素的请求的数目可能返回，则返回; `S_FALSE` 否则，返回错误代码。  
+## <a name="return-value"></a>返回值  
+ 如果成功，则返回`S_OK`。 返回`S_FALSE`如果无法返回请求数目的元素少于; 否则，返回错误代码。  
   
-## 请参阅  
+## <a name="see-also"></a>另请参阅  
  [IEnumDebugObjects](../../../extensibility/debugger/reference/ienumdebugobjects.md)   
  [IDebugObject](../../../extensibility/debugger/reference/idebugobject.md)

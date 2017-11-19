@@ -4,8 +4,7 @@ ms.custom:
 ms.date: 11/04/2016
 ms.reviewer: 
 ms.suite: 
-ms.technology:
-- vs-ide-sdk
+ms.technology: vs-ide-sdk
 ms.tgt_pltfrm: 
 ms.topic: article
 helpviewer_keywords:
@@ -14,34 +13,21 @@ helpviewer_keywords:
 - opc
 - vsix
 ms.assetid: 9c399598-b9fa-4da7-84b5-defbf82e9335
-caps.latest.revision: 8
+caps.latest.revision: "8"
+author: gregvanl
 ms.author: gregvanl
 manager: ghogen
-translation.priority.mt:
-- cs-cz
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pl-pl
-- pt-br
-- ru-ru
-- tr-tr
-- zh-cn
-- zh-tw
-translationtype: Machine Translation
-ms.sourcegitcommit: 7278fb37984b92a6a07823c552db5c59a446d0d2
-ms.openlocfilehash: 6f45707a88a27fa54840825d9562f859385ce4b7
-ms.lasthandoff: 02/22/2017
-
+ms.openlocfilehash: f399cb0c88e044224d554cf8e17cc4d217498e87
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="the-structure-of-the-contenttypesxml-file"></a>[Content_types].xml 文件的结构
-包含有关的 VSIX 包中的内容类型的信息。 Visual Studio 将使用 [Content_Types].xml 文件以安装程序包，但不会安装该文件本身。  
+包含有关的 VSIX 包中的内容类型的信息。 Visual Studio 使用 [Content_Types].xml 文件来安装包，但它不会安装文件本身。  
   
 > [!NOTE]
->  本主题仅适用于在 VSIX 包中使用的 [Content_Type].xml 文件，尽管 [Content_Types].xml 文件类型是组成部分*开放式打包约定 (OPC)*标准。 有关详细信息，请参阅[OPC: 新标准的打包数据](http://go.microsoft.com/fwlink/?LinkID=148207)MSDN 网站上。  
+>  尽管本主题仅适用于使用 VSIX 包中的 [p e].xml 文件，[Content_Types].xml 文件类型是组成部分*开放式打包约定 (OPC)*标准。 有关详细信息，请参阅[OPC: 新标准打包您数据的](http://go.microsoft.com/fwlink/?LinkID=148207)MSDN 网站上。  
   
 ## <a name="attributes-and-elements"></a>特性和元素  
  下列各节描述的根元素及其属性和子元素。  
@@ -50,17 +36,17 @@ ms.lasthandoff: 02/22/2017
   
 |元素|描述|  
 |-------------|-----------------|  
-|`Types`|包含枚举的 VSIX 包中的文件类型的子元素。|  
+|`Types`|包含枚举 VSIX 包中的文件类型的子元素。|  
   
 ### <a name="attributes"></a>特性  
   
-|特性|说明|  
+|特性|描述|  
 |---------------|-----------------|  
-|`Xmlns`|（必选。）架构用于此 [Content_Types].xml 文件的位置。|  
+|`Xmlns`|（必选。）用于此 [Content_Types].xml 文件的架构位置。|  
   
 ### <a name="attribute-name-attribute"></a>{属性名称}属性  
   
-|值|说明|  
+|值|描述|  
 |-----------|-----------------|  
 |http://schemas.openformats.org/package/2006/content-types|内容类型架构的位置。|  
   
@@ -69,17 +55,17 @@ ms.lasthandoff: 02/22/2017
   
 |元素|描述|  
 |-------------|-----------------|  
-|`Default`|描述 VSIX 包中的内容类型。 包的每个文件类型必须具有其自己`Default`元素。|  
+|`Default`|描述 VSIX 包中的内容类型。 包中的每个文件类型必须有其自己的`Default`元素。|  
   
 ### <a name="attributes"></a>特性  
   
-|特性|说明|  
+|特性|描述|  
 |---------------|-----------------|  
 |`Extension`|VSIX 包中的文件文件扩展名。|  
 |`ContentType`|描述此类是与文件扩展名相关联的内容。|  
   
 ### <a name="attribute-name-attribute"></a>{属性名称}属性  
- Visual Studio 能够识别以下`ContentType`的关联值`Extension`类型。  
+ Visual Studio 识别以下`ContentType`关联的值`Extension`类型。  
   
 |扩展名|ContentType|  
 |---------------|-----------------|  
@@ -87,20 +73,20 @@ ms.lasthandoff: 02/22/2017
 |pkgdef|文本/无格式|  
 |xml|text/xml|  
 |vsixmanifest|text/xml|  
-|htm 或 html|text/html|  
-|rtf|应用程序/rtf 格式|  
+|htm 或 html|文本/html|  
+|rtf|应用程序/rtf|  
 |pdf|应用程序/pdf|  
-|gif 图像|image/gif|  
-|jpg 或 jpeg|映像/jpg|  
-|tiff|图像/tiff|  
+|gif|图像/gif|  
+|jpg 或 jpeg|图像/jpg|  
+|Tiff|图像/tiff|  
 |vsix|应用程序/zip|  
 |zip|应用程序/zip|  
-|dll|应用程序/八进制数流|  
-|所有其他文件类型|应用程序/八进制数流|  
+|dll|application/octet-stream|  
+|所有其他文件类型|application/octet-stream|  
   
 ## <a name="example"></a>示例  
   
-### <a name="description"></a>说明  
+### <a name="description"></a>描述  
  下面的 [Content_Types].xml 文件介绍了典型的 VSIX 包。  
   
 ### <a name="code"></a>代码  
@@ -119,4 +105,4 @@ ms.lasthandoff: 02/22/2017
 ## <a name="see-also"></a>另请参阅  
  [VSIX 包的剖析](../extensibility/anatomy-of-a-vsix-package.md)   
  [VSIX 扩展架构 1.0 引用](http://msdn.microsoft.com/en-us/76e410ec-b1fb-4652-ac98-4a4c52e09a2b)   
- [OPC︰ 用于打包你的数据新标准](http://go.microsoft.com/fwlink/?LinkID=148207)
+ [OPC： 用于打包你的数据新标准](http://go.microsoft.com/fwlink/?LinkID=148207)

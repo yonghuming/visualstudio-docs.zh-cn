@@ -1,32 +1,35 @@
 ---
-title: "IActiveScriptProfilerCallback3::SetWebWorkerId 方法 | Microsoft Docs"
-ms.custom: ""
-ms.date: "01/18/2017"
-ms.prod: "windows-script-interfaces"
-ms.reviewer: ""
-ms.suite: ""
-ms.tgt_pltfrm: ""
-ms.topic: "reference"
+title: "Iactivescriptprofilercallback3:: Setwebworkerid 方法 |Microsoft 文档"
+ms.custom: 
+ms.date: 01/18/2017
+ms.prod: windows-script-interfaces
+ms.reviewer: 
+ms.suite: 
+ms.tgt_pltfrm: 
+ms.topic: reference
 ms.assetid: 47744746-1276-441e-ab60-2a78f550e8e2
-caps.latest.revision: 3
-author: "mikejo5000"
-ms.author: "mikejo"
-manager: "ghogen"
-caps.handback.revision: 3
+caps.latest.revision: "3"
+author: mikejo5000
+ms.author: mikejo
+manager: ghogen
+ms.openlocfilehash: 426767b8d4d23964d6bfaa7102ee53b550e7ab9b
+ms.sourcegitcommit: aadb9588877418b8b55a5612c1d3842d4520ca4c
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/27/2017
 ---
-# IActiveScriptProfilerCallback3::SetWebWorkerId 方法
-通知辅助ID的探查器为此分析会话使用。  如果函数不执行页中，该方法未调用。  `webWorkerId` 的值由1增加每个辅助的，从1开始。  ID值不是稳定在会话以外，只有对应于辅助创建的顺序。  
+# <a name="iactivescriptprofilercallback3setwebworkerid-method"></a>IActiveScriptProfilerCallback3::SetWebWorkerId 方法
+通知探查器有关要用于此分析会话的辅助 ID。 如果函数不在页的上下文中执行的则不会调用此方法。 值`webWorkerId`对于每个工作进程，从 1 开始的 1 为增量。 ID 值不应是稳定超出会话，并且仅对辅助进程已创建的顺序对应。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
 ```  
 HRESULT SetWebWorkerId([in] DWORD webWorkerId);  
-  
 ```  
   
-#### 参数  
+#### <a name="parameters"></a>参数  
  `webWorkerId`  
- web辅助ID.  
+ Web 辅助进程 id。  
   
-## 返回值  
- 此方法的返回值由脚本引擎忽略。
+## <a name="return-value"></a>返回值  
+ 通过脚本引擎忽略此方法的返回值。

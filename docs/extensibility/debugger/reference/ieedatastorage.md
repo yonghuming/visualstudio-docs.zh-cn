@@ -4,37 +4,21 @@ ms.custom:
 ms.date: 11/04/2016
 ms.reviewer: 
 ms.suite: 
-ms.technology:
-- vs-ide-sdk
+ms.technology: vs-ide-sdk
 ms.tgt_pltfrm: 
 ms.topic: article
-f1_keywords:
-- IEEDataStorage
-helpviewer_keywords:
-- IEEDataStorage interface
+f1_keywords: IEEDataStorage
+helpviewer_keywords: IEEDataStorage interface
 ms.assetid: 704e932d-2325-410e-89c4-ce88c6ec19da
-caps.latest.revision: 11
+caps.latest.revision: "11"
+author: gregvanl
 ms.author: gregvanl
 manager: ghogen
-translation.priority.mt:
-- cs-cz
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pl-pl
-- pt-br
-- ru-ru
-- tr-tr
-- zh-cn
-- zh-tw
-translationtype: Machine Translation
-ms.sourcegitcommit: ca7c86466fa23fb21a932f26dc24e37c71cf29b4
-ms.openlocfilehash: 5ca58f2e8f192316f1359949242fbf523edcc032
-ms.lasthandoff: 04/05/2017
-
+ms.openlocfilehash: daf5f3e7547ee32b641ccf4c1448eaa9a80b72fa
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="ieedatastorage"></a>IEEDataStorage
 此接口表示一个字节数组。  
@@ -52,7 +36,7 @@ IEEDataStorage : IUnknown
  上的方法`IPropertyProxyEESide`接口所有返回此接口。 调用[GetPropertyProxy](../../../extensibility/debugger/reference/ipropertyproxyprovider-getpropertyproxy.md)获取[IPropertyProxyEESide](../../../extensibility/debugger/reference/ipropertyproxyeeside.md)接口。 调用[QueryInterface](/cpp/atl/queryinterface)上[IDebugProperty3](../../../extensibility/debugger/reference/idebugproperty3.md)接口，以获得[IPropertyProxyProvider](../../../extensibility/debugger/reference/ipropertyproxyprovider.md)接口。  
   
 ## <a name="methods-in-vtable-order"></a>Vtable 顺序中的方法  
- `IEEDataStorage`接口实现以下方法︰  
+ `IEEDataStorage`接口实现以下方法：  
   
 |方法|描述|  
 |------------|-----------------|  
@@ -65,11 +49,11 @@ IEEDataStorage : IUnknown
  自定义查看器还可以使用此接口，如果需要，尽管更常见的做法，自定义查看器将使用自定义接口， [GetMemoryBytes](../../../extensibility/debugger/reference/idebugproperty2-getmemorybytes.md)或[GetStringChars](../../../extensibility/debugger/reference/idebugproperty3-getstringchars.md) （适用于面向字符串的数据）。  
   
 ## <a name="requirements"></a>要求  
- 标头︰ msdbg.h  
+ 标头： msdbg.h  
   
  Namespace: Microsoft.VisualStudio.Debugger.Interop  
   
- 程序集︰ Microsoft.VisualStudio.Debugger.Interop.dll  
+ 程序集： Microsoft.VisualStudio.Debugger.Interop.dll  
   
 ## <a name="see-also"></a>另请参阅  
  [核心接口](../../../extensibility/debugger/reference/core-interfaces.md)   

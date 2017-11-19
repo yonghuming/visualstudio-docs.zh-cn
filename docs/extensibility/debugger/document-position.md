@@ -1,33 +1,34 @@
 ---
-title: "文档位置 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-helpviewer_keywords: 
-  - "调试 [调试 SDK] 上下文"
+title: "文档位置 |Microsoft 文档"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology: vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+helpviewer_keywords: debugging [Debugging SDK], contexts
 ms.assetid: b59d739c-7572-427f-a70d-4e5df63d02c1
-caps.latest.revision: 10
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 10
+caps.latest.revision: "10"
+author: gregvanl
+ms.author: gregvanl
+manager: ghogen
+ms.openlocfilehash: 4132742177eac126a6aa67f915c16c2ff4e8c93c
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# 文档位置
-[!INCLUDE[vs2017banner](../../code-quality/includes/vs2017banner.md)]
-
-在调试的 [!INCLUDE[vsprvs](../../code-quality/includes/vsprvs_md.md)] ，**文档位置**:  
+# <a name="document-position"></a>文档位置
+在[!INCLUDE[vsprvs](../../code-quality/includes/vsprvs_md.md)]调试，**文档位置**:  
   
--   提供一个位置的抽象在源文件中如为 IDE 的地址。  设置为当天大多数语言，文档位置可视为在源文件中的位置。  
+-   提供在源文件中的位置的抽象，如已知到 IDE。 对大多数语言今天，文档位置可以被视为在源文件中的位置。  
   
--   介绍中的位置源文档到调试引擎。  
+-   描述调试引擎源文档中的位置。  
   
--   由 [IDebugDocumentPosition2](../../extensibility/debugger/reference/idebugdocumentposition2.md) 接口实现。  
+-   由实现[IDebugDocumentPosition2](../../extensibility/debugger/reference/idebugdocumentposition2.md)接口。  
   
-## 请参阅  
+## <a name="see-also"></a>另请参阅  
  [代码上下文](../../extensibility/debugger/code-context.md)   
  [文档上下文](../../extensibility/debugger/document-context.md)   
  [符号提供程序](../../extensibility/debugger/symbol-provider.md)   

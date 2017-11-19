@@ -1,57 +1,59 @@
 ---
-title: "IEEVisualizerService::GetValueDisplayStringCount | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-helpviewer_keywords: 
-  - "IEEVisualizerService::GetValueDisplayStringCount"
-  - "GetValueDisplayStringCount"
+title: "IEEVisualizerService::GetValueDisplayStringCount |Microsoft 文档"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology: vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+helpviewer_keywords:
+- IEEVisualizerService::GetValueDisplayStringCount
+- GetValueDisplayStringCount
 ms.assetid: d683a833-fbfb-4042-84df-6905124a268a
-caps.latest.revision: 10
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 10
+caps.latest.revision: "10"
+author: gregvanl
+ms.author: gregvanl
+manager: ghogen
+ms.openlocfilehash: 6fd3d05935c2edaeff723dc979764faf04d61c10
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# IEEVisualizerService::GetValueDisplayStringCount
-[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
-
-检索值字符串的数量为指定的属性或字段显示。  
+# <a name="ieevisualizerservicegetvaluedisplaystringcount"></a>IEEVisualizerService::GetValueDisplayStringCount
+检索值字符串，以显示针对指定的属性或字段的数目。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
-```cpp#  
+```cpp  
 HRESULT GetValueDisplayStringCount (  
-   DWORD         displayKind,   
-   IDebugField * propertyOrField,   
-   ULONG *       pcelt  
+   DWORD         displayKind,   
+   IDebugField * propertyOrField,   
+   ULONG *       pcelt  
 );  
 ```  
   
-```c#  
+```csharp  
 int GetValueDisplayStringCount (  
-   uint        displayKind,   
-   IDebugField propertyOrField,   
-   out ulong   pcelt  
+   uint        displayKind,   
+   IDebugField propertyOrField,   
+   out ulong   pcelt  
 );  
 ```  
   
-#### 参数  
+#### <a name="parameters"></a>参数  
  `displayKind`  
- \[in\] 从 [DisplayKind](../../../extensibility/debugger/reference/displaykind.md) 枚举值。  
+ [in]从值[DisplayKind](../../../extensibility/debugger/reference/displaykind.md)枚举。  
   
  `propertyOrField`  
- \[in\] 表示属性或字段的 [IDebugField](../../../extensibility/debugger/reference/idebugfield.md) 接口。  
+ [in][IDebugField](../../../extensibility/debugger/reference/idebugfield.md)表示的属性或字段的接口。  
   
  `pcelt`  
- \[out\] 返回值字符串的数量显示。  
+ [out]返回值字符串，以显示的数量。  
   
-## 返回值  
- 如果成功，则返回; `S_OK`否则，返回错误代码。  
+## <a name="return-value"></a>返回值  
+ 如果成功，则返回`S_OK`; 否则为返回错误代码。  
   
-## 请参阅  
+## <a name="see-also"></a>另请参阅  
  [IEEVisualizerService](../../../extensibility/debugger/reference/ieevisualizerservice.md)

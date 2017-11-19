@@ -4,12 +4,10 @@ ms.custom:
 ms.date: 11/04/2016
 ms.reviewer: 
 ms.suite: 
-ms.technology:
-- vs-ide-sdk
+ms.technology: vs-ide-sdk
 ms.tgt_pltfrm: 
 ms.topic: article
-f1_keywords:
-- LPTEXTOUTPROC
+f1_keywords: LPTEXTOUTPROC
 helpviewer_keywords:
 - SccMsgDataOnMessage structure
 - SccMsgDataOnBeforeGetFile structure
@@ -17,29 +15,15 @@ helpviewer_keywords:
 - LPTEXTOUTPROC callback function
 - SccMsgDataOnAfterGetFile structure
 ms.assetid: 2025c969-e3c7-4cf4-a5c5-099d342895ea
-caps.latest.revision: 21
+caps.latest.revision: "21"
+author: gregvanl
 ms.author: gregvanl
 manager: ghogen
-translation.priority.mt:
-- cs-cz
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pl-pl
-- pt-br
-- ru-ru
-- tr-tr
-- zh-cn
-- zh-tw
+ms.openlocfilehash: 86c8cce3abf16d7236acdd5ec468b06fdb46f997
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
 ms.translationtype: MT
-ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
-ms.openlocfilehash: 658193f526123d237ef9b90a05861492b9f007c9
-ms.contentlocale: zh-cn
-ms.lasthandoff: 09/06/2017
-
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="lptextoutproc"></a>LPTEXTOUTPROC
 当用户执行从在集成的开发环境 (IDE) 的源代码管理操作时，源代码管理插件可能想要传达与操作相关的错误或状态消息。 该插件可以为此目的中显示其自己的消息框。 但是，对于多个无缝集成，插件可以将字符串传递到 IDE，然后将其显示在其本机的显示状态信息的方式。 此机制是`LPTEXTOUTPROC`函数指针。 IDE 实现此函数用于显示错误和状态 （在下面更详细地介绍）。  

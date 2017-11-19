@@ -1,12 +1,10 @@
 ---
-title: 'How to: Programmatically Remove All Comments from Documents | Microsoft Docs'
+title: "如何： 以编程方式移除文档中所有注释 |Microsoft 文档"
 ms.custom: 
 ms.date: 02/02/2017
-ms.prod: visual-studio-dev14
 ms.reviewer: 
 ms.suite: 
-ms.technology:
-- office-development
+ms.technology: office-development
 ms.tgt_pltfrm: 
 ms.topic: article
 dev_langs:
@@ -16,38 +14,39 @@ helpviewer_keywords:
 - documents [Office development in Visual Studio], removing comments
 - comments, removing from documents
 ms.assetid: 920de39a-3b6d-4682-bca6-f4b4dedda1ac
-caps.latest.revision: 24
-author: kempb
-ms.author: kempb
+caps.latest.revision: "24"
+author: gewarren
+ms.author: gewarren
 manager: ghogen
-ms.translationtype: HT
-ms.sourcegitcommit: eb5c9550fd29b0e98bf63a7240737da4f13f3249
-ms.openlocfilehash: 315715e04ca6319a52e955442dcc141034752938
-ms.contentlocale: zh-cn
-ms.lasthandoff: 08/30/2017
-
+ms.openlocfilehash: c85ea6dba57d69c4936ac05687516c0195a1d82f
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# <a name="how-to-programmatically-remove-all-comments-from-documents"></a>How to: Programmatically Remove All Comments from Documents
-  Use the DeleteAllComments method to remove all comments from a Microsoft Office Word document.  
+# <a name="how-to-programmatically-remove-all-comments-from-documents"></a>如何：以编程方式移除文档中的所有注释
+  DeleteAllComments 方法用于从 Microsoft Office Word 文档中删除所有注释。  
   
  [!INCLUDE[appliesto_wdalldocapp](../vsto/includes/appliesto-wdalldocapp-md.md)]  
   
-### <a name="to-remove-all-comments-from-a-document-that-is-part-of-a-document-level-customization"></a>To remove all comments from a document that is part of a document-level customization  
+### <a name="to-remove-all-comments-from-a-document-that-is-part-of-a-document-level-customization"></a>从属于文档级自定义项的文档中删除所有注释  
   
-1.  Call the <xref:Microsoft.Office.Tools.Word.Document.DeleteAllComments%2A> method of the `ThisDocument` class in your project. To use this code example, run it from the `ThisDocument` class.  
+1.  调用项目中 <xref:Microsoft.Office.Tools.Word.Document.DeleteAllComments%2A> 类的 `ThisDocument` 方法。 若要使用此代码示例，请从 `ThisDocument` 类中运行它。  
   
-     [!code-vb[Trin_VstcoreWordAutomation#119](../vsto/codesnippet/VisualBasic/Trin_VstcoreWordAutomationVB/ThisDocument.vb#119)]  [!code-csharp[Trin_VstcoreWordAutomation#119](../vsto/codesnippet/CSharp/Trin_VstcoreWordAutomationCS/ThisDocument.cs#119)]  
+     [!code-vb[Trin_VstcoreWordAutomation#119](../vsto/codesnippet/VisualBasic/Trin_VstcoreWordAutomationVB/ThisDocument.vb#119)]
+     [!code-csharp[Trin_VstcoreWordAutomation#119](../vsto/codesnippet/CSharp/Trin_VstcoreWordAutomationCS/ThisDocument.cs#119)]  
   
-### <a name="to-remove-all-comments-from-a-document-by-using-an-vsto-add-in"></a>To remove all comments from a document by using an VSTO Add-in  
+### <a name="to-remove-all-comments-from-a-document-by-using-an-vsto-add-in"></a>使用 VSTO 外接程序从文档中删除所有注释  
   
-1.  Call the <xref:Microsoft.Office.Interop.Word._Document.DeleteAllComments%2A> method of the <xref:Microsoft.Office.Interop.Word.Document> from which you want to remove comments.  
+1.  调用要从中删除注释的 <xref:Microsoft.Office.Interop.Word._Document.DeleteAllComments%2A> 的 <xref:Microsoft.Office.Interop.Word.Document> 方法。  
   
-     The following code example removes all comments from the active document. To use this code example, run it from the `ThisAddIn` class in your project.  
+     下面的代码示例从活动文档中删除所有注释。 若要使用此代码示例，请从项目中的 `ThisAddIn` 类运行它。  
   
-     [!code-vb[Trin_VstcoreWordAutomationAddIn#119](../vsto/codesnippet/VisualBasic/Trin_VstcoreWordAutomationAddIn/ThisAddIn.vb#119)]  [!code-csharp[Trin_VstcoreWordAutomationAddIn#119](../vsto/codesnippet/CSharp/Trin_VstcoreWordAutomationAddIn/ThisAddIn.cs#119)]  
+     [!code-vb[Trin_VstcoreWordAutomationAddIn#119](../vsto/codesnippet/VisualBasic/Trin_VstcoreWordAutomationAddIn/ThisAddIn.vb#119)]
+     [!code-csharp[Trin_VstcoreWordAutomationAddIn#119](../vsto/codesnippet/CSharp/Trin_VstcoreWordAutomationAddIn/ThisAddIn.cs#119)]  
   
-## <a name="see-also"></a>See Also  
- [How to: Programmatically Add Comments to Text in Documents](../vsto/how-to-programmatically-add-comments-to-text-in-documents.md)   
- [Document Host Item](../vsto/document-host-item.md)  
+## <a name="see-also"></a>另请参阅  
+ [如何： 以编程方式向文档中的文本添加注释](../vsto/how-to-programmatically-add-comments-to-text-in-documents.md)   
+ [文档主机项](../vsto/document-host-item.md)  
   
   

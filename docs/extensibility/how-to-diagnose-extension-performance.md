@@ -4,35 +4,19 @@ ms.custom:
 ms.date: 11/08/2016
 ms.reviewer: 
 ms.suite: 
-ms.technology:
-- vs-ide-sdk
+ms.technology: vs-ide-sdk
 ms.tgt_pltfrm: 
 ms.topic: article
 ms.assetid: 46b0a1e3-7e69-47c9-9d8d-a1815d6c3896
-caps.latest.revision: 1
+caps.latest.revision: "1"
 author: BertanAygun
 ms.author: bertaygu
 manager: ghogen
-translation.priority.mt:
-- cs-cz
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pl-pl
-- pt-br
-- ru-ru
-- tr-tr
-- zh-cn
-- zh-tw
+ms.openlocfilehash: 7ff2aeecfbabb055f0fa9740623bc2bd949b11c7
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
 ms.translationtype: MT
-ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
-ms.openlocfilehash: b78a02b9d780b9556cbbf42fce04b1da06e22833
-ms.contentlocale: zh-cn
-ms.lasthandoff: 09/26/2017
-
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="measuring-extension-impact-in-startup"></a>测量扩展中启动的影响
 
@@ -195,4 +179,3 @@ PerfView 详细介绍了如何阅读更详细的分析自己帮助菜单下的�
 ## <a name="summary"></a>摘要
 
 启动 Visual Studio 已我们不断获得的反馈区域之一。 我们如上文所述的目标是使所有用户能够以一致方式启动而不考虑组件和它们已安装的扩展体验，我们想要使用扩展所有者以帮助他们帮助我们实现该目标。 上述指南应有助于了解启动扩展影响和可以避免需要自动负载或加载它以异步方式对用户工作效率的影响降至最低。
-

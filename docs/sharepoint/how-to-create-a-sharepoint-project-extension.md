@@ -1,12 +1,10 @@
 ---
-title: 'How to: Create a SharePoint Project Extension | Microsoft Docs'
+title: "如何： 创建 SharePoint 项目扩展 |Microsoft 文档"
 ms.custom: 
 ms.date: 04/28/2017
-ms.prod: visual-studio-dev14
 ms.reviewer: 
 ms.suite: 
-ms.technology:
-- office-development
+ms.technology: office-development
 ms.tgt_pltfrm: 
 ms.topic: article
 dev_langs:
@@ -17,38 +15,37 @@ helpviewer_keywords:
 - SharePoint development in Visual Studio, extending projects
 - SharePoint projects, extending
 ms.assetid: ceecb9cb-4a5d-44c9-992f-9624737ac996
-caps.latest.revision: 29
+caps.latest.revision: "29"
 author: gewarren
 ms.author: gewarren
 manager: ghogen
-ms.translationtype: HT
-ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
-ms.openlocfilehash: 69680caca452c8350c2fef18a1c01300211b3415
-ms.contentlocale: zh-cn
-ms.lasthandoff: 08/28/2017
-
+ms.openlocfilehash: b21b7291b23376f95e9c0d70a43e6bb69cd29a2d
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# <a name="how-to-create-a-sharepoint-project-extension"></a>How to: Create a SharePoint Project Extension
-  Create a project extension when you want to add functionality to any SharePoint project that is open in Visual Studio. For more information, see [Extending the SharePoint Project System](../sharepoint/extending-the-sharepoint-project-system.md).  
+# <a name="how-to-create-a-sharepoint-project-extension"></a>如何：创建 SharePoint 项目扩展
+  当你想要将功能添加到已在 Visual Studio 中打开任何 SharePoint 项目时，请创建一个项目扩展。 有关详细信息，请参阅[扩展 SharePoint 项目系统](../sharepoint/extending-the-sharepoint-project-system.md)。  
 
-### <a name="to-create-a-project-extension"></a>To create a project extension  
+### <a name="to-create-a-project-extension"></a>若要创建项目扩展  
 
-1.  Create a class library project.  
+1.  创建类库项目。  
 
-2.  Add references to the following assemblies:  
+2.  添加对下列程序集的引用：  
 
     -   Microsoft.VisualStudio.SharePoint  
 
     -   System.ComponentModel.Composition  
 
-3.  Create a class that implements the <xref:Microsoft.VisualStudio.SharePoint.ISharePointProjectExtension> interface.  
+3.  创建实现 <xref:Microsoft.VisualStudio.SharePoint.ISharePointProjectExtension> 接口的类。  
 
-4.  Add the <xref:System.ComponentModel.Composition.ExportAttribute> to the class. This attribute enables Visual Studio to discover and load your <xref:Microsoft.VisualStudio.SharePoint.ISharePointProjectExtension> implementation. Pass the <xref:Microsoft.VisualStudio.SharePoint.ISharePointProjectExtension> type to the attribute constructor.  
+4.  添加<xref:System.ComponentModel.Composition.ExportAttribute>到类。 此属性使 Visual Studio 发现和加载你<xref:Microsoft.VisualStudio.SharePoint.ISharePointProjectExtension>实现。 传递<xref:Microsoft.VisualStudio.SharePoint.ISharePointProjectExtension>给特性构造函数的类型。  
 
-5.  In your implementation of the <xref:Microsoft.VisualStudio.SharePoint.ISharePointProjectExtension.Initialize%2A> method, use members of the *projectService* parameter to define the behavior of your extension. This parameter is an <xref:Microsoft.VisualStudio.SharePoint.ISharePointProjectService> object that provides access to the events defined in the <xref:Microsoft.VisualStudio.SharePoint.ISharePointProjectEvents> interface.  
+5.  实现中<xref:Microsoft.VisualStudio.SharePoint.ISharePointProjectExtension.Initialize%2A>方法，使用成员*projectService*参数定义你的扩展的行为。 此参数是<xref:Microsoft.VisualStudio.SharePoint.ISharePointProjectService>提供对中定义的事件的访问的对象<xref:Microsoft.VisualStudio.SharePoint.ISharePointProjectEvents>接口。  
 
-## <a name="example"></a>Example  
- The following code example demonstrates how to create a simple project extension that handles most of the SharePoint project events that are defined by the <xref:Microsoft.VisualStudio.SharePoint.ISharePointProjectEvents> interface. To test the code, create a SharePoint project in [!INCLUDE[vsprvs](../sharepoint/includes/vsprvs-md.md)] and then add more projects to the solution, change project property values, or delete or exclude a project. The extension notifies you of the events by writing messages to the **Output** window and **Error List** window.  
+## <a name="example"></a>示例  
+ 下面的代码示例演示如何创建简单项目扩展，处理由定义的 SharePoint 项目事件的大多数<xref:Microsoft.VisualStudio.SharePoint.ISharePointProjectEvents>接口。 若要测试的代码，创建中的 SharePoint 项目[!INCLUDE[vsprvs](../sharepoint/includes/vsprvs-md.md)]，然后向解决方案添加多个项目，更改项目属性值，或删除或排除的项目。 扩展通过写入到消息通知您事件**输出**窗口和**错误列表**窗口。  
 
   ```vb  
     Imports Microsoft.VisualStudio.SharePoint
@@ -192,23 +189,22 @@ ms.lasthandoff: 08/28/2017
   }  
   ```  
 
-This example uses the SharePoint project service to write the message to the **Output** window and **Error List** window. For more information, see [Using the SharePoint Project Service](../sharepoint/using-the-sharepoint-project-service.md).  
+此示例使用 SharePoint 项目服务要写入到消息**输出**窗口和**错误列表**窗口。 有关详细信息，请参阅[使用 SharePoint 项目服务](../sharepoint/using-the-sharepoint-project-service.md)。  
 
- For examples that demonstrate how to handle the <xref:Microsoft.VisualStudio.SharePoint.ISharePointProjectEvents.ProjectMenuItemsRequested> and <xref:Microsoft.VisualStudio.SharePoint.ISharePointProjectEvents.ProjectPropertiesRequested> events, see [How to: Add a Shortcut Menu Item to SharePoint Projects](../sharepoint/how-to-add-a-shortcut-menu-item-to-sharepoint-projects.md) and [How to: Add a Property to SharePoint Projects](../sharepoint/how-to-add-a-property-to-sharepoint-projects.md).  
+ 有关示例，演示如何处理<xref:Microsoft.VisualStudio.SharePoint.ISharePointProjectEvents.ProjectMenuItemsRequested>和<xref:Microsoft.VisualStudio.SharePoint.ISharePointProjectEvents.ProjectPropertiesRequested>事件，请参阅[如何： 将快捷菜单项添加到 SharePoint 项目](../sharepoint/how-to-add-a-shortcut-menu-item-to-sharepoint-projects.md)和[如何： 将属性添加到 SharePoint 项目](../sharepoint/how-to-add-a-property-to-sharepoint-projects.md).  
 
-## <a name="compiling-the-code"></a>Compiling the Code  
- This example requires references to the following assemblies:  
+## <a name="compiling-the-code"></a>编译代码  
+ 此示例需要引用以下程序集：  
 
 -   Microsoft.VisualStudio.SharePoint  
 
 -   System.ComponentModel.Composition  
 
-## <a name="deploying-the-extension"></a>Deploying the Extension  
- To deploy the extension, create a [!INCLUDE[vsprvs](../sharepoint/includes/vsprvs-md.md)] extension (VSIX) package for the assembly and any other files that you want to distribute with the extension. For more information, see [Deploying Extensions for the SharePoint Tools in Visual Studio](../sharepoint/deploying-extensions-for-the-sharepoint-tools-in-visual-studio.md).  
+## <a name="deploying-the-extension"></a>部署扩展  
+ 若要部署的扩展，创建[!INCLUDE[vsprvs](../sharepoint/includes/vsprvs-md.md)]扩展 (VSIX) 包的程序集和你想要随此扩展分发的任何其他文件。 有关详细信息，请参阅[部署 Visual Studio 中的 SharePoint 工具扩展](../sharepoint/deploying-extensions-for-the-sharepoint-tools-in-visual-studio.md)。  
 
-## <a name="see-also"></a>See Also  
- [Extending the SharePoint Project System](../sharepoint/extending-the-sharepoint-project-system.md)   
- [How to: Add a Shortcut Menu Item to SharePoint Projects](../sharepoint/how-to-add-a-shortcut-menu-item-to-sharepoint-projects.md)   
- [How to: Add a Property to SharePoint Projects](../sharepoint/how-to-add-a-property-to-sharepoint-projects.md)   
- [Walkthrough: Creating a SharePoint Project Extension](../sharepoint/walkthrough-creating-a-sharepoint-project-extension.md)  
-
+## <a name="see-also"></a>另请参阅  
+ [扩展 SharePoint 项目系统](../sharepoint/extending-the-sharepoint-project-system.md)   
+ [如何： 将快捷菜单项添加到 SharePoint 项目](../sharepoint/how-to-add-a-shortcut-menu-item-to-sharepoint-projects.md)   
+ [如何： 向 SharePoint 项目中添加属性](../sharepoint/how-to-add-a-property-to-sharepoint-projects.md)   
+ [演练：创建 SharePoint 项目扩展](../sharepoint/walkthrough-creating-a-sharepoint-project-extension.md)  

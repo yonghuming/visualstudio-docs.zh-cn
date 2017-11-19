@@ -1,12 +1,10 @@
 ---
-title: 'Walkthrough: Profiling a SharePoint Application | Microsoft Docs'
+title: "演练： 分析 SharePoint 应用程序 |Microsoft 文档"
 ms.custom: 
 ms.date: 02/02/2017
-ms.prod: visual-studio-dev14
 ms.reviewer: 
 ms.suite: 
-ms.technology:
-- office-development
+ms.technology: office-development
 ms.tgt_pltfrm: 
 ms.topic: article
 dev_langs:
@@ -18,74 +16,73 @@ helpviewer_keywords:
 - SharePoint development in Visual Studio, performance testing
 - profiling [SharePoint development in Visual Studio]
 ms.assetid: 0b19d4b7-5fcc-42a2-b411-96eccd00137f
-caps.latest.revision: 16
+caps.latest.revision: "16"
 author: gewarren
 ms.author: gewarren
 manager: ghogen
-ms.translationtype: HT
-ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
-ms.openlocfilehash: d5f13883367d68999df59647aba7cedeb48628e1
-ms.contentlocale: zh-cn
-ms.lasthandoff: 08/28/2017
-
+ms.openlocfilehash: 0b2785e69bbfd6dff17f73b9840b88ad48454e0b
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# <a name="walkthrough-profiling-a-sharepoint-application"></a>Walkthrough: Profiling a SharePoint Application
-  This walkthrough shows how to use the profiling tools in Visual Studio to optimize the performance of a SharePoint application. The example application is a SharePoint feature event receiver that contains an idle loop that degrades the performance of the feature event receiver. The Visual Studio profiler enables you to locate and eliminate the most expensive (slowest-performing) part of the project, also known as the *hot path*.  
+# <a name="walkthrough-profiling-a-sharepoint-application"></a>演练：分析 SharePoint 应用程序
+  本演练演示在 Visual Studio 中如何使用分析工具优化 SharePoint 应用程序的性能。 此示例应用程序是 SharePoint 功能事件接收器，其中包含降低功能事件接收器性能的空闲循环。 Visual Studio 探查器使您能够找到和消除开销最大的 （最慢执行） 部分的项目，也称为*热路径*。  
   
- This walkthrough demonstrates the following tasks:  
+ 本演练演示了下列任务：  
   
--   [Adding a Feature and Feature Event Receiver](#BKMK_AddFtrandFtrEvntReceiver).  
+-   [添加功能和功能事件接收器](#BKMK_AddFtrandFtrEvntReceiver)。  
   
--   [Configuring and Deploying the SharePoint Application](#BKMK_ConfigSharePointApp).  
+-   [配置和部署 SharePoint 应用程序](#BKMK_ConfigSharePointApp)。  
   
--   [Running the SharePoint Application](#BKMK_RunSPApp).  
+-   [运行 SharePoint 应用程序](#BKMK_RunSPApp)。  
   
--   [Viewing and Interpreting the Profiling Results](#BKMK_ViewResults).  
+-   [查看和解释分析结果](#BKMK_ViewResults)。  
   
  [!INCLUDE[note_settings_general](../sharepoint/includes/note-settings-general-md.md)]  
   
-## <a name="prerequisites"></a>Prerequisites  
- You need the following components to complete this walkthrough:  
+## <a name="prerequisites"></a>先决条件  
+ 你需要以下组件来完成本演练：  
   
--   Supported editions of Microsoft Windows and SharePoint. [!INCLUDE[crdefault](../sharepoint/includes/crdefault-md.md)] [Requirements for Developing SharePoint Solutions](../sharepoint/requirements-for-developing-sharepoint-solutions.md).  
+-   支持的 Microsoft Windows 和 SharePoint 版本。 [!INCLUDE[crdefault](../sharepoint/includes/crdefault-md.md)][开发 SharePoint 解决方案的需求](../sharepoint/requirements-for-developing-sharepoint-solutions.md)。  
   
--   [!INCLUDE[vs_dev11_long](../sharepoint/includes/vs-dev11-long-md.md)].  
+-   [!INCLUDE[vs_dev11_long](../sharepoint/includes/vs-dev11-long-md.md)]。  
   
-## <a name="creating-a-sharepoint-project"></a>Creating a SharePoint Project  
- First, create a SharePoint project.  
+## <a name="creating-a-sharepoint-project"></a>创建 SharePoint 项目  
+ 首先，创建一个 SharePoint 项目。  
   
-#### <a name="to-create-a-sharepoint-project"></a>To create a SharePoint project  
+#### <a name="to-create-a-sharepoint-project"></a>创建 SharePoint 项目  
   
-1.  On the menu bar, choose **File**, **New**, **Project** to display the **New Project** dialog box.  
+1.  在菜单栏上，选择**文件**，**新建**，**项目**以显示**新项目**对话框。  
   
-2.  Expand the **SharePoint** node under either **Visual C#** or **Visual Basic**, and then choose the **2010** node.  
+2.  展开**SharePoint**下**Visual C#**或**Visual Basic**，然后选择**2010年**节点。  
   
-3.  In the templates pane, choose the **SharePoint 2010 Project** template.  
+3.  在模板窗格中，选择**SharePoint 2010 项目**模板。  
   
-4.  In the **Name** box, enter **ProfileTest**, and then choose the **OK** button.  
+4.  在**名称**框中，输入**ProfileTest**，然后选择**确定**按钮。  
   
-     The **SharePoint Customization Wizard** appears.  
+     **SharePoint 自定义向导**显示。  
   
-5.  On the **Specify the site and security level for debugging** page, enter the URL for the SharePoint server site where you want to debug the site definition, or use the default location (http://*system name*/).  
+5.  上**指定用于调试的站点和安全性级别**页上，输入想要调试站点定义的 SharePoint 服务器站点的 URL 或使用默认位置 (http://*系统名称*/).  
   
-6.  In the **What is the trust level for this SharePoint solution?** section, choose the **Deploy as a farm solution** option button.  
+6.  在**此 SharePoint 解决方案的信任级别是什么？**部分中，选择**部署为场解决方案**选项按钮。  
   
-     Currently, you can only profile farm solutions. For more information about sandboxed solutions versus farm solutions, see [Sandboxed Solution Considerations](../sharepoint/sandboxed-solution-considerations.md).  
+     目前，只能分析场解决方案。 有关沙盒解决方案与场解决方案的详细信息，请参阅[沙盒解决方案注意事项](../sharepoint/sandboxed-solution-considerations.md)。  
   
-7.  Choose the **Finish** button. The project appears in **Solution Explorer**.  
+7.  选择**完成**按钮。 项目将出现在**解决方案资源管理器**。  
   
-##  <a name="BKMK_AddFtrandFtrEvntReceiver"></a> Adding a Feature and Feature Event Receiver  
- Next, add a feature to the project along with an event receiver for the feature. This event receiver will contain the code to be profiled.  
+##  <a name="BKMK_AddFtrandFtrEvntReceiver"></a>添加功能和功能事件接收器  
+ 接下来，向项目中添加功能和该功能的事件接收器。 此事件接收器将包含要分析的代码。  
   
-#### <a name="to-add-a-feature-and-feature-event-receiver"></a>To add a feature and feature event receiver  
+#### <a name="to-add-a-feature-and-feature-event-receiver"></a>添加功能和功能事件接收器。  
   
-1.  In **Solution Explorer**, open the shortcut menu for the **Features** node, choose **Add Feature**, and leave the name at the default value, **Feature1**.  
+1.  在**解决方案资源管理器**，打开快捷菜单**功能**节点，选择**添加功能**，保留默认值名称和**Feature1**.  
   
-2.  In **Solution Explorer**, open the shortcut menu for **Feature1**, and then choose **Add Event Receiver**.  
+2.  在**解决方案资源管理器**，打开快捷菜单**Feature1**，然后选择**添加事件接收器**。  
   
-     This adds a code file to the feature with several commented-out event handlers and opens the file for editing.  
+     这将为功能添加一个代码文件以及一些注释掉的事件处理程序，并打开要编辑的文件。  
   
-3.  In the event receiver class, add the following variable declarations.  
+3.  在事件接收器类中，添加以下变量声明。  
   
     ```vb  
     ' SharePoint site/subsite.  
@@ -99,7 +96,7 @@ ms.lasthandoff: 08/28/2017
     private string webUrl = "/";  
     ```  
   
-4.  Replace the `FeatureActivated` procedure with the following code.  
+4.  将 `FeatureActivated` 过程替换为以下代码。  
   
     ```vb  
     Public Overrides Sub FeatureActivated(properties As SPFeatureReceiverProperties)  
@@ -158,7 +155,7 @@ ms.lasthandoff: 08/28/2017
     }  
     ```  
   
-5.  Add the following procedure below the `FeatureActivated`procedure.  
+5.  添加下面的以下过程`FeatureActivated`过程。  
   
     ```vb  
   
@@ -185,104 +182,104 @@ ms.lasthandoff: 08/28/2017
     }  
     ```  
   
-6.  In **Solution Explorer**, open the shortcut menu for the project (**ProfileTest**), and then choose **Properties**.  
+6.  在**解决方案资源管理器**，打开项目的快捷菜单 (**ProfileTest**)，然后选择**属性**。  
   
-7.  In the **Properties** dialog box, choose the **SharePoint** tab.  
+7.  在**属性**对话框框中，选择**SharePoint**选项卡。  
   
-8.  In the **Active Deployment Configuration** list, choose **No Activation**.  
+8.  在**活动部署配置**列表中，选择**无激活**。  
   
-     Selecting this deployment configuration enables you to manually activate the feature later in SharePoint.  
+     选择此部署配置后，可以随后在 SharePoint 中手动激活功能。  
   
-9. Save the project.  
+9. 保存项目。  
   
-##  <a name="BKMK_ConfigSharePointApp"></a> Configuring and Deploying the SharePoint Application  
- Now that the SharePoint project is ready, configure it and deploy it to the SharePoint server.  
+##  <a name="BKMK_ConfigSharePointApp"></a>配置和部署 SharePoint 应用程序  
+ SharePoint 项目现已就绪，将其配置并部署到 SharePoint 服务器。  
   
-#### <a name="to-configure-and-deploy-the-sharepoint-application"></a>To configure and deploy the SharePoint application  
+#### <a name="to-configure-and-deploy-the-sharepoint-application"></a>配置和部署 SharePoint 应用程序  
   
-1.  On the **Analyze** menu, choose **Launch Performance Wizard**.  
+1.  上**分析**菜单上，选择**启动性能向导**。  
   
-2.  On page one of the **Performance Wizard**, leave the method of profiling as **CPU sampling** and choose the **Next** button.  
+2.  第一页上**性能向导**，保留的分析方法**CPU 采样**选择**下一步**按钮。  
   
-     The other profiling methods can be used in more advanced profiling situations. For more information, see [Understanding Performance Collection Methods](/visualstudio/profiling/understanding-performance-collection-methods).  
+     其他分析方法可用于更高级的分析情形。 有关详细信息，请参阅[了解性能收集方法](/visualstudio/profiling/understanding-performance-collection-methods)。  
   
-3.  On page two of the **Performance Wizard**, leave the profile target as **ProfileTest** and choose the **Next** button.  
+3.  在第二页的**性能向导**，将保留为配置文件目标**ProfileTest**选择**下一步**按钮。  
   
-     If a solution has multiple projects, they appear in this list.  
+     如果解决方案包含多个项目，它们将显示在此列表中。  
   
-4.  On page three of the **Performance Wizard**, clear the **Enable Tier Interaction Profiling** check box, and then choose the **Next** button.  
+4.  在页上的三个**性能向导**，清除**启用层交互分析**复选框，然后依次**下一步**按钮。  
   
-     The Tier Interaction Profiling (TIP) feature is useful for measuring the performance of applications that query databases and for showing you the number of times a web page is requested. Because that data is not required for this example, we will not enable this feature.  
+     层交互分析 (TIP) 功能用于衡量查询数据库的应用程序的性能，并显示网页的请求次数。 本示例不需要这些数据，因此我们不启用此功能。  
   
-5.  On page four of the **Performance Wizard**, leave the **Launch profiling after the wizard finishes** check box selected, and then choose the **Finish** button.  
+5.  第四页**性能向导**，保留**向导完成后启动分析**复选框处于选中状态，，然后选择**完成**按钮。  
   
-     The wizard enables application profiling on the server, displays the **Performance Explorer** window, and then builds, deploys, and runs the SharePoint application.  
+     该向导启用应用程序分析的服务器上，显示**性能资源管理器**窗口中，然后生成、 部署和运行 SharePoint 应用程序。  
   
-##  <a name="BKMK_RunSPApp"></a> Running the SharePoint Application  
- Activate the feature in SharePoint, triggering the `FeatureActivation` event code to run.  
+##  <a name="BKMK_RunSPApp"></a>运行 SharePoint 应用程序  
+ 激活 SharePoint 中的功能，触发要运行的 `FeatureActivation` 事件代码。  
   
-#### <a name="to-run-the-sharepoint-application"></a>To run the SharePoint application  
+#### <a name="to-run-the-sharepoint-application"></a>运行 SharePoint 应用程序  
   
-1.  In SharePoint, open the **Site Actions** menu, and then choose **Site Settings**.  
+1.  在 SharePoint 中，打开**站点操作**菜单，然后选择**站点设置**。  
   
-2.  In the **Site Actions** list, choose the **Manage site features** link.  
+2.  在**站点操作**列表中，选择**管理站点功能**链接。  
   
-3.  In the **Features** list, choose the **Activate** button next to **ProfileTest Feature1**.  
+3.  在**功能**列表中，选择**激活**按钮旁边**ProfileTest Feature1**。  
   
-     There is a pause when you do this, due to the idle loop being called in the `FeatureActivated` function.  
+     执行此操作时将出现暂停，这是由于在 `FeatureActivated` 函数中调用了空闲循环。  
   
-4.  On the **Quick Launch** bar, choose **Lists** and then in the **Lists** list, choose **Announcements**.  
+4.  上**快速启动**栏上，选择**列出**然后在**列出**列表中，选择**公告**。  
   
-     Notice that a new announcement has been added to the list stating that the feature was activated.  
+     注意，新公告已添加到列表中，表明已激活此功能。  
   
-5.  Close the SharePoint site.  
+5.  关闭 SharePoint 网站。  
   
-     After you close SharePoint, the profiler creates and displays a Sample Profiling Report and saves it as a .vsp file in the **ProfileTest** project's folder.  
+     在关闭 SharePoint 后，探查器将创建并显示一个示例分析报告并将其保存为.vsp 文件中**ProfileTest**项目的文件夹。  
   
-##  <a name="BKMK_ViewResults"></a> Viewing and Interpreting the Profiling Results  
- Now that you have run and profiled the SharePoint application, view the test results.  
+##  <a name="BKMK_ViewResults"></a>查看和解释分析结果  
+ 现在你已运行并分析 SharePoint 应用程序，请查看测试结果。  
   
-#### <a name="to-view-and-interpret-the-profiling-results"></a>To view and interpret the profiling results  
+#### <a name="to-view-and-interpret-the-profiling-results"></a>查看和解释分析结果  
   
-1.  In the **Functions Doing the Most Individual Work** section of the Sample Profiling Report, notice that `TimeCounter` is near the top of the list.  
+1.  在**函数执行单独工作最多**部分的示例分析报告，请注意，`TimeCounter`位于列表顶部附近。  
   
-     This location indicates that `TimeCounter` was one of the functions with the highest number of samples, meaning it's one of the biggest performance bottlenecks in the application. This situation isn't surprising, however, because it was purposely designed that way for demonstration purposes.  
+     此位置表示 `TimeCounter` 是示例数最高的函数之一，这表明它是应用程序中最大的性能瓶颈之一。 此情况并不奇怪，因为这是为了实现演示目的而有意设计的。  
   
-2.  In the **Functions Doing the Most Individual Work** section, choose the `ProcessRequest` link to display the cost distribution for the `ProcessRequest` function.  
+2.  在**函数执行单独工作最多**部分中，选择`ProcessRequest`链接以显示的开销分布`ProcessRequest`函数。  
   
-     In the **Called functions** section for `ProcessRequest`, notice that the **FeatureActiviated** function is listed as the most expensive called function.  
+     在**被调用函数**部分以了解`ProcessRequest`，请注意， **FeatureActiviated**函数作为最消耗资源的列出调用函数。  
   
-3.  In the **Called functions** section, choose the **FeatureActivated** button.  
+3.  在**被调用函数**部分中，选择**FeatureActivated**按钮。  
   
-     In the **Called functions** section for **FeatureActivated**, the `TimeCounter` function is listed as the most expensive called function. In the **Function Code View** pane, the highlighted code (`TimeCounter`) is the hotspot and indicates where the correction is needed.  
+     在**被调用函数**部分以了解**FeatureActivated**、`TimeCounter`函数作为最消耗资源的列出调用函数。 在**函数代码视图**窗格中，突出显示的代码 (`TimeCounter`) 为作用点和指示需要更正的位置。  
   
-4.  Close the Sample Profiling Report.  
+4.  关闭示例分析报告。  
   
-     To view the report again at any time, open the .vsp file in the **Performance Explorer** window.  
+     若要随时再次查看报表，请打开.vsp 文件中的**性能资源管理器**窗口。  
   
-## <a name="fixing-the-code-and-reprofiling-the-application"></a>Fixing the Code and Reprofiling the Application  
- Now that hotspot function in the SharePoint application has been identified, fix it.  
+## <a name="fixing-the-code-and-reprofiling-the-application"></a>修复代码并分析应用程序  
+ 现在已找出 SharePoint 应用程序中的作用点函数，请将其修复。  
   
-#### <a name="to-fix-the-code-and-reprofile-the-application"></a>To fix the code and reprofile the application  
+#### <a name="to-fix-the-code-and-reprofile-the-application"></a>修复代码并重新分析应用程序  
   
-1.  In the feature event receiver code, comment out the `TimeCounter` method call in `FeatureActivated` to prevent it from being called.  
+1.  在功能事件接收器代码中，注释掉 `TimeCounter` 中的 `FeatureActivated` 方法调用，防止它被调用。  
   
-2.  Save the project.  
+2.  保存项目。  
   
-3.  In **Performance Explorer**, open the Targets folder, and then choose the **ProfileTest** node.  
+3.  在**性能资源管理器**，打开目标文件夹，然后选择**ProfileTest**节点。  
   
-4.  On the **Performance Explorer** toolbar, in the **Actions** tab, choose the **Start Profiling** button.  
+4.  上**性能资源管理器**工具栏，请在**操作**选项卡上，选择**启动分析**按钮。  
   
-     If you want to change any of the profiling properties prior to reprofiling the application, choose the **Launch Performance Wizard** button instead.  
+     如果你想要更改任何分析属性在分析应用程序之前，请选择**启动性能向导**按钮。  
   
-5.  Follow the instructions in the **Running the SharePoint Application** section, previously in this topic.  
+5.  按照中的说明**运行 SharePoint 应用程序**本主题前面的部分。  
   
-     The feature should activate much faster now that the call to the idle loop has been eliminated. The Sample Profiling Report should reflect this.  
+     现在已消除对空闲循环的调用，功能应更快激活。 示例分析报告应反映此情况。  
   
-## <a name="see-also"></a>See Also  
- [Performance Explorer](/visualstudio/profiling/performance-explorer)   
- [Performance Session Overview](/visualstudio/profiling/performance-session-overview)   
- [Beginners Guide to Performance Profiling](/visualstudio/profiling/beginners-guide-to-performance-profiling)   
- [Find Application Bottlenecks with Visual Studio Profiler](http://go.microsoft.com/fwlink/?LinkID=137266)  
+## <a name="see-also"></a>另请参阅  
+ [性能资源管理器](/visualstudio/profiling/performance-explorer)   
+ [性能会话概述](/visualstudio/profiling/performance-session-overview)   
+ [性能分析初学者指南](/visualstudio/profiling/beginners-guide-to-performance-profiling)   
+ [查找与 Visual Studio 探查器的应用程序瓶颈](http://go.microsoft.com/fwlink/?LinkID=137266)  
   
   

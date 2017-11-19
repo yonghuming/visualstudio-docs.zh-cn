@@ -1,26 +1,27 @@
 ---
-title: "演练：使用 XSLT IntelliSense | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-general"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
+title: "演练： 使用 XSLT IntelliSense |Microsoft 文档"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology: vs-ide-general
+ms.tgt_pltfrm: 
+ms.topic: article
 ms.assetid: 079d95ac-2eaf-4ae1-9cd3-2c81a961a942
-caps.latest.revision: 2
-author: "kempb"
-ms.author: "kempb"
-manager: "ghogen"
-caps.handback.revision: 2
+caps.latest.revision: "2"
+author: gewarren
+ms.author: gewarren
+manager: ghogen
+ms.openlocfilehash: ae58db5ac642bca1e68d3ad074d4a69062a1f294
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# 演练：使用 XSLT IntelliSense
-[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
-
+# <a name="walkthrough-using-xslt-intellisense"></a>演练：使用 XSLT IntelliSense
 此演练演示如何使用 XSLT IntelliSense 自动完成某些特性的值。  
   
-### 在 xsl:with\-param 和 xsl:call\-template 元素的名称特性中使用 IntelliSense  
+### <a name="to-use-intellisense-in-the-name-attribute-of-xslwith-param-and-xslcall-template-elements"></a>在 xsl:with-param 和 xsl:call-template 元素的名称特性中使用 IntelliSense  
   
 1.  用下面的代码创建新的 XSLT 文件和副本：  
   
@@ -46,24 +47,24 @@ caps.handback.revision: 2
     </xsl:stylesheet>  
     ```  
   
-2.  在 `<xsl:template name="msg23" match="msg23">` 之后插入光标并按 Enter。然后开始键入以下 `xsl:call-template` 元素：  
+2.  在 `<xsl:template name="msg23" match="msg23">` 之后插入光标并按 Enter。 然后开始键入以下 `xsl:call-template` 元素：  
   
     ```  
     <xsl:call-template name="localized-message">  
     </xsl:call-template>  
     ```  
   
-     在键入元素时，模板名称列表出现在 `xsl:call-template` 元素的 `name=""` 特性中。  
+     在键入元素时，模板名称列表出现在 `name=""` 元素的 `xsl:call-template` 特性中。  
   
-3.  在 `<xsl:call-template name="localized-message">` 之后插入光标并按 Enter。然后开始键入以下 `xsl:with-param` 元素：  
+3.  在 `<xsl:call-template name="localized-message">` 之后插入光标并按 Enter。 然后开始键入以下 `xsl:with-param` 元素：  
   
     ```  
     <xsl:with-param name="msgcode">msg23</xsl:with-param>  
     ```  
   
-     参数名称的列表出现在 `xsl:with-param` 元素的 `name=""` 特性中。  
+     参数名称的列表出现在 `name=""` 元素的 `xsl:with-param` 特性中。  
   
-### 在 xsl:apply\-templates 元素的模式特性中使用 IntelliSense  
+### <a name="to-use-intellisense-in-the-mode-attribute-of-an-xslapply-templates-element"></a>在 xsl:apply-templates 元素的模式特性中使用 IntelliSense  
   
 1.  用下面的代码创建新的 XSLT 文件和副本：  
   
@@ -112,15 +113,15 @@ caps.handback.revision: 2
     </xsl:stylesheet>  
     ```  
   
-2.  在 `<xsl:apply-templates select="phone" />` 之后插入光标并按 Enter。然后开始键入以下 `xsl: apply-templates` 元素：  
+2.  在 `<xsl:apply-templates select="phone" />` 之后插入光标并按 Enter。 然后开始键入以下 `xsl: apply-templates` 元素：  
   
     ```  
     <xsl:apply-templates select="phone"  mode="accountNumber">  
     ```  
   
-     模板模式的列表出现在 `xsl:apply-templates` 元素的 `mode=""` 特性中。  
+     模板模式的列表出现在 `mode=""` 元素的 `xsl:apply-templates` 特性中。  
   
-### 在 xsl:namespace\-alias 元素的 stylesheet\-prefix 和 result\-prefix 特性中使用 IntelliSense  
+### <a name="to-use-intellisense-in-the-stylesheet-prefix-and-result-prefix-attributes-of-an-xslnamespace-alias-element"></a>在 xsl:namespace-alias 元素的 stylesheet-prefix 和 result-prefix 特性中使用 IntelliSense  
   
 1.  用下面的代码创建新的 XSLT 文件和副本：  
   
@@ -153,13 +154,13 @@ caps.handback.revision: 2
     </xsl:stylesheet>  
     ```  
   
-2.  在 `<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:alt="http://www.w3.org/1999/XSL/Transform-alternate" version="1.0">` 之后插入光标并按 Enter。然后开始键入以下 `xsl:namespace-alias` 元素：  
+2.  在 `<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:alt="http://www.w3.org/1999/XSL/Transform-alternate" version="1.0">` 之后插入光标并按 Enter。 然后开始键入以下 `xsl:namespace-alias` 元素：  
   
     ```  
     <xsl:namespace-alias stylesheet-prefix="alt" result-prefix="xsl"/>  
     ```  
   
-     请注意前缀列表在 `xsl:namespace-alias` 元素的 `stylesheet-prefix` 和 `result-prefix` 特性中的显示方式。  
+     请注意前缀列表在 `stylesheet-prefix` 元素的 `result-prefix` 和 `xsl:namespace-alias` 特性中的显示方式。  
   
-## 请参阅  
+## <a name="see-also"></a>另请参阅  
  [XML 编辑器的 IntelliSense 功能](../xml-tools/xml-editor-intellisense-features.md)

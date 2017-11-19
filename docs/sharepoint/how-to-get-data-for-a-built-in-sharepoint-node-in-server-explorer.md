@@ -1,12 +1,10 @@
 ---
-title: 'How to: Get Data for a Built-In SharePoint Node in Server Explorer | Microsoft Docs'
+title: "如何： 在服务器资源管理器中的内置 SharePoint 节点获取数据 |Microsoft 文档"
 ms.custom: 
 ms.date: 02/02/2017
-ms.prod: visual-studio-dev14
 ms.reviewer: 
 ms.suite: 
-ms.technology:
-- office-development
+ms.technology: office-development
 ms.tgt_pltfrm: 
 ms.topic: article
 dev_langs:
@@ -16,31 +14,31 @@ helpviewer_keywords:
 - SharePoint Connections [SharePoint development in Visual Studio], extending a node
 - SharePoint development in Visual Studio, extending SharePoint Connections node in Server Explorer
 ms.assetid: 86d04e0a-c114-427e-9945-da5fa339fda4
-caps.latest.revision: 7
-author: kempb
-ms.author: kempb
+caps.latest.revision: "7"
+author: gewarren
+ms.author: gewarren
 manager: ghogen
-ms.translationtype: HT
-ms.sourcegitcommit: eb5c9550fd29b0e98bf63a7240737da4f13f3249
-ms.openlocfilehash: 962250192868c710cfbe40e69b44eeb348a696f9
-ms.contentlocale: zh-cn
-ms.lasthandoff: 08/30/2017
-
+ms.openlocfilehash: b61003516d7551c99f6e265ca2eeced9226958df
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# <a name="how-to-get-data-for-a-built-in-sharepoint-node-in-server-explorer"></a>How to: Get Data for a Built-In SharePoint Node in Server Explorer
-  For each built-in SharePoint node in **Server Explorer**, you can get data for the underlying SharePoint component that the node represents. For more information, see [Extending the SharePoint Connections Node in Server Explorer](../sharepoint/extending-the-sharepoint-connections-node-in-server-explorer.md).  
+# <a name="how-to-get-data-for-a-built-in-sharepoint-node-in-server-explorer"></a>如何：为服务器资源管理器中的内置 SharePoint 节点获取数据
+  在每个内置 SharePoint 节点**服务器资源管理器**，则可以在该节点表示的基础 SharePoint 组件中获取数据。 有关详细信息，请参阅[扩展服务器资源管理器中的 SharePoint 连接节点](../sharepoint/extending-the-sharepoint-connections-node-in-server-explorer.md)。  
   
-## <a name="example"></a>Example  
- The following code example demonstrates how to get data for the underlying SharePoint list that a list node represents in **Server Explorer**. By default, list nodes have a **View in Browser** context menu item that you can click to open the lists in a Web browser. This example extends list nodes by adding a **View in Visual Studio** context menu item that opens the lists directly in Visual Studio. The code accesses the list data for the node to get the URL of the list to open in Visual Studio.  
+## <a name="example"></a>示例  
+ 下面的代码示例演示如何获取基础列表节点表示中的 SharePoint 列表数据**服务器资源管理器**。 默认情况下，列表节点具有**用浏览器查看**可以单击以打开列表，在 Web 浏览器的上下文菜单项。 此示例通过添加扩展列表节点**Visual Studio 中的视图**直接在 Visual Studio 中打开列出的上下文菜单项。 代码访问节点获取要在 Visual Studio 中打开的列表的 URL 的列表数据。  
   
- [!code-vb[SPExtensibility.ProjectSystemExtension.General#10](../sharepoint/codesnippet/VisualBasic/projectsystemexamples/extension/serverexplorerextensionnodeinfo.vb#10)] [!code-csharp[SPExtensibility.ProjectSystemExtension.General#10](../sharepoint/codesnippet/CSharp/projectsystemexamples/extension/serverexplorerextensionnodeinfo.cs#10)]  
+ [!code-vb[SPExtensibility.ProjectSystemExtension.General#10](../sharepoint/codesnippet/VisualBasic/projectsystemexamples/extension/serverexplorerextensionnodeinfo.vb#10)]
+ [!code-csharp[SPExtensibility.ProjectSystemExtension.General#10](../sharepoint/codesnippet/CSharp/projectsystemexamples/extension/serverexplorerextensionnodeinfo.cs#10)]  
   
- This example uses the SharePoint project service to obtain the <xref:EnvDTE.DTE> object that is used to open lists in Visual Studio. For more information about the SharePoint project service, see [Using the SharePoint Project Service](../sharepoint/using-the-sharepoint-project-service.md).  
+ 此示例使用 SharePoint 项目服务来获取<xref:EnvDTE.DTE>Visual Studio 中列出了用于打开的对象。 SharePoint 项目服务有关的详细信息，请参阅[使用 SharePoint 项目服务](../sharepoint/using-the-sharepoint-project-service.md)。  
   
- For more information about the basic tasks to create an extension for a SharePoint node, see [How to: Extend a SharePoint Node in Server Explorer](../sharepoint/how-to-extend-a-sharepoint-node-in-server-explorer.md).  
+ 有关创建扩展的 SharePoint 节点的基本任务的详细信息，请参阅[如何： 扩展服务器资源管理器中的 SharePoint 节点](../sharepoint/how-to-extend-a-sharepoint-node-in-server-explorer.md)。  
   
-## <a name="compiling-the-code"></a>Compiling the Code  
- This example requires references to the following assemblies:  
+## <a name="compiling-the-code"></a>编译代码  
+ 此示例需要引用以下程序集：  
   
 -   EnvDTE  
   
@@ -50,13 +48,13 @@ ms.lasthandoff: 08/30/2017
   
 -   System.ComponentModel.Composition  
   
-## <a name="deploying-the-extension"></a>Deploying the Extension  
- To deploy the **Server Explorer** extension, create a [!INCLUDE[vsprvs](../sharepoint/includes/vsprvs-md.md)] extension (VSIX) package for the assembly and any other files that you want to distribute with the extension. For more information, see [Deploying Extensions for the SharePoint Tools in Visual Studio](../sharepoint/deploying-extensions-for-the-sharepoint-tools-in-visual-studio.md).  
+## <a name="deploying-the-extension"></a>部署扩展  
+ 若要部署**服务器资源管理器**扩展，创建[!INCLUDE[vsprvs](../sharepoint/includes/vsprvs-md.md)]扩展 (VSIX) 包的程序集和你想要随此扩展分发的任何其他文件。 有关详细信息，请参阅[部署 Visual Studio 中的 SharePoint 工具扩展](../sharepoint/deploying-extensions-for-the-sharepoint-tools-in-visual-studio.md)。  
   
-## <a name="see-also"></a>See Also  
- [Extending the SharePoint Connections Node in Server Explorer](../sharepoint/extending-the-sharepoint-connections-node-in-server-explorer.md)   
- [How to: Extend a SharePoint Node in Server Explorer](../sharepoint/how-to-extend-a-sharepoint-node-in-server-explorer.md)   
- [Using the SharePoint Project Service](../sharepoint/using-the-sharepoint-project-service.md)   
- [Deploying Extensions for the SharePoint Tools in Visual Studio](../sharepoint/deploying-extensions-for-the-sharepoint-tools-in-visual-studio.md)  
+## <a name="see-also"></a>另请参阅  
+ [扩展服务器资源管理器中的 SharePoint 连接节点](../sharepoint/extending-the-sharepoint-connections-node-in-server-explorer.md)   
+ [如何： 扩展服务器资源管理器中的 SharePoint 节点](../sharepoint/how-to-extend-a-sharepoint-node-in-server-explorer.md)   
+ [使用 SharePoint 项目服务](../sharepoint/using-the-sharepoint-project-service.md)   
+ [在 Visual Studio 中部署 SharePoint 工具扩展](../sharepoint/deploying-extensions-for-the-sharepoint-tools-in-visual-studio.md)  
   
   

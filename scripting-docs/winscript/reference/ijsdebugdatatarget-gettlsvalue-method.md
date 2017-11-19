@@ -1,25 +1,29 @@
 ---
-title: "IJsDebugDataTarget::GetTlsValue 方法 | Microsoft Docs"
-ms.custom: ""
-ms.date: "01/18/2017"
-ms.prod: "windows-script-interfaces"
-ms.reviewer: ""
-ms.suite: ""
-ms.tgt_pltfrm: ""
-ms.topic: "reference"
+title: "Ijsdebugdatatarget:: Gettlsvalue 方法 |Microsoft 文档"
+ms.custom: 
+ms.date: 01/18/2017
+ms.prod: windows-script-interfaces
+ms.reviewer: 
+ms.suite: 
+ms.tgt_pltfrm: 
+ms.topic: reference
 apiname: IJsDebugDataTarget.GetTlsValue
 apilocation: jscript9diag.dll
 ms.assetid: db575be9-7b24-45c5-9008-e4f2f76d6757
-caps.latest.revision: 4
-author: "mikejo5000"
-ms.author: "mikejo"
-manager: "ghogen"
-caps.handback.revision: 4
+caps.latest.revision: "4"
+author: mikejo5000
+ms.author: mikejo
+manager: ghogen
+ms.openlocfilehash: 4205adfb24a1a64d4e90f3fdcaf5a5ecbc4028de
+ms.sourcegitcommit: aadb9588877418b8b55a5612c1d3842d4520ca4c
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/27/2017
 ---
-# IJsDebugDataTarget::GetTlsValue 方法
-对于正在调试的线程，请对指定的 TLS 索引检索在线程本地存储 \(TLS\) 槽中的值。  
+# <a name="ijsdebugdatatargetgettlsvalue-method"></a>IJsDebugDataTarget::GetTlsValue 方法
+有关正在调试的线程，检索指定的 TLS 索引的线程本地存储 (TLS) 槽中的值。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
 ```  
 HRESULT GetTlsValue(  
@@ -29,23 +33,23 @@ HRESULT GetTlsValue(
 );  
 ```  
   
-#### 参数  
+#### <a name="parameters"></a>参数  
  `threadId`  
- \[in\] 要读取的运行在目标进程中的线程。  
+ [in]在要从其中进行读取目标进程中运行的线程。  
   
  `tlsIndex`  
- \[in\] 当目标进程调用 TlsAlloc 函数时，分配的 TLS 索引。  
+ [in]目标进程调用 TlsAlloc 函数时已分配 TLS 索引。  
   
  `pValue`  
- \[out\] 储存在线程的 TLS 槽中的指针大小的值。  如果目标线程为 32 位，该值的 32 位以上将为零。  
+ [out]指针大小的值已存储在线程的 TLS 槽。 如果目标线程是 32 位，此值的高 32 位将为零。  
   
-## 返回值  
+## <a name="return-value"></a>返回值  
   
-## 备注  
- 进程中的每个线程都具有自己的针对每个 TLS 索引的槽。  
+## <a name="remarks"></a>备注  
+ 进程的每个线程具有其自己为每个 TLS 索引槽。  
   
-## 要求  
- **标头：**jscript9diag.h  
+## <a name="requirements"></a>要求  
+ **标头：** jscript9diag.h  
   
-## 请参阅  
+## <a name="see-also"></a>另请参阅  
  [IJsDebugDataTarget 接口](../../winscript/reference/ijsdebugdatatarget-interface.md)

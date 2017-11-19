@@ -4,42 +4,27 @@ ms.custom:
 ms.date: 11/04/2016
 ms.reviewer: 
 ms.suite: 
-ms.technology:
-- vs-ide-general
+ms.technology: vs-ide-general
 ms.tgt_pltfrm: 
 ms.topic: article
-helpviewer_keywords:
-- EnableEditOfLocationField (Visual Studio project templates)
+helpviewer_keywords: EnableEditOfLocationField (Visual Studio project templates)
 ms.assetid: 51a91963-8a3f-4741-928e-bc90c11473bb
-caps.latest.revision: 7
+caps.latest.revision: "7"
+author: gregvanl
 ms.author: gregvanl
 manager: ghogen
-translation.priority.ht:
-- cs-cz
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pl-pl
-- pt-br
-- ru-ru
-- tr-tr
-- zh-cn
-- zh-tw
-translationtype: Machine Translation
-ms.sourcegitcommit: 5db97d19b1b823388a465bba15d057b30ff0b3ce
-ms.openlocfilehash: 620243fa3c764ed5d6b045f240cbf5b10c4bdedb
-ms.lasthandoff: 02/22/2017
-
+ms.openlocfilehash: 99916d3affa41d90c9fcfb912e2d3f94c743d87c
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="enableeditoflocationfield-element-visual-studio-templates"></a>EnableEditOfLocationField 元素（Visual Studio 模板）
 指定用户可以编辑位置字段。  
   
- \<VSTemplate&1;>  
- \<TemplateData&1;>  
- \<EnableEditOfLocationField&1;>  
+ \<VSTemplate >  
+ \<TemplateData >  
+ \<EnableEditOfLocationField >  
   
 ## <a name="syntax"></a>语法  
   
@@ -65,12 +50,12 @@ ms.lasthandoff: 02/22/2017
 ## <a name="text-value"></a>文本值  
  需要一个文本值。  
   
- 此文本必须`true`或`false`，以指示用户是否可以编辑**位置**上的文本框**新项目**对话框。  
+ 文本必须是`true`或`false`，以指示用户是否可以编辑**位置**上的文本框**新项目**对话框。  
   
 ## <a name="remarks"></a>备注  
  `EnableEditOfLocationField` 是可选元素。 默认值是`true`，它允许用户编辑中的值**位置**文本框中**新项目**对话框。  
   
- 在**新项目**对话框中，**位置**文本框中指定保存新项目的目录。  
+ 在**新项目**对话框中，**位置**文本框中指定保存新的项目的目录。  
   
 ## <a name="example"></a>示例  
  下面的示例演示的元数据[!INCLUDE[csprcs](../data-tools/includes/csprcs_md.md)]Windows 应用程序。  

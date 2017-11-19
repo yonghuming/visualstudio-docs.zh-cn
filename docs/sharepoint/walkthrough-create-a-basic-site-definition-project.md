@@ -1,12 +1,10 @@
 ---
-title: 'Walkthrough: Create a Basic Site Definition Project | Microsoft Docs'
+title: "演练： 创建基本网站定义项目 |Microsoft 文档"
 ms.custom: 
 ms.date: 02/02/2017
-ms.prod: visual-studio-dev14
 ms.reviewer: 
 ms.suite: 
-ms.technology:
-- office-development
+ms.technology: office-development
 ms.tgt_pltfrm: 
 ms.topic: article
 dev_langs:
@@ -18,90 +16,89 @@ helpviewer_keywords:
 - SharePoint development in Visual Studio, site definitions
 - site definitions [SharePoint development in Visual Studio]
 ms.assetid: b0df5b0e-5fa0-43d8-a339-6d92f1276764
-caps.latest.revision: 35
-author: kempb
-ms.author: kempb
+caps.latest.revision: "35"
+author: gewarren
+ms.author: gewarren
 manager: ghogen
-ms.translationtype: HT
-ms.sourcegitcommit: eb5c9550fd29b0e98bf63a7240737da4f13f3249
-ms.openlocfilehash: babd72dd748f07020a4480d0e97f7d449479e541
-ms.contentlocale: zh-cn
-ms.lasthandoff: 08/30/2017
-
+ms.openlocfilehash: 9bea8fec27b0d53fb1cfe3405d39d271a93f5a8d
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# <a name="walkthrough-create-a-basic-site-definition-project"></a>Walkthrough: Create a Basic Site Definition Project
-  This walkthrough shows you how to create a basic site definition that contains a visual Web part with some controls on it. For the sake of clarity, the visual Web part that you create has only a few controls. However, you can create more sophisticated SharePoint site definitions that include more functionality.  
+# <a name="walkthrough-create-a-basic-site-definition-project"></a>演练：创建基本网站定义项目
+  本演练演示了如何创建基本网站定义包含与上它的某些控件的可视 Web 部件。 为清楚起见，你创建的可视 Web 部件有仅几个控件。 但是，你可以创建包括更多的功能的更复杂的 SharePoint 网站定义。  
   
- This walkthrough demonstrates the following tasks:  
+ 本演练演示了下列任务：  
   
--   Creating a site definition by using the [!INCLUDE[vsprvs](../sharepoint/includes/vsprvs-md.md)] project template.  
+-   通过创建站点定义[!INCLUDE[vsprvs](../sharepoint/includes/vsprvs-md.md)]项目模板。  
   
--   Creating a SharePoint site by using a site definition in SharePoint.  
+-   通过使用 SharePoint 中的站点定义中创建 SharePoint 站点。  
   
--   Adding a visual Web part to the solution.  
+-   将可视 Web 部件添加到解决方案。  
   
--   Customizing the site's default.aspx page by adding the new visual Web part to it.  
+-   通过向其添加新的可视 Web 部件，自定义站点的 default.aspx 页。  
   
  [!INCLUDE[note_settings_general](../sharepoint/includes/note-settings-general-md.md)]  
   
-## <a name="prerequisites"></a>Prerequisites  
- You need the following components to complete this walkthrough:  
+## <a name="prerequisites"></a>先决条件  
+ 你需要以下组件来完成本演练：  
   
--   Supported editions of Microsoft Windows and SharePoint. For more information, see Requirements for Developing SharePoint Solutions.  
+-   支持的 Microsoft Windows 和 SharePoint 版本。 有关详细信息，请参阅有关开发 SharePoint 解决方案的要求。  
   
--   Visual Studio.  
+-   Visual Studio。  
   
-## <a name="creating-a-site-definition-solution"></a>Creating a Site Definition Solution  
- First, create the site definition project in [!INCLUDE[vsprvs](../sharepoint/includes/vsprvs-md.md)].  
+## <a name="creating-a-site-definition-solution"></a>创建网站定义解决方案  
+ 首先，创建中的站点定义项目[!INCLUDE[vsprvs](../sharepoint/includes/vsprvs-md.md)]。  
   
-#### <a name="to-create-a-site-definition-project"></a>To create a site definition project  
+#### <a name="to-create-a-site-definition-project"></a>若要创建网站定义项目  
   
-1.  On the menu bar, choose **File**, **New**, **Project**. If your IDE is set to use Visual Basic development settings, on the menu bar, choose **File**, **New Project**.  
+1.  在菜单栏上，依次选择“文件” 、“新建” 、“项目” 。 如果 IDE 设置为使用 Visual Basic 开发设置，在菜单栏上，选择**文件**，**新项目**。  
   
-     The **New Project** dialog box appears.  
+     此时将出现 “新建项目” 对话框。  
   
-2.  Expand the **Visual C#** node or the **Visual Basic** node, expand the **SharePoint** node, and then choose the **2010** node.  
+2.  展开**Visual C#**节点或**Visual Basic**节点，展开**SharePoint**节点，然后选择**2010年**节点。  
   
-3.  In the **Templates** list, choose the **SharePoint 2010 Project** template.  
+3.  在**模板**列表中，选择**SharePoint 2010 项目**模板。  
   
-4.  In the **Name** box, enter **TestSiteDef**, and then choose the **OK** button.  
+4.  在**名称**框中，输入**TestSiteDef**，然后选择**确定**按钮。  
   
-     The **SharePoint Customization Wizard** appears.  
+     **SharePoint 自定义向导**显示。  
   
-5.  On the **Specify the site and security level for debugging** page, enter the URL for the SharePoint site where you want to debug the site definition, or use the default location (http://*System Name*/).  
+5.  上**指定用于调试的站点和安全性级别**页上，输入想要调试站点定义的 SharePoint 站点的 URL 或使用默认位置 (http://*系统名称*/)。  
   
-6.  In the **What is the trust level for this SharePoint solution?** section, choose the **Deploy as a farm solution** option button.  
+6.  在**此 SharePoint 解决方案的信任级别是什么？**部分中，选择**部署为场解决方案**选项按钮。  
   
-     All site definition projects must be deployed as farm solutions. For more information about sandboxed solutions versus farm solutions, see [Sandboxed Solution Considerations](../sharepoint/sandboxed-solution-considerations.md).  
+     站点定义的所有项目必须都部署为场解决方案。 有关沙盒解决方案与场解决方案的详细信息，请参阅[沙盒解决方案注意事项](../sharepoint/sandboxed-solution-considerations.md)。  
   
-7.  Choose the **Finish** button.  
+7.  选择**完成**按钮。  
   
-     The project appears in **Solution Explorer**.  
+     项目将出现在**解决方案资源管理器**。  
   
-8.  In **Solution Explorer**, choose the project node, and then, on the menu bar, choose **Project**, **Add New Item**.  
+8.  在**解决方案资源管理器**，选择项目节点，然后，在菜单栏上，选择**项目**，**添加新项**。  
   
-9. Under either **Visual C#** or **Visual Basic**, expand the **SharePoint** node, and then choose the **2010** node.  
+9. 下**Visual C#**或**Visual Basic**，展开**SharePoint**节点，然后选择**2010年**节点。  
   
-10. In the **Templates** pane, choose the **Site Definition** template, leave the **Name** as **SiteDefinition1**, and then choose the **Add** button.  
+10. 在**模板**窗格中，选择**站点定义**模板，保留**名称**作为**SiteDefinition1**，然后选择**添加**按钮。  
   
-## <a name="create-a-visual-web-part"></a>Create a Visual Web Part  
- Next, create a visual Web part to appear on the site definition's main page.  
+## <a name="create-a-visual-web-part"></a>创建可视 Web 部件  
+ 接下来，创建要在站点定义的主页上显示的可视 Web 部件。  
   
-#### <a name="to-create-a-visual-web-part"></a>To create a visual Web part  
+#### <a name="to-create-a-visual-web-part"></a>若要创建的可视 Web 部件  
   
-1.  In **Solution Explorer**, choose the **Show All Files** button.  
+1.  在**解决方案资源管理器**，选择**显示所有文件**按钮。  
   
-2.  Choose the **SiteDefinition1** project node, and then, on the menu bar, choose **Project**, **Add New Item**.  
+2.  选择**SiteDefinition1**项目节点，，然后，在菜单栏上，选择**项目**，**添加新项**。  
   
-     The **Add New Item** dialog box appears.  
+     “添加新项”对话框随即出现。  
   
-3.  Expand the **Visual C#** node or the **Visual Basic** node, expand the **SharePoint** node, and then choose the **2010** node.  
+3.  展开**Visual C#**节点或**Visual Basic**节点，展开**SharePoint**节点，然后选择**2010年**节点。  
   
-4.  In the list of templates, choose the **Visual Web Part** template, keep the default name VisualWebPart1, and then choose the **Add** button.  
+4.  在模板列表中，选择**可视 Web 部件**模板，保留默认值将 VisualWebPart1，，然后选择**添加**按钮。  
   
-     The VisualWebPart1.ascx file opens.  
+     打开该 VisualWebPart1.ascx 文件。  
   
-5.  At the bottom of VisualWebPart1.ascx, add the following markup to add three controls to the form: a text box, a button, and a label:  
+5.  VisualWebPart1.ascx 底部添加以下标记将三个控件添加到窗体： 一个文本框、 按钮和标签：  
   
     ```  
     <table>  
@@ -119,26 +116,27 @@ ms.lasthandoff: 08/30/2017
     </table>  
     ```  
   
-6.  Under VisualWebPart1.ascx, open the VisualWebPart1.ascx.cs file (for [!INCLUDE[csprcs](../sharepoint/includes/csprcs-md.md)]) or VisualWebPart1.ascx.vb (for [!INCLUDE[vbprvb](../sharepoint/includes/vbprvb-md.md)]) , and then add the following code:  
+6.  下 VisualWebPart1.ascx，打开 VisualWebPart1.ascx.cs 文件 (对于[!INCLUDE[csprcs](../sharepoint/includes/csprcs-md.md)]) 或 VisualWebPart1.ascx.vb (有关[!INCLUDE[vbprvb](../sharepoint/includes/vbprvb-md.md)])，然后添加以下代码：  
   
-     [!code-vb[SP_SimpleSiteDef#1](../sharepoint/codesnippet/VisualBasic/testsitedefvb/sitedefinition/visualwebpart1/visualwebpart1usercontrol.ascx.vb#1)]  [!code-csharp[SP_SimpleSiteDef#1](../sharepoint/codesnippet/CSharp/testsitedef/sitedefinition/visualwebpart1/visualwebpart1usercontrol.ascx.cs#1)]  
+     [!code-vb[SP_SimpleSiteDef#1](../sharepoint/codesnippet/VisualBasic/testsitedefvb/sitedefinition/visualwebpart1/visualwebpart1usercontrol.ascx.vb#1)]
+     [!code-csharp[SP_SimpleSiteDef#1](../sharepoint/codesnippet/CSharp/testsitedef/sitedefinition/visualwebpart1/visualwebpart1usercontrol.ascx.cs#1)]  
   
-     This code adds functionality for the web part's button click.  
+     此代码将添加为 web 部件的按钮单击的功能。  
   
-## <a name="add-the-visual-web-part-to-the-default-aspx-page"></a>Add the Visual Web Part to the Default ASPX Page  
- Next, add the visual Web part to the site definition's default ASPX page.  
+## <a name="add-the-visual-web-part-to-the-default-aspx-page"></a>将可视 Web 部件添加到默认 ASPX 页  
+ 接下来，将可视 Web 部件添加到站点定义的默认 ASPX 页。  
   
-#### <a name="to-add-a-visual-web-part-to-the-default-aspx-page"></a>To add a visual Web part to the default ASPX page  
+#### <a name="to-add-a-visual-web-part-to-the-default-aspx-page"></a>将可视 Web 部件添加到默认 ASPX 页  
   
-1.  Open the default.aspx page, and then add the following line under the `WebPartPages` tag:  
+1.  打开 default.aspx 页上，，然后添加以下行下的`WebPartPages`标记：  
   
     ```  
     <%@ Register Tagprefix="MyWebPartControls" Namespace="TestSiteDef.VisualWebPart1" Assembly="$SharePoint.Project.AssemblyFullName$" %>  
     ```  
   
-     This line associates the name MyWebPartControls with the Web part and its code. The *Namespace* parameter matches the namespace that's used in the VisualWebPart1.ascx code file.  
+     此行将名称 MyWebPartControls 与 Web 部件，并且其代码相关联。 *Namespace*参数与匹配 VisualWebPart1.ascx 代码文件中使用的命名空间。  
   
-2.  After the `</asp:Content>` element, replace the entire `ContentPlaceHolderId="PlaceHolderMain"` section and its contents with the following code:  
+2.  后`</asp:Content>`元素，替换整个`ContentPlaceHolderId="PlaceHolderMain"`部分和其内容替换为以下代码：  
   
     ```  
     <asp:Content ID="Content1" ContentPlaceHolderId="PlaceHolderMain" runat="server">  
@@ -146,51 +144,51 @@ ms.lasthandoff: 08/30/2017
     </asp:Content>  
     ```  
   
-     This code creates a reference to the visual Web part that you created earlier.  
+     此代码将创建对前面创建的可视 Web 部件的引用。  
   
-3.  In **Solution Explorer**, open the shortcut menu for the **SiteDefinition1** node, and then choose **Set as Startup Item**.  
+3.  在**解决方案资源管理器**，打开快捷菜单**SiteDefinition1**节点，然后选择**设为启动项目**。  
   
-## <a name="deploy-and-run-the-site-definition-solution"></a>Deploy and Run the Site Definition Solution  
- Next, deploy the project to SharePoint, and then run the project.  
+## <a name="deploy-and-run-the-site-definition-solution"></a>部署并运行网站定义解决方案  
+ 接下来，将项目部署到 SharePoint，，然后运行该项目。  
   
-#### <a name="to-deploy-and-run-the-site-definition"></a>To deploy and run the site definition  
+#### <a name="to-deploy-and-run-the-site-definition"></a>部署并运行网站定义  
   
--   On the menu bar, choose **Build**, **Deploy TestSiteDef**.  
+-   在菜单栏上，选择**生成**，**部署 TestSiteDef**。  
   
--   Choose the F5 key.  
+-   选择 F5 键。  
   
-     Visual Studio compiles the code, adds its features, packages all of the files into a SharePoint solution (WSP) file, and deploys the WSP file to SharePoint Server. SharePoint then installs the files and then activates the features.  
+     Visual Studio 编译代码、 添加了其功能，为 SharePoint 解决方案 (WSP) 文件，包的所有文件和将 WSP 文件部署到 SharePoint 服务器。 SharePoint 安装文件，然后，然后激活功能。  
   
-## <a name="create-a-site-based-on-the-site-definition"></a>Create a Site Based on the Site Definition  
- Next, create a site by using the new site definition.  
+## <a name="create-a-site-based-on-the-site-definition"></a>创建基于站点定义的网站  
+ 接下来，使用新的站点定义中创建一个站点。  
   
-#### <a name="to-create-a-site-by-using-the-site-definition"></a>To create a site by using the site definition  
+#### <a name="to-create-a-site-by-using-the-site-definition"></a>若要创建一个站点使用站点定义  
   
-1.  On the SharePoint site, the New SharePoint Site page appears.  
+1.  在 SharePoint 站点上，将显示新的 SharePoint 网站页。  
   
-2.  In the **Title and Description** section, enter **My New Site** for the title and a description of the site.  
+2.  在**标题和说明**部分中，输入**我的新站点**标题和站点的描述。  
   
-3.  In the **Web Site Address** section, enter **mynewsite** in the **URL name** box.  
+3.  在**网站地址**部分中，输入**mynewsite**中**URL 名称**框。  
   
-4.  In the **Template** section, choose the **SharePoint Customizations** tab.  
+4.  在**模板**部分中，选择**SharePoint 自定义**选项卡。  
   
-5.  In the **Select a template** list, choose **SiteDefinition1**.  
+5.  在**选择模板**列表中，选择**SiteDefinition1**。  
   
-6.  Leave the other settings at their default values, and then choose the **Create** button.  
+6.  将其他设置保留为其默认值，然后依次**创建**按钮。  
   
-     The new site appears.  
+     新的站点会显示。  
   
-## <a name="test-the-new-site"></a>Test the New Site  
- Next, test the new site to verify whether it works correctly.  
+## <a name="test-the-new-site"></a>测试新的站点  
+ 接下来，测试新站点以验证是否其正常运行。  
   
-#### <a name="to-test-the-new-site"></a>To test the new site  
+#### <a name="to-test-the-new-site"></a>若要测试新站点  
   
--   On the default ASPX page, enter some text, and then choose the **Change Label Text** button next to the text box.  
+-   在默认 ASPX 页上，输入一些文本，然后选择**更改标签文本**文本框旁边的按钮。  
   
-     The text appears in the label on the right side of the button.  
+     将文本显示在右侧的按钮上的标签。  
   
-## <a name="see-also"></a>See Also  
- [How to: Create an Event Receiver](../sharepoint/how-to-create-an-event-receiver.md)   
- [Developing SharePoint Solutions](../sharepoint/developing-sharepoint-solutions.md)  
+## <a name="see-also"></a>另请参阅  
+ [如何： 创建事件接收器](../sharepoint/how-to-create-an-event-receiver.md)   
+ [开发 SharePoint 解决方案](../sharepoint/developing-sharepoint-solutions.md)  
   
   

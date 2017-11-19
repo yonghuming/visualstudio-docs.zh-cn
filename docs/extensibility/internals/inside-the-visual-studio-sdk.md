@@ -4,8 +4,7 @@ ms.custom:
 ms.date: 11/04/2016
 ms.reviewer: 
 ms.suite: 
-ms.technology:
-- vs-ide-sdk
+ms.technology: vs-ide-sdk
 ms.tgt_pltfrm: 
 ms.topic: article
 helpviewer_keywords:
@@ -13,36 +12,23 @@ helpviewer_keywords:
 - Visual Studio integration SDK roadmap
 - integration roadmap, Visual Studio SDK
 ms.assetid: 9118eaa4-0453-4dc5-9e16-c7062d254869
-caps.latest.revision: 30
+caps.latest.revision: "30"
+author: gregvanl
 ms.author: gregvanl
 manager: ghogen
-translation.priority.mt:
-- cs-cz
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pl-pl
-- pt-br
-- ru-ru
-- tr-tr
-- zh-cn
-- zh-tw
-translationtype: Machine Translation
-ms.sourcegitcommit: ca7c86466fa23fb21a932f26dc24e37c71cf29b4
-ms.openlocfilehash: 565aaeb189ad129d5e4e26d9c73c080de2e77676
-ms.lasthandoff: 04/05/2017
-
+ms.openlocfilehash: ebba0ea11781a4b5a3d01aabb718b0ad778daab9
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# <a name="inside-the-visual-studio-sdk"></a>在 Visual Studio SDK
+# <a name="inside-the-visual-studio-sdk"></a>深入探究 Visual Studio SDK
 本部分提供有关 Visual Studio 扩展，包括 Visual Studio 体系结构、 组件、 服务、 架构、 实用程序，以及类似的详细信息。  
   
 ## <a name="extensibility-architecture"></a>可扩展性体系结构  
- 下图显示 Visual Studio 扩展性体系结构。 Vspackage 提供作为服务在 IDE 之间共享的应用程序功能。 标准 IDE 还提供了广泛的服务，如<xref:Microsoft.VisualStudio.Shell.Interop.SVsUIShell>，它提供的信息对 IDE 窗口化功能的访问。</xref:Microsoft.VisualStudio.Shell.Interop.SVsUIShell>  
+ 下图显示 Visual Studio 扩展性体系结构。 Vspackage 提供作为服务在 IDE 之间共享的应用程序功能。 标准 IDE 还提供了广泛的服务，如<xref:Microsoft.VisualStudio.Shell.Interop.SVsUIShell>，它提供的信息对 IDE 窗口化功能的访问。  
   
- ![环境体系结构图](~/extensibility/internals/media/environment.gif "environment")  
+ ![环境体系结构图](../../extensibility/internals/media/environment.gif "环境")  
 Visual Studio 体系结构的通用的视图  
   
 ## <a name="vspackages"></a>VSPackages  
@@ -52,14 +38,14 @@ Visual Studio 体系结构的通用的视图
  Visual Studio shell 提供基本功能，并支持其组件 Vspackage 和 MEF 扩展之间的跨通信。 有关详细信息，请参阅[Visual Studio Shell](../../extensibility/internals/visual-studio-shell.md)。  
   
 ## <a name="user-experience-guidelines"></a>用户体验指南  
- 如果你打算 for Visual Studio 中设计新的功能，你应看一看这些准则设计和可用性的提示︰ [Visual Studio 用户体验指南](../../extensibility/ux-guidelines/visual-studio-user-experience-guidelines.md)。  
+ 如果你打算 for Visual Studio 中设计新的功能，你应看一看这些准则设计和可用性的提示： [Visual Studio 用户体验指南](../../extensibility/ux-guidelines/visual-studio-user-experience-guidelines.md)。  
   
 ## <a name="commands"></a>命令  
  命令是完成任务（如打印文档、刷新视图或创建新文件）的函数。  
   
  扩展 Visual Studio 时，你可以创建命令和使用 Visual Studio shell 它们进行注册。 你可以指定如何这些命令将显示在 IDE 中，例如，菜单或工具栏上。 自定义命令通常显示在**工具**菜单，然后显示一个工具窗口的命令将出现在**其他窗口**子菜单**视图**菜单。  
   
- 在创建命令时，还必须为其创建事件处理程序。 事件处理程序确定命令何时可见或启用、 可让你修改其文本，以及保证，该命令合适方式进行响应时，它将激活。 在大多数情况下，IDE 处理命令通过使用<xref:Microsoft.VisualStudio.OLE.Interop.IOleCommandTarget>接口。</xref:Microsoft.VisualStudio.OLE.Interop.IOleCommandTarget> Visual Studio 中的命令处理开头的最内层命令上下文中，基于本地选择，，到最外层的上下文，基于全局选择继续操作。 添加到主菜单的命令可立即用于脚本编写。  
+ 在创建命令时，还必须为其创建事件处理程序。 事件处理程序确定命令何时可见或启用、 可让你修改其文本，以及保证，该命令合适方式进行响应时，它将激活。 在大多数情况下，IDE 处理命令通过使用<xref:Microsoft.VisualStudio.OLE.Interop.IOleCommandTarget>接口。 Visual Studio 中的命令处理开头的最内层命令上下文中，基于本地选择，，到最外层的上下文，基于全局选择继续操作。 添加到主菜单的命令可立即用于脚本编写。  
   
  有关详细信息，请参阅[命令、 菜单和工具栏](../../extensibility/internals/commands-menus-and-toolbars.md)。  
   
@@ -75,11 +61,11 @@ Visual Studio 体系结构的通用的视图
   
  请考虑下图的 Visual Studio 中，其中包含多个工具窗口。  
   
- ![屏幕截图](~/extensibility/internals/media/t1gui.png "T1gui")  
+ ![屏幕截图](../../extensibility/internals/media/t1gui.png "T1gui")  
   
  某些工具窗口一起停靠在单一的窗格显示解决方案资源管理器工具窗口和隐藏的其他工具窗口但使它们可通过单击选项卡。 图中显示了两个其他工具窗口，**错误列表**和**输出**窗口一起停靠在单一的窗格。  
   
- 此外显示的是主文档窗格中，其中显示了多个编辑器窗口。 尽管工具窗口通常具有一个实例 (例如，你可以打开只有一个**解决方案资源管理器**)，编辑器窗口可以具有多个实例，其中每个用于编辑一个单独的文档，但所有这些停靠在同一窗格。 图中显示一个具有两个编辑器窗口，一个窗体设计器窗口，并显示启动页的浏览器窗口的文档窗格。 文档窗格中的所有窗口可通过单击选项卡上，但包含 EditorPane.cs 文件的编辑器窗口是可见的且活动。  
+ 此外显示的是主文档窗格中，其中显示了多个编辑器窗口。 尽管工具窗口通常具有一个实例 (例如，你可以打开只有一个**解决方案资源管理器**)，编辑器窗口可以具有多个实例，其中每个用于编辑一个单独的文档，但它们都在中的停靠同一个窗格。 图中显示一个具有两个编辑器窗口，一个窗体设计器窗口，并显示启动页的浏览器窗口的文档窗格。 文档窗格中的所有窗口可通过单击选项卡上，但包含 EditorPane.cs 文件的编辑器窗口是可见的且活动。  
   
  扩展 Visual Studio 时，你可以创建 windows，以让 Visual Studio 用户交互的工具与您的扩展。 你还可以创建你自己让 Visual Studio 用户编辑文档的编辑器。 工具窗口和编辑器将集成到 Visual Studio 中，因为你没有进行编程以停靠或正确显示在选项卡上。 正确注册在 Visual Studio 中，它们将自动拥有工具窗口以及 Visual Studio 中的文档窗口的典型的功能。 有关详细信息，请参阅[扩展和自定义工具窗口](../../extensibility/extending-and-customizing-tool-windows.md)。  
   
@@ -118,7 +104,7 @@ Visual Studio 体系结构的通用的视图
  有关详细信息，请参阅[添加项目和项目项模板](../../extensibility/internals/adding-project-and-project-item-templates.md)。  
   
 ## <a name="properties-and-options"></a>属性和选项  
- **属性**窗口将显示一个或多个选定的项的属性︰[扩展属性](../../extensibility/internals/extending-properties.md)选项页包含一系列的选项适用于特定组件，例如一种编程语言或 VSPackage:[选项和选项页](../../extensibility/internals/options-and-options-pages.md)。 设置是通常与 UI 相关的功能，可以导入和导出︰[对用户设置的支持](../../extensibility/internals/support-for-user-settings.md)。  
+ **属性**窗口将显示一个或多个选定的项的属性：[扩展属性](../../extensibility/internals/extending-properties.md)选项页包含一系列的选项适用于特定组件，如编程语言或 VSPackage:[选项和选项页](../../extensibility/internals/options-and-options-pages.md)。 设置是通常与 UI 相关的功能，可以导入和导出：[对用户设置的支持](../../extensibility/internals/support-for-user-settings.md)。  
   
 ## <a name="visual-studio-services"></a>Visual Studio 服务  
  服务提供一组特定的组件使用的接口。 Visual Studio 提供了一组可由任何组件，包括扩展的服务。 例如，Visual Studio 服务使工具窗口，以显示或隐藏动态，启用对帮助、 状态栏或 UI 事件的访问。 Visual Studio 编辑器还可以导入的编辑器扩展的服务提供。 有关详细信息，请参阅[使用和提供服务](../../extensibility/using-and-providing-services.md)。  
@@ -139,7 +125,7 @@ Visual Studio 体系结构的通用的视图
  VSSDK 包括一套实用程序可能需要若要使用的 Vspackage 的不同方面。 有关详细信息，请参阅[VSSDK 实用工具](../../extensibility/internals/vssdk-utilities.md)。  
   
 ## <a name="using-windows-installer"></a>使用 Windows 安装程序  
- 在某些情况下，可能需要使用 Windows Installer，而不是 VSIX 安装程序︰ 例如，你可能需要向注册表写入。 有关使用你的扩展支持 Windows 安装程序的信息，请参阅[与 Windows Installer 安装 Vspackage](../../extensibility/internals/installing-vspackages-with-windows-installer.md)。  
+ 在某些情况下，可能需要使用 Windows Installer，而不是 VSIX 安装程序： 例如，你可能需要向注册表写入。 有关使用你的扩展支持 Windows 安装程序的信息，请参阅[与 Windows Installer 安装 Vspackage](../../extensibility/internals/installing-vspackages-with-windows-installer.md)。  
   
 ## <a name="help-viewer"></a>帮助查看器  
  你可以将你自己的帮助和 F1 页集成到帮助查看器。 有关详细信息，请参阅[Microsoft 帮助查看器 SDK](../../extensibility/internals/microsoft-help-viewer-sdk.md)。

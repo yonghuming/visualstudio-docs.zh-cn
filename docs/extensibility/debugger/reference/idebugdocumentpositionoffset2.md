@@ -1,51 +1,52 @@
 ---
-title: "IDebugDocumentPositionOffset2 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-helpviewer_keywords: 
-  - "IDebugDocumentPositionOffset2 接口"
+title: "IDebugDocumentPositionOffset2 |Microsoft 文档"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology: vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+helpviewer_keywords: IDebugDocumentPositionOffset2 interface
 ms.assetid: f1b05db3-50d8-453f-a72f-e68b239236a4
-caps.latest.revision: 7
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 7
+caps.latest.revision: "7"
+author: gregvanl
+ms.author: gregvanl
+manager: ghogen
+ms.openlocfilehash: 81c934add7248b7d63854b259957d58aae298401
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# IDebugDocumentPositionOffset2
-[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
-
-表示源文件中的位置作为字符偏移量。  
+# <a name="idebugdocumentpositionoffset2"></a>IDebugDocumentPositionOffset2
+表示为字符偏移量在源文件中的位置。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
 ```  
 IDebugDocumentPositionOffset2 : IUnknown  
 ```  
   
-## 实现者说明  
- 实现由 IDE 和使用调试引擎。  
+## <a name="notes-for-implementers"></a>实施者注意事项  
+ 由 IDE 实现和使用的调试引擎。  
   
-## 方法  
- 下表显示 `IDebugDocumentPositionOffset2`方法。  
+## <a name="methods"></a>方法  
+ 下表显示的方法`IDebugDocumentPositionOffset2`。  
   
-|方法|说明|  
-|--------|--------|  
-|[GetRange](../Topic/IDebugDocumentPositionOffset2::GetRange.md)|检索的大小当前文件位置。|  
+|方法|描述|  
+|------------|-----------------|  
+|[GetRange](../../../extensibility/debugger/reference/idebugdocumentpositionoffset2-getrange.md)|检索当前的文档位置的范围。|  
   
-## 备注  
- 这将返回信息和 [GetRange](../../../extensibility/debugger/reference/idebugdocumentposition2-getrange.md) 相同，但在 `char` 偏移量最初文档。  它显示文档，如它在磁盘，也就是说，一维数组上存在字符，而不是通常返回的行和列信息。  
+## <a name="remarks"></a>备注  
+ 这将返回相同的信息[GetRange](../../../extensibility/debugger/reference/idebugdocumentposition2-getrange.md)但在`char`从文档的开头偏移量。 像它将存在于磁盘，即字符，而不是通常返回的行和列信息的一维数组，这会带来文档。  
   
-## 要求  
- 标题:Msdbg.h  
+## <a name="requirements"></a>要求  
+ 标头： Msdbg.h  
   
- 命名空间:Microsoft.VisualStudio.Debugger.Interop  
+ Namespace: Microsoft.VisualStudio.Debugger.Interop  
   
- 程序集:Microsoft.VisualStudio.Debugger.Interop.dll  
+ 程序集： Microsoft.VisualStudio.Debugger.Interop.dll  
   
-## 请参阅  
+## <a name="see-also"></a>另请参阅  
  [IDebugDocumentPosition2](../../../extensibility/debugger/reference/idebugdocumentposition2.md)

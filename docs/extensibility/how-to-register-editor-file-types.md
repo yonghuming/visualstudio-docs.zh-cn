@@ -1,31 +1,32 @@
 ---
-title: "如何: 注册编辑器文件类型 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-helpviewer_keywords: 
-  - "编辑器 [Visual Studio SDK]，旧的注册文件类型"
+title: "如何： 注册编辑器文件类型 |Microsoft 文档"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology: vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+helpviewer_keywords: editors [Visual Studio SDK], legacy - register file types
 ms.assetid: 54846779-8290-48de-90ab-81011559d9a5
-caps.latest.revision: 14
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 14
+caps.latest.revision: "14"
+author: gregvanl
+ms.author: gregvanl
+manager: ghogen
+ms.openlocfilehash: d9f2837dff6c5dd62c03da2ab340fca287a1da56
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# 如何: 注册编辑器文件类型
-[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
-
-注册编辑文件类型的最简单的方法是使用作为 [!INCLUDE[vsipsdk](../extensibility/includes/vsipsdk_md.md)] 托管包框架类的节中提供的注册属性 \(MPF\)。  如果实现在本机 [!INCLUDE[vcprvc](../debugger/includes/vcprvc_md.md)]的包，您还可以编写注册编辑器和关联的扩展的注册表脚本。  
+# <a name="how-to-register-editor-file-types"></a>如何： 注册编辑器文件类型
+注册编辑器文件类型的最简单方法是通过使用作为的一部分提供的注册特性[!INCLUDE[vsipsdk](../extensibility/includes/vsipsdk_md.md)]托管包框架 (MPF) 类。 如果你要在本机实现你的包[!INCLUDE[vcprvc](../code-quality/includes/vcprvc_md.md)]，还可以编写注册表脚本注册你的编辑器和关联的扩展。  
   
-## 使用 MPF 类注册  
+## <a name="registration-using-mpf-classes"></a>使用 MPF 类注册  
   
-#### 注册使用 MPF 类的编辑文件类型  
+#### <a name="to-register-editor-file-types-using-mpf-classes"></a>若要注册编辑器文件类型使用 MPF 类  
   
-1.  提供 <xref:Microsoft.VisualStudio.Shell.ProvideEditorExtensionAttribute> 类具有相应的参数用于在 VSPackage 中类的编辑器。  
+1.  提供<xref:Microsoft.VisualStudio.Shell.ProvideEditorExtensionAttribute>编辑器中，你的 VSPackage 的类中的相应参数的类。  
   
     ```  
     [Microsoft.VisualStudio.Shell.ProvideEditorExtensionAttribute(typeof(EditorFactory), ".Sample", 32,   
@@ -34,17 +35,17 @@ caps.handback.revision: 14
          NameResourceID = 106)]  
     ```  
   
-     there “。sample”是注册此版本的扩展，并且， “32 " 是其优先级级别。  
+     其中"。示例"是，将为此编辑器，注册的扩展，"32"是其优先级别。  
   
-     `projectGuid` 是杂项文件类型的 GUID，定义在 <xref:Microsoft.VisualStudio.VSConstants.CLSID_MiscellaneousFilesProject>。  提供杂项文件类型，因此，生成的文件不是生成过程的各部分。  
+     `projectGuid`是中定义的其他文件类型的 GUID <xref:Microsoft.VisualStudio.VSConstants.CLSID_MiscellaneousFilesProject>。 提供的其他文件类型，以便生成的文件不要生成过程的一部分。  
   
-     `TemplateDir` 表示包含模板文件包含管理的基本编辑示例的文件夹。  
+     `TemplateDir`表示包含所托管的基本编辑器示例附带的模板文件的文件夹。  
   
-     `NameResourceID` 在 BasicEditorUI 项目的 Resources.h 文件中定义，并确定编辑为 “我的编辑”。  
+     `NameResourceID`BasicEditorUI 项目中，Resources.h 文件中定义并确定编辑器中的按"我编辑器"。  
   
 2.  重写 <xref:Microsoft.VisualStudio.Shell.Package.Initialize%2A> 方法。  
   
-     在 <xref:Microsoft.VisualStudio.Shell.Package.Initialize%2A> 方法的实现中，调用 <xref:Microsoft.VisualStudio.Shell.Package.RegisterEditorFactory%2A> 方法并通过编辑工厂的实例如下所示。  
+     实现中<xref:Microsoft.VisualStudio.Shell.Package.Initialize%2A>方法中，调用<xref:Microsoft.VisualStudio.Shell.Package.RegisterEditorFactory%2A>方法并传入下面演示的作为你编辑器工厂的实例。  
   
     ```  
     protected override void Initialize()  
@@ -58,22 +59,22 @@ caps.handback.revision: 14
     }  
     ```  
   
-     此步骤注册编辑器工厂和编辑文件扩展名。  
+     此步骤注册编辑器工厂和编辑器文件扩展名。  
   
-3.  注销编辑工厂。  
+3.  注销编辑器工厂。  
   
-     ，在 VSPackage 中配置时，编辑工厂自动中注销。  如果编辑工厂对象实现 <xref:System.IDisposable> 接口，其 `Dispose` 方法调用，在工厂中注销与 [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)]之后。  
+     释放 VSPackage 时，编辑器工厂会自动注销。 如果编辑器工厂对象实现<xref:System.IDisposable>接口，其`Dispose`后与已注销了工厂调用方法[!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)]。  
   
-## 使用注册表脚本注册  
- 注册表编辑器工厂和文件类型在本机 [!INCLUDE[vcprvc](../debugger/includes/vcprvc_md.md)] 执行使用一个注册表脚本写入 windows 注册表，如的由以下。  
+## <a name="registration-using-a-registry-script"></a>注册使用注册表脚本  
+ 在本机中注册编辑器工厂和文件类型[!INCLUDE[vcprvc](../code-quality/includes/vcprvc_md.md)]完成使用注册表脚本写入 windows 注册表中，如以下所示。  
   
-#### 注册使用注册表脚本的编辑文件类型  
+#### <a name="to-register-editor-file-types-using-a-registry-script"></a>若要注册编辑器文件类型使用注册表脚本  
   
-1.  如下面的注册表脚本的 `GUID_BscEditorFactory` 节所示，在注册表脚本，请定义编辑器工厂和编辑 factory GUID 字符串。  另外，请定义扩展和编辑扩展的优先级别:  
+1.  在注册表脚本中，定义编辑器工厂和编辑器工厂 GUID 字符串中所示`GUID_BscEditorFactory`的以下注册表脚本部分。 此外，定义扩展和编辑器扩展的优先级：  
   
     ```  
   
-                NoRemove Editors     {         %GUID_BscEditorFactory% = s 'RTF Editor'         {             val Package = s '%CLSID_Package%'             val DisplayName = s 'An RTF Editor'             val ExcludeDefTextEditor = d 1             val AcceptBinaryFiles = d 0  
+          NoRemove Editors     {         %GUID_BscEditorFactory% = s 'RTF Editor'         {             val Package = s '%CLSID_Package%'             val DisplayName = s 'An RTF Editor'             val ExcludeDefTextEditor = d 1             val AcceptBinaryFiles = d 0  
   
             LogicalViews  
             {  
@@ -84,18 +85,18 @@ caps.handback.revision: 14
             {  
             }  
   
-            Extensions             {                 val rtf = d 50             }  
+            Extensions            {                val rtf = d 50            }  
         }  
     }  
     ```  
   
-     在此示例中的编辑文件扩展名标识 “.rtf”及其优先级 “50 "。  GUID 字符串。 BscEdit 示例项目的 Resource.h 文件中定义的。  
+     在此示例中的编辑器文件扩展名标识为".rtf"并且其优先级为"50"。 Resource.h 文件 BscEdit 示例项目中定义的 GUID 字符串。  
   
-2.  注册 VSPackage。  
+2.  将 VSPackage 注册。  
   
 3.  注册编辑器工厂。  
   
-     编辑工厂。 <xref:Microsoft.VisualStudio.Shell.Interop.IVsRegisterEditors.RegisterEditor%2A> 实现注册。  
+     在中注册的编辑器工厂<xref:Microsoft.VisualStudio.Shell.Interop.IVsRegisterEditors.RegisterEditor%2A>实现。  
   
     ```  
     // create editor factory.  
@@ -126,4 +127,4 @@ caps.handback.revision: 14
     }  
     ```  
   
-     GUID 字符串。 BscEdit 项目的 Resource.h 文件中定义的。
+     BscEdit 项目 Resource.h 文件中定义的 GUID 字符串。

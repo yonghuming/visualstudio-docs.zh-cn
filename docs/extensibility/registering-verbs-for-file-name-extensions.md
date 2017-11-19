@@ -1,30 +1,31 @@
 ---
-title: "注册文件扩展名的谓词 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-helpviewer_keywords: 
-  - "谓词注册"
+title: "注册文件扩展名谓词 |Microsoft 文档"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology: vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+helpviewer_keywords: verbs, registering
 ms.assetid: 81a58e40-7cd0-4ef4-a475-c4e1e84d6e06
-caps.latest.revision: 16
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 16
+caps.latest.revision: "16"
+author: gregvanl
+ms.author: gregvanl
+manager: ghogen
+ms.openlocfilehash: 8f430486c613e6281404110d4441d2a3d2100534
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# 注册文件扩展名的谓词
-[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
-
-与应用程序的文件扩展名关联通常具有首选的操作，当用户双击文件时发生。 此优先操作链接到的谓词，例如打开时，与操作相对应。  
+# <a name="registering-verbs-for-file-name-extensions"></a>注册为文件扩展名的谓词
+与应用程序的文件扩展名关联通常具有首选的操作，当用户双击文件时发生。 这首选的操作链接到的谓词，例如打开，对应于操作。  
   
- 您可以注册在 HKEY\_CLASSES\_ROOT\\ 使用 Shell 注册表位于与扩展的编程标识符 \(ProgID\) 关联的谓词*progid*\\shell。 有关详细信息，请参阅 [文件类型](http://msdn.microsoft.com/library/windows/desktop/cc144148\(v=vs.85\).aspx)。  
+ 你可以注册在 hkey_classes_root。 使用位于的 Shell 密钥与扩展的编程标识符 (ProgID) 关联的谓词\\*progid*\shell。 有关详细信息，请参阅[文件类型](http://msdn.microsoft.com/library/windows/desktop/cc144148\(v=vs.85\).aspx)。  
   
-## 注册标准谓词  
- 操作系统能够识别以下标准谓词︰  
+## <a name="registering-standard-verbs"></a>注册标准谓词  
+ 操作系统识别出以下标准谓词：  
   
 -   打开  
   
@@ -32,16 +33,16 @@ caps.handback.revision: 16
   
 -   播放  
   
--   打印  
+-   的  
   
 -   预览  
   
- 只要有可能，注册标准谓词。 最常见的选择是动词 Open。 使用编辑谓词，只有在打开的文件和编辑该文件之间有明显差异。 例如，打开一个.htm 文件将其显示在浏览器中，而编辑一个.htm 文件启动 HTML 编辑器。 标准谓词被本地化与操作系统区域设置。  
+ 只要有可能，注册标准谓词。 最常见的选择是打开的谓词。 只有在打开的文件和编辑文件之间有明显差异，请使用编辑谓词。 例如，打开.htm 文件将其显示在浏览器中，而编辑.htm 文件启动 HTML 编辑器。 标准谓词已本地化的操作系统的区域设置。  
   
 > [!NOTE]
->  在注册标准谓词时, 未设置打开项的默认值。 默认值包含在菜单上的显示字符串。 操作系统提供标准谓词该的字符串。  
+>  注册标准谓词时, 未设置打开密钥的默认值。 默认值包含在菜单上的显示字符串。 操作系统提供标准谓词此字符串。  
   
- 项目文件应注册为在启动的新实例 [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] 当用户在打开该文件。 下面的示例演示的标准谓词注册 [!INCLUDE[csprcs](../data-tools/includes/csprcs_md.md)] 项目。  
+ 应注册项目文件以启动的新实例[!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)]当用户打开该文件。 下面的示例演示的标准谓词登记[!INCLUDE[csprcs](../data-tools/includes/csprcs_md.md)]项目。  
   
 ```  
 [HKEY_CLASSES_ROOT\.csproj]  
@@ -72,7 +73,7 @@ caps.handback.revision: 16
 @="\"C:\\Program Files\\Common Files\\Microsoft Shared\\MSEnv\\VSLauncher.exe\" \"%1\""  
 ```  
   
- 若要打开的文件中的现有实例 [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)], ，注册 DDEEXEC 密钥。 下面的示例演示的标准谓词注册 [!INCLUDE[csprcs](../data-tools/includes/csprcs_md.md)] .cs 文件。  
+ 若要打开的文件中的现有实例[!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)]，注册 DDEEXEC 密钥。 下面的示例演示的标准谓词登记[!INCLUDE[csprcs](../data-tools/includes/csprcs_md.md)].cs 文件。  
   
 ```  
 [HKEY_CLASSES_ROOT\.cs]  
@@ -106,12 +107,11 @@ caps.handback.revision: 16
 @="system"  
 ```  
   
-## 设置默认的谓词  
- 将使用默认动词是当用户双击 Windows 资源管理器中的文件执行的操作。 将使用默认动词是指定为默认值为 HKEY\_CLASSES\_ROOT\\ 动词*progid*\\Shell 键。 如果未不指定任何值，将使用默认动词是 HKEY\_CLASSES\_ROOT\\ 中指定的第一个动词*progid*\\Shell 键列表。  
+## <a name="setting-the-default-verb"></a>设置默认的谓词  
+ 默认的谓词是当用户双击 Windows 资源管理器中的文件执行的操作。 默认的谓词是作为默认值为 hkey_classes_root。 指定的动词\\*progid*\Shell 密钥。 如果未不指定任何值，默认谓词是在注册表中指定的第一个动作\\*progid*\Shell 键列表。  
   
 > [!NOTE]
->  如果您想将更改默认的谓词中的并行部署的扩展插件，请考虑对安装和删除的影响。 在安装过程中会覆盖原始的默认值。  
+>  如果你计划更改中的并行部署的扩展的默认谓词，请考虑对安装和删除的影响。 在安装过程会覆盖原始的默认值。  
   
-## 请参阅  
- [Creating a File Association](_win32_file_associations)   
- [管理\-并行文件关联](../extensibility/managing-side-by-side-file-associations.md)
+## <a name="see-also"></a>另请参阅  
+ [管理并行文件关联](../extensibility/managing-side-by-side-file-associations.md)

@@ -1,106 +1,102 @@
 ---
-title: 'Walkthrough: Creating a Silverlight Web Part that Displays OData for SharePoint | Microsoft Docs'
+title: "演练： 创建的 Silverlight Web 部件显示 SharePoint OData |Microsoft 文档"
 ms.custom: 
 ms.date: 02/22/2017
-ms.prod: visual-studio-dev14
 ms.reviewer: 
 ms.suite: 
-ms.technology:
-- office-development
+ms.technology: office-development
 ms.tgt_pltfrm: 
 ms.topic: article
-f1_keywords:
-- VS.SharePointTools.SPE.SilverlightWebPart
+f1_keywords: VS.SharePointTools.SPE.SilverlightWebPart
 dev_langs:
 - VB
 - CSharp
 ms.assetid: 92d55e68-8f3f-4bf7-a21b-801c298b04c4
-caps.latest.revision: 21
+caps.latest.revision: "21"
 author: gewarren
 ms.author: gewarren
 manager: ghogen
-ms.translationtype: HT
-ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
-ms.openlocfilehash: 04035e9c2925cdc2d7c329509e71b723369a3f8b
-ms.contentlocale: zh-cn
-ms.lasthandoff: 08/28/2017
-
+ms.openlocfilehash: 0a6999a7a390c207c184f26d36e0ca5d64d5fef5
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# <a name="walkthrough-creating-a-silverlight-web-part-that-displays-odata-for-sharepoint"></a>Walkthrough: Creating a Silverlight Web Part that Displays OData for SharePoint
-  SharePoint 2010 exposes its list data by means of OData. In SharePoint, the OData service is implemented by the RESTful service ListData.svc. This walkthrough shows how to create a SharePoint web part that hosts a Silverlight application. The Silverlight application displays SharePoint Announcement list information by using ListData.svc. For more information, see [SharePoint Foundation REST Interface](http://go.microsoft.com/fwlink/?LinkId=225999) and [Open Data Protocol](http://go.microsoft.com/fwlink/?LinkId=226000).  
+# <a name="walkthrough-creating-a-silverlight-web-part-that-displays-odata-for-sharepoint"></a>演练：创建显示 SharePoint OData 的 Silverlight Web 部件
+  SharePoint 2010 通过 OData 公开其列表数据。 在 SharePoint 中，由 rest 样式服务 ListData.svc 实现 OData 服务。 本演练演示如何创建 SharePoint web 部件承载 Silverlight 应用程序。 Silverlight 应用程序通过使用 ListData.svc 来显示 SharePoint 公告列表信息。 有关详细信息，请参阅[SharePoint Foundation REST 接口](http://go.microsoft.com/fwlink/?LinkId=225999)和[开放数据协议](http://go.microsoft.com/fwlink/?LinkId=226000)。  
   
  [!INCLUDE[note_settings_general](../sharepoint/includes/note-settings-general-md.md)]  
   
-## <a name="prerequisites"></a>Prerequisites  
- You need the following components to complete this walkthrough:  
+## <a name="prerequisites"></a>先决条件  
+ 你需要以下组件来完成本演练：  
   
--   Supported editions of Microsoft Windows and SharePoint. [!INCLUDE[crdefault](../sharepoint/includes/crdefault-md.md)] [Requirements for Developing SharePoint Solutions](../sharepoint/requirements-for-developing-sharepoint-solutions.md).  
+-   支持的 Microsoft Windows 和 SharePoint 版本。 [!INCLUDE[crdefault](../sharepoint/includes/crdefault-md.md)][开发 SharePoint 解决方案的需求](../sharepoint/requirements-for-developing-sharepoint-solutions.md)。  
   
--   [!INCLUDE[vs_dev11_long](../sharepoint/includes/vs-dev11-long-md.md)].  
+-   [!INCLUDE[vs_dev11_long](../sharepoint/includes/vs-dev11-long-md.md)]。  
   
-##  <a name="creating-a-silverlight-application-and-silverlight-web-part"></a>Creating a Silverlight Application and Silverlight Web Part  
- First, create a Silverlight application in Visual Studio. The Silverlight application retrieves data from the SharePoint Announcements list by using the ListData.svc service.  
+##  <a name="creating-a-silverlight-application-and-silverlight-web-part"></a>创建 Silverlight 应用程序和 Silverlight Web 部件  
+ 首先，在 Visual Studio 中创建的 Silverlight 应用程序。 Silverlight 应用程序通过使用 ListData.svc 服务从 SharePoint 公告列表检索数据。  
   
 > [!NOTE]  
->  No versions of Silverlight before 4.0 support the required interfaces for referencing SharePoint list data.  
+>  未 Silverlight 4.0 之前的版本支持所需的接口引用 SharePoint 列表数据。  
   
-#### <a name="to-create-a-silverlight-application-and-silverlight-web-part"></a>To create a Silverlight Application and Silverlight web part  
+#### <a name="to-create-a-silverlight-application-and-silverlight-web-part"></a>若要创建的 Silverlight 应用程序和 Silverlight web 部件  
   
-1.  On the menu bar, choose **File**, **New**, **Project** to display the **New Project** dialog box.  
+1.  在菜单栏上，选择**文件**，**新建**，**项目**以显示**新项目**对话框。  
   
-2.  Expand the **SharePoint** node under either **Visual C#** or **Visual Basic**, and then choose the **2010** node.  
+2.  展开**SharePoint**下**Visual C#**或**Visual Basic**，然后选择**2010年**节点。  
   
-3.  In the templates pane, choose the **SharePoint 2010 Silverlight Web Part** template.  
+3.  在模板窗格中，选择**SharePoint 2010 Silverlight Web 部件**模板。  
   
-4.  In the **Name** box, enter **SLWebPartTest** and then choose the **OK** button.  
+4.  在**名称**框中，输入**SLWebPartTest** ，然后选择**确定**按钮。  
   
-     The **SharePoint Customization Wizard** dialog box appears.  
+     **SharePoint 自定义向导**对话框随即出现。  
   
-5.  On the **Specify the site and security level for debugging** page, enter the URL for the SharePoint server site where you want to debug the site definition, or use the default location (http://*system name*/).  
+5.  上**指定用于调试的站点和安全性级别**页上，输入想要调试站点定义的 SharePoint 服务器站点的 URL 或使用默认位置 (http://*系统名称*/).  
   
-6.  In the **What is the trust level for this SharePoint solution?** section, choose the **Deploy as a farm solution** option button.  
+6.  在**此 SharePoint 解决方案的信任级别是什么？**部分中，选择**部署为场解决方案**选项按钮。  
   
-     Although this example uses a farm solution, Silverlight web part projects can be deployed as either farm or sandboxed solutions. For more information about sandboxed solutions and farm solutions, see [Sandboxed Solution Considerations](../sharepoint/sandboxed-solution-considerations.md).  
+     虽然此示例使用场解决方案，但 Silverlight web 部件项目可部署为场或沙盒解决方案。 有关沙盒解决方案和场解决方案的详细信息，请参阅[沙盒解决方案注意事项](../sharepoint/sandboxed-solution-considerations.md)。  
   
-7.  In the **How do you want to associate the Silverlight Web Part** section of the **Specify Silverlight Configuration Information** page, choose the **Create a new Silverlight project and associate it with the web part** option button.  
+7.  在**要如何将 Silverlight Web 部件相关联**部分**指定 Silverlight 配置信息**页上，选择**创建一个新的 Silverlight 项目和将其与 web 部件关联**选项按钮。  
   
-8.  Change the **Name** to **SLApplication**, set **Language** to either **Visual Basic** or **Visual C#**, and then set **Silverlight Version** to **Silverlight 4.0**.  
+8.  更改**名称**到**SLApplication**，将其设置**语言**为**Visual Basic**或**Visual C#**，然后设置**Silverlight 版本**到**Silverlight 4.0**。  
   
-9. Choose the **Finish** button. The projects appear in **Solution Explorer**.  
+9. 选择**完成**按钮。 项目出现在**解决方案资源管理器**。  
   
-     The solution contains two projects: a Silverlight application and a Silverlight web part. The Silverlight application retrieves and displays the list data from SharePoint, and the Silverlight web part hosts the Silverlight application, enabling you to view it in SharePoint.  
+     解决方案包含两个项目： Silverlight 应用程序和 Silverlight web 部件。 Silverlight 应用程序检索并显示从 SharePoint 列表数据和 Silverlight web 部件承载 Silverlight 应用程序，使你能够在 SharePoint 中查看它。  
   
-##  <a name="customizing-the-silverlight-application"></a>Customizing the Silverlight Application  
- Add code and design elements to the Silverlight application.  
+##  <a name="customizing-the-silverlight-application"></a>自定义 Silverlight 应用程序  
+ 将代码和设计元素添加到了 Silverlight 应用程序。  
   
-#### <a name="to-customize-the-silverlight-application"></a>To customize the Silverlight Application  
+#### <a name="to-customize-the-silverlight-application"></a>若要自定义了 Silverlight 应用程序  
   
-1.  Add an assembly reference to System.Windows.Data in the Silverlight application. For more information, see [NIB How to: Add or Remove References By Using the Add Reference Dialog Box](http://msdn.microsoft.com/en-us/3bd75d61-f00c-47c0-86a2-dd1f20e231c9).  
+1.  在 Silverlight 应用程序中添加对 System.Windows.Data 的程序集引用。 有关详细信息，请参阅[如何： 添加或删除引用通过使用添加引用对话框](http://msdn.microsoft.com/en-us/3bd75d61-f00c-47c0-86a2-dd1f20e231c9)。  
   
-2.  In **Solution Explorer**, open the shortcut menu for **References**, and then choose **Add Service Reference**.  
+2.  在**解决方案资源管理器**，打开快捷菜单**引用**，然后选择**添加服务引用**。  
   
     > [!NOTE]  
-    >  If you're using Visual Basic, you must choose the **Show All Files** icon at the top of **Solution Explorer** to display the **References** node.  
+    >  如果你使用 Visual Basic，则必须选择**显示所有文件**顶部的图标**解决方案资源管理器**以显示**引用**节点。  
   
-3.  In the Address box of the **Add Service Reference** dialog box, enter the URL of your SharePoint site, such as **http://MySPSite**, and then choose the **Go** button.  
+3.  中的地址框**添加服务引用**对话框框中，输入你的 SharePoint 站点的 URL，如**http://MySPSite**，然后选择**转**按钮。  
   
-     When Silverlight locates the SharePoint OData service ListData.svc, it replaces the address with the full service URL. For this example, http://myserver becomes http://myserver/_vti_bin/ListData.svc.  
+     Silverlight 定位 SharePoint OData 服务 ListData.svc，它也将使用完整的服务的 URL 替换地址。 此示例中，http://myserver 变得 http://myserver/_vti_bin/ListData.svc。  
   
-4.  Choose the **OK** button to add the service reference to the project, and use the default service name, ServiceReference1.  
+4.  选择**确定**按钮添加到项目中，服务引用，然后使用默认服务名称，ServiceReference1。  
   
-5.  On the menu bar, choose **Build**, **Build Solution**.  
+5.  在菜单栏上，依次选择 **“生成”**、 **“生成解决方案”**。  
   
-6.  Add a new data source to the project based on the SharePoint service. To do this, on the menu bar, choose **View**, **Other Windows**, **Data Sources**.  
+6.  将新的数据源添加到基于 SharePoint 服务项目。 若要这样做，请在菜单栏上，选择**视图**，**其他窗口**，**数据源**。  
   
-     The **Data Sources** window shows all of the available SharePoint list data, such as Tasks, Announcements, and Calendar.  
+     **数据源**窗口将显示所有可用的 SharePoint 列表数据，如任务、 通知和日历。  
   
-7.  Add the Announcements list data to the Silverlight application. You can drag "Announcements" from the **Data Sources** window onto the Silverlight designer.  
+7.  将公告列表数据添加到了 Silverlight 应用程序。 可以将中的"公告"**数据源**拖动到 Silverlight 设计器窗口。  
   
-     This creates a grid control bound to the SharePoint site's Announcements list.  
+     这将创建一个网格控件绑定到 SharePoint 站点的公告列表。  
   
-8.  Resize the grid control to fit the Silverlight page.  
+8.  调整网格控件大小以适应 Silverlight 页面的大小。  
   
-9. In the MainPage.xaml code file (MainPage.xaml.cs for Visual C# or MainPage.xaml.vb for Visual Basic), add the following namespace references.  
+9. 在 MainPage.xaml 的代码文件中 (MainPage.xaml.cs 对于 Visual C#) 或 MainPage.xaml.vb 适用于 Visual Basic，添加以下命名空间引用。  
   
     ```vb  
     ' Add the following three Imports statements.  
@@ -116,7 +112,7 @@ ms.lasthandoff: 08/28/2017
     using System.Data.Services.Client;  
     ```  
   
-10. Add the following variable declarations at the top of the class.  
+10. 在类的顶部添加以下变量声明。  
   
     ```vb  
     Private context As TeamSiteDataContext  
@@ -130,7 +126,7 @@ ms.lasthandoff: 08/28/2017
     DataServiceCollection<AnnouncementsItem> announcements = new DataServiceCollection<AnnouncementsItem>();  
     ```  
    
-11. Replace the `UserControl_Loaded` procedure with the following.  
+11. 替换`UserControl_Loaded`替换为以下的过程。  
   
     ```vb  
     Private Sub UserControl_Loaded_1(sender As Object, e As RoutedEventArgs)  
@@ -166,9 +162,9 @@ ms.lasthandoff: 08/28/2017
         }  
     }  
     ```  
-     Be sure to replace the *ServerName* placeholder with the name of your server that's running SharePoint.  
+     请务必将*ServerName*占位符替换为您运行 SharePoint 的服务器的名称。  
   
-12. Add the following error-handling procedure.  
+12. 添加下面的错误处理过程。  
   
     ```vb  
     Private Sub announcements_LoadCompleted(sender As Object, e As LoadCompletedEventArgs)  
@@ -197,48 +193,47 @@ ms.lasthandoff: 08/28/2017
     }  
     ```  
        
-## <a name="modifying-the-silverlight-web-part"></a>Modifying the Silverlight Web Part  
- Change a property in the Silverlight web part project to enable Silverlight debugging.  
+## <a name="modifying-the-silverlight-web-part"></a>修改 Silverlight Web 部件  
+ 更改 Silverlight web 部件项目，以启用 Silverlight 调试中的属性。  
   
-#### <a name="to-modify-the-silverlight-web-part"></a>To modify the Silverlight web part  
+#### <a name="to-modify-the-silverlight-web-part"></a>若要修改 Silverlight web 部件  
   
-1.  Open the shortcut menu for the Silverlight web part project (**SLWebPartTest**), and then choose **Properties**.  
+1.  打开 Silverlight web 部件项目的快捷菜单 (**SLWebPartTest**)，然后选择**属性**。  
   
-2.  In the **Properties** window, choose the **SharePoint** tab.  
+2.  在**属性**窗口中，选择**SharePoint**选项卡。  
   
-3.  If it's not already selected, select the **Enable Silverlight debugging (instead of Script debugging)** check box.  
+3.  如果尚未选中，则选择**启用 Silverlight 调试 （而不 Script 调试）**复选框。  
   
-4.  Save the project.  
+4.  保存项目。  
   
-##  <a name="testing-the-silverlight-web-part"></a>Testing the Silverlight Web Part  
- Test the new Silverlight web part in SharePoint to ensure that it displays the SharePoint list data properly.  
+##  <a name="testing-the-silverlight-web-part"></a>测试 Silverlight Web 部件  
+ 测试新的 Silverlight web 部件在 SharePoint 中以确保它正确显示 SharePoint 列表数据。  
   
-#### <a name="to-test-the-silverlight-web-part"></a>To test the Silverlight web part  
+#### <a name="to-test-the-silverlight-web-part"></a>若要测试 Silverlight web 部件  
   
-1.  Choose the F5 key to build and run the SharePoint solution.  
+1.  选择 F5 键以生成并运行 SharePoint 解决方案。  
   
-2.  In SharePoint, on the **Site Actions** menu, choose **New Page**.  
+2.  在 SharePoint 中，在**站点操作**菜单上，选择**新页**。  
   
-3.  In the **New Page** dialog, enter a title, such as **SL Web Part Test**, and then choose the **Create** button.  
+3.  在**新页**对话框中，输入标题，如**SL Web 一部分测试**，然后选择**创建**按钮。  
   
-4.  In the page designer, on the **Editing Tools** tab, choose **Insert**.  
+4.  在页设计器上**编辑工具**选项卡上，选择**插入**。  
   
-5.  On the tab strip, choose **Web Part**.  
+5.  在选项卡条中，选择**Web 部件**。  
   
-6.  In the **Categories** box, choose the **Custom** folder.  
+6.  在**类别**框中，选择**自定义**文件夹。  
   
-7.  In the **Web Parts** list, choose the Silverlight web part, and then choose the **Add** button to add the web part to the designer.  
+7.  在**Web 部件**列表，选择 Silverlight web 部件，然后选择**添加**按钮以将 web 部件添加到设计器。  
   
-8.  After you have made all of the additions to the web page that you want, choose the **Page** tab, and then choose the **Save & Close** button on the tool bar.  
+8.  对所做的添加件所有所需的网页后，请选择**页**选项卡上，然后选择**保存并关闭**工具栏上的按钮。  
   
-     The Silverlight web part should now be displaying Announcement data from the SharePoint site. By default, the page is stored in the Site Pages list in SharePoint.  
+     现在应显示 Silverlight web 部件公告 SharePoint 站点中的数据。 默认情况下，页存储在 SharePoint 的网站页列表中。  
   
     > [!NOTE]  
-    >  When accessing data in Silverlight across domains, Silverlight guards against security vulnerabilities that can be used to exploit web applications. If you encounter problems when accessing remote data in Silverlight, see [Making a Service Available Across Domain Boundaries](http://go.microsoft.com/fwlink/?LinkId=223276).  
+    >  在访问 Silverlight 中跨域的数据时，Silverlight 能防范可以被用来利用 web 应用程序的安全漏洞。 如果在访问 Silverlight 中的远程数据时遇到问题，请参阅[服务跨域边界提供](http://go.microsoft.com/fwlink/?LinkId=223276)。  
   
-## <a name="see-also"></a>See Also  
- [Creating Web Parts for SharePoint](../sharepoint/creating-web-parts-for-sharepoint.md)   
- [Deploying, Publishing, and Upgrading SharePoint Solution Packages](../sharepoint/deploying-publishing-and-upgrading-sharepoint-solution-packages.md)  
+## <a name="see-also"></a>另请参阅  
+ [为 SharePoint 创建 Web 部件](../sharepoint/creating-web-parts-for-sharepoint.md)   
+ [部署、发布和升级 SharePoint 解决方案包](../sharepoint/deploying-publishing-and-upgrading-sharepoint-solution-packages.md)  
   
   
-

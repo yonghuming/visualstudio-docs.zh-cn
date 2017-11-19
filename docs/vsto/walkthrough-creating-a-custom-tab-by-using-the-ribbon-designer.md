@@ -1,12 +1,10 @@
 ---
-title: 'Walkthrough: Creating a Custom Tab by Using the Ribbon Designer | Microsoft Docs'
+title: "演练： 使用功能区设计器创建自定义选项卡 |Microsoft 文档"
 ms.custom: 
 ms.date: 02/02/2017
-ms.prod: visual-studio-dev14
 ms.reviewer: 
 ms.suite: 
-ms.technology:
-- office-development
+ms.technology: office-development
 ms.tgt_pltfrm: 
 ms.topic: article
 dev_langs:
@@ -20,157 +18,159 @@ helpviewer_keywords:
 - custom Ribbon, tabs
 - Custom tab [Office development in Visual Studio]
 ms.assetid: 312865e6-950f-46ab-88de-fe7eb8036bfe
-caps.latest.revision: 68
-author: kempb
-ms.author: kempb
+caps.latest.revision: "68"
+author: gewarren
+ms.author: gewarren
 manager: ghogen
-ms.translationtype: HT
-ms.sourcegitcommit: eb5c9550fd29b0e98bf63a7240737da4f13f3249
-ms.openlocfilehash: f3de58256e8c533b7cd092d056c785c7ad6b60b6
-ms.contentlocale: zh-cn
-ms.lasthandoff: 08/30/2017
-
+ms.openlocfilehash: 811e4eff77780bda2b348c26bb220a29d5fd1731
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# <a name="walkthrough-creating-a-custom-tab-by-using-the-ribbon-designer"></a>Walkthrough: Creating a Custom Tab by Using the Ribbon Designer
-  By using the Ribbon Designer, you can create a custom tab and then add and position controls on it.  
+# <a name="walkthrough-creating-a-custom-tab-by-using-the-ribbon-designer"></a>演练：使用功能区设计器创建自定义选项卡
+  使用功能区设计器，可以创建自定义选项卡，然后在其中添加和放置控件。  
   
  [!INCLUDE[appliesto_xlalldoc](../vsto/includes/appliesto-xlalldoc-md.md)]  
   
- This walkthrough illustrates the following tasks:  
+ 本演练阐释了以下任务：  
   
--   [Creating Actions Panes](#BKMK_CreateActionsPanes).  
+-   [创建操作窗格](#BKMK_CreateActionsPanes)。  
   
--   [Creating a Custom Tab](#BKMK_CreateCustomTab).  
+-   [创建自定义选项卡](#BKMK_CreateCustomTab)。  
   
--   [Hiding and Showing Actions Panes by Using Buttons on the Custom Tab](#BKMK_HideShowActionsPane).  
+-   [隐藏和显示操作窗格，通过使用在自定义选项卡上的按钮](#BKMK_HideShowActionsPane)。  
   
 > [!NOTE]  
->  Your computer might show different names or locations for some of the Visual Studio user interface elements in the following instructions. The Visual Studio edition that you have and the settings that you use determine these elements. For more information, see [Personalize the Visual Studio IDE](../ide/personalizing-the-visual-studio-ide.md).  
+>  以下说明中的某些 Visual Studio 用户界面元素在计算机上出现的名称或位置可能会不同。 这些元素取决于你所使用的 Visual Studio 版本和你所使用的设置。 有关详细信息，请参阅[个性化设置 Visual Studio IDE](../ide/personalizing-the-visual-studio-ide.md)。  
   
-## <a name="prerequisites"></a>Prerequisites  
- You need the following components to complete this walkthrough:  
+## <a name="prerequisites"></a>先决条件  
+ 你需要以下组件来完成本演练：  
   
 -   [!INCLUDE[vsto_vsprereq](../vsto/includes/vsto-vsprereq-md.md)]  
   
 -   Microsoft Excel  
   
-## <a name="creating-an-excel-workbook-project"></a>Creating an Excel Workbook Project  
- The steps for using the Ribbon Designer are almost identical for all Office applications. This example uses an Excel workbook.  
+## <a name="creating-an-excel-workbook-project"></a>创建 Excel 工作簿项目  
+ 使用功能区设计器的步骤对于所有 Office 应用程序几乎是相同的。 本示例使用一个 Excel 工作簿。  
   
-#### <a name="to-create-an-excel-workbook-project"></a>To create an Excel workbook project  
+#### <a name="to-create-an-excel-workbook-project"></a>创建 Excel 工作簿项目  
   
--   Create an Excel workbook project with the name **MyExcelRibbon**. For more information, see [How to: Create Office Projects in Visual Studio](../vsto/how-to-create-office-projects-in-visual-studio.md).  
+-   使用名称创建的 Excel 工作簿项目**为 myexcelribbon**。 有关详细信息，请参阅 [How to: Create Office Projects in Visual Studio](../vsto/how-to-create-office-projects-in-visual-studio.md)。  
   
-     Visual Studio opens the new workbook in the designer and adds the **MyExcelRibbon** project to **Solution Explorer**.  
+     Visual Studio 将在设计器中打开新的工作簿并将添加**为 myexcelribbon**项目合并为**解决方案资源管理器**。  
   
-##  <a name="BKMK_CreateActionsPanes"></a> Creating Actions Panes  
- Add two custom actions panes to the project. You will later add buttons that show and hide these actions panes to the custom tab.  
+##  <a name="BKMK_CreateActionsPanes"></a>创建操作窗格  
+ 将两个自定义操作窗格添加到项目。 稍后会将显示和隐藏这些操作窗格的按钮添加到自定义选项卡中。  
   
-#### <a name="to-create-actions-panes"></a>To create actions panes  
+#### <a name="to-create-actions-panes"></a>创建操作窗格  
   
-1.  On the **Project** menu, choose **Add New Item**.  
+1.  在 **“项目”** 菜单上选择 **“添加新项”**。  
   
-2.  In the **Add New Item** dialog box, select **ActionsPaneControl**, and then choose **Add**.  
+2.  在**添加新项**对话框中，选择**ActionsPaneControl**，然后选择**添加**。  
   
-     The **ActionsPaneControl1.cs** or **ActionsPaneControl1.vb** file opens in the designer.  
+     **ActionsPaneControl1.cs**或**ActionsPaneControl1.vb**文件将在设计器中打开。  
   
-3.  From the **Common Controls** tab of the **Toolbox**, add a label to the designer surface.  
+3.  从**公共控件**选项卡**工具箱**，将标签添加到设计器图面。  
   
-4.  In the **Properties** window, set the **Text** property of label1 to **Actions Pane 1**.  
+4.  在**属性**窗口中，设置**文本**属性到 label1**操作窗格 1**。  
   
-5.  Repeat steps 1 through 5 to create a second actions pane and label. Set the **Text** property of the second label to **Actions Pane 2**.  
+5.  重复步骤 1 至 5，再创建一个操作窗格和标签。 设置**文本**到第二个标签的属性**操作窗格 2**。  
   
-##  <a name="BKMK_CreateCustomTab"></a> Creating a Custom Tab  
- One of the Office application design guidelines is that users should always have control of the Office application UI. To add this capability for the actions panes, you can add buttons that show and hide each actions pane from a custom tab on the ribbon. To create a custom tab, add a **Ribbon (Visual Designer)** item to the project. The designer helps you add and position controls, set control properties, and handle control events.  
+##  <a name="BKMK_CreateCustomTab"></a>创建自定义选项卡  
+ Office 应用程序的设计准则之一是：用户应始终能控制 Office 应用程序 UI。 若要为操作窗格添加此功能，可以添加用于从功能区上的自定义选项卡显示和隐藏每个操作窗格的按钮。 若要创建自定义选项卡，添加**功能区 （可视化设计器）**到项目的项。 设计器可帮助你添加和放置控件、设置控件属性以及处理控件事件。  
   
-#### <a name="to-create-a-custom-tab"></a>To create a custom tab  
+#### <a name="to-create-a-custom-tab"></a>创建自定义选项卡  
   
-1.  On the **Project** menu, choose **Add New Item**.  
+1.  在 **“项目”** 菜单上选择 **“添加新项”**。  
   
-2.  In the **Add New Item** dialog box, select **Ribbon (Visual Designer)**.  
+2.  在 **“添加新项”** 对话框中，选择 **“功能区(可视化设计器)”**。  
   
-3.  Change the name of the new ribbon to **MyRibbon**, and choose **Add**.  
+3.  更改到新的功能区的名称**MyRibbon**，然后选择**添加**。  
   
-     The **MyRibbon.cs** or **MyRibbon.vb** file opens in the Ribbon Designer and displays a default tab and group.  
+     **MyRibbon.cs** 或 **MyRibbon.vb** 文件将在功能区设计器中打开，并显示一个默认选项卡和组。  
   
-4.  In the Ribbon Designer, choose the default tab.  
+4.  在功能区设计器中，选择默认选项卡。  
   
-5.  In the **Properties** window, expand the **ControlId** property, and then set the **ControlIdType** property to **Custom**.  
+5.  在**属性**窗口中，展开**ControlId**属性，且然后将其设置**ControlIdType**属性**自定义**。  
   
-6.  Set the **Label** property to **My Custom Tab**.  
+6.  设置**标签**属性**我的自定义选项卡**。  
   
-7.  In the Ribbon Designer, choose **group1**.  
+7.  在功能区设计器中，选择**group1**。  
   
-8.  In the **Properties** window, set **Label** to **Actions Pane Manager**.  
+8.  在**属性**窗口中，设置**标签**到**操作窗格管理器**。  
   
-9. From the **Office Ribbon Controls** tab of the **Toolbox**, drag a button onto **group1**.  
+9. 从**Office 功能区控件**选项卡**工具箱**，拖动一个按钮拖动到**group1**。  
   
-10. Select **button1**.  
+10. 选择**button1**。  
   
-11. In the **Properties** window, set **Label** to **Show Actions Pane 1**.  
+11. 在**属性**窗口中，设置**标签**到**显示操作窗格 1**。  
   
-12. Add a second button to **group1**, and set the **Label** property to **Show Actions Pane 2**.  
+12. 向其中添加第二个按钮**group1**，并设置**标签**属性**显示操作窗格 2**。  
   
-13. From the **Office Ribbon Controls** tab of the **Toolbox**, drag a **ToggleButton** control onto **group1**.  
+13. 从**Office 功能区控件**选项卡**工具箱**，拖动**ToggleButton**控件拖动到**group1**。  
   
-14. Set the **Label** property to **Hide Actions Pane**.  
+14. 设置**标签**属性**隐藏操作窗格**。  
   
-##  <a name="BKMK_HideShowActionsPane"></a> Hiding and Showing Actions Panes by Using Buttons on the Custom Tab  
- The last step is to add code that responds to the user. Add event handlers for the <xref:Microsoft.Office.Tools.Ribbon.RibbonButton.Click> events of the two buttons and the <xref:Microsoft.Office.Tools.Ribbon.RibbonToggleButton.Click> event of the toggle button. Add code to these event handlers to enable hiding and showing the actions panes.  
+##  <a name="BKMK_HideShowActionsPane"></a>隐藏和显示操作窗格，通过使用在自定义选项卡上的按钮  
+ 最后一个步骤是添加对用户进行响应的代码。 为上述两个按钮的 <xref:Microsoft.Office.Tools.Ribbon.RibbonButton.Click> 事件和切换按钮的 <xref:Microsoft.Office.Tools.Ribbon.RibbonToggleButton.Click> 事件添加事件处理程序。 在这些事件处理程序中添加相应代码即可隐藏和显示操作窗格。  
   
-#### <a name="to-hide-and-show-actions-panes-by-using-buttons-in-the-custom-tab"></a>To hide and show actions panes by using buttons in the custom tab  
+#### <a name="to-hide-and-show-actions-panes-by-using-buttons-in-the-custom-tab"></a>使用自定义选项卡中的按钮隐藏和显示操作窗格  
   
-1.  In **Solution Explorer**, open the shortcut menu for MyRibbon.cs or MyRibbon.vb, and then choose **View Code**.  
+1.  在**解决方案资源管理器**，打开 MyRibbon.cs 或 MyRibbon.vb，的快捷菜单，然后选择**查看代码**。  
   
-2.  Add the following code to the top of the `MyRibbon` class. This code creates two actions pane objects.  
+2.  将下面的代码添加到 `MyRibbon` 类的顶部。 这段代码可以创建两个操作窗格对象。  
   
-     [!code-csharp[Trin_Ribbon_Custom_Tab#1](../vsto/codesnippet/CSharp/Trin_Ribbon_Custom_Tab/MyRibbon.cs#1)]  [!code-vb[Trin_Ribbon_Custom_Tab#1](../vsto/codesnippet/VisualBasic/Trin_Ribbon_Custom_Tab/MyRibbon.vb#1)]  
+     [!code-csharp[Trin_Ribbon_Custom_Tab#1](../vsto/codesnippet/CSharp/Trin_Ribbon_Custom_Tab/MyRibbon.cs#1)]
+     [!code-vb[Trin_Ribbon_Custom_Tab#1](../vsto/codesnippet/VisualBasic/Trin_Ribbon_Custom_Tab/MyRibbon.vb#1)]  
   
-3.  Replace the `MyRibbon_Load` method with the following code. This code adds the actions pane objects to the <xref:Microsoft.Office.Tools.ActionsPane.Controls%2A> collection and hides the objects from view. The Visual C# code also attaches delegates to several ribbon control events.  
+3.  将 `MyRibbon_Load` 方法替换为以下代码。 这段代码会将操作窗格对象添加到 <xref:Microsoft.Office.Tools.ActionsPane.Controls%2A> 集合中，并在视图中这些隐藏对象。 Visual C# 代码还会将委托附加到多个功能区控件事件。  
   
-     [!code-csharp[Trin_Ribbon_Custom_Tab#2](../vsto/codesnippet/CSharp/Trin_Ribbon_Custom_Tab/MyRibbon.cs#2)]  [!code-vb[Trin_Ribbon_Custom_Tab#2](../vsto/codesnippet/VisualBasic/Trin_Ribbon_Custom_Tab/MyRibbon.vb#2)]  
+     [!code-csharp[Trin_Ribbon_Custom_Tab#2](../vsto/codesnippet/CSharp/Trin_Ribbon_Custom_Tab/MyRibbon.cs#2)]
+     [!code-vb[Trin_Ribbon_Custom_Tab#2](../vsto/codesnippet/VisualBasic/Trin_Ribbon_Custom_Tab/MyRibbon.vb#2)]  
   
-4.  Add the following three event handler methods to the `MyRibbon` class. These methods handle the <xref:Microsoft.Office.Tools.Ribbon.RibbonButton.Click> events of the two buttons and the <xref:Microsoft.Office.Tools.Ribbon.RibbonToggleButton.Click> event of the toggle button. The event handlers for button1 and button2 show alternate actions panes. The event handler for toggleButton1 shows and hides the active actions pane.  
+4.  将以下三个事件处理程序方法添加到 `MyRibbon` 类。 这些方法处理上述两个按钮 <xref:Microsoft.Office.Tools.Ribbon.RibbonButton.Click> 事件和切换按钮的 <xref:Microsoft.Office.Tools.Ribbon.RibbonToggleButton.Click> 事件。 button1 和 button2 的事件处理程序显示两个交替出现的操作窗格。 toggleButton1 的事件处理程序显示和隐藏活动操作窗格。  
   
-     [!code-csharp[Trin_Ribbon_Custom_Tab#3](../vsto/codesnippet/CSharp/Trin_Ribbon_Custom_Tab/MyRibbon.cs#3)]  [!code-vb[Trin_Ribbon_Custom_Tab#3](../vsto/codesnippet/VisualBasic/Trin_Ribbon_Custom_Tab/MyRibbon.vb#3)]  
+     [!code-csharp[Trin_Ribbon_Custom_Tab#3](../vsto/codesnippet/CSharp/Trin_Ribbon_Custom_Tab/MyRibbon.cs#3)]
+     [!code-vb[Trin_Ribbon_Custom_Tab#3](../vsto/codesnippet/VisualBasic/Trin_Ribbon_Custom_Tab/MyRibbon.vb#3)]  
   
-## <a name="testing-the-custom-tab"></a>Testing the Custom Tab  
- When you run the project, Excel starts, and the **My Custom Tab** tab appears on the ribbon. Choose the buttons on **My Custom Tab** to show and hide the actions panes.  
+## <a name="testing-the-custom-tab"></a>测试自定义选项卡  
+ 当你运行项目，会启动 Excel 和**我的自定义选项卡**选项卡将显示在功能区中。 在选择按钮**我的自定义选项卡**以显示和隐藏操作窗格。  
   
-#### <a name="to-test-the-custom-tab"></a>To test the custom tab  
+#### <a name="to-test-the-custom-tab"></a>测试自定义选项卡  
   
-1.  Press F5 to run your project.  
+1.  按 F5 运行项目。  
   
-2.  Choose the **My Custom Tab** tab.  
+2.  选择**我的自定义选项卡**选项卡。  
   
-3.  In the **Custom Actions Pane Manager** group, choose **Show Actions Pane 1**.  
+3.  在**自定义操作窗格管理器**组中，选择**显示操作窗格 1**。  
   
-     The actions pane appears and displays the label **Actions Pane 1**.  
+     操作窗格随即出现并显示标签**操作窗格 1**。  
   
-4.  Choose **Show Actions Pane 2**.  
+4.  选择**显示操作窗格 2**。  
   
-     The actions pane appears and displays the label **Actions Pane 2**.  
+     操作窗格随即出现并显示标签**操作窗格 2**。  
   
-5.  Choose **Hide Actions Pane**.  
+5.  选择**隐藏操作窗格**。  
   
-     The actions panes are no longer visible.  
+     操作窗格不再可见。  
   
-## <a name="next-steps"></a>Next Steps  
- You can learn more about how to customize the Office UI from these topics:  
+## <a name="next-steps"></a>后续步骤  
+ 可从以下主题了解有关如何自定义 Office 用户界面的更多信息：  
   
--   Add context-based UI to any document-level customization. For more information, see [Actions Pane Overview](../vsto/actions-pane-overview.md).  
+-   将基于上下文的 UI 添加到任何文档级自定义项。 有关更多信息，请参见 [Actions Pane Overview](../vsto/actions-pane-overview.md)。  
   
--   Extend a standard or custom Microsoft Office Outlook form. For more information, see [Walkthrough: Designing an Outlook Form Region](../vsto/walkthrough-designing-an-outlook-form-region.md).  
+-   扩展标准的或自定义的 Microsoft Office Outlook 窗体。 有关详细信息，请参阅[演练： 设计 Outlook 窗体区域](../vsto/walkthrough-designing-an-outlook-form-region.md)。  
   
-## <a name="see-also"></a>See Also  
+## <a name="see-also"></a>另请参阅  
  [Accessing the Ribbon at Run Time](../vsto/accessing-the-ribbon-at-run-time.md)   
- [Ribbon Overview](../vsto/ribbon-overview.md)   
- [Ribbon Designer](../vsto/ribbon-designer.md)   
- [Customizing a Ribbon for Outlook](../vsto/customizing-a-ribbon-for-outlook.md)   
- [How to: Get Started Customizing the Ribbon](../vsto/how-to-get-started-customizing-the-ribbon.md)   
- [How to: Change the Position of a Tab on the Ribbon](../vsto/how-to-change-the-position-of-a-tab-on-the-ribbon.md)   
- [How to: Customize a Built-in Tab](../vsto/how-to-customize-a-built-in-tab.md)   
- [How to: Add Controls to the Backstage View](../vsto/how-to-add-controls-to-the-backstage-view.md)   
- [Ribbon Object Model Overview](../vsto/ribbon-object-model-overview.md)  
+ [功能区概述](../vsto/ribbon-overview.md)   
+ [功能区设计器](../vsto/ribbon-designer.md)   
+ [自定义 Outlook 功能区](../vsto/customizing-a-ribbon-for-outlook.md)   
+ [如何： 开始自定义功能区](../vsto/how-to-get-started-customizing-the-ribbon.md)   
+ [如何： 更改的功能区上的选项卡位置](../vsto/how-to-change-the-position-of-a-tab-on-the-ribbon.md)   
+ [如何： 自定义内置选项卡](../vsto/how-to-customize-a-built-in-tab.md)   
+ [如何： 将控件添加到 Backstage 视图](../vsto/how-to-add-controls-to-the-backstage-view.md)   
+ [功能区对象模型概述](../vsto/ribbon-object-model-overview.md)  
   
   

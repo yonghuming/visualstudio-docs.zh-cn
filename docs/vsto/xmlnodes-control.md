@@ -1,47 +1,49 @@
 ---
-title: "XMLNodes 控件"
-ms.custom: ""
-ms.date: "02/02/2017"
-ms.prod: "visual-studio-dev14"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "office-development"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-dev_langs: 
-  - "VB"
-  - "CSharp"
-helpviewer_keywords: 
-  - "XMLNodes 控件"
-  - "XMLNodes 控件, 事件"
+title: "XMLNodes 控件 |Microsoft 文档"
+ms.custom: 
+ms.date: 02/02/2017
+ms.reviewer: 
+ms.suite: 
+ms.technology: office-development
+ms.tgt_pltfrm: 
+ms.topic: article
+dev_langs:
+- VB
+- CSharp
+helpviewer_keywords:
+- XMLNodes control, events
+- XMLNodes control
 ms.assetid: 25ba7a21-aabb-4cce-b0d7-57b4add3b485
-caps.latest.revision: 36
-author: "kempb"
-ms.author: "kempb"
-manager: "ghogen"
-caps.handback.revision: 36
+caps.latest.revision: "36"
+author: gewarren
+ms.author: gewarren
+manager: ghogen
+ms.openlocfilehash: 2950d1c9bf2edb0715ad588180cec3b5e17da265
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# XMLNodes 控件
-  **重要事项** 有关 Microsoft Word 的本主题开头的信息对于位于美国境外及其领土或使用对单个的优点和使用完全呈现和组织，或者运行的开发的程序，即在 2010 年一月之前的 Microsoft 许可证的 Microsoft Word 产品，那么，当 Microsoft 从 Microsoft Word 移除了特殊功能的实现与自定义 XML 相关。  凡位于美国及其各州内的个体或组织，在使用或开发用于在由 Microsoft 于 2010 年 1 月 10 日之后授予许可的 Microsoft Word 产品上运行的程序时，请勿参考或使用此与 Microsoft Word 相关的信息；这些产品与此许可日期之前的产品，或在美国以外的国家\/地区销售和授予使用许可的产品的行为不同。  
+# <a name="xmlnodes-control"></a>XMLNodes 控件
+  **重要**提出有关 Microsoft Word 本主题中的信息不提供的以独占方式适合的好处和使用个人和组织用户位于美国和其区域之外，或使用，或开发在运行的程序，在 2010 年 1 月，Microsoft 中删除的特定功能实现的时间之前已授权的 Microsoft 的 Microsoft Word 产品被与 Microsoft Word 自定义 XML。 有关 Microsoft Word 此信息不能读取或使用的个人或美国或其地区熟悉使用，或开发在 Microsoft Word 2010 年 1 月 10 日之后已授权的 Microsoft 的产品运行的程序中的组织;这些产品将无法与产品许可在该日期之前或购买并获得美国以外的使用许可相同。  
   
  [!INCLUDE[appliesto_wdalldoc](../vsto/includes/appliesto-wdalldoc-md.md)]  
   
- <xref:Microsoft.Office.Tools.Word.XMLNodes> 控件是用于公开事件的已映射 XML 节点对象的集合。  只有在将重复架构元素映射到 Microsoft Office Word 文档上时，才会创建 <xref:Microsoft.Office.Tools.Word.XMLNodes> 控件。  如果重复元素包含子元素，每个子元素也将作为 <xref:Microsoft.Office.Tools.Word.XMLNodes> 控件被创建。  
+ <xref:Microsoft.Office.Tools.Word.XMLNodes>控件是公开事件映射的 XML 节点对象的集合。 <xref:Microsoft.Office.Tools.Word.XMLNodes>仅当将重复架构元素映射到 Microsoft Office Word 文档时创建控件。 如果重复元素包含子元素，每个子元素也作为创建<xref:Microsoft.Office.Tools.Word.XMLNodes>控件。  
   
- 在 Visual Studio 创建了 XML 节点的集合后，您便可以直接针对该控件编程，而不必遍历 Word 对象模型。  只能通过从文档中移除元素映射来删除 <xref:Microsoft.Office.Tools.Word.XMLNodes> 控件。  
+ Visual Studio 创建的 XML 节点集合后，可以直接而无需遍历 Word 对象模型编程控件。 <xref:Microsoft.Office.Tools.Word.XMLNodes>可以仅通过从文档中移除的元素映射中删除控件。  
   
 > [!NOTE]  
->  如果通过 <xref:Microsoft.Office.Tools.Word.XMLNodes.Item%2A> 属性访问 <xref:Microsoft.Office.Tools.Word.XMLNodes> 控件的子元素，它将返回 <xref:Microsoft.Office.Interop.Word.XMLNode> 对象，而不是 <xref:Microsoft.Office.Tools.Word.XMLNode> 控件。  有关更多信息，请参见[宿主项和宿主控件的编程限制](../vsto/programmatic-limitations-of-host-items-and-host-controls.md)。  
+>  如果访问的子元素<xref:Microsoft.Office.Tools.Word.XMLNodes>通过控制<xref:Microsoft.Office.Tools.Word.XMLNodes.Item%2A>属性，它返回<xref:Microsoft.Office.Interop.Word.XMLNode>对象而不是<xref:Microsoft.Office.Tools.Word.XMLNode>控件。 有关更多信息，请参见 [Programmatic Limitations of Host Items and Host Controls](../vsto/programmatic-limitations-of-host-items-and-host-controls.md)。  
   
-## 将数据绑定到控件  
- <xref:Microsoft.Office.Tools.Word.XMLNodes> 控件不支持数据绑定。  这是因为 <xref:Microsoft.Office.Tools.Word.XMLNodes> 控件不具备复杂数据绑定功能，而简单数据绑定又不能表示重复数据。  
+## <a name="binding-data-to-the-control"></a>将数据绑定到控件  
+ <xref:Microsoft.Office.Tools.Word.XMLNodes>控件不支持数据绑定。 这是因为<xref:Microsoft.Office.Tools.Word.XMLNodes>控件不具有复杂数据绑定功能，，简单数据绑定不能表示重复数据。  
   
-## 格式设置  
- 可对文档中的文本应用的所有格式设置都可应用于 <xref:Microsoft.Office.Tools.Word.XMLNodes> 控件。  
+## <a name="formatting"></a>格式设置  
+ 可以向文档中的文本应用任何格式设置可应用于<xref:Microsoft.Office.Tools.Word.XMLNodes>控件。  
   
-## 事件  
- 对于 <xref:Microsoft.Office.Tools.Word.XMLNodes> 控件可用的事件有：  
+## <a name="events"></a>事件  
+ 可用于事件<xref:Microsoft.Office.Tools.Word.XMLNodes>控件：  
   
 -   <xref:Microsoft.Office.Tools.Word.XMLNodes.AfterInsert>  
   
@@ -59,8 +61,8 @@ caps.handback.revision: 36
   
 -   <xref:Microsoft.Office.Tools.Word.XMLNodes.ValidationError>  
   
-## 比较事件  
- 您可以捕获用户在特定 <xref:Microsoft.Office.Tools.Word.XMLNodes> 控件的上下文中移动其光标时的事件。  例如，您可能有一个名为 `Customer` 的 <xref:Microsoft.Office.Tools.Word.XMLNodes> 控件，该控件包含一个名为 `Company` 的 <xref:Microsoft.Office.Tools.Word.XMLNodes> 子控件，而 `Company` 有两个名称分别为 `CompanyName` 和 `CompanyRegion` 的 <xref:Microsoft.Office.Tools.Word.XMLNodes> 子控件，如下所示：  
+## <a name="comparing-events"></a>比较事件  
+ 你可以捕获事件时用户将他或她的特定上下文中的光标<xref:Microsoft.Office.Tools.Word.XMLNodes>控件。 例如，你可能必须<xref:Microsoft.Office.Tools.Word.XMLNodes>控件名为`Customer`有一个子<xref:Microsoft.Office.Tools.Word.XMLNodes>控件名为`Company`，和`Company`包含两个子<xref:Microsoft.Office.Tools.Word.XMLNodes>控件名为`CompanyName`和`CompanyRegion`，如下所示：  
   
 ```  
 <Customer>  
@@ -69,24 +71,24 @@ caps.handback.revision: 36
         <CompanyRegion>  
 ```  
   
- 如果每次将光标移入 `Company` 节点时都要在操作窗格中显示控件，光标在 `CompanyName` 中还是在 `CompanyRegion` 中并不重要，因为它们同在 `Company` 的上下文中。  在这种情况下，可以在 `Company` 的 <xref:Microsoft.Office.Tools.Word.XMLNodes.ContextEnter> 事件中编写代码。  
+ 如果你想要显示操作窗格上的一个控件每当光标移动到`Company`节点，并应重要是否光标置于`CompanyName`或`CompanyRegion`因为它们的上下文中是否`Company`。 在这种情况下，在编写代码<xref:Microsoft.Office.Tools.Word.XMLNodes.ContextEnter>事件`Company`。  
   
- 在大多数情况下，当光标进入 <xref:Microsoft.Office.Tools.Word.XMLNodes> 控件时，会同时引发 <xref:Microsoft.Office.Tools.Word.XMLNodes.Select> 和 <xref:Microsoft.Office.Tools.Word.XMLNodes.ContextEnter> 事件。  下表显示了这些事件之间的差异。  
+ 在大多数情况下，当光标进入<xref:Microsoft.Office.Tools.Word.XMLNodes>控制，同时<xref:Microsoft.Office.Tools.Word.XMLNodes.Select>和<xref:Microsoft.Office.Tools.Word.XMLNodes.ContextEnter>引发事件。 下表显示这些事件之间的差异。  
   
-|Select 事件|ContextEnter 事件|  
-|---------------|---------------------|  
-|当光标放置在 <xref:Microsoft.Office.Tools.Word.XMLNodes> 集合的一个节点中时发生此事件。|当光标从节点上下文以外的区域移入 <xref:Microsoft.Office.Tools.Word.XMLNodes> 集合的节点或子代节点之一时发生。  换言之，只有在上下文发生更改时才会引发此事件，而且多层嵌套的 <xref:Microsoft.Office.Tools.Word.XMLNodes> 控件也可能引发此事件。|  
+|选择事件|ContextEnter 事件|  
+|------------------|------------------------|  
+|将光标放置在的节点之一时发生<xref:Microsoft.Office.Tools.Word.XMLNodes>集合。|将光标放置在节点或子代节点之一时发生<xref:Microsoft.Office.Tools.Word.XMLNodes>集合，从节点的上下文之外的区域。 换而言之，它仅更改时引发的上下文，并会引发多层嵌套<xref:Microsoft.Office.Tools.Word.XMLNodes>控件。|  
   
- 例如，从 `Customer` 之外将光标移到 `CompanyName` 中时，会引发 `Customer`、`Company` 和 `CompanyName` 的 <xref:Microsoft.Office.Tools.Word.XMLNodes.ContextEnter> 事件。  如果再将光标从 `CompanyName` 移动至 `CompanyRegion`，只会引发 `CompanyRegion` 的 <xref:Microsoft.Office.Tools.Word.XMLNodes.ContextEnter> 事件，因为上下文对于 `Company` 和 `Customer` 都相同。  文档中可以包含多个 `Company` 节点。  如果将光标从一个 `Company` 的 `CompanyName` 节点移动至另一个 `Company` 的 `CompanyName` 节点，由于上下文相同，因此只会引发 <xref:Microsoft.Office.Tools.Word.XMLNodes.Select> 事件。  
+ 例如，当你将光标移从外部`Customer`到`CompanyName`、<xref:Microsoft.Office.Tools.Word.XMLNodes.ContextEnter>事件`Customer`， `Company`，和`CompanyName`引发。 如果你然后移动光标从`CompanyName`到`CompanyRegion`、<xref:Microsoft.Office.Tools.Word.XMLNodes.ContextEnter>事件仅为`CompanyRegion`引发，因为上下文为相同`Company`和`Customer`。 你可以有多个`Company`在文档中的节点。 如果你移动光标从`CompanyName`之一的节点`Company`到`CompanyName`另一个节点`Company`，上下文是相同的因此仅<xref:Microsoft.Office.Tools.Word.XMLNodes.Select>引发事件。  
   
- <xref:Microsoft.Office.Tools.Word.XMLNodes.ContextLeave> 事件和 <xref:Microsoft.Office.Tools.Word.XMLNodes.Deselect> 事件之间存在着同样的差异。  
+ 之间存在相同的差异<xref:Microsoft.Office.Tools.Word.XMLNodes.ContextLeave>事件和<xref:Microsoft.Office.Tools.Word.XMLNodes.Deselect>事件。  
   
-## 请参阅  
- [宿主项和宿主控件概述](../vsto/host-items-and-host-controls-overview.md)   
+## <a name="see-also"></a>另请参阅  
+ [Host Items and Host Controls Overview](../vsto/host-items-and-host-controls-overview.md)   
  [使用扩展对象实现 Word 自动化](../vsto/automating-word-by-using-extended-objects.md)   
  [XMLNode 控件](../vsto/xmlnode-control.md)   
- [如何：向 Word 文档添加 XMLNodes 控件](../vsto/how-to-add-xmlnodes-controls-to-word-documents.md)   
- [如何：将架构映射到 Visual Studio 内部的 Word 文档](../vsto/how-to-map-schemas-to-word-documents-inside-visual-studio.md)   
- [宿主项和宿主控件的编程限制](../vsto/programmatic-limitations-of-host-items-and-host-controls.md)  
+ [如何： 向 Word 文档添加 XMLNodes 控件](../vsto/how-to-add-xmlnodes-controls-to-word-documents.md)   
+ [如何： 将架构映射到 Visual Studio 内部的 Word 文档](../vsto/how-to-map-schemas-to-word-documents-inside-visual-studio.md)   
+ [主机项和主机控件的编程限制](../vsto/programmatic-limitations-of-host-items-and-host-controls.md)  
   
   

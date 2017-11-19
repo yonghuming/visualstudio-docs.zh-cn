@@ -1,68 +1,69 @@
 ---
-title: "IDebugMemoryContext2::Compare | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "IDebugMemoryContext2::Compare"
-helpviewer_keywords: 
-  - "IDebugMemoryContext2::Compare 方法"
-  - "“比较”方法"
+title: "IDebugMemoryContext2::Compare |Microsoft 文档"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology: vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords: IDebugMemoryContext2::Compare
+helpviewer_keywords:
+- IDebugMemoryContext2::Compare method
+- Compare method
 ms.assetid: c51b5128-848e-4d8e-b2e9-1161339763c3
-caps.latest.revision: 14
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 14
+caps.latest.revision: "14"
+author: gregvanl
+ms.author: gregvanl
+manager: ghogen
+ms.openlocfilehash: dbcb3f93a4db6a14775cfe518ed257e60282f1fb
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# IDebugMemoryContext2::Compare
-[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
-
-与给定数组的每个上下文比较内存上下文以指示的方式比较标志，返回匹配第一个上下文的索引。  
+# <a name="idebugmemorycontext2compare"></a>IDebugMemoryContext2::Compare
+比较每个上下文中指示由比较标志，返回与匹配的第一个上下文的索引的方式与给定数组中的内存上下文。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
-```cpp#  
-HRESULT Compare(   
-   CONTEXT_COMPARE        compare,  
-   IDebugMemoryContext2** rgpMemoryContextSet,  
-   DWORD                  dwMemoryContextSetLen,  
-   DWORD*                 pdwMemoryContext  
+```cpp  
+HRESULT Compare(   
+   CONTEXT_COMPARE        compare,  
+   IDebugMemoryContext2** rgpMemoryContextSet,  
+   DWORD                  dwMemoryContextSetLen,  
+   DWORD*                 pdwMemoryContext  
 );  
 ```  
   
-```c#  
+```csharp  
 int Compare(  
-   enum_CONTEXT_COMPARE   compare,   
-   IDebugMemoryContext2[] rgpMemoryContextSet,   
-   uint                   dwMemoryContextSetLen,   
-   out uint               pdwMemoryContext  
+   enum_CONTEXT_COMPARE   compare,   
+   IDebugMemoryContext2[] rgpMemoryContextSet,   
+   uint                   dwMemoryContextSetLen,   
+   out uint               pdwMemoryContext  
 );  
 ```  
   
-#### 参数  
+#### <a name="parameters"></a>参数  
  `compare`  
- \[in\] 从确定比较的类型的 [CONTEXT\_COMPARE](../../../extensibility/debugger/reference/context-compare.md) 枚举的值。  
+ [in]取值范围为[CONTEXT_COMPARE](../../../extensibility/debugger/reference/context-compare.md)确定的比较类型的枚举。  
   
  `rgpMemoryContextSet`  
- \[in\] 数组对 [IDebugMemoryContext2](../../../extensibility/debugger/reference/idebugmemorycontext2.md) 对象进行比较。  
+ [in]对引用的数组[IDebugMemoryContext2](../../../extensibility/debugger/reference/idebugmemorycontext2.md)要比较的对象。  
   
  `dwMemoryContextSetLen`  
- \[in\] 上下文数 `rgpMemoryContextSet` 数组。  
+ [in]中的上下文数`rgpMemoryContextSet`数组。  
   
  `pdwMemoryContext`  
- \[out\] 返回满足该比较第一个内存上下文的索引。  
+ [out]返回满足的比较的第一个内存上下文的索引。  
   
-## 返回值  
- 如果成功，则返回; `S_OK`否则，返回错误代码。  例如，如果两上下文不能比较，返回 `E_COMPARE_CANNOT_COMPARE` 。  
+## <a name="return-value"></a>返回值  
+ 如果成功，则返回`S_OK`; 否则为返回错误代码。 返回`E_COMPARE_CANNOT_COMPARE`如果两个上下文不能进行比较。  
   
-## 备注  
- 调试引擎 \(DE\)不必支持比较的类型，但是，它必须支持 `CONTEXT_EQUAL`、 `CONTEXT_LESS_THAN`、至少 `CONTEXT_GREATER_THAN` 和 `CONTEXT_SAME_SCOPE`。  
+## <a name="remarks"></a>备注  
+ 调试引擎 (DE) 不需要支持所有类型的比较，但它必须至少都支持`CONTEXT_EQUAL`， `CONTEXT_LESS_THAN`，`CONTEXT_GREATER_THAN`和`CONTEXT_SAME_SCOPE`。  
   
-## 请参阅  
+## <a name="see-also"></a>另请参阅  
  [IDebugMemoryContext2](../../../extensibility/debugger/reference/idebugmemorycontext2.md)   
- [CONTEXT\_COMPARE](../../../extensibility/debugger/reference/context-compare.md)
+ [CONTEXT_COMPARE](../../../extensibility/debugger/reference/context-compare.md)

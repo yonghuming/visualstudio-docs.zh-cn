@@ -1,59 +1,59 @@
 ---
-title: "IEnumDebugPorts2::Next | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "IEnumDebugPorts2::Next"
-helpviewer_keywords: 
-  - "IEnumDebugPorts2::Next"
+title: "IEnumDebugPorts2::Next |Microsoft 文档"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology: vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords: IEnumDebugPorts2::Next
+helpviewer_keywords: IEnumDebugPorts2::Next
 ms.assetid: 3f43d18c-6bd1-4ddd-95ef-9550abd2ad09
-caps.latest.revision: 12
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 12
+caps.latest.revision: "12"
+author: gregvanl
+ms.author: gregvanl
+manager: ghogen
+ms.openlocfilehash: fc6fdf4340b5af48a20b261601865e1f8043335c
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# IEnumDebugPorts2::Next
-[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
-
-返回下一组枚举中的元素。  
+# <a name="ienumdebugports2next"></a>IEnumDebugPorts2::Next
+枚举中返回下一组元素。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
-```cpp#  
+```cpp  
 HRESULT Next(  
-   ULONG         celt,  
-   IDebugPort2** rgelt,  
-   ULONG*        pceltFetched  
+   ULONG         celt,  
+   IDebugPort2** rgelt,  
+   ULONG*        pceltFetched  
 );  
 ```  
   
-```c#  
+```csharp  
 int Next(  
-   uint          celt,  
-   IDebugPort2[] rgelt,  
-   ref uint      pceltFetched  
+   uint          celt,  
+   IDebugPort2[] rgelt,  
+   ref uint      pceltFetched  
 );  
 ```  
   
-#### 参数  
+#### <a name="parameters"></a>参数  
  `celt`  
- \[in\] 检索的元素的数目。  并指定 `rgelt` 数组的最大大小。  
+ [in]要检索的元素数。 此外指定的最大大小`rgelt`数组。  
   
  `rgelt`  
- \[in, out\] 数组将填充的 [IDebugPort2](../../../extensibility/debugger/reference/idebugport2.md) 元素。  
+ [在中，out]数组[IDebugPort2](../../../extensibility/debugger/reference/idebugport2.md)元素填充的。  
   
  `pceltFetched`  
- \[out\] 返回在 `rgelt`实际上返回的元素的数目。  
+ [out]返回中实际返回的元素数目`rgelt`。  
   
-## 返回值  
- 如果成功，则返回 `S_OK`。  ，如果小于元素的请求的数目可能返回，则返回; `S_FALSE` 否则，返回错误代码。  
+## <a name="return-value"></a>返回值  
+ 如果成功，则返回`S_OK`。 返回`S_FALSE`如果无法返回请求数目的元素少于; 否则，返回错误代码。  
   
-## 请参阅  
+## <a name="see-also"></a>另请参阅  
  [IEnumDebugPorts2](../../../extensibility/debugger/reference/ienumdebugports2.md)   
  [IDebugPort2](../../../extensibility/debugger/reference/idebugport2.md)

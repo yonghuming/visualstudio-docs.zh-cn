@@ -1,24 +1,25 @@
 ---
-title: "示例 XSD 文件：简单架构 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-general"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
+title: "示例 XSD 文件： 简单架构 |Microsoft 文档"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology: vs-ide-general
+ms.tgt_pltfrm: 
+ms.topic: article
 ms.assetid: f7e1dde1-b4f6-4371-add4-935b68ec77d7
-caps.latest.revision: 4
-author: "kempb"
-ms.author: "kempb"
-manager: "ghogen"
-caps.handback.revision: 4
+caps.latest.revision: "4"
+author: gewarren
+ms.author: gewarren
+manager: ghogen
+ms.openlocfilehash: b0178c64c72584ad2a3fe4692294a4877990423e
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# 示例 XSD 文件：简单架构
-[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
-
-以下 XSD 文件用在 XSD 架构设计器文档中的各个示例中。此文件是一个简单的订单架构。  
+# <a name="sample-xsd-file-simple-schema"></a>示例 XSD 文件：简单架构
+以下 XSD 文件用在 XSD 架构设计器文档中的各个示例中。 此文件是一个简单的订单架构。  
   
 ```xml  
 <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"   

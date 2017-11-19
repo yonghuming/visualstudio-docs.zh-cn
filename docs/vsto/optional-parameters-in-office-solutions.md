@@ -1,12 +1,10 @@
 ---
-title: Optional Parameters in Office Solutions | Microsoft Docs
+title: "Office 解决方案中的可选参数 |Microsoft 文档"
 ms.custom: 
 ms.date: 02/02/2017
-ms.prod: visual-studio-dev14
 ms.reviewer: 
 ms.suite: 
-ms.technology:
-- office-development
+ms.technology: office-development
 ms.tgt_pltfrm: 
 ms.topic: article
 dev_langs:
@@ -21,60 +19,61 @@ helpviewer_keywords:
 - optional parameters [Office development in Visual Studio]
 - parameters [Office development in Visual Studio], optional
 ms.assetid: 109eaef6-08bb-4b59-a29e-921f856027cc
-caps.latest.revision: 43
-author: kempb
-ms.author: kempb
+caps.latest.revision: "43"
+author: gewarren
+ms.author: gewarren
 manager: ghogen
-ms.translationtype: HT
-ms.sourcegitcommit: eb5c9550fd29b0e98bf63a7240737da4f13f3249
-ms.openlocfilehash: c17f892328e948f052225d03eacd289b09e64e0b
-ms.contentlocale: zh-cn
-ms.lasthandoff: 08/30/2017
-
+ms.openlocfilehash: 4293d13ffc5b69c23c0b613a3d9747248d6fa790
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# <a name="optional-parameters-in-office-solutions"></a>Optional Parameters in Office Solutions
-  Many of the methods in the object models of Microsoft Office applications accept optional parameters. If you use Visual Basic to develop an Office solution in Visual Studio, you do not have to pass a value for optional parameters because the default values are automatically used for each missing parameter. In most cases, you can also omit optional parameters in Visual C# projects. However, you cannot omit optional **ref** parameters of the `ThisDocument` class in document-level Word projects.  
+# <a name="optional-parameters-in-office-solutions"></a>Office 解决方案中的可选参数
+  Microsoft Office 应用程序的对象模型中的许多方法都接受可选参数。 如果使用 Visual Basic 在 Visual Studio 中开发 Office 解决方案，你不必为可选参数传递值，因为系统会为每个缺少的参数自动使用默认值。 在大多数情况下，也可以省略 Visual C# 项目中的可选参数。 但是，不能省略可选**ref**参数`ThisDocument`在文档级 Word 项目中的类。  
   
  [!INCLUDE[appliesto_all](../vsto/includes/appliesto-all-md.md)]  
   
- For more information about working with optional parameters in Visual C# and Visual Basic projects, see [Named and Optional Arguments &#40;C&#35; Programming Guide&#41;](/dotnet/csharp/programming-guide/classes-and-structs/named-and-optional-arguments) and [Optional Parameters &#40;Visual Basic&#41;](/dotnet/visual-basic/programming-guide/language-features/procedures/optional-parameters).  
+ 有关使用 Visual C# 和 Visual Basic 项目中的可选参数的详细信息，请参阅[命名和可选自变量 &#40;使用 c&#35;编程指南 &#41;](/dotnet/csharp/programming-guide/classes-and-structs/named-and-optional-arguments)和[可选参数 &#40;Visual Basic &#41;](/dotnet/visual-basic/programming-guide/language-features/procedures/optional-parameters).  
   
 > [!NOTE]  
->  In earlier versions of Visual Studio, you must pass a value for every optional parameter in Visual C# projects. For convenience, these projects include a global variable named `missing` that you can pass to an optional parameter when you want to use the default value of the parameter. Visual C# projects for Office in Visual Studio still include the `missing` variable, but you typically do not need to use it when you develop Office solutions in [!INCLUDE[vs_dev12](../vsto/includes/vs-dev12-md.md)], except when you call methods with optional **ref** parameters in the `ThisDocument` class in document-level projects for Word.  
+>  在 Visual Studio 的早期版本中，必须为 Visual C# 项目中的每个可选参数传递一个值。 为了方便起见，这些项目包括一个名为 `missing` 的全局变量，当你想要使用某个可选参数的默认值时，可以将该变量传递给该可选参数。 Visual C# 项目的 Visual Studio 中的 Office 仍包含`missing`变量，但你通常不需要开发中的 Office 解决方案时使用它[!INCLUDE[vs_dev12](../vsto/includes/vs-dev12-md.md)]，除非调用具有可选的方法**ref**中的参数`ThisDocument`Word 的文档级项目中的类。  
   
-## <a name="example-in-excel"></a>Example in Excel  
- The <xref:Microsoft.Office.Tools.Excel.Worksheet.CheckSpelling%2A> method has many optional parameters. You can specify values for some parameters and accept the default value of others as shown in the following code example. This example requires a document-level project with a worksheet class named `Sheet1`.  
+## <a name="example-in-excel"></a>Excel 中的示例  
+ <xref:Microsoft.Office.Tools.Excel.Worksheet.CheckSpelling%2A> 方法具有多个可选参数。 可以为某些参数指定值，并接受其他参数的默认值，如下面的代码示例所示。 此示例需要一个具有名为 `Sheet1` 的工作表类的文档级项目。  
   
- [!code-csharp[Trin_VstrefGeneralExcel#1](../vsto/codesnippet/CSharp/excelworkbook1/Sheet1.cs#1)] [!code-vb[Trin_VstrefGeneralExcel#1](../vsto/codesnippet/VisualBasic/excelworkbook1/Sheet1.vb#1)]  
+ [!code-csharp[Trin_VstrefGeneralExcel#1](../vsto/codesnippet/CSharp/excelworkbook1/Sheet1.cs#1)]
+ [!code-vb[Trin_VstrefGeneralExcel#1](../vsto/codesnippet/VisualBasic/excelworkbook1/Sheet1.vb#1)]  
   
-## <a name="example-in-word"></a>Example in Word  
- The <xref:Microsoft.Office.Interop.Word.Find.Execute%2A> method has many optional parameters. You can specify values for some parameters and accept the default value of others as shown in the following code example.  
+## <a name="example-in-word"></a>Word 中的示例  
+ <xref:Microsoft.Office.Interop.Word.Find.Execute%2A> 方法具有多个可选参数。 可以为某些参数指定值，并接受其他参数的默认值，如下面的代码示例所示。  
   
- [!code-vb[Trin_VstrefGeneralWord#1](../vsto/codesnippet/VisualBasic/worddocument1/ThisDocument.vb#1)] [!code-csharp[Trin_VstrefGeneralWord#1](../vsto/codesnippet/CSharp/worddocument1/ThisDocument.cs#1)]  
+ [!code-vb[Trin_VstrefGeneralWord#1](../vsto/codesnippet/VisualBasic/worddocument1/ThisDocument.vb#1)]
+ [!code-csharp[Trin_VstrefGeneralWord#1](../vsto/codesnippet/CSharp/worddocument1/ThisDocument.cs#1)]  
   
-## <a name="using-optional-parameters-of-methods-in-the-thisdocument-class-in-visual-c-document-level-projects-for-word"></a>Using Optional Parameters of Methods in the ThisDocument Class in Visual C# Document-Level Projects for Word  
- The Word object model contains many methods with optional **ref** parameters that accept <xref:System.Object> values. However, you cannot omit optional **ref** parameters of methods of the generated `ThisDocument` class in Visual C# document-level projects for Word. Visual C# enables you to omit optional **ref** parameters only for methods of interfaces, not classes. For example, the following code example does not compile, because you cannot omit optional **ref** parameters of the <xref:Microsoft.Office.Tools.Word.DocumentBase.CheckSpelling%2A> method of the `ThisDocument` class.  
+## <a name="using-optional-parameters-of-methods-in-the-thisdocument-class-in-visual-c-document-level-projects-for-word"></a>在面向 Word 的 Visual C# 文档级项目中使用 ThisDocument 类中方法的可选参数  
+ Word 对象模型包含许多具有可选方法**ref**接受的参数<xref:System.Object>值。 但是，不能省略可选**ref**的生成的方法的参数`ThisDocument`Word 的 Visual C# 文档级项目中的类。 Visual C# 允许你忽略可选**ref**接口，方法参数而不是类。 例如，下面的代码示例无法进行编译，因为不能省略可选**ref**参数<xref:Microsoft.Office.Tools.Word.DocumentBase.CheckSpelling%2A>方法`ThisDocument`类。  
   
  [!code-csharp[Trin_VstrefGeneralWord#3](../vsto/codesnippet/CSharp/worddocument1/ThisDocument.cs#3)]  
   
- When you call methods of the `ThisDocument` class, follow these guidelines:  
+ 调用 `ThisDocument` 类的方法时，请遵循以下准则：  
   
--   To accept the default value of an optional **ref** parameter, pass the `missing` variable to the parameter. The `missing` variable is automatically defined in Visual C# Office projects and is assigned to the value <xref:System.Type.Missing> in the generated project code.  
+-   若要接受可选的默认值**ref**参数，传递`missing`参数变量。 在 Visual C# Office 项目中自动定义 `missing` 变量，并分配给生成的项目代码中的值 <xref:System.Type.Missing>。  
   
--   To specify your own value for an optional **ref** parameter, declare an object that is assigned to the value that you want to specify, and then pass the object to the parameter.  
+-   若要指定你自己的值为可选**ref**参数，声明一个分配给你想要指定，值的对象，并将对象传递到参数。  
   
- The following code example demonstrates how to call the <xref:Microsoft.Office.Tools.Word.DocumentBase.CheckSpelling%2A> method by specifying a value for the *ignoreUppercase* parameter and accepting the default value for the other parameters.  
+ 下面的代码示例演示如何调用<xref:Microsoft.Office.Tools.Word.DocumentBase.CheckSpelling%2A>通过指定的值的方法*ignoreUppercase*参数并接受其他参数的默认值。  
   
  [!code-csharp[Trin_VstrefGeneralWord#4](../vsto/codesnippet/CSharp/worddocument1/ThisDocument.cs#4)]  
   
- If you want to write code that omits optional **ref** parameters of a method in the `ThisDocument` class, you can alternatively call the same method on the <xref:Microsoft.Office.Interop.Word.Document> object returned by the <xref:Microsoft.Office.Tools.Word.Document.InnerObject%2A> property, and omit the parameters from that method. You can do this because <xref:Microsoft.Office.Interop.Word.Document> is an interface, rather than a class.  
+ 如果你想要编写代码的省略了可选**ref**中的方法的参数`ThisDocument`类，你可以或者相同的方法对调用<xref:Microsoft.Office.Interop.Word.Document>返回对象<xref:Microsoft.Office.Tools.Word.Document.InnerObject%2A>属性，并忽略该方法中的参数。 可以这样做是因为 <xref:Microsoft.Office.Interop.Word.Document> 是接口而不是类。  
   
  [!code-csharp[Trin_VstrefGeneralWord#5](../vsto/codesnippet/CSharp/worddocument1/ThisDocument.cs#5)]  
   
- For more information about value and reference type parameters, see [Passing Arguments by Value and by Reference &#40;Visual Basic&#41;](/dotnet/visual-basic/programming-guide/language-features/procedures/passing-arguments-by-value-and-by-reference) (for Visual Basic) and [Passing Parameters &#40;C&#35; Programming Guide&#41;](/dotnet/csharp/programming-guide/classes-and-structs/passing-parameters).  
+ 有关值和引用类型参数的详细信息，请参阅[传递自变量通过值和通过引用 &#40;Visual Basic &#41;](/dotnet/visual-basic/programming-guide/language-features/procedures/passing-arguments-by-value-and-by-reference) （对于 Visual Basic) 和[传递参数 &#40;使用 c&#35;编程指南 &#41;](/dotnet/csharp/programming-guide/classes-and-structs/passing-parameters).  
   
-## <a name="see-also"></a>See Also  
- [Developing Office Solutions](../vsto/developing-office-solutions.md)   
- [Writing Code in Office Solutions](../vsto/writing-code-in-office-solutions.md)  
+## <a name="see-also"></a>另请参阅  
+ [开发 Office 解决方案](../vsto/developing-office-solutions.md)   
+ [在 Office 解决方案中编写代码](../vsto/writing-code-in-office-solutions.md)  
   
   

@@ -1,12 +1,10 @@
 ---
-title: 'Walkthrough: Creating a Custom Action Project Item with an Item Template, Part 1 | Microsoft Docs'
+title: "演练： 使用项模板创建的自定义操作项目项，第 1 部分 |Microsoft 文档"
 ms.custom: 
 ms.date: 02/02/2017
-ms.prod: visual-studio-dev14
 ms.reviewer: 
 ms.suite: 
-ms.technology:
-- office-development
+ms.technology: office-development
 ms.tgt_pltfrm: 
 ms.topic: article
 dev_langs:
@@ -18,195 +16,192 @@ helpviewer_keywords:
 - project items [SharePoint development in Visual Studio], defining your own types
 - SharePoint development in Visual Studio, defining new project item types
 ms.assetid: 41ed9c1c-4239-4d80-934b-975fde744288
-caps.latest.revision: 152
-author: kempb
-ms.author: kempb
+caps.latest.revision: "152"
+author: gewarren
+ms.author: gewarren
 manager: ghogen
-ms.translationtype: HT
-ms.sourcegitcommit: eb5c9550fd29b0e98bf63a7240737da4f13f3249
-ms.openlocfilehash: 277d10d8fbbdc90a6606d91b80a0d704c76b5b4c
-ms.contentlocale: zh-cn
-ms.lasthandoff: 08/30/2017
-
+ms.openlocfilehash: ddab05340b898a1a9a1868c7e537e6b53cc013b4
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# <a name="walkthrough-creating-a-custom-action-project-item-with-an-item-template-part-1"></a>Walkthrough: Creating a Custom Action Project Item with an Item Template, Part 1
-  You can extend the SharePoint project system in Visual Studio by creating your own project item types. In this walkthrough, you will create a project item that can be added to a SharePoint project to create a custom action on a SharePoint site. The custom action adds a menu item to the **Site Actions** menu of the SharePoint site.  
+# <a name="walkthrough-creating-a-custom-action-project-item-with-an-item-template-part-1"></a>演练： 使用项模板创建的自定义操作项目项，第 1 部分
+  可以通过创建自己的项目项类型来扩展 Visual Studio 中的 SharePoint 项目系统。 在本演练中，你将创建可以添加到 SharePoint 项目，以便在 SharePoint 站点上创建自定义操作项目项。 此自定义操作将添加到菜单项**站点操作**菜单中的 SharePoint 站点。  
   
- This walkthrough demonstrates the following tasks:  
+ 本演练演示了下列任务：  
   
--   Creating a Visual Studio extension that defines a new type of SharePoint project item for a custom action. The new project item type implements several custom features:  
+-   创建一个 Visual Studio 扩展定义一种新的自定义操作的 SharePoint 项目项。 新的项目项类型实现多个自定义功能：  
   
-    -   A shortcut menu that serves as a starting point for additional tasks related to the project item, such as displaying a designer for the custom action in Visual Studio.  
+    -   快捷菜单，用作一个起始点，与项目项，例如 Visual Studio 中显示自定义操作的设计器相关的其他任务。  
   
-    -   Code that runs when a developer changes certain properties of the project item and the project that contains it.  
+    -   在开发人员更改项目项和包含它的项目的某些属性时运行的代码。  
   
-    -   A custom icon that appears next to the project item in **Solution Explorer**.  
+    -   在项目项的旁边显示一个自定义图标**解决方案资源管理器**。  
   
--   Creating a Visual Studio item template for the project item.  
+-   创建项目项的 Visual Studio 项模板。  
   
--   Building a Visual Studio Extension (VSIX) package to deploy the project item template and the extension assembly.  
+-   生成 Visual Studio 扩展 (VSIX) 包来部署项目项模板和扩展程序集。  
   
--   Debugging and testing the project item.  
+-   调试和测试项目项。  
   
- This is a stand-alone walkthrough. After you complete this walkthrough, you can enhance the project item by adding a wizard to the item template. For more information, see [Walkthrough: Creating a Custom Action Project Item with an Item Template, Part 2](../sharepoint/walkthrough-creating-a-custom-action-project-item-with-an-item-template-part-2.md).  
+ 这是一个独立的演练。 完成本演练后，你可以通过将向导添加到项模板增强项目项。 有关详细信息，请参阅[演练： 使用项模板，第 2 部分创建自定义操作项目项](../sharepoint/walkthrough-creating-a-custom-action-project-item-with-an-item-template-part-2.md)。  
   
 > [!NOTE]  
->  You can download a sample that contains the completed projects, code, and other files for this walkthrough from the following location:  [http://go.microsoft.com/fwlink/?LinkId=191369](http://go.microsoft.com/fwlink/?LinkId=191369).  
+>  你可以下载包含已完成的项目、 代码和从以下位置在本演练中的其他文件的示例： [http://go.microsoft.com/fwlink/?LinkId=191369](http://go.microsoft.com/fwlink/?LinkId=191369)。  
   
-## <a name="prerequisites"></a>Prerequisites  
- You need the following components on the development computer to complete this walkthrough:  
+## <a name="prerequisites"></a>先决条件  
+ 你需要以下组件来完成本演练的开发计算机上：  
   
--   Supported editions of Microsoft Windows, SharePoint and Visual Studio. For more information, see [Requirements for Developing SharePoint Solutions](../sharepoint/requirements-for-developing-sharepoint-solutions.md).  
+-   受支持的 Microsoft Windows、 SharePoint 和 Visual Studio 的版本。 有关详细信息，请参阅[有关开发 SharePoint 解决方案的要求](../sharepoint/requirements-for-developing-sharepoint-solutions.md)。  
   
--   The [!INCLUDE[vssdk_current_long](../sharepoint/includes/vssdk-current-long-md.md)]. This walkthrough uses the **VSIX Project** template in the SDK to create a VSIX package to deploy the project item. For more information, see [Extending the SharePoint Tools in Visual Studio](../sharepoint/extending-the-sharepoint-tools-in-visual-studio.md).  
+-   [!INCLUDE[vssdk_current_long](../sharepoint/includes/vssdk-current-long-md.md)]。 本演练使用**VSIX 项目**SDK 创建 VSIX 包来部署项目项中的模板。 有关详细信息，请参阅[扩展 Visual Studio 中的 SharePoint 工具](../sharepoint/extending-the-sharepoint-tools-in-visual-studio.md)。  
   
- Knowledge of the following concepts is helpful, but not required, to complete the walkthrough:  
+ 以下概念的知识将会很有用，但不是要求必须完成本演练：  
   
--   Custom actions in SharePoint. For more information, see [Custom Action](http://go.microsoft.com/fwlink/?LinkId=177800).  
+-   在 SharePoint 中的自定义操作。 有关详细信息，请参阅[自定义操作](http://go.microsoft.com/fwlink/?LinkId=177800)。  
   
--   Item templates in Visual Studio. For more information, see [Creating Project and Item Templates](/visualstudio/ide/creating-project-and-item-templates).  
+-   Visual Studio 中的项模板。 有关详细信息，请参阅[创建项目和项模板](/visualstudio/ide/creating-project-and-item-templates)。  
   
-## <a name="creating-the-projects"></a>Creating the Projects  
- To complete this walkthrough, you need to create three projects:  
+## <a name="creating-the-projects"></a>创建项目  
+ 若要完成本演练，你需要创建三个项目：  
   
--   A VSIX project. This project creates the VSIX package to deploy the SharePoint project item.  
+-   一个 VSIX 项目。 此项目创建 VSIX 包来部署 SharePoint 项目项。  
   
--   An item template project. This project creates an item template that can be used to add the SharePoint project item to a SharePoint project.  
+-   项模板项目。 此项目创建可以用于将 SharePoint 项目项添加到 SharePoint 项目项模板。  
   
--   A class library project. This project implements a Visual Studio extension that defines the behavior of the SharePoint project item.  
+-   一个类库项目。 此项目实现定义的 SharePoint 项目项的行为的 Visual Studio 扩展。  
   
- Start the walkthrough by creating the projects.  
+ 首先演练创建项目。  
   
-#### <a name="to-create-the-vsix-project"></a>To create the VSIX project  
+#### <a name="to-create-the-vsix-project"></a>若要创建 VSIX 项目  
   
-1.  Start [!INCLUDE[vsprvs](../sharepoint/includes/vsprvs-md.md)].  
+1.  启动 [!INCLUDE[vsprvs](../sharepoint/includes/vsprvs-md.md)]。  
   
-2.  On the menu bar, choose **File**, **New**, **Project**.  
+2.  在菜单栏上，依次选择“文件” 、“新建” 、“项目” 。  
   
-3.  In the list at the top of the **New Project** dialog box, make sure that **.NET Framework 4.5** is selected.  
+3.  在顶部列表中**新项目**对话框框中，请确保**.NET Framework 4.5**选择。  
   
-4.  In the **New Project** dialog box, expand the **Visual C#** or **Visual Basic** nodes, and then choose the **Extensibility** node.  
-  
-    > [!NOTE]  
-    >  The **Extensibility** node is available only if you install the Visual Studio SDK. For more information, see the prerequisites section earlier in this topic.  
-  
-5.  Choose the **VSIX Project** template.  
-  
-6.  In the **Name** box, enter **CustomActionProjectItem**, and then choose the **OK** button.  
-  
-     [!INCLUDE[vsprvs](../sharepoint/includes/vsprvs-md.md)] adds the **CustomActionProjectItem** project to **Solution Explorer**.  
-  
-#### <a name="to-create-the-item-template-project"></a>To create the item template project  
-  
-1.  In **Solution Explorer**, open the shortcut menu for the solution node, choose **Add**, and then choose **New Project**.  
+4.  在**新项目**对话框框中，展开**Visual C#**或**Visual Basic**节点，然后选择**扩展性**节点。  
   
     > [!NOTE]  
-    >  In Visual Basic projects, the solution node appears in **Solution Explorer** only when the **Always show solution** check box is selected in the [NIB: General, Projects and Solutions, Options Dialog Box](http://msdn.microsoft.com/en-us/8f8e37e8-b28d-4b13-bfeb-ea4d3312aeca).  
+    >  **扩展性**节点是安装 Visual Studio SDK 时才可用。 有关详细信息，请参阅本主题前面的先决条件部分。  
   
-2.  In the list at the top of the **New Project** dialog box, make sure that **.NET Framework 4.5** is selected.  
+5.  选择**VSIX 项目**模板。  
   
-3.  In the **New Project** dialog box, expand the **Visual C#** or **Visual Basic** nodes, and then choose the **Extensibility** node.  
+6.  在**名称**框中，输入**CustomActionProjectItem**，然后选择**确定**按钮。  
   
-4.  In the list of project templates, choose the **C# Item Template** or **Visual Basic Item Template** template.  
+     [!INCLUDE[vsprvs](../sharepoint/includes/vsprvs-md.md)]将添加**CustomActionProjectItem**项目合并为**解决方案资源管理器**。  
   
-5.  In the **Name** box, enter **ItemTemplate**, and then choose the **OK** button.  
+#### <a name="to-create-the-item-template-project"></a>若要创建项模板项目  
   
-     [!INCLUDE[vsprvs](../sharepoint/includes/vsprvs-md.md)] adds the **ItemTemplate** project to the solution.  
+1.  在**解决方案资源管理器**，打开解决方案节点的快捷菜单，选择**添加**，然后选择**新项目**。  
   
-#### <a name="to-create-the-extension-project"></a>To create the extension project  
+2.  在顶部列表中**新项目**对话框框中，请确保**.NET Framework 4.5**选择。  
   
-1.  In **Solution Explorer**, open the shortcut menu for the solution node, choose **Add**, and then choose **New Project**.  
+3.  在**新项目**对话框框中，展开**Visual C#**或**Visual Basic**节点，然后选择**扩展性**节点。  
   
-2.  In the list at the top of the **New Project** dialog box, make sure that **.NET Framework 4.5** is selected.  
+4.  在项目模板列表中，选择**C# 项模板**或**Visual Basic 项模板**模板。  
   
-3.  In the **New Project** dialog box, expand the **Visual C#** or **Visual Basic** nodes, choose the **Windows** node, and then choose the **Class Library** project template.  
+5.  在**名称**框中，输入**ItemTemplate**，然后选择**确定**按钮。  
   
-4.  In the **Name** box, enter **ProjectItemDefinition**, and then choose the **OK** button.  
+     [!INCLUDE[vsprvs](../sharepoint/includes/vsprvs-md.md)]将添加**ItemTemplate**到解决方案的项目。  
   
-     [!INCLUDE[vsprvs](../sharepoint/includes/vsprvs-md.md)] adds the **ProjectItemDefinition** project to the solution and opens the default Class1 code file.  
+#### <a name="to-create-the-extension-project"></a>若要创建扩展项目  
   
-5.  Delete the Class1 code file from the project.  
+1.  在**解决方案资源管理器**，打开解决方案节点的快捷菜单，选择**添加**，然后选择**新项目**。  
   
-## <a name="configuring-the-extension-project"></a>Configuring the Extension Project  
- Before you write code to define the SharePoint project item type, you have to add code files and assembly references to the extension project.  
+2.  在顶部列表中**新项目**对话框框中，请确保**.NET Framework 4.5**选择。  
   
-#### <a name="to-configure-the-project"></a>To configure the project  
+3.  在**新项目**对话框框中，展开**Visual C#**或**Visual Basic**节点，选择**Windows**节点，然后选择**类库**项目模板。  
   
-1.  In **Solution Explorer**, open the shortcut menu for the **ProjectItemDefinition** project, choose **Add**, then choose **New Item**.  
+4.  在**名称**框中，输入**ProjectItemDefinition**，然后选择**确定**按钮。  
   
-2.  In the list of project items, choose **Code File**.  
+     [!INCLUDE[vsprvs](../sharepoint/includes/vsprvs-md.md)]将添加**ProjectItemDefinition**到解决方案的项目并打开默认 Class1 代码文件。  
   
-3.  In the **Name** box, enter the name **CustomAction** with the appropriate file name extension, and then choose the **Add** button.  
+5.  从项目中删除 Class1 代码文件。  
   
-4.  In **Solution Explorer**, open the shortcut menu for the **ProjectItemDefinition** project, and then choose **Add Reference**.  
+## <a name="configuring-the-extension-project"></a>配置扩展项目  
+ 在编写代码以定义 SharePoint 项目项类型之前，必须添加代码文件和向扩展项目的程序集引用。  
   
-5.  In the **Reference Manager - ProjectItemDefinition** dialog box, choose the **Assemblies** node, and then choose the **Framework** node.  
+#### <a name="to-configure-the-project"></a>若要配置项目  
   
-6.  Select the check box next to each of the following assemblies:  
+1.  在**解决方案资源管理器**，打开快捷菜单**ProjectItemDefinition**项目，选择**添加**，然后选择**新项**。  
+  
+2.  在项目项的列表中，选择**代码文件**。  
+  
+3.  在**名称**框中，输入名称**CustomAction**使用相应文件扩展名，，然后选择**添加**按钮。  
+  
+4.  在**解决方案资源管理器**，打开快捷菜单**ProjectItemDefinition**项目，，然后选择**添加引用**。  
+  
+5.  在**引用管理器-ProjectItemDefinition**对话框框中，选择**程序集**节点，然后选择**Framework**节点。  
+  
+6.  选择以下程序集的每个旁边的复选框：  
   
     -   System.ComponentModel.Composition  
   
     -   System.Windows.Forms  
   
-7.  Choose the **Extensions** node, select the check box next to the Microsoft.VisualStudio.Sharepoint assembly, and then choose the **OK** button.  
+7.  选择**扩展**节点，选择 Microsoft.VisualStudio.Sharepoint 程序集，旁边的复选框，然后选择**确定**按钮。  
   
-## <a name="defining-the-new-sharepoint-project-item-type"></a>Defining the New SharePoint Project Item Type  
- Create a class that implements the <xref:Microsoft.VisualStudio.SharePoint.ISharePointProjectItemTypeProvider> interface to define the behavior of the new project item type. Implement this interface whenever you want to define a new type of project item.  
+## <a name="defining-the-new-sharepoint-project-item-type"></a>将新的 SharePoint 项目项类型定义  
+ 创建一个类以实现<xref:Microsoft.VisualStudio.SharePoint.ISharePointProjectItemTypeProvider>接口可定义新的项目项类型的行为。 无论何时你想要定义新类型的项目项，则实现此接口。  
   
-#### <a name="to-define-the-new-sharepoint-project-item-type"></a>To define the new SharePoint project item type  
+#### <a name="to-define-the-new-sharepoint-project-item-type"></a>若要定义新的 SharePoint 项目项类型  
   
-1.  In the ProjectItemDefinition project, open the CustomAction code file.  
+1.  在 ProjectItemDefinition 项目中，打开 CustomAction 代码文件。  
   
-2.  Replace the code in this file with the following code.  
+2.  此文件中的代码替换为以下代码。  
   
-     [!code-csharp[SPExtensibility.ProjectItem.CustomAction#1](../sharepoint/codesnippet/CSharp/customactionprojectitem/projectitemtypedefinition/customaction.cs#1)]  [!code-vb[SPExtensibility.ProjectItem.CustomAction#1](../sharepoint/codesnippet/VisualBasic/customactionprojectitem/projectitemdefinition/customaction.vb#1)]  
+     [!code-csharp[SPExtensibility.ProjectItem.CustomAction#1](../sharepoint/codesnippet/CSharp/customactionprojectitem/projectitemtypedefinition/customaction.cs#1)]
+     [!code-vb[SPExtensibility.ProjectItem.CustomAction#1](../sharepoint/codesnippet/VisualBasic/customactionprojectitem/projectitemdefinition/customaction.vb#1)]  
   
-## <a name="creating-an-icon-for-the-project-item-in-solution-explorer"></a>Creating an Icon for the Project Item in Solution Explorer  
- When you create a custom SharePoint project item, you can associate an image (an icon or bitmap) with the project item. This image appears next to the project item in **Solution Explorer**.  
+## <a name="creating-an-icon-for-the-project-item-in-solution-explorer"></a>为解决方案资源管理器中的项目项创建一个图标  
+ 在创建自定义 SharePoint 项目项时，你可以将图像 （图标或位图） 关联的项目项。 此图像项目项旁边会出现**解决方案资源管理器**。  
   
- In the following procedure, you create an icon for the project item and embed the icon in the extension assembly. This icon is referenced by the <xref:Microsoft.VisualStudio.SharePoint.SharePointProjectItemIconAttribute> of the `CustomActionProjectItemTypeProvider` class that you created earlier.  
+ 在下面的过程中，你创建项目项的图标，并将图标嵌入在扩展程序集。 通过引用此图标<xref:Microsoft.VisualStudio.SharePoint.SharePointProjectItemIconAttribute>的`CustomActionProjectItemTypeProvider`前面创建的类。  
   
-#### <a name="to-create-a-custom-icon-for-the-project-item"></a>To create a custom icon for the project item  
+#### <a name="to-create-a-custom-icon-for-the-project-item"></a>若要创建项目项的自定义图标  
   
-1.  In **Solution Explorer**, open the shortcut menu for the **ProjectItemDefinition** project, choose **Add**, and then choose **New Item...**.  
+1.  在**解决方案资源管理器**，打开快捷菜单**ProjectItemDefinition**项目，选择**添加**，然后选择**新建项...**.  
   
-2.  In the list of project items, choose the **Icon File** item.  
-  
-    > [!NOTE]  
-    >  In Visual Basic projects, you must choose the **General** node to display the **Icon File** item.  
-  
-3.  In the **Name** box, enter **CustomAction_SolutionExplorer.ico**, and then choose the **Add** button.  
-  
-     The new icon opens in the **Image Editor**.  
-  
-4.  Edit the 16x16 version of the icon file so that it has a design you can recognize, and then save the icon file.  
-  
-5.  In **Solution Explorer**, choose **CustomAction_SolutionExplorer.ico**.  
-  
-6.  In the **Properties** window, choose the arrow next to the **Build Action** property.  
-  
-7.  In the list that appears, choose **Embedded Resource**.  
-  
-## <a name="checkpoint"></a>Checkpoint  
- At this point in the walkthrough, all the code for the project item is now in the project. Build the project to verify that it compiles without errors.  
-  
-#### <a name="to-build-your-project"></a>To build your project  
-  
-1.  Open the shortcut menu for the **ProjectItemDefinition** project and choose **Build**.  
-  
-## <a name="creating-a-visual-studio-item-template"></a>Creating a Visual Studio Item Template  
- To enable other developers to use your project item, you must create a project template or item template. Developers use these templates in Visual Studio to create an instance of your project item by creating a new project, or by adding an item to an existing project. For this walkthrough, use the ItemTemplate project to configure your project item.  
-  
-#### <a name="to-create-the-item-template"></a>To create the item template  
-  
-1.  Delete the Class1 code file from the ItemTemplate project.  
-  
-2.  In the ItemTemplate project, open the ItemTemplate.vstemplate file.  
-  
-3.  Replace the contents of the file with the following XML, and then save and close the file.  
+2.  在项目项的列表中，选择**图标文件**项。  
   
     > [!NOTE]  
-    >  The following XML is for a Visual C# item template. If you are creating a Visual Basic item template, replace the value of the `ProjectType` element with `VisualBasic`.  
+    >  在 Visual Basic 项目中，你必须选择**常规**节点以显示**图标文件**项。  
+  
+3.  在**名称**框中，输入**CustomAction_SolutionExplorer.ico**，然后选择**添加**按钮。  
+  
+     在新建图标打开**图像编辑器**。  
+  
+4.  编辑图标文件的 16 x 16 版本，以便它具有可以识别，然后保存该图标文件的设计。  
+  
+5.  在**解决方案资源管理器**，选择**CustomAction_SolutionExplorer.ico**。  
+  
+6.  在**属性**窗口中，选择箭头旁边**生成操作**属性。  
+  
+7.  在显示的列表，选择**嵌入的资源**。  
+  
+## <a name="checkpoint"></a>检查点  
+ 此时在本演练中，项目项的所有代码现在都是项目中。 生成项目，以验证它在编译时没有错误。  
+  
+#### <a name="to-build-your-project"></a>若要生成你的项目  
+  
+1.  打开的快捷菜单**ProjectItemDefinition**项目，选择**生成**。  
+  
+## <a name="creating-a-visual-studio-item-template"></a>创建 Visual Studio 项模板  
+ 若要启用其他开发人员能够使用您的项目项，必须创建项目模板或项模板。 开发人员使用 Visual Studio 中的这些模板来创建您的项目项的实例，通过创建一个新的项目，或通过将项添加到现有项目。 对于本演练中，使用 ItemTemplate 项目配置您的项目项。  
+  
+#### <a name="to-create-the-item-template"></a>若要创建项模板  
+  
+1.  从 ItemTemplate 项目删除 Class1 代码文件。  
+  
+2.  在 ItemTemplate 项目中，打开 ItemTemplate.vstemplate 文件。  
+  
+3.  将文件的内容替换为以下 XML，然后保存并关闭文件。  
+  
+    > [!NOTE]  
+    >  以下 XML 是 Visual C# 项模板。 如果要创建 Visual Basic 项目模板，替换的值`ProjectType`具有元素`VisualBasic`。  
   
     ```  
     <?xml version="1.0" encoding="utf-8"?>  
@@ -227,15 +222,15 @@ ms.lasthandoff: 08/30/2017
     </VSTemplate>  
     ```  
   
-     This file defines the contents and behavior of the item template. For more information about the contents of this file, see [Visual Studio Template Schema Reference](/visualstudio/extensibility/visual-studio-template-schema-reference).  
+     此文件定义的内容和项模板的行为。 此文件的内容的详细信息，请参阅[Visual Studio 模板架构参考](/visualstudio/extensibility/visual-studio-template-schema-reference)。  
   
-4.  In **Solution Explorer**, open the shortcut menu for the **ItemTemplate** project, choose **Add**, and then choose **New Item**.  
+4.  在**解决方案资源管理器**，打开快捷菜单**ItemTemplate**项目，选择**添加**，然后选择**新项**。  
   
-5.  In the **Add New Item** dialog box, choose the **Text File** template.  
+5.  在**添加新项**对话框框中，选择**文本文件**模板。  
   
-6.  In the **Name** box, enter **CustomAction.spdata**, and then choose the **Add** button.  
+6.  在**名称**框中，输入**CustomAction.spdata**，然后选择**添加**按钮。  
   
-7.  Add the following XML to the CustomAction.spdata file, and then save and close the file.  
+7.  将下面的 XML 添加到 CustomAction.spdata 文件中，然后保存并关闭文件。  
   
     ```  
     <?xml version="1.0" encoding="utf-8"?>  
@@ -247,15 +242,15 @@ ms.lasthandoff: 08/30/2017
     </ProjectItem>  
     ```  
   
-     This file contains information about the files that are contained by the project item. The `Type` attribute of the `ProjectItem` element must be set to the same string that is passed to the <xref:Microsoft.VisualStudio.SharePoint.SharePointProjectItemTypeAttribute> on the project item definition (the `CustomActionProjectItemTypeProvider` class you created earlier in this walkthrough). For more information about the contents of .spdata files, see [SharePoint Project Item Schema Reference](../sharepoint/sharepoint-project-item-schema-reference.md).  
+     此文件包含有关包含的项目项文件的信息。 `Type`属性`ProjectItem`元素必须设置为相同字符串传递给<xref:Microsoft.VisualStudio.SharePoint.SharePointProjectItemTypeAttribute>在项目项定义 (`CustomActionProjectItemTypeProvider`在本演练前面创建的类)。 .Spdata 文件的内容的详细信息，请参阅[SharePoint 项目项架构参考](../sharepoint/sharepoint-project-item-schema-reference.md)。  
   
-8.  In **Solution Explorer**, open the shortcut menu for the **ItemTemplate** project, choose **Add**, and then choose **New Item**.  
+8.  在**解决方案资源管理器**，打开快捷菜单**ItemTemplate**项目，选择**添加**，然后选择**新项**。  
   
-9. In the **Add New Item** dialog box, choose the **XML File** template.  
+9. 在**添加新项**对话框框中，选择**XML 文件**模板。  
   
-10. In the **Name** box, enter **Elements.xml**, and then choose the **Add** button.  
+10. 在**名称**框中，输入**Elements.xml**，然后选择**添加**按钮。  
   
-11. Replace the contents of the Elements.xml file with the following XML, and then save and close the file.  
+11. Elements.xml 文件的内容将替换为以下 XML，然后保存并关闭文件。  
   
     ```  
     <?xml version="1.0" encoding="utf-8" ?>  
@@ -271,21 +266,21 @@ ms.lasthandoff: 08/30/2017
     </Elements>  
     ```  
   
-     This file defines a default custom action that creates a menu item on the **Site Actions** menu of the SharePoint site. When a user chooses the menu item, the URL specified in the `UrlAction` element opens in the web browser. For more information about the XML elements you can use to define a custom action, see [Custom Action Definitions](http://go.microsoft.com/fwlink/?LinkId=177801).  
+     此文件定义默认的自定义操作创建的菜单项上**站点操作**菜单中的 SharePoint 站点。 当用户选择菜单项时，在指定的 URL`UrlAction`元素将在 web 浏览器中打开。 可用于定义自定义操作的 XML 元素的详细信息，请参阅[自定义操作定义](http://go.microsoft.com/fwlink/?LinkId=177801)。  
   
-12. Optionally, open the ItemTemplate.ico file and modify it so that it has a design that you can recognize. This icon will display next to the project item in the **Add New Item** dialog box.  
+12. 或者，打开 ItemTemplate.ico 文件并对其进行修改，以便它具有你可以识别的设计。 此图标将显示在项目项旁边**添加新项**对话框。  
   
-13. In **Solution Explorer**, open the shortcut menu for the **ItemTemplate** project, and then choose **Unload Project**.  
+13. 在**解决方案资源管理器**，打开快捷菜单**ItemTemplate**项目，，然后选择**卸载项目**。  
   
-14. Open the shortcut menu for the **ItemTemplate** project again, and then choose **Edit ItemTemplate.csproj** or **Edit ItemTemplate.vbproj**.  
+14. 打开的快捷菜单**ItemTemplate**再次，项目，然后选择**编辑 ItemTemplate.csproj**或**编辑 ItemTemplate.vbproj**。  
   
-15. Locate the following `VSTemplate` element in the project file.  
+15. 找到以下`VSTemplate`项目文件中的元素。  
   
     ```  
     <VSTemplate Include="ItemTemplate.vstemplate">  
     ```  
   
-16. Replace this `VSTemplate` element with the following XML, and then save and close the file.  
+16. 将此替换`VSTemplate`元素与以下 XML，然后保存和关闭文件。  
   
     ```  
     <VSTemplate Include="ItemTemplate.vstemplate">  
@@ -293,178 +288,178 @@ ms.lasthandoff: 08/30/2017
     </VSTemplate>  
     ```  
   
-     The `OutputSubPath` element specifies additional folders in the path under which the item template is created when you build the project. The folders specified here ensure that the item template will be available only when customers open the **Add New Item** dialog box, expand the **SharePoint** node, and then choose the **2010** node.  
+     `OutputSubPath`元素指定其他文件夹中生成项目时在其下创建项模板的路径。 此处指定的文件夹确保仅在客户打开时，将导致项模板可用**添加新项**对话框框中，展开**SharePoint**节点，然后选择**2010年**节点。  
   
-17. In **Solution Explorer**, open the shortcut menu for the **ItemTemplate** project, and then choose **Reload Project**.  
+17. 在**解决方案资源管理器**，打开快捷菜单**ItemTemplate**项目，，然后选择**重新加载项目**。  
   
-## <a name="creating-a-vsix-package-to-deploy-the-project-item"></a>Creating a VSIX Package to Deploy the Project Item  
- To deploy the extension, use the VSIX project in your solution to create a VSIX package. First, configure the VSIX package by modifying the source.extension.vsixmanifest file that is included in the VSIX project. Then, create the VSIX package by building the solution.  
+## <a name="creating-a-vsix-package-to-deploy-the-project-item"></a>创建 VSIX 包来部署项目项  
+ 若要部署的扩展，使用 VSIX 项目解决方案中创建 VSIX 包。 首先，通过修改 VSIX 项目中包含的 source.extension.vsixmanifest 文件中配置 VSIX 包。 然后，通过生成解决方案中创建 VSIX 包。  
   
-#### <a name="to-configure-and-create-the-vsix-package"></a>To configure and create the VSIX package  
+#### <a name="to-configure-and-create-the-vsix-package"></a>若要配置并创建 VSIX 包  
   
-1.  In **Solution Explorer**, open the shortcut menu for the **source.extension.vsixmanifest** file in the CustomActionProjectItem project, and then choose **Open**.  
+1.  在**解决方案资源管理器**，打开快捷菜单**source.extension.vsixmanifest**在 CustomActionProjectItem 项目中，文件，然后选择**打开**。  
   
-     Visual Studio opens the file in the manifest editor. The source.extension.vsixmanifest file is the basis for the extension.vsixmanifest file that all VSIX packages require. For more information about this file, see [VSIX Extension Schema 1.0 Reference](http://msdn.microsoft.com/en-us/76e410ec-b1fb-4652-ac98-4a4c52e09a2b).  
+     Visual Studio 将在清单编辑器中打开该文件。 Source.extension.vsixmanifest 文件是所有的 VSIX 包需要 extension.vsixmanifest 文件的基础。 有关此文件的详细信息，请参阅[VSIX 扩展架构 1.0 引用](http://msdn.microsoft.com/en-us/76e410ec-b1fb-4652-ac98-4a4c52e09a2b)。  
   
-2.  In the **Product Name** box, enter **Custom Action Project Item**.  
+2.  在**产品名称**框中，输入**自定义操作项目项**。  
   
-3.  In the **Author** box, enter **Contoso**.  
+3.  在**作者**框中，输入**Contoso**。  
   
-4.  In the **Description** box, enter **A SharePoint project item that represents a custom action**.  
+4.  在**说明**框中，输入**表示自定义操作的 SharePoint 项目项**。  
   
-5.  On the **Assets** tab, choose the **New** button.  
+5.  上**资产**选项卡上，选择**新建**按钮。  
   
-     The **Add New Asset** dialog box appears.  
+     **添加新资产**对话框随即出现。  
   
-6.  In the **Type** list, choose **Microsoft.VisualStudio.ItemTemplate**.  
-  
-    > [!NOTE]  
-    >  This value corresponds to the `ItemTemplate` element in the extension.vsixmanifest file. This element identifies the subfolder in the VSIX package that contains the project item template. For more information, see [NIB: ItemTemplate Element (VSX Schema)](http://msdn.microsoft.com/en-us/1d489e54-c1c5-4f96-a510-6c2640867ff0).  
-  
-7.  In the **Source** list, choose **A project in current solution**.  
-  
-8.  In the **Project** list, choose **ItemTemplate**, and then choose the **OK** button.  
-  
-9. In the **Assets** tab, choose the **New** button again.  
-  
-     The **Add New Asset** dialog box appears.  
-  
-10. In the **Type** list, choose **Microsoft.VisualStudio.MefComponent**.  
+6.  在**类型**列表中，选择**Microsoft.VisualStudio.ItemTemplate**。  
   
     > [!NOTE]  
-    >  This value corresponds to the `MefComponent` element in the extension.vsixmanifest file. This element specifies the name of an extension assembly in the VSIX package. For more information, see [NIB: MEFComponent Element (VSX Schema)](http://msdn.microsoft.com/en-us/8a813141-8b73-44c9-b80b-ca85bbac9551).  
+    >  此值对应于`ItemTemplate`extension.vsixmanifest 文件中的元素。 此元素标识的子文件夹中包含的项目项模板的 VSIX 包。 有关详细信息，请参阅[ItemTemplate 元素 （VSX 架构）](http://msdn.microsoft.com/en-us/1d489e54-c1c5-4f96-a510-6c2640867ff0)。  
   
-11. In the **Source** list, choose **A project in current solution**.  
+7.  在**源**列表中，选择**当前解决方案中的项目**。  
   
-12. In the **Project** list, choose **ProjectItemDefinition**.  
+8.  在**项目**列表中，选择**ItemTemplate**，然后选择**确定**按钮。  
   
-13. Choose the **OK** button.  
+9. 在**资产**选项卡上，选择**新建**再次按钮。  
   
-14. On the menu bar, choose **Build**, **Build Solution**, and then make sure that the project compiles without errors.  
+     **添加新资产**对话框随即出现。  
   
-15. Make sure that the build output folder for the CustomActionProjectItem project contains the CustomActionProjectItem.vsix file.  
+10. 在**类型**列表中，选择**Microsoft.VisualStudio.MefComponent**。  
   
-     By default, the build output folder is the ..\bin\Debug folder under the folder that contains the CustomActionProjectItem project.  
+    > [!NOTE]  
+    >  此值对应于`MefComponent`extension.vsixmanifest 文件中的元素。 此元素指定的 VSIX 包中的扩展程序集的名称。 有关详细信息，请参阅[MEFComponent 元素 （VSX 架构）](http://msdn.microsoft.com/en-us/8a813141-8b73-44c9-b80b-ca85bbac9551)。  
   
-## <a name="testing-the-project-item"></a>Testing the Project Item  
- You are now ready to test the project item. First, start debugging the CustomActionProjectItem solution in the experimental instance of Visual Studio. Then, test the **Custom Action** project item in a SharePoint project in the experimental instance of Visual Studio. Finally, build and run the SharePoint project to verify that the custom action works as expected.  
+11. 在**源**列表中，选择**当前解决方案中的项目**。  
   
-#### <a name="to-start-debugging-the-solution"></a>To start debugging the solution  
+12. 在**项目**列表中，选择**ProjectItemDefinition**。  
   
-1.  Restart Visual Studio with administrative credentials, and then open the CustomActionProjectItem solution.  
+13. 选择“确定”  按钮。  
   
-2.  Open the CustomAction code file, and then add a breakpoint to the first line of code in the `InitializeType` method.  
+14. 在菜单栏上，选择**生成**，**生成解决方案**，并确保该项目在编译时没有错误。  
   
-3.  Choose the **F5** key to start debugging.  
+15. 请确保 CustomActionProjectItem 项目的生成输出文件夹包含 CustomActionProjectItem.vsix 文件。  
   
-     Visual Studio installs the extension to %UserProfile%\AppData\Local\Microsoft\VisualStudio\10.0Exp\Extensions\Contoso\Custom Action Project Item\1.0 and starts an experimental instance of Visual Studio. You'll test the project item in this instance of Visual Studio.  
+     默认情况下，生成输出文件夹是...包含 CustomActionProjectItem 项目的文件夹下的 \bin\Debug 文件夹。  
   
-#### <a name="to-test-the-project-item-in-visual-studio"></a>To test the project item in Visual Studio  
+## <a name="testing-the-project-item"></a>项目项的测试  
+ 现在你就可以测试项目项。 首先，开始调试 Visual Studio 的实验实例中的 CustomActionProjectItem 解决方案。 然后，测试**自定义操作**Visual Studio 的实验实例中的 SharePoint 项目中的项目项。 最后，生成并运行 SharePoint 项目，以验证自定义操作按预期方式工作。  
   
-1.  In the experimental instance of Visual Studio, on the menu bar, choose **File**, **New**, **Project**.  
+#### <a name="to-start-debugging-the-solution"></a>若要开始调试解决方案  
   
-2.  Expand **Visual C#** or **Visual Basic** (depending on the language that your item template supports), expand **SharePoint**, and then choose the **2010** node.  
+1.  使用管理凭据，重新启动 Visual Studio，然后打开 CustomActionProjectItem 解决方案。  
   
-3.  In the list of project templates, choose **SharePoint 2010 Project**.  
+2.  打开 CustomAction 代码文件中，并将断点添加到代码中的第一行`InitializeType`方法。  
   
-4.  In the **Name** box, enter **CustomActionTest**, and then choose the **OK** button.  
+3.  选择**F5**键开始调试。  
   
-5.  In the **SharePoint Customization Wizard**, enter the URL of the site that you want to use for debugging, and then choose the **Finish** button.  
+     Visual Studio 将在 %UserProfile%\AppData\Local\Microsoft\VisualStudio\10.0Exp\Extensions\Contoso\Custom 操作项目 Item\1.0 安装扩展，并启动 Visual Studio 的实验实例。 你将在 Visual Studio 的此实例中测试的项目项。  
   
-6.  In **Solution Explorer**, open the shortcut menu for the project node, choose **Add**, and then choose **New Item**.  
+#### <a name="to-test-the-project-item-in-visual-studio"></a>在 Visual Studio 中测试的项目项  
   
-7.  In the **Add New Item** dialog box, choose the **2010** node under the **SharePoint** node.  
+1.  在实验实例中的 Visual Studio 中，在菜单栏上，选择**文件**，**新建**，**项目**。  
   
-     Verify that the **Custom Action** item appears in the list of project items.  
+2.  展开**Visual C#**或**Visual Basic** （具体取决于您的项模板支持的语言），展开**SharePoint**，然后选择**2010年**节点。  
   
-8.  Choose the **Custom Action** item, and then choose the **Add** button.  
+3.  在项目模板列表中，选择**SharePoint 2010 项目**。  
   
-     Visual Studio adds an item that's named **CustomAction1** to your project and opens the Elements.xml file in the editor.  
+4.  在**名称**框中，输入**CustomActionTest**，然后选择**确定**按钮。  
   
-9. Verify that the code in the other instance of Visual Studio stops on the breakpoint that you set earlier in the `InitializeType` method.  
+5.  在**SharePoint 自定义向导**，输入你想要用于调试，站点的 URL，然后选择**完成**按钮。  
   
-10. Choose the **F5** key to continue to debug the project.  
+6.  在**解决方案资源管理器**，打开项目节点的快捷菜单，选择**添加**，然后选择**新项**。  
   
-11. In the experimental instance of Visual Studio, in **Solution Explorer**, open the shortcut menu for the **CustomAction1** node, and then choose **View Custom Action Designer**.  
+7.  在**添加新项**对话框框中，选择**2010年**节点下的**SharePoint**节点。  
   
-12. Verify that a message box appears, and then choose the **OK** button.  
+     验证**自定义操作**项出现在项目项的列表。  
   
-     You can use this shortcut menu to provide additional options or commands for developers, such as displaying a designer for the custom action.  
+8.  选择**自定义操作**项，然后依次**添加**按钮。  
   
-13. On the menu bar, choose **View**, **Output**.  
+     Visual Studio 中添加一项名为**CustomAction1**到你的项目和 Elements.xml 文件在编辑器中打开。  
   
-     The **Output** window opens.  
+9. 验证在 Visual Studio 的其他实例中在代码停止在更早版本中设置的断点处`InitializeType`方法。  
   
-14. In **Solution Explorer**, open the shortcut menu for the **CustomAction1** item, and then change its name to **MyCustomAction**.  
+10. 选择**F5**键继续调试项目。  
   
-     In the **Output** window, a confirmation message appears. This message is written by the <xref:Microsoft.VisualStudio.SharePoint.ISharePointProjectItemEvents.ProjectItemNameChanged> event handler that you defined in the `CustomActionProjectItemTypeProvider` class. You can handle this event and other project item events to implement custom behavior when the developer modifies the project item.  
+11. 在实验实例中的 Visual Studio 中，在**解决方案资源管理器**，打开快捷菜单**CustomAction1**节点，然后选择**视图自定义操作设计器**.  
   
-#### <a name="to-test-the-custom-action-in-sharepoint"></a>To test the custom action in SharePoint  
+12. 验证一个消息框出现，，然后选择**确定**按钮。  
   
-1.  In the experimental instance of Visual Studio, open the Elements.xml file that's a child of the **MyCustomAction** project item.  
+     此快捷方式菜单可用于为开发人员，例如显示用于自定义操作的设计器提供其他选项或命令。  
   
-2.  In the Elements.xml file, make the following changes, and then save the file:  
+13. 在菜单栏上，选择**视图**，**输出**。  
   
-    -   In the `CustomAction` element, set the `Id` attribute to a GUID or some other unique string as the following example shows:  
+     **输出**窗口随即打开。  
+  
+14. 在**解决方案资源管理器**，打开快捷菜单**CustomAction1**项，并将其名称与**MyCustomAction**。  
+  
+     在**输出**窗口中，将显示一条确认消息。 此消息由写入<xref:Microsoft.VisualStudio.SharePoint.ISharePointProjectItemEvents.ProjectItemNameChanged>中定义的事件处理程序`CustomActionProjectItemTypeProvider`类。 您可以处理此事件和其他项目项事件，以实现自定义行为，开发人员修改项目项时。  
+  
+#### <a name="to-test-the-custom-action-in-sharepoint"></a>若要在 SharePoint 中测试自定义操作  
+  
+1.  在 Visual Studio 的实验实例中，打开 Elements.xml 文件的子级**MyCustomAction**项目项。  
+  
+2.  在 Elements.xml 文件中，进行以下更改，然后保存该文件：  
+  
+    -   在`CustomAction`元素，设置`Id`属性为 GUID 或其他唯一的字符串，如以下示例所示：  
   
         ```  
         Id="cd85f6a7-af2e-44ab-885a-0c795b52121a"  
         ```  
   
-    -   In the `CustomAction` element, set the `Title` attribute as the following example shows:  
+    -   在`CustomAction`元素，设置`Title`属性，如以下示例所示：  
   
         ```  
         Title="SharePoint Developer Center"  
         ```  
   
-    -   In the `CustomAction` element, set the `Description` attribute as the following example shows:  
+    -   在`CustomAction`元素，设置`Description`属性，如以下示例所示：  
   
         ```  
         Description="Opens the SharePoint Developer Center Web site."  
         ```  
   
-    -   In the `UrlAction` element, set the `Url` attribute as the following example shows:  
+    -   在`UrlAction`元素，设置`Url`属性，如以下示例所示：  
   
         ```  
         Url="http://msdn.microsoft.com/sharepoint/default.aspx"  
         ```  
   
-3.  Choose the F5 key.  
+3.  选择 F5 键。  
   
-     The custom action is packaged and deployed to the SharePoint site that's specified in the **Site URL** property of the project. The web browser opens to the default page of this site.  
+     打包和部署到 SharePoint 站点中指定自定义操作**站点 URL**项目属性。 Web 浏览器将打开到此站点的默认页面。  
   
     > [!NOTE]  
-    >  If the **Script Debugging Disabled** dialog box appears, choose the **Yes** button to continue to debug the project.  
+    >  如果**脚本调试已禁用**对话框出现时，选择**是**按钮以继续调试项目。  
   
-4.  On the **Site Actions** menu, choose **SharePoint Developer Center**, verify that the browser opens the website http://msdn.microsoft.com/sharepoint/default.aspx, and then close the web browser.  
+4.  上**站点操作**菜单上，选择**SharePoint 开发人员中心**，验证浏览器打开网站 http://msdn.microsoft.com/sharepoint/default.aspx，，然后关闭 web 浏览器。  
   
-## <a name="cleaning-up-the-development-computer"></a>Cleaning up the Development Computer  
- After you finish testing the project item, remove the project item template from the experimental instance of Visual Studio.  
+## <a name="cleaning-up-the-development-computer"></a>清理开发计算机  
+ 完成项目项的测试后，从 Visual Studio 的实验实例中删除项目项模板。  
   
-#### <a name="to-clean-up-the-development-computer"></a>To clean up the development computer  
+#### <a name="to-clean-up-the-development-computer"></a>若要清理的开发计算机  
   
-1.  In the experimental instance of Visual Studio, on the menu bar, choose **Tools**, **Extensions and Updates**.  
+1.  在实验实例中的 Visual Studio 中，在菜单栏上，选择**工具**，**扩展和更新**。  
   
-     The **Extensions and Updates** dialog box opens.  
+     此时，“扩展和更新”对话框打开。  
   
-2.  In the list of extensions, choose **Custom Action Project Item**, and then choose the **Uninstall** button.  
+2.  在扩展的列表中，选择**自定义操作项目项**，然后选择**卸载**按钮。  
   
-3.  In the dialog box that appears, choose the **Yes** button to confirm that you want to uninstall the extension.  
+3.  在显示的对话框中，选择**是**按钮，以确认你想要卸载扩展。  
   
-4.  Choose the **Restart Now** button to complete the uninstallation.  
+4.  选择**立即重新启动**按钮以完成卸载。  
   
-5.  Close both the experimental instance of Visual Studio and the instance in which the CustomActionProjectItem solution is open.  
+5.  关闭 Visual Studio 的实验实例和 CustomActionProjectItem 解决方案处于打开状态的实例。  
   
-## <a name="next-steps"></a>Next Steps  
- After you complete this walkthrough, you can add a wizard to the item template. When a user adds a Custom Action project item to a SharePoint project, the wizard collects information about the action (such as its location and the URL to navigate to when the action is chosen) and adds this information to the Elements.xml file in the new project item. For more information, see [Walkthrough: Creating a Custom Action Project Item with an Item Template, Part 2](../sharepoint/walkthrough-creating-a-custom-action-project-item-with-an-item-template-part-2.md).  
+## <a name="next-steps"></a>后续步骤  
+ 完成本演练后，你可以将向导添加到项模板。 当用户将自定义操作项目项添加到 SharePoint 项目中时，向导可收集有关的操作 （如其位置和要选择操作时，导航到的 URL） 信息并将此信息添加到新的项目项中的 Elements.xml 文件。 有关详细信息，请参阅[演练： 使用项模板，第 2 部分创建自定义操作项目项](../sharepoint/walkthrough-creating-a-custom-action-project-item-with-an-item-template-part-2.md)。  
   
-## <a name="see-also"></a>See Also  
- [Walkthrough: Creating a Custom Action Project Item with an Item Template, Part 2](../sharepoint/walkthrough-creating-a-custom-action-project-item-with-an-item-template-part-2.md)   
- [Defining Custom SharePoint Project Item Types](../sharepoint/defining-custom-sharepoint-project-item-types.md)   
- [Creating Item Templates and Project Templates for SharePoint Project Items](../sharepoint/creating-item-templates-and-project-templates-for-sharepoint-project-items.md)   
- [Using the SharePoint Project Service](../sharepoint/using-the-sharepoint-project-service.md)   
- [Visual Studio Template Schema Reference](/visualstudio/extensibility/visual-studio-template-schema-reference)   
- [Image Editor for Icons](/cpp/windows/image-editor-for-icons)   
- [Creating an Icon or Other Image &#40;Image Editor for Icons&#41;](/cpp/windows/creating-an-icon-or-other-image-image-editor-for-icons)  
+## <a name="see-also"></a>另请参阅  
+ [演练： 使用项模板创建的自定义操作项目项，第 2 部分](../sharepoint/walkthrough-creating-a-custom-action-project-item-with-an-item-template-part-2.md)   
+ [定义自定义 SharePoint 项目项类型](../sharepoint/defining-custom-sharepoint-project-item-types.md)   
+ [为 SharePoint 项目项创建项模板和项目模板](../sharepoint/creating-item-templates-and-project-templates-for-sharepoint-project-items.md)   
+ [使用 SharePoint 项目服务](../sharepoint/using-the-sharepoint-project-service.md)   
+ [Visual Studio 模板架构参考](/visualstudio/extensibility/visual-studio-template-schema-reference)   
+ [图标的图像编辑器](/cpp/windows/image-editor-for-icons)   
+ [一个图标或其他图像 &#40; 上的图像编辑器创建图标 &#41;](/cpp/windows/creating-an-icon-or-other-image-image-editor-for-icons)  
   
   

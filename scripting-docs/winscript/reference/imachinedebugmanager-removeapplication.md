@@ -1,27 +1,30 @@
 ---
-title: "IMachineDebugManager::RemoveApplication | Microsoft Docs"
-ms.custom: ""
-ms.date: "01/18/2017"
-ms.prod: "windows-script-interfaces"
-ms.reviewer: ""
-ms.suite: ""
-ms.tgt_pltfrm: ""
-ms.topic: "reference"
+title: "IMachineDebugManager::RemoveApplication |Microsoft 文档"
+ms.custom: 
+ms.date: 01/18/2017
+ms.prod: windows-script-interfaces
+ms.reviewer: 
+ms.suite: 
+ms.tgt_pltfrm: 
+ms.topic: reference
 apiname: IMachineDebugManager.RemoveApplication
 apilocation: scrobj.dll
-helpviewer_keywords: 
-  - "IMachineDebugManager::RemoveApplication"
+helpviewer_keywords: IMachineDebugManager::RemoveApplication
 ms.assetid: 873509ce-e638-484a-b2a2-489a8ce7dbfe
-caps.latest.revision: 8
-author: "mikejo5000"
-ms.author: "mikejo"
-manager: "ghogen"
-caps.handback.revision: 8
+caps.latest.revision: "8"
+author: mikejo5000
+ms.author: mikejo
+manager: ghogen
+ms.openlocfilehash: 6ee371ded11f38b5e049e236c92292d6f662f525
+ms.sourcegitcommit: aadb9588877418b8b55a5612c1d3842d4520ca4c
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/27/2017
 ---
-# IMachineDebugManager::RemoveApplication
-从运行的应用程序中移除应用程序列表中。  
+# <a name="imachinedebugmanagerremoveapplication"></a>IMachineDebugManager::RemoveApplication
+从运行中移除应用程序应用程序列表。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
 ```  
 HRESULT RemoveApplication(  
@@ -29,21 +32,21 @@ HRESULT RemoveApplication(
 );  
 ```  
   
-#### 参数  
+#### <a name="parameters"></a>参数  
  `dwAppCookie`  
- \[out\]提供的cookie，当应用程序添加到应用程序列表中。  
+ [in]应用程序已添加到应用程序列表时提供该 cookie。  
   
-## 返回值  
- 该方法返回 `HRESULT`。  可能的值包括，但是，并不限于，这些下表中。  
+## <a name="return-value"></a>返回值  
+ 该方法返回 `HRESULT`。 可能的值包括（但并不限于）下表中的项。  
   
-|值|说明|  
-|-------|--------|  
+|值|描述|  
+|-----------|-----------------|  
 |`S_OK`|方法成功。|  
   
-## 备注  
- 此方法由进程调用调试管理器，只要 `IProcessDebugManager::RemoveApplication` 调用。  
+## <a name="remarks"></a>备注  
+ 过程调试管理器调用此方法时`IProcessDebugManager::RemoveApplication`调用。  
   
-## 请参阅  
+## <a name="see-also"></a>另请参阅  
  [IMachineDebugManager::AddApplication](../../winscript/reference/imachinedebugmanager-addapplication.md)   
  [IMachineDebugManager 接口](../../winscript/reference/imachinedebugmanager-interface.md)   
  [IProcessDebugManager::RemoveApplication](../../winscript/reference/iprocessdebugmanager-removeapplication.md)

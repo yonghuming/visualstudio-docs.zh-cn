@@ -1,45 +1,47 @@
 ---
-title: "Office 解决方案的部署清单"
-ms.custom: ""
-ms.date: "02/02/2017"
-ms.prod: "visual-studio-dev14"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "office-development"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-dev_langs: 
-  - "VB"
-  - "CSharp"
-helpviewer_keywords: 
-  - "Office 应用程序 [Visual Studio 中的 Office 开发]，部署清单"
-  - "部署清单 [Visual Studio 中的 Office 开发]"
-  - "清单 [Visual Studio 中的 Office 开发]，部署"
-  - "Visual Studio 中的 Office 开发，部署清单"
+title: "部署 Office 解决方案的清单 |Microsoft 文档"
+ms.custom: 
+ms.date: 02/02/2017
+ms.reviewer: 
+ms.suite: 
+ms.technology: office-development
+ms.tgt_pltfrm: 
+ms.topic: article
+dev_langs:
+- VB
+- CSharp
+helpviewer_keywords:
+- Office applications [Office development in Visual Studio], deployment manifests
+- deployment manifests [Office development in Visual Studio]
+- manifests [Office development in Visual Studio], deployment
+- Office development in Visual Studio, deployment manifests
 ms.assetid: 3fb29743-fb96-4d61-a99a-9b1bbafeee13
-caps.latest.revision: 22
-author: "kempb"
-ms.author: "kempb"
-manager: "ghogen"
-caps.handback.revision: 21
+caps.latest.revision: "22"
+author: gewarren
+ms.author: gewarren
+manager: ghogen
+ms.openlocfilehash: f6569c8c4a2420949862b8d09532c217606073d8
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# Office 解决方案的部署清单
-  部署清单是一个 XML 文件，描述 Office 解决方案的部署设置，并标识当前的应用程序版本。  
+# <a name="deployment-manifests-for-office-solutions"></a>Office 解决方案的部署清单
+  部署清单是 XML 文件，用于描述 Office 解决方案的部署设置，并标识当前的应用程序版本。  
   
- Visual Studio 中的 Office 开发使用 [ClickOnce 部署清单](../deployment/clickonce-deployment-manifest.md)参考中定义的 [!INCLUDE[ndptecclick](../vsto/includes/ndptecclick-md.md)] 部署清单架构。  
+ Visual Studio 中的 Office 开发使用[!INCLUDE[ndptecclick](../vsto/includes/ndptecclick-md.md)]部署清单架构中定义[ClickOnce 部署清单](/visualstudio/deployment/clickonce-deployment-manifest)引用。  
   
-## 备注  
- Office解决方案的部署清单文件标识当前版本和其他部署设置。  该文件引用应用程序清单，应用程序清单描述解决方案的当前版本以及解决方案中包含的所有文件。  
+## <a name="remarks"></a>备注  
+ Office 解决方案的部署清单文件标识的当前版本和其他部署设置。 因为它引用描述的解决方案和所有解决方案中包含的文件的当前版本的应用程序清单。  
   
-## 文件名语法  
- 部署清单文件名必须以 .vsto 扩展名结束。  尽管部署清单文件是标准 [!INCLUDE[ndptecclick](../vsto/includes/ndptecclick-md.md)] 的部署，该扩展不同启用 for Office runtime 的 Visual Studio 工具处理文件。  
+## <a name="file-name-syntax"></a>文件名语法  
+ 部署清单文件的名称必须以.vsto 扩展名结尾。 尽管它是一种标准[!INCLUDE[ndptecclick](../vsto/includes/ndptecclick-md.md)]部署清单扩展不同，若要启用 Visual Studio Tools for Office 运行时来处理该文件。  
   
-## 示例  
- 下面的代码示例演示一个部署清单为 Office 解决方案的 Visual Studio 工具。  
+## <a name="example"></a>示例  
+ 下面的代码示例展示了 Visual Studio Tools for Office 解决方案部署清单。  
   
 ```  
-  
+<?xml version="1.0" encoding="utf-8"?>  
 <asmv1:assembly   
   xsi:schemaLocation=  
     "urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd"   
@@ -185,7 +187,7 @@ caps.handback.revision: 21
 </asmv1:assembly>  
 ```  
   
-## 请参阅  
+## <a name="see-also"></a>另请参阅  
  [Office 解决方案的应用程序清单](../vsto/application-manifests-for-office-solutions.md)  
   
   

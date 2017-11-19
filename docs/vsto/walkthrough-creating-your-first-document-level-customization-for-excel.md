@@ -1,12 +1,10 @@
 ---
-title: 'Walkthrough: Creating Your First Document-Level Customization for Excel | Microsoft Docs'
+title: "演练： 创建你的第一个文档级自定义 excel |Microsoft 文档"
 ms.custom: 
 ms.date: 02/02/2017
-ms.prod: visual-studio-dev14
 ms.reviewer: 
 ms.suite: 
-ms.technology:
-- office-development
+ms.technology: office-development
 ms.tgt_pltfrm: 
 ms.topic: article
 dev_langs:
@@ -17,170 +15,170 @@ helpviewer_keywords:
 - Excel [Office development in Visual Studio], creating your first project
 - document-level customizations [Office development in Visual Studio], creating your first project
 ms.assetid: 785d3b86-5ed5-4e0d-b5ee-896b6b1330ac
-caps.latest.revision: 28
-author: kempb
-ms.author: kempb
+caps.latest.revision: "28"
+author: gewarren
+ms.author: gewarren
 manager: ghogen
-ms.translationtype: HT
-ms.sourcegitcommit: eb5c9550fd29b0e98bf63a7240737da4f13f3249
-ms.openlocfilehash: 65318510dd4aa9fdfb78fcb21b74c72b2ddacf18
-ms.contentlocale: zh-cn
-ms.lasthandoff: 08/30/2017
-
+ms.openlocfilehash: 046f5376891c62278b3756078f82b9e5db3b28d2
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# <a name="walkthrough-creating-your-first-document-level-customization-for-excel"></a>Walkthrough: Creating Your First Document-Level Customization for Excel
-  This introductory walkthrough shows you how to create a document-level customization for Microsoft Office Excel. The features that you create in this kind of solution are available only when a specific workbook is open. You cannot use a document-level customization to make application-wide changes, for example, displaying a new Ribbon tab when any workbook is open.  
+# <a name="walkthrough-creating-your-first-document-level-customization-for-excel"></a>演练：创建您的第一个 Excel 文档级自定义项
+  本介绍性演练演示如何创建 Microsoft Office Excel 的文档级自定义项。 仅在特定工作簿处于打开状态时，才可使用你在这种解决方案中创建的功能。 不能使用文档级自定义项进行应用程序范围的更改，例如在任何工作簿处于打开状态时显示新的功能区选项卡。  
   
  [!INCLUDE[appliesto_xlalldoc](../vsto/includes/appliesto-xlalldoc-md.md)]  
   
- This walkthrough illustrates the following tasks:  
+ 本演练阐释了以下任务：  
   
--   Creating an Excel workbook project.  
+-   创建 Excel 工作簿项目。  
   
--   Adding text to a worksheet that is hosted in the Visual Studio designer.  
+-   将文本添加到 Visual Studio 设计器中保存的工作表。  
   
--   Writing code that uses the object model of Excel to add text to the customized worksheet when it is opened.  
+-   编写代码，使用 Excel 对象模型在自定义工作簿处于打开状态时向其中添加文本。  
   
--   Building and running the project to test it.  
+-   生成并运行项目，以对其进行测试。  
   
--   Cleaning up the completed project to remove unnecessary build files and security settings from your development computer.  
+-   清理已完成的项目，以便从开发计算机删除不必要的生成文件和安全设置。  
   
  [!INCLUDE[note_settings_general](../sharepoint/includes/note-settings-general-md.md)]  
   
-## <a name="prerequisites"></a>Prerequisites  
- You need the following components to complete this walkthrough:  
+## <a name="prerequisites"></a>先决条件  
+ 你需要以下组件来完成本演练：  
   
 -   [!INCLUDE[vsto_vsprereq](../vsto/includes/vsto-vsprereq-md.md)]  
   
--   [!INCLUDE[Excel_15_short](../vsto/includes/excel-15-short-md.md)] or [!INCLUDE[Excel_14_short](../vsto/includes/excel-14-short-md.md)].  
+-   [!INCLUDE[Excel_15_short](../vsto/includes/excel-15-short-md.md)] 或 [!INCLUDE[Excel_14_short](../vsto/includes/excel-14-short-md.md)]。  
   
-## <a name="creating-the-project"></a>Creating the Project  
+## <a name="creating-the-project"></a>创建项目  
   
-#### <a name="to-create-a-new-excel-workbook-project-in-visual-studio"></a>To create a new Excel workbook project in Visual Studio  
+#### <a name="to-create-a-new-excel-workbook-project-in-visual-studio"></a>在 Visual Studio 中创建新的 Excel 工作簿项目  
   
-1.  Start [!INCLUDE[vsprvs](../sharepoint/includes/vsprvs-md.md)].  
+1.  启动 [!INCLUDE[vsprvs](../sharepoint/includes/vsprvs-md.md)]。  
   
-2.  On the **File** menu, point to **New**, and then click **Project**.  
+2.  在 **“文件”** 菜单上，指向 **“新建”**，然后单击 **“项目”**。  
   
-3.  In the templates pane, expand **Visual C#** or **Visual Basic**, and then expand **Office/SharePoint**.  
+3.  在模板窗格中，展开 **“Visual C#”** 或 **“Visual Basic”**，然后展开 **“Office/SharePoint”**。  
   
-4.  Under the expanded **Office/SharePoint** node, select the **Office Add-ins** node.  
+4.  在展开的 **“Office/SharePoint”** 节点下方，选择 **“Office 外接程序”** 节点。  
   
-5.  In the list of project templates, choose an Excel VSTO Add-in project.  
+5.  在项目模板列表中，选择一个 Excel VSTO 外接程序项目。  
   
-6.  In the **Name** box, type **FirstWorkbookCustomization**.  
+6.  在**名称**框中，键入**FirstWorkbookCustomization**。  
   
-7.  Click **OK**.  
+7.  单击“确定”。  
   
-     The **Visual Studio Tools for Office Project Wizard** opens.  
+     将打开“Visual Studio Tools for Office 项目向导”  。  
   
-8.  Select **Create a new document**, and click **OK**.  
+8.  选择**创建新文档**，然后单击**确定**。  
   
-    -   [!INCLUDE[vsprvs](../sharepoint/includes/vsprvs-md.md)] creates the **FirstWorkbookCustomization** project, and adds the following files to the project.  
+    -   [!INCLUDE[vsprvs](../sharepoint/includes/vsprvs-md.md)]创建**FirstWorkbookCustomization**项目，并将以下文件添加到项目。  
   
-    -   *FirstWorkbookCustomization*.xlsx - Represents the Excel workbook in the project. Contains all the worksheets and charts.  
+    -   *FirstWorkbookCustomization*.xlsx-表示项目中的 Excel 工作簿。 包含所有工作表和图表。  
   
-    -   Sheet1 (.vb file for Visual Basic or .cs file for Visual C#) - A worksheet that provides the design surface and the code for the first worksheet in the workbook. For more information, see [Worksheet Host Item](../vsto/worksheet-host-item.md).  
+    -   Sheet1（Visual Basic 项目的 .vb 文件或 Visual C# 项目的 .cs 文件）是一张工作表，提供工作簿中的第一张工作表的设计图面和代码。 有关详细信息，请参阅 [Worksheet Host Item](../vsto/worksheet-host-item.md)。  
   
-    -   Sheet2 (.vb file for Visual Basic or .cs file for Visual C#) - A worksheet that provides the design surface and the code for the second worksheet in the workbook.  
+    -   Sheet2（Visual Basic 项目的 .vb 文件或 Visual C# 项目的 .cs 文件）是一张工作表，提供工作簿中的第二张工作表的设计图面和代码。  
   
-    -   Sheet3 (.vb file for Visual Basic or .cs file for Visual C#) - A worksheet that provides the design surface and the code for the third worksheet in the workbook.  
+    -   Sheet3（Visual Basic 项目的 .vb 文件或 Visual C# 项目的 .cs 文件）是一张工作表，提供工作簿中的第三张工作表的设计图面和代码。  
   
-    -   ThisWorkbook (.vb file for Visual Basic or .cs file for Visual C#) - Contains the design surface and the code for workbook-level customizations. For more information, see [Workbook Host Item](../vsto/workbook-host-item.md).  
+    -   ThisWorkbook（Visual Basic 项目的 .vb 文件或 Visual C# 项目的 .cs 文件）包含工作簿级自定义项的设计图面和代码。 有关详细信息，请参阅 [Workbook Host Item](../vsto/workbook-host-item.md)。  
   
-     The Sheet1 code file is opened automatically in the designer.  
+     将在设计器中自动打开 Sheet1 代码文件。  
   
-## <a name="closing-and-reopening-worksheets-in-the-designer"></a>Closing and Reopening Worksheets in the Designer  
- If you deliberately or accidentally close a workbook or a worksheet in the designer while you are developing your project, you can reopen it.  
+## <a name="closing-and-reopening-worksheets-in-the-designer"></a>关闭并重新打开设计器中的工作表  
+ 如果开发项目时有意或意外关闭设计器中的工作簿或工作表，可以重新打开它。  
   
-#### <a name="to-close-and-reopen-a-worksheet-in-the-designer"></a>To close and reopen a worksheet in the designer  
+#### <a name="to-close-and-reopen-a-worksheet-in-the-designer"></a>关闭并重新打开设计器中的工作表  
   
-1.  Close the workbook by clicking the **Close** button (X) for the designer window.  
+1.  通过单击关闭的工作簿**关闭**设计器窗口的按钮 (X)。  
   
-2.  In **Solution Explorer**, right-click the **Sheet1** code file, and click **View Designer**.  
+2.  在**解决方案资源管理器**，右键单击**Sheet1**代码文件，然后单击**视图设计器**。  
   
-     \- or -  
+     \- 或 -  
   
-     In **Solution Explorer**, double-click the **Sheet1** code file.  
+     在**解决方案资源管理器**，双击**Sheet1**代码文件。  
   
-## <a name="adding-text-to-a-worksheet-in-the-designer"></a>Adding Text to a Worksheet in the Designer  
- You can design the user interface (UI) of your customization by modifying the worksheet that is open in the designer. For example, you can add text to cells, apply formulas, or add Excel controls. For more information about how to use the designer, see [Office Projects in the Visual Studio Environment](../vsto/office-projects-in-the-visual-studio-environment.md).  
+## <a name="adding-text-to-a-worksheet-in-the-designer"></a>向设计器中的工作表添加文本  
+ 可以通过修改已在设计器中打开的工作表来设计自定义项的用户界面 (UI)。 例如，可以将文本添加到单元格、应用公式或添加 Excel 控件。 有关如何使用设计器的详细信息，请参阅[Visual Studio 环境中的 Office 项目](../vsto/office-projects-in-the-visual-studio-environment.md)。  
   
-#### <a name="to-add-text-to-a-worksheet-by-using-the-designer"></a>To add text to a worksheet by using the designer  
+#### <a name="to-add-text-to-a-worksheet-by-using-the-designer"></a>使用设计器将文本添加到工作表  
   
-1.  In the worksheet that is open in the designer, select cell **A1**, and then type the following text.  
+1.  在已在设计器中打开工作表中，选择单元格**A1**，然后键入以下文本。  
   
-     **This text was added by using the designer.**  
+     **此文本已添加使用设计器。**  
   
 > [!WARNING]  
->  If you add this line of text to cell **A2**, it will be overwritten by other code in this example.  
+>  如果将此行文本添加到单元格**A2**，它将在此示例中的其他代码覆盖。  
   
-## <a name="adding-text-to-a-worksheet-programmatically"></a>Adding Text to a Worksheet Programmatically  
- Next, add code to the Sheet1 code file. The new code uses the object model of Excel to add a second line of text to the workbook. By default, the Sheet1 code file contains the following generated code:  
+## <a name="adding-text-to-a-worksheet-programmatically"></a>以编程方式将文本添加到工作表  
+ 接下来，将代码添加到 Sheet1 代码文件。 新代码使用 Excel 对象模型向工作簿添加第二行文本。 默认情况下，Sheet1 代码文件包含以下生成代码：  
   
--   A partial definition of the `Sheet1` class, which represents the programming model of the worksheet and provides access to the object model of Excel. For more information, [Worksheet Host Item](../vsto/worksheet-host-item.md) and [Word Object Model Overview](../vsto/word-object-model-overview.md). The remainder of the `Sheet1` class is defined in a hidden code file that you should not modify.  
+-   `Sheet1` 类的分部定义，用于表示工作表的编程模型，并提供对 Excel 对象模型的访问权限。 有关详细信息，[工作表主机项](../vsto/worksheet-host-item.md)和[Word 对象模型概述](../vsto/word-object-model-overview.md)。 `Sheet1` 类的其余部分是在隐藏代码文件中定义的，不应修改该代码文件。  
   
--   The `Sheet1_Startup` and `Sheet1_Shutdown` event handlers. These event handlers are called when Excel loads and unloads your customization. Use these event handlers to initialize your customization when it is loaded, and to clean up resources used by your customization when it is unloaded. For more information, see [Events in Office Projects](../vsto/events-in-office-projects.md).  
+-   `Sheet1_Startup` 和 `Sheet1_Shutdown` 事件处理程序。 Excel 加载和卸载自定义项时会调用这些事件处理程序。 使用这些事件处理程序，可在加载自定义项对其进行初始化，并在卸载时清理自定义项所使用的资源。 有关详细信息，请参阅 [Events in Office Projects](../vsto/events-in-office-projects.md)。  
   
-#### <a name="to-add-a-second-line-of-text-to-the-worksheet-by-using-code"></a>To add a second line of text to the worksheet by using code  
+#### <a name="to-add-a-second-line-of-text-to-the-worksheet-by-using-code"></a>使用代码向工作表添加第二行文本  
   
-1.  In **Solution Explorer**, right-click **Sheet1**, and then click **View Code**.  
+1.  在**解决方案资源管理器**，右键单击**Sheet1**，然后单击**查看代码**。  
   
-     The code file opens in Visual Studio.  
+     将在 Visual Studio 中打开代码文件。  
   
-2.  Replace the `Sheet1_Startup` event handler with the following code. When Sheet1 is opened, this code adds a second line of text to the worksheet.  
+2.  将 `Sheet1_Startup` 事件处理程序替换为以下代码。 当打开 Sheet1 时，此代码将向工作表添加第二行文本。  
   
-     [!code-csharp[Trin_ExcelWorkbookTutorial#1](../vsto/codesnippet/CSharp/Trin_ExcelWorkbookTutorial/Sheet1.cs#1)]  [!code-vb[Trin_ExcelWorkbookTutorial#1](../vsto/codesnippet/VisualBasic/Trin_ExcelWorkbookTutorial/Sheet1.vb#1)]  
+     [!code-csharp[Trin_ExcelWorkbookTutorial#1](../vsto/codesnippet/CSharp/Trin_ExcelWorkbookTutorial/Sheet1.cs#1)]
+     [!code-vb[Trin_ExcelWorkbookTutorial#1](../vsto/codesnippet/VisualBasic/Trin_ExcelWorkbookTutorial/Sheet1.vb#1)]  
   
-## <a name="testing-the-project"></a>Testing the Project  
+## <a name="testing-the-project"></a>测试项目  
   
-#### <a name="to-test-your-workbook"></a>To test your workbook  
+#### <a name="to-test-your-workbook"></a>测试工作簿  
   
-1.  Press **F5** to build and run your project.  
+1.  按 **F5** 生成并运行项目。  
   
-     When you build the project, the code is compiled into an assembly that is associated with the workbook. Visual Studio puts a copy of the workbook and the assembly in the build output folder for the project, and it configures the security settings on the development computer to enable the customization to run. For more information, see [Building Office Solutions](../vsto/building-office-solutions.md).  
+     生成项目时，会将代码编译到与该工作簿相关联的程序集中。 Visual Studio 将该工作簿和程序集的副本放入项目的生成输出文件夹中，并将开发计算机上的安全设置配置为允许自定义项运行。 有关详细信息，请参阅[生成 Office 解决方案](../vsto/building-office-solutions.md)。  
   
-2.  In the workbook, verify that you see the following text.  
+2.  验证工作簿中显示以下文本。  
   
-     **This text was added by using the designer.**  
+     **此文本已添加使用设计器。**  
   
      **This text was added by using code.**  
   
-3.  Close the workbook.  
+3.  关闭工作簿。  
   
-## <a name="cleaning-up-the-project"></a>Cleaning up the Project  
- When you finish developing a project, you should remove the files in the build output folder and the security settings created by the build process.  
+## <a name="cleaning-up-the-project"></a>清理项目  
+ 完成项目开发后，应删除生成输出文件夹中的文件和由生成过程创建的安全设置。  
   
-#### <a name="to-clean-up-the-completed-project-on-your-development-computer"></a>To clean up the completed project on your development computer  
+#### <a name="to-clean-up-the-completed-project-on-your-development-computer"></a>在开发计算机上清理已完成的项目  
   
-1.  In Visual Studio, on the **Build** menu, click **Clean Solution**.  
+1.  在 Visual Studio 中，在 **“生成”** 菜单上，单击 **“清理解决方案”**。  
   
-## <a name="next-steps"></a>Next Steps  
- Now that you have created a basic document-level customization for Excel, you can learn more about how to develop customizations from these topics:  
+## <a name="next-steps"></a>后续步骤  
+ 既然你已经创建了一个基本的 Excel 文档级自定义项，就可以从下面这些主题中了解有关如何开发自定义项的详细信息：  
   
--   General programming tasks that you can perform in document-level customizations: [Programming Document-Level Customizations](../vsto/programming-document-level-customizations.md).  
+-   可以在文档级自定义项中执行的常规编程任务：[文档级自定义项编程](../vsto/programming-document-level-customizations.md)。  
   
--   Programming tasks that are specific to document-level customizations for Excel: [Excel Solutions](../vsto/excel-solutions.md).  
+-   特定于 Excel 文档级自定义项的编程任务： [Excel 解决方案](../vsto/excel-solutions.md)。  
   
--   Using the object model of Excel: [Excel Object Model Overview](../vsto/excel-object-model-overview.md).  
+-   使用 Excel 对象模型： [Excel Object Model Overview](../vsto/excel-object-model-overview.md)。  
   
--   Customizing the UI of Excel, for example, by adding a custom tab to the Ribbon or creating your own actions pane: [Office UI Customization](../vsto/office-ui-customization.md).  
+-   自定义 Excel 的 UI，例如，通过向功能区添加自定义选项卡或创建你自己的操作窗格： [Office UI 自定义项](../vsto/office-ui-customization.md)。  
   
--   Using extended Excel objects provided by Office development tools in Visual Studio to perform tasks that are not possible by using the Excel object model (for example, hosting managed controls on documents and binding Excel controls to data by using the Windows Forms data binding model): [Automating Excel by Using Extended Objects](../vsto/automating-excel-by-using-extended-objects.md).  
+-   使用 Visual Studio 中的 Office 开发工具提供的扩展的 Excel 对象执行任务所不可能通过使用 Excel 对象模型 （例如，承载托管的控件对文档和 Excel 控件绑定到数据，通过使用 Windows 窗体数据绑定模型）：[使用扩展对象自动化 Excel](../vsto/automating-excel-by-using-extended-objects.md)。  
   
--   Building and debugging document-level customizations for Excel: [Building Office Solutions](../vsto/building-office-solutions.md).  
+-   生成和调试 Excel 文档级自定义项：[生成 Office 解决方案](../vsto/building-office-solutions.md)。  
   
--   Deploying document-level customizations for Excel: [Deploying an Office Solution](../vsto/deploying-an-office-solution.md).  
+-   部署 Excel 文档级自定义项：[部署 Office 解决方案](../vsto/deploying-an-office-solution.md)。  
   
-## <a name="see-also"></a>See Also  
- [Office Solutions Development Overview &#40;VSTO&#41;](../vsto/office-solutions-development-overview-vsto.md)   
- [Excel Solutions](../vsto/excel-solutions.md)   
- [Programming Document-Level Customizations](../vsto/programming-document-level-customizations.md)   
- [Excel Object Model Overview](../vsto/excel-object-model-overview.md)   
- [Automating Excel by Using Extended Objects](../vsto/automating-excel-by-using-extended-objects.md)   
- [Office UI Customization](../vsto/office-ui-customization.md)   
- [Building Office Solutions](../vsto/building-office-solutions.md)   
- [Deploying an Office Solution](../vsto/deploying-an-office-solution.md)   
- [Office Project Templates Overview](../vsto/office-project-templates-overview.md)  
+## <a name="see-also"></a>另请参阅  
+ [Office 解决方案开发概述 &#40;VSTO &#41;](../vsto/office-solutions-development-overview-vsto.md)   
+ [Excel 解决方案](../vsto/excel-solutions.md)   
+ [文档级自定义项编程](../vsto/programming-document-level-customizations.md)   
+ [Excel 对象模型概述](../vsto/excel-object-model-overview.md)   
+ [使用扩展对象实现 Excel 自动化](../vsto/automating-excel-by-using-extended-objects.md)   
+ [Office UI 自定义项](../vsto/office-ui-customization.md)   
+ [生成 Office 解决方案](../vsto/building-office-solutions.md)   
+ [部署 Office 解决方案](../vsto/deploying-an-office-solution.md)   
+ [Office 项目模板概述](../vsto/office-project-templates-overview.md)  
   
   

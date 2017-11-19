@@ -1,67 +1,67 @@
 ---
-title: "IDebugPortEvents2::Event | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "IDebugPortEvents2::Event"
-helpviewer_keywords: 
-  - "IDebugPortEvents2::Event"
+title: "IDebugPortEvents2::Event |Microsoft 文档"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology: vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords: IDebugPortEvents2::Event
+helpviewer_keywords: IDebugPortEvents2::Event
 ms.assetid: 5cc813f7-04a1-4462-9ea7-fbddcf0e0143
-caps.latest.revision: 18
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 18
+caps.latest.revision: "18"
+author: gregvanl
+ms.author: gregvanl
+manager: ghogen
+ms.openlocfilehash: 82ea7d2c4a32bb224c8377a2980c944b3389da2b
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# IDebugPortEvents2::Event
-[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
-
-此方法会表示，以创建和销毁处理和位于端口的程序的事件。  
+# <a name="idebugportevents2event"></a>IDebugPortEvents2::Event
+此方法可发送表示的创建和析构的进程和程序的端口上的事件。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
-```cpp#  
+```cpp  
 HRESULT Event(  
-   IDebugCoreServer2* pServer,  
-   IDebugPort2*       pPort,  
-   IDebugProcess2*    pProcess,  
-   IDebugProgram2*    pProgram,  
-   IDebugEvent2*      pEvent,  
-   REFIID             riidEvent  
+   IDebugCoreServer2* pServer,  
+   IDebugPort2*       pPort,  
+   IDebugProcess2*    pProcess,  
+   IDebugProgram2*    pProgram,  
+   IDebugEvent2*      pEvent,  
+   REFIID             riidEvent  
 );  
 ```  
   
-```c#  
+```csharp  
 int Event(  
-   IDebugCoreServer2 pServer,   
-   IDebugPort2       pPort,   
-   IDebugProcess2    pProcess,   
-   IDebugProgram2    pProgram,   
-   IDebugEvent2      pEvent,   
-   ref Guid          riidEvent  
+   IDebugCoreServer2 pServer,   
+   IDebugPort2       pPort,   
+   IDebugProcess2    pProcess,   
+   IDebugProgram2    pProgram,   
+   IDebugEvent2      pEvent,   
+   ref Guid          riidEvent  
 );  
 ```  
   
-#### 参数  
+#### <a name="parameters"></a>参数  
  `pMachine`  
- \[in\] 表示调试服务器的 [IDebugCoreServer2](../../../extensibility/debugger/reference/idebugcoreserver2.md) 对象 \(有一个 [!INCLUDE[vsprvs](../../../code-quality/includes/vsprvs_md.md)]每个实例的\) 会发生事件。  
+ [in][IDebugCoreServer2](../../../extensibility/debugger/reference/idebugcoreserver2.md)表示调试服务器的对象 (对于每个实例一个[!INCLUDE[vsprvs](../../../code-quality/includes/vsprvs_md.md)]) 中发生该事件。  
   
  `pPort`  
- \[in\] 表示端口发生此事件的 [IDebugPort2](../../../extensibility/debugger/reference/idebugport2.md) 对象。  
+ [in][IDebugPort2](../../../extensibility/debugger/reference/idebugport2.md)表示发生该事件的端口的对象。  
   
  `pProcess`  
- \[in\] 表示处理该事件的发生 [IDebugProcess2](../../../extensibility/debugger/reference/idebugprocess2.md) 对象。  
+ [in][IDebugProcess2](../../../extensibility/debugger/reference/idebugprocess2.md)表示发生该事件的过程的对象。  
   
  `pProgram`  
- \[in\] 表示程序发生此事件的 [IDebugProgram2](../../../extensibility/debugger/reference/idebugprogram2.md) 对象。  
+ [in][IDebugProgram2](../../../extensibility/debugger/reference/idebugprogram2.md)表示的程序发生该事件的对象。  
   
  `pEvent`  
- \[in\] 标识事件的 [IDebugEvent2](../../../extensibility/debugger/reference/idebugevent2.md) 对象。  可能的事件如下所示:  
+ [in][IDebugEvent2](../../../extensibility/debugger/reference/idebugevent2.md)标识的事件的对象。 可能的事件如下所示：  
   
 -   [IDebugProcessCreateEvent2](../../../extensibility/debugger/reference/idebugprocesscreateevent2.md)  
   
@@ -72,12 +72,12 @@ int Event(
 -   [IDebugProgramDestroyEvent2](../../../extensibility/debugger/reference/idebugprogramdestroyevent2.md)  
   
  `riidEvent`  
- \[in\] 事件的 GUID。  由于事件转换到调用此方法之前的 [IDebugEvent2](../../../extensibility/debugger/reference/idebugevent2.md) ，此标识符可以更轻松地确定发送哪个事件。  
+ [in]事件的 GUID。 因为事件被强制转换为[IDebugEvent2](../../../extensibility/debugger/reference/idebugevent2.md)调用此方法之前，此标识符可以更方便地确定正在发送的事件。  
   
-## 返回值  
- 如果成功，则返回; `S_OK`否则，返回错误代码。  
+## <a name="return-value"></a>返回值  
+ 如果成功，则返回`S_OK`; 否则为返回错误代码。  
   
-## 请参阅  
+## <a name="see-also"></a>另请参阅  
  [IDebugPortEvents2](../../../extensibility/debugger/reference/idebugportevents2.md)   
  [IDebugCoreServer2](../../../extensibility/debugger/reference/idebugcoreserver2.md)   
  [IDebugPort2](../../../extensibility/debugger/reference/idebugport2.md)   

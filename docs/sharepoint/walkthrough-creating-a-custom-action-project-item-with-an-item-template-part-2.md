@@ -1,12 +1,10 @@
 ---
-title: 'Walkthrough: Creating a Custom Action Project Item with an Item Template, Part 2 | Microsoft Docs'
+title: "演练： 使用项模板创建的自定义操作项目项，第 2 部分 |Microsoft 文档"
 ms.custom: 
 ms.date: 02/02/2017
-ms.prod: visual-studio-dev14
 ms.reviewer: 
 ms.suite: 
-ms.technology:
-- office-development
+ms.technology: office-development
 ms.tgt_pltfrm: 
 ms.topic: article
 helpviewer_keywords:
@@ -14,200 +12,196 @@ helpviewer_keywords:
 - SharePoint project items, creating template wizards
 - SharePoint development in Visual Studio, defining new project item types
 ms.assetid: 2d8165d3-4af9-4a5e-bdba-8b2a06b1dc8d
-caps.latest.revision: 44
-author: kempb
-ms.author: kempb
+caps.latest.revision: "44"
+author: gewarren
+ms.author: gewarren
 manager: ghogen
-ms.translationtype: HT
-ms.sourcegitcommit: eb5c9550fd29b0e98bf63a7240737da4f13f3249
-ms.openlocfilehash: 1156c1eaab8ce1e73018778ef2b91e6f86806cc7
-ms.contentlocale: zh-cn
-ms.lasthandoff: 08/30/2017
-
+ms.openlocfilehash: b12a52101feebcfac08c7672834d9d7c65d41c55
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# <a name="walkthrough-creating-a-custom-action-project-item-with-an-item-template-part-2"></a>Walkthrough: Creating a Custom Action Project Item with an Item Template, Part 2
-  After you define a custom type of SharePoint project item and associate it with an item template in Visual Studio, you might also want to provide a wizard for the template. You can use the wizard to collect information from users when they use your template to add a new instance of the project item to a project. The information that you collect can be used to initialize the project item.  
+# <a name="walkthrough-creating-a-custom-action-project-item-with-an-item-template-part-2"></a>演练：使用项模板创建自定义操作项目项（第 2 部分）
+  定义自定义类型的 SharePoint 项目项并将其与 Visual Studio 中的项模板关联后，你可能还想要模板提供的向导。 可以使用向导收集从用户的信息，当用户使用你的模板添加到项目的项目项的新实例。 你收集的信息可以用于初始化项目项。  
   
- In this walkthrough, you will add a wizard to the Custom Action project item that is demonstrated in [Walkthrough: Creating a Custom Action Project Item with an Item Template, Part 1](../sharepoint/walkthrough-creating-a-custom-action-project-item-with-an-item-template-part-1.md). When a user adds a Custom Action project item to a SharePoint project, the wizard collects information about the custom action (such as its location and the URL to navigate to when an end user chooses it) and adds this information to the Elements.xml file in the new project item.  
+ 在本演练中，你将向自定义操作项目项中所示添加向导[演练： 使用项模板，第 1 部分创建自定义操作项目项](../sharepoint/walkthrough-creating-a-custom-action-project-item-with-an-item-template-part-1.md)。 当用户将自定义操作项目项添加到 SharePoint 项目中时，向导可收集有关自定义操作 （如其位置和要导航到，当最终用户选择其 URL） 的信息并将此信息在新添加到 Elements.xml 文件项目项。  
   
- This walkthrough demonstrates the following tasks:  
+ 本演练演示了下列任务：  
   
--   Creating a wizard for a custom SharePoint project item type that is associated with an item template.  
+-   创建自定义 SharePoint 项目项类型与项模板的向导。  
   
--   Defining a custom wizard UI that resembles the built-in wizards for SharePoint project items in Visual Studio.  
+-   定义自定义向导 UI 类似于 Visual Studio 中的 SharePoint 项目项中的内置的向导。  
   
--   Using replaceable parameters to initialize SharePoint project files with data that you collect in the wizard.  
+-   使用可替换参数来初始化此向导中收集的数据与 SharePoint 项目文件。  
   
--   Debugging and testing the wizard.  
+-   调试和测试该向导。  
   
 > [!NOTE]  
->  You can download a sample that contains the completed projects, code, and other files for this walkthrough from the following location:  [Project files for SharePoint Tools Extensibility Walkthroughs](http://go.microsoft.com/fwlink/?LinkId=191369).  
+>  你可以下载包含已完成的项目、 代码和从以下位置在本演练中的其他文件的示例：[有关 SharePoint 工具扩展演练项目文件](http://go.microsoft.com/fwlink/?LinkId=191369)。  
   
-## <a name="prerequisites"></a>Prerequisites  
- To perform this walkthrough, you must first create the CustomActionProjectItem solution by completing [Walkthrough: Creating a Custom Action Project Item with an Item Template, Part 1](../sharepoint/walkthrough-creating-a-custom-action-project-item-with-an-item-template-part-1.md).  
+## <a name="prerequisites"></a>先决条件  
+ 若要执行本演练，你必须首先创建 CustomActionProjectItem 解决方案通过完成[演练： 使用项模板，第 1 部分创建自定义操作项目项](../sharepoint/walkthrough-creating-a-custom-action-project-item-with-an-item-template-part-1.md)。  
   
- You also need the following components on the development computer to complete this walkthrough:  
+ 你还需要以下组件来完成本演练的开发计算机上：  
   
--   Supported editions of Windows, SharePoint, and Visual Studio. For more information, see [Requirements for Developing SharePoint Solutions](../sharepoint/requirements-for-developing-sharepoint-solutions.md).  
+-   受支持的 Windows、 SharePoint 和 Visual Studio 的版本。 有关详细信息，请参阅[有关开发 SharePoint 解决方案的要求](../sharepoint/requirements-for-developing-sharepoint-solutions.md)。  
   
--   The Visual Studio SDK. This walkthrough uses the **VSIX Project** template in the SDK to create a VSIX package to deploy the project item. For more information, see [Extending the SharePoint Tools in Visual Studio](../sharepoint/extending-the-sharepoint-tools-in-visual-studio.md).  
+-   Visual Studio SDK。 本演练使用**VSIX 项目**SDK 创建 VSIX 包来部署项目项中的模板。 有关详细信息，请参阅[扩展 Visual Studio 中的 SharePoint 工具](../sharepoint/extending-the-sharepoint-tools-in-visual-studio.md)。  
   
- Knowledge of the following concepts is helpful, but not required, to complete the walkthrough:  
+ 以下概念的知识将会很有用，但不是要求必须完成本演练：  
   
--   Wizards for project and item templates in Visual Studio. For more information, see [How to: Use Wizards with Project Templates](../extensibility/how-to-use-wizards-with-project-templates.md) and the <xref:Microsoft.VisualStudio.TemplateWizard.IWizard> interface.  
+-   用于 Visual Studio 中的项目和项模板的向导。 有关详细信息，请参阅[如何： 使用项目模板时使用向导](../extensibility/how-to-use-wizards-with-project-templates.md)和<xref:Microsoft.VisualStudio.TemplateWizard.IWizard>接口。  
   
--   Custom actions in SharePoint. For more information, see [Custom Action](http://go.microsoft.com/fwlink/?LinkId=177800).  
+-   在 SharePoint 中的自定义操作。 有关详细信息，请参阅[自定义操作](http://go.microsoft.com/fwlink/?LinkId=177800)。  
   
-## <a name="creating-the-wizard-project"></a>Creating the Wizard Project  
- To complete this walkthrough, you must add a project to the CustomActionProjectItem solution that you created in [Walkthrough: Creating a Custom Action Project Item with an Item Template, Part 1](../sharepoint/walkthrough-creating-a-custom-action-project-item-with-an-item-template-part-1.md). You will implement the <xref:Microsoft.VisualStudio.TemplateWizard.IWizard> interface and define the wizard UI in this project.  
+## <a name="creating-the-wizard-project"></a>创建向导项目  
+ 若要完成本演练，必须将项目添加到你在中创建的 CustomActionProjectItem 解决方案[演练： 使用项模板，第 1 部分创建自定义操作项目项](../sharepoint/walkthrough-creating-a-custom-action-project-item-with-an-item-template-part-1.md)。 将实现<xref:Microsoft.VisualStudio.TemplateWizard.IWizard>接口，并在此项目中定义的向导 UI。  
   
-#### <a name="to-create-the-wizard-project"></a>To create the wizard project  
+#### <a name="to-create-the-wizard-project"></a>若要创建向导项目  
   
-1.  In Visual Studio, open the CustomActionProjectItem solution  
+1.  在 Visual Studio 中，打开 CustomActionProjectItem 解决方案  
   
-2.  In **Solution Explorer**, open the shortcut menu for the solution node, choose **Add**, and then choose **New Project**.  
+2.  在**解决方案资源管理器**，打开解决方案节点的快捷菜单，选择**添加**，然后选择**新项目**。  
   
-    > [!NOTE]  
-    >  In Visual Basic projects, the solution node appears in **Solution Explorer** only when the **Always show solution** check box is selected in the [NIB: General, Projects and Solutions, Options Dialog Box](http://msdn.microsoft.com/en-us/8f8e37e8-b28d-4b13-bfeb-ea4d3312aeca).  
+3.  在**新项目**对话框框中，展开**Visual C#**或**Visual Basic**节点，然后选择**Windows**节点。  
   
-3.  In the **New Project** dialog box, expand the **Visual C#** or **Visual Basic** nodes, and then choose the **Windows** node.  
+4.  在顶部**新项目**对话框框中，请确保**.NET Framework 4.5**选择在列表中的.NET framework 的版本。  
   
-4.  At the top of the **New Project** dialog box, make sure that **.NET Framework 4.5** is chosen in the list of versions of the .NET Framework.  
+5.  选择**WPF 用户控件库**项目模板，将项目**ItemTemplateWizard**，然后选择**确定**按钮。  
   
-5.  Choose the **WPF User Control Library** project template, name the project **ItemTemplateWizard**, and then choose the **OK** button.  
+     [!INCLUDE[vsprvs](../sharepoint/includes/vsprvs-md.md)]将添加**ItemTemplateWizard**到解决方案的项目。  
   
-     [!INCLUDE[vsprvs](../sharepoint/includes/vsprvs-md.md)] adds the **ItemTemplateWizard** project to the solution.  
+6.  从项目中删除 UserControl1 项。  
   
-6.  Delete the UserControl1 item from the project.  
+## <a name="configuring-the-wizard-project"></a>配置向导项目  
+ 在创建该向导之前，必须添加 Windows Presentation Foundation (WPF) 窗口、 代码文件中和对项目的程序集引用。  
   
-## <a name="configuring-the-wizard-project"></a>Configuring the Wizard Project  
- Before you create the wizard, you must add a Windows Presentation Foundation (WPF) window, a code file, and assembly references to the project.  
+#### <a name="to-configure-the-wizard-project"></a>若要配置向导项目  
   
-#### <a name="to-configure-the-wizard-project"></a>To configure the wizard project  
+1.  在**解决方案资源管理器**，打开快捷菜单从**ItemTemplateWizard**项目节点，，然后选择**属性**。  
   
-1.  In **Solution Explorer**, open the shortcut menu from the **ItemTemplateWizard** project node, and then choose **Properties**.  
+2.  在**项目设计器**，请确保目标框架设置为.NET Framework 4.5。  
   
-2.  In the **Project Designer**, make sure that the target framework is set to .NET Framework 4.5.  
+     对于 Visual C# 项目，你可以将此值设置上**应用程序**选项卡。对于 Visual Basic 项目，你可以将此值设置上**编译**选项卡。有关详细信息，请参阅[如何：面向 .NET Framework 的某个版本](../ide/how-to-target-a-version-of-the-dotnet-framework.md)。  
   
-     For Visual C# projects, you can set this value on the **Application** tab. For Visual Basic projects, you can set this value on the **Compile** tab. For more information, see [How to: Target a Version of the .NET Framework](../ide/how-to-target-a-version-of-the-dotnet-framework.md).  
+3.  在**ItemTemplateWizard**项目中，添加**Window (WPF)**项目到项目中，并将其命名项**WizardWindow**。  
   
-3.  In the **ItemTemplateWizard** project, add a **Window (WPF)** item to the project, and then name the item **WizardWindow**.  
+4.  添加两个分别名为 CustomActionWizard 和字符串的代码文件。  
   
-4.  Add two code files that are named CustomActionWizard and Strings.  
+5.  打开的快捷菜单**ItemTemplateWizard**项目，，然后选择**添加引用**。  
   
-5.  Open the shortcut menu for the **ItemTemplateWizard** project,  and then choose **Add Reference**.  
+6.  在**引用管理器-ItemTemplateWizard**对话框中，在**程序集**节点，选择**扩展**节点。  
   
-6.  In the **Reference Manager - ItemTemplateWizard** dialog box, under the **Assemblies** node, choose the **Extensions** node.  
-  
-7.  Select the check boxes next to the following assemblies, and then choose the **OK** button:  
+7.  选择下列程序集，旁边的复选框，然后选择**确定**按钮：  
   
     -   EnvDTE  
   
-    -   Microsoft.VisualStudio.Shell.11.0  
+    -   Microsoft.visualstudio.shell.11.0 的引用  
   
     -   Microsoft.VisualStudio.TemplateWizardInterface  
   
-8.  In **Solution Explorer**, in the **References** folder for the ItemTemplateWizard project, choose the **EnvDTE** reference.  
+8.  在**解决方案资源管理器**中**引用**ItemTemplateWizard 项目文件夹，选择**EnvDTE**引用。  
+  
+9. 在**属性**窗口中，更改的值**嵌入互操作类型**属性**False**。  
+  
+## <a name="defining-the-default-location-and-id-strings-for-custom-actions"></a>为自定义操作中定义的默认位置和 ID 字符串  
+ 每个自定义操作，并且在位置中指定的 ID`GroupID`和`Location`属性`CustomAction`Elements.xml 文件中的元素。 在此步骤中，可定义一些 ItemTemplateWizard 项目中的这些属性的有效字符串。 完成本演练后，这些字符串是写入到的 Elements.xml 文件中的自定义操作项目项，当用户在向导中指定的位置和 ID。  
+  
+ 为简单起见，此示例仅支持的子集的可用的默认位置和 Id。 完整列表，请参阅[默认自定义操作位置和 Id](http://go.microsoft.com/fwlink/?LinkId=181964)。  
+  
+#### <a name="to-define-the-default-location-and-id-strings"></a>若要定义的默认位置和 ID 字符串  
+  
+1.  打开。  
+  
+2.  在**ItemTemplateWizard**项目中，将替换为以下代码的字符串代码文件中的代码。  
+  
+     [!code-csharp[SPExtensibility.ProjectItem.CustomAction#6](../sharepoint/codesnippet/CSharp/customactionprojectitem/itemtemplatewizard/strings.cs#6)]
+     [!code-vb[SPExtensibility.ProjectItem.CustomAction#6](../sharepoint/codesnippet/VisualBasic/customactionprojectitem/itemtemplatewizard/strings.vb#6)]  
+  
+## <a name="creating-the-wizard-ui"></a>创建向导 UI  
+ 添加 XAML 定义用户界面的向导，并添加一些代码以在向导中将某些控件绑定到的 ID 字符串。 你创建向导类似于 Visual Studio 中的 SharePoint 项目的内置向导。  
+  
+#### <a name="to-create-the-wizard-ui"></a>若要创建向导 UI  
+  
+1.  在**ItemTemplateWizard**项目中，打开快捷菜单**WizardWindow.xaml**文件，然后依次**打开**以在设计器中打开窗口。  
+  
+2.  在 XAML 视图中，将当前的 XAML 替换下面的 XAML。 XAML 定义的用户界面可包含一个标题，用于指定自定义操作和在窗口底部的导航按钮的行为的控件。  
   
     > [!NOTE]  
-    >  In Visual Basic projects, the **References** folder appears only when the **Always show solution** check box is selected in the [NIB: General, Projects and Solutions, Options Dialog Box](http://msdn.microsoft.com/en-us/8f8e37e8-b28d-4b13-bfeb-ea4d3312aeca).  
-  
-9. In the **Properties** window, change the value of the **Embed Interop Types** property to **False**.  
-  
-## <a name="defining-the-default-location-and-id-strings-for-custom-actions"></a>Defining the Default Location and ID Strings for Custom Actions  
- Every custom action has a location and ID that is specified in the `GroupID` and `Location` attributes of the `CustomAction` element in the Elements.xml file. In this step, you define some of the valid strings for these attributes in the ItemTemplateWizard project. When you complete this walkthrough, these strings are written to the Elements.xml file in the Custom Action project item when users specify a location and an ID in the wizard.  
-  
- For simplicity, this sample supports only a subset of the available default locations and IDs. For a full list, see [Default Custom Action Locations and IDs](http://go.microsoft.com/fwlink/?LinkId=181964).  
-  
-#### <a name="to-define-the-default-location-and-id-strings"></a>To define the default location and ID strings  
-  
-1.  open.  
-  
-2.  In the **ItemTemplateWizard** project, replace the code in the Strings code file with the following code.  
-  
-     [!code-csharp[SPExtensibility.ProjectItem.CustomAction#6](../sharepoint/codesnippet/CSharp/customactionprojectitem/itemtemplatewizard/strings.cs#6)]  [!code-vb[SPExtensibility.ProjectItem.CustomAction#6](../sharepoint/codesnippet/VisualBasic/customactionprojectitem/itemtemplatewizard/strings.vb#6)]  
-  
-## <a name="creating-the-wizard-ui"></a>Creating the Wizard UI  
- Add XAML to define the UI of the wizard, and add some code to bind some of the controls in the wizard to the ID strings. The wizard that you create resembles the built-in wizard for SharePoint projects in Visual Studio.  
-  
-#### <a name="to-create-the-wizard-ui"></a>To create the wizard UI  
-  
-1.  In the **ItemTemplateWizard** project, open the shortcut menu for the **WizardWindow.xaml** file, and then choose **Open** to open the window in the designer.  
-  
-2.  In the XAML view, replace the current XAML with the following XAML. The XAML defines a UI that includes a heading, controls for specifying the behavior of the custom action, and navigation buttons at the bottom of the window.  
-  
-    > [!NOTE]  
-    >  Your project will have some compile errors after you add this code. These errors will go away when you add code in later steps.  
+    >  在添加此代码后，你的项目将出现一些编译错误。 在后续步骤中添加代码，这些错误将会消失。  
   
      [!code-xml[SPExtensibility.ProjectItem.CustomAction#9](../sharepoint/codesnippet/Xaml/customactionprojectitem/itemtemplatewizard/wizardwindow.xaml#9)]  
   
     > [!NOTE]  
-    >  The window that's created in this XAML is derived from the <xref:Microsoft.VisualStudio.PlatformUI.DialogWindow> base class. When you add a custom WPF dialog box to Visual Studio, we recommend that you derive your dialog box from this class to have consistent styling with other dialog boxes in Visual Studio and to avoid issues that might otherwise occur with modal dialog boxes. For more information, see [Creating and Managing Modal Dialog Boxes](/visualstudio/extensibility/creating-and-managing-modal-dialog-boxes).  
+    >  在此 XAML 中创建的窗口派生自<xref:Microsoft.VisualStudio.PlatformUI.DialogWindow>基类。 当向 Visual Studio 添加自定义 WPF 对话框中时，我们建议从能够拥有与其他 Visual Studio 中的对话框的一致样式并能够避免出现的问题可能会使用模式对话框否则会发生此类派生对话框。 有关详细信息，请参阅[创建和管理模式对话框](/visualstudio/extensibility/creating-and-managing-modal-dialog-boxes)。  
   
-3.  If you're developing a Visual Basic project, remove the `ItemTemplateWizard` namespace from the `WizardWindow` class name in the `x:Class` attribute of the `Window` element. This element is in the first line of the XAML. When you're done, the first line should resemble the following code:  
+3.  如果你要开发 Visual Basic 项目，删除`ItemTemplateWizard`命名空间从`WizardWindow`中的类名称`x:Class`属性`Window`元素。 此元素是在第一行中的 XAML。 完成后，第一行应类似于下面的代码：  
   
     ```  
     <Window x:Class="WizardWindow"  
     ```  
   
-4.  In the code-behind file for the WizardWindow.xaml file, replace the current code with the following code.  
+4.  在 WizardWindow.xaml 文件代码隐藏文件中，将当前的代码替换下面的代码。  
   
-     [!code-vb[SPExtensibility.ProjectItem.CustomAction#7](../sharepoint/codesnippet/VisualBasic/customactionprojectitem/itemtemplatewizard/wizardwindow.xaml.vb#7)]  [!code-csharp[SPExtensibility.ProjectItem.CustomAction#7](../sharepoint/codesnippet/CSharp/customactionprojectitem/itemtemplatewizard/wizardwindow.xaml.cs#7)]  
+     [!code-vb[SPExtensibility.ProjectItem.CustomAction#7](../sharepoint/codesnippet/VisualBasic/customactionprojectitem/itemtemplatewizard/wizardwindow.xaml.vb#7)]
+     [!code-csharp[SPExtensibility.ProjectItem.CustomAction#7](../sharepoint/codesnippet/CSharp/customactionprojectitem/itemtemplatewizard/wizardwindow.xaml.cs#7)]  
   
-## <a name="implementing-the-wizard"></a>Implementing the Wizard  
- Define the functionality of the wizard by implementing the <xref:Microsoft.VisualStudio.TemplateWizard.IWizard> interface.  
+## <a name="implementing-the-wizard"></a>实现向导  
+ 通过实现定义的向导的功能<xref:Microsoft.VisualStudio.TemplateWizard.IWizard>接口。  
   
-#### <a name="to-implement-the-wizard"></a>To implement the wizard  
+#### <a name="to-implement-the-wizard"></a>若要实现向导  
   
-1.  In the **ItemTemplateWizard** project, open the **CustomActionWizard** code file, and then replace the current code in this file with the following code:  
+1.  在**ItemTemplateWizard**项目中，打开**CustomActionWizard**代码文件，然后将此文件中的当前代码替换为以下代码：  
   
-     [!code-csharp[SPExtensibility.ProjectItem.CustomAction#8](../sharepoint/codesnippet/CSharp/customactionprojectitem/itemtemplatewizard/customactionwizard.cs#8)]  [!code-vb[SPExtensibility.ProjectItem.CustomAction#8](../sharepoint/codesnippet/VisualBasic/customactionprojectitem/itemtemplatewizard/customactionwizard.vb#8)]  
+     [!code-csharp[SPExtensibility.ProjectItem.CustomAction#8](../sharepoint/codesnippet/CSharp/customactionprojectitem/itemtemplatewizard/customactionwizard.cs#8)]
+     [!code-vb[SPExtensibility.ProjectItem.CustomAction#8](../sharepoint/codesnippet/VisualBasic/customactionprojectitem/itemtemplatewizard/customactionwizard.vb#8)]  
   
-## <a name="checkpoint"></a>Checkpoint  
- At this point in the walkthrough, all the code for the wizard is now in the project. Build the project to make sure that it compiles without errors.  
+## <a name="checkpoint"></a>检查点  
+ 此时在本演练中，该向导的所有代码现在都是项目中。 生成项目，以确保它在编译时没有错误。  
   
-#### <a name="to-build-your-project"></a>To build your project  
+#### <a name="to-build-your-project"></a>若要生成你的项目  
   
-1.  On the menu bar, choose **Build**, **Build Solution**.  
+1.  在菜单栏上，依次选择 **“生成”**、 **“生成解决方案”**。  
   
-## <a name="associating-the-wizard-with-the-item-template"></a>Associating the Wizard with the Item Template  
- Now that you have implemented the wizard, you must associate it with the **Custom Action** item template by completing three main steps:  
+## <a name="associating-the-wizard-with-the-item-template"></a>带有项模板关联向导  
+ 现在，已实现了向导，你必须将其与关联**自定义操作**项模板，通过完成三个主要步骤：  
   
-1.  Sign the wizard assembly with a strong name.  
+1.  向导程序集具有强名称签名。  
   
-2.  Get the public key token for the wizard assembly.  
+2.  获取令牌向导程序集的公钥。  
   
-3.  Add a reference to the wizard assembly in the .vstemplate file for the **Custom Action** item template.  
+3.  .Vstemplate 文件中添加对向导程序集的引用**自定义操作**项模板。  
   
-#### <a name="to-sign-the-wizard-assembly-with-a-strong-name"></a>To sign the wizard assembly with a strong name  
+#### <a name="to-sign-the-wizard-assembly-with-a-strong-name"></a>若要使用强名称对向导程序集签名  
   
-1.  In **Solution Explorer**, open the shortcut menu from the **ItemTemplateWizard** project node, and then choose **Properties**.  
+1.  在**解决方案资源管理器**，打开快捷菜单从**ItemTemplateWizard**项目节点，，然后选择**属性**。  
   
-2.  On the **Signing** tab, select the **Sign the assembly** check box.  
+2.  上**签名**选项卡上，选择**对程序集签名**复选框。  
   
-3.  In the **Choose a strong name key file** list, choose **\<New...>**.  
+3.  在**选择强名称密钥文件**列表中，选择**\<新建 … >**。  
   
-4.  In the **Create Strong Name Key** dialog box, enter a name, clear the **Protect my key file with a password** check box, and then choose the **OK** button.  
+4.  在**创建强名称密钥**对话框框中，输入一个名称，清除**保护我使用密码的密钥文件**复选框，然后依次**确定**按钮。  
   
-5.  On the menu bar, choose **Build**, **Build Solution**.  
+5.  在菜单栏上，依次选择 **“生成”**、 **“生成解决方案”**。  
   
-#### <a name="to-get-the-public-key-token-for-the-wizard-assembly"></a>To get the public key token for the wizard assembly  
+#### <a name="to-get-the-public-key-token-for-the-wizard-assembly"></a>若要获取的公钥令牌向导程序集  
   
-1.  In a Visual Studio Command Prompt window, run the following command, replacing *PathToWizardAssembly* with the full path to the built ItemTemplateWizard.dll assembly for the ItemTemplateWizard project on your development computer.  
+1.  在 Visual Studio 命令提示符窗口中，运行以下命令，将*PathToWizardAssembly*替换为您在开发 ItemTemplateWizard 项目生成的 ItemTemplateWizard.dll 程序集的完整路径计算机。  
   
     ```  
     sn.exe -T PathToWizardAssembly  
     ```  
   
-     The public key token for the ItemTemplateWizard.dll assembly is written to the Visual Studio Command Prompt window.  
+     ItemTemplateWizard.dll 程序集的公钥令牌写入 Visual Studio 命令提示符窗口。  
   
-2.  Keep the Visual Studio Command Prompt window open. You'll need the public key token to complete the next procedure.  
+2.  使 Visual Studio 命令提示符窗口保持打开。 你将需要公钥标记以完成下一步过程。  
   
-#### <a name="to-add-a-reference-to-the-wizard-assembly-in-the-vstemplate-file"></a>To add a reference to the wizard assembly in the .vstemplate file  
+#### <a name="to-add-a-reference-to-the-wizard-assembly-in-the-vstemplate-file"></a>若要添加的.vstemplate 文件中的向导程序集的引用  
   
-1.  In **Solution Explorer**, expand the **ItemTemplate** project node, and then open the ItemTemplate.vstemplate file.  
+1.  在**解决方案资源管理器**，展开**ItemTemplate**项目节点，，然后打开 ItemTemplate.vstemplate 文件。  
   
-2.  Near the end of the file, add the following `WizardExtension` element between the `</TemplateContent>` and `</VSTemplate>` tags. Replace the *YourToken* value of the `PublicKeyToken` attribute with the public key token that you obtained in the previous procedure.  
+2.  该文件的末尾添加以下`WizardExtension`之间的元素`</TemplateContent>`和`</VSTemplate>`标记。 替换*YourToken*值`PublicKeyToken`具有你在前面的过程中获得的公钥令牌属性。  
   
     ```  
     <WizardExtension>  
@@ -216,18 +210,18 @@ ms.lasthandoff: 08/30/2017
     </WizardExtension>  
     ```  
   
-     For more information about the `WizardExtension` element, see [WizardExtension Element &#40;Visual Studio Templates&#41;](/visualstudio/extensibility/wizardextension-element-visual-studio-templates).  
+     有关详细信息`WizardExtension`元素，请参阅[WizardExtension 元素 &#40;Visual Studio 模板 &#41;](/visualstudio/extensibility/wizardextension-element-visual-studio-templates).  
   
-3.  Save and close the file.  
+3.  保存并关闭文件。  
   
-## <a name="adding-replaceable-parameters-to-the-elementsxml-file-in-the-item-template"></a>Adding Replaceable Parameters to the Elements.xml File in the Item Template  
- Add several replaceable parameters to the Elements.xml file in the ItemTemplate project. These parameters are initialized in the `PopulateReplacementDictionary` method in the `CustomActionWizard` class that you defined earlier. When a user adds a Custom Action project item to a project, Visual Studio automatically replaces these parameters in the Elements.xml file in the new project item with the values that they specified in the wizard.  
+## <a name="adding-replaceable-parameters-to-the-elementsxml-file-in-the-item-template"></a>在项模板的 Elements.xml 文件中添加可替换参数  
+ 将多个可替换参数添加到 ItemTemplate 项目中的 Elements.xml 文件。 这些参数以进行初始化`PopulateReplacementDictionary`中的方法`CustomActionWizard`前面定义的类。 当用户将自定义操作项目项添加到项目时，Visual Studio 自动替换为新的项目项中的 Elements.xml 文件中的这些参数在向导中指定它们的值。  
   
- A replaceable parameter is a token that starts and ends with the dollar sign ($) character. In addition to defining your own replaceable parameters, you can use built-in parameters that the SharePoint project system defines and initializes. For more information, see [Replaceable Parameters](../sharepoint/replaceable-parameters.md).  
+ 可替换参数是一个标记，用于开始和结束的美元符号 （$） 字符。 除了定义你自己的可替换参数，你可以使用内置 SharePoint 项目系统定义和初始化的参数。 有关详细信息，请参阅[可替换参数](../sharepoint/replaceable-parameters.md)。  
   
-#### <a name="to-add-replaceable-parameters-to-the-elementsxml-file"></a>To add replaceable parameters to the Elements.xml file  
+#### <a name="to-add-replaceable-parameters-to-the-elementsxml-file"></a>若要向 Elements.xml 文件中添加可替换参数  
   
-1.  In the ItemTemplate project, replace the contents of the Elements.xml file with the following XML.  
+1.  在 ItemTemplate 项目中，用下列 XML 替换 Elements.xml 文件的内容。  
   
     ```  
     <?xml version="1.0" encoding="utf-8" ?>  
@@ -243,120 +237,120 @@ ms.lasthandoff: 08/30/2017
     </Elements>  
     ```  
   
-     The new XML changes the values of the `Id`, `GroupId`, `Location`, `Description`, and `Url` attributes to replaceable parameters.  
+     新的 XML 更改的值`Id`， `GroupId`， `Location`， `Description`，和`Url`属性为可替换参数。  
   
-2.  Save and close the file.  
+2.  保存并关闭文件。  
   
-## <a name="adding-the-wizard-to-the-vsix-package"></a>Adding the Wizard to the VSIX Package  
- In the source.extension.vsixmanifest file in the VSIX project, add a reference to the wizard project so that it's deployed with the VSIX package that contains the project item.  
+## <a name="adding-the-wizard-to-the-vsix-package"></a>将向导添加到 VSIX 包  
+ 在 source.extension.vsixmanifest 文件在 VSIX 项目中，添加对向导项目的引用，以便与包含项目项的 VSIX 包部署。  
   
-#### <a name="to-add-the-wizard-to-the-vsix-package"></a>To add the wizard to the VSIX package  
+#### <a name="to-add-the-wizard-to-the-vsix-package"></a>将向导添加到 VSIX 包  
   
-1.  In **Solution Explorer**, open the shortcut menu from the **source.extension.vsixmanifest** file in the CustomActionProjectItem project, and then choose **Open** to open the file in the manifest editor.  
+1.  在**解决方案资源管理器**，打开快捷菜单从**source.extension.vsixmanifest**在 CustomActionProjectItem 项目中，文件，然后选择**打开**以打开清单编辑器中的文件。  
   
-2.  In the manifest editor, choose the **Assets** tab, then choose the **New** button.  
+2.  在清单编辑器中，选择**资产**选项卡，然后选择**新建**按钮。  
   
-     The **Add New Asset** dialog box appears.  
+     **添加新资产**对话框随即出现。  
   
-3.  In the **Type** list, choose **Microsoft.VisualStudio.Assembly**.  
+3.  在**类型**列表中，选择**Microsoft.VisualStudio.Assembly**。  
   
-4.  In the **Source** list, choose **A project in current solution**.  
+4.  在**源**列表中，选择**当前解决方案中的项目**。  
   
-5.  In the **Project** list, choose **ItemTemplateWizard**, and then choose the **OK** button.  
+5.  在**项目**列表中，选择**ItemTemplateWizard**，然后选择**确定**按钮。  
   
-6.  On the menu bar, choose **Build**, **Build Solution**, and then make sure that the solution compiles without errors.  
+6.  在菜单栏上，选择**生成**，**生成解决方案**，并确保解决方案在编译时没有错误。  
   
-## <a name="testing-the-wizard"></a>Testing the Wizard  
- You are now ready to test the wizard. First, start to debug the CustomActionProjectItem solution in the experimental instance of Visual Studio. Then test the wizard for the Custom Action project item in a SharePoint project in the experimental instance of Visual Studio. Finally, build and run the SharePoint project to verify that the custom action works as expected.  
+## <a name="testing-the-wizard"></a>测试向导  
+ 现在你就可以测试该向导。 首先，开始调试 Visual Studio 的实验实例中 CustomActionProjectItem 解决方案。 然后在 Visual Studio 的实验实例中的 SharePoint 项目中测试自定义操作项目项的向导。 最后，生成并运行 SharePoint 项目，以验证自定义操作按预期方式工作。  
   
-#### <a name="to-start-to-debug-the-solution"></a>To start to debug the solution  
+#### <a name="to-start-to-debug-the-solution"></a>若要开始调试解决方案  
   
-1.  Restart Visual Studio with administrative credentials, and then open the CustomActionProjectItem solution.  
+1.  使用管理凭据，重新启动 Visual Studio，然后打开 CustomActionProjectItem 解决方案。  
   
-2.  In the ItemTemplateWizard project, open the CustomActionWizard code file, and then add a breakpoint to the first line of code in the `RunStarted` method.  
+2.  在 ItemTemplateWizard 项目中，打开 CustomActionWizard 代码文件中，并将断点添加到代码中的第一行`RunStarted`方法。  
   
-3.  On the menu bar, choose **Debug**, **Exceptions**.  
+3.  在菜单栏上，选择**调试**，**异常**。  
   
-4.  In the **Exceptions** dialog box, make sure that the **Thrown** and **User-unhandled** check boxes for **Common Language Runtime Exceptions** are cleared, and then choose the **OK** button.  
+4.  在**异常**对话框框中，请确保**引发**和**用户未处理**对应的复选框**公共语言运行时异常**已清除，然后选择**确定**按钮。  
   
-5.  Start debugging by choosing the F5 key, or, on the menu bar, choosing **Debug**, **Start Debugging**.  
+5.  开始调试通过选择 F5 键，或在菜单栏上，选择**调试**，**启动调试**。  
   
-     Visual Studio installs the extension to %UserProfile%\AppData\Local\Microsoft\VisualStudio\11.0Exp\Extensions\Contoso\Custom Action Project Item\1.0 and starts an experimental instance of Visual Studio. You'll test the project item in this instance of Visual Studio.  
+     Visual Studio 将在 %UserProfile%\AppData\Local\Microsoft\VisualStudio\11.0Exp\Extensions\Contoso\Custom 操作项目 Item\1.0 安装扩展，并启动 Visual Studio 的实验实例。 你将在 Visual Studio 的此实例中测试的项目项。  
   
-#### <a name="to-test-the-wizard-in-visual-studio"></a>To test the wizard in Visual Studio  
+#### <a name="to-test-the-wizard-in-visual-studio"></a>在 Visual Studio 中测试该向导  
   
-1.  In the experimental instance of Visual Studio, on the menu bar, choose **File**, **New**, **Project**.  
+1.  在实验实例中的 Visual Studio 中，在菜单栏上，选择**文件**，**新建**，**项目**。  
   
-2.  Expand the **Visual C#** or **Visual Basic** node (depending on the language that your item template supports), expand the **SharePoint** node, and then choose the **2010** node.  
+2.  展开**Visual C#**或**Visual Basic**节点 （具体取决于您的项模板支持的语言），展开**SharePoint**节点，然后选择**2010年**节点。  
   
-3.  In the list of project templates, choose **SharePoint 2010 Project**, name the project **CustomActionWizardTest**, and then choose the **OK** button.  
+3.  在项目模板列表中，选择**SharePoint 2010 项目**，命名该项目**CustomActionWizardTest**，然后选择**确定**按钮。  
   
-4.  In the **SharePoint Customization Wizard**, enter the URL of the site that you want to use for debugging, and then choose the **Finish** button.  
+4.  在**SharePoint 自定义向导**，输入你想要用于调试，站点的 URL，然后选择**完成**按钮。  
   
-5.  In **Solution Explorer**, open the shortcut menu for the project node, choose **Add**, and then choose **New Item**.  
+5.  在**解决方案资源管理器**，打开项目节点的快捷菜单，选择**添加**，然后选择**新项**。  
   
-6.  In the **Add New Item - CustomItemWizardTest** dialog box, expand the **SharePoint** node, and then expand the **2010** node.  
+6.  在**添加新项-CustomItemWizardTest**对话框框中，展开**SharePoint**节点，然后展开**2010年**节点。  
   
-7.  In the list of project items, choose the **Custom Action** item, and then choose the **Add** button.  
+7.  在项目项的列表中，选择**自定义操作**项，然后依次**添加**按钮。  
   
-8.  Verify that the code in the other instance of Visual Studio stops on the breakpoint that you set earlier in the `RunStarted` method.  
+8.  验证在 Visual Studio 的其他实例中在代码停止在更早版本中设置的断点处`RunStarted`方法。  
   
-9. Continue to debug the project by choosing the F5 key or, on the menu bar, choosing **Debug**, **Continue**.  
+9. 继续调试该项目，通过选择 F5 键，或在菜单栏中，选择**调试**，**继续**。  
   
-     The SharePoint Customization Wizard appears.  
+     将出现 SharePoint 自定义向导。  
   
-10. Under **Location**, choose the **List Edit** option button.  
+10. 下**位置**，选择**列表的编辑**选项按钮。  
   
-11. In the **Group ID** list, choose **Communications**.  
+11. 在**组 ID**列表中，选择**通信**。  
   
-12. In the **Title** box, enter **SharePoint Developer Center**.  
+12. 在**标题**框中，输入**SharePoint 开发人员中心**。  
   
-13. In the  **Description** box, enter **Opens the SharePoint Developer Center website**.  
+13. 在**说明**框中，输入**打开 SharePoint 开发人员中心网站**。  
   
-14. In the **URL** box, enter **http://msdn.microsoft.com/sharepoint/default.aspx**, and then choose the **Finish** button.  
+14. 在**URL**框中，输入**http://msdn.microsoft.com/sharepoint/default.aspx**，然后选择**完成**按钮。  
   
-     isual Studio adds an item that's named **CustomAction1** to your project and opens the Elements.xml file in the editor. Verify that Elements.xml contains the values that you specified in the wizard.  
+     isual Studio 中添加一项名为**CustomAction1**到你的项目和 Elements.xml 文件在编辑器中打开。 确认 Elements.xml 文件包含你在向导中指定的值。  
   
-#### <a name="to-test-the-custom-action-in-sharepoint"></a>To test the custom action in SharePoint  
+#### <a name="to-test-the-custom-action-in-sharepoint"></a>若要在 SharePoint 中测试自定义操作  
   
-1.  In the experimental instance of Visual Studio, choose the F5 key or, on the menu bar, choose **Debug**, **Start Debugging**.  
+1.  在 Visual Studio 的实验实例中，选择 F5 键或在菜单栏上，选择**调试**，**启动调试**。  
   
-     The custom action is packaged and deployed to the SharePoint site specified by the **Site URL** property of the project, and the web browser opens to the default page of this site.  
+     自定义操作被打包并部署到指定的 SharePoint 站点**站点 URL**属性的项目中和 web 浏览器打开到此站点的默认页。  
   
     > [!NOTE]  
-    >  If the **Script Debugging Disabled** dialog box appears, choose the **Yes** button.  
+    >  如果**脚本调试已禁用**对话框出现时，选择**是**按钮。  
   
-2.  In the Lists area of the SharePoint site, choose the **Tasks** link.  
+2.  在 SharePoint 站点列表区域中，选择**任务**链接。  
   
-     The **Tasks - All Tasks** page appears.  
+     **任务-所有任务**页将出现。  
   
-3.  On the **List Tools** tab of the ribbon, choose the **List** tab, and then, in the **Settings** group, choose **List Settings**.  
+3.  上**列表工具**选项卡的功能区中，选择**列表**选项卡上，然后在**设置**组中，选择**列表设置**。  
   
-     The **List Settings** page appears.  
+     **列表设置**页将出现。  
   
-4.  Under the **Communications** heading near the top of the page, choose the **SharePoint Developer Center** link, verify that the browser opens the website http://msdn.microsoft.com/sharepoint/default.aspx, and then close the browser.  
+4.  下**通信**页面顶部附近标题下，选择**SharePoint 开发人员中心**链接，请验证浏览器打开网站 http://msdn.microsoft.com/sharepoint/default.aspx，，然后关闭浏览器。  
   
-## <a name="cleaning-up-the-development-computer"></a>Cleaning up the Development Computer  
- After you finish testing the project item, remove the project item template from the experimental instance of Visual Studio.  
+## <a name="cleaning-up-the-development-computer"></a>清理开发计算机  
+ 完成项目项的测试后，从 Visual Studio 的实验实例中删除项目项模板。  
   
-#### <a name="to-clean-up-the-development-computer"></a>To clean up the development computer  
+#### <a name="to-clean-up-the-development-computer"></a>若要清理的开发计算机  
   
-1.  In the experimental instance of Visual Studio, on the menu bar, choose **Tools**, **Extensions and Updates**.  
+1.  在实验实例中的 Visual Studio 中，在菜单栏上，选择**工具**，**扩展和更新**。  
   
-     The **Extensions and Updates** dialog box opens.  
+     此时，“扩展和更新”对话框打开。  
   
-2.  In the list of extensions, choose the **Custom Action Project Item** extension, and then choose the **Uninstall** button.  
+2.  在扩展的列表中，选择**自定义操作项目项**扩展，然后选择**卸载**按钮。  
   
-3.  In the dialog box that appears, choose the **Yes** button to confirm that you want to uninstall the extension, and then choose the **Restart Now** button to complete the uninstallation.  
+3.  在显示的对话框中，选择**是**按钮以确认你要卸载扩展，然后选择**立即重新启动**按钮以完成卸载。  
   
-4.  Close both instances of Visual Studio (the experimental instance and the instance of Visual Studio in which the CustomActionProjectItem solution is open).  
+4.  关闭 Visual Studio （实验实例和 CustomActionProjectItem 解决方案处于打开状态的 Visual Studio 的实例） 的两个实例。  
   
-## <a name="see-also"></a>See Also  
- [Walkthrough: Creating a Custom Action Project Item with an Item Template, Part 1](../sharepoint/walkthrough-creating-a-custom-action-project-item-with-an-item-template-part-1.md)   
- [Defining Custom SharePoint Project Item Types](../sharepoint/defining-custom-sharepoint-project-item-types.md)   
- [Creating Item Templates and Project Templates for SharePoint Project Items](../sharepoint/creating-item-templates-and-project-templates-for-sharepoint-project-items.md)   
- [Visual Studio Template Schema Reference](/visualstudio/extensibility/visual-studio-template-schema-reference)   
- [How to: Use Wizards with Project Templates](../extensibility/how-to-use-wizards-with-project-templates.md)   
- [Default Custom Action Locations and IDs](http://go.microsoft.com/fwlink/?LinkId=181964)  
+## <a name="see-also"></a>另请参阅  
+ [演练： 使用项模板创建的自定义操作项目项，第 1 部分](../sharepoint/walkthrough-creating-a-custom-action-project-item-with-an-item-template-part-1.md)   
+ [定义自定义 SharePoint 项目项类型](../sharepoint/defining-custom-sharepoint-project-item-types.md)   
+ [为 SharePoint 项目项创建项模板和项目模板](../sharepoint/creating-item-templates-and-project-templates-for-sharepoint-project-items.md)   
+ [Visual Studio 模板架构参考](/visualstudio/extensibility/visual-studio-template-schema-reference)   
+ [如何： 使用向导来处理项目模板](../extensibility/how-to-use-wizards-with-project-templates.md)   
+ [默认自定义操作位置和 Id](http://go.microsoft.com/fwlink/?LinkId=181964)  
   
   

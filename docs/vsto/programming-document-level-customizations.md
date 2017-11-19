@@ -1,12 +1,10 @@
 ---
-title: Programming Document-Level Customizations | Microsoft Docs
+title: "文档级自定义项编程 |Microsoft 文档"
 ms.custom: 
 ms.date: 02/02/2017
-ms.prod: visual-studio-dev14
 ms.reviewer: 
 ms.suite: 
-ms.technology:
-- office-development
+ms.technology: office-development
 ms.tgt_pltfrm: 
 ms.topic: article
 f1_keywords:
@@ -30,44 +28,43 @@ helpviewer_keywords:
 - document-level customizations [Office development in Visual Studio], programming
 - application development [Office development in Visual Studio], document-level customizations
 ms.assetid: 6c421055-7bea-4db4-a4c9-539b8c78d4ee
-caps.latest.revision: 34
+caps.latest.revision: "34"
 author: gewarren
 ms.author: gewarren
 manager: ghogen
-ms.translationtype: HT
-ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
-ms.openlocfilehash: 5c220066a2354fd86864e9bc3f3eb798f14bb90a
-ms.contentlocale: zh-cn
-ms.lasthandoff: 08/28/2017
-
+ms.openlocfilehash: 68135e13a0e78e0250b087713ab459825018ff84
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# <a name="programming-document-level-customizations"></a>Programming Document-Level Customizations
-  When you extend Microsoft Office Word or Microsoft Office Excel by using a document-level customization, you can perform the following tasks:  
+# <a name="programming-document-level-customizations"></a>对文档级自定义项进行编程
+  在使用文档级自定义项扩展 Microsoft Office Word 或 Microsoft Office Excel 时，可以执行以下任务：  
   
--   Automate the application by using its object model.  
+-   通过使用应用程序的对象模型对其进行自动化。  
   
--   Add controls to the surface of the document.  
+-   向文档图面添加控件。  
   
--   Call Visual Basic for Applications (VBA) code in the document from the customization assembly.  
+-   从自定义程序集调用文档中的 Visual Basic for Applications (VBA) 代码。  
   
--   Call code in the customization assembly from VBA.  
+-   从 VBA 调用自定义程序集中的代码。  
   
--   Manage certain aspects of the document while it is on a server that does not have Microsoft Office installed.  
+-   在文档位于未安装 Microsoft Office 的服务器上时管理其特定方面。  
   
--   Customize the user interface (UI) of the application.  
+-   自定义应用程序的用户界面 (UI)。  
   
  [!INCLUDE[appliesto_alldoc](../vsto/includes/appliesto-alldoc-md.md)]  
   
- Some aspects of writing code in document-level projects are different from other types of projects in Visual Studio. Many of these differences are caused by the way the Office object models are exposed to managed code. For more information, see [Writing Code in Office Solutions](../vsto/writing-code-in-office-solutions.md).  
+ 在文档级项目中编写代码与在 Visual Studio 中编写其他类型项目的代码在某些方面存在不同。 其中许多差异是由 Office 对象模型公开给托管代码的方式引起的。 有关详细信息，请参阅 [Writing Code in Office Solutions](../vsto/writing-code-in-office-solutions.md)。  
   
- For general information about document-level customizations and other types of solutions you can create by using the Office development tools in Visual Studio, see [Office Solutions Development Overview &#40;VSTO&#41;](../vsto/office-solutions-development-overview-vsto.md).  
+ 有关文档级自定义项和其他类型的解决方案可以通过使用 Visual Studio 中的 Office 开发工具创建的常规信息，请参阅[Office 解决方案开发概述 &#40;VSTO &#41;](../vsto/office-solutions-development-overview-vsto.md).  
   
-## <a name="using-the-generated-classes-in-document-level-projects"></a>Using the Generated Classes in Document-Level Projects  
- When you create a document-level project, Visual Studio automatically generates a class in the project that you can use to start writing your code. Visual Studio generates different classes for Word and Excel:  
+## <a name="using-the-generated-classes-in-document-level-projects"></a>使用文档级项目中生成的类  
+ 创建文档级项目时，Visual Studio 将在项目中自动生成一个可用开始编写代码的类。 Visual Studio 针对 Word 和 Excel 生成不同的类：  
   
--   In document-level projects for Word, the class is called `ThisDocument` by default.  
+-   在 Word 文档级项目中，默认情况下此类称为 `ThisDocument` 。  
   
--   Document-level projects for Excel have multiple generated classes: one for the workbook itself, and one for each worksheet. By default, these classes have the following names:  
+-   Excel 文档级项目具有多个生成的类：一个用于工作簿本身，一个用于每一工作表。 默认情况下，这些类具有以下名称：  
   
     -   `ThisWorkbook`  
   
@@ -77,23 +74,23 @@ ms.lasthandoff: 08/28/2017
   
     -   `Sheet3`  
   
- The generated class includes event handlers that are called when the document is opened or closed. To run code when the document is opened, add code to the `Startup` event handler. To run code just before the document is closed, add code to the `Shutdown` event handler. For more information, see [Events in Office Projects](../vsto/events-in-office-projects.md).  
+ 生成的类包含在打开或关闭文档时调用的事件处理程序。 若要在打开文档时运行代码，请将代码添加到 `Startup` 事件处理程序。 若要在关闭文档后立即运行代码，请将代码添加到 `Shutdown` 事件处理程序。 有关详细信息，请参阅 [Events in Office Projects](../vsto/events-in-office-projects.md)。  
   
-### <a name="understanding-the-design-of-the-generated-classes"></a>Understanding the Design of the Generated Classes  
- In projects that target the [!INCLUDE[net_v40_short](../sharepoint/includes/net-v40-short-md.md)] or the [!INCLUDE[net_v45](../vsto/includes/net-v45-md.md)], the host item types in the [!INCLUDE[vsto_runtime](../vsto/includes/vsto-runtime-md.md)] are interfaces, so the generated classes cannot derive their implementation from them. Instead, the generated classes derive most of their members from the following base classes:  
+### <a name="understanding-the-design-of-the-generated-classes"></a>了解生成的类的设计  
+ 在目标为 [!INCLUDE[net_v40_short](../sharepoint/includes/net-v40-short-md.md)] 或 [!INCLUDE[net_v45](../vsto/includes/net-v45-md.md)]的项目中， [!INCLUDE[vsto_runtime](../vsto/includes/vsto-runtime-md.md)] 中的宿主项类型为接口，因此生成的类不能从中派生其实现。 相反，生成的类从以下基类中派生其大多数成员：  
   
--   `ThisDocument`: derives from <xref:Microsoft.Office.Tools.Word.DocumentBase>.  
+-   `ThisDocument`：派生自 <xref:Microsoft.Office.Tools.Word.DocumentBase>。  
   
--   `ThisWorkbook`: derives from <xref:Microsoft.Office.Tools.Excel.WorkbookBase>.  
+-   `ThisWorkbook`：派生自 <xref:Microsoft.Office.Tools.Excel.WorkbookBase>。  
   
--   `Sheet` *n*: derives from <xref:Microsoft.Office.Tools.Excel.WorksheetBase>.  
+-   `Sheet` *n*：派生自 <xref:Microsoft.Office.Tools.Excel.WorksheetBase>。  
   
- These base classes redirect all calls to their members to internal implementations of the corresponding host item interfaces in the [!INCLUDE[vsto_runtime](../vsto/includes/vsto-runtime-md.md)]. For example, if you call the <xref:Microsoft.Office.Tools.Word.DocumentBase.Protect%2A> method of the `ThisDocument` class, the <xref:Microsoft.Office.Tools.Word.DocumentBase> class redirects this call to the internal implementation of the <xref:Microsoft.Office.Tools.Word.Document> interface in the [!INCLUDE[vsto_runtime](../vsto/includes/vsto-runtime-md.md)].  
+ 这些基类将对其成员的所有调用重定向到 [!INCLUDE[vsto_runtime](../vsto/includes/vsto-runtime-md.md)]中相应宿主项接口的内部实现。 例如，如果你调用 <xref:Microsoft.Office.Tools.Word.DocumentBase.Protect%2A> 类的 `ThisDocument` 方法，则 <xref:Microsoft.Office.Tools.Word.DocumentBase> 类将此调用重定向搭配 <xref:Microsoft.Office.Tools.Word.Document> 中的 [!INCLUDE[vsto_runtime](../vsto/includes/vsto-runtime-md.md)]接口的内部实现。  
   
-## <a name="accessing-the-object-model-of-the-host-application"></a>Accessing the Object Model of the Host Application  
- To access the object model of the host application, use members of the generated class in your project. Each of these classes corresponds to an object in the object model of Excel or Word, and they contain most of the same properties, methods, and events. For example, the `ThisDocument` class in a document-level project for Word provides most of the same members as the <xref:Microsoft.Office.Interop.Word.Document> object in the Word object model.  
+## <a name="accessing-the-object-model-of-the-host-application"></a>访问主机应用程序的对象模型  
+ 若要访问主机应用程序的对象模型，请在项目中使用生成的类的成员。 每个类均对应于 Excel 或 Word 对象模型中一个对象，并包含大多数相同的属性、方法和事件。 例如，Word 文档级别项目中的 `ThisDocument` 类提供与 Word 对象模型中的 <xref:Microsoft.Office.Interop.Word.Document> 对象所提供的大多数相同的成员。  
   
- The following code example shows how to use the Word object model to save the document that is part of a document-level customization for Word. This example is intended to be run from the `ThisDocument` class.  
+ 以下代码示例演示如何使用 Word 对象模型来保存作为 Word 文档级自定义项的一部分的文档。 此示例应从 `ThisDocument` 类运行。  
   
 ```vb  
 Me.Save()  
@@ -103,7 +100,7 @@ Me.Save()
 this.Save();  
 ```  
   
- To do the same thing from outside the `ThisDocument` class, use the `Globals` object to access the `ThisDocument` class. For example, you can add this code to an actions pane code file if you want to include a **Save** button in the actions pane UI.  
+ 若要从 `ThisDocument` 类的外部执行相同操作，请使用 `Globals` 对象访问 `ThisDocument` 类。 例如，如果希望在操作窗格 UI 中包括“保存”  按钮，你可以将此代码添加到操作窗格代码文件中。  
   
 ```vb  
 Globals.ThisDocument.Save()  
@@ -113,71 +110,71 @@ Globals.ThisDocument.Save()
 Globals.ThisDocument.Save();  
 ```  
   
- Because the `ThisDocument` class obtains most of its members from the <xref:Microsoft.Office.Tools.Word.Document> host item, the `Save` method that is called in this code is really the <xref:Microsoft.Office.Tools.Word.Document.Save%2A> method of the <xref:Microsoft.Office.Tools.Word.Document> host item. This method corresponds to the <xref:Microsoft.Office.Interop.Word._Document.Save%2A> method of the <xref:Microsoft.Office.Interop.Word.Document> object in the Word object model.  
+ 由于 `ThisDocument` 类从 <xref:Microsoft.Office.Tools.Word.Document> 宿主项中获取了其大多数成员，所以在此代码中调用的 `Save` 方法实际上是 <xref:Microsoft.Office.Tools.Word.Document.Save%2A> 宿主项的 <xref:Microsoft.Office.Tools.Word.Document> 方法。 此方法与 Word 对象模型中 <xref:Microsoft.Office.Interop.Word._Document.Save%2A> 对象的 <xref:Microsoft.Office.Interop.Word.Document> 方法相对应。  
   
- For more information about using the object models of Word and Excel, see [Word Object Model Overview](../vsto/word-object-model-overview.md) and [Excel Object Model Overview](../vsto/excel-object-model-overview.md).  
+ 有关使用 Word 和 Excel 对象模型的详细信息，请参阅 [Word Object Model Overview](../vsto/word-object-model-overview.md) 和 [Excel Object Model Overview](../vsto/excel-object-model-overview.md)。  
   
- For more information about the `Globals` object, see [Global Access to Objects in Office Projects](../vsto/global-access-to-objects-in-office-projects.md).  
+ 有关详细信息`Globals`对象，请参阅[对 Office 项目中对象的全局访问](../vsto/global-access-to-objects-in-office-projects.md)。  
   
-## <a name="adding-controls-to-documents"></a>Adding Controls to Documents  
- To customize the UI of the document, you can add Windows Forms controls or *host controls* to the document surface. By combining different sets of controls and writing code, you can bind the controls to data, collect information from the user, and respond to user actions.  
+## <a name="adding-controls-to-documents"></a>向文档添加控件  
+ 若要自定义文档的 UI，可以向文档图面添加 Windows 窗体控件或 *宿主控件* 。 通过组合不同的控件集并编写代码，可将控件绑定到数据、从用户处收集信息并响应用户操作。  
   
- Host controls are classes that extend some of the objects in the Word and Excel object model. For example, the <xref:Microsoft.Office.Tools.Excel.ListObject> host control provides all of the functionality of the <xref:Microsoft.Office.Interop.Excel.ListObject> in Excel. However, the <xref:Microsoft.Office.Tools.Excel.ListObject> host control also has additional events and data binding capabilities.  
+ 宿主控件是用于扩展 Word 和 Excel 对象模型中某些对象的类。 例如， <xref:Microsoft.Office.Tools.Excel.ListObject> 宿主控件提供了 Excel 中的 <xref:Microsoft.Office.Interop.Excel.ListObject> 的所有功能。 但是， <xref:Microsoft.Office.Tools.Excel.ListObject> 宿主控件还具有其他事件和数据绑定功能。  
   
- For more information, see [Host Items and Host Controls Overview](../vsto/host-items-and-host-controls-overview.md) and [Windows Forms Controls on Office Documents Overview](../vsto/windows-forms-controls-on-office-documents-overview.md).  
+ 有关详细信息，请参阅 [Host Items and Host Controls Overview](../vsto/host-items-and-host-controls-overview.md) 和 [Windows Forms Controls on Office Documents Overview](../vsto/windows-forms-controls-on-office-documents-overview.md)。  
   
-## <a name="combining-vba-and-document-level-customizations"></a>Combining VBA and Document-Level Customizations  
- You can use VBA code in a document that is part of a document-level customization. You can call VBA code in the document from the customization assembly, and you can also configure your project to enable VBA code in the document to call code in the customization assembly.  
+## <a name="combining-vba-and-document-level-customizations"></a>结合 VBA 和文档级自定义项  
+ 可以在属于文档级自定义项的文档中使用 VBA 代码。 可以从自定义程序集文档中调用 VBA 代码，也可以将项目配置为使文档中的 VBA 代码能够调用自定义程序集中的代码。  
   
- For more information, see [Combining VBA and Document-Level Customizations](../vsto/combining-vba-and-document-level-customizations.md).  
+ 有关更多信息，请参见 [Combining VBA and Document-Level Customizations](../vsto/combining-vba-and-document-level-customizations.md)。  
   
-## <a name="managing-documents-on-a-server"></a>Managing Documents on a Server  
- You can manage several different aspects of document-level customizations on a server that does not have Microsoft Office Word or Microsoft Office Excel installed. For example, you can access and modify data in the data cache of the document. You can also manage the customization assembly that is associated with the document. For example, you can programmatically remove the assembly from the document so that the document no longer runs your code, or you can programmatically attach an assembly to a document.  
+## <a name="managing-documents-on-a-server"></a>在服务器上管理文档  
+ 你可以在未安装 Microsoft Office Word 或 Microsoft Office Excel 的服务器上管理文档级自定义项的几个不同方面。 例如，你可以访问和修改文档数据缓存中的数据。 还可以管理与文档相关联的自定义程序集。 例如，你可以以编程方式从文档中删除程序集以使该文档不再运行你的代码，或者以编程方式将程序集附加到文档。  
   
- For more information, see [Managing Documents on a Server by Using the ServerDocument Class](../vsto/managing-documents-on-a-server-by-using-the-serverdocument-class.md).  
+ 有关详细信息，请参阅 [Managing Documents on a Server by Using the ServerDocument Class](../vsto/managing-documents-on-a-server-by-using-the-serverdocument-class.md)。  
   
-## <a name="customizing-the-user-interface-of-microsoft-office-applications"></a>Customizing the User Interface of Microsoft Office Applications  
- You can customize the UI of Word and Excel in the following ways by using a document-level customization:  
+## <a name="customizing-the-user-interface-of-microsoft-office-applications"></a>自定义 Microsoft Office 应用程序的用户界面  
+ 使用文档级自定义项，你可以通过下列方式自定义 Word 和 Excel 的 UI：  
   
--   Add host controls or Windows Forms controls to the document surface.  
+-   向文档图面添加宿主控件或 Windows 窗体控件。  
   
-     For more information, see [Automating Word by Using Extended Objects](../vsto/automating-word-by-using-extended-objects.md), [Automating Excel by Using Extended Objects](../vsto/automating-excel-by-using-extended-objects.md), and [Windows Forms Controls on Office Documents Overview](../vsto/windows-forms-controls-on-office-documents-overview.md).  
+     有关详细信息，请参阅 [Automating Word by Using Extended Objects](../vsto/automating-word-by-using-extended-objects.md)、 [Automating Excel by Using Extended Objects](../vsto/automating-excel-by-using-extended-objects.md)和 [Windows Forms Controls on Office Documents Overview](../vsto/windows-forms-controls-on-office-documents-overview.md)。  
   
--   Add an actions pane to the document.  
+-   将操作窗格添加到文档。  
   
-     For more information, see [Actions Pane Overview](../vsto/actions-pane-overview.md).  
+     有关更多信息，请参见 [Actions Pane Overview](../vsto/actions-pane-overview.md)。  
   
--   Add custom tabs to the ribbon.  
+-   向功能区添加自定义选项卡。  
   
-     For more information, see [Ribbon Overview](../vsto/ribbon-overview.md).  
+     有关详细信息，请参阅[功能区概述](../vsto/ribbon-overview.md)。  
   
--   Add custom groups to a built-in tab on the ribbon.  
+-   向功能区上的内置选项卡添加自定义组。  
   
-     For more information, see [How to: Customize a Built-in Tab](../vsto/how-to-customize-a-built-in-tab.md).  
+     有关详细信息，请参阅 [How to: Customize a Built-in Tab](../vsto/how-to-customize-a-built-in-tab.md)。  
   
- For more information about customizing the UI of Microsoft Office applications, see [Office UI Customization](../vsto/office-ui-customization.md).  
+ 有关自定义 UI 的 Microsoft Office 应用程序的详细信息，请参阅[Office UI 自定义项](../vsto/office-ui-customization.md)。  
   
-## <a name="getting-extended-objects-from-native-office-objects-in-document-level-customizations"></a>Getting Extended Objects from Native Office Objects in Document-Level Customizations  
- Many event handlers for Office events receive a native Office object that represents the workbook, worksheet, or document that raised the event. In some cases, you might want to run some code only if the workbook or document in your document-level customization raised the event. For example, in a document-level customization for Excel, you might want to run some code when the user activates one of the worksheets in the customized workbook, but not when the user activates a worksheet in some other workbook that happens to be open at the same time.  
+## <a name="getting-extended-objects-from-native-office-objects-in-document-level-customizations"></a>从文档级自定义项中的本机 Office 对象中获取扩展的对象  
+ 许多 Office 事件的事件处理程序可接受本机 Office 对象，这些对象表示工作簿、工作表或引发事件的文档。 在某些情况下，可能仅当工作簿或文档级自定义项中的文档引发事件时，才需要运行某些代码。 例如，在 Excel 文档级自定义项中，当用户激活自定义工作簿中的一个工作表时可能需要运行某些代码，而当用户激活当时恰好处于打开状态的其他工作簿中的工作表时则不运行。  
   
- When you have a native Office object, you can test whether that object has been extended into a *host item* or *host control* in a document-level customization. Host items and host controls are types provided by the [!INCLUDE[vsto_runtime](../vsto/includes/vsto-runtime-md.md)] that add functionality to objects that exist natively in the Word or Excel object models (called *native Office objects*). Collectively, host items and host controls are also called *extended objects*. For more information about host items and host controls, see [Host Items and Host Controls Overview](../vsto/host-items-and-host-controls-overview.md).  
+ 具有本机 Office 对象时，你可以测试该对象是否已扩展为文档级自定义项中的 *宿主项* 或 *宿主控件* 。 宿主项和宿主控件是由 [!INCLUDE[vsto_runtime](../vsto/includes/vsto-runtime-md.md)] 提供的类型，可向以本机方式存在于 Word 或 Excel 对象模型中的对象（称为 *本机 Office 对象*）添加功能。 宿主项和宿主控件又统称 *扩展的对象*。 有关宿主项和宿主控件的详细信息，请参阅 [Host Items and Host Controls Overview](../vsto/host-items-and-host-controls-overview.md)。  
   
-## <a name="understanding-the-getvstoobject-and-hasvstoobject-methods"></a>Understanding the GetVstoObject and HasVstoObject Methods  
- To test a native Office object, use the HasVstoObject and GetVstoObject methods in your project:  
+## <a name="understanding-the-getvstoobject-and-hasvstoobject-methods"></a>了解 GetVstoObject 和 HasVstoObject 方法  
+ 若要测试本机 Office 对象，请在你的项目中使用的 HasVstoObject 和 GetVstoObject 方法：  
   
--   Use the HasVstoObject method if you want to determine whether the native Office object has an extended object in your customization. This method returns **true** if the native Office object has an extended object, and **false** otherwise.  
+-   如果你想要确定本机 Office 对象是否在你的自定义具有扩展的对象，请使用 HasVstoObject 方法。 如果本机 Office 对象具有扩展的对象，则此方法返回 **true** ，否则返回 **false** 。  
   
--   Use the GetVstoObject method if you want to get the extended object for a native Office object. This method returns a <xref:Microsoft.Office.Tools.Excel.ListObject>, <xref:Microsoft.Office.Tools.Excel.Workbook>, <xref:Microsoft.Office.Tools.Excel.Worksheet>, or <xref:Microsoft.Office.Tools.Word.Document> object if the specified native Office object has one. Otherwise, GetVstoObject returns **null**. For example, the GetVstoObject method returns a <xref:Microsoft.Office.Tools.Word.Document> if the specified <xref:Microsoft.Office.Interop.Word.Document> is the underlying object for the document in your Word document project.  
+-   如果你想要将本机 Office 对象中获取扩展的对象，请使用 GetVstoObject 方法。 如果指定的本机 Office 对象具有扩展的对象，则此方法返回 <xref:Microsoft.Office.Tools.Excel.ListObject>、 <xref:Microsoft.Office.Tools.Excel.Workbook>、 <xref:Microsoft.Office.Tools.Excel.Worksheet>或 <xref:Microsoft.Office.Tools.Word.Document> 对象。 否则，返回 GetVstoObject **null**。 例如，GetVstoObject 方法返回<xref:Microsoft.Office.Tools.Word.Document>如果指定<xref:Microsoft.Office.Interop.Word.Document>是 Word 文档项目中的文档的基础对象。  
   
- In document-level projects, you cannot use the GetVstoObject method to create a new <xref:Microsoft.Office.Tools.Excel.Workbook>, <xref:Microsoft.Office.Tools.Excel.Worksheet>, or <xref:Microsoft.Office.Tools.Word.Document> host item at run time. You can use this method only to access existing host items that are generated in your project at design time. If you want to create new host items at run time, you must develop an VSTO Add-in project. For more information, see [Programmatic Limitations of Host Items and Host Controls](../vsto/programmatic-limitations-of-host-items-and-host-controls.md) and [Extending Word Documents and Excel Workbooks in VSTO Add-ins at Run Time](../vsto/extending-word-documents-and-excel-workbooks-in-vsto-add-ins-at-run-time.md).  
+ 在文档级项目中，你不能使用 GetVstoObject 方法创建一个新<xref:Microsoft.Office.Tools.Excel.Workbook>， <xref:Microsoft.Office.Tools.Excel.Worksheet>，或<xref:Microsoft.Office.Tools.Word.Document>在运行时主机项。 此方法仅用于在设计时访问项目中现有的已生成宿主项。 如果想要在运行时创建新的宿主项，则必须开发 VSTO 外接程序项目。 有关详细信息，请参阅 [Programmatic Limitations of Host Items and Host Controls](../vsto/programmatic-limitations-of-host-items-and-host-controls.md) 和 [Extending Word Documents and Excel Workbooks in VSTO Add-ins at Run Time](../vsto/extending-word-documents-and-excel-workbooks-in-vsto-add-ins-at-run-time.md)。  
   
-## <a name="using-the-getvstoobject-and-hasvstoobject-methods"></a>Using the GetVstoObject and HasVstoObject Methods  
- To call the HasVstoObject and GetVstoObject method, use the Globals.Factory.GetVstoObject or Globals.Factory.HasVstoObject method, and pass in the native Word or Excel object (such as a <xref:Microsoft.Office.Interop.Word.Document> or <xref:Microsoft.Office.Interop.Excel.Worksheet>) that you want to test.  
+## <a name="using-the-getvstoobject-and-hasvstoobject-methods"></a>使用 GetVstoObject 和 HasVstoObject 方法  
+ 若要调用的 HasVstoObject 和 GetVstoObject 方法，请使用 Globals.Factory.GetVstoObject 或 Globals.Factory.HasVstoObject 方法，和的本机 Word 或 Excel 对象中传递 (如<xref:Microsoft.Office.Interop.Word.Document>或<xref:Microsoft.Office.Interop.Excel.Worksheet>)，你想要测试。  
   
-## <a name="see-also"></a>See Also  
- [Controls on Office Documents](../vsto/controls-on-office-documents.md)   
+## <a name="see-also"></a>另请参阅  
+ [Office 文档上的控件](../vsto/controls-on-office-documents.md)   
  [Combining VBA and Document-Level Customizations](../vsto/combining-vba-and-document-level-customizations.md)   
- [Managing Documents on a Server by Using the ServerDocument Class](../vsto/managing-documents-on-a-server-by-using-the-serverdocument-class.md)   
- [Writing Code in Office Solutions](../vsto/writing-code-in-office-solutions.md)  
+ [使用 ServerDocument 类管理服务器上的文档](../vsto/managing-documents-on-a-server-by-using-the-serverdocument-class.md)   
+ [在 Office 解决方案中编写代码](../vsto/writing-code-in-office-solutions.md)  
   
   

@@ -1,65 +1,65 @@
 ---
-title: "IDebugPort2 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "IDebugPort2"
-helpviewer_keywords: 
-  - "IDebugPort2 接口"
+title: "IDebugPort2 |Microsoft 文档"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology: vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords: IDebugPort2
+helpviewer_keywords: IDebugPort2 interface
 ms.assetid: 8fd87f05-a950-4d14-b925-98be29d4facc
-caps.latest.revision: 13
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 13
+caps.latest.revision: "13"
+author: gregvanl
+ms.author: gregvanl
+manager: ghogen
+ms.openlocfilehash: b40a141b90489fa65ffc5f29b363d3d647ca4cb8
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# IDebugPort2
-[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
-
-此接口表示设备的调试端口。  
+# <a name="idebugport2"></a>IDebugPort2
+此接口表示计算机上的调试端口。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
 ```  
 IDebugPort2 : IUnknown  
 ```  
   
-## 实现者说明  
- 自定义端口提供程序实现此接口表示设备的调试端口。  
+## <a name="notes-for-implementers"></a>实施者注意事项  
+ 自定义端口供应商提供实现此接口来表示计算机上的调试端口。  
   
- 如果端口支持发送端口操作，则还必须实现 <xref:System.Runtime.InteropServices.ComTypes.IConnectionPointContainer> 接口支持又提供 [IDebugPortEvents2](../../../extensibility/debugger/reference/idebugportevents2.md) 接口的 <xref:System.Runtime.InteropServices.ComTypes.IConnectionPoint> 接口。  
+ 如果端口支持发送端口事件，它还必须实现<xref:System.Runtime.InteropServices.ComTypes.IConnectionPointContainer>接口以支持<xref:System.Runtime.InteropServices.ComTypes.IConnectionPoint>反过来提供接口[IDebugPortEvents2](../../../extensibility/debugger/reference/idebugportevents2.md)接口。  
   
-## 调用方的说明  
- 调用 [GetPort](../../../extensibility/debugger/reference/idebugportsupplier2-getport.md) 或 [添加端口](../../../extensibility/debugger/reference/idebugportsupplier2-addport.md) 返回此接口，则表示请求的端口。  
+## <a name="notes-for-callers"></a>调用方的说明  
+ 调用[GetPort](../../../extensibility/debugger/reference/idebugportsupplier2-getport.md)或[添加](../../../extensibility/debugger/reference/idebugportsupplier2-addport.md)返回此接口，表示请求的端口。  
   
-## 方法按 Vtable 顺序  
- 下表显示 `IDebugPort2`方法。  
+## <a name="methods-in-vtable-order"></a>Vtable 顺序中的方法  
+ 下表显示的方法`IDebugPort2`。  
   
-|方法|说明|  
-|--------|--------|  
-|[GetPortName](../../../extensibility/debugger/reference/idebugport2-getportname.md)|返回端口的名称。|  
+|方法|描述|  
+|------------|-----------------|  
+|[GetPortName](../../../extensibility/debugger/reference/idebugport2-getportname.md)|返回的端口名称。|  
 |[GetPortId](../../../extensibility/debugger/reference/idebugport2-getportid.md)|返回端口标识符。|  
-|[GetPortRequest](../../../extensibility/debugger/reference/idebugport2-getportrequest.md)|返回用于的请求创建端口 \(如果有\)。|  
-|[GetPortSupplier](../Topic/IDebugPort2::GetPortSupplier.md)|返回此的端口提供程序。|  
-|[GetProcess](../Topic/IDebugPort2::GetProcess.md)|返回接口为给定进程进程的标识符。|  
-|[EnumProcesses](../Topic/IDebugPort2::EnumProcesses.md)|枚举上运行的所有进程端口。|  
+|[GetPortRequest](../../../extensibility/debugger/reference/idebugport2-getportrequest.md)|返回用于创建一个端口 （如果可用） 的请求。|  
+|[GetPortSupplier](../../../extensibility/debugger/reference/idebugport2-getportsupplier.md)|返回为此端口端口供应商。|  
+|[GetProcess](../../../extensibility/debugger/reference/idebugport2-getprocess.md)|返回一个指向接口给定进程的标识符的过程。|  
+|[EnumProcesses](../../../extensibility/debugger/reference/idebugport2-enumprocesses.md)|枚举所有的端口上运行的进程。|  
   
-## 备注  
- 本地端口提供对所有进程并运行在本地计算机上的程序。  其他端口可能表示与基于 windows CE 的计算机的串行电缆连接或与非 DCOM 计算机的网络连接。  `IDebugPort2` 接口用于查找端口的名称和标识符，枚举上运行的所有进程端口，并为生成提供功能，并且终止在端口处理。  
+## <a name="remarks"></a>备注  
+ 本地端口提供访问所有进程和在本地计算机上运行的程序。 其他端口可能表示的串行电缆连接到基于 Windows CE 的设备时或与非 DCOM 计算机的网络连接。 `IDebugPort2`接口用于查找的名称和端口、 标识符枚举的端口上运行的所有进程并为启动和终止进程的端口上提供功能。  
   
-## 要求  
- 标题:msdbg.h  
+## <a name="requirements"></a>要求  
+ 标头： msdbg.h  
   
- 命名空间:Microsoft.VisualStudio.Debugger.Interop  
+ Namespace: Microsoft.VisualStudio.Debugger.Interop  
   
- 程序集:Microsoft.VisualStudio.Debugger.Interop.dll  
+ 程序集： Microsoft.VisualStudio.Debugger.Interop.dll  
   
-## 请参阅  
+## <a name="see-also"></a>另请参阅  
  [核心接口](../../../extensibility/debugger/reference/core-interfaces.md)   
  [IDebugPortSupplier2](../../../extensibility/debugger/reference/idebugportsupplier2.md)   
  [IDebugCoreServer2](../../../extensibility/debugger/reference/idebugcoreserver2.md)

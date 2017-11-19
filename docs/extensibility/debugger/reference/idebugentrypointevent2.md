@@ -4,37 +4,21 @@ ms.custom:
 ms.date: 11/04/2016
 ms.reviewer: 
 ms.suite: 
-ms.technology:
-- vs-ide-sdk
+ms.technology: vs-ide-sdk
 ms.tgt_pltfrm: 
 ms.topic: article
-f1_keywords:
-- IDebugEntryPointEvent2
-helpviewer_keywords:
-- IDebugEntryPointEvent2 interface
+f1_keywords: IDebugEntryPointEvent2
+helpviewer_keywords: IDebugEntryPointEvent2 interface
 ms.assetid: a15d1cc3-97b7-438c-8d24-c23149708f42
-caps.latest.revision: 11
+caps.latest.revision: "11"
+author: gregvanl
 ms.author: gregvanl
 manager: ghogen
-translation.priority.mt:
-- cs-cz
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pl-pl
-- pt-br
-- ru-ru
-- tr-tr
-- zh-cn
-- zh-tw
-translationtype: Machine Translation
-ms.sourcegitcommit: ca7c86466fa23fb21a932f26dc24e37c71cf29b4
-ms.openlocfilehash: 194db40a0f73d998d5bf944fde42f09cd7f97b7d
-ms.lasthandoff: 04/05/2017
-
+ms.openlocfilehash: e8f6a5052943da57bc73beacdec8fc94a2b27164
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="idebugentrypointevent2"></a>IDebugEntryPointEvent2
 当程序将要执行用户代码的第一个指令，调试引擎 (DE) 会将此接口发送到会话调试管理器 (SDM)。  
@@ -57,11 +41,11 @@ IDebugEntryPointEvent2 : IUnknown
  当 DE 发送`IDebugEntryPointEvent2`，当前的代码位置应为在用户代码的第一个指令如`main`。  
   
 ## <a name="requirements"></a>要求  
- 标头︰ msdbg.h  
+ 标头： msdbg.h  
   
  Namespace: Microsoft.VisualStudio.Debugger.Interop  
   
- 程序集︰ Microsoft.VisualStudio.Debugger.Interop.dll  
+ 程序集： Microsoft.VisualStudio.Debugger.Interop.dll  
   
 ## <a name="see-also"></a>另请参阅  
  [IDebugEvent2](../../../extensibility/debugger/reference/idebugevent2.md)   

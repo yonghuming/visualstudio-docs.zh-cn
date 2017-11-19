@@ -1,27 +1,30 @@
 ---
-title: "IScriptNode::CreateChildHandler | Microsoft Docs"
-ms.custom: ""
-ms.date: "01/18/2017"
-ms.prod: "windows-script-interfaces"
-ms.reviewer: ""
-ms.suite: ""
-ms.tgt_pltfrm: ""
-ms.topic: "reference"
+title: "IScriptNode::CreateChildHandler |Microsoft 文档"
+ms.custom: 
+ms.date: 01/18/2017
+ms.prod: windows-script-interfaces
+ms.reviewer: 
+ms.suite: 
+ms.tgt_pltfrm: 
+ms.topic: reference
 apiname: IScriptNode.CreateChildHandler
 apilocation: scrobj.dll
-helpviewer_keywords: 
-  - "IScriptNode::CreateChildHandler"
+helpviewer_keywords: IScriptNode::CreateChildHandler
 ms.assetid: 4ce5eb10-1a3f-43b0-a4b7-599a397ed3a2
-caps.latest.revision: 14
-author: "mikejo5000"
-ms.author: "mikejo"
-manager: "ghogen"
-caps.handback.revision: 14
+caps.latest.revision: "14"
+author: mikejo5000
+ms.author: mikejo
+manager: ghogen
+ms.openlocfilehash: ff2ba40d1570e23f0256bd34ca8aff0f8d77ce5c
+ms.sourcegitcommit: aadb9588877418b8b55a5612c1d3842d4520ca4c
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/27/2017
 ---
-# IScriptNode::CreateChildHandler
-添加一scriptlet作为 `IScriptNode`的子实例。  
+# <a name="iscriptnodecreatechildhandler"></a>IScriptNode::CreateChildHandler
+添加的子实例作为的 scriptlet `IScriptNode`。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
 ```  
 HRESULT CreateChildHandler(  
@@ -38,51 +41,51 @@ HRESULT CreateChildHandler(
 );  
 ```  
   
-#### 参数  
+#### <a name="parameters"></a>参数  
  `pszDefaultName`  
- \[in\]关联的默认名称的地址与scriptlet。  
+ [in]要将与 scriptlet 相关联的默认名称的地址。  
   
  `prgpszNames`  
- \[in，size\_is \(`cpszNames`\)\]标识符的列表从完全限定名的宿主。  
+ [在 size_is (`cpszNames`)] 从主机上的完全限定名称的标识符的列表。  
   
  `cpszNames`  
- \[in\]标识符数。`prgpszNames` 参数的。  
+ [in]中的标识符的数量`prgpszNames`参数。  
   
  `pszEvent`  
- \[in\]标识事件名称的缓冲区地址与scriptlet。  
+ [in]标识与 scriptlet 关联的事件名称的缓冲区地址。  
   
  `pszDelimiter`  
- \[in\]关闭脚本块分隔符的地址。  对分析，宿主通常使用一个分隔符\(例如两个单引号\)，检测末尾的脚本块。  
+ [in]结束的脚本块分隔符的地址。 有关分析过程中，主机通常使用分隔符 （如两个单引号），来检测脚本块的末尾。  
   
- 该分隔符由生成引擎的脚本启用预处理。  例如，引擎可能具有两个单引号一个单引号用作分隔符。  引擎确定如何使用该分隔符。  
+ 分隔符使预处理创作引擎脚本。 例如，对于引擎可能与用作分隔符两个单引号替换单引号。 引擎确定如何使用分隔符。  
   
- 设置为NULL，如果分隔符不用于标识末尾的脚本块。  
+ 如果无分隔符用于标识脚本块的末尾，则设置为 NULL。  
   
  `ptiSignature`  
- \[in\]函数对象的类型信息。  
+ [in]函数对象的类型信息。  
   
  `iMethodSignature`  
- \[in\]功能的索引。`ITypeInfo``ptiSignature` 参数的。  
+ [in]中的函数的索引`ITypeInfo``ptiSignature`参数。  
   
  `isn`  
- \[in\]\)的索引父级。  
+ [in]父代中的子级的索引。  
   
  `dwCookie`  
- \[in\]用于将项与宿主对象的应用程序定义的值。  
+ [in]应用程序定义的一个值，用于将条目与该主机对象相关联。  
   
  `ppse`  
- \[in\]接收指向该子实例的 `IScriptEntry` 接口变量的地址。  
+ [out]接收指向的变量的地址`IScriptEntry`接口的子实例。  
   
-## 返回值  
- 一个 `HRESULT`。  可能的值包括，但是，并不限于，这些下表中。  
+## <a name="return-value"></a>返回值  
+ 一个 `HRESULT`。 可能的值包括（但并不限于）下表中的项。  
   
-|值|说明|  
-|-------|--------|  
+|值|描述|  
+|-----------|-----------------|  
 |`S_OK`|方法成功。|  
   
-## 备注  
- scriptlet指定事件处理程序。  此方法将创建一个scriptlet，则由表示网页的 `IScriptNode` 对象调用。  如果它由其他接口，调用此方法不成功。  
+## <a name="remarks"></a>备注  
+ Scriptlet 指定事件处理程序。 此方法创建 scriptlet，如果它由`IScriptNode`表示 Web 页的对象。 如果它由其他接口进行调用，则此方法不会成功。  
   
-## 请参阅  
+## <a name="see-also"></a>另请参阅  
  [IScriptNode 接口](../../winscript/reference/iscriptnode-interface.md)   
  [IScriptEntry 接口](../../winscript/reference/iscriptentry-interface.md)

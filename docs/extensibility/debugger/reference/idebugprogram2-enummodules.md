@@ -1,52 +1,52 @@
 ---
-title: "IDebugProgram2::EnumModules | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "IDebugProgram2::EnumModules"
-helpviewer_keywords: 
-  - "IDebugProgram2::EnumModules"
+title: "IDebugProgram2::EnumModules |Microsoft 文档"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology: vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords: IDebugProgram2::EnumModules
+helpviewer_keywords: IDebugProgram2::EnumModules
 ms.assetid: 876ac9da-3b7c-4156-b79a-8f340e9fcea6
-caps.latest.revision: 10
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 10
+caps.latest.revision: "10"
+author: gregvanl
+ms.author: gregvanl
+manager: ghogen
+ms.openlocfilehash: 23f905a4a7fc239efb2220f15deb95954a46d998
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# IDebugProgram2::EnumModules
-[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
-
-检索此程序加载的模块的列表和执行。  
+# <a name="idebugprogram2enummodules"></a>IDebugProgram2::EnumModules
+检索此程序已加载，并且正在执行的模块的列表。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
-```cpp#  
-HRESULT EnumModules(   
-   IEnumDebugModules2** ppEnum  
+```cpp  
+HRESULT EnumModules(   
+   IEnumDebugModules2** ppEnum  
 );  
 ```  
   
-```c#  
-int EnumModules(   
-   out IEnumDebugModules2 ppEnum  
+```csharp  
+int EnumModules(   
+   out IEnumDebugModules2 ppEnum  
 );  
 ```  
   
-#### 参数  
+#### <a name="parameters"></a>参数  
  `ppEnum`  
- \[out\] 返回包含模块的列表 [IEnumDebugModules2](../../../extensibility/debugger/reference/ienumdebugmodules2.md) 对象。  
+ [out]返回[IEnumDebugModules2](../../../extensibility/debugger/reference/ienumdebugmodules2.md)对象，其中包含模块的列表。  
   
-## 返回值  
- 如果成功，则返回; `S_OK`否则，返回错误代码。  
+## <a name="return-value"></a>返回值  
+ 如果成功，则返回`S_OK`; 否则为返回错误代码。  
   
-## 备注  
- 模块是 DLL 或程序集和通常列表中 **模块** 调试窗口。  
+## <a name="remarks"></a>备注  
+ 模块是一个 DLL 或程序集，并且通常列在**模块**调试窗口。  
   
-## 请参阅  
+## <a name="see-also"></a>另请参阅  
  [IDebugProgram2](../../../extensibility/debugger/reference/idebugprogram2.md)   
  [IEnumDebugModules2](../../../extensibility/debugger/reference/ienumdebugmodules2.md)

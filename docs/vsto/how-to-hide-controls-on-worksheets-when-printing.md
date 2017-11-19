@@ -1,52 +1,54 @@
 ---
-title: "如何：在打印时隐藏工作表的控件"
-ms.custom: ""
-ms.date: "02/02/2017"
-ms.prod: "visual-studio-dev14"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "office-development"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-dev_langs: 
-  - "VB"
-  - "CSharp"
-helpviewer_keywords: 
-  - "控件 [Visual Studio 中的 Office 开发], 打印时隐藏"
-  - "打印 [Visual Studio 中的 Office 开发], 隐藏控件"
-  - "打印 [Visual Studio 中的 Office 开发], 工作表"
-  - "工作表, 打印时隐藏控件"
+title: "如何： 在打印时隐藏工作表上的控件 |Microsoft 文档"
+ms.custom: 
+ms.date: 02/02/2017
+ms.reviewer: 
+ms.suite: 
+ms.technology: office-development
+ms.tgt_pltfrm: 
+ms.topic: article
+dev_langs:
+- VB
+- CSharp
+helpviewer_keywords:
+- printing [Office development in Visual Studio], worksheets
+- controls [Office development in Visual Studio], hiding while printing
+- printing [Office development in Visual Studio], hiding controls
+- worksheets, hiding controls when printing
 ms.assetid: a637fe9a-9de1-4162-8ff6-fe28ccd62389
-caps.latest.revision: 28
-author: "kempb"
-ms.author: "kempb"
-manager: "ghogen"
-caps.handback.revision: 28
+caps.latest.revision: "28"
+author: gewarren
+ms.author: gewarren
+manager: ghogen
+ms.openlocfilehash: e89c2f986ffc71892682b9fc8ab60b8810850c2a
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# 如何：在打印时隐藏工作表的控件
-  打印包含 Windows 窗体控件的 Microsoft Office Excel 文档时，控件在打印的工作表上可见。  可以在打印工作表时隐藏这些控件。  
+# <a name="how-to-hide-controls-on-worksheets-when-printing"></a>如何：在打印时隐藏工作表的控件
+  包含 Windows 窗体控件的 Microsoft Office Excel 文档打印时，控件可见。 在打印工作表。 打印工作表时，可以隐藏控件。  
   
  [!INCLUDE[appliesto_xlalldoc](../vsto/includes/appliesto-xlalldoc-md.md)]  
   
 > [!NOTE]  
->  如果隐藏了显示数据的控件，如 <xref:Microsoft.Office.Tools.Excel.Controls.TextBox>，则在打印出来的工作表上将看不见该控件中的数据。  
+>  如果你隐藏控件显示数据，如<xref:Microsoft.Office.Tools.Excel.Controls.TextBox>，控件中的数据将不打印工作表上可见。  
   
 > [!NOTE]  
->  以下说明中的某些 Visual Studio 用户界面元素在计算机上出现的名称或位置可能会不同。  您安装的 Visual Studio 版本以及使用的设置决定了这些元素。  有关更多信息，请参见[Customizing Development Settings in Visual Studio](http://msdn.microsoft.com/zh-cn/22c4debb-4e31-47a8-8f19-16f328d7dcd3)。  
+>  以下说明中的某些 Visual Studio 用户界面元素在计算机上出现的名称或位置可能会不同。 这些元素取决于你所使用的 Visual Studio 版本和你所使用的设置。 有关详细信息，请参阅[个性化设置 Visual Studio IDE](../ide/personalizing-the-visual-studio-ide.md)。  
   
-### 打印工作表时隐藏控件  
+### <a name="to-hide-controls-when-a-worksheet-is-printed"></a>若要隐藏工作表时的控件打印  
   
-1.  在 Visual Studio 中创建或打开一个 Excel 项目，并验证**“Sheet1”**在设计器中是否可见。  有关创建项目的信息，请参见[如何：在 Visual Studio 中创建 Office 项目](../vsto/how-to-create-office-projects-in-visual-studio.md)。  
+1.  创建或打开 Visual Studio 中的 Excel 项目并验证**Sheet1**在设计器中可见。 有关创建项目的信息，请参阅[如何： 创建 Visual Studio 中的 Office 项目](../vsto/how-to-create-office-projects-in-visual-studio.md)。  
   
-2.  从**“工具箱”**的**“公共控件”**选项卡中，将一个 <xref:Microsoft.Office.Tools.Excel.Controls.Button> 控件拖动到 `Sheet1` 上的单元格中。  
+2.  从**公共控件**选项卡**工具箱**，拖动<xref:Microsoft.Office.Tools.Excel.Controls.Button>控件拖到单元格上`Sheet1`。  
   
-3.  在**“属性”**窗口中，将 <xref:Microsoft.Office.Tools.Excel.Controls.Button.PrintObject%2A> 属性设置为 **False**。  
+3.  在**属性**窗口中，设置<xref:Microsoft.Office.Tools.Excel.Controls.Button.PrintObject%2A>属性**False**。  
   
-## 请参阅  
+## <a name="see-also"></a>另请参阅  
  [Office 文档上的控件](../vsto/controls-on-office-documents.md)   
- [Office 文档上的 Windows 窗体控件概述](../vsto/windows-forms-controls-on-office-documents-overview.md)   
- [如何：为 Office 文档添加 Windows 窗体控件](../vsto/how-to-add-windows-forms-controls-to-office-documents.md)   
- [如何：调整工作表单元格中的控件的大小](../vsto/how-to-resize-controls-within-worksheet-cells.md)  
+ [Windows 窗体上的控件 Office 文档概述](../vsto/windows-forms-controls-on-office-documents-overview.md)   
+ [如何： 添加 Windows 窗体控件添加到 Office 文档](../vsto/how-to-add-windows-forms-controls-to-office-documents.md)   
+ [如何：调整工作表单元格中的控件大小](../vsto/how-to-resize-controls-within-worksheet-cells.md)  
   
   

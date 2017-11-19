@@ -1,48 +1,49 @@
 ---
-title: "IDebugProgramDestroyEventFlags2 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-helpviewer_keywords: 
-  - "IDebugProgramDestroyEventFlags2 接口"
+title: "IDebugProgramDestroyEventFlags2 |Microsoft 文档"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology: vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+helpviewer_keywords: IDebugProgramDestroyEventFlags2 interface
 ms.assetid: d384ff71-dc71-40b9-a871-801f8b6a3418
-caps.latest.revision: 7
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 7
+caps.latest.revision: "7"
+author: gregvanl
+ms.author: gregvanl
+manager: ghogen
+ms.openlocfilehash: bee4fe04f22bd9afbff8e2d26ef9d699b0226241
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# IDebugProgramDestroyEventFlags2
-[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
-
-，在调试会话结束时，可以调试引擎重写 [!INCLUDE[vsprvs](../../../code-quality/includes/vsprvs_md.md)] UI 的默认行为。  
+# <a name="idebugprogramdestroyeventflags2"></a>IDebugProgramDestroyEventFlags2
+允许重写默认行为的调试引擎[!INCLUDE[vsprvs](../../../code-quality/includes/vsprvs_md.md)]UI 时结束调试会话。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
 ```  
 IDebugProgramDestroyEventFlags2 : IUnknown  
 ```  
   
-## 实现者说明  
- 此接口实现调试引擎。  为可能创建和销毁在进程的生存期内的多个程序的宿主是有用的。  
+## <a name="notes-for-implementers"></a>实施者注意事项  
+ 此接口由的调试引擎实现。 它可用于可能创建和销毁进程的生存期内的多个程序的主机。  
   
-## 方法  
- 下表显示 `IDebugProgramDestroyEventFlags2`方法。  
+## <a name="methods"></a>方法  
+ 下表显示的方法`IDebugProgramDestroyEventFlags2`。  
   
-|方法|说明|  
-|--------|--------|  
+|方法|描述|  
+|------------|-----------------|  
 |[GetFlags](../../../extensibility/debugger/reference/idebugprogramdestroyeventflags2-getflags.md)|检索程序销毁标志。|  
   
-## 备注  
- ，在任何过程发送了一个程序销毁事件后， [!INCLUDE[vsprvs](../../../code-quality/includes/vsprvs_md.md)] UI 的默认行为是返回设计模式。  此接口可以调试引擎更改此行为。  
+## <a name="remarks"></a>备注  
+ 默认行为[!INCLUDE[vsprvs](../../../code-quality/includes/vsprvs_md.md)]UI 是以返回到设计模式下，所有程序具有都发送程序后销毁事件。 此接口允许一个调试引擎来更改该行为。  
   
-## 要求  
- 标题:Msdbg.h  
+## <a name="requirements"></a>要求  
+ 标头： Msdbg.h  
   
- 命名空间:Microsoft.VisualStudio.Debugger.Interop  
+ Namespace: Microsoft.VisualStudio.Debugger.Interop  
   
- 程序集:Microsoft.VisualStudio.Debugger.Interop.dll
+ 程序集： Microsoft.VisualStudio.Debugger.Interop.dll

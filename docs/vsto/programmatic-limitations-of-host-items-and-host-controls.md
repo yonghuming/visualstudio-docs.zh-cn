@@ -1,12 +1,10 @@
 ---
-title: Programmatic Limitations of Host Items and Host Controls | Microsoft Docs
+title: "主机项和主机控件的编程限制 |Microsoft 文档"
 ms.custom: 
 ms.date: 02/02/2017
-ms.prod: visual-studio-dev14
 ms.reviewer: 
 ms.suite: 
-ms.technology:
-- office-development
+ms.technology: office-development
 ms.tgt_pltfrm: 
 ms.topic: article
 dev_langs:
@@ -33,71 +31,72 @@ helpviewer_keywords:
 - document-level customizations [Office development in Visual Studio], host items
 - Word [Office development in Visual Studio], host controls
 ms.assetid: 88487946-6f3d-4ea6-8de0-dd219b8002df
-caps.latest.revision: 67
-author: kempb
-ms.author: kempb
+caps.latest.revision: "67"
+author: gewarren
+ms.author: gewarren
 manager: ghogen
-ms.translationtype: HT
-ms.sourcegitcommit: eb5c9550fd29b0e98bf63a7240737da4f13f3249
-ms.openlocfilehash: e75c2a38fab4d8bb0b11846b6f944626e7827768
-ms.contentlocale: zh-cn
-ms.lasthandoff: 08/30/2017
-
+ms.openlocfilehash: b9650014deb748607598b470d7eb797193213f39
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# <a name="programmatic-limitations-of-host-items-and-host-controls"></a>Programmatic Limitations of Host Items and Host Controls
-  Each host item and host control is designed to behave like a corresponding native Microsoft Office Word or Microsoft Office Excel object, with additional functionality. However, there are some fundamental differences between the behavior of host items and host controls and native Office objects at run time.  
+# <a name="programmatic-limitations-of-host-items-and-host-controls"></a>宿主项和宿主控件的编程限制
+  每个宿主项和宿主控件的行为都类似于相应的本机 Microsoft Office Word 或 Microsoft Office Excel 对象，并且具有附加功能。 但是，在运行时宿主项和宿主控件的行为与本机 Office 对象之间存在一些本质区别。  
   
- For general information about host items and host controls, see [Host Items and Host Controls Overview](../vsto/host-items-and-host-controls-overview.md).  
+ 有关宿主项和宿主控件的常规信息，请参阅 [Host Items and Host Controls Overview](../vsto/host-items-and-host-controls-overview.md)。  
   
  [!INCLUDE[appliesto_controls](../vsto/includes/appliesto-controls-md.md)]  
   
-## <a name="programmatically-creating-host-items"></a>Programmatically Creating Host Items  
- When you programmatically create or open a document, workbook, or worksheet at run time by using the Word or Excel object model, the item is not a host item. Instead, the new object is a native Office object. For example, if you use the <xref:Microsoft.Office.Interop.Word.Documents.Add%2A> method to create a new Word document at run time, it will be a native <xref:Microsoft.Office.Interop.Word.Document> object rather than a <xref:Microsoft.Office.Tools.Word.Document> host item. Similarly, when you create a new worksheet at run time using the <xref:Microsoft.Office.Interop.Excel.Worksheets.Add%2A> method, you get a native <xref:Microsoft.Office.Interop.Excel.Worksheet> object rather than a <xref:Microsoft.Office.Tools.Excel.Worksheet> host item.  
+## <a name="programmatically-creating-host-items"></a>以编程方式创建宿主项  
+ 使用 Word 或 Excel 对象模型在运行时以编程方式创建或打开文档、工作簿或工作表时，该项不是宿主项。 相反，新的对象是本机 Office 对象。 例如，如果使用 <xref:Microsoft.Office.Interop.Word.Documents.Add%2A> 方法在运行时创建新的 Word 文档，它将是一个本机 <xref:Microsoft.Office.Interop.Word.Document> 对象而不是 <xref:Microsoft.Office.Tools.Word.Document> 宿主项。 同样，当你使用 <xref:Microsoft.Office.Interop.Excel.Worksheets.Add%2A> 方法在运行时创建新工作表时，会得到本机 <xref:Microsoft.Office.Interop.Excel.Worksheet> 对象而不是 <xref:Microsoft.Office.Tools.Excel.Worksheet> 宿主项。  
   
- In document-level projects, you cannot create host items at run time. Host items can be created only at design time in document-level projects. For more information, see [Document Host Item](../vsto/document-host-item.md), [Workbook Host Item](../vsto/workbook-host-item.md), and [Worksheet Host Item](../vsto/worksheet-host-item.md).  
+ 在文档级项目中，不能在运行时创建宿主项。 在文档级项目中，只能在设计时创建宿主项。 有关详细信息，请参阅 [Document Host Item](../vsto/document-host-item.md)、 [Workbook Host Item](../vsto/workbook-host-item.md)和 [Worksheet Host Item](../vsto/worksheet-host-item.md)。  
   
- In VSTO Add-in projects, you can create <xref:Microsoft.Office.Tools.Word.Document>, <xref:Microsoft.Office.Tools.Excel.Workbook>, or <xref:Microsoft.Office.Tools.Excel.Worksheet> host items at run time. For more information, see [Extending Word Documents and Excel Workbooks in VSTO Add-ins at Run Time](../vsto/extending-word-documents-and-excel-workbooks-in-vsto-add-ins-at-run-time.md).  
+ 在 VSTO 外接程序项目中，可以在运行时创建 <xref:Microsoft.Office.Tools.Word.Document>、 <xref:Microsoft.Office.Tools.Excel.Workbook>或 <xref:Microsoft.Office.Tools.Excel.Worksheet> 宿主项。 有关详细信息，请参阅 [Extending Word Documents and Excel Workbooks in VSTO Add-ins at Run Time](../vsto/extending-word-documents-and-excel-workbooks-in-vsto-add-ins-at-run-time.md)。  
   
-## <a name="programmatically-creating-host-controls"></a>Programmatically Creating Host Controls  
- You can programmatically add host controls to a <xref:Microsoft.Office.Tools.Word.Document> or <xref:Microsoft.Office.Tools.Excel.Worksheet> host item at run time. For more information, see [Adding Controls to Office Documents at Run Time](../vsto/adding-controls-to-office-documents-at-run-time.md).  
+## <a name="programmatically-creating-host-controls"></a>以编程方式创建宿主控件  
+ 可以在运行时以编程方式向 <xref:Microsoft.Office.Tools.Word.Document> 或 <xref:Microsoft.Office.Tools.Excel.Worksheet> 宿主项添加宿主控件。 有关详细信息，请参阅 [Adding Controls to Office Documents at Run Time](../vsto/adding-controls-to-office-documents-at-run-time.md)。  
   
- You cannot add host controls to a native <xref:Microsoft.Office.Interop.Word.Document> or <xref:Microsoft.Office.Interop.Excel.Worksheet>.  
+ 不能向本机 <xref:Microsoft.Office.Interop.Word.Document> 或 <xref:Microsoft.Office.Interop.Excel.Worksheet>添加宿主控件。  
   
 > [!NOTE]  
->  The following host controls cannot be added programmatically to worksheets or documents: <xref:Microsoft.Office.Tools.Excel.XmlMappedRange>, <xref:Microsoft.Office.Tools.Word.XMLNode>, and <xref:Microsoft.Office.Tools.Word.XMLNodes>.  
+>  不能以编程方式向工作表或文档添加以下宿主控件： <xref:Microsoft.Office.Tools.Excel.XmlMappedRange>、 <xref:Microsoft.Office.Tools.Word.XMLNode>和 <xref:Microsoft.Office.Tools.Word.XMLNodes>。  
   
-## <a name="understanding-type-differences-between-host-items-host-controls-and-native-office-objects"></a>Understanding Type Differences Between Host Items, Host Controls, and Native Office Objects  
- For each host item and host control, there is an underlying native Microsoft Office Word or Microsoft Office Excel object. You can access the underlying object by using the InnerObject property of the host item or host control. However, there is no way to cast a native Office object to its corresponding host item or host control. If you try to cast a native Office object into the type of a host item or host control, an <xref:System.InvalidCastException> is thrown.  
+## <a name="understanding-type-differences-between-host-items-host-controls-and-native-office-objects"></a>了解宿主项、宿主控件和本机 Office 对象之间的类型差异  
+ 对于每个宿主项和宿主控件，都有基础本机 Microsoft Office Word 或 Microsoft Office Excel 对象。 可以通过使用主机项或宿主控件的 InnerObject 属性来访问基础对象。 但是，没有办法将本机 Office 对象强制转换为其对应的宿主项或宿主控件。 如果尝试将本机 Office 对象强制转换为宿主项或宿主控件的类型，将引发 <xref:System.InvalidCastException> 。  
   
- There are several scenarios where the differences between the types of host items and host controls and the underlying native Office objects can affect your code.  
+ 有几种应用场景，宿主项和宿主控件的类型与基础本机 Office 对象之间的差异可能会影响你的代码。  
   
-### <a name="passing-host-controls-to-methods-and-properties"></a>Passing Host Controls to Methods and Properties  
- In Word, you cannot pass a host control to a method or property that requires a native Word object as a parameter. You must use the InnerObject property of the host control to return the underlying native Word object. For example, you can pass a <xref:Microsoft.Office.Interop.Word.Bookmark> object to a method by passing the <xref:Microsoft.Office.Tools.Word.Bookmark.InnerObject%2A> property of the <xref:Microsoft.Office.Tools.Word.Bookmark> host control to the method.  
+### <a name="passing-host-controls-to-methods-and-properties"></a>将宿主控件传递给方法和属性  
+ 在 Word 中，不能将宿主控件传递给需要将本机 Word 对象作为参数的方法或属性。 必须使用主机控件的 InnerObject 属性以返回基础本机 Word 对象。 例如，可以通过将 <xref:Microsoft.Office.Interop.Word.Bookmark> 宿主控件的 <xref:Microsoft.Office.Tools.Word.Bookmark.InnerObject%2A> 属性传递给方法，从而将 <xref:Microsoft.Office.Tools.Word.Bookmark> 对象传递给方法。  
   
- In Excel, you must use the InnerObject property of the host control to pass the host control to a method or property when the method or property expects the underlying Excel object.  
+ 在 Excel 中，必须使用主机控件的 InnerObject 属性时方法或属性需要基础 Excel 对象，将主机控件传递到方法或属性。  
   
- The following example creates a <xref:Microsoft.Office.Tools.Excel.NamedRange> control and passes it to the <xref:Microsoft.Office.Interop.Excel.Range.AutoFill%2A> method. The code uses the <xref:Microsoft.Office.Tools.Excel.NamedRange.InnerObject%2A> property of the named range to return the underlying Office <xref:Microsoft.Office.Interop.Excel.Range> that is required by the <xref:Microsoft.Office.Interop.Excel.Range.AutoFill%2A> method.  
+ 下面的示例创建一个 <xref:Microsoft.Office.Tools.Excel.NamedRange> 控件，并将其传递给 <xref:Microsoft.Office.Interop.Excel.Range.AutoFill%2A> 方法。 该代码使用命名范围的 <xref:Microsoft.Office.Tools.Excel.NamedRange.InnerObject%2A> 属性来返回 <xref:Microsoft.Office.Interop.Excel.Range> 方法所需的基础 Office <xref:Microsoft.Office.Interop.Excel.Range.AutoFill%2A> 。  
   
- [!code-csharp[Trin_VstcoreHostControlsExcel#28](../vsto/codesnippet/CSharp/Trin_VstcoreHostControlsExcelCS/Sheet1.cs#28)] [!code-vb[Trin_VstcoreHostControlsExcel#28](../vsto/codesnippet/VisualBasic/Trin_VstcoreHostControlsExcelVB/Sheet1.vb#28)]  
+ [!code-csharp[Trin_VstcoreHostControlsExcel#28](../vsto/codesnippet/CSharp/Trin_VstcoreHostControlsExcelCS/Sheet1.cs#28)]
+ [!code-vb[Trin_VstcoreHostControlsExcel#28](../vsto/codesnippet/VisualBasic/Trin_VstcoreHostControlsExcelVB/Sheet1.vb#28)]  
   
-### <a name="return-types-of-native-office-methods-and-properties"></a>Return Types of Native Office Methods and Properties  
- Most methods and properties of host items return the underlying native Office object upon which the host item is based. For example, the <xref:Microsoft.Office.Tools.Excel.NamedRange.Parent%2A> property of a <xref:Microsoft.Office.Tools.Excel.NamedRange> host control in Excel returns a <xref:Microsoft.Office.Interop.Excel.Worksheet> object rather than a <xref:Microsoft.Office.Tools.Excel.Worksheet> host item. Similarly, the <xref:Microsoft.Office.Tools.Word.RichTextContentControl.Parent%2A> property of a <xref:Microsoft.Office.Tools.Word.RichTextContentControl> host control in Word returns a <xref:Microsoft.Office.Interop.Word.Document> object rather than a <xref:Microsoft.Office.Tools.Word.Document> host item.  
+### <a name="return-types-of-native-office-methods-and-properties"></a>返回本机 Office 方法和属性的类型  
+ 宿主项的大多数方法和属性将返回宿主项所依据的基础本机 Office 对象。 例如，Excel 中 <xref:Microsoft.Office.Tools.Excel.NamedRange.Parent%2A> 宿主控件的 <xref:Microsoft.Office.Tools.Excel.NamedRange> 属性将返回 <xref:Microsoft.Office.Interop.Excel.Worksheet> 对象而不是 <xref:Microsoft.Office.Tools.Excel.Worksheet> 宿主项。 同样，Word 中 <xref:Microsoft.Office.Tools.Word.RichTextContentControl.Parent%2A> 宿主控件的 <xref:Microsoft.Office.Tools.Word.RichTextContentControl> 属性也将返回 <xref:Microsoft.Office.Interop.Word.Document> 对象而不是 <xref:Microsoft.Office.Tools.Word.Document> 宿主项。  
   
-### <a name="accessing-collections-of-host-controls"></a>Accessing Collections of Host Controls  
- The [!INCLUDE[vsto_runtime](../vsto/includes/vsto-runtime-md.md)] does not provide individual collections for each type of host control. Instead, use the Controls property of a host item to iterate through all managed controls (both host controls and Windows Forms controls) on the document or worksheet, and then look for items that match the type of the host control you are interested in. The following code example examines each control on a Word document and determines whether the control is a <xref:Microsoft.Office.Tools.Word.Bookmark>.  
+### <a name="accessing-collections-of-host-controls"></a>访问宿主控件的集合  
+ [!INCLUDE[vsto_runtime](../vsto/includes/vsto-runtime-md.md)] 不为每种类型的宿主控件提供单独的集合。 相反，使用的主机项的控件属性来循环访问所有托管控件 （宿主控件和 Windows 窗体控件） 的文档或工作表，，然后查找你感兴趣的主机控件的类型匹配的项。 下面的代码示例检查 Word 文档中的每个控件，并确定控件是否为 <xref:Microsoft.Office.Tools.Word.Bookmark>。  
   
- [!code-csharp[Trin_VstcoreHostControlsWord#10](../vsto/codesnippet/CSharp/trin_vstcorehostcontrolsword/ThisDocument.cs#10)] [!code-vb[Trin_VstcoreHostControlsWord#10](../vsto/codesnippet/VisualBasic/Trin_VstcoreHostControlsWordVB/ThisDocument.vb#10)]  
+ [!code-csharp[Trin_VstcoreHostControlsWord#10](../vsto/codesnippet/CSharp/trin_vstcorehostcontrolsword/ThisDocument.cs#10)]
+ [!code-vb[Trin_VstcoreHostControlsWord#10](../vsto/codesnippet/VisualBasic/Trin_VstcoreHostControlsWordVB/ThisDocument.vb#10)]  
   
- For more information about the Controls property of host items, see [Adding Controls to Office Documents at Run Time](../vsto/adding-controls-to-office-documents-at-run-time.md).  
+ 有关主机项的控件属性的详细信息，请参阅[在运行时向 Office 文档添加控件](../vsto/adding-controls-to-office-documents-at-run-time.md)。  
   
- The Word and Excel object models include properties that expose collections of native controls on documents and worksheets. You cannot access managed controls by using these properties. For example, it is not possible to enumerate each <xref:Microsoft.Office.Tools.Word.Bookmark> host control in a document by using the <xref:Microsoft.Office.Interop.Word._Document.Bookmarks%2A> property of a <xref:Microsoft.Office.Interop.Word.Document> or the <xref:Microsoft.Office.Tools.Word.Document.Bookmarks%2A> property of a <xref:Microsoft.Office.Tools.Word.Document>. These properties include only the <xref:Microsoft.Office.Interop.Word.Bookmark> controls in the document; they do not contain the <xref:Microsoft.Office.Tools.Word.Bookmark> host controls in the document.  
+ Word 和 Excel 对象模型包括公开文档和工作表中本机控件的集合的属性。 不能使用这些属性来访问托管控件。 例如，不能使用 <xref:Microsoft.Office.Tools.Word.Bookmark> 的 <xref:Microsoft.Office.Interop.Word._Document.Bookmarks%2A> 属性或 <xref:Microsoft.Office.Interop.Word.Document> 的 <xref:Microsoft.Office.Tools.Word.Document.Bookmarks%2A> 属性来枚举文档中的每个 <xref:Microsoft.Office.Tools.Word.Document>宿主控件。 这些属性仅包括文档中的 <xref:Microsoft.Office.Interop.Word.Bookmark> 控件；不包括文档中的 <xref:Microsoft.Office.Tools.Word.Bookmark> 宿主控件。  
   
-## <a name="see-also"></a>See Also  
+## <a name="see-also"></a>另请参阅  
  [Host Items and Host Controls Overview](../vsto/host-items-and-host-controls-overview.md)   
- [Automating Word by Using Extended Objects](../vsto/automating-word-by-using-extended-objects.md)   
- [Automating Excel by Using Extended Objects](../vsto/automating-excel-by-using-extended-objects.md)   
- [Worksheet Host Item](../vsto/worksheet-host-item.md)   
- [Workbook Host Item](../vsto/workbook-host-item.md)   
- [Document Host Item](../vsto/document-host-item.md)  
+ [使用扩展对象实现 Word 自动化](../vsto/automating-word-by-using-extended-objects.md)   
+ [使用扩展对象实现 Excel 自动化](../vsto/automating-excel-by-using-extended-objects.md)   
+ [工作表主机项](../vsto/worksheet-host-item.md)   
+ [工作簿主机项](../vsto/workbook-host-item.md)   
+ [文档主机项](../vsto/document-host-item.md)  
   
   

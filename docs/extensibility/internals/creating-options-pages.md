@@ -4,37 +4,22 @@ ms.custom:
 ms.date: 11/04/2016
 ms.reviewer: 
 ms.suite: 
-ms.technology:
-- vs-ide-sdk
+ms.technology: vs-ide-sdk
 ms.tgt_pltfrm: 
 ms.topic: article
 helpviewer_keywords:
 - managed package framework, creating Tools Options pages
 - Tools Options pages [Visual Studio SDK], creating using managed package framework
 ms.assetid: 1bf11fec-dece-4943-8053-6de1483c43eb
-caps.latest.revision: 29
+caps.latest.revision: "29"
+author: gregvanl
 ms.author: gregvanl
 manager: ghogen
-translation.priority.mt:
-- cs-cz
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pl-pl
-- pt-br
-- ru-ru
-- tr-tr
-- zh-cn
-- zh-tw
+ms.openlocfilehash: f6329950b3af0b0ec44347ad9a85124ee7192439
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
 ms.translationtype: MT
-ms.sourcegitcommit: eb5c9550fd29b0e98bf63a7240737da4f13f3249
-ms.openlocfilehash: 6ed61dbc745b00f5f6f0beeba5aa38c3d316f98f
-ms.contentlocale: zh-cn
-ms.lasthandoff: 09/06/2017
-
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="creating-options-pages"></a>创建选项页
 在[!INCLUDE[vsprvs](../../code-quality/includes/vsprvs_md.md)]托管的包框架类派生自<xref:Microsoft.VisualStudio.Shell.DialogPage>扩展[!INCLUDE[vsprvs](../../code-quality/includes/vsprvs_md.md)]加上的 IDE**选项**页下**工具**菜单。  
@@ -81,13 +66,15 @@ ms.lasthandoff: 09/06/2017
  下面的类定义的最小"你好 world"选项页。 打开时，用户可以设置公共`HelloWorld`在属性网格中的属性。  
   
 ### <a name="code"></a>代码  
- [!code-csharp[UI_UserSettings_ToolsOptionPages #11](../../extensibility/internals/codesnippet/CSharp/creating-options-pages_1.cs) ] [!code-vb [UI_UserSettings_ToolsOptionPages #11](../../extensibility/internals/codesnippet/VisualBasic/creating-options-pages_1.vb)]  
+ [!code-csharp[UI_UserSettings_ToolsOptionPages#11](../../extensibility/internals/codesnippet/CSharp/creating-options-pages_1.cs)]
+ [!code-vb[UI_UserSettings_ToolsOptionPages#11](../../extensibility/internals/codesnippet/VisualBasic/creating-options-pages_1.vb)]  
   
 ### <a name="description"></a>描述  
  将以下特性应用于包类使页上的选项可加载包时。 两个数字是任意资源 Id 的类别和页上，并在结束的布尔值指定该页是否支持自动化。  
   
 ### <a name="code"></a>代码  
- [!code-csharp[UI_UserSettings_ToolsOptionPages #07](../../extensibility/internals/codesnippet/CSharp/creating-options-pages_2.cs) ] [!code-vb [UI_UserSettings_ToolsOptionPages #07](../../extensibility/internals/codesnippet/VisualBasic/creating-options-pages_2.vb)]  
+ [!code-csharp[UI_UserSettings_ToolsOptionPages#07](../../extensibility/internals/codesnippet/CSharp/creating-options-pages_2.cs)]
+ [!code-vb[UI_UserSettings_ToolsOptionPages#07](../../extensibility/internals/codesnippet/VisualBasic/creating-options-pages_2.vb)]  
   
 ### <a name="description"></a>描述  
  以下事件处理程序显示在选项页中设置的属性值而异的结果。 它使用<xref:Microsoft.VisualStudio.Shell.Package.GetDialogPage%2A>结果方法显式转换为自定义选项页类型，以访问的页面公开的属性。  
@@ -95,7 +82,8 @@ ms.lasthandoff: 09/06/2017
  对于由包模板生成的项目，调用该函数从`MenuItemCallback`函数以将其附加到的默认命令添加到**工具**菜单。  
   
 ### <a name="code"></a>代码  
- [!code-csharp[UI_UserSettings_ToolsOptionPages #08](../../extensibility/internals/codesnippet/CSharp/creating-options-pages_3.cs) ] [!code-vb [UI_UserSettings_ToolsOptionPages #08](../../extensibility/internals/codesnippet/VisualBasic/creating-options-pages_3.vb)]  
+ [!code-csharp[UI_UserSettings_ToolsOptionPages#08](../../extensibility/internals/codesnippet/CSharp/creating-options-pages_3.cs)]
+ [!code-vb[UI_UserSettings_ToolsOptionPages#08](../../extensibility/internals/codesnippet/VisualBasic/creating-options-pages_3.vb)]  
   
 ## <a name="see-also"></a>另请参阅  
  [扩展的用户设置和选项](../../extensibility/extending-user-settings-and-options.md)   

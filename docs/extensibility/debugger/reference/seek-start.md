@@ -1,78 +1,78 @@
 ---
-title: "SEEK_START | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "SEEK_START"
-helpviewer_keywords: 
-  - "SEEK_START 枚举"
+title: "SEEK_START |Microsoft 文档"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology: vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords: SEEK_START
+helpviewer_keywords: SEEK_START enumeration
 ms.assetid: 55bd8901-626e-428b-a263-23b14417f4c6
-caps.latest.revision: 9
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 9
+caps.latest.revision: "9"
+author: gregvanl
+ms.author: gregvanl
+manager: ghogen
+ms.openlocfilehash: 10937c4a5078574f7658bc54f2508b576209f9d5
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# SEEK_START
-[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
-
-指定开始查找 " 反汇编流中的位置。  
+# <a name="seekstart"></a>SEEK_START
+指定从其开始在反汇编流中查找的位置。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
-```cpp#  
-enum enum_SEEK_START {   
-   SEEK_START_BEGIN       = 0x0001,  
-   SEEK_START_END         = 0x0002,  
-   SEEK_START_CURRENT     = 0x0003,  
-   SEEK_START_CODECONTEXT = 0x0004,  
-   SEEK_START_CODELOCID   = 0x0005  
+```cpp  
+enum enum_SEEK_START {   
+   SEEK_START_BEGIN       = 0x0001,  
+   SEEK_START_END         = 0x0002,  
+   SEEK_START_CURRENT     = 0x0003,  
+   SEEK_START_CODECONTEXT = 0x0004,  
+   SEEK_START_CODELOCID   = 0x0005  
 };  
 typedef DWORD SEEK_START;  
 ```  
   
-```c#  
-public enum enum_SEEK_START {   
-   SEEK_START_BEGIN       = 0x0001,  
-   SEEK_START_END         = 0x0002,  
-   SEEK_START_CURRENT     = 0x0003,  
-   SEEK_START_CODECONTEXT = 0x0004,  
-   SEEK_START_CODELOCID   = 0x0005  
+```csharp  
+public enum enum_SEEK_START {   
+   SEEK_START_BEGIN       = 0x0001,  
+   SEEK_START_END         = 0x0002,  
+   SEEK_START_CURRENT     = 0x0003,  
+   SEEK_START_CODECONTEXT = 0x0004,  
+   SEEK_START_CODELOCID   = 0x0005  
 };  
 ```  
   
-## 成员  
- SEEK\_START\_BEGIN  
- 寻求在本的开头当前文件。  
+## <a name="members"></a>成员  
+ SEEK_START_BEGIN  
+ 查找当前文档的开始处启动。  
   
- SEEK\_START\_END  
- 寻求到的末尾的开头当前文件。  
+ SEEK_START_END  
+ 启动查找当前文档的末尾。  
   
- SEEK\_START\_CURRENT  
- 寻求在当前位置开始当前文件。  
+ SEEK_START_CURRENT  
+ 查找当前文档的当前位置开始。  
   
- SEEK\_START\_CODECONTEXT  
- 查找特定代码上下文的开头当前文件。  
+ SEEK_START_CODECONTEXT  
+ 启动查找在当前文档的给定的代码上下文。  
   
- SEEK\_START\_CODELOCID  
- 查找特定代码位置标识符的开头。  代码位置标识符通过调用 [GetCurrentLocation](../Topic/IDebugDisassemblyStream2::GetCurrentLocation.md)获取。  
+ SEEK_START_CODELOCID  
+ 在给定的代码位置标识符查找的启动。 通过调用获得的代码位置标识符[GetCurrentLocation](../../../extensibility/debugger/reference/idebugdisassemblystream2-getcurrentlocation.md)。  
   
-## 备注  
- 将作为参数传递 [查找](../../../extensibility/debugger/reference/idebugdisassemblystream2-seek.md) 方法。  
+## <a name="remarks"></a>备注  
+ 作为自变量传递[Seek](../../../extensibility/debugger/reference/idebugdisassemblystream2-seek.md)方法。  
   
-## 要求  
- 标题:msdbg.h  
+## <a name="requirements"></a>要求  
+ 标头： msdbg.h  
   
- 命名空间:Microsoft.VisualStudio.Debugger.Interop  
+ Namespace: Microsoft.VisualStudio.Debugger.Interop  
   
- 程序集:Microsoft.VisualStudio.Debugger.Interop.dll  
+ 程序集： Microsoft.VisualStudio.Debugger.Interop.dll  
   
-## 请参阅  
+## <a name="see-also"></a>另请参阅  
  [枚举](../../../extensibility/debugger/reference/enumerations-visual-studio-debugging.md)   
  [查找](../../../extensibility/debugger/reference/idebugdisassemblystream2-seek.md)   
- [GetCurrentLocation](../Topic/IDebugDisassemblyStream2::GetCurrentLocation.md)
+ [GetCurrentLocation](../../../extensibility/debugger/reference/idebugdisassemblystream2-getcurrentlocation.md)

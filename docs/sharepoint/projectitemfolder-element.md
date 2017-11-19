@@ -1,72 +1,73 @@
 ---
-title: "ProjectItemFolder Element"
-ms.custom: ""
-ms.date: "02/02/2017"
-ms.prod: "visual-studio-dev14"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "office-development"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-dev_langs: 
-  - "VB"
-  - "CSharp"
-helpviewer_keywords: 
-  - "ProjectItemFolder element"
+title: "ProjectItemFolder 元素 |Microsoft 文档"
+ms.custom: 
+ms.date: 02/02/2017
+ms.reviewer: 
+ms.suite: 
+ms.technology: office-development
+ms.tgt_pltfrm: 
+ms.topic: article
+dev_langs:
+- VB
+- CSharp
+helpviewer_keywords: ProjectItemFolder element
 ms.assetid: 15b386dd-f523-4425-9fcc-517325681358
-caps.latest.revision: 12
-author: "kempb"
-ms.author: "kempb"
-manager: "ghogen"
-caps.handback.revision: 11
+caps.latest.revision: "12"
+author: gewarren
+ms.author: gewarren
+manager: ghogen
+ms.openlocfilehash: c108540f24529866a03c4e4eb22dc027037d1185
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# ProjectItemFolder Element
+# <a name="projectitemfolder-element"></a>ProjectItemFolder 元素
   表示映射的文件夹。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
 ```  
 <ProjectItemFolder Target = "Path of SharePoint folder the mapped folder corresponds to"  
     Type = "Type of deployment for the mapped folder" />  
 ```  
   
-## 类型  
+## <a name="type"></a>类型  
  **ProjectItemFolderType**  
   
-## 特性和元素  
- 以下几节描述了特性、子元素和父元素。  
+## <a name="attributes-and-elements"></a>特性和元素  
+ 下列各节描述了特性、子元素和父元素。  
   
-### 特性  
+### <a name="attributes"></a>特性  
   
-|特性|说明|  
-|--------|--------|  
-|**Target**|必选的 **xs:string** 特性。<br /><br /> SharePoint 安装中文件夹的路径，其为映射文件所对应的（相对于部署根文件夹）。  部署根文件夹取决于 **Type** 特性指定的部署类型。<br /><br /> 有关更多信息，请参见 **Deployment Path** 的说明和[开发 SharePoint 解决方案](../sharepoint/developing-sharepoint-solutions.md)中 SharePint 项目项的 **Deployment Root** 属性。|  
-|**Type**|必选的 **xs:string** 特性。<br /><br /> 映射的文件夹的部署类型。  有关可能值的更多信息，请参见[开发 SharePoint 解决方案](../sharepoint/developing-sharepoint-solutions.md)中 SharePoint 项目项的 **Deployment Type** 属性的说明。|  
+|特性|描述|  
+|---------------|-----------------|  
+|**Target**|所需**xs: string**属性。<br /><br /> 在 SharePoint 安装的映射的文件夹对应，相对于部署根文件夹中文件夹的路径。 部署根文件夹由指定的部署类型**类型**属性。<br /><br /> 有关详细信息，请参阅说明**部署路径**和**部署根**属性的 SharePoint 项目中的项[开发 SharePoint 解决方案](../sharepoint/developing-sharepoint-solutions.md).|  
+|**类型**|所需**xs: string**属性。<br /><br /> 映射的文件夹的部署类型。 有关可能的值的详细信息，请参阅的描述**部署类型**属性中的 SharePoint 项目项[开发 SharePoint 解决方案](../sharepoint/developing-sharepoint-solutions.md)。|  
   
-### 子元素  
+### <a name="child-elements"></a>子元素  
  无。  
   
-### 父元素  
+### <a name="parent-elements"></a>父元素  
   
-|元素|说明|  
-|--------|--------|  
-|[ProjectItem](../sharepoint/projectitem-element.md)|表示 SharePoint 项目项。  这是 .spdata 文件的必需的根元素。|  
+|元素|描述|  
+|-------------|-----------------|  
+|[项目项](../sharepoint/projectitem-element.md)|表示一个 SharePoint 项目项。 这是.spdata 文件的所需的根元素。|  
   
-## 备注  
- 有关映射文件夹的更多信息，请参见[如何：添加和移除映射文件夹](../sharepoint/how-to-add-and-remove-mapped-folders.md)。  
+## <a name="remarks"></a>备注  
+ 有关映射的文件夹的详细信息，请参阅[如何： 添加和移除映射文件夹](../sharepoint/how-to-add-and-remove-mapped-folders.md)。  
   
-## 元素信息  
+## <a name="element-information"></a>元素信息  
   
 |||  
 |-|-|  
-|**命名空间**|http:\/\/schemas.microsoft.com\/VisualStudio\/2010\/SharePointTools\/SharePointProjectItemModel|  
+|**Namespace**|http://schemas.microsoft.com/VisualStudio/2010/SharePointTools/SharePointProjectItemModel|  
 |**架构名称**|SharePoint 项目项架构|  
 |**验证文件**|ProjectItemModelSchema.xsd|  
-|**是否可以为空**|否|  
+|**可以为空**|No|  
   
-## 请参阅  
- [SharePoint Project Item Schema Reference](../sharepoint/sharepoint-project-item-schema-reference.md)   
- [如何：添加和移除映射文件夹](../sharepoint/how-to-add-and-remove-mapped-folders.md)  
+## <a name="see-also"></a>另请参阅  
+ [SharePoint 项目项架构参考](../sharepoint/sharepoint-project-item-schema-reference.md)   
+ [如何：添加和删除映射文件夹](../sharepoint/how-to-add-and-remove-mapped-folders.md)  
   
   

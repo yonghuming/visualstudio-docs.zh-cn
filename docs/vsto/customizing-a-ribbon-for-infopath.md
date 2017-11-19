@@ -1,12 +1,10 @@
 ---
-title: Customizing a Ribbon for InfoPath | Microsoft Docs
+title: "自定义 InfoPath 功能区 |Microsoft 文档"
 ms.custom: 
 ms.date: 02/02/2017
-ms.prod: visual-studio-dev14
 ms.reviewer: 
 ms.suite: 
-ms.technology:
-- office-development
+ms.technology: office-development
 ms.tgt_pltfrm: 
 ms.topic: article
 dev_langs:
@@ -16,61 +14,61 @@ helpviewer_keywords:
 - InfoPath [Office development in Visual Studio], Ribbon
 - Ribbon [Office development in Visual Studio], InfoPath
 ms.assetid: 498c6457-679a-46f2-939f-c0597a17b7ec
-caps.latest.revision: 19
-author: kempb
-ms.author: kempb
+caps.latest.revision: "19"
+author: gewarren
+ms.author: gewarren
 manager: ghogen
-ms.translationtype: HT
-ms.sourcegitcommit: eb5c9550fd29b0e98bf63a7240737da4f13f3249
-ms.openlocfilehash: befccdbf740c8ff166cb9d57e1998b07a1c24619
-ms.contentlocale: zh-cn
-ms.lasthandoff: 08/30/2017
-
+ms.openlocfilehash: c3f4612b3e8dc272b0f51bae80d66d8afe97938e
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# <a name="customizing-a-ribbon-for-infopath"></a>Customizing a Ribbon for InfoPath
-  When you customize the Ribbon in Microsoft Office InfoPath, you must consider where your custom Ribbon will appear in the application. [!INCLUDE[InfoPath_14_short](../vsto/includes/infopath-14-short-md.md)] can display the Ribbon in the following three types of InfoPath application windows:  
+# <a name="customizing-a-ribbon-for-infopath"></a>自定义 InfoPath 功能区
+  在 Microsoft Office InfoPath 中自定义功能区时，必须考虑自定义功能区在应用程序中出现的位置。 [!INCLUDE[InfoPath_14_short](../vsto/includes/infopath-14-short-md.md)] 可以在以下三种类型的 InfoPath 应用程序窗口中显示功能区：  
   
--   Windows that display a form template that is opened in design mode.  
+-   显示在设计模式下打开的窗体模板的窗口。  
   
--   Windows that display a form that is based on a form template.  
+-   显示基于窗体模板的窗体的窗口。  
   
--   The Print Preview window.  
+-   “打印预览”窗口。  
   
- **Applies to:** The information in this topic applies to VSTO Add-in projects for InfoPath 2010. For more information, see [Features Available by Office Application and Project Type](../vsto/features-available-by-office-application-and-project-type.md).  
+ **适用于：** 本主题中的信息适用于 InfoPath 2010 的 VSTO 外接程序项目。 有关详细信息，请参阅 [Features Available by Office Application and Project Type](../vsto/features-available-by-office-application-and-project-type.md)。  
   
- Users and designers open a form template in design mode to modify the appearance and layout of the template. Users open forms that are based in a form template to add content.  
+ 用户和设计人员在设计模式下打开一个窗体模板，以修改该模板的外观和布局。 用户打开基于窗体模板的窗体，以添加内容。  
   
- The Print Preview window enables designers and users to preview the pages of a form or form template before they print them.  
+ 通过“打印预览”窗口，设计人员和用户可以在打印窗体或窗体模板页面之前进行预览。  
   
 > [!NOTE]  
->  The **AddIns** tab does not appear in the Print Preview window. If you want a custom tab to appear in the Print Preview window, make sure that the **OfficeId** property of the tab is not set to **TabAddIns**.  
+>  “打印预览”窗口中不显示  “外接程序”选项卡。 如果希望“打印预览”窗口中显示一个自定义选项卡，请确保该选项卡的“OfficeId”  属性未设置成“TabAddIns” 。  
   
- You must specify the Ribbon type of each window in which you want your Ribbon to appear.  
+ 必须为希望在其中显示功能区的每个窗口指定功能区类型。  
   
-## <a name="specifying-the-ribbon-type-in-the-ribbon-designer"></a>Specifying the Ribbon Type in the Ribbon Designer  
- If you are using the **Ribbon (Visual Designer)** item, click the **RibbonType** property of the Ribbon in the **Properties** window, and then select any of the Ribbon ID's described in the following table.  
+## <a name="specifying-the-ribbon-type-in-the-ribbon-designer"></a>在功能区设计器中指定功能区类型  
+ 如果使用的是“功能区(可视化设计器)”  项，请在“属性”  窗口中单击功能区的“RibbonType”  属性，然后选择下表中描述的任意功能区 ID。  
   
-|Ribbon ID|Window in which the Ribbon will appear when you run the project|  
+|功能区 ID|运行项目时将在其中显示功能区的窗口|  
 |---------------|---------------------------------------------------------------------|  
-|**Microsoft.InfoPath.Designer**|Windows that display a form template that is opened in design mode.|  
-|**Microsoft.InfoPath.Editor**|Windows that display a form that is based on a form template.|  
-|**Microsoft.InfoPath.PrintPreview**|The Print Preview window.|  
+|**Microsoft.InfoPath.Designer**|显示在设计模式下打开的窗体模板的窗口。|  
+|**Microsoft.InfoPath.Designer**|显示基于窗体模板的窗体的窗口。|  
+|**Microsoft.InfoPath.Designer**|“打印预览”窗口。|  
   
- You can add more than one Ribbon to a project. If more than one Ribbon share a Ribbon ID, override the CreateRibbonExtensibilityObject method in the `ThisAddin` class of your project to specify which Ribbon to display at run time. For more information, see [Ribbon Overview](../vsto/ribbon-overview.md).  
+ 你可以向项目添加多个功能区。 如果多个功能区共享一个功能区 ID，重中`ThisAddin`的你项目中指定要在运行时显示的功能区类。 有关详细信息，请参阅[功能区概述](../vsto/ribbon-overview.md)。  
   
-## <a name="specifying-the-ribbon-type-by-using-ribbon-xml"></a>Specifying the Ribbon Type by Using Ribbon XML  
- If you are using the **Ribbon (XML)** item, check the value of the *ribbonID* parameter in the <xref:Microsoft.Office.Core.IRibbonExtensibility.GetCustomUI%2A> method and return the appropriate Ribbon.  
+## <a name="specifying-the-ribbon-type-by-using-ribbon-xml"></a>使用功能区 XML 指定功能区类型  
+ 如果你使用**功能区 (XML)**项，请检查的值*ribbonID*中的参数<xref:Microsoft.Office.Core.IRibbonExtensibility.GetCustomUI%2A>方法并返回相应的功能区。  
   
- The <xref:Microsoft.Office.Core.IRibbonExtensibility.GetCustomUI%2A> method is automatically generated by Visual Studio in the Ribbon code file. The *ribbonID* parameter is a string that identifies the type of InfoPath window that is opening.  
+ <xref:Microsoft.Office.Core.IRibbonExtensibility.GetCustomUI%2A> 方法由 Visual Studio 在功能区代码文件中自动生成。 *ribbonID* 参数是一个字符串，标识当前打开的 InfoPath 窗口的类型。  
   
- The following code example demonstrates how to display a custom Ribbon only in a window that displays a form template in design mode. The Ribbon to display is specified in the `GetResourceText()` method, which is generated in the Ribbon class. For more information about the Ribbon class, see [Ribbon XML](../vsto/ribbon-xml.md).  
+ 下面的代码示例演示如何仅在显示在设计模式下打开的窗体模板的窗口中显示自定义功能区。 要显示的功能区在 `GetResourceText()` 方法中指定，该方法在功能区类中生成。 有关功能区类的详细信息，请参阅 [Ribbon XML](../vsto/ribbon-xml.md)。  
   
- [!code-csharp[Trin_RibbonInfoPathBasic#1](../vsto/codesnippet/CSharp/myinfopathproject/ribbon.cs#1)] [!code-vb[Trin_RibbonInfoPathBasic#1](../vsto/codesnippet/VisualBasic/myinfopathproject/ribbon.vb#1)]  
+ [!code-csharp[Trin_RibbonInfoPathBasic#1](../vsto/codesnippet/CSharp/myinfopathproject/ribbon.cs#1)]
+ [!code-vb[Trin_RibbonInfoPathBasic#1](../vsto/codesnippet/VisualBasic/myinfopathproject/ribbon.vb#1)]  
   
-## <a name="see-also"></a>See Also  
+## <a name="see-also"></a>另请参阅  
  [Accessing the Ribbon at Run Time](../vsto/accessing-the-ribbon-at-run-time.md)   
- [Ribbon Overview](../vsto/ribbon-overview.md)   
- [Ribbon Designer](../vsto/ribbon-designer.md)   
+ [功能区概述](../vsto/ribbon-overview.md)   
+ [功能区设计器](../vsto/ribbon-designer.md)   
  [Ribbon XML](../vsto/ribbon-xml.md)  
   
   

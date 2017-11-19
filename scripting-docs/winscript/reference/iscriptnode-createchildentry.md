@@ -1,27 +1,30 @@
 ---
-title: "IScriptNode:: CreateChildEntry | Microsoft Docs"
-ms.custom: ""
-ms.date: "01/18/2017"
-ms.prod: "windows-script-interfaces"
-ms.reviewer: ""
-ms.suite: ""
-ms.tgt_pltfrm: ""
-ms.topic: "reference"
+title: "IScriptNode:: CreateChildEntry |Microsoft 文档"
+ms.custom: 
+ms.date: 01/18/2017
+ms.prod: windows-script-interfaces
+ms.reviewer: 
+ms.suite: 
+ms.tgt_pltfrm: 
+ms.topic: reference
 apiname: IScriptNode. CreateChildEntry
 apilocation: scrobj.dll
-helpviewer_keywords: 
-  - "IScriptNode::CreateChildEntry"
+helpviewer_keywords: IScriptNode::CreateChildEntry
 ms.assetid: b9682505-4457-40e9-8691-235843637506
-caps.latest.revision: 17
-author: "mikejo5000"
-ms.author: "mikejo"
-manager: "ghogen"
-caps.handback.revision: 17
+caps.latest.revision: "17"
+author: mikejo5000
+ms.author: mikejo
+manager: ghogen
+ms.openlocfilehash: 8fcc010efe8fcf30a8f467dd94befff54bc5fac5
+ms.sourcegitcommit: aadb9588877418b8b55a5612c1d3842d4520ca4c
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/27/2017
 ---
-# IScriptNode:: CreateChildEntry
-添加 `IScriptEntry`子实例。  
+# <a name="iscriptnode-createchildentry"></a>IScriptNode:: CreateChildEntry
+添加的子实例`IScriptEntry`。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
 ```  
 HRESULT CreateChildEntry(  
@@ -32,41 +35,41 @@ HRESULT CreateChildEntry(
 );  
 ```  
   
-#### 参数  
+#### <a name="parameters"></a>参数  
  `isn`  
- \[in\]\)的索引父级。  
+ [in]父代中的子级的索引。  
   
  `dwCookie`  
- \[in\]用于的应用程序定义的值关联子项与宿主对象。  
+ [in]应用程序定义的值，用于将子条目与该主机对象相关联。  
   
  `pszDelimiter`  
- \[in\]关闭脚本块分隔符的地址。  对分析，宿主通常使用一个分隔符\(例如两个单引号\)，检测末尾的脚本块。  
+ [in]结束的脚本块分隔符的地址。 有关分析过程中，主机通常使用分隔符 （如两个单引号），来检测脚本块的末尾。  
   
- 该分隔符启用生成引擎的脚本提供预处理。  例如，引擎可能具有两个单引号一个单引号用作分隔符。  引擎确定如何使用该分隔符。  
+ 分隔符使创作引擎提供预处理的脚本。 例如，对于引擎可能与用作分隔符两个单引号替换单引号。 引擎确定如何使用分隔符。  
   
- 设置为NULL，如果分隔符不指示末尾的脚本块。  
+ 如果分隔符将脚本块的末尾不标记，则设置为 NULL。  
   
  `ppse`  
- \[in\]接收指向该子实例的 `IScriptEntry` 接口变量的地址。  
+ [out]接收指向的变量的地址`IScriptEntry`接口的子实例。  
   
- 对一个表示网页的 `IScriptNode` 对象，此参数返回指定脚本块的 `IScriptEntry` 实例。  
+ 有关`IScriptNode`表示网页上的对象，此参数返回`IScriptEntry`指定的脚本块的实例。  
   
- 对于表示脚本的 `IScriptEntry` 对象块，此参数返回指定函数对象的 `IScriptEntry` 实例。  
+ 有关`IScriptEntry`表示脚本块的对象，此参数返回`IScriptEntry`指定的函数对象的实例。  
   
- 为表示函数对象的 `IScriptEntry` 对象，此方法失败。  
+ 有关`IScriptEntry`对象，后者表示函数对象，此方法失败。  
   
- 为 `IScriptScriptlet` 对象，此方法失败。  
+ 有关`IScriptScriptlet`对象，此方法失败。  
   
-## 返回值  
- 一个 `HRESULT`。  可能的值包括，但是，并不限于，这些下表中。  
+## <a name="return-value"></a>返回值  
+ 一个 `HRESULT`。 可能的值包括（但并不限于）下表中的项。  
   
-|值|说明|  
-|-------|--------|  
+|值|描述|  
+|-----------|-----------------|  
 |`S_OK`|方法成功。|  
   
-## 备注  
- `IScriptNode` 接口表示网页或其组件。  从 `IScriptNode`派生\)的 `IScriptEntry` 接口\(表示任何脚本块或函数对象。  从 `IScriptEntry`派生\)的 `IScriptScriptlet` 接口\(表示事件处理程序。  
+## <a name="remarks"></a>备注  
+ `IScriptNode`接口表示某个网页或其元素。 `IScriptEntry`接口 (派生自`IScriptNode`) 表示脚本块或函数对象。 `IScriptScriptlet`接口 (派生自`IScriptEntry`) 表示一个事件处理程序。  
   
-## 请参阅  
+## <a name="see-also"></a>另请参阅  
  [IScriptNode 接口](../../winscript/reference/iscriptnode-interface.md)   
  [IScriptEntry 接口](../../winscript/reference/iscriptentry-interface.md)

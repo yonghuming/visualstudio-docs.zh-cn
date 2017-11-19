@@ -1,12 +1,10 @@
 ---
-title: 'How to: Programmatically Apply Styles to Ranges in Workbooks | Microsoft Docs'
+title: "如何： 以编程方式将样式应用于工作簿中的 |Microsoft 文档"
 ms.custom: 
 ms.date: 02/02/2017
-ms.prod: visual-studio-dev14
 ms.reviewer: 
 ms.suite: 
-ms.technology:
-- office-development
+ms.technology: office-development
 ms.tgt_pltfrm: 
 ms.topic: article
 dev_langs:
@@ -17,60 +15,65 @@ helpviewer_keywords:
 - styles, workbook ranges
 - workbooks, styles
 ms.assetid: c7e781ed-f366-45bb-aeb6-69c10d19d842
-caps.latest.revision: 51
-author: kempb
-ms.author: kempb
+caps.latest.revision: "51"
+author: gewarren
+ms.author: gewarren
 manager: ghogen
-ms.translationtype: HT
-ms.sourcegitcommit: eb5c9550fd29b0e98bf63a7240737da4f13f3249
-ms.openlocfilehash: a9eef108e1e7f7ecd1fc4197959ab9cce9ea6ad8
-ms.contentlocale: zh-cn
-ms.lasthandoff: 08/30/2017
-
+ms.openlocfilehash: 1064169de7af6652d2ded4817f1ce197550d938e
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# <a name="how-to-programmatically-apply-styles-to-ranges-in-workbooks"></a>How to: Programmatically Apply Styles to Ranges in Workbooks
-  You can apply named styles to regions in workbooks. Excel supplies a number of predefined styles.  
+# <a name="how-to-programmatically-apply-styles-to-ranges-in-workbooks"></a>如何：以编程方式将样式应用于工作簿中的所选区域
+  可以将已命名的样式应用到工作簿中的区域。 Excel 提供了大量预定义样式。  
   
  [!INCLUDE[appliesto_xlalldocapp](../vsto/includes/appliesto-xlalldocapp-md.md)]  
   
- The **Format Cells** dialog box displays all the options you can use to format cells, and each of these options is available from your code. To display this dialog box in Excel, click **Cells** on the **Format** menu.  
+ **“设置单元格格式”** 对话框显示了可用于设置单元格格式的所有选项，且其中每个选项都可从你的代码获取。 若要在 Excel 中显示此对话框，请单击 **“格式”** 菜单上的 **“单元格”** 。  
   
-### <a name="to-apply-a-style-to-a-named-range-in-a-document-level-customization"></a>To apply a style to a named range in a document-level customization  
+### <a name="to-apply-a-style-to-a-named-range-in-a-document-level-customization"></a>将样式应用到文档级自定义项中的命名区域  
   
-1.  Create a new style and set its attributes.  
+1.  创建一个新样式并设置其属性。  
   
-     [!code-csharp[Trin_VstcoreExcelAutomation#53](../vsto/codesnippet/CSharp/Trin_VstcoreExcelAutomationCS/Sheet1.cs#53)]  [!code-vb[Trin_VstcoreExcelAutomation#53](../vsto/codesnippet/VisualBasic/Trin_VstcoreExcelAutomation/Sheet1.vb#53)]  
+     [!code-csharp[Trin_VstcoreExcelAutomation#53](../vsto/codesnippet/CSharp/Trin_VstcoreExcelAutomationCS/Sheet1.cs#53)]
+     [!code-vb[Trin_VstcoreExcelAutomation#53](../vsto/codesnippet/VisualBasic/Trin_VstcoreExcelAutomation/Sheet1.vb#53)]  
   
-2.  Create a <xref:Microsoft.Office.Tools.Excel.NamedRange> control, assign text to it, and then apply the new style. This code must be placed in a sheet class, not in the `ThisWorkbook` class.  
+2.  创建一个 <xref:Microsoft.Office.Tools.Excel.NamedRange> 控件，向其分配文本，然后应用新样式。 必须将此代码置于表类中，而不是在 `ThisWorkbook` 类中。  
   
-     [!code-csharp[Trin_VstcoreExcelAutomation#54](../vsto/codesnippet/CSharp/Trin_VstcoreExcelAutomationCS/Sheet1.cs#54)]  [!code-vb[Trin_VstcoreExcelAutomation#54](../vsto/codesnippet/VisualBasic/Trin_VstcoreExcelAutomation/Sheet1.vb#54)]  
+     [!code-csharp[Trin_VstcoreExcelAutomation#54](../vsto/codesnippet/CSharp/Trin_VstcoreExcelAutomationCS/Sheet1.cs#54)]
+     [!code-vb[Trin_VstcoreExcelAutomation#54](../vsto/codesnippet/VisualBasic/Trin_VstcoreExcelAutomation/Sheet1.vb#54)]  
   
-### <a name="to-clear-a-style-from-a-named-range-in-a-document-level-customization"></a>To clear a style from a named range in a document-level customization  
+### <a name="to-clear-a-style-from-a-named-range-in-a-document-level-customization"></a>从文档级自定义项的命名区域中清除样式  
   
-1.  Apply the Normal style to the range. This code must be placed in a sheet class, not in the `ThisWorkbook` class.  
+1.  将正文样式应用到该区域中。 必须将此代码置于表类中，而不是在 `ThisWorkbook` 类中。  
   
-     [!code-csharp[Trin_VstcoreExcelAutomation#55](../vsto/codesnippet/CSharp/Trin_VstcoreExcelAutomationCS/Sheet1.cs#55)]  [!code-vb[Trin_VstcoreExcelAutomation#55](../vsto/codesnippet/VisualBasic/Trin_VstcoreExcelAutomation/Sheet1.vb#55)]  
+     [!code-csharp[Trin_VstcoreExcelAutomation#55](../vsto/codesnippet/CSharp/Trin_VstcoreExcelAutomationCS/Sheet1.cs#55)]
+     [!code-vb[Trin_VstcoreExcelAutomation#55](../vsto/codesnippet/VisualBasic/Trin_VstcoreExcelAutomation/Sheet1.vb#55)]  
   
-### <a name="to-apply-a-style-to-a-named-range-in-a-vsto-add-in"></a>To apply a style to a named range in a VSTO Add-in  
+### <a name="to-apply-a-style-to-a-named-range-in-a-vsto-add-in"></a>将样式应用到 VSTO 外接程序中的命名区域  
   
-1.  Create a new style and set its attributes.  
+1.  创建一个新样式并设置其属性。  
   
-     [!code-csharp[Trin_VstcoreExcelAutomationAddIn#28](../vsto/codesnippet/CSharp/trin_vstcoreexcelautomationaddin/ThisAddIn.cs#28)]  [!code-vb[Trin_VstcoreExcelAutomationAddIn#28](../vsto/codesnippet/VisualBasic/trin_vstcoreexcelautomationaddin/ThisAddIn.vb#28)]  
+     [!code-csharp[Trin_VstcoreExcelAutomationAddIn#28](../vsto/codesnippet/CSharp/trin_vstcoreexcelautomationaddin/ThisAddIn.cs#28)]
+     [!code-vb[Trin_VstcoreExcelAutomationAddIn#28](../vsto/codesnippet/VisualBasic/trin_vstcoreexcelautomationaddin/ThisAddIn.vb#28)]  
   
-2.  Create a <xref:Microsoft.Office.Interop.Excel.Range>, assign text to it, and then apply the new style.  
+2.  创建一个 <xref:Microsoft.Office.Interop.Excel.Range>，对其分配文本，然后应用新样式。  
   
-     [!code-csharp[Trin_VstcoreExcelAutomationAddIn#29](../vsto/codesnippet/CSharp/trin_vstcoreexcelautomationaddin/ThisAddIn.cs#29)]  [!code-vb[Trin_VstcoreExcelAutomationAddIn#29](../vsto/codesnippet/VisualBasic/trin_vstcoreexcelautomationaddin/ThisAddIn.vb#29)]  
+     [!code-csharp[Trin_VstcoreExcelAutomationAddIn#29](../vsto/codesnippet/CSharp/trin_vstcoreexcelautomationaddin/ThisAddIn.cs#29)]
+     [!code-vb[Trin_VstcoreExcelAutomationAddIn#29](../vsto/codesnippet/VisualBasic/trin_vstcoreexcelautomationaddin/ThisAddIn.vb#29)]  
   
-### <a name="to-clear-a-style-from-a-named-range-in-an-vsto-add-in"></a>To clear a style from a named range in an VSTO Add-in  
+### <a name="to-clear-a-style-from-a-named-range-in-an-vsto-add-in"></a>从 VSTO 外接程序的命名区域中清除样式  
   
-1.  Apply the Normal style to the range.  
+1.  将正文样式应用到该区域中。  
   
-     [!code-csharp[Trin_VstcoreExcelAutomation#56](../vsto/codesnippet/CSharp/Trin_VstcoreExcelAutomationCS/Sheet1.cs#56)]  [!code-vb[Trin_VstcoreExcelAutomation#56](../vsto/codesnippet/VisualBasic/Trin_VstcoreExcelAutomation/Sheet1.vb#56)]  
+     [!code-csharp[Trin_VstcoreExcelAutomation#56](../vsto/codesnippet/CSharp/Trin_VstcoreExcelAutomationCS/Sheet1.cs#56)]
+     [!code-vb[Trin_VstcoreExcelAutomation#56](../vsto/codesnippet/VisualBasic/Trin_VstcoreExcelAutomation/Sheet1.vb#56)]  
   
-## <a name="see-also"></a>See Also  
- [Working with Ranges](../vsto/working-with-ranges.md)   
- [NamedRange Control](../vsto/namedrange-control.md)   
- [Global Access to Objects in Office Projects](../vsto/global-access-to-objects-in-office-projects.md)   
- [Optional Parameters in Office Solutions](../vsto/optional-parameters-in-office-solutions.md)  
+## <a name="see-also"></a>另请参阅  
+ [使用范围](../vsto/working-with-ranges.md)   
+ [NamedRange 控件](../vsto/namedrange-control.md)   
+ [对 Office 项目中对象的全局访问](../vsto/global-access-to-objects-in-office-projects.md)   
+ [Office 解决方案中的可选参数](../vsto/optional-parameters-in-office-solutions.md)  
   
   

@@ -1,136 +1,117 @@
 ---
-title: "演练：在数据集设计器中创建数据表 | Microsoft Docs"
-ms.custom: ""
-ms.date: "12/14/2016"
-ms.prod: "visual-studio-dev14"
-ms.reviewer: ""
-ms.suite: ""
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-dev_langs: 
-  - "VB"
-  - "CSharp"
-  - "C++"
-  - "aspx"
-helpviewer_keywords: 
-  - "数据 [Visual Studio], 数据集设计器"
-  - "数据集设计器, 创建数据表"
-  - "DataTable 对象, 创建"
-  - "表 [Visual Studio], 创建"
+title: "演练： 在数据集设计器中创建数据表 |Microsoft 文档"
+ms.custom: 
+ms.date: 10/19/2016
+ms.reviewer: 
+ms.suite: 
+ms.tgt_pltfrm: 
+ms.topic: article
+helpviewer_keywords:
+- DataTable objects, creating
+- Dataset Designer, creating data tables
+- tables [Visual Studio], creating
+- data [Visual Studio], Dataset Designer
 ms.assetid: abf0a2b5-e4e5-422e-97ef-55a0e35a82df
-caps.latest.revision: 10
-caps.handback.revision: 10
-author: "mikeblome"
-ms.author: "mblome"
-manager: "ghogen"
+caps.latest.revision: "10"
+author: gewarren
+ms.author: gewarren
+manager: ghogen
 robots: noindex,nofollow
+ms.technology: vs-data-tools
+ms.openlocfilehash: 0e1328eda7974b7e4ec04df0c4f5bd969cf09de6
+ms.sourcegitcommit: ee42a8771f0248db93fd2e017a22e2506e0f9404
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/09/2017
 ---
-# 演练：在数据集设计器中创建数据表
-此演练解释如何使用**“数据集设计器”**创建 <xref:System.Data.DataTable>（没有 TableAdapter）。  有关创建包含 TableAdapter 的数据表的信息，请参见[如何：创建 TableAdapter](../data-tools/create-and-configure-tableadapters.md)。  
+# <a name="walkthrough-creating-a-datatable-in-the-dataset-designer"></a>演练：在数据集设计器中创建数据表
+本演练说明了如何创建<xref:System.Data.DataTable>（不带 TableAdapter) 使用**数据集设计器**。 有关创建包括 Tableadapter 的数据表的信息，请参阅[创建和配置 Tableadapter](../data-tools/create-and-configure-tableadapters.md)。  
   
  本演练涉及以下任务：  
   
--   创建新的“Windows 应用程序”项目  
+-   创建新的 Windows 窗体应用程序项目  
   
--   将新的数据集添加到应用程序中  
+-   将新的数据集添加到应用程序  
   
--   向数据集添加新的数据表  
+-   将提供新数据表添加到数据集  
   
 -   向数据表添加列  
   
--   为表设置主键  
+-   设置表的主键  
   
-## 创建新的 Windows 应用程序  
+## <a name="creating-a-new-windows-forms-application"></a>创建新的 Windows 窗体应用程序  
   
-#### 创建新的 Windows 应用程序项目  
+#### <a name="to-create-a-new-windows-forms-application-project"></a>若要创建新的 Windows 窗体应用程序项目  
   
-1.  从**“文件”**菜单创建一个新的项目。  
+1. 在 Visual Studio 中，在**文件**菜单上，选择**新建**，**项目...**.  
   
-2.  在**“项目类型”**窗格中选择一种编程语言。  
+2. 展开**Visual C#**或**Visual Basic**在左侧窗格中，然后选择**Windows 经典桌面**。  
+
+3. 在中间窗格中，选择**Windows 窗体应用程序**项目类型。  
+
+4. 将项目**DataTableWalkthrough**，然后选择**确定**。 
   
-3.  在**“模板”**窗格中单击**“Windows 应用程序”**。  
+     **DataTableWalkthrough**项目时创建，并添加到**解决方案资源管理器**。  
   
-4.  将项目命名为`“DataTableWalkthrough”`，然后单击**“确定”**。  
+## <a name="adding-a-new-dataset-to-the-application"></a>将新的数据集添加到应用程序  
   
-     Visual Studio 会将该项目添加到**“解决方案资源管理器”**并在设计器中显示**“Form1”**。  
+#### <a name="to-add-a-new-dataset-item-to-the-project"></a>若要向项目添加新的数据集项  
   
-## 将新的数据集添加到应用程序中  
+1.  上**项目**菜单上，选择**添加新项...**.  
   
-#### 向项目添加新的数据集项  
+     添加新项对话框。  
   
-1.  在**“项目”**菜单上，单击**“添加新项”**。  
+2.  在左侧窗格中，选择**数据**，然后选择**数据集**在中间窗格中。  
   
-     随即出现“添加新项”对话框。  
+3.  选择“添加”。  
   
-2.  在**“模板”**框中选择**“数据集”**。  
+     Visual Studio 将添加名为的文件**dataset1.xsd**到项目并将其在打开**数据集设计器**。  
   
-3.  单击**“添加”**。  
+## <a name="adding-a-new-datatable-to-the-dataset"></a>将新数据表添加到数据集  
   
-     Visual Studio 将向项目中添加一个名为**“Dataset1.xsd”**的文件，并在**“数据集设计器”**中将其打开。  
+#### <a name="to-add-a-new-data-table-to-the-dataset"></a>若要将提供新数据表添加到数据集  
   
-## 将新的数据表添加到数据集中  
+1.  拖动**DataTable**从**数据集**选项卡**工具箱**到**数据集设计器**。  
   
-#### 向数据集添加新的数据表  
+     名为的表**DataTable1**添加到数据集。  
+   
+2.  单击的标题栏**DataTable1**和将其重命名`Music`。  
   
-1.  将一个**“DataTable”**从**“工具箱”**的**“数据集”**选项卡拖动到**“数据集设计器”**。  
+## <a name="adding-columns-to-the-data-table"></a>向数据表添加列  
   
-     将一个名为**“DataTable1”**的表添加到了该数据集中。  
+#### <a name="to-add-columns-to-the-data-table"></a>将列添加到数据表  
   
-    > [!NOTE]
-    >  若要创建包含 TableAdapter 的数据表，请参见[演练：创建带有多个查询的 TableAdapter](../data-tools/walkthrough-creating-a-tableadapter-with-multiple-queries.md)。  
+1.  右键单击**音乐**表。 指向**添加**，然后单击**列**。  
   
-2.  单击**“DataTable1”**的标题栏并将其重命名为`“Music”`。  
+2.  名称列`SongID`。  
   
-## 向数据表添加列  
+3.  在**属性**窗口中，设置<xref:System.Data.DataColumn.DataType%2A>属性<xref:System.Int16?displayProperty=fullName>。  
   
-#### 向数据表添加列  
+4.  重复此过程，并添加以下各列：  
   
-1.  右击**“Music”**表。  指向**“添加”**，然后单击**“列”**。  
+     `SongTitle`: <xref:System.String?displayProperty=fullName>  
   
-2.  将此列命名为`“SongID”`命名。  
+     `Artist`: <xref:System.String?displayProperty=fullName>  
   
-3.  在**“属性”**窗口中，将 <xref:System.Data.DataColumn.DataType%2A> 属性设置为 <xref:System.Int16?displayProperty=fullName>。  
+     `Genre`: <xref:System.String?displayProperty=fullName>  
   
-4.  重复此过程添加下面的列：  
+## <a name="setting-the-primary-key-for-the-table"></a>设置表的主键  
+数据的所有表应都具有主键。 为主键唯一标识数据表中的特定记录。  
   
-     `SongTitle`：<xref:System.String?displayProperty=fullName>  
+#### <a name="to-set-the-primary-key-of-the-data-table"></a>若要设置的数据表的主键  
   
-     `Artist`：<xref:System.String?displayProperty=fullName>  
+-   右键单击**SongID**列，，然后单击**设置主键**。  
   
-     `Genre`：<xref:System.String?displayProperty=fullName>  
+     密钥图标旁边将出现**SongID**列。  
   
-## 为表设置主键  
- 所有的数据表都应有一个主键。  主键唯一地标识数据表中的记录。  
+## <a name="saving-your-project"></a>保存你的项目  
   
-#### 设置数据表的主键  
+#### <a name="to-save-the-datatablewalkthrough-project"></a>保存 DataTableWalkthrough 项目  
   
--   右击**“SongID”**列，然后单击**“设置主键”**。  
+-   上**文件**菜单上，单击**保存所有**。  
   
-     在**“SongID”**列的旁边将显示钥匙图标。  
-  
-## 保存项目  
-  
-#### 保存 DataTableWalkthrough 项目  
-  
--   在**“文件”**菜单上，单击**“全部保存”**。  
-  
-## 后续步骤  
- 既然已经创建了表，您可能希望执行下列操作之一：  
-  
-|若要|请参见|  
-|--------|---------|  
-|创建窗体以输入数据|[演练：在 Windows 窗体上显示数据](../data-tools/walkthrough-displaying-data-on-a-windows-form.md).|  
-|向表中添加数据|[向数据表中添加数据](../Topic/Adding%20Data%20to%20a%20DataTable.md).|  
-|查看表中的数据|[查看数据表中的数据](../Topic/Viewing%20Data%20in%20a%20DataTable.md).|  
-|编辑数据|[DataTable 编辑](../Topic/DataTable%20Edits.md)|  
-|删除表中的行|[DataRow 删除](../Topic/DataRow%20Deletion.md)|  
-  
-## 请参阅  
- [连接到 Visual Studio 中的数据](../data-tools/connecting-to-data-in-visual-studio.md)   
- [准备应用程序以接收数据](../Topic/Preparing%20Your%20Application%20to%20Receive%20Data.md)   
- [将数据获取到应用程序](../data-tools/fetching-data-into-your-application.md)   
- [在 Visual Studio 中将控件绑定到数据](../data-tools/bind-controls-to-data-in-visual-studio.md)   
- [在应用程序中编辑数据](../data-tools/editing-data-in-your-application.md)   
- [验证数据](../Topic/Validating%20Data.md)   
- [保存数据](../data-tools/saving-data.md)   
- [数据演练](../Topic/Data%20Walkthroughs.md)
+## <a name="see-also"></a>请参阅
+[在 Visual Studio 中创建和配置数据集](../data-tools/create-and-configure-datasets-in-visual-studio.md)  
+[在 Visual Studio 中将控件绑定到数据](../data-tools/bind-controls-to-data-in-visual-studio.md)   
+[验证数据](../data-tools/validate-data-in-datasets.md)   
+[保存数据](../data-tools/saving-data.md)   

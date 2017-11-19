@@ -1,54 +1,54 @@
 ---
-title: "IDebugEngine2::RemoveSetException | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "IDebugEngine2::RemoveSetException"
-helpviewer_keywords: 
-  - "IDebugEngine2::RemoveSetException"
+title: "IDebugEngine2::RemoveSetException |Microsoft 文档"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology: vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords: IDebugEngine2::RemoveSetException
+helpviewer_keywords: IDebugEngine2::RemoveSetException
 ms.assetid: bdd25097-0e9d-4218-b417-0497ea48d2e8
-caps.latest.revision: 11
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 11
+caps.latest.revision: "11"
+author: gregvanl
+ms.author: gregvanl
+manager: ghogen
+ms.openlocfilehash: ba231a0545bc1e94e8cf793194efb27962d8e137
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# IDebugEngine2::RemoveSetException
-[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
-
-移除指定的异常，因此它由调试引擎不再处理。  
+# <a name="idebugengine2removesetexception"></a>IDebugEngine2::RemoveSetException
+删除指定的异常，以便不再由的调试引擎。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
-```cpp#  
-HRESULT RemoveSetException(   
-   EXCEPTION_INFO* pException  
+```cpp  
+HRESULT RemoveSetException(   
+   EXCEPTION_INFO* pException  
 );  
 ```  
   
-```c#  
-int RemoveSetException(   
-   EXCEPTION_INFO[] pException  
+```csharp  
+int RemoveSetException(   
+   EXCEPTION_INFO[] pException  
 );  
 ```  
   
-#### 参数  
+#### <a name="parameters"></a>参数  
  `pException`  
- \[in\] 描述要移除的异常的 [EXCEPTION\_INFO](../../../extensibility/debugger/reference/exception-info.md) 结构。  
+ [in][EXCEPTION_INFO](../../../extensibility/debugger/reference/exception-info.md)结构描述要删除的异常。  
   
-## 返回值  
- 如果成功，则返回; `S_OK`否则，返回错误代码。  
+## <a name="return-value"></a>返回值  
+ 如果成功，则返回`S_OK`; 否则为返回错误代码。  
   
-## 备注  
- 必须由之前设置移除的异常之前调用对 [SetException](../../../extensibility/debugger/reference/idebugengine2-setexception.md) 方法。  
+## <a name="remarks"></a>备注  
+ 正在删除的异常必须已在以前设置的以前调用[SetException](../../../extensibility/debugger/reference/idebugengine2-setexception.md)方法。  
   
- 立即移除所有设置的异常，请调用 [RemoveAllSetExceptions](../Topic/IDebugEngine2::RemoveAllSetExceptions.md) 方法。  
+ 若要在一次删除所有组异常，请调用[RemoveAllSetExceptions](../../../extensibility/debugger/reference/idebugengine2-removeallsetexceptions.md)方法。  
   
-## 请参阅  
+## <a name="see-also"></a>另请参阅  
  [IDebugEngine2](../../../extensibility/debugger/reference/idebugengine2.md)   
- [EXCEPTION\_INFO](../../../extensibility/debugger/reference/exception-info.md)
+ [EXCEPTION_INFO](../../../extensibility/debugger/reference/exception-info.md)

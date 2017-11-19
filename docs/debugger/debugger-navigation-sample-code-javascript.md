@@ -1,31 +1,32 @@
 ---
-title: "调试器导航示例代码 (JavaScript) | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-debug"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-dev_langs: 
-  - "FSharp"
-  - "VB"
-  - "CSharp"
-  - "C++"
+title: "调试器导航示例代码 (JavaScript) |Microsoft 文档"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology: vs-ide-debug
+ms.tgt_pltfrm: 
+ms.topic: article
+dev_langs:
+- CSharp
+- VB
+- FSharp
+- C++
 ms.assetid: 4e2d1346-91d6-4935-9e70-130e369a4cb7
-caps.latest.revision: 3
-author: "mikejo5000"
-ms.author: "mikejo"
-manager: "ghogen"
-caps.handback.revision: 3
+caps.latest.revision: "3"
+author: mikejo5000
+ms.author: mikejo
+manager: ghogen
+ms.openlocfilehash: c6c0642e645fa3eba284fc1e4de888916aeb4a3a
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# 调试器导航示例代码 (JavaScript)
-[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
-
-本主题中的代码是[在调试会话中控制执行 \(JavaScript\)](../debugger/control-execution-of-a-store-app-in-a-visual-studio-debug-session-for-windows-store-apps-javascript.md) 主题的示例文件。  
+# <a name="debugger-navigation-sample-code-javascript"></a>调试器导航示例代码 (JavaScript)
+本主题中的代码是示例文件[控制调试会话 (JavaScript) 中的执行](../debugger/control-execution-of-a-store-app-in-a-visual-studio-debug-session-for-windows-store-apps-javascript.md)主题。  
   
-## default.js 示例代码  
+## <a name="defaultjs-sample-code"></a>default.js 示例代码  
   
 ```javascript  
 // For an introduction to the Blank template, see the following documentation:  

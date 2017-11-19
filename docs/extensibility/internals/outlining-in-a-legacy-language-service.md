@@ -1,55 +1,57 @@
 ---
-title: "传统语言服务中的大纲显示 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-helpviewer_keywords: 
-  - "大纲显示"
-  - "以大纲方式显示的语言服务 [托管的包框架]"
-  - "大纲显示、 支持的语言服务 [托管的包框架]"
+title: "旧语言服务中的大纲显示 |Microsoft 文档"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology: vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+helpviewer_keywords:
+- outlining
+- language services [managed package framework], outlining
+- outlining, supporting in language services [managed package framework]
 ms.assetid: 7b5578b4-a20a-4b94-ad4c-98687ac133b9
-caps.latest.revision: 15
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 15
+caps.latest.revision: "15"
+author: gregvanl
+ms.author: gregvanl
+manager: ghogen
+ms.openlocfilehash: 010ec576fe8d1cd52c82165793324eede0da9e6c
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# 传统语言服务中的大纲显示
-[!INCLUDE[vs2017banner](../../code-quality/includes/vs2017banner.md)]
-
-以大纲方式显示使可以折叠成概述或大纲复杂的程序。 例如，在 C\# 中的所有方法可以都折叠到单个行中，显示仅方法签名。 此外，结构和类可以折叠以显示仅结构和类的名称。 在单一方法中，可以折叠复杂的逻辑以通过如显示的语句中的，仅第一行中显示的总体流程 `foreach`, ，`if`, ，和 `while`。  
+# <a name="outlining-in-a-legacy-language-service"></a>旧语言服务中的大纲显示
+以大纲方式显示使可以折叠到概述或大纲复杂程序。 例如，在 C# 中的所有方法可以都折叠导航到单个行中，显示仅方法签名。 此外，结构和类可以折叠以仅显示的名称的结构和类。 在单一方法中，可以折叠复杂的逻辑以通过如显示仅语句的第一行中显示的总体流程`foreach`， `if`，和`while`。  
   
- 旧的语言服务实现为作为 VSPackage 的一部分，但实现语言服务功能的较新方法是使用 MEF 扩展。 若要获得详细信息，请参阅 [演练: 大纲显示](../../extensibility/walkthrough-outlining.md)。  
+ 旧语言服务实现的 VSPackage，一部分但实现语言服务功能的新方法是使用 MEF 扩展。 若要了解详细信息，请参阅[演练： 以大纲方式显示](../../extensibility/walkthrough-outlining.md)。  
   
 > [!NOTE]
->  我们建议在开始尽可能快地使用新的编辑器 API。 这将提高您的语言服务的性能，并让您充分利用新的编辑器功能。  
+>  我们建议你开始使用新的编辑器 API 越早越好。 这将改善语言服务的性能，并让您充分利用新的编辑器功能。  
   
-## 启用支持大纲显示  
- `AutoOutlining` 注册表项设置为 1 以启用自动大纲显示。 自动大纲显示整个源分析当设置加载文件或将其更改，以确定隐藏的区域并显示大纲显示标志符号。 以大纲方式显示也能受手动用户。  
+## <a name="enabling-support-for-outlining"></a>启用支持大纲显示  
+ `AutoOutlining`注册表项设置为 1 以启用自动大纲显示。 自动大纲显示整个源分析当设置加载的文件或将其更改以标识隐藏的区域和显示大纲显示标志符号。 以大纲方式显示还可手动通过控制用户。  
   
- 值 `AutoOutlining` 注册表项可以通过获取 <xref:Microsoft.VisualStudio.Package.LanguagePreferences.AutoOutlining%2A> 属性 <xref:Microsoft.VisualStudio.Package.LanguagePreferences> 类。`AutoOutlining` 注册表项可以用到一个命名参数初始化 <xref:Microsoft.VisualStudio.Shell.ProvideLanguageServiceAttribute> 属性 \(请参阅 [注册语言服务](../../extensibility/internals/registering-a-legacy-language-service1.md) 有关的详细信息\)。  
+ 值`AutoOutlining`可以通过获取注册表项<xref:Microsoft.VisualStudio.Package.LanguagePreferences.AutoOutlining%2A>属性<xref:Microsoft.VisualStudio.Package.LanguagePreferences>类。 `AutoOutlining`注册表条目可以使用的命名参数初始化<xref:Microsoft.VisualStudio.Shell.ProvideLanguageServiceAttribute>属性 (请参阅[注册旧语言服务](../../extensibility/internals/registering-a-legacy-language-service1.md)有关详细信息)。  
   
-## 隐藏的区域  
- 若要提供以大纲方式显示，您的语言服务必须支持隐藏的区域。 这些是文本的的可以展开或折叠范围。 通过标准语言符号，如大括号，或通过自定义的符号，可以分隔隐藏的区域。 例如，C\# 具有 `#region`\/`#endregion` 分隔隐藏的区域的对。  
+## <a name="the-hidden-region"></a>隐藏的区域  
+ 若要提供大纲显示，你的语言服务必须支持隐藏的区域。 这些是文本的可以展开或折叠范围。 用标准语言符号，如大括号，或自定义的符号，可以分隔隐藏的区域。 例如，C# 包含`#region` / `#endregion`分隔的隐藏的区域的对。  
   
- 隐藏的区域管理的隐藏的区域管理器，它公开为 <xref:Microsoft.VisualStudio.TextManager.Interop.IVsHiddenTextSession> 接口。  
+ 隐藏的区域管理的隐藏的区域管理器，它作为公开<xref:Microsoft.VisualStudio.TextManager.Interop.IVsHiddenTextSession>接口。  
   
- 以大纲方式显示使用隐藏的区域 <xref:Microsoft.VisualStudio.TextManager.Interop.IVsHiddenRegion> 接口，并在包含隐藏的区域当前可见的状态和标题区范围处于折叠状态时要显示的范围。  
+ 以大纲方式显示使用隐藏的区域<xref:Microsoft.VisualStudio.TextManager.Interop.IVsHiddenRegion>接口，并包含隐藏的区域、 当前可见状态，和跨度处于折叠状态时要显示横幅的跨度。  
   
- 语言服务分析器使用 <xref:Microsoft.VisualStudio.Package.AuthoringSink.AddHiddenRegion%2A> 方法以添加新的隐藏的区域隐藏区域的默认行为时 <xref:Microsoft.VisualStudio.Package.AuthoringSink.AddHiddenRegion%2A> 方法允许您自定义外观和行为的轮廓。 一旦隐藏的区域隐藏的区域会话时，会获得 [!INCLUDE[vsprvs](../../code-quality/includes/vsprvs_md.md)] 管理语言服务的隐藏的区域。  
+ 语言服务分析器使用<xref:Microsoft.VisualStudio.Package.AuthoringSink.AddHiddenRegion%2A>方法将添加新的隐藏的区域与隐藏区域的默认行为时<xref:Microsoft.VisualStudio.Package.AuthoringSink.AddHiddenRegion%2A>方法允许你自定义的外观和行为的轮廓。 一旦到隐藏的区域会话中，可以隐藏的区域[!INCLUDE[vsprvs](../../code-quality/includes/vsprvs_md.md)]管理语言服务的隐藏的区域。  
   
- 如果您需要确定销毁隐藏的区域会话时，隐藏的区域发生更改时，或者您需要确保特定的隐藏的区域可见，则您必须从派生类 <xref:Microsoft.VisualStudio.Package.Source> 类并重写适当的方法， <xref:Microsoft.VisualStudio.Package.Source.OnBeforeSessionEnd%2A>, ，<xref:Microsoft.VisualStudio.Package.Source.OnHiddenRegionChange%2A>, ，和 <xref:Microsoft.VisualStudio.Package.Source.MakeBaseSpanVisible%2A>, 分别。  
+ 如果你需要确定销毁隐藏的区域会话时，更改隐藏的区域时，或者你需要确保特定的隐藏的区域可见，则你必须从派生类<xref:Microsoft.VisualStudio.Package.Source>类并重写适当的方法， <xref:Microsoft.VisualStudio.Package.Source.OnBeforeSessionEnd%2A>， <xref:Microsoft.VisualStudio.Package.Source.OnHiddenRegionChange%2A>，和<xref:Microsoft.VisualStudio.Package.Source.MakeBaseSpanVisible%2A>分别。  
   
-### 示例  
- 下面是创建为大括号中的所有成对的隐藏的区域的一个简化的示例。 假定的语言提供了大括号匹配，并且要匹配的大括号至少包括大括号 （{和}）。 这种方法是仅供说明用途。 完整的实现者必须全面的处理中的事例 <xref:Microsoft.VisualStudio.Package.LanguageService.ParseSource%2A>。 此示例还演示如何设置 <xref:Microsoft.VisualStudio.Package.LanguagePreferences.AutoOutlining%2A> 首选项设置为 `true` 暂时。 一种替代方法是指定 `AutoOutlining` 命名参数在 `ProvideLanguageServiceAttribute` 语言包中的属性。  
+### <a name="example"></a>示例  
+ 下面是创建的大括号内的所有对隐藏的区域的简化的示例。 假定语言提供大括号匹配，并且要匹配的大括号至少包括大括号 （{和}）。 这种方法是仅供说明用途。 完整的实现者必须完成处理中的事例<xref:Microsoft.VisualStudio.Package.LanguageService.ParseSource%2A>。 此示例还演示如何设置<xref:Microsoft.VisualStudio.Package.LanguagePreferences.AutoOutlining%2A>首选项设置为`true`暂时。 一种替代方法是指定`AutoOutlining`命名参数中的`ProvideLanguageServiceAttribute`语言包中的属性。  
   
- 此示例假定 C\# 注释、 字符串和文字规则。  
+ 此示例假定注释、 字符串和文本的 C# 的规则。  
   
-```c#  
+```csharp  
 using Microsoft.VisualStudio.Package;  
 using Microsoft.VisualStudio.TextManager.Interop;  
   
@@ -118,6 +120,6 @@ namespace MyLanguagePackage
 }  
 ```  
   
-## 请参阅  
- [遗留语言服务功能](../../extensibility/internals/legacy-language-service-features1.md)   
- [注册语言服务](../../extensibility/internals/registering-a-legacy-language-service1.md)
+## <a name="see-also"></a>另请参阅  
+ [旧语言服务功能](../../extensibility/internals/legacy-language-service-features1.md)   
+ [注册旧语言服务](../../extensibility/internals/registering-a-legacy-language-service1.md)

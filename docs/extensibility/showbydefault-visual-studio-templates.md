@@ -4,45 +4,30 @@ ms.custom:
 ms.date: 11/04/2016
 ms.reviewer: 
 ms.suite: 
-ms.technology:
-- vs-ide-general
+ms.technology: vs-ide-general
 ms.tgt_pltfrm: 
 ms.topic: article
-f1_keywords:
-- http://schemas.microsoft.com/developer/vstemplate/2005#ShowByDefault
+f1_keywords: http://schemas.microsoft.com/developer/vstemplate/2005#ShowByDefault
 helpviewer_keywords:
 - <ShowByDefault> element [Visual Studio Templates]
 - ShowByDefault element [Visual Studio Templates]
 ms.assetid: 7be783f6-0ef6-42bc-924a-df9a2eba7781
-caps.latest.revision: 7
+caps.latest.revision: "7"
+author: gregvanl
 ms.author: gregvanl
 manager: ghogen
-translation.priority.ht:
-- cs-cz
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pl-pl
-- pt-br
-- ru-ru
-- tr-tr
-- zh-cn
-- zh-tw
-translationtype: Machine Translation
-ms.sourcegitcommit: 5db97d19b1b823388a465bba15d057b30ff0b3ce
-ms.openlocfilehash: 977b1e5efcdab18dd064b3cf621091d914ec7553
-ms.lasthandoff: 02/22/2017
-
+ms.openlocfilehash: 0b6679cdd8f6239d5548f95d8d07146c6cda1ac9
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="showbydefault-visual-studio-templates"></a>ShowByDefault（Visual Studio 模板）
-如果`false`，指定该模板才会显示在指定[TemplateGroupID](../extensibility/templategroupid-element-visual-studio-templates.md)。  
+如果`false`，指定将仅显示该模板在指定[TemplateGroupID](../extensibility/templategroupid-element-visual-studio-templates.md)。  
   
- \<VSTemplate&1;>  
- \<TemplateData&1;>  
- \<ShowByDefault&1;>  
+ \<VSTemplate >  
+ \<TemplateData >  
+ \<ShowByDefault >  
   
 ## <a name="syntax"></a>语法  
   
@@ -104,4 +89,4 @@ ms.lasthandoff: 02/22/2017
 ## <a name="see-also"></a>另请参阅  
  [创建项目和项模板](../ide/creating-project-and-item-templates.md)   
  [Visual Studio 模板架构参考](../extensibility/visual-studio-template-schema-reference.md)   
- [TemplateGroupID 元素 （Visual Studio 模板）](../extensibility/templategroupid-element-visual-studio-templates.md)
+ [TemplateGroupID 元素（Visual Studio 模板）](../extensibility/templategroupid-element-visual-studio-templates.md)

@@ -1,51 +1,51 @@
 ---
-title: "IDebugProcess2::GetProcessId | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "IDebugProcess2::GetProcessId"
-helpviewer_keywords: 
-  - "IDebugProcess2::GetProcessId"
+title: "IDebugProcess2::GetProcessId |Microsoft 文档"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology: vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords: IDebugProcess2::GetProcessId
+helpviewer_keywords: IDebugProcess2::GetProcessId
 ms.assetid: d5b6f03c-d49d-4b83-b072-016ac3124f5f
-caps.latest.revision: 10
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 10
+caps.latest.revision: "10"
+author: gregvanl
+ms.author: gregvanl
+manager: ghogen
+ms.openlocfilehash: 779420e37f3057651f86273ec7d09368443ad1bb
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# IDebugProcess2::GetProcessId
-[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
-
-获取此的 GUID 处理。  
+# <a name="idebugprocess2getprocessid"></a>IDebugProcess2::GetProcessId
+获取此进程的 GUID。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
-```cpp#  
-HRESULT GetProcessId(  
-   GUID* pguidProcessId  
+```cpp  
+HRESULT GetProcessId(  
+   GUID* pguidProcessId  
 );  
 ```  
   
-```c#  
-int GetProcessId(  
-   out Guid pguidProcessId  
+```csharp  
+int GetProcessId(  
+   out Guid pguidProcessId  
 );  
 ```  
   
-#### 参数  
+#### <a name="parameters"></a>参数  
  `pguidProcessId`  
- \[out\] 返回此的 GUID 处理。  
+ [out]返回此进程的 GUID。  
   
-## 返回值  
- 如果成功，则返回; `S_OK`否则，返回错误代码。  
+## <a name="return-value"></a>返回值  
+ 如果成功，则返回`S_OK`; 否则为返回错误代码。  
   
-## 备注  
- 全局唯一标识符 \(GUID\)标识此从任何其他进程运行在系统。  
+## <a name="remarks"></a>备注  
+ 全局唯一标识符 (GUID) 标识此过程从系统中运行的所有其他进程。  
   
-## 请参阅  
+## <a name="see-also"></a>另请参阅  
  [IDebugProcess2](../../../extensibility/debugger/reference/idebugprocess2.md)

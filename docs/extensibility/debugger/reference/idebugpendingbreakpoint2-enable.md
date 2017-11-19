@@ -1,59 +1,60 @@
 ---
-title: "IDebugPendingBreakpoint2::Enable | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "IDebugPendingBreakpoint2::Enable"
-helpviewer_keywords: 
-  - "IDebugPendingBreakpoint2::Enable 方法"
-  - "Enable 方法"
+title: "IDebugPendingBreakpoint2::Enable |Microsoft 文档"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology: vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords: IDebugPendingBreakpoint2::Enable
+helpviewer_keywords:
+- IDebugPendingBreakpoint2::Enable method
+- Enable method
 ms.assetid: 09e32d05-464b-40a6-a41d-76f2759cf2cd
-caps.latest.revision: 10
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 10
+caps.latest.revision: "10"
+author: gregvanl
+ms.author: gregvanl
+manager: ghogen
+ms.openlocfilehash: bd29134d2326f6c366bc24bcb00c0778082c77e7
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# IDebugPendingBreakpoint2::Enable
-[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
-
-切换挂起的断点的启用状态。  
+# <a name="idebugpendingbreakpoint2enable"></a>IDebugPendingBreakpoint2::Enable
+切换挂起断点的启用的状态。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
-```cpp#  
-HRESULT Enable(   
-   BOOL fEnable  
+```cpp  
+HRESULT Enable(   
+   BOOL fEnable  
 );  
 ```  
   
-```c#  
-int Enable(   
-   int fEnable  
+```csharp  
+int Enable(   
+   int fEnable  
 );  
 ```  
   
-#### 参数  
+#### <a name="parameters"></a>参数  
  `fEnable`  
- \[in\] 设置为非零 \(`TRUE`\) 启用挂起的断点或零 \(`FALSE`\) 禁用。  
+ [in]设置为非零值 (`TRUE`) 若要启用挂起断点，或为零 (`FALSE`) 若要禁用。  
   
-## 返回值  
- 如果成功，则返回; `S_OK`否则，返回错误代码。  ，如果断点删除，返回 `E_BP_DELETED` 。  
+## <a name="return-value"></a>返回值  
+ 如果成功，则返回`S_OK`; 否则为返回错误代码。 返回`E_BP_DELETED`如果断点已被删除。  
   
-## 备注  
- 当挂起的断点已启用或禁用时，从其绑定到的所有断点设置为相同的状态。  
+## <a name="remarks"></a>备注  
+ 当挂起断点是启用还是禁用时，它从绑定的所有断点都设置为相同的状态。  
   
- 此方法会根据需要多次调用，因此，即使断点已启用或禁用。  
+ 可能有必要，请根据多次调用此方法，即使已启用或禁用断点。  
   
-## 示例  
- 下面的示例演示如何执行显示 [IDebugPendingBreakpoint2](../../../extensibility/debugger/reference/idebugpendingbreakpoint2.md) 接口的简单 `CPendingBreakpoint` 对象的方法。  
+## <a name="example"></a>示例  
+ 下面的示例演示如何实现此方法对于简单`CPendingBreakpoint`公开的对象[IDebugPendingBreakpoint2](../../../extensibility/debugger/reference/idebugpendingbreakpoint2.md)接口。  
   
-```cpp#  
+```cpp  
 HRESULT CPendingBreakpoint::Enable(BOOL fEnable)    
 {    
    HRESULT hr;    
@@ -83,5 +84,5 @@ HRESULT CPendingBreakpoint::Enable(BOOL fEnable)
 }    
 ```  
   
-## 请参阅  
+## <a name="see-also"></a>另请参阅  
  [IDebugPendingBreakpoint2](../../../extensibility/debugger/reference/idebugpendingbreakpoint2.md)

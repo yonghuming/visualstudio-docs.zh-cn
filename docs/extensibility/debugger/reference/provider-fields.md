@@ -1,64 +1,64 @@
 ---
-title: "PROVIDER_FIELDS | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "PROVIDER_FIELDS"
-helpviewer_keywords: 
-  - "PROVIDER_FIELDS 枚举"
+title: "PROVIDER_FIELDS |Microsoft 文档"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology: vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords: PROVIDER_FIELDS
+helpviewer_keywords: PROVIDER_FIELDS enumeration
 ms.assetid: 39631545-2b0e-45b4-978b-d63656484b02
-caps.latest.revision: 11
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 11
+caps.latest.revision: "11"
+author: gregvanl
+ms.author: gregvanl
+manager: ghogen
+ms.openlocfilehash: 01aa9048e26c265b1fe04ba653fb224b86ec77cd
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# PROVIDER_FIELDS
-[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
-
-指定特性与程序提供程序。  
+# <a name="providerfields"></a>PROVIDER_FIELDS
+指定与程序提供程序关联的属性。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
-```cpp#  
-enum enum_PROVIDER_FIELDS {  
-   PFIELD_PROGRAM_NODES       = 0x01,  
-   PFIELD_IS_DEBUGGER_PRESENT = 0x02  
+```cpp  
+enum enum_PROVIDER_FIELDS {  
+   PFIELD_PROGRAM_NODES       = 0x01,  
+   PFIELD_IS_DEBUGGER_PRESENT = 0x02  
 };  
 typedef DWORD PROVIDER_FIELDS;  
 ```  
   
-```c#  
-public enum enum_PROVIDER_FIELDS {  
-   PFIELD_PROGRAM_NODES       = 0x01,  
-   PFIELD_IS_DEBUGGER_PRESENT = 0x02  
+```csharp  
+public enum enum_PROVIDER_FIELDS {  
+   PFIELD_PROGRAM_NODES       = 0x01,  
+   PFIELD_IS_DEBUGGER_PRESENT = 0x02  
 };  
 ```  
   
-## 成员  
- PFIELD\_PROGRAM\_NODES  
- `ProgramNodes` 字段有效。  
+## <a name="members"></a>成员  
+ PFIELD_PROGRAM_NODES  
+ `ProgramNodes`字段才有效。  
   
- PFIELD\_IS\_DEBUGGER\_PRESENT  
- `fIsDebuggerPresent` 字段有效。  
+ PFIELD_IS_DEBUGGER_PRESENT  
+ `fIsDebuggerPresent`字段才有效。  
   
-## 备注  
- 这些值在 [PROVIDER\_PROCESS\_DATA](../../../extensibility/debugger/reference/provider-process-data.md) 结构的 `Fields` 成员返回一个结构的哪些字段显式填充的。  
+## <a name="remarks"></a>备注  
+ 中返回这些值`Fields`的成员[PROVIDER_PROCESS_DATA](../../../extensibility/debugger/reference/provider-process-data.md)结构以指示已显式填充的结构的字段。  
   
- 这些值可以按位组合使用 `OR`。  
+ 这些值可以与按位组合`OR`。  
   
-## 要求  
- 标题:msdbg.h  
+## <a name="requirements"></a>要求  
+ 标头： msdbg.h  
   
- 命名空间:Microsoft.VisualStudio.Debugger.Interop  
+ Namespace: Microsoft.VisualStudio.Debugger.Interop  
   
- 程序集:Microsoft.VisualStudio.Debugger.Interop.dll  
+ 程序集： Microsoft.VisualStudio.Debugger.Interop.dll  
   
-## 请参阅  
+## <a name="see-also"></a>另请参阅  
  [枚举](../../../extensibility/debugger/reference/enumerations-visual-studio-debugging.md)   
- [PROVIDER\_PROCESS\_DATA](../../../extensibility/debugger/reference/provider-process-data.md)
+ [PROVIDER_PROCESS_DATA](../../../extensibility/debugger/reference/provider-process-data.md)

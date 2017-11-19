@@ -1,70 +1,72 @@
 ---
-title: "Office 解决方案的事件日志"
-ms.custom: ""
-ms.date: "02/02/2017"
-ms.prod: "visual-studio-dev14"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "office-development"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-dev_langs: 
-  - "VB"
-  - "CSharp"
-helpviewer_keywords: 
-  - "Office 应用程序 [Visual Studio 中的 Office 开发]，事件查看器"
-  - "ClickOnce 部署 [Visual Studio 中的 Office 开发]，事件查看器"
-  - "部署应用程序 [Visual Studio 中的 Office 开发]，事件查看器"
-  - "Visual Studio 中的 Office 开发，事件查看器"
+title: "Office 解决方案的事件日志 |Microsoft 文档"
+ms.custom: 
+ms.date: 02/02/2017
+ms.reviewer: 
+ms.suite: 
+ms.technology: office-development
+ms.tgt_pltfrm: 
+ms.topic: article
+dev_langs:
+- VB
+- CSharp
+helpviewer_keywords:
+- Office applications [Office development in Visual Studio], event viewer
+- ClickOnce deployment [Office development in Visual Studio], event viewer
+- deploying applications [Office development in Visual Studio], event viewer
+- Office development in Visual Studio, event viewer
 ms.assetid: 31a246fe-ce1c-4f0e-9a21-9cf974c247fe
-caps.latest.revision: 33
-author: "kempb"
-ms.author: "kempb"
-manager: "ghogen"
-caps.handback.revision: 32
+caps.latest.revision: "33"
+author: gewarren
+ms.author: gewarren
+manager: ghogen
+ms.openlocfilehash: c79049765d2e80f7cbf5c8588b637f8ae46af6ec
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# Office 解决方案的事件日志
-  你可以使用 Windows 事件查看器来查看当你安装或卸载 Office 解决方案时，由 [!INCLUDE[vsto_runtime](../vsto/includes/vsto-runtime-md.md)] 捕捉到的异常消息。 你可使用事件记录器中的这些消息来解决安装和部署问题。  
+# <a name="event-logging-for-office-solutions"></a>Office 解决方案的事件日志
+  你可以使用 Windows 事件查看器来查看当你安装或卸载 Office 解决方案时，由 [!INCLUDE[vsto_runtime](../vsto/includes/vsto-runtime-md.md)] 捕捉到的异常消息。 你可使用事件记录器中的这些消息来解决安装和部署问题。  
   
  [!INCLUDE[appliesto_all](../vsto/includes/appliesto-all-md.md)]  
   
-## 读取事件日志  
- 打开“事件查看器”和筛选器以筛选出你想要查看的事件。  
+## <a name="reading-the-event-log"></a>读取事件日志  
+ 打开“事件查看器”  和筛选器以筛选出你想要查看的事件。  
   
-#### 读取 Windows Server 2003 和 Windows XP 中的事件日志  
+#### <a name="to-read-the-event-log-in-windows-server-2003-and-windows-xp"></a>读取 Windows Server 2003 和 Windows XP 中的事件日志  
   
-1.  在“控制面板”中，打开“管理工具”。  
+1.  在“控制面板”中，打开“管理工具” 。  
   
-2.  启动“事件查看器”。  
+2.  启动“事件查看器” 。  
   
-3.  在事件日志的列表中，选择“应用程序”。  
+3.  在事件日志的列表中，选择“应用程序” 。  
   
-4.  在“视图”菜单中，单击“筛选器”。  
+4.  在“视图”  菜单中，单击“筛选器” 。  
   
-5.  在“事件源”列表中，选择“VSTO 4.0”。  
+5.  在“事件源”  列表中，选择“VSTO 4.0” 。  
   
-6.  对于安装事件，在“事件 ID”框中，键入 **4096**。  
+6.  对于安装事件，在“事件 ID”  框中，键入 **4096**。  
   
-7.  单击“确定”，以查看已筛选的视图。  
+7.  单击“确定”  ，以查看已筛选的视图。  
   
-#### 读取 Windows 7、Windows Vista 和 Windows Server 2008 中的事件日志  
+#### <a name="to-read-the-event-log-in-windows-7-windows-vista-and-windows-server-2008"></a>读取 Windows 7、Windows Vista 和 Windows Server 2008 中的事件日志  
   
-1.  在“控制面板”中，打开“管理工具”。  
+1.  在“控制面板”中，打开“管理工具” 。  
   
-2.  启动“事件查看器”。  
+2.  启动“事件查看器” 。  
   
-3.  展开“Windows 日志”。  
+3.  展开“Windows 日志” 。  
   
-4.  在事件日志的列表中，选择“应用程序”。  
+4.  在事件日志的列表中，选择“应用程序” 。  
   
-5.  在“操作”菜单上，单击“筛选当前日志”。  
+5.  在“操作”  菜单上，单击“筛选当前日志” 。  
   
-6.  在“事件源”列表中，选择“VSTO 4.0”。  
+6.  在“事件源”  列表中，选择“VSTO 4.0” 。  
   
-7.  对于安装事件，在“事件 ID”框中，键入 **4096**。  
+7.  对于安装事件，在“事件 ID”  框中，键入 **4096**。  
   
-8.  单击“确定”，以查看已筛选的视图。  
+8.  单击“确定”  ，以查看已筛选的视图。  
   
  事件查看器包括以下信息：  
   
@@ -76,29 +78,29 @@ caps.handback.revision: 32
   
  卸载 Office 解决方案后，异常消息保留在事件日志中。  
   
- 若要在运行 Office 解决方案时显示或记录异常消息，请参阅[调试 Office 项目](../vsto/debugging-office-projects.md)和[调试 Office 项目](../vsto/debugging-office-projects.md)。  
+ 若要显示或运行 Office 解决方案时记录异常消息，请参阅[调试 Office 项目](../vsto/debugging-office-projects.md)和[调试 Office 项目](../vsto/debugging-office-projects.md)。  
   
-### 本地化  
+### <a name="localization"></a>本地化  
  异常消息的语言由 Visual Studio Tools for Office 运行时语言确定。 例如，如果最终用户的计算机已安装了日语语言包，则以日语将异常消息写入事件日志。  
   
-## 禁用事件记录器  
- 默认情况下，安装或卸载 Office 解决方案时事件记录器处于禁用状态。 你可以通过将 VSTO\_EVENTLOGDISABLED 环境变量设置为“1”（一）来禁用事件记录器。  
+## <a name="disabling-the-event-logger"></a>禁用事件记录器  
+ 默认情况下，安装或卸载 Office 解决方案时事件记录器处于禁用状态。 你可以通过将 VSTO_EVENTLOGDISABLED 环境变量设置为“1”（一）来禁用事件记录器。  
   
-#### 禁用事件日志  
+#### <a name="to-disable-the-event-log"></a>禁用事件日志  
   
-1.  在“控制面板”中，打开“系统”。  
+1.  在“控制面板”中，打开“系统” 。  
   
-2.  在**“高级”**选项卡上，单击**“环境变量”**。  
+2.  在 **“高级”** 选项卡上，单击 **“环境变量”**。  
   
-3.  在“系统变量”窗格中，单击“新建”。  
+3.  在“系统变量”  窗格中，单击“新建” 。  
   
-4.  在“新建系统变量”对话框中，在“变量名称”框中键入 **VSTO\_EVENTLOGDISABLED**。  
+4.  在“新建系统变量”  对话框中，在“变量名称”  框中键入 **VSTO_EVENTLOGDISABLED** 。  
   
-5.  在“变量值”框中，键入 **1**。  
+5.  在“变量值”  框中，键入 **1**。  
   
 6.  单击“确定”。  
   
-## 请参阅  
+## <a name="see-also"></a>另请参阅  
  [部署 Office 解决方案](../vsto/deploying-an-office-solution.md)   
  [Office 解决方案部署疑难解答](../vsto/troubleshooting-office-solution-deployment.md)  
   

@@ -1,51 +1,51 @@
 ---
-title: "IDebugClassField::DoesInterfaceExist | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "IDebugClassField::DoesInterfaceExist"
-helpviewer_keywords: 
-  - "IDebugClassField::DoesInterfaceExist 方法"
+title: "IDebugClassField::DoesInterfaceExist |Microsoft 文档"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology: vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords: IDebugClassField::DoesInterfaceExist
+helpviewer_keywords: IDebugClassField::DoesInterfaceExist method
 ms.assetid: cc0c8642-1a76-4fda-a309-7018a34883c9
-caps.latest.revision: 9
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 9
+caps.latest.revision: "9"
+author: gregvanl
+ms.author: gregvanl
+manager: ghogen
+ms.openlocfilehash: 07a4760064003a45af55aa747192e044edca8e0c
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# IDebugClassField::DoesInterfaceExist
-[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
-
-确定特定接口是否在类中定义。  
+# <a name="idebugclassfielddoesinterfaceexist"></a>IDebugClassField::DoesInterfaceExist
+确定是否的类中定义特定接口。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
-```cpp#  
-HRESULT DoesInterfaceExist(   
-   LPCOLESTR pszInterfaceName  
+```cpp  
+HRESULT DoesInterfaceExist(   
+   LPCOLESTR pszInterfaceName  
 );  
 ```  
   
-```c#  
+```csharp  
 int DoesInterfaceExist(  
-   [In] string pszInterfaceName  
+   [In] string pszInterfaceName  
 );  
 ```  
   
-#### 参数  
+#### <a name="parameters"></a>参数  
  `pszInterfaceName`  
- \[in\] 包含接口名称的字符串查找。  
+ [in]包含要查找的接口名称的字符串。  
   
-## 返回值  
- 如果成功，则返回 S\_OK，返回 S\_FALSE，如果接口不存在;否则，返回错误代码。  
+## <a name="return-value"></a>返回值  
+ 如果成功，返回，则为 S_OK，则返回 S_FALSE 如果接口不存在;否则，返回错误代码。  
   
-## 备注  
- 此方法实际获取所有接口的枚举并搜索列表匹配的接口。  
+## <a name="remarks"></a>备注  
+ 实际上，此方法获取的所有接口的枚举，搜索匹配的接口的列表。  
   
-## 请参阅  
+## <a name="see-also"></a>另请参阅  
  [IDebugClassField](../../../extensibility/debugger/reference/idebugclassfield.md)

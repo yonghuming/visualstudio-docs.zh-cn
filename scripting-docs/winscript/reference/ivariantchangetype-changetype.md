@@ -1,27 +1,30 @@
 ---
-title: "IVariantChangeType::ChangeType | Microsoft Docs"
-ms.custom: ""
-ms.date: "01/18/2017"
-ms.prod: "windows-script-interfaces"
-ms.reviewer: ""
-ms.suite: ""
-ms.tgt_pltfrm: ""
-ms.topic: "reference"
+title: "IVariantChangeType::ChangeType |Microsoft 文档"
+ms.custom: 
+ms.date: 01/18/2017
+ms.prod: windows-script-interfaces
+ms.reviewer: 
+ms.suite: 
+ms.tgt_pltfrm: 
+ms.topic: reference
 apiname: IVariantChangeType.ChangeType
 apilocation: scrobj.dll
-helpviewer_keywords: 
-  - "IVariantChangeType::ChangeType"
+helpviewer_keywords: IVariantChangeType::ChangeType
 ms.assetid: 52374764-c42e-49af-a219-ee00c535a118
-caps.latest.revision: 8
-author: "mikejo5000"
-ms.author: "mikejo"
-manager: "ghogen"
-caps.handback.revision: 8
+caps.latest.revision: "8"
+author: mikejo5000
+ms.author: mikejo
+manager: ghogen
+ms.openlocfilehash: d742d1bd57c85aa75c9ccd60479d08c1a559fb37
+ms.sourcegitcommit: aadb9588877418b8b55a5612c1d3842d4520ca4c
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/27/2017
 ---
-# IVariantChangeType::ChangeType
-采用不同的值并用指定的类型创建新的变量。  
+# <a name="ivariantchangetypechangetype"></a>IVariantChangeType::ChangeType
+可将变量值并创建具有指定类型的新变量。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
 ```  
 HRESULT ChangeType(  
@@ -32,28 +35,28 @@ HRESULT ChangeType(
 );  
 ```  
   
-#### 参数  
+#### <a name="parameters"></a>参数  
  `pvarDst`  
- \[in，out\]包含值的变量表示 `pvarSrc`，但是，在 `vtNew`指定的类型。  
+ [在中，out]一个变量，包含表示的值`pvarSrc`，但与由指定类型`vtNew`。  
   
  `pvarSrc`  
- \[in\]更改的不同的值为新类型。  
+ [in]要将更改为新类型的变量值。  
   
  `lcid`  
- \[in\]使用的区域设置上下文，当参数强制转换成\/从字符串。  
+ [in]要将参数转换到数据库或从字符串时使用的区域设置上下文。  
   
  `vtNew`  
- \[in\]指定类型为 `pvarDst` 可以变为。  
+ [in]指定的类型`pvarDst`成为。  
   
-## 返回值  
- 该方法返回 `HRESULT`。  可能的值包括，但是，并不限于，这些下表中。  
+## <a name="return-value"></a>返回值  
+ 该方法返回 `HRESULT`。 可能的值包括（但并不限于）下表中的项。  
   
-|值|说明|  
-|-------|--------|  
+|值|描述|  
+|-----------|-----------------|  
 |`S_OK`|方法成功。|  
   
-## 备注  
- 在原始值复盖情况下，`pvarDst` 和 `pvarSrc` 参数可以是相等。  此方法通过 `pvarDst` 到 `VariantClear` 功能，因此，应该初始化 `pvarDst` 到一个有效值。  
+## <a name="remarks"></a>备注  
+ `pvarDst`和`pvarSrc`参数可以为相等，这种情况下覆盖原始值。 此方法将传递`pvarDst`到`VariantClear`函数，并因此`pvarDst`应初始化为有效的值。  
   
-## 请参阅  
+## <a name="see-also"></a>另请参阅  
  [IVariantChangeType 接口](../../winscript/reference/ivariantchangetype-interface.md)

@@ -4,8 +4,7 @@ ms.custom:
 ms.date: 11/04/2016
 ms.reviewer: 
 ms.suite: 
-ms.technology:
-- vs-ide-sdk
+ms.technology: vs-ide-sdk
 ms.tgt_pltfrm: 
 ms.topic: article
 helpviewer_keywords:
@@ -13,29 +12,15 @@ helpviewer_keywords:
 - interop assemblies, Visual Studio
 - managed VSPackages, interop assemblies
 ms.assetid: 1043eb95-4f0d-4861-be21-2a25395b3b3c
-caps.latest.revision: 33
+caps.latest.revision: "33"
+author: gregvanl
 ms.author: gregvanl
 manager: ghogen
-translation.priority.mt:
-- cs-cz
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pl-pl
-- pt-br
-- ru-ru
-- tr-tr
-- zh-cn
-- zh-tw
+ms.openlocfilehash: 298caf0b1c65ecb3612b927859b4d7d01720fc27
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
 ms.translationtype: MT
-ms.sourcegitcommit: eb5c9550fd29b0e98bf63a7240737da4f13f3249
-ms.openlocfilehash: 5d4b825b33339367ee331eb74aa2eb210c85206c
-ms.contentlocale: zh-cn
-ms.lasthandoff: 09/06/2017
-
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="using-visual-studio-interop-assemblies"></a>使用 Visual Studio 互操作程序集
 Visual Studio 互操作程序集允许访问提供 Visual Studio 扩展性的 COM 接口的托管应用程序。 有一些直 COM 接口和其互操作的版本之间的差异。 例如，Hresult 通常表示为一个整数值和需要为例外，相同的方式处理和 (尤其是 out 参数） 的参数的处理方式不同。  
@@ -50,11 +35,13 @@ Visual Studio 互操作程序集允许访问提供 Visual Studio 扩展性的 CO
   
  例如，考虑以下函数调用中，<xref:Microsoft.VisualStudio.VSConstants.E_NOTIMPL>是可接受的返回值，而其他 HRESULT 小于零表示错误。  
   
- [!code-vb[VSSDKHRESULTInformation #1](../../extensibility/internals/codesnippet/VisualBasic/using-visual-studio-interop-assemblies_1.vb) ] [!code-csharp [VSSDKHRESULTInformation #1](../../extensibility/internals/codesnippet/CSharp/using-visual-studio-interop-assemblies_1.cs)]  
+ [!code-vb[VSSDKHRESULTInformation#1](../../extensibility/internals/codesnippet/VisualBasic/using-visual-studio-interop-assemblies_1.vb)]
+ [!code-csharp[VSSDKHRESULTInformation#1](../../extensibility/internals/codesnippet/CSharp/using-visual-studio-interop-assemblies_1.cs)]  
   
  如果有多个可接受的返回值，只可以将其他 HRESULT 值追加到在调用列表<xref:Microsoft.VisualStudio.ErrorHandler.ThrowOnFailure%2A>。  
   
- [!code-vb[VSSDKHRESULTInformation #2](../../extensibility/internals/codesnippet/VisualBasic/using-visual-studio-interop-assemblies_2.vb) ] [!code-csharp [VSSDKHRESULTInformation #2](../../extensibility/internals/codesnippet/CSharp/using-visual-studio-interop-assemblies_2.cs)]  
+ [!code-vb[VSSDKHRESULTInformation#2](../../extensibility/internals/codesnippet/VisualBasic/using-visual-studio-interop-assemblies_2.vb)]
+ [!code-csharp[VSSDKHRESULTInformation#2](../../extensibility/internals/codesnippet/CSharp/using-visual-studio-interop-assemblies_2.cs)]  
   
 ## <a name="returning-hresults-to-com-from-managed-code"></a>从托管代码将 HRESULT 返回到 COM  
  如果不发生任何异常，托管代码返回<xref:Microsoft.VisualStudio.VSConstants.S_OK>向调用它的 COM 函数。 COM 互操作支持托管代码中强类型化的常见异常。 例如，收到不可接受的方法`null`自变量引发<xref:System.ArgumentNullException>。  

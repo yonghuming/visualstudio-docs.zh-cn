@@ -1,12 +1,10 @@
 ---
-title: 'How to: Add ListObject Controls to Worksheets | Microsoft Docs'
+title: "如何： 向工作表添加 ListObject 控件 |Microsoft 文档"
 ms.custom: 
 ms.date: 02/02/2017
-ms.prod: visual-studio-dev14
 ms.reviewer: 
 ms.suite: 
-ms.technology:
-- office-development
+ms.technology: office-development
 ms.tgt_pltfrm: 
 ms.topic: article
 dev_langs:
@@ -16,89 +14,90 @@ helpviewer_keywords:
 - ListObject control, adding to worksheets
 - controls [Office development in Visual Studio], adding to worksheets
 ms.assetid: 40788ecb-937f-4d2a-90ba-9c938e495b74
-caps.latest.revision: 44
-author: kempb
-ms.author: kempb
+caps.latest.revision: "44"
+author: gewarren
+ms.author: gewarren
 manager: ghogen
-ms.translationtype: HT
-ms.sourcegitcommit: eb5c9550fd29b0e98bf63a7240737da4f13f3249
-ms.openlocfilehash: 86c5bef09fb2b40deb5ab914b2e94e23d0ffe91a
-ms.contentlocale: zh-cn
-ms.lasthandoff: 08/30/2017
-
+ms.openlocfilehash: 8c22c8aa98ab2b1522b2cd9094738dd251708aee
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# <a name="how-to-add-listobject-controls-to-worksheets"></a>How to: Add ListObject Controls to Worksheets
-  You can add <xref:Microsoft.Office.Tools.Excel.ListObject> controls to a Microsoft Office Excel worksheet at design time and at run time in document-level projects.  
+# <a name="how-to-add-listobject-controls-to-worksheets"></a>如何：向工作表添加 ListObject 控件
+  在文档级项目中，你可以在设计时和运行时将 <xref:Microsoft.Office.Tools.Excel.ListObject> 控件添加到 Microsoft Office Excel 工作表。  
   
  [!INCLUDE[appliesto_xlalldocapp](../vsto/includes/appliesto-xlalldocapp-md.md)]  
   
- You can also add <xref:Microsoft.Office.Tools.Excel.ListObject> controls at run time in VSTO Add-in projects.  
+ 你也可以在 VSTO 外接程序项目中，在运行时添加 <xref:Microsoft.Office.Tools.Excel.ListObject> 控件。  
   
- This topic describes the following tasks:  
+ 本主题介绍了以下任务：  
   
--   [Adding ListObject controls at design time](#designtime)  
+-   [在设计时添加 ListObject 控件](#designtime)  
   
--   [Adding ListObject controls at run time in a document-level project](#runtimedoclevel)  
+-   [在运行时在文档级项目中添加 ListObject 控件](#runtimedoclevel)  
   
--   [Adding ListObject controls at run time in an VSTO Add-in project](#runtimeaddin)  
+-   [在运行时在 VSTO 外接程序项目中添加 ListObject 控件](#runtimeaddin)  
   
- For more information about <xref:Microsoft.Office.Tools.Excel.ListObject> controls, see [ListObject Control](../vsto/listobject-control.md).  
+ 有关 <xref:Microsoft.Office.Tools.Excel.ListObject> 控件的详细信息，请参阅 [ListObject Control](../vsto/listobject-control.md)。  
   
 ##  <a name="designtime"></a> Adding ListObject Controls at Design Time  
- There are several ways to add <xref:Microsoft.Office.Tools.Excel.ListObject> controls to a worksheet in a document-level project at design time: From within Excel, from the Visual Studio **Toolbox**, and from the **Data Sources** window.  
+ 有多种方法可在设计时在文档级项目中将 <xref:Microsoft.Office.Tools.Excel.ListObject> 控件添加到工作表：从 Excel、从 Visual Studio“工具箱” ，以及从“数据源”  窗口。  
   
  [!INCLUDE[note_settings_general](../sharepoint/includes/note-settings-general-md.md)]  
   
-#### <a name="to-use-the-ribbon-in-excel"></a>To use the Ribbon in Excel  
+#### <a name="to-use-the-ribbon-in-excel"></a>在 Excel 中使用功能区  
   
-1.  On the **Insert** tab, in the **Tables** group, click **Table**.  
+1.  在“插入”  选项卡上，单击“表”  组中的“表” 。  
   
-2.  Select the cell or cells you want to include in the list and click **OK**.  
+2.  选择要包含在列表中的一个或多个单元格，然后单击“确定” 。  
   
-#### <a name="to-use-the-toolbox"></a>To use the Toolbox  
+#### <a name="to-use-the-toolbox"></a>使用工具箱  
   
-1.  From the **Excel Controls** tab of the **Toolbox**, drag a <xref:Microsoft.Office.Tools.Excel.ListObject> to the worksheet.  
+1.  从“工具箱”  的“Excel 控件” 选项卡上，拖动 <xref:Microsoft.Office.Tools.Excel.ListObject> 到工作表。  
   
-     The **Add ListObject Control** dialog box appears.  
+     “添加 ListObject 控件”  对话框随即出现。  
   
-2.  Select the cell or cells you want to include in the list and click **OK**.  
+2.  选择要包含在列表中的一个或多个单元格，然后单击“确定” 。  
   
-     If you do not want to keep the default name, you can change the name in the **Properties** window.  
+     如果不希望保留默认名称，可以在“属性”  窗口中更改名称。  
   
-#### <a name="to-use-the-data-sources-window"></a>To use the Data Sources window  
+#### <a name="to-use-the-data-sources-window"></a>使用“数据源”窗口  
   
-1.  Open the **Data Sources** window and create a data source for your project. For more information, see [Add new connections](../data-tools/add-new-connections.md).  
+1.  打开“数据源”  窗口并为项目创建数据源。 有关详细信息，请参阅[添加新连接](../data-tools/add-new-connections.md)。  
   
-2.  Drag a table from the **Data Sources** window to your worksheet.  
+2.  将表从“数据源”  窗口拖到工作表中。  
   
-     A data-bound <xref:Microsoft.Office.Tools.Excel.ListObject> control is added to the worksheet. For more information, see [Data Binding and Windows Forms](/dotnet/framework/winforms/data-binding-and-windows-forms).  
+     数据绑定 <xref:Microsoft.Office.Tools.Excel.ListObject> 控件将添加到工作表中。 有关详细信息，请参阅 [Data Binding and Windows Forms](/dotnet/framework/winforms/data-binding-and-windows-forms)。  
   
 ##  <a name="runtimedoclevel"></a> Adding ListObject Controls at Run Time in a Document-Level Project  
- You can add the <xref:Microsoft.Office.Tools.Excel.ListObject> control dynamically at run time. This enables you to create the host controls in response to events. Dynamically created list objects are not persisted in the worksheet as host controls when the worksheet is closed. For more information, see [Adding Controls to Office Documents at Run Time](../vsto/adding-controls-to-office-documents-at-run-time.md).  
+ 可以在运行时动态添加 <xref:Microsoft.Office.Tools.Excel.ListObject> 控件。 这使得你可以创建宿主控件以响应事件。 工作表关闭时，动态创建的列表对象不作为宿主控件保留在工作表中。 有关更多信息，请参见 [Adding Controls to Office Documents at Run Time](../vsto/adding-controls-to-office-documents-at-run-time.md)。  
   
-#### <a name="to-add-a-listobject-control-to-a-worksheet-programmatically"></a>To add a ListObject control to a worksheet programmatically  
+#### <a name="to-add-a-listobject-control-to-a-worksheet-programmatically"></a>以编程方式将 ListObject 控件添加到工作表中  
   
-1.  In the <xref:Microsoft.Office.Tools.Excel.Worksheet.Startup> event handler of `Sheet1`, insert the following code to add a <xref:Microsoft.Office.Tools.Excel.ListObject> control to cells **A1** through **A4**.  
+1.  在 <xref:Microsoft.Office.Tools.Excel.Worksheet.Startup> 的 `Sheet1`事件处理程序中，插入下列代码以将 <xref:Microsoft.Office.Tools.Excel.ListObject> 控件添加到 **A1** 至 **A4**单元格。  
   
-     [!code-csharp[Trin_VstcoreHostControlsExcel#2](../vsto/codesnippet/CSharp/Trin_VstcoreHostControlsExcelCS/Sheet1.cs#2)]  [!code-vb[Trin_VstcoreHostControlsExcel#2](../vsto/codesnippet/VisualBasic/Trin_VstcoreHostControlsExcelVB/Sheet1.vb#2)]  
+     [!code-csharp[Trin_VstcoreHostControlsExcel#2](../vsto/codesnippet/CSharp/Trin_VstcoreHostControlsExcelCS/Sheet1.cs#2)]
+     [!code-vb[Trin_VstcoreHostControlsExcel#2](../vsto/codesnippet/VisualBasic/Trin_VstcoreHostControlsExcelVB/Sheet1.vb#2)]  
   
 ##  <a name="runtimeaddin"></a> Adding ListObject Controls at Run Time in an VSTO Add-in project  
- You can add a <xref:Microsoft.Office.Tools.Excel.ListObject> control programmatically to any open worksheet in an VSTO Add-in project. Dynamically created list objects are not persisted in the worksheet as host controls when the worksheet is saved and then closed. For more information, see [Extending Word Documents and Excel Workbooks in VSTO Add-ins at Run Time](../vsto/extending-word-documents-and-excel-workbooks-in-vsto-add-ins-at-run-time.md).  
+ 可以按编程方式将 <xref:Microsoft.Office.Tools.Excel.ListObject> 控件添加到 VSTO 外接程序项目中任何打开的工作表中。 工作表保存并关闭时，动态创建的列表对象不作为宿主控件保留在工作表中。 有关详细信息，请参阅 [Extending Word Documents and Excel Workbooks in VSTO Add-ins at Run Time](../vsto/extending-word-documents-and-excel-workbooks-in-vsto-add-ins-at-run-time.md)。  
   
-#### <a name="to-add-a-listobject-control-to-a-worksheet-programmatically"></a>To add a ListObject control to a worksheet programmatically  
+#### <a name="to-add-a-listobject-control-to-a-worksheet-programmatically"></a>以编程方式将 ListObject 控件添加到工作表中  
   
-1.  The following code generates a worksheet host item that is based on the open worksheet, and then adds a <xref:Microsoft.Office.Tools.Excel.ListObject> control to cells **A1** through **A4**.  
+1.  下面的代码将生成基于打开工作表的工作表宿主项，然后将 <xref:Microsoft.Office.Tools.Excel.ListObject> 控件添加到 **A1** 至 **A4**单元格。  
   
-     [!code-csharp[Trin_Excel_Dynamic_Controls#8](../vsto/codesnippet/CSharp/Trin_Excel_Dynamic_Controls/ThisAddIn.cs#8)]  [!code-vb[Trin_Excel_Dynamic_Controls#8](../vsto/codesnippet/VisualBasic/Trin_Excel_Dynamic_Controls/ThisAddIn.vb#8)]  
+     [!code-csharp[Trin_Excel_Dynamic_Controls#8](../vsto/codesnippet/CSharp/Trin_Excel_Dynamic_Controls/ThisAddIn.cs#8)]
+     [!code-vb[Trin_Excel_Dynamic_Controls#8](../vsto/codesnippet/VisualBasic/Trin_Excel_Dynamic_Controls/ThisAddIn.vb#8)]  
   
-## <a name="see-also"></a>See Also  
- [Extending Word Documents and Excel Workbooks in VSTO Add-ins at Run Time](../vsto/extending-word-documents-and-excel-workbooks-in-vsto-add-ins-at-run-time.md)   
- [Controls on Office Documents](../vsto/controls-on-office-documents.md)   
- [ListObject Control](../vsto/listobject-control.md)   
- [Automating Excel by Using Extended Objects](../vsto/automating-excel-by-using-extended-objects.md)   
+## <a name="see-also"></a>另请参阅  
+ [在运行时扩展 Word 文档和 Excel 工作簿在 VSTO 外接程序](../vsto/extending-word-documents-and-excel-workbooks-in-vsto-add-ins-at-run-time.md)   
+ [Office 文档上的控件](../vsto/controls-on-office-documents.md)   
+ [ListObject 控件](../vsto/listobject-control.md)   
+ [使用扩展对象实现 Excel 自动化](../vsto/automating-excel-by-using-extended-objects.md)   
  [Host Items and Host Controls Overview](../vsto/host-items-and-host-controls-overview.md)   
- [How to: Resize ListObject Controls](../vsto/how-to-resize-listobject-controls.md)   
- [Binding Data to Controls in Office Solutions](../vsto/binding-data-to-controls-in-office-solutions.md)   
- [Programmatic Limitations of Host Items and Host Controls](../vsto/programmatic-limitations-of-host-items-and-host-controls.md)  
+ [如何： 调整 ListObject 控件的大小](../vsto/how-to-resize-listobject-controls.md)   
+ [将数据绑定到 Office 解决方案中的控件](../vsto/binding-data-to-controls-in-office-solutions.md)   
+ [主机项和主机控件的编程限制](../vsto/programmatic-limitations-of-host-items-and-host-controls.md)  
   
   

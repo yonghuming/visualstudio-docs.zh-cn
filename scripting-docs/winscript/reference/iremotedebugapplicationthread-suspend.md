@@ -1,27 +1,30 @@
 ---
-title: "IRemoteDebugApplicationThread::Suspend | Microsoft Docs"
-ms.custom: ""
-ms.date: "01/18/2017"
-ms.prod: "windows-script-interfaces"
-ms.reviewer: ""
-ms.suite: ""
-ms.tgt_pltfrm: ""
-ms.topic: "reference"
+title: "IRemoteDebugApplicationThread::Suspend |Microsoft 文档"
+ms.custom: 
+ms.date: 01/18/2017
+ms.prod: windows-script-interfaces
+ms.reviewer: 
+ms.suite: 
+ms.tgt_pltfrm: 
+ms.topic: reference
 apiname: IRemoteDebugApplicationThread.Suspend
 apilocation: pdm.dll
-helpviewer_keywords: 
-  - "IRemoteDebugApplicationThread::Suspend"
+helpviewer_keywords: IRemoteDebugApplicationThread::Suspend
 ms.assetid: fd5cc874-2970-4092-b1cd-e638775b0e20
-caps.latest.revision: 8
-author: "mikejo5000"
-ms.author: "mikejo"
-manager: "ghogen"
-caps.handback.revision: 8
+caps.latest.revision: "8"
+author: mikejo5000
+ms.author: mikejo
+manager: ghogen
+ms.openlocfilehash: 995fa9e16fa9e1d712caff578c29b9aa3e14123b
+ms.sourcegitcommit: aadb9588877418b8b55a5612c1d3842d4520ca4c
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/27/2017
 ---
-# IRemoteDebugApplicationThread::Suspend
+# <a name="iremotedebugapplicationthreadsuspend"></a>IRemoteDebugApplicationThread::Suspend
 挂起线程。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
 ```  
 HRESULT Suspend(  
@@ -29,19 +32,19 @@ HRESULT Suspend(
 );  
 ```  
   
-#### 参数  
+#### <a name="parameters"></a>参数  
  `pdwCount`  
- \[in\]线程的挂起计数。  
+ [out]挂起线程计数。  
   
-## 返回值  
- 该方法返回 `HRESULT`。  可能的值包括，但是，并不限于，这些下表中。  
+## <a name="return-value"></a>返回值  
+ 该方法返回 `HRESULT`。 可能的值包括（但并不限于）下表中的项。  
   
-|值|说明|  
-|-------|--------|  
+|值|描述|  
+|-----------|-----------------|  
 |`S_OK`|方法成功。|  
   
-## 备注  
- 当此方法挂起线程时，它会增加挂起计数。  
+## <a name="remarks"></a>备注  
+ 当此方法将挂起线程时，它会递增的挂起计数。  
   
-## 请参阅  
+## <a name="see-also"></a>另请参阅  
  [IRemoteDebugApplicationThread 接口](../../winscript/reference/iremotedebugapplicationthread-interface.md)

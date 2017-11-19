@@ -1,27 +1,32 @@
 ---
-title: "Description 元素（Visual Studio 模板） | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-general"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-helpviewer_keywords: 
-  - "Description 元素 [Visual Studio 项目模板]"
+title: "Description 元素 （Visual Studio 模板） |Microsoft 文档"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology: vs-ide-general
+ms.tgt_pltfrm: 
+ms.topic: article
+helpviewer_keywords: Description element [Visual Studio project templates]
 ms.assetid: 6e12be73-081f-4c7d-898f-027c307a9fe1
-caps.latest.revision: 16
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 16
+caps.latest.revision: "16"
+author: gregvanl
+ms.author: gregvanl
+manager: ghogen
+ms.openlocfilehash: 6618ee5f6d7e110dd712fa6df4fbfb7906d8b46f
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# Description 元素（Visual Studio 模板）
-[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
-
-指定模板出现在**“新建项目”**或**“添加新项”**对话框中时此模板的说明。  
+# <a name="description-element-visual-studio-templates"></a>Description 元素（Visual Studio 模板）
+指定模板的说明中所示**新项目**或**添加新项**对话框。  
   
-## 语法  
+ \<VSTemplate >  
+ \<TemplateData >  
+ \<说明 >  
+  
+## <a name="syntax"></a>语法  
   
 ```  
 <Description>  
@@ -33,35 +38,35 @@ caps.handback.revision: 16
 <Description Package="{PackageID}" ID="ResourceID" />  
 ```  
   
-## 特性和元素  
- 以下几节描述了特性、子元素和父元素。  
+## <a name="attributes-and-elements"></a>特性和元素  
+ 下列各节描述了特性、子元素和父元素。  
   
-### 特性  
+### <a name="attributes"></a>特性  
   
 |特性|描述|  
-|--------|--------|  
-|`Package`|可选特性，适用于高级用户情形。<br /><br /> 一个 GUID，它指定 Visual Studio 数据包 ID。|  
-|`ID`|可选特性，适用于高级用户情形。<br /><br /> 指定 Visual Studio 资源 ID。|  
+|---------------|-----------------|  
+|`Package`|可选特性，高级的用户应用场景。<br /><br /> 指定 Visual Studio 包的 GUID id。|  
+|`ID`|可选特性，高级的用户应用场景。<br /><br /> 指定 Visual Studio 资源 id。|  
   
-### 子元素  
+### <a name="child-elements"></a>子元素  
  无。  
   
-### 父元素  
+### <a name="parent-elements"></a>父元素  
   
-|元素|描述|  
-|--------|--------|  
-|[TemplateData](../extensibility/templatedata-element-visual-studio-templates.md)|必需的元素。<br /><br /> 将此模板分类并定义此模板在**“新建项目”**或**“添加新项”**对话框中的显示方式。|  
+|元素|说明|  
+|-------------|-----------------|  
+|[TemplateData](../extensibility/templatedata-element-visual-studio-templates.md)|必需的元素。<br /><br /> 将此模板分类并定义此模板在 **“新建项目”** 或 **“添加新项”** 对话框中的显示方式。|  
   
-## 文本值  
- 除非使用了 `Package` 和 `ID` 特性，否则需要一个文本值。  
+## <a name="text-value"></a>文本值  
+ 一个文本值是必需的除非`Package`和`ID`可以使用的属性。  
   
  此文本提供模板的说明。  
   
-## 备注  
- `Description` 是 `TemplateData` 元素的必选子元素。  
+## <a name="remarks"></a>备注  
+ `Description` 是 `TemplateData` 元素的必需子元素。  
   
-## 示例  
- 下面的示例演示针对 [!INCLUDE[csprcs](../data-tools/includes/csprcs_md.md)] 应用程序的某个项目模板的元数据。  
+## <a name="example"></a>示例  
+ 下面的示例演示用于的项目模板的元数据[!INCLUDE[csprcs](../data-tools/includes/csprcs_md.md)]应用程序。  
   
 ```  
 <VSTemplate Type="Project" Version="3.0.0"  
@@ -87,6 +92,6 @@ caps.handback.revision: 16
 </VSTemplate>  
 ```  
   
-## 请参阅  
+## <a name="see-also"></a>另请参阅  
  [Visual Studio 模板架构参考](../extensibility/visual-studio-template-schema-reference.md)   
- [创建自定义项目和项模板](../ide/creating-project-and-item-templates.md)
+ [创建项目和项模板](../ide/creating-project-and-item-templates.md)

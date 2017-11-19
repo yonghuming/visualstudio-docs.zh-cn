@@ -1,42 +1,43 @@
 ---
-title: "调试 Windows 应用商店和 Windows 通用应用 | Microsoft Docs"
-ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-debug"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-dev_langs: 
-  - "FSharp"
-  - "VB"
-  - "CSharp"
-  - "C++"
+title: "调试 UWP 和 Windows 8.1 应用 |Microsoft 文档"
+ms.custom: 
+ms.date: 07/18/2017
+ms.reviewer: 
+ms.suite: 
+ms.technology: vs-ide-debug
+ms.tgt_pltfrm: 
+ms.topic: article
+dev_langs:
+- CSharp
+- VB
+- FSharp
+- C++
 ms.assetid: dd1723b7-4a43-47aa-9acf-d44afce78154
-caps.latest.revision: 5
-caps.handback.revision: 3
-author: "mikejo5000"
-ms.author: "mikejo"
-manager: "ghogen"
+caps.latest.revision: "5"
+author: mikejo5000
+ms.author: mikejo
+manager: ghogen
+ms.openlocfilehash: 258389c08971089c523e2881a455411ea767801a
+ms.sourcegitcommit: 26419ab0cccdc30d279c32d6a841758cfa903806
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/11/2017
 ---
-# 调试 Windows 应用商店和 Windows 通用应用
-[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
-
-Visual Studio 调试器提供对 Windows 应用商店应用和 Windows 通用应用的完整调试支持。  有关详细信息，请参阅 [Windows 开发人员中心](http://go.microsoft.com/fwlink/?LinkId=254182)中的以下部分。  
+# <a name="debug-universal-windows-apps-uwp"></a>调试通用 Windows 应用 (UWP)
+Visual Studio 调试器提供了对调试 UWP 应用的完整支持。  
   
-## 本节内容  
+有关调试通用 Windows 应用程序的信息，请参阅[部署和调试 UWP 应用](/windows/uwp/debug-test-perf/deploying-and-debugging-uwp-apps)。  
+  
+若要调试 Windows Phone 8 应用程序，请参阅[调试 Windows Phone 8 应用](https://msdn.microsoft.com/en-us/library/windows/apps/ff402572(v=vs.105).aspx)。  
+  
+## <a name="in-this-section"></a>本节内容  
   
 |||  
 |-|-|  
-|[从 Visual Studio 运行应用程序](../debugger/run-store-apps-from-visual-studio.md)|在本地计算机上、应用模拟器或仿真程序中、远程设备上运行应用商店应用。|  
-|[在 Visual Studio 中调试应用程序](../debugger/debug-store-apps-in-visual-studio.md)|使用 Visual Studio 调试器查找并修复应用商店应用中的 bug。|  
-|[运行性能和诊断工具](../Topic/Run%20analysis%20tools%20from%20the%20Performance%20and%20Diagnostic%20page.md)|从 Visual Studio 性能和诊断页运行多个诊断工具。|  
-|[分析应用程序性能](../Topic/Analyze%20the%20performance%20of%20Windows%20Store%20apps%20using%20Visual%20Studio%20diagnostic%20tools.md)|分析应用商店应用中的 CPU 使用率和 UI 响应能力|  
-|[JavaScript 内存](../profiling/javascript-memory.md)|分析内存使用率并找出使用 JavaScript 和 HTML 的应用商店应用中的内存泄漏。|  
-|[分析内存使用量（VB、C\#、C\+\+）](../profiling/memory-usage-without-debugging2.md)|分析内存使用率并找出使用 C\#、VB 和 XAML 的应用商店应用中的内存泄漏。|  
-|[分析能量使用情况](../profiling/analyze-energy-use-in-store-apps.md)|分析低功率平板设备上的应用商店应用的功率和能耗情况，这些低功率平板设备在全部或部分时间内靠自有电池运行。|  
-|[预提取 Windows 应用商店应用的内容](../debugger/prefetch-content-for-windows-store-apps.md)|分析 Windows 应用商店应用上的 ContentPrefetcher 类的效果。|  
-|[创建并运行单元测试](../test/create-and-run-unit-tests-for-a-store-app-in-visual-studio.md)|从 Visual Studio 中在应用商店应用上创建并运行单元测试。|  
-|[使用静态代码分析来分析代码质量](../test/analyze-the-code-quality-of-store-apps-using-visual-studio-static-code-analysis.md)|使用 Visual Studio 代码分析工具查找调试和测试中难以检测到的问题。|
+|[从 Visual Studio 运行应用](../debugger/run-store-apps-from-visual-studio.md)|在本地计算机上，在应用模拟器或仿真程序中，或者在远程设备上运行 UWP 应用。|  
+|[在 Visual Studio 中调试应用](../debugger/debug-store-apps-in-visual-studio.md)|查找和使用 Visual Studio 调试器在 UWP 应用中修复的 bug。|  
+|[调试已安装的应用程序包](../debugger/debug-installed-app-package.md)|调试已部署的应用，本地和远程。|
+|[适用于 UWP 应用的预提取内容](../debugger/prefetch-content-for-windows-store-apps.md)|分析 UWP 应用上的 ContentPrefetcher 类的效果。|  
+  
+## <a name="see-also"></a>另请参阅  
+ [使用静态代码分析来分析代码质量](../test/analyze-the-code-quality-of-store-apps-using-visual-studio-static-code-analysis.md)

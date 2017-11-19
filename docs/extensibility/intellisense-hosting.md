@@ -1,52 +1,53 @@
 ---
-title: "IntelliSense 承载 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-helpviewer_keywords: 
-  - "编辑器 [Visual Studio SDK]，旧的智能感知承载"
+title: "IntelliSense 承载 |Microsoft 文档"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology: vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+helpviewer_keywords: editors [Visual Studio SDK], legacy - IntelliSense hosting
 ms.assetid: 20c61f8a-d32d-47e2-9c67-bf721e2cbead
-caps.latest.revision: 17
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 17
+caps.latest.revision: "17"
+author: gregvanl
+ms.author: gregvanl
+manager: ghogen
+ms.openlocfilehash: 850e4b2ef6d455bb141827fa125c4c7c6860b652
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# IntelliSense 承载
-[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
-
-Visual Studio 启用 IntelliSense 承载。  IntellSense 承载可以为不受 Visual Studio 文本编辑器承载代码提供 IntelliSense。  
+# <a name="intellisense-hosting"></a>IntelliSense 承载
+Visual Studio 使 IntelliSense 承载。 IntellSense 承载允许您 IntelliSense 为提供不由 Visual Studio 文本编辑器托管的代码。  
   
-## 承载用法的 IntelliSense  
- 在 Visual Studio 中，可以访问完成的所有代码和文本缓冲区可以从任何位置用户界面的 IntelliSense 窗口 \(UI\)。  此的一些示例方案是完成 **监视** 窗口或 " 断点 " 属性 " 窗口定位字段。  
+## <a name="intellisense-hosting-usage"></a>IntelliSense 承载使用情况  
+ 在 Visual Studio 中，任何有权访问一完成组和文本缓冲区的代码可以获取 IntelliSense windows 从任何位置中的用户界面 (UI)。 此示例方案是在自动补全**监视**窗口或断点属性窗口的条件字段中。  
   
-### 实现接口  
+### <a name="implementation-interfaces"></a>实现接口  
   
-#### IVsIntellisenseHost  
- 承载 IntelliSense 弹出窗口的任何 UI 元素必须支持 <xref:Microsoft.VisualStudio.TextManager.Interop.IVsIntellisenseHost> 接口。  默认核心编辑器文本视图包含一次股票 <xref:Microsoft.VisualStudio.TextManager.Interop.IVsIntellisenseHost> 接口实现保留当前的 IntelliSense 功能。  大多数情况下， <xref:Microsoft.VisualStudio.TextManager.Interop.IVsIntellisenseHost> 接口的方法来表示的子集在 <xref:Microsoft.VisualStudio.TextManager.Interop.IVsTextView> 接口实现。  该子集包括 IntelliSense UI 处理，插入符号并选择处理和简单文本替换功能。  此外， <xref:Microsoft.VisualStudio.TextManager.Interop.IVsIntellisenseHost> 接口允许单独的 IntelliSense “主题”和 “context”，以便 IntelliSense 可用于不直接存在于文本缓冲区有关上下文使用的主题提供。  
+#### <a name="ivsintellisensehost"></a>IVsIntellisenseHost  
+ 承载 IntelliSense 弹出窗口的任何 UI 组件必须支持<xref:Microsoft.VisualStudio.TextManager.Interop.IVsIntellisenseHost>接口。 默认核心编辑器文本视图包括常用<xref:Microsoft.VisualStudio.TextManager.Interop.IVsIntellisenseHost>接口实现以保留当前的 IntelliSense 功能。 大多数情况下的方法<xref:Microsoft.VisualStudio.TextManager.Interop.IVsIntellisenseHost>接口实现的新增功能的子集的表示<xref:Microsoft.VisualStudio.TextManager.Interop.IVsTextView>接口。 该子集包括 IntelliSense UI 处理、 插入符号和选择操作和简单的文本替换功能。 此外，<xref:Microsoft.VisualStudio.TextManager.Interop.IVsIntellisenseHost>接口使单独智能感知"主题"和"上下文"，以便可以为不直接存在于文本缓冲区正在使用上下文的主体提供 IntelliSense。  
   
-#### IVsIntellisenseHost.GetHostFlags  
- <xref:Microsoft.VisualStudio.TextManager.Interop.IVsIntellisenseHost> 接口提供程序必须执行 <xref:Microsoft.VisualStudio.TextManager.Interop.IVsIntellisenseHost.GetHostFlags%2A> 方法使客户端能够确定哪种类型的 IntelliSense 在宿主功能支持。  
+#### <a name="ivsintellisensehostgethostflags"></a>IVsIntellisenseHost.GetHostFlags  
+ <xref:Microsoft.VisualStudio.TextManager.Interop.IVsIntellisenseHost>接口提供程序必须实现<xref:Microsoft.VisualStudio.TextManager.Interop.IVsIntellisenseHost.GetHostFlags%2A>方法使客户端以确定哪种类型的 IntelliSense 功能主机支持。  
   
- 宿主标志，定义在 [IntelliSenseHostFlags](../extensibility/intellisensehostflags.md)，在摘要。  
+ 中定义的主机标志[IntelliSenseHostFlags](../extensibility/intellisensehostflags.md)，下面概括了。  
   
-|IntelliSense 宿主标志|说明|  
-|-----------------------|--------|  
-|IHF\_READONLYCONTEXT|设置此标志意味着上下文缓冲区只读，并编辑在主题文本中仅发生。|  
-|IHF\_NOSEPERATESUBJECT|设置此标志意味着没有单独的 IntelliSense 主题。  此主题存在于上下文缓冲区，例如在传统 <xref:Microsoft.VisualStudio.TextManager.Interop.IVsTextView> IntelliSense 系统。|  
-|IHF\_SINGLELINESUBJECT|设置此标志。 **监视** 窗口意味着该主题没有多行能够的，例如单个行编辑。|  
-|IHF\_FORCECOMMITTOCONTEXT|如果此标志设置，并且上下文缓冲区必须更新，宿主使上下文缓冲区的只读标志会忽略并编辑执行。|  
-|IHF\_OVERTYPE|edit \(在主题或上下文\) 在重打模式应完成。|  
+|IntelliSense 主机标志|描述|  
+|----------------------------|-----------------|  
+|IHF_READONLYCONTEXT|设置此标志意味着的上下文缓冲区是只读的和编辑仅发生在主题文本。|  
+|IHF_NOSEPERATESUBJECT|设置此标志意味着，存在是没有单独的 IntelliSense 主题。 主题中的上下文缓冲区，如中存在的传统<xref:Microsoft.VisualStudio.TextManager.Interop.IVsTextView>IntelliSense 系统。|  
+|IHF_SINGLELINESUBJECT|设置此标志意味着，使用者不是多行支持，如所单行编辑中**监视**窗口。|  
+|IHF_FORCECOMMITTOCONTEXT|如果设置此标志，并且必须更新的上下文缓冲区，主机将启用要忽略的上下文缓冲区上的只读标志和编辑以继续。|  
+|IHF_OVERTYPE|编辑 （使用者或上下文） 中时，应该在改写模式来完成。|  
   
-#### IVsIntellisenseHost.BeforeCompletorCommit 和 IVsIntellisenseHost.AfterCompletorCommit  
- 这些回调方法由完成窗口调用，文本提交之前，启用预处理和程序集。  
+#### <a name="ivsintellisensehostbeforecompletorcommit-and-ivsintellisensehostaftercompletorcommit"></a>IVsIntellisenseHost.BeforeCompletorCommit 和 IVsIntellisenseHost.AfterCompletorCommit  
+ 之前和之后文本也会提交，若要启用预处理和后续处理，这些回调方法所调用的完成窗口。  
   
-#### IVsIntellisenseCompletor  
- <xref:Microsoft.VisualStudio.TextManager.Interop.IVsIntellisenseCompletor> 接口是集成开发环境 \(ide\) 使用标准完成窗口的公共的可创建版本 \(IDE\)。  通过使用此 completor 接口，所有 <xref:Microsoft.VisualStudio.TextManager.Interop.IVsIntellisenseHost> 接口可以快速实现 IntelliSense。  
+#### <a name="ivsintellisensecompletor"></a>IVsIntellisenseCompletor  
+ <xref:Microsoft.VisualStudio.TextManager.Interop.IVsIntellisenseCompletor>接口是可共同创建版本的集成的开发环境 (IDE) 使用标准完成窗口。 任何<xref:Microsoft.VisualStudio.TextManager.Interop.IVsIntellisenseHost>接口可以快速实现通过使用此 completor 接口的智能感知。  
   
-## 请参阅  
+## <a name="see-also"></a>另请参阅  
  <xref:Microsoft.VisualStudio.TextManager.Interop>

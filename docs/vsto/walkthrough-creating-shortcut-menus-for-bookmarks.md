@@ -1,12 +1,10 @@
 ---
-title: 'Walkthrough: Creating Shortcut Menus for Bookmarks | Microsoft Docs'
+title: "演练： 创建书签的快捷菜单 |Microsoft 文档"
 ms.custom: 
 ms.date: 02/02/2017
-ms.prod: visual-studio-dev14
 ms.reviewer: 
 ms.suite: 
-ms.technology:
-- office-development
+ms.technology: office-development
 ms.tgt_pltfrm: 
 ms.topic: article
 dev_langs:
@@ -18,102 +16,102 @@ helpviewer_keywords:
 - shortcut menus, Word
 - menus, creating in Office applications
 ms.assetid: 86dbf3ff-ba75-42f9-8df6-abfc19b3cf6b
-caps.latest.revision: 57
-author: kempb
-ms.author: kempb
+caps.latest.revision: "57"
+author: gewarren
+ms.author: gewarren
 manager: ghogen
-ms.translationtype: HT
-ms.sourcegitcommit: eb5c9550fd29b0e98bf63a7240737da4f13f3249
-ms.openlocfilehash: 2479bc8afdf4f02b586e4631d75fcf884bb2271e
-ms.contentlocale: zh-cn
-ms.lasthandoff: 08/30/2017
-
+ms.openlocfilehash: 8dbb248fdaab10aaef6146ae68e36a64b60bb453
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# <a name="walkthrough-creating-shortcut-menus-for-bookmarks"></a>Walkthrough: Creating Shortcut Menus for Bookmarks
-  This walkthrough demonstrates how to create shortcut menus for <xref:Microsoft.Office.Tools.Word.Bookmark> controls in a document-level customization for Word. When a user right-clicks the text in a bookmark, a shortcut menu appears and gives the user options for formatting the text.  
+# <a name="walkthrough-creating-shortcut-menus-for-bookmarks"></a>演练：创建书签的快捷菜单
+  本演练演示如何创建快捷菜单<xref:Microsoft.Office.Tools.Word.Bookmark>Word 的文档级自定义项中的控件。 用户右键单击在书签中的文本，快捷菜单将显示，且提供了用于设置文本格式的用户选项。  
   
  [!INCLUDE[appliesto_wdalldoc](../vsto/includes/appliesto-wdalldoc-md.md)]  
   
- This walkthrough illustrates the following tasks:  
+ 本演练阐释了以下任务：  
   
--   [Creating the Project](#BKMK_CreateProject).  
+-   [创建项目](#BKMK_CreateProject)。  
   
--   [Adding Text and Bookmarks to the Document](#BKMK_addtextandbookmarks).  
+-   [向文档添加文本和书签](#BKMK_addtextandbookmarks)。  
   
--   [Adding Commands to a Shortcut Menu](#BKMK_AddCmndsShortMenu).  
+-   [将命令添加到快捷菜单](#BKMK_AddCmndsShortMenu)。  
   
--   [Format the Text in the Bookmark](#BKMK_formattextbkmk).  
+-   [设置在书签中的文本格式](#BKMK_formattextbkmk)。  
   
  [!INCLUDE[note_settings_general](../sharepoint/includes/note-settings-general-md.md)]  
   
-## <a name="prerequisites"></a>Prerequisites  
- You need the following components to complete this walkthrough:  
+## <a name="prerequisites"></a>先决条件  
+ 你需要以下组件来完成本演练：  
   
 -   [!INCLUDE[vsto_vsprereq](../vsto/includes/vsto-vsprereq-md.md)]  
   
--   [!INCLUDE[Word_15_short](../vsto/includes/word-15-short-md.md)] or [!INCLUDE[Word_14_short](../vsto/includes/word-14-short-md.md)]  
+-   [!INCLUDE[Word_15_short](../vsto/includes/word-15-short-md.md)] 或 [!INCLUDE[Word_14_short](../vsto/includes/word-14-short-md.md)]  
   
-##  <a name="BKMK_CreateProject"></a> Creating the Project  
- The first step is to create a Word document project in Visual Studio.  
+##  <a name="BKMK_CreateProject"></a>创建项目  
+ 第一步是在 Visual Studio 中创建的 Word 文档项目。  
   
-#### <a name="to-create-a-new-project"></a>To create a new project  
+#### <a name="to-create-a-new-project"></a>创建新项目  
   
--   Create a Word document project that has the name **My Bookmark Shortcut Menu**. In the wizard, select **Create a new document**. For more information, see [How to: Create Office Projects in Visual Studio](../vsto/how-to-create-office-projects-in-visual-studio.md).  
+-   创建同名的 Word 文档项目**我书签的快捷菜单**。 在向导中，选择**创建新文档**。 有关详细信息，请参阅 [How to: Create Office Projects in Visual Studio](../vsto/how-to-create-office-projects-in-visual-studio.md)。  
   
-     Visual Studio opens the new Word document in the designer and adds the **My Bookmark Shortcut Menu** project to **Solution Explorer**.  
+     Visual Studio 将在设计器中打开新的 Word 文档和添加**我书签的快捷菜单**项目合并为**解决方案资源管理器**。  
   
-##  <a name="BKMK_addtextandbookmarks"></a> Adding Text and Bookmarks to the Document  
- Add some text to your document and then add two overlapping bookmarks.  
+##  <a name="BKMK_addtextandbookmarks"></a>向文档添加文本和书签  
+ 向文档添加一些文本，然后再添加两个重叠书签。  
   
-#### <a name="to-add-text-to-your-document"></a>To add text to your document  
+#### <a name="to-add-text-to-your-document"></a>若要向文档添加文本  
   
--   In the document that appears in the designer of your project, type the following text.  
+-   在文档中显示在你项目的设计器中，键入以下文本。  
   
-     **This is an example of creating a shortcut menu when you right-click the text in a bookmark.**  
+     **这是创建快捷菜单上，右键单击在书签中的文本时的示例。**  
   
-#### <a name="to-add-a-bookmark-control-to-your-document"></a>To add a Bookmark control to your document  
+#### <a name="to-add-a-bookmark-control-to-your-document"></a>若要向文档添加书签控件  
   
-1.  In the **Toolbox**, from the **Word Controls** tab, drag a <xref:Microsoft.Office.Tools.Word.Bookmark> control to your document.  
+1.  在**工具箱**，从**Word 控件**选项卡上，拖动<xref:Microsoft.Office.Tools.Word.Bookmark>到您的文档的控制。  
   
-     The **Add Bookmark Control** dialog box appears.  
+     **添加书签控件**对话框随即出现。  
   
-2.  Select the words "creating a shortcut menu when you right-click the text", and then click **OK**.  
+2.  选择"创建快捷菜单，右键单击文本时"的单词，然后单击**确定**。  
   
-     `bookmark1` is added to the document.  
+     `bookmark1`将添加到文档。  
   
-3.  Add another <xref:Microsoft.Office.Tools.Word.Bookmark> control to the words "right-click the text in a bookmark".  
+3.  添加另一个<xref:Microsoft.Office.Tools.Word.Bookmark>控制对单词"右键单击在书签中的文本"。  
   
-     `bookmark2` is added to the document.  
+     `bookmark2`将添加到文档。  
   
     > [!NOTE]  
-    >  The words "right-click the text" are in both `bookmark1` and `bookmark2`.  
+    >  "右击的文本"会同时出现在单词`bookmark1`和`bookmark2`。  
   
- When you add a bookmark to a document at design time, a <xref:Microsoft.Office.Tools.Word.Bookmark> control is created. You can program against several events of the bookmark. You can write code in the <xref:Microsoft.Office.Tools.Word.Bookmark.BeforeRightClick> event of the bookmark so that when the user right-clicks the text in the bookmark, a shortcut menu appears.  
+ 当在设计时向文档添加书签<xref:Microsoft.Office.Tools.Word.Bookmark>创建控件。 你可用于编程的书签的多个事件。 你可以在编写代码<xref:Microsoft.Office.Tools.Word.Bookmark.BeforeRightClick>事件的书签，以便当用户右键单击书签的地方中的文本将出现快捷菜单。  
   
-##  <a name="BKMK_AddCmndsShortMenu"></a> Adding Commands to a Shortcut Menu  
- Add buttons to the shortcut menu that appears when you right-click the document.  
+##  <a name="BKMK_AddCmndsShortMenu"></a>将命令添加到快捷菜单  
+ 向右键单击该文档时，将出现的快捷菜单添加按钮。  
   
-#### <a name="to-add-commands-to-a-shortcut-menu"></a>To add commands to a shortcut menu  
+#### <a name="to-add-commands-to-a-shortcut-menu"></a>将命令添加到快捷菜单  
   
-1.  Add a **Ribbon XML** item to the project. For more information, see [How to: Get Started Customizing the Ribbon](../vsto/how-to-get-started-customizing-the-ribbon.md).  
+1.  添加**功能区 XML**到项目的项。 有关详细信息，请参阅 [How to: Get Started Customizing the Ribbon](../vsto/how-to-get-started-customizing-the-ribbon.md)。  
   
-2.  In **Solution Explorer**, select **ThisDocument.cs** or **ThisDocument.vb**.  
+2.  在**解决方案资源管理器**，选择**ThisDocument.cs**或**ThisDocument.vb**。  
   
-3.  On the menu bar, choose **View**, **Code**.  
+3.  在菜单栏上，依次选择 **“视图”**、 **“代码”**。  
   
-     The **ThisDocument** class file opens in the Code Editor.  
+     **ThisDocument**类文件随即在代码编辑器中打开。  
   
-4.  Add the following code to the **ThisDocument** class. This code overrides the CreateRibbonExtensibilityObject method and returns the Ribbon XML class to the Office application.  
+4.  以下代码添加到**ThisDocument**类。 此代码重写 CreateRibbonExtensibilityObject 方法，并返回到 Office 应用程序的功能区 XML 类。  
   
-     [!code-csharp[Trin_Word_Document_Menus#1](../vsto/codesnippet/CSharp/trin_word_document_menus.cs/thisdocument.cs#1)]  [!code-vb[Trin_Word_Document_Menus#1](../vsto/codesnippet/VisualBasic/trin_word_document_menus.vb/thisdocument.vb#1)]  
+     [!code-csharp[Trin_Word_Document_Menus#1](../vsto/codesnippet/CSharp/trin_word_document_menus.cs/thisdocument.cs#1)]
+     [!code-vb[Trin_Word_Document_Menus#1](../vsto/codesnippet/VisualBasic/trin_word_document_menus.vb/thisdocument.vb#1)]  
   
-5.  In **Solution Explorer**, select the Ribbon XML file. By default, the Ribbon XML file is named Ribbon1.xml.  
+5.  在“解决方案资源管理器” 中，选择功能区 XML 文件。 默认情况下，功能区 XML 文件命名为 Ribbon1.xml。  
   
-6.  On the menu bar, choose **View**, **Code**.  
+6.  在菜单栏上，依次选择 **“视图”**、 **“代码”**。  
   
-     The Ribbon xml file opens in the Code Editor.  
+     功能区 XML 文件随即在代码编辑器中打开。  
   
-7.  In the Code Editor, replace the contents of the Ribbon XML file with the following code.  
+7.  在代码编辑器中，将功能区 XML 文件的内容替换为以下代码。  
   
     ```  
     <?xml version="1.0" encoding="UTF-8"?>  
@@ -129,76 +127,80 @@ ms.lasthandoff: 08/30/2017
     </customUI>  
     ```  
   
-     This code adds two buttons to the shortcut menu that appears when you right-click the document.  
+     此代码将两个按钮添加到的快捷菜单中右键单击该文档时，将出现。  
   
-8.  In **Solution Explorer**, right-click `ThisDocument`, and then click **View Code**.  
+8.  在**解决方案资源管理器**，右键单击`ThisDocument`，然后单击**查看代码**。  
   
-9. Declare the following variables and a bookmark variable at the class level.  
+9. 声明以下变量和在类级别的书签变量。  
   
-     [!code-csharp[Trin_Word_Document_Menus#2](../vsto/codesnippet/CSharp/trin_word_document_menus.cs/thisdocument.cs#2)]   [!code-vb[Trin_Word_Document_Menus#2](../vsto/codesnippet/VisualBasic/trin_word_document_menus.vb/thisdocument.vb#2)]  
+     [!code-csharp[Trin_Word_Document_Menus#2](../vsto/codesnippet/CSharp/trin_word_document_menus.cs/thisdocument.cs#2)]
+     [!code-vb[Trin_Word_Document_Menus#2](../vsto/codesnippet/VisualBasic/trin_word_document_menus.vb/thisdocument.vb#2)]  
   
-10. In **Solution Explorer**, select the Ribbon code file. By default, the Ribbon code file is named **Ribbon1.cs** or **Ribbon1.vb**.  
+10. 在**解决方案资源管理器**，选择功能区代码文件。 默认情况下，功能区代码文件命名为**Ribbon1.cs**或**Ribbon1.vb**。  
   
-11. On the menu bar, choose **View**, **Code**.  
+11. 在菜单栏上，依次选择 **“视图”**、 **“代码”**。  
   
-     The Ribbon code file opens in the Code Editor.  
+     功能区代码文件将在代码编辑器中打开。  
   
-12. In the Ribbon code file, add the following method. This is a callback method for the two buttons that you have added to the shortcut menu of the document. This method determines whether these buttons appear in the shortcut menu. The bold and italic buttons appear only if you right-click text within the bookmark.  
+12. 在功能区代码文件中，添加以下方法。 这是已添加到文档的快捷菜单的两个按钮的回叫方法。 此方法可确定这些按钮是否出现在快捷菜单。 仅当您右键单击该书签中的文本，将显示加粗和倾斜按钮。  
   
-     [!code-csharp[Trin_Word_Document_Menus#5](../vsto/codesnippet/CSharp/trin_word_document_menus.cs/ribbon1.cs#5)]  [!code-vb[Trin_Word_Document_Menus#5](../vsto/codesnippet/VisualBasic/trin_word_document_menus.vb/ribbon1.vb#5)]  
+     [!code-csharp[Trin_Word_Document_Menus#5](../vsto/codesnippet/CSharp/trin_word_document_menus.cs/ribbon1.cs#5)]
+     [!code-vb[Trin_Word_Document_Menus#5](../vsto/codesnippet/VisualBasic/trin_word_document_menus.vb/ribbon1.vb#5)]  
   
-##  <a name="BKMK_formattextbkmk"></a> Format the Text in the Bookmark  
+##  <a name="BKMK_formattextbkmk"></a>设置在书签中的文本格式  
   
-#### <a name="to-format-the-text-in-the-bookmark"></a>To format the text in the bookmark  
+#### <a name="to-format-the-text-in-the-bookmark"></a>若要设置格式在书签中的文本  
   
-1.  In the Ribbon code file, add a `ButtonClick` event handler to apply formatting to the bookmark.  
+1.  在功能区代码文件中，添加`ButtonClick`事件处理程序来将格式应用于该书签。  
   
-     [!code-csharp[Trin_Word_Document_Menus#6](../vsto/codesnippet/CSharp/trin_word_document_menus.cs/ribbon1.cs#6)]  [!code-vb[Trin_Word_Document_Menus#6](../vsto/codesnippet/VisualBasic/trin_word_document_menus.vb/ribbon1.vb#6)]  
+     [!code-csharp[Trin_Word_Document_Menus#6](../vsto/codesnippet/CSharp/trin_word_document_menus.cs/ribbon1.cs#6)]
+     [!code-vb[Trin_Word_Document_Menus#6](../vsto/codesnippet/VisualBasic/trin_word_document_menus.vb/ribbon1.vb#6)]  
   
-2.  **Solution Explorer**, select **ThisDocument.cs** or **ThisDocument.vb**.  
+2.  **解决方案资源管理器**，选择**ThisDocument.cs**或**ThisDocument.vb**。  
   
-3.  On the menu bar, choose **View**, **Code**.  
+3.  在菜单栏上，依次选择 **“视图”**、 **“代码”**。  
   
-     The **ThisDocument** class file opens in the Code Editor.  
+     **ThisDocument**类文件随即在代码编辑器中打开。  
   
-4.  Add the following code to the **ThisDocument** class.  
+4.  以下代码添加到**ThisDocument**类。  
   
-     [!code-csharp[Trin_Word_Document_Menus#3](../vsto/codesnippet/CSharp/trin_word_document_menus.cs/thisdocument.cs#3)]  [!code-vb[Trin_Word_Document_Menus#3](../vsto/codesnippet/VisualBasic/trin_word_document_menus.vb/thisdocument.vb#3)]  
+     [!code-csharp[Trin_Word_Document_Menus#3](../vsto/codesnippet/CSharp/trin_word_document_menus.cs/thisdocument.cs#3)]
+     [!code-vb[Trin_Word_Document_Menus#3](../vsto/codesnippet/VisualBasic/trin_word_document_menus.vb/thisdocument.vb#3)]  
   
     > [!NOTE]  
-    >  You must write code to handle the case where bookmarks overlap. If you do not, by default, the code will be called for all bookmarks in the selection.  
+    >  你必须编写代码以处理书签重叠的情况。 如果不希望这样做，默认情况下，代码将调用所选内容中的所有书签中。  
   
-5.  In C#, you must add event handlers for the bookmark controls to the <xref:Microsoft.Office.Tools.Word.Document.Startup> event. For information about creating event handlers, see [How to: Create Event Handlers in Office Projects](../vsto/how-to-create-event-handlers-in-office-projects.md).  
+5.  必须在 C# 中，添加事件处理程序的书签控件<xref:Microsoft.Office.Tools.Word.Document.Startup>事件。 有关创建事件处理程序的信息，请参阅[如何： 在 Office 项目中创建事件处理程序](../vsto/how-to-create-event-handlers-in-office-projects.md)。  
   
      [!code-csharp[Trin_Word_Document_Menus#4](../vsto/codesnippet/CSharp/trin_word_document_menus.cs/thisdocument.cs#4)]  
   
-## <a name="testing-the-application"></a>Testing the Application  
- Test your document to verify that the bold and italic menu items appear in the shortcut menu when you right-click text in a bookmark and that the text is properly formatted.  
+## <a name="testing-the-application"></a>测试应用程序  
+ 测试文档，以验证右键单击书签中的文本时，粗体和斜体菜单项将出现在快捷菜单和文本的格式正确。  
   
-#### <a name="to-test-your-document"></a>To test your document  
+#### <a name="to-test-your-document"></a>测试文档  
   
-1.  Press F5 to run your project.  
+1.  按 F5 运行项目。  
   
-2.  Right-click in the first bookmark, and then click **Bold**.  
+2.  在第一个书签中，右键单击，然后单击**加粗**。  
   
-3.  Verify that all of the text in `bookmark1` is formatted as bold.  
+3.  验证所有中的文本`bookmark1`设置为粗体。  
   
-4.  Right-click the text where the bookmarks overlap, and then click **Italic**.  
+4.  右键单击书签的重叠处的文本，然后单击**斜体**。  
   
-5.  Verify that all of the text in `bookmark2` is italic, and only the part of the text in `bookmark1` that overlaps `bookmark2` is italic.  
+5.  验证所有中的文本`bookmark2`为斜体，并只有的部分中的文本`bookmark1`重叠`bookmark2`为斜体。  
   
-## <a name="next-steps"></a>Next Steps  
- Here are some tasks that might come next:  
+## <a name="next-steps"></a>后续步骤  
+ 以下是接下来可能要执行的一些任务：  
   
--   Write code to respond to events of host controls in Excel. For more information, see [Walkthrough: Programming Against Events of a NamedRange Control](../vsto/walkthrough-programming-against-events-of-a-namedrange-control.md).  
+-   编写代码以响应在 Excel 中的主机控件的事件。 有关更多信息，请参见 [Walkthrough: Programming Against Events of a NamedRange Control](../vsto/walkthrough-programming-against-events-of-a-namedrange-control.md)。  
   
--   Use a check box to change formatting in a bookmark. For more information, see [Walkthrough: Changing Document Formatting Using CheckBox Controls](../vsto/walkthrough-changing-document-formatting-using-checkbox-controls.md).  
+-   使用复选框来更改格式设置在书签中。 有关详细信息，请参阅[演练： 更改文档格式使用复选框控件](../vsto/walkthrough-changing-document-formatting-using-checkbox-controls.md)。  
   
-## <a name="see-also"></a>See Also  
- [Walkthroughs Using Word](../vsto/walkthroughs-using-word.md)   
- [Office UI Customization](../vsto/office-ui-customization.md)   
- [Automating Word by Using Extended Objects](../vsto/automating-word-by-using-extended-objects.md)   
- [Bookmark Control](../vsto/bookmark-control.md)   
- [Optional Parameters in Office Solutions](../vsto/optional-parameters-in-office-solutions.md)  
+## <a name="see-also"></a>另请参阅  
+ [使用 Word 的演练](../vsto/walkthroughs-using-word.md)   
+ [Office UI 自定义项](../vsto/office-ui-customization.md)   
+ [使用扩展对象实现 Word 自动化](../vsto/automating-word-by-using-extended-objects.md)   
+ [Bookmark 控件](../vsto/bookmark-control.md)   
+ [Office 解决方案中的可选参数](../vsto/optional-parameters-in-office-solutions.md)  
   
   

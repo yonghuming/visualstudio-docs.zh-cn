@@ -1,57 +1,58 @@
 ---
-title: "IDebugPendingBreakpoint2::Virtualize | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "IDebugPendingBreakpoint2::Virtualize"
-helpviewer_keywords: 
-  - "虚拟化方法"
-  - "IDebugPendingBreakpoint2::Virtualize 方法"
+title: "IDebugPendingBreakpoint2::Virtualize |Microsoft 文档"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology: vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords: IDebugPendingBreakpoint2::Virtualize
+helpviewer_keywords:
+- Virtualize method
+- IDebugPendingBreakpoint2::Virtualize method
 ms.assetid: 58c8e9a5-4494-47c2-bddb-56f628da6a2d
-caps.latest.revision: 10
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 10
+caps.latest.revision: "10"
+author: gregvanl
+ms.author: gregvanl
+manager: ghogen
+ms.openlocfilehash: 93c9b09b7a9356687707837d818b9a603f8961b4
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# IDebugPendingBreakpoint2::Virtualize
-[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
-
-切换此挂起的断点有效状态。  当挂起的断点有效，调试引擎会尝试将其绑定，新代码时加载到程序。  
+# <a name="idebugpendingbreakpoint2virtualize"></a>IDebugPendingBreakpoint2::Virtualize
+切换此断点挂起的虚拟化的状态。 当挂起断点虚拟化时，将尝试每次新代码将加载到程序时将其绑定的调试引擎。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
-```cpp#  
-HRESULT Virtualize(   
-   BOOL fVirtualize  
+```cpp  
+HRESULT Virtualize(   
+   BOOL fVirtualize  
 );  
 ```  
   
-```cpp#  
-int Virtualize(   
-   int fVirtualize  
+```cpp  
+int Virtualize(   
+   int fVirtualize  
 );  
 ```  
   
-#### 参数  
+#### <a name="parameters"></a>参数  
  `fVirtualize`  
- \[in\] 设置为非零 \(`TRUE`\) 活动挂起的断点或零 \(`FALSE`\) 关闭虚拟化。  
+ [in]设置为非零值 (`TRUE`) 虚拟化挂起断点，或为零 (`FALSE`) 若要关闭虚拟化。  
   
-## 返回值  
- 如果成功，则返回; `S_OK`否则，返回错误代码。  ，如果断点删除，返回 `E_BP_DELETED` 。  
+## <a name="return-value"></a>返回值  
+ 如果成功，则返回`S_OK`; 否则为返回错误代码。 返回`E_BP_DELETED`如果断点已被删除。  
   
-## 备注  
- 有效的断点必须每次加载代码。  
+## <a name="remarks"></a>备注  
+ 每次加载代码时，将绑定虚拟化的断点。  
   
-## 示例  
- 下面的示例演示如何执行显示 [IDebugPendingBreakpoint2](../../../extensibility/debugger/reference/idebugpendingbreakpoint2.md) 接口的简单 `CPendingBreakpoint` 对象的方法。  
+## <a name="example"></a>示例  
+ 下面的示例演示如何实现此方法对于简单`CPendingBreakpoint`公开的对象[IDebugPendingBreakpoint2](../../../extensibility/debugger/reference/idebugpendingbreakpoint2.md)接口。  
   
-```cpp#  
+```cpp  
 HRESULT CPendingBreakpoint::Virtualize(BOOL fVirtualize)    
 {    
    HRESULT hr;    
@@ -83,5 +84,5 @@ HRESULT CPendingBreakpoint::Virtualize(BOOL fVirtualize)
 }    
 ```  
   
-## 请参阅  
+## <a name="see-also"></a>另请参阅  
  [IDebugPendingBreakpoint2](../../../extensibility/debugger/reference/idebugpendingbreakpoint2.md)

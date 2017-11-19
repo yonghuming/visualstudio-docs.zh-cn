@@ -1,67 +1,67 @@
 ---
-title: "IDebugDocumentContext2::Compare | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "IDebugDocumentContext2::Compare"
-helpviewer_keywords: 
-  - "IDebugDocumentContext2::Compare"
+title: "IDebugDocumentContext2::Compare |Microsoft 文档"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology: vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords: IDebugDocumentContext2::Compare
+helpviewer_keywords: IDebugDocumentContext2::Compare
 ms.assetid: 2327b1ba-52d0-42fb-a01e-63cb4b332d2f
-caps.latest.revision: 10
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 10
+caps.latest.revision: "10"
+author: gregvanl
+ms.author: gregvanl
+manager: ghogen
+ms.openlocfilehash: 4ed45c54b406d0e12a2909439755faf934f65941
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# IDebugDocumentContext2::Compare
-[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
-
-比较此文档上下文到特定数组文档上下文。  
+# <a name="idebugdocumentcontext2compare"></a>IDebugDocumentContext2::Compare
+比较到给定数组文档上下文中的此文档上下文。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
-```cpp#  
-HRESULT Compare(   
-   DOCCONTEXT_COMPARE       compare,  
-   IDebugDocumentContext2** rgpDocContextSet,  
-   DWORD                    dwDocContextSetLen,  
-   DWORD*                   pdwDocContext  
+```cpp  
+HRESULT Compare(   
+   DOCCONTEXT_COMPARE       compare,  
+   IDebugDocumentContext2** rgpDocContextSet,  
+   DWORD                    dwDocContextSetLen,  
+   DWORD*                   pdwDocContext  
 );  
 ```  
   
-```c#  
-int Compare(   
-   enum_ DOCCONTEXT_COMPARE compare,  
-   IDebugDocumentContext2[] rgpDocContextSet,  
-   uint                     dwDocContextSetLen,  
-   out uint                 pdwDocContext  
+```csharp  
+int Compare(   
+   enum_ DOCCONTEXT_COMPARE compare,  
+   IDebugDocumentContext2[] rgpDocContextSet,  
+   uint                     dwDocContextSetLen,  
+   out uint                 pdwDocContext  
 );  
 ```  
   
-#### 参数  
+#### <a name="parameters"></a>参数  
  `compare`  
- \[in\] 从指定比较的类型的 [DOCCONTEXT\_COMPARE](../../../extensibility/debugger/reference/doccontext-compare.md) 枚举的值。  
+ [in]取值范围为[DOCCONTEXT_COMPARE](../../../extensibility/debugger/reference/doccontext-compare.md)指定的比较类型的枚举。  
   
  `rgpDocContextSet`  
- \[in\] 数组中表示比较的文档上下文的 [IDebugDocumentContext2](../../../extensibility/debugger/reference/idebugdocumentcontext2.md) 对象。  
+ [in]数组[IDebugDocumentContext2](../../../extensibility/debugger/reference/idebugdocumentcontext2.md)表示正在相比文档上下文的对象。  
   
  `dwDocContextSetLen`  
- \[in\] 数组的长度文档上下文比较。  
+ [in]文档上下文之间进行比较的数组的长度。  
   
  `pdwDocContext`  
- \[out\] 返回索引。 `rgpDocContextSet` 数组第一个文档满足该比较的上下文。  
+ [out]返回到索引`rgpDocContextSet`满足的比较的第一个文档上下文的数组。  
   
-## 返回值  
- ，如果找到，则返回 `S_OK` 匹配。  ; 如果未找到，则返回 `S_FALSE` 匹配。  否则，返回错误代码。  
+## <a name="return-value"></a>返回值  
+ 返回`S_OK`如果找到匹配项。 返回`S_FALSE`如果没有找到匹配。 否则，返回错误代码。  
   
-## 备注  
- 该数组传递的 [IDebugDocumentContext2](../../../extensibility/debugger/reference/idebugdocumentcontext2.md) 对象必须由同一实现调试实现对 `IDebugDocumentContext2` 对象的引擎;否则，此比较是无效的。  
+## <a name="remarks"></a>备注  
+ [IDebugDocumentContext2](../../../extensibility/debugger/reference/idebugdocumentcontext2.md)数组中传递的对象必须实现相同的调试引擎实现`IDebugDocumentContext2`对象; 否则为调用比较不是有效。  
   
-## 请参阅  
+## <a name="see-also"></a>另请参阅  
  [IDebugDocumentContext2](../../../extensibility/debugger/reference/idebugdocumentcontext2.md)   
- [DOCCONTEXT\_COMPARE](../../../extensibility/debugger/reference/doccontext-compare.md)
+ [DOCCONTEXT_COMPARE](../../../extensibility/debugger/reference/doccontext-compare.md)

@@ -1,11 +1,10 @@
 ---
-title: Manage exceptions with the Visual Studio debugger | Microsoft Docs
+title: "管理 Visual Studio 调试器的异常 |Microsoft 文档"
 ms.custom: 
 ms.date: 04/05/2017
 ms.reviewer: 
 ms.suite: 
-ms.technology:
-- vs-ide-debug
+ms.technology: vs-ide-debug
 ms.tgt_pltfrm: 
 ms.topic: article
 f1_keywords:
@@ -33,65 +32,49 @@ helpviewer_keywords:
 - native run-time checks
 - exceptions, debugging
 ms.assetid: 43a77fa8-37d0-4c98-a334-0134dbca4ece
-caps.latest.revision: 35
+caps.latest.revision: "35"
 author: mikejo5000
 ms.author: mikejo
 manager: ghogen
-translation.priority.ht:
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- ru-ru
-- zh-cn
-- zh-tw
-translation.priority.mt:
-- cs-cz
-- pl-pl
-- pt-br
-- tr-tr
-ms.translationtype: HT
-ms.sourcegitcommit: 9e6c28d42bec272c6fd6107b4baf0109ff29197e
-ms.openlocfilehash: 3bc9b2136518d46060e81fd1c5ff150f53e969d8
-ms.contentlocale: zh-cn
-ms.lasthandoff: 08/22/2017
-
+ms.openlocfilehash: a0504ba8229e67284d4f54032dbbce3cef42d6e8
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# <a name="manage-exceptions-with-the-debugger-in-visual-studio"></a>Manage exceptions with the debugger in Visual Studio
+# <a name="manage-exceptions-with-the-debugger-in-visual-studio"></a>管理 Visual Studio 中的调试器异常
 
-An exception is an indication of an error state that occurs while a program is being executed. You can tell the debugger which exceptions (or sets of exceptions) to break on, and at which point you want the debugger to break (when the debugger breaks, it shows you where the exception was thrown). You can also add or delete exceptions. With a solution open in Visual Studio, use **Debug > Windows > Exception Settings** to open the **Exception Settings** window. 
+异常是执行程序时发生的错误状态的指示。 你可以让调试器在哪些异常 （或异常组） 上，中断并想要调试器中断的位置 （当调试器中断，它为你显示其中引发异常）。 你还可以添加或删除的异常。 使用 Visual Studio 中打开解决方案中，使用**调试 > Windows > 异常设置**以打开**异常设置**窗口。 
 
-You can and should provide handlers that respond to the most important exceptions, but it's important to know how to configure the debugger to always break execution for some exceptions.
+你可以并且应该提供响应最重要的异常的处理程序，但务必要了解如何配置调试器始终中断执行的某些异常。
   
-When an exception occurs, the debugger writes an exception message to the Output window. It may break execution in the following cases:  
+异常发生时，调试程序将一条异常消息写入到输出窗口。 它可能会在以下情况中中断执行：  
   
--   When an exception is thrown and is not handled.  
+-   引发异常且未进行处理时。  
   
--   When the debugger is configured to break execution before any handler is invoked.  
+-   当调试器配置为在调用任何处理之前中断执行。  
   
--   If you have set [Just My Code](../debugger/just-my-code.md), and the debugger is configured to break on any exception that is not handled in user code.  
+-   如果设置了[仅我的代码](../debugger/just-my-code.md)，且调试器配置为出现任何未在用户代码中处理的异常中断。  
   
 > [!NOTE]
->  ASP.NET has a top-level exception handler that shows error pages in a browser. It does not break execution unless **Just My Code** is turned on. For an example, see [Setting the debugger to continue on user-unhandled exceptions](../debugger/managing-exceptions-with-the-debugger.md#BKMK_UserUnhandled) below.  
+>  ASP.NET 有一个顶级异常处理程序，可以在浏览器中显示错误页。 除非启用 **“仅我的代码”** ，否则它不会中断执行。 有关示例，请参阅以下 [Setting the debugger to continue on user-unhandled exceptions](../debugger/managing-exceptions-with-the-debugger.md#BKMK_UserUnhandled) 。  
   
 > [!NOTE]
->  In a Visual Basic application, the debugger manages all errors as exceptions, even if you use On Error-style error handlers.    
+>  在 Visual Basic 应用程序，调试器管理所有错误作为异常，即使你使用错误样式错误处理程序。    
   
-## <a name="tell-the-debugger-to-break-when-an-exception-is-thrown"></a>Tell the debugger to break when an exception is thrown  
-The debugger can break execution at the point where an exception is thrown, giving you a chance to examine the exception before a handler is invoked.  
+## <a name="tell-the-debugger-to-break-when-an-exception-is-thrown"></a>让调试器在引发异常时中断  
+调试程序可以在引发异常的位置中断执行，这让你有机会在调用处理程序之前对异常进行检查。  
   
-In the **Exception Settings** window (**Debug > Windows > Exception Settings**), expand the node for a category of exceptions (for example, **Common Language Runtime Exceptions**, meaning .NET exceptions), and select the check box for a specific exception within that category (for example **System.AccessViolationException**). You can also select an entire category of exceptions.  
+在**异常设置**窗口 (**调试 > Windows > 异常设置**)，展开某个类别的异常的节点 (例如，**公共语言运行时异常**，表示.NET 异常)，并选中该类别内特定异常的复选框 (例如**System.AccessViolationException**)。 还可以选择整个类别的异常。  
   
-![Checked AccessViolationException](../debugger/media/exceptionsettingscheckaccess.png "ExceptionSettingsCheckAccess")  
+![选中 AccessViolationException](../debugger/media/exceptionsettingscheckaccess.png "ExceptionSettingsCheckAccess")  
 
 > [!TIP]
-> You can find specific exceptions by using the **Search** window in the **Exception Settings** toolbar, or use search to filter for specific namespaces (for example **System.IO**).
+> 可以使用 **“异常设置”** 工具栏中的 **“搜索”** 窗口查找特定窗口，或使用搜索筛选特定命名空间（例如， **System.IO**）。
   
-If you select an exception in the **Exception Settings** window, debugger execution will break wherever the exception is thrown, regardless of whether it is handled or unhandled. At this point the exception is called a first chance exception. For example, here are a couple of scenarios:  
+如果选择中的出现异常**异常设置**窗口中，调试器将中断执行引发异常，无论它是在处理还是在未经处理的任何位置。 此时，该异常被称为第一次机会异常。 以下是几个应用场景示例：  
   
-*  In the following C# console application, the Main method throws an **AccessViolationException** inside a `try/catch` block:  
+*  在下面的 C# 控制台应用程序中，Main 方法将在 **try/catch** 块内引发 `try/catch` ：  
   
     ```CSharp  
     static void Main(string[] args)  
@@ -109,18 +92,18 @@ If you select an exception in the **Exception Settings** window, debugger execut
     }  
     ```  
   
-     If you have **AccessViolationException** checked in **Exception Settings**, when you run this code in the debugger execution will break on the `throw` line. You can then continue execution. The console should display both lines:  
+     如果在“异常设置” **try/catch** 中选中了 **“异常设置”**，则在调试程序中运行此代码时，执行将在 `throw` 行上中断。 然后可以继续执行。 控制台应显示这两行：  
   
     ```  
     caught exception  
     goodbye  
     ```  
   
-     but it does not display the `here` line.  
+     但它没有显示 `here` 行。  
   
-*  A C# console application references a class library with a class that has two methods, a method that throws an exception and handles it and a second method that throws the same exception and doesn't handle it:  
+*  C# 控制台应用程序引用的类库具有两个方法、 引发异常，并对其进行处理的方法和一个引发同一异常并不会处理它的第二个方法的类：  
   
-    ```c# 
+    ```csharp 
     public class Class1  
     {  
         public void ThrowHandledException()  
@@ -142,7 +125,7 @@ If you select an exception in the **Exception Settings** window, debugger execut
     }  
     ```  
   
-     Here's the Main() method of the console application:  
+     下面是控制台应用程序的 main （） 方法：  
   
     ```CSharp  
     static void Main(string[] args)  
@@ -153,38 +136,38 @@ If you select an exception in the **Exception Settings** window, debugger execut
     }  
     ```  
   
-     If you have **AccessViolationException** checked in **Exception Settings**, when you run this code in the debugger execution will break on the `throw` line in both **ThrowHandledException()** and **ThrowUnhandledException()**.  
+     如果在“异常设置” **try/catch** 中选中了 **“异常设置”**，则在调试程序中运行此代码时，执行将在 `throw` 和 **ThrowUnhandledException()** 中的 **throw**，以在打开解决方案时打开此窗口。  
   
- If you would like to restore the exception settings to the defaults, you can click the **Restore** button on the toolbar:  
+ 如果想要将异常设置还原为默认值，则可以单击工具栏上的 **“还原”** 按钮：  
   
- ![Restore defaults in Exception Settings](../debugger/media/restoredefaultexceptions.png "RestoreDefaultExceptions")  
+ ![还原异常设置中的默认值](../debugger/media/restoredefaultexceptions.png "RestoreDefaultExceptions")  
   
-##  <a name="BKMK_UserUnhandled"></a> Tell the debugger to continue on user-unhandled exceptions  
- If you are debugging .NET or JavaScript code with [Just My Code](../debugger/just-my-code.md), you can tell the debugger not to break on exceptions that are not handled in user code but are handled somewhere else.  
+##  <a name="BKMK_UserUnhandled"></a>让调试器在遇到用户未经处理异常时继续  
+ 如果正在使用 [Just My Code](../debugger/just-my-code.md)调试 .NET 或 JavaScript 代码，则对于未在用户代码中进行处理但在其他地方进行了处理的异常，可以让调试程序不要执行中断操作。  
   
-1.  In the **Exception Settings** window, open the context menu by right-clicking in window and then selecting **Show Columns**. (If you have turned off **Just My Code**, you will not see this command.)  
+1.  在 **“异常设置”** 窗口中，通过在窗口中右键单击打开上下文菜单，然后选择 **“显示列”**。 （如果已禁用 **“仅我的代码”**，则将看不到此命令。）  
   
-2.  You should see a second column named **Additional Actions**. This column displays **Continue when unhandled by user code** on specific exceptions, meaning that the debugger does not break if that exception is not handled in user code but is handled in external code.  
+2.  应该看到名为 **“其他操作”**的第二个列。 此列对特定异常显示 **“在用户代码中未经处理时继续操作”** ，这意味着对于未在用户代码中进行处理但在其他地方进行了处理的异常，调试程序不会执行中断操作。  
   
-3.  You can change this setting either for a particular exception (select the exception, right-click, and select/deselect **Continue when Unhandled in User Code**) or for an entire category of exceptions (for example, all the Common Language Runtime exceptions).  
+3.  可以为特定异常（选择异常，右键单击，然后选择/取消选择 **“在用户代码中未经处理时继续操作”**）或为整个类别的异常（例如，所有公共语言运行时异常）更改此设置。  
   
- For example, ASP.NET web applications handle exceptions by converting them to an HTTP 500 status code ([Exception Handling in ASP.NET API](http://www.asp.net/web-api/overview/error-handling/exception-handling)), which may not help you to determine the source of the exception. In the example below, the user code makes a call to `String.Format()` that throws a <xref:System.FormatException>. Execution breaks as follows:  
+ 例如，ASP.NET Web 应用程序通过将异常转换为 HTTP 500 状态代码来处理异常（[ASP.NET API 中的异常处理](http://www.asp.net/web-api/overview/error-handling/exception-handling)），该方法可能无法帮助你确定异常的源。 在下面的示例中，用户代码对引发 `String.Format()` 的 <xref:System.FormatException>进行调用。 异常中断如下所示：  
   
- ![breaks on user&#45;unhanlded exception](../debugger/media/exceptionunhandledbyuser.png "ExceptionUnhandledByUser")  
+ ![位置中断用户 &#45; 分隔符异常](../debugger/media/exceptionunhandledbyuser.png "ExceptionUnhandledByUser")  
   
-## <a name="add-and-delete-exceptions"></a>Add and delete exceptions  
- You can add and delete exceptions. You can delete any type of exception from any category by selecting the exception and clicking the **Delete** button (the minus sign) on the **Exception Settings** toolbar, or right-clicking the exception and selecting **Delete** from the context menu. Deleting an exception has the same effect as having the exception unchecked, which is that the debugger will not break when it is thrown.  
+## <a name="add-and-delete-exceptions"></a>添加和删除异常  
+ 可以添加和删除异常。 通过选择异常并单击 **“异常设置”** 工具栏上的 **“删除”** 按钮，或右键单击异常并从上下文菜单选择 **“删除”** ，可以从任何类别删除任何类型的异常。 删除异常与取消选中异常的效果一样，即调试程序在该异常被引发时将不会执行中断操作。  
   
- To add an exception: in the **Exception Settings** window, select one of the exception categories (for example, **Common Language Runtime**) and click the **Add** button. Type the name of the exception (for example. **System.UriTemplateMatchException**). The exception is added to the list (in alphabetical order), and is automatically checked.  
+ 添加异常：在 **“异常设置”** 窗口中，选择其中一个异常类别（例如， **“公共语言运行时”**），然后单击 **“添加”** 按钮。 键入异常的名称（例如， **System.UriTemplateMatchException**）。 异常会添加到列表（按字母顺序），并会被自动选中。  
   
- If you want to add an exception to the GPU Memory Access Exceptions, JavaScript Runtime Exceptions, or Win32 Exceptions categories, you need to include the error code as well as the description.  
+ 如果想要将异常添加到 GPU 内存访问异常、JavaScript 运行时异常或 Win32 异常类别，则需要包括错误代码和说明。  
   
 > [!TIP]
->  Check your spelling! The **Exception Settings** window doesn't check for the existence of an added exception. So if you type **Sytem.UriTemplateMatchException**, you'll get an entry for that exception (and not for **System.UriTemplateMatchException**).  
+>  请检查你的拼写！ **异常设置**窗口不会检查是否存在添加的异常。 因此，如果键入**Sytem.UriTemplateMatchException**，则将获得该异常的条目 (而不是针对**System.UriTemplateMatchException**)。  
   
- Exception settings are persisted in the solution's .suo file, so they apply to a particular solution. You can't reuse specific exception settings across solutions. At this point, only added exceptions are persisted; deleted exceptions are not. In other words, you can add an exception, close and reopen the solution, and the exception will still be there. But if you delete an exception and close/reopen the solution, the exception will reappear.  
+ 异常设置保留在解决方案的.suo 文件中，因此它们适用于特定解决方案。 你无法跨解决方案重用特定异常设置。 此时，仅保留添加的异常，而不会保留删除的异常。 换而言之，可以添加一个异常，然后关闭并重新打开解决方案，该异常将仍然存在。 但是，如果删除一个异常，然后关闭/重新打开解决方案，异常将消失。  
   
- The **Exception Settings** window supports generic exception types in C# but not in Visual Basic. To break on exceptions like `MyNamespace.GenericException<T>`, you must add the exception as **MyNamespace.GenericException`1**. That is, if you have created an exception like this:  
+ **“异常设置”** 窗口在 C# 中支持通用异常类型，但在 Visual Basic 中不支持。 要对类似 `MyNamespace.GenericException<T>`的异常执行中断操作，则必须将异常作为 **MyNamespace.GenericException`1**添加。 也就是说，如果已经创建如下所示的异常：  
   
 ```CSharp  
 public class GenericException<T> : Exception  
@@ -195,24 +178,24 @@ public class GenericException<T> : Exception
 }  
 ```  
   
- You can add the exception to **Exception Settings** like this:  
+ 则可以按照如下所示方式将异常添加到 **“异常设置”** 窗口中：  
   
- ![adding generic exception](../debugger/media/addgenericexception.png "AddGenericException")  
+ ![添加常见异常](../debugger/media/addgenericexception.png "AddGenericException")  
 
-## <a name="add-conditions-to-an-exception"></a>Add conditions to an exception
+## <a name="add-conditions-to-an-exception"></a>将条件添加到异常
 
-You can set conditions on exceptions in the **Exception Settings** dialog box. Currently supported conditions include the module name(s) to include or exclude for the exception. By setting module names as conditions, you can choose to break for the exception only on particular code modules, or you can avoid breaking on particular modules.
+你可以设置条件中的异常上**异常设置**对话框。 当前支持的条件包括用于包含或排除异常的模块名称。 通过将模块名称设置为条件，你可以选择仅在特定代码模块上异常中断或可以避免在特定的模块上的换行。
 
 > [!NOTE]
-> Adding conditions to an exception is new in [!include[vs_dev15](../misc/includes/vs_dev15_md.md)]
+> 将条件添加到异常是中的新增功能[!include[vs_dev15](../misc/includes/vs_dev15_md.md)]
 
-To add conditional exceptions, choose the **Edit condition** icon in the Exception Settings dialog box or right-click the exception and choose **Edit Conditions**.
+若要添加条件异常，请选择**编辑条件**图标异常设置对话框框中或右键单击异常并选择**编辑条件**。
 
-![Conditions on an Exception](../debugger/media/dbg-conditional-exception.png "DbgConditionalException")
+![关于异常的条件](../debugger/media/dbg-conditional-exception.png "DbgConditionalException")
   
-## <a name="see-also"></a>See Also  
- [Continuing Execution After an Exception](../debugger/continuing-execution-after-an-exception.md)   
- [How to: Examine System Code After an Exception](../debugger/how-to-examine-system-code-after-an-exception.md)   
- [How to: Use Native Run-Time Checks](../debugger/how-to-use-native-run-time-checks.md)   
- [Using Run-Time Checks Without the C Run-Time Library](../debugger/using-run-time-checks-without-the-c-run-time-library.md)   
- [Debugger Basics](../debugger/debugger-basics.md)
+## <a name="see-also"></a>另请参阅  
+ [在出现异常之后继续执行](../debugger/continuing-execution-after-an-exception.md)   
+ [如何： 出现异常后检查系统代码](../debugger/how-to-examine-system-code-after-an-exception.md)   
+ [如何： 使用本机运行时检查](../debugger/how-to-use-native-run-time-checks.md)   
+ [使用无 C 运行库运行时检查](../debugger/using-run-time-checks-without-the-c-run-time-library.md)   
+ [调试器基础知识](../debugger/debugger-basics.md)

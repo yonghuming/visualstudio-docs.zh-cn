@@ -1,75 +1,75 @@
 ---
-title: "IDebugProcess2::Attach | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "IDebugProcess2::Attach"
-helpviewer_keywords: 
-  - "IDebugProcess2::Attach"
+title: "IDebugProcess2::Attach |Microsoft 文档"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology: vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords: IDebugProcess2::Attach
+helpviewer_keywords: IDebugProcess2::Attach
 ms.assetid: 40d78417-fde2-45c3-96c9-16e06bd9008d
-caps.latest.revision: 10
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 10
+caps.latest.revision: "10"
+author: gregvanl
+ms.author: gregvanl
+manager: ghogen
+ms.openlocfilehash: 840f2dee6648a84b0f7c6259049dcc701b5aef82
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# IDebugProcess2::Attach
-[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
-
-附加会议调试管理器 \(SDM\)到进程。  
+# <a name="idebugprocess2attach"></a>IDebugProcess2::Attach
+将会话调试管理器 (SDM) 附加到进程。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
-```cpp#  
-HRESULT Attach(   
-   IDebugEventCallback2* pCallback,  
-   GUID*                 rgguidSpecificEngines,  
-   DWORD                 celtSpecificEngines,  
-   HRESULT*              rghrEngineAttach  
+```cpp  
+HRESULT Attach(   
+   IDebugEventCallback2* pCallback,  
+   GUID*                 rgguidSpecificEngines,  
+   DWORD                 celtSpecificEngines,  
+   HRESULT*              rghrEngineAttach  
 );  
 ```  
   
-```c#  
-int Attach(   
-   IDebugEventCallback2 pCallback,  
-   Guid[]               rgguidSpecificEngines,  
-   uint                 celtSpecificEngines,  
-   int[]                rghrEngineAttach  
+```csharp  
+int Attach(   
+   IDebugEventCallback2 pCallback,  
+   Guid[]               rgguidSpecificEngines,  
+   uint                 celtSpecificEngines,  
+   int[]                rghrEngineAttach  
 );  
 ```  
   
-#### 参数  
+#### <a name="parameters"></a>参数  
  `pCallback`  
- \[in\] 使用的 [IDebugEventCallback2](../../../extensibility/debugger/reference/idebugeventcallback2.md) 对象的调试事件通知。  
+ [in][IDebugEventCallback2](../../../extensibility/debugger/reference/idebugeventcallback2.md)调试事件通知使用的对象。  
   
  `rgguidSpecificEngines`  
- \[in\] 数组 GUID 调试要使用的引擎调试运行在处理过程。  此参数可以为空值。  请参见 " 备注 " 了解详细信息。  
+ [in]可用于调试在进程中运行的程序的调试引擎的 Guid 数组。 此参数可以为 null 值。 有关详细信息，请参阅备注。  
   
  `celtSpecificEngines`  
- \[in\] 数字调试在 `rgguidSpecificEngines` 和 `rghrEngineAttach` 数组大小的引擎。  
+ [in]调试数引擎中`rgguidSpecificEngines`数组和大小`rghrEngineAttach`数组。  
   
  `rghrEngineAttach`  
- \[in, out\] HRESULT 代码的调试引擎返回。  此数组的大小 `celtSpecificEngines` 参数指定。  每个代码通常是 `S_OK` 或 `S_ATTACH_DEFERRED`。  后者指示、当前附加到不程序。  
+ [在中，out]HRESULT 代码的调试引擎返回的数组。 此数组的大小以指定`celtSpecificEngines`参数。 每个代码是通常`S_OK`或`S_ATTACH_DEFERRED`。 后者，则指示 DE 当前连接到任何节目。  
   
-## 返回值  
- 如果成功，则返回; `S_OK`否则，返回错误代码。  下表显示其他可能的值。  
+## <a name="return-value"></a>返回值  
+ 如果成功，则返回`S_OK`; 否则为返回错误代码。 下表显示其他可能的值。  
   
-|值|说明|  
-|-------|--------|  
-|`E_ATTACH_DEBUGGER_ALREADY_ATTACHED`|指定的进程已附加到调试器。|  
-|`E_ATTACH_DEBUGGEE_PROCESS_SECURITY_VIOLATION`|在附加过程中，安全违规发生。|  
+|值|描述|  
+|-----------|-----------------|  
+|`E_ATTACH_DEBUGGER_ALREADY_ATTACHED`|指定的进程已附加到调试器中。|  
+|`E_ATTACH_DEBUGGEE_PROCESS_SECURITY_VIOLATION`|附加过程中发生了安全冲突。|  
 |`E_ATTACH_CANNOT_ATTACH_TO_DESKTOP`|桌面进程无法附加到调试器。|  
   
-## 备注  
- 附加到进程附加 SDM 到运行由于可以由 `rgguidSpecificEngines` 数组指定的调试引擎 \(DE\)调试的所有程序的过程。  设置 `rgguidSpecificEngines` 参数设置为空值或包含 `GUID_NULL` 在数组附加到进程中的所有程序。  
+## <a name="remarks"></a>备注  
+ 附加到进程将 SDM 附加到运行中指定的调试引擎 (DE) 可以调试该进程中的所有程序`rgguidSpecificEngines`数组。 设置`rgguidSpecificEngines`为 null 的参数值，或将包括`GUID_NULL`数组中要将附加到进程中的所有程序。  
   
- 所有调试在过程将发送到特定 [IDebugEventCallback2](../../../extensibility/debugger/reference/idebugeventcallback2.md) 对象的事件。  此 `IDebugEventCallback2` 对象，而 SDM 调用此方法时，提供。  
+ 在进程中发生的所有调试事件都发送到给定[IDebugEventCallback2](../../../extensibility/debugger/reference/idebugeventcallback2.md)对象。 这`IDebugEventCallback2`SDM 调用此方法时提供对象。  
   
-## 请参阅  
+## <a name="see-also"></a>另请参阅  
  [IDebugProcess2](../../../extensibility/debugger/reference/idebugprocess2.md)   
  [IDebugEventCallback2](../../../extensibility/debugger/reference/idebugeventcallback2.md)

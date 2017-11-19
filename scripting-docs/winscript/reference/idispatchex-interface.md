@@ -1,70 +1,74 @@
 ---
-title: "IDispatchEx 接口 | Microsoft Docs"
-ms.custom: ""
-ms.date: "01/18/2017"
-ms.prod: "windows-script-interfaces"
-ms.reviewer: ""
-ms.suite: ""
-ms.tgt_pltfrm: ""
-ms.topic: "reference"
-helpviewer_keywords: 
-  - "IDispatchEx 接口"
-  - "IDispatchEx 接口, 关于 IDispatchEx"
+title: "IDispatchEx 接口 |Microsoft 文档"
+ms.custom: 
+ms.date: 01/18/2017
+ms.prod: windows-script-interfaces
+ms.reviewer: 
+ms.suite: 
+ms.tgt_pltfrm: 
+ms.topic: reference
+helpviewer_keywords:
+- IDispatchEx interface, about IDispatchEx
+- IDispatchEx interface
 ms.assetid: 37a3303f-f78e-4b5b-aac8-b836c92819de
-caps.latest.revision: 12
-author: "mikejo5000"
-ms.author: "mikejo"
-manager: "ghogen"
-caps.handback.revision: 12
+caps.latest.revision: "12"
+author: mikejo5000
+ms.author: mikejo
+manager: ghogen
+ms.openlocfilehash: 9a100a193f5e3abcb076fb8aaf3d64a0d0c38833
+ms.sourcegitcommit: aadb9588877418b8b55a5612c1d3842d4520ca4c
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/27/2017
 ---
-# IDispatchEx 接口
-`IDispatchEx`，`IDispatch` 接口的扩展，支持功能适用于动态语言\(如脚本语言。  本节描述 `IDispatchEx` 接口，该接口在 `IDispatch` 和 `IDispatchEx`之间的差异以及扩展的理论基础。  应读取器熟悉 `IDispatch` 和访问 `IDispatch` 文档的。  
+# <a name="idispatchex-interface"></a>IDispatchEx 接口
+`IDispatchEx`的扩展`IDispatch`接口，支持的功能不适用于动态语言，如脚本语言。 本部分介绍`IDispatchEx`接口本身，之间的差异`IDispatch`和`IDispatchEx`，和扩展的基本原理。 应读者已经熟悉`IDispatch`并有权访问`IDispatch`文档。  
   
-## 备注  
- `IDispatch` 对于Microsoft Visual Basic基本已经开发了。  `IDispatch` 的主要限制是假定，对象是静态的。  换言之，因为，在运行时，对象不更改，类型信息可详细描述它们在编译时。  在脚本语言中找到例如脚本编辑器的动态运行时设计\(vbscript\)和 [!INCLUDE[javascript](../../javascript/includes/javascript-md.md)] 和对象模型\(例如动态HTML的Visual Basic需要更灵活的接口。  
+## <a name="remarks"></a>备注  
+ `IDispatch`是实质上被开发的 Microsoft Visual Basic。 主要限制`IDispatch`是它假定对象是静态。 换而言之，因为未在运行时更改对象，类型信息可以完全描述它们在编译时。 在 Visual Basic Scripting Edition (VBScript) 等的脚本语言中找到的动态运行时模型和[!INCLUDE[javascript](../../javascript/includes/javascript-md.md)]和对象模型，如动态 HTML 需要更灵活的界面。  
   
- `IDispatchEx` 中开发提供更具动态后语言适用于例如脚本语言 `IDispatch` 以及某些扩展的所有服务。  `IDispatchEx` 附加功能在 `IDispatch` 提供的参数以外的是：  
+ `IDispatchEx`开发是为了提供的所有服务`IDispatch`以及适用于等脚本语言的更多动态后期绑定语言某些扩展插件。 其他功能`IDispatchEx`之外提供`IDispatch`是：  
   
--   将新成员添加到对象\(“expando”\) —用于 `fdexNameEnsure` 标志的 `GetDispID`。  
+-   将新成员添加到对象 ("expando")-使用`GetDispID`与`fdexNameEnsure`标志。  
   
--   删除对象使用 `DeleteMemberByName` 或 `DeleteMemberByDispID`的成员。  
+-   删除对象的成员-使用`DeleteMemberByName`或`DeleteMemberByDispID`。  
   
--   区分大小写的计划操作使用 `fdexNameCaseSensitive` 或 `fdexNameCaseInsensitive`。  
+-   区分大小写的调度操作 — 使用`fdexNameCaseSensitive`或`fdexNameCaseInsensitive`。  
   
--   搜索具有隐式名称使用的 `fdexNameImplicit`成员。  
+-   搜索具有隐式名称的成员-使用`fdexNameImplicit`。  
   
--   枚举对象使用 `GetNextDispID`的Dispid。  
+-   枚举的对象的 Dispid-使用`GetNextDispID`。  
   
--   从DISPID映射到元素名称使用 `GetMemberName`。  
+-   从 DISPID 到元素名称的映射 — 使用`GetMemberName`。  
   
--   获取对象成员使用 `GetMemberProperties`属性。  
+-   获取属性的对象成员-使用`GetMemberProperties`。  
   
--   与 `this` 使用指针 `InvokeEx` 的方法调用与DISPATCH\_METHOD。  
+-   方法调用与`this`指针-使用`InvokeEx`与 DISPATCH_METHOD。  
   
--   允许支持命名空间的概念获取对象使用 `GetNameSpaceParent`的命名空间父的浏览器。  
+-   允许的浏览器支持的命名空间，以获取父对象的名称空间概念-使用`GetNameSpaceParent`。  
   
- 支持 `IDispatchEx` 的对象可能还支持向后兼容的 `IDispatch`。  支持 `IDispatchEx` 对象的动态谓词有一些对象 `IDispatch` 接口的几种含义。  例如，`IDispatch` 进行以下操作：  
+ 对象支持`IDispatchEx`可能还支持`IDispatch`为了向后兼容。 支持的对象具有动态性`IDispatchEx`几暗示了`IDispatch`这些对象的接口。 例如，`IDispatch`进行以下假设：  
   
--   该成员和参数Dispid必须保持不变为对象的生存期。  这允许客户端一次获取Dispid和缓存它们供以后使用。  
+-   成员和参数 Dispid 必须保持不变的对象的生存期内。 这允许客户端在获得 Dispid 后，其缓存供以后使用。  
   
- 因为 `IDispatchEx` 允许成员的添加和删除，将活动Dispid不保持不变。  但是，`IDispatchEx` 需要映射在DISPID和成员名称之间保持不变。  如果成员删除，这意味着：  
+ 由于`IDispatchEx`允许的添加和删除的成员的一套有效的 Dispid 不保持不变。 但是，`IDispatchEx`需要 DISPID 和成员名称之间的映射保持不变。 这意味着，如果删除成员：  
   
--   不能重新使用DISPID，直到具有相同名称的成员创建。  
+-   不能重复使用 DISPID，直至创建具有相同名称的成员。  
   
--   DISPID必须保持有效。`GetNextDispID`。  
+-   DISPID 必须保持有效`GetNextDispID`。  
   
--   必须由方法它们必须识别该成员标记为已删除并返回相应的错误代码的正常接受DISPID任何 `IDispatch` 或 `IDispatchEx` \(通常DISP\_E\_MEMBERNOTFOUND或S\_FALSE\)。  
+-   必须按任何正常接受 DISPID`IDispatch`或`IDispatchEx`方法-它们必须识别为已删除的成员，并返回相应的错误代码 （通常 DISP_E_MEMBERNOTFOUND 或 S_FALSE）。  
   
-## 示例  
- 在的此 [!INCLUDE[javascript](../../javascript/includes/javascript-md.md)] 代码函数可测试\(\) 执行以下操作：  
+## <a name="examples"></a>示例  
+ 这[!INCLUDE[javascript](../../javascript/includes/javascript-md.md)]函数 test （） 中的代码执行下列任务：  
   
--   通过调用 `Object` 构造函数创建新的对象并将指针发送至变量的Obj的新对象。  
+-   通过调用创建一个新对象`Object`构造函数并将指针赋给变量 obj。 新的对象  
   
--   创建对象名为的Elem一个新的组件并分配给此元素指向功能猫。  
+-   创建一个新元素名 Elem 为对象中并将指向函数 cat 的指针分配给此元素。  
   
--   调用此函数。  因为它调用作为方法，`this` 指针引用对象Obj。  该函数添加一个新元素，条，为对象。  
+-   调用此函数。 由于它作为一种方法，正在调用`this`指针引用的对象 obj。该函数添加一个新的元素，栏中的，到对象。  
   
- 完整的HTML代码为：  
+ 完整的 HTML 代码是：  
   
 ```  
 <html>  
@@ -95,7 +99,7 @@ test();
 </html>  
 ```  
   
- 此相同网页上的控件中获取计划指向从浏览器的脚本引擎。  控件可以实现函数可测试\(\)：  
+ 在此相同的网页上施加的控制，可从浏览器到脚本引擎获得调度指针。 然后，该控件可以实现函数 test （）：  
   
 ```  
 <html>  
@@ -113,23 +117,23 @@ function cat()
 </html>  
 ```  
   
- 从控件的代码，测试，执行操作和 [!INCLUDE[javascript](../../javascript/includes/javascript-md.md)] 功能 `test()`相同。  注意这些计划调用为运行的 [!INCLUDE[javascript](../../javascript/includes/javascript-md.md)] 引擎并更改引擎处理状态：  
+ 从控件的代码、 测试、 执行同样的操作作为[!INCLUDE[javascript](../../javascript/includes/javascript-md.md)]函数`test()`。 请注意，这些调度调用到运行[!INCLUDE[javascript](../../javascript/includes/javascript-md.md)]引擎并更改引擎的状态：  
   
--   使用 `GetDispID()`，获取计划指向猫功能。  
+-   获取指向 cat 函数使用的调度指针`GetDispID()`。  
   
--   使用 `GetDispID()`，获取计划指向对象功能。  
+-   获取指向对象的函数使用的调度指针`GetDispID()`。  
   
--   通过调用与 `InvokeEx()` 的对象功能构造对象并获取计划指向新构造的对象。  
+-   通过调用对象函数将构造一个对象`InvokeEx()`，并获取指向新构造的对象的调度。  
   
--   在对象中创建一个新元素，Elem，使用 `GetDispID()` 用 `fdexNameEnsure` 标志。  
+-   在对象中使用创建一个新元素，Elem，`GetDispID()`与`fdexNameEnsure`标志。  
   
--   使用 `InvokeEx()`，将计划指向猫在元素中。  
+-   将调度指针放置在元素中使用 cat `InvokeEx()`。  
   
--   调用计划指向猫作为方法通过调用 `InvokeEx()` 并传入计划指向构造的对象作为 `this` 指针。  
+-   通过调用作为一种方法调用调度指向 cat`InvokeEx()`并在调度指针将传递给构造的对象作为`this`指针。  
   
--   猫方法创建一个新元素，条，在当前 `this` 对象。  
+-   Cat 方法创建一个新的元素，栏中的，对当前`this`对象。  
   
--   验证使用 `GetNextDispID()`，新元素，条，在构造对象时的枚举传递通过组件。  
+-   验证新的元素中，菜单栏上，在中创建构造的对象通过枚举通过使用的元素`GetNextDispID()`。  
   
  测试控件的代码：  
   
@@ -232,5 +236,5 @@ LDone:
    }  
 ```  
   
-## 方法  
+## <a name="methods"></a>方法  
  [IDispatchEx 方法](../../winscript/reference/idispatchex-methods.md)

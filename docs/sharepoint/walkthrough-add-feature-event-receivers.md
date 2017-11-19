@@ -1,12 +1,10 @@
 ---
-title: 'Walkthrough: Add Feature Event Receivers | Microsoft Docs'
+title: "演练： 添加功能事件接收器 |Microsoft 文档"
 ms.custom: 
 ms.date: 02/02/2017
-ms.prod: visual-studio-dev14
 ms.reviewer: 
 ms.suite: 
-ms.technology:
-- office-development
+ms.technology: office-development
 ms.tgt_pltfrm: 
 ms.topic: article
 dev_langs:
@@ -19,112 +17,112 @@ helpviewer_keywords:
 - SharePoint development in Visual Studio, event receivers
 - SharePoint development in Visual Studio, feature event receivers
 ms.assetid: fbd44c33-2c27-4d57-abca-21cddc16fbc3
-caps.latest.revision: 24
-author: kempb
-ms.author: kempb
+caps.latest.revision: "24"
+author: gewarren
+ms.author: gewarren
 manager: ghogen
-ms.translationtype: HT
-ms.sourcegitcommit: eb5c9550fd29b0e98bf63a7240737da4f13f3249
-ms.openlocfilehash: 5509743aa0d815bb2b3a7eece6c5822ac189ed14
-ms.contentlocale: zh-cn
-ms.lasthandoff: 08/30/2017
-
+ms.openlocfilehash: 27d565a51c026a6e143e18f122039d90627f55ff
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# <a name="walkthrough-add-feature-event-receivers"></a>Walkthrough: Add Feature Event Receivers
-  Feature event receivers are methods that execute when one of the following feature-related events occurs in SharePoint:  
+# <a name="walkthrough-add-feature-event-receivers"></a>演练：添加功能事件接收器
+  功能事件接收器是在 SharePoint 中的以下功能相关的事件之一发生时执行的方法：  
   
--   A feature is installed.  
+-   功能的安装。  
   
--   A feature is activated.  
+-   功能激活。  
   
--   A feature is deactivated.  
+-   一项功能将停用。  
   
--   A feature is removed.  
+-   删除功能时。  
   
- This walkthrough demonstrates how to add an event receiver to a feature in a SharePoint project. It demonstrates the following tasks:  
+ 本演练演示如何将事件接收器添加到 SharePoint 项目中的功能。 它演示了下列任务：  
   
--   Creating an empty project with a feature event receiver.  
+-   使用功能事件接收器创建一个空的项目。  
   
--   Handling the **FeatureDeactivating** method.  
+-   处理**FeatureDeactivating**方法。  
   
--   Using the SharePoint project object model to add an announcement to the Announcements list.  
+-   使用 SharePoint 项目对象模型向公告列表添加公告。  
   
  [!INCLUDE[note_settings_general](../sharepoint/includes/note-settings-general-md.md)]  
   
-## <a name="prerequisites"></a>Prerequisites  
- You need the following components to complete this walkthrough:  
+## <a name="prerequisites"></a>先决条件  
+ 你需要以下组件来完成本演练：  
   
--   Supported editions of Microsoft Windows and SharePoint. For more information, see [Requirements for Developing SharePoint Solutions](../sharepoint/requirements-for-developing-sharepoint-solutions.md).  
+-   支持的 Microsoft Windows 和 SharePoint 版本。 有关详细信息，请参阅[有关开发 SharePoint 解决方案的要求](../sharepoint/requirements-for-developing-sharepoint-solutions.md)。  
   
--   Visual Studio.  
+-   Visual Studio。  
   
-## <a name="creating-a-feature-event-receiver-project"></a>Creating a Feature Event Receiver Project  
- First, create a project to contain the feature event receiver.  
+## <a name="creating-a-feature-event-receiver-project"></a>创建功能事件接收器项目  
+ 首先，创建一个项目以包含功能事件接收器。  
   
-#### <a name="to-create-a-project-with-a-feature-event-receiver"></a>To create a project with a feature event receiver  
+#### <a name="to-create-a-project-with-a-feature-event-receiver"></a>若要使用功能事件接收器创建项目  
   
-1.  On the menu bar, choose **File**, **New**, **Project** to display the **New Project** dialog box.  
+1.  在菜单栏上，选择**文件**，**新建**，**项目**以显示**新项目**对话框。  
   
-2.  Expand the **SharePoint** node under either **Visual C#** or **Visual Basic**, and then choose the **2010** node.  
+2.  展开**SharePoint**下**Visual C#**或**Visual Basic**，然后选择**2010年**节点。  
   
-3.  In the **Templates** pane, choose the **SharePoint 2010 Project** template.  
+3.  在**模板**窗格中，选择**SharePoint 2010 项目**模板。  
   
-     You use this project type for feature event receivers because they have no project template.  
+     您为功能事件接收器使用此项目类型，因为它们具有没有项目模板。  
   
-4.  In the **Name** box, enter **FeatureEvtTest**, and then choose the **OK** button to display the **SharePoint Customization Wizard**.  
+4.  在**名称**框中，输入**FeatureEvtTest**，然后选择**确定**按钮以显示**SharePoint 自定义向导**。  
   
-5.  On the **Specify the site and security level for debugging** page, enter the URL for the SharePoint server site to which you want to add the new custom field item, or use the default location (http://\<*system name*>/).  
+5.  上**指定用于调试的站点和安全性级别**页上，输入你想要添加新的自定义字段项，SharePoint 服务器站点的 URL 或使用默认位置 (http://\<*系统名称*> /)。  
   
-6.  In the **What is the trust level for this SharePoint solution?** section, choose the **Deploy as a farm solution** option button.  
+6.  在**此 SharePoint 解决方案的信任级别是什么？**部分中，选择**部署为场解决方案**选项按钮。  
   
-     For more information about sandboxed solutions versus farm solutions, see [Sandboxed Solution Considerations](../sharepoint/sandboxed-solution-considerations.md).  
+     有关沙盒解决方案与场解决方案的详细信息，请参阅[沙盒解决方案注意事项](../sharepoint/sandboxed-solution-considerations.md)。  
   
-7.  Choose the **Finish** button, and then notice that a feature that's named Feature1 appears under the **Features** node.  
+7.  选择**完成**按钮，然后请注意，一种功能，名为 Feature1 出现下**功能**节点。  
   
-## <a name="adding-an-event-receiver-to-the-feature"></a>Adding an Event Receiver to the Feature  
- Next, add an event receiver to the feature and add code that executes when the feature is deactivated.  
+## <a name="adding-an-event-receiver-to-the-feature"></a>向功能添加事件接收器  
+ 接下来，添加功能事件接收器，并添加在停用该功能时执行的代码。  
   
-#### <a name="to-add-an-event-receiver-to-the-feature"></a>To add an event receiver to the feature  
+#### <a name="to-add-an-event-receiver-to-the-feature"></a>若要添加到功能事件接收器  
   
-1.  Open the shortcut menu for the Features node, and then choose **Add Feature** to create a feature.  
+1.  打开功能节点的快捷菜单，然后选择**添加功能**创建一项功能。  
   
-2.  Under the **Features** node, open the shortcut menu for **Feature1**, and then choose **Add Event Receiver** to add an event receiver to the feature.  
+2.  下**功能**节点，打开快捷菜单**Feature1**，然后选择**添加事件接收器**将添加到功能事件接收器。  
   
-     This adds a code file under Feature1. In this case, it is named either Feature1.EventReceiver.cs or Feature1.EventReceiver.vb, depending on your project's development language.  
+     这将添加 Feature1 下的代码文件。 在这种情况下，它名为 Feature1.EventReceiver.cs 或 Feature1.EventReceiver.vb，具体取决于你的项目的开发语言。  
   
-3.  If your project is written in [!INCLUDE[csprcs](../sharepoint/includes/csprcs-md.md)], add the following code at the top of the event receiver if it is not already there:  
+3.  如果你的项目用编写[!INCLUDE[csprcs](../sharepoint/includes/csprcs-md.md)]，如果它尚不存在的事件接收器顶部添加以下代码：  
   
      [!code-csharp[SP_FeatureEvt#1](../sharepoint/codesnippet/CSharp/featureevttest2/features/feature1/feature1.eventreceiver.cs#1)]  
   
-4.  The event receiver class contains several commented-out methods that act as events. Replace the **FeatureDeactivating** method with the following:  
+4.  事件接收器类中包含几个注释掉的方法，后者将作为事件。 替换**FeatureDeactivating**方法替换为以下：  
   
-     [!code-vb[SP_FeatureEvt#2](../sharepoint/codesnippet/VisualBasic/featureevt2vb/features/feature1/feature1.eventreceiver.vb#2)]  [!code-csharp[SP_FeatureEvt#2](../sharepoint/codesnippet/CSharp/featureevttest2/features/feature1/feature1.eventreceiver.cs#2)]  
+     [!code-vb[SP_FeatureEvt#2](../sharepoint/codesnippet/VisualBasic/featureevt2vb/features/feature1/feature1.eventreceiver.vb#2)]
+     [!code-csharp[SP_FeatureEvt#2](../sharepoint/codesnippet/CSharp/featureevttest2/features/feature1/feature1.eventreceiver.cs#2)]  
   
-## <a name="testing-the-feature-event-receiver"></a>Testing the Feature Event Receiver  
- Next, deactivate the feature to test whether the **FeatureDeactivating** method outputs an announcement to the SharePoint Announcements list.  
+## <a name="testing-the-feature-event-receiver"></a>测试功能事件接收器  
+ 接下来，停用要测试的功能是否**FeatureDeactivating**方法输出到 SharePoint 公告列表的公告。  
   
-#### <a name="to-test-the-feature-event-receiver"></a>To test the feature event receiver  
+#### <a name="to-test-the-feature-event-receiver"></a>若要测试功能事件接收器  
   
-1.  Set the value of the project's **Active Deployment Configuration** property to **No Activation**.  
+1.  将项目的值设置**活动部署配置**属性**无激活**。  
   
-     Setting this property prevents the feature from activating in SharePoint and lets you debug feature event receivers. For more information, see [Debugging SharePoint Solutions](../sharepoint/debugging-sharepoint-solutions.md).  
+     设置此属性可防止功能在 SharePoint 中激活，并使你能够调试功能事件接收器。 有关详细信息，请参阅[调试 SharePoint 解决方案](../sharepoint/debugging-sharepoint-solutions.md)。  
   
-2.  Choose the **F5** key to run the project and deploy it to SharePoint.  
+2.  选择**F5**键以运行该项目并将其部署到 SharePoint。  
   
-3.  At the top of the SharePoint Web page, open the **Site Actions** menu, and then choose **Site Settings**.  
+3.  在 SharePoint Web 页的顶部，打开**站点操作**菜单，然后选择**站点设置**。  
   
-4.  Under the **Site Actions** section of the **Site Settings** page, choose the **Manage site features** link.  
+4.  下**站点操作**部分**站点设置**页上，选择**管理站点功能**链接。  
   
-5.  On the **Features** page, choose the **Activate** button next to the **FeatureEvtTest Feature1** Feature.  
+5.  上**功能**页上，选择**激活**按钮旁边**FeatureEvtTest Feature1**功能。  
   
-6.  On the **Features** page, choose the **Deactivate** button next to the **FeatureEvtTest Feature1** Feature, and then choose the **Deactivate this feature** confirmation link to deactivate the Feature.  
+6.  上**功能**页上，选择**停用**按钮旁边**FeatureEvtTest Feature1**功能，然后选择**停用此功能**确认链接停用该功能。  
   
-7.  Choose the **Home** button.  
+7.  选择**主页**按钮。  
   
-     Notice that an announcement appears in the **Announcements** list after the feature is deactivated.  
+     请注意，在显示公告**公告**列表后停用该功能。  
   
-## <a name="see-also"></a>See Also  
- [How to: Create an Event Receiver](../sharepoint/how-to-create-an-event-receiver.md)   
- [Developing SharePoint Solutions](../sharepoint/developing-sharepoint-solutions.md)  
+## <a name="see-also"></a>另请参阅  
+ [如何： 创建事件接收器](../sharepoint/how-to-create-an-event-receiver.md)   
+ [开发 SharePoint 解决方案](../sharepoint/developing-sharepoint-solutions.md)  
   
   

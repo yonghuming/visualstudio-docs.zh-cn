@@ -1,44 +1,28 @@
 ---
-title: "在您的开发过程中使用模型 |Microsoft 文档"
+title: "在开发过程中使用模型 |Microsoft 文档"
 ms.custom: 
 ms.date: 11/04/2016
 ms.reviewer: 
 ms.suite: 
-ms.technology:
-- vs-devops-techdebt
+ms.technology: vs-devops-techdebt
 ms.tgt_pltfrm: 
 ms.topic: get-started-article
-helpviewer_keywords:
-- UML, using models
+helpviewer_keywords: UML, using models
 ms.assetid: a33ac8fc-4ba0-4850-b71b-014dc8674e54
-caps.latest.revision: 29
+caps.latest.revision: "29"
 author: alexhomer1
 ms.author: ahomer
 manager: douge
-translation.priority.ht:
-- cs-cz
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pl-pl
-- pt-br
-- ru-ru
-- tr-tr
-- zh-cn
-- zh-tw
-translationtype: Machine Translation
-ms.sourcegitcommit: 3d07f82ea737449fee6dfa04a61e195654ba35fa
-ms.openlocfilehash: 080f77253c886550dad4a10ae46409e5ac2c9506
-ms.lasthandoff: 02/22/2017
-
+ms.openlocfilehash: c9871a767ae8e2a9c77edecda19c986c4ee85f26
+ms.sourcegitcommit: ec1c7e7e3349d2f3a4dc027e7cfca840c029367d
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="use-models-in-your-development-process"></a>在你的开发过程中使用模型
-在 Visual Studio 中，你可以使用模型帮助你理解和更改系统、应用程序或组件。 模型能帮助你可视化系统工作的环境、阐明用户需求、定义你系统的体系结构、分析代码并确保你的代码符合要求。 请参阅[第 9 频道视频︰ 通过建模改进体系结构](http://go.microsoft.com/fwlink/?LinkID=252078)。  
+在 Visual Studio 中，你可以使用模型帮助你理解和更改系统、应用程序或组件。 模型能帮助你可视化系统工作的环境、阐明用户需求、定义你系统的体系结构、分析代码并确保你的代码符合要求。 请参阅[第 9 频道视频： 通过建模改善体系结构](http://go.microsoft.com/fwlink/?LinkID=252078)。  
   
- 若要查看哪些版本的 Visual Studio 支持每种类型的模型，请参阅[体系结构和建模工具的版本支持](../modeling/what-s-new-for-design-in-visual-studio.md#VersionSupport)。  
+ 若要查看支持每种类型的模型的 Visual Studio 版本，请参阅 [Version support for architecture and modeling tools](../modeling/what-s-new-for-design-in-visual-studio.md#VersionSupport)。  
   
 ## <a name="how-to-use-models"></a>如何使用模型  
  模型可以通过几种方式帮助你：  
@@ -47,7 +31,7 @@ ms.lasthandoff: 02/22/2017
   
 -   使用模型可帮助你揭示需求中的不一致性。  
   
--   使用模型通信可帮助你沟通重要概念时比使用自然语言更明确。 有关详细信息，请参阅[建模您的应用程序体系结构](../modeling/model-your-app-s-architecture.md)。  
+-   使用模型通信可帮助你沟通重要概念时比使用自然语言更明确。 有关详细信息，请参阅[建模应用程序的体系结构](../modeling/model-your-app-s-architecture.md)。  
   
 -   有时可使用模型生成代码或其他项目（如数据库架构或文档）。 例如，[!INCLUDE[vsUltShort](../code-quality/includes/vsultshort_md.md)] 建模组件是从模型生成的。  有关详细信息，请参阅[生成和配置你的应用模型](../modeling/generate-and-configure-your-app-from-models.md)。  
   
@@ -60,14 +44,14 @@ ms.lasthandoff: 02/22/2017
   
  如果你的项目很大，并且团队遍布全球各个位置，与使用纯文本相比，你可以使用模型来帮助更有效地沟通需求和体系结构。  
   
- 在这两种情况下，创建模型几乎总是会导致不一致和多义性的显著降低。 不同的利益干系人经常会对系统工作的业务领域有不同的理解，并且不同的开发人员经常会对系统的工作方式有不同的理解。 通常使用模型作为讨论的焦点来揭示这些不同之处。 有关如何使用模型减少不一致的详细信息，请参阅[建立用户需求模型](../modeling/model-user-requirements.md)。  
+ 在这两种情况下，创建模型几乎总是会导致不一致和多义性的显著降低。 不同的利益干系人经常会对系统工作的业务领域有不同的理解，并且不同的开发人员经常会对系统的工作方式有不同的理解。 通常使用模型作为讨论的焦点来揭示这些不同之处。 有关如何使用模型来减少不一致的详细信息，请参阅[建立用户需求模型](../modeling/model-user-requirements.md)。  
   
 ### <a name="use-models-with-other-artifacts"></a>对其他项目使用模型  
  一个模型本身并不是需求规范或体系结构。 它是一个工具，用于更清楚地表达的事物某些方面，但不是所有软件设计过程中所需的全部概念都可以表达出来。 因此，模型应当与其他通信方法一起使用，如 OneNote 页面或段落、Microsoft Office 文档、[!INCLUDE[esprfound](../code-quality/includes/esprfound_md.md)] 中的工作项，或项目文件室墙上的粘滞便笺。 除了最后一项，所有这些对象类型都可以链接到模型的元素部分。  
   
  通常与模型一起使用的其他方面的规范包括以下内容。 具体取决于项目的大小和样式，你可以使用这些方面中的几个，也可以根本不适用它们：  
   
--   用户情景。 用户情景是与用户和其他利益干系人一起讨论的系统行为方面的简短描述，该行为将在项目的迭代之一中出现。 典型的用户情景以“客户将能够...”开始 用户情景可能会引入一组用例，也可以定义先前已开发的用例的扩展。 定义或扩展用例有助于使用户情景更清晰。  
+-   用户情景。 用户情景是与用户和其他利益干系人一起讨论的系统行为方面的简短描述，该行为将在项目的迭代之一中出现。 典型的用户情景开始"客户将能够..."用户情景可能会引入一组用例，也可以定义先前已开发的用例的扩展。 定义或扩展用例有助于使用户情景更清晰。  
   
 -   更改请求。 更正式项目中的更改请求非常类似于敏捷项目中的用户情景。 敏捷方法会将所有需求视为对之前迭代中所开发内容进行的更改。  
   
@@ -108,7 +92,7 @@ ms.lasthandoff: 02/22/2017
 -   从你这里获取一些指导后，非技术性的利益干系人对理解 UML 关系图通常不会有问题。  
   
 #### <a name="link-model-to-work-items"></a>将模型链接到工作项  
- 需求研讨会结束后，请详细说明需求模型的的详细信息，并将模型链接到开发任务。 你可以通过将 [!INCLUDE[esprfound](../code-quality/includes/esprfound_md.md)] 中的工作项链接到模型中的元素来实现此操作。 若要了解如何执行此操作，请参阅[链接模型元素和工作项](../modeling/link-model-elements-and-work-items.md)。  
+ 需求研讨会结束后，请详细说明需求模型的的详细信息，并将模型链接到开发任务。 你可以通过将 [!INCLUDE[esprfound](../code-quality/includes/esprfound_md.md)] 中的工作项链接到模型中的元素来实现此操作。
   
  你可以将任意元素链接到工作项，但最有用的元素如下所示：  
   
@@ -117,7 +101,7 @@ ms.lasthandoff: 02/22/2017
 #### <a name="link-model-to-tests"></a>将模型链接到测试  
  使用需求模型来指导验收测试的设计。 在开发工作进行的同时创建这些测试。  
   
- 若要了解有关此技术的详细信息，请参阅[开发模型从测试](../modeling/develop-tests-from-a-model.md)。  
+ 若要了解有关此技术的详细信息，请参阅[基于模型开发测试](../modeling/develop-tests-from-a-model.md)。  
   
 #### <a name="estimate-remaining-work"></a>估计剩余工作  
  需求模型可以帮助根据每个迭代的大小估计项目的总大小。 评估用例和类的数量和复杂性可以帮助你估计将需要的开发工作。 完成前几个迭代后，对已涵盖需求以及仍将涵盖的需求进行比较可以估算出项目剩余部分的成本和范围。  
@@ -127,33 +111,32 @@ ms.lasthandoff: 02/22/2017
 ## <a name="levels-of-abstraction"></a>抽象级别  
  模型具有与软件相关的一系列抽象。 最具体的模型直接表示程序代码，而最抽象的模型表示可能会或可能不会在代码中表示的业务概念。  
   
- 可以通过多种类型的关系图中查看模型。 有关模型和关系图的信息，请参阅[为您的应用程序创建模型](../modeling/create-models-for-your-app.md)。  
+ 可以通过多种类型的关系图中查看模型。 有关模型和关系图的信息，请参阅[为你的应用程序创建模型](../modeling/create-models-for-your-app.md)。  
   
  不同类型的关系图可用于描述不同抽象级别的设计。 许多关系图类型可用于多个级别。 此表显示可以如何使用每种类型的关系图。  
   
 |设计级别|关系图类型|  
 |------------------|-------------------|  
-|业务流程<br /><br /> 了解将在其中使用你的系统的上下文有助于你了解用户对系统的需求。|-概念类图描述了业务流程中使用的业务概念。|  
-|用户需求<br /><br /> 用户对系统的需求的定义。|的可以在单独的文档中描述业务规则和服务质量要求。|  
-|高级设计<br /><br /> 系统的整体结构：主要组件以及它们如何结合在一起。|依赖项关系图描述了如何将系统组织成相互依赖的部件。 您可以验证程序代码对依赖项关系图，以确保它符合体系结构。|  
-|代码分析<br /><br /> 可以从代码生成关系图。|依赖项关系图显示两个类之间的依赖关系。 可以对依赖项关系图验证更新后的代码。<br />类关系图显示在代码中的类。|  
+|业务流程<br /><br /> 了解将在其中使用你的系统的上下文有助于你了解用户对系统的需求。|-概念类图描述业务流程中使用的业务概念。|  
+|用户需求<br /><br /> 用户对系统的需求的定义。|业务规则和服务质量要求可以在单独的文档所述。|  
+|高级设计<br /><br /> 系统的整体结构：主要组件以及它们如何结合在一起。|依赖项关系图描述了如何将系统组织成多个相互依赖的部分。 你可以验证针对依赖项关系图，以确保遵从与体系结构的程序代码。|  
+|代码分析<br /><br /> 可以从代码生成关系图。|依赖项关系图显示两个类之间的依赖项。 更新的代码可以根据依赖项关系图进行验证。<br />类关系图显示代码中的类。|  
   
 ## <a name="external-resources"></a>外部资源  
   
 |**类别**|**链接**|  
 |------------------|---------------|  
-|**视频**|![视频链接](~/data-tools/media/playvideo.gif "PlayVideo") [MSDN 如何实现视频︰ 如何创建和使用 UML 模型和关系图 (Visual Studio 2010 Ultimate)](http://go.microsoft.com/fwlink/?LinkId=214460)<br /><br /> ![视频链接](~/data-tools/media/playvideo.gif "PlayVideo")[第 9 频道︰ Visual Studio 2010 中的 UML](http://go.microsoft.com/fwlink/?LinkID=201106)<br /><br /> ![视频链接](~/data-tools/media/playvideo.gif "PlayVideo") [MSDN 如何实现系列︰ UML 工具和扩展性 (Visual Studio 2010 Ultimate)](http://go.microsoft.com/fwlink/?LinkID=214467)|  
-|**论坛**|-   [Visual Studio 可视化 & 建模工具](http://go.microsoft.com/fwlink/?LinkId=184720)<br />-   [Visual Studio 可视化 & 建模 SDK （DSL 工具）](http://go.microsoft.com/fwlink/?LinkId=184721)|  
+|**视频**|![视频链接](../data-tools/media/playvideo.gif "PlayVideo") [MSDN 如何实现视频： 如何创建和使用 UML 模型和关系图 （Visual Studio 2010 旗舰版）](http://go.microsoft.com/fwlink/?LinkId=214460)<br /><br /> ![视频链接](../data-tools/media/playvideo.gif "PlayVideo") [第 9 频道： 使用 Visual Studio 2010 的 UML](http://go.microsoft.com/fwlink/?LinkID=201106)<br /><br /> ![视频链接](../data-tools/media/playvideo.gif "PlayVideo") [MSDN 如何实现系列： UML 工具和扩展性 （Visual Studio 2010 旗舰版）](http://go.microsoft.com/fwlink/?LinkID=214467)|  
+|**论坛**|-   [Visual Studio 可视化和建模工具](http://go.microsoft.com/fwlink/?LinkId=184720)<br />-   [Visual Studio 可视化和建模 SDK（DSL 工具）](http://go.microsoft.com/fwlink/?LinkId=184721)|  
 |**博客**|[Visual Studio ALM + Team Foundation Server 博客](http://go.microsoft.com/fwlink/?LinkID=201340)|  
 |**技术文章和日志**|[MSDN 体系结构中心](http://go.microsoft.com/fwlink/?LinkId=201343)<br /><br /> [Visual Studio 体系结构工具指南](../modeling/visual-studio-architecture-tooling-guidance.md)|  
   
 ## <a name="see-also"></a>另请参阅  
  [在敏捷开发中使用模型](http://msdn.microsoft.com/en-us/592ac27c-3d3e-454a-9c38-b76658ed137f)   
- [为您的应用程序创建模型](../modeling/create-models-for-your-app.md)   
- [模型用户需求](../modeling/model-user-requirements.md)   
- [应用程序的体系结构的模型](../modeling/model-your-app-s-architecture.md)   
- [开发测试从模型](../modeling/develop-tests-from-a-model.md)   
+ [为你的应用程序创建模型](../modeling/create-models-for-your-app.md)   
+ [建立用户需求模型](../modeling/model-user-requirements.md)   
+ [建模应用程序的体系结构](../modeling/model-your-app-s-architecture.md)   
+ [基于模型开发测试](../modeling/develop-tests-from-a-model.md)   
  [安排建模解决方案](../modeling/structure-your-modeling-solution.md)
 
 [!INCLUDE[modeling_sdk_info](includes/modeling_sdk_info.md)]
-

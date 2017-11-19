@@ -4,47 +4,31 @@ ms.custom:
 ms.date: 11/10/2016
 ms.reviewer: 
 ms.suite: 
-ms.technology:
-- vs-ide-sdk
+ms.technology: vs-ide-sdk
 ms.tgt_pltfrm: 
 ms.topic: article
 ms.assetid: 45cfcee6-7a68-4d4f-b3f6-e2d8a0fa066a
-caps.latest.revision: 1
+caps.latest.revision: "1"
 author: gregg-miskelly
 ms.author: greggm
 manager: ghogen
-translation.priority.mt:
-- cs-cz
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pl-pl
-- pt-br
-- ru-ru
-- tr-tr
-- zh-cn
-- zh-tw
-ms.translationtype: Machine Translation
-ms.sourcegitcommit: 8163a0e1230712734936b7548bef1753ee0c1d2a
-ms.openlocfilehash: 19ce2d4cc1ff92240529f35f42845778ded49fdf
-ms.contentlocale: zh-cn
-ms.lasthandoff: 03/07/2017
-
+ms.openlocfilehash: 06bfef5f1b4d67cb691a74b953296b1ab057d62f
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="migrate-64-bit-debugger-com-class-registration"></a>迁移 64 位调试器 COM 类注册
 
-对于那些在 HKEY_CLASSES_ROOT 中的 COM 类注册 （通过使用 regasm，regsvr32，或直接写入注册表） 并且加载到 msvsmon.exe （远程调试器） 调试器扩展，现可能提供此注册到 msvsmon 而无需写入 HKEY_CLASSES_ROOT。 这会影响旧版.NET 调试器表达式计算器或配置为在 msvsmon.exe 进程中加载的调试引擎。
+调试器在注册表中的 COM 类注册 （通过使用 regasm，regsvr32，或直接向注册表写入） 并加载到 msvsmon.exe （远程调试器） 的扩展，它现在是可以无需提供此注册到 msvsmon要写入到注册表。 这会影响旧.NET 调试器表达式计算器或配置为在 msvsmon.exe 进程中加载的调试引擎。
 
 ## <a name="msvsmon-comclass-def"></a>msvsmon comclass def
 
-若要使用此方法，添加 msvsmon (InstallDir:\Common7\IDE\Remote Debugger\x64) 旁边的 *.msvsmon comclass def.json 文件。
+若要使用此方法，请添加 msvsmon (InstallDir:\Common7\IDE\Remote Debugger\x64) 旁边的 *.msvsmon comclass def.json 文件。
 
-下面是注册一个管理，一个示例 msvsmon comclass def 文件和一个本机类︰
+下面是一个管理，注册一个示例 msvsmon comclass def 文件和一个本机类：
 
-文件名︰ MyCompany.MyExample.msvsmon comclass def.json
+文件名： MyCompany.MyExample.msvsmon comclass def.json
 
 ```json
 {
@@ -63,4 +47,3 @@ ms.lasthandoff: 03/07/2017
   ]
 }
 ```
-

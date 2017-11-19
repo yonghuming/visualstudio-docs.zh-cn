@@ -4,45 +4,30 @@ ms.custom:
 ms.date: 11/04/2016
 ms.reviewer: 
 ms.suite: 
-ms.technology:
-- vs-ide-sdk
+ms.technology: vs-ide-sdk
 ms.tgt_pltfrm: 
 ms.topic: article
 helpviewer_keywords:
 - debugging [Debugging SDK], viewing data
 - debugging [Debugging SDK], visualizing data
 ms.assetid: 699dd0f5-7569-40b3-ade6-d0fe53e832bc
-caps.latest.revision: 20
+caps.latest.revision: "20"
+author: gregvanl
 ms.author: gregvanl
 manager: ghogen
-translation.priority.mt:
-- cs-cz
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pl-pl
-- pt-br
-- ru-ru
-- tr-tr
-- zh-cn
-- zh-tw
-ms.translationtype: Machine Translation
-ms.sourcegitcommit: ca7c86466fa23fb21a932f26dc24e37c71cf29b4
-ms.openlocfilehash: 3f2317abd4bfaf6ebf8151812cf15541a1c94ecf
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/05/2017
-
+ms.openlocfilehash: 8e493cdbccf12019584bb08b82503d6a8c6ebeea
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="visualizing-and-viewing-data"></a>可视化和查看数据
 类型可视化工具和自定义查看器存在数据，以快速开发人员有意义的方式。 表达式计算器 (EE) 可以支持第三方类型可视化工具，以及提供其自己的自定义查看器。  
   
- [!INCLUDE[vsprvs](../../code-quality/includes/vsprvs_md.md)]确定多少类型可视化工具和自定义查看器是与对象的类型相关联的调用[GetCustomViewerCount](../../extensibility/debugger/reference/idebugproperty3-getcustomviewercount.md)方法。 如果没有至少一个类型的可视化工具或自定义查看器可用，Visual Studio 会调用[GetCustomViewerList](../../extensibility/debugger/reference/idebugproperty3-getcustomviewerlist.md)方法来检索那些可视化工具和查看者列表 (实际上，列表`CLSID`实现可视化工具和查看器的 s)，提供给用户。  
+ [!INCLUDE[vsprvs](../../code-quality/includes/vsprvs_md.md)]确定多少类型可视化工具和自定义查看器是与对象的类型相关联的调用[GetCustomViewerCount](../../extensibility/debugger/reference/idebugproperty3-getcustomviewercount.md)方法。 如果没有至少一个类型的可视化工具或自定义查看器可用，Visual Studio 会调用[GetCustomViewerList](../../extensibility/debugger/reference/idebugproperty3-getcustomviewerlist.md)方法来检索那些可视化工具和查看者列表 (实际上，列表`CLSID`实现的 s可视化工具和查看者），提供给用户。  
   
 ## <a name="supporting-type-visualizers"></a>支持的类型可视化工具  
- 有大量的 EE 必须实现以支持类型可视化工具的接口。 这些接口可以分为两大类︰ 那些列表在类型可视化工具和访问属性数据。  
+ 有大量的 EE 必须实现以支持类型可视化工具的接口。 这些接口可以分为两大类： 那些列表在类型可视化工具和访问属性数据。  
   
 ### <a name="listing-type-visualizers"></a>列表类型可视化工具  
  EE 支持列出在类型可视化工具在其实现`IDebugProperty3::GetCustomViewerCount`和`IDebugProperty3::GetCustomViewerList`。 这些方法将传递到相应方法的调用[GetCustomViewerCount](../../extensibility/debugger/reference/ieevisualizerservice-getcustomviewercount.md)和[GetCustomViewerList](../../extensibility/debugger/reference/ieevisualizerservice-getcustomviewerlist.md)。  
@@ -52,10 +37,10 @@ ms.lasthandoff: 04/05/2017
 ### <a name="accessing-property-data"></a>访问属性数据  
  访问属性数据通过[IPropertyProxyEESide](../../extensibility/debugger/reference/ipropertyproxyeeside.md)接口。 若要获取此接口，Visual Studio 会调用[QueryInterface](/cpp/atl/queryinterface)上要获取的属性对象[IPropertyProxyProvider](../../extensibility/debugger/reference/ipropertyproxyprovider.md)接口 (在实现的相同对象上实现[IDebugProperty3](../../extensibility/debugger/reference/idebugproperty3.md)接口)，然后调用[GetPropertyProxy](../../extensibility/debugger/reference/ipropertyproxyprovider-getpropertyproxy.md)方法来获取`IPropertyProxyEESide`接口。  
   
- 所有数据都传递到和移出`IPropertyProxyEESide`接口封装在[IEEDataStorage](../../extensibility/debugger/reference/ieedatastorage.md)接口。 此接口表示一个字节数组，由 Visual Studio 和 EE 实现。 如果要更改属性的数据，Visual Studio 将创建`IEEDataStorage`对象持有的新数据和调用[CreateReplacementObject](../../extensibility/debugger/reference/ipropertyproxyeeside-createreplacementobject.md)与该数据对象以获取新`IEEDataStorage`对象，反过来，传递给[InPlaceUpdateObject](../../extensibility/debugger/reference/ipropertyproxyeeside-inplaceupdateobject.md)更新属性的数据。 `IPropertyProxyEESide::CreateReplacementObject`允许实例化实现其自己类 EE`IEEDataStorage`接口。  
+ 所有数据都传递到和移出`IPropertyProxyEESide`接口封装在[IEEDataStorage](../../extensibility/debugger/reference/ieedatastorage.md)接口。 此接口表示一个字节数组，由 Visual Studio 和 EE 实现。 如果要更改属性的数据，Visual Studio 将创建`IEEDataStorage`保存新的数据和调用对象[CreateReplacementObject](../../extensibility/debugger/reference/ipropertyproxyeeside-createreplacementobject.md)与该数据对象以获取新`IEEDataStorage`对象，反过来，传递给[InPlaceUpdateObject](../../extensibility/debugger/reference/ipropertyproxyeeside-inplaceupdateobject.md)更新属性的数据。 `IPropertyProxyEESide::CreateReplacementObject`允许实例化实现其自己类 EE`IEEDataStorage`接口。  
   
 ## <a name="supporting-custom-viewers"></a>支持自定义查看器  
- 标志`DBG_ATTRIB_VALUE_CUSTOM_VIEWER`中设置`dwAttrib`字段[DEBUG_PROPERTY_INFO](../../extensibility/debugger/reference/debug-property-info.md)结构 (通过调用返回[GetPropertyInfo](../../extensibility/debugger/reference/idebugproperty2-getpropertyinfo.md)) 以指示该对象具有与之关联的自定义查看器。 当设置此标志时，Visual Studio 将获取[IDebugProperty3](../../extensibility/debugger/reference/idebugproperty3.md)接口从[IDebugProperty2](../../extensibility/debugger/reference/idebugproperty2.md)接口使用[QueryInterface](/cpp/atl/queryinterface)。  
+ 标志`DBG_ATTRIB_VALUE_CUSTOM_VIEWER`中设置`dwAttrib`字段[DEBUG_PROPERTY_INFO](../../extensibility/debugger/reference/debug-property-info.md)结构 (通过调用返回[GetPropertyInfo](../../extensibility/debugger/reference/idebugproperty2-getpropertyinfo.md)) 以指示该对象具有关联的自定义查看器使用它。 当设置此标志时，Visual Studio 将获取[IDebugProperty3](../../extensibility/debugger/reference/idebugproperty3.md)接口从[IDebugProperty2](../../extensibility/debugger/reference/idebugproperty2.md)接口使用[QueryInterface](/cpp/atl/queryinterface)。  
   
  如果用户选择自定义查看器，Visual Studio 实例化自定义查看器查看器的`CLSID`提供`IDebugProperty3::GetCustomViewerList`方法。 然后调用 visual Studio [DisplayValue](../../extensibility/debugger/reference/idebugcustomviewer-displayvalue.md)来向用户显示的值。  
   

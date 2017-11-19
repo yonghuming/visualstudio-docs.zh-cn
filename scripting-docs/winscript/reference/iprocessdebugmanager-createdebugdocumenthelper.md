@@ -1,27 +1,30 @@
 ---
-title: "IProcessDebugManager::CreateDebugDocumentHelper | Microsoft Docs"
-ms.custom: ""
-ms.date: "01/18/2017"
-ms.prod: "windows-script-interfaces"
-ms.reviewer: ""
-ms.suite: ""
-ms.tgt_pltfrm: ""
-ms.topic: "reference"
+title: "IProcessDebugManager::CreateDebugDocumentHelper |Microsoft 文档"
+ms.custom: 
+ms.date: 01/18/2017
+ms.prod: windows-script-interfaces
+ms.reviewer: 
+ms.suite: 
+ms.tgt_pltfrm: 
+ms.topic: reference
 apiname: IProcessDebugManager.CreateDebugDocumentHelper
 apilocation: pdm.dll
-helpviewer_keywords: 
-  - "IProcessDebugManager::CreateDebugDocumentHelper"
+helpviewer_keywords: IProcessDebugManager::CreateDebugDocumentHelper
 ms.assetid: d644e192-1bcc-4768-a91e-239cd920adcd
-caps.latest.revision: 8
-author: "mikejo5000"
-ms.author: "mikejo"
-manager: "ghogen"
-caps.handback.revision: 8
+caps.latest.revision: "8"
+author: mikejo5000
+ms.author: mikejo
+manager: ghogen
+ms.openlocfilehash: 0b57f941017a0eef7892d43be9ed0414645e55e0
+ms.sourcegitcommit: aadb9588877418b8b55a5612c1d3842d4520ca4c
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/27/2017
 ---
-# IProcessDebugManager::CreateDebugDocumentHelper
-创建新调试文档此应用程序的帮助器。  
+# <a name="iprocessdebugmanagercreatedebugdocumenthelper"></a>IProcessDebugManager::CreateDebugDocumentHelper
+创建此应用程序的新调试文档帮助。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
 ```  
 HRESULT CreateDebugDocumentHelper(  
@@ -30,22 +33,22 @@ HRESULT CreateDebugDocumentHelper(
 );  
 ```  
   
-#### 参数  
+#### <a name="parameters"></a>参数  
  `punkOuter`  
- \[in\]，则返回的对象将聚合，`punkOuter` 是接口指针。控件 `IUnknown`。  否则，为null指针。  
+ [in]如果返回的对象是进行聚合，`punkOuter`是控制的接口指针`IUnknown`。 否则，它是一个 null 指针。  
   
  `pddh`  
- \[in\]调试文档此应用程序的帮助器对象。  
+ [out]此应用程序的的调试文档帮助程序对象。  
   
-## 返回值  
- 该方法返回 `HRESULT`。  可能的值包括，但是，并不限于，这些下表中。  
+## <a name="return-value"></a>返回值  
+ 该方法返回 `HRESULT`。 可能的值包括（但并不限于）下表中的项。  
   
-|值|说明|  
-|-------|--------|  
+|值|描述|  
+|-----------|-----------------|  
 |`S_OK`|方法成功。|  
   
-## 备注  
- 此方法将创建一个新的调试文档此应用程序的帮助器。  
+## <a name="remarks"></a>备注  
+ 此方法创建此应用程序的新调试文档帮助。  
   
-## 请参阅  
+## <a name="see-also"></a>另请参阅  
  [IProcessDebugManager 接口](../../winscript/reference/iprocessdebugmanager-interface.md)
