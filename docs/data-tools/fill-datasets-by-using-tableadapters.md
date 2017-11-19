@@ -1,121 +1,131 @@
 ---
-title: "用数据填充数据集 | Microsoft Docs"
-ms.custom: ""
-ms.date: "12/15/2016"
-ms.prod: "visual-studio-dev14"
-ms.reviewer: ""
-ms.suite: ""
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-dev_langs: 
-  - "VB"
-  - "CSharp"
-  - "C++"
-  - "aspx"
-helpviewer_keywords: 
-  - "数据 [Visual Studio], 数据集"
-  - "数据 [Visual Studio], 检索"
-  - "数据检索"
-  - "数据集 [Visual Basic]"
-  - "数据集 [Visual Basic], 填充"
-  - "数据集 [Visual Basic], 加载数据"
-  - "检索数据"
+title: "通过使用 Tableadapter 填充数据集 |Microsoft 文档"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.tgt_pltfrm: 
+ms.topic: article
+dev_langs:
+- VB
+- CSharp
+helpviewer_keywords:
+- datasets [Visual Basic]
+- datasets [Visual Basic], loading data
+- data retrieval
+- retrieving data
+- datasets [Visual Basic], filling
+- data [Visual Studio], retrieving
+- data [Visual Studio], datasets
 ms.assetid: 55f3bfbe-db78-4486-add3-c62f49e6b9a0
-caps.latest.revision: 32
-caps.handback.revision: 14
-author: "mikeblome"
-ms.author: "mblome"
-manager: "ghogen"
+caps.latest.revision: "32"
+author: gewarren
+ms.author: gewarren
+manager: ghogen
+ms.technology: vs-data-tools
+ms.openlocfilehash: f93a0d11435a060806a89db48b2c9e81efebe3f3
+ms.sourcegitcommit: ee42a8771f0248db93fd2e017a22e2506e0f9404
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/09/2017
 ---
-# 用数据填充数据集
-用于执行 Transact\-SQL 查询和用于填充数据集的典型 Visual Studio 机制是 TableAdapter。  
-  
- 可以使用 TableAdapter 或命令对象对数据源执行 SQL 语句或存储过程（例如 <xref:System.Data.SqlClient.SqlCommand>）。  若要将数据加载到使用 [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] 中的设计工具创建的数据集中，请使用 TableAdapter。  若要将数据加载到以编程方式创建的数据集，请使用数据适配器。  如果应用程序不使用数据集，可以使用命令对象直接对数据库执行 SQL 语句或存储过程。  
-  
- 以下主题提供有关在 Visual Studio 中用数据填充数据集的详细信息：  
-  
-|主题|说明|  
-|--------|--------|  
-|[如何：使用数据填充数据集](../data-tools/how-to-fill-a-dataset-with-data.md)|详细介绍如何使用 TableAdapters 和 DataAdapters 将数据加载到数据集。|  
-|[如何：创建和执行返回行的 SQL 语句](../Topic/How%20to:%20Create%20and%20Execute%20an%20SQL%20Statement%20that%20Returns%20Rows.md)|详细介绍如何使用 TableAdapter 查询和 Command 对象创建和执行返回行的 SQL 语句。|  
-|[如何：创建和执行返回单个值的 SQL 语句](../data-tools/how-to-create-and-execute-an-sql-statement-that-returns-a-single-value.md)|详细介绍如何使用 TableAdapter 查询和 Command 对象创建和执行返回单个值的 SQL 语句。|  
-|[如何：创建和执行不返回值的 SQL 语句](../data-tools/how-to-create-and-execute-an-sql-statement-that-returns-no-value.md)|详细介绍如何使用 TableAdapter 查询和 Command 对象创建和执行不返回任何值的 SQL 语句。|  
-|[如何：执行返回行的存储过程](../Topic/How%20to:%20Execute%20a%20Stored%20Procedure%20that%20Returns%20Rows.md)|详细介绍如何使用 TableAdapter 查询和 Command 对象执行返回行的存储过程。|  
-|[如何：执行返回单个值的存储过程](../data-tools/how-to-execute-a-stored-procedure-that-returns-a-single-value.md)|详细介绍如何使用 TableAdapter 查询和 Command 对象执行返回单个值的存储过程。|  
-|[如何：执行不返回值的存储过程](../data-tools/how-to-execute-a-stored-procedure-that-returns-no-value.md)|详细介绍如何使用 TableAdapter 查询和 Command 对象执行不返回任何值的存储过程。|  
-|[如何：设置和获取命令对象的参数](../Topic/How%20to:%20Set%20and%20Get%20Parameters%20for%20Command%20Objects.md)|提供有关为查询和存储过程中的参数分配值，以及读取从执行的命令返回的参数值的详细信息。|  
-|[演练：使用数据填充数据集](../Topic/Walkthrough:%20Filling%20a%20Dataset%20with%20Data.md)|提供创建数据集并使用数据库中的数据填充该数据集的详细信息。|  
-|[演练：将 XML 数据读取到数据集](../data-tools/read-xml-data-into-a-dataset.md)|详细介绍一个 Windows 应用程序的创建过程，该应用程序将 XML 数据加载到数据集中，然后在 <xref:System.Windows.Forms.DataGridView> 控件中显示该数据集。|  
-  
-## 填充数据集  
- 如果用 [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] 设计时工具（如[数据集设计器](../data-tools/creating-and-editing-typed-datasets.md)或[数据源配置向导](../data-tools/media/data-source-configuration-wizard.png)）创建数据集，则使用 TableAdapter 填充该数据集。  TableAdapter 执行 SQL 语句或存储过程。  
-  
- 如果不是使用设计时工具创建数据集，则必须使用数据适配器填充和更新数据。  （TableAdapter 不是 [.NET Framework 4.6 和 4.5](../Topic/.NET%20Framework%204.6%20and%204.5.md) 中的实际类，因此它们不适用于不是使用设计时工具创建的数据集。）  有关使用 TableAdapter 或数据适配器将数据加载到数据集的更多信息，请参见[如何：使用数据填充数据集](../data-tools/how-to-fill-a-dataset-with-data.md)。  
-  
-## TableAdapter 查询  
- 可以执行 TableAdapter 查询以将数据填充到数据集中（更确切地说，是将数据加载到构成数据集的 DataTable 中）。  可以使用**“数据集设计器”**中的 [TableAdapter 查询配置向导](../data-tools/editing-tableadapters.md) 创建 TableAdapter 查询。  TableAdapter 查询显示为 TableAdapter 上的指定方法，并通过调用 TableAdapter 方法执行。  有关创建和执行 TableAdapter 查询的更多信息，请参见以下页：  
-  
--   [如何：创建和执行返回行的 SQL 语句](../Topic/How%20to:%20Create%20and%20Execute%20an%20SQL%20Statement%20that%20Returns%20Rows.md)  
-  
--   [如何：创建和执行返回单个值的 SQL 语句](../data-tools/how-to-create-and-execute-an-sql-statement-that-returns-a-single-value.md)  
-  
--   [如何：创建和执行不返回值的 SQL 语句](../data-tools/how-to-create-and-execute-an-sql-statement-that-returns-no-value.md)  
-  
--   [如何：执行返回行的存储过程](../Topic/How%20to:%20Execute%20a%20Stored%20Procedure%20that%20Returns%20Rows.md)  
-  
--   [如何：执行返回单个值的存储过程](../data-tools/how-to-execute-a-stored-procedure-that-returns-a-single-value.md)  
-  
--   [如何：执行不返回值的存储过程](../data-tools/how-to-execute-a-stored-procedure-that-returns-no-value.md)  
-  
-## Command 对象  
- 使用命令对象可以直接对数据库执行 SQL 语句和存储过程，而不需要 <xref:System.Data.DataSet>、TableAdapter 或 <xref:System.Data.Common.DataAdapter>。  （术语“命令对象”是指您的应用程序正在使用的 .NET Framework 数据提供程序的特定命令。  例如，如果应用程序使用的是用于 SQL Server 的 .NET Framework 数据提供程序，则该命令对象为 <xref:System.Data.SqlClient.SqlCommand>。）  
-  
- 通过将数据命令的 `CommandType` 属性设置为 <xref:System.Data.IDbCommand.CommandType%2A> 枚举中的值之一，将命令配置为使用 SQL 语句或存储过程查询数据。  将 `CommandType` 设置为 <xref:System.Data.CommandType> 以便执行 SQL 语句，或将它设置为 <xref:System.Data.CommandType> 以便执行存储过程。  然后，将 `CommandText` 属性设置为 SQL 语句或存储过程的名称。  然后，通过调用数据命令的执行方法（`ExecuteReader`、`ExecuteScalar`、`ExecuteNonQuery`）之一执行该命令。  
-  
- 每个 [.NET Framework 数据提供程序](../Topic/.NET%20Framework%20Data%20Providers.md) 均提供一个为特定数据库进行了优化的命令对象。  
-  
- 使用数据命令，可在应用程序中进行以下操作：  
-  
--   执行向您返回可以直接读取结果的“选择”\(Select\) 命令，而不是将结果加载到数据集内。  若要读取结果，请使用数据读取器（<xref:System.Data.OleDb.OleDbDataReader>、<xref:System.Data.SqlClient.SqlDataReader>、<xref:System.Data.Odbc.OdbcDataReader> 或 <xref:System.Data.OracleClient.OracleDataReader> 对象），其工作方式与可将控件绑定到的只读、只进游标类似。  这对于降低内存占用和非常快地加载只读数据的策略十分有用。  
-  
--   执行数据库定义 \(DDL\) 命令以创建、编辑和移除表、存储过程及其他数据库结构。  （当然您必须有执行这些操作的权限。）  
-  
--   执行命令以获取数据库目录信息。  
-  
--   执行动态 SQL 命令以更新、插入或删除记录，而不是更新数据集表然后将更改复制到数据库。  
-  
--   执行返回标量值（即单个值，如聚合函数 SUM、COUNT、AVG 等的结果）的命令。  
-  
--   执行从 SQL Server 数据库（版本 7.0 或更高版本）返回 XML 格式的数据的命令。  典型的使用是执行一个查询并返回 XML 格式的数据，向其应用 XSLT 转换以将数据转换为 HTML，然后将结果发送给浏览器。  
-  
- 命令的属性包含对数据库执行命令所需的全部信息。  这包括：  
-  
--   **一个连接** 命令引用一个连接，使用它与数据库通信。  
-  
--   **命令的名称或文本** 命令包含 SQL 语句的实际文本或要执行的存储过程的名称。  
-  
--   **参数** 命令可能要求您随命令传递参数值（输入参数）。  命令还可能以返回值或输出参数值的形式返回值。  每个命令都有一个参数集合，您可分别设置或读取这些参数以传递或接收值。  有关更多信息，请参见[如何：设置和获取命令对象的参数](../Topic/How%20to:%20Set%20and%20Get%20Parameters%20for%20Command%20Objects.md)。  
-  
- 您使用适于预期返回的结果的方法执行命令。  例如，您预期返回几行，则调用命令的 `ExecuteReader` 方法，这将记录返回到数据读取器。  如果您执行 UPDATE、INSERT 或 DELETE 命令，则调用命令的 `ExecuteNonQuery` 方法，这返回指示所影响的行数的值。  如果执行聚合函数（如返回客户的订单计数），则调用 `ExecuteScalar` 方法。  
-  
-### 多个结果集  
- 命令对象的典型应用是返回单个数据表（一组行）。  但是，命令可以执行返回多个结果集的过程。  这可以不同方法实现。  一种方法是命令引用返回多个结果集的存储过程。  另一种方法是，命令可以包含两个（或多个）语句或存储过程名。  在该情况下，这些语句或存储过程按顺序运行，并且一次调用返回多个结果集。  
-  
- 如果为一个命令指定多个语句或过程，它们的类型必须相同。  例如，可以运行连续的 SQL 语句或连续的存储过程。  但是，不能在同一个命令中混合存储过程调用和 SQL 语句。  有关更多信息，请参见[使用 DataReader 检索数据](../Topic/Retrieving%20Data%20Using%20a%20DataReader.md)。  
+# <a name="fill-datasets-by-using-tableadapters"></a>通过使用 Tableadapter 填充数据集
+TableAdapter 组件填充具有基于一个或多个查询或你指定的存储的过程的数据库中的数据的数据集。 Tableadapter 还可以执行添加、 更新和删除要保留对数据集所做的更改的数据库上。 你可以发出到任何特定的表不相关的全局命令。  
   
 > [!NOTE]
->  对于 Oracle，Oracle .NET Framework 数据提供程序不支持成批的 SQL 语句。  但是，它允许您使用多个 REF CURSOR 输出参数来填充一个数据集，每个参数都位于其各自的数据表中。  您必须定义这些参数，将它们标记为输出参数，并指出它们是 REF CURSOR 数据类型。  注意，因为当执行 SQL 语句时，Oracle 不提供确定表名和列名所必需的信息，所以，当从 REF CURSOR 参数将 <xref:System.Data.OracleClient.OracleDataAdapter> 对象填充到存储过程时，您将无法使用 `Update` 方法。  
+>  由 Visual Studio 设计器生成 Tableadapter。 如果要以编程方式创建数据集，然后使用 DataAdapter，这是.NET Framework 类。  
   
-## 安全性  
- 在使用将 `CommandType` 属性设置为 <xref:System.Data.CommandType> 的数据命令时，将从客户端发送的信息传递到数据库前请仔细检查该信息。  恶意用户可能会尝试发送（插入）修改过的或其他 SQL 语句，以获得未经授权的访问或破坏数据库。  在将用户输入内容传输到数据库之前，应始终确认这些信息是有效的。  如果可能的话，请始终使用参数化查询或存储过程，这是最佳做法。  
+ TableAdapter 操作有关的详细信息，你可以直接跳到以下主题之一：  
   
-## 请参阅  
- [Visual Studio 的数据应用程序概述](../data-tools/overview-of-data-applications-in-visual-studio.md)   
- [连接到 Visual Studio 中的数据](../data-tools/connecting-to-data-in-visual-studio.md)   
- [准备应用程序以接收数据](../Topic/Preparing%20Your%20Application%20to%20Receive%20Data.md)   
- [将数据获取到应用程序](../data-tools/fetching-data-into-your-application.md)   
- [在 Visual Studio 中将控件绑定到数据](../data-tools/bind-controls-to-data-in-visual-studio.md)   
- [在应用程序中编辑数据](../data-tools/editing-data-in-your-application.md)   
- [验证数据](../Topic/Validating%20Data.md)   
- [保存数据](../data-tools/saving-data.md)   
- [Visual Studio 中用于处理数据源的工具](../Topic/Tools%20for%20Working%20with%20Data%20Sources%20in%20Visual%20Studio.md)
+|主题|描述|  
+|-----------|-----------------|  
+|[创建和配置 Tableadapter](../data-tools/create-and-configure-tableadapters.md)|如何使用设计器来创建和配置 Tableadapter|  
+|[创建参数化 TableAdapter 查询](../data-tools/create-parameterized-tableadapter-queries.md)|如何使用户能够提供对 TableAdapter 过程或查询的参数|  
+|[使用 TableAdapter 直接访问数据库](../data-tools/directly-access-the-database-with-a-tableadapter.md)|如何使用 Tableadapter 的 Dbdirect 方法|  
+|[在填充数据集时关闭约束](../data-tools/turn-off-constraints-while-filling-a-dataset.md)|如何更新数据时使用外键约束|  
+|[如何扩展 TableAdapter 的功能](../data-tools/fill-datasets-by-using-tableadapters.md)|如何将自定义代码添加到 Tableadapter|  
+|[将 XML 数据读入到数据集中](../data-tools/read-xml-data-into-a-dataset.md)|如何使用 XML|  
+  
+<a name="tableadapter-overview"></a>  
+  
+## <a name="tableadapter-overview"></a>TableAdapter 概述  
+ Tableadapter 是连接到数据库、 运行的查询或存储的过程，并使用返回的数据填充其 DataTable 的设计器生成组件。 Tableadapter 还从回数据库应用程序发送更新的数据。 你可以运行，只要它们返回到 TableAdapter 与之关联的表的架构数据符合 TableAdapter 上所需的所有查询。 下图显示 Tableadapter 如何与数据库和内存中的其他对象进行交互：  
+  
+ ![在客户端应用程序中的数据流](../data-tools/media/clientdatadiagram.gif "ClientDataDiagram")  
+  
+ 虽然 Tableadapter 的设计也考虑了**数据集设计器**，不会作为嵌套类的生成的 TableAdapter 类<xref:System.Data.DataSet>。 它们位于单独的命名空间中特定于每个数据集。 例如，如果你有一个名为`NorthwindDataSet`，与关联的 Tableadapter<xref:System.Data.DataTable>中`NorthwindDataSet`都会出现在`NorthwindDataSetTableAdapters`命名空间。 若要以编程方式访问特定的 TableAdapter，您必须声明 TableAdapter 的新实例。 例如:   
+  
+ [!code-csharp[VbRaddataTableAdapters#7](../data-tools/codesnippet/CSharp/fill-datasets-by-using-tableadapters_1.cs)]
+ [!code-vb[VbRaddataTableAdapters#7](../data-tools/codesnippet/VisualBasic/fill-datasets-by-using-tableadapters_1.vb)]  
+  
+## <a name="associated-datatable-schema"></a>关联的 DataTable 架构  
+ 使用初始查询或存储的过程定义的架构的 TableAdapter 的关联来创建 TableAdapter 时<xref:System.Data.DataTable>。 运行此初始查询或通过调用 TableAdapter 的存储过程`Fill`方法 (其中填充 TableAdapter 的关联<xref:System.Data.DataTable>)。 对 TableAdapter 的主查询进行任何更改都会反映在关联的数据的表的架构。 例如，将一列从主查询还列从表中移除关联的数据。 如果任何其他查询的 TableAdapter 上使用返回不在主查询的列的 SQL 语句，设计器会尝试将同步主查询和其他查询之间的列更改。 
+  
+## <a name="tableadapter-update-commands"></a>TableAdapter 更新命令  
+ TableAdapter 的更新功能均依赖于 TableAdapter 向导中的主查询中提供了多少信息。 例如，配置为提取来自多个表 （联接） 的值、 标量值、 视图或聚合函数的结果的 Tableadapter 由不初始创建能够将更新发送回基础数据库中。 但是，你可以配置的 INSERT、 UPDATE 和 DELETE 命令中手动**属性**窗口。  
+  
+## <a name="tableadapter-queries"></a>TableAdapter 查询  
+ ![使用多个查询的 TableAdapter](../data-tools/media/tableadapter.gif "TableAdapter")  
+  
+ Tableadapter 可以包含多个查询以填充其关联的数据的表。 你可以定义任意多个查询的 TableAdapter 根据你的应用程序的需要，只要每个查询会返回与它关联的数据的表相同的架构一致的数据。 此功能使 TableAdapter 加载基于不同条件的不同结果。  
+  
+ 例如，如果你的应用程序包含具有客户名称的表，你可以创建使用以特定的字母开头的每个客户名称和另一个填充表都位于相同的状态的所有客户用填充表的查询。 若要填充`Customers`表与处于给定状态的客户，你可以创建`FillByState`采用一个参数作为状态的值，如下所示的查询： `SELECT * FROM Customers WHERE State = @State`。 通过调用运行查询`FillByState`方法并传入的参数值如下： `CustomerTableAdapter.FillByState("WA")`。  
+  
+ 除将返回相同的架构 TableAdapter 的数据表的数据的查询添加，你可以添加返回标量 （单个） 值的查询。 例如，查询将返回的客户计数 (`SELECT Count(*) From Customers`) 对有效`CustomersTableAdapter,`即使返回的数据的不符合此表的架构。  
+  
+## <a name="clearbeforefill-property"></a>ClearBeforeFill 属性  
+ 默认情况下，每次运行查询以填充 TableAdapter 的数据表，清除现有数据，并且仅查询的结果加载到表。 设置 TableAdapter 的`ClearBeforeFill`属性`false`如果你想要添加或从查询返回到数据表中的现有数据将数据合并。 无论是否清除数据，都需要显式将更新发送回数据库，如果你想要将它们持久保存。 因此请务必先运行另一个填充表的查询之前将任何更改保存到表中的数据。 有关详细信息，请参阅[使用 TableAdapter 更新数据](../data-tools/update-data-by-using-a-tableadapter.md)。  
+  
+## <a name="tableadapter-inheritance"></a>TableAdapter 继承  
+ Tableadapter 扩展通过将封装一个已配置的标准数据适配器的功能<xref:System.Data.Common.DataAdapter>类。 默认情况下，从继承 TableAdapter<xref:System.ComponentModel.Component>类并不能强制转换为<xref:System.Data.Common.DataAdapter>类。 强制转换到 TableAdapter<xref:System.Data.Common.DataAdapter>类中的结果<xref:System.InvalidCastException>错误。 若要更改 TableAdapter 的基本类，您可以指定派生自类<xref:System.ComponentModel.Component>中**基类**属性中的 tableadapter**数据集设计器**。  
+  
+## <a name="tableadapter-methods-and-properties"></a>TableAdapter 方法和属性  
+ TableAdapter 类不是属于[!INCLUDE[dnprdnshort](../code-quality/includes/dnprdnshort_md.md)]。 这意味着你不能查找其文档中或**对象浏览器**。 在设计时，当你使用前面所述的向导之一则创建它。 在创建时分配给 TableAdapter 的名称取决于你正在使用的表的名称。 例如，当创建基于的数据库中表 TableAdapter `Orders`，名为 TableAdapter `OrdersTableAdapter`。 可以使用更改的类名的 TableAdapter**名称**中的属性**数据集设计器**。  
+  
+ 以下是常用的方法和的 Tableadapter 的属性：  
+  
+|成员|描述|  
+|------------|-----------------|  
+|`TableAdapter.Fill`|将填充 TableAdapter 的关联的数据使用 TableAdapter 的 SELECT 命令的结果的表。|  
+|`TableAdapter.Update`|将更改发送回数据库，并返回一个整数，表示更新受影响的行数。 有关详细信息，请参阅[使用 TableAdapter 更新数据](../data-tools/update-data-by-using-a-tableadapter.md)。|  
+|`TableAdapter.GetData`|返回一个新<xref:System.Data.DataTable>用数据填充。|  
+|`TableAdapter.Insert`|在数据表中创建一个新行。 有关详细信息，请参阅[将新记录插入数据库](../data-tools/insert-new-records-into-a-database.md)。|  
+|`TableAdapter.ClearBeforeFill`|确定数据表之前调用之一将被清空`Fill`方法。|  
+  
+## <a name="tableadapter-update-method"></a>TableAdapter 更新方法  
+ Tableadapter 使用数据命令来读取和写入数据库中。 TableAdapter 的初始`Fill`（主） 查询用于作为基础创建表的架构关联的数据，以及`InsertCommand`， `UpdateCommand`，和`DeleteCommand`与关联的命令`TableAdapter.Update`方法。 调用 TableAdapter 的`Update`方法运行时 TableAdapter 最初创建的语句配置，不是一种与已添加的其他查询**TableAdapter 查询配置向导**.  
+  
+ 当你使用 TableAdapter 时，它将有效地执行你通常要执行的命令相同的操作。 例如，当调用适配器的`Fill`方法，该适配器数据在运行命令其`SelectCommand`属性，并使用数据读取器 (例如， <xref:System.Data.SqlClient.SqlDataReader>) 加载的结果集到数据表。 同样，当调用适配器的`Update`方法，它将运行相应的命令 (在`UpdateCommand`， `InsertCommand`，和`DeleteCommand`属性) 为每个更改数据表中的记录。  
+  
+> [!NOTE]
+>  如果没有足够的信息，在主查询中， `InsertCommand`， `UpdateCommand`，和`DeleteCommand`生成 TableAdapter 时，默认情况下会创建命令。 如果 TableAdapter 的主查询不只是单个表的 SELECT 语句，则可能设计器将无法生成`InsertCommand`， `UpdateCommand`，和`DeleteCommand`。 如果不会生成这些命令，在运行时，可能会收到错误`TableAdapter.Update`方法。  
+  
+## <a name="tableadapter-generatedbdirectmethods"></a>TableAdapter GenerateDbDirectMethods  
+ 除了`InsertCommand`， `UpdateCommand`，和`DeleteCommand`，Tableadapter 创建的可以直接对数据库运行的方法。 这些方法 (`TableAdapter.Insert`， `TableAdapter.Update`，和`TableAdapter.Delete`) 可以调用直接操作数据库中的数据。 这意味着你可以从而不是调用代码中调用这些单个方法`TableAdapter.Update`来处理插入、 更新和删除操作处于挂起状态关联的数据的表。  
+  
+ 如果你不想要创建这些直接的方法，设置 TableAdapter 的**GenerateDbDirectMethods**属性`false`(在**属性**窗口)。 添加到 TableAdapter 的其他查询都是独立查询 — 它们不生成这些方法。  
+  
+## <a name="tableadapter-support-for-nullable-types"></a>可以为 null 的类型的 TableAdapter 支持  
+ Tableadapter 支持可以为 null 的类型`Nullable(Of T)`和`T?`。 若要深入了解 Visual Basic 中可以为 null 的类型，请参阅[可以为 null 的值类型](/dotnet/visual-basic/programming-guide/language-features/data-types/nullable-value-types)。 有关在 C# 中的可空类型的详细信息，请参阅[使用可以为 Null 类型](/dotnet/csharp/programming-guide/nullable-types/using-nullable-types)。  
+  
+<a name="tableadaptermanager-reference"></a>  
+  
+## <a name="tableadaptermanager-reference"></a>TableAdapterManager 引用  
+ 默认情况下，`TableAdapterManager`创建包含相关的表的数据集时，将生成类。 若要阻止生成类，将更改的值`Hierarchical Update`为 false 的数据集的属性。 当拖动到设计图面上的 Windows 窗体或在 WPF 页的关系的表时，Visual Studio 将声明类的成员变量。 如果你不使用数据绑定时，你必须手动将该变量的声明。  
+  
+ `TableAdapterManager`类不是属于[!INCLUDE[dnprdnshort](../code-quality/includes/dnprdnshort_md.md)]。 因此，你不能查找其文档中。 在设计时数据集创建过程的一部分创建。  
+  
+ 以下是常用的方法和属性`TableAdapterManager`类：  
+  
+|成员|描述|  
+|------------|-----------------|  
+|`UpdateAll` 方法|将保存数据的所有表中的所有数据。|  
+|`BackUpDataSetBeforeUpdate` 属性|确定是否在执行前创建数据集的备份副本`TableAdapterManager.UpdateAll`方法。布尔值。|  
+|*tableName* `TableAdapter`属性|表示`TableAdapter`。 生成`TableAdapterManager`包含每个属性`TableAdapter`它所管理。 例如，具有 Customers 和 Orders 表的数据集生成与`TableAdapterManager`包含`CustomersTableAdapter`和`OrdersTableAdapter`属性。|  
+|`UpdateOrder` 属性|控制单个 insert、 update 和 delete 命令的顺序。 将此属性设置为中的值之一`TableAdapterManager.UpdateOrderOption`枚举。<br /><br /> 默认情况下，`UpdateOrder`设置为**InsertUpdateDelete**。 这意味着，它将插入，然后更新，然后删除数据集中的所有表执行。|
+
+## <a name="security"></a>安全性  
+当你使用的 CommandType 属性设置为与数据命令<xref:System.Data.CommandType.Text>请仔细检查传递到你的数据库之前从客户端发送的信息。 恶意用户可能会尝试发送 （插入） 修改过的或其他 SQL 语句，以获得未经授权的访问或破坏该数据库。 将内容传输到数据库的用户输入之前，始终验证的信息有效。 一种最佳做法是始终使用参数化的查询或存储的过程在可能的情况。  
+  
+## <a name="see-also"></a>请参阅
+[数据集工具](../data-tools/dataset-tools-in-visual-studio.md)

@@ -1,108 +1,81 @@
 ---
-title: "在 Visual Studio 中将 Windows 窗体控件绑定到数据 | Microsoft Docs"
-ms.custom: ""
-ms.date: "12/14/2016"
-ms.prod: "visual-studio-dev14"
-ms.reviewer: ""
-ms.suite: ""
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-dev_langs: 
-  - "VB"
-  - "CSharp"
-  - "C++"
-  - "aspx"
-helpviewer_keywords: 
-  - "数据 [Windows 窗体], 数据源"
-  - "数据 [Windows 窗体], 显示"
-  - "数据源, 显示数据"
-  - "在窗体上显示数据"
-  - "显示数据, Windows 窗体"
-  - "窗体, 显示数据"
-  - "Windows 窗体, 数据绑定"
-  - "Windows 窗体, 显示数据"
+title: "将 Windows 窗体控件绑定到 Visual Studio 中的数据 |Microsoft 文档"
+ms.custom: 
+ms.date: 11/03/2017
+ms.reviewer: 
+ms.suite: 
+ms.tgt_pltfrm: 
+ms.topic: article
+helpviewer_keywords:
+- data [Windows Forms], data sources
+- Windows Forms, data binding
+- Windows Forms, displaying data
+- displaying data on forms
+- forms, displaying data
+- data sources, displaying data
+- displaying data, Windows Forms
+- data [Windows Forms], displaying
 ms.assetid: 243338ef-41af-4cc5-aff7-1e830236f0ec
-caps.latest.revision: 37
-caps.handback.revision: 31
-author: "mikeblome"
-ms.author: "mblome"
-manager: "ghogen"
+caps.latest.revision: "37"
+author: gewarren
+ms.author: gewarren
+manager: ghogen
+ms.technology: vs-data-tools
+ms.openlocfilehash: 5936edd6096bd708dda1b03f60f94cea3d6c1e5b
+ms.sourcegitcommit: ee42a8771f0248db93fd2e017a22e2506e0f9404
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/09/2017
 ---
-# 在 Visual Studio 中将 Windows 窗体控件绑定到数据
-通过将数据绑定到 Windows 窗体，可以向应用程序的用户显示数据。  若要创建这些数据绑定控件，您可以在 Visual Studio 中将项从**“数据源”**窗口拖到 Windows 窗体设计器上。  本主题将介绍创建数据绑定 Windows 窗体应用程序的过程中所涉及的一些最常见的任务、工具和类。  
+# <a name="bind-windows-forms-controls-to-data-in-visual-studio"></a>将 Windows 窗体控件绑定到 Visual Studio 中的数据
+通过将数据绑定到 Windows 窗体，可以向应用程序的用户显示数据。 若要创建这些数据绑定控件，可以将某些项从**数据源**窗口拖到 Visual Studio 中的 Windows 窗体设计器。
   
- 有关如何在 Visual Studio 中创建数据绑定控件的一般信息，请参见[在 Visual Studio 中将控件绑定到数据](../data-tools/bind-controls-to-data-in-visual-studio.md)。  有关 Windows 窗体中的数据绑定的更多信息，请参见 [Windows 窗体数据绑定](../Topic/Windows%20Forms%20Data%20Binding.md)。  
+![数据源拖动操作](../data-tools/media/raddata-data-source-drag-operation.png "raddata 数据源拖动操作")
+
+拖动项之前，你可以设置你想要将绑定到控件的类型。 具体取决于你选择表本身或对单独列显示不同的值。  你还可以设置自定义值。 对于表，"详细信息"意味着每个列被绑定到一个单独的控件。  
+
+![将数据源绑定到 DataGridView](../data-tools/media/raddata-bind-data-source-to-datagridview.png "raddata 绑定到 DataGridView 的数据源")  
   
-## 在 Windows 应用程序中的窗体上显示数据所涉及的任务  
- 下表列出了与在 Windows 应用程序中的窗体上显示数据相关的常见任务。  
+## <a name="bindingsource-and-bindingnavigator-controls"></a>BindingSource 和 BindingNavigator 控件
+<xref:System.Windows.Forms.BindingSource> 组件有两个用途。 首先，它提供一个抽象层时将控件绑定到数据。 表单上的控件绑定到<xref:System.Windows.Forms.BindingSource>组件而不是直接与数据源。 其次，它可以管理的对象的集合。 添加到类型<xref:System.Windows.Forms.BindingSource>创建该类型的列表。  
   
-|任务|更多信息|  
-|--------|----------|  
-|创建数据绑定控件。<br /><br /> 将现有控件绑定到数据。|[如何：将 Windows 窗体控件绑定到数据](../data-tools/bind-windows-forms-controls-to-data.md)|  
-|创建按父子关系显示相关数据的控件：当用户选择一个控件中的数据记录时，另一个控件将显示所选记录的相关数据。|[如何：在 Windows 窗体应用程序中显示相关数据](../Topic/How%20to:%20Display%20Related%20Data%20in%20a%20Windows%20Forms%20Application.md)|  
-|创建查找表。  查找表可根据另一个表的外键字段的值显示一个表中的信息。|[如何：在 Windows 窗体应用程序中创建查找表](../data-tools/create-lookup-tables-in-windows-forms-applications.md)|  
-|设置控件显示数据的方式。|[Formatting and Advanced Binding Dialog Box](http://msdn.microsoft.com/zh-cn/42638120-9e6f-436b-985f-4036664230fd)|  
-|更改**“数据源”**窗口中智能标题功能的行为。|[如何：自定义 Visual Studio 创建数据绑定控件的标题的方式
-](../data-tools/customize-how-visual-studio-creates-captions-for-data-bound-controls.md)|  
-|添加执行参数化查询的控件。|[如何：向 Windows 窗体应用程序中添加参数化查询](../Topic/How%20to:%20Add%20a%20Parameterized%20Query%20to%20a%20Windows%20Forms%20Application.md)|  
-|设置列以使用图像控件显示数据库中的图像。|[如何：将控件绑定到数据库中的图片](../data-tools/bind-controls-to-pictures-from-a-database.md)|  
-|在数据集中筛选数据或对数据排序。|[如何：在 Windows 窗体应用程序中对数据进行筛选和排序](../data-tools/filter-and-sort-data-in-a-windows-forms-application.md)|  
+有关详细信息<xref:System.Windows.Forms.BindingSource>组件，请参阅：  
   
- 以下主题提供了将 Windows 窗体控件绑定到数据的示例。  
+-   [BindingSource 组件](/dotnet/framework/winforms/controls/bindingsource-component)  
   
- [演练：在 Windows 窗体上显示数据](../data-tools/walkthrough-displaying-data-on-a-windows-form.md)  
- 提供分步详细说明，介绍如何查询数据库中的数据以及如何在 Windows 窗体上显示数据。  
+-   [BindingSource 组件概述](/dotnet/framework/winforms/controls/bindingsource-component-overview)  
   
- [演练：在 Windows 窗体上显示相关数据](../Topic/Walkthrough:%20Displaying%20Related%20Data%20on%20a%20Windows%20Form.md)  
- 提供分步详细说明，介绍如何显示两个相关表中的数据以及如何在 Windows 窗体上显示该数据。  
+-   [BindingSource 组件体系结构](/dotnet/framework/winforms/controls/bindingsource-component-architecture)  
   
- [演练：创建用于搜索数据的 Windows 窗体](../data-tools/create-a-windows-form-to-search-data.md)  
- 提供有关如何创建 Windows 窗体的分步详细说明，该窗体根据用户输入执行数据库搜索。  
+[BindingNavigator 控件](/dotnet/framework/winforms/controls/bindingnavigator-control-windows-forms)提供用于在 Windows 应用程序显示的数据中导航用户界面。
+
+## <a name="bind-to-data-in-a-datagridview-control"></a>将绑定到 DataGridView 控件中的数据  
+有关[DataGridView 控件](/dotnet/framework/winforms/controls/datagridview-control-overview-windows-forms)，整个表绑定到该单个控件。 当将 DataGridView 拖动到窗体中时，一个工具条带用于导航记录 (<xref:System.Windows.Forms.BindingNavigator>) 也会出现。 A[数据集](../data-tools/dataset-tools-in-visual-studio.md)， [TableAdapter](../data-tools/create-and-configure-tableadapters.md)， <xref:System.Windows.Forms.BindingSource>，和<xref:System.Windows.Forms.BindingNavigator>组件栏中出现。 在下图中，TableAdapterManager 也会添加因为 Customers 表具有与 Orders 表的关系。 这些变量被所有声明的自动生成的代码中为窗体类中的私有成员。 用于填充 DataGridView 自动生成的代码位于 form_load 事件处理程序。 用于保存要更新数据库的数据的代码都位于 BindingNavigator 保存事件处理程序。 可以移动窗口或根据需要修改此代码。  
   
- [演练：在 Windows 窗体应用程序中创建查找表](../Topic/Walkthrough:%20Creating%20a%20Lookup%20Table%20in%20a%20Windows%20Forms%20Application.md)  
- 提供有关显示一个表中的数据的分步详细说明，该数据基于另一个表中的所选数据。  
+![与 BindingNavigator 的 GridView](../data-tools/media/raddata-gridview-with-bindingnavigator.png "raddata 与 BindingNavigator 的 GridView")  
   
- [演练：在 Windows 窗体间传递数据](../data-tools/pass-data-between-forms.md)  
- 提供分步详细说明，介绍如何在应用程序中从一个窗体向另一个窗体传递值。  
+通过单击中的每个右上角的智能标记，可以自定义 DataGridView 控件与 BindingNavigator 的行为：  
   
- [演练：创建支持简单数据绑定的 Windows 窗体用户控件](../data-tools/create-a-windows-forms-user-control-that-supports-simple-data-binding.md)  
- 逐步介绍如何创建可以在**“数据源”**窗口中使用的自定义控件。  
+![DataGridView 控件与绑定导航器的智能标记](../data-tools/media/raddata-datagridview-and-binding-navigator-smart-tags.png "raddata DataGridView 和绑定导航智能标记")  
   
- [演练：创建支持复杂数据绑定的 Windows 窗体用户控件](../data-tools/create-a-windows-forms-user-control-that-supports-complex-data-binding.md)  
- 逐步介绍如何创建可以在**“数据源”**窗口中使用的自定义控件。  
+如果未提供控制你的应用程序需要时可从**数据源**窗口中，你可以添加控件。 有关详细信息，请参阅[将自定义控件添加到数据源窗口](../data-tools/add-custom-controls-to-the-data-sources-window.md)。  
   
- [演练：创建支持查找数据绑定的 Windows 窗体用户控件](../data-tools/create-a-windows-forms-user-control-that-supports-lookup-data-binding.md)  
- 逐步介绍如何创建可以在**“数据源”**窗口中使用的自定义控件。  
+此外可以将某些项从**数据源**窗口拖动到已在将控件绑定到数据窗体上的控件。 已绑定到数据的控件具有其数据绑定重置为最近拖动到它上面的项。 若要有效放置目标，控件必须能够显示的项拖动到它从上面的基础数据类型的**数据源**窗口。 例如，所以不能拖动项具有数据类型的<xref:System.DateTime>到<xref:System.Windows.Forms.CheckBox>，这是因为<xref:System.Windows.Forms.CheckBox>不能显示日期。  
   
-## 数据智能标记  
- 很多控件上都可以使用用于处理数据的特定智能标记。  将某些控件添加到窗体时，智能标记上提供一组与数据相关的可能操作。  
+## <a name="bind-to-data-in-individual-controls"></a>将绑定到在单独控件中的数据  
+当你将数据源绑定到"详细信息"时，数据集中的每个列绑定到一个单独的控件。  
   
-## BindingSource 组件  
- <xref:System.Windows.Forms.BindingSource> 组件有两个用途。  首先，在将窗体上的控件绑定到数据时提供抽象层。  窗体上的控件是绑定到 <xref:System.Windows.Forms.BindingSource> 组件的（而不是直接绑定到数据源）。  
+![将数据源绑定到详细信息](../data-tools/media/raddata-bind-data-source-to-details.png "raddata 绑定数据源详细信息")  
   
- 其次，它可管理对象的集合。  将类型添加到 <xref:System.Windows.Forms.BindingSource> 可创建该类型的列表。  
+> [!IMPORTANT]
+> 请注意，在上图中，将从客户表不是从 Orders 表的订单属性。 通过绑定到 Customer.Orders 属性，在详细信息控件中可以立即反映在 DataGridView 中进行的导航命令。 如果从订单表拖，这些控件将仍绑定到数据集，但不是它们将不会与同步 DataGridView。  
   
- 有关 <xref:System.Windows.Forms.BindingSource> 组件的更多信息，请参见：  
+下图中显示的默认的客户表中的订单属性绑定到"详细信息"后添加到窗体数据绑定控件**数据源**窗口。  
   
--   [BindingSource 组件](../Topic/BindingSource%20Component.md)  
+![Orders 表绑定到详细信息](../data-tools/media/raddata-orders-table-bound-to-details.png "raddata Orders 表绑定到详细信息")  
   
--   [BindingSource 组件概述](../Topic/BindingSource%20Component%20Overview.md)  
+另请注意每个控件具有智能标记。 此标记允许将应用于仅该控件的自定义项。
   
--   [BindingSource 组件体系结构](../Topic/BindingSource%20Component%20Architecture.md)  
-  
-## BindingNavigator 控件  
- 此组件提供了用户界面，用于在 Windows 应用程序显示的数据中导航。  有关详细信息，请参阅[BindingNavigator 控件](../Topic/BindingNavigator%20Control%20\(Windows%20Forms\).md)。  
-  
-## DataGridView 控件  
- 使用 <xref:System.Windows.Forms.DataGridView> 控件可显示和编辑许多不同种类的数据源表格数据。  可通过使用 <xref:System.Windows.Forms.DataGridView.DataSource%2A> 属性将数据绑定到 <xref:System.Windows.Forms.DataGridView>。  有关详细信息，请参阅[DataGridView 控件概述](../Topic/DataGridView%20Control%20Overview%20\(Windows%20Forms\).md)。  
-  
-## 请参阅  
- [数据演练](../Topic/Data%20Walkthroughs.md)   
- [“数据源”窗口](../Topic/Data%20Sources%20Window.md)   
- [在 Visual Studio 中将控件绑定到数据](../data-tools/bind-controls-to-data-in-visual-studio.md)   
- [演练：在 Windows 窗体上显示数据](../data-tools/walkthrough-displaying-data-on-a-windows-form.md)   
- [创建和编辑类型化数据集](../data-tools/creating-and-editing-typed-datasets.md)   
- [数据源概述](../data-tools/add-new-data-sources.md)   
- [演练：创建支持简单数据绑定的 Windows 窗体用户控件](../data-tools/create-a-windows-forms-user-control-that-supports-simple-data-binding.md)   
- [演练：创建支持复杂数据绑定的 Windows 窗体用户控件](../data-tools/create-a-windows-forms-user-control-that-supports-complex-data-binding.md)   
- [演练：创建支持查找数据绑定的 Windows 窗体用户控件](../data-tools/create-a-windows-forms-user-control-that-supports-lookup-data-binding.md)
+## <a name="see-also"></a>请参阅
+[将控件绑定到 Visual Studio 中的数据](../data-tools/bind-controls-to-data-in-visual-studio.md)  
+[Windows 窗体 (.NET Framework) 中的数据绑定](/dotnet/framework/winforms/windows-forms-data-binding)

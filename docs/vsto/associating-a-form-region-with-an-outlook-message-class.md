@@ -1,16 +1,13 @@
 ---
-title: Associating a Form Region with an Outlook Message Class | Microsoft Docs
+title: "将窗体区域与 Outlook 邮件类关联 |Microsoft 文档"
 ms.custom: 
 ms.date: 02/02/2017
-ms.prod: visual-studio-dev14
 ms.reviewer: 
 ms.suite: 
-ms.technology:
-- office-development
+ms.technology: office-development
 ms.tgt_pltfrm: 
 ms.topic: article
-f1_keywords:
-- VSTO.NewFormRegionWizard.InvalidMessageClassName
+f1_keywords: VSTO.NewFormRegionWizard.InvalidMessageClassName
 dev_langs:
 - VB
 - CSharp
@@ -18,103 +15,103 @@ helpviewer_keywords:
 - FormRegionMessageClassAttribute
 - form regions [Office development in Visual Studio], message classes
 ms.assetid: e2db8d61-fd5f-4059-beec-33b66970f520
-caps.latest.revision: 43
-author: kempb
-ms.author: kempb
+caps.latest.revision: "43"
+author: gewarren
+ms.author: gewarren
 manager: ghogen
-ms.translationtype: HT
-ms.sourcegitcommit: eb5c9550fd29b0e98bf63a7240737da4f13f3249
-ms.openlocfilehash: 40eede2ae16f16b75b29d9e1b25ec76856ac2ae9
-ms.contentlocale: zh-cn
-ms.lasthandoff: 08/30/2017
-
+ms.openlocfilehash: 3346b5cf096c523c9eb2c066d87a85e0d57efd94
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="associating-a-form-region-with-an-outlook-message-class"></a>Associating a Form Region with an Outlook Message Class
-  You can specify which Microsoft Office Outlook items display a form region by associating the form region with the message class of each item. For example, if you want to append a form region to the bottom of a mail item, you can associate the form region with the IPM.Note message class.  
+  你可以指定将显示的窗体区域的 Microsoft Office Outlook 项通过将窗体区域与每个项的邮件类关联。 例如，如果你想要将窗体区域附加到邮件项底部，你可以将窗体区域关联与 IPM。请注意消息类。  
   
- To associate a form region with a message class, specify the message class name in the **New Outlook Form Region** wizard or apply an attribute to the form region factory class.  
+ 若要将与消息类关联的窗体区域，指定在的 message 类名称**新建 Outlook 窗体区域**向导或将特性应用于窗体区域工厂类。  
   
  [!INCLUDE[appliesto_olkallapp](../vsto/includes/appliesto-olkallapp-md.md)]  
   
-## <a name="understanding-outlook-message-classes"></a>Understanding Outlook Message Classes  
- An Outlook message class identifies a type of Outlook item. The following table lists these eight standard types of items and their message class names.  
+## <a name="understanding-outlook-message-classes"></a>了解 Outlook 邮件类  
+ Outlook 邮件类标识的 Outlook 项的类型。 下表列出这些八个的标准类型的项和其 message 类名称。  
   
-|Outlook Item Type|Message Class Name|  
+|Outlook 项类型|Message 类名称|  
 |-----------------------|------------------------|  
-|AppointmentItem|IPM.Appointment|  
-|ContactItem|IPM.Contact|  
-|DistListItem|IPM.DistList|  
-|JournalItem|IPM.Activity|  
-|MailItem|IPM.Note|  
-|PostItem|IPM.Post or IPM.Post.RSS|  
-|TaskItem|IPM.Task|  
+|AppointmentItem|IPM。约会|  
+|ContactItem|IPM。联系人|  
+|DistListItem|IPM。DistList|  
+|JournalItem|IPM。活动|  
+|MailItem|IPM。请注意|  
+|PostItem|IPM。Post 或 IPM。Post.RSS|  
+|TaskItem|IPM。任务|  
   
- You can also specify the names of custom message classes. Custom message classes identify custom forms that you define in Outlook.  
+ 你还可以指定自定义邮件类的名称。 自定义邮件类标识你在 Outlook 中定义的自定义窗体。  
   
 > [!NOTE]  
->  For replacement and replace-all form regions, you can specify a new custom message class name. You do not need to use the message class name of an existing custom form. The name of the custom message class must be unique. One way to ensure that the name is unique is to use a naming convention similar to the following: \<*StandardMessageClassName*>.\<*Company*>.\<*MessageClassName*> (for example: IPM.Note.Contoso.MyMessageClass).  
+>  对于替换和全部替换窗体区域，你可以指定新的自定义 message 类名称。 不需要使用现有的自定义窗体的 message 类名。 自定义邮件类的名称必须是唯一的。 请确保名称唯一的一种方法是使用类似于以下的命名约定： \<*标准邮件类名称*>。\<*公司*>。\<*MessageClassName*> (例如： IPM。Note.Contoso.MyMessageClass)。  
   
 ## <a name="associating-a-form-region-with-an-outlook-message-class"></a>Associating a Form Region with an Outlook Message Class  
- There are two ways to associate a form region with a message class:  
+ 有两种方法可以将窗体区域与消息类相关联：  
   
--   Use the **New Outlook Form Region** wizard.  
+-   使用**新建 Outlook 窗体区域**向导。  
   
--   Apply class attributes.  
+-   将类属性的应用。  
   
-### <a name="using-the-new-outlook-form-region-wizard"></a>Using the New Outlook Form Region Wizard  
- On the final page of the **New Outlook Form Region** wizard, you can select standard message classes and type the names of custom message classes that you want to associate with the form region.  
+### <a name="using-the-new-outlook-form-region-wizard"></a>使用新的 Outlook 窗体区域向导  
+ 最后一页上**新建 Outlook 窗体区域**向导，你可以选择标准消息类，然后键入你想要与窗体区域关联的自定义邮件类的名称。  
   
- The standard message classes are not available if the form region is designed to replace the whole form or the default page of a form. You can specify standard message class names only for forms that add a new page to a form or that are appended to the bottom of a form. For more information, see [How to: Add a Form Region to an Outlook Add-in Project](../vsto/how-to-add-a-form-region-to-an-outlook-add-in-project.md).  
+ 标准消息类不可用，如果窗体区域旨在替换整个窗体或窗体的默认页。 你可以指定标准消息仅对用于将一个新页面添加到窗体或追加到窗体的底部的窗体的类名称。 有关详细信息，请参阅[如何： 向 Outlook 外接程序项目添加窗体区域](../vsto/how-to-add-a-form-region-to-an-outlook-add-in-project.md)。  
   
- To include one or more custom message classes, type their names in the **Which custom message classes will display this form region?** box.  
+ 若要包含一个或多个自定义邮件类，请键入其名称中的**哪些自定义邮件类将显示此窗体区域？**框。  
   
- The names that you type must comply with the following guidelines:  
+ 您键入的名称必须符合以下准则：  
   
--   Use the fully qualified message class name (for example: "IPM.Note.Contoso").  
+-   使用完全限定的 message 类名称 (例如:"IPM。Note.Contoso")。  
   
--   Use semicolons to separate multiple message class names.  
+-   使用分号分隔多个邮件类名称。  
   
--   Do not include standard Outlook message classes, such as "IPM.Note" or "IPM.Contact". Only include custom message classes, such as "IPM.Note.Contoso".  
+-   不包括标准 Outlook message 类，如"IPM。请注意"或者"IPM。联系"。 只能包含自定义邮件类，如"IPM。Note.Contoso"。  
   
--   Do not specify the base message class by itself (for example: "IPM").  
+-   不指定基的 message 类本身 (例如:"IPM")。  
   
--   Do not exceed 256 characters for each message class name.  
+-   不能超过 256 个字符为每个消息类名。  
   
- The **New Outlook Form Region** wizard validates the format of your input when you click **Finish**.  
-  
-> [!NOTE]  
->  The **New Outlook Form Region** wizard does not verify that the message class names that you provide are correct or valid.  
-  
- When you complete the wizard, the **New Outlook Form Region** wizard applies attributes to the form region class that contain the specified message class names. You can also apply these attributes manually.  
-  
-### <a name="applying-class-attributes"></a>Applying Class Attributes  
- You can associate a form region with an Outlook message class after you complete the **New Outlook Form Region** wizard. To do this, apply attributes to the form region factory class.  
-  
- The following example shows two <xref:Microsoft.Office.Tools.Outlook.FormRegionMessageClassAttribute> attributes that have been applied to a form region factory class named `myFormRegion`. The first attribute associates the form region with a standard message class for a mail message form. The second attribute associates the form region with a custom message class named `IPM.Task.Contoso`.  
-  
- [!code-vb[Trin_Outlook_FR_Attributes#1](../vsto/codesnippet/VisualBasic/Trin_Outlook_FR_Attributes/FormRegion1.vb#1)] [!code-csharp[Trin_Outlook_FR_Attributes#1](../vsto/codesnippet/CSharp/Trin_Outlook_FR_Attributes/FormRegion1.cs#1)]  
-  
- Attributes must comply with the following guidelines:  
-  
--   For custom message classes, use the fully qualified message class name (for example: "IPM.Note.Contoso").  
-  
--   Do not specify the base message class by itself (for example: "IPM").  
-  
--   Do not exceed 256 characters for each message class name.  
-  
--   Do not include the names of standard message classes if the form region replaces the whole form or the default page of a form. You can specify standard message class names only for forms that add a new page to a form or that are appended to the bottom of a form. For more information, see [How to: Add a Form Region to an Outlook Add-in Project](../vsto/how-to-add-a-form-region-to-an-outlook-add-in-project.md).  
-  
- Visual Studio validates the format of the message class names when you build the project.  
+ **新建 Outlook 窗体区域**单击时，向导将验证你输入的格式**完成**。  
   
 > [!NOTE]  
->  Visual Studio does not verify that the message class names that you provide are correct or valid.  
+>  **新建 Outlook 窗体区域**向导不验证你提供的邮件类名称是否正确或有效。  
   
-## <a name="see-also"></a>See Also  
- [Accessing a Form Region at Run Time](../vsto/accessing-a-form-region-at-run-time.md)   
- [Creating Outlook Form Regions](../vsto/creating-outlook-form-regions.md)   
- [Walkthrough: Designing an Outlook Form Region](../vsto/walkthrough-designing-an-outlook-form-region.md)   
- [Guidelines for Creating Outlook Form Regions](../vsto/guidelines-for-creating-outlook-form-regions.md)   
- [Form Name and Message Class Overview](http://msdn.microsoft.com/library/office/ff867629.aspx)   
- [How Outlook forms and items work together](http://msdn.microsoft.com/library/office/ff869706.aspx)  
+ 在完成向导，**新建 Outlook 窗体区域**向导将特性应用于包含指定的消息类名称的窗体区域类。 你还可以手动应用这些属性。  
+  
+### <a name="applying-class-attributes"></a>应用类特性  
+ 在完成后，你可以使用 Outlook 邮件类关联的窗体区域**新建 Outlook 窗体区域**向导。 若要执行此操作，请将特性应用于窗体区域工厂类。  
+  
+ 下面的示例显示了两个<xref:Microsoft.Office.Tools.Outlook.FormRegionMessageClassAttribute>已应用于名为的窗体区域工厂类的属性`myFormRegion`。 第一个属性将窗体区域与邮件窗体的标准消息类相关联。 第二个特性将窗体区域与名为的自定义消息类相关联`IPM.Task.Contoso`。  
+  
+ [!code-vb[Trin_Outlook_FR_Attributes#1](../vsto/codesnippet/VisualBasic/Trin_Outlook_FR_Attributes/FormRegion1.vb#1)]
+ [!code-csharp[Trin_Outlook_FR_Attributes#1](../vsto/codesnippet/CSharp/Trin_Outlook_FR_Attributes/FormRegion1.cs#1)]  
+  
+ 属性必须符合以下准则：  
+  
+-   对于自定义邮件类，使用完全限定的 message 类名称 (例如:"IPM。Note.Contoso")。  
+  
+-   不指定基的 message 类本身 (例如:"IPM")。  
+  
+-   不能超过 256 个字符为每个消息类名。  
+  
+-   如果窗体区域替换整个窗体或窗体的默认页，则不包括标准消息类的名称。 你可以指定标准消息仅对用于将一个新页面添加到窗体或追加到窗体的底部的窗体的类名称。 有关详细信息，请参阅[如何： 向 Outlook 外接程序项目添加窗体区域](../vsto/how-to-add-a-form-region-to-an-outlook-add-in-project.md)。  
+  
+ 生成项目时，visual Studio 会验证消息类名称的格式。  
+  
+> [!NOTE]  
+>  Visual Studio 不验证你提供的邮件类名称正确或有效。  
+  
+## <a name="see-also"></a>另请参阅  
+ [在运行时访问窗体区域](../vsto/accessing-a-form-region-at-run-time.md)   
+ [创建 Outlook 窗体区域](../vsto/creating-outlook-form-regions.md)   
+ [演练： 设计 Outlook 窗体区域](../vsto/walkthrough-designing-an-outlook-form-region.md)   
+ [Outlook 窗体区域创建准则](../vsto/guidelines-for-creating-outlook-form-regions.md)   
+ [窗体名称和消息类概述](http://msdn.microsoft.com/library/office/ff867629.aspx)   
+ [Outlook 窗体和项如何协同工作](http://msdn.microsoft.com/library/office/ff869706.aspx)  
   
   

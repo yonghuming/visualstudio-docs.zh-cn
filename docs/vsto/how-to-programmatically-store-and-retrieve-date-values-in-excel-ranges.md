@@ -1,12 +1,10 @@
 ---
-title: 'How to: Programmatically Store and Retrieve Date Values in Excel Ranges | Microsoft Docs'
+title: "如何： 以编程方式存储和检索日期值在 Excel 范围内 |Microsoft 文档"
 ms.custom: 
 ms.date: 02/02/2017
-ms.prod: visual-studio-dev14
 ms.reviewer: 
 ms.suite: 
-ms.technology:
-- office-development
+ms.technology: office-development
 ms.tgt_pltfrm: 
 ms.topic: article
 dev_langs:
@@ -22,71 +20,76 @@ helpviewer_keywords:
 - ranges, storing date values
 - date values
 ms.assetid: e1cdd262-0356-4499-8bc5-e730f74235a2
-caps.latest.revision: 40
-author: kempb
-ms.author: kempb
+caps.latest.revision: "40"
+author: gewarren
+ms.author: gewarren
 manager: ghogen
-ms.translationtype: HT
-ms.sourcegitcommit: eb5c9550fd29b0e98bf63a7240737da4f13f3249
-ms.openlocfilehash: 10f7e32f56c3e32f92e6601210bedc65bac78625
-ms.contentlocale: zh-cn
-ms.lasthandoff: 08/30/2017
-
+ms.openlocfilehash: 4d19de6848da22238dc1cf394fa3d417ea0d8c88
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# <a name="how-to-programmatically-store-and-retrieve-date-values-in-excel-ranges"></a>How to: Programmatically Store and Retrieve Date Values in Excel Ranges
-  You can store and retrieve values in a <xref:Microsoft.Office.Tools.Excel.NamedRange> control or a native Excel range object.  
+# <a name="how-to-programmatically-store-and-retrieve-date-values-in-excel-ranges"></a>如何：以编程方式在 Excel 范围内存储和检索日期值
+  你可以存储和检索值中的<xref:Microsoft.Office.Tools.Excel.NamedRange>控件或本机 Excel 范围对象。  
   
  [!INCLUDE[appliesto_xlalldocapp](../vsto/includes/appliesto-xlalldocapp-md.md)]  
   
- If you store a date value that falls on or after 1/1/1900 in a range using Office development tools in Visual Studio, it is stored in OLE Automation (OA) format. You must use the <xref:System.DateTime.FromOADate%2A> method to retrieve the value of OLE Automation (OA) dates. If the date is earlier than 1/1/1900, it is stored as a string.  
+ 如果存储位于或使用 Visual Studio 中的 Office 开发工具范围中的 1/1/1900年之后的日期值，则将它存储在 OLE 自动化 (OA) 格式。 必须使用<xref:System.DateTime.FromOADate%2A>方法来检索其中的 OLE 自动化 (OA) 日期值。 如果日期为早于 1900 年 1 月 1 日，则将它存储为字符串。  
   
 > [!NOTE]  
->  Excel dates differ from OLE Automation dates for the first two months of 1900. There are also differences if the **1904 date system** option is checked. The code examples below do not address these differences.  
+>  Excel 日期不同于 1900年前两个月的 OLE 自动化日期。 如果也会有差异**1904年日期系统**选项处于选中状态。 下面的代码示例不针对这些差异。  
   
-## <a name="using-a-namedrange-control"></a>Using a NamedRange Control  
+## <a name="using-a-namedrange-control"></a>使用 NamedRange 控件  
   
--   This example is for document-level customizations. The following code must be placed in a sheet class, not in the `ThisWorkbook` class.  
+-   此示例适用于文档级自定义项。 下面的代码必须将置于表类中，不在`ThisWorkbook`类。  
   
-#### <a name="to-store-a-date-value-in-a-named-range"></a>To store a date value in a named range  
+#### <a name="to-store-a-date-value-in-a-named-range"></a>在命名范围中存储日期值  
   
-1.  Create a <xref:Microsoft.Office.Tools.Excel.NamedRange> control at cell **A1**.  
+1.  创建<xref:Microsoft.Office.Tools.Excel.NamedRange>控件的单元格**A1**。  
   
-     [!code-csharp[Trin_VstcoreExcelAutomation#50](../vsto/codesnippet/CSharp/Trin_VstcoreExcelAutomationCS/Sheet1.cs#50)]  [!code-vb[Trin_VstcoreExcelAutomation#50](../vsto/codesnippet/VisualBasic/Trin_VstcoreExcelAutomation/Sheet1.vb#50)]  
+     [!code-csharp[Trin_VstcoreExcelAutomation#50](../vsto/codesnippet/CSharp/Trin_VstcoreExcelAutomationCS/Sheet1.cs#50)]
+     [!code-vb[Trin_VstcoreExcelAutomation#50](../vsto/codesnippet/VisualBasic/Trin_VstcoreExcelAutomation/Sheet1.vb#50)]  
   
-2.  Set today's date as the value for `NamedRange1`.  
+2.  将今天的日期设置为值`NamedRange1`。  
   
-     [!code-csharp[Trin_VstcoreExcelAutomation#51](../vsto/codesnippet/CSharp/Trin_VstcoreExcelAutomationCS/Sheet1.cs#51)]  [!code-vb[Trin_VstcoreExcelAutomation#51](../vsto/codesnippet/VisualBasic/Trin_VstcoreExcelAutomation/Sheet1.vb#51)]  
+     [!code-csharp[Trin_VstcoreExcelAutomation#51](../vsto/codesnippet/CSharp/Trin_VstcoreExcelAutomationCS/Sheet1.cs#51)]
+     [!code-vb[Trin_VstcoreExcelAutomation#51](../vsto/codesnippet/VisualBasic/Trin_VstcoreExcelAutomation/Sheet1.vb#51)]  
   
-#### <a name="to-retrieve-a-date-value-from-a-named-range"></a>To retrieve a date value from a named range  
+#### <a name="to-retrieve-a-date-value-from-a-named-range"></a>若要从命名范围中检索日期值  
   
-1.  Retrieve the date value from `NamedRange1`.  
+1.  检索日期值`NamedRange1`。  
   
-     [!code-csharp[Trin_VstcoreExcelAutomation#52](../vsto/codesnippet/CSharp/Trin_VstcoreExcelAutomationCS/Sheet1.cs#52)]  [!code-vb[Trin_VstcoreExcelAutomation#52](../vsto/codesnippet/VisualBasic/Trin_VstcoreExcelAutomation/Sheet1.vb#52)]  
+     [!code-csharp[Trin_VstcoreExcelAutomation#52](../vsto/codesnippet/CSharp/Trin_VstcoreExcelAutomationCS/Sheet1.cs#52)]
+     [!code-vb[Trin_VstcoreExcelAutomation#52](../vsto/codesnippet/VisualBasic/Trin_VstcoreExcelAutomation/Sheet1.vb#52)]  
   
-## <a name="using-native-excel-ranges"></a>Using Native Excel Ranges  
+## <a name="using-native-excel-ranges"></a>使用本机 Excel 范围  
   
-#### <a name="to-store-a-date-value-in-a-native-excel-range-object"></a>To store a date value in a native Excel range object  
+#### <a name="to-store-a-date-value-in-a-native-excel-range-object"></a>若要将日期值存储在本机 Excel 范围对象  
   
-1.  Create a <xref:Microsoft.Office.Interop.Excel.Range> that represents cell **A1**.  
+1.  创建<xref:Microsoft.Office.Interop.Excel.Range>表示单元格**A1**。  
   
-     [!code-csharp[Trin_VstcoreExcelAutomationAddIn#25](../vsto/codesnippet/CSharp/trin_vstcoreexcelautomationaddin/ThisAddIn.cs#25)]  [!code-vb[Trin_VstcoreExcelAutomationAddIn#25](../vsto/codesnippet/VisualBasic/trin_vstcoreexcelautomationaddin/ThisAddIn.vb#25)]  
+     [!code-csharp[Trin_VstcoreExcelAutomationAddIn#25](../vsto/codesnippet/CSharp/trin_vstcoreexcelautomationaddin/ThisAddIn.cs#25)]
+     [!code-vb[Trin_VstcoreExcelAutomationAddIn#25](../vsto/codesnippet/VisualBasic/trin_vstcoreexcelautomationaddin/ThisAddIn.vb#25)]  
   
-2.  Set today's date as the value for `rng`.  
+2.  将今天的日期设置为值`rng`。  
   
-     [!code-csharp[Trin_VstcoreExcelAutomationAddIn#26](../vsto/codesnippet/CSharp/trin_vstcoreexcelautomationaddin/ThisAddIn.cs#26)]  [!code-vb[Trin_VstcoreExcelAutomationAddIn#26](../vsto/codesnippet/VisualBasic/trin_vstcoreexcelautomationaddin/ThisAddIn.vb#26)]  
+     [!code-csharp[Trin_VstcoreExcelAutomationAddIn#26](../vsto/codesnippet/CSharp/trin_vstcoreexcelautomationaddin/ThisAddIn.cs#26)]
+     [!code-vb[Trin_VstcoreExcelAutomationAddIn#26](../vsto/codesnippet/VisualBasic/trin_vstcoreexcelautomationaddin/ThisAddIn.vb#26)]  
   
-#### <a name="to-retrieve-a-date-value-from-a-native-excel-range-object"></a>To retrieve a date value from a native Excel range object  
+#### <a name="to-retrieve-a-date-value-from-a-native-excel-range-object"></a>从本机 Excel 范围对象中检索日期值  
   
-1.  Retrieve the date value from `rng`.  
+1.  检索日期值`rng`。  
   
-     [!code-csharp[Trin_VstcoreExcelAutomationAddIn#27](../vsto/codesnippet/CSharp/trin_vstcoreexcelautomationaddin/ThisAddIn.cs#27)]  [!code-vb[Trin_VstcoreExcelAutomationAddIn#27](../vsto/codesnippet/VisualBasic/trin_vstcoreexcelautomationaddin/ThisAddIn.vb#27)]  
+     [!code-csharp[Trin_VstcoreExcelAutomationAddIn#27](../vsto/codesnippet/CSharp/trin_vstcoreexcelautomationaddin/ThisAddIn.cs#27)]
+     [!code-vb[Trin_VstcoreExcelAutomationAddIn#27](../vsto/codesnippet/VisualBasic/trin_vstcoreexcelautomationaddin/ThisAddIn.vb#27)]  
   
-## <a name="see-also"></a>See Also  
- [Working with Ranges](../vsto/working-with-ranges.md)   
- [Excel Object Model Overview](../vsto/excel-object-model-overview.md)   
- [NamedRange Control](../vsto/namedrange-control.md)   
- [How to: Programmatically Refer to Worksheet Ranges in Code](../vsto/how-to-programmatically-refer-to-worksheet-ranges-in-code.md)   
- [How to: Add NamedRange Controls to Worksheets](../vsto/how-to-add-namedrange-controls-to-worksheets.md)   
- [Optional Parameters in Office Solutions](../vsto/optional-parameters-in-office-solutions.md)  
+## <a name="see-also"></a>另请参阅  
+ [使用范围](../vsto/working-with-ranges.md)   
+ [Excel 对象模型概述](../vsto/excel-object-model-overview.md)   
+ [NamedRange 控件](../vsto/namedrange-control.md)   
+ [如何： 以编程方式引用代码中的工作表范围](../vsto/how-to-programmatically-refer-to-worksheet-ranges-in-code.md)   
+ [如何： 向工作表添加 NamedRange 控件](../vsto/how-to-add-namedrange-controls-to-worksheets.md)   
+ [Office 解决方案中的可选参数](../vsto/optional-parameters-in-office-solutions.md)  
   
   

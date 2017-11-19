@@ -1,12 +1,10 @@
 ---
-title: 'How to: Add Commands to Shortcut Menus | Microsoft Docs'
+title: "如何： 向快捷菜单添加命令 |Microsoft 文档"
 ms.custom: 
 ms.date: 02/02/2017
-ms.prod: visual-studio-dev14
 ms.reviewer: 
 ms.suite: 
-ms.technology:
-- office-development
+ms.technology: office-development
 ms.tgt_pltfrm: 
 ms.topic: article
 dev_langs:
@@ -16,45 +14,45 @@ helpviewer_keywords:
 - Office menus, creating
 - Office development in Visual Studio, context menus
 ms.assetid: 9a848817-db11-4294-8f6f-9181ab87aadd
-caps.latest.revision: 22
-author: kempb
-ms.author: kempb
+caps.latest.revision: "22"
+author: gewarren
+ms.author: gewarren
 manager: ghogen
-ms.translationtype: HT
-ms.sourcegitcommit: eb5c9550fd29b0e98bf63a7240737da4f13f3249
-ms.openlocfilehash: 0dd95e7cb207542a2f0131192b2ef0f43eee73d8
-ms.contentlocale: zh-cn
-ms.lasthandoff: 08/30/2017
-
+ms.openlocfilehash: 40b2bbb7c7b86665790a06feed288b0dd37272df
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# <a name="how-to-add-commands-to-shortcut-menus"></a>How to: Add Commands to Shortcut Menus
-  This topic demonstrates how to add commands to a shortcut menu in an Office application by using an VSTO Add-in.  
+# <a name="how-to-add-commands-to-shortcut-menus"></a>如何：向快捷菜单添加命令
+  本主题演示如何使用 VSTO 外接程序将命令添加到 Office 应用程序的快捷菜单中。  
   
  [!INCLUDE[appliesto_all](../vsto/includes/appliesto-all-md.md)]  
   
-### <a name="to-add-commands-to-shortcut-menus-in-office"></a>To add commands to shortcut menus in Office  
+### <a name="to-add-commands-to-shortcut-menus-in-office"></a>将命令添加到 Office 的快捷菜单中  
   
-1.  Add a **Ribbon XML** item to a document-level or VSTO Add-in project. For more information, see [How to: Get Started Customizing the Ribbon](../vsto/how-to-get-started-customizing-the-ribbon.md). In  
+1.  将“功能区 XML”  项添加到文档级项目或 VSTO 外接程序项目中。 有关详细信息，请参阅 [How to: Get Started Customizing the Ribbon](../vsto/how-to-get-started-customizing-the-ribbon.md)。 内  
   
-2.  **Solution Explorer**, select **ThisAddin.cs** or **ThisAddin.vb**.  
+2.  在“解决方案资源管理器”中，选择“”  或“” 。  
   
-3.  On the menu bar, choose **View**, **Code**.  
+3.  在菜单栏上，依次选择 **“视图”**、 **“代码”**。  
   
-     The **ThisAddin** class file opens in the Code Editor.  
+     “ThisAddin”  类文件随即在代码编辑器中打开。  
   
-4.  Add the following code to the **ThisAddin** class. This code overrides the CreateRibbonExtensibilityObject method and returns the Ribbon XML class to the Office application.  
+4.  将下面的代码添加到 **ThisAddin** 类中。 此代码重写 CreateRibbonExtensibilityObject 方法，并返回到 Office 应用程序的功能区 XML 类。  
   
-     [!code-csharp[Trin_WordAddIn_Menus#1](../vsto/codesnippet/CSharp/trin_wordaddin_menus.cs/thisaddin.cs#1)]  [!code-vb[Trin_WordAddIn_Menus#1](../vsto/codesnippet/VisualBasic/trin_wordaddin_menus.vb/thisaddin.vb#1)]  
+     [!code-csharp[Trin_WordAddIn_Menus#1](../vsto/codesnippet/CSharp/trin_wordaddin_menus.cs/thisaddin.cs#1)]
+     [!code-vb[Trin_WordAddIn_Menus#1](../vsto/codesnippet/VisualBasic/trin_wordaddin_menus.vb/thisaddin.vb#1)]  
   
-5.  In **Solution Explorer**, select the Ribbon XML file. By default, the Ribbon XML file is named Ribbon1.xml.  
+5.  在“解决方案资源管理器” 中，选择功能区 XML 文件。 默认情况下，功能区 XML 文件命名为 Ribbon1.xml。  
   
-6.  On the menu bar, choose **View**, **Code**.  
+6.  在菜单栏上，依次选择 **“视图”**、 **“代码”**。  
   
-     The Ribbon xml file opens in the Code Editor.  
+     功能区 XML 文件随即在代码编辑器中打开。  
   
-7.  In the Code Editor, add XML that describes the shortcut menu and the control that you want to add to the shortcut menu.  
+7.  在代码编辑器中添加 XML，该 XML 描述快捷菜单以及要添加到快捷菜单的控件。  
   
-     The following example adds a button, a menu, and a gallery control to the shortcut menu for a word document. The control ID of this shortcut menu is ContextMenuText. For a complete list of Office 2010 shortcut control ID's, see [Office 2010 Help Files: Office Fluent User Interface Control Identifiers](http://go.microsoft.com/fwlink/?LinkID=181052).  
+     下面的示例将向 Word 文档的快捷菜单添加按钮、菜单和库控件。 此快捷菜单的控件 ID 是 ContextMenuText。 有关 Office 2010 快捷控件的完整列表 ID，请参阅[Office 2010 帮助文件： Office Fluent 用户界面控件标识符](http://go.microsoft.com/fwlink/?LinkID=181052)。  
   
     ```  
     <?xml version="1.0" encoding="UTF-8"?>  
@@ -76,18 +74,19 @@ ms.lasthandoff: 08/30/2017
     </customUI>  
     ```  
   
-8.  In **Solution Explorer**, choose **MyRibbon.cs** or **MyRibbon.vb**.  
+8.  在“解决方案资源管理器” 中，选择“MyRibbon.cs”  或“MyRibbon.vb” 。  
   
-9. Add the a callback method to the `Ribbon1` class for each control that you want to handle.  
+9. 向要处理的每个控件的 `Ribbon1` 类添加一个回叫方法。  
   
-     The following callback method handles the **My Button** button. This code adds a string to the active document at the current location of the curser.  
+     下面的回叫方法将处理“我的按钮”  按钮。 此代码会在光标当前位置向活动文档添加一个字符串。  
   
-     [!code-vb[Trin_WordAddIn_Menus#2](../vsto/codesnippet/VisualBasic/trin_wordaddin_menus.vb/ribbon1.vb#2)]   [!code-csharp[Trin_WordAddIn_Menus#2](../vsto/codesnippet/CSharp/trin_wordaddin_menus.cs/ribbon1.cs#2)]  
+     [!code-vb[Trin_WordAddIn_Menus#2](../vsto/codesnippet/VisualBasic/trin_wordaddin_menus.vb/ribbon1.vb#2)]
+     [!code-csharp[Trin_WordAddIn_Menus#2](../vsto/codesnippet/CSharp/trin_wordaddin_menus.cs/ribbon1.cs#2)]  
   
-## <a name="see-also"></a>See Also  
- [Office UI Customization](../vsto/office-ui-customization.md)   
- [Walkthrough: Creating Shortcut Menus for Bookmarks](../vsto/walkthrough-creating-shortcut-menus-for-bookmarks.md)   
- [Optional Parameters in Office Solutions](../vsto/optional-parameters-in-office-solutions.md)   
- [Customizing Context Menus in Office 2010](http://go.microsoft.com/fwlink/?LinkId=182186)  
+## <a name="see-also"></a>另请参阅  
+ [Office UI 自定义项](../vsto/office-ui-customization.md)   
+ [演练： 创建书签的快捷菜单](../vsto/walkthrough-creating-shortcut-menus-for-bookmarks.md)   
+ [Office 解决方案中的可选参数](../vsto/optional-parameters-in-office-solutions.md)   
+ [自定义 Office 2010 中的上下文菜单](http://go.microsoft.com/fwlink/?LinkId=182186)  
   
   

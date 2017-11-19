@@ -1,12 +1,10 @@
 ---
-title: 'Walkthrough: Changing Worksheet Formatting Using CheckBox Controls | Microsoft Docs'
+title: "演练： 更改工作表格式设置使用复选框控件 |Microsoft 文档"
 ms.custom: 
 ms.date: 02/02/2017
-ms.prod: visual-studio-dev14
 ms.reviewer: 
 ms.suite: 
-ms.technology:
-- office-development
+ms.technology: office-development
 ms.tgt_pltfrm: 
 ms.topic: article
 dev_langs:
@@ -17,157 +15,159 @@ helpviewer_keywords:
 - worksheets, check box controls
 - controls [Office development in Visual Studio], adding to worksheets
 ms.assetid: 4be79613-50a0-428e-9816-aadbc098272a
-caps.latest.revision: 70
-author: kempb
-ms.author: kempb
+caps.latest.revision: "70"
+author: gewarren
+ms.author: gewarren
 manager: ghogen
-ms.translationtype: HT
-ms.sourcegitcommit: eb5c9550fd29b0e98bf63a7240737da4f13f3249
-ms.openlocfilehash: 6afc0a002671d0a5ae91908e5b0ed3b100c36c54
-ms.contentlocale: zh-cn
-ms.lasthandoff: 08/30/2017
-
+ms.openlocfilehash: 7f10b0ed77dc9d5f97b6fc2fc4f218c86dafee41
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# <a name="walkthrough-changing-worksheet-formatting-using-checkbox-controls"></a>Walkthrough: Changing Worksheet Formatting Using CheckBox Controls
-  This walkthrough shows the basics of using check boxes on a Microsoft Office Excel worksheet to change formatting. You will use Office development tools in Visual Studio to create and add code to your project. To see the result as a completed sample, see the Excel Controls Sample at [Office Development Samples and Walkthroughs](../vsto/office-development-samples-and-walkthroughs.md).  
+# <a name="walkthrough-changing-worksheet-formatting-using-checkbox-controls"></a>演练：使用 CheckBox 控件更改工作表格式设置
+  本演练演示了使用 Microsoft Office Excel 工作表上的复选框来更改格式设置的基础知识。 将使用 Visual Studio 中的 Office 开发工具创建并将代码添加到你的项目。 若要查看结果为已完成的示例，请参阅 Excel 控件示例[Office 开发示例和演练](../vsto/office-development-samples-and-walkthroughs.md)。  
   
  [!INCLUDE[appliesto_xlalldoc](../vsto/includes/appliesto-xlalldoc-md.md)]  
   
- During this walkthrough, you will learn how to:  
+ 在本演练中，你将学会如何执行以下任务：  
   
--   Add text and controls to a worksheet.  
+-   将文本和控件添加到工作表。  
   
--   Format the text when an option is selected.  
+-   设置文本格式时选择了某个选项。  
   
--   Test your project.  
+-   测试你的项目。  
   
 > [!NOTE]  
->  Your computer might show different names or locations for some of the Visual Studio user interface elements in the following instructions. The Visual Studio edition that you have and the settings that you use determine these elements. For more information, see [Personalize the Visual Studio IDE](../ide/personalizing-the-visual-studio-ide.md).  
+>  以下说明中的某些 Visual Studio 用户界面元素在计算机上出现的名称或位置可能会不同。 这些元素取决于你所使用的 Visual Studio 版本和你所使用的设置。 有关详细信息，请参阅[个性化设置 Visual Studio IDE](../ide/personalizing-the-visual-studio-ide.md)。  
   
-## <a name="prerequisites"></a>Prerequisites  
- You need the following components to complete this walkthrough:  
+## <a name="prerequisites"></a>先决条件  
+ 你需要以下组件来完成本演练：  
   
 -   [!INCLUDE[vsto_vsprereq](../vsto/includes/vsto-vsprereq-md.md)]  
   
--   [!INCLUDE[Excel_15_short](../vsto/includes/excel-15-short-md.md)] or [!INCLUDE[Excel_14_short](../vsto/includes/excel-14-short-md.md)].  
+-   [!INCLUDE[Excel_15_short](../vsto/includes/excel-15-short-md.md)] 或 [!INCLUDE[Excel_14_short](../vsto/includes/excel-14-short-md.md)]。  
   
-## <a name="creating-the-project"></a>Creating the Project  
- In this step, you will create an Excel Workbook project by using Visual Studio.  
+## <a name="creating-the-project"></a>创建项目  
+ 在此步骤中，你将使用 Visual Studio 创建的 Excel 工作簿项目。  
   
-#### <a name="to-create-a-new-project"></a>To create a new project  
+#### <a name="to-create-a-new-project"></a>创建新项目  
   
-1.  Create an Excel Workbook project with the name **My Excel Formatting**. Make sure that **Create a new document** is selected. For more information, see [How to: Create Office Projects in Visual Studio](../vsto/how-to-create-office-projects-in-visual-studio.md).  
+1.  使用名称创建的 Excel 工作簿项目**我 Excel 格式**。 请确保**创建新文档**选择。 有关详细信息，请参阅 [How to: Create Office Projects in Visual Studio](../vsto/how-to-create-office-projects-in-visual-studio.md)。  
   
-     Visual Studio opens the new Excel workbook in the designer and adds the **My Excel Formatting** project to **Solution Explorer**.  
+     Visual Studio 将在设计器中打开新的 Excel 工作簿并将添加**我 Excel 格式**项目合并为**解决方案资源管理器**。  
   
-## <a name="adding-text-and-controls-to-the-worksheet"></a>Adding Text and Controls to the Worksheet  
- For this walkthrough, you will need three <xref:Microsoft.Office.Tools.Excel.Controls.CheckBox> controls and some text in a <xref:Microsoft.Office.Tools.Excel.NamedRange> control.  
+## <a name="adding-text-and-controls-to-the-worksheet"></a>将文本和控件添加到工作表  
+ 对于本演练中，您将需要三个<xref:Microsoft.Office.Tools.Excel.Controls.CheckBox>控件和一些以文本<xref:Microsoft.Office.Tools.Excel.NamedRange>控件。  
   
-#### <a name="to-add-three-check-boxes"></a>To add three check boxes  
+#### <a name="to-add-three-check-boxes"></a>若要添加三个复选框  
   
-1.  Verify that the workbook is open in the Visual Studio designer and that `Sheet1` is open.  
+1.  验证工作簿是在 Visual Studio 设计器，并打开`Sheet1`处于打开状态。  
   
-2.  From the **Common Controls** tab of the **Toolbox**, drag a <xref:Microsoft.Office.Tools.Excel.Controls.CheckBox> control to or near cell **B2** in **Sheet1**.  
+2.  从**公共控件**选项卡**工具箱**，拖动<xref:Microsoft.Office.Tools.Excel.Controls.CheckBox>控件或邻近的单元格的**B2**中**Sheet1**。  
   
-3.  From the **View** menu, select **Properties** window.  
+3.  从**视图**菜单上，选择**属性**窗口。  
   
-4.  Be sure that **Checkbox1** is visible in the object name list box of the **Properties** window, and change the following properties:  
+4.  请确保**Checkbox1**是可见的对象名称列表框中**属性**窗口中，并更改以下属性：  
   
-    |Property|Value|  
+    |属性|值|  
     |--------------|-----------|  
     |**Name**|**applyBoldFont**|  
-    |**Text**|**Bold**|  
+    |**“文本”**|**加粗**|  
   
-5.  Drag a second check box on or near cell **B4** and change the following properties:  
+5.  将第二个复选框，或其附近单元格**B4**和更改以下属性：  
   
-    |Property|Value|  
+    |属性|值|  
     |--------------|-----------|  
     |**Name**|**applyItalicFont**|  
-    |**Text**|**Italic**|  
+    |**“文本”**|**斜体**|  
   
-6.  Drag a third check box on or near cell **B6** and change the following properties:  
+6.  拖动一个第三个复选框，或其附近单元格**B6**和更改以下属性：  
   
-    |Property|Value|  
+    |属性|值|  
     |--------------|-----------|  
     |**Name**|**applyUnderlineFont**|  
-    |**Text**|**Underline**|  
+    |**“文本”**|**下划线**|  
   
-7.  Select all three check box controls while holding the CTRL key.  
+7.  在按住 CTRL 键的同时选择所有三个复选框控件。  
   
-8.  In the Arrange Group of the Format tab in Excel, click **Align**, and then click **Align Left**.  
+8.  在 Excel 中的格式选项卡的排列组中，单击**Align**，然后单击**左对齐**。  
   
-     The three check box controls are aligned on the left side, at the position of the first control you selected.  
+     在左侧，并在你选择的第一个控件的位置对齐的三个复选框控件。  
   
-     Next, you will drag a <xref:Microsoft.Office.Tools.Excel.NamedRange> control to the worksheet.  
+     接下来，您将拖动<xref:Microsoft.Office.Tools.Excel.NamedRange>到工作表中的控件。  
   
     > [!NOTE]  
-    >  You can also add the <xref:Microsoft.Office.Tools.Excel.NamedRange> control by typing **textFont** into the **Name** box.  
+    >  你还可以添加<xref:Microsoft.Office.Tools.Excel.NamedRange>控件通过键入**textFont**到**名称**框。  
   
-#### <a name="to-add-text-to-a-namedrange-control"></a>To add text to a NamedRange control  
+#### <a name="to-add-text-to-a-namedrange-control"></a>将文本添加到 NamedRange 控件  
   
-1.  From the **Excel Controls** tab of the toolbox, drag a <xref:Microsoft.Office.Tools.Excel.NamedRange> control to cell **B9**.  
+1.  从**Excel 控件**选项卡的工具箱拖<xref:Microsoft.Office.Tools.Excel.NamedRange>控件添加到单元格**B9**。  
   
-2.  Verify that **$B$9** appears in the editable text box, and that cell **B9** is selected. If it is not, click cell **B9** to select it.  
+2.  验证**$B$ 9**将显示在可编辑文本框中，并且该单元格**B9**选择。 如果不存在，请单击单元格**B9**以将其选中。  
   
-3.  Click **OK**.  
+3.  单击“确定”。  
   
-4.  Cell **B9** becomes a range named `NamedRange1`.  
+4.  单元格**B9**将成为名为区域`NamedRange1`。  
   
-     There is no visible indication on the worksheet, but `NamedRange1` appears in the **Name box** (just above the worksheet on the left side) when cell **B9** is selected.  
+     在表中，没有可见指示但`NamedRange1`出现在**名称框**（上方左侧工作表） 单元格时**B9**选择。  
   
-5.  Be sure that **NamedRange1** is visible in the object name list box of the **Properties** window, and change the following properties:  
+5.  请确保**NamedRange1**是可见的对象名称列表框中**属性**窗口中，并更改以下属性：  
   
-    |Property|Value|  
+    |属性|值|  
     |--------------|-----------|  
     |**Name**|**textFont**|  
-    |**Value2**|**Click a check box to change the formatting of this text.**|  
+    |**Value2**|**单击复选框来更改此文本的格式设置。**|  
   
- Next, write the code to format the text when an option is selected.  
+ 接下来，编写代码以设置文本格式时选择了某个选项。  
   
-## <a name="formatting-the-text-when-an-option-is-selected"></a>Formatting the Text When an Option is Selected  
- In this section, you will write code so that when the user selects a formatting option, the format of the text in the worksheet is changed.  
+## <a name="formatting-the-text-when-an-option-is-selected"></a>格式文本时选项被选中  
+ 在本部分中，你将编写代码，以便当用户选择的格式设置选项，更改了工作表中的文本的格式。  
   
-#### <a name="to-change-formatting-when-a-check-box-is-selected"></a>To change formatting when a check box is selected  
+#### <a name="to-change-formatting-when-a-check-box-is-selected"></a>若要更改格式设置复选框时被选择  
   
-1.  Right-click **Sheet1**, and then click **View Code** on the shortcut menu.  
+1.  右键单击**Sheet1**，然后单击**查看代码**快捷菜单上。  
   
-2.  Add the following code to the <xref:System.Windows.Forms.Control.Click> event handler of the `applyBoldFont` check box:  
+2.  以下代码添加到<xref:System.Windows.Forms.Control.Click>事件处理程序`applyBoldFont`复选框：  
   
-     [!code-vb[Trin_VstcoreProgrammingControlsExcel#7](../vsto/codesnippet/VisualBasic/my excel chart/Sheet1.vb#7)]  [!code-csharp[Trin_VstcoreProgrammingControlsExcel#7](../vsto/codesnippet/CSharp/Trin_VstcoreProgrammingControlsExcelCS/Sheet1.cs#7)]  
+     [!code-vb[Trin_VstcoreProgrammingControlsExcel#7](../vsto/codesnippet/VisualBasic/my excel chart/Sheet1.vb#7)]
+     [!code-csharp[Trin_VstcoreProgrammingControlsExcel#7](../vsto/codesnippet/CSharp/Trin_VstcoreProgrammingControlsExcelCS/Sheet1.cs#7)]  
   
-3.  Add the following code to the <xref:System.Windows.Forms.Control.Click> event handler of the `applyItalicFont` check box:  
+3.  以下代码添加到<xref:System.Windows.Forms.Control.Click>事件处理程序`applyItalicFont`复选框：  
   
-     [!code-vb[Trin_VstcoreProgrammingControlsExcel#8](../vsto/codesnippet/VisualBasic/my excel chart/Sheet1.vb#8)]  [!code-csharp[Trin_VstcoreProgrammingControlsExcel#8](../vsto/codesnippet/CSharp/Trin_VstcoreProgrammingControlsExcelCS/Sheet1.cs#8)]  
+     [!code-vb[Trin_VstcoreProgrammingControlsExcel#8](../vsto/codesnippet/VisualBasic/my excel chart/Sheet1.vb#8)]
+     [!code-csharp[Trin_VstcoreProgrammingControlsExcel#8](../vsto/codesnippet/CSharp/Trin_VstcoreProgrammingControlsExcelCS/Sheet1.cs#8)]  
   
-4.  Add the following code to the <xref:System.Windows.Forms.Control.Click> event handler of the `applyUnderlineFont` check box:  
+4.  以下代码添加到<xref:System.Windows.Forms.Control.Click>事件处理程序`applyUnderlineFont`复选框：  
   
-     [!code-vb[Trin_VstcoreProgrammingControlsExcel#9](../vsto/codesnippet/VisualBasic/my excel chart/Sheet1.vb#9)]  [!code-csharp[Trin_VstcoreProgrammingControlsExcel#9](../vsto/codesnippet/CSharp/Trin_VstcoreProgrammingControlsExcelCS/Sheet1.cs#9)]  
+     [!code-vb[Trin_VstcoreProgrammingControlsExcel#9](../vsto/codesnippet/VisualBasic/my excel chart/Sheet1.vb#9)]
+     [!code-csharp[Trin_VstcoreProgrammingControlsExcel#9](../vsto/codesnippet/CSharp/Trin_VstcoreProgrammingControlsExcelCS/Sheet1.cs#9)]  
   
-5.  In C#, you must add event handlers for the check boxes to the <xref:Microsoft.Office.Tools.Excel.Worksheet.Startup> event as shown below. For information on creating event handlers, see [How to: Create Event Handlers in Office Projects](../vsto/how-to-create-event-handlers-in-office-projects.md).  
+5.  在 C# 中，你必须添加到对应的复选框的事件处理程序<xref:Microsoft.Office.Tools.Excel.Worksheet.Startup>事件如下所示。 有关创建事件处理程序的信息，请参阅[如何： 在 Office 项目中创建事件处理程序](../vsto/how-to-create-event-handlers-in-office-projects.md)。  
   
      [!code-csharp[Trin_VstcoreProgrammingControlsExcel#10](../vsto/codesnippet/CSharp/Trin_VstcoreProgrammingControlsExcelCS/Sheet1.cs#10)]  
   
-## <a name="testing-the-application"></a>Testing the Application  
- You can now test your workbook to make sure that the text is formatted correctly when you select or clear a check box.  
+## <a name="testing-the-application"></a>测试应用程序  
+ 你现在可以测试你的工作簿，以确保在选择或清除复选框文本的格式设置正确。  
   
-#### <a name="to-test-your-workbook"></a>To test your workbook  
+#### <a name="to-test-your-workbook"></a>测试工作簿  
   
-1.  Press F5 to run your project.  
+1.  按 F5 运行项目。  
   
-2.  Select or clear a check box.  
+2.  选中或清除复选框。  
   
-3.  Confirm that the text is formatted correctly.  
+3.  确认文本格式正确。  
   
-## <a name="next-steps"></a>Next Steps  
- This walkthrough shows the basics of using check boxes and formatting text on Excel worksheets. Here are some tasks that might come next:  
+## <a name="next-steps"></a>后续步骤  
+ 本演练演示了使用复选框以及设置 Excel 工作表上的文本格式的基础知识。 以下是接下来可能要执行的一些任务：  
   
--   Deploying the project. For more information, see [Deploying an Office Solution by Using ClickOnce](../vsto/deploying-an-office-solution-by-using-clickonce.md).  
+-   部署项目。 有关详细信息，请参阅[部署 Office 解决方案使用 clickonce](../vsto/deploying-an-office-solution-by-using-clickonce.md)。  
   
--   Using a button to populate a text box. For more information, see [Walkthrough: Displaying Text in a Text Box in a Worksheet Using a Button](../vsto/walkthrough-displaying-text-in-a-text-box-in-a-worksheet-using-a-button.md).  
+-   使用按钮填充文本框。 有关详细信息，请参阅[演练： 在工作表使用按钮的文本框中显示的文本](../vsto/walkthrough-displaying-text-in-a-text-box-in-a-worksheet-using-a-button.md)。  
   
-## <a name="see-also"></a>See Also  
- [Walkthroughs Using Excel](../vsto/walkthroughs-using-excel.md)   
- [NamedRange Control](../vsto/namedrange-control.md)   
- [Limitations of Windows Forms Controls on Office Documents](../vsto/limitations-of-windows-forms-controls-on-office-documents.md)  
+## <a name="see-also"></a>另请参阅  
+ [使用 Excel 的演练](../vsto/walkthroughs-using-excel.md)   
+ [NamedRange 控件](../vsto/namedrange-control.md)   
+ [Office 文档上的 Windows 窗体控件限制](../vsto/limitations-of-windows-forms-controls-on-office-documents.md)  
   
   

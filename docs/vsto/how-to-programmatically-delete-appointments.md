@@ -1,12 +1,10 @@
 ---
-title: 'How to: Programmatically Delete Appointments | Microsoft Docs'
+title: "如何： 以编程方式删除约会 |Microsoft 文档"
 ms.custom: 
 ms.date: 02/02/2017
-ms.prod: visual-studio-dev14
 ms.reviewer: 
 ms.suite: 
-ms.technology:
-- office-development
+ms.technology: office-development
 ms.tgt_pltfrm: 
 ms.topic: article
 dev_langs:
@@ -17,30 +15,30 @@ helpviewer_keywords:
 - deleting appointments
 - appointments [Office development in Visual Studio]
 ms.assetid: 34bd2d5e-a075-4fbe-809f-479c72fc735a
-caps.latest.revision: 16
-author: kempb
-ms.author: kempb
+caps.latest.revision: "16"
+author: gewarren
+ms.author: gewarren
 manager: ghogen
-ms.translationtype: HT
-ms.sourcegitcommit: eb5c9550fd29b0e98bf63a7240737da4f13f3249
-ms.openlocfilehash: bc714bab21bb2495cdb74730dc4bbb948752be23
-ms.contentlocale: zh-cn
-ms.lasthandoff: 08/30/2017
-
+ms.openlocfilehash: 4b27c536a9e5b7237efdd6b11b4be75ca1d91f19
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# <a name="how-to-programmatically-delete-appointments"></a>How to: Programmatically Delete Appointments
-  This example deletes one instance of a recurring appointment. The example assumes that an instance of a recurring appointment occurs on June 28, 2006, at 08:00.  
+# <a name="how-to-programmatically-delete-appointments"></a>如何：以编程方式删除约会
+  此示例将删除定期约会的一个实例。 该示例假定定期约会实例发生在 2006 年 6 月 28 日 08:00。  
   
  [!INCLUDE[appliesto_olkallapp](../vsto/includes/appliesto-olkallapp-md.md)]  
   
-## <a name="example"></a>Example  
- [!code-vb[Trin_Outlook_RL_DeleteAppointment#1](../vsto/codesnippet/VisualBasic/Trin_Outlook_RL_DeleteAppointment/thisaddin.vb#1)] [!code-csharp[Trin_Outlook_RL_DeleteAppointment#1](../vsto/codesnippet/CSharp/Trin_Outlook_RL_DeleteAppointment/thisaddin.cs#1)]  
+## <a name="example"></a>示例  
+ [!code-vb[Trin_Outlook_RL_DeleteAppointment#1](../vsto/codesnippet/VisualBasic/Trin_Outlook_RL_DeleteAppointment/thisaddin.vb#1)]
+ [!code-csharp[Trin_Outlook_RL_DeleteAppointment#1](../vsto/codesnippet/CSharp/Trin_Outlook_RL_DeleteAppointment/thisaddin.cs#1)]  
   
-## <a name="see-also"></a>See Also  
- [Working with Calendar Items](../vsto/working-with-calendar-items.md)   
+## <a name="see-also"></a>另请参阅  
+ [使用日历项](../vsto/working-with-calendar-items.md)   
  [Getting Started Programming VSTO Add-ins](../vsto/getting-started-programming-vsto-add-ins.md)   
- [How to: Programmatically Create Appointments](../vsto/how-to-programmatically-create-appointments.md)   
- [How to: Programmatically Create a Custom Calendar](../vsto/how-to-programmatically-create-a-custom-calendar.md)   
- [How to: Programmatically Create a Meeting Request](../vsto/how-to-programmatically-create-a-meeting-request.md)  
+ [如何： 以编程方式创建约会](../vsto/how-to-programmatically-create-appointments.md)   
+ [如何： 以编程方式创建自定义日历](../vsto/how-to-programmatically-create-a-custom-calendar.md)   
+ [如何：以编程方式创建会议请求](../vsto/how-to-programmatically-create-a-meeting-request.md)  
   
   

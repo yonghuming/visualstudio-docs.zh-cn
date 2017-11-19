@@ -1,56 +1,62 @@
 ---
-title: "PreviewImage 元素（Visual Studio 模板） | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-general"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-helpviewer_keywords: 
-  - "<PreviewImage> 元素（Visual Studio 模板）"
-  - "PreviewImage 元素（Visual Studio 模板）"
+title: "PreviewImage 元素 （Visual Studio 模板） |Microsoft 文档"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology: vs-ide-general
+ms.tgt_pltfrm: 
+ms.topic: article
+helpviewer_keywords:
+- <PreviewImage> Element (Visual Studio Templates)
+- PreviewImage Element (Visual Studio Templates)
 ms.assetid: d1796f20-523b-4e0d-8ac3-ca87f3b5a9b6
-caps.latest.revision: 6
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 6
+caps.latest.revision: "6"
+author: gregvanl
+ms.author: gregvanl
+manager: ghogen
+ms.openlocfilehash: e22ff13f9aaffffb22f8b572968376e03796ac9f
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# PreviewImage 元素（Visual Studio 模板）
-[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
-
-指定用作文件名的预览图标，该图标将出现在**“新建项目”** 或**“添加新项”** 对话框中。  
+# <a name="previewimage-element-visual-studio-templates"></a>PreviewImage 元素（Visual Studio 模板）
+指定作为文件名称，对于预览图像将出现在预览图像，**新项目**或**添加新项**对话框。  
   
-## 语法  
+ \<VSTemplate >  
+ \<TemplateData >  
+ \<PreviewImage >  
+  
+## <a name="syntax"></a>语法  
   
 ```  
 <PreviewImage>"filename"</PreviewImage>  
 ```  
   
-## 特性和元素  
- 以下几节描述了特性、子元素和父元素。  
+## <a name="attributes-and-elements"></a>特性和元素  
+ 下列各节描述了特性、子元素和父元素。  
   
-### 特性  
+### <a name="attributes"></a>特性  
  无。  
   
-### 子元素  
+### <a name="child-elements"></a>子元素  
  无。  
   
-### 父元素  
+### <a name="parent-elements"></a>父元素  
   
-|元素|描述|  
-|--------|--------|  
-|[TemplateData](../extensibility/templatedata-element-visual-studio-templates.md)|必需的元素。<br /><br /> 将此模板分类并定义此模板在**“新建项目”**或**“添加新项”**对话框中的显示方式。|  
+|元素|说明|  
+|-------------|-----------------|  
+|[TemplateData](../extensibility/templatedata-element-visual-studio-templates.md)|必需的元素。<br /><br /> 将此模板分类并定义中的显示方式**新项目**或**添加新项**对话框。|  
   
-## 文本值  
+## <a name="text-value"></a>文本值  
  需要一个文本值。  
   
- 文本必须是表示文件名的字符串。  
+ 文本必须是一个字符串，表示文件名称。  
   
-## 备注  
+## <a name="remarks"></a>备注  
  `PreviewImage` 是可选元素。  
   
-## 请参阅  
+## <a name="see-also"></a>另请参阅  
  [Visual Studio 模板架构参考](../extensibility/visual-studio-template-schema-reference.md)   
- [创建自定义项目和项模板](../ide/creating-project-and-item-templates.md)
+ [创建项目和项模板](../ide/creating-project-and-item-templates.md)

@@ -1,30 +1,31 @@
 ---
-title: "ProjectOutputFile Element"
-ms.custom: ""
-ms.date: "02/02/2017"
-ms.prod: "visual-studio-dev14"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "office-development"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-dev_langs: 
-  - "VB"
-  - "CSharp"
-helpviewer_keywords: 
-  - "ProjectOutputFile element"
+title: "ProjectOutputFile 元素 |Microsoft 文档"
+ms.custom: 
+ms.date: 02/02/2017
+ms.reviewer: 
+ms.suite: 
+ms.technology: office-development
+ms.tgt_pltfrm: 
+ms.topic: article
+dev_langs:
+- VB
+- CSharp
+helpviewer_keywords: ProjectOutputFile element
 ms.assetid: 52a017bf-e19c-49e4-bb8f-cbe6958195c2
-caps.latest.revision: 13
-author: "kempb"
-ms.author: "kempb"
-manager: "ghogen"
-caps.handback.revision: 12
+caps.latest.revision: "13"
+author: gewarren
+ms.author: gewarren
+manager: ghogen
+ms.openlocfilehash: a397648dd81ead8134777c8b36982fa6b65b687b
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# ProjectOutputFile Element
-  表示部署到 SharePoint 时要与项目项包含在一起的单独项目输出。  
+# <a name="projectoutputfile-element"></a>ProjectOutputFile 元素
+  表示要部署到 SharePoint 项目项包含一个单独的项目的输出。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
 ```  
 <ProjectOutputFile ProjectId = "GUID of the project"  
@@ -33,45 +34,45 @@ caps.handback.revision: 12
     Type = "Type of deployment for the project output" />  
 ```  
   
-## 类型  
+## <a name="type"></a>类型  
  **ProjectOutputFileType**  
   
-## 特性和元素  
- 以下几节描述了特性、子元素和父元素。  
+## <a name="attributes-and-elements"></a>特性和元素  
+ 下列各节描述了特性、子元素和父元素。  
   
-### 特性  
+### <a name="attributes"></a>特性  
   
-|特性|说明|  
-|--------|--------|  
-|**ProjectId**|必选的 **xs:string** 特性。<br /><br /> 要包括的具有输出的依赖项目 GUID。  这对应于独立的项目文件中的 **ProjectGuid** 元素。|  
-|**ProjectPath**|必选的 **xs:string** 特性。<br /><br /> 包括具有要包含的输出的依赖项目的项目文件名的相对路径。  此路径相对于 SharePoint 项目的根文件夹，其包含 SharePoint 项目项。|  
-|**Target**|可选的 **xs:string** 特性。<br /><br /> 要在 SharePoint 服务器上部署依赖项目输出的路径（相对于部署根文件夹）。  部署根文件夹取决于 **Type** 特性指定的部署类型。<br /><br /> 有关更多信息，请参见 **Deployment Path** 的说明和[开发 SharePoint 解决方案](../sharepoint/developing-sharepoint-solutions.md)中 SharePint 项目项的 **Deployment Root** 属性。|  
-|**Type**|必选的 **xs:string** 特性。<br /><br /> 用于依赖项目的输出的部署类型。  有关可能值的更多信息，请参见[开发 SharePoint 解决方案](../sharepoint/developing-sharepoint-solutions.md)中 SharePoint 项目项的 **Deployment Type** 属性的说明。|  
+|特性|描述|  
+|---------------|-----------------|  
+|**ProjectId**|所需**xs: string**属性。<br /><br /> 具有你想要包括的输出该依赖项目的 GUID。 这对应于**ProjectGuid**依赖项目文件中的元素。|  
+|**ProjectPath**|所需**xs: string**属性。<br /><br /> 相对路径，包括的项目文件名称，有你想要包括的输出的相关项目。 此路径是相对于包含 SharePoint 项目项的 SharePoint 项目的根文件夹。|  
+|**Target**|可选**xs: string**属性。<br /><br /> 若要在 SharePoint 服务器上，相对于部署根文件夹部署的依赖项目输出路径。 部署根文件夹由指定的部署类型**类型**属性。<br /><br /> 有关详细信息，请参阅说明**部署路径**和**部署根**属性的 SharePoint 项目中的项[开发 SharePoint 解决方案](../sharepoint/developing-sharepoint-solutions.md).|  
+|**类型**|所需**xs: string**属性。<br /><br /> 要用于该依赖项目的输出的部署类型。 有关可能的值的详细信息，请参阅的描述**部署类型**属性中的 SharePoint 项目项[开发 SharePoint 解决方案](../sharepoint/developing-sharepoint-solutions.md)。|  
   
-### 子元素  
+### <a name="child-elements"></a>子元素  
  无。  
   
-### 父元素  
+### <a name="parent-elements"></a>父元素  
   
-|元素|说明|  
-|--------|--------|  
-|[Files](../sharepoint/files-element.md)|指定部署到 SharePoint 时要与 SharePoint 项目项包含在一起的文件。|  
+|元素|描述|  
+|-------------|-----------------|  
+|[文件](../sharepoint/files-element.md)|指定要包括在 SharePoint 项目项部署到 SharePoint 时的文件。|  
   
-## 备注  
- 使用 **ProjectOutputFile** 元素在 SharePoint 项目项的部署中包含项目输出。  可以指定不同的项目或包含项目项的同一项目。  有关更多信息，请参见 [在项目项中提供打包和部署信息](../sharepoint/providing-packaging-and-deployment-information-in-project-items.md)。  
+## <a name="remarks"></a>备注  
+ 使用**ProjectOutputFile**元素以在部署中的 SharePoint 项目项包含项目的输出。 你可以指定不同的项目或包含项目项的同一项目。 有关详细信息，请参阅[提供打包和部署信息在项目项中](../sharepoint/providing-packaging-and-deployment-information-in-project-items.md)。  
   
-## 元素信息  
+## <a name="element-information"></a>元素信息  
   
 |||  
 |-|-|  
-|**命名空间**|http:\/\/schemas.microsoft.com\/VisualStudio\/2010\/SharePointTools\/SharePointProjectItemModel|  
+|**Namespace**|http://schemas.microsoft.com/VisualStudio/2010/SharePointTools/SharePointProjectItemModel|  
 |**架构名称**|SharePoint 项目项架构|  
 |**验证文件**|ProjectItemModelSchema.xsd|  
-|**是否可以为空**|否|  
+|**可以为空**|No|  
   
-## 请参阅  
- [SharePoint Project Item Schema Reference](../sharepoint/sharepoint-project-item-schema-reference.md)   
- [在项目项中提供打包和部署信息](../sharepoint/providing-packaging-and-deployment-information-in-project-items.md)   
+## <a name="see-also"></a>另请参阅  
+ [SharePoint 项目项架构参考](../sharepoint/sharepoint-project-item-schema-reference.md)   
+ [提供打包和部署在项目项中的信息](../sharepoint/providing-packaging-and-deployment-information-in-project-items.md)   
  [开发 SharePoint 解决方案](../sharepoint/developing-sharepoint-solutions.md)  
   
   

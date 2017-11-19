@@ -1,12 +1,10 @@
 ---
-title: 'Walkthrough: Inserting Text into a Document from an Actions Pane | Microsoft Docs'
+title: "演练： 将文本插入到操作窗格中的文档 |Microsoft 文档"
 ms.custom: 
 ms.date: 02/02/2017
-ms.prod: visual-studio-dev14
 ms.reviewer: 
 ms.suite: 
-ms.technology:
-- office-development
+ms.technology: office-development
 ms.tgt_pltfrm: 
 ms.topic: article
 dev_langs:
@@ -18,176 +16,178 @@ helpviewer_keywords:
 - actions panes [Office development in Visual Studio], creating in Word
 - actions panes [Office development in Visual Studio], adding controls
 ms.assetid: fd14c896-5737-4a20-94f7-6064b67112c5
-caps.latest.revision: 70
-author: kempb
-ms.author: kempb
+caps.latest.revision: "70"
+author: gewarren
+ms.author: gewarren
 manager: ghogen
-ms.translationtype: HT
-ms.sourcegitcommit: eb5c9550fd29b0e98bf63a7240737da4f13f3249
-ms.openlocfilehash: f4952081dea98ae372ff1df9d87cd4146b6e6da6
-ms.contentlocale: zh-cn
-ms.lasthandoff: 08/30/2017
-
+ms.openlocfilehash: 5ca062823968153d7c8979cb13c0e3d403237be1
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# <a name="walkthrough-inserting-text-into-a-document-from-an-actions-pane"></a>Walkthrough: Inserting Text into a Document from an Actions Pane
-  This walkthrough demonstrates how to create an actions pane in a Microsoft Office Word document. The actions pane contains two controls that collect input and then send the text to the document.  
+# <a name="walkthrough-inserting-text-into-a-document-from-an-actions-pane"></a>演练：从操作窗格将文本插入到文档中
+  本演练演示如何在 Microsoft Office Word 文档中创建操作窗格。 操作窗格包含收集输入，然后将文本发送到文档的两个控件。  
   
  [!INCLUDE[appliesto_wdalldoc](../vsto/includes/appliesto-wdalldoc-md.md)]  
   
- This walkthrough illustrates the following tasks:  
+ 本演练阐释了以下任务：  
   
--   Designing an interface by using Windows Forms controls on an actions pane control.  
+-   使用在操作窗格控件上的 Windows 窗体控件的设计接口。  
   
--   Displaying the actions pane when the application opens.  
+-   当应用程序打开时，请显示操作窗格。  
   
 > [!NOTE]  
->  Your computer might show different names or locations for some of the Visual Studio user interface elements in the following instructions. The Visual Studio edition that you have and the settings that you use determine these elements. For more information, see [Personalize the Visual Studio IDE](../ide/personalizing-the-visual-studio-ide.md).  
+>  以下说明中的某些 Visual Studio 用户界面元素在计算机上出现的名称或位置可能会不同。 这些元素取决于你所使用的 Visual Studio 版本和你所使用的设置。 有关详细信息，请参阅[个性化设置 Visual Studio IDE](../ide/personalizing-the-visual-studio-ide.md)。  
   
-## <a name="prerequisites"></a>Prerequisites  
- You need the following components to complete this walkthrough:  
+## <a name="prerequisites"></a>先决条件  
+ 你需要以下组件来完成本演练：  
   
 -   [!INCLUDE[vsto_vsprereq](../vsto/includes/vsto-vsprereq-md.md)]  
   
--   [!INCLUDE[Word_15_short](../vsto/includes/word-15-short-md.md)] or [!INCLUDE[Word_14_short](../vsto/includes/word-14-short-md.md)].  
+-   [!INCLUDE[Word_15_short](../vsto/includes/word-15-short-md.md)] 或 [!INCLUDE[Word_14_short](../vsto/includes/word-14-short-md.md)]。  
   
-## <a name="creating-the-project"></a>Creating the Project  
- The first step is to create a Word Document project.  
+## <a name="creating-the-project"></a>创建项目  
+ 第一步是创建 Word 文档项目。  
   
-#### <a name="to-create-a-new-project"></a>To create a new project  
+#### <a name="to-create-a-new-project"></a>创建新项目  
   
-1.  Create a Word Document project with the name **My Basic Actions Pane**. In the wizard, select **Create a new document**. For more information, see [How to: Create Office Projects in Visual Studio](../vsto/how-to-create-office-projects-in-visual-studio.md).  
+1.  使用名称创建的 Word 文档项目**我的基本操作窗格**。 在向导中，选择**创建新文档**。 有关详细信息，请参阅 [How to: Create Office Projects in Visual Studio](../vsto/how-to-create-office-projects-in-visual-studio.md)。  
   
-     Visual Studio opens the new Word document in the designer and adds the **My Basic Actions Pane** project to **Solution Explorer**.  
+     Visual Studio 将在设计器中打开新的 Word 文档和添加**我的基本操作窗格**项目合并为**解决方案资源管理器**。  
   
-## <a name="adding-text-and-bookmarks-to-the-document"></a>Adding Text and Bookmarks to the Document  
- The actions pane will send text to bookmarks in the document. To design the document, type some text to create a basic form.  
+## <a name="adding-text-and-bookmarks-to-the-document"></a>向文档添加文本和书签  
+ 操作窗格将发送到文档中的书签的文本。 若要设计文档，请键入一些文本以创建基本窗体。  
   
-#### <a name="to-add-text-to-your-document"></a>To add text to your document  
+#### <a name="to-add-text-to-your-document"></a>若要向文档添加文本  
   
-1.  Type the following text into your Word document:  
+1.  在 Word 文档中键入以下文本：  
   
-     **March 21, 2008**  
+     **2008 年 3 月 21日日**  
   
      **Name**  
   
-     **Address**  
+     **地址**  
   
-     **This is an example of a basic actions pane in Word.**  
+     **这是在 Word 中的基本操作窗格的一个示例。**  
   
- You can add a <xref:Microsoft.Office.Tools.Word.Bookmark> control to your document by dragging it from the **Toolbox** in Visual Studio or by using the **Bookmark** dialog box in Word.  
+ 你可以添加<xref:Microsoft.Office.Tools.Word.Bookmark>到通过拖动从文档的控制**工具箱**Visual Studio 中或通过使用**书签**在 Word 中的对话框。  
   
-#### <a name="to-add-a-bookmark-control-to-your-document"></a>To add a Bookmark control to your document  
+#### <a name="to-add-a-bookmark-control-to-your-document"></a>若要向文档添加书签控件  
   
-1.  From the **Word Controls** tab of the **Toolbox**, drag a <xref:Microsoft.Office.Tools.Word.Bookmark> control to your document.  
+1.  从**Word 控件**选项卡**工具箱**，拖动<xref:Microsoft.Office.Tools.Word.Bookmark>到您的文档的控制。  
   
-     The **Add Bookmark Control** dialog box appears.  
+     **添加书签控件**对话框随即出现。  
   
-2.  Select the word **Name**, without selecting the paragraph mark, and click **OK**.  
+2.  选择单词**名称**，而不选择段落标记，然后单击**确定**。  
   
     > [!NOTE]  
-    >  The paragraph mark should be outside of the bookmark. If paragraph marks are not visible in the document, click the **Tools** menu, point to **Microsoft Office Word Tools** and then click **Options**. Click the **View** tab, and select the **Paragraph marks** check box in the **Formatting marks** section of the **Options** dialog box.  
+    >  段落标记应在书签之外。 如果段落标记不在文档中可见，请单击**工具**菜单上，指向**Microsoft Office Word 工具**，然后单击**选项**。 单击**视图**选项卡，然后选择**段落标记**中的复选框**格式标记**部分**选项**对话框。  
   
-3.  In the **Properties** window, change the **Name** property of **Bookmark1** to **showName**.  
+3.  在**属性**窗口中，更改**名称**属性**Bookmark1**到**showName**。  
   
-4.  Select the word **Address**, without selecting the paragraph mark.  
+4.  选择单词**地址**，而不选择段落标记。  
   
-5.  On the **Insert** tab of the Ribbon, in the **Links** group, click **Bookmark**.  
+5.  上**插入**功能区选项卡，请在**链接**组中，单击**书签**。  
   
-6.  In the **Bookmark** dialog box, type **showAddress** in the **Bookmark Name** box and click **Add**.  
+6.  在**书签**对话框中，键入**showAddress**中**书签名称**框中，单击**添加**。  
   
-## <a name="adding-controls-to-the-actions-pane"></a>Adding Controls to the Actions Pane  
- To design the actions pane interface, add an actions pane control to the project and then add Windows Forms controls to the actions pane control.  
+## <a name="adding-controls-to-the-actions-pane"></a>将控件添加到操作窗格  
+ 若要设计操作窗格界面，将操作窗格控件添加到项目，然后将 Windows 窗体控件添加到操作窗格控件。  
   
-#### <a name="to-add-an-actions-pane-control"></a>To add an actions pane control  
+#### <a name="to-add-an-actions-pane-control"></a>若要添加操作窗格控件  
   
-1.  Select the **My Basic Actions Pane** project in **Solution Explorer**.  
+1.  选择**我的基本操作窗格**项目中**解决方案资源管理器**。  
   
-2.  On the **Project** menu, click **Add New Item**.  
+2.  在 **“项目”** 菜单上，单击 **“添加新项”**。  
   
-3.  In the **Add New Item** dialog box, click **Actions Pane Control**, name the control **InsertTextControl,** and click **Add**.  
+3.  在**添加新项**对话框中，单击**操作窗格控件**，命名该控件**InsertTextControl，**单击**添加**。  
   
-#### <a name="to-add-windows-form-controls-to-the-actions-pane-control"></a>To add Windows Form controls to the actions pane control  
+#### <a name="to-add-windows-form-controls-to-the-actions-pane-control"></a>将 Windows 窗体控件添加到操作窗格控件  
   
-1.  If the actions pane control is not visible in the designer, double-click **InsertTextControl**.  
+1.  如果操作窗格控件不可见设计器中，双击**InsertTextControl**。  
   
-2.  From the **Common Controls** tab of the **Toolbox**, drag a **Label** control to the actions pane control.  
+2.  从**公共控件**选项卡**工具箱**，拖动**标签**到操作窗格控件的控件。  
   
-3.  Change the **Text** property of the Label control to **Name**.  
+3.  更改**文本**该标签控件的属性**名称**。  
   
-4.  Add a **Textbox** control to the actions pane control, and change the following properties.  
+4.  添加**文本框中**控制到操作窗格控件，并可以更改以下属性。  
   
-    |Property|Value|  
+    |属性|值|  
     |--------------|-----------|  
     |**Name**|**getName**|  
     |**Size**|**130, 20**|  
   
-5.  Add a second **Label** control to the actions pane control, and change the **Text** property to **Address**.  
+5.  添加第二个**标签**控制到操作窗格控件，并可以更改**文本**属性**地址**。  
   
-6.  Add a second **Textbox** control to the actions pane control, and change the following properties.  
+6.  添加第二个**文本框中**控制到操作窗格控件，并可以更改以下属性。  
   
-    |Property|Value|  
+    |属性|值|  
     |--------------|-----------|  
     |**Name**|**getAddress**|  
-    |**Accepts Return**|**True**|  
-    |**Multiline**|**True**|  
+    |**接受返回**|**True**|  
+    |**多行**|**True**|  
     |**Size**|**130, 40**|  
   
-7.  Add a **Button** control to the actions pane control, and change the following properties.  
+7.  添加**按钮**控制到操作窗格控件，并可以更改以下属性。  
   
-    |Property|Value|  
+    |属性|值|  
     |--------------|-----------|  
     |**Name**|**addText**|  
-    |**Text**|**Insert**|  
+    |**“文本”**|**插入**|  
   
-## <a name="adding-code-to-insert-text-into-the-document"></a>Adding Code to Insert Text into the Document  
- In the actions pane, write code that inserts the text from the text boxes into the appropriate <xref:Microsoft.Office.Tools.Word.Bookmark> controls in the document. You can use the `Globals` class to access controls on the document from the controls on the actions pane. For more information, see [Global Access to Objects in Office Projects](../vsto/global-access-to-objects-in-office-projects.md).  
+## <a name="adding-code-to-insert-text-into-the-document"></a>添加代码以将文本插入到文档  
+ 在操作窗格中，编写将文本从文本框中插入到相应的代码<xref:Microsoft.Office.Tools.Word.Bookmark>控件在文档中。 你可以使用`Globals`类来从操作窗格上的控件访问文档上的控件。 有关详细信息，请参阅[对 Office 项目中对象的全局访问](../vsto/global-access-to-objects-in-office-projects.md)。  
   
-#### <a name="to-insert-text-from-the-actions-pane-in-a-bookmark-in-the-document"></a>To insert text from the actions pane in a bookmark in the document  
+#### <a name="to-insert-text-from-the-actions-pane-in-a-bookmark-in-the-document"></a>若要在文档中的书签的操作窗格中插入文本  
   
-1.  Add the following code to the <xref:System.Windows.Forms.Control.Click> event handler of the **addText** button.  
+1.  以下代码添加到<xref:System.Windows.Forms.Control.Click>事件处理程序**addText**按钮。  
   
-     [!code-csharp[Trin_VstcoreActionsPaneWord#8](../vsto/codesnippet/CSharp/Trin_VstcoreActionsPaneWordCS/InsertTextControl.cs#8)]  [!code-vb[Trin_VstcoreActionsPaneWord#8](../vsto/codesnippet/VisualBasic/Trin_VstcoreActionsPaneWordVB/InsertTextControl.vb#8)]  
+     [!code-csharp[Trin_VstcoreActionsPaneWord#8](../vsto/codesnippet/CSharp/Trin_VstcoreActionsPaneWordCS/InsertTextControl.cs#8)]
+     [!code-vb[Trin_VstcoreActionsPaneWord#8](../vsto/codesnippet/VisualBasic/Trin_VstcoreActionsPaneWordVB/InsertTextControl.vb#8)]  
   
-2.  In C#, you must add an event handler for the button click. You can place this code in the `InsertTextControl` constructor after the call to `IntializeComponent`. For information about creating event handlers, see [How to: Create Event Handlers in Office Projects](../vsto/how-to-create-event-handlers-in-office-projects.md).  
+2.  在 C# 中，你必须添加为按钮单击事件处理程序。 你可以将此代码放置在`InsertTextControl`构造函数调用的后面`IntializeComponent`。 有关创建事件处理程序的信息，请参阅[如何： 在 Office 项目中创建事件处理程序](../vsto/how-to-create-event-handlers-in-office-projects.md)。  
   
      [!code-csharp[Trin_VstcoreActionsPaneWord#9](../vsto/codesnippet/CSharp/Trin_VstcoreActionsPaneWordCS/InsertTextControl.cs#9)]  
   
-## <a name="adding-code-to-show-the-actions-pane"></a>Adding Code to Show the Actions Pane  
- To show the actions pane, add the control you created to the control collection.  
+## <a name="adding-code-to-show-the-actions-pane"></a>添加代码以显示操作窗格  
+ 若要显示操作窗格中，将添加到控件集合的创建的控件。  
   
-#### <a name="to-show-the-actions-pane"></a>To show the actions pane  
+#### <a name="to-show-the-actions-pane"></a>若要显示操作窗格  
   
-1.  Create a new instance of the actions pane control in the `ThisDocument` class.  
+1.  创建操作窗格控件中的新实例`ThisDocument`类。  
   
-     [!code-csharp[Trin_VstcoreActionsPaneWord#10](../vsto/codesnippet/CSharp/Trin_VstcoreActionsPaneWordCS/ThisDocument.cs#10)]  [!code-vb[Trin_VstcoreActionsPaneWord#10](../vsto/codesnippet/VisualBasic/Trin_VstcoreActionsPaneWordVB/ThisDocument.vb#10)]  
+     [!code-csharp[Trin_VstcoreActionsPaneWord#10](../vsto/codesnippet/CSharp/Trin_VstcoreActionsPaneWordCS/ThisDocument.cs#10)]
+     [!code-vb[Trin_VstcoreActionsPaneWord#10](../vsto/codesnippet/VisualBasic/Trin_VstcoreActionsPaneWordVB/ThisDocument.vb#10)]  
   
-2.  Add the following code to the <xref:Microsoft.Office.Tools.Word.Document.Startup> event handler of `ThisDocument`.  
+2.  以下代码添加到<xref:Microsoft.Office.Tools.Word.Document.Startup>事件处理程序`ThisDocument`。  
   
-     [!code-csharp[Trin_VstcoreActionsPaneWord#11](../vsto/codesnippet/CSharp/Trin_VstcoreActionsPaneWordCS/ThisDocument.cs#11)]  [!code-vb[Trin_VstcoreActionsPaneWord#11](../vsto/codesnippet/VisualBasic/Trin_VstcoreActionsPaneWordVB/ThisDocument.vb#11)]  
+     [!code-csharp[Trin_VstcoreActionsPaneWord#11](../vsto/codesnippet/CSharp/Trin_VstcoreActionsPaneWordCS/ThisDocument.cs#11)]
+     [!code-vb[Trin_VstcoreActionsPaneWord#11](../vsto/codesnippet/VisualBasic/Trin_VstcoreActionsPaneWordVB/ThisDocument.vb#11)]  
   
-## <a name="testing-the-application"></a>Testing the Application  
- Test your document to verify that the actions pane opens when the document is opened and that text typed into the text boxes is inserted into the bookmarks when the button is clicked.  
+## <a name="testing-the-application"></a>测试应用程序  
+ 若要验证操作窗格打开时打开该文档并向文本框中键入文本插入到书签时单击该按钮对文档进行测试。  
   
-#### <a name="to-test-your-document"></a>To test your document  
+#### <a name="to-test-your-document"></a>测试文档  
   
-1.  Press F5 to run your project.  
+1.  按 F5 运行项目。  
   
-2.  Confirm that the actions pane is visible.  
+2.  确认操作窗格可见。  
   
-3.  Type your name and address into the text boxes on the actions pane and click **Insert**.  
+3.  操作窗格上的文本框中键入名称和地址，然后单击**插入**。  
   
-## <a name="next-steps"></a>Next Steps  
- Here are some tasks that might come next:  
+## <a name="next-steps"></a>后续步骤  
+ 以下是接下来可能要执行的一些任务：  
   
--   Creating an actions pane in Excel. For more information, see [How to: Add an Actions Pane to Excel Workbooks](http://msdn.microsoft.com/en-us/62abfce6-e44f-419d-85d8-26bf59f33872).  
+-   在 Excel 中创建操作窗格。 有关详细信息，请参阅[如何： 将操作窗格添加到 Excel 工作簿](http://msdn.microsoft.com/en-us/62abfce6-e44f-419d-85d8-26bf59f33872)。  
   
--   Binding data to controls on an actions pane. For more information, see [Walkthrough: Binding Data to Controls on a Word Actions Pane](../vsto/walkthrough-binding-data-to-controls-on-a-word-actions-pane.md).  
+-   数据绑定到操作窗格上的控件。 有关详细信息，请参阅[演练： 将数据绑定到 Word 操作窗格上的控件](../vsto/walkthrough-binding-data-to-controls-on-a-word-actions-pane.md)。  
   
-## <a name="see-also"></a>See Also  
- [Actions Pane Overview](../vsto/actions-pane-overview.md)   
- [How to: Add an Actions Pane to Word Documents or Excel Workbooks](../vsto/how-to-add-an-actions-pane-to-word-documents-or-excel-workbooks.md)   
- [How to: Add an Actions Pane to Excel Workbooks](http://msdn.microsoft.com/en-us/62abfce6-e44f-419d-85d8-26bf59f33872)   
- [How to: Manage Control Layout on Actions Panes](../vsto/how-to-manage-control-layout-on-actions-panes.md)   
- [Bookmark Control](../vsto/bookmark-control.md)  
+## <a name="see-also"></a>另请参阅  
+ [操作窗格概述](../vsto/actions-pane-overview.md)   
+ [如何： 向 Word 文档或 Excel 工作簿添加操作窗格](../vsto/how-to-add-an-actions-pane-to-word-documents-or-excel-workbooks.md)   
+ [如何： 将操作窗格添加到 Excel 工作簿](http://msdn.microsoft.com/en-us/62abfce6-e44f-419d-85d8-26bf59f33872)   
+ [如何： 管理操作窗格上的控件布局](../vsto/how-to-manage-control-layout-on-actions-panes.md)   
+ [书签控件](../vsto/bookmark-control.md)  
   
   

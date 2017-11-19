@@ -4,34 +4,19 @@ ms.custom:
 ms.date: 04/26/2017
 ms.reviewer: 
 ms.suite: 
-ms.technology:
-- vs-ide-sdk
+ms.technology: vs-ide-sdk
 ms.tgt_pltfrm: 
 ms.topic: article
 ms.assetid: a793cf7a-f230-43ce-88d0-fa5d6f1aa9c7
-caps.latest.revision: 7
+caps.latest.revision: "7"
+author: gregvanl
 ms.author: gregvanl
 manager: ghogen
-translation.priority.mt:
-- cs-cz
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pl-pl
-- pt-br
-- ru-ru
-- tr-tr
-- zh-cn
-- zh-tw
-ms.translationtype: Machine Translation
-ms.sourcegitcommit: 9524ecc3cadef58821fba857de8e82e59eea9b43
-ms.openlocfilehash: 19db4e41ef35ddbec4f43823d4bf66bb148a854f
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/04/2017
-
+ms.openlocfilehash: 368540b909536523515ea610e509b22600628f81
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="ux-essentials-for-visual-studio"></a>Visual Studio 的 UX Essentials
 ## <a name="best-practices"></a>最佳实践  
@@ -78,7 +63,7 @@ ms.lasthandoff: 05/04/2017
  - 应为初始对话框高度**小于 700 像素**，因此它适合 96 dpi IDE 框架的最小分辨率。
   
 ### <a name="high-density-displays"></a>高密度显示  
- Visual Studio 中的 UI 必须适用于所有 DPI 缩放 Windows 支持现成的因素︰ 150%、 200%和 250%。  
+ Visual Studio 中的 UI 必须适用于所有 DPI 缩放 Windows 支持现成的因素： 150%、 200%和 250%。  
   
 ## <a name="anti-patterns"></a>反模式  
  Visual Studio 包含 UI 的许多的示例，请按照我们的指导原则和最佳做法。 为了保持一致，开发人员通常借用从产品的 UI 设计模式类似于它们正在生成。 虽然这是一个不错的方法，可帮助我们驱动器的用户交互和可视化设计保持一致，我们执行有时提供与不满足我们的指导原则由于计划约束或脱离优先级的一些详细信息的功能。 在这些情况下，我们不希望对其中一种"反模式"的副本的团队因为它们数量不正确或不一致的 UI，Visual Studio 环境中的不断增加。  
@@ -94,15 +79,15 @@ ms.lasthandoff: 05/04/2017
 #### <a name="anti-pattern-solution"></a>反模式解决方案  
  只要用户已开始操作，它们具有完成任务前，立即将关键停止图标放置在旁需要配置的区域。  
   
-#### <a name="example-manifest-designer-declarations"></a>示例︰ 清单设计器声明  
+#### <a name="example-manifest-designer-declarations"></a>示例： 清单设计器声明  
  立即将声明添加到列表将将其放在错误状态，保存，直到用户设置所需的属性。  
   
  在这种情况下，没有其他问题因为用于警报的图标会包含"&times;"图标，因此无法使用常见的删除图标旁边。 因此，UI 使用删除按钮，更不灵活的控件。  
   
- ![UI 置于错误状态默认情况下是 Visual Studio 反模式。](~/extensibility/ux-guidelines/media/manifestdesignererrordeclarationsanti-pattern.png "ManifestDesignererrordeclarationsanti-pattern")<br />UI 置于错误状态默认情况下是 Visual Studio 反模式。
+ ![UI 置于错误状态默认情况下是 Visual Studio 反模式。] (../../extensibility/ux-guidelines/media/manifestdesignererrordeclarationsanti-pattern.png "ManifestDesignererrordeclarationsanti 模式")<br />UI 置于错误状态默认情况下是 Visual Studio 反模式。
   
 #### <a name="alternatives"></a>替代项  
- 更好的解决方案，此问题是︰  
+ 更好的解决方案，此问题是：  
   
 -   允许用户添加的声明而不发出警告，然后立即移动在该项上设置属性。  
   
@@ -118,32 +103,32 @@ ms.lasthandoff: 05/04/2017
 #### <a name="anti-pattern"></a>反模式  
  在 VS UI 中的不同位置插入视频的链接的团队决定针对常见的模式"&times;"作为的关闭按钮和工具提示说明指定的用户体验，，而是实现下拉列表和"不再次显示"链接。  
 
-#### <a name="example-video-links-in-team-explorer"></a>在团队资源管理器中的示例︰ 视频链接
+#### <a name="example-video-links-in-team-explorer"></a>在团队资源管理器中的示例： 视频链接
 强制用户在解除 UI 之前阅读解释性文本是 Visual Studio 中的反模式。 正确设计、 视频链接应显示带有其他信息的工具提示上悬停时，然后单击"&times;"应关闭而无需进一步交互消息。
 
 
- ![解释性文本反 &#45; 模式 &#45;不正确](~/extensibility/ux-guidelines/media/incorrectuseofmultipleclicks.png "Incorrectuseofmultipleclicks")<br />视频的链接不正确模式
+ ![解释性文本反 &#45; 模式 &#45;不正确](../../extensibility/ux-guidelines/media/incorrectuseofmultipleclicks.png "Incorrectuseofmultipleclicks")<br />视频的链接不正确模式
   
 #### <a name="result"></a>结果  
  而不是简单的关闭按钮 （一次单击），强制用户使用两次单击只需关闭显示的视频的链接的每个位置中的用户界面。  
   
 #### <a name="alternatives"></a>替代项  
- 这种情况下的正确设计可以访问 Internet 资源管理器、 Office 和 Visual Studio 的常见模式︰ 悬停时，用户可以看到的工具提示说明并一次单击隐藏用户界面。  
+ 这种情况下的正确设计可以访问 Internet 资源管理器、 Office 和 Visual Studio 的常见模式： 悬停时，用户可以看到的工具提示说明并一次单击隐藏用户界面。  
   
- ![解释性文本反 &#45; 模式 &#45;更正](~/extensibility/ux-guidelines/media/explanatorytextanti-pattern-correct.png "Explanatorytextanti-pattern-correct")<br />正确的视频链接模式
+ ![解释性文本反 &#45; 模式 &#45;正确](../../extensibility/ux-guidelines/media/explanatorytextanti-pattern-correct.png "Explanatorytextanti 模式更正")<br />正确的视频链接模式
   
 ### <a name="using-command-bars-for-settings"></a>使用命令栏设置  
- **图 A**表示此反模式︰ 将适用于以外的其他命令的命令按钮下方的设置。 在此草有除了启动调试的命令-如在浏览器、 启动但不调试，和单步执行视图-将遵从所选的设置。  
+ **图 A**表示此反模式： 将适用于以外的其他命令的命令按钮下方的设置。 在此草有除了启动调试的命令-如在浏览器、 启动但不调试，和单步执行视图-将遵从所选的设置。  
 
-  ![图答︰ 命令栏反模式](~/extensibility/ux-guidelines/media/commandbaranti-pattern-figurea.png "Commandbaranti-pattern-FigureA")<br />答︰ 图命令栏反模式
+  ![答： 图命令栏反模式](../../extensibility/ux-guidelines/media/commandbaranti-pattern-figurea.png "Commandbaranti 模式 FigureA")<br />答： 图命令栏反模式
   
  中所示稍好，但仍不将此类型的设置放在工具栏中，**图 B**。拆分按钮占用较少空间，并因而改善通过下拉列表，而这两个设计仍在使用工具栏以提升内容不是真正的命令。  
  
- ![图 b︰ 稍好，但仍命令栏反模式](~/extensibility/ux-guidelines/media/commandbaranti-pattern-figureb.png "Commandbaranti-pattern-FigureB")<br />图 b︰ 稍好，但仍命令栏反模式
+ ![图 b： 好，但仍命令栏反模式](../../extensibility/ux-guidelines/media/commandbaranti-pattern-figureb.png "Commandbaranti 模式 FigureB")<br />图 b： 稍好，但仍命令栏反模式
  
   在正确的方法中所示**图 C**，设置绑定到的一系列命令。 没有设置任何全局设置，我们要只需要四个命令之间切换。 这是中的工具栏中的命令都可接受的唯一情形。 
 
- ![图 c︰ 正确使用 Visual Studio 命令栏模式](~/extensibility/ux-guidelines/media/commandbaranti-pattern-figurec.png "Commandbaranti-pattern-FigureC")<br />图 c︰ 正确使用 Visual Studio 命令栏模式
+ ![图 c： 更正 Visual Studio 命令栏模式的使用](../../extensibility/ux-guidelines/media/commandbaranti-pattern-figurec.png "Commandbaranti 模式 FigureC")<br />图 c： 正确使用 Visual Studio 命令栏模式
    
 ### <a name="control-anti-patterns"></a>控制反模式  
  若干反模式是只是不正确的使用情况或表示法的控件或组控件。  
@@ -151,16 +136,16 @@ ms.lasthandoff: 05/04/2017
 #### <a name="underlining-used-as-a-group-label-not-a-hyperlink"></a>使用作为组标签，而不是超链接的下划线  
  下划线文本应仅用于超链接。  
   
- **错误︰**    
- ![不是超链接的带下划线的文本是 Visual Studio 反模式。](~/extensibility/ux-guidelines/media/0102-g_grouplabelincorrect.png "0102-g_GroupLabelIncorrect")<br />不是超链接的带下划线的文本是 Visual Studio 反模式。
+ **错误：**    
+ ![不是超链接的带下划线的文本是 Visual Studio 反模式。] (../../extensibility/ux-guidelines/media/0102-g_grouplabelincorrect.png "0102 g_GroupLabelIncorrect")<br />不是超链接的带下划线的文本是 Visual Studio 反模式。
   
- **好︰**   
- ![正确设置样式，非超链接文本将显示未修饰在环境字体。](~/extensibility/ux-guidelines/media/0102-h_grouplabelcorrect.png "0102-h_GroupLabelCorrect")<br />正确设置样式，非超链接文本将显示未修饰在环境字体。
+ **好：**   
+ ![正确设置样式，非超链接文本将显示未修饰在环境字体。] (../../extensibility/ux-guidelines/media/0102-h_grouplabelcorrect.png "0102 h_GroupLabelCorrect")<br />正确设置样式，非超链接文本将显示未修饰在环境字体。
   
 #### <a name="clicking-on-a-check-box-results-in-a-pop-up-dialog"></a>单击在弹出对话框中的复选框结果  
  立即单击"发布 Windows Azure 应用程序"向导的"启用为所有角色的远程桌面"复选框将显示弹出对话框中，Visual Studio 反模式。 此外，复选框字段未填充带一个复选框后，选择另一种交互反模式。  
   
- ![提出一个对话框，单击复选框后 Visual Studio 反模式。](~/extensibility/ux-guidelines/media/0102-i_checkboxpopup.png "0102-i_CheckboxPopup")<br />提出一个对话框，单击复选框后 Visual Studio 反模式。
+ ![提出一个对话框，单击复选框后 Visual Studio 反模式。] (../../extensibility/ux-guidelines/media/0102-i_checkboxpopup.png "0102 i_CheckboxPopup")<br />提出一个对话框，单击复选框后 Visual Studio 反模式。
   
 ### <a name="hyperlink-anti-patterns"></a>超链接反模式  
  下面的示例包含两个反模式。  
@@ -169,9 +154,9 @@ ms.lasthandoff: 05/04/2017
   
 2.  "了解详细信息"不到概念主题的链接的相应文本。 用户的目标是不了解详细信息，它是了解他们选择的后果。  
   
- ![忽略颜色服务，并使用"了解详细信息"的超链接是 Visual Studio 反模式。](~/extensibility/ux-guidelines/media/0102-j_hyperlinkincorrect.png "0102-j_HyperlinkIncorrect")<br />忽略颜色服务，并使用"了解详细信息"的超链接是 Visual Studio 反模式。  
+ ![忽略颜色服务，并使用"了解详细信息"的超链接是 Visual Studio 反模式。] (../../extensibility/ux-guidelines/media/0102-j_hyperlinkincorrect.png "0102 j_HyperlinkIncorrect")<br />忽略颜色服务，并使用"了解详细信息"的超链接是 Visual Studio 反模式。  
   
- **更好的解决方案︰**会带来问题，用户将询问通过单击的链接。  
+ **更好的解决方案：**会带来问题，用户将询问通过单击的链接。  
   
 -   Windows Azure 服务是如何工作的？  
   
@@ -180,6 +165,6 @@ ms.lasthandoff: 05/04/2017
 #### <a name="using-click-here-for-links"></a>使用"单击此处"链接的  
  应自我描述的超链接。 它是要使用"单击此处"反模式或任何类似的变体。  
   
- **错误︰** "单击此处以说明有关如何创建新项目。"
+ **错误：** "单击此处以说明有关如何创建新项目。"
   
- **良好︰** "如何创建新项目？"
+ **良好：** "如何创建新项目？"

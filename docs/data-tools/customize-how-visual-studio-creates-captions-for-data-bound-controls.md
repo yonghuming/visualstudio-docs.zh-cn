@@ -1,144 +1,112 @@
 ---
-title: Customize how Visual Studio creates captions for data-bound controls | Microsoft Docs
+title: "自定义 Visual Studio 如何创建数据绑定控件的标题 |Microsoft 文档"
 ms.custom: 
-ms.date: 11/04/2016
+ms.date: 11/03/2017
 ms.reviewer: 
 ms.suite: 
 ms.tgt_pltfrm: 
 ms.topic: article
-dev_langs:
-- VB
-- CSharp
-- C++
-- aspx
 helpviewer_keywords:
 - Label captions, Data Sources window
 - smart captions
 - captions, data-bound
 - Data Sources Window, label captions
 ms.assetid: 6d4d15f8-4d78-42fd-af64-779ae98d62c8
-caps.latest.revision: 12
-author: mikeblome
-ms.author: mblome
+caps.latest.revision: "12"
+author: gewarren
+ms.author: gewarren
 manager: ghogen
-translation.priority.ht:
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- ru-ru
-- zh-cn
-- zh-tw
-translation.priority.mt:
-- cs-cz
-- pl-pl
-- pt-br
-- tr-tr
-ms.translationtype: HT
-ms.sourcegitcommit: 9e6c28d42bec272c6fd6107b4baf0109ff29197e
-ms.openlocfilehash: 0a14212b85b1fa13fb61a7691689f5eb1f8e74de
-ms.contentlocale: zh-cn
-ms.lasthandoff: 08/22/2017
-
+ms.technology: vs-data-tools
+ms.openlocfilehash: 86f0e451fe81875868db0d6ddcd9cead790800d3
+ms.sourcegitcommit: ee42a8771f0248db93fd2e017a22e2506e0f9404
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/09/2017
 ---
-# <a name="customize-how-visual-studio-creates-captions-for-data-bound-controls"></a>Customize how Visual Studio creates captions for data-bound controls
-When you drag items from the [Data Sources Window](add-new-data-sources.md) onto the Windows Forms Designer, a special consideration comes into play: the column names in the caption labels are reformatted into a more readable string when two or more words are found to be concatenated together. You can customize the way in which these labels are created, by setting the **SmartCaptionExpression**, **SmartCaptionReplacement**, and **SmartCaptionSuffix** values in the **HKEY_CURRENT_USER\Software\Microsoft\VisualStudio\10.0\Data Designers** registry key.  
+# <a name="customize-how-visual-studio-creates-captions-for-data-bound-controls"></a>自定义 Visual Studio 如何创建数据绑定控件的标题
+当拖动项时从[数据源窗口](add-new-data-sources.md)拖到设计器，特别注意派上用场： 标题标签中的列名称重新格式化为一个更具可读性的字符串，当两个或更多的单词发现连接在一起。 你可以自定义创建的方式在其中这些标签，通过设置**SmartCaptionExpression**， **SmartCaptionReplacement**，和**SmartCaptionSuffix**中的值**HKEY_CURRENT_USER\Software\Microsoft\VisualStudio\15.0\Data 设计器**注册表项。  
   
 > [!NOTE]
->  This registry key does not exist until you create it.  
+> 在创建之前，此注册表项不存在。  
   
- Smart captioning is controlled by the regular expression entered into the value of the **SmartCaptionExpression** value. Adding the **Data Designers** registry key overrides the default regular expression that controls caption labels. For more information about regular expressions, see [Using Regular Expressions in Visual Studio](../ide/using-regular-expressions-in-visual-studio.md).  
+智能标题输入到的值的正则表达式由控制**SmartCaptionExpression**值。 添加**数据设计器**注册表项重写默认正则表达式，用于控制标题标签。 有关正则表达式的详细信息，请参阅[Visual Studio 中使用正则表达式](../ide/using-regular-expressions-in-visual-studio.md)。  
   
- The following table describes the registry values that control caption labels.  
+下表介绍控制标题标签的注册表值。  
   
-|Registry item|Description|  
+|注册表项|描述|  
 |-------------------|-----------------|  
-|**SmartCaptionExpression**|The regular expression used to match your patterns.|  
-|**SmartCaptionReplacement**|The format to display any groups matched in the **SmartCaptionExpression**.|  
-|**SmartCaptionSuffix**|An optional string to append to the end of the caption.|  
+|**SmartCaptionExpression**|用于与您的模式匹配的正则表达式。|  
+|**SmartCaptionReplacement**|要显示在匹配任何组的格式**SmartCaptionExpression**。|  
+|**SmartCaptionSuffix**|要追加到的标题末尾一个可选的字符串。|  
   
- The following table lists the internal default settings for these registry values.  
+下表列出这些注册表值的内部默认设置。  
   
-|Registry item|Default value|Explanation|  
+|注册表项|默认值|说明|  
 |-------------------|-------------------|-----------------|  
-|**SmartCaptionExpression**|(\\\p{Ll})(\\\p{Lu})&#124;_+|Matches a lowercase character followed by an uppercase character or an underscore.|  
-|**SmartCaptionReplacement**|$1 $2|The $1 represents any characters matched in the first parentheses of the expression, and the $2 represents any characters matched in the second parentheses. The replacement is the first match, a space, and then the second match.|  
-|**SmartCaptionSuffix**|:|Represents a character appended to the returned string. For example, if the caption is `Company Name`, the suffix makes it `Company Name:`|  
+|**SmartCaptionExpression**|(\\\p{Ll}) (\\\p{Lu}) &#124; _ +|匹配大写字符或下划线后跟一个小写字符。|  
+|**SmartCaptionReplacement**|$1 $2|$1 表示匹配的第一个表达式的括号内的任意字符，$2 表示匹配的第二个括号内的任意字符。 替代功能第一个匹配项、 空格和第二个匹配项。|  
+|**SmartCaptionSuffix**|:|将字符追加到返回的字符串表示。 例如，如果标题是`Company Name`，后缀便`Company Name:`|  
   
 > [!CAUTION]
->  You should be very careful when doing anything in the Registry Editor. Back up the registry before editing it. If you use the Registry Editor incorrectly, you can cause serious problems that may require you to reinstall your operating system. Microsoft does not guarantee that problems that you cause by using the Registry Editor incorrectly can be resolved. Use the Registry Editor at your own risk.  
+> 你应执行任何操作在注册表编辑器时请格外小心。 编辑它之前备份注册表。 如果没有正确使用注册表编辑器，你可能会导致严重的问题，可能需要重新安装操作系统。 Microsoft 不保证可以解决通过注册表编辑器使用不当导致的问题。 使用注册表编辑器的风险由您自己承担。  
 >   
->  The following KnowledgeBase article contains instructions for backing up, editing, and restoring the registry: [Description of the Microsoft Windows registry](http://support.microsoft.com/default.aspx?scid=kb;en-us;256986) (http://support.microsoft.com/default.aspx?scid=kb;en-us;256986)  
+>  以下知识库文章包含有关备份、 编辑和还原注册表的说明：[的 Microsoft Windows 注册表说明](http://support.microsoft.com/default.aspx?scid=kb;en-us;256986)(http://support.microsoft.com/default.aspx?scid=kb;en-us;256986)  
   
-### <a name="to-modify-the-smart-captioning-behavior-of-the-data-sources-window"></a>To modify the smart captioning behavior of the Data Sources window  
+### <a name="to-modify-the-smart-captioning-behavior-of-the-data-sources-window"></a>若要修改的数据源窗口的智能标题行为  
   
-1.  Open a command window by clicking **Start** and then **Run**.  
+1.  通过单击打开命令窗口**启动**然后**运行**。  
   
-2.  Type `regedit` in the **Run** dialog box, and click **OK**.  
+2.  类型`regedit`中**运行**对话框中，单击**确定**。  
   
-3.  Expand the **HKEY_CURRENT_USER** node.  
+3.  展开**HKEY_CURRENT_USER**，**软件*， **Microsoft**， **VisualStudio**节点。  
   
-4.  Expand the **Software** node.  
+7.  右键单击**15.0**节点，然后创建一个新**密钥**名为`Data Designers`。  
   
-5.  Expand the **Microsoft** node.  
+8.  右键单击**数据设计器**节点，并创建三个新的字符串值：
+
+    - `SmartCaptionExpression`
+    - `SmartCaptionReplacement`
+    - `SmartCaptionSuffix`
   
-6.  Expand the **VisualStudio** node.  
+11. 右键单击**SmartCaptionExpression**值，然后选择**修改**。  
   
-7.  Right-click the **10.0** node, and create a new **Key** named `Data Designers`.  
+12. 输入所需的正则表达式**数据源**窗口来使用。  
   
-8.  Right-click the **Data Designers** node, and create a new **String Value** named `SmartCaptionExpression`.  
+13. 右键单击**SmartCaptionReplacement**值，然后选择**修改**。  
   
-9. Right-click the **Data Designers** node, and create a new **String Value** named `SmartCaptionReplacement`.  
+14. 输入替换字符串格式设置你想要显示在正则表达式中匹配的模式的方式。  
   
-10. Right-click the **Data Designers** node, and create a new **String Value** named `SmartCaptionSuffix`.  
+15. 右键单击**SmartCaptionSuffix**值，然后选择**修改**。  
   
-11. Right-click the **SmartCaptionExpression** item, and select **Modify**.  
+16. 输入你想要显示的标题末尾任何的字符。  
   
-12. Enter the regular expression you want the **Data Sources** window to use.  
+    下一次拖动项时从**数据源**窗口中，创建标题标签使用提供的新注册表值。  
   
-13. Right-click the **SmartCaptionReplacement** item, and select **Modify**.  
+### <a name="to-turn-off-the-smart-captioning-feature"></a>若要关闭智能的隐藏字幕功能  
   
-14. Enter the replacement string formatted the way you want to display the patterns matched in your regular expression.  
+1.  通过单击打开命令窗口**启动**然后**运行**。  
   
-15. Right-click the **SmartCaptionSuffix** item, and select **Modify**.  
+2.  类型`regedit`中**运行**对话框中，单击**确定**。  
   
-16. Enter any characters you want to appear at the end of the caption.  
+3.  展开**HKEY_CURRENT_USER**，**软件**， **Microsoft**， **VisualStudio**节点。  
   
-     The next time you drag items from the **Data Sources** window, the caption labels are created using the new registry values provided.  
+7.  右键单击**15.0**节点，然后创建一个新**密钥**名为`Data Designers`。  
   
-### <a name="to-turn-off-the-smart-captioning-feature"></a>To turn off the smart captioning feature  
+8.  右键单击**数据设计器**节点，并创建三个新的字符串值：
+
+    - `SmartCaptionExpression`
+    - `SmartCaptionReplacement`
+    - `SmartCaptionSuffix`
   
-1.  Open a command window by clicking **Start** and then **Run**.  
+11. 右键单击**SmartCaptionExpression**项，然后选择**修改**。  
   
-2.  Type `regedit` in the **Run** dialog box, and click **OK**.  
+12. 输入`(.*)`的值。 这与匹配的整个字符串。  
   
-3.  Expand the **HKEY_CURRENT_USER** node.  
+13. 右键单击**SmartCaptionReplacement**项，然后选择**修改**。  
   
-4.  Expand the **Software** node.  
+14. 输入`$1`的值。 这将替换匹配的值，该值是整个字符串，以便它将保持不变的字符串。  
   
-5.  Expand the **Microsoft** node.  
+    下一次拖动项时从**数据源**标题标签窗口中，创建的未修改的标题。  
   
-6.  Expand the **VisualStudio** node.  
-  
-7.  Right-click the **10.0** node, and create a new **Key** named `Data Designers`.  
-  
-8.  Right-click the **Data Designers** node, and create a new **String Value** named `SmartCaptionExpression`.  
-  
-9. Right-click the **Data Designers** node, and create a new **String Value** named `SmartCaptionReplacement`.  
-  
-10. Right-click the **Data Designers** node, and create a new **String Value** named `SmartCaptionSuffix`.  
-  
-11. Right-click the **SmartCaptionExpression** item, and select **Modify**.  
-  
-12. Enter `(.*)` for the value. This will match the entire string.  
-  
-13. Right-click the **SmartCaptionReplacement** item, and select **Modify**.  
-  
-14. Enter `$1` for the value. This replaces the string with the matched value, which is the entire string so that it will remain unchanged.  
-  
-     The next time you drag items from the **Data Sources** window, the caption labels are created with unmodified captions.  
-  
-## <a name="see-also"></a>See Also  
- [Bind controls to data in Visual Studio](../data-tools/bind-controls-to-data-in-visual-studio.md)
+## <a name="see-also"></a>另请参阅  
+[在 Visual Studio 中将控件绑定到数据](../data-tools/bind-controls-to-data-in-visual-studio.md)

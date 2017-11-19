@@ -1,73 +1,73 @@
 ---
-title: "SccPopulateDirList 函数 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "SccPopulateDirList"
-helpviewer_keywords: 
-  - "SccPopulateDirList 函数"
+title: "SccPopulateDirList 函数 |Microsoft 文档"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology: vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords: SccPopulateDirList
+helpviewer_keywords: SccPopulateDirList function
 ms.assetid: dfff634b-b155-498b-a356-6eb252ac4fad
-caps.latest.revision: 11
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 11
+caps.latest.revision: "11"
+author: gregvanl
+ms.author: gregvanl
+manager: ghogen
+ms.openlocfilehash: ec22eaeaf24af1c65823c64c65dd2c39f1003ec8
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# SccPopulateDirList 函数
-[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
-
-此函数可确定哪个目录和 \(可选\) 文件存储在源代码管理，提供要检查的目录列表。  
+# <a name="sccpopulatedirlist-function"></a>SccPopulateDirList 函数
+此函数将确定哪些目录和 （可选） 使用文件存储在源代码管理，提供要检查的目录列表中。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
 ```cpp  
-SCCRTN SccPopulateDirList(  
-   LPVOID        pContext,  
-   LONG          nDirs,  
-   LPCSTR*       lpDirPaths,  
-   POPDIRLISTFUNCpfnPopulate,  
-   LPVOID        pvCallerData,  
-   LONG          fOptions  
+SCCRTN SccPopulateDirList(  
+   LPVOID        pContext,  
+   LONG          nDirs,  
+   LPCSTR*       lpDirPaths,  
+   POPDIRLISTFUNCpfnPopulate,  
+   LPVOID        pvCallerData,  
+   LONG          fOptions  
 );  
 ```  
   
-#### 参数  
+#### <a name="parameters"></a>参数  
  pContext  
- \[\] in源控制插件上下文指针。  
+ [in]源控件插件的上下文指针。  
   
  nDirs  
- \[\] in目录路径中的数量 `lpDirPaths` 数组。  
+ [in]目录中的路径数`lpDirPaths`数组。  
   
  lpDirPaths  
- \[\] in若要检查的目录路径的数组。  
+ [in]若要检查的目录路径的数组。  
   
  pfnPopulate  
- \[\] in要为每个目录路径和 \(可选\) 中的文件名调用的回调函数 `lpDirPaths` \(请参阅 [POPDIRLISTFUNC](../extensibility/popdirlistfunc.md) 有关的详细信息\)。  
+ [in]要为每个目录路径和 （可选） 中的文件名调用的回调函数`lpDirPaths`(请参阅[POPDIRLISTFUNC](../extensibility/popdirlistfunc.md)有关详细信息)。  
   
  pvCallerData  
- \[\] in要传递的值未更改的回调函数。  
+ [in]要传递的值未更改对回调函数。  
   
- 选项  
- \[\] in控制如何处理这些目录的值的组合 \(请参阅的"PopulateDirList flags"一节 [Bitflags 由特定的命令使用](../extensibility/bitflags-used-by-specific-commands.md) 有关可能的值\)。  
+ fOptions  
+ [in]控制如何处理目录的值的组合 (请参阅的"PopulateDirList 标志"部分[Bitflags 使用特定命令](../extensibility/bitflags-used-by-specific-commands.md)有关可能的值)。  
   
-## 返回值  
- 此函数的源代码控制插件实现应返回下列值之一:  
+## <a name="return-value"></a>返回值  
+ 此函数的源代码控制插件实现应返回以下值之一：  
   
-|值|说明|  
-|-------|--------|  
-|SCC\_OK|成功完成该操作。|  
-|SCC\_E\_UNKNOWNERROR|出现错误。|  
+|值|描述|  
+|-----------|-----------------|  
+|SCC_OK|已成功完成该操作。|  
+|SCC_E_UNKNOWNERROR|出现了错误。|  
   
-## 备注  
- 只有那些目录和 \(可选\) 实际上是在源代码控制存储库中的文件名传递给回调函数。  
+## <a name="remarks"></a>备注  
+ 只有那些目录和 （可选） 在源控件存储库中的文件名称传递给回调函数。  
   
-## 请参阅  
- [源代码管理插件 API 功能](../extensibility/source-control-plug-in-api-functions.md)   
- [Bitflags 由特定的命令使用](../extensibility/bitflags-used-by-specific-commands.md)   
+## <a name="see-also"></a>另请参阅  
+ [源控件插件 API 函数](../extensibility/source-control-plug-in-api-functions.md)   
+ [Bitflags 由特定的命令](../extensibility/bitflags-used-by-specific-commands.md)   
  [POPDIRLISTFUNC](../extensibility/popdirlistfunc.md)   
  [错误代码](../extensibility/error-codes.md)

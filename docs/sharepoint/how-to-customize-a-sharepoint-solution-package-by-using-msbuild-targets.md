@@ -1,37 +1,38 @@
 ---
-title: "如何：使用 MSBuild 目标自定义 SharePoint 解决方案包"
-ms.custom: ""
-ms.date: "02/02/2017"
-ms.prod: "visual-studio-dev14"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "office-development"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-dev_langs: 
-  - "VB"
-  - "CSharp"
-  - "VB"
-  - "CSharp"
-helpviewer_keywords: 
-  - "Visual Studio 中的 SharePoint 开发, 包"
+title: "如何： 使用 MSBuild 目标自定义 SharePoint 解决方案包 |Microsoft 文档"
+ms.custom: 
+ms.date: 02/02/2017
+ms.reviewer: 
+ms.suite: 
+ms.technology: office-development
+ms.tgt_pltfrm: 
+ms.topic: article
+dev_langs:
+- VB
+- CSharp
+- VB
+- CSharp
+helpviewer_keywords: SharePoint development in Visual Studio, packages
 ms.assetid: 7fa6a276-04c8-463e-be95-57c2c6240d76
-caps.latest.revision: 15
-author: "kempb"
-ms.author: "kempb"
-manager: "ghogen"
-caps.handback.revision: 14
+caps.latest.revision: "15"
+author: gewarren
+ms.author: gewarren
+manager: ghogen
+ms.openlocfilehash: 758cf3e62621c22f3f97dc62b70c745afb860b8a
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# 如何：使用 MSBuild 目标自定义 SharePoint 解决方案包
-  您可以使用命令提示符 MSBuild 目标来自定义 Visual Studio 创建 SharePoint 包文件 \(.wsp\) 的方式。  例如，您可以自定义用于改变指定打包的中间目录的 MSBuild 属性和用于指定枚举的文件的MSBuild 项组。  
+# <a name="how-to-customize-a-sharepoint-solution-package-by-using-msbuild-targets"></a>如何：使用 MSBuild 目标自定义 SharePoint 解决方案包
+  通过在命令提示符处使用 MSBuild 目标，可以自定义 Visual Studio 创建 SharePoint 包文件 (.wsp) 的方式。 例如，可以自定义 MSBuild 属性以更改打包中间目录，以及自定义 MSBuild 项组以指定枚举的文件。  
   
-## 自定义和运行 MSBuild 目标  
+## <a name="customizing-and-running-msbuild-targets"></a>自定义和运行 MSBuild 目标  
  如果自定义 BeforeLayout 和 AfterLayout 目标，您可以在布局包之前执行任务，例如，添加、移除或修改要打包的文件。  
   
-#### 自定义 BeforeLayout 目标  
+#### <a name="to-customize-the-beforelayout-target"></a>若要自定义 BeforeLayout 目标  
   
-1.  打开编辑器，如"记事本"，然后添加以下代码。  
+1.  打开编辑器（如“记事本”），然后添加以下代码。  
   
     ```  
     <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">  
@@ -41,15 +42,15 @@ caps.handback.revision: 14
     </Project>  
     ```  
   
-     目标打包之前，此示例显示消息。  
+     此示例将在此目标打包之前显示一条消息。  
   
-2.  将该文件命名为 **CustomLayout.SharePoint.targets**，然后将其保存在 SharePoint 项目中的文件夹。  
+2.  命名该文件**CustomLayout.SharePoint.targets**，然后将它保存在 SharePoint 项目的文件夹。  
   
-3.  打开项目，并打开其快捷菜单，然后选择 **卸载项目**。  
+3.  打开项目，打开其快捷菜单，，然后选择**卸载项目**。  
   
-4.  在**“解决方案资源管理器”**中，打开项目的快捷菜单，然后选择**“编辑** *ProjectName***.vbproj** 或者 **编辑** *ProjectName***.csproj**。  
+4.  在**解决方案资源管理器**，打开该项目的快捷菜单，然后选择**编辑***ProjectName***.vbproj**或**编辑***ProjectName***.csproj**。  
   
-5.  在临近项目文件末尾附近 \(的 `Import` 行后面，添加下列行。  
+5.  在临近项目文件末尾的 `Import` 行后面，添加以下行。  
   
     ```  
     <Import Project="CustomLayout.SharePoint.targets" />  
@@ -57,17 +58,17 @@ caps.handback.revision: 14
   
 6.  保存并关闭项目文件。  
   
-7.  在**“解决方案资源管理器”**中，打开项目的快捷菜单，然后选择**“重载项目”**。  
+7.  在**解决方案资源管理器**，打开该项目的快捷菜单，然后选择**重新加载项目**。  
   
- 当您发布项目时，在打包开始之前，消息将显示输出。  
+ 发布项目时，此消息将在打包开始之前显示在输出中。  
   
-#### 自定义 AfterLayout 目标  
+#### <a name="to-customize-the-afterlayout-target"></a>若要自定义 AfterLayout 目标  
   
-1.  在菜单栏上，依次选择**“文件”**、**“打开”**、**“文件”**。  
+1.  在菜单栏上，选择**文件**，**打开**，**文件**。  
   
-2.  在 **打开文件** 对话框，请导航到项目文件夹，选择 CustomLayout.target 文件，然后选择 **打开** 按钮。  
+2.  在**打开的文件**对话框中，导航到项目文件夹，选择 CustomLayout.target 文件，然后选择**打开**按钮。  
   
-3.  在紧接 `</Project>` 标记的前方添加下列代码：  
+3.  在 `</Project>` 标记的前面添加下列代码：  
   
     ```  
     <Target Name="AfterLayout">  
@@ -75,15 +76,15 @@ caps.handback.revision: 14
     </Target>  
     ```  
   
-     此目标打包后，此示例显示一条消息。  
+     此示例将在此目标打包后显示一条消息。  
   
 4.  保存并关闭目标文件。  
   
-5.  重新启动 Visual Studio，并打开项目。  
+5.  重新启动 Visual Studio，然后打开项目。  
   
- 在发布项目时，打包开始前显示BeforeLayout 消息，同时在打包完成之后，显示 AfterLayout 消息。  
+ 在发布项目时，打包开始前将显示 BeforeLayout 消息，打包完成后将显示 AfterLayout 消息。  
   
-## 请参阅  
+## <a name="see-also"></a>另请参阅  
  [打包和部署 SharePoint 解决方案](../sharepoint/packaging-and-deploying-sharepoint-solutions.md)  
   
   

@@ -1,12 +1,10 @@
 ---
-title: 'How to: Programmatically Save Documents | Microsoft Docs'
+title: "如何： 以编程方式保存文档 |Microsoft 文档"
 ms.custom: 
 ms.date: 02/02/2017
-ms.prod: visual-studio-dev14
 ms.reviewer: 
 ms.suite: 
-ms.technology:
-- office-development
+ms.technology: office-development
 ms.tgt_pltfrm: 
 ms.topic: article
 dev_langs:
@@ -16,81 +14,85 @@ helpviewer_keywords:
 - documents [Office development in Visual Studio], saving
 - Word [Office development in Visual Studio], saving documents
 ms.assetid: a6225ae9-94f5-421a-9860-5299002d543d
-caps.latest.revision: 44
-author: kempb
-ms.author: kempb
+caps.latest.revision: "44"
+author: gewarren
+ms.author: gewarren
 manager: ghogen
-ms.translationtype: HT
-ms.sourcegitcommit: eb5c9550fd29b0e98bf63a7240737da4f13f3249
-ms.openlocfilehash: 7b9e68b81903ea309df6ad2903e98b6c8900a0aa
-ms.contentlocale: zh-cn
-ms.lasthandoff: 08/30/2017
-
+ms.openlocfilehash: 2c6a47bae9923d68acc189c53766d5206244f97c
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# <a name="how-to-programmatically-save-documents"></a>How to: Programmatically Save Documents
-  There are several ways to save Microsoft Office Word documents. You can save a document without changing the name of the document, or you can save a document with a new name.  
+# <a name="how-to-programmatically-save-documents"></a>如何：以编程方式保存文档
+  有多种方法来保存 Microsoft Office Word 文档。 你可以将文档保存而无需更改该文档的名称或你可以使用新名称保存文档。  
   
  [!INCLUDE[appliesto_wdalldocapp](../vsto/includes/appliesto-wdalldocapp-md.md)]  
   
-## <a name="saving-a-document-without-changing-the-name"></a>Saving a Document Without Changing the Name  
+## <a name="saving-a-document-without-changing-the-name"></a>保存文档，而不更改名称  
   
-#### <a name="to-save-the-document-associated-with-a-document-level-customization"></a>To save the document associated with a document-level customization  
+#### <a name="to-save-the-document-associated-with-a-document-level-customization"></a>若要保存与文档级自定义关联的文档  
   
-1.  Call the <xref:Microsoft.Office.Tools.Word.Document.Save%2A> method of the <xref:Microsoft.Office.Tools.Word.Document> class. To use this code example, run it from the `ThisDocument` class in your project.  
+1.  调用 <xref:Microsoft.Office.Tools.Word.Document> 类的 <xref:Microsoft.Office.Tools.Word.Document.Save%2A> 方法。 若要使用此代码示例，请从项目中的 `ThisDocument` 类运行它。  
   
-     [!code-vb[Trin_VstcoreWordAutomation#7](../vsto/codesnippet/VisualBasic/Trin_VstcoreWordAutomationVB/ThisDocument.vb#7)]  [!code-csharp[Trin_VstcoreWordAutomation#7](../vsto/codesnippet/CSharp/Trin_VstcoreWordAutomationCS/ThisDocument.cs#7)]  
+     [!code-vb[Trin_VstcoreWordAutomation#7](../vsto/codesnippet/VisualBasic/Trin_VstcoreWordAutomationVB/ThisDocument.vb#7)]
+     [!code-csharp[Trin_VstcoreWordAutomation#7](../vsto/codesnippet/CSharp/Trin_VstcoreWordAutomationCS/ThisDocument.cs#7)]  
   
-#### <a name="to-save-the-active-document"></a>To save the active document  
+#### <a name="to-save-the-active-document"></a>若要保存活动文档  
   
-1.  Call the <xref:Microsoft.Office.Interop.Word._Document.Save%2A> method for the active document. To use this code example, run it from the `ThisDocument` or `ThisAddIn` class in your project.  
+1.  调用<xref:Microsoft.Office.Interop.Word._Document.Save%2A>活动文档的方法。 若要使用此代码模板，请从项目中的 `ThisDocument` 或 `ThisAddIn` 类运行它。  
   
-     [!code-vb[Trin_VstcoreWordAutomation#8](../vsto/codesnippet/VisualBasic/Trin_VstcoreWordAutomationVB/ThisDocument.vb#8)]  [!code-csharp[Trin_VstcoreWordAutomation#8](../vsto/codesnippet/CSharp/Trin_VstcoreWordAutomationCS/ThisDocument.cs#8)]  
+     [!code-vb[Trin_VstcoreWordAutomation#8](../vsto/codesnippet/VisualBasic/Trin_VstcoreWordAutomationVB/ThisDocument.vb#8)]
+     [!code-csharp[Trin_VstcoreWordAutomation#8](../vsto/codesnippet/CSharp/Trin_VstcoreWordAutomationCS/ThisDocument.cs#8)]  
   
- If you are not sure whether the document you want to save is the active document, you can refer to it by its name.  
+ 如果不能确定你想要保存的文档是否是活动文档时，可以按其名称来引用它。  
   
-#### <a name="to-save-a-document-specified-by-name"></a>To save a document specified by name  
+#### <a name="to-save-a-document-specified-by-name"></a>若要保存由名称指定的文档  
   
-1.  Use the document name as an argument to the <xref:Microsoft.Office.Interop.Word.Documents> collection. To use this code example, run it from the `ThisDocument` or `ThisAddIn` class in your project.  
+1.  使用作为参数的文档名称<xref:Microsoft.Office.Interop.Word.Documents>集合。 若要使用此代码模板，请从项目中的 `ThisDocument` 或 `ThisAddIn` 类运行它。  
   
-     [!code-vb[Trin_VstcoreWordAutomation#9](../vsto/codesnippet/VisualBasic/Trin_VstcoreWordAutomationVB/ThisDocument.vb#9)]  [!code-csharp[Trin_VstcoreWordAutomation#9](../vsto/codesnippet/CSharp/Trin_VstcoreWordAutomationCS/ThisDocument.cs#9)]  
+     [!code-vb[Trin_VstcoreWordAutomation#9](../vsto/codesnippet/VisualBasic/Trin_VstcoreWordAutomationVB/ThisDocument.vb#9)]
+     [!code-csharp[Trin_VstcoreWordAutomation#9](../vsto/codesnippet/CSharp/Trin_VstcoreWordAutomationCS/ThisDocument.cs#9)]  
   
-## <a name="saving-a-document-with-a-new-name"></a>Saving a Document With a New Name  
- Use the SaveAs method to save a document with a new name. You can use this method of the <xref:Microsoft.Office.Tools.Word.Document> host item in a document-level Word project, or of a native <xref:Microsoft.Office.Interop.Word.Document> object in any Word project. This method requires that you specify the new file name, but other arguments are optional.  
+## <a name="saving-a-document-with-a-new-name"></a>使用新名称保存文档  
+ 另存为方法用于使用新名称保存文档。 你可以使用此方法的<xref:Microsoft.Office.Tools.Word.Document>宿主项在文档级 Word 项目中，或者的本机<xref:Microsoft.Office.Interop.Word.Document>任何 Word 项目中的对象。 此方法要求指定新文件名，但其他参数是可选的。  
   
 > [!NOTE]  
->  If you show the **SaveAs** dialog box inside of the <xref:Microsoft.Office.Interop.Word.ApplicationEvents4_Event.DocumentBeforeSave> event handler of `ThisDocument` and set the *Cancel* parameter to **false**, the application might quit unexpectedly. If you set the *Cancel* parameter to **true**, an error message appears indicating that Autosave has been disabled.  
+>  如果你显示**另存为**对话框内的<xref:Microsoft.Office.Interop.Word.ApplicationEvents4_Event.DocumentBeforeSave>事件处理程序`ThisDocument`并设置*取消*参数**false**，应用程序可能会意外退出。 如果你设置*取消*参数**true**，一条错误消息显示，指示已禁用了自动保存。  
   
-#### <a name="to-save-the-document-associated-with-a-document-level-customization-with-a-new-name"></a>To save the document associated with a document-level customization with a new name  
+#### <a name="to-save-the-document-associated-with-a-document-level-customization-with-a-new-name"></a>若要保存的文档级自定义项使用新名称与关联的文档  
   
-1.  Call the <xref:Microsoft.Office.Tools.Word.Document.SaveAs%2A> method of the `ThisDocument` class in your project, using a fully qualified path and file name. If a file by that name already exists in that folder, it is silently overwritten. To use this code example, run it from the `ThisDocument` class.  
-  
-    > [!NOTE]  
-    >  The <xref:Microsoft.Office.Tools.Word.Document.SaveAs%2A> method throws an exception if a target directory does not exist or if there are other problems saving a file. It is a good practice to use a **try...catch** block around the <xref:Microsoft.Office.Tools.Word.Document.SaveAs%2A> method or inside a calling method.  
-  
-     [!code-vb[Trin_VstcoreWordAutomation#10](../vsto/codesnippet/VisualBasic/Trin_VstcoreWordAutomationVB/ThisDocument.vb#10)]  [!code-csharp[Trin_VstcoreWordAutomation#10](../vsto/codesnippet/CSharp/Trin_VstcoreWordAutomationCS/ThisDocument.cs#10)]  
-  
-#### <a name="to-save-a-native-document-with-a-new-name"></a>To save a native document with a new name  
-  
-1.  Call the <xref:Microsoft.Office.Interop.Word._Document.SaveAs%2A> method of the <xref:Microsoft.Office.Interop.Word.Document> that you want to save, using a fully qualified path and file name. If a file by that name already exists in that folder, it is silently overwritten.  
-  
-     The following code example saves the active document with a new name. To use this code example, run it from the `ThisDocument` or `ThisAddIn` class in your project.  
+1.  调用<xref:Microsoft.Office.Tools.Word.Document.SaveAs%2A>方法`ThisDocument`类在项目中，使用完全限定的路径和文件名。 如果该文件夹中已存在具有该名称的文件，则以无提示方式覆盖它。 若要使用此代码示例，请从 `ThisDocument` 类中运行它。  
   
     > [!NOTE]  
-    >  The <xref:Microsoft.Office.Interop.Word._Document.SaveAs%2A> method throws an exception if a target directory does not exist or if there are other problems saving a file. It is a good practice to use a **try...catch** block around the <xref:Microsoft.Office.Interop.Word._Document.SaveAs%2A> method or inside a calling method.  
+    >  <xref:Microsoft.Office.Tools.Word.Document.SaveAs%2A>方法引发异常，如果目标目录不存在或者没有保存文件的其他问题。 它是一个好办法使用**try … catch**解决阻止<xref:Microsoft.Office.Tools.Word.Document.SaveAs%2A>方法或在调用方法。  
   
-     [!code-vb[Trin_VstcoreWordAutomationAddIn#10](../vsto/codesnippet/VisualBasic/Trin_VstcoreWordAutomationAddIn/ThisAddIn.vb#10)]  [!code-csharp[Trin_VstcoreWordAutomationAddIn#10](../vsto/codesnippet/CSharp/Trin_VstcoreWordAutomationAddIn/ThisAddIn.cs#10)]  
+     [!code-vb[Trin_VstcoreWordAutomation#10](../vsto/codesnippet/VisualBasic/Trin_VstcoreWordAutomationVB/ThisDocument.vb#10)]
+     [!code-csharp[Trin_VstcoreWordAutomation#10](../vsto/codesnippet/CSharp/Trin_VstcoreWordAutomationCS/ThisDocument.cs#10)]  
   
-## <a name="compiling-the-code"></a>Compiling the Code  
- This code example requires the following:  
+#### <a name="to-save-a-native-document-with-a-new-name"></a>若要使用新名称保存本机文档  
   
--   To save a document by name, a document named NewDocument.doc must exist in a directory named Test on drive C.  
+1.  调用<xref:Microsoft.Office.Interop.Word._Document.SaveAs%2A>方法<xref:Microsoft.Office.Interop.Word.Document>你想要保存，请使用完全限定的路径和文件名。 如果该文件夹中已存在具有该名称的文件，则以无提示方式覆盖它。  
   
--   To save a document with a new name, a directory named Test must exist on drive C.  
+     下面的代码示例使用新名称保存活动文档。 若要使用此代码模板，请从项目中的 `ThisDocument` 或 `ThisAddIn` 类运行它。  
   
-## <a name="see-also"></a>See Also  
- [How to: Programmatically Close Documents](../vsto/how-to-programmatically-close-documents.md)   
- [How to: Programmatically Open Existing Documents](../vsto/how-to-programmatically-open-existing-documents.md)   
- [Document Host Item](../vsto/document-host-item.md)   
- [Optional Parameters in Office Solutions](../vsto/optional-parameters-in-office-solutions.md)  
+    > [!NOTE]  
+    >  <xref:Microsoft.Office.Interop.Word._Document.SaveAs%2A>方法引发异常，如果目标目录不存在或者没有保存文件的其他问题。 它是一个好办法使用**try … catch**解决阻止<xref:Microsoft.Office.Interop.Word._Document.SaveAs%2A>方法或在调用方法。  
+  
+     [!code-vb[Trin_VstcoreWordAutomationAddIn#10](../vsto/codesnippet/VisualBasic/Trin_VstcoreWordAutomationAddIn/ThisAddIn.vb#10)]
+     [!code-csharp[Trin_VstcoreWordAutomationAddIn#10](../vsto/codesnippet/CSharp/Trin_VstcoreWordAutomationAddIn/ThisAddIn.cs#10)]  
+  
+## <a name="compiling-the-code"></a>编译代码  
+ 此代码示例要求满足以下条件：  
+  
+-   若要按名称保存文档，名为 NewDocument.doc 的文档必须存在于名为驱动器 C 上的测试的目录  
+  
+-   若要使用新名称保存文档，一个名为测试目录必须存在驱动器 C 上。  
+  
+## <a name="see-also"></a>另请参阅  
+ [如何： 以编程方式关闭文档](../vsto/how-to-programmatically-close-documents.md)   
+ [如何： 以编程方式打开现有文档](../vsto/how-to-programmatically-open-existing-documents.md)   
+ [文档主机项](../vsto/document-host-item.md)   
+ [Office 解决方案中的可选参数](../vsto/optional-parameters-in-office-solutions.md)  
   
   

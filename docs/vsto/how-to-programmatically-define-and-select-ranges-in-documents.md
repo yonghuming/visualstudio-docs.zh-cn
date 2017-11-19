@@ -1,12 +1,10 @@
 ---
-title: 'How to: Programmatically Define and Select Ranges in Documents | Microsoft Docs'
+title: "如何： 以编程方式定义和选择文档中的范围 |Microsoft 文档"
 ms.custom: 
 ms.date: 02/02/2017
-ms.prod: visual-studio-dev14
 ms.reviewer: 
 ms.suite: 
-ms.technology:
-- office-development
+ms.technology: office-development
 ms.tgt_pltfrm: 
 ms.topic: article
 dev_langs:
@@ -19,114 +17,125 @@ helpviewer_keywords:
 - ranges, selecting in documents
 - ranges, defining in documents
 ms.assetid: 0727c1cb-d44c-4f1c-a699-4365dd13be5d
-caps.latest.revision: 46
-author: kempb
-ms.author: kempb
+caps.latest.revision: "46"
+author: gewarren
+ms.author: gewarren
 manager: ghogen
-ms.translationtype: HT
-ms.sourcegitcommit: eb5c9550fd29b0e98bf63a7240737da4f13f3249
-ms.openlocfilehash: 07ec585a2f24a9c61f53e5bd91038c1faf91f044
-ms.contentlocale: zh-cn
-ms.lasthandoff: 08/30/2017
-
+ms.openlocfilehash: 2fcc1b96607c36fdfbc2f9940a7b7984b3b299fa
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# <a name="how-to-programmatically-define-and-select-ranges-in-documents"></a>How to: Programmatically Define and Select Ranges in Documents
-  You can define a range in a Microsoft Office Word document by using a <xref:Microsoft.Office.Interop.Word.Range> object. You can select the entire document in a number of ways, for example, by using the <xref:Microsoft.Office.Interop.Word.Range.Select%2A> method of the <xref:Microsoft.Office.Interop.Word.Range> object, or by using the Content property of the <xref:Microsoft.Office.Tools.Word.Document> class (in a document-level customization) or the <xref:Microsoft.Office.Interop.Word.Document> class (in a VSTO Add-in).  
+# <a name="how-to-programmatically-define-and-select-ranges-in-documents"></a>如何：以编程方式在文档中定义和选择范围
+  你也可以通过使用 <xref:Microsoft.Office.Interop.Word.Range> 对象在 Microsoft Office Word 文档中定义一个范围。 你可以通过使用例如，选择整个文档多种方式，<xref:Microsoft.Office.Interop.Word.Range.Select%2A>方法<xref:Microsoft.Office.Interop.Word.Range>对象，或通过使用的内容属性<xref:Microsoft.Office.Tools.Word.Document>类 （在文档级自定义项） 或<xref:Microsoft.Office.Interop.Word.Document>类 (在VSTO 外接程序）。  
   
  [!INCLUDE[appliesto_wdalldocapp](../vsto/includes/appliesto-wdalldocapp-md.md)]  
   
-## <a name="defining-a-range"></a>Defining a Range  
- The following example shows how to create a new <xref:Microsoft.Office.Interop.Word.Range> object that includes the first seven characters in the active document, including non-printing characters. It then selects the text within the range.  
+## <a name="defining-a-range"></a>定义范围  
+ 下面的示例演示如何创建一个新的 <xref:Microsoft.Office.Interop.Word.Range> 对象，该对象包括活动文档中的前七个字符，其中包括非打印字符。 然后，它选择范围内的文本。  
   
-#### <a name="to-define-a-range-in-a-document-level-customization"></a>To define a range in a document-level customization  
+#### <a name="to-define-a-range-in-a-document-level-customization"></a>在文档级自定义项中定义范围  
   
-1.  Add the range to the document by passing a start and end character to the <xref:Microsoft.Office.Tools.Word.Document.Range%2A> method of the <xref:Microsoft.Office.Tools.Word.Document> class. To use this code example, run it from the `ThisDocument` class in your project.  
+1.  通过将开始和结束字符传递到 <xref:Microsoft.Office.Tools.Word.Document> 类的 <xref:Microsoft.Office.Tools.Word.Document.Range%2A> 方法来将范围添加到文档中。 若要使用此代码示例，请从项目中的 `ThisDocument` 类运行它。  
   
-     [!code-vb[Trin_VstcoreWordAutomation#18](../vsto/codesnippet/VisualBasic/Trin_VstcoreWordAutomationVB/ThisDocument.vb#18)]  [!code-csharp[Trin_VstcoreWordAutomation#18](../vsto/codesnippet/CSharp/Trin_VstcoreWordAutomationCS/ThisDocument.cs#18)]  
+     [!code-vb[Trin_VstcoreWordAutomation#18](../vsto/codesnippet/VisualBasic/Trin_VstcoreWordAutomationVB/ThisDocument.vb#18)]
+     [!code-csharp[Trin_VstcoreWordAutomation#18](../vsto/codesnippet/CSharp/Trin_VstcoreWordAutomationCS/ThisDocument.cs#18)]  
   
-#### <a name="to-define-a-range-by-using-a-vsto-add-in"></a>To define a range by using a VSTO Add-in  
+#### <a name="to-define-a-range-by-using-a-vsto-add-in"></a>通过使用 VSTO 外接程序定义范围  
   
-1.  Add the range to the document by passing a start and end character to the <xref:Microsoft.Office.Interop.Word._Document.Range%2A> method of the <xref:Microsoft.Office.Interop.Word.Document> class. The following code example adds a range to the active document. To use this code example, run it from the `ThisAddIn` class in your project.  
+1.  通过将开始和结束字符传递到 <xref:Microsoft.Office.Interop.Word.Document> 类的 <xref:Microsoft.Office.Interop.Word._Document.Range%2A> 方法来将范围添加到文档中。 下面的代码示例将一个范围添加到活动文档。 若要使用此代码示例，请从项目中的 `ThisAddIn` 类运行它。  
   
-     [!code-vb[Trin_VstcoreWordAutomationAddIn#18](../vsto/codesnippet/VisualBasic/Trin_VstcoreWordAutomationAddIn/ThisAddIn.vb#18)]  [!code-csharp[Trin_VstcoreWordAutomationAddIn#18](../vsto/codesnippet/CSharp/Trin_VstcoreWordAutomationAddIn/ThisAddIn.cs#18)]  
+     [!code-vb[Trin_VstcoreWordAutomationAddIn#18](../vsto/codesnippet/VisualBasic/Trin_VstcoreWordAutomationAddIn/ThisAddIn.vb#18)]
+     [!code-csharp[Trin_VstcoreWordAutomationAddIn#18](../vsto/codesnippet/CSharp/Trin_VstcoreWordAutomationAddIn/ThisAddIn.cs#18)]  
   
-## <a name="selecting-a-range-in-a-document-level-customization"></a>Selecting a Range in a Document-Level Customization  
- The following examples show how to select the entire document by using the <xref:Microsoft.Office.Interop.Word.Range.Select%2A> method of a <xref:Microsoft.Office.Interop.Word.Range> object, or by using the <xref:Microsoft.Office.Tools.Word.Document.Content%2A> property of the <xref:Microsoft.Office.Tools.Word.Document> class.  
+## <a name="selecting-a-range-in-a-document-level-customization"></a>在文档级自定义项中选择范围  
+ 下面的示例演示如何通过使用 <xref:Microsoft.Office.Interop.Word.Range> 对象的 <xref:Microsoft.Office.Interop.Word.Range.Select%2A> 方法，或者通过使用 <xref:Microsoft.Office.Tools.Word.Document> 类的 <xref:Microsoft.Office.Tools.Word.Document.Content%2A> 属性来选择整个文档。  
   
-#### <a name="to-select-the-entire-document-as-a-range-by-using-the-select-method"></a>To select the entire document as a range by using the Select method  
+#### <a name="to-select-the-entire-document-as-a-range-by-using-the-select-method"></a>通过使用 Select 方法来选择整个文档作为范围  
   
-1.  Use the <xref:Microsoft.Office.Interop.Word.Range.Select%2A> method of a <xref:Microsoft.Office.Interop.Word.Range> that contains the entire document. To use the following code example, run it from the `ThisDocument` class in your project.  
+1.  使用包含整个文档的 <xref:Microsoft.Office.Interop.Word.Range> 的 <xref:Microsoft.Office.Interop.Word.Range.Select%2A> 方法。 若要使用下面的代码示例，请从项目的 `ThisDocument` 类中运行它。  
   
-     [!code-vb[Trin_VstcoreWordAutomation#19](../vsto/codesnippet/VisualBasic/Trin_VstcoreWordAutomationVB/ThisDocument.vb#19)]  [!code-csharp[Trin_VstcoreWordAutomation#19](../vsto/codesnippet/CSharp/Trin_VstcoreWordAutomationCS/ThisDocument.cs#19)]  
+     [!code-vb[Trin_VstcoreWordAutomation#19](../vsto/codesnippet/VisualBasic/Trin_VstcoreWordAutomationVB/ThisDocument.vb#19)]
+     [!code-csharp[Trin_VstcoreWordAutomation#19](../vsto/codesnippet/CSharp/Trin_VstcoreWordAutomationCS/ThisDocument.cs#19)]  
   
-#### <a name="to-select-the-entire-document-as-a-range-by-using-the-content-property"></a>To select the entire document as a range by using the Content property  
+#### <a name="to-select-the-entire-document-as-a-range-by-using-the-content-property"></a>通过使用 Content 属性来选择整个文档作为范围  
   
-1.  Use the <xref:Microsoft.Office.Tools.Word.Document.Content%2A> property to define a range that encompasses the entire document.  
+1.  使用 <xref:Microsoft.Office.Tools.Word.Document.Content%2A> 属性定义包含整个文档的范围。  
   
-     [!code-vb[Trin_VstcoreWordAutomation#20](../vsto/codesnippet/VisualBasic/Trin_VstcoreWordAutomationVB/ThisDocument.vb#20)]  [!code-csharp[Trin_VstcoreWordAutomation#20](../vsto/codesnippet/CSharp/Trin_VstcoreWordAutomationCS/ThisDocument.cs#20)]  
+     [!code-vb[Trin_VstcoreWordAutomation#20](../vsto/codesnippet/VisualBasic/Trin_VstcoreWordAutomationVB/ThisDocument.vb#20)]
+     [!code-csharp[Trin_VstcoreWordAutomation#20](../vsto/codesnippet/CSharp/Trin_VstcoreWordAutomationCS/ThisDocument.cs#20)]  
   
- You can also use the methods and properties of other objects to define a range.  
+ 你还可以使用其他对象的方法和属性来定义范围。  
   
-#### <a name="to-select-a-sentence-in-the-active-document"></a>To select a sentence in the active document  
+#### <a name="to-select-a-sentence-in-the-active-document"></a>在活动文档中选择一个句子  
   
-1.  Set the range by using the <xref:Microsoft.Office.Interop.Word.Sentences> collection. Use the index of the sentence you want to select.  
+1.  通过使用 <xref:Microsoft.Office.Interop.Word.Sentences> 集合设置范围。 使用你要选择的句子的索引。  
   
-     [!code-vb[Trin_VstcoreWordAutomation#21](../vsto/codesnippet/VisualBasic/Trin_VstcoreWordAutomationVB/ThisDocument.vb#21)]  [!code-csharp[Trin_VstcoreWordAutomation#21](../vsto/codesnippet/CSharp/Trin_VstcoreWordAutomationCS/ThisDocument.cs#21)]  
+     [!code-vb[Trin_VstcoreWordAutomation#21](../vsto/codesnippet/VisualBasic/Trin_VstcoreWordAutomationVB/ThisDocument.vb#21)]
+     [!code-csharp[Trin_VstcoreWordAutomation#21](../vsto/codesnippet/CSharp/Trin_VstcoreWordAutomationCS/ThisDocument.cs#21)]  
   
- Another way to select a sentence is to manually set the start and end values for the range.  
+ 选择句子的另一种方法是手动设置范围的开始和结束值。  
   
-#### <a name="to-select-a-sentence-by-manually-setting-the-start-and-end-values"></a>To select a sentence by manually setting the start and end values  
+#### <a name="to-select-a-sentence-by-manually-setting-the-start-and-end-values"></a>通过手动设置开始和结束值来选择一个句子  
   
-1.  Create a range variable.  
+1.  创建一个范围变量。  
   
-     [!code-vb[Trin_VstcoreWordAutomation#23](../vsto/codesnippet/VisualBasic/Trin_VstcoreWordAutomationVB/ThisDocument.vb#23)]  [!code-csharp[Trin_VstcoreWordAutomation#23](../vsto/codesnippet/CSharp/Trin_VstcoreWordAutomationCS/ThisDocument.cs#23)]  
+     [!code-vb[Trin_VstcoreWordAutomation#23](../vsto/codesnippet/VisualBasic/Trin_VstcoreWordAutomationVB/ThisDocument.vb#23)]
+     [!code-csharp[Trin_VstcoreWordAutomation#23](../vsto/codesnippet/CSharp/Trin_VstcoreWordAutomationCS/ThisDocument.cs#23)]  
   
-2.  Check to see if there are at least two sentences in the document, set the *Start* and *End* arguments of the range, and then select the range.  
+2.  检查以确定在文档中，是否有至少两个句子设置*启动*和*结束*的范围，然后选择该范围的自变量。  
   
-     [!code-vb[Trin_VstcoreWordAutomation#24](../vsto/codesnippet/VisualBasic/Trin_VstcoreWordAutomationVB/ThisDocument.vb#24)]  [!code-csharp[Trin_VstcoreWordAutomation#24](../vsto/codesnippet/CSharp/Trin_VstcoreWordAutomationCS/ThisDocument.cs#24)]  
+     [!code-vb[Trin_VstcoreWordAutomation#24](../vsto/codesnippet/VisualBasic/Trin_VstcoreWordAutomationVB/ThisDocument.vb#24)]
+     [!code-csharp[Trin_VstcoreWordAutomation#24](../vsto/codesnippet/CSharp/Trin_VstcoreWordAutomationCS/ThisDocument.cs#24)]  
   
-## <a name="selecting-a-range-by-using-a-vsto-add-in"></a>Selecting a Range by Using a VSTO Add-in  
- The following examples show how to select the entire document by using the <xref:Microsoft.Office.Interop.Word.Range.Select%2A> method of a <xref:Microsoft.Office.Interop.Word.Range> object, or by using the <xref:Microsoft.Office.Interop.Word._Document.Content%2A> property of the <xref:Microsoft.Office.Interop.Word.Document> class.  
+## <a name="selecting-a-range-by-using-a-vsto-add-in"></a>通过使用 VSTO 外接程序定义范围  
+ 下面的示例演示如何通过使用 <xref:Microsoft.Office.Interop.Word.Range> 对象的 <xref:Microsoft.Office.Interop.Word.Range.Select%2A> 方法，或者通过使用 <xref:Microsoft.Office.Interop.Word.Document> 类的 <xref:Microsoft.Office.Interop.Word._Document.Content%2A> 属性来选择整个文档。  
   
-#### <a name="to-select-the-entire-document-as-a-range-by-using-the-select-method"></a>To select the entire document as a range by using the Select method  
+#### <a name="to-select-the-entire-document-as-a-range-by-using-the-select-method"></a>通过使用 Select 方法来选择整个文档作为范围  
   
-1.  Use the <xref:Microsoft.Office.Interop.Word.Range.Select%2A> method of a <xref:Microsoft.Office.Interop.Word.Range> that contains the entire document. The following code example selects the contents of the active document. To use this code example, run it from the `ThisAddIn` class in your project.  
+1.  使用包含整个文档的 <xref:Microsoft.Office.Interop.Word.Range> 的 <xref:Microsoft.Office.Interop.Word.Range.Select%2A> 方法。 下面的代码示例选择活动文档的内容。 若要使用此代码示例，请从项目中的 `ThisAddIn` 类运行它。  
   
-     [!code-vb[Trin_VstcoreWordAutomationAddIn#19](../vsto/codesnippet/VisualBasic/Trin_VstcoreWordAutomationAddIn/ThisAddIn.vb#19)]  [!code-csharp[Trin_VstcoreWordAutomationAddIn#19](../vsto/codesnippet/CSharp/Trin_VstcoreWordAutomationAddIn/ThisAddIn.cs#19)]  
+     [!code-vb[Trin_VstcoreWordAutomationAddIn#19](../vsto/codesnippet/VisualBasic/Trin_VstcoreWordAutomationAddIn/ThisAddIn.vb#19)]
+     [!code-csharp[Trin_VstcoreWordAutomationAddIn#19](../vsto/codesnippet/CSharp/Trin_VstcoreWordAutomationAddIn/ThisAddIn.cs#19)]  
   
-#### <a name="to-select-the-entire-document-as-a-range-by-using-the-content-property"></a>To select the entire document as a range by using the Content property  
+#### <a name="to-select-the-entire-document-as-a-range-by-using-the-content-property"></a>通过使用 Content 属性来选择整个文档作为范围  
   
-1.  Use the <xref:Microsoft.Office.Interop.Word._Document.Content%2A> property to define a range that encompasses the entire document.  
+1.  使用 <xref:Microsoft.Office.Interop.Word._Document.Content%2A> 属性定义包含整个文档的范围。  
   
-     [!code-vb[Trin_VstcoreWordAutomationAddIn#20](../vsto/codesnippet/VisualBasic/Trin_VstcoreWordAutomationAddIn/ThisAddIn.vb#20)]  [!code-csharp[Trin_VstcoreWordAutomationAddIn#20](../vsto/codesnippet/CSharp/Trin_VstcoreWordAutomationAddIn/ThisAddIn.cs#20)]  
+     [!code-vb[Trin_VstcoreWordAutomationAddIn#20](../vsto/codesnippet/VisualBasic/Trin_VstcoreWordAutomationAddIn/ThisAddIn.vb#20)]
+     [!code-csharp[Trin_VstcoreWordAutomationAddIn#20](../vsto/codesnippet/CSharp/Trin_VstcoreWordAutomationAddIn/ThisAddIn.cs#20)]  
   
- You can also use the methods and properties of other objects to define a range.  
+ 你还可以使用其他对象的方法和属性来定义范围。  
   
-#### <a name="to-select-a-sentence-in-the-active-document"></a>To select a sentence in the active document  
+#### <a name="to-select-a-sentence-in-the-active-document"></a>在活动文档中选择一个句子  
   
-1.  Set the range by using the <xref:Microsoft.Office.Interop.Word.Sentences> collection. Use the index of the sentence you want to select.  
+1.  通过使用 <xref:Microsoft.Office.Interop.Word.Sentences> 集合设置范围。 使用你要选择的句子的索引。  
   
-     [!code-vb[Trin_VstcoreWordAutomationAddIn#21](../vsto/codesnippet/VisualBasic/Trin_VstcoreWordAutomationAddIn/ThisAddIn.vb#21)]  [!code-csharp[Trin_VstcoreWordAutomationAddIn#21](../vsto/codesnippet/CSharp/Trin_VstcoreWordAutomationAddIn/ThisAddIn.cs#21)]  
+     [!code-vb[Trin_VstcoreWordAutomationAddIn#21](../vsto/codesnippet/VisualBasic/Trin_VstcoreWordAutomationAddIn/ThisAddIn.vb#21)]
+     [!code-csharp[Trin_VstcoreWordAutomationAddIn#21](../vsto/codesnippet/CSharp/Trin_VstcoreWordAutomationAddIn/ThisAddIn.cs#21)]  
   
- Another way to select a sentence is to manually set the start and end values for the range.  
+ 选择句子的另一种方法是手动设置范围的开始和结束值。  
   
-#### <a name="to-select-a-sentence-by-manually-setting-the-start-and-end-values"></a>To select a sentence by manually setting the start and end values  
+#### <a name="to-select-a-sentence-by-manually-setting-the-start-and-end-values"></a>通过手动设置开始和结束值来选择一个句子  
   
-1.  Create a range variable.  
+1.  创建一个范围变量。  
   
-     [!code-vb[Trin_VstcoreWordAutomationAddIn#23](../vsto/codesnippet/VisualBasic/Trin_VstcoreWordAutomationAddIn/ThisAddIn.vb#23)]  [!code-csharp[Trin_VstcoreWordAutomationAddIn#23](../vsto/codesnippet/CSharp/Trin_VstcoreWordAutomationAddIn/ThisAddIn.cs#23)]  
+     [!code-vb[Trin_VstcoreWordAutomationAddIn#23](../vsto/codesnippet/VisualBasic/Trin_VstcoreWordAutomationAddIn/ThisAddIn.vb#23)]
+     [!code-csharp[Trin_VstcoreWordAutomationAddIn#23](../vsto/codesnippet/CSharp/Trin_VstcoreWordAutomationAddIn/ThisAddIn.cs#23)]  
   
-2.  Check to see if there are at least two sentences in the document, set the *Start* and *End* arguments of the range, and then select the range.  
+2.  检查以确定在文档中，是否有至少两个句子设置*启动*和*结束*的范围，然后选择该范围的自变量。  
   
-     [!code-vb[Trin_VstcoreWordAutomationAddIn#24](../vsto/codesnippet/VisualBasic/Trin_VstcoreWordAutomationAddIn/ThisAddIn.vb#24)]  [!code-csharp[Trin_VstcoreWordAutomationAddIn#24](../vsto/codesnippet/CSharp/Trin_VstcoreWordAutomationAddIn/ThisAddIn.cs#24)]  
+     [!code-vb[Trin_VstcoreWordAutomationAddIn#24](../vsto/codesnippet/VisualBasic/Trin_VstcoreWordAutomationAddIn/ThisAddIn.vb#24)]
+     [!code-csharp[Trin_VstcoreWordAutomationAddIn#24](../vsto/codesnippet/CSharp/Trin_VstcoreWordAutomationAddIn/ThisAddIn.cs#24)]  
   
-## <a name="see-also"></a>See Also  
- [Word Object Model Overview](../vsto/word-object-model-overview.md)   
- [How to: Programmatically Extend Ranges in Documents](../vsto/how-to-programmatically-extend-ranges-in-documents.md)   
- [How to: Programmatically Retrieve Start and End Characters in Ranges](../vsto/how-to-programmatically-retrieve-start-and-end-characters-in-ranges.md)   
- [How to: Programmatically Extend Ranges in Documents](../vsto/how-to-programmatically-extend-ranges-in-documents.md)   
- [How to: Programmatically Reset Ranges in Word Documents](../vsto/how-to-programmatically-reset-ranges-in-word-documents.md)   
- [How to: Programmatically Collapse Ranges or Selections in Documents](../vsto/how-to-programmatically-collapse-ranges-or-selections-in-documents.md)   
- [How to: Programmatically Exclude Paragraph Marks When Creating Ranges](../vsto/how-to-programmatically-exclude-paragraph-marks-when-creating-ranges.md)  
+## <a name="see-also"></a>另请参阅  
+ [Word 对象模型概述](../vsto/word-object-model-overview.md)   
+ [如何： 以编程方式扩展文档中的范围](../vsto/how-to-programmatically-extend-ranges-in-documents.md)   
+ [如何： 以编程方式检索开始和结束范围中的字符](../vsto/how-to-programmatically-retrieve-start-and-end-characters-in-ranges.md)   
+ [如何： 以编程方式扩展文档中的范围](../vsto/how-to-programmatically-extend-ranges-in-documents.md)   
+ [如何： 以编程方式在 Word 中的重置范围文档](../vsto/how-to-programmatically-reset-ranges-in-word-documents.md)   
+ [如何： 以编程方式折叠范围或在文档中的选定内容](../vsto/how-to-programmatically-collapse-ranges-or-selections-in-documents.md)   
+ [如何：以编程方式在创建范围时排除段落标记](../vsto/how-to-programmatically-exclude-paragraph-marks-when-creating-ranges.md)  
   
   

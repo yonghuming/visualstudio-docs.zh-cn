@@ -1,33 +1,35 @@
 ---
-title: "使用工作表"
-ms.custom: ""
-ms.date: "02/02/2017"
-ms.prod: "visual-studio-dev14"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "office-development"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-dev_langs: 
-  - "VB"
-  - "CSharp"
-helpviewer_keywords: 
-  - "Excel [Visual Studio 中的 Office 开发], 工作表"
-  - "工作表 [Visual Studio 中的 Office 开发], 常规任务"
+title: "使用工作表 |Microsoft 文档"
+ms.custom: 
+ms.date: 02/02/2017
+ms.reviewer: 
+ms.suite: 
+ms.technology: office-development
+ms.tgt_pltfrm: 
+ms.topic: article
+dev_langs:
+- VB
+- CSharp
+helpviewer_keywords:
+- Excel [Office development in Visual Studio], worksheets
+- worksheets [Office development in Visual Studio], common tasks
 ms.assetid: d9204916-6471-4cf0-89a1-d46dae0e2599
-caps.latest.revision: 13
-author: "kempb"
-ms.author: "kempb"
-manager: "ghogen"
-caps.handback.revision: 12
+caps.latest.revision: "13"
+author: gewarren
+ms.author: gewarren
+manager: ghogen
+ms.openlocfilehash: bc188299dbc5fe6f8f048b4971fa4973ba2f72f2
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# 使用工作表
+# <a name="working-with-worksheets"></a>使用工作表
   <xref:Microsoft.Office.Tools.Excel.Worksheet> 和 <xref:Microsoft.Office.Interop.Excel.Worksheet> 类包含用于执行工作表相关任务的方法和属性。  
   
 |任务|过程|  
-|--------|--------|  
-|将新工作表添加到工作簿。|[如何：以编程方式向工作簿添加新工作表](../vsto/how-to-programmatically-add-new-worksheets-to-workbooks.md)|  
+|----------|---------------|  
+|将新工作表添加到工作簿。|[如何：以编程方式将新工作表添加到工作簿](../vsto/how-to-programmatically-add-new-worksheets-to-workbooks.md)|  
 |在工作簿中的指定位置复制一份工作表。|[如何：以编程方式复制工作表](../vsto/how-to-programmatically-copy-worksheets.md)|  
 |删除指定的工作表。|[如何：以编程方式从工作簿中删除工作表](../vsto/how-to-programmatically-delete-worksheets-from-workbooks.md)|  
 |将用户所选的内容移动到指定的工作表。|[如何：以编程方式选择工作表](../vsto/how-to-programmatically-select-worksheets.md)|  
@@ -45,14 +47,14 @@ caps.handback.revision: 12
 |在工作表中检查拼写。|[如何：以编程方式在工作表中检查拼写](../vsto/how-to-programmatically-check-spelling-in-worksheets.md)|  
 |对命名区域和列表对象中的数据进行排序。|[如何：以编程方式对工作表中的数据进行排序](../vsto/how-to-programmatically-sort-data-in-worksheets.md)|  
   
- 有关 Excel 任务和 Excel 对象模型的详细信息，请参阅 [Excel 对象模型概述](../vsto/excel-object-model-overview.md)。  
+ 有关 Excel 任务和 Excel 对象模型的详细信息，请参阅 [Excel Object Model Overview](../vsto/excel-object-model-overview.md)。  
   
  某些情况下，在 VSTO 外接程序中执行这些任务的方式与在文档级自定义项中执行它们的方式是不同的。  
   
-## 请参阅  
+## <a name="see-also"></a>另请参阅  
  [使用扩展对象实现 Excel 自动化](../vsto/automating-excel-by-using-extended-objects.md)   
  [使用工作簿](../vsto/working-with-workbooks.md)   
  [使用范围](../vsto/working-with-ranges.md)   
- [在 Excel 工作表中使用 Windows 窗体控件](../vsto/using-windows-forms-controls-on-excel-worksheets.md)  
+ [在 Excel 工作表上使用 Windows 窗体控件](../vsto/using-windows-forms-controls-on-excel-worksheets.md)  
   
   

@@ -1,12 +1,10 @@
 ---
-title: 'Walkthrough: Complex Data Binding in a Document-Level Project | Microsoft Docs'
+title: "演练： 文档级项目中的复杂数据绑定 |Microsoft 文档"
 ms.custom: 
 ms.date: 02/02/2017
-ms.prod: visual-studio-dev14
 ms.reviewer: 
 ms.suite: 
-ms.technology:
-- office-development
+ms.technology: office-development
 ms.tgt_pltfrm: 
 ms.topic: article
 dev_langs:
@@ -18,219 +16,220 @@ helpviewer_keywords:
 - multiple column data binding [Office development in Visual Studio]
 - data binding [Office development in Visual Studio], multiple columns
 ms.assetid: 32ffad3d-fba4-476a-99b8-ef440434f4e1
-caps.latest.revision: 50
-author: kempb
-ms.author: kempb
+caps.latest.revision: "50"
+author: gewarren
+ms.author: gewarren
 manager: ghogen
-ms.translationtype: HT
-ms.sourcegitcommit: eb5c9550fd29b0e98bf63a7240737da4f13f3249
-ms.openlocfilehash: eabb6c71606a980cb0056bd844e93cde6c3a746e
-ms.contentlocale: zh-cn
-ms.lasthandoff: 08/30/2017
-
+ms.openlocfilehash: dff7896b24508891a62ad3a0760880ed6a68a65a
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# <a name="walkthrough-complex-data-binding-in-a-document-level-project"></a>Walkthrough: Complex Data Binding in a Document-Level Project
-  This walkthrough demonstrates the basics of complex data binding in a document-level project. You can bind multiple cells in a Microsoft Office Excel worksheet to fields in the Northwind SQL Server database.  
+# <a name="walkthrough-complex-data-binding-in-a-document-level-project"></a>演练：文档级项目中的复杂数据绑定
+  本演练演示文档级项目中的复杂数据绑定的基础知识。 你可以将 Microsoft Office Excel 工作表中的多个单元格绑定到 Northwind SQL Server 数据库中的字段。  
   
  [!INCLUDE[appliesto_xlalldoc](../vsto/includes/appliesto-xlalldoc-md.md)]  
   
- This walkthrough illustrates the following tasks:  
+ 本演练阐释了以下任务：  
   
--   Adding a data source to your workbook project.  
+-   将数据源添加到工作簿项目。  
   
--   Adding data-bound controls to a worksheet.  
+-   将数据绑定控件添加到工作表。  
   
--   Saving data changes back to the database.  
+-   将数据更改保存回数据库。  
   
  [!INCLUDE[note_settings_general](../sharepoint/includes/note-settings-general-md.md)]  
   
-## <a name="prerequisites"></a>Prerequisites  
- You need the following components to complete this walkthrough:  
+## <a name="prerequisites"></a>先决条件  
+ 你需要以下组件来完成本演练：  
   
 -   [!INCLUDE[vsto_vsprereq](../vsto/includes/vsto-vsprereq-md.md)]  
   
--   [!INCLUDE[Excel_15_short](../vsto/includes/excel-15-short-md.md)] or [!INCLUDE[Excel_14_short](../vsto/includes/excel-14-short-md.md)].  
+-   [!INCLUDE[Excel_15_short](../vsto/includes/excel-15-short-md.md)] 或 [!INCLUDE[Excel_14_short](../vsto/includes/excel-14-short-md.md)]。  
   
--   Access to a server with the Northwind SQL Server sample database.  
+-   到 Northwind SQL Server 示例数据库的服务器的访问。  
   
--   Permissions to read from and write to the SQL Server database.  
+-   读取和写入到 SQL Server 数据库的权限。  
   
-## <a name="creating-a-new-project"></a>Creating a New Project  
- The first step is to create an Excel workbook project.  
+## <a name="creating-a-new-project"></a>创建新项目  
+ 第一步是创建 Excel 工作簿项目。  
   
-#### <a name="to-create-a-new-project"></a>To create a new project  
+#### <a name="to-create-a-new-project"></a>创建新项目  
   
-1.  Create an Excel workbook project with the name **My Complex Data Binding**. In the wizard, select **Create a new document**.  
+1.  使用名称创建的 Excel 工作簿项目**我的复杂数据绑定**。 在向导中，选择**创建新文档**。  
   
-     For more information, see [How to: Create Office Projects in Visual Studio](../vsto/how-to-create-office-projects-in-visual-studio.md).  
+     有关详细信息，请参阅 [How to: Create Office Projects in Visual Studio](../vsto/how-to-create-office-projects-in-visual-studio.md)。  
   
-     Visual Studio opens the new Excel workbook in the designer and adds the **My Complex Data Binding** project to **Solution Explorer**.  
+     Visual Studio 将在设计器中打开新的 Excel 工作簿并将添加**我的复杂数据绑定**项目合并为**解决方案资源管理器**。  
   
-## <a name="creating-the-data-source"></a>Creating the Data Source  
- Use the **Data Sources** window to add a typed dataset to your project.  
+## <a name="creating-the-data-source"></a>创建数据源  
+ 使用 **“数据源”** 窗口将类型化数据集添加到项目中。  
   
-#### <a name="to-create-the-data-source"></a>To create the data source  
+#### <a name="to-create-the-data-source"></a>创建数据源  
   
-1.  If the **Data Sources** window is not visible, display it by, on the menu bar, choosing **View**, **Other Windows**, **Data Sources**.  
+1.  如果 **“数据源”** 窗口不可见，则在菜单栏上，通过选择 **“查看”**， **“其他窗口”**、 **“数据源”**显示它。  
   
-2.  Choose **Add New Data Source** to start the **Data Source Configuration Wizard**.  
+2.  选择 **“添加新数据源”** 以启动 **“数据源配置向导”**。  
   
-3.  Select **Database** and then click **Next**.  
+3.  选择**数据库**，然后单击**下一步**。  
   
-4.  Select a data connection to the Northwind sample SQL Server database, or add a new connection by using the **New Connection** button.  
+4.  选择一个数据连接到 Northwind 示例 SQL Server 数据库，或通过添加新连接**新连接**按钮。  
   
-5.  After a connection has been selected or created, click **Next**.  
+5.  选择或创建连接后，单击**下一步**。  
   
-6.  Clear the option to save the connection if it is selected, and then click **Next**.  
+6.  如果选中，将连接另存的选项，然后单击清除**下一步**。  
   
-7.  Expand the **Tables** node in the **Database objects** window.  
+7.  展开**表**中的节点**数据库对象**窗口。  
   
-8.  Select the check box next to the **Employees** table.  
+8.  选中的复选框旁边**员工**表。  
   
-9. Click **Finish**.  
+9. 单击 **“完成”**。  
   
- The wizard adds the **Employees** table to the **Data Sources** window. It also adds a typed dataset to your project that is visible in **Solution Explorer**.  
+ 该向导将添加**员工**表**数据源**窗口。 它还将类型化数据集添加到项目中的可见**解决方案资源管理器**。  
   
-## <a name="adding-controls-to-the-worksheet"></a>Adding Controls to the Worksheet  
- A worksheet will display the **Employees** table when the workbook is opened. Users will be able to make changes to the data and then save those changes back to the database by clicking a button.  
+## <a name="adding-controls-to-the-worksheet"></a>向工作表添加控件  
+ 工作表将显示**员工**表打开工作簿时。 用户将能够对数据进行更改，然后通过单击的按钮将这些更改保存回数据库。  
   
- To bind the worksheet to the table automatically, you can add a <xref:Microsoft.Office.Tools.Excel.ListObject> control to the worksheet from the **Data Sources** window. To give the user the option to save changes, add a <xref:System.Windows.Forms.Button> control from the **Toolbox**.  
+ 若要自动绑定到表的工作表，你可以添加<xref:Microsoft.Office.Tools.Excel.ListObject>到从工作表中的控件**数据源**窗口。 若要为用户提供的选项以保存更改，将添加<xref:System.Windows.Forms.Button>控件从**工具箱**。  
   
-#### <a name="to-add-a-list-object"></a>To add a list object  
+#### <a name="to-add-a-list-object"></a>若要添加的 list 对象  
   
-1.  Verify that the **My Complex Data Binding.xlsx** workbook is open in the Visual Studio designer, with **Sheet1** displayed.  
+1.  验证**我复杂数据 Binding.xlsx**工作簿是在 Visual Studio 设计器中，打开与**Sheet1**显示。  
   
-2.  Open the **Data Sources** window and select the **Employees** node.  
+2.  打开**数据源**窗口，然后选择**员工**节点。  
   
-3.  Click the drop-down arrow that appears.  
+3.  单击显示的下拉箭头。  
   
-4.  Select **ListObject** in the drop-down list.  
+4.  选择**ListObject**下拉列表中。  
   
-5.  Drag the **Employees** table to cell **A6**.  
+5.  拖动**员工**表添加到单元格**A6**。  
   
-     A <xref:Microsoft.Office.Tools.Excel.ListObject> control named `EmployeesListObject` is created in cell **A6**. At the same time, a <xref:System.Windows.Forms.BindingSource> named `EmployeesBindingSource`, a table adapter, and a <xref:System.Data.DataSet> instance are added to the project. The control is bound to the <xref:System.Windows.Forms.BindingSource>, which in turn is bound to the <xref:System.Data.DataSet> instance.  
+     A<xref:Microsoft.Office.Tools.Excel.ListObject>控件名为`EmployeesListObject`单元格中创建**A6**。 同时，<xref:System.Windows.Forms.BindingSource>名为`EmployeesBindingSource`，一个表适配器和一个<xref:System.Data.DataSet>实例添加到项目。 该控件绑定到<xref:System.Windows.Forms.BindingSource>，后者又绑定到<xref:System.Data.DataSet>实例。  
   
-#### <a name="to-add-a-button"></a>To add a button  
+#### <a name="to-add-a-button"></a>若要添加一个按钮  
   
-1.  From the **Common Controls** tab of the **Toolbox**, add a <xref:System.Windows.Forms.Button> control to cell **A4** of the worksheet.  
+1.  从**公共控件**选项卡**工具箱**，添加<xref:System.Windows.Forms.Button>控件添加到单元格**A4**工作表。  
   
- The next step is to add text to the button when the worksheet opens.  
+ 下一步是向按钮添加文本时打开工作表。  
   
-## <a name="initializing-the-control"></a>Initializing the Control  
- Add text to the button in the <xref:Microsoft.Office.Tools.Excel.Worksheet.Startup> event handler.  
+## <a name="initializing-the-control"></a>初始化控件  
+ 将文本添加到中的按钮<xref:Microsoft.Office.Tools.Excel.Worksheet.Startup>事件处理程序。  
   
-#### <a name="to-initialize-the-control"></a>To initialize the control  
+#### <a name="to-initialize-the-control"></a>若要初始化的控件  
   
-1.  In **Solution Explorer**, right-click **Sheet1.vb** or **Sheet1.cs**, and then click **View Code** on the shortcut menu.  
+1.  在**解决方案资源管理器**，右键单击**Sheet1.vb**或**Sheet1.cs**，然后单击**查看代码**快捷菜单上。  
   
-2.  Add the following code to the `Sheet1_Startup` method to set the text for the b`utton`.  
+2.  以下代码添加到`Sheet1_Startup`方法以设置 b 的文本`utton`。  
   
-     [!code-csharp[Trin_VstcoreDataExcel#8](../vsto/codesnippet/CSharp/Trin_VstcoreDataExcelCS/Sheet3.cs#8)]  [!code-vb[Trin_VstcoreDataExcel#8](../vsto/codesnippet/VisualBasic/Trin_VstcoreDataExcelVB/Sheet3.vb#8)]  
+     [!code-csharp[Trin_VstcoreDataExcel#8](../vsto/codesnippet/CSharp/Trin_VstcoreDataExcelCS/Sheet3.cs#8)]
+     [!code-vb[Trin_VstcoreDataExcel#8](../vsto/codesnippet/VisualBasic/Trin_VstcoreDataExcelVB/Sheet3.vb#8)]  
   
-3.  For C# only, add an event handler for the <xref:System.Windows.Forms.Control.Click> event to the `Sheet1_Startup` method.  
+3.  仅适用于 C#，添加事件处理程序<xref:System.Windows.Forms.Control.Click>事件`Sheet1_Startup`方法。  
   
      [!code-csharp[Trin_VstcoreDataExcel#9](../vsto/codesnippet/CSharp/Trin_VstcoreDataExcelCS/Sheet3.cs#9)]  
   
- Now add code to handle the <xref:System.Windows.Forms.Control.Click> event of the button.  
+ 现在添加代码以处理<xref:System.Windows.Forms.Control.Click>该按钮的事件。  
   
-## <a name="saving-changes-to-the-database"></a>Saving Changes to the Database  
- Any changes have been made to the data exist only in the local dataset until they are explicitly saved back to the database.  
+## <a name="saving-changes-to-the-database"></a>将更改保存到数据库  
+ 对已进行了任何更改数据只存在于本地的数据集之前它们显式保存回数据库。  
   
-#### <a name="to-save-changes-to-the-database"></a>To save changes to the database  
+#### <a name="to-save-changes-to-the-database"></a>若要将更改保存到数据库  
   
-1.  Add an event handler for the <xref:System.Windows.Forms.Control.Click> event of the b`utton`, and add the following code to commit all changes that have been made in the dataset back to the database.  
+1.  添加事件处理程序<xref:System.Windows.Forms.Control.Click>b 的事件`utton`，然后添加以下代码来提交回数据库做数据集中的所有更改。  
   
-     [!code-csharp[Trin_VstcoreDataExcel#10](../vsto/codesnippet/CSharp/Trin_VstcoreDataExcelCS/Sheet3.cs#10)]  [!code-vb[Trin_VstcoreDataExcel#10](../vsto/codesnippet/VisualBasic/Trin_VstcoreDataExcelVB/Sheet3.vb#10)]  
+     [!code-csharp[Trin_VstcoreDataExcel#10](../vsto/codesnippet/CSharp/Trin_VstcoreDataExcelCS/Sheet3.cs#10)]
+     [!code-vb[Trin_VstcoreDataExcel#10](../vsto/codesnippet/VisualBasic/Trin_VstcoreDataExcelVB/Sheet3.vb#10)]  
   
-## <a name="testing-the-application"></a>Testing the Application  
- Now you can test your workbook to verify that the data appears as expected, and that you can manipulate the data in the list object.  
+## <a name="testing-the-application"></a>测试应用程序  
+ 现在，你可以测试你的工作簿以验证数据显示按预期方式运行并且你可以处理列表对象中的数据。  
   
-#### <a name="to-test-the-data-binding"></a>To test the data binding  
+#### <a name="to-test-the-data-binding"></a>若要测试的数据绑定  
   
--   Press F5.  
+-   按 F5。  
   
-     Verify that when the workbook opens, the list object is filled with data from the **Employees** table.  
+     验证，当工作簿打开后，则列表对象中的数据填充**员工**表。  
   
-#### <a name="to-modify-data"></a>To modify data  
+#### <a name="to-modify-data"></a>若要修改数据  
   
-1.  Click cell **B7**, which should contain the name **Davolio**.  
+1.  单击单元格**B7**，其中应包含名称**李小明**。  
   
-2.  Type the name **Anderson**, and then press ENTER.  
+2.  键入的名称**Anderson**，然后按 ENTER。  
   
-#### <a name="to-modify-a-column-header"></a>To modify a column header  
+#### <a name="to-modify-a-column-header"></a>若要修改列标题  
   
-1.  Click the cell that contains the column header **LastName**.  
+1.  单击包含列标题的单元格**LastName**。  
   
-2.  Type **Last Name**, including a space between the two words, and then press ENTER.  
+2.  类型**姓氏**，包括两个词，之间留一个空格，然后按 enter 键。  
   
-#### <a name="to-save-data"></a>To save data  
+#### <a name="to-save-data"></a>若要保存数据  
   
-1.  Click **Save** on the worksheet.  
+1.  单击**保存**工作表上。  
   
-2.  Exit Excel. Click **No** when prompted to save the changes you made.  
+2.  退出 Excel。 单击**否**当系统提示保存所做的更改。  
   
-3.  Press F5 to run the project again.  
+3.  按 F5 再次运行项目。  
   
-     The list object is filled with data from the **Employees** table.  
+     使用中的数据填充的列表对象**员工**表。  
   
-4.  Notice that the name in cell **B7** is still **Anderson**, which is the data change that you made and saved back to the database. The column header **LastName** has changed back to its original form with no space, because the column header is not bound to the database and you did not save the changes you made to the worksheet.  
+4.  请注意，在单元格中的名称**B7**仍**Anderson**，这是的数据更改您所做并保存回数据库。 列标题**LastName**已改回其原始格式没有空格，因为列标头未绑定到数据库并且未保存到工作表中所做的更改。  
   
-#### <a name="to-add-new-rows"></a>To add new rows  
+#### <a name="to-add-new-rows"></a>若要添加新行  
   
-1.  Select a cell inside the list object.  
+1.  选择的列表对象中的单元格。  
   
-     A new row appears at the bottom of the list, with an asterisk (**\***) in the first cell of the new row.  
+     新行显示在列表中，有一个星号的底部 (**\***) 的新行的第一个单元格中。  
   
-2.  Add the following information in the empty row.  
+2.  空的行中添加以下信息。  
   
-    |EmployeeID|LastName|FirstName|Title|  
+    |EmployeeID|LastName|FirstName|标题|  
     |----------------|--------------|---------------|-----------|  
-    |10|Ito|Shu|Sales Manager|  
+    |10|Ito|Shu|销售经理|  
   
-#### <a name="to-delete-rows"></a>To delete rows  
+#### <a name="to-delete-rows"></a>若要删除的行  
   
--   Right-click the number 16 (row 16) on the far left side of the worksheet, and then click **Delete**.  
+-   右击的数字 16 （行 16） 上最左侧工作表中，并依次**删除**。  
   
-#### <a name="to-sort-the-rows-in-the-list"></a>To sort the rows in the List  
+#### <a name="to-sort-the-rows-in-the-list"></a>若要在列表中的行进行排序  
   
-1.  Select a cell inside the list.  
+1.  选择列表中的单元格。  
   
-     Arrow buttons appear in each column header.  
+     箭头按钮显示在每个列标题。  
   
-2.  Click the arrow button in the **Last Name** column header.  
+2.  单击箭头按钮在**姓氏**列标题。  
   
-3.  Click **Sort Ascending**.  
+3.  单击**按升序排序**。  
   
-     The rows are sorted alphabetically by last names.  
+     行按姓氏和名字按字母顺序排序。  
   
-#### <a name="to-filter-information"></a>To filter information  
+#### <a name="to-filter-information"></a>若要筛选器信息  
   
-1.  Select a cell inside the list.  
+1.  选择列表中的单元格。  
   
-2.  Click the arrow button in the **Title** column header.  
+2.  单击箭头按钮在**标题**列标题。  
   
-3.  Click **Sales Representative**.  
+3.  单击**销售代表**。  
   
-     The list shows only those rows that have **Sales Representative** in the **Title** column.  
+     列表将显示包含的行**销售代表**中**标题**列。  
   
-4.  Click the arrow button in the **Title** column header again.  
+4.  单击箭头按钮在**标题**再次列标题。  
   
-5.  Click **(All)**.  
+5.  单击**（全部）**。  
   
-     Filtering is removed and all the rows appear.  
+     筛选被删除，所有行都显示。  
   
-## <a name="next-steps"></a>Next Steps  
- This walkthrough shows the basics of binding a table in a database to a list object. Here are some tasks that might come next:  
+## <a name="next-steps"></a>后续步骤  
+ 本演练演示在数据库中的表绑定到列表对象的基础知识。 以下是接下来可能要执行的一些任务：  
   
--   Cache the data so that it can be used offline. For more information, see [How to: Cache Data for Use Offline or on a Server](../vsto/how-to-cache-data-for-use-offline-or-on-a-server.md).  
+-   缓存数据，以便可以脱机使用。 有关详细信息，请参阅[如何： 缓存数据以脱机使用，或在服务器上](../vsto/how-to-cache-data-for-use-offline-or-on-a-server.md)。  
   
--   Deploy the solution. For more information, see [Deploying an Office Solution](../vsto/deploying-an-office-solution.md).  
+-   部署解决方案。 有关详细信息，请参阅[部署 Office 解决方案](../vsto/deploying-an-office-solution.md)。  
   
--   Create a master/detail relation between a field and a table. For more information, see [Walkthrough: Creating a Master Detail Relation Using a Cached Dataset](../vsto/walkthrough-creating-a-master-detail-relation-using-a-cached-dataset.md).  
+-   创建一个字段和表之间的主/从关系。 有关详细信息，请参阅[演练： 创建 Master 详细信息的关系使用缓存数据集](../vsto/walkthrough-creating-a-master-detail-relation-using-a-cached-dataset.md)。  
   
-## <a name="see-also"></a>See Also  
- [Binding Data to Controls in Office Solutions](../vsto/binding-data-to-controls-in-office-solutions.md)   
- [Data in Office Solutions](../vsto/data-in-office-solutions.md)   
- [Walkthrough: Simple Data Binding in a Document-Level Project](../vsto/walkthrough-simple-data-binding-in-a-document-level-project.md)  
+## <a name="see-also"></a>另请参阅  
+ [将数据绑定到 Office 解决方案中的控件](../vsto/binding-data-to-controls-in-office-solutions.md)   
+ [Office 解决方案中的数据](../vsto/data-in-office-solutions.md)   
+ [演练：文档级项目中的简单数据绑定](../vsto/walkthrough-simple-data-binding-in-a-document-level-project.md)  
   
   

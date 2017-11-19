@@ -1,12 +1,10 @@
 ---
-title: Deploying an Office Solution by Using Windows Installer | Microsoft Docs
+title: "使用 Windows Installer 部署 Office 解决方案 |Microsoft 文档"
 ms.custom: 
 ms.date: 02/02/2017
-ms.prod: visual-studio-dev14
 ms.reviewer: 
 ms.suite: 
-ms.technology:
-- office-development
+ms.technology: office-development
 ms.tgt_pltfrm: 
 ms.topic: article
 dev_langs:
@@ -21,188 +19,187 @@ helpviewer_keywords:
 - publishing Office solutions [Office development in Visual Studio], setup project
 - Office applications [Office development in Visual Studio], MSI
 ms.assetid: 260dda48-f9d4-474c-8638-ecf5b2c2729d
-caps.latest.revision: 91
-author: kempb
-ms.author: kempb
+caps.latest.revision: "91"
+author: gewarren
+ms.author: gewarren
 manager: ghogen
-ms.translationtype: HT
-ms.sourcegitcommit: eb5c9550fd29b0e98bf63a7240737da4f13f3249
-ms.openlocfilehash: c063e3b0be4fe33c2fc75eae8e04a491cdfca39e
-ms.contentlocale: zh-cn
-ms.lasthandoff: 08/30/2017
-
+ms.openlocfilehash: 09a356408815ed6fea416d27e59a58a4edc6a6a3
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# <a name="deploying-an-office-solution-by-using-windows-installer"></a>Deploying an Office Solution by Using Windows Installer
-Learn how to create a Windows Installer for your Office solution by using [!INCLUDE[vs_dev12](../vsto/includes/vs-dev12-md.md)].  
+# <a name="deploying-an-office-solution-by-using-windows-installer"></a>使用 Windows Installer 部署 Office 解决方案
+了解如何使用 [!INCLUDE[vs_dev12](../vsto/includes/vs-dev12-md.md)]为你的 Office 解决方案创建 Windows Installer。  
   
-By using Visual Studio to create a Windows Installer, you can deploy an Office solution that requires administrative access on the end user's computer. For example, you can use such a file to install a solution only once for all users of a computer. You can also deploy an Office solution by using ClickOnce, but that solution must be installed separately for each user of the computer.  
+通过使用 Visual Studio 创建 Windows Installer，你可以部署 Office 解决方案，该方案需要最终用户计算机上的管理员访问权限。 例如，只需使用此种文件安装一次解决方案，就可让计算机上的所有用户进行使用。 你也可以使用 ClickOnce 来部署 Office 解决方案，但必须针对计算机上的每个用户分别安装一次该解决方案。  
   
   
-## <a name="in-this-topic"></a>In this topic  
+## <a name="in-this-topic"></a>主题内容  
   
-- [Download VSTO Add-in samples](#Download)  
+- [下载 VSTO 外接程序示例](#Download)  
   
-- [Get InstallShield Limited Edition](#Obtain)  
+- [获取 InstallShield Limited Edition](#Obtain)  
   
-- [Decide how to grant trust to the solution](#ApplySecurity)  
+- [决定如何向解决方案授予信任](#ApplySecurity)  
   
-- [Create a setup project](#Create)  
+- [创建安装项目](#Create)  
   
-- [Add the project output](#Add)  
+- [添加项目输出](#Add)  
   
-- [Add the deployment and application manifests](#AddD)  
+- [添加部署和应用程序清单](#AddD)  
   
-- [Configure the dependent components as prerequisites](#Configure)  
+- [配置依赖组件为系统必备组件](#Configure)  
   
 - [Specify where you want to deploy the solution on the user's computer](#Location)  
   
-- [Configure an VSTO Add-in](#ConfigureRegisitry)  
+- [配置 VSTO 外接程序](#ConfigureRegisitry)  
   
 - [Configure a document-level customization](#ConfigureDocument)  
   
 - [Build the setup project](#Build)  
   
-For more information about how to deploy an Office solution by using ClickOnce, see [Deploying an Office Solution by Using ClickOnce](../vsto/deploying-an-office-solution-by-using-clickonce.md).  
+有关如何使用 ClickOnce 部署 Office 解决方案的详细信息，请参阅[部署 Office 解决方案使用 clickonce](../vsto/deploying-an-office-solution-by-using-clickonce.md)。  
   
-For information about how to create a Windows Installer file by using [!INCLUDE[vs_dev10_long](../sharepoint/includes/vs-dev10-long-md.md)], see [Deploying a Visual Studio 2010 Tools for Office Solution Using Windows Installer](http://go.microsoft.com/fwlink/?LinkId=201807).  
-  
-  
-## <a name="Download"></a>Download samples  
-This topic refers to the following downloadable samples.  
+有关如何使用 [!INCLUDE[vs_dev10_long](../sharepoint/includes/vs-dev10-long-md.md)]创建 Windows Installer 文件的信息，请参阅 [使用 Windows Installer 部署 Visual Studio 2010 Tools for Office 解决方案](http://go.microsoft.com/fwlink/?LinkId=201807)。  
   
   
+## <a name="Download"></a>下载示例  
+本主题参考以下可下载示例。  
   
-|Sample<br /><br />|Description<br /><br />|  
+  
+  
+|示例<br /><br />|说明<br /><br />|  
 |----------|---------------|  
-|[ExcelAddIn](http://go.microsoft.com/fwlink/?LinkID=275492)<br /><br />|An Excel VSTO Add-in that you can install on a computer that runs a 32-bit or 64-bit version of Office.<br /><br />|  
-|[ExcelWorkbook](http://go.microsoft.com/fwlink/?LinkID=275493)<br /><br />|An Excel document-level customization that you can install on a computer that runs a 32-bit or 64-bit version of Office.<br /><br />|  
+|[ExcelAddIn](http://go.microsoft.com/fwlink/?LinkID=275492)<br /><br />|可在运行 32 位或 64 位版本 Office 的计算机上安装的 Excel VSTO 外接程序。<br /><br />|  
+|[ExcelWorkbook](http://go.microsoft.com/fwlink/?LinkID=275493)<br /><br />|可以在运行 32 位或 64 位版本 Office 的计算机上安装的 Excel 文档级自定义项。<br /><br />|  
   
-## <a name="ApplySecurity"></a>Decide how to grant trust to the solution  
-Before a solution can run on user computers, you must grant trust in either of the following ways, or users must respond to a trust prompt when they install the solution.  
+## <a name="ApplySecurity"></a>决定如何向解决方案授予信任  
+要让解决方案在用户计算机上运行，你必须以如下方式之一授予信任，或者用户必须在安装解决方案时响应信任提示。  
   
   
-- Sign the manifests by using a certificate that identifies a known and trusted publisher. For more information, see [Trusting the Solution by Signing the Application and Deployment Manifests](../vsto/granting-trust-to-office-solutions.md#Signing).  
+- 使用能识别已知的受信任发布者的证书为清单签名。 有关更多信息，请参见 [Trusting the Solution by Signing the Application and Deployment Manifests](../vsto/granting-trust-to-office-solutions.md#Signing)。  
   
-- Install the solution to the Program Files directory on the user's computer.  
+- 将解决方案安装到用户的计算机上的 Program Files 目录中。  
   
 > [!NOTE]  
-> For document-level customizations, the location of the document must also be trusted. For more information, see [Granting Trust to Documents](../vsto/granting-trust-to-documents.md).  
+> 对于文档级自定义项，还必须信任文档的位置。 有关更多信息，请参见 [Granting Trust to Documents](../vsto/granting-trust-to-documents.md)。  
   
   
-## <a name="Obtain"></a>Get InstallShield Limited Edition  
-You can create a Windows Installer file by using InstallShield Limited Edition (ISLE), which is free if you've installed Visual Studio. ISLE replaces the functionality of the project templates for setup and deployment that previous versions of Visual Studio offered.  
+## <a name="Obtain"></a>获取 InstallShield Limited Edition  
+可以使用 InstallShield limited Edition (ISLE)（安装 Visual Studio 后可免费使用）来创建 Windows Installer 文件。 ISLE 替代了 Visual Studio 早期版本中为安装和部署提供的项目模板功能。  
   
   
-#### <a name="to-get-installshield-limited-edition"></a>To get InstallShield Limited Edition  
+#### <a name="to-get-installshield-limited-edition"></a>获取 InstallShield Limited Edition  
   
-1. On the menu bar, choose **File**, **New**, **Project**.  
+1. 在菜单栏上，依次选择 **“文件”**、 **“新建”**、 **“项目”**。  
   
-   The **New Project** dialog box opens.  
+   **“新建项目”** 对话框随即打开。  
   
-2. In the templates pane, expand **Other Project Types**, and then choose the **Setup and Deployment** template.  
+2. 在模板窗格中，展开 **“其他项目类”**，然后选择 **“安装和部署”** 模板。  
   
-3. In the list of project types for **Setup and Deployment**, choose **Enable InstallShield Limited Edition**, and then choose the **OK** button.  
+3. 在 **“安装和部署”**的属性列表中，选择 **“启用 InstallShield Limited Edition”**，然后选择 **“确定”** 按钮。  
   
-   A page appears that provides information about how to get InstallShield Limited Edition.  
+   此时将显示有关如何获取 InstallShield limited Edition 的信息页面。  
   
-4. On that page, choose the **Go to the download web site** link.  
+4. 在该页上，选择 **“转到下载网站”** 链接。  
   
-5. On the download page for InstallShield Limited Edition, enter the required information into the appropriate fields, and then choose the **Download Now** link.  
+5. 在 InstallShield limited Edition 下载页中，于相应字段中输入必需信息，然后选择 **“立即下载”** 链接。  
   
-   After you download, install, and activate the product, the **InstallShield Limited Edition Project** template appears in Visual Studio.  
-  
-  
-## <a name="Create"></a>Create a setup project  
-  
-####   
-1. In [!INCLUDE[vsprvs](../sharepoint/includes/vsprvs-md.md)], open the Office project that you want to deploy.  
-  
-   The VSTO Add-in samples that are associated with this topic contain a project that's named **ExcelAddIn**. The document-level customization samples contain a project that's named **ExcelWorkbook**. This topic will refer to the Office project in your solution by using one of those two names.  
-  
-2. On the menu bar, choose **File**, **Add**, **New Project**.  
-  
-   The **Add New Project** dialog box opens.  
-  
-3. In the templates pane, expand **Other Project Types**, and then choose the **Setup and Deployment** template.  
-  
-4. In the list of project types for **Setup and Deployment**, choose **InstallShield Limited Edition Project**, name the project, and then choose the **OK** button.  
-  
-   The InstallShield setup project that you just created appears in your solution.  
-  
-   The samples for this topic contain a setup project that's named **OfficeAddInSetup**. This topic will refer to the setup project in your solution by using the same name.  
+   下载、安装并激活产品后，Visual Studio 中会显示 **“InstallShield Limited Edition 项目”** 模板。  
   
   
-## <a name="Add"></a>Add the project output  
-You configure the **OfficeAddInSetup** project to include the output of your Office project. For VSTO Add-in projects, the project output is the solution assembly only. For document-level customization projects, the project output includes not only the solution assembly but also the document itself.  
-  
-  
-#### <a name="to-add-the-project-output"></a>To add the project output  
-  
-1. In **Solution Explorer**, expand the **OfficeAddInSetup** project node, and then choose the **Project Assistant** file, which the following illustration shows.  
-  
-   ![Project Assistant File in Solution Explorer](../vsto/media/installshield-projectassistant.png "Project Assistant File in Solution Explorer")  
-  
-2. On the menu bar, choose **View**, **Open**.  
-  
-3. At the bottom of the **Project assistant** page, choose the **Application Files** button, which the following illustration shows.  
-  
-   ![The Application Files button.](../vsto/media/installshield-applicationfiles.png "The Application Files button.")  
-  
-4. In the **Application Files** page, choose the **Add Project Outputs** button.  
-  
-5. In the **Visual Studio Output Selector** dialog box, select the **Primary Output** check box, and then choose the **OK** button.  
-  
-  
-## <a name="AddD"></a>Add the deployment and application manifests  
+## <a name="Create"></a>创建安装项目  
   
 ####   
-1. In the **Application Files** page, choose the **Add Files** button.  
+1. 在 [!INCLUDE[vsprvs](../sharepoint/includes/vsprvs-md.md)]中，打开要部署的 Office 项目。  
   
-2. In the **Open** dialog box, browse to the output directory of the **ExcelAddIn** project.  
+   与本主题相关的 VSTO 外接程序示例包含一个名为 **ExcelAddIn**的项目。 文档级自定义项示例包含一个名为 **ExcelWorkbook**的项目。 本主题将通过使用这两个名称之一来引用解决方案中的 Office 项目。  
   
-   Usually, the output directory is the **bin\release** subfolder of the project root directory, depending on the build configuration that you choose.  
+2. 在菜单栏上，依次选择 **“文件”**、 **“添加”**、 **“新建项目”**。  
   
-3. In the output directory, choose the **ExcelAddIn.vsto** and **ExcelAddIn.dll.manifest** files, and then choose the **Open** button.  
+   此时会打开 **“添加新项目”** 对话框。  
   
-   The **Application Files** page now contains the project output file, the deployment manifest, and the application manifest, as the following illustration shows.  
+3. 在模板窗格中，展开 **“其他项目类”**，然后选择 **“安装和部署”** 模板。  
   
-   ![The output files of your setup project.](../vsto/media/installshield-outputfiles.png "The output files of your setup project.")  
+4. 在 **“安装和部署”**的属性列表中，选择 **“InstallShield Limited Edition 项目”**，为项目命名，然后选择 **“确定”** 按钮。  
   
+   你刚才创建的 InstallShield 安装项目即显示在解决方案中。  
   
-## <a name="Configure"></a>Configure the dependent components as prerequisites  
-In your setup application, you must include not only the following components but also any other components that are required for your solution to run.  
-  
-  
-- The version of the .NET Framework that your Office solution targets.  
-  
-- The Microsoft Visual Studio 2010 Tools for Office Runtime.  
+   此主题中的示例包含一个名为 **“OfficeAddInSetup”**的安装项目。 本主题将通过相同的名称来引用解决方案中的安装项目。  
   
   
-### <a name="add-the-net-framework-4-or-the-net-framework-45-as-a-prerequisite"></a>Add the .NET Framework 4 or the .NET Framework 4.5 as a Prerequisite  
+## <a name="Add"></a>添加项目输出  
+配置 **“OfficeAddInSetup”** 项目以包括 Office 项目的输出。 对于 VSTO 外接程序项目，项目输出中只有解决方案程序集。 对于文档级自定义项目，项目输出不仅包括解决方案程序集，还包括文档本身。  
+  
+  
+#### <a name="to-add-the-project-output"></a>添加项目输出  
+  
+1. 在 **“解决方案资源管理器”**中，展开 **“OfficeAddInSetup”** 项目节点，然后选择 **“项目助手”** 文件，如下图所示。  
+  
+   ![项目在解决方案资源管理器助手文件](../vsto/media/installshield-projectassistant.png "项目在解决方案资源管理器助手文件")  
+  
+2. 在菜单栏上，依次选择 **“查看”**、 **“打开”**。  
+  
+3. 在 **“项目助手”** 页下方，选择 **“应用程序文件”** 按钮，如下图所示。  
+  
+   ![应用程序文件按钮。](../vsto/media/installshield-applicationfiles.png "应用程序文件按钮。")  
+  
+4. 在 **“应用程序文件”** 页上，选择 **“添加项目输出”** 按钮。  
+  
+5. 在 **“Visual Studio 输出选择器”** 对话框中，选中 **“主输出”** 复选框，然后选择 **“确定”** 按钮。  
+  
+  
+## <a name="AddD"></a>添加部署和应用程序清单  
+  
+####   
+1. 在 **“应用程序文件”** 页上，选择 **“添加文件”** 按钮。  
+  
+2. 在 **“打开”** 对话框中，浏览到 **ExcelAddIn** 项目的输出目录。  
+  
+   通常，输出目录是项目根目录下的 **bin\release** 子文件夹，具体取决于选择的生成配置。  
+  
+3. 在输出目录中，选择 **ExcelAddIn.vsto** 和 **ExcelAddIn.dll.manifest** 文件，然后选择 **“打开”** 按钮。  
+  
+   如下图所示， **“应用程序文件”** 页现在包含项目输出文件、部署清单和应用程序清单。  
+  
+   ![你的安装项目输出文件。](../vsto/media/installshield-outputfiles.png "你的安装项目的输出文件。")  
+  
+  
+## <a name="Configure"></a>配置依赖组件为系统必备组件  
+在安装应用程序中，不仅必须包括以下组件，还必须包括运行解决方案所需的所有其他组件。  
+  
+  
+- Office 解决方案所面向的 .NET Framework 版本。  
+  
+- Microsoft Visual Studio 2010 Tools for Office Runtime。  
+  
+  
+### <a name="add-the-net-framework-4-or-the-net-framework-45-as-a-prerequisite"></a>添加 .NET Framework 4 或 .NET Framework 4.5 作为系统必备  
   
 #####   
-1. In **Solution Explorer**, expand the **OfficeAddInSetup** project node, expand the **Specify Application Data** node, and then choose the **Redistributables** file, which the following illustration shows.  
+1. 在 **“解决方案资源管理器”**中，展开 **“OfficeAddInSetup”** 项目节点，展开 **“指定应用程序数据”** 节点，然后选择 **“可再发行文件”** ，如下图所示。  
   
-   ![The Redistributables file in Solution Explorer](../vsto/media/installshield-redistributablesfile.png "The Redistributables file in Solution Explorer")  
+   ![在解决方案资源管理器的可再发行文件文件](../vsto/media/installshield-redistributablesfile.png "在解决方案资源管理器的可再发行文件")  
   
-2. On the menu bar, choose **View**, **Open**.  
+2. 在菜单栏上，依次选择 **“查看”**、 **“打开”**。  
   
-   The **Redistributables** page opens.  
+   此时会打开 **“可再发行文件”** 页。  
   
-3. In the list of redistributable components, select appropriate the check box for the version of the .NET Framework that your solution targets.  
+3. 在可再发行组件列表中，选中解决方案所针对 .NET Framework 版本的相应复选框。  
   
-   For example, if your solution targets the [!INCLUDE[net_v45](../vsto/includes/net-v45-md.md)], select the **Microsoft .NET Framework 4.5 Full** check box. A dialog box might appear asking whether you want to install the redistributable component, which InstallShield requires before you can add the component as a prerequisite. If this dialog box doesn't appear, the component already exists on your computer.  
+   例如，如果你的解决方案面向 [!INCLUDE[net_v45](../vsto/includes/net-v45-md.md)]，则选择 **“Microsoft .NET Framework 4.5 Full”** 复选框。 可能显示对话框询问是否安装可再发行组件，InstallShield 要求执行此操作才能添加组件作为必备组件。 如果未显示此对话框中，你的计算机上已存在该组件。  
   
-4. If this dialog box appears, choose the **No** button.  
-  
-  
-### <a name="AddToolsForOffice"></a>Add the Visual Studio 2010 Tools for Office Runtime  
-The **Redistributables** page contains an item that's named **Microsoft VSTO 2010 Runtime**, but it refers to an older version of the runtime. Therefore, you could manually create a configuration file that refers to the most recent version. You must then put that file into the same directory as the configuration files for all of the other items that appear in the **Redistributables** page.  
+4. 如果显示此对话框，请选择 **“否”** 按钮。  
   
   
-##### <a name="to-add-the-visual-studio-2010-tools-for-office-runtime-as-a-prerequisite"></a>To add the Visual Studio 2010 Tools for Office Runtime as a Prerequisite  
+### <a name="AddToolsForOffice"></a>添加 Visual Studio 2010 Tools for Office Runtime  
+**“可再发行文件”** 页包含一个名为 **“Microsoft VSTO 2010 Runtime”**的项，但是它引用的是运行时的较旧版本。 因此，可以手动创建引用最新版本的配置文件。 然后必须将此文件放入 **“可再发行文件”** 页上显示的所有其他项的配置文件所在的目录。  
   
-1. Open Notepad, and then paste the following XML into a text file.  
+  
+##### <a name="to-add-the-visual-studio-2010-tools-for-office-runtime-as-a-prerequisite"></a>添加 Visual Studio 2010 Tools for Office Runtime 作为系统必备  
+  
+1. 打开记事本，然后将以下 XML 复制粘贴到文本文件中。  
   
   
    ```xml  
@@ -223,13 +220,13 @@ The **Redistributables** page contains an item that's named **Microsoft VSTO 201
    </SetupPrereq>  
    ```  
   
-2. Generate a GUID in Visual Studio. On the **Tools** menu, choose **Create GUID**.  
+2. 在 Visual Studio 中生成 GUID。 在 **“工具”** 菜单上，选择 **“创建 GUID”**。  
   
-3. In the **GUID generator** program, choose the **Registry Format** option button, choose the **Copy** button, and then choose the **Exit** button.  
+3. 在 **“GUID 生成器”** 程序中，选择 **“注册表格式”** 选项按钮，再选择 **“复制”** 按钮，然后选择 **“退出”** 按钮。  
   
-4. In Notepad, replace the text **Your GUID goes here** by pasting the GUID in its place.  
+4. 在记事本中，将 GUID 粘贴到文本 **Your GUID goes here** 的位置，取代该文本。  
   
-   The **&lt;properties&gt;** element of your file resembles the following.  
+   此时会打开 **&lt;properties&gt;** 元素类似于以下内容。  
   
   
    ```xml  
@@ -237,313 +234,313 @@ The **Redistributables** page contains an item that's named **Microsoft VSTO 201
    </properties>  
    ```  
   
-5. On the menu bar in Notepad, choose **File**, **Save**.  
+5. 在“记事本”的菜单栏上，依次选择 **“文件”**、 **“保存”**。  
   
-6. In the **Save As** dialog box, browse to your **Desktop** folder.  
+6. 在 **“另存为”** 对话框中，浏览到 **“桌面”** 文件夹。  
   
-7. In the **Save as type** list, choose **All Files (&#42;.&#42;)**.  
+7. 在**另存为类型**列表中，选择**所有文件 (&#42;。&#42;)**。  
   
-8. In the **File name** box, enter **Visual Studio 2010 Tools for Office Runtime.prq**, and then choose the **Save** button.  
+8. 在 **“文件名”** 框中，输入 **Visual Studio 2010 Tools for Office Runtime.prq**，然后选择 **“保存”** 按钮。  
   
    > [!NOTE]  
-   >    Make sure that you add **.prq** at the end of the file name to identify this file as a prerequisite file.  
+   >    确保在文件名末尾加上 **.prq** ，以将此文件指定为系统必备文件。  
   
-9. Close Notepad.  
+9. 关闭记事本。  
   
-10. From your **Desktop** folder, copy the Visual Studio 2010 Tools for Office Runtime.prq file to one of the following directories on your computer.  
+10. 从 **“桌面”** 文件夹中，将 Visual Studio 2010 Tools for Office Runtime.prq 文件复制到以下某个计算机目录中。  
   
-   For 32-bit operating systems: %ProgramFiles%\InstallShield\2013LE\SetupPrerequisites\  
+   对于 32 位操作系统： %ProgramFiles%\InstallShield\2013LE\SetupPrerequisites\  
   
-   For 64-bit operating systems: %ProgramFiles(x86)%\2013LE\SetupPrerequisites\  
+   对于 64 位操作系统: %programfiles (x86) %\2013LE\SetupPrerequisites\  
   
-11. In the **Redistributable** page of the InstallShield project, choose the **Refresh** button to refresh the list of redistributable components, as the following illustration shows.  
+11. 在 InstallShield 项目的 **“可再发行组件”** 页上，选择 **“刷新”** 按钮刷新可再发行组件列表，如下图所示。  
   
-   ![The refresh button.](../vsto/media/installshield-refreshbutton.png "The refresh button.")  
+   ![刷新按钮。](../vsto/media/installshield-refreshbutton.png "刷新按钮。")  
   
-12. In the list of redistributable components, select the **Visual Studio 2010 Tools for Office Runtime** check box.  
+12. 在可再发行组件列表中，选中 **“Visual Studio 2010 Tools for Office Runtime”** 复选框。  
   
-   A dialog box might appear asking whether you want to install the redistributable component. If this dialog box doesn't appear, you can skip to the [Specify where you want to deploy the solution on the user's computer](#Location) section of this topic.  
+   可能显示对话框询问是否要安装该可再发行组件。 如果未显示此对话框中，则可以跳到[指定你想要部署在用户计算机上的解决方案](#Location)本主题的部分。  
   
-13. If this dialog box appears, choose the **No** button.  
+13. 如果显示此对话框，请选择 **“否”** 按钮。  
   
   
-## <a name="Location"></a>Specify where to install the solution on the user's computer  
+## <a name="Location"></a>指定在用户计算机上安装解决方案的位置  
   
 ####   
-1. In **Solution Explorer**, expand the **OfficeAddInSetup** node, expand the **Organize your Setup** node, and then choose the **General Information** file.  
+1. 在 **“解决方案资源管理器”**中，依次展开 **“OfficeAddInSetup”** 节点和 **“组织安装”** 节点，然后选择 **“常规信息”** 文件。  
   
-2. On the menu bar, choose **View**, **Open**.  
+2. 在菜单栏上，依次选择 **“查看”**、 **“打开”**。  
   
-3. In the list of properties, choose the **Browse** button next to the **INSTALLDIR** property.  
+3. 在属性列表中，选择 **“INSTALLDIR”** 属性旁的 **“浏览”** 按钮。  
   
-4. In the **Set INSTALLDIR** dialog box, choose a folder on the user's computer where you want to install the solution.  
+4. 在**设置 INSTALLDIR**对话框框中，选择你想要安装解决方案的用户的计算机上的文件夹。  
   
    > [!NOTE]  
-   >    You can also create subdirectories in the **Set INSTALLDIR** dialog box by opening the shortcut menu for any folder in the list.  
+   >    你还可以通过打开列表中的任何文件夹的快捷菜单，在 **“设置 INSTALLDIR”** 对话框中创建子目录。  
   
   
-## <a name="ConfigureRegisitry"></a>Configure an VSTO Add-in  
-You can specify whether you want your VSTO Add-in to be installed for all users of the computer (per-computer), or only for the user performing the installation (per-user).  
+## <a name="ConfigureRegisitry"></a>配置 VSTO 外接程序  
+你可以指定是为计算机的所有用户安装 VSTO 外接程序（基于计算机），还是仅为执行安装的用户安装（基于用户）。  
   
-If you want to support per-computer installations, create two separate installers. You can split installers based on the Office version (32-bit and 64-bit) or on the Windows version (32-bit and 64-bit) that the user is running.  
+如果要支持基于计算机安装，请创建两个不同的安装程序。 可以根据用户运行的 Office 版本（32 位和 64 位）或 Windows 版本（32 位和 64 位）拆分安装程序。  
   
-Per-user installations require only one installer regardless of Office or Windows version.  
+采用基于用户的安装时，无论运行的是何种 Office 或 Windows 版本，都只需要一个安装程序。  
   
 > [!NOTE]  
-> This section applies only if you're deploying an VSTO Add-in. If you're deploying a document-level customization, you can immediately go to the [Configure a Document-Level Customization](#ConfigureDocument) section.  
+> 本部分仅适用于你正在部署 VSTO 外接程序中的情况。 如果你正在部署的文档级自定义项，则可以立即转到[配置文档级自定义](#ConfigureDocument)部分。  
   
   
-#### <a name="to-specify-whether-you-want-to-support-per-user-or-per-computer-installations"></a>To specify whether you want to support per-user or per-computer installations  
+#### <a name="to-specify-whether-you-want-to-support-per-user-or-per-computer-installations"></a>指定支持基于用户的安装还是支持基于计算机的安装  
   
-1. In **Solution Explorer**, expand the **OfficeAddInSetup** project node, expand the **Organize Your Setup** node, and then choose the **General Information** file.  
+1. 在 **“解决方案资源管理器”**中，依次展开 **“OfficeAddInSetup”** 项目节点和 **“组织安装”** 节点，然后选择 **“常规信息”** 文件。  
   
-2. On the menu bar, choose **View**, **Open**.  
+2. 在菜单栏上，依次选择 **“查看”**、 **“打开”**。  
   
-   The properties of the setup project appear.  
+   此时会显示该安装项目的属性。  
   
-3. In the list for the **AllUSERS** property, specify whether you want this solution to be installed for all users of the computer or for only the user who installs the solution.  
+3. 在 **“AllUSERS”** 属性列表中，指定要为计算机的所有用户安装此解决方案，还是仅为某位用户安装此解决方案。  
   
-   To install the VSTO Add-in for the current user, choose **ALLUSERS="" (Per-user installation)**. To install the VSTO Add-in for all users of the computer, choose **ALLUSERS=1 (Per-machine installation)**  
+   若要安装 VSTO 外接程序为当前用户，选择**ALLUSERS =""（每个用户安装）**。 若要为计算机的所有用户安装 VSTO 外接程序，请选择 **ALLUSERS=1**（基于计算机安装）。  
   
-   In the next procedure, you'll create registry keys to enable the Office application to discover and load the VSTO Add-in. See [Registry Entries for VSTO Add-ins](../vsto/registry-entries-for-vsto-add-ins.md).  
+   在下一步的过程中，将创建注册表项来支持 Office 应用程序能够发现和加载 VSTO 外接程序。 请参阅 [Registry Entries for VSTO Add-ins](../vsto/registry-entries-for-vsto-add-ins.md)。  
   
   
-#### <a name="to-create-registry-keys"></a>To create registry keys  
+#### <a name="to-create-registry-keys"></a>创建注册表项  
   
-1. In **Solution Explorer**, choose the **Project Assistant** node.  
+1. 在 **“解决方案资源管理器”**中，选择 **“项目助手”** 节点。  
   
-   On the menu bar, choose **View**, **Open**.  
+   在菜单栏上，依次选择 **“查看”**、 **“打开”**。  
   
-2. At the bottom of the **Project assistant** page, choose the **Application Registry** button, which the following illustration shows.  
+2. 在 **“项目助手”** 页下方，选择 **“应用程序注册表”** 按钮，如下图所示。  
   
-   ![The Applicaiton Registry button.](../vsto/media/installshield-applicationregistry.gif "The Applicaiton Registry button.")  
+   ![应用程序注册表按钮。](../vsto/media/installshield-applicationregistry.gif "应用程序注册表按钮。")  
   
-   The **Application Registry** page appears.  
+   此时将显示 **“应用程序注册表项”** 页。  
   
-3. Under **Do you want to configure the registry data that your application will install?**, choose the **Yes** option button.  
+3. 在 **“是否希望配置应用程序将安装的注册表数据？”**下，选择 **“是”** 选项按钮。  
   
-4. In the **Destination computer's Registry view** list, add the key hierarchy that enables the type of installer you want to create.  
+4. 在**目标计算机的注册表视图**列表中，添加的密钥层次结构可支持你要创建的安装程序类型。  
   
-   The path that you configure in this section depends on whether you create a per-user installer or a per-computer installer.  
+   本节中配置的路径取决于你创建的是基于用户的安装程序还是基于计算机的安装程序。  
   
-   **Per-user installer**  
+   **基于用户的安装程序**  
   
    **HKEY_CURRENT_USER\Software\Microsoft\Office\Excel\Addins\SampleCompany.ExcelAddIn**  
   
-   **Per-computer installers based on Office version**  
+   **根据 Office 版本创建的基于计算机的安装程序**  
   
   
   
-|Office version<br /><br />|InstallShield Configuration Path<br /><br />|  
+|Office 版本<br /><br />|InstallShield 配置路径<br /><br />|  
 |------------------|------------------------------------|  
-|32-bit<br /><br />|**HKEY_LOCAL_MACHINE\SOFTWARE(32-Bit)\Microsoft\Office\Excel\Addins\SampleCompany.ExcelAddIn**<br /><br />|  
-|64-bit<br /><br />|**HKEY_LOCAL_MACHINE\SOFTWARE(64-Bit)\Microsoft\Office\Excel\Addins\SampleCompany.ExcelAddIn**<br /><br />|  
-   **Per-computer installers based on Windows version**  
+|32 位<br /><br />|**HKEY_LOCAL_MACHINE\SOFTWARE(32-Bit) \Microsoft\Office\Excel\Addins\SampleCompany.ExcelAddIn**<br /><br />|  
+|64 位<br /><br />|**HKEY_LOCAL_MACHINE\SOFTWARE(64-Bit) \Microsoft\Office\Excel\Addins\SampleCompany.ExcelAddIn**<br /><br />|  
+   **根据 Windows 版本创建的基于计算机的安装程序**  
   
   
   
-|Windows version<br /><br />|InstallShield Configuration Path<br /><br />|  
+|Windows 版本<br /><br />|InstallShield 配置路径<br /><br />|  
 |-------------------|------------------------------------|  
-|32-bit<br /><br />|**HKEY_LOCAL_MACHINE\SOFTWARE(32-Bit)\Microsoft\Office\Excel\Addins\SampleCompany.ExcelAddIn**<br /><br />|  
-|64-bit<br /><br />|**HKEY_LOCAL_MACHINE\SOFTWARE(32-Bit)\Microsoft\Office\Excel\Addins\SampleCompany.ExcelAddIn**<br /><br />**HKEY_LOCAL_MACHINE\SOFTWARE(64-Bit)\Microsoft\Office\Excel\Addins\SampleCompany.ExcelAddIn**<br /><br />|  
+|32 位<br /><br />|**HKEY_LOCAL_MACHINE\SOFTWARE(32-Bit) \Microsoft\Office\Excel\Addins\SampleCompany.ExcelAddIn**<br /><br />|  
+|64 位<br /><br />|**HKEY_LOCAL_MACHINE\SOFTWARE(32-Bit) \Microsoft\Office\Excel\Addins\SampleCompany.ExcelAddIn**<br /><br />**HKEY_LOCAL_MACHINE\SOFTWARE(64-Bit) \Microsoft\Office\Excel\Addins\SampleCompany.ExcelAddIn**<br /><br />|  
    > [!NOTE]  
-   >    An installer for 64-bit Windows requires two registry paths because it's possible for users to run 32-bit and 64-bit versions of Office on a computer that runs 64-bit Windows.  
+   >    对于 64 位 Windows 的安装程序需要两个注册表路径，因为它是用户可以在运行 64 位 Windows 的计算机上运行 32 位和 64 位版本的 Office。  
   
    > [!NOTE]  
-   >    As a best practice, start the name of your VSTO Add-in with the name of your company. This convention increases the chance that the key will be unique and decreases the chance of conflict with an VSTO Add-in from another supplier. Add-ins that have the same name can, for example, overwrite each other's registration keys. This approach can't guarantee that the key will be unique but can reduce potential name collisions.  
+   >    最佳做法是，用公司名称作为开头来命名 VSTO 外接程序。 此约定可降低注册表项重复的可能性，同时降低与来自另一个提供程序的 VSTO 外接程序发生冲突的可能性。 例如，具有相同名称的外接程序可能会覆盖彼此的注册表项。 此方法无法保证注册表项的唯一性，但可以减少潜在的名称冲突。  
   
-5. After you've created the hierarchy of keys, open the shortcut menu for the **SampleCompany.ExcelAddIn** key, choose **New**, and then choose **String Value**.  
+5. 你已创建的密钥层次结构后，打开快捷菜单**SampleCompany.ExcelAddIn**密钥，选择**新建**，然后选择**字符串值**。  
   
-   The new string value appears in **the Destination computer's Registry data** list. The name of the string value is highlighted so that you can rename it.  
+   新的字符串值出现在**目标计算机的注册表数据**列表。 字符串值的名称会突出显示，以便你可以对其进行重命名。  
   
-6. Rename the value to **Description**.  
+6. 将该值重命名为 **Description**。  
   
-7. Repeat this process to create the following values.  
+7. 重复此过程以创建以下值。  
   
   
   
-|Value Type<br /><br />|Name<br /><br />|  
+|值类型<br /><br />|名称<br /><br />|  
 |--------------|--------|  
-|String Value<br /><br />|**FriendlyName**<br /><br />|  
-|DWORD Value<br /><br />|**LoadBehavior**<br /><br />|  
-|String Value<br /><br />|**Manifest**<br /><br />|  
+|“字符串值”<br /><br />|**FriendlyName**<br /><br />|  
+|DWORD 值<br /><br />|**LoadBehavior**<br /><br />|  
+|“字符串值”<br /><br />|**Manifest**<br /><br />|  
   
-8. Open the shortcut menu for the **Description** value, and then choose **Modify**.  
+8. 打开 **“Description”** 值的快捷菜单，然后选择 **“修改”**。  
   
-   The **Edit Data** dialog box appears.  
+   出现 **“编辑数据”** 对话框。  
   
-9. In the **Value data** text box, enter **Excel Demo Add-In**, and then choose the **OK** button.  
+9. 在“值数据”  文本框中，输入 **Excel Demo Add-In**，然后选择“确定”  按钮。  
   
-   This description appears when the user opens the Office application, opens the **Options** dialog box, and then, in the **Add-Ins** pane, chooses the VSTO Add-in.  
+   当用户依次打开 Office 应用程序、“选项”  对话框，然后在“外接程序”  窗格中选择 VSTO 外接程序时，将会显示此说明。  
   
-10. Open the shortcut menu for the **FriendlyName** value, and then choose **Modify**.  
+10. 打开 **“FriendlyName”** 值的快捷菜单，然后选择 **“修改”**。  
   
-   The **Edit Data** dialog box appears.  
+   出现 **“编辑数据”** 对话框。  
   
-11. In the **Value data** text box, enter **Excel Demo Add-In**, and then choose the **OK** button.  
+11. 在“值数据”  文本框中，输入 **Excel Demo Add-In**，然后选择“确定”  按钮。  
   
-   This string appears in the **COM Add-Ins** dialog box in the Office application. By default, the value of the string is the VSTO Add-in ID.  
+   此字符串会显示在 Office 应用程序的 **“COM 外接程序”** 对话框中。 默认情况下，该字符串的值为 VSTO 外接程序 ID。  
   
-12. Open the shortcut menu for the **LoadBehavior** value, and then choose **Modify**.  
+12. 打开 **“LoadBehavior”** 值的快捷菜单，然后选择 **“修改”**。  
   
-   The **Edit Data** dialog box appears.  
+   出现 **“编辑数据”** 对话框。  
   
-13. In the **Value data** text box, enter **3**, and then choose the **OK** button.  
+13. 在“值数据”  文本框中，输入 **3**，然后选择“确定”  按钮。  
   
-   A value of 3 loads the VSTO Add-in when the application starts. For more information about LoadBehavior values, see [Registry Entries for VSTO Add-ins](../vsto/registry-entries-for-vsto-add-ins.md).  
+   应用程序启动时，值 3 会加载该 VSTO 外接程序。 有关 LoadBehavior 值的详细信息，请参阅 [Registry Entries for VSTO Add-ins](../vsto/registry-entries-for-vsto-add-ins.md)。  
   
-14. Open the shortcut menu for the **Manifest** value, and then choose **Modify**.  
+14. 打开 **“Manifest”** 值的快捷菜单，然后选择 **“修改”**。  
   
-   The **Edit Data** dialog box appears.  
+   出现 **“编辑数据”** 对话框。  
   
-15. In the **Value data** text box, enter **file:///[INSTALLDIR]ExcelAddIn.vsto|vstolocal**, and then choose the **OK** button.  
+15. 在“值数据”  文本框中，输入 **file:///[INSTALLDIR]ExcelAddIn.vsto|vstolocal**，然后选择“确定”  按钮。  
   
-   The Visual Studio 2010 Tools for Office Runtime uses this path to locate the deployment manifest. The **[INSTALLDIR]** portion of this path is a macro that maps to the **INSTALLDIR** property in the **General Information** property page of your InstallShield setup project. This property specifies the location on the target computer to install the VSTO Add-in. The **|vstolocal** suffix ensures that your solution is loaded from the installation folder, not the ClickOnce cache.  
+   Visual Studio 2010 Tools for Office Runtime 会使用此路径查找部署清单。 此路径的 **[INSTALLDIR]** 部分是映射到 InstallShield 安装项目“常规信息”  属性页中的 **INSTALLDIR** 属性的宏。 此属性指定 VSTO 外接程序在目标计算机上的安装位置。 **|vstolocal** 后缀可确保从安装文件夹，而非 ClickOnce 缓存加载你的解决方案。  
   
 > [!IMPORTANT]  
-> If you create a custom form region in an VSTO Add-in for Outlook, you must create more registry entries to register the region with Outlook. For more information, see [Registry Entries for Outlook Form Regions](../vsto/registry-entries-for-vsto-add-ins.md#OutlookEntries).  
+> 如果在 Outlook 的 VSTO 外接程序中创建自定义窗体区域，你必须创建更多注册表项以在 Outlook 中注册该窗体区域。 有关详细信息，请参阅 [Registry Entries for Outlook Form Regions](../vsto/registry-entries-for-vsto-add-ins.md#OutlookEntries)。  
   
   
 ## <a name="ConfigureDocument"></a>Configure a document-level customization  
-This section applies only if you're deploying a document-level customization. If you're deploying an VSTO Add-in, you can go immediately to the [Build the Setup Project](#Build) section.  
+本部分仅适用于要部署的文档级自定义项的情况。 如果你正在部署 VSTO 外接程序中，你可以立即转到[生成安装项目](#Build)部分。  
   
-Document-level customizations don't use registry keys. Instead, custom document properties contain the location of the deployment manifest.  
+文档级自定义项不使用注册表项。 但自定义文档属性中会包含部署清单的位置。  
   
-To modify custom properties, you create a program that removes the document-level customization from the document, modifies the appropriate properties, and then re-attaches customization to the document. You then create a custom action that runs the program, and you add that action to your setup project.  
+若要修改自定义属性，你可以创建一个程序，用于从文档中移除文档级自定义项，修改相应属性，然后重新将自定义项附加到文档中。 然后，你可以创建运行该程序的自定义操作，并将该操作添加到你的安装项目中。  
   
   
-#### <a name="to-create-a-program-that-modifies-document-properties"></a>To create a program that modifies document properties  
+#### <a name="to-create-a-program-that-modifies-document-properties"></a>创建修改文档属性的程序  
   
-1. On the menu bar, choose **File**, **Add**, **New Project**.  
+1. 在菜单栏上，依次选择 **“文件”**、 **“添加”**、 **“新建项目”**。  
   
-   The **Add New Project** dialog box appears.  
+   此时，将显示 **“添加新项目”** 对话框。  
   
-2. In the templates pane, under the node for the language that you want to use, choose the **Windows** folder.  
+2. 在模板窗格中，从你要使用的语言节点下选择 **“Windows”** 文件夹。  
   
-3. In the list of project types for **Windows**, choose the **Console Application** template.  
+3. 在面向 **“Windows”**的项目类型列表中，选择 **“控制台应用程序”** 模板。  
   
-4. Name the project **SetExcelDocumentProperties**, and then choose the **OK** button.  
+4. 将项目命名为 **SetExcelDocumentProperties**，并选择“确定”  按钮。  
   
-5. In **Solution Explorer**, choose the **Show All Files** button, open the shortcut menu for the **SetExcelDocumentProperties** project node, and then choose **Add Reference**.  
+5. 在 **“解决方案资源管理器”**中，选择 **“显示所有文件”** 按钮，打开 **“SetExcelDocumentProperties”** 项目节点的快捷菜单，然后选择 **“添加引用”**。  
   
-6. In the **Reference Manager** dialog box, choose the **Extensions** tab, and then select the check box next to the following assemblies, and then choose the **OK** button.  
+6. 在 **“引用管理器”** 对话框中，选择 **“扩展”** 选项卡，选中以下程序集旁的复选框，然后选择 **“确定”** 按钮。  
   
   
    - Microsoft.VisualStudio.Tools.Applications.Runtime  
   
    - Microsoft.VisualStudio.Tools.Applications.ServerDocument  
   
-7. In **Solution Explorer**, choose the **Program.cs** file (for C# applications) or the **Module1.vb** file (for Visual Basic applications).  
+7. 在 **“解决方案资源管理器”**中，选择 **“Program.cs”** 文件（针对 C# 应用程序）或 **“Module1.vb”** 文件（针对 Visual Basic 应用程序）。  
   
-8. On the menu bar, choose **View**, **Open**.  
+8. 在菜单栏上，依次选择 **“查看”**、 **“打开”**。  
   
-9. Replace the contents of the entire file with the following code.  
+9. 将此文件的全部内容替换为以下代码。  
   
-[!code-vb[Trin_CustomAction#1](../vsto/codesnippet/VisualBasic/setexceldocumentproperties/module1.vb#1)] [!code-csharp[Trin_CustomAction#1](../vsto/codesnippet/CSharp/setexceldocumentproperties/program.cs#1)]  
+[!code-vb[Trin_CustomAction#1](../vsto/codesnippet/VisualBasic/setexceldocumentproperties/module1.vb#1)]
+[!code-csharp[Trin_CustomAction#1](../vsto/codesnippet/CSharp/setexceldocumentproperties/program.cs#1)]  
   
-10. Compile the project.  
+10. 编译该项目。  
   
   
-#### <a name="to-add-a-custom-action-that-runs-your-program"></a>To add a custom action that runs your program  
+#### <a name="to-add-a-custom-action-that-runs-your-program"></a>添加运行程序的自定义操作  
   
-1. In **Solution Explorer**, expand the **OfficeAddInSetup** project node, and then choose the **Project Assistant** file, which the following illustration shows.  
+1. 在 **“解决方案资源管理器”**中，展开 **“OfficeAddInSetup”** 项目节点，然后选择 **“项目助手”** 文件，如下图所示。  
   
-   ![Project Assistant File in Solution Explorer](../vsto/media/installshield-projectassistant.png "Project Assistant File in Solution Explorer")  
+   ![项目在解决方案资源管理器助手文件](../vsto/media/installshield-projectassistant.png "项目在解决方案资源管理器助手文件")  
   
-2. On the menu bar, choose **View**, **Open**.  
+2. 在菜单栏上，依次选择 **“查看”**、 **“打开”**。  
   
-3. At the bottom of the **Project assistant** page, choose the **Application Files** button, which the following illustration shows.  
+3. 在 **“项目助手”** 页下方，选择 **“应用程序文件”** 按钮，如下图所示。  
   
-   ![The Application Files button.](../vsto/media/installshield-applicationfiles.png "The Application Files button.")  
+   ![应用程序文件按钮。](../vsto/media/installshield-applicationfiles.png "应用程序文件按钮。")  
   
-4. In the **Application Files** page, choose the **Add Project Outputs** button.  
+4. 在 **“应用程序文件”** 页上，选择 **“添加项目输出”** 按钮。  
   
-   The **Visual Studio Output Selector** dialog box appears.  
+   此时会显示 **“Visual Studio 输出选择器”** 对话框。  
   
-5. Under the **SetExcelDocumentProperties** node, select the **Primary Output** check box, and then choose the **OK** button.  
+5. 在 **“SetExcelDocumentProperties”** 节点下，选择 **“主输出”** 复选框，再选择 **“确定”** 按钮。  
   
-6. In **Solution Explorer**, under the **OfficeAddInSetup** node, expand the **Define Setup Requirements and Actions** node, and then choose the **Custom Actions** folder.  
+6. 在 **“解决方案资源管理器”**中，于 **“OfficeAddInSetup”** 节点下，展开 **“定义安装要求和操作”** 节点，然后选择 **“自定义操作”** 文件夹。  
   
-7. On the menu bar, choose **View**, **Open**.  
+7. 在菜单栏上，依次选择 **“查看”**、 **“打开”**。  
   
-   A list of events appear in a pane to the side of the screen.  
+   屏幕旁边的窗格中会显示一个事件列表。  
   
    > [!NOTE]  
-   >    Only a few events that appear in this list are available in InstallShield Limited Edition. In this procedure, you'll run the program by using the **After Setup Complete Success dialog** event.  
+   >    此列表中只有少数事件可用于 InstallShield Limited Edition。 在此过程中，你将运行程序，通过使用**之后安装程序完成成功对话框**事件。  
   
-8. In the list of events, under **Custom Actions During Installation**, open the shortcut menu for the **After Setup Complete Success dialog** event, and then choose **New EXE**.  
+8. 在事件列表中的 **“安装过程中的自定义操作”**下，打开 **“‘安装程序成功完成之后’对话框”** 事件的快捷菜单，然后选择 **“新建 EXE”**。  
   
-   A custom action that's named **NewCustomAction1** appears under the **After Setup Complete Success dialog** event. A set of properties for the custom action appears in a pane next to the events.  
+   名为 **“NewCustomAction1”** 的自定义操作显示在 **“‘安装程序成功完成之后’对话框”** 事件下。 自定义操作的属性集会出现在事件旁边的窗格中。  
   
    > [!IMPORTANT]  
-   >    Two **After Setup Complete Success dialog** events appear in the list of events. Make sure that you choose the instance of the **After Setup Complete Success dialog** event that appears under the **Custom Actions During Installation** node.  
+   >    事件列表中会出现两个 **“‘安装程序成功完成之后’对话框”** 事件。 确保选择显示在 **“安装过程中的自定义操作”** 节点之下的 **“‘安装程序成功完成之后’对话框”** 事件实例。  
   
-9. In the list for the **Source Location** property, choose **Installed with the Product**.  
+9. 在 **“源位置”** 属性列表中，选择 **“随产品安装”**。  
   
-10. Choose the **Browse** button next to the **File Name** property.  
+10. 选择 **“文件名”** 属性旁边的 **“浏览”** 按钮。  
   
-11. In the **Browse for a Destination File** dialog box, browse to the **SetExcelDocumentProperties.Primary.output** file, and then choose the **Open** button.  
+11. 在 **“浏览目标文件”** 对话框中，浏览到 **“SetExcelDocumentProperties.Primary.output”** 文件，然后选择 **“打开”** 按钮。  
   
-   The location of this file depends on the folder that you specified for the **INSTALLDIR** property of the setup project. For example, if you set that property to a folder that's named **[PersonalFolder]DemoWorkbookApp**, you can find the **SetExcelDocumentProperties.Primary.output** file by browsing to **[ProgramFilesFolder]\DemoWorkbookApp**.  
+   此文件的位置取决于为安装项目的 **“INSTALLDIR”** 属性指定的文件夹。 例如，如果你为名为 **“[PersonalFolder]DemoWorkbookApp”**的文件夹设置该属性，则可以通过浏览到 **“[ProgramFilesFolder]\DemoWorkbookApp”** 找到 **“SetExcelDocumentProperties.Primary.output”**文件。  
   
-   In the next few steps, you'll get the solution ID of the document and then pass that ID as a parameter to the console application. You'll also pass the location of the document, the deployment manifest, and the document assembly.  
+   在下一步的几个步骤中，你将获得文档的解决方案 ID，然后将该 ID 作为参数传递到控制台应用程序。 你还需要传递文档、 部署清单和文档集的位置。  
   
-12. Open the shortcut menu for the **ExcelWorkbook** project, and then choose **Open Folder in Windows Explorer** or **Open Folder in File Explorer** depending on your operating system.  
+12. 打开 **“ExcelWorkbook”** 项目的快捷菜单，然后根据操作系统选择 **“在 Windows 资源管理器中打开文件夹”** 或 **“在文件资源管理器中打开文件夹”** 。  
   
-   The folder that contains your solution opens.  
+   此时会打开包含解决方案的文件夹。  
   
-13. Open the project file of your solution in Notepad. For Visual Basic projects, the name of the file is ExcelWorkbook.vbproj. For C# projects, the name of the file is ExcelWorkbook.csproj.  
+13. 在记事本中打开解决方案的项目文件。 对于 Visual Basic 项目，该文件的名称为 ExcelWorkbook.vbproj。 对于 C# 项目，该文件的名称为 ExcelWorkbook.csproj。  
   
-14. In the project file, search for the **&lt;SolutionID&gt;** element, copy its value to the Clipboard, and then close Notepad.  
+14. 在项目文件中，搜索**&lt;解决方案 Id&gt;** 元素，将其值复制到剪贴板，，然后关闭记事本。  
   
-   You pass this value into the console app as a parameter.  
+   可以将该值作为参数传递到控制台应用程序。  
   
-15. In the properties page of **NewCustomAction1**, set the **Command Line** property to the following line of text.  
+15. 在 **“NewCustomAction1”**的属性页中，将 **“命令行”** 属性设置为以下文本行。  
   
   
    ```  
    /assemblyLocation="[INSTALLDIR]ExcelWorkbook.dll" /deploymentManifestLocation="[INSTALLDIR]ExcelWorkbook.vsto" /documentLocation="[INSTALLDIR]ExcelWorkbook.xlsx" /solutionID="Your Solution ID"  
    ```  
   
-16. Replace **Your Solution ID** with the solution ID that you copied to the Clipboard.  
+16. 将 **Your Solution ID** 替换为复制到剪贴板中的解决方案 ID。  
   
    > [!IMPORTANT]  
-   >    Test your installer to verify that the console application that this custom action runs can access documents in the [INSTALLDIR] directory. Some directories on the user's computer might require administrative access (for example, the Program Files directory). If you're deploying your solution to a directory that requires administrative access, you should open the **Properties** dialog box of the setup.exe file, choose the **Compatibility** tab, and then select the **Run this program as administrator** check box before you distribute the installer. If you don't want users to run the setup program with administrative permissions, set the [INSTALLDIR] property to a directory to which the user probably has access already, such as the **Documents** directory. For more information, see the [Specify Where You Want to Install the Solution on the user's computer](#Location) section of this topic.  
+   >    测试安装程序，以验证此自定义操作运行的控制台应用程序可以访问 [INSTALLDIR] 目录中的文档。 用户的计算机上的某些目录可能需要管理访问权限 （例如，Program Files 目录）。 如果你正在将解决方案部署到需要管理访问权限的目录，则应打开**属性**对话框中的 setup.exe 文件中，选择**兼容性**选项卡上，然后选择**以管理员身份运行此程序**分发安装程序之前的复选框。 如果你不希望用户具有管理权限运行安装程序，设置 [INSTALLDIR] 属性为用户可能有权访问的目录，如**文档**目录。 有关详细信息，请参阅[指定想要在用户的计算机上安装解决方案](#Location)本主题的部分。  
   
   
 ## <a name="Build"></a>Build the setup project  
   
 ####   
-1. In **Solution Explorer**, expand the **Prepare for Release** node, and then choose the **Releases** file.  
+1. 在 **“解决方案资源管理器”**中，展开 **“准备发布”** 节点，然后选择 **“发布”** 文件。  
   
-2. On the menu bar, choose **View**, **Open**.  
+2. 在菜单栏上，依次选择 **“查看”**、 **“打开”**。  
   
-   The **Builds** explorer opens in a side pane so that you can choose the type of release that you want to create.  
+   此时会在侧边窗格中打开 **“生成”** 资源管理器，便于你选择要创建的发布类型。  
   
-3. In the **Builds** explorer, choose the **SingleImage** folder.  
+3. 在 **“生成”** 资源管理器中，选择 **“SingleImage”** 文件夹。  
   
-4. In the pane next to the **Builds** explorer, choose the **Setup.exe** tab.  
+4. 在 **“生成”** 资源管理器旁边的窗格中，选择 **“Setup.exe”** 选项卡。  
   
-5. In the **Setup.exe** property page, from the **InstallShield Prerequisites Location** list, choose **Download From The Web**.  
+5. 在 **“Setup.exe”** 属性页中，从 **“InstallShield 系统必备组件位置”** 列表中，选择 **“从 Web 下载”**。  
   
-6. On the menu bar, choose **Build**, **Configuration Manager**.  
+6. 在菜单栏上，依次选择 **“生成”**、 **“配置管理器”**。  
   
-7. In the **Active solution configuration** list, choose **SingleImage**.  
+7. 在 **“活动解决方案配置”** 列表中，选择 **“SingleImage”**。  
   
-8. In the **Project contexts** table, in the **Configuration** column of the **OfficeAddInSetup** project, choose **SingleImage**, and then choose the **Close** button.  
+8. 在 **“项目上下文”** 表中，从 **“OfficeAddInSetup”** 项目的 **“配置”** 列中选择 **“SingleImage”**，然后选择 **“关闭”** 按钮。  
   
-9. On the menu bar, choose **Build**, **Build OfficeAddInSetup**.  
+9. 在菜单栏上，依次选择 **“生成”**、 **“生成 OfficeAddInSetup”**。  
   
-   After the build completes, you can locate the setup.exe file of the **OfficeAddInSetup** project at the following location: *OfficeAddInSetupProjectRoot***\OfficeAddInSetup\Express\SingleImage\DiskImages\DISK1\**  
+   在生成完成后，你可以找到的 setup.exe 文件**officeaddinsetup**项目上的以下位置： *OfficeAddInSetupProjectRoot***\OfficeAddInSetup\Express\SingleImage\DiskImages\DISK1\**  
   
   
-## <a name="see-also"></a>See Also  
-[Office Solution Prerequisites for Deployment](http://msdn.microsoft.com/en-us/library/9f672809-43a3-40a1-9057-397ce3b5126e)  
-[Deploying an Office Solution](../vsto/deploying-an-office-solution.md)  
+## <a name="see-also"></a>另请参阅  
+[用于部署的 Office 解决方案必备组件](http://msdn.microsoft.com/en-us/library/9f672809-43a3-40a1-9057-397ce3b5126e)  
+[部署 Office 解决方案](../vsto/deploying-an-office-solution.md)  
 [Registry Entries for VSTO Add-ins](../vsto/registry-entries-for-vsto-add-ins.md)  
-[Custom Document Properties Overview](../vsto/custom-document-properties-overview.md)  
-[Granting Trust to Office Solutions](../vsto/granting-trust-to-office-solutions.md)  
+[自定义文档属性概述](../vsto/custom-document-properties-overview.md)  
+[向 Office 解决方案授予信任](../vsto/granting-trust-to-office-solutions.md)  
 [Granting Trust to Documents](../vsto/granting-trust-to-documents.md)  
-[Deploying a Visual Studio 2010 Tools for Office Solution Using Windows Installer](http://go.microsoft.com/fwlink/?LinkId=201807)  
+[使用 Windows Installer 部署 Visual Studio 2010 Tools for Office 解决方案](http://go.microsoft.com/fwlink/?LinkId=201807)  
   
-

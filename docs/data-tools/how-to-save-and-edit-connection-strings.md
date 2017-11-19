@@ -1,5 +1,5 @@
 ---
-title: 'How to: Save and Edit Connection Strings | Microsoft Docs'
+title: "如何： 保存和编辑连接字符串 |Microsoft 文档"
 ms.custom: 
 ms.date: 11/04/2016
 ms.reviewer: 
@@ -7,57 +7,56 @@ ms.suite:
 ms.tgt_pltfrm: 
 ms.topic: article
 ms.assetid: f8ef3a2c-029c-423b-9d9e-a4f1add4f640
-caps.latest.revision: 14
-author: mikeblome
-ms.author: mblome
+caps.latest.revision: "14"
+author: gewarren
+ms.author: gewarren
 manager: ghogen
-translation.priority.mt:
-- cs-cz
-- pl-pl
-- pt-br
-- tr-tr
-ms.translationtype: HT
-ms.sourcegitcommit: 9e6c28d42bec272c6fd6107b4baf0109ff29197e
-ms.openlocfilehash: 61e4ae70c3154c1b47ef5eb48ad3079d5602f59a
-ms.contentlocale: zh-cn
-ms.lasthandoff: 08/22/2017
-
+ms.technology: vs-data-tools
+ms.openlocfilehash: 4a7482c269cd978d2c1848c896985b1194797e42
+ms.sourcegitcommit: ee42a8771f0248db93fd2e017a22e2506e0f9404
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/09/2017
 ---
-# <a name="how-to-save-and-edit-connection-strings"></a>How to: Save and Edit Connection Strings
-Connection strings in Visual Studio applications can be saved in the application configuration file (also referred to as application settings), or hard-coded directly in your application. Saving connection strings in the application configuration file simplifies the task of maintaining your application. If the connection string needs to be changed, then you can update it in the application settings file (as opposed to having to change it in the source code and recompile the application).
+# <a name="how-to-save-and-edit-connection-strings"></a>如何：保存和编辑连接字符串
+可以保存在应用程序配置文件 （也称为应用程序设置） 或硬编码在你的应用程序中直接在 Visual Studio 应用程序中的连接字符串。 在应用程序配置文件中保存连接字符串简化了维护应用程序的任务。 如果连接字符串需要进行更改，则可以在应用程序设置文件中对其进行更新（这与必须在源代码中对其进行更改并重新编译应用程序相反）。
 
-Storing sensitive information (such as the password) within the connection string can affect the security of your application. Connection strings saved to the application configuration file are not encrypted or obfuscated, so it may be possible for someone to access the file and view its contents. Using Windows Integrated Security is a more secure way to control access to a database.
+将敏感信息（如密码）存储在连接字符串中可能会影响应用程序的安全性。 保存在应用程序配置文件中的连接字符串是未经加密处理的，因此其他人有可能访问该文件并查看其内容。 若要控制对数据库的访问，一种较为安全的方法是使用 Windows 集成安全性。
 
-If you do not choose to use Windows integrated security and your database requires a user name and password, you can omit them from the connection string, but your application will need to provide this information to successfully connect to the database. For example, you can create a dialog box that prompts the user for this information and dynamically builds the connection string at run time. Security can still be an issue if the information is intercepted on the way to the database. For more information, see [Protecting Connection Information](https://msdn.microsoft.com/library/89211k9b.aspx).
+如果不选择使用 Windows 集成安全性，并且数据库需要用户名和密码，则可以在连接字符串中省略这些内容，但需要应用程序提供此信息才能成功连接到数据库。 例如，可以创建一个对话框提示用户提供此信息并在运行时动态生成连接字符串。 如果在发送到数据库的途中该信息被截获，则安全性将得不到保证。 有关详细信息，请参阅[保护连接信息](/dotnet/framework/data/adonet/protecting-connection-information)。
 
-## <a name="to-save-a-connection-string-from-within-the-data-wizards"></a>To save a connection string from within the data wizards
-Select the option to save the connection on the Save connection string to the application configuration file page.
+## <a name="to-save-a-connection-string-from-within-the-data-source-configuration-wizard"></a>若要保存连接字符串中数据源配置向导
+在**数据源配置向导**，选择将连接保存在连接字符串保存到应用程序配置文件页上的选项。
 
-## <a name="to-save-a-connection-string-directly-into-application-settings"></a>To save a connection string directly into application settings
-- In Solution Explorer double-click the My Project icon (Visual Basic) or Properties icon (C#) to open the Project Designer.
-- Select the Settings tab.
-- Enter a Name for the connection string. Refer to this name when accessing the connection string in code.
-- Set the Type to (Connection string).
-- Leave the Scope set to Application.
-- Type your connection string into the Value field, or click the ellipses (...) button in the Value field to open the Connection Properties dialog box to build your connection string.
-## <a name="editing-connection-strings-stored-in-application-settings"></a>Editing Connection Strings Stored in Application Settings
-You can modify connection information that is saved in application settings by using the Project Designer.
-### <a name="to-edit-a-connection-string-stored-in-application-settings"></a>To edit a connection string stored in application settings
-- In Solution Explorer, double-click the My Project icon (Visual Basic) or Properties icon (Visual C# to open the Project Designer.
-- Select the Settings tab.
-- Locate the connection you want to edit and select the text in the Value box.
-- Edit the connection string in the Value box, or click the ellipses in the Value box to edit your connection with the Connection Properties dialog box.
-## <a name="editing-hard-coded-connection-strings-in-datasets"></a>Editing Hard-Coded Connection Strings in Datasets
-You can modify connection information that is saved in code by using the Creating and Editing Typed Datasets.
-### <a name="to-edit-a-connection-string-stored-in-a-dataset"></a>To edit a connection string stored in a Dataset
-- In Solution Explorer, double-click the dataset (.xsd file) with the connection you want to edit.
-- Select the TableAdapter or query with the connection you want to edit.
-- In the Properties window expand the DefaultConnection node.
-- To quickly modify the connection string, edit the ConnectionString property, or click the down arrow on the DefaultConnection property and choose New Connection.
+## <a name="to-save-a-connection-string-directly-into-application-settings"></a>将连接字符串直接保存到应用程序设置中
+- 在解决方案资源管理器中，双击我的项目图标 (Visual Basic 中) 或属性图标 (C#) 以打开项目设计器。
+- 选择设置选项卡。
+- 输入连接字符串的名称。 当在代码中访问该连接字符串时引用此名称。
+- 设置 （连接字符串） 的类型。
+- 将范围设置为应用程序。
+- 在值字段中，键入你的连接字符串，或单击值字段，以打开连接属性对话框中，以生成连接字符串中的省略号 （...） 按钮。  
 
-## <a name="security"></a>Security
-Storing sensitive information (such as a password) within the connection string can affect the security of your application. Using Windows integrated security is a more secure way to control access to a database.
-For more information, see Securing Connection Strings and ADO.NET Secure Coding Guidelines.
+## <a name="editing-connection-strings-stored-in-application-settings"></a>编辑存储在应用程序设置的连接字符串
+你可以修改通过使用项目设计器保存在应用程序设置的连接信息。  
+
+### <a name="to-edit-a-connection-string-stored-in-application-settings"></a>编辑存储在应用程序设置中的连接字符串
+- 在解决方案资源管理器中，双击我的项目图标 (Visual Basic 中) 或属性图标 (C#) 以打开项目设计器。
+- 选择设置选项卡。
+- 找到你想要编辑，并在值字段中选择文本的连接。
+- 编辑连接字符串的值字段中，或单击要编辑与连接属性对话框中的连接的值字段中的省略号 （...） 按钮。  
+
+## <a name="editing-connection-strings-for-datasets"></a>编辑数据集的连接字符串
+你可以修改为数据集中的每个 TableAdapter 的连接信息。  
+
+### <a name="to-edit-a-connection-string-for-a-tableadapter-in-a-dataset"></a>若要编辑数据集中 TableAdapter 的连接字符串
+- 在解决方案资源管理器中，双击具有你想要编辑的连接的数据集 （.xsd 文件）。
+- 选择具有想要编辑的连接的查询的 TableAdapter。
+- 在属性窗口中，展开连接节点。
+- 若要快速修改连接字符串，编辑 ConnectionString 属性，或单击连接属性的向下箭头，然后选择新的连接。
+
+## <a name="security"></a>安全性
+将敏感信息（如密码）存储在连接字符串中可能会影响应用程序的安全性。 若要控制对数据库的访问，一种较为安全的方法是使用 Windows 集成安全性。
+有关详细信息，请参阅[保护连接信息](/dotnet/framework/data/adonet/protecting-connection-information)。
   
-## <a name="see-also"></a>See Also  
- [Visual Studio data tools for .NET](../data-tools/visual-studio-data-tools-for-dotnet.md)
+## <a name="see-also"></a>请参阅
+[添加连接](../data-tools/add-new-connections.md)

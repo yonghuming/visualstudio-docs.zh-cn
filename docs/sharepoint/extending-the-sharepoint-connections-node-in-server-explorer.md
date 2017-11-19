@@ -1,12 +1,10 @@
 ---
-title: Extending the SharePoint Connections Node in Server Explorer | Microsoft Docs
+title: "扩展服务器资源管理器中的 SharePoint 连接节点 |Microsoft 文档"
 ms.custom: 
 ms.date: 02/02/2017
-ms.prod: visual-studio-dev14
 ms.reviewer: 
 ms.suite: 
-ms.technology:
-- office-development
+ms.technology: office-development
 ms.tgt_pltfrm: 
 ms.topic: article
 dev_langs:
@@ -17,68 +15,68 @@ helpviewer_keywords:
 - SharePoint development in Visual Studio, extending SharePoint Connections node in Server Explorer
 - SharePoint Connections [SharePoint development in Visual Studio], creating a new node type
 ms.assetid: 8bfa5950-0ef4-4417-9538-cc8a5a1c35e2
-caps.latest.revision: 27
-author: kempb
-ms.author: kempb
+caps.latest.revision: "27"
+author: gewarren
+ms.author: gewarren
 manager: ghogen
-ms.translationtype: HT
-ms.sourcegitcommit: eb5c9550fd29b0e98bf63a7240737da4f13f3249
-ms.openlocfilehash: 8c4c5bb5d72f46f079fa2a2cd8e415b4cd321c41
-ms.contentlocale: zh-cn
-ms.lasthandoff: 08/30/2017
-
+ms.openlocfilehash: 3cf332197227e2055b322bce3658cde66dc48f90
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# <a name="extending-the-sharepoint-connections-node-in-server-explorer"></a>Extending the SharePoint Connections Node in Server Explorer
-  In Visual Studio, you can connect to local SharePoint sites on the development computer by using the **SharePoint Connections** node in the**Server Explorer** window. This node displays many of the components of local SharePoint sites in a hierarchical tree view. For example, you can view the lists, document libraries, and content types on local sites. For more information about using **Server Explorer** to connect to local SharePoint sites, see [Browsing SharePoint Connections Using Server Explorer](../sharepoint/browsing-sharepoint-connections-using-server-explorer.md).  
+# <a name="extending-the-sharepoint-connections-node-in-server-explorer"></a>扩展服务器资源管理器中的“SharePoint 连接”节点
+  在 Visual Studio 中，你可以连接到开发计算机上的本地 SharePoint 站点使用**SharePoint 连接**中的节点**服务器资源管理器**窗口。 此节点显示许多本地 SharePoint 站点组件在分层树视图中。 例如，你可以在本地站点上查看的列表、 文档库和内容类型。 有关使用**服务器资源管理器**若要连接到本地 SharePoint 站点，请参阅[浏览 SharePoint 连接使用服务器资源管理器](../sharepoint/browsing-sharepoint-connections-using-server-explorer.md)。  
   
- You can extend the **SharePoint Connections** node by creating extensions for existing nodes, or by creating a custom node type and adding it to the hierarchy of nodes.  
+ 你可以扩展**SharePoint 连接**节点通过创建现有节点的扩展或创建自定义节点类型，并将其添加到节点的层次结构。  
   
-## <a name="tasks-for-extending-the-sharepoint-connections-node"></a>Tasks for Extending the SharePoint Connections Node  
- To extend an existing node, create a Visual Studio extension that implements the <xref:Microsoft.VisualStudio.SharePoint.Explorer.IExplorerNodeTypeExtension> interface. When you extend a node, you can add functionality to the node such as your own shortcut menu items or custom properties. For more information, see [How to: Extend a SharePoint Node in Server Explorer](../sharepoint/how-to-extend-a-sharepoint-node-in-server-explorer.md).  
+## <a name="tasks-for-extending-the-sharepoint-connections-node"></a>用于扩展 SharePoint 连接节点的任务  
+ 若要扩展的现有节点，创建一个 Visual Studio 扩展，实现<xref:Microsoft.VisualStudio.SharePoint.Explorer.IExplorerNodeTypeExtension>接口。 扩展一个节点时，你可以将功能添加到如快捷菜单项或自定义属性的节点。 有关详细信息，请参阅[如何： 扩展服务器资源管理器中的 SharePoint 节点](../sharepoint/how-to-extend-a-sharepoint-node-in-server-explorer.md)。  
   
- To create a custom node type, create a Visual Studio extension that implements the <xref:Microsoft.VisualStudio.SharePoint.Explorer.IExplorerNodeTypeProvider> interface. Create a custom node if you want to display components of SharePoint sites that are not displayed in **Server Explorer** by default. For example, **Server Explorer** does not display the Web Part gallery of a SharePoint site by default, but you can add a custom node that does this. For more information, see [How to: Add a Custom SharePoint Node to Server Explorer](../sharepoint/how-to-add-a-custom-sharepoint-node-to-server-explorer.md) and [Walkthrough: Extending Server Explorer to Display Web Parts](../sharepoint/walkthrough-extending-server-explorer-to-display-web-parts.md).  
+ 若要创建自定义节点类型，创建一个 Visual Studio 扩展，实现<xref:Microsoft.VisualStudio.SharePoint.Explorer.IExplorerNodeTypeProvider>接口。 如果你想要显示的 SharePoint 网站的不会显示在组件创建一个自定义节点**服务器资源管理器**默认情况下。 例如，**服务器资源管理器**不可以添加默认情况下，但你的 SharePoint 站点的 Web 部件库中不显示执行此自定义节点。 有关详细信息，请参阅[如何： 向服务器资源管理器中添加自定义 SharePoint 节点](../sharepoint/how-to-add-a-custom-sharepoint-node-to-server-explorer.md)和[演练： 扩展服务器资源管理器显示 Web 部件](../sharepoint/walkthrough-extending-server-explorer-to-display-web-parts.md)。  
   
-## <a name="adding-custom-properties-to-nodes"></a>Adding Custom Properties to Nodes  
- When you extend a node or create a custom node type, you can add custom properties to the node. The properties appear in the **Properties** window when the node is selected.  
+## <a name="adding-custom-properties-to-nodes"></a>将自定义属性添加到节点  
+ 当你扩展的节点，或创建自定义节点类型时，你可以将自定义属性添加到节点。 属性将显示在**属性**窗口时选择的节点。  
   
- There are two types of custom properties you can add to a node:  
+ 有两种类型的可以向节点添加的自定义属性：  
   
--   Properties that display a set of read-only data from the SharePoint site. The data describes the SharePoint component that the node represents. For a walkthrough that demonstrates how to do this, see [Walkthrough: Extending Server Explorer to Display Web Parts](../sharepoint/walkthrough-extending-server-explorer-to-display-web-parts.md).  
+-   显示从 SharePoint 站点的只读数据的一组的属性。 数据描述该节点表示 SharePoint 组件。 有关演示如何执行此操作的演练，请参阅[演练： 扩展服务器资源管理器显示 Web 部件](../sharepoint/walkthrough-extending-server-explorer-to-display-web-parts.md)。  
   
--   Properties that display custom read/write data. For a code example that demonstrates how to do this, see [How to: Extend a SharePoint Node in Server Explorer](../sharepoint/how-to-extend-a-sharepoint-node-in-server-explorer.md).  
+-   显示自定义的读/写数据的属性。 有关演示如何执行此操作的代码示例，请参阅[如何： 扩展服务器资源管理器中的 SharePoint 节点](../sharepoint/how-to-extend-a-sharepoint-node-in-server-explorer.md)。  
   
-## <a name="getting-data-for-built-in-nodes"></a>Getting Data for Built-In Nodes  
- All of the built-in nodes provided by Visual Studio include some data about the SharePoint component that they represent. For example, a node that represents a list on the SharePoint site provides some data about the list, such as the title and the URL of the default view for the list.  
+## <a name="getting-data-for-built-in-nodes"></a>获取内置节点的数据  
+ 所有 Visual Studio 提供的内置节点包括有关 SharePoint 组件表示的一些数据。 例如，表示 SharePoint 站点上的列表的节点提供有关列表中，如标题和列表的默认视图的 URL 的一些数据。  
   
- To access this data, retrieve a data object from the <xref:Microsoft.VisualStudio.SharePoint.IAnnotatedObject.Annotations%2A> property of the <xref:Microsoft.VisualStudio.SharePoint.Explorer.IExplorerNode> object that represents the node you are interested in. The type of the data object depends on the type of the node.  
+ 若要访问此数据，检索中的数据对象<xref:Microsoft.VisualStudio.SharePoint.IAnnotatedObject.Annotations%2A>属性<xref:Microsoft.VisualStudio.SharePoint.Explorer.IExplorerNode>对象，表示你感兴趣的节点。 数据对象的类型取决于节点的类型。  
   
- The following code example demonstrates how to get the data object for a list node. To see this example in the context of a larger example, see [How to: Get Data for a Built-In SharePoint Node in Server Explorer](../sharepoint/how-to-get-data-for-a-built-in-sharepoint-node-in-server-explorer.md).  
+ 下面的代码示例演示如何获取列表节点的数据对象。 若要查看此示例中的上下文中的一个更大的示例，请参阅[如何： 在服务器资源管理器中的内置 SharePoint 节点获取数据](../sharepoint/how-to-get-data-for-a-built-in-sharepoint-node-in-server-explorer.md)。  
   
- [!code-vb[SPExtensibility.ProjectSystemExtension.General#11](../sharepoint/codesnippet/VisualBasic/projectsystemexamples/extension/serverexplorerextensionnodeinfo.vb#11)] [!code-csharp[SPExtensibility.ProjectSystemExtension.General#11](../sharepoint/codesnippet/CSharp/projectsystemexamples/extension/serverexplorerextensionnodeinfo.cs#11)]  
+ [!code-vb[SPExtensibility.ProjectSystemExtension.General#11](../sharepoint/codesnippet/VisualBasic/projectsystemexamples/extension/serverexplorerextensionnodeinfo.vb#11)]
+ [!code-csharp[SPExtensibility.ProjectSystemExtension.General#11](../sharepoint/codesnippet/CSharp/projectsystemexamples/extension/serverexplorerextensionnodeinfo.cs#11)]  
   
- The following table lists the data object types for each built-in node type.  
+ 下表列出每个内置的节点类型的数据对象类型。  
   
-|Node type|Data object type|  
+|节点类型|数据对象类型|  
 |---------------|----------------------|  
-|SharePoint site node|<xref:Microsoft.VisualStudio.SharePoint.Explorer.IExplorerSiteNodeInfo>|  
-|Content type|<xref:Microsoft.VisualStudio.SharePoint.Explorer.Extensions.IContentTypeNodeInfo>|  
-|Feature|<xref:Microsoft.VisualStudio.SharePoint.Explorer.Extensions.IFeatureNodeInfo>|  
-|Field|<xref:Microsoft.VisualStudio.SharePoint.Explorer.Extensions.IFieldNodeInfo>|  
-|List|<xref:Microsoft.VisualStudio.SharePoint.Explorer.Extensions.IListNodeInfo>|  
-|List template|<xref:Microsoft.VisualStudio.SharePoint.Explorer.Extensions.IListTemplateNodeInfo>|  
-|List view (Microsoft.SharePoint.SPView)|<xref:Microsoft.VisualStudio.SharePoint.Explorer.Extensions.IListViewNodeInfo>|  
-|Workflow association|<xref:Microsoft.VisualStudio.SharePoint.Explorer.Extensions.IWorkflowAssociationNodeInfo>|  
-|Workflow template|<xref:Microsoft.VisualStudio.SharePoint.Explorer.Extensions.IWorkflowTemplateNodeInfo>|  
+|SharePoint 网站节点|<xref:Microsoft.VisualStudio.SharePoint.Explorer.IExplorerSiteNodeInfo>|  
+|内容类型|<xref:Microsoft.VisualStudio.SharePoint.Explorer.Extensions.IContentTypeNodeInfo>|  
+|功能|<xref:Microsoft.VisualStudio.SharePoint.Explorer.Extensions.IFeatureNodeInfo>|  
+|字段|<xref:Microsoft.VisualStudio.SharePoint.Explorer.Extensions.IFieldNodeInfo>|  
+|列表|<xref:Microsoft.VisualStudio.SharePoint.Explorer.Extensions.IListNodeInfo>|  
+|列表模板|<xref:Microsoft.VisualStudio.SharePoint.Explorer.Extensions.IListTemplateNodeInfo>|  
+|列表视图 (Microsoft.SharePoint.SPView)|<xref:Microsoft.VisualStudio.SharePoint.Explorer.Extensions.IListViewNodeInfo>|  
+|工作流关联|<xref:Microsoft.VisualStudio.SharePoint.Explorer.Extensions.IWorkflowAssociationNodeInfo>|  
+|工作流模板|<xref:Microsoft.VisualStudio.SharePoint.Explorer.Extensions.IWorkflowTemplateNodeInfo>|  
   
- For more information about using the <xref:Microsoft.VisualStudio.SharePoint.IAnnotatedObject.Annotations%2A> property, see [Associating Custom Data with SharePoint Tools Extensions](../sharepoint/associating-custom-data-with-sharepoint-tools-extensions.md).  
+ 有关使用<xref:Microsoft.VisualStudio.SharePoint.IAnnotatedObject.Annotations%2A>属性，请参阅[关联与 SharePoint 工具扩展的自定义数据](../sharepoint/associating-custom-data-with-sharepoint-tools-extensions.md)。  
   
-## <a name="see-also"></a>See Also  
- [Walkthrough: Extending Server Explorer to Display Web Parts](../sharepoint/walkthrough-extending-server-explorer-to-display-web-parts.md)   
- [How to: Extend a SharePoint Node in Server Explorer](../sharepoint/how-to-extend-a-sharepoint-node-in-server-explorer.md)   
- [How to: Add a Custom SharePoint Node to Server Explorer](../sharepoint/how-to-add-a-custom-sharepoint-node-to-server-explorer.md)   
- [How to: Get Data for a Built-In SharePoint Node in Server Explorer](../sharepoint/how-to-get-data-for-a-built-in-sharepoint-node-in-server-explorer.md)   
- [Associating Custom Data with SharePoint Tools Extensions](../sharepoint/associating-custom-data-with-sharepoint-tools-extensions.md)   
- [Browsing SharePoint Connections Using Server Explorer](../sharepoint/browsing-sharepoint-connections-using-server-explorer.md)   
- [Extending the SharePoint Tools in Visual Studio](../sharepoint/extending-the-sharepoint-tools-in-visual-studio.md)  
+## <a name="see-also"></a>另请参阅  
+ [演练： 扩展服务器资源管理器以显示 Web 部件](../sharepoint/walkthrough-extending-server-explorer-to-display-web-parts.md)   
+ [如何： 扩展服务器资源管理器中的 SharePoint 节点](../sharepoint/how-to-extend-a-sharepoint-node-in-server-explorer.md)   
+ [如何： 向服务器资源管理器中添加自定义 SharePoint 节点](../sharepoint/how-to-add-a-custom-sharepoint-node-to-server-explorer.md)   
+ [如何： 在服务器资源管理器中的内置 SharePoint 节点获取数据](../sharepoint/how-to-get-data-for-a-built-in-sharepoint-node-in-server-explorer.md)   
+ [将自定义数据与 SharePoint 工具扩展相关联](../sharepoint/associating-custom-data-with-sharepoint-tools-extensions.md)   
+ [使用服务器资源管理器浏览 SharePoint 连接](../sharepoint/browsing-sharepoint-connections-using-server-explorer.md)   
+ [在 Visual Studio 中扩展 SharePoint 工具](../sharepoint/extending-the-sharepoint-tools-in-visual-studio.md)  
   
   

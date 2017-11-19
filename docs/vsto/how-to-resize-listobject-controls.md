@@ -1,12 +1,10 @@
 ---
-title: 'How to: Resize ListObject Controls | Microsoft Docs'
+title: "如何： 调整 ListObject 控件的大小 |Microsoft 文档"
 ms.custom: 
 ms.date: 02/02/2017
-ms.prod: visual-studio-dev14
 ms.reviewer: 
 ms.suite: 
-ms.technology:
-- office-development
+ms.technology: office-development
 ms.tgt_pltfrm: 
 ms.topic: article
 dev_langs:
@@ -16,87 +14,90 @@ helpviewer_keywords:
 - controls [Office development in Visual Studio], resizing
 - ListObject control, resizing
 ms.assetid: a4c7dceb-7b55-447e-9b88-c3596a2fc361
-caps.latest.revision: 50
-author: kempb
-ms.author: kempb
+caps.latest.revision: "50"
+author: gewarren
+ms.author: gewarren
 manager: ghogen
-ms.translationtype: HT
-ms.sourcegitcommit: eb5c9550fd29b0e98bf63a7240737da4f13f3249
-ms.openlocfilehash: df869317edc3a4bfecd9cc208c7434f82375088e
-ms.contentlocale: zh-cn
-ms.lasthandoff: 08/30/2017
-
+ms.openlocfilehash: 9aafcb9a131743c09d139f6f210c0d50425f4cba
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# <a name="how-to-resize-listobject-controls"></a>How to: Resize ListObject Controls
-  You set the size of a <xref:Microsoft.Office.Tools.Excel.ListObject> control when you add it to a Microsoft Office Excel workbook; however, you might want to resize it at a later time. For example, you might want to change a two-column list to three columns.  
+# <a name="how-to-resize-listobject-controls"></a>如何：调整 ListObject 控件的大小
+  将 <xref:Microsoft.Office.Tools.Excel.ListObject> 控件添加到 Microsoft Office Excel 工作簿时，可以设置该控件的大小；但是，你可能需要在以后重设其大小。 例如，你可能希望将两列式列表更改为三列式列表。  
   
  [!INCLUDE[appliesto_xlalldocapp](../vsto/includes/appliesto-xlalldocapp-md.md)]  
   
- You can resize <xref:Microsoft.Office.Tools.Excel.ListObject> controls at design time or at run time in document-level projects. You can resize <xref:Microsoft.Office.Tools.Excel.ListObject> controls at run time in an VSTO Add-in project.  
+ 在文档级项目中，可以在设计时或运行时重设 <xref:Microsoft.Office.Tools.Excel.ListObject> 控件的大小。 你可以在运行时在 VSTO 外接程序项目中重设 <xref:Microsoft.Office.Tools.Excel.ListObject> 控件的大小。  
   
- This topic describes the following tasks:  
+ 本主题介绍了以下任务：  
   
--   [Resizing ListObject controls at design time](#designtime)  
+-   [在设计时重设 ListObject 控件的大小](#designtime)  
   
--   [Resizing ListObject controls at run time in a document-level project](#runtimedoclevel)  
+-   [在运行时在文档级项目中重设 ListObject 控件的大小](#runtimedoclevel)  
   
--   [Resizing ListObject controls at run time in an VSTO Add-in project](#runtimeaddin)  
+-   [在运行时在 VSTO 外接程序项目中重设 ListObject 控件的大小](#runtimeaddin)  
   
- For more information about <xref:Microsoft.Office.Tools.Excel.ListObject> controls, see [ListObject Control](../vsto/listobject-control.md).  
+ 有关 <xref:Microsoft.Office.Tools.Excel.ListObject> 控件的详细信息，请参阅 [ListObject Control](../vsto/listobject-control.md)。  
   
- ![link to video](../vsto/media/playvideo.gif "link to video") For a related video demonstration, see [How Do I: Add Columns to a Data-Bound List Object at RunTime?](http://go.microsoft.com/fwlink/?LinkID=130318).  
+ ![视频链接](../vsto/media/playvideo.gif "视频链接")相关的视频演示，请参阅[如何执行 i： 添加列与数据绑定列表对象在运行时？](http://go.microsoft.com/fwlink/?LinkID=130318)。  
   
-##  <a name="designtime"></a> Resizing a ListObject Control at Design Time  
- To resize a list, you can click and drag one of the sizing handles, or you can redefine its size in the **Resize List** dialog box.  
+##  <a name="designtime"></a> 在设计时重设 ListObject 控件的大小  
+ 若要重设列表的大小，可以单击并拖动其中一个尺寸控点，或者在“重设列表大小”  对话框中重新定义其大小。  
   
-#### <a name="to-resize-a-list-by-using-the-resize-list-dialog-box"></a>To resize a list by using the Resize List dialog box  
+#### <a name="to-resize-a-list-by-using-the-resize-list-dialog-box"></a>使用“重设列表大小”对话框重设列表的大小  
   
   
-1.  Click anywhere in the  <xref:Microsoft.Office.Tools.Excel.ListObject> table. The **Table Tools, Design** tab in the ribbon appears.  
+1.  中单击任一处<xref:Microsoft.Office.Tools.Excel.ListObject>表。 **表工具、 设计**功能区中的选项卡将出现。  
   
-2.  In the Properties section, click on **Resize Table**.  
+2.  在属性部分中，单击**调整大小表**。  
 
     ![VSTO_ResizeTable](../vsto/media/vsto-resizetable.png)
   
-3.  Select the new data range for your table.  
+3.  选择你的表的新数据范围。  
   
-4.  Click **OK**.  
+4.  单击“确定”。  
   
-##  <a name="runtimedoclevel"></a> Resizing a ListObject Control at Run Time in a Document-Level Project  
- You can resize a <xref:Microsoft.Office.Tools.Excel.ListObject> control at run time by using the <xref:Microsoft.Office.Tools.Excel.ListObject.Resize%2A> method. You cannot use this method to move the <xref:Microsoft.Office.Tools.Excel.ListObject> control to a new location on the worksheet. The headers must remain in the same row, and the resized <xref:Microsoft.Office.Tools.Excel.ListObject> control must overlap the original list object. The resized <xref:Microsoft.Office.Tools.Excel.ListObject> control must contain a header row, and at least one row of data.  
+##  <a name="runtimedoclevel"></a> 在运行时在文档级项目中重设 ListObject 控件的大小  
+ 在运行时，可以使用 <xref:Microsoft.Office.Tools.Excel.ListObject> 方法重设 <xref:Microsoft.Office.Tools.Excel.ListObject.Resize%2A> 控件的大小。 不能使用此方法将 <xref:Microsoft.Office.Tools.Excel.ListObject> 控件移动到工作表中的新位置。 标题必须保持在同一行中，且重设大小后的 <xref:Microsoft.Office.Tools.Excel.ListObject> 控件必须与原列表对象重叠。 重设大小后的 <xref:Microsoft.Office.Tools.Excel.ListObject> 控件必须包含一个标题行，而且至少有一行数据。  
   
-#### <a name="to-resize-a-list-object-programmatically"></a>To resize a list object programmatically  
+#### <a name="to-resize-a-list-object-programmatically"></a>以编程方式重设列表对象的大小  
   
-1.  Create a <xref:Microsoft.Office.Tools.Excel.ListObject> control that spans cell **A1** through **B3** on `Sheet1`.  
+1.  在 <xref:Microsoft.Office.Tools.Excel.ListObject> 上创建一个跨单元格“A1”  到“B3”  的 `Sheet1`控件。  
   
-     [!code-csharp[Trin_VstcoreHostControlsExcel#6](../vsto/codesnippet/CSharp/Trin_VstcoreHostControlsExcelCS/Sheet1.cs#6)]  [!code-vb[Trin_VstcoreHostControlsExcel#6](../vsto/codesnippet/VisualBasic/Trin_VstcoreHostControlsExcelVB/Sheet1.vb#6)]  
+     [!code-csharp[Trin_VstcoreHostControlsExcel#6](../vsto/codesnippet/CSharp/Trin_VstcoreHostControlsExcelCS/Sheet1.cs#6)]
+     [!code-vb[Trin_VstcoreHostControlsExcel#6](../vsto/codesnippet/VisualBasic/Trin_VstcoreHostControlsExcelVB/Sheet1.vb#6)]  
   
-2.  Resize the list to include cells **A1** through **C5**.  
+2.  重设该列表的大小，使其包含单元格“A1”  到“C5” 。  
   
-     [!code-csharp[Trin_VstcoreHostControlsExcel#7](../vsto/codesnippet/CSharp/Trin_VstcoreHostControlsExcelCS/Sheet1.cs#7)]  [!code-vb[Trin_VstcoreHostControlsExcel#7](../vsto/codesnippet/VisualBasic/Trin_VstcoreHostControlsExcelVB/Sheet1.vb#7)]  
+     [!code-csharp[Trin_VstcoreHostControlsExcel#7](../vsto/codesnippet/CSharp/Trin_VstcoreHostControlsExcelCS/Sheet1.cs#7)]
+     [!code-vb[Trin_VstcoreHostControlsExcel#7](../vsto/codesnippet/VisualBasic/Trin_VstcoreHostControlsExcelVB/Sheet1.vb#7)]  
   
-##  <a name="runtimeaddin"></a> Resizing a ListObject at Run Time in an VSTO Add-in project  
- You can resize a <xref:Microsoft.Office.Tools.Excel.ListObject> control on any open worksheet at run time. For more information about how to add a <xref:Microsoft.Office.Tools.Excel.ListObject> control to a worksheet by using an VSTO Add-in, see [How to: Add ListObject Controls to Worksheets](../vsto/how-to-add-listobject-controls-to-worksheets.md).  
+##  <a name="runtimeaddin"></a> 在运行时在 VSTO 外接程序项目中重设 ListObject 的大小  
+ 你可以在运行时在任何打开的工作表中调整 <xref:Microsoft.Office.Tools.Excel.ListObject> 控件的大小。 有关如何使用 VSTO 外接程序向工作表添加 <xref:Microsoft.Office.Tools.Excel.ListObject> 控件的详细信息，请参阅 [How to: Add ListObject Controls to Worksheets](../vsto/how-to-add-listobject-controls-to-worksheets.md)。  
   
-#### <a name="to-resize-a-list-object-programmatically"></a>To resize a list object programmatically  
+#### <a name="to-resize-a-list-object-programmatically"></a>以编程方式重设列表对象的大小  
   
-1.  Create a <xref:Microsoft.Office.Tools.Excel.ListObject> control that spans cell **A1** through **B3** on `Sheet1`.  
+1.  在 <xref:Microsoft.Office.Tools.Excel.ListObject> 上创建一个跨单元格“A1”  到“B3”  的 `Sheet1`控件。  
   
-     [!code-csharp[Trin_Excel_Dynamic_Controls#12](../vsto/codesnippet/CSharp/Trin_Excel_Dynamic_Controls/ThisAddIn.cs#12)]  [!code-vb[Trin_Excel_Dynamic_Controls#12](../vsto/codesnippet/VisualBasic/Trin_Excel_Dynamic_Controls/ThisAddIn.vb#12)]  
+     [!code-csharp[Trin_Excel_Dynamic_Controls#12](../vsto/codesnippet/CSharp/Trin_Excel_Dynamic_Controls/ThisAddIn.cs#12)]
+     [!code-vb[Trin_Excel_Dynamic_Controls#12](../vsto/codesnippet/VisualBasic/Trin_Excel_Dynamic_Controls/ThisAddIn.vb#12)]  
   
-2.  Resize the list to include cells **A1** through **C5**.  
+2.  重设该列表的大小，使其包含单元格“A1”  到“C5” 。  
   
-     [!code-csharp[Trin_Excel_Dynamic_Controls#13](../vsto/codesnippet/CSharp/Trin_Excel_Dynamic_Controls/ThisAddIn.cs#13)]  [!code-vb[Trin_Excel_Dynamic_Controls#13](../vsto/codesnippet/VisualBasic/Trin_Excel_Dynamic_Controls/ThisAddIn.vb#13)]  
+     [!code-csharp[Trin_Excel_Dynamic_Controls#13](../vsto/codesnippet/CSharp/Trin_Excel_Dynamic_Controls/ThisAddIn.cs#13)]
+     [!code-vb[Trin_Excel_Dynamic_Controls#13](../vsto/codesnippet/VisualBasic/Trin_Excel_Dynamic_Controls/ThisAddIn.vb#13)]  
   
-## <a name="see-also"></a>See Also  
- [Extending Word Documents and Excel Workbooks in VSTO Add-ins at Run Time](../vsto/extending-word-documents-and-excel-workbooks-in-vsto-add-ins-at-run-time.md)   
- [Controls on Office Documents](../vsto/controls-on-office-documents.md)   
- [Adding Controls to Office Documents at Run Time](../vsto/adding-controls-to-office-documents-at-run-time.md)   
+## <a name="see-also"></a>另请参阅  
+ [在运行时扩展 Word 文档和 Excel 工作簿在 VSTO 外接程序](../vsto/extending-word-documents-and-excel-workbooks-in-vsto-add-ins-at-run-time.md)   
+ [Office 文档上的控件](../vsto/controls-on-office-documents.md)   
+ [在运行时向 Office 文档添加控件](../vsto/adding-controls-to-office-documents-at-run-time.md)   
  [Host Items and Host Controls Overview](../vsto/host-items-and-host-controls-overview.md)   
- [Automating Excel by Using Extended Objects](../vsto/automating-excel-by-using-extended-objects.md)   
- [ListObject Control](../vsto/listobject-control.md)   
- [How to: Add ListObject Controls to Worksheets](../vsto/how-to-add-listobject-controls-to-worksheets.md)   
- [How to: Resize Bookmark Controls](../vsto/how-to-resize-bookmark-controls.md)   
- [How to: Resize NamedRange Controls](../vsto/how-to-resize-namedrange-controls.md)  
+ [使用扩展对象实现 Excel 自动化](../vsto/automating-excel-by-using-extended-objects.md)   
+ [ListObject 控件](../vsto/listobject-control.md)   
+ [如何： 向工作表添加 ListObject 控件](../vsto/how-to-add-listobject-controls-to-worksheets.md)   
+ [如何： 调整书签控件的大小](../vsto/how-to-resize-bookmark-controls.md)   
+ [如何：调整 NamedRange 控件的大小](../vsto/how-to-resize-namedrange-controls.md)  
   
   

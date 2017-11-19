@@ -1,62 +1,63 @@
 ---
-title: "对函数行为进行批注 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-devops-test"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "_On_failure_"
-  - "_Return_type_success_"
-  - "_Always_"
-  - "_Maybe_raises_SEH_exception_"
-  - "_Raises_SEH_exception_"
-  - "_Called_from_function_class_"
-  - "_Function_class_"
-  - "_Must_inspect_result_"
-  - "_Success_"
-  - "_Check_return_"
-  - "_Use_decl_annotations_"
+title: "对函数行为进行批注 |Microsoft 文档"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology: vs-ide-code-analysis
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords:
+- _On_failure_
+- _Return_type_success_
+- _Always_
+- _Maybe_raises_SEH_exception_
+- _Raises_SEH_exception_
+- _Called_from_function_class_
+- _Function_class_
+- _Must_inspect_result_
+- _Success_
+- _Check_return_
+- _Use_decl_annotations_
 ms.assetid: c0aa268d-6fa3-4ced-a8c6-f7652b152e61
-caps.latest.revision: 11
-author: "corob-msft"
-ms.author: "corob"
-manager: "ghogen"
-caps.handback.revision: 11
+caps.latest.revision: "11"
+author: mikeblome
+ms.author: mblome
+manager: ghogen
+ms.openlocfilehash: 84a66d16241ff9f1f385bda8c1def6a82e5971a5
+ms.sourcegitcommit: fb751e41929f031d1a9247bc7c8727312539ad35
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/15/2017
 ---
-# 对函数行为进行批注
-[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
-
-除批注 [函数参数和返回值](../code-quality/annotating-function-parameters-and-return-values.md)外，可以使用批注来为整个函数的属性。  
+# <a name="annotating-function-behavior"></a>对函数行为进行批注
+除了批注[函数参数和返回值](../code-quality/annotating-function-parameters-and-return-values.md)，还可以批注整个函数的属性。  
   
-## 功能批注  
- 下列注意事项适用于整个函数并描述行为或将需要为 true。  
+## <a name="function-annotations"></a>功能批注  
+ 下列批注适用于整个函数，并描述了其行为或预期。  
   
-|批注|说明|  
-|--------|--------|  
-|`_Called_from_function_class_(name)`|没有单独用于突出；相反，它将使用 `_When_` 的谓词的注释。  有关详细信息，请参阅[指定何时以及在何处应用批注](../code-quality/specifying-when-and-where-an-annotation-applies.md)。<br /><br /> `name` 参数是一中还显示有一些函数声明的一个 `_Function_class_` 注释的任意字符串。  `_Called_from_function_class_` 返回非零，则当前分析函数的批注使用具有相同 `name`的 `_Function_class_` 值；否则，返回零。|  
-|`_Check_return_`|注释一个返回值，调用方应该检查代码。  如果函数中无效上下文，调用检查器报告错误。|  
-|`_Function_class_(name)`|`name` 参数为由用户指定的任意字符串。它在其他命名空间是不同的命名空间。  函数、函数指针或函数指针类型，最 usefully\-a 能属于指定为一个或多个函数类。|  
-|`_Raises_SEH_exception_`|杂始终引发结构化异常处理程序 \(SEH\) 异常，以及 `_When_` 和 `_On_failure_` 条件的函数。  有关详细信息，请参阅[指定何时以及在何处应用批注](../code-quality/specifying-when-and-where-an-annotation-applies.md)。|  
-|`_Maybe_raises_SEH_exception_`|批注可以选择引发 SEH 异常，以及 `_When_` 和 `_On_failure_` 条件的函数。|  
-|`_Must_inspect_result_`|批注所有输出值，包括全局变量、参数和返回值。如果中批注对象的值随后进行检查，分析程序所报告错误。“选中”包括是否在 case 表达式，分配给输出参数或全局，或作为参数传递。对于返回值，`_Must_inspect_result_` 暗指 `_Check_return_`。|  
-|`_Use_decl_annotations_`|在函数定义上 \(aka 函数体\) 来注释使用位置列表标题中。 在使用 `_Use_decl_annotations_` 时，将出现在同一函数的范围标头使用的注释时，它们也是在具有 `_Use_decl_annotations_` 的注释定义。|  
+|批注|描述|  
+|----------------|-----------------|  
+|`_Called_from_function_class_(name)`|不是为了单独存在；相反，它是一个旨在与 `_When_` 批注一起使用的谓词。 有关详细信息，请参阅[和指定时其中批注适用](../code-quality/specifying-when-and-where-an-annotation-applies.md)。<br /><br /> `name`参数是一个任意字符串，也将出现在`_Function_class_`某些函数的声明中的批注。  `_Called_from_function_class_`返回非零，如果当前分析的函数批注使用`_Function_class_`具有相同的值`name`; 否则为它将返回零。|  
+|`_Check_return_`|批注一个返回值，并声明调用方应检查此值。 如果在 void 上下文中调用函数，则检查器将报告错误。|  
+|`_Function_class_(name)`|`name` 参数为由用户指定的任意字符串。  它存在于与其他命名空间不同的命名空间中。 函数、函数指针或（最有用）函数指针类型可指定为属于一个或多个函数类。|  
+|`_Raises_SEH_exception_`|根据 `_When_` 和 `_On_failure_` 条件，批注始终引发结构化异常处理程序 (SEH) 异常的函数。 有关详细信息，请参阅[和指定时其中批注适用](../code-quality/specifying-when-and-where-an-annotation-applies.md)。|  
+|`_Maybe_raises_SEH_exception_`|根据 `_When_` 和 `_On_failure_` 条件，批注可选择引发 SEH 异常的函数。|  
+|`_Must_inspect_result_`|批注所有输出值，包括返回值、参数和全局值。  如果随后不检查批注对象中的值，则分析器将报告错误。 “检查”包括是否用于条件表达式，可分配给输出参数或全局，或作为参数传递。  对于返回值，`_Must_inspect_result_` 暗指 `_Check_return_`。|  
+|`_Use_decl_annotations_`|可能用于在函数定义 （也称为函数体） 上替代的标头中的批注的列表。  当`_Use_decl_annotations_`是出现在同一函数的范围内标头的批注使用就像它们也会呈现在具有定义`_Use_decl_annotations_`批注。|  
   
-## 成功\/失败批注  
- 当函数失败时，其结果可能与函数时成功不完整的结果或与不同。在下面的列表中说明提供了表示失败行为。若要使用这些注释，您必须启用它们确定成功；因此，需要 `_Success_` 注释。注意 `NTSTATUS` 和 `HRESULT` 已具有一个 `_Success_` 注释生成到；但是，在中，如果指定您自己的 `NTSTATUS` 上的 `_Success_` 说明或 `HRESULT`，它重写内置注释。  
+## <a name="successfailure-annotations"></a>成功/失败批注  
+ 函数可能会失败，此时，函数的结果可能不完整或与成功时的结果不同。  下面列表中的批注提供了表示失败行为的方法。  若要使用这些批注，您必须使它们能够确定成功；因此，需要 `_Success_` 批注。  请注意，`NTSTATUS` 和 `HRESULT` 已内置 `_Success_` 批注；但是，如果对 `_Success_` 或 `NTSTATUS` 指定自己的 `HRESULT` 批注，则它将重写内置批注。  
   
-|批注|说明|  
-|--------|--------|  
-|`_Always_(anno_list)`|等效于 `anno_list _On_failure_(anno_list)`;即在 `anno_list` 的注释应用函数是否成功。|  
-|`_On_failure_(anno_list)`|在 typedef 的 `_Return_type_success_` 是使用时，`_Success_` 也用于显式批注函数的任意或隐式。  在 `_On_failure_` 注释位于函数参数或返回值时，将 \(anno\) 的每个注释的 `anno_list` 行为，就好像该代码为 `_When_(!expr, anno)`，其中 `expr` 是 `_Success_` 参数为必需的说明。  这意味着 `_Success_` 的隐式应用于的所有后期条件的不适用于 `_On_failure_`。|  
-|`_Return_type_success_(expr)`|应用为 typedef。  指示该类型返回，并且不显式将 `_Success_` 的所有函数批注，就像其 `_Success_(expr)`。  `_Return_type_success_` 基于函数或函数指针的 typedef 无法使用。|  
-|`_Success_(expr)`|`expr` 是为右值的表达式。  在 `_Success_` 注释存在于函数声明或定义时，每一注释上的 \(`anno`\) 函数和在后期条件行为，就好像该代码为 `_When_(expr, anno)`。  在 `_Success_` 注释的函数可能只能使用，而不对其参数或返回类型。  可以具有多对函数的一个 `_Success_` 注释，因此，它无法在任何 `_When_`、`_At_`或 `_Group_`。  有关详细信息，请参阅[指定何时以及在何处应用批注](../code-quality/specifying-when-and-where-an-annotation-applies.md)。|  
+|批注|描述|  
+|----------------|-----------------|  
+|`_Always_(anno_list)`|等效于 `anno_list _On_failure_(anno_list)`；也就是说，无论函数是否成功，`anno_list` 中的批注都适用。|  
+|`_On_failure_(anno_list)`|仅当同时使用 `_Success_` 来批注函数时使用，并通过 typedef 的 `_Return_type_success_` 以显式或隐式方式使用。 当 `_On_failure_` 批注位于函数参数或返回值上时，`anno_list` (anno) 中的每个批注的行为就像将其编码为 `_When_(!expr, anno)`，其中，`expr` 是所需 `_Success_` 批注的参数。 这意味着，`_Success_` 到所有后置条件的隐含应用并不适用于 `_On_failure_`。|  
+|`_Return_type_success_(expr)`|可以应用于 typedef。 表示将批注所有返回该类型并且不显式具有 `_Success_` 的所有函数，就像它们具有 `_Success_(expr)`。 `_Return_type_success_` 不能用于函数或函数指针类型。|  
+|`_Success_(expr)`|`expr` 是生成右值的表达式。 当 `_Success_` 批注位于函数声明或定义上时，函数上以及后置条件中的每个批注 (`anno`) 的行为就像它已编码为 `_When_(expr, anno)`。 `_Success_` 批注只能用于函数，而不能用于函数的参数或返回类型。 一个函数上最多可以有一个 `_Success_` 批注，并且不能位于任何 `_When_`、`_At_` 或 `_Group_` 中。 有关详细信息，请参阅[和指定时其中批注适用](../code-quality/specifying-when-and-where-an-annotation-applies.md)。|  
   
-## 请参阅  
- [使用 SAL 批注以减少 C\/C\+\+ 代码缺陷](../code-quality/using-sal-annotations-to-reduce-c-cpp-code-defects.md)   
+## <a name="see-also"></a>另请参阅  
+ [使用 SAL 批注以减少 C/c + + 代码缺陷](../code-quality/using-sal-annotations-to-reduce-c-cpp-code-defects.md)   
  [了解 SAL](../code-quality/understanding-sal.md)   
  [对函数参数和返回值进行批注](../code-quality/annotating-function-parameters-and-return-values.md)   
  [批注结构和类](../code-quality/annotating-structs-and-classes.md)   

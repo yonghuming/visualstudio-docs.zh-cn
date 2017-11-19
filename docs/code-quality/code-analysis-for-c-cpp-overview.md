@@ -1,55 +1,55 @@
 ---
-title: "C/C++ 代码分析概述 | Microsoft Docs"
-ms.custom: ""
-ms.date: "12/15/2016"
-ms.prod: "visual-studio-dev14"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-devops-test"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-helpviewer_keywords: 
-  - "#pragma 指令, 代码分析"
-  - "批注, 代码分析"
-  - "生成集成, 代码分析"
-  - "C, 代码分析"
-  - "C/C++ 代码分析"
-  - "C++, 代码分析"
-  - "签入策略, 代码分析"
-  - "代码分析工具"
-  - "代码分析, C/C++"
-  - "命令行, 代码分析"
-  - "IDE, 代码分析"
-  - "pragma 指令, 代码分析"
+title: "代码分析为 C/c + + 概述 |Microsoft 文档"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology: vs-ide-code-analysis
+ms.tgt_pltfrm: 
+ms.topic: article
+helpviewer_keywords:
+- annotations, code analysis
+- build integration, code analysis
+- C/C++ code analysis
+- IDE, code analysis
+- pragma directive, code analysis
+- code analysis, C/C++
+- code analysis tool
+- command line, code analysis
+- C++, code analysis
+- check-in policies, code analysis
+- '#pragma directives, code analysis'
+- C, code analysis
 ms.assetid: 81f0c9e8-f471-4de5-aac4-99db336a8809
-caps.latest.revision: 25
-caps.handback.revision: 25
-author: "corob-msft"
-ms.author: "corob"
-manager: "ghogen"
+caps.latest.revision: "25"
+author: mikeblome
+ms.author: mblome
+manager: ghogen
+ms.openlocfilehash: 55b1f4061d408187525c255e4ab12c3fe93eb60e
+ms.sourcegitcommit: fb751e41929f031d1a9247bc7c8727312539ad35
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/15/2017
 ---
-# C/C++ 代码分析概述
-[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
-
-C\/C\+\+ 代码分析工具为开发人员提供了有关他们的 C\/C\+\+ 源代码中可能存在的缺陷的信息。  工具报告的常见编码错误包括缓冲区溢出、内存未初始化、null 指针取消引用以及内存和资源泄漏。  
+# <a name="code-analysis-for-cc-overview"></a>C/C++ 代码分析概述
+C/C++ 代码分析工具为开发人员提供有关其 C/C++ 源代码中可能存在的缺陷的信息。 该工具报告的常见编码错误包括缓冲区溢出、内存未初始化、null 指针取消引用，以及内存和资源泄漏。  
   
-## IDE（集成开发环境）集成  
- 分析工具与 [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] IDE 完全集成，以方便开发人员使用。  在生成过程中，针对源代码生成的任何警告都显示在“错误列表”中。  您可以导航到导致警告的源代码，还可以查看其他信息，如问题的原因和可能的解决方法。  
+## <a name="ide-integrated-development-environment-integration"></a>IDE（集成开发环境）集成  
+ 以方便开发人员能够使用分析工具，它完全集成在[!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)]IDE。 在生成过程中，为源代码生成任何警告将出现在错误列表中。 您可以导航到导致该警告的源代码，并可以查看有关原因和可能的问题的解决方案的其他信息。  
   
-## \#pragma 支持  
- 开发人员可以使用 `#pragma` 指令将警告作为错误处理；还可以启用或禁用警告，以及禁止显示单个代码行的警告。  有关更多信息，请参见[How to: Enable and Disable Code Analysis for Specific C\/C\+\+ Warnings](http://msdn.microsoft.com/zh-cn/910b8518-71f1-4b2e-b012-70647795642a)。  
+## <a name="pragma-support"></a>#pragma 支持  
+ 开发人员可以使用`#pragma`指令来将警告视为错误; 启用或禁用警告，并禁止显示警告的代码的各个行。 有关详细信息，请参阅[如何： 启用和禁用特定 C/c + + 警告的代码分析](http://msdn.microsoft.com/en-us/910b8518-71f1-4b2e-b012-70647795642a)。  
   
-## 批注支持  
- 批注可以提高代码分析的准确性。  批注可提供有关函数参数及返回类型的 pre（前置）条件和 post（后置）条件的其他信息。  有关更多信息，请参见[如何：使用 \_\_analysis\_assume 指定其他代码信息](../Topic/How%20to:%20Specify%20Additional%20Code%20Information%20by%20Using%20__analysis_assume.md)。  
+## <a name="annotation-support"></a>批注支持  
+ 批注可以提高代码分析的准确性。 批注函数参数提供有关复制前和后的条件的其他信息和返回类型。 有关详细信息，请参阅[如何： 使用 __analysis_assume 指定其他代码信息](../code-quality/how-to-specify-additional-code-information-by-using-analysis-assume.md)  
   
-## 作为签入策略的一部分运行分析工具  
- 您可能要求源代码所有签入行为满足特定的策略。  尤其是，您需要确保分析作为最近本地生成的一个步骤来运行。  有关启用代码分析签入策略的更多信息，请参见[创建和使用代码分析签入策略](../code-quality/creating-and-using-code-analysis-check-in-policies.md)。  
+## <a name="run-analysis-tool-as-part-of-check-in-policy"></a>作为签入策略的一部分运行分析工具  
+ 你可能想要需要所有源代码签入行为都满足特定的策略。 具体而言，你想要确保作为最新的本地生成的一个步骤中运行了分析。 有关启用代码分析签入策略的详细信息，请参阅[创建和签入策略使用代码分析](../code-quality/creating-and-using-code-analysis-check-in-policies.md)  
   
-## Team Build 集成  
- 您可以使用生成系统的集成功能在 [!INCLUDE[esprtfs](../code-quality/includes/esprtfs_md.md)] 生成过程中运行代码分析工具。  有关更多信息，请参见[生成应用程序](../Topic/Build%20the%20application.md)。  
+## <a name="team-build-integration"></a>Team Build 集成  
+ 你可以使用生成系统的集成的功能作为的一个步骤中运行代码分析工具[!INCLUDE[esprtfs](../code-quality/includes/esprtfs_md.md)]生成过程。 有关详细信息，请参阅[生成应用程序](http://msdn.microsoft.com/Library/a971b0f9-7c28-479d-a37b-8fd7e27ef692)。  
   
-## 命令行支持  
- 分析工具是与开发环境完全集成的，此外，开发人员还可以从命令行使用分析工具，如下面的示例所示：  
+## <a name="command-line-support"></a>命令行支持  
+ 除了在开发环境中的完整集成，开发人员还可以使用从命令行分析工具，如下面的示例中所示：  
   
  `C:\>cl /analyze Sample.cpp`

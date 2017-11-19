@@ -1,5 +1,5 @@
 ---
-title: "将命令和笔势添加到依赖项关系图 |Microsoft 文档"
+title: "向依赖项关系图添加命令和笔势 |Microsoft 文档"
 ms.custom: 
 ms.date: 11/04/2016
 ms.reviewer: 
@@ -10,41 +10,26 @@ helpviewer_keywords:
 - dependency diagrams, adding custom commands
 - dependency diagrams, adding custom gestures
 ms.assetid: ac9c417b-0b40-4a90-86f5-ee3cbdce030b
-caps.latest.revision: 38
+caps.latest.revision: "38"
 author: alexhomer1
 ms.author: ahomer
 manager: douge
-translation.priority.ht:
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- ru-ru
-- zh-cn
-- zh-tw
-translation.priority.mt:
-- cs-cz
-- pl-pl
-- pt-br
-- tr-tr
-translationtype: Machine Translation
-ms.sourcegitcommit: fd26c504273cae739ccbeef5e406891def732985
-ms.openlocfilehash: 6f833612aaa1859c312a5343fe12a209780e3ee3
-ms.lasthandoff: 02/22/2017
-
+ms.openlocfilehash: 40bad32ef38fb99032690804d572f630bb60ac6d
+ms.sourcegitcommit: ec1c7e7e3349d2f3a4dc027e7cfca840c029367d
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/07/2017
 ---
-# <a name="add-commands-and-gestures-to-dependency-diagrams"></a>将命令和笔势添加到依赖项关系图
-您可以定义上下文菜单命令和笔势处理程序在 Visual Studio 中的依赖项关系图上。 可以将这些扩展打包到 Visual Studio 集成扩展 (VSIX) 中，以便将其分发给其他 Visual Studio 用户。  
+# <a name="add-commands-and-gestures-to-dependency-diagrams"></a>向依赖项关系图添加命令和笔势
+你可以定义上下文菜单命令和笔势处理程序在 Visual Studio 中的依赖项关系图上。 可以将这些扩展打包到 Visual Studio 集成扩展 (VSIX) 中，以便将其分发给其他 Visual Studio 用户。  
   
- 如果你愿意，可以在同一 Visual Studio 项目中定义多个命令和笔势处理程序。 还可以将多个此类项目合并到一个 VSIX 中。 例如，你可以定义包含层命令和域特定语言的单个 VSIX。  
+ 如果你愿意，可以在同一 Visual Studio 项目中定义多个命令和笔势处理程序。 还可以将多个此类项目合并到一个 VSIX 中。 例如，你可以定义其中包含层命令和域特定语言的单个 VSIX。  
   
 > [!NOTE]
->  您还可以自定义体系结构验证，在其中对用户的源中的代码进行比较与依赖项关系图。 应在单独的 Visual Studio 项目中定义体系结构验证。 你可以将其添加到其他扩展所在的同一 VSIX 中。 有关详细信息，请参阅[向依赖项关系图添加自定义体系结构验证](../modeling/add-custom-architecture-validation-to-layer-diagrams.md)。  
+>  你还可以自定义体系结构验证，在其中对用户的源中的代码进行比较和依赖项关系图。 应在单独的 Visual Studio 项目中定义体系结构验证。 你可以将其添加到其他扩展所在的同一 VSIX 中。 有关详细信息，请参阅[向依赖项关系图添加自定义体系结构验证](../modeling/add-custom-architecture-validation-to-layer-diagrams.md)。  
   
 ## <a name="requirements"></a>要求  
- 请参阅[要求](../modeling/extend-layer-diagrams.md#prereqs)。  
+ 请参阅 [要求](../modeling/extend-layer-diagrams.md#prereqs)。  
   
 ## <a name="defining-a-command-or-gesture-in-a-new-vsix"></a>在新的 VSIX 中定义命令或笔势  
  创建扩展的最快方法是使用项目模板。 这会将代码和 VSIX 清单置于同一项目中。  
@@ -69,7 +54,7 @@ ms.lasthandoff: 02/22/2017
   
      [定义笔势处理程序](#gesture)  
   
-6.  若要安装该扩展的主实例中[!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)]，或在另一台计算机上找到**.vsix**文件**bin\\\***。 将此文件复制到想在其上安装它的计算机，然后双击它。 若要卸载它，请使用“工具”  菜单上的“扩展和更新”  。  
+6.  若要在 [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)]的主实例中或在另一台计算机上安装扩展，请找到 **bin\*** 中的 **.vsix\\\***。 将此文件复制到想在其上安装它的计算机，然后双击它。 若要卸载它，请使用“工具”  菜单上的“扩展和更新”  。  
   
 ## <a name="adding-a-command-or-gesture-to-a-separate-vsix"></a>将命令或笔势添加到单独的 VSIX  
  如果想要创建一个包含命令、层验证程序和其他扩展的 VSIX，建议创建一个项目来定义 VSIX，并分隔处理程序的项目。
@@ -101,7 +86,7 @@ ms.lasthandoff: 02/22/2017
   
 4.  返回到命令或笔势处理程序项目，并添加以下项目引用。  
   
-|**参考**|**这使您可以执行操作**|  
+|**引用**|**允许执行的操作**|  
 |-------------------|------------------------------------|  
 |Program Files\Microsoft Visual Studio [version]\Common7\IDE\Extensions\Microsoft\Architecture Tools\ExtensibilityRuntime\Microsoft.VisualStudio.ArchitectureTools.Extensibility.Layer.dll|创建和编辑层|  
 |Microsoft.VisualStudio.Uml.Interfaces|创建和编辑层|  
@@ -120,11 +105,11 @@ ms.lasthandoff: 02/22/2017
   
 2.  若要测试此功能，请按 CTRL+F5 或 F5。 将打开 [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] 的实验实例。 在此情况下，创建或打开一个依赖项关系图。  
   
-3.  若要安装的主实例中的 VSIX [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)]，或在另一台计算机上找到**.vsix**文件**bin** VSIX 项目的目录。 将此文件复制到想在其上安装 VSIX 的计算机。 双击 Windows 资源管理器（Windows 8 中的文件资源管理器）中的 VSIX 文件。  
+3.  若要在 [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)]的主实例中或在另一台计算机上安装扩展，请找到 **bin\*** 目录中找到 **.vsix** 文件。 将此文件复制到想在其上安装 VSIX 的计算机。 双击 Windows 资源管理器（Windows 8 中的文件资源管理器）中的 VSIX 文件。  
   
      若要卸载它，请使用“工具”  菜单上的“扩展和更新”  。  
   
-##  <a name="a-namecommanda-defining-a-menu-command"></a><a name="command"></a>定义菜单命令  
+##  <a name="command"></a> 定义菜单命令  
  可向现有笔势或命令项目添加更多菜单命令定义。 每个命令均由具有以下特性的类进行定义：  
   
 -   类的声明方式如下：  
@@ -229,8 +214,8 @@ namespace MyLayerExtension // Change to your preference.
 }  
 ```  
   
-##  <a name="a-namegesturea-defining-a-gesture-handler"></a><a name="gesture"></a>定义笔势处理程序  
- 当用户将项拖动到依赖项关系图，并在用户双击关系图中的任意位置时进行响应笔势处理程序。  
+##  <a name="gesture"></a> 定义笔势处理程序  
+ 当用户拖动项拖动到依赖项关系图，或用户双击关系图中的任意位置，做出响应笔势处理程序。  
   
  你可以向现有命令或笔势处理程序 VSIX 项目添加定义笔势处理程序的代码文件：  
   
@@ -274,12 +259,9 @@ namespace MyLayerExtensions // change to your preference
     }  
     ```  
   
--   已为某些类型的拖动项定义了处理程序。 例如，用户可以将项从解决方案资源管理器拖到依赖项关系图。 无法为这些类型的项定义拖动处理程序。 在这些情况下，不会调用 `DragDrop` 方法。  
+-   已为某些类型的拖动项定义了处理程序。 例如，用户可以将项从解决方案资源管理器拖动到依赖项关系图。 无法为这些类型的项定义拖动处理程序。 在这些情况下，不会调用 `DragDrop` 方法。  
   
- 有关如何进行解码时它们拖动到关系图上的其他项的详细信息，请参阅[在建模图上定义笔势处理程序](../modeling/define-a-gesture-handler-on-a-modeling-diagram.md)。  
   
 ## <a name="see-also"></a>另请参阅  
- [导航和更新层模型在程序代码中](../modeling/navigate-and-update-layer-models-in-program-code.md)   
+ [导航和更新在程序代码中的层模型](../modeling/navigate-and-update-layer-models-in-program-code.md)   
  [向依赖项关系图添加自定义体系结构验证](../modeling/add-custom-architecture-validation-to-layer-diagrams.md)   
- [定义和安装建模扩展](../modeling/define-and-install-a-modeling-extension.md)
-

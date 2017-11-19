@@ -1,30 +1,31 @@
 ---
-title: "ExtensionData Element"
-ms.custom: ""
-ms.date: "02/02/2017"
-ms.prod: "visual-studio-dev14"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "office-development"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-dev_langs: 
-  - "VB"
-  - "CSharp"
-helpviewer_keywords: 
-  - "ExtensionData element"
+title: "ExtensionData 元素 |Microsoft 文档"
+ms.custom: 
+ms.date: 02/02/2017
+ms.reviewer: 
+ms.suite: 
+ms.technology: office-development
+ms.tgt_pltfrm: 
+ms.topic: article
+dev_langs:
+- VB
+- CSharp
+helpviewer_keywords: ExtensionData element
 ms.assetid: caf6843b-dcf5-4688-a9eb-a424aae1beab
-caps.latest.revision: 11
-author: "kempb"
-ms.author: "kempb"
-manager: "ghogen"
-caps.handback.revision: 10
+caps.latest.revision: "11"
+author: gewarren
+ms.author: gewarren
+manager: ghogen
+ms.openlocfilehash: 07369e6fb3b083acaeb4f617b0923a088e2a076b
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# ExtensionData Element
-  表示与 SharePoint 项目项关联的自定义数据项的集合。  
+# <a name="extensiondata-element"></a>ExtensionData 元素
+  表示自定义数据与 SharePoint 项目项关联的项的集合。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
 ```  
 <ExtensionData>  
@@ -32,37 +33,37 @@ caps.handback.revision: 10
 </ExtensionData>  
 ```  
   
-## 特性和元素  
- 以下几节描述了特性、子元素和父元素。  
+## <a name="attributes-and-elements"></a>特性和元素  
+ 下列各节描述了特性、子元素和父元素。  
   
-### 特性  
+### <a name="attributes"></a>特性  
  无。  
   
-### 子元素  
+### <a name="child-elements"></a>子元素  
   
-|元素|说明|  
-|--------|--------|  
-|[ExtensionDataItem](../sharepoint/extensiondataitem-element.md)|可选元素。<br /><br /> 表示与 SharePoint 项目项关联的自定义数据项（采用键\/值格式）。  键和值都必须为字符串。|  
+|元素|描述|  
+|-------------|-----------------|  
+|[ExtensionDataItem](../sharepoint/extensiondataitem-element.md)|可选元素。<br /><br /> 表示键/值格式中的 SharePoint 项目项与相关联的自定义数据项。 键和值必须为字符串。|  
   
-### 父元素  
+### <a name="parent-elements"></a>父元素  
   
-|元素|说明|  
-|--------|--------|  
-|[ProjectItem](../sharepoint/projectitem-element.md)|表示 SharePoint 项目项。  这是 .spdata 文件的必需的根元素。|  
+|元素|描述|  
+|-------------|-----------------|  
+|[项目项](../sharepoint/projectitem-element.md)|表示一个 SharePoint 项目项。 这是.spdata 文件的所需的根元素。|  
   
-## 备注  
- 当通过使用 <xref:Microsoft.VisualStudio.SharePoint.ISharePointProjectItem> 对象的 <xref:Microsoft.VisualStudio.SharePoint.ISharePointProjectItem.ExtensionData%2A> 属性将自定义的数据与 SharePoint 项目项关联时，Visual Studio 将数据保存到项目项 .spdata 文件中的 **ExtensionData** 元素。  有关更多信息，请参见[Saving Data in Extensions of the SharePoint Project System](../sharepoint/saving-data-in-extensions-of-the-sharepoint-project-system.md)。  
+## <a name="remarks"></a>备注  
+ 当你使用将关联自定义数据与 SharePoint 项目项<xref:Microsoft.VisualStudio.SharePoint.ISharePointProjectItem.ExtensionData%2A>属性<xref:Microsoft.VisualStudio.SharePoint.ISharePointProjectItem>对象时，Visual Studio 将保存到数据**ExtensionData**项目项的.spdata 文件中的元素。 有关详细信息，请参阅[扩展 SharePoint 项目系统中保存数据](../sharepoint/saving-data-in-extensions-of-the-sharepoint-project-system.md)。  
   
-## 元素信息  
+## <a name="element-information"></a>元素信息  
   
 |||  
 |-|-|  
-|**命名空间**|http:\/\/schemas.microsoft.com\/VisualStudio\/2010\/SharePointTools\/SharePointProjectItemModel|  
+|**Namespace**|http://schemas.microsoft.com/VisualStudio/2010/SharePointTools/SharePointProjectItemModel|  
 |**架构名称**|SharePoint 项目项架构|  
 |**验证文件**|ProjectItemModelSchema.xsd|  
-|**是否可以为空**|否|  
+|**可以为空**|No|  
   
-## 请参阅  
- [SharePoint Project Item Schema Reference](../sharepoint/sharepoint-project-item-schema-reference.md)  
+## <a name="see-also"></a>另请参阅  
+ [SharePoint 项目项架构参考](../sharepoint/sharepoint-project-item-schema-reference.md)  
   
   

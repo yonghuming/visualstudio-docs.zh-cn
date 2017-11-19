@@ -1,12 +1,10 @@
 ---
-title: Content Controls | Microsoft Docs
+title: "内容控件 |Microsoft 文档"
 ms.custom: 
 ms.date: 02/02/2017
-ms.prod: visual-studio-dev14
 ms.reviewer: 
 ms.suite: 
-ms.technology:
-- office-development
+ms.technology: office-development
 ms.tgt_pltfrm: 
 ms.topic: article
 f1_keywords:
@@ -41,148 +39,147 @@ helpviewer_keywords:
 - templates [Office development in Visual Studio], content controls
 - BuildingBlockGalleryContentControl class
 ms.assetid: ed59e522-dd6e-4c82-8d49-f5dbcfcc950d
-caps.latest.revision: 65
-author: kempb
-ms.author: kempb
+caps.latest.revision: "65"
+author: gewarren
+ms.author: gewarren
 manager: ghogen
-ms.translationtype: HT
-ms.sourcegitcommit: eb5c9550fd29b0e98bf63a7240737da4f13f3249
-ms.openlocfilehash: b6c09c989a481dba36da5b7de05f3b47d7047a79
-ms.contentlocale: zh-cn
-ms.lasthandoff: 08/30/2017
-
+ms.openlocfilehash: 5b2950370b35eb8e2f60f15c5de032284c5546f3
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# <a name="content-controls"></a>Content Controls
-  Content controls provide a way for you to design documents and templates that have these features:  
+# <a name="content-controls"></a>内容控件
+  借助内容控件，可设计出具有以下功能的文档和模板：  
   
--   A user interface (UI) that has controlled input like a form.  
+-   用户界面 (UI)，包含类似于窗体的受控输入。  
   
--   Restrictions that prevent users from editing protected sections of the document or template. For more information, see [Protecting Parts of Documents by Using Content Controls](#Protection).  
+-   限制条件，防止用户编辑文档或模板中的受保护部分。 有关详细信息，请参阅[使用内容控件保护文档的某些部分](#Protection)。  
   
--   Data binding to a data source. For more information, see [Binding Data to Content Controls](#DataBinding).  
+-   与数据源绑定的数据。 有关详细信息，请参阅[数据绑定到内容控件](#DataBinding)。  
   
  [!INCLUDE[appliesto_wdalldocapp](../vsto/includes/appliesto-wdalldocapp-md.md)]  
   
- ![link to video](../vsto/media/playvideo.gif "link to video") For a related video demonstration, see [Binding Data to Word 2007 Content Controls Using Visual Studio Tools for the Office System (3.0)](http://go.microsoft.com/fwlink/?LinkId=136785).  
+ ![视频链接](../vsto/media/playvideo.gif "视频链接")相关的视频演示，请参阅[将数据绑定到 Word 2007 内容控件使用 Visual Studio Tools for the Office System (3.0)](http://go.microsoft.com/fwlink/?LinkId=136785)。  
   
-## <a name="overview-of-content-controls"></a>Overview of Content Controls  
- Content controls provide a UI that is optimized for both user input and print. When you add a content control to a document, the control is identified by a border, a title, and temporary text that can provide instructions to the user. The border and the title of the control do not appear in printed versions of the document.  
+## <a name="overview-of-content-controls"></a>内容控件概述  
+ 内容控件提供了已针对用户输入和打印进行优化的 UI。 将内容控件添加到文档时，该控件通过边框、标题以及能够为用户提供说明的临时文本进行识别。 打印版本的文档中不会出现控件的边框和标题。  
   
- For example, if you want the user to enter a date in a section of your document, you can add a date picker content control to the document. When users click the control, the standard date picker UI appears. You can also set properties of the control to set the regional calendar that is displayed and to specify the date format. After the user chooses a date, the UI of the control is hidden, and only the date appears if the user prints the document.  
+ 例如，希望用户在文档的某一部分中输入日期时，可以向文档中添加日期选取器内容控件。 用户单击控件时，将出现标准日期选取器 UI。 还可以设置控件的属性，以设置显示的区域日历并指定日期格式。 用户选择日期之后，控件的 UI 会隐藏，而且当用户打印文档时，只会显示日期。  
   
- Content controls also help you do the following:  
+ 内容控件还有助于执行以下操作：  
   
--   Prevent users from editing or deleting parts of a document. This is useful if you have information in a document or template that users should be able to read but not edit, or if you want users to be able to edit content controls but not delete them.  
+-   防止用户编辑或删除文档各部分。 如果文档或模板中包含用户应能读取但无法编辑的信息，或者如果想让用户能够编辑内容控件但不能删除控件，可使用此方法。  
   
--   Bind parts of a document or template to data. You can bind content controls to database fields, managed objects in the [!INCLUDE[dnprdnshort](../sharepoint/includes/dnprdnshort-md.md)], XML elements that are stored in the document, and other data sources.  
+-   将文档或模板中的某些部分绑定到数据。 可以将内容控件绑定到数据库字段、[!INCLUDE[dnprdnshort](../sharepoint/includes/dnprdnshort-md.md)] 中的托管对象、文档中存储的 XML 元素以及其他数据源。  
   
- In document-level projects, you can add content controls to your document at design time or at run time. In VSTO Add-in projects, you can add content controls to any open document at run time. For more information, see [How to: Add Content Controls to Word Documents](../vsto/how-to-add-content-controls-to-word-documents.md).  
+ 在文档级项目中，可以在设计时或运行时向文档中添加内容控件。 在 VSTO 外接程序项目中，可以在运行时向任何打开的文档中添加内容控件。 有关详细信息，请参阅[如何： 向 Word 文档添加内容控件](../vsto/how-to-add-content-controls-to-word-documents.md)。  
   
 > [!NOTE]  
->  You can use content controls only in documents that are saved in the Open XML Format. You cannot use content controls in documents that are saved in the Word 97-2003 document (.doc) format.  
+>  只能在以 Open XML 格式保存的文档中使用内容控件。 无法在以 Word 97-2003 文档 (.doc) 格式保存的文档中使用内容控件。  
   
-## <a name="types-of-content-controls"></a>Types of Content Controls  
- There are nine different types of content controls that you can add to documents. Most of the content controls have a corresponding type in the <xref:Microsoft.Office.Tools.Word> namespace. You can also use a generic <xref:Microsoft.Office.Tools.Word.ContentControl>, which can represent any of the available content controls. For a walkthrough that demonstrates how to use each of the available content controls, see [Walkthrough: Creating a Template By Using Content Controls](../vsto/walkthrough-creating-a-template-by-using-content-controls.md).  
+## <a name="types-of-content-controls"></a>内容控件的类型  
+ 有九种不同类型的内容控件可添加到文档中。 大多数内容控件在 <xref:Microsoft.Office.Tools.Word> 命名空间内都具有对应的类型。 还可以使用通用 <xref:Microsoft.Office.Tools.Word.ContentControl> 以表示任一可用的内容控件。 有关演示如何使用每个可用的内容控件的演练，请参阅[演练： 创建模板使用内容控件](../vsto/walkthrough-creating-a-template-by-using-content-controls.md)。  
   
-### <a name="building-block-gallery"></a>Building Block Gallery  
- A building block gallery enables users to select from a list of *document building blocks* to insert into a document. A document building block is a piece of content that has been created to be used multiple times, such as a common cover page, a formatted table, or a header. For more information, see the <xref:Microsoft.Office.Tools.Word.BuildingBlockGalleryContentControl> type. For more information about building blocks, see [What's New for Developers in Word 2007](http://msdn.microsoft.com/en-us/74aa6688-65b3-4167-997d-131f26ad8f84).  
+### <a name="building-block-gallery"></a>构建基块库  
+ 构建基块库使用户能够从列表中选择*文档构建基块*要插入到文档。 文档构建基块是为了多次使用而创建的一段内容，例如共同的封面页、格式化表格或标头。 有关详细信息，请参阅 <xref:Microsoft.Office.Tools.Word.BuildingBlockGalleryContentControl> 类型。 有关构建基块的详细信息，请参阅[Word 2007 中的开发人员的新增](http://msdn.microsoft.com/en-us/74aa6688-65b3-4167-997d-131f26ad8f84)。  
   
-### <a name="check-box"></a>Check Box  
- A check box provides a UI that represents a binary state: selected or cleared.  
+### <a name="check-box"></a>复选框  
+ 复选框提供了代表二元状态（已选择或已清除）的 UI。  
   
- Unlike the other types of content controls, the [!INCLUDE[vsto_runtime](../vsto/includes/vsto-runtime-md.md)] does not provide a specific type that represents a check box content control. In other words, there is no CheckBoxContentControl type. However, you can still create a check box content control by adding a generic <xref:Microsoft.Office.Tools.Word.ContentControl> to a document programmatically. For more information, see [Check Box Content Controls in Word Projects](#checkbox).  
+ 和其他类型的内容控件不同，[!INCLUDE[vsto_runtime](../vsto/includes/vsto-runtime-md.md)] 不提供表示复选框内容控件的特定类型。 换而言之，没有 CheckBoxContentControl 类型。 不过，仍然可以通过编程方式向文档中添加通用 <xref:Microsoft.Office.Tools.Word.ContentControl>，以创建复选框内容控件。 有关详细信息，请参阅[在 Word 项目中的复选框内容控件](#checkbox)。  
   
-### <a name="combo-box"></a>Combo Box  
- A combo box displays a list of items that users can select. Unlike a drop-down list, the combo box enables users to add their own items. For more information, see the <xref:Microsoft.Office.Tools.Word.ComboBoxContentControl> type.  
+### <a name="combo-box"></a>组合框  
+ 组合框显示了用户可以选择的项目列表。 和下拉列表不同，组合框允许用户添加自己的项。 有关详细信息，请参阅 <xref:Microsoft.Office.Tools.Word.ComboBoxContentControl> 类型。  
   
-### <a name="date-picker"></a>Date Picker  
- A date picker provides a calendar UI for selecting a date. The calendar appears when the end user clicks the drop-down arrow in the control. You can use regional calendars and different date formats. For more information, see the <xref:Microsoft.Office.Tools.Word.DatePickerContentControl> type.  
+### <a name="date-picker"></a>日期选取器  
+ 日期选取器提供用于选择日期的日历 UI。 最终用户单击控件中的下拉箭头时，就会显示日历。 可以使用区域日历和不同的日期格式。 有关详细信息，请参阅 <xref:Microsoft.Office.Tools.Word.DatePickerContentControl> 类型。  
   
-### <a name="drop-down-list"></a>Drop-Down List  
- A drop-down list displays a list of items that users can select. Unlike a combo box, the drop-down list does not let users add or edit items. For more information, see the <xref:Microsoft.Office.Tools.Word.DropDownListContentControl> type.  
+### <a name="drop-down-list"></a>下拉列表  
+ 下拉列表显示了用户可以选择的项目列表。 和组合框不同的是，下拉列表不允许用户添加或编辑项。 有关详细信息，请参阅 <xref:Microsoft.Office.Tools.Word.DropDownListContentControl> 类型。  
   
-### <a name="group"></a>Group  
- A group control defines a protected region of a document that users cannot edit or delete. A group control can contain any document items, such as text, tables, graphics, and other content controls. For more information, see the <xref:Microsoft.Office.Tools.Word.GroupContentControl> type.  
+### <a name="group"></a>分组  
+ 分组控件定义了文档中用户无法编辑或删除的受保护区域。 分组控件可以包含任何文档项，例如文本、表格、图形和其他内容控件。 有关详细信息，请参阅 <xref:Microsoft.Office.Tools.Word.GroupContentControl> 类型。  
   
 ### <a name="picture"></a>Picture  
- A picture control displays an image. You can specify the image at design time or run time, or users can click this control to select an image to insert in the document. For more information, see the <xref:Microsoft.Office.Tools.Word.PictureContentControl> type.  
+ 图片控件显示图像。 可以在设计时或运行时指定图像，用户也可以单击此控件以选择要插入文档中的图像。 有关详细信息，请参阅 <xref:Microsoft.Office.Tools.Word.PictureContentControl> 类型。  
   
-### <a name="rich-text"></a>Rich Text  
- A rich text control contains text or other items, such as tables, pictures, or other content controls. For more information, see the <xref:Microsoft.Office.Tools.Word.RichTextContentControl> type.  
+### <a name="rich-text"></a>RTF  
+ 富文本控件包含文本或其他项，例如表格、图片或其他内容控件。 有关详细信息，请参阅 <xref:Microsoft.Office.Tools.Word.RichTextContentControl> 类型。  
   
-### <a name="plain-text"></a>Plain Text  
- A plain text control contains text. A plain text control cannot contain other items, such as tables, pictures, or other content controls. In addition, all of the text in a plain text control has the same formatting. For example, if you italicize one word of a sentence that is in a plain text control, all the text inside the control is italicized. For more information, see the <xref:Microsoft.Office.Tools.Word.PlainTextContentControl> type.  
+### <a name="plain-text"></a>纯文本  
+ 纯文本控件包含文本。 纯文本控件不能包含其他项，例如表格、图片或其他内容控件。 此外，纯文本控件中的所有文本都具有相同的格式。 例如，将纯文本控件中某一句子的一个字设为斜体时，该控件中的所有文本都将变为斜体。 有关详细信息，请参阅 <xref:Microsoft.Office.Tools.Word.PlainTextContentControl> 类型。  
   
-### <a name="generic-content-control"></a>Generic Content Control  
- A generic content control is a <xref:Microsoft.Office.Tools.Word.ContentControl> object that can represent any of the available types of content controls. You can change a <xref:Microsoft.Office.Tools.Word.ContentControl> object to behave like a different type of content control by using the <xref:Microsoft.Office.Tools.Word.ContentControl.Type%2A> property. For example, if you create a <xref:Microsoft.Office.Tools.Word.ContentControl> object that represents a plain text control, you can change it at run time so that it behaves like a combo box.  
+### <a name="generic-content-control"></a>通用内容控件  
+ 通用内容控件是可以表示任何可用类型的内容控件的 <xref:Microsoft.Office.Tools.Word.ContentControl> 对象。 通过使用 <xref:Microsoft.Office.Tools.Word.ContentControl.Type%2A> 属性，可以更改 <xref:Microsoft.Office.Tools.Word.ContentControl> 对象，使其行为与其他类型的内容控件一样。 例如，若要创建表示纯文本控件的 <xref:Microsoft.Office.Tools.Word.ContentControl> 对象，可以在运行时更改此对象，使它的行为与组合框的一样。  
   
- You can create <xref:Microsoft.Office.Tools.Word.ContentControl> objects only at run time, not at design time. For more information, see [How to: Add Content Controls to Word Documents](../vsto/how-to-add-content-controls-to-word-documents.md).  
+ 只能在运行时创建 <xref:Microsoft.Office.Tools.Word.ContentControl> 对象，而无法在设计时创建。 有关详细信息，请参阅[如何： 向 Word 文档添加内容控件](../vsto/how-to-add-content-controls-to-word-documents.md)。  
   
-## <a name="common-features-of-content-controls"></a>Common Features of Content Controls  
- Most content controls share a set of members that you can use to perform common tasks. The following table describes some of the tasks that you can perform by using these members.  
+## <a name="common-features-of-content-controls"></a>内容控件的共同特点  
+ 大多数内容控件共享一组可用于执行共同任务的成员。 下表描述了使用这些成员可执行的一些任务。  
   
-|For this task:|Do this:|  
+|对于此任务：|执行此操作：|  
 |--------------------|--------------|  
-|Get or set the text that is displayed in the control.|Use the **Text** property. **Note:**  The <xref:Microsoft.Office.Tools.Word.PictureContentControl> and <xref:Microsoft.Office.Tools.Word.ContentControl> types do not have this property.|  
-|Get or set the temporary text that is displayed in the control until a user edits the control, the control is populated with data from a data source, or the control's contents are deleted.|Use the **PlaceholderText** property. **Note:**  The <xref:Microsoft.Office.Tools.Word.PictureContentControl> type does not have this property.|  
-|Get or set the title that is displayed in the border of the content control when the user clicks it.|Use the **Title** property.|  
-|Remove the control from the document automatically after the user edits the control. (The text in the control remains in the document.)|Use the **Temporary** property.|  
-|Run code when the user clicks in the content control, or when the cursor is moved into the content control programmatically.|Handle the <xref:Microsoft.Office.Tools.Word.ContentControlBase.Entering> event of the control.|  
-|Run code when the user clicks outside the content control, or when the cursor is moved outside the content control programmatically.|Handle the <xref:Microsoft.Office.Tools.Word.ContentControlBase.Exiting> event of the control.|  
-|Run code after the content control is added to the document as a result of a redo or undo operation.|Handle the <xref:Microsoft.Office.Tools.Word.ContentControlBase.Added> event of the control.|  
-|Run code just before the content control is deleted from the document.|Handle the <xref:Microsoft.Office.Tools.Word.ContentControlBase.Deleting> event of the control.|  
+|获取或设置控件中显示的文本。|使用**文本**属性。 **注意：** <xref:Microsoft.Office.Tools.Word.PictureContentControl>和<xref:Microsoft.Office.Tools.Word.ContentControl>类型不具有此属性。|  
+|获取或设置在用户编辑控件、控件中填充数据源的数据或者控件的内容被删除之前，在控件中显示的临时文本。|使用**PlaceholderText**属性。 **注意：** <xref:Microsoft.Office.Tools.Word.PictureContentControl>类型不具有此属性。|  
+|获取或设置在用户单击时，显示在内容控件的边框中的标题。|使用**标题**属性。|  
+|用户编辑控件后，自动删除文档中的控件。 （控件中的文本保留在文档中。）|使用**临时**属性。|  
+|当用户在内容控件中单击，或者光标以编程方式移动到内容控件中时，运行代码。|处理控件的 <xref:Microsoft.Office.Tools.Word.ContentControlBase.Entering> 事件。|  
+|当用户在内容控件以外单击，或者光标以编程方式移动到内容控件以外时，运行代码。|处理控件的 <xref:Microsoft.Office.Tools.Word.ContentControlBase.Exiting> 事件。|  
+|在内容控件由于恢复或撤销操作而被添加到文档之后，运行代码。|处理控件的 <xref:Microsoft.Office.Tools.Word.ContentControlBase.Added> 事件。|  
+|在正要从文档中删除内容控件之前，运行代码。|处理控件的 <xref:Microsoft.Office.Tools.Word.ContentControlBase.Deleting> 事件。|  
   
-##  <a name="Protection"></a> Protecting Parts of Documents By Using Content Controls  
- When you protect a part of a document, you prevent users from changing or deleting the content in that part of the document. There are several ways you can protect parts of a document by using content controls.  
+##  <a name="Protection"></a>使用内容控件保护文档的某些部分  
+ 当保护文档的某一部分时，将阻止用户更改或删除文档该部分中的内容。 有以下几种可使用内容控件保护文档各部分的方式。  
   
- If the area you want to protect is inside a content control, you can use properties of the content control to prevent users from editing or deleting the control:  
+ 如果要保护的区域位于内容控件中，则可以使用内容控件的属性来阻止用户编辑或删除控件：  
   
--   The **LockContents** property prevents users from editing the contents.  
+-   **LockContents**属性阻止用户编辑内容。  
   
--   The **LockContentControl** property prevents users from deleting the control.  
+-   **LockContentControl**属性可防止用户删除控件。  
   
- If the area you want to protect is not inside a content control, or if you want to protect an area that contains content controls and other types of content, you can put the whole area in a <xref:Microsoft.Office.Tools.Word.GroupContentControl>. Unlike other content controls, a <xref:Microsoft.Office.Tools.Word.GroupContentControl> provides no UI that is visible to the user. Its only purpose is to define a region that users cannot edit.  
+ 如果要保护的区域不在内容控件中，或者要保护的区域中包含内容控件和其他类型的内容，则可以将整个区域置于 <xref:Microsoft.Office.Tools.Word.GroupContentControl> 中。 与其他内容控件不同，<xref:Microsoft.Office.Tools.Word.GroupContentControl> 不提供任何对用户可见的 UI。 其唯一的目的是定义用户无法编辑的区域。  
   
 > [!NOTE]  
->  If you create a <xref:Microsoft.Office.Tools.Word.GroupContentControl> that contains embedded content controls, the embedded content controls are not automatically protected. You must use the **LockContents** property of each embedded control to prevent users from editing their contents.  
+>  如果创建包含嵌入式内容控件的 <xref:Microsoft.Office.Tools.Word.GroupContentControl>，则不会自动保护嵌入的内容控件。 必须使用**LockContents**属性的每个嵌入式控件来防止用户编辑其内容。  
   
- For more information about how to use content controls to protect parts of documents, see [How to: Protect Parts of Documents by Using Content Controls](../vsto/how-to-protect-parts-of-documents-by-using-content-controls.md).  
+ 有关如何使用内容控件保护文档的某些部分的详细信息，请参阅[如何： 使用内容控件保护文档的某些部分](../vsto/how-to-protect-parts-of-documents-by-using-content-controls.md)。  
   
-##  <a name="DataBinding"></a> Binding Data to Content Controls  
- You can display data in documents by binding a content control to a data source. When the data source is updated, the content control reflects the changes. You can also save changes back to the data source.  
+##  <a name="DataBinding"></a>数据绑定到内容控件  
+ 可通过将内容控件绑定到数据源，来显示文档中的数据。 数据源更新时，内容控件会反映出更改。 还可以将更改保存回数据源。  
   
- Content controls provide the following data binding options:  
+ 内容控件提供以下数据绑定选项：  
   
--   You can bind content controls to database fields or managed objects by using the same data binding model as Windows Forms.  
+-   可以使用与 Windows 窗体相同的数据绑定模型，将内容控件绑定到数据库字段或托管对象。  
   
--   You can bind content controls to elements in pieces of XML (also named *custom XML parts*) that are embedded in the document.  
+-   你可以将内容控件绑定到的 XML 片段中的元素 (也名为*自定义 XML 部件*) 的嵌入在文档中。  
   
- For an overview of binding host controls in Office solutions to data, see [Binding Data to Controls in Office Solutions](../vsto/binding-data-to-controls-in-office-solutions.md).  
+ 有关在 Office 解决方案中的主机控件绑定到数据的概述，请参阅[数据绑定到 Office 解决方案中的控件](../vsto/binding-data-to-controls-in-office-solutions.md)。  
   
-### <a name="using-the-windows-forms-data-binding-model"></a>Using the Windows Forms Data Binding Model  
- Most content controls support the simple data binding model that Windows Forms uses. Simple data binding means that a control is bound to a single data element, such as a value in a column of a data table. For more information, see [Data Binding and Windows Forms](/dotnet/framework/winforms/data-binding-and-windows-forms).  
+### <a name="using-the-windows-forms-data-binding-model"></a>使用 Windows 窗体数据绑定模型  
+ 大多数内容控件都支持 Windows 窗体使用的简单数据绑定模型。 简单数据绑定意味着将控件绑定到单个数据元素，例如数据表中某一列的值。 有关更多信息，请参见 [Data Binding and Windows Forms](/dotnet/framework/winforms/data-binding-and-windows-forms)。  
   
- In document-level projects, you can bind data to content controls by using the **Data Sources** window in [!INCLUDE[vsprvs](../sharepoint/includes/vsprvs-md.md)]. For more information about how to add data-bound content controls to documents, see [How to: Populate Documents with Data from a Database](../vsto/how-to-populate-documents-with-data-from-a-database.md) and [How to: Populate Documents with Data from Objects](../vsto/how-to-populate-documents-with-data-from-objects.md).  
+ 在文档级项目中，你可以将数据绑定到内容控件使用**数据源**中的窗口[!INCLUDE[vsprvs](../sharepoint/includes/vsprvs-md.md)]。 有关如何将数据绑定的内容控件添加到文档的详细信息，请参阅[How to： 的数据库中的数据填充文档](../vsto/how-to-populate-documents-with-data-from-a-database.md)和[How to： 对象中的数据填充文档](../vsto/how-to-populate-documents-with-data-from-objects.md)。  
   
- The following table lists the content controls that you can bind to each data type in the **Data Sources** window.  
+ 下表列出可以绑定到中的每个数据类型的内容控件**数据源**窗口。  
   
-|Data type|Default content control|Other content controls that can be bound to this data type|  
+|数据类型|默认内容控件|可以绑定到此数据类型的其他内容控件|  
 |---------------|-----------------------------|----------------------------------------------------------------|  
 |<xref:System.Boolean><br /><br /> <xref:System.Byte><br /><br /> <xref:System.Char><br /><br /> <xref:System.Double><br /><br /> <xref:System.Enum><br /><br /> <xref:System.Guid><br /><br /> <xref:System.Int16><br /><br /> <xref:System.Int32><br /><br /> <xref:System.Int64><br /><br /> <xref:System.SByte><br /><br /> <xref:System.Single><br /><br /> <xref:System.String><br /><br /> <xref:System.TimeSpan><br /><br /> <xref:System.UInt16><br /><br /> <xref:System.UInt32><br /><br /> <xref:System.UInt64>|<xref:Microsoft.Office.Tools.Word.PlainTextContentControl>|<xref:Microsoft.Office.Tools.Word.BuildingBlockGalleryContentControl><br /><br /> <xref:Microsoft.Office.Tools.Word.ComboBoxContentControl><br /><br /> <xref:Microsoft.Office.Tools.Word.DatePickerContentControl><br /><br /> <xref:Microsoft.Office.Tools.Word.RichTextContentControl>|  
 |<xref:System.DateTime>|<xref:Microsoft.Office.Tools.Word.DatePickerContentControl>|<xref:Microsoft.Office.Tools.Word.BuildingBlockGalleryContentControl><br /><br /> <xref:Microsoft.Office.Tools.Word.ComboBoxContentControl><br /><br /> <xref:Microsoft.Office.Tools.Word.PlainTextContentControl><br /><br /> <xref:Microsoft.Office.Tools.Word.RichTextContentControl>|  
-|<xref:System.Drawing.Image><br /><br /> <xref:System.Byte> array|<xref:Microsoft.Office.Tools.Word.PictureContentControl>|None|  
+|<xref:System.Drawing.Image><br /><br /> <xref:System.Byte> 数组|<xref:Microsoft.Office.Tools.Word.PictureContentControl>|无|  
   
- In document-level and VSTO Add-in projects, you can bind a content control to a data source programmatically by using the <xref:System.Windows.Forms.ControlBindingsCollection.Add%2A> method of the <xref:System.Windows.Forms.IBindableComponent.DataBindings%2A> property of the control. If you do this, pass in the string **Text** to the *propertyName* parameter of the <xref:System.Windows.Forms.ControlBindingsCollection.Add%2A> method. The **Text** property is the default data binding property of content controls.  
+ 在文档级和 VSTO 外接程序项目中，可以使用控件中 <xref:System.Windows.Forms.IBindableComponent.DataBindings%2A> 属性的 <xref:System.Windows.Forms.ControlBindingsCollection.Add%2A> 方法，以编程方式将内容控件绑定到数据源。 如果这样做，请将字符串传递**文本**到*propertyName*参数<xref:System.Windows.Forms.ControlBindingsCollection.Add%2A>方法。 **文本**属性是内容控件的默认数据绑定属性。  
   
- Content controls also support two-way data binding, in which changes in the control are updated to the data source. For more information, see [How to: Update a Data Source with Data from a Host Control](../vsto/how-to-update-a-data-source-with-data-from-a-host-control.md).  
+ 内容控件还支持双向数据绑定，在这种绑定形式下，控件中的更改会更新到数据源。 有关详细信息，请参阅 [How to: Update a Data Source with Data from a Host Control](../vsto/how-to-update-a-data-source-with-data-from-a-host-control.md)。  
   
 > [!NOTE]  
->  Content controls do not support complex data binding. If you bind a <xref:Microsoft.Office.Tools.Word.DropDownListContentControl> or <xref:Microsoft.Office.Tools.Word.ComboBoxContentControl> to a data source by using the Windows Forms data model, users will see only a single value when they click the control. If you want to bind these controls to a set of data values that users can choose from, you can bind these controls to elements in a custom XML part.  
+>  内容控件不支持复杂数据绑定。 如果使用 Windows 窗体数据模型将 <xref:Microsoft.Office.Tools.Word.DropDownListContentControl> 或 <xref:Microsoft.Office.Tools.Word.ComboBoxContentControl> 绑定到数据源，用户在单击控件时只能看到单个值。 如果希望将这些控件绑定到可供用户选择的一组数据值，则可以将这些控件绑定到自定义 XML 部件中的元素。  
   
-### <a name="binding-content-controls-to-custom-xml-parts"></a>Binding Content Controls to Custom XML Parts  
- You can bind some content controls to elements in custom XML parts that are embedded in the document. For more information about custom XML parts, see [Custom XML Parts Overview](../vsto/custom-xml-parts-overview.md).  
+### <a name="binding-content-controls-to-custom-xml-parts"></a>将内容控件绑定到自定义 XML 部件  
+ 可以将某些内容控件绑定到文档中内嵌的自定义 XML 部件的元素。 有关自定义 XML 部件的详细信息，请参阅[自定义 XML 部件概述](../vsto/custom-xml-parts-overview.md)。  
   
- To bind a content control to an element in a custom XML part, use the **XMLMapping** property of the control. The following code example demonstrates how to bind a <xref:Microsoft.Office.Tools.Word.PlainTextContentControl> to the `Price` element under the `Product` node in a custom XML part that has already been added to the document.  
+ 若要将内容控件绑定到自定义 XML 部件中的元素，使用**XMLMapping**的控件属性。 以下代码示例演示了如何将 <xref:Microsoft.Office.Tools.Word.PlainTextContentControl> 绑定到 `Product` 节点下的 `Price` 元素，其中该节点位于已添加到文档的自定义 XML 部分中。  
   
 ```vb  
 plainTextContentControl1.XMLMapping.SetMapping("/Product/Price")  
@@ -192,11 +189,11 @@ plainTextContentControl1.XMLMapping.SetMapping("/Product/Price")
 plainTextContentControl1.XMLMapping.SetMapping("/Product/Price", String.Empty, null);  
 ```  
   
- For a walkthrough that demonstrates how to bind content controls to custom XML parts in more detail, see [Walkthrough: Binding Content Controls to Custom XML Parts](../vsto/walkthrough-binding-content-controls-to-custom-xml-parts.md).  
+ 有关演示如何将内容控件绑定到更多详细信息中的自定义 XML 部件的演练，请参阅[演练： 将内容控件绑定到自定义 XML 部件](../vsto/walkthrough-binding-content-controls-to-custom-xml-parts.md)。  
   
- When you bind a content control to a custom XML part, two-way data binding is automatically enabled. If a user edits text in the control, the corresponding XML elements are automatically updated. Similarly, if element values in the custom XML parts are changed, the content controls that are bound to the XML elements will display the new data.  
+ 将内容控件绑定到自定义 XML 部件时，会自动启用双向数据绑定。 当用户编辑控件中的文本时，相应的 XML 元素会自动更新。 同样，如果自定义 XML 部件中的元素值发生更改，则绑定到 XML 元素的内容控件将显示新的数据。  
   
- You can bind the following types of content controls to custom XML parts:  
+ 可以将以下类型的内容控件绑定到自定义 XML 部件：  
   
 -   <xref:Microsoft.Office.Tools.Word.ComboBoxContentControl>  
   
@@ -208,43 +205,43 @@ plainTextContentControl1.XMLMapping.SetMapping("/Product/Price", String.Empty, n
   
 -   <xref:Microsoft.Office.Tools.Word.PlainTextContentControl>  
   
-### <a name="data-binding-events-for-content-controls"></a>Data Binding Events for Content Controls  
- All content controls provide a set of events that you can handle to perform data-related tasks, such as validating that the text in a control meets certain criteria before the data source is updated. The following table lists the content control events that are related to data binding.  
+### <a name="data-binding-events-for-content-controls"></a>内容控件的数据绑定事件  
+ 所有内容控件都提供一组可以处理的事件，以执行数据相关的任务，例如在更新数据源之前验证控件中的文本是否符合某些标准。 下表列出了与数据绑定有关的内容控件事件。  
   
-|Task|Event|  
+|任务|Event|  
 |----------|-----------|  
-|Run code just before Word automatically updates the text in a content control that is bound to a custom XML part.|<xref:Microsoft.Office.Tools.Word.ContentControlBase.ContentUpdating>|  
-|Run code just before Word automatically updates data in a custom XML part that is bound to a content control (that is, after the text in the content control changes).|<xref:Microsoft.Office.Tools.Word.ContentControlBase.StoreUpdating>|  
-|Run your own code to validate the contents of the control according to custom criteria.|<xref:Microsoft.Office.Tools.Word.ContentControlBase.Validating>|  
-|Run code after the contents of the control have been successfully validated.|<xref:Microsoft.Office.Tools.Word.ContentControlBase.Validated>|  
+|在 Word 正要自动更新已绑定到自定义 XML 部件的内容控件中的文本之前，运行代码。|<xref:Microsoft.Office.Tools.Word.ContentControlBase.ContentUpdating>|  
+|在 Word 正要自动更新已绑定到内容控件的自定义 XML 部件中的数据之前（即在内容控件中的文本更改之后），运行代码。|<xref:Microsoft.Office.Tools.Word.ContentControlBase.StoreUpdating>|  
+|运行自己的代码，以根据自定义标准验证控件的内容。|<xref:Microsoft.Office.Tools.Word.ContentControlBase.Validating>|  
+|在成功验证控件的内容之后，运行代码。|<xref:Microsoft.Office.Tools.Word.ContentControlBase.Validated>|  
   
-## <a name="limitations-of-content-controls"></a>Limitations of Content Controls  
- When you use content controls in your Office projects, be aware of the following limitations.  
+## <a name="limitations-of-content-controls"></a>内容控件的限制  
+ 在 Office 项目中使用内容控件时，请注意以下限制。  
   
-### <a name="behavior-differences-between-design-time-and-run-time"></a>Behavior Differences Between Design Time and Run Time  
- Many of the limitations that Microsoft Office Word imposes on content controls at run time are not enforced at design time. When you design the UI of a document-level solution in [!INCLUDE[vsprvs](../sharepoint/includes/vsprvs-md.md)], be sure to modify content controls only in ways that are supported at run time.  
+### <a name="behavior-differences-between-design-time-and-run-time"></a>设计时和运行时的行为差异  
+ Microsoft Office Word 在运行时对内容控件施加的许多限制条件在设计时并不会执行。 在 [!INCLUDE[vsprvs](../sharepoint/includes/vsprvs-md.md)] 中设计文档级解决方案时，务必仅通过在运行时受支持的方式修改内容控件。  
   
- If you modify a content control at design time in a way that the control does not support at run time, the [!INCLUDE[vsprvs](../sharepoint/includes/vsprvs-md.md)] designer will not alert you of the unsupported changes. However, when you debug or run the project, or if you save and then reopen the project, Word will display an error message and request permission to repair the document. When you repair the document, Word removes all unsupported content and formatting from the control.  
+ 如果你在设计时修改内容控件的方式是该控件在运行时并不支持的方式，则 [!INCLUDE[vsprvs](../sharepoint/includes/vsprvs-md.md)] 设计器将不会提醒你注意不受支持的更改。 然而，当你调试或运行项目时，或者在保存并重新打开该项目时，Word 将显示一条错误消息并请求权限以修复文档。 修复文档时，Word 会删除控件中所有不受支持的内容和格式。  
   
- For example, Word does not prevent you from adding a table to a <xref:Microsoft.Office.Tools.Word.PlainTextContentControl> at design time. However, because <xref:Microsoft.Office.Tools.Word.PlainTextContentControl> objects cannot contain tables at run time, Word will display an error message when the document is opened.  
+ 例如在设计时，Word 不会阻止你将表格添加到 <xref:Microsoft.Office.Tools.Word.PlainTextContentControl>。 然而，因为 <xref:Microsoft.Office.Tools.Word.PlainTextContentControl> 对象在运行时不能包含表格，所以在打开文档时 Word 会显示错误消息。  
   
- Also note that many properties that define the behavior of content controls have no effect at design time. For example, if you set the **LockContents** property of a content control to **True** at design time, you can still edit text in the control in the [!INCLUDE[vsprvs](../sharepoint/includes/vsprvs-md.md)] designer. This property only prevents users from editing the control at run time.  
+ 另请注意，定义内容控件行为的很多属性在设计时不产生任何影响。 例如，如果你设置**LockContents**到内容控件的属性**True**在设计时，您仍可以编辑在控件中的文本[!INCLUDE[vsprvs](../sharepoint/includes/vsprvs-md.md)]设计器。 此属性只会在运行时阻止用户编辑控件。  
   
-### <a name="event-limitations"></a>Event Limitations  
- Content controls do not provide an event that is raised when the user changes text or other items in the control. For example, there is no event that is raised when a user selects a different item in a <xref:Microsoft.Office.Tools.Word.DropDownListContentControl> or <xref:Microsoft.Office.Tools.Word.ComboBoxContentControl>.  
+### <a name="event-limitations"></a>事件限制  
+ 内容控件不提供当用户更改控件中的文本或其他项时引发的事件。 例如，当用户选择 <xref:Microsoft.Office.Tools.Word.DropDownListContentControl> 或 <xref:Microsoft.Office.Tools.Word.ComboBoxContentControl> 中的不同项时，不会引发任何事件。  
   
- To determine when a user edits the contents of a content control, you can bind the control to a custom XML part, and then handle the <xref:Microsoft.Office.Tools.Word.ContentControlBase.StoreUpdating> event. This event is raised when the user changes the contents of a control that is bound to a custom XML part. For a walkthrough that demonstrates how to bind a content control to a custom XML part, see [Walkthrough: Binding Content Controls to Custom XML Parts](../vsto/walkthrough-binding-content-controls-to-custom-xml-parts.md).  
+ 若要确定用户何时编辑内容控件的内容，可以将该控件绑定到自定义 XML 部件，然后处理 <xref:Microsoft.Office.Tools.Word.ContentControlBase.StoreUpdating> 事件。 当用户更改已绑定到自定义 XML 部件的控件的内容时，引发此事件。 有关演示如何将内容控件绑定到自定义 XML 部件的演练，请参阅[演练： 将内容控件绑定到自定义 XML 部件](../vsto/walkthrough-binding-content-controls-to-custom-xml-parts.md)。  
   
-###  <a name="checkbox"></a> Check Box Content Controls in Word Projects  
- Word 2010 introduced a new type of content control that represents a check box. However, the [!INCLUDE[vsto_runtime](../vsto/includes/vsto-runtime-md.md)] does not provide a corresponding CheckBoxContentControl type for you to use in Office projects. To create a check box content control in a [!INCLUDE[Word_15_short](../vsto/includes/word-15-short-md.md)] or Word 2010 project, use the <xref:Microsoft.Office.Tools.Word.ControlCollection.AddContentControl%2A> method to create a <xref:Microsoft.Office.Tools.Word.ContentControl> object, and pass the <xref:Microsoft.Office.Interop.Word.WdContentControlType.wdContentControlCheckBox> value to the method to specify a check box content control. The following code example demonstrates how to do this.  
+###  <a name="checkbox"></a>在 Word 项目中的复选框内容控件  
+ Word 2010 引入了一种表示复选框的新型内容控件。 但是，[!INCLUDE[vsto_runtime](../vsto/includes/vsto-runtime-md.md)]不提供你要在 Office 项目中使用的相应 CheckBoxContentControl 类型。 若要在 [!INCLUDE[Word_15_short](../vsto/includes/word-15-short-md.md)] 或 Word 2010 项目中创建复选框内容控件，请使用 <xref:Microsoft.Office.Tools.Word.ControlCollection.AddContentControl%2A> 方法创建 <xref:Microsoft.Office.Tools.Word.ContentControl> 对象，然后将 <xref:Microsoft.Office.Interop.Word.WdContentControlType.wdContentControlCheckBox> 值传递到该方法，以指定复选框内容控件。 下面的代码示例演示如何执行此操作。  
   
- [!code-vb[Trin_ContentControlReference#800](../vsto/codesnippet/VisualBasic/trin_contentcontrolreference/checkbox.vb#800)] [!code-csharp[Trin_ContentControlReference#800](../vsto/codesnippet/CSharp/trin_wordcontentcontrolreference/checkbox.cs#800)]  
+ [!code-vb[Trin_ContentControlReference#800](../vsto/codesnippet/VisualBasic/trin_contentcontrolreference/checkbox.vb#800)]
+ [!code-csharp[Trin_ContentControlReference#800](../vsto/codesnippet/CSharp/trin_wordcontentcontrolreference/checkbox.cs#800)]  
   
-## <a name="see-also"></a>See Also  
- [Automating Word by Using Extended Objects](../vsto/automating-word-by-using-extended-objects.md)   
- [How to: Add Content Controls to Word Documents](../vsto/how-to-add-content-controls-to-word-documents.md)   
- [Walkthrough: Creating a Template By Using Content Controls](../vsto/walkthrough-creating-a-template-by-using-content-controls.md)   
- [Data in Office Solutions](../vsto/data-in-office-solutions.md)   
- [Binding Data to Controls in Office Solutions](../vsto/binding-data-to-controls-in-office-solutions.md)   
- [Programmatic Limitations of Host Items and Host Controls](../vsto/programmatic-limitations-of-host-items-and-host-controls.md)  
-
+## <a name="see-also"></a>另请参阅  
+ [使用扩展对象实现 Word 自动化](../vsto/automating-word-by-using-extended-objects.md)   
+ [如何： 向 Word 文档添加内容控件](../vsto/how-to-add-content-controls-to-word-documents.md)   
+ [演练： 使用内容控件创建模板](../vsto/walkthrough-creating-a-template-by-using-content-controls.md)   
+ [Office 解决方案中的数据](../vsto/data-in-office-solutions.md)   
+ [将数据绑定到 Office 解决方案中的控件](../vsto/binding-data-to-controls-in-office-solutions.md)   
+ [主机项和主机控件的编程限制](../vsto/programmatic-limitations-of-host-items-and-host-controls.md)  

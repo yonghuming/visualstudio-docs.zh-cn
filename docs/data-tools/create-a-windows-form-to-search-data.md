@@ -1,5 +1,5 @@
 ---
-title: Create a Windows Form to search data | Microsoft Docs
+title: "创建 Windows 窗体来搜索数据 |Microsoft 文档"
 ms.custom: 
 ms.date: 11/04/2016
 ms.reviewer: 
@@ -13,125 +13,122 @@ helpviewer_keywords:
 - data [Visual Studio], parameterizing queries
 - data [Visual Studio], searching
 ms.assetid: 65ca79a9-7458-466c-af55-978cd24c549e
-caps.latest.revision: 28
+caps.latest.revision: "28"
 author: gewarren
 ms.author: gewarren
 manager: ghogen
-translation.priority.ht:
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- ru-ru
-- zh-cn
-- zh-tw
-translation.priority.mt:
-- cs-cz
-- pl-pl
-- pt-br
-- tr-tr
-ms.translationtype: HT
-ms.sourcegitcommit: cca2a707627c36221a654cf8a06730383492f371
-ms.openlocfilehash: a16cf197f58c6306b5042357d880f3ace530cadc
-ms.contentlocale: zh-cn
-ms.lasthandoff: 09/13/2017
-
+ms.technology: vs-data-tools
+ms.openlocfilehash: 2799e2425ec9748075fc082881243658c363e327
+ms.sourcegitcommit: ec1c7e7e3349d2f3a4dc027e7cfca840c029367d
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/07/2017
 ---
-# <a name="create-a-windows-form-to-search-data"></a>Create a Windows Form to search data
-A common application scenario is to display selected data on a form. For example, you might want to display the orders for a specific customer or the details of a specific order. In this scenario, a user enters information into a form, and then a query is executed with the user's input as a parameter; that is, the data is selected based on a parameterized query. The query returns only the data that satisfies the criteria entered by the user. This walkthrough shows how to create a query that returns customers in a specific city, and modify the user interface so that users can enter a city's name and press a button to execute the query.  
+# <a name="create-a-windows-form-to-search-data"></a>创建 Windows 窗体来搜索数据
+一个常见的应用程序方案是显示窗体上选择的数据。 例如，你可能希望显示特定客户的订单或特定订单的详细信息。 在本方案中，用户向窗体输入信息，然后以用户的输入作为参数执行查询，即基于参数化查询来选择数据。 查询只返回符合用户输入的条件的数据。 本演练显示了如何创建返回特定城市中客户的查询，并修改用户界面，以便用户可以输入城市名称并按按钮以执行该查询。  
   
- Using parameterized queries helps make your application efficient by letting the database do the work it is best at — quickly filtering records. In contrast, if you request an entire database table, transfer it over the network, and then use application logic to find the records you want, your application can become slow and inefficient.  
+ 通过让数据库执行其最擅长的工作（即快速筛选记录），使用参数化查询有助于使你的应用程序更有效。 与此相反，如果你请求整个数据库表在网络上传输它，然后使用应用程序逻辑来查找所需的记录，你的应用程序将变慢且效率低下。  
   
- You can add parameterized queries to any TableAdapter (and controls to accept parameter values and execute the query), using the **Search Criteria Builder** dialog box. Open the dialog box by selecting the **Add Query** command on the **Data** menu (or on any TableAdapter smart tag).  
+ 你可以将参数化的查询添加到任何 TableAdapter （和控件接受参数值和执行查询），使用**搜索标准生成器**对话框。 打开对话框中，通过选择**添加查询**命令**数据**菜单 （或任何 TableAdapter 智能标记）。  
   
- Tasks illustrated in this walkthrough include:  
+ 本演练涉及以下任务：  
   
--   Creating a new Windows Forms Application project.  
+-   创建新的 Windows 窗体应用程序项目。  
   
--   Creating and configuring the data source in your application with the **Data Source Configuration** wizard.  
+-   创建和配置将应用程序中的数据源**数据源配置**向导。  
   
--   Setting the drop type of the items in the **Data Sources**window.  
+-   设置中的项的拖放类型**数据源**窗口。  
   
--   Creating controls that display data by dragging items from the **Data Sources** window onto a form.  
+-   创建通过将某些项从显示的数据的控件**数据源**拖到窗体的窗口。  
   
--   Adding controls to display the data on the form.  
+-   添加用于在窗体上显示数据的控件。  
   
--   Completing the **Search Criteria Builder** dialog box.  
+-   完成**搜索标准生成器**对话框。  
   
--   Entering parameters into the form and executing the parameterized query.  
+-   参数输入到窗体并执行参数化的查询。  
   
-## <a name="prerequisites"></a>Prerequisites  
- In order to complete this walkthrough, you need:  
+## <a name="prerequisites"></a>先决条件  
+本演练使用 SQL Server Express LocalDB 和 Northwind 示例数据库。  
   
--   Access to the Northwind sample database.  
+1.  如果你没有 SQL Server Express LocalDB，将其安装从[SQL Server 版本的下载页](https://www.microsoft.com/en-us/server-cloud/Products/sql-server-editions/sql-server-express.aspx)，或通过**Visual Studio Installer**。 在 Visual Studio 安装程序中，SQL Server Express LocalDB 可以安装的一部分**数据存储和处理**工作负荷，也可以作为单个组件。  
   
-## <a name="create-the-windows-forms-application"></a>Create the Windows Forms Application  
- The first step is to create a **Windows Forms Application**. Assigning a name to the project is optional at this step, but you'll give it a name here because you'll save the project later.  
-  
-#### <a name="to-create-the-new-windows-forms-application-project"></a>To create the new Windows Forms Application project  
-  
-1. In Visual Studio, on the **File** menu, select **New**, **Project...**.  
-  
-2. Expand either **Visual C#** or **Visual Basic** in the left-hand pane, then select **Windows Classic Desktop**.  
+2.  按照这些步骤来安装 Northwind 示例数据库：  
 
-3. In the middle pane, select the **Windows Forms App** project type.  
+    1. 在 Visual Studio 中，打开**SQL Server 对象资源管理器**窗口。 (SQL Server 对象资源管理器安装的一部分**数据存储和处理**在 Visual Studio 安装程序中的工作负荷。)展开**SQL Server**节点。 LocalDB 实例上右键单击并选择**新查询...**.  
 
-4. Name the project **WindowsSearchForm**, and then choose **OK**. 
+       查询编辑器窗口将打开。  
+
+    2. 复制[Northwind TRANSACT-SQL 脚本](https://github.com/MicrosoftDocs/visualstudio-docs/blob/master/docs/data-tools/samples/northwind.sql?raw=true)到剪贴板。 此 T-SQL 脚本从头创建 Northwind 数据库，并使用数据填充它。  
+
+    3. 将 T-SQL 脚本粘贴到查询编辑器中，，然后选择**执行**按钮。  
+
+       短时间内之后, 执行完查询和创建 Northwind 数据库。  
   
-     The **WindowsSearchForm** project is created and added to **Solution Explorer**.  
+## <a name="create-the-windows-forms-application"></a>创建 Windows 窗体应用程序  
+ 第一步是创建**Windows 窗体应用程序**。 分配到项目的名称是可选的在此步骤中，但你将为其命名，此处由于更高版本，你将保存项目。  
   
-## <a name="create-the-data-source"></a>Create the data source  
- This step creates a data source from a database using the **Data Source Configuration** wizard. You must have access to the Northwind sample database to create the connection. For information on setting up the Northwind sample database, see [Install SQL Server sample databases](../data-tools/install-sql-server-sample-databases.md).  
+#### <a name="to-create-the-new-windows-forms-application-project"></a>若要创建新的 Windows 窗体应用程序项目  
   
-#### <a name="to-create-the-data-source"></a>To create the data source  
+1. 在 Visual Studio 中，在**文件**菜单上，选择**新建**，**项目...**.  
   
-1.  On the **Data** menu, click **Show Data Sources**.  
+2. 展开**Visual C#**或**Visual Basic**在左侧窗格中，然后选择**Windows 经典桌面**。  
+
+3. 在中间窗格中，选择**Windows 窗体应用程序**项目类型。  
+
+4. 将项目**WindowsSearchForm**，然后选择**确定**。 
   
-2.  In the **Data Sources** window, select **Add New Data Source** to start the **Data Source Configuration** wizard.  
+     **WindowsSearchForm**创建项目并将其添加到**解决方案资源管理器**。  
   
-3.  Select **Database** on the **Choose a Data Source Type** page, and then click **Next**.  
+## <a name="create-the-data-source"></a>创建数据源  
+此步骤创建一个数据源从数据库使用**数据源配置**向导。  
   
-4.  On the **Choose your Data Connection** page do one of the following:  
+#### <a name="to-create-the-data-source"></a>创建数据源  
   
-    -   If a data connection to the Northwind sample database is available in the drop-down list, select it.  
+1.  在 **“数据”** 菜单上，单击 **“显示数据源”**。  
   
-    -   Select **New Connection** to launch the **Add/Modify Connection** dialog box.  
+2.  在**数据源**窗口中，选择**添加新数据源**启动**数据源配置**向导。  
   
-5.  If your database requires a password, select the option to include sensitive data, and then click **Next**.  
+3.  在 **“选择数据源类型”** 页上选择 **“数据库”** ，然后单击 **“下一步”**。  
   
-6.  On the **Save connection string to the Application Configuration file** page, click **Next**.  
+4.  上**选择你的数据连接**页上，执行下列操作之一：  
   
-7.  On the **Choose your Database Objects** page, expand the **Tables** node.  
+    -   如果下拉列表中包含到 Northwind 示例数据库的数据连接，请选择该连接。  
   
-8.  Select the **Customers** table, and then click **Finish**.  
+    -   选择**新连接**以启动**添加/修改连接**对话框。  
   
-     The **NorthwindDataSet** is added to your project, and the **Customers** table appears in the **Data Sources** window.  
+5.  如果你的数据库需要密码，请选择该选项以包括敏感数据，然后单击**下一步**。  
   
-## <a name="create-the-form"></a>Create the form  
- You can create the data-bound controls by dragging items from the **Data Sources** window onto your form.  
+6.  上**将连接字符串保存到应用程序配置文件**页上，单击**下一步**。  
   
-#### <a name="to-create-data-bound-controls-on-the-form"></a>To create data-bound controls on the form  
+7.  上**选择数据库对象**页上，展开**表**节点。  
   
-1.  Expand the **Customers** node in the **Data Sources** window.  
+8.  选择**客户**表，并依次**完成**。  
   
-2.  Drag the **Customers** node from the **Data Sources** window to your form.  
+     **NorthwindDataSet**添加到你的项目，与**客户**表将出现在**数据源**窗口。  
   
-     A <xref:System.Windows.Forms.DataGridView> and a tool strip (<xref:System.Windows.Forms.BindingNavigator>) for navigating records appear on the form. A [NorthwindDataSet](../data-tools/dataset-tools-in-visual-studio.md), CustomersTableAdapter, <xref:System.Windows.Forms.BindingSource>, and <xref:System.Windows.Forms.BindingNavigator> appear in the component tray.  
+## <a name="create-the-form"></a>创建窗体  
+ 你可以通过将某些项从创建数据绑定控件**数据源**拖动到窗体的窗口。  
   
-## <a name="add-parameterization-search-functionality-to-the-query"></a>Add parameterization (search functionality) to the query  
- You can add a WHERE clause to the original query using the **Search Criteria Builder** dialog box.  
+#### <a name="to-create-data-bound-controls-on-the-form"></a>在窗体上创建数据绑定控件  
   
-#### <a name="to-create-a-parameterized-query-and-controls-to-enter-the-parameters"></a>To create a parameterized query and controls to enter the parameters  
+1.  展开**客户**中的节点**数据源**窗口。  
   
-1.  Select the <xref:System.Windows.Forms.DataGridView> control, and then choose **Add Query** on the **Data** menu.  
+2.  拖动**客户**节点从**数据源**向窗体的窗口。  
   
-2.  Type `FillByCity` in the **New query name** area on the **Search Criteria Builder** dialog box.  
+     窗体上出现用于导航记录的 <xref:System.Windows.Forms.DataGridView> 和工具栏 (<xref:System.Windows.Forms.BindingNavigator>)。 A [NorthwindDataSet](../data-tools/dataset-tools-in-visual-studio.md)，CustomersTableAdapter， <xref:System.Windows.Forms.BindingSource>，和<xref:System.Windows.Forms.BindingNavigator>组件栏中出现。  
   
-3.  Add `WHERE City = @City` to the query in the **Query Text** area.  
+## <a name="add-parameterization-search-functionality-to-the-query"></a>向查询添加参数化 （搜索功能）  
+ 你可以将 WHERE 子句添加到原始查询使用**搜索标准生成器**对话框。  
   
-     The query should be similar to the following:  
+#### <a name="to-create-a-parameterized-query-and-controls-to-enter-the-parameters"></a>创建参数化查询和用于输入参数的控件  
+  
+1.  选择<xref:System.Windows.Forms.DataGridView>控制，，然后选择**添加查询**上**数据**菜单。  
+  
+2.  类型`FillByCity`中**新查询名称**上的区域**搜索标准生成器**对话框。  
+  
+3.  添加`WHERE City = @City`到查询中**查询文本**区域。  
+  
+     查询应当类似于：  
   
      ```sql
      SELECT CustomerID, CompanyName, ContactName, ContactTitle,  
@@ -141,29 +138,29 @@ A common application scenario is to display selected data on a form. For example
      ```
   
     > [!NOTE]
-    >  Access and OLE DB data sources use the question mark ('?') to denote parameters, so the WHERE clause would look like this: `WHERE City = ?`.  
+    >  访问和 OLE DB 数据源使用问号 ('？ ') 表示参数，因此 WHERE 子句将如下所示： `WHERE City = ?`。  
   
-4.  Click **OK** to close the **Search Criteria Builder** dialog box.  
+4.  单击**确定**关闭**搜索标准生成器**对话框。  
   
-     A **FillByCityToolStrip** is added to the form.  
+     A **FillByCityToolStrip**添加到窗体。  
   
-## <a name="testing-the-application"></a>Testing the application  
- Running the application opens your form ready to take the parameter as input.  
+## <a name="testing-the-application"></a>测试应用程序  
+ 运行应用程序以打开准备接收参数作为输入的窗体。  
   
-#### <a name="to-test-the-application"></a>To test the application  
+#### <a name="to-test-the-application"></a>测试应用程序  
   
-1.  Press F5 to run the application.  
+1.  按 F5 运行该应用程序。  
   
-2.  Type **London** into the **City** text box, and then click **FillByCity**.  
+2.  类型**伦敦**到**城市**文本中，然后单击**FillByCity**。  
   
-     The data grid is populated with customers that meet the criteria. In this example, the data grid only displays customers that have a value of **London** in their **City** column.  
+     数据网格与符合条件的客户。 在此示例中，数据网格只显示具有的值的客户**伦敦**中其**城市**列。  
   
-## <a name="next-steps"></a>Next Steps  
- Depending on your application requirements, there are several steps you may want to perform after creating a parameterized form. Some enhancements you could make to this walkthrough include:  
+## <a name="next-steps"></a>后续步骤  
+ 根据应用程序的需求，在创建参数化窗体后可能还需要执行一些步骤。 你可以通过以下操作来增强此演练的效果：  
   
--   Adding controls that display related data. For more information, see [Relationships in Datasets](relationships-in-datasets.md).  
+-   添加显示相关数据的控件。 有关详细信息，请参阅[数据集中的关系](relationships-in-datasets.md)。  
   
--   Editing the dataset to add or remove database objects. For more information, see [Create and configure datasets](../data-tools/create-and-configure-datasets-in-visual-studio.md).  
+-   编辑数据集来添加或移除数据库对象。 有关详细信息，请参阅[创建和配置数据集](../data-tools/create-and-configure-datasets-in-visual-studio.md)。  
   
-## <a name="see-also"></a>See Also  
- [Bind Windows Forms controls to data in Visual Studio](../data-tools/bind-windows-forms-controls-to-data-in-visual-studio.md)
+## <a name="see-also"></a>另请参阅  
+ [在 Visual Studio 中将 Windows 窗体控件绑定到数据](../data-tools/bind-windows-forms-controls-to-data-in-visual-studio.md)
