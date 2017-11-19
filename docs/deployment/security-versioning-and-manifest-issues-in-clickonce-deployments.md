@@ -1,95 +1,96 @@
 ---
-title: "ClickOnce 部署中的安全、版本控制和清单问题 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-deployment"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-dev_langs: 
-  - "VB"
-  - "CSharp"
-  - "C++"
-helpviewer_keywords: 
-  - "ClickOnce 应用程序, 清单问题"
-  - "ClickOnce 应用程序, 安全性问题"
-  - "ClickOnce 应用程序, 版本问题"
-  - "ClickOnce 应用程序, Windows Vista 用户帐户控制"
-  - "清单 [ClickOnce]"
-  - "安全性, ClickOnce 应用程序"
-  - "用户帐户控制, ClickOnce 应用程序"
-  - "版本, ClickOnce 应用程序"
-  - "Windows 7, ClickOnce 部署"
-  - "Windows Vista, ClickOnce 部署"
+title: "安全性、 版本控制和 ClickOnce 部署中的清单问题 |Microsoft 文档"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology: vs-ide-deployment
+ms.tgt_pltfrm: 
+ms.topic: article
+dev_langs:
+- VB
+- CSharp
+- C++
+helpviewer_keywords:
+- versioning, ClickOnce applications
+- ClickOnce applications, Windows Vista User Account Control
+- ClickOnce applications, versioning issues
+- security, ClickOnce applications
+- Windows 7, ClickOnce deployments
+- ClickOnce applications, manifest issues
+- User Account Control, ClickOnce applications
+- Windows Vista, ClickOnce deployments
+- manifests [ClickOnce]
+- ClickOnce applications, security issues
 ms.assetid: d5d0c90b-ac1a-44e2-88dc-0d0ffd881624
-caps.latest.revision: 21
-author: "stevehoag"
-ms.author: "shoag"
-manager: "wpickett"
-caps.handback.revision: 21
+caps.latest.revision: "21"
+author: stevehoag
+ms.author: shoag
+manager: wpickett
+ms.openlocfilehash: 603ff665e2c01abe62954e4e65e49a095d358b29
+ms.sourcegitcommit: aadb9588877418b8b55a5612c1d3842d4520ca4c
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/27/2017
 ---
-# ClickOnce 部署中的安全、版本控制和清单问题
-[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
-
-[!INCLUDE[ndptecclick](../deployment/includes/ndptecclick_md.md)] 安全性、应用程序版本控制以及清单语法和语义方面存在许多问题，这些问题可导致 [!INCLUDE[ndptecclick](../deployment/includes/ndptecclick_md.md)] 部署失败。  
+# <a name="security-versioning-and-manifest-issues-in-clickonce-deployments"></a>ClickOnce 部署中的安全、版本控制和清单问题
+还有很多问题[!INCLUDE[ndptecclick](../deployment/includes/ndptecclick_md.md)]安全性、 应用程序版本控制和清单的语法和语义，可能会导致[!INCLUDE[ndptecclick](../deployment/includes/ndptecclick_md.md)]部署，不能成功。  
   
-## ClickOnce 和 Windows Vista 用户帐户控制  
- 在 [!INCLUDE[windowsver](../deployment/includes/windowsver_md.md)] 中，应用程序默认以标准用户的身份运行，即使当前用户用拥有管理员权限的帐户登录也是如此。  如果应用程序必须执行需要管理员权限的操作，它会告诉操作系统，操作系统随后会提示用户输入其管理员凭据。  此功能称为用户帐户控制 \(UAC\)，它可以防止应用程序在没有得到用户明确批准的情况下做出可能会影响整个操作系统的更改。  Windows 应用程序通过在应用程序清单的 `trustInfo` 部分指定 `requestedExecutionLevel` 特性来声明它们需要此权限提升。  
+## <a name="clickonce-and-windows-vista-user-account-control"></a>ClickOnce 和 Windows Vista 用户帐户控制  
+ 在[!INCLUDE[windowsver](../deployment/includes/windowsver_md.md)]，默认情况下的应用程序作为标准用户运行，即使当前用户使用具有管理员权限的帐户登录。 如果应用程序必须执行需要管理员权限的操作，它会通知操作系统，然后会提示用户输入其管理员凭据。 此功能，名为用户帐户控制 (UAC) 阻止进行更改可能会影响整个操作系统中，而无需用户的显式批准应用程序。 Windows 应用程序声明它们通过指定需要此权限提升`requestedExecutionLevel`属性中`trustInfo`其应用程序清单的一部分。  
   
- 考虑到将应用程序公开给安全提升攻击所带来的风险，如果已为客户端启用 UAC，[!INCLUDE[ndptecclick](../deployment/includes/ndptecclick_md.md)] 应用程序将无法请求权限提升。  任何尝试将 `requestedExecutionLevel` 特性设置为 `requireAdministrator` 或 `highestAvailable` 的 [!INCLUDE[ndptecclick](../deployment/includes/ndptecclick_md.md)] 应用程序都不会在 [!INCLUDE[windowsver](../deployment/includes/windowsver_md.md)] 上安装。  
+ 由于公开给安全提升攻击，应用程序的风险[!INCLUDE[ndptecclick](../deployment/includes/ndptecclick_md.md)]如果客户端启用了 UAC，应用程序不能请求权限提升。 任何[!INCLUDE[ndptecclick](../deployment/includes/ndptecclick_md.md)]尝试设置应用程序，其`requestedExecutionLevel`属性设为`requireAdministrator`或`highestAvailable`安装不会[!INCLUDE[windowsver](../deployment/includes/windowsver_md.md)]。  
   
- 有些情况下，[!INCLUDE[ndptecclick](../deployment/includes/ndptecclick_md.md)] 应用程序可能由于 [!INCLUDE[windowsver](../deployment/includes/windowsver_md.md)] 上的安装程序检测逻辑而尝试用管理员权限运行。  在这种情况下，您可以将应用程序清单中的 `requestedExecutionLevel` 特性设置为 `asInvoker`。  这样将使应用程序本身不用提升即可运行。[!INCLUDE[vs_orcas_long](../debugger/includes/vs_orcas_long_md.md)] 自动将此特性添加到所有应用程序清单。  
+ 在某些情况下，你[!INCLUDE[ndptecclick](../deployment/includes/ndptecclick_md.md)]应用程序可能会尝试使用管理员权限运行安装程序检测逻辑由于[!INCLUDE[windowsver](../deployment/includes/windowsver_md.md)]。 在这种情况下，你可以设置`requestedExecutionLevel`到应用程序清单中的特性`asInvoker`。 这将导致应用程序本身不用提升即可运行。 [!INCLUDE[vs_orcas_long](../debugger/includes/vs_orcas_long_md.md)]自动将此属性添加到所有应用程序清单。  
   
- 如果开发在整个生存期都需要管理员权限的应用程序，则应考虑改用 Windows Installer \(MSI\) 技术来部署应用程序。  有关更多信息，请参见 [Windows 安装程序基础知识](../extensibility/internals/windows-installer-basics.md)。  
+ 如果你正在开发的应用程序需要管理员权限的应用程序的整个生存期内，则应考虑部署应用程序改为使用 Windows Installer (MSI) 技术。 有关详细信息，请参阅[Windows 安装程序基础知识](../extensibility/internals/windows-installer-basics.md)。  
   
-## 联机应用程序配额和部分信任应用程序  
- 如果 [!INCLUDE[ndptecclick](../deployment/includes/ndptecclick_md.md)] 应用程序联机运行而不是通过安装运行，则它必须在为联机应用程序预留的配额范围之内。  此外，以部分信任的方式（如具有受限制的安全权限集）运行的网络应用程序不能大于配额大小的一半。  
+## <a name="online-application-quotas-and-partial-trust-applications"></a>联机应用程序配额和部分信任应用程序  
+ 如果你[!INCLUDE[ndptecclick](../deployment/includes/ndptecclick_md.md)]联机而不是通过安装应用程序运行，它必须适应留出的用于联机应用程序的配额。 此外，网络运行的应用程序在部分信任中，如具有一组受限的安全权限，不能大于配额大小的一半。  
   
- 有关更多信息和如何更改联机应用程序配额的说明，请参见 [ClickOnce 缓存概述](../deployment/clickonce-cache-overview.md)。  
+ 有关详细信息和有关如何更改配额的联机应用程序的说明，请参阅[ClickOnce 缓存概述](../deployment/clickonce-cache-overview.md)。  
   
-## 版本问题  
- 如果将强名称指定给程序集，并递增程序集版本号以反映应用程序更新，则可能会遇到问题。  使用对强名称程序集的引用进行编译的任何程序集本身必须被重新编译，否则它会尝试引用旧版本。  程序集之所以将尝试此操作，是因为它在其绑定请求中使用旧版本值。  
+## <a name="versioning-issues"></a>版本控制问题  
+ 如果你分配给您的程序集的强名称，并递增以反映应用程序更新的程序集版本号，你可能会遇到问题。 对具有强名称程序集的引用编译的任何程序集必须本身重新编译，或程序集将尝试引用较旧版本。 程序集将尝试此操作因为程序集在其绑定请求中使用的旧版本值。  
   
- 举例来说，假定您有一个强名称程序集，该程序集在自己的项目中的版本号为 1.0.0.0。  在编译该程序集之后，您将它作为引用添加到包含主应用程序的项目中。  如果更新该程序集，将版本递增到 1.0.0.1，并尝试在不重新编译应用程序的情况下进行部署，则应用程序将无法在运行时加载该程序集。  
+ 例如，假设在其自身的版本号为 1.0.0.0 的项目中有具有强名称程序集。 在编译的程序集之后, 你将其添加为对包含主应用程序的项目的引用。 如果你更新该程序集，将版本递增到 1.0.0.1，并尝试将其部署而无需重新编译应用程序，应用程序不能加载运行时程序集。  
   
- 只有在手动编辑 [!INCLUDE[ndptecclick](../deployment/includes/ndptecclick_md.md)] 清单时才会发生此错误；如果使用 [!INCLUDE[vsprvslong](../code-quality/includes/vsprvslong_md.md)] 生成部署，则不会遇到此错误。  
+ 可能出现此错误，仅当你编辑你[!INCLUDE[ndptecclick](../deployment/includes/ndptecclick_md.md)]清单手动; 你不应遇到此错误，如果你生成你部署使用[!INCLUDE[vsprvslong](../code-quality/includes/vsprvslong_md.md)]。  
   
-## 在清单中指定个别 .NET Framework 程序集  
- 如果手动将 [!INCLUDE[ndptecclick](../deployment/includes/ndptecclick_md.md)] 部署编辑为引用 [!INCLUDE[dnprdnshort](../code-quality/includes/dnprdnshort_md.md)] 程序集的某个较早版本，则应用程序将无法加载。  例如，如果添加了对清单中指定版本之前版本的 [!INCLUDE[dnprdnshort](../code-quality/includes/dnprdnshort_md.md)] 的 System.Net 程序集引用，则会出现错误。  由于在其上运行应用程序的 [!INCLUDE[dnprdnshort](../code-quality/includes/dnprdnshort_md.md)] 的版本被指定为应用程序清单中的依赖项，因此，通常不应尝试指定对个别 [!INCLUDE[dnprdnshort](../code-quality/includes/dnprdnshort_md.md)] 程序集的引用。  
+## <a name="specifying-individual-net-framework-assemblies-in-the-manifest"></a>在清单中指定单个.NET Framework 程序集  
+ 你的应用程序将无法加载如果你已手动编辑[!INCLUDE[ndptecclick](../deployment/includes/ndptecclick_md.md)]部署引用较旧版本的[!INCLUDE[dnprdnshort](../code-quality/includes/dnprdnshort_md.md)]程序集。 例如，如果你添加到的版本的 System.Net 程序集的引用[!INCLUDE[dnprdnshort](../code-quality/includes/dnprdnshort_md.md)]之前在清单中指定的版本，然后会出现错误。 一般情况下，不应尝试指定对单个引用[!INCLUDE[dnprdnshort](../code-quality/includes/dnprdnshort_md.md)]程序集，作为版本[!INCLUDE[dnprdnshort](../code-quality/includes/dnprdnshort_md.md)]针对运行应用程序被指定为应用程序清单中的依赖项。  
   
-## 清单分析问题  
- [!INCLUDE[ndptecclick](../deployment/includes/ndptecclick_md.md)] 使用的清单文件为 XML 文件，这些文件必须格式良好且有效，即必须遵守 XML 语法规则，而且仅使用在相关 XML 架构中定义的元素和特性。  
+## <a name="manifest-parsing-issues"></a>清单分析问题  
+ 通过使用清单文件[!INCLUDE[ndptecclick](../deployment/includes/ndptecclick_md.md)]是 XML 文件，并且它们必须是格式正确且有效： 必须遵循 XML 语法规则，并且只能使用元素和相关的 XML 架构中定义的属性。  
   
- 导致清单文件中出现问题的可能原因是为应用程序选择的名称包含特殊字符，例如单引号或双引号。  应用程序的名称是其 [!INCLUDE[ndptecclick](../deployment/includes/ndptecclick_md.md)] 标识的一部分。  [!INCLUDE[ndptecclick](../deployment/includes/ndptecclick_md.md)] 目前不分析包含特殊字符的标识。  如果应用程序无法激活，请确保其名称只使用了字母和数字字符，并尝试重新部署它。  
+ 这会导致在清单文件中的问题选择包含一个特殊字符，例如单引号或双引号引号你应用程序的名称。 应用程序的名称是的一部分其[!INCLUDE[ndptecclick](../deployment/includes/ndptecclick_md.md)]标识。 [!INCLUDE[ndptecclick](../deployment/includes/ndptecclick_md.md)]当前不会分析包含特殊字符的标识。 如果你的应用程序激活失败，请确保你的名称，使用仅字母和数字字符，并且尝试重新部署它。  
   
- 如果手动编辑过部署或应用程序清单，您可能会在无意中损坏它们。  如果清单损坏，则无法进行正确的 [!INCLUDE[ndptecclick](../deployment/includes/ndptecclick_md.md)] 安装。  您可以通过单击**“ClickOnce 错误”**对话框中的**“详细信息”**，然后阅读日志中的错误信息，在运行时调试此类错误。  日志将列出下列消息之一：  
+ 如果你手动编辑你的部署或应用程序清单，你可能会无意中损坏它们。 损坏的清单将无法进行正确[!INCLUDE[ndptecclick](../deployment/includes/ndptecclick_md.md)]安装。 可以通过单击来在运行时调试此类错误**详细信息**上**ClickOnce 错误**对话框中，并将读取日志中的错误消息。 日志将列出以下消息之一：  
   
--   语法错误的说明，以及错误发生的行号和字符位置。  
+-   语法错误的行号和字符的说明发生错误的位置。  
   
--   违反清单架构的元素或特性的名称。  如果已向清单中手动添加了 XML，则需要将添加内容与清单架构进行比较。  有关更多信息，请参见 [ClickOnce 部署清单](../deployment/clickonce-deployment-manifest.md)和 [ClickOnce 应用程序清单](../deployment/clickonce-application-manifest.md)。  
+-   元素或在违反该清单的架构中使用的属性的名称。 如果你已手动添加 XML，到你的清单，你将需要比较你添加到清单架构。 有关详细信息，请参阅[ClickOnce 部署清单](../deployment/clickonce-deployment-manifest.md)和[ClickOnce 应用程序清单](../deployment/clickonce-application-manifest.md)。  
   
--   ID 冲突。  部署清单和应用程序清单中的依赖项引用在 `name` 和 `publicKeyToken` 特性上必须保持唯一。  如果一个清单内任何两个元素间的这两个特性匹配，清单分析将会失败。  
+-   ID 冲突。 在部署和应用程序清单中的依赖项引用必须是唯一在其`name`和`publicKeyToken`属性。 如果这两个特性匹配在清单中任何两个元素间，清单分析将不会成功。  
   
-## 手动更改清单或应用程序时的注意事项  
- 更新应用程序清单时，必须重新对应用程序清单和部署清单进行签名。  部署清单包含一个对应用程序清单的引用，该清单中包含该文件的哈希数据和数字签名。  
+## <a name="precautions-when-manually-changing-manifests-or-applications"></a>手动更改清单或应用程序时的注意事项  
+ 在更新应用程序清单时，你必须重新登录应用程序清单和部署清单。 部署清单包含对包括该文件的哈希和其数字签名的应用程序清单的引用。  
   
-### 使用部署提供程序的注意事项  
- [!INCLUDE[ndptecclick](../deployment/includes/ndptecclick_md.md)] 部署清单具有一个 `deploymentProvider` 属性，该属性指向安装应用程序和为应用程序提供服务的源位置的完整路径：  
+### <a name="precautions-with-deployment-provider-usage"></a>使用部署提供程序的注意事项  
+ [!INCLUDE[ndptecclick](../deployment/includes/ndptecclick_md.md)]部署清单具有`deploymentProvider`属性用于从应安装和维护应用程序指向的位置的完整路径：  
   
 ```  
 <deploymentProvider codebase="http://myserver/myapp.application" />  
 ```  
   
- 此路径是在 [!INCLUDE[ndptecclick](../deployment/includes/ndptecclick_md.md)] 创建应用程序时设置的，并且对于安装的应用程序是必需的。  该路径指向一个标准位置，[!INCLUDE[ndptecclick](../deployment/includes/ndptecclick_md.md)] 安装程序将从该位置安装应用程序并搜索更新。  如果使用 **xcopy** 命令将 [!INCLUDE[ndptecclick](../deployment/includes/ndptecclick_md.md)] 应用程序复制到其他位置，但不更改 `deploymentProvider` 属性，则当 [!INCLUDE[ndptecclick](../deployment/includes/ndptecclick_md.md)] 尝试下载应用程序时，它仍将引用原始位置。  
+ 此路径设置时[!INCLUDE[ndptecclick](../deployment/includes/ndptecclick_md.md)]创建应用程序和已安装的应用程序强制性。 路径指向的标准位置其中[!INCLUDE[ndptecclick](../deployment/includes/ndptecclick_md.md)]安装程序将安装的应用程序和更新的搜索。 如果你使用**xcopy**命令以便将复制[!INCLUDE[ndptecclick](../deployment/includes/ndptecclick_md.md)]应用程序到另一个位置，但不要更改`deploymentProvider`属性，[!INCLUDE[ndptecclick](../deployment/includes/ndptecclick_md.md)]仍将引用返回到原始位置时尝试下载应用程序。  
   
- 如果希望移动或复制应用程序，还必须更新 `deploymentProvider` 路径，这样客户端才能真正从新位置安装。  如果已安装了应用程序，则更新此路径在很多时候会成为一个问题。  对于始终通过原始 URL 启动的联机应用程序，`deploymentProvider` 为可选设置。  如果设置了 `deploymentProvider`，则使用该属性，否则将使用用于启动应用程序的 URL 作为基 URL 来下载应用程序文件。  
+ 如果你想要移动或复制应用程序，则还必须更新`deploymentProvider`路径，以便在客户端实际安装从新位置。 更新此路径是普遍问题，如果你已安装应用程序。 对于联机应用程序通过设置的原始 URL 始终启动`deploymentProvider`是可选的。 如果`deploymentProvider`设置，则将遵守它; 否则，用于启动应用程序的 URL 将使用用作基 URL，若要下载应用程序文件。  
   
 > [!NOTE]
->  每次更新清单时，还必须重新对其进行签名。  
+>  将清单更新每次你必须还对其签名试。  
   
-## 请参阅  
+## <a name="see-also"></a>另请参阅  
  [ClickOnce 部署疑难解答](../deployment/troubleshooting-clickonce-deployments.md)   
  [保护 ClickOnce 应用程序](../deployment/securing-clickonce-applications.md)   
  [选择 ClickOnce 部署策略](../deployment/choosing-a-clickonce-deployment-strategy.md)

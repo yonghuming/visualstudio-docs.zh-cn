@@ -1,63 +1,62 @@
 ---
-title: "IDiaDataSource::loadDataFromPdb | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-debug"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-dev_langs: 
-  - "C++"
-helpviewer_keywords: 
-  - "IDiaDataSource::loadDataFromPdb 方法"
+title: "Idiadatasource:: Loaddatafrompdb |Microsoft 文档"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology: vs-ide-debug
+ms.tgt_pltfrm: 
+ms.topic: article
+dev_langs: C++
+helpviewer_keywords: IDiaDataSource::loadDataFromPdb method
 ms.assetid: 02159073-8144-47f8-a0b0-aa0edcb92b5b
-caps.latest.revision: 7
-author: "mikejo5000"
-ms.author: "mikejo"
-manager: "ghogen"
-caps.handback.revision: 7
+caps.latest.revision: "7"
+author: mikejo5000
+ms.author: mikejo
+manager: ghogen
+ms.openlocfilehash: 4b9192484e2ac9c957bc53a2e5a5a5965fd7a46a
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# IDiaDataSource::loadDataFromPdb
-[!INCLUDE[vs2017banner](../../code-quality/includes/vs2017banner.md)]
-
-打开并准备程序数据库 \(.pdb\) 文件作为调试数据源。  
+# <a name="idiadatasourceloaddatafrompdb"></a>IDiaDataSource::loadDataFromPdb
+将打开并准备作为调试数据源的程序数据库 (.pdb) 文件。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
-```cpp#  
+```C++  
 HRESULT loadDataFromPdb (  
-   LPCOLESTR pdbPath  
+   LPCOLESTR pdbPath  
 );  
 ```  
   
-#### 参数  
+#### <a name="parameters"></a>参数  
  pdbPath  
- \[in\] .pdb 文件的路径。  
+ [in].Pdb 文件的路径。  
   
-## 返回值  
- 如果成功，则返回; `S_OK`否则，返回错误代码。  下表显示可能返回此方法的值。  
+## <a name="return-value"></a>返回值  
+ 如果成功，则返回`S_OK`; 否则为返回错误代码。 下表显示可能的此方法的返回值。  
   
-|值|说明|  
-|-------|--------|  
-|E\_PDB\_NOT\_FOUND|未能打开文件或确定文件的格式无效。|  
-|E\_PDB\_FORMAT|尝试访问具有过时的格式的文件。|  
-|E\_INVALIDARG|参数无效。|  
-|E\_UNEXPECTED|数据源已准备。|  
+|值|描述|  
+|-----------|-----------------|  
+|E_PDB_NOT_FOUND|无法打开该文件，或确定该文件具有无效的格式。|  
+|E_PDB_FORMAT|尝试访问具有过时的格式的文件。|  
+|E_INVALIDARG|参数无效。|  
+|E_UNEXPECTED|数据源尚未准备好。|  
   
-## 备注  
- 此方法直接从 .pdb 文件加载调试数据。  
+## <a name="remarks"></a>备注  
+ 此方法直接从.pdb 文件加载调试数据。  
   
- 若要验证 .pdb 文件特定条件，请使用 [IDiaDataSource::loadAndValidateDataFromPdb](../../debugger/debug-interface-access/idiadatasource-loadandvalidatedatafrompdb.md) 方法。  
+ 若要验证.pdb 文件是否符合特定条件，使用[idiadatasource:: Loadandvalidatedatafrompdb](../../debugger/debug-interface-access/idiadatasource-loadandvalidatedatafrompdb.md)方法。  
   
- 对数据加载若要访问进程 \(通过回调机制\)，使用 [IDiaDataSource::loadDataForExe](../../debugger/debug-interface-access/idiadatasource-loaddataforexe.md) 方法。  
+ 若要访问数据加载过程 （通过回调机制），使用[idiadatasource:: Loaddataforexe](../../debugger/debug-interface-access/idiadatasource-loaddataforexe.md)方法。  
   
- 直接从内存若要填充 .pdb 文件，请使用 [IDiaDataSource::loadDataFromIStream](../Topic/IDiaDataSource::loadDataFromIStream.md) 方法。  
+ 若要直接从内存中加载的.pdb 文件，使用[idiadatasource:: Loaddatafromistream](../../debugger/debug-interface-access/idiadatasource-loaddatafromistream.md)方法。  
   
-## 示例  
+## <a name="example"></a>示例  
   
-```cpp#  
+```C++  
 HRESULT hr = pSource->loadDataFromPdb( L"myprog.pdb" );  
 if (FAILED(hr))  
 {  
@@ -65,8 +64,8 @@ if (FAILED(hr))
 }  
 ```  
   
-## 请参阅  
+## <a name="see-also"></a>另请参阅  
  [IDiaDataSource](../../debugger/debug-interface-access/idiadatasource.md)   
- [IDiaDataSource::loadDataForExe](../../debugger/debug-interface-access/idiadatasource-loaddataforexe.md)   
- [IDiaDataSource::loadAndValidateDataFromPdb](../../debugger/debug-interface-access/idiadatasource-loadandvalidatedatafrompdb.md)   
- [IDiaDataSource::loadDataFromIStream](../Topic/IDiaDataSource::loadDataFromIStream.md)
+ [Idiadatasource:: Loaddataforexe](../../debugger/debug-interface-access/idiadatasource-loaddataforexe.md)   
+ [Idiadatasource:: Loadandvalidatedatafrompdb](../../debugger/debug-interface-access/idiadatasource-loadandvalidatedatafrompdb.md)   
+ [IDiaDataSource::loadDataFromIStream](../../debugger/debug-interface-access/idiadatasource-loaddatafromistream.md)

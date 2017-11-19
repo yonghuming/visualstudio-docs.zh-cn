@@ -1,38 +1,41 @@
 ---
-title: "byteOffset 属性 (Float32Array) | Microsoft Docs"
-ms.custom: ""
-ms.date: "01/18/2017"
-ms.prod: "windows-client-threshold"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "devlang-javascript"
-ms.tgt_pltfrm: ""
-ms.topic: "language-reference"
-dev_langs: 
-  - "JavaScript"
-  - "TypeScript"
-  - "DHTML"
+title: "byteOffset 属性 (Float32Array) |Microsoft 文档"
+ms.custom: 
+ms.date: 01/18/2017
+ms.prod: windows-client-threshold
+ms.reviewer: 
+ms.suite: 
+ms.technology: devlang-javascript
+ms.tgt_pltfrm: 
+ms.topic: language-reference
+dev_langs:
+- JavaScript
+- TypeScript
+- DHTML
 ms.assetid: 9417c741-d307-404b-8d37-22f0d184a0d7
-caps.latest.revision: 7
-author: "mikejo5000"
-ms.author: "mikejo"
-manager: "ghogen"
-caps.handback.revision: 7
+caps.latest.revision: "7"
+author: mikejo5000
+ms.author: mikejo
+manager: ghogen
+ms.openlocfilehash: 1c64d82f54aa429e2104a8b80dbc54e55c959900
+ms.sourcegitcommit: aadb9588877418b8b55a5612c1d3842d4520ca4c
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/27/2017
 ---
-# byteOffset 属性 (Float32Array)
-只读。  此数组的从其 ArrayBuffer 开始的偏移量（以字节为单位）在构造时已固定。  
+# <a name="byteoffset-property-float32array"></a>byteOffset 属性 (Float32Array)
+只读。 此数组与其 ArrayBuffer 开始处的偏移量（以字节为单位），在构造时已固定。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
-```javascript  
+```JavaScript  
 var arrayOffset = float32Array.byteOffset;  
 ```  
   
-## 示例  
+## <a name="example"></a>示例  
  下面的示例演示如何获取数组的偏移量。  
   
-```javascript  
+```JavaScript  
 var req = new XMLHttpRequest();  
     req.open('GET', "http://www.example.com");  
     req.responseType = "arraybuffer";  
@@ -49,5 +52,5 @@ var req = new XMLHttpRequest();
   
 ```  
   
-## 要求  
+## <a name="requirements"></a>要求  
  [!INCLUDE[jsv10](../../javascript/reference/includes/jsv10-md.md)]

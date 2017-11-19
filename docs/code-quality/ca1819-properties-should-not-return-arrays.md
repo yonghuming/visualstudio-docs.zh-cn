@@ -1,11 +1,10 @@
 ---
-title: 'CA1819: Properties should not return arrays | Microsoft Docs'
+title: "CA1819： 属性不应返回数组 |Microsoft 文档"
 ms.custom: 
 ms.date: 11/04/2016
 ms.reviewer: 
 ms.suite: 
-ms.technology:
-- vs-devops-test
+ms.technology: vs-ide-code-analysis
 ms.tgt_pltfrm: 
 ms.topic: article
 f1_keywords:
@@ -15,94 +14,83 @@ helpviewer_keywords:
 - PropertiesShouldNotReturnArrays
 - CA1819
 ms.assetid: 85fcf312-57f8-438a-8b10-34441fe0bdeb
-caps.latest.revision: 22
-author: stevehoag
-ms.author: shoag
-manager: wpickett
-translation.priority.ht:
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- ru-ru
-- zh-cn
-- zh-tw
-translation.priority.mt:
-- cs-cz
-- pl-pl
-- pt-br
-- tr-tr
-ms.translationtype: HT
-ms.sourcegitcommit: eb5c9550fd29b0e98bf63a7240737da4f13f3249
-ms.openlocfilehash: c8e145afcff87a0ac3250509758762db3d6e2de7
-ms.contentlocale: zh-cn
-ms.lasthandoff: 08/30/2017
-
+caps.latest.revision: "22"
+author: gewarren
+ms.author: gewarren
+manager: ghogen
+ms.openlocfilehash: 2bd2aae360789646c78fa6b292b1ad97490fc2da
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# <a name="ca1819-properties-should-not-return-arrays"></a>CA1819: Properties should not return arrays
+# <a name="ca1819-properties-should-not-return-arrays"></a>CA1819：属性不应返回数组
 |||  
 |-|-|  
 |TypeName|PropertiesShouldNotReturnArrays|  
 |CheckId|CA1819|  
-|Category|Microsoft.Performance|  
-|Breaking Change|Breaking|  
+|类别|Microsoft.Performance|  
+|是否重大更改|重大|  
   
-## <a name="cause"></a>Cause  
- A public or protected property in a public type returns an array.  
+## <a name="cause"></a>原因  
+ 公共类型中的公共或受保护属性返回一个数组。  
   
-## <a name="rule-description"></a>Rule Description  
- Arrays returned by properties are not write-protected, even if the property is read-only. To keep the array tamper-proof, the property must return a copy of the array. Typically, users will not understand the adverse performance implications of calling such a property. Specifically, they might use the property as an indexed property.  
+## <a name="rule-description"></a>规则说明  
+ 数组由属性返回不写保护，即使属性是只读的。 若要使数组不会被更改，属性必须返回数组的副本。 通常，用户不能理解调用这种属性的负面性能影响。 具体而言，它们可以将属性用作索引属性。  
   
-## <a name="how-to-fix-violations"></a>How to Fix Violations  
- To fix a violation of this rule, either make the property a method or change the property to return a collection.  
+## <a name="how-to-fix-violations"></a>如何解决冲突  
+ 若要修复与此规则的冲突，使方法的属性或更改要返回集合的属性。  
   
-## <a name="when-to-suppress-warnings"></a>When to Suppress Warnings  
- Attributes can contain properties that return arrays, but cannot contain properties that return collections. You can suppress a warning that is raised for a property of an attribute that is derived from the <xref:System.Attribute> class. Otherwise, do not suppress a warning from this rule.  
+## <a name="when-to-suppress-warnings"></a>何时禁止显示警告  
+ 属性可以包含返回数组的属性，但不能包含返回集合的属性。 你可以禁止显示警告引发派生自的特性属性<xref:System.Attribute>类。 否则，不要禁止显示此规则的警告。  
   
-## <a name="example-violation"></a>Example Violation  
+## <a name="example-violation"></a>冲突的示例  
   
-### <a name="description"></a>Description  
- The following example shows a property that violates this rule.  
+### <a name="description"></a>描述  
+ 下面的示例演示了违反此规则的属性。  
   
-### <a name="code"></a>Code  
- [!code-csharp[FxCop.Performance.PropertyArrayViolation#1](../code-quality/codesnippet/CSharp/ca1819-properties-should-not-return-arrays_1.cs)] [!code-vb[FxCop.Performance.PropertyArrayViolation#1](../code-quality/codesnippet/VisualBasic/ca1819-properties-should-not-return-arrays_1.vb)]  
+### <a name="code"></a>代码  
+ [!code-csharp[FxCop.Performance.PropertyArrayViolation#1](../code-quality/codesnippet/CSharp/ca1819-properties-should-not-return-arrays_1.cs)]
+ [!code-vb[FxCop.Performance.PropertyArrayViolation#1](../code-quality/codesnippet/VisualBasic/ca1819-properties-should-not-return-arrays_1.vb)]  
   
-### <a name="comments"></a>Comments  
- To fix a violation of this rule, either make the property a method or change the property to return a collection instead of an array.  
+### <a name="comments"></a>注释  
+ 若要修复与此规则的冲突，使方法的属性或更改属性，以返回而不是数组的集合。  
   
-## <a name="change-the-property-to-a-method-example"></a>Change the Property to a Method Example  
+## <a name="change-the-property-to-a-method-example"></a>将属性更改为方法示例  
   
-### <a name="description"></a>Description  
- The following example fixes the violation by changing the property to a method.  
+### <a name="description"></a>描述  
+ 下面的示例通过将属性更改为方法中修复了冲突。  
   
-### <a name="code"></a>Code  
- [!code-vb[FxCop.Performance.PropertyArrayFixedMethod#1](../code-quality/codesnippet/VisualBasic/ca1819-properties-should-not-return-arrays_2.vb)] [!code-csharp[FxCop.Performance.PropertyArrayFixedMethod#1](../code-quality/codesnippet/CSharp/ca1819-properties-should-not-return-arrays_2.cs)]  
+### <a name="code"></a>代码  
+ [!code-vb[FxCop.Performance.PropertyArrayFixedMethod#1](../code-quality/codesnippet/VisualBasic/ca1819-properties-should-not-return-arrays_2.vb)]
+ [!code-csharp[FxCop.Performance.PropertyArrayFixedMethod#1](../code-quality/codesnippet/CSharp/ca1819-properties-should-not-return-arrays_2.cs)]  
   
-## <a name="return-a-collection-example"></a>Return a Collection Example  
+## <a name="return-a-collection-example"></a>返回集合的示例。  
   
-### <a name="description"></a>Description  
- The following example fixes the violation by changing the property to return a  
+### <a name="description"></a>描述  
+ 下面的示例通过将属性更改为返回修复了冲突  
   
- <xref:System.Collections.ObjectModel.ReadOnlyCollection%601?displayProperty=fullName>.  
+ <xref:System.Collections.ObjectModel.ReadOnlyCollection%601?displayProperty=fullName>。  
   
-### <a name="code"></a>Code  
- [!code-csharp[FxCop.Performance.PropertyArrayFixedCollection#1](../code-quality/codesnippet/CSharp/ca1819-properties-should-not-return-arrays_3.cs)] [!code-vb[FxCop.Performance.PropertyArrayFixedCollection#1](../code-quality/codesnippet/VisualBasic/ca1819-properties-should-not-return-arrays_3.vb)]  
+### <a name="code"></a>代码  
+ [!code-csharp[FxCop.Performance.PropertyArrayFixedCollection#1](../code-quality/codesnippet/CSharp/ca1819-properties-should-not-return-arrays_3.cs)]
+ [!code-vb[FxCop.Performance.PropertyArrayFixedCollection#1](../code-quality/codesnippet/VisualBasic/ca1819-properties-should-not-return-arrays_3.vb)]  
   
-## <a name="allowing-users-to-modify-a-property"></a>Allowing Users to Modify a Property  
+## <a name="allowing-users-to-modify-a-property"></a>允许用户修改属性  
   
-### <a name="description"></a>Description  
- You might want to allow the consumer of the class to modify a property. The following example shows a read/write property that violates this rule.  
+### <a name="description"></a>描述  
+ 你可能想要允许的类的使用者修改属性。 下面的示例演示了违反此规则的读/写属性。  
   
-### <a name="code"></a>Code  
- [!code-csharp[FxCop.Performance.PropertyModifyViolation#1](../code-quality/codesnippet/CSharp/ca1819-properties-should-not-return-arrays_4.cs)] [!code-vb[FxCop.Performance.PropertyModifyViolation#1](../code-quality/codesnippet/VisualBasic/ca1819-properties-should-not-return-arrays_4.vb)]  
+### <a name="code"></a>代码  
+ [!code-csharp[FxCop.Performance.PropertyModifyViolation#1](../code-quality/codesnippet/CSharp/ca1819-properties-should-not-return-arrays_4.cs)]
+ [!code-vb[FxCop.Performance.PropertyModifyViolation#1](../code-quality/codesnippet/VisualBasic/ca1819-properties-should-not-return-arrays_4.vb)]  
   
-### <a name="comments"></a>Comments  
- The following example fixes the violation by changing the property to return a <xref:System.Collections.ObjectModel.Collection%601?displayProperty=fullName>.  
+### <a name="comments"></a>注释  
+ 下面的示例通过将属性更改为返回修复了冲突<xref:System.Collections.ObjectModel.Collection%601?displayProperty=fullName>。  
   
-### <a name="code"></a>Code  
- [!code-vb[FxCop.Performance.PropertyModifyFixed#1](../code-quality/codesnippet/VisualBasic/ca1819-properties-should-not-return-arrays_5.vb)] [!code-csharp[FxCop.Performance.PropertyModifyFixed#1](../code-quality/codesnippet/CSharp/ca1819-properties-should-not-return-arrays_5.cs)]  
+### <a name="code"></a>代码  
+ [!code-vb[FxCop.Performance.PropertyModifyFixed#1](../code-quality/codesnippet/VisualBasic/ca1819-properties-should-not-return-arrays_5.vb)]
+ [!code-csharp[FxCop.Performance.PropertyModifyFixed#1](../code-quality/codesnippet/CSharp/ca1819-properties-should-not-return-arrays_5.cs)]  
   
-## <a name="related-rules"></a>Related Rules  
- [CA1024: Use properties where appropriate](../code-quality/ca1024-use-properties-where-appropriate.md)
+## <a name="related-rules"></a>相关的规则  
+ [CA1024：在适用处使用属性](../code-quality/ca1024-use-properties-where-appropriate.md)

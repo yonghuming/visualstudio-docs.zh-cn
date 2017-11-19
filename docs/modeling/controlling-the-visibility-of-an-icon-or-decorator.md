@@ -1,25 +1,113 @@
 ---
-title: "控制图标或修饰器的可见性 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.tgt_pltfrm: ""
-ms.topic: "article"
+title: "控制的可见性图标或修饰器 |Microsoft 文档"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.tgt_pltfrm: 
+ms.topic: article
 ms.assetid: 2697fd5d-b936-4b6b-b87b-be64825dc7a4
-caps.latest.revision: 2
-author: "alancameronwills"
-ms.author: "awills"
-manager: "douge"
-caps.handback.revision: 2
+caps.latest.revision: "2"
+author: alancameronwills
+ms.author: awills
+manager: douge
+ms.openlocfilehash: f3dc3efefa4a89d64a64bd946f1f79e6c5a6d4df
+ms.sourcegitcommit: aadb9588877418b8b55a5612c1d3842d4520ca4c
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/27/2017
 ---
-# 控制图标或修饰器的可见性
-[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
-
-此处插入介绍。  
+# <a name="controlling-the-visibility-of-an-icon-or-decorator"></a>控制图标或修饰器的可见性
+A*修饰器*是图标还是在域特定语言 (DSL) 中的一个形状显示的文本行。 可以进行修饰器出现，并根据模型中的属性的状态进行消失。 例如上一个形状上表示个人，, 你可以有不同的图标显示具体取决于该人员的性别，子节点，数量等。  
   
-## 节标题  
- 在此处插入节正文。  
+## <a name="controlling-the-visibility-of-an-icon-or-decorator"></a>控制的可见性图标或修饰器  
+ 以下过程假定已定义形状和其映射到域类。 有关详细信息，请参阅[如何定义域特定语言](../modeling/how-to-define-a-domain-specific-language.md)。  
   
-### 小节标题  
- 在此处插入小节正文。
+#### <a name="to-control-the-visibility-of-an-icon-or-text-decorator"></a>若要控制的可见性图标或文本的修饰器  
+  
+1.  DSL 定义关系图中，在图标或你想要显示的文本修饰器添加到形状类。  
+  
+    1.  右击形状类，指向**添加**，然后单击所需的类型的修饰器。  
+  
+    2.  设置修饰器的**位置**属性。 多个修饰器可以具有相同的位置。 例如，你可以为 male 和 female 共享相同的位置的图标。  
+  
+    3.  设置**默认图标**图标修饰的属性。  
+  
+2.  选择关系图元素代码图，它是形状类和 DSL 定义关系图上的域类之间的灰色行。  
+  
+3.  在 DSL 详细信息窗口中，在**修饰器地图**选项卡上，选择修饰器。 例如，MaleDecorator。  
+  
+4.  检查**可见性筛选器**框。  
+  
+5.  如果应控制可见性的 domain 属性是即时的域类上，请将**筛选器属性路径**空白。  
+  
+     否则为单击下拉列表菜单，然后导航到关系或类属性所在的位置。  
+  
+    -   若要避免错误报告，你应无法定位通过关系标记为"*"的导航工具中。  
+  
+6.  设置**筛选器属性**为域属性。 例如，性别。  
+  
+7.  在**可见性条目**列表中，添加为其修饰器应该是可见的此域属性的值。 例如，Male。  
+  
+8.  每个图标重复步骤。  
+  
+9. **转换所有模板**、 生成和运行和打开测试关系图。  
+  
+10. 更改控制的属性值时，修饰器应出现和消失。  
+  
+ 通常情况下，你想可见性由一组简单的值比更为复杂的公式来控制。 例如，可使依赖于特定类型的链接数图标或者使其依赖于是否的号码标识在特定范围内。 在这种情况下，使用以下过程。  
+  
+#### <a name="to-control-the-visibility-of-a-decorator-based-on-a-formula"></a>若要控制的可见性修饰器根据的公式  
+  
+1.  将计算的域属性添加到域类。 在**属性**窗口中，设置以下值：  
+  
+     **IsBrowsable =**`False`**-这会隐藏来自用户的属性**   
+  
+     **类型 =**`Calculated`**-这意味着你将提供计算其值的代码**   
+  
+     **名称**例如**DecoratorControl**  
+  
+     **类型** = `Boolean`  
+  
+     有关详细信息，请参阅[计算和自定义存储属性](../modeling/calculated-and-custom-storage-properties.md)。  
+  
+2.  请控制修饰器可见性的新属性。  
+  
+    1.  选择关系图元素映射，这是来自域类到形状的灰色一行。 在**DSL 详细信息**窗口中，打开**DecoratorMap**选项卡。  
+  
+    2.  检查**可见性筛选器**框。  
+  
+    3.  在**筛选器属性**，选择控件属性**DecoratorControl**。  
+  
+    4.  下**可见性条目**，输入`True`。  
+  
+3.  单击**转换所有模板**解决方案资源管理器工具栏中。  
+  
+4.  单击**生成解决方案**上**生成**菜单。  
+  
+5.  双击已出现该错误报告:"*YourClass*未包含定义 GetDecoratorControlValue..."。  
+  
+     在 Dsl\GeneratedCode\DomainClasses.cs 上打开文本编辑器。 上面突出显示的错误是请求你添加的方法的注释。  
+  
+6.  请注意缺少命名空间、 类和方法。  例如，Company.FamilyTree.Person.GetDecoratorControlValue()。  
+  
+7.  在单独的代码文件中，编写包含缺失的方法的分部类定义。 例如:   
+  
+    ```  
+    namespace Company.FamilyTree  
+    { partial class Person  
+      { bool GetDecoratorControlValue()  
+        {  
+          return this.Children.Count > 0;  
+    } } }  
+    ```  
+  
+     有关自定义与程序代码模型的详细信息，请参阅[导航和更新程序代码中的模型](../modeling/navigating-and-updating-a-model-in-program-code.md)。  
+  
+8.  重新生成并运行解决方案。  
+  
+## <a name="see-also"></a>另请参阅  
+ [定义形状和连接符](../modeling/defining-shapes-and-connectors.md)   
+ [在关系图上设置背景图像](../modeling/setting-a-background-image-on-a-diagram.md)   
+ [导航和更新程序代码中的模型](../modeling/navigating-and-updating-a-model-in-program-code.md)   
+ [编写代码以自定义域特定语言](../modeling/writing-code-to-customise-a-domain-specific-language.md)

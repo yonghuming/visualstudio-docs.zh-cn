@@ -1,51 +1,51 @@
 ---
-title: "IDebugEngine2::SetLocale | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "IDebugEngine2::SetLocale"
-helpviewer_keywords: 
-  - "IDebugEngine2::SetLocale"
+title: "IDebugEngine2::SetLocale |Microsoft 文档"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology: vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords: IDebugEngine2::SetLocale
+helpviewer_keywords: IDebugEngine2::SetLocale
 ms.assetid: cd0d2cf1-2aac-43da-a830-4bb3d696c219
-caps.latest.revision: 10
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 10
+caps.latest.revision: "10"
+author: gregvanl
+ms.author: gregvanl
+manager: ghogen
+ms.openlocfilehash: 41ad173f706b655f4d43a101618127070ae9ac6e
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# IDebugEngine2::SetLocale
-[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
-
-设置调试引擎的区域设置 \(DE\)。  
+# <a name="idebugengine2setlocale"></a>IDebugEngine2::SetLocale
+设置的调试引擎 (DE) 的区域设置。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
-```cpp#  
-HRESULT SetLocale(   
-   WORD wLangID  
+```cpp  
+HRESULT SetLocale(   
+   WORD wLangID  
 );  
 ```  
   
-```c#  
-int SetLocale(   
-   ushort wLangID  
+```csharp  
+int SetLocale(   
+   ushort wLangID  
 );  
 ```  
   
-#### 参数  
+#### <a name="parameters"></a>参数  
  `wLangID`  
- \[in\] 指定语言区域设置。  例如， 1033 english 的。  
+ [in]指定的语言区域设置。 例如，1033 为英语的。  
   
-## 返回值  
- 如果成功，则返回; `S_OK`否则，返回错误代码。  
+## <a name="return-value"></a>返回值  
+ 如果成功，则返回`S_OK`; 否则为返回错误代码。  
   
-## 备注  
- 此方法由该会话调用调试管理器 \(SDM\)传播 IDE 的区域设置，以便 DE 返回的字符串正确本地化。  
+## <a name="remarks"></a>备注  
+ 会话调试管理器 (SDM)，以便正确本地化字符串由 DE 传播 IDE 的区域设置调用此方法。  
   
-## 请参阅  
+## <a name="see-also"></a>另请参阅  
  [IDebugEngine2](../../../extensibility/debugger/reference/idebugengine2.md)

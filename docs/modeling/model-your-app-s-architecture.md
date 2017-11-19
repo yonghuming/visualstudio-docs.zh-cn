@@ -1,42 +1,27 @@
 ---
-title: "应用程序的体系结构的模型 |Microsoft 文档"
+title: "模型您的应用程序 &#39; s 体系结构 |Microsoft 文档"
 ms.custom: 
 ms.date: 11/04/2016
 ms.reviewer: 
 ms.suite: 
 ms.tgt_pltfrm: 
 ms.topic: article
-helpviewer_keywords:
-- UML, modeling architecture
+helpviewer_keywords: UML, modeling architecture
 ms.assetid: aedce746-9df5-49e1-9662-67eb1b83d313
-caps.latest.revision: 19
+caps.latest.revision: "19"
 author: alexhomer1
 ms.author: ahomer
 manager: douge
-translation.priority.ht:
-- cs-cz
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pl-pl
-- pt-br
-- ru-ru
-- tr-tr
-- zh-cn
-- zh-tw
-translationtype: Machine Translation
-ms.sourcegitcommit: 08aabdfe0e268f93ef7723076375b7f65b15ccf3
-ms.openlocfilehash: 76db1dddef5b5a2ab7eca8f7d097d164896fe3a2
-ms.lasthandoff: 02/22/2017
-
+ms.openlocfilehash: 672e2ca393d8cd47466f44c1efb34e6648b7ed4e
+ms.sourcegitcommit: aadb9588877418b8b55a5612c1d3842d4520ca4c
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/27/2017
 ---
-# <a name="model-your-app39s-architecture"></a>应用程序的体系结构的模型
-为了帮助确保软件系统或应用程序满足用户的需求，您可以在 Visual Studio 中创建模型，作为您的整体结构的说明和软件系统或应用程序的行为的一部分。 使用模型，也可以描述在整个设计中使用的模式。 这些模型可你帮助了解现有的体系结构、讨论更改和清楚地传达你的意图。  
+# <a name="model-your-app39s-architecture"></a>模型您的应用程序 &#39; s 体系结构
+为了帮助确保你的软件系统或应用程序满足用户的需求，您可以在 Visual Studio 中创建模型，作为您的整体结构的说明和软件系统或应用程序行为的一部分。 使用模型，也可以描述在整个设计中使用的模式。 这些模型可你帮助了解现有的体系结构、讨论更改和清楚地传达你的意图。  
   
- 若要查看哪些版本的 Visual Studio 支持此功能，请参阅[体系结构和建模工具的版本支持](../modeling/what-s-new-for-design-in-visual-studio.md#VersionSupport)。  
+ 若要查看支持此功能的 Visual Studio 的版本，请参阅 [Version support for architecture and modeling tools](../modeling/what-s-new-for-design-in-visual-studio.md#VersionSupport)。  
   
  模型的目的是减少自然语言说明中的歧义，并帮助你和同事对设计进行可视化以及讨论备选设计。 模型应与其他文档或讨论一起使用。 就其本身而言，模型不表示该体系结构的完整规范。  
   
@@ -47,23 +32,23 @@ ms.lasthandoff: 02/22/2017
   
 -   [高级设计](#Structure)。 它描述了主要组件以及这些组件彼此之间如何交互以满足每项需求。 如果系统很大，每个组件可能有其自己的高级设计，该设计演示它是如何由较小的组件组成的。  
   
--   [设计模式](#Patterns)和整个组件的设计中使用的约定。 一种描述实现编程目标的特定方法的模式。 通过在整个设计中使用相同的模式，你的团队可以减少进行更改和开发新软件的成本。  
+-   [设计模式](#Patterns)和在组件的设计中使用的约定。 一种描述实现编程目标的特定方法的模式。 通过在整个设计中使用相同的模式，你的团队可以减少进行更改和开发新软件的成本。  
   
-##  <a name="a-namestructurea-high-level-design"></a><a name="Structure"></a>高级设计  
+##  <a name="Structure"></a>高级设计  
  高级设计描述你的系统的主要组件以及这些组件彼此之间如何交互以实现设计目标。 以下列表中的活动将参与开发高级设计，尽管并不一定按特定顺序参与。  
   
  如果要更新现有代码，可以通过介绍主要组件开始。 请确保你了解对用户需求所做的任何更改，然后添加或修改组件之间的交互。 如果你正在开发新系统，请通过了解用户需求的主要功能开始。 然后可以探索主要用例的交互序列，然后将序列合并到组件设计中。  
   
  在所有情况下，它有助于并行开发不同的活动以及在初期阶段开发代码和测试。 不要试图在开始另一个之前完成这些方面中的一个。 通常情况下，在编写和测试代码时，要求以及你对设计系统的最佳方式的理解都会改变。 因此，你应该通过了解需求的主要功能以及你的设计，然后对此进行编码着手。 在项目的后续迭代中填写详细信息。  
   
--   [了解要求，切勿](#Requirements)。 任何设计的起始点都是清楚地了解用户的需求。  
+-   [了解要求](#Requirements)。 任何设计的起始点都是清楚地了解用户的需求。  
   
 -   [体系结构模式](#BigDecisions)。 所做的有关系统的核心技术和体系结构元素的选择。  
   
--   组件和接口的数据模型。 可以绘制类图来描述组件之间传递的信息和组件内存储的信息。  
+-   数据模型的组件和接口。 可以绘制类图来描述组件之间传递的信息和组件内存储的信息。  
   
-##  <a name="a-namerequirementsa-understanding-the-requirements"></a><a name="Requirements"></a>了解要求  
- 开发完整应用程序的高级设计时结合需求模型或用户需求的其他说明最为高效。 有关需求模型的详细信息，请参阅[建立用户需求模型](../modeling/model-user-requirements.md)。  
+##  <a name="Requirements"></a>了解要求  
+ 开发完整应用程序的高级设计时结合需求模型或用户需求的其他说明最为高效。 有关要求模型的详细信息，请参阅[建立用户需求模型](../modeling/model-user-requirements.md)。  
   
  如果你正在开发的系统是一个更大系统中的组件，则你的部分或全部需求可能会体现在编程接口中。  
   
@@ -81,7 +66,7 @@ ms.lasthandoff: 02/22/2017
   
  应放入要求或体系结构模型中的详细信息的量取决于项目的规模以及团队的大小和分布。 执行短项目的小型团队可能仅需要绘制业务概念和一些设计模式的类图；而跨多个区域分布的大项目会需要明显更多的详细信息。  
   
-##  <a name="a-namebigdecisionsa-architectural-patterns"></a><a name="BigDecisions"></a>体系结构模式  
+##  <a name="BigDecisions"></a>体系结构模式  
  在开发早期，你需要选择设计所依赖的主要技术和元素。 必须在其中作出这些选择的领域包括：  
   
 -   基础技术选择，例如在数据库与文件系统之间选择、在联网的应用程序与 Web 客户端之间选择等等。  
@@ -94,7 +79,7 @@ ms.lasthandoff: 02/22/2017
   
  做出的选择会影响你如何使用和解释体系结构模型。 例如，在使用数据库的系统中，类图中的关联可能表示数据库中的关系或外键，然而在基于 XML 文件的系统中，关联可能指示使用 XPath 的交叉引用。 在分布式系统中，序列图中的消息可能表示线路消息；在独立的应用程序中，它们可能表示函数调用。  
   
-##  <a name="a-namepatternsa-design-patterns"></a><a name="Patterns"></a>设计模式  
+##  <a name="Patterns"></a>设计模式  
  设计模式是如何设计软件的某个特定方面的大纲，尤其是在系统的不同部件中重复出现的那个方面。 通过在项目之间采用一种统一的方法，可以降低设计成本、确保用户界面中的一致性，并降低理解和更改代码的成本。  
   
  一些常规设计模式（例如“观察者”）是众所周知且广泛适用的。 此外，还有仅适用于你的项目的模式。 例如，在 Web 销售系统中，代码中将有多个操作用于对客户的订单进行更改。 若要确保订单的状态在每个阶段都准确显示，则所有这些操作都必须遵循特定的协议来更新数据库。  
@@ -121,6 +106,6 @@ ms.lasthandoff: 02/22/2017
   
 ## <a name="see-also"></a>另请参阅  
  [可视化代码](../modeling/visualize-code.md)   
- [模型用户需求](../modeling/model-user-requirements.md)   
- [开发测试从模型](../modeling/develop-tests-from-a-model.md)   
+ [建立用户需求模型](../modeling/model-user-requirements.md)   
+ [基于模型开发测试](../modeling/develop-tests-from-a-model.md)   
  [在你的开发过程中使用模型](../modeling/use-models-in-your-development-process.md)

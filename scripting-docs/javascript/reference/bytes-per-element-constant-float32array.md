@@ -1,38 +1,41 @@
 ---
-title: "BYTES_PER_ELEMENT 常量 (Float32Array) | Microsoft Docs"
-ms.custom: ""
-ms.date: "01/18/2017"
-ms.prod: "windows-client-threshold"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "devlang-javascript"
-ms.tgt_pltfrm: ""
-ms.topic: "language-reference"
-dev_langs: 
-  - "JavaScript"
-  - "TypeScript"
-  - "DHTML"
+title: "BYTES_PER_ELEMENT 常量 (Float32Array) |Microsoft 文档"
+ms.custom: 
+ms.date: 01/18/2017
+ms.prod: windows-client-threshold
+ms.reviewer: 
+ms.suite: 
+ms.technology: devlang-javascript
+ms.tgt_pltfrm: 
+ms.topic: language-reference
+dev_langs:
+- JavaScript
+- TypeScript
+- DHTML
 ms.assetid: faaae7ad-fea5-420e-b8af-cc051cd9b06d
-caps.latest.revision: 7
-author: "mikejo5000"
-ms.author: "mikejo"
-manager: "ghogen"
-caps.handback.revision: 7
+caps.latest.revision: "7"
+author: mikejo5000
+ms.author: mikejo
+manager: ghogen
+ms.openlocfilehash: a05f81b8b65e7966f14d711d195030f54b93b163
+ms.sourcegitcommit: aadb9588877418b8b55a5612c1d3842d4520ca4c
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/27/2017
 ---
-# BYTES_PER_ELEMENT 常量 (Float32Array)
-数组中的每个元素的大小（以字节为单位）。  
+# <a name="bytesperelement-constant-float32array"></a>BYTES_PER_ELEMENT 常量 (Float32Array)
+数组中每个元素的大小（以字节为单位）。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
-```javascript  
+```JavaScript  
 var arraySize = int8Array.BYTES_PER_ELEMENT;  
 ```  
   
-## 示例  
+## <a name="example"></a>示例  
  下面的示例演示如何获取数组元素的大小。  
   
-```javascript  
+```JavaScript  
 var req = new XMLHttpRequest();  
     req.open('GET', "http://www.example.com");  
     req.responseType = "arraybuffer";  
@@ -49,5 +52,5 @@ var req = new XMLHttpRequest();
   
 ```  
   
-## 要求  
+## <a name="requirements"></a>要求  
  [!INCLUDE[jsv10](../../javascript/reference/includes/jsv10-md.md)]

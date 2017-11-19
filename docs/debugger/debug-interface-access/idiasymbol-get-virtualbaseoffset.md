@@ -1,46 +1,45 @@
 ---
-title: "IDiaSymbol::get_virtualBaseOffset | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-debug"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-dev_langs: 
-  - "C++"
-helpviewer_keywords: 
-  - "IDiaSymbol::get_virtualBaseOffset 方法"
+title: "Idiasymbol:: Get_virtualbaseoffset |Microsoft 文档"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology: vs-ide-debug
+ms.tgt_pltfrm: 
+ms.topic: article
+dev_langs: C++
+helpviewer_keywords: IDiaSymbol::get_virtualBaseOffset method
 ms.assetid: 103b034f-36c4-42d5-aa34-1449a1e66d03
-caps.latest.revision: 8
-author: "mikejo5000"
-ms.author: "mikejo"
-manager: "ghogen"
-caps.handback.revision: 8
+caps.latest.revision: "8"
+author: mikejo5000
+ms.author: mikejo
+manager: ghogen
+ms.openlocfilehash: 555f61145edb944e71c6c457dab4a1ffbebfc232
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# IDiaSymbol::get_virtualBaseOffset
-[!INCLUDE[vs2017banner](../../code-quality/includes/vs2017banner.md)]
-
-在虚拟函数的虚函数表中检索的偏移量。  
+# <a name="idiasymbolgetvirtualbaseoffset"></a>IDiaSymbol::get_virtualBaseOffset
+检索虚拟函数的虚函数表中的偏移量。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
-```cpp#  
-HRESULT get_virtualBaseOffset (   
-   DWORD* pRetVal  
+```C++  
+HRESULT get_virtualBaseOffset (   
+   DWORD* pRetVal  
 );  
 ```  
   
-#### 参数  
+#### <a name="parameters"></a>参数  
  `pRetVal`  
- \[out\] 在虚拟函数的虚函数表中返回偏移量。  
+ [out]虚函数的虚函数表中返回的偏移量。  
   
-## 返回值  
- 如果成功，则返回; `S_OK`否则，返回 `S_FALSE` 或错误代码。  
+## <a name="return-value"></a>返回值  
+ 如果成功，则返回`S_OK`; 否则为返回`S_FALSE`或错误代码。  
   
 > [!NOTE]
->  `S_FALSE` 的返回值表示该属性用于符号不可用。  
+>  返回值`S_FALSE`意味着属性不是可用于符号。  
   
-## 请参阅  
+## <a name="see-also"></a>另请参阅  
  [IDiaSymbol](../../debugger/debug-interface-access/idiasymbol.md)

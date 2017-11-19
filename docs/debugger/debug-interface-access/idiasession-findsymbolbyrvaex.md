@@ -1,65 +1,64 @@
 ---
-title: "IDiaSession::findSymbolByRVAEx | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-debug"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-dev_langs: 
-  - "C++"
-helpviewer_keywords: 
-  - "IDiaSession::findSymbolByRVAEx 方法"
+title: "Idiasession:: Findsymbolbyrvaex |Microsoft 文档"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology: vs-ide-debug
+ms.tgt_pltfrm: 
+ms.topic: article
+dev_langs: C++
+helpviewer_keywords: IDiaSession::findSymbolByRVAEx method
 ms.assetid: 61344966-fed4-4c02-9e27-20356ec2ef7c
-caps.latest.revision: 10
-author: "mikejo5000"
-ms.author: "mikejo"
-manager: "ghogen"
-caps.handback.revision: 10
+caps.latest.revision: "10"
+author: mikejo5000
+ms.author: mikejo
+manager: ghogen
+ms.openlocfilehash: 3d95043be0c44ddfd5e05054e72e0370a60e84a9
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# IDiaSession::findSymbolByRVAEx
-[!INCLUDE[vs2017banner](../../code-quality/includes/vs2017banner.md)]
-
-检索包含的指定符号类型，或者是最接近，指定的相对虚拟地址 \(RVA\)和扭曲。  
+# <a name="idiasessionfindsymbolbyrvaex"></a>IDiaSession::findSymbolByRVAEx
+检索包含，或与具有指定的相对虚拟地址 (RVA) 和偏移量最接近指定的符号类型。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
-```cpp#  
-HRESULT findSymbolByRVAEx (   
-   DWORD        rva,  
-   SymTagEnum   symtag,  
-   IDiaSymbol** ppSymbol,  
-   LONG*        displacement  
+```C++  
+HRESULT findSymbolByRVAEx (   
+   DWORD        rva,  
+   SymTagEnum   symtag,  
+   IDiaSymbol** ppSymbol,  
+   LONG*        displacement  
 );  
 ```  
   
-#### 参数  
+#### <a name="parameters"></a>参数  
  `rva`  
- \[in\] 指定 RVA。  
+ [in]指定 RVA。  
   
  `symtag`  
- \[in\] 将找到符号类型。  值从 [SymTagEnum 枚举](../../debugger/debug-interface-access/symtagenum.md) 枚举中采用。  
+ [in]要查找的符号类型。 值，将从[SymTagEnum 枚举](../../debugger/debug-interface-access/symtagenum.md)枚举。  
   
  `ppSymbol`  
- \[out\] 返回表示检索的符号的 [IDiaSymbol](../../debugger/debug-interface-access/idiasymbol.md) 对象。  
+ [out]返回[IDiaSymbol](../../debugger/debug-interface-access/idiasymbol.md)检索表示符号的对象。  
   
  `displacement`  
- \[out\] 返回指定从该相对虚拟地址的值的偏移量指定在 `rva`。  
+ [out]返回一个值，指定与中指定的相对虚拟地址的偏移量`rva`。  
   
-## 返回值  
- 如果成功，则返回; `S_OK`否则，返回错误代码。  
+## <a name="return-value"></a>返回值  
+ 如果成功，则返回`S_OK`; 否则为返回错误代码。  
   
-## 示例  
+## <a name="example"></a>示例  
   
-```cpp#  
+```C++  
 IDiaSymbol* pFunc;  
 LONG disp = 0;  
 pSession->findSymbolByRVAEx( rva, SymTagFunction, &pFunc, &disp );  
 ```  
   
-## 请参阅  
+## <a name="see-also"></a>另请参阅  
  [IDiaSession](../../debugger/debug-interface-access/idiasession.md)   
  [IDiaSymbol](../../debugger/debug-interface-access/idiasymbol.md)   
  [SymTagEnum 枚举](../../debugger/debug-interface-access/symtagenum.md)

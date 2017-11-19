@@ -1,34 +1,33 @@
 ---
-title: "&lt;assembly&gt; 元素（ClickOnce 应用程序） | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-deployment"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "urn:schemas-microsoft-com:asm.v2#assembly"
-dev_langs: 
-  - "VB"
-  - "CSharp"
-  - "C++"
-helpviewer_keywords: 
-  - "<assembly> 元素 [ClickOnce 应用程序清单]"
+title: "&lt;程序集&gt;元素 （ClickOnce 应用程序） |Microsoft 文档"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology: vs-ide-deployment
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords: urn:schemas-microsoft-com:asm.v2#assembly
+dev_langs:
+- VB
+- CSharp
+- C++
+helpviewer_keywords: <assembly> element [ClickOnce application manifest]
 ms.assetid: 51410569-10f9-4c0a-96b5-d39185edbefc
-caps.latest.revision: 15
-author: "stevehoag"
-ms.author: "shoag"
-manager: "wpickett"
-caps.handback.revision: 15
+caps.latest.revision: "15"
+author: stevehoag
+ms.author: shoag
+manager: wpickett
+ms.openlocfilehash: fafc5df1a2aa32fa60c1f41077f7e3fff29ddef7
+ms.sourcegitcommit: aadb9588877418b8b55a5612c1d3842d4520ca4c
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/27/2017
 ---
-# &lt;assembly&gt; 元素（ClickOnce 应用程序）
-[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
-
-应用程序清单中的顶级元素。  
+# <a name="ltassemblygt-element-clickonce-application"></a>&lt;程序集&gt;元素 （ClickOnce 应用程序）
+应用程序清单的的顶级元素。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
 ```  
   
@@ -37,8 +36,8 @@ caps.handback.revision: 15
 />  
 ```  
   
-## 元素和特性  
- `assembly` 元素是根元素，因此是必需的。  它包含的第一个元素必须是一个 `assemblyIdentity` 元素。  清单元素必须位于下列命名空间之一：  
+## <a name="elements-and-attributes"></a>元素和属性  
+ `assembly`元素是根元素，它需要。 其第一个包含的元素必须是`assemblyIdentity`元素。 清单元素必须在以下命名空间之一：  
   
  `urn:schemas-microsoft-com:asm.v1`  
   
@@ -46,16 +45,16 @@ caps.handback.revision: 15
   
  `http://www.w3.org/2000/09/xmldsig#`  
   
- 程序集的子元素也必须位于这些命名空间中（通过继承或使用标记）。  
+ 程序集的子元素也必须通过继承或使用标记这些命名空间中。  
   
- `assembly` 元素具有下列特性。  
+ `assembly`元素具有以下属性。  
   
 |特性|说明|  
-|--------|--------|  
-|`manifestVersion`|必选。  `manifestVersion` 特性必须设置为 `1.0`。|  
+|---------------|-----------------|  
+|`manifestVersion`|必需。 `manifestVersion`属性必须设置为`1.0`。|  
   
-## 示例  
- 下面的代码示例阐释 [!INCLUDE[ndptecclick](../deployment/includes/ndptecclick_md.md)] 应用程序的应用程序清单中的 `assembly` 元素。  此代码示例摘自为 [ClickOnce 应用程序清单](../deployment/clickonce-application-manifest.md)提供的一个更大示例。  
+## <a name="example"></a>示例  
+ 下面的代码示例阐释了`assembly`的应用程序清单中的元素[!INCLUDE[ndptecclick](../deployment/includes/ndptecclick_md.md)]应用程序。 此代码示例摘自[ClickOnce 应用程序清单](../deployment/clickonce-application-manifest.md)。  
   
 ```  
 <asmv1:assembly   
@@ -71,6 +70,6 @@ caps.handback.revision: 15
   xmlns:co.v1="urn:schemas-microsoft-com:clickonce.v1">  
 ```  
   
-## 请参阅  
+## <a name="see-also"></a>另请参阅  
  [ClickOnce 应用程序清单](../deployment/clickonce-application-manifest.md)   
- [\<assembly\> 元素](../deployment/assembly-element-clickonce-deployment.md)
+ [\<程序集 > 元素](../deployment/assembly-element-clickonce-deployment.md)

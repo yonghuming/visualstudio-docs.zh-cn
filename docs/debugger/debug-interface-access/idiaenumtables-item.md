@@ -1,54 +1,53 @@
 ---
-title: "IDiaEnumTables::Item | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-debug"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-dev_langs: 
-  - "C++"
-helpviewer_keywords: 
-  - "IDiaEnumTables::Item 方法"
+title: "Idiaenumtables:: Item |Microsoft 文档"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology: vs-ide-debug
+ms.tgt_pltfrm: 
+ms.topic: article
+dev_langs: C++
+helpviewer_keywords: IDiaEnumTables::Item method
 ms.assetid: d65ab262-10c6-48ce-95a3-b5e4cb2c85af
-caps.latest.revision: 11
-author: "mikejo5000"
-ms.author: "mikejo"
-manager: "ghogen"
-caps.handback.revision: 11
+caps.latest.revision: "11"
+author: mikejo5000
+ms.author: mikejo
+manager: ghogen
+ms.openlocfilehash: 26acf7b8f9ad54a1ef1ed25497cd408c51c745c5
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# IDiaEnumTables::Item
-[!INCLUDE[vs2017banner](../../code-quality/includes/vs2017banner.md)]
-
-通过索引或名称检索表。  
+# <a name="idiaenumtablesitem"></a>IDiaEnumTables::Item
+检索通过索引或名称的表。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
-```cpp#  
-HRESULT Item (   
-   VARIANT     index,  
-   IDiaTable** table  
+```C++  
+HRESULT Item (   
+   VARIANT     index,  
+   IDiaTable** table  
 );  
 ```  
   
-#### 参数  
+#### <a name="parameters"></a>参数  
  `index`  
- \[in\] 要检索的 [IDiaTable](../../debugger/debug-interface-access/idiatable.md) 的索引或名称。  如果使用整数变量，它必须在范围 `count`0 到 \-1，其中 `count` 为返回的 [IDiaEnumTables::get\_Count](../../debugger/debug-interface-access/idiaenumtables-get-count.md) 方法。  
+ [in]索引或名称[IDiaTable](../../debugger/debug-interface-access/idiatable.md)要检索。 如果使用整数变体，则它必须是范围 0 到`count`-1，其中`count`是通过返回[idiaenumtables:: Get_count](../../debugger/debug-interface-access/idiaenumtables-get-count.md)方法。  
   
  `table`  
- \[out\] 返回表示所需表的 [IDiaTable](../../debugger/debug-interface-access/idiatable.md) 对象。  
+ [out]返回[IDiaTable](../../debugger/debug-interface-access/idiatable.md)表示所需的表对象。  
   
-## 返回值  
- 如果成功，则返回; `S_OK`否则，返回错误代码。  
+## <a name="return-value"></a>返回值  
+ 如果成功，则返回`S_OK`; 否则为返回错误代码。  
   
-## 备注  
- 如果变量指定字符串，该字符串然后命名特定表。  此名称应为某个表名称为。 [常量（调试接口访问 SDK）](../../debugger/debug-interface-access/constants-debug-interface-access-sdk.md)定义。  
+## <a name="remarks"></a>备注  
+ 如果指定一个字符串变量，则该字符串命名特定表。 中定义的名称应表名称之一[常量 (调试接口访问 SDK)](../../debugger/debug-interface-access/constants-debug-interface-access-sdk.md)。  
   
-## 示例  
+## <a name="example"></a>示例  
   
-```cpp#  
+```C++  
 VARIANT var;  
 var.vt = VT_BSTR;  
 var.bstrVal = SysAllocString(DiaTable_Symbols );  
@@ -56,8 +55,8 @@ IDiaTable* pTable;
 pEnumTables->Item( var, &pTable );  
 ```  
   
-## 请参阅  
+## <a name="see-also"></a>另请参阅  
  [IDiaEnumTables](../../debugger/debug-interface-access/idiaenumtables.md)   
  [IDiaTable](../../debugger/debug-interface-access/idiatable.md)   
- [IDiaEnumTables::get\_Count](../../debugger/debug-interface-access/idiaenumtables-get-count.md)   
+ [Idiaenumtables:: Get_count](../../debugger/debug-interface-access/idiaenumtables-get-count.md)   
  [常量（调试接口访问 SDK）](../../debugger/debug-interface-access/constants-debug-interface-access-sdk.md)

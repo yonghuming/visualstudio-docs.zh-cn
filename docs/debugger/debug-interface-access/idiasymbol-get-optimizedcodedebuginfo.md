@@ -1,52 +1,51 @@
 ---
-title: "IDiaSymbol::get_optimizedCodeDebugInfo | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-debug"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-dev_langs: 
-  - "C++"
-helpviewer_keywords: 
-  - "IDiaSymbol::get_optimizedCodeDebugInfo 方法"
+title: "Idiasymbol:: Get_optimizedcodedebuginfo |Microsoft 文档"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology: vs-ide-debug
+ms.tgt_pltfrm: 
+ms.topic: article
+dev_langs: C++
+helpviewer_keywords: IDiaSymbol::get_optimizedCodeDebugInfo method
 ms.assetid: 57ef4170-37a9-46b0-8217-c1a674725113
-caps.latest.revision: 9
-author: "mikejo5000"
-ms.author: "mikejo"
-manager: "ghogen"
-caps.handback.revision: 9
+caps.latest.revision: "9"
+author: mikejo5000
+ms.author: mikejo
+manager: ghogen
+ms.openlocfilehash: 241db981561f6d1307d5c7472e05014744ce8093
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# IDiaSymbol::get_optimizedCodeDebugInfo
-[!INCLUDE[vs2017banner](../../code-quality/includes/vs2017banner.md)]
-
-检索指示的标志函数是否包含用于调试优化代码特定的信息。  
+# <a name="idiasymbolgetoptimizedcodedebuginfo"></a>IDiaSymbol::get_optimizedCodeDebugInfo
+检索一个标志，指示该函数是否包含特定于优化代码的调试信息。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
-```cpp  
+```C++  
 HRESULT get_optimizedCodeDebugInfo(  
-   BOOL *pFlag  
+   BOOL *pFlag  
 );  
 ```  
   
-#### 参数  
+#### <a name="parameters"></a>参数  
  `pFlag`  
- \[out\] 如果已优化的函数包含调试信息，返回 `TRUE`；否则，返回 `FALSE`。  
+ [out]返回`TRUE`如果优化的函数或标签包含调试信息; 否则，返回`FALSE`。  
   
-## 返回值  
- 如果成功，则返回 `S_OK`，否则返回 `S_FALSE` 或者错误值代码。  
+## <a name="return-value"></a>返回值  
+ 如果成功，则返回`S_OK`; 否则为返回`S_FALSE`或错误代码。  
   
 > [!NOTE]
->  返回值为 `S_FALSE` 意味着属性不可用于符号。  
+>  返回值`S_FALSE`意味着属性不是可用于符号。  
   
-## 要求  
+## <a name="requirements"></a>要求  
   
-|要求|说明|  
-|--------|--------|  
-|头文件：|dia2.h|  
+|要求|描述|  
+|-----------------|-----------------|  
+|标头：|dia2.h|  
   
-## 请参阅  
+## <a name="see-also"></a>另请参阅  
  [IDiaSymbol](../../debugger/debug-interface-access/idiasymbol.md)

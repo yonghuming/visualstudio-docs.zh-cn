@@ -1,51 +1,51 @@
 ---
-title: "IDebugArrayObject::GetRank | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "IDebugArrayObject::GetRank"
-helpviewer_keywords: 
-  - "IDebugArrayObject::GetRank 方法"
+title: "IDebugArrayObject::GetRank |Microsoft 文档"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology: vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords: IDebugArrayObject::GetRank
+helpviewer_keywords: IDebugArrayObject::GetRank method
 ms.assetid: 9948551a-e334-4ff6-979c-08dab633b9b6
-caps.latest.revision: 10
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 10
+caps.latest.revision: "10"
+author: gregvanl
+ms.author: gregvanl
+manager: ghogen
+ms.openlocfilehash: b3ef04279c4a9e34313c7d449714cb0a519d5652
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# IDebugArrayObject::GetRank
-[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
-
-获取数组，也就是说，维度数的级别。  
+# <a name="idebugarrayobjectgetrank"></a>IDebugArrayObject::GetRank
+获取数组，即维度数的秩。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
-```cpp#  
-HRESULT GetRank(   
-   DWORD* pdwRank  
+```cpp  
+HRESULT GetRank(   
+   DWORD* pdwRank  
 );  
 ```  
   
-```c#  
+```csharp  
 int GetRank(  
-   out uint pdwRank  
+   out uint pdwRank  
 );  
 ```  
   
-#### 参数  
+#### <a name="parameters"></a>参数  
  `pdwRank`  
- \[out\] 返回一个级别。  
+ [out]返回的排名。  
   
-## 返回值  
- 如果成功，则返回 S\_OK;否则，返回错误代码。  
+## <a name="return-value"></a>返回值  
+ 如果成功，返回，则为 S_OK;否则，返回错误代码。  
   
-## 备注  
- 使用 [GetDimensions](../../../extensibility/debugger/reference/idebugarrayobject-getdimensions.md) 方法检索对象的数组每一维的大小。  
+## <a name="remarks"></a>备注  
+ 使用[GetDimensions](../../../extensibility/debugger/reference/idebugarrayobject-getdimensions.md)方法来检索每个维度的数组对象的大小。  
   
-## 请参阅  
+## <a name="see-also"></a>另请参阅  
  [IDebugArrayObject](../../../extensibility/debugger/reference/idebugarrayobject.md)

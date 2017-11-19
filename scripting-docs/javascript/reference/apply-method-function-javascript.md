@@ -1,54 +1,55 @@
 ---
-title: "apply 方法 (Function) (JavaScript) | Microsoft Docs"
-ms.custom: ""
-ms.date: "01/18/2017"
-ms.prod: "windows-client-threshold"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "devlang-javascript"
-ms.tgt_pltfrm: ""
-ms.topic: "language-reference"
-f1_keywords: 
-  - "apply"
-dev_langs: 
-  - "JavaScript"
-  - "TypeScript"
-  - "DHTML"
-helpviewer_keywords: 
-  - "Apply 方法"
+title: "apply 方法 (Function) (JavaScript) |Microsoft 文档"
+ms.custom: 
+ms.date: 01/18/2017
+ms.prod: windows-client-threshold
+ms.reviewer: 
+ms.suite: 
+ms.technology: devlang-javascript
+ms.tgt_pltfrm: 
+ms.topic: language-reference
+f1_keywords: apply
+dev_langs:
+- JavaScript
+- TypeScript
+- DHTML
+helpviewer_keywords: Apply method
 ms.assetid: b36df78e-b14b-46ca-b5cb-de752d80f40a
-caps.latest.revision: 10
-author: "mikejo5000"
-ms.author: "mikejo"
-manager: "ghogen"
-caps.handback.revision: 10
+caps.latest.revision: "10"
+author: mikejo5000
+ms.author: mikejo
+manager: ghogen
+ms.openlocfilehash: 5a06a37006937b07214bf5a314d5151c3b658acf
+ms.sourcegitcommit: aadb9588877418b8b55a5612c1d3842d4520ca4c
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/27/2017
 ---
-# apply 方法 (Function) (JavaScript)
-调用函数，并用指定对象替换函数的 `this` 值，同时用指定数组替换函数的参数。  
+# <a name="apply-method-function-javascript"></a>apply 方法 (Function) (JavaScript)
+调用函数，并替换指定的对象的`this`函数，以及指定的数组的函数的自变量的值。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
 ```  
 apply([thisObj[,argArray]])  
 ```  
   
-## 参数  
+## <a name="parameters"></a>参数  
  `thisObj`  
- 可选。  要用作 `this` 对象的对象。  
+ 可选。 对象要用作`this`对象。  
   
  `argArray`  
- 可选。  要传递到函数的一组参数。  
+ 可选。 一组自变量传递到函数。  
   
-## 备注  
- 如果 `argArray` 不是有效对象，则会出现“应为对象”错误。  
+## <a name="remarks"></a>备注  
+ 如果`argArray`不是有效的对象，然后"对象应"出错时。  
   
- 如果既未提供 `argArray` 也未提供 `thisObj`，则原始 `this` 对象将被用作 `thisObj` 且不会传递任何参数。  
+ 如果既没有`argArray`也不`thisObj`提供了，原始`this`对象用作`thisObj`和未传入任何参数。  
   
-## 示例  
- 下面的代码演示如何使用 apply 方法。  
+## <a name="example"></a>示例  
+ 下面的代码演示如何使用应用方法。  
   
-```javascript  
+```JavaScript  
 function callMe(arg1, arg2){  
     var s = "";  
   
@@ -81,8 +82,8 @@ document.write(callMe.apply(3, [ 4, 5 ]));
   
 ```  
   
-## 要求  
+## <a name="requirements"></a>要求  
  [!INCLUDE[jsv55](../../javascript/reference/includes/jsv55-md.md)]  
   
-## 请参阅  
+## <a name="see-also"></a>另请参阅  
  [Function 对象](../../javascript/reference/function-object-javascript.md)

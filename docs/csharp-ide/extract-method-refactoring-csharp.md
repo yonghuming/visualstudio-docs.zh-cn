@@ -1,52 +1,50 @@
 ---
-title: "提取方法重构 (C#) | Microsoft Docs"
-ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "devlang-csharp"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "vs.csharp.refactoring.extractmethod"
-dev_langs: 
-  - "CSharp"
-helpviewer_keywords: 
-  - "重构 [C#]，提取方法"
-  - "提取方法重构操作 [C#]"
+redirect_url: /visualstudio/csharp-ide/refactoring/extract-method
+title: "提取方法重构 (C#) |Microsoft 文档"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology: vs-ide-general
+ms.tgt_pltfrm: 
+ms.topic: article
+dev_langs: CSharp
+helpviewer_keywords:
+- refactoring [C#], Extract Method
+- Extract Method refactoring operation [C#]
 ms.assetid: eeba11df-a815-4bec-9c21-8a831891b783
-caps.latest.revision: 29
-caps.handback.revision: 29
-author: "BillWagner"
-ms.author: "wiwagn"
-manager: "wpickett"
+caps.latest.revision: "29"
+author: gewarren
+ms.author: gewarren
+manager: ghogen
+ms.openlocfilehash: e85e745241d8fa880098b73a6306cbca3f19da70
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# 提取方法重构 (C#)
-[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
-
-**“提取方法”**是一项重构操作，提供了一种从现有成员中的代码段创建新方法的便捷方式。  
+# <a name="extract-method-refactoring-c"></a>提取方法重构 (C#)
+**提取方法**是重构操作，可以轻松地从现有成员中的代码段创建一个新方法。  
   
- 使用**“提取方法”**，可以通过从现有成员的代码块中提取一组代码来创建新方法。  提取出的新方法包含所选代码，而现有成员中的所选代码被替换为对新方法的调用。  通过将代码段变为其自己的方法，可以快速而准确地重新组织代码，以获得更好的重用性和可靠性。  
+ 使用**提取方法**，你可以通过提取中的现有成员的代码块中的代码的一组创建一个新方法。 新，提取方法包含所选的代码，并在现有成员中的所选的代码替换为新方法的调用。 将代码片段转变为其自己的方法使你能够快速地和准确地重新组织更好地重用和可读性代码。  
   
- **“提取方法”**有以下优点：  
+ **提取方法**具有以下优点：  
   
--   通过强调离散的可重用方法鼓励最佳的编码做法。  
+-   通过强调离散、 可重复使用的方法会促使最佳编码做法。  
   
--   鼓励通过较好的组织获得自记录代码。  
+-   鼓励自行记录通过较好的组织的代码。  
   
-     当使用描述性名称时，高级别方法可以像读取一系列注释一样进行读取。  
+     描述性名称时使用的高级方法可以像读取一系列的注释。  
   
--   鼓励创建细化方法，以简化重载。  
+-   鼓励细粒度方法来简化重写创建。  
   
--   减少代码重复。  
+-   可以减少代码重复。  
   
-### 使用“提取方法”  
+### <a name="to-use-extract-method"></a>若要使用提取方法  
   
-1.  创建名为 `ExtractMethod` 的控制台应用程序，然后使用以下代码示例替换 `Program`。  
+1.  创建名为 `ExtractMethod` 的控制台应用程序，然后将 `Program` 替换为下面的示例代码。  
   
-    ```c#  
+    ```csharp  
     class A  
     {  
         const double PI = 3.141592;  
@@ -68,44 +66,43 @@ manager: "wpickett"
     }  
     ```  
   
-2.  选择您要提取的代码片段：  
+2.  选择你想要提取的代码片段：  
   
-    ```c#  
+    ```csharp  
     double area = PI * radius * radius;  
-  
     ```  
   
-3.  在**“重构”**菜单上，单击**“提取方法”**。  
+3.  上**重构**菜单上，单击**提取方法**。  
   
-     出现**“提取方法”**对话框。  
+     **提取方法**对话框随即出现。  
   
-     也可以键入键盘快捷键 Ctrl\+R、Ctrl\+M 来显示**“提取方法”**对话框。  
+     或者，你还可以键入键盘快捷键 CTRL + R、 M 键显示**提取方法**对话框。  
   
-     还可以右击选定代码，指向**“重构”**，然后单击**“提取方法”**来显示**“提取方法”**对话框。  
+     你还可以右键单击所选代码中，依次指向**重构**，然后单击**提取方法**以显示**提取方法**对话框。  
   
-4.  在**“新方法名称”**框中指定新方法的名称，如 `CircleArea`。  
+4.  指定的名称的新方法，如`CircleArea`中**新方法名称**框。  
   
-     新方法签名的预览显示在**“预览方法签名”**下。  
+     新的方法签名的预览显示在下**预览方法签名**。  
   
-5.  单击**“确定”**。  
+5.  单击“确定”。  
   
-## 备注  
- 使用**“提取方法”**命令时，将在同一个类中的源成员之后插入新方法。  
+## <a name="remarks"></a>备注  
+ 当你使用**提取方法**命令时，同一类中的源成员之后插入新方法。  
   
-## 分部类型  
- 如果类是分部类型，则**“提取方法”**将紧跟源成员之后生成新方法。  **“提取方法”**确定新方法的签名，并在新方法中的代码不引用实例数据时创建静态方法。  
+## <a name="partial-types"></a>分部类型  
+ 如果此类是分部类型，然后**提取方法**生成紧跟源成员的新方法。 **提取方法**确定新方法，通过新的方法中的代码不引用任何实例数据时创建的静态方法的签名。  
   
-## 泛型类型参数  
- 当您提取的方法具有不受约束的泛型类型参数时，除非已为该参数赋值，否则生成的代码将不向该参数添加 `ref` 修饰符。  如果提取的方法将支持引用类型作为泛型类型实参，则应该向方法签名中的形参手动添加 `ref` 修饰符。  
+## <a name="generic-type-parameters"></a>泛型类型参数  
+ 当您提取具有不受约束的泛型类型参数的方法时，生成的代码将不添加`ref`修饰符添加到该参数构造除非向其分配的值。 如果提取的方法将支持引用类型作为泛型类型参数，则你应该手动添加`ref`到方法签名中的参数修饰符。  
   
-## 匿名方法  
- 如果您尝试提取匿名方法（该方法包括对在匿名方法之外声明或引用的局部变量的引用）的一部分，则 Visual Studio 将警告您可能有语义更改。  
+## <a name="anonymous-methods"></a>匿名方法  
+ 如果你尝试提取匿名方法，它包含指向声明或引用外部匿名方法的本地变量引用的一部分，则 Visual Studio 将警告你潜在语义的更改。  
   
- 当匿名方法使用局部变量的值时，将在执行匿名方法时获取该值。  将匿名方法提取到其他方法中时，将在调用提取方法时获取局部变量的值。  
+ 当匿名方法使用本地变量的值时，那一刻执行匿名方法被获取的值。 当匿名方法提取到另一种方法时，对提取的方法的调用时刻获取本地变量的值。  
   
- 下面的示例阐释这一语义更改。  如果执行此代码，则将向控制台输出 **11**。  如果使用**“提取方法”**将代码注释所标记的代码区域提取到其自己的方法中，然后执行重构后的代码，则将向控制台输出 **10**。  
+ 下面的示例演示此语义的更改。 如果执行此代码，然后**11**将打印到控制台。 如果你使用**提取方法**要提取的代码注释标记到其自己的方法的代码区域，然后再执行了重构的代码， **10**将打印到控制台。  
   
-```c#  
+```csharp  
 class Program  
 {  
     delegate void D();  
@@ -123,7 +120,7 @@ class Program
 }  
 ```  
   
- 若要解决此问题，请使匿名方法中使用的局部变量成为类的字段。  
+ 若要解决这种情况下，请在类的匿名方法字段中使用的本地变量。  
   
-## 请参阅  
- [重构 \(C\#\)](../csharp-ide/refactoring-csharp.md)
+## <a name="see-also"></a>另请参阅  
+ [重构 (C#)](refactoring-csharp.md)

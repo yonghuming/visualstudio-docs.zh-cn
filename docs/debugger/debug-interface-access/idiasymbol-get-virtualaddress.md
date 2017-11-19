@@ -1,47 +1,46 @@
 ---
-title: "IDiaSymbol::get_virtualAddress | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-debug"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-dev_langs: 
-  - "C++"
-helpviewer_keywords: 
-  - "IDiaSymbol::get_virtualAddress 方法"
+title: "Idiasymbol:: Get_virtualaddress |Microsoft 文档"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology: vs-ide-debug
+ms.tgt_pltfrm: 
+ms.topic: article
+dev_langs: C++
+helpviewer_keywords: IDiaSymbol::get_virtualAddress method
 ms.assetid: dc20c7c0-15a6-4b78-a5c9-2e0b94cac522
-caps.latest.revision: 8
-author: "mikejo5000"
-ms.author: "mikejo"
-manager: "ghogen"
-caps.handback.revision: 8
+caps.latest.revision: "8"
+author: mikejo5000
+ms.author: mikejo
+manager: ghogen
+ms.openlocfilehash: 8263d0984ad0245760d7a678f4d8848e6519de2e
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# IDiaSymbol::get_virtualAddress
-[!INCLUDE[vs2017banner](../../code-quality/includes/vs2017banner.md)]
-
-检索位置的 \(VA\)虚拟地址。  使用，在 [LocationType 枚举](../../debugger/debug-interface-access/locationtype.md) 设置为 `LocIsStatic`。  
+# <a name="idiasymbolgetvirtualaddress"></a>IDiaSymbol::get_virtualAddress
+检索的位置的虚拟地址 (VA)。 何时使用[LocationType 枚举](../../debugger/debug-interface-access/locationtype.md)设置为`LocIsStatic`。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
-```cpp#  
-HRESULT get_virtualAddress (   
-   ULONGLONG* pRetVal  
+```C++  
+HRESULT get_virtualAddress (   
+   ULONGLONG* pRetVal  
 );  
 ```  
   
-#### 参数  
+#### <a name="parameters"></a>参数  
  `pRetVal`  
- \[out\] 返回位置的虚拟地址。  
+ [out]返回的位置的虚拟地址。  
   
-## 返回值  
- 如果成功，则返回; `S_OK`否则，返回 `S_FALSE` 或错误代码。  
+## <a name="return-value"></a>返回值  
+ 如果成功，则返回`S_OK`; 否则为返回`S_FALSE`或错误代码。  
   
 > [!NOTE]
->  `S_FALSE` 的返回值表示该属性用于符号不可用。  
+>  返回值`S_FALSE`意味着属性不是可用于符号。  
   
-## 请参阅  
+## <a name="see-also"></a>另请参阅  
  [IDiaSymbol](../../debugger/debug-interface-access/idiasymbol.md)   
  [LocationType 枚举](../../debugger/debug-interface-access/locationtype.md)

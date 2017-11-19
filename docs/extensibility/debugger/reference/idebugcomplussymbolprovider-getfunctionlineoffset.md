@@ -1,62 +1,64 @@
 ---
-title: "IDebugComPlusSymbolProvider::GetFunctionLineOffset | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-helpviewer_keywords: 
-  - "IDebugComPlusSymbolProvider::GetFunctionLineOffset"
-  - "GetFunctionLineOffset"
+title: "IDebugComPlusSymbolProvider::GetFunctionLineOffset |Microsoft 文档"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology: vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+helpviewer_keywords:
+- IDebugComPlusSymbolProvider::GetFunctionLineOffset
+- GetFunctionLineOffset
 ms.assetid: 51460f5a-4e98-427a-8315-27246e24fb61
-caps.latest.revision: 9
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 9
+caps.latest.revision: "9"
+author: gregvanl
+ms.author: gregvanl
+manager: ghogen
+ms.openlocfilehash: 6ed51d3350142b07c77176e6de41b6ef8d925cc0
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# IDebugComPlusSymbolProvider::GetFunctionLineOffset
-[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
-
-检索在表示特定行偏移量的函数中的地址。  
+# <a name="idebugcomplussymbolprovidergetfunctionlineoffset"></a>IDebugComPlusSymbolProvider::GetFunctionLineOffset
+检索表示给定的行偏移量的函数中的地址。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
-```cpp#  
+```cpp  
 HRESULT GetFunctionLineOffset(  
-   IDebugAddress*  pAddress,   
-   DWORD           dwLine,   
-   IDebugAddress** ppNewAddress   
+   IDebugAddress*  pAddress,   
+   DWORD           dwLine,   
+   IDebugAddress** ppNewAddress   
 );  
 ```  
   
-```c#  
+```csharp  
 int GetFunctionLineOffset(  
-   IDebugAddress     pAddress,   
-   uint              dwLine,   
-   out IDebugAddress ppNewAddress  
+   IDebugAddress     pAddress,   
+   uint              dwLine,   
+   out IDebugAddress ppNewAddress  
 );  
 ```  
   
-#### 参数  
+#### <a name="parameters"></a>参数  
  `pAddress`  
- \[in\] 解析表示功能。  
+ [in]表示函数的地址。  
   
  `dwLine`  
- \[in\] 从函数开头的行偏移量。  
+ [in]偏离函数开头的行。  
   
  `ppNewAddress`  
- \[out\] 表示从函数开头的行偏移量的新地址。  
+ [out]表示偏移量从函数开头的行的新地址。  
   
-## 返回值  
- 如果成功，则返回; `S_OK`否则，返回错误代码。  
+## <a name="return-value"></a>返回值  
+ 如果成功，则返回`S_OK`; 否则为返回错误代码。  
   
-## 示例  
- 下面的示例演示如何执行显示 [IDebugComPlusSymbolProvider](../../../extensibility/debugger/reference/idebugcomplussymbolprovider.md) 接口的 **CDebugSymbolProvider** 对象的方法。  
+## <a name="example"></a>示例  
+ 下面的示例演示如何实现此方法对于**CDebugSymbolProvider**公开的对象[IDebugComPlusSymbolProvider](../../../extensibility/debugger/reference/idebugcomplussymbolprovider.md)接口。  
   
-```cpp#  
+```cpp  
 HRESULT CDebugSymbolProvider::GetFunctionLineOffset(  
     IDebugAddress *pAddress,  
     DWORD dwLine,  
@@ -101,5 +103,5 @@ Error:
 }  
 ```  
   
-## 请参阅  
+## <a name="see-also"></a>另请参阅  
  [IDebugComPlusSymbolProvider](../../../extensibility/debugger/reference/idebugcomplussymbolprovider.md)

@@ -1,53 +1,55 @@
 ---
-title: "arguments 对象 (JavaScript) | Microsoft Docs"
-ms.custom: ""
-ms.date: "01/18/2017"
-ms.prod: "windows-client-threshold"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "devlang-javascript"
-ms.tgt_pltfrm: ""
-ms.topic: "language-reference"
-f1_keywords: 
-  - "arguments"
-dev_langs: 
-  - "JavaScript"
-  - "TypeScript"
-  - "DHTML"
-helpviewer_keywords: 
-  - "arguments 对象"
-  - "参数, arguments 对象"
+title: "arguments 对象 (JavaScript) |Microsoft 文档"
+ms.custom: 
+ms.date: 01/18/2017
+ms.prod: windows-client-threshold
+ms.reviewer: 
+ms.suite: 
+ms.technology: devlang-javascript
+ms.tgt_pltfrm: 
+ms.topic: language-reference
+f1_keywords: arguments
+dev_langs:
+- JavaScript
+- TypeScript
+- DHTML
+helpviewer_keywords:
+- arguments, arguments object
+- arguments object
 ms.assetid: 5eb79ca9-bbb8-4a42-aaf5-16a93ecb425f
-caps.latest.revision: 15
-author: "mikejo5000"
-ms.author: "mikejo"
-manager: "ghogen"
-caps.handback.revision: 15
+caps.latest.revision: "15"
+author: mikejo5000
+ms.author: mikejo
+manager: ghogen
+ms.openlocfilehash: 2a5c526d19ad5469d9d099f51cc5a2e2d089814f
+ms.sourcegitcommit: aadb9588877418b8b55a5612c1d3842d4520ca4c
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/27/2017
 ---
-# arguments 对象 (JavaScript)
-一个表示当前所执行的函数的参数和调用它的函数的对象。  
+# <a name="arguments-object-javascript"></a>arguments 对象 (JavaScript)
+表示指向当前执行函数的自变量和调用它的函数的对象。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
 ```  
 [function.]arguments[n]  
 ```  
   
-## 参数  
- *Function — 函数*  
- 可选。  当前正在执行的 `Function` 对象的名称。  
+## <a name="parameters"></a>参数  
+ *函数*  
+ 可选。 当前正在执行的名称`Function`对象。  
   
  *n*  
- 必需。  传递给 `Function` 对象的参数值的从零开始的索引。  
+ 必需。 为参数值的从零开始索引传递给`Function`对象。  
   
-## 备注  
- 无法显式创建**参数**对象。  **参数**对象仅在开始执行函数时可用。  函数的**参数**对象不是数组，但访问各个参数的方式与访问数组元素的方式相同。  索引 *n* 实际上是对**参数**对象的某个 **0** ***n*** 属性的引用。  
+## <a name="remarks"></a>备注  
+ 不能显式创建**参数**对象。 **参数**对象仅当将变为可用函数开始执行。 **参数**函数的对象不是数组，但访问相同的方式访问数组元素的各个参数。 索引 *n* 是实际对之一的引用**0**  ***n*** 属性**参数**对象。  
   
-## 示例  
- 下面的示例阐释 arguments 对象的用法：  
+## <a name="example"></a>示例  
+ 下面的示例演示如何使用**参数**对象。  
   
-```javascript  
+```JavaScript  
 function ArgTest(a, b)  
 {  
    var s = "";  
@@ -73,13 +75,12 @@ ArgTest(1, 2, "hello", new Date())
 // Expected Arguments: 2  
 // Passed Arguments: 4  
 // The individual arguments are: 1 2 hello Tues Jan 8 08:27:09 PST 20xx  
-  
 ```  
   
-## 要求  
+## <a name="requirements"></a>要求  
  [!INCLUDE[jsv1](../../javascript/misc/includes/jsv1-md.md)]  
   
-## 请参阅  
- [0...n 属性（参数）](../../javascript/reference/0-dot-dot-dot-n-properties-arguments-javascript.md)   
- [callee 属性（参数）](../../javascript/reference/callee-property-arguments-javascript.md)   
- [length 属性（参数）](../../javascript/reference/length-property-arguments-javascript.md)
+## <a name="see-also"></a>另请参阅  
+ [0...n 属性 （参数）](../../javascript/reference/0-dot-dot-dot-n-properties-arguments-javascript.md)   
+ [callee 属性 （参数）](../../javascript/reference/callee-property-arguments-javascript.md)   
+ [length 属性 (arguments)](../../javascript/reference/length-property-arguments-javascript.md)

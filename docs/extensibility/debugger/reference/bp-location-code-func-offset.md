@@ -1,57 +1,57 @@
 ---
-title: "BP_LOCATION_CODE_FUNC_OFFSET | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "BP_LOCATION_CODE_FUNC_OFFSET"
-helpviewer_keywords: 
-  - "BP_LOCATION_CODE_FUNC_OFFSET 结构"
+title: "BP_LOCATION_CODE_FUNC_OFFSET |Microsoft 文档"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology: vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords: BP_LOCATION_CODE_FUNC_OFFSET
+helpviewer_keywords: BP_LOCATION_CODE_FUNC_OFFSET structure
 ms.assetid: ab38f7ca-fa01-4cf3-a06c-56cbb7207617
-caps.latest.revision: 10
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 10
+caps.latest.revision: "10"
+author: gregvanl
+ms.author: gregvanl
+manager: ghogen
+ms.openlocfilehash: ccaf1b9c4aee385f26000bb6a397f32984dfe1a7
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# BP_LOCATION_CODE_FUNC_OFFSET
-[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
-
-在代码的函数描述断点的偏移位置。  
+# <a name="bplocationcodefuncoffset"></a>BP_LOCATION_CODE_FUNC_OFFSET
+描述代码中的函数中的断点的偏移的位置。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
-```cpp#  
-typedef struct _BP_LOCATION_CODE_FUNC_OFFSET {   
-   BSTR                     bstrContext;  
-   IDebugFunctionPosition2* pFuncPos;  
+```cpp  
+typedef struct _BP_LOCATION_CODE_FUNC_OFFSET {   
+   BSTR                     bstrContext;  
+   IDebugFunctionPosition2* pFuncPos;  
 } BP_LOCATION_CODE_FUNC_OFFSET;  
 ```  
   
-## 成员  
+## <a name="members"></a>成员  
  `bstrContext`  
- 断点的上下文，通常一个方法或函数名如下所示调用堆栈。  
+ 断点的上下文，通常一个方法或函数的名称，作为调用堆栈上看到。  
   
  `pFuncPos`  
- 描述函数的名称和相对位置与最初功能的 [IDebugFunctionPosition2](../../../extensibility/debugger/reference/idebugfunctionposition2.md) 对象。  
+ [IDebugFunctionPosition2](../../../extensibility/debugger/reference/idebugfunctionposition2.md)对象，描述函数和函数开头的相对位置的名称。  
   
-## 备注  
- 作为一个联合的一部分，此结构是 [BP\_LOCATION](../../../extensibility/debugger/reference/bp-location.md) 结构的成员。  
+## <a name="remarks"></a>备注  
+ 此结构是的成员[BP_LOCATION](../../../extensibility/debugger/reference/bp-location.md)作为联合的一部分的结构。  
   
- `pFuncPos` 成员在何处指示设置函数断点。  
+ `pFuncPos`成员指示在何处设置函数断点。  
   
-## 要求  
- 标题:msdbg.h  
+## <a name="requirements"></a>要求  
+ 标头： msdbg.h  
   
- 命名空间:Microsoft.VisualStudio.Debugger.Interop  
+ Namespace: Microsoft.VisualStudio.Debugger.Interop  
   
- 程序集:Microsoft.VisualStudio.Debugger.Interop.dll  
+ 程序集： Microsoft.VisualStudio.Debugger.Interop.dll  
   
-## 请参阅  
+## <a name="see-also"></a>另请参阅  
  [结构和联合](../../../extensibility/debugger/reference/structures-and-unions.md)   
- [BP\_LOCATION](../../../extensibility/debugger/reference/bp-location.md)   
+ [BP_LOCATION](../../../extensibility/debugger/reference/bp-location.md)   
  [IDebugFunctionPosition2](../../../extensibility/debugger/reference/idebugfunctionposition2.md)

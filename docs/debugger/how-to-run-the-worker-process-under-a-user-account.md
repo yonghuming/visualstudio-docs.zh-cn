@@ -1,36 +1,39 @@
 ---
-title: "如何：在用户帐户下运行辅助进程 | Microsoft Docs"
-ms.custom: ""
-ms.date: "12/14/2016"
-ms.prod: "visual-studio-dev14"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-debug"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-dev_langs: 
-  - "FSharp"
-  - "VB"
-  - "CSharp"
-  - "C++"
-helpviewer_keywords: 
-  - "用户帐户、 aspnet_wp.exe"
-  - "ASP.NET 中，调试 Web 应用程序"
-  - "工具、 aspnet_wp.exe"
-  - "ASP.NET 中工具"
-  - "aspnet_wp.exe"
+title: "如何： 运行辅助进程在用户帐户下的 |Microsoft 文档"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology: vs-ide-debug
+ms.tgt_pltfrm: 
+ms.topic: article
+dev_langs:
+- CSharp
+- VB
+- FSharp
+- C++
+helpviewer_keywords:
+- user accounts, aspnet_wp.exe
+- ASP.NET, debugging Web applications
+- tools, aspnet_wp.exe
+- ASP.NET, tools
+- aspnet_wp.exe
 ms.assetid: b58e97b1-e62a-4318-aea4-52276ea20735
-caps.latest.revision: 32
-caps.handback.revision: 32
-author: "mikejo5000"
-ms.author: "mikejo"
-manager: "ghogen"
+caps.latest.revision: "32"
+author: mikejo5000
+ms.author: mikejo
+manager: ghogen
+ms.openlocfilehash: 8b823675623f20df49edb87582f3e40695aec50e
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# 如何：在用户帐户下运行辅助进程
-[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
-
+# <a name="how-to-run-the-worker-process-under-a-user-account"></a>如何：在用户帐户下运行辅助进程
 若要设置计算机以便在某个用户帐户下运行 [!INCLUDE[vstecasp](../code-quality/includes/vstecasp_md.md)] 辅助进程（aspnet_wp.exe 或 w3wp.exe），请执行下列步骤。  
+
+ > [!IMPORTANT]
+ > 从 Windows Server 2008 R2 开始，我们建议使用[ApplicationPoolIdentity](https://docs.microsoft.com/en-us/iis/manage/configuring-security/application-pool-identities)作为每个应用程序池的标识。
   
 ## <a name="procedure"></a>过程  
   
@@ -38,11 +41,11 @@ manager: "ghogen"
   
 1.  打开 machine.config 文件，此文件位于计算机上运行时安装路径下的 CONFIG 文件夹中。  
   
-2.  查找 &lt;processModel&gt; 部分并将用户和密码特性更改为的名称和要用于运行 aspnet_wp.exe 的用户帐户的密码。  
+2.  查找&lt;processModel&gt;部分并将用户和密码特性更改为的名称和要用于运行 aspnet_wp.exe 的用户帐户的密码。  
   
 3.  保存 machine.config 文件。  
   
-4.  在 [!INCLUDE[winxpsvr](../debugger/includes/winxpsvr_md.md)]上，默认情况下已安装 IIS 6.0。 相应的辅助进程是 w3wp.exe。若要在 IIS 6.0 模式下运行并将 aspnet_wp.exe 用作辅助进程，必须执行下列步骤：  
+4.  在 [!INCLUDE[winxpsvr](../debugger/includes/winxpsvr_md.md)] 上，默认情况下已安装 IIS 6.0。 相应的辅助进程是 w3wp.exe。若要在 IIS 6.0 模式下运行并将 aspnet_wp.exe 用作辅助进程，必须执行下列步骤：  
   
     1.  单击 **“开始”**，单击 **“管理工具”** ，然后选择 **“Internet 信息服务”**。  
   
@@ -66,7 +69,7 @@ manager: "ghogen"
     net start w3svc  
     ```  
   
-6.  找到 Temporary [!INCLUDE[vstecasp](../code-quality/includes/vstecasp_md.md)] Files 文件夹，它应位于 CONFIG 文件夹所在的路径中。 右键单击 Temporary [!INCLUDE[vstecasp](../code-quality/includes/vstecasp_md.md)] Files 文件夹，然后选择快捷菜单上的“属性”  。  
+6.  找到 Temporary [!INCLUDE[vstecasp](../code-quality/includes/vstecasp_md.md)] Files 文件夹，它应位于 CONFIG 文件夹所在的路径中。 右键单击 Temporary [!INCLUDE[vstecasp](../code-quality/includes/vstecasp_md.md)] Files 文件夹，然后选择**属性**快捷菜单上。  
   
 7.  在 **“临时 ASP.NET 文件属性”** 对话框中单击 **“安全性”** 选项卡。  
   
@@ -85,5 +88,6 @@ manager: "ghogen"
 13. 单击 **“确定”** 以关闭 **“临时 ASP.NET 文件属性”** 对话框。  
   
 ## <a name="see-also"></a>另请参阅  
-[ASP.NET 调试︰ 系统要求](../debugger/aspnet-debugging-system-requirements.md)  
+[调试 ASP.NET 应用程序](../debugger/how-to-enable-debugging-for-aspnet-applications.md)   
+[ASP.NET 调试：系统要求](../debugger/aspnet-debugging-system-requirements.md)  
   

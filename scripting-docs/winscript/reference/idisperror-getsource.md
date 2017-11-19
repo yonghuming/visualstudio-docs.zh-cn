@@ -1,27 +1,30 @@
 ---
-title: "IDispError::GetSource | Microsoft Docs"
-ms.custom: ""
-ms.date: "01/18/2017"
-ms.prod: "windows-script-interfaces"
-ms.reviewer: ""
-ms.suite: ""
-ms.tgt_pltfrm: ""
-ms.topic: "reference"
+title: "IDispError::GetSource |Microsoft 文档"
+ms.custom: 
+ms.date: 01/18/2017
+ms.prod: windows-script-interfaces
+ms.reviewer: 
+ms.suite: 
+ms.tgt_pltfrm: 
+ms.topic: reference
 apiname: IDispError.GetSource
 apilocation: scrobj.dll
-helpviewer_keywords: 
-  - "IDispError::GetSource"
+helpviewer_keywords: IDispError::GetSource
 ms.assetid: 20def54c-a67c-4102-babf-6f0704e5fc5c
-caps.latest.revision: 8
-author: "mikejo5000"
-ms.author: "mikejo"
-manager: "ghogen"
-caps.handback.revision: 8
+caps.latest.revision: "8"
+author: mikejo5000
+ms.author: mikejo
+manager: ghogen
+ms.openlocfilehash: 922f95206d341773632b84c3922ea3b240d8d1ed
+ms.sourcegitcommit: aadb9588877418b8b55a5612c1d3842d4520ca4c
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/27/2017
 ---
-# IDispError::GetSource
-返回引发此错误的选件类或应用程序的相关语言的编程标识符。  
+# <a name="idisperrorgetsource"></a>IDispError::GetSource
+返回的类或引发错误的应用程序依赖于语言的编程标识符。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
 ```  
 HRESULT GetSource(  
@@ -29,22 +32,22 @@ HRESULT GetSource(
 );  
 ```  
   
-#### 参数  
+#### <a name="parameters"></a>参数  
  `pbstrSource`  
- \[in\]请字符串包含的编程标识符，在窗体 `progname.objectname`。  
+ [out]包含窗体中的编程标识符的字符串`progname.objectname`。  
   
-## 返回值  
- 该方法返回 `HRESULT`。  可能的值包括，但是，并不限于，这些下表中。  
+## <a name="return-value"></a>返回值  
+ 该方法返回 `HRESULT`。 可能的值包括（但并不限于）下表中的项。  
   
-|值|说明|  
-|-------|--------|  
+|值|描述|  
+|-----------|-----------------|  
 |`S_OK`|方法成功。|  
   
-## 备注  
- 此方法用于确定发生异常的选件类或应用程序。  该编程标识符在区域设置标识符指定的语言可能返回在调用过程中提供的\(LCID\)。  
+## <a name="remarks"></a>备注  
+ 此方法用于确定类或应用程序何处出现异常。 指定由在调用时提供的区域设置标识符 (LCID) 的语言，可能返回的编程标识符。  
   
 > [!NOTE]
->  此方法未实现。  
+>  未实现此方法。  
   
-## 请参阅  
+## <a name="see-also"></a>另请参阅  
  [IDispError 接口](../../winscript/reference/idisperror-interface.md)

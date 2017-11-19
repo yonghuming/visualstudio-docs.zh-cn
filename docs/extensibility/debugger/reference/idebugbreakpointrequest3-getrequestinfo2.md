@@ -1,59 +1,59 @@
 ---
-title: "IDebugBreakpointRequest3::GetRequestInfo2 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "IDebugBreakpointRequest3::GetRequestInfo2"
-helpviewer_keywords: 
-  - "IDebugBreakpointRequest3::GetRequestInfo2"
+title: "IDebugBreakpointRequest3::GetRequestInfo2 |Microsoft 文档"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology: vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords: IDebugBreakpointRequest3::GetRequestInfo2
+helpviewer_keywords: IDebugBreakpointRequest3::GetRequestInfo2
 ms.assetid: 33942e4a-0a0a-49e8-a693-004954f6d38a
-caps.latest.revision: 13
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 13
+caps.latest.revision: "13"
+author: gregvanl
+ms.author: gregvanl
+manager: ghogen
+ms.openlocfilehash: 2ce90963ce44ddfc5e47b84dcbe084dfc2f21d4f
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# IDebugBreakpointRequest3::GetRequestInfo2
-[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
-
-此方法获取描述该断点请求的断点请求信息。  
+# <a name="idebugbreakpointrequest3getrequestinfo2"></a>IDebugBreakpointRequest3::GetRequestInfo2
+此方法获取描述此断点请求的断点请求信息。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
-```cpp#  
-HRESULT GetRequestInfo2(  
-   BPREQI_FIELDS      dwFields,  
-   BP_REQUEST_INFO2*  bBPRequestInfo  
+```cpp  
+HRESULT GetRequestInfo2(  
+   BPREQI_FIELDS      dwFields,  
+   BP_REQUEST_INFO2*  bBPRequestInfo  
 );  
 ```  
   
-```c#  
+```csharp  
 int GetRequestInfo2(  
-   enum_BPREQI_FIELDS  dwFields,   
-   BP_REQUEST_INFO2[]  bBPRequestInfo  
+   enum_BPREQI_FIELDS  dwFields,   
+   BP_REQUEST_INFO2[]  bBPRequestInfo  
 );  
 ```  
   
-#### 参数  
+#### <a name="parameters"></a>参数  
  `dwFields`  
- \[in\] 确定标志的组合。 [BPREQI\_FIELDS](../../../extensibility/debugger/reference/bpreqi-fields.md) 枚举的 `pBPRequestInfo` 的哪些字段将填充。  
+ [in]中的标志的组合[BPREQI_FIELDS](../../../extensibility/debugger/reference/bpreqi-fields.md)确定哪些字段的枚举`pBPRequestInfo`要填充的。  
   
  `bBPRequestInfo`  
- \[out\] 将填充的 [BP\_REQUEST\_INFO2](../../../extensibility/debugger/reference/bp-request-info2.md) 结构。  
+ [out][BP_REQUEST_INFO2](../../../extensibility/debugger/reference/bp-request-info2.md)结构填充的。  
   
-## 返回值  
- 如果成功，则返回; `S_OK`否则，返回错误代码。  
+## <a name="return-value"></a>返回值  
+ 如果成功，则返回`S_OK`; 否则为返回错误代码。  
   
-## 备注  
- 与通过 [GetRequestInfo](../../../extensibility/debugger/reference/idebugbreakpointrequest2-getrequestinfo.md) 方法具有此请求的更多信息返回。  
+## <a name="remarks"></a>备注  
+ 没有在此请求不是从返回中的详细信息[GetRequestInfo](../../../extensibility/debugger/reference/idebugbreakpointrequest2-getrequestinfo.md)方法。  
   
-## 请参阅  
+## <a name="see-also"></a>另请参阅  
  [IDebugBreakpointRequest3](../../../extensibility/debugger/reference/idebugbreakpointrequest3.md)   
  [GetRequestInfo](../../../extensibility/debugger/reference/idebugbreakpointrequest2-getrequestinfo.md)   
- [BP\_REQUEST\_INFO2](../../../extensibility/debugger/reference/bp-request-info2.md)   
- [BPREQI\_FIELDS](../../../extensibility/debugger/reference/bpreqi-fields.md)
+ [BP_REQUEST_INFO2](../../../extensibility/debugger/reference/bp-request-info2.md)   
+ [BPREQI_FIELDS](../../../extensibility/debugger/reference/bpreqi-fields.md)

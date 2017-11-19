@@ -1,5 +1,5 @@
 ---
-title: Update data by using a TableAdapter | Microsoft Docs
+title: "使用 TableAdapter 更新数据 |Microsoft 文档"
 ms.custom: 
 ms.date: 11/04/2016
 ms.reviewer: 
@@ -9,8 +9,6 @@ ms.topic: article
 dev_langs:
 - VB
 - CSharp
-- C++
-- aspx
 helpviewer_keywords:
 - data [Visual Studio], saving
 - data [Visual Studio], TableAdapters
@@ -19,54 +17,40 @@ helpviewer_keywords:
 - data [Visual Studio], updating
 - saving data
 ms.assetid: 5e32e10e-9bac-4969-9bdd-b8f6919d3516
-caps.latest.revision: 15
-author: mikeblome
-ms.author: mblome
+caps.latest.revision: "15"
+author: gewarren
+ms.author: gewarren
 manager: ghogen
-translation.priority.ht:
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- ru-ru
-- zh-cn
-- zh-tw
-translation.priority.mt:
-- cs-cz
-- pl-pl
-- pt-br
-- tr-tr
-ms.translationtype: HT
-ms.sourcegitcommit: 9e6c28d42bec272c6fd6107b4baf0109ff29197e
-ms.openlocfilehash: 01b4ce90aa021ba48a8f719cd6b3f58a59e028f8
-ms.contentlocale: zh-cn
-ms.lasthandoff: 08/22/2017
-
+ms.technology: vs-data-tools
+ms.openlocfilehash: 7d49f0ddc965327334aea471b1276b4e78987ec2
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# <a name="update-data-by-using-a-tableadapter"></a>Update data by using a TableAdapter
-After the data in your dataset has been modified and validated, you can send the updated data back to a database by calling the `Update` method of a [TableAdapter](../data-tools/create-and-configure-tableadapters.md). The `Update` method updates a single data table and runs the correct command (INSERT, UPDATE, or DELETE) based on the <xref:System.Data.DataRow.RowState%2A> of each data row in the table. When a dataset has related tables, Visual Studio generates a TableAdapterManager class that you  use to do the updates. The TableAdapterManager class ensures that updates are made in the correct order based on the foreign-key constraints that are defined in the database. When you use data-bound controls, the databinding architecture creates a member variable of the TableAdapterManager class called tableAdapterManager. 
+# <a name="update-data-by-using-a-tableadapter"></a>使用 TableAdapter 更新数据
+在修改数据集中的数据并将其验证后，你可以更新将数据发送回数据库通过调用`Update`方法[TableAdapter](../data-tools/create-and-configure-tableadapters.md)。 `Update`方法更新单个数据表并运行的命令正确无误 （INSERT、 UPDATE 或 DELETE） 基于<xref:System.Data.DataRow.RowState%2A>的表中每个数据行。 当数据集有相关的表时，Visual Studio 将生成用于执行更新操作的 TableAdapterManager 类。 TableAdapterManager 类可确保按正确的顺序基于数据库中定义的外键约束进行更新。 当你使用数据绑定控件时，数据绑定体系结构将创建名为 tableAdapterManager TableAdapterManager 类的成员变量。 
   
 > [!NOTE]
->  When you try to update a data source with the contents of a dataset, you can get errors.To avoid errors, we recommend that you put the code that calls the adapter's `Update` method inside a `try`/`catch` block.  
+>  当你尝试更新数据源的数据集的内容时，你会遇到错误。若要避免错误，我们建议你将代码调用该适配器放`Update`中的方法`try` / `catch`块。  
   
- The exact procedure for updating a data source can vary depending on business needs, but  includes the following steps:  
+ 用于更新数据源的确切过程根据业务需求，可能会有所不同，但是包括以下步骤：  
   
-1.  Call the adapter's `Update` method in a `try`/`catch` block.  
+1.  调用该适配器`Update`中的方法`try` / `catch`块。  
   
-2.  If an exception is caught, locate the data row that caused the error. 
+2.  如果捕获了一个异常，将查找导致错误的数据行。 
   
-3.  Reconcile the problem in the data row (programmatically if you can, or by presenting the invalid row to the user for modification), and then try the update again (<xref:System.Data.DataRow.HasErrors%2A>, <xref:System.Data.DataTable.GetErrors%2A>).  
+3.  对帐中数据的问题行 （你可以如果以编程方式或无效的行显示给用户进行修改），然后再试一次更新 (<xref:System.Data.DataRow.HasErrors%2A>， <xref:System.Data.DataTable.GetErrors%2A>)。  
   
-## <a name="save-data-to-a-database"></a>Save data to a database  
- Call the `Update` method of a TableAdapter. Pass the name of the data table that contains the values to be written to the database.  
+## <a name="save-data-to-a-database"></a>将数据保存到数据库  
+ 调用`Update`的 TableAdapter 方法。 传递的包含要写入到数据库的值的数据表的名称。  
   
-#### <a name="to-update-a-database-by-using-a-tableadapter"></a>To update a database by using a TableAdapter  
+#### <a name="to-update-a-database-by-using-a-tableadapter"></a>通过使用 TableAdapter 更新数据库  
   
--   Enclose the TableAdapter's`Update` method in a `try`/`catch` block. The following example shows how to  update  the contents of the `Customers` table in `NorthwindDataSet` from within a `try`/`catch` block .  
+-   括起 TableAdapter 的`Update`中的方法`try` / `catch`块。 下面的示例演示如何更新的内容`Customers`表中`NorthwindDataSet`中`try` / `catch`块。  
   
-     [!code-cs[VbRaddataSaving#9](../data-tools/codesnippet/CSharp/update-data-by-using-a-tableadapter_1.cs)]  [!code-vb[VbRaddataSaving#9](../data-tools/codesnippet/VisualBasic/update-data-by-using-a-tableadapter_1.vb)]  
+     [!code-csharp[VbRaddataSaving#9](../data-tools/codesnippet/CSharp/update-data-by-using-a-tableadapter_1.cs)]
+     [!code-vb[VbRaddataSaving#9](../data-tools/codesnippet/VisualBasic/update-data-by-using-a-tableadapter_1.vb)]  
   
-## <a name="see-also"></a>See Also  
- [Save data back to the database](../data-tools/save-data-back-to-the-database.md)
+## <a name="see-also"></a>另请参阅  
+ [将数据保存回数据库](../data-tools/save-data-back-to-the-database.md)

@@ -1,57 +1,56 @@
 ---
-title: "IDiaSymbol::get_hasManagedCode | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-debug"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-dev_langs: 
-  - "C++"
-helpviewer_keywords: 
-  - "IDiaSymbol::get_hasManagedCode 方法"
+title: "Idiasymbol:: Get_hasmanagedcode |Microsoft 文档"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology: vs-ide-debug
+ms.tgt_pltfrm: 
+ms.topic: article
+dev_langs: C++
+helpviewer_keywords: IDiaSymbol::get_hasManagedCode method
 ms.assetid: e40f82f5-88fe-4a9b-b594-3605f42773ec
-caps.latest.revision: 6
-author: "mikejo5000"
-ms.author: "mikejo"
-manager: "ghogen"
-caps.handback.revision: 6
+caps.latest.revision: "6"
+author: mikejo5000
+ms.author: mikejo
+manager: ghogen
+ms.openlocfilehash: a5e6f9d23416da46245ec34383929e224b08d940
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# IDiaSymbol::get_hasManagedCode
-[!INCLUDE[vs2017banner](../../code-quality/includes/vs2017banner.md)]
-
-检索指示模块是否的标志包含托管代码。  
+# <a name="idiasymbolgethasmanagedcode"></a>IDiaSymbol::get_hasManagedCode
+检索一个标志，指示模块是否包含托管的代码。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
-```cpp#  
+```C++  
 HRESULT get_hasManagedCode(  
-   BOOL *pFlag  
+   BOOL *pFlag  
 );  
 ```  
   
-#### 参数  
+#### <a name="parameters"></a>参数  
  `pFlag`  
- \[out\] ，如果模块包含托管代码，则返回; `TRUE` 否则，返回 `FALSE`，代码都是非托管代码。  
+ [out]返回`TRUE`如果模块包含托管的代码; 否则，返回`FALSE`的非托管的代码的代码。  
   
-## 返回值  
- 如果成功，则返回; `S_OK`否则，返回 `S_FALSE` 或错误代码。  
+## <a name="return-value"></a>返回值  
+ 如果成功，则返回`S_OK`; 否则为返回`S_FALSE`或错误代码。  
   
 > [!NOTE]
->  `S_FALSE` 的返回值表示该属性用于符号不可用。  
+>  返回值`S_FALSE`意味着属性不是可用于符号。  
   
-## 备注  
- 此属性从 `SymTagCompilandDetails` 符号类型可用 \(请参见 [CompilandDetails](../../debugger/debug-interface-access/compilanddetails.md)\)。  
+## <a name="remarks"></a>备注  
+ 此属性是可从`SymTagCompilandDetails`符号类型 (请参阅[CompilandDetails](../../debugger/debug-interface-access/compilanddetails.md))。  
   
-## 要求  
+## <a name="requirements"></a>要求  
   
-|要求|说明|  
-|--------|--------|  
-|标题:|dia2.h|  
+|要求|描述|  
+|-----------------|-----------------|  
+|标头：|dia2.h|  
 |版本:|DIA SDK v8.0|  
   
-## 请参阅  
+## <a name="see-also"></a>另请参阅  
  [IDiaSymbol](../../debugger/debug-interface-access/idiasymbol.md)   
  [CompilandDetails](../../debugger/debug-interface-access/compilanddetails.md)

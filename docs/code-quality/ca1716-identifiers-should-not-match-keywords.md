@@ -1,54 +1,55 @@
 ---
-title: "CA1716：标识符不应与关键字冲突 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-devops-test"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "IdentifiersShouldNotMatchKeywords"
-  - "CA1716"
-helpviewer_keywords: 
-  - "IdentifiersShouldNotMatchKeywords"
-  - "CA1716"
+title: "CA1716： 标识符不应与关键字 |Microsoft 文档"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology: vs-ide-code-analysis
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords:
+- IdentifiersShouldNotMatchKeywords
+- CA1716
+helpviewer_keywords:
+- IdentifiersShouldNotMatchKeywords
+- CA1716
 ms.assetid: 900cc8a1-1089-4069-a4ce-10b109ac4fab
-caps.latest.revision: 21
-author: "stevehoag"
-ms.author: "shoag"
-manager: "wpickett"
-caps.handback.revision: 21
+caps.latest.revision: "21"
+author: gewarren
+ms.author: gewarren
+manager: ghogen
+ms.openlocfilehash: 619fc7867d14a26f2c3b674b4b8ac8b2d8fba114
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# CA1716：标识符不应与关键字冲突
-[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
-
+# <a name="ca1716-identifiers-should-not-match-keywords"></a>CA1716：标识符不应与关键字冲突
 |||  
 |-|-|  
-|类型名|IdentifiersShouldNotMatchKeywords|  
+|TypeName|IdentifiersShouldNotMatchKeywords|  
 |CheckId|CA1716|  
 |类别|Microsoft.Naming|  
-|是否重大更改|是|  
+|是否重大更改|重大|  
   
-## 原因  
- 某个命名空间、类型或者虚拟成员或接口成员的名称与编程语言中的保留关键字相同。  
+## <a name="cause"></a>原因  
+ 命名空间、 类型或虚拟或接口成员的名称与编程语言中的保留的关键字。  
   
-## 规则说明  
- 命名空间、类型以及虚拟和接口成员的标识符不应与针对公共语言运行时的语言所定义的关键字相同。  根据使用的语言和关键字，编译器错误和多义性会导致库难以使用。  
+## <a name="rule-description"></a>规则说明  
+ 命名空间、 类型，标识符和虚拟和接口成员不应与针对公共语言运行时的语言所定义的关键字。 根据使用的语言和关键字，编译器错误和多义性可以使库难以使用。  
   
- 此规则检查下列语言中的关键字：  
+ 此规则检查针对以下语言中的关键字：  
   
 -   Visual Basic  
   
--   C\#  
+-   C#  
   
--   C\+\+\/CLI  
+-   C++/CLI  
   
- 不区分大小写的比较用于 [!INCLUDE[vbprvb](../code-quality/includes/vbprvb_md.md)] 关键字，区分大小写的比较用于其他语言。  
+ 有关使用不区分大小写的比较[!INCLUDE[vbprvb](../code-quality/includes/vbprvb_md.md)]关键字和区分大小写比较用于其他语言。  
   
-## 如何解决冲突  
- 选择一个未在关键字列表中显示的名称。  
+## <a name="how-to-fix-violations"></a>如何解决冲突  
+ 在关键字的列表中选择不会出现的名称。  
   
-## 何时禁止显示警告  
- 如果您确信该标识符不会让 API 用户感到混淆，而且库在 [!INCLUDE[dnprdnshort](../code-quality/includes/dnprdnshort_md.md)] 中的所有可用语言中都可用，则可以禁止显示与该规则有关的警告。
+## <a name="when-to-suppress-warnings"></a>何时禁止显示警告  
+ 如果您确信的是，该标识符不混淆的 API，用户和库可用于所有可用语言中，你可以禁止显示此规则的警告[!INCLUDE[dnprdnshort](../code-quality/includes/dnprdnshort_md.md)]。

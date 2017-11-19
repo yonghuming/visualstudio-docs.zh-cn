@@ -4,37 +4,21 @@ ms.custom:
 ms.date: 11/04/2016
 ms.reviewer: 
 ms.suite: 
-ms.technology:
-- vs-ide-sdk
+ms.technology: vs-ide-sdk
 ms.tgt_pltfrm: 
 ms.topic: article
-f1_keywords:
-- IDebugActivateDocumentEvent2
-helpviewer_keywords:
-- IDebugActivateDocumentEvent2 interface
+f1_keywords: IDebugActivateDocumentEvent2
+helpviewer_keywords: IDebugActivateDocumentEvent2 interface
 ms.assetid: 6f37edd7-a48c-4b41-b160-dff9be63a284
-caps.latest.revision: 11
+caps.latest.revision: "11"
+author: gregvanl
 ms.author: gregvanl
 manager: ghogen
-translation.priority.mt:
-- cs-cz
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pl-pl
-- pt-br
-- ru-ru
-- tr-tr
-- zh-cn
-- zh-tw
-translationtype: Machine Translation
-ms.sourcegitcommit: ca7c86466fa23fb21a932f26dc24e37c71cf29b4
-ms.openlocfilehash: 673ead5a81cf0037d794f315ac7731e2500b8fe3
-ms.lasthandoff: 04/05/2017
-
+ms.openlocfilehash: 9f21648f9b019fbb765290d969b1a6c68fe5ce2f
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="idebugactivatedocumentevent2"></a>IDebugActivateDocumentEvent2
 调试引擎 (DE) 使用此接口来请求要加载的文档。  
@@ -63,11 +47,11 @@ IDebugActivateDocumentEvent2 : IUnknown
  在其中使用此接口的典型情况是如果在 HTML 页上的脚本代码中发生分析错误，脚本 DE 此接口会向发送 SDM 以显示文档使用了分析错误。  
   
 ## <a name="requirements"></a>要求  
- 标头︰ msdbg.h  
+ 标头： msdbg.h  
   
  Namespace: Microsoft.VisualStudio.Debugger.Interop  
   
- 程序集︰ Microsoft.VisualStudio.Debugger.Interop.dll  
+ 程序集： Microsoft.VisualStudio.Debugger.Interop.dll  
   
 ## <a name="see-also"></a>另请参阅  
  [IDebugDocument2](../../../extensibility/debugger/reference/idebugdocument2.md)   

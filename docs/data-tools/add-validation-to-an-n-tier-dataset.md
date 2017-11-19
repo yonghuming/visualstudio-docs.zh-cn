@@ -1,5 +1,5 @@
 ---
-title: Add validation to an n-tier dataset | Microsoft Docs
+title: "向 n 层数据集添加验证 |Microsoft 文档"
 ms.custom: 
 ms.date: 11/04/2016
 ms.reviewer: 
@@ -9,56 +9,39 @@ ms.topic: article
 dev_langs:
 - VB
 - CSharp
-- C++
-- aspx
 helpviewer_keywords:
 - n-tier applications, validating
 - validation [Visual Basic], n-tier data applications
 - validating n-tier data applications
 ms.assetid: 34ce4db6-09bb-4b46-b435-b2514aac52d3
-caps.latest.revision: 23
-author: mikeblome
-ms.author: mblome
+caps.latest.revision: "23"
+author: gewarren
+ms.author: gewarren
 manager: ghogen
-translation.priority.ht:
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- ru-ru
-- zh-cn
-- zh-tw
-translation.priority.mt:
-- cs-cz
-- pl-pl
-- pt-br
-- tr-tr
-ms.translationtype: HT
-ms.sourcegitcommit: 9e6c28d42bec272c6fd6107b4baf0109ff29197e
-ms.openlocfilehash: fd436b1564350bdbddb02308ab093b3176f5a342
-ms.contentlocale: zh-cn
-ms.lasthandoff: 08/22/2017
-
+ms.technology: vs-data-tools
+ms.openlocfilehash: b4c204c7515e8bb178ba1ee541650593c0281f15
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# <a name="add-validation-to-an-n-tier-dataset"></a>Add validation to an n-tier dataset
-Adding validation to a dataset that is separated into an n-tier solution is basically the same as adding validation to a single-file dataset (a dataset in a single project). The suggested location for performing validation on data is during the <xref:System.Data.DataTable.ColumnChanging> and/or <xref:System.Data.DataTable.RowChanging> events of a data table.  
+# <a name="add-validation-to-an-n-tier-dataset"></a>向 n 层数据集添加验证
+将验证添加到分布在 n 层解决方案的数据集基本上是将验证添加到单个文件数据集 （单个项目中的数据集） 相同。 对数据执行验证的建议的位置是在<xref:System.Data.DataTable.ColumnChanging>和/或<xref:System.Data.DataTable.RowChanging>数据表的事件。  
   
- The datasetprovides the functionality to create partial classes to which you can add user code to column- and row- changing events of the data tables in the dataset. For more information about adding code to a dataset in an n-tier solution, see [Add code to datasets in n-tier applications](../data-tools/add-code-to-datasets-in-n-tier-applications.md), and [Add code to TableAdapters in n-tier applications](../data-tools/add-code-to-tableadapters-in-n-tier-applications.md). For more information about partial classes, see [How to: Split a Class into Partial Classes (Class Designer)](../ide/how-to-split-a-class-into-partial-classes-class-designer.md) or [Partial Classes and Methods](/dotnet/csharp/programming-guide/classes-and-structs/partial-classes-and-methods).  
-  
-> [!NOTE]
->  When you separate datasets from TableAdapters (by setting the **DataSet Project** property), existing partial dataset classes in the project won't be moved automatically. Existing dataset partial classes must be moved manually to the dataset project.  
+ 数据集提供创建的数据集中数据表的列和行更改的事件可向其中添加用户代码的分部类的功能。 有关将代码添加到在 n 层解决方案中的数据集的详细信息，请参阅[将代码添加到在 n 层应用程序中的数据集](../data-tools/add-code-to-datasets-in-n-tier-applications.md)，和[在 n 层应用程序中的 Tableadapter 添加代码](../data-tools/add-code-to-tableadapters-in-n-tier-applications.md)。 有关分部类的详细信息，请参阅[如何： 将类拆分为分部类 （类设计器）](../ide/how-to-split-a-class-into-partial-classes-class-designer.md)或[分部类和方法](/dotnet/csharp/programming-guide/classes-and-structs/partial-classes-and-methods)。  
   
 > [!NOTE]
->  The Dataset Designer does not automatically create event handlers in C# for the <xref:System.Data.DataTable.ColumnChanging> and <xref:System.Data.DataTable.RowChanging> events. You have to manually create an event handler and hook up the event handler to the underlying event. The following procedures describe how to create the required event handlers in both Visual Basic and C#.  
+>  当你分离数据集与 Tableadapter (通过设置**数据集项目**属性)，将不会自动移动项目中的现有数据集分部类。 到数据集项目，必须手动移动现有数据集分部类。  
   
-## <a name="validatechanges-to-individual-columns"></a>Validatechanges to individual columns  
- Validate values in individual columns by handling the <xref:System.Data.DataTable.ColumnChanging> event. The <xref:System.Data.DataTable.ColumnChanging> event is raised when a value in a column is modified. Create an event handler for the <xref:System.Data.DataTable.ColumnChanging> event by double-clicking the desired column on the **Dataset Designer**.  
+> [!NOTE]
+>  数据集设计器不会自动创建事件处理程序在 C# 中为<xref:System.Data.DataTable.ColumnChanging>和<xref:System.Data.DataTable.RowChanging>事件。 你必须手动创建事件处理程序并为基础的事件与事件处理程序挂钩。 下面的过程介绍如何在 Visual Basic 和 C# 中创建的所需的事件处理程序。  
   
- The first time that you double-click a column, the designer generates an event handler for the <xref:System.Data.DataTable.ColumnChanging> event. An `If...Then` statement is also created that tests for the specific column. For example, the following code is generated when you double-click the RequiredDate column on the Northwind Orders table:  
+## <a name="validate-changes-to-individual-columns"></a>验证对单个列更改  
+ 通过处理验证各列中的值<xref:System.Data.DataTable.ColumnChanging>事件。 <xref:System.Data.DataTable.ColumnChanging>修改列中的值时引发事件。 创建的事件处理程序<xref:System.Data.DataTable.ColumnChanging>通过双击所需的列上的事件**数据集设计器**。  
   
-```vb#  
+ 第一次双击列中，该设计器生成的事件处理程序<xref:System.Data.DataTable.ColumnChanging>事件。 `If...Then`语句还会创建用于测试的特定列。 例如，当你双击 Northwind Orders 表上的 RequiredDate 列，则会生成下面的代码：  
+  
+```vb  
 Private Sub OrdersDataTable_ColumnChanging(ByVal sender As System.Object, ByVal e As System.Data.DataColumnChangeEventArgs) Handles Me.ColumnChanging  
     If (e.Column.ColumnName = Me.RequiredDateColumn.ColumnName) Then  
         ' Add validation code here.  
@@ -67,24 +50,24 @@ End Sub
 ```  
   
 > [!NOTE]
->  In C# projects, the Dataset Designer only creates partial classes for the dataset and individual tables in the dataset. The Dataset Designer does not automatically create event handlers for the <xref:System.Data.DataTable.ColumnChanging> and <xref:System.Data.DataTable.RowChanging> events in C# like it does in Visual Basic. In C# projects, you have to manually construct a method to handle the event and hook up the method to the underlying event. The following procedure provides the steps to create the required event handlers in both Visual Basic and C#.  
+>  在 C# 项目中，数据集设计器仅创建数据集和数据集中的各个表的分部类。 数据集设计器不会自动创建事件处理程序<xref:System.Data.DataTable.ColumnChanging>和<xref:System.Data.DataTable.RowChanging>中 C# 像在 Visual Basic 中的事件。 在 C# 项目中，你必须手动构造一方法来处理该事件和方法挂钩到基础的事件。 下列过程提供在 Visual Basic 和 C# 中创建的所需的事件处理程序的步骤。  
   
- [!INCLUDE[note_settings_general](../data-tools/includes/note_settings_general_md.md)]  
+[!INCLUDE[note_settings_general](../data-tools/includes/note_settings_general_md.md)]  
   
-#### <a name="to-add-validation-during-changes-to-individual-column-values"></a>To add validation during changes to individual column values  
+#### <a name="to-add-validation-during-changes-to-individual-column-values"></a>若要将更改过程中的验证添加到单个列的值  
   
-1.  Open the dataset in The dataset by double-clicking the **.xsd** file in **Solution Explorer**. For more information, see [Walkthrough: Creating a Dataset in the Dataset Designer](walkthrough-creating-a-dataset-with-the-dataset-designer.md).  
+1.  通过双击打开该数据集**.xsd**文件中**解决方案资源管理器**。 有关详细信息，请参阅[演练： 创建数据集设计器中的数据集](walkthrough-creating-a-dataset-with-the-dataset-designer.md)。  
   
-2.  Double-click the column you want to validate. This action creates the <xref:System.Data.DataTable.ColumnChanging> event handler.  
+2.  双击你想要验证的列。 此操作将创建<xref:System.Data.DataTable.ColumnChanging>事件处理程序。  
   
     > [!NOTE]
-    >  The Dataset Designer does not automatically create an event handler for the C# event. The code that's necessary to handle the event in C# is included in the next section. `SampleColumnChangingEvent` is created and then hooked up to the <xref:System.Data.DataTable.ColumnChanging> event in the <xref:System.Data.DataTable.EndInit%2A> method.  
+    >  数据集设计器不自动创建的事件处理程序的 C# 事件。 需要处理 C# 中的事件的代码包含在下一节。 `SampleColumnChangingEvent`创建，然后挂接到<xref:System.Data.DataTable.ColumnChanging>中的事件<xref:System.Data.DataTable.EndInit%2A>方法。  
   
-3.  Add code to verify that `e.ProposedValue` contains data that meets the requirements of your application. If the proposed value is unacceptable, set the column to indicate that it contains an error.  
+3.  添加代码以验证`e.ProposedValue`包含满足你的应用程序的要求的数据。 如果建议的值是不可接受，设置该列以指示其包含一个错误。  
   
-     The following code example validates that the **Quantity** column contains more than 0. If **Quantity** is less than or equal to 0, the column is set to an error. The `Else` clause clears the error if **Quantity** is more than 0. The code in the column-changing event handler should resemble the following:  
+     下面的代码示例验证**数量**列包含大于 0 的值。 如果**数量**小于或等于为 0，将列设置为错误。 `Else`子句清除了该错误，如果**数量**大于 0。 列更改事件处理程序中的代码应如下所示：  
   
-    ```vb#  
+    ```vb  
     If (e.Column.ColumnName = Me.QuantityColumn.ColumnName) Then  
         If CType(e.ProposedValue, Short) <= 0 Then  
             e.Row.SetColumnError(e.Column, "Quantity must be greater than 0")  
@@ -92,60 +75,57 @@ End Sub
             e.Row.SetColumnError(e.Column, "")  
         End If  
     End If  
-    ```  
+    ```    
+    ```csharp  
+    // Add this code to the DataTable partial class.  
   
-    ```c#  
-    // C#  
-    // Add this code to the DataTable   
-    // partial class.  
+    public override void EndInit()  
+    {  
+        base.EndInit();  
+        // Hook up the ColumnChanging event  
+        // to call the SampleColumnChangingEvent method.  
+        ColumnChanging += SampleColumnChangingEvent;  
+    }  
   
-        public override void EndInit()  
+    public void SampleColumnChangingEvent(object sender, System.Data.DataColumnChangeEventArgs e)  
+    {  
+        if (e.Column.ColumnName == QuantityColumn.ColumnName)  
         {  
-            base.EndInit();  
-            // Hook up the ColumnChanging event  
-            // to call the SampleColumnChangingEvent method.  
-            ColumnChanging += SampleColumnChangingEvent;  
-        }  
-  
-        public void SampleColumnChangingEvent(object sender, System.Data.DataColumnChangeEventArgs e)  
-        {  
-            if (e.Column.ColumnName == QuantityColumn.ColumnName)  
+            if ((short)e.ProposedValue <= 0)  
             {  
-                if ((short)e.ProposedValue <= 0)  
-                {  
-                    e.Row.SetColumnError("Quantity", "Quantity must be greater than 0");  
-                }  
-                else  
-                {  
-                    e.Row.SetColumnError("Quantity", "");  
-                }  
+                e.Row.SetColumnError("Quantity", "Quantity must be greater than 0");  
+            }  
+            else  
+            {  
+                e.Row.SetColumnError("Quantity", "");  
             }  
         }  
+    }  
     ```  
   
-## <a name="validate-changes-to-whole-rows"></a>Validate changes to whole rows  
- Validate values in whole rows by handling the <xref:System.Data.DataTable.RowChanging> event. The <xref:System.Data.DataTable.RowChanging> event is raised when the values in all columns are committed. It is necessary to validate in the <xref:System.Data.DataTable.RowChanging> event when the value in one column relies on the value in another column. For example, consider OrderDate and RequiredDate in the Orders table in Northwind.  
+## <a name="validate-changes-to-whole-rows"></a>验证对整个行的更改  
+ 通过处理验证整个行中的值<xref:System.Data.DataTable.RowChanging>事件。 <xref:System.Data.DataTable.RowChanging>提交所有列中的值时引发事件。 需要在验证<xref:System.Data.DataTable.RowChanging>事件时将一个列中的值依赖于另一个列中的值。 例如，考虑 OrderDate 和 RequiredDate 中 Northwind 的 Orders 表中。  
   
- When orders are being entered, validation makes sure that an order is not entered with a RequiredDate that is on or before the OrderDate. In this example, the values for both the RequiredDate and OrderDate columns need to be compared, so validating an individual column change does not make sense.  
+ 当输入订单时，验证可确保不使用位于或早于 OrderDate RequiredDate 输入订单。 在此示例中，RequiredDate 和 OrderDate 列的值需要进行比较，以便验证单个列更改没有意义。  
   
- Create an event handler for the <xref:System.Data.DataTable.RowChanging> event by double-clicking the table name in the title bar of the table on the **Dataset Designer**.  
+ 创建的事件处理程序<xref:System.Data.DataTable.RowChanging>双击表的标题栏中的表名称的事件**数据集设计器**。  
   
-#### <a name="to-add-validation-during-changes-to-whole-rows"></a>To add validation during changes to whole rows  
+#### <a name="to-add-validation-during-changes-to-whole-rows"></a>若要将更改过程中的验证添加到整个行  
   
-1.  Open the dataset in The dataset by double-clicking the **.xsd** file in **Solution Explorer**. For more information, see [Walkthrough: Creating a Dataset in the Dataset Designer](walkthrough-creating-a-dataset-with-the-dataset-designer.md).  
+1.  通过双击打开该数据集**.xsd**文件中**解决方案资源管理器**。 有关详细信息，请参阅[演练： 创建数据集设计器中的数据集](walkthrough-creating-a-dataset-with-the-dataset-designer.md)。  
   
-2.  Double-click the title bar of the data table on the designer.  
+2.  双击设计器上的数据表的标题栏。  
   
-     A partial class is created with a `RowChanging` event handler and opens in the Code Editor.  
+     分部类创建与`RowChanging`事件处理程序并在代码编辑器中打开。  
   
     > [!NOTE]
-    >  The Dataset Designer does not automatically create an event handler for the <xref:System.Data.DataTable.RowChanging> event in C# projects. You have to create a method to handle the <xref:System.Data.DataTable.RowChanging> event and run code to hook up the event in the table's initialization method.  
+    >  数据集设计器不会自动创建的事件处理程序<xref:System.Data.DataTable.RowChanging>C# 项目中的事件。 你必须创建一个方法来处理<xref:System.Data.DataTable.RowChanging>事件，然后挂钩中表的初始化方法的事件的运行的代码。  
   
-3.  Add user code inside the partial class declaration.  
+3.  添加用户代码的分部类声明。  
   
-4.  The following code shows where to add user code to validate during the <xref:System.Data.DataTable.RowChanging> event for Visual Basic:  
+4.  下面的代码演示如何添加用户代码，以验证期间<xref:System.Data.DataTable.RowChanging>事件。 C# 示例还包括代码将事件处理程序方法挂钩达`OrdersRowChanging`事件。  
   
-    ```vb#  
+    ```vb  
     Partial Class OrdersDataTable  
         Private Sub OrdersDataTable_OrdersRowChanging(ByVal sender As System.Object, ByVal e As OrdersRowChangeEvent) Handles Me.OrdersRowChanging  
             ' Add logic to validate columns here.  
@@ -159,10 +139,7 @@ End Sub
         End Sub  
     End Class  
     ```  
-  
-5.  The following code shows how to create the `RowChanging` event handler and where to add user code to validate during the <xref:System.Data.DataTable.RowChanging> event for C#:  
-  
-    ```c#  
+    ```csharp  
     partial class OrdersDataTable  
     {  
         public override void EndInit()  
@@ -190,7 +167,7 @@ End Sub
     }  
     ```  
   
-## <a name="see-also"></a>See Also  
- [N-Tier Data Applications Overview](../data-tools/n-tier-data-applications-overview.md)   
- [Walkthrough: Creating an N-Tier Data Application](../data-tools/walkthrough-creating-an-n-tier-data-application.md)   
- [Validate data in datasets](../data-tools/validate-data-in-datasets.md)
+## <a name="see-also"></a>另请参阅  
+ [N 层数据应用程序概述](../data-tools/n-tier-data-applications-overview.md)   
+ [演练： 创建 N 层数据应用程序](../data-tools/walkthrough-creating-an-n-tier-data-application.md)   
+ [验证数据集中的数据](../data-tools/validate-data-in-datasets.md)

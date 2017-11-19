@@ -1,46 +1,45 @@
 ---
-title: "IDiaSectionContrib::get_nopad | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-debug"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-dev_langs: 
-  - "C++"
-helpviewer_keywords: 
-  - "IDiaSectionContrib::get_nopad 方法"
+title: "Idiasectioncontrib:: Get_nopad |Microsoft 文档"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology: vs-ide-debug
+ms.tgt_pltfrm: 
+ms.topic: article
+dev_langs: C++
+helpviewer_keywords: IDiaSectionContrib::get_nopad method
 ms.assetid: f5c08603-0b3e-4e81-acf1-1b95a6a83bed
-caps.latest.revision: 6
-author: "mikejo5000"
-ms.author: "mikejo"
-manager: "ghogen"
-caps.handback.revision: 6
+caps.latest.revision: "6"
+author: mikejo5000
+ms.author: mikejo
+manager: ghogen
+ms.openlocfilehash: c6bbabc5497e59db31535f87761bd081fe2eb0a6
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# IDiaSectionContrib::get_nopad
-[!INCLUDE[vs2017banner](../../code-quality/includes/vs2017banner.md)]
-
-检索指示是否的标志不应填充该部分到下一个内存边界。  
+# <a name="idiasectioncontribgetnopad"></a>IDiaSectionContrib::get_nopad
+检索一个标志，指示是否部分应不填充到下一步的内存边界。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
-```cpp#  
+```C++  
 HRESULT get_nopad(  
-   BOOL* pRetVal  
+   BOOL* pRetVal  
 };  
 ```  
   
-#### 参数  
+#### <a name="parameters"></a>参数  
  `pRetVal`  
- \[out\] ，如果部分不应当由填充到下一内存边界，返回 `TRUE` ;否则返回 `FALSE`。  
+ [out]返回`TRUE`如果部分应不填充到下一步的内存边界; 否则，返回`FALSE`。  
   
-## 返回值  
- 如果成功，则返回 `S_OK`。  ，如果此属性不受支持，返回 `S_FALSE` 。  否则，返回错误代码。  
+## <a name="return-value"></a>返回值  
+ 如果成功，则返回`S_OK`。 返回`S_FALSE`如果不支持此属性。 否则，返回错误代码。  
   
-## 备注  
- 这是较旧的文件通常只有显示的属性。  
+## <a name="remarks"></a>备注  
+ 这是通常仅在较旧的文件上会出现一个属性。  
   
-## 请参阅  
+## <a name="see-also"></a>另请参阅  
  [IDiaSectionContrib](../../debugger/debug-interface-access/idiasectioncontrib.md)

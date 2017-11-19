@@ -1,63 +1,64 @@
 ---
-title: "关于域特定语言 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-helpviewer_keywords: 
-  - "域特定语言"
+title: "有关域特定语言 |Microsoft 文档"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.tgt_pltfrm: 
+ms.topic: article
+helpviewer_keywords: Domain-Specific Language
 ms.assetid: 29e5b6f2-ece4-4f3b-ab08-5f957418702f
-caps.latest.revision: 26
-author: "alancameronwills"
-ms.author: "awills"
-manager: "douge"
-caps.handback.revision: 26
+caps.latest.revision: "26"
+author: alancameronwills
+ms.author: awills
+manager: douge
+ms.openlocfilehash: 3bab0e785dfccddb7d182864a01146fe697b4247
+ms.sourcegitcommit: aadb9588877418b8b55a5612c1d3842d4520ca4c
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/27/2017
 ---
-# 关于域特定语言
-[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
-
-不同于一个常规语言 \(如 c\# 或 UML，域特定语言 \(DSL\) \(dsl\) 的设计方式是特定问题空间表示语句或字段。  
+# <a name="about-domain-specific-languages"></a>关于域特定语言
+与 C# 或 UML 等通用语言，不同的域特定语言 (DSL) 可用于表达特定问题空间或域中的语句。  
   
- 已知的 DSL 包括正则表达式和 SQL。  每个 DSL 好地描述操作的通用语言是文本字符串或数据库，但是，可用于描述超出其自身的大小的想法。  各个行业还有自己的 DSL。  例如，在电信行业，请调用描述语言是广泛使用指定状态顺序在电话，因此，在航空用行业标准 DSL 用于描述航班预订。  
+ 已知 Dsl 包括正则表达式和 SQL。 每个 DSL 是比好得多通用的语言为说明文本字符串或数据库，但差很多用于描述自己范围以外的想法的操作。 各个行业也有其自己 Dsl。 例如，在电信行业中，调用的说明语言广泛用于电话调用中，指定状态的序列和在无线旅行行业 DSL 用于描述机票预定的标准。  
   
- 业务和项目还处理特定可以描述与 DSL 的设置概念。  例如，您可以定义这些应用程序之一的一个 DSL:  
+ 你的业务和项目也处理有特殊套无法用 DSL 描述的概念。 例如，你可以定义这些应用程序之一的 DSL:  
   
--   导航路径计划在网站。  
+-   在网站的导航路径的计划。  
   
--   电子组件的接线图。  
+-   电子元件的接线图。  
   
--   传送带和行李处理设备网络机场的。  
+-   传送带和行李处理机场的设备的网络。  
   
- 当您设计一个 DSL 时，要定义每个字段 *类* 中的重要概念，例如网页、闪亮指示或机场签入服务台。  您定义的 *字段关系* \(如超链接、连接或传送带链接在一起概念。  
+ DSL 设计时，你定义*域类*为每个域，如网页、 lamp 或机场签入服务台中的重要概念。 你定义*域关系*如超链接、 网络或将概念连接在一起的传送带。  
   
- DSL 的用户创建 *模型。*模型是 DSL 的 *实例* 。  例如，它们在特定机场描述特定网站或特定设备的连接或行李处理系统。  
+ DSL 的用户创建*模型。* 模型是*实例*的 DSL。 例如，这些主题描述特定网站或特定设备，或行李处理系统中特定机场连结。  
   
- ，在关系图或作为 windows 窗体，用户可以查看模型。  设计还可以将视为 XML，是如何存储它们。  在定义一个 DSL 时，请定义每个字段类和关系实例如何显示在用户的屏幕上。  典型的 DSL 显示为箭头或矩形的连接的集合图标。  
+ 你的用户可以查看模型作为关系图或 Windows 窗体。 模型还可以作为 XML 使用，即如何存储它们。 DSL 定义时，你定义如何在用户的屏幕上会出现的每个域类和关系的实例。 典型 DSL 显示为图标或连接箭头的矩形的集合。  
   
- 下图演示一个图表 DSL 显示一个小模式:  
+ 下图显示在图表 DSL 小模型：  
   
- ![都铎王朝家谱模型](~/modeling/media/tudor_familytreemodel.png "Tudor\_FamilyTreeModel")  
+ ![都铎王朝家谱模型](../modeling/media/tudor_familytreemodel.png "Tudor_FamilyTreeModel")  
   
-## 可对 DSL  
- DSL 的典型的应用程序是生成程序代码或其他项目。  在定义 DSL 时，可以定义 DSL 读取模型并生成文本文件 *的文本模板* 。  
+## <a name="what-you-can-do-with-dsls"></a>你可以使用 Dsl 做什么  
+ 典型的应用程序的 DSL 是生成程序代码或其他项目。 DSL 定义时，你可以定义*文本模板*，读取的 DSL 模型和生成文本文件。  
   
- 例如，您可以采用机场计划和生成部分的进程的行李软件的编写模板，以及介绍计划的某些用户文档。  
+ 例如，你可以编写可采用机场计划并生成行李处理，以及介绍计划的用户文档的某些软件的一部分的模板。  
   
- 在定义一个 DSL 时，可以指定它会将安装在该计算机上的其他用户。  DSL 的用户在 [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)]可以创建和编辑模型。  
+ DSL 定义后，可以将其分发给其他用户可以在自己的计算机上安装它。 DSL 的用户可以创建和编辑中的模型[!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)]。  
   
- 您还可以定义帮助用户编辑 DSL 的菜单命令和其他工具，验证约束来确保正确使用 DSL 和帮助用户创建新实例的项目模板。  可以包装一个或多个使用这些工具的 DSL 和其他 [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] 扩展作为一个集成包。  
+ 你还可以定义菜单命令和其他工具，可帮助用户编辑 DSL，验证约束来帮助确保正确，使用 DSL 的并可帮助用户项模板创建的新实例。 你可以包装一个或多个 Dsl 及其工具和其他[!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)]作为集成包扩展。  
   
- 通常，那么，当开发团队必须多个产品时，编写类似的代码域特定语言 \(dsl\) 创建。  例如，专用行李处理系统的公司也定义用于生成某些所有安装的代码的行李跟踪 DSL。  DSL 的优点是可以由其客户了解，从其生成代码采用可靠的，因此，可以快速地更新系统，如果用户更改请求。  
+ 通常情况下，开发团队必须编写为有好几种产品类似的代码时创建的域特定语言。 例如，专用化在行李处理系统中的公司可能定义行李跟踪 DSL 从中它们可能会产生一些每个安装的代码。 DSL 的优点是，它可以理解的客户，从它生成的代码是可靠的并且，系统可以快速更新如果客户的需求更改。  
   
- [!INCLUDE[dsl](../modeling/includes/dsl_md.md)] 可以创建具有拥有图形设计人员和拥有关系图表示形式的域特定语言 \(dsl\)，然后使用语言生成每个项目中相应的源代码。  
+ [!INCLUDE[dsl](../modeling/includes/dsl_md.md)]允许你创建域特定语言具有图形设计器和你自己的关系图表示法，并随后使用语言生成相应的源代码中，每个项目。  
   
-## 域特定开发  
- 通过使用域特定语言 \(dsl\)，域特定开发进程标识可建立应用程序的部分，然后为该语言并将其部署到应用程序开发人员。  开发人员使用该域特定语言构造特定于其应用程序模型，使用模型生成源代码，然后使用源代码开发应用程序。  
+## <a name="domain-specific-development"></a>特定于域的开发  
+ 域特定开发是识别的应用程序使用一种域特定语言，然后构造语言，并将其部署到应用程序开发人员可以建模部分的过程。 开发人员使用的域特定语言构造特定于其应用程序的模型，使用的模型来生成源代码，，然后使用源代码开发的应用程序。  
   
-## 图形域特定开发的各个方面  
- 一种图形域特定语言必须包括以下功能:  
+## <a name="aspects-of-graphical-domain-specific-development"></a>图形的特定于域的开发方面  
+ 图形的域特定语言必须包括以下功能：  
   
 -   Notation  
   
@@ -69,47 +70,47 @@ caps.handback.revision: 26
   
 -   与 Visual Studio 的集成  
   
-### Notation  
- 域特定语言 \(dsl\) 必须具有合理小可以轻松地定义和扩展表示域特定构造的元素。  表示法包括形状，表示元素，并且，连接，表示元素之间的关系，在图形关系图图面。  在 [!INCLUDE[dsl](../modeling/includes/dsl_md.md)]，形状中扩展并优化表示该域特定语言 \(dsl\) 元素。  
+### <a name="notation"></a>Notation  
+ 域特定语言必须具有一组相当小，可以轻松地定义和扩展，以表示特定于域的构造的元素。 一种表示法由形状，表示的元素和连接器，表示元素，请在图形关系图面之间的关系组成。 在[!INCLUDE[dsl](../modeling/includes/dsl_md.md)]，形状可以扩展和优化，以表示你的域特定语言的元素。  
   
-### 域模型  
- 域特定语言 \(dsl\) 必须合并将元素及其相互关系到一致语法。  它还必须定义元素和关系的组合是否有效。  例如，编程语言通常禁止循环的继承，在哪个类从第二个类派生，第二个类是从类派生。  约束还可用于表示业务逻辑，例如，一个用户不能是依赖他。  [!INCLUDE[dsl](../modeling/includes/dsl_md.md)] 使用约束表示大多数域特定语言所需的限制。  
+### <a name="domain-model"></a>域模型  
+ 域特定语言必须组合元素和它们为连贯的语法之间的关系的集。 它还必须定义组合的元素和关系是否有效。 例如，编程语言通常会阻止循环继承，在其中一个类派生自第二个类和第二个类派生自的第一个类。 约束还可以用于表示业务逻辑，例如，某个人但不能为自己的依赖。 [!INCLUDE[dsl](../modeling/includes/dsl_md.md)]使用约束 express 的各种域特定语言最需要的限制。  
   
-### 项目生成  
- 一个域特定语言 \(dsl\) 的主要目的是生成项目，例如，源代码、 XML 文件，或某些其他可用的数据。  通常，在该模型中的更改是指在项目中的更改。  ，当您更改模型时，可以使用 [!INCLUDE[dsl](../modeling/includes/dsl_md.md)] 生成项目并重新生成它们。  
+### <a name="artifact-generation"></a>项目生成  
+ 域特定语言的主要用途之一是生成的项目，例如，源代码、 XML 文件或某些其他可用的数据。 通常情况下，模型中的更改意味着项目中的更改。 你可以使用[!INCLUDE[dsl](../modeling/includes/dsl_md.md)]生成项目并重新生成它们时将模型更改。  
   
-### 序列化  
- 以可编辑，保存，关闭和重新加载的某种形式必须保持域特定语言 \(dsl\)。  [!INCLUDE[dsl](../modeling/includes/dsl_md.md)] 使用可以定义和自定义的 XML 格式如何序列化这种域特定语言或保留。  
+### <a name="serialization"></a>序列化  
+ 域特定语言必须保留在某种形式的可编辑、 保存、 关闭，并重新加载。 [!INCLUDE[dsl](../modeling/includes/dsl_md.md)]使用 XML 格式，你可以定义和自定义如何序列化或保持你的域特定语言。  
   
-### 与 Visual Studio 的集成  
- 由于 [!INCLUDE[dsl](../modeling/includes/dsl_md.md)] 在 [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)]承载，它扩展许多 [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] 窗口和控件。  它还允许您自定义菜单命令行为，工具箱项和用户界面的其他元素。  
+### <a name="integration-with-visual-studio"></a>与 Visual Studio 的集成  
+ 因为[!INCLUDE[dsl](../modeling/includes/dsl_md.md)]中托管[!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)]，它扩展了许多[!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)]窗口和控件。 它还允许你自定义菜单命令、 工具箱项，以及用户界面的其他元素的行为。  
   
- 您也可以为域特定语言 \(dsl\) 的模型总线适配器。  此适配器可以引用一个模型和元素在设计中，并使您可以访问编写代码和更新 DSL 的实例。  使用强大的模型总线结构，您可以编写与多个模型的 [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] 扩展。  还可以使用模型编写独立应用程序。  有关更多信息，请参见 [通过使用 Visual Studio Modelbus 集成模型](../modeling/integrating-models-by-using-visual-studio-modelbus.md)。  
+ 你还可以为您的域特定语言创建模型总线适配器。 此适配器，可以引用一个模型和模型，并允许你编写代码可访问和更新的 DSL 实例内的元素。 通过使用功能强大的模型总线机制，你可以编写[!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)]使用多个模型的扩展。 你还可以编写使用模型的独立应用程序。 有关详细信息，请参阅[集成模型通过使用 Visual Studio Modelbus](../modeling/integrating-models-by-using-visual-studio-modelbus.md)。  
   
-## 域特定开发的优点  
- 域特定语言 \(dsl\) 具有以下优点:  
+## <a name="benefits-of-domain-specific-development"></a>特定于域的开发的优点  
+ 域特定语言可以提供以下好处：  
   
--   包含正确地适应问题空间的构造。  
+-   包含完全适应问题空间的构造。  
   
-     不同于常规语言，域特定语言 \(dsl\) 包括直接表示问题空间逻辑的元素和关系。  例如，保险单应用程序必须包含策略和声明的元素。  域特定语言 \(dsl\) 便于设计应用程序和查找错误并进行更正逻辑。  
+     与通用语言，不同的域特定语言元素和包含直接表示问题空间的逻辑关系。 例如，保险策略应用程序必须包括策略和声明的元素。 域特定语言，使得易于设计的应用程序，并查找和更正错误的逻辑。  
   
--   允许非开发人员，并不知道字段的人了解整体设计。  
+-   使非开发人员以及人员： 不知道了解的总体设计的域。  
   
-     使用一种图形域特定语言，可以创建域的可视表示形式，以便非开发人员可以轻松地了解应用程序的模型。  
+     通过使用图形的域特定语言，你可以创建可视表示形式的域，以便非开发人员能够轻松地理解应用程序的设计。  
   
--   可以更轻松地创建最终应用程序的原型。  
+-   便于创建最终应用程序的原型。  
   
-     开发人员可以使用它们的方式生成创建原型应用程序中可能会对客户端的代码。  
+     开发人员可以使用它们的模型生成创建原型应用程序，它们可显示给客户端的代码。  
   
-## 域特定开发过程  
- 使用域特定语言的大多数软件开发团队执行以下步骤来创建和使用它们的方式:  
+## <a name="the-process-of-domain-specific-development"></a>特定于域的开发过程  
+ 使用域特定语言的大多数软件开发团队执行以下步骤创建和使用其模型：  
   
--   团队使用从不更改的部分区分字段的可变部分。  
+-   团队区分永远不会更改的部分中的域的变量部分。  
   
--   内置的部件和离开扩展的开发人员编写代码的可变部分点。  
+-   开发人员编写的固定部分的代码，并且保留的变量部分的扩展点。  
   
--   主管软件开发人员或架构师创建合并字段的内置的设计模式，而 extension 为可变部分点的域特定语言 \(dsl\)。  
+-   首席软件开发人员或架构师创建包含的固定部分的域和的变量部分的扩展点的设计模式的域特定语言。  
   
--   主管软件开发人员或架构师部署到域特定语言对于团队生成多个应用程序的开发人员。  
+-   首席软件开发人员或架构师将部署的团队生成的各种应用程序的开发人员的域特定语言。  
   
--   每个开发人员创建适用于特定应用程序的设计。
+-   每个开发人员创建的模型可以应用于特定应用程序。

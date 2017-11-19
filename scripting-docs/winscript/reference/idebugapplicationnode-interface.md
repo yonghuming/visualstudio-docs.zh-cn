@@ -1,33 +1,36 @@
 ---
-title: "IDebugApplicationNode 接口 | Microsoft Docs"
-ms.custom: ""
-ms.date: "01/18/2017"
-ms.prod: "windows-script-interfaces"
-ms.reviewer: ""
-ms.suite: ""
-ms.tgt_pltfrm: ""
-ms.topic: "reference"
-helpviewer_keywords: 
-  - "IDebugApplicationNode 接口"
+title: "IDebugApplicationNode 接口 |Microsoft 文档"
+ms.custom: 
+ms.date: 01/18/2017
+ms.prod: windows-script-interfaces
+ms.reviewer: 
+ms.suite: 
+ms.tgt_pltfrm: 
+ms.topic: reference
+helpviewer_keywords: IDebugApplicationNode interface
 ms.assetid: 30be3a97-8191-45ac-8706-3f7056c163d6
-caps.latest.revision: 9
-author: "mikejo5000"
-ms.author: "mikejo"
-manager: "ghogen"
-caps.handback.revision: 9
+caps.latest.revision: "9"
+author: mikejo5000
+ms.author: mikejo
+manager: ghogen
+ms.openlocfilehash: 110e04d1c990f1b22f9740d8118a47f485dd041e
+ms.sourcegitcommit: aadb9588877418b8b55a5612c1d3842d4520ca4c
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/27/2017
 ---
-# IDebugApplicationNode 接口
-`IDebugApplicationNode` 接口通过提供在项树中的上下文扩展 `IDebugDocumentProvider` 接口的功能。  
+# <a name="idebugapplicationnode-interface"></a>IDebugApplicationNode 接口
+`IDebugApplicationNode`接口扩展的功能`IDebugDocumentProvider`通过提供项目树中的上下文的接口。  
   
- 除了从 `IDebugDocumentProvider` 继承的方法之外，`IDebugApplicationNode` 接口还公开下面的方法。  
+ 除了从继承的方法`IDebugDocumentProvider`、`IDebugApplicationNode`接口公开以下方法。  
   
-## 方法按Vtable顺序  
+## <a name="methods-in-vtable-order"></a>Vtable 顺序中的方法  
   
-|方法|说明|  
-|--------|--------|  
-|[IDebugApplicationNode::EnumChildren](../../winscript/reference/idebugapplicationnode-enumchildren.md)|此枚举应用程序节点的子节点。|  
-|[IDebugApplicationNode::GetParent](../../winscript/reference/idebugapplicationnode-getparent.md)|返回此应用程序节点父节点。|  
-|[IDebugApplicationNode::SetDocumentProvider](../../winscript/reference/idebugapplicationnode-setdocumentprovider.md)|将此应用程序节点的文档提供程序。|  
-|[IDebugApplicationNode::Close](../../winscript/reference/idebugapplicationnode-close.md)|导致此应用程序释放所有引用并输入一个非活动状态。|  
-|[IDebugApplicationNode::Attach](../../winscript/reference/idebugapplicationnode-attach.md)|将此应用程序节点到指定的项目树。|  
-|[IDebugApplicationNode::Detach](../../winscript/reference/idebugapplicationnode-detach.md)|从项目中移除此应用程序节点。|
+|方法|描述|  
+|------------|-----------------|  
+|[IDebugApplicationNode::EnumChildren](../../winscript/reference/idebugapplicationnode-enumchildren.md)|枚举此应用程序节点的子的节点。|  
+|[IDebugApplicationNode::GetParent](../../winscript/reference/idebugapplicationnode-getparent.md)|返回此应用程序节点的父节点。|  
+|[IDebugApplicationNode::SetDocumentProvider](../../winscript/reference/idebugapplicationnode-setdocumentprovider.md)|设置此应用程序节点的文档提供程序。|  
+|[IDebugApplicationNode::Close](../../winscript/reference/idebugapplicationnode-close.md)|使此应用程序释放所有引用并进入非活动状态。|  
+|[IDebugApplicationNode::Attach](../../winscript/reference/idebugapplicationnode-attach.md)|将此应用程序节点添加到指定的项目树。|  
+|[IDebugApplicationNode::Detach](../../winscript/reference/idebugapplicationnode-detach.md)|从项目树中删除此应用程序节点。|

@@ -1,50 +1,53 @@
 ---
-title: "IDebugProperty::GetPropertyInfo | Microsoft Docs"
-ms.custom: ""
-ms.date: "01/18/2017"
-ms.prod: "windows-script-interfaces"
-ms.reviewer: ""
-ms.suite: ""
-ms.tgt_pltfrm: ""
-ms.topic: "reference"
+title: "IDebugProperty::GetPropertyInfo |Microsoft 文档"
+ms.custom: 
+ms.date: 01/18/2017
+ms.prod: windows-script-interfaces
+ms.reviewer: 
+ms.suite: 
+ms.tgt_pltfrm: 
+ms.topic: reference
 apiname: IDebugProperty.GetPropertyInfo
 apilocation: scrobj.dll
-helpviewer_keywords: 
-  - "IDebugProperty::GetPropertyInfo"
+helpviewer_keywords: IDebugProperty::GetPropertyInfo
 ms.assetid: b201c0c4-bff6-4285-880f-67be90584c5f
-caps.latest.revision: 8
-author: "mikejo5000"
-ms.author: "mikejo"
-manager: "ghogen"
-caps.handback.revision: 8
+caps.latest.revision: "8"
+author: mikejo5000
+ms.author: mikejo
+manager: ghogen
+ms.openlocfilehash: edd878419c6f2b4fd0f882a070d80c98a96eba56
+ms.sourcegitcommit: aadb9588877418b8b55a5612c1d3842d4520ca4c
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/27/2017
 ---
-# IDebugProperty::GetPropertyInfo
-获取描述一个方法或索引属性 `IDebugProperty` 的值。  
+# <a name="idebugpropertygetpropertyinfo"></a>IDebugProperty::GetPropertyInfo
+获取的值`IDebugProperty`描述的方法或索引的属性。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
 ```  
 HRESULT GetPropertyInfo (  
-   DBGPROP_INFO_FLAGS dwFields,  
-   UINT nRadix,  
-   DebugPropertyInfo* pPropertyInfo  
+   DBGPROP_INFO_FLAGSdwFields,  
+   UINT nRadix,  
+   DebugPropertyInfo* pPropertyInfo  
 );  
 ```  
   
-#### 参数  
+#### <a name="parameters"></a>参数  
  `dwFields`  
- \[in\]指定定位在 `DebugPropertyInfo` 框架将填写字段的 `DBGPROP_INFO_FLAGS` 常数。  
+ [in]指定`DBGPROP_INFO_FLAGS`确定要在中填写的字段的常量`DebugPropertyInfo`结构。  
   
  `nRadix`  
- \[in\]用于设置任何数值信息基数。  
+ [in]用于格式化数值的任何信息的基数。  
   
  `pPropertyInfo`  
- \[in\]返回描述属性的 `DebugPropertyInfo` 结构。  
+ [out]返回`DebugPropertyInfo`描述的属性的结构。  
   
-## 返回值  
- 返回有效的 `HRESULT`，通常 `S_OK`。  
+## <a name="return-value"></a>返回值  
+ 返回一个有效`HRESULT`，通常`S_OK`。  
   
-## 请参阅  
+## <a name="see-also"></a>另请参阅  
  [IDebugProperty 接口](../../winscript/reference/idebugproperty-interface.md)   
- [DBGPROP\_INFO\_FLAGS](../../winscript/reference/dbgprop-info-flags.md)   
+ [DBGPROP_INFO_FLAGS](../../winscript/reference/dbgprop-info-flags.md)   
  [DebugPropertyInfo 结构](../../winscript/reference/debugpropertyinfo-structure.md)

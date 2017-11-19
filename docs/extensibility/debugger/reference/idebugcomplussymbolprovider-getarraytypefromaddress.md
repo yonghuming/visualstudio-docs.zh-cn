@@ -1,69 +1,71 @@
 ---
-title: "IDebugComPlusSymbolProvider::GetArrayTypeFromAddress | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-helpviewer_keywords: 
-  - "GetArrayTypeFromAddress"
-  - "IDebugComPlusSymbolProvider::GetArrayTypeFromAddress"
+title: "IDebugComPlusSymbolProvider::GetArrayTypeFromAddress |Microsoft 文档"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology: vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+helpviewer_keywords:
+- GetArrayTypeFromAddress
+- IDebugComPlusSymbolProvider::GetArrayTypeFromAddress
 ms.assetid: cc0c53f1-8c0f-49fa-8dbe-bc155e9ce0ef
-caps.latest.revision: 10
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 10
+caps.latest.revision: "10"
+author: gregvanl
+ms.author: gregvanl
+manager: ghogen
+ms.openlocfilehash: 43e8df22bcf5acdcef81dce761cfdf49398fcfee
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# IDebugComPlusSymbolProvider::GetArrayTypeFromAddress
-[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
-
-检索有关提供的指定数组的类型信息其调试地址。  
+# <a name="idebugcomplussymbolprovidergetarraytypefromaddress"></a>IDebugComPlusSymbolProvider::GetArrayTypeFromAddress
+检索类型有关给定其调试地址指定数组的信息。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
 ```  
 [C++]  
 HRESULT GetArrayTypeFromAddress(  
-   IDebugAddress* pAddress,  
-   BYTE*          pSig,  
-   DWORD          dwSigLength,  
-   IDebugField**  ppField  
+   IDebugAddress* pAddress,  
+   BYTE*          pSig,  
+   DWORD          dwSigLength,  
+   IDebugField**  ppField  
 );  
 ```  
   
 ```  
 [C#]  
 int GetArrayTypeFromAddress(  
-   IDebugAddress   pAddress,  
-   int[]           pSig,  
-   uint            dwSigLength,  
-   out IDebugField ppField  
+   IDebugAddress   pAddress,  
+   int[]           pSig,  
+   uint            dwSigLength,  
+   out IDebugField ppField  
 );  
 ```  
   
-#### 参数  
+#### <a name="parameters"></a>参数  
  `pAddress`  
- \[in\] [IDebugAddress](../../../extensibility/debugger/reference/idebugaddress.md) 接口表示的调试地址。  
+ [in]调试地址由[IDebugAddress](../../../extensibility/debugger/reference/idebugaddress.md)接口。  
   
  `pSig`  
- \[in\] 检查的数组。  
+ [in]要检查的数组。  
   
  `dwSigLength`  
- \[in\] 长度。 `pSig` 数组的字节。  
+ [in]以字节为单位的长度`pSig`数组。  
   
  `ppField`  
- \[out\] 返回数组类型 \(如由 [IDebugClassField](../../../extensibility/debugger/reference/idebugclassfield.md) 接口。  
+ [out]返回的数组类型，由表示[IDebugClassField](../../../extensibility/debugger/reference/idebugclassfield.md)接口。  
   
-## 返回值  
- 如果成功，则返回; `S_OK`否则，返回错误代码。  
+## <a name="return-value"></a>返回值  
+ 如果成功，则返回`S_OK`; 否则为返回错误代码。  
   
-## 示例  
- 下面的示例演示如何执行显示 [IDebugComPlusSymbolProvider](../../../extensibility/debugger/reference/idebugcomplussymbolprovider.md) 接口的 **CDebugSymbolProvider** 对象的方法。  
+## <a name="example"></a>示例  
+ 下面的示例演示如何实现此方法对于**CDebugSymbolProvider**公开的对象[IDebugComPlusSymbolProvider](../../../extensibility/debugger/reference/idebugcomplussymbolprovider.md)接口。  
   
-```cpp#  
+```cpp  
 HRESULT CDebugSymbolProvider::GetArrayTypeFromAddress(  
     IDebugAddress *pAddress,  
     BYTE *pSig,  
@@ -96,5 +98,5 @@ Error:
 }  
 ```  
   
-## 请参阅  
+## <a name="see-also"></a>另请参阅  
  [IDebugComPlusSymbolProvider](../../../extensibility/debugger/reference/idebugcomplussymbolprovider.md)

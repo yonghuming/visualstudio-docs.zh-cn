@@ -1,46 +1,45 @@
 ---
-title: "IDiaSymbol::get_undecoratedName | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-debug"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-dev_langs: 
-  - "C++"
-helpviewer_keywords: 
-  - "IDiaSymbol::get_undecoratedName 方法"
+title: "Idiasymbol:: Get_undecoratedname |Microsoft 文档"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology: vs-ide-debug
+ms.tgt_pltfrm: 
+ms.topic: article
+dev_langs: C++
+helpviewer_keywords: IDiaSymbol::get_undecoratedName method
 ms.assetid: e49edf25-a51d-4787-bd5b-2bf5af827c8c
-caps.latest.revision: 8
-author: "mikejo5000"
-ms.author: "mikejo"
-manager: "ghogen"
-caps.handback.revision: 8
+caps.latest.revision: "8"
+author: mikejo5000
+ms.author: mikejo
+manager: ghogen
+ms.openlocfilehash: 01b5fae4ff6378ab937c02e598d8c47be599b2f7
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# IDiaSymbol::get_undecoratedName
-[!INCLUDE[vs2017banner](../../code-quality/includes/vs2017banner.md)]
-
-检索未修饰名对于 c. C\+\+ 修饰或连接，名称。  
+# <a name="idiasymbolgetundecoratedname"></a>IDiaSymbol::get_undecoratedName
+检索有关 c + + 修饰，或链接，名称的未修饰的名称。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
-```cpp#  
-HRESULT get_undecoratedName (   
-   BSTR* pRetVal  
+```C++  
+HRESULT get_undecoratedName (   
+   BSTR* pRetVal  
 );  
 ```  
   
-#### 参数  
+#### <a name="parameters"></a>参数  
  `pRetVal`  
- \[out\] 返回未修饰名对于 c. C\+\+ 修饰名。  
+ [out]返回 c + + 的未修饰的名称修饰名。  
   
-## 返回值  
- 如果成功，则返回; `S_OK`否则，返回 `S_FALSE` 或错误代码。  
+## <a name="return-value"></a>返回值  
+ 如果成功，则返回`S_OK`; 否则为返回`S_FALSE`或错误代码。  
   
 > [!NOTE]
->  `S_FALSE` 的返回值表示该属性用于符号不可用。  
+>  返回值`S_FALSE`意味着属性不是可用于符号。  
   
-## 请参阅  
+## <a name="see-also"></a>另请参阅  
  [IDiaSymbol](../../debugger/debug-interface-access/idiasymbol.md)

@@ -1,87 +1,87 @@
 ---
-title: "CA1063：正确实现 IDisposable | Microsoft Docs"
-ms.custom: ""
-ms.date: "12/15/2016"
-ms.prod: "visual-studio-dev14"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-devops-test"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "ImplementIDisposableCorrectly"
-  - "CA1063"
-helpviewer_keywords: 
-  - "CA1063"
-  - "ImplementIDisposableCorrectly"
+title: "CA1063： 实现 IDisposable 正确 |Microsoft 文档"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology: vs-ide-code-analysis
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords:
+- ImplementIDisposableCorrectly
+- CA1063
+helpviewer_keywords:
+- CA1063
+- ImplementIDisposableCorrectly
 ms.assetid: 12afb1ea-3a17-4a3f-a1f0-fcdb853e2359
-caps.latest.revision: 17
-caps.handback.revision: 17
-author: "stevehoag"
-ms.author: "shoag"
-manager: "wpickett"
+caps.latest.revision: "17"
+author: gewarren
+ms.author: gewarren
+manager: ghogen
+ms.openlocfilehash: 55784b95f12d83318b8d217282c3a2bb8933d76b
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# CA1063：正确实现 IDisposable
-[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
-
+# <a name="ca1063-implement-idisposable-correctly"></a>CA1063：正确实现 IDisposable
 |||  
 |-|-|  
-|类型名|ImplementIDisposableCorrectly|  
+|TypeName|ImplementIDisposableCorrectly|  
 |CheckId|CA1063|  
 |类别|Microsoft.Design|  
-|是否重大更改|非重大更改|  
+|是否重大更改|非重大|  
   
-## 原因  
- 未正确实现 `IDisposable`。  下面列出了产生此问题的一些原因：  
+## <a name="cause"></a>原因  
+ `IDisposable`实现不正确。 这里列出了此问题的一些原因：  
   
--   IDisposable 在类中重新实现。  
+-   在类中重新实现 IDisposable。  
   
--   Finalize 被再次重写。  
+-   完成重新中被重写。  
   
--   Dispose 被重写。  
+-   释放被重写。  
   
--   Dispose\(\) 不是公共、密封或命名的 Dispose。  
+-   Dispose （） 不是公共的密封类，或名为释放。  
   
--   Dispose\(bool\) 不是受保护的、虚拟的或未密封的方法。  
+-   Dispose(bool) 不是受保护、 虚拟的或未密封。  
   
--   在未密封类型中，Dispose\(\) 必须调用 Dispose\(true\)。  
+-   在未密封的类型，dispose （） 必须调用 Dispose(true)。  
   
--   对于未密封类型，Finalize 实现不调用 Dispose\(bool\) 和事例类终结器中的一个或两个。  
+-   对于未密封的类型，Finalize 实现不调用其中一种或两个 Dispose(bool) 或事例类终结器。  
   
- 与上述任何一个模式冲突都将触发此警告。  
+ 任何一种这些模式的冲突将触发此警告。  
   
- 每个未密封的根 IDisposable 类型都必须提供其各自的受保护虚拟 void Dispose\(bool\) 方法。  Dispose\(\) 应当调用 Dipose\(true\)，Finalize 应当调用 Dispose\(false\)。  如果创建未密封的根 IDisposable 类型，必须定义 Dispose\(bool\) 并调用它。  有关更多信息，请参见 .NET Framework 文档中的[Cleaning Up Unmanaged Resources](../Topic/Cleaning%20Up%20Unmanaged%20Resources.md)和[Framework 设计准则](../Topic/Framework%20Design%20Guidelines.md)部分。  
+ 每个未密封的根 IDisposable 的类型必须提供其自己受保护的虚拟 void Dispose(bool) 方法。 Dispose （） 应调用 Dipose(true) 和 Finalize 应调用 Dispose(false)。 如果要创建未密封的根 IDisposable 的类型，你必须定义 Dispose(bool)，调用它。 有关详细信息，请参阅[清洗向上非托管资源](/dotnet/standard/garbage-collection/unmanaged)中[Framework 设计准则](/dotnet/standard/design-guidelines/index).NET Framework 文档的部分。  
   
-## 规则说明  
+## <a name="rule-description"></a>规则说明  
  所有的 IDisposable 类型都应当正确实现 Dispose 模式。  
   
-## 如何解决冲突  
- 检查代码并确定下面的哪些解决方案能够修复此冲突。  
+## <a name="how-to-fix-violations"></a>如何解决冲突  
+ 检查你的代码并确定哪些以下解决方法将修复此冲突。  
   
--   从 {0} 实现的接口列表中移除 IDisposable，而改为重写基类 Dispose 实现。  
+-   从的由 {0} 实现，而是重写基类释放实现的接口列表中删除 IDisposable。  
   
--   从类型 {0} 中移除终结器，重写 Dispose\(bool disposing\)，并在“disposing”为 false 的代码路径中放入终结逻辑。  
+-   从类型 {0} 中删除终结器，重写释放 （bool 释放），并且将终止逻辑放入的代码路径其中释放是 false。  
   
--   移除 {0}，重写 Dispose\(bool disposing\)，并在“disposing”为 true 的代码路径中放入释放逻辑。  
+-   删除 {0}，重写释放 （bool 释放），并且将释放逻辑放入的代码路径其中释放为 true。  
   
--   确保将 {0} 声明为 public 和 sealed。  
+-   请确保该 {0} 被声明为公共和密封。  
   
--   将 {0} 重命名为“Dispose”，并确保将它声明为 public 和 sealed。  
+-   重命名为释放"{0}，并确保它被声明为公共和密封。  
   
--   确保将 {0} 声明为 protected、virtual 和 unsealed。  
+-   请确保该 {0} 声明为受保护，虚拟的并且未密封。  
   
--   修改 {0} 以便它调用 Dispose\(true\)，然后对当前对象实例（在 [!INCLUDE[vbprvb](../code-quality/includes/vbprvb_md.md)] 中为“this”或“Me”）调用 GC.SuppressFinalize，然后返回。  
+-   修改 {0}，使它调用 Dispose(true)，然后调用 GC。当前对象实例上的 SuppressFinalize (this 或 Me 中[!INCLUDE[vbprvb](../code-quality/includes/vbprvb_md.md)])，然后返回。  
   
--   修改 {0} 以便它调用 Dispose\(false\)，然后返回。  
+-   修改 {0}，以便它调用 Dispose(false)，然后返回。  
   
--   如果编写未密封的根 IDisposable 类，请确保 IDisposable 的实现遵循本节前面所述的模式。  
+-   如果你正在编写一个未密封的根 IDisposable 的类，请确保 IDisposable 的实现遵循本节中前面介绍的模式。  
   
-## 何时禁止显示警告  
- 不要禁止显示此规则发出的警告。  
+## <a name="when-to-suppress-warnings"></a>何时禁止显示警告  
+ 不禁止显示此规则发出的警告。  
   
-## 伪代码示例  
- 下面的伪代码提供一个说明如何在使用托管和本机资源的类中实现 Dispose\(bool\) 的常规示例。  
+## <a name="pseudo-code-example"></a>伪代码示例  
+ 下面的伪代码提供应如何使用托管的类中实现 Dispose(bool) 和本机资源的常规示例。  
   
 ```  
 public class Resource : IDisposable   

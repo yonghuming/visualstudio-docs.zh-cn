@@ -1,58 +1,57 @@
 ---
-title: "IDiaDataSource::openSession | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-debug"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-dev_langs: 
-  - "C++"
-helpviewer_keywords: 
-  - "IDiaDataSource::openSession 方法"
+title: "Idiadatasource:: Opensession |Microsoft 文档"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology: vs-ide-debug
+ms.tgt_pltfrm: 
+ms.topic: article
+dev_langs: C++
+helpviewer_keywords: IDiaDataSource::openSession method
 ms.assetid: a3319ed0-3979-483b-9852-c0af96852c48
-caps.latest.revision: 7
-author: "mikejo5000"
-ms.author: "mikejo"
-manager: "ghogen"
-caps.handback.revision: 7
+caps.latest.revision: "7"
+author: mikejo5000
+ms.author: mikejo
+manager: ghogen
+ms.openlocfilehash: 72fa36bd077a08484c225e1349134929e541d074
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# IDiaDataSource::openSession
-[!INCLUDE[vs2017banner](../../code-quality/includes/vs2017banner.md)]
-
-开始查询的符号一个会话。  
+# <a name="idiadatasourceopensession"></a>IDiaDataSource::openSession
+将打开一个可用于查询符号会话。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
-```cpp#  
-HRESULT openSession (   
-   IDiaSession** ppSession  
+```C++  
+HRESULT openSession (   
+   IDiaSession** ppSession  
 );  
 ```  
   
-#### 参数  
+#### <a name="parameters"></a>参数  
  ppSession  
- \[out\] 返回表示公开会话的 [IDiaSession](../../debugger/debug-interface-access/idiasession.md) 对象。  
+ [out]返回[IDiaSession](../../debugger/debug-interface-access/idiasession.md)表示打开的会话对象。  
   
-## 返回值  
- 如果成功，则返回; `S_OK`否则，返回错误代码。  下表显示可能返回此方法的值。  
+## <a name="return-value"></a>返回值  
+ 如果成功，则返回`S_OK`; 否则为返回错误代码。 下表显示可能的此方法的返回值。  
   
-|值|说明|  
-|-------|--------|  
-|E\_UNEXPECTED|[IDiaDataSource](../../debugger/debug-interface-access/idiadatasource.md) 对象之前未初始化符号的源。|  
-|E\_INVALIDARG|无效 `ppSession` 参数。|  
-|E\_OUTOFMEMORY|启动会话中没有足够的内存。|  
+|值|描述|  
+|-----------|-----------------|  
+|E_UNEXPECTED|[IDiaDataSource](../../debugger/debug-interface-access/idiadatasource.md)对象以前尚未初始化了一个来源为符号。|  
+|E_INVALIDARG|无效`ppSession`参数。|  
+|E_OUTOFMEMORY|内存不足，无法打开会话。|  
   
-## 备注  
- 此方法打开数据源的一 [IDiaSession](../../debugger/debug-interface-access/idiasession.md) 对象。  
+## <a name="remarks"></a>备注  
+ 此方法打开[IDiaSession](../../debugger/debug-interface-access/idiasession.md)为数据源的对象。  
   
- `IDiaSession` 对象实现查询到数据源中。  会话管理每个地址空间设置调试符号。  如果数据源符号描述的 .exe 或 .dll 文件是一个多地址范围 \(例如，在中，因为多个进程将其加载\)，则应使用每个地址范围的一个会话。  
+ `IDiaSession`对象实现到数据源的查询。 会话管理每个集的调试符号的一个地址空间。 如果数据源符号所描述的.exe 或.dll 文件是多个地址中的处于活动状态范围 （例如，因为多个进程将其加载），则应使用为每个地址范围的一个会话。  
   
-## 示例  
+## <a name="example"></a>示例  
   
-```cpp#  
+```C++  
 IDiaSession* pSession;  
 HRESULT hr = pSource->openSession( &pSession );  
 if (FAILED(hr))  
@@ -61,7 +60,7 @@ if (FAILED(hr))
 }  
 ```  
   
-## 请参阅  
+## <a name="see-also"></a>另请参阅  
  [IDiaDataSource](../../debugger/debug-interface-access/idiadatasource.md)   
  [概述](../../debugger/debug-interface-access/overview-debug-interface-access-sdk.md)   
  [IDiaSession](../../debugger/debug-interface-access/idiasession.md)   

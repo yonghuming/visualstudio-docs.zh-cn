@@ -1,33 +1,31 @@
 ---
-title: "错误: 无法连接到计算机 &lt;name&gt;。无法在网络上找到该计算机。 | Microsoft Docs"
-ms.custom: ""
-ms.date: "12/03/2016"
-ms.prod: "visual-studio-dev14"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-debug"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "vs.debug.remote.dcom_disabled"
-dev_langs: 
-  - "FSharp"
-  - "VB"
-  - "CSharp"
-  - "C++"
-helpviewer_keywords: 
-  - "DCOM, 无法连接错误"
+title: "错误： 无法连接到机&lt;名称&gt;。 在网络上找不到计算机。 | Microsoft Docs"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology: vs-ide-debug
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords: vs.debug.remote.dcom_disabled
+dev_langs:
+- CSharp
+- VB
+- FSharp
+- C++
+helpviewer_keywords: DCOM, unable to connect error
 ms.assetid: b584b5db-ef52-45ed-8561-1314da3cc5b8
-caps.latest.revision: 12
-caps.handback.revision: 12
-author: "mikejo5000"
-ms.author: "mikejo"
-manager: "ghogen"
+caps.latest.revision: "12"
+author: mikejo5000
+ms.author: mikejo
+manager: ghogen
+ms.openlocfilehash: e8ed30ca3baeb29f92c4d5f02b64c581ef9a37a7
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# 错误: 无法连接到计算机 &lt;name&gt;。无法在网络上找到该计算机。
-[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
-
+# <a name="error-unable-to-connect-to-the-machine-ltnamegt-the-machine-cannot-be-found-on-the-network"></a>错误： 无法连接到机&lt;名称&gt;。 在网络上找不到计算机。
 如果满足下列某项条件，则会发生此行为：  
   
 -   您与远程计算机的连接中断。  
@@ -36,18 +34,18 @@ manager: "ghogen"
   
 -   您在远程计算机上的密码过期。  
   
-### 解决此问题  
+### <a name="to-resolve-this-behavior"></a>解决此问题  
   
--   确保本地计算机和远程计算机处于同一个网络中。  若要执行此操作，请使用 Microsoft Windows 资源管理器（或文件资源管理器）尝试访问远程计算机。  
+-   确保本地计算机和远程计算机处于同一个网络中。 若要执行此操作，请使用 Microsoft Windows 资源管理器（或文件资源管理器）尝试访问远程计算机。  
   
-     \- 和 \-  
+     - 和 -  
   
 -   确保您用来连接远程计算机的用户帐户是启用的。  
   
-     \- 和 \-  
+     - 和 -  
   
 -   确保您用来连接远程计算机的密码是有效的并且尚未过期。  
   
-## 请参阅  
- [在设备上安装远程工具](../Topic/Set%20Up%20the%20Remote%20Tools%20on%20the%20Device.md)   
- [调试设置和准备](../debugger/debugger-settings-and-preparation.md)
+## <a name="see-also"></a>另请参阅  
+ [远程调试](../debugger/remote-debugging.md)   
+ [调试器设置和准备](../debugger/debugger-settings-and-preparation.md)

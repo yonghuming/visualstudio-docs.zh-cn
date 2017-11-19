@@ -1,57 +1,56 @@
 ---
-title: "IDiaEnumSourceFiles | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-debug"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-dev_langs: 
-  - "C++"
-helpviewer_keywords: 
-  - "IDiaEnumSourceFiles 接口"
+title: "IDiaEnumSourceFiles |Microsoft 文档"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology: vs-ide-debug
+ms.tgt_pltfrm: 
+ms.topic: article
+dev_langs: C++
+helpviewer_keywords: IDiaEnumSourceFiles interface
 ms.assetid: 5c0779a6-a2ea-408a-90da-ebdecf2b83c0
-caps.latest.revision: 12
-author: "mikejo5000"
-ms.author: "mikejo"
-manager: "ghogen"
-caps.handback.revision: 12
+caps.latest.revision: "12"
+author: mikejo5000
+ms.author: mikejo
+manager: ghogen
+ms.openlocfilehash: dbcd3e50e1b53a56342b5ab344ec54180001fa80
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# IDiaEnumSourceFiles
-[!INCLUDE[vs2017banner](../../code-quality/includes/vs2017banner.md)]
-
-枚举在数据源中包含的各个源文件。  
+# <a name="idiaenumsourcefiles"></a>IDiaEnumSourceFiles
+枚举中的数据源包含的各种源文件。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
 ```  
-IDiaEnumSourceFiles : IUknown  
+IDiaEnumSourceFiles : IUknown  
 ```  
   
-## 方法按 Vtable 顺序  
- 下表显示 `IDiaEnumSourceFiles`方法。  
+## <a name="methods-in-vtable-order"></a>Vtable 顺序中的方法  
+ 下表显示的方法`IDiaEnumSourceFiles`。  
   
-|方法|说明|  
-|--------|--------|  
-|[IDiaEnumSourceFiles::get\_\_NewEnum](../../debugger/debug-interface-access/idiaenumsourcefiles-get-newenum.md)|检索此枚举器的 `IEnumVARIANT Interface` 版本。|  
-|[IDiaEnumSourceFiles::get\_Count](../Topic/IDiaEnumSourceFiles::get_Count.md)|检索源文件的数目。|  
-|[IDiaEnumSourceFiles::Item](../../debugger/debug-interface-access/idiaenumsourcefiles-item.md)|通过索引检索源文件。|  
-|[IDiaEnumSourceFiles::Next](../../debugger/debug-interface-access/idiaenumsourcefiles-next.md)|检索源文件指定数目的枚举序列的。|  
-|[IDiaEnumSourceFiles::Skip](../Topic/IDiaEnumSourceFiles::Skip.md)|跳过源文件指定数目的枚举序列的。|  
-|[IDiaEnumSourceFiles::Reset](../Topic/IDiaEnumSourceFiles::Reset.md)|重置枚举序列与开头。|  
-|[IDiaEnumSourceFiles::Clone](../../debugger/debug-interface-access/idiaenumsourcefiles-clone.md)|创建包含枚举状态和枚举当前枚举数相同的枚举数。|  
+|方法|描述|  
+|------------|-----------------|  
+|[IDiaEnumSourceFiles::get__NewEnum](../../debugger/debug-interface-access/idiaenumsourcefiles-get-newenum.md)|检索`IEnumVARIANT Interface`的此枚举器的版本。|  
+|[IDiaEnumSourceFiles::get_Count](../../debugger/debug-interface-access/idiaenumsourcefiles-get-count.md)|检索源文件数。|  
+|[IDiaEnumSourceFiles::Item](../../debugger/debug-interface-access/idiaenumsourcefiles-item.md)|通过索引中检索源文件。|  
+|[IDiaEnumSourceFiles::Next](../../debugger/debug-interface-access/idiaenumsourcefiles-next.md)|检索指定的数目的枚举序列中的源文件。|  
+|[IDiaEnumSourceFiles::Skip](../../debugger/debug-interface-access/idiaenumsourcefiles-skip.md)|跳过指定的数目的枚举序列中的源文件。|  
+|[IDiaEnumSourceFiles::Reset](../../debugger/debug-interface-access/idiaenumsourcefiles-reset.md)|将枚举序列重置到开头。|  
+|[IDiaEnumSourceFiles::Clone](../../debugger/debug-interface-access/idiaenumsourcefiles-clone.md)|创建包含与当前的枚举器相同的枚举状态的枚举。|  
   
-## 备注  
+## <a name="remarks"></a>备注  
   
-## 调用方的说明  
- 通过调用 [IDiaTable](../../debugger/debug-interface-access/idiatable.md) 对象的 `QueryInterface` 方法获取此接口。  请参见下面的示例有关详细信息。  
+## <a name="notes-for-callers"></a>调用方的说明  
+ 通过调用来获取此接口`QueryInterface`方法[IDiaTable](../../debugger/debug-interface-access/idiatable.md)对象。 请参阅详细信息的示例。  
   
-## 示例  
- 此示例演示如何从表列出的 `IDiaEnumSourceFiles` 接口。 DIA 会话对象的。  有关访问源文件信息的示例，请参见 [IDiaSourceFile](../../debugger/debug-interface-access/idiasourcefile.md) 接口。  
+## <a name="example"></a>示例  
+ 此示例演示如何获取`IDiaEnumSourceFiles`接口从 DIA 会话对象中的表的列表。 有关访问源文件信息的示例，请参阅[IDiaSourceFile](../../debugger/debug-interface-access/idiasourcefile.md)接口。  
   
-```cpp#  
+```C++  
   
 IDiaEnumSourceFiles* GetEnumSourceFiless(IDiaSession *pSession)  
 {  
@@ -81,15 +80,15 @@ IDiaEnumSourceFiles* GetEnumSourceFiless(IDiaSession *pSession)
 }  
 ```  
   
-## 要求  
- 标题:Dia2.h  
+## <a name="requirements"></a>要求  
+ 标头： Dia2.h  
   
- 库:diaguids.lib  
+ 库： diaguids.lib  
   
- DLL:msdia80.dll  
+ DLL: msdia80.dll  
   
-## 请参阅  
- [接口（调试接口访问 SDK）](../../debugger/debug-interface-access/interfaces-debug-interface-access-sdk.md)   
- [IDiaSession::findFile](../../debugger/debug-interface-access/idiasession-findfile.md)   
- [IDiaSession::findLinesByLinenum](../../debugger/debug-interface-access/idiasession-findlinesbylinenum.md)   
+## <a name="see-also"></a>另请参阅  
+ [接口 （调试接口访问 SDK）](../../debugger/debug-interface-access/interfaces-debug-interface-access-sdk.md)   
+ [Idiasession:: Findfile](../../debugger/debug-interface-access/idiasession-findfile.md)   
+ [Idiasession:: Findlinesbylinenum](../../debugger/debug-interface-access/idiasession-findlinesbylinenum.md)   
  [IDiaTable](../../debugger/debug-interface-access/idiatable.md)

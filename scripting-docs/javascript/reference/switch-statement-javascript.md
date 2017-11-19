@@ -1,35 +1,37 @@
 ---
-title: "switch 语句 (JavaScript) | Microsoft Docs"
-ms.custom: ""
-ms.date: "01/18/2017"
-ms.prod: "windows-client-threshold"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "devlang-javascript"
-ms.tgt_pltfrm: ""
-ms.topic: "language-reference"
-f1_keywords: 
-  - "switch_JavaScriptKeyword"
-  - "default_JavaScriptKeyword"
-  - "case_JavaScriptKeyword"
-dev_langs: 
-  - "JavaScript"
-  - "TypeScript"
-  - "DHTML"
-helpviewer_keywords: 
-  - "switch 语句"
+title: "switch 语句 (JavaScript) |Microsoft 文档"
+ms.custom: 
+ms.date: 01/18/2017
+ms.prod: windows-client-threshold
+ms.reviewer: 
+ms.suite: 
+ms.technology: devlang-javascript
+ms.tgt_pltfrm: 
+ms.topic: language-reference
+f1_keywords:
+- switch_JavaScriptKeyword
+- default_JavaScriptKeyword
+- case_JavaScriptKeyword
+dev_langs:
+- JavaScript
+- TypeScript
+- DHTML
+helpviewer_keywords: switch statement
 ms.assetid: 61f80e8b-3739-4146-a893-c2832d92b28c
-caps.latest.revision: 18
-author: "mikejo5000"
-ms.author: "mikejo"
-manager: "ghogen"
-caps.handback.revision: 18
+caps.latest.revision: "18"
+author: mikejo5000
+ms.author: mikejo
+manager: ghogen
+ms.openlocfilehash: a301fc8bcc72b48c6ba8e999c0ebb70fe9d92b41
+ms.sourcegitcommit: aadb9588877418b8b55a5612c1d3842d4520ca4c
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/27/2017
 ---
-# switch 语句 (JavaScript)
-当指定的表达式的值与一个标签匹配时，使一条或多条语句得以执行。  
+# <a name="switch-statement-javascript"></a>switch 语句 (JavaScript)
+当指定表达式的值与标签匹配时，允许执行一个或多个语句。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
 ```  
 switch (expression) {  
@@ -41,37 +43,37 @@ switch (expression) {
 }   
 ```  
   
-## 参数  
+## <a name="parameters"></a>参数  
  `expression`  
  要计算的表达式。  
   
  `label`  
- 要与 `expression` 相匹配的标识符。  如果 `label` 是 `expression`，则从冒号后面紧接的 `statementlist` 开始执行，并继续此执行，直到遇到一个可选 `break` 语句，或到达 `switch` 语句的末尾为止。  
+ 使用标识符来匹配对`expression`。 如果`label`是`expression`，执行开头`statementlist`紧跟冒号，然后继续操作直到它遇到上述任何一`break`语句，它是可选的或结尾`switch`语句。  
   
  `statementlist`  
  要执行的一个或多个语句。  
   
-## 备注  
- 使用 `default` 子句来提供一个语句，该语句只在没有任何一个标签值与 `expression` 匹配时才执行。  它可以出现在 `switch` 代码块内的任何地方。  
+## <a name="remarks"></a>备注  
+ 使用`default`子句，以提供无标签值匹配时要执行的语句`expression`。 它可以在任意位置出现`switch`代码块。  
   
- 可以指定零个或多个 `label` 块。  如果没有 `label` 与 `expression` 的值匹配，并且没有提供 `default` 示例，则不执行任何语句。  
+ 零个或多`label`可以指定块。 如果没有`label`匹配的值`expression`，和一个`default`用例未提供，不执行任何语句。  
   
- `switch` 语句将按如下流程执行：  
+ 执行流经`switch`语句，如下所示：  
   
--   计算 `expression` 的值并按顺序查看 `label`，直到找到一个匹配项。  
+-   评估`expression`并查看`label`顺序，直到找到匹配项。  
   
--   如果 `label` 值等于 `expression`，则执行其附带的 `statementlist`。  
+-   如果`label`值等于`expression`，执行其伴随`statementlist`。  
   
-     继续执行，直到遇到一个 `break` 语句，或直到 `switch` 语句结束。  这意味着，如果没有使用 `break` 语句，则将执行多个 `label` 块。  
+     继续执行，直到`break`遇到语句，或`switch`语句结束。 这意味着多个`label`如果，则执行块`break`不使用语句。  
   
--   如果任何 `label` 均不等于 `expression`，则转到 `default` 示例。  如果没有 `default` 示例，则转到最后一步。  
+-   如果没有`label`等于`expression`，请转到`default`用例。 如果没有任何`default`种情况下，请转至最后一步。  
   
--   在 `switch` 代码块末尾之后的语句处继续执行过程。  
+-   以下的末尾的语句处继续执行`switch`代码块。  
   
-## 示例  
- 下面的示例将测试一个对象的类型。  
+## <a name="example"></a>示例  
+ 下面的示例测试其类型的对象。  
   
-```javascript  
+```JavaScript  
 function MyObjectType(obj) {  
     switch (obj.constructor) {  
         case Date:  
@@ -102,10 +104,10 @@ function MyObjectType(obj) {
   
 ```  
   
-## 示例  
- 如果您未使用 `break` 语句，则以下代码将显示发生的情况。  
+## <a name="example"></a>示例  
+ 下面的代码的演示如果你未使用，会发生什么情况`break`语句。  
   
-```javascript  
+```JavaScript  
 function MyObjectType(obj) {  
     switch (obj.constructor) {  
         case Date:  
@@ -133,9 +135,9 @@ function MyObjectType(obj) {
   
 ```  
   
-## 要求  
+## <a name="requirements"></a>要求  
  [!INCLUDE[jsv3](../../javascript/reference/includes/jsv3-md.md)]  
   
-## 请参阅  
+## <a name="see-also"></a>另请参阅  
  [break 语句](../../javascript/reference/break-statement-javascript.md)   
  [if...else 语句](../../javascript/reference/if-dot-dot-dot-else-statement-javascript.md)

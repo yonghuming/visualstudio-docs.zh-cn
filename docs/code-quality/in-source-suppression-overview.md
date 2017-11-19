@@ -1,57 +1,40 @@
 ---
-title: In Source Suppression Overview | Microsoft Docs
+title: "源代码中禁止显示概述 |Microsoft 文档"
 ms.custom: 
 ms.date: 11/04/2016
 ms.reviewer: 
 ms.suite: 
-ms.technology:
-- vs-devops-test
+ms.technology: vs-ide-code-analysis
 ms.tgt_pltfrm: 
 ms.topic: article
 helpviewer_keywords:
 - source suppression, code analysis
 - code analysis, source suppression
 ms.assetid: f1a2dc6a-a9eb-408c-9078-2571e57d207d
-caps.latest.revision: 40
-author: stevehoag
-ms.author: shoag
-manager: wpickett
-translation.priority.ht:
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- ru-ru
-- zh-cn
-- zh-tw
-translation.priority.mt:
-- cs-cz
-- pl-pl
-- pt-br
-- tr-tr
-ms.translationtype: HT
-ms.sourcegitcommit: eb5c9550fd29b0e98bf63a7240737da4f13f3249
-ms.openlocfilehash: fcecc6fda25f2c6553a99f5166154cec63197fb9
-ms.contentlocale: zh-cn
-ms.lasthandoff: 08/30/2017
-
+caps.latest.revision: "40"
+author: gewarren
+ms.author: gewarren
+manager: ghogen
+ms.openlocfilehash: f35833df8e84a4e4caba8fd46f8daea8dd5119a1
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# <a name="in-source-suppression-overview"></a>In Source Suppression Overview
-In-source suppression is the ability to suppress or ignore Code Analysis violations in managed code by adding the **SuppressMessage** attribute to the code segments that cause the violations. The **SuppressMessage** attribute is a conditional attribute which is included in the IL metadata of your managed code assembly only if the CODE_ANALYSIS compilation symbol is defined at compile time.  
+# <a name="in-source-suppression-overview"></a>“源代码中禁止显示”概述
+在源代码中禁止显示是能够禁止显示或忽略托管代码中的代码分析冲突通过添加**SuppressMessage**属性设为导致冲突的代码段。 **SuppressMessage**属性是它仅当在编译时定义 CODE_ANALYSIS 编译符号，托管的代码程序集的 IL 元数据中包括条件属性。  
   
- In C++/CLI, use the macros CA_SUPPRESS_MESSAGE or CA_GLOBAL_SUPPRESS_MESSAGE in the header file,  to add the attribute .  
+ 在 C++/CLI 中，在头文件中使用宏 CA_SUPPRESS_MESSAGE 或 CA_GLOBAL_SUPPRESS_MESSAGE 来添加特性。  
   
- You should not use in-source suppressions on release builds to prevent shipping the in-source suppression metadata accidentally. Because of the processing cost of in-source suppression, the performance of your application can also be degraded by including the in-source suppression metadata.  
+ 不应在发布版本使用在源代码中禁止显示以防止意外传送在源代码中禁止显示元数据。 由于在源代码中禁止显示的处理开销，你的应用程序的性能可以通过也会降低包括在源代码中禁止显示元数据。  
   
 > [!NOTE]
->  You do not have to hand code these attributes yourself. For more information, see [How to: Suppress Warnings by Using the Menu Item](../code-quality/how-to-suppress-warnings-by-using-the-menu-item.md). The menu item is not available for C++ code.  
+>  你不需要移交代码这些特性亲自。 有关详细信息，请参阅[如何： 通过使用菜单项禁止显示警告](../code-quality/how-to-suppress-warnings-by-using-the-menu-item.md)。 菜单项不可用 c + + 代码。  
   
-## <a name="suppressmessage-attribute"></a>SuppressMessage Attribute  
- When you right-click a Code Analysis warning in the **Error List** and then click **Suppress Message(s)**, a **SuppressMessage** attribute is added either in your code or to the project's global suppressions file.  
+## <a name="suppressmessage-attribute"></a>SuppressMessage 特性  
+ 当您右键单击中的某个代码分析警告**错误列表**，然后单击**禁止显示消息**、 **SuppressMessage**属性会被添加在代码中或为项目的全局禁止显示文件。  
   
- The **SuppressMessage** attribute has the following format:  
+ **SuppressMessage**属性具有以下格式：  
   
 ```vb  
 <Scope:SuppressMessage("Rule Category", "Rule Id", Justification = "Justification", MessageId = "MessageId", Scope = "Scope", Target = "Target")>  
@@ -69,74 +52,76 @@ CA_SUPPRESS_MESSAGE("Rule Category", "Rule Id", Justification = "Justification",
   
 ```  
   
- Where:  
+ 其中：  
   
--   **Rule Category** - The category in which the rule is defined. For more information about code analysis rule categories, see [Code Analysis for Managed Code Warnings](../code-quality/code-analysis-for-managed-code-warnings.md).  
+-   **规则类别**-定义了该规则的类别。 有关代码分析规则类别的详细信息，请参阅[为托管代码警告的代码分析](../code-quality/code-analysis-for-managed-code-warnings.md)。  
   
--   **Rule Id** - The identifier of the rule. Support includes both a short and long name for the rule identifier. The short name is CAXXXX; the long name is CAXXXX:FriendlyTypeName.  
+-   **规则 Id**的规则的标识符。 支持包括同时规则标识符的短期和长期名称。 短名称是 CAXXXX;全称是 CAXXXX:FriendlyTypeName。  
   
--   **Justification** - The text that is used to document the reason for suppressing the message.  
+-   **两端对齐**-用于记录禁止显示消息的原因的文本。  
   
--   **Message Id** - Unique identifier of a problem for each message.  
+-   **消息 Id** -每条消息的问题的唯一标识符。  
   
--   **Scope** - The target on which the warning is being suppressed. If the target is not specified, it is set to the target of the attribute. Supported scopes include the following:  
+-   **作用域**-在其取消该警告的目标。 如果未指定目标，则将它设置为目标的属性。 支持的作用域包括：  
   
-    -   Module  
+    -   模块  
   
-    -   Namespace  
+    -   命名空间  
   
-    -   Resource  
+    -   资源  
   
-    -   Type  
+    -   类型  
   
-    -   Member  
+    -   成员  
   
--   **Target** - An identifier that is used to specify the target on which the warning is being suppressed. It must contain a fully-qualified item name.  
+-   **目标**-的标识符，用于以指定在其取消该警告的目标。 它必须包含完全限定的项名称。  
   
-## <a name="suppressmessage-usage"></a>SuppressMessage Usage  
- Code Analysis warnings are suppressed at the level to which an instance of the **SuppressMessage** attribute is applied. The purpose of this is to tightly couple the suppression information to the code where the violation occurs.  
+## <a name="suppressmessage-usage"></a>SuppressMessage 使用情况  
+ 在向其级别取消代码分析警告的实例**SuppressMessage**应用特性。 这样做的目的是紧密耦合对代码的禁止显示信息发生了冲突。  
   
- The general form of suppression includes the rule category and a rule identifier which contains an optional human-readable representation of the rule name. For example,  
+ 禁止显示的一般形式包括规则类别和其中包含的可选的用户可读表示形式的规则名称的规则标识符。 例如，  
   
  `[SuppressMessage("Microsoft.Design", "CA1039:ListsAreStrongTyped")]`  
   
- If there are strict performance reasons for minimizing in-source suppression metadata, the rule name itself can be left out. The rule category and its rule ID together constitute a sufficiently unique rule identifier. For example,  
+ 如果有尽量减少在源代码中禁止显示元数据的严格性能原因，可以省略规则名称本身。规则类别和其规则 ID 一起构成足够唯一的规则标识符。 例如，  
   
  `[SuppressMessage("Microsoft.Design", "CA1039")]`  
   
- This format is not recommended because of maintainability issues.  
+ 由于可维护性问题的缘故，不建议使用此格式。  
   
-## <a name="suppressing-multiple-violations-within-a-method-body"></a>Suppressing Multiple Violations within a method body  
- Attributes can only be applied to a method and cannot be embedded within the method body. However, you can specify the identifier as the message ID to distinguish multiple occurrences of a violation within a method.  
+## <a name="suppressing-multiple-violations-within-a-method-body"></a>禁止在方法体中显示多个冲突  
+ 特性仅应用于方法和不能嵌入方法体中。 但是，你可以为消息 ID 来区分多个出现的冲突的方法内指定的标识符。  
   
- [!code-cpp[InSourceSuppression#1](../code-quality/codesnippet/CPP/in-source-suppression-overview_1.cpp)] [!code-vb[InSourceSuppression#1](../code-quality/codesnippet/VisualBasic/in-source-suppression-overview_1.vb)] [!code-csharp[InSourceSuppression#1](../code-quality/codesnippet/CSharp/in-source-suppression-overview_1.cs)]  
+ [!code-cpp[InSourceSuppression#1](../code-quality/codesnippet/CPP/in-source-suppression-overview_1.cpp)]
+ [!code-vb[InSourceSuppression#1](../code-quality/codesnippet/VisualBasic/in-source-suppression-overview_1.vb)]
+ [!code-csharp[InSourceSuppression#1](../code-quality/codesnippet/CSharp/in-source-suppression-overview_1.cs)]  
   
-## <a name="generated-code"></a>Generated Code  
- Managed code compilers and some third-party tools generate code to facilitate rapid code development. Compiler-generated code that appears in source files is usually marked with the **GeneratedCodeAttribute** attribute.  
+## <a name="generated-code"></a>生成的代码  
+ 托管的代码编译器和某些第三方工具生成代码以加快代码的开发。 将出现在源文件中的编译器生成的代码通常将标有**GeneratedCodeAttribute**属性。  
   
- You can choose whether to suppress Code Analysis warnings and errors for generated code. For information about how to suppress such warnings and errors, see [How to: Suppress Warnings for Generated Code](../code-quality/how-to-suppress-code-analysis-warnings-for-generated-code.md).  
+ 你可以选择是否要取消显示代码分析警告和错误生成的代码。 有关如何禁止显示此类警告和错误的信息，请参阅[如何： 禁止显示生成的代码的警告](../code-quality/how-to-suppress-code-analysis-warnings-for-generated-code.md)。  
   
- Note that Code Analysis ignores **GeneratedCodeAttribute** when it is applied to either an entire assembly or a single parameter. These situations occur rarely.  
+ 请注意，代码分析将忽略**GeneratedCodeAttribute**当应用于整个程序集或单个参数。 这些情况下很少发生。  
   
-## <a name="global-level-suppressions"></a>Global-Level Suppressions  
- The managed code analysis tool examines **SuppressMessage** attributes that are applied at the assembly, module, type, member, or parameter level. It also fires violations against resources and namespaces. These violations must be applied at the global level and are scoped and targeted. For example, the following message suppresses a namespace violation:  
+## <a name="global-level-suppressions"></a>全局级禁止显示  
+ 托管的代码分析工具可检查是否**SuppressMessage**在程序集、 模块、 类型、 成员或参数级别应用的属性。 它还会引发对资源和命名空间冲突。 必须在全局级别应用这些冲突作用域和目标。 例如，以下消息禁止显示命名空间冲突：  
   
  `[module: SuppressMessage("Microsoft.Design", "CA1020:AvoidNamespacesWithFewTypes", Scope = "namespace", Target = "MyNamespace")]`  
   
 > [!NOTE]
->  When you suppress a warning with namespace scope, it suppresses the warning against the namespace itself. It does not suppress the warning against types within the namespace.  
+>  禁止显示警告，其中包含命名空间范围内时，它禁止显示针对该命名空间本身的警告。 它不会取消对类型的命名空间中的警告。  
   
- Any suppression can be expressed by specifying an explicit scope. These suppressions must live at the global level. You cannot specify member-level suppression by decorating a type.  
+ 可以通过指定一个显式的作用域表示任何抑制。 在全局级别必须位于这些禁止显示。 不能指定成员级别禁止显示的修饰类型。  
   
- Global-level suppressions are the only way to suppress messages that refer to compiler-generated code that does not map to explicitly provided user source. For example, the following code suppresses a violation against a compiler-emitted constructor:  
+ 全局级禁止显示是它们取消引用未映射到显式提供的用户源的编译器生成代码的消息的唯一方法。 例如，下面的代码将取消违反了针对编译器发出的构造函数：  
   
  `[module: SuppressMessage("Microsoft.Design", "CA1055:AbstractTypesDoNotHavePublicConstructors", Scope="member", Target="Microsoft.Tools.FxCop.Type..ctor()")]`  
   
 > [!NOTE]
->  Target always contains the fully-qualified item name.  
+>  目标始终包含完全限定的项名称。  
   
-## <a name="global-suppression-file"></a>Global Suppression File  
- The global suppression file maintains suppressions that are either global-level suppressions or suppressions that do not specify a target. For example, suppressions for assembly level violations are stored in this file. Additionally, some ASP.NET suppressions are stored in this file because project level settings are not available for code behind a form. A global suppression is created and added to your project the first time that you select the **In Project Suppression File** option of the **Suppress Message(s)** command in the Error List window. For more information, see [How to: Suppress Warnings by Using the Menu Item](../code-quality/how-to-suppress-warnings-by-using-the-menu-item.md).  
+## <a name="global-suppression-file"></a>全局禁止显示文件  
+ 全局禁止显示文件维护全局级禁止显示或不指定目标的禁止显示。 例如，程序集级冲突的禁止显示存储在此文件。 此外，某些 ASP.NET 禁止显示功能存储在此文件中，是因为项目级别设置不可用于窗体背后的代码。 全局禁止显示被创建并添加到你的项目选择的第一个时间**在项目禁止显示文件**选项**禁止显示消息**命令，在错误列表窗口。 有关详细信息，请参阅[如何： 通过使用菜单项禁止显示警告](../code-quality/how-to-suppress-warnings-by-using-the-menu-item.md)。  
   
-## <a name="see-also"></a>See Also  
+## <a name="see-also"></a>另请参阅  
  <xref:System.Diagnostics.CodeAnalysis>

@@ -1,27 +1,30 @@
 ---
-title: "IActiveScriptStringCompare::StrComp | Microsoft Docs"
-ms.custom: ""
-ms.date: "01/18/2017"
-ms.prod: "windows-script-interfaces"
-ms.reviewer: ""
-ms.suite: ""
-ms.tgt_pltfrm: ""
-ms.topic: "reference"
+title: "IActiveScriptStringCompare::StrComp |Microsoft 文档"
+ms.custom: 
+ms.date: 01/18/2017
+ms.prod: windows-script-interfaces
+ms.reviewer: 
+ms.suite: 
+ms.tgt_pltfrm: 
+ms.topic: reference
 apiname: IActiveScriptStringCompare.StrComp
 apilocation: scrobj.dll
-helpviewer_keywords: 
-  - "StrComp 方法, IActiveScriptStringCompare 接口"
+helpviewer_keywords: StrComp method, IActiveScriptStringCompare interface
 ms.assetid: 124d1281-8037-4766-a2a1-61244ac1f114
-caps.latest.revision: 8
-author: "mikejo5000"
-ms.author: "mikejo"
-manager: "ghogen"
-caps.handback.revision: 8
+caps.latest.revision: "8"
+author: mikejo5000
+ms.author: mikejo
+manager: ghogen
+ms.openlocfilehash: 1b92b29f4e40f5e8de567337957aabbcb3c057fd
+ms.sourcegitcommit: aadb9588877418b8b55a5612c1d3842d4520ca4c
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/27/2017
 ---
-# IActiveScriptStringCompare::StrComp
+# <a name="iactivescriptstringcomparestrcomp"></a>IActiveScriptStringCompare::StrComp
 定义脚本引擎的字符串比较方法。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
 ```  
 HRESULT StrComp(  
@@ -34,7 +37,7 @@ HRESULT StrComp(
 );  
 ```  
   
-#### 参数  
+#### <a name="parameters"></a>参数  
  `bszStr1`  
  第一个字符串。  
   
@@ -42,22 +45,22 @@ HRESULT StrComp(
  第二个字符串。  
   
  `iRet`  
- 比较的结果。  如果  `bszStr1` 与 `bszStr2` 相同则为 0；如果 `bszStr1` \< `bszStr2` 则为 \-1；如果 `bszStr1` \> `bszStr2` 则为 1。  
+ 比较的结果。 0 如果`bszStr1`和`bszStr2`是相同的; 则为-1 `bszStr1`  <  `bszStr2`; 如果`bszStr1`  >  `bszStr2`。  
   
-## 返回值  
+## <a name="return-value"></a>返回值  
  返回下列值之一：  
   
 |返回值|含义|  
-|---------|--------|  
+|------------------|-------------|  
 |`S_OK`|成功。|  
-|`E_INVALIDARG`|参数无效。|  
-|`E_UNEXPECTED`|调用非预期\(例如，脚本引擎尚未加载还未初始化\)。|  
+|`E_INVALIDARG`|自变量无效。|  
+|`E_UNEXPECTED`|不应调用 （例如，脚本引擎具有尚未加载或初始化）。|  
   
-## 备注  
- 此方法都会调用字符串比较执行。  
+## <a name="remarks"></a>备注  
+ 执行字符串比较每次调用此方法。  
   
-## 示例  
- 下面的示例演示如何重载字符串比较函数。  当您使用 [IActiveScriptProperty::SetProperty](../../winscript/reference/iactivescriptproperty-setproperty.md) 设置SCRIPTPROP\_STRINGCOMPAREINSTANCE时，重载允许的。  
+## <a name="example"></a>示例  
+ 下面的示例演示如何重载的字符串比较函数。 当你使用重载允许[IActiveScriptProperty::SetProperty](../../winscript/reference/iactivescriptproperty-setproperty.md)设置 SCRIPTPROP_STRINGCOMPAREINSTANCE。  
   
 ```cpp#  
 cpp_quote("// {58562769-ED52-42f7-8403-4963514E1F11}")  
@@ -94,5 +97,5 @@ interface IActiveScriptStringCompare : IUnknown
 }  
 ```  
   
-## 请参阅  
+## <a name="see-also"></a>另请参阅  
  [IActiveScriptStringCompare 接口](../../winscript/reference/iactivescriptstringcompare-interface.md)

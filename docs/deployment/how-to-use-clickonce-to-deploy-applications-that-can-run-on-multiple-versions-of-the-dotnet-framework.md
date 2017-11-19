@@ -1,97 +1,97 @@
 ---
-title: "如何：使用 ClickOnce 部署可在多个版本的 .NET Framework 上运行的应用程序 | Microsoft Docs"
-ms.custom: ""
-ms.date: "12/15/2016"
-ms.prod: "visual-studio-dev14"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-deployment"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-dev_langs: 
-  - "VB"
-  - "CSharp"
-  - "C++"
-helpviewer_keywords: 
-  - "ClickOnce 应用程序, 多个 .NET Framework 版本"
-  - "ClickOnce 部署, 多个 .NET Framework 版本"
-  - "部署应用程序 [ClickOnce], 多个 .NET Framework 版本"
+title: "如何： 使用 ClickOnce 来部署可在多个版本的.NET Framework 运行的应用程序 |Microsoft 文档"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology: vs-ide-deployment
+ms.tgt_pltfrm: 
+ms.topic: article
+dev_langs:
+- VB
+- CSharp
+- C++
+helpviewer_keywords:
+- ClickOnce applications, multiple .NET Framework versions
+- ClickOnce deployment, multiple .NET Framework versions
+- deploying applications [ClickOnce], multiple .NET Framework versions
 ms.assetid: e0a8c330-21bc-4eb2-b936-fd0f3c3221f1
-caps.latest.revision: 17
-caps.handback.revision: 17
-author: "stevehoag"
-ms.author: "shoag"
-manager: "wpickett"
+caps.latest.revision: "17"
+author: stevehoag
+ms.author: shoag
+manager: wpickett
+ms.openlocfilehash: d634d320df50dafc203ea1b1b4c8366ae3e24a41
+ms.sourcegitcommit: aadb9588877418b8b55a5612c1d3842d4520ca4c
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/27/2017
 ---
-# 如何：使用 ClickOnce 部署可在多个版本的 .NET Framework 上运行的应用程序
-[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
-
-通过使用 ClickOnce 部署技术，可部署面向多个版本的 .NET Framework 的应用程序。  这要求生成和更新应用程序清单和部署清单。  
+# <a name="how-to-use-clickonce-to-deploy-applications-that-can-run-on-multiple-versions-of-the-net-framework"></a>如何：使用 ClickOnce 部署可在多个版本的 .NET Framework 上运行的应用程序
+你可以部署通过使用 ClickOnce 部署技术面向.NET Framework 的多个版本的应用程序。 这要求你生成并更新应用程序和部署清单。  
   
 > [!NOTE]
->  在更改应用程序以面向多个版本的 .NET Framework 之前，您应确保此应用程序会与多个版本的 .NET Framework 一起运行。  公共语言运行时的版本在 [!INCLUDE[net_v40_short](../debugger/includes/net_v40_short_md.md)] 与 .NET Framework 2.0、.NET Framework 3.0 和 .NET Framework 3.5 之间是不同的。  
+>  更改要面向的.NET framework 的多个版本的应用程序之前，应确保你的应用程序运行使用.NET framework 的多个版本。 版本的公共语言运行时之间的差异[!INCLUDE[net_v40_short](../code-quality/includes/net_v40_short_md.md)]与.NET Framework 2.0、.NET Framework 3.0 和.NET Framework 3.5。  
   
  此过程需要执行下列步骤：  
   
-1.  生成应用程序清单和部署清单。  
+1.  生成应用程序和部署清单。  
   
-2.  更改部署清单以列出多个 .NET Framework 版本。  
+2.  更改部署清单以列出的多个.NET Framework 版本。  
   
-3.  更改 app.config 文件以列出兼容的 .NET Framework 运行时版本。  
+3.  更改 app.config 文件以列出兼容的.NET Framework 运行时版本。  
   
-4.  更改应用程序清单，将依赖程序集标记为 .NET Framework 程序集。  
+4.  更改要标记为.NET Framework 程序集的依赖程序集的应用程序清单。  
   
-5.  为应用程序清单签名。  
+5.  对应用程序清单进行签名。  
   
-6.  更新部署清单并为其签名。  
+6.  更新和部署清单进行签名。  
   
-### 生成应用程序清单和部署清单  
+### <a name="to-generate-the-application-and-deployment-manifests"></a>若要生成应用程序和部署清单  
   
--   使用发布向导或项目设计器的“发布”页来发布应用程序，并生成应用程序清单文件和部署清单文件。  有关更多信息，请参见[如何：使用发布向导发布 ClickOnce 应用程序](../Topic/How%20to:%20Publish%20a%20ClickOnce%20Application%20using%20the%20Publish%20Wizard.md)或[“项目设计器”\-\>“发布”页](../ide/reference/publish-page-project-designer.md)。  
+-   使用发布向导或项目设计器的发布页面发布应用程序并生成应用程序和部署清单文件。 有关详细信息，请参阅[如何： 发布 ClickOnce 应用程序使用发布向导](../deployment/how-to-publish-a-clickonce-application-using-the-publish-wizard.md)或[发布页上，项目设计器](../ide/reference/publish-page-project-designer.md)。  
   
-### 更改部署清单以列出多个 .NET Framework 版本  
+### <a name="to-change-the-deployment-manifest-to-list-the-multiple-net-framework-versions"></a>若要更改部署清单以列出的多个.NET Framework 版本  
   
-1.  在 publish 目录中，使用 Visual Studio 中的 XML 编辑器打开部署清单。  部署清单的文件扩展名为 .application。  
+1.  在发布目录中，通过使用 Visual Studio 中的 XML 编辑器中打开部署清单。 部署清单具有.application 文件扩展名。  
   
-2.  将 `<compatibleFrameworks xmlns="urn:schemas-microsoft-com:clickonce.v2">` 和 `</compatibleFrameworks>` 元素之间的 XML 代码替换为列出了您的应用程序支持的 .NET Framework 版本的 XML。  
+2.  将 XML 代码之间`<compatibleFrameworks xmlns="urn:schemas-microsoft-com:clickonce.v2">`和`</compatibleFrameworks>`列出你的应用程序支持的.NET Framework 版本的 xml 元素。  
   
-     下表显示可添加到部署清单中的一些可用的 .NET Framework 版本和相应的 XML。  
+     下表显示了一些可用的.NET Framework 版本以及可以添加到部署清单的相应 XML。  
   
     |.NET Framework 版本|XML|  
-    |-----------------------|---------|  
-    |4 Client|\<framework targetVersion\="4.0" profile\="Client" supportedRuntime\="4.0.30319" \/\>|  
-    |4 Full|\<framework targetVersion\="4.0" profile\="Full" supportedRuntime\="4.0.30319" \/\>|  
-    |3.5 Client|\<framework targetVersion\="3.5" profile\="Client" supportedRuntime\="2.0.50727" \/\>|  
-    |3.5 Full|\<framework targetVersion\="3.5" profile\="Full" supportedRuntime\="2.0.50727" \/\>|  
-    |3.0|\<framework targetVersion\="3.0" supportedRuntime\="2.0.50727" \/\>|  
+    |----------------------------|---------|  
+    |4 客户端|\<framework targetVersion ="4.0"profile ="客户端"supportedRuntime ="4.0.30319"/ >|  
+    |4 完整|\<framework targetVersion ="4.0"profile = 完全 supportedRuntime ="4.0.30319"/ >|  
+    |3.5 客户端|\<framework targetVersion ="3.5"profile ="客户端"supportedRuntime ="2.0.50727"/ >|  
+    |3.5 完整|\<framework targetVersion ="3.5"profile = 完全 supportedRuntime ="2.0.50727"/ >|  
+    |3.0|\<framework targetVersion ="3.0"supportedRuntime ="2.0.50727"/ >|  
   
-### 更改 app.config 文件以列出兼容的 .NET Framework 运行时版本  
+### <a name="to-change-the-appconfig-file-to-list-the-compatible-net-framework-runtime-versions"></a>若要更改 app.config 文件，若要列出兼容的.NET Framework 运行时版本  
   
-1.  在解决方案资源管理器中，使用 Visual Studio 中的 XML 编辑器打开 App.config 文件。  
+1.  在解决方案资源管理器，通过使用 Visual Studio 中的 XML 编辑器中打开 App.config 文件。  
   
-2.  将 `<startup>` 和 `</startup>` 元素之间的 XML 代码替换为（或添加）列出了您的应用程序支持的 .NET Framework 运行时的 XML。  
+2.  替换 （或添加） 之间的 XML 代码`<startup>`和`</startup>`与列出的受支持的.NET Framework 运行时，你的应用程序的 XML 元素。  
   
-     下表显示可添加到部署清单中的一些可用的 .NET Framework 版本和相应的 XML。  
+     下表显示了一些可用的.NET Framework 版本以及可以添加到部署清单的相应 XML。  
   
-    |.NET Framework 运行时版本|XML|  
-    |--------------------------|---------|  
-    |4 Client|\<supportedRuntime version\="v4.0.30319" sku\=".NETFramework,Version\=v4.0,Profile\=Client" \/\>|  
-    |4 Full|\<supportedRuntime version\="v4.0.30319" sku\=".NETFramework,Version\=v4.0" \/\>|  
-    |3.5 Full|\<supportedRuntime version\="v2.0.50727"\/\>|  
-    |3.5 Client|\<supportedRuntime version\="v2.0.50727" sku\="Client"\/\>|  
+    |.NET framework 运行时版本|XML|  
+    |------------------------------------|---------|  
+    |4 客户端|\<supportedRuntime 版本 ="v4.0.30319"sku ="。NETFramework，Version = v4.0，配置文件 = 客户端"/ >|  
+    |4 完整|\<supportedRuntime 版本 ="v4.0.30319"sku ="。NETFramework，Version = v4.0"/ >|  
+    |3.5 完整|\<supportedRuntime version="v2.0.50727"/ >|  
+    |3.5 客户端|\<supportedRuntime 版本 ="v2.0.50727"sku ="客户端"/ >|  
   
-### 更改应用程序清单，将依赖程序集标记为 .NET Framework 程序集  
+### <a name="to-change-the-application-manifest-to-mark-dependent-assemblies-as-net-framework-assemblies"></a>若要更改要标记为.NET Framework 程序集的依赖程序集的应用程序清单  
   
-1.  在 publish 目录中，使用 Visual Studio 中的 XML 编辑器打开应用程序清单。  部署清单的文件扩展名为 .manifest。  
+1.  在发布目录中，通过使用 Visual Studio 中的 XML 编辑器中打开应用程序清单。 部署清单具有.manifest 文件扩展名。  
   
-2.  针对标记程序集（`System.Core`、`WindowsBase`、`Sentinel.v3.5Client` 和 `System.Data.Entity`），将 `group="framework"` 添加到依赖项 XML。  例如，此 XML 应类似于下面这样：  
+2.  添加`group="framework"`到 sentinel 程序集的依赖项 XML (`System.Core`， `WindowsBase`， `Sentinel.v3.5Client`，和`System.Data.Entity`)。 例如，XML 应如下所示：  
   
     ```  
     <dependentAssembly dependencyType="preRequisite" allowDelayedBinding="true" group="framework">  
     ```  
   
-3.  将 Microsoft.Windows.CommonLanguageRuntime 的 `<assemblyIdentity>` 元素的版本号更新到属于最小公分母的 .NET Framework 版本号。  例如，如果应用程序面向 .NET Framework 3.5 版和 [!INCLUDE[net_v40_short](../debugger/includes/net_v40_short_md.md)]，则使用 2.0.50727.0 版本号，并且 XML 应类似于下面这样：  
+3.  更新的版本号`<assemblyIdentity>`Microsoft.Windows.CommonLanguageRuntime 元素是最小公分.NET Framework 的版本编号。 例如，如果该应用程序面向.NET Framework 3.5 和[!INCLUDE[net_v40_short](../code-quality/includes/net_v40_short_md.md)]，使用 2.0.50727.0 版本号和 XML 应如下所示：  
   
     ```  
     <dependency>  
@@ -101,13 +101,13 @@ manager: "wpickett"
     </dependency>  
     ```  
   
-### 对应用程序清单和部署清单进行更新和重新签名  
+### <a name="to-update-and-re-sign-the-application-and-deployment-manifests"></a>更新并重新对签名的应用程序和部署清单  
   
--   对应用程序清单和部署清单进行更新和重新签名。  有关更多信息，请参见[如何：为应用程序和部署清单重新签名](../deployment/how-to-re-sign-application-and-deployment-manifests.md)。  
+-   更新并对应用程序和部署清单重新签名。 有关详细信息，请参阅[如何： 重新签名的应用程序和部署清单](../deployment/how-to-re-sign-application-and-deployment-manifests.md)。  
   
-## 请参阅  
+## <a name="see-also"></a>另请参阅  
  [发布 ClickOnce 应用程序](../deployment/publishing-clickonce-applications.md)   
- [\<compatibleFrameworks\> 元素](../Topic/%3CcompatibleFrameworks%3E%20Element%20\(ClickOnce%20Deployment\).md)   
- [\<dependency\> 元素](../deployment/dependency-element-clickonce-application.md)   
+ [\<compatibleFrameworks > 元素](../deployment/compatibleframeworks-element-clickonce-deployment.md)   
+ [\<依赖项 > 元素](../deployment/dependency-element-clickonce-application.md)   
  [ClickOnce 部署清单](../deployment/clickonce-deployment-manifest.md)   
- [配置文件架构](../Topic/Configuration%20File%20Schema%20for%20the%20.NET%20Framework.md)
+ [配置文件架构](/dotnet/framework/configure-apps/file-schema/index)

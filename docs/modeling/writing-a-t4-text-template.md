@@ -11,30 +11,15 @@ helpviewer_keywords:
 - text templates, guide
 - text templates, functions that generate text
 ms.assetid: 94328da7-953b-4e92-9587-648543d1f732
-caps.latest.revision: 43
+caps.latest.revision: "43"
 author: alancameronwills
 ms.author: awills
 manager: douge
-translation.priority.ht:
-- cs-cz
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pl-pl
-- pt-br
-- ru-ru
-- tr-tr
-- zh-cn
-- zh-tw
+ms.openlocfilehash: c5e60ada4489e12312df92ecceab8bc268a6cfac
+ms.sourcegitcommit: aadb9588877418b8b55a5612c1d3842d4520ca4c
 ms.translationtype: MT
-ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
-ms.openlocfilehash: 97a9b5ce0237d9a06289e52e6db86ca33b901fc6
-ms.contentlocale: zh-cn
-ms.lasthandoff: 09/26/2017
-
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="writing-a-t4-text-template"></a>编写 T4 文本模板
 文本模板包含将从其生成的文本。 例如，用于创建网页的模板将包含"\<html > …"和所有其他标准部件的 HTML 页。 插入模板是*控制块*，这是程序代码的片段。 控制块提供变化值，允许文本部件是条件和重复的。  
@@ -294,4 +279,3 @@ Content of MyFile.txt is:
 |在 [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] 外运行文本生成。|[使用 TextTransform 实用工具生成文件](../modeling/generating-files-with-the-texttransform-utility.md)|  
 |以域特定语言的形式转换数据。|[从域特定语言生成代码](../modeling/generating-code-from-a-domain-specific-language.md)|  
 |编写指令处理器转换自己的数据源。|[自定义 T4 文本转换](../modeling/customizing-t4-text-transformation.md)|
-

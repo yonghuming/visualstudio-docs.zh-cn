@@ -1,27 +1,30 @@
 ---
-title: "IApplicationDebugger::onDebugOutput | Microsoft Docs"
-ms.custom: ""
-ms.date: "01/18/2017"
-ms.prod: "windows-script-interfaces"
-ms.reviewer: ""
-ms.suite: ""
-ms.tgt_pltfrm: ""
-ms.topic: "reference"
+title: "IApplicationDebugger::onDebugOutput |Microsoft 文档"
+ms.custom: 
+ms.date: 01/18/2017
+ms.prod: windows-script-interfaces
+ms.reviewer: 
+ms.suite: 
+ms.tgt_pltfrm: 
+ms.topic: reference
 apiname: IApplicationDebugger.onDebugOutput
 apilocation: scrobj.dll
-helpviewer_keywords: 
-  - "IApplicationDebugger::onDebugOutput"
+helpviewer_keywords: IApplicationDebugger::onDebugOutput
 ms.assetid: 978d8bcf-16dc-4f24-a6bc-206adee2b2e9
-caps.latest.revision: 8
-author: "mikejo5000"
-ms.author: "mikejo"
-manager: "ghogen"
-caps.handback.revision: 8
+caps.latest.revision: "8"
+author: mikejo5000
+ms.author: mikejo
+manager: ghogen
+ms.openlocfilehash: 1c660222ebc136c57605dd0fda2c7f5fa88c368c
+ms.sourcegitcommit: aadb9588877418b8b55a5612c1d3842d4520ca4c
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/27/2017
 ---
-# IApplicationDebugger::onDebugOutput
+# <a name="iapplicationdebuggerondebugoutput"></a>IApplicationDebugger::onDebugOutput
 处理调试输出事件。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
 ```  
 HRESULT onDebugOutput(  
@@ -29,22 +32,22 @@ HRESULT onDebugOutput(
 );  
 ```  
   
-#### 参数  
+#### <a name="parameters"></a>参数  
  `pstr`  
- \[in\]显示的字符串在调试器。  
+ [in]要在调试器中显示的字符串。  
   
-## 返回值  
- 该方法返回 `HRESULT`。  可能的值包括，但是，并不限于，这些下表中。  
+## <a name="return-value"></a>返回值  
+ 该方法返回 `HRESULT`。 可能的值包括（但并不限于）下表中的项。  
   
-|值|说明|  
-|-------|--------|  
+|值|描述|  
+|-----------|-----------------|  
 |`S_OK`|方法成功。|  
   
-## 备注  
- 调试器通常在"输出"窗口中显示 `pstr`。  
+## <a name="remarks"></a>备注  
+ 调试器通常会显示`pstr`在输出窗口中。  
   
- 当 `IDebugApplication::DebugOutput` 调用时，调用此方法。  
+ 当调用此方法`IDebugApplication::DebugOutput`调用。  
   
-## 请参阅  
+## <a name="see-also"></a>另请参阅  
  [IApplicationDebugger 接口](../../winscript/reference/iapplicationdebugger-interface.md)   
  [IDebugApplication::DebugOutput](../../winscript/reference/idebugapplication-debugoutput.md)

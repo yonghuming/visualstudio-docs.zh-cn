@@ -1,47 +1,46 @@
 ---
-title: "IDiaSymbol::get_udtKind | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-debug"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-dev_langs: 
-  - "C++"
-helpviewer_keywords: 
-  - "IDiaSymbol::get_udtKind 方法"
+title: "Idiasymbol:: Get_udtkind |Microsoft 文档"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology: vs-ide-debug
+ms.tgt_pltfrm: 
+ms.topic: article
+dev_langs: C++
+helpviewer_keywords: IDiaSymbol::get_udtKind method
 ms.assetid: 4002f887-aea6-4475-b302-67c57079fe0a
-caps.latest.revision: 8
-author: "mikejo5000"
-ms.author: "mikejo"
-manager: "ghogen"
-caps.handback.revision: 8
+caps.latest.revision: "8"
+author: mikejo5000
+ms.author: mikejo
+manager: ghogen
+ms.openlocfilehash: 7dc4a95e3dd8752601172f268bd9b15f099182e6
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# IDiaSymbol::get_udtKind
-[!INCLUDE[vs2017banner](../../code-quality/includes/vs2017banner.md)]
-
-检索一个用户定义的类型的类型 \(UDT\)。  
+# <a name="idiasymbolgetudtkind"></a>IDiaSymbol::get_udtKind
+检索的各种用户定义类型 (UDT)。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
-```cpp#  
-HRESULT get_udtKind (   
-   DWORD* pRetVal  
+```C++  
+HRESULT get_udtKind (   
+   DWORD* pRetVal  
 );  
 ```  
   
-#### 参数  
+#### <a name="parameters"></a>参数  
  `pRetVal`  
- \[out\] 返回从指定该 UDT 的 [UdtKind 枚举](../../debugger/debug-interface-access/udtkind.md) 枚举的值:结构、类或联合。  
+ [out]返回一个值从[UdtKind 枚举](../../debugger/debug-interface-access/udtkind.md)指定的 UDT 类型的枚举： 结构、 类或联合。  
   
-## 返回值  
- 如果成功，则返回; `S_OK`否则，返回 `S_FALSE` 或错误代码。  
+## <a name="return-value"></a>返回值  
+ 如果成功，则返回`S_OK`; 否则为返回`S_FALSE`或错误代码。  
   
 > [!NOTE]
->  `S_FALSE` 的返回值表示该属性用于符号不可用。  
+>  返回值`S_FALSE`意味着属性不是可用于符号。  
   
-## 请参阅  
+## <a name="see-also"></a>另请参阅  
  [IDiaSymbol](../../debugger/debug-interface-access/idiasymbol.md)   
  [UdtKind 枚举](../../debugger/debug-interface-access/udtkind.md)

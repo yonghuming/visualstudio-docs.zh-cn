@@ -10,35 +10,20 @@ helpviewer_keywords:
 - requirements
 - stories
 ms.assetid: 359900f8-6d69-493d-bfdf-2c9069c74a26
-caps.latest.revision: 28
+caps.latest.revision: "28"
 author: alexhomer1
 ms.author: ahomer
 manager: douge
-translation.priority.ht:
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- ru-ru
-- zh-cn
-- zh-tw
-translation.priority.mt:
-- cs-cz
-- pl-pl
-- pt-br
-- tr-tr
-translationtype: Machine Translation
-ms.sourcegitcommit: 08aabdfe0e268f93ef7723076375b7f65b15ccf3
-ms.openlocfilehash: 60866c46920bb85927498992082763f9e34b4137
-ms.lasthandoff: 02/22/2017
-
+ms.openlocfilehash: 064d2819a9a7bd3e72539ff7624299e3619f4e94
+ms.sourcegitcommit: aadb9588877418b8b55a5612c1d3842d4520ca4c
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="model-user-requirements"></a>建立用户需求模型
 通过绘制有关用户的活动和你的系统在帮助他们实现自己目标上所起到的作用的关系图，Visual Studio 可帮助你了解你的用户，并与他们展开讨论、沟通其要求。 需求模型是一组这样的关系图，每一张图都将重点放在用户需求的不同方面。 有关视频演示，请参阅： [业务域建模](http://channel9.msdn.com/posts/clinted/UML-with-VS-2010-Part-3-Modeling-the-Business-Domain/)。  
   
- 若要查看哪些版本的 Visual Studio 支持每种类型的模型，请参阅[体系结构和建模工具的版本支持](../modeling/what-s-new-for-design-in-visual-studio.md#VersionSupport)。  
+ 若要查看支持每种类型的模型的 Visual Studio 版本，请参阅 [Version support for architecture and modeling tools](../modeling/what-s-new-for-design-in-visual-studio.md#VersionSupport)。  
   
  需求模型可帮助你：  
   
@@ -70,12 +55,12 @@ ms.lasthandoff: 02/22/2017
 |附加文档或工作项|性能、安全性、可用性和可靠性条件。|[描述服务质量要求](#QoSRequirements)|  
 |附加文档或工作项|不针对特定用例的约束和规则|[显示业务规则](#BusinessRules)|  
   
- 请注意，大多数关系图类型可以用于其他目的。 有关关系图类型的概述，请参阅[为您的应用程序创建模型](../modeling/create-models-for-your-app.md)。
+ 请注意，大多数关系图类型可以用于其他目的。 关系图类型的概述，请参阅[为你的应用程序创建模型](../modeling/create-models-for-your-app.md)。
   
-##  <a name="a-namebusinessrulesa-showing-business-rules"></a><a name="BusinessRules"></a>显示业务规则  
+##  <a name="BusinessRules"></a> Showing Business Rules  
  业务规则是一个不与特定用例相关联的要求，应在整个系统中进行观察。  
   
- 许多业务规则受概念类间关系的约束。 可以作为与概念类图上的相关类关联的注释，编写这些 *静态**业务规则* 。 例如：  
+ 许多业务规则受概念类间关系的约束。 可以作为与概念类图上的相关类关联的注释，编写这些 *静态**业务规则* 。 例如:   
   
  ![附加到 Order 类的注释中的规则。] (../modeling/media/uml_reqmcd2.png "UML_ReqmCD2")  
   
@@ -91,7 +76,7 @@ ms.lasthandoff: 02/22/2017
 |--------------------|----------|  
 |如何开发符合业务规则的代码|[应用体系结构建模](../modeling/model-your-app-s-architecture.md)|  
   
-##  <a name="a-nameqosrequirementsa-describing-quality-of-service-requirements"></a><a name="QoSRequirements"></a>描述服务质量要求  
+##  <a name="QoSRequirements"></a> Describing Quality of Service Requirements  
  服务质量要求有多个类别。 它们包括以下类型：  
   
 -   性能  
@@ -116,6 +101,5 @@ ms.lasthandoff: 02/22/2017
 |如何开发符合服务质量要求的代码|[应用体系结构建模](../modeling/model-your-app-s-architecture.md)|  
   
 ## <a name="see-also"></a>另请参阅  
- [在您的开发过程中使用模型](../modeling/use-models-in-your-development-process.md)   
+ [在开发过程中使用模型](../modeling/use-models-in-your-development-process.md)   
  [应用体系结构建模](../modeling/model-your-app-s-architecture.md)   
-

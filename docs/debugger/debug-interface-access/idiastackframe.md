@@ -1,67 +1,66 @@
 ---
-title: "IDiaStackFrame | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-debug"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-dev_langs: 
-  - "C++"
-helpviewer_keywords: 
-  - "IDiaStackFrame 接口"
+title: "IDiaStackFrame |Microsoft 文档"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology: vs-ide-debug
+ms.tgt_pltfrm: 
+ms.topic: article
+dev_langs: C++
+helpviewer_keywords: IDiaStackFrame interface
 ms.assetid: 486d25b8-a590-41c1-bdb5-faff3ae35632
-caps.latest.revision: 16
-author: "mikejo5000"
-ms.author: "mikejo"
-manager: "ghogen"
-caps.handback.revision: 16
+caps.latest.revision: "16"
+author: mikejo5000
+ms.author: mikejo
+manager: ghogen
+ms.openlocfilehash: 30b3ca5d68731fccf874b250741a6e67697539fb
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# IDiaStackFrame
-[!INCLUDE[vs2017banner](../../code-quality/includes/vs2017banner.md)]
-
+# <a name="idiastackframe"></a>IDiaStackFrame
 显示堆栈帧的属性。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
 ```  
 IDiaStackFrame : IUnknown  
 ```  
   
-## 方法按 Vtable 顺序  
- 下面是此接口支持的方法:  
+## <a name="methods-in-vtable-order"></a>Vtable 顺序中的方法  
+ 此接口支持的方法如下：  
   
-|方法|说明|  
-|--------|--------|  
-|[IDiaStackFrame::get\_allocatesBasePointer](../../debugger/debug-interface-access/idiastackframe-get-allocatesbasepointer.md)|检索指示的标志基本指针对于此地址范围的代码分配。  此方法已被否决。|  
-|[IDiaStackFrame::get\_base](../../debugger/debug-interface-access/idiastackframe-get-base.md)|检索帧的地址基础。|  
-|[IDiaStackFrame::get\_cplusplusExceptionHandling](../Topic/IDiaStackFrame::get_cplusplusExceptionHandling.md)|检索指示的标志 C\+\+ 异常处理有效。|  
-|[IDiaStackFrame::get\_functionStart](../../debugger/debug-interface-access/idiastackframe-get-functionstart.md)|检索指示的标志块包含入口点函数。|  
-|[IDiaStackFrame::get\_lengthLocals](../../debugger/debug-interface-access/idiastackframe-get-lengthlocals.md)|检索字节数在堆栈驱动器的局部变量。|  
-|[IDiaStackFrame::get\_lengthParams](../../debugger/debug-interface-access/idiastackframe-get-lengthparams.md)|检索字节数堆栈上推入的参数。|  
-|[IDiaStackFrame::get\_lengthProlog](../../debugger/debug-interface-access/idiastackframe-get-lengthprolog.md)|检索字节数在块的序言码|  
-|[IDiaStackFrame::get\_lengthSavedRegisters](../Topic/IDiaStackFrame::get_lengthSavedRegisters.md)|检索字节数在堆栈驱动器中保存的注册。|  
-|[IDiaStackFrame::get\_localsBase](../../debugger/debug-interface-access/idiastackframe-get-localsbase.md)|检索本地的地址基础。|  
-|[IDiaStackFrame::get\_maxStack](../../debugger/debug-interface-access/idiastackframe-get-maxstack.md)|检索在帧的堆栈驱动器的最大字节数。|  
-|[IDiaStackFrame::get\_rawLVarInstanceValue](../../debugger/debug-interface-access/idiastackframe-get-rawlvarinstancevalue.md)|检索指定的局部变量的值作为原始的字节。|  
-|[IDiaStackFrame::get\_registerValue](../../debugger/debug-interface-access/idiastackframe-get-registervalue.md)|检索指定的寄存器值。|  
-|[IDiaStackFrame::get\_returnAddress](../../debugger/debug-interface-access/idiastackframe-get-returnaddress.md)|检索框架的返回地址。|  
-|[IDiaStackFrame::get\_size](../Topic/IDiaStackFrame::get_size.md)|在字节检索框架的大小。|  
-|[IDiaStackFrame::get\_systemExceptionHandling](../../debugger/debug-interface-access/idiastackframe-get-systemexceptionhandling.md)|检索指示的标志系统异常处理有效。|  
-|[IDiaStackFrame::get\_type](../../debugger/debug-interface-access/idiastackframe-get-type.md)|检索帧类型。|  
+|方法|描述|  
+|------------|-----------------|  
+|[IDiaStackFrame::get_allocatesBasePointer](../../debugger/debug-interface-access/idiastackframe-get-allocatesbasepointer.md)|检索一个标志，指示基指针分配此地址范围中的代码。 此方法已弃用。|  
+|[IDiaStackFrame::get_base](../../debugger/debug-interface-access/idiastackframe-get-base.md)|检索地址基的帧。|  
+|[IDiaStackFrame::get_cplusplusExceptionHandling](../../debugger/debug-interface-access/idiastackframe-get-cplusplusexceptionhandling.md)|检索一个标志，指示，实际上 c + + 异常处理。|  
+|[IDiaStackFrame::get_functionStart](../../debugger/debug-interface-access/idiastackframe-get-functionstart.md)|检索一个标志，指示块包含函数的入口点。|  
+|[IDiaStackFrame::get_lengthLocals](../../debugger/debug-interface-access/idiastackframe-get-lengthlocals.md)|检索推送到堆栈上的本地变量的字节数。|  
+|[IDiaStackFrame::get_lengthParams](../../debugger/debug-interface-access/idiastackframe-get-lengthparams.md)|检索的参数推送到堆栈上的字节数。|  
+|[IDiaStackFrame::get_lengthProlog](../../debugger/debug-interface-access/idiastackframe-get-lengthprolog.md)|检索块中的序言代码的字节的数|  
+|[IDiaStackFrame::get_lengthSavedRegisters](../../debugger/debug-interface-access/idiastackframe-get-lengthsavedregisters.md)|检索已保存的寄存器推送到堆栈上的字节数。|  
+|[IDiaStackFrame::get_localsBase](../../debugger/debug-interface-access/idiastackframe-get-localsbase.md)|检索局部变量的地址基数。|  
+|[IDiaStackFrame::get_maxStack](../../debugger/debug-interface-access/idiastackframe-get-maxstack.md)|检索的最大推入堆栈帧中的字节数。|  
+|[IDiaStackFrame::get_rawLVarInstanceValue](../../debugger/debug-interface-access/idiastackframe-get-rawlvarinstancevalue.md)|以原始字节形式检索指定的本地变量的值。|  
+|[IDiaStackFrame::get_registerValue](../../debugger/debug-interface-access/idiastackframe-get-registervalue.md)|检索指定的寄存器的值。|  
+|[IDiaStackFrame::get_returnAddress](../../debugger/debug-interface-access/idiastackframe-get-returnaddress.md)|检索的框架的寄信人地址。|  
+|[IDiaStackFrame::get_size](../../debugger/debug-interface-access/idiastackframe-get-size.md)|检索以字节为单位的帧的大小。|  
+|[IDiaStackFrame::get_systemExceptionHandling](../../debugger/debug-interface-access/idiastackframe-get-systemexceptionhandling.md)|检索一个标志，指示系统异常处理生效。|  
+|[IDiaStackFrame::get_type](../../debugger/debug-interface-access/idiastackframe-get-type.md)|检索的帧类型。|  
   
-## 备注  
- 堆栈帧是的抽象在执行时函数调用。  
+## <a name="remarks"></a>备注  
+ 堆栈帧是一个函数调用的执行过程中的抽象。  
   
-## 调用方的说明  
- 通过调用 [IDiaEnumStackFrames::Next](../../debugger/debug-interface-access/idiaenumstackframes-next.md) 方法获取此接口。  为获取 `IDiaStackFrame` 接口的一个示例参见 [IDiaEnumStackFrames](../../debugger/debug-interface-access/idiaenumstackframes.md) 接口。  
+## <a name="notes-for-callers"></a>调用方的说明  
+ 通过调用来获取此接口[idiaenumstackframes:: Next](../../debugger/debug-interface-access/idiaenumstackframes-next.md)方法。 请参阅[IDiaEnumStackFrames](../../debugger/debug-interface-access/idiaenumstackframes.md)有关的示例获取的接口`IDiaStackFrame`接口。  
   
-## 示例  
- 此示例演示堆栈帧的各个属性。  
+## <a name="example"></a>示例  
+ 此示例中显示堆栈帧的各种的属性。  
   
-```cpp#  
+```C++  
 void PrintStackFrame(IDiaStackFrame* pFrame)  
 {  
     if (pFrame != NULL)  
@@ -102,15 +101,15 @@ void PrintStackFrame(IDiaStackFrame* pFrame)
 }  
 ```  
   
-## 要求  
- 标题:Dia2.h  
+## <a name="requirements"></a>要求  
+ 标头： Dia2.h  
   
- 库:diaguids.lib  
+ 库： diaguids.lib  
   
- DLL:msdia80.dll  
+ DLL: msdia80.dll  
   
-## 请参阅  
- [接口（调试接口访问 SDK）](../../debugger/debug-interface-access/interfaces-debug-interface-access-sdk.md)   
+## <a name="see-also"></a>另请参阅  
+ [接口 （调试接口访问 SDK）](../../debugger/debug-interface-access/interfaces-debug-interface-access-sdk.md)   
  [IDiaEnumStackFrames](../../debugger/debug-interface-access/idiaenumstackframes.md)   
- [IDiaEnumStackFrames::Next](../../debugger/debug-interface-access/idiaenumstackframes-next.md)   
+ [Idiaenumstackframes:: Next](../../debugger/debug-interface-access/idiaenumstackframes-next.md)   
  [IDiaStackWalkFrame](../../debugger/debug-interface-access/idiastackwalkframe.md)

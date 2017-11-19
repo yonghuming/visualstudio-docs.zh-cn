@@ -7,30 +7,15 @@ ms.suite:
 ms.tgt_pltfrm: 
 ms.topic: article
 ms.assetid: d1ac2509-0479-47eb-809c-1f171245d0b6
-caps.latest.revision: 11
+caps.latest.revision: "11"
 author: alancameronwills
 ms.author: awills
 manager: douge
-translation.priority.ht:
-- cs-cz
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pl-pl
-- pt-br
-- ru-ru
-- tr-tr
-- zh-cn
-- zh-tw
+ms.openlocfilehash: 93b4d129cd09fe3d3b67bfc743286577b1e285dd
+ms.sourcegitcommit: aadb9588877418b8b55a5612c1d3842d4520ca4c
 ms.translationtype: MT
-ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
-ms.openlocfilehash: 6e6841e77556d9ae8b8ce76bff01537d5f45e855
-ms.contentlocale: zh-cn
-ms.lasthandoff: 09/26/2017
-
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="how-to--with-text-templates"></a>如何：使用文本模板 ... 
 中的文本模板[!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)]提供生成任何类型的文本的有效方法。 文本模板可用于在你的应用程序的一部分运行时和设计时生成你的项目代码的一些生成文本。 本主题总结了将最常要求"如何实现...？" 问题。  
@@ -142,4 +127,3 @@ Number of projects in this VS solution:  <#= dte.Solution.Projects.Count #>
 ### <a name="what-is-t4"></a>什么是"T4"？  
   
 -   另一个名称[!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)]此处所述的文本模板功能。 以前的版本，未发布，已"文本模板转换"的缩写。
-

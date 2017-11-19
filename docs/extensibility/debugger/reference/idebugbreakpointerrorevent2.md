@@ -4,37 +4,21 @@ ms.custom:
 ms.date: 11/04/2016
 ms.reviewer: 
 ms.suite: 
-ms.technology:
-- vs-ide-sdk
+ms.technology: vs-ide-sdk
 ms.tgt_pltfrm: 
 ms.topic: article
-f1_keywords:
-- IDebugBreakpointErrorEvent2
-helpviewer_keywords:
-- IDebugBreakpointErrorEvent2
+f1_keywords: IDebugBreakpointErrorEvent2
+helpviewer_keywords: IDebugBreakpointErrorEvent2
 ms.assetid: adee79df-8db5-4510-a7df-c50f4dbf5e35
-caps.latest.revision: 14
+caps.latest.revision: "14"
+author: gregvanl
 ms.author: gregvanl
 manager: ghogen
-translation.priority.mt:
-- cs-cz
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pl-pl
-- pt-br
-- ru-ru
-- tr-tr
-- zh-cn
-- zh-tw
-translationtype: Machine Translation
-ms.sourcegitcommit: ca7c86466fa23fb21a932f26dc24e37c71cf29b4
-ms.openlocfilehash: 94ab4dfbe72d28f52767c6dde259483d6905e401
-ms.lasthandoff: 04/05/2017
-
+ms.openlocfilehash: 92a7d4207e18b661452c52a25a1c079b5feac734
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="idebugbreakpointerrorevent2"></a>IDebugBreakpointErrorEvent2
 此接口通知会话调试管理器 (SDM) 不能与加载程序，由于警告或错误绑定挂起断点。  
@@ -54,7 +38,7 @@ IDebugBreakpointErrorEvent2 : IUnknown
 ## <a name="methods-in-vtable-order"></a>Vtable 顺序中的方法  
  下表显示的方法`IDebugBreakpointErrorEvent2`。  
   
-|方法|说明|  
+|方法|描述|  
 |------------|-----------------|  
 |[GetErrorBreakpoint](../../../extensibility/debugger/reference/idebugbreakpointerrorevent2-geterrorbreakpoint.md)|获取[IDebugErrorBreakpoint2](../../../extensibility/debugger/reference/idebugerrorbreakpoint2.md)描述警告或错误的接口。|  
   
@@ -64,11 +48,11 @@ IDebugBreakpointErrorEvent2 : IUnknown
  例如，当与挂起断点关联的条件失败时分析或评估，发送警告，不能在此时绑定挂起断点。 如果为断点的代码不具有尚未加载，也可能出现。  
   
 ## <a name="requirements"></a>要求  
- 标头︰ msdbg.h  
+ 标头： msdbg.h  
   
  Namespace: Microsoft.VisualStudio.Debugger.Interop  
   
- 程序集︰ Microsoft.VisualStudio.Debugger.Interop.dll  
+ 程序集： Microsoft.VisualStudio.Debugger.Interop.dll  
   
 ## <a name="see-also"></a>另请参阅  
  [IDebugEvent2](../../../extensibility/debugger/reference/idebugevent2.md)   

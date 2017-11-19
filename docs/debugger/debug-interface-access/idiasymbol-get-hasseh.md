@@ -1,54 +1,53 @@
 ---
-title: "IDiaSymbol::get_hasSEH | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-debug"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-dev_langs: 
-  - "C++"
-helpviewer_keywords: 
-  - "IDiaSymbol::get_hasSEH 方法"
+title: "Idiasymbol:: Get_hasseh |Microsoft 文档"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology: vs-ide-debug
+ms.tgt_pltfrm: 
+ms.topic: article
+dev_langs: C++
+helpviewer_keywords: IDiaSymbol::get_hasSEH method
 ms.assetid: 1a709ded-22c8-464c-97be-eba5e464210c
-caps.latest.revision: 8
-author: "mikejo5000"
-ms.author: "mikejo"
-manager: "ghogen"
-caps.handback.revision: 8
+caps.latest.revision: "8"
+author: mikejo5000
+ms.author: mikejo
+manager: ghogen
+ms.openlocfilehash: 2a0e2ffb58b62acd35fea209e2c0c66fc7f1a9cf
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# IDiaSymbol::get_hasSEH
-[!INCLUDE[vs2017banner](../../code-quality/includes/vs2017banner.md)]
-
-检索指定的标志函数是否包含任何 [结构化异常处理](/visual-cpp/cpp/structured-exception-handling-c-cpp) \(例如， \_\_try\/\_\_except 块\)。  
+# <a name="idiasymbolgethasseh"></a>IDiaSymbol::get_hasSEH
+检索一个标志，用于指定函数是否包含任何[结构化异常处理 （C/c + +）](/cpp/cpp/structured-exception-handling-c-cpp) (例如，__try /\__except 块)。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
-```cpp#  
+```C++  
 HRESULT get_hasSEH(  
-   BOOL *pFlag  
+   BOOL *pFlag  
 );  
 ```  
   
-#### 参数  
+#### <a name="parameters"></a>参数  
  `pFlag`  
- \[out\] ，如果函数有任何结构化异常处理块，则返回; `TRUE` 否则，返回 `FALSE`。  
+ [out]返回`TRUE`如果函数具有任何结构化的异常处理块; 否则，返回`FALSE`。  
   
-## 返回值  
- 如果成功，则返回; `S_OK`否则，返回 `S_FALSE` 或错误代码。  
+## <a name="return-value"></a>返回值  
+ 如果成功，则返回`S_OK`; 否则为返回`S_FALSE`或错误代码。  
   
 > [!NOTE]
->  `S_FALSE` 的返回值表示该属性用于符号不可用。  
+>  返回值`S_FALSE`意味着属性不是可用于符号。  
   
-## 要求  
+## <a name="requirements"></a>要求  
   
-|要求|说明|  
-|--------|--------|  
-|标题:|dia2.h|  
+|要求|描述|  
+|-----------------|-----------------|  
+|标头：|dia2.h|  
 |版本:|DIA SDK v8.0|  
   
-## 请参阅  
+## <a name="see-also"></a>另请参阅  
  [IDiaSymbol](../../debugger/debug-interface-access/idiasymbol.md)   
- [结构化异常处理](/visual-cpp/cpp/structured-exception-handling-c-cpp)
+ [结构化异常处理 (C/C++)](/cpp/cpp/structured-exception-handling-c-cpp)

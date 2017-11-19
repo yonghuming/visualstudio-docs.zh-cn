@@ -1,50 +1,51 @@
 ---
-title: "pop 方法 (Array) (JavaScript) | Microsoft Docs"
-ms.custom: ""
-ms.date: "01/18/2017"
-ms.prod: "windows-client-threshold"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "devlang-javascript"
-ms.tgt_pltfrm: ""
-ms.topic: "language-reference"
-f1_keywords: 
-  - "pop"
-dev_langs: 
-  - "JavaScript"
-  - "TypeScript"
-  - "DHTML"
-helpviewer_keywords: 
-  - "Pop 方法"
+title: "pop 方法 (Array) (JavaScript) |Microsoft 文档"
+ms.custom: 
+ms.date: 01/18/2017
+ms.prod: windows-client-threshold
+ms.reviewer: 
+ms.suite: 
+ms.technology: devlang-javascript
+ms.tgt_pltfrm: 
+ms.topic: language-reference
+f1_keywords: pop
+dev_langs:
+- JavaScript
+- TypeScript
+- DHTML
+helpviewer_keywords: Pop method
 ms.assetid: 4fae7f98-29f1-4041-ba43-601f2e5145ec
-caps.latest.revision: 14
-author: "mikejo5000"
-ms.author: "mikejo"
-manager: "ghogen"
-caps.handback.revision: 14
+caps.latest.revision: "14"
+author: mikejo5000
+ms.author: mikejo
+manager: ghogen
+ms.openlocfilehash: f7635ddcc1b3d336f5e3de66e62714bd93a06158
+ms.sourcegitcommit: aadb9588877418b8b55a5612c1d3842d4520ca4c
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/27/2017
 ---
-# pop 方法 (Array) (JavaScript)
-从数组中移除最后一个元素并返回该元素。  
+# <a name="pop-method-array-javascript"></a>pop 方法 (Array) (JavaScript)
+从数组中移除最后一个元素并将该元素返回。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
 ```  
   
 arrayObj.pop( )  
 ```  
   
-## 备注  
- 使用 [push](../../javascript/reference/push-method-array-javascript.md) 和 `pop` 方法可模拟一个使用先进先出 \(LIFO\) 的原则来存储数据的堆栈。  
+## <a name="remarks"></a>备注  
+ [推送](../../javascript/reference/push-method-array-javascript.md)和`pop`方法使你能够模拟的堆栈，使用后进先出 (LIFO) 来存储数据的原则。  
   
- 必需的 `arrayObj` 引用是 `Array` 对象。  
+ 所需`arrayObj`引用是`Array`对象。  
   
- 如果该数组为空，则返回 `undefined`。  
+ 如果数组为空，`undefined`返回。  
   
-## 示例  
- 下面的示例阐释了 `pop` 方法的用法。  
+## <a name="example"></a>示例  
+ 下面的示例演示 `pop` 方法的用法。  
   
-```javascript  
+```JavaScript  
 var number;  
 var my_array = new Array();  
   
@@ -61,8 +62,8 @@ while (number != undefined)
 // Output: 9 8 7 6 5  
 ```  
   
-## 要求  
+## <a name="requirements"></a>要求  
  [!INCLUDE[jsv55](../../javascript/reference/includes/jsv55-md.md)]  
   
-## 请参阅  
- [push 方法 \(Array\)](../../javascript/reference/push-method-array-javascript.md)
+## <a name="see-also"></a>另请参阅  
+ [push 方法 (Array)](../../javascript/reference/push-method-array-javascript.md)

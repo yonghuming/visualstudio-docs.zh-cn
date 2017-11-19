@@ -1,57 +1,56 @@
 ---
-title: "IDiaEnumSymbolsByAddr | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-debug"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-dev_langs: 
-  - "C++"
-helpviewer_keywords: 
-  - "IDiaEnumSymbolsbyAddr 接口"
+title: "IDiaEnumSymbolsByAddr |Microsoft 文档"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology: vs-ide-debug
+ms.tgt_pltfrm: 
+ms.topic: article
+dev_langs: C++
+helpviewer_keywords: IDiaEnumSymbolsbyAddr interface
 ms.assetid: 37d3dcdf-e4fa-4354-b5e1-8843566b52ac
-caps.latest.revision: 10
-author: "mikejo5000"
-ms.author: "mikejo"
-manager: "ghogen"
-caps.handback.revision: 10
+caps.latest.revision: "10"
+author: mikejo5000
+ms.author: mikejo
+manager: ghogen
+ms.openlocfilehash: 4efdd5297b1a4b995ba7d3e45edc9b2c982f6ecd
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# IDiaEnumSymbolsByAddr
-[!INCLUDE[vs2017banner](../../code-quality/includes/vs2017banner.md)]
-
-由多个符号在数据源中包含的地址枚举。  
+# <a name="idiaenumsymbolsbyaddr"></a>IDiaEnumSymbolsByAddr
+通过地址枚举数据源中包含的各种符号。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
 ```  
-IDiaEnumSymbolsByAddr : IUnknown  
+IDiaEnumSymbolsByAddr : IUnknown  
 ```  
   
-## 方法按 Vtable 顺序  
- 下表显示 `IDiaEnumSymbolsByAddr`方法。  
+## <a name="methods-in-vtable-order"></a>Vtable 顺序中的方法  
+ 下表显示的方法`IDiaEnumSymbolsByAddr`。  
   
-|方法|说明|  
-|--------|--------|  
-|[IDiaEnumSymbolsByAddr::symbolByAddr](../../debugger/debug-interface-access/idiaenumsymbolsbyaddr-symbolbyaddr.md)|通过执行查找确定枚举数由部分和扭曲。|  
-|[IDiaEnumSymbolsByAddr::symbolByRVA](../Topic/IDiaEnumSymbolsByAddr::symbolByRVA.md)|通过执行查找确定枚举数由相对虚拟地址 \(RVA\)。|  
-|[IDiaEnumSymbolsByAddr::symbolByVA](../../debugger/debug-interface-access/idiaenumsymbolsbyaddr-symbolbyva.md)|通过执行查找确定枚举数由虚拟地址 \(VA\)。|  
-|[IDiaEnumSymbolsByAddr::Next](../../debugger/debug-interface-access/idiaenumsymbolsbyaddr-next.md)|由地址检索下符号按顺序。  所获取的元素数更新枚举数位置。|  
-|[IDiaEnumSymbolsByAddr::Prev](../../debugger/debug-interface-access/idiaenumsymbolsbyaddr-prev.md)|由地址检索以前的符号按顺序。  所获取的元素数更新枚举数位置。|  
-|[IDiaEnumSymbolsByAddr::Clone](../../debugger/debug-interface-access/idiaenumsymbolsbyaddr-clone.md)|复制该对象。|  
+|方法|描述|  
+|------------|-----------------|  
+|[IDiaEnumSymbolsByAddr::symbolByAddr](../../debugger/debug-interface-access/idiaenumsymbolsbyaddr-symbolbyaddr.md)|通过执行的部分和偏移量的查找将枚举数。|  
+|[IDiaEnumSymbolsByAddr::symbolByRVA](../../debugger/debug-interface-access/idiaenumsymbolsbyaddr-symbolbyrva.md)|通过按相对虚拟地址 (RVA) 执行查找将枚举数。|  
+|[IDiaEnumSymbolsByAddr::symbolByVA](../../debugger/debug-interface-access/idiaenumsymbolsbyaddr-symbolbyva.md)|通过执行查找的虚拟地址 (VA) 将枚举数。|  
+|[IDiaEnumSymbolsByAddr::Next](../../debugger/debug-interface-access/idiaenumsymbolsbyaddr-next.md)|通过地址来检索顺序的下一步符号。 通过提取的元素数目来更新枚举器位置。|  
+|[IDiaEnumSymbolsByAddr::Prev](../../debugger/debug-interface-access/idiaenumsymbolsbyaddr-prev.md)|通过地址来检索顺序中的上一个符号。 通过提取的元素数目来更新枚举器位置。|  
+|[IDiaEnumSymbolsByAddr::Clone](../../debugger/debug-interface-access/idiaenumsymbolsbyaddr-clone.md)|创建对象的副本。|  
   
-## 备注  
- 此接口提供地址分组的符号。  例如若要使用类型分组符号时， `SymTagUDT` \(用户定义的类型\) 或 `SymTagBaseClass`，请使用 [IDiaEnumSymbols](../../debugger/debug-interface-access/idiaenumsymbols.md) 接口。  
+## <a name="remarks"></a>备注  
+ 此接口提供按地址分组的符号。 若要使用按类型，例如分组的符号`SymTagUDT`（用户定义类型） 或`SymTagBaseClass`，使用[IDiaEnumSymbols](../../debugger/debug-interface-access/idiaenumsymbols.md)接口。  
   
-## 调用方的说明  
- 通过调用 [IDiaSession::getSymbolsByAddr](../../debugger/debug-interface-access/idiasession-getsymbolsbyaddr.md) 方法获取此接口。  
+## <a name="notes-for-callers"></a>调用方的说明  
+ 通过调用来获取此接口[idiasession:: Getsymbolsbyaddr](../../debugger/debug-interface-access/idiasession-getsymbolsbyaddr.md)方法。  
   
-## 示例  
- 此功能公开相对虚拟地址 \(rva\) 排序的所有符号名称和地址。  
+## <a name="example"></a>示例  
+ 此函数将显示的名称和地址的相对虚拟地址按排序的所有符号。  
   
-```cpp#  
+```C++  
 void ShowSymbolsByAddress(IDiaSession *pSession)  
 {  
     CComPtr<IDiaEnumSymbolsByAddr> pEnumByAddr;  
@@ -95,14 +94,14 @@ void ShowSymbolsByAddress(IDiaSession *pSession)
 }  
 ```  
   
-## 要求  
- 标题:Dia2.h  
+## <a name="requirements"></a>要求  
+ 标头： Dia2.h  
   
- 库:diaguids.lib  
+ 库： diaguids.lib  
   
- DLL:msdia80.dll  
+ DLL: msdia80.dll  
   
-## 请参阅  
- [接口（调试接口访问 SDK）](../../debugger/debug-interface-access/interfaces-debug-interface-access-sdk.md)   
- [IDiaSession::getSymbolsByAddr](../../debugger/debug-interface-access/idiasession-getsymbolsbyaddr.md)   
+## <a name="see-also"></a>另请参阅  
+ [接口 （调试接口访问 SDK）](../../debugger/debug-interface-access/interfaces-debug-interface-access-sdk.md)   
+ [Idiasession:: Getsymbolsbyaddr](../../debugger/debug-interface-access/idiasession-getsymbolsbyaddr.md)   
  [IDiaEnumSymbols](../../debugger/debug-interface-access/idiaenumsymbols.md)

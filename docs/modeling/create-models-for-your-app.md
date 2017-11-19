@@ -1,11 +1,10 @@
 ---
-title: "为您的应用程序创建模型 |Microsoft 文档"
+title: "为你的应用程序创建模型 |Microsoft 文档"
 ms.custom: 
 ms.date: 11/04/2016
 ms.reviewer: 
 ms.suite: 
-ms.technology:
-- vs-devops-techdebt
+ms.technology: vs-devops-techdebt
 ms.tgt_pltfrm: 
 ms.topic: article
 f1_keywords:
@@ -23,40 +22,26 @@ helpviewer_keywords:
 - software, designing
 - software, modeling
 ms.assetid: b69d9d91-c7e7-4dee-8eb6-706076eecb85
-caps.latest.revision: 58
+caps.latest.revision: "58"
 author: alexhomer1
 ms.author: ahomer
 manager: douge
-translation.priority.ht:
-- cs-cz
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pl-pl
-- pt-br
-- ru-ru
-- tr-tr
-- zh-cn
-- zh-tw
-translationtype: Machine Translation
-ms.sourcegitcommit: 08aabdfe0e268f93ef7723076375b7f65b15ccf3
-ms.openlocfilehash: f56a72a337689c3f11b6b598c5459e75e747da37
-ms.lasthandoff: 02/22/2017
-
+ms.openlocfilehash: cc4455d507265376b9f208d8f351472ee6968c45
+ms.sourcegitcommit: aadb9588877418b8b55a5612c1d3842d4520ca4c
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="create-models-for-your-app"></a>为你的应用程序创建模型
 建模图有助于理解、阐明和传达代码的构思和软件系统必须支持的用户需求。
   
- 若要查看哪些版本的 Visual Studio 支持每种类型的关系图，请参阅[体系结构和建模工具的版本支持](../modeling/what-s-new-for-design-in-visual-studio.md#VersionSupport)。  
+ 若要查看支持每种类型的关系图的 Visual Studio 的版本，请参阅[体系结构和建模工具的版本支持](../modeling/what-s-new-for-design-in-visual-studio.md#VersionSupport)。  
   
  若要可视化系统的体系结构或现有代码，请创建以下关系图：  
   
 |**关系图**|**显示**|  
 |-----------------|---------------|  
-|[依赖项关系图︰ 准则](../modeling/layer-diagrams-guidelines.md)<br /><br /> [依赖项关系图︰ 参考](../modeling/layer-diagrams-reference.md)|系统的上层体系结构|  
+|[依赖项关系图：指南](../modeling/layer-diagrams-guidelines.md)<br /><br /> [依赖项关系图：参考](../modeling/layer-diagrams-reference.md)|系统的上层体系结构|  
 |代码图<br /><br /> [映射解决方案中的依赖项](../modeling/map-dependencies-across-your-solutions.md)<br /><br /> [使用代码图分析查找潜在问题](../modeling/find-potential-problems-using-code-map-analyzers.md)|现有代码中的依赖关系和其他关系|  
 |代码生成的类图<br /><br /> [使用类图（类设计器）](../ide/working-with-class-diagrams-class-designer.md)|.NET 代码中的类型及其关系|  
   
@@ -73,7 +58,6 @@ ms.lasthandoff: 02/22/2017
   
 ## <a name="external-resources"></a>外部资源  
   
-|**类别**|**链接**|  
+|**类别**|**Links**|  
 |------------------|---------------|  
-|**论坛**|-   [Visual Studio 可视化 & 建模工具](http://go.microsoft.com/fwlink/?LinkId=184720)<br />-   [Visual Studio 可视化 & 建模 SDK （DSL 工具）](http://go.microsoft.com/fwlink/?LinkId=184721)|
-
+|**论坛**|-   [Visual Studio 可视化和建模工具](http://go.microsoft.com/fwlink/?LinkId=184720)<br />-   [Visual Studio 可视化和建模 SDK（DSL 工具）](http://go.microsoft.com/fwlink/?LinkId=184721)|

@@ -1,11 +1,10 @@
 ---
-title: 'CA1903: Use only API from targeted framework | Microsoft Docs'
+title: "CA1903： 使用仅目标框架中的 API |Microsoft 文档"
 ms.custom: 
 ms.date: 11/04/2016
 ms.reviewer: 
 ms.suite: 
-ms.technology:
-- vs-devops-test
+ms.technology: vs-ide-code-analysis
 ms.tgt_pltfrm: 
 ms.topic: article
 f1_keywords:
@@ -15,73 +14,58 @@ helpviewer_keywords:
 - UseOnlyApiFromTargetedFramework
 - CA1903
 ms.assetid: efdb5cc7-bbd8-4fa7-9fff-02b91e59350e
-caps.latest.revision: 8
-author: stevehoag
-ms.author: shoag
-manager: wpickett
-translation.priority.ht:
-- cs-cz
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pl-pl
-- pt-br
-- ru-ru
-- tr-tr
-- zh-cn
-- zh-tw
-ms.translationtype: HT
-ms.sourcegitcommit: eb5c9550fd29b0e98bf63a7240737da4f13f3249
-ms.openlocfilehash: ec60623b651e990d77895d3c4eeef90cd69222a1
-ms.contentlocale: zh-cn
-ms.lasthandoff: 08/30/2017
-
+caps.latest.revision: "8"
+author: gewarren
+ms.author: gewarren
+manager: ghogen
+ms.openlocfilehash: 7caff553adfd812e671a2d8643b2352d9868ca43
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# <a name="ca1903-use-only-api-from-targeted-framework"></a>CA1903: Use only API from targeted framework
+# <a name="ca1903-use-only-api-from-targeted-framework"></a>CA1903：仅使用目标框架中的 API
 |||  
 |-|-|  
 |TypeName|UseOnlyApiFromTargetedFramework|  
 |CheckId|CA1903|  
-|Category|Microsoft.Portability|  
-|Breaking Change|Breaking - when fired against the signature of an externally visible member or type.<br /><br /> Non breaking - when fired in the body of a method.|  
+|类别|Microsoft.Portability|  
+|是否重大更改|是-如果引发对该签名的外部可见成员或类型。<br /><br /> 非重大更改的方法的正文中激发时。|  
   
-## <a name="cause"></a>Cause  
- A member or type is using a member or type that was introduced in a service pack that was not included with the project's targeted framework.  
+## <a name="cause"></a>原因  
+ 成员或类型使用一个成员或未包含与项目的目标框架的 service pack 中引入的类型。  
   
-## <a name="rule-description"></a>Rule Description  
- New members and types were included in .NET Framework 2.0 Service Pack 1 and 2, .NET Framework 3.0 Service Pack 1 and 2, and .NET Framework 3.5 Service Pack 1. Projects that target the major versions of the .NET Framework can unintentionally take dependencies on these new APIs. To prevent this dependency, this rule fires on usages of any new members and types that were not included by default with the project's target framework.  
+## <a name="rule-description"></a>规则说明  
+ 新成员和类型均包含在.NET Framework 2.0 Service Pack 1 和 2，.NET Framework 3.0 Service Pack 1 和 2 和.NET Framework 3.5 Service Pack 1。 面向.NET Framework 的主要版本的项目可能会无意中需要依赖这些新的 Api。 若要防止此依赖关系，将引发此规则上的任何新的成员和类型不包含默认情况下，与项目的目标框架的用法。  
   
- **Target Framework and Service Pack Dependencies**  
+ **目标框架和服务包依赖关系**  
   
 |||  
 |-|-|  
-|When target framework is|Fires on usages of members introduced in|  
-|.NET Framework 2.0|.NET Framework 2.0 SP1, .NET Framework 2.0 SP2|  
-|.NET Framework 3.0|.NET Framework 2.0 SP1, .NET Framework 2.0 SP2, .NET Framework 3.0 SP1, .NET Framework 3.0 SP2|  
+|目标框架时|在中引入的成员的用法激发|  
+|.NET Framework 2.0|.NET framework 2.0 SP1、.NET Framework 2.0 SP2|  
+|.NET Framework 3.0|.NET framework 2.0 SP1、.NET Framework 2.0 SP2、.NET Framework 3.0 SP1、.NET Framework 3.0 SP2|  
 |.NET Framework 3.5|.NET Framework 3.5 SP1|  
-|.NET Framework 4|N/A|  
+|.NET Framework 4|不可用|  
   
- To change a project's target framework, see [Targeting a Specific .NET Framework Version](../ide/targeting-a-specific-dotnet-framework-version.md).  
+ 若要更改项目的目标框架，请参阅[面向特定的.NET Framework 版本](../ide/targeting-a-specific-dotnet-framework-version.md)。  
   
-## <a name="how-to-fix-violations"></a>How to Fix Violations  
- To remove the dependency on the service pack, remove all usages of the new member or type. If this is a deliberate dependency, either suppress the warning or turn this rule off.  
+## <a name="how-to-fix-violations"></a>如何解决冲突  
+ 若要删除的服务包的依赖，删除所有使用新成员或类型的实例。 如果这是有意的依赖项，则禁止显示警告，或关闭此规则。  
   
-## <a name="when-to-suppress-warnings"></a>When to Suppress Warnings  
- Do not suppress a warning from this rule if this was not a deliberate dependency on the specified service pack. In this situation, your application might fail to run on systems without this service pack installed. Suppress the warning or turn this rule off if this was a deliberate dependency.  
+## <a name="when-to-suppress-warnings"></a>何时禁止显示警告  
+ 如果这不是故意依赖于指定的服务包不禁止显示此规则的警告。 在此情况下，你的应用程序可能无法在系统上运行不带安装此 service pack。 禁止显示警告，或如果这是有意的依赖项关闭此规则。  
   
-## <a name="example"></a>Example  
- The following example shows a class that uses the type DateTimeOffset that is only available in .NET 2.0 Service Pack 1. This example requires that .NET Framework 2.0 has been selected in the Target Framework drop-down list in the Project properties.  
+## <a name="example"></a>示例  
+ 下面的示例演示使用类型选项仅适用于.NET 2.0 Service Pack 1 的 DateTimeOffset 的类。 此示例需要的项目属性中的目标框架下拉列表中已选择了.NET Framework 2.0。  
   
  [!code-csharp[FxCop.Portability.UseOnlyApiFromTargetedFramework#1](../code-quality/codesnippet/CSharp/ca1903-use-only-api-from-targeted-framework_1.cs)]  
   
-## <a name="example"></a>Example  
- The following example fixes the previously described violation by replacing usages of the DateTimeOffset type with the DateTime type.  
+## <a name="example"></a>示例  
+ 下面的示例通过将替换为 DateTime 类型的 DateTimeOffset 类型用法修复了前面所述的冲突。  
   
  [!code-csharp[FxCop.Portability.UseOnlyApiFromTargetedFramework2#1](../code-quality/codesnippet/CSharp/ca1903-use-only-api-from-targeted-framework_2.cs)]  
   
-## <a name="see-also"></a>See Also  
- [Portability Warnings](../code-quality/portability-warnings.md)   
- [Targeting a Specific .NET Framework Version](../ide/targeting-a-specific-dotnet-framework-version.md)
+## <a name="see-also"></a>另请参阅  
+ [可移植性警告](../code-quality/portability-warnings.md)   
+ [面向特定的 .NET Framework 版本](../ide/targeting-a-specific-dotnet-framework-version.md)

@@ -1,101 +1,102 @@
 ---
-title: "Troubleshooting Service References | Microsoft Docs"
-ms.custom: ""
-ms.date: "12/15/2016"
-ms.prod: "visual-studio-dev14"
-ms.reviewer: ""
-ms.suite: ""
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "msvse_wcf.Err.ReferenceGroup_NamespaceConflictsOther"
-  - "msvse_wcf.Err.AddSvcRefDlg_NothingSelectedOnGo"
-  - "msvse_wcf.Err.ErrorOnOK"
-  - "msvse_wcf.cfg.ConfigurationErrorsException"
-helpviewer_keywords: 
-  - "service references [Visual Studio], troubleshooting"
-  - "WCF services, troubleshooting"
+title: "服务引用疑难解答 |Microsoft 文档"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords:
+- msvse_wcf.Err.ReferenceGroup_NamespaceConflictsOther
+- msvse_wcf.Err.AddSvcRefDlg_NothingSelectedOnGo
+- msvse_wcf.Err.ErrorOnOK
+- msvse_wcf.cfg.ConfigurationErrorsException
+helpviewer_keywords:
+- service references [Visual Studio], troubleshooting
+- WCF services, troubleshooting
 ms.assetid: 3b531120-1325-4734-90c6-6e6113bd12ac
-caps.latest.revision: 22
-caps.handback.revision: 20
-author: "mikeblome"
-ms.author: "mblome"
-manager: "ghogen"
+caps.latest.revision: "22"
+author: gewarren
+ms.author: gewarren
+manager: ghogen
+ms.technology: vs-data-tools
+ms.openlocfilehash: e46c8bf778ff18ea25096e524716bcb44916f460
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# Troubleshooting Service References
-本主题列出了在 [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] 中使用 [!INCLUDE[vsindigo](../data-tools/includes/vsindigo_md.md)]或 [!INCLUDE[ssAstoria](../data-tools/includes/ssastoria_md.md)]引用时可能会发生的常见问题。  
+# <a name="troubleshooting-service-references"></a>服务引用疑难解答
+本主题列出了你正在使用时可能发生的常见问题[!INCLUDE[vsindigo](../data-tools/includes/vsindigo_md.md)]或[!INCLUDE[ssAstoria](../data-tools/includes/ssastoria_md.md)]中引用[!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)]。  
   
-## 从服务返回数据时出错  
- 当您从服务返回 `DataSet` 或 `DataTable` 时，可能会收到“已超过传入消息的最大大小配额”异常。  默认情况下，某些绑定的 `MaxReceivedMessageSize` 属性设置为相对较小的值，以限制受到拒绝服务攻击的可能性。  您可以增大此值以防止出现此异常。  有关更多信息，请参见 <xref:System.ServiceModel.BasicHttpBinding.MaxReceivedMessageSize%2A>。  
+## <a name="error-returning-data-from-a-service"></a>从服务返回数据时出错  
+ 当您返回`DataSet`或`DataTable`从一种服务，你可能会收到"已超过为传入消息的最大大小配额"异常。 默认情况下，`MaxReceivedMessageSize`对于某些绑定的属性设置为一个相对较小的值，以降低遭受拒绝服务攻击。 您可以增大此值以避免此异常。 有关详细信息，请参阅<xref:System.ServiceModel.HttpBindingBase.MaxReceivedMessageSize%2A>。  
   
- 修复此错误的方法为：  
+ 若要修复此错误：  
   
-1.  在**“解决方案资源管理器”**中，双击 app.config 文件将其打开。  
+1.  在**解决方案资源管理器**，双击 app.config 文件以打开它。  
   
-2.  找到 `MaxReceivedMessageSize` 属性并将其更改为一个较大的值。  
+2.  找到`MaxReceivedMessageSize`属性并将它更改为更大的值。  
   
-## 在“我的解决方案”中找不到服务  
- 当您在**“添加服务引用”**对话框中单击**“发现”**按钮时，解决方案中的一个或多个 WCF 服务库项目不显示在服务列表中。  如果服务库已添加到解决方案中但尚未编译，则会发生这种情况。  
+## <a name="cannot-find-a-service-in-my-solution"></a>找不到我的解决方案中的服务  
+ 当你单击**发现**按钮**添加服务引用**对话框中，解决方案中的一个或多个 WCF 服务库项目并不出现在服务列表。 如果服务库已添加到解决方案，但尚未编译便会出现此问题。  
   
- 修复此错误的方法为：  
+ 若要修复此错误：  
   
--   在**“解决方案资源管理器”**中，右击相应的 WCF 服务库项目，再单击**“生成”**。  
+-   在**解决方案资源管理器**，右键单击 WCF 服务库项目，然后单击**生成**。  
   
-## 通过远程桌面访问服务时出错  
- 如果用户通过远程桌面连接访问 Web 承载的 WCF 服务并且该用户没有管理权限，则会采用 NTLM 身份验证。  如果用户没有管理权限，则该用户可能会收到如下错误消息：“HTTP 请求未经客户端身份验证方案‘Anonymous’授权。  从服务器收到的身份验证标头为‘NTLM’”。  
+## <a name="error-accessing-a-service-over-a-remote-desktop"></a>通过远程桌面访问服务时出错  
+ 如果用户访问 Web 承载的 WCF 服务通过远程桌面连接和用户不具有管理权限，则使用 NTLM 身份验证。 如果用户不具有管理权限，用户可能会收到以下错误消息:"HTTP 请求得到具有客户端身份验证方案匿名身份验证。 从服务器收到的身份验证标头已 NTLM。"  
   
- 修复此错误的方法为：  
+ 若要修复此错误：  
   
-1.  在网站项目中，打开**“属性”**页。  
+1.  在网站项目中，打开**属性**页。  
   
-2.  在**“启动选项”**选项卡上，清除**“NTLM 身份验证”**复选框。  
+2.  上**启动选项**选项卡上，清除**NTLM 身份验证**复选框。  
   
     > [!NOTE]
-    >  仅应对只包含 WCF 服务的网站关闭 NTLM 身份验证。  WCF 服务的安全性是通过 web.config 文件中的配置管理的。  因此无需进行 NTLM 身份验证。  
+    >  你应关闭仅针对以独占方式包含 WCF 服务的网站的 NTLM 身份验证。 WCF 服务的安全是通过 web.config 文件中的配置管理。 这使得 NTLM 身份验证不必要。  
   
- 有关更多信息，请参见[关于异常的疑难解答：System.ServiceModel.Security.MessageSecurityException](../misc/troubleshooting-exceptions-system-servicemodel-security-messagesecurityexception.md)。  
+## <a name="access-level-for-generated-classes-setting-has-no-effect"></a>生成的类的访问级别设置不起作用  
+ 设置**访问生成的类级别**选项**配置服务引用**对话框**内部**或**友元**可能无法始终工作。 尽管会显示该选项将在对话框中，将以一种访问级别的生成所产生的支持类`Public`。  
   
-## “生成的类的访问级别”设置无效  
- 将**“配置服务引用”**对话框中的**“生成的类的访问级别”**选项设置为**“Internal”**或**“Friend”**可能并不总是起作用。  尽管看起来在此对话框中设置了此选项，但所得到的支持类将是以 `Public` 访问级别生成的。  
+ 这是某些类型，如那些使用序列化的已知的限制<xref:System.Xml.Serialization.XmlSerializer>。  
   
- 这是某些类型（例如，那些使用 <xref:System.Xml.Serialization.XmlSerializer> 序列化的类型）的已知限制。  
+## <a name="error-debugging-service-code"></a>错误调试服务代码  
+ 当你单步执行 WCF 服务的代码从客户端代码时，你可能会收到与缺少符号相关的错误。 原因可能是你的解决方案的一部分的服务已移动或从解决方案中移除时。  
   
-## 调试服务代码时出错  
- 从客户端代码进入并单步执行 WCF 服务的代码时，您可能会收到一条与缺少符号有关的错误消息。  当作为解决方案组成部分的某项服务发生移动或从解决方案中移除时，可能会发生此情况。  
+ 第一次添加到了当前解决方案的一部分的 WCF 服务引用时，服务项目和服务客户端项目之间添加显式生成依赖项。 这可保证客户端始终访问最新的服务二进制文件，这一点尤为重要的调试方案，比如从客户端代码单步执行服务代码。  
   
- 第一次添加对作为当前解决方案组成部分的某项 WCF 服务的引用时，该服务项目和服务客户端项目之间会添加一个显式生成依赖项。  这样可以确保客户端能够始终访问最新的服务二进制文件，这对于调试方案（如从客户端代码进入并单步执行服务代码）尤其重要。  
+ 如果从解决方案中移除的服务项目，此显式生成依赖项将会失效。 Visual Studio 可以不再保证会重新生成服务项目，根据需要。  
   
- 如果从解决方案中移除该服务项目，此显式生成依赖项会失效。  Visual Studio 将无法再保证在必要时重新生成该服务项目。  
+ 若要修复此错误，你必须手动重新生成服务项目：  
   
- 若要修复此错误，必须手动重新生成该服务项目：  
+1.  在 **“工具”** 菜单上，单击 **“选项”**。  
   
-1.  在**“工具”**菜单上，单击**“选项”**。  
+2.  在**选项**对话框框中，展开**项目和解决方案**，然后选择**常规**。  
   
-2.  在**“选项”**对话框中展开**“项目和解决方案”**，然后选择**“常规”**。  
+3.  请确保**显示高级生成配置**复选框被选中，并且然后单击**确定**。  
   
-3.  确保已选中**“显示高级生成配置”**复选框，然后单击**“确定”**。  
+4.  加载该 WCF 服务项目。  
   
-4.  加载该 WCF 服务项目。  有关更多信息，请参见[如何：创建多项目解决方案](http://msdn.microsoft.com/zh-cn/02ecd6dd-0114-46fe-b335-ba9c5e3020d6)。  
+5.  在**Configuration Manager**对话框中，设置**活动解决方案配置**到**调试**。 有关详细信息，请参阅[如何：创建和编辑配置](../ide/how-to-create-and-edit-configurations.md)。  
   
-5.  在**“配置管理器”**对话框中，将**“活动解决方案配置”**设置为**“调试”**。  有关更多信息，请参见[如何：创建和编辑配置](../ide/how-to-create-and-edit-configurations.md)。  
+6.  在**解决方案资源管理器**，选择该 WCF 服务项目。  
   
-6.  在**“解决方案资源管理器”**中，选择该 WCF 服务项目。  
+7.  上**生成**菜单上，单击**重新生成**重新生成 WCF 服务项目。  
   
-7.  在**“生成”**菜单上，单击**“重新生成”**以重新生成该 WCF 服务项目。  
-  
-## WCF 数据服务未在浏览器中显示  
- 在尝试查看 [!INCLUDE[ss_data_service](../data-tools/includes/ss_data_service_md.md)]中数据的 XML 表示形式时，Internet Explorer 可能会将数据错误解释为 RSS 源。  必须确保禁用显示 RSS 源的选项。  
+## <a name="wcf-data-services-do-not-display-in-the-browser"></a>WCF 数据服务不会显示在浏览器  
+ 在尝试查看的 XML 表示形式中的数据[!INCLUDE[ss_data_service](../data-tools/includes/ss_data_service_md.md)]，Internet 资源管理器可能错误解释为 RSS 源的数据。 必须确保禁用显示 RSS 源的选项。  
   
  若要修复此错误，请禁用 RSS 源：  
   
-1.  在 Internet Explorer 的**“工具”**菜单上，单击**“Internet 选项”**。  
+1.  在 Internet Explorer 中，在**工具**菜单上，单击**Internet 选项**。  
   
-2.  在**“内容”**选项卡上的**“源”**区域内单击**“设置”**。  
+2.  上**内容**选项卡上，在**馈送**部分中，单击**设置**。  
   
-3.  在**“源设置”**对话框中，清除**“打开源阅读视图”**复选框，然后单击**“确定”**。  
+3.  在**源设置**对话框中，清除**打开源阅读视图**复选框，并依次**确定**。  
   
-4.  单击**“确定”**关闭**“Internet 选项”**对话框。  
+4.  单击**确定**关闭**Internet 选项**对话框。  
   
-## 请参阅  
- [Windows Communication Foundation Services and WCF Data Services in Visual Studio](../data-tools/windows-communication-foundation-services-and-wcf-data-services-in-visual-studio.md)   
- [Consuming ASMX and WCF Services Sample](http://msdn.microsoft.com/zh-cn/788ddf2c-2ac1-416b-8789-2fbb1e29b8fe)
+## <a name="see-also"></a>另请参阅  
+ [Visual Studio 中的 Windows Communication Foundation 服务和 WCF 数据服务](../data-tools/windows-communication-foundation-services-and-wcf-data-services-in-visual-studio.md)

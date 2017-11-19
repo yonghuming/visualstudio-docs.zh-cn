@@ -1,27 +1,30 @@
 ---
-title: "IActiveScriptAuthor::AddTypeLib | Microsoft Docs"
-ms.custom: ""
-ms.date: "01/18/2017"
-ms.prod: "windows-script-interfaces"
-ms.reviewer: ""
-ms.suite: ""
-ms.tgt_pltfrm: ""
-ms.topic: "reference"
+title: "IActiveScriptAuthor::AddTypeLib |Microsoft 文档"
+ms.custom: 
+ms.date: 01/18/2017
+ms.prod: windows-script-interfaces
+ms.reviewer: 
+ms.suite: 
+ms.tgt_pltfrm: 
+ms.topic: reference
 apiname: IActiveScriptAuthor.AddTypeLib
 apilocation: scrobj.dll
-helpviewer_keywords: 
-  - "IActiveScriptAuthor::AddTypeLib"
+helpviewer_keywords: IActiveScriptAuthor::AddTypeLib
 ms.assetid: d6696547-3eb5-4f31-9c5c-60aa29b6f083
-caps.latest.revision: 9
-author: "mikejo5000"
-ms.author: "mikejo"
-manager: "ghogen"
-caps.handback.revision: 9
+caps.latest.revision: "9"
+author: mikejo5000
+ms.author: mikejo
+manager: ghogen
+ms.openlocfilehash: 150628f1822c721f1e349005de457951e226ef1b
+ms.sourcegitcommit: aadb9588877418b8b55a5612c1d3842d4520ca4c
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/27/2017
 ---
-# IActiveScriptAuthor::AddTypeLib
-添加一个类型库到脚本的命名空间。  
+# <a name="iactivescriptauthoraddtypelib"></a>IActiveScriptAuthor::AddTypeLib
+将类型库添加到脚本的命名空间。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
 ```  
 HRESULT AddTypeLib(  
@@ -32,30 +35,30 @@ HRESULT AddTypeLib(
 );  
 ```  
   
-#### 参数  
+#### <a name="parameters"></a>参数  
  `rguidTypeLib`  
- \[in\] CLSID \(选件类标识符\)类型要添加的库。  
+ [in]CLSID （类标识符） 的类型库添加。  
   
  `dwMajor`  
- \[in\]主版本号。  
+ [in]主版本号。  
   
  `dwMinor`  
- \[out\]一次版本号。  
+ [in]次版本号。  
   
  `dwFlags`  
- \[in\] 未使用。  
+ [in]未使用。  
   
-## 返回值  
- 一个 `HRESULT`。  可能的值包括，但是，并不限于，这些下表中。  
+## <a name="return-value"></a>返回值  
+ 一个 `HRESULT`。 可能的值包括（但并不限于）下表中的项。  
   
-|值|说明|  
-|-------|--------|  
+|值|描述|  
+|-----------|-----------------|  
 |`S_OK`|方法成功。|  
   
-## 备注  
- 此方法调用 `LoadTypeLib` 加载该类型库。  在成功，此方法调用 `IActiveScriptAuthor::AddNamedItem` 添加类型信息。  
+## <a name="remarks"></a>备注  
+ 此方法调用`LoadTypeLib`可加载类型库。 此方法调用成功之后，`IActiveScriptAuthor::AddNamedItem`添加类型信息。  
   
-## 请参阅  
+## <a name="see-also"></a>另请参阅  
  [IActiveScriptAuthor 接口](../../winscript/reference/iactivescriptauthor-interface.md)   
  [IActiveScriptAuthor::AddNamedItem](../../winscript/reference/iactivescriptauthor-addnameditem.md)   
- [LoadTypeLib](http://msdn.microsoft.com/zh-cn/155b48e5-5438-409e-9342-630a6a500f60)
+ [LoadTypeLib](http://msdn.microsoft.com/en-us/155b48e5-5438-409e-9342-630a6a500f60)

@@ -1,52 +1,51 @@
 ---
-title: "IDiaLineNumber::get_addressSection | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-debug"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-dev_langs: 
-  - "C++"
-helpviewer_keywords: 
-  - "IDiaLineNumber::get_addressSection 方法"
+title: "Idialinenumber:: Get_addresssection |Microsoft 文档"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology: vs-ide-debug
+ms.tgt_pltfrm: 
+ms.topic: article
+dev_langs: C++
+helpviewer_keywords: IDiaLineNumber::get_addressSection method
 ms.assetid: a01c1bae-04b2-4c30-8621-60939a3124c2
-caps.latest.revision: 8
-author: "mikejo5000"
-ms.author: "mikejo"
-manager: "ghogen"
-caps.handback.revision: 8
+caps.latest.revision: "8"
+author: mikejo5000
+ms.author: mikejo
+manager: ghogen
+ms.openlocfilehash: e12b06df539ba8b4250905c0fd5d5f66539018e0
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# IDiaLineNumber::get_addressSection
-[!INCLUDE[vs2017banner](../../code-quality/includes/vs2017banner.md)]
-
-检索块启动内存地址的部分部件。  
+# <a name="idialinenumbergetaddresssection"></a>IDiaLineNumber::get_addressSection
+检索一个块的开始处的内存地址的部分部分。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
-```cpp#  
-HRESULT get_addressSection (   
-   DWORD* pRetVal  
+```C++  
+HRESULT get_addressSection (   
+   DWORD* pRetVal  
 );  
 ```  
   
-#### 参数  
+#### <a name="parameters"></a>参数  
  pRetVal  
- \[out\] 返回块启动内存地址的部分部件。  
+ [out]返回一个块的开始处的内存地址的部分部分。  
   
-## 返回值  
- 如果成功，则返回 `S_OK`。  ，如果此属性不受支持，返回 `S_FALSE` 。  否则，返回错误代码。  
+## <a name="return-value"></a>返回值  
+ 如果成功，则返回`S_OK`。 返回`S_FALSE`如果不支持此属性。 否则，返回错误代码。  
   
-## 示例  
+## <a name="example"></a>示例  
   
-```cpp#  
+```C++  
 CComPtr< IDiaLineNumber > pLine;  
 DWORD seg;  
 pLine->get_addressSection( &seg );  
 ```  
   
-## 请参阅  
+## <a name="see-also"></a>另请参阅  
  [IDiaLineNumber](../../debugger/debug-interface-access/idialinenumber.md)   
- [IDiaLineNumber::get\_addressOffset](../../debugger/debug-interface-access/idialinenumber-get-addressoffset.md)
+ [IDiaLineNumber::get_addressOffset](../../debugger/debug-interface-access/idialinenumber-get-addressoffset.md)

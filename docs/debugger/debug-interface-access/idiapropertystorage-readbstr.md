@@ -1,50 +1,49 @@
 ---
-title: "IDiaPropertyStorage::ReadBSTR | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-debug"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-dev_langs: 
-  - "C++"
-helpviewer_keywords: 
-  - "IDiaPropertyStorage::ReadBSTR"
+title: "IDiaPropertyStorage::ReadBSTR |Microsoft 文档"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology: vs-ide-debug
+ms.tgt_pltfrm: 
+ms.topic: article
+dev_langs: C++
+helpviewer_keywords: IDiaPropertyStorage::ReadBSTR
 ms.assetid: 7214643b-3286-48ed-90aa-0fe95b4cae5b
-caps.latest.revision: 8
-author: "mikejo5000"
-ms.author: "mikejo"
-manager: "ghogen"
-caps.handback.revision: 8
+caps.latest.revision: "8"
+author: mikejo5000
+ms.author: mikejo
+manager: ghogen
+ms.openlocfilehash: 93ab7271ccef1819e16e4cdb4c690f82bfaeec35
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# IDiaPropertyStorage::ReadBSTR
-[!INCLUDE[vs2017banner](../../code-quality/includes/vs2017banner.md)]
-
-阅读设置的属性的 `BSTR` 值。  
+# <a name="idiapropertystoragereadbstr"></a>IDiaPropertyStorage::ReadBSTR
+读取`BSTR`属性组中的值。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
-```cpp#  
-HRESULT ReadBSTR (   
-   PROPID id,  
-   BSTR*  pValue  
+```C++  
+HRESULT ReadBSTR (   
+   PROPID id,  
+   BSTR*  pValue  
 );  
 ```  
   
-#### 参数  
+#### <a name="parameters"></a>参数  
  `id`  
- \[in\] 要读取的属性的标识符 \(`PROPID` 在 WTypes.h 中定义为 `ULONG`\)。  
+ [in]要读取的属性的标识符 (`PROPID`作为 WTypes.h 中定义`ULONG`)。  
   
  `pValue`  
- \[out\] 返回属性值。  
+ [out]返回属性值。  
   
-## 返回值  
- 如果成功，则返回; `S_OK`否则返回错误代码。  ，如果属性不是类型 `BSTR`，返回 `E_INVALIDARG` 。  
+## <a name="return-value"></a>返回值  
+ 如果成功，则返回`S_OK`; 否则返回错误代码。 返回`E_INVALIDARG`如果属性的类型不是`BSTR`。  
   
-## 备注  
- `BSTR` 是 windows 定义为零结尾的宽字符字符串。  
+## <a name="remarks"></a>备注  
+ A`BSTR`定义的零终止宽字符字符串形式的 Windows。  
   
-## 请参阅  
+## <a name="see-also"></a>另请参阅  
  [IDiaPropertyStorage](../../debugger/debug-interface-access/idiapropertystorage.md)

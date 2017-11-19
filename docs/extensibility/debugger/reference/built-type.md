@@ -1,68 +1,68 @@
 ---
-title: "BUILT_TYPE | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "BUILT_TYPE"
-helpviewer_keywords: 
-  - "BUILT_TYPE 结构"
+title: "BUILT_TYPE |Microsoft 文档"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology: vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords: BUILT_TYPE
+helpviewer_keywords: BUILT_TYPE structure
 ms.assetid: cc02c32c-0f65-4210-ad25-a9b1899066e8
-caps.latest.revision: 7
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 7
+caps.latest.revision: "7"
+author: gregvanl
+ms.author: gregvanl
+manager: ghogen
+ms.openlocfilehash: bd8536f48d2204d79398000cb8503d7e03191af8
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# BUILT_TYPE
-[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
-
-此结构指定有关从元数据中获取的字段类型的信息。  
+# <a name="builttype"></a>BUILT_TYPE
+此结构指定字段类型从元数据中获取有关的信息。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
-```cpp#  
+```cpp  
 typedef struct _tagTYPE_BUILT {  
-   ULONG32      ulAppDomainID;  
-   GUID         guidModule;  
-   IDebugField* pUnderlyingField;  
+   ULONG32      ulAppDomainID;  
+   GUID         guidModule;  
+   IDebugField* pUnderlyingField;  
 } BUILT_TYPE;  
 ```  
   
-```c#  
+```csharp  
 public struct BUILT_TYPE {  
-   public uint        ulAppDomainID;  
-   public Guid        guidModule;  
-   public IDebugField pUnderlyingField;  
+   public uint        ulAppDomainID;  
+   public Guid        guidModule;  
+   public IDebugField pUnderlyingField;  
 };  
 ```  
   
-#### 参数  
+#### <a name="parameters"></a>参数  
  ulAppDomainID  
- 符号来自应用程序的 ID。  用于唯一标识应用程序的实例。  
+ 符号源于应用程序 ID。 这用于唯一标识应用程序的实例。  
   
  guidModule  
- 包含此域模块的 GUID。  
+ 包含此字段的模块的 GUID。  
   
  pUnderlyingField  
- 标识基础字段的 [IDebugField](../../../extensibility/debugger/reference/idebugfield.md) 对象与此生成的字段。  
+ [IDebugField](../../../extensibility/debugger/reference/idebugfield.md)标识与此内置字段相关的基础字段的对象。  
   
-## 备注  
- 此结构显示为 [TYPE\_INFO](../../../extensibility/debugger/reference/type-info.md) 结构的联合一部分，当 `TYPE_INFO` 结构的 `dwKind` 字段设置为 `TYPE_KIND_BUILT` 时 \(从 [dwTYPE\_KIND](../../../extensibility/debugger/reference/dwtype-kind.md) 枚举的值\)。  
+## <a name="remarks"></a>备注  
+ 此结构显示为中的联合的一部分[TYPE_INFO](../../../extensibility/debugger/reference/type-info.md)结构时`dwKind`字段`TYPE_INFO`结构设置为`TYPE_KIND_BUILT`(从值[dwTYPE_KIND](../../../extensibility/debugger/reference/dwtype-kind.md)枚举）。  
   
-## 要求  
- 标题:sh.h  
+## <a name="requirements"></a>要求  
+ 标头： sh.h  
   
- 命名空间:Microsoft.VisualStudio.Debugger.Interop  
+ Namespace: Microsoft.VisualStudio.Debugger.Interop  
   
- 程序集:Microsoft.VisualStudio.Debugger.Interop.dll  
+ 程序集： Microsoft.VisualStudio.Debugger.Interop.dll  
   
-## 请参阅  
+## <a name="see-also"></a>另请参阅  
  [结构和联合](../../../extensibility/debugger/reference/structures-and-unions.md)   
- [TYPE\_INFO](../../../extensibility/debugger/reference/type-info.md)   
- [dwTYPE\_KIND](../../../extensibility/debugger/reference/dwtype-kind.md)   
+ [TYPE_INFO](../../../extensibility/debugger/reference/type-info.md)   
+ [dwTYPE_KIND](../../../extensibility/debugger/reference/dwtype-kind.md)   
  [IDebugField](../../../extensibility/debugger/reference/idebugfield.md)

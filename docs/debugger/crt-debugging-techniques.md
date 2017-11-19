@@ -1,46 +1,45 @@
 ---
-title: "CRT 调试方法 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-debug"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "c.runtime.debugging"
-dev_langs: 
-  - "FSharp"
-  - "VB"
-  - "CSharp"
-  - "C++"
-  - "C++"
-helpviewer_keywords: 
-  - "CRT, 调试"
-  - "调试 [C++], CRT 调试支持"
-  - "调试 [CRT]"
+title: "CRT 调试技术 |Microsoft 文档"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology: vs-ide-debug
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords: c.runtime.debugging
+dev_langs:
+- CSharp
+- VB
+- FSharp
+- C++
+helpviewer_keywords:
+- debugging [CRT]
+- CRT, debugging
+- debugging [C++], CRT debug support
 ms.assetid: 9be561f6-14a8-44ff-925d-d911d5b8e6ff
-caps.latest.revision: 20
-author: "mikejo5000"
-ms.author: "mikejo"
-manager: "ghogen"
-caps.handback.revision: 20
+caps.latest.revision: "20"
+author: mikejo5000
+ms.author: mikejo
+manager: ghogen
+ms.openlocfilehash: b4cab890c97599b8b925004b735e7f980f5ba2fd
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# CRT 调试方法
-[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
-
+# <a name="crt-debugging-techniques"></a>CRT 调试方法
 如果调试使用 C 运行库的程序，这些调试方法可能会有用。  
   
-## 本节内容  
+## <a name="in-this-section"></a>本节内容  
  [CRT 调试库使用](../debugger/crt-debug-library-use.md)  
  描述由 C 运行库提供的调试支持并提供有关访问这些工具的说明。  
   
  [用于报告的宏](../debugger/macros-for-reporting.md)  
- 提供有关 **\_RPTn** 和 **\_RPTFn** 宏（在 CRTDBG.H 中定义）的信息，它们取代了用于调试的 `printf` 语句。  
+ 相关信息提供**_RPTn**和**_RPTFn**宏 （在 CRTDBG 中定义。H)，它们取代了的`printf`语句进行调试。  
   
- [堆分配函数的“Debug”版本](../debugger/debug-versions-of-heap-allocation-functions.md)  
- 讨论堆分配函数的特殊“Debug”版本，包括：CRT 如何映射调用、显式调用它们的好处、如何避免转换、跟踪客户端块中单独的分配类型和不调用 \_DEBUG 的结果。  
+ [堆分配函数的调试版本](../debugger/debug-versions-of-heap-allocation-functions.md)  
+ 讨论堆分配函数的特殊“Debug”版本，包括：CRT 如何映射调用、显式调用它们的好处、如何避免转换、跟踪客户端块中单独的分配类型和不调用 _DEBUG 的结果。  
   
  [CRT 调试堆详细信息](../debugger/crt-debug-heap-details.md)  
  提供指向某些主题的链接，这些主题包括内存管理和调试堆，调试堆上的块类型，如何使用调试堆，堆状态报告函数，以及跟踪堆分配请求等。  
@@ -51,9 +50,9 @@ caps.handback.revision: 20
  [使用 CRT 库查找内存泄漏](../debugger/finding-memory-leaks-using-the-crt-library.md)  
  介绍有关使用调试器和 C 运行库检测和隔离内存泄漏的方法。  
   
-## 相关章节  
+## <a name="related-sections"></a>相关章节  
  [调试本机代码](../debugger/debugging-native-code.md)  
- 讨论 C 和 C\+\+ 应用程序的一些常见调试问题和技术。  
+ 讨论 C 和 C++ 应用程序的一些常见调试问题和技术。  
   
  [调试器安全](../debugger/debugger-security.md)  
  提供更为安全的调试的建议。

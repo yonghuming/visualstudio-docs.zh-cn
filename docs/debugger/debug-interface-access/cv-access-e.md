@@ -1,56 +1,55 @@
 ---
-title: "CV_access_e | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-debug"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-dev_langs: 
-  - "C++"
-helpviewer_keywords: 
-  - "CV_access_e 枚举"
+title: "CV_access_e |Microsoft 文档"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology: vs-ide-debug
+ms.tgt_pltfrm: 
+ms.topic: article
+dev_langs: C++
+helpviewer_keywords: CV_access_e enumeration
 ms.assetid: 33c05d65-abb4-4800-a382-54a3805ea7b0
-caps.latest.revision: 7
-author: "mikejo5000"
-ms.author: "mikejo"
-manager: "ghogen"
-caps.handback.revision: 7
+caps.latest.revision: "7"
+author: mikejo5000
+ms.author: mikejo
+manager: ghogen
+ms.openlocfilehash: 6112c72836c718dbd97ddfb62504186fdcf6ca33
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# CV_access_e
-[!INCLUDE[vs2017banner](../../code-quality/includes/vs2017banner.md)]
-
-指定范围可见性 \(访问级别\) 成员函数和变量。  
+# <a name="cvaccesse"></a>CV_access_e
+指定可见性 （访问级别） 成员函数和变量的作用的域。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
-```cpp#  
-typedef enum CV_access_e {   
-   CV_private   = 1,  
-   CV_protected = 2,  
-   CV_public    = 3  
+```C++  
+typedef enum CV_access_e {   
+   CV_private   = 1,  
+   CV_protected = 2,  
+   CV_public    = 3  
 } CV_access_e;  
 ```  
   
-## Elements  
- CV\_private  
- 成员有权访问私有。  
+## <a name="elements"></a>元素  
+ CV_private  
+ 成员具有私有访问权限。  
   
- CV\_protected  
- 保护成员访问。  
+ CV_protected  
+ 访问受保护成员。  
   
- CV\_public  
+ CV_public  
  成员具有公共访问权限。  
   
-## 备注  
- `friend` 访问说明符此处不包括，因为可以访问类的私有的和受保护的元素的非成员函数通常使用它。  使用 [IDiaSymbol::get\_symTag](../Topic/IDiaSymbol::get_symTag.md) 方法来查找具有 `SymTagFriend` 访问的符号。  
+## <a name="remarks"></a>备注  
+ `friend`此处访问说明符不包含原因通常由有权访问类的私有和受保护的元素的非成员函数。 使用[idiasymbol:: Get_symtag](../../debugger/debug-interface-access/idiasymbol-get-symtag.md)方法以查找具有符号`SymTagFriend`访问。  
   
-## 要求  
- 标题:cvconst.h  
+## <a name="requirements"></a>要求  
+ 标头： cvconst.h  
   
-## 请参阅  
+## <a name="see-also"></a>另请参阅  
  [枚举和结构](../../debugger/debug-interface-access/enumerations-and-structures.md)   
- [IDiaSymbol::get\_access](../../debugger/debug-interface-access/idiasymbol-get-access.md)   
- [IDiaSymbol::get\_symTag](../Topic/IDiaSymbol::get_symTag.md)
+ [Idiasymbol:: Get_access](../../debugger/debug-interface-access/idiasymbol-get-access.md)   
+ [IDiaSymbol::get_symTag](../../debugger/debug-interface-access/idiasymbol-get-symtag.md)

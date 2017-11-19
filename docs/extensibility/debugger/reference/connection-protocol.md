@@ -4,43 +4,26 @@ ms.custom:
 ms.date: 11/04/2016
 ms.reviewer: 
 ms.suite: 
-ms.technology:
-- vs-ide-sdk
+ms.technology: vs-ide-sdk
 ms.tgt_pltfrm: 
 ms.topic: article
-f1_keywords:
-- CONNECTION_PROTOCOL
-helpviewer_keywords:
-- CONNECTION_PROTOCOL enumeration
+f1_keywords: CONNECTION_PROTOCOL
+helpviewer_keywords: CONNECTION_PROTOCOL enumeration
 ms.assetid: 99df5865-8b36-486d-9f4c-d10ae2bc688a
-caps.latest.revision: 8
+caps.latest.revision: "8"
+author: gregvanl
 ms.author: gregvanl
 manager: ghogen
-translation.priority.mt:
-- cs-cz
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pl-pl
-- pt-br
-- ru-ru
-- tr-tr
-- zh-cn
-- zh-tw
+ms.openlocfilehash: 498090c71abb41fa7b0837bd608715db30df5e86
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
 ms.translationtype: MT
-ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
-ms.openlocfilehash: 2be5678704e9a5899c4ce7f5caba8cec1d8a21e6
-ms.contentlocale: zh-cn
-ms.lasthandoff: 09/26/2017
-
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# CONNECTION_PROTOCOL
+# <a name="connectionprotocol"></a>CONNECTION_PROTOCOL
 指示正在使用的调试服务器和调试包 (DE) 之间进行通信的协议。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
 ```cpp  
 typedef enum tagCONNECTION_PROTOCOL {  
@@ -66,7 +49,7 @@ public enum CONNECTION_PROTOCOL {
 };  
 ```  
   
-#### 参数  
+#### <a name="parameters"></a>参数  
  CONNECTION_NONE  
  已将没有连接到服务器。  
   
@@ -88,16 +71,16 @@ public enum CONNECTION_PROTOCOL {
  CONNECTION_OTHER  
  已建立连接的某些其他类型 （此值当前未使用）。  
   
-## 备注  
+## <a name="remarks"></a>备注  
  这些值返回从[GetConnectionProtocol](../../../extensibility/debugger/reference/idebugcoreserver3-getconnectionprotocol.md)方法。  
   
-## 要求  
+## <a name="requirements"></a>要求  
  标头： msdbg.h  
   
  Namespace: Microsoft.VisualStudio.Debugger.Interop  
   
  程序集： Microsoft.VisualStudio.Debugger.Interop.dll  
   
-## 另请参阅  
+## <a name="see-also"></a>另请参阅  
  [枚举](../../../extensibility/debugger/reference/enumerations-visual-studio-debugging.md)   
  [GetConnectionProtocol](../../../extensibility/debugger/reference/idebugcoreserver3-getconnectionprotocol.md)

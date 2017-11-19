@@ -1,11 +1,10 @@
 ---
-title: 'CA1801: Review unused parameters | Microsoft Docs'
+title: "CA1801： 检查未使用的参数 |Microsoft 文档"
 ms.custom: 
 ms.date: 11/04/2016
 ms.reviewer: 
 ms.suite: 
-ms.technology:
-- vs-devops-test
+ms.technology: vs-ide-code-analysis
 ms.tgt_pltfrm: 
 ms.topic: article
 f1_keywords:
@@ -16,73 +15,58 @@ helpviewer_keywords:
 - CA1801
 - ReviewUnusedParameters
 ms.assetid: 5d73545c-e153-4b7c-a7b2-be6bf5aca5be
-caps.latest.revision: 30
-author: stevehoag
-ms.author: shoag
-manager: wpickett
-translation.priority.ht:
-- cs-cz
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pl-pl
-- pt-br
-- ru-ru
-- tr-tr
-- zh-cn
-- zh-tw
-ms.translationtype: HT
-ms.sourcegitcommit: eb5c9550fd29b0e98bf63a7240737da4f13f3249
-ms.openlocfilehash: 3c640bad82bd7e84cafe1dcab69f565a9e6222c4
-ms.contentlocale: zh-cn
-ms.lasthandoff: 08/30/2017
-
+caps.latest.revision: "30"
+author: gewarren
+ms.author: gewarren
+manager: ghogen
+ms.openlocfilehash: 1bb8c38d1436ca687664f92bfe0ba6db1ccf68ea
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# <a name="ca1801-review-unused-parameters"></a>CA1801: Review unused parameters
+# <a name="ca1801-review-unused-parameters"></a>CA1801：检查未使用的参数
 |||  
 |-|-|  
 |TypeName|ReviewUnusedParameters|  
 |CheckId|CA1801|  
-|Category|Microsoft.Usage|  
-|Breaking Change|Non Breaking - If the member is not visible outside the assembly, regardless of the change you make.<br /><br /> Non Breaking - If you change the member to use the parameter within its body.<br /><br /> Breaking - If you remove the parameter and it is visible outside the assembly.|  
+|类别|Microsoft.Usage|  
+|是否重大更改|非重大更改-如果成员不是程序集，而不考虑所做的更改外部可见。<br /><br /> 非重大更改-如果你更改要使用其主体中的参数的成员。<br /><br /> 中断性-如果删除参数，并且它是程序集外部可见。|  
   
-## <a name="cause"></a>Cause  
- A method signature includes a parameter that is not used in the method body. This rule does not examine the following methods:  
+## <a name="cause"></a>原因  
+ 方法签名包含一个没有在方法体中使用的参数。 此规则将不检查以下方法：  
   
--   Methods referenced by a delegate.  
+-   引用的委托的方法。  
   
--   Methods used as event handlers.  
+-   作为事件处理程序使用的方法。  
   
--   Methods declared with the `abstract` (`MustOverride` in Visual Basic) modifier.  
+-   使用方法声明`abstract`(`MustOverride`在 Visual Basic 中) 修饰符。  
   
--   Methods declared with the `virtual` (`Overridable` in Visual Basic) modifier.  
+-   使用方法声明`virtual`(`Overridable`在 Visual Basic 中) 修饰符。  
   
--   Methods declared with the `override` (`Overrides` in Visual Basic) modifier.  
+-   使用方法声明`override`(`Overrides`在 Visual Basic 中) 修饰符。  
   
--   Methods declared with the `extern` (`Declare` statement in Visual Basic) modifier.  
+-   使用方法声明`extern`(`Declare`在 Visual Basic 中的语句) 修饰符。  
   
-## <a name="rule-description"></a>Rule Description  
- Review parameters in non-virtual methods that are not used in the method body to make sure no correctness exists around failure to access them. Unused parameters incur maintenance and performance costs.  
+## <a name="rule-description"></a>规则说明  
+ 检查在不使用的方法体中以确保不存在环绕故障对其进行访问的非虚拟方法中的参数。 未使用的参数会产生维护和性能成本。  
   
- Sometimes a violation of this rule can point to an implementation bug in the method. For example, the parameter should have been used in the method body. Suppress warnings of this rule if the parameter has to exist because of backward compatibility.  
+ 此规则的冲突有时，可能实现中的 bug 的方法。 例如，该参数应该具有已使用的方法体中。 如果该参数必须存在由于向后兼容性，禁止显示此规则的警告。  
   
-## <a name="how-to-fix-violations"></a>How to Fix Violations  
- To fix a violation of this rule, remove the unused parameter (a breaking change) or use the parameter in the method body (a non-breaking change).  
+## <a name="how-to-fix-violations"></a>如何解决冲突  
+ 若要修复与此规则的冲突，删除未使用的参数 （一项重大更改），或在方法体 （非重大更改） 中使用参数。  
   
-## <a name="when-to-suppress-warnings"></a>When to Suppress Warnings  
- It is safe to suppress a warning from this rule for previously shipped code for which the fix would be a breaking change.  
+## <a name="when-to-suppress-warnings"></a>何时禁止显示警告  
+ 则可以安全地禁止显示此规则，以前发布的解决方法将一项重大更改的代码的警告。  
   
-## <a name="example"></a>Example  
- The following example shows two methods. One method violates the rule and the other method satisfies the rule.  
+## <a name="example"></a>示例  
+ 下面的示例演示两种方法。 一种方法违反了规则和其他方法满足该规则。  
   
  [!code-csharp[FxCop.Usage.ReviewUnusedParameters#1](../code-quality/codesnippet/CSharp/ca1801-review-unused-parameters_1.cs)]  
   
-## <a name="related-rules"></a>Related Rules  
- [CA1811: Avoid uncalled private code](../code-quality/ca1811-avoid-uncalled-private-code.md)  
+## <a name="related-rules"></a>相关的规则  
+ [CA1811：避免使用未调用的私有代码](../code-quality/ca1811-avoid-uncalled-private-code.md)  
   
- [CA1812: Avoid uninstantiated internal classes](../code-quality/ca1812-avoid-uninstantiated-internal-classes.md)  
+ [CA1812：避免未实例化的内部类](../code-quality/ca1812-avoid-uninstantiated-internal-classes.md)  
   
- [CA1804: Remove unused locals](../code-quality/ca1804-remove-unused-locals.md)
+ [CA1804：移除未使用的局部变量](../code-quality/ca1804-remove-unused-locals.md)

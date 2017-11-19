@@ -1,49 +1,49 @@
 ---
-title: "CA2106：保护断言 | Microsoft Docs"
-ms.custom: ""
-ms.date: "12/14/2016"
-ms.prod: "visual-studio-dev14"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-devops-test"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "CA2106"
-  - "SecureAsserts"
-helpviewer_keywords: 
-  - "CA2106"
-  - "SecureAsserts"
+title: "CA2106： 保护断言 |Microsoft 文档"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology: vs-ide-code-analysis
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords:
+- CA2106
+- SecureAsserts
+helpviewer_keywords:
+- CA2106
+- SecureAsserts
 ms.assetid: 91feb36e-6e2c-436c-8272-5aee31f77e98
-caps.latest.revision: 19
-caps.handback.revision: 19
-author: "stevehoag"
-ms.author: "shoag"
-manager: "wpickett"
+caps.latest.revision: "19"
+author: gewarren
+ms.author: gewarren
+manager: ghogen
+ms.openlocfilehash: 321d00f13ebc891070549778239fec60201d03c4
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# CA2106：保护断言
-[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
-
+# <a name="ca2106-secure-asserts"></a>CA2106：保护断言
 |||  
 |-|-|  
-|类型名|SecureAsserts|  
+|TypeName|SecureAsserts|  
 |CheckId|CA2106|  
 |类别|Microsoft.Security|  
-|是否重大更改|是|  
+|是否重大更改|重大|  
   
-## 原因  
+## <a name="cause"></a>原因  
  某个方法断言权限，但不对调用方执行任何安全检查。  
   
-## 规则说明  
- 如果在不执行任何安全检查的情况下断言安全权限，则会在代码中留下可利用的安全漏洞。  断言安全权限后，安全堆栈审核随即停止。  如果在不对调用方执行任何检查的情况下断言权限，则该调用方可以使用您的权限来间接地执行代码。  只有当您确保不会以有害的方式使用断言时，才能允许无安全检查的断言。  如果您调用的代码是无害的，断言就是无害的，否则，用户无法将任意信息传递给您调用的代码。  
+## <a name="rule-description"></a>规则说明  
+ 如果在不执行任何安全检查的情况下断言安全权限，则会在代码中留下可利用的安全漏洞。 安全堆栈审核将停止时对以下安全权限进行断言。 如果在调用方执行任何检查的情况下断言权限，调用方无法通过使用你的权限间接地执行代码。 断言无安全检查是允许仅当你确信，该断言不能有害的方式。 声明是无害的如果您调用的代码不会造成损害，或用户不能将任意信息传递给调用的代码。  
   
-## 如何解决冲突  
- 若要修复与该规则的冲突，请向该方法或其声明类型中添加安全请求。  
+## <a name="how-to-fix-violations"></a>如何解决冲突  
+ 若要修复与此规则的冲突，添加对方法或其声明的类型安全要求。  
   
-## 何时禁止显示警告  
- 只有在仔细检查安全性之后，才能禁止显示此规则发出的警告。  
+## <a name="when-to-suppress-warnings"></a>何时禁止显示警告  
+ 禁止显示此规则仅在仔细的安全检查后的警告。  
   
-## 请参阅  
+## <a name="see-also"></a>另请参阅  
  <xref:System.Security.CodeAccessPermission.Assert%2A?displayProperty=fullName>   
- [代码安全维护指南](../Topic/Secure%20Coding%20Guidelines.md)
+ [安全编码准则](/dotnet/standard/security/secure-coding-guidelines)

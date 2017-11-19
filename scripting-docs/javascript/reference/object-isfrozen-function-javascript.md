@@ -1,81 +1,84 @@
 ---
-title: "Object.isFrozen 函数 (JavaScript) | Microsoft Docs"
-ms.custom: ""
-ms.date: "01/18/2017"
-ms.prod: "windows-client-threshold"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "devlang-javascript"
-ms.tgt_pltfrm: ""
-ms.topic: "language-reference"
-dev_langs: 
-  - "JavaScript"
-  - "TypeScript"
-  - "DHTML"
-helpviewer_keywords: 
-  - "isFrozen 函数 [JavaScript]"
-  - "Object.isFrozen 函数 [JavaScript]"
+title: "Object.isFrozen 函数 (JavaScript) |Microsoft 文档"
+ms.custom: 
+ms.date: 01/18/2017
+ms.prod: windows-client-threshold
+ms.reviewer: 
+ms.suite: 
+ms.technology: devlang-javascript
+ms.tgt_pltfrm: 
+ms.topic: language-reference
+dev_langs:
+- JavaScript
+- TypeScript
+- DHTML
+helpviewer_keywords:
+- isFrozen function [JavaScript]
+- Object.isFrozen function [JavaScript]
 ms.assetid: 6cf1bbc6-56e8-429b-8e2c-0024fa614acc
-caps.latest.revision: 10
-author: "mikejo5000"
-ms.author: "mikejo"
-manager: "ghogen"
-caps.handback.revision: 10
+caps.latest.revision: "10"
+author: mikejo5000
+ms.author: mikejo
+manager: ghogen
+ms.openlocfilehash: 3e1ccd11d5b4ef3b5f24dbfc8e815f0e3e156347
+ms.sourcegitcommit: aadb9588877418b8b55a5612c1d3842d4520ca4c
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/27/2017
 ---
-# Object.isFrozen 函数 (JavaScript)
-如果无法在对象中修改现有属性的特性和值，且无法向对象添加新属性，则返回 `true`。  
+# <a name="objectisfrozen-function-javascript"></a>Object.isFrozen 函数 (JavaScript)
+返回`true`如果在一个对象，无法修改现有属性的特性和值并不能将新属性添加到对象。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
-```javascript  
+```JavaScript  
 Object.isFrozen(object)  
 ```  
   
-#### 参数  
+#### <a name="parameters"></a>参数  
  `object`  
- 必需。  要测试的对象。  
+ 必需。 要测试的对象。  
   
-## 返回值  
- 如果满足下列所有条件，则为 `true`：  
+## <a name="return-value"></a>返回值  
+ `true`如果以下所有条件：  
   
--   对象是不可扩展的，这表示无法向对象添加新属性。  
+-   对象是不可扩展的指示不能将新属性添加到对象。  
   
--   `configurable` 特性对于所有现有属性为 `false`。  
+-   `configurable`属性是`false`的所有现有属性。  
   
--   `writable` 特性对于所有现有数据属性为 `false`。  
+-   `writable`属性是`false`的所有现有的数据属性。  
   
- 在该对象不具有现有属性的情况下，如果该对象是不可扩展的，则此函数返回 `true`。  
+ 如果该对象具有任何现有的属性，该函数将返回`true`的对象是否不可扩展。  
   
-## 异常  
- 如果 `object` 参数不是对象，则将引发 `TypeError` 异常。  
+## <a name="exceptions"></a>异常  
+ 如果`object`自变量不是一个对象，`TypeError`引发异常。  
   
-## 备注  
- 在某个属性的 `configurable` 特性为 `false` 时，无法更改该属性的特性，也无法删除该属性。  当 `writable` 为 `false` 时，无法更改数据属性值。  在 `configurable` 为 `false` 且 `writable` 为 `true` 时，可以更改 `value` 和 `writable` 特性。  
+## <a name="remarks"></a>备注  
+ 当`configurable`属性的属性`false`，无法更改属性特性，并且无法删除属性。 当`writable`是`false`，不能更改数据属性值。 当`configurable`是`false`和`writable`是`true`、`value`和`writable`属性已发生更改。  
   
- 有关如何设置属性的特性的信息，请参见 [Object.defineProperty 函数](../../javascript/reference/object-defineproperty-function-javascript.md)。  若要获取属性的特性，可使用 [Object.getOwnPropertyDescriptor 函数](../../javascript/reference/object-getownpropertydescriptor-function-javascript.md)。  
+ 有关如何设置属性特性的信息，请参阅[Object.defineProperty 函数](../../javascript/reference/object-defineproperty-function-javascript.md)。 若要获取属性的特性，可以使用[Object.getOwnPropertyDescriptor 函数](../../javascript/reference/object-getownpropertydescriptor-function-javascript.md)。  
   
-## 相关函数  
- 以下相关函数可阻止修改对象的特性。  
+## <a name="related-functions"></a>相关的函数  
+ 以下相关的函数防止修改对象属性。  
   
-|函数|对象已设置为不可扩展的|为每个属性将 `configurable` 设置为 `false`|为每个属性将 `writable` 设置为 `false`|  
-|--------|-----------------|---------------------------------------|-----------------------------------|  
-|[Object.preventExtensions](../../javascript/reference/object-preventextensions-function-javascript.md)|是|否|否|  
-|[Object.seal](../../javascript/reference/object-seal-function-javascript.md)|是|是|否|  
+|函数|由非可扩展对象|`configurable`设置为`false`每个属性|`writable`设置为`false`每个属性|  
+|--------------|------------------------------------|--------------------------------------------------------|----------------------------------------------------|  
+|[Object.preventExtensions](../../javascript/reference/object-preventextensions-function-javascript.md)|是|No|No|  
+|[Object.seal](../../javascript/reference/object-seal-function-javascript.md)|是|是|No|  
 |[Object.freeze](../../javascript/reference/object-freeze-function-javascript.md)|是|是|是|  
   
- 如果满足下表中标记的所有条件，则以下函数返回 `true`。  
+ 以下函数将返回`true`如果满足所有标记下表中的条件。  
   
-|函数|对象是否可扩展|为所有属性将 `configurable` 设置为 `false`|为所有数据属性将 `writable` 设置为 `false`|  
-|--------|-------------|---------------------------------------|-------------------------------------|  
-|[Object.isExtensible](../../javascript/reference/object-isextensible-function-javascript.md)|是|否|否|  
-|[Object.isSealed](../../javascript/reference/object-issealed-function-javascript.md)|否|是|否|  
-|`Object.isFrozen`|否|是|是|  
+|函数|对象是可扩展的？|`configurable`是`false`的所有属性？|`writable`是`false`的所有数据属性？|  
+|--------------|---------------------------|---------------------------------------------------|----------------------------------------------------|  
+|[Object.isExtensible](../../javascript/reference/object-isextensible-function-javascript.md)|是|No|No|  
+|[Object.isSealed](../../javascript/reference/object-issealed-function-javascript.md)|No|是|No|  
+|`Object.isFrozen`|No|是|是|  
   
-## 示例  
+## <a name="example"></a>示例  
  下面的示例阐释了 `Object.isFrozen` 函数的用法。  
   
-```javascript  
+```JavaScript  
 // Create an object that has two properties.  
 var obj = { pasta: "spaghetti", length: 10 };  
   
@@ -105,10 +108,10 @@ document.write (obj.pasta);
   
 ```  
   
-## 要求  
+## <a name="requirements"></a>要求  
  [!INCLUDE[jsv9](../../javascript/includes/jsv9-md.md)]  
   
-## 请参阅  
+## <a name="see-also"></a>另请参阅  
  [Object.preventExtensions 函数](../../javascript/reference/object-preventextensions-function-javascript.md)   
  [Object.seal 函数](../../javascript/reference/object-seal-function-javascript.md)   
  [Object.freeze 函数](../../javascript/reference/object-freeze-function-javascript.md)   

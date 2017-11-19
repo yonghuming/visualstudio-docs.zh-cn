@@ -1,69 +1,59 @@
 ---
-title: "如何：查找 ASP.NET 进程的名称 | Microsoft Docs"
-ms.custom: ""
-ms.date: "12/14/2016"
-ms.prod: "visual-studio-dev14"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-debug"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-dev_langs: 
-  - "FSharp"
-  - "VB"
-  - "CSharp"
-  - "C++"
-helpviewer_keywords: 
-  - "ASP.NET 调试, ASP.NET 进程"
-  - "ASP.NET 进程"
+title: "如何： 查找 ASP.NET 进程的名称 |Microsoft 文档"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology: vs-ide-debug
+ms.tgt_pltfrm: 
+ms.topic: article
+dev_langs:
+- CSharp
+- VB
+- FSharp
+- C++
+helpviewer_keywords:
+- ASP.NET debugging, ASP.NET process
+- ASP.NET process
 ms.assetid: 931a7597-b0f0-4a28-931d-46e63344435f
-caps.latest.revision: 29
-caps.handback.revision: 29
-author: "mikejo5000"
-ms.author: "mikejo"
-manager: "ghogen"
+caps.latest.revision: "29"
+author: mikejo5000
+ms.author: mikejo
+manager: ghogen
+ms.openlocfilehash: 03ae4956f0e16a4fb9267266ebc6b6c335c95eac
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# 如何：查找 ASP.NET 进程的名称
-[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
-
+# <a name="how-to-find-the-name-of-the-aspnet-process"></a>如何：查找 ASP.NET 进程的名称
 若要附加到正在运行的 [!INCLUDE[vstecasp](../code-quality/includes/vstecasp_md.md)] 应用程序，您必须知道 [!INCLUDE[vstecasp](../code-quality/includes/vstecasp_md.md)] 进程的名称：  
+
+-   如果你在 IIS 或 IISExpress 上运行 ASP.NET 核心，进程名称是 dotnet.exe。
+
+-   如果你运行 ASP.NET IIS 6.0 上更高版本，则名称为 w3wp.exe。  
   
--   如果正在运行 IIS 6.0 或 IIS 7.0，则名称为 w3wp.exe。  
+-   如果你在早期版本的 IIS 上运行 ASP.NET，名称为 aspnet_wp.exe。
+
+-   如果你正在 IISExpress 上运行 ASP.NET，名称为 iisexpress.exe。
   
--   如果正在运行 IIS 的早期版本，则该进程的名称为 aspnet\_wp.exe。  
+通过使用 Visual Studio 2012 之前的 Visual Studio 的版本生成的应用程序[!INCLUDE[vstecasp](../code-quality/includes/vstecasp_md.md)]代码可能驻留在文件系统，并在测试服务器 WebDev.WebServer.exe 或 WebDev.WebServer40.exe 下运行。 在这种情况下，必须将附加到 WebDev.WebServer.exe 或而不是 WebDev.WebServer40.exe[!INCLUDE[vstecasp](../code-quality/includes/vstecasp_md.md)]过程。 此方案仅适用于本地调试。
   
- 对于使用 [!INCLUDE[vsprvslong](../code-quality/includes/vsprvslong_md.md)] 或更高版本生成的应用程序，[!INCLUDE[vstecasp](../code-quality/includes/vstecasp_md.md)] 代码可能驻留在文件系统上并在测试服务器 WebDev.WebServer.exe 下运行。  在这种情况下，必须附加到 WebDev.WebServer.exe 而不是 [!INCLUDE[vstecasp](../code-quality/includes/vstecasp_md.md)] 进程。  此方案仅适用于本地调试。  
+当原来的 ASP 应用程序在进程内运行时，它们会在 IIS 进程 inetinfo.exe 内部运行。  
+
+### <a name="to-determine-the-iis-version-under-which-the-application-is-running"></a>确定应用程序正在哪个 IIS 版本下运行  
+
+1.  请确保应用程序正在运行，然后，从 Visual Studio 中，使用[附加到进程](../debugger/attach-to-running-processes-with-the-visual-studio-debugger.md)命令。
+
+2.  键入类似 w3wp.exe 以进行快速查找中的进程的进程名称的首字母**可用进程**列表。
+
+    本主题中的列表中的可用进程将指示的 IIS 的版本可用，以及哪个进程正在运行你的应用程序。
+
+    > [!NOTE]
+    > 从 Visual Studio 2017 年 1 开始，你可以使用搜索框中搜索进程名称。
   
- 当原来的 ASP 应用程序在进程内运行时，它们会在 IIS 进程 inetinfo.exe 内部运行。  
-  
-> [!NOTE]
->  显示的对话框和菜单命令可能会与“帮助”中的描述不同，具体取决于您现用的设置或版本。  若要更改设置，请在**“工具”**菜单上选择**“导入和导出设置”**。  有关详细信息，请参阅 [Customizing Development Settings in Visual Studio](http://msdn.microsoft.com/zh-cn/22c4debb-4e31-47a8-8f19-16f328d7dcd3)。  
-  
-### 确定项目代码驻留在文件系统上还是 IIS 上  
-  
-1.  在 Visual Studio 中打开**“解决方案资源管理器”**（如果它尚未打开）。  
-  
-2.  选择包含该应用程序名称的顶部节点。  
-  
-3.  如果**“属性”**窗口标题包含文件路径，则应用程序代码驻留在文件系统上。  
-  
-     否则，**“属性”**窗口标题将包含网站的名称。  
-  
-### 确定应用程序正在哪个 IIS 版本下运行  
-  
-1.  找到**“管理工具”**并运行它。  根据操作系统的不同，该“管理工具”可能是**“控制面板”**中的一个图标，也可能是单击**“开始”**时显示的一个菜单项。  
-  
-     在 Windows XP 中，**“控制面板”**可以采用分类视图或经典视图。  在分类视图中，需要单击**“切换到经典视图”**或**“性能和维护”**才能看到**“管理工具”**图标。  
-  
-2.  从**“管理工具”**运行 Internet 信息服务。  将出现一个 MMC 对话框。  
-  
-3.  如果左侧窗格中列出了多个计算机，请选择驻留了该应用程序代码的那个计算机。  
-  
-4.  IIS 版本显示在右窗格的**“版本”**列中。  
-  
-## 请参阅  
+## <a name="see-also"></a>另请参阅  
+ [附加到正在运行的进程](../debugger/attach-to-running-processes-with-the-visual-studio-debugger.md)  
  [远程调试 Web 应用程序的必备组件](../debugger/prerequistes-for-remote-debugging-web-applications.md)   
  [系统要求](../debugger/aspnet-debugging-system-requirements.md)   
- [调试 ASP.NET 的准备工作](../debugger/preparing-to-debug-aspnet.md)   
- [调试 Web 应用程序和脚本](../debugger/debugging-web-applications-and-script.md)
+ [调试 ASP.NET 应用程序](../debugger/how-to-enable-debugging-for-aspnet-applications.md)

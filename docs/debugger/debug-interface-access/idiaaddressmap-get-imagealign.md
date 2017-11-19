@@ -1,47 +1,46 @@
 ---
-title: "IDiaAddressMap::get_imageAlign | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-debug"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-dev_langs: 
-  - "C++"
-helpviewer_keywords: 
-  - "IDiaAddressMap::get_imageAlign 方法"
+title: "Idiaaddressmap:: Get_imagealign |Microsoft 文档"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology: vs-ide-debug
+ms.tgt_pltfrm: 
+ms.topic: article
+dev_langs: C++
+helpviewer_keywords: IDiaAddressMap::get_imageAlign method
 ms.assetid: f1ba8071-669c-4cf7-9ac0-02f26d99f366
-caps.latest.revision: 8
-author: "mikejo5000"
-ms.author: "mikejo"
-manager: "ghogen"
-caps.handback.revision: 8
+caps.latest.revision: "8"
+author: mikejo5000
+ms.author: mikejo
+manager: ghogen
+ms.openlocfilehash: e3c9400fe8261b8983c76d59a55e7c457d35e572
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# IDiaAddressMap::get_imageAlign
-[!INCLUDE[vs2017banner](../../code-quality/includes/vs2017banner.md)]
-
-检索当前图像对齐。  
+# <a name="idiaaddressmapgetimagealign"></a>IDiaAddressMap::get_imageAlign
+检索当前的图像对齐方式。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
-```cpp#  
-HRESULT get_imageAlign (   
-   DWORD* pRetVal  
+```C++  
+HRESULT get_imageAlign (   
+   DWORD* pRetVal  
 );  
 ```  
   
-#### 参数  
+#### <a name="parameters"></a>参数  
  `pRetVal`  
- \[out\] 返回从可执行的图像对齐值。  
+ [out]从可执行文件返回的图像对齐方式值。  
   
-## 返回值  
- 如果成功，则返回; `S_OK`否则，返回错误代码。  
+## <a name="return-value"></a>返回值  
+ 如果成功，则返回`S_OK`; 否则为返回错误代码。  
   
-## 备注  
- 图像对齐特定内存边界取决于图像如何加载并生成。  对齐通常为 1 到 2，个， 4 个， 8 个， 16 个， 32 个或 64 个字节界。  图像对齐可以设置与 [IDiaAddressMap::put\_imageAlign](../../debugger/debug-interface-access/idiaaddressmap-put-imagealign.md) 方法的调用。  
+## <a name="remarks"></a>备注  
+ 映像已加载并创建映像的方式，具体取决于特定内存边界对齐。 对齐方式通常是在 1、 2、 4、 8、 16、 32 或 64 字节边界上。 可以通过调用设置的图像对齐方式[idiaaddressmap:: Put_imagealign](../../debugger/debug-interface-access/idiaaddressmap-put-imagealign.md)方法。  
   
-## 请参阅  
+## <a name="see-also"></a>另请参阅  
  [IDiaAddressMap](../../debugger/debug-interface-access/idiaaddressmap.md)   
- [IDiaAddressMap::put\_imageAlign](../../debugger/debug-interface-access/idiaaddressmap-put-imagealign.md)
+ [IDiaAddressMap::put_imageAlign](../../debugger/debug-interface-access/idiaaddressmap-put-imagealign.md)

@@ -1,70 +1,69 @@
 ---
-title: "CV_call_e | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-debug"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-dev_langs: 
-  - "C++"
-helpviewer_keywords: 
-  - "CV_call_e 枚举"
+title: "CV_call_e |Microsoft 文档"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology: vs-ide-debug
+ms.tgt_pltfrm: 
+ms.topic: article
+dev_langs: C++
+helpviewer_keywords: CV_call_e enumeration
 ms.assetid: f230560b-4243-432d-8f19-46df112043b9
-caps.latest.revision: 10
-author: "mikejo5000"
-ms.author: "mikejo"
-manager: "ghogen"
-caps.handback.revision: 10
+caps.latest.revision: "10"
+author: mikejo5000
+ms.author: mikejo
+manager: ghogen
+ms.openlocfilehash: 89340c4cd448201f7624f5ec6b15dc67f74db4f6
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# CV_call_e
-[!INCLUDE[vs2017banner](../../code-quality/includes/vs2017banner.md)]
-
-为功能指定调用约定。  
+# <a name="cvcalle"></a>CV_call_e
+指定的函数的调用约定。  
   
 > [!NOTE]
->  仅最常见的枚举值此处。  完整枚举可在 cvconst.h 头文件。  
+>  此处记录了只有最常见的枚举值。 Cvconst.h 标头文件中提供了完整枚举。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
-```cpp#  
-typedef enum CV_call_e {   
-   CV_CALL_NEAR_C    = 0x00,  
-   CV_CALL_NEAR_FAST = 0x04,  
-   CV_CALL_NEAR_STD  = 0x07,  
-   CV_CALL_NEAR_SYS  = 0x09,  
-   CV_CALL_THISCALL  = 0x0b,  
-   CV_CALL_CLRCALL   = 0x16  
+```C++  
+typedef enum CV_call_e {   
+   CV_CALL_NEAR_C    = 0x00,  
+   CV_CALL_NEAR_FAST = 0x04,  
+   CV_CALL_NEAR_STD  = 0x07,  
+   CV_CALL_NEAR_SYS  = 0x09,  
+   CV_CALL_THISCALL  = 0x0b,  
+   CV_CALL_CLRCALL   = 0x16  
 } CV_call_e;  
 ```  
   
-## Elements  
- CV\_CALL\_NEAR\_C  
- 指定使用新的从右向左的驱动器的函数调用约定。  调用函数清除堆栈。  
+## <a name="elements"></a>元素  
+ CV_CALL_NEAR_C  
+ 指定使用 near 右到左推送的函数调用约定。 调用的函数可清除堆栈。  
   
- CV\_CALL\_NEAR\_FAST  
- 指定用于注册的函数调用约定最近的从左到右驱动器。  调用函数使用参数字节的总和清除堆栈。  
+ CV_CALL_NEAR_FAST  
+ 指定使用寄存器近的从左到右推送的函数调用约定。 调用的函数使用参数字节之的和清除堆栈。  
   
- CV\_CALL\_NEAR\_STD  
- 指定使用一个最近的标准的函数调用约定调用 \(从右到左的驱动器\)。  
+ CV_CALL_NEAR_STD  
+ 指定使用 near 标准调用 （从右到左推送） 的函数调用约定。  
   
- CV\_CALL\_NEAR\_SYS  
- 指定使用新的函数调用约定系统调用。  
+ CV_CALL_NEAR_SYS  
+ 指定使用 near 系统调用的函数调用约定。  
   
- CV\_CALL\_THISCALL  
- 指定使用 `this` 的函数调用约定调用 \(在传入寄存器的`this` 指针\)。  
+ CV_CALL_THISCALL  
+ 指定函数调用约定使用`this`调用 (`this`指针寄存器中传递)。  
   
- CV\_CALL\_CLRCALL  
- 指定公共语言运行时使用的函数调用约定 \( \(CLR\)也称为调用约定\) 的托管代码之前。  
+ CV_CALL_CLRCALL  
+ 指定使用由公共语言运行时 (CLR) （也称为托管代码调用约定） 的函数调用约定。  
   
-## 备注  
- 此枚举的值通过对 [IDiaSymbol::get\_callingConvention](../../debugger/debug-interface-access/idiasymbol-get-callingconvention.md) 方法的调用返回。  
+## <a name="remarks"></a>备注  
+ 此枚举中的值返回通过调用[idiasymbol:: Get_callingconvention](../../debugger/debug-interface-access/idiasymbol-get-callingconvention.md)方法。  
   
-## 要求  
- 标题:cvconst.h  
+## <a name="requirements"></a>要求  
+ 标头： cvconst.h  
   
-## 请参阅  
+## <a name="see-also"></a>另请参阅  
  [枚举和结构](../../debugger/debug-interface-access/enumerations-and-structures.md)   
- [IDiaSymbol::get\_callingConvention](../../debugger/debug-interface-access/idiasymbol-get-callingconvention.md)
+ [IDiaSymbol::get_callingConvention](../../debugger/debug-interface-access/idiasymbol-get-callingconvention.md)

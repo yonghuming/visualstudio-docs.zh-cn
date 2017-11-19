@@ -1,73 +1,72 @@
 ---
-title: "IDiaSymbol::findChildrenExByAddr | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-debug"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-dev_langs: 
-  - "C++"
-helpviewer_keywords: 
-  - "IDiaSymbol::findChildrenExByAddr"
+title: "IDiaSymbol::findChildrenExByAddr |Microsoft 文档"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology: vs-ide-debug
+ms.tgt_pltfrm: 
+ms.topic: article
+dev_langs: C++
+helpviewer_keywords: IDiaSymbol::findChildrenExByAddr
 ms.assetid: c1e7885d-2d15-4529-9ac2-32dd22efe31c
-caps.latest.revision: 8
-author: "mikejo5000"
-ms.author: "mikejo"
-manager: "ghogen"
-caps.handback.revision: 8
+caps.latest.revision: "8"
+author: mikejo5000
+ms.author: mikejo
+manager: ghogen
+ms.openlocfilehash: a8f5dbd7a6ad06ba10690e92042c9722eca5c99e
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# IDiaSymbol::findChildrenExByAddr
-[!INCLUDE[vs2017banner](../../code-quality/includes/vs2017banner.md)]
-
-检索有效在指定的地址符号的子级。  
+# <a name="idiasymbolfindchildrenexbyaddr"></a>IDiaSymbol::findChildrenExByAddr
+检索位于指定地址有效的符号的子级。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
-```cpp#  
-HRESULT findChildrenExByAddr (   
-   enum SymTagEnum   symtag,  
-   LPCOLESTR         name,  
-   DWORD             compareFlags,  
-   DWORD             address,  
-   IDiaEnumSymbols** ppResult  
+```C++  
+HRESULT findChildrenExByAddr (   
+   enum SymTagEnum   symtag,  
+   LPCOLESTR         name,  
+   DWORD             compareFlags,  
+   DWORD             address,  
+   IDiaEnumSymbols** ppResult  
 );  
 ```  
   
-#### 参数  
+#### <a name="parameters"></a>参数  
  `symtag`  
- \[in\] 指定要检索的子级的符号标记，对于 [SymTagEnum 枚举](../../debugger/debug-interface-access/symtagenum.md)定义。  设置为所有子级的 `SymTagNull` 可以进行检索。  
+ [in]指定要检索的子级的符号标记中定义[SymTagEnum 枚举](../../debugger/debug-interface-access/symtagenum.md)。 设置为`SymTagNull`为要检索的所有子级。  
   
  `name`  
- \[in\] 指定子元素的名称将检索。  设置为所有子级的 `NULL` 可以进行检索。  
+ [in]指定要检索的子级的名称。 设置为`NULL`为要检索的所有子级。  
   
  `compareFlags`  
- \[in\] 指定要应用的比较选项。名称匹配。  从 [NameSearchOptions 枚举](../../debugger/debug-interface-access/namesearchoptions.md) 枚举的值既可以单独使用或在组合。  
+ [in]指定要应用于名称匹配的比较选项。 中的值[NameSearchOptions 枚举](../../debugger/debug-interface-access/namesearchoptions.md)枚举可以单独或组合使用。  
   
  `address`  
- \[in\] 符号的地址。  
+ [in]符号的地址。  
   
  `ppResult`  
- \[out\] 返回包含检索的子符号列表的 [IDiaEnumSymbols](../../debugger/debug-interface-access/idiaenumsymbols.md) 对象。  
+ [out]返回[IDiaEnumSymbols](../../debugger/debug-interface-access/idiaenumsymbols.md)检索包含子符号的列表的对象。  
   
-## 返回值  
- 返回 `S_OK` ，如果找到符号的至少一个子级，或者返回 `S_FALSE` ，如果未找到子项;否则，返回错误代码。  
+## <a name="return-value"></a>返回值  
+ 返回`S_OK`如果至少一个子级的符号找，或返回`S_FALSE`如果不发现任何子级; 否则，返回错误代码。  
   
-## 备注  
- 返回的本地符号包括活动范围信息。  
+## <a name="remarks"></a>备注  
+ 返回的本地符号包括实时范围信息。  
   
-## 要求  
- 标题:Dia2.h  
+## <a name="requirements"></a>要求  
+ 标头： Dia2.h  
   
- 库:diaguids.lib  
+ 库： diaguids.lib  
   
- DLL:msdia100.dll  
+ DLL: msdia100.dll  
   
-## 请参阅  
+## <a name="see-also"></a>另请参阅  
  [IDiaSymbol](../../debugger/debug-interface-access/idiasymbol.md)   
  [SymTagEnum 枚举](../../debugger/debug-interface-access/symtagenum.md)   
  [IDiaEnumSymbols](../../debugger/debug-interface-access/idiaenumsymbols.md)   
- [IDiaSession::findChildren](../../debugger/debug-interface-access/idiasession-findchildren.md)   
+ [Idiasession:: Findchildren](../../debugger/debug-interface-access/idiasession-findchildren.md)   
  [NameSearchOptions 枚举](../../debugger/debug-interface-access/namesearchoptions.md)

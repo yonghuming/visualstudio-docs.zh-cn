@@ -1,43 +1,42 @@
 ---
-title: "IDiaSectionContrib::get_share | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-debug"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-dev_langs: 
-  - "C++"
-helpviewer_keywords: 
-  - "IDiaSectionContrib::get_share 方法"
+title: "Idiasectioncontrib:: Get_share |Microsoft 文档"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology: vs-ide-debug
+ms.tgt_pltfrm: 
+ms.topic: article
+dev_langs: C++
+helpviewer_keywords: IDiaSectionContrib::get_share method
 ms.assetid: 05c4c896-4419-4166-8bb2-8d0934dc14b5
-caps.latest.revision: 8
-author: "mikejo5000"
-ms.author: "mikejo"
-manager: "ghogen"
-caps.handback.revision: 8
+caps.latest.revision: "8"
+author: mikejo5000
+ms.author: mikejo
+manager: ghogen
+ms.openlocfilehash: efffa26d9f7501037919d58e34d5949f5fe4df72
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# IDiaSectionContrib::get_share
-[!INCLUDE[vs2017banner](../../code-quality/includes/vs2017banner.md)]
-
-检索指示的标志该部分是否在内存可能共享。  
+# <a name="idiasectioncontribgetshare"></a>IDiaSectionContrib::get_share
+检索一个标志，指示是否可以在内存中共享部分。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
-```cpp#  
-HRESULT get_share (   
-   BOOL* pRetVal  
+```C++  
+HRESULT get_share (   
+   BOOL* pRetVal  
 );  
 ```  
   
-#### 参数  
+#### <a name="parameters"></a>参数  
  `pRetVal`  
- \[out\] ，如果节是可共享内存中，返回 `TRUE` ;否则，返回 `FALSE`。  
+ [out]返回`TRUE`部分是否可在内存中; 否则，返回`FALSE`。  
   
-## 返回值  
- 如果成功，则返回 `S_OK`。  ，如果此属性不受支持，返回 `S_FALSE` 。  否则，返回错误代码。  
+## <a name="return-value"></a>返回值  
+ 如果成功，则返回`S_OK`。 返回`S_FALSE`如果不支持此属性。 否则，返回错误代码。  
   
-## 请参阅  
+## <a name="see-also"></a>另请参阅  
  [IDiaSectionContrib](../../debugger/debug-interface-access/idiasectioncontrib.md)

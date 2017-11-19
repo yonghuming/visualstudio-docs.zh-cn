@@ -1,52 +1,51 @@
 ---
-title: "IDiaSession::findFileById | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-debug"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-dev_langs: 
-  - "C++"
-helpviewer_keywords: 
-  - "IDiaSession::findFileById 方法"
+title: "Idiasession:: Findfilebyid |Microsoft 文档"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology: vs-ide-debug
+ms.tgt_pltfrm: 
+ms.topic: article
+dev_langs: C++
+helpviewer_keywords: IDiaSession::findFileById method
 ms.assetid: 710efe04-78b5-4f3e-a1d8-f9b069063503
-caps.latest.revision: 9
-author: "mikejo5000"
-ms.author: "mikejo"
-manager: "ghogen"
-caps.handback.revision: 9
+caps.latest.revision: "9"
+author: mikejo5000
+ms.author: mikejo
+manager: ghogen
+ms.openlocfilehash: 1996bed14323adeac794f12ed4307e96e3ba8b54
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# IDiaSession::findFileById
-[!INCLUDE[vs2017banner](../../code-quality/includes/vs2017banner.md)]
-
-按源文件标识符检索源文件。  
+# <a name="idiasessionfindfilebyid"></a>IDiaSession::findFileById
+通过源文件标识符来检索源文件。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
-```cpp#  
-HRESULT findFileById (   
-   DWORD            uniqueId,  
-   IDiaSourceFile** ppResult  
+```C++  
+HRESULT findFileById (   
+   DWORD            uniqueId,  
+   IDiaSourceFile** ppResult  
 );  
 ```  
   
-#### 参数  
+#### <a name="parameters"></a>参数  
  `uniqueId`  
- \[in\] 指定源文件标识符。  
+ [in]指定的源文件标识符。  
   
  `ppResult`  
- \[out\] 返回表示检索的源文件的 [IDiaSourceFile](../../debugger/debug-interface-access/idiasourcefile.md) 对象。  
+ [out]返回[IDiaSourceFile](../../debugger/debug-interface-access/idiasourcefile.md)检索表示源文件的对象。  
   
-## 返回值  
- 如果成功，则返回; `S_OK`否则，返回错误代码。  
+## <a name="return-value"></a>返回值  
+ 如果成功，则返回`S_OK`; 否则为返回错误代码。  
   
-## 备注  
- 源文件标识符是一个值在内部用于向 DIA SDK 使所有源文件唯一。  此方法在内部通常用于 DIA SDK。  
+## <a name="remarks"></a>备注  
+ 源文件标识符是对 DIA SDK 在内部使用，以使所有源文件是唯一的唯一值。 此方法通常在内部用于 DIA SDK。  
   
-## 请参阅  
+## <a name="see-also"></a>另请参阅  
  [IDiaSession](../../debugger/debug-interface-access/idiasession.md)   
- [IDiaSession::findFile](../../debugger/debug-interface-access/idiasession-findfile.md)   
+ [Idiasession:: Findfile](../../debugger/debug-interface-access/idiasession-findfile.md)   
  [IDiaSourceFile](../../debugger/debug-interface-access/idiasourcefile.md)

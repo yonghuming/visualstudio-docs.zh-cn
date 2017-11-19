@@ -1,95 +1,94 @@
 ---
-title: "LocationType | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-debug"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-dev_langs: 
-  - "C++"
-helpviewer_keywords: 
-  - "LocationType 枚举"
+title: "LocationType |Microsoft 文档"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology: vs-ide-debug
+ms.tgt_pltfrm: 
+ms.topic: article
+dev_langs: C++
+helpviewer_keywords: LocationType enumeration
 ms.assetid: d3e1eedc-bfd3-4c91-881b-d69565138d0f
-caps.latest.revision: 8
-author: "mikejo5000"
-ms.author: "mikejo"
-manager: "ghogen"
-caps.handback.revision: 8
+caps.latest.revision: "8"
+author: mikejo5000
+ms.author: mikejo
+manager: ghogen
+ms.openlocfilehash: d5a6a14b3e5e1731c7b9f1fd58181be7adb870d9
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# LocationType
-[!INCLUDE[vs2017banner](../../code-quality/includes/vs2017banner.md)]
-
-指示在符号位置信息包含的。  
+# <a name="locationtype"></a>LocationType
+指示在符号中包含的位置信息的类型。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
-```cpp#  
-enum LocationType {   
-   LocIsNull,  
-   LocIsStatic,  
-   LocIsTLS,  
-   LocIsRegRel,  
-   LocIsThisRel,  
-   LocIsEnregistered,  
-   LocIsBitField,  
-   LocIsSlot,  
-   LocIsIlRel,  
-   LocInMetaData,  
-   LocIsConstant,  
-   LocTypeMax  
+```C++  
+enum LocationType {   
+   LocIsNull,  
+   LocIsStatic,  
+   LocIsTLS,  
+   LocIsRegRel,  
+   LocIsThisRel,  
+   LocIsEnregistered,  
+   LocIsBitField,  
+   LocIsSlot,  
+   LocIsIlRel,  
+   LocInMetaData,  
+   LocIsConstant,  
+   LocTypeMax  
 };  
 ```  
   
-## Elements  
+## <a name="elements"></a>元素  
  `LocIsNull`  
- 单元格信息不可用。  
+ 位置信息不可用。  
   
  `LocIsStatic`  
  位置是静态的。  
   
  `LocIsTLS`  
- 位置在线程本地存储。  
+ 位置是在线程本地存储。  
   
  `LocIsRegRel`  
- placement 为注册相关。  
+ 位置是注册相对。  
   
  `LocIsThisRel`  
- placement 为 `this`\- 相对。  
+ 位置是`this`-相对。  
   
  `LocIsEnregistered`  
- 位置在注册。  
+ 位置是在寄存器中。  
   
  `LocIsBitField`  
- 位置。位域。  
+ 位置是中的位字段。  
   
  `LocIsSlot`  
- placement 为 Microsoft 中间语言 \(msil\) 槽。  
+ 位置是 Microsoft 中间语言 (MSIL) 槽。  
   
  `LocIsIlRel`  
- placement 为 MSIL 相对的。  
+ 位置是 MSIL 相对。  
   
  `LocInMetaData`  
- 位置在元数据。  
+ 位置是在元数据中。  
   
  `LocIsConstant`  
- 位置按一个常数值。  
+ 位置是一个常量值。  
   
  `LocTypeMax`  
- 位置的数字输入此枚举。  
+ 此枚举中的位置类型的数目。  
   
-## 备注  
- 属性可用于 [IDiaSymbol](../../debugger/debug-interface-access/idiasymbol.md) 接口依赖于图像文件中的符号的位置。  有关更多信息，请参见 [符号位置](../../debugger/debug-interface-access/symbol-locations.md)。  
+## <a name="remarks"></a>备注  
+ 属性可供[IDiaSymbol](../../debugger/debug-interface-access/idiasymbol.md)接口取决于图像文件中的符号的位置。 有关详细信息，请参阅[符号位置](../../debugger/debug-interface-access/symbol-locations.md)。  
   
- 此枚举的值通过对 [IDiaSymbol::get\_locationType](../Topic/IDiaSymbol::get_locationType.md) 方法的调用返回。  
+ 此枚举中的值返回通过调用[idiasymbol:: Get_locationtype](../../debugger/debug-interface-access/idiasymbol-get-locationtype.md)方法。  
   
-## 要求  
- 标题:cvconst.h  
+## <a name="requirements"></a>要求  
+ 标头： cvconst.h  
   
-## 请参阅  
+## <a name="see-also"></a>另请参阅  
  [枚举和结构](../../debugger/debug-interface-access/enumerations-and-structures.md)   
  [IDiaSymbol](../../debugger/debug-interface-access/idiasymbol.md)   
- [IDiaSymbol::get\_locationType](../Topic/IDiaSymbol::get_locationType.md)   
+ [Idiasymbol:: Get_locationtype](../../debugger/debug-interface-access/idiasymbol-get-locationtype.md)   
  [符号位置](../../debugger/debug-interface-access/symbol-locations.md)

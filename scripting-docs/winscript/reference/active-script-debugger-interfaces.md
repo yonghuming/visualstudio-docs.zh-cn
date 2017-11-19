@@ -1,30 +1,34 @@
 ---
-title: "活动脚本调试器接口 | Microsoft Docs"
-ms.custom: ""
-ms.date: "01/18/2017"
-ms.prod: "windows-script-interfaces"
-ms.reviewer: ""
-ms.suite: ""
-ms.tgt_pltfrm: ""
-ms.topic: "reference"
-helpviewer_keywords: 
-  - "活动脚本调试器接口"
-  - "activdbg.h"
+title: "活动脚本调试器接口 |Microsoft 文档"
+ms.custom: 
+ms.date: 01/18/2017
+ms.prod: windows-script-interfaces
+ms.reviewer: 
+ms.suite: 
+ms.tgt_pltfrm: 
+ms.topic: reference
+helpviewer_keywords:
+- Active Script Debugger interfaces
+- activdbg.h
 ms.assetid: bf4750b1-4e58-442b-ab56-254e640de61d
-caps.latest.revision: 15
-author: "mikejo5000"
-ms.author: "mikejo"
-manager: "ghogen"
-caps.handback.revision: 13
+caps.latest.revision: "15"
+author: mikejo5000
+ms.author: mikejo
+manager: ghogen
+ms.openlocfilehash: d4a3d17a8ff43bb3bd18641c2298f5436f40d925
+ms.sourcegitcommit: aadb9588877418b8b55a5612c1d3842d4520ca4c
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/27/2017
 ---
-# 活动脚本调试器接口
-activdbg.h 和 activdbg100.h 头文件提供本节列出的接口、枚举和结构。  它们供调试脚本。  
+# <a name="active-script-debugger-interfaces"></a>活动脚本调试器接口
+Activdbg.h 和 activdbg100.h 标头文件提供接口、 枚举和结构在此部分中列出。 它们是用于调试脚本。  
   
 > [!NOTE]
->  该 `IJSDebug*` 接口和 `IEnumJsStackFrames` 界面首次发布在Internet Explorer11用于调试本机代码与脚本。  这些接口的头文件是 jscript9diag.h。  
+>  `IJSDebug*`接口和`IEnumJsStackFrames`接口已首次发布在 Internet Explorer 11 中用于调试脚本与本机代码。 这些接口的标头文件是 jscript9diag.h。  
   
-## 本节内容  
- 下列接口允许非特定语言，非托管调试：  
+## <a name="in-this-section"></a>本节内容  
+ 以下接口允许非特定于语言的、 非特定于主机的调试：  
   
 -   [活动脚本调试器常量、枚举和结构](../../winscript/reference/active-script-debugger-constants-enumerations-and-structures.md)  
   
@@ -35,6 +39,8 @@ activdbg.h 和 activdbg100.h 头文件提供本节列出的接口、枚举和结
 -   [IActiveScriptErrorDebug110 接口](../../winscript/reference/iactivescripterrordebug110-interface.md)  
   
 -   [IActiveScriptSiteDebug 接口](../../winscript/reference/iactivescriptsitedebug-interface.md)  
+  
+-   [IActiveScriptSiteDebug32 接口](../../winscript/reference/iactivescriptsitedebug32-interface.md)  
   
 -   [IActiveScriptSiteDebugEx 接口](../../winscript/reference/iactivescriptsitedebugex-interface.md)  
   
@@ -172,9 +178,9 @@ activdbg.h 和 activdbg100.h 头文件提供本节列出的接口、枚举和结
   
 -   [IWebAppDiagnosticsObjectInitialization 接口](../../winscript/reference/iwebappdiagnosticsobjectinitialization-interface.md)  
   
- 以下部分列出用于调试的常数、枚举和结构：  
+ 以下部分列出了常量、 枚举和结构用于调试：  
   
 -   [活动脚本调试器常量、枚举和结构](../../winscript/reference/active-script-debugger-constants-enumerations-and-structures.md)  
   
-## 请参阅  
+## <a name="see-also"></a>另请参阅  
  [活动脚本调试概述](../../winscript/active-script-debugging-overview.md)

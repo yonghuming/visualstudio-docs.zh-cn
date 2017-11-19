@@ -1,33 +1,33 @@
 ---
-title: "&lt;Product&gt; 元素（引导程序） | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-deployment"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-dev_langs: 
-  - "FSharp"
-  - "VB"
-  - "CSharp"
-  - "C++"
-helpviewer_keywords: 
-  - "<product> 元素 [引导程序]"
+title: "&lt;产品&gt;元素 （引导程序） |Microsoft 文档"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology: vs-ide-deployment
+ms.tgt_pltfrm: 
+ms.topic: article
+dev_langs:
+- FSharp
+- VB
+- CSharp
+- C++
+helpviewer_keywords: <product> element [bootstrapper]
 ms.assetid: 52b414af-ec80-4d2f-ad14-902543cd268e
-caps.latest.revision: 8
-author: "stevehoag"
-ms.author: "shoag"
-manager: "wpickett"
-caps.handback.revision: 8
+caps.latest.revision: "8"
+author: stevehoag
+ms.author: shoag
+manager: wpickett
+ms.openlocfilehash: c115fa5cb7191ab1edcff3005620d9ac7835f8a0
+ms.sourcegitcommit: aadb9588877418b8b55a5612c1d3842d4520ca4c
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/27/2017
 ---
-# &lt;Product&gt; 元素（引导程序）
-[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
-
-`Product` 元素是产品文件内的顶级 XML 元素。  
+# <a name="ltproductgt-element-bootstrapper"></a>&lt;产品&gt;元素 （引导程序）
+`Product`元素是在产品文件的顶级 XML 元素。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
 ```  
 <Product  
@@ -139,15 +139,15 @@ ProductCode
 </Package>  
 ```  
   
-## 元素和特性  
- `Product` 元素是产品文件中必需的元素。  它具有下列特性。  
+## <a name="elements-and-attributes"></a>元素和属性  
+ `Product`元素必需的产品文件中。 它具有以下属性。  
   
-|特性|说明|  
-|--------|--------|  
+|特性|描述|  
+|---------------|-----------------|  
 |`ProductCode`|产品的唯一标识符。|  
   
-## 示例  
- 下面的代码示例演示用于安装 [!INCLUDE[dnprdnshort](../code-quality/includes/dnprdnshort_md.md)] 的完整产品文件。  
+## <a name="example"></a>示例  
+ 下面的代码示例演示用于安装的完整的产品文件[!INCLUDE[dnprdnshort](../code-quality/includes/dnprdnshort_md.md)]。  
   
 ```  
 <?xml version="1.0" encoding="utf-8" ?>  
@@ -251,5 +251,5 @@ ProductCode
 </Product>  
 ```  
   
-## 请参阅  
+## <a name="see-also"></a>另请参阅  
  [产品和包架构引用](../deployment/product-and-package-schema-reference.md)

@@ -1,57 +1,56 @@
 ---
-title: "IDiaSymbol::get_isSplitted | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-debug"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-dev_langs: 
-  - "C++"
-helpviewer_keywords: 
-  - "IDiaSymbol::get_isSplitted 方法"
+title: "Idiasymbol:: Get_issplitted |Microsoft 文档"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology: vs-ide-debug
+ms.tgt_pltfrm: 
+ms.topic: article
+dev_langs: C++
+helpviewer_keywords: IDiaSymbol::get_isSplitted method
 ms.assetid: ff160cf6-003b-4ef5-a406-20a7b287b2bf
-caps.latest.revision: 8
-author: "mikejo5000"
-ms.author: "mikejo"
-manager: "ghogen"
-caps.handback.revision: 8
+caps.latest.revision: "8"
+author: mikejo5000
+ms.author: mikejo
+manager: ghogen
+ms.openlocfilehash: eee1ad0cb809a6f3afac2b84b3224e162a64da36
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# IDiaSymbol::get_isSplitted
-[!INCLUDE[vs2017banner](../../code-quality/includes/vs2017banner.md)]
-
-检索指定的标志符号数据是否已拆分为其他符号的摘要或集合;编译器将符号作为单独的实体，因此，即使它们的确为更大的符号的一部分。  
+# <a name="idiasymbolgetissplitted"></a>IDiaSymbol::get_isSplitted
+检索用于指定是否已将数据符号拆分为聚合或集合的其他符号; 的标志编译器将符号视为单独的实体，即使它们实际上是更大的符号的一部分。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
-```cpp  
+```C++  
 HRESULT get_isSplitted(  
-   BOOL *pFlag  
+   BOOL *pFlag  
 );  
 ```  
   
-#### 参数  
+#### <a name="parameters"></a>参数  
  `pFlag`  
- \[out\] 符号，则已拆分为符号，复合返回 `TRUE` ;否则，返回 `FALSE`。  
+ [out]返回`TRUE`如果符号拆分聚合的符号; 否则，返回`FALSE`。  
   
-## 返回值  
- 如果成功，则返回; `S_OK`否则，返回 `S_FALSE` 或错误代码。  
+## <a name="return-value"></a>返回值  
+ 如果成功，则返回`S_OK`; 否则为返回`S_FALSE`或错误代码。  
   
 > [!NOTE]
->  `S_FALSE` 的返回值表示该属性用于符号不可用。  
+>  返回值`S_FALSE`意味着属性不是可用于符号。  
   
-## 备注  
- [IDiaSymbol::get\_isAggregated](../../debugger/debug-interface-access/idiasymbol-get-isaggregated.md) 方法返回作为拆分符号的所有符号的 `TRUE` 。  
+## <a name="remarks"></a>备注  
+ [Idiasymbol:: Get_isaggregated](../../debugger/debug-interface-access/idiasymbol-get-isaggregated.md)方法返回`TRUE`属于拆分符号的所有符号。  
   
-## 要求  
+## <a name="requirements"></a>要求  
   
-|要求|说明|  
-|--------|--------|  
-|标题:|dia2.h|  
+|要求|描述|  
+|-----------------|-----------------|  
+|标头：|dia2.h|  
 |版本:|DIA SDK v8.0|  
   
-## 请参阅  
+## <a name="see-also"></a>另请参阅  
  [IDiaSymbol](../../debugger/debug-interface-access/idiasymbol.md)   
- [IDiaSymbol::get\_isAggregated](../../debugger/debug-interface-access/idiasymbol-get-isaggregated.md)
+ [IDiaSymbol::get_isAggregated](../../debugger/debug-interface-access/idiasymbol-get-isaggregated.md)

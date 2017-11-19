@@ -1,51 +1,51 @@
 ---
-title: "BP_LOCATION_CODE_CONTEXT | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "BP_LOCATION_CODE_CONTEXT"
-helpviewer_keywords: 
-  - "BP_LOCATION_CODE_CONTEXT 结构"
+title: "BP_LOCATION_CODE_CONTEXT |Microsoft 文档"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology: vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords: BP_LOCATION_CODE_CONTEXT
+helpviewer_keywords: BP_LOCATION_CODE_CONTEXT structure
 ms.assetid: 37412896-021a-4f73-9bb7-4125502c2e18
-caps.latest.revision: 9
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 9
+caps.latest.revision: "9"
+author: gregvanl
+ms.author: gregvanl
+manager: ghogen
+ms.openlocfilehash: 129a96c2c91d56f23ffb1ef61af32f6e85b40b75
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# BP_LOCATION_CODE_CONTEXT
-[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
-
-描述直接绑定到正在调试的程序的地址断点的位置。  
+# <a name="bplocationcodecontext"></a>BP_LOCATION_CODE_CONTEXT
+描述直接绑定到被调试的程序中的地址的断点的位置。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
-```cpp#  
-typedef struct _BP_LOCATION_CODE_CONTEXT {   
-   IDebugCodeContext2* pCodeContext;  
+```cpp  
+typedef struct _BP_LOCATION_CODE_CONTEXT {   
+   IDebugCodeContext2* pCodeContext;  
 } BP_LOCATION_CODE_CONTEXT;  
 ```  
   
-## 成员  
+## <a name="members"></a>成员  
  pCodeContext  
- 标识断点位置在代码中 [IDebugCodeContext2](../../../extensibility/debugger/reference/idebugcodecontext2.md) 对象。  
+ [IDebugCodeContext2](../../../extensibility/debugger/reference/idebugcodecontext2.md)对象，用于标识代码中的断点的位置。  
   
-## 备注  
- 作为一个联合的一部分，此结构是 [BP\_LOCATION](../../../extensibility/debugger/reference/bp-location.md) 结构的成员。  
+## <a name="remarks"></a>备注  
+ 此结构是的成员[BP_LOCATION](../../../extensibility/debugger/reference/bp-location.md)作为联合的一部分的结构。  
   
-## 要求  
- 标题:msdbg.h  
+## <a name="requirements"></a>要求  
+ 标头： msdbg.h  
   
- 命名空间:Microsoft.VisualStudio.Debugger.Interop  
+ Namespace: Microsoft.VisualStudio.Debugger.Interop  
   
- 程序集:Microsoft.VisualStudio.Debugger.Interop.dll  
+ 程序集： Microsoft.VisualStudio.Debugger.Interop.dll  
   
-## 请参阅  
+## <a name="see-also"></a>另请参阅  
  [结构和联合](../../../extensibility/debugger/reference/structures-and-unions.md)   
- [BP\_LOCATION](../../../extensibility/debugger/reference/bp-location.md)   
+ [BP_LOCATION](../../../extensibility/debugger/reference/bp-location.md)   
  [IDebugCodeContext2](../../../extensibility/debugger/reference/idebugcodecontext2.md)

@@ -1,56 +1,55 @@
 ---
-title: "IDiaReadExeAtRVACallback | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-debug"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-dev_langs: 
-  - "C++"
-helpviewer_keywords: 
-  - "IDiaReadExeAtRVACallback 接口"
+title: "IDiaReadExeAtRVACallback |Microsoft 文档"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology: vs-ide-debug
+ms.tgt_pltfrm: 
+ms.topic: article
+dev_langs: C++
+helpviewer_keywords: IDiaReadExeAtRVACallback interface
 ms.assetid: b2892513-3952-4f99-9b98-60cb9b1fdc91
-caps.latest.revision: 8
-author: "mikejo5000"
-ms.author: "mikejo"
-manager: "ghogen"
-caps.handback.revision: 8
+caps.latest.revision: "8"
+author: mikejo5000
+ms.author: mikejo
+manager: ghogen
+ms.openlocfilehash: 09a570f27200dc677d292d645973fae8f9460f95
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# IDiaReadExeAtRVACallback
-[!INCLUDE[vs2017banner](../../code-quality/includes/vs2017banner.md)]
-
-启用客户端应用程序提供可执行文件的字节为指定的相对虚拟地址。  
+# <a name="idiareadexeatrvacallback"></a>IDiaReadExeAtRVACallback
+允许客户端应用程序提供所指定的相对虚拟地址的可执行文件的字节。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
 ```  
-IDiaReadExeAtRVACallback : IUnknown  
+IDiaReadExeAtRVACallback : IUnknown  
 ```  
   
-## 方法按 Vtable 顺序  
- 下表显示 `IDiaReadExeAtRVACallback`方法。  
+## <a name="methods-in-vtable-order"></a>Vtable 顺序中的方法  
+ 下表显示的方法`IDiaReadExeAtRVACallback`。  
   
-|方法|说明|  
-|--------|--------|  
-|[IDiaReadExeAtRVACallback::ReadExecutableAtRVA](../../debugger/debug-interface-access/idiareadexeatrvacallback-readexecutableatrva.md)|读取开始在从可执行文件中指定的相对虚拟地址的指定的 \(RVA\)字节数。|  
+|方法|描述|  
+|------------|-----------------|  
+|[IDiaReadExeAtRVACallback::ReadExecutableAtRVA](../../debugger/debug-interface-access/idiareadexeatrvacallback-readexecutableatrva.md)|读取指定的开始的指定相对虚拟地址 (RVA) 从可执行文件的字节数。|  
   
-## 备注  
- 客户端应用程序实现此接口以便提供字节可执行文件使用相对虚拟地址到可执行文件。  若要使用绝对文件偏移量，请实现 [IDiaReadExeAtOffsetCallback](../../debugger/debug-interface-access/idiareadexeatoffsetcallback.md) 接口。  
+## <a name="remarks"></a>备注  
+ 客户端应用程序实现此接口，以便提供到可执行文件的文件使用的相对虚拟地址的可执行文件的字节数。 若要使用的绝对文件偏移量，实现[IDiaReadExeAtOffsetCallback](../../debugger/debug-interface-access/idiareadexeatoffsetcallback.md)接口。  
   
-## 调用方的说明  
- 此方法由客户端应用程序执行并传递给 [IDiaDataSource::loadDataForExe](../../debugger/debug-interface-access/idiadatasource-loaddataforexe.md) 方法作为读取的文件的另一种方法。  
+## <a name="notes-for-callers"></a>调用方的说明  
+ 此方法是实现客户端应用程序并传递给[idiadatasource:: Loaddataforexe](../../debugger/debug-interface-access/idiadatasource-loaddataforexe.md)作为一种方法来读取文件的方法。  
   
-## 要求  
- 标题:Dia2.h  
+## <a name="requirements"></a>要求  
+ 标头： Dia2.h  
   
- 库:diaguids.lib  
+ 库： diaguids.lib  
   
- DLL:msdia80.dll  
+ DLL: msdia80.dll  
   
-## 请参阅  
- [接口（调试接口访问 SDK）](../../debugger/debug-interface-access/interfaces-debug-interface-access-sdk.md)   
- [IDiaDataSource::loadDataForExe](../../debugger/debug-interface-access/idiadatasource-loaddataforexe.md)   
+## <a name="see-also"></a>另请参阅  
+ [接口 （调试接口访问 SDK）](../../debugger/debug-interface-access/interfaces-debug-interface-access-sdk.md)   
+ [Idiadatasource:: Loaddataforexe](../../debugger/debug-interface-access/idiadatasource-loaddataforexe.md)   
  [IDiaReadExeAtOffsetCallback](../../debugger/debug-interface-access/idiareadexeatoffsetcallback.md)

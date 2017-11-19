@@ -1,56 +1,57 @@
 ---
-title: "如何：从查找窗口打开消息视图 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-debug"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-helpviewer_keywords: 
-  - "Spy++ 中的消息视图，打开"
-  - "打开 Spy++ 中的消息视图"
+title: "如何： 从查找窗口打开消息视图 |Microsoft 文档"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology: vs-ide-debug
+ms.tgt_pltfrm: 
+ms.topic: article
+helpviewer_keywords:
+- Messages View in Spy++, opening
+- opening Messages View in Spy++
 ms.assetid: 601a193e-432a-417b-9406-6fec9e401264
-caps.latest.revision: 4
-author: "mikejo5000"
-ms.author: "mikejo"
-manager: "ghogen"
-caps.handback.revision: 4
+caps.latest.revision: "4"
+author: mikejo5000
+ms.author: mikejo
+manager: ghogen
+ms.openlocfilehash: f69a79cbc80df206cd1c12abc9a34aa78eeb6194
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# 如何：从查找窗口打开消息视图
-[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
-
-您可能会发现使用“查找窗口”对话框选择目标窗口，然后打开该窗口的消息视图非常方便。  
+# <a name="how-to-open-messages-view-from-find-window"></a>如何：从查找窗口打开消息视图
+你可能会发现可以方便地使用**查找窗口**对话框中选择了目标窗口中，，然后打开该窗口的消息视图。  
   
-### 使用“查找窗口”对话框打开消息视图窗口  
+### <a name="to-open-a-messages-view-window-using-the-find-window-dialog-box"></a>若要打开消息视图窗口，使用查找窗口对话框  
   
-1.  排列窗口，以便 Spy\+\+ 和目标窗口都可见。  
+1.  排列窗口，以便 Spy + + 和目标窗口都可见。  
   
-2.  从“监视”菜单中选择“查找窗口”。  
+2.  从**Spy**菜单上，选择**查找窗口**。  
   
-     [“查找窗口”对话框](../debugger/find-window-dialog-box.md)随即打开。  
+     [查找窗口对话框](../debugger/find-window-dialog-box.md)打开。  
   
-3.  从“窗口”选项卡中，将“查找程序工具”拖到目标窗口上。  拖动该工具时，“查找窗口”对话框将显示所选窗口的详细信息。  
+3.  从**Windows**选项卡上，拖动**查找程序工具**目标范围内。 拖动该工具中，**查找窗口**对话框显示有关所选的窗口的详细信息。  
   
-     \- 或 \-  
+     - 或 -  
   
-     如果您具有要检查的窗口的句柄（例如，从调试器复制），则可以在“句柄”文本框中键入该句柄。  
+     如果你有你想要检查 （例如，从调试器复制） 窗口的句柄，则可以键入到**处理**文本框。  
   
-4.  在“显示”之下，选择“消息”。  
+4.  下**显示**，选择**消息**。  
   
-5.  按**“确定”**。  
+5.  Press **OK**.  
   
-     随即打开一个空白[消息视图](../debugger/messages-view.md)窗口，并向 Spy\+\+ 工具栏添加了“消息”菜单。  
+     空白[消息视图](../debugger/messages-view.md)窗口将打开，和一个**消息**菜单添加到 Spy + + 工具栏。  
   
-6.  从“消息”菜单中选择“记录选项”。  
+6.  从**消息**菜单上，选择**日志记录选项**。  
   
-     [“消息选项”对话框](../debugger/message-options-dialog-box.md)随即打开。  
+     [消息选项对话框](../debugger/message-options-dialog-box.md)打开。  
   
-7.  为要显示的消息选择选项。  
+7.  选择你想要显示的消息的选项。  
   
-8.  按“确定”开始记录消息。  
+8.  按**确定**开始日志记录消息。  
   
      根据所选的选项，消息开始流入活动的消息视图窗口。  
   
-9. 当您得到足够多的消息后，从“消息”菜单中选择“停止记录”。
+9. 在必须足够多的消息，请选择**停止日志记录**从**消息**菜单。

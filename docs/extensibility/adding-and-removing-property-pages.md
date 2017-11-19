@@ -1,37 +1,39 @@
 ---
-title: "添加和删除属性页 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-helpviewer_keywords: 
-  - "属性页添加"
-  - "属性页中，项目子类型"
-  - "属性页中删除"
+title: "添加和删除属性页 |Microsoft 文档"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology: vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+helpviewer_keywords:
+- property pages, adding
+- property pages, project subtypes
+- property pages, removing
 ms.assetid: 34853412-ab8a-4caa-9601-7d0727b2985d
-caps.latest.revision: 29
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 29
+caps.latest.revision: "29"
+author: gregvanl
+ms.author: gregvanl
+manager: ghogen
+ms.openlocfilehash: 00cc60b0b6c522c6a6674456adae50aace266030
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# 添加和删除属性页
-[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
-
-项目设计器用于管理项目的属性、设置和资源可集中的位置。 [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)]。  在 [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] 集成开发环境 \(ide\) 将以一个窗口 \(IDE\)并包含通过左侧的选项卡访问在右侧的窗格。  窗格 \(通常称为属性页\) 在项目设计器由项目类型和语言而有所变化。  项目设计器可以获取与 **项目** 菜单的 **属性** 命令。  
+# <a name="adding-and-removing-property-pages"></a>添加和删除属性页
+项目设计器提供集中管理项目属性、 设置和中的资源[!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)]。 它显示为中的单个窗口[!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)]集成开发环境 (IDE) 和包含大量的访问通过在左侧选项卡右侧的窗格。 项目设计器中 （通常称为属性页） 的窗格因项目类型和语言而异。 项目设计器可通过访问**属性**命令**项目**菜单。  
   
- 项目子类型通常需要显示在项目设计器的其他属性页。  同样，某些项目子类型可能需要移除内置属性页。  若要执行其中之一，项目子类型必须实现 <xref:Microsoft.VisualStudio.Shell.Interop.IVsHierarchy> 接口并重写 <xref:Microsoft.VisualStudio.Shell.Interop.IVsHierarchy.GetProperty%2A> 方法。  通过重写此方法和使用包含一个 <xref:Microsoft.VisualStudio.Shell.Interop.__VSHPROPID2> 枚举值的 `propId` 参数，可以筛选，添加或移除项属性。  例如，您可能需要将页添加到配置相关属性页。  为此，您需要筛选配置相关属性页然后将新页面添加到现有的列表。  
+ 项目子类型经常需要在项目设计器中显示其他属性页。 同样，某些项目子类型可能需要删除的内置属性页。 若要执行，项目子类型必须实现<xref:Microsoft.VisualStudio.Shell.Interop.IVsHierarchy>接口并重写<xref:Microsoft.VisualStudio.Shell.Interop.IVsHierarchy.GetProperty%2A>方法。 通过重写此方法并使用`propId`参数，其中包含的值之一<xref:Microsoft.VisualStudio.Shell.Interop.__VSHPROPID2>枚举，你可以筛选、 添加或删除项目属性。 例如，你可能需要向依赖于配置的属性页添加一个页面。 若要执行此操作，你需要筛选依赖于配置的属性页，然后将一个新页面添加到现有列表。  
   
-## 添加和移除在项目设计器的 " 属性页  
+## <a name="adding-and-removing-property-pages-in-project-designer"></a>添加和删除在项目设计器中的属性页  
   
-#### 移除在项目设计器的 " 属性页  
+#### <a name="to-remove-a-property-page-in-project-designer"></a>若要在项目设计器中删除属性页  
   
-1.  重写 `GetProperty(uint itemId, int propId, out object property)` 方法筛选 " 属性页，并获取 `clsids` 列表。  
+1.  重写`GetProperty(uint itemId, int propId, out object property)`方法筛选属性页并获取`clsids`列表。  
   
-    ```vb#  
+    ```vb  
     Protected Overrides int GetProperty(uint itemId, int propId, out object property)  
     Protected Overrides Function GetProperty(ByVal itemId As UInteger, ByVal propId As Integer, ByRef [property] As Object) As Integer  
         'Use propId to filter configuration-independent property pages.  
@@ -51,7 +53,7 @@ caps.handback.revision: 29
   
     ```  
   
-    ```c#  
+    ```csharp  
     protected override int GetProperty(uint itemId, int propId, out object property)  
     {  
         //Use propId to filter configuration-independent property pages.  
@@ -74,9 +76,9 @@ caps.handback.revision: 29
     }  
     ```  
   
-2.  从获取的 `clsids` 移除 **生成事件** 页列表。  
+2.  删除**生成事件**页获取`clsids`列表。  
   
-    ```vb#  
+    ```vb  
     Private buildEventsPageGuid As String = "{1E78F8DB-6C07-4D61-A18F-7514010ABD56}"  
     Private index As Integer = propertyPagesList.IndexOf(buildEventsPageGuid)  
     If index <> -1 Then  
@@ -92,7 +94,7 @@ caps.handback.revision: 29
     property = propertyPagesList  
     ```  
   
-    ```c#  
+    ```csharp  
     string buildEventsPageGuid = "{1E78F8DB-6C07-4D61-A18F-7514010ABD56}";  
     int index = propertyPagesList.IndexOf(buildEventsPageGuid);  
     if (index != -1)  
@@ -108,11 +110,11 @@ caps.handback.revision: 29
     property = propertyPagesList;  
     ```  
   
-#### 在 " 项目设计器 " 中添加属性页  
+#### <a name="to-add-a-property-page-in-project-designer"></a>若要在项目设计器中添加属性页  
   
-1.  创建要添加的属性页。  
+1.  创建你想要添加的属性页。  
   
-    ```vb#  
+    ```vb  
     Class DeployPropertyPage  
             Inherits Form  
             Implements Microsoft.VisualStudio.OLE.Interop.IPropertyPage  
@@ -134,7 +136,7 @@ caps.handback.revision: 29
     End Class  
     ```  
   
-    ```c#  
+    ```csharp  
     class DeployPropertyPage : Form, Microsoft.VisualStudio.OLE.Interop.IPropertyPage  
     {  
         . . . .   
@@ -157,17 +159,17 @@ caps.handback.revision: 29
   
 2.  注册新的属性页。  
   
-    ```vb#  
+    ```vb  
     <MSVSIP.ProvideObject(GetType(DeployPropertyPage), RegisterUsing = RegistrationMethod.CodeBase)>  
     ```  
   
-    ```c#  
+    ```csharp  
     [MSVSIP.ProvideObject(typeof(DeployPropertyPage), RegisterUsing = RegistrationMethod.CodeBase)]  
     ```  
   
-3.  重写 `GetProperty(uint itemId, int propId, out object property)` 方法筛选 " 属性页，获取 `clsids` 列表并添加新的属性页。  
+3.  重写`GetProperty(uint itemId, int propId, out object property)`方法筛选属性页，请获取`clsids`列表并添加新的属性页。  
   
-    ```vb#  
+    ```vb  
     Protected Overrides Function GetProperty(ByVal itemId As UInteger, ByVal propId As Integer, ByRef [property] As Object) As Integer  
         'Use propId to filter configuration-dependent property pages.  
         Select Case propId  
@@ -183,7 +185,7 @@ caps.handback.revision: 29
     End Function  
     ```  
   
-    ```c#  
+    ```csharp  
     protected override int GetProperty(uint itemId, int propId, out object property)  
     {  
         //Use propId to filter configuration-dependent property pages.  
@@ -204,7 +206,7 @@ caps.handback.revision: 29
     ```  
   
 > [!NOTE]
->  本主题提供的所有代码示例摘自一个更大的示例的一部分， [VSSDK 示例](../misc/vssdk-samples.md)。  
+>  本主题中提供的所有代码示例都是一个更大的示例中的部分[VSSDK 示例](http://aka.ms/vs2015sdksamples)。  
   
-## 请参阅  
+## <a name="see-also"></a>另请参阅  
  [项目子类型](../extensibility/internals/project-subtypes.md)

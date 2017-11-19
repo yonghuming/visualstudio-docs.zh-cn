@@ -7,29 +7,15 @@ ms.suite:
 ms.tgt_pltfrm: 
 ms.topic: article
 ms.assetid: 4dc8f572-a09e-4d19-a92d-f1df383e728b
-caps.latest.revision: 7
+caps.latest.revision: "7"
 author: alexhomer1
 ms.author: ahomer
 manager: douge
-translation.priority.ht:
-- cs-cz
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pl-pl
-- pt-br
-- ru-ru
-- tr-tr
-- zh-cn
-- zh-tw
-translationtype: Machine Translation
-ms.sourcegitcommit: 8f84f22444a5df5b9f4f4af44cd8ee9136403467
-ms.openlocfilehash: 864963f32fe703ada943f7e5202d7ebf6bf21e51
-ms.lasthandoff: 02/22/2017
-
+ms.openlocfilehash: 7dabd752aed4213c03ffd32ed5cc255ea4f2852e
+ms.sourcegitcommit: aadb9588877418b8b55a5612c1d3842d4520ca4c
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="generate-and-configure-your-app-from-models"></a>从模型中生成并配置你的应用程序
 你可从模型生成或配置你的应用程序的不同部件。
@@ -37,7 +23,7 @@ ms.lasthandoff: 02/22/2017
  模型比代码更能直接表示要求。 与更新代码相比，通过直接从模型派生应用程序的行为，你可以更加快速可靠地对更改的需求做出响应。 尽管需要做一些初始工作来设置派生，但如果你预计要求会发生改变，或者你计划生成产品的几个变体，则这种投资是会有回报的。  
   
 ## <a name="generating-the-code-of-your-application-from-a-model"></a>从模型生成应用程序代码  
- 生成代码的最便捷方法是使用模板。 您可以在同一个生成代码[!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)]您在其中保存该模型的解决方案。 有关详细信息，请参见:  
+ 生成代码的最便捷方法是使用模板。 你可以在同一生成代码[!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)]在其中保留模型的解决方案。 有关详细信息，请参见:  
   
 -   [使用 T4 文本模板生成设计时代码](../modeling/design-time-code-generation-by-using-t4-text-templates.md)  
   
@@ -52,7 +38,7 @@ ms.lasthandoff: 02/22/2017
  但是，如果是从一个现有应用程序开始，你可能会发现需要进行很多重构才能隔开受模型控制的不同行为，以便这些行为可以独立改变。 建议你在估计项目成本时，将应用程序的这一方面评估在内。  
   
 ## <a name="configuring-your-application-from-a-model"></a>从模型进配置应用程序  
- 如果你希望在运行时改变应用程序的行为，则无法使用在编译应用程序前生成源代码的代码生成。 相反，您可以设计您的应用程序若要读取模型，并相应地改变其行为。 有关详细信息，请参见:  
+ 如果你希望在运行时改变应用程序的行为，则无法使用在编译应用程序前生成源代码的代码生成。 相反，你可以设计为读取模型，并相应地改变其行为的应用程序。 有关详细信息，请参见:  
   
 -   [如何：在程序代码中从文件打开模型](../modeling/how-to-open-a-model-from-file-in-program-code.md)  
   
@@ -63,19 +49,19 @@ ms.lasthandoff: 02/22/2017
 ## <a name="developing-a-derived-application"></a>开发派生应用程序  
  你可能会发现以下一般准则会很有帮助。  
   
--   **先具体后一般化。** 首先编写一个特定版本的应用程序。 此版本应能在一组条件下工作。 当你认为该应用程序能正常工作时，你可以从模型派生一些部分。 逐渐扩展派生的部分。  
+-   **启动特定，然后通用化。** 首先编写一个特定版本的应用程序。 此版本应能在一组条件下工作。 当你认为该应用程序能正常工作时，你可以从模型派生一些部分。 逐渐扩展派生的部分。  
   
      例如，设计一个具有一组特定网页的网站，然后设计一个 Web 应用程序来表示在模型中定义的页面。  
   
--   **模型的变体方面。** 确定将发生改变的方面，两个不同部署之间的改变，或随着需求变化而改变。 这些方面应从模型派生。  
+-   **模型的变体的方面。** 确定将发生改变的方面，两个不同部署之间的改变，或随着需求变化而改变。 这些方面应从模型派生。  
   
      例如，如果一组网页及其之间的链接发生更改，但这些网页的样式和格式始终是相同的，那么模型应描述这些链接，但不必描述网页的格式。  
   
--   **任务分离。** 如果可变方面能分成独立的区域，则为每个区域使用单独的模型。 使用 ModelBus，你可以定义同时影响各模型及其之间的约束的操作。  
+-   **单独的问题。** 如果可变方面能分成独立的区域，则为每个区域使用单独的模型。 使用 ModelBus，你可以定义同时影响各模型及其之间的约束的操作。  
   
      例如，使用一个模型来定义网页导航，使用另一个模型来定义网页布局。
   
--   **模型的要求，而不是解决方案。** 设计模型，以便用来描述用户需求。 与此相反，不要根据实现的可变方面设计表示法。  
+-   **模型的要求，而不是解决方案。** 设计模型以便它描述用户需求。 与此相反，不要根据实现的可变方面设计表示法。  
   
      例如，Web 导航模型应表示网页和网页间的超链接。 Web 导航模型不应表示应用程序中的 HTML 或类的片段。  
   
@@ -89,5 +75,5 @@ ms.lasthandoff: 02/22/2017
   
 ## <a name="see-also"></a>另请参阅  
  [从域特定语言生成代码](../modeling/generating-code-from-a-domain-specific-language.md)   
- [如何︰ 从程序代码中的文件打开模型](../modeling/how-to-open-a-model-from-file-in-program-code.md)   
+ [如何： 从在程序代码中的文件打开模型](../modeling/how-to-open-a-model-from-file-in-program-code.md)   
  [使用 T4 文本模板生成设计时代码](../modeling/design-time-code-generation-by-using-t4-text-templates.md)

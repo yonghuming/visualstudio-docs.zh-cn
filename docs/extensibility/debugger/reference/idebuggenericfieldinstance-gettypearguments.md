@@ -1,57 +1,59 @@
 ---
-title: "IDebugGenericFieldInstance::GetTypeArguments | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-sdk"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-helpviewer_keywords: 
-  - "GetTypeArguments"
-  - "IDebugGenericFieldInstance::GetTypeArguments"
+title: "IDebugGenericFieldInstance::GetTypeArguments |Microsoft 文档"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology: vs-ide-sdk
+ms.tgt_pltfrm: 
+ms.topic: article
+helpviewer_keywords:
+- GetTypeArguments
+- IDebugGenericFieldInstance::GetTypeArguments
 ms.assetid: 6e7e0f95-181a-4805-adb3-c2407de0ab93
-caps.latest.revision: 9
-ms.author: "gregvanl"
-manager: "ghogen"
-caps.handback.revision: 9
+caps.latest.revision: "9"
+author: gregvanl
+ms.author: gregvanl
+manager: ghogen
+ms.openlocfilehash: ae79230887bdcef2945f94474707f7f00a1c0257
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# IDebugGenericFieldInstance::GetTypeArguments
-[!INCLUDE[vs2017banner](../../../code-quality/includes/vs2017banner.md)]
-
-检索该类型此实例的参数。  
+# <a name="idebuggenericfieldinstancegettypearguments"></a>IDebugGenericFieldInstance::GetTypeArguments
+检索此实例的类型参数自变量。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
-```cpp#  
+```cpp  
 HRESULT GetTypeArguments(  
-   ULONG32       cArgs,  
-   IDebugField** ppArgs,  
-   ULONG32*      pcArgs  
+   ULONG32       cArgs,  
+   IDebugField** ppArgs,  
+   ULONG32*      pcArgs  
 );  
 ```  
   
-```c#  
+```csharp  
 int GetTypeArguments(  
-   uint              cArgs,  
-   out IDebugField[] ppArgs,  
-   ref uint          pcArgs  
+   uint              cArgs,  
+   out IDebugField[] ppArgs,  
+   ref uint          pcArgs  
 );  
 ```  
   
-#### 参数  
+#### <a name="parameters"></a>参数  
  `cArgs`  
- \[in\] 类型参数的编号。  
+ [in]类型参数的数目。  
   
  `ppArgs`  
- \[out\] 返回一个数组类型参数。  
+ [out]返回数组的类型参数。  
   
  `pcArgs`  
- \[in, out\] 成员数 `ppArgs` 数组。  
+ [在中，out]中的成员数`ppArgs`数组。  
   
-## 返回值  
- 如果成功，则返回; `S_OK`否则，返回错误代码。  
+## <a name="return-value"></a>返回值  
+ 如果成功，则返回`S_OK`; 否则为返回错误代码。  
   
-## 请参阅  
+## <a name="see-also"></a>另请参阅  
  [IDebugGenericFieldInstance](../../../extensibility/debugger/reference/idebuggenericfieldinstance.md)

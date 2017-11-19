@@ -1,32 +1,33 @@
 ---
-title: "文本模板实用工具方法 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-helpviewer_keywords: 
-  - "文本模板, 实用程序方法"
+title: "文本模板实用工具方法 |Microsoft 文档"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.tgt_pltfrm: 
+ms.topic: article
+helpviewer_keywords: text templates, utility methods
 ms.assetid: 8c11f9f7-678b-4f0c-b634-dc78fda699d1
-caps.latest.revision: 50
-author: "alancameronwills"
-ms.author: "awills"
-manager: "douge"
-caps.handback.revision: 50
+caps.latest.revision: "50"
+author: alancameronwills
+ms.author: awills
+manager: douge
+ms.openlocfilehash: 534a7317b4bca2abe559c028d025a52997a9f508
+ms.sourcegitcommit: aadb9588877418b8b55a5612c1d3842d4520ca4c
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/27/2017
 ---
-# 文本模板实用工具方法
-[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
-
-在 [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] 文本模板中编写代码时，有几种方法始终可用。  这些方法是在 <xref:Microsoft.VisualStudio.TextTemplating.TextTransformation> 中定义的。  
+# <a name="text-template-utility-methods"></a>文本模板实用工具方法
+有多种方法中编写代码时都可供你[!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)]文本模板。 这些方法定义中<xref:Microsoft.VisualStudio.TextTemplating.TextTransformation>。  
   
 > [!TIP]
->  您还可以在常规（未预处理的）文本模板中使用由宿主环境提供的其他方法和服务。  例如，可以解析文件路径、记录错误以及获得由 [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] 和任何已加载包所提供的服务。  有关更多信息，请参见[Accessing Visual Studio from a Text Template](http://msdn.microsoft.com/zh-cn/0556f20c-fef4-41a9-9597-53afab4ab9e4)。  
+>  你还可以使用其他方法和由正则 （不预处理） 文本模板中的主机环境提供的服务。 例如，你可以解析文件路径、 记录错误，并获取所提供的服务[!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)]和任何加载包。  有关详细信息，请参阅[从文本模板访问 Visual Studio](http://msdn.microsoft.com/en-us/0556f20c-fef4-41a9-9597-53afab4ab9e4)。  
   
-## 写入方法  
- 可以使用 `Write()` 和 `WriteLine()` 方法在标准代码块内追加文本，而不必使用表达式代码块。  下面两个代码块在功能上是等效的。  
+## <a name="write-methods"></a>编写方法  
+ 你可以使用`Write()`和`WriteLine()`方法要追加了标准的代码块，而不是使用表达式代码块中的文本。 下面的两个代码块在功能上等效。  
   
-##### 包含表达式块的代码块  
+##### <a name="code-block-with-an-expression-block"></a>与将表达式块的代码块  
   
 ```  
 <#  
@@ -38,7 +39,7 @@ while (i-- > 0)
 #>  
 ```  
   
-##### 使用 WriteLine\(\) 的代码块  
+##### <a name="code-block-using-writeline"></a>使用 WriteLine() 的代码块  
   
 ```  
 <#   
@@ -50,9 +51,9 @@ while (i-- > 0)
 #>  
 ```  
   
- 不通过嵌套控制结构在冗长的代码块中使用表达式块，而是使用这些实用工具方法之一，是非常有用的。  
+ 你可能会发现有助于而不是在具有嵌套的控制结构长的代码块将表达式块中使用这些实用程序方法之一。  
   
- `Write()` 和 `WriteLine()` 方法有两个重载，其中一个重载接受单个字符串参数，另一个重载接受一个复合格式字符串以及将包含在字符串中的对象数组（与 `Console.WriteLine()` 方法类似）。  下面两种 `WriteLine()` 用法在功能上是等效的：  
+ `Write()`和`WriteLine()`方法具有两种重载，其中一个采用单个字符串参数和一个使用复合格式字符串以及要包含在字符串中的对象的数组 (如`Console.WriteLine()`方法)。 以下两种用法`WriteLine()`在功能上等效：  
   
 ```  
 <#  
@@ -66,8 +67,8 @@ while (i-- > 0)
 #>   
 ```  
   
-## 缩进方法  
- 可以使用缩进方法设置文本模板输出的格式。  <xref:Microsoft.VisualStudio.TextTemplating.TextTransformation> 类具有一个 `CurrentIndent` 字符串属性，该属性显示文本模板中的当前缩进，该类还具有一个 `indentLengths` 字段，该字段是已添加的缩进的列表。  可以使用 `PushIndent()`  方法增加缩进，也可以使用 `PopIndent()` 方法减少缩进。  如果要删除所有缩进，请使用 `ClearIndent()` 方法。  下面的代码块演示这些方法的用法：  
+## <a name="indentation-methods"></a>缩进方法  
+ 缩进方法可用于设置格式的文本模板的输出。 <xref:Microsoft.VisualStudio.TextTemplating.TextTransformation>类具有`CurrentIndent`字符串显示当前的缩进文本模板中的属性和`indentLengths`字段，它是已添加的缩进的列表。 你可以添加与缩进`PushIndent()`方法减少与缩进`PopIndent()`方法。 如果你想要删除所有的缩进，使用`ClearIndent()`方法。 下面的代码块显示使用这些方法：  
   
 ```  
 <#  
@@ -83,7 +84,7 @@ while (i-- > 0)
 #>  
 ```  
   
- 此代码块产生以下输出：  
+ 此代码块生成以下输出：  
   
 ```  
 Hello  
@@ -93,8 +94,8 @@ Hello
         Hello  
 ```  
   
-## 错误和警告方法  
- 可以使用错误和警告实用工具方法向 [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] 错误列表添加消息。  例如，下面的代码向错误列表添加一条错误消息。  
+## <a name="error-and-warning-methods"></a>错误和警告方法  
+ 你可以使用错误和警告实用程序方法添加到消息[!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)]错误列表。 例如，下面的代码会将一条错误消息添加到的错误列表。  
   
 ```  
 <#  
@@ -110,23 +111,23 @@ Hello
 #>    
 ```  
   
-## 访问宿主和服务提供程序  
- 使用 `this.Host` 属性可以访问由执行模板的宿主公开的属性。  若要使用 `this.Host`，必须在 `<@template#>` 指令中设置 `hostspecific` 特性：  
+## <a name="access-to-host-and-service-provider"></a>对主机和服务提供程序的访问  
+ 属性`this.Host`可以提供对属性执行模板的宿主公开访问。 若要使用`this.Host`，必须设置`hostspecific`属性中`<@template#>`指令：  
   
- `<#@template ...  hostspecific="true" #>`  
+ `<#@template ... hostspecific="true" #>`  
   
- `this.Host` 的类型取决于执行模板的宿主的类型。  在运行于 [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] 的模板中，可以将 `this.Host` 强制转换为 `IServiceProvider`，以获取对服务（如 IDE）的访问。  例如：  
+ 一种`this.Host`取决于在其中执行模板的宿主类型。 在模板中运行[!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)]，可以强制转换`this.Host`到`IServiceProvider`来访问服务，例如 IDE。 例如：  
   
 ```  
 EnvDTE.DTE dte = (EnvDTE.DTE) ((IServiceProvider) this.Host)  
                        .GetService(typeof(EnvDTE.DTE));  
 ```  
   
-## 使用其他实用工具方法集  
- 在文本生成过程中，模板文件转换为一个类，该类始终名为 `GeneratedTextTransformation`，它继承自 <xref:Microsoft.VisualStudio.TextTemplating.TextTransformation>。  如果要改用其他方法集，您可以编写自己的类，然后在模板指令中指定该类。  您的类必须从 <xref:Microsoft.VisualStudio.TextTemplating.TextTransformation> 继承。  
+## <a name="using-a-different-set-of-utility-methods"></a>使用一组不同的实用工具方法  
+ 作为文本生成过程的一部分，你的模板文件转换为一个类，这始终名为`GeneratedTextTransformation`并继承自<xref:Microsoft.VisualStudio.TextTemplating.TextTransformation>。 如果你想要使用不同设置的方法而不是，你可以编写您自己的类，并在模板指令中指定它。 你的类必须继承自<xref:Microsoft.VisualStudio.TextTemplating.TextTransformation>。  
   
 ```  
 <#@ template inherits="MyUtilityClass" #>  
 ```  
   
- 使用 `assembly` 指令可以引用已编译类所在的程序集。
+ 使用`assembly`指令以引用程序集可以找到已编译的类。
