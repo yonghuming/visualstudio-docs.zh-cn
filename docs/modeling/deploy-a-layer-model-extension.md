@@ -10,29 +10,15 @@ helpviewer_keywords:
 - dependency diagrams, deploying extensions
 - layer models, deploying extensions
 ms.assetid: 00a4675b-d20e-487e-8fd5-be2b1e0ba238
-caps.latest.revision: 27
+caps.latest.revision: "27"
 author: alexhomer1
 ms.author: ahomer
 manager: douge
-translation.priority.ht:
-- cs-cz
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pl-pl
-- pt-br
-- ru-ru
-- tr-tr
-- zh-cn
-- zh-tw
-translationtype: Machine Translation
-ms.sourcegitcommit: 8f84f22444a5df5b9f4f4af44cd8ee9136403467
-ms.openlocfilehash: 03164fe80a0b8f4dbc321a7e57b7db9e38e405d5
-ms.lasthandoff: 02/22/2017
-
+ms.openlocfilehash: d019e602c5bf198df03a50034c2ed29519d16e53
+ms.sourcegitcommit: aadb9588877418b8b55a5612c1d3842d4520ca4c
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="deploy-a-layer-model-extension"></a>部署层模型扩展
 其他 Visual Studio 用户可通过使用 Visual Studio 安装你创建的层建模扩展。  
@@ -42,9 +28,9 @@ ms.lasthandoff: 02/22/2017
   
 #### <a name="to-install-the-extension"></a>安装扩展  
   
-1.  项目中包含**source.vsix.manifest**，打开**bin\\ \* **在文件资源管理器。  
+1.  中包含的项目**source.vsix.manifest**，打开**bin\\ \*** 在文件资源管理器。  
   
-2.  复制** \*.vsix**到要安装扩展的计算机的文件。  
+2.  复制 **\*.vsix**到要安装扩展的计算机的文件。  
   
 3.  在目标计算机的 Windows 资源管理器中，双击 *.vsix 文件。  
   
@@ -54,15 +40,14 @@ ms.lasthandoff: 02/22/2017
   
 1.  在 Visual Studio 中，在**工具**菜单上，单击**扩展和更新**。  
   
-2.  单击扩展插件的名称，然后单击**卸载**。  
+2.  单击扩展的名称，然后单击**卸载**。  
   
 ## <a name="installing-an-extension-on-a-team-foundation-build-server"></a>在 Team Foundation Build 服务器上安装扩展  
- 通常情况下，[!INCLUDE[esprbuild](../misc/includes/esprbuild_md.md)] 服务器并未安装 Visual Studio，因此无法通过对其双击来安装 VSIX。 
-          [!INCLUDE[esprbuild](../misc/includes/esprbuild_md.md)] 的安装包括一些允许运行 VSIX 扩展的组件，但你必须手动安装该扩展。  
+ 通常情况下，[!INCLUDE[esprbuild](../misc/includes/esprbuild_md.md)] 服务器并未安装 Visual Studio，因此无法通过对其双击来安装 VSIX。 [!INCLUDE[esprbuild](../misc/includes/esprbuild_md.md)] 的安装包括一些允许运行 VSIX 扩展的组件，但你必须手动安装该扩展。  
   
 #### <a name="to-install-your-layer-extension-on-a-includeesprbuildmiscincludesesprbuildmdmd-server"></a>在 [!INCLUDE[esprbuild](../misc/includes/esprbuild_md.md)] 服务器上安装层扩展  
   
-1.  复制**.vsix**文件从开发计算机[!INCLUDE[esprbuild](../misc/includes/esprbuild_md.md)]的计算机。  
+1.  复制**.vsix**文件从开发计算机到[!INCLUDE[esprbuild](../misc/includes/esprbuild_md.md)]计算机。  
   
      将 VSIX 文件置于下列位置之一：  
   
@@ -79,15 +64,14 @@ ms.lasthandoff: 02/22/2017
          %LocalAppData%\Microsoft\VisualStudio\\[version] \Extensions\Microsoft  
   
         > [!NOTE]
-        >  %Localappdata%通常是*DriveName*︰ 用户*用户名*AppDataLocal。  
+        >  %Localappdata%通常是*DriveName*： 用户*用户名*AppDataLocal。  
   
 2.  将各个 VSIX 文件展开至相同位置的文件夹中：  
   
-    1.  更改文件扩展名，从**.vsix**到**.zip**。  
+    1.  更改文件扩展名从**.vsix**到**.zip**。  
   
     2.  将 .zip 文件中的内容提取到一个文件夹中。  
   
     3.  删除 .zip 文件。  
   
 3.  重新启动 [!INCLUDE[esprbuild](../misc/includes/esprbuild_md.md)]。
-

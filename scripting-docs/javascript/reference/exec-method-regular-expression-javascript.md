@@ -1,58 +1,60 @@
 ---
-title: "exec 方法（正则表达式）(JavaScript) | Microsoft Docs"
-ms.custom: ""
-ms.date: "01/18/2017"
-ms.prod: "windows-client-threshold"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "devlang-javascript"
-ms.tgt_pltfrm: ""
-ms.topic: "language-reference"
-f1_keywords: 
-  - "exec"
-dev_langs: 
-  - "JavaScript"
-  - "TypeScript"
-  - "DHTML"
-helpviewer_keywords: 
-  - "Exec 方法"
-  - "匹配字符串"
+title: "exec 方法 （正则表达式） (JavaScript) |Microsoft 文档"
+ms.custom: 
+ms.date: 01/18/2017
+ms.prod: windows-client-threshold
+ms.reviewer: 
+ms.suite: 
+ms.technology: devlang-javascript
+ms.tgt_pltfrm: 
+ms.topic: language-reference
+f1_keywords: exec
+dev_langs:
+- JavaScript
+- TypeScript
+- DHTML
+helpviewer_keywords:
+- matching strings
+- Exec method
 ms.assetid: 83092452-60cc-4218-b4ae-af9e3cb96c34
-caps.latest.revision: 17
-author: "mikejo5000"
-ms.author: "mikejo"
-manager: "ghogen"
-caps.handback.revision: 17
+caps.latest.revision: "17"
+author: mikejo5000
+ms.author: mikejo
+manager: ghogen
+ms.openlocfilehash: 426cc1a8162b03090289cf737a03d64a75df77e9
+ms.sourcegitcommit: aadb9588877418b8b55a5612c1d3842d4520ca4c
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/27/2017
 ---
-# exec 方法（正则表达式）(JavaScript)
-使用正则表达式模式对字符串执行搜索，并返回一个包含该搜索结果的数组。  
+# <a name="exec-method-regular-expression-javascript"></a>exec 方法（正则表达式）(JavaScript)
+使用正则表达式模式中，对字符串执行搜索并返回包含该搜索的结果的数组。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
 ```  
   
 rgExp.exec(str)   
 ```  
   
-## 参数  
+## <a name="parameters"></a>参数  
  `rgExp`  
- 必需。  包含正则表达式模式和适用标志的 **Regular Expression** 对象的实例。  
+ 必需。 实例**正则表达式**包含正则表达式模式和适用标志的对象。  
   
  `str`  
- 必需。  对其执行搜索的 `String` 对象或字符串文本。  
+ 必需。 `String`对象或字符串文本在其上执行搜索。  
   
-## 备注  
- 如果 `exec` 方法没有找到匹配，将返回 `null`。  如果找到匹配项，则 `exec` 方法返回一个数组，并将更新全局 `RegExp` 对象的属性以反映匹配结果。  数组元素 0 包含了完整的匹配项，而元素 1 到 *n* 包含的是匹配项中出现的任意一个子匹配项。  这相当于没有设置全局标志 \(**g**\) 的 `match` 方法的行为。  
+## <a name="remarks"></a>备注  
+ 如果`exec`方法未找到匹配项，它将返回`null`。 如果它找到的匹配项，`exec`返回的全局属性和数组，`RegExp`对象已更新以反映匹配项的结果。 数组的元素零包含整个匹配项，而元素 1-  *n* 包含匹配中发生任何子匹配项。 此行为是相同的行为的`match`方法，而全局标志 (**g**) 设置。  
   
- 如果为正则表达式设置了全局标志，则 `exec` 从 `lastIndex` 值指示的位置开始搜索字符串。  如果没有设置全局标志，则 `exec` 忽略 `lastIndex` 的值，从字符串的起始位置开始搜索。  
+ 如果为正则表达式，设置了全局标志`exec`搜索的值指示的位置开始的字符串`lastIndex`。 如果未设置全局标志，`exec`将忽略的值`lastIndex`和从字符串的开头搜索。  
   
- `exec` 方法返回的数组有三个属性：**input**、**index** 和 **lastIndex**。**input** 属性包含整个被搜索的字符串。  **index** 属性包含了在整个被搜索字符串中匹配的子字符串的位置。  `lastIndex` 属性中包含了匹配中最后一个字符的下一个位置。  
+ 返回的数组`exec`方法具有三个属性，**输入**，**索引**和**lastIndex。** **输入**属性包含整个搜索的字符串。 **索引**属性包含在完整的搜索字符串匹配的子字符串的位置。 `lastIndex`属性包含匹配项中的最后一个字符后面的位置。  
   
-## 示例  
- 下面的示例阐释了 `exec` 方法的用法：  
+## <a name="example"></a>示例  
+ 下面的示例演示如何使用`exec`方法：  
   
-```javascript  
+```JavaScript  
 function RegExpTest()  
 {  
    var ver = Number(ScriptEngineMajorVersion() + "." + ScriptEngineMinorVersion())  
@@ -79,15 +81,15 @@ function RegExpTest()
 }  
 ```  
   
-## 要求  
+## <a name="requirements"></a>要求  
  [!INCLUDE[jsv3](../../javascript/reference/includes/jsv3-md.md)]  
   
- **适用于**：[正则表达式对象](../../javascript/reference/regular-expression-object-javascript.md)  
+ **适用于**:[正则表达式对象](../../javascript/reference/regular-expression-object-javascript.md)  
   
-## 请参阅  
- [match 方法 \(String\)](../../javascript/reference/match-method-string-javascript.md)   
+## <a name="see-also"></a>另请参阅  
+ [match 方法 (String)](../../javascript/reference/match-method-string-javascript.md)   
  [RegExp 对象](../../javascript/reference/regexp-object-javascript.md)   
- [Regular Expression Syntax \(JavaScript\)](http://msdn.microsoft.com/zh-cn/ab0766e1-7037-45ed-aa23-706f58358c0e)   
- [search 方法 \(String\)](../../javascript/reference/search-method-string-javascript.md)   
- [test 方法（正则表达式）](../../javascript/reference/test-method-regular-expression-javascript.md)   
- [Regular Expression Programming \(JavaScript\)](http://msdn.microsoft.com/zh-cn/3b62e27c-4f07-4726-a95b-6e841807bfaf)
+ [正则表达式语法 (JavaScript)](http://msdn.microsoft.com/en-us/ab0766e1-7037-45ed-aa23-706f58358c0e)   
+ [search 方法 (String)](../../javascript/reference/search-method-string-javascript.md)   
+ [test 方法 （正则表达式）](../../javascript/reference/test-method-regular-expression-javascript.md)   
+ [正则表达式编程 (JavaScript)](http://msdn.microsoft.com/en-us/3b62e27c-4f07-4726-a95b-6e841807bfaf)

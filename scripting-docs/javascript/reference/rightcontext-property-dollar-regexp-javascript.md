@@ -1,48 +1,49 @@
 ---
-title: "rightContext 属性 ($&#39;) (RegExp) (JavaScript) | Microsoft Docs"
-ms.custom: ""
-ms.date: "01/18/2017"
-ms.prod: "windows-client-threshold"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "devlang-javascript"
-ms.tgt_pltfrm: ""
-ms.topic: "language-reference"
-f1_keywords: 
-  - "$'"
-dev_langs: 
-  - "JavaScript"
-  - "TypeScript"
-  - "DHTML"
-helpviewer_keywords: 
-  - "rightContext 属性 ($')"
+title: "rightContext 属性 ($&#39;)(RegExp)(JavaScript) |Microsoft 文档"
+ms.custom: 
+ms.date: 01/18/2017
+ms.prod: windows-client-threshold
+ms.reviewer: 
+ms.suite: 
+ms.technology: devlang-javascript
+ms.tgt_pltfrm: 
+ms.topic: language-reference
+f1_keywords: $'
+dev_langs:
+- JavaScript
+- TypeScript
+- DHTML
+helpviewer_keywords: rightContext property ($')
 ms.assetid: 6999c056-d18c-4583-9dd9-8fbb6d3d0ee7
-caps.latest.revision: 12
-author: "mikejo5000"
-ms.author: "mikejo"
-manager: "ghogen"
-caps.handback.revision: 12
+caps.latest.revision: "12"
+author: mikejo5000
+ms.author: mikejo
+manager: ghogen
+ms.openlocfilehash: d47ea5dd67de9d73ab59b615c567ad3a7a96fb7b
+ms.sourcegitcommit: aadb9588877418b8b55a5612c1d3842d4520ca4c
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/27/2017
 ---
-# rightContext 属性 ($&#39;) (RegExp) (JavaScript)
-返回一些字符，即从最后一个匹配之后的位置直到被搜索字符串的结尾处的字符。  只读。  
+# <a name="rightcontext-property-39-regexp-javascript"></a>rightContext 属性 ($&#39;)(RegExp)(JavaScript)
+从搜索字符串的末尾之后最后一个匹配项的位置返回的字符。 只读。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
 ```  
   
 RegExp.rightContext  
 ```  
   
-## 备注  
- 与此属性关联的对象始终为全局 `RegExp` 对象。  
+## <a name="remarks"></a>备注  
+ 此属性与关联的对象始终是全局`RegExp`对象。  
   
- **rightContext** 属性的初始值为一个空字符串。  每当产生一个成功匹配时，**rightContext** 属性的值将更改。  
+ 初始值**rightContext**属性为空字符串。 值**rightContext**属性更改时将生成一个成功匹配。  
   
-## 示例  
- 下面的示例阐释了 **rightContext** 属性的用法：  
+## <a name="example"></a>示例  
+ 下面的示例演示如何使用**rightContext**属性：  
   
-```javascript  
+```JavaScript  
 // Create the regular expression pattern.  
 var re = new RegExp("d(b+)(d)","ig");  
 var str = "cdbBdbsbdbdz";  
@@ -64,16 +65,16 @@ s += "lastParen: " + RegExp.lastParen + "<br />";
 document.write(s);  
 ```  
   
-## 要求  
+## <a name="requirements"></a>要求  
  [!INCLUDE[jsv55](../../javascript/reference/includes/jsv55-md.md)]  
   
- **适用于**：[RegExp 对象](../../javascript/reference/regexp-object-javascript.md)  
+ **适用于**: [RegExp 对象](../../javascript/reference/regexp-object-javascript.md)  
   
-## 请参阅  
- [$1...$9 属性 \(RegExp\)](../../javascript/reference/dollar-1-dot-dot-dot-dollar-9-properties-regexp-javascript.md)   
- [index 属性 \(RegExp\)](../../javascript/reference/index-property-regexp-javascript.md)   
- [input 属性 \($\_\) \(RegExp\)](../../javascript/reference/input-property-dollar-regexp-javascript.md)   
- [lastIndex 属性 \(RegExp\)](../../javascript/reference/lastindex-property-regexp-javascript.md)   
- [lastMatch 属性 \($&\) \(RegExp\)](../../javascript/reference/lastmatch-property-dollar-regexp-javascript.md)   
- [lastParen 属性 \($\+\) \(RegExp\)](../../javascript/reference/lastparen-property-dollar-regexp-javascript.md)   
- [leftContext 属性 \($\`\) \(RegExp\)](../../javascript/reference/leftcontext-property-dollar-grave-regexp-javascript.md)
+## <a name="see-also"></a>另请参阅  
+ [$1...$9 属性 (RegExp)](../../javascript/reference/dollar-1-dot-dot-dot-dollar-9-properties-regexp-javascript.md)   
+ [索引属性 (RegExp)](../../javascript/reference/index-property-regexp-javascript.md)   
+ [input 属性 ($_) (RegExp)](../../javascript/reference/input-property-dollar-regexp-javascript.md)   
+ [lastIndex 属性 (RegExp)](../../javascript/reference/lastindex-property-regexp-javascript.md)   
+ [lastMatch 属性 ($&) (RegExp)](../../javascript/reference/lastmatch-property-dollar-regexp-javascript.md)   
+ [lastParen 属性 （$ +） (RegExp)](../../javascript/reference/lastparen-property-dollar-regexp-javascript.md)   
+ [leftContext 属性 ($`) (RegExp)](../../javascript/reference/leftcontext-property-dollar-grave-regexp-javascript.md)

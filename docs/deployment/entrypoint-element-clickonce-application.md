@@ -1,36 +1,37 @@
 ---
-title: "&lt;entryPoint&gt; 元素（ClickOnce 应用程序） | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-deployment"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "urn:schemas-microsoft-com:asm.v2#commandLine"
-  - "urn:schemas-microsoft-com:asm.v2#entryPoint"
-dev_langs: 
-  - "VB"
-  - "CSharp"
-  - "C++"
-helpviewer_keywords: 
-  - "<entryPoint> 元素 [ClickOnce 应用程序清单]"
-  - "清单 [ClickOnce], entryPoint 元素"
+title: "&lt;入口点&gt;元素 （ClickOnce 应用程序） |Microsoft 文档"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology: vs-ide-deployment
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords:
+- urn:schemas-microsoft-com:asm.v2#commandLine
+- urn:schemas-microsoft-com:asm.v2#entryPoint
+dev_langs:
+- VB
+- CSharp
+- C++
+helpviewer_keywords:
+- <entryPoint> element [ClickOnce application manifest]
+- manifests [ClickOnce], entryPoint element
 ms.assetid: 10ad3083-10c1-4189-a870-9bba2eab244f
-caps.latest.revision: 33
-author: "stevehoag"
-ms.author: "shoag"
-manager: "wpickett"
-caps.handback.revision: 33
+caps.latest.revision: "33"
+author: stevehoag
+ms.author: shoag
+manager: wpickett
+ms.openlocfilehash: eb280684f0c06391bc6c0596093c01f260f685d3
+ms.sourcegitcommit: aadb9588877418b8b55a5612c1d3842d4520ca4c
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/27/2017
 ---
-# &lt;entryPoint&gt; 元素（ClickOnce 应用程序）
-[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
-
-标识在客户端计算机上运行此 [!INCLUDE[ndptecclick](../deployment/includes/ndptecclick_md.md)] 应用程序时应该执行的程序集。  
+# <a name="ltentrypointgt-element-clickonce-application"></a>&lt;入口点&gt;元素 （ClickOnce 应用程序）
+标识应为程序集时执行此[!INCLUDE[ndptecclick](../deployment/includes/ndptecclick_md.md)]客户端计算机上运行应用程序。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
 ```  
   
@@ -52,53 +53,53 @@ caps.handback.revision: 33
 </entryPoint>  
 ```  
   
-## 元素和特性  
- `entryPoint` 元素是必需的，它位于 `urn:schemas-microsoft-com:asm.v2` 命名空间中。  一个应用程序清单中可能只定义了一个 `entryPoint` 元素。  
+## <a name="elements-and-attributes"></a>元素和属性  
+ `entryPoint` 元素是必需的，它位于 `urn:schemas-microsoft-com:asm.v2` 命名空间中。 可能仅有一个`entryPoint`应用程序清单中定义的元素。  
   
- `entryPoint` 元素具有下列特性。  
+ `entryPoint`元素具有以下属性。  
+  
+|特性|描述|  
+|---------------|-----------------|  
+|`name`|可选。 .NET Framework 不使用此值。|  
+  
+ `entryPoint`具有以下元素。  
+  
+## <a name="assemblyidentity"></a>assemblyIdentity  
+ 必需。 角色`assemblyIdentity`中定义其属性和[ \<assemblyIdentity > 元素](../deployment/assemblyidentity-element-clickonce-application.md)。  
+  
+ `processorArchitecture`此元素的属性和`processorArchitecture`中定义特性`assemblyIdentity`在其他位置在应用程序清单必须匹配。  
+  
+## <a name="commandline"></a>命令行  
+ 必需。 必须为的子级`entryPoint`元素。 它不包含任何子元素，并具有以下属性。  
   
 |特性|说明|  
-|--------|--------|  
-|`name`|可选。  .NET Framework 不使用此值。|  
+|---------------|-----------------|  
+|`file`|必需。 启动程序集的本地引用[!INCLUDE[ndptecclick](../deployment/includes/ndptecclick_md.md)]应用程序。 此值不能包含正斜杠 （/） 或反斜杠 (\\) 路径分隔符。|  
+|`parameters`|必需。 描述要使用的入口点执行的操作。 唯一有效的值是`run`; 如果提供的空白字符串，则`run`假定。|  
   
- `entryPoint` 具有下列元素。  
+## <a name="customhostrequired"></a>customHostRequired  
+ 可选。 如果包含，则指定此部署包含将在自定义主机，内部部署的组件，并不是独立的应用程序。  
   
-## assemblyIdentity  
- 必选。  `assemblyIdentity` 及其特性的作用在 [\<assemblyIdentity\> 元素](../deployment/assemblyidentity-element-clickonce-application.md)中定义。  
+ 如果此元素已存在，`assemblyIdentity`和`commandLine`元素必须还不存在。 如果它们，[!INCLUDE[ndptecclick](../deployment/includes/ndptecclick_md.md)]将在安装过程中引发验证错误。  
   
- 此元素的 `processorArchitecture` 特性与应用程序清单中其他地方的 `assemblyIdentity` 中定义的 `processorArchitecture` 特性必须匹配。  
+ 此元素具有任何属性，也没有子级。  
   
-## commandLine  
- 必选。  必须是 `entryPoint` 元素的子元素。  它不包含任何子元素，但具有下列特性。  
-  
-|特性|说明|  
-|--------|--------|  
-|`file`|必选。  对 [!INCLUDE[ndptecclick](../deployment/includes/ndptecclick_md.md)] 应用程序的启动程序集的本地引用。  此值不能包含正斜杠 \(\/\) 或反斜杠 \(\\\) 路径分隔符。|  
-|`parameters`|必选。  描述要通过入口点执行的操作。  唯一的有效值为 `run`；如果提供空白字符串，则假定值为 `run`。|  
-  
-## customHostRequired  
- 可选。  如果包括，则指定此部署包含将在自定义宿主内部署的组件，并且不是独立应用程序。  
-  
- 如果此元素存在，则 `assemblyIdentity` 和 `commandLine` 元素也必须存在。  如果这两个元素存在，[!INCLUDE[ndptecclick](../deployment/includes/ndptecclick_md.md)] 将在安装期间引发验证错误。  
-  
- 此元素没有特性，也没有子级。  
-  
-## customUX  
- 可选。  指定通过自定义安装程序安装和维护应用程序，并且不会创建一个“开始”菜单项、快捷方式或“添加或删除程序“项。  
+## <a name="customux"></a>customUX  
+ 可选。 指定应用程序安装和维护的自定义安装程序，并不创建开始菜单项、 快捷方式或添加或删除程序条目。  
   
 ```  
 <customUX xmlns="urn:schemas-microsoft-com:clickonce.v1" />  
 ```  
   
- 包括 customUX 元素的应用程序必须提供使用 <xref:System.Deployment.Application.InPlaceHostingManager> 类执行安装操作的自定义安装程序。  采用此元素的应用程序无法通过双击其清单或 setup.exe 必备组件引导程序安装。  自定义安装程序可以创建开始菜单项、快捷方式和添加或删除程序项。  如果自定义安装程序没有创建“添加或删除程序”项，则它必须存储由 <xref:System.Deployment.Application.GetManifestCompletedEventArgs.SubscriptionIdentity%2A> 属性提供的订阅标识符，并使用户能够通过调用 <xref:System.Deployment.Application.InPlaceHostingManager.UninstallCustomUXApplication%2A> 方法在以后卸载该应用程序。  有关更多信息，请参见[演练：为 ClickOnce 应用程序创建自定义安装程序](../deployment/walkthrough-creating-a-custom-installer-for-a-clickonce-application.md)。  
+ 包括 customUX 元素的应用程序必须提供自定义安装程序，则使用<xref:System.Deployment.Application.InPlaceHostingManager>类来执行安装操作。 此元素的应用程序无法通过双击其清单或 setup.exe 先决条件引导程序安装。 开始菜单项、 快捷方式和添加或删除程序条目，可以创建自定义安装程序。 如果自定义安装程序不会创建的添加或删除程序项，它必须存储提供的订阅标识符<xref:System.Deployment.Application.GetManifestCompletedEventArgs.SubscriptionIdentity%2A>属性，并使用户更高版本卸载该应用程序，通过调用<xref:System.Deployment.Application.InPlaceHostingManager.UninstallCustomUXApplication%2A>方法。 有关详细信息，请参阅[演练： 为 ClickOnce 应用程序创建自定义安装程序](../deployment/walkthrough-creating-a-custom-installer-for-a-clickonce-application.md)。  
   
-## 备注  
- 此元素标识 [!INCLUDE[ndptecclick](../deployment/includes/ndptecclick_md.md)] 应用程序的程序集和入口点。  
+## <a name="remarks"></a>备注  
+ 此元素标识的程序集和入口点[!INCLUDE[ndptecclick](../deployment/includes/ndptecclick_md.md)]应用程序。  
   
- 运行时，不能使用 `commandLine` 将参数传递到应用程序中。  可以从该应用程序的 <xref:System.AppDomain> 访问 [!INCLUDE[ndptecclick](../deployment/includes/ndptecclick_md.md)] 部署的查询字符串参数。  有关更多信息，请参见[如何：在联机 ClickOnce 应用程序中检索查询字符串信息](../Topic/How%20to:%20Retrieve%20Query%20String%20Information%20in%20an%20Online%20ClickOnce%20Application.md)。  
+ 不能使用`commandLine`地将参数传递给你的应用程序在运行时。 你可以访问的查询字符串参数[!INCLUDE[ndptecclick](../deployment/includes/ndptecclick_md.md)]从应用程序的部署<xref:System.AppDomain>。 有关详细信息，请参阅[如何： 在联机 ClickOnce 应用程序中检索查询字符串信息](../deployment/how-to-retrieve-query-string-information-in-an-online-clickonce-application.md)。  
   
-## 示例  
- 下面的代码示例阐释 [!INCLUDE[ndptecclick](../deployment/includes/ndptecclick_md.md)] 应用程序的应用程序清单中的 `entryPoint` 元素。  此代码示例摘自为 [ClickOnce 应用程序清单](../deployment/clickonce-application-manifest.md)主题提供的一个更大示例。  
+## <a name="example"></a>示例  
+ 下面的代码示例阐释了`entryPoint`的应用程序清单中的元素[!INCLUDE[ndptecclick](../deployment/includes/ndptecclick_md.md)]应用程序。 此代码示例摘自更大的示例为提供[ClickOnce 应用程序清单](../deployment/clickonce-application-manifest.md)主题。  
   
 ```  
 <!-- Identify the main code entrypoint. -->  
@@ -113,5 +114,5 @@ caps.handback.revision: 33
   </entryPoint>  
 ```  
   
-## 请参阅  
+## <a name="see-also"></a>另请参阅  
  [ClickOnce 应用程序清单](../deployment/clickonce-application-manifest.md)

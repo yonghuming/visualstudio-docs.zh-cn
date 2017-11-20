@@ -10,21 +10,15 @@ helpviewer_keywords:
 - walkthroughs [text templates], connecting host to processor
 - text templates, custom directive hosts
 ms.assetid: 254540d9-90d6-42de-8c1c-068affd56e83
-caps.latest.revision: 47
+caps.latest.revision: "47"
 author: alancameronwills
 ms.author: awills
 manager: douge
-translation.priority.mt:
-- cs-cz
-- pl-pl
-- pt-br
-- tr-tr
+ms.openlocfilehash: 07b1e70775638d88e67280f2f914412ef4271a48
+ms.sourcegitcommit: aadb9588877418b8b55a5612c1d3842d4520ca4c
 ms.translationtype: MT
-ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
-ms.openlocfilehash: 5bfeb8ea94b457114d7ba6ab74b783972e64350c
-ms.contentlocale: zh-cn
-ms.lasthandoff: 09/26/2017
-
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="walkthrough-connecting-a-host-to-a-generated-directive-processor"></a>演练：将主机连接至生成的指令处理器
 你可以编写您自己处理文本模板的主机。 在演示了基本的自定义主机[演练： 创建自定义文本模板宿主](../modeling/walkthrough-creating-a-custom-text-template-host.md)。 你可以扩展此主机不能添加功能，如生成多个输出文件。  
@@ -367,4 +361,3 @@ ms.lasthandoff: 09/26/2017
   
 ## <a name="see-also"></a>另请参阅  
  [演练：创建自定义文本模板宿主](../modeling/walkthrough-creating-a-custom-text-template-host.md)
-

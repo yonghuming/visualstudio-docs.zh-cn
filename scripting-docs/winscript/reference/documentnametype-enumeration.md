@@ -1,27 +1,30 @@
 ---
-title: "DOCUMENTNAMETYPE 枚举 | Microsoft Docs"
-ms.custom: ""
-ms.date: "01/18/2017"
-ms.prod: "windows-script-interfaces"
-ms.reviewer: ""
-ms.suite: ""
-ms.tgt_pltfrm: ""
-ms.topic: "reference"
+title: "DOCUMENTNAMETYPE 枚举 |Microsoft 文档"
+ms.custom: 
+ms.date: 01/18/2017
+ms.prod: windows-script-interfaces
+ms.reviewer: 
+ms.suite: 
+ms.tgt_pltfrm: 
+ms.topic: reference
 apiname: DOCUMENTNAMETYPE
 apilocation: scrobj.dll
-helpviewer_keywords: 
-  - "DOCUMENTNAMETYPE 枚举"
+helpviewer_keywords: DOCUMENTNAMETYPE enumeration
 ms.assetid: d36d550e-efb4-493d-8971-4de267005654
-caps.latest.revision: 9
-author: "mikejo5000"
-ms.author: "mikejo"
-manager: "ghogen"
-caps.handback.revision: 9
+caps.latest.revision: "9"
+author: mikejo5000
+ms.author: mikejo
+manager: ghogen
+ms.openlocfilehash: a0bd21dddd209f21ae64ea2775bbaa0da226f077
+ms.sourcegitcommit: aadb9588877418b8b55a5612c1d3842d4520ca4c
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/27/2017
 ---
-# DOCUMENTNAMETYPE 枚举
-描述键入文档的访问。  
+# <a name="documentnametype-enumeration"></a>DOCUMENTNAMETYPE 枚举
+描述为文档获取哪种类型。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
 ```  
 typedef enum tagDOCUMENTNAMETYPE {  
@@ -29,19 +32,18 @@ typedef enum tagDOCUMENTNAMETYPE {
    DOCUMENTNAMETYPE_TITLE,  
    DOCUMENTNAMETYPE_FILE_TAIL,  
    DOCUMENTNAMETYPE_URL,  
-DOCUMENTNAMETYPE_UNIQUE_TITLE,  
-} DOCUMENTNAMETYPE;  
+DOCUMENTNAMETYPE_UNIQUE_TITLE,} DOCUMENTNAMETYPE;  
 ```  
   
-## 成员  
+## <a name="members"></a>成员  
   
-|成员|说明|  
-|--------|--------|  
-|DOCUMENTNAMETYPE\_APPNODE|当出现在应用程序中，获取该名称。|  
-|DOCUMENTNAMETYPE\_TITLE|它显示在浏览器标题栏，获取该名称。|  
-|DOCUMENTNAMETYPE\_FILE\_TAIL|获取文件名，而无需路径。|  
-|DOCUMENTNAMETYPE\_URL|获取文档的 URL。|  
-|DOCUMENTNAMETYPE\_UNIQUE\_TITLE|获取标题追加了确定的枚举。|  
+|成员|描述|  
+|------------|-----------------|  
+|DOCUMENTNAMETYPE_APPNODE|获取它在应用程序树中显示的名称。|  
+|DOCUMENTNAMETYPE_TITLE|获取它显示在查看器标题栏上的名称。|  
+|DOCUMENTNAMETYPE_FILE_TAIL|获取不含路径的文件名称。|  
+|DOCUMENTNAMETYPE_URL|获取文档的 URL。|  
+|DOCUMENTNAMETYPE_UNIQUE_TITLE|获取枚举为标识追加的标题。|  
   
-## 请参阅  
+## <a name="see-also"></a>另请参阅  
  [活动脚本调试器常量、枚举和结构](../../winscript/reference/active-script-debugger-constants-enumerations-and-structures.md)

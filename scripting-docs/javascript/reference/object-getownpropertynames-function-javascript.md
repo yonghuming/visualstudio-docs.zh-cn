@@ -1,56 +1,59 @@
 ---
-title: "Object.getOwnPropertyNames 函数 (JavaScript) | Microsoft Docs"
-ms.custom: ""
-ms.date: "01/18/2017"
-ms.prod: "windows-client-threshold"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "devlang-javascript"
-ms.tgt_pltfrm: ""
-ms.topic: "language-reference"
-dev_langs: 
-  - "JavaScript"
-  - "TypeScript"
-  - "DHTML"
-helpviewer_keywords: 
-  - "getOwnPropertyNames 方法 [JavaScript]"
-  - "Object.getOwnPropertyNames 方法 [JavaScript]"
+title: "Object.getOwnPropertyNames 函数 (JavaScript) |Microsoft 文档"
+ms.custom: 
+ms.date: 01/18/2017
+ms.prod: windows-client-threshold
+ms.reviewer: 
+ms.suite: 
+ms.technology: devlang-javascript
+ms.tgt_pltfrm: 
+ms.topic: language-reference
+dev_langs:
+- JavaScript
+- TypeScript
+- DHTML
+helpviewer_keywords:
+- getOwnPropertyNames method [JavaScript]
+- Object.getOwnPropertyNames method [JavaScript]
 ms.assetid: 59f4b6b1-02be-44b3-a06c-a5ca8f70c3d8
-caps.latest.revision: 9
-author: "mikejo5000"
-ms.author: "mikejo"
-manager: "ghogen"
-caps.handback.revision: 9
+caps.latest.revision: "9"
+author: mikejo5000
+ms.author: mikejo
+manager: ghogen
+ms.openlocfilehash: 76ca0036b9dedf7b4cee7b543469939e35dfe8d1
+ms.sourcegitcommit: aadb9588877418b8b55a5612c1d3842d4520ca4c
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/27/2017
 ---
-# Object.getOwnPropertyNames 函数 (JavaScript)
-返回对象自己的属性的名称。  一个对象的自己的属性是指直接对该对象定义的属性，而不是从该对象的原型继承的属性。  对象的属性包括字段（对象）和函数。  
+# <a name="objectgetownpropertynames-function-javascript"></a>Object.getOwnPropertyNames 函数 (JavaScript)
+返回的对象的自己的属性的名称。 对象的自己的属性是那些直接对该对象定义的不会从对象的原型继承。 对象的属性包括字段 （对象） 和函数。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
-```javascript  
+```JavaScript  
 Object.getOwnPropertyNames(object)  
 ```  
   
-#### 参数  
+#### <a name="parameters"></a>参数  
   
 |参数|定义|  
-|--------|--------|  
-|`object`|必需。  包含自己的属性的对象。|  
+|---------------|----------------|  
+|`object`|必需。 包含自己的属性的对象。|  
   
-## 返回值  
- 一个数组，其中包含对象自己的属性的名称。  
+## <a name="return-value"></a>返回值  
+ 一个数组，包含该对象的自己的属性的名称。  
   
-## 异常  
- 如果为 `object` 参数提供的值不是对象的名称，则将引发 `TypeError` 异常。  
+## <a name="exceptions"></a>异常  
+ 如果为值提供`object`参数不是对象的名称`TypeError`引发异常。  
   
-## 备注  
- `getOwnPropertyNames` 方法同时返回可枚举的和不可枚举的属性和方法的名称。  若要仅返回可枚举的属性和方法的名称，可使用 [Object.keys 函数](../../javascript/reference/object-keys-function-javascript.md)。  
+## <a name="remarks"></a>备注  
+ `getOwnPropertyNames`方法返回的可枚举和非可枚举属性和方法的名称。 若要返回只有名称的可枚举属性和方法的名称，可以使用[Object.keys 函数](../../javascript/reference/object-keys-function-javascript.md)。  
   
-## 示例  
- 下面的示例创建一个对象，该对象具有三个属性和一个方法。  然后使用 `getOwnPropertyNames` 方法获取该对象自己的属性（包括方法）。  
+## <a name="example"></a>示例  
+ 下面的示例创建具有三个属性和方法的对象。 然后，它使用`getOwnPropertyNames`方法来获取该对象的自身属性 （包括方法）。  
   
-```javascript  
+```JavaScript  
 function Pasta(grain, width, shape) {  
     // Define properties.  
     this.grain = grain;  
@@ -72,10 +75,10 @@ document.write (arr);
 //   grain,width,shape,toString  
 ```  
   
-## 示例  
- 下面的示例显示了使用 Pasta 构造函数构造的 spaghetti 对象中以字母“S”开头的属性名。  
+## <a name="example"></a>示例  
+ 下面的示例显示的字母开头的属性名称中**复式**对象使用构造**Pasta**构造函数。  
   
-```javascript  
+```JavaScript  
 function Pasta(grain, size, shape) {  
     this.grain = grain;   
     this.size = size;   
@@ -99,8 +102,8 @@ function CheckKey(value) {
 // size,shape  
 ```  
   
-## 要求  
+## <a name="requirements"></a>要求  
  [!INCLUDE[jsv9](../../javascript/includes/jsv9-md.md)]  
   
-## 请参阅  
+## <a name="see-also"></a>另请参阅  
  [Object.keys 函数](../../javascript/reference/object-keys-function-javascript.md)

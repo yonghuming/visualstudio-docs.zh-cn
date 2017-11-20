@@ -1,43 +1,28 @@
 ---
-title: "Visual Studio-域特定语言的建模 SDK |Microsoft 文档"
+title: "为 Visual Studio-域特定语言建模 SDK |Microsoft 文档"
 ms.custom: 
 ms.date: 11/04/2016
 ms.reviewer: 
 ms.suite: 
-ms.technology:
-- vs-devops-techdebt
+ms.technology: vs-devops-techdebt
 ms.tgt_pltfrm: 
 ms.topic: article
 helpviewer_keywords:
 - Domain-Specific Language Tools
 - Domain-Specific Language
 ms.assetid: 17a531e2-1964-4a9d-84fd-6fb1b4aee662
-caps.latest.revision: 77
+caps.latest.revision: "77"
 author: alancameronwills
 ms.author: awills
 manager: douge
-translation.priority.mt:
-- cs-cz
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pl-pl
-- pt-br
-- ru-ru
-- tr-tr
-- zh-cn
-- zh-tw
-translationtype: Machine Translation
-ms.sourcegitcommit: 3d07f82ea737449fee6dfa04a61e195654ba35fa
-ms.openlocfilehash: 86e70eb82260cdced1ee4d74965832fbc7fa56ab
-ms.lasthandoff: 02/22/2017
-
+ms.openlocfilehash: 48cb7e5a274092a3ed82d2e41137633d12c3be01
+ms.sourcegitcommit: aadb9588877418b8b55a5612c1d3842d4520ca4c
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="modeling-sdk-for-visual-studio---domain-specific-languages"></a>Visual Studio 的建模 SDK - 特定于域的语言
-通过使用建模 SDK [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)]，您可以创建功能强大的基于模型的开发工具，可以将集成到[!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)]。 同样，你可以创建一个或多个模型定义并将其集成到工具集中。  
+通过使用适用于的建模 SDK [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)]，你可以创建功能强大的基于模型的开发工具，你可以将集成到[!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)]。 同样，你可以创建一个或多个模型定义并将其集成到工具集中。  
   
  MSDK 的核心是你创建的用于表示业务领域内概念的模型的定义。 你可以使用各种工具环绕模型，例如关系图视图、生成代码和其他项目的功能、用于转换模型的命令和在 [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] 中与代码和其他对象进行交互的能力。 在开发模型时，你可以将其与其他模型和工具结合以形成一个以开发为中心的功能强大的工具集。  
   
@@ -59,7 +44,7 @@ ms.lasthandoff: 02/22/2017
  
  [相关的博客文章](https://blogs.msdn.microsoft.com/visualstudioalm/tag/code-index/)
   
- 有关高级的技术和疑难解答的指南，请访问[Visual Studio DSL & 建模工具扩展性论坛](http://go.microsoft.com/fwlink/?LinkID=186074)。  
+ 有关高级的技术和故障排除指南，请访问[Visual Studio DSL 和建模工具扩展性论坛](http://go.microsoft.com/fwlink/?LinkID=186074)。  
   
 ## <a name="in-this-section"></a>本节内容  
  [域特定语言入门](../modeling/getting-started-with-domain-specific-languages.md)  
@@ -93,4 +78,3 @@ ms.lasthandoff: 02/22/2017
  [如何：将域特定语言迁移至新版本](../modeling/how-to-migrate-a-domain-specific-language-to-a-new-version.md)  
   
  [Visual Studio 的建模 SDK 的 API 参考](../modeling/api-reference-for-modeling-sdk-for-visual-studio.md)
-

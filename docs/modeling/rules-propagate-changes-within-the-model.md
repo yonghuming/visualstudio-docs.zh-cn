@@ -10,30 +10,15 @@ helpviewer_keywords:
 - Domain-Specific Language, programming domain models
 - Domain-Specific Language, rules
 ms.assetid: 1690a38a-c8f5-4bc6-aab9-015771ec6647
-caps.latest.revision: 30
+caps.latest.revision: "30"
 author: alancameronwills
 ms.author: awills
 manager: douge
-translation.priority.mt:
-- cs-cz
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pl-pl
-- pt-br
-- ru-ru
-- tr-tr
-- zh-cn
-- zh-tw
+ms.openlocfilehash: 8ec9540fb68ecb09dc592f9b05a56291c2a8c80d
+ms.sourcegitcommit: aadb9588877418b8b55a5612c1d3842d4520ca4c
 ms.translationtype: MT
-ms.sourcegitcommit: 4a36302d80f4bc397128e3838c9abf858a0b5fe8
-ms.openlocfilehash: cbdf006fecb00139eda95cf3e9f2726430888ce7
-ms.contentlocale: zh-cn
-ms.lasthandoff: 09/26/2017
-
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="rules-propagate-changes-within-the-model"></a>规则在模型内部传播更改
 你可以创建应用商店规则传播到另一个中可视化和建模 SDK (VMSDK) 从在元素更改。 时对存储区中任何元素发生了更改，规则都计划在最外层事务提交时通常要执行。 有不同类型的不同种类的事件，如添加元素，或删除它的规则。 你可以附加到特定类型的元素、 形状或关系图的规则。 许多内置功能由规则定义： 例如，规则确保在模型更改时，更新关系图。 你可以通过添加您自己的规则自定义你的域特定语言。  

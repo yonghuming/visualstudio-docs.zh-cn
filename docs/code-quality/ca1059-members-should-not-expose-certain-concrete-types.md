@@ -1,55 +1,56 @@
 ---
-title: "CA1059：成员不应公开某些具体类型 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-devops-test"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "CA1059"
-  - "MembersShouldNotExposeCertainConcreteTypes"
-helpviewer_keywords: 
-  - "CA1059"
-  - "MembersShouldNotExposeCertainConcreteTypes"
+title: "CA1059： 成员不应公开某些具体类型 |Microsoft 文档"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology: vs-ide-code-analysis
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords:
+- CA1059
+- MembersShouldNotExposeCertainConcreteTypes
+helpviewer_keywords:
+- MembersShouldNotExposeCertainConcreteTypes
+- CA1059
 ms.assetid: 59f61f52-8d6c-49cb-aefb-191910523a3c
-caps.latest.revision: 18
-author: "stevehoag"
-ms.author: "shoag"
-manager: "wpickett"
-caps.handback.revision: 18
+caps.latest.revision: "18"
+author: gewarren
+ms.author: gewarren
+manager: ghogen
+ms.openlocfilehash: d5b8b4a50ce23a7ed50f2e608334f9b438a0b090
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# CA1059：成员不应公开某些具体类型
-[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
-
+# <a name="ca1059-members-should-not-expose-certain-concrete-types"></a>CA1059：成员不应公开某些具体类型
 |||  
 |-|-|  
-|类型名|MembersShouldNotExposeCertainConcreteTypes|  
+|TypeName|MembersShouldNotExposeCertainConcreteTypes|  
 |CheckId|CA1059|  
 |类别|Microsoft.Design|  
-|是否重大更改|是|  
+|是否重大更改|重大|  
   
-## 原因  
- 外部可见的成员属于某个具体类型，或者它的一个参数或返回值公开某些具体类型。  当前，如果公开了下面的具体类型，该规则会报告出来：  
+## <a name="cause"></a>原因  
+ 外部可见成员是某些具体类型或公开某些具体类型的通过其参数之一或返回值。 目前，此规则将报告以下的具体类型的风险：  
   
--   由 <xref:System.Xml.XmlNode?displayProperty=fullName> 派生的类型。  
+-   从派生的类型<xref:System.Xml.XmlNode?displayProperty=fullName>。  
   
-## 规则说明  
- 具体类型是指具有一个完整实现因此可以实例化的类型。  若要允许广泛使用该成员，应使用建议的接口替换该具体类型。  这样，该成员便可接受实现该接口的任何类型，或在需要实现该接口的类型时能够使用。  
+## <a name="rule-description"></a>规则说明  
+ 具体类型是指具有一个完整实现因此可以实例化的类型。 若要允许的成员可以得到广泛使用，使用建议的接口来替换具体类型。 这样，要接受实现接口的任何类型或实现接口的类型的地方使用的成员。  
   
- 下表列出了目标具体类型及建议的替换接口。  
+ 下表列出了目标的具体类型和它们的建议替换项。  
   
-|具体类型|替换|  
-|----------|--------|  
-|<xref:System.Xml.XPath.XPathDocument>|<xref:System.Xml.XPath.IXPathNavigable?displayProperty=fullName>.<br /><br /> 使用该接口可将该成员与 XML 数据源的特定实现分离。|  
+|具体的类型|Replacement|  
+|-------------------|-----------------|  
+|<xref:System.Xml.XPath.XPathDocument>|<xref:System.Xml.XPath.IXPathNavigable?displayProperty=fullName>。<br /><br /> 使用该接口将分离从 XML 数据源的特定实现的成员。|  
   
-## 如何解决冲突  
- 若要修复与该规则的冲突，请将具体类型更改为建议的接口。  
+## <a name="how-to-fix-violations"></a>如何解决冲突  
+ 若要修复与此规则的冲突，请将具体的类型更改为建议的接口。  
   
-## 何时禁止显示警告  
- 如果需要具体类型提供的特定功能，则可以安全地禁止显示有关此规则的消息。  
+## <a name="when-to-suppress-warnings"></a>何时禁止显示警告  
+ 则可以安全地禁止显示此规则的消息，如果提供的具体类型的特定功能是必需的。  
   
-## 相关规则  
+## <a name="related-rules"></a>相关的规则  
  [CA1011：考虑将基类型作为参数传递](../code-quality/ca1011-consider-passing-base-types-as-parameters.md)

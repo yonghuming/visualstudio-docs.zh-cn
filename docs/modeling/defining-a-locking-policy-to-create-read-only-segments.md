@@ -1,105 +1,109 @@
 ---
-title: "定义锁定策略以创建只读段 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.tgt_pltfrm: ""
-ms.topic: "article"
+title: "定义要创建只读的段的锁定策略 |Microsoft 文档"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.tgt_pltfrm: 
+ms.topic: article
 ms.assetid: fa549c71-2bf6-4b08-b7b2-7756dd6f1dc8
-caps.latest.revision: 12
-author: "alancameronwills"
-ms.author: "awills"
-manager: "douge"
-caps.handback.revision: 12
+caps.latest.revision: "12"
+author: alancameronwills
+ms.author: awills
+manager: douge
+ms.openlocfilehash: 0ac8ba75920c4b3b8964d473258c162c256139ca
+ms.sourcegitcommit: aadb9588877418b8b55a5612c1d3842d4520ca4c
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/27/2017
 ---
-# 定义锁定策略以创建只读段
-[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
-
-[!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] 可视化和建模 SDK 的不变性 API 允许程序锁定部分或全部一个域特定语言 \(DSL\)模型，以便可以读取，但不能更改它。  可以使用此只读选项，如，因此，用户可以调用同事说明和查看 DSL 模型，但可能不允许其从更改原始文件。  
+# <a name="defining-a-locking-policy-to-create-read-only-segments"></a>定义锁定策略以创建只读段
+不可变性 API[!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)]可视化和建模 SDK 允许一个程序对锁定部分或全部域特定语言 (DSL) 模型，以便它可以读取但未更改。 无法使用此只读选项，例如，以便用户可以要求同事添加批注并查看 DSL 模型，但可以更改原始禁止它们。  
   
- 此外，作为 DSL 的作者，您可以定义一个 *锁定的策略。*一个锁定的策略定义了哪些锁允许，不允许使用，或者必须。  例如，那么，当您发布 DSL 时，可以鼓励第三方开发人员对它进行扩展新的命令。  但是，您也可以使用一个锁定的策略防止它们修改模型的指定部分的只读状态。  
+ 此外，作为 DSL 的作者可以定义*锁定策略。* 锁定的策略定义的锁是允许、 不允许，或强制。 例如，DSL 发布时，你可以鼓励第三方开发人员可以使用新的命令对它进行扩展。 但你无法使用锁定的策略来防止它们被更改的模型的指定部分的只读状态。  
   
 > [!NOTE]
->  使用反射，一个锁定的策略可避免。  它为第三方开发人员提供了一种明确的边界，但是，不提供强有力的安全防护措施。  
+>  通过使用反射，可以绕过锁定策略。 它为第三方开发人员提供了清除边界，但不是提供强大的安全性。  
   
- 更多信息和示例可在 [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)][Visualization and Modeling SDK](http://go.microsoft.com/fwlink/?LinkId=186128) 网站。  
+ 详细信息和示例位于[!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)][可视化和建模 SDK](http://go.microsoft.com/fwlink/?LinkId=186128) Web 站点。  
+
+[!INCLUDE[modeling_sdk_info](includes/modeling_sdk_info.md)]
   
-## 设置和获取锁  
- 可以设置锁定存储，分区中，或者在各个元素。  例如，此语句将会阻止一个模型元素被删除但也可以防止其属性更改:  
+## <a name="setting-and-getting-locks"></a>设置和获取锁  
+ 存储区、 一个分区，或单个元素，可以设置锁。 例如，此语句将阻止删除，将模型元素，并将还防止更改其属性：  
   
 ```  
 using Microsoft.VisualStudio.Modeling.Immutability; ...  
 element.SetLocks(Locks.Delete | Locks.Property);  
 ```  
   
- 其他锁值在角色可用于阻止在关系，元素创建，在分区和重新排序链接之间的移动的更改。  
+ 其他锁值可用来防止关系、 元素创建、 分区和角色中的重新排序链接之间移动中的更改。  
   
- 锁定应用于用户操作和于程序代码。  如果程序代码尝试进行更改， `InvalidOperationException` 将引发异常。  锁定取消忽略或重做操作。  
+ 锁将应用同时向用户操作和程序代码。 如果程序代码尝试进行更改，`InvalidOperationException`将引发。 撤消或重做操作情况下，锁将被忽略。  
   
- 可以查看元素是否有任何锁中给出的设置将使用 `IsLocked(Locks)` ，并且可以获取当前设置对元素的锁。使用 `GetLocks()`。  
+ 你可以发现是否元素通过使用给定的一组中具有的任何锁定`IsLocked(Locks)`，并可以通过使用获得当前集元素上的锁`GetLocks()`。  
   
- 可以设置锁，而无需使用事务。  锁定数据库不是存储的一部分。  如果将锁定响应值的更改在存储中，如 OnValueChanged，您应当允许是取消操作的一部分的更改。  
+ 你可以设置锁，而使用事务。 锁定数据库不是存储的一部分。 如果在存储中值的更改的响应中设置锁，例如在 OnValueChanged，你应允许属于撤消操作的更改。  
   
- 这些方法是在 <xref:Microsoft.VisualStudio.Modeling.Immutability> 命名空间中定义的扩展方法。  
+ 这些方法是在中定义的扩展方法<xref:Microsoft.VisualStudio.Modeling.Immutability>命名空间。  
   
-### 在分区和存储的锁  
- 锁还会应用于分区和存储。  分区中设置的锁定应用于分区中的所有元素。  因此，例如，下面的语句将会阻止分区中的所有删除组件，而不考虑其锁定状态。  但是，其他锁例如 `Locks.Property` 在单独的组件仍可以设置:  
+### <a name="locks-on-partitions-and-stores"></a>对分区和存储的锁  
+ 锁也可以应用于分区和存储。 设置每个分区的锁将应用到分区中的所有元素。 因此，例如，以下语句将阻止在一个分区中的所有元素删除，而不考虑其自己持有的锁的状态。 不过，其他锁如`Locks.Property`仍然无法设置对单独的元素：  
   
 ```  
 partition.SetLocks(Locks.Delete);  
 ```  
   
- 在存储设置的锁定应用于其所有元素，不考虑该锁将分区和元素。  
+ 锁定状态的存储区设置适用于所有元素，而不考虑该锁分区和元素上的设置。  
   
-### 使用锁  
- 您可以使用锁来实现模式 \(如以下示例:  
+### <a name="using-locks"></a>使用锁  
+ 你无法使用锁来实现方案，如下面的示例：  
   
--   禁止对所有元素的 \(表示注释的那些的更改和关系。  这使得用户批注模型，而无需更改它。  
+-   不允许对所有元素和关系，表示注释除外的更改。 这样用户就可以对模型进行批注而不能更改。  
   
--   禁止在默认分区中的更改，但是，允许在关系图分区中的更改。  用户重新排列关系图，但是，不能修改基础模型。  
+-   不允许更改在默认分区中，但允许在关系图分区中的更改。 用户可以重新排列关系图中，但不能更改基础模型。  
   
--   禁止到中存储的更改但在单独的数据库中注册用户组。  对于其他用户，关系图和模型是只读的。  
+-   禁止对除外的在单独的数据库中注册的用户组的存储区的更改。 对于其他用户，关系图和模型中都是只读的。  
   
--   ，如果关系图的布尔属性设置为 true，请禁止对设计的更改。  提供一个菜单命令更改该属性。  这有助于确保不会意外提交更改的用户。  
+-   禁止对模型的更改，如果关系图的布尔属性设置为 true。 提供菜单命令来更改该属性。 这有助于确保它们无法表达的用户意外更改。  
   
--   禁止元素的添加和特殊类、删除和关系，但是，允许属性更改。  为用户提供可当在其中可以填充属性。  
+-   禁止添加和删除的元素和关系的特定类，但允许属性更改。 这使用户有固定的窗体，它们可以在其中填充属性。  
   
-## 锁定值  
- 锁定存储、分区或单个 ModelElement 进行设置。  锁定是 `Flags` 枚举:您可以合并其值使用 “&#124;”。  
+## <a name="lock-values"></a>锁值  
+ 可以在应用商店、 分区或单独的模型元素上设置锁。 锁是`Flags`枚举： 你可以组合使用其值 &#124;。  
   
--   ModelElement 的锁始终包括其分区锁。  
+-   锁的模型元素始终包含其分区的锁。  
   
--   分区的锁始终包括存储的锁。  
+-   锁分区始终包含存储的锁。  
   
- 可以在单个元素不能在分区的锁或存储同时禁用锁。  
+ 无法在分区上设置锁定或存储，并且在同一时间禁用对单个元素的锁定。  
   
-|值|这意味着 `IsLocked(Value)` 是否为 true|  
-|-------|-------------------------------------|  
+|值|这意味着如果`IsLocked(Value)`为 true|  
+|-----------|------------------------------------------|  
 |无|没有限制。|  
-|属性|不可更改元素字段的特性。  这不适用于由域类的效果会在关系的属性。|  
-|添加|新元素和链接不能在分区或存储区中创建。<br /><br /> 不适用于 `ModelElement`。|  
-|移动|元素不能移动分区中之间，如果 `element.IsLocked(Move)` 为 true，或者，如果 `targetPartition.IsLocked(Move)` 为 true。|  
-|Delete|元素在删除操作将传播的不能删除，则此锁将元素，或任何元素，如嵌入元素和形状。<br /><br /> 可以使用 `element.CanDelete()` 查看元素是否能删除。|  
-|重新排序|不能更改排序。 roleplayer 的链接。|  
-|RolePlayer|的设置 LINK 未能更改是源此元素。  例如，新元素不能嵌入在此元素下。  这不会影响此元素为目标的链接。<br /><br /> 如果此元素为链接，其源和目标不受影响。|  
-|全部|按位或其他值。|  
+|属性|不能更改域属性的元素。 这不适用于生成的域类关系中的角色的属性。|  
+|添加|不在分区中创建新的元素和链接或存储。<br /><br /> 不适用于`ModelElement`。|  
+|移动|如果无法将元素移动分区之间`element.IsLocked(Move)`为 true，或者如果`targetPartition.IsLocked(Move)`为 true。|  
+|删除|无法删除元素，如果此锁设置于元素自身，或在任何到元素上删除将传播，例如嵌入的元素和形状。<br /><br /> 你可以使用`element.CanDelete()`来发现是否可删除一个元素。|  
+|重新排序|无法更改排序 roleplayer 方式的链接。|  
+|RolePlayer|对于来源于此元素的链接集不能更改。 例如，无法将新元素嵌入在此元素下。 这不会影响此元素为其为目标的链接。<br /><br /> 如果此元素是一个链接，其源和目标不受影响。|  
+|全部|其他值的按位或。|  
   
-## 锁定策略  
- 作为 DSL 的作者，您可以定义一个 *锁定的策略*。  一个锁定的策略减轻 SetLocks\(\) 的操作，因此，您可以禁止特定锁定设置或要求必须设置特定的锁。  通常，会使用一个锁定的策略从意外冲突到 DSL 的用途不鼓励用户或开发人员类似，可以声明变量的 `private`。  
+## <a name="locking-policies"></a>锁定策略  
+ 作为 DSL 的作者，你可以定义*锁定策略*。 锁定的策略，以便你可以防止特定锁设置或强制，必须设置特定的锁减少 SetLocks()，该操作。 通常情况下，你将使用锁定策略仅用户或开发人员能够从意外相同的方式，可以声明一个变量中 contravening DSL 的预期的用途`private`。  
   
- 也可以使用一个锁定的策略将任何元素的锁根据元素类型。  这是因为， `SetLocks(Locks.None)` 始终调用，将元素从文件时首先创建或反序列化。  
+ 锁定策略还可用于设置在所有元素上的锁依赖于元素的类型。 这是因为`SetLocks(Locks.None)`始终元素是首次创建或从文件反序列化时调用。  
   
- 但是，在其生存期内，不能使用策略更改在元素的锁。  若要实现该角色，则应使用调用 `SetLocks()`。  
+ 但是，你无法使用策略来改变其生命周期内的元素上的锁。 若要实现该效果，应使用调用`SetLocks()`。  
   
- 若要定义一个锁定的策略，必须:  
+ 若要定义锁定策略，必须：  
   
--   创建实现的类 <xref:Microsoft.VisualStudio.Modeling.Immutability.ILockingPolicy>。  
+-   创建用于实现 <xref:Microsoft.VisualStudio.Modeling.Immutability.ILockingPolicy> 的类。  
   
--   将此类添加到通过 DSL 的 DocData 可用的服务。  
+-   将此类添加到可通过 DSL 的 DocData 的服务。  
   
-### 定义一个锁定的策略  
- <xref:Microsoft.VisualStudio.Modeling.Immutability.ILockingPolicy> 具有以下定义:  
+### <a name="to-define-a-locking-policy"></a>若要定义锁定策略  
+ <xref:Microsoft.VisualStudio.Modeling.Immutability.ILockingPolicy>具有以下定义：  
   
 ```  
 public interface ILockingPolicy  
@@ -110,9 +114,9 @@ public interface ILockingPolicy
 }  
 ```  
   
- ，当调用已 `SetLocks()` 在存储、分区或 ModelElement 时，这些方法调用。  在每个方法，则提供建议设置锁定。  可以返回建议的设置，也可以增加和减少锁。  
+ 为进行调用时调用这些方法`SetLocks()`上应用商店、 分区或模型元素。 每个方法，你将获得锁的建议设置。 你可以返回建议的组，或者可以将添加减去锁。  
   
- 例如：  
+ 例如:   
   
 ```  
 using Microsoft.VisualStudio.Modeling;  
@@ -142,16 +146,16 @@ namespace Company.YourDsl.DslPackage // Change
   
 ```  
   
- 确保，用户始终可以删除元素，因此，即使其他代码调用 `SetLocks(Lock.Delete):`  
+ 若要确保用户始终可以删除元素，即使其他代码调用`SetLocks(Lock.Delete):`  
   
  `return proposedLocks & (Locks.All ^ Locks.Delete);`  
   
- 禁止在 MyClass 的每个元素上所有属性的更改:  
+ 若要禁用的 MyClass 的每个元素的所有属性中的行为更改：  
   
- `return element is MyClass ?  (proposedLocks | Locks.Property) : proposedLocks;`  
+ `return element is MyClass ? (proposedLocks | Locks.Property) : proposedLocks;`  
   
-### 使策略可用作服务  
- 在 `DslPackage` 项目中，添加包含代码类似于下面的示例的新文件:  
+### <a name="to-make-your-policy-available-as-a-service"></a>用于使你的策略可用作服务  
+ 在你`DslPackage`项目中，添加包含类似于下面的示例代码的新文件：  
   
 ```  
 using Microsoft.VisualStudio.Modeling;  

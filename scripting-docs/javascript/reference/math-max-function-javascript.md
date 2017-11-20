@@ -1,47 +1,48 @@
 ---
-title: "Math.max 函数 (JavaScript) | Microsoft Docs"
-ms.custom: ""
-ms.date: "01/18/2017"
-ms.prod: "windows-client-threshold"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "devlang-javascript"
-ms.tgt_pltfrm: ""
-ms.topic: "language-reference"
-f1_keywords: 
-  - "max"
-dev_langs: 
-  - "JavaScript"
-  - "TypeScript"
-  - "DHTML"
-helpviewer_keywords: 
-  - "max 方法"
+title: "Math.max 函数 (JavaScript) |Microsoft 文档"
+ms.custom: 
+ms.date: 01/18/2017
+ms.prod: windows-client-threshold
+ms.reviewer: 
+ms.suite: 
+ms.technology: devlang-javascript
+ms.tgt_pltfrm: 
+ms.topic: language-reference
+f1_keywords: max
+dev_langs:
+- JavaScript
+- TypeScript
+- DHTML
+helpviewer_keywords: max method
 ms.assetid: f3ea1b8a-5fd0-482a-971b-b7f8e2b9b7eb
-caps.latest.revision: 11
-author: "mikejo5000"
-ms.author: "mikejo"
-manager: "ghogen"
-caps.handback.revision: 11
+caps.latest.revision: "11"
+author: mikejo5000
+ms.author: mikejo
+manager: ghogen
+ms.openlocfilehash: adf66164346f3802d92f8e0de82356df49bad5fa
+ms.sourcegitcommit: aadb9588877418b8b55a5612c1d3842d4520ca4c
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/27/2017
 ---
-# Math.max 函数 (JavaScript)
-返回所提供的一组数值表达式中的较大者。  
+# <a name="mathmax-function-javascript"></a>Math.max 函数 (JavaScript)
+返回较大的一组提供的数值表达式。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
 ```  
 Math.max([number1[, number2[... [, numberN]]]])   
 ```  
   
-## 备注  
- 可选 `number1, number2, ..., numberN` 参数是要计算的数值表达式。  
+## <a name="remarks"></a>备注  
+ 可选`number1, number2, ..., numberN`参数是要进行求值的数值表达式。  
   
- 如果未提供参数，则返回值等于 [Number.NEGATIVE\_INFINITY](../../javascript/reference/number-constants-javascript.md)。  如果任何参数为 `NaN`，则返回值也为 `NaN`。  
+ 如果未不提供任何参数，返回的值等于[Number.NEGATIVE_INFINITY](../../javascript/reference/number-constants-javascript.md)。 如果任何参数为`NaN`，返回值也为`NaN`。  
   
-## 示例  
- 下面的代码演示如何获取两个表达式中的较大者。  
+## <a name="example"></a>示例  
+ 下面的代码演示如何获取较大的两个表达式。  
   
-```javascript  
+```JavaScript  
 var x = Math.max(107 - 3,  48 * 90);  
 document.write(x);  
   
@@ -50,8 +51,8 @@ document.write(x);
   
 ```  
   
-## 要求  
+## <a name="requirements"></a>要求  
  [!INCLUDE[jsv1](../../javascript/misc/includes/jsv1-md.md)]  
   
-## 请参阅  
+## <a name="see-also"></a>另请参阅  
  [Math.min 函数](../../javascript/reference/math-min-function-javascript.md)

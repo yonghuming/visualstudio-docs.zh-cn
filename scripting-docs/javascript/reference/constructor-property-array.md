@@ -1,44 +1,47 @@
 ---
-title: "constructor 属性（数组） | Microsoft Docs"
-ms.custom: ""
-ms.date: "01/18/2017"
-ms.prod: "windows-client-threshold"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "devlang-javascript"
-ms.tgt_pltfrm: ""
-ms.topic: "language-reference"
-dev_langs: 
-  - "JavaScript"
-  - "TypeScript"
-  - "DHTML"
+title: "constructor 属性 （数组） |Microsoft 文档"
+ms.custom: 
+ms.date: 01/18/2017
+ms.prod: windows-client-threshold
+ms.reviewer: 
+ms.suite: 
+ms.technology: devlang-javascript
+ms.tgt_pltfrm: 
+ms.topic: language-reference
+dev_langs:
+- JavaScript
+- TypeScript
+- DHTML
 ms.assetid: b78d517b-cb56-4866-b30f-ef8121a27843
-caps.latest.revision: 2
-author: "mikejo5000"
-ms.author: "mikejo"
-manager: "ghogen"
-caps.handback.revision: 2
+caps.latest.revision: "2"
+author: mikejo5000
+ms.author: mikejo
+manager: ghogen
+ms.openlocfilehash: ca779a2fa2356c1f3e1ca816f16531c0930459a4
+ms.sourcegitcommit: aadb9588877418b8b55a5612c1d3842d4520ca4c
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/27/2017
 ---
-# constructor 属性（数组）
-指定创建一个数组的函数。  
+# <a name="constructor-property-array"></a>constructor 属性（数组）
+指定创建数组的函数。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
 ```  
   
 array.constructor  
 ```  
   
-## 备注  
- 必需的 `array` 是一个数组的名称。  
+## <a name="remarks"></a>备注  
+ 所需`array`是数组的名称。  
   
- `constructor` 属性是每个具有原型的对象的原型成员。  这包括除 `Global` 和 `Math` 对象之外的所有内部 [!INCLUDE[javascript](../../javascript/includes/javascript-md.md)] 对象。  `constructor` 属性包含了对某种函数的引用，此种函数构造了特定对象的实例。  
+ `constructor` 属性是具有原型的每个对象的原型的成员。 这包括所有内部[!INCLUDE[javascript](../../javascript/includes/javascript-md.md)]对象除外`Global`和`Math`对象。 `constructor` 属性包含对构造特定对象实例的函数的引用。  
   
-## 示例  
- 下面的示例阐释了 constructor 属性的用法。  
+## <a name="example"></a>示例  
+ 下面的示例演示如何使用构造函数属性。  
   
-```javascript  
+```JavaScript  
 var x = new Array();  
   
 if (x.constructor == Array)  
@@ -51,5 +54,5 @@ else
   
 ```  
   
-## 要求  
+## <a name="requirements"></a>要求  
  [!INCLUDE[jsv2](../../javascript/reference/includes/jsv2-md.md)]

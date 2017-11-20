@@ -1,47 +1,49 @@
 ---
-title: "按位与运算符 (&amp;) (JavaScript) | Microsoft Docs"
-ms.custom: ""
-ms.date: "01/18/2017"
-ms.prod: "windows-client-threshold"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "devlang-javascript"
-ms.tgt_pltfrm: ""
-ms.topic: "language-reference"
-f1_keywords: 
-  - "&"
-dev_langs: 
-  - "JavaScript"
-  - "TypeScript"
-  - "DHTML"
-helpviewer_keywords: 
-  - "赋值运算符，按位 [JavaScript]"
-  - "& 运算符，关于 & 运算符"
-  - "AND 运算符"
-  - "& 运算符"
-  - "按位运算符，AND 运算符"
-  - "& 运算符，按位运算符"
+title: "按位与运算符 (&amp;) (JavaScript) |Microsoft 文档"
+ms.custom: 
+ms.date: 01/18/2017
+ms.prod: windows-client-threshold
+ms.reviewer: 
+ms.suite: 
+ms.technology: devlang-javascript
+ms.tgt_pltfrm: 
+ms.topic: language-reference
+f1_keywords: '&'
+dev_langs:
+- JavaScript
+- TypeScript
+- DHTML
+helpviewer_keywords:
+- assignment operators, bitwise [JavaScript]
+- '& operator, about & operator'
+- AND operator
+- '& operator'
+- bitwise operators, AND operator
+- '& operator, bitwise operators'
 ms.assetid: a8c17a55-2599-4518-98d7-671699f4d5f3
-caps.latest.revision: 11
-author: "mikejo5000"
-ms.author: "mikejo"
-manager: "ghogen"
-caps.handback.revision: 11
+caps.latest.revision: "11"
+author: mikejo5000
+ms.author: mikejo
+manager: ghogen
+ms.openlocfilehash: fa8b3eec0cbd7c172d08b16120fb54f3be3c6a48
+ms.sourcegitcommit: aadb9588877418b8b55a5612c1d3842d4520ca4c
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/27/2017
 ---
-# 按位与运算符 (&amp;) (JavaScript)
-对两个 32 位表达式执行按位“与”运算。  
+# <a name="bitwise-and-operator-amp-javascript"></a>按位与运算符 (&amp;) (JavaScript)
+执行按位与运算，对两个 32 位表达式。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
 ```  
   
 result = expression1 & expression2  
 ```  
   
-## 参数  
+## <a name="parameters"></a>参数  
  `result`  
- 运算的结果。  
+ 操作的结果。  
   
  `expression1`  
  任何表达式。  
@@ -49,19 +51,19 @@ result = expression1 & expression2
  `expression2`  
  任何表达式。  
   
-## 备注  
- `&` 对两个 32 位表达式的每一个位执行按位“与”运算。  如果两个位均为 1，则结果是 1。  否则，结果为 0。  
+## <a name="remarks"></a>备注  
+ `&`执行按位 AND 运算的每个 32 位的两个表达式的位上。 如果两个位均为 1，则结果将是 1。 否则，结果为 0。  
   
-|Bit1|Bit2|ANDed 值|  
-|----------|----------|-------------|  
+|Bit1|Bit2|执行 and 运算值|  
+|----------|----------|-----------------|  
 |0|0|0|  
 |1|1|1|  
 |1|0|0|  
 |0|1|0|  
   
- 下面的示例演示如何使用 `&` 运算符。  
+ 下面的示例演示如何使用`&`运算符。  
   
-```javascript  
+```JavaScript  
 // 9 is 00000000000000000000000000001001  
 var expr1 = 9;  
   
@@ -75,10 +77,10 @@ document.write(result);
 // Output: 1  
 ```  
   
-## 要求  
+## <a name="requirements"></a>要求  
  [!INCLUDE[jsv1](../../javascript/misc/includes/jsv1-md.md)]  
   
-## 请参阅  
- [按位“与”赋值运算符 \(&\=\)](../../javascript/reference/bitwise-and-assignment-operator-decrement-equal-javascript.md)   
+## <a name="see-also"></a>另请参阅  
+ [按位 AND 赋值运算符 (& =)](../../javascript/reference/bitwise-and-assignment-operator-decrement-equal-javascript.md)   
  [运算符优先级](../../javascript/operator-subtractprecedence-javascript.md)   
- [运算符摘要 \(JavaScript\)](../../javascript/misc/operator-subtractsummary-javascript.md)
+ [运算符摘要 (JavaScript)](../../javascript/misc/operator-subtractsummary-javascript.md)

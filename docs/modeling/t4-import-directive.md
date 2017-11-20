@@ -1,26 +1,28 @@
 ---
-title: "T4 导入指令 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.tgt_pltfrm: ""
-ms.topic: "article"
+title: "T4 导入指令 |Microsoft 文档"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.tgt_pltfrm: 
+ms.topic: article
 ms.assetid: 713ca975-b9aa-4210-bf6d-b7660f5b193b
-caps.latest.revision: 3
-author: "alancameronwills"
-ms.author: "awills"
-manager: "douge"
-caps.handback.revision: 3
+caps.latest.revision: "3"
+author: alancameronwills
+ms.author: awills
+manager: douge
+ms.openlocfilehash: e27400d82f751136a3ce8e2e448f04935f2157a4
+ms.sourcegitcommit: aadb9588877418b8b55a5612c1d3842d4520ca4c
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/27/2017
 ---
-# T4 导入指令
-[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
-
-在 [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] T4 文本模板的代码块中，`import` 指令允许您在不提供完全限定名称的情况下引用另一个命名空间中的元素。  它等效于 C\# 中的 `using` 或 [!INCLUDE[vb_current_short](../debugger/includes/vb_current_short_md.md)] 中的 `imports`。  
+# <a name="t4-import-directive"></a>T4 导入指令
+在 [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] T4 文本模板的代码块中，`import` 指令允许您在不提供完全限定名称的情况下引用另一个命名空间中的元素。 它等效于 C# 中的 `using` 或 `imports` 中的 [!INCLUDE[vb_current_short](../debugger/includes/vb_current_short_md.md)]。  
   
- 有关编写 T4 文本模板的一般概述，请参见[编写 T4 文本模板](../modeling/writing-a-t4-text-template.md)。  
+ 编写 T4 文本模板的常规概述，请参阅[编写 T4 文本模板](../modeling/writing-a-t4-text-template.md)。  
   
-## 使用 Import 指令  
+## <a name="using-the-import-directive"></a>使用 Import 指令  
   
 ```  
 <#@ import namespace="namespace" #>  
@@ -36,18 +38,18 @@ caps.handback.revision: 3
 The file contains: <#=  fileContent #>  
 ```  
   
-## 标准导入  
+## <a name="standard-imports"></a>标准导入  
  将自动导入以下命名空间，您无需为其编写导入指令：  
   
 -   `System`  
   
  另外，如果您使用自定义指令，则指令处理器可能会自动导入一些命名空间。  
   
- 例如，如果您为域特定语言 \(DSL\) 编写模板，则无需为下列命名空间编写导入指令：  
+ 例如，如果您为域特定语言 (DSL) 编写模板，则无需为下列命名空间编写导入指令：  
   
 -   `Microsoft.VisualStudio.Modeling`  
   
 -   DSL 的命名空间  
   
-## 请参阅  
+## <a name="see-also"></a>另请参阅  
  [T4 程序集指令](../modeling/t4-assembly-directive.md)

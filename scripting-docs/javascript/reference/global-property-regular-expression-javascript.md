@@ -1,52 +1,53 @@
 ---
-title: "global 属性（正则表达式）(JavaScript) | Microsoft Docs"
-ms.custom: ""
-ms.date: "01/18/2017"
-ms.prod: "windows-client-threshold"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "devlang-javascript"
-ms.tgt_pltfrm: ""
-ms.topic: "language-reference"
-f1_keywords: 
-  - "Global"
-dev_langs: 
-  - "JavaScript"
-  - "TypeScript"
-  - "DHTML"
-helpviewer_keywords: 
-  - "global 属性"
+title: "global 属性 （正则表达式） (JavaScript) |Microsoft 文档"
+ms.custom: 
+ms.date: 01/18/2017
+ms.prod: windows-client-threshold
+ms.reviewer: 
+ms.suite: 
+ms.technology: devlang-javascript
+ms.tgt_pltfrm: 
+ms.topic: language-reference
+f1_keywords: Global
+dev_langs:
+- JavaScript
+- TypeScript
+- DHTML
+helpviewer_keywords: global property
 ms.assetid: 76a0f115-0d89-4aca-86d5-932895c6d649
-caps.latest.revision: 19
-author: "mikejo5000"
-ms.author: "mikejo"
-manager: "ghogen"
-caps.handback.revision: 19
+caps.latest.revision: "19"
+author: mikejo5000
+ms.author: mikejo
+manager: ghogen
+ms.openlocfilehash: 7e2b0256fea60b7ab998c504e79565fc7028cd98
+ms.sourcegitcommit: aadb9588877418b8b55a5612c1d3842d4520ca4c
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/27/2017
 ---
-# global 属性（正则表达式）(JavaScript)
-返回布尔值，该值指示使用正则表达式的 global 标志 \(**g**\) 的状态。  默认值为 **false**。  只读。  
+# <a name="global-property-regular-expression-javascript"></a>global 属性（正则表达式）(JavaScript)
+返回一个布尔值，该值指示全局标志的状态 (**g**) 与正则表达式一起使用。 默认值是**false**。 只读。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
 ```  
   
 rgExp.global  
 ```  
   
-## 备注  
- 必需的 `rgExp` 引用是 **Regular Expression** 对象的一个实例。  
+## <a name="remarks"></a>备注  
+ 所需`rgExp`引用是的一个实例**正则表达式**对象。  
   
- `global` 属性在为正则表达式设置全局标志时返回 **true**，否则返回 **false**。  
+ `global`属性返回**true**如果全局标志的正则表达式，设置，并返回**false**如果它不是。  
   
- 当使用全局标志时，它将指示一个搜索操作应找到被搜索字符串中的所有模式，而不仅仅是第一个。  这也称为全局匹配。  
+ 全局标志，在使用时，指示搜索应找到在搜索的字符串中，而不仅仅是第一个模式的所有匹配项。 这也称为是全局匹配。  
   
-## 示例  
- 下面的示例阐释了 `global` 属性的用法。  如果将 **g** 传递到下面显示的函数中，“the”一词的所有实例都将替换为“a”一词。  请注意，不会替换字符串开头的“The”，因为 **i**（忽略大小写）标志未传递到函数。  
+## <a name="example"></a>示例  
+ 下面的示例演示如何使用`global`属性。 如果你通过**g**中对函数，如下所示的单词的所有实例"the"都将替换单词"a"。 请注意，"The"开头的字符串都不能替代因为**我**（忽略大小写） 标志不传递给函数。  
   
- 此函数显示与允许的正则表达式标志关联的属性条件，它们是 **g**、**i** 和 **m**。  此函数还显示进行了所有替换的字符串。  
+ 此函数将显示与允许的正则表达式标志，它们是关联的属性的条件**g**，**我**，和**m**。 函数也进行了所有替换显示的字符串。  
   
-```javascript  
+```JavaScript  
 function RegExpPropDemo(flag){  
    // The flag parameter is a string that contains  
    // g, i, or m.  The flags can be combined.  
@@ -81,22 +82,22 @@ function RegExpPropDemo(flag){
 document.write(RegExpPropDemo("g"));  
 ```  
   
-## 示例  
- 下面是结果输出。  
+## <a name="example"></a>示例  
+ 以下是生成的输出。  
   
-```javascript  
+```JavaScript  
 global: true  
 ignoreCase: false  
 multiline: false  
 Resulting String: The batter hit a ball with a bat and a fielder caught a ball with a glove.  
 ```  
   
-## 要求  
+## <a name="requirements"></a>要求  
  [!INCLUDE[jsv55](../../javascript/reference/includes/jsv55-md.md)]  
   
- **适用于**：[正则表达式对象](../../javascript/reference/regular-expression-object-javascript.md)  
+ **适用于**:[正则表达式对象](../../javascript/reference/regular-expression-object-javascript.md)  
   
-## 请参阅  
- [ignoreCase 属性（正则表达式）](../../javascript/reference/ignorecase-property-regular-expression-javascript.md)   
- [multiline 属性（正则表达式）](../../javascript/reference/multiline-property-regular-expression-javascript.md)   
- [Regular Expression Syntax \(JavaScript\)](http://msdn.microsoft.com/zh-cn/ab0766e1-7037-45ed-aa23-706f58358c0e)
+## <a name="see-also"></a>另请参阅  
+ [ignoreCase 属性 （正则表达式）](../../javascript/reference/ignorecase-property-regular-expression-javascript.md)   
+ [multiline 属性 （正则表达式）](../../javascript/reference/multiline-property-regular-expression-javascript.md)   
+ [正则表达式语法 (JavaScript)](http://msdn.microsoft.com/en-us/ab0766e1-7037-45ed-aa23-706f58358c0e)

@@ -1,39 +1,40 @@
 ---
-title: "域类的属性 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-helpviewer_keywords: 
-  - "域特定语言, 域类"
+title: "域类属性 |Microsoft 文档"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.tgt_pltfrm: 
+ms.topic: article
+helpviewer_keywords: Domain-Specific Language, domain class
 ms.assetid: a3993995-19e7-4761-a972-b1de89131a1b
-caps.latest.revision: 21
-author: "alancameronwills"
-ms.author: "awills"
-manager: "douge"
-caps.handback.revision: 21
+caps.latest.revision: "21"
+author: alancameronwills
+ms.author: awills
+manager: douge
+ms.openlocfilehash: e9bed31caa63a12677e7b9798e6cf72524500c21
+ms.sourcegitcommit: aadb9588877418b8b55a5612c1d3842d4520ca4c
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/27/2017
 ---
-# 域类的属性
-[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
-
-域类具有特性在下表中。  有关字段类的信息，请参见 [了解模型、类和关系](../modeling/understanding-models-classes-and-relationships.md)。  有关如何使用这些属性的更多信息，请参见 [自定义和扩展域特定语言](../modeling/customizing-and-extending-a-domain-specific-language.md)。  
+# <a name="properties-of-domain-classes"></a>域类的属性
+域类具有下表中的属性。 有关域类的信息，请参阅[了解模型、 类和关系](../modeling/understanding-models-classes-and-relationships.md)。 有关如何使用这些属性的详细信息，请参阅[自定义和扩展的域特定语言](../modeling/customizing-and-extending-a-domain-specific-language.md)。  
   
-|属性|说明|默认|  
-|--------|--------|--------|  
-|访问修饰符|域类的访问级别 \(`public` 或 `internal`\)。|`public`|  
-|自定义特性|用于将特性添加到从此字段类生成的源代码类别。|\<none\>|  
-|生成派生的二进制文件|如果 `True`，基类和分部类 \(支持自定义通过重写\) 将生成。  有关更多信息，请参见 [重写和扩展生成的类](../modeling/overriding-and-extending-the-generated-classes.md)。|`False`|  
-|具有自定义构造函数|如果 `True`，自定义构造函数在源代码中提供。  有关更多信息，请参见 [重写和扩展生成的类](../modeling/overriding-and-extending-the-generated-classes.md)。|`False`|  
-|继承修饰符|描述用于从域类源代码类的继承 \(`none`、 `abstract` 或 `sealed`\) 创建。|`none`|  
-|基类|如果此字段类派生，基类的名称。|\<none\>|  
-|名称|此字段类的名称。|当前名称|  
-|命名空间|此字段类命名空间。|当前命名空间|  
-|注释|与此字段类的非正式的说明。|\<none\>|  
-|说明|用于文档此时将生成的设计器 UI 的说明。|\<none\>|  
-|显示名称|此字段类的生成的设计器中显示的名称。|\<none\>|  
-|帮助关键字|在索引 F1 帮助了该字段类可选的关键字。|\<none\>|  
+|属性|描述|默认|  
+|--------------|-----------------|-------------|  
+|访问修饰符|域类的访问级别（`public` 或 `internal`）。|`public`|  
+|自定义特性|用于将属性添加到此域类从生成的源代码类。|\<无 >|  
+|生成双派生|如果`True`，将生成的基本类和分部类 （以支持通过替代的自定义）。 有关详细信息，请参阅[重写和扩展生成的类](../modeling/overriding-and-extending-the-generated-classes.md)。|`False`|  
+|具有自定义的构造函数|如果`True`，自定义的构造函数将提供的源代码中。 有关详细信息，请参阅[重写和扩展生成的类](../modeling/overriding-and-extending-the-generated-classes.md)。|`False`|  
+|继承修饰符|描述的域类从生成的源代码类继承的类型 (`none`，`abstract`或`sealed`)。|`none`|  
+|基类|如果此域类派生，类的基类的名称。|\<无 >|  
+|名称|此域类的名称。|当前的名称|  
+|命名空间|此域类的命名空间。|当前命名空间|  
+|说明|与此域类相关联的非正式说明。|\<无 >|  
+|描述|用于记录生成的设计器的 UI 中的说明。|\<无 >|  
+|显示名称|将此域类的生成设计器中显示的名称。|\<无 >|  
+|帮助关键字|可选关键字用于编制索引的此域类 F1 帮助。|\<无 >|  
   
-## 请参阅  
- [Domain\-Specific Language Tools Glossary](http://msdn.microsoft.com/zh-cn/ca5e84cb-a315-465c-be24-76aa3df276aa)
+## <a name="see-also"></a>另请参阅  
+ [域特定语言工具词汇表](http://msdn.microsoft.com/en-us/ca5e84cb-a315-465c-be24-76aa3df276aa)

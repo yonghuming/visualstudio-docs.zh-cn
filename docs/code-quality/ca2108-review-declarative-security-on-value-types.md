@@ -1,11 +1,10 @@
 ---
-title: 'CA2108: Review declarative security on value types | Microsoft Docs'
+title: "CA2108： 检查有关值类型的声明性安全 |Microsoft 文档"
 ms.custom: 
 ms.date: 11/04/2016
 ms.reviewer: 
 ms.suite: 
-ms.technology:
-- vs-devops-test
+ms.technology: vs-ide-code-analysis
 ms.tgt_pltfrm: 
 ms.topic: article
 f1_keywords:
@@ -15,66 +14,51 @@ helpviewer_keywords:
 - ReviewDeclarativeSecurityOnValueTypes
 - CA2108
 ms.assetid: d62bffdd-3826-4d52-a708-1c646c5d48c2
-caps.latest.revision: 16
-author: stevehoag
-ms.author: shoag
-manager: wpickett
-translation.priority.ht:
-- cs-cz
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pl-pl
-- pt-br
-- ru-ru
-- tr-tr
-- zh-cn
-- zh-tw
-ms.translationtype: HT
-ms.sourcegitcommit: eb5c9550fd29b0e98bf63a7240737da4f13f3249
-ms.openlocfilehash: a4aa6fa02329c6d82800f3a45f8002bf8a4f10e7
-ms.contentlocale: zh-cn
-ms.lasthandoff: 08/30/2017
-
+caps.latest.revision: "16"
+author: gewarren
+ms.author: gewarren
+manager: ghogen
+ms.openlocfilehash: a2d7ecd899b4da51e6ff200f1e18b00366db6669
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# <a name="ca2108-review-declarative-security-on-value-types"></a>CA2108: Review declarative security on value types
+# <a name="ca2108-review-declarative-security-on-value-types"></a>CA2108：检查有关值类型的声明性安全
 |||  
 |-|-|  
 |TypeName|ReviewDeclarativeSecurityOnValueTypes|  
 |CheckId|CA2108|  
-|Category|Microsoft.Security|  
-|Breaking Change|Non Breaking|  
+|类别|Microsoft.Security|  
+|是否重大更改|非重大更改|  
   
-## <a name="cause"></a>Cause  
- A public or protected value type is secured by a [Data and Modeling](/dotnet/framework/data/index) or [Link Demands](/dotnet/framework/misc/link-demands).  
+## <a name="cause"></a>原因  
+ 公共或受保护值类型受[数据和建模](/dotnet/framework/data/index)或[链接需求](/dotnet/framework/misc/link-demands)。  
   
-## <a name="rule-description"></a>Rule Description  
- Value types are allocated and initialized by their default constructors before other constructors execute. If a value type is secured by a Demand or LinkDemand, and the caller does not have permissions that satisfy the security check, any constructor other than the default will fail, and a security exception will be thrown. The value type is not deallocated; it is left in the state set by its default constructor. Do not assume that a caller that passes an instance of the value type has permission to create or access the instance.  
+## <a name="rule-description"></a>规则说明  
+ 值类型是分配和之前执行其他构造函数通过其默认构造函数初始化。 如果值类型受需或 LinkDemand，并且调用方没有权限而不满足的安全检查，任何构造函数的默认值将失败，并且将会引发安全异常。 未释放的值类型;它会保留在其默认构造函数设置的状态。 不要假定传递值类型的实例调用方有权创建或访问该实例。  
   
-## <a name="how-to-fix-violations"></a>How to Fix Violations  
- You cannot fix a violation of this rule unless you remove the security check from the type, and use method level security checks in its place. Note that fixing the violation in this manner will not prevent callers with inadequate permissions from obtaining instances of the value type. You must ensure that an instance of the value type, in its default state, does not expose sensitive information, and cannot be used in a harmful manner.  
+## <a name="how-to-fix-violations"></a>如何解决冲突  
+ 不能解决与此规则的冲突，除非从类型，删除的安全检查和使用方法级别的安全检查在其位置。 请注意，这种方式解决了冲突不会阻止从获取值类型的实例的权限不足的调用方。 你必须确保实例的值类型，在其默认状态下，未公开敏感信息，并且不能在有害的方式。  
   
-## <a name="when-to-suppress-warnings"></a>When to Suppress Warnings  
- You can suppress a warning from this rule if any caller can obtain instances of the value type in its default state without posing a threat to security.  
+## <a name="when-to-suppress-warnings"></a>何时禁止显示警告  
+ 如果任何调用方可以获得在其默认状态的值类型的实例，而不会造成安全风险，可以禁止显示此规则的警告。  
   
-## <a name="example"></a>Example  
- The following example shows a library containing a value type that violates this rule. Note that the `StructureManager` type assumes that a caller that passes an instance of the value type has permission to create or access the instance.  
+## <a name="example"></a>示例  
+ 下面的示例演示包含违反此规则的值类型的库。 请注意，`StructureManager`类型假定传递值类型的实例调用方有权创建或访问该实例。  
   
  [!code-csharp[FxCop.Security.DemandOnValueType#1](../code-quality/codesnippet/CSharp/ca2108-review-declarative-security-on-value-types_1.cs)]  
   
-## <a name="example"></a>Example  
- The following application demonstrates the library's weakness.  
+## <a name="example"></a>示例  
+ 以下应用程序演示库的漏洞。  
   
  [!code-csharp[FxCop.Security.TestDemandOnValueType#1](../code-quality/codesnippet/CSharp/ca2108-review-declarative-security-on-value-types_2.cs)]  
   
- This example produces the following output.  
+ 本示例生成以下输出。  
   
- **Structure custom constructor: Request failed.**  
-**New values SecuredTypeStructure 100 100**  
-**New values SecuredTypeStructure 200 200**   
-## <a name="see-also"></a>See Also  
- [Link Demands](/dotnet/framework/misc/link-demands)   
- [Data and Modeling](/dotnet/framework/data/index)
+ **结构自定义构造函数： 请求失败。**  
+**新值 SecuredTypeStructure 100 100**  
+**新值 SecuredTypeStructure 200 200**   
+## <a name="see-also"></a>另请参阅  
+ [链接需求](/dotnet/framework/misc/link-demands)   
+ [数据和建模](/dotnet/framework/data/index)

@@ -1,38 +1,41 @@
 ---
-title: "递增 (++) 和递减 (--) 运算符 (JavaScript) | Microsoft Docs"
-ms.custom: ""
-ms.date: "01/18/2017"
-ms.prod: "windows-client-threshold"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "devlang-javascript"
-ms.tgt_pltfrm: ""
-ms.topic: "language-reference"
-f1_keywords: 
-  - "--"
-  - "++"
-dev_langs: 
-  - "JavaScript"
-  - "TypeScript"
-  - "DHTML"
-helpviewer_keywords: 
-  - "递增运算符，语法"
-  - "++ 运算符"
-  - "++ 运算符，关于 ++ 运算符"
-  - "递增运算符，语法"
-  - "-- 运算符"
+title: "递增 （+ +） 和递减 （-） 运算符 (JavaScript) |Microsoft 文档"
+ms.custom: 
+ms.date: 01/18/2017
+ms.prod: windows-client-threshold
+ms.reviewer: 
+ms.suite: 
+ms.technology: devlang-javascript
+ms.tgt_pltfrm: 
+ms.topic: language-reference
+f1_keywords:
+- --
+- ++
+dev_langs:
+- JavaScript
+- TypeScript
+- DHTML
+helpviewer_keywords:
+- increment operators, syntax
+- ++ operator
+- ++ operator, about ++ operator
+- decrement operators, syntax
+- -- operator
 ms.assetid: 49eaf4cf-8818-478d-a429-cdd2ece20811
-caps.latest.revision: 11
-author: "mikejo5000"
-ms.author: "mikejo"
-manager: "ghogen"
-caps.handback.revision: 11
+caps.latest.revision: "11"
+author: mikejo5000
+ms.author: mikejo
+manager: ghogen
+ms.openlocfilehash: 806bd321bb1f81d585a6595b8cf2842571164921
+ms.sourcegitcommit: aadb9588877418b8b55a5612c1d3842d4520ca4c
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/27/2017
 ---
-# 递增 (++) 和递减 (--) 运算符 (JavaScript)
-增量运算符将某个变量的值加一；减量运算符将某个变量的值减一。  
+# <a name="increment--and-decrement----operators-javascript"></a>递增 (++) 和递减 (--) 运算符 (JavaScript)
+递增运算符增量和减量运算符递减通过一个变量的值。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
 ```  
   
@@ -42,19 +45,19 @@ result = variable++
 result = variable--  
 ```  
   
-## 参数  
+## <a name="parameters"></a>参数  
  `result`  
  任何变量。  
   
  `variable`  
  任何变量。  
   
-## 备注  
- 如果运算符在变量的前面出现，则在计算表达式之前修改该值。  如果运算符在变量的后面出现，则在计算表达式之后修改该值。  换句话说，给定 `j = ++k;` 的情况下，`j` 的值为 `k` 的原始值加一；给定 `j = k++;` 的情况下，`j` 的值为 `k` 的原始值，后者在其值赋给 `j` 后递增。  
+## <a name="remarks"></a>备注  
+ 如果运算符出现在该变量之前，修改值，则之前计算该表达式。 如果运算符出现在此变量之后后计算该表达式, 将修改值。  换而言之，给定`j = ++k;`的值`j`是原始值`k`加一; 给定`j = k++;`的值`j`是原始值`k`，这就会增加其值分配给后`j`.  
   
-## 要求  
+## <a name="requirements"></a>要求  
  [!INCLUDE[jsv1](../../javascript/misc/includes/jsv1-md.md)]  
   
-## 请参阅  
+## <a name="see-also"></a>另请参阅  
  [运算符优先级](../../javascript/operator-subtractprecedence-javascript.md)   
- [运算符摘要 \(JavaScript\)](../../javascript/misc/operator-subtractsummary-javascript.md)
+ [运算符摘要 (JavaScript)](../../javascript/misc/operator-subtractsummary-javascript.md)

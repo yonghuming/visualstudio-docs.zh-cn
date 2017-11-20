@@ -1,11 +1,10 @@
 ---
-title: 'CA1006: Do not nest generic types in member signatures | Microsoft Docs'
+title: "CA1006： 不要嵌套成员签名中的泛型类型 |Microsoft 文档"
 ms.custom: 
 ms.date: 11/04/2016
 ms.reviewer: 
 ms.suite: 
-ms.technology:
-- vs-devops-test
+ms.technology: vs-ide-code-analysis
 ms.tgt_pltfrm: 
 ms.topic: article
 f1_keywords:
@@ -15,70 +14,56 @@ helpviewer_keywords:
 - CA1006
 - DoNotNestGenericTypesInMemberSignatures
 ms.assetid: dfc867bc-f4af-45d7-b071-db04a248f9fc
-caps.latest.revision: 17
-author: stevehoag
-ms.author: shoag
-manager: wpickett
-translation.priority.ht:
-- cs-cz
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pl-pl
-- pt-br
-- ru-ru
-- tr-tr
-- zh-cn
-- zh-tw
-ms.translationtype: HT
-ms.sourcegitcommit: eb5c9550fd29b0e98bf63a7240737da4f13f3249
-ms.openlocfilehash: 9b11fa3ef2f9d49a440274a1110f06766e144e1e
-ms.contentlocale: zh-cn
-ms.lasthandoff: 08/30/2017
-
+caps.latest.revision: "17"
+author: gewarren
+ms.author: gewarren
+manager: ghogen
+ms.openlocfilehash: e2ec28ce2cfe1e8c0de622a0f35d37ddd82e1be7
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# <a name="ca1006-do-not-nest-generic-types-in-member-signatures"></a>CA1006: Do not nest generic types in member signatures
+# <a name="ca1006-do-not-nest-generic-types-in-member-signatures"></a>CA1006：不要将泛型类型嵌套在成员签名中
 |||  
 |-|-|  
 |TypeName|DoNotNestGenericTypesInMemberSignatures|  
 |CheckId|CA1006|  
-|Category|Microsoft.Design|  
-|Breaking Change|Breaking|  
+|类别|Microsoft.Design|  
+|是否重大更改|重大|  
   
-## <a name="cause"></a>Cause  
- An externally visible member has a signature that contains a nested type argument.  
+## <a name="cause"></a>原因  
+ 外部可见成员有一个包含嵌套的类型参数的签名。  
   
-## <a name="rule-description"></a>Rule Description  
- A nested type argument is a type argument that is also a generic type. To call a member whose signature contains a nested type argument, the user must instantiate one generic type and pass this type to the constructor of a second generic type. The required procedure and syntax are complex and should be avoided.  
+## <a name="rule-description"></a>规则说明  
+ 嵌套类型参数是一个类型参数，也是一个泛型类型。 若要调用签名包含嵌套类型参数的成员，用户必须实例化一个泛型类型，并将此类型传递到另一个泛型类型的构造函数。 所需的过程和语法很复杂，应当避免。  
   
-## <a name="how-to-fix-violations"></a>How to Fix Violations  
- To fix a violation of this rule, change the design to remove the nested type argument.  
+## <a name="how-to-fix-violations"></a>如何解决冲突  
+ 若要修复与此规则的冲突，更改用于删除嵌套的类型参数的设计。  
   
-## <a name="when-to-suppress-warnings"></a>When to Suppress Warnings  
- Do not suppress a warning from this rule. Providing generics in a syntax that is easy to understand and use reduces the time that is required to learn and increases the adoption rate of new libraries.  
+## <a name="when-to-suppress-warnings"></a>何时禁止显示警告  
+ 不禁止显示此规则发出的警告。 提供易于了解和使用的语法中的泛型可以减少需要了解并增加新库采用率的时间。  
   
-## <a name="example"></a>Example  
- The following example shows a method that violates the rule and the syntax that is required to call the violating method.  
+## <a name="example"></a>示例  
+ 下面的示例演示与该规则冲突的方法以及调用该冲突方法所需的语法。  
   
- [!code-vb[FxCop.Design.NestedGenerics#1](../code-quality/codesnippet/VisualBasic/ca1006-do-not-nest-generic-types-in-member-signatures_1.vb)] [!code-csharp[FxCop.Design.NestedGenerics#1](../code-quality/codesnippet/CSharp/ca1006-do-not-nest-generic-types-in-member-signatures_1.cs)]  
+ [!code-vb[FxCop.Design.NestedGenerics#1](../code-quality/codesnippet/VisualBasic/ca1006-do-not-nest-generic-types-in-member-signatures_1.vb)]
+ [!code-csharp[FxCop.Design.NestedGenerics#1](../code-quality/codesnippet/CSharp/ca1006-do-not-nest-generic-types-in-member-signatures_1.cs)]  
   
-## <a name="related-rules"></a>Related Rules  
- [CA1005: Avoid excessive parameters on generic types](../code-quality/ca1005-avoid-excessive-parameters-on-generic-types.md)  
+## <a name="related-rules"></a>相关的规则  
+ [CA1005：避免泛型类型的参数过多](../code-quality/ca1005-avoid-excessive-parameters-on-generic-types.md)  
   
- [CA1010: Collections should implement generic interface](../code-quality/ca1010-collections-should-implement-generic-interface.md)  
+ [CA1010：集合应实现泛型接口](../code-quality/ca1010-collections-should-implement-generic-interface.md)  
   
- [CA1000: Do not declare static members on generic types](../code-quality/ca1000-do-not-declare-static-members-on-generic-types.md)  
+ [CA1000：不要在泛型类型中声明静态成员](../code-quality/ca1000-do-not-declare-static-members-on-generic-types.md)  
   
- [CA1002: Do not expose generic lists](../code-quality/ca1002-do-not-expose-generic-lists.md)  
+ [CA1002：不要公开泛型列表](../code-quality/ca1002-do-not-expose-generic-lists.md)  
   
- [CA1004: Generic methods should provide type parameter](../code-quality/ca1004-generic-methods-should-provide-type-parameter.md)  
+ [CA1004：泛型方法应提供类型形参](../code-quality/ca1004-generic-methods-should-provide-type-parameter.md)  
   
- [CA1003: Use generic event handler instances](../code-quality/ca1003-use-generic-event-handler-instances.md)  
+ [CA1003：使用泛型事件处理程序实例](../code-quality/ca1003-use-generic-event-handler-instances.md)  
   
- [CA1007: Use generics where appropriate](../code-quality/ca1007-use-generics-where-appropriate.md)  
+ [CA1007：在适用处使用泛型](../code-quality/ca1007-use-generics-where-appropriate.md)  
   
-## <a name="see-also"></a>See Also  
- [Generics](/dotnet/csharp/programming-guide/generics/index)
+## <a name="see-also"></a>另请参阅  
+ [泛型](/dotnet/csharp/programming-guide/generics/index)

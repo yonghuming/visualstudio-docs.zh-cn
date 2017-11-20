@@ -1,61 +1,63 @@
 ---
-title: "slice 方法 (String) (JavaScript) | Microsoft Docs"
-ms.custom: ""
-ms.date: "01/18/2017"
-ms.prod: "windows-client-threshold"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "devlang-javascript"
-ms.tgt_pltfrm: ""
-ms.topic: "language-reference"
-f1_keywords: 
-  - "slice"
-dev_langs: 
-  - "JavaScript"
-  - "TypeScript"
-  - "DHTML"
-helpviewer_keywords: 
-  - "slice 方法"
-  - "字符串 [Visual Studio], 返回字符"
+title: "slice 方法 (String) (JavaScript) |Microsoft 文档"
+ms.custom: 
+ms.date: 01/18/2017
+ms.prod: windows-client-threshold
+ms.reviewer: 
+ms.suite: 
+ms.technology: devlang-javascript
+ms.tgt_pltfrm: 
+ms.topic: language-reference
+f1_keywords: slice
+dev_langs:
+- JavaScript
+- TypeScript
+- DHTML
+helpviewer_keywords:
+- strings [Visual Studio], returning characters
+- slice method
 ms.assetid: 80cd77a6-3718-492e-8e96-f909d8721d91
-caps.latest.revision: 16
-author: "mikejo5000"
-ms.author: "mikejo"
-manager: "ghogen"
-caps.handback.revision: 16
+caps.latest.revision: "16"
+author: mikejo5000
+ms.author: mikejo
+manager: ghogen
+ms.openlocfilehash: 1baa0a05a2d6aa8c06cc962761c8e557632d034c
+ms.sourcegitcommit: aadb9588877418b8b55a5612c1d3842d4520ca4c
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/27/2017
 ---
-# slice 方法 (String) (JavaScript)
+# <a name="slice-method-string-javascript"></a>slice 方法 (String) (JavaScript)
 返回字符串的片段。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
 ```  
   
 stringObj.slice(start, [end])   
 ```  
   
-## 参数  
+## <a name="parameters"></a>参数  
  `stringObj`  
- 必需。  一个 `String` 对象或字符串。  
+ 必需。 `String` 对象或字符串。  
   
  `start`  
- 必需。  指向 `stringObj` 指定部分的开头的索引。  
+ 必需。 到的指定部分的开头的索引`stringObj`。  
   
  `end`  
- 可选。  指向 `stringObj` 指定部分的结尾的索引。  子字符串包括 `end` 所指示的字符（不包括该字符）前面的字符。  如果没有指定该值，则子字符串将延续到 `stringObj` 的结尾。  
+ 可选。 指定部分的末尾索引`stringObj`。 子字符串中包含的字符最多，但不是包括，用表明字符`end`。 如果未指定此值，子字符串将一直到末尾`stringObj`。  
   
-## 备注  
- `slice` 方法返回一个 `String` 对象，该对象包含 `stringObj` 的指定部分。  
+## <a name="remarks"></a>备注  
+ `slice`方法返回`String`对象，其中包含的指定的部分`stringObj`。  
   
- `slice` 方法一直复制到 `end` 所指示的字符，但是不包括该字符。  
+ `slice`方法复制到，但不是包括的字符处所`end`。  
   
- 如果 `start` 为负，则将其视为 *length* \+ `start`，此处 *length* 为字符串的长度。  如果 `end` 为负，则会将其视为 *length* \+ `end`。  如果省略 `end`，则将一直复制到 `stringObj` 的结尾。  如果 `end` 出现在 `start` 之前，则不会将任何字符复制到新字符串中。  
+ 如果`start`是负数，它将被视为*长度* +  `start`其中*长度*是字符串的长度。 如果`end`是负数，它将被视为*长度* + `end`。 如果`end`是省略，复制一直到末尾`stringObj`。 如果`end`之前发生`start`，任何字符被复制到新的字符串。  
   
-## 示例  
- 在第一个示例中，`slice` 方法返回整个字符串。  在第二个示例中，`slice` 方法返回整个字符串（最后一个字符除外）。  
+## <a name="example"></a>示例  
+ 在第一个示例中，`slice`方法返回整个字符串。 在第二个示例中，`slice`方法返回的整个字符串，除最后一个字符。  
   
-```javascript  
+```JavaScript  
 var str1 = "all good boys do fine";  
   
 var slice1 = str1.slice(0);  
@@ -76,10 +78,10 @@ document.write(slice4);
   
 ```  
   
-## 要求  
+## <a name="requirements"></a>要求  
  [!INCLUDE[jsv3](../../javascript/reference/includes/jsv3-md.md)]  
   
- **应用于**：[String 对象](../../javascript/reference/string-object-javascript.md)  
+ **适用于**:[的字符串对象](../../javascript/reference/string-object-javascript.md)  
   
-## 请参阅  
+## <a name="see-also"></a>另请参阅  
  [slice 方法（数组）](../../javascript/reference/slice-method-array-javascript.md)

@@ -1,58 +1,61 @@
 ---
-title: "Object.keys 函数 (JavaScript) | Microsoft Docs"
-ms.custom: ""
-ms.date: "01/18/2017"
-ms.prod: "windows-client-threshold"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "devlang-javascript"
-ms.tgt_pltfrm: ""
-ms.topic: "language-reference"
-dev_langs: 
-  - "JavaScript"
-  - "TypeScript"
-  - "DHTML"
-helpviewer_keywords: 
-  - "keys 方法 [JavaScript]"
-  - "Object.keys 方法 [JavaScript]"
+title: "Object.keys 函数 (JavaScript) |Microsoft 文档"
+ms.custom: 
+ms.date: 01/18/2017
+ms.prod: windows-client-threshold
+ms.reviewer: 
+ms.suite: 
+ms.technology: devlang-javascript
+ms.tgt_pltfrm: 
+ms.topic: language-reference
+dev_langs:
+- JavaScript
+- TypeScript
+- DHTML
+helpviewer_keywords:
+- Object.keys method [JavaScript]
+- keys method [JavaScript]
 ms.assetid: cf4a7daf-cf28-4467-bc6b-f7f106ec3876
-caps.latest.revision: 12
-author: "mikejo5000"
-ms.author: "mikejo"
-manager: "ghogen"
-caps.handback.revision: 12
+caps.latest.revision: "12"
+author: mikejo5000
+ms.author: mikejo
+manager: ghogen
+ms.openlocfilehash: 0e725c3ab7206b04d9a900cb614b57c37dfc4351
+ms.sourcegitcommit: aadb9588877418b8b55a5612c1d3842d4520ca4c
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/27/2017
 ---
-# Object.keys 函数 (JavaScript)
+# <a name="objectkeys-function-javascript"></a>Object.keys 函数 (JavaScript)
 返回对象的可枚举属性和方法的名称。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
-```javascript  
+```JavaScript  
 Object.keys(object)  
 ```  
   
-#### 参数  
+#### <a name="parameters"></a>参数  
   
 |参数|定义|  
-|--------|--------|  
-|`object`|必需。  包含属性和方法的对象。  这可以是您创建的对象或现有文档对象模型 \(DOM\) 对象。|  
+|---------------|----------------|  
+|`object`|必需。 包含的属性和方法的对象。 这可以是你创建的对象或现有的文档对象模型 (DOM) 对象。|  
   
-## 返回值  
- 一个数组，其中包含对象的可枚举属性和方法的名称。  
+## <a name="return-value"></a>返回值  
+ 一个数组，包含可枚举属性的名称和对象的方法。  
   
-## 异常  
- 如果为 `object` 参数提供的值不是对象的名称，则将引发 `TypeError` 异常。  
+## <a name="exceptions"></a>异常  
+ 如果为值提供`object`参数不是对象的名称`TypeError`引发异常。  
   
-## 备注  
- `keys` 方法仅返回可枚举属性和方法的名称。  若要返回可枚举的和不可枚举的属性和方法的名称，可使用 [Object.getOwnPropertyNames 函数](../../javascript/reference/object-getownpropertynames-function-javascript.md)。  
+## <a name="remarks"></a>备注  
+ `keys`方法返回仅的可枚举属性和方法的名称。 若要返回的可枚举和非可枚举属性和方法的名称，可以使用[Object.getOwnPropertyNames 函数](../../javascript/reference/object-getownpropertynames-function-javascript.md)。  
   
- 有关属性的 `enumerable` 特性的信息，请参见 [Object.defineProperty 函数](../../javascript/reference/object-defineproperty-function-javascript.md)和 [Object.getOwnPropertyDescriptor 函数](../../javascript/reference/object-getownpropertydescriptor-function-javascript.md)。  
+ 璝惠`enumerable`属性的属性，请参阅[Object.defineProperty 函数](../../javascript/reference/object-defineproperty-function-javascript.md)和[Object.getOwnPropertyDescriptor 函数](../../javascript/reference/object-getownpropertydescriptor-function-javascript.md)。  
   
-## 示例  
- 下面的示例创建一个对象，该对象具有三个属性和一个方法。  然后使用 `keys` 方法获取该对象的属性和方法。  
+## <a name="example"></a>示例  
+ 下面的示例创建具有三个属性和方法的对象。 然后，它使用`keys`方法以获取的属性和方法的对象。  
   
-```javascript  
+```JavaScript  
 // Create a constructor function.  
 function Pasta(grain, width, shape) {  
     this.grain = grain;  
@@ -76,10 +79,10 @@ document.write (arr);
 // grain,width,shape,toString  
 ```  
   
-## 示例  
- 下面的示例显示 Pasta 对象中以字母“g”开头的所有可枚举属性的名称。  
+## <a name="example"></a>示例  
+ 下面的示例显示 Pasta 对象中的"g"字母开头的所有可枚举属性的名称。  
   
-```javascript  
+```JavaScript  
 // Create a constructor function.  
 function Pasta(grain, width, shape) {  
     this.grain = grain;  
@@ -105,8 +108,8 @@ function CheckKey(value) {
 // grain  
 ```  
   
-## 要求  
+## <a name="requirements"></a>要求  
  [!INCLUDE[jsv9](../../javascript/includes/jsv9-md.md)]  
   
-## 请参阅  
+## <a name="see-also"></a>另请参阅  
  [Object.getOwnPropertyNames 函数](../../javascript/reference/object-getownpropertynames-function-javascript.md)

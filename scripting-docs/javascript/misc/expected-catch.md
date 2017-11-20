@@ -1,36 +1,38 @@
 ---
-title: "应有“catch” | Microsoft Docs"
-ms.custom: ""
-ms.date: "01/18/2017"
-ms.prod: "windows-client-threshold"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "javascript"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "VS.WebClient.Help.SCRIPT1033"
-dev_langs: 
-  - "JavaScript"
-  - "TypeScript"
-  - "DHTML"
+title: "预期 &#39; catch &#39; |Microsoft 文档"
+ms.custom: 
+ms.date: 01/18/2017
+ms.prod: windows-client-threshold
+ms.reviewer: 
+ms.suite: 
+ms.technology: javascript
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords: VS.WebClient.Help.SCRIPT1033
+dev_langs:
+- JavaScript
+- TypeScript
+- DHTML
 ms.assetid: f1cd947f-eba2-411e-8e84-8ca86f608643
-caps.latest.revision: 6
-author: "mikejo5000"
-ms.author: "mikejo"
-manager: "ghogen"
-caps.handback.revision: 6
+caps.latest.revision: "6"
+author: mikejo5000
+ms.author: mikejo
+manager: ghogen
+ms.openlocfilehash: e6cd1e57137d220ebcf3834070e36d8257e2dca7
+ms.sourcegitcommit: aadb9588877418b8b55a5612c1d3842d4520ca4c
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/27/2017
 ---
-# 应有“catch”
-您使用了异常处理 **try** 块，但未编写关联的 **catch** 语句。  异常处理机制需要将可失败的代码以及发生异常时不应执行的代码包装在 **try** 块中。  使用 **throw** 语句在 **try** 块的内部引发异常，并使用一个或多个 **catch** 语句在 **try** 块的外部捕获异常。  
+# <a name="expected-39catch39"></a>预期 &#39; catch &#39;
+使用异常处理**重**阻止，但没有编写关联**捕获**语句。 异常处理机制要求可能会失败，以及如果发生异常，不应执行的代码的代码被包装到**重**块。 从引发异常**重**阻止使用**引发**语句，并捕获外部**重**块与一个或多**捕获**语句。  
   
-### 更正此错误  
+### <a name="to-correct-this-error"></a>更正此错误  
   
--   添加关联的 **catch** 块。  
+-   添加关联**捕获**块。  
   
--   尝试使用 **finally** 块，而不是使用 **catch** 块。  
+-   请尝试使用**最后**阻止而不是**捕获**块。  
   
-## 请参阅  
- [try...catch...finally 语句](../../javascript/reference/try-dot-dot-dot-catch-dot-dot-dot-finally-statement-javascript.md)   
- [Error 对象](../../javascript/reference/error-object-javascript.md)
+## <a name="see-also"></a>另请参阅  
+ [try … catch...最后语句](../../javascript/reference/try-dot-dot-dot-catch-dot-dot-dot-finally-statement-javascript.md)   
+ [错误对象](../../javascript/reference/error-object-javascript.md)

@@ -1,38 +1,41 @@
 ---
-title: "BYTES_PER_ELEMENT 常量 (Uint8ClampedArray) | Microsoft Docs"
-ms.custom: ""
-ms.date: "01/18/2017"
-ms.prod: "windows-client-threshold"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "devlang-javascript"
-ms.tgt_pltfrm: ""
-ms.topic: "language-reference"
-dev_langs: 
-  - "JavaScript"
-  - "TypeScript"
-  - "DHTML"
+title: "BYTES_PER_ELEMENT 常量 (Uint8ClampedArray) |Microsoft 文档"
+ms.custom: 
+ms.date: 01/18/2017
+ms.prod: windows-client-threshold
+ms.reviewer: 
+ms.suite: 
+ms.technology: devlang-javascript
+ms.tgt_pltfrm: 
+ms.topic: language-reference
+dev_langs:
+- JavaScript
+- TypeScript
+- DHTML
 ms.assetid: f9fb2a10-9faf-4534-9183-dad2984e74ff
-caps.latest.revision: 5
-author: "mikejo5000"
-ms.author: "mikejo"
-manager: "ghogen"
-caps.handback.revision: 5
+caps.latest.revision: "5"
+author: mikejo5000
+ms.author: mikejo
+manager: ghogen
+ms.openlocfilehash: c230696fa7e1ea8c650b92a157461c6054419824
+ms.sourcegitcommit: aadb9588877418b8b55a5612c1d3842d4520ca4c
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/27/2017
 ---
-# BYTES_PER_ELEMENT 常量 (Uint8ClampedArray)
+# <a name="bytesperelement-constant-uint8clampedarray"></a>BYTES_PER_ELEMENT 常量 (Uint8ClampedArray)
 数组中每个元素的大小（以字节为单位）。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
-```javascript  
+```JavaScript  
 var arraySize = uint8ClampedArray.BYTES_PER_ELEMENT;  
 ```  
   
-## 示例  
+## <a name="example"></a>示例  
  下面的示例演示如何获取数组元素的大小。  
   
-```javascript  
+```JavaScript  
 var req = new XMLHttpRequest();  
     req.open('GET', "http://www.example.com");  
     req.responseType = "arraybuffer";  
@@ -49,8 +52,8 @@ var req = new XMLHttpRequest();
   
 ```  
   
-## 要求  
+## <a name="requirements"></a>要求  
  [!INCLUDE[jsv11_winonly](../../javascript/reference/includes/jsv11-winonly-md.md)]  
   
-## 请参阅  
+## <a name="see-also"></a>另请参阅  
  [Uint8ClampedArray 对象](../../javascript/reference/uint8clampedarray-object-javascript.md)

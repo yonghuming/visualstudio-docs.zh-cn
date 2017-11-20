@@ -1,44 +1,45 @@
 ---
-title: "CA1900：值类型字段应为可移植字段 | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-devops-test"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "CA1900"
-  - "ValueTypeFieldsShouldBePortable"
-helpviewer_keywords: 
-  - "ValueTypeFieldsShouldBePortable"
-  - "CA1900"
+title: "CA1900： 值类型字段应为可移植 |Microsoft 文档"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology: vs-ide-code-analysis
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords:
+- CA1900
+- ValueTypeFieldsShouldBePortable
+helpviewer_keywords:
+- ValueTypeFieldsShouldBePortable
+- CA1900
 ms.assetid: 1787d371-389f-4d39-b305-12b53bc0dfb9
-caps.latest.revision: 18
-author: "stevehoag"
-ms.author: "shoag"
-manager: "wpickett"
-caps.handback.revision: 18
+caps.latest.revision: "18"
+author: gewarren
+ms.author: gewarren
+manager: ghogen
+ms.openlocfilehash: 7f2d948d78f6b12352a3e4cfcb28aab41db3e873
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-# CA1900：值类型字段应为可移植字段
-[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
-
+# <a name="ca1900-value-type-fields-should-be-portable"></a>CA1900：值类型字段应为可移植字段
 |||  
 |-|-|  
-|类型名|ValueTypeFieldsShouldBePortable|  
+|TypeName|ValueTypeFieldsShouldBePortable|  
 |CheckId|CA1900|  
 |类别|Microsoft.Portability|  
-|是否重大更改|间断 \- 如果该字段在程序集外部可见。<br /><br /> 无间断 \- 如果该字段在程序集外部不可见。|  
+|是否重大更改|中断性-如果字段可以程序集外可见。<br /><br /> 无间断-如果该字段不是程序集外部可见。|  
   
-## 原因  
- 此规则对以下项进行检查：当用显式布局声明的结构封送到 64 位操作系统上的非托管代码时，是否正确对齐。  IA\-64 不允许存取未对齐的内存，如果此冲突未得到修复，进程将崩溃。  
+## <a name="cause"></a>原因  
+ 此规则检查： 当用显式布局声明的结构封送到 64 位操作系统上的非托管代码时，将是否正确对齐。 Ia-64 不允许访问未对齐的内存和如果不解决此冲突，则进程将崩溃。  
   
-## 规则说明  
- 具有显式布局，包含未对齐字段的结构将会导致在 64 位操作系统上发生崩溃。  
+## <a name="rule-description"></a>规则说明  
+ 具有显式布局，包含在 64 位操作系统上的未对齐的字段会导致发生崩溃的结构。  
   
-## 如何解决冲突  
- 所有小于 8 个字节的字段的偏移量都必须是其大小的倍数，所有不小于 8 个字节的字段的偏移量都必须是 8 的倍数。  另一个解决方案是在适当的情况下使用 `LayoutKind.Sequential`，而不使用 `LayoutKind.Explicit`。  
+## <a name="how-to-fix-violations"></a>如何解决冲突  
+ 小于 8 个字节的所有字段都必须是其大小的倍数的偏移量和 8 个字节的字段或更多都必须是 8 的倍数的偏移量。 另一种解决方案是使用`LayoutKind.Sequential`而不是`LayoutKind.Explicit`，如果合理。  
   
-## 何时禁止显示警告  
- 只有当此警告出现在错误中时，才应禁止显示它。
+## <a name="when-to-suppress-warnings"></a>何时禁止显示警告  
+ 应禁止显示此警告，仅当其出现在错误中。

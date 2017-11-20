@@ -1,36 +1,36 @@
 ---
-title: "&lt;Strings&gt; 元素（引导程序） | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-deployment"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-f1_keywords: 
-  - "MSBuild.GenerateBootstrapper.NoStringsForCulture"
-  - "MSBuild.GenerateBootstrapper.ProductCultureNotFound"
-dev_langs: 
-  - "FSharp"
-  - "VB"
-  - "CSharp"
-  - "C++"
-helpviewer_keywords: 
-  - "<Strings> 元素 [引导程序]"
+title: "&lt;字符串&gt;元素 （引导程序） |Microsoft 文档"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology: vs-ide-deployment
+ms.tgt_pltfrm: 
+ms.topic: article
+f1_keywords:
+- MSBuild.GenerateBootstrapper.NoStringsForCulture
+- MSBuild.GenerateBootstrapper.ProductCultureNotFound
+dev_langs:
+- FSharp
+- VB
+- CSharp
+- C++
+helpviewer_keywords: <Strings> element [bootstrapper]
 ms.assetid: d5ea3613-5fc9-4a11-bef3-46a01178bf60
-caps.latest.revision: 4
-author: "stevehoag"
-ms.author: "shoag"
-manager: "wpickett"
-caps.handback.revision: 4
+caps.latest.revision: "4"
+author: stevehoag
+ms.author: shoag
+manager: wpickett
+ms.openlocfilehash: 19c4c961dd226ada84fe825643af6d1c7eacc925
+ms.sourcegitcommit: aadb9588877418b8b55a5612c1d3842d4520ca4c
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/27/2017
 ---
-# &lt;Strings&gt; 元素（引导程序）
-[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
-
-为产品名称、包名称和安装错误信息定义本地化字符串。  
+# <a name="ltstringsgt-element-bootstrapper"></a>&lt;字符串&gt;元素 （引导程序）
+定义产品名称、 包名称和安装错误消息的本地化的字符串。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
 ```  
 <Strings>  
@@ -41,20 +41,20 @@ caps.handback.revision: 4
 </Strings>  
 ```  
   
-## 元素和特性  
- `Strings` 元素是 `Package` 元素的子元素。  它没有特性。  
+## <a name="elements-and-attributes"></a>元素和属性  
+ `Strings`元素是的子`Package`元素。 它具有任何属性。  
   
-## String  
- `String` 元素是 `Strings` 元素的子元素。  `Strings` 元素可能有一个或多个 `String` 元素。  
+## <a name="string"></a>String  
+ `String`元素是的子`Strings`元素。 A`Strings`元素可能具有一个或多`String`元素。  
   
- `String` 具有下列特性。  
+ `String`具有以下属性。  
   
 |特性|说明|  
-|--------|--------|  
-|`Name`|必选。  字符串的名称。|  
+|---------------|-----------------|  
+|`Name`|必需。 字符串的名称。|  
   
-## 示例  
- 下面的代码示例指定 [!INCLUDE[dnprdnshort](../code-quality/includes/dnprdnshort_md.md)] 安装程序的所有英文字符串。  
+## <a name="example"></a>示例  
+ 下面的代码示例指定了所有的英文字符串[!INCLUDE[dnprdnshort](../code-quality/includes/dnprdnshort_md.md)]安装程序。  
   
 ```  
 <Strings>  
@@ -75,5 +75,5 @@ caps.handback.revision: 4
 </Strings>  
 ```  
   
-## 请参阅  
- [\<Package\> 元素](../deployment/package-element-bootstrapper.md)
+## <a name="see-also"></a>另请参阅  
+ [\<包 > 元素](../deployment/package-element-bootstrapper.md)

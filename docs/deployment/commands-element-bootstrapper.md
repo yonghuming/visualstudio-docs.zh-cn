@@ -1,33 +1,33 @@
 ---
-title: "&lt;Commands&gt; 元素（引导程序） | Microsoft Docs"
-ms.custom: ""
-ms.date: "11/04/2016"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "vs-ide-deployment"
-ms.tgt_pltfrm: ""
-ms.topic: "article"
-dev_langs: 
-  - "FSharp"
-  - "VB"
-  - "CSharp"
-  - "C++"
-helpviewer_keywords: 
-  - "<Commands> 元素 [引导程序]"
+title: "&lt;命令&gt;元素 （引导程序） |Microsoft 文档"
+ms.custom: 
+ms.date: 11/04/2016
+ms.reviewer: 
+ms.suite: 
+ms.technology: vs-ide-deployment
+ms.tgt_pltfrm: 
+ms.topic: article
+dev_langs:
+- FSharp
+- VB
+- CSharp
+- C++
+helpviewer_keywords: <Commands> element [bootstrapper]
 ms.assetid: e61d5787-fe1f-4ebf-b0cf-0d7909be7ffb
-caps.latest.revision: 13
-author: "stevehoag"
-ms.author: "shoag"
-manager: "wpickett"
-caps.handback.revision: 13
+caps.latest.revision: "13"
+author: stevehoag
+ms.author: shoag
+manager: wpickett
+ms.openlocfilehash: ac8580a1b930d4ad18db9eebb275e4eb67d80c62
+ms.sourcegitcommit: aadb9588877418b8b55a5612c1d3842d4520ca4c
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/27/2017
 ---
-# &lt;Commands&gt; 元素（引导程序）
-[!INCLUDE[vs2017banner](../code-quality/includes/vs2017banner.md)]
-
-`Commands` 元素实现 `InstallChecks` 元素下的元素描述的测试，并声明当测试失败时，[!INCLUDE[ndptecclick](../deployment/includes/ndptecclick_md.md)] 引导程序应安装的包。  
+# <a name="ltcommandsgt-element-bootstrapper"></a>&lt;命令&gt;元素 （引导程序）
+`Commands`元素实现下的元素所描述的测试`InstallChecks`元素，并声明哪些软件包[!INCLUDE[ndptecclick](../deployment/includes/ndptecclick_md.md)]引导程序应安装如果测试失败。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
 ```  
 <Commands  
@@ -67,68 +67,68 @@ caps.handback.revision: 13
 </Commands>  
 ```  
   
-## 元素和特性  
- `Commands` 元素是必需的。  该元素具有以下特性。  
+## <a name="elements-and-attributes"></a>元素和属性  
+ `Commands`元素是必需的。 元素具有以下属性。  
+  
+|特性|描述|  
+|---------------|-----------------|  
+|`Reboot`|可选。 确定是否是否的任何包返回重新启动退出代码，则系统应重新启动。 以下列表显示有效的值：<br /><br /> `Defer`。 重新启动将推迟将来的某个时间。<br /><br /> `Immediate`。 如果其中一个包返回了重新启动退出代码，会导致立即重新启动。<br /><br /> `None`。 会导致任何重新启动请求被忽略。<br /><br /> 默认值为 `Immediate`。|  
+  
+## <a name="command"></a>命令  
+ `Command` 元素是 `Commands` 元素的一个子元素。 A`Commands`元素可以包含一个或多个`Command`元素。 元素具有以下属性。  
   
 |特性|说明|  
-|--------|--------|  
-|`Reboot`|可选。  确定如果有任意包返回重新启动退出代码，系统是否应重新启动。  下面的列表显示有效的值：<br /><br /> `Defer`。  重新启动推迟到将来的某个时间执行。<br /><br /> `Immediate`。  如果其中一个包返回重新启动退出代码，将立即重新启动。<br /><br /> `None`。  忽略任何重新启动请求。<br /><br /> 默认值为 `Immediate`。|  
+|---------------|-----------------|  
+|`PackageFile`|必需。 要安装的包的名称应一个或多个指定的条件`InstallConditions`返回 false。 必须通过使用相同的文件中定义包`PackageFile`元素。|  
+|`Arguments`|可选。 一组命令行自变量传入包文件。|  
+|`EstimatedInstallSeconds`|可选。 估计的时间，以秒为单位，它将需要安装包。 此值确定引导程序为用户显示的进度栏的大小。 默认值为 0，在这种情况下指定估计没有时间。|  
+|`EstimatedDiskBytes`|可选。 完成磁盘空间，以字节为单位，在安装后将占用包的估计的量。 此值用于引导程序为用户显示的硬盘空间要求。 默认值为的 0，用例引导程序不会显示任何硬盘空间要求。|  
+|`EstimatedTempBytes`|可选。 临时磁盘空间，以字节为单位，包将需要的估计的量。|  
+|`Log`|可选。 包生成，相对于根目录下的包的日志文件路径。|  
   
-## Command  
- `Command` 元素是 `Commands` 元素的子元素。  `Commands` 元素可以有一个或多个 `Command` 元素。  它具有下列特性。  
+## <a name="installconditions"></a>InstallConditions  
+ `InstallConditions`元素是的子`Command`元素。 每个`Command`元素可包含最多一个`InstallConditions`元素。 如果没有`InstallConditions`元素存在，由指定的包`Condition`始终运行。  
   
-|特性|说明|  
-|--------|--------|  
-|`PackageFile`|必选。  当 `InstallConditions` 指定的一个或多个条件返回 false 时，要安装的包的名称。  必须使用 `PackageFile` 元素在同一个文件中定义该包。|  
-|`Arguments`|可选。  要传入包文件的一组命令行参数。|  
-|`EstimatedInstallSeconds`|可选。  估计安装该包将花费的时间（以秒为单位）。  该值决定了引导程序显示给用户的进度栏的大小。  默认值为 0，在这种情况下将不会指定估计的时间。|  
-|`EstimatedDiskBytes`|可选。  估计该包在安装完成后将占用的磁盘空间量（以字节为单位）。  该值用在引导程序显示给用户的硬盘空间要求中。  默认值为 0，在这种情况下，引导程序将不会显示任何硬盘空间要求。|  
-|`EstimatedTempBytes`|可选。  估计该包需要的临时磁盘空间量（以字节为单位）。|  
-|`Log`|可选。  该包生成的日志文件的路径，该路径是相对于包的根目录而言的。|  
+## <a name="bypassif"></a>BypassIf  
+ `BypassIf`元素是的子`InstallConditions`元素，并说明应在其下执行命令的正条件。 每个`InstallConditions`元素可包含零个或多`BypassIf`元素。  
   
-## InstallConditions  
- `InstallConditions` 元素是 `Command` 元素的子元素。  每个 `Command` 元素最多只能有一个 `InstallConditions` 元素。  如果不存在任何 `InstallConditions` 元素，则 `Condition` 指定的包将始终运行。  
-  
-## BypassIf  
- `BypassIf` 元素是 `InstallConditions` 元素的子元素，它描述了一个肯定的条件，在这个条件下不应执行该命令。  每个 `InstallConditions` 元素可以有零个或零个以上的 `BypassIf` 元素。  
-  
- `BypassIf` 具有下列特性。  
+ `BypassIf`具有以下属性。  
   
 |特性|说明|  
-|--------|--------|  
-|`Property`|必选。  要测试的属性的名称。  该属性必须事先已经由 `InstallChecks` 元素的子元素定义。  有关更多信息，请参见 [\<InstallChecks\> 元素](../deployment/installchecks-element-bootstrapper.md)。|  
-|`Compare`|必选。  要执行的比较的类型。  下面的列表显示有效的值：<br /><br /> `ValueEqualTo`, `ValueNotEqualTo`, `ValueGreaterThan`, `ValueGreaterThanOrEqualTo`, `ValueLessThan`, `ValueLessThanOrEqualTo`, `VersionEqualTo`, `VersionNotEqualTo`, `VersionGreaterThan`, `VersionGreaterThanOrEqualTo`, `VersionLessThan`, `VersionLessThanOrEqualTo`, `ValueExists`, `ValueNotExists`|  
-|`Value`|必选。  要与该属性进行比较的值。|  
-|`Schedule`|可选。  `Schedule` 标记的名称，该标记定义何时计算此规则。|  
+|---------------|-----------------|  
+|`Property`|必需。 要测试的属性名称。 属性必须之前已由定义的子`InstallChecks`元素。 有关详细信息，请参阅[ \<InstallChecks > 元素](../deployment/installchecks-element-bootstrapper.md)。|  
+|`Compare`|必需。 要执行的比较类型。 以下列表显示有效的值：<br /><br /> `ValueEqualTo`, `ValueNotEqualTo`, `ValueGreaterThan`, `ValueGreaterThanOrEqualTo`, `ValueLessThan`, `ValueLessThanOrEqualTo`, `VersionEqualTo`, `VersionNotEqualTo`, `VersionGreaterThan`, `VersionGreaterThanOrEqualTo`, `VersionLessThan`, `VersionLessThanOrEqualTo`, `ValueExists`, `ValueNotExists`|  
+|`Value`|必需。 要与属性比较的值。|  
+|`Schedule`|可选。 名称`Schedule`定义应在何时计算此规则的标记。|  
   
-## FailIf  
- `FailIf` 元素是 `InstallConditions` 元素的子元素，它描述了一个肯定的条件，在这个条件下安装应停止。  每个 `InstallConditions` 元素可以有零个或零个以上的 `FailIf` 元素。  
+## <a name="failif"></a>FailIf  
+ `FailIf`元素是的子`InstallConditions`元素，并描述了正条件应停止安装。 每个`InstallConditions`元素可包含零个或多`FailIf`元素。  
   
- `FailIf` 具有下列特性。  
-  
-|特性|说明|  
-|--------|--------|  
-|`Property`|必选。  要测试的属性的名称。  该属性必须事先已经由 `InstallChecks` 元素的子元素定义。  有关更多信息，请参见 [\<InstallChecks\> 元素](../deployment/installchecks-element-bootstrapper.md)。|  
-|`Compare`|必选。  要执行的比较的类型。  下面的列表显示有效的值：<br /><br /> `ValueEqualTo`, `ValueNotEqualTo`, `ValueGreaterThan`, `ValueGreaterThanOrEqualTo`, `ValueLessThan`, `ValueLessThanOrEqualTo`, `VersionEqualTo`, `VersionNotEqualTo`, `VersionGreaterThan`, `VersionGreaterThanOrEqualTo`, `VersionLessThan`, `VersionLessThanOrEqualTo`, `ValueExists`, `ValueNotExists`|  
-|`Value`|必选。  要与该属性进行比较的值。|  
-|`String`|可选。  失败后要显示给用户的文本。|  
-|`Schedule`|可选。  `Schedule` 标记的名称，该标记定义何时计算此规则。|  
-  
-## ExitCodes  
- `ExitCodes` 元素是 `Command` 元素的子元素。  `ExitCodes` 元素包含一个或多个 `ExitCode` 元素，该元素确定安装应执行何种操作来响应来自包的退出代码。  `Command` 元素下可以有一个可选的 `ExitCode` 元素。  `ExitCodes` 没有特性。  
-  
-## ExitCode  
- `ExitCode` 元素是 `ExitCodes` 元素的子元素。  `ExitCode` 元素确定安装应执行何种操作来响应来自包的退出代码。  `ExitCode` 不包含任何子元素，且具有下列特性。  
+ `FailIf`具有以下属性。  
   
 |特性|说明|  
-|--------|--------|  
-|`Value`|必选。  此 `ExitCode` 元素适用的退出代码值。|  
-|`Result`|必选。  安装应如何响应此退出代码。  下面的列表显示有效的值：<br /><br /> `Success`。  将该包标记为已成功安装。<br /><br /> `SuccessReboot`。  将该包标记为已成功安装，并指示系统重新启动。<br /><br /> `Fail`。  将该包标记为失败。<br /><br /> `FailReboot`。  将该包标记为失败，并指示系统重新启动。|  
-|`String`|可选。  为响应此退出代码而显示给用户的值。|  
-|`FormatMessageFromSystem`|可选。  确定是使用系统提供的、对应于退出代码的错误消息，还是使用 `String` 中提供的值。  有效值为 `true` 和 `false`，前者表示使用系统提供的错误，后者表示使用 `String` 提供的字符串。  默认值为 `false`。  如果此属性为 `false`，但是未设置 `String`，则将会使用系统提供的错误。|  
+|---------------|-----------------|  
+|`Property`|必需。 要测试的属性名称。 属性必须之前已由定义的子`InstallChecks`元素。 有关详细信息，请参阅[ \<InstallChecks > 元素](../deployment/installchecks-element-bootstrapper.md)。|  
+|`Compare`|必需。 要执行的比较类型。 以下列表显示有效的值：<br /><br /> `ValueEqualTo`, `ValueNotEqualTo`, `ValueGreaterThan`, `ValueGreaterThanOrEqualTo`, `ValueLessThan`, `ValueLessThanOrEqualTo`, `VersionEqualTo`, `VersionNotEqualTo`, `VersionGreaterThan`, `VersionGreaterThanOrEqualTo`, `VersionLessThan`, `VersionLessThanOrEqualTo`, `ValueExists`, `ValueNotExists`|  
+|`Value`|必需。 要与属性比较的值。|  
+|`String`|可选。 要向用户在失败时显示的文本。|  
+|`Schedule`|可选。 名称`Schedule`定义应在何时计算此规则的标记。|  
   
-## 示例  
- 下面的代码示例定义了用于安装 .NET Framework 2.0 的命令。  
+## <a name="exitcodes"></a>ExitCodes  
+ `ExitCodes`元素是的子`Command`元素。 `ExitCodes`元素包含一个或多个`ExitCode`元素，用于确定安装应在响应来自包的退出代码中执行的操作。 可以有一个可选`ExitCode`元素下的`Command`元素。 `ExitCodes`不具有属性。  
+  
+## <a name="exitcode"></a>exitCode  
+ `ExitCode`元素是的子`ExitCodes`元素。 `ExitCode`元素确定安装应在响应来自包的退出代码中执行的操作。 `ExitCode`不包含子元素，并具有以下属性。  
+  
+|特性|说明|  
+|---------------|-----------------|  
+|`Value`|必需。 此的退出代码值`ExitCode`元素将适用。|  
+|`Result`|必需。 安装应该如何响应对此退出代码。 以下列表显示有效的值：<br /><br /> `Success`。 将其标记为已成功安装包。<br /><br /> `SuccessReboot`。 已成功安装，将该包标记，并指示系统将重新启动。<br /><br /> `Fail`。 标记为失败的包。<br /><br /> `FailReboot`。 将该包标记为失败，并指示系统将重新启动。|  
+|`String`|可选。 要向此退出代码的响应中的用户显示的值。|  
+|`FormatMessageFromSystem`|可选。 确定是否使用系统提供的错误消息对应于的退出代码，或使用中提供的值`String`。 有效值为`true`，这意味着若要使用系统提供的错误和`false`，这意味着若要使用提供的字符串`String`。 默认值为 `false`。 如果此属性为`false`，但`String`未设置，将使用系统提供的错误。|  
+  
+## <a name="example"></a>示例  
+ 下面的代码示例定义用于安装.NET Framework 2.0 的命令。  
   
 ```  
 <Commands Reboot="Immediate">  
@@ -205,6 +205,6 @@ caps.handback.revision: 13
 </Commands>  
 ```  
   
-## 请参阅  
- [产品和包架构引用](../deployment/product-and-package-schema-reference.md)   
- [\<InstallChecks\> 元素](../deployment/installchecks-element-bootstrapper.md)
+## <a name="see-also"></a>另请参阅  
+ [产品和程序包架构引用](../deployment/product-and-package-schema-reference.md)   
+ [\<InstallChecks > 元素](../deployment/installchecks-element-bootstrapper.md)

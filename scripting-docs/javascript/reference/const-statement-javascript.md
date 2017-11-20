@@ -1,59 +1,61 @@
 ---
-title: "const 语句 (JavaScript) | Microsoft Docs"
-ms.custom: ""
-ms.date: "01/18/2017"
-ms.prod: "windows-client-threshold"
-ms.reviewer: ""
-ms.suite: ""
-ms.technology: 
-  - "devlang-javascript"
-ms.tgt_pltfrm: ""
-ms.topic: "language-reference"
-f1_keywords: 
-  - "const_JavaScriptKeyword"
-dev_langs: 
-  - "JavaScript"
-  - "TypeScript"
-  - "DHTML"
-helpviewer_keywords: 
-  - "声明变量，const 语句"
-  - "const 语句"
+title: "const 语句 (JavaScript) |Microsoft 文档"
+ms.custom: 
+ms.date: 01/18/2017
+ms.prod: windows-client-threshold
+ms.reviewer: 
+ms.suite: 
+ms.technology: devlang-javascript
+ms.tgt_pltfrm: 
+ms.topic: language-reference
+f1_keywords: const_JavaScriptKeyword
+dev_langs:
+- JavaScript
+- TypeScript
+- DHTML
+helpviewer_keywords:
+- declaring variables, const statement
+- const statement
 ms.assetid: 3ad0840f-437f-4163-9571-86ecc5ddb987
-caps.latest.revision: 7
-author: "mikejo5000"
-ms.author: "mikejo"
-manager: "ghogen"
-caps.handback.revision: 7
+caps.latest.revision: "7"
+author: mikejo5000
+ms.author: mikejo
+manager: ghogen
+ms.openlocfilehash: 68130cec4f1b1fe89d2fe3e673b28963d79aebde
+ms.sourcegitcommit: aadb9588877418b8b55a5612c1d3842d4520ca4c
+ms.translationtype: MT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/27/2017
 ---
-# const 语句 (JavaScript)
-通过一个常数值声明一个块范围变量。  
+# <a name="const-statement-javascript"></a>const 语句 (JavaScript)
+声明具有常数值的块范围变量。  
   
-## 语法  
+## <a name="syntax"></a>语法  
   
 ```  
 const constant1 = value1  
 ```  
   
-#### 参数  
+#### <a name="parameters"></a>参数  
  `constant1`  
- 要声明的变量的名称。  
+ 正在声明的变量的名称。  
   
  `value1`  
- 赋给变量的初始值。  
+ 分配给变量的初始值。  
   
-## 备注  
- 使用 `const` 语句声明一个带常数值的变量，该变量的范围限于声明它的块中。  无法更改变量值。  
+## <a name="remarks"></a>备注  
+ 使用`const`语句可以声明具有常数值，其中的作用域仅限于块变量，在其中声明。 无法更改变量的值。  
   
- 使用 `const` 声明变量时必须对其进行初始化。  
+ 使用声明的变量`const`必须声明它时初始化。  
   
-## 示例  
+## <a name="example"></a>示例  
  下面的示例阐释了 `const` 语句的用法。  
   
-```javascript  
+```JavaScript  
 var c = 10;  
 {  
-    const c = 2;  
-   // At this point, c = 2.  
+    const c = 2;  
+   // At this point, c = 2.  
 }  
 // At this point, c = 10.  
   
@@ -64,11 +66,11 @@ const myarray = new Array();
   
 ```  
   
-## 要求  
+## <a name="requirements"></a>要求  
  [!INCLUDE[jsv11](../../javascript/reference/includes/jsv11-md.md)]  
   
-## 请参阅  
+## <a name="see-also"></a>另请参阅  
  [let 语句](../../javascript/reference/let-statement-javascript.md)   
  [new 运算符](../../javascript/reference/new-operator-decrementjavascript.md)   
- [Array 对象](../../javascript/reference/array-object-javascript.md)   
+ [数组对象](../../javascript/reference/array-object-javascript.md)   
  [变量](../../javascript/variables-javascript.md)
