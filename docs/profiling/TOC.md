@@ -366,4 +366,4 @@
 ##### [CvWriteFlag 函数](cvwriteflag-function.md)
 ##### [CvWriteMessage 函数](cvwritemessage-function.md)
 ### [并发可视化工具命令行实用工具 (CVCollectionCmd)](concurrency-visualizer-command-line-utility-cvcollectioncmd.md)
-## [分析应用商店应用中的能量使用](analyze-energy-use-in-store-apps.md)
+## [分析 UWP 应用中的能量使用](analyze-energy-use-in-store-apps.md)

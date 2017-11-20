@@ -1,14 +1,13 @@
 ---
 layout: HubPage
-hide_bc: true
-title: "Visual Studio 文档"
+hide_bc: True
+title: "Visual Studio 文档| Microsoft Docs"
 description: "了解如何使用 Visual Studio 2017 并以你喜欢的语言来开发适用于你的平台和设备的应用程序、服务和工具。"
+ms.openlocfilehash: f33fce2ca2020827e2013199e596c0e6be2e9793
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
 ms.translationtype: HT
-ms.sourcegitcommit: 21a413a3e2d17d77fd83d5109587a96f323a0511
-ms.openlocfilehash: bcd55d1b7e1037a4442ce47fe6b96bf865dfbdfc
-ms.contentlocale: zh-cn
-ms.lasthandoff: 09/06/2017
-
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -92,7 +91,7 @@ ms.lasthandoff: 09/06/2017
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage bgdAccent1 cardScaleImage">
-                                                        <img data-scaleimage="./images/vs_windows-1.svg" src="./images/vs_windows-1.svg" alt="" />
+                                                        <img data-hoverimage="./images/vs_windows-1.svg" src="./images/vs_windows-1.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -241,7 +240,7 @@ ms.lasthandoff: 09/06/2017
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>数据存储和处理</h3>
-                                                    <p>一套完整的工具，数据库开发人员使用此工具可创建针对 SQL Server、Hadoop 和 Azure ML 的解决方案。</p>
+                                                    <p>使用 SQL Server、Azure Data Lake 或 Hadoop 开发和测试数据解决方案的工具和框架。</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -559,18 +558,37 @@ ms.lasthandoff: 09/06/2017
                                 </a>
                             </li>
                             <li>
-                                <a href="https://go.microsoft.com/fwlink/?linkid=833080">
+                                <a href="/vsts/#pivot=services&panel=code">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage bgdAccent1">
-                                                        <img data-scaleimage="./images/vs_features-6.svg" src="./images/vs_features-6.svg" alt="" />
+                                                        <img data-scaleimage="./images/vs-hub-docs-features-version-control.svg" src="./images/vs-hub-docs-features-version-control.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>协作</h3>
+                                                    <h3>版本控制</h3>
                                                     <p>使用 Git、TFVC 等版本控制技术共享代码。</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/vsts">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage bgdAccent1">
+                                                        <img data-scaleimage="./images/vs-hub-docs-features-devops.svg" src="./images/vs-hub-docs-features-devops.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>DevOps</h3>
+                                                    <p>在云中连续生成和发布应用，并通过 VSTS 实现敏捷做法。</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -694,7 +712,7 @@ ms.lasthandoff: 09/06/2017
                                             </div>
                                             <div class="cardText">
                                                 <a href="https://go.microsoft.com/fwlink/?linkid=833063">
-                                                    <h3>Visual C++</h3>
+                                                    <h3>C++</h3>
                                                     <p>功能强大且灵活的编程语言和开发环境，用于创建适用于 Windows、Linux、iOS 和 Android 的应用程序。</p>
                                                 </a>
                                             </div>
@@ -824,4 +842,3 @@ ms.lasthandoff: 09/06/2017
         </ul>
     </div>
 </div>
-

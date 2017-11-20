@@ -1,19 +1,17 @@
 ---
-title: "Visual Studio for Mac 介绍"
+title: "Visual Studio for Mac 简介 | Microsoft Docs"
 description: 
 author: asb3993
 ms.author: amburns
 ms.date: 04/14/2017
 ms.topic: article
 ms.assetid: 3A130EC1-DD8C-4125-9034-B08D7AF7EA65
+ms.openlocfilehash: bc836806e1acf33b35604419ac1d6aad41a2d795
+ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
 ms.translationtype: HT
-ms.sourcegitcommit: f6c7e290f0abc2c32456e076420a7695ae868ba6
-ms.openlocfilehash: ffbd08a4a6765c2cc38329325e91f4aed12d88d5
-ms.contentlocale: zh-cn
-ms.lasthandoff: 09/26/2017
-
+ms.contentlocale: zh-CN
+ms.lasthandoff: 10/31/2017
 ---
-
 # <a name="introducing-visual-studio-for-mac"></a>Visual Studio for Mac 介绍
 
 Visual Studio for Mac 是一个新式且复杂的 IDE，其中包含多种用于创建移动、桌面和 Web 应用程序的功能。 它支持以下内容的开发：
