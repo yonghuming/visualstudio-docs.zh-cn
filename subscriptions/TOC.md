@@ -22,6 +22,8 @@
 ##### [SmartOffice4TFS + ModernRequirements4TFS](vs-modernreq.md)
 ##### [Microsoft Azure 即用即付](vs-azure-payg.md) 
 #### 教育
+##### [DataCamp](vs-datacamp.md)
+##### [LinkedIn 学习](vs-linkedin-learning.md)
 ##### [Opsgility](vs-opsgility.md)
 ##### [Pluralsight](vs-pluralsight.md)
 ##### [Xamarin University 培训](vs-xamarin.md)
