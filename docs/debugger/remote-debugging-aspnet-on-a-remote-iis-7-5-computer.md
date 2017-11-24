@@ -12,11 +12,11 @@ caps.latest.revision: "6"
 author: mikejo5000
 ms.author: mikejo
 manager: ghogen
-ms.openlocfilehash: 730a69894c8e38dd7b9d191fa7fe3396509148d4
-ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.openlocfilehash: a279b1eddf80a78ad20d137c288e6ee49c1993b9
+ms.sourcegitcommit: eb954434c34b4df6fd2264266381b23ce9e6204a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="remote-debug-aspnet-on-a-remote-iis-computer"></a>远程调试远程 IIS 计算机上的 ASP.NET
 若要调试的 ASP.NET 应用程序部署到 IIS，安装和在计算机上运行远程工具其中部署您的应用程序，然后从 Visual Studio 附加到正在运行的应用。
@@ -26,7 +26,7 @@ ms.lasthandoff: 10/31/2017
 本指南说明如何设置和配置 Visual Studio 2017 ASP.NET MVC 4.5.2 应用程序，将其部署到 IIS 中，并从 Visual Studio 中附加远程调试器。 ASP.NET 核心执行远程调试，请参阅[在 IIS 的计算机上的远程调试 ASP.NET Core](../debugger/remote-debugging-aspnet-on-a-remote-iis-computer.md)。 你还可以部署和调试在 IIS 使用 Azure 上。 有关详细信息，请参阅[在 Azure 上进行远程调试](../debugger/remote-debugging-azure.md)。
 
 这些过程已经过测试在这些服务器配置：
-* Windows Server 2012 R2 和 IIS 10 （对于 Windows Server 2008 R2 中，服务器步骤会有所不同，）
+* Windows Server 2012 R2 和 IIS 8.5 （对于 Windows Server 2008 R2 中，服务器步骤会有所不同，）
 
 ## <a name="requirements"></a>要求
 

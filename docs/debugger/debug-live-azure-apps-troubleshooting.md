@@ -12,11 +12,11 @@ caps.latest.revision: "1"
 author: mikejo5000
 ms.author: mikejo
 manager: ghogen
-ms.openlocfilehash: 5e111159029710684a1a49be2859f6ac5699a70a
-ms.sourcegitcommit: 2c7f48ad6073a81fa927568793633f26cc1f0b15
+ms.openlocfilehash: 307e32587a7aac6e2595f35488ad057995c04f4b
+ms.sourcegitcommit: eb954434c34b4df6fd2264266381b23ce9e6204a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="troubleshooting-and-known-issues-for-snapshot-debugging-in-visual-studio"></a>有关在 Visual Studio 中调试快照的疑难解答和已知问题
 
@@ -30,8 +30,7 @@ ms.lasthandoff: 11/17/2017
 
 执行以下步骤：
 
-1. 请确保具有用于构建和部署你的应用的源代码的相同版本。
-1. 请确保要为你的部署将加载正确的符号。 若要执行此操作，查看**模块**窗口快照调试时，并验证是否为正在调试的模块加载符号文件列显示.pdb 文件。 请注意，快照调试器将尝试自动下载并为你的部署使用符号。
+1. 请确保你有用于生成和部署你 app.isua1 的源代码的相同版本。 请确保要为你的部署将加载正确的符号。 若要执行此操作，查看**模块**窗口快照调试时，并验证是否为正在调试的模块加载符号文件列显示.pdb 文件。 请注意，快照调试器将尝试自动下载并为你的部署使用符号。
 
 ## <a name="issue-symbols-do-not-load-when-i-open-a-snapshot"></a>问题： 符号时不会加载打开快照
 
@@ -70,9 +69,10 @@ ms.lasthandoff: 11/17/2017
 - ASP.NET 核心项目不完全支持 Roslyn IL 优化。 对于某些 ASP.NET Core 项目，你可能无法看到某些变量或条件语句中使用某些变量。 
 - 特殊变量，如*$FUNCTION*或*$CALLER*，无法计算条件语句或 logpoints 对于 ASP.NET Core 项目中。
 - 快照调试不能在应用程序服务具有[本地缓存](https://docs.microsoft.com/en-us/azure/app-service/app-service-local-cache)开启。
+- 当前不支持调试 API 应用程序的快照。
 
 ## <a name="see-also"></a>请参阅
 
 [在 Visual Studio 中进行调试](../debugger/index.md)  
 [调试使用快照调试器的实时 ASP.NET 应用程序](../debugger/debug-live-azure-applications.md)  
-[适用于快照调试的常见问题](../debugger/debug-live-azure-apps-faq.md)  
+[快照调试常见问题解答](../debugger/debug-live-azure-apps-faq.md)  

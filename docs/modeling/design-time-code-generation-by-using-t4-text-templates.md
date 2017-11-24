@@ -19,11 +19,11 @@ caps.latest.revision: "38"
 author: alancameronwills
 ms.author: awills
 manager: douge
-ms.openlocfilehash: 2444687c420feb1b7e949df349d3e609f1c542d0
-ms.sourcegitcommit: aadb9588877418b8b55a5612c1d3842d4520ca4c
+ms.openlocfilehash: 97cf47eafc99abefeebce0f69ac2840617fb35e2
+ms.sourcegitcommit: eb954434c34b4df6fd2264266381b23ce9e6204a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="design-time-code-generation-by-using-t4-text-templates"></a>使用 T4 文本模板生成设计时代码
 使用设计时 T4 文本模板，你可以在 [!INCLUDE[vsprvs](../code-quality/includes/vsprvs_md.md)] 项目中生成程序代码和其他文件。 通常情况下，你编写一些模板，以便它们改变它们根据来自数据生成的代码*模型*。 模型是文件或包含有关你的应用程序要求的关键信息的数据库。  
@@ -306,7 +306,7 @@ Number of projects in this VS solution:  <#= dte.Solution.Projects.Count #>
 
   
 ```  
-<Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v11.0\TextTemplating\Microsoft.TextTemplating.targets" />  
+<Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v15.0\TextTemplating\Microsoft.TextTemplating.targets" />  
 <PropertyGroup>  
    <TransformOnBuild>true</TransformOnBuild>  
    <!-- Other properties can be inserted here -->  

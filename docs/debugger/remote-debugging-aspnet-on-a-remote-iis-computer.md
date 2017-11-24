@@ -6,17 +6,17 @@ ms.reviewer:
 ms.suite: 
 ms.technology: vs-ide-debug
 ms.tgt_pltfrm: 
-ms.topic: hero-article
+ms.topic: article
 ms.assetid: 573a3fc5-6901-41f1-bc87-557aa45d8858
 caps.latest.revision: "6"
 author: mikejo5000
 ms.author: mikejo
 manager: ghogen
-ms.openlocfilehash: 883a9ad8660204462d5aaa852ab87c5420af4382
-ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.openlocfilehash: abbbb1adf829361c5916f91ade5cb1a549444b72
+ms.sourcegitcommit: eb954434c34b4df6fd2264266381b23ce9e6204a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="remote-debug-aspnet-core-on-a-remote-iis-computer-in-visual-studio-2017"></a>在 Visual Studio 2017 远程 IIS 计算机上的远程调试 ASP.NET 核心
 若要调试的 ASP.NET 应用程序部署到 IIS，安装和在计算机上运行远程工具其中部署您的应用程序，然后从 Visual Studio 附加到正在运行的应用。
@@ -26,7 +26,7 @@ ms.lasthandoff: 10/31/2017
 本指南说明如何设置和配置 Visual Studio 2017 ASP.NET Core、 将其部署到 IIS 中，并从 Visual Studio 中附加远程调试器。 远程调试 ASP.NET 4.5.2，请参阅[在 IIS 的计算机上的远程调试 ASP.NET](../debugger/remote-debugging-aspnet-on-a-remote-iis-7-5-computer.md)。 你还可以部署和调试在 IIS 使用 Azure 上。 有关详细信息，请参阅[在 Azure 上进行远程调试](../debugger/remote-debugging-azure.md)。
 
 这些过程已经过测试在这些服务器配置：
-* Windows Server 2012 R2 和 IIS 10
+* Windows Server 2012 R2 和 IIS 8.5
 * Windows Server 2016 和 IIS 10
 
 ## <a name="requirements"></a>要求

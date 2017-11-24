@@ -12,11 +12,11 @@ caps.latest.revision: "1"
 author: mikejo5000
 ms.author: mikejo
 manager: ghogen
-ms.openlocfilehash: 71facc3515bf90d378b19242bb804ce825131b4e
-ms.sourcegitcommit: 2c7f48ad6073a81fa927568793633f26cc1f0b15
+ms.openlocfilehash: 02f91441c493d65e8abcdc80bd85b01f2bd423bf
+ms.sourcegitcommit: eb954434c34b4df6fd2264266381b23ce9e6204a
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="debug-live-aspnet-azure-apps-using-the-snapshot-debugger"></a>调试使用快照调试器的实时 ASP.NET Azure 应用程序
 
@@ -29,7 +29,7 @@ Snappoints 和 logpoints 是类似于断点。 与断点，不同 snappoints 不
 - 在.NET Framework 4.6.1 上运行的 ASP.NET 应用程序或更高版本。
 - 在.NET 核心 2.0 或更高版本在 Windows 上运行的 ASP.NET Core 应用程序。
 
-此外，快照调试器做法只适用于 Visual Studio 2017 Enterprise 15.5 或更高版本。 
+此外，快照调试器仅可用于 Visual Studio 2017 Enterprise 15.5 或更高版本和基本或更高版本的 App Service 计划。 
 
 ## <a name="start-the-snapshot-debugger"></a>启动快照调试器
 
