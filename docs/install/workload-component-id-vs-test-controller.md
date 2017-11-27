@@ -5,39 +5,21 @@ keywords:
 author: TerryGLee
 ms.author: tglee
 manager: ghogen
-ms.date: 08/30/2017
+ms.date: 10/09/2017
 ms.topic: article
 helpviewer_keywords:
 - workload ID, Visual Studio
 - component ID, Visual Studio
 - install Visual Studio, administrator guide
 ms.service: 
-ms.technology:
-- vs-ide-install
+ms.technology: vs-ide-install
 ms.assetid: fbbda9c8-d2c6-474d-b52d-a95227d52fe7
-translation.priority.ht:
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- ru-ru
-- zh-cn
-- zh-tw
-translation.priority.mt:
-- cs-cz
-- pl-pl
-- pt-br
-- tr-tr
+ms.openlocfilehash: 8dd3aa464eacbd4240795a5bb0fc03094db599e5
+ms.sourcegitcommit: 2c7f48ad6073a81fa927568793633f26cc1f0b15
 ms.translationtype: HT
-ms.sourcegitcommit: 96018963278cd1d53b226473baade41da1e98111
-ms.openlocfilehash: 4af6768bbb9f3e4e494ea85596a9706103537824
-ms.contentlocale: zh-cn
-ms.lasthandoff: 09/06/2017
-
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/17/2017
 ---
-
 # <a name="visual-studio-test-controller-2017-component-directory"></a>Visual Studio Test Controller 2017 组件目录
 
 本页中的表中列出了可用于通过命令行安装 Visual Studio 的 ID。 请注意，我们将在发布 Visual Studio 更新时添加其他组件。
@@ -70,11 +52,13 @@ Microsoft.VisualStudio.ComponentGroup.TestTools.TestController | 测试控制器
 --- | --- | ---
 无 | 不可用 | 无
 
-## <a name="see-also"></a>另请参阅
+## <a name="get-support"></a>获取支持
+有时也会遇到问题。 如果 Visual Studio 安装失败，请参阅 [Visual Studio 2017 安装和升级失败疑难解答](troubleshooting-installation-issues.md)页面，查看疑难解答提示。 也可以通过 Visual Studio IDE 中的[报告问题](../ide/how-to-report-a-problem-with-visual-studio-2017.md)工具向我们报告产品问题，或在 [UserVoice](https://visualstudio.uservoice.com/forums/121579) 上与我们分享建议。 可以在 [Visual Studio 开发者社区](https://developercommunity.visualstudio.com/)中跟踪产品问题，并在其中提问和找到答案。 此外，还可以通过 [Gitter 社区的 Visual Studio 对话](https://gitter.im/Microsoft/VisualStudio)（需要 [GitHub](https://github.com/) 帐户）与我们和其他 Visual Studio 开发者进行交流。
+
+## <a name="see-also"></a>请参阅
 
 * [Visual Studio 工作负荷和组件 ID](workload-and-component-ids.md)
 * [Visual Studio 管理员指南](visual-studio-administrator-guide.md)
 * [使用命令行参数安装 Visual Studio](use-command-line-parameters-to-install-visual-studio.md)
   * [命令行参数示例](command-line-parameter-examples.md)
 * [创建 Visual Studio 的脱机安装](create-an-offline-installation-of-visual-studio.md)
-
