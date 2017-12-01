@@ -12,11 +12,11 @@ caps.latest.revision: "1"
 author: gregvanl
 ms.author: gregvanl
 manager: ghogen
-ms.openlocfilehash: 89591535b232317abf395c237fdc267c847ca699
-ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.openlocfilehash: bb00d2c338ac1ef9e2be6d77d68ebfe2a246d807
+ms.sourcegitcommit: 5f5587a1bcf4aae995c80d54a67b4b461f8695f3
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="how-to-migrate-extensibility-projects-to-visual-studio-2017"></a>如何： 将扩展性项目迁移到 Visual Studio 2017
 
@@ -102,11 +102,6 @@ ms.lasthandoff: 10/31/2017
   ![添加 roslyn 必备组件](media/add-roslyn-prerequisite.png)
 
 * Press **OK**.
-
-## <a name="if-migrating-from-preview-4-or-preview-5"></a>如果从 Preview 4 或 Preview 5 中迁移
-
-* 替换`SetupDependencies`与`Prerequisites`和移动外的元素`Installer`元素。 `Prerequisites`现在直接在位于`PackageManifest`元素。
-* [可选]删除`GenerateVsixV3`元素。 （需要此项 Preview 5 中仅。）`GenerateVsixV3`元素将在 Preview 5 之外的版本中被忽略。
 
 ## <a name="update-debug-settings-for-project"></a>更新项目的调试的设置
 
@@ -197,3 +192,15 @@ Excel 工作表中有四列：**组件名称**， **ComponentId**，**版本**�
 
 * 如果你具有调试器扩展名，并且知道你的项目具有对 VSDebugEng.dll 和 VSDebug.dll 的引用，请单击中的筛选器按钮上**二进制文件 / 文件名称**标头。  搜索"VSDebugEng.dll"，然后选择确定。  下一步中的筛选器按钮单击**二进制文件 / 文件名称**标头再次然后搜索"VSDebug.dll"。  选择"添加当前所选内容来筛选"的复选框，然后选择确定。  现在浏览**组件名称**查找是大多数组件与您的扩展类型相关。 在此示例中，你将选择实时调试器并将其添加到你 vsixmanifest。
 * 如果你知道你的项目处理调试器元素，你可以搜索"调试器"筛选器搜索框中以查看哪些组件包含在其名称中的调试器。
+
+## <a name="specifying-a-visual-studio-2017-release"></a>指定 Visual Studio 2017 版本
+
+如果你的扩展需要特定版本的 Visual Studio 2017，例如，它依赖于在 15.3 中发布的功能，必须在你的 VSIX 中指定的生成号**InstallationTarget**。 例如，版本 15.3 有"15.0.26730.3"内部版本号。 你可以看到的版本生成数字映射[此处](../install/visual-studio-build-numbers-and-release-dates.md)。 使用发行版号"15.3"将无法正常工作。
+
+如果你的扩展需要 15.3 或更高版本，你将声明**InstallationTarget 版本**作为 [15.0.26730.3, 16.0):
+
+```xml
+<Installation>
+  <InstallationTarget Id="Microsoft.VisualStudio.Community" Version="[15.0.26730.3, 16.0)" />
+</Installation>
+```

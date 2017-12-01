@@ -13,11 +13,11 @@ caps.latest.revision: "23"
 author: gewarren
 ms.author: gewarren
 manager: ghogen
-ms.openlocfilehash: 98202db8e59957bfafe81b4a7d611b79c642daf4
-ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.openlocfilehash: 773fecba4b3a635d86d6b06937151e38ad94912e
+ms.sourcegitcommit: 5f5587a1bcf4aae995c80d54a67b4b461f8695f3
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="code-generation-features-for-c"></a>对于 C# 的代码生成功能 #
 Visual Studio 可以帮助生成部分源代码，让你专注于实际工作。  下面的代码生成功能均可用 Visual Studio 中用于 C#:
@@ -27,6 +27,7 @@ Visual Studio 可以帮助生成部分源代码，让你专注于实际工作。
 * [生成字段/属性/本地](code-generation/generate-field-property-local.md)
 * [生成构造函数](code-generation/generate-constructor.md)
 * [生成替代](code-generation/generate-override.md)
+* [生成 Equals 和 GetHashCode 方法替代](code-generation/generate-overrides.md)
 * [生成 XML 文档注释](code-generation/generate-xml-documentation-comments.md)
 * [实现抽象类](code-generation/implement-abstract-class.md)
 * [实现接口](code-generation/implement-interface.md)
@@ -34,4 +35,3 @@ Visual Studio 可以帮助生成部分源代码，让你专注于实际工作。
  
 ## <a name="see-also"></a>另请参阅  
  [使用 Visual Studio C# 开发环境](using-the-visual-studio-development-environment-for-csharp.md)   
- 

@@ -12,11 +12,11 @@ caps.latest.revision: "5"
 author: mikejo5000
 ms.author: mikejo
 manager: ghogen
-ms.openlocfilehash: fc7ad92e708666baf1ab0429c041ca9b7d2e0f95
-ms.sourcegitcommit: fb751e41929f031d1a9247bc7c8727312539ad35
+ms.openlocfilehash: 2e8da202cf8ae5680bede1ec4b2f2c8984624e4e
+ms.sourcegitcommit: 5f5587a1bcf4aae995c80d54a67b4b461f8695f3
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="view-snapshots-using-intellitrace-step-back"></a>使用 IntelliTrace 步骤后的视图快照
 IntelliTrace 步骤后会自动编制的应用程序的每个断点和调试器快照步骤事件。 记录的快照，可以返回到上一个断点或步骤，并查看应用程序的状态，因为它在过去。 IntelliTrace 步骤后可以节省你时间： 如果您想要查看以前的应用程序状态，但不想重新启动调试或重新创建所需的应用程序的状态。
@@ -38,7 +38,7 @@ IntelliTrace 拍摄的快照应用程序的进程上每个调试器步骤和断�
 
 ## <a name="navigate-and-view-snapshots"></a>导航并查看快照
 
-你可以使用事件之间导航**步骤向后**和**单步前进**中调试工具栏按钮。 这些按钮导航中显示的事件**事件**选项卡中**诊断工具窗口**。 单步执行向后翻或转发到的事件自动激活历史调试所选事件。
+你可以使用事件之间导航**步骤向后 （Alt + [）**和**单步前进 (Alt +])**中调试工具栏按钮。 这些按钮导航中显示的事件**事件**选项卡中**诊断工具窗口**。 单步执行向后翻或转发到的事件自动激活历史调试所选事件。
 
 ![向后移动和转发按钮](../debugger/media/intellitrace-step-back-icons-description.png "后退一步和单步前进按钮")
 

@@ -12,11 +12,11 @@ caps.latest.revision: "6"
 author: mikejo5000
 ms.author: mikejo
 manager: ghogen
-ms.openlocfilehash: abbbb1adf829361c5916f91ade5cb1a549444b72
-ms.sourcegitcommit: eb954434c34b4df6fd2264266381b23ce9e6204a
+ms.openlocfilehash: b73dc5b153813811a0d2b839e69200a7e5f5a1e9
+ms.sourcegitcommit: 5f5587a1bcf4aae995c80d54a67b4b461f8695f3
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="remote-debug-aspnet-core-on-a-remote-iis-computer-in-visual-studio-2017"></a>在 Visual Studio 2017 远程 IIS 计算机上的远程调试 ASP.NET 核心
 若要调试的 ASP.NET 应用程序部署到 IIS，安装和在计算机上运行远程工具其中部署您的应用程序，然后从 Visual Studio 附加到正在运行的应用。
@@ -26,7 +26,7 @@ ms.lasthandoff: 11/22/2017
 本指南说明如何设置和配置 Visual Studio 2017 ASP.NET Core、 将其部署到 IIS 中，并从 Visual Studio 中附加远程调试器。 远程调试 ASP.NET 4.5.2，请参阅[在 IIS 的计算机上的远程调试 ASP.NET](../debugger/remote-debugging-aspnet-on-a-remote-iis-7-5-computer.md)。 你还可以部署和调试在 IIS 使用 Azure 上。 有关详细信息，请参阅[在 Azure 上进行远程调试](../debugger/remote-debugging-azure.md)。
 
 这些过程已经过测试在这些服务器配置：
-* Windows Server 2012 R2 和 IIS 8.5
+* Windows Server 2012 R2 和 IIS 8
 * Windows Server 2016 和 IIS 10
 
 ## <a name="requirements"></a>要求
@@ -35,7 +35,7 @@ ms.lasthandoff: 11/22/2017
 
 ## <a name="create-the-aspnet-core-application-on-the-visual-studio-2017-computer"></a>在 Visual Studio 2017 计算机上创建 ASP.NET Core 应用程序 
 
-1. 创建新的 ASP.NET Core 应用程序。 (**文件 > 新建 > 项目**，然后选择**Visual C# > Web > ASP.NET 核心 Web 应用程序 (.NET Core)** 。
+1. 创建新的 ASP.NET Core 应用程序。 (**文件 > 新建 > 项目**，然后选择**Visual C# > Web > ASP.NET 核心 Web 应用程序 (.NET Core)**)。
 
     在**ASP.NET Core**模板部分中，选择**Web 应用程序**。
 
@@ -58,13 +58,13 @@ ms.lasthandoff: 11/22/2017
 - download.microsoft.com
 - visualstudio.com
 
-如果你使用的 Internet Explorer，则可以通过转到添加受信任的站点**Internet 选项 > 安全 > 受信任的站点 > 站点**。 这些步骤是不同的其他浏览器。
+如果你使用的 Internet Explorer，则可以通过转到添加受信任的站点**Internet 选项 > 安全 > 受信任的站点 > 站点**。 这些步骤是不同的其他浏览器。 （如果需要从 my.visualstudio.com 下载较旧版本的远程调试器，某些其他受信任的站点所需登录。）
 
 当你下载的软件时，可能会收到请求授予加载各种 web 站点脚本和资源的权限。 在大多数情况下，这些其他资源不需要安装软件。
 
 ## <a name="install-aspnet-core-on-windows-server"></a>在 Windows Server 上安装 ASP.NET 核心
 
-1. 安装[.NET 核心 Windows 服务器承载](https://go.microsoft.com/fwlink/?linkid=844461)主机系统上的软件包。 .NET Core 运行时，.NET 核心库和 ASP.NET 核心模块安装捆绑。
+1. 安装[.NET 核心 Windows 服务器承载](https://aka.ms/dotnetcore-2-windowshosting)主机系统上的软件包。 .NET Core 运行时，.NET 核心库和 ASP.NET 核心模块安装捆绑。 有关更多深入说明，请参阅[发布到 IIS](/aspnet/core/publishing/iis?tabs=aspnetcore2x#iis-configuration)。
 
     > [!NOTE]
     > 如果系统没有连接到 Internet，获取并安装 *[Microsoft Visual c + + 2015年可再发行组件](https://www.microsoft.com/download/details.aspx?id=53840)*之前安装.NET 核心 Windows 服务器承载捆绑。
@@ -139,7 +139,6 @@ ms.lasthandoff: 11/22/2017
 
 5. 勾选“显示所有用户的进程”  。
 6. 键入要快速查找的进程名称的首字母**dotnet.exe** （适用于 ASP.NET Core)。
-    >注意： 对于 ASP.NET Core 应用程序，以前的进程名称是 dnx.exe。
 
     ![RemoteDBG_AttachToProcess](../debugger/media/remotedbg_attachtoprocess_aspnetcore.png "RemoteDBG_AttachToProcess")
 
@@ -148,6 +147,7 @@ ms.lasthandoff: 11/22/2017
 8. 打开远程计算机的网站。 在浏览器中，转到**http://\<远程计算机名称 >**。
     
     将显示 ASP.NET 网页。
+
 9. 在运行的 ASP.NET 应用程序，单击链接到**有关**页。
 
     应在 Visual Studio 中命中断点。
@@ -157,7 +157,7 @@ ms.lasthandoff: 11/22/2017
 在大多数系统中，打开 ASP.NET 和远程调试器的安装所需的端口。 但是，你可能需要验证的端口打开。
 
 > [!NOTE]
-> 在 Azure VM，则必须打开端口通过[网络安全组](https://docs.microsoft.com/en-us/azure/virtual-machines/virtual-machines-windows-hero-role#open-port-80)。 
+> 在 Azure VM，则必须打开端口通过[网络安全组](/azure/virtual-machines/virtual-machines-windows-hero-role#open-port-80)。 
 
 所需的端口：
 

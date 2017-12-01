@@ -12,11 +12,11 @@ caps.latest.revision: "6"
 author: mikejo5000
 ms.author: mikejo
 manager: ghogen
-ms.openlocfilehash: 7b4ad0cdadcb3d56af55af629b853e660dc9d86f
-ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.openlocfilehash: c0527d33e47ce42449f2ae2bb75ee3e342b04c2b
+ms.sourcegitcommit: 5f5587a1bcf4aae995c80d54a67b4b461f8695f3
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="remote-debug-aspnet-core-on-iis-and-azure-in-visual-studio-2017"></a>在 IIS 和 Visual Studio 2017 在 Azure 上的远程调试 ASP.NET 核心
 你可以部署到 Windows Server 计算机使用 IIS，ASP.NET Web 应用程序，并将其设置为远程调试。 本指南说明如何设置和配置 Visual Studio 2017 ASP.NET Core 应用，将其部署到 IIS 使用 Azure，并从 Visual Studio 中附加远程调试器。
@@ -47,7 +47,7 @@ ms.lasthandoff: 10/31/2017
 
 ## <a name="create-the-aspnet-core-application-on-the-visual-studio-2017-computer"></a>在 Visual Studio 2017 计算机上创建 ASP.NET Core 应用程序 
 
-1. 创建新的 ASP.NET Core 应用程序。 (选择**文件 > 新建 > 项目**，然后选择**Visual C# > Web > ASP.NET 核心 Web 应用程序 (.NET Core)**)
+1. 创建新的 ASP.NET Core 应用程序。 (选择**文件 > 新建 > 项目**，然后选择**Visual C# > Web > ASP.NET 核心 Web 应用程序 (.NET Core)**)。
 
     在**ASP.NET Core**模板部分中，选择**Web 应用程序**。
 
@@ -59,7 +59,7 @@ ms.lasthandoff: 10/31/2017
 
 ## <a name="remote-debug-aspnet-core-on-an-azure-app-service"></a>在 Azure App Service 上的远程调试 ASP.NET 核心
 
-从 Visual Studio 中，可以快速发布和调试你的应用的完全设置的 IIS 实例。 但是，预设的 IIS 配置，并且你无法自定义它。 有关详细说明，请参阅[ASP.NET 核心 web 应用部署到 Azure 中使用 Visual Studio](https://docs.microsoft.com/en-us/aspnet/core/tutorials/publish-to-azure-webapp-using-vs)。 (如果需要自定义 IIS 的功能，请尝试调试[Azure VM](#BKMK_azure_vm)。) 
+从 Visual Studio 中，可以快速发布和调试你的应用的完全设置的 IIS 实例。 但是，预设的 IIS 配置，并且你无法自定义它。 有关详细说明，请参阅[ASP.NET 核心 web 应用部署到 Azure 中使用 Visual Studio](/aspnet/core/tutorials/publish-to-azure-webapp-using-vs)。 (如果需要自定义 IIS 的功能，请尝试调试[Azure VM](#BKMK_azure_vm)。) 
 
 #### <a name="to-deploy-the-app-and-remote-debug"></a>若要部署的应用程序和远程调试
 
@@ -67,7 +67,7 @@ ms.lasthandoff: 10/31/2017
 
 2. 选择**Microsoft Azure App Service**从**发布**对话框中，选择**新建**，并按照提示来发布。
 
-    有关详细说明，请参阅[ASP.NET 核心 web 应用部署到 Azure 中使用 Visual Studio](https://docs.microsoft.com/en-us/aspnet/core/tutorials/publish-to-azure-webapp-using-vs)。
+    有关详细说明，请参阅[ASP.NET 核心 web 应用部署到 Azure 中使用 Visual Studio](/aspnet/core/tutorials/publish-to-azure-webapp-using-vs)。
 
 3. 在**服务器资源管理器**、 App Service 实例上右键单击并选择**附加调试器**。
 
@@ -81,7 +81,7 @@ ms.lasthandoff: 10/31/2017
 
 你可以创建一个 Azure VM 的 Windows 服务器，然后安装和配置 IIS 和其他所需的软件组件。 这比将部署到 Azure App Service 的更多时间，并要求你按照本教程中的剩余步骤。
 
-首先，按照中所述的所有步骤[安装和运行的 IIS](https://docs.microsoft.com/en-us/azure/virtual-machines/virtual-machines-windows-hero-role)。
+首先，按照中所述的所有步骤[安装和运行的 IIS](/azure/virtual-machines/virtual-machines-windows-hero-role)。
 
 网络安全组中打开端口 80 时，还为远程调试器打开端口 4022。 这样一来，无需以后将其打开。
 
@@ -94,13 +94,13 @@ ms.lasthandoff: 10/31/2017
 - download.microsoft.com
 - visualstudio.com
 
-如果你使用的 Internet Explorer，则可以通过转到添加受信任的站点**Internet 选项 > 安全 > 受信任的站点 > 站点**。 这些步骤是不同的其他浏览器。
+如果你使用的 Internet Explorer，则可以通过转到添加受信任的站点**Internet 选项 > 安全 > 受信任的站点 > 站点**。 这些步骤是不同的其他浏览器。 （如果需要从 my.visualstudio.com 下载较旧版本的远程调试器，某些其他受信任的站点所需登录。）
 
 当你下载的软件时，可能会收到请求授予加载各种 web 站点脚本和资源的权限。 在大多数情况下，这些其他资源不需要安装软件。
 
 ### <a name="install-aspnet-core-on-windows-server"></a>在 Windows Server 上安装 ASP.NET 核心
 
-1. 安装[.NET 核心 Windows 服务器承载](https://go.microsoft.com/fwlink/?linkid=844461)主机系统上的软件包。 捆绑包将安装.NET Core 运行时，.NET 核心库和 ASP.NET 核心模块。
+1. 安装[.NET 核心 Windows 服务器承载](https://aka.ms/dotnetcore-2-windowshosting)主机系统上的软件包。 捆绑包将安装.NET Core 运行时，.NET 核心库和 ASP.NET 核心模块。 有关更多深入说明，请参阅[发布到 IIS](/aspnet/core/publishing/iis?tabs=aspnetcore2x#iis-configuration)。
 
     > [!NOTE]
     > 如果系统没有连接到 Internet，获取并安装 *[Microsoft Visual c + + 2015年可再发行组件](https://www.microsoft.com/download/details.aspx?id=53840)*之前安装.NET 核心 Windows 服务器承载捆绑。
@@ -209,7 +209,7 @@ ms.lasthandoff: 10/31/2017
 
 在大多数系统中，打开 ASP.NET 和远程调试器的安装所需的端口。 但是，如果你正在排查部署问题，并且该应用程序承载在防火墙后面，你可能需要验证打开了正确的端口。
 
-在 Azure VM，则必须打开端口通过[网络安全组](https://docs.microsoft.com/en-us/azure/virtual-machines/virtual-machines-windows-hero-role#open-port-80)。 
+在 Azure VM，则必须打开端口通过[网络安全组](/azure/virtual-machines/virtual-machines-windows-hero-role#open-port-80)。 
 
 所需的端口：
 
