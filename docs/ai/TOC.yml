@@ -17,10 +17,26 @@
           href: tensorflow-vm.md
     - name: 操作指南
       items:
-        - name: 创建新项目
-          href: create-project.md
+        - name: 创建项目
+          items:
+            - name: 通过示例库创建项目
+              href: create-project-gallery.md
+            - name: 通过现有代码创建项目
+              href: create-project-existing.md
+            - name: 通过模板创建项目
+              href: create-project.md
+            - name: 通过 GitHub 存储库创建项目
+              href: create-project-repo.md
         - name: 为模型定型
           href: train-model.md
+        - name: 查看作业详细信息
+          href: job-details.md
+        - name: 监视 GPU 使用率
+          href: monitor-gpu.md
+        - name: 监视 TensorBoard
+          href: monitor-tensorboard.md
+        - name: 管理存储
+          href: manage-storage.md
     - name: 示例
       items:
         - name: GitHub

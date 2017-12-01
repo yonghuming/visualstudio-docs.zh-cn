@@ -50,6 +50,7 @@
 ### [编辑器中的 Managed Extensibility Framework](managed-extensibility-framework-in-the-editor.md)
 ### [语言服务和编辑器扩展点](language-service-and-editor-extension-points.md)
 ### [编辑器导入](editor-imports.md)
+### [支持 EditorConfig](supporting-editorconfig.md)
 ### [演练：将内容类型链接到文件扩展名](walkthrough-linking-a-content-type-to-a-file-name-extension.md)
 ### [演练：创建边距字形](walkthrough-creating-a-margin-glyph.md)
 ### [演练：自定义文本视图](walkthrough-customizing-the-text-view.md)
