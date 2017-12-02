@@ -15,11 +15,11 @@ caps.latest.revision: "17"
 author: gregvanl
 ms.author: gregvanl
 manager: ghogen
-ms.openlocfilehash: 94db8d3bb95e254a3fa528a424048162916fce99
-ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.openlocfilehash: 29022d14311e71b7ee33f5339f8e450c47d1ce5c
+ms.sourcegitcommit: b7d3b90d0be597c9d01879338dd2678c881087ce
 ms.translationtype: MT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="loading-vspackages"></a>加载 Vspackage
 仅当需要其功能时，Vspackage 都会加载到 Visual Studio。 例如，当 Visual Studio 使用项目工厂或 VSPackage 实现的服务时，将加载 VSPackage。 此功能称为延迟的加载，这可以提高性能时，需要使用。  
@@ -72,61 +72,7 @@ ms.lasthandoff: 10/31/2017
   
      初始化 VSPackage 时，它会强制`PackageToBeLoaded`加载。  
   
-     强制加载不应该用于 VSPackage 通信。 使用[使用和提供服务](../extensibility/using-and-providing-services.md)相反。  
+     强制加载不应该用于 VSPackage 通信。 使用[使用和提供服务](../extensibility/using-and-providing-services.md)相反。
   
-## <a name="using-a-custom-attribute-to-register-a-vspackage"></a>使用自定义特性注册 VSPackage  
- 在某些情况下可能需要创建你的扩展的新注册属性。 若要添加新的注册表项，或将新值添加到现有的密钥，你可以使用注册特性。 新的属性必须派生自<xref:Microsoft.VisualStudio.Shell.RegistrationAttribute>，且必须重写<xref:Microsoft.VisualStudio.Shell.RegistrationAttribute.Register%2A>和<xref:Microsoft.VisualStudio.Shell.RegistrationAttribute.Unregister%2A>方法。  
-  
-## <a name="creating-a-registry-key"></a>创建注册表项  
- 在下面的代码中，创建自定义特性**自定义**子项下要注册的 VSPackage 的密钥。  
-  
-```csharp  
-public override void Register(RegistrationAttribute.RegistrationContext context)  
-{  
-    Key packageKey = null;  
-    try  
-    {   
-        packageKey = context.CreateKey(@"Packages\{" + context.ComponentType.GUID + @"}\Custom");  
-        packageKey.SetValue("NewCustom", 1);  
-    }  
-    finally  
-    {  
-        if (packageKey != null)  
-            packageKey.Close();  
-    }  
-}  
-  
-public override void Unregister(RegistrationContext context)  
-{  
-    context.RemoveKey(@"Packages\" + context.ComponentType.GUID + @"}\Custom");  
-}  
-  
-```  
-  
-## <a name="creating-a-new-value-under-an-existing-registry-key"></a>创建现有的注册表项下的新值  
- 可以将自定义值添加到现有密钥。 下面的代码演示如何将新值添加到 VSPackage 注册密钥。  
-  
-```csharp  
-public override void Register(RegistrationAttribute.RegistrationContext context)  
-{  
-    Key packageKey = null;  
-    try  
-    {   
-        packageKey = context.CreateKey(@"Packages\{" + context.ComponentType.GUID + "}");  
-        packageKey.SetValue("NewCustom", 1);  
-    }  
-    finally  
-    {  
-        if (packageKey != null)  
-            packageKey.Close();  
-                }  
-}  
-  
-public override void Unregister(RegistrationContext context)  
-{  
-    context.RemoveValue(@"Packages\" + context.ComponentType.GUID, "NewCustom");  
-}  
-```  
-  
-## <a name="see-also"></a>另请参阅  
+## <a name="see-also"></a>请参阅  
  [VSPackage](../extensibility/internals/vspackages.md)
