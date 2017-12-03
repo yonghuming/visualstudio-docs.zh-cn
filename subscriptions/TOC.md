@@ -10,7 +10,7 @@
 ### [使用产品密钥](product-keys.md)
 ### 如何激活权益
 #### 工具
-##### [Visual Studio Enterprise](vs-ide-benefit.md) 
+##### [Visual Studio IDE](vs-ide-benefit.md) 
 ##### [Visual Studio Team Services](vs-vsts.md)
 ##### [Microsoft Azure](vs-azure.md) 
 ##### [Parasoft](vs-parasoft.md)
@@ -33,7 +33,7 @@
 ##### [技术支持](vs-tech-support.md)
 
 ## 管理员
-### [管理员角色和职责](admin-responsibilities.md)
+### [管理员概述](admin-responsibilities.md)
 ### [访问管理员门户](access-admin-portal.md)
 ### [使用管理员门户](using-admin-portal.md)
 ### [分配订阅](assign-license.md)
