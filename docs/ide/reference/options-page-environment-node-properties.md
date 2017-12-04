@@ -15,11 +15,11 @@ caps.latest.revision: "18"
 author: gewarren
 ms.author: gewarren
 manager: ghogen
-ms.openlocfilehash: ae50f2d537836501ec4c9c29e50d86aa3e325661
-ms.sourcegitcommit: f40311056ea0b4677efcca74a285dbb0ce0e7974
+ms.openlocfilehash: 076b48d5526c0cefffb5f18daed9aaaebb031aad
+ms.sourcegitcommit: eb954434c34b4df6fd2264266381b23ce9e6204a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="options-page-environment-node-properties"></a>“选项”页 ->“环境”节点属性
 本文档描述了与“选项”对话框的“环境”类别 `DTE.Properties("Environment", <Property Page>)` 关联的页面（或属性集合）。 每个小节的标题都是用于访问属性集合的调用，而每个小节中的表列出了集合中的属性。  
@@ -71,7 +71,7 @@ ms.lasthandoff: 10/31/2017
 |属性项名称|值|描述|  
 |------------------------|-----------|-----------------|  
 |EnableAdminExtensions|Get/Set (Boolean)|在管理员凭据下运行 Visual Studio 时加载每用户扩展。 更改此值后必须重新启动 visual Studio。|  
-|EnableOnline|Get/Set (Boolean)|允许访问 Visual Studio 库上的扩展。|  
+|EnableOnline|Get/Set (Boolean)|允许访问 Visual Studio Marketplace 上的扩展。|  
 |AutomaticallyCheckForUpdates|Get/Set (Boolean)|自动检查已安装扩展的更新。|  
   
 ## <a name="find-and-replace"></a>查找和替换  

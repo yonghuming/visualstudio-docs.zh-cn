@@ -7,16 +7,15 @@ ms.suite:
 ms.technology: vs-ide-general
 ms.tgt_pltfrm: 
 ms.topic: article
-ms.assetid: 2175581e-83cb-444c-bb52-cc1fca8ea196
 caps.latest.revision: "21"
 author: gewarren
 ms.author: gewarren
 manager: ghogen
-ms.openlocfilehash: 40f554f21cc2cee9fb6d457ef9f4a560740cebc6
-ms.sourcegitcommit: cc288456329aefca1fdaa7ce74751ce195985c14
+ms.openlocfilehash: 14e3d3432a62d54564c92a12a02204ffb5e05889
+ms.sourcegitcommit: eb954434c34b4df6fd2264266381b23ce9e6204a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="adding-references-using-nuget-versus-an-extension-sdk"></a>使用 NuGet 与扩展 SDK 添加引用
 
@@ -56,7 +55,7 @@ ms.lasthandoff: 11/17/2017
 |该机制支持干净的开发者计算机。 （即，无需安装，只需来自源代码管理的简单检索即可工作。）|N|由于引用 SDK，因此必须单独签入解决方案和 SDK。 可从两个非注册表默认位置（MSBuild 从该位置循环访问 SDK）签入 SDK（有关详细信息，请参阅[创建软件开发工具包](../extensibility/creating-a-software-development-kit.md)）。 作为替代方法，如果自定义位置包含 SDK，可以在项目文件中指定以下代码：<br /><br /> `<PropertyGroup>    <SDKReferenceDirectoryRoot>C:\MySDKs</SDKReferenceDirectoryRoot>   </PropertyGroup>`<br /><br /> 然后将 SDK 签入该位置。|Y|可以签出解决方案，Visual Studio 会立即识别并作用于文件。|
 |可以加入大型现有包作者社区。|不可用|社区是新增功能。|Y||
 |可以加入大型现有包使用者社区。|不可用|社区是新增功能。|Y||
-|可以加入合作伙伴生态系统（自定义库和存储库等）。|不可用|可用的存储库包括 Visual Studio 库、Microsoft 下载中心和 [!INCLUDE[win8_appstore_long](../debugger/includes/win8_appstore_long_md.md)]。|Y||
+|可以加入合作伙伴生态系统（自定义库和存储库等）。|不可用|可用的存储库包括 Visual Studio Marketplace、Microsoft 下载中心和 [!INCLUDE[win8_appstore_long](../debugger/includes/win8_appstore_long_md.md)]。|Y||
 |该机制与持续集成生成服务器集成，用于包创建和包使用。|Y|SDK 必须将命令行上的签入位置（SDKReferenceDirectoryRoot 属性）传递到 MSBuild。|Y||
 |该机制同时支持稳定和预发布包版本。|Y|SDK 支持向多个版本添加引用。|Y||
 |对于已安装的包，该机制支持自动更新。|Y|如果随附在 VSIX 或 Visual Studio 自动更新中，SDK 会自动发送通知。|Y||
