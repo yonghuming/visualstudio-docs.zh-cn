@@ -27,7 +27,7 @@ ms.lasthandoff: 07/18/2017
 
 Visual Studio 中的 Python 支持在 Bottle、Django 和 Flask 等框架中通过项目模板和可配置为处理不同框架的调试启动程序开发 Web 项目。 但是，Visual Studio 不包括框架本身，而必须通过右键单击该项目并选择“Python”>“安装/升级框架...”来单独安装。
 
-每个模板（通过“文件”>“新建”>“项目...”访问）在随机选择的本地端口中启动 Web 服务器、调试时打开默认浏览器，并允许直接发布到 [Microsoft Azure](http://www.azure.com)。 提供用于 Bottle、Flask 和 Django 的模板，且你可以对 Pyramid 等其他框架使用常规“Web 项目”模板。
+每个模板（通过“文件”>“新建”>“项目...”访问）在随机选择的本地端口中启动 Web 服务器、调试时打开默认浏览器，并允许直接发布到 [Microsoft Azure](http://www.azure.com)。 提供用于 Bottle、Flask 和 Django 的模板，且你可以对 Pyramid 等其他框架使用常规“Web 项目”模板。需要注意到的是在Flask和Django等项目中，模板HTML页面的编码是ANSI，运行后不支持中文，需要转码为UTF-8编码才能够正常支持中文。
 
 ![新建 Web 项目模板](media/template-web-new-project.png)
 
